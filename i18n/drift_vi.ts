@@ -33,15 +33,15 @@
     </message>
     <message>
         <source>Another addon is still installing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Một addon khác vẫn đang được cài đặt.</translation>
     </message>
     <message>
         <source>This is not a Drift addon file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Đây không phải là tệp addon Drift.</translation>
     </message>
     <message>
         <source>Could not use this addon (%1).</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể sử dụng addon (%1) này.</translation>
     </message>
 </context>
 <context>
@@ -84,19 +84,19 @@
     </message>
     <message>
         <source>Install Addon</source>
-        <translation type="unfinished"></translation>
+        <translation>Cài đặt Addon</translation>
     </message>
     <message>
         <source>Drift addons (*.driftpkg *.driftfx *.zip)</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift addons (*.driftpkg *.driftfx *.zip)</translation>
     </message>
     <message>
         <source>Install an unofficial addon?</source>
-        <translation type="unfinished"></translation>
+        <translation>Cài đặt một addon không chính thức?</translation>
     </message>
     <message>
         <source>Install anyway</source>
-        <translation type="unfinished"></translation>
+        <translation>Vẫn cài đặt</translation>
     </message>
     <message>
         <source>“%1”</source>
@@ -104,15 +104,15 @@
     </message>
     <message>
         <source>%1 is not signed by the Drift team. Only install files you trust.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 không được nhóm Drift ký duyệt. Chỉ cài đặt các tệp mà bạn tin tưởng.</translation>
     </message>
     <message>
         <source>It contains code that runs on your computer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nó chứa mã chạy trên máy tính của bạn.</translation>
     </message>
     <message>
         <source>It will replace “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nó sẽ thay thế “%1”.</translation>
     </message>
     <message>
         <source>%1 was made by a user, not the Drift team, and nothing has checked it. Only install files you trust.</source>
@@ -216,11 +216,11 @@
     </message>
     <message>
         <source>Unofficial</source>
-        <translation type="unfinished"></translation>
+        <translation>Không chính thức</translation>
     </message>
     <message>
         <source>Installed from file</source>
-        <translation type="unfinished"></translation>
+        <translation>Đã cài đặt từ tệp</translation>
     </message>
     <message>
         <source>%1 download</source>
@@ -244,19 +244,19 @@
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished">Tùy chỉnh</translation>
+        <translation>Tùy chỉnh</translation>
     </message>
     <message>
         <source>Install from file…</source>
-        <translation type="unfinished"></translation>
+        <translation>Cài đặt từ tệp…</translation>
     </message>
     <message>
         <source>Open addons folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Mở thư mục addon</translation>
     </message>
     <message>
         <source>Put addon folders here, then reopen Extras</source>
-        <translation type="unfinished"></translation>
+        <translation>Đặt các thư mục addon vào đây, sau đó mở lại Bổ trợ</translation>
     </message>
     <message>
         <source>Delete this pack&apos;s downloaded data</source>
@@ -601,7 +601,7 @@
     </message>
     <message>
         <source>Split</source>
-        <translation>Tách</translation>
+        <translation>Cắt</translation>
     </message>
     <message>
         <source>Transform</source>
@@ -633,7 +633,7 @@
     </message>
     <message>
         <source>Move the playhead over the clip to split it</source>
-        <translation>Di chuyển đầu phát qua clip để tách nó</translation>
+        <translation>Di chuyển đầu phát qua clip để cắt nó</translation>
     </message>
     <message>
         <source>Tap a clip to edit</source>
@@ -1303,7 +1303,7 @@
     </message>
     <message>
         <source>Split all tracks</source>
-        <translation>Tách tất cả các track</translation>
+        <translation>Cắt tất cả các track</translation>
     </message>
     <message>
         <source>Cut every clip under the playhead</source>
@@ -2082,7 +2082,7 @@
     </message>
     <message>
         <source>Split at current time</source>
-        <translation>Tách ở điểm hiện tại</translation>
+        <translation>Cắt ở điểm hiện tại</translation>
     </message>
     <message>
         <source>Merge adjacent clips</source>
@@ -2186,19 +2186,19 @@
     </message>
     <message>
         <source>Nothing to split here — move to a clip first</source>
-        <translation>Không có gì để tách ở đây — trước tiên hãy chuyển đến một clip</translation>
+        <translation>Không có gì để cắt ở đây — trước tiên hãy chuyển đến một clip</translation>
     </message>
     <message>
         <source>Split clip</source>
-        <translation>Tách clip</translation>
+        <translation>Cắt clip</translation>
     </message>
     <message>
         <source>Split left</source>
-        <translation>Tách bên trái</translation>
+        <translation>Cắt bên trái</translation>
     </message>
     <message>
         <source>Split right</source>
-        <translation>Tách bên phải</translation>
+        <translation>Cắt bên phải</translation>
     </message>
     <message>
         <source>Trim updated</source>
@@ -3022,7 +3022,7 @@
     </message>
     <message>
         <source>Detach adjustment to its own track</source>
-        <translation>Tách track điều chỉnh thành dải riêng</translation>
+        <translation>Tách phần điều chỉnh ra track riêng</translation>
     </message>
     <message>
         <source>Adjustment detached</source>
@@ -8262,7 +8262,7 @@
     </message>
     <message>
         <source>Split Clip</source>
-        <translation>Tách Clip</translation>
+        <translation>Cắt Clip</translation>
     </message>
     <message>
         <source>Duplicate Clip</source>
@@ -13813,7 +13813,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>Split at current time</source>
-        <translation>Tách ở điểm hiện tại</translation>
+        <translation>Cắt ở thời điểm hiện tại</translation>
     </message>
     <message>
         <source>Separate audio</source>
@@ -13921,7 +13921,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>Split item at current time</source>
-        <translation>Tách mục tại thời điểm hiện tại</translation>
+        <translation>Cắt mục tại thời điểm hiện tại</translation>
     </message>
 </context>
 <context>
@@ -14079,7 +14079,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>Cut mode — click a clip to split it</source>
-        <translation>Chế độ cắt - nhấp vào clip để tách nó</translation>
+        <translation>Chế độ cắt - nhấp vào clip để cắt nó</translation>
     </message>
     <message>
         <source>Show audio on separate track</source>
