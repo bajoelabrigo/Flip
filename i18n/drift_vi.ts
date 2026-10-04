@@ -72,7 +72,7 @@
     </message>
     <message>
         <source>Install this audio effect?</source>
-        <translation type="unfinished"></translation>
+        <translation>Cài đặt hiệu ứng âm thanh này?</translation>
     </message>
     <message>
         <source>Install this effect?</source>
@@ -4705,7 +4705,7 @@
     <name>AssetCategoryChips</name>
     <message>
         <source>My Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiệu ứng của tôi</translation>
     </message>
     <message>
         <source>Favorites</source>
@@ -5045,15 +5045,15 @@
     </message>
     <message>
         <source>Import audio effect</source>
-        <translation type="unfinished"></translation>
+        <translation>Nhập hiệu ứng âm thanh</translation>
     </message>
     <message>
         <source>Install a custom audio effect or effect from a .driftfx file made in Drift Forge</source>
-        <translation type="unfinished"></translation>
+        <translation>Cài đặt một hiệu ứng hoặc hiệu ứng âm thanh tùy chỉnh từ tệp .driftfx được tạo trong Drift Forge</translation>
     </message>
     <message>
         <source>My Audio Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiệu ứng âm thanh của tôi</translation>
     </message>
     <message>
         <source>No audio effects match “%1”.</source>
@@ -5061,7 +5061,7 @@
     </message>
     <message>
         <source>Nothing here yet. Import a .driftfx file to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chưa có gì ở đây. Nhập tệp .driftfx để thêm tệp của riêng bạn.</translation>
     </message>
     <message>
         <source>No favorites yet. Star presets to save them here.</source>
@@ -5073,15 +5073,15 @@
     </message>
     <message>
         <source>%1 is empty</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 đang rỗng</translation>
     </message>
     <message>
         <source>Import a .driftfx file made in Drift Forge to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nhập tệp .driftfx được tạo trong Drift Forge để thêm tệp của riêng bạn.</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished">Nhập</translation>
+        <translation>Nhập</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -5563,11 +5563,11 @@
     <name>ChannelKeyButton</name>
     <message>
         <source>Remove %1 keyframe at the playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa %1 keyframe tại đầu phát</translation>
     </message>
     <message>
         <source>Add %1 keyframe at the playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm %1 keyframe tại đầu phát</translation>
     </message>
 </context>
 <context>
@@ -6463,15 +6463,15 @@
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished">Nhập</translation>
+        <translation>Nhập</translation>
     </message>
     <message>
         <source>Install a custom effect or transition from a .driftfx file made in Drift Forge</source>
-        <translation type="unfinished"></translation>
+        <translation>Cài đặt một hiệu ứng hoặc hiệu ứng âm thanh tùy chỉnh từ tệp .driftfx được tạo trong Drift Forge</translation>
     </message>
     <message>
         <source>My Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiệu ứng của tôi</translation>
     </message>
     <message>
         <source>No effects match “%1”.</source>
@@ -6479,7 +6479,7 @@
     </message>
     <message>
         <source>Nothing here yet. Import a .driftfx file to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chưa có gì ở đây. Nhập tệp .driftfx để thêm tệp của riêng bạn.</translation>
     </message>
     <message>
         <source>No favorites yet. Star presets to save them here.</source>
@@ -6491,11 +6491,11 @@
     </message>
     <message>
         <source>%1 is empty</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 đang rỗng</translation>
     </message>
     <message>
         <source>Import a .driftfx file made in Drift Forge to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nhập tệp .driftfx được tạo trong Drift Forge để thêm tệp của riêng bạn.</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -6876,7 +6876,7 @@
     </message>
     <message>
         <source>%1 opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 độ mờ</translation>
     </message>
     <message>
         <source>Automatic (clip beneath)</source>
@@ -14429,11 +14429,11 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>Turn adjustment on</source>
-        <translation type="unfinished"></translation>
+        <translation>Bật điều chỉnh</translation>
     </message>
     <message>
         <source>Turn adjustment off</source>
-        <translation type="unfinished"></translation>
+        <translation>Tắt điều chỉnh</translation>
     </message>
     <message>
         <source>Stop recording</source>
@@ -14990,15 +14990,15 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>Import transition</source>
-        <translation type="unfinished"></translation>
+        <translation>Nhập chuyển cảnh</translation>
     </message>
     <message>
         <source>Install a custom transition or effect from a .driftfx file made in Drift Forge</source>
-        <translation type="unfinished"></translation>
+        <translation>Cài đặt một hiệu ứng hoặc hiệu ứng âm thanh tùy chỉnh từ tệp .driftfx được tạo trong Drift Forge</translation>
     </message>
     <message>
         <source>My Transitions</source>
-        <translation type="unfinished"></translation>
+        <translation>Chuyển cảnh của tôi</translation>
     </message>
     <message>
         <source>No transitions available</source>
@@ -15018,7 +15018,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>No custom transitions yet</source>
-        <translation type="unfinished"></translation>
+        <translation>Chưa có chuyển cảnh tùy chỉnh nào</translation>
     </message>
     <message>
         <source>No favorites yet</source>
@@ -15034,7 +15034,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>Import a .driftfx file made in Drift Forge to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nhập tệp .driftfx được tạo trong Drift Forge để thêm tệp của riêng bạn.</translation>
     </message>
     <message>
         <source>Star transitions to save them here.</source>
@@ -15046,7 +15046,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished">Nhập</translation>
+        <translation>Nhập</translation>
     </message>
     <message>
         <source>%1 — drag onto an overlap between two clips</source>
@@ -15217,7 +15217,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     <name>Vec2Param</name>
     <message>
         <source>Edit %1</source>
-        <translation type="unfinished">Chỉnh sửa %1</translation>
+        <translation>Chỉnh sửa %1</translation>
     </message>
 </context>
 <context>
