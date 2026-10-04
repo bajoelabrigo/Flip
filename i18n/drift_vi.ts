@@ -791,7 +791,7 @@
     <name>AndroidLayoutSheet</name>
     <message>
         <source>Canvas &amp; layout</source>
-        <translation>Khung hình &amp; bố cục</translation>
+        <translation>Canvas &amp; bố cục</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -897,7 +897,7 @@
     </message>
     <message>
         <source>Canvas set to %1×%2 at %3 fps from your first clip.</source>
-        <translation>Khung hình đặt thành %1×%2 at %3 fps dựa theo clip đầu tiên của bạn.</translation>
+        <translation>Canvas đặt thành %1×%2 at %3 fps dựa theo clip đầu tiên của bạn.</translation>
     </message>
     <message>
         <source>That share had no link in it.</source>
@@ -1585,7 +1585,7 @@
     </message>
     <message>
         <source>Canvas &amp; layout</source>
-        <translation>Khung hình &amp; bố cục</translation>
+        <translation>Canvas &amp; bố cục</translation>
     </message>
     <message>
         <source>Video size, aspect and frame rate</source>
@@ -1640,7 +1640,7 @@
     </message>
     <message>
         <source>Choose a canvas, start empty</source>
-        <translation>Chọn một khung hình, bắt đầu dự án trống</translation>
+        <translation>Chọn một canvas, bắt đầu dự án trống</translation>
     </message>
     <message>
         <source>Create polished videos fast</source>
@@ -3062,7 +3062,7 @@
     </message>
     <message>
         <source>Crop canvas</source>
-        <translation>Xén khung hình</translation>
+        <translation>Cắt canvas</translation>
     </message>
     <message>
         <source>Video size cropped to %1×%2</source>
@@ -4824,27 +4824,27 @@
     </message>
     <message>
         <source>%1 file (*.%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 tệp (*.%2)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished">Tất cả tệp (*)</translation>
+        <translation>Tất cả tệp (*)</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>Lưu dưới dạng</translation>
     </message>
     <message>
         <source>Saving “%1”…</source>
-        <translation type="unfinished"></translation>
+        <translation>Đang lưu “%1”…</translation>
     </message>
     <message>
         <source>Couldn’t save “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể lưu “%1”.</translation>
     </message>
     <message>
         <source>Saved “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>Đã lưu “%1”.</translation>
     </message>
     <message>
         <source>Couldn’t import that folder.</source>
@@ -6408,7 +6408,7 @@
     </message>
     <message>
         <source>Auto (follow canvas)</source>
-        <translation>Tự động (theo khung hình)</translation>
+        <translation>Tự động (theo canvas)</translation>
     </message>
     <message>
         <source>Landscape</source>
@@ -7066,7 +7066,7 @@
     </message>
     <message>
         <source>Keeps a transparent canvas. Set the project background to Transparent so holes stay empty.</source>
-        <translation>Giữ một khung hình trong suốt. Đặt nền dự án thành Trong suốt để các lỗ luôn trống.</translation>
+        <translation>Giữ một canvas trong suốt. Đặt nền dự án thành Trong suốt để các chỗ luôn trống.</translation>
     </message>
     <message>
         <source>Constant Quality</source>
@@ -7696,7 +7696,7 @@
     </message>
     <message>
         <source>Drag from the top or left edge to add a guide, off the canvas to remove one. Shift steps by 1%.</source>
-        <translation>Kéo từ cạnh trên hoặc cạnh trái để thêm đường dẫn, kéo ra ngoài khung vẽ để xóa đường dẫn. Di chuyển các bước theo từng 1%.</translation>
+        <translation>Kéo từ cạnh trên hoặc cạnh trái để thêm đường dẫn, tắt canvas để xóa nó. Di chuyển các bước theo từng 1%.</translation>
     </message>
     <message>
         <source>Done</source>
@@ -8068,7 +8068,7 @@
     </message>
     <message>
         <source>Preview shows the canvas aspect ratio</source>
-        <translation>Bản xem trước hiển thị theo tỷ lệ khung hình</translation>
+        <translation>Bản xem trước hiển thị theo tỷ lệ canvas</translation>
     </message>
 </context>
 <context>
@@ -8186,207 +8186,207 @@
     <name>Main</name>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tệp</translation>
     </message>
     <message>
         <source>&amp;New Project</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dự án mới</translation>
     </message>
     <message>
         <source>&amp;Open Project…</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Mở dự án…</translation>
     </message>
     <message>
         <source>&amp;Save Project</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lưu dự án</translation>
     </message>
     <message>
         <source>Save Project &amp;As…</source>
-        <translation type="unfinished"></translation>
+        <translation>Lưu dự án &amp;dưới dạng…</translation>
     </message>
     <message>
         <source>Save Project &amp;JSON…</source>
-        <translation type="unfinished"></translation>
+        <translation>Lưu dự án &amp;JSON…</translation>
     </message>
     <message>
         <source>Open Project JSON…</source>
-        <translation type="unfinished"></translation>
+        <translation>Mở dự án JSON…</translation>
     </message>
     <message>
         <source>&amp;Export Video…</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Xuất video…</translation>
     </message>
     <message>
         <source>&amp;Package Project…</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Gói dự án…</translation>
     </message>
     <message>
         <source>&amp;Close Project</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Đóng dự án</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Chỉnh sửa</translation>
     </message>
     <message>
         <source>&amp;Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hoàn tác</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Khôi phục</translation>
     </message>
     <message>
         <source>Cu&amp;t</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Cắt</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sao chép</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dán</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Xóa</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation type="unfinished"></translation>
+        <translation>Chọn &amp;tất cả</translation>
     </message>
     <message>
         <source>Clear Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa Lựa chọn</translation>
     </message>
     <message>
         <source>Split Clip</source>
-        <translation type="unfinished"></translation>
+        <translation>Tách Clip</translation>
     </message>
     <message>
         <source>Duplicate Clip</source>
-        <translation type="unfinished"></translation>
+        <translation>Nhân bản Clip</translation>
     </message>
     <message>
         <source>Copy Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Sao chép Hiệu ứng</translation>
     </message>
     <message>
         <source>Paste Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Dán Hiệu ứng</translation>
     </message>
     <message>
         <source>Paste Attributes…</source>
-        <translation type="unfinished"></translation>
+        <translation>Dán Thuộc tính…</translation>
     </message>
     <message>
         <source>Preferences…</source>
-        <translation type="unfinished"></translation>
+        <translation>Ưa thích…</translation>
     </message>
     <message>
         <source>&amp;Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Phát lại</translation>
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Phát / Tạm dừng</translation>
     </message>
     <message>
         <source>Step Back One Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Lùi lại một khung hình</translation>
     </message>
     <message>
         <source>Step Forward One Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiến tới một khung hình</translation>
     </message>
     <message>
         <source>Previous Cut Point</source>
-        <translation type="unfinished"></translation>
+        <translation>Điểm cắt trước</translation>
     </message>
     <message>
         <source>Next Cut Point</source>
-        <translation type="unfinished"></translation>
+        <translation>Điểm cắt kế</translation>
     </message>
     <message>
         <source>Go to Start of Timeline</source>
-        <translation type="unfinished"></translation>
+        <translation>Đi đến đầu dòng thời gian</translation>
     </message>
     <message>
         <source>Toggle Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Bật tắt Dấu trang</translation>
     </message>
     <message>
         <source>Next Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Dấu trang kế</translation>
     </message>
     <message>
         <source>Previous Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Dấu trang trước</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Xem</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished"></translation>
+        <translation>Phóng &amp;to</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Thu &amp;nhỏ</translation>
     </message>
     <message>
         <source>Toggle Fullscreen Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Bật tắt xem trước toàn màn hình</translation>
     </message>
     <message>
         <source>Toggle Guides</source>
-        <translation type="unfinished"></translation>
+        <translation>Bật tắt đường kẻ</translation>
     </message>
     <message>
         <source>&amp;Window</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Cửa sổ</translation>
     </message>
     <message>
         <source>Landscape Workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Không gian làm việc ngang</translation>
     </message>
     <message>
         <source>Portrait Workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Không gian làm việc dọc</translation>
     </message>
     <message>
         <source>Auto Workspace (Follow Canvas)</source>
-        <translation type="unfinished"></translation>
+        <translation>Không gian làm việc tự động (Theo Canvas)</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished">Tải xuống</translation>
+        <translation>Tải xuống</translation>
     </message>
     <message>
         <source>Multicam</source>
-        <translation type="unfinished">Đa góc quay</translation>
+        <translation>Đa góc quay</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Trợ giúp</translation>
     </message>
     <message>
         <source>Keyboard Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Phím tắt bàn phím</translation>
     </message>
     <message>
         <source>Extras…</source>
-        <translation type="unfinished"></translation>
+        <translation>Bổ trợ…</translation>
     </message>
     <message>
         <source>Check for Updates…</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiểm tra cập nhật…</translation>
     </message>
     <message>
         <source>Debug Info…</source>
-        <translation type="unfinished"></translation>
+        <translation>Thông tin gỡ lỗi…</translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -8606,7 +8606,7 @@
     </message>
     <message>
         <source>Search sound effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Tìm hiệu ứng âm thanh</translation>
     </message>
     <message>
         <source>Search, or paste a link</source>
@@ -8618,7 +8618,7 @@
     </message>
     <message>
         <source>SFX</source>
-        <translation type="unfinished"></translation>
+        <translation>SFX</translation>
     </message>
     <message>
         <source>Stock footage</source>
@@ -8966,7 +8966,7 @@
     </message>
     <message>
         <source>Save As…</source>
-        <translation type="unfinished"></translation>
+        <translation>Lưu dưới dạng…</translation>
     </message>
     <message>
         <source>Remove from project</source>
@@ -11603,70 +11603,70 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     <name>SfxBrowser</name>
     <message>
         <source>Added to the media bin</source>
-        <translation type="unfinished">Đã thêm vào ngăn phương tiện</translation>
+        <translation>Đã thêm vào ngăn phương tiện</translation>
     </message>
     <message>
         <source>Loading sound effects…</source>
-        <translation type="unfinished"></translation>
+        <translation>Đang tải hiệu ứng âm thanh…</translation>
     </message>
     <message>
         <source>Couldn’t load sound effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tải hiệu ứng âm thanh</translation>
     </message>
     <message>
         <source>Try again</source>
-        <translation type="unfinished">Thử lại</translation>
+        <translation>Thử lại</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">Tất cả</translation>
+        <translation>Tất cả</translation>
     </message>
     <message>
         <source>No sound effects match “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>Không có hiệu ứng âm thanh nào khớp với “%1”.</translation>
     </message>
     <message>
         <source>No sound effects here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Không có hiệu ứng âm thanh nào ở đây.</translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished">Tạm dừng</translation>
+        <translation>Tạm dừng</translation>
     </message>
     <message>
         <source>Play preview</source>
-        <translation type="unfinished">Phát xem trước</translation>
+        <translation>Phát xem trước</translation>
     </message>
     <message>
         <source>Add to the media bin</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm vào ngăn phương tiện</translation>
     </message>
     <message>
         <source>Add to the timeline</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm vào dòng thời gian</translation>
     </message>
 </context>
 <context>
     <name>SfxLibrary</name>
     <message>
         <source>Could not load sound effects. Check your connection and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tải hiệu ứng âm thanh. Hãy kiểm tra kết nối của bạn và thử lại.</translation>
     </message>
     <message>
         <source>Could not write to the app data folder.</source>
-        <translation type="unfinished">Không thể ghi vào thư mục dữ liệu ứng dụng.</translation>
+        <translation>Không thể ghi vào thư mục dữ liệu ứng dụng.</translation>
     </message>
     <message>
         <source>Could not download that sound. Check your connection and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tải xuống âm thanh đó. Hãy kiểm tra kết nối của bạn và thử lại.</translation>
     </message>
     <message>
         <source>That download was damaged. Try again.</source>
-        <translation type="unfinished">Bản tải xuống đó đã bị hỏng. Hãy thử lại.</translation>
+        <translation>Bản tải xuống đó đã bị hỏng. Hãy thử lại.</translation>
     </message>
     <message>
         <source>Could not add that sound to the media bin.</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể thêm âm thanh đó vào ngăn phương tiện.</translation>
     </message>
 </context>
 <context>
