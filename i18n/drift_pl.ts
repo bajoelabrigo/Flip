@@ -3628,7 +3628,7 @@
     </message>
     <message>
         <source>%1 (stabilized)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (ustabilizowany)</translation>
     </message>
     <message>
         <source>Select a video clip to enhance</source>
@@ -3668,7 +3668,7 @@
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
-        <translation type="unfinished"></translation>
+        <translation>Wideo, z którego utworzono ustabilizowany klip, nie znajduje się już w bibliotece multimediów</translation>
     </message>
     <message>
         <source>Stabilization rendering failed.</source>
@@ -3680,7 +3680,7 @@
     </message>
     <message>
         <source>Stabilized video added to the media bin</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustabilizowane wideo dodano do biblioteki multimediów</translation>
     </message>
     <message>
         <source>Stabilization analysis failed.</source>
@@ -3732,15 +3732,15 @@
     </message>
     <message>
         <source>Orbit camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrót kamery</translation>
     </message>
     <message>
         <source>Dolly camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Najazd kamery</translation>
     </message>
     <message>
         <source>Pan camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Przesuwanie kamery</translation>
     </message>
     <message>
         <source>Audio effects go on the timeline.</source>
@@ -3776,19 +3776,19 @@
     </message>
     <message>
         <source>Enable depth occlusion</source>
-        <translation type="unfinished"></translation>
+        <translation>Włącz zasłanianie na podstawie głębi</translation>
     </message>
     <message>
         <source>Disable depth occlusion</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyłącz zasłanianie na podstawie głębi</translation>
     </message>
     <message>
         <source>Clip is occluded by depth</source>
-        <translation type="unfinished"></translation>
+        <translation>Klip jest zasłaniany na podstawie głębi</translation>
     </message>
     <message>
         <source>Clip uses track order</source>
-        <translation type="unfinished"></translation>
+        <translation>Klip korzysta z kolejności ścieżek</translation>
     </message>
     <message>
         <source>Subtitles converted to text</source>
@@ -3824,19 +3824,19 @@
     </message>
     <message>
         <source>Add camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj kamerę</translation>
     </message>
     <message>
         <source>Add camera clip</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj klip kamery</translation>
     </message>
     <message>
         <source>Camera added</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodano kamerę</translation>
     </message>
     <message>
         <source>Camera clip added</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodano klip kamery</translation>
     </message>
     <message>
         <source>Transform together</source>
@@ -3964,7 +3964,7 @@
     </message>
     <message>
         <source>Mask effects read one clip&apos;s masks, so they go on a clip, not on an adjustment layer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Efekty masek korzystają z masek pojedynczego klipu, dlatego należy stosować je do klipu, a nie do warstwy dopasowania.</translation>
     </message>
     <message>
         <source>Face effects follow one clip&apos;s faces, so they go on a clip, not on an adjustment layer.</source>
@@ -4212,15 +4212,15 @@
     </message>
     <message>
         <source>Only effects you imported can be deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>Można usuwać tylko zaimportowane efekty</translation>
     </message>
     <message>
         <source>Could not delete %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie można usunąć %1</translation>
     </message>
     <message>
         <source>Deleted %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Usunięto %1</translation>
     </message>
     <message>
         <source>Could not export the effect preset</source>
@@ -5551,58 +5551,58 @@
     <name>CameraInspector</name>
     <message>
         <source>Pan X</source>
-        <translation type="unfinished"></translation>
+        <translation>Przesunięcie X</translation>
     </message>
     <message>
         <source>Pan Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Przesunięcie Y</translation>
     </message>
     <message>
         <source>Dolly</source>
-        <translation type="unfinished"></translation>
+        <translation>Najazd</translation>
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"></translation>
+        <translation>Pochylenie</translation>
     </message>
     <message>
         <source>Yaw</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrót poziomy</translation>
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"></translation>
+        <translation>Przechylenie</translation>
     </message>
     <message>
         <source>Lens</source>
-        <translation type="unfinished"></translation>
+        <translation>Obiektyw</translation>
     </message>
     <message>
         <source>Select a camera clip to frame the shot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz klip kamery, aby ustawić kadr ujęcia.</translation>
     </message>
     <message>
         <source>Everything on the timeline is seen through this camera while the clip lasts. A camera at rest looks exactly like no camera at all, so the numbers below are all offsets from the normal view.</source>
-        <translation type="unfinished"></translation>
+        <translation>Podczas trwania klipu wszystko na osi czasu jest widoczne przez tę kamerę. Nieruchoma kamera wygląda dokładnie tak samo jak jej brak, dlatego poniższe wartości są przesunięciami względem normalnego widoku.</translation>
     </message>
     <message>
         <source>A short lens exaggerates depth; a long one flattens it. While this camera is running it replaces each clip&apos;s own Perspective value, because a scene has one viewer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Krótkoogniskowy obiektyw wzmacnia wrażenie głębi, a długoogniskowy je spłaszcza. Podczas działania tej kamery zastępuje ona wartość Perspektywa każdego klipu, ponieważ scena ma jednego obserwatora.</translation>
     </message>
 </context>
 <context>
     <name>CameraOverlay</name>
     <message>
         <source>Drag to orbit the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Przeciągnij, aby obracać kamerę</translation>
     </message>
     <message>
         <source>Drag up and down to dolly the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Przeciągaj w górę i w dół, aby wykonywać najazd kamerą</translation>
     </message>
     <message>
         <source>Drag to pan the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Przeciągnij, aby przesuwać kamerę</translation>
     </message>
 </context>
 <context>
@@ -6561,7 +6561,7 @@
     </message>
     <message>
         <source>Delete from My Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń z Moich efektów</translation>
     </message>
     <message>
         <source>Built-in</source>
@@ -6569,7 +6569,7 @@
     </message>
     <message>
         <source>Delete effect</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń efekt</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -6577,15 +6577,15 @@
     </message>
     <message numerus="yes">
         <source>Delete “%1” from My Effects? It is used %n time(s) in this project, and those clips will play without it.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Usunąć „%1” z Moich efektów? Jest używany %n raz w tym projekcie, a te klipy będą odtwarzane bez niego.</numerusform>
+            <numerusform>Usunąć „%1” z Moich efektów? Jest używany %n razy w tym projekcie, a te klipy będą odtwarzane bez niego.</numerusform>
+            <numerusform>Usunąć „%1” z Moich efektów? Jest używany %n razy w tym projekcie, a te klipy będą odtwarzane bez niego.</numerusform>
         </translation>
     </message>
     <message>
         <source>Delete “%1” from My Effects? You can import its .driftfx file again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>Usunąć „%1” z Moich efektów? Jego plik .driftfx można później ponownie zaimportować.</translation>
     </message>
 </context>
 <context>
@@ -9688,7 +9688,7 @@
     </message>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Kamera</translation>
     </message>
     <message>
         <source>New track</source>
@@ -10444,7 +10444,7 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     </message>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Kamera</translation>
     </message>
     <message>
         <source>Stabilization</source>
@@ -12454,7 +12454,7 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     </message>
     <message>
         <source>Render a new video</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyrenderuj nowe wideo</translation>
     </message>
     <message>
         <source>Update stabilization</source>
@@ -12486,11 +12486,11 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     </message>
     <message>
         <source>Smooths camera shake. Drift scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wygładza drgania kamery. Drift analizuje klip, a następnie renderuje jego ustabilizowaną kopię w bibliotece multimediów i przełącza klip na tę kopię. Zmiana płynności lub trybu statywu nie aktualizuje podglądu do momentu zastosowania ustawień.</translation>
     </message>
     <message>
         <source>Render a stabilized copy, or animate the clip with sparse transform keys</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyrenderuj ustabilizowaną kopię albo animuj klip za pomocą rzadkich klatek kluczowych przekształcenia</translation>
     </message>
     <message>
         <source>Smoothing</source>
@@ -14251,11 +14251,11 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     </message>
     <message>
         <source>Add camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj kamerę</translation>
     </message>
     <message>
         <source>Add camera — one viewpoint the whole timeline is seen through</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj kamerę — cała oś czasu będzie widoczna z jednego punktu widzenia</translation>
     </message>
     <message>
         <source>Main</source>
@@ -14455,7 +14455,7 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     </message>
     <message>
         <source>CAM</source>
-        <translation type="unfinished"></translation>
+        <translation>KAM</translation>
     </message>
     <message>
         <source>TF</source>
@@ -14487,7 +14487,7 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     </message>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Kamera</translation>
     </message>
     <message>
         <source>Transform</source>
@@ -14766,15 +14766,15 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     </message>
     <message>
         <source>Occlude by depth</source>
-        <translation type="unfinished"></translation>
+        <translation>Zasłaniaj na podstawie głębi</translation>
     </message>
     <message>
         <source>Let depth decide what covers this clip, instead of its track position. Only clips with this on sort against each other; everything else still draws in track order.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pozwól głębi decydować, co zasłania ten klip, zamiast korzystać z jego pozycji na ścieżce. Tylko klipy z włączoną tą opcją są sortowane względem siebie; pozostałe nadal są wyświetlane według kolejności ścieżek.</translation>
     </message>
     <message>
         <source>Needs the Normal blend mode — the others read the canvas behind the clip, which depth cannot sort.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wymaga trybu mieszania Normalny — pozostałe tryby odczytują obszar płótna za klipem, którego głębia nie może uporządkować.</translation>
     </message>
     <message>
         <source>Move</source>
