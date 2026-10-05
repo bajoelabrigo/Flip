@@ -6573,7 +6573,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Usuń</translation>
+        <translation>Usuń</translation>
     </message>
     <message numerus="yes">
         <source>Delete “%1” from My Effects? It is used %n time(s) in this project, and those clips will play without it.</source>
