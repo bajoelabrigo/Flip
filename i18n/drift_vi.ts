@@ -3622,7 +3622,7 @@
     </message>
     <message>
         <source>%1 (stabilized)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (đã ổn định)</translation>
     </message>
     <message>
         <source>Select a video clip to enhance</source>
@@ -3662,7 +3662,7 @@
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
-        <translation type="unfinished"></translation>
+        <translation>Video mà clip này đã được ổn định không còn trong ngăn phương tiện nữa</translation>
     </message>
     <message>
         <source>Stabilization rendering failed.</source>
@@ -3674,7 +3674,7 @@
     </message>
     <message>
         <source>Stabilized video added to the media bin</source>
-        <translation type="unfinished"></translation>
+        <translation>Video đã ổn định được thêm vào ngăn phương tiện</translation>
     </message>
     <message>
         <source>Stabilization analysis failed.</source>
@@ -3954,7 +3954,7 @@
     </message>
     <message>
         <source>Mask effects read one clip&apos;s masks, so they go on a clip, not on an adjustment layer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiệu ứng mặt nạ đọc mặt nạ của một clip, vì vậy chúng xuất hiện trên clip chứ không phải trên lớp điều chỉnh.</translation>
     </message>
     <message>
         <source>Face effects follow one clip&apos;s faces, so they go on a clip, not on an adjustment layer.</source>
@@ -4196,15 +4196,15 @@
     </message>
     <message>
         <source>Only effects you imported can be deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>Chỉ có thể xóa các hiệu ứng bạn đã nhập</translation>
     </message>
     <message>
         <source>Could not delete %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể xóa %1</translation>
     </message>
     <message>
         <source>Deleted %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Đã xóa %1</translation>
     </message>
     <message>
         <source>Could not export the effect preset</source>
@@ -6503,7 +6503,7 @@
     </message>
     <message>
         <source>Delete from My Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa khỏi Hiệu ứng của tôi</translation>
     </message>
     <message>
         <source>Built-in</source>
@@ -6511,21 +6511,21 @@
     </message>
     <message>
         <source>Delete effect</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa hiệu ứng</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Xóa</translation>
+        <translation>Xóa</translation>
     </message>
     <message numerus="yes">
         <source>Delete “%1” from My Effects? It is used %n time(s) in this project, and those clips will play without it.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Xóa “%1” khỏi Hiệu ứng của tôi? Nó được sử dụng %n lần trong dự án này và những clip đó sẽ phát mà không có nó.</numerusform>
         </translation>
     </message>
     <message>
         <source>Delete “%1” from My Effects? You can import its .driftfx file again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa “%1” khỏi Hiệu ứng của tôi? Bạn có thể nhập lại tệp .driftfx của nó sau.</translation>
     </message>
 </context>
 <context>
@@ -12364,7 +12364,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>Render a new video</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết xuất một video mới</translation>
     </message>
     <message>
         <source>Update stabilization</source>
@@ -12396,11 +12396,11 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>Smooths camera shake. Drift scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
-        <translation type="unfinished"></translation>
+        <translation>Làm mượt rung lắc camera. Drift quét clip một lần, rồi kết xuất một bản sao đã ổn định vào ngăn media và chuyển clip sang bản đó. Thay đổi độ mượt hoặc tripod sẽ không cập nhật xem trước cho đến khi bạn áp dụng.</translation>
     </message>
     <message>
         <source>Render a stabilized copy, or animate the clip with sparse transform keys</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết xuất một bản sao đã ổn định, hoặc tạo hoạt ảnh cho clip bằng các khóa biến đổi thưa</translation>
     </message>
     <message>
         <source>Smoothing</source>
