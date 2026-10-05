@@ -2830,7 +2830,7 @@
     </message>
     <message>
         <source>Voiceover recorded</source>
-        <translation>Đã ghi lồng tiếng</translation>
+        <translation>Lồng tiếng đã thu</translation>
     </message>
     <message>
         <source>Recording cancelled</source>
@@ -5345,7 +5345,7 @@
     </message>
     <message>
         <source>Record voiceover on %1</source>
-        <translation>Ghi lồng tiếng trên %1</translation>
+        <translation>Thu lồng tiếng trên %1</translation>
     </message>
     <message>
         <source>Pan %1 — drag to adjust, double-click to center</source>
@@ -5833,7 +5833,7 @@
     </message>
     <message>
         <source>Budget at this frame rate</source>
-        <translation>Ngân sách tài nguyên ở tốc độ khung hình này</translation>
+        <translation>Ngân sách ở tốc độ khung hình này</translation>
     </message>
     <message>
         <source>Findings</source>
@@ -11404,7 +11404,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>Audio device used for recording voiceovers onto audio tracks.</source>
-        <translation>Thiết bị âm thanh được sử dụng để ghi âm giọng nói vào các bản âm thanh.</translation>
+        <translation>Thiết bị âm thanh được sử dụng để thu âm lồng tiếng vào các bản âm thanh.</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -14441,11 +14441,11 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>Record voiceover</source>
-        <translation>Ghi lồng tiếng</translation>
+        <translation>Thu lồng tiếng</translation>
     </message>
     <message>
         <source>Record voiceover (mic)</source>
-        <translation>Ghi lồng tiếng (micrô)</translation>
+        <translation>Thu lồng tiếng (micrô)</translation>
     </message>
     <message>
         <source>Turn transform on</source>
