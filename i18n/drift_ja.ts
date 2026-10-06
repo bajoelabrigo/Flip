@@ -33,15 +33,15 @@
     </message>
     <message>
         <source>Another addon is still installing.</source>
-        <translation type="unfinished"></translation>
+        <translation>別のアドオンのインストールが進行中です。</translation>
     </message>
     <message>
         <source>This is not a Drift addon file.</source>
-        <translation type="unfinished"></translation>
+        <translation>これは Drift のアドオンファイルではありません。</translation>
     </message>
     <message>
         <source>Could not use this addon (%1).</source>
-        <translation type="unfinished"></translation>
+        <translation>このアドオン (%1) を使用できませんでした。</translation>
     </message>
 </context>
 <context>
@@ -72,7 +72,7 @@
     </message>
     <message>
         <source>Install this audio effect?</source>
-        <translation type="unfinished"></translation>
+        <translation>このオーディオエフェクトをインストールしますか？</translation>
     </message>
     <message>
         <source>Install this effect?</source>
@@ -84,19 +84,19 @@
     </message>
     <message>
         <source>Install Addon</source>
-        <translation type="unfinished"></translation>
+        <translation>アドオンをインストール</translation>
     </message>
     <message>
         <source>Drift addons (*.driftpkg *.driftfx *.zip)</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift アドオン (*.driftpkg *.driftfx *.zip)</translation>
     </message>
     <message>
         <source>Install an unofficial addon?</source>
-        <translation type="unfinished"></translation>
+        <translation>非公式のアドオンをインストールしますか？</translation>
     </message>
     <message>
         <source>Install anyway</source>
-        <translation type="unfinished"></translation>
+        <translation>それでもインストール</translation>
     </message>
     <message>
         <source>“%1”</source>
@@ -104,15 +104,15 @@
     </message>
     <message>
         <source>%1 is not signed by the Drift team. Only install files you trust.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 は Drift チームによる署名がありません。信頼できるファイルのみインストールしてください。</translation>
     </message>
     <message>
         <source>It contains code that runs on your computer.</source>
-        <translation type="unfinished"></translation>
+        <translation>お使いのコンピューター上で実行されるコードが含まれています。</translation>
     </message>
     <message>
         <source>It will replace “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>「%1」を置き換えます。</translation>
     </message>
     <message>
         <source>%1 was made by a user, not the Drift team, and nothing has checked it. Only install files you trust.</source>
@@ -216,11 +216,11 @@
     </message>
     <message>
         <source>Unofficial</source>
-        <translation type="unfinished"></translation>
+        <translation>非公式</translation>
     </message>
     <message>
         <source>Installed from file</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルからインストール済み</translation>
     </message>
     <message>
         <source>%1 download</source>
@@ -244,19 +244,19 @@
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished">カスタム</translation>
+        <translation>カスタム</translation>
     </message>
     <message>
         <source>Install from file…</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルからインストール…</translation>
     </message>
     <message>
         <source>Open addons folder</source>
-        <translation type="unfinished"></translation>
+        <translation>アドオンフォルダーを開く</translation>
     </message>
     <message>
         <source>Put addon folders here, then reopen Extras</source>
-        <translation type="unfinished"></translation>
+        <translation>ここにアドオンフォルダーを配置し、「エクストラ」を開き直してください</translation>
     </message>
     <message>
         <source>Delete this pack&apos;s downloaded data</source>
@@ -3614,7 +3614,7 @@
     </message>
     <message>
         <source>%1 (stabilized)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (手ぶれ補正済み)</translation>
     </message>
     <message>
         <source>Select a video clip to enhance</source>
@@ -3654,7 +3654,7 @@
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
-        <translation type="unfinished"></translation>
+        <translation>このクリップの手ぶれ補正の元になったビデオは、メディアビンに存在しません</translation>
     </message>
     <message>
         <source>Stabilization rendering failed.</source>
@@ -3666,7 +3666,7 @@
     </message>
     <message>
         <source>Stabilized video added to the media bin</source>
-        <translation type="unfinished"></translation>
+        <translation>手ぶれ補正済みのビデオをメディアビンに追加しました</translation>
     </message>
     <message>
         <source>Stabilization analysis failed.</source>
@@ -3718,15 +3718,15 @@
     </message>
     <message>
         <source>Orbit camera</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラを旋回</translation>
     </message>
     <message>
         <source>Dolly camera</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラを Dolly</translation>
     </message>
     <message>
         <source>Pan camera</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラをパン</translation>
     </message>
     <message>
         <source>Audio effects go on the timeline.</source>
@@ -3762,19 +3762,19 @@
     </message>
     <message>
         <source>Enable depth occlusion</source>
-        <translation type="unfinished"></translation>
+        <translation>深度オクルージョンを有効にする</translation>
     </message>
     <message>
         <source>Disable depth occlusion</source>
-        <translation type="unfinished"></translation>
+        <translation>深度オクルージョンを無効にする</translation>
     </message>
     <message>
         <source>Clip is occluded by depth</source>
-        <translation type="unfinished"></translation>
+        <translation>クリップは深度によって隠蔽されています</translation>
     </message>
     <message>
         <source>Clip uses track order</source>
-        <translation type="unfinished"></translation>
+        <translation>クリップはトラック順を使用します</translation>
     </message>
     <message>
         <source>Subtitles converted to text</source>
@@ -3808,19 +3808,19 @@
     </message>
     <message>
         <source>Add camera</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラを追加</translation>
     </message>
     <message>
         <source>Add camera clip</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラクリップを追加</translation>
     </message>
     <message>
         <source>Camera added</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラを追加しました</translation>
     </message>
     <message>
         <source>Camera clip added</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラクリップを追加しました</translation>
     </message>
     <message>
         <source>Transform together</source>
@@ -3946,7 +3946,7 @@
     </message>
     <message>
         <source>Mask effects read one clip&apos;s masks, so they go on a clip, not on an adjustment layer.</source>
-        <translation type="unfinished"></translation>
+        <translation>マスクエフェクトは 1つのクリップのマスクを読み取るため、調整レイヤーではなくクリップに適用します。</translation>
     </message>
     <message>
         <source>Face effects follow one clip&apos;s faces, so they go on a clip, not on an adjustment layer.</source>
@@ -4188,15 +4188,15 @@
     </message>
     <message>
         <source>Only effects you imported can be deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>削除できるのは、インポートしたエフェクトのみです</translation>
     </message>
     <message>
         <source>Could not delete %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 を削除できませんでした</translation>
     </message>
     <message>
         <source>Deleted %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 を削除しました</translation>
     </message>
     <message>
         <source>Could not export the effect preset</source>
@@ -4705,7 +4705,7 @@
     <name>AssetCategoryChips</name>
     <message>
         <source>My Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>マイエフェクト</translation>
     </message>
     <message>
         <source>Favorites</source>
@@ -4824,27 +4824,27 @@
     </message>
     <message>
         <source>%1 file (*.%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ファイル (*.%2)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished">すべてのファイル (*)</translation>
+        <translation>すべてのファイル (*)</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を付けて保存</translation>
     </message>
     <message>
         <source>Saving “%1”…</source>
-        <translation type="unfinished"></translation>
+        <translation>「%1」を保存しています…</translation>
     </message>
     <message>
         <source>Couldn’t save “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>「%1」を保存できませんでした。</translation>
     </message>
     <message>
         <source>Saved “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>「%1」を保存しました。</translation>
     </message>
     <message>
         <source>Couldn’t import that folder.</source>
@@ -5045,15 +5045,15 @@
     </message>
     <message>
         <source>Import audio effect</source>
-        <translation type="unfinished"></translation>
+        <translation>オーディオエフェクトをインポート</translation>
     </message>
     <message>
         <source>Install a custom audio effect or effect from a .driftfx file made in Drift Forge</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge で作成した .driftfx ファイルから、カスタムオーディオエフェクトまたはエフェクトをインストールします</translation>
     </message>
     <message>
         <source>My Audio Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>マイオーディオエフェクト</translation>
     </message>
     <message>
         <source>No audio effects match “%1”.</source>
@@ -5061,7 +5061,7 @@
     </message>
     <message>
         <source>Nothing here yet. Import a .driftfx file to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>まだ何もありません。.driftfx ファイルをインポートして独自のものを追加してください。</translation>
     </message>
     <message>
         <source>No favorites yet. Star presets to save them here.</source>
@@ -5073,15 +5073,15 @@
     </message>
     <message>
         <source>%1 is empty</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 は空です</translation>
     </message>
     <message>
         <source>Import a .driftfx file made in Drift Forge to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge で作成した .driftfx ファイルをインポートして、独自のものを追加してください。</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished">インポート</translation>
+        <translation>インポート</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -5143,11 +5143,11 @@
     </message>
     <message>
         <source>Move to a time, set a value, then click the diamond to add a keyframe. With Auto keyframes on, dragging a slider also creates them.</source>
-        <translation type="unfinished">時間を移動し、値を設定して、ダイヤモンドをクリックしてキーフレームを追加します。自動キーフレームがオンの場合、スライダーをドラッグしてもキーフレームが作成されます。</translation>
+        <translation>時間を移動し、値を設定して、ダイヤモンドをクリックしてキーフレームを追加します。自動キーフレームがオンの場合、スライダーをドラッグしてもキーフレームが作成されます。</translation>
     </message>
     <message>
         <source>Auto keyframes</source>
-        <translation type="unfinished">自動キーフレーム</translation>
+        <translation>自動キーフレーム</translation>
     </message>
     <message>
         <source>%1 (not installed)</source>
@@ -5505,69 +5505,69 @@
     <name>CameraInspector</name>
     <message>
         <source>Pan X</source>
-        <translation type="unfinished"></translation>
+        <translation>パン X</translation>
     </message>
     <message>
         <source>Pan Y</source>
-        <translation type="unfinished"></translation>
+        <translation>パン Y</translation>
     </message>
     <message>
         <source>Dolly</source>
-        <translation type="unfinished"></translation>
+        <translation>Dolly</translation>
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"></translation>
+        <translation>ピッチ</translation>
     </message>
     <message>
         <source>Yaw</source>
-        <translation type="unfinished"></translation>
+        <translation>Yaw</translation>
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"></translation>
+        <translation>ロール</translation>
     </message>
     <message>
         <source>Lens</source>
-        <translation type="unfinished"></translation>
+        <translation>レンズ</translation>
     </message>
     <message>
         <source>Select a camera clip to frame the shot.</source>
-        <translation type="unfinished"></translation>
+        <translation>ショットを決めるには、カメラクリップを選択してください。</translation>
     </message>
     <message>
         <source>Everything on the timeline is seen through this camera while the clip lasts. A camera at rest looks exactly like no camera at all, so the numbers below are all offsets from the normal view.</source>
-        <translation type="unfinished"></translation>
+        <translation>クリップが続く間、タイムライン上のすべてはこのカメラを通して見られます。静止状態のカメラはカメラなしとまったく同じ見え方になるため、以下の数値はすべて通常の表示からのオフセットです。</translation>
     </message>
     <message>
         <source>A short lens exaggerates depth; a long one flattens it. While this camera is running it replaces each clip&apos;s own Perspective value, because a scene has one viewer.</source>
-        <translation type="unfinished"></translation>
+        <translation>短いレンズは奥行きを誇張し、長いレンズは平坦にします。このカメラが動作している間は、シーンには 1人の視聴者しかいないため、各クリップ自身のパースペクティブ値が置き換えられます。</translation>
     </message>
 </context>
 <context>
     <name>CameraOverlay</name>
     <message>
         <source>Drag to orbit the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>ドラッグしてカメラを旋回</translation>
     </message>
     <message>
         <source>Drag up and down to dolly the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>上下にドラッグしてカメラを dolly</translation>
     </message>
     <message>
         <source>Drag to pan the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>ドラッグしてカメラをパン</translation>
     </message>
 </context>
 <context>
     <name>ChannelKeyButton</name>
     <message>
         <source>Remove %1 keyframe at the playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>再生ヘッド位置の %1 キーフレームを削除</translation>
     </message>
     <message>
         <source>Add %1 keyframe at the playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>再生ヘッド位置に %1 キーフレームを追加</translation>
     </message>
 </context>
 <context>
@@ -6463,15 +6463,15 @@
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished">インポート</translation>
+        <translation>インポート</translation>
     </message>
     <message>
         <source>Install a custom effect or transition from a .driftfx file made in Drift Forge</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge で作成した .driftfx ファイルから、カスタムエフェクトまたはトランジションをインストールします</translation>
     </message>
     <message>
         <source>My Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>マイエフェクト</translation>
     </message>
     <message>
         <source>No effects match “%1”.</source>
@@ -6479,7 +6479,7 @@
     </message>
     <message>
         <source>Nothing here yet. Import a .driftfx file to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>まだ何もありません。.driftfx ファイルをインポートして独自のものを追加してください。</translation>
     </message>
     <message>
         <source>No favorites yet. Star presets to save them here.</source>
@@ -6491,11 +6491,11 @@
     </message>
     <message>
         <source>%1 is empty</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 は空です</translation>
     </message>
     <message>
         <source>Import a .driftfx file made in Drift Forge to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge で作成した .driftfx ファイルをインポートして、独自のものを追加してください。</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -6503,7 +6503,7 @@
     </message>
     <message>
         <source>Delete from My Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>マイエフェクトから削除</translation>
     </message>
     <message>
         <source>Built-in</source>
@@ -6511,21 +6511,21 @@
     </message>
     <message>
         <source>Delete effect</source>
-        <translation type="unfinished"></translation>
+        <translation>エフェクトを削除</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">削除</translation>
+        <translation>削除</translation>
     </message>
     <message numerus="yes">
         <source>Delete “%1” from My Effects? It is used %n time(s) in this project, and those clips will play without it.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>「%1」をマイエフェクトから削除しますか？このプロジェクトで %n 回使用されており、それらのクリップはこれなしで再生されます。</numerusform>
         </translation>
     </message>
     <message>
         <source>Delete “%1” from My Effects? You can import its .driftfx file again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>「%1」をマイエフェクトから削除しますか？あとで .driftfx ファイルを再度インポートできます。</translation>
     </message>
 </context>
 <context>
@@ -6876,7 +6876,7 @@
     </message>
     <message>
         <source>%1 opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 の不透明度</translation>
     </message>
     <message>
         <source>Automatic (clip beneath)</source>
@@ -8606,7 +8606,7 @@
     </message>
     <message>
         <source>Search sound effects</source>
-        <translation type="unfinished"></translation>
+        <translation>効果音を検索</translation>
     </message>
     <message>
         <source>Search, or paste a link</source>
@@ -8618,7 +8618,7 @@
     </message>
     <message>
         <source>SFX</source>
-        <translation type="unfinished"></translation>
+        <translation>効果音</translation>
     </message>
     <message>
         <source>Stock footage</source>
@@ -8966,7 +8966,7 @@
     </message>
     <message>
         <source>Save As…</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を付けて保存…</translation>
     </message>
     <message>
         <source>Remove from project</source>
@@ -9606,7 +9606,7 @@
     </message>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラ</translation>
     </message>
     <message>
         <source>New track</source>
@@ -10354,7 +10354,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラ</translation>
     </message>
     <message>
         <source>Stabilization</source>
@@ -11603,70 +11603,70 @@ If playback stutters, try another.</source>
     <name>SfxBrowser</name>
     <message>
         <source>Added to the media bin</source>
-        <translation type="unfinished">メディアビンに追加しました</translation>
+        <translation>メディアビンに追加しました</translation>
     </message>
     <message>
         <source>Loading sound effects…</source>
-        <translation type="unfinished"></translation>
+        <translation>効果音を読み込んでいます…</translation>
     </message>
     <message>
         <source>Couldn’t load sound effects</source>
-        <translation type="unfinished"></translation>
+        <translation>効果音を読み込めませんでした</translation>
     </message>
     <message>
         <source>Try again</source>
-        <translation type="unfinished">再試行</translation>
+        <translation>再試行</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">すべて</translation>
+        <translation>すべて</translation>
     </message>
     <message>
         <source>No sound effects match “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>「%1」に一致する効果音はありません。</translation>
     </message>
     <message>
         <source>No sound effects here.</source>
-        <translation type="unfinished"></translation>
+        <translation>ここには効果音がありません。</translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished">一時停止</translation>
+        <translation>一時停止</translation>
     </message>
     <message>
         <source>Play preview</source>
-        <translation type="unfinished">プレビューを再生</translation>
+        <translation>プレビューを再生</translation>
     </message>
     <message>
         <source>Add to the media bin</source>
-        <translation type="unfinished"></translation>
+        <translation>メディアビンに追加</translation>
     </message>
     <message>
         <source>Add to the timeline</source>
-        <translation type="unfinished"></translation>
+        <translation>タイムラインに追加</translation>
     </message>
 </context>
 <context>
     <name>SfxLibrary</name>
     <message>
         <source>Could not load sound effects. Check your connection and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>効果音を読み込めませんでした。接続を確認して、もう一度お試しください。</translation>
     </message>
     <message>
         <source>Could not write to the app data folder.</source>
-        <translation type="unfinished">アプリデータフォルダーに書き込めませんでした。</translation>
+        <translation>アプリデータフォルダーに書き込めませんでした。</translation>
     </message>
     <message>
         <source>Could not download that sound. Check your connection and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>そのサウンドをダウンロードできませんでした。接続を確認して、もう一度試してください。</translation>
     </message>
     <message>
         <source>That download was damaged. Try again.</source>
-        <translation type="unfinished">ダウンロードが破損していました。再試行してください。</translation>
+        <translation>ダウンロードが破損していました。再試行してください。</translation>
     </message>
     <message>
         <source>Could not add that sound to the media bin.</source>
-        <translation type="unfinished"></translation>
+        <translation>そのサウンドをメディアビンに追加できませんでした。</translation>
     </message>
 </context>
 <context>
@@ -12364,7 +12364,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Render a new video</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいビデオをレンダリング</translation>
     </message>
     <message>
         <source>Update stabilization</source>
@@ -12396,11 +12396,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Smooths camera shake. Drift scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラのぶれを滑らかにします。Drift はクリップを一度スキャンし、手ぶれ補正済みのコピーをメディアビンにレンダリングして、クリップをそれに切り替えます。滑らかさや三脚の設定を変更しても、適用するまでプレビューは更新されません。</translation>
     </message>
     <message>
         <source>Render a stabilized copy, or animate the clip with sparse transform keys</source>
-        <translation type="unfinished"></translation>
+        <translation>手ぶれ補正済みのコピーをレンダリングするか、疎なトランスフォームキーでクリップをアニメーション化します</translation>
     </message>
     <message>
         <source>Smoothing</source>
@@ -14155,11 +14155,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add camera</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラを追加</translation>
     </message>
     <message>
         <source>Add camera — one viewpoint the whole timeline is seen through</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラを追加 — タイムライン全体をこの 1つの視点を通して見る</translation>
     </message>
     <message>
         <source>Main</source>
@@ -14357,7 +14357,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>CAM</source>
-        <translation type="unfinished"></translation>
+        <translation>CAM</translation>
     </message>
     <message>
         <source>TF</source>
@@ -14389,7 +14389,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラ</translation>
     </message>
     <message>
         <source>Transform</source>
@@ -14429,11 +14429,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Turn adjustment on</source>
-        <translation type="unfinished"></translation>
+        <translation>調整をオンにする</translation>
     </message>
     <message>
         <source>Turn adjustment off</source>
-        <translation type="unfinished"></translation>
+        <translation>調整をオフにする</translation>
     </message>
     <message>
         <source>Stop recording</source>
@@ -14668,15 +14668,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Occlude by depth</source>
-        <translation type="unfinished"></translation>
+        <translation>深度によるオクルージョン</translation>
     </message>
     <message>
         <source>Let depth decide what covers this clip, instead of its track position. Only clips with this on sort against each other; everything else still draws in track order.</source>
-        <translation type="unfinished"></translation>
+        <translation>このクリップを何が覆うかを、トラック位置ではなく深度で決定します。これがオンのクリップ同士のみが互いに前後を判定し、それ以外はすべてトラック順で描画されます。</translation>
     </message>
     <message>
         <source>Needs the Normal blend mode — the others read the canvas behind the clip, which depth cannot sort.</source>
-        <translation type="unfinished"></translation>
+        <translation>「通常」ブレンドモードが必要です — 他のモードはクリップ背後のキャンバスを読み取るため、深度で前後を判定できません。</translation>
     </message>
     <message>
         <source>Move</source>
@@ -14990,15 +14990,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Import transition</source>
-        <translation type="unfinished"></translation>
+        <translation>トランジションをインポート</translation>
     </message>
     <message>
         <source>Install a custom transition or effect from a .driftfx file made in Drift Forge</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge で作成した .driftfx ファイルから、カスタムトランジションまたはエフェクトをインストールします</translation>
     </message>
     <message>
         <source>My Transitions</source>
-        <translation type="unfinished"></translation>
+        <translation>マイトランジション</translation>
     </message>
     <message>
         <source>No transitions available</source>
@@ -15018,7 +15018,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>No custom transitions yet</source>
-        <translation type="unfinished"></translation>
+        <translation>カスタムトランジションはまだありません</translation>
     </message>
     <message>
         <source>No favorites yet</source>
@@ -15034,7 +15034,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Import a .driftfx file made in Drift Forge to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge で作成した .driftfx ファイルをインポートして、独自のものを追加してください。</translation>
     </message>
     <message>
         <source>Star transitions to save them here.</source>
@@ -15046,7 +15046,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished">インポート</translation>
+        <translation>インポート</translation>
     </message>
     <message>
         <source>%1 — drag onto an overlap between two clips</source>
@@ -15217,7 +15217,7 @@ If playback stutters, try another.</source>
     <name>Vec2Param</name>
     <message>
         <source>Edit %1</source>
-        <translation type="unfinished">%1 を編集</translation>
+        <translation>%1 を編集</translation>
     </message>
 </context>
 <context>
