@@ -67,9 +67,10 @@ casilla al terminarla. Última actualización: 2026-10-09.
   - [ ] Adaptar `msstore.yml` (hoy usa secretos de CutWire) o generar el MSIX y subirlo a mano.
   - [ ] Ficha de la tienda: descripción, capturas, política de privacidad.
 - [ ] **Firma de código** del instalador `.exe` para quitar el aviso de SmartScreen (certificado OV/EV o Azure Trusted Signing). La Store firma su propio paquete, así que esto solo hace falta para la descarga directa.
-- [ ] Página web en `getflipstudio.com`: inicio, botón de descarga, capturas.
-- [ ] **Política de privacidad** y **términos de uso** publicados en la web (los exige la Store).
-- [ ] Correo de soporte (por ejemplo `soporte@getflipstudio.com`).
+- [x] Web de `getflipstudio.com` hecha (repo local `C:\Users\bajoe\Downloads\flipstudio-web`): inicio, descarga automática de la última versión, preguntas, privacidad y términos.
+- [ ] Captura real de la app para la web y país/jurisdicción en los textos legales.
+- [ ] DNS `A @ → 145.223.27.84`, publicar en el VPS (`deploy/deploy.sh setup`) y HTTPS con certbot.
+- [x] Correo de soporte `soporte@getflipstudio.com`.
 
 ## Fase 3 — Infraestructura propia básica
 
@@ -143,6 +144,7 @@ casilla al terminarla. Última actualización: 2026-10-09.
 | Media | Textos de servicios de CutWire todavía visibles ("Flip Studio Assets", librería de sonidos) | `src/models/DriftAssetStore.*`, `SfxLibrary.*` |
 | Media | `release.yml`, `msstore.yml` y `playstore-aab.yml` usan cuentas y secretos de CutWire | `.github/workflows/` |
 | Media | Firma de código del `.exe` (aviso de SmartScreen) | Instalador |
+| Media | La ventana de diagnóstico enlaza a la documentación y al Discord de CutWire: cambiar por `soporte@getflipstudio.com` y la web | `src/qml/components/DebugInfoDialog.qml` |
 | Baja | Ícono de macOS | `resources/macos/` |
 | Baja | IDs de Flatpak y Android | `flatpak/`, workflows |
 | Baja | `docs/BUILDING.md` y `docs/MCP.md` siguen hablando de Drift | `docs/` |
