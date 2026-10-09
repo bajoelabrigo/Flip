@@ -468,7 +468,7 @@
         <translation>起動時にエージェントを開始する</translation>
     </message>
     <message>
-        <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
+        <source>Skip the manual toggle next time you open Flip Studio. Turning access off resets this.</source>
         <translation>次回 Flip Studio を開くときは、手動切り替えをスキップします。アクセスをオフにすると、これがリセットされます。</translation>
     </message>
     <message>
@@ -9648,11 +9648,11 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Flip.</source>
+        <source>Faster preview takes effect after you restart Flip Studio.</source>
         <translation>高速プレビューは Flip Studio 再起動後に有効になります。</translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Flip.</source>
+        <source>The graphics card choice takes effect after you restart Flip Studio.</source>
         <translation>グラフィックカードの選択は、Driftを再起動した後に反映されます。</translation>
     </message>
     <message>
@@ -9809,7 +9809,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished">高性能グラフィックスカードで Flip Studio を実行する</translation>
     </message>
     <message>
-        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
         <translation type="unfinished">Windows の設定 &gt; ディスプレイ &gt; グラフィックス で Flip Studio を「ハイパフォーマンス」に設定し、Flip Studio を再起動してください。</translation>
     </message>
     <message>
@@ -11598,6 +11598,10 @@ If playback stutters, try another.</source>
         <translation>Flip Studio %1</translation>
     </message>
     <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Extra packs</source>
         <translation>拡張パック</translation>
     </message>
@@ -11624,6 +11628,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Cloud providers</source>
         <translation>クラウドプロバイダー</translation>
+    </message>
+    <message>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
@@ -15241,7 +15249,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15296,7 +15304,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15320,7 +15328,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Flip. Unchecked, you choose when to install once the download finishes.</source>
+        <source>Downloads in the background and installs the next time you close Flip Studio. Unchecked, you choose when to install once the download finishes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

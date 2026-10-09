@@ -712,7 +712,7 @@ QVariantMap DebugReport::collect()
             hints.append(hintRow(
                 QStringLiteral("codecs-extra"), trReport("Missing extra codecs"),
                 trReport("H.264 and H.265 encoding is missing from this Flatpak. Install the extra "
-                         "codecs extension, then restart Flip."),
+                         "codecs extension, then restart Flip Studio."),
                 QStringLiteral("flatpak install org.freedesktop.Platform.codecs-extra")));
         }
         bool nvidia = false;
@@ -727,7 +727,7 @@ QVariantMap DebugReport::collect()
                 QStringLiteral("vaapi-nvidia"), trReport("NVIDIA VAAPI driver not installed"),
                 trReport("VAAPI encode on NVIDIA needs the NVIDIA VAAPI extension, and so does "
                          "hardware decode when NVDEC is unavailable. Install it, then restart "
-                         "Flip."),
+                         "Flip Studio."),
                     QStringLiteral("flatpak install org.freedesktop.Platform.VAAPI.nvidia")));
         }
     }

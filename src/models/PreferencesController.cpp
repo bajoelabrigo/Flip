@@ -278,7 +278,7 @@ void PreferencesController::setVaapiZeroCopy(bool enabled)
     settings.setValue(QStringLiteral("preview/vaapiZeroCopy"), m_vaapiZeroCopy);
 #endif
     emit vaapiZeroCopyChanged();
-    emit restartNoticeRequested(tr("Faster preview takes effect after you restart Flip."));
+    emit restartNoticeRequested(tr("Faster preview takes effect after you restart Flip Studio."));
 }
 
 void PreferencesController::setMediaCodecZeroCopy(bool enabled)
@@ -291,7 +291,7 @@ void PreferencesController::setMediaCodecZeroCopy(bool enabled)
     emit mediaCodecZeroCopyChanged();
     // ClipReader reads the setting once and latches it, so a restart is not just conservative
     // advice here — the running process really will not change behaviour.
-    emit restartNoticeRequested(tr("Faster preview takes effect after you restart Flip."));
+    emit restartNoticeRequested(tr("Faster preview takes effect after you restart Flip Studio."));
 }
 
 bool PreferencesController::mediaCodecZeroCopySupported() const
@@ -324,7 +324,7 @@ void PreferencesController::setPreferredGpu(const QString &id)
     drift::gpu::storePreference(preference);
     emit preferredGpuChanged();
     // Not conservative advice: the driver chose this process's GPU when it loaded.
-    emit restartNoticeRequested(tr("The graphics card choice takes effect after you restart Flip."));
+    emit restartNoticeRequested(tr("The graphics card choice takes effect after you restart Flip Studio."));
 }
 
 bool PreferencesController::gpuPreferenceSupported() const

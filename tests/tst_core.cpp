@@ -8,6 +8,7 @@
 #include <QJsonObject>
 #include <QPointF>
 #include <QSet>
+#include <QSettings>
 #include <QStandardPaths>
 
 #include "core/ClipAnimation.h"
@@ -30,6 +31,7 @@
 #include "core/VectorSource.h"
 #include "core/DotLottie.h"
 #include "core/ZipArchive.h"
+#include "core/SecretStore.h"
 #include "TestZip.h"
 
 #include <QTemporaryDir>
@@ -122,6 +124,7 @@ private slots:
     void vectorSourceSerialization();
     void dotLottieUnpacks();
     void zipRejectsTruncatedAndOversizedDeflate();
+    void secretStoreSealsAndMigrates();
     void textStyleKeyframesSerialization();
     void vectorClipIsSyntheticOnGraphicTracks();
     void model3dSourceSerialization();
@@ -1798,6 +1801,39 @@ void CoreTest::textStyleKeyframesSerialization()
     QVERIFY(!drift::textStyleScalar(style, QStringLiteral("glowRadius"), &scalar)); // no glow layer on a fresh style
     QVERIFY(drift::textKeyframeProperties(style).contains(QStringLiteral("layer.fill.color.r")));
     QCOMPARE(drift::textKeyframeCanonicalKey(QStringLiteral("color.g"), style), QStringLiteral("layer.fill.color.g"));
+}
+
+void CoreTest::secretStoreSealsAndMigrates()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    QSettings settings(dir.filePath(QStringLiteral("secrets.ini")), QSettings::IniFormat);
+    const QString key = QStringLiteral("cloud/test/apiKey");
+    const QString secret = QStringLiteral("sk_test_123456789");
+    const QString sealedPrefix = QLatin1String(drift::secrets::kSealedPrefix);
+
+    drift::secrets::writeSecret(settings, key, secret);
+    QCOMPARE(drift::secrets::readSecret(settings, key), secret);
+    const QString raw = settings.value(key).toString();
+    if (drift::secrets::sealingAvailable()) {
+        QVERIFY(raw.startsWith(sealedPrefix));
+        QVERIFY(!raw.contains(secret));
+    } else {
+        QCOMPARE(raw, secret);
+    }
+
+    // A key saved in plaintext by an older build still reads, and is sealed on that first read.
+    settings.setValue(key, secret);
+    QCOMPARE(drift::secrets::readSecret(settings, key), secret);
+    QCOMPARE(settings.value(key).toString().startsWith(sealedPrefix), drift::secrets::sealingAvailable());
+    QCOMPARE(drift::secrets::readSecret(settings, key), secret);
+
+    // A sealed value that cannot be opened (another user, damaged) reads as no key at all.
+    settings.setValue(key, sealedPrefix + QStringLiteral("bm90IGEgYmxvYg=="));
+    QVERIFY(drift::secrets::readSecret(settings, key).isEmpty());
+
+    drift::secrets::writeSecret(settings, key, QString());
+    QVERIFY(!settings.contains(key));
 }
 
 void CoreTest::zipRejectsTruncatedAndOversizedDeflate()

@@ -379,7 +379,7 @@ void AddonManager::refresh(bool force)
 
     setRefreshing(true);
     QNetworkRequest request{QUrl(kIndexUrl)};
-    request.setRawHeader("X-Flip-Client", kClientToken.toUtf8());
+    request.setRawHeader("X-Drift-Client", kClientToken.toUtf8());
     request.setAttribute(QNetworkRequest::RedirectPolicyAttribute,
                          QNetworkRequest::NoLessSafeRedirectPolicy);
 

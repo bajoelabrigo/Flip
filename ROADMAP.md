@@ -52,9 +52,10 @@ casilla al terminarla. Última actualización: 2026-10-09.
 ### Pendiente
 - [x] Probar el instalador nuevo en Windows (ícono, tema oscuro, panel de Medios, importar y **exportar** un video). — validado 2026-10-09 con el portable.
 - [ ] Revisar el resto de la interfaz buscando "Drift" o fallos de diseño en español.
-- [ ] Fusionar el PR #1 en `main`.
-- [ ] Publicar **v0.8.0** en GitHub Releases (`FlipStudio-Setup-0.8.0-x64.exe` + portable + `SHA256SUMS`).
+- [x] Fusionar el PR #1 en `main`.
+- [x] Publicar **v0.8.0** en GitHub Releases (`FlipStudio-Setup-0.8.0-x64.exe` + portable + `SHA256SUMS`) — 2026-10-09.
 - [ ] Comprobar que el actualizador detecta una versión nueva (publicar una 0.8.1 de prueba y subir el TXT).
+- [x] v0.8.1 preparada (rama `flip/v0.8.1`): claves cifradas, límites del MCP, acciones fijadas.
 - [x] `release.yml` adaptado: publica solo en tus Releases (Windows), sin Homebrew ni Discord de CutWire. Notas en `release-notes/<versión>.md`.
 - [ ] Ajustar `nightly.yml` o dejarlo desactivado.
 
@@ -66,9 +67,10 @@ casilla al terminarla. Última actualización: 2026-10-09.
   - [ ] Adaptar `msstore.yml` (hoy usa secretos de CutWire) o generar el MSIX y subirlo a mano.
   - [ ] Ficha de la tienda: descripción, capturas, política de privacidad.
 - [ ] **Firma de código** del instalador `.exe` para quitar el aviso de SmartScreen (certificado OV/EV o Azure Trusted Signing). La Store firma su propio paquete, así que esto solo hace falta para la descarga directa.
-- [ ] Página web en `getflipstudio.com`: inicio, botón de descarga, capturas.
-- [ ] **Política de privacidad** y **términos de uso** publicados en la web (los exige la Store).
-- [ ] Correo de soporte (por ejemplo `soporte@getflipstudio.com`).
+- [x] Web de `getflipstudio.com` hecha (repo local `C:\Users\bajoe\Downloads\flipstudio-web`): inicio, descarga automática de la última versión, preguntas, privacidad y términos.
+- [x] Captura real de la app en la web; textos legales bajo ley peruana (Ley 29733).
+- [x] DNS `A @ → 145.223.27.84`, publicada en el VPS y con HTTPS: https://getflipstudio.com (2026-10-09). Rediseño con recorrido interactivo y hoja de ruta.
+- [x] Correo de soporte `soporte@getflipstudio.com`.
 
 ## Fase 3 — Infraestructura propia básica
 
@@ -142,6 +144,7 @@ casilla al terminarla. Última actualización: 2026-10-09.
 | Media | Textos de servicios de CutWire todavía visibles ("Flip Studio Assets", librería de sonidos) | `src/models/DriftAssetStore.*`, `SfxLibrary.*` |
 | Media | `release.yml`, `msstore.yml` y `playstore-aab.yml` usan cuentas y secretos de CutWire | `.github/workflows/` |
 | Media | Firma de código del `.exe` (aviso de SmartScreen) | Instalador |
+| Media | La ventana de diagnóstico enlaza a la documentación y al Discord de CutWire: cambiar por `soporte@getflipstudio.com` y la web | `src/qml/components/DebugInfoDialog.qml` |
 | Baja | Ícono de macOS | `resources/macos/` |
 | Baja | IDs de Flatpak y Android | `flatpak/`, workflows |
 | Baja | `docs/BUILDING.md` y `docs/MCP.md` siguen hablando de Drift | `docs/` |

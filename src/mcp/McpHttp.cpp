@@ -11,6 +11,10 @@
 namespace drift::mcp {
 namespace {
 
+constexpr qsizetype kMaxHeaderBytes = 64 * 1024;
+// import_media_bytes carries whole media files as base64, so the body cap is generous.
+constexpr qint64 kMaxBodyBytes = 512ll * 1024 * 1024;
+
 QByteArray headerValue(const QByteArray &header, const QByteArray &name)
 {
     const QByteArray lower = header.toLower();
@@ -172,16 +176,46 @@ void McpHttp::onNewConnection()
 
 void McpHttp::onReadyRead(QTcpSocket *socket)
 {
+    // A rejected request is closing; whatever else the client sends is dropped, not buffered.
+    if (socket->state() != QAbstractSocket::ConnectedState) {
+        socket->readAll();
+        return;
+    }
     m_buffers[socket] += socket->readAll();
     QByteArray &buf = m_buffers[socket];
 
+    // The listener is loopback-only and token-gated, but the token is checked once a request is
+    // complete, so without these caps any local process could make Flip Studio buffer without bound.
+    auto reject = [this, socket](int status, const char *reason) {
+        m_buffers.remove(socket);
+        writeResponse(socket, status, reason, "application/json",
+                      QByteArray("{\"error\":\"") + reason + "\"}\n", false);
+    };
+
     while (true) {
         const int headerEnd = buf.indexOf("\r\n\r\n");
+        if (headerEnd < 0 ? buf.size() > kMaxHeaderBytes : headerEnd > kMaxHeaderBytes) {
+            reject(431, "Request Header Fields Too Large");
+            return;
+        }
         if (headerEnd < 0)
             return;
         const QByteArray header = buf.left(headerEnd);
-        const int contentLength = headerValue(header, "Content-Length").toInt();
-        const int bodyStart = headerEnd + 4;
+        const QByteArray rawLength = headerValue(header, "Content-Length").trimmed();
+        qint64 contentLength = 0;
+        if (!rawLength.isEmpty()) {
+            bool ok = false;
+            contentLength = rawLength.toLongLong(&ok);
+            if (!ok || contentLength < 0) {
+                reject(400, "Bad Request");
+                return;
+            }
+            if (contentLength > kMaxBodyBytes) {
+                reject(413, "Payload Too Large");
+                return;
+            }
+        }
+        const qsizetype bodyStart = headerEnd + 4;
         if (buf.size() < bodyStart + contentLength)
             return;
         const QByteArray body = buf.mid(bodyStart, contentLength);

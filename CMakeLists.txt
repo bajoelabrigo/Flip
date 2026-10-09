@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.8.0 LANGUAGES CXX C)
+project(Drift VERSION 0.8.1 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -492,6 +492,8 @@ add_library(driftcore STATIC
     src/core/Model3dSource.cpp
     src/core/ZipArchive.h
     src/core/ZipArchive.cpp
+    src/core/SecretStore.h
+    src/core/SecretStore.cpp
     src/core/DotLottie.h
     src/core/DotLottie.cpp
     src/core/Track.h
@@ -519,6 +521,10 @@ add_library(driftcore STATIC
 )
 target_include_directories(driftcore PUBLIC src)
 target_link_libraries(driftcore PUBLIC Qt6::Core Qt6::Gui Qt6::Xml ZLIB::ZLIB)
+if(WIN32)
+    # DPAPI (CryptProtectData) seals API keys and tokens in SecretStore.
+    target_link_libraries(driftcore PUBLIC Crypt32)
+endif()
 
 file(GLOB DRIFT_TEXT_ANIMATION_FILES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/presets/text-animations/*.json")
 qt_add_resources(driftcore "drift_text_animations"

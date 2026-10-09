@@ -1,4 +1,5 @@
 #include "mcp/McpServer.h"
+#include "core/SecretStore.h"
 #include "mcp/McpCatalog.h"
 #include "mcp/McpDispatcher.h"
 #include "mcp/McpHttp.h"
@@ -77,10 +78,10 @@ QString McpServer::persistedToken() const
 {
     QSettings settings;
     const QString key = QStringLiteral("mcp/token");
-    QString token = settings.value(key).toString();
+    QString token = drift::secrets::readSecret(settings, key);
     if (token.isEmpty()) {
         token = makeToken();
-        settings.setValue(key, token);
+        drift::secrets::writeSecret(settings, key, token);
     }
     return token;
 }
@@ -88,7 +89,8 @@ QString McpServer::persistedToken() const
 void McpServer::rotateToken()
 {
     const QString token = makeToken();
-    QSettings().setValue(QStringLiteral("mcp/token"), token);
+    QSettings settings;
+    drift::secrets::writeSecret(settings, QStringLiteral("mcp/token"), token);
     if (!m_running)
         return;
     m_token = token;

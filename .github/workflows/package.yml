@@ -209,7 +209,7 @@ jobs:
             libxcb-randr0-dev libxcb-render-util0-dev libxcb-xinerama0-dev libxcb-cursor-dev
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v4
+        uses: jurplel/install-qt-action@a9c63c7c123f3069cff414e7e482d95dfa9d8125 # v4
         with:
           version: ${{ env.QT_VERSION }}
           host: linux
@@ -404,7 +404,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v4
+        uses: jurplel/install-qt-action@a9c63c7c123f3069cff414e7e482d95dfa9d8125 # v4
         with:
           version: ${{ env.QT_VERSION }}
           host: windows
@@ -659,7 +659,7 @@ jobs:
           }
 
       - name: Build Inno Setup installer
-        uses: Minionguyjpro/Inno-Setup-Action@v1.2.6
+        uses: Minionguyjpro/Inno-Setup-Action@e3458b12721a98eee2112ea817d1a50467d6cbec # v1.2.6
         with:
           path: installer/windows/FlipStudio.iss
           # /DNightly gives the installer its own AppId, name and install directory, so it lands

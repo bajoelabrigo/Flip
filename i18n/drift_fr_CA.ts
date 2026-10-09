@@ -469,8 +469,8 @@
         <translation>Démarrer l&apos;agent au démarrage</translation>
     </message>
     <message>
-        <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
-        <translation>Évitez l&apos;activation manuelle la prochaine fois que vous ouvrez Flip. Désactiver l&apos;accès réinitialise ce paramètre.</translation>
+        <source>Skip the manual toggle next time you open Flip Studio. Turning access off resets this.</source>
+        <translation>Évitez l&apos;activation manuelle la prochaine fois que vous ouvrez Flip Studio. Désactiver l&apos;accès réinitialise ce paramètre.</translation>
     </message>
     <message>
         <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip Studio, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
@@ -9695,12 +9695,12 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Flip.</source>
-        <translation>L&apos;aperçu rapide prendra effet après le redémarrage de Flip.</translation>
+        <source>Faster preview takes effect after you restart Flip Studio.</source>
+        <translation>L&apos;aperçu rapide prendra effet après le redémarrage de Flip Studio.</translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Flip.</source>
-        <translation>Le choix de la carte graphique prend effet après le redémarrage de Flip.</translation>
+        <source>The graphics card choice takes effect after you restart Flip Studio.</source>
+        <translation>Le choix de la carte graphique prend effet après le redémarrage de Flip Studio.</translation>
     </message>
     <message>
         <source>System default</source>
@@ -9856,7 +9856,7 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation type="unfinished">Exécuter Flip Studio sur la carte graphique haute performance</translation>
     </message>
     <message>
-        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -9992,7 +9992,7 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
     </message>
     <message>
         <source>This file isn’t a Flip Studio project.</source>
-        <translation>Ce fichier n’est pas un projet Flip.</translation>
+        <translation>Ce fichier n’est pas un projet Flip Studio.</translation>
     </message>
 </context>
 <context>
@@ -11539,7 +11539,7 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
     </message>
     <message>
         <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation>Définit la carte graphique utilisée par Flip. Le mode Haute performance conserve les vidéos décodées par une carte NVIDIA sur cette même carte ; le mode Économie d&apos;énergie réduit la consommation de la batterie. S&apos;applique après le redémarrage.</translation>
+        <translation>Définit la carte graphique utilisée par Flip Studio. Le mode Haute performance conserve les vidéos décodées par une carte NVIDIA sur cette même carte ; le mode Économie d&apos;énergie réduit la consommation de la batterie. S&apos;applique après le redémarrage.</translation>
     </message>
     <message>
         <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
@@ -11646,6 +11646,10 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation>Flip Studio %1</translation>
     </message>
     <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Extra packs</source>
         <translation>Extensions supplémentaires</translation>
     </message>
@@ -11674,8 +11678,12 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation>Fournisseurs infonuagiques</translation>
     </message>
     <message>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>Les clés sont stockées non chiffrées dans les paramètres de Flip. ELEVENLABS_API_KEY et FISH_API_KEY dans l&apos;environnement ont priorité. L&apos;utilisation est facturée sur votre propre compte.</translation>
+        <translation>Les clés sont stockées non chiffrées dans les paramètres de Flip Studio. ELEVENLABS_API_KEY et FISH_API_KEY dans l&apos;environnement ont priorité. L&apos;utilisation est facturée sur votre propre compte.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -15299,7 +15307,7 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15354,7 +15362,7 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15378,7 +15386,7 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Flip. Unchecked, you choose when to install once the download finishes.</source>
+        <source>Downloads in the background and installs the next time you close Flip Studio. Unchecked, you choose when to install once the download finishes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15968,7 +15976,7 @@ Le rendu de l&apos;aperçu vidéo ne peut pas être effectué et Flip Studio pou
 If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip Studio again.</source>
         <translation>Flip Studio fonctionne depuis %1 secondes, mais sa fenêtre n&apos;a encore rien affiché.
 
-Si la fenêtre est blanche ou noire, votre pilote graphique est très probablement obsolète ou défaillant. Mettez-le à jour à partir du site Web du fabricant de votre GPU (AMD, NVIDIA ou Intel) et relancez Flip.</translation>
+Si la fenêtre est blanche ou noire, votre pilote graphique est très probablement obsolète ou défaillant. Mettez-le à jour à partir du site Web du fabricant de votre GPU (AMD, NVIDIA ou Intel) et relancez Flip Studio.</translation>
     </message>
 </context>
 </TS>

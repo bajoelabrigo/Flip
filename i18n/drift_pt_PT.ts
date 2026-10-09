@@ -468,8 +468,8 @@
         <translation>Iniciar agente na inicialização</translation>
     </message>
     <message>
-        <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
-        <translation>Pule a ativação manual da próxima vez que abrir o Flip. Desativar o acesso redefine isso.</translation>
+        <source>Skip the manual toggle next time you open Flip Studio. Turning access off resets this.</source>
+        <translation>Pule a ativação manual da próxima vez que abrir o Flip Studio. Desativar o acesso redefine isso.</translation>
     </message>
     <message>
         <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip Studio, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
@@ -9692,12 +9692,12 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Flip.</source>
-        <translation>A pré-visualização mais rápida entra em vigor após reiniciar o Flip.</translation>
+        <source>Faster preview takes effect after you restart Flip Studio.</source>
+        <translation>A pré-visualização mais rápida entra em vigor após reiniciar o Flip Studio.</translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Flip.</source>
-        <translation>A escolha da placa de vídeo entra em vigor após reiniciar o Flip.</translation>
+        <source>The graphics card choice takes effect after you restart Flip Studio.</source>
+        <translation>A escolha da placa de vídeo entra em vigor após reiniciar o Flip Studio.</translation>
     </message>
     <message>
         <source>System default</source>
@@ -9853,7 +9853,7 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished">Executar o Flip Studio na placa de vídeo de alto desempenho</translation>
     </message>
     <message>
-        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -9989,7 +9989,7 @@ Se a reprodução travar, experimente outro.</translation>
     </message>
     <message>
         <source>This file isn’t a Flip Studio project.</source>
-        <translation>Este ficheiro não é um projeto do Flip.</translation>
+        <translation>Este ficheiro não é um projeto do Flip Studio.</translation>
     </message>
 </context>
 <context>
@@ -11643,6 +11643,10 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Flip Studio %1</translation>
     </message>
     <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Extra packs</source>
         <translation>Pacotes extras</translation>
     </message>
@@ -11671,8 +11675,12 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Provedores de nuvem</translation>
     </message>
     <message>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>As chaves são armazenadas sem criptografia nas definições do Flip. ELEVENLABS_API_KEY e FISH_API_KEY no ambiente têm precedência. O uso é cobrado na sua própria conta.</translation>
+        <translation>As chaves são armazenadas sem criptografia nas definições do Flip Studio. ELEVENLABS_API_KEY e FISH_API_KEY no ambiente têm precedência. O uso é cobrado na sua própria conta.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -15294,7 +15302,7 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15349,7 +15357,7 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15373,7 +15381,7 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Flip. Unchecked, you choose when to install once the download finishes.</source>
+        <source>Downloads in the background and installs the next time you close Flip Studio. Unchecked, you choose when to install once the download finishes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

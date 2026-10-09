@@ -207,7 +207,7 @@
     </message>
     <message>
         <source>Restart Flip Studio for this to take effect.</source>
-        <translation>Aby zmiany zostały wprowadzone, uruchom ponownie Flip.</translation>
+        <translation>Aby zmiany zostały wprowadzone, uruchom ponownie Flip Studio.</translation>
     </message>
     <message>
         <source>Can&apos;t reach the download store</source>
@@ -468,7 +468,7 @@
         <translation>Uruchom agenta podczas uruchamiania</translation>
     </message>
     <message>
-        <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
+        <source>Skip the manual toggle next time you open Flip Studio. Turning access off resets this.</source>
         <translation>Pomiń ręczne przełączanie przy następnym otwarciu Drifta. Wyłączenie dostępu zresetuje to.</translation>
     </message>
     <message>
@@ -5967,7 +5967,7 @@
     </message>
     <message>
         <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
-        <translation>Nie udało się załadować Zasobów Flip. Sprawdź połączenie i spróbuj ponownie.</translation>
+        <translation>Nie udało się załadować Zasobów Flip Studio. Sprawdź połączenie i spróbuj ponownie.</translation>
     </message>
     <message>
         <source>That asset could not be installed.</source>
@@ -9651,7 +9651,7 @@
     </message>
     <message>
         <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 dekoduje na innej karcie graficznej niż ta, na której rysuje Flip. Każda klatka jest kopiowana przez pamięć systemową, co jest wolniejsze niż dekodowanie na karcie graficznej, która rysuje.</translation>
+        <translation>%1 dekoduje na innej karcie graficznej niż ta, na której rysuje Flip Studio. Każda klatka jest kopiowana przez pamięć systemową, co jest wolniejsze niż dekodowanie na karcie graficznej, która rysuje.</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -9736,12 +9736,12 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Flip.</source>
-        <translation>Szybszy podgląd zostanie włączony po ponownym uruchomieniu Flip.</translation>
+        <source>Faster preview takes effect after you restart Flip Studio.</source>
+        <translation>Szybszy podgląd zostanie włączony po ponownym uruchomieniu Flip Studio.</translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Flip.</source>
-        <translation>Wybór karty graficznej zacznie działać po ponownym uruchomieniu Flip.</translation>
+        <source>The graphics card choice takes effect after you restart Flip Studio.</source>
+        <translation>Wybór karty graficznej zacznie działać po ponownym uruchomieniu Flip Studio.</translation>
     </message>
     <message>
         <source>System default</source>
@@ -9897,8 +9897,8 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished">Uruchom Flip Studio na wysokowydajnej karcie graficznej</translation>
     </message>
     <message>
-        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
-        <translation type="unfinished">Ustaw Flip Studio na Wysoką wydajność w Ustawieniach Windows &gt; Wyświetlacz &gt; Grafika, a następnie uruchom ponownie Flip.</translation>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
+        <translation type="unfinished">Ustaw Flip Studio na Wysoką wydajność w Ustawieniach Windows &gt; Wyświetlacz &gt; Grafika, a następnie uruchom ponownie Flip Studio.</translation>
     </message>
     <message>
         <source>Open graphics settings</source>
@@ -10033,7 +10033,7 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     </message>
     <message>
         <source>This file isn’t a Flip Studio project.</source>
-        <translation>Ten plik nie jest projektem Flip.</translation>
+        <translation>Ten plik nie jest projektem Flip Studio.</translation>
     </message>
 </context>
 <context>
@@ -11581,7 +11581,7 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     </message>
     <message>
         <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation>Na której karcie graficznej działa Flip. Wysoka wydajność trzyma zdekodowane wideo na karcie NVIDIA; oszczędzanie energii zużywa mniej baterii. Działa po restarcie.</translation>
+        <translation>Na której karcie graficznej działa Flip Studio. Wysoka wydajność trzyma zdekodowane wideo na karcie NVIDIA; oszczędzanie energii zużywa mniej baterii. Działa po restarcie.</translation>
     </message>
     <message>
         <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
@@ -11688,6 +11688,10 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>Flip Studio %1</translation>
     </message>
     <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Extra packs</source>
         <translation>Dodatkowe paczki</translation>
     </message>
@@ -11716,8 +11720,12 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>Dostawcy chmury</translation>
     </message>
     <message>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>Klucze są przechowywane niezaszyfrowane w ustawieniach Flip. ELEVENLABS_API_KEY i FISH_API_KEY w środowisku mają pierwszeństwo. Użycie jest rozliczane na Twoje własne konto.</translation>
+        <translation>Klucze są przechowywane niezaszyfrowane w ustawieniach Flip Studio. ELEVENLABS_API_KEY i FISH_API_KEY w środowisku mają pierwszeństwo. Użycie jest rozliczane na Twoje własne konto.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -15347,7 +15355,7 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15402,7 +15410,7 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15426,7 +15434,7 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Flip. Unchecked, you choose when to install once the download finishes.</source>
+        <source>Downloads in the background and installs the next time you close Flip Studio. Unchecked, you choose when to install once the download finishes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

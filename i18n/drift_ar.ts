@@ -384,8 +384,8 @@
         <translation>تشغيل الوكيل عند بدء التشغيل</translation>
     </message>
     <message>
-        <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
-        <translation>تجاوز التبديل اليدوي في المرة القادمة التي تفتح فيها Flip. يؤدي إيقاف تشغيل الوصول إلى إعادة تعيين هذا.</translation>
+        <source>Skip the manual toggle next time you open Flip Studio. Turning access off resets this.</source>
+        <translation>تجاوز التبديل اليدوي في المرة القادمة التي تفتح فيها Flip Studio. يؤدي إيقاف تشغيل الوصول إلى إعادة تعيين هذا.</translation>
     </message>
     <message>
         <source>Turn this on, then copy the setup for Cursor or Claude and paste it into that app.</source>
@@ -6048,7 +6048,7 @@
     </message>
     <message>
         <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
-        <translation>تعذر تحميل عناصر Flip. تحقق من اتصالك وحاول مرة أخرى.</translation>
+        <translation>تعذر تحميل عناصر Flip Studio. تحقق من اتصالك وحاول مرة أخرى.</translation>
     </message>
     <message>
         <source>That asset could not be installed.</source>
@@ -9783,7 +9783,7 @@
     </message>
     <message>
         <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 يفك الترميز على بطاقة رسومات مختلفة عن تلك التي يرسم عليها Flip. يُنسخ كل إطار عبر ذاكرة النظام، وهو أبطأ من فك الترميز على بطاقة الرسومات التي ترسم.</translation>
+        <translation>%1 يفك الترميز على بطاقة رسومات مختلفة عن تلك التي يرسم عليها Flip Studio. يُنسخ كل إطار عبر ذاكرة النظام، وهو أبطأ من فك الترميز على بطاقة الرسومات التي ترسم.</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -9868,12 +9868,12 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Flip.</source>
-        <translation>يسري مفعول المعاينة الأسرع بعد إعادة تشغيل Flip.</translation>
+        <source>Faster preview takes effect after you restart Flip Studio.</source>
+        <translation>يسري مفعول المعاينة الأسرع بعد إعادة تشغيل Flip Studio.</translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Flip.</source>
-        <translation>يسري اختيار بطاقة الرسومات بعد إعادة تشغيل Flip.</translation>
+        <source>The graphics card choice takes effect after you restart Flip Studio.</source>
+        <translation>يسري اختيار بطاقة الرسومات بعد إعادة تشغيل Flip Studio.</translation>
     </message>
     <message>
         <source>System default</source>
@@ -10029,7 +10029,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished">تشغيل Flip Studio على بطاقة الرسومات عالية الأداء</translation>
     </message>
     <message>
-        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -10165,7 +10165,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>This file isn’t a Flip Studio project.</source>
-        <translation>هذا الملف ليس مشروع Flip.</translation>
+        <translation>هذا الملف ليس مشروع Flip Studio.</translation>
     </message>
 </context>
 <context>
@@ -11716,7 +11716,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation>تحديد بطاقة الرسومات التي يعمل عليها Flip. يبقي الأداء العالي الفيديو الذي تم فك ترميزه على بطاقة NVIDIA عليها؛ بينما يستهلك وضع توفير الطاقة قدرًا أقل من البطارية. يسري المفعول بعد إعادة التشغيل.</translation>
+        <translation>تحديد بطاقة الرسومات التي يعمل عليها Flip Studio. يبقي الأداء العالي الفيديو الذي تم فك ترميزه على بطاقة NVIDIA عليها؛ بينما يستهلك وضع توفير الطاقة قدرًا أقل من البطارية. يسري المفعول بعد إعادة التشغيل.</translation>
     </message>
     <message>
         <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
@@ -11823,6 +11823,10 @@ If playback stutters, try another.</source>
         <translation>Flip Studio %1</translation>
     </message>
     <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Extra packs</source>
         <translation>الحزم الإضافية</translation>
     </message>
@@ -11851,8 +11855,12 @@ If playback stutters, try another.</source>
         <translation>موفرو الخدمات السحابية</translation>
     </message>
     <message>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>تُخزن المفاتيح دون تشفير في إعدادات Flip. وتكون الأولوية لـ ELEVENLABS_API_KEY و FISH_API_KEY في البيئة. وتتم فوترة الاستخدام على حسابك الخاص.</translation>
+        <translation>تُخزن المفاتيح دون تشفير في إعدادات Flip Studio. وتكون الأولوية لـ ELEVENLABS_API_KEY و FISH_API_KEY في البيئة. وتتم فوترة الاستخدام على حسابك الخاص.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -15506,7 +15514,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15561,7 +15569,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15585,7 +15593,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Flip. Unchecked, you choose when to install once the download finishes.</source>
+        <source>Downloads in the background and installs the next time you close Flip Studio. Unchecked, you choose when to install once the download finishes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

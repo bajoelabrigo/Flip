@@ -5,7 +5,7 @@
     <name>AboutDialog</name>
     <message>
         <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>Acerca de Flip Studio</translation>
     </message>
     <message>
         <source>Close</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Licensed under GPLv3. Copyright © CutWire Studios and Flip Studio contributors.</source>
-        <translation>Con licencia GPLv3. Copyright © CutWire Studios y los colaboradores de Flip.</translation>
+        <translation>Con licencia GPLv3. Copyright © CutWire Studios y los colaboradores de Flip Studio.</translation>
     </message>
     <message>
         <source>Source code</source>
@@ -468,8 +468,8 @@
         <translation>Iniciar agente al inicio</translation>
     </message>
     <message>
-        <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
-        <translation>Omite la activación manual la próxima vez que abras Flip. Desactivar el acceso restablece esto.</translation>
+        <source>Skip the manual toggle next time you open Flip Studio. Turning access off resets this.</source>
+        <translation>Omite la activación manual la próxima vez que abras Flip Studio. Desactivar el acceso restablece esto.</translation>
     </message>
     <message>
         <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip Studio, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
@@ -8185,7 +8185,7 @@
     </message>
     <message>
         <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>Acerca de Flip Studio</translation>
     </message>
     <message>
         <source>Settings…</source>
@@ -9607,7 +9607,7 @@
     </message>
     <message>
         <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 se descodifica en una tarjeta gráfica diferente de aquella en la que dibuja Flip. Cada fotograma se copia a través de la memoria del sistema, lo que es más lento que descodificar en la tarjeta gráfica que dibuja.</translation>
+        <translation>%1 se descodifica en una tarjeta gráfica diferente de aquella en la que dibuja Flip Studio. Cada fotograma se copia a través de la memoria del sistema, lo que es más lento que descodificar en la tarjeta gráfica que dibuja.</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -9692,12 +9692,12 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Flip.</source>
-        <translation>La vista previa más rápida surtirá efecto después de reiniciar Flip.</translation>
+        <source>Faster preview takes effect after you restart Flip Studio.</source>
+        <translation>La vista previa más rápida surtirá efecto después de reiniciar Flip Studio.</translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Flip.</source>
-        <translation>La elección de la tarjeta gráfica surtirá efecto después de reiniciar Flip.</translation>
+        <source>The graphics card choice takes effect after you restart Flip Studio.</source>
+        <translation>La elección de la tarjeta gráfica surtirá efecto después de reiniciar Flip Studio.</translation>
     </message>
     <message>
         <source>System default</source>
@@ -9853,7 +9853,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished">Ejecutar Flip Studio en la tarjeta gráfica de alto rendimiento</translation>
     </message>
     <message>
-        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -9989,7 +9989,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>This file isn’t a Flip Studio project.</source>
-        <translation>Este archivo no es un proyecto Flip.</translation>
+        <translation>Este archivo no es un proyecto Flip Studio.</translation>
     </message>
 </context>
 <context>
@@ -11536,7 +11536,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation>En qué tarjeta gráfica se ejecuta Flip. Alto rendimiento mantiene el vídeo descodificado en una tarjeta NVIDIA en esa misma tarjeta; ahorro de energía usa menos batería. Surte efecto tras reiniciar.</translation>
+        <translation>En qué tarjeta gráfica se ejecuta Flip Studio. Alto rendimiento mantiene el vídeo descodificado en una tarjeta NVIDIA en esa misma tarjeta; ahorro de energía usa menos batería. Surte efecto tras reiniciar.</translation>
     </message>
     <message>
         <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
@@ -11643,6 +11643,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Flip Studio %1</translation>
     </message>
     <message>
+        <source>About Flip Studio</source>
+        <translation>Acerca de Flip Studio</translation>
+    </message>
+    <message>
         <source>Extra packs</source>
         <translation>Paquetes adicionales</translation>
     </message>
@@ -11671,8 +11675,12 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Proveedores en la nube</translation>
     </message>
     <message>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation>Las claves se guardan cifradas para tu usuario de Windows. ELEVENLABS_API_KEY y FISH_API_KEY en el entorno tienen prioridad. El uso se factura a tu propia cuenta.</translation>
+    </message>
+    <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>Las claves se guardan sin cifrar en la configuración de Flip. ELEVENLABS_API_KEY y FISH_API_KEY en el entorno tienen prioridad. El uso se factura a tu propia cuenta.</translation>
+        <translation>Las claves se guardan sin cifrar en la configuración de Flip Studio. ELEVENLABS_API_KEY y FISH_API_KEY en el entorno tienen prioridad. El uso se factura a tu propia cuenta.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -15294,7 +15302,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15349,7 +15357,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15373,7 +15381,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Flip. Unchecked, you choose when to install once the download finishes.</source>
+        <source>Downloads in the background and installs the next time you close Flip Studio. Unchecked, you choose when to install once the download finishes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

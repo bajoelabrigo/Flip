@@ -435,6 +435,22 @@ Item {
                     }
                 }
 
+                // Upstream only offers About from the macOS menu bar, which leaves Windows, Linux
+                // and Android with no way to reach the credits and the source link the GPL asks for.
+                ThemedButton {
+                    variant: "secondary"
+                    glyph: Theme.icons.info
+                    text: qsTr("About Flip Studio")
+                    onClicked: aboutDialogLoader.ensure().open()
+                }
+
+                LazyLoader {
+                    id: aboutDialogLoader
+                    sourceComponent: Component {
+                        AboutDialog { }
+                    }
+                }
+
                 Rectangle {
                     width: parent.width
                     height: Theme.borderWidth
@@ -487,7 +503,9 @@ Item {
                     width: parent.width
                     wrapMode: Text.Wrap
                     color: Theme.mutedForeground
-                    text: qsTr("Keys are stored unencrypted in Flip Studio's settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.")
+                    text: Qt.platform.os === "windows"
+                          ? qsTr("Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.")
+                          : qsTr("Keys are stored unencrypted in Flip Studio's settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.")
                 }
 
                 Repeater {

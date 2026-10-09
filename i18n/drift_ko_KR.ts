@@ -468,7 +468,7 @@
         <translation>시작 시 에이전트 실행</translation>
     </message>
     <message>
-        <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
+        <source>Skip the manual toggle next time you open Flip Studio. Turning access off resets this.</source>
         <translation>다음에 Drift를 열 때 수동으로 전환할 필요가 없습니다. 접근 권한을 끄면 이 설정이 초기화됩니다.</translation>
     </message>
     <message>
@@ -9648,11 +9648,11 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Flip.</source>
+        <source>Faster preview takes effect after you restart Flip Studio.</source>
         <translation>더 빠른 미리보기는 Drift를 다시 시작한 후 적용됩니다.</translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Flip.</source>
+        <source>The graphics card choice takes effect after you restart Flip Studio.</source>
         <translation>그래픽 카드 선택은 Drift를 다시 시작한 후 적용됩니다.</translation>
     </message>
     <message>
@@ -9803,7 +9803,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished">고성능 그래픽 카드에서 Flip Studio 실행</translation>
     </message>
     <message>
-        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11591,6 +11591,10 @@ If playback stutters, try another.</source>
         <translation>Flip Studio %1</translation>
     </message>
     <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Extra packs</source>
         <translation>추가 팩</translation>
     </message>
@@ -11617,6 +11621,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Cloud providers</source>
         <translation>클라우드 제공업체</translation>
+    </message>
+    <message>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
@@ -15233,7 +15241,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15288,7 +15296,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15312,7 +15320,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Flip. Unchecked, you choose when to install once the download finishes.</source>
+        <source>Downloads in the background and installs the next time you close Flip Studio. Unchecked, you choose when to install once the download finishes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
