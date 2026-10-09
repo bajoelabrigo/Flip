@@ -18,6 +18,7 @@
 #include <QSettings>
 #include <QStandardPaths>
 #include <QTcpServer>
+#include <QElapsedTimer>
 #include <QTcpSocket>
 #include <QHostAddress>
 #include <QImage>
@@ -76,6 +77,7 @@ private slots:
     void stdioReadsLargeMessage();
     void stdioReadsEofAndTrailingMessage();
     void serverRequiresBearerToken();
+    void serverRejectsMalformedAndOversizedRequests();
     void serverInitializeWithToken();
     void serverNotificationReturns202();
     void mcpStartOnLaunchAppliesOnlyWhenInvoked();
@@ -267,6 +269,31 @@ static QByteArray httpPost(quint16 port, const QByteArray &auth, const QByteArra
         *statusOut = parts.size() >= 2 ? parts.at(1).toInt() : 0;
     }
     return response.mid(sep + 4);
+}
+
+// Sends raw bytes and returns the status code of the reply (0 when none arrives), for requests
+// httpPost cannot express: lying or oversized Content-Length, headers that never end.
+static int rawHttpStatus(quint16 port, const QByteArray &request)
+{
+    QTcpSocket socket;
+    socket.connectToHost(QStringLiteral("127.0.0.1"), port);
+    if (!socket.waitForConnected(2000))
+        return 0;
+    socket.write(request);
+    socket.flush();
+    QByteArray response;
+    QElapsedTimer timer;
+    timer.start();
+    while (!response.contains("\r\n") && timer.elapsed() < 5000) {
+        if (socket.waitForReadyRead(200))
+            response += socket.readAll();
+        else if (socket.state() == QAbstractSocket::UnconnectedState)
+            break;
+        else
+            QCoreApplication::processEvents();
+    }
+    const auto parts = response.left(response.indexOf('\r')).split(' ');
+    return parts.size() >= 2 ? parts.at(1).toInt() : 0;
 }
 
 void McpTest::catalogListsToolboxes()
@@ -534,6 +561,34 @@ void McpTest::serverRequiresBearerToken()
     QCOMPARE(status, 401);
     state.mcp()->setEnabled(false);
     QVERIFY(!state.mcp()->running());
+    qunsetenv("DRIFT_MCP_SESSION_PATH");
+}
+
+void McpTest::serverRejectsMalformedAndOversizedRequests()
+{
+    QTemporaryDir dir;
+    qputenv("DRIFT_MCP_SESSION_PATH", dir.filePath(QStringLiteral("s.json")).toUtf8());
+    AssetLibrary library;
+    AppController state(&library);
+    state.mcp()->setEnabled(true);
+    QVERIFY2(state.mcp()->running(), qPrintable(state.mcp()->error()));
+    const quint16 port = quint16(state.mcp()->port());
+
+    QCOMPARE(rawHttpStatus(port, "POST /mcp HTTP/1.1\r\nContent-Length: -5\r\n\r\n{}"), 400);
+    QCOMPARE(rawHttpStatus(port, "POST /mcp HTTP/1.1\r\nContent-Length: abc\r\n\r\n{}"), 400);
+    QCOMPARE(rawHttpStatus(port, "POST /mcp HTTP/1.1\r\nContent-Length: 99999999999\r\n\r\n"), 413);
+    // Headers that never finish are cut off instead of buffered forever. The server closes while
+    // the client is still sending, so the 431 can be lost to a TCP reset; either way the
+    // connection must end, and the server must keep serving afterwards (checked below).
+    const int padStatus = rawHttpStatus(port, "POST /mcp HTTP/1.1\r\nX-Pad: " + QByteArray(70 * 1024, 'a'));
+    QVERIFY2(padStatus == 431 || padStatus == 0, qPrintable(QString::number(padStatus)));
+
+    // A well-formed request still gets through to the token check.
+    int status = 0;
+    httpPost(port, {}, QJsonDocument(rpc(QStringLiteral("ping"))).toJson(QJsonDocument::Compact), &status);
+    QCOMPARE(status, 401);
+
+    state.mcp()->setEnabled(false);
     qunsetenv("DRIFT_MCP_SESSION_PATH");
 }
 
