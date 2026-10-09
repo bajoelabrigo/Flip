@@ -55,7 +55,7 @@ ThemedDialog {
     function importUserPackage(url) {
         if (!url || String(url) === "")
             url = FileDialogs.openFile(qsTr("Install Addon"),
-                                       [qsTr("Flip addons (*.driftpkg *.driftfx *.zip)")])
+                                       [qsTr("Flip Studio addons (*.driftpkg *.driftfx *.zip)")])
         if (!url || String(url) === "")
             return
         const info = Addons.inspectAddonFile(url)
@@ -89,7 +89,7 @@ ThemedDialog {
             text: {
                 const p = root.pendingAddonFile
                 const by = p.author ? qsTr("“%1” by %2").arg(p.name).arg(p.author) : qsTr("“%1”").arg(p.name)
-                var lines = [qsTr("%1 is not signed by the Flip team. Only install files you trust.").arg(by)]
+                var lines = [qsTr("%1 is not signed by the Flip Studio team. Only install files you trust.").arg(by)]
                 if (p.nativeCode)
                     lines.push(qsTr("It contains code that runs on your computer."))
                 if (p.replaces)
@@ -120,7 +120,7 @@ ThemedDialog {
             text: {
                 const p = root.pendingUserPackage
                 const by = p.author ? qsTr("“%1” by %2").arg(p.name).arg(p.author) : qsTr("“%1”").arg(p.name)
-                return qsTr("%1 was made by a user, not the Flip team, and nothing has checked it. Only install files you trust.").arg(by)
+                return qsTr("%1 was made by a user, not the Flip Studio team, and nothing has checked it. Only install files you trust.").arg(by)
             }
         }
 
@@ -374,7 +374,7 @@ ThemedDialog {
                 visible: accelerationPanel.restartRequired
                 color: Theme.destructive
                 tone: "default"
-                text: qsTr("Restart Flip for this to take effect.")
+                text: qsTr("Restart Flip Studio for this to take effect.")
             }
         }
 
@@ -544,7 +544,7 @@ ThemedDialog {
                             if (row.modelData.state === "failed")
                                 return row.modelData.error
                             if (row.modelData.state === "needs-newer-app")
-                                return qsTr("Requires Flip %1 or newer").arg(row.modelData.minAppVersion)
+                                return qsTr("Requires Flip Studio %1 or newer").arg(row.modelData.minAppVersion)
                             var parts = []
                             if (row.modelData.unofficial)
                                 parts.push(qsTr("Unofficial"))

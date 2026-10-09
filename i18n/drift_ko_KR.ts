@@ -4,7 +4,7 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About Flip</source>
+        <source>About Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12,8 +12,8 @@
         <translation type="unfinished">닫기</translation>
     </message>
     <message>
-        <source>Flip</source>
-        <translation>Flip</translation>
+        <source>Flip Studio</source>
+        <translation>Flip Studio</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -24,7 +24,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Licensed under GPLv3. Copyright © CutWire Studios and Flip contributors.</source>
+        <source>Licensed under GPLv3. Copyright © CutWire Studios and Flip Studio contributors.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -59,7 +59,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Flip effect file (%1).</source>
+        <source>This is not a Flip Studio effect file (%1).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -67,7 +67,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Flip addon file.</source>
+        <source>This is not a Flip Studio addon file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -118,7 +118,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip addons (*.driftpkg *.driftfx *.zip)</source>
+        <source>Flip Studio addons (*.driftpkg *.driftfx *.zip)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -134,7 +134,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 is not signed by the Flip team. Only install files you trust.</source>
+        <source>%1 is not signed by the Flip Studio team. Only install files you trust.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -146,7 +146,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 was made by a user, not the Flip team, and nothing has checked it. Only install files you trust.</source>
+        <source>%1 was made by a user, not the Flip Studio team, and nothing has checked it. Only install files you trust.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -206,7 +206,7 @@
         <translation>아래에서 AI 엔진을 설치하면 자동 자막, 피사체 분리, 재미있는 얼굴 효과 및 노이즈 제거를 사용할 수 있습니다.</translation>
     </message>
     <message>
-        <source>Restart Flip for this to take effect.</source>
+        <source>Restart Flip Studio for this to take effect.</source>
         <translation>변경 사항을 적용하려면 Drift를 다시 시작하세요.</translation>
     </message>
     <message>
@@ -242,7 +242,7 @@
         <translation>%1… %2%</translation>
     </message>
     <message>
-        <source>Requires Flip %1 or newer</source>
+        <source>Requires Flip Studio %1 or newer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -309,7 +309,7 @@
         <translation>추천 팩</translation>
     </message>
     <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip without them — installing unlocks updates when they improve.</source>
+        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
         <translation>효과, 전환 및 오디오에 필요한 기본 팩을 설치하세요. 설치하지 않아도 Drift를 계속 사용할 수 있지만, 설치하면 개선 사항이 적용된 업데이트를 받을 수 있습니다.</translation>
     </message>
     <message>
@@ -472,7 +472,7 @@
         <translation>다음에 Drift를 열 때 수동으로 전환할 필요가 없습니다. 접근 권한을 끄면 이 설정이 초기화됩니다.</translation>
     </message>
     <message>
-        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
+        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip Studio, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
         <translation>Cursor 또는 Claude가 대신 이 프로젝트를 편집하도록 허용하세요. 클립을 추가하고 타임라인을 변경하며 결과를 확인할 수 있습니다. 이 장치의 프로그램만 사용할 수 있습니다. 아래의 “시작 시 에이전트 실행”을 켜지 않는 한 Drift를 열 때마다 기본적으로 꺼져 있습니다. 작업을 마치면 여기에서 접근 권한을 끄세요. 키는 세션 간에 유지되므로 한 번 붙여넣은 설정을 계속 사용할 수 있습니다.</translation>
     </message>
 </context>
@@ -716,8 +716,8 @@
 <context>
     <name>AndroidEditor</name>
     <message>
-        <source>Flip project (*.drift)</source>
-        <translation>Flip 프로젝트 (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Flip Studio 프로젝트 (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -919,8 +919,8 @@
 <context>
     <name>AndroidMain</name>
     <message>
-        <source>Flip project (*.drift)</source>
-        <translation>Flip 프로젝트 (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Flip Studio 프로젝트 (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -3536,8 +3536,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This build of Flip has no video stabilization support</source>
-        <translation>이 Flip 빌드에서는 동영상 안정화를 지원하지 않습니다</translation>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation>이 Flip Studio 빌드에서는 동영상 안정화를 지원하지 않습니다</translation>
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
@@ -4602,7 +4602,7 @@
         </translation>
     </message>
     <message numerus="yes">
-        <source>Imported %n files into %1 folders. %2 files were skipped — Flip does not recognize their format. Drag them onto the bin to try anyway.</source>
+        <source>Imported %n files into %1 folders. %2 files were skipped — Flip Studio does not recognize their format. Drag them onto the bin to try anyway.</source>
         <translation>
             <numerusform>%1개 폴더에 파일 %n개를 가져왔습니다. %2개 파일은 건너뛰었습니다 — Drift가 해당 형식을 인식하지 못합니다. 그래도 가져오려면 미디어 라이브러리로 드래그하세요.</numerusform>
         </translation>
@@ -5912,8 +5912,8 @@
         <translation>이 빌드에서는 마켓플레이스를 사용할 수 없습니다.</translation>
     </message>
     <message>
-        <source>Could not load Flip Assets. Check your connection and try again.</source>
-        <translation>Flip Assets를 불러올 수 없습니다. 연결을 확인한 후 다시 시도하세요.</translation>
+        <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
+        <translation>Flip Studio Assets를 불러올 수 없습니다. 연결을 확인한 후 다시 시도하세요.</translation>
     </message>
     <message>
         <source>That asset could not be installed.</source>
@@ -5963,8 +5963,8 @@
         <translation>미디어 라이브러리에 추가됨</translation>
     </message>
     <message>
-        <source>Couldn’t load Flip Assets</source>
-        <translation>Flip Assets를 불러올 수 없습니다</translation>
+        <source>Couldn’t load Flip Studio Assets</source>
+        <translation>Flip Studio Assets를 불러올 수 없습니다</translation>
     </message>
     <message>
         <source>Try again</source>
@@ -5975,8 +5975,8 @@
         <translation>아직 에셋이 없습니다</translation>
     </message>
     <message>
-        <source>Flip Assets are still being published. Check back soon.</source>
-        <translation>Flip Assets가 아직 게시되는 중입니다. 잠시 후 다시 확인하세요.</translation>
+        <source>Flip Studio Assets are still being published. Check back soon.</source>
+        <translation>Flip Studio Assets가 아직 게시되는 중입니다. 잠시 후 다시 확인하세요.</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -5991,8 +5991,8 @@
         <translation>모든 에셋</translation>
     </message>
     <message>
-        <source>No Flip Assets match “%1”.</source>
-        <translation>“%1”과(와) 일치하는 Flip Assets가 없습니다.</translation>
+        <source>No Flip Studio Assets match “%1”.</source>
+        <translation>“%1”과(와) 일치하는 Flip Studio Assets가 없습니다.</translation>
     </message>
     <message>
         <source>Search %1 for “%2”</source>
@@ -6002,8 +6002,8 @@
 <context>
     <name>EditorHeader</name>
     <message>
-        <source>Flip project (*.drift)</source>
-        <translation>Flip 프로젝트 (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Flip Studio 프로젝트 (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -6136,8 +6136,8 @@
         <translation>업데이트</translation>
     </message>
     <message>
-        <source>Flip %1 is available</source>
-        <translation>Flip %1을(를) 사용할 수 있습니다</translation>
+        <source>Flip Studio %1 is available</source>
+        <translation>Flip Studio %1을(를) 사용할 수 있습니다</translation>
     </message>
     <message>
         <source>Agent access</source>
@@ -6343,8 +6343,8 @@
 <context>
     <name>EffectStacksSection</name>
     <message>
-        <source>Flip effect stack (*.drifteffects)</source>
-        <translation>Flip 효과 스택 (*.drifteffects)</translation>
+        <source>Flip Studio effect stack (*.drifteffects)</source>
+        <translation>Flip Studio 효과 스택 (*.drifteffects)</translation>
     </message>
     <message>
         <source>Import effect stack</source>
@@ -6956,7 +6956,7 @@
         <translation>prop.json이 얼굴 소품이 아닙니다</translation>
     </message>
     <message>
-        <source>prop.json needs a newer version of Flip</source>
+        <source>prop.json needs a newer version of Flip Studio</source>
         <translation>prop.json에는 더 최신 버전의 Drift가 필요합니다</translation>
     </message>
     <message>
@@ -8154,7 +8154,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Flip</source>
+        <source>About Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8166,8 +8166,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 is the latest version.</source>
-        <translation type="unfinished">Flip %1이(가) 최신 버전입니다.</translation>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation type="unfinished">Flip Studio %1이(가) 최신 버전입니다.</translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -8352,7 +8352,7 @@
         <translation>다운로드가 성공하거나 완료되거나 선택한 화질을 제공한다고 보장할 수 없습니다. 일부 항목은 그냥 실패할 수 있습니다.</translation>
     </message>
     <message>
-        <source>Everything here comes from third parties. Flip does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
+        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
         <translation>여기의 모든 항목은 제3자가 제공합니다. Drift가 호스팅하거나 소유하거나 검증하지 않습니다 — 다운로드한 항목을 사용할 권리가 있는지 확인할 책임은 사용자에게 있습니다.</translation>
     </message>
     <message>
@@ -9558,11 +9558,11 @@
 <context>
     <name>PlaybackEngine</name>
     <message>
-        <source>%1 decodes on %2, but Flip draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <source>%1 decodes on %2, but Flip Studio draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
         <translation>%1은(는) %2에서 디코딩되지만 Drift는 %3에서 그립니다. 모든 프레임이 시스템 메모리를 거치므로, 렌더링에 사용하는 그래픽 카드에서 직접 디코딩하는 것보다 느립니다.</translation>
     </message>
     <message>
-        <source>%1 decodes on a different graphics card than the one Flip draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
         <translation>%1은(는) Drift가 사용하는 그래픽 카드와 다른 카드에서 디코딩됩니다. 모든 프레임이 시스템 메모리를 거치므로, 렌더링에 사용하는 그래픽 카드에서 직접 디코딩하는 것보다 느립니다.</translation>
     </message>
     <message>
@@ -9795,15 +9795,15 @@ If playback stutters, try another.</source>
         <translation type="unfinished">취소</translation>
     </message>
     <message>
-        <source>Launching Flip with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
+        <source>Launching Flip Studio with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
         <translation type="unfinished">prime-run(또는 DRI_PRIME=1)으로 Drift를 실행하면 OpenGL이 디코더와 같은 그래픽 카드를 사용합니다.</translation>
     </message>
     <message>
-        <source>Run Flip on the high-performance graphics card</source>
-        <translation type="unfinished">고성능 그래픽 카드에서 Flip 실행</translation>
+        <source>Run Flip Studio on the high-performance graphics card</source>
+        <translation type="unfinished">고성능 그래픽 카드에서 Flip Studio 실행</translation>
     </message>
     <message>
-        <source>Set Flip to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -9860,11 +9860,11 @@ If playback stutters, try another.</source>
         <translation type="unfinished">GPU 미리보기를 사용할 수 없음</translation>
     </message>
     <message>
-        <source>Your graphics driver only provides %1. Flip&apos;s preview needs OpenGL 3.3.</source>
+        <source>Your graphics driver only provides %1. Flip Studio&apos;s preview needs OpenGL 3.3.</source>
         <translation type="unfinished">그래픽 드라이버가 %1만 제공합니다. Drift의 미리보기에는 OpenGL 3.3이 필요합니다.</translation>
     </message>
     <message>
-        <source>Flip could not start its GPU renderer, so the preview cannot draw.</source>
+        <source>Flip Studio could not start its GPU renderer, so the preview cannot draw.</source>
         <translation type="unfinished">Drift에서 GPU 렌더러를 시작할 수 없어 미리보기를 표시할 수 없습니다.</translation>
     </message>
     <message>
@@ -9934,12 +9934,12 @@ If playback stutters, try another.</source>
 <context>
     <name>Project</name>
     <message>
-        <source>This project was saved by a newer version of Flip (project format %1; this build reads up to %2).</source>
+        <source>This project was saved by a newer version of Flip Studio (project format %1; this build reads up to %2).</source>
         <translation>이 프로젝트는 더 최신 버전의 Drift에서 저장되었습니다(프로젝트 형식 %1, 이 빌드는 최대 %2까지 읽습니다).</translation>
     </message>
     <message>
-        <source>This file isn’t a Flip project.</source>
-        <translation>이 파일은 Flip 프로젝트가 아닙니다.</translation>
+        <source>This file isn’t a Flip Studio project.</source>
+        <translation>이 파일은 Flip Studio 프로젝트가 아닙니다.</translation>
     </message>
 </context>
 <context>
@@ -9953,12 +9953,12 @@ If playback stutters, try another.</source>
         <translation>%1을(를) 열 수 없습니다</translation>
     </message>
     <message>
-        <source>file is too short to be a Flip project</source>
-        <translation>파일이 Flip 프로젝트가 되기에는 너무 짧습니다</translation>
+        <source>file is too short to be a Flip Studio project</source>
+        <translation>파일이 Flip Studio 프로젝트가 되기에는 너무 짧습니다</translation>
     </message>
     <message>
-        <source>not a Flip project (bad magic)</source>
-        <translation>Flip 프로젝트가 아닙니다(잘못된 시그니처)</translation>
+        <source>not a Flip Studio project (bad magic)</source>
+        <translation>Flip Studio 프로젝트가 아닙니다(잘못된 시그니처)</translation>
     </message>
     <message>
         <source>unsupported container revision</source>
@@ -9985,7 +9985,7 @@ If playback stutters, try another.</source>
         <translation>프로젝트 매니페스트에 형식 버전이 없습니다</translation>
     </message>
     <message>
-        <source>this project was saved by a newer version of Flip (format %1) — update to open it</source>
+        <source>this project was saved by a newer version of Flip Studio (format %1) — update to open it</source>
         <translation>이 프로젝트는 더 최신 버전의 Drift에서 저장되었습니다(형식 %1) — 열려면 업데이트하세요</translation>
     </message>
     <message>
@@ -11073,7 +11073,7 @@ If playback stutters, try another.</source>
         <translation>작업 중…</translation>
     </message>
     <message>
-        <source>Flip will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
+        <source>Flip Studio will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
         <translation>Drift가 이 클립의 반전된 복사본을 렌더링하여 부드럽게 재생합니다. 작업 중에도 계속 편집할 수 있습니다.</translation>
     </message>
     <message>
@@ -11483,11 +11483,11 @@ If playback stutters, try another.</source>
         <translation>고성능(독립 GPU)</translation>
     </message>
     <message>
-        <source>Which graphics card Flip runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
+        <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
         <translation>Drift에서 사용할 그래픽 카드를 선택합니다. 고성능은 동영상을 NVIDIA 카드에서 해당 카드로 디코딩하도록 유지하고, 절전은 배터리를 덜 사용합니다. 다시 시작한 후 적용됩니다.</translation>
     </message>
     <message>
-        <source>Choose which graphics card Flip runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
+        <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11531,7 +11531,7 @@ If playback stutters, try another.</source>
         <translation>버튼, 텍스트 및 아이콘을 더 크게 만듭니다. 디스플레이 설정에서 이미 지정된 크기에 추가로 적용됩니다. 다시 시작한 후 적용됩니다.</translation>
     </message>
     <message>
-        <source>Restart Flip to apply this size.</source>
+        <source>Restart Flip Studio to apply this size.</source>
         <translation>이 크기를 적용하려면 Drift를 다시 시작하세요.</translation>
     </message>
     <message>
@@ -11587,8 +11587,8 @@ If playback stutters, try another.</source>
         <translation>지금 확인</translation>
     </message>
     <message>
-        <source>Flip %1</source>
-        <translation>Flip %1</translation>
+        <source>Flip Studio %1</source>
+        <translation>Flip Studio %1</translation>
     </message>
     <message>
         <source>Extra packs</source>
@@ -11619,8 +11619,8 @@ If playback stutters, try another.</source>
         <translation>클라우드 제공업체</translation>
     </message>
     <message>
-        <source>Keys are stored unencrypted in Flip&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>키는 Flip 설정에 암호화되지 않은 상태로 저장됩니다. 환경 변수의 ELEVENLABS_API_KEY 및 FISH_API_KEY가 우선 적용됩니다. 사용 요금은 본인 계정에 청구됩니다.</translation>
+        <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation>키는 Flip Studio 설정에 암호화되지 않은 상태로 저장됩니다. 환경 변수의 ELEVENLABS_API_KEY 및 FISH_API_KEY가 우선 적용됩니다. 사용 요금은 본인 계정에 청구됩니다.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -11663,8 +11663,8 @@ If playback stutters, try another.</source>
         <translation>%1에 오디오 및 텍스트 전송 허용</translation>
     </message>
     <message>
-        <source>Needed before Flip or a connected agent can transcribe or generate audio with this service</source>
-        <translation>Flip 또는 연결된 에이전트가 이 서비스로 전사하거나 오디오를 생성하려면 필요합니다</translation>
+        <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
+        <translation>Flip Studio 또는 연결된 에이전트가 이 서비스로 전사하거나 오디오를 생성하려면 필요합니다</translation>
     </message>
     <message>
         <source>Default voice id</source>
@@ -11699,7 +11699,7 @@ If playback stutters, try another.</source>
         <translation>이 장치에서 마켓플레이스 계정 연결 해제</translation>
     </message>
     <message>
-        <source>Once a day, check whether a newer Flip has been released</source>
+        <source>Once a day, check whether a newer Flip Studio has been released</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12522,7 +12522,7 @@ If playback stutters, try another.</source>
         <translation>모드</translation>
     </message>
     <message>
-        <source>Smooths camera shake. Flip scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
+        <source>Smooths camera shake. Flip Studio scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13045,8 +13045,8 @@ If playback stutters, try another.</source>
 <context>
     <name>TextAssetsTab</name>
     <message>
-        <source>Flip text style (*.drifttextstyle)</source>
-        <translation>Flip 텍스트 스타일 (*.drifttextstyle)</translation>
+        <source>Flip Studio text style (*.drifttextstyle)</source>
+        <translation>Flip Studio 텍스트 스타일 (*.drifttextstyle)</translation>
     </message>
     <message>
         <source>Import text style</source>
@@ -15217,7 +15217,7 @@ If playback stutters, try another.</source>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <source>Flip %1 update</source>
+        <source>Flip Studio %1 update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15225,7 +15225,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Installs when you close Flip</source>
+        <source>Installs when you close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15233,7 +15233,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15245,12 +15245,12 @@ If playback stutters, try another.</source>
         <translation>업데이트를 확인할 수 없습니다: 예상하지 못한 응답입니다.</translation>
     </message>
     <message>
-        <source>Flip %1 is the latest version.</source>
-        <translation>Flip %1이(가) 최신 버전입니다.</translation>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation>Flip Studio %1이(가) 최신 버전입니다.</translation>
     </message>
     <message>
-        <source>Flip %1 is available.</source>
-        <translation>Flip %1을(를) 사용할 수 있습니다.</translation>
+        <source>Flip Studio %1 is available.</source>
+        <translation>Flip Studio %1을(를) 사용할 수 있습니다.</translation>
     </message>
     <message>
         <source>Couldn’t download the update: the cache isn’t writable.</source>
@@ -15273,7 +15273,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 is ready to install.</source>
+        <source>Flip Studio %1 is ready to install.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -15288,19 +15288,19 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 is downloaded and ready to install</source>
+        <source>Flip Studio %1 is downloaded and ready to install</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 is available</source>
-        <translation>Flip %1을(를) 사용할 수 있습니다</translation>
+        <source>Flip Studio %1 is available</source>
+        <translation>Flip Studio %1을(를) 사용할 수 있습니다</translation>
     </message>
     <message>
-        <source>A new Flip update is available</source>
+        <source>A new Flip Studio update is available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15308,7 +15308,7 @@ If playback stutters, try another.</source>
         <translation>현재 버전은 %1입니다.</translation>
     </message>
     <message>
-        <source>Install automatically when I close Flip</source>
+        <source>Install automatically when I close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15328,7 +15328,7 @@ If playback stutters, try another.</source>
         <translation>나중에</translation>
     </message>
     <message>
-        <source>Install when I close Flip</source>
+        <source>Install when I close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15336,7 +15336,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished">업데이트</translation>
     </message>
     <message>
-        <source>Closes Flip, installs the update and opens Flip again</source>
+        <source>Closes Flip Studio, installs the update and opens Flip Studio again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15348,7 +15348,7 @@ If playback stutters, try another.</source>
         <translation>브라우저에서 릴리스 페이지를 엽니다</translation>
     </message>
     <message>
-        <source>Downloading Flip %1…</source>
+        <source>Downloading Flip Studio %1…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15861,7 +15861,7 @@ If playback stutters, try another.</source>
         <translation>OpenGL 드라이버 없음</translation>
     </message>
     <message>
-        <source>Flip could not create an OpenGL context, so it cannot draw its interface or render the preview.
+        <source>Flip Studio could not create an OpenGL context, so it cannot draw its interface or render the preview.
 
 Install or update your graphics driver.</source>
         <translation>Drift에서 OpenGL 컨텍스트를 만들 수 없어 인터페이스를 표시하거나 미리보기를 렌더링할 수 없습니다.\n\n그래픽 드라이버를 설치하거나 업데이트하세요.</translation>
@@ -15871,7 +15871,7 @@ Install or update your graphics driver.</source>
         <translation>OpenGL 컨텍스트를 사용할 수 없음</translation>
     </message>
     <message>
-        <source>Flip could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
+        <source>Flip Studio could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
 
 The video preview cannot render. Updating your graphics driver may help.</source>
         <translation>Drift에서 OpenGL 3.3 코어 프로필 컨텍스트를 만들 수 없습니다. 이 드라이버는 OpenGL %1.%2(%3)를 보고합니다.\n\n동영상 미리보기를 렌더링할 수 없습니다. 그래픽 드라이버를 업데이트하면 해결될 수 있습니다.</translation>
@@ -15881,19 +15881,19 @@ The video preview cannot render. Updating your graphics driver may help.</source
         <translation>그래픽 드라이버가 너무 오래되었습니다</translation>
     </message>
     <message>
-        <source>Flip needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
+        <source>Flip Studio needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
 
-The video preview cannot render, and Flip may not start at all. Update your graphics driver, or run Flip on a machine with a newer GPU.</source>
+The video preview cannot render, and Flip Studio may not start at all. Update your graphics driver, or run Flip Studio on a machine with a newer GPU.</source>
         <translation>Drift에는 OpenGL 3.3이 필요하지만 이 그래픽 드라이버는 OpenGL %1.%2(%3)만 제공합니다.\n\n동영상 미리보기를 렌더링할 수 없으며 Drift가 아예 시작되지 않을 수도 있습니다. 그래픽 드라이버를 업데이트하거나 더 최신 GPU가 있는 컴퓨터에서 Drift를 실행하세요.</translation>
     </message>
     <message>
-        <source>Flip is not drawing its window</source>
+        <source>Flip Studio is not drawing its window</source>
         <translation>Drift가 창을 그리지 못하고 있습니다</translation>
     </message>
     <message>
-        <source>Flip has been running for %1 seconds but its window has not drawn anything yet.
+        <source>Flip Studio has been running for %1 seconds but its window has not drawn anything yet.
 
-If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip again.</source>
+If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip Studio again.</source>
         <translation>Drift가 %1초 동안 실행 중이지만 창에 아직 아무것도 표시되지 않았습니다.\n\n창이 비어 있거나 검은색이라면 그래픽 드라이버가 오래되었거나 문제가 있을 가능성이 높습니다. GPU 제조업체(AMD, NVIDIA 또는 Intel) 웹사이트에서 드라이버를 업데이트한 후 Drift를 다시 시작하세요.</translation>
     </message>
 </context>

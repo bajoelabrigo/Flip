@@ -744,7 +744,7 @@ QVariantMap AddonManager::inspectUserPackage(const QUrl &url)
     const auto info = readManifest(staged, &error, Container::User);
     if (!info) {
         QFile::remove(staged);
-        return {{QStringLiteral("error"), tr("This is not a Flip effect file (%1).").arg(error)}};
+        return {{QStringLiteral("error"), tr("This is not a Flip Studio effect file (%1).").arg(error)}};
     }
     m_userPackagePath = staged;
     return {
@@ -829,7 +829,7 @@ QVariantMap AddonManager::inspectAddonFile(const QUrl &url)
         else if (drift::zip::looksLikeZip(head))
             m_addonFileType = QStringLiteral("zip");
         else
-            return {{QStringLiteral("error"), tr("This is not a Flip addon file.")}};
+            return {{QStringLiteral("error"), tr("This is not a Flip Studio addon file.")}};
 
         if (url.isLocalFile()) {
             path = url.toLocalFile();

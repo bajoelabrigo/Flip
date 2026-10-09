@@ -4,7 +4,7 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About Flip</source>
+        <source>About Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12,8 +12,8 @@
         <translation type="unfinished">閉じる</translation>
     </message>
     <message>
-        <source>Flip</source>
-        <translation>Flip</translation>
+        <source>Flip Studio</source>
+        <translation>Flip Studio</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -24,7 +24,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Licensed under GPLv3. Copyright © CutWire Studios and Flip contributors.</source>
+        <source>Licensed under GPLv3. Copyright © CutWire Studios and Flip Studio contributors.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -59,15 +59,15 @@
         <translation>そのファイルを読み取れませんでした。</translation>
     </message>
     <message>
-        <source>This is not a Flip effect file (%1).</source>
-        <translation>これは Flip エフェクトファイルではありません (%1)。</translation>
+        <source>This is not a Flip Studio effect file (%1).</source>
+        <translation>これは Flip Studio エフェクトファイルではありません (%1)。</translation>
     </message>
     <message>
         <source>Another addon is still installing.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Flip addon file.</source>
+        <source>This is not a Flip Studio addon file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -118,7 +118,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip addons (*.driftpkg *.driftfx *.zip)</source>
+        <source>Flip Studio addons (*.driftpkg *.driftfx *.zip)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -134,7 +134,7 @@
         <translation>「%1」</translation>
     </message>
     <message>
-        <source>%1 is not signed by the Flip team. Only install files you trust.</source>
+        <source>%1 is not signed by the Flip Studio team. Only install files you trust.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -146,8 +146,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 was made by a user, not the Flip team, and nothing has checked it. Only install files you trust.</source>
-        <translation>%1 は Flip チームではなく、ユーザーによって作成されたものです。内容は確認されていません。信頼できるファイルのみインストールしてください。</translation>
+        <source>%1 was made by a user, not the Flip Studio team, and nothing has checked it. Only install files you trust.</source>
+        <translation>%1 は Flip Studio チームではなく、ユーザーによって作成されたものです。内容は確認されていません。信頼できるファイルのみインストールしてください。</translation>
     </message>
     <message>
         <source>Could not install “%1”: %2</source>
@@ -206,8 +206,8 @@
         <translation>以下の AI エンジンをインストールして、自動字幕、被写体切り抜き、おもしろ顔エフェクト、ノイズ除去を有効にしましょう。</translation>
     </message>
     <message>
-        <source>Restart Flip for this to take effect.</source>
-        <translation>この変更を有効にするには、Flip を再起動してください。</translation>
+        <source>Restart Flip Studio for this to take effect.</source>
+        <translation>この変更を有効にするには、Flip Studio を再起動してください。</translation>
     </message>
     <message>
         <source>Can&apos;t reach the download store</source>
@@ -242,8 +242,8 @@
         <translation>%1… %2%</translation>
     </message>
     <message>
-        <source>Requires Flip %1 or newer</source>
-        <translation>Flip %1 以降が必要です</translation>
+        <source>Requires Flip Studio %1 or newer</source>
+        <translation>Flip Studio %1 以降が必要です</translation>
     </message>
     <message>
         <source>Unofficial</source>
@@ -309,8 +309,8 @@
         <translation>推奨パック</translation>
     </message>
     <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip without them — installing unlocks updates when they improve.</source>
-        <translation>エフェクト、トランジション、オーディオに必須のパックをインストールします。これらがなくても Flip は使用できますが、インストールすると改善時のアップデートが利用可能になります。</translation>
+        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
+        <translation>エフェクト、トランジション、オーディオに必須のパックをインストールします。これらがなくても Flip Studio は使用できますが、インストールすると改善時のアップデートが利用可能になります。</translation>
     </message>
     <message>
         <source>%1… %2%</source>
@@ -469,11 +469,11 @@
     </message>
     <message>
         <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
-        <translation>次回 Flip を開くときは、手動切り替えをスキップします。アクセスをオフにすると、これがリセットされます。</translation>
+        <translation>次回 Flip Studio を開くときは、手動切り替えをスキップします。アクセスをオフにすると、これがリセットされます。</translation>
     </message>
     <message>
-        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
-        <translation>CursorやClaudeにこのプロジェクトの編集 (クリップの追加、タイムラインの変更、プレビュー確認など) を任せることができます。対象となるのは、このデバイス上のプログラムのみです。Flip を起動するたびにデフォルトでオフになりますが、以下の「起動時にエージェントを開始」を有効にしている場合は例外です。作業終了時には、ここでオフにしてください。キーはセッション間でも保持されるため、一度貼り付けた設定は引き続き機能します。</translation>
+        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip Studio, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
+        <translation>CursorやClaudeにこのプロジェクトの編集 (クリップの追加、タイムラインの変更、プレビュー確認など) を任せることができます。対象となるのは、このデバイス上のプログラムのみです。Flip Studio を起動するたびにデフォルトでオフになりますが、以下の「起動時にエージェントを開始」を有効にしている場合は例外です。作業終了時には、ここでオフにしてください。キーはセッション間でも保持されるため、一度貼り付けた設定は引き続き機能します。</translation>
     </message>
 </context>
 <context>
@@ -716,8 +716,8 @@
 <context>
     <name>AndroidEditor</name>
     <message>
-        <source>Flip project (*.drift)</source>
-        <translation>Flip プロジェクト (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Flip Studio プロジェクト (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -919,8 +919,8 @@
 <context>
     <name>AndroidMain</name>
     <message>
-        <source>Flip project (*.drift)</source>
-        <translation>Flip プロジェクト (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Flip Studio プロジェクト (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -3536,8 +3536,8 @@
         <translation>ビデオを強化中…</translation>
     </message>
     <message>
-        <source>This build of Flip has no video stabilization support</source>
-        <translation>このビルドの Flip はビデオの手ぶれ補正に対応していません</translation>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation>このビルドの Flip Studio はビデオの手ぶれ補正に対応していません</translation>
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
@@ -4602,9 +4602,9 @@
         </translation>
     </message>
     <message numerus="yes">
-        <source>Imported %n files into %1 folders. %2 files were skipped — Flip does not recognize their format. Drag them onto the bin to try anyway.</source>
+        <source>Imported %n files into %1 folders. %2 files were skipped — Flip Studio does not recognize their format. Drag them onto the bin to try anyway.</source>
         <translation>
-            <numerusform>%n 個のファイルを %1 フォルダーにインポートしました。%2 個のファイルはスキップされました — Flip はその形式を認識できませんでした。それでも試してみたい場合は、それらのファイルをゴミ箱にドラッグしてください。</numerusform>
+            <numerusform>%n 個のファイルを %1 フォルダーにインポートしました。%2 個のファイルはスキップされました — Flip Studio はその形式を認識できませんでした。それでも試してみたい場合は、それらのファイルをゴミ箱にドラッグしてください。</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -5912,8 +5912,8 @@
         <translation>このビルドではマーケットプレイスを利用できません。</translation>
     </message>
     <message>
-        <source>Could not load Flip Assets. Check your connection and try again.</source>
-        <translation>Flip Assets を読み込めませんでした。接続を確認して再試行してください。</translation>
+        <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
+        <translation>Flip Studio Assets を読み込めませんでした。接続を確認して再試行してください。</translation>
     </message>
     <message>
         <source>That asset could not be installed.</source>
@@ -5963,8 +5963,8 @@
         <translation>メディアビンに追加しました</translation>
     </message>
     <message>
-        <source>Couldn’t load Flip Assets</source>
-        <translation>Flip Assets を読み込めませんでした</translation>
+        <source>Couldn’t load Flip Studio Assets</source>
+        <translation>Flip Studio Assets を読み込めませんでした</translation>
     </message>
     <message>
         <source>Try again</source>
@@ -5975,8 +5975,8 @@
         <translation>ここにはまだアセットがありません</translation>
     </message>
     <message>
-        <source>Flip Assets are still being published. Check back soon.</source>
-        <translation>Flip Assets は順次公開されています。しばらくしてからもう一度ご確認ください。</translation>
+        <source>Flip Studio Assets are still being published. Check back soon.</source>
+        <translation>Flip Studio Assets は順次公開されています。しばらくしてからもう一度ご確認ください。</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -5991,8 +5991,8 @@
         <translation>すべてのアセット</translation>
     </message>
     <message>
-        <source>No Flip Assets match “%1”.</source>
-        <translation>“%1” に一致する Flip Assets はありません。</translation>
+        <source>No Flip Studio Assets match “%1”.</source>
+        <translation>“%1” に一致する Flip Studio Assets はありません。</translation>
     </message>
     <message>
         <source>Search %1 for “%2”</source>
@@ -6002,8 +6002,8 @@
 <context>
     <name>EditorHeader</name>
     <message>
-        <source>Flip project (*.drift)</source>
-        <translation>Flip プロジェクト (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Flip Studio プロジェクト (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -6136,8 +6136,8 @@
         <translation>アップデート</translation>
     </message>
     <message>
-        <source>Flip %1 is available</source>
-        <translation>Flip %1 が利用可能です</translation>
+        <source>Flip Studio %1 is available</source>
+        <translation>Flip Studio %1 が利用可能です</translation>
     </message>
     <message>
         <source>Agent access</source>
@@ -6343,8 +6343,8 @@
 <context>
     <name>EffectStacksSection</name>
     <message>
-        <source>Flip effect stack (*.drifteffects)</source>
-        <translation>Flip エフェクトスタック (*.drifteffects)</translation>
+        <source>Flip Studio effect stack (*.drifteffects)</source>
+        <translation>Flip Studio エフェクトスタック (*.drifteffects)</translation>
     </message>
     <message>
         <source>Import effect stack</source>
@@ -6956,8 +6956,8 @@
         <translation>prop.json はフェイスプロップではありません</translation>
     </message>
     <message>
-        <source>prop.json needs a newer version of Flip</source>
-        <translation>prop.json にはより新しいバージョンの Flip が必要です</translation>
+        <source>prop.json needs a newer version of Flip Studio</source>
+        <translation>prop.json にはより新しいバージョンの Flip Studio が必要です</translation>
     </message>
     <message>
         <source>invalid prop id “%1”</source>
@@ -8154,7 +8154,7 @@
         <translation>更新の確認…</translation>
     </message>
     <message>
-        <source>About Flip</source>
+        <source>About Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8166,8 +8166,8 @@
         <translation>デバッグ情報…</translation>
     </message>
     <message>
-        <source>Flip %1 is the latest version.</source>
-        <translation type="unfinished">Flip %1 は最新バージョンです。</translation>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation type="unfinished">Flip Studio %1 は最新バージョンです。</translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -8352,8 +8352,8 @@
         <translation>ダウンロードの成功、完了、または指定した画質・音質での取得を保証するものではありません。一部のアイテムは正常に取得できない場合があります。</translation>
     </message>
     <message>
-        <source>Everything here comes from third parties. Flip does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>提供されるコンテンツはすべてサードパーティによるものです。Flip がこれをホスト、所有、審査することはありません。ダウンロードした素材の使用権限の確認は利用者の責任で行ってください。</translation>
+        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
+        <translation>提供されるコンテンツはすべてサードパーティによるものです。Flip Studio がこれをホスト、所有、審査することはありません。ダウンロードした素材の使用権限の確認は利用者の責任で行ってください。</translation>
     </message>
     <message>
         <source>I understand</source>
@@ -9558,12 +9558,12 @@
 <context>
     <name>PlaybackEngine</name>
     <message>
-        <source>%1 decodes on %2, but Flip draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 は %2 でデコードされますが、Flip は %3 で描画されます。すべてのフレームがシステムメモリを経由してコピーされるため、描画を行うグラフィックカード上でデコードするよりも処理速度が遅くなります。</translation>
+        <source>%1 decodes on %2, but Flip Studio draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>%1 は %2 でデコードされますが、Flip Studio は %3 で描画されます。すべてのフレームがシステムメモリを経由してコピーされるため、描画を行うグラフィックカード上でデコードするよりも処理速度が遅くなります。</translation>
     </message>
     <message>
-        <source>%1 decodes on a different graphics card than the one Flip draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 は、Flip が描画を行うグラフィックカードとは別のグラフィックカード上でデコードを行います。各フレームはシステムメモリを経由してコピーされるため、描画を行うグラフィックカード上でデコードを行う場合よりも処理速度が遅くなります。</translation>
+        <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>%1 は、Flip Studio が描画を行うグラフィックカードとは別のグラフィックカード上でデコードを行います。各フレームはシステムメモリを経由してコピーされるため、描画を行うグラフィックカード上でデコードを行う場合よりも処理速度が遅くなります。</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -9649,7 +9649,7 @@
     <name>PreferencesController</name>
     <message>
         <source>Faster preview takes effect after you restart Flip.</source>
-        <translation>高速プレビューは Flip 再起動後に有効になります。</translation>
+        <translation>高速プレビューは Flip Studio 再起動後に有効になります。</translation>
     </message>
     <message>
         <source>The graphics card choice takes effect after you restart Flip.</source>
@@ -9801,16 +9801,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished">キャンセル</translation>
     </message>
     <message>
-        <source>Launching Flip with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
-        <translation type="unfinished">prime-run (または DRI_PRIME=1) を指定して Flip を起動すると、OpenGL がデコーダーと同じグラフィックカード上で動作するようになります。</translation>
+        <source>Launching Flip Studio with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
+        <translation type="unfinished">prime-run (または DRI_PRIME=1) を指定して Flip Studio を起動すると、OpenGL がデコーダーと同じグラフィックカード上で動作するようになります。</translation>
     </message>
     <message>
-        <source>Run Flip on the high-performance graphics card</source>
-        <translation type="unfinished">高性能グラフィックスカードで Flip を実行する</translation>
+        <source>Run Flip Studio on the high-performance graphics card</source>
+        <translation type="unfinished">高性能グラフィックスカードで Flip Studio を実行する</translation>
     </message>
     <message>
-        <source>Set Flip to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
-        <translation type="unfinished">Windows の設定 &gt; ディスプレイ &gt; グラフィックス で Flip を「ハイパフォーマンス」に設定し、Flip を再起動してください。</translation>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
+        <translation type="unfinished">Windows の設定 &gt; ディスプレイ &gt; グラフィックス で Flip Studio を「ハイパフォーマンス」に設定し、Flip Studio を再起動してください。</translation>
     </message>
     <message>
         <source>Open graphics settings</source>
@@ -9866,12 +9866,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished">GPUプレビューは利用できません</translation>
     </message>
     <message>
-        <source>Your graphics driver only provides %1. Flip&apos;s preview needs OpenGL 3.3.</source>
+        <source>Your graphics driver only provides %1. Flip Studio&apos;s preview needs OpenGL 3.3.</source>
         <translation type="unfinished">お使いのグラフィックスドライバーは %1 にしか対応していません。プレビューには OpenGL 3.3 が必要です。</translation>
     </message>
     <message>
-        <source>Flip could not start its GPU renderer, so the preview cannot draw.</source>
-        <translation type="unfinished">Flip は GPU レンダラーを起動できなかったため、プレビューを描画できません。</translation>
+        <source>Flip Studio could not start its GPU renderer, so the preview cannot draw.</source>
+        <translation type="unfinished">Flip Studio は GPU レンダラーを起動できなかったため、プレビューを描画できません。</translation>
     </message>
     <message>
         <source>Debug info</source>
@@ -9940,12 +9940,12 @@ If playback stutters, try another.</source>
 <context>
     <name>Project</name>
     <message>
-        <source>This project was saved by a newer version of Flip (project format %1; this build reads up to %2).</source>
-        <translation>このプロジェクトは新しいバージョンの Flip で保存されました (プロジェクトフォーマット %1；このビルドは %2 まで読み取れます)。</translation>
+        <source>This project was saved by a newer version of Flip Studio (project format %1; this build reads up to %2).</source>
+        <translation>このプロジェクトは新しいバージョンの Flip Studio で保存されました (プロジェクトフォーマット %1；このビルドは %2 まで読み取れます)。</translation>
     </message>
     <message>
-        <source>This file isn’t a Flip project.</source>
-        <translation>このファイルは Flip プロジェクトではありません。</translation>
+        <source>This file isn’t a Flip Studio project.</source>
+        <translation>このファイルは Flip Studio プロジェクトではありません。</translation>
     </message>
 </context>
 <context>
@@ -9959,12 +9959,12 @@ If playback stutters, try another.</source>
         <translation>%1 を開けません</translation>
     </message>
     <message>
-        <source>file is too short to be a Flip project</source>
-        <translation>ファイルが短すぎて Flip プロジェクトではありません</translation>
+        <source>file is too short to be a Flip Studio project</source>
+        <translation>ファイルが短すぎて Flip Studio プロジェクトではありません</translation>
     </message>
     <message>
-        <source>not a Flip project (bad magic)</source>
-        <translation>Flip プロジェクトではありません (不正なマジック)</translation>
+        <source>not a Flip Studio project (bad magic)</source>
+        <translation>Flip Studio プロジェクトではありません (不正なマジック)</translation>
     </message>
     <message>
         <source>unsupported container revision</source>
@@ -9991,8 +9991,8 @@ If playback stutters, try another.</source>
         <translation>プロジェクトマニフェストにフォーマットバージョンがありません</translation>
     </message>
     <message>
-        <source>this project was saved by a newer version of Flip (format %1) — update to open it</source>
-        <translation>このプロジェクトは新しいバージョンの Flip で保存されました (フォーマット %1) — 開くにはアップデートしてください</translation>
+        <source>this project was saved by a newer version of Flip Studio (format %1) — update to open it</source>
+        <translation>このプロジェクトは新しいバージョンの Flip Studio で保存されました (フォーマット %1) — 開くにはアップデートしてください</translation>
     </message>
     <message>
         <source>project blob table is not contiguous</source>
@@ -11080,8 +11080,8 @@ If playback stutters, try another.</source>
         <translation>処理中…</translation>
     </message>
     <message>
-        <source>Flip will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
-        <translation>Flip はこのクリップのリバースコピーをレンダリングして、スムーズに再生できるようにします。処理中も編集を続けられます。</translation>
+        <source>Flip Studio will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
+        <translation>Flip Studio はこのクリップのリバースコピーをレンダリングして、スムーズに再生できるようにします。処理中も編集を続けられます。</translation>
     </message>
     <message>
         <source>This can take a few minutes on longer clips.</source>
@@ -11490,12 +11490,12 @@ If playback stutters, try another.</source>
         <translation>ハイパフォーマンス (discrete GPU)</translation>
     </message>
     <message>
-        <source>Which graphics card Flip runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
+        <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
         <translation>Driftがどのグラフィックスカードで動作するかを設定します。ハイパフォーマンスにすると、NVIDIA カード上での動画デコード処理がそのカード内で行われます。省電力にすると、バッテリー消費が抑えられます。設定は再起動後に反映されます。</translation>
     </message>
     <message>
-        <source>Choose which graphics card Flip runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
-        <translation>Windows の設定の ディスプレイ &gt; グラフィックス で、Flip がどのグラフィックスカードで動作するかを選択します。再起動後に有効になります。</translation>
+        <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
+        <translation>Windows の設定の ディスプレイ &gt; グラフィックス で、Flip Studio がどのグラフィックスカードで動作するかを選択します。再起動後に有効になります。</translation>
     </message>
     <message>
         <source>Open graphics settings</source>
@@ -11538,8 +11538,8 @@ If playback stutters, try another.</source>
         <translation>ボタン、テキスト、アイコンを大きくします。これはディスプレイ設定で既に設定されているサイズに加えての拡大です。再起動後に有効になります。</translation>
     </message>
     <message>
-        <source>Restart Flip to apply this size.</source>
-        <translation>このサイズを適用するには Flip を再起動してください。</translation>
+        <source>Restart Flip Studio to apply this size.</source>
+        <translation>このサイズを適用するには Flip Studio を再起動してください。</translation>
     </message>
     <message>
         <source>Horizontal mouse-wheel pan</source>
@@ -11594,8 +11594,8 @@ If playback stutters, try another.</source>
         <translation>今すぐ確認</translation>
     </message>
     <message>
-        <source>Flip %1</source>
-        <translation>Flip %1</translation>
+        <source>Flip Studio %1</source>
+        <translation>Flip Studio %1</translation>
     </message>
     <message>
         <source>Extra packs</source>
@@ -11626,8 +11626,8 @@ If playback stutters, try another.</source>
         <translation>クラウドプロバイダー</translation>
     </message>
     <message>
-        <source>Keys are stored unencrypted in Flip&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>キーは暗号化されずに Flip の設定に保存されます。環境変数の ELEVENLABS_API_KEY および FISH_API_KEY が優先されます。利用料金はお客様のアカウントに請求されます。</translation>
+        <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation>キーは暗号化されずに Flip Studio の設定に保存されます。環境変数の ELEVENLABS_API_KEY および FISH_API_KEY が優先されます。利用料金はお客様のアカウントに請求されます。</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -11670,8 +11670,8 @@ If playback stutters, try another.</source>
         <translation>%1 への音声とテキストの送信を許可</translation>
     </message>
     <message>
-        <source>Needed before Flip or a connected agent can transcribe or generate audio with this service</source>
-        <translation>Flip や接続されたエージェントがこのサービスを使用して音声を文字起こしまたは生成できるようにするために必要です</translation>
+        <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
+        <translation>Flip Studio や接続されたエージェントがこのサービスを使用して音声を文字起こしまたは生成できるようにするために必要です</translation>
     </message>
     <message>
         <source>Default voice id</source>
@@ -11706,7 +11706,7 @@ If playback stutters, try another.</source>
         <translation>このデバイスからマーケットプレイスアカウントのリンクを解除する</translation>
     </message>
     <message>
-        <source>Once a day, check whether a newer Flip has been released</source>
+        <source>Once a day, check whether a newer Flip Studio has been released</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12529,7 +12529,7 @@ If playback stutters, try another.</source>
         <translation>モード</translation>
     </message>
     <message>
-        <source>Smooths camera shake. Flip scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
+        <source>Smooths camera shake. Flip Studio scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13053,8 +13053,8 @@ If playback stutters, try another.</source>
 <context>
     <name>TextAssetsTab</name>
     <message>
-        <source>Flip text style (*.drifttextstyle)</source>
-        <translation>Flip テキストスタイル (*.drifttextstyle)</translation>
+        <source>Flip Studio text style (*.drifttextstyle)</source>
+        <translation>Flip Studio テキストスタイル (*.drifttextstyle)</translation>
     </message>
     <message>
         <source>Import text style</source>
@@ -15225,7 +15225,7 @@ If playback stutters, try another.</source>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <source>Flip %1 update</source>
+        <source>Flip Studio %1 update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15233,7 +15233,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Installs when you close Flip</source>
+        <source>Installs when you close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15241,7 +15241,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15253,12 +15253,12 @@ If playback stutters, try another.</source>
         <translation>アップデートを確認できませんでした : 予期しない応答。</translation>
     </message>
     <message>
-        <source>Flip %1 is the latest version.</source>
-        <translation>Flip %1 は最新バージョンです。</translation>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation>Flip Studio %1 は最新バージョンです。</translation>
     </message>
     <message>
-        <source>Flip %1 is available.</source>
-        <translation>Flip %1 が利用可能です。</translation>
+        <source>Flip Studio %1 is available.</source>
+        <translation>Flip Studio %1 が利用可能です。</translation>
     </message>
     <message>
         <source>Couldn’t download the update: the cache isn’t writable.</source>
@@ -15281,7 +15281,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 is ready to install.</source>
+        <source>Flip Studio %1 is ready to install.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -15296,19 +15296,19 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 is downloaded and ready to install</source>
+        <source>Flip Studio %1 is downloaded and ready to install</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 is available</source>
-        <translation>Flip %1 が利用可能です</translation>
+        <source>Flip Studio %1 is available</source>
+        <translation>Flip Studio %1 が利用可能です</translation>
     </message>
     <message>
-        <source>A new Flip update is available</source>
+        <source>A new Flip Studio update is available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15316,7 +15316,7 @@ If playback stutters, try another.</source>
         <translation>現在のバージョンは %1 です。</translation>
     </message>
     <message>
-        <source>Install automatically when I close Flip</source>
+        <source>Install automatically when I close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15336,7 +15336,7 @@ If playback stutters, try another.</source>
         <translation>後で</translation>
     </message>
     <message>
-        <source>Install when I close Flip</source>
+        <source>Install when I close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15344,7 +15344,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished">アップデート</translation>
     </message>
     <message>
-        <source>Closes Flip, installs the update and opens Flip again</source>
+        <source>Closes Flip Studio, installs the update and opens Flip Studio again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15356,7 +15356,7 @@ If playback stutters, try another.</source>
         <translation>ブラウザでリリースページを開きます</translation>
     </message>
     <message>
-        <source>Downloading Flip %1…</source>
+        <source>Downloading Flip Studio %1…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15869,10 +15869,10 @@ If playback stutters, try another.</source>
         <translation>OpenGL ドライバーがありません</translation>
     </message>
     <message>
-        <source>Flip could not create an OpenGL context, so it cannot draw its interface or render the preview.
+        <source>Flip Studio could not create an OpenGL context, so it cannot draw its interface or render the preview.
 
 Install or update your graphics driver.</source>
-        <translation>Flip は OpenGL コンテキストを作成できなかったため、インターフェースの描画やプレビューのレンダリングを行うことができません。
+        <translation>Flip Studio は OpenGL コンテキストを作成できなかったため、インターフェースの描画やプレビューのレンダリングを行うことができません。
 
 グラフィックスドライバーをインストールまたは更新してください。</translation>
     </message>
@@ -15881,10 +15881,10 @@ Install or update your graphics driver.</source>
         <translation>OpenGL コンテキストが利用できません</translation>
     </message>
     <message>
-        <source>Flip could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
+        <source>Flip Studio could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
 
 The video preview cannot render. Updating your graphics driver may help.</source>
-        <translation>Flip は OpenGL 3.3 コアプロファイルコンテキストを作成できませんでした (ただし、このドライバーは OpenGL %1.%2 (%3) を報告しています)。
+        <translation>Flip Studio は OpenGL 3.3 コアプロファイルコンテキストを作成できませんでした (ただし、このドライバーは OpenGL %1.%2 (%3) を報告しています)。
 
 ビデオプレビューをレンダリングできません。グラフィックスドライバーを更新すると解決する可能性があります。</translation>
     </message>
@@ -15893,24 +15893,24 @@ The video preview cannot render. Updating your graphics driver may help.</source
         <translation>グラフィックドライバーが古すぎます</translation>
     </message>
     <message>
-        <source>Flip needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
+        <source>Flip Studio needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
 
-The video preview cannot render, and Flip may not start at all. Update your graphics driver, or run Flip on a machine with a newer GPU.</source>
-        <translation>Flip には OpenGL 3.3 が必要ですが、現在のグラフィックスドライバーは OpenGL %1.%2 (%3)にしか対応していません。
+The video preview cannot render, and Flip Studio may not start at all. Update your graphics driver, or run Flip Studio on a machine with a newer GPU.</source>
+        <translation>Flip Studio には OpenGL 3.3 が必要ですが、現在のグラフィックスドライバーは OpenGL %1.%2 (%3)にしか対応していません。
 
-そのため、ビデオプレビューをレンダリングできず、Flip が起動しない可能性があります。グラフィックスドライバーを更新するか、より新しい GPU を搭載したマシンで Flip を実行してください。</translation>
+そのため、ビデオプレビューをレンダリングできず、Flip Studio が起動しない可能性があります。グラフィックスドライバーを更新するか、より新しい GPU を搭載したマシンで Flip Studio を実行してください。</translation>
     </message>
     <message>
-        <source>Flip is not drawing its window</source>
-        <translation>Flip がウィンドウを描画していません</translation>
+        <source>Flip Studio is not drawing its window</source>
+        <translation>Flip Studio がウィンドウを描画していません</translation>
     </message>
     <message>
-        <source>Flip has been running for %1 seconds but its window has not drawn anything yet.
+        <source>Flip Studio has been running for %1 seconds but its window has not drawn anything yet.
 
-If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip again.</source>
-        <translation>Flip は %1 秒間実行されていますが、ウィンドウにはまだ何も描画されていません。
+If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip Studio again.</source>
+        <translation>Flip Studio は %1 秒間実行されていますが、ウィンドウにはまだ何も描画されていません。
 
-ウィンドウが空白または黒い場合、グラフィックスドライバーが古いか不具合がある可能性が高いです。GPU ベンダー (AMD、NVIDIA または Intel) の Web サイトからアップデートして、再度 Flip を起動してください。</translation>
+ウィンドウが空白または黒い場合、グラフィックスドライバーが古いか不具合がある可能性が高いです。GPU ベンダー (AMD、NVIDIA または Intel) の Web サイトからアップデートして、再度 Flip Studio を起動してください。</translation>
     </message>
 </context>
 </TS>

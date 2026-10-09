@@ -33,22 +33,22 @@ void UpdateAssetTest::versionText()
 void UpdateAssetTest::windowsInstallerIgnoresPortableZip()
 {
     const QJsonArray assets{
-            QJsonObject{{QStringLiteral("name"), QStringLiteral("Flip-Portable-1.2.0-x64.zip")},
+            QJsonObject{{QStringLiteral("name"), QStringLiteral("FlipStudio-Portable-1.2.0-x64.zip")},
                         {QStringLiteral("browser_download_url"),
-                         QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/Flip-Portable-1.2.0-x64.zip")}},
-            QJsonObject{{QStringLiteral("name"), QStringLiteral("Flip-Setup-1.2.0-x64.exe")},
+                         QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/FlipStudio-Portable-1.2.0-x64.zip")}},
+            QJsonObject{{QStringLiteral("name"), QStringLiteral("FlipStudio-Setup-1.2.0-x64.exe")},
                         {QStringLiteral("browser_download_url"),
-                         QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/Flip-Setup-1.2.0-x64.exe")},
+                         QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/FlipStudio-Setup-1.2.0-x64.exe")},
                         {QStringLiteral("digest"),
                          QStringLiteral("sha256:0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")},
                         {QStringLiteral("size"), 42}},
-            QJsonObject{{QStringLiteral("name"), QStringLiteral("Flip-1.2.0-arm64.dmg")},
+            QJsonObject{{QStringLiteral("name"), QStringLiteral("FlipStudio-1.2.0-arm64.dmg")},
                         {QStringLiteral("browser_download_url"),
-                         QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/Flip-1.2.0-arm64.dmg")}}};
+                         QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/FlipStudio-1.2.0-arm64.dmg")}}};
 
     const drift::ReleaseAsset asset = drift::selectReleaseAsset(assets, QStringLiteral("windows"),
                                                                 QStringLiteral("x86_64"));
-    QCOMPARE(asset.name, QStringLiteral("Flip-Setup-1.2.0-x64.exe"));
+    QCOMPARE(asset.name, QStringLiteral("FlipStudio-Setup-1.2.0-x64.exe"));
     QCOMPARE(asset.sha256,
              QStringLiteral("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"));
     QCOMPARE(asset.size, qint64(42));
@@ -58,55 +58,55 @@ void UpdateAssetTest::windowsInstallerIgnoresPortableZip()
 void UpdateAssetTest::macDiskImage()
 {
     const QJsonArray assets{
-            QJsonObject{{QStringLiteral("name"), QStringLiteral("Flip-Setup-1.2.0-x64.exe")},
+            QJsonObject{{QStringLiteral("name"), QStringLiteral("FlipStudio-Setup-1.2.0-x64.exe")},
                         {QStringLiteral("browser_download_url"),
-                         QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/Flip-Setup-1.2.0-x64.exe")}},
-            QJsonObject{{QStringLiteral("name"), QStringLiteral("Flip-1.2.0-arm64.dmg")},
+                         QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/FlipStudio-Setup-1.2.0-x64.exe")}},
+            QJsonObject{{QStringLiteral("name"), QStringLiteral("FlipStudio-1.2.0-arm64.dmg")},
                         {QStringLiteral("browser_download_url"),
-                         QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/Flip-1.2.0-arm64.dmg")}}};
+                         QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/FlipStudio-1.2.0-arm64.dmg")}}};
 
     const drift::ReleaseAsset asset = drift::selectReleaseAsset(assets, QStringLiteral("macos"),
                                                                 QStringLiteral("arm64"));
-    QCOMPARE(asset.name, QStringLiteral("Flip-1.2.0-arm64.dmg"));
+    QCOMPARE(asset.name, QStringLiteral("FlipStudio-1.2.0-arm64.dmg"));
 }
 
 void UpdateAssetTest::linuxAppImageIgnoresZsync()
 {
     const QJsonArray assets{
-            QJsonObject{{QStringLiteral("name"), QStringLiteral("Flip-1.2.0-x86_64.AppImage.zsync")},
+            QJsonObject{{QStringLiteral("name"), QStringLiteral("FlipStudio-1.2.0-x86_64.AppImage.zsync")},
                         {QStringLiteral("browser_download_url"),
-                         QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/Flip-1.2.0-x86_64.AppImage.zsync")}},
-            QJsonObject{{QStringLiteral("name"), QStringLiteral("Flip-1.2.0-x86_64.AppImage")},
+                         QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/FlipStudio-1.2.0-x86_64.AppImage.zsync")}},
+            QJsonObject{{QStringLiteral("name"), QStringLiteral("FlipStudio-1.2.0-x86_64.AppImage")},
                         {QStringLiteral("browser_download_url"),
-                         QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/Flip-1.2.0-x86_64.AppImage")}}};
+                         QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/FlipStudio-1.2.0-x86_64.AppImage")}}};
 
     const drift::ReleaseAsset asset = drift::selectReleaseAsset(assets, QStringLiteral("linux"),
                                                                 QStringLiteral("x86_64"));
-    QCOMPARE(asset.name, QStringLiteral("Flip-1.2.0-x86_64.AppImage"));
+    QCOMPARE(asset.name, QStringLiteral("FlipStudio-1.2.0-x86_64.AppImage"));
 }
 
 void UpdateAssetTest::checksumFromSums()
 {
     const QByteArray sums =
-            "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef  Flip-1.2.0-arm64.dmg\n"
-            "ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789 *Flip-Setup-1.2.0-x64.exe\r\n";
-    QCOMPARE(drift::sha256FromSums(sums, QStringLiteral("Flip-1.2.0-arm64.dmg")),
+            "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef  FlipStudio-1.2.0-arm64.dmg\n"
+            "ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789 *FlipStudio-Setup-1.2.0-x64.exe\r\n";
+    QCOMPARE(drift::sha256FromSums(sums, QStringLiteral("FlipStudio-1.2.0-arm64.dmg")),
              QStringLiteral("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"));
-    QCOMPARE(drift::sha256FromSums(sums, QStringLiteral("Flip-Setup-1.2.0-x64.exe")),
+    QCOMPARE(drift::sha256FromSums(sums, QStringLiteral("FlipStudio-Setup-1.2.0-x64.exe")),
              QStringLiteral("abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789"));
-    QVERIFY(drift::sha256FromSums(sums, QStringLiteral("Flip-1.2.0-x86_64.AppImage")).isEmpty());
-    QVERIFY(drift::sha256FromSums("not a listing", QStringLiteral("Flip-1.2.0-arm64.dmg")).isEmpty());
+    QVERIFY(drift::sha256FromSums(sums, QStringLiteral("FlipStudio-1.2.0-x86_64.AppImage")).isEmpty());
+    QVERIFY(drift::sha256FromSums("not a listing", QStringLiteral("FlipStudio-1.2.0-arm64.dmg")).isEmpty());
 }
 
 void UpdateAssetTest::rejectsNonGitHubUrl()
 {
     const QJsonArray assets{
-            QJsonObject{{QStringLiteral("name"), QStringLiteral("Flip-Setup-1.2.0-x64.exe")},
+            QJsonObject{{QStringLiteral("name"), QStringLiteral("FlipStudio-Setup-1.2.0-x64.exe")},
                         {QStringLiteral("browser_download_url"),
-                         QStringLiteral("http://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/Flip-Setup-1.2.0-x64.exe")}},
-            QJsonObject{{QStringLiteral("name"), QStringLiteral("Flip-Setup-1.2.0-x64.exe")},
+                         QStringLiteral("http://github.com/CutWire-Studios/Drift/releases/download/v1.2.0/FlipStudio-Setup-1.2.0-x64.exe")}},
+            QJsonObject{{QStringLiteral("name"), QStringLiteral("FlipStudio-Setup-1.2.0-x64.exe")},
                         {QStringLiteral("browser_download_url"),
-                         QStringLiteral("https://example.com/Flip-Setup-1.2.0-x64.exe")}}};
+                         QStringLiteral("https://example.com/FlipStudio-Setup-1.2.0-x64.exe")}}};
     QVERIFY(drift::selectReleaseAsset(assets, QStringLiteral("windows"), QStringLiteral("x86_64")).url.isEmpty());
 }
 
@@ -119,21 +119,21 @@ void UpdateAssetTest::releaseUrlsFollowTheVersion()
     QCOMPARE(drift::releasePageUrl(feed, QStringLiteral("0.7.5")),
              QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/tag/v0.7.5"));
     QCOMPARE(drift::releaseDownloadUrl(feed, QStringLiteral("0.7.5"),
-                                       QStringLiteral("Flip-Setup-0.7.5-x64.exe")),
-             QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v0.7.5/Flip-Setup-0.7.5-x64.exe"));
+                                       QStringLiteral("FlipStudio-Setup-0.7.5-x64.exe")),
+             QStringLiteral("https://github.com/CutWire-Studios/Drift/releases/download/v0.7.5/FlipStudio-Setup-0.7.5-x64.exe"));
 }
 
 void UpdateAssetTest::installerFileName()
 {
     QCOMPARE(drift::installerFileName(QStringLiteral("windows"), QStringLiteral("x86_64"),
                                       QStringLiteral("0.7.5")),
-             QStringLiteral("Flip-Setup-0.7.5-x64.exe"));
+             QStringLiteral("FlipStudio-Setup-0.7.5-x64.exe"));
     QCOMPARE(drift::installerFileName(QStringLiteral("macos"), QStringLiteral("arm64"),
                                       QStringLiteral("0.7.5")),
-             QStringLiteral("Flip-0.7.5-arm64.dmg"));
+             QStringLiteral("FlipStudio-0.7.5-arm64.dmg"));
     QCOMPARE(drift::installerFileName(QStringLiteral("linux"), QStringLiteral("x86_64"),
                                       QStringLiteral("0.7.5")),
-             QStringLiteral("Flip-0.7.5-x86_64.AppImage"));
+             QStringLiteral("FlipStudio-0.7.5-x86_64.AppImage"));
     QVERIFY(drift::installerFileName(QStringLiteral("linux"), QStringLiteral("arm64"),
                                      QStringLiteral("0.7.5"))
                     .isEmpty());

@@ -610,7 +610,7 @@ QVariantMap DebugReport::collect()
     }
 
     QVariantList system;
-    system.append(systemRow(trReport("Flip"), QStringLiteral(DRIFT_VERSION)));
+    system.append(systemRow(trReport("Flip Studio"), QStringLiteral(DRIFT_VERSION)));
     system.append(systemRow(trReport("Package"), package));
     if (const QString flatpakId = qEnvironmentVariable("FLATPAK_ID"); !flatpakId.isEmpty())
         system.append(systemRow(trReport("Flatpak ID"), flatpakId));
@@ -742,7 +742,7 @@ QVariantMap DebugReport::collect()
         hints.append(hintRow(
             QStringLiteral("amd-gfx6-8"), trReport("Pre-Vega AMD skips zero-copy preview"),
             trReport("GCN 1–4 GPUs (HD 7000 through Polaris / RX 500) export tiled surfaces "
-                     "without a DRM modifier, so Flip refuses zero-copy preview and copies "
+                     "without a DRM modifier, so Flip Studio refuses zero-copy preview and copies "
                      "each frame through system memory. Vega, Navi and newer can enable "
                      "Settings → Preview → Faster preview.")));
     }
@@ -767,7 +767,7 @@ QVariantMap DebugReport::collect()
             trReport("Windows loaded Qt's bundled software renderer instead of your graphics "
                      "card. It only provides OpenGL 3.0, below the 3.3 the preview needs, so "
                      "the picture stays black. Update your graphics driver; if that does not "
-                     "help, start Flip with QT_OPENGL=desktop."),
+                     "help, start Flip Studio with QT_OPENGL=desktop."),
             QStringLiteral("set QT_OPENGL=desktop")));
 #else
         hints.append(hintRow(
@@ -804,7 +804,7 @@ QVariantMap DebugReport::collect()
 QString DebugReport::formatPlainText(const QVariantMap &info)
 {
     QString text;
-    text += QStringLiteral("Flip debug report\n\n");
+    text += QStringLiteral("Flip Studio debug report\n\n");
 
     text += QStringLiteral("## System\n");
     const QVariantList system = info.value(QStringLiteral("system")).toList();

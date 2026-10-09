@@ -159,7 +159,7 @@ ThemedDialog {
                 size: "sm"
                 visible: root.showEssential
                 text: qsTr("Install the essential packs for effects, transitions, and audio. "
-                           + "You can keep using Flip without them — installing unlocks updates "
+                           + "You can keep using Flip Studio without them — installing unlocks updates "
                            + "when they improve.")
             }
 

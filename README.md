@@ -1,4 +1,4 @@
-<h1 align="center">Flip</h1>
+<h1 align="center">Flip Studio</h1>
 
 <p align="center">
   <strong>Editor de video gratuito y de código abierto para Windows, Linux, macOS y Android.</strong>
@@ -10,10 +10,10 @@
   <a href="LICENSE">Licencia (GPLv3)</a>
 </p>
 
-Flip es un editor de video para Reels, Shorts, tutoriales, clips de juegos y cualquier video que
+Flip Studio es un editor de video para Reels, Shorts, tutoriales, clips de juegos y cualquier video que
 quieras que se vea terminado. Sin marca de agua y sin cuenta obligatoria.
 
-> **Flip está basado en [Drift](https://github.com/CutWire-Studios/Drift), de CutWire Studios.**
+> **Flip Studio está basado en [Drift](https://github.com/CutWire-Studios/Drift), de CutWire Studios.**
 > Es un fork independiente: no está afiliado a CutWire Studios ni cuenta con su respaldo.
 > "Drift" y "CutWire" son nombres de sus respectivos dueños.
 
@@ -24,17 +24,17 @@ Los instaladores se publican en la página de
 
 | Plataforma | Paquete |
 |------------|---------|
-| Windows | `Flip-Setup-<versión>-x64.exe` · `Flip-Portable-<versión>-x64.zip` |
+| Windows | `FlipStudio-Setup-<versión>-x64.exe` · `FlipStudio-Portable-<versión>-x64.zip` |
 
 Las demás plataformas llegarán más adelante.
 
 ## Funciones
 
-Flip incluye todo lo que trae Drift: timeline multipista, más de 150 transiciones y 40 efectos,
+Flip Studio incluye todo lo que trae Drift: timeline multipista, más de 150 transiciones y 40 efectos,
 keyframes, texto y subtítulos con estilo, subtítulos automáticos en tu equipo, 3D y animaciones
 Lottie, recorte de sujetos, estabilización, mezcla de audio y exportación a MP4, GIF o solo audio.
 
-Las funciones propias de Flip se anotan en el [CHANGELOG](CHANGELOG.md).
+Las funciones propias de Flip Studio se anotan en el [CHANGELOG](CHANGELOG.md).
 
 ## Para desarrolladores
 
@@ -54,14 +54,14 @@ git merge upstream/main
 
 Los identificadores internos (`drift::`, `DRIFT_*`, el módulo QML `Drift` y las extensiones
 `.drift` / `.driftfx`) conservan su nombre a propósito, para que las fusiones con Drift sean
-sencillas y Flip abra proyectos y efectos hechos en Drift.
+sencillas y Flip Studio abra proyectos y efectos hechos en Drift.
 
 ## Licencia
 
-Flip se distribuye bajo la **GNU General Public License v3** — ver [LICENSE](LICENSE). Algunas
+Flip Studio se distribuye bajo la **GNU General Public License v3** — ver [LICENSE](LICENSE). Algunas
 dependencias usan otras licencias compatibles; en particular JUCE se usa bajo AGPLv3.
 
 - Copyright © CutWire Studios — código original de Drift.
-- Copyright © colaboradores de Flip — modificaciones desde 2026-10-09 (ver historial de git).
+- Copyright © colaboradores de Flip Studio — modificaciones desde 2026-10-09 (ver historial de git).
 
 El código fuente completo de cada versión está en este repositorio.

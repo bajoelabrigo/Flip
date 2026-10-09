@@ -1,13 +1,13 @@
-# Flip — cambios propios
+# Flip Studio — cambios propios
 
-Flip es un fork de Drift. Esta sección lista lo que Flip cambia respecto a Drift; debajo sigue el
+Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
 ## Etapa 1 — identidad propia (2026-10-09)
 
-- Nuevo nombre e identidad: Flip (`io.github.bajoelabrigo.Flip`, `flip.exe`, instalador con AppId propio).
+- Nuevo nombre e identidad: Flip Studio (`io.github.bajoelabrigo.FlipStudio`, `flipstudio.exe`, instalador con AppId propio).
 - Ajustes y datos en su propia carpeta, separados de una instalación de Drift.
-- Desactivados los servicios de CutWire (add-ons, marketplace y comprobación de versión) hasta que Flip tenga los suyos.
+- Desactivados los servicios de CutWire (add-ons, marketplace y comprobación de versión) hasta que Flip Studio tenga los suyos.
 - "Acerca de" acredita a Drift / CutWire Studios y enlaza al código fuente (requisito de la GPL).
 - Corregido: un archivo ZIP truncado (.mogrt, .lottie, accesorios faciales) colgaba la app; ahora falla con un error y hay un límite contra "bombas ZIP".
 

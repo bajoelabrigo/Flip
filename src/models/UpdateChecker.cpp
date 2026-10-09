@@ -258,7 +258,7 @@ QVariantMap UpdateChecker::downloadJob() const
         {QStringLiteral("itemId"), QStringLiteral("drift-update")},
         {QStringLiteral("kind"), QStringLiteral("update")},
         {QStringLiteral("mediaKind"), QStringLiteral("update")},
-        {QStringLiteral("title"), tr("Flip %1 update").arg(m_latestVersion)},
+        {QStringLiteral("title"), tr("Flip Studio %1 update").arg(m_latestVersion)},
         {QStringLiteral("status"), status},
         {QStringLiteral("running"), running},
         {QStringLiteral("finished"), !running},
@@ -269,7 +269,7 @@ QVariantMap UpdateChecker::downloadJob() const
         {QStringLiteral("speed"), m_downloading && seconds > 0.5 ? m_bytesReceived / seconds : 0.0},
         {QStringLiteral("errorMessage"), m_error},
         {QStringLiteral("phase"), tr("Preparing the update…")},
-        {QStringLiteral("doneDetail"), m_installOnQuit ? tr("Installs when you close Flip")
+        {QStringLiteral("doneDetail"), m_installOnQuit ? tr("Installs when you close Flip Studio")
                                                        : tr("Ready to install")},
         {QStringLiteral("destinationDir"), QString()},
     };
@@ -424,7 +424,7 @@ void UpdateChecker::scheduleInstallOnQuit()
     m_installOnQuit = true;
     emit activityChanged();
     if (m_readyToInstall)
-        setStatus(tr("Flip %1 will install when you close Flip.").arg(m_latestVersion));
+        setStatus(tr("Flip Studio %1 will install when you close Flip.").arg(m_latestVersion));
 }
 
 void UpdateChecker::markAnnounced()
@@ -484,7 +484,7 @@ void UpdateChecker::check(bool manual)
         if (drift::compareVersions(kCurrentVersion, version) >= 0) {
             clearRelease();
             if (manual)
-                setStatus(tr("Flip %1 is the latest version.").arg(kCurrentVersion));
+                setStatus(tr("Flip Studio %1 is the latest version.").arg(kCurrentVersion));
             setChecking(false);
             return;
         }
@@ -506,7 +506,7 @@ void UpdateChecker::fetchRelease(const QString &version, bool manual)
     // GitHub's API rejects requests that send no User-Agent, and pins response shape to an API
     // version so a future default cannot change the fields parsed below.
     request.setHeader(QNetworkRequest::UserAgentHeader,
-                      QLatin1String("Flip/") + kCurrentVersion);
+                      QLatin1String("FlipStudio/") + kCurrentVersion);
     request.setRawHeader("Accept", "application/vnd.github+json");
     request.setRawHeader("X-GitHub-Api-Version", "2022-11-28");
     request.setAttribute(QNetworkRequest::RedirectPolicyAttribute,
@@ -540,7 +540,7 @@ void UpdateChecker::finishCheck(const QString &version, bool manual)
 {
     auto done = [this, version, manual] {
         if (manual)
-            setStatus(tr("Flip %1 is available.").arg(version));
+            setStatus(tr("Flip Studio %1 is available.").arg(version));
         announceIfNeeded();
         setChecking(false);
     };
@@ -555,7 +555,7 @@ void UpdateChecker::finishCheck(const QString &version, bool manual)
 
     QNetworkRequest request{QUrl(drift::releaseDownloadUrl(kFeedUrl, version,
                                                            QStringLiteral("SHA256SUMS")))};
-    request.setHeader(QNetworkRequest::UserAgentHeader, QLatin1String("Flip/") + kCurrentVersion);
+    request.setHeader(QNetworkRequest::UserAgentHeader, QLatin1String("FlipStudio/") + kCurrentVersion);
     request.setAttribute(QNetworkRequest::RedirectPolicyAttribute,
                          QNetworkRequest::NoLessSafeRedirectPolicy);
     request.setTransferTimeout(kTransferTimeoutMs);
@@ -703,8 +703,8 @@ QString UpdateChecker::appImagePath() const
 QString UpdateChecker::macBundleName() const
 {
     if (kCurrentVersion.contains(QLatin1String("-nightly.")))
-        return QStringLiteral("Flip Nightly");
-    return QStringLiteral("Flip");
+        return QStringLiteral("Flip Studio Nightly");
+    return QStringLiteral("Flip Studio");
 }
 
 void UpdateChecker::cancelDownload()
@@ -760,7 +760,7 @@ void UpdateChecker::beginDownload()
     emit downloadStarted();
 
     QNetworkRequest request{QUrl(m_assetUrl)};
-    request.setHeader(QNetworkRequest::UserAgentHeader, QLatin1String("Flip/") + kCurrentVersion);
+    request.setHeader(QNetworkRequest::UserAgentHeader, QLatin1String("FlipStudio/") + kCurrentVersion);
     request.setAttribute(QNetworkRequest::RedirectPolicyAttribute,
                          QNetworkRequest::NoLessSafeRedirectPolicy);
     request.setTransferTimeout(kDownloadIdleTimeoutMs);
@@ -979,9 +979,9 @@ void UpdateChecker::finishStage()
     setReadyToInstall(true);
     setProgress(1);
     if (m_installOnQuit) {
-        setStatus(tr("Flip %1 will install when you close Flip.").arg(m_latestVersion));
+        setStatus(tr("Flip Studio %1 will install when you close Flip.").arg(m_latestVersion));
     } else {
-        setStatus(tr("Flip %1 is ready to install.").arg(m_latestVersion));
+        setStatus(tr("Flip Studio %1 is ready to install.").arg(m_latestVersion));
         emit installReady();
     }
 }

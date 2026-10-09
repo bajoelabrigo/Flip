@@ -176,7 +176,7 @@ bool discoverRoot(ModelRoot *out, QString *why)
         if (!windowingMatches(obj)) {
             if (why)
                 *why = QStringLiteral("The depth model in %1 was exported with windowing this "
-                                      "version of Flip does not support.")
+                                      "version of Flip Studio does not support.")
                            .arg(root);
             continue;
         }

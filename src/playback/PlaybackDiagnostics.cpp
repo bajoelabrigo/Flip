@@ -349,7 +349,7 @@ QVariantMap PlaybackDiagnostics::collect(const PlaybackStats &stats, const drift
 QString PlaybackDiagnostics::formatPlainText(const QVariantMap &info)
 {
     QString out;
-    out += QStringLiteral("# Flip playback diagnostics\n\n");
+    out += QStringLiteral("# Flip Studio playback diagnostics\n\n");
 
     const QVariantList rows = info.value(QStringLiteral("rows")).toList();
     if (!rows.isEmpty()) {

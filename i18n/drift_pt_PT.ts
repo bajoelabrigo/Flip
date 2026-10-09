@@ -4,7 +4,7 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About Flip</source>
+        <source>About Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12,8 +12,8 @@
         <translation type="unfinished">Fechar</translation>
     </message>
     <message>
-        <source>Flip</source>
-        <translation>Flip</translation>
+        <source>Flip Studio</source>
+        <translation>Flip Studio</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -24,7 +24,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Licensed under GPLv3. Copyright © CutWire Studios and Flip contributors.</source>
+        <source>Licensed under GPLv3. Copyright © CutWire Studios and Flip Studio contributors.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -59,7 +59,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Flip effect file (%1).</source>
+        <source>This is not a Flip Studio effect file (%1).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -67,7 +67,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Flip addon file.</source>
+        <source>This is not a Flip Studio addon file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -118,7 +118,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip addons (*.driftpkg *.driftfx *.zip)</source>
+        <source>Flip Studio addons (*.driftpkg *.driftfx *.zip)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -134,7 +134,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 is not signed by the Flip team. Only install files you trust.</source>
+        <source>%1 is not signed by the Flip Studio team. Only install files you trust.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -146,7 +146,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 was made by a user, not the Flip team, and nothing has checked it. Only install files you trust.</source>
+        <source>%1 was made by a user, not the Flip Studio team, and nothing has checked it. Only install files you trust.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -206,8 +206,8 @@
         <translation>Instale um motor de IA abaixo para desbloquear legendas automáticas, recorte automático, efeitos engraçados de rosto e remoção de ruído.</translation>
     </message>
     <message>
-        <source>Restart Flip for this to take effect.</source>
-        <translation>Reinicie o Flip para aplicar a alteração.</translation>
+        <source>Restart Flip Studio for this to take effect.</source>
+        <translation>Reinicie o Flip Studio para aplicar a alteração.</translation>
     </message>
     <message>
         <source>Can&apos;t reach the download store</source>
@@ -242,7 +242,7 @@
         <translation>%1… %2%</translation>
     </message>
     <message>
-        <source>Requires Flip %1 or newer</source>
+        <source>Requires Flip Studio %1 or newer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -309,8 +309,8 @@
         <translation>Pacotes recomendados</translation>
     </message>
     <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip without them — installing unlocks updates when they improve.</source>
-        <translation>Instale os pacotes essenciais de efeitos, transições e áudio. Você pode continuar usando o Flip sem eles — instalar desbloqueia atualizações quando eles melhoram.</translation>
+        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
+        <translation>Instale os pacotes essenciais de efeitos, transições e áudio. Você pode continuar usando o Flip Studio sem eles — instalar desbloqueia atualizações quando eles melhoram.</translation>
     </message>
     <message>
         <source>%1… %2%</source>
@@ -472,8 +472,8 @@
         <translation>Pule a ativação manual da próxima vez que abrir o Flip. Desativar o acesso redefine isso.</translation>
     </message>
     <message>
-        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
-        <translation>Permita que o Cursor ou o Claude editem este projeto para você — adicionar clipes, alterar a linha do tempo e ver como fica. Apenas programas neste dispositivo. Desativado por padrão sempre que você abre o Flip, a menos que ative “Iniciar agente na inicialização” abaixo; desative aqui quando terminar. A chave continua a mesma entre as sessões, então uma configuração colada uma vez continua funcionando.</translation>
+        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip Studio, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
+        <translation>Permita que o Cursor ou o Claude editem este projeto para você — adicionar clipes, alterar a linha do tempo e ver como fica. Apenas programas neste dispositivo. Desativado por padrão sempre que você abre o Flip Studio, a menos que ative “Iniciar agente na inicialização” abaixo; desative aqui quando terminar. A chave continua a mesma entre as sessões, então uma configuração colada uma vez continua funcionando.</translation>
     </message>
 </context>
 <context>
@@ -716,8 +716,8 @@
 <context>
     <name>AndroidEditor</name>
     <message>
-        <source>Flip project (*.drift)</source>
-        <translation>Projeto do Flip (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Projeto do Flip Studio (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -919,8 +919,8 @@
 <context>
     <name>AndroidMain</name>
     <message>
-        <source>Flip project (*.drift)</source>
-        <translation>Projeto do Flip (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Projeto do Flip Studio (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -3543,8 +3543,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This build of Flip has no video stabilization support</source>
-        <translation>Esta versão do Flip não tem suporte a estabilização de vídeo</translation>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation>Esta versão do Flip Studio não tem suporte a estabilização de vídeo</translation>
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
@@ -4620,10 +4620,10 @@
         </translation>
     </message>
     <message numerus="yes">
-        <source>Imported %n files into %1 folders. %2 files were skipped — Flip does not recognize their format. Drag them onto the bin to try anyway.</source>
+        <source>Imported %n files into %1 folders. %2 files were skipped — Flip Studio does not recognize their format. Drag them onto the bin to try anyway.</source>
         <translation>
-            <numerusform>Importado %n ficheiro em %1 pastas. %2 ficheiros foram ignorados — o Flip não reconhece o formato deles. Arraste-os para o compartimento para tentar mesmo assim.</numerusform>
-            <numerusform>Importados %n ficheiros em %1 pastas. %2 ficheiros foram ignorados — o Flip não reconhece o formato deles. Arraste-os para o compartimento para tentar mesmo assim.</numerusform>
+            <numerusform>Importado %n ficheiro em %1 pastas. %2 ficheiros foram ignorados — o Flip Studio não reconhece o formato deles. Arraste-os para o compartimento para tentar mesmo assim.</numerusform>
+            <numerusform>Importados %n ficheiros em %1 pastas. %2 ficheiros foram ignorados — o Flip Studio não reconhece o formato deles. Arraste-os para o compartimento para tentar mesmo assim.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -5939,8 +5939,8 @@
         <translation>O marketplace não está disponível nesta versão.</translation>
     </message>
     <message>
-        <source>Could not load Flip Assets. Check your connection and try again.</source>
-        <translation>Não foi possível carregar o Flip Assets. Verifique a sua ligação e tente novamente.</translation>
+        <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
+        <translation>Não foi possível carregar o Flip Studio Assets. Verifique a sua ligação e tente novamente.</translation>
     </message>
     <message>
         <source>That asset could not be installed.</source>
@@ -5990,8 +5990,8 @@
         <translation>Adicionado ao compartimento de mídia</translation>
     </message>
     <message>
-        <source>Couldn’t load Flip Assets</source>
-        <translation>Não foi possível carregar o Flip Assets</translation>
+        <source>Couldn’t load Flip Studio Assets</source>
+        <translation>Não foi possível carregar o Flip Studio Assets</translation>
     </message>
     <message>
         <source>Try again</source>
@@ -6002,8 +6002,8 @@
         <translation>Nenhum recurso aqui ainda</translation>
     </message>
     <message>
-        <source>Flip Assets are still being published. Check back soon.</source>
-        <translation>Os recursos do Flip ainda estão sendo publicados. Volte em breve.</translation>
+        <source>Flip Studio Assets are still being published. Check back soon.</source>
+        <translation>Os recursos do Flip Studio ainda estão sendo publicados. Volte em breve.</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -6018,8 +6018,8 @@
         <translation>Todos os recursos</translation>
     </message>
     <message>
-        <source>No Flip Assets match “%1”.</source>
-        <translation>Nenhum recurso do Flip corresponde a “%1”.</translation>
+        <source>No Flip Studio Assets match “%1”.</source>
+        <translation>Nenhum recurso do Flip Studio corresponde a “%1”.</translation>
     </message>
     <message>
         <source>Search %1 for “%2”</source>
@@ -6029,8 +6029,8 @@
 <context>
     <name>EditorHeader</name>
     <message>
-        <source>Flip project (*.drift)</source>
-        <translation>Projeto do Flip (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Projeto do Flip Studio (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -6164,8 +6164,8 @@
         <translation>Atualizar</translation>
     </message>
     <message>
-        <source>Flip %1 is available</source>
-        <translation>Flip %1 está disponível</translation>
+        <source>Flip Studio %1 is available</source>
+        <translation>Flip Studio %1 está disponível</translation>
     </message>
     <message>
         <source>Agent access</source>
@@ -6372,8 +6372,8 @@
 <context>
     <name>EffectStacksSection</name>
     <message>
-        <source>Flip effect stack (*.drifteffects)</source>
-        <translation>Pilha de efeitos do Flip (*.drifteffects)</translation>
+        <source>Flip Studio effect stack (*.drifteffects)</source>
+        <translation>Pilha de efeitos do Flip Studio (*.drifteffects)</translation>
     </message>
     <message>
         <source>Import effect stack</source>
@@ -6985,8 +6985,8 @@
         <translation>prop.json não é um adereço facial</translation>
     </message>
     <message>
-        <source>prop.json needs a newer version of Flip</source>
-        <translation>prop.json precisa de uma versão mais recente do Flip</translation>
+        <source>prop.json needs a newer version of Flip Studio</source>
+        <translation>prop.json precisa de uma versão mais recente do Flip Studio</translation>
     </message>
     <message>
         <source>invalid prop id “%1”</source>
@@ -8184,7 +8184,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Flip</source>
+        <source>About Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8196,8 +8196,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 is the latest version.</source>
-        <translation type="unfinished">O Flip %1 é a versão mais recente.</translation>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation type="unfinished">O Flip Studio %1 é a versão mais recente.</translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -8382,8 +8382,8 @@
         <translation>Não podemos garantir que um transferência seja bem-sucedido, termine ou entregue a qualidade que você escolheu. Alguns itens simplesmente vão falhar.</translation>
     </message>
     <message>
-        <source>Everything here comes from third parties. Flip does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>Tudo aqui vem de terceiros. O Flip não hospeda, possui nem verifica esse conteúdo — você é responsável por garantir que tem o direito de usar o que transferir.</translation>
+        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
+        <translation>Tudo aqui vem de terceiros. O Flip Studio não hospeda, possui nem verifica esse conteúdo — você é responsável por garantir que tem o direito de usar o que transferir.</translation>
     </message>
     <message>
         <source>I understand</source>
@@ -9602,12 +9602,12 @@
 <context>
     <name>PlaybackEngine</name>
     <message>
-        <source>%1 decodes on %2, but Flip draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>O %1 decodifica em %2, mas o Flip renderiza em %3. Cada quadro é copiado pela memória do sistema, o que é mais lento do que decodificar na placa de vídeo que renderiza.</translation>
+        <source>%1 decodes on %2, but Flip Studio draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>O %1 decodifica em %2, mas o Flip Studio renderiza em %3. Cada quadro é copiado pela memória do sistema, o que é mais lento do que decodificar na placa de vídeo que renderiza.</translation>
     </message>
     <message>
-        <source>%1 decodes on a different graphics card than the one Flip draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>O %1 decodifica em uma placa de vídeo diferente daquela em que o Flip renderiza. Cada quadro é copiado pela memória do sistema, o que é mais lento do que decodificar na placa de vídeo que renderiza.</translation>
+        <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>O %1 decodifica em uma placa de vídeo diferente daquela em que o Flip Studio renderiza. Cada quadro é copiado pela memória do sistema, o que é mais lento do que decodificar na placa de vídeo que renderiza.</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -9845,15 +9845,15 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished">Cancelar</translation>
     </message>
     <message>
-        <source>Launching Flip with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
-        <translation type="unfinished">Iniciar o Flip com prime-run (ou DRI_PRIME=1) coloca o OpenGL na mesma placa que o decodificador.</translation>
+        <source>Launching Flip Studio with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
+        <translation type="unfinished">Iniciar o Flip Studio com prime-run (ou DRI_PRIME=1) coloca o OpenGL na mesma placa que o decodificador.</translation>
     </message>
     <message>
-        <source>Run Flip on the high-performance graphics card</source>
-        <translation type="unfinished">Executar o Flip na placa de vídeo de alto desempenho</translation>
+        <source>Run Flip Studio on the high-performance graphics card</source>
+        <translation type="unfinished">Executar o Flip Studio na placa de vídeo de alto desempenho</translation>
     </message>
     <message>
-        <source>Set Flip to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -9910,12 +9910,12 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Your graphics driver only provides %1. Flip&apos;s preview needs OpenGL 3.3.</source>
-        <translation type="unfinished">Seu driver de vídeo fornece apenas %1. A pré-visualização do Flip precisa de OpenGL 3.3.</translation>
+        <source>Your graphics driver only provides %1. Flip Studio&apos;s preview needs OpenGL 3.3.</source>
+        <translation type="unfinished">Seu driver de vídeo fornece apenas %1. A pré-visualização do Flip Studio precisa de OpenGL 3.3.</translation>
     </message>
     <message>
-        <source>Flip could not start its GPU renderer, so the preview cannot draw.</source>
-        <translation type="unfinished">O Flip não conseguiu iniciar seu renderizador por GPU, então a pré-visualização não pode ser desenhada.</translation>
+        <source>Flip Studio could not start its GPU renderer, so the preview cannot draw.</source>
+        <translation type="unfinished">O Flip Studio não conseguiu iniciar seu renderizador por GPU, então a pré-visualização não pode ser desenhada.</translation>
     </message>
     <message>
         <source>Debug info</source>
@@ -9984,11 +9984,11 @@ Se a reprodução travar, experimente outro.</translation>
 <context>
     <name>Project</name>
     <message>
-        <source>This project was saved by a newer version of Flip (project format %1; this build reads up to %2).</source>
-        <translation>Este projeto foi salvo por uma versão mais recente do Flip (formato de projeto %1; esta versão lê até %2).</translation>
+        <source>This project was saved by a newer version of Flip Studio (project format %1; this build reads up to %2).</source>
+        <translation>Este projeto foi salvo por uma versão mais recente do Flip Studio (formato de projeto %1; esta versão lê até %2).</translation>
     </message>
     <message>
-        <source>This file isn’t a Flip project.</source>
+        <source>This file isn’t a Flip Studio project.</source>
         <translation>Este ficheiro não é um projeto do Flip.</translation>
     </message>
 </context>
@@ -10003,12 +10003,12 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>não foi possível abrir %1</translation>
     </message>
     <message>
-        <source>file is too short to be a Flip project</source>
-        <translation>o ficheiro é curto demais para ser um projeto do Flip</translation>
+        <source>file is too short to be a Flip Studio project</source>
+        <translation>o ficheiro é curto demais para ser um projeto do Flip Studio</translation>
     </message>
     <message>
-        <source>not a Flip project (bad magic)</source>
-        <translation>não é um projeto do Flip (assinatura inválida)</translation>
+        <source>not a Flip Studio project (bad magic)</source>
+        <translation>não é um projeto do Flip Studio (assinatura inválida)</translation>
     </message>
     <message>
         <source>unsupported container revision</source>
@@ -10035,8 +10035,8 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>o manifesto do projeto não tem versão de formato</translation>
     </message>
     <message>
-        <source>this project was saved by a newer version of Flip (format %1) — update to open it</source>
-        <translation>este projeto foi salvo por uma versão mais recente do Flip (formato %1) — atualize para abri-lo</translation>
+        <source>this project was saved by a newer version of Flip Studio (format %1) — update to open it</source>
+        <translation>este projeto foi salvo por uma versão mais recente do Flip Studio (formato %1) — atualize para abri-lo</translation>
     </message>
     <message>
         <source>project blob table is not contiguous</source>
@@ -11125,8 +11125,8 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Processando…</translation>
     </message>
     <message>
-        <source>Flip will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
-        <translation>O Flip vai renderizar uma cópia invertida deste clipe para que a reprodução fique fluida. Você pode continuar editando enquanto isso.</translation>
+        <source>Flip Studio will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
+        <translation>O Flip Studio vai renderizar uma cópia invertida deste clipe para que a reprodução fique fluida. Você pode continuar editando enquanto isso.</translation>
     </message>
     <message>
         <source>This can take a few minutes on longer clips.</source>
@@ -11535,11 +11535,11 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Alto desempenho (GPU dedicada)</translation>
     </message>
     <message>
-        <source>Which graphics card Flip runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation>Em qual placa de vídeo o Flip roda. Alto desempenho mantém o vídeo decodificado em uma placa NVIDIA nessa mesma placa; economia de energia gasta menos bateria. Entra em vigor após reiniciar.</translation>
+        <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
+        <translation>Em qual placa de vídeo o Flip Studio roda. Alto desempenho mantém o vídeo decodificado em uma placa NVIDIA nessa mesma placa; economia de energia gasta menos bateria. Entra em vigor após reiniciar.</translation>
     </message>
     <message>
-        <source>Choose which graphics card Flip runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
+        <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11583,8 +11583,8 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Deixa botões, textos e ícones maiores. Essa é uma escala extra, além do tamanho já definido nas definições de exibição do sistema. Entra em vigor após reiniciar.</translation>
     </message>
     <message>
-        <source>Restart Flip to apply this size.</source>
-        <translation>Reinicie o Flip para aplicar este tamanho.</translation>
+        <source>Restart Flip Studio to apply this size.</source>
+        <translation>Reinicie o Flip Studio para aplicar este tamanho.</translation>
     </message>
     <message>
         <source>Horizontal mouse-wheel pan</source>
@@ -11639,8 +11639,8 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Verificar agora</translation>
     </message>
     <message>
-        <source>Flip %1</source>
-        <translation>Flip %1</translation>
+        <source>Flip Studio %1</source>
+        <translation>Flip Studio %1</translation>
     </message>
     <message>
         <source>Extra packs</source>
@@ -11671,7 +11671,7 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Provedores de nuvem</translation>
     </message>
     <message>
-        <source>Keys are stored unencrypted in Flip&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
         <translation>As chaves são armazenadas sem criptografia nas definições do Flip. ELEVENLABS_API_KEY e FISH_API_KEY no ambiente têm precedência. O uso é cobrado na sua própria conta.</translation>
     </message>
     <message>
@@ -11715,8 +11715,8 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Permitir o envio de áudio e texto para %1</translation>
     </message>
     <message>
-        <source>Needed before Flip or a connected agent can transcribe or generate audio with this service</source>
-        <translation>Necessário antes que o Flip ou um agente conectado possa transcrever ou gerar áudio com este serviço</translation>
+        <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
+        <translation>Necessário antes que o Flip Studio ou um agente conectado possa transcrever ou gerar áudio com este serviço</translation>
     </message>
     <message>
         <source>Default voice id</source>
@@ -11751,7 +11751,7 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Desvincular a conta do marketplace deste dispositivo</translation>
     </message>
     <message>
-        <source>Once a day, check whether a newer Flip has been released</source>
+        <source>Once a day, check whether a newer Flip Studio has been released</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12574,7 +12574,7 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Modo</translation>
     </message>
     <message>
-        <source>Smooths camera shake. Flip scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
+        <source>Smooths camera shake. Flip Studio scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13101,8 +13101,8 @@ Se a reprodução travar, experimente outro.</translation>
 <context>
     <name>TextAssetsTab</name>
     <message>
-        <source>Flip text style (*.drifttextstyle)</source>
-        <translation>Estilo de texto do Flip (*.drifttextstyle)</translation>
+        <source>Flip Studio text style (*.drifttextstyle)</source>
+        <translation>Estilo de texto do Flip Studio (*.drifttextstyle)</translation>
     </message>
     <message>
         <source>Import text style</source>
@@ -15278,7 +15278,7 @@ Se a reprodução travar, experimente outro.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <source>Flip %1 update</source>
+        <source>Flip Studio %1 update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15286,7 +15286,7 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Installs when you close Flip</source>
+        <source>Installs when you close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15294,7 +15294,7 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15306,12 +15306,12 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Não foi possível verificar atualizações: resposta inesperada.</translation>
     </message>
     <message>
-        <source>Flip %1 is the latest version.</source>
-        <translation>O Flip %1 é a versão mais recente.</translation>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation>O Flip Studio %1 é a versão mais recente.</translation>
     </message>
     <message>
-        <source>Flip %1 is available.</source>
-        <translation>O Flip %1 está disponível.</translation>
+        <source>Flip Studio %1 is available.</source>
+        <translation>O Flip Studio %1 está disponível.</translation>
     </message>
     <message>
         <source>Couldn’t download the update: the cache isn’t writable.</source>
@@ -15334,7 +15334,7 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 is ready to install.</source>
+        <source>Flip Studio %1 is ready to install.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -15349,19 +15349,19 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 is downloaded and ready to install</source>
+        <source>Flip Studio %1 is downloaded and ready to install</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 is available</source>
-        <translation>O Flip %1 está disponível</translation>
+        <source>Flip Studio %1 is available</source>
+        <translation>O Flip Studio %1 está disponível</translation>
     </message>
     <message>
-        <source>A new Flip update is available</source>
+        <source>A new Flip Studio update is available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15369,7 +15369,7 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Você tem a versão %1.</translation>
     </message>
     <message>
-        <source>Install automatically when I close Flip</source>
+        <source>Install automatically when I close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15389,7 +15389,7 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Mais tarde</translation>
     </message>
     <message>
-        <source>Install when I close Flip</source>
+        <source>Install when I close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15397,7 +15397,7 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished">Atualizar</translation>
     </message>
     <message>
-        <source>Closes Flip, installs the update and opens Flip again</source>
+        <source>Closes Flip Studio, installs the update and opens Flip Studio again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15409,7 +15409,7 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Abre a página da versão no seu navegador</translation>
     </message>
     <message>
-        <source>Downloading Flip %1…</source>
+        <source>Downloading Flip Studio %1…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15922,10 +15922,10 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Nenhum driver OpenGL</translation>
     </message>
     <message>
-        <source>Flip could not create an OpenGL context, so it cannot draw its interface or render the preview.
+        <source>Flip Studio could not create an OpenGL context, so it cannot draw its interface or render the preview.
 
 Install or update your graphics driver.</source>
-        <translation>O Flip não conseguiu criar um contexto OpenGL, então não pode desenhar sua interface nem renderizar a pré-visualização.
+        <translation>O Flip Studio não conseguiu criar um contexto OpenGL, então não pode desenhar sua interface nem renderizar a pré-visualização.
 
 Instale ou atualize seu driver de vídeo.</translation>
     </message>
@@ -15934,10 +15934,10 @@ Instale ou atualize seu driver de vídeo.</translation>
         <translation>Contexto OpenGL indisponível</translation>
     </message>
     <message>
-        <source>Flip could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
+        <source>Flip Studio could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
 
 The video preview cannot render. Updating your graphics driver may help.</source>
-        <translation>O Flip não conseguiu criar um contexto de perfil principal do OpenGL 3.3, embora este driver informe OpenGL %1.%2 (%3).
+        <translation>O Flip Studio não conseguiu criar um contexto de perfil principal do OpenGL 3.3, embora este driver informe OpenGL %1.%2 (%3).
 
 A pré-visualização do vídeo não pode ser renderizada. Atualizar seu driver de vídeo pode ajudar.</translation>
     </message>
@@ -15946,24 +15946,24 @@ A pré-visualização do vídeo não pode ser renderizada. Atualizar seu driver 
         <translation>O driver de vídeo é antigo demais</translation>
     </message>
     <message>
-        <source>Flip needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
+        <source>Flip Studio needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
 
-The video preview cannot render, and Flip may not start at all. Update your graphics driver, or run Flip on a machine with a newer GPU.</source>
-        <translation>O Flip precisa de OpenGL 3.3, mas este driver de vídeo fornece apenas OpenGL %1.%2 (%3).
+The video preview cannot render, and Flip Studio may not start at all. Update your graphics driver, or run Flip Studio on a machine with a newer GPU.</source>
+        <translation>O Flip Studio precisa de OpenGL 3.3, mas este driver de vídeo fornece apenas OpenGL %1.%2 (%3).
 
-A pré-visualização do vídeo não pode ser renderizada, e o Flip pode nem iniciar. Atualize seu driver de vídeo ou execute o Flip em uma máquina com uma GPU mais recente.</translation>
+A pré-visualização do vídeo não pode ser renderizada, e o Flip Studio pode nem iniciar. Atualize seu driver de vídeo ou execute o Flip Studio em uma máquina com uma GPU mais recente.</translation>
     </message>
     <message>
-        <source>Flip is not drawing its window</source>
-        <translation>O Flip não está desenhando sua janela</translation>
+        <source>Flip Studio is not drawing its window</source>
+        <translation>O Flip Studio não está desenhando sua janela</translation>
     </message>
     <message>
-        <source>Flip has been running for %1 seconds but its window has not drawn anything yet.
+        <source>Flip Studio has been running for %1 seconds but its window has not drawn anything yet.
 
-If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip again.</source>
-        <translation>O Flip está em execução há %1 segundos, mas sua janela ainda não desenhou nada.
+If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip Studio again.</source>
+        <translation>O Flip Studio está em execução há %1 segundos, mas sua janela ainda não desenhou nada.
 
-Se a janela estiver em branco ou preta, seu driver de vídeo muito provavelmente está desatualizado ou com defeito. Atualize-o no site do fabricante da sua GPU (AMD, NVIDIA ou Intel) e inicie o Flip novamente.</translation>
+Se a janela estiver em branco ou preta, seu driver de vídeo muito provavelmente está desatualizado ou com defeito. Atualize-o no site do fabricante da sua GPU (AMD, NVIDIA ou Intel) e inicie o Flip Studio novamente.</translation>
     </message>
 </context>
 </TS>

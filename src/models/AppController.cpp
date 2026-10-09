@@ -10642,7 +10642,7 @@ void AppController::stabilizeClip(int trackIndex, int clipIndex)
     setPlaying(false);
 
     if (!drift::hasVideoFilter("vidstabdetect") || !drift::hasVideoFilter("vidstabtransform")) {
-        setLastMessage(tr("This build of Flip has no video stabilization support"),
+        setLastMessage(tr("This build of Flip Studio has no video stabilization support"),
                        QStringLiteral("error"));
         return;
     }

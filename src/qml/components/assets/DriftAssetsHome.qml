@@ -170,7 +170,7 @@ Item {
         width: parent.width
         visible: !DriftAssets.loading && DriftAssets.error.length > 0 && DriftAssets.assets.length === 0
         glyph: Theme.icons.error
-        title: qsTr("Couldn’t load Flip Assets")
+        title: qsTr("Couldn’t load Flip Studio Assets")
         hint: DriftAssets.error
         actionText: qsTr("Try again")
         onActionTriggered: DriftAssets.refresh()
@@ -182,7 +182,7 @@ Item {
         visible: !DriftAssets.loading && DriftAssets.error.length === 0 && DriftAssets.assets.length === 0
         glyph: Theme.icons.sparkles
         title: qsTr("No assets here yet")
-        hint: qsTr("Flip Assets are still being published. Check back soon.")
+        hint: qsTr("Flip Studio Assets are still being published. Check back soon.")
         actionText: qsTr("Refresh")
         onActionTriggered: DriftAssets.refresh()
     }
@@ -360,7 +360,7 @@ Item {
             Text {
                 width: parent.width
                 visible: root.searchResults.length === 0
-                text: qsTr("No Flip Assets match “%1”.").arg(root.query)
+                text: qsTr("No Flip Studio Assets match “%1”.").arg(root.query)
                 color: Theme.mutedForeground
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeSm

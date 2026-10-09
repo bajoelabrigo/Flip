@@ -81,11 +81,11 @@ set(DRIFT_MARKET_API_URL ""
 set(DRIFT_MARKET_CLIENT_KEY ""
     CACHE STRING "HMAC key for marketplace client identity and request signing")
 
-# --- Flip ---------------------------------------------------------------------
-# Flip is a fork of Drift (CutWire Studios). The addon service and marketplace above are CutWire's
-# and stay off until Flip runs its own; set the URLs and keys here when it does.
+# --- Flip Studio ---------------------------------------------------------------------
+# Flip Studio is a fork of Drift (CutWire Studios). The addon service and marketplace above are CutWire's
+# and stay off until Flip Studio runs its own; set the URLs and keys here when it does.
 #
-# DNS host whose TXT record holds Flip's newest version ("0.8.1"). Empty disables the update check
+# DNS host whose TXT record holds Flip Studio's newest version ("0.8.1"). Empty disables the update check
 # even with a feed URL, so a fork never asks CutWire's record which version to download.
 set(DRIFT_UPDATE_VERSION_HOST "" CACHE STRING "DNS name with a TXT record holding the newest version; empty disables update checks")
 
@@ -116,12 +116,12 @@ if(NOT DRIFT_CHANNEL STREQUAL "stable" AND NOT DRIFT_CHANNEL STREQUAL "nightly")
     message(FATAL_ERROR "DRIFT_CHANNEL must be 'stable' or 'nightly', not '${DRIFT_CHANNEL}'")
 endif()
 
-set(DRIFT_APP_ID "io.github.bajoelabrigo.Flip")
-set(DRIFT_APP_NAME "Flip")
+set(DRIFT_APP_ID "io.github.bajoelabrigo.FlipStudio")
+set(DRIFT_APP_NAME "Flip Studio")
 set(DRIFT_VERSION_STRING "${PROJECT_VERSION}")
 if(DRIFT_CHANNEL STREQUAL "nightly")
-    set(DRIFT_APP_ID "io.github.bajoelabrigo.Flip.Nightly")
-    set(DRIFT_APP_NAME "Flip Nightly")
+    set(DRIFT_APP_ID "io.github.bajoelabrigo.FlipStudio.Nightly")
+    set(DRIFT_APP_NAME "Flip Studio Nightly")
     # A local nightly configure with no stamp is still legible rather than "0.7.0-nightly.".
     if(DRIFT_BUILD_ID STREQUAL "")
         set(DRIFT_BUILD_ID "dev")
@@ -989,8 +989,8 @@ if(WIN32)
     # console subsystem and Windows opens a console window before the GUI comes up. Qt6::EntryPoint
     # (linked in by Qt6::Core) supplies the WinMain that forwards to main().
     set_target_properties(drift PROPERTIES WIN32_EXECUTABLE TRUE)
-    # Flip ships as flip.exe; the CMake target keeps its upstream name so merges stay simple.
-    set_target_properties(drift PROPERTIES OUTPUT_NAME flip)
+    # Flip Studio ships as flipstudio.exe; the CMake target keeps its upstream name so merges stay simple.
+    set_target_properties(drift PROPERTIES OUTPUT_NAME flipstudio)
     target_sources(drift PRIVATE resources/windows/drift.rc)
     set_source_files_properties(resources/windows/drift.rc PROPERTIES
         OBJECT_DEPENDS "${CMAKE_SOURCE_DIR}/resources/windows/drift.ico")

@@ -28,7 +28,7 @@ Item {
         previewFullscreen = false
     }
 
-    readonly property var projectFilter: [qsTr("Flip project (*.drift)")]
+    readonly property var projectFilter: [qsTr("Flip Studio project (*.drift)")]
 
     function openAssetsTab(tabId) {
         sheetKind = "assets"

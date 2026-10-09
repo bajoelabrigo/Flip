@@ -4,7 +4,7 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About Flip</source>
+        <source>About Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12,8 +12,8 @@
         <translation type="unfinished">වසන්න</translation>
     </message>
     <message>
-        <source>Flip</source>
-        <translation>Flip</translation>
+        <source>Flip Studio</source>
+        <translation>Flip Studio</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -24,7 +24,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Licensed under GPLv3. Copyright © CutWire Studios and Flip contributors.</source>
+        <source>Licensed under GPLv3. Copyright © CutWire Studios and Flip Studio contributors.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -59,7 +59,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Flip effect file (%1).</source>
+        <source>This is not a Flip Studio effect file (%1).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -67,7 +67,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Flip addon file.</source>
+        <source>This is not a Flip Studio addon file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -118,7 +118,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip addons (*.driftpkg *.driftfx *.zip)</source>
+        <source>Flip Studio addons (*.driftpkg *.driftfx *.zip)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -134,7 +134,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 is not signed by the Flip team. Only install files you trust.</source>
+        <source>%1 is not signed by the Flip Studio team. Only install files you trust.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -146,7 +146,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 was made by a user, not the Flip team, and nothing has checked it. Only install files you trust.</source>
+        <source>%1 was made by a user, not the Flip Studio team, and nothing has checked it. Only install files you trust.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -206,8 +206,8 @@
         <translation>ස්වයංක්‍රීය උපසිරැසි, විෂය වෙන් කිරීම, විනෝදජනක මුහුණු ප්‍රයෝග සහ ඝෝෂා ඉවත් කිරීම ලබාගැනීමට පහතින් AI එන්ජිමක් ස්ථාපනය කරන්න.</translation>
     </message>
     <message>
-        <source>Restart Flip for this to take effect.</source>
-        <translation>මෙය බලපැවැත්වීමට Flip නැවත අරඹන්න.</translation>
+        <source>Restart Flip Studio for this to take effect.</source>
+        <translation>මෙය බලපැවැත්වීමට Flip Studio නැවත අරඹන්න.</translation>
     </message>
     <message>
         <source>Can&apos;t reach the download store</source>
@@ -242,7 +242,7 @@
         <translation>%1… %2%</translation>
     </message>
     <message>
-        <source>Requires Flip %1 or newer</source>
+        <source>Requires Flip Studio %1 or newer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -309,8 +309,8 @@
         <translation>නිර්දේශිත පැකේජ</translation>
     </message>
     <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip without them — installing unlocks updates when they improve.</source>
-        <translation>ප්‍රයෝග, සංක්‍රාන්ති සහ ශ්‍රව්‍ය සඳහා අත්‍යවශ්‍ය පැකේජ ස්ථාපනය කරන්න. ඒවා නොමැතිව ද ඔබට Flip භාවිත කළ හැක — ස්ථාපනය කිරීමෙන් වැඩිදියුණු වන විට යාවත්කාලීන ලබාගත හැක.</translation>
+        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
+        <translation>ප්‍රයෝග, සංක්‍රාන්ති සහ ශ්‍රව්‍ය සඳහා අත්‍යවශ්‍ය පැකේජ ස්ථාපනය කරන්න. ඒවා නොමැතිව ද ඔබට Flip Studio භාවිත කළ හැක — ස්ථාපනය කිරීමෙන් වැඩිදියුණු වන විට යාවත්කාලීන ලබාගත හැක.</translation>
     </message>
     <message>
         <source>%1… %2%</source>
@@ -469,11 +469,11 @@
     </message>
     <message>
         <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
-        <translation>මීළඟ වතාවේ ඔබ Flip විවෘත කරන විට අතින් මාරු කිරීම මඟහරින්න. ප්‍රවේශය අක්‍රිය කිරීමෙන් මෙය යළි සැකසේ.</translation>
+        <translation>මීළඟ වතාවේ ඔබ Flip Studio විවෘත කරන විට අතින් මාරු කිරීම මඟහරින්න. ප්‍රවේශය අක්‍රිය කිරීමෙන් මෙය යළි සැකසේ.</translation>
     </message>
     <message>
-        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
-        <translation>Cursor හෝ Claude හට ඔබ වෙනුවෙන් මෙම ව්‍යාපෘතිය සංස්කරණය කිරීමට ඉඩ දෙන්න — ක්ලිප් එක් කිරීම, කාලරේඛාව වෙනස් කිරීම සහ එහි පෙනුම පරීක්ෂා කිරීම සිදු කළ හැක. මෙම උපාංගයේ ඇති වැඩසටහන් සඳහා පමණි. පහතින් “ආරම්භයේදීම නියෝජිතයා ආරම්භ කරන්න” ක්‍රියාත්මක කර නොමැති නම්, ඔබ Flip විවෘත කරන සෑම අවස්ථාවකදීම පෙරනිමියෙන් අක්‍රිය වේ; ඔබ අවසන් වූ පසු මෙතැනින් එය අක්‍රිය කරන්න. සැසි අතරතුර යතුර එලෙසම පවතින බැවින්, ඔබ එක් වරක් ඇලවූ සැකසුම දිගටම ක්‍රියාත්මක වේ.</translation>
+        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip Studio, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
+        <translation>Cursor හෝ Claude හට ඔබ වෙනුවෙන් මෙම ව්‍යාපෘතිය සංස්කරණය කිරීමට ඉඩ දෙන්න — ක්ලිප් එක් කිරීම, කාලරේඛාව වෙනස් කිරීම සහ එහි පෙනුම පරීක්ෂා කිරීම සිදු කළ හැක. මෙම උපාංගයේ ඇති වැඩසටහන් සඳහා පමණි. පහතින් “ආරම්භයේදීම නියෝජිතයා ආරම්භ කරන්න” ක්‍රියාත්මක කර නොමැති නම්, ඔබ Flip Studio විවෘත කරන සෑම අවස්ථාවකදීම පෙරනිමියෙන් අක්‍රිය වේ; ඔබ අවසන් වූ පසු මෙතැනින් එය අක්‍රිය කරන්න. සැසි අතරතුර යතුර එලෙසම පවතින බැවින්, ඔබ එක් වරක් ඇලවූ සැකසුම දිගටම ක්‍රියාත්මක වේ.</translation>
     </message>
 </context>
 <context>
@@ -716,8 +716,8 @@
 <context>
     <name>AndroidEditor</name>
     <message>
-        <source>Flip project (*.drift)</source>
-        <translation>Flip ව්‍යාපෘතිය (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Flip Studio ව්‍යාපෘතිය (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -919,8 +919,8 @@
 <context>
     <name>AndroidMain</name>
     <message>
-        <source>Flip project (*.drift)</source>
-        <translation>Flip ව්‍යාපෘතිය (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Flip Studio ව්‍යාපෘතිය (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -3543,8 +3543,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This build of Flip has no video stabilization support</source>
-        <translation>Flip හි මෙම සංස්කරණයට වීඩියෝ ස්ථාවර කිරීමේ සහාය නොමැත</translation>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation>Flip Studio හි මෙම සංස්කරණයට වීඩියෝ ස්ථාවර කිරීමේ සහාය නොමැත</translation>
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
@@ -4620,10 +4620,10 @@
         </translation>
     </message>
     <message numerus="yes">
-        <source>Imported %n files into %1 folders. %2 files were skipped — Flip does not recognize their format. Drag them onto the bin to try anyway.</source>
+        <source>Imported %n files into %1 folders. %2 files were skipped — Flip Studio does not recognize their format. Drag them onto the bin to try anyway.</source>
         <translation>
-            <numerusform>ගොනු %nක් ෆෝල්ඩර %1කට ආයාත කරන ලදී. ගොනු %2ක් මඟහරින ලදී — Flip ඒවායේ ආකෘතිය හඳුනා නොගනී. කෙසේ හෝ උත්සාහ කිරීමට ඒවා බඳුන වෙත අදින්න.</numerusform>
-            <numerusform>ගොනු %nක් ෆෝල්ඩර %1කට ආයාත කරන ලදී. ගොනු %2ක් මඟහරින ලදී — Flip ඒවායේ ආකෘතිය හඳුනා නොගනී. කෙසේ හෝ උත්සාහ කිරීමට ඒවා බඳුන වෙත අදින්න.</numerusform>
+            <numerusform>ගොනු %nක් ෆෝල්ඩර %1කට ආයාත කරන ලදී. ගොනු %2ක් මඟහරින ලදී — Flip Studio ඒවායේ ආකෘතිය හඳුනා නොගනී. කෙසේ හෝ උත්සාහ කිරීමට ඒවා බඳුන වෙත අදින්න.</numerusform>
+            <numerusform>ගොනු %nක් ෆෝල්ඩර %1කට ආයාත කරන ලදී. ගොනු %2ක් මඟහරින ලදී — Flip Studio ඒවායේ ආකෘතිය හඳුනා නොගනී. කෙසේ හෝ උත්සාහ කිරීමට ඒවා බඳුන වෙත අදින්න.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -5939,8 +5939,8 @@
         <translation>මෙම build එකෙහි Marketplace ලබාගත නොහැක.</translation>
     </message>
     <message>
-        <source>Could not load Flip Assets. Check your connection and try again.</source>
-        <translation>Flip Assets පූරණය කිරීමට නොහැකි විය. ඔබේ සම්බන්ධතාව පරීක්ෂා කර නැවත උත්සාහ කරන්න.</translation>
+        <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
+        <translation>Flip Studio Assets පූරණය කිරීමට නොහැකි විය. ඔබේ සම්බන්ධතාව පරීක්ෂා කර නැවත උත්සාහ කරන්න.</translation>
     </message>
     <message>
         <source>That asset could not be installed.</source>
@@ -5990,8 +5990,8 @@
         <translation>Media bin වෙත එක් කරන ලදී</translation>
     </message>
     <message>
-        <source>Couldn’t load Flip Assets</source>
-        <translation>Flip Assets පූරණය කිරීමට නොහැකි විය</translation>
+        <source>Couldn’t load Flip Studio Assets</source>
+        <translation>Flip Studio Assets පූරණය කිරීමට නොහැකි විය</translation>
     </message>
     <message>
         <source>Try again</source>
@@ -6002,8 +6002,8 @@
         <translation>මෙහි තවමත් assets කිසිවක් නැත</translation>
     </message>
     <message>
-        <source>Flip Assets are still being published. Check back soon.</source>
-        <translation>Flip Assets තවමත් ප්‍රකාශයට පත් කරමින් පවතී. ළඟදීම නැවත පරීක්ෂා කරන්න.</translation>
+        <source>Flip Studio Assets are still being published. Check back soon.</source>
+        <translation>Flip Studio Assets තවමත් ප්‍රකාශයට පත් කරමින් පවතී. ළඟදීම නැවත පරීක්ෂා කරන්න.</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -6018,8 +6018,8 @@
         <translation>සියලු වත්කම්</translation>
     </message>
     <message>
-        <source>No Flip Assets match “%1”.</source>
-        <translation>“%1” සඳහා ගැළපෙන Flip Assets හමු නොවීය.</translation>
+        <source>No Flip Studio Assets match “%1”.</source>
+        <translation>“%1” සඳහා ගැළපෙන Flip Studio Assets හමු නොවීය.</translation>
     </message>
     <message>
         <source>Search %1 for “%2”</source>
@@ -6029,8 +6029,8 @@
 <context>
     <name>EditorHeader</name>
     <message>
-        <source>Flip project (*.drift)</source>
-        <translation>Flip ව්‍යාපෘතිය (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Flip Studio ව්‍යාපෘතිය (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -6164,8 +6164,8 @@
         <translation>යාවත්කාලීන කරන්න</translation>
     </message>
     <message>
-        <source>Flip %1 is available</source>
-        <translation>Flip %1 ලබාගත හැක</translation>
+        <source>Flip Studio %1 is available</source>
+        <translation>Flip Studio %1 ලබාගත හැක</translation>
     </message>
     <message>
         <source>Agent access</source>
@@ -6372,8 +6372,8 @@
 <context>
     <name>EffectStacksSection</name>
     <message>
-        <source>Flip effect stack (*.drifteffects)</source>
-        <translation>Flip ප්‍රයෝග ස්ටැක් (*.drifteffects)</translation>
+        <source>Flip Studio effect stack (*.drifteffects)</source>
+        <translation>Flip Studio ප්‍රයෝග ස්ටැක් (*.drifteffects)</translation>
     </message>
     <message>
         <source>Import effect stack</source>
@@ -6985,8 +6985,8 @@
         <translation>prop.json මුහුණු ප්‍රොප් එකක් නොවේ</translation>
     </message>
     <message>
-        <source>prop.json needs a newer version of Flip</source>
-        <translation>prop.json සඳහා Flip හි නව අනුවාදයක් අවශ්‍ය වේ</translation>
+        <source>prop.json needs a newer version of Flip Studio</source>
+        <translation>prop.json සඳහා Flip Studio හි නව අනුවාදයක් අවශ්‍ය වේ</translation>
     </message>
     <message>
         <source>invalid prop id “%1”</source>
@@ -8184,7 +8184,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Flip</source>
+        <source>About Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8196,8 +8196,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 is the latest version.</source>
-        <translation type="unfinished">Flip %1 යනු නවතම අනුවාදයයි.</translation>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation type="unfinished">Flip Studio %1 යනු නවතම අනුවාදයයි.</translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -8382,8 +8382,8 @@
         <translation>බාගැනීමක් සාර්ථක වන බවට, අවසන් වන බවට හෝ ඔබ තෝරාගත් ගුණත්වය ලබාදෙන බවට අපට සහතික විය නොහැක. සමහර අයිතම හුදෙක්ම අසාර්ථක විය හැක.</translation>
     </message>
     <message>
-        <source>Everything here comes from third parties. Flip does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>මෙහි ඇති සියල්ල තෙවන පාර්ශවයන්ගෙන් ලැබේ. Flip ඒවා සත්කාරකත්වය නොදරයි, හිමිකාරිත්වයක් නොදරයි හෝ තහවුරු නොකරයි — ඔබ බාගන්නා ඕනෑම දෙයක් භාවිත කිරීමට ඔබට අයිතියක් ඇති බව තහවුරු කරගැනීමට ඔබ වගකිව යුතුය.</translation>
+        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
+        <translation>මෙහි ඇති සියල්ල තෙවන පාර්ශවයන්ගෙන් ලැබේ. Flip Studio ඒවා සත්කාරකත්වය නොදරයි, හිමිකාරිත්වයක් නොදරයි හෝ තහවුරු නොකරයි — ඔබ බාගන්නා ඕනෑම දෙයක් භාවිත කිරීමට ඔබට අයිතියක් ඇති බව තහවුරු කරගැනීමට ඔබ වගකිව යුතුය.</translation>
     </message>
     <message>
         <source>I understand</source>
@@ -9602,12 +9602,12 @@
 <context>
     <name>PlaybackEngine</name>
     <message>
-        <source>%1 decodes on %2, but Flip draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 විකේතනය වන්නේ %2 මතය, නමුත් Flip අඳින්නේ %3 මතය. සෑම රාමුවක්ම පද්ධති මතකය හරහා පිටපත් කෙරේ, එය අඳින ග්‍රැෆික් කාඩ්පත මතම විකේතනය කිරීමට වඩා මන්දගාමී වේ.</translation>
+        <source>%1 decodes on %2, but Flip Studio draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>%1 විකේතනය වන්නේ %2 මතය, නමුත් Flip Studio අඳින්නේ %3 මතය. සෑම රාමුවක්ම පද්ධති මතකය හරහා පිටපත් කෙරේ, එය අඳින ග්‍රැෆික් කාඩ්පත මතම විකේතනය කිරීමට වඩා මන්දගාමී වේ.</translation>
     </message>
     <message>
-        <source>%1 decodes on a different graphics card than the one Flip draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>Flip අඳින ග්‍රැෆික් කාඩ්පතට වඩා වෙනස් ග්‍රැෆික් කාඩ්පතක් මත %1 විකේතනය වේ. සෑම රාමුවක්ම පද්ධති මතකය හරහා පිටපත් කෙරේ, එය අඳින ග්‍රැෆික් කාඩ්පත මතම විකේතනය කිරීමට වඩා මන්දගාමී වේ.</translation>
+        <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>Flip Studio අඳින ග්‍රැෆික් කාඩ්පතට වඩා වෙනස් ග්‍රැෆික් කාඩ්පතක් මත %1 විකේතනය වේ. සෑම රාමුවක්ම පද්ධති මතකය හරහා පිටපත් කෙරේ, එය අඳින ග්‍රැෆික් කාඩ්පත මතම විකේතනය කිරීමට වඩා මන්දගාමී වේ.</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -9693,11 +9693,11 @@
     <name>PreferencesController</name>
     <message>
         <source>Faster preview takes effect after you restart Flip.</source>
-        <translation>වේගවත් පෙරදසුන Flip නැවත ආරම්භ කිරීමෙන් පසුව ක්‍රියාත්මක වේ.</translation>
+        <translation>වේගවත් පෙරදසුන Flip Studio නැවත ආරම්භ කිරීමෙන් පසුව ක්‍රියාත්මක වේ.</translation>
     </message>
     <message>
         <source>The graphics card choice takes effect after you restart Flip.</source>
-        <translation>ග්‍රැෆික් කාඩ්පත් තේරීම Flip නැවත ආරම්භ කළ පසු ක්‍රියාත්මක වේ.</translation>
+        <translation>ග්‍රැෆික් කාඩ්පත් තේරීම Flip Studio නැවත ආරම්භ කළ පසු ක්‍රියාත්මක වේ.</translation>
     </message>
     <message>
         <source>System default</source>
@@ -9845,15 +9845,15 @@ If playback stutters, try another.</source>
         <translation type="unfinished">අවලංගු කරන්න</translation>
     </message>
     <message>
-        <source>Launching Flip with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
-        <translation type="unfinished">prime-run (හෝ DRI_PRIME=1) සමඟ Flip දියත් කිරීමෙන් OpenGL විකේතකය ඇති කාඩ්පත මතම තබයි.</translation>
+        <source>Launching Flip Studio with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
+        <translation type="unfinished">prime-run (හෝ DRI_PRIME=1) සමඟ Flip Studio දියත් කිරීමෙන් OpenGL විකේතකය ඇති කාඩ්පත මතම තබයි.</translation>
     </message>
     <message>
-        <source>Run Flip on the high-performance graphics card</source>
-        <translation type="unfinished">Flip ඉහළ කාර්යසාධනයක් සහිත ග්‍රැෆික් කාඩ්පත මත ධාවනය කරන්න</translation>
+        <source>Run Flip Studio on the high-performance graphics card</source>
+        <translation type="unfinished">Flip Studio ඉහළ කාර්යසාධනයක් සහිත ග්‍රැෆික් කාඩ්පත මත ධාවනය කරන්න</translation>
     </message>
     <message>
-        <source>Set Flip to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -9910,12 +9910,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished">GPU පෙරදසුන ලබාගත නොහැක</translation>
     </message>
     <message>
-        <source>Your graphics driver only provides %1. Flip&apos;s preview needs OpenGL 3.3.</source>
-        <translation type="unfinished">ඔබගේ ග්‍රැෆික් ධාවකය සපයන්නේ %1 පමණි. Flip හි පෙරදසුන සඳහා OpenGL 3.3 අවශ්‍ය වේ.</translation>
+        <source>Your graphics driver only provides %1. Flip Studio&apos;s preview needs OpenGL 3.3.</source>
+        <translation type="unfinished">ඔබගේ ග්‍රැෆික් ධාවකය සපයන්නේ %1 පමණි. Flip Studio හි පෙරදසුන සඳහා OpenGL 3.3 අවශ්‍ය වේ.</translation>
     </message>
     <message>
-        <source>Flip could not start its GPU renderer, so the preview cannot draw.</source>
-        <translation type="unfinished">Flip හට එහි GPU රෙන්ඩරකය ආරම්භ කිරීමට නොහැකි විය, එබැවින් පෙරදසුන ඇඳීමට නොහැක.</translation>
+        <source>Flip Studio could not start its GPU renderer, so the preview cannot draw.</source>
+        <translation type="unfinished">Flip Studio හට එහි GPU රෙන්ඩරකය ආරම්භ කිරීමට නොහැකි විය, එබැවින් පෙරදසුන ඇඳීමට නොහැක.</translation>
     </message>
     <message>
         <source>Debug info</source>
@@ -9984,12 +9984,12 @@ If playback stutters, try another.</source>
 <context>
     <name>Project</name>
     <message>
-        <source>This project was saved by a newer version of Flip (project format %1; this build reads up to %2).</source>
-        <translation>මෙම ව්‍යාපෘතිය Flip හි නව අනුවාදයකින් සුරකින ලද්දකි (ව්‍යාපෘති ආකෘතිය %1; මෙම සංස්කරණය කියවන්නේ %2 දක්වා පමණි).</translation>
+        <source>This project was saved by a newer version of Flip Studio (project format %1; this build reads up to %2).</source>
+        <translation>මෙම ව්‍යාපෘතිය Flip Studio හි නව අනුවාදයකින් සුරකින ලද්දකි (ව්‍යාපෘති ආකෘතිය %1; මෙම සංස්කරණය කියවන්නේ %2 දක්වා පමණි).</translation>
     </message>
     <message>
-        <source>This file isn’t a Flip project.</source>
-        <translation>මෙම ගොනුව Flip ව්‍යාපෘතියක් නොවේ.</translation>
+        <source>This file isn’t a Flip Studio project.</source>
+        <translation>මෙම ගොනුව Flip Studio ව්‍යාපෘතියක් නොවේ.</translation>
     </message>
 </context>
 <context>
@@ -10003,12 +10003,12 @@ If playback stutters, try another.</source>
         <translation>%1 විවෘත කළ නොහැක</translation>
     </message>
     <message>
-        <source>file is too short to be a Flip project</source>
-        <translation>ගොනුව Flip ව්‍යාපෘතියක් වීමට තරම් කෙටි වැඩිය</translation>
+        <source>file is too short to be a Flip Studio project</source>
+        <translation>ගොනුව Flip Studio ව්‍යාපෘතියක් වීමට තරම් කෙටි වැඩිය</translation>
     </message>
     <message>
-        <source>not a Flip project (bad magic)</source>
-        <translation>Flip ව්‍යාපෘතියක් නොවේ (bad magic)</translation>
+        <source>not a Flip Studio project (bad magic)</source>
+        <translation>Flip Studio ව්‍යාපෘතියක් නොවේ (bad magic)</translation>
     </message>
     <message>
         <source>unsupported container revision</source>
@@ -10035,8 +10035,8 @@ If playback stutters, try another.</source>
         <translation>ව්‍යාපෘති manifest හි ආකෘති අනුවාදයක් නැත</translation>
     </message>
     <message>
-        <source>this project was saved by a newer version of Flip (format %1) — update to open it</source>
-        <translation>මෙම ව්‍යාපෘතිය Flip හි නව අනුවාදයකින් සුරකින ලද්දකි (ආකෘතිය %1) — එය විවෘත කිරීමට යාවත්කාලීන කරන්න</translation>
+        <source>this project was saved by a newer version of Flip Studio (format %1) — update to open it</source>
+        <translation>මෙම ව්‍යාපෘතිය Flip Studio හි නව අනුවාදයකින් සුරකින ලද්දකි (ආකෘතිය %1) — එය විවෘත කිරීමට යාවත්කාලීන කරන්න</translation>
     </message>
     <message>
         <source>project blob table is not contiguous</source>
@@ -11125,8 +11125,8 @@ If playback stutters, try another.</source>
         <translation>ක්‍රියාත්මක වෙමින්…</translation>
     </message>
     <message>
-        <source>Flip will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
-        <translation>සුමටව ධාවනය වන පරිදි Flip විසින් මෙම ක්ලිපයේ ප්‍රතිලෝම පිටපතක් රෙන්ඩර් කරනු ඇත. එය ක්‍රියාත්මක වන අතරතුර ඔබට දිගටම සංස්කරණය කළ හැක.</translation>
+        <source>Flip Studio will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
+        <translation>සුමටව ධාවනය වන පරිදි Flip Studio විසින් මෙම ක්ලිපයේ ප්‍රතිලෝම පිටපතක් රෙන්ඩර් කරනු ඇත. එය ක්‍රියාත්මක වන අතරතුර ඔබට දිගටම සංස්කරණය කළ හැක.</translation>
     </message>
     <message>
         <source>This can take a few minutes on longer clips.</source>
@@ -11535,11 +11535,11 @@ If playback stutters, try another.</source>
         <translation>ඉහළ කාර්යසාධනය (විශේෂිත GPU)</translation>
     </message>
     <message>
-        <source>Which graphics card Flip runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation>Flip ධාවනය වන ග්‍රැෆික් කාඩ්පත. ඉහළ කාර්යසාධනය මඟින් NVIDIA කාඩ්පතක් මත විකේතනය කළ වීඩියෝ එම කාඩ්පතේම තබා ගනී; බලශක්ති ඉතිරිකිරීම මඟින් බැටරි භාවිතය අඩු කරයි. නැවත ආරම්භ කිරීමෙන් පසු බලපැවැත්වේ.</translation>
+        <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
+        <translation>Flip Studio ධාවනය වන ග්‍රැෆික් කාඩ්පත. ඉහළ කාර්යසාධනය මඟින් NVIDIA කාඩ්පතක් මත විකේතනය කළ වීඩියෝ එම කාඩ්පතේම තබා ගනී; බලශක්ති ඉතිරිකිරීම මඟින් බැටරි භාවිතය අඩු කරයි. නැවත ආරම්භ කිරීමෙන් පසු බලපැවැත්වේ.</translation>
     </message>
     <message>
-        <source>Choose which graphics card Flip runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
+        <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11583,8 +11583,8 @@ If playback stutters, try another.</source>
         <translation>බොත්තම්, පෙළ සහ අයිකන විශාල කරයි. ඔබේ දර්ශන සැකසුම්වල දැනටමත් ඇති ප්‍රමාණයට අමතර පරිමාණයකි. නැවත ආරම්භයෙන් පසු බලපැවැත්වේ.</translation>
     </message>
     <message>
-        <source>Restart Flip to apply this size.</source>
-        <translation>මෙම ප්‍රමාණය යෙදීමට Flip නැවත ආරම්භ කරන්න.</translation>
+        <source>Restart Flip Studio to apply this size.</source>
+        <translation>මෙම ප්‍රමාණය යෙදීමට Flip Studio නැවත ආරම්භ කරන්න.</translation>
     </message>
     <message>
         <source>Horizontal mouse-wheel pan</source>
@@ -11639,8 +11639,8 @@ If playback stutters, try another.</source>
         <translation>දැන් පරීක්ෂා කරන්න</translation>
     </message>
     <message>
-        <source>Flip %1</source>
-        <translation>Flip %1</translation>
+        <source>Flip Studio %1</source>
+        <translation>Flip Studio %1</translation>
     </message>
     <message>
         <source>Extra packs</source>
@@ -11671,8 +11671,8 @@ If playback stutters, try another.</source>
         <translation>Cloud සේවා සපයන්නන්</translation>
     </message>
     <message>
-        <source>Keys are stored unencrypted in Flip&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>යතුරු Flip හි සැකසීම් තුළ සංකේතනය නොකර ගබඩා කෙරේ. පද්ධති පරිසරයේ ඇති ELEVENLABS_API_KEY සහ FISH_API_KEY ප්‍රමුඛත්වය ගනී. භාවිතය ඔබගේම ගිණුමට අය කෙරේ.</translation>
+        <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation>යතුරු Flip Studio හි සැකසීම් තුළ සංකේතනය නොකර ගබඩා කෙරේ. පද්ධති පරිසරයේ ඇති ELEVENLABS_API_KEY සහ FISH_API_KEY ප්‍රමුඛත්වය ගනී. භාවිතය ඔබගේම ගිණුමට අය කෙරේ.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -11715,8 +11715,8 @@ If playback stutters, try another.</source>
         <translation>%1 වෙත ශ්‍රව්‍ය සහ පෙළ යැවීමට ඉඩ දෙන්න</translation>
     </message>
     <message>
-        <source>Needed before Flip or a connected agent can transcribe or generate audio with this service</source>
-        <translation>මෙම සේවාව සමඟ Flip හෝ සම්බන්ධිත agent හට පෙළපෙරළි කිරීමට හෝ ශ්‍රව්‍ය ජනනය කිරීමට පෙර අවශ්‍ය වේ</translation>
+        <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
+        <translation>මෙම සේවාව සමඟ Flip Studio හෝ සම්බන්ධිත agent හට පෙළපෙරළි කිරීමට හෝ ශ්‍රව්‍ය ජනනය කිරීමට පෙර අවශ්‍ය වේ</translation>
     </message>
     <message>
         <source>Default voice id</source>
@@ -11751,7 +11751,7 @@ If playback stutters, try another.</source>
         <translation>මෙම උපාංගයෙන් marketplace ගිණුම විසන්ධි කරන්න</translation>
     </message>
     <message>
-        <source>Once a day, check whether a newer Flip has been released</source>
+        <source>Once a day, check whether a newer Flip Studio has been released</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12574,7 +12574,7 @@ If playback stutters, try another.</source>
         <translation>ප්‍රකාරය</translation>
     </message>
     <message>
-        <source>Smooths camera shake. Flip scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
+        <source>Smooths camera shake. Flip Studio scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13101,8 +13101,8 @@ If playback stutters, try another.</source>
 <context>
     <name>TextAssetsTab</name>
     <message>
-        <source>Flip text style (*.drifttextstyle)</source>
-        <translation>Flip පෙළ විලාසය (*.drifttextstyle)</translation>
+        <source>Flip Studio text style (*.drifttextstyle)</source>
+        <translation>Flip Studio පෙළ විලාසය (*.drifttextstyle)</translation>
     </message>
     <message>
         <source>Import text style</source>
@@ -15278,7 +15278,7 @@ If playback stutters, try another.</source>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <source>Flip %1 update</source>
+        <source>Flip Studio %1 update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15286,7 +15286,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Installs when you close Flip</source>
+        <source>Installs when you close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15294,7 +15294,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15306,12 +15306,12 @@ If playback stutters, try another.</source>
         <translation>යාවත්කාලීන පරීක්ෂා කිරීමට නොහැකි විය: බලාපොරොත්තු නොවූ ප්‍රතිචාරයකි.</translation>
     </message>
     <message>
-        <source>Flip %1 is the latest version.</source>
-        <translation>Flip %1 යනු නවතම අනුවාදයයි.</translation>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation>Flip Studio %1 යනු නවතම අනුවාදයයි.</translation>
     </message>
     <message>
-        <source>Flip %1 is available.</source>
-        <translation>Flip %1 ලබාගත හැක.</translation>
+        <source>Flip Studio %1 is available.</source>
+        <translation>Flip Studio %1 ලබාගත හැක.</translation>
     </message>
     <message>
         <source>Couldn’t download the update: the cache isn’t writable.</source>
@@ -15334,7 +15334,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 is ready to install.</source>
+        <source>Flip Studio %1 is ready to install.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -15349,19 +15349,19 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 is downloaded and ready to install</source>
+        <source>Flip Studio %1 is downloaded and ready to install</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip %1 is available</source>
-        <translation>Flip %1 ලබාගත හැක</translation>
+        <source>Flip Studio %1 is available</source>
+        <translation>Flip Studio %1 ලබාගත හැක</translation>
     </message>
     <message>
-        <source>A new Flip update is available</source>
+        <source>A new Flip Studio update is available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15369,7 +15369,7 @@ If playback stutters, try another.</source>
         <translation>ඔබ සතුව ඇත්තේ %1 ය.</translation>
     </message>
     <message>
-        <source>Install automatically when I close Flip</source>
+        <source>Install automatically when I close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15389,7 +15389,7 @@ If playback stutters, try another.</source>
         <translation>පසුව</translation>
     </message>
     <message>
-        <source>Install when I close Flip</source>
+        <source>Install when I close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15397,7 +15397,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished">යාවත්කාලීන කරන්න</translation>
     </message>
     <message>
-        <source>Closes Flip, installs the update and opens Flip again</source>
+        <source>Closes Flip Studio, installs the update and opens Flip Studio again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15409,7 +15409,7 @@ If playback stutters, try another.</source>
         <translation>ඔබේ බ්‍රවුසරයේ නිකුතු පිටුව විවෘත කරයි</translation>
     </message>
     <message>
-        <source>Downloading Flip %1…</source>
+        <source>Downloading Flip Studio %1…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15922,10 +15922,10 @@ If playback stutters, try another.</source>
         <translation>OpenGL ධාවකයක් නොමැත</translation>
     </message>
     <message>
-        <source>Flip could not create an OpenGL context, so it cannot draw its interface or render the preview.
+        <source>Flip Studio could not create an OpenGL context, so it cannot draw its interface or render the preview.
 
 Install or update your graphics driver.</source>
-        <translation>Flip හට OpenGL සන්දර්භයක් සෑදීමට නොහැකි විය, එබැවින් එහි අතුරුමුහුණත ඇඳීමට හෝ පෙරදසුන රෙන්ඩර් කිරීමට නොහැක.
+        <translation>Flip Studio හට OpenGL සන්දර්භයක් සෑදීමට නොහැකි විය, එබැවින් එහි අතුරුමුහුණත ඇඳීමට හෝ පෙරදසුන රෙන්ඩර් කිරීමට නොහැක.
 
 ඔබේ ග්‍රැෆික් ධාවකය ස්ථාපනය හෝ යාවත්කාලීන කරන්න.</translation>
     </message>
@@ -15934,10 +15934,10 @@ Install or update your graphics driver.</source>
         <translation>OpenGL සන්දර්භය ලබාගත නොහැක</translation>
     </message>
     <message>
-        <source>Flip could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
+        <source>Flip Studio could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
 
 The video preview cannot render. Updating your graphics driver may help.</source>
-        <translation>මෙම ධාවකය OpenGL %1.%2 (%3) වාර්තා කළද, Flip හට OpenGL 3.3 core profile සන්දර්භයක් සෑදීමට නොහැකි විය.
+        <translation>මෙම ධාවකය OpenGL %1.%2 (%3) වාර්තා කළද, Flip Studio හට OpenGL 3.3 core profile සන්දර්භයක් සෑදීමට නොහැකි විය.
 
 වීඩියෝ පෙරදසුන රෙන්ඩර් කළ නොහැක. ඔබේ ග්‍රැෆික් ධාවකය යාවත්කාලීන කිරීම උපකාර විය හැක.</translation>
     </message>
@@ -15946,24 +15946,24 @@ The video preview cannot render. Updating your graphics driver may help.</source
         <translation>ග්‍රැෆික් ධාවකය පැරණි වැඩිය</translation>
     </message>
     <message>
-        <source>Flip needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
+        <source>Flip Studio needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
 
-The video preview cannot render, and Flip may not start at all. Update your graphics driver, or run Flip on a machine with a newer GPU.</source>
-        <translation>Flip සඳහා OpenGL 3.3 අවශ්‍ය වේ, නමුත් මෙම ග්‍රැෆික් ධාවකය සපයන්නේ OpenGL %1.%2 (%3) පමණි.
+The video preview cannot render, and Flip Studio may not start at all. Update your graphics driver, or run Flip Studio on a machine with a newer GPU.</source>
+        <translation>Flip Studio සඳහා OpenGL 3.3 අවශ්‍ය වේ, නමුත් මෙම ග්‍රැෆික් ධාවකය සපයන්නේ OpenGL %1.%2 (%3) පමණි.
 
-වීඩියෝ පෙරදසුන රෙන්ඩර් කළ නොහැකි අතර, Flip කිසිසේත්ම ආරම්භ නොවීමට ඉඩ ඇත. ඔබේ ග්‍රැෆික් ධාවකය යාවත්කාලීන කරන්න, නැතහොත් නව GPU එකක් සහිත පරිගණකයක Flip ධාවනය කරන්න.</translation>
+වීඩියෝ පෙරදසුන රෙන්ඩර් කළ නොහැකි අතර, Flip Studio කිසිසේත්ම ආරම්භ නොවීමට ඉඩ ඇත. ඔබේ ග්‍රැෆික් ධාවකය යාවත්කාලීන කරන්න, නැතහොත් නව GPU එකක් සහිත පරිගණකයක Flip Studio ධාවනය කරන්න.</translation>
     </message>
     <message>
-        <source>Flip is not drawing its window</source>
-        <translation>Flip එහි කවුළුව අඳින්නේ නැත</translation>
+        <source>Flip Studio is not drawing its window</source>
+        <translation>Flip Studio එහි කවුළුව අඳින්නේ නැත</translation>
     </message>
     <message>
-        <source>Flip has been running for %1 seconds but its window has not drawn anything yet.
+        <source>Flip Studio has been running for %1 seconds but its window has not drawn anything yet.
 
-If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip again.</source>
-        <translation>Flip තත්පර %1ක් තිස්සේ ධාවනය වෙමින් පවතින නමුත් එහි කවුළුව තවමත් කිසිවක් ඇඳ නැත.
+If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip Studio again.</source>
+        <translation>Flip Studio තත්පර %1ක් තිස්සේ ධාවනය වෙමින් පවතින නමුත් එහි කවුළුව තවමත් කිසිවක් ඇඳ නැත.
 
-කවුළුව හිස්ව හෝ කළු පැහැයෙන් දිස්වන්නේ නම්, බොහෝ දුරට ඔබේ ග්‍රැෆික් ධාවකය යල් පැන ගිය එකක් හෝ දෝෂ සහිත එකක් විය හැක. ඔබේ GPU නිෂ්පාදකයාගේ වෙබ් අඩවියෙන් (AMD, NVIDIA හෝ Intel) එය යාවත්කාලීන කර නැවත Flip ආරම්භ කරන්න.</translation>
+කවුළුව හිස්ව හෝ කළු පැහැයෙන් දිස්වන්නේ නම්, බොහෝ දුරට ඔබේ ග්‍රැෆික් ධාවකය යල් පැන ගිය එකක් හෝ දෝෂ සහිත එකක් විය හැක. ඔබේ GPU නිෂ්පාදකයාගේ වෙබ් අඩවියෙන් (AMD, NVIDIA හෝ Intel) එය යාවත්කාලීන කර නැවත Flip Studio ආරම්භ කරන්න.</translation>
     </message>
 </context>
 </TS>

@@ -1804,7 +1804,7 @@ void CoreTest::zipRejectsTruncatedAndOversizedDeflate()
 {
     QTemporaryDir dir;
     QVERIFY(dir.isValid());
-    const QByteArray data = QByteArray("Flip zip test payload. ").repeated(4096);
+    const QByteArray data = QByteArray("Flip Studio zip test payload. ").repeated(4096);
     const QByteArray deflated = rawDeflate(data);
     QVERIFY(!deflated.isEmpty());
     const quint32 crc = quint32(crc32(0, reinterpret_cast<const Bytef *>(data.constData()), uInt(data.size())));

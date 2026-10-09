@@ -9,7 +9,7 @@ ApplicationWindow {
     id: window
     visible: true
     color: Theme.appBackground
-    title: "Flip"
+    title: "Flip Studio"
 
     // Theme is a singleton and cannot see a window, so the size class it reports has to be fed
     // from whichever root is live. Screen is the wrong source: it ignores tiling and split view.
@@ -43,7 +43,7 @@ ApplicationWindow {
     palette.toolTipBase: Theme.panelBackground
     palette.toolTipText: Theme.panelForeground
 
-    readonly property var projectFilter: [qsTr("Flip project (*.drift)")]
+    readonly property var projectFilter: [qsTr("Flip Studio project (*.drift)")]
     property bool inEditor: false
     property bool forceClose: false
     property var _pendingAfterUnsaved: null

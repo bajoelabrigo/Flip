@@ -81,7 +81,7 @@ void DriftAssetStore::refresh()
         const QJsonDocument doc = QJsonDocument::fromJson(reply->readAll());
         const QString error = reply->error() == QNetworkReply::NoError && doc.isObject()
             ? QString()
-            : tr("Could not load Flip Assets. Check your connection and try again.");
+            : tr("Could not load Flip Studio Assets. Check your connection and try again.");
         if (error != m_error) {
             m_error = error;
             emit errorChanged();

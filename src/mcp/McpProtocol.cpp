@@ -34,7 +34,7 @@ QJsonObject initializeResult()
                      {QStringLiteral("version"), QStringLiteral(DRIFT_VERSION)}}},
         {QStringLiteral("instructions"),
          QStringLiteral(
-             "Flip video editor. Workflow: catalog (or search({q}) by keyword) → toolbox({name}) or "
+             "Flip Studio video editor. Workflow: catalog (or search({q}) by keyword) → toolbox({name}) or "
              "toolbox({ops:[…]}) for schemas → apply({ops:[{tool,args}…]}) to edit; one batch is one undo "
              "step. To see the footage: activity() finds where content/motion/audio change, frames() "
              "renders a labelled contact sheet of distinct moments, capture({at}) gives one full still. "

@@ -63,19 +63,19 @@ bool readSessionFile(quint16 *port, QString *token, QString *error)
     if (!file.exists()) {
         if (error) {
             *error = QStringLiteral(
-                "Flip MCP is off. Open Flip and enable Agent access in Settings.");
+                "Flip Studio MCP is off. Open Flip Studio and enable Agent access in Settings.");
         }
         return false;
     }
     if (!file.open(QIODevice::ReadOnly)) {
         if (error)
-            *error = QStringLiteral("Could not read the Flip MCP session file.");
+            *error = QStringLiteral("Could not read the Flip Studio MCP session file.");
         return false;
     }
     const auto doc = QJsonDocument::fromJson(file.readAll());
     if (!doc.isObject()) {
         if (error)
-            *error = QStringLiteral("Flip MCP session file is invalid.");
+            *error = QStringLiteral("Flip Studio MCP session file is invalid.");
         return false;
     }
     const QJsonObject o = doc.object();
@@ -83,7 +83,7 @@ bool readSessionFile(quint16 *port, QString *token, QString *error)
     const QString t = o.value(QStringLiteral("token")).toString();
     if (p <= 0 || p > 65535 || t.isEmpty()) {
         if (error)
-            *error = QStringLiteral("Flip MCP session file is incomplete.");
+            *error = QStringLiteral("Flip Studio MCP session file is incomplete.");
         return false;
     }
     if (port)

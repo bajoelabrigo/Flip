@@ -12,16 +12,16 @@
 ; Never change either AppId: it is what lets an installer upgrade an existing install
 ; in place instead of leaving two copies behind.
 #ifdef Nightly
-  #define MyAppName "Flip Nightly"
+  #define MyAppName "Flip Studio Nightly"
   #define MyAppId "4C9428E1-600C-4808-9B5F-34C5CC5A65C1"
-  #define MyOutputBase "Flip-Setup-Nightly-x64"
+  #define MyOutputBase "FlipStudio-Setup-Nightly-x64"
 #else
-  #define MyAppName "Flip"
+  #define MyAppName "Flip Studio"
   #define MyAppId "4521839D-9B2F-47AD-87E5-0A611BA03F9D"
-  #define MyOutputBase "Flip-Setup-x64"
+  #define MyOutputBase "FlipStudio-Setup-x64"
 #endif
-#define MyAppPublisher "Flip"
-#define MyAppExeName "flip.exe"
+#define MyAppPublisher "Flip Studio"
+#define MyAppExeName "flipstudio.exe"
 
 [Setup]
 AppId={{{#MyAppId}}
@@ -67,10 +67,10 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: de
 ; delete the association out from under the stable install (uninsdeletekey), and two channels
 ; fighting over which opens a .drift file helps nobody.
 [Registry]
-Root: HKCR; Subkey: ".drift"; ValueType: string; ValueName: ""; ValueData: "Flip.Project"; Flags: uninsdeletevalue
-Root: HKCR; Subkey: "Flip.Project"; ValueType: string; ValueName: ""; ValueData: "Flip Project"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "Flip.Project\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#MyAppExeName},0"
-Root: HKCR; Subkey: "Flip.Project\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
+Root: HKCR; Subkey: ".drift"; ValueType: string; ValueName: ""; ValueData: "FlipStudio.Project"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "FlipStudio.Project"; ValueType: string; ValueName: ""; ValueData: "Flip Studio Project"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "FlipStudio.Project\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#MyAppExeName},0"
+Root: HKCR; Subkey: "FlipStudio.Project\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
 #endif
 
 [Run]
