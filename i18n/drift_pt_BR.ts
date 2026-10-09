@@ -11643,6 +11643,10 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Flip Studio %1</translation>
     </message>
     <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Extra packs</source>
         <translation>Pacotes extras</translation>
     </message>

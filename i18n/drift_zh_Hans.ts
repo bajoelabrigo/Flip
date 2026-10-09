@@ -11591,6 +11591,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Extra packs</source>
         <translation>附加包</translation>
     </message>

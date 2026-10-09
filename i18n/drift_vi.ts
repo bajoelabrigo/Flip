@@ -11598,6 +11598,10 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Flip Studio %1</translation>
     </message>
     <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Extra packs</source>
         <translation>Gói bổ sung</translation>
     </message>

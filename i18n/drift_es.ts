@@ -5,7 +5,7 @@
     <name>AboutDialog</name>
     <message>
         <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>Acerca de Flip Studio</translation>
     </message>
     <message>
         <source>Close</source>
@@ -8185,7 +8185,7 @@
     </message>
     <message>
         <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>Acerca de Flip Studio</translation>
     </message>
     <message>
         <source>Settings…</source>
@@ -11641,6 +11641,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Flip Studio %1</source>
         <translation>Flip Studio %1</translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation>Acerca de Flip Studio</translation>
     </message>
     <message>
         <source>Extra packs</source>

@@ -11636,6 +11636,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Extra packs</source>
         <translation type="unfinished">Mga dagdag na pakete</translation>
     </message>

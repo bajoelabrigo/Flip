@@ -435,6 +435,22 @@ Item {
                     }
                 }
 
+                // Upstream only offers About from the macOS menu bar, which leaves Windows, Linux
+                // and Android with no way to reach the credits and the source link the GPL asks for.
+                ThemedButton {
+                    variant: "secondary"
+                    glyph: Theme.icons.info
+                    text: qsTr("About Flip Studio")
+                    onClicked: aboutDialogLoader.ensure().open()
+                }
+
+                LazyLoader {
+                    id: aboutDialogLoader
+                    sourceComponent: Component {
+                        AboutDialog { }
+                    }
+                }
+
                 Rectangle {
                     width: parent.width
                     height: Theme.borderWidth

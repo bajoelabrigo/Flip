@@ -9,6 +9,7 @@ registro heredado de Drift.
 - Servidor MCP: límites de tamaño y rechazo de `Content-Length` inválido.
 - Acciones de GitHub de terceros fijadas a un commit exacto.
 - Mensajes que aún decían "Flip" en lugar de "Flip Studio".
+- Botón "Acerca de Flip Studio" en Ajustes para Windows, Linux y Android (Drift solo lo tenía en macOS).
 
 ## Etapa 1 — identidad propia (2026-10-09)
 

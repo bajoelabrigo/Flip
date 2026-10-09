@@ -11646,6 +11646,10 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation>Flip Studio %1</translation>
     </message>
     <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Extra packs</source>
         <translation>Extensions supplémentaires</translation>
     </message>

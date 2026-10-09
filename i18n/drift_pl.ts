@@ -11688,6 +11688,10 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>Flip Studio %1</translation>
     </message>
     <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Extra packs</source>
         <translation>Dodatkowe paczki</translation>
     </message>
