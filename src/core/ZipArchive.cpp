@@ -54,6 +54,12 @@ qint64 findEOCD(QFile &file)
     return -1;
 }
 
+// No entry this reader handles (templates, Lottie, face props) comes close; anything larger is a
+// zip bomb.
+constexpr qint64 kMaxUncompressedEntry = 512ll * 1024 * 1024;
+
+// Empty unless the stream decodes completely: a truncated or corrupt entry is an error, not a
+// shorter file. The header's size is only a capacity hint, since the archive can lie about it.
 QByteArray decompressRawDeflate(const QByteArray &compressed, quint32 uncompressedSize)
 {
     z_stream strm;
@@ -66,43 +72,26 @@ QByteArray decompressRawDeflate(const QByteArray &compressed, quint32 uncompress
     strm.avail_in = static_cast<uInt>(compressed.size());
 
     QByteArray out;
-    const int initialCapacity = uncompressedSize > 0 ? static_cast<int>(uncompressedSize)
-                                                     : static_cast<int>(compressed.size() * 3);
-    out.resize(initialCapacity);
-    strm.next_out = reinterpret_cast<Bytef *>(out.data());
-    strm.avail_out = static_cast<uInt>(out.size());
-
-    int ret = inflate(&strm, Z_FINISH);
-    if (ret == Z_STREAM_END) {
-        out.resize(out.size() - strm.avail_out);
-        inflateEnd(&strm);
-        return out;
-    }
-
-    // Dynamic buffer loop if size estimation didn't match
-    inflateEnd(&strm);
-    std::memset(&strm, 0, sizeof(strm));
-    if (inflateInit2(&strm, -MAX_WBITS) != Z_OK)
-        return {};
-
-    strm.next_in = reinterpret_cast<Bytef *>(const_cast<char *>(compressed.constData()));
-    strm.avail_in = static_cast<uInt>(compressed.size());
-
-    out.clear();
+    // Capped so a header that claims gigabytes cannot make us allocate them up front.
+    out.reserve(static_cast<qsizetype>(qMin<qint64>(uncompressedSize, 64ll * 1024 * 1024)));
     char buffer[32768];
-    ret = Z_OK;
-    while (ret == Z_OK || ret == Z_BUF_ERROR) {
+    int ret = Z_OK;
+    while (ret == Z_OK) {
         strm.next_out = reinterpret_cast<Bytef *>(buffer);
         strm.avail_out = sizeof(buffer);
         ret = inflate(&strm, Z_NO_FLUSH);
-        const int have = sizeof(buffer) - strm.avail_out;
+        const qsizetype have = static_cast<qsizetype>(sizeof(buffer) - strm.avail_out);
+        if (out.size() + have > kMaxUncompressedEntry) {
+            ret = Z_MEM_ERROR;
+            break;
+        }
         if (have > 0)
             out.append(buffer, have);
-        if (ret == Z_STREAM_END)
-            break;
+        // Z_BUF_ERROR here means the input ran out before the stream ended — inflate cannot make
+        // progress, and calling it again would spin forever.
     }
     inflateEnd(&strm);
-    return (ret == Z_STREAM_END || !out.isEmpty()) ? out : QByteArray{};
+    return ret == Z_STREAM_END ? out : QByteArray{};
 }
 
 } // namespace

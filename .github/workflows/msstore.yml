@@ -192,10 +192,10 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force -Path dist\bin | Out-Null
-          Copy-Item build\Release\drift.exe dist\bin -Force
+          Copy-Item build\Release\flipstudio.exe dist\bin -Force
           # See package.yml for --no-opengl-sw.
           & "${{ env.QT_ROOT_DIR }}\bin\windeployqt.exe" --release --no-translations `
-            --no-opengl-sw --qmldir src\qml dist\bin\drift.exe
+            --no-opengl-sw --qmldir src\qml dist\bin\flipstudio.exe
           Copy-Item vcpkg\installed\x64-windows\bin\*.dll dist\bin -Force
           Copy-Item .deps\ffmpeg\bin\*.dll dist\bin -Force
           foreach ($dir in "effects", "transitions", "effect-templates", "audio-effects") {

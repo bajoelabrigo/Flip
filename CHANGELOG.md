@@ -1,3 +1,23 @@
+# Flip Studio — cambios propios
+
+Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
+registro heredado de Drift.
+
+## Etapa 1 — identidad propia (2026-10-09)
+
+- Nuevo nombre e identidad: Flip Studio (`io.github.bajoelabrigo.FlipStudio`, `flipstudio.exe`, instalador con AppId propio).
+- Ajustes y datos en su propia carpeta, separados de una instalación de Drift.
+- Desactivados los servicios de CutWire (add-ons, marketplace y comprobación de versión) hasta que Flip Studio tenga los suyos.
+- "Acerca de" acredita a Drift / CutWire Studios y enlaza al código fuente (requisito de la GPL).
+- Ícono propio de Flip Studio en Windows, instalador, Microsoft Store, Linux y Android.
+- Tema oscuro por defecto (antes seguía al de Windows); el usuario puede cambiarlo en Ajustes.
+- La pantalla de inicio dice "Flip Studio" (quedaba "Drift").
+- Corregido: en un panel de Medios angosto, "Nueva carpeta" e "Importar" se montaban sobre el título;
+  ahora pasan a solo ícono. Los botones del panel vacío se apilan cuando no caben.
+- Corregido: un archivo ZIP truncado (.mogrt, .lottie, accesorios faciales) colgaba la app; ahora falla con un error y hay un límite contra "bombas ZIP".
+
+---
+
 # Unreleased changes
 
 Tracks work done on `main` **since the last public release**. Use this to see what is already fixed or added before filing an issue. Cleared when a new release ships.

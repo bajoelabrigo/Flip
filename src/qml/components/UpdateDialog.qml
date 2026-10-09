@@ -33,11 +33,11 @@ ThemedDialog {
 
     readonly property string progressText: {
         if (Updates.downloading)
-            return qsTr("Downloading Drift %1…").arg(Updates.latestVersion)
+            return qsTr("Downloading Flip Studio %1…").arg(Updates.latestVersion)
         if (Updates.preparing)
             return qsTr("Preparing the update…")
         if (Updates.readyToInstall && Updates.installScheduled)
-            return qsTr("Drift %1 will install when you close Drift.").arg(Updates.latestVersion)
+            return qsTr("Flip Studio %1 will install when you close Flip.").arg(Updates.latestVersion)
         return Updates.error
     }
 
@@ -50,10 +50,10 @@ ThemedDialog {
             size: "base"
             tone: "default"
             text: Updates.readyToInstall
-                  ? qsTr("Drift %1 is downloaded and ready to install").arg(Updates.latestVersion)
+                  ? qsTr("Flip Studio %1 is downloaded and ready to install").arg(Updates.latestVersion)
                   : Updates.latestVersion.length > 0
-                    ? qsTr("Drift %1 is available").arg(Updates.latestVersion)
-                    : qsTr("A new Drift update is available")
+                    ? qsTr("Flip Studio %1 is available").arg(Updates.latestVersion)
+                    : qsTr("A new Flip Studio update is available")
         }
 
         ThemedLabel {
@@ -102,8 +102,8 @@ ThemedDialog {
             width: parent.width
             visible: Updates.canInstall && !root.busy && !Updates.readyToInstall
             checked: true
-            text: qsTr("Install automatically when I close Drift")
-            tooltip: qsTr("Downloads in the background and installs the next time you close Drift. "
+            text: qsTr("Install automatically when I close Flip Studio")
+            tooltip: qsTr("Downloads in the background and installs the next time you close Flip. "
                           + "Unchecked, you choose when to install once the download finishes.")
         }
 
@@ -144,7 +144,7 @@ ThemedDialog {
                 ThemedButton {
                     variant: "secondary"
                     visible: Updates.readyToInstall && !Updates.installScheduled
-                    text: qsTr("Install when I close Drift")
+                    text: qsTr("Install when I close Flip Studio")
                     onClicked: {
                         Updates.scheduleInstallOnQuit()
                         root.close()
@@ -160,7 +160,7 @@ ThemedDialog {
                           : root.busy ? qsTr("Downloading…")
                           : qsTr("Update")
                     tooltip: Updates.readyToInstall
-                             ? qsTr("Closes Drift, installs the update and opens Drift again")
+                             ? qsTr("Closes Flip Studio, installs the update and opens Flip Studio again")
                              : Updates.canInstall
                                ? qsTr("Downloads the update in the background")
                                : qsTr("Opens the release page in your browser")

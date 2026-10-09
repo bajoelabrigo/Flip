@@ -6444,7 +6444,7 @@ void EngineTest::playbackDiagnosticsReportsStagesAndFindings()
     QVERIFY(!evenIds.contains(QStringLiteral("cadence-beat")));
 
     const QString text = PlaybackDiagnostics::formatPlainText(info);
-    QVERIFY(text.startsWith(QStringLiteral("# Drift playback diagnostics")));
+    QVERIFY(text.startsWith(QStringLiteral("# Flip Studio playback diagnostics")));
     QVERIFY(text.contains(QStringLiteral("Display refresh")));
 
     // The staged sweep on a real file: each stage must produce a number, and the readback
@@ -6976,7 +6976,7 @@ void EngineTest::debugReportListsCommonCodecs()
 
     const QString text = DebugReport::formatPlainText(info);
     QVERIFY(text.contains(QStringLiteral("H264")));
-    QVERIFY(text.contains(QStringLiteral("CutWire Drift debug report")));
+    QVERIFY(text.contains(QStringLiteral("Flip Studio debug report")));
     QVERIFY(text.contains(QStringLiteral("Video encoders")));
     QVERIFY(text.contains(QStringLiteral("Supported")));
 }

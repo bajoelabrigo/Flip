@@ -4,7 +4,7 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About Drift</source>
+        <source>About Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12,19 +12,23 @@
         <translation type="unfinished">Chiudi</translation>
     </message>
     <message>
-        <source>Drift</source>
-        <translation type="unfinished"></translation>
+        <source>Flip Studio</source>
+        <translation>Flip Studio</translation>
     </message>
     <message>
         <source>Version %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open-source video editor by CutWire Studios.</source>
+        <source>Open-source video editor based on Drift by CutWire Studios.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Licensed under GPLv3. Copyright © CutWire Studios.</source>
+        <source>Licensed under GPLv3. Copyright © CutWire Studios and Flip Studio contributors.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source code</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -55,7 +59,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Drift effect file (%1).</source>
+        <source>This is not a Flip Studio effect file (%1).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -63,7 +67,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Drift addon file.</source>
+        <source>This is not a Flip Studio addon file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -114,7 +118,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift addons (*.driftpkg *.driftfx *.zip)</source>
+        <source>Flip Studio addons (*.driftpkg *.driftfx *.zip)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -130,7 +134,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 is not signed by the Drift team. Only install files you trust.</source>
+        <source>%1 is not signed by the Flip Studio team. Only install files you trust.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -142,7 +146,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 was made by a user, not the Drift team, and nothing has checked it. Only install files you trust.</source>
+        <source>%1 was made by a user, not the Flip Studio team, and nothing has checked it. Only install files you trust.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -202,8 +206,8 @@
         <translation>Installa un motore IA qui sotto per sbloccare i sottotitoli automatici, il ritaglio del soggetto, gli effetti viso divertenti e la rimozione del rumore.</translation>
     </message>
     <message>
-        <source>Restart Drift for this to take effect.</source>
-        <translation>Riavvia Drift per rendere effettive le modifiche.</translation>
+        <source>Restart Flip Studio for this to take effect.</source>
+        <translation>Riavvia Flip Studio per rendere effettive le modifiche.</translation>
     </message>
     <message>
         <source>Can&apos;t reach the download store</source>
@@ -238,7 +242,7 @@
         <translation>%1… %2%</translation>
     </message>
     <message>
-        <source>Requires Drift %1 or newer</source>
+        <source>Requires Flip Studio %1 or newer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -305,8 +309,8 @@
         <translation>Pacchetti consigliati</translation>
     </message>
     <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Drift without them — installing unlocks updates when they improve.</source>
-        <translation>Installa i pacchetti essenziali per effetti, transizioni e audio. Puoi continuare a usare Drift senza di essi: installandoli sbloccherai gli aggiornamenti con i miglioramenti futuri.</translation>
+        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
+        <translation>Installa i pacchetti essenziali per effetti, transizioni e audio. Puoi continuare a usare Flip Studio senza di essi: installandoli sbloccherai gli aggiornamenti con i miglioramenti futuri.</translation>
     </message>
     <message>
         <source>%1… %2%</source>
@@ -464,12 +468,12 @@
         <translation>Avvia agente all&apos;avvio</translation>
     </message>
     <message>
-        <source>Skip the manual toggle next time you open Drift. Turning access off resets this.</source>
-        <translation>Salta l&apos;attivazione manuale la prossima volta che apri Drift. La disattivazione dell&apos;accesso reimposta questa opzione.</translation>
+        <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
+        <translation>Salta l&apos;attivazione manuale la prossima volta che apri Flip. La disattivazione dell&apos;accesso reimposta questa opzione.</translation>
     </message>
     <message>
-        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Drift, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
-        <translation>Consenti a Cursor o Claude di modificare questo progetto per te — aggiungere clip, modificare la timeline e controllarne l&apos;aspetto. Solo programmi su questo dispositivo. Disattivato per impostazione predefinita ogni volta che apri Drift, a meno che non attivi “Avvia agente all&apos;avvio” qui sotto; disattivalo qui quando finisci. La chiave rimane la stessa tra una sessione e l&apos;altra, quindi una configurazione incollata una volta continua a funzionare.</translation>
+        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip Studio, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
+        <translation>Consenti a Cursor o Claude di modificare questo progetto per te — aggiungere clip, modificare la timeline e controllarne l&apos;aspetto. Solo programmi su questo dispositivo. Disattivato per impostazione predefinita ogni volta che apri Flip Studio, a meno che non attivi “Avvia agente all&apos;avvio” qui sotto; disattivalo qui quando finisci. La chiave rimane la stessa tra una sessione e l&apos;altra, quindi una configurazione incollata una volta continua a funzionare.</translation>
     </message>
 </context>
 <context>
@@ -712,8 +716,8 @@
 <context>
     <name>AndroidEditor</name>
     <message>
-        <source>Drift project (*.drift)</source>
-        <translation>Progetto Drift (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Progetto Flip Studio (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -915,8 +919,8 @@
 <context>
     <name>AndroidMain</name>
     <message>
-        <source>Drift project (*.drift)</source>
-        <translation>Progetto Drift (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Progetto Flip Studio (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -3539,8 +3543,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This build of Drift has no video stabilization support</source>
-        <translation>Questa versione di Drift non supporta la stabilizzazione video</translation>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation>Questa versione di Flip Studio non supporta la stabilizzazione video</translation>
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
@@ -4616,10 +4620,10 @@
         </translation>
     </message>
     <message numerus="yes">
-        <source>Imported %n files into %1 folders. %2 files were skipped — Drift does not recognize their format. Drag them onto the bin to try anyway.</source>
+        <source>Imported %n files into %1 folders. %2 files were skipped — Flip Studio does not recognize their format. Drag them onto the bin to try anyway.</source>
         <translation>
-            <numerusform>Importato %n file in %1 cartelle. %2 file sono stati ignorati — Drift non ne riconosce il formato. Trascinali nella cartella multimediale per riprovare comunque.</numerusform>
-            <numerusform>Importati %n file in %1 cartelle. %2 file sono stati ignorati — Drift non ne riconosce il formato. Trascinali nella cartella multimediale per riprovare comunque.</numerusform>
+            <numerusform>Importato %n file in %1 cartelle. %2 file sono stati ignorati — Flip Studio non ne riconosce il formato. Trascinali nella cartella multimediale per riprovare comunque.</numerusform>
+            <numerusform>Importati %n file in %1 cartelle. %2 file sono stati ignorati — Flip Studio non ne riconosce il formato. Trascinali nella cartella multimediale per riprovare comunque.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -5935,8 +5939,8 @@
         <translation>Il marketplace non è disponibile in questa build.</translation>
     </message>
     <message>
-        <source>Could not load Drift Assets. Check your connection and try again.</source>
-        <translation>Impossibile caricare Drift Assets. Verifica la connessione e riprova.</translation>
+        <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
+        <translation>Impossibile caricare Flip Studio Assets. Verifica la connessione e riprova.</translation>
     </message>
     <message>
         <source>That asset could not be installed.</source>
@@ -5986,8 +5990,8 @@
         <translation>Aggiunto alla cartella multimediale</translation>
     </message>
     <message>
-        <source>Couldn’t load Drift Assets</source>
-        <translation>Impossibile caricare Drift Assets</translation>
+        <source>Couldn’t load Flip Studio Assets</source>
+        <translation>Impossibile caricare Flip Studio Assets</translation>
     </message>
     <message>
         <source>Try again</source>
@@ -5998,8 +6002,8 @@
         <translation>Ancora nessun elemento qui</translation>
     </message>
     <message>
-        <source>Drift Assets are still being published. Check back soon.</source>
-        <translation>I Drift Assets sono ancora in fase di pubblicazione. Torna a controllare presto.</translation>
+        <source>Flip Studio Assets are still being published. Check back soon.</source>
+        <translation>I Flip Studio Assets sono ancora in fase di pubblicazione. Torna a controllare presto.</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -6014,8 +6018,8 @@
         <translation>Tutti gli elementi</translation>
     </message>
     <message>
-        <source>No Drift Assets match “%1”.</source>
-        <translation>Nessun Drift Asset corrisponde a “%1”.</translation>
+        <source>No Flip Studio Assets match “%1”.</source>
+        <translation>Nessun Flip Studio Asset corrisponde a “%1”.</translation>
     </message>
     <message>
         <source>Search %1 for “%2”</source>
@@ -6025,8 +6029,8 @@
 <context>
     <name>EditorHeader</name>
     <message>
-        <source>Drift project (*.drift)</source>
-        <translation>Progetto Drift (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Progetto Flip Studio (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -6160,8 +6164,8 @@
         <translation>Aggiorna</translation>
     </message>
     <message>
-        <source>Drift %1 is available</source>
-        <translation>Drift %1 è disponibile</translation>
+        <source>Flip Studio %1 is available</source>
+        <translation>Flip Studio %1 è disponibile</translation>
     </message>
     <message>
         <source>Agent access</source>
@@ -6368,8 +6372,8 @@
 <context>
     <name>EffectStacksSection</name>
     <message>
-        <source>Drift effect stack (*.drifteffects)</source>
-        <translation>Stack di effetti Drift (*.drifteffects)</translation>
+        <source>Flip Studio effect stack (*.drifteffects)</source>
+        <translation>Stack di effetti Flip Studio (*.drifteffects)</translation>
     </message>
     <message>
         <source>Import effect stack</source>
@@ -6981,8 +6985,8 @@
         <translation>prop.json non è un accessorio viso</translation>
     </message>
     <message>
-        <source>prop.json needs a newer version of Drift</source>
-        <translation>prop.json richiede una versione più recente di Drift</translation>
+        <source>prop.json needs a newer version of Flip Studio</source>
+        <translation>prop.json richiede una versione più recente di Flip Studio</translation>
     </message>
     <message>
         <source>invalid prop id “%1”</source>
@@ -8180,7 +8184,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Drift</source>
+        <source>About Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8192,8 +8196,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 is the latest version.</source>
-        <translation type="unfinished">Drift %1 è la versione più recente.</translation>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation type="unfinished">Flip Studio %1 è la versione più recente.</translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -8378,8 +8382,8 @@
         <translation>Non possiamo garantire che un download vada a buon fine, si completi o fornisca la qualità selezionata. Alcuni elementi semplicemente falliranno.</translation>
     </message>
     <message>
-        <source>Everything here comes from third parties. Drift does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>Tutti i contenuti qui presenti provengono da terze parti. Drift non li ospita, non ne è proprietario né li verifica — è tua responsabilità assicurarti di avere il diritto di utilizzare ciò che scarichi.</translation>
+        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
+        <translation>Tutti i contenuti qui presenti provengono da terze parti. Flip Studio non li ospita, non ne è proprietario né li verifica — è tua responsabilità assicurarti di avere il diritto di utilizzare ciò che scarichi.</translation>
     </message>
     <message>
         <source>I understand</source>
@@ -9598,12 +9602,12 @@
 <context>
     <name>PlaybackEngine</name>
     <message>
-        <source>%1 decodes on %2, but Drift draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 viene decodificato su %2, ma Drift disegna su %3. Ogni fotogramma viene copiato attraverso la memoria di sistema, il che è più lento rispetto alla decodifica sulla scheda grafica che disegna.</translation>
+        <source>%1 decodes on %2, but Flip Studio draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>%1 viene decodificato su %2, ma Flip Studio disegna su %3. Ogni fotogramma viene copiato attraverso la memoria di sistema, il che è più lento rispetto alla decodifica sulla scheda grafica che disegna.</translation>
     </message>
     <message>
-        <source>%1 decodes on a different graphics card than the one Drift draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 viene decodificato su una scheda grafica diversa da quella su cui disegna Drift. Ogni fotogramma viene copiato attraverso la memoria di sistema, il che è più lento rispetto alla decodifica sulla scheda grafica che disegna.</translation>
+        <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>%1 viene decodificato su una scheda grafica diversa da quella su cui disegna Flip. Ogni fotogramma viene copiato attraverso la memoria di sistema, il che è più lento rispetto alla decodifica sulla scheda grafica che disegna.</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -9688,12 +9692,12 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Drift.</source>
-        <translation>L&apos;anteprima più veloce diventerà effettiva dopo aver riavviato Drift.</translation>
+        <source>Faster preview takes effect after you restart Flip.</source>
+        <translation>L&apos;anteprima più veloce diventerà effettiva dopo aver riavviato Flip.</translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Drift.</source>
-        <translation>La scelta della scheda grafica diventerà effettiva dopo aver riavviato Drift.</translation>
+        <source>The graphics card choice takes effect after you restart Flip.</source>
+        <translation>La scelta della scheda grafica diventerà effettiva dopo aver riavviato Flip.</translation>
     </message>
     <message>
         <source>System default</source>
@@ -9762,7 +9766,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The scene from a free viewpoint, with the camera in it. Middle- or right-drag orbits, Shift pans, the wheel zooms.</source>
+        <source>The scene from a free viewpoint, with the camera in it. Middle- or right-drag orbits, Shift pans, the wheel zooms, and the corner pad steps the view.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -9841,15 +9845,15 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation type="unfinished">Annulla</translation>
     </message>
     <message>
-        <source>Launching Drift with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
-        <translation type="unfinished">L&apos;avvio di Drift con prime-run (o DRI_PRIME=1) imposta OpenGL sulla stessa scheda del decoder.</translation>
+        <source>Launching Flip Studio with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
+        <translation type="unfinished">L&apos;avvio di Flip Studio con prime-run (o DRI_PRIME=1) imposta OpenGL sulla stessa scheda del decoder.</translation>
     </message>
     <message>
-        <source>Run Drift on the high-performance graphics card</source>
-        <translation type="unfinished">Esegui Drift sulla scheda grafica ad alte prestazioni</translation>
+        <source>Run Flip Studio on the high-performance graphics card</source>
+        <translation type="unfinished">Esegui Flip Studio sulla scheda grafica ad alte prestazioni</translation>
     </message>
     <message>
-        <source>Set Drift to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Drift.</source>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -9906,12 +9910,12 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation type="unfinished">Anteprima GPU non disponibile</translation>
     </message>
     <message>
-        <source>Your graphics driver only provides %1. Drift&apos;s preview needs OpenGL 3.3.</source>
-        <translation type="unfinished">Il driver grafico fornisce solo %1. L&apos;anteprima di Drift richiede OpenGL 3.3.</translation>
+        <source>Your graphics driver only provides %1. Flip Studio&apos;s preview needs OpenGL 3.3.</source>
+        <translation type="unfinished">Il driver grafico fornisce solo %1. L&apos;anteprima di Flip Studio richiede OpenGL 3.3.</translation>
     </message>
     <message>
-        <source>Drift could not start its GPU renderer, so the preview cannot draw.</source>
-        <translation type="unfinished">Drift non è riuscito ad avviare il renderer GPU, pertanto l&apos;anteprima non può essere visualizzata.</translation>
+        <source>Flip Studio could not start its GPU renderer, so the preview cannot draw.</source>
+        <translation type="unfinished">Flip Studio non è riuscito ad avviare il renderer GPU, pertanto l&apos;anteprima non può essere visualizzata.</translation>
     </message>
     <message>
         <source>Debug info</source>
@@ -9980,12 +9984,12 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
 <context>
     <name>Project</name>
     <message>
-        <source>This project was saved by a newer version of Drift (project format %1; this build reads up to %2).</source>
-        <translation>Questo progetto è stato salvato con una versione più recente di Drift (formato progetto %1; questa versione legge fino a %2).</translation>
+        <source>This project was saved by a newer version of Flip Studio (project format %1; this build reads up to %2).</source>
+        <translation>Questo progetto è stato salvato con una versione più recente di Flip Studio (formato progetto %1; questa versione legge fino a %2).</translation>
     </message>
     <message>
-        <source>This file isn’t a Drift project.</source>
-        <translation>Questo file non è un progetto Drift.</translation>
+        <source>This file isn’t a Flip Studio project.</source>
+        <translation>Questo file non è un progetto Flip.</translation>
     </message>
 </context>
 <context>
@@ -9999,12 +10003,12 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>impossibile aprire %1</translation>
     </message>
     <message>
-        <source>file is too short to be a Drift project</source>
-        <translation>il file è troppo breve per essere un progetto Drift</translation>
+        <source>file is too short to be a Flip Studio project</source>
+        <translation>il file è troppo breve per essere un progetto Flip Studio</translation>
     </message>
     <message>
-        <source>not a Drift project (bad magic)</source>
-        <translation>non è un progetto Drift (magic number non valido)</translation>
+        <source>not a Flip Studio project (bad magic)</source>
+        <translation>non è un progetto Flip Studio (magic number non valido)</translation>
     </message>
     <message>
         <source>unsupported container revision</source>
@@ -10031,8 +10035,8 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>il manifest del progetto non contiene una versione del formato</translation>
     </message>
     <message>
-        <source>this project was saved by a newer version of Drift (format %1) — update to open it</source>
-        <translation>questo progetto è stato salvato con una versione più recente di Drift (formato %1) — aggiorna per aprirlo</translation>
+        <source>this project was saved by a newer version of Flip Studio (format %1) — update to open it</source>
+        <translation>questo progetto è stato salvato con una versione più recente di Flip Studio (formato %1) — aggiorna per aprirlo</translation>
     </message>
     <message>
         <source>project blob table is not contiguous</source>
@@ -11121,8 +11125,8 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Elaborazione in corso…</translation>
     </message>
     <message>
-        <source>Drift will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
-        <translation>Drift eseguirà il rendering di una copia invertita di questa clip per una riproduzione fluida. Puoi continuare a modificare durante l&apos;elaborazione.</translation>
+        <source>Flip Studio will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
+        <translation>Flip Studio eseguirà il rendering di una copia invertita di questa clip per una riproduzione fluida. Puoi continuare a modificare durante l&apos;elaborazione.</translation>
     </message>
     <message>
         <source>This can take a few minutes on longer clips.</source>
@@ -11531,11 +11535,11 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Alte prestazioni (GPU dedicata)</translation>
     </message>
     <message>
-        <source>Which graphics card Drift runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation>Scheda grafica su cui viene eseguito Drift. Alte prestazioni mantiene sulla scheda NVIDIA i video decodificati su di essa; Risparmio energetico consuma meno batteria. Diventa effettivo dopo il riavvio.</translation>
+        <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
+        <translation>Scheda grafica su cui viene eseguito Flip. Alte prestazioni mantiene sulla scheda NVIDIA i video decodificati su di essa; Risparmio energetico consuma meno batteria. Diventa effettivo dopo il riavvio.</translation>
     </message>
     <message>
-        <source>Choose which graphics card Drift runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
+        <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11579,8 +11583,8 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Ingrandisce pulsanti, testo e icone. Si tratta di un ridimensionamento aggiuntivo rispetto alle impostazioni dello schermo. Diventa effettivo dopo il riavvio.</translation>
     </message>
     <message>
-        <source>Restart Drift to apply this size.</source>
-        <translation>Riavvia Drift per applicare questa dimensione.</translation>
+        <source>Restart Flip Studio to apply this size.</source>
+        <translation>Riavvia Flip Studio per applicare questa dimensione.</translation>
     </message>
     <message>
         <source>Horizontal mouse-wheel pan</source>
@@ -11635,8 +11639,8 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Controlla ora</translation>
     </message>
     <message>
-        <source>Drift %1</source>
-        <translation>Drift %1</translation>
+        <source>Flip Studio %1</source>
+        <translation>Flip Studio %1</translation>
     </message>
     <message>
         <source>Extra packs</source>
@@ -11667,8 +11671,8 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Provider cloud</translation>
     </message>
     <message>
-        <source>Keys are stored unencrypted in Drift&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>Le chiavi sono memorizzate non crittografate nelle impostazioni di Drift. ELEVENLABS_API_KEY e FISH_API_KEY nell&apos;ambiente hanno la precedenza. L&apos;utilizzo viene addebitato sul tuo account.</translation>
+        <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation>Le chiavi sono memorizzate non crittografate nelle impostazioni di Flip. ELEVENLABS_API_KEY e FISH_API_KEY nell&apos;ambiente hanno la precedenza. L&apos;utilizzo viene addebitato sul tuo account.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -11711,8 +11715,8 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Consenti l&apos;invio di audio e testo a %1</translation>
     </message>
     <message>
-        <source>Needed before Drift or a connected agent can transcribe or generate audio with this service</source>
-        <translation>Necessario prima che Drift o un agente connesso possa trascrivere o generare audio con questo servizio</translation>
+        <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
+        <translation>Necessario prima che Flip Studio o un agente connesso possa trascrivere o generare audio con questo servizio</translation>
     </message>
     <message>
         <source>Default voice id</source>
@@ -11747,7 +11751,7 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Scollega l&apos;account marketplace da questo dispositivo</translation>
     </message>
     <message>
-        <source>Once a day, check whether a newer Drift has been released</source>
+        <source>Once a day, check whether a newer Flip Studio has been released</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12570,7 +12574,7 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Modalità</translation>
     </message>
     <message>
-        <source>Smooths camera shake. Drift scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
+        <source>Smooths camera shake. Flip Studio scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13097,8 +13101,8 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
 <context>
     <name>TextAssetsTab</name>
     <message>
-        <source>Drift text style (*.drifttextstyle)</source>
-        <translation>Stile di testo Drift (*.drifttextstyle)</translation>
+        <source>Flip Studio text style (*.drifttextstyle)</source>
+        <translation>Stile di testo Flip Studio (*.drifttextstyle)</translation>
     </message>
     <message>
         <source>Import text style</source>
@@ -15274,7 +15278,7 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <source>Drift %1 update</source>
+        <source>Flip Studio %1 update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15282,7 +15286,7 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Installs when you close Drift</source>
+        <source>Installs when you close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15290,7 +15294,7 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 will install when you close Drift.</source>
+        <source>Flip Studio %1 will install when you close Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15302,12 +15306,12 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Impossibile verificare la disponibilità di aggiornamenti: risposta imprevista.</translation>
     </message>
     <message>
-        <source>Drift %1 is the latest version.</source>
-        <translation>Drift %1 è la versione più recente.</translation>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation>Flip Studio %1 è la versione più recente.</translation>
     </message>
     <message>
-        <source>Drift %1 is available.</source>
-        <translation>Drift %1 è disponibile.</translation>
+        <source>Flip Studio %1 is available.</source>
+        <translation>Flip Studio %1 è disponibile.</translation>
     </message>
     <message>
         <source>Couldn’t download the update: the cache isn’t writable.</source>
@@ -15330,7 +15334,7 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 is ready to install.</source>
+        <source>Flip Studio %1 is ready to install.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -15345,19 +15349,19 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 will install when you close Drift.</source>
+        <source>Flip Studio %1 will install when you close Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 is downloaded and ready to install</source>
+        <source>Flip Studio %1 is downloaded and ready to install</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 is available</source>
-        <translation>Drift %1 è disponibile</translation>
+        <source>Flip Studio %1 is available</source>
+        <translation>Flip Studio %1 è disponibile</translation>
     </message>
     <message>
-        <source>A new Drift update is available</source>
+        <source>A new Flip Studio update is available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15365,11 +15369,11 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Hai la versione %1.</translation>
     </message>
     <message>
-        <source>Install automatically when I close Drift</source>
+        <source>Install automatically when I close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Drift. Unchecked, you choose when to install once the download finishes.</source>
+        <source>Downloads in the background and installs the next time you close Flip. Unchecked, you choose when to install once the download finishes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15385,7 +15389,7 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Più tardi</translation>
     </message>
     <message>
-        <source>Install when I close Drift</source>
+        <source>Install when I close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15393,7 +15397,7 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation type="unfinished">Aggiorna</translation>
     </message>
     <message>
-        <source>Closes Drift, installs the update and opens Drift again</source>
+        <source>Closes Flip Studio, installs the update and opens Flip Studio again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15405,7 +15409,7 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Apre la pagina di rilascio nel browser</translation>
     </message>
     <message>
-        <source>Downloading Drift %1…</source>
+        <source>Downloading Flip Studio %1…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15743,6 +15747,61 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
     </message>
 </context>
 <context>
+    <name>ViewNavPad</name>
+    <message>
+        <source>%1 (%2)</source>
+        <translation type="unfinished">%1 (%2)</translation>
+    </message>
+    <message>
+        <source>Orbit left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Numpad 4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Orbit up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Numpad 8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Orbit right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Numpad 6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Numpad -</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Orbit down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Numpad 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Numpad +</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>VoiceoverControlBar</name>
     <message>
         <source>PAUSED</source>
@@ -15863,10 +15922,10 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Nessun driver OpenGL</translation>
     </message>
     <message>
-        <source>Drift could not create an OpenGL context, so it cannot draw its interface or render the preview.
+        <source>Flip Studio could not create an OpenGL context, so it cannot draw its interface or render the preview.
 
 Install or update your graphics driver.</source>
-        <translation>Drift non è riuscito a creare un contesto OpenGL, quindi non può disegnare la propria interfaccia né eseguire il rendering dell&apos;anteprima.
+        <translation>Flip Studio non è riuscito a creare un contesto OpenGL, quindi non può disegnare la propria interfaccia né eseguire il rendering dell&apos;anteprima.
 
 Installa o aggiorna il driver grafico.</translation>
     </message>
@@ -15875,10 +15934,10 @@ Installa o aggiorna il driver grafico.</translation>
         <translation>Contesto OpenGL non disponibile</translation>
     </message>
     <message>
-        <source>Drift could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
+        <source>Flip Studio could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
 
 The video preview cannot render. Updating your graphics driver may help.</source>
-        <translation>Drift non è riuscito a creare un contesto con profilo core OpenGL 3.3, anche se questo driver segnala OpenGL %1.%2 (%3).
+        <translation>Flip Studio non è riuscito a creare un contesto con profilo core OpenGL 3.3, anche se questo driver segnala OpenGL %1.%2 (%3).
 
 L&apos;anteprima video non può essere renderizzata. Aggiornare il driver grafico potrebbe essere utile.</translation>
     </message>
@@ -15887,24 +15946,24 @@ L&apos;anteprima video non può essere renderizzata. Aggiornare il driver grafic
         <translation>Il driver grafico è troppo datato</translation>
     </message>
     <message>
-        <source>Drift needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
+        <source>Flip Studio needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
 
-The video preview cannot render, and Drift may not start at all. Update your graphics driver, or run Drift on a machine with a newer GPU.</source>
-        <translation>Drift richiede OpenGL 3.3, ma questo driver grafico fornisce solo OpenGL %1.%2 (%3).
+The video preview cannot render, and Flip Studio may not start at all. Update your graphics driver, or run Flip Studio on a machine with a newer GPU.</source>
+        <translation>Flip Studio richiede OpenGL 3.3, ma questo driver grafico fornisce solo OpenGL %1.%2 (%3).
 
-L&apos;anteprima video non può essere renderizzata e Drift potrebbe non avviarsi affatto. Aggiorna il driver grafico o esegui Drift su un computer con una GPU più recente.</translation>
+L&apos;anteprima video non può essere renderizzata e Flip Studio potrebbe non avviarsi affatto. Aggiorna il driver grafico o esegui Flip Studio su un computer con una GPU più recente.</translation>
     </message>
     <message>
-        <source>Drift is not drawing its window</source>
-        <translation>Drift non disegna la propria finestra</translation>
+        <source>Flip Studio is not drawing its window</source>
+        <translation>Flip Studio non disegna la propria finestra</translation>
     </message>
     <message>
-        <source>Drift has been running for %1 seconds but its window has not drawn anything yet.
+        <source>Flip Studio has been running for %1 seconds but its window has not drawn anything yet.
 
-If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Drift again.</source>
-        <translation>Drift è in esecuzione da %1 secondi, ma la sua finestra non ha ancora disegnato nulla.
+If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip Studio again.</source>
+        <translation>Flip Studio è in esecuzione da %1 secondi, ma la sua finestra non ha ancora disegnato nulla.
 
-Se la finestra è vuota o nera, il driver grafico è molto probabilmente obsoleto o difettoso. Aggiornalo dal sito web del produttore della GPU (AMD, NVIDIA o Intel) e avvia di nuovo Drift.</translation>
+Se la finestra è vuota o nera, il driver grafico è molto probabilmente obsoleto o difettoso. Aggiornalo dal sito web del produttore della GPU (AMD, NVIDIA o Intel) e avvia di nuovo Flip.</translation>
     </message>
 </context>
 </TS>

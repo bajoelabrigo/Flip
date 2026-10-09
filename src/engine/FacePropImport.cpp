@@ -212,7 +212,7 @@ bool parseFacePropManifest(const QByteArray &json, const QString &fallbackId,
         return fail(QCoreApplication::translate("FacePropImport", "prop.json is not a face prop"));
     if (root.value(QStringLiteral("schema")).toInt(1) > 1)
         return fail(QCoreApplication::translate("FacePropImport",
-                                                "prop.json needs a newer version of Drift"));
+                                                "prop.json needs a newer version of Flip Studio"));
 
     FacePropManifest m;
     m.id = root.contains(QStringLiteral("id")) ? root.value(QStringLiteral("id")).toString()

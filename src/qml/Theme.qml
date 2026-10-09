@@ -133,13 +133,13 @@ QtObject {
     readonly property string fontFamily: _interRegular.name || "sans-serif"
     readonly property string monoFontFamily: "monospace"
 
-    // --- Light/dark mode: follows the OS until the user picks a side -----------
-    // Qt.styleHints.colorScheme is live-updated by the platform theme (Qt 6.5+).
+    // --- Light/dark mode: Flip Studio is dark until the user picks a side --------
+    // Upstream Drift followed the OS (systemPrefersDark); Flip Studio's look is dark by default.
     // Once toggled, the choice lives in QSettings via EditorState.preferences and survives
     // restarts; it is app-wide, not stored per project.
     readonly property bool systemPrefersDark: Qt.styleHints.colorScheme !== Qt.Light
     readonly property bool darkMode: EditorState.preferences.darkModeOverridden ? EditorState.preferences.darkModePreferred
-                                                                    : systemPrefersDark
+                                                                    : true
 
     function toggleDarkMode() {
         EditorState.preferences.setDarkModePreference(!darkMode);

@@ -51,7 +51,7 @@ ApplicationWindow {
     // Use visibility only — setting both this and `visible` makes Qt warn
     // "Conflicting properties 'visible' and 'visibility'" (Maximized + hidden).
     visibility: Window.Hidden
-    title: "CutWire Drift"
+    title: "Flip Studio"
     color: Theme.appBackground
 
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
@@ -207,7 +207,7 @@ ApplicationWindow {
                 }
                 Platform.MenuSeparator {}
                 Platform.MenuItem {
-                    text: qsTr("About Drift")
+                    text: qsTr("About Flip Studio")
                     role: Platform.MenuItem.AboutRole
                     onTriggered: window.openAboutDialog()
                 }
@@ -774,7 +774,7 @@ ApplicationWindow {
                         Toasts.info(Updates.status)
                     }
                 } else {
-                    Toasts.success(qsTr("Drift %1 is the latest version.").arg(Updates.currentVersion))
+                    Toasts.success(qsTr("Flip Studio %1 is the latest version.").arg(Updates.currentVersion))
                 }
             }
         }

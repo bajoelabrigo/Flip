@@ -56,9 +56,9 @@ ReleaseAsset selectReleaseAsset(const QJsonArray &assets, const QString &platfor
         if (!name.endsWith(suffix))
             continue;
         // The portable zip is not an installer, and a dmg is never named Setup.
-        if (windows && !name.startsWith(QLatin1String("Drift-Setup-")))
+        if (windows && !name.startsWith(QLatin1String("FlipStudio-Setup-")))
             continue;
-        if (!windows && !name.startsWith(QLatin1String("Drift-")))
+        if (!windows && !name.startsWith(QLatin1String("FlipStudio-")))
             continue;
 
         const QUrl url(asset.value(QStringLiteral("browser_download_url")).toString());
@@ -149,14 +149,14 @@ QString installerFileName(const QString &platform, const QString &arch, const QS
     if (version.isEmpty())
         return {};
     if (platform == QLatin1String("windows") && arch == QLatin1String("x86_64"))
-        return QStringLiteral("Drift-Setup-%1-x64.exe").arg(version);
+        return QStringLiteral("FlipStudio-Setup-%1-x64.exe").arg(version);
     if (platform == QLatin1String("macos")
         && (arch == QLatin1String("arm64") || arch == QLatin1String("aarch64")))
-        return QStringLiteral("Drift-%1-arm64.dmg").arg(version);
+        return QStringLiteral("FlipStudio-%1-arm64.dmg").arg(version);
     if (platform == QLatin1String("macos") && arch == QLatin1String("x86_64"))
-        return QStringLiteral("Drift-%1-x86_64.dmg").arg(version);
+        return QStringLiteral("FlipStudio-%1-x86_64.dmg").arg(version);
     if (platform == QLatin1String("linux") && arch == QLatin1String("x86_64"))
-        return QStringLiteral("Drift-%1-x86_64.AppImage").arg(version);
+        return QStringLiteral("FlipStudio-%1-x86_64.AppImage").arg(version);
     return {};
 }
 

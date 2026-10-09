@@ -62,9 +62,9 @@ option(DRIFT_AUTO_UPDATE_TRANSLATIONS "Run lupdate as part of the default build"
 # The token is NOT a secret. It ships inside every binary and is trivially extractable; it exists
 # so the bucket cannot be crawled or hotlinked, which would cost operations for someone else's
 # benefit. That is also why it is fine in CMakeCache.txt.
-set(DRIFT_ADDON_INDEX_URL "https://drift-addons.cutwire.org/v1/index"
+set(DRIFT_ADDON_INDEX_URL ""
     CACHE STRING "Addon index endpoint; empty disables the addon service")
-set(DRIFT_ADDON_CLIENT_TOKEN "79a388bba9301cacc81cc6eb0724c81e948e1b27c69aee1b"
+set(DRIFT_ADDON_CLIENT_TOKEN ""
     CACHE STRING "Client token sent to the addon service as X-Drift-Client")
 
 # --- Marketplace -----------------------------------------------------------
@@ -76,10 +76,19 @@ set(DRIFT_ADDON_CLIENT_TOKEN "79a388bba9301cacc81cc6eb0724c81e948e1b27c69aee1b"
 #                  -DDRIFT_MARKET_CLIENT_KEY=...
 #
 #   cmake -B build -DDRIFT_MARKET_API_URL=      # no marketplace
-set(DRIFT_MARKET_API_URL "https://market.cutwire.org/api/v1"
+set(DRIFT_MARKET_API_URL ""
     CACHE STRING "Marketplace API base; empty disables the marketplace")
-set(DRIFT_MARKET_CLIENT_KEY "5409a0bebab4446f88e51d06024a5cf9a694ee141a6a1c6be7a49e45b6687438"
+set(DRIFT_MARKET_CLIENT_KEY ""
     CACHE STRING "HMAC key for marketplace client identity and request signing")
+
+# --- Flip Studio ---------------------------------------------------------------------
+# Flip Studio is a fork of Drift (CutWire Studios). The addon service and marketplace above are CutWire's
+# and stay off until Flip Studio runs its own; set the URLs and keys here when it does.
+#
+# DNS host whose TXT record holds Flip Studio's newest version ("0.8.1"), managed in Hostinger's DNS
+# panel for getflipstudio.com. Empty disables the update check
+# even with a feed URL, so a fork never asks CutWire's record which version to download.
+set(DRIFT_UPDATE_VERSION_HOST "version.getflipstudio.com" CACHE STRING "DNS name with a TXT record holding the newest version; empty disables update checks")
 
 # --- Update check -----------------------------------------------------------
 # Where the installer for a newer release is downloaded. The version itself comes from the TXT
@@ -89,7 +98,7 @@ set(DRIFT_MARKET_CLIENT_KEY "5409a0bebab4446f88e51d06024a5cf9a694ee141a6a1c6be7a
 # Set it to an empty string for builds a package manager owns — the Flatpak manifests and the Arch
 # PKGBUILD all do. There, pacman or flatpak fetches the update on its own schedule and an in-app
 # nag is noise the user cannot act on (Flathub's quality guidelines say as much).
-set(DRIFT_UPDATE_FEED_URL "https://api.github.com/repos/CutWire-Studios/Drift/releases/latest"
+set(DRIFT_UPDATE_FEED_URL "https://api.github.com/repos/bajoelabrigo/Flip/releases/latest"
     CACHE STRING "Release feed polled for updates; empty disables the update check")
 
 # --- Release channel --------------------------------------------------------
@@ -108,12 +117,12 @@ if(NOT DRIFT_CHANNEL STREQUAL "stable" AND NOT DRIFT_CHANNEL STREQUAL "nightly")
     message(FATAL_ERROR "DRIFT_CHANNEL must be 'stable' or 'nightly', not '${DRIFT_CHANNEL}'")
 endif()
 
-set(DRIFT_APP_ID "org.cutwire.Drift")
-set(DRIFT_APP_NAME "Drift")
+set(DRIFT_APP_ID "io.github.bajoelabrigo.FlipStudio")
+set(DRIFT_APP_NAME "Flip Studio")
 set(DRIFT_VERSION_STRING "${PROJECT_VERSION}")
 if(DRIFT_CHANNEL STREQUAL "nightly")
-    set(DRIFT_APP_ID "org.cutwire.Drift.Nightly")
-    set(DRIFT_APP_NAME "Drift Nightly")
+    set(DRIFT_APP_ID "io.github.bajoelabrigo.FlipStudio.Nightly")
+    set(DRIFT_APP_NAME "Flip Studio Nightly")
     # A local nightly configure with no stamp is still legible rather than "0.7.0-nightly.".
     if(DRIFT_BUILD_ID STREQUAL "")
         set(DRIFT_BUILD_ID "dev")
@@ -981,6 +990,8 @@ if(WIN32)
     # console subsystem and Windows opens a console window before the GUI comes up. Qt6::EntryPoint
     # (linked in by Qt6::Core) supplies the WinMain that forwards to main().
     set_target_properties(drift PROPERTIES WIN32_EXECUTABLE TRUE)
+    # Flip Studio ships as flipstudio.exe; the CMake target keeps its upstream name so merges stay simple.
+    set_target_properties(drift PROPERTIES OUTPUT_NAME flipstudio)
     target_sources(drift PRIVATE resources/windows/drift.rc)
     set_source_files_properties(resources/windows/drift.rc PROPERTIES
         OBJECT_DEPENDS "${CMAKE_SOURCE_DIR}/resources/windows/drift.ico")
@@ -1088,7 +1099,7 @@ if(APPLE)
         MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_BINARY_DIR}/Info.plist")
 endif()
 
-# App icon for QApplication::setWindowIcon (all platforms). Rendered from Drift_icon.png,
+# App icon for QApplication::setWindowIcon (all platforms). Rendered from FlipStudio_icon.png,
 # as is resources/windows/drift.ico — keep the two in sync when the branding changes.
 qt_add_resources(drift "drift_app_icon"
     PREFIX "/app"
@@ -1572,6 +1583,7 @@ target_compile_definitions(drift PRIVATE
     DRIFT_MARKET_API_URL="${DRIFT_MARKET_API_URL}"
     DRIFT_MARKET_CLIENT_KEY="${DRIFT_MARKET_CLIENT_KEY}"
     DRIFT_UPDATE_FEED_URL="${DRIFT_UPDATE_FEED_URL}"
+    DRIFT_UPDATE_VERSION_HOST="${DRIFT_UPDATE_VERSION_HOST}"
     DRIFT_VERSION="${DRIFT_VERSION_STRING}"
     DRIFT_DISTRIBUTION="${DRIFT_DISTRIBUTION}"
 )

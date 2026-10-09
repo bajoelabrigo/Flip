@@ -152,12 +152,12 @@ QString offGpuDecodeNote(drift::hwaccel::Backend backend,
 {
     const QString name = QString::fromLatin1(drift::hwaccel::name(backend));
     if (!match.decodeGpu.isEmpty() && !match.renderGpu.isEmpty()) {
-        return PlaybackEngine::tr("%1 decodes on %2, but Drift draws on %3. Every frame is copied "
+        return PlaybackEngine::tr("%1 decodes on %2, but Flip Studio draws on %3. Every frame is copied "
                                   "through system memory, which is slower than decoding on the "
                                   "graphics card that draws.")
             .arg(name, match.decodeGpu, match.renderGpu);
     }
-    return PlaybackEngine::tr("%1 decodes on a different graphics card than the one Drift draws "
+    return PlaybackEngine::tr("%1 decodes on a different graphics card than the one Flip Studio draws "
                               "on. Every frame is copied through system memory, which is slower "
                               "than decoding on the graphics card that draws.")
         .arg(name);

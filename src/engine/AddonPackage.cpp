@@ -190,7 +190,7 @@ bool readHeader(QFile &file, PackageInfo *info, QCryptographicHash *digest, QStr
     const quint32 version = readU32(header.constData() + 8);
     if (version != kFormatVersion) {
         return fail(error, QStringLiteral("package format version %1 is newer than this build "
-                                          "understands — update Drift")
+                                          "understands — update Flip Studio")
                                .arg(version));
     }
 
@@ -373,7 +373,7 @@ bool checkCompatible(const PackageInfo &info, QString *error)
                                .arg(info.id, info.platform, currentPlatform()));
     }
     if (!info.minAppVersion.isEmpty() && drift::compareVersions(QStringLiteral(DRIFT_VERSION), info.minAppVersion) < 0) {
-        return fail(error, QStringLiteral("%1 requires Drift %2 or newer, but this is %3")
+        return fail(error, QStringLiteral("%1 requires Flip Studio %2 or newer, but this is %3")
                                .arg(info.id, info.minAppVersion, QStringLiteral(DRIFT_VERSION)));
     }
     return true;
@@ -548,7 +548,7 @@ bool install(const QString &packagePath, const QString &destDir, const ProgressF
     if (actualDigest != expectedDigest)
         return fail(error, QStringLiteral("package contents do not match its digest"));
     if (!user && requireSignature && !verifySignature(actualDigest, file.read(kSignatureSize)))
-        return fail(error, QStringLiteral("package signature is not valid for this build of Drift"));
+        return fail(error, QStringLiteral("package signature is not valid for this build of Flip Studio"));
 
     QDir existing(destDir);
     if (existing.exists() && !existing.removeRecursively())

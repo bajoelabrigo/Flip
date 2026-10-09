@@ -9,7 +9,7 @@ on:
       - '**.md'
       - 'docs/**'
       - 'LICENSE'
-      - 'Drift_icon.png'
+      - 'FlipStudio_icon.png'
       - '.gitignore'
   workflow_dispatch:
 

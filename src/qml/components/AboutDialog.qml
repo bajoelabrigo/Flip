@@ -5,7 +5,7 @@ import Drift
 ThemedDialog {
     id: root
 
-    title: qsTr("About Drift")
+    title: qsTr("About Flip Studio")
     preferredWidth: 420
     showFooter: true
     showReject: false
@@ -32,7 +32,7 @@ ThemedDialog {
                 anchors.verticalCenter: parent.verticalCenter
 
                 ThemedLabel {
-                    text: qsTr("Drift")
+                    text: qsTr("Flip Studio")
                     size: "xl"
                     font.weight: Font.DemiBold
                 }
@@ -50,7 +50,7 @@ ThemedDialog {
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
             size: "sm"
-            text: qsTr("Open-source video editor by CutWire Studios.")
+            text: qsTr("Open-source video editor based on Drift by CutWire Studios.")
         }
 
         ThemedLabel {
@@ -59,7 +59,11 @@ ThemedDialog {
             wrapMode: Text.WordWrap
             size: "xs"
             tone: "muted"
-            text: qsTr("Licensed under GPLv3. Copyright © CutWire Studios.")
+            textFormat: Text.StyledText
+            // GPLv3 (and the AGPLv3 JUCE it links) require the source to be offered to users.
+            text: qsTr("Licensed under GPLv3. Copyright © CutWire Studios and Flip Studio contributors.")
+                  + "<br><a href=\"https://github.com/bajoelabrigo/Flip\">" + qsTr("Source code") + "</a>"
+            onLinkActivated: link => Qt.openUrlExternally(link)
         }
     }
 }

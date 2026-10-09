@@ -506,7 +506,7 @@ QJsonObject update(AppController *controller, const QJsonObject &args)
     if (dir.isEmpty())
         return err("not_found", QStringLiteral("No %1 with id %2 — call %3").arg(kind->name, id, listOpFor(*kind)));
     if (!isUserDir(*kind, dir))
-        return err("not_user_effect", QStringLiteral("%1 ships with Drift or an add-on; fork it with create_effect instead").arg(id));
+        return err("not_user_effect", QStringLiteral("%1 ships with Flip Studio or an add-on; fork it with create_effect instead").arg(id));
     return installPackage(controller, *kind, QDir::cleanPath(dir), id, args);
 }
 
@@ -562,7 +562,7 @@ QJsonObject remove(AppController *controller, const QJsonObject &args)
     if (dir.isEmpty())
         return err("not_found", QStringLiteral("No %1 with id %2 — call %3").arg(kind->name, id, listOpFor(*kind)));
     if (!isUserDir(*kind, dir))
-        return err("not_user_effect", QStringLiteral("%1 ships with Drift or an add-on and cannot be deleted").arg(id));
+        return err("not_user_effect", QStringLiteral("%1 ships with Flip Studio or an add-on and cannot be deleted").arg(id));
 
     const int uses = usesInProject(controller, *kind, id);
     if (uses > 0 && !args.value(QStringLiteral("force")).toBool()) {
@@ -623,7 +623,7 @@ QJsonObject exportPackage(const QJsonObject &args)
     } else if (sandboxed() && !QDir::cleanPath(requested).startsWith(QDir::cleanPath(fallbackDir) + QLatin1Char('/'))) {
         // Inside flatpak or snap a write can "succeed" into a private /tmp or an unmapped home
         // directory the user never sees, so only the app's own data dir is trusted.
-        reason = QStringLiteral("Drift is sandboxed and can only write inside its own data folder");
+        reason = QStringLiteral("Flip Studio is sandboxed and can only write inside its own data folder");
     } else {
         QString error;
         if (drift::addon::writeUserPackage(dir, kind->subdir, meta, requested, &error))

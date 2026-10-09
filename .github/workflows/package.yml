@@ -338,11 +338,11 @@ jobs:
           # The .zsync points at the AppImage by basename, so LDAI_OUTPUT has to be the final
           # asset name rather than renaming afterwards.
           if [ "${{ inputs.channel }}" = "nightly" ]; then
-            export LDAI_UPDATE_INFORMATION="gh-releases-zsync|${GITHUB_REPOSITORY/\//|}|nightly|Drift-nightly-x86_64.AppImage.zsync"
+            export LDAI_UPDATE_INFORMATION="gh-releases-zsync|${GITHUB_REPOSITORY/\//|}|nightly|FlipStudio-nightly-x86_64.AppImage.zsync"
           else
-            export LDAI_UPDATE_INFORMATION="gh-releases-zsync|${GITHUB_REPOSITORY/\//|}|latest|Drift-*-x86_64.AppImage.zsync"
+            export LDAI_UPDATE_INFORMATION="gh-releases-zsync|${GITHUB_REPOSITORY/\//|}|latest|FlipStudio-*-x86_64.AppImage.zsync"
           fi
-          export LDAI_OUTPUT="Drift-${{ env.ASSET_LABEL }}-x86_64.AppImage"
+          export LDAI_OUTPUT="FlipStudio-${{ env.ASSET_LABEL }}-x86_64.AppImage"
           # Drift's own QML is compiled into the binary, but the Qt Quick modules it imports are
           # not: without QML_SOURCES_PATHS the qt plugin has nothing to scan and ships an AppImage
           # whose every import fails at startup.
@@ -506,9 +506,57 @@ jobs:
       # alongside the QML cache TUs exhausted the compiler heap (C1060). The job has a 120
       # minute budget and was failing 15 minutes in, so the headroom is worth more than the
       # wall-clock. Raise it only with evidence from a green run.
+      # Flip Studio: ccache stands in for cl.exe so a change that touches a few files recompiles only
+      # those (~28 min cold, a few minutes warm). The Visual Studio generator ignores
+      # CMAKE_<LANG>_COMPILER_LAUNCHER, so ccache is masqueraded as cl.exe through MSBuild's
+      # CLToolPath, and CCACHE_COMPILER points it at the real compiler. Release builds carry no /Zi,
+      # which ccache cannot cache, and nothing here uses precompiled headers.
+      - name: Restore compiler cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}\ccache-dir
+          key: ccache-win-${{ github.sha }}
+          restore-keys: |
+            ccache-win-
+
+      - name: Install ccache
+        shell: pwsh
+        run: |
+          $dir = "${{ runner.temp }}\ccache"
+          Invoke-WebRequest -Uri "https://github.com/ccache/ccache/releases/download/v4.10.2/ccache-4.10.2-windows-x86_64.zip" -OutFile ccache.zip
+          Expand-Archive ccache.zip -DestinationPath "${{ runner.temp }}\ccache-zip" -Force
+          New-Item -ItemType Directory -Force -Path $dir | Out-Null
+          $exe = Get-ChildItem "${{ runner.temp }}\ccache-zip" -Recurse -Filter ccache.exe | Select-Object -First 1
+          Copy-Item $exe.FullName "$dir\ccache.exe"
+          Copy-Item $exe.FullName "$dir\cl.exe"
+          $vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath
+          $cl = Get-ChildItem "$vs\VC\Tools\MSVC\*\bin\Hostx64\x64\cl.exe" | Sort-Object FullName | Select-Object -Last 1
+          "CCACHE_COMPILER=$($cl.FullName)" >> $env:GITHUB_ENV
+          "CCACHE_DIR=${{ runner.temp }}\ccache-dir" >> $env:GITHUB_ENV
+          "CCACHE_BASEDIR=${{ github.workspace }}" >> $env:GITHUB_ENV
+          "CCACHE_COMPILERCHECK=content" >> $env:GITHUB_ENV
+          "CCACHE_MAXSIZE=2G" >> $env:GITHUB_ENV
+          "CCACHE_TOOL_DIR=$dir" >> $env:GITHUB_ENV
+          & "$dir\ccache.exe" --zero-stats
+
+      # UseMultiToolTask gives each source its own cl.exe call (ccache cannot cache a batched one);
+      # CL_MPCount and EnforceProcessCountAcrossBuilds keep the total at two compilers, the limit
+      # the heap-exhaustion note above asks for.
       - name: Build
         shell: pwsh
-        run: cmake --build build --config Release --parallel 2
+        run: |
+          cmake --build build --config Release --parallel 2 -- `
+            /p:CLToolExe=cl.exe /p:CLToolPath="$env:CCACHE_TOOL_DIR" `
+            /p:TrackFileAccess=false /p:UseMultiToolTask=true `
+            /p:CL_MPCount=2 /p:EnforceProcessCountAcrossBuilds=true
+          & "$env:CCACHE_TOOL_DIR\ccache.exe" --show-stats
+
+      - name: Save compiler cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}\ccache-dir
+          key: ccache-win-${{ github.sha }}
 
       # Visual Studio is a multi-config generator, hence -C Release.
       #
@@ -554,7 +602,7 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force -Path dist\bin | Out-Null
-          Copy-Item build\Release\drift.exe dist\bin -Force
+          Copy-Item build\Release\flipstudio.exe dist\bin -Force
           # --qmldir: Drift's own QML lives in the binary's resources, but the Qt Quick modules it
           # imports have to be deployed, and qmlimportscanner reads the sources to find them.
           # --no-opengl-sw: opengl32sw.dll is Qt's bundled Mesa llvmpipe, and it only
@@ -564,7 +612,7 @@ jobs:
           # main.cpp sets QT_NO_OPENGL_BUGLIST so Qt stops picking it over a perfectly
           # good card in the first place; keep the two together.
           & "${{ env.QT_ROOT_DIR }}\bin\windeployqt.exe" --release --no-translations `
-            --no-opengl-sw --qmldir src\qml dist\bin\drift.exe
+            --no-opengl-sw --qmldir src\qml dist\bin\flipstudio.exe
           Copy-Item vcpkg\installed\x64-windows\bin\*.dll dist\bin -Force
           Copy-Item .deps\ffmpeg\bin\*.dll dist\bin -Force
           # Bundled effect/transition/template packages: a POST_BUILD step already put them beside
@@ -597,7 +645,7 @@ jobs:
             throw "$check was not built; cannot verify the multimedia backend plugin"
           }
           Copy-Item $check dist\bin -Force
-          # Run from the staged tree so the checker's app dir is the same as drift.exe.
+          # Run from the staged tree so the checker's app dir is the same as flipstudio.exe.
           Push-Location dist\bin
           try {
             & .\audiobackendcheck.exe $plugin
@@ -613,7 +661,7 @@ jobs:
       - name: Build Inno Setup installer
         uses: Minionguyjpro/Inno-Setup-Action@v1.2.6
         with:
-          path: installer/windows/Drift.iss
+          path: installer/windows/FlipStudio.iss
           # /DNightly gives the installer its own AppId, name and install directory, so it lands
           # beside a stable install rather than upgrading it.
           options: |
@@ -628,7 +676,7 @@ jobs:
         run: |
           New-Item -ItemType Directory -Force -Path dist | Out-Null
           $built = Get-ChildItem installer\windows\output\*.exe
-          Copy-Item $built.FullName "dist\Drift-Setup-${{ env.ASSET_LABEL }}-x64.exe" -Force
+          Copy-Item $built.FullName "dist\FlipStudio-Setup-${{ env.ASSET_LABEL }}-x64.exe" -Force
 
       - name: Upload installer artifact
         uses: actions/upload-artifact@v4
@@ -648,12 +696,12 @@ jobs:
       - name: Build portable zip
         shell: pwsh
         env:
-          FOLDER: ${{ inputs.channel == 'nightly' && 'Drift Nightly' || 'Drift' }}
+          FOLDER: ${{ inputs.channel == 'nightly' && 'Flip Studio Nightly' || 'Flip Studio' }}
         run: |
           New-Item -ItemType Directory -Force -Path "portable\$env:FOLDER", dist\portable | Out-Null
           Copy-Item dist\bin\* "portable\$env:FOLDER" -Recurse -Force
           & "$env:ProgramFiles\7-Zip\7z.exe" a -tzip -mx=9 `
-            "dist\portable\Drift-Portable-${{ env.ASSET_LABEL }}-x64.zip" ".\portable\$env:FOLDER"
+            "dist\portable\FlipStudio-Portable-${{ env.ASSET_LABEL }}-x64.zip" ".\portable\$env:FOLDER"
 
       - name: Upload portable artifact
         uses: actions/upload-artifact@v4

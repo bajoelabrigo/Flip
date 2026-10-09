@@ -65,7 +65,7 @@ Item {
                         qsTr("You get a limited number of downloads per day. The limit is small, may change without notice, and once it is used up you have to wait."),
                         qsTr("We cannot guarantee that any source stays available. Sources can be removed, rate-limited or broken by the sites they pull from, at any time and without warning."),
                         qsTr("We cannot guarantee that a download will succeed, finish, or give you the quality you picked. Some items will simply fail."),
-                        qsTr("Everything here comes from third parties. Drift does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.")
+                        qsTr("Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.")
                     ]
 
                     delegate: Row {

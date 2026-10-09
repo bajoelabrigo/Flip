@@ -12,23 +12,23 @@
 ; Never change either AppId: it is what lets an installer upgrade an existing install
 ; in place instead of leaving two copies behind.
 #ifdef Nightly
-  #define MyAppName "Drift Nightly"
-  #define MyAppId "1699D9B5-080B-4892-ACEE-EC56B595E89B"
-  #define MyOutputBase "Drift-Setup-Nightly-x64"
+  #define MyAppName "Flip Studio Nightly"
+  #define MyAppId "4C9428E1-600C-4808-9B5F-34C5CC5A65C1"
+  #define MyOutputBase "FlipStudio-Setup-Nightly-x64"
 #else
-  #define MyAppName "Drift"
-  #define MyAppId "1FC80696-7700-464A-8E35-CCBB3239EDFB"
-  #define MyOutputBase "Drift-Setup-x64"
+  #define MyAppName "Flip Studio"
+  #define MyAppId "4521839D-9B2F-47AD-87E5-0A611BA03F9D"
+  #define MyOutputBase "FlipStudio-Setup-x64"
 #endif
-#define MyAppPublisher "CutWire Studios"
-#define MyAppExeName "drift.exe"
+#define MyAppPublisher "Flip Studio"
+#define MyAppExeName "flipstudio.exe"
 
 [Setup]
 AppId={{{#MyAppId}}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppPublisher={#MyAppPublisher}
-AppSupportURL=https://github.com/CutWire-Studios/Drift/issues
+AppSupportURL=https://github.com/bajoelabrigo/Flip/issues
 DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 ArchitecturesAllowed=x64compatible
@@ -67,10 +67,10 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: de
 ; delete the association out from under the stable install (uninsdeletekey), and two channels
 ; fighting over which opens a .drift file helps nobody.
 [Registry]
-Root: HKCR; Subkey: ".drift"; ValueType: string; ValueName: ""; ValueData: "CutWire.Drift.Project"; Flags: uninsdeletevalue
-Root: HKCR; Subkey: "CutWire.Drift.Project"; ValueType: string; ValueName: ""; ValueData: "Drift Project"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "CutWire.Drift.Project\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#MyAppExeName},0"
-Root: HKCR; Subkey: "CutWire.Drift.Project\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
+Root: HKCR; Subkey: ".drift"; ValueType: string; ValueName: ""; ValueData: "FlipStudio.Project"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "FlipStudio.Project"; ValueType: string; ValueName: ""; ValueData: "Flip Studio Project"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "FlipStudio.Project\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#MyAppExeName},0"
+Root: HKCR; Subkey: "FlipStudio.Project\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
 #endif
 
 [Run]

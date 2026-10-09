@@ -113,7 +113,7 @@ std::optional<TextRangeSelector> selectorFrom(const QJsonObject &s, const Comp &
     if (s.isEmpty())
         return std::nullopt;
     if (s.value(QStringLiteral("t")).toInt(0) != 0) {
-        warnings->append(QStringLiteral("expression selector skipped (Drift evaluates no expressions)"));
+        warnings->append(QStringLiteral("expression selector skipped (Flip Studio evaluates no expressions)"));
         return std::nullopt;
     }
     TextRangeSelector sel;
@@ -382,7 +382,7 @@ std::optional<TextAnimationPreset> importLottieTextPreset(const QByteArray &json
     }
     if (animators.isEmpty()) {
         if (error)
-            *error = QStringLiteral("no text animator Drift can use");
+            *error = QStringLiteral("no text animator Flip Studio can use");
         return std::nullopt;
     }
     warnings->removeDuplicates();

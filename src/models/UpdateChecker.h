@@ -13,7 +13,7 @@ class QNetworkAccessManager;
 class QNetworkReply;
 class QCryptographicHash;
 
-// Once a day, reads the newest version from the TXT record on drift-version.cutwire.org and
+// Once a day, reads the newest version from the TXT record on version.getflipstudio.com and
 // raises a badge in the header when it is newer than this build.
 //
 // The Windows installer, macOS disk image and AppImage builds download their own replacement

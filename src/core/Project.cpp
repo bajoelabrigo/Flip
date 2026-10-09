@@ -1003,7 +1003,7 @@ Project Project::fromJson(const QJsonObject &object, QString *errorOut)
     if (version > kCurrentVersion) {
         return fail(QCoreApplication::translate(
             "Project",
-            "This project was saved by a newer version of Drift "
+            "This project was saved by a newer version of Flip Studio "
             "(project format %1; this build reads up to %2).")
                         .arg(version)
                         .arg(kCurrentVersion));
@@ -1012,7 +1012,7 @@ Project Project::fromJson(const QJsonObject &object, QString *errorOut)
     // Every version writes a tracks array — an empty timeline included, as `[]`. Without this any
     // JSON object at all, `{}` included, parses into a plausible-looking empty project.
     if (!object.value(QStringLiteral("tracks")).isArray())
-        return fail(QCoreApplication::translate("Project", "This file isn’t a Drift project."));
+        return fail(QCoreApplication::translate("Project", "This file isn’t a Flip Studio project."));
 
     Project project;
 

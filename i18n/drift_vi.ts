@@ -4,7 +4,7 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About Drift</source>
+        <source>About Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12,19 +12,23 @@
         <translation type="unfinished">Đóng</translation>
     </message>
     <message>
-        <source>Drift</source>
-        <translation type="unfinished"></translation>
+        <source>Flip Studio</source>
+        <translation>Flip Studio</translation>
     </message>
     <message>
         <source>Version %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open-source video editor by CutWire Studios.</source>
+        <source>Open-source video editor based on Drift by CutWire Studios.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Licensed under GPLv3. Copyright © CutWire Studios.</source>
+        <source>Licensed under GPLv3. Copyright © CutWire Studios and Flip Studio contributors.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source code</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -55,15 +59,15 @@
         <translation>Không thể đọc tệp đó.</translation>
     </message>
     <message>
-        <source>This is not a Drift effect file (%1).</source>
-        <translation>Đây không phải là tệp hiệu ứng Drift (%1).</translation>
+        <source>This is not a Flip Studio effect file (%1).</source>
+        <translation>Đây không phải là tệp hiệu ứng Flip Studio (%1).</translation>
     </message>
     <message>
         <source>Another addon is still installing.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Drift addon file.</source>
+        <source>This is not a Flip Studio addon file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -114,7 +118,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift addons (*.driftpkg *.driftfx *.zip)</source>
+        <source>Flip Studio addons (*.driftpkg *.driftfx *.zip)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -130,7 +134,7 @@
         <translation>“%1”</translation>
     </message>
     <message>
-        <source>%1 is not signed by the Drift team. Only install files you trust.</source>
+        <source>%1 is not signed by the Flip Studio team. Only install files you trust.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -142,8 +146,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 was made by a user, not the Drift team, and nothing has checked it. Only install files you trust.</source>
-        <translation>%1 được tạo bởi người dùng chứ không phải nhóm Drift và chưa có gì kiểm tra nó. Chỉ cài đặt các tệp mà bạn tin tưởng.</translation>
+        <source>%1 was made by a user, not the Flip Studio team, and nothing has checked it. Only install files you trust.</source>
+        <translation>%1 được tạo bởi người dùng chứ không phải nhóm Flip Studio và chưa có gì kiểm tra nó. Chỉ cài đặt các tệp mà bạn tin tưởng.</translation>
     </message>
     <message>
         <source>Could not install “%1”: %2</source>
@@ -202,8 +206,8 @@
         <translation>Cài đặt Trình xử lý AI bên dưới để mở khóa phụ đề tự động, cắt chủ đề, hiệu ứng khuôn mặt hài hước và khử tiếng ồn.</translation>
     </message>
     <message>
-        <source>Restart Drift for this to take effect.</source>
-        <translation>Khởi động lại Drift để điều này có hiệu lực.</translation>
+        <source>Restart Flip Studio for this to take effect.</source>
+        <translation>Khởi động lại Flip Studio để điều này có hiệu lực.</translation>
     </message>
     <message>
         <source>Can&apos;t reach the download store</source>
@@ -238,8 +242,8 @@
         <translation>%1… %2%</translation>
     </message>
     <message>
-        <source>Requires Drift %1 or newer</source>
-        <translation>Yêu cầu Drift %1 hoặc mới hơn</translation>
+        <source>Requires Flip Studio %1 or newer</source>
+        <translation>Yêu cầu Flip Studio %1 hoặc mới hơn</translation>
     </message>
     <message>
         <source>Unofficial</source>
@@ -305,8 +309,8 @@
         <translation>Gói được đề xuất</translation>
     </message>
     <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Drift without them — installing unlocks updates when they improve.</source>
-        <translation>Cài đặt các gói cần thiết cho hiệu ứng, hiệu ứng chuyển cảnh và âm thanh. Bạn có thể tiếp tục sử dụng Drift mà không cần đến chúng — việc cài đặt sẽ mở khóa các bản cập nhật khi chúng được cải thiện.</translation>
+        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
+        <translation>Cài đặt các gói cần thiết cho hiệu ứng, hiệu ứng chuyển cảnh và âm thanh. Bạn có thể tiếp tục sử dụng Flip Studio mà không cần đến chúng — việc cài đặt sẽ mở khóa các bản cập nhật khi chúng được cải thiện.</translation>
     </message>
     <message>
         <source>%1… %2%</source>
@@ -464,12 +468,12 @@
         <translation>Khởi chạy trợ lý khi khởi động</translation>
     </message>
     <message>
-        <source>Skip the manual toggle next time you open Drift. Turning access off resets this.</source>
-        <translation>Bỏ qua chuyển đổi thủ công vào lần tiếp theo bạn mở Drift. Tắt quyền truy cập sẽ đặt lại điều này.</translation>
+        <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
+        <translation>Bỏ qua chuyển đổi thủ công vào lần tiếp theo bạn mở Flip. Tắt quyền truy cập sẽ đặt lại điều này.</translation>
     </message>
     <message>
-        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Drift, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
-        <translation>Hãy để Cursor hoặc Claude chỉnh sửa dự án này cho bạn — thêm clip, thay đổi dòng thời gian và kiểm tra xem nó trông như thế nào. Chỉ các chương trình trên thiết bị này. Tắt theo mặc định mỗi khi bạn mở Drift, trừ khi bạn bật “Khởi chạy trợ lý khi khởi động” bên dưới; tắt nó ở đây khi bạn hoàn thành. Khóa vẫn giữ nguyên giữa các phiên, do đó, thiết lập bạn đã dán một lần vẫn tiếp tục hoạt động.</translation>
+        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip Studio, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
+        <translation>Hãy để Cursor hoặc Claude chỉnh sửa dự án này cho bạn — thêm clip, thay đổi dòng thời gian và kiểm tra xem nó trông như thế nào. Chỉ các chương trình trên thiết bị này. Tắt theo mặc định mỗi khi bạn mở Flip Studio, trừ khi bạn bật “Khởi chạy trợ lý khi khởi động” bên dưới; tắt nó ở đây khi bạn hoàn thành. Khóa vẫn giữ nguyên giữa các phiên, do đó, thiết lập bạn đã dán một lần vẫn tiếp tục hoạt động.</translation>
     </message>
 </context>
 <context>
@@ -712,8 +716,8 @@
 <context>
     <name>AndroidEditor</name>
     <message>
-        <source>Drift project (*.drift)</source>
-        <translation>Dự án Drift (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Dự án Flip Studio (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -915,8 +919,8 @@
 <context>
     <name>AndroidMain</name>
     <message>
-        <source>Drift project (*.drift)</source>
-        <translation>Dự án Drift (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Dự án Flip Studio (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -3540,8 +3544,8 @@
         <translation>Đang nâng cấp video…</translation>
     </message>
     <message>
-        <source>This build of Drift has no video stabilization support</source>
-        <translation>Bản dựng Drift này không hỗ trợ ổn định video</translation>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation>Bản dựng Flip Studio này không hỗ trợ ổn định video</translation>
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
@@ -4598,9 +4602,9 @@
         </translation>
     </message>
     <message numerus="yes">
-        <source>Imported %n files into %1 folders. %2 files were skipped — Drift does not recognize their format. Drag them onto the bin to try anyway.</source>
+        <source>Imported %n files into %1 folders. %2 files were skipped — Flip Studio does not recognize their format. Drag them onto the bin to try anyway.</source>
         <translation>
-            <numerusform>Đã nhập %n tệp vào %1 thư mục. Đã bỏ qua %2 tệp — Drift không định dạng được các tệp này. Thử kéo thả chúng vào ngăn chứa để nhập lại.</numerusform>
+            <numerusform>Đã nhập %n tệp vào %1 thư mục. Đã bỏ qua %2 tệp — Flip Studio không định dạng được các tệp này. Thử kéo thả chúng vào ngăn chứa để nhập lại.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -5908,8 +5912,8 @@
         <translation>Chợ không có sẵn trong bản dựng này.</translation>
     </message>
     <message>
-        <source>Could not load Drift Assets. Check your connection and try again.</source>
-        <translation>Không thể tải Tài nguyên Drift. Kiểm tra kết nối và thử lại.</translation>
+        <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
+        <translation>Không thể tải Tài nguyên Flip. Kiểm tra kết nối và thử lại.</translation>
     </message>
     <message>
         <source>That asset could not be installed.</source>
@@ -5959,8 +5963,8 @@
         <translation>Đã thêm vào ngăn phương tiện</translation>
     </message>
     <message>
-        <source>Couldn’t load Drift Assets</source>
-        <translation>Không thể tải Tài nguyên Drift</translation>
+        <source>Couldn’t load Flip Studio Assets</source>
+        <translation>Không thể tải Tài nguyên Flip Studio</translation>
     </message>
     <message>
         <source>Try again</source>
@@ -5971,8 +5975,8 @@
         <translation>Chưa có tài nguyên nào ở đây</translation>
     </message>
     <message>
-        <source>Drift Assets are still being published. Check back soon.</source>
-        <translation>Tài nguyên Drift vẫn đang được xuất bản. Hãy kiểm tra lại sớm.</translation>
+        <source>Flip Studio Assets are still being published. Check back soon.</source>
+        <translation>Tài nguyên Flip Studio vẫn đang được xuất bản. Hãy kiểm tra lại sớm.</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -5987,8 +5991,8 @@
         <translation>Tất cả tài nguyên</translation>
     </message>
     <message>
-        <source>No Drift Assets match “%1”.</source>
-        <translation>Không có tài nguyên Drift nào khớp với “%1”.</translation>
+        <source>No Flip Studio Assets match “%1”.</source>
+        <translation>Không có tài nguyên Flip Studio nào khớp với “%1”.</translation>
     </message>
     <message>
         <source>Search %1 for “%2”</source>
@@ -5998,8 +6002,8 @@
 <context>
     <name>EditorHeader</name>
     <message>
-        <source>Drift project (*.drift)</source>
-        <translation>Dự án Drift (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Dự án Flip Studio (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -6132,8 +6136,8 @@
         <translation>Cập nhật</translation>
     </message>
     <message>
-        <source>Drift %1 is available</source>
-        <translation>Drift %1 đang có sẵn</translation>
+        <source>Flip Studio %1 is available</source>
+        <translation>Flip Studio %1 đang có sẵn</translation>
     </message>
     <message>
         <source>Agent access</source>
@@ -6339,8 +6343,8 @@
 <context>
     <name>EffectStacksSection</name>
     <message>
-        <source>Drift effect stack (*.drifteffects)</source>
-        <translation>Ngăn xếp hiệu ứng Drift (*.drifteffects)</translation>
+        <source>Flip Studio effect stack (*.drifteffects)</source>
+        <translation>Ngăn xếp hiệu ứng Flip Studio (*.drifteffects)</translation>
     </message>
     <message>
         <source>Import effect stack</source>
@@ -6952,8 +6956,8 @@
         <translation>prop.json không phải là một đạo cụ khuôn mặt</translation>
     </message>
     <message>
-        <source>prop.json needs a newer version of Drift</source>
-        <translation>prop.json cần phiên bản Drift mới hơn</translation>
+        <source>prop.json needs a newer version of Flip Studio</source>
+        <translation>prop.json cần phiên bản Flip Studio mới hơn</translation>
     </message>
     <message>
         <source>invalid prop id “%1”</source>
@@ -8150,7 +8154,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Drift</source>
+        <source>About Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8162,8 +8166,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 is the latest version.</source>
-        <translation type="unfinished">Drift %1 là phiên bản mới nhất.</translation>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation type="unfinished">Flip Studio %1 là phiên bản mới nhất.</translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -8348,8 +8352,8 @@
         <translation>Chúng tôi không thể đảm bảo rằng quá trình tải xuống sẽ thành công, hoàn tất hoặc mang lại cho bạn chất lượng mà bạn đã chọn. Một số mặt hàng sẽ đơn giản là thất bại.</translation>
     </message>
     <message>
-        <source>Everything here comes from third parties. Drift does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>Mọi thứ ở đây đều đến từ bên thứ ba. Drift không lưu trữ, sở hữu hoặc kiểm tra nó - bạn có trách nhiệm đảm bảo rằng bạn có quyền sử dụng bất cứ thứ gì bạn tải xuống.</translation>
+        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
+        <translation>Mọi thứ ở đây đều đến từ bên thứ ba. Flip Studio không lưu trữ, sở hữu hoặc kiểm tra nó - bạn có trách nhiệm đảm bảo rằng bạn có quyền sử dụng bất cứ thứ gì bạn tải xuống.</translation>
     </message>
     <message>
         <source>I understand</source>
@@ -9554,12 +9558,12 @@
 <context>
     <name>PlaybackEngine</name>
     <message>
-        <source>%1 decodes on %2, but Drift draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 giải mã trên %2, nhưng Drift vẽ trên %3. Mọi khung hình đều được sao chép qua bộ nhớ hệ thống, chậm hơn so với giải mã trên card đồ họa đảm nhận việc vẽ.</translation>
+        <source>%1 decodes on %2, but Flip Studio draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>%1 giải mã trên %2, nhưng Flip Studio vẽ trên %3. Mọi khung hình đều được sao chép qua bộ nhớ hệ thống, chậm hơn so với giải mã trên card đồ họa đảm nhận việc vẽ.</translation>
     </message>
     <message>
-        <source>%1 decodes on a different graphics card than the one Drift draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 giải mã trên card đồ họa khác với card đồ họa mà Drift sử dụng. Mọi khung hình đều được sao chép qua bộ nhớ hệ thống, tốc độ này chậm hơn so với việc giải mã trên card đồ họa vẽ.</translation>
+        <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>%1 giải mã trên card đồ họa khác với card đồ họa mà Flip Studio sử dụng. Mọi khung hình đều được sao chép qua bộ nhớ hệ thống, tốc độ này chậm hơn so với việc giải mã trên card đồ họa vẽ.</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -9644,12 +9648,12 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Drift.</source>
-        <translation>Bản xem trước nhanh hơn sẽ có hiệu lực sau khi bạn khởi động lại Drift.</translation>
+        <source>Faster preview takes effect after you restart Flip.</source>
+        <translation>Bản xem trước nhanh hơn sẽ có hiệu lực sau khi bạn khởi động lại Flip.</translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Drift.</source>
-        <translation>Lựa chọn card đồ họa có hiệu lực sau khi bạn khởi động lại Drift.</translation>
+        <source>The graphics card choice takes effect after you restart Flip.</source>
+        <translation>Lựa chọn card đồ họa có hiệu lực sau khi bạn khởi động lại Flip.</translation>
     </message>
     <message>
         <source>System default</source>
@@ -9718,7 +9722,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The scene from a free viewpoint, with the camera in it. Middle- or right-drag orbits, Shift pans, the wheel zooms.</source>
+        <source>The scene from a free viewpoint, with the camera in it. Middle- or right-drag orbits, Shift pans, the wheel zooms, and the corner pad steps the view.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -9797,16 +9801,16 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished">Hủy bỏ</translation>
     </message>
     <message>
-        <source>Launching Drift with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
-        <translation type="unfinished">Việc khởi chạy Drift với chế độ chạy chính (hoặc DRI_PRIME=1) sẽ đặt OpenGL trên cùng một card với bộ giải mã.</translation>
+        <source>Launching Flip Studio with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
+        <translation type="unfinished">Việc khởi chạy Flip Studio với chế độ chạy chính (hoặc DRI_PRIME=1) sẽ đặt OpenGL trên cùng một card với bộ giải mã.</translation>
     </message>
     <message>
-        <source>Run Drift on the high-performance graphics card</source>
-        <translation type="unfinished">Chạy Drift trên card đồ họa hiệu năng cao</translation>
+        <source>Run Flip Studio on the high-performance graphics card</source>
+        <translation type="unfinished">Chạy Flip Studio trên card đồ họa hiệu năng cao</translation>
     </message>
     <message>
-        <source>Set Drift to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Drift.</source>
-        <translation type="unfinished">Đặt Drift ở chế độ Hiệu năng cao trong Cài đặt Windows &gt; Hiển thị &gt; Đồ họa, sau đó khởi động lại Drift.</translation>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
+        <translation type="unfinished">Đặt Flip Studio ở chế độ Hiệu năng cao trong Cài đặt Windows &gt; Hiển thị &gt; Đồ họa, sau đó khởi động lại Flip.</translation>
     </message>
     <message>
         <source>Open graphics settings</source>
@@ -9862,12 +9866,12 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished">Xem trước GPU không có sẵn</translation>
     </message>
     <message>
-        <source>Your graphics driver only provides %1. Drift&apos;s preview needs OpenGL 3.3.</source>
-        <translation type="unfinished">Driver đồ họa của bạn chỉ cung cấp %1. Bản xem trước của Drift cần OpenGL 3.3.</translation>
+        <source>Your graphics driver only provides %1. Flip Studio&apos;s preview needs OpenGL 3.3.</source>
+        <translation type="unfinished">Driver đồ họa của bạn chỉ cung cấp %1. Bản xem trước của Flip Studio cần OpenGL 3.3.</translation>
     </message>
     <message>
-        <source>Drift could not start its GPU renderer, so the preview cannot draw.</source>
-        <translation type="unfinished">Drift không thể khởi động trình kết xuất GPU của nó nên bản xem trước không thể vẽ.</translation>
+        <source>Flip Studio could not start its GPU renderer, so the preview cannot draw.</source>
+        <translation type="unfinished">Flip Studio không thể khởi động trình kết xuất GPU của nó nên bản xem trước không thể vẽ.</translation>
     </message>
     <message>
         <source>Debug info</source>
@@ -9936,12 +9940,12 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
 <context>
     <name>Project</name>
     <message>
-        <source>This project was saved by a newer version of Drift (project format %1; this build reads up to %2).</source>
-        <translation>Dự án này đã được lưu bằng phiên bản mới hơn của Drift (định dạng dự án %1; bản dựng này đọc tối đa %2).</translation>
+        <source>This project was saved by a newer version of Flip Studio (project format %1; this build reads up to %2).</source>
+        <translation>Dự án này đã được lưu bằng phiên bản mới hơn của Flip Studio (định dạng dự án %1; bản dựng này đọc tối đa %2).</translation>
     </message>
     <message>
-        <source>This file isn’t a Drift project.</source>
-        <translation>Tệp này không phải là một dự án Drift.</translation>
+        <source>This file isn’t a Flip Studio project.</source>
+        <translation>Tệp này không phải là một dự án Flip.</translation>
     </message>
 </context>
 <context>
@@ -9955,12 +9959,12 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>không thể mở %1</translation>
     </message>
     <message>
-        <source>file is too short to be a Drift project</source>
-        <translation>tệp quá ngắn để trở thành một dự án Drift</translation>
+        <source>file is too short to be a Flip Studio project</source>
+        <translation>tệp quá ngắn để trở thành một dự án Flip Studio</translation>
     </message>
     <message>
-        <source>not a Drift project (bad magic)</source>
-        <translation>không phải là một dự án Drift (ma thuật tồi tệ)</translation>
+        <source>not a Flip Studio project (bad magic)</source>
+        <translation>không phải là một dự án Flip Studio (ma thuật tồi tệ)</translation>
     </message>
     <message>
         <source>unsupported container revision</source>
@@ -9987,8 +9991,8 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>bản kê dự án không có phiên bản định dạng</translation>
     </message>
     <message>
-        <source>this project was saved by a newer version of Drift (format %1) — update to open it</source>
-        <translation>dự án này đã được lưu bằng phiên bản mới hơn của Drift (định dạng %1) — cập nhật để mở nó</translation>
+        <source>this project was saved by a newer version of Flip Studio (format %1) — update to open it</source>
+        <translation>dự án này đã được lưu bằng phiên bản mới hơn của Flip Studio (định dạng %1) — cập nhật để mở nó</translation>
     </message>
     <message>
         <source>project blob table is not contiguous</source>
@@ -11076,8 +11080,8 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Đang làm việc…</translation>
     </message>
     <message>
-        <source>Drift will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
-        <translation>Drift sẽ hiển thị một bản sao đảo ngược của clip này để nó phát lại một cách mượt mà. Bạn có thể tiếp tục chỉnh sửa trong khi nó chạy.</translation>
+        <source>Flip Studio will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
+        <translation>Flip Studio sẽ hiển thị một bản sao đảo ngược của clip này để nó phát lại một cách mượt mà. Bạn có thể tiếp tục chỉnh sửa trong khi nó chạy.</translation>
     </message>
     <message>
         <source>This can take a few minutes on longer clips.</source>
@@ -11486,12 +11490,12 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Hiệu suất cao (GPU rời)</translation>
     </message>
     <message>
-        <source>Which graphics card Drift runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation>Drift chạy trên card đồ họa nào? Hiệu suất cao giúp giải mã video trên thẻ NVIDIA trên thẻ đó; tiết kiệm năng lượng sử dụng ít pin hơn. Có hiệu lực sau khi khởi động lại.</translation>
+        <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
+        <translation>Flip Studio chạy trên card đồ họa nào? Hiệu suất cao giúp giải mã video trên thẻ NVIDIA trên thẻ đó; tiết kiệm năng lượng sử dụng ít pin hơn. Có hiệu lực sau khi khởi động lại.</translation>
     </message>
     <message>
-        <source>Choose which graphics card Drift runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
-        <translation>Chọn card đồ họa mà Drift sử dụng trong Cài đặt Windows, trong mục Hiển thị &gt; Đồ họa. Thay đổi sẽ có hiệu lực sau khi khởi động lại.</translation>
+        <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
+        <translation>Chọn card đồ họa mà Flip Studio sử dụng trong Cài đặt Windows, trong mục Hiển thị &gt; Đồ họa. Thay đổi sẽ có hiệu lực sau khi khởi động lại.</translation>
     </message>
     <message>
         <source>Open graphics settings</source>
@@ -11534,8 +11538,8 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Làm cho các nút, văn bản và biểu tượng lớn hơn. Đây là tỷ lệ bổ sung ngoài kích thước đã được đặt trong cài đặt hiển thị của bạn. Có hiệu lực sau khi khởi động lại.</translation>
     </message>
     <message>
-        <source>Restart Drift to apply this size.</source>
-        <translation>Khởi động lại Drift để áp dụng kích thước này.</translation>
+        <source>Restart Flip Studio to apply this size.</source>
+        <translation>Khởi động lại Flip Studio để áp dụng kích thước này.</translation>
     </message>
     <message>
         <source>Horizontal mouse-wheel pan</source>
@@ -11590,8 +11594,8 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Kiểm tra ngay</translation>
     </message>
     <message>
-        <source>Drift %1</source>
-        <translation>Drift %1</translation>
+        <source>Flip Studio %1</source>
+        <translation>Flip Studio %1</translation>
     </message>
     <message>
         <source>Extra packs</source>
@@ -11622,8 +11626,8 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Nhà cung cấp đám mây</translation>
     </message>
     <message>
-        <source>Keys are stored unencrypted in Drift&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>Khóa được lưu trữ không được mã hóa trong cài đặt của Drift. ELEVENLABS_API_KEY và FISH_API_KEY trong môi trường được ưu tiên. Việc sử dụng được tính phí vào tài khoản của riêng bạn.</translation>
+        <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation>Khóa được lưu trữ không được mã hóa trong cài đặt của Flip. ELEVENLABS_API_KEY và FISH_API_KEY trong môi trường được ưu tiên. Việc sử dụng được tính phí vào tài khoản của riêng bạn.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -11666,8 +11670,8 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Cho phép gửi âm thanh và văn bản tới %1</translation>
     </message>
     <message>
-        <source>Needed before Drift or a connected agent can transcribe or generate audio with this service</source>
-        <translation>Cần thiết trước khi Drift hoặc tác nhân được kết nối có thể phiên âm hoặc tạo âm thanh bằng dịch vụ này</translation>
+        <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
+        <translation>Cần thiết trước khi Flip Studio hoặc tác nhân được kết nối có thể phiên âm hoặc tạo âm thanh bằng dịch vụ này</translation>
     </message>
     <message>
         <source>Default voice id</source>
@@ -11702,7 +11706,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Hủy liên kết tài khoản Cửa hàng khỏi thiết bị này</translation>
     </message>
     <message>
-        <source>Once a day, check whether a newer Drift has been released</source>
+        <source>Once a day, check whether a newer Flip Studio has been released</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12525,7 +12529,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Chế độ</translation>
     </message>
     <message>
-        <source>Smooths camera shake. Drift scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
+        <source>Smooths camera shake. Flip Studio scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13049,8 +13053,8 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
 <context>
     <name>TextAssetsTab</name>
     <message>
-        <source>Drift text style (*.drifttextstyle)</source>
-        <translation>Kiểu văn bản Drift (*.drifttextstyle)</translation>
+        <source>Flip Studio text style (*.drifttextstyle)</source>
+        <translation>Kiểu văn bản Flip Studio (*.drifttextstyle)</translation>
     </message>
     <message>
         <source>Import text style</source>
@@ -15221,7 +15225,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <source>Drift %1 update</source>
+        <source>Flip Studio %1 update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15229,7 +15233,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Installs when you close Drift</source>
+        <source>Installs when you close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15237,7 +15241,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 will install when you close Drift.</source>
+        <source>Flip Studio %1 will install when you close Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15249,12 +15253,12 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Không thể kiểm tra cập nhật: phản hồi bất thường.</translation>
     </message>
     <message>
-        <source>Drift %1 is the latest version.</source>
-        <translation>Drift %1 là phiên bản mới nhất.</translation>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation>Flip Studio %1 là phiên bản mới nhất.</translation>
     </message>
     <message>
-        <source>Drift %1 is available.</source>
-        <translation>Drift %1 đang sẵn có.</translation>
+        <source>Flip Studio %1 is available.</source>
+        <translation>Flip Studio %1 đang sẵn có.</translation>
     </message>
     <message>
         <source>Couldn’t download the update: the cache isn’t writable.</source>
@@ -15277,7 +15281,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 is ready to install.</source>
+        <source>Flip Studio %1 is ready to install.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -15292,19 +15296,19 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 will install when you close Drift.</source>
+        <source>Flip Studio %1 will install when you close Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 is downloaded and ready to install</source>
+        <source>Flip Studio %1 is downloaded and ready to install</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 is available</source>
-        <translation>Drift %1 đang có sẵn</translation>
+        <source>Flip Studio %1 is available</source>
+        <translation>Flip Studio %1 đang có sẵn</translation>
     </message>
     <message>
-        <source>A new Drift update is available</source>
+        <source>A new Flip Studio update is available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15312,11 +15316,11 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Bạn có %1.</translation>
     </message>
     <message>
-        <source>Install automatically when I close Drift</source>
+        <source>Install automatically when I close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Drift. Unchecked, you choose when to install once the download finishes.</source>
+        <source>Downloads in the background and installs the next time you close Flip. Unchecked, you choose when to install once the download finishes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15332,7 +15336,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Để sau</translation>
     </message>
     <message>
-        <source>Install when I close Drift</source>
+        <source>Install when I close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15340,7 +15344,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished">Cập nhật</translation>
     </message>
     <message>
-        <source>Closes Drift, installs the update and opens Drift again</source>
+        <source>Closes Flip Studio, installs the update and opens Flip Studio again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15352,7 +15356,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Mở trang phát hành trong trình duyệt của bạn</translation>
     </message>
     <message>
-        <source>Downloading Drift %1…</source>
+        <source>Downloading Flip Studio %1…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15690,6 +15694,61 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
 </context>
 <context>
+    <name>ViewNavPad</name>
+    <message>
+        <source>%1 (%2)</source>
+        <translation type="unfinished">%1 (%2)</translation>
+    </message>
+    <message>
+        <source>Orbit left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Numpad 4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Orbit up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Numpad 8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Orbit right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Numpad 6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom out</source>
+        <translation type="unfinished">Thu nhỏ</translation>
+    </message>
+    <message>
+        <source>Numpad -</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Orbit down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Numpad 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom in</source>
+        <translation type="unfinished">Phóng to</translation>
+    </message>
+    <message>
+        <source>Numpad +</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>VoiceoverControlBar</name>
     <message>
         <source>PAUSED</source>
@@ -15810,10 +15869,10 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Không có driver OpenGL</translation>
     </message>
     <message>
-        <source>Drift could not create an OpenGL context, so it cannot draw its interface or render the preview.
+        <source>Flip Studio could not create an OpenGL context, so it cannot draw its interface or render the preview.
 
 Install or update your graphics driver.</source>
-        <translation>Drift không thể tạo ngữ cảnh OpenGL, nên không thể vẽ giao diện hoặc kết xuất bản xem trước.
+        <translation>Flip Studio không thể tạo ngữ cảnh OpenGL, nên không thể vẽ giao diện hoặc kết xuất bản xem trước.
 
 Hãy cài đặt hoặc cập nhật driver đồ họa của bạn.</translation>
     </message>
@@ -15822,10 +15881,10 @@ Hãy cài đặt hoặc cập nhật driver đồ họa của bạn.</translatio
         <translation>Ngữ cảnh OpenGL không khả dụng</translation>
     </message>
     <message>
-        <source>Drift could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
+        <source>Flip Studio could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
 
 The video preview cannot render. Updating your graphics driver may help.</source>
-        <translation>Drift không thể tạo ngữ cảnh hồ sơ nhân OpenGL 3.3, dù driver này báo cáo OpenGL %1.%2 (%3).
+        <translation>Flip Studio không thể tạo ngữ cảnh hồ sơ nhân OpenGL 3.3, dù driver này báo cáo OpenGL %1.%2 (%3).
 
 Bản xem trước video không thể kết xuất. Cập nhật driver đồ họa của bạn có thể giúp ích.</translation>
     </message>
@@ -15834,24 +15893,24 @@ Bản xem trước video không thể kết xuất. Cập nhật driver đồ h�
         <translation>Driver đồ họa quá cũ</translation>
     </message>
     <message>
-        <source>Drift needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
+        <source>Flip Studio needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
 
-The video preview cannot render, and Drift may not start at all. Update your graphics driver, or run Drift on a machine with a newer GPU.</source>
-        <translation>Drift cần OpenGL 3.3, nhưng driver đồ họa này chỉ cung cấp OpenGL %1.%2 (%3).
+The video preview cannot render, and Flip Studio may not start at all. Update your graphics driver, or run Flip Studio on a machine with a newer GPU.</source>
+        <translation>Flip Studio cần OpenGL 3.3, nhưng driver đồ họa này chỉ cung cấp OpenGL %1.%2 (%3).
 
-Bản xem trước video không thể kết xuất, và Drift có thể không khởi động được. Cập nhật driver đồ họa của bạn, hoặc chạy Drift trên máy có GPU mới hơn.</translation>
+Bản xem trước video không thể kết xuất, và Flip Studio có thể không khởi động được. Cập nhật driver đồ họa của bạn, hoặc chạy Flip Studio trên máy có GPU mới hơn.</translation>
     </message>
     <message>
-        <source>Drift is not drawing its window</source>
-        <translation>Drift không vẽ được cửa sổ của mình</translation>
+        <source>Flip Studio is not drawing its window</source>
+        <translation>Flip Studio không vẽ được cửa sổ của mình</translation>
     </message>
     <message>
-        <source>Drift has been running for %1 seconds but its window has not drawn anything yet.
+        <source>Flip Studio has been running for %1 seconds but its window has not drawn anything yet.
 
-If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Drift again.</source>
-        <translation>Drift đã chạy được %1 giây nhưng cửa sổ của nó vẫn chưa vẽ gì cả.
+If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip Studio again.</source>
+        <translation>Flip Studio đã chạy được %1 giây nhưng cửa sổ của nó vẫn chưa vẽ gì cả.
 
-Nếu cửa sổ trống hoặc đen, driver đồ họa của bạn rất có thể đã lỗi thời hoặc bị lỗi. Hãy cập nhật driver từ trang web của nhà sản xuất GPU (AMD, NVIDIA hoặc Intel) rồi khởi động lại Drift.</translation>
+Nếu cửa sổ trống hoặc đen, driver đồ họa của bạn rất có thể đã lỗi thời hoặc bị lỗi. Hãy cập nhật driver từ trang web của nhà sản xuất GPU (AMD, NVIDIA hoặc Intel) rồi khởi động lại Flip.</translation>
     </message>
 </context>
 </TS>
