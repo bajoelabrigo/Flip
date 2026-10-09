@@ -492,6 +492,8 @@ add_library(driftcore STATIC
     src/core/Model3dSource.cpp
     src/core/ZipArchive.h
     src/core/ZipArchive.cpp
+    src/core/SecretStore.h
+    src/core/SecretStore.cpp
     src/core/DotLottie.h
     src/core/DotLottie.cpp
     src/core/Track.h
@@ -519,6 +521,10 @@ add_library(driftcore STATIC
 )
 target_include_directories(driftcore PUBLIC src)
 target_link_libraries(driftcore PUBLIC Qt6::Core Qt6::Gui Qt6::Xml ZLIB::ZLIB)
+if(WIN32)
+    # DPAPI (CryptProtectData) seals API keys and tokens in SecretStore.
+    target_link_libraries(driftcore PUBLIC Crypt32)
+endif()
 
 file(GLOB DRIFT_TEXT_ANIMATION_FILES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/presets/text-animations/*.json")
 qt_add_resources(driftcore "drift_text_animations"

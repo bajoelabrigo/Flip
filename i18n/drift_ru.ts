@@ -468,7 +468,7 @@
         <translation>Запускать агент при старте</translation>
     </message>
     <message>
-        <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
+        <source>Skip the manual toggle next time you open Flip Studio. Turning access off resets this.</source>
         <translation>При следующем запуске Flip Studio доступ включится автоматически. Отключение доступа сбрасывает этот параметр.</translation>
     </message>
     <message>
@@ -5967,7 +5967,7 @@
     </message>
     <message>
         <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
-        <translation>Не удалось загрузить ресурсы Flip. Проверьте подключение и повторите попытку.</translation>
+        <translation>Не удалось загрузить ресурсы Flip Studio. Проверьте подключение и повторите попытку.</translation>
     </message>
     <message>
         <source>That asset could not be installed.</source>
@@ -9736,12 +9736,12 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Flip.</source>
-        <translation>Ускоренный предпросмотр включится после перезапуска Flip.</translation>
+        <source>Faster preview takes effect after you restart Flip Studio.</source>
+        <translation>Ускоренный предпросмотр включится после перезапуска Flip Studio.</translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Flip.</source>
-        <translation>Выбор видеокарты вступит в силу после перезапуска Flip.</translation>
+        <source>The graphics card choice takes effect after you restart Flip Studio.</source>
+        <translation>Выбор видеокарты вступит в силу после перезапуска Flip Studio.</translation>
     </message>
     <message>
         <source>System default</source>
@@ -9897,7 +9897,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished">Запустить Flip Studio на высокопроизводительной видеокарте</translation>
     </message>
     <message>
-        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -10033,7 +10033,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>This file isn’t a Flip Studio project.</source>
-        <translation>Этот файл не является проектом Flip.</translation>
+        <translation>Этот файл не является проектом Flip Studio.</translation>
     </message>
 </context>
 <context>
@@ -11581,7 +11581,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation>Видеокарта, на которой работает Flip. Режим высокой производительности оставляет декодированное видео на видеокарте NVIDIA; энергосбережение снижает расход батареи. Вступит в силу после перезапуска.</translation>
+        <translation>Видеокарта, на которой работает Flip Studio. Режим высокой производительности оставляет декодированное видео на видеокарте NVIDIA; энергосбережение снижает расход батареи. Вступит в силу после перезапуска.</translation>
     </message>
     <message>
         <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
@@ -11716,8 +11716,12 @@ If playback stutters, try another.</source>
         <translation>Облачные сервисы</translation>
     </message>
     <message>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>Ключи хранятся без шифрования в настройках Flip. Переменные окружения ELEVENLABS_API_KEY и FISH_API_KEY имеют приоритет. Использование оплачивается с вашего аккаунта.</translation>
+        <translation>Ключи хранятся без шифрования в настройках Flip Studio. Переменные окружения ELEVENLABS_API_KEY и FISH_API_KEY имеют приоритет. Использование оплачивается с вашего аккаунта.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -15347,7 +15351,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15402,7 +15406,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15426,7 +15430,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Flip. Unchecked, you choose when to install once the download finishes.</source>
+        <source>Downloads in the background and installs the next time you close Flip Studio. Unchecked, you choose when to install once the download finishes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -16016,7 +16020,7 @@ The video preview cannot render, and Flip Studio may not start at all. Update yo
 If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip Studio again.</source>
         <translation>Flip Studio работает уже %1 секунд, но в его окне до сих пор ничего не появилось.
 
-Если окно пустое или чёрное, скорее всего, графический драйвер устарел или неисправен. Обновите его с сайта производителя графического процессора (AMD, NVIDIA или Intel) и снова запустите Flip.</translation>
+Если окно пустое или чёрное, скорее всего, графический драйвер устарел или неисправен. Обновите его с сайта производителя графического процессора (AMD, NVIDIA или Intel) и снова запустите Flip Studio.</translation>
     </message>
 </context>
 </TS>

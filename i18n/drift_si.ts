@@ -468,7 +468,7 @@
         <translation>ආරම්භයේදීම නියෝජිතයා (agent) ආරම්භ කරන්න</translation>
     </message>
     <message>
-        <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
+        <source>Skip the manual toggle next time you open Flip Studio. Turning access off resets this.</source>
         <translation>මීළඟ වතාවේ ඔබ Flip Studio විවෘත කරන විට අතින් මාරු කිරීම මඟහරින්න. ප්‍රවේශය අක්‍රිය කිරීමෙන් මෙය යළි සැකසේ.</translation>
     </message>
     <message>
@@ -9692,11 +9692,11 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Flip.</source>
+        <source>Faster preview takes effect after you restart Flip Studio.</source>
         <translation>වේගවත් පෙරදසුන Flip Studio නැවත ආරම්භ කිරීමෙන් පසුව ක්‍රියාත්මක වේ.</translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Flip.</source>
+        <source>The graphics card choice takes effect after you restart Flip Studio.</source>
         <translation>ග්‍රැෆික් කාඩ්පත් තේරීම Flip Studio නැවත ආරම්භ කළ පසු ක්‍රියාත්මක වේ.</translation>
     </message>
     <message>
@@ -9853,7 +9853,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished">Flip Studio ඉහළ කාර්යසාධනයක් සහිත ග්‍රැෆික් කාඩ්පත මත ධාවනය කරන්න</translation>
     </message>
     <message>
-        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11669,6 +11669,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Cloud providers</source>
         <translation>Cloud සේවා සපයන්නන්</translation>
+    </message>
+    <message>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
@@ -15294,7 +15298,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15349,7 +15353,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15373,7 +15377,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Flip. Unchecked, you choose when to install once the download finishes.</source>
+        <source>Downloads in the background and installs the next time you close Flip Studio. Unchecked, you choose when to install once the download finishes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

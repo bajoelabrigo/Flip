@@ -487,7 +487,9 @@ Item {
                     width: parent.width
                     wrapMode: Text.Wrap
                     color: Theme.mutedForeground
-                    text: qsTr("Keys are stored unencrypted in Flip Studio's settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.")
+                    text: Qt.platform.os === "windows"
+                          ? qsTr("Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.")
+                          : qsTr("Keys are stored unencrypted in Flip Studio's settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.")
                 }
 
                 Repeater {

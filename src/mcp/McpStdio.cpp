@@ -59,7 +59,7 @@ QByteArray postJson(quint16 port, const QString &token, const QByteArray &body, 
     if (!socket.waitForConnected(2000)) {
         if (error)
             *error = QStringLiteral(
-                "Could not connect to Flip. Is the editor open with Agent access enabled?");
+                "Could not connect to Flip Studio. Is the editor open with Agent access enabled?");
         return {};
     }
 

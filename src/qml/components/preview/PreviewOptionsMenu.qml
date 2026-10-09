@@ -194,7 +194,7 @@ Popup {
                 width: parent.width
                 visible: EditorState.preferences.gpuPreferenceInSystemSettings
                 text: qsTr("Set Flip Studio to High performance in Windows Settings > Display > Graphics, "
-                           + "then restart Flip.")
+                           + "then restart Flip Studio.")
             }
 
             ThemedButton {

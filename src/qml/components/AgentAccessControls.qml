@@ -44,7 +44,7 @@ Column {
         visible: EditorState.mcp.running || EditorState.mcp.startOnLaunch
         checked: EditorState.mcp.startOnLaunch
         text: qsTr("Start agent on startup")
-        tooltip: qsTr("Skip the manual toggle next time you open Flip. Turning access off resets this.")
+        tooltip: qsTr("Skip the manual toggle next time you open Flip Studio. Turning access off resets this.")
         onToggled: EditorState.mcp.startOnLaunch = checked
     }
 

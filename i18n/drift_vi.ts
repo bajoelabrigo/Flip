@@ -468,8 +468,8 @@
         <translation>Khởi chạy trợ lý khi khởi động</translation>
     </message>
     <message>
-        <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
-        <translation>Bỏ qua chuyển đổi thủ công vào lần tiếp theo bạn mở Flip. Tắt quyền truy cập sẽ đặt lại điều này.</translation>
+        <source>Skip the manual toggle next time you open Flip Studio. Turning access off resets this.</source>
+        <translation>Bỏ qua chuyển đổi thủ công vào lần tiếp theo bạn mở Flip Studio. Tắt quyền truy cập sẽ đặt lại điều này.</translation>
     </message>
     <message>
         <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip Studio, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
@@ -5913,7 +5913,7 @@
     </message>
     <message>
         <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
-        <translation>Không thể tải Tài nguyên Flip. Kiểm tra kết nối và thử lại.</translation>
+        <translation>Không thể tải Tài nguyên Flip Studio. Kiểm tra kết nối và thử lại.</translation>
     </message>
     <message>
         <source>That asset could not be installed.</source>
@@ -9648,12 +9648,12 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Flip.</source>
-        <translation>Bản xem trước nhanh hơn sẽ có hiệu lực sau khi bạn khởi động lại Flip.</translation>
+        <source>Faster preview takes effect after you restart Flip Studio.</source>
+        <translation>Bản xem trước nhanh hơn sẽ có hiệu lực sau khi bạn khởi động lại Flip Studio.</translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Flip.</source>
-        <translation>Lựa chọn card đồ họa có hiệu lực sau khi bạn khởi động lại Flip.</translation>
+        <source>The graphics card choice takes effect after you restart Flip Studio.</source>
+        <translation>Lựa chọn card đồ họa có hiệu lực sau khi bạn khởi động lại Flip Studio.</translation>
     </message>
     <message>
         <source>System default</source>
@@ -9809,8 +9809,8 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished">Chạy Flip Studio trên card đồ họa hiệu năng cao</translation>
     </message>
     <message>
-        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
-        <translation type="unfinished">Đặt Flip Studio ở chế độ Hiệu năng cao trong Cài đặt Windows &gt; Hiển thị &gt; Đồ họa, sau đó khởi động lại Flip.</translation>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
+        <translation type="unfinished">Đặt Flip Studio ở chế độ Hiệu năng cao trong Cài đặt Windows &gt; Hiển thị &gt; Đồ họa, sau đó khởi động lại Flip Studio.</translation>
     </message>
     <message>
         <source>Open graphics settings</source>
@@ -9945,7 +9945,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>This file isn’t a Flip Studio project.</source>
-        <translation>Tệp này không phải là một dự án Flip.</translation>
+        <translation>Tệp này không phải là một dự án Flip Studio.</translation>
     </message>
 </context>
 <context>
@@ -11626,8 +11626,12 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Nhà cung cấp đám mây</translation>
     </message>
     <message>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>Khóa được lưu trữ không được mã hóa trong cài đặt của Flip. ELEVENLABS_API_KEY và FISH_API_KEY trong môi trường được ưu tiên. Việc sử dụng được tính phí vào tài khoản của riêng bạn.</translation>
+        <translation>Khóa được lưu trữ không được mã hóa trong cài đặt của Flip Studio. ELEVENLABS_API_KEY và FISH_API_KEY trong môi trường được ưu tiên. Việc sử dụng được tính phí vào tài khoản của riêng bạn.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -15241,7 +15245,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15296,7 +15300,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15320,7 +15324,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Flip. Unchecked, you choose when to install once the download finishes.</source>
+        <source>Downloads in the background and installs the next time you close Flip Studio. Unchecked, you choose when to install once the download finishes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15910,7 +15914,7 @@ Bản xem trước video không thể kết xuất, và Flip Studio có thể kh
 If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip Studio again.</source>
         <translation>Flip Studio đã chạy được %1 giây nhưng cửa sổ của nó vẫn chưa vẽ gì cả.
 
-Nếu cửa sổ trống hoặc đen, driver đồ họa của bạn rất có thể đã lỗi thời hoặc bị lỗi. Hãy cập nhật driver từ trang web của nhà sản xuất GPU (AMD, NVIDIA hoặc Intel) rồi khởi động lại Flip.</translation>
+Nếu cửa sổ trống hoặc đen, driver đồ họa của bạn rất có thể đã lỗi thời hoặc bị lỗi. Hãy cập nhật driver từ trang web của nhà sản xuất GPU (AMD, NVIDIA hoặc Intel) rồi khởi động lại Flip Studio.</translation>
     </message>
 </context>
 </TS>

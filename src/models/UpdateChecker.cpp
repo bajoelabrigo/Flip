@@ -424,7 +424,7 @@ void UpdateChecker::scheduleInstallOnQuit()
     m_installOnQuit = true;
     emit activityChanged();
     if (m_readyToInstall)
-        setStatus(tr("Flip Studio %1 will install when you close Flip.").arg(m_latestVersion));
+        setStatus(tr("Flip Studio %1 will install when you close Flip Studio.").arg(m_latestVersion));
 }
 
 void UpdateChecker::markAnnounced()
@@ -979,7 +979,7 @@ void UpdateChecker::finishStage()
     setReadyToInstall(true);
     setProgress(1);
     if (m_installOnQuit) {
-        setStatus(tr("Flip Studio %1 will install when you close Flip.").arg(m_latestVersion));
+        setStatus(tr("Flip Studio %1 will install when you close Flip Studio.").arg(m_latestVersion));
     } else {
         setStatus(tr("Flip Studio %1 is ready to install.").arg(m_latestVersion));
         emit installReady();

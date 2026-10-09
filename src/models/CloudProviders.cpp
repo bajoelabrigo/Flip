@@ -1,4 +1,5 @@
 #include "CloudProviders.h"
+#include "core/SecretStore.h"
 
 #include <QEventLoop>
 #include <QFile>
@@ -63,7 +64,8 @@ QString CloudProviders::apiKey(const QString &provider) const
     const QString env = qEnvironmentVariable(envKeyName(provider).toUtf8().constData()).trimmed();
     if (!env.isEmpty())
         return env;
-    return QSettings().value(settingsKey(provider, "apiKey")).toString().trimmed();
+    QSettings settings;
+    return drift::secrets::readSecret(settings, settingsKey(provider, "apiKey")).trimmed();
 }
 
 bool CloudProviders::configured(const QString &provider) const
@@ -90,10 +92,7 @@ void CloudProviders::setApiKey(const QString &provider, const QString &key)
     if (!knownProvider(provider))
         return;
     QSettings settings;
-    if (key.trimmed().isEmpty())
-        settings.remove(settingsKey(provider, "apiKey"));
-    else
-        settings.setValue(settingsKey(provider, "apiKey"), key.trimmed());
+    drift::secrets::writeSecret(settings, settingsKey(provider, "apiKey"), key.trimmed());
     bump();
 }
 

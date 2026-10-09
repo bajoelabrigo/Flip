@@ -37,7 +37,7 @@ ThemedDialog {
         if (Updates.preparing)
             return qsTr("Preparing the update…")
         if (Updates.readyToInstall && Updates.installScheduled)
-            return qsTr("Flip Studio %1 will install when you close Flip.").arg(Updates.latestVersion)
+            return qsTr("Flip Studio %1 will install when you close Flip Studio.").arg(Updates.latestVersion)
         return Updates.error
     }
 
@@ -103,7 +103,7 @@ ThemedDialog {
             visible: Updates.canInstall && !root.busy && !Updates.readyToInstall
             checked: true
             text: qsTr("Install automatically when I close Flip Studio")
-            tooltip: qsTr("Downloads in the background and installs the next time you close Flip. "
+            tooltip: qsTr("Downloads in the background and installs the next time you close Flip Studio. "
                           + "Unchecked, you choose when to install once the download finishes.")
         }
 

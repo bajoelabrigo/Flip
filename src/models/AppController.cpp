@@ -23059,10 +23059,10 @@ void AppController::saveToGallery(const QString &filePath, const QString &displa
     const QString name = displayName.isEmpty() ? QFileInfo(filePath).fileName() : displayName;
     const QUrl source = QUrl::fromLocalFile(filePath);
     const QString mime = QMimeDatabase().mimeTypeForFile(name, QMimeDatabase::MatchExtension).name();
-    const QString location = mime.startsWith(QLatin1String("audio/")) ? QStringLiteral("Music/Flip")
+    const QString location = mime.startsWith(QLatin1String("audio/")) ? QStringLiteral("Music/Flip Studio")
                              : mime.startsWith(QLatin1String("image/"))
-                                 ? QStringLiteral("Pictures/Flip")
-                                 : QStringLiteral("Movies/Flip");
+                                 ? QStringLiteral("Pictures/Flip Studio")
+                                 : QStringLiteral("Movies/Flip Studio");
 
     (void)QtConcurrent::run([this, source, name, location]() {
         Exporter::BackgroundHold hold(QStringLiteral("Saving to gallery"));

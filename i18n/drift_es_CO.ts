@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Licensed under GPLv3. Copyright © CutWire Studios and Flip Studio contributors.</source>
-        <translation>Con licencia GPLv3. Copyright © CutWire Studios y los colaboradores de Flip.</translation>
+        <translation>Con licencia GPLv3. Copyright © CutWire Studios y los colaboradores de Flip Studio.</translation>
     </message>
     <message>
         <source>Source code</source>
@@ -384,8 +384,8 @@
         <translation>Iniciar agente al inicio</translation>
     </message>
     <message>
-        <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
-        <translation>Omite la activación manual la próxima vez que abras Flip. Desactivar el acceso restablece esto.</translation>
+        <source>Skip the manual toggle next time you open Flip Studio. Turning access off resets this.</source>
+        <translation>Omite la activación manual la próxima vez que abras Flip Studio. Desactivar el acceso restablece esto.</translation>
     </message>
     <message>
         <source>Turn this on, then copy the setup for Cursor or Claude and paste it into that app.</source>
@@ -9692,12 +9692,12 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Flip.</source>
-        <translation>La vista previa más rápida surtirá efecto después de reiniciar Flip.</translation>
+        <source>Faster preview takes effect after you restart Flip Studio.</source>
+        <translation>La vista previa más rápida surtirá efecto después de reiniciar Flip Studio.</translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Flip.</source>
-        <translation>La elección de tarjeta gráfica surtirá efecto después de reiniciar Flip.</translation>
+        <source>The graphics card choice takes effect after you restart Flip Studio.</source>
+        <translation>La elección de tarjeta gráfica surtirá efecto después de reiniciar Flip Studio.</translation>
     </message>
     <message>
         <source>System default</source>
@@ -9853,7 +9853,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished">Ejecutar Flip Studio en la tarjeta gráfica de alto rendimiento</translation>
     </message>
     <message>
-        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -9989,7 +9989,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>This file isn’t a Flip Studio project.</source>
-        <translation>Este archivo no es un proyecto Flip.</translation>
+        <translation>Este archivo no es un proyecto Flip Studio.</translation>
     </message>
 </context>
 <context>
@@ -11536,7 +11536,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation>En qué tarjeta gráfica se ejecuta Flip. El alto rendimiento mantiene el vídeo descodificado en una tarjeta NVIDIA en esa tarjeta; el ahorro de energía consume menos batería. Surte efecto tras reiniciar.</translation>
+        <translation>En qué tarjeta gráfica se ejecuta Flip Studio. El alto rendimiento mantiene el vídeo descodificado en una tarjeta NVIDIA en esa tarjeta; el ahorro de energía consume menos batería. Surte efecto tras reiniciar.</translation>
     </message>
     <message>
         <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
@@ -11671,8 +11671,12 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Proveedores en la nube</translation>
     </message>
     <message>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation>Las claves se guardan cifradas para tu usuario de Windows. ELEVENLABS_API_KEY y FISH_API_KEY en el entorno tienen prioridad. El uso se factura a tu propia cuenta.</translation>
+    </message>
+    <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>Las claves se almacenan sin cifrar en la configuración de Flip. ELEVENLABS_API_KEY y FISH_API_KEY en el entorno tienen prioridad. El uso se factura a tu propia cuenta.</translation>
+        <translation>Las claves se almacenan sin cifrar en la configuración de Flip Studio. ELEVENLABS_API_KEY y FISH_API_KEY en el entorno tienen prioridad. El uso se factura a tu propia cuenta.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -15294,7 +15298,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15349,7 +15353,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15373,7 +15377,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Flip. Unchecked, you choose when to install once the download finishes.</source>
+        <source>Downloads in the background and installs the next time you close Flip Studio. Unchecked, you choose when to install once the download finishes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15963,7 +15967,7 @@ La vista previa de vídeo no se puede renderizar y es posible que Flip Studio no
 If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip Studio again.</source>
         <translation>Flip Studio ha estado ejecutándose durante %1 segundos, pero su ventana aún no ha dibujado nada.
 
-Si la ventana está en blanco o en negro, lo más probable es que tu controlador gráfico esté desactualizado o defectuoso. Actualízalo desde el sitio web del fabricante de tu GPU (AMD, NVIDIA o Intel) y vuelve a iniciar Flip.</translation>
+Si la ventana está en blanco o en negro, lo más probable es que tu controlador gráfico esté desactualizado o defectuoso. Actualízalo desde el sitio web del fabricante de tu GPU (AMD, NVIDIA o Intel) y vuelve a iniciar Flip Studio.</translation>
     </message>
 </context>
 </TS>

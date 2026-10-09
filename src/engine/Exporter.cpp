@@ -2589,9 +2589,9 @@ QUrl Exporter::publishToGallery(const QUrl &source, const QString &displayName, 
     QJniObject values("android/content/ContentValues");
     putString(values, "_display_name", displayName);
     putString(values, "mime_type", mimeType);
-    putString(values, "relative_path", audio ? QStringLiteral("Music/Flip")
-                                       : image ? QStringLiteral("Pictures/Flip")
-                                               : QStringLiteral("Movies/Flip"));
+    putString(values, "relative_path", audio ? QStringLiteral("Music/Flip Studio")
+                                       : image ? QStringLiteral("Pictures/Flip Studio")
+                                               : QStringLiteral("Movies/Flip Studio"));
     // Pending until the bytes are there, so the gallery never shows a half-written video.
     putInt(values, "is_pending", 1);
 

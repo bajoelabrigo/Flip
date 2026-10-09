@@ -468,8 +468,8 @@
         <translation>Avvia agente all&apos;avvio</translation>
     </message>
     <message>
-        <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
-        <translation>Salta l&apos;attivazione manuale la prossima volta che apri Flip. La disattivazione dell&apos;accesso reimposta questa opzione.</translation>
+        <source>Skip the manual toggle next time you open Flip Studio. Turning access off resets this.</source>
+        <translation>Salta l&apos;attivazione manuale la prossima volta che apri Flip Studio. La disattivazione dell&apos;accesso reimposta questa opzione.</translation>
     </message>
     <message>
         <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip Studio, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
@@ -9607,7 +9607,7 @@
     </message>
     <message>
         <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 viene decodificato su una scheda grafica diversa da quella su cui disegna Flip. Ogni fotogramma viene copiato attraverso la memoria di sistema, il che è più lento rispetto alla decodifica sulla scheda grafica che disegna.</translation>
+        <translation>%1 viene decodificato su una scheda grafica diversa da quella su cui disegna Flip Studio. Ogni fotogramma viene copiato attraverso la memoria di sistema, il che è più lento rispetto alla decodifica sulla scheda grafica che disegna.</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -9692,12 +9692,12 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Flip.</source>
-        <translation>L&apos;anteprima più veloce diventerà effettiva dopo aver riavviato Flip.</translation>
+        <source>Faster preview takes effect after you restart Flip Studio.</source>
+        <translation>L&apos;anteprima più veloce diventerà effettiva dopo aver riavviato Flip Studio.</translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Flip.</source>
-        <translation>La scelta della scheda grafica diventerà effettiva dopo aver riavviato Flip.</translation>
+        <source>The graphics card choice takes effect after you restart Flip Studio.</source>
+        <translation>La scelta della scheda grafica diventerà effettiva dopo aver riavviato Flip Studio.</translation>
     </message>
     <message>
         <source>System default</source>
@@ -9853,7 +9853,7 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation type="unfinished">Esegui Flip Studio sulla scheda grafica ad alte prestazioni</translation>
     </message>
     <message>
-        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -9989,7 +9989,7 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>This file isn’t a Flip Studio project.</source>
-        <translation>Questo file non è un progetto Flip.</translation>
+        <translation>Questo file non è un progetto Flip Studio.</translation>
     </message>
 </context>
 <context>
@@ -11536,7 +11536,7 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation>Scheda grafica su cui viene eseguito Flip. Alte prestazioni mantiene sulla scheda NVIDIA i video decodificati su di essa; Risparmio energetico consuma meno batteria. Diventa effettivo dopo il riavvio.</translation>
+        <translation>Scheda grafica su cui viene eseguito Flip Studio. Alte prestazioni mantiene sulla scheda NVIDIA i video decodificati su di essa; Risparmio energetico consuma meno batteria. Diventa effettivo dopo il riavvio.</translation>
     </message>
     <message>
         <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
@@ -11671,8 +11671,12 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Provider cloud</translation>
     </message>
     <message>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>Le chiavi sono memorizzate non crittografate nelle impostazioni di Flip. ELEVENLABS_API_KEY e FISH_API_KEY nell&apos;ambiente hanno la precedenza. L&apos;utilizzo viene addebitato sul tuo account.</translation>
+        <translation>Le chiavi sono memorizzate non crittografate nelle impostazioni di Flip Studio. ELEVENLABS_API_KEY e FISH_API_KEY nell&apos;ambiente hanno la precedenza. L&apos;utilizzo viene addebitato sul tuo account.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -15294,7 +15298,7 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15349,7 +15353,7 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio %1 will install when you close Flip.</source>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15373,7 +15377,7 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Flip. Unchecked, you choose when to install once the download finishes.</source>
+        <source>Downloads in the background and installs the next time you close Flip Studio. Unchecked, you choose when to install once the download finishes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15963,7 +15967,7 @@ L&apos;anteprima video non può essere renderizzata e Flip Studio potrebbe non a
 If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip Studio again.</source>
         <translation>Flip Studio è in esecuzione da %1 secondi, ma la sua finestra non ha ancora disegnato nulla.
 
-Se la finestra è vuota o nera, il driver grafico è molto probabilmente obsoleto o difettoso. Aggiornalo dal sito web del produttore della GPU (AMD, NVIDIA o Intel) e avvia di nuovo Flip.</translation>
+Se la finestra è vuota o nera, il driver grafico è molto probabilmente obsoleto o difettoso. Aggiornalo dal sito web del produttore della GPU (AMD, NVIDIA o Intel) e avvia di nuovo Flip Studio.</translation>
     </message>
 </context>
 </TS>
