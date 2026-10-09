@@ -506,9 +506,57 @@ jobs:
       # alongside the QML cache TUs exhausted the compiler heap (C1060). The job has a 120
       # minute budget and was failing 15 minutes in, so the headroom is worth more than the
       # wall-clock. Raise it only with evidence from a green run.
+      # Flip Studio: ccache stands in for cl.exe so a change that touches a few files recompiles only
+      # those (~28 min cold, a few minutes warm). The Visual Studio generator ignores
+      # CMAKE_<LANG>_COMPILER_LAUNCHER, so ccache is masqueraded as cl.exe through MSBuild's
+      # CLToolPath, and CCACHE_COMPILER points it at the real compiler. Release builds carry no /Zi,
+      # which ccache cannot cache, and nothing here uses precompiled headers.
+      - name: Restore compiler cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}\ccache-dir
+          key: ccache-win-${{ github.sha }}
+          restore-keys: |
+            ccache-win-
+
+      - name: Install ccache
+        shell: pwsh
+        run: |
+          $dir = "${{ runner.temp }}\ccache"
+          Invoke-WebRequest -Uri "https://github.com/ccache/ccache/releases/download/v4.10.2/ccache-4.10.2-windows-x86_64.zip" -OutFile ccache.zip
+          Expand-Archive ccache.zip -DestinationPath "${{ runner.temp }}\ccache-zip" -Force
+          New-Item -ItemType Directory -Force -Path $dir | Out-Null
+          $exe = Get-ChildItem "${{ runner.temp }}\ccache-zip" -Recurse -Filter ccache.exe | Select-Object -First 1
+          Copy-Item $exe.FullName "$dir\ccache.exe"
+          Copy-Item $exe.FullName "$dir\cl.exe"
+          $vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath
+          $cl = Get-ChildItem "$vs\VC\Tools\MSVC\*\bin\Hostx64\x64\cl.exe" | Sort-Object FullName | Select-Object -Last 1
+          "CCACHE_COMPILER=$($cl.FullName)" >> $env:GITHUB_ENV
+          "CCACHE_DIR=${{ runner.temp }}\ccache-dir" >> $env:GITHUB_ENV
+          "CCACHE_BASEDIR=${{ github.workspace }}" >> $env:GITHUB_ENV
+          "CCACHE_COMPILERCHECK=content" >> $env:GITHUB_ENV
+          "CCACHE_MAXSIZE=2G" >> $env:GITHUB_ENV
+          "CCACHE_TOOL_DIR=$dir" >> $env:GITHUB_ENV
+          & "$dir\ccache.exe" --zero-stats
+
+      # UseMultiToolTask gives each source its own cl.exe call (ccache cannot cache a batched one);
+      # CL_MPCount and EnforceProcessCountAcrossBuilds keep the total at two compilers, the limit
+      # the heap-exhaustion note above asks for.
       - name: Build
         shell: pwsh
-        run: cmake --build build --config Release --parallel 2
+        run: |
+          cmake --build build --config Release --parallel 2 -- `
+            /p:CLToolExe=cl.exe /p:CLToolPath="$env:CCACHE_TOOL_DIR" `
+            /p:TrackFileAccess=false /p:UseMultiToolTask=true `
+            /p:CL_MPCount=2 /p:EnforceProcessCountAcrossBuilds=true
+          & "$env:CCACHE_TOOL_DIR\ccache.exe" --show-stats
+
+      - name: Save compiler cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}\ccache-dir
+          key: ccache-win-${{ github.sha }}
 
       # Visual Studio is a multi-config generator, hence -C Release.
       #
