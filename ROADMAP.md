@@ -47,14 +47,15 @@ casilla al terminarla. Última actualización: 2026-10-09.
 - [x] Pantalla de inicio con "Flip Studio".
 - [x] Panel de Medios: botones que se montaban en paneles angostos.
 - [x] Tests en CI: 15/15 en Linux y macOS.
+- [x] Versión portable para probar sin instalar; caché de compilación (ccache) en el CI de Windows.
 
 ### Pendiente
-- [ ] Probar el instalador nuevo en Windows (ícono, tema oscuro, panel de Medios, importar y **exportar** un video).
+- [x] Probar el instalador nuevo en Windows (ícono, tema oscuro, panel de Medios, importar y **exportar** un video). — validado 2026-10-09 con el portable.
 - [ ] Revisar el resto de la interfaz buscando "Drift" o fallos de diseño en español.
 - [ ] Fusionar el PR #1 en `main`.
 - [ ] Publicar **v0.8.0** en GitHub Releases (`FlipStudio-Setup-0.8.0-x64.exe` + portable + `SHA256SUMS`).
 - [ ] Comprobar que el actualizador detecta una versión nueva (publicar una 0.8.1 de prueba y subir el TXT).
-- [ ] Rehabilitar `release.yml` sin Homebrew de CutWire ni su Discord (publicar solo en tus Releases).
+- [x] `release.yml` adaptado: publica solo en tus Releases (Windows), sin Homebrew ni Discord de CutWire. Notas en `release-notes/<versión>.md`.
 - [ ] Ajustar `nightly.yml` o dejarlo desactivado.
 
 ## Fase 2 — Distribución en Windows
@@ -136,7 +137,6 @@ casilla al terminarla. Última actualización: 2026-10-09.
 
 | Prioridad | Qué | Dónde |
 |---|---|---|
-| Alta | Probar la exportación de video en el instalador nuevo | App instalada |
 | Alta | Fusionar el PR #1 y publicar v0.8.0 | GitHub |
 | Media | Firma de add-ons con clave propia (hoy solo acepta las de CutWire) | `src/engine/AddonPackage.*` |
 | Media | Textos de servicios de CutWire todavía visibles ("Flip Studio Assets", librería de sonidos) | `src/models/DriftAssetStore.*`, `SfxLibrary.*` |
@@ -152,6 +152,6 @@ casilla al terminarla. Última actualización: 2026-10-09.
 
 1. Subir la versión en `CMakeLists.txt` (`project(Drift VERSION x.y.z ...)`) y anotar los cambios en `CHANGELOG.md`.
 2. Compilar con **Actions → Build → windows** y probar el instalador.
-3. Crear la release `vX.Y.Z` en GitHub con `FlipStudio-Setup-X.Y.Z-x64.exe`, el portable y `SHA256SUMS`.
+3. Escribir `release-notes/X.Y.Z.md`, fusionar en `main` y crear la etiqueta: `git tag vX.Y.Z && git push origin vX.Y.Z`. El workflow **Release** compila y publica el instalador, el portable y `SHA256SUMS`.
 4. En Hostinger → DNS de `getflipstudio.com`, cambiar el TXT `version` a `X.Y.Z`.
 5. Las apps instaladas ofrecerán la actualización en menos de un día.
