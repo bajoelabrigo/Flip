@@ -3,6 +3,13 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.8.1 — seguridad
+
+- Claves de API y token MCP cifrados con DPAPI en Windows (migración automática).
+- Servidor MCP: límites de tamaño y rechazo de `Content-Length` inválido.
+- Acciones de GitHub de terceros fijadas a un commit exacto.
+- Mensajes que aún decían "Flip" en lugar de "Flip Studio".
+
 ## Etapa 1 — identidad propia (2026-10-09)
 
 - Nuevo nombre e identidad: Flip Studio (`io.github.bajoelabrigo.FlipStudio`, `flipstudio.exe`, instalador con AppId propio).

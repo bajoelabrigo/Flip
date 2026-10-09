@@ -110,7 +110,7 @@ jobs:
           echo "Built $SHA (version=$VERSION msix=$MV distribution=$DIST) from ref '${{ inputs.ref }}'"
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v4
+        uses: jurplel/install-qt-action@a9c63c7c123f3069cff414e7e482d95dfa9d8125 # v4
         with:
           version: ${{ env.QT_VERSION }}
           host: windows
