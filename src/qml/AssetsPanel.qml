@@ -889,10 +889,42 @@ PanelFrame {
                     color: Theme.panelBorder
                 }
 
+                // Labels measured on their own so the compact switch does not depend on the row it
+                // resizes (that would be a binding loop).
+                TextMetrics {
+                    id: newFolderLabelMetrics
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeSm
+                    text: qsTr("New Folder")
+                }
+
+                TextMetrics {
+                    id: importLabelMetrics
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeSm
+                    text: qsTr("Import")
+                }
+
+                // Width the header needs to show the title and both labelled buttons. In a narrow
+                // panel (or a language with longer labels) the buttons drop their text instead of
+                // sliding over the title.
+                readonly property real labelledButtonExtra: Theme.spacing2xl - Theme.spacingXs - Theme.spacingXl
+                                                            + Theme.spacingMd
+                readonly property real fullHeaderWidth: Theme.pagePadding + headerTitle.implicitWidth + Theme.spacingLg
+                    + 2 * (Theme.spacingXl * 2 + Theme.iconSizeMd + labelledButtonExtra) + 6
+                    + newFolderLabelMetrics.advanceWidth + importLabelMetrics.advanceWidth
+                    + (Theme.touchUi ? 0 : Theme.borderWidth * 3 + Theme.spacingLg * 2 + Theme.iconSizeSm) + 8
+                readonly property bool compactActions: width < fullHeaderWidth
+
                 Text {
+                    id: headerTitle
                     anchors.left: parent.left
                     anchors.leftMargin: Theme.pagePadding
                     anchors.verticalCenter: parent.verticalCenter
+                    width: Math.max(0, Math.min(implicitWidth,
+                                                (mediaActions.visible ? mediaActions.x : parent.width)
+                                                - Theme.pagePadding - Theme.spacingLg))
+                    elide: Text.ElideRight
                     // Sheet chrome already shows the tab title.
                     visible: !root.sheetMode
                     text: tabLabels[tabsModel.get(root.activeTab).tabId]
@@ -917,6 +949,7 @@ PanelFrame {
                 }
 
                 Row {
+                    id: mediaActions
                     anchors.right: parent.right
                     anchors.rightMargin: 8
                     anchors.verticalCenter: parent.verticalCenter
@@ -924,7 +957,8 @@ PanelFrame {
                     visible: kindsForTab(tabsModel.get(root.activeTab).tabId).length > 0
 
                     ThemedButton {
-                        text: qsTr("New Folder")
+                        text: assetsHeader.compactActions ? "" : qsTr("New Folder")
+                        rightPadding: assetsHeader.compactActions ? Theme.spacingXl : Theme.spacing2xl - Theme.spacingXs
                         variant: "ghost"
                         glyph: Theme.icons.folder
                         tooltip: qsTr("Create a new folder here")
@@ -953,7 +987,8 @@ PanelFrame {
 
                             ThemedButton {
                                 id: importFilesHalf
-                                text: qsTr("Import")
+                                text: assetsHeader.compactActions ? "" : qsTr("Import")
+                                rightPadding: assetsHeader.compactActions ? Theme.spacingXl : Theme.spacing2xl - Theme.spacingXs
                                 variant: "ghost"
                                 flat: true
                                 radius: Theme.radiusXs

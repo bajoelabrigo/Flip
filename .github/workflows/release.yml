@@ -191,7 +191,7 @@ jobs:
 
           EMBED_DESC_LIMIT = 4096
           DRIFT_GOLD = 0xFCAD01
-          ICON = "https://raw.githubusercontent.com/CutWire-Studios/Drift/main/Drift_icon.png"
+          ICON = "https://raw.githubusercontent.com/bajoelabrigo/Flip/main/FlipStudio_icon.png"
 
           def github_md_to_discord(text: str) -> str:
               lines = []

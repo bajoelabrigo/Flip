@@ -975,7 +975,7 @@ const QList<Op> &ops()
           "for set_transform: when true, transform writes become keyframes at the playhead.",
           objectSchema({}), true, false, true },
         { "set_theme", "ui", "Set dark or light theme",
-          "Set an explicit dark-mode preference. This overrides the OS theme; clear it with "
+          "Set an explicit dark-mode preference. This overrides the default (dark) theme; clear it with "
           "set_ui_preferences({followSystem:true}). Not undoable.",
           objectSchema({{QStringLiteral("dark"), boolProp(QStringLiteral("true = dark, false = light"))}},
                        {QStringLiteral("dark")}) },

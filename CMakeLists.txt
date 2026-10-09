@@ -1099,7 +1099,7 @@ if(APPLE)
         MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_BINARY_DIR}/Info.plist")
 endif()
 
-# App icon for QApplication::setWindowIcon (all platforms). Rendered from Drift_icon.png,
+# App icon for QApplication::setWindowIcon (all platforms). Rendered from FlipStudio_icon.png,
 # as is resources/windows/drift.ico — keep the two in sync when the branding changes.
 qt_add_resources(drift "drift_app_icon"
     PREFIX "/app"

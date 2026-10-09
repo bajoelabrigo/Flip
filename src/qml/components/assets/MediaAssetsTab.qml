@@ -1496,11 +1496,19 @@ Item {
                 wrapMode: Text.WordWrap
             }
 
-            Row {
+            // Side by side when both fit; stacked full-width in a narrow panel, where a fixed row
+            // used to spill past both edges of the column.
+            Grid {
+                id: emptyImportButtons
+                readonly property bool stacked: emptyImportMedia.implicitWidth + emptyImportFolder.implicitWidth
+                                                + spacing > parent.width
                 anchors.horizontalCenter: parent.horizontalCenter
+                columns: stacked ? 1 : 2
                 spacing: Theme.spacingLg
 
                 ThemedButton {
+                    id: emptyImportMedia
+                    width: emptyImportButtons.stacked ? emptyImportButtons.parent.width : implicitWidth
                     text: qsTr("Import media")
                     variant: "primary"
                     glyph: Theme.icons.upload
@@ -1508,6 +1516,8 @@ Item {
                 }
 
                 ThemedButton {
+                    id: emptyImportFolder
+                    width: emptyImportButtons.stacked ? emptyImportButtons.parent.width : implicitWidth
                     text: qsTr("Import folder")
                     glyph: Theme.icons.folderInput
                     onClicked: root.importFolderRequested()

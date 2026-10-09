@@ -163,7 +163,7 @@ Rectangle {
                 spacing: Theme.spacingXs
 
                 Text {
-                    text: "Drift"
+                    text: "Flip Studio"
                     color: Theme.foreground
                     font.family: Theme.fontFamily
                     font.pixelSize: 26
