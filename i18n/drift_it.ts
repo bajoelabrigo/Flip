@@ -5635,12 +5635,12 @@
         <translation>Segnala un bug</translation>
     </message>
     <message>
-        <source>Documentation</source>
-        <translation>Documentazione</translation>
+        <source>Help and frequently asked questions</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Questions and support on Discord</source>
-        <translation>Domande e supporto su Discord</translation>
+        <source>Email support: soporte@getflipstudio.com</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

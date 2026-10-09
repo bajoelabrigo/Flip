@@ -5613,12 +5613,12 @@
         <translation>バグを報告</translation>
     </message>
     <message>
-        <source>Documentation</source>
-        <translation>ドキュメント</translation>
+        <source>Help and frequently asked questions</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Questions and support on Discord</source>
-        <translation>Discord での質問とサポート</translation>
+        <source>Email support: soporte@getflipstudio.com</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

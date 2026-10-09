@@ -772,8 +772,8 @@ ThemedDialog {
                     tone: "default"
                     textFormat: Text.RichText
                     linkColor: Theme.primary
-                    text: "<a href=\"https://docs.cutwire.org/drift\">%1</a>"
-                          .arg(qsTr("Documentation"))
+                    text: "<a href=\"https://getflipstudio.com/#preguntas\">%1</a>"
+                          .arg(qsTr("Help and frequently asked questions"))
                     onLinkActivated: (link) => Qt.openUrlExternally(link)
                     HoverHandler {
                         cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
@@ -786,8 +786,8 @@ ThemedDialog {
                     tone: "default"
                     textFormat: Text.RichText
                     linkColor: Theme.primary
-                    text: "<a href=\"https://cutwire.org/discord\">%1</a>"
-                          .arg(qsTr("Questions and support on Discord"))
+                    text: "<a href=\"mailto:soporte@getflipstudio.com\">%1</a>"
+                          .arg(qsTr("Email support: soporte@getflipstudio.com"))
                     onLinkActivated: (link) => Qt.openUrlExternally(link)
                     HoverHandler {
                         cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor

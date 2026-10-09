@@ -56,6 +56,7 @@ casilla al terminarla. Última actualización: 2026-10-09.
 - [x] Publicar **v0.8.0** en GitHub Releases (`FlipStudio-Setup-0.8.0-x64.exe` + portable + `SHA256SUMS`) — 2026-10-09.
 - [ ] Comprobar que el actualizador detecta una versión nueva (publicar una 0.8.1 de prueba y subir el TXT).
 - [x] v0.8.1 preparada (rama `flip/v0.8.1`): claves cifradas, límites del MCP, acciones fijadas.
+- [x] v0.8.2 (rama `flip/v0.8.2`): enlaces de soporte propios en la ventana de diagnóstico, nota de Flip Studio en `docs/`, carpeta de sesión MCP propia.
 - [x] `release.yml` adaptado: publica solo en tus Releases (Windows), sin Homebrew ni Discord de CutWire. Notas en `release-notes/<versión>.md`.
 - [ ] Ajustar `nightly.yml` o dejarlo desactivado.
 
@@ -144,11 +145,8 @@ casilla al terminarla. Última actualización: 2026-10-09.
 | Media | Textos de servicios de CutWire todavía visibles ("Flip Studio Assets", librería de sonidos) | `src/models/DriftAssetStore.*`, `SfxLibrary.*` |
 | Media | `release.yml`, `msstore.yml` y `playstore-aab.yml` usan cuentas y secretos de CutWire | `.github/workflows/` |
 | Media | Firma de código del `.exe` (aviso de SmartScreen) | Instalador |
-| Media | La ventana de diagnóstico enlaza a la documentación y al Discord de CutWire: cambiar por `soporte@getflipstudio.com` y la web | `src/qml/components/DebugInfoDialog.qml` |
 | Baja | Ícono de macOS | `resources/macos/` |
 | Baja | IDs de Flatpak y Android | `flatpak/`, workflows |
-| Baja | `docs/BUILDING.md` y `docs/MCP.md` siguen hablando de Drift | `docs/` |
-| Baja | Mensajes para agentes IA (MCP) que mencionan el servidor como "drift" | `src/mcp/` |
 | Baja | Capturas de pantalla del README | `docs/screenshots/` |
 
 ## Cómo publicar una versión nueva

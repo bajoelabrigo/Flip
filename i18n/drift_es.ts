@@ -5635,12 +5635,12 @@
         <translation>Informar de un error</translation>
     </message>
     <message>
-        <source>Documentation</source>
-        <translation>Documentación</translation>
+        <source>Help and frequently asked questions</source>
+        <translation>Ayuda y preguntas frecuentes</translation>
     </message>
     <message>
-        <source>Questions and support on Discord</source>
-        <translation>Preguntas y soporte en Discord</translation>
+        <source>Email support: soporte@getflipstudio.com</source>
+        <translation>Soporte por correo: soporte@getflipstudio.com</translation>
     </message>
 </context>
 <context>
