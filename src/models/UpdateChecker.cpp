@@ -34,6 +34,10 @@
 #define DRIFT_UPDATE_FEED_URL ""
 #endif
 
+#ifndef DRIFT_UPDATE_VERSION_HOST
+#define DRIFT_UPDATE_VERSION_HOST ""
+#endif
+
 #ifndef DRIFT_DISTRIBUTION
 #define DRIFT_DISTRIBUTION "source"
 #endif
@@ -59,7 +63,8 @@ const QString kDistribution = QStringLiteral(DRIFT_DISTRIBUTION);
 
 // The newest stable version. A TXT record, so the check is one DNS query and does not depend on
 // GitHub's API answering before we know whether anything changed.
-const QString kVersionHost = QStringLiteral("drift-version.cutwire.org");
+// Configured in CMakeLists.txt (DRIFT_UPDATE_VERSION_HOST); empty turns the update check off.
+const QString kVersionHost = QStringLiteral(DRIFT_UPDATE_VERSION_HOST);
 
 QString settingsKey(const char *name)
 {
@@ -130,7 +135,7 @@ UpdateChecker::~UpdateChecker()
 
 bool UpdateChecker::supported() const
 {
-    return !kFeedUrl.isEmpty();
+    return !kFeedUrl.isEmpty() && !kVersionHost.isEmpty();
 }
 
 bool UpdateChecker::installSupported() const
@@ -253,7 +258,7 @@ QVariantMap UpdateChecker::downloadJob() const
         {QStringLiteral("itemId"), QStringLiteral("drift-update")},
         {QStringLiteral("kind"), QStringLiteral("update")},
         {QStringLiteral("mediaKind"), QStringLiteral("update")},
-        {QStringLiteral("title"), tr("Drift %1 update").arg(m_latestVersion)},
+        {QStringLiteral("title"), tr("Flip %1 update").arg(m_latestVersion)},
         {QStringLiteral("status"), status},
         {QStringLiteral("running"), running},
         {QStringLiteral("finished"), !running},
@@ -264,7 +269,7 @@ QVariantMap UpdateChecker::downloadJob() const
         {QStringLiteral("speed"), m_downloading && seconds > 0.5 ? m_bytesReceived / seconds : 0.0},
         {QStringLiteral("errorMessage"), m_error},
         {QStringLiteral("phase"), tr("Preparing the update…")},
-        {QStringLiteral("doneDetail"), m_installOnQuit ? tr("Installs when you close Drift")
+        {QStringLiteral("doneDetail"), m_installOnQuit ? tr("Installs when you close Flip")
                                                        : tr("Ready to install")},
         {QStringLiteral("destinationDir"), QString()},
     };
@@ -419,7 +424,7 @@ void UpdateChecker::scheduleInstallOnQuit()
     m_installOnQuit = true;
     emit activityChanged();
     if (m_readyToInstall)
-        setStatus(tr("Drift %1 will install when you close Drift.").arg(m_latestVersion));
+        setStatus(tr("Flip %1 will install when you close Flip.").arg(m_latestVersion));
 }
 
 void UpdateChecker::markAnnounced()
@@ -479,7 +484,7 @@ void UpdateChecker::check(bool manual)
         if (drift::compareVersions(kCurrentVersion, version) >= 0) {
             clearRelease();
             if (manual)
-                setStatus(tr("Drift %1 is the latest version.").arg(kCurrentVersion));
+                setStatus(tr("Flip %1 is the latest version.").arg(kCurrentVersion));
             setChecking(false);
             return;
         }
@@ -501,7 +506,7 @@ void UpdateChecker::fetchRelease(const QString &version, bool manual)
     // GitHub's API rejects requests that send no User-Agent, and pins response shape to an API
     // version so a future default cannot change the fields parsed below.
     request.setHeader(QNetworkRequest::UserAgentHeader,
-                      QLatin1String("Drift/") + kCurrentVersion);
+                      QLatin1String("Flip/") + kCurrentVersion);
     request.setRawHeader("Accept", "application/vnd.github+json");
     request.setRawHeader("X-GitHub-Api-Version", "2022-11-28");
     request.setAttribute(QNetworkRequest::RedirectPolicyAttribute,
@@ -535,7 +540,7 @@ void UpdateChecker::finishCheck(const QString &version, bool manual)
 {
     auto done = [this, version, manual] {
         if (manual)
-            setStatus(tr("Drift %1 is available.").arg(version));
+            setStatus(tr("Flip %1 is available.").arg(version));
         announceIfNeeded();
         setChecking(false);
     };
@@ -550,7 +555,7 @@ void UpdateChecker::finishCheck(const QString &version, bool manual)
 
     QNetworkRequest request{QUrl(drift::releaseDownloadUrl(kFeedUrl, version,
                                                            QStringLiteral("SHA256SUMS")))};
-    request.setHeader(QNetworkRequest::UserAgentHeader, QLatin1String("Drift/") + kCurrentVersion);
+    request.setHeader(QNetworkRequest::UserAgentHeader, QLatin1String("Flip/") + kCurrentVersion);
     request.setAttribute(QNetworkRequest::RedirectPolicyAttribute,
                          QNetworkRequest::NoLessSafeRedirectPolicy);
     request.setTransferTimeout(kTransferTimeoutMs);
@@ -698,8 +703,8 @@ QString UpdateChecker::appImagePath() const
 QString UpdateChecker::macBundleName() const
 {
     if (kCurrentVersion.contains(QLatin1String("-nightly.")))
-        return QStringLiteral("Drift Nightly");
-    return QStringLiteral("Drift");
+        return QStringLiteral("Flip Nightly");
+    return QStringLiteral("Flip");
 }
 
 void UpdateChecker::cancelDownload()
@@ -755,7 +760,7 @@ void UpdateChecker::beginDownload()
     emit downloadStarted();
 
     QNetworkRequest request{QUrl(m_assetUrl)};
-    request.setHeader(QNetworkRequest::UserAgentHeader, QLatin1String("Drift/") + kCurrentVersion);
+    request.setHeader(QNetworkRequest::UserAgentHeader, QLatin1String("Flip/") + kCurrentVersion);
     request.setAttribute(QNetworkRequest::RedirectPolicyAttribute,
                          QNetworkRequest::NoLessSafeRedirectPolicy);
     request.setTransferTimeout(kDownloadIdleTimeoutMs);
@@ -974,9 +979,9 @@ void UpdateChecker::finishStage()
     setReadyToInstall(true);
     setProgress(1);
     if (m_installOnQuit) {
-        setStatus(tr("Drift %1 will install when you close Drift.").arg(m_latestVersion));
+        setStatus(tr("Flip %1 will install when you close Flip.").arg(m_latestVersion));
     } else {
-        setStatus(tr("Drift %1 is ready to install.").arg(m_latestVersion));
+        setStatus(tr("Flip %1 is ready to install.").arg(m_latestVersion));
         emit installReady();
     }
 }

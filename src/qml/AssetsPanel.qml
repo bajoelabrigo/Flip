@@ -524,7 +524,7 @@ PanelFrame {
             } else if (truncated) {
                 Toasts.warning(qsTr("Imported %n files into %1 folders — as many as one folder import takes. Import the remaining subfolders separately.", "", files).arg(folders))
             } else if (skipped > 0) {
-                Toasts.warning(qsTr("Imported %n files into %1 folders. %2 files were skipped — Drift does not recognize their format. Drag them onto the bin to try anyway.", "", files).arg(folders).arg(skipped))
+                Toasts.warning(qsTr("Imported %n files into %1 folders. %2 files were skipped — Flip does not recognize their format. Drag them onto the bin to try anyway.", "", files).arg(folders).arg(skipped))
             } else {
                 Toasts.success(qsTr("Imported %n files into %1 folders.", "", files).arg(folders))
             }

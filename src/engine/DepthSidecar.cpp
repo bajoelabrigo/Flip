@@ -352,7 +352,7 @@ std::shared_ptr<const DepthSidecar> DepthSidecar::open(const QString &path, QStr
         return fail(QStringLiteral("%1 is not a depth map").arg(path));
     const uchar *p = reinterpret_cast<const uchar *>(raw.constData());
     if (qFromLittleEndian<quint32>(p + 4) != kVersion)
-        return fail(QStringLiteral("%1 was written by a newer version of Drift").arg(path));
+        return fail(QStringLiteral("%1 was written by a newer version of Flip").arg(path));
     d.header.width = qFromLittleEndian<quint32>(p + 8);
     d.header.height = qFromLittleEndian<quint32>(p + 12);
     d.header.frameCount = qFromLittleEndian<quint32>(p + 16);

@@ -1124,7 +1124,7 @@ QStringList selectionBasedOps()
 QString agentGuideText()
 {
     return QStringLiteral(
-        "Drift MCP agent guide\n"
+        "Flip MCP agent guide\n"
         "\n"
         "Workflow:\n"
         "1. Call catalog on POST /mcp (homepage), or search({q}) to find an op by keyword.\n"
@@ -1229,7 +1229,7 @@ QString agentGuideText()
         "the object-model addon — ai_capabilities reports what is installed; list_addons /\n"
         "install_addon can install a missing model from the addon store.\n"
         "\n"
-        "Finding media: import_media takes absolute paths only. Drift will not list folders. When\n"
+        "Finding media: import_media takes absolute paths only. Flip will not list folders. When\n"
         "the user gives a partial name, glob or search the host with YOUR own tools (find, ls,\n"
         "whatever the client exposes), then pass those absolute paths to import_media and confirm\n"
         "missing:[] is empty. Stock footage comes from the market toolbox (market_status first —\n"
@@ -1667,9 +1667,9 @@ QString homepageHtml()
 {
     const QJsonObject cat = catalogPayload({{QStringLiteral("brief"), true}, {QStringLiteral("endpoints"), true}});
     QString body = QStringLiteral(
-        "<!doctype html><meta charset=utf-8><title>Drift MCP</title>"
+        "<!doctype html><meta charset=utf-8><title>Flip MCP</title>"
         "<body style='font:14px/1.45 system-ui;max-width:42rem;margin:2rem auto;padding:0 1rem'>"
-        "<h1>Drift agent access</h1>"
+        "<h1>Flip agent access</h1>"
         "<p>This editor is exposing an MCP server on localhost. Any local process with the "
         "session token can edit the open project and capture frames.</p>"
         "<p><strong>Workflow:</strong> catalog or search({q}) → toolbox({name}) → "

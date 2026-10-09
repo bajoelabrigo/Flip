@@ -3839,7 +3839,7 @@ QJsonObject McpController::cloudUnavailable(const QString &provider) const
                                                         ? QStringLiteral("ELEVENLABS_API_KEY")
                                                         : QStringLiteral("FISH_API_KEY")));
     if (!m_app->m_cloud->consent(provider))
-        return err("consent_required", QStringLiteral("The user hasn't allowed Drift to send audio or text to %1 "
+        return err("consent_required", QStringLiteral("The user hasn't allowed Flip to send audio or text to %1 "
                                                       "yet. Ask them to allow it in Settings → Cloud providers.")
                                            .arg(name));
     return {};

@@ -338,11 +338,11 @@ jobs:
           # The .zsync points at the AppImage by basename, so LDAI_OUTPUT has to be the final
           # asset name rather than renaming afterwards.
           if [ "${{ inputs.channel }}" = "nightly" ]; then
-            export LDAI_UPDATE_INFORMATION="gh-releases-zsync|${GITHUB_REPOSITORY/\//|}|nightly|Drift-nightly-x86_64.AppImage.zsync"
+            export LDAI_UPDATE_INFORMATION="gh-releases-zsync|${GITHUB_REPOSITORY/\//|}|nightly|Flip-nightly-x86_64.AppImage.zsync"
           else
-            export LDAI_UPDATE_INFORMATION="gh-releases-zsync|${GITHUB_REPOSITORY/\//|}|latest|Drift-*-x86_64.AppImage.zsync"
+            export LDAI_UPDATE_INFORMATION="gh-releases-zsync|${GITHUB_REPOSITORY/\//|}|latest|Flip-*-x86_64.AppImage.zsync"
           fi
-          export LDAI_OUTPUT="Drift-${{ env.ASSET_LABEL }}-x86_64.AppImage"
+          export LDAI_OUTPUT="Flip-${{ env.ASSET_LABEL }}-x86_64.AppImage"
           # Drift's own QML is compiled into the binary, but the Qt Quick modules it imports are
           # not: without QML_SOURCES_PATHS the qt plugin has nothing to scan and ships an AppImage
           # whose every import fails at startup.
@@ -554,7 +554,7 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force -Path dist\bin | Out-Null
-          Copy-Item build\Release\drift.exe dist\bin -Force
+          Copy-Item build\Release\flip.exe dist\bin -Force
           # --qmldir: Drift's own QML lives in the binary's resources, but the Qt Quick modules it
           # imports have to be deployed, and qmlimportscanner reads the sources to find them.
           # --no-opengl-sw: opengl32sw.dll is Qt's bundled Mesa llvmpipe, and it only
@@ -564,7 +564,7 @@ jobs:
           # main.cpp sets QT_NO_OPENGL_BUGLIST so Qt stops picking it over a perfectly
           # good card in the first place; keep the two together.
           & "${{ env.QT_ROOT_DIR }}\bin\windeployqt.exe" --release --no-translations `
-            --no-opengl-sw --qmldir src\qml dist\bin\drift.exe
+            --no-opengl-sw --qmldir src\qml dist\bin\flip.exe
           Copy-Item vcpkg\installed\x64-windows\bin\*.dll dist\bin -Force
           Copy-Item .deps\ffmpeg\bin\*.dll dist\bin -Force
           # Bundled effect/transition/template packages: a POST_BUILD step already put them beside
@@ -597,7 +597,7 @@ jobs:
             throw "$check was not built; cannot verify the multimedia backend plugin"
           }
           Copy-Item $check dist\bin -Force
-          # Run from the staged tree so the checker's app dir is the same as drift.exe.
+          # Run from the staged tree so the checker's app dir is the same as flip.exe.
           Push-Location dist\bin
           try {
             & .\audiobackendcheck.exe $plugin
@@ -613,7 +613,7 @@ jobs:
       - name: Build Inno Setup installer
         uses: Minionguyjpro/Inno-Setup-Action@v1.2.6
         with:
-          path: installer/windows/Drift.iss
+          path: installer/windows/Flip.iss
           # /DNightly gives the installer its own AppId, name and install directory, so it lands
           # beside a stable install rather than upgrading it.
           options: |
@@ -628,7 +628,7 @@ jobs:
         run: |
           New-Item -ItemType Directory -Force -Path dist | Out-Null
           $built = Get-ChildItem installer\windows\output\*.exe
-          Copy-Item $built.FullName "dist\Drift-Setup-${{ env.ASSET_LABEL }}-x64.exe" -Force
+          Copy-Item $built.FullName "dist\Flip-Setup-${{ env.ASSET_LABEL }}-x64.exe" -Force
 
       - name: Upload installer artifact
         uses: actions/upload-artifact@v4
@@ -648,12 +648,12 @@ jobs:
       - name: Build portable zip
         shell: pwsh
         env:
-          FOLDER: ${{ inputs.channel == 'nightly' && 'Drift Nightly' || 'Drift' }}
+          FOLDER: ${{ inputs.channel == 'nightly' && 'Flip Nightly' || 'Flip' }}
         run: |
           New-Item -ItemType Directory -Force -Path "portable\$env:FOLDER", dist\portable | Out-Null
           Copy-Item dist\bin\* "portable\$env:FOLDER" -Recurse -Force
           & "$env:ProgramFiles\7-Zip\7z.exe" a -tzip -mx=9 `
-            "dist\portable\Drift-Portable-${{ env.ASSET_LABEL }}-x64.zip" ".\portable\$env:FOLDER"
+            "dist\portable\Flip-Portable-${{ env.ASSET_LABEL }}-x64.zip" ".\portable\$env:FOLDER"
 
       - name: Upload portable artifact
         uses: actions/upload-artifact@v4

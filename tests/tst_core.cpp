@@ -2,6 +2,7 @@
 
 #include <QColor>
 #include <QDir>
+#include <QElapsedTimer>
 #include <QFile>
 #include <QJsonArray>
 #include <QJsonObject>
@@ -28,6 +29,7 @@
 #include "core/Model3dSource.h"
 #include "core/VectorSource.h"
 #include "core/DotLottie.h"
+#include "core/ZipArchive.h"
 #include "TestZip.h"
 
 #include <QTemporaryDir>
@@ -119,6 +121,7 @@ private slots:
     void shapeCatalogPathsFitBounds();
     void vectorSourceSerialization();
     void dotLottieUnpacks();
+    void zipRejectsTruncatedAndOversizedDeflate();
     void textStyleKeyframesSerialization();
     void vectorClipIsSyntheticOnGraphicTracks();
     void model3dSourceSerialization();
@@ -1795,6 +1798,45 @@ void CoreTest::textStyleKeyframesSerialization()
     QVERIFY(!drift::textStyleScalar(style, QStringLiteral("glowRadius"), &scalar)); // no glow layer on a fresh style
     QVERIFY(drift::textKeyframeProperties(style).contains(QStringLiteral("layer.fill.color.r")));
     QCOMPARE(drift::textKeyframeCanonicalKey(QStringLiteral("color.g"), style), QStringLiteral("layer.fill.color.g"));
+}
+
+void CoreTest::zipRejectsTruncatedAndOversizedDeflate()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QByteArray data = QByteArray("Flip zip test payload. ").repeated(4096);
+    const QByteArray deflated = rawDeflate(data);
+    QVERIFY(!deflated.isEmpty());
+    const quint32 crc = quint32(crc32(0, reinterpret_cast<const Bytef *>(data.constData()), uInt(data.size())));
+
+    auto extract = [&](const QString &name, const QByteArray &payload, quint32 declared, QByteArray *out) {
+        const QString path = dir.filePath(name);
+        if (!writeDeflatedZip(path, QStringLiteral("a.json"), payload, declared, crc))
+            return false;
+        QFile file(path);
+        if (!file.open(QIODevice::ReadOnly))
+            return false;
+        QString error;
+        const QList<drift::zip::Entry> entries = drift::zip::readEntries(file, &error);
+        return entries.size() == 1 && drift::zip::extractEntry(file, entries.first(), *out);
+    };
+
+    QByteArray out;
+    QVERIFY(extract(QStringLiteral("ok.zip"), deflated, quint32(data.size()), &out));
+    QCOMPARE(out, data);
+
+    // A stream cut short used to spin forever inside inflate(); it must fail, and quickly.
+    QElapsedTimer timer;
+    timer.start();
+    out.clear();
+    QVERIFY(!extract(QStringLiteral("truncated.zip"), deflated.left(deflated.size() / 2),
+                     quint32(data.size()), &out));
+    QVERIFY(timer.elapsed() < 5000);
+
+    // A header claiming ~4 GB is only a hint: the real data still comes back.
+    out.clear();
+    QVERIFY(extract(QStringLiteral("liar.zip"), deflated, 0xFFFFFFF0u, &out));
+    QCOMPARE(out, data);
 }
 
 void CoreTest::dotLottieUnpacks()

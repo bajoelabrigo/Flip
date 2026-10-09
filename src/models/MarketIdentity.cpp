@@ -188,7 +188,7 @@ QString makeNonce()
 
 QString appHeader()
 {
-    return QStringLiteral("Drift/%1 (%2)").arg(QLatin1String(DRIFT_VERSION), platformId());
+    return QStringLiteral("Flip/%1 (%2)").arg(QLatin1String(DRIFT_VERSION), platformId());
 }
 
 QString distributionId()

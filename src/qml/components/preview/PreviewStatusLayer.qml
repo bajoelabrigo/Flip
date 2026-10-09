@@ -95,9 +95,9 @@ Item {
         title: qsTr("GPU preview unavailable")
         hint: EditorState.playback.gpuCompositorStatus === "version-too-low"
               && EditorState.playback.gpuCompositorDetail
-              ? qsTr("Your graphics driver only provides %1. Drift's preview needs OpenGL 3.3.")
+              ? qsTr("Your graphics driver only provides %1. Flip's preview needs OpenGL 3.3.")
                     .arg(EditorState.playback.gpuCompositorDetail)
-              : qsTr("Drift could not start its GPU renderer, so the preview cannot draw.")
+              : qsTr("Flip could not start its GPU renderer, so the preview cannot draw.")
         actionText: qsTr("Debug info")
         onActionTriggered: root.Window.window.openDebugInfo()
     }

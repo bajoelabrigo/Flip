@@ -20,7 +20,7 @@ Rectangle {
     // .mogrt, EDL, OTIO) need more fixing before shipping. Uncomment these entries, the open*()
     // functions below and the RecentProjectsPopup connections when the readers are stable.
     readonly property var projectFilter: [
-        qsTr("Drift project (*.drift)"),
+        qsTr("Flip project (*.drift)"),
         qsTr("JSON document (*.json)"),
         qsTr("All Files (*)")
     ]
@@ -729,7 +729,7 @@ Rectangle {
                     glyph: Theme.icons.download
                     variant: "ghost"
                     text: qsTr("Update")
-                    tooltip: qsTr("Drift %1 is available").arg(Updates.latestVersion)
+                    tooltip: qsTr("Flip %1 is available").arg(Updates.latestVersion)
                     onClicked: root.Window.window.openUpdateDialog()
                 }
 

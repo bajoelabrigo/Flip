@@ -4,7 +4,7 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About Drift</source>
+        <source>About Flip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12,19 +12,23 @@
         <translation type="unfinished">إغلاق</translation>
     </message>
     <message>
-        <source>Drift</source>
-        <translation type="unfinished"></translation>
+        <source>Flip</source>
+        <translation>Flip</translation>
     </message>
     <message>
         <source>Version %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open-source video editor by CutWire Studios.</source>
+        <source>Open-source video editor based on Drift by CutWire Studios.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Licensed under GPLv3. Copyright © CutWire Studios.</source>
+        <source>Licensed under GPLv3. Copyright © CutWire Studios and Flip contributors.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source code</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -55,7 +59,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Drift effect file (%1).</source>
+        <source>This is not a Flip effect file (%1).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -63,7 +67,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Drift addon file.</source>
+        <source>This is not a Flip addon file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -114,7 +118,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift addons (*.driftpkg *.driftfx *.zip)</source>
+        <source>Flip addons (*.driftpkg *.driftfx *.zip)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -130,7 +134,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 is not signed by the Drift team. Only install files you trust.</source>
+        <source>%1 is not signed by the Flip team. Only install files you trust.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -142,7 +146,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 was made by a user, not the Drift team, and nothing has checked it. Only install files you trust.</source>
+        <source>%1 was made by a user, not the Flip team, and nothing has checked it. Only install files you trust.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -202,8 +206,8 @@
         <translation>ثبّت محرك ذكاء اصطناعي أدناه لإتاحة التسميات التوضيحية التلقائية، واقتطاع العناصر، وتأثيرات الوجه المضحكة، وإزالة الضوضاء.</translation>
     </message>
     <message>
-        <source>Restart Drift for this to take effect.</source>
-        <translation>أعد تشغيل Drift لتطبيق ذلك.</translation>
+        <source>Restart Flip for this to take effect.</source>
+        <translation>أعد تشغيل Flip لتطبيق ذلك.</translation>
     </message>
     <message>
         <source>Can&apos;t reach the download store</source>
@@ -238,7 +242,7 @@
         <translation>%1… %2%</translation>
     </message>
     <message>
-        <source>Requires Drift %1 or newer</source>
+        <source>Requires Flip %1 or newer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -305,8 +309,8 @@
         <translation>الحزم الموصى بها</translation>
     </message>
     <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Drift without them — installing unlocks updates when they improve.</source>
-        <translation>ثبّت الحزم الأساسية للتأثيرات والانتقالات والصوت. يمكنك مواصلة استخدام Drift بدونها — ويتيح تثبيتها تلقي التحديثات عند تحسينها.</translation>
+        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip without them — installing unlocks updates when they improve.</source>
+        <translation>ثبّت الحزم الأساسية للتأثيرات والانتقالات والصوت. يمكنك مواصلة استخدام Flip بدونها — ويتيح تثبيتها تلقي التحديثات عند تحسينها.</translation>
     </message>
     <message>
         <source>%1… %2%</source>
@@ -364,8 +368,8 @@
 <context>
     <name>AgentAccessControls</name>
     <message>
-        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Drift, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
-        <translation>اسمح لـ Cursor أو Claude بتعديل هذا المشروع نيابةً عنك — إضافة مقاطع، وتغيير المخطط الزمني، والتحقق من مظهره. البرامج الموجودة على هذا الجهاز فقط. يكون معطلاً افتراضيًا في كل مرة تفتح فيها Drift، ما لم تُفعّل “تشغيل الوكيل عند بدء التشغيل” أدناه؛ أوقفه هنا عند الانتهاء. يظل المفتاح كما هو بين الجلسات، لذا فإن الإعداد الذي لصقته مرة واحدة سيستمر في العمل.</translation>
+        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
+        <translation>اسمح لـ Cursor أو Claude بتعديل هذا المشروع نيابةً عنك — إضافة مقاطع، وتغيير المخطط الزمني، والتحقق من مظهره. البرامج الموجودة على هذا الجهاز فقط. يكون معطلاً افتراضيًا في كل مرة تفتح فيها Flip، ما لم تُفعّل “تشغيل الوكيل عند بدء التشغيل” أدناه؛ أوقفه هنا عند الانتهاء. يظل المفتاح كما هو بين الجلسات، لذا فإن الإعداد الذي لصقته مرة واحدة سيستمر في العمل.</translation>
     </message>
     <message>
         <source>Allow for this session</source>
@@ -380,8 +384,8 @@
         <translation>تشغيل الوكيل عند بدء التشغيل</translation>
     </message>
     <message>
-        <source>Skip the manual toggle next time you open Drift. Turning access off resets this.</source>
-        <translation>تجاوز التبديل اليدوي في المرة القادمة التي تفتح فيها Drift. يؤدي إيقاف تشغيل الوصول إلى إعادة تعيين هذا.</translation>
+        <source>Skip the manual toggle next time you open Flip. Turning access off resets this.</source>
+        <translation>تجاوز التبديل اليدوي في المرة القادمة التي تفتح فيها Flip. يؤدي إيقاف تشغيل الوصول إلى إعادة تعيين هذا.</translation>
     </message>
     <message>
         <source>Turn this on, then copy the setup for Cursor or Claude and paste it into that app.</source>
@@ -712,8 +716,8 @@
 <context>
     <name>AndroidEditor</name>
     <message>
-        <source>Drift project (*.drift)</source>
-        <translation>مشروع Drift (*.drift)</translation>
+        <source>Flip project (*.drift)</source>
+        <translation>مشروع Flip (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -915,8 +919,8 @@
 <context>
     <name>AndroidMain</name>
     <message>
-        <source>Drift project (*.drift)</source>
-        <translation>مشروع Drift (*.drift)</translation>
+        <source>Flip project (*.drift)</source>
+        <translation>مشروع Flip (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -3463,8 +3467,8 @@
         <translation>مسح العمق</translation>
     </message>
     <message>
-        <source>This build of Drift has no video stabilization support</source>
-        <translation>لا يدعم هذا الإصدار من Drift تثبيت صورة الفيديو</translation>
+        <source>This build of Flip has no video stabilization support</source>
+        <translation>لا يدعم هذا الإصدار من Flip تثبيت صورة الفيديو</translation>
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
@@ -4684,14 +4688,14 @@
         </translation>
     </message>
     <message numerus="yes">
-        <source>Imported %n files into %1 folders. %2 files were skipped — Drift does not recognize their format. Drag them onto the bin to try anyway.</source>
+        <source>Imported %n files into %1 folders. %2 files were skipped — Flip does not recognize their format. Drag them onto the bin to try anyway.</source>
         <translation>
-            <numerusform>تم استيراد %n ملف في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Drift على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
-            <numerusform>تم استيراد %n ملف في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Drift على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
-            <numerusform>تم استيراد %n ملفين في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Drift على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
-            <numerusform>تم استيراد %n ملفات في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Drift على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
-            <numerusform>تم استيراد %n ملفًا في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Drift على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
-            <numerusform>تم استيراد %n ملف في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Drift على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
+            <numerusform>تم استيراد %n ملف في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
+            <numerusform>تم استيراد %n ملف في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
+            <numerusform>تم استيراد %n ملفين في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
+            <numerusform>تم استيراد %n ملفات في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
+            <numerusform>تم استيراد %n ملفًا في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
+            <numerusform>تم استيراد %n ملف في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -6043,8 +6047,8 @@
         <translation>المتجر غير متوفر في هذا الإصدار.</translation>
     </message>
     <message>
-        <source>Could not load Drift Assets. Check your connection and try again.</source>
-        <translation>تعذر تحميل عناصر Drift. تحقق من اتصالك وحاول مرة أخرى.</translation>
+        <source>Could not load Flip Assets. Check your connection and try again.</source>
+        <translation>تعذر تحميل عناصر Flip. تحقق من اتصالك وحاول مرة أخرى.</translation>
     </message>
     <message>
         <source>That asset could not be installed.</source>
@@ -6094,8 +6098,8 @@
         <translation>تمت الإضافة إلى حاوية الوسائط</translation>
     </message>
     <message>
-        <source>Couldn’t load Drift Assets</source>
-        <translation>تعذر تحميل عناصر Drift</translation>
+        <source>Couldn’t load Flip Assets</source>
+        <translation>تعذر تحميل عناصر Flip</translation>
     </message>
     <message>
         <source>Try again</source>
@@ -6106,8 +6110,8 @@
         <translation>لا توجد عناصر هنا بعد</translation>
     </message>
     <message>
-        <source>Drift Assets are still being published. Check back soon.</source>
-        <translation>ما زالت عناصر Drift قيد النشر. تحقق مجددًا قريبًا.</translation>
+        <source>Flip Assets are still being published. Check back soon.</source>
+        <translation>ما زالت عناصر Flip قيد النشر. تحقق مجددًا قريبًا.</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -6122,8 +6126,8 @@
         <translation>جميع العناصر</translation>
     </message>
     <message>
-        <source>No Drift Assets match “%1”.</source>
-        <translation>لا توجد عناصر Drift تطابق “%1”.</translation>
+        <source>No Flip Assets match “%1”.</source>
+        <translation>لا توجد عناصر Flip تطابق “%1”.</translation>
     </message>
     <message>
         <source>Search %1 for “%2”</source>
@@ -6133,8 +6137,8 @@
 <context>
     <name>EditorHeader</name>
     <message>
-        <source>Drift project (*.drift)</source>
-        <translation>مشروع Drift (*.drift)</translation>
+        <source>Flip project (*.drift)</source>
+        <translation>مشروع Flip (*.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -6272,8 +6276,8 @@
         <translation>تحديث</translation>
     </message>
     <message>
-        <source>Drift %1 is available</source>
-        <translation>Drift %1 متوفر</translation>
+        <source>Flip %1 is available</source>
+        <translation>Flip %1 متوفر</translation>
     </message>
     <message>
         <source>Agent access</source>
@@ -6484,8 +6488,8 @@
 <context>
     <name>EffectStacksSection</name>
     <message>
-        <source>Drift effect stack (*.drifteffects)</source>
-        <translation>مجموعة تأثيرات Drift (*.drifteffects)</translation>
+        <source>Flip effect stack (*.drifteffects)</source>
+        <translation>مجموعة تأثيرات Flip (*.drifteffects)</translation>
     </message>
     <message>
         <source>Import effect stack</source>
@@ -7097,8 +7101,8 @@
         <translation>prop.json ليس إكسسوار وجه</translation>
     </message>
     <message>
-        <source>prop.json needs a newer version of Drift</source>
-        <translation>يتطلب prop.json إصدارًا أحدث من Drift</translation>
+        <source>prop.json needs a newer version of Flip</source>
+        <translation>يتطلب prop.json إصدارًا أحدث من Flip</translation>
     </message>
     <message>
         <source>invalid prop id “%1”</source>
@@ -8300,7 +8304,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Drift</source>
+        <source>About Flip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8312,8 +8316,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 is the latest version.</source>
-        <translation type="unfinished">Drift %1 هو أحدث إصدار.</translation>
+        <source>Flip %1 is the latest version.</source>
+        <translation type="unfinished">Flip %1 هو أحدث إصدار.</translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -8498,8 +8502,8 @@
         <translation>لا يمكننا ضمان نجاح التنزيل أو اكتماله أو منحك الجودة التي اخترتها. ستفشل بعض العناصر ببساطة.</translation>
     </message>
     <message>
-        <source>Everything here comes from third parties. Drift does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>كل شيء هنا يأتي من أطراف خارجية. لا تستضيفه Drift ولا تملكه ولا تدققه — وأنت مسؤول عن التأكد من امتلاكك حق استخدام ما تقوم بتنزيله.</translation>
+        <source>Everything here comes from third parties. Flip does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
+        <translation>كل شيء هنا يأتي من أطراف خارجية. لا تستضيفه Flip ولا تملكه ولا تدققه — وأنت مسؤول عن التأكد من امتلاكك حق استخدام ما تقوم بتنزيله.</translation>
     </message>
     <message>
         <source>I understand</source>
@@ -9774,12 +9778,12 @@
 <context>
     <name>PlaybackEngine</name>
     <message>
-        <source>%1 decodes on %2, but Drift draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 يفك الترميز على %2، لكن Drift يرسم على %3. يُنسخ كل إطار عبر ذاكرة النظام، وهو أبطأ من فك الترميز على بطاقة الرسومات التي ترسم.</translation>
+        <source>%1 decodes on %2, but Flip draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>%1 يفك الترميز على %2، لكن Flip يرسم على %3. يُنسخ كل إطار عبر ذاكرة النظام، وهو أبطأ من فك الترميز على بطاقة الرسومات التي ترسم.</translation>
     </message>
     <message>
-        <source>%1 decodes on a different graphics card than the one Drift draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 يفك الترميز على بطاقة رسومات مختلفة عن تلك التي يرسم عليها Drift. يُنسخ كل إطار عبر ذاكرة النظام، وهو أبطأ من فك الترميز على بطاقة الرسومات التي ترسم.</translation>
+        <source>%1 decodes on a different graphics card than the one Flip draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>%1 يفك الترميز على بطاقة رسومات مختلفة عن تلك التي يرسم عليها Flip. يُنسخ كل إطار عبر ذاكرة النظام، وهو أبطأ من فك الترميز على بطاقة الرسومات التي ترسم.</translation>
     </message>
     <message>
         <source>Auto</source>
@@ -9864,12 +9868,12 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Drift.</source>
-        <translation>يسري مفعول المعاينة الأسرع بعد إعادة تشغيل Drift.</translation>
+        <source>Faster preview takes effect after you restart Flip.</source>
+        <translation>يسري مفعول المعاينة الأسرع بعد إعادة تشغيل Flip.</translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Drift.</source>
-        <translation>يسري اختيار بطاقة الرسومات بعد إعادة تشغيل Drift.</translation>
+        <source>The graphics card choice takes effect after you restart Flip.</source>
+        <translation>يسري اختيار بطاقة الرسومات بعد إعادة تشغيل Flip.</translation>
     </message>
     <message>
         <source>System default</source>
@@ -9938,7 +9942,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The scene from a free viewpoint, with the camera in it. Middle- or right-drag orbits, Shift pans, the wheel zooms.</source>
+        <source>The scene from a free viewpoint, with the camera in it. Middle- or right-drag orbits, Shift pans, the wheel zooms, and the corner pad steps the view.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -10017,15 +10021,15 @@ If playback stutters, try another.</source>
         <translation type="unfinished">إلغاء</translation>
     </message>
     <message>
-        <source>Launching Drift with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
-        <translation type="unfinished">تشغيل Drift باستخدام prime-run (أو DRI_PRIME=1) يضع OpenGL على نفس بطاقة وحدة فك الترميز.</translation>
+        <source>Launching Flip with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
+        <translation type="unfinished">تشغيل Flip باستخدام prime-run (أو DRI_PRIME=1) يضع OpenGL على نفس بطاقة وحدة فك الترميز.</translation>
     </message>
     <message>
-        <source>Run Drift on the high-performance graphics card</source>
-        <translation type="unfinished">تشغيل Drift على بطاقة الرسومات عالية الأداء</translation>
+        <source>Run Flip on the high-performance graphics card</source>
+        <translation type="unfinished">تشغيل Flip على بطاقة الرسومات عالية الأداء</translation>
     </message>
     <message>
-        <source>Set Drift to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Drift.</source>
+        <source>Set Flip to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -10082,12 +10086,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished">معاينة GPU غير متوفرة</translation>
     </message>
     <message>
-        <source>Your graphics driver only provides %1. Drift&apos;s preview needs OpenGL 3.3.</source>
-        <translation type="unfinished">يوفر برنامج تشغيل الرسومات لديك %1 فقط. تحتاج معاينة Drift إلى OpenGL 3.3.</translation>
+        <source>Your graphics driver only provides %1. Flip&apos;s preview needs OpenGL 3.3.</source>
+        <translation type="unfinished">يوفر برنامج تشغيل الرسومات لديك %1 فقط. تحتاج معاينة Flip إلى OpenGL 3.3.</translation>
     </message>
     <message>
-        <source>Drift could not start its GPU renderer, so the preview cannot draw.</source>
-        <translation type="unfinished">تعذر على Drift تشغيل عارض GPU الخاص به، لذا لا يمكن رسم المعاينة.</translation>
+        <source>Flip could not start its GPU renderer, so the preview cannot draw.</source>
+        <translation type="unfinished">تعذر على Flip تشغيل عارض GPU الخاص به، لذا لا يمكن رسم المعاينة.</translation>
     </message>
     <message>
         <source>Debug info</source>
@@ -10156,12 +10160,12 @@ If playback stutters, try another.</source>
 <context>
     <name>Project</name>
     <message>
-        <source>This project was saved by a newer version of Drift (project format %1; this build reads up to %2).</source>
-        <translation>تم حفظ هذا المشروع بواسطة إصدار أحدث من Drift (تنسيق المشروع %1؛ هذا الإصدار يقرأ حتى %2).</translation>
+        <source>This project was saved by a newer version of Flip (project format %1; this build reads up to %2).</source>
+        <translation>تم حفظ هذا المشروع بواسطة إصدار أحدث من Flip (تنسيق المشروع %1؛ هذا الإصدار يقرأ حتى %2).</translation>
     </message>
     <message>
-        <source>This file isn’t a Drift project.</source>
-        <translation>هذا الملف ليس مشروع Drift.</translation>
+        <source>This file isn’t a Flip project.</source>
+        <translation>هذا الملف ليس مشروع Flip.</translation>
     </message>
 </context>
 <context>
@@ -10175,12 +10179,12 @@ If playback stutters, try another.</source>
         <translation>تعذر فتح %1</translation>
     </message>
     <message>
-        <source>file is too short to be a Drift project</source>
-        <translation>الملف قصير جدًا ليكون مشروع Drift</translation>
+        <source>file is too short to be a Flip project</source>
+        <translation>الملف قصير جدًا ليكون مشروع Flip</translation>
     </message>
     <message>
-        <source>not a Drift project (bad magic)</source>
-        <translation>ليس مشروع Drift (رقم سحري غير صالح)</translation>
+        <source>not a Flip project (bad magic)</source>
+        <translation>ليس مشروع Flip (رقم سحري غير صالح)</translation>
     </message>
     <message>
         <source>unsupported container revision</source>
@@ -10207,8 +10211,8 @@ If playback stutters, try another.</source>
         <translation>لا يحتوي بيان المشروع على إصدار تنسيق</translation>
     </message>
     <message>
-        <source>this project was saved by a newer version of Drift (format %1) — update to open it</source>
-        <translation>تم حفظ هذا المشروع بإصدار أحدث من Drift (التنسيق %1) — حدِّث لفتحه</translation>
+        <source>this project was saved by a newer version of Flip (format %1) — update to open it</source>
+        <translation>تم حفظ هذا المشروع بإصدار أحدث من Flip (التنسيق %1) — حدِّث لفتحه</translation>
     </message>
     <message>
         <source>project blob table is not contiguous</source>
@@ -11301,8 +11305,8 @@ If playback stutters, try another.</source>
         <translation>جارٍ العمل…</translation>
     </message>
     <message>
-        <source>Drift will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
-        <translation>سيعالج Drift نسخة معكوسة من هذا المقطع لتشغيله بسلاسة. يمكنك متابعة التعديل أثناء ذلك.</translation>
+        <source>Flip will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
+        <translation>سيعالج Flip نسخة معكوسة من هذا المقطع لتشغيله بسلاسة. يمكنك متابعة التعديل أثناء ذلك.</translation>
     </message>
     <message>
         <source>This can take a few minutes on longer clips.</source>
@@ -11711,11 +11715,11 @@ If playback stutters, try another.</source>
         <translation>أداء عالٍ (GPU منفصل)</translation>
     </message>
     <message>
-        <source>Which graphics card Drift runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation>تحديد بطاقة الرسومات التي يعمل عليها Drift. يبقي الأداء العالي الفيديو الذي تم فك ترميزه على بطاقة NVIDIA عليها؛ بينما يستهلك وضع توفير الطاقة قدرًا أقل من البطارية. يسري المفعول بعد إعادة التشغيل.</translation>
+        <source>Which graphics card Flip runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
+        <translation>تحديد بطاقة الرسومات التي يعمل عليها Flip. يبقي الأداء العالي الفيديو الذي تم فك ترميزه على بطاقة NVIDIA عليها؛ بينما يستهلك وضع توفير الطاقة قدرًا أقل من البطارية. يسري المفعول بعد إعادة التشغيل.</translation>
     </message>
     <message>
-        <source>Choose which graphics card Drift runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
+        <source>Choose which graphics card Flip runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11759,8 +11763,8 @@ If playback stutters, try another.</source>
         <translation>يجعل الأزرار والنصوص والأيقونات أكبر حجمًا. هذا تحجيم إضافي يضاف إلى الحجم المحدد بالفعل في إعدادات شاشتك. يسري المفعول بعد إعادة التشغيل.</translation>
     </message>
     <message>
-        <source>Restart Drift to apply this size.</source>
-        <translation>أعد تشغيل Drift لتطبيق هذا الحجم.</translation>
+        <source>Restart Flip to apply this size.</source>
+        <translation>أعد تشغيل Flip لتطبيق هذا الحجم.</translation>
     </message>
     <message>
         <source>Horizontal mouse-wheel pan</source>
@@ -11815,8 +11819,8 @@ If playback stutters, try another.</source>
         <translation>التحقق الآن</translation>
     </message>
     <message>
-        <source>Drift %1</source>
-        <translation>Drift %1</translation>
+        <source>Flip %1</source>
+        <translation>Flip %1</translation>
     </message>
     <message>
         <source>Extra packs</source>
@@ -11847,8 +11851,8 @@ If playback stutters, try another.</source>
         <translation>موفرو الخدمات السحابية</translation>
     </message>
     <message>
-        <source>Keys are stored unencrypted in Drift&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>تُخزن المفاتيح دون تشفير في إعدادات Drift. وتكون الأولوية لـ ELEVENLABS_API_KEY و FISH_API_KEY في البيئة. وتتم فوترة الاستخدام على حسابك الخاص.</translation>
+        <source>Keys are stored unencrypted in Flip&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation>تُخزن المفاتيح دون تشفير في إعدادات Flip. وتكون الأولوية لـ ELEVENLABS_API_KEY و FISH_API_KEY في البيئة. وتتم فوترة الاستخدام على حسابك الخاص.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -11891,8 +11895,8 @@ If playback stutters, try another.</source>
         <translation>السماح بإرسال الصوت والنص إلى %1</translation>
     </message>
     <message>
-        <source>Needed before Drift or a connected agent can transcribe or generate audio with this service</source>
-        <translation>مطلوب قبل أن يتمكن Drift أو أي وكيل متصل من تفريغ الصوت أو توليده عبر هذه الخدمة</translation>
+        <source>Needed before Flip or a connected agent can transcribe or generate audio with this service</source>
+        <translation>مطلوب قبل أن يتمكن Flip أو أي وكيل متصل من تفريغ الصوت أو توليده عبر هذه الخدمة</translation>
     </message>
     <message>
         <source>Default voice id</source>
@@ -11927,7 +11931,7 @@ If playback stutters, try another.</source>
         <translation>إلغاء ربط حساب المتجر من هذا الجهاز</translation>
     </message>
     <message>
-        <source>Once a day, check whether a newer Drift has been released</source>
+        <source>Once a day, check whether a newer Flip has been released</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12750,7 +12754,7 @@ If playback stutters, try another.</source>
         <translation>الوضع</translation>
     </message>
     <message>
-        <source>Smooths camera shake. Drift scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
+        <source>Smooths camera shake. Flip scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13289,8 +13293,8 @@ If playback stutters, try another.</source>
 <context>
     <name>TextAssetsTab</name>
     <message>
-        <source>Drift text style (*.drifttextstyle)</source>
-        <translation>نمط نص Drift (*.drifttextstyle)</translation>
+        <source>Flip text style (*.drifttextstyle)</source>
+        <translation>نمط نص Flip (*.drifttextstyle)</translation>
     </message>
     <message>
         <source>Import text style</source>
@@ -15486,7 +15490,7 @@ If playback stutters, try another.</source>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <source>Drift %1 update</source>
+        <source>Flip %1 update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15494,7 +15498,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Installs when you close Drift</source>
+        <source>Installs when you close Flip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15502,7 +15506,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 will install when you close Drift.</source>
+        <source>Flip %1 will install when you close Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15514,12 +15518,12 @@ If playback stutters, try another.</source>
         <translation>تعذر التحقق من وجود تحديثات: استجابة غير متوقعة.</translation>
     </message>
     <message>
-        <source>Drift %1 is the latest version.</source>
-        <translation>Drift %1 هو أحدث إصدار.</translation>
+        <source>Flip %1 is the latest version.</source>
+        <translation>Flip %1 هو أحدث إصدار.</translation>
     </message>
     <message>
-        <source>Drift %1 is available.</source>
-        <translation>Drift %1 متوفر.</translation>
+        <source>Flip %1 is available.</source>
+        <translation>Flip %1 متوفر.</translation>
     </message>
     <message>
         <source>Couldn’t download the update: the cache isn’t writable.</source>
@@ -15542,7 +15546,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 is ready to install.</source>
+        <source>Flip %1 is ready to install.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -15557,19 +15561,19 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 will install when you close Drift.</source>
+        <source>Flip %1 will install when you close Flip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 is downloaded and ready to install</source>
+        <source>Flip %1 is downloaded and ready to install</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 is available</source>
-        <translation>Drift %1 متوفر</translation>
+        <source>Flip %1 is available</source>
+        <translation>Flip %1 متوفر</translation>
     </message>
     <message>
-        <source>A new Drift update is available</source>
+        <source>A new Flip update is available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15577,11 +15581,11 @@ If playback stutters, try another.</source>
         <translation>لديك %1.</translation>
     </message>
     <message>
-        <source>Install automatically when I close Drift</source>
+        <source>Install automatically when I close Flip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Drift. Unchecked, you choose when to install once the download finishes.</source>
+        <source>Downloads in the background and installs the next time you close Flip. Unchecked, you choose when to install once the download finishes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15597,7 +15601,7 @@ If playback stutters, try another.</source>
         <translation>لاحقًا</translation>
     </message>
     <message>
-        <source>Install when I close Drift</source>
+        <source>Install when I close Flip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15605,7 +15609,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished">تحديث</translation>
     </message>
     <message>
-        <source>Closes Drift, installs the update and opens Drift again</source>
+        <source>Closes Flip, installs the update and opens Flip again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15617,7 +15621,7 @@ If playback stutters, try another.</source>
         <translation>يفتح صفحة الإصدار في متصفحك</translation>
     </message>
     <message>
-        <source>Downloading Drift %1…</source>
+        <source>Downloading Flip %1…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15955,6 +15959,61 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>ViewNavPad</name>
+    <message>
+        <source>%1 (%2)</source>
+        <translation type="unfinished">%1 (%2)</translation>
+    </message>
+    <message>
+        <source>Orbit left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Numpad 4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Orbit up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Numpad 8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Orbit right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Numpad 6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom out</source>
+        <translation type="unfinished">تصغير</translation>
+    </message>
+    <message>
+        <source>Numpad -</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Orbit down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Numpad 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom in</source>
+        <translation type="unfinished">تكبير</translation>
+    </message>
+    <message>
+        <source>Numpad +</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>VoiceoverControlBar</name>
     <message>
         <source>PAUSED</source>
@@ -16075,10 +16134,10 @@ If playback stutters, try another.</source>
         <translation>لا يوجد برنامج تشغيل OpenGL</translation>
     </message>
     <message>
-        <source>Drift could not create an OpenGL context, so it cannot draw its interface or render the preview.
+        <source>Flip could not create an OpenGL context, so it cannot draw its interface or render the preview.
 
 Install or update your graphics driver.</source>
-        <translation>تعذر على Drift إنشاء سياق OpenGL، لذا لا يمكنه رسم واجهته أو عرض المعاينة.
+        <translation>تعذر على Flip إنشاء سياق OpenGL، لذا لا يمكنه رسم واجهته أو عرض المعاينة.
 
 ثبّت برنامج تشغيل الرسومات لديك أو حدّثه.</translation>
     </message>
@@ -16087,10 +16146,10 @@ Install or update your graphics driver.</source>
         <translation>سياق OpenGL غير متوفر</translation>
     </message>
     <message>
-        <source>Drift could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
+        <source>Flip could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
 
 The video preview cannot render. Updating your graphics driver may help.</source>
-        <translation>تعذر على Drift إنشاء سياق OpenGL 3.3 core profile، على الرغم من أن برنامج التشغيل هذا يشير إلى OpenGL %1.%2 (%3).
+        <translation>تعذر على Flip إنشاء سياق OpenGL 3.3 core profile، على الرغم من أن برنامج التشغيل هذا يشير إلى OpenGL %1.%2 (%3).
 
 لا يمكن عرض معاينة الفيديو. قد يساعد تحديث برنامج تشغيل الرسومات لديك.</translation>
     </message>
@@ -16099,24 +16158,24 @@ The video preview cannot render. Updating your graphics driver may help.</source
         <translation>برنامج تشغيل الرسومات قديم جدًا</translation>
     </message>
     <message>
-        <source>Drift needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
+        <source>Flip needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
 
-The video preview cannot render, and Drift may not start at all. Update your graphics driver, or run Drift on a machine with a newer GPU.</source>
-        <translation>يحتاج Drift إلى OpenGL 3.3، لكن برنامج تشغيل الرسومات هذا يوفر فقط OpenGL %1.%2 (%3).
+The video preview cannot render, and Flip may not start at all. Update your graphics driver, or run Flip on a machine with a newer GPU.</source>
+        <translation>يحتاج Flip إلى OpenGL 3.3، لكن برنامج تشغيل الرسومات هذا يوفر فقط OpenGL %1.%2 (%3).
 
-لا يمكن عرض معاينة الفيديو، وقد لا يبدأ Drift على الإطلاق. حدّث برنامج تشغيل الرسومات لديك، أو شغّل Drift على جهاز مزود بـ GPU أحدث.</translation>
+لا يمكن عرض معاينة الفيديو، وقد لا يبدأ Flip على الإطلاق. حدّث برنامج تشغيل الرسومات لديك، أو شغّل Flip على جهاز مزود بـ GPU أحدث.</translation>
     </message>
     <message>
-        <source>Drift is not drawing its window</source>
-        <translation>Drift لا يرسم نافذته</translation>
+        <source>Flip is not drawing its window</source>
+        <translation>Flip لا يرسم نافذته</translation>
     </message>
     <message>
-        <source>Drift has been running for %1 seconds but its window has not drawn anything yet.
+        <source>Flip has been running for %1 seconds but its window has not drawn anything yet.
 
-If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Drift again.</source>
-        <translation>يعمل Drift منذ %1 ثانية، لكن نافذته لم ترسم أي شيء بعد.
+If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip again.</source>
+        <translation>يعمل Flip منذ %1 ثانية، لكن نافذته لم ترسم أي شيء بعد.
 
-إذا كانت النافذة فارغة أو سوداء، فمن المرجح أن برنامج تشغيل الرسومات لديك قديم أو به خلل. حدّثه من موقع الشركة المصنعة لـ GPU (AMD أو NVIDIA أو Intel) ثم شغّل Drift مجددًا.</translation>
+إذا كانت النافذة فارغة أو سوداء، فمن المرجح أن برنامج تشغيل الرسومات لديك قديم أو به خلل. حدّثه من موقع الشركة المصنعة لـ GPU (AMD أو NVIDIA أو Intel) ثم شغّل Flip مجددًا.</translation>
     </message>
 </context>
 </TS>

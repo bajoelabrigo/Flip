@@ -10642,7 +10642,7 @@ void AppController::stabilizeClip(int trackIndex, int clipIndex)
     setPlaying(false);
 
     if (!drift::hasVideoFilter("vidstabdetect") || !drift::hasVideoFilter("vidstabtransform")) {
-        setLastMessage(tr("This build of Drift has no video stabilization support"),
+        setLastMessage(tr("This build of Flip has no video stabilization support"),
                        QStringLiteral("error"));
         return;
     }
@@ -23059,10 +23059,10 @@ void AppController::saveToGallery(const QString &filePath, const QString &displa
     const QString name = displayName.isEmpty() ? QFileInfo(filePath).fileName() : displayName;
     const QUrl source = QUrl::fromLocalFile(filePath);
     const QString mime = QMimeDatabase().mimeTypeForFile(name, QMimeDatabase::MatchExtension).name();
-    const QString location = mime.startsWith(QLatin1String("audio/")) ? QStringLiteral("Music/Drift")
+    const QString location = mime.startsWith(QLatin1String("audio/")) ? QStringLiteral("Music/Flip")
                              : mime.startsWith(QLatin1String("image/"))
-                                 ? QStringLiteral("Pictures/Drift")
-                                 : QStringLiteral("Movies/Drift");
+                                 ? QStringLiteral("Pictures/Flip")
+                                 : QStringLiteral("Movies/Flip");
 
     (void)QtConcurrent::run([this, source, name, location]() {
         Exporter::BackgroundHold hold(QStringLiteral("Saving to gallery"));
