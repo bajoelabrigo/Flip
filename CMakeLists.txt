@@ -85,9 +85,10 @@ set(DRIFT_MARKET_CLIENT_KEY ""
 # Flip Studio is a fork of Drift (CutWire Studios). The addon service and marketplace above are CutWire's
 # and stay off until Flip Studio runs its own; set the URLs and keys here when it does.
 #
-# DNS host whose TXT record holds Flip Studio's newest version ("0.8.1"). Empty disables the update check
+# DNS host whose TXT record holds Flip Studio's newest version ("0.8.1"), managed in Hostinger's DNS
+# panel for getflipstudio.com. Empty disables the update check
 # even with a feed URL, so a fork never asks CutWire's record which version to download.
-set(DRIFT_UPDATE_VERSION_HOST "" CACHE STRING "DNS name with a TXT record holding the newest version; empty disables update checks")
+set(DRIFT_UPDATE_VERSION_HOST "version.getflipstudio.com" CACHE STRING "DNS name with a TXT record holding the newest version; empty disables update checks")
 
 # --- Update check -----------------------------------------------------------
 # Where the installer for a newer release is downloaded. The version itself comes from the TXT

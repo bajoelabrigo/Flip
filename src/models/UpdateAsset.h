@@ -23,7 +23,7 @@ struct ReleaseAsset
 // different product.
 ReleaseAsset selectReleaseAsset(const QJsonArray &assets, const QString &platform, const QString &arch);
 
-// A TXT value from drift-version.cutwire.org. Accepts "0.7.5" and "v0.7.5"; anything else
+// A TXT value from version.getflipstudio.com. Accepts "0.7.5" and "v0.7.5"; anything else
 // is empty so a stray record cannot advertise a non-version.
 QString parseVersionText(const QByteArray &raw);
 
