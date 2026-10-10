@@ -3,6 +3,14 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.8.3 — sin funciones rotas a la vista
+
+- La pestaña Market (recursos, efectos de sonido y stock de Pexels) se oculta mientras Flip Studio no tenga
+  servicio propio; antes mostraba "Mercado no disponible".
+- Extras: sin tienda de descargas, el administrador dice "Descargas próximamente" en lugar de "No se puede
+  acceder a la tienda de descargas" con un botón Reintentar que no podía funcionar. Afecta a todos los botones
+  que llevan a Extras (subtítulos automáticos, fuentes, stickers, máscaras, efectos).
+
 ## 0.8.2 — en español y con soporte propio
 
 - Ventana de información de depuración: los enlaces de documentación y Discord de CutWire ahora llevan a las preguntas

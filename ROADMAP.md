@@ -26,15 +26,16 @@ casilla al terminarla. Última actualización: 2026-10-10 (noche).
 
 ## Qué sigue
 
-Dónde estamos: la app de escritorio va por la **v0.8.2** (publicada; la Microsoft Store la está
-certificando) y el **editor web** va por la etapa 4 de 6 (ya edita y exporta MP4; se anunciará al
+Dónde estamos: la app de escritorio va por la **v0.8.2** (publicada en GitHub y en la Microsoft Store;
+la **v0.8.3** está en preparación) y el **editor web** va por la etapa 4 de 6 (ya edita y exporta MP4; se anunciará al
 terminar las etapas 5 y 6). Los dos frentes avanzan por separado; este es el orden recomendado.
 
 ### App de escritorio (Windows)
-1. **Esperar la certificación de la Store** de la 0.8.2.0 y comprobar que la ficha muestra la versión nueva.
-2. **v0.8.3 — sin funciones rotas a la vista.** Abrir en la app las partes que dependían de CutWire
-   (Assets, efectos de sonido, stock de Pexels) y, según lo que se vea, ocultarlas o rotularlas
-   "Próximamente" hasta que tengan servicio propio. Es lo primero que nota un usuario nuevo.
+1. ~~Esperar la certificación de la Store de la 0.8.2.0~~ — publicada el 2026-10-10.
+2. **v0.8.3 — sin funciones rotas a la vista** (rama `flip/v0.8.3`). Hecho en el código: la pestaña
+   Market (Assets, efectos de sonido, stock de Pexels) se oculta sin servicio propio, y Extras dice
+   "Descargas próximamente" en vez de un error con "Reintentar". Falta: compilar con Actions, probar
+   el portable, publicar (Release, TXT `version`, Store).
 3. **Add-ons propios (Fase 3.1).** Es lo que más valor devuelve: **subtítulos automáticos** (el modelo
    Whisper), fuentes y stickers. Pasos: clave de firma propia, empaquetar con la herramienta de
    Drift, alojarlos como archivos de un GitHub Release (gratis, sin cuenta nueva) y publicar el índice.
@@ -95,7 +96,7 @@ terminar las etapas 5 y 6). Los dos frentes avanzan por separado; este es el ord
   - [x] Código listo; versión `0.8.2` en `CMakeLists.txt`, `CHANGELOG.md` y `release-notes/0.8.2.md`.
   - [x] Compilada con **Actions → Build → windows** y probada con el portable.
   - [x] Fusionada en `main`, etiqueta `v0.8.2`, GitHub Release y TXT `version` → `0.8.2`.
-  - [ ] Microsoft Store: MSIX `0.8.2.0` enviado a certificación el 2026-10-10 (paquete en `C:\Users\bajoe\Downloads\FlipStudio-Store\paquete`).
+  - [x] Microsoft Store: MSIX `0.8.2.0` certificado y publicado el 2026-10-10 (paquete en `C:\Users\bajoe\Downloads\FlipStudio-Store\paquete`).
 - [x] `release.yml` adaptado: publica solo en tus Releases (Windows), sin Homebrew ni Discord de CutWire. Notas en `release-notes/<versión>.md`.
 - [x] `nightly.yml` sin uso: GitHub lo dejó desactivado (`disabled_fork`) y no se puede ejecutar salvo que alguien lo active; aun así se salta las ejecuciones programadas fuera del repo de CutWire. Se deja sin tocar para no complicar los merges con Drift.
 

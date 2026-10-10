@@ -210,12 +210,20 @@
         <translation>I-restart ang Flip Studio para magkabisa ito.</translation>
     </message>
     <message>
+        <source>Downloads coming soon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Can&apos;t reach the download store</source>
         <translation>Hindi maabot ang tindahan ng pag-download</translation>
     </message>
     <message>
         <source>Nothing in this category</source>
         <translation>Walang laman sa kategoryang ito</translation>
+    </message>
+    <message>
+        <source>Automatic subtitles, fonts, stickers and more will be available to download in an upcoming update. Extras you install from a file still work.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Check your connection and try again.</source>

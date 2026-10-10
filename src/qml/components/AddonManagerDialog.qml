@@ -429,14 +429,18 @@ ThemedDialog {
                 anchors.centerIn: parent
                 width: Math.min(parent.width - Theme.spacing3xl, 300)
                 visible: list.count === 0 && !Addons.refreshing
-                glyph: Addons.status.length > 0 ? Theme.icons.warning : Theme.icons.puzzle
-                title: Addons.status.length > 0
-                       ? qsTr("Can't reach the download store")
-                       : qsTr("Nothing in this category")
-                hint: Addons.status.length > 0
-                      ? qsTr("Check your connection and try again.")
-                      : qsTr("Pick another category above.")
-                actionText: Addons.status.length > 0 ? qsTr("Retry") : ""
+                glyph: Addons.serviceAvailable && Addons.status.length > 0 ? Theme.icons.warning : Theme.icons.puzzle
+                title: !Addons.serviceAvailable
+                       ? qsTr("Downloads coming soon")
+                       : Addons.status.length > 0
+                         ? qsTr("Can't reach the download store")
+                         : qsTr("Nothing in this category")
+                hint: !Addons.serviceAvailable
+                      ? qsTr("Automatic subtitles, fonts, stickers and more will be available to download in an upcoming update. Extras you install from a file still work.")
+                      : Addons.status.length > 0
+                        ? qsTr("Check your connection and try again.")
+                        : qsTr("Pick another category above.")
+                actionText: Addons.serviceAvailable && Addons.status.length > 0 ? qsTr("Retry") : ""
                 onActionTriggered: Addons.refresh(true)
             }
 

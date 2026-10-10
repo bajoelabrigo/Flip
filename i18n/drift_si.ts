@@ -210,12 +210,20 @@
         <translation>මෙය බලපැවැත්වීමට Flip Studio නැවත අරඹන්න.</translation>
     </message>
     <message>
+        <source>Downloads coming soon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Can&apos;t reach the download store</source>
         <translation>බාගැනීම් ගබඩාව වෙත සම්බන්ධ විය නොහැක</translation>
     </message>
     <message>
         <source>Nothing in this category</source>
         <translation>මෙම ප්‍රවර්ගයේ කිසිවක් නැත</translation>
+    </message>
+    <message>
+        <source>Automatic subtitles, fonts, stickers and more will be available to download in an upcoming update. Extras you install from a file still work.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Check your connection and try again.</source>

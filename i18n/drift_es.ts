@@ -210,12 +210,20 @@
         <translation>Reinicia Flip Studio para que esto surta efecto.</translation>
     </message>
     <message>
+        <source>Downloads coming soon</source>
+        <translation>Descargas próximamente</translation>
+    </message>
+    <message>
         <source>Can&apos;t reach the download store</source>
         <translation>No se puede acceder a la tienda de descargas</translation>
     </message>
     <message>
         <source>Nothing in this category</source>
         <translation>Nada en esta categoría</translation>
+    </message>
+    <message>
+        <source>Automatic subtitles, fonts, stickers and more will be available to download in an upcoming update. Extras you install from a file still work.</source>
+        <translation>Los subtítulos automáticos, las fuentes, los stickers y más se podrán descargar en una próxima actualización. Los extras que instales desde un archivo siguen funcionando.</translation>
     </message>
     <message>
         <source>Check your connection and try again.</source>

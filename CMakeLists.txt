@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.8.2 LANGUAGES CXX C)
+project(Drift VERSION 0.8.3 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -85,7 +85,7 @@ set(DRIFT_MARKET_CLIENT_KEY ""
 # Flip Studio is a fork of Drift (CutWire Studios). The addon service and marketplace above are CutWire's
 # and stay off until Flip Studio runs its own; set the URLs and keys here when it does.
 #
-# DNS host whose TXT record holds Flip Studio's newest version ("0.8.2"), managed in Hostinger's DNS
+# DNS host whose TXT record holds Flip Studio's newest version ("0.8.3"), managed in Hostinger's DNS
 # panel for getflipstudio.com. Empty disables the update check
 # even with a feed URL, so a fork never asks CutWire's record which version to download.
 set(DRIFT_UPDATE_VERSION_HOST "version.getflipstudio.com" CACHE STRING "DNS name with a TXT record holding the newest version; empty disables update checks")

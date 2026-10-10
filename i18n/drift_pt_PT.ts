@@ -210,12 +210,20 @@
         <translation>Reinicie o Flip Studio para aplicar a alteração.</translation>
     </message>
     <message>
+        <source>Downloads coming soon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Can&apos;t reach the download store</source>
         <translation>Não foi possível aceder a loja de transferências</translation>
     </message>
     <message>
         <source>Nothing in this category</source>
         <translation>Nada nesta categoria</translation>
+    </message>
+    <message>
+        <source>Automatic subtitles, fonts, stickers and more will be available to download in an upcoming update. Extras you install from a file still work.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Check your connection and try again.</source>
