@@ -1,7 +1,7 @@
 # Flip Studio — hoja de ruta
 
 Plan completo del proyecto, de la primera versión de escritorio a la suscripción. Se marca cada
-casilla al terminarla. Última actualización: 2026-10-10 (tarde).
+casilla al terminarla. Última actualización: 2026-10-10 (noche).
 
 **Datos clave**
 
@@ -21,6 +21,35 @@ casilla al terminarla. Última actualización: 2026-10-10 (tarde).
 - Los nombres internos de Drift (`drift::`, `DRIFT_*`, módulo QML `Drift`, `.drift`, `.driftfx`) **no se renombran**: así se pueden traer las mejoras de Drift.
 - La palabra "Flip" a secas es un verbo en Drift ("Flip horizontally" = Voltear): nunca reemplazarla en bloque.
 - Antes de publicar algo, compilarlo y probarlo en Windows.
+
+---
+
+## Qué sigue
+
+Dónde estamos: la app de escritorio va por la **v0.8.2** (publicada; la Microsoft Store la está
+certificando) y el **editor web** va por la etapa 4 de 6 (ya edita y exporta MP4; se anunciará al
+terminar las etapas 5 y 6). Los dos frentes avanzan por separado; este es el orden recomendado.
+
+### App de escritorio (Windows)
+1. **Esperar la certificación de la Store** de la 0.8.2.0 y comprobar que la ficha muestra la versión nueva.
+2. **v0.8.3 — sin funciones rotas a la vista.** Abrir en la app las partes que dependían de CutWire
+   (Assets, efectos de sonido, stock de Pexels) y, según lo que se vea, ocultarlas o rotularlas
+   "Próximamente" hasta que tengan servicio propio. Es lo primero que nota un usuario nuevo.
+3. **Add-ons propios (Fase 3.1).** Es lo que más valor devuelve: **subtítulos automáticos** (el modelo
+   Whisper), fuentes y stickers. Pasos: clave de firma propia, empaquetar con la herramienta de
+   Drift, alojar en Cloudflare R2 y publicar el índice. Sale como v0.9.0.
+4. **Primera sincronización con Drift (3.3)** para traer sus mejoras y arreglos, y desde ahí una vez al mes.
+5. **Stock de Pexels (3.2)**: requiere el backend `api.getflipstudio.com`, que también servirá para las cuentas (Fase 6).
+6. **Firma de código** del instalador cuando haya presupuesto (quita el aviso de SmartScreen en la descarga directa).
+7. Más adelante: Linux, Android y macOS (Fase 4).
+
+### Editor web (getflipstudio.com/editor)
+1. **Etapa 5a — transiciones**: pasar la vista previa y la exportación a WebGL2 y portar las 28 transiciones de Drift.
+2. **Etapa 5b — efectos**: unos 45 efectos de Drift (color, estilo, glitch, desenfoque…) con sus parámetros.
+3. **Etapa 6 — audio**: volumen y fundidos por clip, pista de música, silenciar el audio de un video.
+4. **Probar en Edge, Firefox y Safari** (y en el celular) antes de anunciarlo.
+5. **Anunciarlo**: botón "Editar en el navegador" en la web y quitar el `noindex`.
+6. Después: abrir y guardar proyectos en el formato de la app de escritorio.
 
 ---
 
@@ -49,7 +78,7 @@ casilla al terminarla. Última actualización: 2026-10-10 (tarde).
 - [x] Tests en CI: 15/15 en Linux y macOS.
 - [x] Versión portable para probar sin instalar; caché de compilación (ccache) en el CI de Windows.
 
-### Pendiente
+### Hecho después (2026-10-10)
 - [x] **Repo separado de la red de forks de Drift** (2026-10-10, *Settings → Leave fork network*). Se conservaron el código, las etiquetas, los Releases y Actions; se perdieron las páginas de los PR #1–#3 (sus commits siguen en `main`). Copia de los Releases en `C:\Users\bajoe\Downloads\FlipStudio-backup-releases`. El remoto `upstream` local sigue sirviendo para traer cambios de Drift; `gh repo set-default bajoelabrigo/Flip` hecho en la copia local.
 - [x] Probar el instalador nuevo en Windows (ícono, tema oscuro, panel de Medios, importar y **exportar** un video). — validado 2026-10-09 con el portable.
 - [x] Revisar el resto de la interfaz buscando "Drift" o fallos de diseño en español.
@@ -126,13 +155,14 @@ casilla al terminarla. Última actualización: 2026-10-10 (tarde).
   - [x] Guardado automático del proyecto en el navegador (IndexedDB); en Chrome/Edge se recuerda el acceso a los archivos y "Recuperar archivos" los vuelve a abrir; si falta uno, se enlaza al importarlo de nuevo.
   - [x] Etapa 3: pista de texto con carriles; 11 estilos de escritorio (tipografías, contornos, sombras, brillos, degradados, caja, palabra destacada) con animaciones por texto, palabra o letra; edición en el panel y arrastre sobre la vista previa. Tipografías de Google Fonts (OFL) alojadas en el propio servidor.
   - [x] Etapa 4: exportar a MP4 en el navegador (H.264 + AAC con WebCodecs, vía Mediabunny MPL-2.0): resolución original o 720p, calidad alta o normal, progreso y cancelar; en Chrome/Edge se escribe directo al disco. Corrige además la orientación de los videos de celular (rotación del MP4). Verificado con ffprobe: imagen, textos y audio de cada clip en su sitio.
-  - [ ] Etapa 5: efectos y transiciones (shaders de Drift en WebGL/WebGPU).
-  - [ ] Etapa 6: audio (volumen por clip, música, motor de audio de Drift en WebAssembly).
+  - [ ] Etapa 5a: transiciones. Motor de composición en **WebGL2** compartido por la vista previa y la exportación; las 28 transiciones de `transitions/` (GLSL 330 → GLSL ES 3.00, solo cambia la cabecera); en cada corte, un botón para elegir transición y duración.
+  - [ ] Etapa 5b: efectos. Pestaña "Efectos" para aplicarlos al clip seleccionado (se pueden apilar) y sus parámetros en el panel derecho. Entran unos 45 de los 64 de `effects/`; quedan fuera los que necesitan IA (caras, profundidad), el ritmo del audio (`beat_shake`) o fotogramas anteriores (`motion_trail`, `time_echo`).
+  - [ ] Etapa 6: audio (volumen y fundidos por clip, pista de música, silenciar el audio de un video; más adelante, el motor de audio de Drift en WebAssembly).
 - [ ] Reutilizar de Drift: shaders de `effects/` y `transitions/`, audio en WebAssembly (`wasm/`), presets JSON.
-- [ ] Etapas: importar y reproducir → timeline con cortes → texto → exportar MP4 → efectos y transiciones → audio.
 - [ ] Mismo formato de proyecto que la versión de escritorio.
 - [x] Enlace visible al código fuente (obligatorio por AGPL al reutilizar código de Drift): botón "Código fuente" y pie de página.
-- [ ] Probar en Chrome, Edge, Safari y Firefox (WebCodecs varía entre navegadores).
+- [ ] Probar en Chrome, Edge, Safari y Firefox (WebCodecs varía entre navegadores). Hasta ahora solo se ha probado en Chrome.
+- [ ] Pendientes conocidos: la pista de texto se ve bien hasta 3 carriles; un corte a otro punto del mismo video puede tener una pausa mínima en la vista previa; solo un proyecto a la vez.
 
 ## Fase 6 — Cuentas y nube (todavía gratis)
 
