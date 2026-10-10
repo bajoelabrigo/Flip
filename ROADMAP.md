@@ -53,13 +53,19 @@ casilla al terminarla. Última actualización: 2026-10-10.
 - [ ] **Separar el repo de la red de forks de Drift**: pedirlo en https://support.github.com ("detach fork" para `bajoelabrigo/Flip`). Conserva URL, Releases, issues y estrellas; el remoto `upstream` local sigue sirviendo para traer cambios de Drift. No recrear el repo (se perderían los Releases que usa el actualizador).
 - [x] Probar el instalador nuevo en Windows (ícono, tema oscuro, panel de Medios, importar y **exportar** un video). — validado 2026-10-09 con el portable.
 - [ ] Revisar el resto de la interfaz buscando "Drift" o fallos de diseño en español.
+  - [x] Traducción al español completa (`es` y `es_CO`, 0 textos pendientes): menús, actualizador, cámara 3D, mejora con IA, los 33 estilos de texto y "Proyecto sin título" (2026-10-10).
+  - [x] "Media bin" ya no es "papelera de medios" sino "biblioteca de medios"; "video" en lugar de "vídeo".
+  - [x] Botones Recto / Suave / Salto de los fotogramas clave ya no se cortan ("R…", "Su…").
+  - [ ] Revisarlo dentro de la app con la compilación de la v0.8.2.
 - [x] Fusionar el PR #1 en `main`.
 - [x] Publicar **v0.8.0** en GitHub Releases (`FlipStudio-Setup-0.8.0-x64.exe` + portable + `SHA256SUMS`) — 2026-10-09.
 - [x] Actualizador probado de punta a punta: 0.8.0 → 0.8.1 desde la app (2026-10-10).
 - [x] v0.8.1 preparada (rama `flip/v0.8.1`): claves cifradas, límites del MCP, acciones fijadas.
-- [ ] v0.8.2 (rama `flip/v0.8.2`): enlaces de soporte propios en la ventana de diagnóstico, nota de Flip Studio en `docs/`, carpeta de sesión MCP propia.
-  - [x] Código listo.
-  - [ ] Publicar: versión en `CMakeLists.txt`, `CHANGELOG.md`, `release-notes/0.8.2.md`, fusionar en `main`, etiqueta `v0.8.2` y TXT `version`.
+- [ ] v0.8.2 (rama `flip/v0.8.2`): interfaz en español completa, enlaces de soporte propios en la ventana de diagnóstico, nota de Flip Studio en `docs/`, carpeta de sesión MCP propia.
+  - [x] Código listo; versión `0.8.2` en `CMakeLists.txt`, `CHANGELOG.md` y `release-notes/0.8.2.md`.
+  - [ ] Compilar con **Actions → Build → windows** y probar el instalador (en curso).
+  - [ ] Fusionar en `main`, etiqueta `v0.8.2` y TXT `version` → `0.8.2`.
+  - [ ] Nuevo envío a la Microsoft Store con el MSIX `0.8.2.0`.
 - [x] `release.yml` adaptado: publica solo en tus Releases (Windows), sin Homebrew ni Discord de CutWire. Notas en `release-notes/<versión>.md`.
 - [ ] Ajustar `nightly.yml` o dejarlo desactivado (aún usa `drift-version.cutwire.org` y los IDs `org.cutwire.*.Nightly`).
 
@@ -73,10 +79,11 @@ casilla al terminarla. Última actualización: 2026-10-10.
   - [ ] Repetir el cuestionario IARC cuando se activen stock, cuentas o suscripción.
   - Cada versión nueva: subir el número MSIX (`A.B.C.0`), generar el paquete y crear un envío nuevo en Partner Center.
 - [ ] **Firma de código** del instalador `.exe` para quitar el aviso de SmartScreen (certificado OV/EV o Azure Trusted Signing). La Store firma su propio paquete, así que esto solo hace falta para la descarga directa.
-- [x] Web de `getflipstudio.com` hecha (repo local `C:\Users\bajoe\Downloads\flipstudio-web`): inicio, descarga automática de la última versión, preguntas, privacidad y términos.
+- [x] Web de `getflipstudio.com` hecha (`C:\Users\bajoe\Downloads\flipstudio-web`, repo privado https://github.com/bajoelabrigo/flipstudio-web): inicio, descarga automática de la última versión, preguntas, privacidad y términos. Se publica con `deploy/deploy.sh`.
 - [x] Captura real de la app en la web; textos legales bajo ley peruana (Ley 29733).
 - [x] DNS `A @ → 145.223.27.84`, publicada en el VPS y con HTTPS: https://getflipstudio.com (2026-10-09). Rediseño con recorrido interactivo y hoja de ruta.
 - [x] Correo de soporte `soporte@getflipstudio.com`.
+- [x] Sección "El editor" con 4 capturas reales y tarjetas al estilo CapCut: cambian la imagen al pasar el mouse y rotan solas (2026-10-10).
 
 ## Fase 3 — Infraestructura propia básica
 
@@ -96,6 +103,7 @@ casilla al terminarla. Última actualización: 2026-10-10.
 
 ### 3.3 Mantenimiento con Drift
 - [ ] Rutina mensual: `git fetch upstream && git merge upstream/main`, resolver conflictos, regenerar traducciones, compilar y probar.
+- Regenerar traducciones sin compilar la app: instalar `lupdate` de Qt 6.10.3 (`pip install aqtinstall`, luego `aqt install-qt windows desktop 6.10.3 win64_msvc2022_64 --archives qtbase qttools qtdeclarative`) y ejecutar `lupdate -no-obsolete -locations none -extensions cpp,h,qml,js,mm src -ts i18n/drift.ts i18n/drift_*.ts`. Da el mismo resultado que el test `Translations` del CI.
 
 ## Fase 4 — Otras plataformas
 
