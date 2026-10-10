@@ -36,14 +36,25 @@ anunciará al terminar las etapas 5 y 6). Los dos frentes avanzan por separado; 
    Extras dice "Descargas próximamente", barras de íconos más anchas. Falta: TXT `version` → `0.8.3`
    y la actualización en la Store.
    - Las compilaciones de escritorio se lanzan cuando hay varios cambios juntos, no por cada uno.
-3. **Add-ons propios (Fase 3.1).** Es lo que más valor devuelve: **subtítulos automáticos** (el modelo
-   Whisper), fuentes y stickers. Pasos: clave de firma propia, empaquetar con la herramienta de
-   Drift, alojarlos como archivos de un GitHub Release (gratis, sin cuenta nueva) y publicar el índice.
-   Sale como v0.9.0.
+3. **Add-ons propios (Fase 3.1) — v0.9.0** (rama `flip/v0.9.0`). Hecho el 2026-10-10:
+   - Clave de firma propia (Ed25519; la privada en `Downloads\FlipStudio-secretos`, con copia de
+     seguridad) y la app ya confía solo en ella. Los tests de C++ aceptan los paquetes firmados así.
+   - Repo [`bajoelabrigo/flip-addons`](https://github.com/bajoelabrigo/flip-addons) con el empaquetador
+     (`driftpkg.py`) y las recetas (`build.py`). Paquetes en su release `packages`; índice en
+     `getflipstudio.com/addons/index.json`.
+   - Primeros paquetes: **subtítulos automáticos** (Whisper small, 699 MB), **motor de IA** (ONNX
+     Runtime 1.27.0, CPU) y **32 fuentes**.
+   - Falta: compilar la 0.9.0 y probar en la app instalar y transcribir; luego **stickers** y un paquete
+     de **efectos de sonido** propio (sintetizado, sin licencias, como los de tu proyecto de Remotion).
+     Valorar Whisper `medium` (mejor en español, unos 1,5 GB) como opción aparte.
 4. **Primera sincronización con Drift (3.3)** para traer sus mejoras y arreglos, y desde ahí una vez al mes.
 5. **Stock de Pexels (3.2)**: requiere el backend `api.getflipstudio.com`, que también servirá para las cuentas (Fase 6).
 6. **Firma de código** del instalador cuando haya presupuesto (quita el aviso de SmartScreen en la descarga directa).
 7. Más adelante: Linux, Android y macOS (Fase 4).
+8. **Ideas de tu flujo de edición** (`Videos\Videos_Claude`, Remotion): cortar silencios automáticamente,
+   quitar muletillas a partir de la transcripción, reencuadre 16:9 → 9:16 siguiendo la cara,
+   subtítulos con palabras resaltadas y normalizar el audio a -14 LUFS. Revisar cuáles ya trae Drift
+   antes de construirlas.
 
 ### Editor web (getflipstudio.com/editor)
 1. ~~**Etapa 5a — transiciones**~~: las 28 de Drift con WebGL2, en vista previa y exportación (publicada el 2026-10-10).
