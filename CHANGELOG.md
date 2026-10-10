@@ -3,6 +3,13 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.9.0 — extras propios (en preparación)
+
+- Extras vuelve a descargar: índice en getflipstudio.com/addons/index.json y paquetes en los GitHub Releases
+  de bajoelabrigo/flip-addons, firmados con la clave de Flip Studio (la app ya no confía en la de CutWire).
+- Primeros paquetes: subtítulos automáticos (Whisper small), motor de IA (ONNX Runtime 1.27.0 para
+  procesador) y 32 fuentes de Google Fonts.
+
 ## 0.8.3 — sin funciones rotas a la vista
 
 - La pestaña Market (recursos, efectos de sonido y stock de Pexels) se oculta mientras Flip Studio no tenga
