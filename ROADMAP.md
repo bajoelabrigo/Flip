@@ -124,7 +124,8 @@ casilla al terminarla. Última actualización: 2026-10-10 (tarde).
   - [x] Etapa 1: importar (botón y arrastrar), análisis de MP4/MOV con mp4box.js + WebCodecs, miniaturas desde los fotogramas clave, vista previa en lienzo con audio y avance por fotograma, línea de tiempo con cabezal. WebM y MKV usan el reproductor del navegador.
   - [x] Etapa 2: pista principal magnética con varios clips (añadir con +, doble clic o arrastrando), dividir, recortar los bordes, reordenar, deshacer/rehacer, zoom; la vista previa reproduce la secuencia preparando el siguiente clip. 10 pruebas con Vitest en el CI.
   - [x] Guardado automático del proyecto en el navegador (IndexedDB); en Chrome/Edge se recuerda el acceso a los archivos y "Recuperar archivos" los vuelve a abrir; si falta uno, se enlaza al importarlo de nuevo.
-  - [ ] Etapa 3: texto (estilos como en escritorio).
+  - [x] Etapa 3: pista de texto con carriles; 11 estilos de escritorio (tipografías, contornos, sombras, brillos, degradados, caja, palabra destacada) con animaciones por texto, palabra o letra; edición en el panel y arrastre sobre la vista previa. Tipografías de Google Fonts (OFL) alojadas en el propio servidor.
+  - [ ] Etapa 4: exportar MP4 con WebCodecs (`VideoEncoder` + `AudioEncoder`), en el navegador.
 - [ ] Reutilizar de Drift: shaders de `effects/` y `transitions/`, audio en WebAssembly (`wasm/`), presets JSON.
 - [ ] Etapas: importar y reproducir → timeline con cortes → texto → exportar MP4 → efectos y transiciones → audio.
 - [ ] Mismo formato de proyecto que la versión de escritorio.
