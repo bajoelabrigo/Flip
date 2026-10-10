@@ -359,7 +359,17 @@ Item {
             spacing: 6
 
             ThemedButton {
-                width: (parent.width - parent.spacing) / 2
+                width: (parent.width - parent.spacing * 2) / 3
+                text: qsTr("Emojis")
+                variant: "secondary"
+                glyph: Theme.icons.smile
+                tooltip: qsTr("Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)")
+                enabled: root.cues.length > 0
+                onClicked: EditorState.addEmojisToSubtitles(root.trackIndex, root.clipIndex)
+            }
+
+            ThemedButton {
+                width: (parent.width - parent.spacing * 2) / 3
                 text: qsTr("Clean up")
                 variant: "secondary"
                 glyph: Theme.icons.wand
@@ -369,7 +379,7 @@ Item {
             }
 
             ThemedButton {
-                width: (parent.width - parent.spacing) / 2
+                width: (parent.width - parent.spacing * 2) / 3
                 text: qsTr("Find & replace")
                 variant: root.replaceOpen ? "primary" : "secondary"
                 glyph: Theme.icons.search

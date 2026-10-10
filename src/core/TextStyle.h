@@ -10,6 +10,7 @@
 #include <QList>
 #include <QMap>
 #include <QPair>
+#include <QRectF>
 #include <QString>
 #include <QStringList>
 
@@ -159,6 +160,16 @@ QString textKeyframeLabel(const QString &key, const TextStyle &style);
 bool textStyleScalar(const TextStyle &style, const QString &key, double *out);
 bool setTextStyleScalar(TextStyle &style, const QString &key, double value);
 
+// One text of a combined template: its look, its words, where it sits (fractions of the canvas)
+// and how long after the template's start it comes in.
+struct TextTemplatePart
+{
+    TextStyle style;
+    QString text;
+    QRectF rect;
+    double delaySeconds = 0.0;
+};
+
 struct TextPreset
 {
     QString id;
@@ -169,6 +180,9 @@ struct TextPreset
     QString sampleText;
     // Add-on packs only: the pack category it is listed under.
     QString category;
+    // Add-on packs only: a combined template (a title with its subtitle, a name with its role…)
+    // adds one text clip per part, placed and timed together. Empty for a plain style.
+    QList<TextTemplatePart> parts;
 };
 
 // Built-in style packs only. User-saved presets live in TextPresetStore; textPresetForId()

@@ -604,6 +604,8 @@ public:
     Q_INVOKABLE void addTextClip(const QString &text, double atSeconds,
                                  const QString &presetId = QString(), int trackIndex = -1);
     Q_INVOKABLE void addSubtitleClip(double atSeconds);
+    // A combined template from Extras: one text clip per part, placed and timed together, one undo.
+    void addTextTemplate(const drift::TextPreset &preset, double atSeconds);
     // Import a SubRip (.srt) file as a new subtitle clip at the playhead (or atSeconds).
     Q_INVOKABLE bool importSubtitleFile(const QUrl &url, double atSeconds = -1.0);
     // Replace cues on an existing subtitle clip from a .srt file.
@@ -618,6 +620,10 @@ public:
                                               int maxWordsPerCue = 0);
     // Captions every selected video/audio clip into one subtitle clip (falls back to the focused
     // clip). Returns false when the selection cannot be transcribed, e.g. clips overlap in time.
+    // The same run with Whisper's translate task: English captions, on a track of their own and
+    // placed above the original ones, for bilingual videos.
+    Q_INVOKABLE bool generateEnglishSubtitlesForSelection(const QString &language = QString(),
+                                                          int maxWordsPerCue = 0);
     Q_INVOKABLE bool generateSubtitlesForSelection(const QString &language = QString(),
                                                    int maxWordsPerCue = 0);
     // Same, for the given (track, clip) pairs instead of the selection.
@@ -941,6 +947,10 @@ public:
     Q_INVOKABLE void setSubtitleCleanupEnabled(bool enabled);
     // Caption-ready styles for the picker: built-in caption packs then the add-on "subtitulos".
     Q_INVOKABLE QVariantList subtitleStyleChoices() const;
+    // Emojis for keywords at the end of captions: an option for new captions, and an action.
+    Q_INVOKABLE bool subtitleEmojisEnabled() const;
+    Q_INVOKABLE void setSubtitleEmojisEnabled(bool enabled);
+    Q_INVOKABLE void addEmojisToSubtitles(int trackIndex, int clipIndex);
     Q_INVOKABLE void previewSetSubtitleCues(int trackIndex, int clipIndex, const QVariantList &cues);
     Q_INVOKABLE double subtitleLocalPlayheadSeconds(int trackIndex, int clipIndex) const;
     Q_INVOKABLE void upsertSubtitleCueAtPlayhead(int trackIndex, int clipIndex, const QString &text);
@@ -1863,10 +1873,11 @@ protected:
     std::optional<QList<drift::SubtitleCue>> cuesFromStoredTranscripts(const QList<SubtitleSource> &sources,
                                                                        drift::TimeUs rangeStart,
                                                                        int maxWordsPerCue) const;
+    bool m_subtitleTranslateNext = false; // the next generation run translates to English
     bool generateSubtitlesForSources(QList<SubtitleSource> sources, const QString &language,
                                      int maxWordsPerCue);
     void finalizeGeneratedSubtitles(drift::TimeUs timelineStart, drift::TimeUs timelineDuration,
-                                    const QList<drift::SubtitleCue> &cues);
+                                    const QList<drift::SubtitleCue> &cues, bool translated = false);
     void finalizeDenoise(const QString &clipId, const QString &audioPath);
     // Runs on the stabilize worker: maps a job's 0..1 onto [rangeFrom, rangeTo] of the clip's
     // progress, posts it to the UI thread, and returns false once `cancel` is set.

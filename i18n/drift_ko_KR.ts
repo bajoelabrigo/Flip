@@ -174,10 +174,6 @@
         <translation>오디오 효과</translation>
     </message>
     <message>
-        <source>Fonts</source>
-        <translation>글꼴</translation>
-    </message>
-    <message>
         <source>Stickers</source>
         <translation>스티커</translation>
     </message>
@@ -280,6 +276,10 @@
     <message>
         <source>Install</source>
         <translation>설치</translation>
+    </message>
+    <message>
+        <source>Text &amp; fonts</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Custom</source>
@@ -2240,6 +2240,10 @@
         <translation>텍스트 클립이 추가됨</translation>
     </message>
     <message>
+        <source>Text template added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Subtitles</source>
         <translation>자막</translation>
     </message>
@@ -3060,6 +3064,46 @@
         <translation>자막이 업데이트됨</translation>
     </message>
     <message>
+        <source>“%1” is not in these subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace in subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Replaced in %n caption(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Subtitles are already clean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean up subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles cleaned up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keywords for emojis in these subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Emojis added to %n caption(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
         <source>Adjust subtitle timing</source>
         <translation>자막 타이밍 조정</translation>
     </message>
@@ -3126,6 +3170,20 @@
     <message>
         <source>Text style imported</source>
         <translation>텍스트 스타일이 가져와짐</translation>
+    </message>
+    <message>
+        <source>Font added: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n fonts added</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>That file is not a font this app can read</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Resize text</source>
@@ -3570,6 +3628,10 @@
     <message>
         <source>Stabilization analysis failed: %1</source>
         <translation>안정화 분석에 실패했습니다: %1</translation>
+    </message>
+    <message>
+        <source>English subtitles</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -7204,6 +7266,34 @@
 <context>
     <name>FontCatalog</name>
     <message>
+        <source>My fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bold &amp; impact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elegant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Handwritten</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fun</source>
+        <translation type="unfinished">재미</translation>
+    </message>
+    <message>
+        <source>Retro</source>
+        <translation type="unfinished">레트로</translation>
+    </message>
+    <message>
         <source>High-Impact &amp; Bold</source>
         <translation>강렬하고 대담한</translation>
     </message>
@@ -7223,8 +7313,64 @@
 <context>
     <name>FontPicker</name>
     <message>
+        <source>Select a font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fonts (*.ttf *.otf)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished">즐겨찾기</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">모두</translation>
+    </message>
+    <message>
+        <source>Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Install the font pack for curated families →</source>
         <translation>엄선된 글꼴 모음을 사용하려면 글꼴 팩을 설치하세요 →</translation>
+    </message>
+    <message>
+        <source>No fonts match “%1”</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star fonts to keep them here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fonts you use will appear here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing in this category</source>
+        <translation type="unfinished">이 카테고리에는 항목이 없습니다</translation>
+    </message>
+    <message>
+        <source>Import font…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>More fonts</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12893,6 +13039,90 @@ If playback stutters, try another.</source>
         <translation>이 클립의 시작 위치만큼 내보낸 캡션에 오프셋을 적용하여 내보낸 동영상과 맞춥니다</translation>
     </message>
     <message>
+        <source>Emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove hesitations (eh, mmm), capitalize each caption and apply your dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find &amp; replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fix a word in every caption at once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find (e.g. jesus)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace with (e.g. Jesús)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Always fix it in new subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adds it to your subtitle dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dictionary…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Words fixed automatically in every new subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitle dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">저장</translation>
+    </message>
+    <message>
+        <source>New subtitles fix these words on their own: names, places, words the speech recognition gets wrong.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Empty for now. Use Find &amp; replace with “Always fix it” to add words.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">제거</translation>
+    </message>
+    <message>
+        <source>Wrong</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished">오른쪽</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">더하기</translation>
+    </message>
+    <message>
         <source>(empty)</source>
         <translation>(비어 있음)</translation>
     </message>
@@ -12907,6 +13137,10 @@ If playback stutters, try another.</source>
     <message>
         <source>No subtitles yet. Move to a time inside this clip and add one below.</source>
         <translation>아직 자막이 없습니다. 이 클립 안의 시점으로 이동한 후 아래에서 추가하세요.</translation>
+    </message>
+    <message>
+        <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type subtitle…</source>
@@ -13011,6 +13245,22 @@ If playback stutters, try another.</source>
         <translation>먼저 타임라인에서 동영상 또는 오디오 클립을 선택하세요.</translation>
     </message>
     <message>
+        <source>Caption style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove hesitations (eh, mmm) and capitalize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add emojis for keywords (fuego 🔥, Dios 🙏)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>짧은 캡션은 각 구문을 동일한 간격으로 나누어 타이밍을 맞추므로 음성과 약간 어긋날 수 있습니다.</translation>
     </message>
@@ -13021,6 +13271,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Select a video or audio clip first</source>
         <translation>먼저 동영상 또는 오디오 클립을 선택하세요</translation>
+    </message>
+    <message>
+        <source>Add English translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Creating captions… %1%</source>
@@ -13113,8 +13371,20 @@ If playback stutters, try another.</source>
         <translation>삭제</translation>
     </message>
     <message>
-        <source>Built-in</source>
-        <translation>기본 제공</translation>
+        <source>Templates</source>
+        <translation type="unfinished">템플릿</translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation type="unfinished">기본</translation>
+    </message>
+    <message>
+        <source>More…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get more templates</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rename text style</source>
@@ -13457,6 +13727,42 @@ If playback stutters, try another.</source>
     <message>
         <source>Glow</source>
         <translation>광선</translation>
+    </message>
+    <message>
+        <source>No accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>First word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every other word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every Nth word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longest word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spoken word (karaoke)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keywords (long words and numbers)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text</source>

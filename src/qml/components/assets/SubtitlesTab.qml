@@ -203,6 +203,14 @@ Item {
                 onToggled: EditorState.setSubtitleCleanupEnabled(checked)
             }
 
+            ThemedCheckBox {
+                visible: root.whisperReady
+                width: subtitleColumn.contentWidth
+                text: qsTr("Add emojis for keywords (fuego 🔥, Dios 🙏)")
+                checked: EditorState.subtitleEmojisEnabled()
+                onToggled: EditorState.setSubtitleEmojisEnabled(checked)
+            }
+
             Text {
                 visible: root.whisperReady && captionWordsBox.currentValue > 0
                 width: subtitleColumn.contentWidth
@@ -228,6 +236,24 @@ Item {
                                  ? captionLanguageBox.currentValue
                                  : ""
                     EditorState.generateSubtitlesForSelection(lang, captionWordsBox.currentValue)
+                }
+            }
+
+            // Whisper's translate task: the same speech written in English, placed above the
+            // original captions — bilingual videos in two clicks.
+            ThemedButton {
+                visible: root.whisperReady && !EditorState.subtitleGenerating
+                width: subtitleColumn.contentWidth
+                text: qsTr("Add English translation")
+                variant: "ghost"
+                glyph: Theme.icons.languages
+                tooltip: qsTr("Captions translated to English, above the original ones. English is the only language the model translates to.")
+                enabled: root.captionTargetReady
+                onClicked: {
+                    const lang = captionLanguageBox.currentValue !== undefined
+                                 ? captionLanguageBox.currentValue
+                                 : ""
+                    EditorState.generateEnglishSubtitlesForSelection(lang, captionWordsBox.currentValue)
                 }
             }
 

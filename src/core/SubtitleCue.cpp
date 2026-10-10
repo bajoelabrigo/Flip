@@ -289,6 +289,142 @@ QList<SubtitleCue> cleanSubtitleCues(const QList<SubtitleCue> &cues)
     return out;
 }
 
+QString captionWithEmoji(const QString &text)
+{
+    // (stem, emoji): a stem matches the start of an accent-free, lower-case word; a stem ending
+    // in a space must be the whole word ("fe ", "sol "). Earlier rows win.
+    static const QList<QPair<QString, QString>> kStems = {
+        {QStringLiteral("dios"), QStringLiteral("🙏")},
+        {QStringLiteral("senor"), QStringLiteral("🙏")},
+        {QStringLiteral("jesus"), QStringLiteral("✝️")},
+        {QStringLiteral("cristo"), QStringLiteral("✝️")},
+        {QStringLiteral("cruz"), QStringLiteral("✝️")},
+        {QStringLiteral("biblia"), QStringLiteral("📖")},
+        {QStringLiteral("palabra de dios"), QStringLiteral("📖")},
+        {QStringLiteral("orac"), QStringLiteral("🙏")},
+        {QStringLiteral("orar"), QStringLiteral("🙏")},
+        {QStringLiteral("oremos"), QStringLiteral("🙏")},
+        {QStringLiteral("bendic"), QStringLiteral("🙌")},
+        {QStringLiteral("bendig"), QStringLiteral("🙌")},
+        {QStringLiteral("aleluya"), QStringLiteral("🙌")},
+        {QStringLiteral("amen"), QStringLiteral("🙏")},
+        {QStringLiteral("iglesia"), QStringLiteral("⛪")},
+        {QStringLiteral("espiritu"), QStringLiteral("🕊️")},
+        {QStringLiteral("paz"), QStringLiteral("🕊️")},
+        {QStringLiteral("fe "), QStringLiteral("✨")},
+        {QStringLiteral("milagro"), QStringLiteral("✨")},
+        {QStringLiteral("cielo"), QStringLiteral("☁️")},
+        {QStringLiteral("gloria"), QStringLiteral("✨")},
+        {QStringLiteral("gracias"), QStringLiteral("🙏")},
+        {QStringLiteral("amor"), QStringLiteral("❤️")},
+        {QStringLiteral("corazon"), QStringLiteral("❤️")},
+        {QStringLiteral("te quiero"), QStringLiteral("❤️")},
+        {QStringLiteral("familia"), QStringLiteral("👨‍👩‍👧")},
+        {QStringLiteral("hijo"), QStringLiteral("👶")},
+        {QStringLiteral("bebe"), QStringLiteral("👶")},
+        {QStringLiteral("mama"), QStringLiteral("👩")},
+        {QStringLiteral("papa"), QStringLiteral("👨")},
+        {QStringLiteral("fuego"), QStringLiteral("🔥")},
+        {QStringLiteral("increible"), QStringLiteral("🤯")},
+        {QStringLiteral("wow"), QStringLiteral("😮")},
+        {QStringLiteral("sorpresa"), QStringLiteral("😮")},
+        {QStringLiteral("risa"), QStringLiteral("😂")},
+        {QStringLiteral("jaja"), QStringLiteral("😂")},
+        {QStringLiteral("chiste"), QStringLiteral("😂")},
+        {QStringLiteral("feliz"), QStringLiteral("😊")},
+        {QStringLiteral("alegr"), QStringLiteral("😄")},
+        {QStringLiteral("triste"), QStringLiteral("😢")},
+        {QStringLiteral("llor"), QStringLiteral("😢")},
+        {QStringLiteral("miedo"), QStringLiteral("😱")},
+        {QStringLiteral("dinero"), QStringLiteral("💰")},
+        {QStringLiteral("plata "), QStringLiteral("💰")},
+        {QStringLiteral("precio"), QStringLiteral("💲")},
+        {QStringLiteral("oferta"), QStringLiteral("🏷️")},
+        {QStringLiteral("gratis"), QStringLiteral("🎁")},
+        {QStringLiteral("regalo"), QStringLiteral("🎁")},
+        {QStringLiteral("fiesta"), QStringLiteral("🎉")},
+        {QStringLiteral("celebr"), QStringLiteral("🎉")},
+        {QStringLiteral("cumpleanos"), QStringLiteral("🎂")},
+        {QStringLiteral("musica"), QStringLiteral("🎵")},
+        {QStringLiteral("cancion"), QStringLiteral("🎶")},
+        {QStringLiteral("canta"), QStringLiteral("🎤")},
+        {QStringLiteral("idea"), QStringLiteral("💡")},
+        {QStringLiteral("tiempo"), QStringLiteral("⏰")},
+        {QStringLiteral("hora"), QStringLiteral("⏰")},
+        {QStringLiteral("mundo"), QStringLiteral("🌎")},
+        {QStringLiteral("sol "), QStringLiteral("☀️")},
+        {QStringLiteral("agua"), QStringLiteral("💧")},
+        {QStringLiteral("luz"), QStringLiteral("✨")},
+        {QStringLiteral("exito"), QStringLiteral("🏆")},
+        {QStringLiteral("ganar"), QStringLiteral("🏆")}, {QStringLiteral("ganamos"), QStringLiteral("🏆")},
+        {QStringLiteral("trabajo"), QStringLiteral("💼")},
+        {QStringLiteral("fuerza"), QStringLiteral("💪")},
+        {QStringLiteral("fuerte"), QStringLiteral("💪")},
+        {QStringLiteral("comida"), QStringLiteral("🍽️")},
+        {QStringLiteral("casa"), QStringLiteral("🏠")},
+        {QStringLiteral("viaje"), QStringLiteral("✈️")},
+        {QStringLiteral("telefono"), QStringLiteral("📱")},
+        {QStringLiteral("celular"), QStringLiteral("📱")},
+        {QStringLiteral("video"), QStringLiteral("🎬")},
+        {QStringLiteral("foto"), QStringLiteral("📸")},
+        {QStringLiteral("mira"), QStringLiteral("👀")},
+        {QStringLiteral("atencion"), QStringLiteral("👀")},
+        {QStringLiteral("escucha"), QStringLiteral("👂")},
+        {QStringLiteral("importante"), QStringLiteral("⚠️")},
+        {QStringLiteral("cuidado"), QStringLiteral("⚠️")},
+        {QStringLiteral("nuevo"), QStringLiteral("✨")},
+        {QStringLiteral("primero"), QStringLiteral("🥇")},
+        {QStringLiteral("rapido"), QStringLiteral("⚡")},
+        {QStringLiteral("estudi"), QStringLiteral("📚")},
+        {QStringLiteral("libro"), QStringLiteral("📚")},
+        {QStringLiteral("escuela"), QStringLiteral("🏫")},
+        {QStringLiteral("god"), QStringLiteral("🙏")},
+        {QStringLiteral("pray"), QStringLiteral("🙏")},
+        {QStringLiteral("bless"), QStringLiteral("🙌")},
+        {QStringLiteral("church"), QStringLiteral("⛪")},
+        {QStringLiteral("love"), QStringLiteral("❤️")},
+        {QStringLiteral("heart"), QStringLiteral("❤️")},
+        {QStringLiteral("fire"), QStringLiteral("🔥")},
+        {QStringLiteral("money"), QStringLiteral("💰")},
+        {QStringLiteral("party"), QStringLiteral("🎉")},
+        {QStringLiteral("music"), QStringLiteral("🎵")},
+        {QStringLiteral("happy"), QStringLiteral("😊")},
+        {QStringLiteral("funny"), QStringLiteral("😂")},
+        {QStringLiteral("sad"), QStringLiteral("😢")},
+        {QStringLiteral("amazing"), QStringLiteral("🤯")},
+        {QStringLiteral("idea"), QStringLiteral("💡")},
+        {QStringLiteral("time"), QStringLiteral("⏰")},
+        {QStringLiteral("world"), QStringLiteral("🌎")},
+        {QStringLiteral("win "), QStringLiteral("🏆")}, {QStringLiteral("winner"), QStringLiteral("🏆")},
+        {QStringLiteral("strong"), QStringLiteral("💪")},
+        {QStringLiteral("food"), QStringLiteral("🍽️")},
+        {QStringLiteral("home"), QStringLiteral("🏠")},
+        {QStringLiteral("look"), QStringLiteral("👀")},
+        {QStringLiteral("thank"), QStringLiteral("🙏")},
+    };
+    if (text.trimmed().isEmpty())
+        return text;
+    // Already has one: a caption the user decorated, or one this already ran on.
+    for (const QChar c : text) {
+        // Supplementary-plane emoji, or the arrows/symbols/dingbats blocks (☀ ❤ ✝ ✨ ⚡ …).
+        if (c.isSurrogate() || (c.unicode() >= 0x2190 && c.unicode() <= 0x2BFF))
+            return text;
+    }
+    QString folded = text.normalized(QString::NormalizationForm_KD);
+    QString plain;
+    for (const QChar c : std::as_const(folded)) {
+        if (c.category() == QChar::Mark_NonSpacing)
+            continue;
+        plain.append(c.isLetterOrNumber() ? c.toLower() : QLatin1Char(' '));
+    }
+    const QString padded = QLatin1Char(' ') + plain.simplified() + QLatin1Char(' ');
+    for (const auto &[stem, emoji] : kStems) {
+        if (padded.contains(QLatin1Char(' ') + stem))
+            return text.trimmed() + QLatin1Char(' ') + emoji;
+    }
+    return text;
+}
+
 QString applySubtitleReplacements(const QString &text, const QList<QPair<QString, QString>> &pairs)
 {
     QString out = text;

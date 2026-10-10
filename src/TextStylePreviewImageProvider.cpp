@@ -111,9 +111,56 @@ TextStylePreviewImageProvider::TextStylePreviewImageProvider()
 {
 }
 
-QImage TextStylePreviewImageProvider::requestImage(const QString &id, QSize *size,
+QImage TextStylePreviewImageProvider::requestImage(const QString &rawId, QSize *size,
                                                    const QSize &requestedSize)
 {
+    // "<preset id>?frames=N&w=W&h=H" asks for a sprite sheet of the style's first seconds — its
+    // entrance and, for karaoke, the spoken word moving — for the card to play on hover.
+    const int query = rawId.indexOf(QLatin1Char('?'));
+    const QString id = query < 0 ? rawId : rawId.left(query);
+    if (query >= 0) {
+        const QUrlQuery params(rawId.mid(query + 1));
+        const int frames = qBound(1, params.queryItemValue(QStringLiteral("frames")).toInt(), 48);
+        const int frameW = qBound(16, params.queryItemValue(QStringLiteral("w")).toInt(), 480);
+        const int frameH = qBound(16, params.queryItemValue(QStringLiteral("h")).toInt(), 270);
+        const QString key = QStringLiteral("style|") + rawId;
+        if (const QImage hit = cachedCard(key); !hit.isNull()) {
+            if (size)
+                *size = hit.size();
+            return hit;
+        }
+        const std::optional<drift::TextPreset> preset = drift::textPresetForId(id);
+        if (!preset) {
+            if (size)
+                *size = QSize();
+            return {};
+        }
+        constexpr double kWindowS = 2.4; // the entrance plus a beat of the settled look
+        drift::Clip clip;
+        clip.type = drift::ClipType::Text;
+        clip.textStyle = preset->style;
+        // Long enough that the exit never starts inside the window.
+        clip.timelineDuration = drift::secondsToUs(kWindowS + 2.0);
+        const QString sample = preset->sampleText.isEmpty() ? kFallbackSample : preset->sampleText;
+        const bool karaoke = preset->style.accent.rule == drift::WordAccentRule::Karaoke;
+        const int columns = qMin(8, frames);
+        const int rows = (frames + columns - 1) / columns;
+        QImage sheet(frameW * columns, frameH * rows, QImage::Format_ARGB32_Premultiplied);
+        sheet.fill(Qt::transparent);
+        QPainter p(&sheet);
+        for (int i = 0; i < frames; ++i) {
+            const drift::TimeUs t = drift::secondsToUs(frames > 1 ? kWindowS * i / (frames - 1) : 0.0);
+            const int word = karaoke ? drift::activeWordIndexAt(sample, 0, drift::secondsToUs(kWindowS), t) : -1;
+            const QImage frame = renderTextCard(clip, sample, QSize(frameW, frameH), frameW / kReferenceWidth, t, word);
+            p.drawImage((i % columns) * frameW, (i / columns) * frameH, frame);
+        }
+        p.end();
+        storeCard(key, sheet);
+        if (size)
+            *size = sheet.size();
+        return sheet;
+    }
+
     const std::optional<drift::TextPreset> preset = drift::textPresetForId(id);
     if (!preset) {
         if (size)

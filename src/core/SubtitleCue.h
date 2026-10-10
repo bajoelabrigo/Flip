@@ -46,6 +46,11 @@ QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineW
 QString cleanSubtitleText(const QString &text);
 QList<SubtitleCue> cleanSubtitleCues(const QList<SubtitleCue> &cues);
 
+// The caption with one emoji added at its end for the first keyword it mentions ("fuego" 🔥,
+// "Dios" 🙏, "fiesta" 🎉 …; Spanish and English). Unchanged when nothing matches or when it
+// already has an emoji.
+QString captionWithEmoji(const QString &text);
+
 // Whole-word, case-insensitive replacements (find -> replace), applied in order: the user's
 // subtitle dictionary and Find & replace.
 QString applySubtitleReplacements(const QString &text, const QList<QPair<QString, QString>> &pairs);

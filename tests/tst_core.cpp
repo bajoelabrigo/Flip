@@ -1120,6 +1120,13 @@ void CoreTest::subtitleCuePacking()
     QVERIFY(!drift::isKeyword(QStringLiteral("nosotros")));
     QVERIFY(!drift::isKeyword(QStringLiteral("Dios")));
 
+    // One emoji for the first keyword, accent-insensitive, and never twice.
+    QCOMPARE(drift::captionWithEmoji(QStringLiteral("Que Dios te bendiga")), QStringLiteral("Que Dios te bendiga 🙏"));
+    QCOMPARE(drift::captionWithEmoji(QStringLiteral("Mucha bendición")), QStringLiteral("Mucha bendición 🙌"));
+    QCOMPARE(drift::captionWithEmoji(QStringLiteral("Ahora sí")), QStringLiteral("Ahora sí"));
+    QCOMPARE(drift::captionWithEmoji(QStringLiteral("Hay fuego 🔥")), QStringLiteral("Hay fuego 🔥"));
+    QCOMPARE(drift::captionWithEmoji(QStringLiteral("Tengo ganas")), QStringLiteral("Tengo ganas"));
+
     // Replacements are whole words in any case.
     const QList<QPair<QString, QString>> dictionary = {{QStringLiteral("jesus"), QStringLiteral("Jesús")}};
     QCOMPARE(drift::applySubtitleReplacements(QStringLiteral("JESUS y jesusito"), dictionary),

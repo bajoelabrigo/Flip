@@ -8453,12 +8453,22 @@ void AppController::moveClipToTrack(int trackIndex, int clipIndex, int newTrackI
 void AppController::addTextClip(const QString &text, double atSeconds, const QString &presetId,
                                 int requestedTrack)
 {
+    const std::optional<drift::TextPreset> addonPreset =
+        drift::isAddonTextPresetId(presetId) ? drift::textPresetForId(presetId) : std::nullopt;
+    if (addonPreset && !addonPreset->parts.isEmpty()) {
+        addTextTemplate(*addonPreset, atSeconds);
+        return;
+    }
+
     const QString trimmed = text.trimmed();
     // Adding with no text is the "drop it in, then type on the preview" path:
     // the clip gets placeholder words and the preview opens an inline editor on
-    // it. Passing text keeps the original behaviour.
+    // it. Passing text keeps the original behaviour. A template from Extras starts
+    // with its own words ("Dios te bendiga"), which read better than a placeholder.
     const bool placeholder = trimmed.isEmpty();
-    const QString content = placeholder ? tr("Your text here") : trimmed;
+    const QString content = !placeholder ? trimmed
+                            : (addonPreset && !addonPreset->sampleText.isEmpty()) ? addonPreset->sampleText
+                                                                                  : tr("Your text here");
 
     const drift::Project before = m_project;
     const bool requestedFits = requestedTrack >= 0 && requestedTrack < m_project.tracks().size()
@@ -8505,6 +8515,51 @@ void AppController::addTextClip(const QString &text, double atSeconds, const QSt
             setPlayheadSeconds(drift::usToSeconds(start));
         emit inlineTextEditRequested(trackIndex, newClipIndex);
     }
+}
+
+void AppController::addTextTemplate(const drift::TextPreset &preset, double atSeconds)
+{
+    const drift::Project before = m_project;
+    const drift::TimeUs start = atSeconds < 0.0 ? m_playheadUs : drift::secondsToUs(atSeconds);
+    const double w = m_project.width();
+    const double h = m_project.height();
+    int firstTrack = -1;
+    int firstClip = -1;
+    // Bottom part first: each lands on a free text track at the top, so the first part ends up
+    // drawn over the others.
+    for (qsizetype i = preset.parts.size() - 1; i >= 0; --i) {
+        const drift::TextTemplatePart &part = preset.parts.at(i);
+        const drift::TimeUs delay = drift::secondsToUs(part.delaySeconds);
+        const drift::TimeUs duration = qMax(drift::kMinClipDurationUs, drift::kTextClipDurationUs - delay);
+        const int trackIndex =
+            drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Text, start + delay, duration, true);
+        if (trackIndex < 0)
+            continue;
+        drift::Clip clip;
+        clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        clip.type = drift::ClipType::Text;
+        clip.name = part.text.left(32);
+        clip.textContent = part.text;
+        clip.timelineStart = start + delay;
+        clip.timelineDuration = duration;
+        clip.srcIn = 0;
+        clip.srcOut = duration;
+        clip.textStyle = part.style;
+        clip.textStyle.packId = preset.id;
+        setClipLayoutPixels(clip, part.rect.x() * w, part.rect.y() * h, part.rect.width() * w,
+                            part.rect.height() * h);
+        m_project.tracks()[trackIndex].clips.append(clip);
+        // The clip just placed sits on trackIndex; earlier ones moved down if a track went in above.
+        firstTrack = trackIndex;
+        firstClip = m_project.tracks().at(trackIndex).clips.size() - 1;
+    }
+    if (firstTrack < 0)
+        return;
+    pushProjectEdit(before, tr("Text template added"));
+    finishEdit(tr("Text template added"));
+    selectClip(firstTrack, firstClip);
+    if (m_playheadUs < start || m_playheadUs >= start + drift::kTextClipDurationUs)
+        setPlayheadSeconds(drift::usToSeconds(start));
 }
 
 void AppController::addSubtitleClip(double atSeconds)
@@ -8722,6 +8777,14 @@ void AppController::generateSubtitlesForClip(int trackIndex, int clipIndex, cons
     generateSubtitlesForSources({subtitleSourceFromClip(clip)}, language, maxWordsPerCue);
 }
 
+bool AppController::generateEnglishSubtitlesForSelection(const QString &language, int maxWordsPerCue)
+{
+    m_subtitleTranslateNext = true;
+    const bool started = generateSubtitlesForSelection(language, maxWordsPerCue);
+    m_subtitleTranslateNext = false;
+    return started;
+}
+
 bool AppController::generateSubtitlesForSelection(const QString &language, int maxWordsPerCue)
 {
     QList<QPair<int, int>> pairs = m_selection;
@@ -8874,7 +8937,10 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
         drift::TimeUs rangeEnd = rangeStart;
         for (const SubtitleSource &source : sources)
             rangeEnd = qMax(rangeEnd, source.timelineStart + source.timelineDuration);
-        if (const auto stored = cuesFromStoredTranscripts(sources, rangeStart, maxWordsPerCue)) {
+        const auto stored = m_subtitleTranslateNext
+                                ? std::optional<QList<drift::SubtitleCue>>()
+                                : cuesFromStoredTranscripts(sources, rangeStart, maxWordsPerCue);
+        if (stored) {
             if (stored->isEmpty()) {
                 setLastMessage(tr("No speech detected"), QStringLiteral("warning"));
                 return false;
@@ -8900,8 +8966,9 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
     const drift::TimeUs rangeDuration = rangeEnd - rangeStart;
     const QString languageCode = language.trimmed().toLower();
     const int wordsPerCue = std::max(0, maxWordsPerCue);
+    const bool translate = m_subtitleTranslateNext;
 
-    (void)QtConcurrent::run([this, sources, rangeStart, rangeDuration, languageCode, wordsPerCue]() {
+    (void)QtConcurrent::run([this, sources, rangeStart, rangeDuration, languageCode, wordsPerCue, translate]() {
         auto setProgress = [this](double fraction, const QString &status) {
             QMetaObject::invokeMethod(
                 this,
@@ -8916,11 +8983,11 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
                 Qt::QueuedConnection);
         };
 
-        auto finish = [this, rangeStart, rangeDuration](bool ok, const QString &message,
-                                                        const QList<drift::SubtitleCue> &cues) {
+        auto finish = [this, rangeStart, rangeDuration, translate](bool ok, const QString &message,
+                                                                   const QList<drift::SubtitleCue> &cues) {
             QMetaObject::invokeMethod(
                 this,
-                [this, ok, message, cues, rangeStart, rangeDuration]() {
+                [this, ok, message, cues, rangeStart, rangeDuration, translate]() {
                     m_subtitleGenerating = false;
                     emit subtitleGeneratingChanged();
                     m_subtitleGenProgress = ok ? 1.0 : 0.0;
@@ -8932,7 +8999,7 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
                         emit subtitleGenerationFinished(false, message);
                         return;
                     }
-                    finalizeGeneratedSubtitles(rangeStart, rangeDuration, cues);
+                    finalizeGeneratedSubtitles(rangeStart, rangeDuration, cues, translate);
                 },
                 Qt::QueuedConnection);
         };
@@ -9023,7 +9090,7 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
             setProgress(0.15 + 0.80 * fraction, status);
             return m_subtitleGenCancel.loadRelaxed() == 0;
         };
-        if (!drift::CtcAligner::installedLanguages().isEmpty()) {
+        if (!translate && !drift::CtcAligner::installedLanguages().isEmpty()) {
             drift::LocalTranscribeOptions options;
             options.language = languageCode;
             options.align = true;
@@ -9038,7 +9105,7 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
                                                      wordsPerCue);
             }
         } else {
-            res = whisper.transcribe(mono, onProgress, languageCode, wordsPerCue);
+            res = whisper.transcribe(mono, onProgress, languageCode, wordsPerCue, translate);
         }
 
         qWarning() << "[subtitles] transcribe done. ok:" << res.ok << "cancelled:" << res.cancelled
@@ -12052,10 +12119,12 @@ void storeSubtitleDictionary(const QList<QPair<QString, QString>> &pairs)
 
 void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
                                                drift::TimeUs timelineDuration,
-                                               const QList<drift::SubtitleCue> &cues)
+                                               const QList<drift::SubtitleCue> &cues, bool translated)
 {
     const drift::Project before = m_project;
-    const int trackIndex = drift::ensureTrackForClipType(m_project, drift::ClipType::Subtitle, true);
+    const int trackIndex = translated
+                               ? drift::insertTrackAtTopForClipType(m_project, drift::ClipType::Subtitle)
+                               : drift::ensureTrackForClipType(m_project, drift::ClipType::Subtitle, true);
     qWarning() << "[subtitles] finalize: trackIndex" << trackIndex << "cues" << cues.size()
                << "start" << timelineStart << "dur" << timelineDuration;
     if (trackIndex < 0)
@@ -12072,14 +12141,25 @@ void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
     if (const std::optional<drift::TextStyle> preset = drift::textStyleForPresetId(subtitleStylePreset()))
         clip.textStyle = *preset;
     applyDefaultVisualLayout(clip, m_project.width(), m_project.height());
+    if (translated) {
+        // The English line sits right above the original captions, a little smaller.
+        clip.transformY.setKeyframe(0, clip.transformY.evaluateAt(0) - m_project.height() * 0.11);
+        clip.textStyle.pixelSize = qMax(12, int(clip.textStyle.pixelSize * 0.85));
+        clip.name = tr("English subtitles");
+    }
     QList<drift::SubtitleCue> cleaned = subtitleCleanupEnabled() ? drift::cleanSubtitleCues(cues) : cues;
     const QList<QPair<QString, QString>> dictionary = subtitleDictionaryPairs();
-    for (drift::SubtitleCue &cue : cleaned)
+    const bool emojis = subtitleEmojisEnabled();
+    for (drift::SubtitleCue &cue : cleaned) {
         cue.text = drift::applySubtitleReplacements(cue.text, dictionary);
+        if (emojis)
+            cue.text = drift::captionWithEmoji(cue.text);
+    }
     if (cleaned.isEmpty())
         cleaned = cues;
     clip.subtitleCues = cleaned;
-    clip.name = drift::subtitleClipName(cleaned);
+    if (!translated)
+        clip.name = drift::subtitleClipName(cleaned);
 
     track.clips.append(clip);
     const int newClipIndex = track.clips.size() - 1;
@@ -14053,6 +14133,40 @@ bool AppController::subtitleCleanupEnabled() const
 void AppController::setSubtitleCleanupEnabled(bool enabled)
 {
     QSettings().setValue(QStringLiteral("subtitles/cleanup"), enabled);
+}
+
+bool AppController::subtitleEmojisEnabled() const
+{
+    return QSettings().value(QStringLiteral("subtitles/emojis"), false).toBool();
+}
+
+void AppController::setSubtitleEmojisEnabled(bool enabled)
+{
+    QSettings().setValue(QStringLiteral("subtitles/emojis"), enabled);
+}
+
+void AppController::addEmojisToSubtitles(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.type != drift::ClipType::Subtitle)
+        return;
+    const drift::Project before = m_project;
+    int added = 0;
+    for (drift::SubtitleCue &cue : clip.subtitleCues) {
+        const QString next = drift::captionWithEmoji(cue.text);
+        if (next != cue.text) {
+            cue.text = next;
+            ++added;
+        }
+    }
+    if (added == 0) {
+        setLastMessage(tr("No keywords for emojis in these subtitles"), QStringLiteral("info"));
+        return;
+    }
+    pushProjectEdit(before, tr("Add emojis"));
+    finishEdit(tr("Emojis added to %n caption(s)", nullptr, added));
 }
 
 QVariantList AppController::subtitleStyleChoices() const

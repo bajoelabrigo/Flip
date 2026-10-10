@@ -8,6 +8,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QRectF>
 
 #include <algorithm>
 
@@ -46,6 +47,19 @@ bool loadPack(const QString &dir, Pack *out)
         const QJsonObject style = object.value(QStringLiteral("style")).toObject();
         if (id.isEmpty() || style.isEmpty())
             continue;
+        QList<drift::TextTemplatePart> parts;
+        for (const QJsonValue &partValue : object.value(QStringLiteral("parts")).toArray()) {
+            const QJsonObject part = partValue.toObject();
+            const QJsonArray rect = part.value(QStringLiteral("rect")).toArray();
+            if (rect.size() != 4 || part.value(QStringLiteral("text")).toString().isEmpty())
+                continue;
+            drift::TextTemplatePart p;
+            p.style = drift::textStyleFromJson(part.value(QStringLiteral("style")).toObject(style));
+            p.text = part.value(QStringLiteral("text")).toString();
+            p.rect = QRectF(rect.at(0).toDouble(), rect.at(1).toDouble(), rect.at(2).toDouble(), rect.at(3).toDouble());
+            p.delaySeconds = qMax(0.0, part.value(QStringLiteral("delay")).toDouble());
+            parts.append(p);
+        }
         drift::TextPreset preset;
         preset.id = QStringLiteral("pack:%1/%2").arg(pack.id, id);
         preset.label = object.value(QStringLiteral("label")).toString(id);
@@ -53,6 +67,7 @@ bool loadPack(const QString &dir, Pack *out)
         preset.style.packId = preset.id;
         preset.sampleText = object.value(QStringLiteral("sampleText")).toString(preset.label);
         preset.category = object.value(QStringLiteral("category")).toString();
+        preset.parts = parts;
         pack.presets.append(preset);
     }
     if (pack.presets.isEmpty())

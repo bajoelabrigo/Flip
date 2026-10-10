@@ -2243,6 +2243,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Text template added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Subtitles</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3094,6 +3098,21 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No keywords for emojis in these subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Emojis added to %n caption(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
         <source>Adjust subtitle timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3618,6 +3637,10 @@
     </message>
     <message>
         <source>Stabilization analysis failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>English subtitles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13067,6 +13090,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13156,6 +13187,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>No subtitles yet. Move to a time inside this clip and add one below.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13265,7 +13300,15 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remove hesitations (eh, mmm) and capitalize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add emojis for keywords (fuego 🔥, Dios 🙏)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13278,6 +13321,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Select a video or audio clip first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add English translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13726,6 +13777,42 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Glow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>First word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every other word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every Nth word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longest word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spoken word (karaoke)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keywords (long words and numbers)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

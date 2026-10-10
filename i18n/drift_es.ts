@@ -2243,6 +2243,10 @@
         <translation>Clip de texto añadido</translation>
     </message>
     <message>
+        <source>Text template added</source>
+        <translation>Plantilla de texto agregada</translation>
+    </message>
+    <message>
         <source>Subtitles</source>
         <translation>Subtítulos</translation>
     </message>
@@ -3094,6 +3098,21 @@
         <translation>Subtítulos limpios</translation>
     </message>
     <message>
+        <source>No keywords for emojis in these subtitles</source>
+        <translation>No hay palabras clave para emojis en estos subtítulos</translation>
+    </message>
+    <message>
+        <source>Add emojis</source>
+        <translation>Agregar emojis</translation>
+    </message>
+    <message numerus="yes">
+        <source>Emojis added to %n caption(s)</source>
+        <translation>
+            <numerusform>Emojis agregados en %n subtítulo</numerusform>
+            <numerusform>Emojis agregados en %n subtítulos</numerusform>
+        </translation>
+    </message>
+    <message>
         <source>Adjust subtitle timing</source>
         <translation>Ajustar sincronización de subtítulos</translation>
     </message>
@@ -3619,6 +3638,10 @@
     <message>
         <source>Stabilization analysis failed: %1</source>
         <translation>Error al analizar la estabilización: %1</translation>
+    </message>
+    <message>
+        <source>English subtitles</source>
+        <translation>Subtítulos en inglés</translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -13075,6 +13098,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Desplaza los subtítulos exportados según el inicio de este clip para que coincidan con el video exportado</translation>
     </message>
     <message>
+        <source>Emojis</source>
+        <translation>Emojis</translation>
+    </message>
+    <message>
+        <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
+        <translation>Agrega un emoji al final de los subtítulos que mencionan una palabra clave (fuego 🔥, fiesta 🎉)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>Limpiar</translation>
     </message>
@@ -13165,6 +13196,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>No subtitles yet. Move to a time inside this clip and add one below.</source>
         <translation>Aún no hay subtítulos. Muévete a un punto temporal dentro de este clip y añade uno abajo.</translation>
+    </message>
+    <message>
+        <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
+        <translation>Consejo: escribe una palabra entre asteriscos, como *fe*, para resaltarla en color.</translation>
     </message>
     <message>
         <source>Type subtitle…</source>
@@ -13273,8 +13308,16 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Estilo de subtítulos</translation>
     </message>
     <message>
+        <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
+        <translation>Consejo: instala “Sincronización por palabra” en Extras para que los subtítulos empiecen y terminen justo con la voz.</translation>
+    </message>
+    <message>
         <source>Remove hesitations (eh, mmm) and capitalize</source>
         <translation>Quitar muletillas (eh, mmm) y poner mayúsculas</translation>
+    </message>
+    <message>
+        <source>Add emojis for keywords (fuego 🔥, Dios 🙏)</source>
+        <translation>Agregar emojis según las palabras (fuego 🔥, Dios 🙏)</translation>
     </message>
     <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
@@ -13287,6 +13330,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Select a video or audio clip first</source>
         <translation>Selecciona primero un clip de video o audio</translation>
+    </message>
+    <message>
+        <source>Add English translation</source>
+        <translation>Agregar traducción al inglés</translation>
+    </message>
+    <message>
+        <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
+        <translation>Subtítulos traducidos al inglés, encima de los originales. El modelo solo traduce al inglés.</translation>
     </message>
     <message>
         <source>Creating captions… %1%</source>
@@ -13735,6 +13786,42 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Glow</source>
         <translation>Resplandor</translation>
+    </message>
+    <message>
+        <source>No accent</source>
+        <translation>Sin resaltar</translation>
+    </message>
+    <message>
+        <source>First word</source>
+        <translation>Primera palabra</translation>
+    </message>
+    <message>
+        <source>Last word</source>
+        <translation>Última palabra</translation>
+    </message>
+    <message>
+        <source>Every other word</source>
+        <translation>Una palabra sí y otra no</translation>
+    </message>
+    <message>
+        <source>Every Nth word</source>
+        <translation>Cada N palabras</translation>
+    </message>
+    <message>
+        <source>Longest word</source>
+        <translation>Palabra más larga</translation>
+    </message>
+    <message>
+        <source>Random words</source>
+        <translation>Palabras al azar</translation>
+    </message>
+    <message>
+        <source>Spoken word (karaoke)</source>
+        <translation>Palabra que se dice (karaoke)</translation>
+    </message>
+    <message>
+        <source>Keywords (long words and numbers)</source>
+        <translation>Palabras clave (largas y números)</translation>
     </message>
     <message>
         <source>Text</source>
