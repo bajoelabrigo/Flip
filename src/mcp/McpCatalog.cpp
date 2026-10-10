@@ -378,7 +378,7 @@ QJsonObject textStyleSchema()
          objectSchema({{QStringLiteral("rule"), enumProp(QStringLiteral("Which words get the accent"),
                                                          {QStringLiteral("none"), QStringLiteral("firstWord"), QStringLiteral("lastWord"),
                                                           QStringLiteral("everyOther"), QStringLiteral("everyNth"), QStringLiteral("longestWord"),
-                                                          QStringLiteral("randomStable"), QStringLiteral("karaoke")})},
+                                                          QStringLiteral("randomStable"), QStringLiteral("karaoke"), QStringLiteral("keywords")})},
                        {QStringLiteral("n"), integerProp(QStringLiteral("Stride for everyNth"), 1, 16)},
                        {QStringLiteral("phase"), integerProp(QStringLiteral("Index of the first accented word"), 0, 16)},
                        {QStringLiteral("colorEnabled"), boolProp(QStringLiteral("Recolour accented words"))},

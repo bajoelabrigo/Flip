@@ -44,6 +44,8 @@
 #include "engine/Exporter.h"
 #include "engine/EmojiCatalog.h"
 #include "engine/FontCatalog.h"
+#include "engine/LocalTranscription.h"
+#include "engine/CtcAligner.h"
 #include "engine/FrameCompositor.h"
 // Engine-internal by its own header comment, and included here only for releaseCaches(): the GPU
 // caches have no other owner outside src/engine to ask. A one-line forwarder on GpuCompositor
@@ -8668,8 +8670,10 @@ bool AppController::exportSubtitleFile(int trackIndex, int clipIndex, const QUrl
     }
 
     QList<drift::SubtitleCue> cues = clip.subtitleCues;
-    if (timelineTimes) {
-        for (drift::SubtitleCue &cue : cues) {
+    for (drift::SubtitleCue &cue : cues) {
+        // *Highlight* marks are a look, not words: other players would show the asterisks.
+        cue.text = drift::textWithoutWordMarks(cue.text);
+        if (timelineTimes) {
             cue.startUs += clip.timelineStart;
             cue.endUs += clip.timelineStart;
         }
@@ -9006,15 +9010,36 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
         setProgress(0.15, languageCode.isEmpty()
                               ? tr("Transcribing…")
                               : tr("Transcribing (%1)…").arg(languageCode));
+        const auto sampleToUsTotal = [rate](size_t samples) {
+            return static_cast<drift::TimeUs>((static_cast<int64_t>(samples) * drift::kUsPerSecond) / rate);
+        };
 
-        const drift::WhisperResult res = whisper.transcribe(
-            mono,
-            [this, setProgress](double fraction, const QString &status) {
-                // Map Whisper's 0–1 into the remaining 15%–95% of the overall bar.
-                setProgress(0.15 + 0.80 * fraction, status);
-                return m_subtitleGenCancel.loadRelaxed() == 0;
-            },
-            languageCode, wordsPerCue);
+        // With a word-alignment model installed, the full local pipeline places every word where
+        // it was said (wav2vec2 forced alignment), so captions start and end on the words and
+        // karaoke follows the voice. Without one, Whisper's segments are split by length.
+        drift::WhisperResult res;
+        const auto onProgress = [this, setProgress](double fraction, const QString &status) {
+            // Map 0–1 into the remaining 15%–95% of the overall bar.
+            setProgress(0.15 + 0.80 * fraction, status);
+            return m_subtitleGenCancel.loadRelaxed() == 0;
+        };
+        if (!drift::CtcAligner::installedLanguages().isEmpty()) {
+            drift::LocalTranscribeOptions options;
+            options.language = languageCode;
+            options.align = true;
+            options.diarize = false;
+            const drift::LocalTranscribeResult local = drift::transcribeLocal(mono, 0, options, onProgress);
+            res.cancelled = local.cancelled;
+            res.ok = local.transcript != nullptr;
+            res.error = local.error;
+            if (local.transcript) {
+                res.language = local.transcript->language;
+                res.cues = drift::cuesFromTranscript(*local.transcript, 0, sampleToUsTotal(mono.size()), 42, 1,
+                                                     wordsPerCue);
+            }
+        } else {
+            res = whisper.transcribe(mono, onProgress, languageCode, wordsPerCue);
+        }
 
         qWarning() << "[subtitles] transcribe done. ok:" << res.ok << "cancelled:" << res.cancelled
                    << "cues:" << res.cues.size() << "error:" << res.error;

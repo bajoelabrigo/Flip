@@ -177,6 +177,24 @@ Item {
                 }
             }
 
+            // Word timing is its own download; without it captions are split by length and the
+            // karaoke word is estimated, so say what the extra buys.
+            Text {
+                visible: root.whisperReady && !root.alignReady
+                width: subtitleColumn.contentWidth
+                wrapMode: Text.WordWrap
+                text: qsTr("Tip: install “Word sync” in Extras so captions start and end exactly on the voice.")
+                color: Theme.primary
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+
+                MouseArea {
+                    anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: root.Window.window.openAddonManager("align-model")
+                }
+            }
+
             ThemedCheckBox {
                 visible: root.whisperReady
                 width: subtitleColumn.contentWidth
@@ -281,6 +299,7 @@ Item {
         return options
     }
 
+    property bool alignReady: Addons.hasKind("align-model")
     property var captionStyles: EditorState.subtitleStyleChoices()
     property string captionStyle: EditorState.subtitleStylePreset()
 
@@ -301,6 +320,10 @@ Item {
             if (kind === "text-styles") {
                 root.captionStyles = EditorState.subtitleStyleChoices()
                 root.captionStyle = EditorState.subtitleStylePreset()
+                return
+            }
+            if (kind === "align-model") {
+                root.alignReady = Addons.hasKind("align-model")
                 return
             }
             if (kind !== "whisper-model" && kind !== "onnxruntime")

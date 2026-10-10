@@ -172,8 +172,8 @@ QString normalizeForAligner(const QString &word, const QHash<QChar, int> &vocab,
             continue;
         if (c == QChar(0x2019))
             c = QLatin1Char('\'');
-        if (upper)
-            c = c.toUpper();
+        // Models spell in one case: upper for the English base model, lower for the XLSR ones.
+        c = upper ? c.toUpper() : c.toLower();
         if (vocab.contains(c))
             out.append(c);
         else if (c.isSpace() && !out.isEmpty() && !out.endsWith(QLatin1Char(' ')))

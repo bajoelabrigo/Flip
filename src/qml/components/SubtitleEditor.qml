@@ -753,6 +753,15 @@ Item {
                     spacing: 8
                     visible: root.selectedCue !== null
 
+                    Text {
+                        width: parent.width
+                        wrapMode: Text.WordWrap
+                        text: qsTr("Tip: write a word between asterisks, like *faith*, to highlight it in colour.")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+
                     Row {
                         width: parent.width
                         spacing: 6

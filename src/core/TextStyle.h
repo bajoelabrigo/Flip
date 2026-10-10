@@ -24,7 +24,7 @@ enum class TextVAlign { Top, Middle, Bottom };
 // stays cacheable for the whole cue; Karaoke follows the word being spoken and re-lays-out as
 // the playhead crosses each word.
 enum class WordAccentRule { None, FirstWord, LastWord, EveryOther, EveryNth, LongestWord,
-                            RandomStable, Karaoke };
+                            RandomStable, Karaoke, Keywords };
 
 QString textAlignToString(TextAlign align);
 TextAlign textAlignFromString(const QString &align);
@@ -34,6 +34,20 @@ TextVAlign textVAlignFromString(const QString &valign);
 
 QString wordAccentRuleToString(WordAccentRule rule);
 WordAccentRule wordAccentRuleFromString(const QString &rule);
+
+// Words written between asterisks ("Dios es *fiel*") are accented whatever the rule, and drawn
+// without the asterisks. A mark may sit inside opening and closing punctuation: "¡*Amén*!".
+bool isMarkedWord(const QString &word);
+QString stripWordMark(const QString &word);
+bool hasWordMarks(const QString &text);
+// The text as it reads, marks removed.
+QString textWithoutWordMarks(const QString &text);
+// A style whose accent shows something: marked words in a style with no accent look get
+// the default accent colour, so a mark never does nothing.
+TextStyle withWordMarkDefaults(const TextStyle &style);
+// The Keywords rule: words that carry the meaning — numbers, and words of seven letters or more
+// that are not common Spanish/English function words.
+bool isKeyword(const QString &word);
 
 // Rounded pill drawn behind a word. Used both for "every word" backgrounds and for the
 // accent-only highlight a pack paints under its chosen words.

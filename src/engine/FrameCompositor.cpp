@@ -1048,12 +1048,13 @@ void fillGpuLayerMasks(GpuLayer &layer, const drift::Clip &host,
 // frame for them and the Skia painter. Returns the destination rect (layout rect grown by the
 // bleed) and the whole-block motion that rides on the layer; the layer is left without pixels
 // when there is nothing to draw. `windowStart/Duration` is the clip, or the cue for subtitles.
-QRectF fillTextLayer(GpuLayer &layer, const drift::TextStyle &style, const QString &text,
+QRectF fillTextLayer(GpuLayer &layer, const drift::TextStyle &plainStyle, const QString &text,
                      const QRectF &layoutRect, double renderScale, int activeWordIndex,
                      drift::TimeUs windowStartUs, drift::TimeUs windowDurationUs, drift::TimeUs timelineUs,
                      drift::textanim::BlockProps *block)
 {
     *block = drift::textanim::BlockProps{};
+    const drift::TextStyle style = drift::hasWordMarks(text) ? drift::withWordMarkDefaults(plainStyle) : plainStyle;
 #ifdef DRIFT_WITH_SKIA
     const drift::ResolvedTextAnimation anim = drift::resolveTextAnimation(style.animation);
     drift::skia::TextPaintRequest request;

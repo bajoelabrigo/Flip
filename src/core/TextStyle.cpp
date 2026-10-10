@@ -2,6 +2,7 @@
 
 #include <QMutex>
 #include <QMutexLocker>
+#include <QRegularExpression>
 
 #include "Effect.h"
 #include "TextAnimationPreset.h"
@@ -74,6 +75,8 @@ QString wordAccentRuleToString(WordAccentRule rule)
         return QStringLiteral("randomStable");
     case WordAccentRule::Karaoke:
         return QStringLiteral("karaoke");
+    case WordAccentRule::Keywords:
+        return QStringLiteral("keywords");
     case WordAccentRule::None:
         return QStringLiteral("none");
     }
@@ -96,7 +99,112 @@ WordAccentRule wordAccentRuleFromString(const QString &rule)
         return WordAccentRule::RandomStable;
     if (rule == QStringLiteral("karaoke"))
         return WordAccentRule::Karaoke;
+    if (rule == QStringLiteral("keywords"))
+        return WordAccentRule::Keywords;
     return WordAccentRule::None;
+}
+
+namespace {
+
+bool isOpeningMark(QChar c)
+{
+    return c == QChar(0x00BF) || c == QChar(0x00A1) || c == QLatin1Char('"') || c == QLatin1Char('(')
+           || c == QChar(0x201C) || c == QChar(0x00AB);
+}
+
+} // namespace
+
+bool isMarkedWord(const QString &word)
+{
+    int start = 0;
+    while (start < word.size() && isOpeningMark(word.at(start)))
+        ++start;
+    int end = word.size() - 1;
+    while (end > start && (word.at(end).isPunct() && word.at(end) != QLatin1Char('*')))
+        --end;
+    return end - start >= 2 && word.at(start) == QLatin1Char('*') && word.at(end) == QLatin1Char('*');
+}
+
+QString stripWordMark(const QString &word)
+{
+    if (!isMarkedWord(word))
+        return word;
+    QString out = word;
+    out.remove(QLatin1Char('*'));
+    return out;
+}
+
+bool hasWordMarks(const QString &text)
+{
+    if (!text.contains(QLatin1Char('*')))
+        return false;
+    for (const QString &word : text.split(QRegularExpression(QStringLiteral("\\s+")), Qt::SkipEmptyParts)) {
+        if (isMarkedWord(word))
+            return true;
+    }
+    return false;
+}
+
+QString textWithoutWordMarks(const QString &text)
+{
+    if (!text.contains(QLatin1Char('*')))
+        return text;
+    QString out;
+    int i = 0;
+    while (i < text.size()) {
+        if (text.at(i).isSpace()) {
+            out.append(text.at(i++));
+            continue;
+        }
+        int end = i;
+        while (end < text.size() && !text.at(end).isSpace())
+            ++end;
+        out.append(stripWordMark(text.mid(i, end - i)));
+        i = end;
+    }
+    return out;
+}
+
+TextStyle withWordMarkDefaults(const TextStyle &style)
+{
+    const WordAccent &a = style.accent;
+    if (a.colorEnabled || a.highlight.enabled || a.outlineEnabled || !qFuzzyCompare(a.sizeScale, 1.0))
+        return style;
+    TextStyle out = style;
+    out.accent.colorEnabled = true;
+    out.accent.color = QColor(255, 214, 64);
+    return out;
+}
+
+bool isKeyword(const QString &word)
+{
+    static const QStringList kCommon = {
+        // Spanish
+        QStringLiteral("nosotros"), QStringLiteral("nosotras"), QStringLiteral("ustedes"), QStringLiteral("entonces"),
+        QStringLiteral("también"), QStringLiteral("siempre"), QStringLiteral("algunos"), QStringLiteral("algunas"),
+        QStringLiteral("mientras"), QStringLiteral("después"), QStringLiteral("aquellos"), QStringLiteral("cualquier"),
+        QStringLiteral("nuestro"), QStringLiteral("nuestra"), QStringLiteral("nuestros"), QStringLiteral("nuestras"),
+        QStringLiteral("porque"), QStringLiteral("todavía"), QStringLiteral("realmente"), QStringLiteral("solamente"),
+        QStringLiteral("ninguno"), QStringLiteral("ninguna"), QStringLiteral("estamos"), QStringLiteral("estaban"),
+        QStringLiteral("estaba"), QStringLiteral("tenemos"), QStringLiteral("tenían"), QStringLiteral("podemos"),
+        QStringLiteral("pueden"), QStringLiteral("hicieron"), QStringLiteral("queremos"), QStringLiteral("cuando"),
+        // English
+        QStringLiteral("because"), QStringLiteral("through"), QStringLiteral("without"), QStringLiteral("something"),
+        QStringLiteral("anything"), QStringLiteral("everything"), QStringLiteral("nothing"), QStringLiteral("another"),
+        QStringLiteral("between"), QStringLiteral("whatever"), QStringLiteral("yourself"), QStringLiteral("themselves"),
+        QStringLiteral("actually"), QStringLiteral("probably"), QStringLiteral("already"), QStringLiteral("really"),
+    };
+    QString bare;
+    bool digit = false;
+    for (const QChar c : word) {
+        if (c.isDigit())
+            digit = true;
+        if (c.isLetterOrNumber())
+            bare.append(c.toLower());
+    }
+    if (digit)
+        return true;
+    return bare.size() >= 7 && !kCommon.contains(bare);
 }
 
 // ---------------------------------------------------------------------------------------------

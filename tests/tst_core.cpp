@@ -1108,6 +1108,18 @@ void CoreTest::subtitleCuePacking()
     QCOMPARE(drift::cleanSubtitleText(QStringLiteral("¿mmm y entonces?")), QStringLiteral("¿Y entonces?"));
     QVERIFY(drift::cleanSubtitleCues({{0, 1000, QStringLiteral("ehh")}}).isEmpty());
 
+    // *Marked* words, inside punctuation too, and the Keywords rule.
+    QVERIFY(drift::isMarkedWord(QStringLiteral("*fiel*")));
+    QVERIFY(drift::isMarkedWord(QStringLiteral("¡*Amén*!")));
+    QVERIFY(!drift::isMarkedWord(QStringLiteral("5*3")));
+    QVERIFY(!drift::isMarkedWord(QStringLiteral("**")));
+    QCOMPARE(drift::textWithoutWordMarks(QStringLiteral("Dios es *fiel*, ¡*Amén*!")),
+             QStringLiteral("Dios es fiel, ¡Amén!"));
+    QVERIFY(drift::isKeyword(QStringLiteral("bendición")));
+    QVERIFY(drift::isKeyword(QStringLiteral("2026")));
+    QVERIFY(!drift::isKeyword(QStringLiteral("nosotros")));
+    QVERIFY(!drift::isKeyword(QStringLiteral("Dios")));
+
     // Replacements are whole words in any case.
     const QList<QPair<QString, QString>> dictionary = {{QStringLiteral("jesus"), QStringLiteral("Jesús")}};
     QCOMPARE(drift::applySubtitleReplacements(QStringLiteral("JESUS y jesusito"), dictionary),

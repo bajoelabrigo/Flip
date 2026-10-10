@@ -15161,6 +15161,15 @@ void EngineTest::alignerNormalizesEnglish()
     QCOMPARE(drift::normalizeForAligner(QStringLiteral("1999"), vocab, true, en), QStringLiteral("NINETEEN NINETY NINE"));
     QCOMPARE(drift::normalizeForAligner(QStringLiteral("2005"), vocab, true, en), QStringLiteral("TWO THOUSAND FIVE"));
     QVERIFY(drift::normalizeForAligner(QStringLiteral("日本"), vocab, true, en).isEmpty());
+
+    // A lower-case model (the XLSR Spanish one) gets "Dios" whole, not "ios".
+    QHash<QChar, int> lower;
+    for (const QChar c : QStringLiteral("abcdefghijklmnopqrstuvwxyz'"))
+        lower.insert(c, 1);
+    QCOMPARE(drift::normalizeForAligner(QStringLiteral("¡Dios!"), lower, false, QStringLiteral("es")),
+             QStringLiteral("dios"));
+    QCOMPARE(drift::normalizeForAligner(QStringLiteral("Señor"), lower, false, QStringLiteral("es")),
+             QStringLiteral("senor"));
 }
 
 void EngineTest::clusterEmbeddingsCompleteLinkage()
