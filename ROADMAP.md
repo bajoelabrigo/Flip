@@ -1,7 +1,7 @@
 # Flip Studio — hoja de ruta
 
 Plan completo del proyecto, de la primera versión de escritorio a la suscripción. Se marca cada
-casilla al terminarla. Última actualización: 2026-10-09.
+casilla al terminarla. Última actualización: 2026-10-10.
 
 **Datos clave**
 
@@ -50,15 +50,18 @@ casilla al terminarla. Última actualización: 2026-10-09.
 - [x] Versión portable para probar sin instalar; caché de compilación (ccache) en el CI de Windows.
 
 ### Pendiente
+- [ ] **Separar el repo de la red de forks de Drift**: pedirlo en https://support.github.com ("detach fork" para `bajoelabrigo/Flip`). Conserva URL, Releases, issues y estrellas; el remoto `upstream` local sigue sirviendo para traer cambios de Drift. No recrear el repo (se perderían los Releases que usa el actualizador).
 - [x] Probar el instalador nuevo en Windows (ícono, tema oscuro, panel de Medios, importar y **exportar** un video). — validado 2026-10-09 con el portable.
 - [ ] Revisar el resto de la interfaz buscando "Drift" o fallos de diseño en español.
 - [x] Fusionar el PR #1 en `main`.
 - [x] Publicar **v0.8.0** en GitHub Releases (`FlipStudio-Setup-0.8.0-x64.exe` + portable + `SHA256SUMS`) — 2026-10-09.
 - [x] Actualizador probado de punta a punta: 0.8.0 → 0.8.1 desde la app (2026-10-10).
 - [x] v0.8.1 preparada (rama `flip/v0.8.1`): claves cifradas, límites del MCP, acciones fijadas.
-- [x] v0.8.2 (rama `flip/v0.8.2`): enlaces de soporte propios en la ventana de diagnóstico, nota de Flip Studio en `docs/`, carpeta de sesión MCP propia.
+- [ ] v0.8.2 (rama `flip/v0.8.2`): enlaces de soporte propios en la ventana de diagnóstico, nota de Flip Studio en `docs/`, carpeta de sesión MCP propia.
+  - [x] Código listo.
+  - [ ] Publicar: versión en `CMakeLists.txt`, `CHANGELOG.md`, `release-notes/0.8.2.md`, fusionar en `main`, etiqueta `v0.8.2` y TXT `version`.
 - [x] `release.yml` adaptado: publica solo en tus Releases (Windows), sin Homebrew ni Discord de CutWire. Notas en `release-notes/<versión>.md`.
-- [ ] Ajustar `nightly.yml` o dejarlo desactivado.
+- [ ] Ajustar `nightly.yml` o dejarlo desactivado (aún usa `drift-version.cutwire.org` y los IDs `org.cutwire.*.Nightly`).
 
 ## Fase 2 — Distribución en Windows
 
@@ -142,10 +145,11 @@ casilla al terminarla. Última actualización: 2026-10-09.
 
 | Prioridad | Qué | Dónde |
 |---|---|---|
-| Alta | Fusionar el PR #1 y publicar v0.8.0 | GitHub |
+| Alta | Separar el repo de la red de forks de Drift | GitHub Support |
+| Alta | Publicar v0.8.2 | `flip/v0.8.2` |
 | Media | Firma de add-ons con clave propia (hoy solo acepta las de CutWire) | `src/engine/AddonPackage.*` |
 | Media | Textos de servicios de CutWire todavía visibles ("Flip Studio Assets", librería de sonidos) | `src/models/DriftAssetStore.*`, `SfxLibrary.*` |
-| Media | `release.yml`, `msstore.yml` y `playstore-aab.yml` usan cuentas y secretos de CutWire | `.github/workflows/` |
+| Media | `nightly.yml` y `playstore-aab.yml` usan dominios e IDs de CutWire (`release.yml` y `msstore.yml` ya adaptados) | `.github/workflows/` |
 | Media | Firma de código del `.exe` (aviso de SmartScreen) | Instalador |
 | Baja | Ícono de macOS | `resources/macos/` |
 | Baja | IDs de Flatpak y Android | `flatpak/`, workflows |
