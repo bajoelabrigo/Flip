@@ -467,7 +467,8 @@ QtObject {
 
     // --- Layout: assets panel -----------------------------------------------
     readonly property real panelHeaderHeight: touchUi ? 52 : 44
-    readonly property real tabRailWidth: touchUi ? 52 : 40
+    // Wide enough on desktop for the 8 px scrollbar beside the centred icons when the rail scrolls.
+    readonly property real tabRailWidth: touchUi ? 52 : 50
     readonly property real assetCardWidth: 112
     readonly property real assetCardGap: 16
 

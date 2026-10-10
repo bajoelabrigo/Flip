@@ -113,6 +113,11 @@ bool AddonManager::refreshing() const
     return m_refreshing;
 }
 
+bool AddonManager::serviceAvailable() const
+{
+    return addonServiceConfigured();
+}
+
 bool AddonManager::remindEssential() const
 {
     return QSettings().value(settingsKey("remindEssential"), true).toBool();
@@ -366,10 +371,9 @@ void AddonManager::refresh(bool force)
     if (m_refreshing)
         return;
 
-    if (!addonServiceConfigured()) {
-        setStatus(QStringLiteral("Downloads aren’t available in this version."));
+    // No store to ask; the dialog explains that through serviceAvailable instead of an error.
+    if (!addonServiceConfigured())
         return;
-    }
 
     if (!force) {
         const QFileInfo cached(cachedIndexPath());

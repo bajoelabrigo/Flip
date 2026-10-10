@@ -652,6 +652,21 @@ PanelFrame {
         ListElement { tabId: "transitions"; icon: 7; separatorAfter: false }
         ListElement { tabId: "sounds"; icon: 8; separatorAfter: true }
         ListElement { tabId: "shortcuts"; icon: 9; separatorAfter: false }
+
+        // A build without a marketplace service (Flip Studio has none yet) drops the tab rather
+        // than showing an empty "unavailable" page — same as the Android home nav.
+        Component.onCompleted: {
+            if (Market.configured)
+                return
+            for (let i = 0; i < count; ++i) {
+                if (get(i).tabId === "market") {
+                    if (i > 0)
+                        setProperty(i - 1, "separatorAfter", get(i).separatorAfter)
+                    remove(i)
+                    return
+                }
+            }
+        }
     }
     property var tabIcons: [
         Theme.icons.film,

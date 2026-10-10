@@ -210,12 +210,20 @@
         <translation>변경 사항을 적용하려면 Drift를 다시 시작하세요.</translation>
     </message>
     <message>
+        <source>Downloads coming soon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Can&apos;t reach the download store</source>
         <translation>다운로드 스토어에 연결할 수 없습니다</translation>
     </message>
     <message>
         <source>Nothing in this category</source>
         <translation>이 카테고리에는 항목이 없습니다</translation>
+    </message>
+    <message>
+        <source>Automatic subtitles, fonts, stickers and more will be available to download in an upcoming update. Extras you install from a file still work.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Check your connection and try again.</source>

@@ -23,6 +23,9 @@ class AddonManager : public QObject
     Q_PROPERTY(QVariantList catalog READ catalog NOTIFY catalogChanged)
     Q_PROPERTY(QString status READ status NOTIFY statusChanged)
     Q_PROPERTY(bool refreshing READ refreshing NOTIFY refreshingChanged)
+    // False when the build has no addon index URL: the manager then says downloads are coming
+    // rather than reporting a store it cannot reach.
+    Q_PROPERTY(bool serviceAvailable READ serviceAvailable CONSTANT)
     // Header attention nudge: offer the core video / transitions / audio packs when they are not
     // yet installed as addons (bundled copies still work; installing unlocks the update channel).
     Q_PROPERTY(bool remindEssential READ remindEssential WRITE setRemindEssential
@@ -42,6 +45,7 @@ public:
     QVariantList catalog() const;
     QString status() const;
     bool refreshing() const;
+    bool serviceAvailable() const;
 
     bool remindEssential() const;
     void setRemindEssential(bool remind);
