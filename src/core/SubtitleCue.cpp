@@ -83,7 +83,13 @@ QList<TimedWord> flattenWords(const QList<SubtitleCue> &cues)
         const QString trimmed = cue.text.trimmed();
         if (trimmed.isEmpty() || cue.endUs <= cue.startUs)
             continue;
-        all += wordsFromCue(cue);
+        QList<TimedWord> words = wordsFromCue(cue);
+        // A segment's first word carries no leading space; joined after the previous segment's
+        // last word it would glue to it ("noches,que").
+        if (!all.isEmpty() && !words.isEmpty() && !words.first().word.isEmpty()
+            && !words.first().word.front().isSpace())
+            words.first().word.prepend(QLatin1Char(' '));
+        all += words;
     }
     return all;
 }

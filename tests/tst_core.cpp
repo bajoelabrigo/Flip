@@ -1102,6 +1102,14 @@ void CoreTest::subtitleCuePacking()
     QCOMPARE(split.at(0).text, QStringLiteral("Dios es fiel."));
     QCOMPARE(split.at(1).text, QStringLiteral("Él nos cuida."));
 
+    // Whisper segments packed together keep the space between them.
+    QList<drift::SubtitleCue> segments;
+    segments.append({0, drift::secondsToUs(1.0), QStringLiteral("muy buenas noches,")});
+    segments.append({drift::secondsToUs(1.0), drift::secondsToUs(2.0), QStringLiteral("que el Rey")});
+    const QList<drift::SubtitleCue> joined = drift::packSubtitleCues(segments, 42, 1);
+    QCOMPARE(joined.size(), 1);
+    QCOMPARE(joined.first().text, QStringLiteral("muy buenas noches, que el Rey"));
+
     // Cleanup drops hesitations only, and capitalises.
     QCOMPARE(drift::cleanSubtitleText(QStringLiteral("eh, este es el camino")),
              QStringLiteral("Este es el camino"));
