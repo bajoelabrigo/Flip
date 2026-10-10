@@ -27,8 +27,8 @@ casilla al terminarla. Última actualización: 2026-10-10 (noche).
 ## Qué sigue
 
 Dónde estamos: la app de escritorio va por la **v0.8.2** (publicada en GitHub y en la Microsoft Store;
-la **v0.8.3** está en preparación) y el **editor web** va por la etapa 4 de 6 (ya edita y exporta MP4; se anunciará al
-terminar las etapas 5 y 6). Los dos frentes avanzan por separado; este es el orden recomendado.
+la **v0.8.3** está en preparación) y el **editor web** va por la etapa 5 de 6 (edita, pone las 28 transiciones y exporta MP4; se
+anunciará al terminar las etapas 5 y 6). Los dos frentes avanzan por separado; este es el orden recomendado.
 
 ### App de escritorio (Windows)
 1. ~~Esperar la certificación de la Store de la 0.8.2.0~~ — publicada el 2026-10-10.
@@ -46,12 +46,21 @@ terminar las etapas 5 y 6). Los dos frentes avanzan por separado; este es el ord
 7. Más adelante: Linux, Android y macOS (Fase 4).
 
 ### Editor web (getflipstudio.com/editor)
-1. **Etapa 5a — transiciones**: pasar la vista previa y la exportación a WebGL2 y portar las 28 transiciones de Drift.
-2. **Etapa 5b — efectos**: unos 45 efectos de Drift (color, estilo, glitch, desenfoque…) con sus parámetros.
-3. **Etapa 6 — audio**: volumen y fundidos por clip, pista de música, silenciar el audio de un video.
-4. **Probar en Edge, Firefox y Safari** (y en el celular) antes de anunciarlo.
-5. **Anunciarlo**: botón "Editar en el navegador" en la web y quitar el `noindex`.
-6. Después: abrir y guardar proyectos en el formato de la app de escritorio.
+1. ~~**Etapa 5a — transiciones**~~: las 28 de Drift con WebGL2, en vista previa y exportación (publicada el 2026-10-10).
+2. **Rediseño igual al escritorio** (decidido el 2026-10-10, va antes de los efectos):
+   - **R1 — distribución**: barra de íconos a la izquierda con la biblioteca, vista previa, inspector con
+     su propia barra de íconos a la derecha, encabezado y barra de la línea de tiempo como en escritorio,
+     y la vista previa a la derecha para videos verticales. Mismos íconos, colores y nombres.
+   - **R2 — pistas libres**: Video 1, Video 2, Gráfico 1, Texto 1, Audio 1… con los clips donde los
+     sueltes, ojo y silencio por pista, forma de onda, imán y "+" para añadir pistas. Las transiciones
+     van entre clips seguidos de una misma pista. Los proyectos guardados se convierten solos.
+   - **R3 — inspector**: General, Transformar (posición, escala, opacidad, ángulo) y Animación (entrada y
+     salida), como en escritorio.
+3. **Etapa 5b — efectos**: unos 45 efectos de Drift (color, estilo, glitch, desenfoque…) con sus parámetros.
+4. **Etapa 6 — audio**: volumen y fundidos por clip, pista de música, silenciar el audio de un video.
+5. **Probar en Edge, Firefox y Safari** (y en el celular) antes de anunciarlo.
+6. **Anunciarlo**: botón "Editar en el navegador" en la web y quitar el `noindex`.
+7. Después: abrir y guardar proyectos en el formato de la app de escritorio.
 
 ---
 
