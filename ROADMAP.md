@@ -119,7 +119,7 @@ casilla al terminarla. Última actualización: 2026-10-10 (tarde).
 
 - [x] Proyecto Vite + React + TypeScript, repo público https://github.com/bajoelabrigo/flipstudio-app (AGPL-3.0, `C:\Users\bajoe\Downloads\flipstudio-app`) — 2026-10-10.
 - [x] Publicado en https://getflipstudio.com/editor/ (sin anunciar: `noindex` y sin enlace desde la web) con `deploy/deploy.sh` del repo del editor; nginx lo sirve desde `/var/www/flipstudio-app/editor` con su propio snippet (2026-10-10).
-- [ ] Anunciarlo: botón "Editar en el navegador" en la web y quitar el `noindex` (ya exporta MP4; falta decidir cuándo).
+- [ ] Anunciarlo cuando estén las etapas 5 y 6 (decidido el 2026-10-10): botón "Editar en el navegador" en la web y quitar el `noindex`.
 - [ ] Reproducción y decodificación con **WebCodecs**; composición con **WebGL/WebGPU**.
   - [x] Etapa 1: importar (botón y arrastrar), análisis de MP4/MOV con mp4box.js + WebCodecs, miniaturas desde los fotogramas clave, vista previa en lienzo con audio y avance por fotograma, línea de tiempo con cabezal. WebM y MKV usan el reproductor del navegador.
   - [x] Etapa 2: pista principal magnética con varios clips (añadir con +, doble clic o arrastrando), dividir, recortar los bordes, reordenar, deshacer/rehacer, zoom; la vista previa reproduce la secuencia preparando el siguiente clip. 10 pruebas con Vitest en el CI.
