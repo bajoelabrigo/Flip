@@ -10,6 +10,8 @@ registro heredado de Drift.
 - Extras: sin tienda de descargas, el administrador dice "Descargas próximamente" en lugar de "No se puede
   acceder a la tienda de descargas" con un botón Reintentar que no podía funcionar. Afecta a todos los botones
   que llevan a Extras (subtítulos automáticos, fuentes, stickers, máscaras, efectos).
+- Las barras de íconos de los paneles de recursos y de propiedades son más anchas (50 px): la barra de
+  desplazamiento ya no tapa los íconos cuando no caben todos.
 
 ## 0.8.2 — en español y con soporte propio
 
