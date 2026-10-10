@@ -3,6 +3,7 @@
 #include "Time.h"
 
 #include <QList>
+#include <QPair>
 #include <QString>
 
 namespace drift {
@@ -39,5 +40,14 @@ QString subtitleClipName(const QList<SubtitleCue> &cues);
 // from the speech in between Whisper's own segment boundaries.
 QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineWidth = 42,
                                     int maxLineCount = 1, int maxWordsPerCue = 0);
+
+// Drops hesitation sounds ("eh", "em", "mmm" — never real words) and capitalises the first
+// letter. A caption left empty is dropped by cleanSubtitleCues.
+QString cleanSubtitleText(const QString &text);
+QList<SubtitleCue> cleanSubtitleCues(const QList<SubtitleCue> &cues);
+
+// Whole-word, case-insensitive replacements (find -> replace), applied in order: the user's
+// subtitle dictionary and Find & replace.
+QString applySubtitleReplacements(const QString &text, const QList<QPair<QString, QString>> &pairs);
 
 } // namespace drift

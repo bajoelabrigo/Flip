@@ -3466,7 +3466,12 @@ void applyDefaultVisualLayout(drift::Clip &clip, int canvasW, int canvasH, doubl
         return;
     }
     if (clip.type == drift::ClipType::Subtitle) {
-        setClipLayoutPixels(clip, 0, canvasH * 0.78, canvasW, canvasH * 0.18);
+        // A vertical video is for TikTok, Reels and Shorts, whose caption, buttons and progress
+        // bar cover the bottom fifth and the right edge: keep the captions above and inside them.
+        if (canvasH > canvasW * 1.2)
+            setClipLayoutPixels(clip, canvasW * 0.08, canvasH * 0.60, canvasW * 0.76, canvasH * 0.16);
+        else
+            setClipLayoutPixels(clip, 0, canvasH * 0.78, canvasW, canvasH * 0.18);
         return;
     }
     // Stickers / generic images without metadata: modest top-left box.
@@ -11996,6 +12001,30 @@ void AppController::finalizeDenoise(const QString &clipId, const QString &audioP
     emit denoiseFinished(true, tr("Noise removed"));
 }
 
+namespace {
+
+QList<QPair<QString, QString>> subtitleDictionaryPairs()
+{
+    QList<QPair<QString, QString>> pairs;
+    const QStringList raw = QSettings().value(QStringLiteral("subtitles/dictionary")).toStringList();
+    for (const QString &line : raw) {
+        const int tab = line.indexOf(QLatin1Char('\t'));
+        if (tab > 0)
+            pairs.append({line.left(tab), line.mid(tab + 1)});
+    }
+    return pairs;
+}
+
+void storeSubtitleDictionary(const QList<QPair<QString, QString>> &pairs)
+{
+    QStringList raw;
+    for (const auto &pair : pairs)
+        raw.append(pair.first + QLatin1Char('\t') + pair.second);
+    QSettings().setValue(QStringLiteral("subtitles/dictionary"), raw);
+}
+
+} // namespace
+
 void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
                                                drift::TimeUs timelineDuration,
                                                const QList<drift::SubtitleCue> &cues)
@@ -12015,11 +12044,17 @@ void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
     clip.timelineDuration = timelineDuration;
     clip.srcIn = 0;
     clip.srcOut = timelineDuration;
-    if (const std::optional<drift::TextStyle> preset = drift::textStyleForPresetId(QStringLiteral("subtitle")))
+    if (const std::optional<drift::TextStyle> preset = drift::textStyleForPresetId(subtitleStylePreset()))
         clip.textStyle = *preset;
     applyDefaultVisualLayout(clip, m_project.width(), m_project.height());
-    clip.subtitleCues = cues;
-    clip.name = drift::subtitleClipName(cues);
+    QList<drift::SubtitleCue> cleaned = subtitleCleanupEnabled() ? drift::cleanSubtitleCues(cues) : cues;
+    const QList<QPair<QString, QString>> dictionary = subtitleDictionaryPairs();
+    for (drift::SubtitleCue &cue : cleaned)
+        cue.text = drift::applySubtitleReplacements(cue.text, dictionary);
+    if (cleaned.isEmpty())
+        cleaned = cues;
+    clip.subtitleCues = cleaned;
+    clip.name = drift::subtitleClipName(cleaned);
 
     track.clips.append(clip);
     const int newClipIndex = track.clips.size() - 1;
@@ -13890,6 +13925,132 @@ void AppController::setSubtitleCues(int trackIndex, int clipIndex, const QVarian
     finishEdit(tr("Subtitles updated"));
 }
 
+int AppController::replaceInSubtitles(int trackIndex, int clipIndex, const QString &find,
+                                      const QString &replace, bool remember)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex) || find.trimmed().isEmpty())
+        return 0;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.type != drift::ClipType::Subtitle)
+        return 0;
+
+    if (remember) {
+        QList<QPair<QString, QString>> pairs = subtitleDictionaryPairs();
+        pairs.erase(std::remove_if(pairs.begin(), pairs.end(),
+                                   [&](const QPair<QString, QString> &p) {
+                                       return p.first.compare(find.trimmed(), Qt::CaseInsensitive) == 0;
+                                   }),
+                    pairs.end());
+        pairs.append({find.trimmed(), replace});
+        storeSubtitleDictionary(pairs);
+    }
+
+    const drift::Project before = m_project;
+    const QList<QPair<QString, QString>> pair = {{find.trimmed(), replace}};
+    int changed = 0;
+    for (drift::SubtitleCue &cue : clip.subtitleCues) {
+        const QString next = drift::applySubtitleReplacements(cue.text, pair);
+        if (next != cue.text) {
+            cue.text = next;
+            ++changed;
+        }
+    }
+    if (changed == 0) {
+        setLastMessage(tr("“%1” is not in these subtitles").arg(find.trimmed()), QStringLiteral("info"));
+        return 0;
+    }
+    pushProjectEdit(before, tr("Replace in subtitles"));
+    finishEdit(tr("Replaced in %n caption(s)", nullptr, changed));
+    return changed;
+}
+
+void AppController::cleanUpSubtitles(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.type != drift::ClipType::Subtitle)
+        return;
+    QList<drift::SubtitleCue> cues = drift::cleanSubtitleCues(clip.subtitleCues);
+    const QList<QPair<QString, QString>> dictionary = subtitleDictionaryPairs();
+    for (drift::SubtitleCue &cue : cues)
+        cue.text = drift::applySubtitleReplacements(cue.text, dictionary);
+    bool same = cues.size() == clip.subtitleCues.size();
+    for (int i = 0; same && i < cues.size(); ++i)
+        same = cues.at(i).text == clip.subtitleCues.at(i).text;
+    if (same) {
+        setLastMessage(tr("Subtitles are already clean"), QStringLiteral("info"));
+        return;
+    }
+    const drift::Project before = m_project;
+    clip.subtitleCues = cues;
+    clip.name = drift::subtitleClipName(clip.subtitleCues);
+    pushProjectEdit(before, tr("Clean up subtitles"));
+    finishEdit(tr("Subtitles cleaned up"));
+}
+
+QVariantList AppController::subtitleDictionary() const
+{
+    QVariantList out;
+    for (const auto &pair : subtitleDictionaryPairs())
+        out.append(QVariantMap{{QStringLiteral("find"), pair.first}, {QStringLiteral("replace"), pair.second}});
+    return out;
+}
+
+void AppController::setSubtitleDictionary(const QVariantList &entries)
+{
+    QList<QPair<QString, QString>> pairs;
+    for (const QVariant &entry : entries) {
+        const QVariantMap map = entry.toMap();
+        const QString find = map.value(QStringLiteral("find")).toString().trimmed();
+        if (!find.isEmpty() && !find.contains(QLatin1Char('\t')))
+            pairs.append({find, map.value(QStringLiteral("replace")).toString().remove(QLatin1Char('\t'))});
+    }
+    storeSubtitleDictionary(pairs);
+}
+
+QString AppController::subtitleStylePreset() const
+{
+    const QString id = QSettings().value(QStringLiteral("subtitles/stylePreset")).toString();
+    return id.isEmpty() || !drift::textPresetForId(id) ? QStringLiteral("subtitle") : id;
+}
+
+void AppController::setSubtitleStylePreset(const QString &presetId)
+{
+    QSettings().setValue(QStringLiteral("subtitles/stylePreset"), presetId);
+}
+
+bool AppController::subtitleCleanupEnabled() const
+{
+    return QSettings().value(QStringLiteral("subtitles/cleanup"), true).toBool();
+}
+
+void AppController::setSubtitleCleanupEnabled(bool enabled)
+{
+    QSettings().setValue(QStringLiteral("subtitles/cleanup"), enabled);
+}
+
+QVariantList AppController::subtitleStyleChoices() const
+{
+    // Built-in packs that read as captions: one line, low on screen or word-driven.
+    static const QStringList kCaptionPacks = {
+        QStringLiteral("subtitle"), QStringLiteral("caption"), QStringLiteral("hormozi"),
+        QStringLiteral("one-word-color"), QStringLiteral("word-background"),
+        QStringLiteral("sentence-background"), QStringLiteral("karaoke-pop"),
+        QStringLiteral("karaoke-highlight"), QStringLiteral("word-outline"), QStringLiteral("bulky"),
+    };
+    QVariantList out;
+    for (const QString &id : kCaptionPacks) {
+        if (const std::optional<drift::TextPreset> preset = drift::textPresetForId(id))
+            out.append(QVariantMap{{QStringLiteral("id"), preset->id}, {QStringLiteral("label"), preset->label}});
+    }
+    for (const drift::TextPreset &preset : drift::addonTextPresets()) {
+        if (preset.category == QLatin1String("subtitulos"))
+            out.append(QVariantMap{{QStringLiteral("id"), preset.id}, {QStringLiteral("label"), preset.label}});
+    }
+    return out;
+}
+
 void AppController::previewSetSubtitleCues(int trackIndex, int clipIndex, const QVariantList &cues)
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
@@ -14189,6 +14350,28 @@ QVariantList AppController::textPresets() const
     return out;
 }
 
+QVariantList AppController::addonTextPresets() const
+{
+    QVariantList out;
+    for (const drift::TextPreset &preset : drift::addonTextPresets()) {
+        out.append(QVariantMap{
+            {QStringLiteral("id"), preset.id},
+            {QStringLiteral("label"), preset.label},
+            {QStringLiteral("category"), preset.category},
+            {QStringLiteral("sampleText"), preset.sampleText},
+        });
+    }
+    return out;
+}
+
+QVariantList AppController::addonTextPresetCategories() const
+{
+    QVariantList out;
+    for (const auto &category : drift::addonTextPresetCategories())
+        out.append(QVariantMap{{QStringLiteral("id"), category.first}, {QStringLiteral("label"), category.second}});
+    return out;
+}
+
 QVariantList AppController::userTextPresets() const
 {
     QVariantList out;
@@ -14368,6 +14551,48 @@ QVariantList AppController::fontCatalog() const
         });
     }
     return out;
+}
+
+QVariantMap AppController::importFonts(const QList<QUrl> &urls)
+{
+    QStringList files;
+    for (const QUrl &url : urls) {
+        const QString path = url.isLocalFile() ? url.toLocalFile() : url.toString();
+        const QString suffix = QFileInfo(path).suffix().toLower();
+        if (suffix == QLatin1String("ttf") || suffix == QLatin1String("otf"))
+            files.append(path);
+    }
+    QString error;
+    const QStringList families = ::importUserFonts(files, &error);
+    if (!families.isEmpty()) {
+        emit fontCatalogChanged();
+        setLastMessage(families.size() == 1 ? tr("Font added: %1").arg(families.first())
+                                            : tr("%n fonts added", nullptr, int(families.size())),
+                       QStringLiteral("success"));
+    } else {
+        setLastMessage(tr("That file is not a font this app can read"), QStringLiteral("error"));
+    }
+    return {{QStringLiteral("ok"), !families.isEmpty()},
+            {QStringLiteral("families"), families},
+            {QStringLiteral("error"), error}};
+}
+
+QStringList AppController::recentFonts() const
+{
+    return QSettings().value(QStringLiteral("fonts/recent")).toStringList();
+}
+
+void AppController::noteRecentFont(const QString &family)
+{
+    if (family.isEmpty())
+        return;
+    QSettings settings;
+    QStringList recent = settings.value(QStringLiteral("fonts/recent")).toStringList();
+    recent.removeAll(family);
+    recent.prepend(family);
+    while (recent.size() > 8)
+        recent.removeLast();
+    settings.setValue(QStringLiteral("fonts/recent"), recent);
 }
 
 void AppController::previewSetTextRect(int trackIndex, int clipIndex, double xPixels, double yPixels,

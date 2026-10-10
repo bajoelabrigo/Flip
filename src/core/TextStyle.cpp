@@ -1,5 +1,8 @@
 #include "TextStyle.h"
 
+#include <QMutex>
+#include <QMutexLocker>
+
 #include "Effect.h"
 #include "TextAnimationPreset.h"
 #include "TextLook.h"
@@ -751,10 +754,50 @@ const QList<TextPreset> &textPresets()
     return presets;
 }
 
+namespace {
+
+QMutex g_addonPresetsMutex;
+QList<TextPreset> g_addonPresets;
+QList<QPair<QString, QString>> g_addonCategories;
+
+} // namespace
+
+bool isAddonTextPresetId(const QString &id)
+{
+    return id.startsWith(QLatin1String("pack:"));
+}
+
+void setAddonTextPresets(const QList<TextPreset> &presets, const QList<QPair<QString, QString>> &categories)
+{
+    QMutexLocker lock(&g_addonPresetsMutex);
+    g_addonPresets = presets;
+    g_addonCategories = categories;
+}
+
+QList<TextPreset> addonTextPresets()
+{
+    QMutexLocker lock(&g_addonPresetsMutex);
+    return g_addonPresets;
+}
+
+QList<QPair<QString, QString>> addonTextPresetCategories()
+{
+    QMutexLocker lock(&g_addonPresetsMutex);
+    return g_addonCategories;
+}
+
 std::optional<TextPreset> textPresetForId(const QString &id)
 {
     if (isUserTextPresetId(id))
         return TextPresetStore::instance().presetForId(id);
+    if (isAddonTextPresetId(id)) {
+        QMutexLocker lock(&g_addonPresetsMutex);
+        for (const TextPreset &preset : std::as_const(g_addonPresets)) {
+            if (preset.id == id)
+                return preset;
+        }
+        return std::nullopt;
+    }
     for (const TextPreset &preset : textPresets()) {
         if (preset.id == id)
             return preset;

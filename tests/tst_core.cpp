@@ -1093,6 +1093,25 @@ void CoreTest::subtitleCuePacking()
     // A cap of 0 is the recommended packing, unchanged.
     const QList<drift::SubtitleCue> uncapped = drift::packSubtitleCues(input, 42, 1, 0);
     QCOMPARE(uncapped.size(), packed.size());
+
+    // A sentence ends its caption even with room left on the line.
+    QList<drift::SubtitleCue> sentences;
+    sentences.append({0, drift::secondsToUs(4.0), QStringLiteral("Dios es fiel. Él nos cuida.")});
+    const QList<drift::SubtitleCue> split = drift::packSubtitleCues(sentences, 42, 1);
+    QCOMPARE(split.size(), 2);
+    QCOMPARE(split.at(0).text, QStringLiteral("Dios es fiel."));
+    QCOMPARE(split.at(1).text, QStringLiteral("Él nos cuida."));
+
+    // Cleanup drops hesitations only, and capitalises.
+    QCOMPARE(drift::cleanSubtitleText(QStringLiteral("eh, este es el camino")),
+             QStringLiteral("Este es el camino"));
+    QCOMPARE(drift::cleanSubtitleText(QStringLiteral("¿mmm y entonces?")), QStringLiteral("¿Y entonces?"));
+    QVERIFY(drift::cleanSubtitleCues({{0, 1000, QStringLiteral("ehh")}}).isEmpty());
+
+    // Replacements are whole words in any case.
+    const QList<QPair<QString, QString>> dictionary = {{QStringLiteral("jesus"), QStringLiteral("Jesús")}};
+    QCOMPARE(drift::applySubtitleReplacements(QStringLiteral("JESUS y jesusito"), dictionary),
+             QStringLiteral("Jesús y jesusito"));
 }
 
 void CoreTest::srtRoundTrip()

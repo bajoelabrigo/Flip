@@ -199,11 +199,110 @@ QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineW
             ++wordCount;
         }
         lastStart = timing.startUs;
+
+        // Natural breaks: a sentence ends the caption, and a clause does once the line is half
+        // full, so a caption reads as a phrase instead of stopping wherever the width ran out.
+        const QString word = timing.word.trimmed();
+        if (!word.isEmpty() && maxWordsPerCue != 1) {
+            const QChar last = word.back();
+            const bool sentenceEnd = last == QLatin1Char('.') || last == QLatin1Char('?')
+                                     || last == QLatin1Char('!') || last == QChar(0x2026);
+            const bool clauseEnd = last == QLatin1Char(',') || last == QLatin1Char(';')
+                                   || last == QLatin1Char(':');
+            if (sentenceEnd || (clauseEnd && lineCount == maxLineCount && lineLen * 2 >= maxLineWidth))
+                flush();
+        }
     }
     flush();
 
     sortSubtitleCues(packed);
     return packed;
+}
+
+namespace {
+
+// Hesitations only: sounds, never words ("este", "o sea" are real Spanish and stay).
+bool isHesitation(const QString &word)
+{
+    static const QStringList kHesitations = {
+        QStringLiteral("eh"), QStringLiteral("ehh"), QStringLiteral("ehm"), QStringLiteral("em"),
+        QStringLiteral("emm"), QStringLiteral("mm"), QStringLiteral("mmm"), QStringLiteral("hmm"),
+        QStringLiteral("uh"), QStringLiteral("um"), QStringLiteral("umm"), QStringLiteral("ah"),
+        QStringLiteral("ahh"), QStringLiteral("eeh"), QStringLiteral("mmh"),
+    };
+    QString bare;
+    for (const QChar c : word)
+        if (c.isLetter())
+            bare.append(c.toLower());
+    return !bare.isEmpty() && kHesitations.contains(bare);
+}
+
+} // namespace
+
+QString cleanSubtitleText(const QString &text)
+{
+    const QStringList words = text.split(QLatin1Char(' '), Qt::SkipEmptyParts);
+    QStringList kept;
+    QString opening; // "¿" / "¡" a dropped hesitation opened with, for the next word
+    for (const QString &word : words) {
+        if (!isHesitation(word)) {
+            kept.append(opening + word);
+            opening.clear();
+            continue;
+        }
+        for (const QChar c : word) {
+            if (c.isLetter())
+                break;
+            if (c == QChar(0x00BF) || c == QChar(0x00A1))
+                opening.append(c);
+        }
+        // "eh," before a word: keep a sentence end the hesitation carried.
+        const QChar last = word.back();
+        if (!kept.isEmpty() && (last == QLatin1Char('.') || last == QLatin1Char('?') || last == QLatin1Char('!'))
+            && !kept.last().back().isPunct())
+            kept.last().append(last);
+    }
+    QString out = kept.join(QLatin1Char(' ')).trimmed();
+    // Leading punctuation a removed hesitation left behind (", y entonces").
+    while (!out.isEmpty() && (out.front() == QLatin1Char(',') || out.front() == QLatin1Char(';')))
+        out = out.mid(1).trimmed();
+    // Capitalise the first letter, past any opening ¿ ¡ « " (.
+    for (int i = 0; i < out.size(); ++i) {
+        if (out.at(i).isLetter()) {
+            out[i] = out.at(i).toUpper();
+            break;
+        }
+        if (!out.at(i).isPunct() && !out.at(i).isSpace())
+            break;
+    }
+    return out;
+}
+
+QList<SubtitleCue> cleanSubtitleCues(const QList<SubtitleCue> &cues)
+{
+    QList<SubtitleCue> out;
+    for (SubtitleCue cue : cues) {
+        cue.text = cleanSubtitleText(cue.text);
+        if (!cue.text.isEmpty())
+            out.append(cue);
+    }
+    return out;
+}
+
+QString applySubtitleReplacements(const QString &text, const QList<QPair<QString, QString>> &pairs)
+{
+    QString out = text;
+    for (const auto &pair : pairs) {
+        if (pair.first.trimmed().isEmpty())
+            continue;
+        // Whole words, any case: "jesus" fixes "Jesus" and "JESUS" but not "jesusito".
+        const QRegularExpression re(QStringLiteral("(?<![\\p{L}\\p{N}])%1(?![\\p{L}\\p{N}])")
+                                        .arg(QRegularExpression::escape(pair.first.trimmed())),
+                                    QRegularExpression::CaseInsensitiveOption
+                                        | QRegularExpression::UseUnicodePropertiesOption);
+        out.replace(re, pair.second);
+    }
+    return out;
 }
 
 } // namespace drift

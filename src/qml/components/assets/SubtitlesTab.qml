@@ -117,6 +117,74 @@ Item {
                 Component.onCompleted: currentIndex = 0
             }
 
+            // The look captions are created with, remembered for next time.
+            Text {
+                visible: root.whisperReady
+                width: subtitleColumn.contentWidth
+                text: qsTr("Caption style")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+
+            Grid {
+                id: captionStyleGrid
+                visible: root.whisperReady
+                width: subtitleColumn.contentWidth
+                columns: 2
+                columnSpacing: Theme.spacingSm
+                rowSpacing: Theme.spacingSm
+                readonly property real cardWidth: (width - columnSpacing) / 2
+
+                Repeater {
+                    model: root.captionStyles
+                    delegate: Column {
+                        id: styleCard
+                        required property var modelData
+                        width: captionStyleGrid.cardWidth
+                        spacing: Theme.spacingXs
+
+                        TextStylePackThumb {
+                            width: parent.width
+                            height: Math.round(width * 0.5)
+                            presetId: styleCard.modelData.id
+                            selected: root.captionStyle === styleCard.modelData.id
+                            hovered: styleMouse.containsMouse
+
+                            MouseArea {
+                                id: styleMouse
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                cursorShape: Qt.PointingHandCursor
+                                onClicked: {
+                                    root.captionStyle = styleCard.modelData.id
+                                    EditorState.setSubtitleStylePreset(styleCard.modelData.id)
+                                }
+                            }
+                        }
+
+                        Text {
+                            width: parent.width
+                            text: styleCard.modelData.label
+                            elide: Text.ElideRight
+                            horizontalAlignment: Text.AlignHCenter
+                            color: root.captionStyle === styleCard.modelData.id ? Theme.panelForeground
+                                                                                : Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                    }
+                }
+            }
+
+            ThemedCheckBox {
+                visible: root.whisperReady
+                width: subtitleColumn.contentWidth
+                text: qsTr("Remove hesitations (eh, mmm) and capitalize")
+                checked: EditorState.subtitleCleanupEnabled()
+                onToggled: EditorState.setSubtitleCleanupEnabled(checked)
+            }
+
             Text {
                 visible: root.whisperReady && captionWordsBox.currentValue > 0
                 width: subtitleColumn.contentWidth
@@ -213,6 +281,9 @@ Item {
         return options
     }
 
+    property var captionStyles: EditorState.subtitleStyleChoices()
+    property string captionStyle: EditorState.subtitleStylePreset()
+
     property bool whisperReady: Addons.hasKind("whisper-model")
                                 && Addons.runtimeAvailable()
     property bool runtimeReady: Addons.runtimeAvailable()
@@ -227,6 +298,11 @@ Item {
     Connections {
         target: Addons
         function onKindChanged(kind) {
+            if (kind === "text-styles") {
+                root.captionStyles = EditorState.subtitleStyleChoices()
+                root.captionStyle = EditorState.subtitleStylePreset()
+                return
+            }
             if (kind !== "whisper-model" && kind !== "onnxruntime")
                 return
             root.runtimeReady = Addons.runtimeAvailable()

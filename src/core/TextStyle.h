@@ -9,6 +9,7 @@
 #include <QJsonObject>
 #include <QList>
 #include <QMap>
+#include <QPair>
 #include <QString>
 #include <QStringList>
 
@@ -152,6 +153,8 @@ struct TextPreset
     // Short phrase shown on picker thumbnails — chosen to demo the pack's look
     // (accents, wrap, weight) rather than a meaningless filler line.
     QString sampleText;
+    // Add-on packs only: the pack category it is listed under.
+    QString category;
 };
 
 // Built-in style packs only. User-saved presets live in TextPresetStore; textPresetForId()
@@ -161,6 +164,14 @@ const QList<TextPreset> &textPresets();
 // preview provider resolves ids on the image-loading thread.
 std::optional<TextPreset> textPresetForId(const QString &id);
 std::optional<TextStyle> textStyleForPresetId(const QString &id);
+
+// Styles from installed text-style add-ons, ids "pack:<pack>/<style>". The engine's catalog
+// (TextStyleCatalog) reads the packs and hands them over here, so textPresetForId resolves them
+// like built-in ones. Categories are id + label, in display order.
+bool isAddonTextPresetId(const QString &id);
+void setAddonTextPresets(const QList<TextPreset> &presets, const QList<QPair<QString, QString>> &categories);
+QList<TextPreset> addonTextPresets();
+QList<QPair<QString, QString>> addonTextPresetCategories();
 
 // Shared with the project file format, which is why these live here rather than in Project.cpp:
 // the user preset store writes the same style objects and must inherit the same key migrations.

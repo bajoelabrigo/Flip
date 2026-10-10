@@ -652,6 +652,7 @@ add_library(driftengine STATIC
     src/engine/FontCatalog.cpp
     src/engine/StickerCatalog.h
     src/engine/StickerCatalog.cpp
+    src/engine/TextStyleCatalog.cpp
     src/engine/EmojiCatalog.h
     src/engine/EmojiCatalog.cpp
     src/engine/EmojiTable.h

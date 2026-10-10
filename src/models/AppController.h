@@ -924,6 +924,23 @@ public:
     Q_INVOKABLE void endTextEdit();
     bool inlineTextEditing() const { return m_inlineTextEditing; }
     Q_INVOKABLE void setSubtitleCues(int trackIndex, int clipIndex, const QVariantList &cues);
+    // Find & replace across a subtitle clip's captions (whole words, any case); returns how many
+    // captions changed. `remember` also adds the pair to the subtitle dictionary.
+    Q_INVOKABLE int replaceInSubtitles(int trackIndex, int clipIndex, const QString &find,
+                                       const QString &replace, bool remember);
+    // Hesitations out, first letters up, dictionary applied — what new captions get.
+    Q_INVOKABLE void cleanUpSubtitles(int trackIndex, int clipIndex);
+    // The user's corrections ([{find, replace}]), applied to every generated caption.
+    Q_INVOKABLE QVariantList subtitleDictionary() const;
+    Q_INVOKABLE void setSubtitleDictionary(const QVariantList &entries);
+    // The text style auto captions are created with (a text preset id) and whether they are
+    // cleaned up as they arrive.
+    Q_INVOKABLE QString subtitleStylePreset() const;
+    Q_INVOKABLE void setSubtitleStylePreset(const QString &presetId);
+    Q_INVOKABLE bool subtitleCleanupEnabled() const;
+    Q_INVOKABLE void setSubtitleCleanupEnabled(bool enabled);
+    // Caption-ready styles for the picker: built-in caption packs then the add-on "subtitulos".
+    Q_INVOKABLE QVariantList subtitleStyleChoices() const;
     Q_INVOKABLE void previewSetSubtitleCues(int trackIndex, int clipIndex, const QVariantList &cues);
     Q_INVOKABLE double subtitleLocalPlayheadSeconds(int trackIndex, int clipIndex) const;
     Q_INVOKABLE void upsertSubtitleCueAtPlayhead(int trackIndex, int clipIndex, const QString &text);
@@ -975,6 +992,10 @@ public:
     // Style packs the user saved from the inspector. Kept out of textPresets() so the built-in
     // catalog (and the MCP list it feeds) stays a stable, shippable set.
     Q_INVOKABLE QVariantList userTextPresets() const;
+    // Template packs from Extras (kind "text-styles"): {id, label, category, sampleText}, and their
+    // categories {id, label} in display order.
+    Q_INVOKABLE QVariantList addonTextPresets() const;
+    Q_INVOKABLE QVariantList addonTextPresetCategories() const;
     Q_INVOKABLE QString saveTextStyleAsPreset(int trackIndex, int clipIndex, const QString &label);
     Q_INVOKABLE bool renameUserTextPreset(const QString &presetId, const QString &label);
     Q_INVOKABLE bool deleteUserTextPreset(const QString &presetId);
@@ -982,6 +1003,11 @@ public:
     Q_INVOKABLE bool importUserTextPreset(const QUrl &fileUrl);
     Q_INVOKABLE QVariantList fontCatalog() const;
     Q_INVOKABLE QVariantList fontCategories() const;
+    // .ttf/.otf files copied into the user's fonts ("My fonts"). {ok, families, error}.
+    Q_INVOKABLE QVariantMap importFonts(const QList<QUrl> &urls);
+    // Most recently picked families first, at most eight.
+    Q_INVOKABLE QStringList recentFonts() const;
+    Q_INVOKABLE void noteRecentFont(const QString &family);
     Q_INVOKABLE void setClipBlendMode(int trackIndex, int clipIndex, const QString &mode);
     Q_INVOKABLE bool setClipSpeed(int trackIndex, int clipIndex, double speed);
     Q_INVOKABLE void setClipReverse(int trackIndex, int clipIndex, bool reverse);
@@ -1660,6 +1686,7 @@ signals:
     void shortcutsChanged();
     void assetFavoritesChanged();
     void userTextPresetsChanged();
+    void fontCatalogChanged();
     void userEffectPresetsChanged();
     void facePropsChanged();
     void projectLayoutChosenChanged();

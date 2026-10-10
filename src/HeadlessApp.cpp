@@ -3,6 +3,7 @@
 #include "engine/AudioFileWriter.h"
 #include "engine/EmojiCatalog.h"
 #include "engine/FontCatalog.h"
+#include "engine/TextStyleCatalog.h"
 #include "engine/ReverseProxyCache.h"
 #include "mcp/McpServer.h"
 #include "mcp/McpSession.h"
@@ -139,6 +140,7 @@ int runHeadless(int argc, char *argv[])
     // Text and caption clips resolve their faces through these, so they are needed even
     // with nothing on screen.
     reloadFontCatalog();
+    reloadTextStyleCatalog();
     reloadEmojiCatalog();
     drift::sweepDenoisePreviews();
     drift::ReverseProxyCache::instance().load();
