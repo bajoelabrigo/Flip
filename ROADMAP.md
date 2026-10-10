@@ -26,16 +26,16 @@ casilla al terminarla. Última actualización: 2026-10-10 (noche).
 
 ## Qué sigue
 
-Dónde estamos: la app de escritorio va por la **v0.8.2** (publicada en GitHub y en la Microsoft Store;
-la **v0.8.3** está en preparación) y el **editor web** va por la etapa 5 de 6 (edita, pone las 28 transiciones y exporta MP4; se
+Dónde estamos: la app de escritorio va por la **v0.8.2** **v0.8.3** (publicada en GitHub el 2026-10-10; falta
+subirla a la Microsoft Store) y el **editor web** va por la etapa 5 de 6 (edita, pone las 28 transiciones y exporta MP4; se
 anunciará al terminar las etapas 5 y 6). Los dos frentes avanzan por separado; este es el orden recomendado.
 
 ### App de escritorio (Windows)
 1. ~~Esperar la certificación de la Store de la 0.8.2.0~~ — publicada el 2026-10-10.
-2. **v0.8.3 — sin funciones rotas a la vista** (rama `flip/v0.8.3`). Hecho en el código: la pestaña
-   Market (Assets, efectos de sonido, stock de Pexels) se oculta sin servicio propio, y Extras dice
-   "Descargas próximamente" en vez de un error con "Reintentar". Falta: compilar con Actions, probar
-   el portable, publicar (Release, TXT `version`, Store).
+2. ~~**v0.8.3 — sin funciones rotas a la vista**~~ (2026-10-10): Market oculto sin servicio propio,
+   Extras dice "Descargas próximamente", barras de íconos más anchas. Falta: TXT `version` → `0.8.3`
+   y la actualización en la Store.
+   - Las compilaciones de escritorio se lanzan cuando hay varios cambios juntos, no por cada uno.
 3. **Add-ons propios (Fase 3.1).** Es lo que más valor devuelve: **subtítulos automáticos** (el modelo
    Whisper), fuentes y stickers. Pasos: clave de firma propia, empaquetar con la herramienta de
    Drift, alojarlos como archivos de un GitHub Release (gratis, sin cuenta nueva) y publicar el índice.
@@ -48,10 +48,10 @@ anunciará al terminar las etapas 5 y 6). Los dos frentes avanzan por separado; 
 ### Editor web (getflipstudio.com/editor)
 1. ~~**Etapa 5a — transiciones**~~: las 28 de Drift con WebGL2, en vista previa y exportación (publicada el 2026-10-10).
 2. **Rediseño igual al escritorio** (decidido el 2026-10-10, va antes de los efectos):
-   - **R1 — distribución**: barra de íconos a la izquierda con la biblioteca, vista previa, inspector con
+   - ~~**R1 — distribución**~~ (publicada el 2026-10-10; faltan la forma de onda y el botón "Video"): barra de íconos a la izquierda con la biblioteca, vista previa, inspector con
      su propia barra de íconos a la derecha, encabezado y barra de la línea de tiempo como en escritorio,
      y la vista previa a la derecha para videos verticales. Mismos íconos, colores y nombres.
-   - **R2 — pistas libres**: Video 1, Video 2, Gráfico 1, Texto 1, Audio 1… con los clips donde los
+   - ~~**R2 — pistas libres**~~ (publicada el 2026-10-10): Video 1, Video 2, Gráfico 1, Texto 1, Audio 1… con los clips donde los
      sueltes, ojo y silencio por pista, forma de onda, imán y "+" para añadir pistas. Las transiciones
      van entre clips seguidos de una misma pista. Los proyectos guardados se convierten solos.
    - **R3 — inspector**: General, Transformar (posición, escala, opacidad, ángulo) y Animación (entrada y
