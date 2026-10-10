@@ -119,13 +119,15 @@ casilla al terminarla. Última actualización: 2026-10-10 (tarde).
 
 - [x] Proyecto Vite + React + TypeScript, repo público https://github.com/bajoelabrigo/flipstudio-app (AGPL-3.0, `C:\Users\bajoe\Downloads\flipstudio-app`) — 2026-10-10.
 - [x] Publicado en https://getflipstudio.com/editor/ (sin anunciar: `noindex` y sin enlace desde la web) con `deploy/deploy.sh` del repo del editor; nginx lo sirve desde `/var/www/flipstudio-app/editor` con su propio snippet (2026-10-10).
-- [ ] Añadir el botón "Editar en el navegador" en la web y quitar el `noindex` cuando exporte MP4 (etapa 4).
+- [ ] Anunciarlo: botón "Editar en el navegador" en la web y quitar el `noindex` (ya exporta MP4; falta decidir cuándo).
 - [ ] Reproducción y decodificación con **WebCodecs**; composición con **WebGL/WebGPU**.
   - [x] Etapa 1: importar (botón y arrastrar), análisis de MP4/MOV con mp4box.js + WebCodecs, miniaturas desde los fotogramas clave, vista previa en lienzo con audio y avance por fotograma, línea de tiempo con cabezal. WebM y MKV usan el reproductor del navegador.
   - [x] Etapa 2: pista principal magnética con varios clips (añadir con +, doble clic o arrastrando), dividir, recortar los bordes, reordenar, deshacer/rehacer, zoom; la vista previa reproduce la secuencia preparando el siguiente clip. 10 pruebas con Vitest en el CI.
   - [x] Guardado automático del proyecto en el navegador (IndexedDB); en Chrome/Edge se recuerda el acceso a los archivos y "Recuperar archivos" los vuelve a abrir; si falta uno, se enlaza al importarlo de nuevo.
   - [x] Etapa 3: pista de texto con carriles; 11 estilos de escritorio (tipografías, contornos, sombras, brillos, degradados, caja, palabra destacada) con animaciones por texto, palabra o letra; edición en el panel y arrastre sobre la vista previa. Tipografías de Google Fonts (OFL) alojadas en el propio servidor.
-  - [ ] Etapa 4: exportar MP4 con WebCodecs (`VideoEncoder` + `AudioEncoder`), en el navegador.
+  - [x] Etapa 4: exportar a MP4 en el navegador (H.264 + AAC con WebCodecs, vía Mediabunny MPL-2.0): resolución original o 720p, calidad alta o normal, progreso y cancelar; en Chrome/Edge se escribe directo al disco. Corrige además la orientación de los videos de celular (rotación del MP4). Verificado con ffprobe: imagen, textos y audio de cada clip en su sitio.
+  - [ ] Etapa 5: efectos y transiciones (shaders de Drift en WebGL/WebGPU).
+  - [ ] Etapa 6: audio (volumen por clip, música, motor de audio de Drift en WebAssembly).
 - [ ] Reutilizar de Drift: shaders de `effects/` y `transitions/`, audio en WebAssembly (`wasm/`), presets JSON.
 - [ ] Etapas: importar y reproducir → timeline con cortes → texto → exportar MP4 → efectos y transiciones → audio.
 - [ ] Mismo formato de proyecto que la versión de escritorio.
