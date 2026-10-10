@@ -68,6 +68,7 @@ PanelFrame {
             root.syncAnimationTab()
             root.syncStabilizeTab()
             root.syncAdjustmentTab()
+            root.openSubtitlesTabOnSelect()
             root.syncActiveTab()
         }
         function onSelectedClipDataChanged() {
@@ -254,9 +255,15 @@ PanelFrame {
         return "effects"
     }
 
+    // Selecting a subtitle clip opens its cue editor, with the phrases laid out on the timeline:
+    // closed, a generated clip looked like one opaque block with no text to edit.
+    function openSubtitlesTabOnSelect() {
+        if (root.clipKind === "subtitle" && root.subtitlesTabIndex >= 0)
+            root.activeTab = root.subtitlesTabIndex
+    }
+
     // The Subtitles tab only exists for subtitle clips, so leaving it selected would show a blank
-    // pane once the selection moves off one. Selecting a subtitle clip never opens the tab by
-    // itself: it took over whatever pane you were working in, and with it the timeline lane.
+    // pane once the selection moves off one.
     function syncSubtitlesTab() {
         if (root.subtitlesTabIndex >= 0 && root.activeTab === root.subtitlesTabIndex
                 && root.clipKind !== "subtitle")
