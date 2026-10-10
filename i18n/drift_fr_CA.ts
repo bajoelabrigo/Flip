@@ -12724,6 +12724,10 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <source>%1 — click to add, or drag to the timeline or preview</source>
         <translation>%1 — cliquez pour ajouter, ou faites glisser sur la ligne du temps ou l&apos;aperçu</translation>
     </message>
+    <message>
+        <source>Animated</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StockBrowser</name>

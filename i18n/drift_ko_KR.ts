@@ -12668,6 +12668,10 @@ If playback stutters, try another.</source>
         <source>%1 — click to add, or drag to the timeline or preview</source>
         <translation>%1 — 클릭하여 추가하거나 타임라인 또는 미리보기로 드래그</translation>
     </message>
+    <message>
+        <source>Animated</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StockBrowser</name>

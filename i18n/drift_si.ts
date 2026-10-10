@@ -12721,6 +12721,10 @@ If playback stutters, try another.</source>
         <source>%1 — click to add, or drag to the timeline or preview</source>
         <translation>%1 — එක් කිරීමට ක්ලික් කරන්න, නැතහොත් කාලරේඛාව හෝ පෙරදසුන වෙත අදින්න</translation>
     </message>
+    <message>
+        <source>Animated</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StockBrowser</name>

@@ -12721,6 +12721,10 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <source>%1 — click to add, or drag to the timeline or preview</source>
         <translation>%1 — fai clic per aggiungere o trascina sulla timeline o sull&apos;anteprima</translation>
     </message>
+    <message>
+        <source>Animated</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StockBrowser</name>

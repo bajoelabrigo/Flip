@@ -7,8 +7,11 @@ registro heredado de Drift.
 
 - Extras vuelve a descargar: índice en getflipstudio.com/addons/index.json y paquetes en los GitHub Releases
   de bajoelabrigo/flip-addons, firmados con la clave de Flip Studio (la app ya no confía en la de CutWire).
-- Primeros paquetes: subtítulos automáticos (Whisper small), motor de IA (ONNX Runtime 1.27.0 para
-  procesador) y 32 fuentes de Google Fonts.
+- Paquetes: subtítulos automáticos (Whisper small), motor de IA (ONNX Runtime 1.27.0 para procesador),
+  32 fuentes de Google Fonts, 150 stickers de emojis 3D y dos packs de stickers animados (48 emojis con
+  movimiento; 19 de redes sociales, flechas y efectos).
+- Stickers animados: un sticker Lottie entra como animación que se repite y dura lo que un sticker; en la
+  cuadrícula se ve su miniatura con una insignia ▶.
 
 ## 0.8.3 — sin funciones rotas a la vista
 

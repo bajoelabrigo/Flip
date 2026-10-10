@@ -12721,6 +12721,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <source>%1 — click to add, or drag to the timeline or preview</source>
         <translation>%1 — haz clic para añadir, o arrastra a la línea de tiempo o a la vista previa</translation>
     </message>
+    <message>
+        <source>Animated</source>
+        <translation>Animado</translation>
+    </message>
 </context>
 <context>
     <name>StockBrowser</name>
