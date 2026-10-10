@@ -221,7 +221,10 @@ void ProjectFileController::sweepExtractionDirs()
 }
 QString ProjectFileController::projectName() const
 {
-    return m_app->m_project.name();
+    // A new project is stored as "Untitled Project" (the file format keeps it in English); show it,
+    // and suggest it as a file name, in the user's language.
+    const QString name = m_app->m_project.name();
+    return name == QLatin1String("Untitled Project") ? tr("Untitled Project") : name;
 }
 void ProjectFileController::setProjectName(const QString &name)
 {
@@ -237,7 +240,7 @@ void ProjectFileController::setProjectName(const QString &name)
 QVariantMap ProjectFileController::projectMetadata() const
 {
     return QVariantMap{
-        {QStringLiteral("title"), m_app->m_project.name()},
+        {QStringLiteral("title"), projectName()},
         {QStringLiteral("author"), m_app->m_project.author()},
         {QStringLiteral("description"), m_app->m_project.description()},
         {QStringLiteral("createdAt"), m_app->m_project.createdAt().toLocalTime()},
@@ -248,7 +251,8 @@ QVariantMap ProjectFileController::projectMetadata() const
 void ProjectFileController::setProjectMetadata(const QString &title, const QString &author,
                                        const QString &description)
 {
-    const bool nameChanged = m_app->m_project.name() != title;
+    // Against the shown name, so accepting the dialog untouched keeps "Untitled Project" as is.
+    const bool nameChanged = projectName() != title;
     if (!nameChanged && m_app->m_project.author() == author && m_app->m_project.description() == description)
         return;
 

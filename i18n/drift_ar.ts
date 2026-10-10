@@ -10310,6 +10310,10 @@ If playback stutters, try another.</source>
         <translation>يستخدم هذا المشروع &quot;%1&quot;، وهو غير مثبت — فلن يظهر. افتح الإضافات لتثبيته.</translation>
     </message>
     <message>
+        <source>Untitled Project</source>
+        <translation type="unfinished">مشروع بدون عنوان</translation>
+    </message>
+    <message>
         <source>This project uses %1 effects or transitions that aren’t installed (%2%3) — they won’t show. Open Extras to install them.</source>
         <translation>يستخدم هذا المشروع %1 من التأثيرات أو الانتقالات غير المثبتة (%2%3) — فلن تظهر. افتح الإضافات لتثبيتها.</translation>
     </message>
@@ -14050,6 +14054,266 @@ If playback stutters, try another.</source>
     <message>
         <source>Extrude</source>
         <translation>تجسيم</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished">العنوان</translation>
+    </message>
+    <message>
+        <source>Main Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A supporting line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alex Rivera · Host</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Watch until the end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Words worth keeping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Impact</source>
+        <translation type="unfinished">الارتطام</translation>
+    </message>
+    <message>
+        <source>STOP SCROLLING</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation type="unfinished">انبثاق</translation>
+    </message>
+    <message>
+        <source>Big news!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Neon</source>
+        <translation type="unfinished">نيون</translation>
+    </message>
+    <message>
+        <source>NEON NIGHTS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Handwritten</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With love</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hormozi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop wasting time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>One word colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make every word count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Word background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Highlight what matters most</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sentence background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read this carefully</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Karaoke pop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sing along with me</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Karaoke highlight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow the bouncing words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Soft and dreamy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation type="unfinished">تسطير</translation>
+    </message>
+    <message>
+        <source>Underline this line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bulky</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Big first word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Word outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Outline every other word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GOLD STANDARD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chrome</source>
+        <translation type="unfinished">كروم</translation>
+    </message>
+    <message>
+        <source>CHROME</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retro 3D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TOTALLY RAD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SIGNAL LOST</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Comic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>KAPOW!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fire</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ON FIRE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FROZEN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Candy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sweet treats</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sticker</source>
+        <translation type="unfinished">ملصق</translation>
+    </message>
+    <message>
+        <source>Sticker!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rainbow wave</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taste the rainbow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cinematic</source>
+        <translation type="unfinished">سينمائي</translation>
+    </message>
+    <message>
+        <source>THE BEGINNING</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shimmer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sketch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rough draft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Editorial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The quiet issue</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text size</source>
