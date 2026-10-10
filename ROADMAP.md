@@ -62,11 +62,13 @@ casilla al terminarla. Última actualización: 2026-10-09.
 
 ## Fase 2 — Distribución en Windows
 
-- [ ] **Microsoft Store** (ya tienes cuenta de Partner Center por Holy App):
-  - [ ] Reservar el nombre "Flip Studio" en Partner Center.
-  - [ ] Cambiar en `installer/msix/AppxManifest.xml` la identidad (Name, Publisher, PublisherDisplayName) por la de tu cuenta.
-  - [ ] Adaptar `msstore.yml` (hoy usa secretos de CutWire) o generar el MSIX y subirlo a mano.
-  - [ ] Ficha de la tienda: descripción, capturas, política de privacidad.
+- [x] **Microsoft Store** — enviada a certificación el 2026-10-10 (v0.8.1.0):
+  - [x] Nombre "Flip Studio" reservado (Store ID `9NZZJ9MRGT0B`, identidad `yitoweb.FlipStudio`).
+  - [x] `AppxManifest.xml` y `msstore.yml` con la identidad de la cuenta; MSIX generado con **Actions → Microsoft Store MSIX** (`ref` = etiqueta de la versión).
+  - [x] Ficha en español, español (Colombia) e inglés; 3 capturas; clasificación IARC 3+ / ESRB E.
+  - [ ] Cuando se apruebe: añadir el botón "Obtener en Microsoft Store" en la web y el README.
+  - [ ] Repetir el cuestionario IARC cuando se activen stock, cuentas o suscripción.
+  - Cada versión nueva: subir el número MSIX (`A.B.C.0`), generar el paquete y crear un envío nuevo en Partner Center.
 - [ ] **Firma de código** del instalador `.exe` para quitar el aviso de SmartScreen (certificado OV/EV o Azure Trusted Signing). La Store firma su propio paquete, así que esto solo hace falta para la descarga directa.
 - [x] Web de `getflipstudio.com` hecha (repo local `C:\Users\bajoe\Downloads\flipstudio-web`): inicio, descarga automática de la última versión, preguntas, privacidad y términos.
 - [x] Captura real de la app en la web; textos legales bajo ley peruana (Ley 29733).
