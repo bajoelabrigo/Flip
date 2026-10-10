@@ -54,7 +54,7 @@ casilla al terminarla. Última actualización: 2026-10-09.
 - [ ] Revisar el resto de la interfaz buscando "Drift" o fallos de diseño en español.
 - [x] Fusionar el PR #1 en `main`.
 - [x] Publicar **v0.8.0** en GitHub Releases (`FlipStudio-Setup-0.8.0-x64.exe` + portable + `SHA256SUMS`) — 2026-10-09.
-- [ ] Comprobar que el actualizador detecta una versión nueva (publicar una 0.8.1 de prueba y subir el TXT).
+- [x] Actualizador probado de punta a punta: 0.8.0 → 0.8.1 desde la app (2026-10-10).
 - [x] v0.8.1 preparada (rama `flip/v0.8.1`): claves cifradas, límites del MCP, acciones fijadas.
 - [x] v0.8.2 (rama `flip/v0.8.2`): enlaces de soporte propios en la ventana de diagnóstico, nota de Flip Studio en `docs/`, carpeta de sesión MCP propia.
 - [x] `release.yml` adaptado: publica solo en tus Releases (Windows), sin Homebrew ni Discord de CutWire. Notas en `release-notes/<versión>.md`.
