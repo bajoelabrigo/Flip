@@ -65,11 +65,11 @@ casilla al terminarla. Última actualización: 2026-10-10.
 
 ## Fase 2 — Distribución en Windows
 
-- [x] **Microsoft Store** — enviada a certificación el 2026-10-10 (v0.8.1.0):
+- [x] **Microsoft Store** — publicada el 2026-10-10 (v0.8.1.0): https://apps.microsoft.com/detail/9NZZJ9MRGT0B
   - [x] Nombre "Flip Studio" reservado (Store ID `9NZZJ9MRGT0B`, identidad `yitoweb.FlipStudio`).
   - [x] `AppxManifest.xml` y `msstore.yml` con la identidad de la cuenta; MSIX generado con **Actions → Microsoft Store MSIX** (`ref` = etiqueta de la versión).
   - [x] Ficha en español, español (Colombia) e inglés; 3 capturas; clasificación IARC 3+ / ESRB E.
-  - [ ] Cuando se apruebe: añadir el botón "Obtener en Microsoft Store" en la web y el README.
+  - [x] Botón "Obtener en Microsoft Store" en la web (opción principal) y en el README.
   - [ ] Repetir el cuestionario IARC cuando se activen stock, cuentas o suscripción.
   - Cada versión nueva: subir el número MSIX (`A.B.C.0`), generar el paquete y crear un envío nuevo en Partner Center.
 - [ ] **Firma de código** del instalador `.exe` para quitar el aviso de SmartScreen (certificado OV/EV o Azure Trusted Signing). La Store firma su propio paquete, así que esto solo hace falta para la descarga directa.

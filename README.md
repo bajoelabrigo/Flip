@@ -5,6 +5,7 @@
 </p>
 
 <p align="center">
+  <a href="https://apps.microsoft.com/detail/9NZZJ9MRGT0B">Microsoft Store</a> ·
   <a href="https://github.com/bajoelabrigo/Flip/releases/latest">Descargar</a> ·
   <a href="https://github.com/bajoelabrigo/Flip/issues">Reportar un problema</a> ·
   <a href="LICENSE">Licencia (GPLv3)</a>
@@ -19,7 +20,10 @@ quieras que se vea terminado. Sin marca de agua y sin cuenta obligatoria.
 
 ## Descargar
 
-Los instaladores se publican en la página de
+En Windows, la forma recomendada es la **[Microsoft Store](https://apps.microsoft.com/detail/9NZZJ9MRGT0B)**: se instala sin avisos de
+SmartScreen y se actualiza sola.
+
+También puedes descargarlo directamente desde la página de
 [releases](https://github.com/bajoelabrigo/Flip/releases/latest):
 
 | Plataforma | Paquete |
