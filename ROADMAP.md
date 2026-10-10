@@ -1,13 +1,13 @@
 # Flip Studio — hoja de ruta
 
 Plan completo del proyecto, de la primera versión de escritorio a la suscripción. Se marca cada
-casilla al terminarla. Última actualización: 2026-10-10.
+casilla al terminarla. Última actualización: 2026-10-10 (tarde).
 
 **Datos clave**
 
 | | |
 |---|---|
-| Repositorio | https://github.com/bajoelabrigo/Flip (fork de [Drift](https://github.com/CutWire-Studios/Drift), remoto `upstream`) |
+| Repositorio | https://github.com/bajoelabrigo/Flip (repo propio desde el 2026-10-10; basado en [Drift](https://github.com/CutWire-Studios/Drift), remoto `upstream`) |
 | Código local | `C:\Users\bajoe\Downloads\Flip` |
 | Dominio | `getflipstudio.com` (Hostinger, DNS en Hostinger) |
 | Servidor | VPS de Hostinger (el mismo de Holy App: nginx + PM2 + certbot) |
@@ -50,24 +50,24 @@ casilla al terminarla. Última actualización: 2026-10-10.
 - [x] Versión portable para probar sin instalar; caché de compilación (ccache) en el CI de Windows.
 
 ### Pendiente
-- [ ] **Separar el repo de la red de forks de Drift**: pedirlo en https://support.github.com ("detach fork" para `bajoelabrigo/Flip`). Conserva URL, Releases, issues y estrellas; el remoto `upstream` local sigue sirviendo para traer cambios de Drift. No recrear el repo (se perderían los Releases que usa el actualizador).
+- [x] **Repo separado de la red de forks de Drift** (2026-10-10, *Settings → Leave fork network*). Se conservaron el código, las etiquetas, los Releases y Actions; se perdieron las páginas de los PR #1–#3 (sus commits siguen en `main`). Copia de los Releases en `C:\Users\bajoe\Downloads\FlipStudio-backup-releases`. El remoto `upstream` local sigue sirviendo para traer cambios de Drift; `gh repo set-default bajoelabrigo/Flip` hecho en la copia local.
 - [x] Probar el instalador nuevo en Windows (ícono, tema oscuro, panel de Medios, importar y **exportar** un video). — validado 2026-10-09 con el portable.
-- [ ] Revisar el resto de la interfaz buscando "Drift" o fallos de diseño en español.
+- [x] Revisar el resto de la interfaz buscando "Drift" o fallos de diseño en español.
   - [x] Traducción al español completa (`es` y `es_CO`, 0 textos pendientes): menús, actualizador, cámara 3D, mejora con IA, los 33 estilos de texto y "Proyecto sin título" (2026-10-10).
   - [x] "Media bin" ya no es "papelera de medios" sino "biblioteca de medios"; "video" en lugar de "vídeo".
   - [x] Botones Recto / Suave / Salto de los fotogramas clave ya no se cortan ("R…", "Su…").
-  - [ ] Revisarlo dentro de la app con la compilación de la v0.8.2.
+  - [x] Revisado dentro de la app con el portable de la v0.8.2: todo en español.
 - [x] Fusionar el PR #1 en `main`.
 - [x] Publicar **v0.8.0** en GitHub Releases (`FlipStudio-Setup-0.8.0-x64.exe` + portable + `SHA256SUMS`) — 2026-10-09.
 - [x] Actualizador probado de punta a punta: 0.8.0 → 0.8.1 desde la app (2026-10-10).
 - [x] v0.8.1 preparada (rama `flip/v0.8.1`): claves cifradas, límites del MCP, acciones fijadas.
-- [ ] v0.8.2 (rama `flip/v0.8.2`): interfaz en español completa, enlaces de soporte propios en la ventana de diagnóstico, nota de Flip Studio en `docs/`, carpeta de sesión MCP propia.
+- [x] **v0.8.2** publicada el 2026-10-10 (PR #3): interfaz en español completa, enlaces de soporte propios en la ventana de diagnóstico, nota de Flip Studio en `docs/`, carpeta de sesión MCP propia.
   - [x] Código listo; versión `0.8.2` en `CMakeLists.txt`, `CHANGELOG.md` y `release-notes/0.8.2.md`.
-  - [ ] Compilar con **Actions → Build → windows** y probar el instalador (en curso).
-  - [ ] Fusionar en `main`, etiqueta `v0.8.2` y TXT `version` → `0.8.2`.
-  - [ ] Nuevo envío a la Microsoft Store con el MSIX `0.8.2.0`.
+  - [x] Compilada con **Actions → Build → windows** y probada con el portable.
+  - [x] Fusionada en `main`, etiqueta `v0.8.2`, GitHub Release y TXT `version` → `0.8.2`.
+  - [ ] Microsoft Store: MSIX `0.8.2.0` enviado a certificación el 2026-10-10 (paquete en `C:\Users\bajoe\Downloads\FlipStudio-Store\paquete`).
 - [x] `release.yml` adaptado: publica solo en tus Releases (Windows), sin Homebrew ni Discord de CutWire. Notas en `release-notes/<versión>.md`.
-- [ ] Ajustar `nightly.yml` o dejarlo desactivado (aún usa `drift-version.cutwire.org` y los IDs `org.cutwire.*.Nightly`).
+- [x] `nightly.yml` sin uso: GitHub lo dejó desactivado (`disabled_fork`) y no se puede ejecutar salvo que alguien lo active; aun así se salta las ejecuciones programadas fuera del repo de CutWire. Se deja sin tocar para no complicar los merges con Drift.
 
 ## Fase 2 — Distribución en Windows
 
@@ -122,6 +122,9 @@ casilla al terminarla. Última actualización: 2026-10-10.
 - [ ] Añadir el botón "Editar en el navegador" en la web y quitar el `noindex` cuando exporte MP4 (etapa 4).
 - [ ] Reproducción y decodificación con **WebCodecs**; composición con **WebGL/WebGPU**.
   - [x] Etapa 1: importar (botón y arrastrar), análisis de MP4/MOV con mp4box.js + WebCodecs, miniaturas desde los fotogramas clave, vista previa en lienzo con audio y avance por fotograma, línea de tiempo con cabezal. WebM y MKV usan el reproductor del navegador.
+  - [x] Etapa 2: pista principal magnética con varios clips (añadir con +, doble clic o arrastrando), dividir, recortar los bordes, reordenar, deshacer/rehacer, zoom; la vista previa reproduce la secuencia preparando el siguiente clip. 10 pruebas con Vitest en el CI.
+  - [x] Guardado automático del proyecto en el navegador (IndexedDB); en Chrome/Edge se recuerda el acceso a los archivos y "Recuperar archivos" los vuelve a abrir; si falta uno, se enlaza al importarlo de nuevo.
+  - [ ] Etapa 3: texto (estilos como en escritorio).
 - [ ] Reutilizar de Drift: shaders de `effects/` y `transitions/`, audio en WebAssembly (`wasm/`), presets JSON.
 - [ ] Etapas: importar y reproducir → timeline con cortes → texto → exportar MP4 → efectos y transiciones → audio.
 - [ ] Mismo formato de proyecto que la versión de escritorio.
@@ -156,11 +159,9 @@ casilla al terminarla. Última actualización: 2026-10-10.
 
 | Prioridad | Qué | Dónde |
 |---|---|---|
-| Alta | Separar el repo de la red de forks de Drift | GitHub Support |
-| Alta | Publicar v0.8.2 | `flip/v0.8.2` |
 | Media | Firma de add-ons con clave propia (hoy solo acepta las de CutWire) | `src/engine/AddonPackage.*` |
 | Media | Textos de servicios de CutWire todavía visibles ("Flip Studio Assets", librería de sonidos) | `src/models/DriftAssetStore.*`, `SfxLibrary.*` |
-| Media | `nightly.yml` y `playstore-aab.yml` usan dominios e IDs de CutWire (`release.yml` y `msstore.yml` ya adaptados) | `.github/workflows/` |
+| Media | `playstore-aab.yml` usa el paquete de Android de CutWire (`release.yml` y `msstore.yml` ya adaptados; `nightly.yml` desactivado) | `.github/workflows/` |
 | Media | Firma de código del `.exe` (aviso de SmartScreen) | Instalador |
 | Baja | Ícono de macOS | `resources/macos/` |
 | Baja | IDs de Flatpak y Android | `flatpak/`, workflows |
@@ -173,3 +174,4 @@ casilla al terminarla. Última actualización: 2026-10-10.
 3. Escribir `release-notes/X.Y.Z.md`, fusionar en `main` y crear la etiqueta: `git tag vX.Y.Z && git push origin vX.Y.Z`. El workflow **Release** compila y publica el instalador, el portable y `SHA256SUMS`.
 4. En Hostinger → DNS de `getflipstudio.com`, cambiar el TXT `version` a `X.Y.Z`.
 5. Las apps instaladas ofrecerán la actualización en menos de un día.
+6. Microsoft Store: **Actions → Microsoft Store MSIX** con `ref` = `vX.Y.Z` (genera `FlipStudio-X.Y.Z.0-x64.msix`). En Partner Center → Flip Studio → **Iniciar actualización** → Paquetes: subir el nuevo y quitar el anterior → (opcional) "Novedades de esta versión" en cada idioma → **Enviar a la Store**.
