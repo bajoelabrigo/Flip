@@ -3,6 +3,20 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.8.2 — en español y con soporte propio
+
+- Ventana de información de depuración: los enlaces de documentación y Discord de CutWire ahora llevan a las preguntas
+  frecuentes de getflipstudio.com y a soporte@getflipstudio.com.
+- La sesión del servidor MCP usa su propia carpeta temporal (`flip-studio`); antes compartía `drift` con una
+  instalación de Drift y podían pisarse.
+- La descripción del marketplace para agentes ya no nombra a CutWire.
+- Paquete de Microsoft Store con la identidad de Flip Studio (`yitoweb.FlipStudio`).
+- Interfaz en español completa (es y es_CO): unos 300 textos que seguían en inglés, los 33 estilos de texto
+  y el nombre "Proyecto sin título". "Media bin" ya no se traduce como "papelera" sino como "biblioteca de
+  medios", y se usa "video" en lugar de "vídeo".
+- Los botones de interpolación de fotogramas clave (Recto, Suave, Salto) se ajustan a su texto; antes se
+  cortaban en "R…" y "Su…".
+
 ## 0.8.1 — seguridad
 
 - Claves de API y token MCP cifrados con DPAPI en Windows (migración automática).

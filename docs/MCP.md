@@ -1,5 +1,10 @@
 # Agent access (Drift MCP)
 
+> **Flip Studio.** Inherited from Drift. Where this page says `drift`, a Flip Studio install runs
+> `flipstudio.exe` (for example `flipstudio.exe --mcp-stdio`), and the session file lives in a
+> `flip-studio` folder under the system's runtime or temp directory, so it never collides with a
+> Drift running on the same machine. Tool names and the protocol are unchanged.
+
 Drift can expose a localhost MCP server so Cursor, Claude Code, or other agents can edit the open project. Enable it in **Settings → Agent access** (off at every launch by default; a "Start agent on startup" switch there opts into starting it automatically instead, and resets itself the next time access is turned off).
 
 ## Connect

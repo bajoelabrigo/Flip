@@ -257,7 +257,7 @@ jobs:
           if (-not $makeappx) { throw "makeappx.exe not found in the Windows SDK" }
           Write-Host "Using $($makeappx.FullName)"
 
-          $msix = "out\Drift-$env:MSIX_VERSION-x64.msix"
+          $msix = "out\FlipStudio-$env:MSIX_VERSION-x64.msix"
           & $makeappx.FullName pack /d $layout /p $msix /o
           if ($LASTEXITCODE -ne 0) { throw "makeappx pack failed" }
           & $makeappx.FullName unpack /p $msix /d "$env:RUNNER_TEMP\unpacked" /o
@@ -266,8 +266,8 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: drift-${{ steps.meta.outputs.msix_version }}-msix
-          path: out/Drift-${{ steps.meta.outputs.msix_version }}-x64.msix
+          name: flipstudio-${{ steps.meta.outputs.msix_version }}-msix
+          path: out/FlipStudio-${{ steps.meta.outputs.msix_version }}-x64.msix
           retention-days: 30
           if-no-files-found: error
 
@@ -281,5 +281,5 @@ jobs:
             echo "- **version:** ${{ steps.meta.outputs.version }}"
             echo "- **MSIX version:** ${{ steps.meta.outputs.msix_version }}"
             echo "- **distribution:** ${{ steps.meta.outputs.distribution }}"
-            echo "- **artifact:** \`Drift-${{ steps.meta.outputs.msix_version }}-x64.msix\`"
+            echo "- **artifact:** \`FlipStudio-${{ steps.meta.outputs.msix_version }}-x64.msix\`"
           } >> "$GITHUB_STEP_SUMMARY"

@@ -4,7 +4,7 @@
   it with the staged dist\bin tree.
 
   Identity Name, Publisher and PublisherDisplayName must be copied exactly from Partner Center >
-  Product management > Product identity; the Store rejects a package whose identity differs from
+  Product management > Product identity (Flip Studio: Store ID 9NZZJ9MRGT0B); the Store rejects a package whose identity differs from
   the reserved one. Properties/DisplayName must be one of the app names reserved there.
 -->
 <Package
@@ -14,14 +14,14 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="CutWireStudios.CutWireDrift"
-    Publisher="CN=A1BDBE2E-BBD1-4A05-AD2B-AAA11012BB68"
+    Name="yitoweb.FlipStudio"
+    Publisher="CN=E7B7FDCF-9943-4DE9-8A4E-D9B37C58F343"
     Version="@VERSION@"
     ProcessorArchitecture="x64" />
 
   <Properties>
-    <DisplayName>CutWire Drift</DisplayName>
-    <PublisherDisplayName>CutWire Studios</PublisherDisplayName>
+    <DisplayName>Flip Studio</DisplayName>
+    <PublisherDisplayName>yitoweb</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -48,17 +48,17 @@
   </Resources>
 
   <Applications>
-    <Application Id="Drift" Executable="drift.exe" EntryPoint="Windows.FullTrustApplication">
+    <Application Id="FlipStudio" Executable="flipstudio.exe" EntryPoint="Windows.FullTrustApplication">
       <uap:VisualElements
-        DisplayName="CutWire Drift"
-        Description="Drift video editor"
+        DisplayName="Flip Studio"
+        Description="Flip Studio video editor"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png" />
       <Extensions>
         <uap:Extension Category="windows.fileTypeAssociation">
           <uap:FileTypeAssociation Name="drift">
-            <uap:DisplayName>Drift Project</uap:DisplayName>
+            <uap:DisplayName>Flip Studio Project</uap:DisplayName>
             <uap:SupportedFileTypes>
               <uap:FileType>.drift</uap:FileType>
             </uap:SupportedFileTypes>

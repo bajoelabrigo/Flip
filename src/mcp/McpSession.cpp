@@ -16,7 +16,8 @@ QString defaultSessionDir()
     QString base = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation);
     if (base.isEmpty())
         base = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
-    return QDir(base).filePath(QStringLiteral("drift"));
+    // Its own folder, so a Drift running alongside never shares (or overwrites) this file.
+    return QDir(base).filePath(QStringLiteral("flip-studio"));
 }
 
 } // namespace

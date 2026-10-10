@@ -1,5 +1,22 @@
 # Building Drift
 
+> **Flip Studio.** This document is inherited from Drift, which Flip Studio is a fork of. Internal
+> names keep their upstream spelling on purpose (CMake target `drift`, `DRIFT_*` options, the `Drift`
+> QML module, `.drift`/`.driftfx` files) so upstream changes merge cleanly. What differs in a Flip
+> Studio build:
+>
+> | | Drift | Flip Studio |
+> |---|---|---|
+> | Windows executable | `drift.exe` | `flipstudio.exe` |
+> | Settings and data | `CutWire Drift` | `Flip Studio` (e.g. `%APPDATA%\Flip Studio`) |
+> | App id | `org.cutwire.Drift` | `io.github.bajoelabrigo.FlipStudio` |
+> | Update check | `drift-version.cutwire.org` | `version.getflipstudio.com` (`DRIFT_UPDATE_VERSION_HOST`) |
+> | Addon service, marketplace | CutWire's | off until Flip Studio runs its own |
+> | Releases | CutWire-Studios/Drift | bajoelabrigo/Flip (`release.yml`, Windows only for now) |
+>
+> Windows is built by GitHub Actions (**Build** workflow, platform `windows`); see `ROADMAP.md` for
+> the plan and the release checklist.
+
 Developer documentation for building, testing, packaging, and extending Drift. If you just want to
 *use* Drift, see the [README](../README.md) — installers are on the
 [releases page](https://github.com/CutWire-Studios/Drift/releases/latest).

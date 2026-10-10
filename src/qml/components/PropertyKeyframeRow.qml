@@ -307,6 +307,7 @@ Column {
                 }
             }
 
+            // Chips size to their text so translations are not elided to "R…"; the label takes the rest.
             ThemedChip {
                 id: linChip
                 text: qsTr("Straight")
@@ -315,7 +316,6 @@ Column {
                 enabled: root.activeKey !== null
                 chipHeight: 18
                 horizontalPadding: Theme.spacingSm
-                width: 28
                 anchors.verticalCenter: parent.verticalCenter
                 onClicked: root.setInterpolation("linear")
             }
@@ -328,7 +328,6 @@ Column {
                 enabled: root.activeKey !== null
                 chipHeight: 18
                 horizontalPadding: Theme.spacingSm
-                width: 36
                 anchors.verticalCenter: parent.verticalCenter
                 onClicked: root.setInterpolation("ease")
             }
@@ -341,7 +340,6 @@ Column {
                 enabled: root.activeKey !== null
                 chipHeight: 18
                 horizontalPadding: Theme.spacingSm
-                width: 34
                 anchors.verticalCenter: parent.verticalCenter
                 onClicked: root.setInterpolation("hold")
             }
