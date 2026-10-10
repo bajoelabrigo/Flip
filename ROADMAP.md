@@ -117,8 +117,10 @@ casilla al terminarla. Última actualización: 2026-10-10.
 
 ## Fase 5 — Versión web (React)
 
-- [ ] Proyecto Vite + React + TypeScript (`app.getflipstudio.com`).
+- [x] Proyecto Vite + React + TypeScript, repo público https://github.com/bajoelabrigo/flipstudio-app (AGPL-3.0, `C:\Users\bajoe\Downloads\flipstudio-app`) — 2026-10-10.
+- [ ] Publicarlo en `app.getflipstudio.com`.
 - [ ] Reproducción y decodificación con **WebCodecs**; composición con **WebGL/WebGPU**.
+  - [x] Etapa 1: importar (botón y arrastrar), análisis de MP4/MOV con mp4box.js + WebCodecs, miniaturas desde los fotogramas clave, vista previa en lienzo con audio y avance por fotograma, línea de tiempo con cabezal. WebM y MKV usan el reproductor del navegador.
 - [ ] Reutilizar de Drift: shaders de `effects/` y `transitions/`, audio en WebAssembly (`wasm/`), presets JSON.
 - [ ] Etapas: importar y reproducir → timeline con cortes → texto → exportar MP4 → efectos y transiciones → audio.
 - [ ] Mismo formato de proyecto que la versión de escritorio.
