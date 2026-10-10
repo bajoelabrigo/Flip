@@ -12040,6 +12040,8 @@ QVariantList AppController::builtinStickers() const
             {QStringLiteral("label"), entry.label},
             {QStringLiteral("category"), entry.category},
             {QStringLiteral("path"), entry.path},
+            {QStringLiteral("thumbnail"), entry.thumb},
+            {QStringLiteral("animated"), entry.animated},
         });
     }
     return out;
@@ -12762,16 +12764,29 @@ void AppController::addStickerClip(const QString &stickerId, double atSeconds, i
 {
     QString path;
     QString label;
+    bool animated = false;
     for (const QVariant &item : builtinStickers()) {
         const QVariantMap sticker = item.toMap();
         if (sticker.value(QStringLiteral("id")).toString() == stickerId) {
             path = sticker.value(QStringLiteral("path")).toString();
             label = sticker.value(QStringLiteral("label")).toString();
+            animated = sticker.value(QStringLiteral("animated")).toBool();
             break;
         }
     }
     if (path.isEmpty())
         return;
+
+    // An animated sticker is a Lottie document: a vector clip that loops for as long as a still
+    // sticker lasts, sized like one.
+    if (animated) {
+        addVectorClip(path, trackIndex, atSeconds,
+                      {{QStringLiteral("loop"), QStringLiteral("loop")},
+                       {QStringLiteral("duration"), drift::usToSeconds(drift::kImageClipDurationUs)},
+                       {QStringLiteral("name"), label.isEmpty() ? stickerId : label},
+                       {QStringLiteral("sticker"), true}});
+        return;
+    }
 
     addImageOverlayClip(path, label.isEmpty() ? stickerId : label, QString(), atSeconds,
                         QStringLiteral("Sticker added"), trackIndex);
@@ -16778,6 +16793,14 @@ QVariantMap AppController::addVectorClip(const QString &source, int trackIndex, 
         clip.vector.slotValues.insert(it.key(), value);
     }
     fitClipLayoutToCanvas(clip, vector.width, vector.height, m_project.width(), m_project.height());
+    if (opts.value(QStringLiteral("sticker")).toBool()) {
+        // Sticker-sized: its longer side a third of the canvas's shorter one, centred.
+        const double side = qMin(m_project.width(), m_project.height()) / 3.0;
+        const double aspect = vector.width > 0 && vector.height > 0 ? double(vector.width) / vector.height : 1.0;
+        const double w = aspect >= 1.0 ? side : side * aspect;
+        const double h = aspect >= 1.0 ? side / aspect : side;
+        setClipLayoutPixels(clip, (m_project.width() - w) / 2.0, (m_project.height() - h) / 2.0, w, h);
+    }
 
     track.clips.append(clip);
     const int newClipIndex = track.clips.size() - 1;

@@ -4,7 +4,7 @@
 #include <QString>
 #include <QStringList>
 
-// File-based sticker packages: stickers/<pack-id>/{pack.json, *.png}, discovered the same way as
+// File-based sticker packages: stickers/<pack-id>/{pack.json, *.png | *.json}, discovered the same way as
 // font, effect and transition packages. Stickers used to be extracted from an emoji font at build
 // time and embedded in the QRC; they are now an addon, so an empty catalog is a normal state and
 // the UI shows an install prompt instead.
@@ -15,6 +15,10 @@ struct StickerEntry
     QString label;
     QString category;
     QString path; // absolute filesystem path
+    // Animated stickers are Lottie documents (.json) placed as vector clips; the grid shows their
+    // `thumb` still. For a plain image, thumb is the image itself.
+    QString thumb; // absolute filesystem path
+    bool animated = false;
 };
 
 struct StickerCategory

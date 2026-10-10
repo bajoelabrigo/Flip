@@ -62,6 +62,12 @@ bool loadPackage(const QString &dir, StickerPack *out)
         entry.label = object.value(QStringLiteral("label")).toString();
         entry.category = object.value(QStringLiteral("category")).toString();
         entry.path = path;
+        entry.animated = QFileInfo(path).suffix().compare(QLatin1String("json"), Qt::CaseInsensitive) == 0;
+        // A Lottie cannot be shown by an Image item; without its still it gets no thumbnail.
+        const QString thumb = object.value(QStringLiteral("thumb")).toString();
+        entry.thumb = !thumb.isEmpty() && QFileInfo::exists(QDir(dir).filePath(thumb))
+                          ? QDir(dir).filePath(thumb)
+                          : (entry.animated ? QString() : path);
         pack.stickers.append(entry);
     }
 
