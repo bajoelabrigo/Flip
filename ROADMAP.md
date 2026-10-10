@@ -37,7 +37,8 @@ terminar las etapas 5 y 6). Los dos frentes avanzan por separado; este es el ord
    "Próximamente" hasta que tengan servicio propio. Es lo primero que nota un usuario nuevo.
 3. **Add-ons propios (Fase 3.1).** Es lo que más valor devuelve: **subtítulos automáticos** (el modelo
    Whisper), fuentes y stickers. Pasos: clave de firma propia, empaquetar con la herramienta de
-   Drift, alojar en Cloudflare R2 y publicar el índice. Sale como v0.9.0.
+   Drift, alojarlos como archivos de un GitHub Release (gratis, sin cuenta nueva) y publicar el índice.
+   Sale como v0.9.0.
 4. **Primera sincronización con Drift (3.3)** para traer sus mejoras y arreglos, y desde ahí una vez al mes.
 5. **Stock de Pexels (3.2)**: requiere el backend `api.getflipstudio.com`, que también servirá para las cuentas (Fase 6).
 6. **Firma de código** del instalador cuando haya presupuesto (quita el aviso de SmartScreen en la descarga directa).
@@ -120,7 +121,7 @@ terminar las etapas 5 y 6). Los dos frentes avanzan por separado; este es el ord
 - [ ] Crear tu propia **clave de firma Ed25519** y sustituir la clave pública de CutWire en `src/engine/AddonPackage.*` (hoy los add-ons solo validan firmas de CutWire).
 - [ ] Usar el empaquetador del repo público `CutWire-Studios/Drift-Addons` (GPL) para generar los `.driftpkg`.
 - [ ] Revisar la licencia de cada contenido (fuentes OFL, Whisper MIT, stickers) antes de redistribuirlo.
-- [ ] Alojarlos en **Cloudflare R2** (sin coste por descarga; el modelo de subtítulos pesa unos 470 MB).
+- [ ] Alojarlos como archivos de un **GitHub Release** (por ejemplo, en un repo `flipstudio-addons`): gratis, hasta 2 GB por archivo, y ya se usa para los instaladores; el modelo de subtítulos pesa unos 470 MB. **Cloudflare R2** (sin coste por descarga, 10 GB gratis) solo si hace falta limitar quién descarga, como contenido Pro. No hace falta cuenta de Cloudflare hasta entonces (decidido el 2026-10-10).
 - [ ] Publicar el índice y configurar `DRIFT_ADDON_INDEX_URL` / `DRIFT_ADDON_CLIENT_TOKEN` en `CMakeLists.txt`.
 - [ ] Cambiar los textos "Flip Studio team" de la firma cuando la clave sea tuya.
 
