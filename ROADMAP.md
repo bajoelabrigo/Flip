@@ -124,7 +124,7 @@ casilla al terminarla. Última actualización: 2026-10-10.
 - [ ] Reutilizar de Drift: shaders de `effects/` y `transitions/`, audio en WebAssembly (`wasm/`), presets JSON.
 - [ ] Etapas: importar y reproducir → timeline con cortes → texto → exportar MP4 → efectos y transiciones → audio.
 - [ ] Mismo formato de proyecto que la versión de escritorio.
-- [ ] Enlace visible al código fuente (obligatorio por AGPL al reutilizar código de Drift).
+- [x] Enlace visible al código fuente (obligatorio por AGPL al reutilizar código de Drift): botón "Código fuente" y pie de página.
 - [ ] Probar en Chrome, Edge, Safari y Firefox (WebCodecs varía entre navegadores).
 
 ## Fase 6 — Cuentas y nube (todavía gratis)
