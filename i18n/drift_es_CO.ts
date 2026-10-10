@@ -174,10 +174,6 @@
         <translation>Efectos de audio</translation>
     </message>
     <message>
-        <source>Fonts</source>
-        <translation>Fuentes</translation>
-    </message>
-    <message>
         <source>Stickers</source>
         <translation>Pegatinas</translation>
     </message>
@@ -280,6 +276,10 @@
     <message>
         <source>Install</source>
         <translation>Instalar</translation>
+    </message>
+    <message>
+        <source>Text &amp; fonts</source>
+        <translation>Texto y fuentes</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -3067,6 +3067,33 @@
         <translation>Subtítulos actualizados</translation>
     </message>
     <message>
+        <source>“%1” is not in these subtitles</source>
+        <translation>“%1” no está en estos subtítulos</translation>
+    </message>
+    <message>
+        <source>Replace in subtitles</source>
+        <translation>Reemplazar en subtítulos</translation>
+    </message>
+    <message numerus="yes">
+        <source>Replaced in %n caption(s)</source>
+        <translation>
+            <numerusform>Reemplazado en %n subtítulo</numerusform>
+            <numerusform>Reemplazado en %n subtítulos</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Subtitles are already clean</source>
+        <translation>Los subtítulos ya están limpios</translation>
+    </message>
+    <message>
+        <source>Clean up subtitles</source>
+        <translation>Limpiar subtítulos</translation>
+    </message>
+    <message>
+        <source>Subtitles cleaned up</source>
+        <translation>Subtítulos limpios</translation>
+    </message>
+    <message>
         <source>Adjust subtitle timing</source>
         <translation>Ajustar sincronización de subtítulos</translation>
     </message>
@@ -3133,6 +3160,21 @@
     <message>
         <source>Text style imported</source>
         <translation>Estilo de texto importado</translation>
+    </message>
+    <message>
+        <source>Font added: %1</source>
+        <translation>Fuente agregada: %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n fonts added</source>
+        <translation>
+            <numerusform>%n fuente agregada</numerusform>
+            <numerusform>%n fuentes agregadas</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>That file is not a font this app can read</source>
+        <translation>Ese archivo no es una fuente que la app pueda leer</translation>
     </message>
     <message>
         <source>Resize text</source>
@@ -7233,6 +7275,34 @@
 <context>
     <name>FontCatalog</name>
     <message>
+        <source>My fonts</source>
+        <translation>Mis fuentes</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>Limpias</translation>
+    </message>
+    <message>
+        <source>Bold &amp; impact</source>
+        <translation>Impacto</translation>
+    </message>
+    <message>
+        <source>Elegant</source>
+        <translation>Elegantes</translation>
+    </message>
+    <message>
+        <source>Handwritten</source>
+        <translation>Manuscritas</translation>
+    </message>
+    <message>
+        <source>Fun</source>
+        <translation>Divertidas</translation>
+    </message>
+    <message>
+        <source>Retro</source>
+        <translation>Retro</translation>
+    </message>
+    <message>
         <source>High-Impact &amp; Bold</source>
         <translation>Gran impacto y negrita</translation>
     </message>
@@ -7252,8 +7322,64 @@
 <context>
     <name>FontPicker</name>
     <message>
+        <source>Select a font</source>
+        <translation>Elige una fuente</translation>
+    </message>
+    <message>
+        <source>System fonts</source>
+        <translation>Fuentes del sistema</translation>
+    </message>
+    <message>
+        <source>Import fonts</source>
+        <translation>Importar fuentes</translation>
+    </message>
+    <message>
+        <source>Fonts (*.ttf *.otf)</source>
+        <translation>Fuentes (*.ttf *.otf)</translation>
+    </message>
+    <message>
+        <source>Search fonts</source>
+        <translation>Buscar fuentes</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoritas</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Todas</translation>
+    </message>
+    <message>
+        <source>Recent</source>
+        <translation>Recientes</translation>
+    </message>
+    <message>
         <source>Install the font pack for curated families →</source>
         <translation>Instala el paquete de fuentes para obtener familias seleccionadas →</translation>
+    </message>
+    <message>
+        <source>No fonts match “%1”</source>
+        <translation>Ninguna fuente coincide con “%1”</translation>
+    </message>
+    <message>
+        <source>Star fonts to keep them here.</source>
+        <translation>Marca fuentes con la estrella para tenerlas aquí.</translation>
+    </message>
+    <message>
+        <source>Fonts you use will appear here.</source>
+        <translation>Aquí aparecerán las fuentes que uses.</translation>
+    </message>
+    <message>
+        <source>Nothing in this category</source>
+        <translation>Nada en esta categoría</translation>
+    </message>
+    <message>
+        <source>Import font…</source>
+        <translation>Importar fuente…</translation>
+    </message>
+    <message>
+        <source>More fonts</source>
+        <translation>Más fuentes</translation>
     </message>
 </context>
 <context>
@@ -12949,6 +13075,82 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Desplaza los subtítulos exportados según el inicio de este clip para que coincidan con el video exportado</translation>
     </message>
     <message>
+        <source>Clean up</source>
+        <translation>Limpiar</translation>
+    </message>
+    <message>
+        <source>Remove hesitations (eh, mmm), capitalize each caption and apply your dictionary</source>
+        <translation>Quita muletillas (eh, mmm), pone mayúscula al inicio y aplica tu diccionario</translation>
+    </message>
+    <message>
+        <source>Find &amp; replace</source>
+        <translation>Buscar y reemplazar</translation>
+    </message>
+    <message>
+        <source>Fix a word in every caption at once</source>
+        <translation>Corrige una palabra en todos los subtítulos a la vez</translation>
+    </message>
+    <message>
+        <source>Find (e.g. jesus)</source>
+        <translation>Buscar (por ej. jesus)</translation>
+    </message>
+    <message>
+        <source>Replace with (e.g. Jesús)</source>
+        <translation>Reemplazar por (por ej. Jesús)</translation>
+    </message>
+    <message>
+        <source>Always fix it in new subtitles</source>
+        <translation>Corregirla siempre en subtítulos nuevos</translation>
+    </message>
+    <message>
+        <source>Adds it to your subtitle dictionary</source>
+        <translation>La agrega a tu diccionario de subtítulos</translation>
+    </message>
+    <message>
+        <source>Replace all</source>
+        <translation>Reemplazar todo</translation>
+    </message>
+    <message>
+        <source>Dictionary…</source>
+        <translation>Diccionario…</translation>
+    </message>
+    <message>
+        <source>Words fixed automatically in every new subtitle</source>
+        <translation>Palabras que se corrigen solas en cada subtítulo nuevo</translation>
+    </message>
+    <message>
+        <source>Subtitle dictionary</source>
+        <translation>Diccionario de subtítulos</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Guardar</translation>
+    </message>
+    <message>
+        <source>New subtitles fix these words on their own: names, places, words the speech recognition gets wrong.</source>
+        <translation>Los subtítulos nuevos corrigen estas palabras solos: nombres, lugares y palabras que el reconocimiento de voz escribe mal.</translation>
+    </message>
+    <message>
+        <source>Empty for now. Use Find &amp; replace with “Always fix it” to add words.</source>
+        <translation>Todavía está vacío. Usa Buscar y reemplazar con “Corregirla siempre” para agregar palabras.</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Eliminar</translation>
+    </message>
+    <message>
+        <source>Wrong</source>
+        <translation>Incorrecto</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>Correcto</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Agregar</translation>
+    </message>
+    <message>
         <source>(empty)</source>
         <translation>(vacío)</translation>
     </message>
@@ -13067,6 +13269,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Selecciona primero un clip de video o audio en la línea de tiempo.</translation>
     </message>
     <message>
+        <source>Caption style</source>
+        <translation>Estilo de subtítulos</translation>
+    </message>
+    <message>
+        <source>Remove hesitations (eh, mmm) and capitalize</source>
+        <translation>Quitar muletillas (eh, mmm) y poner mayúsculas</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>Los subtítulos más cortos se sincronizan dividiendo cada frase equitativamente, por lo que pueden desincronizarse ligeramente de la voz.</translation>
     </message>
@@ -13169,8 +13379,20 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Eliminar</translation>
     </message>
     <message>
-        <source>Built-in</source>
-        <translation>Integrado</translation>
+        <source>Templates</source>
+        <translation>Plantillas</translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation>Básicos</translation>
+    </message>
+    <message>
+        <source>More…</source>
+        <translation>Más…</translation>
+    </message>
+    <message>
+        <source>Get more templates</source>
+        <translation>Conseguir más plantillas</translation>
     </message>
     <message>
         <source>Rename text style</source>

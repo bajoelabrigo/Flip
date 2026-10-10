@@ -174,10 +174,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Fonts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Stickers</source>
         <translation type="unfinished"></translation>
     </message>
@@ -279,6 +275,10 @@
     </message>
     <message>
         <source>Install</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text &amp; fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3067,6 +3067,33 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>“%1” is not in these subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace in subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Replaced in %n caption(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Subtitles are already clean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean up subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles cleaned up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjust subtitle timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3132,6 +3159,21 @@
     </message>
     <message>
         <source>Text style imported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font added: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n fonts added</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>That file is not a font this app can read</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7233,6 +7275,34 @@
 <context>
     <name>FontCatalog</name>
     <message>
+        <source>My fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bold &amp; impact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elegant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Handwritten</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fun</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>High-Impact &amp; Bold</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7252,7 +7322,63 @@
 <context>
     <name>FontPicker</name>
     <message>
+        <source>Select a font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fonts (*.ttf *.otf)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Install the font pack for curated families →</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No fonts match “%1”</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star fonts to keep them here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fonts you use will appear here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing in this category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import font…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>More fonts</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -12941,6 +13067,82 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Clean up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove hesitations (eh, mmm), capitalize each caption and apply your dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find &amp; replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fix a word in every caption at once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find (e.g. jesus)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace with (e.g. Jesús)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Always fix it in new subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adds it to your subtitle dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dictionary…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Words fixed automatically in every new subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitle dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New subtitles fix these words on their own: names, places, words the speech recognition gets wrong.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Empty for now. Use Find &amp; replace with “Always fix it” to add words.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wrong</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>(empty)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13059,6 +13261,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Caption style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove hesitations (eh, mmm) and capitalize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13161,7 +13371,19 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Built-in</source>
+        <source>Templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>More…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get more templates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
