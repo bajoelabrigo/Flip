@@ -11,7 +11,25 @@ registro heredado de Drift.
   32 fuentes de Google Fonts, 150 stickers de emojis 3D y dos packs de stickers animados (48 emojis con
   movimiento; 19 de redes sociales, flechas y efectos).
 - Stickers animados: un sticker Lottie entra como animación que se repite y dura lo que un sticker; en la
-  cuadrícula se ve su miniatura con una insignia ▶.
+  cuadrícula se ve su miniatura con una insignia ▶. Las imágenes dentro de una animación se escalan sin
+  mipmaps: en algunas tarjetas gráficas se veían como un cuadro negro.
+- Fuentes: selector nuevo con buscador, favoritas, recientes y categorías con nombre (limpias, impacto,
+  elegantes, manuscritas, divertidas, retro); botón para importar fuentes propias (.ttf/.otf, "Mis fuentes").
+  Paquete "Más fuentes" con 72 familias, todas con tildes, ñ, ¿ y ¡.
+- Texto: tipo de extra nuevo, plantillas de texto ("text-styles"), listadas por categoría en el panel Texto;
+  paquete con 44 plantillas animadas (fe y versículos, redes, subtítulos virales, títulos, rótulos, precios,
+  frases) y 8 combinadas (título con subtítulo, rótulo de dos líneas, versículo con cita, evento…), que se
+  agregan como varios textos ya ubicados y sincronizados. Las tarjetas de estilo se animan al pasar el mouse.
+- Subtítulos automáticos: se elige el estilo antes de generarlos; las frases se cortan en el punto, la
+  pregunta o la coma; muletillas (eh, mmm) fuera y mayúscula al inicio; diccionario propio y Buscar y
+  reemplazar; emojis según las palabras (opcional); traducción al inglés encima de los originales; en videos
+  verticales quedan por encima de los botones de TikTok y Reels. Seleccionar un bloque de subtítulos abre el
+  editor de frases.
+- Resaltar palabras: una palabra entre asteriscos (*fe*) se pinta con el color de acento en cualquier estilo;
+  regla nueva "Palabras clave". Los nombres de las reglas de acento están traducidos.
+- Sincronización por palabra: con el extra "Sincronización por palabra (español)" (wav2vec2) cada subtítulo
+  empieza y termina justo con la voz. Whisper medium como extra (más preciso; si está instalado se usa en
+  lugar del small) y aceleración con tarjeta gráfica (WebGPU, experimental), que ahora también usa Whisper.
 
 ## 0.8.3 — sin funciones rotas a la vista
 
