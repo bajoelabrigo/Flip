@@ -3,6 +3,15 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.8.2 — soporte propio
+
+- Ventana de información de depuración: los enlaces de documentación y Discord de CutWire ahora llevan a las preguntas
+  frecuentes de getflipstudio.com y a soporte@getflipstudio.com.
+- La sesión del servidor MCP usa su propia carpeta temporal (`flip-studio`); antes compartía `drift` con una
+  instalación de Drift y podían pisarse.
+- La descripción del marketplace para agentes ya no nombra a CutWire.
+- Paquete de Microsoft Store con la identidad de Flip Studio (`yitoweb.FlipStudio`).
+
 ## 0.8.1 — seguridad
 
 - Claves de API y token MCP cifrados con DPAPI en Windows (migración automática).
