@@ -113,6 +113,7 @@ private slots:
     void channelCountIsKnownBeforeAnythingDecodes();
     void separateAudioCarriesAudioEffectsAndSpeedCurve();
     void addTextClip();
+    void inlineTextEditCommitsOneUndoStepAndCancelRestores();
     void audioAdjustmentTrackArrivesWithAClip();
     void dropShapeOnNewTrackIsOneUndo();
     void dropShapeOnTrackUsesThatTrack();
@@ -223,6 +224,8 @@ private slots:
     void generateSubtitlesRefusesOverlappingSources();
     void separatedAudioTracksMirrorVideoHierarchy();
     void linkedAudioUnlinkAndMove();
+    void linkUnrelatedClipsMoveTogetherKeepTiming();
+    void pastedAndDuplicatedClipsAreNotLinkedToTheOriginal();
     void deleteLinkedPairTogetherAndUnlinkedClipAlone();
     void linkedFadeCurveSyncsPartner();
     void customFadeCurveSessionApplyAndCancel();
@@ -243,9 +246,9 @@ private slots:
     void speedCurveSessionExposesTrimmedSourceWindow();
     void shapeStylePartialUpdateAndUndo();
     void shapeLayersAndKeyframes();
-    void replaceAssetSourceRebindsClipsAndClampsTrim();
-    void replaceAssetSourceRefusesADifferentKind();
-    void exportAssetImageWritesPngAndJpeg();
+    void replaceSourceRebindsClipsAndClampsTrim();
+    void replaceSourceRefusesADifferentKind();
+    void exportImageWritesPngAndJpeg();
     void startupProjectUrlFromArguments();
     void multicamSessionDoesNotMutateTheProject();
     void multicamRecutSplitsAnInterval();
@@ -599,6 +602,60 @@ void EditorStateTest::addTextClip()
     state.addTextClip(QStringLiteral("Hello"), 0.0);
     QVERIFY(state.durationSeconds() > 0.0);
     QCOMPARE(state.selectedClip(), 0);
+}
+
+// The inline editor: live text with the preedit rendered but never stored, geometry in canvas
+// px, one undo step on commit and none on cancel.
+void EditorStateTest::inlineTextEditCommitsOneUndoStepAndCancelRestores()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Hello"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    const auto textOf = [&] { return state.clipAt(track, clip).value(QStringLiteral("textContent")).toString(); };
+    QSignalSpy geometry(&state, &AppController::inlineEditGeometryChanged);
+
+    QVERIFY(state.inlineCaretQuad().isEmpty());
+    state.beginInlineTextEdit(track, clip);
+    QVERIFY(state.inlineTextEditing());
+    QVERIFY(state.previewDragActive());
+
+    // Typing with a preedit: the clip renders it, the model text does not hold it.
+    state.updateInlineTextEdit(track, clip, QStringLiteral("Hello w"), 7, -1, -1, QStringLiteral("or"));
+    QCOMPARE(textOf(), QStringLiteral("Hello wor"));
+    QVERIFY(geometry.count() >= 2);
+    QCOMPARE(state.inlineCaretQuad().size(), 4);
+    QVERIFY(state.inlineSelectionQuads().isEmpty());
+
+    state.updateInlineTextEdit(track, clip, QStringLiteral("Hello world"), 11, 6, 11, QString());
+    QCOMPARE(textOf(), QStringLiteral("Hello world"));
+    QCOMPARE(state.inlineSelectionQuads().size(), 1);
+    QCOMPARE(state.inlineSelectionQuads().first().toList().size(), 4);
+
+    // The caret's quad maps back to its own offset.
+    const QVariantList quad = state.inlineCaretQuad();
+    const QPointF centre = (quad.at(0).toPointF() + quad.at(2).toPointF()) / 2.0;
+    QCOMPARE(state.inlineHitTest(centre), 11);
+    QCOMPARE(state.inlineLineEdge(3, false), 0);
+    QCOMPARE(state.inlineLineEdge(3, true), 11);
+    QCOMPARE(state.inlineWordAt(8).value(QStringLiteral("start")).toInt(), 6);
+
+    state.endInlineTextEdit(true);
+    QVERIFY(!state.inlineTextEditing());
+    QVERIFY(!state.previewDragActive());
+    QCOMPARE(textOf(), QStringLiteral("Hello world"));
+    state.undo();
+    QCOMPARE(textOf(), QStringLiteral("Hello"));
+
+    // Cancelled, the original comes back and nothing is left to undo to.
+    state.beginInlineTextEdit(track, clip);
+    state.updateInlineTextEdit(track, clip, QStringLiteral("Gone"), 4, -1, -1, QString());
+    QCOMPARE(textOf(), QStringLiteral("Gone"));
+    state.endInlineTextEdit(false);
+    QCOMPARE(textOf(), QStringLiteral("Hello"));
+    state.undo();
+    QVERIFY(state.clipAt(track, clip).isEmpty());
 }
 
 // Adding with no text drops in a placeholder clip and asks the preview to open
@@ -1346,7 +1403,7 @@ void EditorStateTest::sourceFramingPreservesOriginalAndUndoes()
     asset.durationUs = drift::secondsToUs(10);
     const QString id = state.project()->addAsset(asset);
     library.syncToProject();
-    QVERIFY(state.saveAssetEdit(0, 2, 8, 0.25, 0.25, 0.5, 0.5));
+    QVERIFY(state.bin()->saveEdit(0, 2, 8, 0.25, 0.25, 0.5, 0.5));
     QCOMPARE(state.project()->asset(id)->path, asset.path);
     QCOMPARE(state.project()->asset(id)->width, 3840);
     state.addClipFromAssetAt(0, 0, 0);
@@ -1858,27 +1915,27 @@ void EditorStateTest::createRenameAndDeleteBinFolder()
     AssetLibrary library;
     AppController state(&library);
 
-    const QString id = state.createBinFolder(QStringLiteral("B-Roll"), QString());
+    const QString id = state.bin()->createFolder(QStringLiteral("B-Roll"), QString());
     QVERIFY(!id.isEmpty());
-    QCOMPARE(state.binFolderModel()->count(), 1);
-    QCOMPARE(state.binFolderModel()->folderById(id).value(QStringLiteral("name")).toString(),
+    QCOMPARE(state.bin()->folderModel()->count(), 1);
+    QCOMPARE(state.bin()->folderModel()->folderById(id).value(QStringLiteral("name")).toString(),
              QStringLiteral("B-Roll"));
 
-    QVERIFY(state.renameBinFolder(id, QStringLiteral("A-Roll")));
-    QCOMPARE(state.binFolderModel()->folderById(id).value(QStringLiteral("name")).toString(),
+    QVERIFY(state.bin()->renameFolder(id, QStringLiteral("A-Roll")));
+    QCOMPARE(state.bin()->folderModel()->folderById(id).value(QStringLiteral("name")).toString(),
              QStringLiteral("A-Roll"));
 
-    QVERIFY(state.deleteBinFolder(id));
-    QCOMPARE(state.binFolderModel()->count(), 0);
+    QVERIFY(state.bin()->deleteFolder(id));
+    QCOMPARE(state.bin()->folderModel()->count(), 0);
 
     QVERIFY(state.undoAvailable());
     state.undo();
-    QCOMPARE(state.binFolderModel()->count(), 1);
+    QCOMPARE(state.bin()->folderModel()->count(), 1);
     state.undo();
-    QCOMPARE(state.binFolderModel()->folderById(id).value(QStringLiteral("name")).toString(),
+    QCOMPARE(state.bin()->folderModel()->folderById(id).value(QStringLiteral("name")).toString(),
              QStringLiteral("B-Roll"));
     state.undo();
-    QCOMPARE(state.binFolderModel()->count(), 0);
+    QCOMPARE(state.bin()->folderModel()->count(), 0);
 }
 
 void EditorStateTest::undoingBinFolderRenameEmitsDataChanged()
@@ -1886,16 +1943,16 @@ void EditorStateTest::undoingBinFolderRenameEmitsDataChanged()
     AssetLibrary library;
     AppController state(&library);
 
-    const QString id = state.createBinFolder(QStringLiteral("B-Roll"), QString());
-    QVERIFY(state.renameBinFolder(id, QStringLiteral("A-Roll")));
+    const QString id = state.bin()->createFolder(QStringLiteral("B-Roll"), QString());
+    QVERIFY(state.bin()->renameFolder(id, QStringLiteral("A-Roll")));
 
     // Consumers bound to BinFolderModel (the breadcrumb, folder tiles) rely on dataChanged to
     // notice a rename that undo/redo reverted behind their backs — the row's own value changing
     // isn't enough if nothing signals that it did.
-    QSignalSpy dataChangedSpy(state.binFolderModel(), &QAbstractItemModel::dataChanged);
+    QSignalSpy dataChangedSpy(state.bin()->folderModel(), &QAbstractItemModel::dataChanged);
     state.undo();
     QVERIFY(dataChangedSpy.count() >= 1);
-    const QModelIndex changedIndex = state.binFolderModel()->index(state.binFolderModel()->indexOfId(id));
+    const QModelIndex changedIndex = state.bin()->folderModel()->index(state.bin()->folderModel()->indexOfId(id));
     bool sawNameRole = false;
     for (const QList<QVariant> &args : dataChangedSpy) {
         const QModelIndex topLeft = args.at(0).toModelIndex();
@@ -1904,7 +1961,7 @@ void EditorStateTest::undoingBinFolderRenameEmitsDataChanged()
             sawNameRole = true;
     }
     QVERIFY(sawNameRole);
-    QCOMPARE(state.binFolderModel()->folderById(id).value(QStringLiteral("name")).toString(),
+    QCOMPARE(state.bin()->folderModel()->folderById(id).value(QStringLiteral("name")).toString(),
              QStringLiteral("B-Roll"));
 }
 
@@ -1913,11 +1970,11 @@ void EditorStateTest::importIntoDeletedFolderFallsBackToRoot()
     AssetLibrary library;
     AppController state(&library);
 
-    const QString folderId = state.createBinFolder(QStringLiteral("Temp"), QString());
+    const QString folderId = state.bin()->createFolder(QStringLiteral("Temp"), QString());
     library.setImportFolderId(folderId);
     // Mirrors a slow async import completing after its destination folder was deleted out from
     // under it — the captured id is stale by the time the placeholder row is created.
-    QVERIFY(state.deleteBinFolder(folderId));
+    QVERIFY(state.bin()->deleteFolder(folderId));
 
     QTemporaryFile file(QDir::tempPath() + QStringLiteral("/drift-import-XXXXXX.mp4"));
     QVERIFY(file.open());
@@ -1983,8 +2040,8 @@ void EditorStateTest::importFolderMirrorsDirectoryTree()
     notes.write("not a real media file");
     notes.close();
 
-    QSignalSpy finished(&state, &AppController::folderImportFinished);
-    QVERIFY(state.importFolder(QUrl::fromLocalFile(tempDir.path())));
+    QSignalSpy finished(state.bin(), &MediaBinController::folderImportFinished);
+    QVERIFY(state.bin()->importFolder(QUrl::fromLocalFile(tempDir.path())));
     QTRY_COMPARE_WITH_TIMEOUT(finished.count(), 1, 10000);
     // root, SubA, SubB, EmptyDir.
     QCOMPARE(finished.first().at(0).toInt(), 4);
@@ -1993,11 +2050,11 @@ void EditorStateTest::importFolderMirrorsDirectoryTree()
     QCOMPARE(finished.first().at(2).toInt(), 1);
     QVERIFY(!finished.first().at(3).toBool());
     QCOMPARE(library.count(), 3);
-    QCOMPARE(state.binFolderModel()->count(), 4);
+    QCOMPARE(state.bin()->folderModel()->count(), 4);
 
     const QString rootFolderId = [&] {
-        for (int i = 0; i < state.binFolderModel()->count(); ++i) {
-            const QVariantMap folder = state.binFolderModel()->folderAt(i);
+        for (int i = 0; i < state.bin()->folderModel()->count(); ++i) {
+            const QVariantMap folder = state.bin()->folderModel()->folderAt(i);
             if (folder.value(QStringLiteral("name")).toString() == root.dirName()
                 && folder.value(QStringLiteral("parentId")).toString().isEmpty())
                 return folder.value(QStringLiteral("id")).toString();
@@ -2007,8 +2064,8 @@ void EditorStateTest::importFolderMirrorsDirectoryTree()
     QVERIFY(!rootFolderId.isEmpty());
 
     auto folderNamed = [&](const QString &name, const QString &parentId) {
-        for (int i = 0; i < state.binFolderModel()->count(); ++i) {
-            const QVariantMap folder = state.binFolderModel()->folderAt(i);
+        for (int i = 0; i < state.bin()->folderModel()->count(); ++i) {
+            const QVariantMap folder = state.bin()->folderModel()->folderAt(i);
             if (folder.value(QStringLiteral("name")).toString() == name
                 && folder.value(QStringLiteral("parentId")).toString() == parentId)
                 return folder.value(QStringLiteral("id")).toString();
@@ -2035,7 +2092,7 @@ void EditorStateTest::importFolderMirrorsDirectoryTree()
 
     // Import destination is left wherever the user was browsing (root), not inside the tree
     // this walk last populated.
-    QCOMPARE(state.currentBinFolderId(), QString());
+    QCOMPARE(state.bin()->currentFolderId(), QString());
 
     // The probe this kicked off runs on a QtConcurrent worker thread that captures `library` by
     // raw pointer; wait for it to finish before the undo below tears the assets back down again.
@@ -2074,8 +2131,8 @@ void EditorStateTest::importFolderMovesAlreadyImportedMediaIntoMirroredFolder()
     QCOMPARE(library.assetAt(library.indexOfId(assetId)).value(QStringLiteral("folderId")).toString(),
              QString());
 
-    QSignalSpy finished(&state, &AppController::folderImportFinished);
-    QVERIFY(state.importFolder(QUrl::fromLocalFile(tempDir.path())));
+    QSignalSpy finished(state.bin(), &MediaBinController::folderImportFinished);
+    QVERIFY(state.bin()->importFolder(QUrl::fromLocalFile(tempDir.path())));
     QTRY_COMPARE_WITH_TIMEOUT(finished.count(), 1, 10000);
     QCOMPARE(finished.first().at(1).toInt(), 1);
     QCOMPARE(library.count(), 1);
@@ -2083,8 +2140,8 @@ void EditorStateTest::importFolderMovesAlreadyImportedMediaIntoMirroredFolder()
     // The mirrored SubA folder must actually contain the file, not sit empty while the count
     // above claims it was imported.
     QString subAId;
-    for (int i = 0; i < state.binFolderModel()->count(); ++i) {
-        const QVariantMap folder = state.binFolderModel()->folderAt(i);
+    for (int i = 0; i < state.bin()->folderModel()->count(); ++i) {
+        const QVariantMap folder = state.bin()->folderModel()->folderAt(i);
         if (folder.value(QStringLiteral("name")).toString() == QStringLiteral("SubA"))
             subAId = folder.value(QStringLiteral("id")).toString();
     }
@@ -2117,8 +2174,8 @@ void EditorStateTest::importFolderSkipsSymlinkCycles()
     // Hangs (or stack-overflows) here if the visited-set guard regresses — there is no bound on
     // the recursion otherwise, since the symlink always resolves back to an already-mirrored
     // directory.
-    QSignalSpy finished(&state, &AppController::folderImportFinished);
-    QVERIFY(state.importFolder(QUrl::fromLocalFile(tempDir.path())));
+    QSignalSpy finished(state.bin(), &MediaBinController::folderImportFinished);
+    QVERIFY(state.bin()->importFolder(QUrl::fromLocalFile(tempDir.path())));
     QTRY_COMPARE_WITH_TIMEOUT(finished.count(), 1, 10000);
     // root and SubA only — the cycle back through the symlink is skipped, not re-descended.
     QCOMPARE(finished.first().at(0).toInt(), 2);
@@ -2147,8 +2204,8 @@ void EditorStateTest::importFolderStopsAtFileLimit()
         file.close();
     }
 
-    QSignalSpy finished(&state, &AppController::folderImportFinished);
-    QVERIFY(state.importFolder(QUrl::fromLocalFile(tempDir.path())));
+    QSignalSpy finished(state.bin(), &MediaBinController::folderImportFinished);
+    QVERIFY(state.bin()->importFolder(QUrl::fromLocalFile(tempDir.path())));
     QTRY_COMPARE_WITH_TIMEOUT(finished.count(), 1, 30000);
     QVERIFY(finished.first().at(3).toBool());
     QCOMPARE(finished.first().at(1).toInt(), 500);
@@ -2176,8 +2233,8 @@ void EditorStateTest::moveAssetToFolderAndUndo()
     library.syncToProject();
     QCOMPARE(library.count(), 1);
 
-    const QString folderId = state.createBinFolder(QStringLiteral("B-Roll"), QString());
-    QVERIFY(state.moveAssetToFolder(0, folderId));
+    const QString folderId = state.bin()->createFolder(QStringLiteral("B-Roll"), QString());
+    QVERIFY(state.bin()->moveAssetToFolder(0, folderId));
     QCOMPARE(library.assetAt(0).value(QStringLiteral("folderId")).toString(), folderId);
 
     state.undo();
@@ -2189,20 +2246,20 @@ void EditorStateTest::moveBinFolderReparentsAndUndo()
     AssetLibrary library;
     AppController state(&library);
 
-    const QString interviewsId = state.createBinFolder(QStringLiteral("Interviews"), QString());
-    const QString day1Id = state.createBinFolder(QStringLiteral("Day 1"), QString());
-    const QString clipId = state.createBinFolder(QStringLiteral("Close-ups"), day1Id);
+    const QString interviewsId = state.bin()->createFolder(QStringLiteral("Interviews"), QString());
+    const QString day1Id = state.bin()->createFolder(QStringLiteral("Day 1"), QString());
+    const QString clipId = state.bin()->createFolder(QStringLiteral("Close-ups"), day1Id);
 
     // Reparent "Day 1" (and everything under it) into "Interviews".
-    QVERIFY(state.moveBinFolder(day1Id, interviewsId));
-    QCOMPARE(state.binFolderModel()->folderById(day1Id).value(QStringLiteral("parentId")).toString(),
+    QVERIFY(state.bin()->moveFolder(day1Id, interviewsId));
+    QCOMPARE(state.bin()->folderModel()->folderById(day1Id).value(QStringLiteral("parentId")).toString(),
              interviewsId);
     // The child folder never had its own parentId touched — it moved along for free.
-    QCOMPARE(state.binFolderModel()->folderById(clipId).value(QStringLiteral("parentId")).toString(),
+    QCOMPARE(state.bin()->folderModel()->folderById(clipId).value(QStringLiteral("parentId")).toString(),
              day1Id);
 
     state.undo();
-    QCOMPARE(state.binFolderModel()->folderById(day1Id).value(QStringLiteral("parentId")).toString(),
+    QCOMPARE(state.bin()->folderModel()->folderById(day1Id).value(QStringLiteral("parentId")).toString(),
              QString());
 }
 
@@ -2211,20 +2268,20 @@ void EditorStateTest::moveBinFolderRefusesCycle()
     AssetLibrary library;
     AppController state(&library);
 
-    const QString parentId = state.createBinFolder(QStringLiteral("Interviews"), QString());
-    const QString childId = state.createBinFolder(QStringLiteral("Day 1"), parentId);
-    const QString grandchildId = state.createBinFolder(QStringLiteral("Close-ups"), childId);
+    const QString parentId = state.bin()->createFolder(QStringLiteral("Interviews"), QString());
+    const QString childId = state.bin()->createFolder(QStringLiteral("Day 1"), parentId);
+    const QString grandchildId = state.bin()->createFolder(QStringLiteral("Close-ups"), childId);
 
     // Into itself, and into its own descendant at any depth — either would disconnect the
     // whole branch from the root by making "Interviews" its own ancestor.
-    QVERIFY(!state.moveBinFolder(parentId, parentId));
-    QVERIFY(!state.moveBinFolder(parentId, childId));
-    QVERIFY(!state.moveBinFolder(parentId, grandchildId));
-    QCOMPARE(state.binFolderModel()->folderById(parentId).value(QStringLiteral("parentId")).toString(),
+    QVERIFY(!state.bin()->moveFolder(parentId, parentId));
+    QVERIFY(!state.bin()->moveFolder(parentId, childId));
+    QVERIFY(!state.bin()->moveFolder(parentId, grandchildId));
+    QCOMPARE(state.bin()->folderModel()->folderById(parentId).value(QStringLiteral("parentId")).toString(),
              QString());
 
     // Already there is refused too — not a cycle, just not an actual move.
-    QVERIFY(!state.moveBinFolder(childId, parentId));
+    QVERIFY(!state.bin()->moveFolder(childId, parentId));
 }
 
 void EditorStateTest::moveBinFolderRefusesNonexistentParent()
@@ -2232,13 +2289,13 @@ void EditorStateTest::moveBinFolderRefusesNonexistentParent()
     AssetLibrary library;
     AppController state(&library);
 
-    const QString folderId = state.createBinFolder(QStringLiteral("Interviews"), QString());
+    const QString folderId = state.bin()->createFolder(QStringLiteral("Interviews"), QString());
 
-    // A stale or fabricated id (moveBinFolder is QML-invokable, so a caller could pass
+    // A stale or fabricated id (moveFolder is QML-invokable, so a caller could pass
     // anything) must not be assigned as-is — that would silently detach the folder and
     // everything under it from the root hierarchy instead of failing loudly.
-    QVERIFY(!state.moveBinFolder(folderId, QStringLiteral("no-such-folder")));
-    QCOMPARE(state.binFolderModel()->folderById(folderId).value(QStringLiteral("parentId")).toString(),
+    QVERIFY(!state.bin()->moveFolder(folderId, QStringLiteral("no-such-folder")));
+    QCOMPARE(state.bin()->folderModel()->folderById(folderId).value(QStringLiteral("parentId")).toString(),
              QString());
 }
 
@@ -2247,8 +2304,8 @@ void EditorStateTest::deleteBinFolderMovesChildrenAndUndo()
     AssetLibrary library;
     AppController state(&library);
 
-    const QString parentId = state.createBinFolder(QStringLiteral("Interviews"), QString());
-    const QString childId = state.createBinFolder(QStringLiteral("Day 1"), parentId);
+    const QString parentId = state.bin()->createFolder(QStringLiteral("Interviews"), QString());
+    const QString childId = state.bin()->createFolder(QStringLiteral("Day 1"), parentId);
 
     drift::MediaAsset asset;
     asset.id = QStringLiteral("asset-1");
@@ -2260,12 +2317,12 @@ void EditorStateTest::deleteBinFolderMovesChildrenAndUndo()
     state.project()->assetOrder().append(asset.id);
     library.syncToProject();
 
-    QVERIFY(state.deleteBinFolder(childId));
-    QCOMPARE(state.binFolderModel()->count(), 1);
+    QVERIFY(state.bin()->deleteFolder(childId));
+    QCOMPARE(state.bin()->folderModel()->count(), 1);
     QCOMPARE(library.assetAt(0).value(QStringLiteral("folderId")).toString(), parentId);
 
     state.undo();
-    QCOMPARE(state.binFolderModel()->count(), 2);
+    QCOMPARE(state.bin()->folderModel()->count(), 2);
     QCOMPARE(library.assetAt(0).value(QStringLiteral("folderId")).toString(), childId);
 }
 
@@ -2404,7 +2461,7 @@ void EditorStateTest::moveAssetsToFolderIsOneUndoStep()
     AssetLibrary library;
     AppController state(&library);
 
-    const QString folderId = state.createBinFolder(QStringLiteral("B-Roll"), QString());
+    const QString folderId = state.bin()->createFolder(QStringLiteral("B-Roll"), QString());
     for (int i = 0; i < 2; ++i) {
         drift::MediaAsset asset;
         asset.id = QStringLiteral("asset-%1").arg(i);
@@ -2416,7 +2473,7 @@ void EditorStateTest::moveAssetsToFolderIsOneUndoStep()
     }
     library.syncToProject();
 
-    const int moved = state.moveAssetsToFolder(
+    const int moved = state.bin()->moveAssetsToFolder(
         {QStringLiteral("asset-0"), QStringLiteral("asset-1")}, folderId);
     QCOMPARE(moved, 2);
     QCOMPARE(library.assetAt(0).value(QStringLiteral("folderId")).toString(), folderId);
@@ -2643,6 +2700,7 @@ void EditorStateTest::projectPersistenceRoundTrip()
 
     state.projectFile()->saveProject(QUrl::fromLocalFile(tempFile.fileName()));
     state.projectFile()->loadProject(QUrl::fromLocalFile(tempFile.fileName()));
+    QTRY_VERIFY(!state.projectFile()->projectLoadPending());
 
     QVERIFY(state.durationSeconds() > 0.0);
     QCOMPARE(state.tracks().size(), 2);
@@ -2700,11 +2758,13 @@ void EditorStateTest::saveProjectAsDuplicatesProject()
 
     // And the original still opens as it was, under its own id and name.
     state.projectFile()->loadProject(QUrl::fromLocalFile(originalPath));
+    QTRY_VERIFY(!state.projectFile()->projectLoadPending());
     QCOMPARE(state.project()->id(), originalId);
     QCOMPARE(state.projectFile()->projectName(), QStringLiteral("Wedding"));
     QCOMPARE(clipCount(), 1); // without the clip that was only ever added to the copy
 
     state.projectFile()->loadProject(QUrl::fromLocalFile(copyPath));
+    QTRY_VERIFY(!state.projectFile()->projectLoadPending());
     QCOMPARE(state.projectFile()->projectName(), QStringLiteral("wedding-short"));
     QCOMPARE(clipCount(), 2);
 }
@@ -2739,6 +2799,7 @@ void EditorStateTest::projectJsonExportImportRoundTrip()
     QVERIFY(state.projectFile()->currentProjectPath().isEmpty());
 
     state.projectFile()->loadProjectJson(QUrl::fromLocalFile(jsonPath));
+    QTRY_VERIFY(!state.projectFile()->projectLoadPending());
     QCOMPARE(state.lastMessage(), QStringLiteral("Project JSON loaded"));
     QCOMPARE(state.projectFile()->projectMetadata().value(QStringLiteral("title")).toString(),
              QStringLiteral("FromJson"));
@@ -2755,6 +2816,7 @@ void EditorStateTest::projectJsonExportImportRoundTrip()
     // loadProject sniffs JSON so a dropped file, CLI arg or MCP load_project works.
     state.projectFile()->newProject();
     state.projectFile()->loadProject(QUrl::fromLocalFile(jsonPath));
+    QTRY_VERIFY(!state.projectFile()->projectLoadPending());
     QCOMPARE(state.lastMessage(), QStringLiteral("Project JSON loaded"));
     QCOMPARE(state.projectFile()->projectMetadata().value(QStringLiteral("title")).toString(),
              QStringLiteral("FromJson"));
@@ -2820,6 +2882,7 @@ void EditorStateTest::guidesTravelWithProject()
 
     state.preview()->setGuidesEnabled(false);
     state.projectFile()->loadProjectJson(QUrl::fromLocalFile(jsonPath));
+    QTRY_VERIFY(!state.projectFile()->projectLoadPending());
     QVERIFY(state.preview()->guidesEnabled());
     const QVariantList items = state.guideItems();
     QCOMPARE(items.size(), 1);
@@ -2948,6 +3011,7 @@ void EditorStateTest::projectJsonImportRejectsGarbageAndLeavesTimeline()
     }
 
     state.projectFile()->loadProjectJson(QUrl::fromLocalFile(path));
+    QTRY_VERIFY(!state.projectFile()->projectLoadPending());
     QCOMPARE(state.lastMessageSeverity(), QStringLiteral("error"));
     QCOMPARE(state.lastMessage(), QStringLiteral("This file isn’t a Flip Studio project."));
     QCOMPARE(state.tracks().size(), 2);
@@ -3016,6 +3080,7 @@ void EditorStateTest::legacyStabilizedRenderBecomesBinAsset()
     AssetLibrary library;
     AppController state(&library);
     state.projectFile()->loadProjectJson(QUrl::fromLocalFile(jsonPath));
+    QTRY_VERIFY(!state.projectFile()->projectLoadPending());
     const drift::Project &loaded = *state.project();
     QCOMPARE(loaded.assetOrder().size(), 2);
 
@@ -3114,7 +3179,7 @@ void EditorStateTest::stabilizeRendersRangeIntoBinAndSwapsClip()
     project.tracks()[1].clips.append(audio);
     state.selectClip(0, 0);
 
-    state.stabilizeClip(0, 0);
+    state.stabilize()->run(0, 0);
     QTRY_VERIFY_WITH_TIMEOUT(!state.project()->tracks().at(0).clips.at(0).stabilizing, 120'000);
     QCOMPARE(state.lastMessage(), QStringLiteral("Stabilized video added to the media bin"));
 
@@ -4138,7 +4203,7 @@ void EditorStateTest::behindSubjectTargetsAChosenClip()
     QVERIFY(target.value(QStringLiteral("explicit")).toBool());
     QVERIFY(target.value(QStringLiteral("hasDepth")).toBool());
     // Adding the effect gave the title an adjustment lane, so indices are checked by what they
-    // point at: they are what the inspector hands to estimateDepthForClip.
+    // point at: they are what the inspector hands to depth.estimate.
     QCOMPARE(project.tracks().at(target.value(QStringLiteral("track")).toInt())
                  .clips.at(target.value(QStringLiteral("clip")).toInt()).id,
              QStringLiteral("far"));
@@ -5022,6 +5087,101 @@ void EditorStateTest::linkedAudioUnlinkAndMove()
     QCOMPARE(state.project()->tracks().at(1).clips.at(0).timelineStart, drift::secondsToUs(2.0));
 }
 
+// Link joins clips that did not come from the same media. They move and split together, and a
+// trim moves the partner's matching edge by the same amount instead of copying the video's timing.
+void EditorStateTest::linkUnrelatedClipsMoveTogetherKeepTiming()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    appendLinkedVideoAudioPair(*state.project());
+
+    // Start from two unlinked clips of different lengths.
+    drift::Clip &video = state.project()->tracks()[0].clips[0];
+    drift::Clip &audio = state.project()->tracks()[1].clips[0];
+    video.linkId.clear();
+    audio.linkId.clear();
+    audio.timelineStart = drift::secondsToUs(1.0);
+    audio.timelineDuration = drift::secondsToUs(2.0);
+    audio.srcIn = drift::secondsToUs(0.5);
+    audio.srcOut = drift::secondsToUs(2.5);
+
+    state.selectClip(0, 0);
+    QVERIFY(!state.canLinkSelection());
+    state.addToSelection(1, 0);
+    QVERIFY(state.canLinkSelection());
+
+    state.linkSelectedClips();
+    QVERIFY(state.canUnlinkSelection());
+    QVERIFY(!state.canLinkSelection());
+    const QString linkId = state.project()->tracks().at(0).clips.at(0).linkId;
+    QVERIFY(!linkId.isEmpty());
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).linkId, linkId);
+
+    // Moving the video carries the audio by the same delta, offset preserved.
+    state.selectClip(0, 0);
+    state.moveClip(0, 0, 3.0);
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).timelineStart, drift::secondsToUs(3.0));
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).timelineStart, drift::secondsToUs(4.0));
+
+    // Trimming the video's end pulls the audio's end in by the same second.
+    state.setSnapEnabled(false);
+    state.trimClipRight(0, 0, 6.0);
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).timelineDuration, drift::secondsToUs(3.0));
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).timelineStart, drift::secondsToUs(4.0));
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).timelineDuration, drift::secondsToUs(1.0));
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).srcIn, drift::secondsToUs(0.5));
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).srcOut, drift::secondsToUs(1.5));
+
+    // And its start, the same way: both lose half a second from the head.
+    state.trimClipLeft(0, 0, 3.5);
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).timelineStart, drift::secondsToUs(3.5));
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).timelineStart, drift::secondsToUs(4.5));
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).timelineDuration, drift::secondsToUs(0.5));
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).srcIn, drift::secondsToUs(1.0));
+
+    // Extending the video back out extends the audio too, never past its media.
+    state.trimClipLeft(0, 0, 3.0);
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).timelineStart, drift::secondsToUs(4.0));
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).srcIn, drift::secondsToUs(0.5));
+
+    state.unlinkSelectedClips();
+    QVERIFY(!state.canUnlinkSelection());
+    QVERIFY(state.project()->tracks().at(1).clips.at(0).linkId.isEmpty());
+    QVERIFY(!state.project()->tracks().at(1).clips.at(0).linkLoose);
+    state.moveClip(0, 0, 0.0);
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).timelineStart, drift::secondsToUs(4.0));
+}
+
+void EditorStateTest::pastedAndDuplicatedClipsAreNotLinkedToTheOriginal()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    appendLinkedVideoAudioPair(*state.project());
+    const QString originalLink = state.project()->tracks().at(0).clips.at(0).linkId;
+
+    // The pasted pair is linked to itself, not to the pair it was copied from.
+    state.selectClip(0, 0);
+    state.copySelection();
+    state.setPlayheadSeconds(10.0);
+    state.pasteAtPlayhead();
+    QCOMPARE(state.project()->tracks().at(0).clips.size(), 2);
+    QCOMPARE(state.project()->tracks().at(1).clips.size(), 2);
+    const QString pastedLink = state.project()->tracks().at(0).clips.at(1).linkId;
+    QVERIFY(!pastedLink.isEmpty());
+    QVERIFY(pastedLink != originalLink);
+    QCOMPARE(state.project()->tracks().at(1).clips.at(1).linkId, pastedLink);
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).linkId, originalLink);
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).linkId, originalLink);
+
+    // A duplicate comes in on its own, and moving it leaves the original's audio alone.
+    state.selectClip(0, 0);
+    state.duplicateSelectedClip();
+    QCOMPARE(state.project()->tracks().at(0).clips.size(), 3);
+    QVERIFY(state.project()->tracks().at(0).clips.at(2).linkId.isEmpty());
+    state.moveClip(0, 2, 20.0);
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).timelineStart, 0);
+}
+
 // The editor drives one session for two different shapes, so the mode has to survive begin/apply
 // rather than being forced back to Custom the way it was before bezier existed.
 void EditorStateTest::bezierFadeCurveSessionKeepsItsMode()
@@ -5440,9 +5600,6 @@ void EditorStateTest::compositorRequestDedupKeepsEveryOption()
     QVERIFY(!CompositorService::isRedundantRequest(1000, exact, 1000, approx));
     QVERIFY(CompositorService::isRedundantRequest(1000, approx, 1000, exact));
 
-    FrameCompositor::RenderOptions skipping = exact;
-    skipping.skipClipId = QStringLiteral("text-clip");
-    QVERIFY(!CompositorService::isRedundantRequest(1000, skipping, 1000, exact));
     FrameCompositor::RenderOptions noProxies = exact;
     noProxies.allowProxies = false;
     QVERIFY(!CompositorService::isRedundantRequest(1000, noProxies, 1000, exact));
@@ -6014,8 +6171,8 @@ void EditorStateTest::denoiseAddsCleanedClipOnTrackAbove()
     project.tracks().append(track);
     const int sourceTrack = 1;
 
-    QSignalSpy finished(&state, &AppController::denoiseFinished);
-    state.applyDenoise(sourceTrack, 0);
+    QSignalSpy finished(state.denoise(), &DenoiseController::finished);
+    state.denoise()->apply(sourceTrack, 0);
     QVERIFY2(finished.wait(180000), "denoise did not finish");
     QCOMPARE(finished.count(), 1);
     QVERIFY2(finished.at(0).at(0).toBool(),
@@ -6692,7 +6849,7 @@ bool importAndAwait(AssetLibrary &library, const QString &path)
 
 // The whole point of the feature: a project set up once — music, outro, CTA — is re-pointed at
 // the next video by swapping the file under its bin row, and every clip using it stays put.
-void EditorStateTest::replaceAssetSourceRebindsClipsAndClampsTrim()
+void EditorStateTest::replaceSourceRebindsClipsAndClampsTrim()
 {
     const QString ffmpeg = QStandardPaths::findExecutable(QStringLiteral("ffmpeg"));
     if (ffmpeg.isEmpty())
@@ -6742,8 +6899,8 @@ void EditorStateTest::replaceAssetSourceRebindsClipsAndClampsTrim()
     const QString assetId = library.assetIdAt(0);
     const drift::Clip beforeSwap = project.tracks().at(trackIndex).clips.at(clipIndex);
 
-    QSignalSpy finished(&state, &AppController::assetReplaceFinished);
-    QVERIFY(state.replaceAssetSource(0, QUrl::fromLocalFile(replacement)));
+    QSignalSpy finished(state.bin(), &MediaBinController::replaceFinished);
+    QVERIFY(state.bin()->replaceSource(0, QUrl::fromLocalFile(replacement)));
     QVERIFY2(finished.wait(60000), "replace did not finish");
     QCOMPARE(finished.count(), 1);
     QVERIFY2(finished.at(0).at(0).toBool(), qPrintable(finished.at(0).at(1).toString()));
@@ -6788,7 +6945,7 @@ void EditorStateTest::replaceAssetSourceRebindsClipsAndClampsTrim()
 
 // A clip's type is fixed at creation and decides which track it may sit on, so audio cannot slot
 // into a video row. The refusal has to leave the project exactly as it was.
-void EditorStateTest::replaceAssetSourceRefusesADifferentKind()
+void EditorStateTest::replaceSourceRefusesADifferentKind()
 {
     const QString ffmpeg = QStandardPaths::findExecutable(QStringLiteral("ffmpeg"));
     if (ffmpeg.isEmpty())
@@ -6821,8 +6978,8 @@ void EditorStateTest::replaceAssetSourceRefusesADifferentKind()
     const QString originalPath = project.asset(assetId)->path;
 
     QSignalSpy undoStack(&state, &AppController::undoStackChanged);
-    QSignalSpy finished(&state, &AppController::assetReplaceFinished);
-    QVERIFY(state.replaceAssetSource(0, QUrl::fromLocalFile(audio)));
+    QSignalSpy finished(state.bin(), &MediaBinController::replaceFinished);
+    QVERIFY(state.bin()->replaceSource(0, QUrl::fromLocalFile(audio)));
     QVERIFY2(finished.wait(60000), "replace did not finish");
     QVERIFY(!finished.at(0).at(0).toBool());
     QVERIFY(!finished.at(0).at(1).toString().isEmpty());
@@ -6835,7 +6992,7 @@ void EditorStateTest::replaceAssetSourceRefusesADifferentKind()
 
 // The way a freeze frame leaves the project: a PNG destination copies the bytes through
 // untouched, while a .jpg destination re-encodes at the same size.
-void EditorStateTest::exportAssetImageWritesPngAndJpeg()
+void EditorStateTest::exportImageWritesPngAndJpeg()
 {
     QTemporaryDir dir;
     QVERIFY(dir.isValid());
@@ -6857,16 +7014,16 @@ void EditorStateTest::exportAssetImageWritesPngAndJpeg()
     QVERIFY(!library.addGeneratedAsset(asset).isEmpty());
 
     const QString pngOut = dir.filePath(QStringLiteral("out.png"));
-    QVERIFY(state.exportAssetImage(0, QUrl::fromLocalFile(pngOut)));
+    QVERIFY(state.bin()->exportImage(0, QUrl::fromLocalFile(pngOut)));
     QCOMPARE(QFileInfo(pngOut).size(), QFileInfo(sourcePath).size());
 
     const QString jpegOut = dir.filePath(QStringLiteral("out.jpg"));
-    QVERIFY(state.exportAssetImage(0, QUrl::fromLocalFile(jpegOut)));
+    QVERIFY(state.bin()->exportImage(0, QUrl::fromLocalFile(jpegOut)));
     const QImage written(jpegOut);
     QVERIFY(!written.isNull());
     QCOMPARE(written.size(), source.size());
 
-    QVERIFY(!state.exportAssetImage(1, QUrl::fromLocalFile(dir.filePath(QStringLiteral("no.png")))));
+    QVERIFY(!state.bin()->exportImage(1, QUrl::fromLocalFile(dir.filePath(QStringLiteral("no.png")))));
 }
 
 void EditorStateTest::startupProjectUrlFromArguments()
@@ -7789,7 +7946,7 @@ void EditorStateTest::undoRevertsClipPropertyEdits()
     }
     {
         AssetLibrary l; AppController s(&l); fresh(s, drift::ClipType::Video);
-        s.setClipStabilizeMode(0, 0, QStringLiteral("keyframes"));
+        s.stabilize()->setMode(0, 0, QStringLiteral("keyframes"));
         QCOMPARE(clip0(s).stabilizeMode, drift::StabilizeMode::Keyframes);
         s.undo();
         QCOMPARE(clip0(s).stabilizeMode, drift::StabilizeMode::Bake);
@@ -8632,7 +8789,7 @@ void EditorStateTest::effectAdjustmentReportsItsSourceClipsFaceState()
     QCOMPARE(state.selectedClipData().value(QStringLiteral("hasFaceTrack")).toBool(), true);
 
     // And the scan reaches through: asking the adjustment to clear it clears the clip's.
-    state.clearFaceTrack(hostTrack, hostClip);
+    state.faces()->clearTrack(hostTrack, hostClip);
     QVERIFY(state.project()->tracks().at(0).clips.at(0).faceTrackPath.isEmpty());
 
     // A standalone adjustment layer has no one clip to scan, so it must not offer to.

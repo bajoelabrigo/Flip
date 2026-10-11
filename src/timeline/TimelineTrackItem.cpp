@@ -15,6 +15,7 @@
 #include <QCursor>
 #include <QGuiApplication>
 #include <QMatrix4x4>
+#include <QPointingDevice>
 #include <QQuickWindow>
 #include <QSGFlatColorMaterial>
 #include <QSGGeometryNode>
@@ -353,7 +354,7 @@ TimelineTrackItem::TimelineTrackItem(QQuickItem *parent)
     connect(&m_longPress, &QTimer::timeout, this, [this] {
         if (!m_drag.pressed || m_drag.moving || m_drag.didDrag || m_drag.rightButton)
             return;
-        if (!m_viewState || !m_viewState->touchMode() || m_viewState->multiSelectActive())
+        if (!m_drag.touch || !m_viewState || m_viewState->multiSelectActive())
             return;
         m_drag.armed = true;
         m_drag.liftItemPos = mapFromScene(m_drag.lastScenePos);
@@ -536,12 +537,12 @@ void TimelineTrackItem::setHaptics(QObject *haptics)
 
 bool TimelineTrackItem::touchDragging() const
 {
-    return m_drag.moving && m_viewState && m_viewState->touchMode();
+    return m_drag.moving && m_drag.touch;
 }
 
 bool TimelineTrackItem::lifted() const
 {
-    return (m_drag.moving || m_drag.armed) && m_viewState && m_viewState->touchMode();
+    return (m_drag.moving || m_drag.armed) && m_drag.touch;
 }
 
 QVariantMap TimelineTrackItem::clipInfo(int index) const
@@ -793,7 +794,7 @@ void TimelineTrackItem::build()
     }
     // The dragged clip draws last, over its neighbours.
     if (m_drag.moving && m_drag.clipIndex >= 0 && m_drag.clipIndex < rows.size())
-        appendClip(m_drag.clipIndex, m_drag.rect, isSelected(m_drag.clipIndex), true, touch);
+        appendClip(m_drag.clipIndex, m_drag.rect, isSelected(m_drag.clipIndex), true, m_drag.touch);
     else if (m_drag.armed && m_drag.clipIndex >= 0 && m_drag.clipIndex < rows.size())
         appendClip(m_drag.clipIndex, effectiveRect(m_drag.clipIndex), true, true, true);
 }
@@ -1172,7 +1173,8 @@ void TimelineTrackItem::buildFilmstrip(int index, const QRectF &body, double inP
         return;
 
     const bool singleFrame = row.kind == QLatin1String("image") || row.kind == QLatin1String("vector")
-                             || row.kind == QLatin1String("model3d");
+                             || row.kind == QLatin1String("model3d")
+                             || row.kind == QLatin1String("pdf");
     const int frameCount = singleFrame ? 1 : kFilmstripFrameCount;
     const QString sourcePath = row.kind == QLatin1String("video") ? row.path : QString();
     const qreal dpr = window() ? window()->effectiveDevicePixelRatio() : 1.0;
@@ -1371,9 +1373,19 @@ void TimelineTrackItem::mousePressEvent(QMouseEvent *event)
 {
     Zone zone = Zone::None;
     const int index = clipAt(event->position(), &zone);
+    // The device behind this press, not the timeline's mode: a finger on the desktop timeline
+    // pans, lifts and taps like it does on Android.
+    const QPointingDevice *device = event->pointingDevice();
+    const bool touch = (m_viewState && m_viewState->touchMode())
+                       || (device && device->type() == QInputDevice::DeviceType::TouchScreen)
+                       || event->source() != Qt::MouseEventNotSynthesized;
+    if (m_lastPressTouch != touch) {
+        m_lastPressTouch = touch;
+        emit lastPressTouchChanged();
+    }
     // On touch an unselected clip has no trim handles, so its edge band is just more of the clip:
     // treating it as dead left a finger-wide strip at each end of every clip that did nothing.
-    const bool touchEdgeOfUnselected = m_viewState && m_viewState->touchMode() && index >= 0
+    const bool touchEdgeOfUnselected = touch && index >= 0
                                        && zone != Zone::None && !isSelected(index);
     if (index < 0 || (zone != Zone::Body && !touchEdgeOfUnselected) || !m_editor || !m_viewState) {
         event->ignore();
@@ -1381,7 +1393,6 @@ void TimelineTrackItem::mousePressEvent(QMouseEvent *event)
     }
 
     forceActiveFocus(Qt::MouseFocusReason);
-    const bool touch = m_viewState->touchMode();
     const bool wasSelected = isSelected(index);
     callHaptic("reset");
 
@@ -1396,6 +1407,7 @@ void TimelineTrackItem::mousePressEvent(QMouseEvent *event)
     m_drag.pointer = event->position();
     m_drag.wasSelected = wasSelected;
     m_drag.rightButton = event->button() == Qt::RightButton;
+    m_drag.touch = touch;
 
     if (m_drag.rightButton) {
         if (!wasSelected)
@@ -1481,11 +1493,14 @@ void TimelineTrackItem::mouseMoveEvent(QMouseEvent *event)
         event->ignore();
         return;
     }
+    if (m_drag.menuOpened) {
+        event->accept();
+        return;
+    }
     const QPointF delta = mapFromScene(event->scenePosition()) - m_drag.pressItemPos;
     if (!m_drag.moving) {
-        const bool touch = m_viewState->touchMode();
         const bool pastThreshold = std::abs(delta.x()) > 2.0 || std::abs(delta.y()) > 2.0;
-        if (touch) {
+        if (m_drag.touch) {
             if (!m_drag.armed) {
                 // Not picked up yet: this is someone panning. Let it go, and do not let the
                 // long-press fire under a moving finger.
@@ -1535,10 +1550,8 @@ void TimelineTrackItem::finishPress(bool canceled)
         return;
     }
     scheduleRebuild();
-    if (canceled || !m_editor)
+    if (canceled || !m_editor || drag.menuOpened)
         return;
-
-    const bool touch = m_viewState && m_viewState->touchMode();
 
     // Picked up and put down where it was. Long-press only ever lifts; the clip's actions live
     // in the toolbar, so there is no menu to open here.
@@ -1554,11 +1567,17 @@ void TimelineTrackItem::finishPress(bool canceled)
     }
     if (QGuiApplication::keyboardModifiers() & (Qt::ShiftModifier | Qt::ControlModifier))
         return; // the press already added it
-    if (touch) {
-        // Tapping a clip that is already selected keeps the selection as it is, so a
-        // multi-selection is not lost to a stray tap on one of its members.
-        if (drag.wasSelected)
+    if (drag.touch) {
+        if (drag.wasSelected) {
+            // A tap on a clip that is already selected opens its menu on the desktop timeline.
+            // On the touch-only timeline it keeps the selection as it is, so a multi-selection
+            // is not lost to a stray tap on one of its members.
+            if (m_viewState && !m_viewState->touchMode()) {
+                updateActiveSet();
+                emit contextMenuRequested(drag.clipIndex);
+            }
             return;
+        }
         callHaptic("select");
     }
     m_editor->selectClip(m_trackIndex, drag.clipIndex);

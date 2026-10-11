@@ -236,6 +236,7 @@ QJsonObject clipToJson(const Clip &clip)
         {QStringLiteral("id"), clip.id},
         {QStringLiteral("assetId"), clip.assetId},
         {QStringLiteral("linkId"), clip.linkId},
+        {QStringLiteral("linkLoose"), clip.linkLoose},
         {QStringLiteral("suppressEmbeddedAudio"), clip.suppressEmbeddedAudio},
         {QStringLiteral("audioStreamIndex"), clip.audioStreamIndex},
         {QStringLiteral("type"), clipTypeToString(clip.type)},
@@ -303,6 +304,8 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("vector"), clip.vector.toJson());
     if (clip.type == ClipType::Model3d)
         json.insert(QStringLiteral("model3d"), clip.model3d.toJson());
+    if (clip.type == ClipType::Pdf)
+        json.insert(QStringLiteral("pdf"), clip.pdf.toJson());
     if (!clip.sequenceId.isEmpty())
         json.insert(QStringLiteral("sequenceId"), clip.sequenceId);
     if (clip.sourceFrame != QRectF(0, 0, 1, 1))
@@ -362,6 +365,7 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.id = object.value(QStringLiteral("id")).toString(QUuid::createUuid().toString(QUuid::WithoutBraces));
     clip.assetId = object.value(QStringLiteral("assetId")).toString();
     clip.linkId = object.value(QStringLiteral("linkId")).toString();
+    clip.linkLoose = object.value(QStringLiteral("linkLoose")).toBool(false);
     clip.suppressEmbeddedAudio = object.value(QStringLiteral("suppressEmbeddedAudio")).toBool(false);
     clip.audioStreamIndex = object.value(QStringLiteral("audioStreamIndex")).toInt(0);
     clip.type = clipTypeFromString(object.value(QStringLiteral("type")).toString());
@@ -375,6 +379,7 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.shapeStyle = shapeStyleFromJson(object.value(QStringLiteral("shapeStyle")).toObject());
     clip.vector = VectorSource::fromJson(object.value(QStringLiteral("vector")).toObject());
     clip.model3d = Model3dSource::fromJson(object.value(QStringLiteral("model3d")).toObject());
+    clip.pdf = PdfSource::fromJson(object.value(QStringLiteral("pdf")).toObject());
     clip.sequenceId = object.value(QStringLiteral("sequenceId")).toString();
     clip.path = object.value(QStringLiteral("path")).toString();
     clip.sourceFrame = drift::sourceFrameFromJson(object.value(QStringLiteral("sourceFrame")).toArray());
@@ -747,6 +752,10 @@ void detachClip(Clip &clip)
     clip.model3d.animations.detach();
     clip.model3d.keyframes.detach();
     for (auto it = clip.model3d.keyframes.begin(); it != clip.model3d.keyframes.end(); ++it)
+        it.value().detachSharedData();
+    clip.pdf.pageSizes.detach();
+    clip.pdf.keyframes.detach();
+    for (auto it = clip.pdf.keyframes.begin(); it != clip.pdf.keyframes.end(); ++it)
         it.value().detachSharedData();
     clip.textStyle.keyframes.detach();
     for (auto it = clip.textStyle.keyframes.begin(); it != clip.textStyle.keyframes.end(); ++it)
@@ -1164,6 +1173,8 @@ Project Project::fromJson(const QJsonObject &object, QString *errorOut)
     // camera as an effect adjustment with no effects and render the whole sequence from the
     // default viewpoint — every shot framed wrongly, with nothing on screen to say why.
     // Version 13 moved a model clip's pose off the model onto the clip's transform (above).
+    // Version 14 added ClipType::Pdf. Nothing to migrate; the bump is a gate, as for versions 6
+    // and 9. An older build would load those clips as videos with no path.
 
     project.m_bookmarks.clear();
     const QJsonArray bookmarksArray = object.value(QStringLiteral("bookmarks")).toArray();

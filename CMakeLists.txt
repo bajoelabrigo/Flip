@@ -492,6 +492,8 @@ add_library(driftcore STATIC
     src/core/VectorSource.cpp
     src/core/Model3dSource.h
     src/core/Model3dSource.cpp
+    src/core/PdfSource.h
+    src/core/PdfSource.cpp
     src/core/ZipArchive.h
     src/core/ZipArchive.cpp
     src/core/SecretStore.h
@@ -698,9 +700,17 @@ add_library(driftengine STATIC
     src/engine/WhisperTokenizer.cpp
     src/engine/WhisperTranscriber.h
     src/engine/WhisperTranscriber.cpp
+    src/engine/ChatterboxTokenizer.h
+    src/engine/ChatterboxTokenizer.cpp
+    src/engine/ChatterboxTts.h
+    src/engine/ChatterboxTts.cpp
     src/engine/OrtSupport.h
     src/engine/OrtRuntime.h
     src/engine/OrtRuntime.cpp
+    src/engine/PdfClipRenderer.h
+    src/engine/PdfClipRenderer.cpp
+    src/engine/PdfiumRuntime.h
+    src/engine/PdfiumRuntime.cpp
     src/engine/Sam2Segmenter.h
     src/engine/Sam2Segmenter.cpp
     src/engine/RvmMatter.h
@@ -830,6 +840,8 @@ if(DRIFT_WITH_SKIA)
         src/engine/SkiaShapePainter.cpp
         src/engine/SkiaFonts.h
         src/engine/SkiaFonts.cpp
+        src/engine/SkiaFontCollection.h
+        src/engine/SkiaFontCollection.cpp
         src/engine/SkiaVectorResources.h
         src/engine/SkiaVectorResources.cpp
         src/engine/SkiaVectorObservers.h
@@ -910,6 +922,24 @@ qt_add_executable(drift
     src/models/CurveEditorController.cpp
     src/models/SegmentationController.h
     src/models/SegmentationController.cpp
+    src/models/SceneDetectController.h
+    src/models/SceneDetectController.cpp
+    src/models/DepthController.h
+    src/models/DepthController.cpp
+    src/models/DenoiseController.h
+    src/models/DenoiseController.cpp
+    src/models/RestoreController.h
+    src/models/RestoreController.cpp
+    src/models/FaceTrackingController.h
+    src/models/FaceTrackingController.cpp
+    src/models/StabilizeController.h
+    src/models/StabilizeController.cpp
+    src/models/MediaBinController.h
+    src/models/MediaBinController.cpp
+    src/models/TtsController.h
+    src/models/TtsController.cpp
+    src/models/VoiceLibrary.h
+    src/models/VoiceLibrary.cpp
     src/models/McpDetail.h
     src/models/AppControllerDetail.h
     src/models/EditorState.h
@@ -919,6 +949,8 @@ qt_add_executable(drift
     src/models/FileDialogs.cpp
     src/models/Haptics.h
     src/models/Haptics.cpp
+    src/models/PointerDevices.h
+    src/models/PointerDevices.cpp
     src/models/AssetLibrary.h
     src/models/AssetLibrary.cpp
     src/models/BinFolderListModel.h
@@ -1153,10 +1185,7 @@ qt_add_qml_module(drift
         src/qml/LayoutPresets.qml
         src/qml/MediaImport.qml
         src/qml/Main.qml
-        src/qml/AndroidHomeNav.qml
         src/qml/AndroidProjectsPage.qml
-        src/qml/AndroidMePage.qml
-        src/qml/AndroidMarket.qml
         src/qml/AndroidShareTargetSheet.qml
         src/qml/AndroidLinkImport.qml
         src/qml/DownloadFormat.qml
@@ -1177,6 +1206,7 @@ qt_add_qml_module(drift
         src/qml/AndroidBottomSheet.qml
         src/qml/AndroidAddMenu.qml
         src/qml/AndroidClipToolbar.qml
+        src/qml/AndroidTextComposer.qml
         src/qml/AndroidMediaPreview.qml
         src/qml/Theme.qml
         src/qml/Toasts.qml
@@ -1190,6 +1220,7 @@ qt_add_qml_module(drift
         src/qml/components/preview/PreviewViewport.qml
         src/qml/components/preview/PreviewStatusLayer.qml
         src/qml/components/preview/PreviewToolHost.qml
+        src/qml/components/preview/InlineTextEditor.qml
         src/qml/components/preview/PreviewOsd.qml
         src/qml/components/preview/PreviewModeSwitch.qml
         src/qml/components/preview/Preview3DTools.qml
@@ -1237,16 +1268,20 @@ qt_add_qml_module(drift
         src/qml/components/properties/TransitionInspector.qml
         src/qml/components/properties/BlendingInspector.qml
         src/qml/components/properties/ShapeInspector.qml
+        src/qml/components/properties/VoiceoverDialog.qml
         src/qml/components/properties/VectorInspector.qml
         src/qml/components/properties/Model3DInspector.qml
+        src/qml/components/properties/PdfInspector.qml
         src/qml/components/properties/MasksInspector.qml
         src/qml/components/properties/EffectsInspector.qml
         src/qml/components/properties/FacePropPicker.qml
         src/qml/components/assets/TextAssetsTab.qml
         src/qml/components/assets/ScenesTab.qml
         src/qml/components/assets/SubtitlesTab.qml
+        src/qml/components/assets/SpeechTab.qml
         src/qml/components/assets/StickersTab.qml
         src/qml/components/assets/ShapesTab.qml
+        src/qml/components/assets/AssetSearchBar.qml
         src/qml/components/assets/AssetDragSource.qml
         src/qml/components/assets/MasksTab.qml
         src/qml/components/assets/SoundsTab.qml
@@ -1319,7 +1354,9 @@ qt_add_qml_module(drift
         src/qml/components/VfrWarning.qml
         src/qml/components/ThemedLabel.qml
         src/qml/components/ThemedDialog.qml
+        src/qml/components/ToolWindow.qml
         src/qml/components/LazyLoader.qml
+        src/qml/components/AndroidLifecycle.qml
         src/qml/components/AddonManagerDialog.qml
         src/qml/components/AddonStartupDialog.qml
         src/qml/components/MissingAddonsDialog.qml
@@ -1339,8 +1376,10 @@ qt_add_qml_module(drift
         src/qml/components/SheetActionRow.qml
         src/qml/components/SheetActionTile.qml
         src/qml/components/SettingsDialog.qml
+        src/qml/components/ShellSwitchDialog.qml
         src/qml/components/PasteAttributesDialog.qml
         src/qml/components/PackageProgressDialog.qml
+        src/qml/components/ProjectLoadDialog.qml
         src/qml/components/ExportDialog.qml
         src/qml/components/ExportProgressDialog.qml
         src/qml/components/CollectMediaDialog.qml
@@ -1356,6 +1395,7 @@ qt_add_qml_module(drift
         src/qml/components/ToastHost.qml
         src/qml/components/EmptyState.qml
         src/qml/components/TouchLiftArea.qml
+        src/qml/components/TouchDragGhost.qml
         src/qml/components/SkeletonBox.qml
         src/qml/components/ThemedSwitch.qml
         src/qml/components/ThemedCheckBox.qml

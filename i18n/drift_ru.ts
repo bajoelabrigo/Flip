@@ -4,20 +4,20 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Close</source>
-        <translation type="unfinished">Закрыть</translation>
-    </message>
-    <message>
-        <source>Flip Studio</source>
-        <translation>Flip Studio</translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <source>Version %1</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio</source>
+        <translation>Flip Studio</translation>
     </message>
     <message>
         <source>Open-source video editor based on Drift by CutWire Studios.</source>
@@ -59,19 +59,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Flip Studio effect file (%1).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Another addon is still installing.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Flip Studio addon file.</source>
+        <source>Could not use this addon (%1).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Could not use this addon (%1).</source>
+        <source>This is not a Flip Studio effect file (%1).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This is not a Flip Studio addon file.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -118,10 +118,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio addons (*.driftpkg *.driftfx *.zip)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Install an unofficial addon?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -134,19 +130,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 is not signed by the Flip Studio team. Only install files you trust.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>It contains code that runs on your computer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>It will replace “%1”.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 was made by a user, not the Flip Studio team, and nothing has checked it. Only install files you trust.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -202,24 +190,12 @@
         <translation>Установите движок ИИ ниже, чтобы создавать субтитры автоматически, вырезать объекты, применять забавные эффекты для лица и удалять шум.</translation>
     </message>
     <message>
-        <source>Restart Flip Studio for this to take effect.</source>
-        <translation>Перезапустите Flip Studio, чтобы изменения вступили в силу.</translation>
-    </message>
-    <message>
-        <source>Downloads coming soon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Can&apos;t reach the download store</source>
         <translation>Не удалось подключиться к магазину загрузок</translation>
     </message>
     <message>
         <source>Nothing in this category</source>
         <translation>В этой категории ничего нет</translation>
-    </message>
-    <message>
-        <source>Automatic subtitles, fonts, stickers and more will be available to download in an upcoming update. Extras you install from a file still work.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Check your connection and try again.</source>
@@ -244,10 +220,6 @@
     <message>
         <source>%1… %2%</source>
         <translation>%1… %2%</translation>
-    </message>
-    <message>
-        <source>Requires Flip Studio %1 or newer</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unofficial</source>
@@ -278,12 +250,8 @@
         <translation>Установить</translation>
     </message>
     <message>
-        <source>Text &amp; fonts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Настраиваемая</translation>
     </message>
     <message>
         <source>Install from file…</source>
@@ -301,6 +269,38 @@
         <source>Delete this pack&apos;s downloaded data</source>
         <translation>Удалить загруженные данные этого пакета</translation>
     </message>
+    <message>
+        <source>Flip Studio addons (*.driftpkg *.driftfx *.zip)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 is not signed by the Flip Studio team. Only install files you trust.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 was made by a user, not the Flip Studio team, and nothing has checked it. Only install files you trust.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart Flip Studio for this to take effect.</source>
+        <translation>Перезапустите Flip Studio, чтобы изменения вступили в силу.</translation>
+    </message>
+    <message>
+        <source>Downloads coming soon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic subtitles, fonts, stickers and more will be available to download in an upcoming update. Extras you install from a file still work.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Requires Flip Studio %1 or newer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text &amp; fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddonStartupDialog</name>
@@ -315,10 +315,6 @@
     <message>
         <source>Recommended packs</source>
         <translation>Рекомендуемые пакеты</translation>
-    </message>
-    <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
-        <translation>Установите основные пакеты эффектов, переходов и аудио. Вы можете пользоваться Flip Studio и без них, но установка позволит получать улучшения.</translation>
     </message>
     <message>
         <source>%1… %2%</source>
@@ -371,6 +367,10 @@
     <message>
         <source>Install all</source>
         <translation>Установить всё</translation>
+    </message>
+    <message>
+        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
+        <translation>Установите основные пакеты эффектов, переходов и аудио. Вы можете пользоваться Flip Studio и без них, но установка позволит получать улучшения.</translation>
     </message>
 </context>
 <context>
@@ -534,6 +534,14 @@
         <translation>Созданные или импортированные субтитры</translation>
     </message>
     <message>
+        <source>Speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn a script into a voiceover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stickers</source>
         <translation>Стикеры</translation>
     </message>
@@ -651,6 +659,10 @@
         <translation>Трансформировать вместе</translation>
     </message>
     <message>
+        <source>Edit text</source>
+        <translation>Редактировать текст</translation>
+    </message>
+    <message>
         <source>Fade</source>
         <translation>Плавный переход</translation>
     </message>
@@ -724,10 +736,6 @@
 <context>
     <name>AndroidEditor</name>
     <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Проект Flip Studio (*.drift)</translation>
-    </message>
-    <message>
         <source>Save Project</source>
         <translation>Сохранить проект</translation>
     </message>
@@ -766,6 +774,18 @@
     <message>
         <source>Done</source>
         <translation>Готово</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Select all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Проект Flip Studio (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -809,21 +829,6 @@
     <message>
         <source>Curve</source>
         <translation>Кривая</translation>
-    </message>
-</context>
-<context>
-    <name>AndroidHomeNav</name>
-    <message>
-        <source>Projects</source>
-        <translation>Проекты</translation>
-    </message>
-    <message>
-        <source>Market</source>
-        <translation>Магазин</translation>
-    </message>
-    <message>
-        <source>Me</source>
-        <translation>Профиль</translation>
     </message>
 </context>
 <context>
@@ -927,10 +932,6 @@
 <context>
     <name>AndroidMain</name>
     <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Проект Flip Studio (*.drift)</translation>
-    </message>
-    <message>
         <source>Save Project</source>
         <translation>Сохранить проект</translation>
     </message>
@@ -1002,55 +1003,9 @@
         <source>Imported from the marketplace.</source>
         <translation>Импортировано из магазина.</translation>
     </message>
-</context>
-<context>
-    <name>AndroidMarket</name>
     <message>
-        <source>Market</source>
-        <translation>Магазин</translation>
-    </message>
-    <message>
-        <source>Downloads</source>
-        <translation>Загрузки</translation>
-    </message>
-</context>
-<context>
-    <name>AndroidMePage</name>
-    <message>
-        <source>Me</source>
-        <translation>Профиль</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n coin(s)</source>
-        <translation>
-            <numerusform>%n монета</numerusform>
-            <numerusform>%n монеты</numerusform>
-            <numerusform>%n монет</numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>Light mode</source>
-        <translation>Светлая тема</translation>
-    </message>
-    <message>
-        <source>Dark mode</source>
-        <translation>Тёмная тема</translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation>Настройки</translation>
-    </message>
-    <message>
-        <source>Extras</source>
-        <translation>Дополнения</translation>
-    </message>
-    <message>
-        <source>Update available</source>
-        <translation>Доступно обновление</translation>
-    </message>
-    <message>
-        <source>Debug info</source>
-        <translation>Отладочная информация</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Проект Flip Studio (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -1068,12 +1023,12 @@
         <translation>Только аудио — обрежьте его ниже</translation>
     </message>
     <message>
-        <source>Unlock source frame ratio</source>
-        <translation>Разблокировать соотношение сторон исходного кадра</translation>
+        <source>Unlock crop ratio</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Lock source frame ratio</source>
-        <translation>Закрепить соотношение сторон исходного кадра</translation>
+        <source>Lock crop ratio</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trim</source>
@@ -1112,12 +1067,12 @@
         <translation>Сохранение…</translation>
     </message>
     <message>
-        <source>Save keeps your changes as a new file in this project.</source>
-        <translation>При сохранении изменённый файл будет добавлен в проект как новый.</translation>
+        <source>Save keeps the original file and stores this crop.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Save keeps the original video and stores this framing.</source>
-        <translation>При сохранении исходное видео останется без изменений, а кадрирование сохранится отдельно.</translation>
+        <source>Save keeps the original file and stores this trim.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nothing changed yet. Trim or crop above, or go back and drag this onto the timeline.</source>
@@ -1645,8 +1600,60 @@
         <translation>Синхронизировать ракурсы и переключаться между ними</translation>
     </message>
     <message>
-        <source>App settings</source>
-        <translation>Настройки приложения</translation>
+        <source>Extras</source>
+        <translation>Дополнения</translation>
+    </message>
+    <message>
+        <source>Add-ons and model packs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Настройки</translation>
+    </message>
+    <message>
+        <source>Light mode</source>
+        <translation>Светлая тема</translation>
+    </message>
+    <message>
+        <source>Dark mode</source>
+        <translation>Тёмная тема</translation>
+    </message>
+    <message>
+        <source>Switch the app’s colour scheme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch to desktop layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use the wide editor layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update available</source>
+        <translation>Доступно обновление</translation>
+    </message>
+    <message>
+        <source>A newer version of Flip Studio is ready</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Debug info</source>
+        <translation>Отладочная информация</translation>
+    </message>
+    <message>
+        <source>Version, device and logs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Version, licence and credits</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Appearance, extras and agent access</source>
@@ -1729,6 +1736,53 @@
     <message>
         <source>Start a new project from this clip</source>
         <translation>Создать проект из этого клипа</translation>
+    </message>
+</context>
+<context>
+    <name>AndroidTextComposer</name>
+    <message>
+        <source>Previous caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caption %1 / %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>Готово</translation>
+    </message>
+    <message>
+        <source>Type subtitle…</source>
+        <translation>Введите текст субтитров…</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>Начало</translation>
+    </message>
+    <message>
+        <source>Set start to current time</source>
+        <translation>Установить начало на текущее время</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation>Конец</translation>
+    </message>
+    <message>
+        <source>Set end to current time</source>
+        <translation>Установить конец на текущее время</translation>
+    </message>
+    <message>
+        <source>Back one frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forward one frame</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1883,6 +1937,14 @@
     <message>
         <source>Untitled</source>
         <translation>Без названия</translation>
+    </message>
+    <message>
+        <source>Downloads</source>
+        <translation>Загрузки</translation>
+    </message>
+    <message>
+        <source>Extras</source>
+        <translation>Дополнения</translation>
     </message>
     <message>
         <source>Undo</source>
@@ -2046,28 +2108,12 @@
         <translation>Медиафайл переименован</translation>
     </message>
     <message>
-        <source>That file could not be read.</source>
-        <translation>Не удалось прочитать файл.</translation>
+        <source>Crop clip</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>That file is already in this project.</source>
-        <translation>Этот файл уже есть в проекте.</translation>
-    </message>
-    <message>
-        <source>Converting %1 to an edit-friendly format…</source>
-        <translation>Преобразование %1 в формат для удобного монтажа…</translation>
-    </message>
-    <message>
-        <source>That media is no longer in this project.</source>
-        <translation>Этого медиафайла больше нет в проекте.</translation>
-    </message>
-    <message>
-        <source>“%1” is %2, but this slot holds %3.</source>
-        <translation>«%1» имеет тип %2, а сюда можно поместить только %3.</translation>
-    </message>
-    <message>
-        <source>Media replaced</source>
-        <translation>Медиафайл заменён</translation>
+        <source>Crop saved</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>New project</source>
@@ -2128,6 +2174,10 @@
     <message>
         <source>Unlink audio</source>
         <translation>Отвязать аудио</translation>
+    </message>
+    <message>
+        <source>Link clips</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clear selection</source>
@@ -2246,10 +2296,6 @@
         <translation>Текстовый клип добавлен</translation>
     </message>
     <message>
-        <source>Text template added</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Subtitles</source>
         <translation>Субтитры</translation>
     </message>
@@ -2362,112 +2408,8 @@
         <translation>Кривая скорости удалена</translation>
     </message>
     <message>
-        <source>Getting ready…</source>
-        <translation>Подготовка…</translation>
-    </message>
-    <message>
-        <source>Could not decode frame %1</source>
-        <translation>Не удалось декодировать кадр %1</translation>
-    </message>
-    <message>
-        <source>Clear Face Track</source>
-        <translation>Очистить отслеживание лица</translation>
-    </message>
-    <message>
-        <source>Face detection already in progress</source>
-        <translation>Поиск лиц уже выполняется</translation>
-    </message>
-    <message>
-        <source>Select a video clip to detect faces in</source>
-        <translation>Выберите видеоклип для поиска лиц</translation>
-    </message>
-    <message>
-        <source>Clip has no video to scan</source>
-        <translation>В клипе нет видео для анализа</translation>
-    </message>
-    <message>
-        <source>Clip is too short to scan</source>
-        <translation>Клип слишком короткий для анализа</translation>
-    </message>
-    <message>
-        <source>Face detection cancelled</source>
-        <translation>Поиск лиц отменён</translation>
-    </message>
-    <message>
-        <source>Scanning frame %1 of %2…</source>
-        <translation>Анализ кадра %1 из %2…</translation>
-    </message>
-    <message>
-        <source>No faces found in this clip</source>
-        <translation>Лица в этом клипе не найдены</translation>
-    </message>
-    <message>
-        <source>Could not write the face track</source>
-        <translation>Не удалось записать данные отслеживания лица</translation>
-    </message>
-    <message>
-        <source>Face detection complete — a face was visible in %1 of %2 frames</source>
-        <translation>Поиск лиц завершён: лицо видно в %1 из %2 кадров</translation>
-    </message>
-    <message>
-        <source>Face detection complete</source>
-        <translation>Поиск лиц завершён</translation>
-    </message>
-    <message>
-        <source>Scanned clip no longer exists</source>
-        <translation>Проанализированного клипа больше нет</translation>
-    </message>
-    <message>
-        <source>Detect Faces</source>
-        <translation>Найти лица</translation>
-    </message>
-    <message>
         <source>Clip</source>
         <translation>Клип</translation>
-    </message>
-    <message>
-        <source>Getting noise removal ready…</source>
-        <translation>Подготовка удаления шума…</translation>
-    </message>
-    <message>
-        <source>Clip is too short to process</source>
-        <translation>Клип слишком короткий для обработки</translation>
-    </message>
-    <message>
-        <source>Noise removal cancelled</source>
-        <translation>Удаление шума отменено</translation>
-    </message>
-    <message>
-        <source>Removing noise (left)…</source>
-        <translation>Удаление шума (левый канал)…</translation>
-    </message>
-    <message>
-        <source>Removing noise (right)…</source>
-        <translation>Удаление шума (правый канал)…</translation>
-    </message>
-    <message>
-        <source>Writing audio…</source>
-        <translation>Запись аудио…</translation>
-    </message>
-    <message>
-        <source>Noise removal already in progress</source>
-        <translation>Удаление шума уже выполняется</translation>
-    </message>
-    <message>
-        <source>Select a video or audio clip</source>
-        <translation>Выберите видео- или аудиоклип</translation>
-    </message>
-    <message>
-        <source>Clip has no audio</source>
-        <translation>В клипе нет аудио</translation>
-    </message>
-    <message>
-        <source>Could not create a preview file</source>
-        <translation>Не удалось создать файл предпросмотра</translation>
-    </message>
-    <message>
-        <source>Ready</source>
-        <translation>Готово</translation>
     </message>
     <message numerus="yes">
         <source>Imported %n subtitles</source>
@@ -2542,70 +2484,6 @@
         <translation>Сохранить объединённый мультикамерный монтаж</translation>
     </message>
     <message>
-        <source>Select a video clip to stabilize</source>
-        <translation>Выберите видеоклип для стабилизации</translation>
-    </message>
-    <message>
-        <source>Clip has no video file</source>
-        <translation>В клипе нет видеофайла</translation>
-    </message>
-    <message>
-        <source>Stabilization already in progress for this clip</source>
-        <translation>Стабилизация этого клипа уже выполняется</translation>
-    </message>
-    <message>
-        <source>Could not create stabilization cache directory</source>
-        <translation>Не удалось создать папку кеша стабилизации</translation>
-    </message>
-    <message>
-        <source>Stabilize Video</source>
-        <translation>Стабилизировать видео</translation>
-    </message>
-    <message>
-        <source>Remove Stabilization</source>
-        <translation>Убрать стабилизацию</translation>
-    </message>
-    <message>
-        <source>Change Stabilization Smoothing</source>
-        <translation>Изменить сглаживание стабилизации</translation>
-    </message>
-    <message>
-        <source>Change Stabilization Tripod Mode</source>
-        <translation>Изменить режим штатива</translation>
-    </message>
-    <message>
-        <source>Detecting faces…</source>
-        <translation>Поиск лиц…</translation>
-    </message>
-    <message>
-        <source>Already looking for scenes</source>
-        <translation>Поиск сцен уже выполняется</translation>
-    </message>
-    <message>
-        <source>Select a video clip to find scenes in</source>
-        <translation>Выберите видеоклип для поиска сцен</translation>
-    </message>
-    <message numerus="yes">
-        <source>Found %n scene(s)</source>
-        <translation>
-            <numerusform>Найдена %n сцена</numerusform>
-            <numerusform>Найдено %n сцены</numerusform>
-            <numerusform>Найдено %n сцен</numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>Looking for scenes…</source>
-        <translation>Поиск сцен…</translation>
-    </message>
-    <message>
-        <source>Scene detection cancelled</source>
-        <translation>Поиск сцен отменён</translation>
-    </message>
-    <message>
-        <source>Removing noise…</source>
-        <translation>Удаление шума…</translation>
-    </message>
-    <message>
         <source>Could not create an output file</source>
         <translation>Не удалось создать выходной файл</translation>
     </message>
@@ -2644,50 +2522,6 @@
     <message>
         <source>Media rotated</source>
         <translation>Медиафайл повёрнут</translation>
-    </message>
-    <message>
-        <source>An edit is already saving</source>
-        <translation>Изменения уже сохраняются</translation>
-    </message>
-    <message>
-        <source>Could not open the media file</source>
-        <translation>Не удалось открыть медиафайл</translation>
-    </message>
-    <message>
-        <source>Media trimmed</source>
-        <translation>Медиафайл обрезан</translation>
-    </message>
-    <message>
-        <source>Trim saved</source>
-        <translation>Обрезка сохранена</translation>
-    </message>
-    <message>
-        <source>Saving…</source>
-        <translation>Сохранение…</translation>
-    </message>
-    <message>
-        <source>Converting…</source>
-        <translation>Преобразование…</translation>
-    </message>
-    <message>
-        <source>Saving media…</source>
-        <translation>Сохранение медиафайла…</translation>
-    </message>
-    <message>
-        <source>Couldn’t save that edit</source>
-        <translation>Не удалось сохранить изменения</translation>
-    </message>
-    <message>
-        <source>Updating the library…</source>
-        <translation>Обновление медиатеки…</translation>
-    </message>
-    <message>
-        <source>Couldn’t update the library</source>
-        <translation>Не удалось обновить медиатеку</translation>
-    </message>
-    <message>
-        <source>Media edited</source>
-        <translation>Медиафайл изменён</translation>
     </message>
     <message>
         <source>Save project as…</source>
@@ -2828,86 +2662,6 @@
     <message>
         <source>Transition curve updated</source>
         <translation>Кривая перехода изменена</translation>
-    </message>
-    <message>
-        <source>Select a video or image clip to estimate depth for</source>
-        <translation>Выберите видео- или графический клип для оценки глубины</translation>
-    </message>
-    <message>
-        <source>Clip has no video to estimate depth for</source>
-        <translation>В клипе нет видео для оценки глубины</translation>
-    </message>
-    <message>
-        <source>Depth estimation needs the Depth addon</source>
-        <translation>Для оценки глубины требуется дополнение Depth</translation>
-    </message>
-    <message>
-        <source>Depth is already being estimated for this clip</source>
-        <translation>Оценка глубины для этого клипа уже выполняется</translation>
-    </message>
-    <message>
-        <source>Estimating depth…</source>
-        <translation>Оценка глубины…</translation>
-    </message>
-    <message>
-        <source>Clip no longer exists</source>
-        <translation>Клипа больше нет</translation>
-    </message>
-    <message>
-        <source>Estimate Depth</source>
-        <translation>Оценить глубину</translation>
-    </message>
-    <message>
-        <source>Clear Depth</source>
-        <translation>Очистить глубину</translation>
-    </message>
-    <message>
-        <source>Building keyframes…</source>
-        <translation>Создание ключевых кадров…</translation>
-    </message>
-    <message>
-        <source>Rendering stabilized video…</source>
-        <translation>Визуализация стабилизированного видео…</translation>
-    </message>
-    <message>
-        <source>Analyzing camera motion…</source>
-        <translation>Анализ движения камеры…</translation>
-    </message>
-    <message>
-        <source>Stabilization cancelled.</source>
-        <translation>Стабилизация отменена.</translation>
-    </message>
-    <message>
-        <source>Stabilization analysis file is missing.</source>
-        <translation>Файл анализа стабилизации отсутствует.</translation>
-    </message>
-    <message>
-        <source>Could not read camera motion from the analysis file.</source>
-        <translation>Не удалось прочитать данные о движении камеры из файла анализа.</translation>
-    </message>
-    <message>
-        <source>Stabilize with Keyframes</source>
-        <translation>Стабилизировать ключевыми кадрами</translation>
-    </message>
-    <message>
-        <source>Stabilization keyframes applied.</source>
-        <translation>Ключевые кадры стабилизации применены.</translation>
-    </message>
-    <message>
-        <source>Change Stabilization Mode</source>
-        <translation>Изменить режим стабилизации</translation>
-    </message>
-    <message>
-        <source> (denoised)</source>
-        <translation> (с удалённым шумом)</translation>
-    </message>
-    <message>
-        <source>Remove noise</source>
-        <translation>Удалить шум</translation>
-    </message>
-    <message>
-        <source>Noise removed</source>
-        <translation>Шум удалён</translation>
     </message>
     <message>
         <source>Shape added</source>
@@ -3078,50 +2832,6 @@
         <translation>Субтитры изменены</translation>
     </message>
     <message>
-        <source>“%1” is not in these subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Replace in subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message numerus="yes">
-        <source>Replaced in %n caption(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>Subtitles are already clean</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Clean up subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Subtitles cleaned up</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No keywords for emojis in these subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add emojis</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message numerus="yes">
-        <source>Emojis added to %n caption(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message>
         <source>Adjust subtitle timing</source>
         <translation>Настроить время субтитров</translation>
     </message>
@@ -3190,19 +2900,15 @@
         <translation>Стиль текста импортирован</translation>
     </message>
     <message>
-        <source>Font added: %1</source>
+        <source>Could not import the font</source>
         <translation type="unfinished"></translation>
     </message>
-    <message numerus="yes">
-        <source>%n fonts added</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
+    <message>
+        <source>Added %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>That file is not a font this app can read</source>
+        <source>Removed %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3342,6 +3048,10 @@
         <translation>Аудио отвязано</translation>
     </message>
     <message>
+        <source>Clips linked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Fade updated</source>
         <translation>Плавный переход изменён</translation>
     </message>
@@ -3404,6 +3114,14 @@
     <message>
         <source>Animation options updated</source>
         <translation>Параметры анимации обновлены</translation>
+    </message>
+    <message>
+        <source>PDF options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PDF options updated</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Animation slot</source>
@@ -3478,50 +3196,6 @@
         <translation>Переход обновлён</translation>
     </message>
     <message>
-        <source>Could not add that sound</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enhance voice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voice enhanced: noise gate, de-esser, compressor and leveler</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select a video or audio clip with speech</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Install speech recognition from Extras to find the silences</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Could not analyse the speech in this clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Listening to the clip to find silences…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No speech found in this clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Could not cut this clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message numerus="yes">
-        <source>Removed %1 s of pauses and %n filler word(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message>
         <source>Track solo</source>
         <translation>Соло дорожки</translation>
     </message>
@@ -3574,30 +3248,6 @@
         <translation>%1 (выкл.)</translation>
     </message>
     <message>
-        <source>Frame video</source>
-        <translation>Кадрировать видео</translation>
-    </message>
-    <message>
-        <source>Video framing saved</source>
-        <translation>Кадрирование видео сохранено</translation>
-    </message>
-    <message>
-        <source>Frame source video</source>
-        <translation>Кадрировать исходное видео</translation>
-    </message>
-    <message>
-        <source>%1 (trimmed)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Rendering…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Render Trimmed Copy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Transform selection together</source>
         <translation>Трансформировать выделенное вместе</translation>
     </message>
@@ -3628,74 +3278,6 @@
     <message>
         <source>%1 copy</source>
         <translation>Копия %1</translation>
-    </message>
-    <message>
-        <source>%1 (stabilized)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select a video clip to enhance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Choose a model to enhance with</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This clip is already being enhanced</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 (enhanced %2x)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 (enhanced)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enhance Video</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enhanced video added to the media bin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enhancing video…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This build of Flip Studio has no video stabilization support</source>
-        <translation>В этой сборке Flip Studio стабилизация видео не поддерживается</translation>
-    </message>
-    <message>
-        <source>The video this clip was stabilized from is no longer in the media bin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Stabilization rendering failed.</source>
-        <translation>Не удалось создать стабилизированное видео.</translation>
-    </message>
-    <message>
-        <source>Stabilization rendering failed: %1</source>
-        <translation>Не удалось создать стабилизированное видео: %1</translation>
-    </message>
-    <message>
-        <source>Stabilized video added to the media bin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Stabilization analysis failed.</source>
-        <translation>Не удалось проанализировать видео для стабилизации.</translation>
-    </message>
-    <message>
-        <source>Stabilization analysis failed: %1</source>
-        <translation>Не удалось проанализировать видео для стабилизации: %1</translation>
-    </message>
-    <message>
-        <source>English subtitles</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -4537,22 +4119,6 @@
         <source>Close gap</source>
         <translation>Убрать промежуток</translation>
     </message>
-    <message>
-        <source>Folder created</source>
-        <translation>Папка создана</translation>
-    </message>
-    <message>
-        <source>Folder renamed</source>
-        <translation>Папка переименована</translation>
-    </message>
-    <message>
-        <source>Folder deleted</source>
-        <translation>Папка удалена</translation>
-    </message>
-    <message>
-        <source>Media moved</source>
-        <translation>Медиафайл перемещён</translation>
-    </message>
     <message numerus="yes">
         <source>%n items removed</source>
         <translation>
@@ -4561,21 +4127,9 @@
             <numerusform>Удалено %n элементов</numerusform>
         </translation>
     </message>
-    <message numerus="yes">
-        <source>%n items moved</source>
-        <translation>
-            <numerusform>Перемещён %n элемент</numerusform>
-            <numerusform>Перемещено %n элемента</numerusform>
-            <numerusform>Перемещено %n элементов</numerusform>
-        </translation>
-    </message>
     <message>
         <source>Clips added</source>
         <translation>Клипы добавлены</translation>
-    </message>
-    <message>
-        <source>Folder moved</source>
-        <translation>Папка перемещена</translation>
     </message>
     <message>
         <source>Track renamed</source>
@@ -4596,6 +4150,122 @@
     <message>
         <source>Video size cropped to %1×%2</source>
         <translation>Размер видео кадрирован до %1×%2</translation>
+    </message>
+    <message>
+        <source>Text template added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is not in these subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace in subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Replaced in %n caption(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Subtitles are already clean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean up subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles cleaned up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keywords for emojis in these subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Emojis added to %n caption(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Font added: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n fonts added</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>That file is not a font this app can read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not add that sound</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice enhanced: noise gate, de-esser, compressor and leveler</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or audio clip with speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install speech recognition from Extras to find the silences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not analyse the speech in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to find silences…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No speech found in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not cut this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Removed %1 s of pauses and %n filler word(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation>В этой сборке Flip Studio стабилизация видео не поддерживается</translation>
+    </message>
+    <message>
+        <source>English subtitles</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4727,7 +4397,7 @@
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished">Все файлы (*)</translation>
+        <translation>Все файлы (*)</translation>
     </message>
     <message>
         <source>Save As</source>
@@ -4755,14 +4425,6 @@
             <numerusform>Импортирован %n файл. Папок: %1. Это максимум за один импорт папки. Импортируйте остальные вложенные папки отдельно.</numerusform>
             <numerusform>Импортировано %n файла. Папок: %1. Это максимум за один импорт папки. Импортируйте остальные вложенные папки отдельно.</numerusform>
             <numerusform>Импортировано %n файлов. Папок: %1. Это максимум за один импорт папки. Импортируйте остальные вложенные папки отдельно.</numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <source>Imported %n files into %1 folders. %2 files were skipped — Flip Studio does not recognize their format. Drag them onto the bin to try anyway.</source>
-        <translation>
-            <numerusform>Импортирован %n файл. Папок: %1. Пропущено файлов: %2 — Flip Studio не распознаёт их формат. Попробуйте перетащить их в медиатеку.</numerusform>
-            <numerusform>Импортировано %n файла. Папок: %1. Пропущено файлов: %2 — Flip Studio не распознаёт их формат. Попробуйте перетащить их в медиатеку.</numerusform>
-            <numerusform>Импортировано %n файлов. Папок: %1. Пропущено файлов: %2 — Flip Studio не распознаёт их формат. Попробуйте перетащить их в медиатеку.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -4798,6 +4460,10 @@
         <translation>Субтитры</translation>
     </message>
     <message>
+        <source>Speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stickers</source>
         <translation>Стикеры</translation>
     </message>
@@ -4830,10 +4496,6 @@
         <translation>Аудиоэффекты</translation>
     </message>
     <message>
-        <source>Sound effects</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Shortcuts</source>
         <translation>Сочетания клавиш</translation>
     </message>
@@ -4852,10 +4514,6 @@
     <message>
         <source>Reading media and generating thumbnails.</source>
         <translation>Чтение медиафайлов и создание миниатюр.</translation>
-    </message>
-    <message>
-        <source>More emoji</source>
-        <translation>Больше эмодзи</translation>
     </message>
     <message>
         <source>More import options</source>
@@ -4929,6 +4587,18 @@
             <numerusform>Удалено %n элементов.</numerusform>
         </translation>
     </message>
+    <message numerus="yes">
+        <source>Imported %n files into %1 folders. %2 files were skipped — Flip Studio does not recognize their format. Drag them onto the bin to try anyway.</source>
+        <translation>
+            <numerusform>Импортирован %n файл. Папок: %1. Пропущено файлов: %2 — Flip Studio не распознаёт их формат. Попробуйте перетащить их в медиатеку.</numerusform>
+            <numerusform>Импортировано %n файла. Папок: %1. Пропущено файлов: %2 — Flip Studio не распознаёт их формат. Попробуйте перетащить их в медиатеку.</numerusform>
+            <numerusform>Импортировано %n файлов. Папок: %1. Пропущено файлов: %2 — Flip Studio не распознаёт их формат. Попробуйте перетащить их в медиатеку.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Sound effects</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AudioEffectBrowser</name>
@@ -4945,20 +4615,8 @@
         <translation>Установить аудиоэффекты</translation>
     </message>
     <message>
-        <source>Drag a preset onto a clip, or click to apply to the selection</source>
-        <translation>Перетащите пресет на клип или нажмите, чтобы применить его к выделенному</translation>
-    </message>
-    <message>
-        <source>Drag a preset onto a clip in the timeline</source>
-        <translation>Перетащите пресет на клип на таймлайне</translation>
-    </message>
-    <message>
         <source>Search audio effects</source>
         <translation>Поиск аудиоэффектов</translation>
-    </message>
-    <message>
-        <source>Import audio effect</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Install a custom audio effect or effect from a .driftfx file made in Drift Forge</source>
@@ -4994,11 +4652,27 @@
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished">Импорт</translation>
+        <translation>Импорт</translation>
+    </message>
+    <message>
+        <source>%1 — click to apply to the selection, or drag onto a clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — drag onto a clip in the timeline</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
         <translation>Применить к выбранному клипу</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Убрать из избранного</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Добавить в избранное</translation>
     </message>
 </context>
 <context>
@@ -5056,11 +4730,11 @@
     </message>
     <message>
         <source>Move to a time, set a value, then click the diamond to add a keyframe. With Auto keyframes on, dragging a slider also creates them.</source>
-        <translation type="unfinished">Выберите момент времени, задайте значение и нажмите на ромб, чтобы добавить ключевой кадр. Если включены автоматические ключевые кадры, они также создаются при перетаскивании ползунка.</translation>
+        <translation>Выберите момент времени, задайте значение и нажмите на ромб, чтобы добавить ключевой кадр. Если включены автоматические ключевые кадры, они также создаются при перетаскивании ползунка.</translation>
     </message>
     <message>
         <source>Auto keyframes</source>
-        <translation type="unfinished">Автоматические ключевые кадры</translation>
+        <translation>Автоматические ключевые кадры</translation>
     </message>
     <message>
         <source>%1 (not installed)</source>
@@ -5108,14 +4782,6 @@
     <message>
         <source>%1 words per caption</source>
         <translation>Слов в субтитре: %1</translation>
-    </message>
-    <message>
-        <source>No audio</source>
-        <translation>Нет аудио</translation>
-    </message>
-    <message>
-        <source>This clip has no audio track.</source>
-        <translation>У этого клипа нет звуковой дорожки.</translation>
     </message>
     <message>
         <source>Pan</source>
@@ -5362,14 +5028,6 @@
 <context>
     <name>BlendingInspector</name>
     <message>
-        <source>Video only</source>
-        <translation>Только видео</translation>
-    </message>
-    <message>
-        <source>This tab does not apply to audio clips.</source>
-        <translation>Эта вкладка не относится к аудиоклипам.</translation>
-    </message>
-    <message>
         <source>Blend mode</source>
         <translation>Режим наложения</translation>
     </message>
@@ -5531,6 +5189,10 @@
     <message>
         <source>Click a colour to pick it. Esc cancels.</source>
         <translation>Нажмите на цвет, чтобы выбрать его. Esc — отмена.</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
     </message>
 </context>
 <context>
@@ -5790,6 +5452,93 @@
     </message>
 </context>
 <context>
+    <name>DenoiseController</name>
+    <message>
+        <source>Getting noise removal ready…</source>
+        <translation>Подготовка удаления шума…</translation>
+    </message>
+    <message>
+        <source>Clip is too short to process</source>
+        <translation>Клип слишком короткий для обработки</translation>
+    </message>
+    <message>
+        <source>Reading audio…</source>
+        <translation>Чтение аудио…</translation>
+    </message>
+    <message>
+        <source>Noise removal cancelled</source>
+        <translation>Удаление шума отменено</translation>
+    </message>
+    <message>
+        <source>No audio decoded</source>
+        <translation>Не удалось декодировать аудио</translation>
+    </message>
+    <message>
+        <source>Removing noise (left)…</source>
+        <translation>Удаление шума (левый канал)…</translation>
+    </message>
+    <message>
+        <source>Removing noise (right)…</source>
+        <translation>Удаление шума (правый канал)…</translation>
+    </message>
+    <message>
+        <source>Writing audio…</source>
+        <translation>Запись аудио…</translation>
+    </message>
+    <message>
+        <source>Noise removal already in progress</source>
+        <translation>Удаление шума уже выполняется</translation>
+    </message>
+    <message>
+        <source>Select a video or audio clip</source>
+        <translation>Выберите видео- или аудиоклип</translation>
+    </message>
+    <message>
+        <source>Clip has no audio</source>
+        <translation>В клипе нет аудио</translation>
+    </message>
+    <message>
+        <source>Starting…</source>
+        <translation>Запуск…</translation>
+    </message>
+    <message>
+        <source>Could not create a preview file</source>
+        <translation>Не удалось создать файл предпросмотра</translation>
+    </message>
+    <message>
+        <source>Ready</source>
+        <translation>Готово</translation>
+    </message>
+    <message>
+        <source>Removing noise…</source>
+        <translation>Удаление шума…</translation>
+    </message>
+    <message>
+        <source>Could not create an output file</source>
+        <translation>Не удалось создать выходной файл</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>Готово</translation>
+    </message>
+    <message>
+        <source>Clip</source>
+        <translation>Клип</translation>
+    </message>
+    <message>
+        <source> (denoised)</source>
+        <translation> (с удалённым шумом)</translation>
+    </message>
+    <message>
+        <source>Remove noise</source>
+        <translation>Удалить шум</translation>
+    </message>
+    <message>
+        <source>Noise removed</source>
+        <translation>Шум удалён</translation>
+    </message>
+</context>
+<context>
     <name>DenoiseWindow</name>
     <message>
         <source>Remove noise</source>
@@ -5830,6 +5579,41 @@
     <message>
         <source>Cancel</source>
         <translation>Отмена</translation>
+    </message>
+</context>
+<context>
+    <name>DepthController</name>
+    <message>
+        <source>Select a video or image clip to estimate depth for</source>
+        <translation>Выберите видео- или графический клип для оценки глубины</translation>
+    </message>
+    <message>
+        <source>Clip has no video to estimate depth for</source>
+        <translation>В клипе нет видео для оценки глубины</translation>
+    </message>
+    <message>
+        <source>Depth estimation needs the Depth addon</source>
+        <translation>Для оценки глубины требуется дополнение Depth</translation>
+    </message>
+    <message>
+        <source>Depth is already being estimated for this clip</source>
+        <translation>Оценка глубины для этого клипа уже выполняется</translation>
+    </message>
+    <message>
+        <source>Estimating depth…</source>
+        <translation>Оценка глубины…</translation>
+    </message>
+    <message>
+        <source>Clip no longer exists</source>
+        <translation>Клипа больше нет</translation>
+    </message>
+    <message>
+        <source>Estimate Depth</source>
+        <translation>Оценить глубину</translation>
+    </message>
+    <message>
+        <source>Clear Depth</source>
+        <translation>Очистить глубину</translation>
     </message>
 </context>
 <context>
@@ -6020,7 +5804,7 @@
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished">Стиль</translation>
+        <translation>Стиль</translation>
     </message>
     <message>
         <source>Colours</source>
@@ -6090,10 +5874,6 @@
         <translation>Маркет недоступен в этой сборке.</translation>
     </message>
     <message>
-        <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
-        <translation>Не удалось загрузить ресурсы Flip Studio. Проверьте подключение и повторите попытку.</translation>
-    </message>
-    <message>
         <source>That asset could not be installed.</source>
         <translation>Не удалось установить этот ресурс.</translation>
     </message>
@@ -6116,6 +5896,10 @@
     <message>
         <source>Could not add that asset to the media bin.</source>
         <translation>Не удалось добавить этот ресурс в медиатеку.</translation>
+    </message>
+    <message>
+        <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
+        <translation>Не удалось загрузить ресурсы Flip Studio. Проверьте подключение и повторите попытку.</translation>
     </message>
 </context>
 <context>
@@ -6141,20 +5925,12 @@
         <translation>Добавлено в медиатеку</translation>
     </message>
     <message>
-        <source>Couldn’t load Flip Studio Assets</source>
-        <translation>Не удалось загрузить ресурсы Flip Studio</translation>
-    </message>
-    <message>
         <source>Try again</source>
         <translation>Повторить попытку</translation>
     </message>
     <message>
         <source>No assets here yet</source>
         <translation>Здесь пока нет ресурсов</translation>
-    </message>
-    <message>
-        <source>Flip Studio Assets are still being published. Check back soon.</source>
-        <translation>Ресурсы Flip Studio ещё публикуются. Загляните позже.</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -6169,20 +5945,24 @@
         <translation>Все ресурсы</translation>
     </message>
     <message>
-        <source>No Flip Studio Assets match “%1”.</source>
-        <translation>Нет ресурсов Flip Studio по запросу «%1».</translation>
-    </message>
-    <message>
         <source>Search %1 for “%2”</source>
         <translation>Искать «%2» в категории «%1»</translation>
+    </message>
+    <message>
+        <source>Couldn’t load Flip Studio Assets</source>
+        <translation>Не удалось загрузить ресурсы Flip Studio</translation>
+    </message>
+    <message>
+        <source>Flip Studio Assets are still being published. Check back soon.</source>
+        <translation>Ресурсы Flip Studio ещё публикуются. Загляните позже.</translation>
+    </message>
+    <message>
+        <source>No Flip Studio Assets match “%1”.</source>
+        <translation>Нет ресурсов Flip Studio по запросу «%1».</translation>
     </message>
 </context>
 <context>
     <name>EditorHeader</name>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Проект Flip Studio (*.drift)</translation>
-    </message>
     <message>
         <source>Save Project</source>
         <translation>Сохранить проект</translation>
@@ -6214,10 +5994,6 @@
     <message>
         <source>Save Shareable Copy</source>
         <translation>Сохранить копию для отправки</translation>
-    </message>
-    <message>
-        <source>Home — your projects</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Projects</source>
@@ -6292,6 +6068,10 @@
         <translation>Язык…</translation>
     </message>
     <message>
+        <source>Switch to mobile layout…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Debug info…</source>
         <translation>Отладочная информация…</translation>
     </message>
@@ -6318,10 +6098,6 @@
     <message>
         <source>Update</source>
         <translation>Обновление</translation>
-    </message>
-    <message>
-        <source>Flip Studio %1 is available</source>
-        <translation>Доступна версия Flip Studio %1</translation>
     </message>
     <message>
         <source>Agent access</source>
@@ -6367,6 +6143,18 @@
         <source>Theme</source>
         <translation>Тема</translation>
     </message>
+    <message>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Проект Flip Studio (*.drift)</translation>
+    </message>
+    <message>
+        <source>Home — your projects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is available</source>
+        <translation>Доступна версия Flip Studio %1</translation>
+    </message>
 </context>
 <context>
     <name>EffectBrowser</name>
@@ -6383,24 +6171,8 @@
         <translation>Получить дополнения</translation>
     </message>
     <message>
-        <source>Drag a preset onto a clip, or click to apply to the selection</source>
-        <translation>Перетащите пресет на клип или нажмите, чтобы применить его к выделенному</translation>
-    </message>
-    <message>
-        <source>Click to add as adjustment layer, or drag onto a clip</source>
-        <translation>Нажмите, чтобы добавить как корректирующий слой, или перетащите на клип</translation>
-    </message>
-    <message>
         <source>Search effects</source>
         <translation>Поиск эффектов</translation>
-    </message>
-    <message>
-        <source>Add adjustment layer</source>
-        <translation>Добавить корректирующий слой</translation>
-    </message>
-    <message>
-        <source>Add an adjustment layer to apply effects across all clips underneath, or drag it to where it should go</source>
-        <translation>Добавьте корректирующий слой, чтобы применить эффекты ко всем клипам под ним, или перетащите его в нужное место</translation>
     </message>
     <message>
         <source>Adjustment layer</source>
@@ -6408,10 +6180,14 @@
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished">Импорт</translation>
+        <translation>Импорт</translation>
     </message>
     <message>
         <source>Install a custom effect or transition from a .driftfx file made in Drift Forge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6443,8 +6219,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 — click to apply to the selection, or drag onto a clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply to selected clip</source>
         <translation>Применить к выбранному клипу</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Убрать из избранного</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Добавить в избранное</translation>
     </message>
     <message>
         <source>Delete from My Effects</source>
@@ -6460,7 +6252,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Удалить</translation>
+        <translation>Удалить</translation>
     </message>
     <message numerus="yes">
         <source>Delete “%1” from My Effects? It is used %n time(s) in this project, and those clips will play without it.</source>
@@ -6529,10 +6321,6 @@
 <context>
     <name>EffectStacksSection</name>
     <message>
-        <source>Flip Studio effect stack (*.drifteffects)</source>
-        <translation>Набор эффектов Flip Studio (*.drifteffects)</translation>
-    </message>
-    <message>
         <source>Import effect stack</source>
         <translation>Импортировать набор эффектов</translation>
     </message>
@@ -6541,16 +6329,16 @@
         <translation>Экспортировать набор эффектов</translation>
     </message>
     <message>
-        <source>My presets</source>
-        <translation>Мои пресеты</translation>
-    </message>
-    <message>
-        <source>Import an effect stack…</source>
-        <translation>Импортировать набор эффектов…</translation>
+        <source>No saved presets</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tune a clip&apos;s effects, then use “Save as preset…” in the properties Effects tab to keep them here.</source>
         <translation>Настройте эффекты клипа и выберите «Сохранить как пресет…» на вкладке «Эффекты» в свойствах, чтобы сохранить их здесь.</translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation>Импорт</translation>
     </message>
     <message>
         <source>+%1 more</source>
@@ -6584,6 +6372,10 @@
         <source>Remove “%1” from your saved presets? Clips already using it keep their effects.</source>
         <translation>Удалить «%1» из сохранённых пресетов? Эффекты уже использующих его клипов сохранятся.</translation>
     </message>
+    <message>
+        <source>Flip Studio effect stack (*.drifteffects)</source>
+        <translation>Набор эффектов Flip Studio (*.drifteffects)</translation>
+    </message>
 </context>
 <context>
     <name>EffectTemplateBrowser</name>
@@ -6600,16 +6392,16 @@
         <translation>Получить дополнения</translation>
     </message>
     <message>
-        <source>Click a template to apply music-synced effects to the selection</source>
-        <translation>Нажмите на шаблон, чтобы применить эффекты в ритме музыки к выделенному</translation>
-    </message>
-    <message>
-        <source>Select a clip, then click a template to apply</source>
-        <translation>Выберите клип и нажмите на шаблон, чтобы применить его</translation>
-    </message>
-    <message>
         <source>Search templates</source>
         <translation>Поиск шаблонов</translation>
+    </message>
+    <message>
+        <source>Import an effect stack…</source>
+        <translation>Импортировать набор эффектов…</translation>
+    </message>
+    <message>
+        <source>My presets</source>
+        <translation>Мои пресеты</translation>
     </message>
     <message>
         <source>No templates match “%1”.</source>
@@ -6622,6 +6414,22 @@
     <message>
         <source>Nothing in this category.</source>
         <translation>В этой категории ничего нет.</translation>
+    </message>
+    <message>
+        <source>%1 — click to apply music-synced effects to the selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — select a clip, then click to apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Убрать из избранного</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Добавить в избранное</translation>
     </message>
     <message>
         <source>Needs cutout</source>
@@ -7142,10 +6950,6 @@
         <translation>prop.json не описывает объект для лица</translation>
     </message>
     <message>
-        <source>prop.json needs a newer version of Flip Studio</source>
-        <translation>Для prop.json требуется более новая версия Flip Studio</translation>
-    </message>
-    <message>
         <source>invalid prop id “%1”</source>
         <translation>Недопустимый идентификатор объекта «%1»</translation>
     </message>
@@ -7233,6 +7037,10 @@
         <source>Could not delete “%1”</source>
         <translation>Не удалось удалить «%1»</translation>
     </message>
+    <message>
+        <source>prop.json needs a newer version of Flip Studio</source>
+        <translation>Для prop.json требуется более новая версия Flip Studio</translation>
+    </message>
 </context>
 <context>
     <name>FacePropPicker</name>
@@ -7291,6 +7099,77 @@
     <message>
         <source>“%1” will be removed from your face props. Effects using it will show it as missing until it is imported again.</source>
         <translation>«%1» будет удалён из объектов для лица. Эффекты, использующие его, будут показывать его как отсутствующий, пока вы не импортируете его снова.</translation>
+    </message>
+</context>
+<context>
+    <name>FaceTrackingController</name>
+    <message>
+        <source>Clear Face Track</source>
+        <translation>Очистить отслеживание лица</translation>
+    </message>
+    <message>
+        <source>Face detection already in progress</source>
+        <translation>Поиск лиц уже выполняется</translation>
+    </message>
+    <message>
+        <source>Select a video clip to detect faces in</source>
+        <translation>Выберите видеоклип для поиска лиц</translation>
+    </message>
+    <message>
+        <source>Clip has no video to scan</source>
+        <translation>В клипе нет видео для анализа</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>Подготовка…</translation>
+    </message>
+    <message>
+        <source>Detecting faces…</source>
+        <translation>Поиск лиц…</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>Готово</translation>
+    </message>
+    <message>
+        <source>Clip is too short to scan</source>
+        <translation>Клип слишком короткий для анализа</translation>
+    </message>
+    <message>
+        <source>Face detection cancelled</source>
+        <translation>Поиск лиц отменён</translation>
+    </message>
+    <message>
+        <source>Could not decode frame %1</source>
+        <translation>Не удалось декодировать кадр %1</translation>
+    </message>
+    <message>
+        <source>Scanning frame %1 of %2…</source>
+        <translation>Анализ кадра %1 из %2…</translation>
+    </message>
+    <message>
+        <source>No faces found in this clip</source>
+        <translation>Лица в этом клипе не найдены</translation>
+    </message>
+    <message>
+        <source>Could not write the face track</source>
+        <translation>Не удалось записать данные отслеживания лица</translation>
+    </message>
+    <message>
+        <source>Face detection complete — a face was visible in %1 of %2 frames</source>
+        <translation>Поиск лиц завершён: лицо видно в %1 из %2 кадров</translation>
+    </message>
+    <message>
+        <source>Face detection complete</source>
+        <translation>Поиск лиц завершён</translation>
+    </message>
+    <message>
+        <source>Scanned clip no longer exists</source>
+        <translation>Проанализированного клипа больше нет</translation>
+    </message>
+    <message>
+        <source>Detect Faces</source>
+        <translation>Найти лица</translation>
     </message>
 </context>
 <context>
@@ -7382,6 +7261,38 @@
 <context>
     <name>FontCatalog</name>
     <message>
+        <source>Choose a .ttf, .otf or .ttc font file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create the fonts folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not copy the font file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>That file is not a usable font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>High-Impact &amp; Bold</source>
+        <translation>Выразительные и жирные</translation>
+    </message>
+    <message>
+        <source>Clean &amp; Minimal</source>
+        <translation>Чистые и минималистичные</translation>
+    </message>
+    <message>
+        <source>Classy &amp; Editorial</source>
+        <translation>Элегантные и журнальные</translation>
+    </message>
+    <message>
+        <source>Creative &amp; Playful</source>
+        <translation>Творческие и игривые</translation>
+    </message>
+    <message>
         <source>My fonts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7409,31 +7320,43 @@
         <source>Retro</source>
         <translation type="unfinished">Ретро</translation>
     </message>
-    <message>
-        <source>High-Impact &amp; Bold</source>
-        <translation>Выразительные и жирные</translation>
-    </message>
-    <message>
-        <source>Clean &amp; Minimal</source>
-        <translation>Чистые и минималистичные</translation>
-    </message>
-    <message>
-        <source>Classy &amp; Editorial</source>
-        <translation>Элегантные и журнальные</translation>
-    </message>
-    <message>
-        <source>Creative &amp; Playful</source>
-        <translation>Творческие и игривые</translation>
-    </message>
 </context>
 <context>
     <name>FontPicker</name>
     <message>
-        <source>Select a font</source>
+        <source>Add font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fonts (*.ttf *.otf *.ttc *.otc)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add font file…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the font pack for curated families →</source>
+        <translation>Установите пакет шрифтов для подборки гарнитур →</translation>
+    </message>
+    <message>
+        <source>Remove font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7442,10 +7365,6 @@
     </message>
     <message>
         <source>Fonts (*.ttf *.otf)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7459,10 +7378,6 @@
     <message>
         <source>Recent</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Install the font pack for curated families →</source>
-        <translation>Установите пакет шрифтов для подборки гарнитур →</translation>
     </message>
     <message>
         <source>No fonts match “%1”</source>
@@ -7548,28 +7463,12 @@
         <translation>Исходный размер: %1 × %2</translation>
     </message>
     <message>
-        <source>Source frame box</source>
-        <translation>Рамка исходного кадра</translation>
-    </message>
-    <message>
-        <source>Unlock source frame ratio</source>
-        <translation>Разблокировать соотношение сторон исходного кадра</translation>
-    </message>
-    <message>
-        <source>Lock source frame ratio</source>
-        <translation>Закрепить соотношение сторон исходного кадра</translation>
-    </message>
-    <message>
         <source>Width</source>
         <translation>Ширина</translation>
     </message>
     <message>
         <source>Height</source>
         <translation>Высота</translation>
-    </message>
-    <message>
-        <source>Edit source frame…</source>
-        <translation>Изменить исходный кадр…</translation>
     </message>
     <message>
         <source>Starts at</source>
@@ -7594,6 +7493,22 @@
     <message>
         <source>Trim</source>
         <translation>Обрезка</translation>
+    </message>
+    <message>
+        <source>Crop</source>
+        <translation>Кадрировать</translation>
+    </message>
+    <message>
+        <source>Unlock crop ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock crop ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Which part of the original file this clip plays</source>
@@ -8386,6 +8301,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Switch to Mobile Layout…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Window</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8403,11 +8322,11 @@
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished">Загрузки</translation>
+        <translation>Загрузки</translation>
     </message>
     <message>
         <source>Multicam</source>
-        <translation type="unfinished">Мультикам</translation>
+        <translation>Мультикам</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -8426,20 +8345,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Settings…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Debug Info…</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio %1 is the latest version.</source>
-        <translation type="unfinished">Flip Studio %1 — последняя версия.</translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -8459,6 +8370,10 @@
     </message>
     <message>
         <source>Checking for updates…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Links can’t be opened in this layout.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8500,6 +8415,14 @@
     <message>
         <source>Imported from the marketplace.</source>
         <translation>Импортировано из маркета.</translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation type="unfinished">Flip Studio %1 — последняя версия.</translation>
     </message>
 </context>
 <context>
@@ -8624,16 +8547,16 @@
         <translation>Мы не можем гарантировать, что загрузка начнётся, завершится или даст выбранное качество. Некоторые элементы загрузить не удастся.</translation>
     </message>
     <message>
-        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>Всё здесь предоставлено третьими лицами. Flip Studio не хранит, не владеет и не проверяет эти материалы. Вы сами отвечаете за наличие прав на использование скачанного.</translation>
-    </message>
-    <message>
         <source>I understand</source>
         <translation>Понятно</translation>
     </message>
     <message>
         <source>Continue to the marketplace</source>
         <translation>Перейти в маркет</translation>
+    </message>
+    <message>
+        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
+        <translation>Всё здесь предоставлено третьими лицами. Flip Studio не хранит, не владеет и не проверяет эти материалы. Вы сами отвечаете за наличие прав на использование скачанного.</translation>
     </message>
 </context>
 <context>
@@ -8874,6 +8797,10 @@
         <source>Select a clip first, or drag the mask onto one</source>
         <translation>Сначала выберите клип или перетащите на него маску</translation>
     </message>
+    <message>
+        <source>Apply to selected clip</source>
+        <translation>Применить к выбранному клипу</translation>
+    </message>
 </context>
 <context>
     <name>MediaAssetsTab</name>
@@ -8916,6 +8843,14 @@
     <message>
         <source>3D</source>
         <translation>3D</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PDF (needs the PDF Viewer addon)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Search media</source>
@@ -9111,6 +9046,133 @@
     </message>
 </context>
 <context>
+    <name>MediaBinController</name>
+    <message>
+        <source>Folder created</source>
+        <translation>Папка создана</translation>
+    </message>
+    <message>
+        <source>Folder renamed</source>
+        <translation>Папка переименована</translation>
+    </message>
+    <message>
+        <source>Folder moved</source>
+        <translation>Папка перемещена</translation>
+    </message>
+    <message>
+        <source>Folder deleted</source>
+        <translation>Папка удалена</translation>
+    </message>
+    <message>
+        <source>Media moved</source>
+        <translation>Медиафайл перемещён</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n items moved</source>
+        <translation>
+            <numerusform>Перемещён %n элемент</numerusform>
+            <numerusform>Перемещено %n элемента</numerusform>
+            <numerusform>Перемещено %n элементов</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>That file could not be read.</source>
+        <translation>Не удалось прочитать файл.</translation>
+    </message>
+    <message>
+        <source>That file is already in this project.</source>
+        <translation>Этот файл уже есть в проекте.</translation>
+    </message>
+    <message>
+        <source>An edit is already saving</source>
+        <translation>Изменения уже сохраняются</translation>
+    </message>
+    <message>
+        <source>Could not open the media file</source>
+        <translation>Не удалось открыть медиафайл</translation>
+    </message>
+    <message>
+        <source>Crop image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Media trimmed</source>
+        <translation>Медиафайл обрезан</translation>
+    </message>
+    <message>
+        <source>Trim saved</source>
+        <translation>Обрезка сохранена</translation>
+    </message>
+    <message>
+        <source>Could not create an output file</source>
+        <translation>Не удалось создать выходной файл</translation>
+    </message>
+    <message>
+        <source>%1 (trimmed)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rendering…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Render Trimmed Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t save that edit</source>
+        <translation>Не удалось сохранить изменения</translation>
+    </message>
+    <message>
+        <source>Converting…</source>
+        <translation>Преобразование…</translation>
+    </message>
+    <message>
+        <source>Saving…</source>
+        <translation>Сохранение…</translation>
+    </message>
+    <message>
+        <source>Converting %1 to an edit-friendly format…</source>
+        <translation>Преобразование %1 в формат для удобного монтажа…</translation>
+    </message>
+    <message>
+        <source>Saving media…</source>
+        <translation>Сохранение медиафайла…</translation>
+    </message>
+    <message>
+        <source>Updating the library…</source>
+        <translation>Обновление медиатеки…</translation>
+    </message>
+    <message>
+        <source>Couldn’t update the library</source>
+        <translation>Не удалось обновить медиатеку</translation>
+    </message>
+    <message>
+        <source>That media is no longer in this project.</source>
+        <translation>Этого медиафайла больше нет в проекте.</translation>
+    </message>
+    <message>
+        <source>“%1” is %2, but this slot holds %3.</source>
+        <translation>«%1» имеет тип %2, а сюда можно поместить только %3.</translation>
+    </message>
+    <message>
+        <source>Media edited</source>
+        <translation>Медиафайл изменён</translation>
+    </message>
+    <message>
+        <source>Media replaced</source>
+        <translation>Медиафайл заменён</translation>
+    </message>
+</context>
+<context>
     <name>MediaImport</name>
     <message>
         <source>An import is already running.</source>
@@ -9212,14 +9274,6 @@
         <translation>Воспроизведите клип и перетащите края, чтобы оставить только нужную часть. Сохранение заменит этот элемент в медиатеке.</translation>
     </message>
     <message>
-        <source>Drag the frame to crop. Save replaces this item in the media bin — then drag it onto the timeline.</source>
-        <translation>Перетащите рамку для кадрирования. Сохранение заменит этот элемент в медиатеке, после чего его можно перетащить на таймлайн.</translation>
-    </message>
-    <message>
-        <source>Drag the frame to choose the area to use. The original video stays available for reframing.</source>
-        <translation>Перетащите рамку, чтобы выбрать нужную область. Исходное видео останется доступно для повторного кадрирования.</translation>
-    </message>
-    <message>
         <source>Pause</source>
         <translation>Пауза</translation>
     </message>
@@ -9234,18 +9288,6 @@
     <message>
         <source>Set Out</source>
         <translation>Установить конец</translation>
-    </message>
-    <message>
-        <source>Original: %1×%2 • Frame: %3×%4</source>
-        <translation>Исходный размер: %1×%2 • Кадр: %3×%4</translation>
-    </message>
-    <message>
-        <source>Unlock source frame ratio</source>
-        <translation>Разблокировать соотношение сторон исходного кадра</translation>
-    </message>
-    <message>
-        <source>Lock source frame ratio</source>
-        <translation>Закрепить соотношение сторон исходного кадра</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -9272,32 +9314,60 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Done keeps the original video and stores this range and framing. Upscale renders them as a new video in the media bin, then opens it in the Enhance window.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Saving…</source>
         <translation>Сохранение…</translation>
-    </message>
-    <message>
-        <source>Choose the part and framing to keep, then Next.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save writes a new file over this item in the bin.</source>
-        <translation>При сохранении новый файл заменит этот элемент в медиатеке.</translation>
-    </message>
-    <message>
-        <source>Save keeps the original video and stores this framing.</source>
-        <translation>При сохранении исходное видео останется на месте, а выбранное кадрирование будет сохранено.</translation>
     </message>
     <message>
         <source>Nothing to save — drag this item onto the timeline when you are ready.</source>
         <translation>Сохранять нечего. Перетащите этот элемент на таймлайн, когда будете готовы.</translation>
     </message>
     <message>
-        <source>Adjust the frame or Reset to restore the full image.</source>
-        <translation>Измените рамку или нажмите «Сбросить», чтобы восстановить полное изображение.</translation>
+        <source>Crop — %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop</source>
+        <translation>Кадрировать</translation>
+    </message>
+    <message>
+        <source>Drag the box to crop. The original image stays available, so the crop can be changed later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag the box to crop. The original video stays available, so the crop can be changed later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Original: %1×%2 • Crop: %3×%4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlock crop ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock crop ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done keeps the original video and stores this range and crop. Upscale renders them as a new video in the media bin, then opens it in the Enhance window.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose the part and crop to keep, then Next.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save keeps the original file and stores this crop.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save keeps the original file and stores this trim.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adjust the crop or Reset to restore the full picture.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -9309,7 +9379,7 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Назад</translation>
     </message>
     <message>
         <source>Upscale…</source>
@@ -9325,7 +9395,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished">Готово</translation>
+        <translation>Готово</translation>
     </message>
     <message>
         <source>Rotate</source>
@@ -9856,15 +9926,108 @@
     </message>
 </context>
 <context>
+    <name>PdfClipRenderer</name>
+    <message>
+        <source>Install the PDF viewer addon to show this PDF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Can&apos;t open this PDF</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PdfInspector</name>
+    <message>
+        <source>PDF pages need the PDF Viewer addon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install PDF Viewer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n page(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>First page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Column</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Row</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How the pages are arranged</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Columns</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Viewport</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scroll X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scroll Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PdfSource</name>
+    <message>
+        <source>Scroll X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scroll Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PlaybackEngine</name>
-    <message>
-        <source>%1 decodes on %2, but Flip Studio draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 декодируется на %2, а Flip Studio выводит изображение через %3. Каждый кадр копируется через системную память, что медленнее декодирования на видеокарте, выполняющей отрисовку.</translation>
-    </message>
-    <message>
-        <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 декодируется на другой видеокарте, чем та, на которой Flip Studio выводит изображение. Каждый кадр копируется через системную память, что медленнее декодирования на видеокарте, выполняющей отрисовку.</translation>
-    </message>
     <message>
         <source>Auto</source>
         <translation>Авто</translation>
@@ -9876,6 +10039,14 @@
     <message>
         <source>Hardware (%1)</source>
         <translation>Аппаратное (%1)</translation>
+    </message>
+    <message>
+        <source>%1 decodes on %2, but Flip Studio draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>%1 декодируется на %2, а Flip Studio выводит изображение через %3. Каждый кадр копируется через системную память, что медленнее декодирования на видеокарте, выполняющей отрисовку.</translation>
+    </message>
+    <message>
+        <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>%1 декодируется на другой видеокарте, чем та, на которой Flip Studio выводит изображение. Каждый кадр копируется через системную память, что медленнее декодирования на видеокарте, выполняющей отрисовку.</translation>
     </message>
 </context>
 <context>
@@ -9948,6 +10119,10 @@
 <context>
     <name>PreferencesController</name>
     <message>
+        <source>System default</source>
+        <translation>Системное значение</translation>
+    </message>
+    <message>
         <source>Faster preview takes effect after you restart Flip Studio.</source>
         <translation>Ускоренный предпросмотр включится после перезапуска Flip Studio.</translation>
     </message>
@@ -9955,28 +10130,24 @@
         <source>The graphics card choice takes effect after you restart Flip Studio.</source>
         <translation>Выбор видеокарты вступит в силу после перезапуска Flip Studio.</translation>
     </message>
-    <message>
-        <source>System default</source>
-        <translation>Системное значение</translation>
-    </message>
 </context>
 <context>
     <name>Preview3DTools</name>
     <message>
         <source>%1 (%2)</source>
-        <translation type="unfinished">%1 (%2)</translation>
+        <translation>%1 (%2)</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation type="unfinished">Перемещение</translation>
+        <translation>Перемещение</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Повернуть</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished">Масштаб</translation>
+        <translation>Масштаб</translation>
     </message>
     <message>
         <source>Gizmo follows the selection&apos;s own axes (click for world axes)</source>
@@ -10030,23 +10201,23 @@
     <name>PreviewOptionsMenu</name>
     <message>
         <source>Quality</source>
-        <translation type="unfinished">Качество</translation>
+        <translation>Качество</translation>
     </message>
     <message>
         <source>Full</source>
-        <translation type="unfinished">Полное</translation>
+        <translation>Полное</translation>
     </message>
     <message>
         <source>Half</source>
-        <translation type="unfinished">Половина</translation>
+        <translation>Половина</translation>
     </message>
     <message>
         <source>Quarter</source>
-        <translation type="unfinished">Четверть</translation>
+        <translation>Четверть</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">Авто</translation>
+        <translation>Авто</translation>
     </message>
     <message>
         <source>Preview quality — lower is smoother while editing.
@@ -10058,15 +10229,15 @@ Auto renders only as many pixels as the preview actually shows, and lowers that 
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished">Скорость</translation>
+        <translation>Скорость</translation>
     </message>
     <message>
         <source>Playback speed</source>
-        <translation type="unfinished">Скорость воспроизведения</translation>
+        <translation>Скорость воспроизведения</translation>
     </message>
     <message>
         <source>Decode</source>
-        <translation type="unfinished">Декодирование</translation>
+        <translation>Декодирование</translation>
     </message>
     <message>
         <source>How video is decoded for preview.
@@ -10098,7 +10269,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Отмена</translation>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Open graphics settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Launching Flip Studio with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
@@ -10112,10 +10287,6 @@ If playback stutters, try another.</source>
         <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Open graphics settings</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>PreviewOsd</name>
@@ -10125,11 +10296,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Toggle guides</source>
-        <translation type="unfinished">Показать или скрыть направляющие</translation>
+        <translation>Показать или скрыть направляющие</translation>
     </message>
     <message>
         <source>Guide sets</source>
-        <translation type="unfinished">Наборы направляющих</translation>
+        <translation>Наборы направляющих</translation>
     </message>
     <message>
         <source>Preview options</source>
@@ -10166,6 +10337,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Debug info</source>
+        <translation>Отладочная информация</translation>
+    </message>
+    <message>
+        <source>Audio only</source>
+        <translation>Только аудио</translation>
+    </message>
+    <message>
+        <source>No clip at the current time</source>
+        <translation>В текущий момент нет клипа</translation>
+    </message>
+    <message>
         <source>Your graphics driver only provides %1. Flip Studio&apos;s preview needs OpenGL 3.3.</source>
         <translation type="unfinished">Ваш графический драйвер поддерживает только %1. Для предпросмотра Flip Studio требуется OpenGL 3.3.</translation>
     </message>
@@ -10173,21 +10356,57 @@ If playback stutters, try another.</source>
         <source>Flip Studio could not start its GPU renderer, so the preview cannot draw.</source>
         <translation type="unfinished">Flip Studio не удалось запустить рендерер GPU, поэтому предпросмотр недоступен.</translation>
     </message>
-    <message>
-        <source>Debug info</source>
-        <translation type="unfinished">Отладочная информация</translation>
-    </message>
-    <message>
-        <source>Audio only</source>
-        <translation type="unfinished">Только аудио</translation>
-    </message>
-    <message>
-        <source>No clip at the current time</source>
-        <translation type="unfinished">В текущий момент нет клипа</translation>
-    </message>
 </context>
 <context>
     <name>PreviewTransportBar</name>
+    <message>
+        <source>%1 (%2)</source>
+        <translation>%1 (%2)</translation>
+    </message>
+    <message>
+        <source>Current time / total · %1 frames per second</source>
+        <translation type="unfinished">Текущее время / всего · %1 кадров в секунду</translation>
+    </message>
+    <message>
+        <source>Jump back 1s · Shift for 5s · Ctrl for 10s</source>
+        <translation type="unfinished">Назад на 1 с · Shift — на 5 с · Ctrl — на 10 с</translation>
+    </message>
+    <message>
+        <source>Previous frame</source>
+        <translation>Предыдущий кадр</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>Пауза</translation>
+    </message>
+    <message>
+        <source>Play</source>
+        <translation>Воспроизвести</translation>
+    </message>
+    <message>
+        <source>Next frame</source>
+        <translation>Следующий кадр</translation>
+    </message>
+    <message>
+        <source>Loop work area on — click to turn off</source>
+        <translation type="unfinished">Повтор рабочей области включён — нажмите, чтобы выключить</translation>
+    </message>
+    <message>
+        <source>Loop work area off — click to turn on</source>
+        <translation type="unfinished">Повтор рабочей области выключен — нажмите, чтобы включить</translation>
+    </message>
+    <message>
+        <source>Jump forward 1s · Shift for 5s · Ctrl for 10s</source>
+        <translation type="unfinished">Вперёд на 1 с · Shift — на 5 с · Ctrl — на 10 с</translation>
+    </message>
+    <message>
+        <source>Exit fullscreen preview (Esc)</source>
+        <translation type="unfinished">Выйти из полноэкранного предпросмотра (Esc)</translation>
+    </message>
+    <message>
+        <source>Fullscreen preview</source>
+        <translation>Полноэкранный просмотр</translation>
+    </message>
     <message>
         <source>Fit</source>
         <translation type="unfinished"></translation>
@@ -10221,60 +10440,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 (%2)</source>
-        <translation type="unfinished">%1 (%2)</translation>
-    </message>
-    <message>
-        <source>Current time / total · %1 frames per second</source>
-        <translation type="unfinished">Текущее время / всего · %1 кадров в секунду</translation>
-    </message>
-    <message>
-        <source>Jump back 1s · Shift for 5s · Ctrl for 10s</source>
-        <translation type="unfinished">Назад на 1 с · Shift — на 5 с · Ctrl — на 10 с</translation>
-    </message>
-    <message>
-        <source>Previous frame</source>
-        <translation type="unfinished">Предыдущий кадр</translation>
-    </message>
-    <message>
-        <source>Pause</source>
-        <translation type="unfinished">Пауза</translation>
-    </message>
-    <message>
-        <source>Play</source>
-        <translation type="unfinished">Воспроизвести</translation>
-    </message>
-    <message>
-        <source>Next frame</source>
-        <translation type="unfinished">Следующий кадр</translation>
-    </message>
-    <message>
-        <source>Loop work area on — click to turn off</source>
-        <translation type="unfinished">Повтор рабочей области включён — нажмите, чтобы выключить</translation>
-    </message>
-    <message>
-        <source>Loop work area off — click to turn on</source>
-        <translation type="unfinished">Повтор рабочей области выключен — нажмите, чтобы включить</translation>
-    </message>
-    <message>
-        <source>Jump forward 1s · Shift for 5s · Ctrl for 10s</source>
-        <translation type="unfinished">Вперёд на 1 с · Shift — на 5 с · Ctrl — на 10 с</translation>
-    </message>
-    <message>
         <source>Preview zoom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Aspect ratio of the video</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Exit fullscreen preview (Esc)</source>
-        <translation type="unfinished">Выйти из полноэкранного предпросмотра (Esc)</translation>
-    </message>
-    <message>
-        <source>Fullscreen preview</source>
-        <translation type="unfinished">Полноэкранный просмотр</translation>
     </message>
 </context>
 <context>
@@ -10299,14 +10470,6 @@ If playback stutters, try another.</source>
         <translation>Не удалось открыть %1</translation>
     </message>
     <message>
-        <source>file is too short to be a Flip Studio project</source>
-        <translation>Файл слишком короткий для проекта Flip Studio</translation>
-    </message>
-    <message>
-        <source>not a Flip Studio project (bad magic)</source>
-        <translation>Не проект Flip Studio (неверная сигнатура)</translation>
-    </message>
-    <message>
         <source>unsupported container revision</source>
         <translation>Версия контейнера не поддерживается</translation>
     </message>
@@ -10329,10 +10492,6 @@ If playback stutters, try another.</source>
     <message>
         <source>project manifest has no format version</source>
         <translation>В манифесте проекта нет версии формата</translation>
-    </message>
-    <message>
-        <source>this project was saved by a newer version of Flip Studio (format %1) — update to open it</source>
-        <translation>Проект сохранён более новой версией Flip Studio (формат %1) — обновите приложение, чтобы открыть его</translation>
     </message>
     <message>
         <source>project blob table is not contiguous</source>
@@ -10418,6 +10577,18 @@ If playback stutters, try another.</source>
         <source>Couldn’t create %1</source>
         <translation>Не удалось создать %1</translation>
     </message>
+    <message>
+        <source>file is too short to be a Flip Studio project</source>
+        <translation>Файл слишком короткий для проекта Flip Studio</translation>
+    </message>
+    <message>
+        <source>not a Flip Studio project (bad magic)</source>
+        <translation>Не проект Flip Studio (неверная сигнатура)</translation>
+    </message>
+    <message>
+        <source>this project was saved by a newer version of Flip Studio (format %1) — update to open it</source>
+        <translation>Проект сохранён более новой версией Flip Studio (формат %1) — обновите приложение, чтобы открыть его</translation>
+    </message>
 </context>
 <context>
     <name>ProjectFileController</name>
@@ -10428,10 +10599,6 @@ If playback stutters, try another.</source>
     <message>
         <source>This project uses &quot;%1&quot;, which isn’t installed — it won’t show. Open Extras to install it.</source>
         <translation>В этом проекте используется дополнение «%1», но оно не установлено и не будет отображаться. Установите его в разделе «Дополнения».</translation>
-    </message>
-    <message>
-        <source>Untitled Project</source>
-        <translation type="unfinished">Проект без названия</translation>
     </message>
     <message>
         <source>This project uses %1 effects or transitions that aren’t installed (%2%3) — they won’t show. Open Extras to install them.</source>
@@ -10613,6 +10780,21 @@ If playback stutters, try another.</source>
         <source>Started new session</source>
         <translation>Начат новый сеанс</translation>
     </message>
+    <message>
+        <source>Untitled Project</source>
+        <translation type="unfinished">Проект без названия</translation>
+    </message>
+</context>
+<context>
+    <name>ProjectLoadDialog</name>
+    <message>
+        <source>Opening project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unpacking project media…</source>
+        <translation>Распаковка медиафайлов проекта…</translation>
+    </message>
 </context>
 <context>
     <name>ProjectPropertiesDialog</name>
@@ -10733,6 +10915,10 @@ If playback stutters, try another.</source>
     <message>
         <source>3D Model</source>
         <translation>3D-модель</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Subtitles</source>
@@ -11037,11 +11223,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>%1 s</source>
-        <translation type="unfinished">%1 с</translation>
+        <translation>%1 с</translation>
     </message>
     <message>
         <source>%1 min</source>
-        <translation type="unfinished">%1 мин</translation>
+        <translation>%1 мин</translation>
     </message>
     <message>
         <source>%1 h %2 min</source>
@@ -11147,6 +11333,14 @@ If playback stutters, try another.</source>
         <source>Not an OpenTimelineIO Timeline or Stack (schema: %1)</source>
         <translation>Это не Timeline или Stack OpenTimelineIO (схема: %1)</translation>
     </message>
+    <message>
+        <source>The voice sample must be at least %1 seconds of speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RecentProjectsPopup</name>
@@ -11241,6 +11435,41 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>RestoreController</name>
+    <message>
+        <source>Select a video clip to enhance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose a model to enhance with</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This clip is already being enhanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (enhanced %2x)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (enhanced)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhanced video added to the media bin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhancing video…</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>RestoreWindow</name>
     <message>
         <source>Enhance video</source>
@@ -11248,7 +11477,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">Нет</translation>
+        <translation>Нет</translation>
     </message>
     <message>
         <source>%1 (custom, experimental)</source>
@@ -11256,7 +11485,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished">Оригинал</translation>
+        <translation>Оригинал</translation>
     </message>
     <message>
         <source>Enhanced — out of date, preview again</source>
@@ -11272,7 +11501,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Working…</source>
-        <translation type="unfinished">Обработка…</translation>
+        <translation>Обработка…</translation>
     </message>
     <message>
         <source>Choose models, then Preview to compare this frame</source>
@@ -11280,15 +11509,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Рамка</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">с</translation>
+        <translation>с</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Вписать</translation>
     </message>
     <message>
         <source>Preview one frame, then enhance the whole video. The result is added to the media bin. Enhancing is slow — minutes per second of video without a GPU.</source>
@@ -11340,7 +11569,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished">Общие</translation>
+        <translation>Общие</translation>
     </message>
     <message>
         <source>Choose an upscaler</source>
@@ -11348,7 +11577,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">Все</translation>
+        <translation>Все</translation>
     </message>
     <message>
         <source>Speeds are per frame of this clip. Custom models are experimental and may not work. Drop an ONNX export (fp32 or fp16, RGB, 1x/2x/4x) into the folder; put the scale in the file name, e.g. &quot;2x_Name.onnx&quot;.</source>
@@ -11368,11 +11597,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>%1 s</source>
-        <translation type="unfinished">%1 с</translation>
+        <translation>%1 с</translation>
     </message>
     <message>
         <source>%1 min</source>
-        <translation type="unfinished">%1 мин</translation>
+        <translation>%1 мин</translation>
     </message>
     <message>
         <source>%1 h %2 min</source>
@@ -11392,7 +11621,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished">Сначала установите движок ИИ</translation>
+        <translation>Сначала установите движок ИИ</translation>
     </message>
     <message>
         <source>Get models (openmodeldb.info)</source>
@@ -11404,11 +11633,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">Остановить</translation>
+        <translation>Остановить</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Закрыть</translation>
+        <translation>Закрыть</translation>
     </message>
 </context>
 <context>
@@ -11424,10 +11653,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Working…</source>
         <translation>Обработка…</translation>
-    </message>
-    <message>
-        <source>Flip Studio will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
-        <translation>Flip Studio создаст обратную копию клипа для плавного воспроизведения. Во время обработки можно продолжать монтаж.</translation>
     </message>
     <message>
         <source>This can take a few minutes on longer clips.</source>
@@ -11453,6 +11678,10 @@ If playback stutters, try another.</source>
         <source>Reverse</source>
         <translation>Обратить</translation>
     </message>
+    <message>
+        <source>Flip Studio will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
+        <translation>Flip Studio создаст обратную копию клипа для плавного воспроизведения. Во время обработки можно продолжать монтаж.</translation>
+    </message>
 </context>
 <context>
     <name>ReverseRenderer</name>
@@ -11471,6 +11700,45 @@ If playback stutters, try another.</source>
     <message>
         <source>No frames could be decoded from this clip</source>
         <translation>Не удалось декодировать ни одного кадра этого клипа</translation>
+    </message>
+</context>
+<context>
+    <name>SceneDetectController</name>
+    <message>
+        <source>Already looking for scenes</source>
+        <translation>Поиск сцен уже выполняется</translation>
+    </message>
+    <message>
+        <source>Select a video clip to find scenes in</source>
+        <translation>Выберите видеоклип для поиска сцен</translation>
+    </message>
+    <message>
+        <source>Clip has no video to scan</source>
+        <translation>В клипе нет видео для анализа</translation>
+    </message>
+    <message numerus="yes">
+        <source>Found %n scene(s)</source>
+        <translation>
+            <numerusform>Найдена %n сцена</numerusform>
+            <numerusform>Найдено %n сцены</numerusform>
+            <numerusform>Найдено %n сцен</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>Подготовка…</translation>
+    </message>
+    <message>
+        <source>Looking for scenes…</source>
+        <translation>Поиск сцен…</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>Готово</translation>
+    </message>
+    <message>
+        <source>Scene detection cancelled</source>
+        <translation>Поиск сцен отменён</translation>
     </message>
 </context>
 <context>
@@ -11584,7 +11852,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Getting ready…</source>
-        <translation type="unfinished">Подготовка…</translation>
+        <translation>Подготовка…</translation>
     </message>
     <message>
         <source>Cutting out subject…</source>
@@ -11592,7 +11860,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished">Готово</translation>
+        <translation>Готово</translation>
     </message>
     <message>
         <source>Clip is too short to cut out</source>
@@ -11608,7 +11876,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Could not decode frame %1</source>
-        <translation type="unfinished">Не удалось декодировать кадр %1</translation>
+        <translation>Не удалось декодировать кадр %1</translation>
     </message>
     <message>
         <source>Processing frame %1 of %2…</source>
@@ -11632,7 +11900,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Cut out subject</source>
-        <translation type="unfinished">Вырезать объект</translation>
+        <translation>Вырезать объект</translation>
     </message>
 </context>
 <context>
@@ -11668,6 +11936,10 @@ If playback stutters, try another.</source>
     <message>
         <source>s</source>
         <translation>с</translation>
+    </message>
+    <message>
+        <source>Tap marks the subject, press and hold marks what to exclude. Tap a marker to remove it.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Left-click marks the subject, right-click marks what to exclude. Click a marker to remove it.</source>
@@ -11836,14 +12108,6 @@ If playback stutters, try another.</source>
         <translation>Высокая производительность (дискретная видеокарта)</translation>
     </message>
     <message>
-        <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation>Видеокарта, на которой работает Flip Studio. Режим высокой производительности оставляет декодированное видео на видеокарте NVIDIA; энергосбережение снижает расход батареи. Вступит в силу после перезапуска.</translation>
-    </message>
-    <message>
-        <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Open graphics settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11884,8 +12148,32 @@ If playback stutters, try another.</source>
         <translation>Увеличивает кнопки, текст и значки сверх масштаба, заданного в настройках экрана. Вступит в силу после перезапуска.</translation>
     </message>
     <message>
-        <source>Restart Flip Studio to apply this size.</source>
-        <translation>Перезапустите Flip Studio, чтобы применить этот размер.</translation>
+        <source>Layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mobile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop suits a mouse and keyboard, including tablets in desktop mode. Mobile is the touch layout made for phones. Takes effect after restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart Flip Studio to switch layouts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart now</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Horizontal mouse-wheel pan</source>
@@ -11940,14 +12228,6 @@ If playback stutters, try another.</source>
         <translation>Проверить сейчас</translation>
     </message>
     <message>
-        <source>Flip Studio %1</source>
-        <translation>Flip Studio %1</translation>
-    </message>
-    <message>
-        <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Extra packs</source>
         <translation>Дополнительные пакеты</translation>
     </message>
@@ -11974,14 +12254,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Cloud providers</source>
         <translation>Облачные сервисы</translation>
-    </message>
-    <message>
-        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>Ключи хранятся без шифрования в настройках Flip Studio. Переменные окружения ELEVENLABS_API_KEY и FISH_API_KEY имеют приоритет. Использование оплачивается с вашего аккаунта.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -12024,10 +12296,6 @@ If playback stutters, try another.</source>
         <translation>Разрешить отправку аудио и текста в %1</translation>
     </message>
     <message>
-        <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
-        <translation>Необходимо, чтобы Flip Studio или подключённый агент мог расшифровывать или создавать аудио через этот сервис</translation>
-    </message>
-    <message>
         <source>Default voice id</source>
         <translation>ID голоса по умолчанию</translation>
     </message>
@@ -12060,19 +12328,51 @@ If playback stutters, try another.</source>
         <translation>Отвязать аккаунт маркетплейса от этого устройства</translation>
     </message>
     <message>
-        <source>Once a day, check whether a newer Flip Studio has been released</source>
+        <source>Downloading…</source>
+        <translation>Загрузка…</translation>
+    </message>
+    <message>
+        <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
+        <translation>Видеокарта, на которой работает Flip Studio. Режим высокой производительности оставляет декодированное видео на видеокарте NVIDIA; энергосбережение снижает расход батареи. Вступит в силу после перезапуска.</translation>
+    </message>
+    <message>
+        <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloading…</source>
-        <translation type="unfinished">Загрузка…</translation>
+        <source>Restart Flip Studio to apply this size.</source>
+        <translation>Перезапустите Flip Studio, чтобы применить этот размер.</translation>
+    </message>
+    <message>
+        <source>Flip Studio %1</source>
+        <translation>Flip Studio %1</translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation>Ключи хранятся без шифрования в настройках Flip Studio. Переменные окружения ELEVENLABS_API_KEY и FISH_API_KEY имеют приоритет. Использование оплачивается с вашего аккаунта.</translation>
+    </message>
+    <message>
+        <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
+        <translation>Необходимо, чтобы Flip Studio или подключённый агент мог расшифровывать или создавать аудио через этот сервис</translation>
+    </message>
+    <message>
+        <source>Once a day, check whether a newer Flip Studio has been released</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SfxBrowser</name>
     <message>
         <source>Added to the media bin</source>
-        <translation type="unfinished">Добавлено в медиатеку</translation>
+        <translation>Добавлено в медиатеку</translation>
     </message>
     <message>
         <source>Loading sound effects…</source>
@@ -12084,11 +12384,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Try again</source>
-        <translation type="unfinished">Повторить попытку</translation>
+        <translation>Повторить попытку</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">Все</translation>
+        <translation>Все</translation>
     </message>
     <message>
         <source>No sound effects match “%1”.</source>
@@ -12100,11 +12400,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished">Пауза</translation>
+        <translation>Пауза</translation>
     </message>
     <message>
         <source>Play preview</source>
-        <translation type="unfinished">Воспроизвести предпросмотр</translation>
+        <translation>Воспроизвести предпросмотр</translation>
     </message>
     <message>
         <source>Add to the media bin</source>
@@ -12123,7 +12423,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Could not write to the app data folder.</source>
-        <translation type="unfinished">Не удалось записать данные в папку приложения.</translation>
+        <translation>Не удалось записать данные в папку приложения.</translation>
     </message>
     <message>
         <source>Could not download that sound. Check your connection and try again.</source>
@@ -12131,7 +12431,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>That download was damaged. Try again.</source>
-        <translation type="unfinished">Скачанный файл повреждён. Повторите попытку.</translation>
+        <translation>Скачанный файл повреждён. Повторите попытку.</translation>
     </message>
     <message>
         <source>Could not add that sound to the media bin.</source>
@@ -12625,6 +12925,61 @@ If playback stutters, try another.</source>
         <source>%1 — click to add, or drag to the timeline or preview</source>
         <translation>%1 — нажмите, чтобы добавить, или перетащите на таймлайн либо в предпросмотр</translation>
     </message>
+    <message>
+        <source>Add at playhead</source>
+        <translation>Добавить на позицию курсора воспроизведения</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Убрать из избранного</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Добавить в избранное</translation>
+    </message>
+</context>
+<context>
+    <name>ShellSwitchDialog</name>
+    <message>
+        <source>Switch to the mobile layout?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch to the desktop layout?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Later</source>
+        <translation>Позже</translation>
+    </message>
+    <message>
+        <source>Restart Flip Studio to switch layouts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A mouse is connected. The desktop layout has full menus, panels and precise timeline editing. Flip Studio restarts to switch, and your project is kept.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The mobile layout is the touch interface made for phones. Flip Studio restarts to switch.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The desktop layout suits a mouse and keyboard. Flip Studio restarts to switch.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShortcutCaptureField</name>
@@ -12681,33 +13036,197 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
-    <name>SoundEffectsTab</name>
+    <name>SpeechTab</name>
     <message>
-        <source>Search sounds</source>
+        <source>Voice saved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No sound effects installed</source>
+        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
+        <source>Speech generation runs on this device and needs the voice model.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Get extras</source>
-        <translation type="unfinished">Получить дополнения</translation>
+        <source>Download voice model</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>Сначала установите движок ИИ</translation>
+    </message>
+    <message>
+        <source>Needed to generate speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type what the voice should say</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 characters, about %2 s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice</source>
+        <translation>Голос</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">Остановить</translation>
+        <translation>Остановить</translation>
     </message>
     <message>
-        <source>Listen</source>
+        <source>Play the voice sample</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add at the playhead</source>
+        <source>Rename or delete this voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>Переименовать…</translation>
+    </message>
+    <message>
+        <source>Rename voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Удалить</translation>
+    </message>
+    <message>
+        <source>New voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clone a voice from a recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Record…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import file…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading voice model (first use takes a while)…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation>Язык</translation>
+    </message>
+    <message>
+        <source>Expressiveness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Higher values sound more dramatic and speak faster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate speech and add it at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Stop generating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Record a voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import a voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice from clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Сохранить</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import a voice sample</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio files (*.wav *.mp3 *.flac *.ogg *.m4a *.aac *.opus)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation>Все файлы (*)</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Название</translation>
+    </message>
+    <message>
+        <source>The clip is longer than 20 seconds, so 20 seconds are used. Starting at %1 s.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Using %1 seconds of the selected clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start offset</source>
+        <translation>Смещение начала</translation>
+    </message>
+    <message>
+        <source>%1 s</source>
+        <translation>%1 с</translation>
+    </message>
+    <message>
+        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Recording…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I have the right to use this person&apos;s voice</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -12796,14 +13315,6 @@ If playback stutters, try another.</source>
 <context>
     <name>SpeedFadeInspector</name>
     <message>
-        <source>Not available</source>
-        <translation>Недоступно</translation>
-    </message>
-    <message>
-        <source>Speed applies to video, audio and composite clips.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Playback speed</source>
         <translation>Скорость воспроизведения</translation>
     </message>
@@ -12876,6 +13387,113 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>StabilizeController</name>
+    <message>
+        <source>%1 (stabilized)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video clip to stabilize</source>
+        <translation>Выберите видеоклип для стабилизации</translation>
+    </message>
+    <message>
+        <source>Clip has no video file</source>
+        <translation>В клипе нет видеофайла</translation>
+    </message>
+    <message>
+        <source>Stabilization already in progress for this clip</source>
+        <translation>Стабилизация этого клипа уже выполняется</translation>
+    </message>
+    <message>
+        <source>This build of Drift has no video stabilization support</source>
+        <translation>В этой сборке Drift стабилизация видео не поддерживается</translation>
+    </message>
+    <message>
+        <source>The video this clip was stabilized from is no longer in the media bin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create stabilization cache directory</source>
+        <translation>Не удалось создать папку кеша стабилизации</translation>
+    </message>
+    <message>
+        <source>Building keyframes…</source>
+        <translation>Создание ключевых кадров…</translation>
+    </message>
+    <message>
+        <source>Rendering stabilized video…</source>
+        <translation>Визуализация стабилизированного видео…</translation>
+    </message>
+    <message>
+        <source>Analyzing camera motion…</source>
+        <translation>Анализ движения камеры…</translation>
+    </message>
+    <message>
+        <source>Stabilization cancelled.</source>
+        <translation>Стабилизация отменена.</translation>
+    </message>
+    <message>
+        <source>Could not read camera motion from the analysis file.</source>
+        <translation>Не удалось прочитать данные о движении камеры из файла анализа.</translation>
+    </message>
+    <message>
+        <source>Stabilize with Keyframes</source>
+        <translation>Стабилизировать ключевыми кадрами</translation>
+    </message>
+    <message>
+        <source>Stabilization keyframes applied.</source>
+        <translation>Ключевые кадры стабилизации применены.</translation>
+    </message>
+    <message>
+        <source>Stabilization analysis file is missing.</source>
+        <translation>Файл анализа стабилизации отсутствует.</translation>
+    </message>
+    <message>
+        <source>Could not create an output file</source>
+        <translation>Не удалось создать выходной файл</translation>
+    </message>
+    <message>
+        <source>Stabilization rendering failed.</source>
+        <translation>Не удалось создать стабилизированное видео.</translation>
+    </message>
+    <message>
+        <source>Stabilization rendering failed: %1</source>
+        <translation>Не удалось создать стабилизированное видео: %1</translation>
+    </message>
+    <message>
+        <source>Stabilize Video</source>
+        <translation>Стабилизировать видео</translation>
+    </message>
+    <message>
+        <source>Stabilized video added to the media bin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stabilization analysis failed.</source>
+        <translation>Не удалось проанализировать видео для стабилизации.</translation>
+    </message>
+    <message>
+        <source>Stabilization analysis failed: %1</source>
+        <translation>Не удалось проанализировать видео для стабилизации: %1</translation>
+    </message>
+    <message>
+        <source>Remove Stabilization</source>
+        <translation>Убрать стабилизацию</translation>
+    </message>
+    <message>
+        <source>Change Stabilization Smoothing</source>
+        <translation>Изменить сглаживание стабилизации</translation>
+    </message>
+    <message>
+        <source>Change Stabilization Tripod Mode</source>
+        <translation>Изменить режим штатива</translation>
+    </message>
+    <message>
+        <source>Change Stabilization Mode</source>
+        <translation>Изменить режим стабилизации</translation>
+    </message>
+</context>
+<context>
     <name>StabilizeInspector</name>
     <message>
         <source>Animate with keyframes</source>
@@ -12912,10 +13530,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Mode</source>
         <translation>Режим</translation>
-    </message>
-    <message>
-        <source>Smooths camera shake. Flip Studio scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Render a stabilized copy, or animate the clip with sparse transform keys</source>
@@ -12957,9 +13571,27 @@ If playback stutters, try another.</source>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
+    <message>
+        <source>Smooths camera shake. Flip Studio scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StartScreen</name>
+    <message>
+        <source> (missing)</source>
+        <translation> (отсутствует)</translation>
+    </message>
+    <message>
+        <source>This file has been moved or deleted:
+%1</source>
+        <translation>Этот файл перемещён или удалён:
+%1</translation>
+    </message>
+    <message>
+        <source>Remove from recents</source>
+        <translation>Убрать из недавних</translation>
+    </message>
     <message>
         <source>Automatic</source>
         <translation type="unfinished"></translation>
@@ -13060,26 +13692,16 @@ If playback stutters, try another.</source>
         <source>No project matches “%1”.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source> (missing)</source>
-        <translation> (отсутствует)</translation>
-    </message>
-    <message>
-        <source>This file has been moved or deleted:
-%1</source>
-        <translation>Этот файл перемещён или удалён:
-%1</translation>
-    </message>
-    <message>
-        <source>Remove from recents</source>
-        <translation>Убрать из недавних</translation>
-    </message>
 </context>
 <context>
     <name>StickersTab</name>
     <message>
         <source>Search stickers</source>
         <translation>Поиск стикеров</translation>
+    </message>
+    <message>
+        <source>More emoji</source>
+        <translation>Больше эмодзи</translation>
     </message>
     <message>
         <source>No sticker packs installed</source>
@@ -13120,6 +13742,18 @@ If playback stutters, try another.</source>
     <message>
         <source>%1 — click to add, or drag to the timeline or preview</source>
         <translation>%1 — нажмите, чтобы добавить, или перетащите на таймлайн либо в предпросмотр</translation>
+    </message>
+    <message>
+        <source>Add at playhead</source>
+        <translation>Добавить на позицию курсора воспроизведения</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Убрать из избранного</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Добавить в избранное</translation>
     </message>
     <message>
         <source>Animated</source>
@@ -13308,6 +13942,10 @@ If playback stutters, try another.</source>
         <translation>Записей субтитров: %1</translation>
     </message>
     <message>
+        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
         <translation>Запустите воспроизведение таймлайна — текущая строка подсветится. Нажмите на строку, чтобы перейти к ней и изменить её ниже.</translation>
     </message>
@@ -13350,6 +13988,62 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>Сдвинуть временные метки экспортируемых субтитров на начало этого клипа, чтобы они совпадали с экспортированным видео</translation>
+    </message>
+    <message>
+        <source>(empty)</source>
+        <translation>(пусто)</translation>
+    </message>
+    <message>
+        <source>Delete this subtitle</source>
+        <translation>Удалить эти субтитры</translation>
+    </message>
+    <message>
+        <source>Add a subtitle after this one</source>
+        <translation>Добавить субтитры после этих</translation>
+    </message>
+    <message>
+        <source>No subtitles yet. Move to a time inside this clip and add one below.</source>
+        <translation>Субтитров пока нет. Перейдите к моменту внутри этого клипа и добавьте запись ниже.</translation>
+    </message>
+    <message>
+        <source>Type subtitle…</source>
+        <translation>Введите текст субтитров…</translation>
+    </message>
+    <message>
+        <source>Apply text to this subtitle</source>
+        <translation>Применить текст к этим субтитрам</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>Начало</translation>
+    </message>
+    <message>
+        <source>Set start to current time</source>
+        <translation>Установить начало на текущее время</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation>Конец</translation>
+    </message>
+    <message>
+        <source>Set end to current time</source>
+        <translation>Установить конец на текущее время</translation>
+    </message>
+    <message>
+        <source>Delete caption</source>
+        <translation>Удалить запись субтитров</translation>
+    </message>
+    <message>
+        <source>At %1</source>
+        <translation>В %1</translation>
+    </message>
+    <message>
+        <source>Move to a time inside this clip to add a subtitle</source>
+        <translation>Перейдите к моменту внутри этого клипа, чтобы добавить субтитры</translation>
+    </message>
+    <message>
+        <source>Add subtitle at current time</source>
+        <translation>Добавить субтитры в текущий момент</translation>
     </message>
     <message>
         <source>Emojis</source>
@@ -13436,64 +14130,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>(empty)</source>
-        <translation>(пусто)</translation>
-    </message>
-    <message>
-        <source>Delete this subtitle</source>
-        <translation>Удалить эти субтитры</translation>
-    </message>
-    <message>
-        <source>Add a subtitle after this one</source>
-        <translation>Добавить субтитры после этих</translation>
-    </message>
-    <message>
-        <source>No subtitles yet. Move to a time inside this clip and add one below.</source>
-        <translation>Субтитров пока нет. Перейдите к моменту внутри этого клипа и добавьте запись ниже.</translation>
-    </message>
-    <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Type subtitle…</source>
-        <translation>Введите текст субтитров…</translation>
-    </message>
-    <message>
-        <source>Apply text to this subtitle</source>
-        <translation>Применить текст к этим субтитрам</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation>Начало</translation>
-    </message>
-    <message>
-        <source>Set start to current time</source>
-        <translation>Установить начало на текущее время</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation>Конец</translation>
-    </message>
-    <message>
-        <source>Set end to current time</source>
-        <translation>Установить конец на текущее время</translation>
-    </message>
-    <message>
-        <source>Delete caption</source>
-        <translation>Удалить запись субтитров</translation>
-    </message>
-    <message>
-        <source>At %1</source>
-        <translation>В %1</translation>
-    </message>
-    <message>
-        <source>Move to a time inside this clip to add a subtitle</source>
-        <translation>Перейдите к моменту внутри этого клипа, чтобы добавить субтитры</translation>
-    </message>
-    <message>
-        <source>Add subtitle at current time</source>
-        <translation>Добавить субтитры в текущий момент</translation>
     </message>
 </context>
 <context>
@@ -13558,22 +14196,6 @@ If playback stutters, try another.</source>
         <translation>Сначала выберите видео- или аудиоклип на таймлайне.</translation>
     </message>
     <message>
-        <source>Caption style</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remove hesitations (eh, mmm) and capitalize</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add emojis for keywords (fuego 🔥, Dios 🙏)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>Короткие субтитры создаются равномерным разделением фраз по времени, поэтому могут немного расходиться с речью.</translation>
     </message>
@@ -13584,14 +14206,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Select a video or audio clip first</source>
         <translation>Сначала выберите видео- или аудиоклип</translation>
-    </message>
-    <message>
-        <source>Add English translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Creating captions… %1%</source>
@@ -13629,6 +14243,30 @@ If playback stutters, try another.</source>
         <source>%1 words per caption</source>
         <translation>%1 слов в записи субтитров</translation>
     </message>
+    <message>
+        <source>Caption style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove hesitations (eh, mmm) and capitalize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add emojis for keywords (fuego 🔥, Dios 🙏)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add English translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TextAnimPresetTile</name>
@@ -13640,20 +14278,12 @@ If playback stutters, try another.</source>
 <context>
     <name>TextAssetsTab</name>
     <message>
-        <source>Flip Studio text style (*.drifttextstyle)</source>
-        <translation>Стиль текста Flip Studio (*.drifttextstyle)</translation>
-    </message>
-    <message>
         <source>Import text style</source>
         <translation>Импортировать стиль текста</translation>
     </message>
     <message>
         <source>Export text style</source>
         <translation>Экспортировать стиль текста</translation>
-    </message>
-    <message>
-        <source>Click a style to add text at the playhead. Double-click it on the preview to edit.</source>
-        <translation>Нажмите на стиль, чтобы добавить текст в позиции указателя воспроизведения. Дважды нажмите на него в предпросмотре, чтобы изменить.</translation>
     </message>
     <message>
         <source>My styles</source>
@@ -13684,6 +14314,42 @@ If playback stutters, try another.</source>
         <translation>Удалить</translation>
     </message>
     <message>
+        <source>My styles · %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at playhead</source>
+        <translation>Добавить на позицию курсора воспроизведения</translation>
+    </message>
+    <message>
+        <source>No saved styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation>Импорт</translation>
+    </message>
+    <message>
+        <source>Rename text style</source>
+        <translation>Переименовать стиль текста</translation>
+    </message>
+    <message>
+        <source>Delete text style</source>
+        <translation>Удалить стиль текста</translation>
+    </message>
+    <message>
+        <source>Remove “%1” from your saved styles? Clips already using it keep their look.</source>
+        <translation>Удалить «%1» из сохранённых стилей? Клипы, в которых он уже используется, сохранят свой вид.</translation>
+    </message>
+    <message>
+        <source>Flip Studio text style (*.drifttextstyle)</source>
+        <translation>Стиль текста Flip Studio (*.drifttextstyle)</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation type="unfinished">Шаблоны</translation>
     </message>
@@ -13698,18 +14364,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Get more templates</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Rename text style</source>
-        <translation>Переименовать стиль текста</translation>
-    </message>
-    <message>
-        <source>Delete text style</source>
-        <translation>Удалить стиль текста</translation>
-    </message>
-    <message>
-        <source>Remove “%1” from your saved styles? Clips already using it keep their look.</source>
-        <translation>Удалить «%1» из сохранённых стилей? Клипы, в которых он уже используется, сохранят свой вид.</translation>
     </message>
 </context>
 <context>
@@ -14042,42 +14696,6 @@ If playback stutters, try another.</source>
         <translation>Свечение</translation>
     </message>
     <message>
-        <source>No accent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>First word</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Last word</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Every other word</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Every Nth word</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Longest word</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Random words</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Spoken word (karaoke)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Keywords (long words and numbers)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
@@ -14128,6 +14746,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Save this text&apos;s style as a reusable preset</source>
         <translation>Сохранить стиль этого текста как предустановку</translation>
+    </message>
+    <message>
+        <source>Generate voiceover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speak every caption with a generated voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the voice model from the add-on manager first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the AI engine and the voice model from the add-on manager to generate voiceovers.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Effect</source>
@@ -14285,6 +14919,42 @@ If playback stutters, try another.</source>
         <source>By</source>
         <translation>По</translation>
     </message>
+    <message>
+        <source>No accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>First word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every other word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every Nth word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longest word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spoken word (karaoke)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keywords (long words and numbers)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TextLookPicker</name>
@@ -14437,6 +15107,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Extrude</source>
         <translation>Выдавливание</translation>
+    </message>
+    <message>
+        <source>Text size</source>
+        <translation>Размер текста</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>Межбуквенный интервал</translation>
+    </message>
+    <message>
+        <source>Line height</source>
+        <translation>Высота строки</translation>
+    </message>
+    <message>
+        <source>Box padding</source>
+        <translation>Отступы рамки</translation>
+    </message>
+    <message>
+        <source>Bend</source>
+        <translation>Изгиб</translation>
     </message>
     <message>
         <source>Title</source>
@@ -14698,26 +15388,6 @@ If playback stutters, try another.</source>
         <source>The quiet issue</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Text size</source>
-        <translation>Размер текста</translation>
-    </message>
-    <message>
-        <source>Letter spacing</source>
-        <translation>Межбуквенный интервал</translation>
-    </message>
-    <message>
-        <source>Line height</source>
-        <translation>Высота строки</translation>
-    </message>
-    <message>
-        <source>Box padding</source>
-        <translation>Отступы рамки</translation>
-    </message>
-    <message>
-        <source>Bend</source>
-        <translation>Изгиб</translation>
-    </message>
 </context>
 <context>
     <name>TextStylePackPicker</name>
@@ -14857,12 +15527,20 @@ If playback stutters, try another.</source>
         <translation>Преобразовать в формат для монтажа</translation>
     </message>
     <message>
+        <source>Crop…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unlink</source>
         <translation>Разъединить</translation>
+    </message>
+    <message>
+        <source>Link</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Merge subtitle clips</source>
@@ -15115,6 +15793,10 @@ If playback stutters, try another.</source>
         <translation>Показать аудио на отдельной дорожке</translation>
     </message>
     <message>
+        <source>Link selected clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>Обрезать начало</translation>
     </message>
@@ -15129,6 +15811,150 @@ If playback stutters, try another.</source>
     <message>
         <source>Trim end — click a clip to drop everything right of the cut</source>
         <translation>Обрезать конец — нажмите на клип, чтобы удалить всё справа от разреза</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation>Отменить</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation>Повторить</translation>
+    </message>
+    <message>
+        <source>Delete clip</source>
+        <translation>Удалить клип</translation>
+    </message>
+    <message>
+        <source>Copy selection</source>
+        <translation>Копировать выделенное</translation>
+    </message>
+    <message>
+        <source>Paste at current time</source>
+        <translation>Вставить в текущий момент</translation>
+    </message>
+    <message>
+        <source>Duplicate clip</source>
+        <translation>Дублировать клип</translation>
+    </message>
+    <message>
+        <source>Add/remove bookmark at current time</source>
+        <translation>Добавить или удалить закладку в текущий момент</translation>
+    </message>
+    <message>
+        <source>Mark work area in</source>
+        <translation>Отметить начало рабочей области</translation>
+    </message>
+    <message>
+        <source>Mark work area out</source>
+        <translation>Отметить конец рабочей области</translation>
+    </message>
+    <message>
+        <source>Loop work area playback</source>
+        <translation>Зациклить воспроизведение рабочей области</translation>
+    </message>
+    <message>
+        <source>Clear work area</source>
+        <translation>Очистить рабочую область</translation>
+    </message>
+    <message>
+        <source>Add transform layer</source>
+        <translation>Добавить слой трансформации</translation>
+    </message>
+    <message>
+        <source>Add transform layer — moves the selected clips&apos; tracks as one</source>
+        <translation>Добавить слой трансформации — перемещает дорожки выбранных клипов вместе</translation>
+    </message>
+    <message>
+        <source>Add camera</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Main</source>
+        <translation>Основной</translation>
+    </message>
+    <message>
+        <source>Composite</source>
+        <translation>Композиция</translation>
+    </message>
+    <message>
+        <source>Switch between the main timeline and composite clips</source>
+        <translation>Переключить между основным таймлайном и клипами композиций</translation>
+    </message>
+    <message>
+        <source>No composite clips yet</source>
+        <translation>Клипов композиций пока нет</translation>
+    </message>
+    <message>
+        <source>Toggle audio mixer strip</source>
+        <translation>Показать или скрыть аудиомикшер</translation>
+    </message>
+    <message>
+        <source>Timeline overview — a minimap of the whole project; click or drag it to jump the view</source>
+        <translation>Обзор таймлайна — карта всего проекта; нажмите или перетащите, чтобы перейти к нужной части</translation>
+    </message>
+    <message>
+        <source>Unlink video and audio</source>
+        <translation>Разъединить видео и аудио</translation>
+    </message>
+    <message>
+        <source>Merge adjacent clips</source>
+        <translation>Объединить соседние клипы</translation>
+    </message>
+    <message>
+        <source>Freeze frame at current time</source>
+        <translation>Стоп-кадр в текущий момент</translation>
+    </message>
+    <message>
+        <source>More edit actions</source>
+        <translation>Другие действия монтажа</translation>
+    </message>
+    <message>
+        <source>Add adjustment layer</source>
+        <translation>Добавить корректирующий слой</translation>
+    </message>
+    <message>
+        <source>Add camera — one viewpoint the whole timeline is seen through. With a camera already there, adds a new camera clip (a cut to a new framing) at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize toolbar…</source>
+        <translation>Настроить панель инструментов…</translation>
+    </message>
+    <message>
+        <source>Toggle snapping</source>
+        <translation>Включить или выключить привязку</translation>
+    </message>
+    <message>
+        <source>Close gaps when trimming</source>
+        <translation>Закрывать промежутки при обрезке</translation>
+    </message>
+    <message>
+        <source>Allow clip overlap</source>
+        <translation>Разрешить наложение клипов</translation>
+    </message>
+    <message>
+        <source>Zoom out</source>
+        <translation>Уменьшить масштаб</translation>
+    </message>
+    <message>
+        <source>Timeline zoom</source>
+        <translation>Масштаб таймлайна</translation>
+    </message>
+    <message>
+        <source>Zoom %1×</source>
+        <translation>Масштаб %1×</translation>
+    </message>
+    <message>
+        <source>Zoom level — click to reset to 1×. Ctrl+wheel over the timeline also zooms.</source>
+        <translation>Уровень масштаба — нажмите для сброса до 1×. Ctrl+колесо над таймлайном тоже меняет масштаб.</translation>
+    </message>
+    <message>
+        <source>Zoom in</source>
+        <translation>Увеличить масштаб</translation>
+    </message>
+    <message>
+        <source>Fit timeline in view</source>
+        <translation>Вместить таймлайн в окно</translation>
     </message>
     <message>
         <source>Split</source>
@@ -15227,62 +16053,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Undo</source>
-        <translation>Отменить</translation>
-    </message>
-    <message>
-        <source>Redo</source>
-        <translation>Повторить</translation>
-    </message>
-    <message>
-        <source>Delete clip</source>
-        <translation>Удалить клип</translation>
-    </message>
-    <message>
-        <source>Copy selection</source>
-        <translation>Копировать выделенное</translation>
-    </message>
-    <message>
-        <source>Paste at current time</source>
-        <translation>Вставить в текущий момент</translation>
-    </message>
-    <message>
-        <source>Duplicate clip</source>
-        <translation>Дублировать клип</translation>
-    </message>
-    <message>
-        <source>Add/remove bookmark at current time</source>
-        <translation>Добавить или удалить закладку в текущий момент</translation>
-    </message>
-    <message>
-        <source>Mark work area in</source>
-        <translation>Отметить начало рабочей области</translation>
-    </message>
-    <message>
-        <source>Mark work area out</source>
-        <translation>Отметить конец рабочей области</translation>
-    </message>
-    <message>
-        <source>Loop work area playback</source>
-        <translation>Зациклить воспроизведение рабочей области</translation>
-    </message>
-    <message>
-        <source>Clear work area</source>
-        <translation>Очистить рабочую область</translation>
-    </message>
-    <message>
-        <source>Add transform layer</source>
-        <translation>Добавить слой трансформации</translation>
-    </message>
-    <message>
-        <source>Add transform layer — moves the selected clips&apos; tracks as one</source>
-        <translation>Добавить слой трансформации — перемещает дорожки выбранных клипов вместе</translation>
-    </message>
-    <message>
-        <source>Add camera</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Reverse</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15299,100 +16069,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Main</source>
-        <translation>Основной</translation>
-    </message>
-    <message>
-        <source>Composite</source>
-        <translation>Композиция</translation>
-    </message>
-    <message>
-        <source>Switch between the main timeline and composite clips</source>
-        <translation>Переключить между основным таймлайном и клипами композиций</translation>
-    </message>
-    <message>
-        <source>No composite clips yet</source>
-        <translation>Клипов композиций пока нет</translation>
-    </message>
-    <message>
         <source>Stop recording</source>
         <translation type="unfinished">Остановить запись</translation>
     </message>
     <message>
         <source>Record voiceover at the current time</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Toggle audio mixer strip</source>
-        <translation>Показать или скрыть аудиомикшер</translation>
-    </message>
-    <message>
-        <source>Timeline overview — a minimap of the whole project; click or drag it to jump the view</source>
-        <translation>Обзор таймлайна — карта всего проекта; нажмите или перетащите, чтобы перейти к нужной части</translation>
-    </message>
-    <message>
-        <source>Unlink video and audio</source>
-        <translation>Разъединить видео и аудио</translation>
-    </message>
-    <message>
-        <source>Merge adjacent clips</source>
-        <translation>Объединить соседние клипы</translation>
-    </message>
-    <message>
-        <source>Freeze frame at current time</source>
-        <translation>Стоп-кадр в текущий момент</translation>
-    </message>
-    <message>
-        <source>More edit actions</source>
-        <translation>Другие действия монтажа</translation>
-    </message>
-    <message>
-        <source>Add adjustment layer</source>
-        <translation>Добавить корректирующий слой</translation>
-    </message>
-    <message>
-        <source>Add camera — one viewpoint the whole timeline is seen through. With a camera already there, adds a new camera clip (a cut to a new framing) at the playhead</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Customize toolbar…</source>
-        <translation>Настроить панель инструментов…</translation>
-    </message>
-    <message>
-        <source>Toggle snapping</source>
-        <translation>Включить или выключить привязку</translation>
-    </message>
-    <message>
-        <source>Close gaps when trimming</source>
-        <translation>Закрывать промежутки при обрезке</translation>
-    </message>
-    <message>
-        <source>Allow clip overlap</source>
-        <translation>Разрешить наложение клипов</translation>
-    </message>
-    <message>
-        <source>Zoom out</source>
-        <translation>Уменьшить масштаб</translation>
-    </message>
-    <message>
-        <source>Timeline zoom</source>
-        <translation>Масштаб таймлайна</translation>
-    </message>
-    <message>
-        <source>Zoom %1×</source>
-        <translation>Масштаб %1×</translation>
-    </message>
-    <message>
-        <source>Zoom level — click to reset to 1×. Ctrl+wheel over the timeline also zooms.</source>
-        <translation>Уровень масштаба — нажмите для сброса до 1×. Ctrl+колесо над таймлайном тоже меняет масштаб.</translation>
-    </message>
-    <message>
-        <source>Zoom in</source>
-        <translation>Увеличить масштаб</translation>
-    </message>
-    <message>
-        <source>Fit timeline in view</source>
-        <translation>Вместить таймлайн в окно</translation>
     </message>
 </context>
 <context>
@@ -15748,14 +16430,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Perspective</source>
         <translation>Перспектива</translation>
-    </message>
-    <message>
-        <source>Video only</source>
-        <translation>Только видео</translation>
-    </message>
-    <message>
-        <source>This tab does not apply to audio clips.</source>
-        <translation>Эта вкладка неприменима к аудиоклипам.</translation>
     </message>
     <message>
         <source>Also moved by %1</source>
@@ -16144,20 +16818,8 @@ If playback stutters, try another.</source>
 <context>
     <name>TransitionsTab</name>
     <message>
-        <source>Touch and hold a transition, then drag it onto where two clips meet.</source>
-        <translation>Нажмите и удерживайте переход, затем перетащите его на стык двух клипов.</translation>
-    </message>
-    <message>
-        <source>Drag onto where two clips overlap. They fade into each other by default.</source>
-        <translation>Перетащите на область перекрытия двух клипов. По умолчанию они плавно сменят друг друга.</translation>
-    </message>
-    <message>
         <source>Search transitions</source>
         <translation>Поиск переходов</translation>
-    </message>
-    <message>
-        <source>Import transition</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Install a custom transition or effect from a .driftfx file made in Drift Forge</source>
@@ -16213,11 +16875,70 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished">Импорт</translation>
+        <translation>Импорт</translation>
     </message>
     <message>
-        <source>%1 — drag onto an overlap between two clips</source>
-        <translation>%1 — перетащите на область перекрытия двух клипов</translation>
+        <source>%1 — drag onto where two clips meet, or on touch hold then drag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Убрать из избранного</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Добавить в избранное</translation>
+    </message>
+</context>
+<context>
+    <name>TtsController</name>
+    <message>
+        <source>Install the voice model first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Queued</source>
+        <translation>В очереди</translation>
+    </message>
+    <message>
+        <source>Cancelled</source>
+        <translation>Отменено</translation>
+    </message>
+    <message>
+        <source>Speech added to the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a subtitle clip first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This subtitle clip has no text to speak</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate voiceover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not add the voiceover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Generated %n line(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n ran longer than their captions</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -16250,23 +16971,11 @@ If playback stutters, try another.</source>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <source>Flip Studio %1 update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Preparing the update…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Installs when you close Flip Studio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ready to install</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -16276,14 +16985,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Couldn’t check for updates: unexpected response.</source>
         <translation>Не удалось проверить обновления: неожиданный ответ.</translation>
-    </message>
-    <message>
-        <source>Flip Studio %1 is the latest version.</source>
-        <translation>Flip Studio %1 — последняя версия.</translation>
-    </message>
-    <message>
-        <source>Flip Studio %1 is available.</source>
-        <translation>Доступна версия Flip Studio %1.</translation>
     </message>
     <message>
         <source>Couldn’t download the update: the cache isn’t writable.</source>
@@ -16306,6 +17007,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Flip Studio %1 update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installs when you close Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation>Flip Studio %1 — последняя версия.</translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is available.</source>
+        <translation>Доступна версия Flip Studio %1.</translation>
+    </message>
+    <message>
         <source>Flip Studio %1 is ready to install.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16319,6 +17040,46 @@ If playback stutters, try another.</source>
     <message>
         <source>Update ready</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have %1.</source>
+        <translation>У вас версия %1.</translation>
+    </message>
+    <message>
+        <source>Skip</source>
+        <translation>Пропустить</translation>
+    </message>
+    <message>
+        <source>Don&apos;t mention %1 again. Later releases are still announced.</source>
+        <translation>Больше не сообщать о версии %1. О следующих версиях сообщения останутся.</translation>
+    </message>
+    <message>
+        <source>Later</source>
+        <translation>Позже</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Обновить</translation>
+    </message>
+    <message>
+        <source>Downloads the update in the background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opens the release page in your browser</source>
+        <translation>Открывает страницу выпуска в браузере</translation>
+    </message>
+    <message>
+        <source>Preparing the update…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart and install</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading…</source>
+        <translation>Загрузка…</translation>
     </message>
     <message>
         <source>Flip Studio %1 will install when you close Flip Studio.</source>
@@ -16337,10 +17098,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You have %1.</source>
-        <translation>У вас версия %1.</translation>
-    </message>
-    <message>
         <source>Install automatically when I close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16349,23 +17106,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Skip</source>
-        <translation>Пропустить</translation>
-    </message>
-    <message>
-        <source>Don&apos;t mention %1 again. Later releases are still announced.</source>
-        <translation>Больше не сообщать о версии %1. О следующих версиях сообщения останутся.</translation>
-    </message>
-    <message>
-        <source>Later</source>
-        <translation>Позже</translation>
-    </message>
-    <message>
         <source>Install when I close Flip Studio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -16373,28 +17114,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads the update in the background</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Opens the release page in your browser</source>
-        <translation>Открывает страницу выпуска в браузере</translation>
-    </message>
-    <message>
         <source>Downloading Flip Studio %1…</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Preparing the update…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Restart and install</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Downloading…</source>
-        <translation type="unfinished">Загрузка…</translation>
     </message>
 </context>
 <context>
@@ -16413,7 +17134,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished">Общие</translation>
+        <translation>Общие</translation>
     </message>
     <message>
         <source>Before</source>
@@ -16432,7 +17153,7 @@ If playback stutters, try another.</source>
     <name>Vec2Param</name>
     <message>
         <source>Edit %1</source>
-        <translation type="unfinished">Изменить %1</translation>
+        <translation>Изменить %1</translation>
     </message>
 </context>
 <context>
@@ -16774,6 +17495,37 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>VoiceLibrary</name>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Another voice is still being prepared</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A voice needs a name and a recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not prepare the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A recording is already in progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to start audio recording</source>
+        <translation>Не удалось начать запись звука</translation>
+    </message>
+    <message>
+        <source>The recording is too short: record at least %1 seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>VoiceoverControlBar</name>
     <message>
         <source>PAUSED</source>
@@ -16818,6 +17570,45 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel — discard recording</source>
         <translation>Отмена — удалить запись</translation>
+    </message>
+</context>
+<context>
+    <name>VoiceoverDialog</name>
+    <message>
+        <source>Generate voiceover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice</source>
+        <translation>Голос</translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation>Язык</translation>
+    </message>
+    <message>
+        <source>Expressiveness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Higher values sound more dramatic and speak faster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading voice model (first use takes a while)…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Закрыть</translation>
     </message>
 </context>
 <context>
@@ -16894,6 +17685,14 @@ If playback stutters, try another.</source>
         <translation>Нет драйвера OpenGL</translation>
     </message>
     <message>
+        <source>OpenGL context unavailable</source>
+        <translation>Контекст OpenGL недоступен</translation>
+    </message>
+    <message>
+        <source>Graphics driver is too old</source>
+        <translation>Графический драйвер устарел</translation>
+    </message>
+    <message>
         <source>Flip Studio could not create an OpenGL context, so it cannot draw its interface or render the preview.
 
 Install or update your graphics driver.</source>
@@ -16902,20 +17701,12 @@ Install or update your graphics driver.</source>
 Установите или обновите графический драйвер.</translation>
     </message>
     <message>
-        <source>OpenGL context unavailable</source>
-        <translation>Контекст OpenGL недоступен</translation>
-    </message>
-    <message>
         <source>Flip Studio could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
 
 The video preview cannot render. Updating your graphics driver may help.</source>
         <translation>Flip Studio не удалось создать контекст основного профиля OpenGL 3.3, хотя драйвер сообщает о поддержке OpenGL %1.%2 (%3).
 
 Предпросмотр видео недоступен. Обновление графического драйвера может помочь.</translation>
-    </message>
-    <message>
-        <source>Graphics driver is too old</source>
-        <translation>Графический драйвер устарел</translation>
     </message>
     <message>
         <source>Flip Studio needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
@@ -16936,6 +17727,37 @@ If the window is blank or black, your graphics driver is most likely outdated or
         <translation>Flip Studio работает уже %1 секунд, но в его окне до сих пор ничего не появилось.
 
 Если окно пустое или чёрное, скорее всего, графический драйвер устарел или неисправен. Обновите его с сайта производителя графического процессора (AMD, NVIDIA или Intel) и снова запустите Flip Studio.</translation>
+    </message>
+</context>
+<context>
+    <name>SoundEffectsTab</name>
+    <message>
+        <source>Search sounds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No sound effects installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get extras</source>
+        <translation type="unfinished">Получить дополнения</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Остановить</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

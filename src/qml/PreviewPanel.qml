@@ -187,7 +187,9 @@ PanelFrame {
 
     Component {
         id: transformTool
-        TransformOverlay { }
+        TransformOverlay {
+            onTextEditRequested: (track, clip) => panelViewport.textEditor.start(track, clip, false)
+        }
     }
 
     Component {

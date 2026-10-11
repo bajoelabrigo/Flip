@@ -141,6 +141,7 @@ int runHeadless(int argc, char *argv[])
     // with nothing on screen.
     reloadFontCatalog();
     reloadTextStyleCatalog();
+    reloadUserFonts();
     reloadEmojiCatalog();
     drift::sweepDenoisePreviews();
     drift::ReverseProxyCache::instance().load();

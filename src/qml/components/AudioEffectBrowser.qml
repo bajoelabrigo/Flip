@@ -82,50 +82,22 @@ Column {
         height: parent.height
         spacing: 0
 
-        Text {
-            id: browserTip
-            width: parent.width - 24
-            leftPadding: 12
-            rightPadding: 12
-            topPadding: 8
-            bottomPadding: 4
-            wrapMode: Text.WordWrap
-            horizontalAlignment: Text.AlignHCenter
-            text: EditorState.selectedClip >= 0
-                  ? qsTr("Drag a preset onto a clip, or click to apply to the selection")
-                  : qsTr("Drag a preset onto a clip in the timeline")
-            color: Theme.mutedForeground
-            font.family: Theme.fontFamily
-            font.pixelSize: Theme.fontSizeXs
-        }
-
-        ThemedTextField {
+        AssetSearchBar {
             id: search
-            width: parent.width - 24
-            x: 12
             placeholderText: qsTr("Search audio effects")
-            font.family: Theme.fontFamily
+
+            IconButton {
+                glyph: Theme.icons.download
+                variant: "ghost"
+                buttonSize: Theme.controlHeight
+                tooltip: qsTr("Install a custom audio effect or effect from a .driftfx file made in Drift Forge")
+                onClicked: root.Window.window.importUserPackage("")
+            }
         }
 
         Item {
             width: 1
             height: Theme.spacingSm
-        }
-
-        ThemedButton {
-            id: importButton
-            width: parent.width - 24
-            x: 12
-            text: qsTr("Import audio effect")
-            glyph: Theme.icons.download
-            variant: "secondary"
-            tooltip: qsTr("Install a custom audio effect or effect from a .driftfx file made in Drift Forge")
-            onClicked: root.Window.window.importUserPackage("")
-        }
-
-        Item {
-            width: 1
-            height: Theme.spacingMd
         }
 
         AssetCategoryChips {
@@ -141,8 +113,8 @@ Column {
 
         Item {
             width: parent.width
-            height: Math.max(0, parent.height - browserTip.height - search.height - Theme.spacingSm
-                             - importButton.height - Theme.spacingMd - categoryChips.height)
+            height: Math.max(0, parent.height - search.height - Theme.spacingSm
+                             - categoryChips.height)
 
             Text {
                 id: emptySearchHint
@@ -256,6 +228,13 @@ Column {
 
                         HoverHandler { id: cardHover }
 
+                        ThemedToolTip {
+                            text: EditorState.selectedClip >= 0
+                                  ? qsTr("%1 — click to apply to the selection, or drag onto a clip").arg(presetCard.modelData.label)
+                                  : qsTr("%1 — drag onto a clip in the timeline").arg(presetCard.modelData.label)
+                            visible: cardHover.hovered && !presetDrag.active
+                        }
+
                         Image {
                             id: presetThumb
                             anchors.fill: parent
@@ -278,18 +257,24 @@ Column {
                         }
 
                         TapHandler {
-                            // Touch taps arrive through TouchLiftArea below, which
+                            // Finger taps arrive through TouchLiftArea below, which
                             // holds the grab this one would need.
-                            enabled: !presetDrag.active && !Theme.touchUi
+                            enabled: !presetDrag.active
+                            acceptedButtons: Qt.LeftButton
+                            acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
                             onTapped: root.applyPreset(presetCard.modelData.id)
+                        }
+
+                        TapHandler {
+                            acceptedButtons: Qt.RightButton
+                            onTapped: cardMenu.popup()
                         }
 
                         DragHandler {
                             id: presetDrag
                             target: null
-                            // Touch lifts through TouchDrag instead: a platform
+                            // A finger lifts through TouchDrag instead: a platform
                             // drag has no touch gesture and cannot leave the sheet.
-                            enabled: !Theme.touchUi
                             acceptedButtons: Qt.LeftButton
                             acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
                         }
@@ -302,7 +287,27 @@ Column {
                             label: presetCard.modelData.label
                             thumbnail: presetCard.thumb
                             glyph: presetCard.iconGlyph
-                            onLiftTapped: root.applyPreset(presetCard.modelData.id)
+                            onLiftTapped: cardMenu.popup()
+                        }
+
+                        ThemedContextMenu {
+                            id: cardMenu
+
+                            property bool favorited: false
+
+                            onAboutToShow: favorited = EditorState.isAssetFavorite("sounds", presetCard.modelData.id)
+
+                            ThemedMenuItem {
+                                text: qsTr("Apply to selected clip")
+                                icon.name: Theme.icons.plus
+                                enabled: EditorState.selectedClip >= 0
+                                onTriggered: root.applyPreset(presetCard.modelData.id)
+                            }
+                            ThemedMenuItem {
+                                text: cardMenu.favorited ? qsTr("Remove from favorites") : qsTr("Add to favorites")
+                                icon.name: Theme.icons.star
+                                onTriggered: EditorState.toggleAssetFavorite("sounds", presetCard.modelData.id)
+                            }
                         }
 
                         AssetFavoriteButton {

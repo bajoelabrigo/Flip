@@ -57,8 +57,36 @@ ApplicationWindow {
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
+    // This shell is reachable on Android (DeX, tablets with a mouse). Android defaults to touch
+    // metrics, which would also switch off mouse drag and tap on the asset tiles. A Binding
+    // rather than onCompleted, so it is in place before any child reads Theme.touchUi.
+    Binding {
+        target: Theme
+        property: "inputModeOverride"
+        value: PointerDevices.mousePresent ? "pointer" : "touch"
+        when: Qt.platform.os === "android"
+    }
+
+    AndroidLifecycle {
+        enabled: Qt.platform.os === "android"
+        denoiseWindow: denoiseWindowLoader.item
+    }
+
     // Set true after the unsaved prompt resolves so onClosing can finish quit.
     property bool forceClose: false
+
+    // How many Overlay-hosted dialogs/tool windows are open. Touch only: PointerHandlers on
+    // the editor hit-test their parent bounds, not z-order, so a finger on empty dialog chrome
+    // would still reach the timeline; this count drives a guard over the page.
+    property int overlayModalCount: 0
+
+    function pushOverlayModal() {
+        overlayModalCount++
+    }
+
+    function popOverlayModal() {
+        overlayModalCount = Math.max(0, overlayModalCount - 1)
+    }
     property bool manualUpdateCheck: false
 
     // On macOS, instantiate a native MenuBar via Qt.labs.platform.
@@ -309,6 +337,11 @@ ApplicationWindow {
                     enabled: !window.showStartScreen
                     onTriggered: window.dispatchAction("toggleGuides")
                 }
+                Platform.MenuSeparator {}
+                Platform.MenuItem {
+                    text: qsTr("Switch to Mobile Layout…")
+                    onTriggered: window.switchShell("mobile")
+                }
             }
 
             Platform.Menu {
@@ -427,9 +460,28 @@ ApplicationWindow {
         Theme.windowWidth = width
         geometrySettleTimer.restart()
     }
+
+    Binding {
+        target: Theme
+        property: "keyboardInset"
+        value: {
+            if (Qt.platform.os !== "android" && Qt.platform.os !== "ios")
+                return 0
+            const r = Qt.inputMethod.keyboardRectangle
+            return Qt.inputMethod.visible && r.height > 0 ? Math.max(0, window.height - r.y) : 0
+        }
+    }
     onHeightChanged: geometrySettleTimer.restart()
 
+    // System-bar and cutout insets. Desktop windows have none, so this stays 0 there.
+    function _safeMargin(side) {
+        return Qt.platform.os === "android" ? window.contentItem.SafeArea.margins[side] : 0
+    }
+
     function restoreWindowGeometry() {
+        // The platform sizes the window on Android; a stored desktop rect means nothing there.
+        if (Qt.platform.os === "android")
+            return
         const geometry = LayoutMemory.savedWindowGeometry(window.minimumWidth, window.minimumHeight)
         // Null rect: nothing stored, or the monitor it was stored on is gone. Either
         // way the window keeps the declared defaults above.
@@ -443,6 +495,10 @@ ApplicationWindow {
     }
 
     function showRestored() {
+        if (Qt.platform.os === "android") {
+            window.visibility = Window.Maximized
+            return
+        }
         // Assigning visibility shows the window too, so a session that was left
         // maximized never appears at its windowed size on the way there.
         window.visibility = LayoutMemory.savedWindowMaximized()
@@ -475,6 +531,8 @@ ApplicationWindow {
     // a teardown handler, and losing the layout to that is exactly the annoyance this
     // is here to remove.
     function persistWindowState() {
+        if (Qt.platform.os === "android")
+            return
         const maximized = window.restoreModeIsMaximized()
         if (maximized < 0)
             return
@@ -594,6 +652,55 @@ ApplicationWindow {
         }
     }
 
+    // Android's system Back, which is not Escape. Newest-on-top: a tool window is a full-screen
+    // surface over everything else, then dialogs, then fullscreen preview. Nothing to unwind does
+    // nothing: Back must not close the main window from here.
+    Shortcut {
+        sequences: [StandardKey.Back]
+        context: Qt.ApplicationShortcut
+        enabled: Qt.platform.os === "android"
+        onActivated: window.handleBack()
+    }
+
+    function handleBack() {
+        if (window.mediaPreviewPage) {
+            window.mediaPreviewPage.close()
+            return
+        }
+        const tools = [segmentationWindowLoader, denoiseWindowLoader, restoreWindowLoader,
+                       multicamWindowLoader, speedCurveWindowLoader, fadeCurveWindowLoader,
+                       downloadsWindowLoader]
+        for (var t = 0; t < tools.length; ++t) {
+            if (tools[t].shown) {
+                tools[t].item.close()
+                return
+            }
+        }
+        const modals = [shellSwitchDialogLoader.item, debugInfoDialogLoader.item, settingsDialogLoader.item,
+                        pasteAttributesDialogLoader.item, updateDialogLoader.item, aboutDialogLoader.item,
+                        addonManagerDialogLoader.item, missingAddonsDialogLoader.item, addonStartupDialog,
+                        projectSetupDialogLoader.item, layoutChooserDialogLoader.item,
+                        languageChooserDialogLoader.item, recoveryDialogLoader.item,
+                        reverseProgressDialogLoader.item, subtitleProgressDialogLoader.item]
+        for (var i = 0; i < modals.length; ++i) {
+            const m = modals[i]
+            if (!m || !m.visible)
+                continue
+            // close() skips accepted()/rejected(), so a dialog with no dismissal (recovery, the
+            // first-run choosers) would be left unanswered. Those two progress dialogs cancel their
+            // job on close; their own Cancel button stays the way out.
+            if (!(m.closePolicy & Popup.CloseOnEscape)
+                    || m === reverseProgressDialogLoader.item || m === subtitleProgressDialogLoader.item)
+                return
+            m.close()
+            return
+        }
+        if (editorHeader.closeTopDialog())
+            return
+        if (window.previewFullscreen)
+            window.togglePreviewFullscreen()
+    }
+
     Shortcut {
         sequence: "Esc"
         enabled: window.previewFullscreen && !window.showStartScreen
@@ -707,11 +814,16 @@ ApplicationWindow {
         }
     }
 
+    ProjectLoadDialog { }
+
     LazyLoader {
         id: recoveryDialogLoader
         sourceComponent: Component {
             RecoveryDialog {
-                onClosed: Qt.callLater(window.promptLayoutChooserIfNeeded)
+                onClosed: {
+                    Qt.callLater(window.promptLayoutChooserIfNeeded)
+                    window.openPendingLaunch()
+                }
             }
         }
     }
@@ -807,6 +919,13 @@ ApplicationWindow {
         id: settingsDialogLoader
         sourceComponent: Component {
             SettingsDialog { }
+        }
+    }
+
+    LazyLoader {
+        id: shellSwitchDialogLoader
+        sourceComponent: Component {
+            ShellSwitchDialog { }
         }
     }
 
@@ -908,6 +1027,8 @@ ApplicationWindow {
         }
     }
 
+    property var mediaPreviewPage: null
+
     LazyLoader {
         id: mediaPreviewWindowLoader
         sourceComponent: Component {
@@ -954,12 +1075,30 @@ ApplicationWindow {
     }
 
     function openMediaPreview(assetIndex) {
+        // A VideoOutput in a secondary window paints black on Android, so use the in-window page.
+        if (Qt.platform.os === "android") {
+            if (window.mediaPreviewPage)
+                return
+            androidMediaPreviewLoader.active = true
+            window.mediaPreviewPage = androidMediaPreviewLoader.item
+            window.mediaPreviewPage.openFor(assetIndex)
+            return
+        }
         const w = mediaPreviewWindowLoader.ensure()
         w.host = window
         w.openFor(assetIndex)
     }
 
-    function openSourceFrame(track, clip) {
+    function openCrop(track, clip) {
+        // Same reason as openMediaPreview: the secondary window paints black on Android.
+        if (Qt.platform.os === "android") {
+            if (window.mediaPreviewPage)
+                return
+            androidMediaPreviewLoader.active = true
+            window.mediaPreviewPage = androidMediaPreviewLoader.item
+            window.mediaPreviewPage.openClip(track, clip)
+            return
+        }
         mediaPreviewWindowLoader.ensure().openClip(track, clip)
     }
 
@@ -973,6 +1112,27 @@ ApplicationWindow {
     // assets rail no longer carries a settings tab.
     function openSettings() {
         settingsDialogLoader.ensure().open()
+    }
+
+    function switchShell(target) {
+        shellSwitchDialogLoader.ensure().openFor(target, false)
+    }
+
+    // Shell.qml only builds a shell at startup, so applying a layout change is a relaunch.
+    // Android has no quit to hang it on (aboutToQuit never runs), so the recovery snapshot
+    // carries unsaved work across instead of the prompt.
+    function restartToApplyShell() {
+        if (Qt.platform.os === "android") {
+            EditorState.projectFile.flushRecoverySnapshot()
+            EditorState.preferences.restartApp()
+            return
+        }
+        editorHeader.confirmIfDirty(function () {
+            EditorState.projectFile.discardUnsavedChanges()
+            EditorState.preferences.restartApp()
+            window.forceClose = true
+            window.close()
+        })
     }
 
     // ── Project lifecycle: New / Open / Open recent / Close ─────────────────────
@@ -1112,6 +1272,9 @@ ApplicationWindow {
     }
 
     function openUpdateDialog() {
+        // Android updates come from the store; the dialog installs a desktop package.
+        if (Qt.platform.os === "android")
+            return
         updateDialogLoader.ensure().open()
     }
 
@@ -1180,7 +1343,65 @@ ApplicationWindow {
         window.continueStartupAfterLanguage()
     }
 
+    // A launch or share intent from Android. Returns true when it took over startup, so the
+    // reopen-last-project and recovery paths stand down.
+    function routeAndroidIntent(intent) {
+        if (!intent || !intent.kind)
+            return false
+        const urls = intent.urls || []
+        if (intent.kind === "view") {
+            const url = urls.length > 0 ? String(urls[0]) : ""
+            if (url === "" || Market.handleIncomingUrl(url))
+                return url !== ""
+            if (Addons.isUserPackage(url)) {
+                window.importUserPackage(url)
+                return false
+            }
+            // Loading deletes the recovery snapshot unasked, so let that prompt run first.
+            if (EditorState.projectFile.recoveryAvailable && !EditorState.preferences.reopenLastProject) {
+                window._pendingLaunchUrl = url
+                recoveryOpenTimer.start()
+                return true
+            }
+            window.openLaunchedProject(url)
+            return true
+        }
+        if (intent.kind === "sendMedia") {
+            if (urls.length > 0)
+                MediaImport.importUrls(urls, false)
+            return false
+        }
+        if (intent.kind === "sendText")
+            Toasts.info(qsTr("Links can’t be opened in this layout."))
+        return false
+    }
+
+    property string _pendingLaunchUrl: ""
+
+    function openLaunchedProject(url) {
+        if (window.rejectIfProjectOpenPending())
+            return
+        window.showStartScreen = false
+        editorHeader.confirmIfDirty(function () {
+            EditorState.projectFile.loadProject(url)
+        })
+    }
+
+    function openPendingLaunch() {
+        if (window._pendingLaunchUrl === "")
+            return
+        // A recovery restore is still landing; onProjectLoadFinished comes back here so the
+        // unsaved prompt sees the recovered work.
+        if (EditorState.projectFile.projectLoadPending)
+            return
+        const url = window._pendingLaunchUrl
+        window._pendingLaunchUrl = ""
+        window.openLaunchedProject(url)
+    }
+
     function continueStartupAfterLanguage() {
+        if (Qt.platform.os === "android" && window.routeAndroidIntent(FileDialogs.takeLaunchIntent()))
+            return
         // A document the shell asked us to open (argv / QFileOpenEvent) wins over last-session
         // reopen and the recovery prompt.
         if (EditorState.projectFile.consumeStartupProject())
@@ -1207,6 +1428,19 @@ ApplicationWindow {
         window.persistWindowState()
         if (visible && EditorState.projectFile.recoveryAvailable && !EditorState.preferences.reopenLastProject)
             recoveryOpenTimer.start()
+    }
+
+    // Warm start: a project tapped or media shared while Drift was already running.
+    Connections {
+        target: FileDialogs
+        enabled: Qt.platform.os === "android"
+        function onLaunchUrlReceived(url) {
+            window.routeAndroidIntent({ kind: "view", urls: [url] })
+        }
+        function onIncomingIntent(intent) {
+            if (intent && intent.kind !== "view")
+                window.routeAndroidIntent(intent)
+        }
     }
 
     Connections {
@@ -1327,6 +1561,7 @@ ApplicationWindow {
         function onProjectLoadFinished(ok) {
             if (ok)
                 window.showStartScreen = false
+            window.openPendingLaunch()
         }
 
         function onMissingAddons(addons) {
@@ -1483,6 +1718,10 @@ ApplicationWindow {
     FocusScope {
         id: editorScope
         anchors.fill: parent
+        anchors.leftMargin: window._safeMargin("left")
+        anchors.topMargin: window._safeMargin("top")
+        anchors.rightMargin: window._safeMargin("right")
+        anchors.bottomMargin: window._safeMargin("bottom")
         enabled: !window.showStartScreen
         focus: true
         Keys.onPressed: function(event) {
@@ -1677,7 +1916,7 @@ ApplicationWindow {
                     TimelinePanel {
                         id: timelinePanel
                         visible: !window.previewFullscreen
-                        propertiesTab: propertiesPanel.currentTabId
+                        keyframesTab: propertiesPanel.keyframesTab
                         SplitView.preferredHeight: Math.max(0, outerSplit.height * 0.5)
                         SplitView.minimumHeight: Math.min(140, Math.max(0, outerSplit.height * 0.2))
                     }
@@ -1696,6 +1935,10 @@ ApplicationWindow {
     // the already-empty document sitting underneath it.
     Loader {
         anchors.fill: parent
+        anchors.leftMargin: window._safeMargin("left")
+        anchors.topMargin: window._safeMargin("top")
+        anchors.rightMargin: window._safeMargin("right")
+        anchors.bottomMargin: window._safeMargin("bottom")
         active: window.showStartScreen
         sourceComponent: Component {
             StartScreen {
@@ -1708,6 +1951,77 @@ ApplicationWindow {
                 onOpenRecentRequested: (path) => window.requestOpenRecentProject(path)
             }
         }
+    }
+
+    // Android's stand-in for MediaPreviewWindow: filling the window, over the editor.
+    Item {
+        anchors.fill: parent
+        z: 10
+        visible: window.mediaPreviewPage !== null
+
+        MouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+        }
+
+        Loader {
+            id: androidMediaPreviewLoader
+            anchors.fill: parent
+            active: false
+            sourceComponent: Component {
+                AndroidMediaPreview {
+                    onClosed: {
+                        window.mediaPreviewPage = null
+                        Qt.callLater(function () { androidMediaPreviewLoader.active = false })
+                    }
+                }
+            }
+        }
+    }
+
+    // Under the Overlay, over the page. Overlay popups stay interactive; the editor cannot.
+    MouseArea {
+        id: overlayInputGuard
+        anchors.fill: parent
+        z: 11
+        visible: Theme.touchInput && window.overlayModalCount > 0
+        acceptedButtons: Qt.AllButtons
+        hoverEnabled: true
+        preventStealing: true
+        onPressed: (mouse) => { mouse.accepted = true }
+        onWheel: (wheel) => { wheel.accepted = true }
+
+        readonly property int _stealHandlers: PointerHandler.CanTakeOverFromHandlersOfSameType
+                                            | PointerHandler.CanTakeOverFromHandlersOfDifferentType
+
+        TapHandler {
+            acceptedButtons: Qt.AllButtons
+            grabPermissions: overlayInputGuard._stealHandlers
+        }
+
+        PinchHandler {
+            target: null
+            grabPermissions: overlayInputGuard._stealHandlers
+        }
+
+        DragHandler {
+            target: null
+            grabPermissions: overlayInputGuard._stealHandlers
+        }
+    }
+
+    // Desktop has no sheet to step aside, so the drop target is live from the lift.
+    Connections {
+        target: TouchDrag
+        function onActiveChanged() {
+            if (TouchDrag.active)
+                TouchDrag.clearOfSource = true
+        }
+    }
+
+    TouchDragGhost {
+        visible: TouchDrag.active
+        z: 10000
     }
 
     // Notification host — above all panels, so any message lands in one place.

@@ -43,6 +43,7 @@ Item {
                            shortcut: "separateAudio" },
         "unlink": { glyph: Theme.icons.unlink, label: qsTr("Unlink video and audio"),
                     shortcut: "unlink" },
+        "link": { glyph: Theme.icons.link, label: qsTr("Link selected clips"), shortcut: "link" },
         "trimStart": { glyph: Theme.icons.trimStart, label: qsTr("Trim start"),
                        tip: qsTr("Trim start — click a clip to drop everything left of the cut") },
         "trimEnd": { glyph: Theme.icons.trimEnd, label: qsTr("Trim end"),
@@ -102,7 +103,7 @@ Item {
         "select", "cut", "separator", "undo", "redo", "separator",
         "split", "deleteLeft", "deleteRight", "delete", "bookmark", "separator",
         "crop", "freeze", "transform", "transcribe", "cutSilences", "removeBg", "separateAudio", "enhanceAudio",
-        "enhanceVideo", "unlink"
+        "enhanceVideo", "unlink", "link"
     ]
     readonly property var defaultMenuItems: [
         "trimStart", "trimEnd", "separator", "copy", "paste", "duplicate", "separator",
@@ -178,7 +179,7 @@ Item {
         case "separateAudio": EditorState.separateAudioFromSelection(); break
         case "unlink": EditorState.unlinkSelectedClips(); break
         case "split": EditorState.triggerAction("split"); break
-        case "crop": toolbar.Window.window.openSourceFrame(EditorState.selectedTrack, EditorState.selectedClip); break
+        case "crop": toolbar.Window.window.openCrop(EditorState.selectedTrack, EditorState.selectedClip); break
         case "transcribe": toolbar.Window.window.showAssetsTab("subtitles"); break
         case "removeBg": {
             const data = EditorState.selectedClipData
@@ -221,6 +222,7 @@ Item {
                                            (current + 90) % 360)
             break
         }
+        case "link": EditorState.linkSelectedClips(); break
         case "undo": EditorState.undo(); break
         case "redo": EditorState.redo(); break
         case "delete": EditorState.deleteSelectedClip(); break
@@ -244,6 +246,7 @@ Item {
         switch (id) {
         case "separateAudio": return EditorState.separateAudioAvailable
         case "unlink": return EditorState.unlinkAvailable
+        case "link": return EditorState.linkAvailable
         case "undo": return EditorState.undoAvailable
         case "redo": return EditorState.redoAvailable
         case "loop": return EditorState.workAreaActive
@@ -282,6 +285,8 @@ Item {
             return EditorState.separateAudioAvailable
         if (id === "unlink")
             return EditorState.unlinkAvailable
+        if (id === "link")
+            return EditorState.linkAvailable
         switch (id) {
         case "crop":
         case "freeze":

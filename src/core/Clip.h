@@ -13,6 +13,7 @@
 #include "TextStyle.h"
 #include "Time.h"
 #include "Model3dSource.h"
+#include "PdfSource.h"
 #include "VectorSource.h"
 
 #include <QList>
@@ -20,10 +21,10 @@
 
 namespace drift {
 
-// Vector is a Lottie animation or SVG document and Model3d a glTF binary; like Image and Shape
+// Vector is a Lottie animation or SVG document, Model3d a glTF binary and Pdf a PDF; like Image and Shape
 // they have no media file behind their source range, so they are synthetic and unbounded.
 // Composite plays a nested timeline (Project::sequenceTracks(sequenceId)) as its source.
-enum class ClipType { Video, Audio, Image, Text, Subtitle, Shape, Adjustment, Vector, Model3d, Composite };
+enum class ClipType { Video, Audio, Image, Text, Subtitle, Shape, Adjustment, Vector, Model3d, Pdf, Composite };
 
 QString clipTypeToString(ClipType type);
 ClipType clipTypeFromString(const QString &type);
@@ -51,6 +52,10 @@ struct Clip
     QString assetId;
     // Shared by linked video/audio companions; empty when unlinked.
     QString linkId;
+    // A loose link (created by Link on unrelated clips) moves, splits, selects and deletes
+    // together with its partners, and a trim moves their matching edge by the same amount, but
+    // it keeps its own duration, speed and fades.
+    bool linkLoose = false;
     ClipType type = ClipType::Video;
 
     // Adjustment clips only.
@@ -82,6 +87,7 @@ struct Clip
     ShapeStyle shapeStyle; // only meaningful when type == Shape
     VectorSource vector;   // only meaningful when type == Vector
     Model3dSource model3d; // only meaningful when type == Model3d
+    PdfSource pdf;         // only meaningful when type == Pdf
     // Nested timeline this clip plays: set on a Composite clip and on the Audio companion that
     // "Separate audio" splits off it.
     QString sequenceId;
@@ -127,7 +133,7 @@ struct Clip
     // transformX/Y keys instead. `stabilizing` is transient UI state and is not saved.
     //
     // legacyStabilizePath is only ever read: projects from before stabilized videos were bin
-    // assets kept a whole-source render here, and AppController::migrateLegacyStabilizedClips
+    // assets kept a whole-source render here, and StabilizeController::migrateLegacyClips
     // turns it into an asset on load.
     QString legacyStabilizePath;
     bool stabilizing = false;

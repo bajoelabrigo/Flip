@@ -55,14 +55,24 @@ Item {
             }
         }
         root.usingSystemFonts = families.length === 0
-        if (root.usingSystemFonts) {
-            // Fonts are an addon, so an empty catalog is the normal starting state — fall back to
-            // whatever the system has and offer the pack.
-            const system = Qt.fontFamilies()
-            for (let i = 0; i < system.length; ++i)
-                families.push({ "name": system[i], "previewFamily": system[i],
-                                "category": "system", "group": qsTr("System fonts") })
+        // Fonts added through the engine's own store (the MCP tools use it) sit with ours.
+        const user = EditorState.userFonts()
+        for (let i = 0; i < user.length; ++i) {
+            families.push({ "name": user[i], "previewFamily": user[i],
+                            "category": "mine", "group": qsTr("My fonts") })
+            if (!seen["mine"]) {
+                seen["mine"] = true
+                cats.unshift({ "id": "mine", "label": qsTr("My fonts") })
+            }
         }
+        // The system's fonts are always offered, after the catalog; without the font pack they
+        // are all there is.
+        const system = EditorState.systemFontFamilies()
+        for (let i = 0; i < system.length; ++i)
+            families.push({ "name": system[i], "previewFamily": system[i],
+                            "category": "system", "group": qsTr("System fonts") })
+        if (system.length > 0)
+            cats.push({ "id": "system", "label": qsTr("System fonts") })
         root.allFamilies = families
         root.categories = cats
         root.refilter()
@@ -124,6 +134,7 @@ Item {
     Connections {
         target: EditorState
         function onFontCatalogChanged() { root.rebuild() }
+        function onUserFontsChanged() { root.rebuild() }
         function onAssetFavoritesChanged() {
             root.favoritesTick++
             if (root.activeCategory === root.favoritesId)

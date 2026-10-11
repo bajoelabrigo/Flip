@@ -551,7 +551,10 @@ Item {
                             acceptedButtons: Qt.LeftButton | Qt.RightButton
                             onWheel: (wheel) => { wheel.accepted = false }
 
+                            property bool pressedByTouch: false
+
                             onPressed: (mouse) => {
+                                pressedByTouch = mouse.source !== Qt.MouseEventNotSynthesized
                                 if (mouse.button === Qt.RightButton) {
                                     EditorState.removeMaskPoint(maskBox.layerTrack,
                                                                 maskBox.layerClip, vertex.index)
@@ -581,6 +584,17 @@ Item {
 
                             onReleased: finish()
                             onCanceled: finish()
+
+                            // Touch has no right button: hold a vertex still to delete it.
+                            onPressAndHold: (mouse) => {
+                                if (!pressedByTouch || vertex.liveVx > -1e11
+                                        || !(mouse.buttons & Qt.LeftButton))
+                                    return
+                                EditorState.cancelPreviewDrag()
+                                root.interacting = false
+                                EditorState.removeMaskPoint(maskBox.layerTrack,
+                                                            maskBox.layerClip, vertex.index)
+                            }
                         }
                     }
                 }
