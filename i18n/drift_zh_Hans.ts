@@ -4169,19 +4169,11 @@
             <numerusform></numerusform>
         </translation>
     </message>
-    <message>
-        <source>Font added: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message numerus="yes">
         <source>%n fonts added</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
-    </message>
-    <message>
-        <source>That file is not a font this app can read</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not add that sound</source>
@@ -4224,10 +4216,6 @@
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
-    </message>
-    <message>
-        <source>This build of Flip Studio has no video stabilization support</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>English subtitles</source>
@@ -7264,14 +7252,6 @@
 <context>
     <name>FontPicker</name>
     <message>
-        <source>Add font</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fonts (*.ttf *.otf *.ttc *.otc)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>My fonts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7284,15 +7264,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add font file…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Install the font pack for curated families →</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remove font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12931,6 +12903,37 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SoundEffectsTab</name>
+    <message>
+        <source>Search sounds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No sound effects installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get extras</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SpeechTab</name>
     <message>
         <source>Voice saved</source>
@@ -13300,7 +13303,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This build of Drift has no video stabilization support</source>
+        <source>This build of Flip Studio has no video stabilization support</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -14235,10 +14238,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Flip Studio text style (*.drifttextstyle)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Templates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17592,37 +17591,6 @@ The video preview cannot render, and Flip Studio may not start at all. Update yo
         <source>Flip Studio has been running for %1 seconds but its window has not drawn anything yet.
 
 If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip Studio again.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SoundEffectsTab</name>
-    <message>
-        <source>Search sounds</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No sound effects installed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Get extras</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Listen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add at the playhead</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

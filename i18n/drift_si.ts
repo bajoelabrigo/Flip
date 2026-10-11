@@ -4184,20 +4184,12 @@
             <numerusform></numerusform>
         </translation>
     </message>
-    <message>
-        <source>Font added: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message numerus="yes">
         <source>%n fonts added</source>
         <translation type="unfinished">
             <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
-    </message>
-    <message>
-        <source>That file is not a font this app can read</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not add that sound</source>
@@ -4241,10 +4233,6 @@
             <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
-    </message>
-    <message>
-        <source>This build of Flip Studio has no video stabilization support</source>
-        <translation>Flip Studio හි මෙම සංස්කරණයට වීඩියෝ ස්ථාවර කිරීමේ සහාය නොමැත</translation>
     </message>
     <message>
         <source>English subtitles</source>
@@ -7294,14 +7282,6 @@
 <context>
     <name>FontPicker</name>
     <message>
-        <source>Add font</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fonts (*.ttf *.otf *.ttc *.otc)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>My fonts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7314,16 +7294,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add font file…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Install the font pack for curated families →</source>
         <translation>තෝරාගත් අකුරු පවුල් ලබාගැනීමට අකුරු පැකේජය ස්ථාපනය කරන්න →</translation>
-    </message>
-    <message>
-        <source>Remove font</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select a font</source>
@@ -12987,6 +12959,37 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SoundEffectsTab</name>
+    <message>
+        <source>Search sounds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No sound effects installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get extras</source>
+        <translation type="unfinished">අමතර අංග ලබාගන්න</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">නවත්වන්න</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SpeechTab</name>
     <message>
         <source>Voice saved</source>
@@ -13356,8 +13359,8 @@ If playback stutters, try another.</source>
         <translation>මෙම ක්ලිප් එක සඳහා දැනටමත් ස්ථාවර කිරීම ක්‍රියාත්මක වේ</translation>
     </message>
     <message>
-        <source>This build of Drift has no video stabilization support</source>
-        <translation>Drift හි මෙම සංස්කරණයට වීඩියෝ ස්ථාවර කිරීමේ සහාය නොමැත</translation>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation type="unfinished">Flip Studio හි මෙම සංස්කරණයට වීඩියෝ ස්ථාවර කිරීමේ සහාය නොමැත</translation>
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
@@ -14296,10 +14299,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Flip Studio text style (*.drifttextstyle)</source>
         <translation>Flip Studio පෙළ විලාසය (*.drifttextstyle)</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation type="unfinished">ආකෘති</translation>
     </message>
     <message>
         <source>Basic</source>
@@ -17668,37 +17667,6 @@ If the window is blank or black, your graphics driver is most likely outdated or
         <translation>Flip Studio තත්පර %1ක් තිස්සේ ධාවනය වෙමින් පවතින නමුත් එහි කවුළුව තවමත් කිසිවක් ඇඳ නැත.
 
 කවුළුව හිස්ව හෝ කළු පැහැයෙන් දිස්වන්නේ නම්, බොහෝ දුරට ඔබේ ග්‍රැෆික් ධාවකය යල් පැන ගිය එකක් හෝ දෝෂ සහිත එකක් විය හැක. ඔබේ GPU නිෂ්පාදකයාගේ වෙබ් අඩවියෙන් (AMD, NVIDIA හෝ Intel) එය යාවත්කාලීන කර නැවත Flip Studio ආරම්භ කරන්න.</translation>
-    </message>
-</context>
-<context>
-    <name>SoundEffectsTab</name>
-    <message>
-        <source>Search sounds</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No sound effects installed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Get extras</source>
-        <translation type="unfinished">අමතර අංග ලබාගන්න</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation type="unfinished">නවත්වන්න</translation>
-    </message>
-    <message>
-        <source>Listen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add at the playhead</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

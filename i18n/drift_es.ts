@@ -1086,10 +1086,6 @@
         <source>Rotate</source>
         <translation>Rotar</translation>
     </message>
-    <message>
-        <source>Save keeps the original video and stores this framing.</source>
-        <translation>Guardar conserva el video original y almacena este encuadre.</translation>
-    </message>
 </context>
 <context>
     <name>AndroidMoreToolsSheet</name>
@@ -4147,46 +4143,6 @@
         <translation>Plantilla de texto agregada</translation>
     </message>
     <message>
-        <source>Select a video clip to detect faces in</source>
-        <translation>Selecciona un clip de video para detectar caras</translation>
-    </message>
-    <message>
-        <source>Clip has no video to scan</source>
-        <translation>El clip no tiene video para analizar</translation>
-    </message>
-    <message>
-        <source>Select a video or audio clip</source>
-        <translation>Selecciona un clip de video o audio</translation>
-    </message>
-    <message>
-        <source>Select a video clip to stabilize</source>
-        <translation>Selecciona un clip de video para estabilizar</translation>
-    </message>
-    <message>
-        <source>Clip has no video file</source>
-        <translation>El clip no tiene archivo de video</translation>
-    </message>
-    <message>
-        <source>Stabilize Video</source>
-        <translation>Estabilizar video</translation>
-    </message>
-    <message>
-        <source>Select a video clip to find scenes in</source>
-        <translation>Selecciona un clip de video para buscar escenas</translation>
-    </message>
-    <message>
-        <source>Select a video or image clip to estimate depth for</source>
-        <translation>Selecciona un clip de video o imagen para estimar la profundidad</translation>
-    </message>
-    <message>
-        <source>Clip has no video to estimate depth for</source>
-        <translation>El clip no tiene video para estimar la profundidad</translation>
-    </message>
-    <message>
-        <source>Rendering stabilized video…</source>
-        <translation>Renderizando video estabilizado…</translation>
-    </message>
-    <message>
         <source>“%1” is not in these subtitles</source>
         <translation>“%1” no está en estos subtítulos</translation>
     </message>
@@ -4228,20 +4184,12 @@
             <numerusform>Emojis agregados en %n subtítulos</numerusform>
         </translation>
     </message>
-    <message>
-        <source>Font added: %1</source>
-        <translation>Fuente agregada: %1</translation>
-    </message>
     <message numerus="yes">
         <source>%n fonts added</source>
         <translation>
             <numerusform>%n fuente agregada</numerusform>
             <numerusform>%n fuentes agregadas</numerusform>
         </translation>
-    </message>
-    <message>
-        <source>That file is not a font this app can read</source>
-        <translation>Ese archivo no es una fuente que la app pueda leer</translation>
     </message>
     <message>
         <source>Could not add that sound</source>
@@ -4285,78 +4233,6 @@
             <numerusform>Se quitaron %1 s de pausas y %n muletilla</numerusform>
             <numerusform>Se quitaron %1 s de pausas y %n muletillas</numerusform>
         </translation>
-    </message>
-    <message>
-        <source>Frame video</source>
-        <translation>Encuadrar video</translation>
-    </message>
-    <message>
-        <source>Video framing saved</source>
-        <translation>Encuadre de video guardado</translation>
-    </message>
-    <message>
-        <source>Frame source video</source>
-        <translation>Encuadrar video original</translation>
-    </message>
-    <message>
-        <source>%1 (trimmed)</source>
-        <translation>%1 (recortado)</translation>
-    </message>
-    <message>
-        <source>Rendering…</source>
-        <translation>Renderizando…</translation>
-    </message>
-    <message>
-        <source>Render Trimmed Copy</source>
-        <translation>Renderizar copia recortada</translation>
-    </message>
-    <message>
-        <source>%1 (stabilized)</source>
-        <translation>%1 (estabilizado)</translation>
-    </message>
-    <message>
-        <source>Select a video clip to enhance</source>
-        <translation>Selecciona un clip de video para mejorarlo</translation>
-    </message>
-    <message>
-        <source>Choose a model to enhance with</source>
-        <translation>Elige un modelo para mejorarlo</translation>
-    </message>
-    <message>
-        <source>This clip is already being enhanced</source>
-        <translation>Este clip ya se está mejorando</translation>
-    </message>
-    <message>
-        <source>%1 (enhanced %2x)</source>
-        <translation>%1 (mejorado %2x)</translation>
-    </message>
-    <message>
-        <source>%1 (enhanced)</source>
-        <translation>%1 (mejorado)</translation>
-    </message>
-    <message>
-        <source>Enhance Video</source>
-        <translation>Mejorar video</translation>
-    </message>
-    <message>
-        <source>Enhanced video added to the media bin</source>
-        <translation>Video mejorado añadido a la biblioteca de medios</translation>
-    </message>
-    <message>
-        <source>Enhancing video…</source>
-        <translation>Mejorando video…</translation>
-    </message>
-    <message>
-        <source>This build of Flip Studio has no video stabilization support</source>
-        <translation>Esta versión de Flip Studio no admite la estabilización de video</translation>
-    </message>
-    <message>
-        <source>The video this clip was stabilized from is no longer in the media bin</source>
-        <translation>El video original de este clip estabilizado ya no está en la biblioteca de medios</translation>
-    </message>
-    <message>
-        <source>Stabilized video added to the media bin</source>
-        <translation>Video estabilizado añadido a la biblioteca de medios</translation>
     </message>
     <message>
         <source>English subtitles</source>
@@ -4763,10 +4639,6 @@
         <source>Add to favorites</source>
         <translation>Añadir a favoritos</translation>
     </message>
-    <message>
-        <source>Import audio effect</source>
-        <translation>Importar efecto de audio</translation>
-    </message>
 </context>
 <context>
     <name>AudioEffectCatalog</name>
@@ -5163,10 +5035,6 @@
     <message>
         <source>Reset to Normal</source>
         <translation>Restablecer a Normal</translation>
-    </message>
-    <message>
-        <source>Video only</source>
-        <translation>Solo video</translation>
     </message>
 </context>
 <context>
@@ -7414,14 +7282,6 @@
 <context>
     <name>FontPicker</name>
     <message>
-        <source>Add font</source>
-        <translation>Agregar fuente</translation>
-    </message>
-    <message>
-        <source>Fonts (*.ttf *.otf *.ttc *.otc)</source>
-        <translation>Fuentes (*.ttf *.otf *.ttc *.otc)</translation>
-    </message>
-    <message>
         <source>My fonts</source>
         <translation>Mis fuentes</translation>
     </message>
@@ -7434,16 +7294,8 @@
         <translation>Buscar fuentes</translation>
     </message>
     <message>
-        <source>Add font file…</source>
-        <translation>Agregar archivo de fuente…</translation>
-    </message>
-    <message>
         <source>Install the font pack for curated families →</source>
         <translation>Instala el paquete de fuentes para obtener familias seleccionadas →</translation>
-    </message>
-    <message>
-        <source>Remove font</source>
-        <translation>Quitar fuente</translation>
     </message>
     <message>
         <source>Select a font</source>
@@ -9479,26 +9331,6 @@
     <message>
         <source>Rotate</source>
         <translation>Rotar</translation>
-    </message>
-    <message>
-        <source>Drag the frame to crop. Save replaces this item in the media bin — then drag it onto the timeline.</source>
-        <translation>Arrastra el marco para recortar el lienzo. Guardar reemplaza este elemento en la biblioteca de medios — luego arrástralo a la línea de tiempo.</translation>
-    </message>
-    <message>
-        <source>Drag the frame to choose the area to use. The original video stays available for reframing.</source>
-        <translation>Arrastra el marco para elegir qué área usar. El video original sigue disponible para volver a encuadrar.</translation>
-    </message>
-    <message>
-        <source>Done keeps the original video and stores this range and framing. Upscale renders them as a new video in the media bin, then opens it in the Enhance window.</source>
-        <translation>Hecho conserva el video original y guarda este tramo y encuadre. Escalar los renderiza como un video nuevo en la biblioteca de medios y luego lo abre en la ventana Mejorar.</translation>
-    </message>
-    <message>
-        <source>Choose the part and framing to keep, then Next.</source>
-        <translation>Elige la parte y el encuadre que quieres conservar y pulsa Siguiente.</translation>
-    </message>
-    <message>
-        <source>Save keeps the original video and stores this framing.</source>
-        <translation>Guardar conserva el video original y almacena este encuadre.</translation>
     </message>
 </context>
 <context>
@@ -13127,6 +12959,37 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>SoundEffectsTab</name>
+    <message>
+        <source>Search sounds</source>
+        <translation>Buscar sonidos</translation>
+    </message>
+    <message>
+        <source>No sound effects installed</source>
+        <translation>No hay efectos de sonido instalados</translation>
+    </message>
+    <message>
+        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
+        <translation>Instala el paquete de efectos de sonido: whoosh, pop, campanas, golpes y más.</translation>
+    </message>
+    <message>
+        <source>Get extras</source>
+        <translation>Conseguir extras</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>Detener</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>Escuchar</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>Agregar en el cabezal</translation>
+    </message>
+</context>
+<context>
     <name>SpeechTab</name>
     <message>
         <source>Voice saved</source>
@@ -13445,10 +13308,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <source>Render</source>
         <translation>Renderizar</translation>
     </message>
-    <message>
-        <source>Speed applies to video, audio and composite clips.</source>
-        <translation>La velocidad se aplica a clips de video, de audio y compuestos.</translation>
-    </message>
 </context>
 <context>
     <name>SrtIO</name>
@@ -13500,8 +13359,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>La estabilización ya está en curso para este clip</translation>
     </message>
     <message>
-        <source>This build of Drift has no video stabilization support</source>
-        <translation>Esta versión de Drift no admite la estabilización de vídeo</translation>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation>Esta versión de Flip Studio no admite la estabilización de video</translation>
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
@@ -14440,10 +14299,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Flip Studio text style (*.drifttextstyle)</source>
         <translation>Estilo de texto Flip Studio (*.drifttextstyle)</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation>Plantillas</translation>
     </message>
     <message>
         <source>Basic</source>
@@ -16678,10 +16533,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <source>Corrects the source&apos;s own rotation losslessly — unlike Angle above, this changes decoding, not just the on-screen box.</source>
         <translation>Corrige sin pérdidas la propia rotación del origen — a diferencia de Ángulo más arriba, esto cambia la descodificación, no solo el cuadro en pantalla.</translation>
     </message>
-    <message>
-        <source>Video only</source>
-        <translation>Solo video</translation>
-    </message>
 </context>
 <context>
     <name>TransformLayerCard</name>
@@ -16979,10 +16830,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Add to favorites</source>
         <translation>Añadir a favoritos</translation>
-    </message>
-    <message>
-        <source>Import transition</source>
-        <translation>Importar transición</translation>
     </message>
 </context>
 <context>
@@ -17820,37 +17667,6 @@ If the window is blank or black, your graphics driver is most likely outdated or
         <translation>Flip Studio lleva ejecutándose %1 segundos, pero su ventana aún no ha dibujado nada.
 
 Si la ventana está en blanco o en negro, lo más probable es que tu controlador gráfico esté desactualizado o sea defectuoso. Actualízalo desde el sitio web del fabricante de tu GPU (AMD, NVIDIA o Intel) e inicia Flip Studio de nuevo.</translation>
-    </message>
-</context>
-<context>
-    <name>SoundEffectsTab</name>
-    <message>
-        <source>Search sounds</source>
-        <translation>Buscar sonidos</translation>
-    </message>
-    <message>
-        <source>No sound effects installed</source>
-        <translation>No hay efectos de sonido instalados</translation>
-    </message>
-    <message>
-        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
-        <translation>Instala el paquete de efectos de sonido: whoosh, pop, campanas, golpes y más.</translation>
-    </message>
-    <message>
-        <source>Get extras</source>
-        <translation>Conseguir extras</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Detener</translation>
-    </message>
-    <message>
-        <source>Listen</source>
-        <translation>Escuchar</translation>
-    </message>
-    <message>
-        <source>Add at the playhead</source>
-        <translation>Agregar en el cabezal</translation>
     </message>
 </context>
 </TS>

@@ -12,20 +12,24 @@
         <translation>বন্ধ করুন</translation>
     </message>
     <message>
-        <source>Drift</source>
-        <translation>Drift</translation>
+        <source>Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open-source video editor based on Drift by CutWire Studios.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Licensed under GPLv3. Copyright © CutWire Studios and Flip Studio contributors.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source code</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Version %1</source>
         <translation>সংস্করণ %1</translation>
-    </message>
-    <message>
-        <source>Open-source video editor by CutWire Studios.</source>
-        <translation>CutWire Studios-এর তৈরি ওপেন সোর্স ভিডিও এডিটর.</translation>
-    </message>
-    <message>
-        <source>Licensed under GPLv3. Copyright © CutWire Studios.</source>
-        <translation>GPLv3 লাইসেন্সের অধীনে প্রকাশিত। কপিরাইট © CutWire Studios.</translation>
     </message>
 </context>
 <context>
@@ -55,16 +59,16 @@
         <translation>ফাইলটি পড়া যায়নি.</translation>
     </message>
     <message>
-        <source>This is not a Drift effect file (%1).</source>
-        <translation type="unfinished">এটি একটি Drift ইফেক্ট ফাইল নয় (%1).</translation>
+        <source>This is not a Flip Studio effect file (%1).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This is not a Flip Studio addon file.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Another addon is still installing.</source>
         <translation type="unfinished">আরেকটি অ্যাডন এখনও ইনস্টল করা হচ্ছে.</translation>
-    </message>
-    <message>
-        <source>This is not a Drift addon file.</source>
-        <translation type="unfinished">এটি একটি Drift অ্যাডন ফাইল নয়.</translation>
     </message>
     <message>
         <source>Could not use this addon (%1).</source>
@@ -94,6 +98,14 @@
         <translation type="unfinished">“%1” এবং এর ডাউনলোড করা ডেটা মুছে ফেলা হবে। আপনি এটি পরে আবার ইনস্টল করতে পারেন.</translation>
     </message>
     <message>
+        <source>Flip Studio addons (*.driftpkg *.driftfx *.zip)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 is not signed by the Flip Studio team. Only install files you trust.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Install this transition?</source>
         <translation>এই ট্রানজিশনটি ইনস্টল করবেন?</translation>
     </message>
@@ -114,10 +126,6 @@
         <translation>অ্যাডঅন ইনস্টল করুন</translation>
     </message>
     <message>
-        <source>Drift addons (*.driftpkg *.driftfx *.zip)</source>
-        <translation>Drift অ্যাডঅন (*.driftpkg *.driftfx *.zip)</translation>
-    </message>
-    <message>
         <source>Install an unofficial addon?</source>
         <translation type="unfinished">একটি অনানুষ্ঠানিক অ্যাডন ইনস্টল করবেন?</translation>
     </message>
@@ -130,20 +138,12 @@
         <translation>“%1”</translation>
     </message>
     <message>
-        <source>%1 is not signed by the Drift team. Only install files you trust.</source>
-        <translation type="unfinished">%1 Drift টিম দ্বারা স্বাক্ষরিত নয়। শুধুমাত্র আপনি বিশ্বাসযোগ্য ফাইল ইনস্টল করুন.</translation>
-    </message>
-    <message>
         <source>It contains code that runs on your computer.</source>
         <translation type="unfinished">এতে কোড রয়েছে যা আপনার কম্পিউটারে চলে.</translation>
     </message>
     <message>
         <source>It will replace “%1”.</source>
         <translation>এটি “%1”-কে প্রতিস্থাপন করবে.</translation>
-    </message>
-    <message>
-        <source>%1 was made by a user, not the Drift team, and nothing has checked it. Only install files you trust.</source>
-        <translation type="unfinished">%1 একজন ব্যবহারকারী দ্বারা তৈরি করা হয়েছে, Drift দল নয়, এবং কিছুই এটি পরীক্ষা করেনি। শুধুমাত্র আপনি বিশ্বাসযোগ্য ফাইল ইনস্টল করুন.</translation>
     </message>
     <message>
         <source>Could not install “%1”: %2</source>
@@ -168,10 +168,6 @@
     <message>
         <source>Audio FX</source>
         <translation>অডিও ইফেক্ট</translation>
-    </message>
-    <message>
-        <source>Fonts</source>
-        <translation>ফন্ট</translation>
     </message>
     <message>
         <source>Stickers</source>
@@ -200,10 +196,6 @@
     <message>
         <source>Install an AI Engine below to unlock auto captions, subject cutout, funny face effects, and noise removal.</source>
         <translation type="unfinished">স্বয়ংক্রিয় ক্যাপশন, বিষয় কাটআউট, মজার মুখের ইফেক্ট, এবং শব্দ অপসারণ আনলক করতে নীচে একটি AI ইঞ্জিন ইনস্টল করুন.</translation>
-    </message>
-    <message>
-        <source>Restart Drift for this to take effect.</source>
-        <translation type="unfinished">এটি কার্যকর করার জন্য Drift পুনরায় চালু করুন.</translation>
     </message>
     <message>
         <source>Can&apos;t reach the download store</source>
@@ -238,10 +230,6 @@
         <translation>%1… %2%</translation>
     </message>
     <message>
-        <source>Requires Drift %1 or newer</source>
-        <translation>Drift %1 বা পরবর্তী সংস্করণ প্রয়োজন</translation>
-    </message>
-    <message>
         <source>Unofficial</source>
         <translation>অনানুষ্ঠানিক</translation>
     </message>
@@ -270,6 +258,14 @@
         <translation>ইনস্টল করুন</translation>
     </message>
     <message>
+        <source>%1 was made by a user, not the Flip Studio team, and nothing has checked it. Only install files you trust.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text &amp; fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Custom</source>
         <translation>কাস্টম</translation>
     </message>
@@ -284,6 +280,22 @@
     <message>
         <source>Put addon folders here, then reopen Extras</source>
         <translation type="unfinished">এখানে অ্যাডঅন ফোল্ডার রাখুন, তারপর এক্সট্রা পুনরায় খুলুন</translation>
+    </message>
+    <message>
+        <source>Restart Flip Studio for this to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloads coming soon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic subtitles, fonts, stickers and more will be available to download in an upcoming update. Extras you install from a file still work.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Requires Flip Studio %1 or newer</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete this pack&apos;s downloaded data</source>
@@ -305,8 +317,8 @@
         <translation>প্রস্তাবিত প্যাক</translation>
     </message>
     <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Drift without them — installing unlocks updates when they improve.</source>
-        <translation type="unfinished">ইফেক্ট, ট্রানজিশন এবং অডিওর জন্য প্রয়োজনীয় প্যাক ইনস্টল করুন। আপনি তাদের ছাড়াই Drift ব্যবহার চালিয়ে যেতে পারেন — আপডেটগুলি যখন উন্নতি হয় তখন ইনস্টল করা আনলক করে.</translation>
+        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1… %2%</source>
@@ -364,12 +376,20 @@
 <context>
     <name>AgentAccessControls</name>
     <message>
+        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip Studio, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Allow for this session</source>
         <translation>এই সেশনের জন্য অনুমতি দিন</translation>
     </message>
     <message>
         <source>Let an assistant on this device edit this project until you turn it off or quit.</source>
         <translation type="unfinished">এই ডিভাইসের একজন সহকারীকে এই প্রকল্পটি সম্পাদনা করতে দিন যতক্ষণ না আপনি এটি বন্ধ করেন বা প্রস্থান করেন.</translation>
+    </message>
+    <message>
+        <source>Skip the manual toggle next time you open Flip Studio. Turning access off resets this.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Turn this on, then copy the setup for Cursor or Claude and paste it into that app.</source>
@@ -462,14 +482,6 @@
     <message>
         <source>Start agent on startup</source>
         <translation>অ্যাপ চালু হলে এজেন্ট চালু করুন</translation>
-    </message>
-    <message>
-        <source>Skip the manual toggle next time you open Drift. Turning access off resets this.</source>
-        <translation type="unfinished">পরের বার যখন আপনি Drift খুলবেন ম্যানুয়াল টগলটি এড়িয়ে যান। অ্যাক্সেস বন্ধ করা এটি পুনরায় সেট করে.</translation>
-    </message>
-    <message>
-        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Drift, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
-        <translation type="unfinished">Cursor বা Claudeকে আপনার জন্য এই প্রকল্পটি সম্পাদনা করতে দিন — ক্লিপ যোগ করুন, টাইমলাইন পরিবর্তন করুন এবং এটি কেমন দেখাচ্ছে তা পরীক্ষা করুন। এই ডিভাইসে শুধুমাত্র প্রোগ্রাম. আপনি যখনই Drift খুলবেন তখন ডিফল্টরূপে বন্ধ থাকবে, যদি না আপনি নীচের “স্টার্টআপে স্টার্ট এজেন্ট” চালু করেন; আপনি শেষ হলে এটি এখানে বন্ধ করুন। সেশনের মধ্যে কী একই থাকে, তাই আপনি একবার পেস্ট করা সেটআপ কাজ করতে থাকে.</translation>
     </message>
 </context>
 <context>
@@ -724,8 +736,8 @@
 <context>
     <name>AndroidEditor</name>
     <message>
-        <source>Drift project (*.drift)</source>
-        <translation>Drift প্রকল্প (*.drift)</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -920,10 +932,6 @@
 <context>
     <name>AndroidMain</name>
     <message>
-        <source>Drift project (*.drift)</source>
-        <translation>Drift প্রকল্প (*.drift)</translation>
-    </message>
-    <message>
         <source>Save Project</source>
         <translation>প্রকল্প সংরক্ষণ করুন</translation>
     </message>
@@ -974,6 +982,10 @@
     <message>
         <source>Captions created.</source>
         <translation>ক্যাপশন তৈরি হয়েছে.</translation>
+    </message>
+    <message>
+        <source>Flip Studio project (*.drift)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Couldn’t create captions: %1</source>
@@ -2282,6 +2294,10 @@
         <translation type="unfinished">টেক্সট ক্লিপ যোগ করা হয়েছে।</translation>
     </message>
     <message>
+        <source>Text template added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Subtitles</source>
         <translation>সাবটাইটেল</translation>
     </message>
@@ -2647,6 +2663,10 @@
         <translation type="unfinished">ট্রানজিশন কার্ভ আপডেট করা হয়েছে</translation>
     </message>
     <message>
+        <source>English subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shape added</source>
         <translation type="unfinished">আকৃতি যোগ করা হয়েছে</translation>
     </message>
@@ -2815,6 +2835,48 @@
         <translation type="unfinished">সাবটাইটেল আপডেট করা হয়েছে</translation>
     </message>
     <message>
+        <source>“%1” is not in these subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace in subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Replaced in %n caption(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Subtitles are already clean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean up subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles cleaned up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keywords for emojis in these subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Emojis added to %n caption(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
         <source>Adjust subtitle timing</source>
         <translation type="unfinished">সাবটাইটেল সময় সামঞ্জস্য করুন</translation>
     </message>
@@ -2881,6 +2943,13 @@
     <message>
         <source>Text style imported</source>
         <translation type="unfinished">টেক্সট শৈলী ইমপোর্ট করা হয়েছে</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n fonts added</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>Could not import the font</source>
@@ -3177,6 +3246,49 @@
     <message>
         <source>Transition updated</source>
         <translation type="unfinished">পরিবর্তন আপডেট করা হয়েছে।</translation>
+    </message>
+    <message>
+        <source>Could not add that sound</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice enhanced: noise gate, de-esser, compressor and leveler</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or audio clip with speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install speech recognition from Extras to find the silences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not analyse the speech in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to find silences…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No speech found in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not cut this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Removed %1 s of pauses and %n filler word(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>Track solo</source>
@@ -4215,6 +4327,13 @@
         <translation type="unfinished">ছবিটি এক্সপোর্ট করা যায়নি.</translation>
     </message>
     <message numerus="yes">
+        <source>Imported %n files into %1 folders. %2 files were skipped — Flip Studio does not recognize their format. Drag them onto the bin to try anyway.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
         <source>Replaced with “%1”. %n clips were shortened to fit the new file.</source>
         <translation>
             <numerusform>“%1” দিয়ে প্রতিস্থাপন করা হয়েছে। নতুন ফাইলের সঙ্গে মেলাতে %nটি ক্লিপ ছোট করা হয়েছে.</numerusform>
@@ -4285,13 +4404,6 @@
         </translation>
     </message>
     <message numerus="yes">
-        <source>Imported %n files into %1 folders. %2 files were skipped — Drift does not recognize their format. Drag them onto the bin to try anyway.</source>
-        <translation>
-            <numerusform>%1টি ফোল্ডারে %nটি ফাইল ইমপোর্ট করা হয়েছে। %2টি ফাইল বাদ পড়েছে — Drift এগুলোর ফরম্যাট চিনতে পারেনি। তবুও চেষ্টা করতে মিডিয়া বিনে টেনে আনুন.</numerusform>
-            <numerusform>%1টি ফোল্ডারে %nটি ফাইল ইমপোর্ট করা হয়েছে। %2টি ফাইল বাদ পড়েছে — Drift এগুলোর ফরম্যাট চিনতে পারেনি। তবুও চেষ্টা করতে মিডিয়া বিনে টেনে আনুন.</numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
         <source>Imported %n files into %1 folders.</source>
         <translation>
             <numerusform>%1টি ফোল্ডারে %nটি ফাইল ইমপোর্ট করা হয়েছে.</numerusform>
@@ -4357,6 +4469,10 @@
     <message>
         <source>Audio FX</source>
         <translation>অডিও ইফেক্ট</translation>
+    </message>
+    <message>
+        <source>Sound effects</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shortcuts</source>
@@ -5292,12 +5408,12 @@
         <translation type="unfinished">একটি বাগ রিপোর্ট করুন</translation>
     </message>
     <message>
-        <source>Documentation</source>
-        <translation type="unfinished">ডকুমেন্টেশন</translation>
+        <source>Help and frequently asked questions</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Questions and support on Discord</source>
-        <translation type="unfinished">প্রশ্ন এবং ডিসকর্ডে সমর্থন</translation>
+        <source>Email support: soporte@getflipstudio.com</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5718,8 +5834,8 @@
         <translation type="unfinished">এই বিল্ডে মার্কেটপ্লেস পাওয়া যায় না.</translation>
     </message>
     <message>
-        <source>Could not load Drift Assets. Check your connection and try again.</source>
-        <translation type="unfinished">Drift সম্পদ লোড করা যায়নি। আপনার সংযোগ পরীক্ষা করুন এবং আবার চেষ্টা করুন.</translation>
+        <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>That asset could not be installed.</source>
@@ -5769,8 +5885,16 @@
         <translation type="unfinished">মিডিয়া বিনে যোগ করা হয়েছে</translation>
     </message>
     <message>
-        <source>Couldn’t load Drift Assets</source>
-        <translation type="unfinished">Drift সম্পদ লোড করা যায়নি</translation>
+        <source>Couldn’t load Flip Studio Assets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio Assets are still being published. Check back soon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Flip Studio Assets match “%1”.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Try again</source>
@@ -5779,10 +5903,6 @@
     <message>
         <source>No assets here yet</source>
         <translation type="unfinished">এখানে এখনো কোনো সম্পদ নেই</translation>
-    </message>
-    <message>
-        <source>Drift Assets are still being published. Check back soon.</source>
-        <translation type="unfinished">Drift সম্পদ এখনও প্রকাশিত হচ্ছে। শীঘ্রই আবার চেক করুন.</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -5797,20 +5917,12 @@
         <translation type="unfinished">সমস্ত সম্পদ</translation>
     </message>
     <message>
-        <source>No Drift Assets match “%1”.</source>
-        <translation type="unfinished">কোন Drift সম্পদের মিল নেই “%1”.</translation>
-    </message>
-    <message>
         <source>Search %1 for “%2”</source>
         <translation type="unfinished">“%2” এর জন্য %1 অনুসন্ধান করুন</translation>
     </message>
 </context>
 <context>
     <name>EditorHeader</name>
-    <message>
-        <source>Drift project (*.drift)</source>
-        <translation>Drift প্রকল্প (*.drift)</translation>
-    </message>
     <message>
         <source>Save Project</source>
         <translation>প্রকল্প সংরক্ষণ করুন</translation>
@@ -5832,6 +5944,10 @@
         <translation>সব ফাইল (*)</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save Project As</source>
         <translation>নতুন নামে প্রকল্প সংরক্ষণ করুন</translation>
     </message>
@@ -5842,6 +5958,10 @@
     <message>
         <source>Save Shareable Copy</source>
         <translation>শেয়ার করার উপযোগী অনুলিপি সংরক্ষণ করুন</translation>
+    </message>
+    <message>
+        <source>Home — your projects</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Projects</source>
@@ -5927,6 +6047,10 @@
         <translation>আরও সেটিংস…</translation>
     </message>
     <message>
+        <source>Flip Studio %1 is available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Agent</source>
         <translation>এজেন্ট</translation>
     </message>
@@ -5945,10 +6069,6 @@
     <message>
         <source>Update</source>
         <translation>আপডেট</translation>
-    </message>
-    <message>
-        <source>Drift %1 is available</source>
-        <translation>Drift %1 পাওয়া গেছে</translation>
     </message>
     <message>
         <source>Agent access</source>
@@ -6159,8 +6279,8 @@
 <context>
     <name>EffectStacksSection</name>
     <message>
-        <source>Drift effect stack (*.drifteffects)</source>
-        <translation>Drift ইফেক্ট স্ট্যাক (*.drifteffects)</translation>
+        <source>Flip Studio effect stack (*.drifteffects)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Import effect stack</source>
@@ -6788,8 +6908,8 @@
         <translation type="unfinished">prop.json ফেস প্রপ নয়</translation>
     </message>
     <message>
-        <source>prop.json needs a newer version of Drift</source>
-        <translation type="unfinished">prop.json-এর Driftের একটি নতুন সংস্করণ প্রয়োজন</translation>
+        <source>prop.json needs a newer version of Flip Studio</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>invalid prop id “%1”</source>
@@ -7115,6 +7235,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>My fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bold &amp; impact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elegant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Handwritten</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fun</source>
+        <translation type="unfinished">মজার আকৃতি</translation>
+    </message>
+    <message>
+        <source>Retro</source>
+        <translation type="unfinished">বিপরীতমুখী</translation>
+    </message>
+    <message>
         <source>High-Impact &amp; Bold</source>
         <translation type="unfinished">উচ্চ-ইফেক্ট এবং সাহসী</translation>
     </message>
@@ -7134,11 +7282,7 @@
 <context>
     <name>FontPicker</name>
     <message>
-        <source>Add font</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fonts (*.ttf *.otf *.ttc *.otc)</source>
+        <source>Select a font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7150,20 +7294,56 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Import fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fonts (*.ttf *.otf)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Search fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add font file…</source>
+        <source>Favorites</source>
+        <translation type="unfinished">প্রিয়</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">সব</translation>
+    </message>
+    <message>
+        <source>Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No fonts match “%1”</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star fonts to keep them here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fonts you use will appear here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing in this category</source>
+        <translation type="unfinished">এই বিভাগে কিছু নেই</translation>
+    </message>
+    <message>
+        <source>Import font…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>More fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Install the font pack for curated families →</source>
         <translation type="unfinished">কিউরেটেড পরিবারের জন্য ফন্ট প্যাক ইনস্টল করুন →</translation>
-    </message>
-    <message>
-        <source>Remove font</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -8118,10 +8298,6 @@
         <translation type="unfinished">ডিবাগ তথ্য…</translation>
     </message>
     <message>
-        <source>Drift %1 is the latest version.</source>
-        <translation>Drift %1-ই সর্বশেষ সংস্করণ.</translation>
-    </message>
-    <message>
         <source>Still opening a project — try again in a moment.</source>
         <translation type="unfinished">এখনও একটি প্রকল্প খোলা হচ্ছে — কিছুক্ষণের মধ্যে আবার চেষ্টা করুন.</translation>
     </message>
@@ -8164,6 +8340,10 @@
     <message>
         <source>Captions created.</source>
         <translation>ক্যাপশন তৈরি হয়েছে.</translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Couldn’t create captions: %1</source>
@@ -8308,8 +8488,8 @@
         <translation type="unfinished">আমরা গ্যারান্টি দিতে পারি না যে একটি ডাউনলোড সফল হবে, শেষ হবে বা আপনার বেছে নেওয়া গুণমান আপনাকে দেবে। কিছু আইটেম সহজভাবে ব্যর্থ হবে.</translation>
     </message>
     <message>
-        <source>Everything here comes from third parties. Drift does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation type="unfinished">এখানে সবকিছু তৃতীয় পক্ষ থেকে আসে। Drift এটি হোস্ট করে না, মালিকানা দেয় না বা পরীক্ষা করে না — আপনি যা ডাউনলোড করেন তা ব্যবহার করার অধিকার আপনার আছে তা নিশ্চিত করার জন্য আপনি দায়ী.</translation>
+        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I understand</source>
@@ -9774,12 +9954,12 @@
 <context>
     <name>PlaybackEngine</name>
     <message>
-        <source>%1 decodes on %2, but Drift draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation type="unfinished">%1 %2 এ ডিকোড করে, কিন্তু Drift %3 এ ড্র করে। প্রতিটি ফ্রেম সিস্টেম মেমরির মাধ্যমে অনুলিপি করা হয়, যা আঁকা গ্রাফিক্স কার্ডে ডিকোডিংয়ের চেয়ে ধীর.</translation>
+        <source>%1 decodes on %2, but Flip Studio draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 decodes on a different graphics card than the one Drift draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation type="unfinished">%1 একটি Drift যেটি ড্র করে তার থেকে ভিন্ন গ্রাফিক্স কার্ডে ডিকোড করে। প্রতিটি ফ্রেম সিস্টেম মেমরির মাধ্যমে অনুলিপি করা হয়, যা আঁকা গ্রাফিক্স কার্ডে ডিকোডিংয়ের চেয়ে ধীর.</translation>
+        <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto</source>
@@ -9864,12 +10044,12 @@
 <context>
     <name>PreferencesController</name>
     <message>
-        <source>Faster preview takes effect after you restart Drift.</source>
-        <translation>Drift পুনরায় চালু করলে দ্রুততর প্রিভিউ কার্যকর হবে.</translation>
+        <source>Faster preview takes effect after you restart Flip Studio.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The graphics card choice takes effect after you restart Drift.</source>
-        <translation>Drift পুনরায় চালু করলে নির্বাচিত গ্রাফিক্স কার্ড ব্যবহার করা হবে.</translation>
+        <source>The graphics card choice takes effect after you restart Flip Studio.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System default</source>
@@ -10017,16 +10197,16 @@ If playback stutters, try another.</source>
         <translation>বাতিল করুন</translation>
     </message>
     <message>
-        <source>Launching Drift with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
-        <translation type="unfinished">প্রাইম-রান (বা DRI_PRIME=1) সহ Drift চালু করা ডিকোডারের মতো একই কার্ডে OpenGL রাখে.</translation>
+        <source>Launching Flip Studio with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Run Drift on the high-performance graphics card</source>
-        <translation type="unfinished">উচ্চ-পারফরম্যান্স গ্রাফিক্স কার্ডে Drift চালান</translation>
+        <source>Run Flip Studio on the high-performance graphics card</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Set Drift to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Drift.</source>
-        <translation type="unfinished">উইন্ডোজ সেটিংস &gt; ডিসপ্লে &gt; গ্রাফিক্সে Driftকে হাই পারফরম্যান্সে সেট করুন, তারপর Drift রিস্টার্ট করুন.</translation>
+        <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open graphics settings</source>
@@ -10082,12 +10262,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished">GPU পূর্বরূপ অনুপলব্ধ।</translation>
     </message>
     <message>
-        <source>Your graphics driver only provides %1. Drift&apos;s preview needs OpenGL 3.3.</source>
-        <translation type="unfinished">আপনার গ্রাফিক্স ড্রাইভার শুধুমাত্র %1 প্রদান করে। Driftের পূর্বরূপের জন্য OpenGL 3.3 প্রয়োজন.</translation>
+        <source>Your graphics driver only provides %1. Flip Studio&apos;s preview needs OpenGL 3.3.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift could not start its GPU renderer, so the preview cannot draw.</source>
-        <translation type="unfinished">Drift তার GPU রেন্ডারার শুরু করতে পারেনি, তাই প্রিভিউ আঁকা যাবে না.</translation>
+        <source>Flip Studio could not start its GPU renderer, so the preview cannot draw.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Debug info</source>
@@ -10104,6 +10284,38 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>PreviewTransportBar</name>
+    <message>
+        <source>Fit</source>
+        <translation type="unfinished">মানানসই করুন</translation>
+    </message>
+    <message>
+        <source>YouTube, horizontal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation type="unfinished">বর্গক্ষেত্র</translation>
+    </message>
+    <message>
+        <source>Instagram post</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Classic</source>
+        <translation type="unfinished">ক্লাসিক</translation>
+    </message>
+    <message>
+        <source>Cinema</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>%1 (%2)</source>
         <translation>%1 (%2)</translation>
@@ -10145,6 +10357,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished">এগিয়ে যান 1s · 5s এর জন্য Shift · 10s এর জন্য Ctrl</translation>
     </message>
     <message>
+        <source>Preview zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aspect ratio of the video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Exit fullscreen preview (Esc)</source>
         <translation type="unfinished">ফুলস্ক্রিন প্রিভিউ থেকে প্রস্থান করুন (Esc)</translation>
     </message>
@@ -10156,12 +10376,12 @@ If playback stutters, try another.</source>
 <context>
     <name>Project</name>
     <message>
-        <source>This project was saved by a newer version of Drift (project format %1; this build reads up to %2).</source>
-        <translation type="unfinished">এই প্রকল্পটি Driftের একটি নতুন সংস্করণ দ্বারা সংরক্ষিত হয়েছে (প্রকল্প বিন্যাস %1 ; এই বিল্ডটি %2 পর্যন্ত পড়ে).</translation>
+        <source>This project was saved by a newer version of Flip Studio (project format %1; this build reads up to %2).</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This file isn’t a Drift project.</source>
-        <translation type="unfinished">এই ফাইলটি একটি Drift প্রকল্প নয়.</translation>
+        <source>This file isn’t a Flip Studio project.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -10173,14 +10393,6 @@ If playback stutters, try another.</source>
     <message>
         <source>cannot open %1</source>
         <translation type="unfinished">খুলতে পারে না %1</translation>
-    </message>
-    <message>
-        <source>file is too short to be a Drift project</source>
-        <translation type="unfinished">ফাইলটি একটি Drift প্রকল্পের জন্য খুব ছোট</translation>
-    </message>
-    <message>
-        <source>not a Drift project (bad magic)</source>
-        <translation type="unfinished">একটি Drift প্রকল্প নয় (খারাপ জাদু)</translation>
     </message>
     <message>
         <source>unsupported container revision</source>
@@ -10207,8 +10419,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished">প্রজেক্ট ম্যানিফেস্টের কোনো ফরম্যাট সংস্করণ নেই</translation>
     </message>
     <message>
-        <source>this project was saved by a newer version of Drift (format %1) — update to open it</source>
-        <translation type="unfinished">এই প্রকল্পটি Driftের একটি নতুন সংস্করণ (ফর্ম্যাট %1) দ্বারা সংরক্ষিত হয়েছে — এটি খুলতে আপডেট করুন</translation>
+        <source>file is too short to be a Flip Studio project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>not a Flip Studio project (bad magic)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>this project was saved by a newer version of Flip Studio (format %1) — update to open it</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>project blob table is not contiguous</source>
@@ -10360,6 +10580,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Failed to open Premiere Pro project</source>
         <translation type="unfinished">প্রিমিয়ার প্রো প্রোজেক্ট খুলতে ব্যর্থ হয়েছে</translation>
+    </message>
+    <message>
+        <source>Untitled Project</source>
+        <translation type="unfinished">শিরোনামহীন প্রকল্প</translation>
     </message>
     <message>
         <source>Premiere Pro project imported: %1</source>
@@ -11355,8 +11579,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished">কাজ করছে…</translation>
     </message>
     <message>
-        <source>Drift will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
-        <translation type="unfinished">Drift এই ক্লিপের একটি বিপরীত অনুলিপি রেন্ডার করবে যাতে এটি মসৃণভাবে বাজতে পারে। এটি চলাকালীন আপনি সম্পাদনা চালিয়ে যেতে পারেন.</translation>
+        <source>Flip Studio will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This can take a few minutes on longer clips.</source>
@@ -11807,12 +12031,36 @@ If playback stutters, try another.</source>
         <translation type="unfinished">উচ্চ কর্মক্ষমতা (বিচ্ছিন্ন GPU)</translation>
     </message>
     <message>
-        <source>Which graphics card Drift runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation type="unfinished">কোন গ্রাফিক্স কার্ড Drift চলে। উচ্চ কর্মক্ষমতা সেই কার্ডের একটি NVIDIA কার্ডে ভিডিও ডিকোড রাখে; পাওয়ার সেভিং কম ব্যাটারি ব্যবহার করে। পুনরায় চালু করার পরে কার্যকর হয়.</translation>
+        <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Choose which graphics card Drift runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
-        <translation type="unfinished">ডিসপ্লে &gt; গ্রাফিক্সের অধীনে উইন্ডোজ সেটিংসে কোন গ্রাফিক্স কার্ড Drift চলবে তা বেছে নিন। পুনরায় চালু করার পরে কার্যকর হয়.</translation>
+        <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart Flip Studio to apply this size.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished">Drift সম্পর্কে</translation>
+    </message>
+    <message>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open graphics settings</source>
@@ -11853,10 +12101,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Makes buttons, text, and icons larger. This is extra scale on top of the size already set in your display settings. Takes effect after restart.</source>
         <translation type="unfinished">বোতাম, টেক্সট এবং আইকনগুলিকে আরও বড় করে। এটি আপনার প্রদর্শন সেটিংসে ইতিমধ্যে সেট করা আকারের উপরে অতিরিক্ত স্কেল। পুনরায় চালু করার পরে কার্যকর হয়.</translation>
-    </message>
-    <message>
-        <source>Restart Drift to apply this size.</source>
-        <translation type="unfinished">এই আকার প্রয়োগ করতে Drift পুনরায় চালু করুন.</translation>
     </message>
     <message>
         <source>Layout</source>
@@ -11931,16 +12175,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished">স্টার্টআপ পরীক্ষা করুন</translation>
     </message>
     <message>
+        <source>Once a day, check whether a newer Flip Studio has been released</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Checking…</source>
         <translation type="unfinished">পরীক্ষা করা হচ্ছে…</translation>
     </message>
     <message>
         <source>Check now</source>
         <translation type="unfinished">এখনই চেক করুন</translation>
-    </message>
-    <message>
-        <source>Drift %1</source>
-        <translation>Drift %1</translation>
     </message>
     <message>
         <source>Extra packs</source>
@@ -11969,10 +12213,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Cloud providers</source>
         <translation type="unfinished">ক্লাউড প্রদানকারী</translation>
-    </message>
-    <message>
-        <source>Keys are stored unencrypted in Drift&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation type="unfinished">কীগুলি Drift এর সেটিংসে এনক্রিপ্ট না করে সংরক্ষণ করা হয়। পরিবেশে ELEVENLABS_API_KEY এবং FISH_API_KEY প্রাধান্য পায়। ব্যবহার আপনার নিজের অ্যাকাউন্টে বিল করা হয়.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -12015,10 +12255,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished">%1 এ অডিও এবং টেক্সট পাঠানোর অনুমতি দিন</translation>
     </message>
     <message>
-        <source>Needed before Drift or a connected agent can transcribe or generate audio with this service</source>
-        <translation type="unfinished">Drift বা একটি সংযুক্ত এজেন্ট এই পরিষেবার সাথে অডিও প্রতিলিপি বা তৈরি করতে পারে তার আগে প্রয়োজন</translation>
-    </message>
-    <message>
         <source>Default voice id</source>
         <translation type="unfinished">ডিফল্ট ভয়েস আইডি</translation>
     </message>
@@ -12049,10 +12285,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Unlink the marketplace account from this device</source>
         <translation type="unfinished">এই ডিভাইস থেকে মার্কেটপ্লেস অ্যাকাউন্টটি আনলিঙ্ক করুন</translation>
-    </message>
-    <message>
-        <source>Once a day, check whether a newer Drift has been released</source>
-        <translation type="unfinished">দিনে একবার, একটি নতুন Drift প্রকাশিত হয়েছে কিনা তা পরীক্ষা করুন।</translation>
     </message>
     <message>
         <source>Downloading…</source>
@@ -12727,6 +12959,37 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SoundEffectsTab</name>
+    <message>
+        <source>Search sounds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No sound effects installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get extras</source>
+        <translation type="unfinished">অতিরিক্ত পান</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">থামুন</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SpeechTab</name>
     <message>
         <source>Voice saved</source>
@@ -13096,8 +13359,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished">এই ক্লিপের জন্য ইতিমধ্যেই স্থিরকরণ প্রক্রিয়াধীন রয়েছে।</translation>
     </message>
     <message>
-        <source>This build of Drift has no video stabilization support</source>
-        <translation type="unfinished">Driftের এই বিল্ডটিতে কোনো ভিডিও স্ট্যাবিলাইজেশন সাপোর্ট নেই</translation>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
@@ -13219,12 +13482,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished">অবস্থান কীফ্রেম লিখে ক্যামেরা ঝাঁকান মসৃণ করে। রৈখিক প্যান দুটি কি দূরে দূরে থাকে; শুধুমাত্র দিক পরিবর্তন অতিরিক্ত কী পেতে. আপনি প্রয়োগ না করা পর্যন্ত মসৃণতা বা ট্রাইপড পরিবর্তন করা প্রিভিউ আপডেট করে না.</translation>
     </message>
     <message>
-        <source>Mode</source>
-        <translation type="unfinished">মোড</translation>
+        <source>Smooths camera shake. Flip Studio scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Smooths camera shake. Drift scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
-        <translation type="unfinished">মসৃণ ক্যামেরা শেক। Drift একবার ক্লিপটি স্ক্যান করে, তারপরে মিডিয়া বিনে একটি স্থিতিশীল অনুলিপি রেন্ডার করে এবং ক্লিপটিকে এতে স্যুইচ করে। আপনি প্রয়োগ না করা পর্যন্ত মসৃণতা বা ট্রাইপড পরিবর্তন করা প্রিভিউ আপডেট করে না.</translation>
+        <source>Mode</source>
+        <translation type="unfinished">মোড</translation>
     </message>
     <message>
         <source>Render a stabilized copy, or animate the clip with sparse transform keys</source>
@@ -13270,6 +13533,106 @@ If playback stutters, try another.</source>
 <context>
     <name>StartScreen</name>
     <message>
+        <source>Automatic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like your first video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation type="unfinished">বর্গক্ষেত্র</translation>
+    </message>
+    <message>
+        <source>Auto captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles from the voice, offline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Titles, verses, lower thirds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stickers</source>
+        <translation type="unfinished">স্টিকার</translation>
+    </message>
+    <message>
+        <source>3D and animated emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vertical video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For TikTok, Reels and Shorts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today, %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yesterday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extras</source>
+        <translation type="unfinished">অতিরিক্ত প্যাক</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished">সেটিংস</translation>
+    </message>
+    <message>
+        <source>Edit online</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio in your browser, at getflipstudio.com/editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation type="unfinished">প্রকল্প</translation>
+    </message>
+    <message>
+        <source>Search projects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open project…</source>
+        <translation type="unfinished">ওপেন প্রজেক্ট…</translation>
+    </message>
+    <message>
+        <source>Your projects will show up here once you save them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No project matches “%1”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source> (missing)</source>
         <translation> (পাওয়া যাচ্ছে না)</translation>
     </message>
@@ -13282,26 +13645,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Remove from recents</source>
         <translation>সাম্প্রতিক তালিকা থেকে সরান</translation>
-    </message>
-    <message>
-        <source>Create polished videos fast</source>
-        <translation>দ্রুত সুন্দর ভিডিও তৈরি করুন</translation>
-    </message>
-    <message>
-        <source>New Project</source>
-        <translation>নতুন প্রকল্প</translation>
-    </message>
-    <message>
-        <source>Open Project…</source>
-        <translation>প্রকল্প খুলুন…</translation>
-    </message>
-    <message>
-        <source>Recent Projects</source>
-        <translation>সাম্প্রতিক প্রকল্প</translation>
-    </message>
-    <message>
-        <source>Nothing here yet — projects you save will show up in this list.</source>
-        <translation>এখনও কিছু নেই — সংরক্ষণ করা প্রকল্পগুলো এই তালিকায় দেখা যাবে.</translation>
     </message>
 </context>
 <context>
@@ -13365,6 +13708,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add to favorites</source>
         <translation type="unfinished">ফেভারিটে যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -13594,6 +13941,90 @@ If playback stutters, try another.</source>
         <translation type="unfinished">এই ক্লিপের শুরুতে এক্সপোর্ট করা ক্যাপশনগুলি অফসেট করে যাতে তারা এক্সপোর্ট করা ভিডিওর সাথে মেলে</translation>
     </message>
     <message>
+        <source>Emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove hesitations (eh, mmm), capitalize each caption and apply your dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find &amp; replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fix a word in every caption at once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find (e.g. jesus)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace with (e.g. Jesús)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Always fix it in new subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adds it to your subtitle dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dictionary…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Words fixed automatically in every new subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitle dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">সংরক্ষণ করুন</translation>
+    </message>
+    <message>
+        <source>New subtitles fix these words on their own: names, places, words the speech recognition gets wrong.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Empty for now. Use Find &amp; replace with “Always fix it” to add words.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">সরান</translation>
+    </message>
+    <message>
+        <source>Wrong</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished">ডান</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">যোগ করুন</translation>
+    </message>
+    <message>
         <source>(empty)</source>
         <translation type="unfinished">(খালি)</translation>
     </message>
@@ -13608,6 +14039,10 @@ If playback stutters, try another.</source>
     <message>
         <source>No subtitles yet. Move to a time inside this clip and add one below.</source>
         <translation type="unfinished">এখনো কোনো সাবটাইটেল নেই। এই ক্লিপের ভিতরে একটি সময়ে সরান এবং নীচে একটি যোগ করুন.</translation>
+    </message>
+    <message>
+        <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type subtitle…</source>
@@ -13712,6 +14147,22 @@ If playback stutters, try another.</source>
         <translation type="unfinished">প্রথমে টাইমলাইনে একটি ভিডিও বা অডিও ক্লিপ নির্বাচন করুন.</translation>
     </message>
     <message>
+        <source>Caption style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove hesitations (eh, mmm) and capitalize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add emojis for keywords (fuego 🔥, Dios 🙏)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation type="unfinished">ছোট ক্যাপশন প্রতিটি শব্দগুচ্ছকে সমানভাবে বিভক্ত করে টাইম করা হয়, যাতে সেগুলি বক্তৃতার সাথে সিঙ্কের বাইরে চলে যেতে পারে.</translation>
     </message>
@@ -13722,6 +14173,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Select a video or audio clip first</source>
         <translation type="unfinished">প্রথমে একটি ভিডিও বা অডিও ক্লিপ নির্বাচন করুন</translation>
+    </message>
+    <message>
+        <source>Add English translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Creating captions… %1%</source>
@@ -13770,16 +14229,16 @@ If playback stutters, try another.</source>
 <context>
     <name>TextAssetsTab</name>
     <message>
-        <source>Drift text style (*.drifttextstyle)</source>
-        <translation>Drift টেক্সট স্টাইল (*.drifttextstyle)</translation>
-    </message>
-    <message>
         <source>Import text style</source>
         <translation type="unfinished">টেক্সট স্টাইল ইমপোর্ট করুন</translation>
     </message>
     <message>
         <source>Export text style</source>
         <translation type="unfinished">টেক্সট শৈলী এক্সপোর্ট করুন</translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation type="unfinished">মৌলিক</translation>
     </message>
     <message>
         <source>My styles</source>
@@ -13798,6 +14257,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">শৈলী বিকল্প</translation>
     </message>
     <message>
+        <source>Flip Studio text style (*.drifttextstyle)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rename…</source>
         <translation>নাম পরিবর্তন করুন…</translation>
     </message>
@@ -13810,11 +14273,15 @@ If playback stutters, try another.</source>
         <translation>মুছুন</translation>
     </message>
     <message>
-        <source>Built-in</source>
-        <translation type="unfinished">অন্তর্নির্মিত</translation>
+        <source>My styles · %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>My styles · %1</source>
+        <source>More…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get more templates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -14174,6 +14641,42 @@ If playback stutters, try another.</source>
     <message>
         <source>Glow</source>
         <translation>গ্লো</translation>
+    </message>
+    <message>
+        <source>No accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>First word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every other word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every Nth word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longest word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spoken word (karaoke)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keywords (long words and numbers)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text</source>
@@ -14551,6 +15054,266 @@ If playback stutters, try another.</source>
     <message>
         <source>Extrude</source>
         <translation type="unfinished">এক্সট্রুড</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished">শিরোনাম</translation>
+    </message>
+    <message>
+        <source>Main Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitle</source>
+        <translation type="unfinished">সাবটাইটেল</translation>
+    </message>
+    <message>
+        <source>A supporting line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alex Rivera · Host</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Watch until the end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Words worth keeping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Impact</source>
+        <translation type="unfinished">ইফেক্ট</translation>
+    </message>
+    <message>
+        <source>STOP SCROLLING</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation type="unfinished">পপ</translation>
+    </message>
+    <message>
+        <source>Big news!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Neon</source>
+        <translation type="unfinished">নিয়ন</translation>
+    </message>
+    <message>
+        <source>NEON NIGHTS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Handwritten</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With love</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hormozi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop wasting time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>One word colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make every word count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Word background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Highlight what matters most</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sentence background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read this carefully</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Karaoke pop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sing along with me</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Karaoke highlight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow the bouncing words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Soft and dreamy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation type="unfinished">আন্ডারলাইন করুন</translation>
+    </message>
+    <message>
+        <source>Underline this line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bulky</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Big first word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Word outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Outline every other word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GOLD STANDARD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chrome</source>
+        <translation type="unfinished">ক্রোম</translation>
+    </message>
+    <message>
+        <source>CHROME</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retro 3D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TOTALLY RAD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation type="unfinished">ত্রুটি</translation>
+    </message>
+    <message>
+        <source>SIGNAL LOST</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Comic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>KAPOW!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fire</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ON FIRE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FROZEN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Candy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sweet treats</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sticker</source>
+        <translation type="unfinished">স্টিকার</translation>
+    </message>
+    <message>
+        <source>Sticker!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rainbow wave</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taste the rainbow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cinematic</source>
+        <translation type="unfinished">সিনেমাটিক</translation>
+    </message>
+    <message>
+        <source>THE BEGINNING</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shimmer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sketch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rough draft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Editorial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The quiet issue</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text size</source>
@@ -14997,6 +15760,102 @@ If playback stutters, try another.</source>
         <translation type="unfinished">ট্রিম এন্ড — কাটার ডানদিকে সবকিছু ছেড়ে দিতে একটি ক্লিপে ক্লিক করুন</translation>
     </message>
     <message>
+        <source>Split</source>
+        <translation type="unfinished">বিভক্ত করুন</translation>
+    </message>
+    <message>
+        <source>Split at the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete left — remove the selected clip&apos;s part before the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete right — remove the selected clip&apos;s part after the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirror</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirror the selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop</source>
+        <translation type="unfinished">ক্রপ</translation>
+    </message>
+    <message>
+        <source>Crop the selected video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse, mirror, rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse, mirror or rotate the selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transcription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transcription — create captions from what is said</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove silences and filler words — keep only the spoken parts (eh, mmm and long pauses go)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove background — cut out the person or subject</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance audio — reduce noise or enhance the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance video</source>
+        <translation type="unfinished">ভিডিও উন্নত করুন</translation>
+    </message>
+    <message>
+        <source>Enhance video — sharper, cleaner picture (HD)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished">ঘোরান</translation>
+    </message>
+    <message>
+        <source>Rotate the selected clip 90°</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Undo</source>
         <translation>পূর্বাবস্থায় ফেরান</translation>
     </message>
@@ -15053,6 +15912,22 @@ If playback stutters, try another.</source>
         <translation>ক্যামেরা যোগ করুন</translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation type="unfinished">বিপরীত</translation>
+    </message>
+    <message>
+        <source>Rotate 90°</source>
+        <translation type="unfinished">90° ঘোরান</translation>
+    </message>
+    <message>
+        <source>Reduce noise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Main</source>
         <translation>মূল</translation>
     </message>
@@ -15067,6 +15942,14 @@ If playback stutters, try another.</source>
     <message>
         <source>No composite clips yet</source>
         <translation>এখনও কোনো কম্পোজিট ক্লিপ নেই</translation>
+    </message>
+    <message>
+        <source>Stop recording</source>
+        <translation type="unfinished">রেকর্ডিং বন্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Record voiceover at the current time</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>
@@ -16028,24 +16911,12 @@ If playback stutters, try another.</source>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <source>Drift %1 update</source>
-        <translation>Drift %1 আপডেট</translation>
-    </message>
-    <message>
         <source>Preparing the update…</source>
         <translation type="unfinished">আপডেট প্রস্তুত করা হচ্ছে…</translation>
     </message>
     <message>
-        <source>Installs when you close Drift</source>
-        <translation>Drift বন্ধ করলে ইনস্টল হবে</translation>
-    </message>
-    <message>
         <source>Ready to install</source>
         <translation>ইনস্টল করার জন্য প্রস্তুত</translation>
-    </message>
-    <message>
-        <source>Drift %1 will install when you close Drift.</source>
-        <translation>Drift বন্ধ করলে Drift %1 ইনস্টল হবে.</translation>
     </message>
     <message>
         <source>Couldn’t check for updates: %1</source>
@@ -16056,12 +16927,24 @@ If playback stutters, try another.</source>
         <translation type="unfinished">আপডেটের জন্য চেক করা যায়নি: অপ্রত্যাশিত প্রতিক্রিয়া.</translation>
     </message>
     <message>
-        <source>Drift %1 is the latest version.</source>
-        <translation>Drift %1-ই সর্বশেষ সংস্করণ.</translation>
+        <source>Flip Studio %1 update</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drift %1 is available.</source>
-        <translation>Drift %1 পাওয়া গেছে.</translation>
+        <source>Installs when you close Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is available.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Couldn’t download the update: the cache isn’t writable.</source>
@@ -16084,8 +16967,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished">আপডেট প্রস্তুত করা যায়নি.</translation>
     </message>
     <message>
-        <source>Drift %1 is ready to install.</source>
-        <translation>Drift %1 ইনস্টল করার জন্য প্রস্তুত.</translation>
+        <source>Flip Studio %1 is ready to install.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -16099,32 +16982,36 @@ If playback stutters, try another.</source>
         <translation type="unfinished">আপডেট প্রস্তুত</translation>
     </message>
     <message>
-        <source>Drift %1 will install when you close Drift.</source>
-        <translation>Drift বন্ধ করলে Drift %1 ইনস্টল হবে.</translation>
-    </message>
-    <message>
-        <source>Drift %1 is downloaded and ready to install</source>
-        <translation>Drift %1 ডাউনলোড হয়েছে ও ইনস্টল করার জন্য প্রস্তুত</translation>
-    </message>
-    <message>
-        <source>Drift %1 is available</source>
-        <translation>Drift %1 পাওয়া গেছে</translation>
-    </message>
-    <message>
-        <source>A new Drift update is available</source>
-        <translation>Drift-এর নতুন আপডেট পাওয়া গেছে</translation>
-    </message>
-    <message>
         <source>You have %1.</source>
         <translation type="unfinished">আপনার %1 আছে.</translation>
     </message>
     <message>
-        <source>Install automatically when I close Drift</source>
-        <translation>Drift বন্ধ করলে স্বয়ংক্রিয়ভাবে ইনস্টল করুন</translation>
+        <source>Downloading Flip Studio %1…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads in the background and installs the next time you close Drift. Unchecked, you choose when to install once the download finishes.</source>
-        <translation type="unfinished">ব্যাকগ্রাউন্ডে ডাউনলোড হয় এবং পরের বার Drift বন্ধ করলে ইনস্টল হয়। টিক চিহ্নমুক্ত, ডাউনলোড শেষ হলে কখন ইনস্টল করতে হবে তা আপনি বেছে নিন.</translation>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is downloaded and ready to install</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A new Flip Studio update is available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install automatically when I close Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloads in the background and installs the next time you close Flip Studio. Unchecked, you choose when to install once the download finishes.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Skip</source>
@@ -16139,16 +17026,12 @@ If playback stutters, try another.</source>
         <translation>পরে</translation>
     </message>
     <message>
-        <source>Install when I close Drift</source>
-        <translation>Drift বন্ধ করলে ইনস্টল করুন</translation>
+        <source>Closes Flip Studio, installs the update and opens Flip Studio again</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Update</source>
         <translation>আপডেট</translation>
-    </message>
-    <message>
-        <source>Closes Drift, installs the update and opens Drift again</source>
-        <translation>Drift বন্ধ করে, আপডেট ইনস্টল করে আবার Drift খুলবে</translation>
     </message>
     <message>
         <source>Downloads the update in the background</source>
@@ -16159,12 +17042,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished">আপনার ব্রাউজারে রিলিজ পৃষ্ঠা খোলে</translation>
     </message>
     <message>
-        <source>Downloading Drift %1…</source>
-        <translation>Drift %1 ডাউনলোড করা হচ্ছে…</translation>
-    </message>
-    <message>
         <source>Preparing the update…</source>
         <translation type="unfinished">আপডেট প্রস্তুত করা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Install when I close Flip Studio</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restart and install</source>
@@ -16742,48 +17625,40 @@ If playback stutters, try another.</source>
         <translation>OpenGL ড্রাইভার নেই</translation>
     </message>
     <message>
-        <source>Drift could not create an OpenGL context, so it cannot draw its interface or render the preview.
+        <source>Flip Studio could not create an OpenGL context, so it cannot draw its interface or render the preview.
 
 Install or update your graphics driver.</source>
-        <translation>Drift OpenGL কনটেক্সট তৈরি করতে পারেনি, তাই ইন্টারফেস আঁকতে বা প্রিভিউ রেন্ডার করতে পারছে না।
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
 
-আপনার গ্রাফিক্স ড্রাইভার ইনস্টল বা আপডেট করুন.</translation>
+The video preview cannot render. Updating your graphics driver may help.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
+
+The video preview cannot render, and Flip Studio may not start at all. Update your graphics driver, or run Flip Studio on a machine with a newer GPU.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio is not drawing its window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio has been running for %1 seconds but its window has not drawn anything yet.
+
+If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip Studio again.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OpenGL context unavailable</source>
         <translation>OpenGL কনটেক্সট পাওয়া যাচ্ছে না</translation>
     </message>
     <message>
-        <source>Drift could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
-
-The video preview cannot render. Updating your graphics driver may help.</source>
-        <translation>ড্রাইভার OpenGL %1.%2 (%3) সমর্থন করে বলে জানালেও Drift OpenGL 3.3 কোর প্রোফাইল কনটেক্সট তৈরি করতে পারেনি।
-
-ভিডিও প্রিভিউ রেন্ডার করা যাচ্ছে না। গ্রাফিক্স ড্রাইভার আপডেট করলে সমস্যাটি ঠিক হতে পারে.</translation>
-    </message>
-    <message>
         <source>Graphics driver is too old</source>
         <translation>গ্রাফিক্স ড্রাইভার অনেক পুরোনো</translation>
-    </message>
-    <message>
-        <source>Drift needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).
-
-The video preview cannot render, and Drift may not start at all. Update your graphics driver, or run Drift on a machine with a newer GPU.</source>
-        <translation>Drift-এর জন্য OpenGL 3.3 প্রয়োজন, কিন্তু এই গ্রাফিক্স ড্রাইভার শুধু OpenGL %1.%2 (%3) সমর্থন করে।
-
-ভিডিও প্রিভিউ রেন্ডার করা যাচ্ছে না এবং Drift চালু নাও হতে পারে। গ্রাফিক্স ড্রাইভার আপডেট করুন, অথবা নতুন GPU আছে এমন কম্পিউটারে Drift চালান.</translation>
-    </message>
-    <message>
-        <source>Drift is not drawing its window</source>
-        <translation>Drift-এর উইন্ডো আঁকা হচ্ছে না</translation>
-    </message>
-    <message>
-        <source>Drift has been running for %1 seconds but its window has not drawn anything yet.
-
-If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Drift again.</source>
-        <translation>Drift %1 সেকেন্ড ধরে চলছে, কিন্তু এর উইন্ডোতে এখনও কিছু আঁকা হয়নি।
-
-উইন্ডো ফাঁকা বা কালো থাকলে গ্রাফিক্স ড্রাইভার সম্ভবত পুরোনো বা ত্রুটিপূর্ণ। GPU নির্মাতার ওয়েবসাইট (AMD, NVIDIA বা Intel) থেকে ড্রাইভার আপডেট করে Drift আবার চালু করুন.</translation>
     </message>
 </context>
 </TS>

@@ -4186,20 +4186,12 @@
             <numerusform></numerusform>
         </translation>
     </message>
-    <message>
-        <source>Font added: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message numerus="yes">
         <source>%n fonts added</source>
         <translation type="unfinished">
             <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
-    </message>
-    <message>
-        <source>That file is not a font this app can read</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not add that sound</source>
@@ -4243,10 +4235,6 @@
             <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
-    </message>
-    <message>
-        <source>This build of Flip Studio has no video stabilization support</source>
-        <translation>Cette version de Flip Studio ne prend pas en charge la stabilisation vidéo</translation>
     </message>
     <message>
         <source>English subtitles</source>
@@ -7296,14 +7284,6 @@
 <context>
     <name>FontPicker</name>
     <message>
-        <source>Add font</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fonts (*.ttf *.otf *.ttc *.otc)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>My fonts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7316,16 +7296,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add font file…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Install the font pack for curated families →</source>
         <translation>Installer l&apos;extension de polices pour les familles sélectionnées →</translation>
-    </message>
-    <message>
-        <source>Remove font</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select a font</source>
@@ -12990,6 +12962,37 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
     </message>
 </context>
 <context>
+    <name>SoundEffectsTab</name>
+    <message>
+        <source>Search sounds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No sound effects installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get extras</source>
+        <translation type="unfinished">Obtenir des extras</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Arrêter</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SpeechTab</name>
     <message>
         <source>Voice saved</source>
@@ -13359,8 +13362,8 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation>Stabilisation déjà en cours pour ce clip</translation>
     </message>
     <message>
-        <source>This build of Drift has no video stabilization support</source>
-        <translation>Cette version de Drift ne prend pas en charge la stabilisation vidéo</translation>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation type="unfinished">Cette version de Flip Studio ne prend pas en charge la stabilisation vidéo</translation>
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
@@ -14301,10 +14304,6 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
     <message>
         <source>Flip Studio text style (*.drifttextstyle)</source>
         <translation>Style de texte Flip Studio (*.drifttextstyle)</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation type="unfinished">Préréglages</translation>
     </message>
     <message>
         <source>Basic</source>
@@ -17673,37 +17672,6 @@ If the window is blank or black, your graphics driver is most likely outdated or
         <translation>Flip Studio fonctionne depuis %1 secondes, mais sa fenêtre n&apos;a encore rien affiché.
 
 Si la fenêtre est blanche ou noire, votre pilote graphique est très probablement obsolète ou défaillant. Mettez-le à jour à partir du site Web du fabricant de votre GPU (AMD, NVIDIA ou Intel) et relancez Flip Studio.</translation>
-    </message>
-</context>
-<context>
-    <name>SoundEffectsTab</name>
-    <message>
-        <source>Search sounds</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No sound effects installed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Get extras</source>
-        <translation type="unfinished">Obtenir des extras</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation type="unfinished">Arrêter</translation>
-    </message>
-    <message>
-        <source>Listen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add at the playhead</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

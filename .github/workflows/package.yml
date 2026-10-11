@@ -590,11 +590,14 @@ jobs:
           # Linux and macOS (tests.yml); here the rest of the suite runs.
           $skip = 'textPainterCacheKeys', 'userFontImportResolvesAndRemoves',
                   'inlineCaretRunsRightToLeftInArabic', 'inlineCaretNeverStopsInsideASinhalaConjunct'
-          $functions = & build\Release\tst_skia.exe -functions |
+          # From ctest's working directory, which some cases resolve their data against.
+          Push-Location build\tests
+          $functions = & ..\Release\tst_skia.exe -functions |
               ForEach-Object { $_.Trim() -replace '\(\)$', '' } |
               Where-Object { $_ -and ($skip -notcontains $_) }
-          & build\Release\tst_skia.exe @functions
+          & ..\Release\tst_skia.exe @functions
           $skiaExit = $LASTEXITCODE
+          Pop-Location
           if ($ctestExit -ne 0 -or $skiaExit -ne 0) { exit 1 }
 
       # Flip Studio: the Translations test rewrites i18n/*.ts with lupdate's output before failing,

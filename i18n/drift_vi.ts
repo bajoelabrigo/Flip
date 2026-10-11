@@ -4169,19 +4169,11 @@
             <numerusform></numerusform>
         </translation>
     </message>
-    <message>
-        <source>Font added: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message numerus="yes">
         <source>%n fonts added</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
-    </message>
-    <message>
-        <source>That file is not a font this app can read</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not add that sound</source>
@@ -4224,10 +4216,6 @@
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
-    </message>
-    <message>
-        <source>This build of Flip Studio has no video stabilization support</source>
-        <translation>Bản dựng Flip Studio này không hỗ trợ ổn định video</translation>
     </message>
     <message>
         <source>English subtitles</source>
@@ -7264,14 +7252,6 @@
 <context>
     <name>FontPicker</name>
     <message>
-        <source>Add font</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fonts (*.ttf *.otf *.ttc *.otc)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>My fonts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7284,16 +7264,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add font file…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Install the font pack for curated families →</source>
         <translation>Cài đặt gói phông chữ cho bộ sưu tập đã chọn →</translation>
-    </message>
-    <message>
-        <source>Remove font</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select a font</source>
@@ -12938,6 +12910,37 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
 </context>
 <context>
+    <name>SoundEffectsTab</name>
+    <message>
+        <source>Search sounds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No sound effects installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get extras</source>
+        <translation type="unfinished">Tải gói bổ trợ</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SpeechTab</name>
     <message>
         <source>Voice saved</source>
@@ -13307,8 +13310,8 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Quá trình ổn định đang được tiến hành cho clip này</translation>
     </message>
     <message>
-        <source>This build of Drift has no video stabilization support</source>
-        <translation>Bản dựng Drift này không hỗ trợ ổn định video</translation>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation type="unfinished">Bản dựng Flip Studio này không hỗ trợ ổn định video</translation>
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
@@ -14244,10 +14247,6 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     <message>
         <source>Flip Studio text style (*.drifttextstyle)</source>
         <translation>Kiểu văn bản Flip Studio (*.drifttextstyle)</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation type="unfinished">Mẫu</translation>
     </message>
     <message>
         <source>Basic</source>
@@ -17609,37 +17608,6 @@ If the window is blank or black, your graphics driver is most likely outdated or
         <translation>Flip Studio đã chạy được %1 giây nhưng cửa sổ của nó vẫn chưa vẽ gì cả.
 
 Nếu cửa sổ trống hoặc đen, driver đồ họa của bạn rất có thể đã lỗi thời hoặc bị lỗi. Hãy cập nhật driver từ trang web của nhà sản xuất GPU (AMD, NVIDIA hoặc Intel) rồi khởi động lại Flip Studio.</translation>
-    </message>
-</context>
-<context>
-    <name>SoundEffectsTab</name>
-    <message>
-        <source>Search sounds</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No sound effects installed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Get extras</source>
-        <translation type="unfinished">Tải gói bổ trợ</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Listen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add at the playhead</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

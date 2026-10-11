@@ -4169,19 +4169,11 @@
             <numerusform></numerusform>
         </translation>
     </message>
-    <message>
-        <source>Font added: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message numerus="yes">
         <source>%n fonts added</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
-    </message>
-    <message>
-        <source>That file is not a font this app can read</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not add that sound</source>
@@ -4224,10 +4216,6 @@
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
-    </message>
-    <message>
-        <source>This build of Flip Studio has no video stabilization support</source>
-        <translation>이 Flip Studio 빌드에서는 동영상 안정화를 지원하지 않습니다</translation>
     </message>
     <message>
         <source>English subtitles</source>
@@ -7264,14 +7252,6 @@
 <context>
     <name>FontPicker</name>
     <message>
-        <source>Add font</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fonts (*.ttf *.otf *.ttc *.otc)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>My fonts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7284,16 +7264,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add font file…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Install the font pack for curated families →</source>
         <translation>엄선된 글꼴 모음을 사용하려면 글꼴 팩을 설치하세요 →</translation>
-    </message>
-    <message>
-        <source>Remove font</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select a font</source>
@@ -12931,6 +12903,37 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SoundEffectsTab</name>
+    <message>
+        <source>Search sounds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No sound effects installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get extras</source>
+        <translation type="unfinished">추가 기능 받기</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">중지</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SpeechTab</name>
     <message>
         <source>Voice saved</source>
@@ -13300,8 +13303,8 @@ If playback stutters, try another.</source>
         <translation>이 클립은 이미 안정화 중입니다</translation>
     </message>
     <message>
-        <source>This build of Drift has no video stabilization support</source>
-        <translation>이 Drift 빌드에서는 동영상 안정화를 지원하지 않습니다</translation>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation type="unfinished">이 Flip Studio 빌드에서는 동영상 안정화를 지원하지 않습니다</translation>
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
@@ -14236,10 +14239,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Flip Studio text style (*.drifttextstyle)</source>
         <translation>Flip Studio 텍스트 스타일 (*.drifttextstyle)</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation type="unfinished">템플릿</translation>
     </message>
     <message>
         <source>Basic</source>
@@ -17593,37 +17592,6 @@ The video preview cannot render, and Flip Studio may not start at all. Update yo
 
 If the window is blank or black, your graphics driver is most likely outdated or faulty. Update it from your GPU vendor&apos;s website (AMD, NVIDIA or Intel) and start Flip Studio again.</source>
         <translation>Drift가 %1초 동안 실행 중이지만 창에 아직 아무것도 표시되지 않았습니다.\n\n창이 비어 있거나 검은색이라면 그래픽 드라이버가 오래되었거나 문제가 있을 가능성이 높습니다. GPU 제조업체(AMD, NVIDIA 또는 Intel) 웹사이트에서 드라이버를 업데이트한 후 Drift를 다시 시작하세요.</translation>
-    </message>
-</context>
-<context>
-    <name>SoundEffectsTab</name>
-    <message>
-        <source>Search sounds</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No sound effects installed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Get extras</source>
-        <translation type="unfinished">추가 기능 받기</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation type="unfinished">중지</translation>
-    </message>
-    <message>
-        <source>Listen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add at the playhead</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

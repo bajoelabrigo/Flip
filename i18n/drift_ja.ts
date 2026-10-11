@@ -4169,19 +4169,11 @@
             <numerusform></numerusform>
         </translation>
     </message>
-    <message>
-        <source>Font added: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message numerus="yes">
         <source>%n fonts added</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
-    </message>
-    <message>
-        <source>That file is not a font this app can read</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not add that sound</source>
@@ -4224,10 +4216,6 @@
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
-    </message>
-    <message>
-        <source>This build of Flip Studio has no video stabilization support</source>
-        <translation>このビルドの Flip Studio はビデオの手ぶれ補正に対応していません</translation>
     </message>
     <message>
         <source>English subtitles</source>
@@ -7264,14 +7252,6 @@
 <context>
     <name>FontPicker</name>
     <message>
-        <source>Add font</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fonts (*.ttf *.otf *.ttc *.otc)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>My fonts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7284,16 +7264,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add font file…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Install the font pack for curated families →</source>
         <translation>厳選されたフォントファミリーを入手するにはフォントパックをインストール →</translation>
-    </message>
-    <message>
-        <source>Remove font</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select a font</source>
@@ -12938,6 +12910,37 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SoundEffectsTab</name>
+    <message>
+        <source>Search sounds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No sound effects installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get extras</source>
+        <translation type="unfinished">拡張機能を入手</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">停止</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SpeechTab</name>
     <message>
         <source>Voice saved</source>
@@ -13307,8 +13310,8 @@ If playback stutters, try another.</source>
         <translation>このクリップの手ぶれ補正は既に実行中です</translation>
     </message>
     <message>
-        <source>This build of Drift has no video stabilization support</source>
-        <translation>このビルドの Drift はビデオの手ぶれ補正に対応していません</translation>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation type="unfinished">このビルドの Flip Studio はビデオの手ぶれ補正に対応していません</translation>
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
@@ -14244,10 +14247,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Flip Studio text style (*.drifttextstyle)</source>
         <translation>Flip Studio テキストスタイル (*.drifttextstyle)</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation type="unfinished">テンプレート</translation>
     </message>
     <message>
         <source>Basic</source>
@@ -17609,37 +17608,6 @@ If the window is blank or black, your graphics driver is most likely outdated or
         <translation>Flip Studio は %1 秒間実行されていますが、ウィンドウにはまだ何も描画されていません。
 
 ウィンドウが空白または黒い場合、グラフィックスドライバーが古いか不具合がある可能性が高いです。GPU ベンダー (AMD、NVIDIA または Intel) の Web サイトからアップデートして、再度 Flip Studio を起動してください。</translation>
-    </message>
-</context>
-<context>
-    <name>SoundEffectsTab</name>
-    <message>
-        <source>Search sounds</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No sound effects installed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Get extras</source>
-        <translation type="unfinished">拡張機能を入手</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation type="unfinished">停止</translation>
-    </message>
-    <message>
-        <source>Listen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add at the playhead</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

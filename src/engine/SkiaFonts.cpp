@@ -17,6 +17,10 @@
 // macOS included, where it finds no font config files and lists nothing.
 #elif defined(SK_FONTMGR_CORETEXT_AVAILABLE)
 #include "include/ports/SkFontMgr_mac_ct.h"
+// DirectWrite before Android for the same reason: vcpkg's Windows Skia builds the Android port
+// too, which finds no /system/etc/fonts.xml and leaves text without a single system font.
+#elif defined(SK_FONTMGR_DIRECTWRITE_AVAILABLE)
+#include "include/ports/SkTypeface_win.h"
 #elif defined(SK_FONTMGR_ANDROID_AVAILABLE)
 #include "include/ports/SkFontMgr_android.h"
 #include "include/ports/SkFontScanner_FreeType.h"
@@ -220,6 +224,8 @@ sk_sp<SkFontMgr> systemFontMgr()
         mgr = SkFontMgr_New_FontConfig(nullptr, SkFontScanner_Make_FreeType());
 #elif defined(SK_FONTMGR_CORETEXT_AVAILABLE)
         mgr = SkFontMgr_New_CoreText(nullptr);
+#elif defined(SK_FONTMGR_DIRECTWRITE_AVAILABLE)
+        mgr = SkFontMgr_New_DirectWrite();
 #elif defined(SK_FONTMGR_ANDROID_AVAILABLE)
         mgr = SkFontMgr_New_Android(nullptr, SkFontScanner_Make_FreeType());
 #elif defined(SK_FONTMGR_FREETYPE_DIRECTORY_AVAILABLE)
