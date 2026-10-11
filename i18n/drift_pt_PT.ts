@@ -10090,6 +10090,38 @@ Se a reprodução travar, experimente outro.</translation>
 <context>
     <name>PreviewTransportBar</name>
     <message>
+        <source>Fit</source>
+        <translation type="unfinished">Ajustar</translation>
+    </message>
+    <message>
+        <source>YouTube, horizontal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation type="unfinished">Quadrado</translation>
+    </message>
+    <message>
+        <source>Instagram post</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Classic</source>
+        <translation type="unfinished">Clássico</translation>
+    </message>
+    <message>
+        <source>Cinema</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 (%2)</source>
         <translation type="unfinished">%1 (%2)</translation>
     </message>
@@ -10128,6 +10160,14 @@ Se a reprodução travar, experimente outro.</translation>
     <message>
         <source>Jump forward 1s · Shift for 5s · Ctrl for 10s</source>
         <translation type="unfinished">Avançar 1s · Shift para 5s · Ctrl para 10s</translation>
+    </message>
+    <message>
+        <source>Preview zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aspect ratio of the video</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exit fullscreen preview (Esc)</source>
@@ -14877,6 +14917,46 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Aparar fim — clique em um clipe para descartar tudo à direita do corte</translation>
     </message>
     <message>
+        <source>Split</source>
+        <translation type="unfinished">Dividir</translation>
+    </message>
+    <message>
+        <source>Split at the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete left — remove the selected clip&apos;s part before the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete right — remove the selected clip&apos;s part after the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirror</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirror the selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished">Girar</translation>
+    </message>
+    <message>
+        <source>Rotate the selected clip 90°</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Undo</source>
         <translation>Desfazer</translation>
     </message>
@@ -14947,6 +15027,14 @@ Se a reprodução travar, experimente outro.</translation>
     <message>
         <source>No composite clips yet</source>
         <translation>Nenhum clipe composto ainda</translation>
+    </message>
+    <message>
+        <source>Stop recording</source>
+        <translation type="unfinished">Parar gravação</translation>
+    </message>
+    <message>
+        <source>Record voiceover at the current time</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

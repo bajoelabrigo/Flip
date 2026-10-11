@@ -10043,6 +10043,38 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
 <context>
     <name>PreviewTransportBar</name>
     <message>
+        <source>Fit</source>
+        <translation type="unfinished">Vừa</translation>
+    </message>
+    <message>
+        <source>YouTube, horizontal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation type="unfinished">Hình vuông</translation>
+    </message>
+    <message>
+        <source>Instagram post</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Classic</source>
+        <translation type="unfinished">Cổ điển</translation>
+    </message>
+    <message>
+        <source>Cinema</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 (%2)</source>
         <translation type="unfinished">%1 (%2)</translation>
     </message>
@@ -10081,6 +10113,14 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     <message>
         <source>Jump forward 1s · Shift for 5s · Ctrl for 10s</source>
         <translation type="unfinished">Tiến lên 1 giây · Nhấn Shift cho 5 giây · Nhấn Ctrl cho 10 giây</translation>
+    </message>
+    <message>
+        <source>Preview zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aspect ratio of the video</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exit fullscreen preview (Esc)</source>
@@ -14826,6 +14866,46 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Cắt điểm kết thúc — nhấp vào clip để bỏ mọi thứ bên phải vị trí cắt</translation>
     </message>
     <message>
+        <source>Split</source>
+        <translation type="unfinished">Tách</translation>
+    </message>
+    <message>
+        <source>Split at the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete left — remove the selected clip&apos;s part before the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete right — remove the selected clip&apos;s part after the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirror</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirror the selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished">Xoay</translation>
+    </message>
+    <message>
+        <source>Rotate the selected clip 90°</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Undo</source>
         <translation>Hoàn tác</translation>
     </message>
@@ -14896,6 +14976,14 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     <message>
         <source>No composite clips yet</source>
         <translation>Chưa có clip tổ hợp nào</translation>
+    </message>
+    <message>
+        <source>Stop recording</source>
+        <translation type="unfinished">Dừng ghi</translation>
+    </message>
+    <message>
+        <source>Record voiceover at the current time</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

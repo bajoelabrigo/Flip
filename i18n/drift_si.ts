@@ -10090,6 +10090,38 @@ If playback stutters, try another.</source>
 <context>
     <name>PreviewTransportBar</name>
     <message>
+        <source>Fit</source>
+        <translation type="unfinished">සරිලන (Fit)</translation>
+    </message>
+    <message>
+        <source>YouTube, horizontal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation type="unfinished">සමචතුරස්‍රය</translation>
+    </message>
+    <message>
+        <source>Instagram post</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Classic</source>
+        <translation type="unfinished">සම්භාව්‍ය (Classic)</translation>
+    </message>
+    <message>
+        <source>Cinema</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 (%2)</source>
         <translation type="unfinished">%1 (%2)</translation>
     </message>
@@ -10128,6 +10160,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Jump forward 1s · Shift for 5s · Ctrl for 10s</source>
         <translation type="unfinished">තත් 1ක් ඉදිරියට පනින්න · තත් 5ක් සඳහා Shift · තත් 10ක් සඳහා Ctrl</translation>
+    </message>
+    <message>
+        <source>Preview zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aspect ratio of the video</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exit fullscreen preview (Esc)</source>
@@ -14877,6 +14917,46 @@ If playback stutters, try another.</source>
         <translation>අවසානය කප්පාදුව — කැපුමට දකුණුපස ඇති සියල්ල ඉවත් කිරීමට ක්ලිපයක් මත ක්ලික් කරන්න</translation>
     </message>
     <message>
+        <source>Split</source>
+        <translation type="unfinished">බෙදන්න</translation>
+    </message>
+    <message>
+        <source>Split at the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete left — remove the selected clip&apos;s part before the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete right — remove the selected clip&apos;s part after the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirror</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirror the selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished">කරකවන්න</translation>
+    </message>
+    <message>
+        <source>Rotate the selected clip 90°</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Undo</source>
         <translation>අහෝසි කරන්න</translation>
     </message>
@@ -14947,6 +15027,14 @@ If playback stutters, try another.</source>
     <message>
         <source>No composite clips yet</source>
         <translation>තවමත් සංයුක්ත ක්ලිප් නැත</translation>
+    </message>
+    <message>
+        <source>Stop recording</source>
+        <translation type="unfinished">පටිගත කිරීම නවත්වන්න</translation>
+    </message>
+    <message>
+        <source>Record voiceover at the current time</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

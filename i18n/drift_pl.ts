@@ -10137,6 +10137,38 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
 <context>
     <name>PreviewTransportBar</name>
     <message>
+        <source>Fit</source>
+        <translation type="unfinished">Dopasuj</translation>
+    </message>
+    <message>
+        <source>YouTube, horizontal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation type="unfinished">Kwadrat</translation>
+    </message>
+    <message>
+        <source>Instagram post</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Classic</source>
+        <translation type="unfinished">Klasyczny</translation>
+    </message>
+    <message>
+        <source>Cinema</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 (%2)</source>
         <translation type="unfinished">%1 (%2)</translation>
     </message>
@@ -10175,6 +10207,14 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     <message>
         <source>Jump forward 1s · Shift for 5s · Ctrl for 10s</source>
         <translation type="unfinished">Skocz do przodu 1s · Shift dla 5s · Ctrl dla 10s</translation>
+    </message>
+    <message>
+        <source>Preview zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aspect ratio of the video</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exit fullscreen preview (Esc)</source>
@@ -14928,6 +14968,46 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>Przytnij koniec — kliknij klip, aby usunąć wszystko na prawo od cięcia</translation>
     </message>
     <message>
+        <source>Split</source>
+        <translation type="unfinished">Podziel</translation>
+    </message>
+    <message>
+        <source>Split at the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete left — remove the selected clip&apos;s part before the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete right — remove the selected clip&apos;s part after the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirror</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirror the selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished">Obróć</translation>
+    </message>
+    <message>
+        <source>Rotate the selected clip 90°</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Undo</source>
         <translation>Cofnij</translation>
     </message>
@@ -14998,6 +15078,14 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     <message>
         <source>No composite clips yet</source>
         <translation>Brak jeszcze klipów kompozycji</translation>
+    </message>
+    <message>
+        <source>Stop recording</source>
+        <translation type="unfinished">Zatrzymaj nagrywanie</translation>
+    </message>
+    <message>
+        <source>Record voiceover at the current time</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

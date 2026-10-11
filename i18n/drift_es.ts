@@ -10090,6 +10090,38 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>PreviewTransportBar</name>
     <message>
+        <source>Fit</source>
+        <translation>Completa</translation>
+    </message>
+    <message>
+        <source>YouTube, horizontal</source>
+        <translation>YouTube, horizontal</translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts</source>
+        <translation>TikTok, Reels, Shorts</translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation>Cuadrado</translation>
+    </message>
+    <message>
+        <source>Instagram post</source>
+        <translation>Publicación de Instagram</translation>
+    </message>
+    <message>
+        <source>Classic</source>
+        <translation>Clásico</translation>
+    </message>
+    <message>
+        <source>Cinema</source>
+        <translation>Cine</translation>
+    </message>
+    <message>
+        <source>Ratio</source>
+        <translation>Relación</translation>
+    </message>
+    <message>
         <source>%1 (%2)</source>
         <translation>%1 (%2)</translation>
     </message>
@@ -10128,6 +10160,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Jump forward 1s · Shift for 5s · Ctrl for 10s</source>
         <translation>Saltar 1s adelante · Mayús para 5s · Ctrl para 10s</translation>
+    </message>
+    <message>
+        <source>Preview zoom</source>
+        <translation>Zoom de la vista previa</translation>
+    </message>
+    <message>
+        <source>Aspect ratio of the video</source>
+        <translation>Relación de aspecto del video</translation>
     </message>
     <message>
         <source>Exit fullscreen preview (Esc)</source>
@@ -14877,6 +14917,46 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Recortar final — haz clic en un clip para descartar todo a la derecha del corte</translation>
     </message>
     <message>
+        <source>Split</source>
+        <translation>Dividir</translation>
+    </message>
+    <message>
+        <source>Split at the current time</source>
+        <translation>Dividir en el cursor</translation>
+    </message>
+    <message>
+        <source>Delete left</source>
+        <translation>Borrar izquierda</translation>
+    </message>
+    <message>
+        <source>Delete left — remove the selected clip&apos;s part before the current time</source>
+        <translation>Borrar izquierda: quita la parte del clip seleccionado antes del cursor</translation>
+    </message>
+    <message>
+        <source>Delete right</source>
+        <translation>Borrar derecha</translation>
+    </message>
+    <message>
+        <source>Delete right — remove the selected clip&apos;s part after the current time</source>
+        <translation>Borrar derecha: quita la parte del clip seleccionado después del cursor</translation>
+    </message>
+    <message>
+        <source>Mirror</source>
+        <translation>Espejo</translation>
+    </message>
+    <message>
+        <source>Mirror the selected clip</source>
+        <translation>Voltear el clip seleccionado como espejo</translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation>Rotar</translation>
+    </message>
+    <message>
+        <source>Rotate the selected clip 90°</source>
+        <translation>Rotar 90° el clip seleccionado</translation>
+    </message>
+    <message>
         <source>Undo</source>
         <translation>Deshacer</translation>
     </message>
@@ -14947,6 +15027,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>No composite clips yet</source>
         <translation>Todavía no hay clips compuestos</translation>
+    </message>
+    <message>
+        <source>Stop recording</source>
+        <translation>Detener grabación</translation>
+    </message>
+    <message>
+        <source>Record voiceover at the current time</source>
+        <translation>Grabar voz en off desde el cursor</translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>
