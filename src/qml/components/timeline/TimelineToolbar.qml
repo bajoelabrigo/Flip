@@ -62,6 +62,8 @@ Item {
                        tip: qsTr("Reverse, mirror or rotate the selected clip"), menu: true },
         "transcribe": { glyph: Theme.icons.captions, label: qsTr("Transcription"),
                         tip: qsTr("Transcription — create captions from what is said") },
+        "cutSilences": { glyph: "scissors-line-dashed", label: qsTr("Remove silences"),
+                         tip: qsTr("Remove silences and filler words — keep only the spoken parts (eh, mmm and long pauses go)") },
         "removeBg": { glyph: "eraser", label: qsTr("Remove background"),
                       tip: qsTr("Remove background — cut out the person or subject") },
         "enhanceAudio": { glyph: "audio-waveform", label: qsTr("Enhance audio"),
@@ -99,7 +101,7 @@ Item {
     readonly property var defaultToolbarItems: [
         "select", "cut", "separator", "undo", "redo", "separator",
         "split", "deleteLeft", "deleteRight", "delete", "bookmark", "separator",
-        "crop", "freeze", "transform", "transcribe", "removeBg", "separateAudio", "enhanceAudio",
+        "crop", "freeze", "transform", "transcribe", "cutSilences", "removeBg", "separateAudio", "enhanceAudio",
         "enhanceVideo", "unlink"
     ]
     readonly property var defaultMenuItems: [
@@ -194,6 +196,7 @@ Item {
             break
         }
         case "enhanceVoice": EditorState.enhanceVoice(EditorState.selectedTrack, EditorState.selectedClip); break
+        case "cutSilences": EditorState.cutSilencesAndFillers(EditorState.selectedTrack, EditorState.selectedClip); break
         // From the overflow menu, where there is no submenu: the first choice.
         case "transform": toolbar.triggerAction("flip"); break
         case "enhanceAudio": toolbar.triggerAction("denoise"); break
@@ -282,6 +285,7 @@ Item {
         case "flip":
         case "rotate": return toolbar.selectionIsVisual
         case "transcribe":
+        case "cutSilences":
         case "enhanceAudio": return toolbar.selectionHasSound
         }
         return true

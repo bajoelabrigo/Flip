@@ -1317,6 +1317,11 @@ public:
     Q_INVOKABLE void addAudioEffect(int trackIndex, int clipIndex, const QString &effectId);
     // CapCut's "Enhance voice": noise gate, de-esser, compressor and leveler, as one edit.
     Q_INVOKABLE void enhanceVoice(int trackIndex, int clipIndex);
+    // CapCut's "remove silences / filler words": keeps only the spoken parts of a clip, dropping
+    // pauses longer than `minPause` seconds and hesitations (eh, mmm), from a word-level
+    // transcript of its media (made first when there is none). One undo step.
+    Q_INVOKABLE void cutSilencesAndFillers(int trackIndex, int clipIndex, double minPause = 0.6,
+                                           bool removeFillers = true);
     Q_INVOKABLE void removeAudioEffect(int trackIndex, int clipIndex, int effectIndex);
     Q_INVOKABLE void setAudioEffectEnabled(int trackIndex, int clipIndex, int effectIndex, bool enabled);
     Q_INVOKABLE void moveAudioEffect(int trackIndex, int clipIndex, int fromIndex, int toIndex);
@@ -1875,6 +1880,9 @@ protected:
     std::optional<QList<drift::SubtitleCue>> cuesFromStoredTranscripts(const QList<SubtitleSource> &sources,
                                                                        drift::TimeUs rangeStart,
                                                                        int maxWordsPerCue) const;
+    // Silence cuts waiting on a transcription job: job id -> {clip id, min pause, fillers}.
+    QHash<QString, QVariantMap> m_pendingSilenceCuts;
+    void applySilenceCut(const QString &clipId, double minPause, bool removeFillers);
     bool m_subtitleTranslateNext = false; // the next generation run translates to English
     bool generateSubtitlesForSources(QList<SubtitleSource> sources, const QString &language,
                                      int maxWordsPerCue);

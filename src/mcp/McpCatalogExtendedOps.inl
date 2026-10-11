@@ -774,6 +774,15 @@
                {QStringLiteral("declick"), propWithDefault(numberProp(QStringLiteral("Audio ramp at each cut, seconds; 0 = off"), 0, 0.5), 0.03)},
                {QStringLiteral("dry_run"), propWithDefault(boolProp(QStringLiteral("Report the cuts without making them")), false)}},
               clipRefProps())) },
+        { "cut_silences", "transcript", "Remove pauses and filler words from a clip",
+          "The editor's Remove silences button: keeps only the spoken parts of a video/audio clip, "
+          "dropping pauses longer than min_pause and hesitations (eh, mmm, um), from a word-level "
+          "transcript of its media. Transcribes first when there is none (async: the cut lands "
+          "when that job finishes; poll inspect). One undo step.",
+          objectSchema(mergeProps(
+              {{QStringLiteral("min_pause"), propWithDefault(numberProp(QStringLiteral("Shortest pause to remove, seconds"), 0.2, 3), 0.6)},
+               {QStringLiteral("fillers"), propWithDefault(boolProp(QStringLiteral("Also remove hesitations")), true)}},
+              clipRefProps())) },
         { "keep_ranges", "transcript", "Keep only these source ranges of a clip",
           "Rebuild a clip from source-time ranges, in the order given (reordering is fine): an "
           "edit decision list for one clip. Ranges are source seconds (get_transcript({asset}) "

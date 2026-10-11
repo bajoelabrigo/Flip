@@ -170,6 +170,7 @@ private slots:
     void keepRangesRebuildsLinkedPair();
     void assembleAppendsMultiAssetEdl();
     void cutWordsByTextAndIndex();
+    void cutSilencesKeepsTheSpeech();
     void getWaveformImageReportsWords();
     void setEffectStringParamSetsFileParam();
     void addShapeReturnsMintedId();
@@ -6135,6 +6136,30 @@ void McpTest::cutWordsByTextAndIndex()
     QCOMPARE(dispatcher.applyOne(QStringLiteral("cut_words"), {{QStringLiteral("clip"), clip}, {QStringLiteral("text"), QStringLiteral("zebra")}})
                  .value(QStringLiteral("error")).toString(),
              QStringLiteral("not_found"));
+}
+
+void McpTest::cutSilencesKeepsTheSpeech()
+{
+    if (ffmpegPath().isEmpty())
+        QSKIP("ffmpeg not available");
+    QTemporaryDir dir;
+    const QString source = dir.filePath(QStringLiteral("half-tone.wav"));
+    QVERIFY(writeHalfSilentTone(source));
+    AssetLibrary library;
+    AppController state(&library);
+    drift::mcp::McpDispatcher dispatcher(&state);
+    const QString clip = placeWithTranscript(dispatcher, state, source);
+
+    // "Hello world." · pause · "um" · pause · "Second phrase here.": two runs of speech, the
+    // filler and the pauses around it gone, 120 ms of air kept at each edge.
+    const QJsonObject r = dispatcher.applyOne(QStringLiteral("cut_silences"), {{QStringLiteral("clip"), clip}});
+    QVERIFY2(r.value(QStringLiteral("ok")).toBool(), qPrintable(QJsonDocument(r).toJson(QJsonDocument::Compact)));
+    const QList<drift::Clip> pieces = clipsOnTrackOf(state, clip);
+    QCOMPARE(pieces.size(), 2);
+    QCOMPARE(pieces[0].srcIn, drift::secondsToUs(0.08));
+    QCOMPARE(pieces[0].srcOut, drift::secondsToUs(1.02));
+    QCOMPARE(pieces[1].srcIn, drift::secondsToUs(1.88));
+    QCOMPARE(pieces[1].timelineStart, pieces[0].timelineEnd());
 }
 
 void McpTest::getWaveformImageReportsWords()
