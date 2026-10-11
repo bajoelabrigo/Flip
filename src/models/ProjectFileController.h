@@ -221,6 +221,11 @@ private:
     void rememberEmbeddedSources(const QList<drift::bundle::MediaEntry> &media);
     void reportMissingAddons(const QList<drift::bundle::AddonRef> &addons);
     void addRecentProject(const QString &path);
+    // The start screen's card for a recent project: its length and size now, and a frame drawn
+    // in the background into the app's data folder.
+    void refreshRecentCard(const QString &path);
+    static QString recentKey(const QString &path);
+    static QString recentThumbnailPath(const QString &path);
     // Off the GUI thread unless `synchronous` (quitting), which waits out any write in flight.
     void writeRecoveryFile(bool synchronous = false);
     void deleteRecoveryFile();

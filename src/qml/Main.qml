@@ -1009,6 +1009,25 @@ ApplicationWindow {
         })
     }
 
+    // The home screen's Create project: a project already in the chosen canvas (0×0 = it takes the
+    // first clip's shape, so no layout question first), opening on a tool's assets tab if asked.
+    function requestNewProjectWithSetup(width, height, tabId) {
+        if (window.rejectIfProjectOpenPending())
+            return
+        editorHeader.confirmIfDirty(function () {
+            EditorState.projectFile.newProject()
+            if (width > 0 && height > 0) {
+                EditorState.projectFile.setProjectSetup(width, height, EditorState.projectFile.projectFps())
+                EditorState.markProjectLayoutChosen()
+            } else {
+                window.layoutPromptDismissed = true
+            }
+            window.showStartScreen = false
+            if (tabId && tabId.length > 0)
+                assetsPanel.showTab(tabId)
+        })
+    }
+
     function requestOpenProjectDialog() {
         if (window.rejectIfProjectOpenPending())
             return
@@ -1683,7 +1702,8 @@ ApplicationWindow {
                 // Delegate to the same functions Ctrl+N / Ctrl+O / the header's Projects menu
                 // use, so there is exactly one place that gates on unsaved changes and decides
                 // when the screen is allowed to disappear.
-                onNewProjectRequested: window.requestNewProject()
+                onNewProjectRequested: window.requestNewProjectWithSetup(0, 0, "")
+                onNewProjectWithSetupRequested: (w, h, tabId) => window.requestNewProjectWithSetup(w, h, tabId)
                 onOpenProjectRequested: window.requestOpenProjectDialog()
                 onOpenRecentRequested: (path) => window.requestOpenRecentProject(path)
             }

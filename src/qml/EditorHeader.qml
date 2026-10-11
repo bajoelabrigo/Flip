@@ -314,6 +314,15 @@ Rectangle {
             Layout.alignment: Qt.AlignVCenter
             spacing: Theme.spacingLg
 
+            // Back to the home screen and its project list (asks to save first, like Close).
+            IconButton {
+                anchors.verticalCenter: parent.verticalCenter
+                glyph: "house"
+                variant: "ghost"
+                tooltip: qsTr("Home — your projects")
+                onClicked: root.closeProject()
+            }
+
             // Gmail-style status pill: saved/unsaved dot, project name, chevron.
             Rectangle {
                 id: projectsButton

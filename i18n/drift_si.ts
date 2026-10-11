@@ -6146,6 +6146,10 @@
         <translation>බෙදාගත හැකි පිටපතක් සුරකින්න</translation>
     </message>
     <message>
+        <source>Home — your projects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Projects</source>
         <translation>ව්‍යාපෘති</translation>
     </message>
@@ -12838,6 +12842,106 @@ If playback stutters, try another.</source>
 <context>
     <name>StartScreen</name>
     <message>
+        <source>Automatic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like your first video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation type="unfinished">සමචතුරස්‍රය</translation>
+    </message>
+    <message>
+        <source>Auto captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles from the voice, offline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Titles, verses, lower thirds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stickers</source>
+        <translation type="unfinished">ස්ටිකර්</translation>
+    </message>
+    <message>
+        <source>3D and animated emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vertical video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For TikTok, Reels and Shorts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today, %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yesterday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extras</source>
+        <translation type="unfinished">අමතර අංග</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished">සැකසීම්</translation>
+    </message>
+    <message>
+        <source>Edit online</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio in your browser, at getflipstudio.com/editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation type="unfinished">ව්‍යාපෘති</translation>
+    </message>
+    <message>
+        <source>Search projects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open project…</source>
+        <translation type="unfinished">ව්‍යාපෘතිය විවෘත කරන්න…</translation>
+    </message>
+    <message>
+        <source>Your projects will show up here once you save them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No project matches “%1”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source> (missing)</source>
         <translation> (නොමැත)</translation>
     </message>
@@ -12850,26 +12954,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Remove from recents</source>
         <translation>මෑතකදී භාවිත කළ ඒවායින් ඉවත් කරන්න</translation>
-    </message>
-    <message>
-        <source>Create polished videos fast</source>
-        <translation>උසස් නිමාවකින් යුත් වීඩියෝ ඉක්මනින් සාදන්න</translation>
-    </message>
-    <message>
-        <source>New Project</source>
-        <translation>නව ව්‍යාපෘතියක්</translation>
-    </message>
-    <message>
-        <source>Open Project…</source>
-        <translation>ව්‍යාපෘතිය විවෘත කරන්න…</translation>
-    </message>
-    <message>
-        <source>Recent Projects</source>
-        <translation>මෑතකාලීන ව්‍යාපෘති</translation>
-    </message>
-    <message>
-        <source>Nothing here yet — projects you save will show up in this list.</source>
-        <translation>මෙහි තවමත් කිසිවක් නැත — ඔබ සුරකින ව්‍යාපෘති මෙම ලැයිස්තුවේ දිස්වනු ඇත.</translation>
     </message>
 </context>
 <context>

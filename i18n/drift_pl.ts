@@ -6176,6 +6176,10 @@
         <translation>Zapisz kopię do udostępnienia</translation>
     </message>
     <message>
+        <source>Home — your projects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Projects</source>
         <translation>Projekty</translation>
     </message>
@@ -12886,6 +12890,106 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
 <context>
     <name>StartScreen</name>
     <message>
+        <source>Automatic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like your first video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation type="unfinished">Kwadrat</translation>
+    </message>
+    <message>
+        <source>Auto captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles from the voice, offline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Titles, verses, lower thirds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stickers</source>
+        <translation type="unfinished">Naklejki</translation>
+    </message>
+    <message>
+        <source>3D and animated emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vertical video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For TikTok, Reels and Shorts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today, %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yesterday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extras</source>
+        <translation type="unfinished">Dodatki</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished">Ustawienia</translation>
+    </message>
+    <message>
+        <source>Edit online</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio in your browser, at getflipstudio.com/editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation type="unfinished">Projekty</translation>
+    </message>
+    <message>
+        <source>Search projects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open project…</source>
+        <translation type="unfinished">Otwórz projekt…</translation>
+    </message>
+    <message>
+        <source>Your projects will show up here once you save them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No project matches “%1”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source> (missing)</source>
         <translation> (brakuje)</translation>
     </message>
@@ -12898,26 +13002,6 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     <message>
         <source>Remove from recents</source>
         <translation>Usuń z ostatnich</translation>
-    </message>
-    <message>
-        <source>Create polished videos fast</source>
-        <translation>Twórz dopracowane wideo szybko</translation>
-    </message>
-    <message>
-        <source>New Project</source>
-        <translation>Nowy projekt</translation>
-    </message>
-    <message>
-        <source>Open Project…</source>
-        <translation>Otwórz projekt…</translation>
-    </message>
-    <message>
-        <source>Recent Projects</source>
-        <translation>Ostatnie projekty</translation>
-    </message>
-    <message>
-        <source>Nothing here yet — projects you save will show up in this list.</source>
-        <translation>Nic tu jeszcze nie ma — projekty, które zapiszesz, pojawią się na tej liście.</translation>
     </message>
 </context>
 <context>
