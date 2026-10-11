@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Window
 import QtQuick.Controls.Basic
 import Drift
 import ".."
@@ -55,6 +56,18 @@ Item {
                          tip: qsTr("Delete right — remove the selected clip's part after the current time"),
                          shortcut: "deleteRight" },
         "flip": { glyph: "flip-horizontal-2", label: qsTr("Mirror"), tip: qsTr("Mirror the selected clip") },
+        // Shown only while a clip they apply to is selected, as in CapCut.
+        "crop": { glyph: Theme.icons.crop, label: qsTr("Crop"), tip: qsTr("Crop the selected video") },
+        "transform": { glyph: "flip-horizontal-2", label: qsTr("Reverse, mirror, rotate"),
+                       tip: qsTr("Reverse, mirror or rotate the selected clip"), menu: true },
+        "transcribe": { glyph: Theme.icons.captions, label: qsTr("Transcription"),
+                        tip: qsTr("Transcription — create captions from what is said") },
+        "removeBg": { glyph: "eraser", label: qsTr("Remove background"),
+                      tip: qsTr("Remove background — cut out the person or subject") },
+        "enhanceAudio": { glyph: "audio-waveform", label: qsTr("Enhance audio"),
+                          tip: qsTr("Enhance audio — reduce noise or enhance the voice"), menu: true },
+        "enhanceVideo": { glyph: Theme.icons.sparkles, label: qsTr("Enhance video"),
+                          tip: qsTr("Enhance video — sharper, cleaner picture (HD)") },
         "rotate": { glyph: "rotate-cw-square", label: qsTr("Rotate"), tip: qsTr("Rotate the selected clip 90°") },
         "undo": { glyph: Theme.icons.undo, label: qsTr("Undo"), shortcut: "undo" },
         "redo": { glyph: Theme.icons.redo, label: qsTr("Redo"), shortcut: "redo" },
@@ -86,12 +99,13 @@ Item {
     readonly property var defaultToolbarItems: [
         "select", "cut", "separator", "undo", "redo", "separator",
         "split", "deleteLeft", "deleteRight", "delete", "bookmark", "separator",
-        "freeze", "flip", "rotate", "separator", "separateAudio", "unlink"
+        "crop", "freeze", "transform", "transcribe", "removeBg", "separateAudio", "enhanceAudio",
+        "enhanceVideo", "unlink"
     ]
     readonly property var defaultMenuItems: [
         "trimStart", "trimEnd", "separator", "copy", "paste", "duplicate", "separator",
         "markIn", "markOut", "loop", "clearWorkArea", "separator",
-        "merge", "adjustmentLayer", "transformLayer", "camera"
+        "merge", "flip", "rotate", "adjustmentLayer", "transformLayer", "camera"
     ]
 
     readonly property bool hasSelection: EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
@@ -99,6 +113,25 @@ Item {
         const data = EditorState.selectedClipData
         return (data && data.kind) ? data.kind : ""
     }
+    readonly property bool selectionIsVideo: hasSelection && selectedKind === "video"
+    readonly property bool selectionHasSound: hasSelection && (selectedKind === "video" || selectedKind === "audio")
+
+    // The choices behind a menu button.
+    function menuEntries(id) {
+        if (id === "transform")
+            return [
+                { id: "reverse", label: qsTr("Reverse"), glyph: Theme.icons.rewind, enabled: toolbar.selectionIsVideo },
+                { id: "flip", label: qsTr("Mirror"), glyph: "flip-horizontal-2", enabled: toolbar.selectionIsVisual },
+                { id: "rotate", label: qsTr("Rotate 90°"), glyph: "rotate-cw-square", enabled: toolbar.selectionIsVisual }
+            ]
+        if (id === "enhanceAudio")
+            return [
+                { id: "denoise", label: qsTr("Reduce noise"), glyph: Theme.icons.volumeOff, enabled: toolbar.selectionHasSound },
+                { id: "enhanceVoice", label: qsTr("Enhance voice"), glyph: Theme.icons.mic, enabled: toolbar.selectionHasSound }
+            ]
+        return []
+    }
+
     // Clips with a picture to turn or mirror.
     readonly property bool selectionIsVisual: hasSelection && selectedKind !== "audio"
                                               && selectedKind !== "subtitle" && selectedKind !== "adjustment"
@@ -143,6 +176,27 @@ Item {
         case "separateAudio": EditorState.separateAudioFromSelection(); break
         case "unlink": EditorState.unlinkSelectedClips(); break
         case "split": EditorState.triggerAction("split"); break
+        case "crop": toolbar.Window.window.openSourceFrame(EditorState.selectedTrack, EditorState.selectedClip); break
+        case "transcribe": toolbar.Window.window.showAssetsTab("subtitles"); break
+        case "removeBg": {
+            const data = EditorState.selectedClipData
+            toolbar.Window.window.openSegmentation(EditorState.selectedTrack, EditorState.selectedClip,
+                                                   data && data.start !== undefined ? data.start : 0,
+                                                   data && data.duration !== undefined ? data.duration : 0)
+            break
+        }
+        case "enhanceVideo": toolbar.Window.window.openRestore(EditorState.selectedTrack, EditorState.selectedClip); break
+        case "reverse": EditorState.requestClipReverse(EditorState.selectedTrack, EditorState.selectedClip); break
+        case "denoise": {
+            const data = EditorState.selectedClipData
+            toolbar.Window.window.openDenoise(EditorState.selectedTrack, EditorState.selectedClip,
+                                              data && data.duration !== undefined ? data.duration : 0)
+            break
+        }
+        case "enhanceVoice": EditorState.enhanceVoice(EditorState.selectedTrack, EditorState.selectedClip); break
+        // From the overflow menu, where there is no submenu: the first choice.
+        case "transform": toolbar.triggerAction("flip"); break
+        case "enhanceAudio": toolbar.triggerAction("denoise"); break
         case "deleteLeft": EditorState.splitSelectedClipLeft(); break
         case "deleteRight": EditorState.splitSelectedClipRight(); break
         case "flip": {
@@ -219,6 +273,17 @@ Item {
             return EditorState.separateAudioAvailable
         if (id === "unlink")
             return EditorState.unlinkAvailable
+        switch (id) {
+        case "crop":
+        case "freeze":
+        case "removeBg":
+        case "enhanceVideo": return toolbar.selectionIsVideo
+        case "transform":
+        case "flip":
+        case "rotate": return toolbar.selectionIsVisual
+        case "transcribe":
+        case "enhanceAudio": return toolbar.selectionHasSound
+        }
         return true
     }
 
@@ -299,15 +364,45 @@ Item {
                     color: Theme.panelBorder
                 }
 
+                readonly property bool isMenu: !slot.isSeparator && !!toolbar.actionMeta[slot.modelData].menu
+
                 IconButton {
                     id: actionButton
                     visible: !slot.isSeparator
                     glyph: slot.isSeparator ? "" : toolbar.actionMeta[slot.modelData].glyph
                     variant: "text"
                     tooltip: slot.isSeparator ? "" : toolbar.actionTooltip(slot.modelData)
-                    active: toolbar.actionActive(slot.modelData)
+                    active: toolbar.actionActive(slot.modelData) || slotMenu.opened
                     enabled: toolbar.actionEnabled(slot.modelData)
-                    onClicked: toolbar.triggerAction(slot.modelData)
+                    onClicked: slot.isMenu ? slotMenu.popup(actionButton, 0, actionButton.height)
+                                           : toolbar.triggerAction(slot.modelData)
+                }
+
+                // A small mark that the button opens a menu.
+                IconGlyph {
+                    visible: slot.isMenu
+                    anchors.right: actionButton.right
+                    anchors.bottom: actionButton.bottom
+                    anchors.rightMargin: -2
+                    glyph: Theme.icons.chevronDown
+                    iconSize: 8
+                    iconColor: Theme.mutedForeground
+                }
+
+                ThemedContextMenu {
+                    id: slotMenu
+                    Instantiator {
+                        model: slot.isMenu ? toolbar.menuEntries(slot.modelData) : []
+                        delegate: ThemedMenuItem {
+                            required property var modelData
+                            text: modelData.label
+                            icon.name: modelData.glyph
+                            enabled: modelData.enabled
+                            onTriggered: toolbar.triggerAction(modelData.id)
+                        }
+                        onObjectAdded: (index, object) => slotMenu.insertItem(index, object)
+                        onObjectRemoved: (index, object) => slotMenu.removeItem(object)
+                    }
                 }
             }
         }

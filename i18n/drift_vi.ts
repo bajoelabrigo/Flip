@@ -3466,6 +3466,14 @@
         <translation>Đã cập nhật hiệu ứng chuyển cảnh</translation>
     </message>
     <message>
+        <source>Enhance voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice enhanced: noise gate, de-esser, compressor and leveler</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Track solo</source>
         <translation>Track bật solo</translation>
     </message>
@@ -14898,6 +14906,54 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Crop</source>
+        <translation type="unfinished">Cắt khung hình</translation>
+    </message>
+    <message>
+        <source>Crop the selected video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse, mirror, rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse, mirror or rotate the selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transcription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transcription — create captions from what is said</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove background — cut out the person or subject</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance audio — reduce noise or enhance the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance video</source>
+        <translation type="unfinished">Nâng cấp video</translation>
+    </message>
+    <message>
+        <source>Enhance video — sharper, cleaner picture (HD)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rotate</source>
         <translation type="unfinished">Xoay</translation>
     </message>
@@ -14959,6 +15015,22 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>Add camera</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse</source>
+        <translation type="unfinished">Đảo ngược</translation>
+    </message>
+    <message>
+        <source>Rotate 90°</source>
+        <translation type="unfinished">Xoay 90°</translation>
+    </message>
+    <message>
+        <source>Reduce noise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

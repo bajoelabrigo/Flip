@@ -1315,6 +1315,8 @@ public:
     Q_INVOKABLE QVariantList audioEffectCatalog() const;
     Q_INVOKABLE QVariantList audioEffectCategories() const;
     Q_INVOKABLE void addAudioEffect(int trackIndex, int clipIndex, const QString &effectId);
+    // CapCut's "Enhance voice": noise gate, de-esser, compressor and leveler, as one edit.
+    Q_INVOKABLE void enhanceVoice(int trackIndex, int clipIndex);
     Q_INVOKABLE void removeAudioEffect(int trackIndex, int clipIndex, int effectIndex);
     Q_INVOKABLE void setAudioEffectEnabled(int trackIndex, int clipIndex, int effectIndex, bool enabled);
     Q_INVOKABLE void moveAudioEffect(int trackIndex, int clipIndex, int fromIndex, int toIndex);

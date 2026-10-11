@@ -19967,6 +19967,20 @@ QVariantList AppController::audioEffectCategories() const
     return out;
 }
 
+void AppController::enhanceVoice(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    m_mcpController->beginBatch();
+    // The first effect moves the selection to the audio-effects layer it lands on (created for
+    // the clip when it has none); the rest go to that same layer.
+    addAudioEffect(trackIndex, clipIndex, QStringLiteral("utility.gate"));
+    for (const char *id : {"utility.deesser", "utility.compressor", "utility.leveler"})
+        addAudioEffect(m_selectedTrack, m_selectedClip, QLatin1String(id));
+    m_mcpController->endBatch(tr("Enhance voice"), true);
+    setLastMessage(tr("Voice enhanced: noise gate, de-esser, compressor and leveler"), QStringLiteral("success"));
+}
+
 void AppController::addAudioEffect(int trackIndex, int clipIndex, const QString &effectId)
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())

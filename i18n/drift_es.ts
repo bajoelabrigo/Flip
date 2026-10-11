@@ -3468,6 +3468,14 @@
         <translation>Transición actualizada</translation>
     </message>
     <message>
+        <source>Enhance voice</source>
+        <translation>Mejorar voz</translation>
+    </message>
+    <message>
+        <source>Voice enhanced: noise gate, de-esser, compressor and leveler</source>
+        <translation>Voz mejorada: puerta de ruido, de-esser, compresor y nivelador</translation>
+    </message>
+    <message>
         <source>Track solo</source>
         <translation>Solo de pista</translation>
     </message>
@@ -14949,6 +14957,54 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Voltear el clip seleccionado como espejo</translation>
     </message>
     <message>
+        <source>Crop</source>
+        <translation>Recortar</translation>
+    </message>
+    <message>
+        <source>Crop the selected video</source>
+        <translation>Recortar el video seleccionado</translation>
+    </message>
+    <message>
+        <source>Reverse, mirror, rotate</source>
+        <translation>Invertir, espejo, rotar</translation>
+    </message>
+    <message>
+        <source>Reverse, mirror or rotate the selected clip</source>
+        <translation>Invertir, voltear como espejo o rotar el clip seleccionado</translation>
+    </message>
+    <message>
+        <source>Transcription</source>
+        <translation>Transcripción</translation>
+    </message>
+    <message>
+        <source>Transcription — create captions from what is said</source>
+        <translation>Transcripción: crea subtítulos con lo que se dice</translation>
+    </message>
+    <message>
+        <source>Remove background</source>
+        <translation>Quitar fondo</translation>
+    </message>
+    <message>
+        <source>Remove background — cut out the person or subject</source>
+        <translation>Quitar fondo: recorta a la persona o al sujeto</translation>
+    </message>
+    <message>
+        <source>Enhance audio</source>
+        <translation>Mejorar audio</translation>
+    </message>
+    <message>
+        <source>Enhance audio — reduce noise or enhance the voice</source>
+        <translation>Mejorar audio: reducir ruido o mejorar la voz</translation>
+    </message>
+    <message>
+        <source>Enhance video</source>
+        <translation>Mejorar video</translation>
+    </message>
+    <message>
+        <source>Enhance video — sharper, cleaner picture (HD)</source>
+        <translation>Mejorar video: imagen más nítida y limpia (HD)</translation>
+    </message>
+    <message>
         <source>Rotate</source>
         <translation>Rotar</translation>
     </message>
@@ -15011,6 +15067,22 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Add camera</source>
         <translation>Añadir cámara</translation>
+    </message>
+    <message>
+        <source>Reverse</source>
+        <translation>Invertir</translation>
+    </message>
+    <message>
+        <source>Rotate 90°</source>
+        <translation>Rotar 90°</translation>
+    </message>
+    <message>
+        <source>Reduce noise</source>
+        <translation>Reducir ruido</translation>
+    </message>
+    <message>
+        <source>Enhance voice</source>
+        <translation>Mejorar voz</translation>
     </message>
     <message>
         <source>Main</source>

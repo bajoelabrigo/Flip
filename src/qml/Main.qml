@@ -920,6 +920,11 @@ ApplicationWindow {
         segmentationWindowLoader.ensure().openFor(track, clip, startSeconds, durationSeconds)
     }
 
+    // Jumps the assets panel to a tab ("subtitles", "effects", ...): toolbar shortcuts into it.
+    function showAssetsTab(tabId) {
+        assetsPanel.showTab(tabId)
+    }
+
     function openDenoise(track, clip, durationSeconds) {
         denoiseWindowLoader.ensure().openFor(track, clip, durationSeconds)
     }

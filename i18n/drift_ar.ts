@@ -4036,6 +4036,14 @@
         <translation>تم تطبيق عنصر الوجه</translation>
     </message>
     <message>
+        <source>Enhance voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice enhanced: noise gate, de-esser, compressor and leveler</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add audio effect</source>
         <translation>إضافة تأثير صوتي</translation>
     </message>
@@ -15153,6 +15161,54 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Crop</source>
+        <translation type="unfinished">اقتصاص</translation>
+    </message>
+    <message>
+        <source>Crop the selected video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse, mirror, rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse, mirror or rotate the selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transcription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transcription — create captions from what is said</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove background — cut out the person or subject</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance audio — reduce noise or enhance the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance video — sharper, cleaner picture (HD)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rotate</source>
         <translation type="unfinished">تدوير</translation>
     </message>
@@ -15214,6 +15270,22 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add camera</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse</source>
+        <translation type="unfinished">عكس</translation>
+    </message>
+    <message>
+        <source>Rotate 90°</source>
+        <translation type="unfinished">تدوير 90°</translation>
+    </message>
+    <message>
+        <source>Reduce noise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
