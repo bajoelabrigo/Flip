@@ -261,6 +261,9 @@ Item {
             }
         }
         y: root.height + 2
+        // With margins set Qt slides the popup back inside the window; without them a picker in
+        // the right-hand panel opened half off-screen.
+        margins: Theme.spacingSm
         width: Math.max(root.width, 300)
         implicitHeight: 440
         padding: 1

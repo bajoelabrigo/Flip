@@ -15024,6 +15024,18 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Uốn cong</translation>
     </message>
     <message>
+        <source>Plain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Just text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Title</source>
         <translation type="unfinished">Tiêu đề</translation>
     </message>

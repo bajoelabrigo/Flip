@@ -660,17 +660,23 @@ PanelFrame {
 
         // A build without a marketplace service (Flip Studio has none yet) drops the tab rather
         // than showing an empty "unavailable" page — same as the Android home nav.
-        Component.onCompleted: {
-            if (Market.configured)
-                return
+        function dropTab(tabId) {
             for (let i = 0; i < count; ++i) {
-                if (get(i).tabId === "market") {
+                if (get(i).tabId === tabId) {
                     if (i > 0)
                         setProperty(i - 1, "separatorAfter", get(i).separatorAfter)
                     remove(i)
                     return
                 }
             }
+        }
+
+        Component.onCompleted: {
+            if (!Market.configured)
+                dropTab("market")
+            // Flip Studio's Extras index has no voice model yet, so the Speech tab could only
+            // offer a download that does not exist. Drop this once a "tts-model" package ships.
+            dropTab("speech")
         }
     }
     property var tabIcons: [

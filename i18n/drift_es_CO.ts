@@ -15076,6 +15076,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Curvatura</translation>
     </message>
     <message>
+        <source>Plain</source>
+        <translation>Simple</translation>
+    </message>
+    <message>
+        <source>Just text</source>
+        <translation>Solo texto</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>Negrita</translation>
+    </message>
+    <message>
         <source>Title</source>
         <translation>Título</translation>
     </message>

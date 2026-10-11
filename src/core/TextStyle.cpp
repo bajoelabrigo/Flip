@@ -378,12 +378,12 @@ QList<TextPreset> buildPresets()
     {
         TextStyle s;
         s.fontWeight = 400;
-        add("plain", "Plain", s, "Just text");
+        add("plain", QT_TRANSLATE_NOOP("TextStyle", "Plain"), s, QT_TRANSLATE_NOOP("TextStyle", "Just text"));
     }
     {
         TextStyle s;
         s.fontWeight = 800;
-        add("bold", "Bold", s, "Just text");
+        add("bold", QT_TRANSLATE_NOOP("TextStyle", "Bold"), s, QT_TRANSLATE_NOOP("TextStyle", "Just text"));
     }
     {
         TextStyle s;

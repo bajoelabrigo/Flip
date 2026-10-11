@@ -52,7 +52,8 @@ la certifiquen) y el **editor web** está publicado y anunciado (etapa 6, audio 
    certifiquen la 0.9.0.
 4. **Primera sincronización con Drift (3.3)** — en curso (2026-10-11, rama `flip/sync-drift-1`): 69 cambios
    (texto con SkParagraph, enlazar clips, clips PDF, voz con Chatterbox, recorte, fuentes del sistema).
-   Falta compilar, probar y fusionar; la voz y los PDF necesitan sus extras en nuestro índice. Después, una vez al mes.
+   La voz (pestaña "Voz" y "Generar locución") queda oculta y los PDF piden un extra que aún no ofrecemos:
+   falta empaquetar el modelo de voz (Chatterbox, MIT) y PDFium (BSD) en nuestros extras. Después, una vez al mes.
 5. **Stock de Pexels (3.2)**: requiere el backend `api.getflipstudio.com`, que también servirá para las cuentas (Fase 6).
 6. **Firma de código** del instalador cuando haya presupuesto (quita el aviso de SmartScreen en la descarga directa).
 7. Más adelante: Linux, Android y macOS (Fase 4).
