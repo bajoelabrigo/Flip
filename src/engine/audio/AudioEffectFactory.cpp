@@ -276,6 +276,12 @@ void buildStereoWiden(ChainProcessor &chain)
     chain.bind("drymix", widen, &StereoWidenProcessor::setDryMix);
 }
 
+void buildChannelFill(ChainProcessor &chain)
+{
+    auto *fill = chain.addStage<ChannelFillProcessor>();
+    chain.bind("mode", fill, &ChannelFillProcessor::setMode);
+}
+
 const std::unordered_map<std::string, Builder> &registry()
 {
     static const std::unordered_map<std::string, Builder> builders{
@@ -305,6 +311,7 @@ const std::unordered_map<std::string, Builder> &registry()
         {"phaser", buildPhaser},
         {"autopan", buildAutoPan},
         {"stereowiden", buildStereoWiden},
+        {"channelfill", buildChannelFill},
     };
     return builders;
 }

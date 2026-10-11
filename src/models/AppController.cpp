@@ -131,6 +131,7 @@
 #include <QFutureWatcher>
 #include <numeric>
 #include <QtConcurrent>
+#include "engine/SpeechAudio.h"
 #include <QtMath>
 #include <algorithm>
 #include <climits>
@@ -4433,6 +4434,10 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
         {QStringLiteral("pan"), clip.pan},
         {QStringLiteral("volume"), clip.volume.isEmpty() ? 1.0 : clip.volume.evaluateAt(0)},
         {QStringLiteral("fadeIn"), drift::usToSeconds(clip.fadeInUs)},
+        {QStringLiteral("audioFadeIn"),
+         drift::usToSeconds(clip.type == drift::ClipType::Audio ? clip.fadeInUs : clip.audioFadeInUs)},
+        {QStringLiteral("audioFadeOut"),
+         drift::usToSeconds(clip.type == drift::ClipType::Audio ? clip.fadeOutUs : clip.audioFadeOutUs)},
         {QStringLiteral("fadeOut"), drift::usToSeconds(clip.fadeOutUs)},
         {QStringLiteral("fadeCurve"), drift::fadeCurveToString(clip.fadeCurve)},
         {QStringLiteral("fadeShape"), fadeShape},
@@ -17797,6 +17802,355 @@ void AppController::removeAudioEffect(int trackIndex, int clipIndex, int effectI
     dropKeyframeGraphPropertiesForEffect(effectIndex, /*audio=*/true);
     pushProjectEdit(before, tr("Remove audio effect"));
     finishEdit(tr("Audio effect removed"));
+}
+
+namespace {
+
+// The voice changer's filters are the audio effects whose id starts with "voz." (Flip Studio's
+// voice pack). A clip carries at most one of them.
+bool isVoiceFilter(const drift::Effect &effect)
+{
+    return effect.catalogId.startsWith(QLatin1String("voz."));
+}
+
+bool clipHasSound(const drift::Clip &clip)
+{
+    return clip.type == drift::ClipType::Audio || clip.type == drift::ClipType::Video;
+}
+
+} // namespace
+
+QString AppController::voiceFilterOf(int trackIndex, int clipIndex) const
+{
+    const drift::Clip *host = effectHostClip(trackIndex, clipIndex, drift::AdjustmentKind::AudioEffects);
+    if (!host)
+        return {};
+    for (const drift::Effect &effect : host->audioEffects) {
+        if (isVoiceFilter(effect))
+            return effect.catalogId;
+    }
+    return {};
+}
+
+void AppController::setVoiceFilter(int trackIndex, int clipIndex, const QString &effectId, bool allClips)
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return;
+    if (clipIndex < 0 || clipIndex >= m_project.tracks().at(trackIndex).clips.size())
+        return;
+    const AudioEffectEntry *def = effectId.isEmpty() ? nullptr : audioEffectDefForId(effectId);
+    if (!effectId.isEmpty() && !def)
+        return;
+
+    m_project.ensureTrackIds();
+    const QString selectedId = m_project.tracks().at(trackIndex).clips.at(clipIndex).id;
+    // By id: hosting a filter can insert an adjustment lane and move every index below it.
+    QStringList targets;
+    if (allClips) {
+        for (const drift::Track &track : m_project.tracks()) {
+            if (track.isAdjustment())
+                continue;
+            for (const drift::Clip &clip : track.clips) {
+                if (clipHasSound(clip))
+                    targets.append(clip.id);
+            }
+        }
+    } else {
+        targets.append(selectedId);
+    }
+    const auto locate = [this](const QString &id) {
+        for (int t = 0; t < m_project.tracks().size(); ++t) {
+            const QList<drift::Clip> &clips = m_project.tracks().at(t).clips;
+            for (int c = 0; c < clips.size(); ++c) {
+                if (clips.at(c).id == id)
+                    return drift::ClipRef{t, c};
+            }
+        }
+        return drift::ClipRef{};
+    };
+
+    const drift::Project before = m_project;
+    bool changed = false;
+    for (const QString &id : targets) {
+        const drift::ClipRef at = locate(id);
+        if (at.trackIndex < 0)
+            continue;
+        // Turning the filter off never needs a lane; turning it on creates one when missing.
+        const drift::ClipRef host = effectHostRef(at.trackIndex, at.clipIndex, drift::AdjustmentKind::AudioEffects,
+                                                  /*create=*/def != nullptr);
+        if (host.trackIndex < 0)
+            continue;
+        QList<drift::Effect> &stack = m_project.tracks()[host.trackIndex].clips[host.clipIndex].audioEffects;
+        for (int i = stack.size() - 1; i >= 0; --i) {
+            if (isVoiceFilter(stack.at(i))) {
+                stack.removeAt(i);
+                changed = true;
+            }
+        }
+        if (def) {
+            // First in the stack, so the clip's own effects (EQ, echo…) shape the changed voice.
+            stack.prepend(audioEffectFromCatalogEntry(*def, {}));
+            changed = true;
+        }
+    }
+
+    // The selection stays on the clip the user is working on, not on the lane that carries it.
+    const drift::ClipRef selected = locate(selectedId);
+    if (selected.trackIndex >= 0) {
+        m_selectedTrack = selected.trackIndex;
+        m_selectedClip = selected.clipIndex;
+        m_selection = {qMakePair(selected.trackIndex, selected.clipIndex)};
+    }
+    if (!changed)
+        return;
+    pushProjectEdit(before, tr("Voice changer"));
+    finishEdit(def ? tr("Voice: %1").arg(def->displayName) : tr("Voice changer off"));
+}
+
+namespace {
+
+// ITU-R BS.1770 loudness of mono samples at 48 kHz: K-weighting, 400 ms blocks every 100 ms,
+// gated at -70 LUFS and then 10 LU under the ungated mean. NaN when nothing passes the gates.
+double integratedLoudness48k(const std::vector<float> &x)
+{
+    struct Biquad
+    {
+        double b0, b1, b2, a1, a2, z1 = 0, z2 = 0;
+        double run(double v)
+        {
+            const double y = b0 * v + z1;
+            z1 = b1 * v - a1 * y + z2;
+            z2 = b2 * v - a2 * y;
+            return y;
+        }
+    };
+    // The standard's coefficients for 48 kHz.
+    Biquad shelf{1.53512485958697, -2.69169618940638, 1.19839281085285, -1.69065929318241, 0.73248077421585};
+    Biquad rlb{1.0, -2.0, 1.0, -1.99004745483398, 0.99007225036621};
+    const size_t step = 4800; // 100 ms
+    const size_t perBlock = 4; // 400 ms
+    std::vector<double> squares;
+    squares.reserve(x.size() / step + 1);
+    double acc = 0;
+    size_t n = 0;
+    for (const float v : x) {
+        const double k = rlb.run(shelf.run(v));
+        acc += k * k;
+        if (++n == step) {
+            squares.push_back(acc / step);
+            acc = 0;
+            n = 0;
+        }
+    }
+    std::vector<double> blocks;
+    for (size_t i = 0; i + perBlock <= squares.size(); ++i) {
+        double sum = 0;
+        for (size_t j = 0; j < perBlock; ++j)
+            sum += squares[i + j];
+        blocks.push_back(sum / perBlock);
+    }
+    const auto lufs = [](double ms) { return -0.691 + 10.0 * std::log10(std::max(ms, 1e-12)); };
+    double mean = 0;
+    int count = 0;
+    for (const double b : blocks) {
+        if (lufs(b) > -70.0) {
+            mean += b;
+            ++count;
+        }
+    }
+    if (count == 0)
+        return std::numeric_limits<double>::quiet_NaN();
+    const double relative = lufs(mean / count) - 10.0;
+    double gated = 0;
+    count = 0;
+    for (const double b : blocks) {
+        if (lufs(b) > -70.0 && lufs(b) > relative) {
+            gated += b;
+            ++count;
+        }
+    }
+    return count ? lufs(gated / count) : std::numeric_limits<double>::quiet_NaN();
+}
+
+constexpr double kMaxClipVolume = 2.0; // the volume slider's top, +6 dB
+
+} // namespace
+
+void AppController::setClipAudioFade(int trackIndex, int clipIndex, double fadeInSeconds, double fadeOutSeconds)
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return;
+    drift::Track &track = m_project.tracks()[trackIndex];
+    if (clipIndex < 0 || clipIndex >= track.clips.size())
+        return;
+    drift::Clip &clip = track.clips[clipIndex];
+    // An audio clip's own fades are its sound's; a video clip keeps its picture untouched.
+    if (clip.type == drift::ClipType::Audio) {
+        setClipFade(trackIndex, clipIndex, fadeInSeconds, fadeOutSeconds);
+        return;
+    }
+    const drift::TimeUs fin = qBound<drift::TimeUs>(0, drift::secondsToUs(fadeInSeconds), clip.timelineDuration);
+    const drift::TimeUs fout =
+        qBound<drift::TimeUs>(0, drift::secondsToUs(fadeOutSeconds), clip.timelineDuration - fin);
+    if (clip.audioFadeInUs == fin && clip.audioFadeOutUs == fout)
+        return;
+    const drift::Project before = m_project;
+    clip.audioFadeInUs = fin;
+    clip.audioFadeOutUs = fout;
+    pushProjectEdit(before, tr("Audio fade"));
+    finishEdit(tr("Audio fade"));
+}
+
+double AppController::voiceFilterIntensity(int trackIndex, int clipIndex) const
+{
+    const drift::Clip *host = effectHostClip(trackIndex, clipIndex, drift::AdjustmentKind::AudioEffects);
+    if (host) {
+        for (const drift::Effect &effect : host->audioEffects) {
+            if (isVoiceFilter(effect))
+                return effect.parameters.value(QStringLiteral("intensidad"), 1.0).toDouble();
+        }
+    }
+    return 1.0;
+}
+
+void AppController::setVoiceFilterIntensity(int trackIndex, int clipIndex, double value)
+{
+    const drift::Clip *host = effectHostClip(trackIndex, clipIndex, drift::AdjustmentKind::AudioEffects);
+    if (!host)
+        return;
+    for (int i = 0; i < host->audioEffects.size(); ++i) {
+        if (isVoiceFilter(host->audioEffects.at(i))) {
+            setAudioEffectParam(trackIndex, clipIndex, i, QStringLiteral("intensidad"), qBound(0.0, value, 1.0));
+            return;
+        }
+    }
+}
+
+int AppController::channelFillOf(int trackIndex, int clipIndex) const
+{
+    const drift::Clip *host = effectHostClip(trackIndex, clipIndex, drift::AdjustmentKind::AudioEffects);
+    if (host) {
+        for (const drift::Effect &effect : host->audioEffects) {
+            if (effect.catalogId == QLatin1String("utility.channelfill"))
+                return effect.parameters.value(QStringLiteral("mode"), 2).toInt();
+        }
+    }
+    return -1;
+}
+
+void AppController::setChannelFill(int trackIndex, int clipIndex, int mode)
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return;
+    if (clipIndex < 0 || clipIndex >= m_project.tracks().at(trackIndex).clips.size())
+        return;
+    const AudioEffectEntry *def = audioEffectDefForId(QStringLiteral("utility.channelfill"));
+    if (mode >= 0 && !def)
+        return;
+    m_project.ensureTrackIds();
+    const QString selectedId = m_project.tracks().at(trackIndex).clips.at(clipIndex).id;
+    const drift::Project before = m_project;
+    const drift::ClipRef host = effectHostRef(trackIndex, clipIndex, drift::AdjustmentKind::AudioEffects,
+                                              /*create=*/mode >= 0);
+    if (host.trackIndex < 0)
+        return;
+    QList<drift::Effect> &stack = m_project.tracks()[host.trackIndex].clips[host.clipIndex].audioEffects;
+    for (int i = stack.size() - 1; i >= 0; --i) {
+        if (stack.at(i).catalogId == QLatin1String("utility.channelfill"))
+            stack.removeAt(i);
+    }
+    if (mode >= 0) {
+        // Before anything else in the stack: the voice and effects should hear both sides.
+        QMap<QString, QVariant> params;
+        params.insert(QStringLiteral("mode"), qBound(0, mode, 2));
+        stack.prepend(audioEffectFromCatalogEntry(*def, params));
+    }
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        const QList<drift::Clip> &clips = m_project.tracks().at(t).clips;
+        for (int c = 0; c < clips.size(); ++c) {
+            if (clips.at(c).id == selectedId) {
+                m_selectedTrack = t;
+                m_selectedClip = c;
+                m_selection = {qMakePair(t, c)};
+            }
+        }
+    }
+    pushProjectEdit(before, tr("Fill channel"));
+    finishEdit(mode >= 0 ? tr("Channel filled") : tr("Fill channel off"));
+}
+
+void AppController::normalizeClipLoudness(int trackIndex, int clipIndex, double targetLufs)
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return;
+    const drift::Track &track = m_project.tracks().at(trackIndex);
+    if (clipIndex < 0 || clipIndex >= track.clips.size())
+        return;
+    const drift::Clip &clip = track.clips.at(clipIndex);
+    if (!clipHasSound(clip) || clip.path.isEmpty()) {
+        setLastMessage(tr("Select a clip with sound to normalize"), QStringLiteral("warning"));
+        return;
+    }
+    if (m_normalizing)
+        return;
+    m_normalizing = true;
+    emit normalizingChanged();
+    setLastMessage(tr("Measuring loudness…"));
+    const QString path = clip.path;
+    const QString clipId = clip.id;
+    const drift::TimeUs inUs = clip.srcIn;
+    const drift::TimeUs outUs = clip.srcOut;
+    QPointer<AppController> self(this);
+    (void)QtConcurrent::run([self, path, clipId, inUs, outUs, targetLufs]() {
+        const double lufs = integratedLoudness48k(drift::readMono(path, inUs, outUs, 48000));
+        QMetaObject::invokeMethod(
+            self.data(),
+            [self, clipId, lufs, targetLufs]() {
+                if (self)
+                    self->finishNormalize(clipId, lufs, targetLufs);
+            },
+            Qt::QueuedConnection);
+    });
+}
+
+void AppController::finishNormalize(const QString &clipId, double lufs, double targetLufs)
+{
+    m_normalizing = false;
+    emit normalizingChanged();
+    if (std::isnan(lufs)) {
+        setLastMessage(tr("This clip is too quiet to measure"), QStringLiteral("warning"));
+        return;
+    }
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        QList<drift::Clip> &clips = m_project.tracks()[t].clips;
+        for (int c = 0; c < clips.size(); ++c) {
+            if (clips.at(c).id != clipId)
+                continue;
+            drift::Clip &clip = clips[c];
+            const double gain = std::pow(10.0, (targetLufs - lufs) / 20.0);
+            const drift::Project before = m_project;
+            bool capped = false;
+            if (clip.volume.isEmpty()) {
+                capped = gain > kMaxClipVolume;
+                clip.volume.setKeyframe(0, qBound(0.0, gain, kMaxClipVolume));
+            } else {
+                drift::KeyframeTrack<double> scaled = clip.volume;
+                for (auto it = clip.volume.keyframes().cbegin(); it != clip.volume.keyframes().cend(); ++it) {
+                    drift::Keyframe<double> key = it.value();
+                    capped = capped || key.value * gain > kMaxClipVolume;
+                    key.value = qBound(0.0, key.value * gain, kMaxClipVolume);
+                    scaled.setKeyframe(it.key(), key);
+                }
+                clip.volume = scaled;
+            }
+            pushProjectEdit(before, tr("Normalize loudness"));
+            finishEdit(tr("Normalize loudness"));
+            setLastMessage(capped ? tr("Loudness raised as far as the volume allows (it was %1 LUFS)").arg(lufs, 0, 'f', 1)
+                                  : tr("Loudness set to %1 LUFS (it was %2)").arg(targetLufs, 0, 'f', 0).arg(lufs, 0, 'f', 1),
+                           QStringLiteral("success"));
+            return;
+        }
+    }
 }
 
 void AppController::setAudioEffectEnabled(int trackIndex, int clipIndex, int effectIndex, bool enabled)

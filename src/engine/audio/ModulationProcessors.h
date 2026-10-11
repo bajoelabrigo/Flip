@@ -197,4 +197,25 @@ private:
     float m_outTarget = 1.0f;
 };
 
+// Fills a recording that reached only one side: the chosen channel (or, in Auto, whichever one is
+// clearly louder) is copied to both. Auto leaves real stereo alone and follows slowly, so a pause
+// on one side does not flip the choice.
+class ChannelFillProcessor final : public AudioEffectProcessor
+{
+public:
+    enum class Mode { Left = 0, Right = 1, Auto = 2 };
+    void setMode(float mode);
+
+    void prepare(const juce::dsp::ProcessSpec &spec) override;
+    void process(juce::dsp::AudioBlock<float> &block) override;
+    void reset() override;
+
+private:
+    Mode m_mode = Mode::Auto;
+    float m_powerL = 0.0f;
+    float m_powerR = 0.0f;
+    float m_follow = 0.0f;  // per-sample smoothing of the channel powers
+    juce::SmoothedValue<float> m_fromLeft; // 1: left to both, 0: right to both, 0.5: as is
+};
+
 } // namespace drift

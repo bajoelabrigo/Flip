@@ -1262,6 +1262,7 @@ qt_add_qml_module(drift
         src/qml/components/properties/TransformLayerCard.qml
         src/qml/components/properties/StabilizeInspector.qml
         src/qml/components/properties/AudioInspector.qml
+        src/qml/components/properties/VoiceChanger.qml
         src/qml/components/properties/AudioEffectsInspector.qml
         src/qml/components/properties/SpeedFadeInspector.qml
         src/qml/components/properties/AnimationInspector.qml
