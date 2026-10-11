@@ -774,7 +774,7 @@
                {QStringLiteral("declick"), propWithDefault(numberProp(QStringLiteral("Audio ramp at each cut, seconds; 0 = off"), 0, 0.5), 0.03)},
                {QStringLiteral("dry_run"), propWithDefault(boolProp(QStringLiteral("Report the cuts without making them")), false)}},
               clipRefProps())) },
-        { "cut_silences", "transcript", "Remove pauses and filler words from a clip",
+        { "cut_silences", "transcript", "Cut pauses and filler words",
           "The editor's Remove silences button: keeps only the spoken parts of a video/audio clip, "
           "dropping pauses longer than min_pause and hesitations (eh, mmm, um), from a word-level "
           "transcript of its media. Transcribes first when there is none (async: the cut lands "
