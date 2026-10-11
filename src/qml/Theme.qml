@@ -395,6 +395,7 @@ QtObject {
     // leave a bottom sheet, and the sheet is a consequence of being compact, not of being
     // touched — so a mouse user in the compact shell needs the lift gesture too.
     property real windowWidth: 0                        // pushed by the root window
+    property real keyboardInset: 0                      // soft-keyboard overlap with the window bottom, pushed by the root window
     property string sizeClassOverride: ""               // "compact" | "medium" | "expanded"
     property string inputModeOverride: ""               // "touch" | "pointer"
 
@@ -629,6 +630,7 @@ QtObject {
         box: "box",
         split: "split",
         magnet: "magnet",
+        link: "link",
         linkTwo: "link-2",
         unlink: "unlink-2",
         foldHorizontal: "fold-horizontal",
@@ -673,6 +675,7 @@ QtObject {
         audioLines: "audio-lines",
         mic: "mic",
         micOff: "mic-off",
+        micVocal: "mic-vocal",
         image: "image",
         shapes: "shapes",
         chevronDown: "chevron-down",

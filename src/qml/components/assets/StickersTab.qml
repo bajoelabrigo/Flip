@@ -12,6 +12,9 @@ Item {
     // A clip landed on the timeline. The phone shell closes the sheet on this —
     // the thing you came for is behind it.
     signal added()
+    // AssetsPanel owns the emoji picker; the button for it lives in this tab's search bar.
+    signal emojiPickerRequested()
+    property bool emojiPickerOpen: false
 
     readonly property string favoritesId: "__favorites__"
     property var categories: EditorState.builtinStickerCategories()
@@ -62,24 +65,27 @@ Item {
         anchors.fill: parent
         spacing: 0
 
-        Item {
-            width: 1
-            height: Theme.pagePadding
-        }
-
-        ThemedTextField {
+        AssetSearchBar {
             id: search
-            width: parent.width - Theme.pagePadding * 2
-            x: Theme.pagePadding
             visible: root.hasStickers
             height: visible ? implicitHeight : 0
             placeholderText: qsTr("Search stickers")
-            font.family: Theme.fontFamily
+
+            // The sticker packs are a curated subset of the emoji set, so the rest live behind
+            // this button rather than being unreachable.
+            IconButton {
+                glyph: Theme.icons.plus
+                variant: "ghost"
+                buttonSize: Theme.controlHeight
+                tooltip: qsTr("More emoji")
+                active: root.emojiPickerOpen
+                onClicked: root.emojiPickerRequested()
+            }
         }
 
         Item {
             width: 1
-            height: root.hasStickers ? Theme.spacingMd : 0
+            height: root.hasStickers ? Theme.spacingSm : 0
         }
 
         AssetCategoryChips {
@@ -93,8 +99,8 @@ Item {
 
         Item {
             width: parent.width
-            height: Math.max(0, parent.height - Theme.pagePadding - search.height
-                             - (root.hasStickers ? Theme.spacingMd : 0) - categoryChips.height)
+            height: Math.max(0, parent.height - search.height
+                             - (root.hasStickers ? Theme.spacingSm : 0) - categoryChips.height)
 
             EmptyState {
                 visible: !root.hasStickers
@@ -221,6 +227,8 @@ Item {
 
                         AssetDragSource {
                             id: stickerDrag
+                            hasContextMenu: true
+                            onContextMenuRequested: cardMenu.popup()
                             anchors.fill: parent
                             kind: "sticker"
                             payload: modelData.id
@@ -229,6 +237,25 @@ Item {
                             onTapped: {
                                 EditorState.addStickerClip(modelData.id, -1)
                                 root.added()
+                            }
+                        }
+
+                        ThemedContextMenu {
+                            id: cardMenu
+
+                            property bool favorited: false
+
+                            onAboutToShow: favorited = EditorState.isAssetFavorite("stickers", modelData.id)
+
+                            ThemedMenuItem {
+                                text: qsTr("Add at playhead")
+                                icon.name: Theme.icons.plus
+                                onTriggered: stickerDrag.tapped()
+                            }
+                            ThemedMenuItem {
+                                text: cardMenu.favorited ? qsTr("Remove from favorites") : qsTr("Add to favorites")
+                                icon.name: Theme.icons.star
+                                onTriggered: EditorState.toggleAssetFavorite("stickers", modelData.id)
                             }
                         }
 

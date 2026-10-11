@@ -418,7 +418,7 @@ Item {
     readonly property var combinedItems: {
         void root._refreshTick
         const q = root.query
-        const currentFolder = EditorState.currentBinFolderId
+        const currentFolder = EditorState.bin.currentFolderId
         const items = []
 
         if (root.treeMode)
@@ -635,6 +635,7 @@ Item {
                     glyph: kind === "audio" ? Theme.icons.music
                             : kind === "image" ? Theme.icons.image
                             : kind === "vector" ? Theme.icons.layers
+                            : kind === "pdf" ? Theme.icons.fileText
                             : kind === "model3d" ? Theme.icons.box
                             : kind === "composite" ? Theme.icons.layers
                             : Theme.icons.film
@@ -653,8 +654,8 @@ Item {
                     radius: parent.radius
                     color: Theme.scrimStrong
                     readonly property bool busy:
-                        !cardRoot.isFolder && EditorState.replacingAssetId.length > 0
-                        && EditorState.replacingAssetId === AssetLibrary.assetIdAt(assetIndex)
+                        !cardRoot.isFolder && EditorState.bin.replacingAssetId.length > 0
+                        && EditorState.bin.replacingAssetId === AssetLibrary.assetIdAt(assetIndex)
                     visible: opacity > 0
                     opacity: busy ? 1 : 0
 
@@ -748,9 +749,10 @@ Item {
                 TapHandler {
                     id: leftTap
                     acceptedButtons: Qt.LeftButton
-                    // Touch keeps press-and-hold for the lift below — the menu
+                    // A finger is handled by the lift area below — the menu
                     // is a tap there.
-                    enabled: !Theme.touchUi && !assetDrag.active
+                    acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
+                    enabled: !assetDrag.active
                     onTapped: {
                         if (cardRoot.isFolder)
                             return
@@ -773,22 +775,21 @@ Item {
                     }
                     onDoubleTapped: {
                         if (cardRoot.isFolder)
-                            EditorState.currentBinFolderId = cardRoot.folderId
+                            EditorState.bin.currentFolderId = cardRoot.folderId
                         else if (kind === "composite")
                             EditorState.openCompositeAsset(cardRoot.assetId)
                     }
-                    onLongPressed: cardRoot.isFolder ? folderMenu.popup() : cardMenu.popup()
                 }
                 DragHandler {
                     id: assetDrag
                     // Without target: null the handler moves the card itself,
                     // clobbering the Grid positioner's x/y.
                     target: null
-                    // Touch lifts through TouchDrag instead: a platform drag has
+                    // A finger lifts through TouchDrag instead: a platform drag has
                     // no touch gesture and cannot leave the sheet. Folders aren't
                     // draggable at all — moving an asset into one is a context-menu
                     // action only ("Move to folder…"), not a drag-and-drop target.
-                    enabled: !Theme.touchUi && !cardRoot.isFolder
+                    enabled: !cardRoot.isFolder
                     acceptedButtons: Qt.LeftButton
                     acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
                     onActiveChanged: {
@@ -835,6 +836,7 @@ Item {
                     glyph: kind === "audio" ? Theme.icons.music
                             : kind === "image" ? Theme.icons.image
                             : kind === "vector" ? Theme.icons.layers
+                            : kind === "pdf" ? Theme.icons.fileText
                             : kind === "model3d" ? Theme.icons.box
                             : kind === "composite" ? Theme.icons.layers
                             : Theme.icons.film
@@ -915,7 +917,7 @@ Item {
                         icon.name: Theme.icons.rabbit
                         visible: kind === "video" && root.selectedAssetIds.length <= 1
                                  && !root.editFriendlyOf(assetId)
-                        onTriggered: EditorState.convertAssetsToConstantFrameRate([assetId])
+                        onTriggered: EditorState.bin.convertToConstantFrameRate([assetId])
                     }
                     ThemedMenuItem {
                         text: qsTr("Export image…")
@@ -944,7 +946,7 @@ Item {
                     ThemedMenuItem {
                         text: qsTr("Open")
                         icon.name: Theme.icons.folder
-                        onTriggered: EditorState.currentBinFolderId = cardRoot.folderId
+                        onTriggered: EditorState.bin.currentFolderId = cardRoot.folderId
                     }
                     ThemedMenuItem {
                         text: qsTr("Rename…")
@@ -960,7 +962,7 @@ Item {
                     ThemedMenuItem {
                         text: qsTr("Delete")
                         icon.name: Theme.icons.trash
-                        onTriggered: EditorState.deleteBinFolder(cardRoot.folderId)
+                        onTriggered: EditorState.bin.deleteFolder(cardRoot.folderId)
                     }
                 }
             }
@@ -1051,8 +1053,8 @@ Item {
             readonly property real disclosureSpace: root.treeMode ? Theme.iconButtonSize : 0
 
             readonly property bool replaceBusy:
-                !isFolder && EditorState.replacingAssetId.length > 0
-                && EditorState.replacingAssetId === AssetLibrary.assetIdAt(assetIndex)
+                !isFolder && EditorState.bin.replacingAssetId.length > 0
+                && EditorState.bin.replacingAssetId === AssetLibrary.assetIdAt(assetIndex)
             readonly property bool selected: !isFolder && root.isAssetSelected(assetId)
 
             // See the matching property on gridDelegate's cardRoot: lets a rotate/trim edit
@@ -1128,6 +1130,7 @@ Item {
                         glyph: listRow.isFolder ? Theme.icons.folder
                                : (kind === "audio" ? Theme.icons.music
                                   : kind === "vector" ? Theme.icons.layers
+                                  : kind === "pdf" ? Theme.icons.fileText
                                   : kind === "model3d" ? Theme.icons.box
                                   : kind === "composite" ? Theme.icons.layers : Theme.icons.film)
                         iconSize: Theme.iconSizeBase
@@ -1234,7 +1237,8 @@ Item {
                 TapHandler {
                     id: leftRowTap
                     acceptedButtons: Qt.LeftButton
-                    enabled: !Theme.touchUi && !rowDrag.active
+                    acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
+                    enabled: !rowDrag.active
                     onTapped: {
                         if (listRow.isFolder)
                             return
@@ -1255,16 +1259,15 @@ Item {
                     }
                     onDoubleTapped: {
                     if (listRow.isFolder)
-                        EditorState.currentBinFolderId = listRow.folderId
+                        EditorState.bin.currentFolderId = listRow.folderId
                     else if (kind === "composite")
                         EditorState.openCompositeAsset(listRow.assetId)
                 }
-                    onLongPressed: listRow.isFolder ? folderRowMenu.popup() : rowMenu.popup()
                 }
                 DragHandler {
                     id: rowDrag
                     target: null
-                    enabled: !Theme.touchUi && !listRow.isFolder
+                    enabled: !listRow.isFolder
                     acceptedButtons: Qt.LeftButton
                     acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
                     onActiveChanged: {
@@ -1302,6 +1305,7 @@ Item {
                     glyph: kind === "audio" ? Theme.icons.music
                             : kind === "image" ? Theme.icons.image
                             : kind === "vector" ? Theme.icons.layers
+                            : kind === "pdf" ? Theme.icons.fileText
                             : kind === "model3d" ? Theme.icons.box
                             : kind === "composite" ? Theme.icons.layers
                             : Theme.icons.film
@@ -1392,7 +1396,7 @@ Item {
                     icon.name: Theme.icons.rabbit
                     visible: kind === "video" && root.selectedAssetIds.length <= 1
                              && !root.editFriendlyOf(assetId)
-                    onTriggered: EditorState.convertAssetsToConstantFrameRate([assetId])
+                    onTriggered: EditorState.bin.convertToConstantFrameRate([assetId])
                 }
                 ThemedMenuItem {
                     text: qsTr("Export image…")
@@ -1421,7 +1425,7 @@ Item {
                 ThemedMenuItem {
                     text: qsTr("Open")
                     icon.name: Theme.icons.folder
-                    onTriggered: EditorState.currentBinFolderId = listRow.folderId
+                    onTriggered: EditorState.bin.currentFolderId = listRow.folderId
                 }
                 ThemedMenuItem {
                     text: qsTr("Rename…")
@@ -1437,7 +1441,7 @@ Item {
                 ThemedMenuItem {
                     text: qsTr("Delete")
                     icon.name: Theme.icons.trash
-                    onTriggered: EditorState.deleteBinFolder(listRow.folderId)
+                    onTriggered: EditorState.bin.deleteFolder(listRow.folderId)
                 }
             }
         }
@@ -1518,6 +1522,7 @@ Item {
                 ThemedButton {
                     id: emptyImportFolder
                     width: emptyImportButtons.stacked ? emptyImportButtons.parent.width : implicitWidth
+                    visible: FileDialogs.supportsDirectoryPicker()
                     text: qsTr("Import folder")
                     glyph: Theme.icons.folderInput
                     onClicked: root.importFolderRequested()
@@ -1560,7 +1565,9 @@ Item {
                             { glyph: Theme.icons.shapes, label: qsTr("Vector"),
                               formats: "SVG · Lottie (.json, .lottie)" },
                             { glyph: Theme.icons.box, label: qsTr("3D"),
-                              formats: "glTF binary (.glb)" }
+                              formats: "glTF binary (.glb)" },
+                            { glyph: Theme.icons.fileText, label: qsTr("PDF"),
+                              formats: qsTr("PDF (needs the PDF Viewer addon)") }
                         ]
 
                         delegate: Row {
@@ -1678,7 +1685,7 @@ Item {
         // `visible`: Item.visible reads back the *effective* visibility, so keying the row
         // off a child's would have been a loop through the child's own parent.
         readonly property bool showBreadcrumb: BinFolderModel.count > 0
-                                               && EditorState.currentBinFolderId !== ""
+                                               && EditorState.bin.currentFolderId !== ""
         readonly property bool showTreeActions: root.treeMode && BinFolderModel.count > 0
 
         visible: showBreadcrumb || showTreeActions
@@ -1691,8 +1698,8 @@ Item {
             id: breadcrumb
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
-            currentFolderId: EditorState.currentBinFolderId
-            onNavigate: (folderId) => EditorState.currentBinFolderId = folderId
+            currentFolderId: EditorState.bin.currentFolderId
+            onNavigate: (folderId) => EditorState.bin.currentFolderId = folderId
         }
 
         Row {
@@ -1803,7 +1810,7 @@ Item {
         anchors.right: parent.right
         anchors.leftMargin: Theme.pagePadding
         anchors.rightMargin: Theme.pagePadding
-        visible: EditorState.editingAsset && EditorState.assetEditIsConversion
+        visible: EditorState.bin.editing && EditorState.bin.editIsConversion
         height: visible ? Math.max(conversionStatusText.implicitHeight + Theme.spacingSm
                                    + conversionStatusBar.height, conversionCancel.height)
                         : 0
@@ -1814,7 +1821,7 @@ Item {
             anchors.right: conversionCancel.left
             anchors.rightMargin: Theme.spacingMd
             anchors.top: parent.top
-            text: qsTr("Converting %1 to an edit-friendly format").arg(EditorState.assetEditName)
+            text: qsTr("Converting %1 to an edit-friendly format").arg(EditorState.bin.editName)
             color: Theme.mutedForeground
             font.family: Theme.fontFamily
             font.pixelSize: Theme.fontSizeXs
@@ -1828,7 +1835,7 @@ Item {
             anchors.top: conversionStatusText.bottom
             anchors.topMargin: Theme.spacingSm
             barHeight: Theme.spacingXs
-            value: EditorState.assetEditProgress
+            value: EditorState.bin.editProgress
         }
         IconButton {
             id: conversionCancel
@@ -1837,7 +1844,7 @@ Item {
             glyph: Theme.icons.x
             variant: "ghost"
             tooltip: qsTr("Stop converting")
-            onClicked: EditorState.cancelAssetEdit()
+            onClicked: EditorState.bin.cancelEdit()
         }
     }
 

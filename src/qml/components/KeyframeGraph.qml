@@ -21,7 +21,8 @@ Item {
     readonly property real paintOriginX: Math.floor(contentX / paintChunk) * paintChunk - paintChunk
     property real contentWidth: 800
     property real labelsWidth: Theme.trackLabelsWidth
-    property string propertiesTab: ""
+    // Whether the open properties tab edits keyframeable properties (PropertiesPanel `keyframes`).
+    property bool keyframesTab: false
 
     readonly property bool hasClip: EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
     readonly property var clip: {
@@ -29,19 +30,27 @@ Item {
         return EditorState.selectedClipData
     }
 
-    // Effect parameters are addressed as "fx.<effectIndex>.<paramKey>"; the label, range and
-    // color all come from the effect's own param spec on the selected clip.
+    // Effect parameters are addressed as "fx.<effectIndex>.<paramKey>", and audio effect ones as
+    // "afx.<effectIndex>.<paramKey>"; the label, range and color all come from the effect's own
+    // param spec on the selected clip.
     function effectParam(id) {
-        if (!clip || !clip.effects || id.substring(0, 3) !== "fx.")
+        if (!clip)
             return null
-        const dot = id.indexOf(".", 3)
+        const audio = id.substring(0, 4) === "afx."
+        if (!audio && id.substring(0, 3) !== "fx.")
+            return null
+        const stack = audio ? clip.audioEffects : clip.effects
+        const start = audio ? 4 : 3
+        if (!stack)
+            return null
+        const dot = id.indexOf(".", start)
         if (dot < 0)
             return null
-        const effectIndex = parseInt(id.substring(3, dot))
+        const effectIndex = parseInt(id.substring(start, dot))
         const key = id.substring(dot + 1)
-        if (isNaN(effectIndex) || effectIndex < 0 || effectIndex >= clip.effects.length)
+        if (isNaN(effectIndex) || effectIndex < 0 || effectIndex >= stack.length)
             return null
-        const effect = clip.effects[effectIndex]
+        const effect = stack[effectIndex]
         const params = effect.params || []
         for (let i = 0; i < params.length; ++i) {
             if (params[i].key === key)
@@ -109,7 +118,7 @@ Item {
             return fx.param.label.substring(0, 3)
         return id
     }
-    // Volume only exists on clips that carry audio; the rest are visual.
+    // Volume and audio effects only exist on clips that carry audio; the rest are visual.
     function supportsProperty(id) {
         if (!clip)
             return false
@@ -117,6 +126,8 @@ Item {
             return clip.kind === "audio" || clip.kind === "video"
         if (id.substring(0, 3) === "fx.")
             return clip.kind !== "audio" && effectParam(id) !== null
+        if (id.substring(0, 4) === "afx.")
+            return effectParam(id) !== null
         // A mask lives on the clip's lane, so the strip offers it for the same clips the Masks
         // tab does. There is no per-id validation to do: the id set is fixed and closed.
         if (id.substring(0, 5) === "mask.")
@@ -339,15 +350,7 @@ Item {
     height: visible ? laneHeight : 0
     // Open whenever the clip has an animation to show, even if every curve is currently folded
     // away — otherwise hiding the last one would take the chips with it.
-    // "audio" belongs here for the same reason the rest do: volume is a keyframeable property
-    // (supportsProperty allows it for audio and video clips) and the Audio tab is where it is
-    // edited, so leaving the tab out hid the lane at exactly the moment it was wanted. The
-    // curve was still reachable by switching to Transform, which made it look inconsistent
-    // rather than missing.
-    visible: (propertiesTab === "transform" || propertiesTab === "effects"
-              || propertiesTab === "stabilize" || propertiesTab === "masks"
-              || propertiesTab === "audio")
-             && hasClip && clip && allSeries.length > 0
+    visible: keyframesTab && hasClip && clip && allSeries.length > 0
 
     // Curve editing focuses one series: it gets tangent handles and owns the value axis,
     // while the others stay drawn as dimmed context. Handles from two series normalized to
@@ -435,6 +438,18 @@ Item {
                     const next = root.laneHeight + (dy > 0 ? step : -step)
                     root.laneHeight = Math.max(root.minLaneHeight,
                                                Math.min(root.maxLaneHeight, next))
+                }
+            }
+
+            PinchHandler {
+                target: null
+                acceptedDevices: PointerDevice.TouchScreen
+                property real startHeight: 0
+                onActiveChanged: if (active) startHeight = root.laneHeight
+                onActiveScaleChanged: {
+                    if (active)
+                        root.laneHeight = Math.max(root.minLaneHeight,
+                                                   Math.min(root.maxLaneHeight, startHeight * activeScale))
                 }
             }
 
@@ -915,71 +930,127 @@ Item {
 
                             // Touching a key moves focus to its series, which is what arms
                             // that curve's tangent handles.
+                            function remove() {
+                                EditorState.removeClipKeyframe(
+                                    EditorState.selectedTrack,
+                                    EditorState.selectedClip,
+                                    keyDot.modelData.prop,
+                                    keyDot.modelData.seconds
+                                )
+                            }
+
                             TapHandler {
+                                // Finger taps land on touchMove below, which takes the press.
+                                acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+                                                 | PointerDevice.Stylus
                                 onTapped: root.focusedProp = keyDot.modelData.prop
-                                onDoubleTapped: {
-                                    EditorState.removeClipKeyframe(
-                                        EditorState.selectedTrack,
-                                        EditorState.selectedClip,
-                                        keyDot.modelData.prop,
-                                        keyDot.modelData.seconds
-                                    )
-                                }
+                                onDoubleTapped: keyDot.remove()
+                            }
+
+                            function beginMove() {
+                                root.focusedProp = keyDot.modelData.prop
+                                keyDot.editSeconds = keyDot.modelData.seconds
+                                root.frozenSeries = root.series
+                                root.dragProp = keyDot.modelData.prop
+                                root.dragIndex = keyDot.modelData.pointIndex
+                                root.dragSeconds = keyDot.modelData.seconds
+                                root.dragValue = keyDot.modelData.value
+                                root.draggingKey = true
+                                EditorState.beginPreviewDrag(qsTr("Move keyframe"))
+                            }
+                            function endMove() {
+                                // Unfreezing rebuilds the Repeater and destroys this
+                                // delegate mid-handler, so every reset has to land first.
+                                root.dragProp = ""
+                                root.dragIndex = -1
+                                keyDot.dragDx = 0
+                                keyDot.dragDy = 0
+                                EditorState.commitPreviewDrag()
+                                root.draggingKey = false
+                            }
+                            function moveBy(dx, dy) {
+                                const entry = keyDot.entry
+                                const baseSec = keyDot.modelData.seconds
+                                const baseVal = keyDot.modelData.value
+                                // snapTime pulls in beats, clip edges and the playhead,
+                                // and is a no-op when the toolbar's snap toggle is off.
+                                const rawSec = baseSec + dx / root.pxPerSecond
+                                const newSec = Math.max(
+                                    root.clipStart,
+                                    Math.min(root.clipStart + root.clipDuration,
+                                             EditorState.snapTime(rawSec)))
+                                const isShift = (EditorState.keyboardModifiers() & Qt.ShiftModifier) !== 0
+                                const newVal = isShift ? baseVal : Math.max(
+                                    entry.valueMin,
+                                    Math.min(entry.valueMax,
+                                             root.valueForY(
+                                                 root.yForValue(baseVal, entry) + dy,
+                                                 entry)))
+                                EditorState.previewMoveClipKeyframe(
+                                    EditorState.selectedTrack, EditorState.selectedClip,
+                                    keyDot.modelData.prop, keyDot.editSeconds, newSec, newVal)
+                                keyDot.editSeconds = newSec
+                                keyDot.dragDx = root.xForSeconds(newSec) - root.xForSeconds(baseSec)
+                                keyDot.dragDy = root.yForValue(newVal, entry)
+                                              - root.yForValue(baseVal, entry)
+                                root.dragSeconds = newSec
+                                root.dragValue = newVal
                             }
 
                             DragHandler {
                                 target: null
+                                acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+                                                 | PointerDevice.Stylus
                                 onActiveChanged: {
-                                    if (active) {
-                                        root.focusedProp = keyDot.modelData.prop
-                                        keyDot.editSeconds = keyDot.modelData.seconds
-                                        root.frozenSeries = root.series
-                                        root.dragProp = keyDot.modelData.prop
-                                        root.dragIndex = keyDot.modelData.pointIndex
-                                        root.dragSeconds = keyDot.modelData.seconds
-                                        root.dragValue = keyDot.modelData.value
-                                        root.draggingKey = true
-                                        EditorState.beginPreviewDrag(qsTr("Move keyframe"))
-                                    } else {
-                                        // Unfreezing rebuilds the Repeater and destroys this
-                                        // delegate mid-handler, so every reset has to land first.
-                                        root.dragProp = ""
-                                        root.dragIndex = -1
-                                        keyDot.dragDx = 0
-                                        keyDot.dragDy = 0
-                                        EditorState.commitPreviewDrag()
-                                        root.draggingKey = false
-                                    }
+                                    if (active)
+                                        keyDot.beginMove()
+                                    else
+                                        keyDot.endMove()
                                 }
                                 onTranslationChanged: {
-                                    if (!active)
+                                    if (active)
+                                        keyDot.moveBy(translation.x, translation.y)
+                                }
+                            }
+
+                            // Touchscreen: a finger on the lane pans it, so a key only
+                            // moves after a hold. Mouse presses are rejected for the DragHandler.
+                            MouseArea {
+                                id: touchMove
+                                anchors.fill: parent
+                                anchors.margins: -10
+                                pressAndHoldInterval: Theme.touchLiftInterval
+                                preventStealing: armed
+                                property bool armed: false
+                                property point origin
+                                onPressed: (mouse) => {
+                                    if (mouse.source === Qt.MouseEventNotSynthesized) {
+                                        mouse.accepted = false
                                         return
-                                    const entry = keyDot.entry
-                                    const baseSec = keyDot.modelData.seconds
-                                    const baseVal = keyDot.modelData.value
-                                    // snapTime pulls in beats, clip edges and the playhead,
-                                    // and is a no-op when the toolbar's snap toggle is off.
-                                    const rawSec = baseSec + translation.x / root.pxPerSecond
-                                    const newSec = Math.max(
-                                        root.clipStart,
-                                        Math.min(root.clipStart + root.clipDuration,
-                                                 EditorState.snapTime(rawSec)))
-                                    const isShift = (EditorState.keyboardModifiers() & Qt.ShiftModifier) !== 0
-                                    const newVal = isShift ? baseVal : Math.max(
-                                        entry.valueMin,
-                                        Math.min(entry.valueMax,
-                                                 root.valueForY(
-                                                     root.yForValue(baseVal, entry) + translation.y,
-                                                     entry)))
-                                    EditorState.previewMoveClipKeyframe(
-                                        EditorState.selectedTrack, EditorState.selectedClip,
-                                        keyDot.modelData.prop, keyDot.editSeconds, newSec, newVal)
-                                    keyDot.editSeconds = newSec
-                                    keyDot.dragDx = root.xForSeconds(newSec) - root.xForSeconds(baseSec)
-                                    keyDot.dragDy = root.yForValue(newVal, entry)
-                                                  - root.yForValue(baseVal, entry)
-                                    root.dragSeconds = newSec
-                                    root.dragValue = newVal
+                                    }
+                                    armed = false
+                                }
+                                onPressAndHold: (mouse) => {
+                                    origin = mapToItem(null, mouse.x, mouse.y)
+                                    armed = true
+                                    Haptics.pickUp()
+                                    keyDot.beginMove()
+                                }
+                                onPositionChanged: (mouse) => {
+                                    if (!armed)
+                                        return
+                                    const p = mapToItem(null, mouse.x, mouse.y)
+                                    keyDot.moveBy(p.x - origin.x, p.y - origin.y)
+                                }
+                                onClicked: root.focusedProp = keyDot.modelData.prop
+                                onDoubleClicked: keyDot.remove()
+                                onReleased: finish()
+                                onCanceled: finish()
+                                function finish() {
+                                    if (!armed)
+                                        return
+                                    armed = false
+                                    keyDot.endMove()
                                 }
                             }
                         }

@@ -50,22 +50,14 @@ Item {
         anchors.fill: parent
         spacing: 0
 
-        Item {
-            width: 1
-            height: Theme.pagePadding
-        }
-
-        ThemedTextField {
+        AssetSearchBar {
             id: search
-            width: parent.width - Theme.pagePadding * 2
-            x: Theme.pagePadding
             placeholderText: qsTr("Search shapes")
-            font.family: Theme.fontFamily
         }
 
         Item {
             width: 1
-            height: Theme.spacingMd
+            height: Theme.spacingSm
         }
 
         AssetCategoryChips {
@@ -79,8 +71,7 @@ Item {
 
         Item {
             width: parent.width
-            height: Math.max(0, parent.height - Theme.pagePadding - search.height
-                             - Theme.spacingMd - categoryChips.height)
+            height: Math.max(0, parent.height - search.height - Theme.spacingSm - categoryChips.height)
 
             Text {
                 id: emptySearchHint
@@ -182,6 +173,8 @@ Item {
 
                         AssetDragSource {
                             id: shapeDrag
+                            hasContextMenu: true
+                            onContextMenuRequested: cardMenu.popup()
                             anchors.fill: parent
                             kind: "shape"
                             payload: shapeCard.modelData.id
@@ -190,6 +183,25 @@ Item {
                             onTapped: {
                                 EditorState.addShapeClip(shapeCard.modelData.id, -1)
                                 root.added()
+                            }
+                        }
+
+                        ThemedContextMenu {
+                            id: cardMenu
+
+                            property bool favorited: false
+
+                            onAboutToShow: favorited = EditorState.isAssetFavorite("shapes", shapeCard.modelData.id)
+
+                            ThemedMenuItem {
+                                text: qsTr("Add at playhead")
+                                icon.name: Theme.icons.plus
+                                onTriggered: shapeDrag.tapped()
+                            }
+                            ThemedMenuItem {
+                                text: cardMenu.favorited ? qsTr("Remove from favorites") : qsTr("Add to favorites")
+                                icon.name: Theme.icons.star
+                                onTriggered: EditorState.toggleAssetFavorite("shapes", shapeCard.modelData.id)
                             }
                         }
 

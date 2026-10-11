@@ -3,13 +3,14 @@
 #include "preview/PreviewController.h"
 
 #include "AddonManager.h"
+#include "engine/PdfClipRenderer.h"
+#include "engine/PdfiumRuntime.h"
 #include "AssetLibrary.h"
 #include "MarketClient.h"
 #include "FileDialogs.h"
 #include "core/Clip.h"
 #include "core/Mask.h"
 #include "core/SpeedCurve.h"
-#include "core/Stabilize.h"
 #include "core/PrprojReader.h"
 #include "core/MogrtReader.h"
 #include "core/KdenliveReader.h"
@@ -53,8 +54,6 @@
 // would restore the boundary.
 #include "engine/GlRuntime.h"
 #include "engine/MediaThumbnail.h"
-#include "engine/AudioFileWriter.h"
-#include "engine/DeepFilterDenoiser.h"
 #include "engine/ObjectDetector.h"
 #include "engine/OrtRuntime.h"
 #include "engine/MaskApplier.h"
@@ -71,7 +70,6 @@
 #include "engine/FaceTrack.h"
 #include "engine/DepthSidecar.h"
 #include "engine/VdaDepth.h"
-#include "engine/Restorer.h"
 #include "engine/ModelAsset.h"
 #include "engine/ModelClipTransform.h"
 #include "engine/ReverseProxyCache.h"
@@ -84,7 +82,6 @@
 #include "engine/StickerCatalog.h"
 #include "engine/StillImage.h"
 #include "MulticamImageStore.h"
-#include "SegmentImageStore.h"
 #include "engine/TextLayout.h"
 #ifdef DRIFT_WITH_SKIA
 #include "engine/SkiaTextPainter.h"
@@ -119,6 +116,7 @@
 #include <QAudioDevice>
 #include <QThreadPool>
 #include <QSaveFile>
+#include <QTemporaryDir>
 #include <QTemporaryFile>
 #include <QElapsedTimer>
 #include <QSettings>
@@ -146,7 +144,6 @@
 using namespace drift::appdetail;
 using drift::mcpdetail::findClipById;
 using drift::mcpdetail::runBeatAnalysis;
-using drift::mcpdetail::sceneRowsFromAnalysis;
 
 namespace {
 
@@ -167,36 +164,6 @@ int clipIndexById(const drift::Track &track, const QString &id);
 // Offline scans read a file end to end at their own pace. They need decode cursors of their own so
 // they never share one with timeline playback of the same media — see ClipReaderPool.
 constexpr quint64 kSubtitleScanStreamId = 0xA5'11'5C'A4'00'00'00'01ull;
-constexpr quint64 kDenoiseScanStreamId = 0xA5'11'5C'A4'00'00'00'02ull;
-constexpr quint64 kFaceDetectStreamId = 0xA5'11'5C'A4'00'00'00'05ull;
-constexpr quint64 kDepthScanStreamId = 0xA5'11'5C'A4'00'00'00'09ull;
-constexpr quint64 kRestorePreviewStreamId = 0xA5'11'5C'A4'00'00'00'0Aull;
-
-
-// The camera original behind a clip's media, which stabilization always starts from: the clip's
-// own asset, or — when the clip reads a "(stabilized)" render — the asset that render was made
-// from, with offsetUs the render's start in that asset's source time. Empty when the original has
-// left the bin.
-struct StabilizeOrigin
-{
-    QString assetId;
-    QString path;
-    drift::TimeUs offsetUs = 0;
-};
-
-std::optional<StabilizeOrigin> stabilizeOrigin(const drift::Project &project, const drift::Clip &clip)
-{
-    const drift::MediaAsset *asset = project.asset(clip.assetId);
-    if (!asset || asset->generator.value(QStringLiteral("kind")).toString() != QLatin1String("stabilize"))
-        return StabilizeOrigin{clip.assetId, clip.path, 0};
-    const drift::MediaAsset *source =
-        project.asset(asset->generator.value(QStringLiteral("sourceAssetId")).toString());
-    if (!source || source->path.isEmpty())
-        return std::nullopt;
-    return StabilizeOrigin{
-        source->id, source->path,
-        drift::TimeUs(asset->generator.value(QStringLiteral("sourceInUs")).toInteger())};
-}
 
 } // namespace
 
@@ -573,6 +540,36 @@ AppController::~AppController()
     m_trimCursorCache.clear();
 }
 
+void AppController::setAddonManager(AddonManager *manager)
+{
+    m_addonManager = manager;
+    if (manager && m_tts)
+        connect(manager, &AddonManager::kindChanged, m_tts, &TtsController::refreshAvailability);
+    if (manager) {
+        connect(manager, &AddonManager::kindChanged, this, [this](const QString &kind) {
+            if (kind != QLatin1String(drift::pdfium::kPdfiumKind))
+                return;
+            drift::clearPdfRenderCaches();
+            // Clips attached before the addon existed have no page list; fill it in place, outside
+            // the undo stack, since the file itself is unchanged.
+            bool probed = false;
+            for (drift::Track &track : m_project.tracks()) {
+                for (drift::Clip &clip : track.clips) {
+                    if (clip.type == drift::ClipType::Pdf && clip.pdf.pageCount == 0)
+                        probed = drift::probePdfSource(clip.pdf) || probed;
+                }
+            }
+            if (m_assetLibrary)
+                m_assetLibrary->refreshPdfThumbnails();
+            if (probed) {
+                notifyTracksChanged();
+                emit selectedClipDataChanged();
+            }
+            m_playback.notifyProjectEdited();
+        });
+    }
+}
+
 AppController::AppController(AssetLibrary *assetLibrary, QObject *parent)
     : QObject(parent)
     , m_assetLibrary(assetLibrary)
@@ -583,13 +580,22 @@ AppController::AppController(AssetLibrary *assetLibrary, QObject *parent)
     m_project.setAuthor(QSettings().value(QStringLiteral("authorName")).toString());
     if (m_assetLibrary)
         m_assetLibrary->setProject(&m_project);
-    m_binFolderModel.setProject(&m_project);
     // Before the preview: its constructor asks projectFile()->projectWidth().
     m_projectFile = new ProjectFileController(this, this);
     m_assetPreview = new AssetPreviewController(this, this);
     m_speedCurve = new SpeedCurveController(this, this);
     m_curves = new CurveEditorController(this, this);
     m_segmentation = new SegmentationController(this, this);
+    m_sceneDetect = new SceneDetectController(this, this);
+    m_depth = new DepthController(this, this);
+    m_denoise = new DenoiseController(this, this);
+    m_restore = new RestoreController(this, this);
+    m_faces = new FaceTrackingController(this, this);
+    m_stabilize = new StabilizeController(this, this);
+    m_bin = new MediaBinController(this, this);
+    m_tts = new TtsController(this, this);
+    m_voices = new VoiceLibrary(this, m_tts, this);
+    m_tts->setVoices(m_voices);
     m_preview = new PreviewController(*this, this);
     m_preferences = new PreferencesController(this);
     connect(m_preferences, &PreferencesController::restartNoticeRequested, this,
@@ -615,13 +621,7 @@ AppController::AppController(AssetLibrary *assetLibrary, QObject *parent)
     connect(&m_waveformBlocks, &WaveformBlockCache::rangeReady, this,
             &AppController::waveformRangeReady);
 
-    // Queued: the finished job's own bookkeeping is still unwinding when this is emitted.
-    connect(this, &AppController::assetEditFinished, this, &AppController::startNextConversion,
-            Qt::QueuedConnection);
-
     if (m_assetLibrary) {
-        connect(m_assetLibrary, &AssetLibrary::assetSourceProbed, this,
-                &AppController::finalizeAssetReplace);
         // No pushProjectEdit: a proxy is a cache, not project content. This only asks the
         // compositor to re-read, which now resolves to (or away from) the proxy.
         connect(m_assetLibrary, &AssetLibrary::proxiesChanged, this,
@@ -643,12 +643,12 @@ AppController::AppController(AssetLibrary *assetLibrary, QObject *parent)
         // model with a stale row count.
         if (m_assetLibrary)
             m_assetLibrary->syncToProject();
-        m_binFolderModel.syncToProject();
+        m_bin->folderModel()->syncToProject();
         // An undo/redo can restore a project state where the folder currently being viewed no
         // longer exists (its creation was undone) — back the viewer out to root rather than
         // leaving it pointed at nothing.
-        if (!m_currentBinFolderId.isEmpty() && !m_project.binFolder(m_currentBinFolderId))
-            setCurrentBinFolderId(QString());
+        if (!m_bin->currentFolderId().isEmpty() && !m_project.binFolder(m_bin->currentFolderId()))
+            m_bin->setCurrentFolderId(QString());
         normalizeSelection();
         reconcileSequenceTabs();
         m_projectFile->setDirty(true);
@@ -977,6 +977,80 @@ bool trackAllowsTransitions(drift::TrackType type)
 {
     return type == drift::TrackType::Video || type == drift::TrackType::Shape
            || type == drift::TrackType::Text || type == drift::TrackType::Audio;
+}
+
+// What the properties panel may offer for a clip. Each inspector tab lists the caps it needs and
+// is hidden without them, so a new clip kind only has to be described here.
+QStringList inspectorCaps(const drift::Clip &clip, drift::TrackType trackType)
+{
+    using drift::ClipType;
+    QStringList caps;
+    if (clip.type == ClipType::Adjustment) {
+        switch (clip.adjustmentKind) {
+        case drift::AdjustmentKind::VideoEffects:
+            caps << QStringLiteral("blendable") << QStringLiteral("maskable") << QStringLiteral("adj:videoEffects");
+            break;
+        case drift::AdjustmentKind::Mask:
+            caps << QStringLiteral("blendable") << QStringLiteral("maskable") << QStringLiteral("adj:mask");
+            break;
+        case drift::AdjustmentKind::AudioEffects:
+            caps << QStringLiteral("adj:audioEffects");
+            break;
+        case drift::AdjustmentKind::Transform:
+            caps << QStringLiteral("transformable") << QStringLiteral("animatable") << QStringLiteral("adj:transform");
+            break;
+        case drift::AdjustmentKind::Camera:
+            caps << QStringLiteral("adj:camera");
+            break;
+        }
+        return caps;
+    }
+
+    if (trackAllowsTransitions(trackType))
+        caps << QStringLiteral("transitionable");
+
+    switch (clip.type) {
+    case ClipType::Video:
+        caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
+             << QStringLiteral("audible") << QStringLiteral("retimable") << QStringLiteral("stabilizable");
+        break;
+    case ClipType::Composite:
+        caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
+             << QStringLiteral("audible") << QStringLiteral("retimable");
+        break;
+    case ClipType::Audio:
+        caps << QStringLiteral("animatable") << QStringLiteral("audible") << QStringLiteral("retimable");
+        break;
+    case ClipType::Text:
+        caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
+             << QStringLiteral("textStyled");
+        break;
+    case ClipType::Subtitle:
+        caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("textStyled")
+             << QStringLiteral("subtitle");
+        break;
+    case ClipType::Image:
+        caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable");
+        break;
+    case ClipType::Shape:
+        caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
+             << QStringLiteral("shape");
+        break;
+    case ClipType::Vector:
+        caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
+             << QStringLiteral("vector");
+        break;
+    case ClipType::Pdf:
+        caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
+             << QStringLiteral("pdf");
+        break;
+    case ClipType::Model3d:
+        caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("model3d");
+        break;
+    case ClipType::Adjustment:
+        break;
+    }
+    return caps;
 }
 
 // On an audio track only the sound of a transition exists, and "hold" has none.
@@ -1918,6 +1992,33 @@ QVariantMap vectorSourceToMap(const drift::VectorSource &v, drift::TimeUs timeli
     return map;
 }
 
+QVariantMap pdfSourceToMap(const drift::PdfSource &s, drift::TimeUs timelineStart)
+{
+    QVariantMap keyframes;
+    for (auto it = s.keyframes.cbegin(); it != s.keyframes.cend(); ++it) {
+        if (!it->isEmpty())
+            keyframes.insert(it.key(), keyframeTrackToMap(it.value(), timelineStart));
+    }
+    QVariantMap map{
+        {QStringLiteral("path"), s.path},
+        {QStringLiteral("pageCount"), s.pageCount},
+        {QStringLiteral("firstPage"), s.firstPage},
+        {QStringLiteral("lastPage"), s.lastPage},
+        {QStringLiteral("layout"), drift::pdfLayoutToString(s.layout)},
+        {QStringLiteral("gridColumns"), s.gridColumns},
+        {QStringLiteral("gap"), s.gap},
+        {QStringLiteral("addonAvailable"), drift::pdfium::available()},
+    };
+    for (const QString &key : drift::pdfKeyframeProperties()) {
+        double v = 0.0;
+        drift::pdfScalar(s, key, &v);
+        map.insert(key, v);
+    }
+    if (!keyframes.isEmpty())
+        map.insert(QStringLiteral("keyframes"), keyframes);
+    return map;
+}
+
 QVariantMap model3dSourceToMap(const drift::Model3dSource &m, drift::TimeUs timelineStart)
 {
     QVariantList animations;
@@ -2393,6 +2494,7 @@ bool isSyntheticTimelineClip(drift::ClipType type)
     return type == drift::ClipType::Text || type == drift::ClipType::Subtitle
            || type == drift::ClipType::Shape || type == drift::ClipType::Image
            || type == drift::ClipType::Vector || type == drift::ClipType::Model3d
+           || type == drift::ClipType::Pdf
            || type == drift::ClipType::Adjustment;
 }
 
@@ -2415,6 +2517,7 @@ bool clipAcceptsPreviewTransform(const drift::Clip &clip)
 {
     return clip.type == drift::ClipType::Shape || clip.type == drift::ClipType::Image
            || clip.type == drift::ClipType::Vector || clip.type == drift::ClipType::Model3d
+           || clip.type == drift::ClipType::Pdf
            || clip.type == drift::ClipType::Text || clip.type == drift::ClipType::Subtitle
            || clip.type == drift::ClipType::Video || clip.type == drift::ClipType::Composite
            || (clip.type == drift::ClipType::Adjustment
@@ -2578,6 +2681,25 @@ bool parseModel3dProp(const drift::Clip &clip, const QString &prop, QString *key
     return true;
 }
 
+// A PDF viewport scalar is addressed as "pdf.<key>" ("pdf.scrollY", "pdf.zoom").
+bool parsePdfProp(const drift::Clip &clip, const QString &prop, QString *key)
+{
+    if (clip.type != drift::ClipType::Pdf || !prop.startsWith(QLatin1String("pdf.")))
+        return false;
+    const QString candidate = prop.mid(4);
+    double probe = 0.0;
+    if (!drift::pdfScalar(clip.pdf, candidate, &probe))
+        return false;
+    *key = candidate;
+    return true;
+}
+
+bool looksLikePdfProp(const QString &prop)
+{
+    double value = 0.0;
+    return prop.startsWith(QLatin1String("pdf.")) && drift::pdfScalar({}, prop.mid(4), &value);
+}
+
 bool looksLikeModel3dProp(const QString &prop)
 {
     if (!prop.startsWith(QLatin1String("model3d.")))
@@ -2665,6 +2787,13 @@ drift::KeyframeTrack<double> *keyframeTrackForProp(drift::Clip &clip, const QStr
         const auto it = clip.model3d.keyframes.find(modelKey);
         return it == clip.model3d.keyframes.end() ? nullptr : &it.value();
     }
+    QString pdfKey;
+    if (parsePdfProp(clip, prop, &pdfKey)) {
+        if (createIfMissing)
+            return &clip.pdf.keyframes[pdfKey];
+        const auto it = clip.pdf.keyframes.find(pdfKey);
+        return it == clip.pdf.keyframes.end() ? nullptr : &it.value();
+    }
 
     int effectIndex = -1;
     QString paramKey;
@@ -2718,7 +2847,7 @@ bool isKnownKeyframeProp(const QString &prop)
     if (parseMaskProp(prop, &maskKey))
         return true;
     if (looksLikeTextProp(prop) || looksLikeShapeProp(prop) || looksLikeVectorProp(prop)
-        || looksLikeModel3dProp(prop))
+        || looksLikeModel3dProp(prop) || looksLikePdfProp(prop))
         return true;
     drift::Clip probe;
     return transformTrackForProp(probe, prop) != nullptr;
@@ -2737,6 +2866,7 @@ QString normalizeKeyframeProp(const QString &prop)
                    || trimmed.startsWith(QLatin1String("text."))
                    || trimmed.startsWith(QLatin1String("shape.")) || trimmed.startsWith(QLatin1String("vector."))
                    || trimmed.startsWith(QLatin1String("model3d."))
+                   || trimmed.startsWith(QLatin1String("pdf."))
                ? trimmed
                : trimmed.toLower();
 }
@@ -2880,6 +3010,17 @@ bool writeClipPropValue(drift::Clip &clip, const QString &prop, drift::TimeUs re
         if (!writeKeyframeValue(clip.model3d.keyframes[modelKey], relative, value, autoKey, force))
             return false;
         drift::setModel3dScalar(clip.model3d, modelKey, value);
+        return true;
+    }
+    QString pdfKey;
+    if (parsePdfProp(clip, prop, &pdfKey)) {
+        const auto existing = clip.pdf.keyframes.constFind(pdfKey);
+        const bool keyed = existing != clip.pdf.keyframes.constEnd() && !existing->isEmpty();
+        if (!keyed && !force && !autoKey)
+            return drift::setPdfScalar(clip.pdf, pdfKey, value);
+        if (!writeKeyframeValue(clip.pdf.keyframes[pdfKey], relative, value, autoKey, force))
+            return false;
+        drift::setPdfScalar(clip.pdf, pdfKey, value);
         return true;
     }
 
@@ -3227,9 +3368,12 @@ drift::Transition *mirroredAudioTransition(drift::Project &project, int trackInd
 void syncLinkedPartnersFrom(drift::Project &project, const drift::Clip &source,
                             const QSet<QString> &skipClipIds)
 {
+    // Loose links only travel together; their timing stays independent.
+    if (source.linkLoose)
+        return;
     for (const drift::ClipRef &ref : drift::linkedPartners(project, source)) {
         const drift::Clip &partner = project.tracks().at(ref.trackIndex).clips.at(ref.clipIndex);
-        if (skipClipIds.contains(partner.id))
+        if (skipClipIds.contains(partner.id) || partner.linkLoose)
             continue;
         drift::syncLinkedTiming(project.tracks()[ref.trackIndex].clips[ref.clipIndex], source);
     }
@@ -3375,6 +3519,11 @@ void attachAssetSource(drift::Clip &clip)
         probeModel3dSource(clip.model3d);
         return;
     }
+    if (clip.type == drift::ClipType::Pdf) {
+        clip.pdf.path = clip.path;
+        drift::probePdfSource(clip.pdf);
+        return;
+    }
     if (clip.type != drift::ClipType::Vector)
         return;
     clip.vector.path = clip.path;
@@ -3420,7 +3569,7 @@ void applyAssetLayout(drift::Clip &clip, const QVariantMap &asset, int canvasW, 
     const int rotation = asset.value(QStringLiteral("effectiveRotation")).toInt();
     if (rotation == 90 || rotation == 270)
         std::swap(mediaW, mediaH);
-    if (clip.type == drift::ClipType::Video) {
+    if (clip.type == drift::ClipType::Video || clip.type == drift::ClipType::Image) {
         clip.sourceFrame = asset.value(QStringLiteral("sourceFrame"), QRectF(0, 0, 1, 1)).toRectF();
         if (mediaW > 0 && mediaH > 0) {
             mediaW = qMax(1, qRound(mediaW * clip.sourceFrame.width()));
@@ -4105,6 +4254,7 @@ QHash<QString, QString> defaultShortcuts()
         {QStringLiteral("split"), QStringLiteral("S")},
         {QStringLiteral("merge"), QStringLiteral("Ctrl+M")},
         {QStringLiteral("unlink"), QStringLiteral("Ctrl+Shift+U")},
+        {QStringLiteral("link"), QStringLiteral("Ctrl+Shift+L")},
         {QStringLiteral("separateAudio"), QStringLiteral("Ctrl+Shift+S")},
         {QStringLiteral("copy"), QStringLiteral("Ctrl+C")},
         {QStringLiteral("cut"), QStringLiteral("Ctrl+X")},
@@ -4266,8 +4416,8 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
              && (clip.stabilizeSmoothing != clip.stabilizeAppliedSmoothing
                  || clip.stabilizeTripod != clip.stabilizeAppliedTripod
                  || clip.stabilizeMode != clip.stabilizeAppliedMode)},
-        {QStringLiteral("stabilizeProgress"), m_stabilizeProgress.value(clip.id, 0.0)},
-        {QStringLiteral("stabilizeStatus"), m_stabilizeStatus.value(clip.id)},
+        {QStringLiteral("stabilizeProgress"), m_stabilize->progressFor(clip.id)},
+        {QStringLiteral("stabilizeStatus"), m_stabilize->statusFor(clip.id)},
         {QStringLiteral("start"), drift::usToSeconds(clip.timelineStart)},
         {QStringLiteral("duration"), drift::usToSeconds(clip.timelineDuration)},
         {QStringLiteral("inPoint"), drift::usToSeconds(clip.srcIn)},
@@ -4309,6 +4459,8 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
         map.insert(QStringLiteral("vector"), vectorSourceToMap(clip.vector, clip.timelineStart));
     if (clip.type == drift::ClipType::Model3d)
         map.insert(QStringLiteral("model3d"), model3dSourceToMap(clip.model3d, clip.timelineStart));
+    if (clip.type == drift::ClipType::Pdf)
+        map.insert(QStringLiteral("pdf"), pdfSourceToMap(clip.pdf, clip.timelineStart));
     return map;
 }
 
@@ -4747,472 +4899,14 @@ bool AppController::setAssetRotation(int assetIndex, int degrees)
     return true;
 }
 
-void AppController::setCurrentBinFolderId(const QString &folderId)
-{
-    if (m_currentBinFolderId == folderId)
-        return;
-    m_currentBinFolderId = folderId;
-    if (m_assetLibrary)
-        m_assetLibrary->setImportFolderId(folderId);
-    emit currentBinFolderIdChanged();
-}
-
-QString AppController::createBinFolder(const QString &name, const QString &parentId)
-{
-    const QString trimmed = name.trimmed();
-    if (trimmed.isEmpty())
-        return {};
-
-    // Plain copy, not detachedCopy(): nothing here runs off the GUI thread, so there's no
-    // concurrent reader to race — the same reasoning removeAsset already relies on. A full
-    // detach walks every clip's keyframes/masks/effects across the whole timeline, which is
-    // real, perceptible latency on a project of any size for an edit that touches none of it.
-    const drift::Project before = m_project;
-    const QString id = m_binFolderModel.createFolder(trimmed, parentId);
-    pushProjectEdit(before, tr("Folder created"));
-    return id;
-}
-
-bool AppController::renameBinFolder(const QString &folderId, const QString &name)
-{
-    const QString trimmed = name.trimmed();
-    if (trimmed.isEmpty())
-        return false;
-
-    // Plain copy, not detachedCopy(): nothing here runs off the GUI thread, so there's no
-    // concurrent reader to race — the same reasoning removeAsset already relies on. A full
-    // detach walks every clip's keyframes/masks/effects across the whole timeline, which is
-    // real, perceptible latency on a project of any size for an edit that touches none of it.
-    const drift::Project before = m_project;
-    if (!m_binFolderModel.renameFolder(folderId, trimmed))
-        return false;
-
-    pushProjectEdit(before, tr("Folder renamed"));
-    return true;
-}
-
-bool AppController::moveBinFolder(const QString &folderId, const QString &newParentId)
-{
-    // Plain copy, not detachedCopy(): nothing here runs off the GUI thread, so there's no
-    // concurrent reader to race — the same reasoning removeAsset already relies on. A full
-    // detach walks every clip's keyframes/masks/effects across the whole timeline, which is
-    // real, perceptible latency on a project of any size for an edit that touches none of it.
-    const drift::Project before = m_project;
-    if (!m_binFolderModel.moveFolder(folderId, newParentId))
-        return false;
-
-    pushProjectEdit(before, tr("Folder moved"));
-    return true;
-}
-
-bool AppController::deleteBinFolder(const QString &folderId)
-{
-    // Plain copy, not detachedCopy(): nothing here runs off the GUI thread, so there's no
-    // concurrent reader to race — the same reasoning removeAsset already relies on. A full
-    // detach walks every clip's keyframes/masks/effects across the whole timeline, which is
-    // real, perceptible latency on a project of any size for an edit that touches none of it.
-    const drift::Project before = m_project;
-    const QString parentId = m_binFolderModel.parentIdOf(folderId);
-    if (!m_binFolderModel.deleteFolder(folderId))
-        return false;
-
-    if (m_assetLibrary)
-        m_assetLibrary->reparentAssetsInFolder(folderId, parentId);
-    if (m_currentBinFolderId == folderId)
-        setCurrentBinFolderId(parentId);
-
-    pushProjectEdit(before, tr("Folder deleted"));
-    return true;
-}
-
-bool AppController::moveAssetToFolder(int assetIndex, const QString &folderId)
-{
-    if (!m_assetLibrary)
-        return false;
-
-    // Plain copy, not detachedCopy(): nothing here runs off the GUI thread, so there's no
-    // concurrent reader to race — the same reasoning removeAsset already relies on. A full
-    // detach walks every clip's keyframes/masks/effects across the whole timeline, which is
-    // real, perceptible latency on a project of any size for an edit that touches none of it.
-    const drift::Project before = m_project;
-    if (!m_assetLibrary->moveAssetToFolder(assetIndex, folderId))
-        return false;
-
-    pushProjectEdit(before, tr("Media moved"));
-    return true;
-}
-
-int AppController::moveAssetsToFolder(const QStringList &assetIds, const QString &folderId)
-{
-    if (!m_assetLibrary || assetIds.isEmpty())
-        return 0;
-
-    const drift::Project before = m_project;
-    int moved = 0;
-    for (const QString &id : assetIds) {
-        const int index = m_assetLibrary->indexOfId(id);
-        if (index < 0)
-            continue;
-        if (m_assetLibrary->moveAssetToFolder(index, folderId))
-            ++moved;
-    }
-    if (moved == 0)
-        return 0;
-
-    pushProjectEdit(before, moved == 1 ? tr("Media moved") : tr("%n items moved", "", moved));
-    return moved;
-}
-
-namespace {
-
-// A folder picked by mistake — a home directory, an external drive — can hold tens of thousands
-// of files, and importing them all means a probe and a thumbnail job each. The walk stops here
-// and says so, rather than filling the bin with something nobody asked for.
-constexpr int kFolderImportFileLimit = 500;
-
-// One filesystem directory, flattened out of the walk so the GUI-thread half can replay the tree
-// without touching the disk again. `parentIndex` points at an earlier entry in the same list;
-// -1 is the folder the user picked.
-struct FolderImportEntry
-{
-    QString name;
-    int parentIndex = -1;
-    QStringList files;
-};
-
-struct FolderImportPlan
-{
-    QList<FolderImportEntry> entries;
-    // Files the walk looked at and passed over because nothing recognizes the extension. Only
-    // counts what was actually examined, so hitting the limit below does not inflate it with
-    // everything the walk never reached.
-    int skipped = 0;
-    bool truncated = false;
-};
-
-// Runs on a worker thread: nothing here touches the project, the models, or anything else the
-// GUI thread owns. That matters most under Flatpak, where the picked directory is a
-// document-portal FUSE mount and every stat is a round trip out of the sandbox.
-void planDirectory(const QDir &dir, int parentIndex, FolderImportPlan &plan, int &fileCount,
-                   QSet<QString> &visitedDirs)
-{
-    // Guards against a symlinked subdirectory that loops back to an ancestor (or to another
-    // already-planned directory): canonicalFilePath() resolves the symlink, so the second
-    // visit is recognized and skipped instead of recursing forever.
-    const QString canonicalPath = QFileInfo(dir.absolutePath()).canonicalFilePath();
-    if (canonicalPath.isEmpty() || visitedDirs.contains(canonicalPath))
-        return;
-    visitedDirs.insert(canonicalPath);
-
-    FolderImportEntry entry;
-    entry.name = dir.dirName();
-    entry.parentIndex = parentIndex;
-
-    const QFileInfoList files = dir.entryInfoList(QDir::Files, QDir::Name);
-    for (const QFileInfo &info : files) {
-        if (!AssetLibrary::isMediaPath(info.fileName())) {
-            ++plan.skipped;
-            continue;
-        }
-        if (fileCount >= kFolderImportFileLimit) {
-            plan.truncated = true;
-            break;
-        }
-        entry.files.append(info.absoluteFilePath());
-        ++fileCount;
-    }
-
-    const int index = plan.entries.size();
-    plan.entries.append(entry);
-    // Stop the whole walk at the limit rather than only the file collection, so hitting it
-    // leaves a partial tree instead of thousands of empty mirrored folders.
-    if (plan.truncated)
-        return;
-
-    const QFileInfoList subdirs = dir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
-    for (const QFileInfo &subdirInfo : subdirs) {
-        planDirectory(QDir(subdirInfo.absoluteFilePath()), index, plan, fileCount, visitedDirs);
-        if (plan.truncated)
-            return;
-    }
-}
-
-} // namespace
-
-bool AppController::importFolder(const QUrl &folderUrl)
-{
-    if (m_importingFolder)
-        return false;
-
-    const QString path = folderUrl.isLocalFile() ? folderUrl.toLocalFile() : folderUrl.toString();
-    const QDir dir(path);
-    if (path.isEmpty() || !dir.exists())
-        return false;
-
-    m_importingFolder = true;
-    emit importingFolderChanged();
-
-    // Only the walk is off-thread. Creating the bin folders and the asset rows stays on the GUI
-    // thread, because both are model mutations — but with the file limit above, that half is
-    // bounded work on data already in memory.
-    auto *watcher = new QFutureWatcher<FolderImportPlan>(this);
-    connect(watcher, &QFutureWatcher<FolderImportPlan>::finished, this, [this, watcher]() {
-        watcher->deleteLater();
-        const FolderImportPlan plan = watcher->result();
-
-        QStringList folderIds;
-        folderIds.reserve(plan.entries.size());
-        int folderCount = 0;
-        int fileCount = 0;
-
-        for (const FolderImportEntry &entry : plan.entries) {
-            const QString parentId =
-                entry.parentIndex < 0 ? m_currentBinFolderId : folderIds.at(entry.parentIndex);
-            const QString folderId = m_binFolderModel.createFolder(entry.name, parentId);
-            // Appended before the empty check so later entries' parentIndex stays aligned.
-            folderIds.append(folderId);
-            if (folderId.isEmpty())
-                continue;
-            ++folderCount;
-
-            if (entry.files.isEmpty() || !m_assetLibrary)
-                continue;
-
-            // Retargeted for the duration of this one entry — importLocalPaths reads it via
-            // m_importFolderId — then put back once the whole tree is done.
-            m_assetLibrary->setImportFolderId(folderId);
-            const QStringList ids = m_assetLibrary->importLocalPaths(entry.files);
-            fileCount += ids.size();
-            // A path already in the bin from an earlier import is returned as-is by
-            // importLocalPaths, keeping whatever folder it already lived in — otherwise this
-            // mirrored folder would look empty despite the file counting as imported into it.
-            for (const QString &id : ids) {
-                const int index = m_assetLibrary->indexOfId(id);
-                if (index < 0)
-                    continue;
-                if (m_assetLibrary->assetAt(index).value(QStringLiteral("folderId")).toString()
-                    != folderId)
-                    m_assetLibrary->moveAssetToFolder(index, folderId);
-            }
-        }
-
-        // The loop above repointed the import destination at whichever folder it last populated;
-        // put it back at wherever the user is actually browsing.
-        if (m_assetLibrary)
-            m_assetLibrary->setImportFolderId(m_currentBinFolderId);
-
-        // Not pushed through pushProjectEdit: like a plain media import, this isn't meant to be
-        // undoable — "undo" is deleting the folder by hand, same as removing an imported asset.
-        // But unlike plain media import, autosave/the unsaved-changes prompt should still cover
-        // it, so it's marked dirty directly (the same split setProjectName/setProjectMetadata
-        // already use).
-        if (folderCount > 0)
-            m_projectFile->setDirty(true);
-
-        m_importingFolder = false;
-        emit importingFolderChanged();
-        emit folderImportFinished(folderCount, fileCount, plan.skipped, plan.truncated);
-    });
-
-    watcher->setFuture(QtConcurrent::run([dir]() {
-        FolderImportPlan plan;
-        int fileCount = 0;
-        QSet<QString> visitedDirs;
-        planDirectory(dir, -1, plan, fileCount, visitedDirs);
-        return plan;
-    }));
-    return true;
-}
-
-bool AppController::replaceAssetSource(int assetIndex, const QUrl &url)
-{
-    if (!m_assetLibrary)
-        return false;
-
-    const QString assetId = m_assetLibrary->assetIdAt(assetIndex);
-    if (assetId.isEmpty())
-        return false;
-
-    QString path = url.isLocalFile() ? url.toLocalFile() : url.toString();
-    QString sourceUri;
-#ifdef Q_OS_ANDROID
-    // A content:// document has no filesystem path at all, so QFileInfo below rejects every SAF
-    // pick outright. Copy it out first, exactly as import does, and probe the copy.
-    if (AndroidUri::isContentUri(url)) {
-        path = materializeContentUrl(url);
-        if (!path.isEmpty())
-            sourceUri = url.toString(QUrl::FullyEncoded);
-    }
-#endif
-    const QFileInfo fileInfo(path);
-    if (path.isEmpty() || !fileInfo.isFile()) {
-        emit assetReplaceFinished(false, tr("That file could not be read."), 0);
-        return false;
-    }
-
-    // Two bin rows sharing a path would break import de-duplication, which resolves a path to
-    // whichever row holds it first.
-    const QString absolutePath = fileInfo.absoluteFilePath();
-    const int existing = m_assetLibrary->indexOfPath(absolutePath);
-    if (existing >= 0 && existing != assetIndex) {
-        emit assetReplaceFinished(false, tr("That file is already in this project."), 0);
-        return false;
-    }
-
-    if (!m_assetLibrary->startReplaceProbe(assetIndex, absolutePath)) {
-        emit assetReplaceFinished(false, tr("That file could not be read."), 0);
-        return false;
-    }
-
-    // Reading a file off a slow disk is the one part of this the user waits on with nothing to
-    // show for it, so the row it belongs to goes busy until the probe lands.
-    m_replacingAssetId = assetId;
-    // applyProbedSource overwrites the whole struct from the probe result, which knows nothing
-    // about where the file came from — so the URI is held here and put back in finalizeAssetReplace.
-    m_replacingAssetSourceUri = sourceUri;
-    emit replacingAssetIdChanged();
-    return true;
-}
-
-bool AppController::exportAssetImage(int assetIndex, const QUrl &url)
-{
-    if (!m_assetLibrary)
-        return false;
-
-    const QVariantMap asset = m_assetLibrary->assetAt(assetIndex);
-    if (asset.value(QStringLiteral("kind")).toString()
-        != drift::mediaKindToString(drift::MediaKind::Image)) {
-        return false;
-    }
-
-    const QString sourcePath = asset.value(QStringLiteral("path")).toString();
-    if (sourcePath.isEmpty() || !QFileInfo(sourcePath).isFile())
-        return false;
-
-    // The path the picker returned is written to exactly as given — see FileDialogs::saveFile for
-    // why appending a suffix to it would write somewhere the document portal never registered.
-    // On Android it is a content:// URI, whose path carries no extension: the format comes from
-    // the document's display name instead.
-    const bool contentUri = AndroidUri::isContentUri(url);
-    const QString destPath = url.isLocalFile() ? url.toLocalFile() : QString();
-    if (!contentUri && destPath.isEmpty())
-        return false;
-
-    const QString destName = contentUri ? AndroidUri::displayName(url) : destPath;
-    const QString suffix = QFileInfo(destName).suffix().toLower();
-    const bool jpeg = suffix == QLatin1String("jpg") || suffix == QLatin1String("jpeg");
-
-    // Same format in and out: copy the bytes rather than decode and re-encode, so a freeze frame
-    // saved as PNG comes out pixel-for-pixel what the compositor produced.
-    const bool copyBytes = !jpeg && suffix == QFileInfo(sourcePath).suffix().toLower();
-    if (copyBytes && !contentUri) {
-        QFile::remove(destPath); // The picker already confirmed the overwrite; copy() won't clobber.
-        return QFile::copy(sourcePath, destPath);
-    }
-
-    QImage image;
-    if (!copyBytes) {
-        image.load(sourcePath);
-        if (image.isNull())
-            return false;
-        // JPEG has no alpha, and Qt writes transparent pixels as black without this.
-        if (jpeg && image.hasAlphaChannel())
-            image = image.convertToFormat(QImage::Format_RGB32);
-    }
-
-    if (!contentUri)
-        return jpeg ? image.save(destPath, "JPG", 95) : image.save(destPath, "PNG");
-
-    const bool disposable = writeTargetIsDisposable(url);
-    std::unique_ptr<QFile> dst = AndroidUri::openForWrite(url);
-    bool ok = false;
-    if (dst) {
-        if (copyBytes) {
-            QFile src(sourcePath);
-            if (src.open(QIODevice::ReadOnly)) {
-                const QByteArray bytes = src.readAll();
-                ok = src.error() == QFile::NoError && dst->write(bytes) == bytes.size();
-            }
-        } else {
-            ok = jpeg ? image.save(dst.get(), "JPG", 95) : image.save(dst.get(), "PNG");
-        }
-        // See commitWriteTarget: a cloud provider only commits when the descriptor closes.
-        ok = ok && dst->flush();
-        dst->close();
-        ok = ok && dst->error() == QFile::NoError;
-    }
-    if (!ok && disposable)
-        AndroidUri::deleteDocument(url);
-    return ok;
-}
-
-bool AppController::saveAssetAs(int assetIndex, const QUrl &url)
-{
-    if (!m_assetLibrary)
-        return false;
-
-    const QVariantMap asset = m_assetLibrary->assetAt(assetIndex);
-    const QString name = asset.value(QStringLiteral("name")).toString();
-    const QString sourcePath = asset.value(QStringLiteral("path")).toString();
-    if (sourcePath.isEmpty() || !QFileInfo(sourcePath).isFile())
-        return false;
-
-    const bool contentUri = AndroidUri::isContentUri(url);
-    const QString destPath = url.isLocalFile() ? url.toLocalFile() : QString();
-    if (!contentUri && destPath.isEmpty())
-        return false;
-    const bool disposable = writeTargetIsDisposable(url);
-
-    (void)QtConcurrent::run([this, sourcePath, destPath, url, contentUri, disposable, name]() {
-        bool ok = false;
-        if (contentUri) {
-            constexpr qint64 kChunk = 1024 * 1024;
-            QFile src(sourcePath);
-            std::unique_ptr<QFile> dst = AndroidUri::openForWrite(url);
-            if (dst && src.open(QIODevice::ReadOnly)) {
-                ok = true;
-                for (QByteArray chunk = src.read(kChunk); !chunk.isEmpty(); chunk = src.read(kChunk)) {
-                    if (dst->write(chunk) != chunk.size()) {
-                        ok = false;
-                        break;
-                    }
-                }
-                // See commitWriteTarget: the tail is only flushed, and a cloud provider only
-                // commits, when the descriptor closes.
-                ok = ok && src.error() == QFile::NoError && dst->flush();
-                dst->close();
-                ok = ok && dst->error() == QFile::NoError;
-            }
-            if (!ok && disposable)
-                AndroidUri::deleteDocument(url);
-        } else if (QFileInfo(destPath).canonicalFilePath() == QFileInfo(sourcePath).canonicalFilePath()) {
-            // Saving a file over itself: the remove below would delete the only copy.
-            ok = true;
-        } else {
-            QFile::remove(destPath); // The picker already confirmed the overwrite; copy() won't clobber.
-            ok = QFile::copy(sourcePath, destPath);
-        }
-
-        QMetaObject::invokeMethod(
-            this, [this, ok, name]() { emit assetSaveFinished(ok, name); }, Qt::QueuedConnection);
-    });
-    return true;
-}
-
-void AppController::cancelAssetEdit()
-{
-    m_conversionQueue.clear();
-    if (m_editingAsset)
-        m_assetEditCancel.storeRelaxed(1);
-}
-
 bool AppController::setClipSourceFrame(const QString &clipId, double x, double y, double w, double h)
 {
     const QRectF frame = drift::normalizedSourceFrame(x, y, w, h);
     for (int t = 0; t < m_project.tracks().size(); ++t) {
         for (int c = 0; c < m_project.tracks().at(t).clips.size(); ++c) {
             const auto &old = m_project.tracks().at(t).clips.at(c);
-            if (old.id != clipId || old.type != drift::ClipType::Video)
+            if (old.id != clipId
+                || (old.type != drift::ClipType::Video && old.type != drift::ClipType::Image))
                 continue;
             if (old.sourceFrame == frame)
                 return true;
@@ -5245,440 +4939,12 @@ bool AppController::setClipSourceFrame(const QString &clipId, double x, double y
                     scaleTrack(clip.transformH, next.height() / previous.height());
                 }
             }
-            pushProjectEdit(before, tr("Frame video"));
-            finishEdit(tr("Video framing saved"));
+            pushProjectEdit(before, tr("Crop clip"));
+            finishEdit(tr("Crop saved"));
             return true;
         }
     }
     return false;
-}
-
-bool AppController::saveAssetEdit(int assetIndex, double inSeconds, double outSeconds,
-                                  double cropX, double cropY, double cropW, double cropH)
-{
-    if (m_editingAsset) {
-        setLastMessage(tr("An edit is already saving"), QStringLiteral("warning"));
-        return false;
-    }
-    if (!m_assetLibrary)
-        return false;
-
-    const QVariantMap asset = m_assetLibrary->assetAt(assetIndex);
-    if (asset.isEmpty())
-        return false;
-
-    const QString kind = asset.value(QStringLiteral("kind")).toString();
-    const QString path = asset.value(QStringLiteral("path")).toString();
-    const QString name = asset.value(QStringLiteral("name")).toString();
-    const QString assetId = m_assetLibrary->assetIdAt(assetIndex);
-    if (path.isEmpty() || assetId.isEmpty() || !QFileInfo(path).isFile()) {
-        setLastMessage(tr("Could not open the media file"), QStringLiteral("error"));
-        return false;
-    }
-
-    // Video never re-encodes: the crop is stored as the asset's source frame and the range goes
-    // through the same non-destructive trim as the plain-trim path below.
-    if (kind == QStringLiteral("video")) {
-        if (!std::isfinite(inSeconds) || !std::isfinite(outSeconds))
-            return false;
-        const QRectF frame = drift::normalizedSourceFrame(cropX, cropY, cropW, cropH);
-        const drift::TimeUs trimIn = drift::secondsToUs(qMax(0.0, inSeconds));
-        const drift::TimeUs trimOut = outSeconds < 0.0 ? -1 : drift::secondsToUs(outSeconds);
-        const drift::Project before = m_project.detachedCopy();
-        bool changed = m_assetLibrary->setAssetTrim(assetIndex, trimIn, trimOut);
-        drift::MediaAsset *media = m_project.asset(assetId);
-        if (media->sourceFrame != frame) {
-            media->sourceFrame = frame;
-            changed = true;
-        }
-        if (!changed) {
-            emit assetEditFinished(true, QString());
-            return true;
-        }
-        pushProjectEdit(before, tr("Frame source video"));
-        finishEdit(tr("Video framing saved"));
-        emit assetEditFinished(true, QString());
-        return true;
-    }
-
-    // A plain trim with no real crop needs no re-encode at all: it is stored on the asset the
-    // same non-destructive way a placed clip's srcIn/srcOut already works, and the original file
-    // is left untouched — mirroring how trimming a clip already on the timeline never re-encodes.
-    constexpr double kFullCropEps = 0.001;
-    const bool cropIsFull = cropX <= kFullCropEps && cropY <= kFullCropEps
-                            && cropW >= 1.0 - kFullCropEps && cropH >= 1.0 - kFullCropEps;
-    if (cropIsFull) {
-        const drift::TimeUs trimIn = drift::secondsToUs(qMax(0.0, inSeconds));
-        const drift::TimeUs trimOut = outSeconds < 0.0 ? -1 : drift::secondsToUs(outSeconds);
-        const drift::Project before = m_project;
-        if (!m_assetLibrary->setAssetTrim(assetIndex, trimIn, trimOut)) {
-            // Nothing actually changed (e.g. the range already matches what is stored) — that is
-            // still a successful, no-op save from the dialog's point of view.
-            emit assetEditFinished(true, QString());
-            return true;
-        }
-        pushProjectEdit(before, tr("Media trimmed"));
-        setLastMessage(tr("Trim saved"));
-        emit assetEditFinished(true, tr("Trim saved"));
-        return true;
-    }
-
-    const QString outPath = drift::newEditedMediaPath(m_project.id(), kind);
-    if (outPath.isEmpty()) {
-        setLastMessage(tr("Could not create an output file"), QStringLiteral("error"));
-        return false;
-    }
-
-    drift::MediaEditSpec spec;
-    spec.inputPath = path;
-    spec.outputPath = outPath;
-    spec.kind = kind;
-    spec.inSeconds = inSeconds;
-    spec.outSeconds = outSeconds;
-    spec.cropX = cropX;
-    spec.cropY = cropY;
-    spec.cropW = cropW;
-    spec.cropH = cropH;
-    // The crop rectangle above is drawn in the preview against effectiveRotation, so the encoder
-    // has to rotate against that same correction — not the file's own tag — or the region it
-    // crops will not be the one the user saw and dragged a box around.
-    spec.rotationOverride = asset.value(QStringLiteral("effectiveRotation"), -1).toInt();
-
-    startAssetEditJob(assetId, name, spec, false);
-    return true;
-}
-
-bool AppController::renderAssetCopy(int assetIndex, double inSeconds, double outSeconds,
-                                    double cropX, double cropY, double cropW, double cropH)
-{
-    if (m_editingAsset) {
-        setLastMessage(tr("An edit is already saving"), QStringLiteral("warning"));
-        return false;
-    }
-    if (!m_assetLibrary)
-        return false;
-    const drift::MediaAsset *source = m_project.asset(m_assetLibrary->assetIdAt(assetIndex));
-    if (!source || source->kind != drift::MediaKind::Video || !QFileInfo(source->path).isFile()) {
-        setLastMessage(tr("Could not open the media file"), QStringLiteral("error"));
-        return false;
-    }
-    const QString outPath = drift::newEditedMediaPath(m_project.id(), QStringLiteral("video"));
-    if (outPath.isEmpty()) {
-        setLastMessage(tr("Could not create an output file"), QStringLiteral("error"));
-        return false;
-    }
-
-    drift::MediaEditSpec spec;
-    spec.inputPath = source->path;
-    spec.outputPath = outPath;
-    spec.kind = QStringLiteral("video");
-    spec.inSeconds = inSeconds;
-    spec.outSeconds = outSeconds;
-    spec.cropX = cropX;
-    spec.cropY = cropY;
-    spec.cropW = cropW;
-    spec.cropH = cropH;
-    // The crop was drawn against the bin's rotation correction; see saveAssetEdit.
-    spec.rotationOverride = drift::effectiveRotation(*source);
-    const QString name = tr("%1 (trimmed)").arg(source->name);
-    const QString folderId = source->folderId;
-
-    setPlaying(false);
-    m_assetEditCancel.storeRelaxed(0);
-    m_assetEditProgress = 0.0;
-    m_assetEditStatus = tr("Rendering…");
-    m_editingAsset = true;
-    m_editingAssetId = source->id;
-    m_assetEditIsConversion = false;
-    emit assetEditChanged();
-
-    (void)QtConcurrent::run([this, spec, name, folderId]() {
-        QString error;
-        const bool ok = drift::editMedia(spec, &error, [this](double fraction) {
-            if (m_assetEditCancel.loadRelaxed() != 0)
-                return false;
-            QMetaObject::invokeMethod(
-                this,
-                [this, fraction]() {
-                    m_assetEditProgress = fraction;
-                    emit assetEditChanged();
-                },
-                Qt::QueuedConnection);
-            return true;
-        });
-        const MediaInfo info = ok ? MediaProbe::probe(spec.outputPath) : MediaInfo();
-
-        QMetaObject::invokeMethod(
-            this,
-            [this, ok, error, spec, name, folderId, info]() {
-                m_editingAsset = false;
-                m_editingAssetId.clear();
-                m_assetEditProgress = 0.0;
-                m_assetEditStatus = ok ? QString() : error;
-                emit assetEditChanged();
-                if (ok) {
-                    emit assetCopyRendered(addRenderedVideoAsset(spec.outputPath, name, folderId,
-                                                                 info, tr("Render Trimmed Copy")));
-                } else {
-                    QFile::remove(spec.outputPath);
-                    setLastMessage(error.isEmpty() ? tr("Couldn’t save that edit") : error,
-                                   QStringLiteral("error"));
-                    emit assetEditFinished(false, error);
-                }
-                startNextConversion();
-            },
-            Qt::QueuedConnection);
-    });
-    return true;
-}
-
-void AppController::startAssetEditJob(const QString &assetId, const QString &name,
-                                      const drift::MediaEditSpec &spec, bool conversion)
-{
-    setPlaying(false);
-
-    m_assetEditCancel.storeRelaxed(0);
-    m_assetEditProgress = 0.0;
-    m_assetEditStatus = conversion ? tr("Converting…") : tr("Saving…");
-    m_editingAsset = true;
-    m_editingAssetId = assetId;
-    m_assetEditKeepName = name;
-    m_assetEditIsConversion = conversion;
-    emit assetEditChanged();
-    setLastMessage(conversion ? tr("Converting %1 to an edit-friendly format…").arg(name)
-                              : tr("Saving media…"));
-
-    (void)QtConcurrent::run([this, spec, assetId]() {
-        QString error;
-        const bool ok = drift::editMedia(spec, &error, [this](double fraction) {
-            if (m_assetEditCancel.loadRelaxed() != 0)
-                return false;
-            QMetaObject::invokeMethod(
-                this,
-                [this, fraction]() {
-                    m_assetEditProgress = fraction;
-                    emit assetEditChanged();
-                },
-                Qt::QueuedConnection);
-            return true;
-        });
-
-        QMetaObject::invokeMethod(
-            this,
-            [this, ok, error, spec, assetId]() {
-                if (!ok) {
-                    QFile::remove(spec.outputPath);
-                    m_editingAsset = false;
-                    m_editingAssetId.clear();
-                    m_assetEditKeepName.clear();
-                    m_assetEditProgress = 0.0;
-                    m_assetEditStatus = error;
-                    emit assetEditChanged();
-                    setLastMessage(error.isEmpty() ? tr("Couldn’t save that edit") : error,
-                                   QStringLiteral("error"));
-                    emit assetEditFinished(false, error);
-                    return;
-                }
-
-                m_assetEditStatus = tr("Updating the library…");
-                emit assetEditChanged();
-                // By id: a conversion runs in the background, and the bin may have been sorted
-                // or had rows removed since it started.
-                const int assetIndex = m_assetLibrary ? m_assetLibrary->indexOfId(assetId) : -1;
-                if (assetIndex < 0
-                    || !replaceAssetSource(assetIndex, QUrl::fromLocalFile(spec.outputPath))) {
-                    QFile::remove(spec.outputPath);
-                    m_editingAsset = false;
-                    m_editingAssetId.clear();
-                    m_assetEditKeepName.clear();
-                    m_assetEditProgress = 0.0;
-                    m_assetEditStatus = tr("Couldn’t update the library");
-                    emit assetEditChanged();
-                    emit assetEditFinished(false, m_assetEditStatus);
-                }
-            },
-            Qt::QueuedConnection);
-    });
-}
-
-void AppController::convertAssetsToConstantFrameRate(const QStringList &assetIds)
-{
-    for (const QString &id : assetIds) {
-        if (!m_conversionQueue.contains(id) && id != m_editingAssetId)
-            m_conversionQueue.append(id);
-    }
-    if (!m_editingAsset)
-        startNextConversion();
-}
-
-void AppController::startNextConversion()
-{
-    while (!m_conversionQueue.isEmpty() && !m_editingAsset && m_assetLibrary) {
-        const QString assetId = m_conversionQueue.takeFirst();
-        const int assetIndex = m_assetLibrary->indexOfId(assetId);
-        const QVariantMap asset = m_assetLibrary->assetAt(assetIndex);
-        const QString path = asset.value(QStringLiteral("path")).toString();
-        if (asset.value(QStringLiteral("kind")).toString() != QLatin1String("video")
-            || !QFileInfo(path).isFile())
-            continue;
-        const QString outPath = drift::newEditedMediaPath(m_project.id(), QStringLiteral("video"));
-        if (outPath.isEmpty()) {
-            setLastMessage(tr("Could not create an output file"), QStringLiteral("error"));
-            m_conversionQueue.clear();
-            return;
-        }
-
-        drift::MediaEditSpec spec;
-        spec.inputPath = path;
-        spec.outputPath = outPath;
-        spec.kind = QStringLiteral("video");
-        spec.conformFrameRate = true;
-        // Baked upright the way a crop is, so the bin's rotation correction carries over.
-        spec.rotationOverride = asset.value(QStringLiteral("effectiveRotation"), -1).toInt();
-        startAssetEditJob(assetId, asset.value(QStringLiteral("name")).toString(), spec, true);
-    }
-}
-
-void AppController::finalizeAssetReplace(const QString &assetId, const drift::MediaAsset &filled,
-                                         bool ok)
-{
-    // The probe has landed, so the row stops being busy whatever the outcome below turns out to
-    // be — including the refusals, which never touch the project at all.
-    if (m_replacingAssetId == assetId) {
-        m_replacingAssetId.clear();
-        emit replacingAssetIdChanged();
-    }
-    // Taken here rather than at the point of use so the refusals below cannot leave it set for
-    // whichever replace runs next.
-    const QString replacementSourceUri = std::exchange(m_replacingAssetSourceUri, QString());
-
-    const bool fromEdit = (m_editingAssetId == assetId);
-    const QString keptEditName = fromEdit ? m_assetEditKeepName : QString();
-    auto finishEditJob = [&](bool editOk, const QString &message) {
-        if (!fromEdit)
-            return;
-        m_editingAsset = false;
-        m_editingAssetId.clear();
-        m_assetEditKeepName.clear();
-        m_assetEditProgress = editOk ? 1.0 : 0.0;
-        m_assetEditStatus = message;
-        emit assetEditChanged();
-        emit assetEditFinished(editOk, message);
-    };
-
-    const drift::MediaAsset *current = m_project.asset(assetId);
-    if (!current) {
-        // The row was removed while the probe ran.
-        const QString message = tr("That media is no longer in this project.");
-        finishEditJob(false, message);
-        if (!fromEdit)
-            emit assetReplaceFinished(false, message, 0);
-        return;
-    }
-
-    if (!ok) {
-        const QString message = tr("That file could not be read.");
-        finishEditJob(false, message);
-        if (!fromEdit)
-            emit assetReplaceFinished(false, message, 0);
-        return;
-    }
-
-    // A clip's type is fixed when it is created and decides which track it may sit on, so media
-    // of another kind would leave e.g. a video clip on a video track with nothing to draw.
-    if (filled.kind != current->kind) {
-        const QString message = tr("“%1” is %2, but this slot holds %3.")
-                                    .arg(filled.name, drift::mediaKindToString(filled.kind),
-                                         drift::mediaKindToString(current->kind));
-        finishEditJob(false, message);
-        if (!fromEdit)
-            emit assetReplaceFinished(false, message, 0);
-        return;
-    }
-
-    const QString newName = keptEditName.isEmpty() ? filled.name : keptEditName;
-    const drift::Project before = m_project;
-    drift::MediaAsset replacement = filled;
-    replacement.name = newName;
-    replacement.sourceUri = replacementSourceUri;
-    // Every edit job writes onto a constant-rate grid, so its output needs no check. The
-    // edit-friendly mark comes from the conversion, and a later crop of converted media keeps it.
-    if (fromEdit) {
-        replacement.frameRateKnown = true;
-        replacement.variableFrameRate = false;
-        replacement.editFriendly = m_assetEditIsConversion || current->editFriendly;
-    }
-    // Captured before applyProbedSource overwrites `current` in place — rebindClipsToAsset needs
-    // to know what the bin's correction *was* to rebase each clip's own by how much it changed.
-    const int oldBinCorrection = drift::rotationCorrectionOf(*current);
-    if (!m_assetLibrary->applyProbedSource(assetId, replacement)) {
-        const QString message = tr("That media is no longer in this project.");
-        finishEditJob(false, message);
-        if (!fromEdit)
-            emit assetReplaceFinished(false, message, 0);
-        return;
-    }
-
-    const int adjusted = rebindClipsToAsset(assetId, replacement, oldBinCorrection);
-    pushProjectEdit(before, fromEdit ? tr("Media edited") : tr("Media replaced"));
-    finishEdit(fromEdit ? tr("Media edited") : tr("Media replaced"));
-    finishEditJob(true, newName);
-    if (!fromEdit)
-        emit assetReplaceFinished(true, newName, adjusted);
-}
-
-int AppController::rebindClipsToAsset(const QString &assetId, const drift::MediaAsset &asset,
-                                      int oldBinCorrection)
-{
-    const int newBinCorrection = drift::rotationCorrectionOf(asset);
-    int adjusted = 0;
-    for (drift::Track &track : m_project.tracks()) {
-        for (drift::Clip &clip : track.clips) {
-            if (clip.assetId != assetId)
-                continue;
-
-            // Rewriting the clip's own copy of the path is what actually moves the pixels. It
-            // also keys the reverse-proxy and audio-block caches, so both fall out of scope on
-            // their own rather than needing to be invalidated here.
-            clip.path = asset.path;
-            clip.thumbnailPath = asset.thumbnailPath;
-            clip.filmstripPath = asset.filmstripPath;
-            // The clip's correction started as the bin's (applyAssetLayout) and may have been
-            // turned further on the timeline since. Keep that extra part and swap the bin's old
-            // share for its new one — most pointedly, a crop-save bakes the bin's correction into
-            // the re-encoded pixels, so the freshly probed `asset` has none left and every clip
-            // has to drop that same amount or it turns already-upright pixels a second time.
-            clip.rotationCorrection =
-                ((clip.rotationCorrection - oldBinCorrection + newBinCorrection) % 360 + 360) % 360;
-            // Landmarks are baked against the old pixels. Left in place they would keep the face
-            // warps tracking a face the new footage never had, and render without erroring.
-            clip.faceTrackPath.clear();
-            clip.faceTrackSrcOffsetUs = 0;
-            clip.depthPath.clear();
-
-            // Stills have no source range to fit.
-            if (asset.durationUs <= 0 || clip.srcOut <= asset.durationUs)
-                continue;
-
-            // The framed window starts past the end of the new file, so there is nothing about
-            // it worth preserving; rebase to the head and keep as much of the span as fits.
-            if (clip.srcIn >= asset.durationUs)
-                clip.srcIn = 0;
-
-            if (clip.hasSpeedCurve()) {
-                // Curved clips derive their timeline duration from the source range, so the
-                // range is clamped first and the ramp re-timed against what is left.
-                clip.srcOut = asset.durationUs;
-                clip.syncDurationFromSpeedCurve();
-            } else {
-                // Pulls timelineDuration along with the shortened range, so the clip never
-                // addresses frames past the end of its media.
-                clip.syncSrcOutFromSpeed(asset.durationUs);
-            }
-            ++adjusted;
-        }
-    }
-    return adjusted;
 }
 
 int AppController::assetIndexForClip(const drift::Clip &clip) const
@@ -5738,6 +5004,8 @@ QVariantMap AppController::selectedClipData() const
         const drift::TimeUs relative = qMax<drift::TimeUs>(0, m_playheadUs - clip.timelineStart);
         data.insert(QStringLiteral("rotationAtPlayhead"),
                     clipTransformValue(clip.rotation, relative, 0.0));
+        data.insert(QStringLiteral("caps"),
+                    inspectorCaps(clip, m_project.tracks().at(trackIndex).type));
         return data;
     };
 
@@ -5810,6 +5078,7 @@ QVariantList AppController::actions() const
         action(QStringLiteral("selectTransformLayer"), tr("Select transform layer")),
         action(QStringLiteral("separateAudio"), tr("Separate audio")),
         action(QStringLiteral("unlink"), tr("Unlink audio")),
+        action(QStringLiteral("link"), tr("Link clips")),
         action(QStringLiteral("clearSelection"), tr("Clear selection")),
         action(QStringLiteral("selectAll"), tr("Select all clips")),
         action(QStringLiteral("nudgeLeft"), tr("Move selection left a little")),
@@ -5865,8 +5134,6 @@ void AppController::setPlayheadUs(drift::TimeUs us)
         const drift::perf::Scope emitScope("seek.emit");
         emit playheadSecondsChanged();
     }
-    if (!m_playing)
-        syncTextOverlaySkip();
 }
 
 void AppController::setPlayheadSeconds(double seconds)
@@ -5907,7 +5174,6 @@ void AppController::setPlaying(bool playing)
         m_playback.pause();
     }
     emit playingChanged();
-    syncTextOverlaySkip();
 }
 
 void AppController::beginScrub()
@@ -6525,7 +5791,6 @@ void AppController::pauseAudioRecording()
         m_playing = false;
         m_playback.pause();
         emit playingChanged();
-        syncTextOverlaySkip();
     }
 }
 
@@ -6607,7 +5872,6 @@ void AppController::stopAudioRecording()
         m_playing = false;
         m_playback.pause();
         emit playingChanged();
-        syncTextOverlaySkip();
     }
 
     if (recordedPath.isEmpty() || recordedDurationUs < drift::secondsToUs(0.2)) {
@@ -6659,7 +5923,6 @@ void AppController::cancelAudioRecording()
         m_playing = false;
         m_playback.pause();
         emit playingChanged();
-        syncTextOverlaySkip();
     }
 
     setPlayheadUs(m_recordingStartPlayheadUs);
@@ -7255,6 +6518,143 @@ void AppController::addClipFromAssetAt(int assetIndex, int trackIndex, double at
     selectClip(trackIndex, newClipIndex);
 }
 
+AppController::GeneratedAudioImport AppController::importGeneratedAudio(
+    const QString &path, const QJsonObject &generator, bool place, double atSeconds, int track)
+{
+    GeneratedAudioImport result;
+    if (!m_assetLibrary) {
+        result.errorCode = QStringLiteral("not_found");
+        result.error = QStringLiteral("No media bin");
+        return result;
+    }
+    const QStringList ids = m_assetLibrary->importLocalPaths({path});
+    if (ids.isEmpty()) {
+        result.errorCode = QStringLiteral("import_failed");
+        result.error = QStringLiteral("Could not import %1").arg(path);
+        return result;
+    }
+    const QString assetId = ids.first();
+    {
+        // Placing needs the probed duration.
+        QEventLoop loop;
+        QTimer timeout;
+        timeout.setSingleShot(true);
+        timeout.start(15000);
+        connect(&timeout, &QTimer::timeout, &loop, &QEventLoop::quit);
+        connect(m_assetLibrary, &AssetLibrary::assetMetadataChanged, &loop, &QEventLoop::quit);
+        while (timeout.isActive() && m_assetLibrary->isImportPending(assetId))
+            loop.exec();
+    }
+    if (drift::MediaAsset *asset = m_project.asset(assetId)) {
+        asset->generator = generator;
+        projectFile()->setDirty(true);
+    }
+    result.ok = true;
+    result.assetId = assetId;
+    if (const drift::MediaAsset *asset = m_project.asset(assetId))
+        result.durationSeconds = drift::usToSeconds(asset->durationUs);
+
+    if (!place)
+        return result;
+    const int assetIndex = m_assetLibrary->indexOfPath(path);
+    if (assetIndex < 0)
+        return result;
+    QSet<QString> before;
+    for (const drift::Track &t : m_project.tracks())
+        for (const drift::Clip &c : t.clips)
+            before.insert(c.id);
+    if (track < 0) {
+        // The first audio lane with room for the whole clip at `atSeconds`; otherwise a new one.
+        const drift::TimeUs atUs = drift::secondsToUs(atSeconds);
+        const drift::MediaAsset *asset = m_project.asset(assetId);
+        const drift::TimeUs endUs = atUs + qMax<drift::TimeUs>(1, asset ? asset->durationUs : 1);
+        for (int t = 0; t < m_project.tracks().size() && track < 0; ++t) {
+            if (m_project.tracks().at(t).type != drift::TrackType::Audio || !trackAcceptsAsset(t, assetIndex))
+                continue;
+            bool free = true;
+            for (const drift::Clip &c : m_project.tracks().at(t).clips)
+                free = free && (c.timelineEnd() <= atUs || c.timelineStart >= endUs);
+            if (free)
+                track = t;
+        }
+    }
+    if (track >= 0)
+        addClipFromAssetAt(assetIndex, track, atSeconds);
+    else
+        addClipFromAssetOnNewTrackAt(assetIndex, m_project.tracks().size(), atSeconds);
+    for (const drift::Track &t : m_project.tracks())
+        for (const drift::Clip &c : t.clips)
+            if (!before.contains(c.id))
+                result.clipId = c.id;
+    return result;
+}
+
+int AppController::placeGeneratedAudioOnNewTracks(const QList<GeneratedAudioPlacement> &items,
+                                                  const QString &undoText)
+{
+    if (!m_assetLibrary || items.isEmpty())
+        return 0;
+    const drift::Project before = m_project;
+    struct Lane
+    {
+        int track;
+        drift::TimeUs endUs;
+    };
+    QList<Lane> lanes;
+    int placed = 0;
+    int lastTrack = -1;
+    int lastClip = -1;
+    for (const GeneratedAudioPlacement &item : items) {
+        const int assetIndex = m_assetLibrary->indexOfPath(item.path);
+        if (assetIndex < 0)
+            continue;
+        const QVariantMap asset = m_assetLibrary->assetAt(assetIndex);
+        const drift::TimeUs duration = clipDurationForAssetIndex(assetIndex);
+        const drift::TimeUs placementDuration = trimmedClipDurationUs(asset, duration);
+        const drift::TimeUs start = qMax<drift::TimeUs>(0, drift::secondsToUs(item.atSeconds));
+        int lane = -1;
+        for (int i = 0; i < lanes.size(); ++i) {
+            if (lanes.at(i).endUs <= start) {
+                lane = i;
+                break;
+            }
+        }
+        if (lane < 0) {
+            const int track = drift::insertTrackAboveForClipType(m_project, m_project.tracks().size(),
+                                                                 drift::ClipType::Audio);
+            lanes.append({track, 0});
+            lane = lanes.size() - 1;
+        }
+        m_assetLibrary->ensureMedia(assetIndex);
+        drift::Clip clip;
+        clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        clip.assetId = m_assetLibrary->assetIdAt(assetIndex);
+        clip.type = drift::ClipType::Audio;
+        clip.name = asset.value(QStringLiteral("name")).toString();
+        clip.path = asset.value(QStringLiteral("path")).toString();
+        attachAssetSource(clip);
+        clip.thumbnailPath = m_assetLibrary->thumbnailAt(assetIndex);
+        clip.filmstripPath = m_assetLibrary->filmstripAt(assetIndex);
+        clip.timelineStart = start;
+        clip.timelineDuration = placementDuration;
+        clip.srcIn = 0;
+        clip.srcOut = duration;
+        applyAssetLayout(clip, asset, m_project.width(), m_project.height());
+        drift::Track &track = m_project.tracks()[lanes.at(lane).track];
+        track.clips.append(clip);
+        lanes[lane].endUs = start + placementDuration;
+        lastTrack = lanes.at(lane).track;
+        lastClip = track.clips.size() - 1;
+        ++placed;
+    }
+    if (placed == 0)
+        return 0;
+    pushProjectEdit(before, undoText);
+    finishEdit(undoText);
+    selectClip(lastTrack, lastClip);
+    return placed;
+}
+
 void AppController::selectClip(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
@@ -7267,7 +6667,6 @@ void AppController::selectClip(int trackIndex, int clipIndex)
     m_selectedTransitionLeftClip = -1;
     notifySelectionChanged();
     emit selectedTransitionDataChanged();
-    syncTextOverlaySkip();
 }
 
 void AppController::addToSelection(int trackIndex, int clipIndex)
@@ -7309,7 +6708,6 @@ void AppController::setSelection(const QVariantList &pairs)
     }
     notifySelectionChanged();
     emit selectedTransitionDataChanged();
-    syncTextOverlaySkip();
 }
 
 void AppController::selectAllClips()
@@ -7339,7 +6737,6 @@ void AppController::clearSelection()
     m_selectedTransitionLeftClip = -1;
     notifySelectionChanged();
     emit selectedTransitionDataChanged();
-    syncTextOverlaySkip();
 }
 
 void AppController::deleteSelectedClip()
@@ -7388,6 +6785,8 @@ void AppController::moveClip(int trackIndex, int clipIndex, double newStart)
     const QPair<int, int> requested(trackIndex, clipIndex);
     QList<QPair<int, int>> targets = m_selection.contains(requested) ? m_selection
                                                                       : QList<QPair<int, int>>{requested};
+    // Linked partners ride along by the same delta whether or not they are selected.
+    expandSelectionWithLinkedPartners(m_project, targets);
     const drift::Project before = m_project;
     const drift::TimeUs desiredUs = drift::secondsToUs(newStart);
     const drift::TimeUs baseUs = m_project.tracks().at(trackIndex).clips.at(clipIndex).timelineStart;
@@ -7873,7 +7272,7 @@ void AppController::endTrimGesture()
 }
 
 AppController::TrimComputation AppController::computeTrimLeft(int trackIndex, int clipIndex,
-                                                              double newStart) const
+                                                              double newStart, bool snap) const
 {
     TrimComputation out;
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
@@ -7889,7 +7288,7 @@ AppController::TrimComputation AppController::computeTrimLeft(int trackIndex, in
     out.clip = clip;
 
     const drift::TimeUs rawUs = drift::secondsToUs(newStart);
-    drift::TimeUs snappedStart = snapTimeForGesture(rawUs);
+    drift::TimeUs snappedStart = snap ? snapTimeForGesture(rawUs) : rawUs;
     // Whether the edge landed where the pointer asked or was pulled onto a snap target is the
     // difference between the two feelings Haptics offers.
     const int movedOutcome = (snappedStart != rawUs) ? TrimSnapped : TrimMoved;
@@ -8005,7 +7404,7 @@ AppController::TrimComputation AppController::computeTrimLeft(int trackIndex, in
 }
 
 AppController::TrimComputation AppController::computeTrimRight(int trackIndex, int clipIndex,
-                                                               double newEnd) const
+                                                               double newEnd, bool snap) const
 {
     TrimComputation out;
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
@@ -8020,7 +7419,7 @@ AppController::TrimComputation AppController::computeTrimRight(int trackIndex, i
     out.clip = clip;
 
     const drift::TimeUs rawUs = drift::secondsToUs(newEnd);
-    drift::TimeUs snappedEnd = snapTimeForGesture(rawUs);
+    drift::TimeUs snappedEnd = snap ? snapTimeForGesture(rawUs) : rawUs;
     // With ripple on, extending pushes the followers along rather than stopping at them.
     if (!m_allowClipOverlap && !m_rippleEnabled && snappedEnd > clip.timelineEnd()) {
         const QSet<QString> exclude{clip.id};
@@ -8130,7 +7529,7 @@ QVariantMap AppController::previewTrimRight(int trackIndex, int clipIndex, doubl
 
 // Writes a computed trim back to the project and brings everything that hangs off the clip with
 // it. Shared by both edges.
-int AppController::applyTrim(int trackIndex, int clipIndex, const TrimComputation &computed)
+int AppController::applyTrim(int trackIndex, int clipIndex, const TrimComputation &computed, int side)
 {
     if (!computed.ok)
         return TrimNone;
@@ -8139,7 +7538,26 @@ int AppController::applyTrim(int trackIndex, int clipIndex, const TrimComputatio
 
     drift::Track &track = m_project.tracks()[trackIndex];
     drift::Clip &clip = track.clips[clipIndex];
+    const drift::TimeUs durationDelta = computed.clip.timelineDuration - clip.timelineDuration;
     clip = computed.clip;
+
+    // A loose partner has its own length, so it gets the same edge moved by the same amount
+    // rather than a copy of this clip's timing. Ripple, when on, keeps every left edge put.
+    QList<QPair<int, TrimComputation>> loosePartners;
+    if (clip.linkLoose && durationDelta != 0) {
+        for (const drift::ClipRef &ref : drift::linkedPartners(m_project, clip)) {
+            const drift::Clip &partner = m_project.tracks().at(ref.trackIndex).clips.at(ref.clipIndex);
+            const TrimComputation c =
+                side < 0 ? computeTrimLeft(ref.trackIndex, ref.clipIndex,
+                                           drift::usToSeconds(partner.timelineStart - durationDelta), false)
+                         : computeTrimRight(ref.trackIndex, ref.clipIndex,
+                                            drift::usToSeconds(partner.timelineEnd() + durationDelta), false);
+            if (!c.changed)
+                continue;
+            m_project.tracks()[ref.trackIndex].clips[ref.clipIndex] = c.clip;
+            loosePartners.append(qMakePair(ref.trackIndex, c));
+        }
+    }
 
     // linkId, not linkedClipId: linkId is what symmetrically pairs A/V companions, which is what
     // syncLinkedPartnersFrom walks. linkedClipId is the directional pin used by adjustments, and
@@ -8153,11 +7571,23 @@ int AppController::applyTrim(int trackIndex, int clipIndex, const TrimComputatio
             tracks.insert(ref.trackIndex);
             ids.insert(m_project.tracks().at(ref.trackIndex).clips.at(ref.clipIndex).id);
         }
+        if (clip.linkLoose)
+            tracks = {trackIndex};
         rippleTracksFrom(m_project, tracks, computed.rippleFrom, computed.rippleDelta, ids);
         for (const int t : std::as_const(tracks)) {
             if (t != trackIndex)
                 syncOverlapTransitionsOnTrack(m_project.tracks()[t]);
         }
+    }
+    // Each loose partner ripples its own track from its own end, which need not be this clip's.
+    for (const QPair<int, TrimComputation> &p : std::as_const(loosePartners)) {
+        QSet<QString> ids{clip.id};
+        for (const drift::ClipRef &ref : drift::linkedPartners(m_project, clip))
+            ids.insert(m_project.tracks().at(ref.trackIndex).clips.at(ref.clipIndex).id);
+        if (p.second.rippleDelta != 0)
+            rippleTracksFrom(m_project, {p.first}, p.second.rippleFrom, p.second.rippleDelta, ids);
+        if (p.first != trackIndex)
+            syncOverlapTransitionsOnTrack(m_project.tracks()[p.first]);
     }
     syncOverlapTransitionsOnTrack(track);
     // A pinned adjustment takes its extent from its clip, so it has to be brought along here --
@@ -8195,7 +7625,7 @@ int AppController::trimClipLeft(int trackIndex, int clipIndex, double newStart)
     if (m_trimGestureActive && rawUs == m_trimGestureLastInputUs)
         return m_trimGestureLastOutcome;
     m_trimGestureLastInputUs = rawUs;
-    return applyTrim(trackIndex, clipIndex, computeTrimLeft(trackIndex, clipIndex, newStart));
+    return applyTrim(trackIndex, clipIndex, computeTrimLeft(trackIndex, clipIndex, newStart), -1);
 }
 
 int AppController::trimClipRight(int trackIndex, int clipIndex, double newEnd)
@@ -8205,7 +7635,7 @@ int AppController::trimClipRight(int trackIndex, int clipIndex, double newEnd)
     if (m_trimGestureActive && rawUs == m_trimGestureLastInputUs)
         return m_trimGestureLastOutcome;
     m_trimGestureLastInputUs = rawUs;
-    return applyTrim(trackIndex, clipIndex, computeTrimRight(trackIndex, clipIndex, newEnd));
+    return applyTrim(trackIndex, clipIndex, computeTrimRight(trackIndex, clipIndex, newEnd), 1);
 }
 
 void AppController::setClipTrim(int trackIndex, int clipIndex, double inPoint, double outPoint)
@@ -8251,6 +7681,9 @@ void AppController::duplicateSelectedClip()
     const drift::Clip original = track.clips.at(m_selectedClip);
     drift::Clip copy = original;
     copy.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    // Sharing the original's linkId would pair the copy with the original's partners.
+    copy.linkId.clear();
+    copy.linkLoose = false;
     copy.timelineStart = drift::resolveClipStart(
         m_project, track, -1, original.timelineEnd(), original.timelineDuration, m_snapEnabled, m_playheadUs);
 
@@ -8434,6 +7867,20 @@ void AppController::moveClipToTrack(int trackIndex, int clipIndex, int newTrackI
             }
         }
         syncLinkedPartnersFrom(m_project, item.clip, movedIds);
+    }
+    for (const ClipToMove &item : toMove) {
+        if (!item.clip.linkLoose)
+            continue;
+        const drift::TimeUs delta = item.newTimelineStart - item.clip.timelineStart;
+        if (delta == 0)
+            continue;
+        for (const drift::ClipRef &ref : drift::linkedPartners(m_project, item.clip)) {
+            drift::Clip &partner = m_project.tracks()[ref.trackIndex].clips[ref.clipIndex];
+            if (movedIds.contains(partner.id))
+                continue;
+            partner.timelineStart = qMax<drift::TimeUs>(0, partner.timelineStart + delta);
+            movedIds.insert(partner.id);
+        }
     }
 
     m_selection = newSelection;
@@ -9834,283 +9281,6 @@ void AppController::setTransitionEasing(int trackIndex, const QString &transitio
 }
 
 
-bool AppController::faceDetectionAvailable()
-{
-    return drift::FaceLandmarker::modelPresent();
-}
-
-void AppController::cancelFaceDetection()
-{
-    if (m_faceDetecting)
-        m_faceDetectCancel.storeRelaxed(1);
-}
-
-// --- depth estimation -------------------------------------------------------
-
-namespace {
-
-// Short side of the depth map. 392 measured about 0.55 s a frame on CPU against 1.2 s at the
-// model's native 518, for depth that differs mostly in fine edges.
-constexpr int kDepthShortSide = 392;
-constexpr int kDepthShortSideHigh = 518;
-// Frames are decoded no larger than this; the model never sees more than 518 on the short side.
-constexpr int kDepthDecodeBound = 1280;
-// Bump when the sidecar written for the same inputs would change, so stale ones stop matching.
-constexpr int kDepthSchema = 1;
-
-} // namespace
-
-bool AppController::depthAvailable()
-{
-    return drift::VdaDepth::modelPresent();
-}
-
-QString AppController::estimateDepthForClip(int trackIndex, int clipIndex, bool highQuality)
-{
-    // Same redirect as detectFacesForClip: the prompt lives in the effect adjustment's inspector,
-    // and the depth belongs on the clip it is pinned to.
-    const drift::ClipRef source = sourceClipRef(trackIndex, clipIndex);
-    trackIndex = source.trackIndex;
-    clipIndex = source.clipIndex;
-    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
-        return {};
-    const drift::Track &track = m_project.tracks().at(trackIndex);
-    if (clipIndex < 0 || clipIndex >= track.clips.size())
-        return {};
-
-    const drift::Clip clip = track.clips.at(clipIndex);
-    if (clip.type != drift::ClipType::Video && clip.type != drift::ClipType::Image) {
-        setLastMessage(tr("Select a video or image clip to estimate depth for"),
-                       QStringLiteral("warning"));
-        return {};
-    }
-    if (clip.path.isEmpty() || (clip.type == drift::ClipType::Video && clip.srcOut <= clip.srcIn)) {
-        setLastMessage(tr("Clip has no video to estimate depth for"), QStringLiteral("warning"));
-        return {};
-    }
-    if (!drift::VdaDepth::modelPresent()) {
-        setLastMessage(tr("Depth estimation needs the Depth addon"), QStringLiteral("warning"));
-        return {};
-    }
-    if (m_jobs->hasActive(QStringLiteral("depth"), clip.id)) {
-        setLastMessage(tr("Depth is already being estimated for this clip"),
-                       QStringLiteral("warning"));
-        return {};
-    }
-
-    // Same reason as the face and segmentation jobs: playback would drive the decode pool from a
-    // second thread while this walks it frame by frame.
-    setPlaying(false);
-
-    const QString path = clip.path;
-    const bool still = clip.type == drift::ClipType::Image;
-    const drift::TimeUs srcIn = still ? 0 : clip.srcIn;
-    const drift::TimeUs srcOut = still ? 1 : clip.srcOut;
-    const int fps = qMax(1, m_project.fps());
-    const int rotationCorrection = clip.rotationCorrection;
-    const int shortSide = highQuality ? kDepthShortSideHigh : kDepthShortSide;
-    // Resolved by id at the end rather than by index: the timeline can be edited while this runs.
-    const QString clipId = clip.id;
-    auto result = std::make_shared<QString>();
-    QPointer<AppController> self(this);
-
-    const QString id = m_jobs->start(
-        QStringLiteral("depth"), clipId, JobRegistry::Lane::Model,
-        [self, path, still, srcIn, srcOut, fps, rotationCorrection, shortSide, clipId,
-         result](JobContext &ctx) {
-            const auto notify = [self, clipId]() {
-                QMetaObject::invokeMethod(
-                    self.data(),
-                    [self, clipId]() {
-                        if (self)
-                            emit self->depthJobChanged(clipId);
-                    },
-                    Qt::QueuedConnection);
-            };
-            ctx.progress(0.0, QObject::tr("Loading the depth model…"));
-            notify();
-
-            drift::VdaDepth &vda = drift::VdaDepth::instance();
-            if (!vda.available())
-                return ctx.fail(QStringLiteral("model_error"), vda.lastError());
-
-            // Named by what produced it, so estimating the same pixels again — this clip after an
-            // undo, or another clip cut from the same range — finds the first result.
-            const QFileInfo info(path);
-            QCryptographicHash hash(QCryptographicHash::Sha256);
-            hash.addData(QStringLiteral("%1|%2|%3|%4|%5|%6|%7|%8|%9")
-                             .arg(info.absoluteFilePath())
-                             .arg(info.size())
-                             .arg(info.lastModified().toMSecsSinceEpoch())
-                             .arg(rotationCorrection)
-                             .arg(srcIn)
-                             .arg(srcOut)
-                             .arg(fps)
-                             .arg(shortSide)
-                             .arg(vda.variant() + QLatin1Char('/') + QString::number(kDepthSchema))
-                             .toUtf8());
-            const QString dir = drift::depthCacheDir();
-            if (dir.isEmpty())
-                return ctx.fail(QStringLiteral("io_error"), QObject::tr("No cache directory"));
-            const QString sidecarPath = QDir(dir).filePath(
-                QString::fromLatin1(hash.result().toHex().left(32)) + QStringLiteral(".driftdepth"));
-            if (drift::DepthSidecar::open(sidecarPath)) {
-                *result = sidecarPath;
-                return ctx.succeed({{QStringLiteral("path"), sidecarPath},
-                                    {QStringLiteral("cached"), true}});
-            }
-
-            const drift::TimeUs step = drift::kUsPerSecond / fps;
-            const int total = still ? 1 : int((srcOut - srcIn + step - 1) / step);
-
-            drift::DepthSidecarWriter writer;
-            bool writerOpen = false;
-            QString error;
-            int written = 0;
-            std::unique_ptr<drift::VdaDepth::Pass> pass;
-            pass = vda.newPass(shortSide, [&](drift::TimeUs ptsUs, const float *disparity) {
-                if (!writerOpen) {
-                    writerOpen = writer.open(sidecarPath, pass->size(), vda.variant(), &error);
-                    if (!writerOpen)
-                        return false;
-                }
-                ++written;
-                return writer.writeFrame(ptsUs, disparity, &error) && !ctx.cancelled();
-            });
-            if (!pass)
-                return ctx.fail(QStringLiteral("model_error"), vda.lastError());
-
-            int lastPercent = -1;
-            for (int i = 0; i < total; ++i) {
-                if (ctx.cancelled())
-                    return;
-                const drift::TimeUs sourceUs = srcIn + drift::TimeUs(i) * step;
-                // Stills decode the way the compositor draws them; FFmpeg alone cannot open some
-                // files Qt reads fine (a .jpeg, for one). See detectFacesForClip.
-                const QImage frame = still
-                    ? drift::decodeStillImage(path, kDepthDecodeBound, kDepthDecodeBound)
-                    : ClipReaderPool::instance().readVideoFrame(
-                          path, kDepthScanStreamId, sourceUs, kDepthDecodeBound, kDepthDecodeBound,
-                          rotationCorrection);
-                if (frame.isNull())
-                    return ctx.fail(QStringLiteral("decode_error"),
-                                    QObject::tr("Could not decode frame %1").arg(i));
-                if (!pass->push(frame, sourceUs)) {
-                    if (ctx.cancelled())
-                        return;
-                    return ctx.fail(QStringLiteral("model_error"),
-                                    error.isEmpty() ? pass->error() : error);
-                }
-                const int percent = (i + 1) * 100 / total;
-                if (percent != lastPercent) {
-                    lastPercent = percent;
-                    ctx.progress(double(i + 1) / total,
-                                 QObject::tr("Estimating depth, frame %1 of %2…").arg(i + 1).arg(total));
-                    notify();
-                }
-            }
-            if (!pass->flush() || !writerOpen || !writer.finish(&error)) {
-                if (ctx.cancelled())
-                    return;
-                return ctx.fail(QStringLiteral("model_error"),
-                                error.isEmpty() ? pass->error() : error);
-            }
-            *result = sidecarPath;
-            ctx.succeed({{QStringLiteral("path"), sidecarPath},
-                         {QStringLiteral("frames"), written},
-                         {QStringLiteral("cached"), false}});
-        },
-        [this, clipId, result](const QJsonObject &job) {
-            if (job.value(QStringLiteral("ok")).toBool()) {
-                finalizeDepth(clipId, *result);
-            } else {
-                const QJsonObject error = job.value(QStringLiteral("error")).toObject();
-                if (error.value(QStringLiteral("code")).toString() != QLatin1String("cancelled"))
-                    setLastMessage(error.value(QStringLiteral("message")).toString(),
-                                   QStringLiteral("error"));
-            }
-            emit depthJobChanged(clipId);
-            return QJsonObject{};
-        });
-    emit depthJobChanged(clipId);
-    setLastMessage(tr("Estimating depth…"));
-    return id;
-}
-
-void AppController::finalizeDepth(const QString &clipId, const QString &path)
-{
-    int trackIndex = -1;
-    int clipIndex = -1;
-    if (!findClipById(m_project, clipId, &trackIndex, &clipIndex)) {
-        // The clip was deleted while the job ran. The sidecar stays: it is keyed by content and a
-        // redo or another clip of the same range will find it.
-        setLastMessage(tr("Clip no longer exists"), QStringLiteral("warning"));
-        return;
-    }
-    const drift::Project before = m_project;
-    m_project.tracks()[trackIndex].clips[clipIndex].depthPath = path;
-    pushProjectEdit(before, tr("Estimate Depth"));
-    finishEdit(tr("Estimate Depth"));
-}
-
-void AppController::cancelDepthEstimation(const QString &clipId)
-{
-    for (const QJsonValue &v : m_jobs->jobs()) {
-        const QJsonObject job = v.toObject();
-        if (job.value(QStringLiteral("kind")).toString() == QLatin1String("depth")
-            && job.value(QStringLiteral("target")).toString() == clipId
-            && job.value(QStringLiteral("active")).toBool()) {
-            m_jobs->cancel(job.value(QStringLiteral("id")).toString());
-        }
-    }
-}
-
-QVariantMap AppController::depthJob(const QString &clipId) const
-{
-    const QJsonArray jobs = m_jobs->jobs();
-    for (qsizetype i = jobs.size() - 1; i >= 0; --i) {
-        const QJsonObject job = jobs.at(i).toObject();
-        if (job.value(QStringLiteral("kind")).toString() != QLatin1String("depth")
-            || job.value(QStringLiteral("target")).toString() != clipId) {
-            continue;
-        }
-        return {{QStringLiteral("active"), job.value(QStringLiteral("active")).toBool()},
-                {QStringLiteral("progress"), job.value(QStringLiteral("progress")).toDouble()},
-                {QStringLiteral("status"), job.value(QStringLiteral("status")).toString()},
-                {QStringLiteral("error"), job.value(QStringLiteral("error"))
-                                              .toObject()
-                                              .value(QStringLiteral("message"))
-                                              .toString()}};
-    }
-    return {};
-}
-
-QVariantList AppController::restoreModels()
-{
-    QVariantList out;
-    for (const drift::Restorer::Model &m : drift::Restorer::models()) {
-        out.append(QVariantMap{{QStringLiteral("id"), m.id},
-                               {QStringLiteral("name"), m.name},
-                               {QStringLiteral("task"), m.task},
-                               {QStringLiteral("scale"), m.scale},
-                               {QStringLiteral("custom"), m.custom},
-                               {QStringLiteral("content"), m.content},
-                               {QStringLiteral("summary"), m.summary},
-                               {QStringLiteral("thumbnail"),
-                                m.thumbnail.isEmpty() ? QString()
-                                                      : QUrl::fromLocalFile(m.thumbnail).toString()},
-                               {QStringLiteral("secondsPerMegapixel"), m.secondsPerMegapixel}});
-    }
-    return out;
-}
-
-QString AppController::restoreModelsFolder()
-{
-    const QString dir = drift::Restorer::customModelsDir();
-    QDir().mkpath(dir);
-    return dir;
-}
-
 QString AppController::addRenderedVideoAsset(const QString &path, const QString &name,
                                              const QString &folderId, const MediaInfo &info,
                                              const QString &undoText)
@@ -10150,1948 +9320,11 @@ QString AppController::insertRenderedVideoAsset(const QString &path, const QStri
     return assetId;
 }
 
-void AppController::migrateLegacyStabilizedClips()
-{
-    // Clips split from one stabilized clip share its render, and so share one asset.
-    QHash<QString, QString> assetForRender;
-    m_project.forEachTrackList([&](QList<drift::Track> &tracks) {
-        for (drift::Track &track : tracks) {
-            for (drift::Clip &clip : track.clips) {
-                const QString render = clip.legacyStabilizePath;
-                clip.legacyStabilizePath.clear();
-                // A render that is gone leaves the clip on its original, as it always played then.
-                if (render.isEmpty() || !QFile::exists(render))
-                    continue;
-                const drift::MediaAsset *original = m_project.asset(clip.assetId);
-                if (!original)
-                    continue;
-
-                QString assetId = assetForRender.value(render);
-                if (assetId.isEmpty()) {
-                    // The render is the whole source in its own time, upright with the rotation tag
-                    // dropped, with the same frame rate and audio.
-                    drift::MediaAsset asset;
-                    asset.kind = drift::MediaKind::Video;
-                    asset.path = render;
-                    asset.name = tr("%1 (stabilized)").arg(original->name);
-                    asset.durationUs = original->durationUs;
-                    const bool quarterTurn =
-                        original->rotationDegrees == 90 || original->rotationDegrees == 270;
-                    asset.width = quarterTurn ? original->height : original->width;
-                    asset.height = quarterTurn ? original->width : original->height;
-                    asset.fps = original->fps;
-                    const int binCorrection = drift::rotationCorrectionOf(*original);
-                    if (binCorrection != 0)
-                        asset.rotationOverride = binCorrection;
-                    asset.hasAudio = original->hasAudio;
-                    asset.hasAudioKnown = original->hasAudioKnown;
-                    asset.frameRateKnown = true;
-                    asset.folderId = original->folderId;
-                    asset.generator = QJsonObject{
-                        {QStringLiteral("kind"), QStringLiteral("stabilize")},
-                        {QStringLiteral("sourceAssetId"), original->id},
-                        {QStringLiteral("sourceInUs"), 0},
-                        {QStringLiteral("smoothing"), clip.stabilizeAppliedSmoothing},
-                        {QStringLiteral("tripod"), clip.stabilizeAppliedTripod}};
-                    assetId = m_project.addAsset(asset);
-                    assetForRender.insert(render, assetId);
-                }
-                clip.assetId = assetId;
-                clip.path = render;
-                // restoreFilmstripsAfterLoad fills it from the new asset.
-                clip.filmstripPath.clear();
-            }
-        }
-    });
-}
-
-std::optional<AppController::RestoreSource> AppController::restoreSource(const QString &targetId) const
-{
-    if (targetId.isEmpty())
-        return std::nullopt;
-    for (const drift::Track &track : m_project.tracks()) {
-        const int index = clipIndexById(track, targetId);
-        if (index < 0)
-            continue;
-        const drift::Clip &clip = track.clips.at(index);
-        if (clip.type != drift::ClipType::Video || clip.path.isEmpty() || clip.srcOut <= clip.srcIn)
-            return std::nullopt;
-        return RestoreSource{clip.path, clip.srcIn, clip.srcOut, clip.rotationCorrection,
-                             m_project.asset(clip.assetId)};
-    }
-    const drift::MediaAsset *asset = m_project.asset(targetId);
-    if (!asset || asset->kind != drift::MediaKind::Video || asset->path.isEmpty()
-        || asset->durationUs <= 0)
-        return std::nullopt;
-    return RestoreSource{asset->path, 0, asset->durationUs, drift::rotationCorrectionOf(*asset),
-                         asset};
-}
-
-QString AppController::restoreVideo(const QString &targetId, const QString &decompressModel,
-                                    const QString &upscaleModel)
-{
-    const std::optional<RestoreSource> src = restoreSource(targetId);
-    if (!src) {
-        setLastMessage(tr("Select a video clip to enhance"), QStringLiteral("warning"));
-        return {};
-    }
-    if (decompressModel.isEmpty() && upscaleModel.isEmpty()) {
-        setLastMessage(tr("Choose a model to enhance with"), QStringLiteral("warning"));
-        return {};
-    }
-    if (m_jobs->hasActive(QStringLiteral("restore"), targetId)) {
-        setLastMessage(tr("This clip is already being enhanced"), QStringLiteral("warning"));
-        return {};
-    }
-
-    const drift::MediaAsset *source = src->asset;
-    const QString sourceName = source ? source->name : QFileInfo(src->path).completeBaseName();
-    const QString folderId = source ? source->folderId : m_currentBinFolderId;
-    drift::MediaEditSpec spec;
-    spec.inputPath = src->path;
-    spec.outputPath = drift::newEditedMediaPath(m_project.id(), QStringLiteral("video"));
-    spec.kind = QStringLiteral("video");
-    spec.inSeconds = drift::usToSeconds(src->srcIn);
-    spec.outSeconds = drift::usToSeconds(src->srcOut);
-    spec.rotationOverride = source ? source->rotationOverride : -1;
-    auto info = std::make_shared<MediaInfo>();
-    auto scale = std::make_shared<int>(1);
-    QPointer<AppController> self(this);
-
-    const QString id = m_jobs->start(
-        QStringLiteral("restore"), targetId, JobRegistry::Lane::Model,
-        [self, spec, targetId, decompressModel, upscaleModel, info, scale](JobContext &ctx) mutable {
-            const auto notify = [self, targetId]() {
-                QMetaObject::invokeMethod(
-                    self.data(),
-                    [self, targetId]() {
-                        if (self)
-                            emit self->restoreJobChanged(targetId);
-                    },
-                    Qt::QueuedConnection);
-            };
-            ctx.progress(0.0, QObject::tr("Loading the models…"));
-            notify();
-
-            QList<std::shared_ptr<drift::Restorer>> chain;
-            for (const QString &model : {decompressModel, upscaleModel}) {
-                if (model.isEmpty())
-                    continue;
-                QString error;
-                std::shared_ptr<drift::Restorer> r = drift::Restorer::load(model, &error);
-                if (!r)
-                    return ctx.fail(QStringLiteral("model_error"), error);
-                *scale *= r->scale();
-                chain.append(r);
-            }
-
-            const auto cancelled = [&ctx](double) { return !ctx.cancelled(); };
-            spec.frameHook = [&](QImage &frame, QString *error) {
-                for (const std::shared_ptr<drift::Restorer> &r : chain) {
-                    if (!r->process(frame, cancelled, error))
-                        return false;
-                }
-                return true;
-            };
-            QString error;
-            int lastPermille = -1;
-            QElapsedTimer timer;
-            timer.start();
-            const bool ok = drift::editMedia(spec, &error, [&](double fraction) {
-                const int permille = int(fraction * 1000);
-                if (permille != lastPermille) {
-                    lastPermille = permille;
-                    const QString percent = QString::number(fraction * 100, 'f', 1);
-                    // Extrapolated from the pace so far, once there is enough of it to go on.
-                    const double elapsed = timer.elapsed() / 1000.0;
-                    QString status;
-                    if (fraction > 0.005 && elapsed > 10.0) {
-                        const qint64 left = qint64(elapsed * (1.0 - fraction) / fraction);
-                        const QString eta =
-                            left < 90 ? QObject::tr("%1 s").arg(left)
-                            : left < 5400 ? QObject::tr("%1 min").arg((left + 30) / 60)
-                                          : QObject::tr("%1 h %2 min").arg(left / 3600).arg(left % 3600 / 60);
-                        status = QObject::tr("Enhancing… %1% — about %2 left").arg(percent, eta);
-                    } else {
-                        status = QObject::tr("Enhancing… %1%").arg(percent);
-                    }
-                    ctx.progress(fraction, status);
-                    notify();
-                }
-                return !ctx.cancelled();
-            });
-            if (ctx.cancelled())
-                return;
-            if (!ok)
-                return ctx.fail(QStringLiteral("render_error"), error);
-            *info = MediaProbe::probe(spec.outputPath);
-            ctx.succeed({{QStringLiteral("path"), spec.outputPath}});
-        },
-        [this, targetId, spec, sourceName, folderId, info, scale](const QJsonObject &job) {
-            if (job.value(QStringLiteral("ok")).toBool()) {
-                addRenderedVideoAsset(spec.outputPath,
-                                      *scale > 1 ? tr("%1 (enhanced %2x)").arg(sourceName).arg(*scale)
-                                                 : tr("%1 (enhanced)").arg(sourceName),
-                                      folderId, *info, tr("Enhance Video"));
-                setLastMessage(tr("Enhanced video added to the media bin"));
-            } else {
-                QFile::remove(spec.outputPath);
-                const QJsonObject error = job.value(QStringLiteral("error")).toObject();
-                if (error.value(QStringLiteral("code")).toString() != QLatin1String("cancelled"))
-                    setLastMessage(error.value(QStringLiteral("message")).toString(),
-                                   QStringLiteral("error"));
-            }
-            emit restoreJobChanged(targetId);
-            return QJsonObject{};
-        });
-    emit restoreJobChanged(targetId);
-    setLastMessage(tr("Enhancing video…"));
-    return id;
-}
-
-void AppController::cancelRestore(const QString &targetId)
-{
-    for (const QJsonValue &v : m_jobs->jobs()) {
-        const QJsonObject job = v.toObject();
-        const QString kind = job.value(QStringLiteral("kind")).toString();
-        if ((kind == QLatin1String("restore") || kind == QLatin1String("restore-preview"))
-            && job.value(QStringLiteral("target")).toString() == targetId
-            && job.value(QStringLiteral("active")).toBool()) {
-            m_jobs->cancel(job.value(QStringLiteral("id")).toString());
-        }
-    }
-}
-
-void AppController::setRestorePreviewFrame(const QString &targetId, double offsetSeconds)
-{
-    const std::optional<RestoreSource> src = restoreSource(targetId);
-    if (!src)
-        return;
-    // The decode pool is shared with playback.
-    setPlaying(false);
-
-    m_restoreFrameLoading = true;
-    m_restoreEnhancedSize = QSize();
-    SegmentImageStore::setRestoreEnhanced(QImage());
-    ++m_restorePreviewRevision;
-    emit restorePreviewChanged();
-
-    // A dragged slider asks faster than full-resolution decodes finish.
-    if (m_restoreDecodeBusy) {
-        m_restorePendingFrame = std::make_pair(targetId, offsetSeconds);
-        return;
-    }
-    m_restoreDecodeBusy = true;
-
-    const quint64 generation = ++m_restorePreviewGeneration;
-    const QString path = src->path;
-    const drift::TimeUs sourceUs =
-        std::clamp(src->srcIn + drift::secondsToUs(offsetSeconds), src->srcIn,
-                   std::max(src->srcIn, src->srcOut - 1));
-    const int rotationCorrection = src->rotationCorrection;
-
-    QPointer<AppController> self(this);
-    (void)QtConcurrent::run([self, generation, path, sourceUs, rotationCorrection]() {
-        // Bounded only to keep a pathological file from allocating without limit: the preview has
-        // to show the source's own pixels, the ones the models will see.
-        const QImage frame = ClipReaderPool::instance().readVideoFrame(
-            path, kRestorePreviewStreamId, sourceUs, 8192, 8192, rotationCorrection);
-        QMetaObject::invokeMethod(
-            self.data(),
-            [self, generation, frame]() {
-                if (!self)
-                    return;
-                self->m_restoreDecodeBusy = false;
-                if (generation == self->m_restorePreviewGeneration) {
-                    self->m_restoreFrameLoading = self->m_restorePendingFrame.has_value();
-                    self->m_restoreOriginalSize = frame.size();
-                    SegmentImageStore::setRestoreOriginal(frame);
-                    ++self->m_restorePreviewRevision;
-                    emit self->restorePreviewChanged();
-                }
-                if (self->m_restorePendingFrame) {
-                    const auto [target, offset] = *self->m_restorePendingFrame;
-                    self->m_restorePendingFrame.reset();
-                    self->setRestorePreviewFrame(target, offset);
-                }
-            },
-            Qt::QueuedConnection);
-    });
-}
-
-QString AppController::previewRestore(const QString &targetId, const QString &decompressModel,
-                                      const QString &upscaleModel)
-{
-    if (!restoreSource(targetId))
-        return {};
-    const QImage original = SegmentImageStore::restoreOriginal();
-    if (original.isNull() || m_restoreFrameLoading)
-        return {};
-    if (decompressModel.isEmpty() && upscaleModel.isEmpty()) {
-        setLastMessage(tr("Choose a model to enhance with"), QStringLiteral("warning"));
-        return {};
-    }
-    if (m_jobs->hasActive(QStringLiteral("restore"), targetId)
-        || m_jobs->hasActive(QStringLiteral("restore-preview"), targetId)) {
-        return {};
-    }
-
-    const quint64 generation = m_restorePreviewGeneration;
-    auto result = std::make_shared<QImage>();
-    auto elapsed = std::make_shared<double>(0.0);
-    QPointer<AppController> self(this);
-
-    const QString id = m_jobs->start(
-        QStringLiteral("restore-preview"), targetId, JobRegistry::Lane::Model,
-        [self, targetId, decompressModel, upscaleModel, original, result, elapsed](JobContext &ctx) {
-            const auto notify = [self, targetId]() {
-                QMetaObject::invokeMethod(
-                    self.data(),
-                    [self, targetId]() {
-                        if (self)
-                            emit self->restoreJobChanged(targetId);
-                    },
-                    Qt::QueuedConnection);
-            };
-            ctx.progress(0.0, QObject::tr("Loading the models…"));
-            notify();
-
-            QList<std::shared_ptr<drift::Restorer>> chain;
-            for (const QString &model : {decompressModel, upscaleModel}) {
-                if (model.isEmpty())
-                    continue;
-                QString error;
-                std::shared_ptr<drift::Restorer> r = drift::Restorer::load(model, &error);
-                if (!r)
-                    return ctx.fail(QStringLiteral("model_error"), error);
-                chain.append(r);
-            }
-
-            QImage frame = original;
-            QElapsedTimer timer;
-            timer.start();
-            for (int i = 0; i < chain.size(); ++i) {
-                QString error;
-                const bool ok = chain.at(i)->process(frame, [&](double fraction) {
-                    ctx.progress((i + fraction) / chain.size(),
-                                 QObject::tr("Enhancing this frame… %1%")
-                                     .arg(int((i + fraction) / chain.size() * 100)));
-                    notify();
-                    return !ctx.cancelled();
-                }, &error);
-                if (ctx.cancelled())
-                    return;
-                if (!ok)
-                    return ctx.fail(QStringLiteral("model_error"), error);
-            }
-            *elapsed = timer.elapsed() / 1000.0;
-            *result = frame;
-            ctx.succeed({});
-        },
-        [this, targetId, generation, result, elapsed, decompressModel, upscaleModel,
-         megapixels = original.width() * original.height() / 1e6](const QJsonObject &job) {
-            if (job.value(QStringLiteral("ok")).toBool())
-                calibrateRestoreSpeed({decompressModel, upscaleModel}, megapixels, *elapsed);
-            if (job.value(QStringLiteral("ok")).toBool() && generation == m_restorePreviewGeneration
-                && !m_restoreFrameLoading) {
-                m_restoreEnhancedSize = result->size();
-                SegmentImageStore::setRestoreEnhanced(*result);
-                ++m_restorePreviewRevision;
-                emit restorePreviewChanged();
-            }
-            emit restoreJobChanged(targetId);
-            return QJsonObject{};
-        });
-    emit restoreJobChanged(targetId);
-    return id;
-}
-
-void AppController::calibrateRestoreSpeed(const QStringList &modelIds, double megapixels,
-                                          double seconds)
-{
-    double reference = 0.0;
-    for (const QString &id : modelIds) {
-        if (id.isEmpty())
-            continue;
-        double spm = 0.0;
-        for (const drift::Restorer::Model &m : drift::Restorer::models()) {
-            if (m.id == id)
-                spm = m.secondsPerMegapixel;
-        }
-        // A model without a reference speed leaves nothing to compare against.
-        if (spm <= 0.0)
-            return;
-        reference += spm * megapixels;
-    }
-    if (reference <= 0.0 || seconds <= 0.0)
-        return;
-    // Averaged with the last reading: one frame is a noisy sample of a loaded machine.
-    QSettings settings;
-    const double measured = seconds / reference;
-    const bool calibrated = settings.value(QStringLiteral("restore/speedCalibrated")).toBool();
-    const double previous = settings.value(QStringLiteral("restore/speedFactor"), measured).toDouble();
-    settings.setValue(QStringLiteral("restore/speedFactor"),
-                      calibrated ? (previous + measured) / 2.0 : measured);
-    settings.setValue(QStringLiteral("restore/speedCalibrated"), true);
-}
-
-QVariantMap AppController::restoreSpeed() const
-{
-    QSettings settings;
-    return {{QStringLiteral("factor"), settings.value(QStringLiteral("restore/speedFactor"), 1.0).toDouble()},
-            {QStringLiteral("calibrated"),
-             settings.value(QStringLiteral("restore/speedCalibrated"), false).toBool()}};
-}
-
-QVariantMap AppController::restoreTargetInfo(const QString &targetId) const
-{
-    const std::optional<RestoreSource> src = restoreSource(targetId);
-    if (!src)
-        return {};
-    int width = src->asset ? src->asset->width : 0;
-    int height = src->asset ? src->asset->height : 0;
-    if (src->asset) {
-        const int rotation = drift::effectiveRotation(*src->asset) % 180;
-        if (rotation == 90)
-            std::swap(width, height);
-    }
-    const double fps = src->asset && src->asset->fps > 0 ? src->asset->fps : m_project.fps();
-    return {{QStringLiteral("seconds"), drift::usToSeconds(src->srcOut - src->srcIn)},
-            {QStringLiteral("width"), width},
-            {QStringLiteral("height"), height},
-            {QStringLiteral("fps"), fps}};
-}
-
-QVariantMap AppController::restorePreviewState() const
-{
-    return {{QStringLiteral("revision"), m_restorePreviewRevision},
-            {QStringLiteral("width"), m_restoreOriginalSize.width()},
-            {QStringLiteral("height"), m_restoreOriginalSize.height()},
-            {QStringLiteral("enhancedWidth"), m_restoreEnhancedSize.width()},
-            {QStringLiteral("enhancedHeight"), m_restoreEnhancedSize.height()},
-            {QStringLiteral("loading"), m_restoreFrameLoading}};
-}
-
-void AppController::endRestorePreview()
-{
-    ++m_restorePreviewGeneration;
-    m_restorePendingFrame.reset();
-    m_restoreFrameLoading = false;
-    m_restoreOriginalSize = QSize();
-    m_restoreEnhancedSize = QSize();
-    SegmentImageStore::setRestoreOriginal(QImage());
-    SegmentImageStore::setRestoreEnhanced(QImage());
-    ++m_restorePreviewRevision;
-    emit restorePreviewChanged();
-}
-
-QVariantMap AppController::restoreJob(const QString &targetId) const
-{
-    const QJsonArray jobs = m_jobs->jobs();
-    for (qsizetype i = jobs.size() - 1; i >= 0; --i) {
-        const QJsonObject job = jobs.at(i).toObject();
-        const QString kind = job.value(QStringLiteral("kind")).toString();
-        if ((kind != QLatin1String("restore") && kind != QLatin1String("restore-preview"))
-            || job.value(QStringLiteral("target")).toString() != targetId) {
-            continue;
-        }
-        return {{QStringLiteral("kind"), kind},
-                {QStringLiteral("active"), job.value(QStringLiteral("active")).toBool()},
-                {QStringLiteral("progress"), job.value(QStringLiteral("progress")).toDouble()},
-                {QStringLiteral("status"), job.value(QStringLiteral("status")).toString()},
-                {QStringLiteral("error"), job.value(QStringLiteral("error"))
-                                              .toObject()
-                                              .value(QStringLiteral("message"))
-                                              .toString()}};
-    }
-    return {};
-}
-
-void AppController::clearDepth(int trackIndex, int clipIndex)
-{
-    const drift::ClipRef source = sourceClipRef(trackIndex, clipIndex);
-    trackIndex = source.trackIndex;
-    clipIndex = source.clipIndex;
-    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
-        return;
-    if (clipIndex < 0 || clipIndex >= m_project.tracks().at(trackIndex).clips.size())
-        return;
-    if (m_project.tracks().at(trackIndex).clips.at(clipIndex).depthPath.isEmpty())
-        return;
-
-    // The sidecar stays on disk so undo can bring it back.
-    const drift::Project before = m_project;
-    m_project.tracks()[trackIndex].clips[clipIndex].depthPath.clear();
-    pushProjectEdit(before, tr("Clear Depth"));
-    finishEdit(tr("Clear Depth"));
-}
-
-double AppController::sampleDepthAt(int trackIndex, int clipIndex, double nx, double ny,
-                                    double atSeconds)
-{
-    const drift::ClipRef source = sourceClipRef(trackIndex, clipIndex);
-    if (source.trackIndex < 0 || source.trackIndex >= m_project.tracks().size())
-        return -1.0;
-    const drift::Track &track = m_project.tracks().at(source.trackIndex);
-    if (source.clipIndex < 0 || source.clipIndex >= track.clips.size())
-        return -1.0;
-    const drift::Clip &clip = track.clips.at(source.clipIndex);
-    const std::shared_ptr<const drift::DepthSidecar> sidecar =
-        drift::loadDepthSidecarCached(clip.depthPath);
-    if (!sidecar)
-        return -1.0;
-    const drift::TimeUs at = atSeconds < 0.0 ? m_playheadUs : drift::secondsToUs(atSeconds);
-    return sidecar->sample(clip.timelineToSourceUs(at), qBound(0.0, nx, 1.0), qBound(0.0, ny, 1.0));
-}
-
-void AppController::clearFaceTrack(int trackIndex, int clipIndex)
-{
-    // Same redirect as detectFacesForClip: the caller is the effect adjustment's inspector.
-    const drift::ClipRef source = sourceClipRef(trackIndex, clipIndex);
-    trackIndex = source.trackIndex;
-    clipIndex = source.clipIndex;
-    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
-        return;
-    if (clipIndex < 0 || clipIndex >= m_project.tracks().at(trackIndex).clips.size())
-        return;
-    if (m_project.tracks().at(trackIndex).clips.at(clipIndex).faceTrackPath.isEmpty())
-        return;
-
-    // The sidecar itself is left on disk: undo has to be able to bring the track back, and these
-    // files are small and live in a cache directory.
-    const drift::Project before = m_project;
-    m_project.tracks()[trackIndex].clips[clipIndex].faceTrackPath.clear();
-    m_project.tracks()[trackIndex].clips[clipIndex].faceTrackSrcOffsetUs = 0;
-    pushProjectEdit(before, tr("Clear Face Track"));
-    finishEdit(tr("Clear Face Track"));
-}
-
-void AppController::setStabilizeProgress(const QString &clipId, double progress, const QString &status,
-                                         bool force)
-{
-    const double clamped = qBound(0.0, progress, 1.0);
-    const bool statusChanged = !status.isEmpty() && m_stabilizeStatus.value(clipId) != status;
-    m_stabilizeProgress.insert(clipId, clamped);
-    if (!status.isEmpty())
-        m_stabilizeStatus.insert(clipId, status);
-
-    const qint64 now = QDateTime::currentMSecsSinceEpoch();
-    if (!force && !statusChanged && now - m_stabilizeLastProgressEmit.value(clipId, 0) < 100)
-        return;
-    m_stabilizeLastProgressEmit.insert(clipId, now);
-    notifyStabilizeStateChanged(clipId);
-}
-
-void AppController::clearStabilizeProgress(const QString &clipId)
-{
-    m_stabilizeProgress.remove(clipId);
-    m_stabilizeStatus.remove(clipId);
-    m_stabilizeLastProgressEmit.remove(clipId);
-    m_stabilizeCancelRequested.remove(clipId);
-}
-
-std::function<bool(double)> AppController::stabilizeProgressReporter(
-    const QString &clipId, const QSharedPointer<QAtomicInt> &cancel, double rangeFrom,
-    double rangeTo)
-{
-    double lastPosted = -1.0;
-    return [this, clipId, cancel, rangeFrom, rangeTo, lastPosted](double fraction) mutable {
-        if (cancel->loadRelaxed() != 0)
-            return false;
-        const double progress = rangeFrom + (rangeTo - rangeFrom) * fraction;
-        if (progress - lastPosted >= 0.005) {
-            lastPosted = progress;
-            QMetaObject::invokeMethod(
-                this,
-                [this, clipId, progress]() {
-                    if (m_stabilizeJobs.contains(clipId))
-                        setStabilizeProgress(clipId, progress, QString(), false);
-                },
-                Qt::QueuedConnection);
-        }
-        return true;
-    };
-}
-
-void AppController::stabilizeClip(int trackIndex, int clipIndex)
-{
-    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
-        return;
-    const drift::Track &track = m_project.tracks().at(trackIndex);
-    if (clipIndex < 0 || clipIndex >= track.clips.size())
-        return;
-
-    const drift::Clip clip = track.clips.at(clipIndex);
-    if (clip.type != drift::ClipType::Video) {
-        setLastMessage(tr("Select a video clip to stabilize"), QStringLiteral("warning"));
-        return;
-    }
-    if (clip.path.isEmpty()) {
-        setLastMessage(tr("Clip has no video file"), QStringLiteral("warning"));
-        return;
-    }
-
-    const QString clipId = clip.id;
-    if (clip.stabilizing || m_stabilizeJobs.contains(clipId)) {
-        setLastMessage(tr("Stabilization already in progress for this clip"), QStringLiteral("warning"));
-        return;
-    }
-
-    setPlaying(false);
-
-    if (!drift::hasVideoFilter("vidstabdetect") || !drift::hasVideoFilter("vidstabtransform")) {
-        setLastMessage(tr("This build of Flip Studio has no video stabilization support"),
-                       QStringLiteral("error"));
-        return;
-    }
-
-    const std::optional<StabilizeOrigin> origin = stabilizeOrigin(m_project, clip);
-    if (!origin) {
-        setLastMessage(tr("The video this clip was stabilized from is no longer in the media bin"),
-                       QStringLiteral("warning"));
-        return;
-    }
-
-    const QString dir = drift::stabilizationCacheDir();
-    if (dir.isEmpty()) {
-        setLastMessage(tr("Could not create stabilization cache directory"), QStringLiteral("error"));
-        return;
-    }
-
-    // Both passes go through the seconds editMedia takes, so the analysis sees exactly the frames
-    // the render will.
-    const double inSeconds = drift::usToSeconds(clip.srcIn + origin->offsetUs);
-    const double outSeconds = drift::usToSeconds(clip.srcOut + origin->offsetUs);
-    const drift::TimeUs rangeIn = drift::secondsToUs(inSeconds);
-    const drift::TimeUs rangeOut = drift::secondsToUs(outSeconds);
-
-    // The motion analysis depends only on the frames, not on smoothing or tripod, so it is cached
-    // per source range and a settings change re-renders without re-scanning.
-    const QFileInfo sourceInfo(origin->path);
-    const QByteArray trfKey = QStringLiteral("%1|%2|%3|%4|%5")
-                                  .arg(sourceInfo.absoluteFilePath())
-                                  .arg(sourceInfo.size())
-                                  .arg(sourceInfo.lastModified().toMSecsSinceEpoch())
-                                  .arg(rangeIn)
-                                  .arg(rangeOut)
-                                  .toUtf8();
-    const QString trfPath = QDir(dir).filePath(
-        QStringLiteral("stabilize-%1.trf")
-            .arg(QString::fromLatin1(
-                QCryptographicHash::hash(trfKey, QCryptographicHash::Sha1).toHex())));
-
-    m_stabilizeCancelRequested.remove(clipId);
-    m_project.tracks()[trackIndex].clips[clipIndex].stabilizing = true;
-    const bool skipDetect = QFile::exists(trfPath);
-    const bool keyframeMode = clip.stabilizeMode == drift::StabilizeMode::Keyframes;
-    const QString startStatus = skipDetect
-                                    ? (keyframeMode ? tr("Building keyframes…")
-                                                    : tr("Rendering stabilized video…"))
-                                    : tr("Analyzing camera motion…");
-    // setStabilizeProgress(force=true) below already notifies for this clip if it is the one
-    // currently selected.
-    setStabilizeProgress(clipId, 0.0, startStatus, true);
-
-    auto finishStabilizeFailure = [this, clipId](const QString &message, const QString &severity) {
-        int foundTrack = -1;
-        int foundClip = -1;
-        if (findClipById(m_project, clipId, &foundTrack, &foundClip)) {
-            m_project.tracks()[foundTrack].clips[foundClip].stabilizing = false;
-        }
-        clearStabilizeProgress(clipId);
-        notifyStabilizeStateChanged(clipId);
-        setLastMessage(message, severity);
-    };
-
-    auto runKeyframes = [this, clipId, trfPath, rangeIn, skipDetect, finishStabilizeFailure]() {
-        if (m_stabilizeCancelRequested.contains(clipId)) {
-            finishStabilizeFailure(tr("Stabilization cancelled."), QStringLiteral("info"));
-            return;
-        }
-
-        int foundTrack = -1;
-        int foundClip = -1;
-        if (!findClipById(m_project, clipId, &foundTrack, &foundClip)) {
-            clearStabilizeProgress(clipId);
-            return;
-        }
-        const std::optional<StabilizeOrigin> origin =
-            stabilizeOrigin(m_project, m_project.tracks()[foundTrack].clips[foundClip]);
-        if (!origin) {
-            finishStabilizeFailure(tr("The video this clip was stabilized from is no longer in the media bin"),
-                                   QStringLiteral("warning"));
-            return;
-        }
-
-        setStabilizeProgress(clipId, skipDetect ? 0.15 : 0.85, tr("Building keyframes…"), true);
-
-        // Planned against the original's source time, which is what the keys are applied to.
-        drift::Clip clipCopy = m_project.tracks()[foundTrack].clips[foundClip];
-        clipCopy.srcIn += origin->offsetUs;
-        clipCopy.srcOut += origin->offsetUs;
-        double fps = 30.0;
-        int sourceW = 0;
-        int sourceH = 0;
-        if (const drift::MediaAsset *asset = m_project.asset(origin->assetId)) {
-            if (asset->fps > 1.0)
-                fps = asset->fps;
-            sourceW = asset->width;
-            sourceH = asset->height;
-        }
-        const double layoutW = clipCopy.stabilizeHasRestPose
-                                   ? clipCopy.stabilizeRestW
-                                   : (clipCopy.transformW.isEmpty() ? sourceW
-                                                                    : clipCopy.transformW.evaluateAt(0));
-        const double layoutH = clipCopy.stabilizeHasRestPose
-                                   ? clipCopy.stabilizeRestH
-                                   : (clipCopy.transformH.isEmpty() ? sourceH
-                                                                    : clipCopy.transformH.evaluateAt(0));
-        const double scaleX = (sourceW > 0 && layoutW > 0.0) ? layoutW / sourceW : 1.0;
-        const double scaleY = (sourceH > 0 && layoutH > 0.0) ? layoutH / sourceH : 1.0;
-        const int smoothing = clipCopy.stabilizeSmoothing;
-        const bool tripod = clipCopy.stabilizeTripod;
-
-        (void)QtConcurrent::run([this, clipId, trfPath, rangeIn, clipCopy, fps, scaleX, scaleY,
-                                 smoothing, tripod, finishStabilizeFailure]() {
-            const drift::StabilizePlan plan = drift::planStabilizeKeyframes(
-                trfPath, rangeIn, clipCopy, fps, scaleX, scaleY, smoothing, tripod);
-            QMetaObject::invokeMethod(
-                this,
-                [this, clipId, plan, finishStabilizeFailure]() {
-                    if (m_stabilizeCancelRequested.contains(clipId)) {
-                        finishStabilizeFailure(tr("Stabilization cancelled."), QStringLiteral("info"));
-                        return;
-                    }
-
-                    int foundTrack2 = -1;
-                    int foundClip2 = -1;
-                    if (!findClipById(m_project, clipId, &foundTrack2, &foundClip2)) {
-                        clearStabilizeProgress(clipId);
-                        return;
-                    }
-                    const std::optional<StabilizeOrigin> origin =
-                        stabilizeOrigin(m_project, m_project.tracks()[foundTrack2].clips[foundClip2]);
-                    if (!origin) {
-                        finishStabilizeFailure(
-                            tr("The video this clip was stabilized from is no longer in the media bin"),
-                            QStringLiteral("warning"));
-                        return;
-                    }
-
-                    if (plan.keys.isEmpty()) {
-                        finishStabilizeFailure(tr("Could not read camera motion from the analysis file."),
-                                               QStringLiteral("error"));
-                        return;
-                    }
-
-                    const drift::Project before = m_project;
-                    drift::Clip &outClip = m_project.tracks()[foundTrack2].clips[foundClip2];
-                    outClip.stabilizing = false;
-                    // Keys move the original's pixels; on a stabilized render they would stack a
-                    // second correction on the first.
-                    if (outClip.assetId != origin->assetId) {
-                        outClip.assetId = origin->assetId;
-                        outClip.path = origin->path;
-                        outClip.srcIn += origin->offsetUs;
-                        outClip.srcOut += origin->offsetUs;
-                        if (const drift::MediaAsset *asset = m_project.asset(origin->assetId)) {
-                            outClip.thumbnailPath = asset->thumbnailPath;
-                            outClip.filmstripPath = asset->filmstripPath;
-                        }
-                        outClip.faceTrackPath.clear();
-                        outClip.faceTrackSrcOffsetUs = 0;
-                        outClip.depthPath.clear();
-                        // Can drop lanes, which moves track indexes.
-                        drift::clearLinkedMasks(m_project, foundTrack2, foundClip2, true);
-                        findClipById(m_project, clipId, &foundTrack2, &foundClip2);
-                    }
-                    drift::Clip &applied = m_project.tracks()[foundTrack2].clips[foundClip2];
-                    drift::applyStabilizePlan(applied, plan);
-                    applied.stabilizeAppliedSmoothing = applied.stabilizeSmoothing;
-                    applied.stabilizeAppliedTripod = applied.stabilizeTripod;
-                    applied.stabilizeAppliedMode = drift::StabilizeMode::Keyframes;
-                    pushProjectEdit(before, tr("Stabilize with Keyframes"));
-                    clearStabilizeProgress(clipId);
-                    finishEdit(tr("Stabilize with Keyframes"));
-                    setLastMessage(tr("Stabilization keyframes applied."));
-                },
-                Qt::QueuedConnection);
-        });
-    };
-
-    auto runPass2 = [this, clipId, trfPath, inSeconds, outSeconds, rangeIn, skipDetect,
-                     finishStabilizeFailure, runKeyframes]() {
-        if (m_stabilizeCancelRequested.contains(clipId)) {
-            finishStabilizeFailure(tr("Stabilization cancelled."), QStringLiteral("info"));
-            return;
-        }
-
-        int foundTrack = -1;
-        int foundClip = -1;
-        if (!findClipById(m_project, clipId, &foundTrack, &foundClip)) {
-            clearStabilizeProgress(clipId);
-            return;
-        }
-
-        const drift::Clip &sourceClip = m_project.tracks()[foundTrack].clips[foundClip];
-        if (sourceClip.stabilizeMode == drift::StabilizeMode::Keyframes) {
-            runKeyframes();
-            return;
-        }
-        const std::optional<StabilizeOrigin> origin = stabilizeOrigin(m_project, sourceClip);
-        if (!origin) {
-            finishStabilizeFailure(tr("The video this clip was stabilized from is no longer in the media bin"),
-                                   QStringLiteral("warning"));
-            return;
-        }
-        if (!QFile::exists(trfPath)) {
-            finishStabilizeFailure(tr("Stabilization analysis file is missing."),
-                                   QStringLiteral("error"));
-            return;
-        }
-        const QString outputPath = drift::newEditedMediaPath(m_project.id(), QStringLiteral("video"));
-        if (outputPath.isEmpty()) {
-            finishStabilizeFailure(tr("Could not create an output file"), QStringLiteral("error"));
-            return;
-        }
-
-        const double rangeFrom = skipDetect ? 0.0 : 0.5;
-        setStabilizeProgress(clipId, rangeFrom, tr("Rendering stabilized video…"), true);
-
-        drift::MediaEditSpec spec;
-        spec.inputPath = origin->path;
-        spec.outputPath = outputPath;
-        spec.kind = QStringLiteral("video");
-        spec.inSeconds = inSeconds;
-        spec.outSeconds = outSeconds;
-        spec.videoFilter = QStringLiteral("vidstabtransform=smoothing=%1:tripod=%2:optzoom=1")
-                               .arg(sourceClip.stabilizeSmoothing)
-                               .arg(sourceClip.stabilizeTripod ? 1 : 0);
-        spec.videoFilterOptions = {{"vidstabtransform", "input", trfPath}};
-
-        QJsonObject generator{{QStringLiteral("kind"), QStringLiteral("stabilize")},
-                              {QStringLiteral("sourceAssetId"), origin->assetId},
-                              {QStringLiteral("sourceInUs"), qint64(rangeIn)},
-                              {QStringLiteral("smoothing"), sourceClip.stabilizeSmoothing},
-                              {QStringLiteral("tripod"), sourceClip.stabilizeTripod}};
-
-        const auto cancel = QSharedPointer<QAtomicInt>::create(0);
-        m_stabilizeJobs.insert(clipId, cancel);
-        const auto onProgress = stabilizeProgressReporter(clipId, cancel, rangeFrom, 1.0);
-        (void)QtConcurrent::run([this, clipId, spec, generator, onProgress, finishStabilizeFailure]() {
-            QString error;
-            const bool ok = drift::editMedia(spec, &error, onProgress);
-            const MediaInfo info = ok ? MediaProbe::probe(spec.outputPath) : MediaInfo();
-            QMetaObject::invokeMethod(
-                this,
-                [this, clipId, ok, error, info, generator, outputPath = spec.outputPath,
-                 finishStabilizeFailure]() {
-                    m_stabilizeJobs.remove(clipId);
-                    const bool cancelled = m_stabilizeCancelRequested.contains(clipId);
-
-                    int foundTrack2 = -1;
-                    int foundClip2 = -1;
-                    if (!findClipById(m_project, clipId, &foundTrack2, &foundClip2)) {
-                        QFile::remove(outputPath);
-                        clearStabilizeProgress(clipId);
-                        return;
-                    }
-
-                    if (!ok || cancelled) {
-                        QFile::remove(outputPath);
-                        if (cancelled)
-                            finishStabilizeFailure(tr("Stabilization cancelled."),
-                                                   QStringLiteral("info"));
-                        else
-                            finishStabilizeFailure(
-                                error.isEmpty() ? tr("Stabilization rendering failed.")
-                                                : tr("Stabilization rendering failed: %1").arg(error),
-                                QStringLiteral("error"));
-                        return;
-                    }
-
-                    const std::optional<StabilizeOrigin> origin =
-                        stabilizeOrigin(m_project, m_project.tracks()[foundTrack2].clips[foundClip2]);
-                    const drift::MediaAsset *source =
-                        m_project.asset(generator.value(QStringLiteral("sourceAssetId")).toString());
-                    if (!origin || !source) {
-                        QFile::remove(outputPath);
-                        finishStabilizeFailure(
-                            tr("The video this clip was stabilized from is no longer in the media bin"),
-                            QStringLiteral("warning"));
-                        return;
-                    }
-
-                    const drift::Project before = m_project;
-                    const int binCorrection = drift::rotationCorrectionOf(*source);
-                    const QString name = tr("%1 (stabilized)").arg(source->name);
-                    const QString folderId = source->folderId;
-                    const QString assetId = insertRenderedVideoAsset(outputPath, name, folderId, info);
-                    drift::MediaAsset *stabilized = m_project.asset(assetId);
-                    stabilized->generator = generator;
-                    // The render is upright with no rotation tag, but it is still the source the
-                    // bin's correction was chosen for.
-                    if (binCorrection != 0)
-                        stabilized->rotationOverride = binCorrection;
-
-                    // The render has the original's audio, so the clip plays its own and a linked
-                    // audio clip, which reads the original in the original's time, goes.
-                    const drift::Clip current = m_project.tracks()[foundTrack2].clips[foundClip2];
-                    const bool wasSelected =
-                        m_selectedTrack == foundTrack2 && m_selectedClip == foundClip2;
-                    QSet<QString> removedClipIds;
-                    std::optional<drift::Clip> partnerAudio;
-                    QList<drift::ClipRef> partners = drift::linkedPartners(m_project, current);
-                    std::sort(partners.begin(), partners.end(),
-                              [](const drift::ClipRef &a, const drift::ClipRef &b) {
-                                  return a.trackIndex != b.trackIndex ? a.trackIndex > b.trackIndex
-                                                                      : a.clipIndex > b.clipIndex;
-                              });
-                    for (const drift::ClipRef &ref : partners) {
-                        const drift::Clip &partner =
-                            m_project.tracks()[ref.trackIndex].clips[ref.clipIndex];
-                        if (partner.type != drift::ClipType::Audio)
-                            continue;
-                        if (!partnerAudio)
-                            partnerAudio = partner;
-                        removedClipIds.insert(partner.id);
-                        m_project.tracks()[ref.trackIndex].clips.removeAt(ref.clipIndex);
-                    }
-                    for (drift::Track &track : m_project.tracks()) {
-                        for (int i = track.transitions.size() - 1; i >= 0; --i) {
-                            const drift::Transition &transition = track.transitions.at(i);
-                            if (removedClipIds.contains(transition.fromClipId)
-                                || removedClipIds.contains(transition.toClipId))
-                                track.transitions.removeAt(i);
-                        }
-                    }
-                    if (!findClipById(m_project, clipId, &foundTrack2, &foundClip2))
-                        return;
-
-                    drift::Clip &outClip = m_project.tracks()[foundTrack2].clips[foundClip2];
-                    outClip.stabilizing = false;
-                    // The render starts at the range's in-point, so the clip's range moves with it.
-                    const drift::TimeUs renderIn =
-                        drift::TimeUs(generator.value(QStringLiteral("sourceInUs")).toInteger());
-                    const drift::TimeUs shift = origin->offsetUs - renderIn;
-                    outClip.assetId = assetId;
-                    outClip.path = outputPath;
-                    outClip.srcIn = qMax(drift::TimeUs{0}, outClip.srcIn + shift);
-                    outClip.srcOut = qMax(outClip.srcIn, outClip.srcOut + shift);
-                    if (m_assetLibrary) {
-                        const int index = m_assetLibrary->indexOfId(assetId);
-                        if (!stabilized->thumbnailPath.isEmpty())
-                            outClip.thumbnailPath = stabilized->thumbnailPath;
-                        const QString strip = m_assetLibrary->filmstripAt(index);
-                        if (!strip.isEmpty())
-                            outClip.filmstripPath = strip;
-                    }
-                    if (partnerAudio) {
-                        outClip.volume = partnerAudio->volume;
-                        outClip.audioEffects = partnerAudio->audioEffects;
-                    }
-                    outClip.linkId.clear();
-                    outClip.suppressEmbeddedAudio = false;
-                    // Landmarks, depth and media mattes were made from the shaky pixels.
-                    outClip.faceTrackPath.clear();
-                    outClip.faceTrackSrcOffsetUs = 0;
-                    outClip.depthPath.clear();
-
-                    drift::restoreStabilizeRestPose(outClip);
-                    if (outClip.transformX.keyframes().size() > 1
-                        || outClip.transformY.keyframes().size() > 1) {
-                        const double x = outClip.transformX.isEmpty()
-                                             ? 0.0
-                                             : outClip.transformX.evaluateAt(0);
-                        const double y = outClip.transformY.isEmpty()
-                                             ? 0.0
-                                             : outClip.transformY.evaluateAt(0);
-                        outClip.transformX = {};
-                        outClip.transformY = {};
-                        outClip.transformX.setKeyframe(0, x);
-                        outClip.transformY.setKeyframe(0, y);
-                    }
-                    outClip.stabilizeAppliedSmoothing = outClip.stabilizeSmoothing;
-                    outClip.stabilizeAppliedTripod = outClip.stabilizeTripod;
-                    outClip.stabilizeAppliedMode = drift::StabilizeMode::Bake;
-                    drift::clearLinkedMasks(m_project, foundTrack2, foundClip2, true);
-
-                    // Removing the audio partner and mask lanes moves indexes under the selection.
-                    if (wasSelected && findClipById(m_project, clipId, &foundTrack2, &foundClip2))
-                        selectClip(foundTrack2, foundClip2);
-                    else if (!removedClipIds.isEmpty())
-                        clearSelection();
-
-                    pushProjectEdit(before, tr("Stabilize Video"));
-                    clearStabilizeProgress(clipId);
-                    finishEdit(tr("Stabilize Video"));
-                    setLastMessage(tr("Stabilized video added to the media bin"));
-                },
-                Qt::QueuedConnection);
-        });
-    };
-
-    if (skipDetect) {
-        runPass2();
-        return;
-    }
-
-    // Written beside the cache entry and renamed on success, so a cancelled scan never leaves a
-    // partial analysis that a later run would take as complete.
-    const QString partPath = trfPath + QStringLiteral(".part");
-    QFile::remove(partPath);
-    const auto cancel = QSharedPointer<QAtomicInt>::create(0);
-    m_stabilizeJobs.insert(clipId, cancel);
-    const auto onProgress = stabilizeProgressReporter(clipId, cancel, 0.0, keyframeMode ? 0.8 : 0.5);
-    (void)QtConcurrent::run([this, clipId, inputPath = origin->path, rangeIn, rangeOut, onProgress,
-                             trfPath, partPath, runPass2, finishStabilizeFailure]() {
-        QString error;
-        const bool ok = drift::analyzeVideo(
-            inputPath, rangeIn, rangeOut, QStringLiteral("vidstabdetect=shakiness=5:accuracy=15"),
-            {{"vidstabdetect", "result", partPath}}, &error, onProgress);
-        QMetaObject::invokeMethod(
-            this,
-            [this, clipId, ok, error, trfPath, partPath, runPass2, finishStabilizeFailure]() {
-                m_stabilizeJobs.remove(clipId);
-                const bool cancelled = m_stabilizeCancelRequested.contains(clipId);
-
-                int foundTrack = -1;
-                int foundClip = -1;
-                if (!findClipById(m_project, clipId, &foundTrack, &foundClip)) {
-                    QFile::remove(partPath);
-                    clearStabilizeProgress(clipId);
-                    return;
-                }
-
-                if (!ok || cancelled || !QFile::exists(partPath)) {
-                    QFile::remove(partPath);
-                    if (cancelled)
-                        finishStabilizeFailure(tr("Stabilization cancelled."), QStringLiteral("info"));
-                    else
-                        finishStabilizeFailure(
-                            error.isEmpty() ? tr("Stabilization analysis failed.")
-                                            : tr("Stabilization analysis failed: %1").arg(error),
-                            QStringLiteral("error"));
-                    return;
-                }
-
-                QFile::remove(trfPath);
-                QFile::rename(partPath, trfPath);
-                runPass2();
-            },
-            Qt::QueuedConnection);
-    });
-}
-
-void AppController::cancelClipStabilization(int trackIndex, int clipIndex)
-{
-    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
-        return;
-    const drift::Track &track = m_project.tracks().at(trackIndex);
-    if (clipIndex < 0 || clipIndex >= track.clips.size())
-        return;
-
-    const drift::Clip &clip = track.clips.at(clipIndex);
-    const QString clipId = clip.id;
-    if (!clip.stabilizing && !m_stabilizeJobs.contains(clipId))
-        return;
-
-    m_stabilizeCancelRequested.insert(clipId);
-    if (const QSharedPointer<QAtomicInt> cancel = m_stabilizeJobs.value(clipId))
-        cancel->storeRelaxed(1);
-}
-
-// Keyframe mode only: a stabilized video is a bin asset of its own, and the original is still in
-// the bin to put back.
-void AppController::removeClipStabilization(int trackIndex, int clipIndex)
-{
-    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
-        return;
-    const drift::Track &track = m_project.tracks().at(trackIndex);
-    if (clipIndex < 0 || clipIndex >= track.clips.size())
-        return;
-
-    const drift::Clip &clip = track.clips.at(clipIndex);
-    if (clip.stabilizeAppliedSmoothing < 0
-        || clip.stabilizeAppliedMode != drift::StabilizeMode::Keyframes)
-        return;
-
-    const drift::Project before = m_project;
-    drift::Clip &outClip = m_project.tracks()[trackIndex].clips[clipIndex];
-    outClip.stabilizing = false;
-    outClip.stabilizeAppliedSmoothing = -1;
-    outClip.stabilizeAppliedTripod = false;
-    outClip.stabilizeAppliedMode = drift::StabilizeMode::Bake;
-    drift::restoreStabilizeRestPose(outClip);
-    pushProjectEdit(before, tr("Remove Stabilization"));
-    emit selectedClipDataChanged();
-    finishEdit(tr("Remove Stabilization"));
-}
-
-void AppController::setClipStabilizeSmoothing(int trackIndex, int clipIndex, int value)
-{
-    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
-        return;
-    const drift::Track &track = m_project.tracks().at(trackIndex);
-    if (clipIndex < 0 || clipIndex >= track.clips.size())
-        return;
-
-    const drift::Clip clip = track.clips.at(clipIndex);
-    if (clip.stabilizeSmoothing == value)
-        return;
-
-    const drift::Project before = m_project;
-    m_project.tracks()[trackIndex].clips[clipIndex].stabilizeSmoothing = value;
-    pushProjectEdit(before, tr("Change Stabilization Smoothing"));
-    emit selectedClipDataChanged();
-    finishEdit(tr("Change Stabilization Smoothing"));
-}
-
-void AppController::setClipStabilizeTripod(int trackIndex, int clipIndex, bool enabled)
-{
-    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
-        return;
-    const drift::Track &track = m_project.tracks().at(trackIndex);
-    if (clipIndex < 0 || clipIndex >= track.clips.size())
-        return;
-
-    const drift::Clip clip = track.clips.at(clipIndex);
-    if (clip.stabilizeTripod == enabled)
-        return;
-
-    const drift::Project before = m_project;
-    m_project.tracks()[trackIndex].clips[clipIndex].stabilizeTripod = enabled;
-    pushProjectEdit(before, tr("Change Stabilization Tripod Mode"));
-    emit selectedClipDataChanged();
-    finishEdit(tr("Change Stabilization Tripod Mode"));
-}
-
-void AppController::setClipStabilizeMode(int trackIndex, int clipIndex, const QString &mode)
-{
-    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
-        return;
-    const drift::Track &track = m_project.tracks().at(trackIndex);
-    if (clipIndex < 0 || clipIndex >= track.clips.size())
-        return;
-
-    const drift::StabilizeMode parsed = drift::stabilizeModeFromString(mode);
-    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
-    if (clip.stabilizeMode == parsed)
-        return;
-
-    const drift::Project before = m_project;
-    clip.stabilizeMode = parsed;
-    pushProjectEdit(before, tr("Change Stabilization Mode"));
-    emit selectedClipDataChanged();
-    finishEdit(tr("Change Stabilization Mode"));
-}
-
-void AppController::detectFacesForClip(int trackIndex, int clipIndex)
-{
-    if (m_faceDetecting) {
-        setLastMessage(tr("Face detection already in progress"), QStringLiteral("warning"));
-        return;
-    }
-    // The prompt that asks for a scan lives in the effect adjustment's inspector, so what it
-    // hands over is the adjustment. The landmarks belong on the clip it is pinned to.
-    const drift::ClipRef source = sourceClipRef(trackIndex, clipIndex);
-    trackIndex = source.trackIndex;
-    clipIndex = source.clipIndex;
-    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
-        return;
-    const drift::Track &track = m_project.tracks().at(trackIndex);
-    if (clipIndex < 0 || clipIndex >= track.clips.size())
-        return;
-
-    const drift::Clip clip = track.clips.at(clipIndex);
-    if (clip.type != drift::ClipType::Video && clip.type != drift::ClipType::Image) {
-        setLastMessage(tr("Select a video clip to detect faces in"), QStringLiteral("warning"));
-        return;
-    }
-    if (clip.path.isEmpty() || clip.srcOut <= clip.srcIn) {
-        setLastMessage(tr("Clip has no video to scan"), QStringLiteral("warning"));
-        return;
-    }
-
-    // Same reason as the export and segmentation jobs: playback would drive the decode pool from a
-    // second thread while this job walks it frame by frame.
-    setPlaying(false);
-
-    m_faceDetectCancel.storeRelaxed(0);
-    m_faceDetectProgress = 0.0;
-    emit faceDetectProgressChanged();
-    m_faceDetectStatus = tr("Getting ready…");
-    emit faceDetectStatusChanged();
-    m_faceDetecting = true;
-    emit faceDetectingChanged();
-    setLastMessage(tr("Detecting faces…"));
-
-    const QString path = clip.path;
-    // A still is one frame however long it sits on the timeline, and FaceTrack::sample clamps to
-    // its last frame, so it is scanned once rather than once per frame of its duration.
-    const bool still = clip.type == drift::ClipType::Image;
-    const drift::TimeUs srcIn = still ? 0 : clip.srcIn;
-    const drift::TimeUs srcOut = still ? 1 : clip.srcOut;
-    const int fps = qMax(1, m_project.fps());
-    const int canvasW = m_project.width();
-    const int canvasH = m_project.height();
-    // Resolved by id at the end rather than by index: the timeline can be edited while the job
-    // runs, and stale indices would attach the track to the wrong clip.
-    const QString clipId = clip.id;
-
-    // Landmarks are in frame pixels, so detect on frames oriented the way the compositor shows them.
-    const int rotationCorrection = clip.rotationCorrection;
-    (void)QtConcurrent::run([this, path, still, srcIn, srcOut, fps, canvasW, canvasH, clipId,
-                             rotationCorrection]() {
-        auto setProgress = [this](double fraction, const QString &status) {
-            QMetaObject::invokeMethod(
-                this,
-                [this, fraction, status]() {
-                    m_faceDetectProgress = fraction;
-                    emit faceDetectProgressChanged();
-                    if (!status.isEmpty() && status != m_faceDetectStatus) {
-                        m_faceDetectStatus = status;
-                        emit faceDetectStatusChanged();
-                    }
-                },
-                Qt::QueuedConnection);
-        };
-
-        auto finish = [this, clipId, srcIn](bool ok, const QString &message,
-                                            const QString &trackPath) {
-            QMetaObject::invokeMethod(
-                this,
-                [this, ok, message, trackPath, clipId, srcIn]() {
-                    m_faceDetecting = false;
-                    emit faceDetectingChanged();
-                    m_faceDetectProgress = ok ? 1.0 : 0.0;
-                    emit faceDetectProgressChanged();
-                    m_faceDetectStatus = ok ? tr("Done") : message;
-                    emit faceDetectStatusChanged();
-                    if (!ok) {
-                        setLastMessage(message, QStringLiteral("error"));
-                        emit faceDetectionFinished(false, message);
-                        return;
-                    }
-                    finalizeFaceDetection(clipId, trackPath, srcIn);
-                    setLastMessage(message);
-                    emit faceDetectionFinished(true, message);
-                },
-                Qt::QueuedConnection);
-        };
-
-        drift::FaceLandmarker &landmarker = drift::FaceLandmarker::instance();
-        if (!landmarker.available()) {
-            finish(false, landmarker.lastError(), {});
-            return;
-        }
-
-        const drift::TimeUs step = drift::kUsPerSecond / fps;
-        const int totalFrames = int((srcOut - srcIn + step - 1) / step);
-        if (totalFrames <= 0) {
-            finish(false, tr("Clip is too short to scan"), {});
-            return;
-        }
-
-        drift::FaceTrack faceTrack;
-        faceTrack.fps = fps;
-        faceTrack.startSrcUs = srcIn;
-        faceTrack.frames.reserve(totalFrames);
-
-        QList<drift::FaceAnchors> previous;
-        int framesWithFace = 0;
-
-        for (int i = 0; i < totalFrames; ++i) {
-            if (m_faceDetectCancel.loadRelaxed() != 0) {
-                finish(false, tr("Face detection cancelled"), {});
-                return;
-            }
-
-            const drift::TimeUs sourceUs = srcIn + drift::TimeUs(i) * step;
-            // Stills decode the way the compositor draws them (Qt first, FFmpeg as fallback).
-            // FFmpeg alone cannot open some files Qt reads fine — a .jpeg, for one — which is
-            // how an image that renders could still fail the scan on frame 0.
-            const QImage frame = still
-                ? drift::decodeStillImage(path, canvasW, canvasH)
-                : ClipReaderPool::instance().readVideoFrame(path, kFaceDetectStreamId, sourceUs,
-                                                            canvasW, canvasH, rotationCorrection);
-            if (frame.isNull()) {
-                finish(false, tr("Could not decode frame %1").arg(i), {});
-                return;
-            }
-
-            // The previous frame seeds the next one's ROI, which is what keeps a face in the same
-            // slot for the whole clip and skips the detector while tracking holds.
-            QList<drift::FaceAnchors> faces =
-                landmarker.detect(frame, previous.isEmpty() ? nullptr : &previous);
-            previous = faces;
-
-            drift::FaceTrackFrame baked;
-            baked.faces = faces;
-            faceTrack.frames.append(baked);
-
-            for (const drift::FaceAnchors &a : faces) {
-                if (a.valid) {
-                    ++framesWithFace;
-                    break;
-                }
-            }
-
-            setProgress(double(i + 1) / totalFrames,
-                        tr("Scanning frame %1 of %2…").arg(i + 1).arg(totalFrames));
-        }
-
-        if (framesWithFace == 0) {
-            finish(false, tr("No faces found in this clip"), {});
-            return;
-        }
-
-        drift::smoothFaceTrack(&faceTrack);
-
-        const QString trackPath = drift::newFaceTrackPath();
-        QString error;
-        if (trackPath.isEmpty() || !drift::writeFaceTrack(trackPath, faceTrack, &error)) {
-            finish(false, error.isEmpty() ? tr("Could not write the face track") : error,
-                   {});
-            return;
-        }
-
-        finish(true,
-               framesWithFace < totalFrames
-                   ? tr("Face detection complete — a face was visible in %1 of %2 frames")
-                         .arg(framesWithFace)
-                         .arg(totalFrames)
-                   : tr("Face detection complete"),
-               trackPath);
-    });
-}
-
-void AppController::ingestFaceSwapSource(const QString &photoPath)
-{
-    if (photoPath.isEmpty() || drift::faceSwapSourceReady(photoPath))
-        return;
-    if (m_faceSwapIngesting.contains(photoPath))
-        return;
-    // Gated on the models being present rather than attempted and failed: without the addon this
-    // would report an error on every clip in the project the moment one is opened.
-    if (!drift::FaceLandmarker::modelPresent())
-        return;
-
-    m_faceSwapIngesting.insert(photoPath);
-    (void)QtConcurrent::run([this, photoPath]() {
-        QString error;
-        const bool ok = drift::ingestFaceSwapSource(photoPath, &error);
-        QMetaObject::invokeMethod(
-            this,
-            [this, photoPath, ok, error]() {
-                m_faceSwapIngesting.remove(photoPath);
-                if (!ok) {
-                    setLastMessage(error, QStringLiteral("error"));
-                    return;
-                }
-                // The effect has been rendering pass-through while this ran.
-                emitPreviewFrame();
-            },
-            Qt::QueuedConnection);
-    });
-}
-
-void AppController::ingestFaceSwapSourcesInProject()
-{
-    for (const drift::Track &track : m_project.tracks()) {
-        for (const drift::Clip &clip : track.clips) {
-            for (const drift::Effect &effect : clip.effects) {
-                const EffectPresetEntry *def = effectDefForId(effect.catalogId);
-                if (!def || !def->isFaceSwap)
-                    continue;
-                ingestFaceSwapSource(
-                    effect.parameters.value(QStringLiteral("sourceImage")).toString());
-            }
-        }
-    }
-}
-
-void AppController::finalizeFaceDetection(const QString &clipId, const QString &trackPath,
-                                          drift::TimeUs srcOffsetUs)
-{
-    int trackIndex = -1;
-    int clipIndex = -1;
-    for (int t = 0; t < m_project.tracks().size() && trackIndex < 0; ++t) {
-        const drift::Track &track = m_project.tracks().at(t);
-        for (int c = 0; c < track.clips.size(); ++c) {
-            if (track.clips.at(c).id == clipId) {
-                trackIndex = t;
-                clipIndex = c;
-                break;
-            }
-        }
-    }
-    if (trackIndex < 0) {
-        // The clip was deleted while the job ran; the track has nothing to attach to.
-        QFile::remove(trackPath);
-        setLastMessage(tr("Scanned clip no longer exists"), QStringLiteral("warning"));
-        return;
-    }
-
-    const drift::Project before = m_project;
-    m_project.tracks()[trackIndex].clips[clipIndex].faceTrackPath = trackPath;
-    m_project.tracks()[trackIndex].clips[clipIndex].faceTrackSrcOffsetUs = srcOffsetUs;
-    pushProjectEdit(before, tr("Detect Faces"));
-    finishEdit(tr("Detect Faces"));
-    selectClip(trackIndex, clipIndex);
-}
-
 // --- scene detection --------------------------------------------------------
-
-double AppController::sceneThreshold() const
-{
-    return QSettings()
-        .value(QStringLiteral("scenes/threshold"), drift::SceneDetectOptions{}.threshold)
-        .toDouble();
-}
-
-void AppController::setSceneThreshold(double threshold)
-{
-    QSettings().setValue(QStringLiteral("scenes/threshold"), qBound(4.0, threshold, 100.0));
-}
-
-void AppController::cancelSceneDetection()
-{
-    m_sceneDetectCancel.storeRelaxed(1);
-}
 
 bool AppController::objectDetectionAvailable() const
 {
     return drift::ObjectDetector::modelPresent();
-}
-
-void AppController::clearScenes()
-{
-    if (m_scenes.isEmpty() && m_sceneClipId.isEmpty())
-        return;
-    m_scenes.clear();
-    m_sceneClipId.clear();
-    m_sceneClipPath.clear();
-    emit scenesChanged();
-}
-
-void AppController::seekToScene(int sceneIndex)
-{
-    if (sceneIndex < 0 || sceneIndex >= m_scenes.size())
-        return;
-
-    // Resolved by id, not index: the analysis outlives any number of timeline edits.
-    for (const drift::Track &track : m_project.tracks()) {
-        for (const drift::Clip &clip : track.clips) {
-            if (clip.id != m_sceneClipId)
-                continue;
-
-            const QVariantMap scene = m_scenes.at(sceneIndex).toMap();
-            const drift::TimeUs sourceUs =
-                drift::secondsToUs(scene.value(QStringLiteral("sourceStart")).toDouble());
-            // Scenes are in source time. Speed and reverse mean the clip's own mapping is the
-            // only thing that knows where that lands on the timeline.
-            const drift::TimeUs span = clip.sourceSpanUs();
-            if (span <= 0)
-                return;
-            const double through = double(sourceUs - clip.srcIn) / double(span);
-            const drift::TimeUs at =
-                clip.timelineStart
-                + drift::TimeUs(qBound(0.0, through, 1.0) * double(clip.timelineDuration));
-            setPlayheadUs(clip.reverse ? clip.timelineStart + clip.timelineDuration
-                                             - (at - clip.timelineStart)
-                                       : at);
-            return;
-        }
-    }
-}
-
-
-void AppController::applySceneAnalysis(const drift::SceneAnalysis &analysis, const QString &clipId,
-                                      const QString &clipPath, int rotationCorrection)
-{
-    const QVariantList rows = sceneRowsFromAnalysis(analysis);
-    m_scenes = rows;
-    m_sceneClipId = clipId;
-    m_sceneClipPath = clipPath;
-    m_sceneClipRotationCorrection = rotationCorrection;
-    emit scenesChanged();
-}
-
-drift::SceneDetectRequest AppController::sceneRequestFor(const drift::Clip &clip,
-                                                         bool withObjects,
-                                                         double minSceneSeconds) const
-{
-    drift::SceneDetectRequest request;
-    request.path = clip.path;
-    request.rotationCorrection = clip.rotationCorrection;
-    request.sourceIn = clip.srcIn;
-    request.sourceOut = clip.srcOut;
-    request.options.threshold = sceneThreshold();
-    request.options.detectObjects = withObjects && objectDetectionAvailable();
-    if (minSceneSeconds > 0.0)
-        request.options.minSceneSeconds = minSceneSeconds;
-    return request;
-}
-
-void AppController::detectScenesForClip(int trackIndex, int clipIndex, bool withObjects,
-                                        double minSceneSeconds)
-{
-    if (m_sceneDetecting) {
-        setLastMessage(tr("Already looking for scenes"), QStringLiteral("warning"));
-        return;
-    }
-    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
-        return;
-    const drift::Track &track = m_project.tracks().at(trackIndex);
-    if (clipIndex < 0 || clipIndex >= track.clips.size())
-        return;
-
-    const drift::Clip clip = track.clips.at(clipIndex);
-    if (clip.type != drift::ClipType::Video) {
-        setLastMessage(tr("Select a video clip to find scenes in"), QStringLiteral("warning"));
-        return;
-    }
-    if (clip.path.isEmpty() || clip.srcOut <= clip.srcIn) {
-        setLastMessage(tr("Clip has no video to scan"), QStringLiteral("warning"));
-        return;
-    }
-
-    const drift::SceneDetectRequest request =
-        sceneRequestFor(clip, withObjects, minSceneSeconds);
-
-    // A cached analysis is the common case once a clip has been scanned, and it costs a file
-    // read rather than a decode pass — so it is worth checking before disturbing playback.
-    drift::SceneAnalysis cached;
-    if (drift::loadCachedAnalysis(request, &cached)
-        && (!withObjects || cached.objectsScanned)) {
-        applySceneAnalysis(cached, clip.id, clip.path, clip.rotationCorrection);
-        setLastMessage(tr("Found %n scene(s)", nullptr, int(cached.scenes.size())));
-        emit sceneDetectionFinished(true, QString());
-        return;
-    }
-
-    // Same reason as the export, segmentation and face jobs: playback would drive the decode
-    // pool from a second thread while this job walks it frame by frame.
-    setPlaying(false);
-
-    m_sceneDetectCancel.storeRelaxed(0);
-    m_sceneDetectProgress = 0.0;
-    emit sceneDetectProgressChanged();
-    m_sceneDetectStatus = tr("Getting ready…");
-    emit sceneDetectStatusChanged();
-    m_sceneDetecting = true;
-    emit sceneDetectingChanged();
-    setLastMessage(tr("Looking for scenes…"));
-
-    // Resolved by id at the end rather than by index: the timeline can be edited while the
-    // job runs, and a stale index would attach the analysis to the wrong clip.
-    const QString clipId = clip.id;
-    const QString clipPath = clip.path;
-    const int rotationCorrection = clip.rotationCorrection;
-    const quint64 generation = ++m_sceneGeneration;
-
-    (void)QtConcurrent::run([this, request, clipId, clipPath, rotationCorrection, generation]() {
-        auto setProgress = [this, generation](double fraction, const QString &status) {
-            QMetaObject::invokeMethod(
-                this,
-                [this, fraction, status, generation]() {
-                    if (generation != m_sceneGeneration)
-                        return;
-                    m_sceneDetectProgress = fraction;
-                    emit sceneDetectProgressChanged();
-                    if (!status.isEmpty() && status != m_sceneDetectStatus) {
-                        m_sceneDetectStatus = status;
-                        emit sceneDetectStatusChanged();
-                    }
-                },
-                Qt::QueuedConnection);
-        };
-
-        auto finish = [this, clipId, clipPath, rotationCorrection, generation](
-                          bool ok, const QString &message, const drift::SceneAnalysis &analysis) {
-            QMetaObject::invokeMethod(
-                this,
-                [this, ok, message, analysis, clipId, clipPath, rotationCorrection, generation]() {
-                    if (generation != m_sceneGeneration)
-                        return; // superseded by a newer scan; this result is for nobody
-                    m_sceneDetecting = false;
-                    emit sceneDetectingChanged();
-                    m_sceneDetectProgress = ok ? 1.0 : 0.0;
-                    emit sceneDetectProgressChanged();
-                    m_sceneDetectStatus = ok ? tr("Done") : message;
-                    emit sceneDetectStatusChanged();
-                    if (!ok) {
-                        if (!message.isEmpty())
-                            setLastMessage(message, QStringLiteral("error"));
-                        emit sceneDetectionFinished(false, message);
-                        return;
-                    }
-                    applySceneAnalysis(analysis, clipId, clipPath, rotationCorrection);
-                    setLastMessage(tr("Found %n scene(s)", nullptr, int(analysis.scenes.size())));
-                    emit sceneDetectionFinished(true, QString());
-                },
-                Qt::QueuedConnection);
-        };
-
-        QString error;
-        const drift::SceneAnalysis analysis = drift::detectScenes(
-            request,
-            [&](double fraction, const QString &status) {
-                if (m_sceneDetectCancel.loadRelaxed() != 0)
-                    return false;
-                setProgress(fraction, status);
-                return true;
-            },
-            &error);
-
-        if (analysis.isEmpty()) {
-            const bool cancelled = m_sceneDetectCancel.loadRelaxed() != 0;
-            finish(false, cancelled ? tr("Scene detection cancelled") : error, {});
-            return;
-        }
-
-        drift::storeCachedAnalysis(request, analysis);
-        finish(true, QString(), analysis);
-    });
-}
-
-
-// ---- Noise removal ----------------------------------------------------------------------
-
-bool AppController::denoiseAvailable()
-{
-    // Deliberately only checks that the model files exist. This is reached from a QML binding, and
-    // loading the session here would block the GUI thread.
-    return drift::DeepFilterDenoiser::modelPresent();
-}
-
-void AppController::cancelDenoise()
-{
-    if (m_denoising)
-        m_denoiseCancel.storeRelaxed(1);
-}
-
-bool AppController::renderDenoisedAudio(const QString &path, drift::TimeUs srcIn,
-                                        drift::TimeUs span, const QString &outPath,
-                                        const QString &originalPath, double progressFrom,
-                                        double progressTo, QString *errorOut)
-{
-    const auto fail = [&](const QString &message) {
-        if (errorOut)
-            *errorOut = message;
-        return false;
-    };
-    const auto setProgress = [this](double fraction, const QString &status) {
-        QMetaObject::invokeMethod(
-            this,
-            [this, fraction, status]() {
-                m_denoiseProgress = fraction;
-                emit denoiseProgressChanged();
-                if (!status.isEmpty() && status != m_denoiseStatus) {
-                    m_denoiseStatus = status;
-                    emit denoiseStatusChanged();
-                }
-            },
-            Qt::QueuedConnection);
-    };
-    const auto span01 = [progressFrom, progressTo](double f) {
-        return progressFrom + (progressTo - progressFrom) * std::clamp(f, 0.0, 1.0);
-    };
-
-    drift::DeepFilterDenoiser &dn = drift::DeepFilterDenoiser::instance();
-    setProgress(span01(0.0), tr("Getting noise removal ready…"));
-    if (!dn.available())
-        return fail(dn.lastError());
-
-    const int rate = drift::DeepFilterDenoiser::sampleRate();
-    const int64_t totalFrames = (span * rate) / drift::kUsPerSecond;
-    if (totalFrames <= 0)
-        return fail(tr("Clip is too short to process"));
-
-    // Decode the raw source window. Speed and reverse are deliberately not applied: the derived
-    // clip inherits them, so the render has to stay in the source's own time base.
-    setProgress(span01(0.05), tr("Reading audio…"));
-    std::vector<float> interleaved(size_t(totalFrames) * 2, 0.0f);
-    int64_t have = 0;
-    const int chunkFrames = rate * 10;
-    while (have < totalFrames) {
-        if (m_denoiseCancel.loadRelaxed())
-            return fail(tr("Noise removal cancelled"));
-        const drift::TimeUs at = srcIn + drift::TimeUs((have * drift::kUsPerSecond) / rate);
-        const int want = int(std::min<int64_t>(chunkFrames, totalFrames - have));
-        const int got = ClipReaderPool::instance().readAudioInterleaved(
-            path, kDenoiseScanStreamId, at, want, rate, interleaved.data() + size_t(have) * 2);
-        if (got <= 0)
-            break;
-        have += got;
-        setProgress(span01(0.05 + 0.20 * double(have) / double(totalFrames)),
-                    tr("Reading audio…"));
-    }
-    if (have <= 0)
-        return fail(tr("No audio decoded"));
-    interleaved.resize(size_t(have) * 2);
-
-    // The A/B source for the preview window, written before the model runs so a cancel still
-    // leaves nothing half-made.
-    if (!originalPath.isEmpty()) {
-        drift::AudioFileWriter orig;
-        QString error;
-        if (!orig.open(originalPath, rate, 2, &error))
-            return fail(error);
-        if (!orig.writeFrames(interleaved.data(), int(have), &error) || !orig.finish(&error)) {
-            orig.abort();
-            return fail(error);
-        }
-    }
-
-    // The model is mono, so each channel goes through separately and the stereo image is kept.
-    std::vector<float> mono(size_t(have), 0.0f);
-    for (int ch = 0; ch < 2; ++ch) {
-        for (int64_t i = 0; i < have; ++i)
-            mono[size_t(i)] = interleaved[size_t(i) * 2 + ch];
-
-        const double base = 0.25 + 0.35 * ch;
-        const std::vector<float> clean = dn.denoise(mono, [&](double f) {
-            setProgress(span01(base + 0.35 * f),
-                        ch == 0 ? tr("Removing noise (left)…")
-                                : tr("Removing noise (right)…"));
-            return m_denoiseCancel.loadRelaxed() == 0;
-        });
-        if (clean.empty()) {
-            return fail(m_denoiseCancel.loadRelaxed() ? tr("Noise removal cancelled")
-                                                      : dn.lastError());
-        }
-        for (int64_t i = 0; i < have; ++i)
-            interleaved[size_t(i) * 2 + ch] = clean[size_t(i)];
-    }
-
-    setProgress(span01(0.95), tr("Writing audio…"));
-    drift::AudioFileWriter writer;
-    QString error;
-    if (!writer.open(outPath, rate, 2, &error))
-        return fail(error);
-    if (!writer.writeFrames(interleaved.data(), int(have), &error) || !writer.finish(&error)) {
-        writer.abort();
-        return fail(error);
-    }
-
-    setProgress(span01(1.0), QString());
-    return true;
-}
-
-// Both entry points share this: validate the clip, latch the busy state, and hand the work to a
-// pool thread. `preview` bounds the render to a short window and reports the pair of files rather
-// than touching the project.
-void AppController::previewDenoise(int trackIndex, int clipIndex, double atSeconds)
-{
-    if (m_denoising) {
-        setLastMessage(tr("Noise removal already in progress"), QStringLiteral("warning"));
-        return;
-    }
-    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
-        return;
-    const drift::Track &track = m_project.tracks().at(trackIndex);
-    if (clipIndex < 0 || clipIndex >= track.clips.size())
-        return;
-
-    const drift::Clip clip = track.clips.at(clipIndex);
-    if (clip.type != drift::ClipType::Audio && clip.type != drift::ClipType::Video) {
-        setLastMessage(tr("Select a video or audio clip"), QStringLiteral("warning"));
-        return;
-    }
-    if (clip.path.isEmpty() || clip.srcOut <= clip.srcIn) {
-        setLastMessage(tr("Clip has no audio"), QStringLiteral("warning"));
-        return;
-    }
-
-    // Same reason as the export, subtitle and segmentation jobs: playback would drive the decode
-    // pool from a second thread while this walks it.
-    setPlaying(false);
-
-    // Eight seconds is enough to judge the result and short enough that dragging the window along
-    // the clip stays responsive.
-    constexpr drift::TimeUs kPreviewSpan = 8 * drift::kUsPerSecond;
-    const drift::TimeUs clipSpan = clip.srcOut - clip.srcIn;
-    const drift::TimeUs offset =
-        qBound<drift::TimeUs>(0, drift::secondsToUs(atSeconds) * clip.effectiveSpeed(),
-                              std::max<drift::TimeUs>(0, clipSpan - 1));
-    const drift::TimeUs from = clip.srcIn + offset;
-    const drift::TimeUs span = std::min(kPreviewSpan, clip.srcOut - from);
-
-    m_denoiseCancel.storeRelaxed(0);
-    m_denoiseProgress = 0.0;
-    emit denoiseProgressChanged();
-    m_denoiseStatus = tr("Starting…");
-    emit denoiseStatusChanged();
-    m_denoising = true;
-    emit denoisingChanged();
-
-    const QString path = clip.path;
-    const QString cleanPath = drift::newDenoisePath(QStringLiteral("-preview"));
-    const QString origPath = drift::newDenoisePath(QStringLiteral("-original"));
-    if (cleanPath.isEmpty() || origPath.isEmpty()) {
-        m_denoising = false;
-        emit denoisingChanged();
-        setLastMessage(tr("Could not create a preview file"), QStringLiteral("error"));
-        return;
-    }
-
-    (void)QtConcurrent::run([this, path, from, span, cleanPath, origPath]() {
-        QString error;
-        const bool ok = renderDenoisedAudio(path, from, span, cleanPath, origPath, 0.0, 1.0, &error);
-        QMetaObject::invokeMethod(
-            this,
-            [this, ok, error, cleanPath, origPath]() {
-                m_denoising = false;
-                emit denoisingChanged();
-                m_denoiseProgress = ok ? 1.0 : 0.0;
-                emit denoiseProgressChanged();
-                m_denoiseStatus = ok ? tr("Ready") : error;
-                emit denoiseStatusChanged();
-                if (!ok) {
-                    QFile::remove(cleanPath);
-                    QFile::remove(origPath);
-                    setLastMessage(error, QStringLiteral("error"));
-                    emit denoiseFinished(false, error);
-                    return;
-                }
-                // Retire the pair this one replaces, only once the new pair is safely on disk.
-                if (!m_denoisePreviewClean.isEmpty())
-                    QFile::remove(m_denoisePreviewClean);
-                if (!m_denoisePreviewOriginal.isEmpty())
-                    QFile::remove(m_denoisePreviewOriginal);
-                m_denoisePreviewClean = cleanPath;
-                m_denoisePreviewOriginal = origPath;
-                emit denoisePreviewReady(origPath, cleanPath);
-            },
-            Qt::QueuedConnection);
-    });
-}
-
-void AppController::applyDenoise(int trackIndex, int clipIndex)
-{
-    if (m_denoising) {
-        setLastMessage(tr("Noise removal already in progress"), QStringLiteral("warning"));
-        return;
-    }
-    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
-        return;
-    const drift::Track &track = m_project.tracks().at(trackIndex);
-    if (clipIndex < 0 || clipIndex >= track.clips.size())
-        return;
-
-    const drift::Clip clip = track.clips.at(clipIndex);
-    if (clip.type != drift::ClipType::Audio && clip.type != drift::ClipType::Video) {
-        setLastMessage(tr("Select a video or audio clip"), QStringLiteral("warning"));
-        return;
-    }
-    if (clip.path.isEmpty() || clip.srcOut <= clip.srcIn) {
-        setLastMessage(tr("Clip has no audio"), QStringLiteral("warning"));
-        return;
-    }
-
-    setPlaying(false);
-
-    m_denoiseCancel.storeRelaxed(0);
-    m_denoiseProgress = 0.0;
-    emit denoiseProgressChanged();
-    m_denoiseStatus = tr("Starting…");
-    emit denoiseStatusChanged();
-    m_denoising = true;
-    emit denoisingChanged();
-    setLastMessage(tr("Removing noise…"));
-
-    const QString path = clip.path;
-    const drift::TimeUs srcIn = clip.srcIn;
-    const drift::TimeUs span = clip.srcOut - clip.srcIn;
-    // Resolved by id at the end rather than by index: the timeline can be edited while the job
-    // runs, and a stale index would attach the audio to the wrong clip.
-    const QString clipId = clip.id;
-    const QString outPath = drift::newDenoisePath();
-    if (outPath.isEmpty()) {
-        m_denoising = false;
-        emit denoisingChanged();
-        setLastMessage(tr("Could not create an output file"), QStringLiteral("error"));
-        return;
-    }
-
-    (void)QtConcurrent::run([this, path, srcIn, span, outPath, clipId]() {
-        QString error;
-        const bool ok = renderDenoisedAudio(path, srcIn, span, outPath, QString(), 0.0, 1.0, &error);
-        QMetaObject::invokeMethod(
-            this,
-            [this, ok, error, outPath, clipId]() {
-                m_denoising = false;
-                emit denoisingChanged();
-                m_denoiseProgress = ok ? 1.0 : 0.0;
-                emit denoiseProgressChanged();
-                m_denoiseStatus = ok ? tr("Done") : error;
-                emit denoiseStatusChanged();
-                if (!ok) {
-                    QFile::remove(outPath);
-                    setLastMessage(error, QStringLiteral("error"));
-                    emit denoiseFinished(false, error);
-                    return;
-                }
-                finalizeDenoise(clipId, outPath);
-            },
-            Qt::QueuedConnection);
-    });
-}
-
-void AppController::finalizeDenoise(const QString &clipId, const QString &audioPath)
-{
-    int trackIndex = -1;
-    int clipIndex = -1;
-    for (int t = 0; t < m_project.tracks().size() && trackIndex < 0; ++t) {
-        const drift::Track &track = m_project.tracks().at(t);
-        for (int c = 0; c < track.clips.size(); ++c) {
-            if (track.clips.at(c).id == clipId) {
-                trackIndex = t;
-                clipIndex = c;
-                break;
-            }
-        }
-    }
-    if (trackIndex < 0) {
-        // The clip was deleted while the job ran; the audio has nothing to attach to.
-        QFile::remove(audioPath);
-        const QString message = QStringLiteral("The clip no longer exists");
-        setLastMessage(message, QStringLiteral("error"));
-        emit denoiseFinished(false, message);
-        return;
-    }
-
-    const drift::Project before = m_project;
-    const drift::Clip source = m_project.tracks().at(trackIndex).clips.at(clipIndex);
-
-    // Everything about the clip carries over except the media it points at. srcIn/srcOut rebase
-    // because the render already baked in the source window, while speed and reverse stay — the
-    // render is in the source's time base, so the new clip lines up with the original.
-    drift::Clip clip = source;
-    clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
-    clip.linkId.clear();
-    clip.assetId.clear();
-    clip.path = audioPath;
-    clip.thumbnailPath.clear();
-    clip.filmstripPath.clear();
-    clip.type = drift::ClipType::Audio;
-    clip.mask = drift::Mask{};
-    clip.srcIn = 0;
-    clip.srcOut = source.srcOut - source.srcIn;
-    clip.name = (source.name.isEmpty() ? tr("Clip") : source.name)
-                + tr(" (denoised)");
-
-    const int newTrack =
-        drift::insertTrackAboveForClipType(m_project, trackIndex, drift::ClipType::Audio);
-    m_project.tracks()[newTrack].clips.append(clip);
-
-    pushProjectEdit(before, tr("Remove noise"));
-    finishEdit(tr("Noise removed"));
-    selectClip(newTrack, m_project.tracks().at(newTrack).clips.size() - 1);
-    setLastMessage(tr("Noise removed"), QStringLiteral("success"));
-    emit denoiseFinished(true, tr("Noise removed"));
 }
 
 namespace {
@@ -13913,31 +11146,6 @@ void AppController::setClipName(int trackIndex, int clipIndex, const QString &na
         emit sequenceTabsChanged();
 }
 
-void AppController::previewSetClipTextContent(int trackIndex, int clipIndex, const QString &text)
-{
-    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
-        return;
-
-    drift::Track &track = m_project.tracks()[trackIndex];
-    if (clipIndex < 0 || clipIndex >= track.clips.size())
-        return;
-
-    drift::Clip &clip = track.clips[clipIndex];
-    if (clip.type != drift::ClipType::Text)
-        return;
-
-    if (clip.textContent == text && clip.name == text.left(32))
-        return;
-
-    clip.textContent = text;
-    clip.name = text.left(32);
-
-    if (!m_previewDragActive)
-        beginPreviewDrag(tr("Edit text"));
-
-    emitPreviewFrame();
-}
-
 void AppController::commitTextEdit(int trackIndex, int clipIndex, const QString &text)
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
@@ -13970,45 +11178,263 @@ void AppController::commitTextEdit(int trackIndex, int clipIndex, const QString 
     finishEdit(tr("Text updated"));
 }
 
-void AppController::beginTextEdit(int trackIndex, int clipIndex)
+drift::Clip *AppController::inlineEditClip()
 {
-    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+    return const_cast<drift::Clip *>(std::as_const(*this).inlineEditClip());
+}
+
+const drift::Clip *AppController::inlineEditClip() const
+{
+    if (!m_inlineEdit.active)
+        return nullptr;
+    const auto &tracks = m_project.tracks();
+    if (m_inlineEdit.track >= 0 && m_inlineEdit.track < tracks.size()) {
+        const drift::Track &track = tracks.at(m_inlineEdit.track);
+        if (m_inlineEdit.clip >= 0 && m_inlineEdit.clip < track.clips.size()
+            && track.clips.at(m_inlineEdit.clip).id == m_inlineEdit.clipId)
+            return &track.clips.at(m_inlineEdit.clip);
+    }
+    return nullptr;
+}
+
+int AppController::inlineRenderedPos(int modelPos) const
+{
+    return modelPos >= m_inlineEdit.cursor ? modelPos + int(m_inlineEdit.preedit.size()) : modelPos;
+}
+
+int AppController::inlineModelPos(int renderedPos) const
+{
+    const int at = m_inlineEdit.cursor;
+    const int length = int(m_inlineEdit.preedit.size());
+    if (renderedPos <= at)
+        return renderedPos;
+    return renderedPos >= at + length ? renderedPos - length : at;
+}
+
+bool AppController::inlineEditLayout(FrameCompositor::TextEditGeometry *geometry, QTransform *toCanvas,
+                                     double *scale) const
+{
+    const drift::Clip *clip = inlineEditClip();
+    if (!clip)
+        return false;
+    // The preview's scale, so the layout is the one already cached for the render.
+    *scale = m_playback.previewRenderScale();
+    *geometry = FrameCompositor::textEditGeometry(*clip, clip->textContent, m_playheadUs, m_project.width(),
+                                                  m_project.height(), *scale);
+    if (!geometry->set)
+        return false;
+    // Block-local render px -> canvas project px: into the layout rect, turned about its centre
+    // the way the layer is, then back from render scale.
+    const QPointF centre = geometry->layoutRect.center();
+    QTransform transform;
+    transform.scale(1.0 / *scale, 1.0 / *scale);
+    transform.translate(centre.x(), centre.y());
+    transform.rotate(geometry->rotation);
+    transform.translate(-centre.x(), -centre.y());
+    transform.translate(geometry->layoutRect.x(), geometry->layoutRect.y());
+    *toCanvas = transform;
+    return true;
+}
+
+void AppController::beginInlineTextEdit(int trackIndex, int clipIndex)
+{
+    drift::Clip *clip = textClipAt(trackIndex, clipIndex);
+    if (!clip || clip->type != drift::ClipType::Text)
         return;
-    const drift::Track &track = m_project.tracks().at(trackIndex);
-    if (clipIndex < 0 || clipIndex >= track.clips.size())
-        return;
-    if (track.clips.at(clipIndex).type != drift::ClipType::Text)
-        return;
+    if (m_inlineEdit.active)
+        endInlineTextEdit(true);
 
     if (!m_previewDragActive)
         beginPreviewDrag(tr("Edit text"));
 
-    // Hide this clip from the composited frame; the QML inline editor stands in
-    // for it while the user types. Committing goes through commitTextEdit.
-    m_playback.setEditingClipId(track.clips.at(clipIndex).id);
+    m_inlineEdit = InlineTextEdit{};
+    m_inlineEdit.active = true;
+    m_inlineEdit.track = trackIndex;
+    m_inlineEdit.clip = clipIndex;
+    m_inlineEdit.clipId = clip->id;
+    m_inlineEdit.original = clip->textContent;
+    m_inlineEdit.text = clip->textContent;
+    m_inlineEdit.cursor = int(clip->textContent.size());
     if (!m_inlineTextEditing) {
         m_inlineTextEditing = true;
         emit inlineTextEditingChanged();
     }
+
+    FrameCompositor::RenderOptions::TextEditDecor decor;
+    decor.clipId = clip->id;
+    decor.cursor = m_inlineEdit.cursor;
+    m_playback.setTextEditDecor(decor);
+    emit inlineEditGeometryChanged();
 }
 
-void AppController::endTextEdit()
+void AppController::updateInlineTextEdit(int trackIndex, int clipIndex, const QString &text, int cursor,
+                                         int selStart, int selEnd, const QString &preeditText)
 {
+    drift::Clip *clip = inlineEditClip();
+    if (!clip || trackIndex != m_inlineEdit.track || clipIndex != m_inlineEdit.clip)
+        return;
+
+    const int size = int(text.size());
+    cursor = qBound(0, cursor, size);
+    const bool selected = selStart >= 0 && selEnd >= 0 && selStart != selEnd;
+    const int low = selected ? qBound(0, qMin(selStart, selEnd), size) : -1;
+    const int high = selected ? qBound(0, qMax(selStart, selEnd), size) : -1;
+    selStart = low;
+    selEnd = high;
+    m_inlineEdit.text = text;
+    m_inlineEdit.cursor = cursor;
+    m_inlineEdit.selStart = selStart;
+    m_inlineEdit.selEnd = selEnd;
+    m_inlineEdit.preedit = preeditText;
+
+    // The preedit goes into the rendered text only; the model text stays the editor's.
+    const QString rendered = text.left(cursor) + preeditText + text.mid(cursor);
+    const bool textChanged = clip->textContent != rendered;
+    if (textChanged) {
+        clip->textContent = rendered;
+        clip->name = rendered.left(32);
+    }
+
+    FrameCompositor::RenderOptions::TextEditDecor decor;
+    decor.clipId = clip->id;
+    decor.cursor = inlineRenderedPos(cursor);
+    if (selected) {
+        decor.selStart = inlineRenderedPos(selStart);
+        decor.selEnd = inlineRenderedPos(selEnd);
+    }
+    if (!preeditText.isEmpty()) {
+        decor.preeditStart = cursor;
+        decor.preeditLength = int(preeditText.size());
+    }
+    // One render: a text change goes out with the project edit, a caret move on its own.
+    m_playback.setTextEditDecor(decor, !textChanged);
+    if (textChanged)
+        emitPreviewFrame();
+    emit inlineEditGeometryChanged();
+}
+
+void AppController::endInlineTextEdit(bool commit)
+{
+    if (!m_inlineEdit.active)
+        return;
+
+    drift::Clip *clip = inlineEditClip();
+    const int track = m_inlineEdit.track;
+    const int clipIndex = m_inlineEdit.clip;
+    const QString text = m_inlineEdit.text;
+    const QString original = m_inlineEdit.original;
+    m_inlineEdit = InlineTextEdit{};
+
+    m_playback.setTextEditDecor({}, false);
     if (m_inlineTextEditing) {
         m_inlineTextEditing = false;
         emit inlineTextEditingChanged();
     }
-    syncTextOverlaySkip();
+
+    if (clip && commit && text != original) {
+        commitTextEdit(track, clipIndex, text);
+    } else if (m_previewDragActive) {
+        // Nothing changed or the edit was abandoned: the snapshot taken at the start is the
+        // original, and no undo step is pushed.
+        cancelPreviewDrag();
+    } else if (clip) {
+        clip->textContent = original;
+        clip->name = original.left(32);
+        emitPreviewFrame();
+    }
+    emit inlineEditGeometryChanged();
 }
 
-void AppController::syncTextOverlaySkip()
+QVariantList AppController::inlineCaretQuad() const
 {
-    // Inline edit owns the skip id until it ends. Outside of it the composited
-    // raster is always shown: the QML stand-in the preview used to draw for the
-    // selected text clip never matched the engine's layout.
-    if (m_inlineTextEditing)
-        return;
-    m_playback.setEditingClipId(QString());
+    FrameCompositor::TextEditGeometry geometry;
+    QTransform toCanvas;
+    double scale = 1.0;
+    if (!inlineEditLayout(&geometry, &toCanvas, &scale))
+        return {};
+    const QRectF caret = drift::text::caretRect(*geometry.set, inlineRenderedPos(m_inlineEdit.cursor));
+    if (caret.height() <= 0.0)
+        return {};
+    // The bar the painter draws: 2 project px or 0.06 em, whichever is wider.
+    const double width = qMax(2.0 * scale, 0.06 * geometry.set->paragraph->emPx);
+    const QRectF bar(caret.x() - width * 0.5, caret.y(), width, caret.height());
+    QVariantList quad;
+    for (const QPointF &corner : {bar.topLeft(), bar.topRight(), bar.bottomRight(), bar.bottomLeft()})
+        quad.append(toCanvas.map(corner));
+    return quad;
+}
+
+QVariantList AppController::inlineSelectionQuads() const
+{
+    FrameCompositor::TextEditGeometry geometry;
+    QTransform toCanvas;
+    double scale = 1.0;
+    if (m_inlineEdit.selStart < 0 || !inlineEditLayout(&geometry, &toCanvas, &scale))
+        return {};
+    QVariantList quads;
+    for (const QRectF &rect : drift::text::selectionRects(*geometry.set, inlineRenderedPos(m_inlineEdit.selStart),
+                                                          inlineRenderedPos(m_inlineEdit.selEnd))) {
+        QVariantList quad;
+        for (const QPointF &corner : {rect.topLeft(), rect.topRight(), rect.bottomRight(), rect.bottomLeft()})
+            quad.append(toCanvas.map(corner));
+        quads.append(QVariant(quad));
+    }
+    return quads;
+}
+
+int AppController::inlineHitTest(const QPointF &canvasPoint) const
+{
+    FrameCompositor::TextEditGeometry geometry;
+    QTransform toCanvas;
+    double scale = 1.0;
+    if (!inlineEditLayout(&geometry, &toCanvas, &scale))
+        return m_inlineEdit.cursor;
+    bool invertible = false;
+    const QTransform toLocal = toCanvas.inverted(&invertible);
+    if (!invertible)
+        return m_inlineEdit.cursor;
+    return inlineModelPos(drift::text::hitTest(*geometry.set, toLocal.map(canvasPoint)));
+}
+
+QVariantMap AppController::inlineWordAt(int pos) const
+{
+    FrameCompositor::TextEditGeometry geometry;
+    QTransform toCanvas;
+    double scale = 1.0;
+    QVariantMap out{{QStringLiteral("start"), pos}, {QStringLiteral("end"), pos}};
+    if (!inlineEditLayout(&geometry, &toCanvas, &scale))
+        return out;
+    const std::pair<int, int> word = drift::text::wordAt(*geometry.set, inlineRenderedPos(pos));
+    out.insert(QStringLiteral("start"), inlineModelPos(word.first));
+    out.insert(QStringLiteral("end"), inlineModelPos(word.second));
+    return out;
+}
+
+int AppController::inlineMoveCaretLines(int pos, int deltaLines)
+{
+    FrameCompositor::TextEditGeometry geometry;
+    QTransform toCanvas;
+    double scale = 1.0;
+    if (!inlineEditLayout(&geometry, &toCanvas, &scale))
+        return pos;
+    const int rendered = inlineRenderedPos(pos);
+    // Consecutive moves keep the column they started from, as a text field does.
+    if (pos != m_inlineEdit.preferredFor)
+        m_inlineEdit.preferredX = drift::text::caretRect(*geometry.set, rendered).x();
+    const int moved = inlineModelPos(drift::text::lineMoveCaret(*geometry.set, rendered, deltaLines,
+                                                                m_inlineEdit.preferredX));
+    m_inlineEdit.preferredFor = moved;
+    return moved;
+}
+
+int AppController::inlineLineEdge(int pos, bool toEnd) const
+{
+    FrameCompositor::TextEditGeometry geometry;
+    QTransform toCanvas;
+    double scale = 1.0;
+    if (!inlineEditLayout(&geometry, &toCanvas, &scale))
+        return pos;
+    return inlineModelPos(drift::text::lineEdge(*geometry.set, inlineRenderedPos(pos), toEnd));
 }
 
 void AppController::setSubtitleCues(int trackIndex, int clipIndex, const QVariantList &cues)
@@ -14695,26 +12121,21 @@ QVariantList AppController::fontCatalog() const
 
 QVariantMap AppController::importFonts(const QList<QUrl> &urls)
 {
-    QStringList files;
+    QStringList families;
+    QStringList rejected;
     for (const QUrl &url : urls) {
-        const QString path = url.isLocalFile() ? url.toLocalFile() : url.toString();
-        const QString suffix = QFileInfo(path).suffix().toLower();
-        if (suffix == QLatin1String("ttf") || suffix == QLatin1String("otf"))
-            files.append(path);
+        const QStringList added = importFontFile(url);
+        if (added.isEmpty())
+            rejected.append(QFileInfo(url.isLocalFile() ? url.toLocalFile() : url.toString()).fileName());
+        for (const QString &family : added)
+            if (!families.contains(family))
+                families.append(family);
     }
-    QString error;
-    const QStringList families = ::importUserFonts(files, &error);
-    if (!families.isEmpty()) {
-        emit fontCatalogChanged();
-        setLastMessage(families.size() == 1 ? tr("Font added: %1").arg(families.first())
-                                            : tr("%n fonts added", nullptr, int(families.size())),
-                       QStringLiteral("success"));
-    } else {
-        setLastMessage(tr("That file is not a font this app can read"), QStringLiteral("error"));
-    }
+    if (families.size() > 1)
+        setLastMessage(tr("%n fonts added", nullptr, int(families.size())), QStringLiteral("success"));
     return {{QStringLiteral("ok"), !families.isEmpty()},
             {QStringLiteral("families"), families},
-            {QStringLiteral("error"), error}};
+            {QStringLiteral("error"), rejected.join(QStringLiteral(", "))}};
 }
 
 QStringList AppController::recentFonts() const
@@ -14733,6 +12154,80 @@ void AppController::noteRecentFont(const QString &family)
     while (recent.size() > 8)
         recent.removeLast();
     settings.setValue(QStringLiteral("fonts/recent"), recent);
+}
+
+QStringList AppController::systemFontFamilies() const
+{
+    static QStringList cached;
+    static bool ready = false;
+    if (!ready) {
+        for (const QString &family : ::systemFontFamilies()) {
+            if (!::fontFamilyForName(family))
+                cached.append(family);
+        }
+        ready = true;
+    }
+    return cached;
+}
+
+QStringList AppController::userFonts() const
+{
+    return ::userFontFamilies();
+}
+
+QStringList AppController::importFontFile(const QUrl &fileUrl)
+{
+    QString path;
+    std::unique_ptr<QTemporaryDir> staging;
+#ifdef Q_OS_ANDROID
+    if (AndroidUri::isContentUri(fileUrl)) {
+        std::unique_ptr<QFile> src = AndroidUri::openForRead(fileUrl);
+        staging = std::make_unique<QTemporaryDir>();
+        const QString name = QFileInfo(AndroidUri::displayName(fileUrl)).fileName();
+        QFile dst(staging->filePath(name));
+        if (!src || !staging->isValid() || name.isEmpty() || !dst.open(QIODevice::WriteOnly)
+            || dst.write(src->readAll()) < 0) {
+            setLastMessage(tr("Could not import the font"), QStringLiteral("error"));
+            return {};
+        }
+        dst.close();
+        path = dst.fileName();
+    } else
+#endif
+    {
+        path = fileUrl.isLocalFile() ? fileUrl.toLocalFile() : fileUrl.toString();
+    }
+    if (path.isEmpty())
+        return {};
+
+    QString error;
+    const QStringList families = ::importUserFontFile(path, &error);
+    if (families.isEmpty()) {
+        setLastMessage(error.isEmpty() ? tr("Could not import the font") : error, QStringLiteral("error"));
+        return {};
+    }
+    drift::text::clearLayoutCache();
+#ifdef DRIFT_WITH_SKIA
+    drift::skia::clearTextGeometryCache();
+#endif
+    emitPreviewFrame();
+    emit userFontsChanged();
+    setLastMessage(tr("Added %1").arg(families.join(QStringLiteral(", "))), QStringLiteral("success"));
+    return families;
+}
+
+bool AppController::removeUserFont(const QString &family)
+{
+    if (!::removeUserFont(family))
+        return false;
+    drift::text::clearLayoutCache();
+#ifdef DRIFT_WITH_SKIA
+    drift::skia::clearTextGeometryCache();
+#endif
+    emitPreviewFrame();
+    emit userFontsChanged();
+    setLastMessage(tr("Removed %1").arg(family), QStringLiteral("success"));
+    return true;
 }
 
 void AppController::previewSetTextRect(int trackIndex, int clipIndex, double xPixels, double yPixels,
@@ -15754,7 +13249,7 @@ void AppController::makeCompositeFromSelection()
     asset.width = m_project.width();
     asset.height = m_project.height();
     asset.fps = m_project.fps();
-    asset.folderId = m_currentBinFolderId;
+    asset.folderId = m_bin->currentFolderId();
     const QString assetId = m_project.addAsset(asset);
 
     drift::Clip composite;
@@ -16370,7 +13865,7 @@ void AppController::finishFlatten(const QString &clipId, const QString &sequence
     asset.hasAudio = true;
     asset.hasAudioKnown = true;
     asset.frameRateKnown = true;
-    asset.folderId = compositeAsset ? compositeAsset->folderId : m_currentBinFolderId;
+    asset.folderId = compositeAsset ? compositeAsset->folderId : m_bin->currentFolderId();
     const QString assetId = m_project.addAsset(asset);
 
     // The file starts where the clip's source range did, so every other property of the clip —
@@ -16603,15 +14098,18 @@ void AppController::unlinkSelectedClips()
         if (!isValidClipIndex(pair.first, pair.second))
             continue;
 
-        drift::Clip &clip = m_project.tracks()[pair.first].clips[pair.second];
-        if (clip.linkId.isEmpty() || clearedLinkIds.contains(clip.linkId))
+        // A copy: clearing the clip's own linkId mid-loop would stop later partners matching.
+        const QString linkId = m_project.tracks().at(pair.first).clips.at(pair.second).linkId;
+        if (linkId.isEmpty() || clearedLinkIds.contains(linkId))
             continue;
 
-        clearedLinkIds.insert(clip.linkId);
+        clearedLinkIds.insert(linkId);
         for (drift::Track &track : m_project.tracks()) {
             for (drift::Clip &candidate : track.clips) {
-                if (candidate.linkId == clip.linkId)
+                if (candidate.linkId == linkId) {
                     candidate.linkId.clear();
+                    candidate.linkLoose = false;
+                }
             }
         }
         changed = true;
@@ -16625,6 +14123,49 @@ void AppController::unlinkSelectedClips()
 
     pushProjectEdit(before, tr("Clips unlinked"));
     finishEdit(tr("Audio unlinked"));
+}
+
+bool AppController::canLinkSelection() const
+{
+    // Two or more selected clips, none of them already part of a link.
+    QList<QPair<int, int>> pairs = m_selection;
+    if (pairs.isEmpty() && m_selectedTrack >= 0 && m_selectedClip >= 0)
+        pairs.append(qMakePair(m_selectedTrack, m_selectedClip));
+
+    int valid = 0;
+    for (const QPair<int, int> &pair : pairs) {
+        if (!isValidClipIndex(pair.first, pair.second))
+            continue;
+        if (!m_project.tracks().at(pair.first).clips.at(pair.second).linkId.isEmpty())
+            return false;
+        ++valid;
+    }
+    return valid >= 2;
+}
+
+void AppController::linkSelectedClips()
+{
+    if (!canLinkSelection())
+        return;
+
+    QList<QPair<int, int>> pairs = m_selection;
+    if (pairs.isEmpty() && m_selectedTrack >= 0 && m_selectedClip >= 0)
+        pairs.append(qMakePair(m_selectedTrack, m_selectedClip));
+
+    const drift::Project before = m_project;
+    const QString linkId = newClipId();
+    for (const QPair<int, int> &pair : pairs) {
+        if (!isValidClipIndex(pair.first, pair.second))
+            continue;
+        drift::Clip &clip = m_project.tracks()[pair.first].clips[pair.second];
+        clip.linkId = linkId;
+        // Manually linked clips usually come from different media, so the link is loose: it
+        // never copies one clip's duration, trim or speed onto the other.
+        clip.linkLoose = true;
+    }
+
+    pushProjectEdit(before, tr("Clips linked"));
+    finishEdit(tr("Clips linked"));
 }
 
 void AppController::setClipFade(int trackIndex, int clipIndex, double fadeInSeconds, double fadeOutSeconds)
@@ -17241,6 +14782,46 @@ QString AppController::setVectorOptions(int trackIndex, int clipIndex, const QVa
     applyVectorOptions(m_project.tracks()[trackIndex].clips[clipIndex], opts);
     pushProjectEdit(before, tr("Animation options"));
     finishEdit(tr("Animation options updated"));
+    return {};
+}
+
+QString AppController::setPdfOptions(int trackIndex, int clipIndex, const QVariantMap &opts)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex)
+        || m_project.tracks().at(trackIndex).clips.at(clipIndex).type != drift::ClipType::Pdf)
+        return QStringLiteral("not a PDF clip");
+    static const QStringList kKeys = {QStringLiteral("firstPage"), QStringLiteral("lastPage"),
+                                      QStringLiteral("layout"), QStringLiteral("gridColumns"),
+                                      QStringLiteral("gap")};
+    bool any = false;
+    for (const QString &key : kKeys)
+        any = any || opts.contains(key);
+    if (!any)
+        return QStringLiteral("nothing to change: firstPage, lastPage, layout, gridColumns or gap required");
+
+    const drift::Project before = m_project;
+    drift::PdfSource &pdf = m_project.tracks()[trackIndex].clips[clipIndex].pdf;
+    const int maxPage = pdf.pageCount > 0 ? pdf.pageCount : 9999;
+    if (opts.contains(QStringLiteral("firstPage")))
+        pdf.firstPage = qBound(1, opts.value(QStringLiteral("firstPage")).toInt(), maxPage);
+    if (opts.contains(QStringLiteral("lastPage"))) {
+        const int last = opts.value(QStringLiteral("lastPage")).toInt();
+        pdf.lastPage = last <= 0 ? 0 : qMin(last, maxPage);
+    }
+    if (pdf.lastPage > 0 && pdf.lastPage < pdf.firstPage) {
+        if (opts.contains(QStringLiteral("lastPage")))
+            pdf.firstPage = pdf.lastPage;
+        else
+            pdf.lastPage = pdf.firstPage;
+    }
+    if (opts.contains(QStringLiteral("layout")))
+        pdf.layout = drift::pdfLayoutFromString(opts.value(QStringLiteral("layout")).toString());
+    if (opts.contains(QStringLiteral("gridColumns")))
+        pdf.gridColumns = qBound(1, opts.value(QStringLiteral("gridColumns")).toInt(), 20);
+    if (opts.contains(QStringLiteral("gap")))
+        pdf.gap = qBound(0.0, opts.value(QStringLiteral("gap")).toDouble(), 200.0);
+    pushProjectEdit(before, tr("PDF options"));
+    finishEdit(tr("PDF options updated"));
     return {};
 }
 
@@ -18181,6 +15762,9 @@ double AppController::propertyBaseValue(int trackIndex, int clipIndex, const QSt
             QString modelKey;
             if (parseModel3dProp(clip, prop, &modelKey) && drift::model3dScalar(clip.model3d, modelKey, &scalar))
                 return scalar;
+            QString pdfKey;
+            if (parsePdfProp(clip, prop, &pdfKey) && drift::pdfScalar(clip.pdf, pdfKey, &scalar))
+                return scalar;
         }
     }
     return fallback;
@@ -18378,6 +15962,13 @@ QStringList AppController::clipAnimatedProperties(int trackIndex, int clipIndex)
                 out.append(QStringLiteral("model3d.%1").arg(key));
         }
     }
+    if (clip.type == drift::ClipType::Pdf) {
+        for (const QString &key : drift::pdfKeyframeProperties()) {
+            const auto it = clip.pdf.keyframes.constFind(key);
+            if (it != clip.pdf.keyframes.constEnd() && !it->isEmpty())
+                out.append(QStringLiteral("pdf.%1").arg(key));
+        }
+    }
     return out;
 }
 
@@ -18570,7 +16161,8 @@ void AppController::resetClipTransform(int trackIndex, int clipIndex)
     if (clip.type == drift::ClipType::Vector) {
         mediaW = clip.vector.width;
         mediaH = clip.vector.height;
-    } else if (clip.type == drift::ClipType::Video || clip.type == drift::ClipType::Image) {
+    } else if (clip.type == drift::ClipType::Video || clip.type == drift::ClipType::Image
+               || clip.type == drift::ClipType::Pdf) {
         if (const drift::MediaAsset *asset = m_project.asset(clip.assetId)) {
             mediaW = asset->width;
             mediaH = asset->height;
@@ -18733,12 +16325,12 @@ void AppController::addEffect(int trackIndex, int clipIndex, const QString &effe
     pushProjectEdit(before, tr("Add effect"));
     finishEdit(tr("Effect added"));
 
-    if (faceSourceId.isEmpty() || m_faceDetecting || !faceDetectionAvailable())
+    if (faceSourceId.isEmpty() || m_faces->detecting() || !m_faces->available())
         return;
     int faceTrack = -1;
     int faceClip = -1;
     if (findClipById(m_project, faceSourceId, &faceTrack, &faceClip))
-        detectFacesForClip(faceTrack, faceClip);
+        m_faces->detect(faceTrack, faceClip);
 }
 
 namespace {
@@ -19742,7 +17334,7 @@ bool AppController::setEffectStringParam(int trackIndex, int clipIndex, int effe
     finishEdit(QStringLiteral("Effect updated"));
 
     if (def->isFaceSwap && key == QLatin1String("sourceImage"))
-        ingestFaceSwapSource(path);
+        m_faces->ingestSwapSource(path);
     return true;
 }
 
@@ -21991,6 +19583,14 @@ void AppController::pasteAtPlayhead()
     // By id: a later clip can insert a track above an earlier one, and normalizing the edit can
     // reorder tracks, so positions taken here go stale.
     QStringList inserted;
+    // Pasted clips stay linked to each other under a fresh id, never to the clips they were
+    // copied from; one pasted without any of its partners comes in unlinked.
+    QHash<QString, int> linkCounts;
+    for (const ClipboardItem &item : m_clipboard) {
+        if (!item.clip.linkId.isEmpty())
+            ++linkCounts[item.clip.linkId];
+    }
+    QHash<QString, QString> pastedLinkIds;
 
     for (const ClipboardItem &item : m_clipboard) {
         // Composites live on the main timeline only, and never outlive their sequence.
@@ -22000,6 +19600,15 @@ void AppController::pasteAtPlayhead()
         drift::Clip clip = item.clip;
         clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
         clip.timelineStart = qMax<drift::TimeUs>(0, clip.timelineStart + shift);
+        if (linkCounts.value(clip.linkId) > 1) {
+            auto it = pastedLinkIds.find(clip.linkId);
+            if (it == pastedLinkIds.end())
+                it = pastedLinkIds.insert(clip.linkId, newClipId());
+            clip.linkId = *it;
+        } else {
+            clip.linkId.clear();
+            clip.linkLoose = false;
+        }
 
         int targetTrack = -1;
         for (int i = 0; i < m_project.tracks().size(); ++i) {
@@ -22436,6 +20045,8 @@ void AppController::triggerAction(const QString &actionId)
         separateAudioFromSelection();
     else if (actionId == QStringLiteral("unlink"))
         unlinkSelectedClips();
+    else if (actionId == QStringLiteral("link"))
+        linkSelectedClips();
     else if (actionId == QStringLiteral("copy"))
         copySelection();
     else if (actionId == QStringLiteral("cut"))
@@ -23135,7 +20746,7 @@ void AppController::resetSessionState()
     // several projects in turn would otherwise hold the peaks of every source in all of them.
     m_waveformBlocks.clear();
 
-    m_replacingAssetId.clear();
+    m_bin->m_replacingAssetId.clear();
     m_sequencePlayheads.clear();
     m_pendingEffectTemplate.reset();
     m_previewDragActive = false;
@@ -23153,27 +20764,46 @@ void AppController::resetSessionState()
 
 bool AppController::applyProjectJson(const QByteArray &data, QString *error)
 {
+    std::optional<ParsedProject> parsed = parseProjectJson(data, error);
+    if (!parsed)
+        return false;
+    applyParsedProject(std::move(*parsed));
+    return true;
+}
+
+std::optional<AppController::ParsedProject> AppController::parseProjectJson(const QByteArray &data,
+                                                                             QString *error)
+{
     const QJsonDocument document = QJsonDocument::fromJson(data);
     if (!document.isObject()) {
         if (error)
             *error = QStringLiteral("Invalid project file");
-        return false;
+        return std::nullopt;
     }
+    return parseProjectJson(document.object(), error);
+}
 
-    const QJsonObject root = document.object();
-
+std::optional<AppController::ParsedProject> AppController::parseProjectJson(const QJsonObject &root,
+                                                                             QString *error)
+{
     // Parse into a local and check before touching anything: a project we end up rejecting must
     // leave the open one exactly as it was, session state included.
     QString parseError;
-    drift::Project parsed = drift::Project::fromJson(root, &parseError);
+    drift::Project project = drift::Project::fromJson(root, &parseError);
     if (!parseError.isEmpty()) {
         if (error)
             *error = parseError;
-        return false;
+        return std::nullopt;
     }
+    return ParsedProject{std::move(project), root};
+}
+
+void AppController::applyParsedProject(ParsedProject parsed)
+{
+    const QJsonObject &root = parsed.root;
 
     resetSessionState();
-    m_project = std::move(parsed);
+    m_project = std::move(parsed.project);
 
     // Stickers moved out of the QRC and into an addon, so projects saved before that store paths
     // like ":/qt/qml/Drift/resources/stickers/grinning.png" that no longer resolve. Repoint them
@@ -23210,12 +20840,12 @@ bool AppController::applyProjectJson(const QByteArray &data, QString *error)
         }
     });
 
-    migrateLegacyStabilizedClips();
+    m_stabilize->migrateLegacyClips();
 
     if (m_assetLibrary)
         m_assetLibrary->setProject(&m_project);
-    m_binFolderModel.setProject(&m_project);
-    setCurrentBinFolderId(QString());
+    m_bin->folderModel()->setProject(&m_project);
+    m_bin->setCurrentFolderId(QString());
 
     m_projectFile->rehydrateMissingSources();
 
@@ -23266,7 +20896,7 @@ bool AppController::applyProjectJson(const QByteArray &data, QString *error)
     // Face Swap landmarks are derived from the photo and deliberately not bundled, so a project
     // opened anywhere but where it was made has none. Re-derive them in the background; the
     // effect renders pass-through until each lands.
-    ingestFaceSwapSourcesInProject();
+    m_faces->ingestSwapSourcesInProject();
     m_playback.setProject(&m_project);
     m_undoStack.clear();
     clearSelection();
@@ -23282,7 +20912,6 @@ bool AppController::applyProjectJson(const QByteArray &data, QString *error)
     emit m_projectFile->projectMetadataChanged();
     emit m_projectFile->backgroundChanged();
     emit guidesChanged();
-    return true;
 }
 
 
@@ -24359,6 +21988,8 @@ QString AppController::keyframePropertyLabel(int trackIndex, int clipIndex, cons
         return drift::shapeKeyframeLabel(prop.mid(6), clip ? clip->shapeStyle : drift::ShapeStyle{});
     if (prop.startsWith(QLatin1String("model3d.")))
         return drift::model3dKeyframeLabel(prop.mid(8));
+    if (prop.startsWith(QLatin1String("pdf.")))
+        return drift::pdfKeyframeLabel(prop.mid(4));
     if (prop.startsWith(QLatin1String("vector."))) {
         QString key = prop.mid(7);
         QString channel;

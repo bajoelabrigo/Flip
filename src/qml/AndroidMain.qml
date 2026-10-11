@@ -11,9 +11,28 @@ ApplicationWindow {
     color: Theme.appBackground
     title: "Flip Studio"
 
+    // On Android the platform sizes the window. Chosen on a desktop, this shell opens phone-shaped
+    // instead of filling a desktop-sized default; it stays resizable, and nothing is persisted.
+    readonly property bool _desktopHost: Qt.platform.os !== "android" && Qt.platform.os !== "ios"
+    width: _desktopHost ? 420 : 0
+    height: _desktopHost ? 860 : 0
+    minimumWidth: _desktopHost ? 320 : 0
+    minimumHeight: _desktopHost ? 560 : 0
+
     // Theme is a singleton and cannot see a window, so the size class it reports has to be fed
     // from whichever root is live. Screen is the wrong source: it ignores tiling and split view.
     onWidthChanged: Theme.windowWidth = width
+
+    Binding {
+        target: Theme
+        property: "keyboardInset"
+        value: {
+            if (Qt.platform.os !== "android" && Qt.platform.os !== "ios")
+                return 0
+            const r = Qt.inputMethod.keyboardRectangle
+            return Qt.inputMethod.visible && r.height > 0 ? Math.max(0, window.height - r.y) : 0
+        }
+    }
 
     // Qt creates some chrome itself — most visibly the Undo/Cut/Copy/Paste menu on every
     // TextField and TextArea (Basic/TextField.qml declares ContextMenu.menu). Drift styles
@@ -258,10 +277,8 @@ ApplicationWindow {
     // A shared link. The marketplace is what knows how to turn a page URL into media, so with no
     // marketplace configured there is nothing to degrade to but saying so.
     //
-    // Handled by the Market destination rather than by a sheet over whatever is on screen: it
-    // ends in a marketplace download and it asks the user to pick a catalog provider, so the
-    // store is where it belongs. Parked when Home is not built yet — a share can cold-start the
-    // app, and this runs from the window's own onCompleted.
+    // Handled by the editor's link-import sheet. Parked until an editor exists: a share can
+    // cold-start the app, and from Home it first opens an empty project to host the sheet.
     property string pendingLinkUrl: ""
 
     function openLinkImport(url) {
@@ -301,13 +318,19 @@ ApplicationWindow {
     function deliverPendingLink() {
         if (window.pendingLinkUrl === "")
             return
-        if (window.inEditor)
-            window.showHome()
-        if (!window.homePage)
+        if (window.editorPage) {
+            const url = window.pendingLinkUrl
+            window.pendingLinkUrl = ""
+            window.editorPage.startLinkImport(url)
             return
-        const url = window.pendingLinkUrl
-        window.pendingLinkUrl = ""
-        window.homePage.startLinkImport(url)
+        }
+        // Editor is being pushed; its onCompleted delivers.
+        if (window.inEditor || !window.homePage)
+            return
+        window.confirmIfDirty(function() {
+            EditorState.projectFile.newProject()
+            window.showEditor()
+        })
     }
 
     function openProjectFile() {
@@ -360,10 +383,6 @@ ApplicationWindow {
                 return
             if (window.editorPage && window.editorPage.handleBack())
                 return
-            // Home owns a nav stack of its own now: a secondary destination, and any drill-down
-            // inside it, unwinds before Back means "leave".
-            if (!window.inEditor && window.homePage && window.homePage.handleBack())
-                return
             // A SAF copy is running and AssetLibrary has no cancel entry point, so
             // closing the window kills the worker part-way through a file. Swallow
             // Back — but say so, because a Back key that silently does nothing is
@@ -380,6 +399,9 @@ ApplicationWindow {
     // without this Back left them on screen and walked out of the editor behind them.
     // Ordered by how they stack: newest-opened first.
     function closeTopModal() {
+        // A project open has no cancel; Back must not reach whatever sits under the dialog.
+        if (projectLoadDialog.visible)
+            return true
         // Not in the list below: it is a sheet, so it goes out through dismiss() — close()
         // would take the panel off screen in the frame Back is pressed instead of sliding it.
         if (layoutSheet.opened) {
@@ -388,7 +410,7 @@ ApplicationWindow {
         }
         // debugInfoDialog before settingsDialog: it opens from inside Settings, so it is the
         // one on top whenever both are up.
-        const modals = [debugInfoDialogLoader.item, settingsDialogLoader.item, projectPropertiesDialog,
+        const modals = [shellSwitchDialogLoader.item, aboutDialogLoader.item, debugInfoDialogLoader.item, settingsDialogLoader.item, projectPropertiesDialog,
                         recoveryDialog, unsavedDialog, addonStartupDialog, addonManagerDialogLoader.item,
                         missingAddonsDialogLoader.item, updateDialogLoader.item,
                         reverseProgressDialogLoader.item, subtitleProgressDialogLoader.item]
@@ -522,9 +544,16 @@ ApplicationWindow {
     // hosting it here is what gives that bar's overflow something to open.
     ProjectPropertiesDialog { id: projectPropertiesDialog }
 
+    Connections {
+        target: EditorState.projectFile
+        function onProjectLoadFinished() { window.openPendingLaunch() }
+    }
+
     function openProjectProperties() {
         projectPropertiesDialog.openDialog()
     }
+
+    ProjectLoadDialog { id: projectLoadDialog }
 
     RecoveryDialog {
         id: recoveryDialog
@@ -545,6 +574,10 @@ ApplicationWindow {
     function openPendingLaunch() {
         if (window._pendingLaunchUrl === "")
             return false
+        // A recovery restore is still landing; onProjectLoadFinished comes back here so the
+        // unsaved prompt sees the recovered work.
+        if (EditorState.projectFile.projectLoadPending)
+            return true
         const url = window._pendingLaunchUrl
         window._pendingLaunchUrl = ""
         window.confirmIfDirty(function () {
@@ -591,12 +624,13 @@ ApplicationWindow {
     LazyLoader { id: debugInfoDialogLoader; keepLoaded: true; sourceComponent: Component { DebugInfoDialog { } } }
 
     LazyLoader { id: settingsDialogLoader; sourceComponent: Component { SettingsDialog { } } }
+    LazyLoader { id: aboutDialogLoader; sourceComponent: Component { AboutDialog { } } }
+    LazyLoader { id: shellSwitchDialogLoader; sourceComponent: Component { ShellSwitchDialog { } } }
     LazyLoader { id: subtitleProgressDialogLoader; sourceComponent: Component { SubtitleProgressDialog { } } }
     LazyLoader { id: reverseProgressDialogLoader; sourceComponent: Component { ReverseProgressDialog { } } }
 
-    // Long-running clip tools. These are top-level Windows on desktop; on Android the
-    // platform gives each one the whole screen, so they read as full-screen pages that
-    // the system Back key dismisses (see the Back shortcut above).
+    // Long-running clip tools. ToolWindow hosts each as a full-screen popup in this window,
+    // so they read as pages that the system Back key dismisses (see the Back shortcut above).
     LazyLoader { id: segmentationWindowLoader; sourceComponent: Component { SegmentationWindow { } } }
     LazyLoader { id: denoiseWindowLoader; sourceComponent: Component { DenoiseWindow { } } }
     LazyLoader { id: speedCurveWindowLoader; sourceComponent: Component { SpeedCurveWindow { } } }
@@ -655,6 +689,44 @@ ApplicationWindow {
         settingsDialogLoader.ensure().open()
     }
 
+    function switchShell(target) {
+        shellSwitchDialogLoader.ensure().openFor(target, false)
+    }
+
+    // A mouse on a tablet or in DeX means the touch layout is probably the wrong one, so offer the
+    // desktop shell: at launch, or whenever one is plugged in, at most once per session. Held back
+    // while a startup prompt is up so the two do not stack.
+    property bool _mouseOfferMade: false
+    Timer {
+        interval: 1200
+        repeat: true
+        running: Qt.platform.os === "android" && PointerDevices.mousePresent && !window._mouseOfferMade
+        onTriggered: {
+            if (recoveryDialog.visible
+                    || (languageChooserDialogLoader.item && languageChooserDialogLoader.item.visible))
+                return
+            window._mouseOfferMade = true
+            shellSwitchDialogLoader.ensure().openFor("desktop", true)
+        }
+    }
+
+    // Shell.qml only builds a shell at startup, so applying a layout change is a relaunch. On
+    // Android the recovery snapshot carries unsaved work across; on a desktop running this shell
+    // the usual prompt runs first.
+    function restartToApplyShell() {
+        if (Qt.platform.os === "android") {
+            EditorState.projectFile.flushRecoverySnapshot()
+            EditorState.preferences.restartApp()
+            return
+        }
+        window.confirmIfDirty(function () {
+            EditorState.projectFile.discardUnsavedChanges()
+            EditorState.preferences.restartApp()
+            window.forceClose = true
+            window.close()
+        })
+    }
+
     function openAddonManager(kind) {
         if (kind === undefined)
             addonManagerDialogLoader.ensure().open()
@@ -674,6 +746,10 @@ ApplicationWindow {
 
     function openDebugInfo() {
         debugInfoDialogLoader.ensure().open()
+    }
+
+    function openAboutDialog() {
+        aboutDialogLoader.ensure().open()
     }
 
     readonly property alias addonAttentionNeeded: addonStartupDialog.needsAttention
@@ -905,36 +981,7 @@ ApplicationWindow {
         }
     }
 
-    // Backgrounding the app leaves the audio sink and the composite timer running, which
-    // keeps decoding video nobody can see and holds the audio focus. Android will kill the
-    // process for it eventually; pausing is the honest response to losing the foreground.
-    Connections {
-        target: Qt.application
-        function onStateChanged() {
-            if (Qt.application.state === Qt.ApplicationActive)
-                return
-            if (EditorState.playing)
-                EditorState.playback.pause()
-            // The two audition players are separate transports with their own audio sinks and
-            // decode timers; pausing only the main one left them playing to nobody.
-            EditorState.speedCurve.pause()
-            if (denoiseWindowLoader.item)
-                denoiseWindowLoader.item.stopPlayback()
-            // Losing the foreground is the last moment guaranteed to run: the OS can reclaim the
-            // process from here without another callback, and aboutToQuit does not fire when it does.
-            EditorState.projectFile.flushRecoverySnapshot()
-            // Decoder buffers, GL targets and image caches are all rebuildable; holding them
-            // while backgrounded is what gets the process killed instead of resumed. Only for a
-            // real backgrounding though: Android reports Inactive for every SAF picker, share
-            // sheet and permission dialog, and tearing all of that down on a tap of Import would
-            // cost a full rebuild on the way back. A job still running needs its decoders.
-            if (Qt.application.state === Qt.ApplicationSuspended
-                    || Qt.application.state === Qt.ApplicationHidden) {
-                if (!EditorState.exportInProgress && !EditorState.projectFile.packaging)
-                    EditorState.releaseTransientCaches()
-            }
-        }
-    }
+    AndroidLifecycle { denoiseWindow: denoiseWindowLoader.item }
 
     Connections {
         target: Addons
@@ -1037,7 +1084,7 @@ ApplicationWindow {
         id: homeComponent
         AndroidHome {
             // Also flushes a link shared into a cold start: openLinkImport() can run from the
-            // window's onCompleted, before this page exists to route it to.
+            // window's onCompleted, before this page exists to start an editor from.
             Component.onCompleted: {
                 window.homePage = this
                 window.deliverPendingLink()
@@ -1066,7 +1113,10 @@ ApplicationWindow {
     Component {
         id: editorComponent
         AndroidEditor {
-            Component.onCompleted: window.editorPage = this
+            Component.onCompleted: {
+                window.editorPage = this
+                window.deliverPendingLink()
+            }
             Component.onDestruction: if (window.editorPage === this) window.editorPage = null
             onBackRequested: window.goBack()
         }

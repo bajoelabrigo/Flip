@@ -8,6 +8,11 @@ target_link_libraries(tst_core PRIVATE Qt6::Test driftcore)
 target_compile_definitions(tst_core PRIVATE DRIFT_TEST_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
 add_test(NAME Core COMMAND tst_core)
 
+qt_add_executable(tst_pdfsource tst_pdfsource.cpp)
+target_include_directories(tst_pdfsource PRIVATE ../src)
+target_link_libraries(tst_pdfsource PRIVATE Qt6::Test driftcore)
+add_test(NAME PdfSource COMMAND tst_pdfsource)
+
 qt_add_executable(tst_editorstate
     tst_editorstate.cpp
     ../src/SegmentImageStore.cpp
@@ -25,6 +30,15 @@ qt_add_executable(tst_editorstate
     ../src/models/SpeedCurveController.cpp
     ../src/models/CurveEditorController.cpp
     ../src/models/SegmentationController.cpp
+    ../src/models/SceneDetectController.cpp
+    ../src/models/DepthController.cpp
+    ../src/models/DenoiseController.cpp
+    ../src/models/RestoreController.cpp
+    ../src/models/FaceTrackingController.cpp
+    ../src/models/StabilizeController.cpp
+    ../src/models/MediaBinController.cpp
+    ../src/models/TtsController.cpp
+    ../src/models/VoiceLibrary.cpp
     ../src/preview/PreviewController.cpp
     ../src/models/AddonManager.cpp
     ../src/models/JobRegistry.cpp
@@ -198,6 +212,15 @@ qt_add_executable(tst_mcp
     ../src/models/SpeedCurveController.cpp
     ../src/models/CurveEditorController.cpp
     ../src/models/SegmentationController.cpp
+    ../src/models/SceneDetectController.cpp
+    ../src/models/DepthController.cpp
+    ../src/models/DenoiseController.cpp
+    ../src/models/RestoreController.cpp
+    ../src/models/FaceTrackingController.cpp
+    ../src/models/StabilizeController.cpp
+    ../src/models/MediaBinController.cpp
+    ../src/models/TtsController.cpp
+    ../src/models/VoiceLibrary.cpp
     ../src/preview/PreviewController.cpp
     ../src/models/AddonManager.cpp
     ../src/models/JobRegistry.cpp

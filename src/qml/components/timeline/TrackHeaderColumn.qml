@@ -20,6 +20,9 @@ Item {
     // Touch shell: reorder has to be asked for, and the context menu needs a
     // route that is not the right mouse button.
     property bool touchMode: false
+    // The hold-to-reorder / hold-for-menu gestures, which a touchscreen needs even when
+    // the desktop layout is showing.
+    readonly property bool touchHold: touchMode || Theme.touchInput
     // Desktop: a handle on the right edge drags EditorState.preferences.trackLabelsWidth.
     property bool resizable: false
 
@@ -387,26 +390,30 @@ Item {
                 // Touch only: the hold was recognised, so this row is now draggable.
                 // Letting go without moving asks for the context menu instead.
                 property bool armed: false
+                // Latched per press: the device that pressed decides, not Theme.touchInput.
+                property bool pressedByTouch: false
+                readonly property bool touchHold: root.touchMode || pressedByTouch
                 readonly property real threshold: 4
 
                 // On touch the reorder waits for a hold. Arming on press meant any 4px
                 // of finger travel reordered the tracks, and the header column could
                 // never be used to scroll the timeline vertically.
                 pressAndHoldInterval: 400
-                preventStealing: root.touchMode ? armed : true
+                preventStealing: touchHold ? armed : true
 
                 onPressed: (mouse) => {
+                    pressedByTouch = mouse.source !== Qt.MouseEventNotSynthesized
                     pressY = mouse.y
                     moved = false
                     armed = false
-                    if (root.touchMode)
+                    if (touchHold)
                         return
                     root.draggingTrackFrom = index
                     root.draggingTrackTo = index
                     root.draggingTrackSlot = -1
                 }
                 onPressAndHold: (mouse) => {
-                    if (!root.touchMode || moved)
+                    if (!touchHold || moved)
                         return
                     pressY = mouse.y
                     armed = true
@@ -431,11 +438,11 @@ Item {
                                                root.draggingTrackSlot)
                 }
                 onReleased: {
-                    const wantsMenu = root.touchMode && armed && !moved
+                    const wantsMenu = touchHold && armed && !moved
                     armed = false
                     if (wantsMenu) {
                         root.clearTrackDrag()
-                        trackContextMenu.popup()
+                        trackContextMenu.popup(trackHeaderDrag, trackHeaderDrag.mouseX, trackHeaderDrag.mouseY)
                         return
                     }
                     if (moved && root.draggingTrackFrom >= 0
@@ -965,10 +972,10 @@ Item {
                             onTriggered: EditorState.setTrackHeightScale(index, 1.6)
                         }
                         ThemedMenuSeparator {
-                            visible: !root.touchMode
+                            visible: !root.touchHold
                         }
                         ThemedMenuItem {
-                            visible: !root.touchMode
+                            visible: !root.touchHold
                             enabled: false
                             text: qsTr("Scroll over the header to fine-tune")
                             icon.name: Theme.icons.info
@@ -977,14 +984,14 @@ Item {
                     // Desktop fine-tunes a lane by wheeling over its header. Touch has no
                     // wheel, so the same nudge is offered explicitly.
                     ThemedMenuItem {
-                        visible: root.touchMode
+                        visible: root.touchHold
                         text: qsTr("Taller row")
                         icon.name: Theme.icons.chevronUp
                         enabled: root.tracks[index].heightScale < EditorState.trackHeightScaleMax()
                         onTriggered: EditorState.nudgeTrackHeightScale(index, 1)
                     }
                     ThemedMenuItem {
-                        visible: root.touchMode
+                        visible: root.touchHold
                         text: qsTr("Shorter row")
                         icon.name: Theme.icons.chevronDown
                         enabled: root.tracks[index].heightScale > EditorState.trackHeightScaleMin()

@@ -14,7 +14,6 @@ Item {
     }
     readonly property bool hasSelection: !!clipData && Object.keys(clipData).length > 0
     readonly property string clipKind: hasSelection ? (clipData.kind || "") : ""
-    readonly property bool audible: clipKind === "audio" || clipKind === "video" || clipKind === "composite"
     // Read straight from a media file: stream choice, denoise and transcription need one.
     readonly property bool fileAudio: (clipKind === "audio" || clipKind === "video") && !clipData.sequenceId
     readonly property var propVolume: { "key": "volume", "label": qsTr("Volume"), "def": 1.0, "decimals": 2 }
@@ -46,18 +45,8 @@ Item {
         width: root.width
         spacing: Theme.spacingXl
 
-        EmptyState {
-            visible: root.clipKind !== "audio" && root.clipKind !== "video"
-            width: parent.width
-            compact: true
-            glyph: Theme.icons.volumeOff
-            title: qsTr("No audio")
-            hint: qsTr("This clip has no audio track.")
-        }
-
         PropertyKeyframeRow {
             width: root.width
-            visible: root.audible
             propDef: root.propVolume
             keyframeList: (root.clipData.keyframes && root.clipData.keyframes.volume && root.clipData.keyframes.volume.points) || []
             useSlider: true
@@ -72,7 +61,6 @@ Item {
             id: panSection
             width: parent.width
             spacing: Theme.spacingSm
-            visible: root.audible
 
             readonly property real panValue: {
                 void root.clipDataRevision
@@ -210,14 +198,14 @@ Item {
             // Whether the model is on disk is a one-shot filesystem answer, not a
             // binding, hence the reset below when an addon of this kind appears.
             // The runtime that runs it is a second, separate addon.
-            property bool denoiseReady: EditorState.denoiseAvailable()
+            property bool denoiseReady: EditorState.denoise.available()
             property bool runtimeReady: Addons.runtimeAvailable()
 
             Connections {
                 target: Addons
                 function onKindChanged(kind) {
                     if (kind === "denoise-model")
-                        denoiseSection.denoiseReady = EditorState.denoiseAvailable()
+                        denoiseSection.denoiseReady = EditorState.denoise.available()
                     else if (kind === "onnxruntime")
                         denoiseSection.runtimeReady = Addons.runtimeAvailable()
                 }
@@ -235,7 +223,7 @@ Item {
                 visible: denoiseSection.denoiseReady && denoiseSection.runtimeReady
                 width: parent.width
                 text: qsTr("Remove noise…")
-                enabled: !EditorState.denoising
+                enabled: !EditorState.denoise.running
                 onClicked: {
                     const data = EditorState.selectedClipData
                     root.Window.window.openDenoise(

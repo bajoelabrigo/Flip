@@ -4,20 +4,20 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Close</source>
-        <translation type="unfinished">閉じる</translation>
-    </message>
-    <message>
-        <source>Flip Studio</source>
-        <translation>Flip Studio</translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>Version %1</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio</source>
+        <translation>Flip Studio</translation>
     </message>
     <message>
         <source>Open-source video editor based on Drift by CutWire Studios.</source>
@@ -59,19 +59,19 @@
         <translation>そのファイルを読み取れませんでした。</translation>
     </message>
     <message>
+        <source>Another addon is still installing.</source>
+        <translation>別のアドオンのインストールが進行中です。</translation>
+    </message>
+    <message>
+        <source>Could not use this addon (%1).</source>
+        <translation>このアドオン (%1) を使用できませんでした。</translation>
+    </message>
+    <message>
         <source>This is not a Flip Studio effect file (%1).</source>
         <translation>これは Flip Studio エフェクトファイルではありません (%1)。</translation>
     </message>
     <message>
-        <source>Another addon is still installing.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>This is not a Flip Studio addon file.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Could not use this addon (%1).</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -103,7 +103,7 @@
     </message>
     <message>
         <source>Install this audio effect?</source>
-        <translation type="unfinished"></translation>
+        <translation>このオーディオエフェクトをインストールしますか？</translation>
     </message>
     <message>
         <source>Install this effect?</source>
@@ -115,39 +115,27 @@
     </message>
     <message>
         <source>Install Addon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio addons (*.driftpkg *.driftfx *.zip)</source>
-        <translation type="unfinished"></translation>
+        <translation>アドオンをインストール</translation>
     </message>
     <message>
         <source>Install an unofficial addon?</source>
-        <translation type="unfinished"></translation>
+        <translation>非公式のアドオンをインストールしますか？</translation>
     </message>
     <message>
         <source>Install anyway</source>
-        <translation type="unfinished"></translation>
+        <translation>それでもインストール</translation>
     </message>
     <message>
         <source>“%1”</source>
         <translation>「%1」</translation>
     </message>
     <message>
-        <source>%1 is not signed by the Flip Studio team. Only install files you trust.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>It contains code that runs on your computer.</source>
-        <translation type="unfinished"></translation>
+        <translation>お使いのコンピューター上で実行されるコードが含まれています。</translation>
     </message>
     <message>
         <source>It will replace “%1”.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 was made by a user, not the Flip Studio team, and nothing has checked it. Only install files you trust.</source>
-        <translation>%1 は Flip Studio チームではなく、ユーザーによって作成されたものです。内容は確認されていません。信頼できるファイルのみインストールしてください。</translation>
+        <translation>「%1」を置き換えます。</translation>
     </message>
     <message>
         <source>Could not install “%1”: %2</source>
@@ -202,24 +190,12 @@
         <translation>以下の AI エンジンをインストールして、自動字幕、被写体切り抜き、おもしろ顔エフェクト、ノイズ除去を有効にしましょう。</translation>
     </message>
     <message>
-        <source>Restart Flip Studio for this to take effect.</source>
-        <translation>この変更を有効にするには、Flip Studio を再起動してください。</translation>
-    </message>
-    <message>
-        <source>Downloads coming soon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Can&apos;t reach the download store</source>
         <translation>ダウンロードストアに接続できません</translation>
     </message>
     <message>
         <source>Nothing in this category</source>
         <translation>このカテゴリには何もありません</translation>
-    </message>
-    <message>
-        <source>Automatic subtitles, fonts, stickers and more will be available to download in an upcoming update. Extras you install from a file still work.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Check your connection and try again.</source>
@@ -246,16 +222,12 @@
         <translation>%1… %2%</translation>
     </message>
     <message>
-        <source>Requires Flip Studio %1 or newer</source>
-        <translation>Flip Studio %1 以降が必要です</translation>
-    </message>
-    <message>
         <source>Unofficial</source>
-        <translation type="unfinished"></translation>
+        <translation>非公式</translation>
     </message>
     <message>
         <source>Installed from file</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルからインストール済み</translation>
     </message>
     <message>
         <source>%1 download</source>
@@ -278,28 +250,56 @@
         <translation>インストール</translation>
     </message>
     <message>
-        <source>Text &amp; fonts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Custom</source>
-        <translation type="unfinished">カスタム</translation>
+        <translation>カスタム</translation>
     </message>
     <message>
         <source>Install from file…</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルからインストール…</translation>
     </message>
     <message>
         <source>Open addons folder</source>
-        <translation type="unfinished"></translation>
+        <translation>アドオンフォルダーを開く</translation>
     </message>
     <message>
         <source>Put addon folders here, then reopen Extras</source>
-        <translation type="unfinished"></translation>
+        <translation>ここにアドオンフォルダーを配置し、「エクストラ」を開き直してください</translation>
     </message>
     <message>
         <source>Delete this pack&apos;s downloaded data</source>
         <translation>このパックのダウンロードデータを削除</translation>
+    </message>
+    <message>
+        <source>Flip Studio addons (*.driftpkg *.driftfx *.zip)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 is not signed by the Flip Studio team. Only install files you trust.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 was made by a user, not the Flip Studio team, and nothing has checked it. Only install files you trust.</source>
+        <translation>%1 は Flip Studio チームではなく、ユーザーによって作成されたものです。内容は確認されていません。信頼できるファイルのみインストールしてください。</translation>
+    </message>
+    <message>
+        <source>Restart Flip Studio for this to take effect.</source>
+        <translation>この変更を有効にするには、Flip Studio を再起動してください。</translation>
+    </message>
+    <message>
+        <source>Downloads coming soon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic subtitles, fonts, stickers and more will be available to download in an upcoming update. Extras you install from a file still work.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Requires Flip Studio %1 or newer</source>
+        <translation>Flip Studio %1 以降が必要です</translation>
+    </message>
+    <message>
+        <source>Text &amp; fonts</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -315,10 +315,6 @@
     <message>
         <source>Recommended packs</source>
         <translation>推奨パック</translation>
-    </message>
-    <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
-        <translation>エフェクト、トランジション、オーディオに必須のパックをインストールします。これらがなくても Flip Studio は使用できますが、インストールすると改善時のアップデートが利用可能になります。</translation>
     </message>
     <message>
         <source>%1… %2%</source>
@@ -371,6 +367,10 @@
     <message>
         <source>Install all</source>
         <translation>すべてインストール</translation>
+    </message>
+    <message>
+        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
+        <translation>エフェクト、トランジション、オーディオに必須のパックをインストールします。これらがなくても Flip Studio は使用できますが、インストールすると改善時のアップデートが利用可能になります。</translation>
     </message>
 </context>
 <context>
@@ -534,6 +534,14 @@
         <translation>生成またはインポートしたキャプション</translation>
     </message>
     <message>
+        <source>Speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn a script into a voiceover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stickers</source>
         <translation>スタンプ</translation>
     </message>
@@ -651,6 +659,10 @@
         <translation>まとめて変形</translation>
     </message>
     <message>
+        <source>Edit text</source>
+        <translation>テキストを編集</translation>
+    </message>
+    <message>
         <source>Fade</source>
         <translation>フェード</translation>
     </message>
@@ -724,10 +736,6 @@
 <context>
     <name>AndroidEditor</name>
     <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Flip Studio プロジェクト (*.drift)</translation>
-    </message>
-    <message>
         <source>Save Project</source>
         <translation>プロジェクトを保存</translation>
     </message>
@@ -766,6 +774,18 @@
     <message>
         <source>Done</source>
         <translation>完了</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Select all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Flip Studio プロジェクト (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -809,21 +829,6 @@
     <message>
         <source>Curve</source>
         <translation>カーブ</translation>
-    </message>
-</context>
-<context>
-    <name>AndroidHomeNav</name>
-    <message>
-        <source>Projects</source>
-        <translation>プロジェクト</translation>
-    </message>
-    <message>
-        <source>Market</source>
-        <translation>マーケット</translation>
-    </message>
-    <message>
-        <source>Me</source>
-        <translation>私</translation>
     </message>
 </context>
 <context>
@@ -927,10 +932,6 @@
 <context>
     <name>AndroidMain</name>
     <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Flip Studio プロジェクト (*.drift)</translation>
-    </message>
-    <message>
         <source>Save Project</source>
         <translation>プロジェクトを保存</translation>
     </message>
@@ -1002,53 +1003,9 @@
         <source>Imported from the marketplace.</source>
         <translation>マーケットプレイスからインポートされました。</translation>
     </message>
-</context>
-<context>
-    <name>AndroidMarket</name>
     <message>
-        <source>Market</source>
-        <translation>マーケット</translation>
-    </message>
-    <message>
-        <source>Downloads</source>
-        <translation>ダウンロード</translation>
-    </message>
-</context>
-<context>
-    <name>AndroidMePage</name>
-    <message>
-        <source>Me</source>
-        <translation>私</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n coin(s)</source>
-        <translation>
-            <numerusform>%n 個のコイン</numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>Light mode</source>
-        <translation>ライトモード</translation>
-    </message>
-    <message>
-        <source>Dark mode</source>
-        <translation>ダークモード</translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation>設定</translation>
-    </message>
-    <message>
-        <source>Extras</source>
-        <translation>拡張機能</translation>
-    </message>
-    <message>
-        <source>Update available</source>
-        <translation>アップデートが利用可能</translation>
-    </message>
-    <message>
-        <source>Debug info</source>
-        <translation>デバッグ情報</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Flip Studio プロジェクト (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -1066,12 +1023,12 @@
         <translation>オーディオのみ — 下でトリム</translation>
     </message>
     <message>
-        <source>Unlock source frame ratio</source>
-        <translation>ソースのフレーム比率のロックを解除</translation>
+        <source>Unlock crop ratio</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Lock source frame ratio</source>
-        <translation>ソースのフレーム比率をロック</translation>
+        <source>Lock crop ratio</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trim</source>
@@ -1110,12 +1067,12 @@
         <translation>保存中…</translation>
     </message>
     <message>
-        <source>Save keeps your changes as a new file in this project.</source>
-        <translation>保存すると、変更内容がこのプロジェクト内の新しいファイルとして保持されます。</translation>
+        <source>Save keeps the original file and stores this crop.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Save keeps the original video and stores this framing.</source>
-        <translation>保存すると元のビデオは保持され、このフレーミングが保存されます。</translation>
+        <source>Save keeps the original file and stores this trim.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nothing changed yet. Trim or crop above, or go back and drag this onto the timeline.</source>
@@ -1643,8 +1600,60 @@
         <translation>アングル間で同期して切り替える</translation>
     </message>
     <message>
-        <source>App settings</source>
-        <translation>アプリの設定</translation>
+        <source>Extras</source>
+        <translation>拡張機能</translation>
+    </message>
+    <message>
+        <source>Add-ons and model packs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>設定</translation>
+    </message>
+    <message>
+        <source>Light mode</source>
+        <translation>ライトモード</translation>
+    </message>
+    <message>
+        <source>Dark mode</source>
+        <translation>ダークモード</translation>
+    </message>
+    <message>
+        <source>Switch the app’s colour scheme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch to desktop layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use the wide editor layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update available</source>
+        <translation>アップデートが利用可能</translation>
+    </message>
+    <message>
+        <source>A newer version of Flip Studio is ready</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Debug info</source>
+        <translation>デバッグ情報</translation>
+    </message>
+    <message>
+        <source>Version, device and logs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Version, licence and credits</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Appearance, extras and agent access</source>
@@ -1727,6 +1736,53 @@
     <message>
         <source>Start a new project from this clip</source>
         <translation>このクリップから新しいプロジェクトを開始</translation>
+    </message>
+</context>
+<context>
+    <name>AndroidTextComposer</name>
+    <message>
+        <source>Previous caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caption %1 / %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>完了</translation>
+    </message>
+    <message>
+        <source>Type subtitle…</source>
+        <translation>字幕を入力…</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>開始</translation>
+    </message>
+    <message>
+        <source>Set start to current time</source>
+        <translation>開始を現在の時間に設定</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation>終了</translation>
+    </message>
+    <message>
+        <source>Set end to current time</source>
+        <translation>終了を現在の時間に設定</translation>
+    </message>
+    <message>
+        <source>Back one frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forward one frame</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1879,6 +1935,14 @@
     <message>
         <source>Untitled</source>
         <translation>無題</translation>
+    </message>
+    <message>
+        <source>Downloads</source>
+        <translation>ダウンロード</translation>
+    </message>
+    <message>
+        <source>Extras</source>
+        <translation>拡張機能</translation>
     </message>
     <message>
         <source>Undo</source>
@@ -2040,28 +2104,12 @@
         <translation>メディア名を変更しました</translation>
     </message>
     <message>
-        <source>That file could not be read.</source>
-        <translation>そのファイルは読み取れませんでした。</translation>
+        <source>Crop clip</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>That file is already in this project.</source>
-        <translation>そのファイルはこのプロジェクトに既に存在します。</translation>
-    </message>
-    <message>
-        <source>Converting %1 to an edit-friendly format…</source>
-        <translation>%1 を編集に適した形式に変換中…</translation>
-    </message>
-    <message>
-        <source>That media is no longer in this project.</source>
-        <translation>そのメディアはこのプロジェクトに存在しません。</translation>
-    </message>
-    <message>
-        <source>“%1” is %2, but this slot holds %3.</source>
-        <translation>「%1」は %2 ですが、このスロットは %3 を保持しています。</translation>
-    </message>
-    <message>
-        <source>Media replaced</source>
-        <translation>メディアを置き換えました</translation>
+        <source>Crop saved</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>New project</source>
@@ -2122,6 +2170,10 @@
     <message>
         <source>Unlink audio</source>
         <translation>オーディオのリンクを解除</translation>
+    </message>
+    <message>
+        <source>Link clips</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clear selection</source>
@@ -2240,10 +2292,6 @@
         <translation>テキストクリップを追加しました</translation>
     </message>
     <message>
-        <source>Text template added</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Subtitles</source>
         <translation>字幕</translation>
     </message>
@@ -2356,112 +2404,8 @@
         <translation>スピードカーブを削除しました</translation>
     </message>
     <message>
-        <source>Getting ready…</source>
-        <translation>準備中…</translation>
-    </message>
-    <message>
-        <source>Could not decode frame %1</source>
-        <translation>フレーム %1 をデコードできませんでした</translation>
-    </message>
-    <message>
-        <source>Clear Face Track</source>
-        <translation>顔トラックをクリア</translation>
-    </message>
-    <message>
-        <source>Face detection already in progress</source>
-        <translation>顔検出は既に実行中です</translation>
-    </message>
-    <message>
-        <source>Select a video clip to detect faces in</source>
-        <translation>顔を検出するビデオクリップを選択してください</translation>
-    </message>
-    <message>
-        <source>Clip has no video to scan</source>
-        <translation>クリップにスキャンするビデオがありません</translation>
-    </message>
-    <message>
-        <source>Clip is too short to scan</source>
-        <translation>クリップが短すぎてスキャンできません</translation>
-    </message>
-    <message>
-        <source>Face detection cancelled</source>
-        <translation>顔検出をキャンセルしました</translation>
-    </message>
-    <message>
-        <source>Scanning frame %1 of %2…</source>
-        <translation>フレーム %1 / %2 をスキャン中…</translation>
-    </message>
-    <message>
-        <source>No faces found in this clip</source>
-        <translation>このクリップに顔は見つかりませんでした</translation>
-    </message>
-    <message>
-        <source>Could not write the face track</source>
-        <translation>顔トラックを書き込めませんでした</translation>
-    </message>
-    <message>
-        <source>Face detection complete — a face was visible in %1 of %2 frames</source>
-        <translation>顔検出完了 — %2 フレーム中 %1 フレームで顔が見えました</translation>
-    </message>
-    <message>
-        <source>Face detection complete</source>
-        <translation>顔検出完了</translation>
-    </message>
-    <message>
-        <source>Scanned clip no longer exists</source>
-        <translation>スキャンしたクリップが存在しなくなりました</translation>
-    </message>
-    <message>
-        <source>Detect Faces</source>
-        <translation>顔を検出</translation>
-    </message>
-    <message>
         <source>Clip</source>
         <translation>クリップ</translation>
-    </message>
-    <message>
-        <source>Getting noise removal ready…</source>
-        <translation>ノイズ除去の準備中…</translation>
-    </message>
-    <message>
-        <source>Clip is too short to process</source>
-        <translation>クリップが短すぎて処理できません</translation>
-    </message>
-    <message>
-        <source>Noise removal cancelled</source>
-        <translation>ノイズ除去をキャンセルしました</translation>
-    </message>
-    <message>
-        <source>Removing noise (left)…</source>
-        <translation>ノイズ除去中 (左)…</translation>
-    </message>
-    <message>
-        <source>Removing noise (right)…</source>
-        <translation>ノイズ除去中 (右)…</translation>
-    </message>
-    <message>
-        <source>Writing audio…</source>
-        <translation>音声を書き込み中…</translation>
-    </message>
-    <message>
-        <source>Noise removal already in progress</source>
-        <translation>ノイズ除去は既に実行中です</translation>
-    </message>
-    <message>
-        <source>Select a video or audio clip</source>
-        <translation>ビデオまたはオーディオクリップを選択してください</translation>
-    </message>
-    <message>
-        <source>Clip has no audio</source>
-        <translation>クリップに音声がありません</translation>
-    </message>
-    <message>
-        <source>Could not create a preview file</source>
-        <translation>プレビューファイルを作成できませんでした</translation>
-    </message>
-    <message>
-        <source>Ready</source>
-        <translation>準備完了</translation>
     </message>
     <message numerus="yes">
         <source>Imported %n subtitles</source>
@@ -2532,68 +2476,6 @@
         <translation>マルチカムを結合して保存</translation>
     </message>
     <message>
-        <source>Select a video clip to stabilize</source>
-        <translation>手ぶれ補正するビデオクリップを選択</translation>
-    </message>
-    <message>
-        <source>Clip has no video file</source>
-        <translation>クリップにビデオファイルがありません</translation>
-    </message>
-    <message>
-        <source>Stabilization already in progress for this clip</source>
-        <translation>このクリップの手ぶれ補正は既に実行中です</translation>
-    </message>
-    <message>
-        <source>Could not create stabilization cache directory</source>
-        <translation>手ぶれ補正キャッシュディレクトリを作成できませんでした</translation>
-    </message>
-    <message>
-        <source>Stabilize Video</source>
-        <translation>ビデオ手ぶれ補正</translation>
-    </message>
-    <message>
-        <source>Remove Stabilization</source>
-        <translation>手ぶれ補正を削除</translation>
-    </message>
-    <message>
-        <source>Change Stabilization Smoothing</source>
-        <translation>手ぶれ補正の滑らかさを変更</translation>
-    </message>
-    <message>
-        <source>Change Stabilization Tripod Mode</source>
-        <translation>手ぶれ補正の三脚モードを変更</translation>
-    </message>
-    <message>
-        <source>Detecting faces…</source>
-        <translation>顔を検出中…</translation>
-    </message>
-    <message>
-        <source>Already looking for scenes</source>
-        <translation>シーン検索は既に実行中です</translation>
-    </message>
-    <message>
-        <source>Select a video clip to find scenes in</source>
-        <translation>シーンを検索するビデオクリップを選択してください</translation>
-    </message>
-    <message numerus="yes">
-        <source>Found %n scene(s)</source>
-        <translation>
-            <numerusform>%n 個のシーンを発見</numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>Looking for scenes…</source>
-        <translation>シーンを検索中…</translation>
-    </message>
-    <message>
-        <source>Scene detection cancelled</source>
-        <translation>シーン検出をキャンセルしました</translation>
-    </message>
-    <message>
-        <source>Removing noise…</source>
-        <translation>ノイズ除去中…</translation>
-    </message>
-    <message>
         <source>Could not create an output file</source>
         <translation>出力ファイルを作成できませんでした</translation>
     </message>
@@ -2630,50 +2512,6 @@
     <message>
         <source>Media rotated</source>
         <translation>メディアを回転しました</translation>
-    </message>
-    <message>
-        <source>An edit is already saving</source>
-        <translation>編集は既に保存中です</translation>
-    </message>
-    <message>
-        <source>Could not open the media file</source>
-        <translation>メディアファイルを開けませんでした</translation>
-    </message>
-    <message>
-        <source>Media trimmed</source>
-        <translation>メディアがトリミングされました</translation>
-    </message>
-    <message>
-        <source>Trim saved</source>
-        <translation>トリミングが保存されました</translation>
-    </message>
-    <message>
-        <source>Saving…</source>
-        <translation>保存中…</translation>
-    </message>
-    <message>
-        <source>Converting…</source>
-        <translation>変換中…</translation>
-    </message>
-    <message>
-        <source>Saving media…</source>
-        <translation>メディアを保存中…</translation>
-    </message>
-    <message>
-        <source>Couldn’t save that edit</source>
-        <translation>その編集を保存できませんでした</translation>
-    </message>
-    <message>
-        <source>Updating the library…</source>
-        <translation>ライブラリを更新中…</translation>
-    </message>
-    <message>
-        <source>Couldn’t update the library</source>
-        <translation>ライブラリを更新できませんでした</translation>
-    </message>
-    <message>
-        <source>Media edited</source>
-        <translation>メディアを編集しました</translation>
     </message>
     <message>
         <source>Save project as…</source>
@@ -2814,86 +2652,6 @@
     <message>
         <source>Transition curve updated</source>
         <translation>トランジションカーブを更新しました</translation>
-    </message>
-    <message>
-        <source>Select a video or image clip to estimate depth for</source>
-        <translation>深度を推定するビデオまたは画像クリップを選択してください</translation>
-    </message>
-    <message>
-        <source>Clip has no video to estimate depth for</source>
-        <translation>クリップに深度を推定するためのビデオがありません</translation>
-    </message>
-    <message>
-        <source>Depth estimation needs the Depth addon</source>
-        <translation>深度の推定には Depth アドオンが必要です</translation>
-    </message>
-    <message>
-        <source>Depth is already being estimated for this clip</source>
-        <translation>このクリップの深度はすでに推定中です</translation>
-    </message>
-    <message>
-        <source>Estimating depth…</source>
-        <translation>深度を推定中…</translation>
-    </message>
-    <message>
-        <source>Clip no longer exists</source>
-        <translation>クリップはもう存在しません</translation>
-    </message>
-    <message>
-        <source>Estimate Depth</source>
-        <translation>深度を推定</translation>
-    </message>
-    <message>
-        <source>Clear Depth</source>
-        <translation>深度をクリア</translation>
-    </message>
-    <message>
-        <source>Building keyframes…</source>
-        <translation>キーフレームを構築中…</translation>
-    </message>
-    <message>
-        <source>Rendering stabilized video…</source>
-        <translation>手ぶれ補正済みビデオをレンダリング中…</translation>
-    </message>
-    <message>
-        <source>Analyzing camera motion…</source>
-        <translation>カメラの動きを分析中…</translation>
-    </message>
-    <message>
-        <source>Stabilization cancelled.</source>
-        <translation>手ぶれ補正をキャンセルしました。</translation>
-    </message>
-    <message>
-        <source>Stabilization analysis file is missing.</source>
-        <translation>手ぶれ補正分析ファイルが見つかりません。</translation>
-    </message>
-    <message>
-        <source>Could not read camera motion from the analysis file.</source>
-        <translation>分析ファイルからカメラの動きを読み取れませんでした。</translation>
-    </message>
-    <message>
-        <source>Stabilize with Keyframes</source>
-        <translation>キーフレームで手ぶれ補正</translation>
-    </message>
-    <message>
-        <source>Stabilization keyframes applied.</source>
-        <translation>手ぶれ補正キーフレームを適用しました。</translation>
-    </message>
-    <message>
-        <source>Change Stabilization Mode</source>
-        <translation>手ぶれ補正モードを変更</translation>
-    </message>
-    <message>
-        <source> (denoised)</source>
-        <translation> (ノイズ除去済み)</translation>
-    </message>
-    <message>
-        <source>Remove noise</source>
-        <translation>ノイズ除去</translation>
-    </message>
-    <message>
-        <source>Noise removed</source>
-        <translation>ノイズを除去しました</translation>
     </message>
     <message>
         <source>Shape added</source>
@@ -3064,46 +2822,6 @@
         <translation>字幕を更新しました</translation>
     </message>
     <message>
-        <source>“%1” is not in these subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Replace in subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message numerus="yes">
-        <source>Replaced in %n caption(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>Subtitles are already clean</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Clean up subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Subtitles cleaned up</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No keywords for emojis in these subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add emojis</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message numerus="yes">
-        <source>Emojis added to %n caption(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message>
         <source>Adjust subtitle timing</source>
         <translation>字幕のタイミングを調整</translation>
     </message>
@@ -3172,17 +2890,15 @@
         <translation>テキストスタイルをインポートしました</translation>
     </message>
     <message>
-        <source>Font added: %1</source>
+        <source>Could not import the font</source>
         <translation type="unfinished"></translation>
     </message>
-    <message numerus="yes">
-        <source>%n fonts added</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-        </translation>
+    <message>
+        <source>Added %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>That file is not a font this app can read</source>
+        <source>Removed %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3322,6 +3038,10 @@
         <translation>オーディオのリンクを解除しました</translation>
     </message>
     <message>
+        <source>Clips linked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Fade updated</source>
         <translation>フェードを更新しました</translation>
     </message>
@@ -3384,6 +3104,14 @@
     <message>
         <source>Animation options updated</source>
         <translation>アニメーションのオプションを更新しました</translation>
+    </message>
+    <message>
+        <source>PDF options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PDF options updated</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Animation slot</source>
@@ -3458,48 +3186,6 @@
         <translation>トランジションを更新しました</translation>
     </message>
     <message>
-        <source>Could not add that sound</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enhance voice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voice enhanced: noise gate, de-esser, compressor and leveler</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select a video or audio clip with speech</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Install speech recognition from Extras to find the silences</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Could not analyse the speech in this clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Listening to the clip to find silences…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No speech found in this clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Could not cut this clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message numerus="yes">
-        <source>Removed %1 s of pauses and %n filler word(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message>
         <source>Track solo</source>
         <translation>トラックソロ</translation>
     </message>
@@ -3552,30 +3238,6 @@
         <translation>%1 (オフ)</translation>
     </message>
     <message>
-        <source>Frame video</source>
-        <translation>ビデオをフレーミング</translation>
-    </message>
-    <message>
-        <source>Video framing saved</source>
-        <translation>ビデオのフレーミングを保存しました</translation>
-    </message>
-    <message>
-        <source>Frame source video</source>
-        <translation>ソースビデオをフレーミング</translation>
-    </message>
-    <message>
-        <source>%1 (trimmed)</source>
-        <translation>%1 (トリミング済み)</translation>
-    </message>
-    <message>
-        <source>Rendering…</source>
-        <translation>レンダリング中…</translation>
-    </message>
-    <message>
-        <source>Render Trimmed Copy</source>
-        <translation>トリミングしたコピーをレンダリング</translation>
-    </message>
-    <message>
         <source>Transform selection together</source>
         <translation>選択範囲をまとめて変形</translation>
     </message>
@@ -3606,74 +3268,6 @@
     <message>
         <source>%1 copy</source>
         <translation>%1 をコピー</translation>
-    </message>
-    <message>
-        <source>%1 (stabilized)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select a video clip to enhance</source>
-        <translation>強化するビデオクリップを選択してください</translation>
-    </message>
-    <message>
-        <source>Choose a model to enhance with</source>
-        <translation>強化に使用するモデルを選択してください</translation>
-    </message>
-    <message>
-        <source>This clip is already being enhanced</source>
-        <translation>このクリップは既に強化中です</translation>
-    </message>
-    <message>
-        <source>%1 (enhanced %2x)</source>
-        <translation>%1 (%2 倍に強化)</translation>
-    </message>
-    <message>
-        <source>%1 (enhanced)</source>
-        <translation>%1 (強化済み)</translation>
-    </message>
-    <message>
-        <source>Enhance Video</source>
-        <translation>ビデオを強化</translation>
-    </message>
-    <message>
-        <source>Enhanced video added to the media bin</source>
-        <translation>強化したビデオをメディアビンに追加しました</translation>
-    </message>
-    <message>
-        <source>Enhancing video…</source>
-        <translation>ビデオを強化中…</translation>
-    </message>
-    <message>
-        <source>This build of Flip Studio has no video stabilization support</source>
-        <translation>このビルドの Flip Studio はビデオの手ぶれ補正に対応していません</translation>
-    </message>
-    <message>
-        <source>The video this clip was stabilized from is no longer in the media bin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Stabilization rendering failed.</source>
-        <translation>手ぶれ補正のレンダリングに失敗しました。</translation>
-    </message>
-    <message>
-        <source>Stabilization rendering failed: %1</source>
-        <translation>手ぶれ補正のレンダリングに失敗しました : %1</translation>
-    </message>
-    <message>
-        <source>Stabilized video added to the media bin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Stabilization analysis failed.</source>
-        <translation>手ぶれ補正の分析に失敗しました。</translation>
-    </message>
-    <message>
-        <source>Stabilization analysis failed: %1</source>
-        <translation>手ぶれ補正の分析に失敗しました : %1</translation>
-    </message>
-    <message>
-        <source>English subtitles</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -3749,19 +3343,19 @@
     </message>
     <message>
         <source>Enable depth occlusion</source>
-        <translation type="unfinished"></translation>
+        <translation>深度オクルージョンを有効にする</translation>
     </message>
     <message>
         <source>Disable depth occlusion</source>
-        <translation type="unfinished"></translation>
+        <translation>深度オクルージョンを無効にする</translation>
     </message>
     <message>
         <source>Clip is occluded by depth</source>
-        <translation type="unfinished"></translation>
+        <translation>クリップは深度によって隠蔽されています</translation>
     </message>
     <message>
         <source>Clip uses track order</source>
-        <translation type="unfinished"></translation>
+        <translation>クリップはトラック順を使用します</translation>
     </message>
     <message>
         <source>Subtitles converted to text</source>
@@ -3795,19 +3389,19 @@
     </message>
     <message>
         <source>Add camera</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラを追加</translation>
     </message>
     <message>
         <source>Add camera clip</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラクリップを追加</translation>
     </message>
     <message>
         <source>Camera added</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラを追加しました</translation>
     </message>
     <message>
         <source>Camera clip added</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラクリップを追加しました</translation>
     </message>
     <message>
         <source>Transform together</source>
@@ -3941,7 +3535,7 @@
     </message>
     <message>
         <source>Mask effects read one clip&apos;s masks, so they go on a clip, not on an adjustment layer.</source>
-        <translation type="unfinished"></translation>
+        <translation>マスクエフェクトは 1つのクリップのマスクを読み取るため、調整レイヤーではなくクリップに適用します。</translation>
     </message>
     <message>
         <source>Face effects follow one clip&apos;s faces, so they go on a clip, not on an adjustment layer.</source>
@@ -4183,15 +3777,15 @@
     </message>
     <message>
         <source>Only effects you imported can be deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>削除できるのは、インポートしたエフェクトのみです</translation>
     </message>
     <message>
         <source>Could not delete %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 を削除できませんでした</translation>
     </message>
     <message>
         <source>Deleted %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 を削除しました</translation>
     </message>
     <message>
         <source>Could not export the effect preset</source>
@@ -4501,41 +4095,15 @@
         <source>Close gap</source>
         <translation>ギャップを埋める</translation>
     </message>
-    <message>
-        <source>Folder created</source>
-        <translation>フォルダーを作成しました</translation>
-    </message>
-    <message>
-        <source>Folder renamed</source>
-        <translation>フォルダー名を変更しました</translation>
-    </message>
-    <message>
-        <source>Folder deleted</source>
-        <translation>フォルダーを削除しました</translation>
-    </message>
-    <message>
-        <source>Media moved</source>
-        <translation>メディアを移動しました</translation>
-    </message>
     <message numerus="yes">
         <source>%n items removed</source>
         <translation>
             <numerusform>%n 個の項目を削除しました</numerusform>
         </translation>
     </message>
-    <message numerus="yes">
-        <source>%n items moved</source>
-        <translation>
-            <numerusform>%n 個の項目を移動しました</numerusform>
-        </translation>
-    </message>
     <message>
         <source>Clips added</source>
         <translation>クリップを追加しました</translation>
-    </message>
-    <message>
-        <source>Folder moved</source>
-        <translation>フォルダーを移動しました</translation>
     </message>
     <message>
         <source>Track renamed</source>
@@ -4557,12 +4125,108 @@
         <source>Video size cropped to %1×%2</source>
         <translation>ビデオサイズを %1×%2 にクロップしました</translation>
     </message>
+    <message>
+        <source>Text template added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is not in these subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace in subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Replaced in %n caption(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Subtitles are already clean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean up subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles cleaned up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keywords for emojis in these subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Emojis added to %n caption(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n fonts added</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Could not add that sound</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice enhanced: noise gate, de-esser, compressor and leveler</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or audio clip with speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install speech recognition from Extras to find the silences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not analyse the speech in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to find silences…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No speech found in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not cut this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Removed %1 s of pauses and %n filler word(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>English subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AssetCategoryChips</name>
     <message>
         <source>My Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>マイエフェクト</translation>
     </message>
     <message>
         <source>Favorites</source>
@@ -4681,27 +4345,27 @@
     </message>
     <message>
         <source>%1 file (*.%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ファイル (*.%2)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished">すべてのファイル (*)</translation>
+        <translation>すべてのファイル (*)</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を付けて保存</translation>
     </message>
     <message>
         <source>Saving “%1”…</source>
-        <translation type="unfinished"></translation>
+        <translation>「%1」を保存しています…</translation>
     </message>
     <message>
         <source>Couldn’t save “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>「%1」を保存できませんでした。</translation>
     </message>
     <message>
         <source>Saved “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>「%1」を保存しました。</translation>
     </message>
     <message>
         <source>Couldn’t import that folder.</source>
@@ -4711,12 +4375,6 @@
         <source>Imported %n files into %1 folders — as many as one folder import takes. Import the remaining subfolders separately.</source>
         <translation>
             <numerusform>%1 個のフォルダーに %n 個のファイルをインポートしました — 1 回のフォルダーインポートで処理可能な上限数です。残りのサブフォルダーは別途インポートしてください。</numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <source>Imported %n files into %1 folders. %2 files were skipped — Flip Studio does not recognize their format. Drag them onto the bin to try anyway.</source>
-        <translation>
-            <numerusform>%n 個のファイルを %1 フォルダーにインポートしました。%2 個のファイルはスキップされました — Flip Studio はその形式を認識できませんでした。それでも試してみたい場合は、それらのファイルをゴミ箱にドラッグしてください。</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -4748,6 +4406,10 @@
     <message>
         <source>Subtitles</source>
         <translation>字幕</translation>
+    </message>
+    <message>
+        <source>Speech</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stickers</source>
@@ -4782,10 +4444,6 @@
         <translation>オーディオ FX</translation>
     </message>
     <message>
-        <source>Sound effects</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Shortcuts</source>
         <translation>ショートカット</translation>
     </message>
@@ -4804,10 +4462,6 @@
     <message>
         <source>Reading media and generating thumbnails.</source>
         <translation>メディアを読み込み、サムネイルを生成中。</translation>
-    </message>
-    <message>
-        <source>More emoji</source>
-        <translation>その他の絵文字</translation>
     </message>
     <message>
         <source>More import options</source>
@@ -4877,6 +4531,16 @@
             <numerusform>%n 個の項目を削除しました。</numerusform>
         </translation>
     </message>
+    <message numerus="yes">
+        <source>Imported %n files into %1 folders. %2 files were skipped — Flip Studio does not recognize their format. Drag them onto the bin to try anyway.</source>
+        <translation>
+            <numerusform>%n 個のファイルを %1 フォルダーにインポートしました。%2 個のファイルはスキップされました — Flip Studio はその形式を認識できませんでした。それでも試してみたい場合は、それらのファイルをゴミ箱にドラッグしてください。</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Sound effects</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AudioEffectBrowser</name>
@@ -4893,28 +4557,16 @@
         <translation>オーディオエフェクトをインストール</translation>
     </message>
     <message>
-        <source>Drag a preset onto a clip, or click to apply to the selection</source>
-        <translation>プリセットをクリップにドラッグするか、クリックして選択範囲に適用</translation>
-    </message>
-    <message>
-        <source>Drag a preset onto a clip in the timeline</source>
-        <translation>プリセットをタイムライン上のクリップにドラッグ</translation>
-    </message>
-    <message>
         <source>Search audio effects</source>
         <translation>オーディオエフェクトを検索</translation>
     </message>
     <message>
-        <source>Import audio effect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Install a custom audio effect or effect from a .driftfx file made in Drift Forge</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge で作成した .driftfx ファイルから、カスタムオーディオエフェクトまたはエフェクトをインストールします</translation>
     </message>
     <message>
         <source>My Audio Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>マイオーディオエフェクト</translation>
     </message>
     <message>
         <source>No audio effects match “%1”.</source>
@@ -4922,7 +4574,7 @@
     </message>
     <message>
         <source>Nothing here yet. Import a .driftfx file to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>まだ何もありません。.driftfx ファイルをインポートして独自のものを追加してください。</translation>
     </message>
     <message>
         <source>No favorites yet. Star presets to save them here.</source>
@@ -4934,19 +4586,35 @@
     </message>
     <message>
         <source>%1 is empty</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 は空です</translation>
     </message>
     <message>
         <source>Import a .driftfx file made in Drift Forge to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge で作成した .driftfx ファイルをインポートして、独自のものを追加してください。</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished">インポート</translation>
+        <translation>インポート</translation>
+    </message>
+    <message>
+        <source>%1 — click to apply to the selection, or drag onto a clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — drag onto a clip in the timeline</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
         <translation>選択クリップに適用</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>お気に入りから削除</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>お気に入りに追加</translation>
     </message>
 </context>
 <context>
@@ -5004,11 +4672,11 @@
     </message>
     <message>
         <source>Move to a time, set a value, then click the diamond to add a keyframe. With Auto keyframes on, dragging a slider also creates them.</source>
-        <translation type="unfinished">時間を移動し、値を設定して、ダイヤモンドをクリックしてキーフレームを追加します。自動キーフレームがオンの場合、スライダーをドラッグしてもキーフレームが作成されます。</translation>
+        <translation>時間を移動し、値を設定して、ダイヤモンドをクリックしてキーフレームを追加します。自動キーフレームがオンの場合、スライダーをドラッグしてもキーフレームが作成されます。</translation>
     </message>
     <message>
         <source>Auto keyframes</source>
-        <translation type="unfinished">自動キーフレーム</translation>
+        <translation>自動キーフレーム</translation>
     </message>
     <message>
         <source>%1 (not installed)</source>
@@ -5056,14 +4724,6 @@
     <message>
         <source>%1 words per caption</source>
         <translation>キャプションあたり %1 単語</translation>
-    </message>
-    <message>
-        <source>No audio</source>
-        <translation>音声なし</translation>
-    </message>
-    <message>
-        <source>This clip has no audio track.</source>
-        <translation>このクリップにはオーディオトラックがありません。</translation>
     </message>
     <message>
         <source>Pan</source>
@@ -5310,14 +4970,6 @@
 <context>
     <name>BlendingInspector</name>
     <message>
-        <source>Video only</source>
-        <translation>ビデオのみ</translation>
-    </message>
-    <message>
-        <source>This tab does not apply to audio clips.</source>
-        <translation>このタブはオーディオクリップには適用されません。</translation>
-    </message>
-    <message>
         <source>Blend mode</source>
         <translation>ブレンドモード</translation>
     </message>
@@ -5366,43 +5018,43 @@
     <name>CameraInspector</name>
     <message>
         <source>Pan X</source>
-        <translation type="unfinished"></translation>
+        <translation>パン X</translation>
     </message>
     <message>
         <source>Pan Y</source>
-        <translation type="unfinished"></translation>
+        <translation>パン Y</translation>
     </message>
     <message>
         <source>Dolly</source>
-        <translation type="unfinished"></translation>
+        <translation>Dolly</translation>
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"></translation>
+        <translation>ピッチ</translation>
     </message>
     <message>
         <source>Yaw</source>
-        <translation type="unfinished"></translation>
+        <translation>Yaw</translation>
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"></translation>
+        <translation>ロール</translation>
     </message>
     <message>
         <source>Lens</source>
-        <translation type="unfinished"></translation>
+        <translation>レンズ</translation>
     </message>
     <message>
         <source>Select a camera clip to frame the shot.</source>
-        <translation type="unfinished"></translation>
+        <translation>ショットを決めるには、カメラクリップを選択してください。</translation>
     </message>
     <message>
         <source>Everything on the timeline is seen through this camera while the clip lasts. A camera at rest looks exactly like no camera at all, so the numbers below are all offsets from the normal view.</source>
-        <translation type="unfinished"></translation>
+        <translation>クリップが続く間、タイムライン上のすべてはこのカメラを通して見られます。静止状態のカメラはカメラなしとまったく同じ見え方になるため、以下の数値はすべて通常の表示からのオフセットです。</translation>
     </message>
     <message>
         <source>A short lens exaggerates depth; a long one flattens it. While this camera is running it replaces each clip&apos;s own Perspective value, because a scene has one viewer.</source>
-        <translation type="unfinished"></translation>
+        <translation>短いレンズは奥行きを誇張し、長いレンズは平坦にします。このカメラが動作している間は、シーンには 1人の視聴者しかいないため、各クリップ自身のパースペクティブ値が置き換えられます。</translation>
     </message>
     <message>
         <source>Reset camera position</source>
@@ -5417,11 +5069,11 @@
     <name>ChannelKeyButton</name>
     <message>
         <source>Remove %1 keyframe at the playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>再生ヘッド位置の %1 キーフレームを削除</translation>
     </message>
     <message>
         <source>Add %1 keyframe at the playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>再生ヘッド位置に %1 キーフレームを追加</translation>
     </message>
 </context>
 <context>
@@ -5479,6 +5131,10 @@
     <message>
         <source>Click a colour to pick it. Esc cancels.</source>
         <translation>色をクリックして選択します。Esc でキャンセル。</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
     </message>
 </context>
 <context>
@@ -5738,6 +5394,93 @@
     </message>
 </context>
 <context>
+    <name>DenoiseController</name>
+    <message>
+        <source>Getting noise removal ready…</source>
+        <translation>ノイズ除去の準備中…</translation>
+    </message>
+    <message>
+        <source>Clip is too short to process</source>
+        <translation>クリップが短すぎて処理できません</translation>
+    </message>
+    <message>
+        <source>Reading audio…</source>
+        <translation>音声を読み取り中…</translation>
+    </message>
+    <message>
+        <source>Noise removal cancelled</source>
+        <translation>ノイズ除去をキャンセルしました</translation>
+    </message>
+    <message>
+        <source>No audio decoded</source>
+        <translation>音声がデコードされていません</translation>
+    </message>
+    <message>
+        <source>Removing noise (left)…</source>
+        <translation>ノイズ除去中 (左)…</translation>
+    </message>
+    <message>
+        <source>Removing noise (right)…</source>
+        <translation>ノイズ除去中 (右)…</translation>
+    </message>
+    <message>
+        <source>Writing audio…</source>
+        <translation>音声を書き込み中…</translation>
+    </message>
+    <message>
+        <source>Noise removal already in progress</source>
+        <translation>ノイズ除去は既に実行中です</translation>
+    </message>
+    <message>
+        <source>Select a video or audio clip</source>
+        <translation>ビデオまたはオーディオクリップを選択してください</translation>
+    </message>
+    <message>
+        <source>Clip has no audio</source>
+        <translation>クリップに音声がありません</translation>
+    </message>
+    <message>
+        <source>Starting…</source>
+        <translation>開始中…</translation>
+    </message>
+    <message>
+        <source>Could not create a preview file</source>
+        <translation>プレビューファイルを作成できませんでした</translation>
+    </message>
+    <message>
+        <source>Ready</source>
+        <translation>準備完了</translation>
+    </message>
+    <message>
+        <source>Removing noise…</source>
+        <translation>ノイズ除去中…</translation>
+    </message>
+    <message>
+        <source>Could not create an output file</source>
+        <translation>出力ファイルを作成できませんでした</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>完了</translation>
+    </message>
+    <message>
+        <source>Clip</source>
+        <translation>クリップ</translation>
+    </message>
+    <message>
+        <source> (denoised)</source>
+        <translation> (ノイズ除去済み)</translation>
+    </message>
+    <message>
+        <source>Remove noise</source>
+        <translation>ノイズ除去</translation>
+    </message>
+    <message>
+        <source>Noise removed</source>
+        <translation>ノイズを除去しました</translation>
+    </message>
+</context>
+<context>
     <name>DenoiseWindow</name>
     <message>
         <source>Remove noise</source>
@@ -5778,6 +5521,41 @@
     <message>
         <source>Cancel</source>
         <translation>キャンセル</translation>
+    </message>
+</context>
+<context>
+    <name>DepthController</name>
+    <message>
+        <source>Select a video or image clip to estimate depth for</source>
+        <translation>深度を推定するビデオまたは画像クリップを選択してください</translation>
+    </message>
+    <message>
+        <source>Clip has no video to estimate depth for</source>
+        <translation>クリップに深度を推定するためのビデオがありません</translation>
+    </message>
+    <message>
+        <source>Depth estimation needs the Depth addon</source>
+        <translation>深度の推定には Depth アドオンが必要です</translation>
+    </message>
+    <message>
+        <source>Depth is already being estimated for this clip</source>
+        <translation>このクリップの深度はすでに推定中です</translation>
+    </message>
+    <message>
+        <source>Estimating depth…</source>
+        <translation>深度を推定中…</translation>
+    </message>
+    <message>
+        <source>Clip no longer exists</source>
+        <translation>クリップはもう存在しません</translation>
+    </message>
+    <message>
+        <source>Estimate Depth</source>
+        <translation>深度を推定</translation>
+    </message>
+    <message>
+        <source>Clear Depth</source>
+        <translation>深度をクリア</translation>
     </message>
 </context>
 <context>
@@ -6028,10 +5806,6 @@
         <translation>このビルドではマーケットプレイスを利用できません。</translation>
     </message>
     <message>
-        <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
-        <translation>Flip Studio Assets を読み込めませんでした。接続を確認して再試行してください。</translation>
-    </message>
-    <message>
         <source>That asset could not be installed.</source>
         <translation>そのアセットをインストールできませんでした。</translation>
     </message>
@@ -6054,6 +5828,10 @@
     <message>
         <source>Could not add that asset to the media bin.</source>
         <translation>そのアセットをメディアビンに追加できませんでした。</translation>
+    </message>
+    <message>
+        <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
+        <translation>Flip Studio Assets を読み込めませんでした。接続を確認して再試行してください。</translation>
     </message>
 </context>
 <context>
@@ -6079,20 +5857,12 @@
         <translation>メディアビンに追加しました</translation>
     </message>
     <message>
-        <source>Couldn’t load Flip Studio Assets</source>
-        <translation>Flip Studio Assets を読み込めませんでした</translation>
-    </message>
-    <message>
         <source>Try again</source>
         <translation>再試行</translation>
     </message>
     <message>
         <source>No assets here yet</source>
         <translation>ここにはまだアセットがありません</translation>
-    </message>
-    <message>
-        <source>Flip Studio Assets are still being published. Check back soon.</source>
-        <translation>Flip Studio Assets は順次公開されています。しばらくしてからもう一度ご確認ください。</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -6107,20 +5877,24 @@
         <translation>すべてのアセット</translation>
     </message>
     <message>
-        <source>No Flip Studio Assets match “%1”.</source>
-        <translation>“%1” に一致する Flip Studio Assets はありません。</translation>
-    </message>
-    <message>
         <source>Search %1 for “%2”</source>
         <translation>%1 で“%2”を検索</translation>
+    </message>
+    <message>
+        <source>Couldn’t load Flip Studio Assets</source>
+        <translation>Flip Studio Assets を読み込めませんでした</translation>
+    </message>
+    <message>
+        <source>Flip Studio Assets are still being published. Check back soon.</source>
+        <translation>Flip Studio Assets は順次公開されています。しばらくしてからもう一度ご確認ください。</translation>
+    </message>
+    <message>
+        <source>No Flip Studio Assets match “%1”.</source>
+        <translation>“%1” に一致する Flip Studio Assets はありません。</translation>
     </message>
 </context>
 <context>
     <name>EditorHeader</name>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Flip Studio プロジェクト (*.drift)</translation>
-    </message>
     <message>
         <source>Save Project</source>
         <translation>プロジェクトを保存</translation>
@@ -6152,10 +5926,6 @@
     <message>
         <source>Save Shareable Copy</source>
         <translation>共有可能なコピーを保存</translation>
-    </message>
-    <message>
-        <source>Home — your projects</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Projects</source>
@@ -6228,6 +5998,10 @@
         <translation>言語…</translation>
     </message>
     <message>
+        <source>Switch to mobile layout…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Debug info…</source>
         <translation>デバッグ情報…</translation>
     </message>
@@ -6254,10 +6028,6 @@
     <message>
         <source>Update</source>
         <translation>アップデート</translation>
-    </message>
-    <message>
-        <source>Flip Studio %1 is available</source>
-        <translation>Flip Studio %1 が利用可能です</translation>
     </message>
     <message>
         <source>Agent access</source>
@@ -6303,6 +6073,18 @@
         <source>Theme</source>
         <translation>テーマ</translation>
     </message>
+    <message>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>Flip Studio プロジェクト (*.drift)</translation>
+    </message>
+    <message>
+        <source>Home — your projects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is available</source>
+        <translation>Flip Studio %1 が利用可能です</translation>
+    </message>
 </context>
 <context>
     <name>EffectBrowser</name>
@@ -6319,24 +6101,8 @@
         <translation>拡張機能を入手</translation>
     </message>
     <message>
-        <source>Drag a preset onto a clip, or click to apply to the selection</source>
-        <translation>プリセットをクリップにドラッグするか、クリックして選択範囲に適用</translation>
-    </message>
-    <message>
-        <source>Click to add as adjustment layer, or drag onto a clip</source>
-        <translation>クリックして調整レイヤーとして追加するか、クリップ上にドラッグしてください</translation>
-    </message>
-    <message>
         <source>Search effects</source>
         <translation>エフェクトを検索</translation>
-    </message>
-    <message>
-        <source>Add adjustment layer</source>
-        <translation>調整レイヤーを追加</translation>
-    </message>
-    <message>
-        <source>Add an adjustment layer to apply effects across all clips underneath, or drag it to where it should go</source>
-        <translation>下にあるすべてのクリップにエフェクトを適用するには調整レイヤーを追加するか、配置したい場所にドラッグしてください</translation>
     </message>
     <message>
         <source>Adjustment layer</source>
@@ -6344,15 +6110,19 @@
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished">インポート</translation>
+        <translation>インポート</translation>
     </message>
     <message>
         <source>Install a custom effect or transition from a .driftfx file made in Drift Forge</source>
+        <translation>Drift Forge で作成した .driftfx ファイルから、カスタムエフェクトまたはトランジションをインストールします</translation>
+    </message>
+    <message>
+        <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>My Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>マイエフェクト</translation>
     </message>
     <message>
         <source>No effects match “%1”.</source>
@@ -6360,7 +6130,7 @@
     </message>
     <message>
         <source>Nothing here yet. Import a .driftfx file to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>まだ何もありません。.driftfx ファイルをインポートして独自のものを追加してください。</translation>
     </message>
     <message>
         <source>No favorites yet. Star presets to save them here.</source>
@@ -6372,10 +6142,18 @@
     </message>
     <message>
         <source>%1 is empty</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 は空です</translation>
     </message>
     <message>
         <source>Import a .driftfx file made in Drift Forge to add your own.</source>
+        <translation>Drift Forge で作成した .driftfx ファイルをインポートして、独自のものを追加してください。</translation>
+    </message>
+    <message>
+        <source>%1 — click to apply to the selection, or drag onto a clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6383,8 +6161,16 @@
         <translation>選択クリップに適用</translation>
     </message>
     <message>
+        <source>Remove from favorites</source>
+        <translation>お気に入りから削除</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>お気に入りに追加</translation>
+    </message>
+    <message>
         <source>Delete from My Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>マイエフェクトから削除</translation>
     </message>
     <message>
         <source>Built-in</source>
@@ -6392,21 +6178,21 @@
     </message>
     <message>
         <source>Delete effect</source>
-        <translation type="unfinished"></translation>
+        <translation>エフェクトを削除</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">削除</translation>
+        <translation>削除</translation>
     </message>
     <message numerus="yes">
         <source>Delete “%1” from My Effects? It is used %n time(s) in this project, and those clips will play without it.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>「%1」をマイエフェクトから削除しますか？このプロジェクトで %n 回使用されており、それらのクリップはこれなしで再生されます。</numerusform>
         </translation>
     </message>
     <message>
         <source>Delete “%1” from My Effects? You can import its .driftfx file again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>「%1」をマイエフェクトから削除しますか？あとで .driftfx ファイルを再度インポートできます。</translation>
     </message>
 </context>
 <context>
@@ -6463,10 +6249,6 @@
 <context>
     <name>EffectStacksSection</name>
     <message>
-        <source>Flip Studio effect stack (*.drifteffects)</source>
-        <translation>Flip Studio エフェクトスタック (*.drifteffects)</translation>
-    </message>
-    <message>
         <source>Import effect stack</source>
         <translation>エフェクトスタックをインポート</translation>
     </message>
@@ -6475,16 +6257,16 @@
         <translation>エフェクトスタックをエクスポート</translation>
     </message>
     <message>
-        <source>My presets</source>
-        <translation>マイプリセット</translation>
-    </message>
-    <message>
-        <source>Import an effect stack…</source>
-        <translation>エフェクトスタックをインポート…</translation>
+        <source>No saved presets</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tune a clip&apos;s effects, then use “Save as preset…” in the properties Effects tab to keep them here.</source>
         <translation>クリップのエフェクトを調整し、プロパティのエフェクトタブで「プリセットとして保存…」を使用してここに保存します。</translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation>インポート</translation>
     </message>
     <message>
         <source>+%1 more</source>
@@ -6518,6 +6300,10 @@
         <source>Remove “%1” from your saved presets? Clips already using it keep their effects.</source>
         <translation>保存済みプリセットから「%1」を削除しますか?既に使用しているクリップのエフェクトは維持されます。</translation>
     </message>
+    <message>
+        <source>Flip Studio effect stack (*.drifteffects)</source>
+        <translation>Flip Studio エフェクトスタック (*.drifteffects)</translation>
+    </message>
 </context>
 <context>
     <name>EffectTemplateBrowser</name>
@@ -6534,16 +6320,16 @@
         <translation>拡張機能を入手</translation>
     </message>
     <message>
-        <source>Click a template to apply music-synced effects to the selection</source>
-        <translation>テンプレートをクリックして、音楽に同期したエフェクトを選択範囲に適用</translation>
-    </message>
-    <message>
-        <source>Select a clip, then click a template to apply</source>
-        <translation>クリップを選択し、テンプレートをクリックして適用</translation>
-    </message>
-    <message>
         <source>Search templates</source>
         <translation>テンプレートを検索</translation>
+    </message>
+    <message>
+        <source>Import an effect stack…</source>
+        <translation>エフェクトスタックをインポート…</translation>
+    </message>
+    <message>
+        <source>My presets</source>
+        <translation>マイプリセット</translation>
     </message>
     <message>
         <source>No templates match “%1”.</source>
@@ -6556,6 +6342,22 @@
     <message>
         <source>Nothing in this category.</source>
         <translation>このカテゴリには何もありません。</translation>
+    </message>
+    <message>
+        <source>%1 — click to apply music-synced effects to the selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — select a clip, then click to apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>お気に入りから削除</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>お気に入りに追加</translation>
     </message>
     <message>
         <source>Needs cutout</source>
@@ -6757,7 +6559,7 @@
     </message>
     <message>
         <source>%1 opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 の不透明度</translation>
     </message>
     <message>
         <source>Automatic (clip beneath)</source>
@@ -7076,10 +6878,6 @@
         <translation>prop.json はフェイスプロップではありません</translation>
     </message>
     <message>
-        <source>prop.json needs a newer version of Flip Studio</source>
-        <translation>prop.json にはより新しいバージョンの Flip Studio が必要です</translation>
-    </message>
-    <message>
         <source>invalid prop id “%1”</source>
         <translation>プロップ ID “%1” が無効です</translation>
     </message>
@@ -7167,6 +6965,10 @@
         <source>Could not delete “%1”</source>
         <translation>“%1” を削除できませんでした</translation>
     </message>
+    <message>
+        <source>prop.json needs a newer version of Flip Studio</source>
+        <translation>prop.json にはより新しいバージョンの Flip Studio が必要です</translation>
+    </message>
 </context>
 <context>
     <name>FacePropPicker</name>
@@ -7225,6 +7027,77 @@
     <message>
         <source>“%1” will be removed from your face props. Effects using it will show it as missing until it is imported again.</source>
         <translation>「%1」はフェイスプロップから削除されます。これを使用しているエフェクトは、再度インポートされるまで見つからない状態として表示されます。</translation>
+    </message>
+</context>
+<context>
+    <name>FaceTrackingController</name>
+    <message>
+        <source>Clear Face Track</source>
+        <translation>顔トラックをクリア</translation>
+    </message>
+    <message>
+        <source>Face detection already in progress</source>
+        <translation>顔検出は既に実行中です</translation>
+    </message>
+    <message>
+        <source>Select a video clip to detect faces in</source>
+        <translation>顔を検出するビデオクリップを選択してください</translation>
+    </message>
+    <message>
+        <source>Clip has no video to scan</source>
+        <translation>クリップにスキャンするビデオがありません</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>準備中…</translation>
+    </message>
+    <message>
+        <source>Detecting faces…</source>
+        <translation>顔を検出中…</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>完了</translation>
+    </message>
+    <message>
+        <source>Clip is too short to scan</source>
+        <translation>クリップが短すぎてスキャンできません</translation>
+    </message>
+    <message>
+        <source>Face detection cancelled</source>
+        <translation>顔検出をキャンセルしました</translation>
+    </message>
+    <message>
+        <source>Could not decode frame %1</source>
+        <translation>フレーム %1 をデコードできませんでした</translation>
+    </message>
+    <message>
+        <source>Scanning frame %1 of %2…</source>
+        <translation>フレーム %1 / %2 をスキャン中…</translation>
+    </message>
+    <message>
+        <source>No faces found in this clip</source>
+        <translation>このクリップに顔は見つかりませんでした</translation>
+    </message>
+    <message>
+        <source>Could not write the face track</source>
+        <translation>顔トラックを書き込めませんでした</translation>
+    </message>
+    <message>
+        <source>Face detection complete — a face was visible in %1 of %2 frames</source>
+        <translation>顔検出完了 — %2 フレーム中 %1 フレームで顔が見えました</translation>
+    </message>
+    <message>
+        <source>Face detection complete</source>
+        <translation>顔検出完了</translation>
+    </message>
+    <message>
+        <source>Scanned clip no longer exists</source>
+        <translation>スキャンしたクリップが存在しなくなりました</translation>
+    </message>
+    <message>
+        <source>Detect Faces</source>
+        <translation>顔を検出</translation>
     </message>
 </context>
 <context>
@@ -7316,6 +7189,38 @@
 <context>
     <name>FontCatalog</name>
     <message>
+        <source>Choose a .ttf, .otf or .ttc font file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create the fonts folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not copy the font file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>That file is not a usable font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>High-Impact &amp; Bold</source>
+        <translation>ハイインパクト / ボールド</translation>
+    </message>
+    <message>
+        <source>Clean &amp; Minimal</source>
+        <translation>クリーン / ミニマル</translation>
+    </message>
+    <message>
+        <source>Classy &amp; Editorial</source>
+        <translation>クラシー / エディトリアル</translation>
+    </message>
+    <message>
+        <source>Creative &amp; Playful</source>
+        <translation>クリエイティブ / プレイフル</translation>
+    </message>
+    <message>
         <source>My fonts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7343,31 +7248,27 @@
         <source>Retro</source>
         <translation type="unfinished">レトロ</translation>
     </message>
-    <message>
-        <source>High-Impact &amp; Bold</source>
-        <translation>ハイインパクト / ボールド</translation>
-    </message>
-    <message>
-        <source>Clean &amp; Minimal</source>
-        <translation>クリーン / ミニマル</translation>
-    </message>
-    <message>
-        <source>Classy &amp; Editorial</source>
-        <translation>クラシー / エディトリアル</translation>
-    </message>
-    <message>
-        <source>Creative &amp; Playful</source>
-        <translation>クリエイティブ / プレイフル</translation>
-    </message>
 </context>
 <context>
     <name>FontPicker</name>
     <message>
-        <source>Select a font</source>
+        <source>My fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the font pack for curated families →</source>
+        <translation>厳選されたフォントファミリーを入手するにはフォントパックをインストール →</translation>
+    </message>
+    <message>
+        <source>Select a font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7376,10 +7277,6 @@
     </message>
     <message>
         <source>Fonts (*.ttf *.otf)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7393,10 +7290,6 @@
     <message>
         <source>Recent</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Install the font pack for curated families →</source>
-        <translation>厳選されたフォントファミリーを入手するにはフォントパックをインストール →</translation>
     </message>
     <message>
         <source>No fonts match “%1”</source>
@@ -7482,28 +7375,12 @@
         <translation>元のサイズ : %1 × %2</translation>
     </message>
     <message>
-        <source>Source frame box</source>
-        <translation>ソースフレームボックス</translation>
-    </message>
-    <message>
-        <source>Unlock source frame ratio</source>
-        <translation>ソースのフレーム比率のロックを解除</translation>
-    </message>
-    <message>
-        <source>Lock source frame ratio</source>
-        <translation>ソースのフレーム比率をロック</translation>
-    </message>
-    <message>
         <source>Width</source>
         <translation>幅</translation>
     </message>
     <message>
         <source>Height</source>
         <translation>高さ</translation>
-    </message>
-    <message>
-        <source>Edit source frame…</source>
-        <translation>ソースフレームを編集…</translation>
     </message>
     <message>
         <source>Starts at</source>
@@ -7528,6 +7405,22 @@
     <message>
         <source>Trim</source>
         <translation>トリム</translation>
+    </message>
+    <message>
+        <source>Crop</source>
+        <translation>クロップ</translation>
+    </message>
+    <message>
+        <source>Unlock crop ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock crop ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Which part of the original file this clip plays</source>
@@ -8318,6 +8211,10 @@
         <translation>ガイドの切り替え</translation>
     </message>
     <message>
+        <source>Switch to Mobile Layout…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Window</source>
         <translation>ウィンドウ(&amp;W)</translation>
     </message>
@@ -8358,20 +8255,12 @@
         <translation>更新の確認…</translation>
     </message>
     <message>
-        <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Settings…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Debug Info…</source>
         <translation>デバッグ情報…</translation>
-    </message>
-    <message>
-        <source>Flip Studio %1 is the latest version.</source>
-        <translation type="unfinished">Flip Studio %1 は最新バージョンです。</translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -8391,6 +8280,10 @@
     </message>
     <message>
         <source>Checking for updates…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Links can’t be opened in this layout.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8432,6 +8325,14 @@
     <message>
         <source>Imported from the marketplace.</source>
         <translation>マーケットプレイスからインポートされました。</translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation type="unfinished">Flip Studio %1 は最新バージョンです。</translation>
     </message>
 </context>
 <context>
@@ -8556,16 +8457,16 @@
         <translation>ダウンロードの成功、完了、または指定した画質・音質での取得を保証するものではありません。一部のアイテムは正常に取得できない場合があります。</translation>
     </message>
     <message>
-        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>提供されるコンテンツはすべてサードパーティによるものです。Flip Studio がこれをホスト、所有、審査することはありません。ダウンロードした素材の使用権限の確認は利用者の責任で行ってください。</translation>
-    </message>
-    <message>
         <source>I understand</source>
         <translation>理解しました</translation>
     </message>
     <message>
         <source>Continue to the marketplace</source>
         <translation>マーケットプレイスへ進む</translation>
+    </message>
+    <message>
+        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
+        <translation>提供されるコンテンツはすべてサードパーティによるものです。Flip Studio がこれをホスト、所有、審査することはありません。ダウンロードした素材の使用権限の確認は利用者の責任で行ってください。</translation>
     </message>
 </context>
 <context>
@@ -8599,7 +8500,7 @@
     </message>
     <message>
         <source>Search sound effects</source>
-        <translation type="unfinished"></translation>
+        <translation>効果音を検索</translation>
     </message>
     <message>
         <source>Search, or paste a link</source>
@@ -8611,7 +8512,7 @@
     </message>
     <message>
         <source>SFX</source>
-        <translation type="unfinished"></translation>
+        <translation>効果音</translation>
     </message>
     <message>
         <source>Stock footage</source>
@@ -8806,6 +8707,10 @@
         <source>Select a clip first, or drag the mask onto one</source>
         <translation>まずクリップを選択するか、マスクをクリップにドラッグしてください</translation>
     </message>
+    <message>
+        <source>Apply to selected clip</source>
+        <translation>選択クリップに適用</translation>
+    </message>
 </context>
 <context>
     <name>MediaAssetsTab</name>
@@ -8848,6 +8753,14 @@
     <message>
         <source>3D</source>
         <translation>3D</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PDF (needs the PDF Viewer addon)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Search media</source>
@@ -8959,7 +8872,7 @@
     </message>
     <message>
         <source>Save As…</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を付けて保存…</translation>
     </message>
     <message>
         <source>Remove from project</source>
@@ -9030,6 +8943,131 @@
         <translation>
             <numerusform>%n 個の項目をプロジェクトから削除</numerusform>
         </translation>
+    </message>
+</context>
+<context>
+    <name>MediaBinController</name>
+    <message>
+        <source>Folder created</source>
+        <translation>フォルダーを作成しました</translation>
+    </message>
+    <message>
+        <source>Folder renamed</source>
+        <translation>フォルダー名を変更しました</translation>
+    </message>
+    <message>
+        <source>Folder moved</source>
+        <translation>フォルダーを移動しました</translation>
+    </message>
+    <message>
+        <source>Folder deleted</source>
+        <translation>フォルダーを削除しました</translation>
+    </message>
+    <message>
+        <source>Media moved</source>
+        <translation>メディアを移動しました</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n items moved</source>
+        <translation>
+            <numerusform>%n 個の項目を移動しました</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>That file could not be read.</source>
+        <translation>そのファイルは読み取れませんでした。</translation>
+    </message>
+    <message>
+        <source>That file is already in this project.</source>
+        <translation>そのファイルはこのプロジェクトに既に存在します。</translation>
+    </message>
+    <message>
+        <source>An edit is already saving</source>
+        <translation>編集は既に保存中です</translation>
+    </message>
+    <message>
+        <source>Could not open the media file</source>
+        <translation>メディアファイルを開けませんでした</translation>
+    </message>
+    <message>
+        <source>Crop image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Media trimmed</source>
+        <translation>メディアがトリミングされました</translation>
+    </message>
+    <message>
+        <source>Trim saved</source>
+        <translation>トリミングが保存されました</translation>
+    </message>
+    <message>
+        <source>Could not create an output file</source>
+        <translation>出力ファイルを作成できませんでした</translation>
+    </message>
+    <message>
+        <source>%1 (trimmed)</source>
+        <translation>%1 (トリミング済み)</translation>
+    </message>
+    <message>
+        <source>Rendering…</source>
+        <translation>レンダリング中…</translation>
+    </message>
+    <message>
+        <source>Render Trimmed Copy</source>
+        <translation>トリミングしたコピーをレンダリング</translation>
+    </message>
+    <message>
+        <source>Couldn’t save that edit</source>
+        <translation>その編集を保存できませんでした</translation>
+    </message>
+    <message>
+        <source>Converting…</source>
+        <translation>変換中…</translation>
+    </message>
+    <message>
+        <source>Saving…</source>
+        <translation>保存中…</translation>
+    </message>
+    <message>
+        <source>Converting %1 to an edit-friendly format…</source>
+        <translation>%1 を編集に適した形式に変換中…</translation>
+    </message>
+    <message>
+        <source>Saving media…</source>
+        <translation>メディアを保存中…</translation>
+    </message>
+    <message>
+        <source>Updating the library…</source>
+        <translation>ライブラリを更新中…</translation>
+    </message>
+    <message>
+        <source>Couldn’t update the library</source>
+        <translation>ライブラリを更新できませんでした</translation>
+    </message>
+    <message>
+        <source>That media is no longer in this project.</source>
+        <translation>そのメディアはこのプロジェクトに存在しません。</translation>
+    </message>
+    <message>
+        <source>“%1” is %2, but this slot holds %3.</source>
+        <translation>「%1」は %2 ですが、このスロットは %3 を保持しています。</translation>
+    </message>
+    <message>
+        <source>Media edited</source>
+        <translation>メディアを編集しました</translation>
+    </message>
+    <message>
+        <source>Media replaced</source>
+        <translation>メディアを置き換えました</translation>
     </message>
 </context>
 <context>
@@ -9126,14 +9164,6 @@
         <translation>クリップを再生し、端をドラッグして必要な部分だけを保持します。保存すると、メディアビンのこの項目が置き換えられます。</translation>
     </message>
     <message>
-        <source>Drag the frame to crop. Save replaces this item in the media bin — then drag it onto the timeline.</source>
-        <translation>フレームをドラッグしてクロップします。保存すると、メディアビンのこの項目が置き換えられます — その後タイムラインにドラッグします。</translation>
-    </message>
-    <message>
-        <source>Drag the frame to choose the area to use. The original video stays available for reframing.</source>
-        <translation>フレームをドラッグして使用する領域を選択します。元のビデオはリフレーム用にそのまま保持されます。</translation>
-    </message>
-    <message>
         <source>Pause</source>
         <translation>一時停止</translation>
     </message>
@@ -9148,18 +9178,6 @@
     <message>
         <source>Set Out</source>
         <translation>アウトを設定</translation>
-    </message>
-    <message>
-        <source>Original: %1×%2 • Frame: %3×%4</source>
-        <translation>オリジナル: %1×%2 • フレーム: %3×%4</translation>
-    </message>
-    <message>
-        <source>Unlock source frame ratio</source>
-        <translation>ソースのフレーム比率のロックを解除</translation>
-    </message>
-    <message>
-        <source>Lock source frame ratio</source>
-        <translation>ソースのフレーム比率をロック</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -9186,32 +9204,60 @@
         <translation>この解像度はほとんどのプロジェクトで十分です。それでもアップスケールすることは可能です。</translation>
     </message>
     <message>
-        <source>Done keeps the original video and stores this range and framing. Upscale renders them as a new video in the media bin, then opens it in the Enhance window.</source>
-        <translation>「完了」では元のビデオを保持したまま、この範囲とフレーミングを保存します。「アップスケール」では、それらを新しいビデオとしてメディアビンにレンダリングし、強化ウィンドウで開きます。</translation>
-    </message>
-    <message>
         <source>Saving…</source>
         <translation>保存中…</translation>
-    </message>
-    <message>
-        <source>Choose the part and framing to keep, then Next.</source>
-        <translation>保持する部分とフレーミングを選択し、「次へ」を押してください。</translation>
-    </message>
-    <message>
-        <source>Save writes a new file over this item in the bin.</source>
-        <translation>保存すると、ビン内のこの項目に新しいファイルが書き込まれます。</translation>
-    </message>
-    <message>
-        <source>Save keeps the original video and stores this framing.</source>
-        <translation>保存すると元のビデオは保持され、このフレーミングが保存されます。</translation>
     </message>
     <message>
         <source>Nothing to save — drag this item onto the timeline when you are ready.</source>
         <translation>保存するものはありません — 準備ができたらこの項目をタイムラインにドラッグしてください。</translation>
     </message>
     <message>
-        <source>Adjust the frame or Reset to restore the full image.</source>
-        <translation>フレームを調整するか、「リセット」で画像全体を元に戻します。</translation>
+        <source>Crop — %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop</source>
+        <translation>クロップ</translation>
+    </message>
+    <message>
+        <source>Drag the box to crop. The original image stays available, so the crop can be changed later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag the box to crop. The original video stays available, so the crop can be changed later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Original: %1×%2 • Crop: %3×%4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlock crop ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock crop ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done keeps the original video and stores this range and crop. Upscale renders them as a new video in the media bin, then opens it in the Enhance window.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose the part and crop to keep, then Next.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save keeps the original file and stores this crop.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save keeps the original file and stores this trim.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adjust the crop or Reset to restore the full picture.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -9555,7 +9601,7 @@
     </message>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラ</translation>
     </message>
     <message>
         <source>New track</source>
@@ -9760,15 +9806,106 @@
     </message>
 </context>
 <context>
+    <name>PdfClipRenderer</name>
+    <message>
+        <source>Install the PDF viewer addon to show this PDF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Can&apos;t open this PDF</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PdfInspector</name>
+    <message>
+        <source>PDF pages need the PDF Viewer addon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install PDF Viewer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n page(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>First page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Column</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Row</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How the pages are arranged</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Columns</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Viewport</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scroll X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scroll Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PdfSource</name>
+    <message>
+        <source>Scroll X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scroll Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PlaybackEngine</name>
-    <message>
-        <source>%1 decodes on %2, but Flip Studio draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 は %2 でデコードされますが、Flip Studio は %3 で描画されます。すべてのフレームがシステムメモリを経由してコピーされるため、描画を行うグラフィックカード上でデコードするよりも処理速度が遅くなります。</translation>
-    </message>
-    <message>
-        <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 は、Flip Studio が描画を行うグラフィックカードとは別のグラフィックカード上でデコードを行います。各フレームはシステムメモリを経由してコピーされるため、描画を行うグラフィックカード上でデコードを行う場合よりも処理速度が遅くなります。</translation>
-    </message>
     <message>
         <source>Auto</source>
         <translation>自動</translation>
@@ -9780,6 +9917,14 @@
     <message>
         <source>Hardware (%1)</source>
         <translation>ハードウェア (%1)</translation>
+    </message>
+    <message>
+        <source>%1 decodes on %2, but Flip Studio draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>%1 は %2 でデコードされますが、Flip Studio は %3 で描画されます。すべてのフレームがシステムメモリを経由してコピーされるため、描画を行うグラフィックカード上でデコードするよりも処理速度が遅くなります。</translation>
+    </message>
+    <message>
+        <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>%1 は、Flip Studio が描画を行うグラフィックカードとは別のグラフィックカード上でデコードを行います。各フレームはシステムメモリを経由してコピーされるため、描画を行うグラフィックカード上でデコードを行う場合よりも処理速度が遅くなります。</translation>
     </message>
 </context>
 <context>
@@ -9852,6 +9997,10 @@
 <context>
     <name>PreferencesController</name>
     <message>
+        <source>System default</source>
+        <translation>システムデフォルト</translation>
+    </message>
+    <message>
         <source>Faster preview takes effect after you restart Flip Studio.</source>
         <translation>高速プレビューは Flip Studio 再起動後に有効になります。</translation>
     </message>
@@ -9859,28 +10008,24 @@
         <source>The graphics card choice takes effect after you restart Flip Studio.</source>
         <translation>グラフィックカードの選択は、Driftを再起動した後に反映されます。</translation>
     </message>
-    <message>
-        <source>System default</source>
-        <translation>システムデフォルト</translation>
-    </message>
 </context>
 <context>
     <name>Preview3DTools</name>
     <message>
         <source>%1 (%2)</source>
-        <translation type="unfinished">%1 (%2)</translation>
+        <translation>%1 (%2)</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation type="unfinished">移動</translation>
+        <translation>移動</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished">回転</translation>
+        <translation>回転</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished">スケール</translation>
+        <translation>スケール</translation>
     </message>
     <message>
         <source>Gizmo follows the selection&apos;s own axes (click for world axes)</source>
@@ -9934,23 +10079,23 @@
     <name>PreviewOptionsMenu</name>
     <message>
         <source>Quality</source>
-        <translation type="unfinished">品質</translation>
+        <translation>品質</translation>
     </message>
     <message>
         <source>Full</source>
-        <translation type="unfinished">フル</translation>
+        <translation>フル</translation>
     </message>
     <message>
         <source>Half</source>
-        <translation type="unfinished">半分</translation>
+        <translation>半分</translation>
     </message>
     <message>
         <source>Quarter</source>
-        <translation type="unfinished">4分の1</translation>
+        <translation>4分の1</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">自動</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <source>Preview quality — lower is smoother while editing.
@@ -9962,15 +10107,15 @@ Auto renders only as many pixels as the preview actually shows, and lowers that 
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished">速度</translation>
+        <translation>速度</translation>
     </message>
     <message>
         <source>Playback speed</source>
-        <translation type="unfinished">再生速度</translation>
+        <translation>再生速度</translation>
     </message>
     <message>
         <source>Decode</source>
-        <translation type="unfinished">デコード</translation>
+        <translation>デコード</translation>
     </message>
     <message>
         <source>How video is decoded for preview.
@@ -10002,7 +10147,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">キャンセル</translation>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Open graphics settings</source>
+        <translation>グラフィック設定を開く</translation>
     </message>
     <message>
         <source>Launching Flip Studio with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
@@ -10016,10 +10165,6 @@ If playback stutters, try another.</source>
         <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
         <translation type="unfinished">Windows の設定 &gt; ディスプレイ &gt; グラフィックス で Flip Studio を「ハイパフォーマンス」に設定し、Flip Studio を再起動してください。</translation>
     </message>
-    <message>
-        <source>Open graphics settings</source>
-        <translation type="unfinished">グラフィック設定を開く</translation>
-    </message>
 </context>
 <context>
     <name>PreviewOsd</name>
@@ -10029,11 +10174,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Toggle guides</source>
-        <translation type="unfinished">ガイドの切り替え</translation>
+        <translation>ガイドの切り替え</translation>
     </message>
     <message>
         <source>Guide sets</source>
-        <translation type="unfinished">ガイドセット</translation>
+        <translation>ガイドセット</translation>
     </message>
     <message>
         <source>Preview options</source>
@@ -10070,6 +10215,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished">GPUプレビューは利用できません</translation>
     </message>
     <message>
+        <source>Debug info</source>
+        <translation>デバッグ情報</translation>
+    </message>
+    <message>
+        <source>Audio only</source>
+        <translation>オーディオのみ</translation>
+    </message>
+    <message>
+        <source>No clip at the current time</source>
+        <translation>現在の時間にクリップがありません</translation>
+    </message>
+    <message>
         <source>Your graphics driver only provides %1. Flip Studio&apos;s preview needs OpenGL 3.3.</source>
         <translation type="unfinished">お使いのグラフィックスドライバーは %1 にしか対応していません。プレビューには OpenGL 3.3 が必要です。</translation>
     </message>
@@ -10077,21 +10234,57 @@ If playback stutters, try another.</source>
         <source>Flip Studio could not start its GPU renderer, so the preview cannot draw.</source>
         <translation type="unfinished">Flip Studio は GPU レンダラーを起動できなかったため、プレビューを描画できません。</translation>
     </message>
-    <message>
-        <source>Debug info</source>
-        <translation type="unfinished">デバッグ情報</translation>
-    </message>
-    <message>
-        <source>Audio only</source>
-        <translation type="unfinished">オーディオのみ</translation>
-    </message>
-    <message>
-        <source>No clip at the current time</source>
-        <translation type="unfinished">現在の時間にクリップがありません</translation>
-    </message>
 </context>
 <context>
     <name>PreviewTransportBar</name>
+    <message>
+        <source>%1 (%2)</source>
+        <translation>%1 (%2)</translation>
+    </message>
+    <message>
+        <source>Current time / total · %1 frames per second</source>
+        <translation type="unfinished">現在の時間 / 合計 · %1 フレーム/秒</translation>
+    </message>
+    <message>
+        <source>Jump back 1s · Shift for 5s · Ctrl for 10s</source>
+        <translation type="unfinished">1秒戻る · Shiftキーで5秒 · Ctrlキーで10秒</translation>
+    </message>
+    <message>
+        <source>Previous frame</source>
+        <translation>前のフレーム</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>一時停止</translation>
+    </message>
+    <message>
+        <source>Play</source>
+        <translation>再生</translation>
+    </message>
+    <message>
+        <source>Next frame</source>
+        <translation>次のフレーム</translation>
+    </message>
+    <message>
+        <source>Loop work area on — click to turn off</source>
+        <translation type="unfinished">ワークエリアループオン — クリックでオフ</translation>
+    </message>
+    <message>
+        <source>Loop work area off — click to turn on</source>
+        <translation type="unfinished">ワークエリアループオフ — クリックでオン</translation>
+    </message>
+    <message>
+        <source>Jump forward 1s · Shift for 5s · Ctrl for 10s</source>
+        <translation type="unfinished">1秒進む · Shiftキーで5秒 · Ctrlキーで10秒</translation>
+    </message>
+    <message>
+        <source>Exit fullscreen preview (Esc)</source>
+        <translation type="unfinished">フルスクリーンプレビューを終了 (Esc)</translation>
+    </message>
+    <message>
+        <source>Fullscreen preview</source>
+        <translation>フルスクリーンプレビュー</translation>
+    </message>
     <message>
         <source>Fit</source>
         <translation type="unfinished">フィット</translation>
@@ -10125,60 +10318,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 (%2)</source>
-        <translation type="unfinished">%1 (%2)</translation>
-    </message>
-    <message>
-        <source>Current time / total · %1 frames per second</source>
-        <translation type="unfinished">現在の時間 / 合計 · %1 フレーム/秒</translation>
-    </message>
-    <message>
-        <source>Jump back 1s · Shift for 5s · Ctrl for 10s</source>
-        <translation type="unfinished">1秒戻る · Shiftキーで5秒 · Ctrlキーで10秒</translation>
-    </message>
-    <message>
-        <source>Previous frame</source>
-        <translation type="unfinished">前のフレーム</translation>
-    </message>
-    <message>
-        <source>Pause</source>
-        <translation type="unfinished">一時停止</translation>
-    </message>
-    <message>
-        <source>Play</source>
-        <translation type="unfinished">再生</translation>
-    </message>
-    <message>
-        <source>Next frame</source>
-        <translation type="unfinished">次のフレーム</translation>
-    </message>
-    <message>
-        <source>Loop work area on — click to turn off</source>
-        <translation type="unfinished">ワークエリアループオン — クリックでオフ</translation>
-    </message>
-    <message>
-        <source>Loop work area off — click to turn on</source>
-        <translation type="unfinished">ワークエリアループオフ — クリックでオン</translation>
-    </message>
-    <message>
-        <source>Jump forward 1s · Shift for 5s · Ctrl for 10s</source>
-        <translation type="unfinished">1秒進む · Shiftキーで5秒 · Ctrlキーで10秒</translation>
-    </message>
-    <message>
         <source>Preview zoom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Aspect ratio of the video</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Exit fullscreen preview (Esc)</source>
-        <translation type="unfinished">フルスクリーンプレビューを終了 (Esc)</translation>
-    </message>
-    <message>
-        <source>Fullscreen preview</source>
-        <translation type="unfinished">フルスクリーンプレビュー</translation>
     </message>
 </context>
 <context>
@@ -10203,14 +10348,6 @@ If playback stutters, try another.</source>
         <translation>%1 を開けません</translation>
     </message>
     <message>
-        <source>file is too short to be a Flip Studio project</source>
-        <translation>ファイルが短すぎて Flip Studio プロジェクトではありません</translation>
-    </message>
-    <message>
-        <source>not a Flip Studio project (bad magic)</source>
-        <translation>Flip Studio プロジェクトではありません (不正なマジック)</translation>
-    </message>
-    <message>
         <source>unsupported container revision</source>
         <translation>サポートされていないコンテナリビジョン</translation>
     </message>
@@ -10233,10 +10370,6 @@ If playback stutters, try another.</source>
     <message>
         <source>project manifest has no format version</source>
         <translation>プロジェクトマニフェストにフォーマットバージョンがありません</translation>
-    </message>
-    <message>
-        <source>this project was saved by a newer version of Flip Studio (format %1) — update to open it</source>
-        <translation>このプロジェクトは新しいバージョンの Flip Studio で保存されました (フォーマット %1) — 開くにはアップデートしてください</translation>
     </message>
     <message>
         <source>project blob table is not contiguous</source>
@@ -10322,6 +10455,18 @@ If playback stutters, try another.</source>
         <source>Couldn’t create %1</source>
         <translation>%1 を作成できませんでした</translation>
     </message>
+    <message>
+        <source>file is too short to be a Flip Studio project</source>
+        <translation>ファイルが短すぎて Flip Studio プロジェクトではありません</translation>
+    </message>
+    <message>
+        <source>not a Flip Studio project (bad magic)</source>
+        <translation>Flip Studio プロジェクトではありません (不正なマジック)</translation>
+    </message>
+    <message>
+        <source>this project was saved by a newer version of Flip Studio (format %1) — update to open it</source>
+        <translation>このプロジェクトは新しいバージョンの Flip Studio で保存されました (フォーマット %1) — 開くにはアップデートしてください</translation>
+    </message>
 </context>
 <context>
     <name>ProjectFileController</name>
@@ -10332,10 +10477,6 @@ If playback stutters, try another.</source>
     <message>
         <source>This project uses &quot;%1&quot;, which isn’t installed — it won’t show. Open Extras to install it.</source>
         <translation>このプロジェクトはインストールされていない「%1」を使用しています — 表示されません。拡張機能を開いてインストールしてください。</translation>
-    </message>
-    <message>
-        <source>Untitled Project</source>
-        <translation type="unfinished">無題のプロジェクト</translation>
     </message>
     <message>
         <source>This project uses %1 effects or transitions that aren’t installed (%2%3) — they won’t show. Open Extras to install them.</source>
@@ -10515,6 +10656,21 @@ If playback stutters, try another.</source>
         <source>Started new session</source>
         <translation>新しいセッションを開始しました</translation>
     </message>
+    <message>
+        <source>Untitled Project</source>
+        <translation type="unfinished">無題のプロジェクト</translation>
+    </message>
+</context>
+<context>
+    <name>ProjectLoadDialog</name>
+    <message>
+        <source>Opening project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unpacking project media…</source>
+        <translation>プロジェクトメディアを展開中…</translation>
+    </message>
 </context>
 <context>
     <name>ProjectPropertiesDialog</name>
@@ -10637,6 +10793,10 @@ If playback stutters, try another.</source>
         <translation>3D モデル</translation>
     </message>
     <message>
+        <source>PDF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Subtitles</source>
         <translation>字幕</translation>
     </message>
@@ -10646,7 +10806,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラ</translation>
     </message>
     <message>
         <source>Stabilization</source>
@@ -11049,6 +11209,14 @@ If playback stutters, try another.</source>
         <source>Not an OpenTimelineIO Timeline or Stack (schema: %1)</source>
         <translation>OpenTimelineIO のタイムラインまたはスタックではありません (スキーマ : %1)</translation>
     </message>
+    <message>
+        <source>The voice sample must be at least %1 seconds of speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RecentProjectsPopup</name>
@@ -11140,6 +11308,41 @@ If playback stutters, try another.</source>
     <message>
         <source>Auto-saved: %1</source>
         <translation>自動保存 : %1</translation>
+    </message>
+</context>
+<context>
+    <name>RestoreController</name>
+    <message>
+        <source>Select a video clip to enhance</source>
+        <translation>強化するビデオクリップを選択してください</translation>
+    </message>
+    <message>
+        <source>Choose a model to enhance with</source>
+        <translation>強化に使用するモデルを選択してください</translation>
+    </message>
+    <message>
+        <source>This clip is already being enhanced</source>
+        <translation>このクリップは既に強化中です</translation>
+    </message>
+    <message>
+        <source>%1 (enhanced %2x)</source>
+        <translation>%1 (%2 倍に強化)</translation>
+    </message>
+    <message>
+        <source>%1 (enhanced)</source>
+        <translation>%1 (強化済み)</translation>
+    </message>
+    <message>
+        <source>Enhance Video</source>
+        <translation>ビデオを強化</translation>
+    </message>
+    <message>
+        <source>Enhanced video added to the media bin</source>
+        <translation>強化したビデオをメディアビンに追加しました</translation>
+    </message>
+    <message>
+        <source>Enhancing video…</source>
+        <translation>ビデオを強化中…</translation>
     </message>
 </context>
 <context>
@@ -11328,10 +11531,6 @@ If playback stutters, try another.</source>
         <translation>処理中…</translation>
     </message>
     <message>
-        <source>Flip Studio will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
-        <translation>Flip Studio はこのクリップのリバースコピーをレンダリングして、スムーズに再生できるようにします。処理中も編集を続けられます。</translation>
-    </message>
-    <message>
         <source>This can take a few minutes on longer clips.</source>
         <translation>長いクリップでは数分かかることがあります。</translation>
     </message>
@@ -11355,6 +11554,10 @@ If playback stutters, try another.</source>
         <source>Reverse</source>
         <translation>リバース</translation>
     </message>
+    <message>
+        <source>Flip Studio will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
+        <translation>Flip Studio はこのクリップのリバースコピーをレンダリングして、スムーズに再生できるようにします。処理中も編集を続けられます。</translation>
+    </message>
 </context>
 <context>
     <name>ReverseRenderer</name>
@@ -11373,6 +11576,43 @@ If playback stutters, try another.</source>
     <message>
         <source>No frames could be decoded from this clip</source>
         <translation>このクリップからフレームをデコードできませんでした</translation>
+    </message>
+</context>
+<context>
+    <name>SceneDetectController</name>
+    <message>
+        <source>Already looking for scenes</source>
+        <translation>シーン検索は既に実行中です</translation>
+    </message>
+    <message>
+        <source>Select a video clip to find scenes in</source>
+        <translation>シーンを検索するビデオクリップを選択してください</translation>
+    </message>
+    <message>
+        <source>Clip has no video to scan</source>
+        <translation>クリップにスキャンするビデオがありません</translation>
+    </message>
+    <message numerus="yes">
+        <source>Found %n scene(s)</source>
+        <translation>
+            <numerusform>%n 個のシーンを発見</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>準備中…</translation>
+    </message>
+    <message>
+        <source>Looking for scenes…</source>
+        <translation>シーンを検索中…</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>完了</translation>
+    </message>
+    <message>
+        <source>Scene detection cancelled</source>
+        <translation>シーン検出をキャンセルしました</translation>
     </message>
 </context>
 <context>
@@ -11486,7 +11726,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Getting ready…</source>
-        <translation type="unfinished">準備中…</translation>
+        <translation>準備中…</translation>
     </message>
     <message>
         <source>Cutting out subject…</source>
@@ -11494,7 +11734,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished">完了</translation>
+        <translation>完了</translation>
     </message>
     <message>
         <source>Clip is too short to cut out</source>
@@ -11510,7 +11750,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Could not decode frame %1</source>
-        <translation type="unfinished">フレーム %1 をデコードできませんでした</translation>
+        <translation>フレーム %1 をデコードできませんでした</translation>
     </message>
     <message>
         <source>Processing frame %1 of %2…</source>
@@ -11534,7 +11774,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Cut out subject</source>
-        <translation type="unfinished">被写体を切り抜く</translation>
+        <translation>被写体を切り抜く</translation>
     </message>
 </context>
 <context>
@@ -11570,6 +11810,10 @@ If playback stutters, try another.</source>
     <message>
         <source>s</source>
         <translation>秒</translation>
+    </message>
+    <message>
+        <source>Tap marks the subject, press and hold marks what to exclude. Tap a marker to remove it.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Left-click marks the subject, right-click marks what to exclude. Click a marker to remove it.</source>
@@ -11738,14 +11982,6 @@ If playback stutters, try another.</source>
         <translation>ハイパフォーマンス (discrete GPU)</translation>
     </message>
     <message>
-        <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation>Driftがどのグラフィックスカードで動作するかを設定します。ハイパフォーマンスにすると、NVIDIA カード上での動画デコード処理がそのカード内で行われます。省電力にすると、バッテリー消費が抑えられます。設定は再起動後に反映されます。</translation>
-    </message>
-    <message>
-        <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
-        <translation>Windows の設定の ディスプレイ &gt; グラフィックス で、Flip Studio がどのグラフィックスカードで動作するかを選択します。再起動後に有効になります。</translation>
-    </message>
-    <message>
         <source>Open graphics settings</source>
         <translation>グラフィック設定を開く</translation>
     </message>
@@ -11786,8 +12022,32 @@ If playback stutters, try another.</source>
         <translation>ボタン、テキスト、アイコンを大きくします。これはディスプレイ設定で既に設定されているサイズに加えての拡大です。再起動後に有効になります。</translation>
     </message>
     <message>
-        <source>Restart Flip Studio to apply this size.</source>
-        <translation>このサイズを適用するには Flip Studio を再起動してください。</translation>
+        <source>Layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mobile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop suits a mouse and keyboard, including tablets in desktop mode. Mobile is the touch layout made for phones. Takes effect after restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart Flip Studio to switch layouts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart now</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Horizontal mouse-wheel pan</source>
@@ -11842,14 +12102,6 @@ If playback stutters, try another.</source>
         <translation>今すぐ確認</translation>
     </message>
     <message>
-        <source>Flip Studio %1</source>
-        <translation>Flip Studio %1</translation>
-    </message>
-    <message>
-        <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Extra packs</source>
         <translation>拡張パック</translation>
     </message>
@@ -11876,14 +12128,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Cloud providers</source>
         <translation>クラウドプロバイダー</translation>
-    </message>
-    <message>
-        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>キーは暗号化されずに Flip Studio の設定に保存されます。環境変数の ELEVENLABS_API_KEY および FISH_API_KEY が優先されます。利用料金はお客様のアカウントに請求されます。</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -11926,10 +12170,6 @@ If playback stutters, try another.</source>
         <translation>%1 への音声とテキストの送信を許可</translation>
     </message>
     <message>
-        <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
-        <translation>Flip Studio や接続されたエージェントがこのサービスを使用して音声を文字起こしまたは生成できるようにするために必要です</translation>
-    </message>
-    <message>
         <source>Default voice id</source>
         <translation>デフォルトのボイス ID</translation>
     </message>
@@ -11962,82 +12202,114 @@ If playback stutters, try another.</source>
         <translation>このデバイスからマーケットプレイスアカウントのリンクを解除する</translation>
     </message>
     <message>
-        <source>Once a day, check whether a newer Flip Studio has been released</source>
+        <source>Downloading…</source>
+        <translation>ダウンロード中…</translation>
+    </message>
+    <message>
+        <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
+        <translation>Driftがどのグラフィックスカードで動作するかを設定します。ハイパフォーマンスにすると、NVIDIA カード上での動画デコード処理がそのカード内で行われます。省電力にすると、バッテリー消費が抑えられます。設定は再起動後に反映されます。</translation>
+    </message>
+    <message>
+        <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
+        <translation>Windows の設定の ディスプレイ &gt; グラフィックス で、Flip Studio がどのグラフィックスカードで動作するかを選択します。再起動後に有効になります。</translation>
+    </message>
+    <message>
+        <source>Restart Flip Studio to apply this size.</source>
+        <translation>このサイズを適用するには Flip Studio を再起動してください。</translation>
+    </message>
+    <message>
+        <source>Flip Studio %1</source>
+        <translation>Flip Studio %1</translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloading…</source>
-        <translation type="unfinished">ダウンロード中…</translation>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation>キーは暗号化されずに Flip Studio の設定に保存されます。環境変数の ELEVENLABS_API_KEY および FISH_API_KEY が優先されます。利用料金はお客様のアカウントに請求されます。</translation>
+    </message>
+    <message>
+        <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
+        <translation>Flip Studio や接続されたエージェントがこのサービスを使用して音声を文字起こしまたは生成できるようにするために必要です</translation>
+    </message>
+    <message>
+        <source>Once a day, check whether a newer Flip Studio has been released</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SfxBrowser</name>
     <message>
         <source>Added to the media bin</source>
-        <translation type="unfinished">メディアビンに追加しました</translation>
+        <translation>メディアビンに追加しました</translation>
     </message>
     <message>
         <source>Loading sound effects…</source>
-        <translation type="unfinished"></translation>
+        <translation>効果音を読み込んでいます…</translation>
     </message>
     <message>
         <source>Couldn’t load sound effects</source>
-        <translation type="unfinished"></translation>
+        <translation>効果音を読み込めませんでした</translation>
     </message>
     <message>
         <source>Try again</source>
-        <translation type="unfinished">再試行</translation>
+        <translation>再試行</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">すべて</translation>
+        <translation>すべて</translation>
     </message>
     <message>
         <source>No sound effects match “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>「%1」に一致する効果音はありません。</translation>
     </message>
     <message>
         <source>No sound effects here.</source>
-        <translation type="unfinished"></translation>
+        <translation>ここには効果音がありません。</translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished">一時停止</translation>
+        <translation>一時停止</translation>
     </message>
     <message>
         <source>Play preview</source>
-        <translation type="unfinished">プレビューを再生</translation>
+        <translation>プレビューを再生</translation>
     </message>
     <message>
         <source>Add to the media bin</source>
-        <translation type="unfinished"></translation>
+        <translation>メディアビンに追加</translation>
     </message>
     <message>
         <source>Add to the timeline</source>
-        <translation type="unfinished"></translation>
+        <translation>タイムラインに追加</translation>
     </message>
 </context>
 <context>
     <name>SfxLibrary</name>
     <message>
         <source>Could not load sound effects. Check your connection and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>効果音を読み込めませんでした。接続を確認して、もう一度お試しください。</translation>
     </message>
     <message>
         <source>Could not write to the app data folder.</source>
-        <translation type="unfinished">アプリデータフォルダーに書き込めませんでした。</translation>
+        <translation>アプリデータフォルダーに書き込めませんでした。</translation>
     </message>
     <message>
         <source>Could not download that sound. Check your connection and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>そのサウンドをダウンロードできませんでした。接続を確認して、もう一度試してください。</translation>
     </message>
     <message>
         <source>That download was damaged. Try again.</source>
-        <translation type="unfinished">ダウンロードが破損していました。再試行してください。</translation>
+        <translation>ダウンロードが破損していました。再試行してください。</translation>
     </message>
     <message>
         <source>Could not add that sound to the media bin.</source>
-        <translation type="unfinished"></translation>
+        <translation>そのサウンドをメディアビンに追加できませんでした。</translation>
     </message>
 </context>
 <context>
@@ -12527,6 +12799,61 @@ If playback stutters, try another.</source>
         <source>%1 — click to add, or drag to the timeline or preview</source>
         <translation>%1 — クリックして追加、またはタイムラインやプレビューにドラッグ</translation>
     </message>
+    <message>
+        <source>Add at playhead</source>
+        <translation>再生ヘッド位置に追加</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>お気に入りから削除</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>お気に入りに追加</translation>
+    </message>
+</context>
+<context>
+    <name>ShellSwitchDialog</name>
+    <message>
+        <source>Switch to the mobile layout?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch to the desktop layout?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Later</source>
+        <translation>後で</translation>
+    </message>
+    <message>
+        <source>Restart Flip Studio to switch layouts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A mouse is connected. The desktop layout has full menus, panels and precise timeline editing. Flip Studio restarts to switch, and your project is kept.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The mobile layout is the touch interface made for phones. Flip Studio restarts to switch.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The desktop layout suits a mouse and keyboard. Flip Studio restarts to switch.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShortcutCaptureField</name>
@@ -12610,6 +12937,201 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SpeechTab</name>
+    <message>
+        <source>Voice saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>まず AI エンジンをインストール</translation>
+    </message>
+    <message>
+        <source>Needed to generate speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type what the voice should say</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 characters, about %2 s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice</source>
+        <translation>ボイス</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>停止</translation>
+    </message>
+    <message>
+        <source>Play the voice sample</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename or delete this voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>名前の変更…</translation>
+    </message>
+    <message>
+        <source>Rename voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>削除</translation>
+    </message>
+    <message>
+        <source>New voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clone a voice from a recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Record…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import file…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading voice model (first use takes a while)…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation>言語</translation>
+    </message>
+    <message>
+        <source>Expressiveness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Higher values sound more dramatic and speak faster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate speech and add it at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Stop generating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Record a voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import a voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice from clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>保存</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import a voice sample</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio files (*.wav *.mp3 *.flac *.ogg *.m4a *.aac *.opus)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation>すべてのファイル (*)</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>名前</translation>
+    </message>
+    <message>
+        <source>The clip is longer than 20 seconds, so 20 seconds are used. Starting at %1 s.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Using %1 seconds of the selected clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start offset</source>
+        <translation>開始オフセット</translation>
+    </message>
+    <message>
+        <source>%1 s</source>
+        <translation>%1 秒</translation>
+    </message>
+    <message>
+        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Recording…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I have the right to use this person&apos;s voice</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -12698,14 +13220,6 @@ If playback stutters, try another.</source>
 <context>
     <name>SpeedFadeInspector</name>
     <message>
-        <source>Not available</source>
-        <translation>利用できません</translation>
-    </message>
-    <message>
-        <source>Speed applies to video, audio and composite clips.</source>
-        <translation>速度はビデオ、オーディオ、コンポジットクリップに適用されます。</translation>
-    </message>
-    <message>
         <source>Playback speed</source>
         <translation>再生速度</translation>
     </message>
@@ -12778,6 +13292,113 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>StabilizeController</name>
+    <message>
+        <source>%1 (stabilized)</source>
+        <translation>%1 (手ぶれ補正済み)</translation>
+    </message>
+    <message>
+        <source>Select a video clip to stabilize</source>
+        <translation>手ぶれ補正するビデオクリップを選択</translation>
+    </message>
+    <message>
+        <source>Clip has no video file</source>
+        <translation>クリップにビデオファイルがありません</translation>
+    </message>
+    <message>
+        <source>Stabilization already in progress for this clip</source>
+        <translation>このクリップの手ぶれ補正は既に実行中です</translation>
+    </message>
+    <message>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation type="unfinished">このビルドの Flip Studio はビデオの手ぶれ補正に対応していません</translation>
+    </message>
+    <message>
+        <source>The video this clip was stabilized from is no longer in the media bin</source>
+        <translation>このクリップの手ぶれ補正の元になったビデオは、メディアビンに存在しません</translation>
+    </message>
+    <message>
+        <source>Could not create stabilization cache directory</source>
+        <translation>手ぶれ補正キャッシュディレクトリを作成できませんでした</translation>
+    </message>
+    <message>
+        <source>Building keyframes…</source>
+        <translation>キーフレームを構築中…</translation>
+    </message>
+    <message>
+        <source>Rendering stabilized video…</source>
+        <translation>手ぶれ補正済みビデオをレンダリング中…</translation>
+    </message>
+    <message>
+        <source>Analyzing camera motion…</source>
+        <translation>カメラの動きを分析中…</translation>
+    </message>
+    <message>
+        <source>Stabilization cancelled.</source>
+        <translation>手ぶれ補正をキャンセルしました。</translation>
+    </message>
+    <message>
+        <source>Could not read camera motion from the analysis file.</source>
+        <translation>分析ファイルからカメラの動きを読み取れませんでした。</translation>
+    </message>
+    <message>
+        <source>Stabilize with Keyframes</source>
+        <translation>キーフレームで手ぶれ補正</translation>
+    </message>
+    <message>
+        <source>Stabilization keyframes applied.</source>
+        <translation>手ぶれ補正キーフレームを適用しました。</translation>
+    </message>
+    <message>
+        <source>Stabilization analysis file is missing.</source>
+        <translation>手ぶれ補正分析ファイルが見つかりません。</translation>
+    </message>
+    <message>
+        <source>Could not create an output file</source>
+        <translation>出力ファイルを作成できませんでした</translation>
+    </message>
+    <message>
+        <source>Stabilization rendering failed.</source>
+        <translation>手ぶれ補正のレンダリングに失敗しました。</translation>
+    </message>
+    <message>
+        <source>Stabilization rendering failed: %1</source>
+        <translation>手ぶれ補正のレンダリングに失敗しました : %1</translation>
+    </message>
+    <message>
+        <source>Stabilize Video</source>
+        <translation>ビデオ手ぶれ補正</translation>
+    </message>
+    <message>
+        <source>Stabilized video added to the media bin</source>
+        <translation>手ぶれ補正済みのビデオをメディアビンに追加しました</translation>
+    </message>
+    <message>
+        <source>Stabilization analysis failed.</source>
+        <translation>手ぶれ補正の分析に失敗しました。</translation>
+    </message>
+    <message>
+        <source>Stabilization analysis failed: %1</source>
+        <translation>手ぶれ補正の分析に失敗しました : %1</translation>
+    </message>
+    <message>
+        <source>Remove Stabilization</source>
+        <translation>手ぶれ補正を削除</translation>
+    </message>
+    <message>
+        <source>Change Stabilization Smoothing</source>
+        <translation>手ぶれ補正の滑らかさを変更</translation>
+    </message>
+    <message>
+        <source>Change Stabilization Tripod Mode</source>
+        <translation>手ぶれ補正の三脚モードを変更</translation>
+    </message>
+    <message>
+        <source>Change Stabilization Mode</source>
+        <translation>手ぶれ補正モードを変更</translation>
+    </message>
+</context>
+<context>
     <name>StabilizeInspector</name>
     <message>
         <source>Animate with keyframes</source>
@@ -12785,7 +13406,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Render a new video</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいビデオをレンダリング</translation>
     </message>
     <message>
         <source>Update stabilization</source>
@@ -12816,12 +13437,8 @@ If playback stutters, try another.</source>
         <translation>モード</translation>
     </message>
     <message>
-        <source>Smooths camera shake. Flip Studio scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Render a stabilized copy, or animate the clip with sparse transform keys</source>
-        <translation type="unfinished"></translation>
+        <translation>手ぶれ補正済みのコピーをレンダリングするか、疎なトランスフォームキーでクリップをアニメーション化します</translation>
     </message>
     <message>
         <source>Smoothing</source>
@@ -12859,9 +13476,27 @@ If playback stutters, try another.</source>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
+    <message>
+        <source>Smooths camera shake. Flip Studio scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StartScreen</name>
+    <message>
+        <source> (missing)</source>
+        <translation> (見つかりません)</translation>
+    </message>
+    <message>
+        <source>This file has been moved or deleted:
+%1</source>
+        <translation>このファイルは移動または削除されました :
+%1</translation>
+    </message>
+    <message>
+        <source>Remove from recents</source>
+        <translation>最近使用した項目から削除</translation>
+    </message>
     <message>
         <source>Automatic</source>
         <translation type="unfinished"></translation>
@@ -12962,26 +13597,16 @@ If playback stutters, try another.</source>
         <source>No project matches “%1”.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source> (missing)</source>
-        <translation> (見つかりません)</translation>
-    </message>
-    <message>
-        <source>This file has been moved or deleted:
-%1</source>
-        <translation>このファイルは移動または削除されました :
-%1</translation>
-    </message>
-    <message>
-        <source>Remove from recents</source>
-        <translation>最近使用した項目から削除</translation>
-    </message>
 </context>
 <context>
     <name>StickersTab</name>
     <message>
         <source>Search stickers</source>
         <translation>スタンプを検索</translation>
+    </message>
+    <message>
+        <source>More emoji</source>
+        <translation>その他の絵文字</translation>
     </message>
     <message>
         <source>No sticker packs installed</source>
@@ -13022,6 +13647,18 @@ If playback stutters, try another.</source>
     <message>
         <source>%1 — click to add, or drag to the timeline or preview</source>
         <translation>%1 — クリックして追加、またはタイムラインやプレビューにドラッグ</translation>
+    </message>
+    <message>
+        <source>Add at playhead</source>
+        <translation>再生ヘッド位置に追加</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>お気に入りから削除</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>お気に入りに追加</translation>
     </message>
     <message>
         <source>Animated</source>
@@ -13204,6 +13841,10 @@ If playback stutters, try another.</source>
         <translation>%1 キャプション</translation>
     </message>
     <message>
+        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
         <translation>タイムラインを再生 — 画面上の行がハイライトされます。任意の行をクリックしてジャンプし、下で編集します。</translation>
     </message>
@@ -13246,6 +13887,62 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>エクスポートするキャプションをこのクリップの開始位置でオフセットし、エクスポートしたビデオと一致させます</translation>
+    </message>
+    <message>
+        <source>(empty)</source>
+        <translation>(空)</translation>
+    </message>
+    <message>
+        <source>Delete this subtitle</source>
+        <translation>この字幕を削除</translation>
+    </message>
+    <message>
+        <source>Add a subtitle after this one</source>
+        <translation>この後に字幕を追加</translation>
+    </message>
+    <message>
+        <source>No subtitles yet. Move to a time inside this clip and add one below.</source>
+        <translation>字幕はまだありません。このクリップ内の時間に移動して、下に追加してください。</translation>
+    </message>
+    <message>
+        <source>Type subtitle…</source>
+        <translation>字幕を入力…</translation>
+    </message>
+    <message>
+        <source>Apply text to this subtitle</source>
+        <translation>この字幕にテキストを適用</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>開始</translation>
+    </message>
+    <message>
+        <source>Set start to current time</source>
+        <translation>開始を現在の時間に設定</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation>終了</translation>
+    </message>
+    <message>
+        <source>Set end to current time</source>
+        <translation>終了を現在の時間に設定</translation>
+    </message>
+    <message>
+        <source>Delete caption</source>
+        <translation>キャプションを削除</translation>
+    </message>
+    <message>
+        <source>At %1</source>
+        <translation>%1 に</translation>
+    </message>
+    <message>
+        <source>Move to a time inside this clip to add a subtitle</source>
+        <translation>このクリップ内の時間に移動して字幕を追加</translation>
+    </message>
+    <message>
+        <source>Add subtitle at current time</source>
+        <translation>現在の時間に字幕を追加</translation>
     </message>
     <message>
         <source>Emojis</source>
@@ -13332,64 +14029,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished">加算</translation>
     </message>
     <message>
-        <source>(empty)</source>
-        <translation>(空)</translation>
-    </message>
-    <message>
-        <source>Delete this subtitle</source>
-        <translation>この字幕を削除</translation>
-    </message>
-    <message>
-        <source>Add a subtitle after this one</source>
-        <translation>この後に字幕を追加</translation>
-    </message>
-    <message>
-        <source>No subtitles yet. Move to a time inside this clip and add one below.</source>
-        <translation>字幕はまだありません。このクリップ内の時間に移動して、下に追加してください。</translation>
-    </message>
-    <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Type subtitle…</source>
-        <translation>字幕を入力…</translation>
-    </message>
-    <message>
-        <source>Apply text to this subtitle</source>
-        <translation>この字幕にテキストを適用</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation>開始</translation>
-    </message>
-    <message>
-        <source>Set start to current time</source>
-        <translation>開始を現在の時間に設定</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation>終了</translation>
-    </message>
-    <message>
-        <source>Set end to current time</source>
-        <translation>終了を現在の時間に設定</translation>
-    </message>
-    <message>
-        <source>Delete caption</source>
-        <translation>キャプションを削除</translation>
-    </message>
-    <message>
-        <source>At %1</source>
-        <translation>%1 に</translation>
-    </message>
-    <message>
-        <source>Move to a time inside this clip to add a subtitle</source>
-        <translation>このクリップ内の時間に移動して字幕を追加</translation>
-    </message>
-    <message>
-        <source>Add subtitle at current time</source>
-        <translation>現在の時間に字幕を追加</translation>
     </message>
 </context>
 <context>
@@ -13454,22 +14095,6 @@ If playback stutters, try another.</source>
         <translation>まずタイムライン上のビデオまたはオーディオクリップを選択してください。</translation>
     </message>
     <message>
-        <source>Caption style</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remove hesitations (eh, mmm) and capitalize</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add emojis for keywords (fuego 🔥, Dios 🙏)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>短いキャプションは各フレーズを均等に分割してタイミングを取るため、音声とわずかにずれることがあります。</translation>
     </message>
@@ -13480,14 +14105,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Select a video or audio clip first</source>
         <translation>まずビデオまたはオーディオクリップを選択してください</translation>
-    </message>
-    <message>
-        <source>Add English translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Creating captions… %1%</source>
@@ -13525,6 +14142,30 @@ If playback stutters, try another.</source>
         <source>%1 words per caption</source>
         <translation>キャプションあたり %1 単語</translation>
     </message>
+    <message>
+        <source>Caption style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove hesitations (eh, mmm) and capitalize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add emojis for keywords (fuego 🔥, Dios 🙏)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add English translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TextAnimPresetTile</name>
@@ -13536,20 +14177,12 @@ If playback stutters, try another.</source>
 <context>
     <name>TextAssetsTab</name>
     <message>
-        <source>Flip Studio text style (*.drifttextstyle)</source>
-        <translation>Flip Studio テキストスタイル (*.drifttextstyle)</translation>
-    </message>
-    <message>
         <source>Import text style</source>
         <translation>テキストスタイルをインポート</translation>
     </message>
     <message>
         <source>Export text style</source>
         <translation>テキストスタイルをエクスポート</translation>
-    </message>
-    <message>
-        <source>Click a style to add text at the playhead. Double-click it on the preview to edit.</source>
-        <translation>スタイルをクリックして再生ヘッド位置にテキストを追加。プレビュー上でダブルクリックして編集します。</translation>
     </message>
     <message>
         <source>My styles</source>
@@ -13580,20 +14213,24 @@ If playback stutters, try another.</source>
         <translation>削除</translation>
     </message>
     <message>
-        <source>Templates</source>
-        <translation type="unfinished">テンプレート</translation>
-    </message>
-    <message>
-        <source>Basic</source>
-        <translation type="unfinished">ベーシック</translation>
-    </message>
-    <message>
-        <source>More…</source>
+        <source>My styles · %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Get more templates</source>
+        <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at playhead</source>
+        <translation>再生ヘッド位置に追加</translation>
+    </message>
+    <message>
+        <source>No saved styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation>インポート</translation>
     </message>
     <message>
         <source>Rename text style</source>
@@ -13606,6 +14243,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Remove “%1” from your saved styles? Clips already using it keep their look.</source>
         <translation>保存済みスタイルから「%1」を削除しますか?既に使用しているクリップの見た目は維持されます。</translation>
+    </message>
+    <message>
+        <source>Flip Studio text style (*.drifttextstyle)</source>
+        <translation>Flip Studio テキストスタイル (*.drifttextstyle)</translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation type="unfinished">ベーシック</translation>
+    </message>
+    <message>
+        <source>More…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get more templates</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -13938,42 +14591,6 @@ If playback stutters, try another.</source>
         <translation>グロー</translation>
     </message>
     <message>
-        <source>No accent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>First word</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Last word</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Every other word</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Every Nth word</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Longest word</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Random words</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Spoken word (karaoke)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Keywords (long words and numbers)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Text</source>
         <translation>テキスト</translation>
     </message>
@@ -14024,6 +14641,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Save this text&apos;s style as a reusable preset</source>
         <translation>このテキストのスタイルを再利用可能なプリセットとして保存</translation>
+    </message>
+    <message>
+        <source>Generate voiceover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speak every caption with a generated voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the voice model from the add-on manager first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the AI engine and the voice model from the add-on manager to generate voiceovers.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Effect</source>
@@ -14181,6 +14814,42 @@ If playback stutters, try another.</source>
         <source>By</source>
         <translation>方法</translation>
     </message>
+    <message>
+        <source>No accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>First word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every other word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every Nth word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longest word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spoken word (karaoke)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keywords (long words and numbers)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TextLookPicker</name>
@@ -14333,6 +15002,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Extrude</source>
         <translation>押し出し</translation>
+    </message>
+    <message>
+        <source>Text size</source>
+        <translation>テキストサイズ</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>文字間隔</translation>
+    </message>
+    <message>
+        <source>Line height</source>
+        <translation>行の高さ</translation>
+    </message>
+    <message>
+        <source>Box padding</source>
+        <translation>ボックスのパディング</translation>
+    </message>
+    <message>
+        <source>Bend</source>
+        <translation>ベンド</translation>
+    </message>
+    <message>
+        <source>Plain</source>
+        <translation type="unfinished">標準</translation>
+    </message>
+    <message>
+        <source>Just text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Title</source>
@@ -14594,26 +15295,6 @@ If playback stutters, try another.</source>
         <source>The quiet issue</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Text size</source>
-        <translation>テキストサイズ</translation>
-    </message>
-    <message>
-        <source>Letter spacing</source>
-        <translation>文字間隔</translation>
-    </message>
-    <message>
-        <source>Line height</source>
-        <translation>行の高さ</translation>
-    </message>
-    <message>
-        <source>Box padding</source>
-        <translation>ボックスのパディング</translation>
-    </message>
-    <message>
-        <source>Bend</source>
-        <translation>ベンド</translation>
-    </message>
 </context>
 <context>
     <name>TextStylePackPicker</name>
@@ -14753,12 +15434,20 @@ If playback stutters, try another.</source>
         <translation>編集に適した形式に変換</translation>
     </message>
     <message>
+        <source>Crop…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation>ビデオを強化…</translation>
     </message>
     <message>
         <source>Unlink</source>
         <translation>リンク解除</translation>
+    </message>
+    <message>
+        <source>Link</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Merge subtitle clips</source>
@@ -15011,6 +15700,10 @@ If playback stutters, try another.</source>
         <translation>音声を別のトラックに表示する</translation>
     </message>
     <message>
+        <source>Link selected clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>トリム開始</translation>
     </message>
@@ -15025,6 +15718,150 @@ If playback stutters, try another.</source>
     <message>
         <source>Trim end — click a clip to drop everything right of the cut</source>
         <translation>終了トリム — クリップをクリックして切り取り位置より右を削除</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation>元に戻す</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation>やり直し</translation>
+    </message>
+    <message>
+        <source>Delete clip</source>
+        <translation>クリップを削除</translation>
+    </message>
+    <message>
+        <source>Copy selection</source>
+        <translation>選択範囲をコピー</translation>
+    </message>
+    <message>
+        <source>Paste at current time</source>
+        <translation>現在の時間に貼り付け</translation>
+    </message>
+    <message>
+        <source>Duplicate clip</source>
+        <translation>クリップを複製</translation>
+    </message>
+    <message>
+        <source>Add/remove bookmark at current time</source>
+        <translation>現在の時間にブックマークを追加/削除</translation>
+    </message>
+    <message>
+        <source>Mark work area in</source>
+        <translation>ワークエリアのインをマーク</translation>
+    </message>
+    <message>
+        <source>Mark work area out</source>
+        <translation>ワークエリアのアウトをマーク</translation>
+    </message>
+    <message>
+        <source>Loop work area playback</source>
+        <translation>ワークエリアをループ再生</translation>
+    </message>
+    <message>
+        <source>Clear work area</source>
+        <translation>ワークエリアをクリア</translation>
+    </message>
+    <message>
+        <source>Add transform layer</source>
+        <translation>変形レイヤーを追加</translation>
+    </message>
+    <message>
+        <source>Add transform layer — moves the selected clips&apos; tracks as one</source>
+        <translation>変形レイヤーを追加 — 選択したクリップのトラックをまとめて移動します</translation>
+    </message>
+    <message>
+        <source>Add camera</source>
+        <translation>カメラを追加</translation>
+    </message>
+    <message>
+        <source>Main</source>
+        <translation>メイン</translation>
+    </message>
+    <message>
+        <source>Composite</source>
+        <translation>コンポジット</translation>
+    </message>
+    <message>
+        <source>Switch between the main timeline and composite clips</source>
+        <translation>メインタイムラインとコンポジットクリップを切り替えます</translation>
+    </message>
+    <message>
+        <source>No composite clips yet</source>
+        <translation>コンポジットクリップはまだありません</translation>
+    </message>
+    <message>
+        <source>Toggle audio mixer strip</source>
+        <translation>オーディオミキサーストリップの切り替え</translation>
+    </message>
+    <message>
+        <source>Timeline overview — a minimap of the whole project; click or drag it to jump the view</source>
+        <translation>タイムライン概要 — プロジェクト全体のミニマップ。クリックまたはドラッグして表示を移動します</translation>
+    </message>
+    <message>
+        <source>Unlink video and audio</source>
+        <translation>ビデオとオーディオのリンクを解除</translation>
+    </message>
+    <message>
+        <source>Merge adjacent clips</source>
+        <translation>隣接クリップを結合</translation>
+    </message>
+    <message>
+        <source>Freeze frame at current time</source>
+        <translation>現在の時間でフリーズフレーム</translation>
+    </message>
+    <message>
+        <source>More edit actions</source>
+        <translation>その他の編集アクション</translation>
+    </message>
+    <message>
+        <source>Add adjustment layer</source>
+        <translation>調整レイヤーを追加</translation>
+    </message>
+    <message>
+        <source>Add camera — one viewpoint the whole timeline is seen through. With a camera already there, adds a new camera clip (a cut to a new framing) at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize toolbar…</source>
+        <translation>ツールバーをカスタマイズ…</translation>
+    </message>
+    <message>
+        <source>Toggle snapping</source>
+        <translation>スナップの切り替え</translation>
+    </message>
+    <message>
+        <source>Close gaps when trimming</source>
+        <translation>トリム時にギャップを埋める</translation>
+    </message>
+    <message>
+        <source>Allow clip overlap</source>
+        <translation>クリップの重複を許可</translation>
+    </message>
+    <message>
+        <source>Zoom out</source>
+        <translation>ズームアウト</translation>
+    </message>
+    <message>
+        <source>Timeline zoom</source>
+        <translation>タイムラインズーム</translation>
+    </message>
+    <message>
+        <source>Zoom %1×</source>
+        <translation>ズーム %1×</translation>
+    </message>
+    <message>
+        <source>Zoom level — click to reset to 1×. Ctrl+wheel over the timeline also zooms.</source>
+        <translation>ズームレベル — クリックで 1× にリセット。タイムライン上で Ctrl+ホイールでもズームします。</translation>
+    </message>
+    <message>
+        <source>Zoom in</source>
+        <translation>ズームイン</translation>
+    </message>
+    <message>
+        <source>Fit timeline in view</source>
+        <translation>タイムラインをビューに合わせる</translation>
     </message>
     <message>
         <source>Split</source>
@@ -15123,62 +15960,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Undo</source>
-        <translation>元に戻す</translation>
-    </message>
-    <message>
-        <source>Redo</source>
-        <translation>やり直し</translation>
-    </message>
-    <message>
-        <source>Delete clip</source>
-        <translation>クリップを削除</translation>
-    </message>
-    <message>
-        <source>Copy selection</source>
-        <translation>選択範囲をコピー</translation>
-    </message>
-    <message>
-        <source>Paste at current time</source>
-        <translation>現在の時間に貼り付け</translation>
-    </message>
-    <message>
-        <source>Duplicate clip</source>
-        <translation>クリップを複製</translation>
-    </message>
-    <message>
-        <source>Add/remove bookmark at current time</source>
-        <translation>現在の時間にブックマークを追加/削除</translation>
-    </message>
-    <message>
-        <source>Mark work area in</source>
-        <translation>ワークエリアのインをマーク</translation>
-    </message>
-    <message>
-        <source>Mark work area out</source>
-        <translation>ワークエリアのアウトをマーク</translation>
-    </message>
-    <message>
-        <source>Loop work area playback</source>
-        <translation>ワークエリアをループ再生</translation>
-    </message>
-    <message>
-        <source>Clear work area</source>
-        <translation>ワークエリアをクリア</translation>
-    </message>
-    <message>
-        <source>Add transform layer</source>
-        <translation>変形レイヤーを追加</translation>
-    </message>
-    <message>
-        <source>Add transform layer — moves the selected clips&apos; tracks as one</source>
-        <translation>変形レイヤーを追加 — 選択したクリップのトラックをまとめて移動します</translation>
-    </message>
-    <message>
-        <source>Add camera</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Reverse</source>
         <translation type="unfinished">リバース</translation>
     </message>
@@ -15195,100 +15976,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Main</source>
-        <translation>メイン</translation>
-    </message>
-    <message>
-        <source>Composite</source>
-        <translation>コンポジット</translation>
-    </message>
-    <message>
-        <source>Switch between the main timeline and composite clips</source>
-        <translation>メインタイムラインとコンポジットクリップを切り替えます</translation>
-    </message>
-    <message>
-        <source>No composite clips yet</source>
-        <translation>コンポジットクリップはまだありません</translation>
-    </message>
-    <message>
         <source>Stop recording</source>
         <translation type="unfinished">録音を停止</translation>
     </message>
     <message>
         <source>Record voiceover at the current time</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Toggle audio mixer strip</source>
-        <translation>オーディオミキサーストリップの切り替え</translation>
-    </message>
-    <message>
-        <source>Timeline overview — a minimap of the whole project; click or drag it to jump the view</source>
-        <translation>タイムライン概要 — プロジェクト全体のミニマップ。クリックまたはドラッグして表示を移動します</translation>
-    </message>
-    <message>
-        <source>Unlink video and audio</source>
-        <translation>ビデオとオーディオのリンクを解除</translation>
-    </message>
-    <message>
-        <source>Merge adjacent clips</source>
-        <translation>隣接クリップを結合</translation>
-    </message>
-    <message>
-        <source>Freeze frame at current time</source>
-        <translation>現在の時間でフリーズフレーム</translation>
-    </message>
-    <message>
-        <source>More edit actions</source>
-        <translation>その他の編集アクション</translation>
-    </message>
-    <message>
-        <source>Add adjustment layer</source>
-        <translation>調整レイヤーを追加</translation>
-    </message>
-    <message>
-        <source>Add camera — one viewpoint the whole timeline is seen through. With a camera already there, adds a new camera clip (a cut to a new framing) at the playhead</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Customize toolbar…</source>
-        <translation>ツールバーをカスタマイズ…</translation>
-    </message>
-    <message>
-        <source>Toggle snapping</source>
-        <translation>スナップの切り替え</translation>
-    </message>
-    <message>
-        <source>Close gaps when trimming</source>
-        <translation>トリム時にギャップを埋める</translation>
-    </message>
-    <message>
-        <source>Allow clip overlap</source>
-        <translation>クリップの重複を許可</translation>
-    </message>
-    <message>
-        <source>Zoom out</source>
-        <translation>ズームアウト</translation>
-    </message>
-    <message>
-        <source>Timeline zoom</source>
-        <translation>タイムラインズーム</translation>
-    </message>
-    <message>
-        <source>Zoom %1×</source>
-        <translation>ズーム %1×</translation>
-    </message>
-    <message>
-        <source>Zoom level — click to reset to 1×. Ctrl+wheel over the timeline also zooms.</source>
-        <translation>ズームレベル — クリックで 1× にリセット。タイムライン上で Ctrl+ホイールでもズームします。</translation>
-    </message>
-    <message>
-        <source>Zoom in</source>
-        <translation>ズームイン</translation>
-    </message>
-    <message>
-        <source>Fit timeline in view</source>
-        <translation>タイムラインをビューに合わせる</translation>
     </message>
 </context>
 <context>
@@ -15402,7 +16095,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>CAM</source>
-        <translation type="unfinished"></translation>
+        <translation>CAM</translation>
     </message>
     <message>
         <source>TF</source>
@@ -15434,7 +16127,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>カメラ</translation>
     </message>
     <message>
         <source>Transform</source>
@@ -15474,11 +16167,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Turn adjustment on</source>
-        <translation type="unfinished"></translation>
+        <translation>調整をオンにする</translation>
     </message>
     <message>
         <source>Turn adjustment off</source>
-        <translation type="unfinished"></translation>
+        <translation>調整をオフにする</translation>
     </message>
     <message>
         <source>Stop recording</source>
@@ -15644,14 +16337,6 @@ If playback stutters, try another.</source>
         <translation>パースペクティブ</translation>
     </message>
     <message>
-        <source>Video only</source>
-        <translation>ビデオのみ</translation>
-    </message>
-    <message>
-        <source>This tab does not apply to audio clips.</source>
-        <translation>このタブはオーディオクリップには適用されません。</translation>
-    </message>
-    <message>
         <source>Also moved by %1</source>
         <translation>%1 によっても移動されます</translation>
     </message>
@@ -15725,15 +16410,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Occlude by depth</source>
-        <translation type="unfinished"></translation>
+        <translation>深度によるオクルージョン</translation>
     </message>
     <message>
         <source>Let depth decide what covers this clip, instead of its track position. Only clips with this on sort against each other; everything else still draws in track order.</source>
-        <translation type="unfinished"></translation>
+        <translation>このクリップを何が覆うかを、トラック位置ではなく深度で決定します。これがオンのクリップ同士のみが互いに前後を判定し、それ以外はすべてトラック順で描画されます。</translation>
     </message>
     <message>
         <source>Needs the Normal blend mode — the others read the canvas behind the clip, which depth cannot sort.</source>
-        <translation type="unfinished"></translation>
+        <translation>「通常」ブレンドモードが必要です — 他のモードはクリップ背後のキャンバスを読み取るため、深度で前後を判定できません。</translation>
     </message>
     <message>
         <source>Move</source>
@@ -16030,28 +16715,16 @@ If playback stutters, try another.</source>
 <context>
     <name>TransitionsTab</name>
     <message>
-        <source>Touch and hold a transition, then drag it onto where two clips meet.</source>
-        <translation>トランジションを長押しして、2つのクリップが接する部分にドラッグします。</translation>
-    </message>
-    <message>
-        <source>Drag onto where two clips overlap. They fade into each other by default.</source>
-        <translation>2つのクリップが重なる部分にドラッグしてください。デフォルトでは互いにフェードインします。</translation>
-    </message>
-    <message>
         <source>Search transitions</source>
         <translation>トランジションを検索</translation>
     </message>
     <message>
-        <source>Import transition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Install a custom transition or effect from a .driftfx file made in Drift Forge</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge で作成した .driftfx ファイルから、カスタムトランジションまたはエフェクトをインストールします</translation>
     </message>
     <message>
         <source>My Transitions</source>
-        <translation type="unfinished"></translation>
+        <translation>マイトランジション</translation>
     </message>
     <message>
         <source>No transitions available</source>
@@ -16071,7 +16744,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>No custom transitions yet</source>
-        <translation type="unfinished"></translation>
+        <translation>カスタムトランジションはまだありません</translation>
     </message>
     <message>
         <source>No favorites yet</source>
@@ -16087,7 +16760,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Import a .driftfx file made in Drift Forge to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge で作成した .driftfx ファイルをインポートして、独自のものを追加してください。</translation>
     </message>
     <message>
         <source>Star transitions to save them here.</source>
@@ -16099,11 +16772,66 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished">インポート</translation>
+        <translation>インポート</translation>
     </message>
     <message>
-        <source>%1 — drag onto an overlap between two clips</source>
-        <translation>%1 — 2つのクリップの重なりにドラッグ</translation>
+        <source>%1 — drag onto where two clips meet, or on touch hold then drag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>お気に入りから削除</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>お気に入りに追加</translation>
+    </message>
+</context>
+<context>
+    <name>TtsController</name>
+    <message>
+        <source>Install the voice model first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Queued</source>
+        <translation>待機中</translation>
+    </message>
+    <message>
+        <source>Cancelled</source>
+        <translation>キャンセルされました</translation>
+    </message>
+    <message>
+        <source>Speech added to the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a subtitle clip first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This subtitle clip has no text to speak</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate voiceover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not add the voiceover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Generated %n line(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n ran longer than their captions</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -16136,23 +16864,11 @@ If playback stutters, try another.</source>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <source>Flip Studio %1 update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Preparing the update…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Installs when you close Flip Studio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ready to install</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -16162,14 +16878,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Couldn’t check for updates: unexpected response.</source>
         <translation>アップデートを確認できませんでした : 予期しない応答。</translation>
-    </message>
-    <message>
-        <source>Flip Studio %1 is the latest version.</source>
-        <translation>Flip Studio %1 は最新バージョンです。</translation>
-    </message>
-    <message>
-        <source>Flip Studio %1 is available.</source>
-        <translation>Flip Studio %1 が利用可能です。</translation>
     </message>
     <message>
         <source>Couldn’t download the update: the cache isn’t writable.</source>
@@ -16192,6 +16900,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Flip Studio %1 update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installs when you close Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation>Flip Studio %1 は最新バージョンです。</translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is available.</source>
+        <translation>Flip Studio %1 が利用可能です。</translation>
+    </message>
+    <message>
         <source>Flip Studio %1 is ready to install.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16205,6 +16933,46 @@ If playback stutters, try another.</source>
     <message>
         <source>Update ready</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have %1.</source>
+        <translation>現在のバージョンは %1 です。</translation>
+    </message>
+    <message>
+        <source>Skip</source>
+        <translation>スキップ</translation>
+    </message>
+    <message>
+        <source>Don&apos;t mention %1 again. Later releases are still announced.</source>
+        <translation>%1 を再度通知しない。後のリリースは引き続き通知されます。</translation>
+    </message>
+    <message>
+        <source>Later</source>
+        <translation>後で</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>アップデート</translation>
+    </message>
+    <message>
+        <source>Downloads the update in the background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opens the release page in your browser</source>
+        <translation>ブラウザでリリースページを開きます</translation>
+    </message>
+    <message>
+        <source>Preparing the update…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart and install</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading…</source>
+        <translation>ダウンロード中…</translation>
     </message>
     <message>
         <source>Flip Studio %1 will install when you close Flip Studio.</source>
@@ -16223,10 +16991,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You have %1.</source>
-        <translation>現在のバージョンは %1 です。</translation>
-    </message>
-    <message>
         <source>Install automatically when I close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16235,52 +16999,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Skip</source>
-        <translation>スキップ</translation>
-    </message>
-    <message>
-        <source>Don&apos;t mention %1 again. Later releases are still announced.</source>
-        <translation>%1 を再度通知しない。後のリリースは引き続き通知されます。</translation>
-    </message>
-    <message>
-        <source>Later</source>
-        <translation>後で</translation>
-    </message>
-    <message>
         <source>Install when I close Flip Studio</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation type="unfinished">アップデート</translation>
     </message>
     <message>
         <source>Closes Flip Studio, installs the update and opens Flip Studio again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads the update in the background</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Opens the release page in your browser</source>
-        <translation>ブラウザでリリースページを開きます</translation>
-    </message>
-    <message>
         <source>Downloading Flip Studio %1…</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Preparing the update…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Restart and install</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Downloading…</source>
-        <translation type="unfinished">ダウンロード中…</translation>
     </message>
 </context>
 <context>
@@ -16318,7 +17046,7 @@ If playback stutters, try another.</source>
     <name>Vec2Param</name>
     <message>
         <source>Edit %1</source>
-        <translation type="unfinished">%1 を編集</translation>
+        <translation>%1 を編集</translation>
     </message>
 </context>
 <context>
@@ -16660,6 +17388,37 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>VoiceLibrary</name>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Another voice is still being prepared</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A voice needs a name and a recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not prepare the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A recording is already in progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to start audio recording</source>
+        <translation>オーディオ録音の開始に失敗しました</translation>
+    </message>
+    <message>
+        <source>The recording is too short: record at least %1 seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>VoiceoverControlBar</name>
     <message>
         <source>PAUSED</source>
@@ -16704,6 +17463,45 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel — discard recording</source>
         <translation>破棄 — 録音をキャンセル</translation>
+    </message>
+</context>
+<context>
+    <name>VoiceoverDialog</name>
+    <message>
+        <source>Generate voiceover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice</source>
+        <translation>ボイス</translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation>言語</translation>
+    </message>
+    <message>
+        <source>Expressiveness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Higher values sound more dramatic and speak faster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading voice model (first use takes a while)…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>閉じる</translation>
     </message>
 </context>
 <context>
@@ -16780,6 +17578,14 @@ If playback stutters, try another.</source>
         <translation>OpenGL ドライバーがありません</translation>
     </message>
     <message>
+        <source>OpenGL context unavailable</source>
+        <translation>OpenGL コンテキストが利用できません</translation>
+    </message>
+    <message>
+        <source>Graphics driver is too old</source>
+        <translation>グラフィックドライバーが古すぎます</translation>
+    </message>
+    <message>
         <source>Flip Studio could not create an OpenGL context, so it cannot draw its interface or render the preview.
 
 Install or update your graphics driver.</source>
@@ -16788,20 +17594,12 @@ Install or update your graphics driver.</source>
 グラフィックスドライバーをインストールまたは更新してください。</translation>
     </message>
     <message>
-        <source>OpenGL context unavailable</source>
-        <translation>OpenGL コンテキストが利用できません</translation>
-    </message>
-    <message>
         <source>Flip Studio could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
 
 The video preview cannot render. Updating your graphics driver may help.</source>
         <translation>Flip Studio は OpenGL 3.3 コアプロファイルコンテキストを作成できませんでした (ただし、このドライバーは OpenGL %1.%2 (%3) を報告しています)。
 
 ビデオプレビューをレンダリングできません。グラフィックスドライバーを更新すると解決する可能性があります。</translation>
-    </message>
-    <message>
-        <source>Graphics driver is too old</source>
-        <translation>グラフィックドライバーが古すぎます</translation>
     </message>
     <message>
         <source>Flip Studio needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).

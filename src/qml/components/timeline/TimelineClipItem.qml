@@ -150,10 +150,18 @@ Item {
     // closing.
     function openContextMenu() {
         if (clipContextMenuLoader.active && clipContextMenuLoader.item) {
-            clipContextMenuLoader.item.popup()
+            popupContextMenu(clipContextMenuLoader.item)
             return
         }
         clipContextMenuLoader.active = true
+    }
+
+    // A finger leaves no cursor position behind, so the menu opens where the press landed.
+    function popupContextMenu(menu) {
+        if (trackClips && trackClips.lastPressTouch && !touchMode)
+            menu.popup(trackClips, trackClips.dragPointer.x, trackClips.dragPointer.y)
+        else
+            menu.popup()
     }
 
     // Premiere-style trim pointer (vertical bar + arrow), sized to this clip.
@@ -233,9 +241,9 @@ Item {
 
     function beginEdgeGesture(area, mouse) {
         const p = area.mapToItem(null, mouse.x, mouse.y)
-        // Desktop has a pointer and a scroll wheel and never needed this; starting it already
-        // decided keeps every branch below dead there.
-        edgeAxis = touchMode ? 0 : 1
+        // A pointer has a scroll wheel and never needed this; starting it already decided keeps
+        // every branch below dead for it. A finger on the desktop timeline arbitrates too.
+        edgeAxis = (touchMode || mouse.source !== Qt.MouseEventNotSynthesized) ? 0 : 1
         edgePressSceneX = p.x
         edgePressSceneY = p.y
         edgeLastSceneY = p.y
@@ -303,7 +311,7 @@ Item {
         active: false
         asynchronous: false
         sourceComponent: clipContextMenuComponent
-        onLoaded: item.popup()
+        onLoaded: clipItem.popupContextMenu(item)
     }
 
     Component {
@@ -431,7 +439,15 @@ Item {
                 icon.name: Theme.icons.rabbit
                 // Converts the bin media, so every clip using it follows along.
                 visible: clipItem.mediaAssetId.length > 0 && !clipItem.mediaEditFriendly
-                onTriggered: EditorState.convertAssetsToConstantFrameRate([clipItem.mediaAssetId])
+                onTriggered: EditorState.bin.convertToConstantFrameRate([clipItem.mediaAssetId])
+            }
+            ThemedMenuItem {
+                text: qsTr("Crop…")
+                icon.name: Theme.icons.crop
+                // Desktop only: AndroidMain has no crop window for timeline clips.
+                visible: (clipItem.clipData.kind === "video" || clipItem.clipData.kind === "image")
+                         && typeof clipItem.Window.window.openCrop === "function"
+                onTriggered: clipItem.Window.window.openCrop(clipItem.trackIndex, clipItem.clipIndex)
             }
             ThemedMenuItem {
                 text: qsTr("Enhance video…")
@@ -446,6 +462,13 @@ Item {
                 icon.name: Theme.icons.unlink
                 visible: !!clipItem.clipData.linked && EditorState.unlinkAvailable
                 onTriggered: EditorState.unlinkSelectedClips()
+            }
+            ThemedMenuItem {
+                text: qsTr("Link")
+                icon.name: Theme.icons.link
+                // Needs two or more unlinked clips selected (Shift+click to add).
+                visible: EditorState.linkAvailable
+                onTriggered: EditorState.linkSelectedClips()
             }
             ThemedMenuItem {
                 text: qsTr("Merge subtitle clips")

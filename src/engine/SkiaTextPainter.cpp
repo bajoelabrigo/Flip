@@ -2,6 +2,7 @@
 
 #include "SkiaPath.h"
 #include "SkiaShading.h"
+#include "SkiaTextGeometry.h"
 #include "SkiaTextEffects.h"
 #include "SkiaVectorResources.h"
 #include "core/TextAnimationPreset.h"
@@ -10,7 +11,6 @@
 #include <QHash>
 #include <QMutex>
 #include <QMutexLocker>
-#include <QPainter>
 #include <QtMath>
 
 #include <algorithm>
@@ -28,6 +28,7 @@
 #include "include/core/SkPathEffect.h"
 #include "include/core/SkRRect.h"
 #include "include/core/SkSamplingOptions.h"
+#include "include/core/SkTextBlob.h"
 #include "include/effects/SkGradient.h"
 #include "include/effects/SkImageFilters.h"
 #include "include/effects/SkShaderMaskFilter.h"
@@ -56,29 +57,8 @@ struct Piece
     int line = 0;
     int wordIndex = 0;
     bool accent = false;
-    sk_sp<SkImage> emoji; // bitmap-face cluster, pre-drawn by Qt
-    QPointF emojiOrigin;  // where the emoji image's top-left lands
+    sk_sp<SkTextBlob> emoji; // colour-glyph cluster (no outline), drawn as glyphs in block coordinates
 };
-
-// Colour emoji have no outlines: the CBDT face is drawn by Qt into a small premultiplied image
-// here on the scene thread, and blitted 1:1 at paint time. The cell is padded because a bitmap
-// glyph can overhang its advance and because the outline dilation grows it.
-sk_sp<SkImage> renderEmoji(const text::StyledWord &word, double extra, QPointF *origin)
-{
-    const double pad = std::ceil(word.cellRect.height() * 0.25 + extra) + 1.0;
-    const int w = qMax(1, qCeil(word.cellRect.width() + pad * 2.0));
-    const int h = qMax(1, qCeil(word.cellRect.height() + pad * 2.0));
-    QImage image(w, h, QImage::Format_ARGB32_Premultiplied);
-    image.fill(Qt::transparent);
-    QPainter p(&image);
-    p.setRenderHint(QPainter::TextAntialiasing);
-    p.setFont(word.emojiFont);
-    p.setPen(Qt::white);
-    p.drawText(QPointF(pad, pad + (word.baselineY - word.cellRect.top())), word.emojiText);
-    p.end();
-    *origin = QPointF(word.cellRect.left() - pad, word.cellRect.top() - pad);
-    return imageFromQImage(image);
-}
 
 struct BlockGeometry
 {
@@ -88,11 +68,10 @@ struct BlockGeometry
 QMutex g_geometryMutex;
 QCache<quint64, std::shared_ptr<const BlockGeometry>> g_geometryCache(48);
 
-// Glyph paths and emoji bitmaps for a fragment set, converted once per layout. Keyed by the
-// set and the emoji padding (the widest stroke), the only style input that touches geometry.
-std::shared_ptr<const BlockGeometry> geometryFor(const text::FragmentSet &set, double emojiPadPx)
+// Glyph paths and colour-glyph blobs for a fragment set, built once per layout.
+std::shared_ptr<const BlockGeometry> geometryFor(const text::FragmentSet &set)
 {
-    const quint64 key = qHashMulti(set.key, qRound(emojiPadPx * 4.0));
+    const quint64 key = set.key;
     {
         QMutexLocker lock(&g_geometryMutex);
         if (const auto *hit = g_geometryCache.object(key))
@@ -108,10 +87,14 @@ std::shared_ptr<const BlockGeometry> geometryFor(const text::FragmentSet &set, d
         piece.line = word.line;
         piece.wordIndex = word.index;
         piece.accent = word.accent;
-        if (!word.emojiText.isEmpty())
-            piece.emoji = renderEmoji(word, emojiPadPx, &piece.emojiOrigin);
-        else
-            piece.glyphs = toSkPath(word.path);
+        if (word.geometry) {
+            const text::PieceGeometry &geometry = *word.geometry;
+            if (word.colour) {
+                piece.emoji = SkTextBlob::MakeFromPosGlyphs(geometry.glyphs, geometry.positions, geometry.font);
+            } else {
+                piece.glyphs = geometry.path;
+            }
+        }
         geometry->pieces.append(piece);
     }
     QMutexLocker lock(&g_geometryMutex);
@@ -618,8 +601,7 @@ private:
 
     void drawEmoji(SkCanvas &canvas, const Piece &piece, const SkPaint *paint) const
     {
-        canvas.drawImage(piece.emoji.get(), float(piece.emojiOrigin.x()), float(piece.emojiOrigin.y()),
-                         SkSamplingOptions(SkFilterMode::kLinear), paint);
+        canvas.drawTextBlob(piece.emoji, 0, 0, paint ? *paint : SkPaint());
     }
 
     void drawUnderline(SkCanvas &canvas) const
@@ -698,7 +680,103 @@ private:
     double m_strokeWidthPx = 0.0;
 };
 
+// Selection, preedit underline and caret over a laid-out block; see TextEditPaintRequest.
+class TextEditPainter final : public VectorPainter
+{
+public:
+    TextEditPainter(QSize size, double bleed, const TextEditPaintRequest &request, QList<QRectF> selection,
+                    QList<QRectF> preedit, QRectF caret, double emPx)
+        : m_size(size), m_bleed(bleed), m_request(request), m_selection(std::move(selection)),
+          m_preedit(std::move(preedit)), m_caret(caret), m_emPx(emPx)
+    {
+        m_request.set.reset();
+    }
+
+    QSize size() const override { return m_size; }
+    quint64 cacheKey() const override { return 0; }
+
+    void paint(SkCanvas &canvas) const override
+    {
+        canvas.translate(float(m_bleed), float(m_bleed));
+        const double scale = m_request.renderScale;
+        SkPaint paint;
+        paint.setAntiAlias(true);
+
+        QColor selectionColor = m_request.selectionColor;
+        if (!selectionColor.isValid())
+            selectionColor = QColor(0x3D, 0x7C, 0xFF, 89);
+        paint.setColor(toSkColor(selectionColor));
+        for (const QRectF &rect : m_selection)
+            canvas.drawRect(toSkRect(rect), paint);
+
+        QColor caretColor = m_request.caretColor.isValid() ? m_request.caretColor : QColor(Qt::white);
+        if (!m_preedit.isEmpty()) {
+            const double thickness = qMax(1.5, qMax(2.0 * scale, 0.04 * m_emPx) * 0.5);
+            paint.setColor(toSkColor(caretColor));
+            for (const QRectF &rect : m_preedit)
+                canvas.drawRect(toSkRect(QRectF(rect.left(), rect.bottom() - thickness * 2.0, rect.width(), thickness)),
+                                paint);
+        }
+
+        if (m_request.cursor >= 0 && m_caret.height() > 0.0) {
+            // Never thinner than a device pixel and a half, whatever the preview scale.
+            const double width = qMax(1.5, qMax(2.0 * scale, 0.06 * m_emPx));
+            const QRectF bar(m_caret.x() - width * 0.5, m_caret.y(), width, m_caret.height());
+            paint.setColor(SkColorSetARGB(160, 0, 0, 0));
+            canvas.drawRect(toSkRect(bar.adjusted(-1.0, -1.0, 1.0, 1.0)), paint);
+            paint.setColor(toSkColor(caretColor));
+            canvas.drawRect(toSkRect(bar), paint);
+        }
+    }
+
+private:
+    QSize m_size;
+    double m_bleed;
+    TextEditPaintRequest m_request;
+    QList<QRectF> m_selection;
+    QList<QRectF> m_preedit;
+    QRectF m_caret;
+    double m_emPx;
+};
+
 } // namespace
+
+TextPainterResult makeTextEditPainter(const TextEditPaintRequest &request)
+{
+    if (!request.set || !request.set->paragraph || request.layoutRect.width() < 1.0 || request.layoutRect.height() < 1.0)
+        return {};
+    const text::FragmentSet &set = *request.set;
+    QList<QRectF> selection;
+    if (request.selStart >= 0 && request.selEnd >= 0 && request.selStart != request.selEnd)
+        selection = text::selectionRects(set, request.selStart, request.selEnd);
+    QList<QRectF> preedit;
+    if (request.preeditStart >= 0 && request.preeditLength > 0)
+        preedit = text::selectionRects(set, request.preeditStart, request.preeditStart + request.preeditLength);
+    const QRectF caret = request.cursor >= 0 ? text::caretRect(set, request.cursor) : QRectF();
+
+    // The decorations may sit outside the layout rect (an overflowing line, a caret at its edge),
+    // so the image grows to hold them.
+    const QRectF box(0.0, 0.0, request.layoutRect.width(), request.layoutRect.height());
+    QRectF reach = box;
+    for (const QRectF &rect : selection)
+        reach = reach.united(rect);
+    for (const QRectF &rect : preedit)
+        reach = reach.united(rect);
+    if (!caret.isNull() || caret.height() > 0.0)
+        reach = reach.united(caret);
+    const double emPx = set.paragraph->emPx;
+    const double bleed = std::ceil(qMax(qMax(-reach.left(), reach.right() - box.width()),
+                                        qMax(-reach.top(), reach.bottom() - box.height()))
+                                   + qMax(2.0 * request.renderScale, 0.06 * emPx) + 3.0);
+    const int imageW = qMax(1, qRound(box.width() + bleed * 2.0));
+    const int imageH = qMax(1, qRound(box.height() + bleed * 2.0));
+
+    TextPainterResult result;
+    result.rect = QRectF(request.layoutRect.x() - bleed, request.layoutRect.y() - bleed, imageW, imageH);
+    result.painter = std::make_shared<TextEditPainter>(QSize(imageW, imageH), bleed, request, std::move(selection),
+                                                       std::move(preedit), caret, emPx);
+    return result;
+}
 
 TextPainterResult makeTextPainter(const TextPaintRequest &request)
 {
@@ -728,7 +806,7 @@ TextPainterResult makeTextPainter(const TextPaintRequest &request)
     result.rect = QRectF(request.layoutRect.x() - bleed, request.layoutRect.y() - bleed, imageW, imageH);
     result.block = request.frame.block;
 
-    std::shared_ptr<const BlockGeometry> geometry = geometryFor(*request.set, widestStroke(style) * scale);
+    std::shared_ptr<const BlockGeometry> geometry = geometryFor(*request.set);
     const Bend bend = bendFor(request.set->frags, style, scale);
 
     const bool cacheable = request.frame.isStatic && !style.isAnimated() && !timeDrivenPaint(style);

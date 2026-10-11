@@ -7,7 +7,7 @@ import "components"
 // Two modes share it: "fade" edits a clip's edge-fade gain (silent at the bottom, full at the
 // top) and "transition" edits a transition's progress curve. The geometry is identical, only the
 // session it drives differs, so the editor is parameterised rather than duplicated.
-Window {
+ToolWindow {
     id: root
 
     property int trackIndex: -1
@@ -508,10 +508,12 @@ Window {
                     property real baseG: 0
 
                     TapHandler {
+                        margin: Theme.touchInput ? 9 : 0
                         onTapped: root.selectedPoint = knob.index
                     }
 
                     DragHandler {
+                        margin: Theme.touchInput ? 9 : 0
                         // Corner rails stay at (0,0) and (1,1); only interior knobs move.
                         enabled: !knob.isEnd
                         target: null
@@ -567,10 +569,12 @@ Window {
                     property real baseY: 0
 
                     TapHandler {
+                        margin: Theme.touchInput ? 9 : 0
                         onTapped: root.selectedHandle = handleKnob.index
                     }
 
                     DragHandler {
+                        margin: Theme.touchInput ? 9 : 0
                         target: null
                         cursorShape: Qt.PointingHandCursor
                         onActiveChanged: {

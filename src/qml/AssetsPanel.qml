@@ -34,7 +34,7 @@ PanelFrame {
 
     // True while an import is running, so the panel can show progress. The folder walk counts:
     // it is the half that can take a while on a deep tree or a sandboxed (portal) mount.
-    readonly property bool importing: AssetLibrary.importing || EditorState.importingFolder
+    readonly property bool importing: AssetLibrary.importing || EditorState.bin.importingFolder
 
     // A single id goes through the existing single-asset add so that case is byte-for-byte the
     // behavior it always was; only an actual multi-selection goes through the batch add, which
@@ -218,7 +218,7 @@ PanelFrame {
         onAccepted: {
             const label = newFolderNameField.text.trim()
             if (label.length > 0)
-                EditorState.createBinFolder(label, EditorState.currentBinFolderId)
+                EditorState.bin.createFolder(label, EditorState.bin.currentFolderId)
         }
     }
 
@@ -261,7 +261,7 @@ PanelFrame {
                 return
             const label = folderRenameField.text.trim()
             if (label.length > 0)
-                EditorState.renameBinFolder(root.pendingFolderRenameId, label)
+                EditorState.bin.renameFolder(root.pendingFolderRenameId, label)
             root.pendingFolderRenameId = ""
         }
         onRejected: root.pendingFolderRenameId = ""
@@ -283,7 +283,7 @@ PanelFrame {
     function requestMoveAssetToFolder(assetIds) {
         root.pendingMoveFolderId = ""
         root.pendingMoveAssetIds = assetIds
-        root.pendingMoveAssetCurrentFolderId = EditorState.currentBinFolderId
+        root.pendingMoveAssetCurrentFolderId = EditorState.bin.currentFolderId
         folderPickerDialog.open()
     }
 
@@ -444,10 +444,10 @@ PanelFrame {
                             const targetId = optionRow.modelData.id
                             folderPickerDialog.close()
                             if (root.pendingMoveFolderId !== "") {
-                                EditorState.moveBinFolder(root.pendingMoveFolderId, targetId)
+                                EditorState.bin.moveFolder(root.pendingMoveFolderId, targetId)
                                 root.pendingMoveFolderId = ""
                             } else if (root.pendingMoveAssetIds.length > 0) {
-                                EditorState.moveAssetsToFolder(root.pendingMoveAssetIds, targetId)
+                                EditorState.bin.moveAssetsToFolder(root.pendingMoveAssetIds, targetId)
                                 root.pendingMoveAssetIds = []
                             }
                         }
@@ -463,7 +463,7 @@ PanelFrame {
         var url = FileDialogs.openFile(qsTr("Replace Media"), [AssetLibrary.mediaNameFilter()])
         if (!url || url.toString() === "")
             return
-        EditorState.replaceAssetSource(assetIndex, url)
+        EditorState.bin.replaceSource(assetIndex, url)
     }
 
     // Writes an image row back out to disk — the way a freeze frame captured in the preview
@@ -478,7 +478,7 @@ PanelFrame {
         ], asset.name, "png")
         if (!url || url.toString() === "")
             return
-        if (EditorState.exportAssetImage(assetIndex, url))
+        if (EditorState.bin.exportImage(assetIndex, url))
             Toasts.success(qsTr("Exported “%1”.").arg(asset.name))
         else
             Toasts.error(qsTr("Couldn’t export that image."))
@@ -500,21 +500,14 @@ PanelFrame {
         var url = FileDialogs.saveFile(qsTr("Save As"), filters, baseName, suffix)
         if (!url || url.toString() === "")
             return
-        if (EditorState.saveAssetAs(assetIndex, url))
+        if (EditorState.bin.saveAs(assetIndex, url))
             Toasts.info(qsTr("Saving “%1”…").arg(asset.name))
         else
             Toasts.error(qsTr("Couldn’t save “%1”.").arg(asset.name))
     }
 
     Connections {
-        target: EditorState
-
-        function onAssetSaveFinished(ok, name) {
-            if (ok)
-                Toasts.success(qsTr("Saved “%1”.").arg(name))
-            else
-                Toasts.error(qsTr("Couldn’t save “%1”.").arg(name))
-        }
+        target: EditorState.bin
 
         // Hitting the limit outranks the skipped count: the walk stopped early, so what it passed
         // over is only part of the story and saying both would suggest otherwise.
@@ -530,8 +523,15 @@ PanelFrame {
             }
         }
 
+        function onSaveFinished(ok, name) {
+            if (ok)
+                Toasts.success(qsTr("Saved “%1”.").arg(name))
+            else
+                Toasts.error(qsTr("Couldn’t save “%1”.").arg(name))
+        }
+
         // The probe runs off-thread, so the outcome comes back here rather than from the call.
-        function onAssetReplaceFinished(ok, message, adjustedClips) {
+        function onReplaceFinished(ok, message, adjustedClips) {
             if (!ok) {
                 Toasts.warning(message)
             } else if (adjustedClips > 0) {
@@ -541,11 +541,12 @@ PanelFrame {
                 Toasts.success(qsTr("Replaced with “%1”.").arg(message))
             }
         }
-        function onAssetEditFinished(ok, message) {
+
+        function onEditFinished(ok, message) {
             if (!ok) {
                 if (message && message.length > 0)
                     Toasts.warning(message)
-            } else if (EditorState.assetEditIsConversion) {
+            } else if (EditorState.bin.editIsConversion) {
                 Toasts.success(qsTr("“%1” is now in an edit-friendly format.").arg(message))
             } else {
                 Toasts.success(qsTr("Saved “%1”. Drag it onto the timeline.").arg(message))
@@ -562,14 +563,14 @@ PanelFrame {
 
     // Imports a whole directory: a new bin folder mirrors the picked folder (and everything
     // nested under it), and every media file lands in the bin folder matching its containing
-    // directory. EditorState.importFolder does the walk synchronously — probing and
+    // directory. EditorState.bin.importFolder does the walk synchronously — probing and
     // thumbnailing each file still happens in the background the same as any other import.
     function importFolder() {
         var url = FileDialogs.openDirectory(qsTr("Import Folder"))
         if (!url || url.toString() === "")
             return
         // The walk runs off-thread, so the outcome arrives as onFolderImportFinished below.
-        if (!EditorState.importFolder(url))
+        if (!EditorState.bin.importFolder(url))
             Toasts.error(qsTr("Couldn’t import that folder."))
     }
 
@@ -601,13 +602,13 @@ PanelFrame {
     }
 
     function kindsForTab(tabId) {
-        if (tabId === "media") return ["video", "image", "audio", "vector", "model3d"]
+        if (tabId === "media") return ["video", "image", "audio", "vector", "model3d", "pdf"]
         return []
     }
 
     function assetVisible(kind) {
         const tabId = tabsModel.get(activeTab).tabId
-        if (tabId === "text" || tabId === "subtitles" || tabId === "stickers" || tabId === "shapes"
+        if (tabId === "text" || tabId === "subtitles" || tabId === "speech" || tabId === "stickers" || tabId === "shapes"
                 || tabId === "effects" || tabId === "templates" || tabId === "adjustment"
                 || tabId === "sounds" || tabId === "sfx" || tabId === "transitions" || tabId === "masks"
                 || tabId === "shortcuts" || tabId === "scenes" || tabId === "market")
@@ -623,6 +624,7 @@ PanelFrame {
         "market": qsTr("Market"),
         "text": qsTr("Text"),
         "subtitles": qsTr("Subtitles"),
+        "speech": qsTr("Speech"),
         "stickers": qsTr("Stickers"),
         "shapes": qsTr("Shapes"),
         "scenes": qsTr("Scenes"),
@@ -644,6 +646,7 @@ PanelFrame {
         ListElement { tabId: "market"; icon: 12; separatorAfter: true }
         ListElement { tabId: "text"; icon: 1; separatorAfter: false }
         ListElement { tabId: "subtitles"; icon: 2; separatorAfter: false }
+        ListElement { tabId: "speech"; icon: 13; separatorAfter: false }
         ListElement { tabId: "stickers"; icon: 3; separatorAfter: false }
         ListElement { tabId: "shapes"; icon: 4; separatorAfter: false }
         ListElement { tabId: "masks"; icon: 11; separatorAfter: true }
@@ -651,23 +654,29 @@ PanelFrame {
         ListElement { tabId: "effects"; icon: 5; separatorAfter: false }
         ListElement { tabId: "templates"; icon: 6; separatorAfter: false }
         ListElement { tabId: "transitions"; icon: 7; separatorAfter: false }
-        ListElement { tabId: "sfx"; icon: 13; separatorAfter: false }
+        ListElement { tabId: "sfx"; icon: 14; separatorAfter: false }
         ListElement { tabId: "sounds"; icon: 8; separatorAfter: true }
         ListElement { tabId: "shortcuts"; icon: 9; separatorAfter: false }
 
         // A build without a marketplace service (Flip Studio has none yet) drops the tab rather
         // than showing an empty "unavailable" page — same as the Android home nav.
-        Component.onCompleted: {
-            if (Market.configured)
-                return
+        function dropTab(tabId) {
             for (let i = 0; i < count; ++i) {
-                if (get(i).tabId === "market") {
+                if (get(i).tabId === tabId) {
                     if (i > 0)
                         setProperty(i - 1, "separatorAfter", get(i).separatorAfter)
                     remove(i)
                     return
                 }
             }
+        }
+
+        Component.onCompleted: {
+            if (!Market.configured)
+                dropTab("market")
+            // Flip Studio's Extras index has no voice model yet, so the Speech tab could only
+            // offer a download that does not exist. Drop this once a "tts-model" package ships.
+            dropTab("speech")
         }
     }
     property var tabIcons: [
@@ -684,6 +693,7 @@ PanelFrame {
         Theme.icons.listVideo,
         Theme.icons.mask,
         Theme.icons.store,
+        Theme.icons.micVocal,
         Theme.icons.music
     ]
     property int activeTab: 0
@@ -707,7 +717,7 @@ PanelFrame {
             tab.searchText = saved.search
         if (saved.category === undefined || !tab.categories)
             return
-        if (saved.category === "__favorites__"
+        if (saved.category === "__favorites__" || saved.category === "__mine__"
                 || tab.categories.some(category => category.id === saved.category))
             tab.activeCategory = saved.category
     }
@@ -888,12 +898,15 @@ PanelFrame {
             Rectangle {
                 id: assetsHeader
                 // In a sheet the title is the sheet's own, so this bar only earns its height when
-                // the tab has actions to put in it (emoji picker, media import); otherwise it was
-                // an empty band between the sheet title and the content.
+                // the tab has actions to put in it (media import); otherwise it was an empty band
+                // between the sheet title and the content. The catalog tabs never show it: their
+                // search field names the tab and carries its actions.
                 readonly property string tabId: tabsModel.get(root.activeTab).tabId
-                readonly property bool hasActions: tabId === "stickers" || kindsForTab(tabId).length > 0
+                readonly property bool hasActions: kindsForTab(tabId).length > 0
+                readonly property bool searchBarTab: ["text", "stickers", "shapes", "effects", "templates",
+                                                      "transitions", "sounds"].indexOf(tabId) >= 0
                 width: parent.width
-                height: root.sheetMode && !hasActions ? 0 : Theme.panelHeaderHeight
+                height: searchBarTab || (root.sheetMode && !hasActions) ? 0 : Theme.panelHeaderHeight
                 visible: height > 0
                 // Matches the surrounding PanelFrame; it used to paint the app
                 // background, so the header read as a different surface than the
@@ -949,21 +962,6 @@ PanelFrame {
                     color: Theme.mutedForeground
                     font.family: Theme.fontFamily
                     font.pixelSize: Theme.fontSizeSm
-                }
-
-                // The sticker packs are a curated subset of the emoji set, so the rest live behind
-                // this button rather than being unreachable.
-                IconButton {
-                    id: emojiPickerButton
-                    anchors.right: parent.right
-                    anchors.rightMargin: 8
-                    anchors.verticalCenter: parent.verticalCenter
-                    visible: tabsModel.get(root.activeTab).tabId === "stickers"
-                    glyph: Theme.icons.plus
-                    variant: "ghost"
-                    tooltip: qsTr("More emoji")
-                    active: emojiPicker.opened
-                    onClicked: emojiPicker.opened ? emojiPicker.close() : emojiPicker.open()
                 }
 
                 Row {
@@ -1056,14 +1054,21 @@ PanelFrame {
                             }
 
                             ThemedMenuItem {
+                                visible: FileDialogs.supportsDirectoryPicker()
+                                height: visible ? implicitHeight : 0
                                 text: qsTr("Import Folder…")
                                 icon.name: Theme.icons.folderInput
                                 onTriggered: root.importFolder()
                             }
 
-                            ThemedMenuSeparator { }
+                            ThemedMenuSeparator {
+                                visible: FileDialogs.supportsDirectoryPicker()
+                                height: visible ? implicitHeight : 0
+                            }
 
                             ThemedMenuItem {
+                                visible: FileDialogs.supportsDirectoryPicker()
+                                height: visible ? implicitHeight : 0
                                 text: qsTr("Collect Media to Folder…")
                                 icon.name: Theme.icons.folderOutput
                                 enabled: !EditorState.projectFile.collectingMedia
@@ -1076,10 +1081,10 @@ PanelFrame {
 
             EmojiPicker {
                 id: emojiPicker
-                // Hangs off the button at the panel's right edge, and slides back rather than
-                // running off-window when the panel is dragged narrow.
-                x: Math.max(-Theme.tabRailWidth, assetsContent.width - width - 8)
-                y: Theme.panelHeaderHeight + 4
+                // Hangs off the stickers search bar's + at the panel's right edge, and slides back
+                // rather than running off-window when the panel is dragged narrow.
+                x: Math.max(-Theme.tabRailWidth, assetsContent.width - width - Theme.pagePadding)
+                y: assetsHeader.height + Theme.pagePadding + Theme.controlHeight + 4
                 onAddonManagerRequested: root.Window.window.openAddonManager("stickers")
                 onAdded: root.addCompleted()
             }
@@ -1094,6 +1099,12 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     TextAssetsTab {
+                        Component.onCompleted: {
+                            const saved = root.tabState["text"] || {}
+                            if (saved.section)
+                                section = saved.section
+                        }
+                        onSectionChanged: root.rememberTab("text", "section", section)
                         onAdded: root.addCompleted()
                     }
                 }
@@ -1126,6 +1137,17 @@ PanelFrame {
             }
 
             Loader {
+                active: root.currentTabId === "speech"
+                visible: active
+                width: parent.width
+                height: parent.height - assetsHeader.height
+                opacity: root.tabOpacity
+                sourceComponent: Component {
+                    SpeechTab { }
+                }
+            }
+
+            Loader {
                 active: root.currentTabId === "sounds"
                 visible: active
                 width: parent.width
@@ -1148,6 +1170,8 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     StickersTab {
+                        emojiPickerOpen: emojiPicker.opened
+                        onEmojiPickerRequested: emojiPicker.opened ? emojiPicker.close() : emojiPicker.open()
                         onAdded: root.addCompleted()
                         Component.onCompleted: root.restoreBrowserTab(this, "stickers")
                         onSearchTextChanged: root.rememberTab("stickers", "search", searchText)

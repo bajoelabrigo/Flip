@@ -16,6 +16,7 @@
 #include "models/EditorState.h"
 #include "models/FileDialogs.h"
 #include "models/Haptics.h"
+#include "models/PointerDevices.h"
 #include "models/LayoutStore.h"
 #include "models/MarketClient.h"
 #include "models/DriftAssetStore.h"
@@ -83,6 +84,8 @@
 #include <QDir>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QJniEnvironment>
+#include <QJniObject>
 #include <QStandardPaths>
 #endif
 
@@ -514,8 +517,11 @@ int main(int argc, char *argv[])
     QSurfaceFormat androidFormat;
     androidFormat.setRenderableType(QSurfaceFormat::OpenGLES);
     androidFormat.setVersion(3, 0);
-    androidFormat.setDepthBufferSize(0);
-    androidFormat.setStencilBufferSize(0);
+    // Qt Quick draws opaque items front to back against the depth buffer and clips rotated items
+    // with the stencil. With neither, a flat opaque item lost to whatever opaque item sat behind
+    // it (the start screen's background showed the editor through).
+    androidFormat.setDepthBufferSize(24);
+    androidFormat.setStencilBufferSize(8);
     QSurfaceFormat::setDefaultFormat(androidFormat);
 #else
     // On NVIDIA/Wayland, leaving the API unspecified makes EGL interpret 3.3
@@ -633,6 +639,7 @@ int main(int argc, char *argv[])
     // thread starts touching QFontDatabase.
     reloadFontCatalog();
     reloadTextStyleCatalog();
+    reloadUserFonts();
     reloadEmojiCatalog();
 
     // Noise-removal A/B snippets are scratch. Anything still here is from a previous session that
@@ -675,13 +682,14 @@ int main(int argc, char *argv[])
     static UpdateChecker updateChecker;
     static LayoutStore layoutStore;
     static drift::Haptics haptics;
+    static drift::PointerDevices pointerDevices;
     editorState.setAddonManager(&addonManager);
     marketClient.setAssetLibrary(&assetLibrary);
     editorState.setMarketClient(&marketClient);
     static DriftAssetStore driftAssets(&marketClient, &assetLibrary, &editorState);
     static SfxLibrary sfxLibrary(&marketClient, &assetLibrary);
     qmlRegisterSingletonInstance("Drift", 1, 0, "AssetLibrary", &assetLibrary);
-    qmlRegisterSingletonInstance("Drift", 1, 0, "BinFolderModel", editorState.binFolderModel());
+    qmlRegisterSingletonInstance("Drift", 1, 0, "BinFolderModel", editorState.bin()->folderModel());
     qmlRegisterSingletonInstance("Drift", 1, 0, "EditorState", &editorState);
     qmlRegisterSingletonInstance("Drift", 1, 0, "AppController", &editorState);
     qmlRegisterSingletonInstance("Drift", 1, 0, "FileDialogs", &fileDialogs);
@@ -692,6 +700,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("Drift", 1, 0, "Updates", &updateChecker);
     qmlRegisterSingletonInstance("Drift", 1, 0, "LayoutMemory", &layoutStore);
     qmlRegisterSingletonInstance("Drift", 1, 0, "Haptics", &haptics);
+    qmlRegisterSingletonInstance("Drift", 1, 0, "PointerDevices", &pointerDevices);
 
     app.installEventFilter(new FileOpenFilter(&editorState, &marketClient, &app));
     {
@@ -727,21 +736,32 @@ int main(int argc, char *argv[])
     engine.addImageProvider(QStringLiteral("textlook"), new TextLookPreviewImageProvider());
     QObject::connect(
         &engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QGuiApplication::exit(-1); }, Qt::QueuedConnection);
-    // Shell.qml owns the choice between Main.qml (desktop) and AndroidMain.qml (touch) and can
-    // re-make it at runtime as the window crosses the compact breakpoint. Resolved here in one
-    // place, in a fixed precedence: explicit argument, then environment, then platform default.
+    // Shell.qml builds Main.qml (desktop) or AndroidMain.qml (touch) once, at startup. Resolved
+    // here in one place, in a fixed precedence: explicit argument, then environment, then the
+    // Settings choice (ui/shell), then platform default.
     const QStringList shellArgs = app.arguments();
-    QString shellPreference = QStringLiteral("auto");
+    const QString envShell = qEnvironmentVariable("DRIFT_SHELL");
+    QString shellPreference = PreferencesController::storedInterfaceShell();
     if (shellArgs.contains(QStringLiteral("--shell=mobile")))
         shellPreference = QStringLiteral("mobile");
     else if (shellArgs.contains(QStringLiteral("--shell=desktop")))
         shellPreference = QStringLiteral("desktop");
-    else if (qEnvironmentVariableIsSet("DRIFT_SHELL"))
-        shellPreference = qEnvironmentVariable("DRIFT_SHELL");
-    if (shellPreference != QLatin1String("mobile") && shellPreference != QLatin1String("desktop"))
-        shellPreference = QStringLiteral("auto");
+    else if (envShell == QLatin1String("mobile") || envShell == QLatin1String("desktop"))
+        shellPreference = envShell;
+    PreferencesController::setAppliedShell(shellPreference);
 
-    engine.setInitialProperties({{QStringLiteral("shellPreference"), shellPreference}});
+    // Resolved, not the raw preference: "auto" has to mean the same thing here as in Settings,
+    // which counts tablets and DeX as desktop.
+    const QString resolvedShell = PreferencesController::resolveInterfaceShell(shellPreference);
+#ifdef Q_OS_ANDROID
+    if (resolvedShell == QLatin1String("desktop")) {
+        QJniObject::callStaticMethod<void>("org/cutwire/drift/DesktopMode", "lockLandscape",
+                                           "(Landroid/content/Context;)V",
+                                           QNativeInterface::QAndroidApplication::context().object());
+        QJniEnvironment().checkAndClearExceptions();
+    }
+#endif
+    engine.setInitialProperties({{QStringLiteral("shellPreference"), resolvedShell}});
     engine.loadFromModule("Drift", "Shell");
     drift::perf::install();
     if (drift::perf::enabled()) {

@@ -583,7 +583,31 @@ jobs:
           QT_FORCE_STDERR_LOGGING: 1
         run: |
           $env:PATH = "${{ github.workspace }}\.deps\ffmpeg\bin;${{ env.QT_ROOT_DIR }}\bin;$env:PATH"
-          ctest --test-dir build -C Release --output-on-failure --output-log ctest.log
+          ctest --test-dir build -C Release --output-on-failure --output-log ctest.log -E "^Skia$"
+          $ctestExit = $LASTEXITCODE
+          # Flip Studio: these Skia cases need the font bundle, an Arabic and a Sinhala face, none of
+          # which this runner has (the Sinhala one spins until the 300 s timeout). Drift runs them on
+          # Linux and macOS (tests.yml); here the rest of the suite runs.
+          $skip = 'textPainterCacheKeys', 'userFontImportResolvesAndRemoves',
+                  'inlineCaretRunsRightToLeftInArabic', 'inlineCaretNeverStopsInsideASinhalaConjunct'
+          # From ctest's working directory, which some cases resolve their data against.
+          Push-Location build\tests
+          $functions = & ..\Release\tst_skia.exe -functions |
+              ForEach-Object { $_.Trim() -replace '\(\)$', '' } |
+              Where-Object { $_ -and ($skip -notcontains $_) }
+          & ..\Release\tst_skia.exe @functions
+          $skiaExit = $LASTEXITCODE
+          Pop-Location
+          if ($ctestExit -ne 0 -or $skiaExit -ne 0) { exit 1 }
+
+      # Flip Studio: the Translations test rewrites i18n/*.ts with lupdate's output before failing,
+      # and there is no lupdate off CI, so hand the regenerated catalogs back.
+      - name: Upload regenerated translations
+        if: failure() && steps.test.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: i18n-regenerated
+          path: i18n/*.ts
 
       - name: Summarize test failures
         if: failure() && steps.test.outcome == 'failure'

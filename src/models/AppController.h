@@ -14,7 +14,6 @@
 #include "engine/ProjectBundle.h"
 #include "TimelineClipsModel.h"
 #include "models/AssetLibrary.h"
-#include "models/BinFolderListModel.h"
 #include "models/CloudProviders.h"
 #include "core/GuideSet.h"
 
@@ -32,6 +31,7 @@
 #include <QPair>
 #include <QSet>
 #include <QStringList>
+#include <QTransform>
 #include <QUndoStack>
 #include <QUrl>
 #include <QVariantList>
@@ -43,6 +43,7 @@
 #include <QMap>
 
 #include <memory>
+#include <optional>
 #include <optional>
 
 struct EffectTemplateEntry;
@@ -62,8 +63,17 @@ struct MediaEditSpec;
 #include "preview/PreviewController.h"
 #include "AssetPreviewController.h"
 #include "CurveEditorController.h"
+#include "DenoiseController.h"
+#include "DepthController.h"
+#include "FaceTrackingController.h"
 #include "McpController.h"
+#include "RestoreController.h"
+#include "SceneDetectController.h"
 #include "SegmentationController.h"
+#include "MediaBinController.h"
+#include "StabilizeController.h"
+#include "TtsController.h"
+#include "VoiceLibrary.h"
 #include "SpeedCurveController.h"
 #include "PreferencesController.h"
 #include "ProjectFileController.h"
@@ -83,19 +93,21 @@ class AppController : public QObject
     friend class SpeedCurveController;
     friend class CurveEditorController;
     friend class SegmentationController;
+    friend class SceneDetectController;
+    friend class DepthController;
+    friend class DenoiseController;
+    friend class RestoreController;
+    friend class FaceTrackingController;
+    friend class StabilizeController;
+    friend class MediaBinController;
+    friend class TtsController;
+    friend class VoiceLibrary;
 
     Q_OBJECT
 
     Q_PROPERTY(AssetLibrary *assetLibrary READ assetLibrary CONSTANT)
     Q_PROPERTY(CloudProviders *cloudProviders READ cloudProviders CONSTANT)
-    Q_PROPERTY(BinFolderListModel *binFolderModel READ binFolderModel CONSTANT)
-    // Which bin folder is currently being viewed; empty = bin root. Transient navigation state —
-    // not persisted, not undoable, same treatment as mediaGridMode's touch-only sibling.
-    Q_PROPERTY(QString currentBinFolderId READ currentBinFolderId WRITE setCurrentBinFolderId
-                   NOTIFY currentBinFolderIdChanged)
-    // True while importFolder's off-thread directory walk is running, so the bin can raise its
-    // progress overlay over a slow tree (a big hierarchy, or a Flatpak document-portal mount).
-    Q_PROPERTY(bool importingFolder READ importingFolder NOTIFY importingFolderChanged)
+    Q_PROPERTY(MediaBinController *bin READ bin CONSTANT)
     Q_PROPERTY(PlaybackEngine *playback READ playback CONSTANT)
     // The preview area's editor state, tools and overlay maths.
     Q_PROPERTY(PreviewController *preview READ preview CONSTANT)
@@ -111,6 +123,21 @@ class AppController : public QObject
     Q_PROPERTY(CurveEditorController *curves READ curves CONSTANT)
     // Cutout pipeline and prompting session. QML: EditorState.segmentation.
     Q_PROPERTY(SegmentationController *segmentation READ segmentation CONSTANT)
+    // Shot detection for a video clip. QML: EditorState.scenes.
+    Q_PROPERTY(SceneDetectController *scenes READ scenes CONSTANT)
+    // Depth estimation for a clip. QML: EditorState.depth.
+    Q_PROPERTY(DepthController *depth READ depth CONSTANT)
+    // Noise removal for a clip's audio. QML: EditorState.denoise.
+    Q_PROPERTY(DenoiseController *denoise READ denoise CONSTANT)
+    // Video restore and enhance (decompression, upscaling). QML: EditorState.restore.
+    Q_PROPERTY(RestoreController *restore READ restore CONSTANT)
+    // Face landmark tracking and Face Swap source ingest. QML: EditorState.faces.
+    Q_PROPERTY(FaceTrackingController *faces READ faces CONSTANT)
+    // Clip stabilization. QML: EditorState.stabilize.
+    Q_PROPERTY(StabilizeController *stabilize READ stabilize CONSTANT)
+    // Local text-to-speech and the cloned-voice library. QML: EditorState.tts, EditorState.voices.
+    Q_PROPERTY(TtsController *tts READ tts CONSTANT)
+    Q_PROPERTY(VoiceLibrary *voices READ voices CONSTANT)
     // Output devices to choose between, each {id, label}; the first entry has an empty id and
     // means "whatever the system default is at the time", which is also the default choice.
     Q_PROPERTY(QVariantList audioOutputDevices READ audioOutputDevices NOTIFY audioOutputDevicesChanged)
@@ -199,27 +226,11 @@ class AppController : public QObject
     Q_PROPERTY(double exportProgress READ exportProgress NOTIFY exportProgressChanged)
     Q_PROPERTY(bool canShareExport READ canShareExport NOTIFY canShareExportChanged)
     Q_PROPERTY(bool subtitleGenerating READ subtitleGenerating NOTIFY subtitleGeneratingChanged)
-    // Id of the asset whose replacement is being probed, empty when idle. Only that one bin row
-    // goes busy: the rest of the panel stays usable, and the wait belongs to the row the user
-    // right-clicked.
-    Q_PROPERTY(QString replacingAssetId READ replacingAssetId NOTIFY replacingAssetIdChanged)
-    // True while a bin-row crop/trim is encoding. Progress belongs to MediaPreviewWindow.
-    Q_PROPERTY(bool editingAsset READ editingAsset NOTIFY assetEditChanged)
-    Q_PROPERTY(double assetEditProgress READ assetEditProgress NOTIFY assetEditChanged)
-    Q_PROPERTY(QString assetEditStatus READ assetEditStatus NOTIFY assetEditChanged)
-    // The running (or, once it finishes, the last) asset edit job is a frame-rate conversion
-    // rather than a crop, so the finish can be worded for it. Also carries its name while it runs,
-    // since a conversion has no preview window to show progress in.
-    Q_PROPERTY(bool assetEditIsConversion READ assetEditIsConversion NOTIFY assetEditChanged)
-    Q_PROPERTY(QString assetEditName READ assetEditName NOTIFY assetEditChanged)
     Q_PROPERTY(double subtitleGenProgress READ subtitleGenProgress NOTIFY subtitleGenProgressChanged)
     Q_PROPERTY(QString subtitleGenStatus READ subtitleGenStatus NOTIFY subtitleGenStatusChanged)
     Q_PROPERTY(bool reverseRendering READ reverseRendering NOTIFY reverseRenderingChanged)
     Q_PROPERTY(double reverseRenderProgress READ reverseRenderProgress NOTIFY reverseRenderProgressChanged)
     Q_PROPERTY(QString reverseRenderStatus READ reverseRenderStatus NOTIFY reverseRenderStatusChanged)
-    Q_PROPERTY(bool denoising READ denoising NOTIFY denoisingChanged)
-    Q_PROPERTY(double denoiseProgress READ denoiseProgress NOTIFY denoiseProgressChanged)
-    Q_PROPERTY(QString denoiseStatus READ denoiseStatus NOTIFY denoiseStatusChanged)
     // Multicam punching session. The live project is not touched until Save; switches rewrite a
     // staged copy that playback is pointed at so the program monitor shows the mix.
     Q_PROPERTY(bool multicamActive READ multicamActive NOTIFY multicamChanged)
@@ -236,20 +247,6 @@ class AppController : public QObject
     // There is enough imported video to build a rig from, and no visual clips that building one
     // would disturb. Drives the window's "set this up for me" offer.
     Q_PROPERTY(bool multicamCanSetUp READ multicamCanSetUp NOTIFY multicamChanged)
-    Q_PROPERTY(bool faceDetecting READ faceDetecting NOTIFY faceDetectingChanged)
-    Q_PROPERTY(double faceDetectProgress READ faceDetectProgress NOTIFY faceDetectProgressChanged)
-    Q_PROPERTY(QString faceDetectStatus READ faceDetectStatus NOTIFY faceDetectStatusChanged)
-    // Detected shots for the clip named by sceneClipId. Analysis state, not project state:
-    // it describes the source media, so it is cached on disk rather than saved (see
-    // engine/SceneDetect.h) and is never pushed through the undo stack.
-    Q_PROPERTY(QVariantList scenes READ scenes NOTIFY scenesChanged)
-    Q_PROPERTY(QString sceneClipId READ sceneClipId NOTIFY scenesChanged)
-    // Source file the live analysis describes, so the panel can ask for thumbnails.
-    Q_PROPERTY(QString sceneClipPath READ sceneClipPath NOTIFY scenesChanged)
-    Q_PROPERTY(int sceneClipRotationCorrection READ sceneClipRotationCorrection NOTIFY scenesChanged)
-    Q_PROPERTY(bool sceneDetecting READ sceneDetecting NOTIFY sceneDetectingChanged)
-    Q_PROPERTY(double sceneDetectProgress READ sceneDetectProgress NOTIFY sceneDetectProgressChanged)
-    Q_PROPERTY(QString sceneDetectStatus READ sceneDetectStatus NOTIFY sceneDetectStatusChanged)
     Q_PROPERTY(int selectedTrack READ selectedTrack NOTIFY selectionChanged)
     Q_PROPERTY(int selectedClip READ selectedClip NOTIFY selectionChanged)
     Q_PROPERTY(QVariantList selection READ selection NOTIFY selectionChanged)
@@ -292,6 +289,7 @@ class AppController : public QObject
     Q_PROPERTY(QVariantList sequenceTabs READ sequenceTabs NOTIFY sequenceTabsChanged)
     Q_PROPERTY(QString activeSequenceId READ activeSequenceId NOTIFY sequenceTabsChanged)
     Q_PROPERTY(bool unlinkAvailable READ canUnlinkSelection NOTIFY editCapabilitiesChanged)
+    Q_PROPERTY(bool linkAvailable READ canLinkSelection NOTIFY editCapabilitiesChanged)
     Q_PROPERTY(bool mergeAvailable READ canMergeSelection NOTIFY editCapabilitiesChanged)
     Q_PROPERTY(bool textToSubtitleAvailable READ canConvertSelectionToSubtitle NOTIFY editCapabilitiesChanged)
     // False until the user picks a launch layout (or decides later via first-clip setup / load).
@@ -301,11 +299,18 @@ public:
     explicit AppController(AssetLibrary *assetLibrary, QObject *parent = nullptr);
     ~AppController() override;
 
+    // The first half of applyProjectJson. Touches no controller state, so a load runs it on a
+    // worker and hands the result to applyParsedProject on the GUI thread.
+    struct ParsedProject {
+        drift::Project project;
+        QJsonObject root;
+    };
+    static std::optional<ParsedProject> parseProjectJson(const QByteArray &data, QString *error);
+    static std::optional<ParsedProject> parseProjectJson(const QJsonObject &root, QString *error);
+
     AssetLibrary *assetLibrary() const { return m_assetLibrary; }
     CloudProviders *cloudProviders() const { return m_cloud; }
-    BinFolderListModel *binFolderModel() { return &m_binFolderModel; }
-    QString currentBinFolderId() const { return m_currentBinFolderId; }
-    void setCurrentBinFolderId(const QString &folderId);
+    MediaBinController *bin() const { return m_bin; }
     PlaybackEngine *playback() { return &m_playback; }
     PreviewController *preview() const { return m_preview; }
     PreferencesController *preferences() const { return m_preferences; }
@@ -314,6 +319,14 @@ public:
     SpeedCurveController *speedCurve() const { return m_speedCurve; }
     CurveEditorController *curves() const { return m_curves; }
     SegmentationController *segmentation() const { return m_segmentation; }
+    SceneDetectController *scenes() const { return m_sceneDetect; }
+    DepthController *depth() const { return m_depth; }
+    DenoiseController *denoise() const { return m_denoise; }
+    RestoreController *restore() const { return m_restore; }
+    FaceTrackingController *faces() const { return m_faces; }
+    StabilizeController *stabilize() const { return m_stabilize; }
+    TtsController *tts() const { return m_tts; }
+    VoiceLibrary *voices() const { return m_voices; }
     McpController *mcp() const { return m_mcpController; }
     QVariantList audioOutputDevices() const;
     QString audioOutputDeviceId() const { return m_audioOutputDeviceId; }
@@ -394,30 +407,11 @@ public:
     double exportProgress() const;
     bool canShareExport() const;
     bool subtitleGenerating() const { return m_subtitleGenerating; }
-    QString replacingAssetId() const { return m_replacingAssetId; }
-    bool editingAsset() const { return m_editingAsset; }
-    double assetEditProgress() const { return m_assetEditProgress; }
-    QString assetEditStatus() const { return m_assetEditStatus; }
-    bool assetEditIsConversion() const { return m_assetEditIsConversion; }
-    QString assetEditName() const { return m_assetEditKeepName; }
     double subtitleGenProgress() const { return m_subtitleGenProgress; }
     QString subtitleGenStatus() const { return m_subtitleGenStatus; }
     bool reverseRendering() const { return m_reverseRendering; }
     double reverseRenderProgress() const { return m_reverseProgress; }
     QString reverseRenderStatus() const { return m_reverseStatus; }
-    bool denoising() const { return m_denoising; }
-    double denoiseProgress() const { return m_denoiseProgress; }
-    QString denoiseStatus() const { return m_denoiseStatus; }
-    bool faceDetecting() const { return m_faceDetecting; }
-    double faceDetectProgress() const { return m_faceDetectProgress; }
-    QString faceDetectStatus() const { return m_faceDetectStatus; }
-    QVariantList scenes() const { return m_scenes; }
-    QString sceneClipId() const { return m_sceneClipId; }
-    QString sceneClipPath() const { return m_sceneClipPath; }
-    int sceneClipRotationCorrection() const { return m_sceneClipRotationCorrection; }
-    bool sceneDetecting() const { return m_sceneDetecting; }
-    double sceneDetectProgress() const { return m_sceneDetectProgress; }
-    QString sceneDetectStatus() const { return m_sceneDetectStatus; }
     int selectedTrack() const { return m_selectedTrack; }
     int selectedClip() const { return m_selectedClip; }
     QVariantList selection() const;
@@ -498,7 +492,33 @@ public:
 
     JobRegistry *jobRegistry() const { return m_jobs; }
 
-    void setAddonManager(AddonManager *manager) { m_addonManager = manager; }
+    struct GeneratedAudioImport
+    {
+        bool ok = false;
+        QString errorCode; // "not_found" | "import_failed"
+        QString error;
+        QString assetId;
+        double durationSeconds = -1.0; // -1 when the asset has no probed duration yet
+        QString clipId;                // set when a clip was placed
+    };
+    // Imports an audio file the app generated, waits for its probe, records `generator` on the
+    // asset and, with `place`, drops a clip at atSeconds. track < 0 picks the first audio lane with
+    // room for the whole clip, else a new one. Blocks in a nested event loop: GUI thread only.
+    GeneratedAudioImport importGeneratedAudio(const QString &path, const QJsonObject &generator,
+                                              bool place, double atSeconds, int track);
+
+    struct GeneratedAudioPlacement
+    {
+        QString path; // already imported through importGeneratedAudio
+        double atSeconds = 0.0;
+    };
+    // Lays the clips out on new audio tracks as one undo step. A clip that would overlap the
+    // previous one on a lane goes on the next lane that is free, adding lanes as needed. Returns
+    // how many clips were placed.
+    int placeGeneratedAudioOnNewTracks(const QList<GeneratedAudioPlacement> &items,
+                                       const QString &undoText);
+
+    void setAddonManager(AddonManager *manager);
     void setMarketClient(MarketClient *client) { m_marketClient = client; }
     MarketClient *marketClient() const { return m_marketClient; }
     AddonManager *addonManager() const { return m_addonManager; }
@@ -542,56 +562,7 @@ public:
     // Bin-preview orientation for a video asset (absolute 0/90/180/270; -1 = the file's own tag),
     // as one undoable edit — AssetLibrary::setAssetRotation on its own leaves no undo entry.
     Q_INVOKABLE bool setAssetRotation(int assetIndex, int degrees);
-    // Bin folder CRUD. parentId empty = bin root; nesting is arbitrary depth.
-    Q_INVOKABLE QString createBinFolder(const QString &name, const QString &parentId);
-    Q_INVOKABLE bool renameBinFolder(const QString &folderId, const QString &name);
-    // Reparents the folder itself, keeping its own assets and subfolders — they stay pointed
-    // at it, so they move along without being touched individually. Refuses moving a folder
-    // into itself or into one of its own descendants.
-    Q_INVOKABLE bool moveBinFolder(const QString &folderId, const QString &newParentId);
-    // Moves the folder's direct children (assets and subfolders) up to its own parent, then
-    // removes it. Never blocks and never recurses into deleting contents.
-    Q_INVOKABLE bool deleteBinFolder(const QString &folderId);
-    Q_INVOKABLE bool moveAssetToFolder(int assetIndex, const QString &folderId);
-    // Multi-select bulk move, one undo step for the whole batch. Returns how many were moved.
-    Q_INVOKABLE int moveAssetsToFolder(const QStringList &assetIds, const QString &folderId);
-    // Imports a whole directory: mirrors its subfolder tree into the bin (one new bin folder per
-    // filesystem folder, including empty ones) and imports every media file into the bin folder
-    // matching its containing directory. `folderUrl` must be a local (file://) directory. The
-    // directory walk runs off-thread, so this returns as soon as it starts — false means the URL
-    // didn't resolve to a readable directory or an import was already running, and the outcome
-    // arrives as folderImportFinished. Stops after a fixed number of files so a folder picked by
-    // mistake can't queue thousands of probes. Not undoable — like a plain media import, "undo"
-    // is deleting the folder by hand — but still marks the project dirty, so autosave and the
-    // unsaved-changes prompt cover the hierarchy it creates.
-    Q_INVOKABLE bool importFolder(const QUrl &folderUrl);
-    bool importingFolder() const { return m_importingFolder; }
-    // Points an existing bin row at a different file, keeping every clip that uses it where it
-    // is — its position, trim, effects and transitions all survive. Asynchronous: true only means
-    // the probe started, and the outcome arrives as assetReplaceFinished.
-    Q_INVOKABLE bool replaceAssetSource(int assetIndex, const QUrl &url);
-    // Writes an image asset (a freeze frame, typically) out to `url`. The format follows the
-    // destination's extension, so the picker's name filter never has to be reported back.
-    Q_INVOKABLE bool exportAssetImage(int assetIndex, const QUrl &url);
-    // Copies the asset's file to `url` byte for byte. Asynchronous: true only means the copy
-    // started, and the outcome arrives as assetSaveFinished.
-    Q_INVOKABLE bool saveAssetAs(int assetIndex, const QUrl &url);
-    // Rewrites the bin row: trim [inSeconds, outSeconds] and crop in display-normalized 0..1.
-    // outSeconds < 0 means through the end. The original name is kept. Asynchronous; the
-    // outcome arrives as assetEditFinished, and the row is then rebound via replace.
     Q_INVOKABLE bool setClipSourceFrame(const QString &clipId, double x, double y, double w, double h);
-    Q_INVOKABLE bool saveAssetEdit(int assetIndex, double inSeconds, double outSeconds,
-                                   double cropX, double cropY, double cropW, double cropH);
-    Q_INVOKABLE void cancelAssetEdit();
-    // Renders a bin video's trim and crop into a new bin item, "<name> (trimmed)", leaving the
-    // original alone. Reports progress through assetEditChanged like a save; the new item's id
-    // arrives as assetCopyRendered, a failure as assetEditFinished(false, ...).
-    Q_INVOKABLE bool renderAssetCopy(int assetIndex, double inSeconds, double outSeconds,
-                                     double cropX, double cropY, double cropW, double cropH);
-    // "Convert to edit-friendly format": re-encodes each video asset onto a constant, standard
-    // frame rate and swaps it in, one at a time, the same undoable way a crop does, marking the
-    // asset edit-friendly. The original file is left where it was.
-    Q_INVOKABLE void convertAssetsToConstantFrameRate(const QStringList &assetIds);
     Q_INVOKABLE bool trackAcceptsAsset(int trackIndex, int assetIndex) const;
     Q_INVOKABLE QString trackTypeForAsset(int assetIndex) const;
     // The same two questions asked of a bare media kind ("video", "audio", "image", ...) rather
@@ -660,93 +631,10 @@ public:
     Q_INVOKABLE void setTransitionEasing(int trackIndex, const QString &transitionId,
                                          const QString &curve);
 
-    // Noise removal (DeepFilterNet3). previewDenoise renders a short window either side of the
-    // model — original and cleaned — so the denoise window can A/B them before anything is
-    // committed; applyDenoise renders the whole clip and adds it to the timeline.
-    Q_INVOKABLE bool denoiseAvailable();
-    Q_INVOKABLE void previewDenoise(int trackIndex, int clipIndex, double atSeconds);
-    Q_INVOKABLE void applyDenoise(int trackIndex, int clipIndex);
-    Q_INVOKABLE void cancelDenoise();
 
-    // Bakes the clip's face landmarks to a sidecar so the face warp effects have something to
-    // follow. Runs off the GUI thread; the result lands on the clip through the undo stack.
-    Q_INVOKABLE void detectFacesForClip(int trackIndex, int clipIndex);
-    Q_INVOKABLE void cancelFaceDetection();
-    Q_INVOKABLE void clearFaceTrack(int trackIndex, int clipIndex);
-    Q_INVOKABLE bool faceDetectionAvailable();
-
-    // Estimates the clip's depth for the depth effects as a JobRegistry "depth" job targeting the
-    // clip id. Returns the job id, or empty when it could not start (the reason goes to
-    // lastMessage). The sidecar lands on the clip through the undo stack.
-    Q_INVOKABLE QString estimateDepthForClip(int trackIndex, int clipIndex, bool highQuality = false);
-    Q_INVOKABLE void cancelDepthEstimation(const QString &clipId);
-    Q_INVOKABLE void clearDepth(int trackIndex, int clipIndex);
-    Q_INVOKABLE bool depthAvailable();
-    // {active, progress, status, error} of the newest depth job for a clip; empty if there is none.
-    Q_INVOKABLE QVariantMap depthJob(const QString &clipId) const;
-
-    // Restore models (compression removal, upscaling), installed addons and custom .onnx files:
-    // [{id, name, task: "decompress"|"upscale", scale, custom}].
-    Q_INVOKABLE QVariantList restoreModels();
-    // The folder custom restore models are read from, created if missing.
-    Q_INVOKABLE QString restoreModelsFolder();
-    // The enhance window works on a target: a clip id (its used source range) or a bin video's
-    // asset id (the whole file).
-    //
-    // Runs the target through an optional decompression model, then an optional upscaler, into a
-    // new bin item beside its media, as a JobRegistry "restore" job targeting that id. Either
-    // model id may be empty, not both. Returns the job id, or empty when it could not start (the
-    // reason goes to lastMessage).
-    Q_INVOKABLE QString restoreVideo(const QString &targetId, const QString &decompressModel,
-                                     const QString &upscaleModel);
-    Q_INVOKABLE void cancelRestore(const QString &targetId);
-    // {active, progress, status, error, kind} of the newest restore or restore-preview job for a
-    // target; empty if there is none.
-    Q_INVOKABLE QVariantMap restoreJob(const QString &targetId) const;
-    // The enhance window's before/after. Decodes the frame `offsetSeconds` into the target at
-    // source resolution as image://segment/restore-original, dropping any result. Calls made
-    // while a decode runs collapse into the newest, so it can follow a dragged slider.
-    Q_INVOKABLE void setRestorePreviewFrame(const QString &targetId, double offsetSeconds);
-    // Runs the models over that frame as a JobRegistry "restore-preview" job; the result becomes
-    // image://segment/restore-enhanced. Returns the job id, or empty when it could not start.
-    Q_INVOKABLE QString previewRestore(const QString &targetId, const QString &decompressModel,
-                                       const QString &upscaleModel);
-    // {seconds, width, height (upright), fps} of a target.
-    Q_INVOKABLE QVariantMap restoreTargetInfo(const QString &targetId) const;
-    // {factor, calibrated}: how this machine's CPU compares with the one the models'
-    // secondsPerMegapixel were measured on. Each preview run refines it.
-    Q_INVOKABLE QVariantMap restoreSpeed() const;
-    // {revision, width, height, enhancedWidth, enhancedHeight, loading}
-    Q_INVOKABLE QVariantMap restorePreviewState() const;
-    Q_INVOKABLE void endRestorePreview();
-    // Normalised depth (0 far, 1 near) under a point of the clip's frame, given in 0..1 frame
-    // coordinates, at a timeline time (negative: the playhead). -1 when the clip has no depth.
-    Q_INVOKABLE double sampleDepthAt(int trackIndex, int clipIndex, double nx, double ny,
-                                     double atSeconds = -1.0);
-
-    // Finds the shot boundaries in a clip's source range. Runs off the GUI thread; the
-    // result lands in `scenes` and in the on-disk cache, never in the project. A cached
-    // analysis for the same clip and settings is published immediately without rescanning.
-    // minSceneSeconds <= 0 means "leave the engine default alone".
-    Q_INVOKABLE void detectScenesForClip(int trackIndex, int clipIndex, bool withObjects,
-                                         double minSceneSeconds = 0.0);
-    Q_INVOKABLE void cancelSceneDetection();
-    Q_INVOKABLE void stabilizeClip(int trackIndex, int clipIndex);
-    Q_INVOKABLE void cancelClipStabilization(int trackIndex, int clipIndex);
-    Q_INVOKABLE void removeClipStabilization(int trackIndex, int clipIndex);
-    Q_INVOKABLE void setClipStabilizeSmoothing(int trackIndex, int clipIndex, int value);
-    Q_INVOKABLE void setClipStabilizeTripod(int trackIndex, int clipIndex, bool enabled);
-    Q_INVOKABLE void setClipStabilizeMode(int trackIndex, int clipIndex, const QString &mode);
     // Whether the optional object-labelling pass can run. False until the object-model
     // addon is installed, which is what the panel's toggle is gated on.
     Q_INVOKABLE bool objectDetectionAvailable() const;
-    Q_INVOKABLE void clearScenes();
-    // Move the playhead to a detected scene. Scenes are in source time; this maps back
-    // through the clip's trim and speed to reach the right timeline position.
-    Q_INVOKABLE void seekToScene(int sceneIndex);
-    // Sensitivity, persisted in QSettings so a scan does not forget it between sessions.
-    Q_INVOKABLE double sceneThreshold() const;
-    Q_INVOKABLE void setSceneThreshold(double threshold);
     // shapeKind/shapeId is a catalog id from builtinShapes(), which is not always a ShapeKind name:
     // "circle" and "ellipse" are the same kind with different default aspects.
     Q_INVOKABLE void addShapeClip(const QString &shapeKind, double atSeconds);
@@ -920,15 +808,34 @@ public:
     Q_INVOKABLE void setClipTextContent(int trackIndex, int clipIndex, const QString &text);
     // Display label on the timeline / inspector. Does not rename the source file.
     Q_INVOKABLE void setClipName(int trackIndex, int clipIndex, const QString &name);
-    // Live text edits (preview drag) keep the canvas and properties panel in sync
-    // while typing; commitTextEdit trims and pushes undo.
-    Q_INVOKABLE void previewSetClipTextContent(int trackIndex, int clipIndex, const QString &text);
     Q_INVOKABLE void commitTextEdit(int trackIndex, int clipIndex, const QString &text);
-    // In-place text editing on the preview: hide the clip's baked raster while the
-    // QML inline editor is shown, then restore it. Commit via commitTextEdit.
-    Q_INVOKABLE void beginTextEdit(int trackIndex, int clipIndex);
-    Q_INVOKABLE void endTextEdit();
     bool inlineTextEditing() const { return m_inlineTextEditing; }
+
+    // In-place editing where the compositor's render is the only visible text. A hidden QML
+    // TextEdit feeds the keyboard and the input method; every change re-renders the clip live with
+    // a caret, a selection and a preedit underline drawn over it. The clip stays visible and rests
+    // (no in/out/loop animation). One undo step covers the whole edit.
+    //
+    // Offsets are UTF-16 into the model text, the editor's own, which never holds the preedit; the
+    // preedit is inserted at `cursor` for rendering only.
+    Q_INVOKABLE void beginInlineTextEdit(int trackIndex, int clipIndex);
+    Q_INVOKABLE void updateInlineTextEdit(int trackIndex, int clipIndex, const QString &text, int cursor,
+                                          int selStart, int selEnd, const QString &preeditText);
+    // commit: one undo step (no step when nothing changed); otherwise the original text returns.
+    Q_INVOKABLE void endInlineTextEdit(bool commit);
+    // Geometry in canvas (project pixel) coordinates, rotation included. A quad is four points,
+    // top-left, top-right, bottom-right, bottom-left of the clip's unrotated box, then rotated.
+    // The caret's quad is the bar as drawn. Empty when no inline edit is active.
+    Q_INVOKABLE QVariantList inlineCaretQuad() const;
+    Q_INVOKABLE QVariantList inlineSelectionQuads() const;
+    // Canvas point -> model offset (the nearest caret stop; never inside the preedit).
+    Q_INVOKABLE int inlineHitTest(const QPointF &canvasPoint) const;
+    // {start, end} around the model offset.
+    Q_INVOKABLE QVariantMap inlineWordAt(int pos) const;
+    // Up/Down: remembers the column across consecutive moves.
+    Q_INVOKABLE int inlineMoveCaretLines(int pos, int deltaLines);
+    // Home/End of the line holding pos.
+    Q_INVOKABLE int inlineLineEdge(int pos, bool toEnd) const;
     Q_INVOKABLE void setSubtitleCues(int trackIndex, int clipIndex, const QVariantList &cues);
     // Find & replace across a subtitle clip's captions (whole words, any case); returns how many
     // captions changed. `remember` also adds the pair to the subtitle dictionary.
@@ -1013,11 +920,17 @@ public:
     Q_INVOKABLE bool importUserTextPreset(const QUrl &fileUrl);
     Q_INVOKABLE QVariantList fontCatalog() const;
     Q_INVOKABLE QVariantList fontCategories() const;
-    // .ttf/.otf files copied into the user's fonts ("My fonts"). {ok, families, error}.
+    // Several font files at once, through importFontFile. {ok, families, error}.
     Q_INVOKABLE QVariantMap importFonts(const QList<QUrl> &urls);
     // Most recently picked families first, at most eight.
     Q_INVOKABLE QStringList recentFonts() const;
     Q_INVOKABLE void noteRecentFont(const QString &family);
+    // Families of the system fonts not already offered by the font catalog; computed once.
+    Q_INVOKABLE QStringList systemFontFamilies() const;
+    Q_INVOKABLE QStringList userFonts() const;
+    // The families the file provides (empty on failure, with a toast).
+    Q_INVOKABLE QStringList importFontFile(const QUrl &fileUrl);
+    Q_INVOKABLE bool removeUserFont(const QString &family);
     Q_INVOKABLE void setClipBlendMode(int trackIndex, int clipIndex, const QString &mode);
     Q_INVOKABLE bool setClipSpeed(int trackIndex, int clipIndex, double speed);
     Q_INVOKABLE void setClipReverse(int trackIndex, int clipIndex, bool reverse);
@@ -1142,6 +1055,8 @@ public:
     Q_INVOKABLE void setClipAudioStreamIndex(int trackIndex, int clipIndex, int streamIndex);
     Q_INVOKABLE bool canUnlinkSelection() const;
     Q_INVOKABLE void unlinkSelectedClips();
+    Q_INVOKABLE bool canLinkSelection() const;
+    Q_INVOKABLE void linkSelectedClips();
     Q_INVOKABLE void setClipMask(int trackIndex, int clipIndex, const QVariantMap &mask);
 
     // The mask shapes the assets panel offers as cards: {id, label} per entry. A "media" mask is
@@ -1177,6 +1092,8 @@ public:
     Q_INVOKABLE QVariantMap setVectorSource(int trackIndex, int clipIndex, const QString &source,
                                             const QVariantMap &opts = {});
     Q_INVOKABLE QString setVectorOptions(int trackIndex, int clipIndex, const QVariantMap &opts);
+    // Keys: firstPage, lastPage (0 = through the end), layout, gridColumns, gap.
+    Q_INVOKABLE QString setPdfOptions(int trackIndex, int clipIndex, const QVariantMap &opts);
     // A null/invalid value removes the override. Returns an error string, empty on success.
     Q_INVOKABLE QString setVectorSlot(int trackIndex, int clipIndex, const QString &name,
                                       const QVariant &value);
@@ -1283,7 +1200,7 @@ public:
     Q_INVOKABLE bool setEffectColorParam(int trackIndex, int clipIndex, int effectIndex,
                                          const QString &key, const QString &value);
     // File-path params (model3d .glb). Same commit-once path as colour — no preview stream.
-    // Takes a QUrl like replaceAssetSource / importSubtitleFile so the portal and native
+    // Takes a QUrl like bin().replaceSource / importSubtitleFile so the portal and native
     // dialogs hand us a real local path without QML having to call toLocalFile().
     Q_INVOKABLE bool setEffectStringParam(int trackIndex, int clipIndex, int effectIndex,
                                           const QString &key, const QUrl &url);
@@ -1612,6 +1529,8 @@ signals:
     // editor so the user can type straight onto the canvas.
     void inlineTextEditRequested(int trackIndex, int clipIndex);
     void inlineTextEditingChanged();
+    // The inline editor's text was laid out again: caret and selection geometry moved.
+    void inlineEditGeometryChanged();
     void externalProjectOpenRequested(const QUrl &url);
     void tracksChanged();
     // A drag wrote these properties in place without announcing tracksChanged; the full refresh
@@ -1664,28 +1583,10 @@ signals:
     void reverseRenderStatusChanged();
     void reverseRenderFinished(bool ok, const QString &message);
     void reverseConfirmRequested(int trackIndex, int clipIndex, double seconds);
-    void denoisingChanged();
-    void denoiseProgressChanged();
-    void denoiseStatusChanged();
-    void denoisePreviewReady(const QString &originalPath, const QString &cleanPath);
-    void denoiseFinished(bool ok, const QString &message);
     void multicamChanged();
     void multicamFramesChanged();
     // Raised by the "multicam" shortcut/action. QML owns the window, as with the file actions.
     void openMulticamWindowRequested();
-    void faceDetectingChanged();
-    void depthJobChanged(const QString &clipId);
-    void restoreJobChanged(const QString &clipId);
-    void restorePreviewChanged();
-    void faceDetectProgressChanged();
-    void faceDetectStatusChanged();
-    void faceDetectionFinished(bool ok, const QString &message);
-    void scenesChanged();
-    void sceneDetectingChanged();
-    void sceneDetectProgressChanged();
-    void sceneDetectStatusChanged();
-    void sceneDetectionFinished(bool ok, const QString &message);
-    void currentBinFolderIdChanged();
     void selectionChanged();
     void editCapabilitiesChanged();
     void sequenceTabsChanged();
@@ -1710,6 +1611,7 @@ signals:
     void assetFavoritesChanged();
     void userTextPresetsChanged();
     void fontCatalogChanged();
+    void userFontsChanged();
     void userEffectPresetsChanged();
     void facePropsChanged();
     void projectLayoutChosenChanged();
@@ -1717,20 +1619,6 @@ signals:
     // auxiliary windows edit one clip each, so they have nothing left to act on and close.
     void projectReset();
     void transformBlocked(const QString &reason);
-    // Outcome of replaceAssetSource. `message` is a ready-to-show reason on failure and the new
-    // media's name on success. `adjustedClips` counts clips whose source range no longer fitted
-    // the replacement and was pulled back to it.
-    void assetReplaceFinished(bool ok, const QString &message, int adjustedClips);
-    void importingFolderChanged();
-    // Outcome of importFolder: how many bin folders and assets it actually created, how many
-    // files it passed over as unrecognized, and whether the walk stopped at the file limit with
-    // more still on disk.
-    void folderImportFinished(int folders, int files, int skipped, bool truncated);
-    void replacingAssetIdChanged();
-    void assetEditChanged();
-    void assetEditFinished(bool ok, const QString &message);
-    void assetCopyRendered(const QString &assetId);
-    void assetSaveFinished(bool ok, const QString &name);
     void openPasteAttributesRequested();
 
 protected:
@@ -1752,9 +1640,9 @@ protected:
         drift::TimeUs rippleFrom = 0;
         drift::TimeUs rippleDelta = 0;
     };
-    TrimComputation computeTrimLeft(int trackIndex, int clipIndex, double newStart) const;
-    TrimComputation computeTrimRight(int trackIndex, int clipIndex, double newEnd) const;
-    int applyTrim(int trackIndex, int clipIndex, const TrimComputation &computed);
+    TrimComputation computeTrimLeft(int trackIndex, int clipIndex, double newStart, bool snap = true) const;
+    TrimComputation computeTrimRight(int trackIndex, int clipIndex, double newEnd, bool snap = true) const;
+    int applyTrim(int trackIndex, int clipIndex, const TrimComputation &computed, int side);
     QVariantMap trimPreviewToMap(int trackIndex, int clipIndex, const TrimComputation &computed) const;
 
     void notifyTracksChanged();
@@ -1797,11 +1685,6 @@ protected:
     QString saveEffectStack(const drift::EffectStackPreset &stack, const QString &label);
     static drift::EffectStackPreset effectStackOnClipboard();
     void finishEdit(const QString &message);
-    // Applies a finished replace probe as one undoable transaction, or reports why it cannot be.
-    void finalizeAssetReplace(const QString &assetId, const drift::MediaAsset &filled, bool ok);
-    // Moves every clip bound to `assetId` onto the replacement media. Returns how many had a
-    // source range that no longer fitted and had to be pulled back to it.
-    int rebindClipsToAsset(const QString &assetId, const drift::MediaAsset &asset, int oldBinCorrection);
     // Keeps the keyframe strip's index-addressed hidden series in sync after an effect is removed.
     void dropKeyframeGraphPropertiesForEffect(int removedIndex, bool audio = false);
     // Same idea after a reorder: fx.N.* indices move with the effect.
@@ -1852,23 +1735,6 @@ protected:
     bool startMulticamPunching(const QList<QPair<int, int>> &videoClips);
     void rebuildMulticamStaged();
     void applyMulticamSlicesToProject(drift::Project &project, bool combined);
-    void finalizeDepth(const QString &clipId, const QString &path);
-    void finalizeFaceDetection(const QString &clipId, const QString &trackPath,
-                               drift::TimeUs srcOffsetUs);
-    // Landmark a Face Swap source photo in the background and cache the result. Cheap enough
-    // (one still, sub-second once the session is warm) that it gets no progress UI of its own —
-    // the effect renders pass-through until the landmarks land, then the preview refreshes.
-    void ingestFaceSwapSource(const QString &photoPath);
-    // Every Face Swap photo in the project that has no cached landmarks. Runs on open, because
-    // the sidecar is derived and does not travel with the bundle.
-    void ingestFaceSwapSourcesInProject();
-    // The one place a scan request is built, so the GUI and MCP paths cannot disagree about
-    // the settings — and therefore about the cache key derived from them.
-    drift::SceneDetectRequest sceneRequestFor(const drift::Clip &clip, bool withObjects,
-                                              double minSceneSeconds) const;
-    // Publishes a finished scene analysis into m_scenes, shaped for QML.
-    void applySceneAnalysis(const drift::SceneAnalysis &analysis, const QString &clipId,
-                            const QString &clipPath, int rotationCorrection);
     struct SubtitleSource
     {
         QString path;
@@ -1894,21 +1760,6 @@ protected:
                                      int maxWordsPerCue);
     void finalizeGeneratedSubtitles(drift::TimeUs timelineStart, drift::TimeUs timelineDuration,
                                     const QList<drift::SubtitleCue> &cues, bool translated = false);
-    void finalizeDenoise(const QString &clipId, const QString &audioPath);
-    // Runs on the stabilize worker: maps a job's 0..1 onto [rangeFrom, rangeTo] of the clip's
-    // progress, posts it to the UI thread, and returns false once `cancel` is set.
-    std::function<bool(double)> stabilizeProgressReporter(const QString &clipId,
-                                                          const QSharedPointer<QAtomicInt> &cancel,
-                                                          double rangeFrom, double rangeTo);
-    void setStabilizeProgress(const QString &clipId, double progress, const QString &status,
-                              bool force);
-    void clearStabilizeProgress(const QString &clipId);
-    // Shared body of the two denoise jobs: decodes [srcIn, srcIn + span) of `path` at the model's
-    // rate, runs each channel through it, and writes the result. Runs on a worker thread.
-    // `originalPathOut` is written only when non-empty, for the preview's A/B source.
-    bool renderDenoisedAudio(const QString &path, drift::TimeUs srcIn, drift::TimeUs span,
-                             const QString &outPath, const QString &originalPath,
-                             double progressFrom, double progressTo, QString *errorOut);
     // Defaulted severity so the existing call sites, which report ordinary status,
     // stay unchanged; pass "error"/"warning" explicitly where a failure is reported.
     Q_INVOKABLE void setLastMessage(const QString &message,
@@ -2039,17 +1890,6 @@ protected:
     void restoreFilmstripsAfterLoad();
     void normalizeSelection();
     bool isValidClipIndex(int trackIndex, int clipIndex) const;
-    struct RestoreSource
-    {
-        QString path;
-        drift::TimeUs srcIn = 0;
-        drift::TimeUs srcOut = 0;
-        int rotationCorrection = 0;
-        const drift::MediaAsset *asset = nullptr;
-    };
-    // A clip id or asset id resolved to the video it reads; nullopt when it is neither.
-    std::optional<RestoreSource> restoreSource(const QString &targetId) const;
-    void calibrateRestoreSpeed(const QStringList &modelIds, double megapixels, double seconds);
     // Adds a video Drift rendered to the bin as one undoable edit; returns its asset id.
     QString addRenderedVideoAsset(const QString &path, const QString &name,
                                   const QString &folderId, const MediaInfo &info,
@@ -2057,10 +1897,6 @@ protected:
     // The same without the undo step, for a caller folding it into an edit of its own.
     QString insertRenderedVideoAsset(const QString &path, const QString &name,
                                      const QString &folderId, const MediaInfo &info);
-    // Projects saved before stabilized videos were bin assets kept the render on the clip; this
-    // makes each one a "(stabilized)" asset the clip reads instead. Runs on load, after bundle
-    // paths are remapped.
-    void migrateLegacyStabilizedClips();
     QList<int> subtitleMergeIndices(const QList<QPair<int, int>> &pairs) const;
     void mergeSubtitleClipsAt(int trackIndex, QList<int> clipIndices);
 
@@ -2071,6 +1907,8 @@ protected:
 
     QByteArray serializeProjectJson() const;
     bool applyProjectJson(const QByteArray &data, QString *error);
+    // Second half of applyProjectJson, on the GUI thread; parseProjectJson is the first.
+    void applyParsedProject(ParsedProject parsed);
     // Persist the save-picker folder and encode/scale choices for the next Export dialog.
     // Empty `outputPath` updates settings only and leaves lastExportFolder unchanged.
     void rememberExportChoice(const QString &outputPath, const QVariantMap &settings);
@@ -2086,9 +1924,6 @@ protected:
     MarketClient *m_marketClient = nullptr;
     JobRegistry *m_jobs = nullptr;
     CloudProviders *m_cloud = nullptr;
-    BinFolderListModel m_binFolderModel;
-    QString m_currentBinFolderId;
-    bool m_importingFolder = false;
     // These trees must outlive m_playback: the compositor thread holds a bare
     // pointer into whichever one is live and may still be mid-composite at
     // teardown. During a multicam session that is m_multicamStaged, otherwise
@@ -2158,19 +1993,6 @@ protected:
     // stops a second tap from starting the copy again. Unused on desktop.
     bool m_sharingExport = false;
     bool m_subtitleGenerating = false;
-    QString m_replacingAssetId;
-    // The content:// URI the in-flight replace picked, held across the probe so it can be put back
-    // on the asset once applyProbedSource has overwritten the struct.
-    QString m_replacingAssetSourceUri;
-    bool m_editingAsset = false;
-    double m_assetEditProgress = 0.0;
-    QString m_assetEditStatus;
-    QString m_assetEditKeepName;
-    QString m_editingAssetId;
-    QAtomicInt m_assetEditCancel = 0;
-    bool m_assetEditIsConversion = false;
-    // Asset ids waiting for convertAssetsToConstantFrameRate; the edit job runs one at a time.
-    QStringList m_conversionQueue;
     double m_subtitleGenProgress = 0.0;
     QString m_subtitleGenStatus;
     QAtomicInt m_subtitleGenCancel = 0;
@@ -2208,48 +2030,8 @@ protected:
     QString m_reverseStatus;
     QAtomicInt m_reverseCancel = 0;
 
-    bool m_denoising = false;
-    double m_denoiseProgress = 0.0;
-    QString m_denoiseStatus;
-    QAtomicInt m_denoiseCancel = 0;
-    // The A/B snippets currently on offer. Dragging the preview window along a clip re-renders
-    // repeatedly, so each pair is deleted as the next supersedes it.
-    QString m_denoisePreviewClean;
-    QString m_denoisePreviewOriginal;
     // Playhead per timeline, so switching tabs returns to where each was left. "" = main.
     QHash<QString, drift::TimeUs> m_sequencePlayheads;
-    bool m_faceDetecting = false;
-    double m_faceDetectProgress = 0.0;
-    QString m_faceDetectStatus;
-    QAtomicInt m_faceDetectCancel = 0;
-    // Photos with an ingest in flight, so a slider nudge or a second clip using the same photo
-    // does not queue the landmarker twice.
-    QSet<QString> m_faceSwapIngesting;
-    // Scene detection. Only one clip's analysis is live at a time — the panel shows the
-    // selected clip — so this needs no cache of its own beyond the on-disk one.
-    QVariantList m_scenes;
-    QString m_sceneClipId;
-    QString m_sceneClipPath;
-    int m_sceneClipRotationCorrection = 0;
-    bool m_sceneDetecting = false;
-    double m_sceneDetectProgress = 0.0;
-    QString m_sceneDetectStatus;
-    QAtomicInt m_sceneDetectCancel = 0;
-    QMap<QString, QSharedPointer<QAtomicInt>> m_stabilizeJobs;
-    QMap<QString, double> m_stabilizeProgress;
-    QMap<QString, QString> m_stabilizeStatus;
-    QMap<QString, qint64> m_stabilizeLastProgressEmit;
-    QSet<QString> m_stabilizeCancelRequested;
-    quint64 m_sceneGeneration = 0;
-    // Enhance window preview. The generation drops a frame decode or model run that finishes
-    // after the frame has moved on.
-    int m_restorePreviewRevision = 0;
-    quint64 m_restorePreviewGeneration = 0;
-    bool m_restoreFrameLoading = false;
-    QSize m_restoreOriginalSize;
-    QSize m_restoreEnhancedSize;
-    bool m_restoreDecodeBusy = false;
-    std::optional<std::pair<QString, double>> m_restorePendingFrame;
     int m_selectedTrack = -1;
     int m_selectedClip = -1;
     int m_selectedTransitionTrack = -1;
@@ -2272,6 +2054,15 @@ protected:
     SpeedCurveController *m_speedCurve = nullptr;
     CurveEditorController *m_curves = nullptr;
     SegmentationController *m_segmentation = nullptr;
+    SceneDetectController *m_sceneDetect = nullptr;
+    DepthController *m_depth = nullptr;
+    DenoiseController *m_denoise = nullptr;
+    RestoreController *m_restore = nullptr;
+    FaceTrackingController *m_faces = nullptr;
+    StabilizeController *m_stabilize = nullptr;
+    MediaBinController *m_bin = nullptr;
+    TtsController *m_tts = nullptr;
+    VoiceLibrary *m_voices = nullptr;
     QStringList m_activeGuideSets{QStringLiteral("thirds")};
     // App-wide custom sets.
     QList<drift::GuideSet> m_guideLibrary;
@@ -2287,6 +2078,28 @@ protected:
     QString m_lastMessage;
     QString m_lastMessageSeverity = QStringLiteral("info");
     bool m_inlineTextEditing = false;
+    struct InlineTextEdit
+    {
+        bool active = false;
+        int track = -1;
+        int clip = -1;
+        QString clipId;
+        QString original;
+        QString text;   // model text, no preedit
+        int cursor = 0;
+        int selStart = -1;
+        int selEnd = -1;
+        QString preedit;
+        double preferredX = 0.0;
+        int preferredFor = -1;
+    };
+    InlineTextEdit m_inlineEdit;
+    drift::Clip *inlineEditClip();
+    const drift::Clip *inlineEditClip() const;
+    // The clip's laid-out block, and block-local render px -> canvas project px.
+    bool inlineEditLayout(FrameCompositor::TextEditGeometry *geometry, QTransform *toCanvas, double *scale) const;
+    int inlineRenderedPos(int modelPos) const;
+    int inlineModelPos(int renderedPos) const;
     bool m_previewDragActive = false;
     drift::Clip *textClipAt(int trackIndex, int clipIndex);
     // A text, subtitle or shape clip: anything that carries a shading stack.
@@ -2303,12 +2116,6 @@ protected:
     void emitPreviewFrame();
     void emitPreviewEdit(int trackIndex, int clipIndex, const QStringList &keys);
     void beginImplicitPreviewDrag(const QString &undoText);
-    // Runs spec off-thread and swaps its output in for the asset at assetIndex, reporting through
-    // assetEditChanged/assetEditFinished. The caller has checked no edit is running.
-    void startAssetEditJob(const QString &assetId, const QString &name,
-                           const drift::MediaEditSpec &spec, bool conversion);
-    void startNextConversion();
-    void syncTextOverlaySkip();
     struct ClipboardItem
     {
         drift::Clip clip;

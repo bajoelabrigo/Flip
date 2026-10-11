@@ -43,12 +43,34 @@ QList<QPair<QString, QString>> fontCategories(); // id + label, display order
 // main()/tools/tests rather than relying on the lazy path.
 void reloadFontCatalog(const QStringList &packageRoots = {});
 
-// Where imported fonts live (<app data>/fonts), one family per folder in the packs' layout.
-QString userFontsDir();
-// Copies .ttf/.otf files there under the "mine" category and reloads the catalog. Returns the
-// families added; `error` lists the files that could not be read or copied.
-QStringList importUserFonts(const QStringList &files, QString *error = nullptr);
+// Fonts the user brought in (.ttf/.otf/.ttc/.otc), kept under <AppDataLocation>/fonts/user. They
+// are registered with Qt and with Skia (by family name, so every face of a family is matched on
+// weight and italic) and shadow the system fonts. Call from the GUI thread.
+void reloadUserFonts();
+// Copies `path` into the store and registers it. Returns the families it provides; empty with
+// `error` set when the file is not a usable font.
+QStringList importUserFontFile(const QString &path, QString *error = nullptr);
+// Unregisters the family and deletes the files that provide it.
+bool removeUserFont(const QString &family);
+QStringList userFontFamilies(); // sorted
+QString userFontDir();
+
+// Families the platform font manager enumerates (the Skia manager's list when built with Skia,
+// else Qt's), sorted. Computed once.
+QStringList systemFontFamilies();
 
 // Resolve a style to a concrete face at pixelSizePx. Falls through to the system font database for
 // families that are not in the catalog, so projects written before the bundle still render.
 QFont fontForStyle(const drift::TextStyle &style, int pixelSizePx);
+
+// What the Skia layout asks its font collection for. `family` is the face's file path when the
+// style resolved to a bundled face (registered under that name), else the requested family for
+// the system manager to match.
+struct ResolvedFont
+{
+    QString family;
+    int weight = 400;
+    bool italic = false;
+    bool bundled = false;
+};
+ResolvedFont resolveFont(const drift::TextStyle &style);

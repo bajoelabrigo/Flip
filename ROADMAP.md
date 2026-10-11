@@ -1,7 +1,7 @@
 # Flip Studio — hoja de ruta
 
 Plan completo del proyecto, de la primera versión de escritorio a la suscripción. Se marca cada
-casilla al terminarla. Última actualización: 2026-10-10 (noche).
+casilla al terminarla. Última actualización: 2026-10-11.
 
 **Datos clave**
 
@@ -47,14 +47,18 @@ la certifiquen) y el **editor web** está publicado y anunciado (etapa 6, audio 
    - Pruebas de punta a punta sin ventana (`flipstudio.exe --headless --mcp-stdio`): ver el script en la
      sesión del 2026-10-10. La aceleración WebGPU apenas ayuda con Whisper int8 (63 s contra 69 s en 45 s
      de video); Whisper medium int8 en procesador es tan rápido como small fp16 y más preciso.
-3. Siguiente: un paquete de **efectos de sonido** propio (sintetizado, sin licencias) y más packs de stickers
-   y plantillas; recortar silencios y muletillas a partir de la transcripción.
-4. **Primera sincronización con Drift (3.3)** para traer sus mejoras y arreglos, y desde ahí una vez al mes.
+3. ~~**v0.9.1**~~ (2026-10-11): inicio como CapCut, quitar silencios y muletillas a partir de la transcripción,
+   efectos de sonido propios (sintetizados), más stickers y plantillas. Falta subir el MSIX a la Store cuando
+   certifiquen la 0.9.0.
+4. **Primera sincronización con Drift (3.3)** — en curso (2026-10-11, rama `flip/sync-drift-1`): 69 cambios
+   (texto con SkParagraph, enlazar clips, clips PDF, voz con Chatterbox, recorte, fuentes del sistema).
+   La voz (pestaña "Voz" y "Generar locución") queda oculta y los PDF piden un extra que aún no ofrecemos:
+   falta empaquetar el modelo de voz (Chatterbox, MIT) y PDFium (BSD) en nuestros extras. Después, una vez al mes.
 5. **Stock de Pexels (3.2)**: requiere el backend `api.getflipstudio.com`, que también servirá para las cuentas (Fase 6).
 6. **Firma de código** del instalador cuando haya presupuesto (quita el aviso de SmartScreen en la descarga directa).
 7. Más adelante: Linux, Android y macOS (Fase 4).
-8. **Ideas de tu flujo de edición** (`Videos\Videos_Claude`, Remotion): cortar silencios automáticamente,
-   quitar muletillas a partir de la transcripción, reencuadre 16:9 → 9:16 siguiendo la cara,
+8. **Ideas de tu flujo de edición** (`Videos\Videos_Claude`, Remotion): ~~cortar silencios automáticamente,
+   quitar muletillas a partir de la transcripción~~ (0.9.1), reencuadre 16:9 → 9:16 siguiendo la cara,
    subtítulos con palabras resaltadas y normalizar el audio a -14 LUFS. Revisar cuáles ya trae Drift
    antes de construirlas.
 
@@ -75,10 +79,11 @@ la certifiquen) y el **editor web** está publicado y anunciado (etapa 6, audio 
    Drift (glitch, viñeta, etc.) con shaders.
    - ~~**Textos**~~ (2026-10-10): 29 fuentes propias con selector por categoría y 15 plantillas nuevas (Fe, Redes,
      Subtítulos virales, Ventas, Frases).
-4. **Etapa 6 — audio**: volumen y fundidos por clip, pista de música, silenciar el audio de un video.
+4. ~~**Etapa 6 — audio**~~: volumen y fundidos por clip, pista de música, silenciar el audio de un video.
 5. **Probar en Edge, Firefox y Safari** (y en el celular) antes de anunciarlo.
-6. **Anunciarlo**: botón "Editar en el navegador" en la web y quitar el `noindex`.
-7. Después: abrir y guardar proyectos en el formato de la app de escritorio.
+6. ~~**Anunciarlo**~~: botón "Editar en línea" en la web y sin `noindex`.
+7. **Igual al escritorio** (siguiente): velocidad, recorte, congelar, invertir, stickers y efectos de sonido, escritos desde cero.
+8. Después: abrir y guardar proyectos en el formato de la app de escritorio.
 
 ---
 

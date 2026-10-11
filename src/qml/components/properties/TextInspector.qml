@@ -727,6 +727,30 @@ Item {
                                        EditorState.selectedTrack, EditorState.selectedClip, "project")
                     }
                 }
+
+                // Flip Studio: shown only with a voice model present; Extras has none to offer yet.
+                ThemedButton {
+                    visible: root.clipKind === "subtitle" && EditorState.tts.available
+                    width: parent.width
+                    variant: "secondary"
+                    glyph: Theme.icons.audioLines
+                    text: qsTr("Generate voiceover")
+                    enabled: EditorState.tts.available
+                    tooltip: EditorState.tts.available
+                             ? qsTr("Speak every caption with a generated voice")
+                             : qsTr("Install the voice model from the add-on manager first")
+                    onClicked: voiceoverDialog.openFor(EditorState.selectedTrack, EditorState.selectedClip)
+                }
+
+                Text {
+                    visible: false // Flip Studio: no voice model in Extras yet (see above)
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Install the AI engine and the voice model from the add-on manager to generate voiceovers.")
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                }
             }
 
             CollapsibleSection {
@@ -860,7 +884,13 @@ Item {
                                 Text {
                                     text: qsTr("Padding")
                                     HoverHandler { id: tipHover1088 }
-                                    ThemedToolTip { text: qsTr("Space between the text and the edge of its background box"); visible: tipHover1088.hovered }
+                                    TapHandler {
+                                        id: tipTap1088
+                                        acceptedDevices: PointerDevice.TouchScreen
+                                        onLongPressed: tip1088.held = true
+                                        onPressedChanged: if (!pressed) tip1088.held = false
+                                    }
+                                    ThemedToolTip { id: tip1088; property bool held: false; text: qsTr("Space between the text and the edge of its background box"); visible: tipHover1088.hovered || held }
                                     color: Theme.mutedForeground
                                     font.pixelSize: Theme.fontSizeXs
                                     font.family: Theme.fontFamily
@@ -883,7 +913,13 @@ Item {
                                 Text {
                                     text: qsTr("Corner radius")
                                     HoverHandler { id: tipHover1109 }
-                                    ThemedToolTip { text: qsTr("Roundness of the background box corners"); visible: tipHover1109.hovered }
+                                    TapHandler {
+                                        id: tipTap1109
+                                        acceptedDevices: PointerDevice.TouchScreen
+                                        onLongPressed: tip1109.held = true
+                                        onPressedChanged: if (!pressed) tip1109.held = false
+                                    }
+                                    ThemedToolTip { id: tip1109; property bool held: false; text: qsTr("Roundness of the background box corners"); visible: tipHover1109.hovered || held }
                                     color: Theme.mutedForeground
                                     font.pixelSize: Theme.fontSizeXs
                                     font.family: Theme.fontFamily
@@ -923,7 +959,13 @@ Item {
                                 Text {
                                     text: qsTr("Thickness")
                                     HoverHandler { id: tipHoverHlPad }
-                                    ThemedToolTip { text: qsTr("How far the pill extends past the word"); visible: tipHoverHlPad.hovered }
+                                    TapHandler {
+                                        id: tipTapHlPad
+                                        acceptedDevices: PointerDevice.TouchScreen
+                                        onLongPressed: tipHlPad.held = true
+                                        onPressedChanged: if (!pressed) tipHlPad.held = false
+                                    }
+                                    ThemedToolTip { id: tipHlPad; property bool held: false; text: qsTr("How far the pill extends past the word"); visible: tipHoverHlPad.hovered || held }
                                     color: Theme.mutedForeground
                                     font.pixelSize: Theme.fontSizeXs
                                     font.family: Theme.fontFamily
@@ -1021,7 +1063,13 @@ Item {
                                 Text {
                                     text: qsTr("Offset")
                                     HoverHandler { id: tipHoverUnderlineOffset }
-                                    ThemedToolTip { text: qsTr("Gap between the baseline and the rule"); visible: tipHoverUnderlineOffset.hovered }
+                                    TapHandler {
+                                        id: tipTapUnderlineOffset
+                                        acceptedDevices: PointerDevice.TouchScreen
+                                        onLongPressed: tipUnderlineOffset.held = true
+                                        onPressedChanged: if (!pressed) tipUnderlineOffset.held = false
+                                    }
+                                    ThemedToolTip { id: tipUnderlineOffset; property bool held: false; text: qsTr("Gap between the baseline and the rule"); visible: tipHoverUnderlineOffset.hovered || held }
                                     color: Theme.mutedForeground
                                     font.pixelSize: Theme.fontSizeXs
                                     font.family: Theme.fontFamily
@@ -1120,9 +1168,17 @@ Item {
                         Text {
                             text: qsTr("Accent size")
                             HoverHandler { id: tipHoverAccentSize }
+                            TapHandler {
+                                id: tipTapAccentSize
+                                acceptedDevices: PointerDevice.TouchScreen
+                                onLongPressed: tipAccentSize.held = true
+                                onPressedChanged: if (!pressed) tipAccentSize.held = false
+                            }
                             ThemedToolTip {
+                                id: tipAccentSize
+                                property bool held: false
                                 text: qsTr("Size of the accented words relative to the rest of the line")
-                                visible: tipHoverAccentSize.hovered
+                                visible: tipHoverAccentSize.hovered || held
                             }
                             color: Theme.mutedForeground
                             font.pixelSize: Theme.fontSizeXs
@@ -1425,11 +1481,19 @@ Item {
                         Text {
                             text: root.animSlot === "loop" ? qsTr("Phase") : qsTr("Stagger")
                             HoverHandler { id: staggerHover }
+                            TapHandler {
+                                id: staggerTap
+                                acceptedDevices: PointerDevice.TouchScreen
+                                onLongPressed: staggerTip.held = true
+                                onPressedChanged: if (!pressed) staggerTip.held = false
+                            }
                             ThemedToolTip {
+                                id: staggerTip
+                                property bool held: false
                                 text: root.animSlot === "loop"
                                       ? qsTr("Delay between one unit and the next along the cycle")
                                       : qsTr("Delay between one unit starting and the next")
-                                visible: staggerHover.hovered
+                                visible: staggerHover.hovered || held
                             }
                             color: Theme.mutedForeground
                             font.pixelSize: Theme.fontSizeXs
@@ -1538,5 +1602,9 @@ Item {
         id: saveStyleDialog
         onSubmitted: name => EditorState.saveTextStyleAsPreset(EditorState.selectedTrack,
                                                                EditorState.selectedClip, name)
+    }
+
+    VoiceoverDialog {
+        id: voiceoverDialog
     }
 }

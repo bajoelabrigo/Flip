@@ -1,5 +1,8 @@
 #include <QtTest>
 #include "engine/SileroVad.h"
+#include "engine/ChatterboxTokenizer.h"
+#include "engine/ChatterboxTts.h"
+#include "engine/SpeechAudio.h"
 #include "engine/CtcAligner.h"
 #include "engine/KaldiFbank.h"
 #include "engine/SpeakerDiarizer.h"
@@ -132,6 +135,10 @@ class EngineTest : public QObject
 
 private slots:
     void initTestCase();
+    void chatterboxTokenizerMatchesReference();
+    void chatterboxSplitsSentencesForSynthesis();
+    void chatterboxVoiceConditioningRoundTrips();
+    void chatterboxSynthesizesWithSplitDecoder();
     void matteWriterRoundTripsThroughClipReader();
     void matteWriterPreservesSoftAlpha();
     void matteWriterRoundTripsColourForeground();
@@ -277,7 +284,6 @@ private slots:
     void compositorRendersShapeClip();
     void compositorRendersCompositeClip();
     void audioMixerPlaysCompositeClip();
-    void compositorSkipsClipBeingEdited();
     void adjustmentEffectContrastCatalogEntry();
     void effectPresetStableIds();
     void effectParamTypesMatchShaderUniforms();
@@ -467,6 +473,109 @@ private:
     static QString makeSweepAudio(QTemporaryDir &dir);
     static QString makeLongGopVideo(QTemporaryDir &dir);
 };
+
+void EngineTest::chatterboxTokenizerMatchesReference()
+{
+    const QString dir = QStringLiteral(DRIFT_TEST_DATA_DIR "/chatterbox");
+    drift::ChatterboxTokenizer tok;
+    QString err;
+    QVERIFY2(tok.load(dir, &err), qPrintable(err));
+
+    QFile f(dir + QStringLiteral("/golden.json"));
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QJsonArray cases = QJsonDocument::fromJson(f.readAll()).array();
+    QVERIFY(!cases.isEmpty());
+    for (const QJsonValue &v : cases) {
+        const QJsonObject c = v.toObject();
+        std::vector<int64_t> want;
+        for (const QJsonValue &id : c.value(QStringLiteral("ids")).toArray())
+            want.push_back(id.toInteger());
+        const QString lang = c.value(QStringLiteral("lang")).toString();
+        const QString text = c.value(QStringLiteral("text")).toString();
+        const std::vector<int64_t> got = tok.encode(text, lang);
+        QVERIFY2(got == want, qPrintable(QStringLiteral("[%1] %2").arg(lang, text)));
+    }
+}
+
+void EngineTest::chatterboxSplitsSentencesForSynthesis()
+{
+    using drift::ChatterboxTokenizer;
+    QCOMPARE(ChatterboxTokenizer::splitForSynthesis(QStringLiteral("Hi. It is 3.5 now! Ok?")),
+             QStringList{QStringLiteral("Hi. It is 3.5 now! Ok?")});
+    QCOMPARE(ChatterboxTokenizer::splitForSynthesis(QString()), QStringList());
+
+    const QString sentence = QString(120, QLatin1Char('a')) + QLatin1Char('.');
+    const QStringList chunks = ChatterboxTokenizer::splitForSynthesis(
+        sentence + QLatin1Char(' ') + sentence + QLatin1Char(' ') + sentence);
+    QCOMPARE(chunks.size(), 2);
+    QCOMPARE(chunks.at(0), sentence + QLatin1Char(' ') + sentence);
+    QCOMPARE(chunks.at(1), sentence);
+
+    QCOMPARE(ChatterboxTokenizer::splitForSynthesis(QStringLiteral("\u4F60\u597D\u3002\u4E16\u754C\uFF01")).size(), 1);
+    QCOMPARE(ChatterboxTokenizer::splitForSynthesis(QStringLiteral("One.\nTwo.")),
+             QStringList{QStringLiteral("One. Two.")});
+}
+
+void EngineTest::chatterboxVoiceConditioningRoundTrips()
+{
+    drift::VoiceConditioning v;
+    v.condEmb = {1.f, 2.f, 3.f, 4.f};
+    v.condEmbShape = {1, 2, 2};
+    v.promptToken = {5, 6, 7};
+    v.promptTokenShape = {1, 3};
+    v.refXVector = {0.5f, -0.5f};
+    v.refXVectorShape = {1, 2};
+    v.promptFeat = {9.f, 8.f};
+    v.promptFeatShape = {1, 1, 2};
+
+    const QByteArray blob = v.serialize();
+    const auto back = drift::VoiceConditioning::deserialize(blob);
+    QVERIFY(back.has_value());
+    QCOMPARE(back->condEmb, v.condEmb);
+    QCOMPARE(back->promptToken, v.promptToken);
+    QCOMPARE(back->promptFeatShape, v.promptFeatShape);
+
+    QVERIFY(!drift::VoiceConditioning::deserialize(blob.left(blob.size() - 1)).has_value());
+    QVERIFY(!drift::VoiceConditioning::deserialize(QByteArray("junk")).has_value());
+}
+
+void EngineTest::chatterboxSynthesizesWithSplitDecoder()
+{
+    const QString dir = drift::resolveChatterboxModelDir();
+    if (dir.isEmpty())
+        QSKIP("Text to Speech addon not installed (set DRIFT_CHATTERBOX_MODEL_DIR)");
+
+    drift::ChatterboxTts tts;
+    QString err;
+    QVERIFY2(tts.load(&err), qPrintable(err));
+    const std::vector<float> ref = drift::readMono(QDir(dir).filePath(QStringLiteral("default_voice.wav")), 0, -1,
+                                                   drift::ChatterboxTts::kSampleRate);
+    QVERIFY(!ref.empty());
+    const auto voice = tts.encodeVoice(ref, &err);
+    QVERIFY2(voice.has_value(), qPrintable(err));
+
+    double lastProgress = 0.0;
+    bool monotonic = true;
+    const std::vector<float> wav = tts.synthesize(
+        QStringLiteral("Hello there."), QStringLiteral("en"), *voice, 0.5f,
+        [&](double p) {
+            monotonic = monotonic && p >= lastProgress;
+            lastProgress = p;
+            return true;
+        },
+        &err);
+    QVERIFY2(!wav.empty(), qPrintable(err));
+    QVERIFY(monotonic);
+    QCOMPARE(lastProgress, 1.0);
+    float peak = 0.0f;
+    for (const float v : wav) {
+        QVERIFY(std::isfinite(v));
+        peak = std::max(peak, std::abs(v));
+    }
+    QVERIFY(peak > 0.01f);
+    QVERIFY(peak <= 0.99f + 1e-6f);
+    QVERIFY(wav.size() > drift::ChatterboxTts::kSampleRate / 2);
+}
 
 void EngineTest::initTestCase()
 {
@@ -8008,52 +8117,6 @@ void EngineTest::compositorRendersShapeClip()
     QVERIFY(!frame.isNull());
     QVERIFY(frame.pixelColor(64, 64).red() > 200);
     QVERIFY(frame.pixelColor(0, 0) == QColor(0, 0, 0));
-}
-
-// RenderOptions::skipClipId omits one clip from the frame. Used by in-place text
-// editing on the preview, where the QML editor stands in for the baked raster.
-void EngineTest::compositorSkipsClipBeingEdited()
-{
-    if (!GpuCompositor::isAvailable())
-        QSKIP("No GPU compositor available");
-
-    drift::Project project;
-    project.setResolution(128, 128);
-    project.tracks().clear();
-    project.tracks().append(drift::Track{.type = drift::TrackType::Shape});
-
-    drift::Clip clip;
-    clip.id = QStringLiteral("edited");
-    clip.type = drift::ClipType::Shape;
-    clip.timelineStart = 0;
-    clip.timelineDuration = drift::secondsToUs(1.0);
-    clip.shapeStyle.kind = drift::ShapeKind::Rectangle;
-    clip.shapeStyle.setSolidFill(QColor(255, 0, 0));
-    clip.transformX.setKeyframe(0, 32.0);
-    clip.transformY.setKeyframe(0, 32.0);
-    clip.transformW.setKeyframe(0, 64.0);
-    clip.transformH.setKeyframe(0, 64.0);
-    project.tracks()[0].clips.append(clip);
-
-    FrameCompositor compositor;
-    compositor.setProject(&project);
-
-    // Rendered normally the clip covers the centre.
-    const QImage shown = compositor.compositeAt(0);
-    QVERIFY(!shown.isNull());
-    QVERIFY(shown.pixelColor(64, 64).red() > 200);
-
-    // Skipping it leaves the background showing through.
-    FrameCompositor::RenderOptions options;
-    options.skipClipId = QStringLiteral("edited");
-    const QImage hidden = compositor.compositeAt(0, options);
-    QVERIFY(!hidden.isNull());
-    QCOMPARE(hidden.pixelColor(64, 64), QColor(0, 0, 0));
-
-    // An unrelated id must not hide anything.
-    options.skipClipId = QStringLiteral("someone-else");
-    const QImage untouched = compositor.compositeAt(0, options);
-    QVERIFY(untouched.pixelColor(64, 64).red() > 200);
 }
 
 void EngineTest::adjustmentEffectContrastCatalogEntry()

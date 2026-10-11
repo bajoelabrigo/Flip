@@ -61,47 +61,20 @@ Item {
     Column {
         anchors.fill: parent
         spacing: 0
-        Text {
-            id: transitionTip
-            width: parent.width
-            leftPadding: Theme.pagePadding
-            rightPadding: Theme.pagePadding
-            topPadding: Theme.spacingLg
-            bottomPadding: Theme.spacingSm
-            wrapMode: Text.WordWrap
-            horizontalAlignment: Text.AlignHCenter
-            maximumLineCount: 3
-            elide: Text.ElideRight
-            text: Theme.touchUi
-                  ? qsTr("Touch and hold a transition, then drag it onto where two clips meet.")
-                  : qsTr("Drag onto where two clips overlap. They fade into each other by default.")
-            color: Theme.mutedForeground
-            font.family: Theme.fontFamily
-            font.pixelSize: Theme.fontSizeXs
-        }
-
-        ThemedTextField {
+        AssetSearchBar {
             id: transitionSearch
-            width: parent.width - Theme.pagePadding * 2
-            x: Theme.pagePadding
             placeholderText: qsTr("Search transitions")
-            font.family: Theme.fontFamily
+
+            IconButton {
+                glyph: Theme.icons.download
+                variant: "ghost"
+                buttonSize: Theme.controlHeight
+                tooltip: qsTr("Install a custom transition or effect from a .driftfx file made in Drift Forge")
+                onClicked: root.Window.window.importUserPackage("")
+            }
         }
 
         Item { width: 1; height: Theme.spacingSm }
-
-        ThemedButton {
-            id: transitionImport
-            width: parent.width - Theme.pagePadding * 2
-            x: Theme.pagePadding
-            text: qsTr("Import transition")
-            glyph: Theme.icons.download
-            variant: "secondary"
-            tooltip: qsTr("Install a custom transition or effect from a .driftfx file made in Drift Forge")
-            onClicked: root.Window.window.importUserPackage("")
-        }
-
-        Item { width: 1; height: Theme.spacingMd }
 
         AssetCategoryChips {
             id: transitionCategoryChips
@@ -116,9 +89,8 @@ Item {
 
         Item {
             width: parent.width
-            height: Math.max(0, parent.height - transitionTip.height - transitionSearch.height
-                             - Theme.spacingSm - transitionImport.height
-                             - Theme.spacingMd - transitionCategoryChips.height)
+            height: Math.max(0, parent.height - transitionSearch.height
+                             - Theme.spacingSm - transitionCategoryChips.height)
 
             // A category whose filter matches nothing used to leave a
             // blank scroll area with no explanation.
@@ -271,16 +243,20 @@ Item {
                         }
 
                         ThemedToolTip {
-                            text: qsTr("%1 — drag onto an overlap between two clips").arg(transitionCard.modelData.label)
+                            text: qsTr("%1 — drag onto where two clips meet, or on touch hold then drag").arg(transitionCard.modelData.label)
                             visible: transitionHover.hovered
+                        }
+
+                        TapHandler {
+                            acceptedButtons: Qt.RightButton
+                            onTapped: cardMenu.popup()
                         }
 
                         DragHandler {
                             id: transitionDrag
                             target: null
-                            // Touch lifts through TouchDrag instead: a platform
+                            // A finger lifts through TouchDrag instead: a platform
                             // drag has no touch gesture and cannot leave the sheet.
-                            enabled: !Theme.touchUi
                             acceptedButtons: Qt.LeftButton
                             acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
                         }
@@ -293,6 +269,21 @@ Item {
                             payload: transitionCard.modelData.kind
                             label: transitionCard.modelData.label
                             glyph: Theme.icons.chevronsRight
+                            onLiftTapped: cardMenu.popup()
+                        }
+
+                        ThemedContextMenu {
+                            id: cardMenu
+
+                            property bool favorited: false
+
+                            onAboutToShow: favorited = EditorState.isAssetFavorite("transitions", transitionCard.modelData.kind)
+
+                            ThemedMenuItem {
+                                text: cardMenu.favorited ? qsTr("Remove from favorites") : qsTr("Add to favorites")
+                                icon.name: Theme.icons.star
+                                onTriggered: EditorState.toggleAssetFavorite("transitions", transitionCard.modelData.kind)
+                            }
                         }
 
                         AssetFavoriteButton {

@@ -20,6 +20,10 @@ Item {
 
     readonly property real minCueDur: 0.1
 
+    // A tap on a cue block, after it has been selected. The phone editor opens its text
+    // composer from it.
+    signal cueTapped(int index)
+
     readonly property var clip: {
         void EditorState.selectedClipData
         return EditorState.selectedClipData
@@ -312,6 +316,14 @@ Item {
                         readonly property bool isSelected: index === EditorState.selectedSubtitleCue
                         readonly property bool isActive: index === root.activeCueIndex
                         readonly property real gripW: Math.min(8, Math.max(3, width / 4))
+                        // A finger cannot land on an 8px grip, so touch gets a 24px hit area centred
+                        // on the edge. Below three of them the cue has no body left to drag, so the
+                        // edges take the outer thirds, inside the block, and the middle stays the body.
+                        readonly property bool narrowTouch: Theme.touchInput && width < 72
+                        readonly property real edgeHitW: !Theme.touchInput ? gripW
+                                                         : (narrowTouch ? width / 3 : 24)
+                        readonly property real bodyInset: !Theme.touchInput ? gripW
+                                                          : (narrowTouch ? width / 3 : 12)
 
                         property bool dragging: false
                         property real dragX: 0
@@ -342,6 +354,21 @@ Item {
                             dragging = true
                             root.beginDrag()
                         }
+                        function select() {
+                            EditorState.selectedSubtitleCue = index
+                            root.cueTapped(index)
+                        }
+                        function moveBy(dx) {
+                            const d = editEnd - editStart
+                            const raw = editStart + dx / root.pxPerSecond
+                            const targets = root.snapTargets(index)
+                            const snS = root.snap(raw, targets)
+                            const snE = root.snap(raw + d, targets) - d
+                            let ns = Math.abs(snS - raw) <= Math.abs(snE - raw) ? snS : snE
+                            ns = root.clampVal(ns, root.loBound(index), root.hiBound(index) - d)
+                            dragX = root.xForSeconds(ns)
+                            root.commitCue(index, ns, ns + d)
+                        }
                         function finishEdit() {
                             dragging = false
                             root.endDrag()
@@ -365,15 +392,20 @@ Item {
                         // Body: click to select, drag to move (keeps duration).
                         Item {
                             anchors.fill: parent
-                            anchors.leftMargin: block.gripW
-                            anchors.rightMargin: block.gripW
+                            anchors.leftMargin: block.bodyInset
+                            anchors.rightMargin: block.bodyInset
 
                             HoverHandler { cursorShape: Qt.OpenHandCursor }
                             TapHandler {
-                                onTapped: EditorState.selectedSubtitleCue = block.index
+                                // Finger taps land on touchMove below, which takes the press.
+                                acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+                                                 | PointerDevice.Stylus
+                                onTapped: block.select()
                             }
                             DragHandler {
                                 target: null
+                                acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+                                                 | PointerDevice.Stylus
                                 xAxis.enabled: true
                                 yAxis.enabled: false
                                 onActiveChanged: {
@@ -382,17 +414,43 @@ Item {
                                     else
                                         block.finishEdit()
                                 }
-                                onTranslationChanged: {
-                                    const d = block.editEnd - block.editStart
-                                    const raw = block.editStart + translation.x / root.pxPerSecond
-                                    const targets = root.snapTargets(block.index)
-                                    const snS = root.snap(raw, targets)
-                                    const snE = root.snap(raw + d, targets) - d
-                                    let ns = Math.abs(snS - raw) <= Math.abs(snE - raw) ? snS : snE
-                                    ns = root.clampVal(ns, root.loBound(block.index),
-                                                       root.hiBound(block.index) - d)
-                                    block.dragX = root.xForSeconds(ns)
-                                    root.commitCue(block.index, ns, ns + d)
+                                onTranslationChanged: block.moveBy(translation.x)
+                            }
+
+                            // Touchscreen: a finger on the lane pans it, so a cue only
+                            // moves after a hold. Mouse presses are rejected for the DragHandler.
+                            MouseArea {
+                                id: touchMove
+                                anchors.fill: parent
+                                pressAndHoldInterval: Theme.touchLiftInterval
+                                preventStealing: armed
+                                property bool armed: false
+                                property real originX
+                                onPressed: (mouse) => {
+                                    if (mouse.source === Qt.MouseEventNotSynthesized) {
+                                        mouse.accepted = false
+                                        return
+                                    }
+                                    armed = false
+                                }
+                                onPressAndHold: (mouse) => {
+                                    originX = mapToItem(null, mouse.x, 0).x
+                                    armed = true
+                                    Haptics.pickUp()
+                                    block.startEdit()
+                                }
+                                onPositionChanged: (mouse) => {
+                                    if (armed)
+                                        block.moveBy(mapToItem(null, mouse.x, 0).x - originX)
+                                }
+                                onClicked: block.select()
+                                onReleased: finish()
+                                onCanceled: finish()
+                                function finish() {
+                                    if (!armed)
+                                        return
+                                    armed = false
+                                    block.finishEdit()
                                 }
                             }
                         }
@@ -404,9 +462,17 @@ Item {
                             height: parent.height
                             color: block.isSelected ? Theme.primary : "transparent"
                             opacity: 0.6
+                        }
+                        Item {
+                            x: (Theme.touchInput && !block.narrowTouch) ? -block.edgeHitW / 2 : 0
+                            width: block.edgeHitW
+                            height: parent.height
                             HoverHandler { cursorShape: Qt.SizeHorCursor }
                             DragHandler {
                                 target: null
+                                acceptedDevices: block.isSelected
+                                    ? PointerDevice.AllDevices
+                                    : PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
                                 xAxis.enabled: true
                                 yAxis.enabled: false
                                 onActiveChanged: {
@@ -434,9 +500,18 @@ Item {
                             height: parent.height
                             color: block.isSelected ? Theme.primary : "transparent"
                             opacity: 0.6
+                        }
+                        Item {
+                            x: parent.width - ((Theme.touchInput && !block.narrowTouch)
+                                               ? block.edgeHitW / 2 : block.edgeHitW)
+                            width: block.edgeHitW
+                            height: parent.height
                             HoverHandler { cursorShape: Qt.SizeHorCursor }
                             DragHandler {
                                 target: null
+                                acceptedDevices: block.isSelected
+                                    ? PointerDevice.AllDevices
+                                    : PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
                                 xAxis.enabled: true
                                 yAxis.enabled: false
                                 onActiveChanged: {

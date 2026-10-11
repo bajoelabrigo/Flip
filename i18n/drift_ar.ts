@@ -4,20 +4,20 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Close</source>
-        <translation type="unfinished">إغلاق</translation>
-    </message>
-    <message>
-        <source>Flip Studio</source>
-        <translation>Flip Studio</translation>
+        <translation>إغلاق</translation>
     </message>
     <message>
         <source>Version %1</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio</source>
+        <translation>Flip Studio</translation>
     </message>
     <message>
         <source>Open-source video editor based on Drift by CutWire Studios.</source>
@@ -59,19 +59,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Flip Studio effect file (%1).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Another addon is still installing.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is not a Flip Studio addon file.</source>
+        <source>Could not use this addon (%1).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Could not use this addon (%1).</source>
+        <source>This is not a Flip Studio effect file (%1).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This is not a Flip Studio addon file.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -118,10 +118,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Flip Studio addons (*.driftpkg *.driftfx *.zip)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Install an unofficial addon?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -134,19 +130,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 is not signed by the Flip Studio team. Only install files you trust.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>It contains code that runs on your computer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>It will replace “%1”.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 was made by a user, not the Flip Studio team, and nothing has checked it. Only install files you trust.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -202,24 +190,12 @@
         <translation>ثبّت محرك ذكاء اصطناعي أدناه لإتاحة التسميات التوضيحية التلقائية، واقتطاع العناصر، وتأثيرات الوجه المضحكة، وإزالة الضوضاء.</translation>
     </message>
     <message>
-        <source>Restart Flip Studio for this to take effect.</source>
-        <translation>أعد تشغيل Flip Studio لتطبيق ذلك.</translation>
-    </message>
-    <message>
-        <source>Downloads coming soon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Can&apos;t reach the download store</source>
         <translation>تعذر الوصول إلى متجر التنزيل</translation>
     </message>
     <message>
         <source>Nothing in this category</source>
         <translation>لا يوجد شيء في هذه الفئة</translation>
-    </message>
-    <message>
-        <source>Automatic subtitles, fonts, stickers and more will be available to download in an upcoming update. Extras you install from a file still work.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Check your connection and try again.</source>
@@ -244,10 +220,6 @@
     <message>
         <source>%1… %2%</source>
         <translation>%1… %2%</translation>
-    </message>
-    <message>
-        <source>Requires Flip Studio %1 or newer</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unofficial</source>
@@ -278,12 +250,8 @@
         <translation>تثبيت</translation>
     </message>
     <message>
-        <source>Text &amp; fonts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Custom</source>
-        <translation type="unfinished">مخصص</translation>
+        <translation>مخصص</translation>
     </message>
     <message>
         <source>Install from file…</source>
@@ -301,6 +269,38 @@
         <source>Delete this pack&apos;s downloaded data</source>
         <translation>حذف البيانات المنزلة لهذه الحزمة</translation>
     </message>
+    <message>
+        <source>Flip Studio addons (*.driftpkg *.driftfx *.zip)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 is not signed by the Flip Studio team. Only install files you trust.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 was made by a user, not the Flip Studio team, and nothing has checked it. Only install files you trust.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart Flip Studio for this to take effect.</source>
+        <translation>أعد تشغيل Flip Studio لتطبيق ذلك.</translation>
+    </message>
+    <message>
+        <source>Downloads coming soon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic subtitles, fonts, stickers and more will be available to download in an upcoming update. Extras you install from a file still work.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Requires Flip Studio %1 or newer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text &amp; fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddonStartupDialog</name>
@@ -315,10 +315,6 @@
     <message>
         <source>Recommended packs</source>
         <translation>الحزم الموصى بها</translation>
-    </message>
-    <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
-        <translation>ثبّت الحزم الأساسية للتأثيرات والانتقالات والصوت. يمكنك مواصلة استخدام Flip Studio بدونها — ويتيح تثبيتها تلقي التحديثات عند تحسينها.</translation>
     </message>
     <message>
         <source>%1… %2%</source>
@@ -372,13 +368,13 @@
         <source>Install all</source>
         <translation>تثبيت الكل</translation>
     </message>
+    <message>
+        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
+        <translation>ثبّت الحزم الأساسية للتأثيرات والانتقالات والصوت. يمكنك مواصلة استخدام Flip Studio بدونها — ويتيح تثبيتها تلقي التحديثات عند تحسينها.</translation>
+    </message>
 </context>
 <context>
     <name>AgentAccessControls</name>
-    <message>
-        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip Studio, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
-        <translation>اسمح لـ Cursor أو Claude بتعديل هذا المشروع نيابةً عنك — إضافة مقاطع، وتغيير المخطط الزمني، والتحقق من مظهره. البرامج الموجودة على هذا الجهاز فقط. يكون معطلاً افتراضيًا في كل مرة تفتح فيها Flip Studio، ما لم تُفعّل “تشغيل الوكيل عند بدء التشغيل” أدناه؛ أوقفه هنا عند الانتهاء. يظل المفتاح كما هو بين الجلسات، لذا فإن الإعداد الذي لصقته مرة واحدة سيستمر في العمل.</translation>
-    </message>
     <message>
         <source>Allow for this session</source>
         <translation>السماح لهذه الجلسة</translation>
@@ -390,10 +386,6 @@
     <message>
         <source>Start agent on startup</source>
         <translation>تشغيل الوكيل عند بدء التشغيل</translation>
-    </message>
-    <message>
-        <source>Skip the manual toggle next time you open Flip Studio. Turning access off resets this.</source>
-        <translation>تجاوز التبديل اليدوي في المرة القادمة التي تفتح فيها Flip Studio. يؤدي إيقاف تشغيل الوصول إلى إعادة تعيين هذا.</translation>
     </message>
     <message>
         <source>Turn this on, then copy the setup for Cursor or Claude and paste it into that app.</source>
@@ -483,6 +475,14 @@
         <source>Copied one-time setup</source>
         <translation>تم نسخ الإعداد لمرة واحدة</translation>
     </message>
+    <message>
+        <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip Studio, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
+        <translation>اسمح لـ Cursor أو Claude بتعديل هذا المشروع نيابةً عنك — إضافة مقاطع، وتغيير المخطط الزمني، والتحقق من مظهره. البرامج الموجودة على هذا الجهاز فقط. يكون معطلاً افتراضيًا في كل مرة تفتح فيها Flip Studio، ما لم تُفعّل “تشغيل الوكيل عند بدء التشغيل” أدناه؛ أوقفه هنا عند الانتهاء. يظل المفتاح كما هو بين الجلسات، لذا فإن الإعداد الذي لصقته مرة واحدة سيستمر في العمل.</translation>
+    </message>
+    <message>
+        <source>Skip the manual toggle next time you open Flip Studio. Turning access off resets this.</source>
+        <translation>تجاوز التبديل اليدوي في المرة القادمة التي تفتح فيها Flip Studio. يؤدي إيقاف تشغيل الوصول إلى إعادة تعيين هذا.</translation>
+    </message>
 </context>
 <context>
     <name>AgentAccessDialog</name>
@@ -532,6 +532,14 @@
     <message>
         <source>Captions, generated or imported</source>
         <translation>تسميات توضيحية، مُولّدة أو مستوردة</translation>
+    </message>
+    <message>
+        <source>Speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn a script into a voiceover</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stickers</source>
@@ -651,6 +659,10 @@
         <translation>التحويل معًا</translation>
     </message>
     <message>
+        <source>Edit text</source>
+        <translation>تعديل النص</translation>
+    </message>
+    <message>
         <source>Fade</source>
         <translation>التلاشي</translation>
     </message>
@@ -724,10 +736,6 @@
 <context>
     <name>AndroidEditor</name>
     <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>مشروع Flip Studio (*.drift)</translation>
-    </message>
-    <message>
         <source>Save Project</source>
         <translation>حفظ المشروع</translation>
     </message>
@@ -766,6 +774,18 @@
     <message>
         <source>Done</source>
         <translation>تم</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Select all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>مشروع Flip Studio (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -809,21 +829,6 @@
     <message>
         <source>Curve</source>
         <translation>منحنى</translation>
-    </message>
-</context>
-<context>
-    <name>AndroidHomeNav</name>
-    <message>
-        <source>Projects</source>
-        <translation>المشاريع</translation>
-    </message>
-    <message>
-        <source>Market</source>
-        <translation>المتجر</translation>
-    </message>
-    <message>
-        <source>Me</source>
-        <translation>أنا</translation>
     </message>
 </context>
 <context>
@@ -927,10 +932,6 @@
 <context>
     <name>AndroidMain</name>
     <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>مشروع Flip Studio (*.drift)</translation>
-    </message>
-    <message>
         <source>Save Project</source>
         <translation>حفظ المشروع</translation>
     </message>
@@ -1002,58 +1003,9 @@
         <source>Imported from the marketplace.</source>
         <translation>تم الاستيراد من المتجر.</translation>
     </message>
-</context>
-<context>
-    <name>AndroidMarket</name>
     <message>
-        <source>Market</source>
-        <translation>المتجر</translation>
-    </message>
-    <message>
-        <source>Downloads</source>
-        <translation>التنزيلات</translation>
-    </message>
-</context>
-<context>
-    <name>AndroidMePage</name>
-    <message>
-        <source>Me</source>
-        <translation>أنا</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n coin(s)</source>
-        <translation>
-            <numerusform>%n عملة</numerusform>
-            <numerusform>%n عملة</numerusform>
-            <numerusform>%n عملتان</numerusform>
-            <numerusform>%n عملات</numerusform>
-            <numerusform>%n عملةً</numerusform>
-            <numerusform>%n عملة</numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>Light mode</source>
-        <translation>الوضع الفاتح</translation>
-    </message>
-    <message>
-        <source>Dark mode</source>
-        <translation>الوضع الداكن</translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation>الإعدادات</translation>
-    </message>
-    <message>
-        <source>Extras</source>
-        <translation>الإضافات</translation>
-    </message>
-    <message>
-        <source>Update available</source>
-        <translation>يتوفر تحديث</translation>
-    </message>
-    <message>
-        <source>Debug info</source>
-        <translation>معلومات تصحيح الأخطاء</translation>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>مشروع Flip Studio (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -1071,12 +1023,12 @@
         <translation>صوت فقط — قصه أدناه</translation>
     </message>
     <message>
-        <source>Unlock source frame ratio</source>
-        <translation>إلغاء قفل نسبة إطار المصدر</translation>
+        <source>Unlock crop ratio</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Lock source frame ratio</source>
-        <translation>قفل نسبة إطار المصدر</translation>
+        <source>Lock crop ratio</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trim</source>
@@ -1115,12 +1067,12 @@
         <translation>جارٍ الحفظ…</translation>
     </message>
     <message>
-        <source>Save keeps your changes as a new file in this project.</source>
-        <translation>يحفظ خيار الحفظ تغييراتك كملف جديد في هذا المشروع.</translation>
+        <source>Save keeps the original file and stores this crop.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Save keeps the original video and stores this framing.</source>
-        <translation>يحفظ خيار الحفظ الفيديو الأصلي ويخزن هذا التأطير.</translation>
+        <source>Save keeps the original file and stores this trim.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nothing changed yet. Trim or crop above, or go back and drag this onto the timeline.</source>
@@ -1648,8 +1600,60 @@
         <translation>مزامنة الزوايا والتبديل بينها</translation>
     </message>
     <message>
-        <source>App settings</source>
-        <translation>إعدادات التطبيق</translation>
+        <source>Extras</source>
+        <translation>الإضافات</translation>
+    </message>
+    <message>
+        <source>Add-ons and model packs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>الإعدادات</translation>
+    </message>
+    <message>
+        <source>Light mode</source>
+        <translation>الوضع الفاتح</translation>
+    </message>
+    <message>
+        <source>Dark mode</source>
+        <translation>الوضع الداكن</translation>
+    </message>
+    <message>
+        <source>Switch the app’s colour scheme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch to desktop layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use the wide editor layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update available</source>
+        <translation>يتوفر تحديث</translation>
+    </message>
+    <message>
+        <source>A newer version of Flip Studio is ready</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Debug info</source>
+        <translation>معلومات تصحيح الأخطاء</translation>
+    </message>
+    <message>
+        <source>Version, device and logs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Version, licence and credits</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Appearance, extras and agent access</source>
@@ -1732,6 +1736,53 @@
     <message>
         <source>Start a new project from this clip</source>
         <translation>بدء مشروع جديد من هذا المقطع</translation>
+    </message>
+</context>
+<context>
+    <name>AndroidTextComposer</name>
+    <message>
+        <source>Previous caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caption %1 / %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>تم</translation>
+    </message>
+    <message>
+        <source>Type subtitle…</source>
+        <translation>اكتب الترجمة…</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>البداية</translation>
+    </message>
+    <message>
+        <source>Set start to current time</source>
+        <translation>تعيين البداية إلى الوقت الحالي</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation>النهاية</translation>
+    </message>
+    <message>
+        <source>Set end to current time</source>
+        <translation>تعيين النهاية إلى الوقت الحالي</translation>
+    </message>
+    <message>
+        <source>Back one frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forward one frame</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1889,6 +1940,14 @@
     <message>
         <source>Untitled</source>
         <translation>بلا عنوان</translation>
+    </message>
+    <message>
+        <source>Downloads</source>
+        <translation>التنزيلات</translation>
+    </message>
+    <message>
+        <source>Extras</source>
+        <translation>الإضافات</translation>
     </message>
     <message>
         <source>Undo</source>
@@ -2055,24 +2114,12 @@
         <translation>تمت إعادة تسمية الوسائط</translation>
     </message>
     <message>
-        <source>That file could not be read.</source>
-        <translation>تعذر قراءة ذلك الملف.</translation>
+        <source>Crop clip</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>That file is already in this project.</source>
-        <translation>ذلك الملف موجود بالفعل في هذا المشروع.</translation>
-    </message>
-    <message>
-        <source>That media is no longer in this project.</source>
-        <translation>تلك الوسائط لم تعد موجودة في هذا المشروع.</translation>
-    </message>
-    <message>
-        <source>“%1” is %2, but this slot holds %3.</source>
-        <translation>“%1” هو %2، لكن هذه الخانة تحتوي على %3.</translation>
-    </message>
-    <message>
-        <source>Media replaced</source>
-        <translation>تم استبدال الوسائط</translation>
+        <source>Crop saved</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>New project</source>
@@ -2133,6 +2180,10 @@
     <message>
         <source>Unlink audio</source>
         <translation>إلغاء ربط الصوت</translation>
+    </message>
+    <message>
+        <source>Link clips</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clear selection</source>
@@ -2363,112 +2414,8 @@
         <translation>تمت إزالة منحنى السرعة</translation>
     </message>
     <message>
-        <source>Getting ready…</source>
-        <translation>جارٍ التحضير…</translation>
-    </message>
-    <message>
-        <source>Could not decode frame %1</source>
-        <translation>تعذر فك ترميز الإطار %1</translation>
-    </message>
-    <message>
-        <source>Clear Face Track</source>
-        <translation>مسح مسار الوجه</translation>
-    </message>
-    <message>
-        <source>Face detection already in progress</source>
-        <translation>اكتشاف الوجه قيد التنفيذ بالفعل</translation>
-    </message>
-    <message>
-        <source>Select a video clip to detect faces in</source>
-        <translation>حدد مقطع فيديو لاكتشاف الوجوه فيه</translation>
-    </message>
-    <message>
-        <source>Clip has no video to scan</source>
-        <translation>لا يحتوي المقطع على فيديو لمسحه</translation>
-    </message>
-    <message>
-        <source>Clip is too short to scan</source>
-        <translation>المقطع قصير جدًا لمسحه</translation>
-    </message>
-    <message>
-        <source>Face detection cancelled</source>
-        <translation>تم إلغاء اكتشاف الوجه</translation>
-    </message>
-    <message>
-        <source>Scanning frame %1 of %2…</source>
-        <translation>جارٍ مسح الإطار %1 من %2…</translation>
-    </message>
-    <message>
-        <source>No faces found in this clip</source>
-        <translation>لم يتم العثور على أي وجوه في هذا المقطع</translation>
-    </message>
-    <message>
-        <source>Could not write the face track</source>
-        <translation>تعذرت كتابة مسار الوجه</translation>
-    </message>
-    <message>
-        <source>Face detection complete — a face was visible in %1 of %2 frames</source>
-        <translation>اكتمل اكتشاف الوجه — كان الوجه مرئيًا في %1 من %2 إطارًا</translation>
-    </message>
-    <message>
-        <source>Face detection complete</source>
-        <translation>اكتمل اكتشاف الوجه</translation>
-    </message>
-    <message>
-        <source>Scanned clip no longer exists</source>
-        <translation>المقطع الممسوح لم يعد موجودًا</translation>
-    </message>
-    <message>
-        <source>Detect Faces</source>
-        <translation>اكتشاف الوجوه</translation>
-    </message>
-    <message>
         <source>Clip</source>
         <translation>مقطع</translation>
-    </message>
-    <message>
-        <source>Getting noise removal ready…</source>
-        <translation>جارٍ إعداد إزالة الضوضاء…</translation>
-    </message>
-    <message>
-        <source>Clip is too short to process</source>
-        <translation>المقطع قصير جدًا لمعالجته</translation>
-    </message>
-    <message>
-        <source>Noise removal cancelled</source>
-        <translation>تم إلغاء إزالة الضوضاء</translation>
-    </message>
-    <message>
-        <source>Removing noise (left)…</source>
-        <translation>جارٍ إزالة الضوضاء (اليسار)…</translation>
-    </message>
-    <message>
-        <source>Removing noise (right)…</source>
-        <translation>جارٍ إزالة الضوضاء (اليمين)…</translation>
-    </message>
-    <message>
-        <source>Writing audio…</source>
-        <translation>جارٍ كتابة الصوت…</translation>
-    </message>
-    <message>
-        <source>Noise removal already in progress</source>
-        <translation>إزالة الضوضاء قيد التنفيذ بالفعل</translation>
-    </message>
-    <message>
-        <source>Select a video or audio clip</source>
-        <translation>حدد مقطع فيديو أو صوت</translation>
-    </message>
-    <message>
-        <source>Clip has no audio</source>
-        <translation>لا يحتوي المقطع على صوت</translation>
-    </message>
-    <message>
-        <source>Could not create a preview file</source>
-        <translation>تعذر إنشاء ملف المعاينة</translation>
-    </message>
-    <message>
-        <source>Ready</source>
-        <translation>جاهز</translation>
     </message>
     <message numerus="yes">
         <source>Imported %n subtitles</source>
@@ -2549,73 +2496,6 @@
         <translation>حفظ الكاميرات المتعددة المجمعة</translation>
     </message>
     <message>
-        <source>Select a video clip to stabilize</source>
-        <translation>حدد مقطع فيديو لتثبيت الصورة</translation>
-    </message>
-    <message>
-        <source>Clip has no video file</source>
-        <translation>لا يحتوي المقطع على ملف فيديو</translation>
-    </message>
-    <message>
-        <source>Stabilization already in progress for this clip</source>
-        <translation>تثبيت الصورة قيد التنفيذ بالفعل لهذا المقطع</translation>
-    </message>
-    <message>
-        <source>Could not create stabilization cache directory</source>
-        <translation>تعذر إنشاء مجلد ذاكرة التخزين المؤقت لتثبيت الصورة</translation>
-    </message>
-    <message>
-        <source>Stabilize Video</source>
-        <translation>تثبيت صورة الفيديو</translation>
-    </message>
-    <message>
-        <source>Remove Stabilization</source>
-        <translation>إزالة تثبيت الصورة</translation>
-    </message>
-    <message>
-        <source>Change Stabilization Smoothing</source>
-        <translation>تغيير تنعيم تثبيت الصورة</translation>
-    </message>
-    <message>
-        <source>Change Stabilization Tripod Mode</source>
-        <translation>تغيير وضع الحامل الثلاثي لتثبيت الصورة</translation>
-    </message>
-    <message>
-        <source>Detecting faces…</source>
-        <translation>جارٍ اكتشاف الوجوه…</translation>
-    </message>
-    <message>
-        <source>Already looking for scenes</source>
-        <translation>جارٍ البحث عن المشاهد بالفعل</translation>
-    </message>
-    <message>
-        <source>Select a video clip to find scenes in</source>
-        <translation>حدد مقطع فيديو للبحث عن المشاهد فيه</translation>
-    </message>
-    <message numerus="yes">
-        <source>Found %n scene(s)</source>
-        <translation>
-            <numerusform>تم العثور على %n مشهد</numerusform>
-            <numerusform>تم العثور على %n مشهد</numerusform>
-            <numerusform>تم العثور على %n مشهدين</numerusform>
-            <numerusform>تم العثور على %n مشاهد</numerusform>
-            <numerusform>تم العثور على %n مشهدًا</numerusform>
-            <numerusform>تم العثور على %n مشهد</numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>Looking for scenes…</source>
-        <translation>جارٍ البحث عن المشاهد…</translation>
-    </message>
-    <message>
-        <source>Scene detection cancelled</source>
-        <translation>تم إلغاء اكتشاف المشاهد</translation>
-    </message>
-    <message>
-        <source>Removing noise…</source>
-        <translation>جارٍ إزالة الضوضاء…</translation>
-    </message>
-    <message>
         <source>Could not create an output file</source>
         <translation>تعذر إنشاء ملف إخراج</translation>
     </message>
@@ -2653,46 +2533,6 @@
     <message>
         <source>Media rotated</source>
         <translation>تم تدوير الوسائط</translation>
-    </message>
-    <message>
-        <source>An edit is already saving</source>
-        <translation>جارٍ حفظ أحد التعديلات بالفعل</translation>
-    </message>
-    <message>
-        <source>Could not open the media file</source>
-        <translation>تعذر فتح ملف الوسائط</translation>
-    </message>
-    <message>
-        <source>Media trimmed</source>
-        <translation>تم قص الوسائط</translation>
-    </message>
-    <message>
-        <source>Trim saved</source>
-        <translation>تم حفظ القص</translation>
-    </message>
-    <message>
-        <source>Saving…</source>
-        <translation>جارٍ الحفظ…</translation>
-    </message>
-    <message>
-        <source>Saving media…</source>
-        <translation>جارٍ حفظ الوسائط…</translation>
-    </message>
-    <message>
-        <source>Couldn’t save that edit</source>
-        <translation>تعذر حفظ هذا التعديل</translation>
-    </message>
-    <message>
-        <source>Updating the library…</source>
-        <translation>جارٍ تحديث المكتبة…</translation>
-    </message>
-    <message>
-        <source>Couldn’t update the library</source>
-        <translation>تعذر تحديث المكتبة</translation>
-    </message>
-    <message>
-        <source>Media edited</source>
-        <translation>تم تعديل الوسائط</translation>
     </message>
     <message>
         <source>Save project as…</source>
@@ -2757,54 +2597,6 @@
     <message>
         <source>Transition curve updated</source>
         <translation>تم تحديث منحنى الانتقال</translation>
-    </message>
-    <message>
-        <source>Building keyframes…</source>
-        <translation>جارٍ إنشاء الإطارات المفتاحية…</translation>
-    </message>
-    <message>
-        <source>Rendering stabilized video…</source>
-        <translation>جارٍ معالجة الفيديو المثبت…</translation>
-    </message>
-    <message>
-        <source>Analyzing camera motion…</source>
-        <translation>جارٍ تحليل حركة الكاميرا…</translation>
-    </message>
-    <message>
-        <source>Stabilization cancelled.</source>
-        <translation>تم إلغاء تثبيت الصورة.</translation>
-    </message>
-    <message>
-        <source>Stabilization analysis file is missing.</source>
-        <translation>ملف تحليل تثبيت الصورة مفقود.</translation>
-    </message>
-    <message>
-        <source>Could not read camera motion from the analysis file.</source>
-        <translation>تعذر قراءة حركة الكاميرا من ملف التحليل.</translation>
-    </message>
-    <message>
-        <source>Stabilize with Keyframes</source>
-        <translation>تثبيت الصورة باستخدام الإطارات المفتاحية</translation>
-    </message>
-    <message>
-        <source>Stabilization keyframes applied.</source>
-        <translation>تم تطبيق الإطارات المفتاحية لتثبيت الصورة.</translation>
-    </message>
-    <message>
-        <source>Change Stabilization Mode</source>
-        <translation>تغيير وضع تثبيت الصورة</translation>
-    </message>
-    <message>
-        <source> (denoised)</source>
-        <translation> (تمت إزالة الضوضاء)</translation>
-    </message>
-    <message>
-        <source>Remove noise</source>
-        <translation>إزالة الضوضاء</translation>
-    </message>
-    <message>
-        <source>Noise removed</source>
-        <translation>تمت إزالة الضوضاء</translation>
     </message>
     <message>
         <source>Shape added</source>
@@ -2975,56 +2767,6 @@
         <translation>تم تحديث الترجمة</translation>
     </message>
     <message>
-        <source>“%1” is not in these subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Replace in subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message numerus="yes">
-        <source>Replaced in %n caption(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>Subtitles are already clean</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Clean up subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Subtitles cleaned up</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No keywords for emojis in these subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add emojis</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message numerus="yes">
-        <source>Emojis added to %n caption(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message>
         <source>Adjust subtitle timing</source>
         <translation>ضبط توقيت الترجمة</translation>
     </message>
@@ -3093,22 +2835,15 @@
         <translation>تم استيراد نمط النص</translation>
     </message>
     <message>
-        <source>Font added: %1</source>
+        <source>Could not import the font</source>
         <translation type="unfinished"></translation>
     </message>
-    <message numerus="yes">
-        <source>%n fonts added</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
+    <message>
+        <source>Added %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>That file is not a font this app can read</source>
+        <source>Removed %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3204,6 +2939,10 @@
         <translation>تم إلغاء ربط الصوت</translation>
     </message>
     <message>
+        <source>Clips linked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Fade updated</source>
         <translation>تم تحديث التلاشي</translation>
     </message>
@@ -3250,6 +2989,14 @@
     <message>
         <source>Animation options updated</source>
         <translation>تم تحديث خيارات الحركة</translation>
+    </message>
+    <message>
+        <source>PDF options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PDF options updated</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Animation slot</source>
@@ -3334,38 +3081,6 @@
     <message>
         <source>%1 (off)</source>
         <translation>%1 (متوقف)</translation>
-    </message>
-    <message>
-        <source>Frame video</source>
-        <translation>تأطير الفيديو</translation>
-    </message>
-    <message>
-        <source>Video framing saved</source>
-        <translation>تم حفظ تأطير الفيديو</translation>
-    </message>
-    <message>
-        <source>Frame source video</source>
-        <translation>تأطير فيديو المصدر</translation>
-    </message>
-    <message>
-        <source>%1 (trimmed)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Rendering…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Render Trimmed Copy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Converting…</source>
-        <translation>جارٍ التحويل…</translation>
-    </message>
-    <message>
-        <source>Converting %1 to an edit-friendly format…</source>
-        <translation>جارٍ تحويل %1 إلى تنسيق مناسب للتحرير…</translation>
     </message>
     <message>
         <source>Transform selection together</source>
@@ -3456,10 +3171,6 @@
         <translation>تم إلغاء التسجيل</translation>
     </message>
     <message>
-        <source>Text template added</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Select video or audio clips to create captions</source>
         <translation>حدد مقاطع فيديو أو صوت لإنشاء التسميات التوضيحية</translation>
     </message>
@@ -3478,106 +3189,6 @@
     <message>
         <source>These clips overlap in time — caption them separately</source>
         <translation>تتداخل هذه المقاطع في الوقت — أنشئ تسميات توضيحية لها بشكل منفصل</translation>
-    </message>
-    <message>
-        <source>Select a video or image clip to estimate depth for</source>
-        <translation>حدد مقطع فيديو أو صورة لتقدير العمق له</translation>
-    </message>
-    <message>
-        <source>Clip has no video to estimate depth for</source>
-        <translation>لا يحتوي المقطع على فيديو لتقدير العمق له</translation>
-    </message>
-    <message>
-        <source>Depth estimation needs the Depth addon</source>
-        <translation>يتطلب تقدير العمق إضافة العمق</translation>
-    </message>
-    <message>
-        <source>Depth is already being estimated for this clip</source>
-        <translation>يجري تقدير العمق لهذا المقطع بالفعل</translation>
-    </message>
-    <message>
-        <source>Estimating depth…</source>
-        <translation>جارٍ تقدير العمق…</translation>
-    </message>
-    <message>
-        <source>Clip no longer exists</source>
-        <translation>لم يعد المقطع موجودًا</translation>
-    </message>
-    <message>
-        <source>Estimate Depth</source>
-        <translation>تقدير العمق</translation>
-    </message>
-    <message>
-        <source>%1 (stabilized)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select a video clip to enhance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Choose a model to enhance with</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This clip is already being enhanced</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 (enhanced %2x)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 (enhanced)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enhance Video</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enhanced video added to the media bin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enhancing video…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Clear Depth</source>
-        <translation>مسح العمق</translation>
-    </message>
-    <message>
-        <source>This build of Flip Studio has no video stabilization support</source>
-        <translation>لا يدعم هذا الإصدار من Flip Studio تثبيت صورة الفيديو</translation>
-    </message>
-    <message>
-        <source>The video this clip was stabilized from is no longer in the media bin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Stabilization rendering failed.</source>
-        <translation>فشلت معالجة تثبيت الصورة.</translation>
-    </message>
-    <message>
-        <source>Stabilization rendering failed: %1</source>
-        <translation>فشلت معالجة تثبيت الصورة: %1</translation>
-    </message>
-    <message>
-        <source>Stabilized video added to the media bin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Stabilization analysis failed.</source>
-        <translation>فشل تحليل تثبيت الصورة.</translation>
-    </message>
-    <message>
-        <source>Stabilization analysis failed: %1</source>
-        <translation>فشل تحليل تثبيت الصورة: %1</translation>
-    </message>
-    <message>
-        <source>English subtitles</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -4034,53 +3645,6 @@
     <message>
         <source>Face prop applied</source>
         <translation>تم تطبيق عنصر الوجه</translation>
-    </message>
-    <message>
-        <source>Could not add that sound</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enhance voice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voice enhanced: noise gate, de-esser, compressor and leveler</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select a video or audio clip with speech</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Install speech recognition from Extras to find the silences</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Could not analyse the speech in this clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Listening to the clip to find silences…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No speech found in this clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Could not cut this clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message numerus="yes">
-        <source>Removed %1 s of pauses and %n filler word(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
     </message>
     <message>
         <source>Add audio effect</source>
@@ -4591,22 +4155,6 @@
         <source>Close gap</source>
         <translation>إغلاق الفراغ</translation>
     </message>
-    <message>
-        <source>Folder created</source>
-        <translation>تم إنشاء المجلد</translation>
-    </message>
-    <message>
-        <source>Folder renamed</source>
-        <translation>تمت إعادة تسمية المجلد</translation>
-    </message>
-    <message>
-        <source>Folder deleted</source>
-        <translation>تم حذف المجلد</translation>
-    </message>
-    <message>
-        <source>Media moved</source>
-        <translation>تم نقل الوسائط</translation>
-    </message>
     <message numerus="yes">
         <source>%n items removed</source>
         <translation>
@@ -4618,24 +4166,9 @@
             <numerusform>تمت إزالة %n عنصر</numerusform>
         </translation>
     </message>
-    <message numerus="yes">
-        <source>%n items moved</source>
-        <translation>
-            <numerusform>تم نقل %n عنصر</numerusform>
-            <numerusform>تم نقل %n عنصر</numerusform>
-            <numerusform>تم نقل %n عنصرين</numerusform>
-            <numerusform>تم نقل %n عناصر</numerusform>
-            <numerusform>تم نقل %n عنصرًا</numerusform>
-            <numerusform>تم نقل %n عنصر</numerusform>
-        </translation>
-    </message>
     <message>
         <source>Clips added</source>
         <translation>تمت إضافة المقاطع</translation>
-    </message>
-    <message>
-        <source>Folder moved</source>
-        <translation>تم نقل المجلد</translation>
     </message>
     <message>
         <source>Track renamed</source>
@@ -4656,6 +4189,122 @@
     <message>
         <source>Video size cropped to %1×%2</source>
         <translation>تم اقتصاص حجم الفيديو إلى %1×%2</translation>
+    </message>
+    <message>
+        <source>“%1” is not in these subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace in subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Replaced in %n caption(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Subtitles are already clean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean up subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles cleaned up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keywords for emojis in these subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Emojis added to %n caption(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n fonts added</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Text template added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>English subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not add that sound</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice enhanced: noise gate, de-esser, compressor and leveler</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or audio clip with speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install speech recognition from Extras to find the silences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not analyse the speech in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to find silences…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No speech found in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not cut this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Removed %1 s of pauses and %n filler word(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -4786,7 +4435,7 @@
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>جميع الملفات (*)</translation>
     </message>
     <message>
         <source>Save As</source>
@@ -4817,17 +4466,6 @@
             <numerusform>تم استيراد %n ملفات في %1 من المجلدات — وهو أقصى ما تستوعبه عملية استيراد مجلد واحدة. استورد المجلدات الفرعية المتبقية بشكل منفصل.</numerusform>
             <numerusform>تم استيراد %n ملفًا في %1 من المجلدات — وهو أقصى ما تستوعبه عملية استيراد مجلد واحدة. استورد المجلدات الفرعية المتبقية بشكل منفصل.</numerusform>
             <numerusform>تم استيراد %n ملف في %1 من المجلدات — وهو أقصى ما تستوعبه عملية استيراد مجلد واحدة. استورد المجلدات الفرعية المتبقية بشكل منفصل.</numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <source>Imported %n files into %1 folders. %2 files were skipped — Flip Studio does not recognize their format. Drag them onto the bin to try anyway.</source>
-        <translation>
-            <numerusform>تم استيراد %n ملف في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip Studio على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
-            <numerusform>تم استيراد %n ملف في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip Studio على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
-            <numerusform>تم استيراد %n ملفين في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip Studio على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
-            <numerusform>تم استيراد %n ملفات في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip Studio على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
-            <numerusform>تم استيراد %n ملفًا في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip Studio على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
-            <numerusform>تم استيراد %n ملف في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip Studio على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -4870,6 +4508,10 @@
         <translation>الترجمة</translation>
     </message>
     <message>
+        <source>Speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stickers</source>
         <translation>ملصقات</translation>
     </message>
@@ -4902,10 +4544,6 @@
         <translation>تأثيرات الصوت</translation>
     </message>
     <message>
-        <source>Sound effects</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Shortcuts</source>
         <translation>اختصارات</translation>
     </message>
@@ -4924,10 +4562,6 @@
     <message>
         <source>Reading media and generating thumbnails.</source>
         <translation>جارٍ قراءة الوسائط وإنشاء الصور المصغرة.</translation>
-    </message>
-    <message>
-        <source>More emoji</source>
-        <translation>المزيد من الرموز التعبيرية</translation>
     </message>
     <message>
         <source>More import options</source>
@@ -5007,6 +4641,21 @@
             <numerusform>تمت إزالة %n عنصر.</numerusform>
         </translation>
     </message>
+    <message numerus="yes">
+        <source>Imported %n files into %1 folders. %2 files were skipped — Flip Studio does not recognize their format. Drag them onto the bin to try anyway.</source>
+        <translation>
+            <numerusform>تم استيراد %n ملف في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip Studio على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
+            <numerusform>تم استيراد %n ملف في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip Studio على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
+            <numerusform>تم استيراد %n ملفين في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip Studio على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
+            <numerusform>تم استيراد %n ملفات في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip Studio على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
+            <numerusform>تم استيراد %n ملفًا في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip Studio على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
+            <numerusform>تم استيراد %n ملف في %1 من المجلدات. تم تخطي %2 من الملفات — لا يتعرف Flip Studio على تنسيقها. اسحبها إلى حاوية الوسائط للمحاولة على أي حال.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Sound effects</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AudioEffectBrowser</name>
@@ -5023,20 +4672,8 @@
         <translation>تثبيت التأثيرات الصوتية</translation>
     </message>
     <message>
-        <source>Drag a preset onto a clip, or click to apply to the selection</source>
-        <translation>اسحب إعدادًا مسبقًا إلى مقطع، أو انقر لتطبيقه على التحديد</translation>
-    </message>
-    <message>
-        <source>Drag a preset onto a clip in the timeline</source>
-        <translation>اسحب إعدادًا مسبقًا إلى مقطع في المخطط الزمني</translation>
-    </message>
-    <message>
         <source>Search audio effects</source>
         <translation>البحث في التأثيرات الصوتية</translation>
-    </message>
-    <message>
-        <source>Import audio effect</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Install a custom audio effect or effect from a .driftfx file made in Drift Forge</source>
@@ -5072,11 +4709,27 @@
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished">استيراد</translation>
+        <translation>استيراد</translation>
+    </message>
+    <message>
+        <source>%1 — click to apply to the selection, or drag onto a clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — drag onto a clip in the timeline</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
         <translation>تطبيق على المقطع المحدد</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>إزالة من المفضلة</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>إضافة إلى المفضلة</translation>
     </message>
 </context>
 <context>
@@ -5134,11 +4787,11 @@
     </message>
     <message>
         <source>Move to a time, set a value, then click the diamond to add a keyframe. With Auto keyframes on, dragging a slider also creates them.</source>
-        <translation type="unfinished">انتقل إلى وقت محدد، وعيّن قيمة، ثم انقر على رمز المعين لإضافة إطار مفتاحي. عند تفعيل الإطارات المفتاحية التلقائية، يؤدي سحب شريط التمرير إلى إنشائها أيضًا.</translation>
+        <translation>انتقل إلى وقت محدد، وعيّن قيمة، ثم انقر على رمز المعين لإضافة إطار مفتاحي. عند تفعيل الإطارات المفتاحية التلقائية، يؤدي سحب شريط التمرير إلى إنشائها أيضًا.</translation>
     </message>
     <message>
         <source>Auto keyframes</source>
-        <translation type="unfinished">إطارات مفتاحية تلقائية</translation>
+        <translation>إطارات مفتاحية تلقائية</translation>
     </message>
     <message>
         <source>%1 (not installed)</source>
@@ -5186,14 +4839,6 @@
     <message>
         <source>%1 words per caption</source>
         <translation>%1 كلمة لكل تسمية توضيحية</translation>
-    </message>
-    <message>
-        <source>No audio</source>
-        <translation>لا يوجد صوت</translation>
-    </message>
-    <message>
-        <source>This clip has no audio track.</source>
-        <translation>لا يحتوي هذا المقطع على مسار صوتي.</translation>
     </message>
     <message>
         <source>Pan</source>
@@ -5440,14 +5085,6 @@
 <context>
     <name>BlendingInspector</name>
     <message>
-        <source>Video only</source>
-        <translation>الفيديو فقط</translation>
-    </message>
-    <message>
-        <source>This tab does not apply to audio clips.</source>
-        <translation>لا تنطبق علامة التبويب هذه على مقاطع الصوت.</translation>
-    </message>
-    <message>
         <source>Blend mode</source>
         <translation>وضع المزج</translation>
     </message>
@@ -5609,6 +5246,10 @@
     <message>
         <source>Click a colour to pick it. Esc cancels.</source>
         <translation>انقر على لون لاختياره. اضغط Esc للإلغاء.</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
     </message>
 </context>
 <context>
@@ -5868,6 +5509,93 @@
     </message>
 </context>
 <context>
+    <name>DenoiseController</name>
+    <message>
+        <source>Getting noise removal ready…</source>
+        <translation>جارٍ إعداد إزالة الضوضاء…</translation>
+    </message>
+    <message>
+        <source>Clip is too short to process</source>
+        <translation>المقطع قصير جدًا لمعالجته</translation>
+    </message>
+    <message>
+        <source>Reading audio…</source>
+        <translation>جارٍ قراءة الصوت…</translation>
+    </message>
+    <message>
+        <source>Noise removal cancelled</source>
+        <translation>تم إلغاء إزالة الضوضاء</translation>
+    </message>
+    <message>
+        <source>No audio decoded</source>
+        <translation>لم يتم فك ترميز أي صوت</translation>
+    </message>
+    <message>
+        <source>Removing noise (left)…</source>
+        <translation>جارٍ إزالة الضوضاء (اليسار)…</translation>
+    </message>
+    <message>
+        <source>Removing noise (right)…</source>
+        <translation>جارٍ إزالة الضوضاء (اليمين)…</translation>
+    </message>
+    <message>
+        <source>Writing audio…</source>
+        <translation>جارٍ كتابة الصوت…</translation>
+    </message>
+    <message>
+        <source>Noise removal already in progress</source>
+        <translation>إزالة الضوضاء قيد التنفيذ بالفعل</translation>
+    </message>
+    <message>
+        <source>Select a video or audio clip</source>
+        <translation>حدد مقطع فيديو أو صوت</translation>
+    </message>
+    <message>
+        <source>Clip has no audio</source>
+        <translation>لا يحتوي المقطع على صوت</translation>
+    </message>
+    <message>
+        <source>Starting…</source>
+        <translation>جارٍ البدء…</translation>
+    </message>
+    <message>
+        <source>Could not create a preview file</source>
+        <translation>تعذر إنشاء ملف المعاينة</translation>
+    </message>
+    <message>
+        <source>Ready</source>
+        <translation>جاهز</translation>
+    </message>
+    <message>
+        <source>Removing noise…</source>
+        <translation>جارٍ إزالة الضوضاء…</translation>
+    </message>
+    <message>
+        <source>Could not create an output file</source>
+        <translation>تعذر إنشاء ملف إخراج</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>تم</translation>
+    </message>
+    <message>
+        <source>Clip</source>
+        <translation>مقطع</translation>
+    </message>
+    <message>
+        <source> (denoised)</source>
+        <translation> (تمت إزالة الضوضاء)</translation>
+    </message>
+    <message>
+        <source>Remove noise</source>
+        <translation>إزالة الضوضاء</translation>
+    </message>
+    <message>
+        <source>Noise removed</source>
+        <translation>تمت إزالة الضوضاء</translation>
+    </message>
+</context>
+<context>
     <name>DenoiseWindow</name>
     <message>
         <source>Remove noise</source>
@@ -5908,6 +5636,41 @@
     <message>
         <source>Cancel</source>
         <translation>إلغاء</translation>
+    </message>
+</context>
+<context>
+    <name>DepthController</name>
+    <message>
+        <source>Select a video or image clip to estimate depth for</source>
+        <translation>حدد مقطع فيديو أو صورة لتقدير العمق له</translation>
+    </message>
+    <message>
+        <source>Clip has no video to estimate depth for</source>
+        <translation>لا يحتوي المقطع على فيديو لتقدير العمق له</translation>
+    </message>
+    <message>
+        <source>Depth estimation needs the Depth addon</source>
+        <translation>يتطلب تقدير العمق إضافة العمق</translation>
+    </message>
+    <message>
+        <source>Depth is already being estimated for this clip</source>
+        <translation>يجري تقدير العمق لهذا المقطع بالفعل</translation>
+    </message>
+    <message>
+        <source>Estimating depth…</source>
+        <translation>جارٍ تقدير العمق…</translation>
+    </message>
+    <message>
+        <source>Clip no longer exists</source>
+        <translation>لم يعد المقطع موجودًا</translation>
+    </message>
+    <message>
+        <source>Estimate Depth</source>
+        <translation>تقدير العمق</translation>
+    </message>
+    <message>
+        <source>Clear Depth</source>
+        <translation>مسح العمق</translation>
     </message>
 </context>
 <context>
@@ -6113,7 +5876,7 @@
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished">النمط</translation>
+        <translation>النمط</translation>
     </message>
     <message>
         <source>Colours</source>
@@ -6183,10 +5946,6 @@
         <translation>المتجر غير متوفر في هذا الإصدار.</translation>
     </message>
     <message>
-        <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
-        <translation>تعذر تحميل عناصر Flip Studio. تحقق من اتصالك وحاول مرة أخرى.</translation>
-    </message>
-    <message>
         <source>That asset could not be installed.</source>
         <translation>تعذر تثبيت هذا العنصر.</translation>
     </message>
@@ -6209,6 +5968,10 @@
     <message>
         <source>Could not add that asset to the media bin.</source>
         <translation>تعذر إضافة هذا العنصر إلى حاوية الوسائط.</translation>
+    </message>
+    <message>
+        <source>Could not load Flip Studio Assets. Check your connection and try again.</source>
+        <translation>تعذر تحميل عناصر Flip Studio. تحقق من اتصالك وحاول مرة أخرى.</translation>
     </message>
 </context>
 <context>
@@ -6234,20 +5997,12 @@
         <translation>تمت الإضافة إلى حاوية الوسائط</translation>
     </message>
     <message>
-        <source>Couldn’t load Flip Studio Assets</source>
-        <translation>تعذر تحميل عناصر Flip Studio</translation>
-    </message>
-    <message>
         <source>Try again</source>
         <translation>إعادة المحاولة</translation>
     </message>
     <message>
         <source>No assets here yet</source>
         <translation>لا توجد عناصر هنا بعد</translation>
-    </message>
-    <message>
-        <source>Flip Studio Assets are still being published. Check back soon.</source>
-        <translation>ما زالت عناصر Flip Studio قيد النشر. تحقق مجددًا قريبًا.</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -6262,20 +6017,24 @@
         <translation>جميع العناصر</translation>
     </message>
     <message>
-        <source>No Flip Studio Assets match “%1”.</source>
-        <translation>لا توجد عناصر Flip Studio تطابق “%1”.</translation>
-    </message>
-    <message>
         <source>Search %1 for “%2”</source>
         <translation>البحث في %1 عن “%2”</translation>
+    </message>
+    <message>
+        <source>Couldn’t load Flip Studio Assets</source>
+        <translation>تعذر تحميل عناصر Flip Studio</translation>
+    </message>
+    <message>
+        <source>Flip Studio Assets are still being published. Check back soon.</source>
+        <translation>ما زالت عناصر Flip Studio قيد النشر. تحقق مجددًا قريبًا.</translation>
+    </message>
+    <message>
+        <source>No Flip Studio Assets match “%1”.</source>
+        <translation>لا توجد عناصر Flip Studio تطابق “%1”.</translation>
     </message>
 </context>
 <context>
     <name>EditorHeader</name>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>مشروع Flip Studio (*.drift)</translation>
-    </message>
     <message>
         <source>Save Project</source>
         <translation>حفظ المشروع</translation>
@@ -6307,10 +6066,6 @@
     <message>
         <source>Save Shareable Copy</source>
         <translation>حفظ نسخة قابلة للمشاركة</translation>
-    </message>
-    <message>
-        <source>Home — your projects</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Projects</source>
@@ -6388,6 +6143,10 @@
         <translation>اللغة…</translation>
     </message>
     <message>
+        <source>Switch to mobile layout…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Debug info…</source>
         <translation>معلومات تصحيح الأخطاء…</translation>
     </message>
@@ -6414,10 +6173,6 @@
     <message>
         <source>Update</source>
         <translation>تحديث</translation>
-    </message>
-    <message>
-        <source>Flip Studio %1 is available</source>
-        <translation>Flip Studio %1 متوفر</translation>
     </message>
     <message>
         <source>Agent access</source>
@@ -6463,6 +6218,18 @@
         <source>Theme</source>
         <translation>المظهر</translation>
     </message>
+    <message>
+        <source>Flip Studio project (*.drift)</source>
+        <translation>مشروع Flip Studio (*.drift)</translation>
+    </message>
+    <message>
+        <source>Home — your projects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is available</source>
+        <translation>Flip Studio %1 متوفر</translation>
+    </message>
 </context>
 <context>
     <name>EffectBrowser</name>
@@ -6479,24 +6246,8 @@
         <translation>الحصول على إضافات</translation>
     </message>
     <message>
-        <source>Drag a preset onto a clip, or click to apply to the selection</source>
-        <translation>اسحب إعدادًا مسبقًا إلى مقطع، أو انقر للتطبيق على التحديد</translation>
-    </message>
-    <message>
-        <source>Click to add as adjustment layer, or drag onto a clip</source>
-        <translation>انقر للإضافة كطبقة ضبط، أو اسحب إلى مقطع</translation>
-    </message>
-    <message>
         <source>Search effects</source>
         <translation>البحث في التأثيرات</translation>
-    </message>
-    <message>
-        <source>Add adjustment layer</source>
-        <translation>إضافة طبقة ضبط</translation>
-    </message>
-    <message>
-        <source>Add an adjustment layer to apply effects across all clips underneath, or drag it to where it should go</source>
-        <translation>أضف طبقة ضبط لتطبيق التأثيرات على جميع المقاطع أدناها، أو اسحبها إلى الموضع المطلوب</translation>
     </message>
     <message>
         <source>Adjustment layer</source>
@@ -6504,10 +6255,14 @@
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished">استيراد</translation>
+        <translation>استيراد</translation>
     </message>
     <message>
         <source>Install a custom effect or transition from a .driftfx file made in Drift Forge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6539,8 +6294,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 — click to apply to the selection, or drag onto a clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply to selected clip</source>
         <translation>تطبيق على المقطع المحدد</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>إزالة من المفضلة</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>إضافة إلى المفضلة</translation>
     </message>
     <message>
         <source>Delete from My Effects</source>
@@ -6556,7 +6327,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">حذف</translation>
+        <translation>حذف</translation>
     </message>
     <message numerus="yes">
         <source>Delete “%1” from My Effects? It is used %n time(s) in this project, and those clips will play without it.</source>
@@ -6628,10 +6399,6 @@
 <context>
     <name>EffectStacksSection</name>
     <message>
-        <source>Flip Studio effect stack (*.drifteffects)</source>
-        <translation>مجموعة تأثيرات Flip Studio (*.drifteffects)</translation>
-    </message>
-    <message>
         <source>Import effect stack</source>
         <translation>استيراد مجموعة التأثيرات</translation>
     </message>
@@ -6640,16 +6407,16 @@
         <translation>تصدير مجموعة التأثيرات</translation>
     </message>
     <message>
-        <source>My presets</source>
-        <translation>إعداداتي المسبقة</translation>
-    </message>
-    <message>
-        <source>Import an effect stack…</source>
-        <translation>استيراد مجموعة تأثيرات…</translation>
+        <source>No saved presets</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tune a clip&apos;s effects, then use “Save as preset…” in the properties Effects tab to keep them here.</source>
         <translation>اضبط تأثيرات المقطع، ثم استخدم “حفظ كإعداد مسبق…” في علامة تبويب التأثيرات بالخصائص للاحتفاظ بها هنا.</translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation>استيراد</translation>
     </message>
     <message>
         <source>+%1 more</source>
@@ -6683,6 +6450,10 @@
         <source>Remove “%1” from your saved presets? Clips already using it keep their effects.</source>
         <translation>هل تريد إزالة “%1” من إعداداتك المسبقة المحفوظة؟ ستحتفظ المقاطع التي تستخدمه بالفعل بتأثيراتها.</translation>
     </message>
+    <message>
+        <source>Flip Studio effect stack (*.drifteffects)</source>
+        <translation>مجموعة تأثيرات Flip Studio (*.drifteffects)</translation>
+    </message>
 </context>
 <context>
     <name>EffectTemplateBrowser</name>
@@ -6699,16 +6470,16 @@
         <translation>الحصول على الإضافات</translation>
     </message>
     <message>
-        <source>Click a template to apply music-synced effects to the selection</source>
-        <translation>انقر على قالب لتطبيق تأثيرات متزامنة مع الموسيقى على التحديد</translation>
-    </message>
-    <message>
-        <source>Select a clip, then click a template to apply</source>
-        <translation>حدد مقطعًا، ثم انقر على قالب لتطبيقه</translation>
-    </message>
-    <message>
         <source>Search templates</source>
         <translation>البحث في القوالب</translation>
+    </message>
+    <message>
+        <source>Import an effect stack…</source>
+        <translation>استيراد مجموعة تأثيرات…</translation>
+    </message>
+    <message>
+        <source>My presets</source>
+        <translation>إعداداتي المسبقة</translation>
     </message>
     <message>
         <source>No templates match “%1”.</source>
@@ -6721,6 +6492,22 @@
     <message>
         <source>Nothing in this category.</source>
         <translation>لا يوجد شيء في هذه الفئة.</translation>
+    </message>
+    <message>
+        <source>%1 — click to apply music-synced effects to the selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — select a clip, then click to apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>إزالة من المفضلة</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>إضافة إلى المفضلة</translation>
     </message>
     <message>
         <source>Needs cutout</source>
@@ -7241,10 +7028,6 @@
         <translation>prop.json ليس إكسسوار وجه</translation>
     </message>
     <message>
-        <source>prop.json needs a newer version of Flip Studio</source>
-        <translation>يتطلب prop.json إصدارًا أحدث من Flip Studio</translation>
-    </message>
-    <message>
         <source>invalid prop id “%1”</source>
         <translation>معرّف الإكسسوار “%1” غير صالح</translation>
     </message>
@@ -7332,6 +7115,10 @@
         <source>Could not delete “%1”</source>
         <translation>تعذر حذف “%1”</translation>
     </message>
+    <message>
+        <source>prop.json needs a newer version of Flip Studio</source>
+        <translation>يتطلب prop.json إصدارًا أحدث من Flip Studio</translation>
+    </message>
 </context>
 <context>
     <name>FacePropPicker</name>
@@ -7390,6 +7177,77 @@
     <message>
         <source>“%1” will be removed from your face props. Effects using it will show it as missing until it is imported again.</source>
         <translation>ستتم إزالة “%1” من ملحقات الوجه لديك. ستعرض التأثيرات التي تستخدمه أنه مفقود حتى يتم استيراده مجددًا.</translation>
+    </message>
+</context>
+<context>
+    <name>FaceTrackingController</name>
+    <message>
+        <source>Clear Face Track</source>
+        <translation>مسح مسار الوجه</translation>
+    </message>
+    <message>
+        <source>Face detection already in progress</source>
+        <translation>اكتشاف الوجه قيد التنفيذ بالفعل</translation>
+    </message>
+    <message>
+        <source>Select a video clip to detect faces in</source>
+        <translation>حدد مقطع فيديو لاكتشاف الوجوه فيه</translation>
+    </message>
+    <message>
+        <source>Clip has no video to scan</source>
+        <translation>لا يحتوي المقطع على فيديو لمسحه</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>جارٍ التحضير…</translation>
+    </message>
+    <message>
+        <source>Detecting faces…</source>
+        <translation>جارٍ اكتشاف الوجوه…</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>تم</translation>
+    </message>
+    <message>
+        <source>Clip is too short to scan</source>
+        <translation>المقطع قصير جدًا لمسحه</translation>
+    </message>
+    <message>
+        <source>Face detection cancelled</source>
+        <translation>تم إلغاء اكتشاف الوجه</translation>
+    </message>
+    <message>
+        <source>Could not decode frame %1</source>
+        <translation>تعذر فك ترميز الإطار %1</translation>
+    </message>
+    <message>
+        <source>Scanning frame %1 of %2…</source>
+        <translation>جارٍ مسح الإطار %1 من %2…</translation>
+    </message>
+    <message>
+        <source>No faces found in this clip</source>
+        <translation>لم يتم العثور على أي وجوه في هذا المقطع</translation>
+    </message>
+    <message>
+        <source>Could not write the face track</source>
+        <translation>تعذرت كتابة مسار الوجه</translation>
+    </message>
+    <message>
+        <source>Face detection complete — a face was visible in %1 of %2 frames</source>
+        <translation>اكتمل اكتشاف الوجه — كان الوجه مرئيًا في %1 من %2 إطارًا</translation>
+    </message>
+    <message>
+        <source>Face detection complete</source>
+        <translation>اكتمل اكتشاف الوجه</translation>
+    </message>
+    <message>
+        <source>Scanned clip no longer exists</source>
+        <translation>المقطع الممسوح لم يعد موجودًا</translation>
+    </message>
+    <message>
+        <source>Detect Faces</source>
+        <translation>اكتشاف الوجوه</translation>
     </message>
 </context>
 <context>
@@ -7481,6 +7339,38 @@
 <context>
     <name>FontCatalog</name>
     <message>
+        <source>Choose a .ttf, .otf or .ttc font file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create the fonts folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not copy the font file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>That file is not a usable font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>High-Impact &amp; Bold</source>
+        <translation>مؤثر وعريض</translation>
+    </message>
+    <message>
+        <source>Clean &amp; Minimal</source>
+        <translation>نقي ومبسط</translation>
+    </message>
+    <message>
+        <source>Classy &amp; Editorial</source>
+        <translation>راقٍ وتحريري</translation>
+    </message>
+    <message>
+        <source>Creative &amp; Playful</source>
+        <translation>إبداعي ومرح</translation>
+    </message>
+    <message>
         <source>My fonts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7508,31 +7398,27 @@
         <source>Retro</source>
         <translation type="unfinished">ريترو</translation>
     </message>
-    <message>
-        <source>High-Impact &amp; Bold</source>
-        <translation>مؤثر وعريض</translation>
-    </message>
-    <message>
-        <source>Clean &amp; Minimal</source>
-        <translation>نقي ومبسط</translation>
-    </message>
-    <message>
-        <source>Classy &amp; Editorial</source>
-        <translation>راقٍ وتحريري</translation>
-    </message>
-    <message>
-        <source>Creative &amp; Playful</source>
-        <translation>إبداعي ومرح</translation>
-    </message>
 </context>
 <context>
     <name>FontPicker</name>
     <message>
-        <source>Select a font</source>
+        <source>My fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the font pack for curated families →</source>
+        <translation>ثبّت حزمة الخطوط للحصول على عائلات خطوط منتقاة →</translation>
+    </message>
+    <message>
+        <source>Select a font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7541,10 +7427,6 @@
     </message>
     <message>
         <source>Fonts (*.ttf *.otf)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7558,10 +7440,6 @@
     <message>
         <source>Recent</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Install the font pack for curated families →</source>
-        <translation>ثبّت حزمة الخطوط للحصول على عائلات خطوط منتقاة →</translation>
     </message>
     <message>
         <source>No fonts match “%1”</source>
@@ -7647,28 +7525,12 @@
         <translation>الأبعاد الأصلية: %1 × %2</translation>
     </message>
     <message>
-        <source>Source frame box</source>
-        <translation>مربع إطار المصدر</translation>
-    </message>
-    <message>
-        <source>Unlock source frame ratio</source>
-        <translation>إلغاء قفل نسبة إطار المصدر</translation>
-    </message>
-    <message>
-        <source>Lock source frame ratio</source>
-        <translation>قفل نسبة إطار المصدر</translation>
-    </message>
-    <message>
         <source>Width</source>
         <translation>العرض</translation>
     </message>
     <message>
         <source>Height</source>
         <translation>الارتفاع</translation>
-    </message>
-    <message>
-        <source>Edit source frame…</source>
-        <translation>تحرير إطار المصدر…</translation>
     </message>
     <message>
         <source>Starts at</source>
@@ -7693,6 +7555,22 @@
     <message>
         <source>Trim</source>
         <translation>قص</translation>
+    </message>
+    <message>
+        <source>Crop</source>
+        <translation>اقتصاص</translation>
+    </message>
+    <message>
+        <source>Unlock crop ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock crop ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Which part of the original file this clip plays</source>
@@ -8488,6 +8366,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Switch to Mobile Layout…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Window</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8505,11 +8387,11 @@
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished">التنزيلات</translation>
+        <translation>التنزيلات</translation>
     </message>
     <message>
         <source>Multicam</source>
-        <translation type="unfinished">كاميرات متعددة</translation>
+        <translation>كاميرات متعددة</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -8528,20 +8410,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Settings…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Debug Info…</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio %1 is the latest version.</source>
-        <translation type="unfinished">Flip Studio %1 هو أحدث إصدار.</translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -8561,6 +8435,10 @@
     </message>
     <message>
         <source>Checking for updates…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Links can’t be opened in this layout.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8602,6 +8480,14 @@
     <message>
         <source>Imported from the marketplace.</source>
         <translation>تم الاستيراد من المتجر.</translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation type="unfinished">Flip Studio %1 هو أحدث إصدار.</translation>
     </message>
 </context>
 <context>
@@ -8726,16 +8612,16 @@
         <translation>لا يمكننا ضمان نجاح التنزيل أو اكتماله أو منحك الجودة التي اخترتها. ستفشل بعض العناصر ببساطة.</translation>
     </message>
     <message>
-        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>كل شيء هنا يأتي من أطراف خارجية. لا تستضيفه Flip Studio ولا تملكه ولا تدققه — وأنت مسؤول عن التأكد من امتلاكك حق استخدام ما تقوم بتنزيله.</translation>
-    </message>
-    <message>
         <source>I understand</source>
         <translation>أفهم ذلك</translation>
     </message>
     <message>
         <source>Continue to the marketplace</source>
         <translation>المتابعة إلى المتجر</translation>
+    </message>
+    <message>
+        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
+        <translation>كل شيء هنا يأتي من أطراف خارجية. لا تستضيفه Flip Studio ولا تملكه ولا تدققه — وأنت مسؤول عن التأكد من امتلاكك حق استخدام ما تقوم بتنزيله.</translation>
     </message>
 </context>
 <context>
@@ -8976,6 +8862,10 @@
         <source>Select a clip first, or drag the mask onto one</source>
         <translation>حدد مقطعًا أولاً، أو اسحب القناع إلى أحد المقاطع</translation>
     </message>
+    <message>
+        <source>Apply to selected clip</source>
+        <translation>تطبيق على المقطع المحدد</translation>
+    </message>
 </context>
 <context>
     <name>MediaAssetsTab</name>
@@ -9018,6 +8908,14 @@
     <message>
         <source>3D</source>
         <translation>3D</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PDF (needs the PDF Viewer addon)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Search media</source>
@@ -9228,6 +9126,136 @@
     </message>
 </context>
 <context>
+    <name>MediaBinController</name>
+    <message>
+        <source>Folder created</source>
+        <translation>تم إنشاء المجلد</translation>
+    </message>
+    <message>
+        <source>Folder renamed</source>
+        <translation>تمت إعادة تسمية المجلد</translation>
+    </message>
+    <message>
+        <source>Folder moved</source>
+        <translation>تم نقل المجلد</translation>
+    </message>
+    <message>
+        <source>Folder deleted</source>
+        <translation>تم حذف المجلد</translation>
+    </message>
+    <message>
+        <source>Media moved</source>
+        <translation>تم نقل الوسائط</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n items moved</source>
+        <translation>
+            <numerusform>تم نقل %n عنصر</numerusform>
+            <numerusform>تم نقل %n عنصر</numerusform>
+            <numerusform>تم نقل %n عنصرين</numerusform>
+            <numerusform>تم نقل %n عناصر</numerusform>
+            <numerusform>تم نقل %n عنصرًا</numerusform>
+            <numerusform>تم نقل %n عنصر</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>That file could not be read.</source>
+        <translation>تعذر قراءة ذلك الملف.</translation>
+    </message>
+    <message>
+        <source>That file is already in this project.</source>
+        <translation>ذلك الملف موجود بالفعل في هذا المشروع.</translation>
+    </message>
+    <message>
+        <source>An edit is already saving</source>
+        <translation>جارٍ حفظ أحد التعديلات بالفعل</translation>
+    </message>
+    <message>
+        <source>Could not open the media file</source>
+        <translation>تعذر فتح ملف الوسائط</translation>
+    </message>
+    <message>
+        <source>Crop image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Media trimmed</source>
+        <translation>تم قص الوسائط</translation>
+    </message>
+    <message>
+        <source>Trim saved</source>
+        <translation>تم حفظ القص</translation>
+    </message>
+    <message>
+        <source>Could not create an output file</source>
+        <translation>تعذر إنشاء ملف إخراج</translation>
+    </message>
+    <message>
+        <source>%1 (trimmed)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rendering…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Render Trimmed Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t save that edit</source>
+        <translation>تعذر حفظ هذا التعديل</translation>
+    </message>
+    <message>
+        <source>Converting…</source>
+        <translation>جارٍ التحويل…</translation>
+    </message>
+    <message>
+        <source>Saving…</source>
+        <translation>جارٍ الحفظ…</translation>
+    </message>
+    <message>
+        <source>Converting %1 to an edit-friendly format…</source>
+        <translation>جارٍ تحويل %1 إلى تنسيق مناسب للتحرير…</translation>
+    </message>
+    <message>
+        <source>Saving media…</source>
+        <translation>جارٍ حفظ الوسائط…</translation>
+    </message>
+    <message>
+        <source>Updating the library…</source>
+        <translation>جارٍ تحديث المكتبة…</translation>
+    </message>
+    <message>
+        <source>Couldn’t update the library</source>
+        <translation>تعذر تحديث المكتبة</translation>
+    </message>
+    <message>
+        <source>That media is no longer in this project.</source>
+        <translation>تلك الوسائط لم تعد موجودة في هذا المشروع.</translation>
+    </message>
+    <message>
+        <source>“%1” is %2, but this slot holds %3.</source>
+        <translation>“%1” هو %2، لكن هذه الخانة تحتوي على %3.</translation>
+    </message>
+    <message>
+        <source>Media edited</source>
+        <translation>تم تعديل الوسائط</translation>
+    </message>
+    <message>
+        <source>Media replaced</source>
+        <translation>تم استبدال الوسائط</translation>
+    </message>
+</context>
+<context>
     <name>MediaImport</name>
     <message>
         <source>An import is already running.</source>
@@ -9341,14 +9369,6 @@
         <translation>شغل المقطع واسحب الأطراف للاحتفاظ بالجزء الذي تريده فقط. يؤدي الحفظ إلى استبدال هذا العنصر في حاوية الوسائط.</translation>
     </message>
     <message>
-        <source>Drag the frame to crop. Save replaces this item in the media bin — then drag it onto the timeline.</source>
-        <translation>اسحب الإطار للاقتصاص. يؤدي الحفظ إلى استبدال هذا العنصر في حاوية الوسائط — ثم اسحبه إلى المخطط الزمني.</translation>
-    </message>
-    <message>
-        <source>Drag the frame to choose the area to use. The original video stays available for reframing.</source>
-        <translation>اسحب الإطار لاختيار المنطقة المراد استخدامها. يظل الفيديو الأصلي متاحًا لإعادة التأطير.</translation>
-    </message>
-    <message>
         <source>Pause</source>
         <translation>إيقاف مؤقت</translation>
     </message>
@@ -9363,18 +9383,6 @@
     <message>
         <source>Set Out</source>
         <translation>تعيين نقطة النهاية</translation>
-    </message>
-    <message>
-        <source>Original: %1×%2 • Frame: %3×%4</source>
-        <translation>الأصلي: %1×%2 • الإطار: %3×%4</translation>
-    </message>
-    <message>
-        <source>Unlock source frame ratio</source>
-        <translation>إلغاء قفل نسبة إطار المصدر</translation>
-    </message>
-    <message>
-        <source>Lock source frame ratio</source>
-        <translation>قفل نسبة إطار المصدر</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -9401,32 +9409,60 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Done keeps the original video and stores this range and framing. Upscale renders them as a new video in the media bin, then opens it in the Enhance window.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Saving…</source>
         <translation>جارٍ الحفظ…</translation>
-    </message>
-    <message>
-        <source>Choose the part and framing to keep, then Next.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save writes a new file over this item in the bin.</source>
-        <translation>يؤدي الحفظ إلى كتابة ملف جديد فوق هذا العنصر في الحاوية.</translation>
-    </message>
-    <message>
-        <source>Save keeps the original video and stores this framing.</source>
-        <translation>يحتفظ الحفظ بالفيديو الأصلي ويخزن هذا التأطير.</translation>
     </message>
     <message>
         <source>Nothing to save — drag this item onto the timeline when you are ready.</source>
         <translation>لا يوجد شيء لحفظه — اسحب هذا العنصر إلى المخطط الزمني عندما تكون مستعدًا.</translation>
     </message>
     <message>
-        <source>Adjust the frame or Reset to restore the full image.</source>
-        <translation>اضبط الإطار أو استخدم إعادة تعيين لاستعادة الصورة الكاملة.</translation>
+        <source>Crop — %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop</source>
+        <translation>اقتصاص</translation>
+    </message>
+    <message>
+        <source>Drag the box to crop. The original image stays available, so the crop can be changed later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag the box to crop. The original video stays available, so the crop can be changed later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Original: %1×%2 • Crop: %3×%4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlock crop ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock crop ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done keeps the original video and stores this range and crop. Upscale renders them as a new video in the media bin, then opens it in the Enhance window.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose the part and crop to keep, then Next.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save keeps the original file and stores this crop.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save keeps the original file and stores this trim.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adjust the crop or Reset to restore the full picture.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -9438,7 +9474,7 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">رجوع</translation>
+        <translation>رجوع</translation>
     </message>
     <message>
         <source>Upscale…</source>
@@ -9454,7 +9490,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished">تم</translation>
+        <translation>تم</translation>
     </message>
     <message>
         <source>Rotate</source>
@@ -10000,15 +10036,111 @@
     </message>
 </context>
 <context>
+    <name>PdfClipRenderer</name>
+    <message>
+        <source>Install the PDF viewer addon to show this PDF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Can&apos;t open this PDF</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PdfInspector</name>
+    <message>
+        <source>PDF pages need the PDF Viewer addon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install PDF Viewer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n page(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>First page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Column</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Row</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How the pages are arranged</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Columns</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Viewport</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scroll X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scroll Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PdfSource</name>
+    <message>
+        <source>Scroll X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scroll Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PlaybackEngine</name>
-    <message>
-        <source>%1 decodes on %2, but Flip Studio draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 يفك الترميز على %2، لكن Flip Studio يرسم على %3. يُنسخ كل إطار عبر ذاكرة النظام، وهو أبطأ من فك الترميز على بطاقة الرسومات التي ترسم.</translation>
-    </message>
-    <message>
-        <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
-        <translation>%1 يفك الترميز على بطاقة رسومات مختلفة عن تلك التي يرسم عليها Flip Studio. يُنسخ كل إطار عبر ذاكرة النظام، وهو أبطأ من فك الترميز على بطاقة الرسومات التي ترسم.</translation>
-    </message>
     <message>
         <source>Auto</source>
         <translation>تلقائي</translation>
@@ -10020,6 +10152,14 @@
     <message>
         <source>Hardware (%1)</source>
         <translation>عتادي (%1)</translation>
+    </message>
+    <message>
+        <source>%1 decodes on %2, but Flip Studio draws on %3. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>%1 يفك الترميز على %2، لكن Flip Studio يرسم على %3. يُنسخ كل إطار عبر ذاكرة النظام، وهو أبطأ من فك الترميز على بطاقة الرسومات التي ترسم.</translation>
+    </message>
+    <message>
+        <source>%1 decodes on a different graphics card than the one Flip Studio draws on. Every frame is copied through system memory, which is slower than decoding on the graphics card that draws.</source>
+        <translation>%1 يفك الترميز على بطاقة رسومات مختلفة عن تلك التي يرسم عليها Flip Studio. يُنسخ كل إطار عبر ذاكرة النظام، وهو أبطأ من فك الترميز على بطاقة الرسومات التي ترسم.</translation>
     </message>
 </context>
 <context>
@@ -10092,6 +10232,10 @@
 <context>
     <name>PreferencesController</name>
     <message>
+        <source>System default</source>
+        <translation>افتراضي النظام</translation>
+    </message>
+    <message>
         <source>Faster preview takes effect after you restart Flip Studio.</source>
         <translation>يسري مفعول المعاينة الأسرع بعد إعادة تشغيل Flip Studio.</translation>
     </message>
@@ -10099,28 +10243,24 @@
         <source>The graphics card choice takes effect after you restart Flip Studio.</source>
         <translation>يسري اختيار بطاقة الرسومات بعد إعادة تشغيل Flip Studio.</translation>
     </message>
-    <message>
-        <source>System default</source>
-        <translation>افتراضي النظام</translation>
-    </message>
 </context>
 <context>
     <name>Preview3DTools</name>
     <message>
         <source>%1 (%2)</source>
-        <translation type="unfinished">%1 (%2)</translation>
+        <translation>%1 (%2)</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation type="unfinished"></translation>
+        <translation>نقل</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished">تدوير</translation>
+        <translation>تدوير</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished">الحجم</translation>
+        <translation>الحجم</translation>
     </message>
     <message>
         <source>Gizmo follows the selection&apos;s own axes (click for world axes)</source>
@@ -10174,23 +10314,23 @@
     <name>PreviewOptionsMenu</name>
     <message>
         <source>Quality</source>
-        <translation type="unfinished">الجودة</translation>
+        <translation>الجودة</translation>
     </message>
     <message>
         <source>Full</source>
-        <translation type="unfinished">كاملة</translation>
+        <translation>كاملة</translation>
     </message>
     <message>
         <source>Half</source>
-        <translation type="unfinished">نصف</translation>
+        <translation>نصف</translation>
     </message>
     <message>
         <source>Quarter</source>
-        <translation type="unfinished">ربع</translation>
+        <translation>ربع</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">تلقائي</translation>
+        <translation>تلقائي</translation>
     </message>
     <message>
         <source>Preview quality — lower is smoother while editing.
@@ -10202,15 +10342,15 @@ Auto renders only as many pixels as the preview actually shows, and lowers that 
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished">السرعة</translation>
+        <translation>السرعة</translation>
     </message>
     <message>
         <source>Playback speed</source>
-        <translation type="unfinished">سرعة التشغيل</translation>
+        <translation>سرعة التشغيل</translation>
     </message>
     <message>
         <source>Decode</source>
-        <translation type="unfinished">فك الترميز</translation>
+        <translation>فك الترميز</translation>
     </message>
     <message>
         <source>How video is decoded for preview.
@@ -10242,7 +10382,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">إلغاء</translation>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Open graphics settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Launching Flip Studio with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
@@ -10256,10 +10400,6 @@ If playback stutters, try another.</source>
         <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Open graphics settings</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>PreviewOsd</name>
@@ -10269,11 +10409,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Toggle guides</source>
-        <translation type="unfinished">تبديل الخطوط الإرشادية</translation>
+        <translation>تبديل الخطوط الإرشادية</translation>
     </message>
     <message>
         <source>Guide sets</source>
-        <translation type="unfinished">مجموعات الخطوط الإرشادية</translation>
+        <translation>مجموعات الخطوط الإرشادية</translation>
     </message>
     <message>
         <source>Preview options</source>
@@ -10310,6 +10450,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished">معاينة GPU غير متوفرة</translation>
     </message>
     <message>
+        <source>Debug info</source>
+        <translation>معلومات تصحيح الأخطاء</translation>
+    </message>
+    <message>
+        <source>Audio only</source>
+        <translation>الصوت فقط</translation>
+    </message>
+    <message>
+        <source>No clip at the current time</source>
+        <translation>لا يوجد مقطع في الوقت الحالي</translation>
+    </message>
+    <message>
         <source>Your graphics driver only provides %1. Flip Studio&apos;s preview needs OpenGL 3.3.</source>
         <translation type="unfinished">يوفر برنامج تشغيل الرسومات لديك %1 فقط. تحتاج معاينة Flip Studio إلى OpenGL 3.3.</translation>
     </message>
@@ -10317,21 +10469,57 @@ If playback stutters, try another.</source>
         <source>Flip Studio could not start its GPU renderer, so the preview cannot draw.</source>
         <translation type="unfinished">تعذر على Flip Studio تشغيل عارض GPU الخاص به، لذا لا يمكن رسم المعاينة.</translation>
     </message>
-    <message>
-        <source>Debug info</source>
-        <translation type="unfinished">معلومات تصحيح الأخطاء</translation>
-    </message>
-    <message>
-        <source>Audio only</source>
-        <translation type="unfinished">الصوت فقط</translation>
-    </message>
-    <message>
-        <source>No clip at the current time</source>
-        <translation type="unfinished">لا يوجد مقطع في الوقت الحالي</translation>
-    </message>
 </context>
 <context>
     <name>PreviewTransportBar</name>
+    <message>
+        <source>%1 (%2)</source>
+        <translation>%1 (%2)</translation>
+    </message>
+    <message>
+        <source>Current time / total · %1 frames per second</source>
+        <translation type="unfinished">الوقت الحالي / الإجمالي · %1 إطار في الثانية</translation>
+    </message>
+    <message>
+        <source>Jump back 1s · Shift for 5s · Ctrl for 10s</source>
+        <translation type="unfinished">القفز للخلف 1s · Shift لمدة 5s · Ctrl لمدة 10s</translation>
+    </message>
+    <message>
+        <source>Previous frame</source>
+        <translation>الإطار السابق</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>إيقاف مؤقت</translation>
+    </message>
+    <message>
+        <source>Play</source>
+        <translation>تشغيل</translation>
+    </message>
+    <message>
+        <source>Next frame</source>
+        <translation>الإطار التالي</translation>
+    </message>
+    <message>
+        <source>Loop work area on — click to turn off</source>
+        <translation type="unfinished">تكرار مساحة العمل مفعّل — انقر للإيقاف</translation>
+    </message>
+    <message>
+        <source>Loop work area off — click to turn on</source>
+        <translation type="unfinished">تكرار مساحة العمل معطّل — انقر للتشغيل</translation>
+    </message>
+    <message>
+        <source>Jump forward 1s · Shift for 5s · Ctrl for 10s</source>
+        <translation type="unfinished">القفز للأمام 1s · Shift لمدة 5s · Ctrl لمدة 10s</translation>
+    </message>
+    <message>
+        <source>Exit fullscreen preview (Esc)</source>
+        <translation type="unfinished">الخروج من معاينة ملء الشاشة (Esc)</translation>
+    </message>
+    <message>
+        <source>Fullscreen preview</source>
+        <translation>معاينة ملء الشاشة</translation>
+    </message>
     <message>
         <source>Fit</source>
         <translation type="unfinished">ملاءمة</translation>
@@ -10365,60 +10553,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 (%2)</source>
-        <translation type="unfinished">%1 (%2)</translation>
-    </message>
-    <message>
-        <source>Current time / total · %1 frames per second</source>
-        <translation type="unfinished">الوقت الحالي / الإجمالي · %1 إطار في الثانية</translation>
-    </message>
-    <message>
-        <source>Jump back 1s · Shift for 5s · Ctrl for 10s</source>
-        <translation type="unfinished">القفز للخلف 1s · Shift لمدة 5s · Ctrl لمدة 10s</translation>
-    </message>
-    <message>
-        <source>Previous frame</source>
-        <translation type="unfinished">الإطار السابق</translation>
-    </message>
-    <message>
-        <source>Pause</source>
-        <translation type="unfinished">إيقاف مؤقت</translation>
-    </message>
-    <message>
-        <source>Play</source>
-        <translation type="unfinished">تشغيل</translation>
-    </message>
-    <message>
-        <source>Next frame</source>
-        <translation type="unfinished">الإطار التالي</translation>
-    </message>
-    <message>
-        <source>Loop work area on — click to turn off</source>
-        <translation type="unfinished">تكرار مساحة العمل مفعّل — انقر للإيقاف</translation>
-    </message>
-    <message>
-        <source>Loop work area off — click to turn on</source>
-        <translation type="unfinished">تكرار مساحة العمل معطّل — انقر للتشغيل</translation>
-    </message>
-    <message>
-        <source>Jump forward 1s · Shift for 5s · Ctrl for 10s</source>
-        <translation type="unfinished">القفز للأمام 1s · Shift لمدة 5s · Ctrl لمدة 10s</translation>
-    </message>
-    <message>
         <source>Preview zoom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Aspect ratio of the video</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Exit fullscreen preview (Esc)</source>
-        <translation type="unfinished">الخروج من معاينة ملء الشاشة (Esc)</translation>
-    </message>
-    <message>
-        <source>Fullscreen preview</source>
-        <translation type="unfinished">معاينة ملء الشاشة</translation>
     </message>
 </context>
 <context>
@@ -10443,14 +10583,6 @@ If playback stutters, try another.</source>
         <translation>تعذر فتح %1</translation>
     </message>
     <message>
-        <source>file is too short to be a Flip Studio project</source>
-        <translation>الملف قصير جدًا ليكون مشروع Flip Studio</translation>
-    </message>
-    <message>
-        <source>not a Flip Studio project (bad magic)</source>
-        <translation>ليس مشروع Flip Studio (رقم سحري غير صالح)</translation>
-    </message>
-    <message>
         <source>unsupported container revision</source>
         <translation>إصدار الحاوية غير مدعوم</translation>
     </message>
@@ -10473,10 +10605,6 @@ If playback stutters, try another.</source>
     <message>
         <source>project manifest has no format version</source>
         <translation>لا يحتوي بيان المشروع على إصدار تنسيق</translation>
-    </message>
-    <message>
-        <source>this project was saved by a newer version of Flip Studio (format %1) — update to open it</source>
-        <translation>تم حفظ هذا المشروع بإصدار أحدث من Flip Studio (التنسيق %1) — حدِّث لفتحه</translation>
     </message>
     <message>
         <source>project blob table is not contiguous</source>
@@ -10562,6 +10690,18 @@ If playback stutters, try another.</source>
         <source>Couldn’t create %1</source>
         <translation>تعذر إنشاء %1</translation>
     </message>
+    <message>
+        <source>file is too short to be a Flip Studio project</source>
+        <translation>الملف قصير جدًا ليكون مشروع Flip Studio</translation>
+    </message>
+    <message>
+        <source>not a Flip Studio project (bad magic)</source>
+        <translation>ليس مشروع Flip Studio (رقم سحري غير صالح)</translation>
+    </message>
+    <message>
+        <source>this project was saved by a newer version of Flip Studio (format %1) — update to open it</source>
+        <translation>تم حفظ هذا المشروع بإصدار أحدث من Flip Studio (التنسيق %1) — حدِّث لفتحه</translation>
+    </message>
 </context>
 <context>
     <name>ProjectFileController</name>
@@ -10572,10 +10712,6 @@ If playback stutters, try another.</source>
     <message>
         <source>This project uses &quot;%1&quot;, which isn’t installed — it won’t show. Open Extras to install it.</source>
         <translation>يستخدم هذا المشروع &quot;%1&quot;، وهو غير مثبت — فلن يظهر. افتح الإضافات لتثبيته.</translation>
-    </message>
-    <message>
-        <source>Untitled Project</source>
-        <translation type="unfinished">مشروع بدون عنوان</translation>
     </message>
     <message>
         <source>This project uses %1 effects or transitions that aren’t installed (%2%3) — they won’t show. Open Extras to install them.</source>
@@ -10760,6 +10896,21 @@ If playback stutters, try another.</source>
         <source>Started new session</source>
         <translation>تم بدء جلسة جديدة</translation>
     </message>
+    <message>
+        <source>Untitled Project</source>
+        <translation type="unfinished">مشروع بدون عنوان</translation>
+    </message>
+</context>
+<context>
+    <name>ProjectLoadDialog</name>
+    <message>
+        <source>Opening project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unpacking project media…</source>
+        <translation>جارٍ فك وسائط المشروع…</translation>
+    </message>
 </context>
 <context>
     <name>ProjectPropertiesDialog</name>
@@ -10880,6 +11031,10 @@ If playback stutters, try another.</source>
     <message>
         <source>3D Model</source>
         <translation>نموذج ثلاثي الأبعاد</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Subtitles</source>
@@ -11184,11 +11339,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>%1 s</source>
-        <translation type="unfinished">%1 s</translation>
+        <translation>%1 s</translation>
     </message>
     <message>
         <source>%1 min</source>
-        <translation type="unfinished">%1 min</translation>
+        <translation>%1 min</translation>
     </message>
     <message>
         <source>%1 h %2 min</source>
@@ -11294,6 +11449,14 @@ If playback stutters, try another.</source>
         <source>Not an OpenTimelineIO Timeline or Stack (schema: %1)</source>
         <translation>ليس OpenTimelineIO Timeline أو Stack (المخطط: %1)</translation>
     </message>
+    <message>
+        <source>The voice sample must be at least %1 seconds of speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RecentProjectsPopup</name>
@@ -11388,6 +11551,41 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>RestoreController</name>
+    <message>
+        <source>Select a video clip to enhance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose a model to enhance with</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This clip is already being enhanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (enhanced %2x)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (enhanced)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhanced video added to the media bin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhancing video…</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>RestoreWindow</name>
     <message>
         <source>Enhance video</source>
@@ -11395,7 +11593,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>لا شيء</translation>
     </message>
     <message>
         <source>%1 (custom, experimental)</source>
@@ -11403,7 +11601,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished">الأصلي</translation>
+        <translation>الأصلي</translation>
     </message>
     <message>
         <source>Enhanced — out of date, preview again</source>
@@ -11419,7 +11617,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Working…</source>
-        <translation type="unfinished">جارٍ العمل…</translation>
+        <translation>جارٍ العمل…</translation>
     </message>
     <message>
         <source>Choose models, then Preview to compare this frame</source>
@@ -11427,15 +11625,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Frame</source>
-        <translation type="unfinished">إطار</translation>
+        <translation>إطار</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">s</translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished">ملاءمة</translation>
+        <translation>ملاءمة</translation>
     </message>
     <message>
         <source>Preview one frame, then enhance the whole video. The result is added to the media bin. Enhancing is slow — minutes per second of video without a GPU.</source>
@@ -11487,7 +11685,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished">عام</translation>
+        <translation>عام</translation>
     </message>
     <message>
         <source>Choose an upscaler</source>
@@ -11495,7 +11693,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">الكل</translation>
+        <translation>الكل</translation>
     </message>
     <message>
         <source>Speeds are per frame of this clip. Custom models are experimental and may not work. Drop an ONNX export (fp32 or fp16, RGB, 1x/2x/4x) into the folder; put the scale in the file name, e.g. &quot;2x_Name.onnx&quot;.</source>
@@ -11515,11 +11713,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>%1 s</source>
-        <translation type="unfinished">%1 s</translation>
+        <translation>%1 s</translation>
     </message>
     <message>
         <source>%1 min</source>
-        <translation type="unfinished">%1 min</translation>
+        <translation>%1 min</translation>
     </message>
     <message>
         <source>%1 h %2 min</source>
@@ -11539,7 +11737,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished"></translation>
+        <translation>تثبيت محرك الذكاء الاصطناعي أولاً</translation>
     </message>
     <message>
         <source>Get models (openmodeldb.info)</source>
@@ -11551,11 +11749,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">إيقاف</translation>
+        <translation>إيقاف</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">إغلاق</translation>
+        <translation>إغلاق</translation>
     </message>
 </context>
 <context>
@@ -11571,10 +11769,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Working…</source>
         <translation>جارٍ العمل…</translation>
-    </message>
-    <message>
-        <source>Flip Studio will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
-        <translation>سيعالج Flip Studio نسخة معكوسة من هذا المقطع لتشغيله بسلاسة. يمكنك متابعة التعديل أثناء ذلك.</translation>
     </message>
     <message>
         <source>This can take a few minutes on longer clips.</source>
@@ -11600,6 +11794,10 @@ If playback stutters, try another.</source>
         <source>Reverse</source>
         <translation>عكس</translation>
     </message>
+    <message>
+        <source>Flip Studio will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
+        <translation>سيعالج Flip Studio نسخة معكوسة من هذا المقطع لتشغيله بسلاسة. يمكنك متابعة التعديل أثناء ذلك.</translation>
+    </message>
 </context>
 <context>
     <name>ReverseRenderer</name>
@@ -11618,6 +11816,48 @@ If playback stutters, try another.</source>
     <message>
         <source>No frames could be decoded from this clip</source>
         <translation>تعذر فك ترميز أي إطارات من هذا المقطع</translation>
+    </message>
+</context>
+<context>
+    <name>SceneDetectController</name>
+    <message>
+        <source>Already looking for scenes</source>
+        <translation>جارٍ البحث عن المشاهد بالفعل</translation>
+    </message>
+    <message>
+        <source>Select a video clip to find scenes in</source>
+        <translation>حدد مقطع فيديو للبحث عن المشاهد فيه</translation>
+    </message>
+    <message>
+        <source>Clip has no video to scan</source>
+        <translation>لا يحتوي المقطع على فيديو لمسحه</translation>
+    </message>
+    <message numerus="yes">
+        <source>Found %n scene(s)</source>
+        <translation>
+            <numerusform>تم العثور على %n مشهد</numerusform>
+            <numerusform>تم العثور على %n مشهد</numerusform>
+            <numerusform>تم العثور على %n مشهدين</numerusform>
+            <numerusform>تم العثور على %n مشاهد</numerusform>
+            <numerusform>تم العثور على %n مشهدًا</numerusform>
+            <numerusform>تم العثور على %n مشهد</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>جارٍ التحضير…</translation>
+    </message>
+    <message>
+        <source>Looking for scenes…</source>
+        <translation>جارٍ البحث عن المشاهد…</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>تم</translation>
+    </message>
+    <message>
+        <source>Scene detection cancelled</source>
+        <translation>تم إلغاء اكتشاف المشاهد</translation>
     </message>
 </context>
 <context>
@@ -11731,7 +11971,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Getting ready…</source>
-        <translation type="unfinished">جارٍ التحضير…</translation>
+        <translation>جارٍ التحضير…</translation>
     </message>
     <message>
         <source>Cutting out subject…</source>
@@ -11739,7 +11979,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished">تم</translation>
+        <translation>تم</translation>
     </message>
     <message>
         <source>Clip is too short to cut out</source>
@@ -11755,7 +11995,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Could not decode frame %1</source>
-        <translation type="unfinished">تعذر فك ترميز الإطار %1</translation>
+        <translation>تعذر فك ترميز الإطار %1</translation>
     </message>
     <message>
         <source>Processing frame %1 of %2…</source>
@@ -11779,7 +12019,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Cut out subject</source>
-        <translation type="unfinished">عزل العنصر</translation>
+        <translation>عزل العنصر</translation>
     </message>
 </context>
 <context>
@@ -11815,6 +12055,10 @@ If playback stutters, try another.</source>
     <message>
         <source>s</source>
         <translation>s</translation>
+    </message>
+    <message>
+        <source>Tap marks the subject, press and hold marks what to exclude. Tap a marker to remove it.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Left-click marks the subject, right-click marks what to exclude. Click a marker to remove it.</source>
@@ -11983,14 +12227,6 @@ If playback stutters, try another.</source>
         <translation>أداء عالٍ (GPU منفصل)</translation>
     </message>
     <message>
-        <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
-        <translation>تحديد بطاقة الرسومات التي يعمل عليها Flip Studio. يبقي الأداء العالي الفيديو الذي تم فك ترميزه على بطاقة NVIDIA عليها؛ بينما يستهلك وضع توفير الطاقة قدرًا أقل من البطارية. يسري المفعول بعد إعادة التشغيل.</translation>
-    </message>
-    <message>
-        <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Open graphics settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12031,8 +12267,32 @@ If playback stutters, try another.</source>
         <translation>يجعل الأزرار والنصوص والأيقونات أكبر حجمًا. هذا تحجيم إضافي يضاف إلى الحجم المحدد بالفعل في إعدادات شاشتك. يسري المفعول بعد إعادة التشغيل.</translation>
     </message>
     <message>
-        <source>Restart Flip Studio to apply this size.</source>
-        <translation>أعد تشغيل Flip Studio لتطبيق هذا الحجم.</translation>
+        <source>Layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mobile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop suits a mouse and keyboard, including tablets in desktop mode. Mobile is the touch layout made for phones. Takes effect after restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart Flip Studio to switch layouts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart now</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Horizontal mouse-wheel pan</source>
@@ -12087,14 +12347,6 @@ If playback stutters, try another.</source>
         <translation>التحقق الآن</translation>
     </message>
     <message>
-        <source>Flip Studio %1</source>
-        <translation>Flip Studio %1</translation>
-    </message>
-    <message>
-        <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Extra packs</source>
         <translation>الحزم الإضافية</translation>
     </message>
@@ -12121,14 +12373,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Cloud providers</source>
         <translation>موفرو الخدمات السحابية</translation>
-    </message>
-    <message>
-        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation>تُخزن المفاتيح دون تشفير في إعدادات Flip Studio. وتكون الأولوية لـ ELEVENLABS_API_KEY و FISH_API_KEY في البيئة. وتتم فوترة الاستخدام على حسابك الخاص.</translation>
     </message>
     <message>
         <source>Transcription (Scribe), voiceover, sound effects</source>
@@ -12171,10 +12415,6 @@ If playback stutters, try another.</source>
         <translation>السماح بإرسال الصوت والنص إلى %1</translation>
     </message>
     <message>
-        <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
-        <translation>مطلوب قبل أن يتمكن Flip Studio أو أي وكيل متصل من تفريغ الصوت أو توليده عبر هذه الخدمة</translation>
-    </message>
-    <message>
         <source>Default voice id</source>
         <translation>معرّف الصوت الافتراضي</translation>
     </message>
@@ -12207,19 +12447,51 @@ If playback stutters, try another.</source>
         <translation>إلغاء ربط حساب المتجر من هذا الجهاز</translation>
     </message>
     <message>
-        <source>Once a day, check whether a newer Flip Studio has been released</source>
+        <source>Downloading…</source>
+        <translation>جارٍ التنزيل…</translation>
+    </message>
+    <message>
+        <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
+        <translation>تحديد بطاقة الرسومات التي يعمل عليها Flip Studio. يبقي الأداء العالي الفيديو الذي تم فك ترميزه على بطاقة NVIDIA عليها؛ بينما يستهلك وضع توفير الطاقة قدرًا أقل من البطارية. يسري المفعول بعد إعادة التشغيل.</translation>
+    </message>
+    <message>
+        <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloading…</source>
-        <translation type="unfinished">جارٍ التنزيل…</translation>
+        <source>Restart Flip Studio to apply this size.</source>
+        <translation>أعد تشغيل Flip Studio لتطبيق هذا الحجم.</translation>
+    </message>
+    <message>
+        <source>Flip Studio %1</source>
+        <translation>Flip Studio %1</translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation>تُخزن المفاتيح دون تشفير في إعدادات Flip Studio. وتكون الأولوية لـ ELEVENLABS_API_KEY و FISH_API_KEY في البيئة. وتتم فوترة الاستخدام على حسابك الخاص.</translation>
+    </message>
+    <message>
+        <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
+        <translation>مطلوب قبل أن يتمكن Flip Studio أو أي وكيل متصل من تفريغ الصوت أو توليده عبر هذه الخدمة</translation>
+    </message>
+    <message>
+        <source>Once a day, check whether a newer Flip Studio has been released</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SfxBrowser</name>
     <message>
         <source>Added to the media bin</source>
-        <translation type="unfinished">تمت الإضافة إلى حاوية الوسائط</translation>
+        <translation>تمت الإضافة إلى حاوية الوسائط</translation>
     </message>
     <message>
         <source>Loading sound effects…</source>
@@ -12231,11 +12503,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Try again</source>
-        <translation type="unfinished">إعادة المحاولة</translation>
+        <translation>إعادة المحاولة</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">الكل</translation>
+        <translation>الكل</translation>
     </message>
     <message>
         <source>No sound effects match “%1”.</source>
@@ -12247,11 +12519,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished">إيقاف مؤقت</translation>
+        <translation>إيقاف مؤقت</translation>
     </message>
     <message>
         <source>Play preview</source>
-        <translation type="unfinished">تشغيل المعاينة</translation>
+        <translation>تشغيل المعاينة</translation>
     </message>
     <message>
         <source>Add to the media bin</source>
@@ -12270,7 +12542,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Could not write to the app data folder.</source>
-        <translation type="unfinished">تعذر الكتابة في مجلد بيانات التطبيق.</translation>
+        <translation>تعذر الكتابة في مجلد بيانات التطبيق.</translation>
     </message>
     <message>
         <source>Could not download that sound. Check your connection and try again.</source>
@@ -12278,7 +12550,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>That download was damaged. Try again.</source>
-        <translation type="unfinished">كان هذا التنزيل تالفًا. حاول مرة أخرى.</translation>
+        <translation>كان هذا التنزيل تالفًا. حاول مرة أخرى.</translation>
     </message>
     <message>
         <source>Could not add that sound to the media bin.</source>
@@ -12772,6 +13044,61 @@ If playback stutters, try another.</source>
         <source>%1 — click to add, or drag to the timeline or preview</source>
         <translation>%1 — انقر للإضافة، أو اسحب إلى المخطط الزمني أو المعاينة</translation>
     </message>
+    <message>
+        <source>Add at playhead</source>
+        <translation>إضافة عند مؤشر التشغيل</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>إزالة من المفضلة</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>إضافة إلى المفضلة</translation>
+    </message>
+</context>
+<context>
+    <name>ShellSwitchDialog</name>
+    <message>
+        <source>Switch to the mobile layout?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch to the desktop layout?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Later</source>
+        <translation>لاحقًا</translation>
+    </message>
+    <message>
+        <source>Restart Flip Studio to switch layouts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A mouse is connected. The desktop layout has full menus, panels and precise timeline editing. Flip Studio restarts to switch, and your project is kept.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The mobile layout is the touch interface made for phones. Flip Studio restarts to switch.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The desktop layout suits a mouse and keyboard. Flip Studio restarts to switch.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShortcutCaptureField</name>
@@ -12855,6 +13182,201 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SpeechTab</name>
+    <message>
+        <source>Voice saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>تثبيت محرك الذكاء الاصطناعي أولاً</translation>
+    </message>
+    <message>
+        <source>Needed to generate speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type what the voice should say</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 characters, about %2 s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice</source>
+        <translation>الصوت البشري</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>إيقاف</translation>
+    </message>
+    <message>
+        <source>Play the voice sample</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename or delete this voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>إعادة التسمية…</translation>
+    </message>
+    <message>
+        <source>Rename voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>حذف</translation>
+    </message>
+    <message>
+        <source>New voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clone a voice from a recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Record…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import file…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading voice model (first use takes a while)…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation>اللغة</translation>
+    </message>
+    <message>
+        <source>Expressiveness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Higher values sound more dramatic and speak faster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate speech and add it at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Stop generating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Record a voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import a voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice from clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>حفظ</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import a voice sample</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio files (*.wav *.mp3 *.flac *.ogg *.m4a *.aac *.opus)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation>جميع الملفات (*)</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>الاسم</translation>
+    </message>
+    <message>
+        <source>The clip is longer than 20 seconds, so 20 seconds are used. Starting at %1 s.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Using %1 seconds of the selected clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start offset</source>
+        <translation>إزاحة البداية</translation>
+    </message>
+    <message>
+        <source>%1 s</source>
+        <translation>%1 s</translation>
+    </message>
+    <message>
+        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Recording…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I have the right to use this person&apos;s voice</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -12943,14 +13465,6 @@ If playback stutters, try another.</source>
 <context>
     <name>SpeedFadeInspector</name>
     <message>
-        <source>Not available</source>
-        <translation>غير متاح</translation>
-    </message>
-    <message>
-        <source>Speed applies to video, audio and composite clips.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Playback speed</source>
         <translation>سرعة التشغيل</translation>
     </message>
@@ -13023,6 +13537,113 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>StabilizeController</name>
+    <message>
+        <source>%1 (stabilized)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video clip to stabilize</source>
+        <translation>حدد مقطع فيديو لتثبيت الصورة</translation>
+    </message>
+    <message>
+        <source>Clip has no video file</source>
+        <translation>لا يحتوي المقطع على ملف فيديو</translation>
+    </message>
+    <message>
+        <source>Stabilization already in progress for this clip</source>
+        <translation>تثبيت الصورة قيد التنفيذ بالفعل لهذا المقطع</translation>
+    </message>
+    <message>
+        <source>This build of Flip Studio has no video stabilization support</source>
+        <translation type="unfinished">لا يدعم هذا الإصدار من Flip Studio تثبيت صورة الفيديو</translation>
+    </message>
+    <message>
+        <source>The video this clip was stabilized from is no longer in the media bin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create stabilization cache directory</source>
+        <translation>تعذر إنشاء مجلد ذاكرة التخزين المؤقت لتثبيت الصورة</translation>
+    </message>
+    <message>
+        <source>Building keyframes…</source>
+        <translation>جارٍ إنشاء الإطارات المفتاحية…</translation>
+    </message>
+    <message>
+        <source>Rendering stabilized video…</source>
+        <translation>جارٍ معالجة الفيديو المثبت…</translation>
+    </message>
+    <message>
+        <source>Analyzing camera motion…</source>
+        <translation>جارٍ تحليل حركة الكاميرا…</translation>
+    </message>
+    <message>
+        <source>Stabilization cancelled.</source>
+        <translation>تم إلغاء تثبيت الصورة.</translation>
+    </message>
+    <message>
+        <source>Could not read camera motion from the analysis file.</source>
+        <translation>تعذر قراءة حركة الكاميرا من ملف التحليل.</translation>
+    </message>
+    <message>
+        <source>Stabilize with Keyframes</source>
+        <translation>تثبيت الصورة باستخدام الإطارات المفتاحية</translation>
+    </message>
+    <message>
+        <source>Stabilization keyframes applied.</source>
+        <translation>تم تطبيق الإطارات المفتاحية لتثبيت الصورة.</translation>
+    </message>
+    <message>
+        <source>Stabilization analysis file is missing.</source>
+        <translation>ملف تحليل تثبيت الصورة مفقود.</translation>
+    </message>
+    <message>
+        <source>Could not create an output file</source>
+        <translation>تعذر إنشاء ملف إخراج</translation>
+    </message>
+    <message>
+        <source>Stabilization rendering failed.</source>
+        <translation>فشلت معالجة تثبيت الصورة.</translation>
+    </message>
+    <message>
+        <source>Stabilization rendering failed: %1</source>
+        <translation>فشلت معالجة تثبيت الصورة: %1</translation>
+    </message>
+    <message>
+        <source>Stabilize Video</source>
+        <translation>تثبيت صورة الفيديو</translation>
+    </message>
+    <message>
+        <source>Stabilized video added to the media bin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stabilization analysis failed.</source>
+        <translation>فشل تحليل تثبيت الصورة.</translation>
+    </message>
+    <message>
+        <source>Stabilization analysis failed: %1</source>
+        <translation>فشل تحليل تثبيت الصورة: %1</translation>
+    </message>
+    <message>
+        <source>Remove Stabilization</source>
+        <translation>إزالة تثبيت الصورة</translation>
+    </message>
+    <message>
+        <source>Change Stabilization Smoothing</source>
+        <translation>تغيير تنعيم تثبيت الصورة</translation>
+    </message>
+    <message>
+        <source>Change Stabilization Tripod Mode</source>
+        <translation>تغيير وضع الحامل الثلاثي لتثبيت الصورة</translation>
+    </message>
+    <message>
+        <source>Change Stabilization Mode</source>
+        <translation>تغيير وضع تثبيت الصورة</translation>
+    </message>
+</context>
+<context>
     <name>StabilizeInspector</name>
     <message>
         <source>Animate with keyframes</source>
@@ -13059,10 +13680,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Mode</source>
         <translation>الوضع</translation>
-    </message>
-    <message>
-        <source>Smooths camera shake. Flip Studio scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Render a stabilized copy, or animate the clip with sparse transform keys</source>
@@ -13104,9 +13721,27 @@ If playback stutters, try another.</source>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
+    <message>
+        <source>Smooths camera shake. Flip Studio scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StartScreen</name>
+    <message>
+        <source> (missing)</source>
+        <translation> (مفقود)</translation>
+    </message>
+    <message>
+        <source>This file has been moved or deleted:
+%1</source>
+        <translation>تم نقل هذا الملف أو حذفه:
+%1</translation>
+    </message>
+    <message>
+        <source>Remove from recents</source>
+        <translation>إزالة من الأخيرة</translation>
+    </message>
     <message>
         <source>Automatic</source>
         <translation type="unfinished"></translation>
@@ -13207,26 +13842,16 @@ If playback stutters, try another.</source>
         <source>No project matches “%1”.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source> (missing)</source>
-        <translation> (مفقود)</translation>
-    </message>
-    <message>
-        <source>This file has been moved or deleted:
-%1</source>
-        <translation>تم نقل هذا الملف أو حذفه:
-%1</translation>
-    </message>
-    <message>
-        <source>Remove from recents</source>
-        <translation>إزالة من الأخيرة</translation>
-    </message>
 </context>
 <context>
     <name>StickersTab</name>
     <message>
         <source>Search stickers</source>
         <translation>البحث في الملصقات</translation>
+    </message>
+    <message>
+        <source>More emoji</source>
+        <translation>المزيد من الرموز التعبيرية</translation>
     </message>
     <message>
         <source>No sticker packs installed</source>
@@ -13267,6 +13892,18 @@ If playback stutters, try another.</source>
     <message>
         <source>%1 — click to add, or drag to the timeline or preview</source>
         <translation>%1 — انقر للإضافة، أو اسحب إلى المخطط الزمني أو المعاينة</translation>
+    </message>
+    <message>
+        <source>Add at playhead</source>
+        <translation>إضافة عند مؤشر التشغيل</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>إزالة من المفضلة</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>إضافة إلى المفضلة</translation>
     </message>
     <message>
         <source>Animated</source>
@@ -13464,6 +14101,10 @@ If playback stutters, try another.</source>
         <translation>%1 تسمية توضيحية</translation>
     </message>
     <message>
+        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
         <translation>شغّل المخطط الزمني — يضيء السطر على الشاشة. انقر على أي سطر للانتقال إليه وتعديله في الأسفل.</translation>
     </message>
@@ -13506,6 +14147,62 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>إزاحة التسميات التوضيحية المصدّرة بمقدار بداية هذا المقطع لتتطابق مع الفيديو المصدَّر</translation>
+    </message>
+    <message>
+        <source>(empty)</source>
+        <translation>(فارغ)</translation>
+    </message>
+    <message>
+        <source>Delete this subtitle</source>
+        <translation>حذف هذه الترجمة</translation>
+    </message>
+    <message>
+        <source>Add a subtitle after this one</source>
+        <translation>إضافة ترجمة بعد هذه</translation>
+    </message>
+    <message>
+        <source>No subtitles yet. Move to a time inside this clip and add one below.</source>
+        <translation>لا توجد ترجمات بعد. انتقل إلى وقت داخل هذا المقطع وأضف واحدة في الأسفل.</translation>
+    </message>
+    <message>
+        <source>Type subtitle…</source>
+        <translation>اكتب الترجمة…</translation>
+    </message>
+    <message>
+        <source>Apply text to this subtitle</source>
+        <translation>تطبيق النص على هذه الترجمة</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>البداية</translation>
+    </message>
+    <message>
+        <source>Set start to current time</source>
+        <translation>تعيين البداية إلى الوقت الحالي</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation>النهاية</translation>
+    </message>
+    <message>
+        <source>Set end to current time</source>
+        <translation>تعيين النهاية إلى الوقت الحالي</translation>
+    </message>
+    <message>
+        <source>Delete caption</source>
+        <translation>حذف التسمية التوضيحية</translation>
+    </message>
+    <message>
+        <source>At %1</source>
+        <translation>عند %1</translation>
+    </message>
+    <message>
+        <source>Move to a time inside this clip to add a subtitle</source>
+        <translation>انتقل إلى وقت داخل هذا المقطع لإضافة ترجمة</translation>
+    </message>
+    <message>
+        <source>Add subtitle at current time</source>
+        <translation>إضافة ترجمة عند الوقت الحالي</translation>
     </message>
     <message>
         <source>Emojis</source>
@@ -13592,64 +14289,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished">إضافة</translation>
     </message>
     <message>
-        <source>(empty)</source>
-        <translation>(فارغ)</translation>
-    </message>
-    <message>
-        <source>Delete this subtitle</source>
-        <translation>حذف هذه الترجمة</translation>
-    </message>
-    <message>
-        <source>Add a subtitle after this one</source>
-        <translation>إضافة ترجمة بعد هذه</translation>
-    </message>
-    <message>
-        <source>No subtitles yet. Move to a time inside this clip and add one below.</source>
-        <translation>لا توجد ترجمات بعد. انتقل إلى وقت داخل هذا المقطع وأضف واحدة في الأسفل.</translation>
-    </message>
-    <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Type subtitle…</source>
-        <translation>اكتب الترجمة…</translation>
-    </message>
-    <message>
-        <source>Apply text to this subtitle</source>
-        <translation>تطبيق النص على هذه الترجمة</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation>البداية</translation>
-    </message>
-    <message>
-        <source>Set start to current time</source>
-        <translation>تعيين البداية إلى الوقت الحالي</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation>النهاية</translation>
-    </message>
-    <message>
-        <source>Set end to current time</source>
-        <translation>تعيين النهاية إلى الوقت الحالي</translation>
-    </message>
-    <message>
-        <source>Delete caption</source>
-        <translation>حذف التسمية التوضيحية</translation>
-    </message>
-    <message>
-        <source>At %1</source>
-        <translation>عند %1</translation>
-    </message>
-    <message>
-        <source>Move to a time inside this clip to add a subtitle</source>
-        <translation>انتقل إلى وقت داخل هذا المقطع لإضافة ترجمة</translation>
-    </message>
-    <message>
-        <source>Add subtitle at current time</source>
-        <translation>إضافة ترجمة عند الوقت الحالي</translation>
     </message>
 </context>
 <context>
@@ -13714,22 +14355,6 @@ If playback stutters, try another.</source>
         <translation>حدد مقطع فيديو أو صوت على المخطط الزمني أولاً.</translation>
     </message>
     <message>
-        <source>Caption style</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remove hesitations (eh, mmm) and capitalize</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add emojis for keywords (fuego 🔥, Dios 🙏)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>يتم توقيت التسميات التوضيحية الأقصر عن طريق تقسيم كل عبارة بالتساوي، لذا قد تبتعد قليلاً عن التزامن مع الكلام.</translation>
     </message>
@@ -13740,14 +14365,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Select a video or audio clip first</source>
         <translation>حدد مقطع فيديو أو صوت أولاً</translation>
-    </message>
-    <message>
-        <source>Add English translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Creating captions… %1%</source>
@@ -13785,6 +14402,30 @@ If playback stutters, try another.</source>
         <source>%1 words per caption</source>
         <translation>%1 كلمة لكل تسمية توضيحية</translation>
     </message>
+    <message>
+        <source>Caption style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove hesitations (eh, mmm) and capitalize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add emojis for keywords (fuego 🔥, Dios 🙏)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add English translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TextAnimPresetTile</name>
@@ -13796,20 +14437,12 @@ If playback stutters, try another.</source>
 <context>
     <name>TextAssetsTab</name>
     <message>
-        <source>Flip Studio text style (*.drifttextstyle)</source>
-        <translation>نمط نص Flip Studio (*.drifttextstyle)</translation>
-    </message>
-    <message>
         <source>Import text style</source>
         <translation>استيراد نمط النص</translation>
     </message>
     <message>
         <source>Export text style</source>
         <translation>تصدير نمط النص</translation>
-    </message>
-    <message>
-        <source>Click a style to add text at the playhead. Double-click it on the preview to edit.</source>
-        <translation>انقر على أحد الأنماط لإضافة نص عند مؤشر التشغيل. انقر عليه نقرًا مزدوجًا في المعاينة لتعديله.</translation>
     </message>
     <message>
         <source>My styles</source>
@@ -13840,20 +14473,24 @@ If playback stutters, try another.</source>
         <translation>حذف</translation>
     </message>
     <message>
-        <source>Templates</source>
-        <translation type="unfinished">قوالب</translation>
-    </message>
-    <message>
-        <source>Basic</source>
+        <source>My styles · %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>More…</source>
+        <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Get more templates</source>
+        <source>Add at playhead</source>
+        <translation>إضافة عند مؤشر التشغيل</translation>
+    </message>
+    <message>
+        <source>No saved styles</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation>استيراد</translation>
     </message>
     <message>
         <source>Rename text style</source>
@@ -13866,6 +14503,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Remove “%1” from your saved styles? Clips already using it keep their look.</source>
         <translation>هل تريد إزالة “%1” من أنماطك المحفوظة؟ ستحتفظ المقاطع التي تستخدمه بمظهرها.</translation>
+    </message>
+    <message>
+        <source>Flip Studio text style (*.drifttextstyle)</source>
+        <translation>نمط نص Flip Studio (*.drifttextstyle)</translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>More…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get more templates</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -14198,42 +14851,6 @@ If playback stutters, try another.</source>
         <translation>التوهج</translation>
     </message>
     <message>
-        <source>No accent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>First word</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Last word</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Every other word</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Every Nth word</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Longest word</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Random words</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Spoken word (karaoke)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Keywords (long words and numbers)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Text</source>
         <translation>النص</translation>
     </message>
@@ -14284,6 +14901,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Save this text&apos;s style as a reusable preset</source>
         <translation>حفظ نمط هذا النص كإعداد مسبق قابل لإعادة الاستخدام</translation>
+    </message>
+    <message>
+        <source>Generate voiceover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speak every caption with a generated voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the voice model from the add-on manager first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the AI engine and the voice model from the add-on manager to generate voiceovers.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Effect</source>
@@ -14441,6 +15074,42 @@ If playback stutters, try another.</source>
         <source>By</source>
         <translation>حسب</translation>
     </message>
+    <message>
+        <source>No accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>First word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every other word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every Nth word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longest word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spoken word (karaoke)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keywords (long words and numbers)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TextLookPicker</name>
@@ -14593,6 +15262,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Extrude</source>
         <translation>تجسيم</translation>
+    </message>
+    <message>
+        <source>Text size</source>
+        <translation>حجم النص</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>تباعد الأحرف</translation>
+    </message>
+    <message>
+        <source>Line height</source>
+        <translation>ارتفاع السطر</translation>
+    </message>
+    <message>
+        <source>Box padding</source>
+        <translation>حشوة المربع</translation>
+    </message>
+    <message>
+        <source>Bend</source>
+        <translation>انحناء</translation>
+    </message>
+    <message>
+        <source>Plain</source>
+        <translation type="unfinished">عادي</translation>
+    </message>
+    <message>
+        <source>Just text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Title</source>
@@ -14854,26 +15555,6 @@ If playback stutters, try another.</source>
         <source>The quiet issue</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Text size</source>
-        <translation>حجم النص</translation>
-    </message>
-    <message>
-        <source>Letter spacing</source>
-        <translation>تباعد الأحرف</translation>
-    </message>
-    <message>
-        <source>Line height</source>
-        <translation>ارتفاع السطر</translation>
-    </message>
-    <message>
-        <source>Box padding</source>
-        <translation>حشوة المربع</translation>
-    </message>
-    <message>
-        <source>Bend</source>
-        <translation>انحناء</translation>
-    </message>
 </context>
 <context>
     <name>TextStylePackPicker</name>
@@ -15013,12 +15694,20 @@ If playback stutters, try another.</source>
         <translation>تحويل إلى تنسيق ملائم للتحرير</translation>
     </message>
     <message>
+        <source>Crop…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unlink</source>
         <translation>إلغاء الربط</translation>
+    </message>
+    <message>
+        <source>Link</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Merge subtitle clips</source>
@@ -15271,6 +15960,10 @@ If playback stutters, try another.</source>
         <translation>إظهار الصوت في مسار منفصل</translation>
     </message>
     <message>
+        <source>Link selected clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>قص البداية</translation>
     </message>
@@ -15285,6 +15978,150 @@ If playback stutters, try another.</source>
     <message>
         <source>Trim end — click a clip to drop everything right of the cut</source>
         <translation>قص النهاية — انقر على مقطع لحذف كل شيء على يمين القطع</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation>تراجع</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation>إعادة</translation>
+    </message>
+    <message>
+        <source>Delete clip</source>
+        <translation>حذف المقطع</translation>
+    </message>
+    <message>
+        <source>Copy selection</source>
+        <translation>نسخ التحديد</translation>
+    </message>
+    <message>
+        <source>Paste at current time</source>
+        <translation>لصق عند الوقت الحالي</translation>
+    </message>
+    <message>
+        <source>Duplicate clip</source>
+        <translation>تكرار المقطع</translation>
+    </message>
+    <message>
+        <source>Add/remove bookmark at current time</source>
+        <translation>إضافة/إزالة إشارة مرجعية عند الوقت الحالي</translation>
+    </message>
+    <message>
+        <source>Mark work area in</source>
+        <translation>تحديد بداية منطقة العمل</translation>
+    </message>
+    <message>
+        <source>Mark work area out</source>
+        <translation>تحديد نهاية منطقة العمل</translation>
+    </message>
+    <message>
+        <source>Loop work area playback</source>
+        <translation>تكرار تشغيل منطقة العمل</translation>
+    </message>
+    <message>
+        <source>Clear work area</source>
+        <translation>مسح منطقة العمل</translation>
+    </message>
+    <message>
+        <source>Add transform layer</source>
+        <translation>إضافة طبقة تحويل</translation>
+    </message>
+    <message>
+        <source>Add transform layer — moves the selected clips&apos; tracks as one</source>
+        <translation>إضافة طبقة تحويل — تحرك مسارات المقاطع المحددة كوحدة واحدة</translation>
+    </message>
+    <message>
+        <source>Add camera</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize toolbar…</source>
+        <translation>تخصيص شريط الأدوات…</translation>
+    </message>
+    <message>
+        <source>Main</source>
+        <translation>الرئيسي</translation>
+    </message>
+    <message>
+        <source>Composite</source>
+        <translation>المركب</translation>
+    </message>
+    <message>
+        <source>Switch between the main timeline and composite clips</source>
+        <translation>التبديل بين المخطط الزمني الرئيسي والمقاطع المركبة</translation>
+    </message>
+    <message>
+        <source>No composite clips yet</source>
+        <translation>لا توجد مقاطع مركبة بعد</translation>
+    </message>
+    <message>
+        <source>Toggle audio mixer strip</source>
+        <translation>تبديل شريط مازج الصوت</translation>
+    </message>
+    <message>
+        <source>Timeline overview — a minimap of the whole project; click or drag it to jump the view</source>
+        <translation>نظرة عامة على المخطط الزمني — خريطة مصغرة للمشروع بأكمله؛ انقر عليها أو اسحبها لنقل العرض</translation>
+    </message>
+    <message>
+        <source>Unlink video and audio</source>
+        <translation>فك ربط الفيديو والصوت</translation>
+    </message>
+    <message>
+        <source>Merge adjacent clips</source>
+        <translation>دمج المقاطع المتجاورة</translation>
+    </message>
+    <message>
+        <source>Freeze frame at current time</source>
+        <translation>تجميد الإطار عند الوقت الحالي</translation>
+    </message>
+    <message>
+        <source>More edit actions</source>
+        <translation>المزيد من إجراءات التعديل</translation>
+    </message>
+    <message>
+        <source>Add adjustment layer</source>
+        <translation>إضافة طبقة ضبط</translation>
+    </message>
+    <message>
+        <source>Add camera — one viewpoint the whole timeline is seen through. With a camera already there, adds a new camera clip (a cut to a new framing) at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toggle snapping</source>
+        <translation>تبديل المحاذاة التلقائية</translation>
+    </message>
+    <message>
+        <source>Close gaps when trimming</source>
+        <translation>إغلاق الفراغات عند القص</translation>
+    </message>
+    <message>
+        <source>Allow clip overlap</source>
+        <translation>السماح بتداخل المقاطع</translation>
+    </message>
+    <message>
+        <source>Zoom out</source>
+        <translation>تصغير</translation>
+    </message>
+    <message>
+        <source>Timeline zoom</source>
+        <translation>تكبير/تصغير المخطط الزمني</translation>
+    </message>
+    <message>
+        <source>Zoom %1×</source>
+        <translation>تكبير %1×</translation>
+    </message>
+    <message>
+        <source>Zoom level — click to reset to 1×. Ctrl+wheel over the timeline also zooms.</source>
+        <translation>مستوى التكبير — انقر لإعادة التعيين إلى 1×. يتيح استخدام Ctrl+عجلة الفأرة فوق المخطط الزمني التكبير والتصغير أيضًا.</translation>
+    </message>
+    <message>
+        <source>Zoom in</source>
+        <translation>تكبير</translation>
+    </message>
+    <message>
+        <source>Fit timeline in view</source>
+        <translation>ملاءمة المخطط الزمني للعرض</translation>
     </message>
     <message>
         <source>Split</source>
@@ -15383,62 +16220,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Undo</source>
-        <translation>تراجع</translation>
-    </message>
-    <message>
-        <source>Redo</source>
-        <translation>إعادة</translation>
-    </message>
-    <message>
-        <source>Delete clip</source>
-        <translation>حذف المقطع</translation>
-    </message>
-    <message>
-        <source>Copy selection</source>
-        <translation>نسخ التحديد</translation>
-    </message>
-    <message>
-        <source>Paste at current time</source>
-        <translation>لصق عند الوقت الحالي</translation>
-    </message>
-    <message>
-        <source>Duplicate clip</source>
-        <translation>تكرار المقطع</translation>
-    </message>
-    <message>
-        <source>Add/remove bookmark at current time</source>
-        <translation>إضافة/إزالة إشارة مرجعية عند الوقت الحالي</translation>
-    </message>
-    <message>
-        <source>Mark work area in</source>
-        <translation>تحديد بداية منطقة العمل</translation>
-    </message>
-    <message>
-        <source>Mark work area out</source>
-        <translation>تحديد نهاية منطقة العمل</translation>
-    </message>
-    <message>
-        <source>Loop work area playback</source>
-        <translation>تكرار تشغيل منطقة العمل</translation>
-    </message>
-    <message>
-        <source>Clear work area</source>
-        <translation>مسح منطقة العمل</translation>
-    </message>
-    <message>
-        <source>Add transform layer</source>
-        <translation>إضافة طبقة تحويل</translation>
-    </message>
-    <message>
-        <source>Add transform layer — moves the selected clips&apos; tracks as one</source>
-        <translation>إضافة طبقة تحويل — تحرك مسارات المقاطع المحددة كوحدة واحدة</translation>
-    </message>
-    <message>
-        <source>Add camera</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Reverse</source>
         <translation type="unfinished">عكس</translation>
     </message>
@@ -15455,100 +16236,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Customize toolbar…</source>
-        <translation>تخصيص شريط الأدوات…</translation>
-    </message>
-    <message>
-        <source>Main</source>
-        <translation>الرئيسي</translation>
-    </message>
-    <message>
-        <source>Composite</source>
-        <translation>المركب</translation>
-    </message>
-    <message>
-        <source>Switch between the main timeline and composite clips</source>
-        <translation>التبديل بين المخطط الزمني الرئيسي والمقاطع المركبة</translation>
-    </message>
-    <message>
-        <source>No composite clips yet</source>
-        <translation>لا توجد مقاطع مركبة بعد</translation>
-    </message>
-    <message>
         <source>Stop recording</source>
         <translation type="unfinished">إيقاف التسجيل</translation>
     </message>
     <message>
         <source>Record voiceover at the current time</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Toggle audio mixer strip</source>
-        <translation>تبديل شريط مازج الصوت</translation>
-    </message>
-    <message>
-        <source>Timeline overview — a minimap of the whole project; click or drag it to jump the view</source>
-        <translation>نظرة عامة على المخطط الزمني — خريطة مصغرة للمشروع بأكمله؛ انقر عليها أو اسحبها لنقل العرض</translation>
-    </message>
-    <message>
-        <source>Unlink video and audio</source>
-        <translation>فك ربط الفيديو والصوت</translation>
-    </message>
-    <message>
-        <source>Merge adjacent clips</source>
-        <translation>دمج المقاطع المتجاورة</translation>
-    </message>
-    <message>
-        <source>Freeze frame at current time</source>
-        <translation>تجميد الإطار عند الوقت الحالي</translation>
-    </message>
-    <message>
-        <source>More edit actions</source>
-        <translation>المزيد من إجراءات التعديل</translation>
-    </message>
-    <message>
-        <source>Add adjustment layer</source>
-        <translation>إضافة طبقة ضبط</translation>
-    </message>
-    <message>
-        <source>Add camera — one viewpoint the whole timeline is seen through. With a camera already there, adds a new camera clip (a cut to a new framing) at the playhead</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Toggle snapping</source>
-        <translation>تبديل المحاذاة التلقائية</translation>
-    </message>
-    <message>
-        <source>Close gaps when trimming</source>
-        <translation>إغلاق الفراغات عند القص</translation>
-    </message>
-    <message>
-        <source>Allow clip overlap</source>
-        <translation>السماح بتداخل المقاطع</translation>
-    </message>
-    <message>
-        <source>Zoom out</source>
-        <translation>تصغير</translation>
-    </message>
-    <message>
-        <source>Timeline zoom</source>
-        <translation>تكبير/تصغير المخطط الزمني</translation>
-    </message>
-    <message>
-        <source>Zoom %1×</source>
-        <translation>تكبير %1×</translation>
-    </message>
-    <message>
-        <source>Zoom level — click to reset to 1×. Ctrl+wheel over the timeline also zooms.</source>
-        <translation>مستوى التكبير — انقر لإعادة التعيين إلى 1×. يتيح استخدام Ctrl+عجلة الفأرة فوق المخطط الزمني التكبير والتصغير أيضًا.</translation>
-    </message>
-    <message>
-        <source>Zoom in</source>
-        <translation>تكبير</translation>
-    </message>
-    <message>
-        <source>Fit timeline in view</source>
-        <translation>ملاءمة المخطط الزمني للعرض</translation>
     </message>
 </context>
 <context>
@@ -15907,14 +16600,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Perspective</source>
         <translation>المنظور</translation>
-    </message>
-    <message>
-        <source>Video only</source>
-        <translation>الفيديو فقط</translation>
-    </message>
-    <message>
-        <source>This tab does not apply to audio clips.</source>
-        <translation>لا تنطبق علامة التبويب هذه على المقاطع الصوتية.</translation>
     </message>
     <message>
         <source>Also moved by %1</source>
@@ -16315,20 +17000,8 @@ If playback stutters, try another.</source>
 <context>
     <name>TransitionsTab</name>
     <message>
-        <source>Touch and hold a transition, then drag it onto where two clips meet.</source>
-        <translation>المس انتقالًا مع الاستمرار، ثم اسحبه إلى موضع التقاء مقطعين.</translation>
-    </message>
-    <message>
-        <source>Drag onto where two clips overlap. They fade into each other by default.</source>
-        <translation>اسحب إلى موضع تداخل مقطعين. يتلاشى كل منهما في الآخر افتراضيًا.</translation>
-    </message>
-    <message>
         <source>Search transitions</source>
         <translation>البحث في الانتقالات</translation>
-    </message>
-    <message>
-        <source>Import transition</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Install a custom transition or effect from a .driftfx file made in Drift Forge</source>
@@ -16384,11 +17057,76 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished">استيراد</translation>
+        <translation>استيراد</translation>
     </message>
     <message>
-        <source>%1 — drag onto an overlap between two clips</source>
-        <translation>%1 — اسحب إلى موضع التداخل بين مقطعين</translation>
+        <source>%1 — drag onto where two clips meet, or on touch hold then drag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>إزالة من المفضلة</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>إضافة إلى المفضلة</translation>
+    </message>
+</context>
+<context>
+    <name>TtsController</name>
+    <message>
+        <source>Install the voice model first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Queued</source>
+        <translation>في قائمة الانتظار</translation>
+    </message>
+    <message>
+        <source>Cancelled</source>
+        <translation>تم الإلغاء</translation>
+    </message>
+    <message>
+        <source>Speech added to the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a subtitle clip first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This subtitle clip has no text to speak</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate voiceover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not add the voiceover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Generated %n line(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n ran longer than their captions</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -16421,23 +17159,11 @@ If playback stutters, try another.</source>
 <context>
     <name>UpdateChecker</name>
     <message>
-        <source>Flip Studio %1 update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Preparing the update…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Installs when you close Flip Studio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ready to install</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio %1 will install when you close Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -16447,14 +17173,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Couldn’t check for updates: unexpected response.</source>
         <translation>تعذر التحقق من وجود تحديثات: استجابة غير متوقعة.</translation>
-    </message>
-    <message>
-        <source>Flip Studio %1 is the latest version.</source>
-        <translation>Flip Studio %1 هو أحدث إصدار.</translation>
-    </message>
-    <message>
-        <source>Flip Studio %1 is available.</source>
-        <translation>Flip Studio %1 متوفر.</translation>
     </message>
     <message>
         <source>Couldn’t download the update: the cache isn’t writable.</source>
@@ -16477,6 +17195,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Flip Studio %1 update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installs when you close Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 will install when you close Flip Studio.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is the latest version.</source>
+        <translation>Flip Studio %1 هو أحدث إصدار.</translation>
+    </message>
+    <message>
+        <source>Flip Studio %1 is available.</source>
+        <translation>Flip Studio %1 متوفر.</translation>
+    </message>
+    <message>
         <source>Flip Studio %1 is ready to install.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16490,6 +17228,46 @@ If playback stutters, try another.</source>
     <message>
         <source>Update ready</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have %1.</source>
+        <translation>لديك %1.</translation>
+    </message>
+    <message>
+        <source>Skip</source>
+        <translation>تخطي</translation>
+    </message>
+    <message>
+        <source>Don&apos;t mention %1 again. Later releases are still announced.</source>
+        <translation>لا تذكر %1 مرة أخرى. ستظل الإصدارات اللاحقة معلنة.</translation>
+    </message>
+    <message>
+        <source>Later</source>
+        <translation>لاحقًا</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>تحديث</translation>
+    </message>
+    <message>
+        <source>Downloads the update in the background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opens the release page in your browser</source>
+        <translation>يفتح صفحة الإصدار في متصفحك</translation>
+    </message>
+    <message>
+        <source>Preparing the update…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart and install</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading…</source>
+        <translation>جارٍ التنزيل…</translation>
     </message>
     <message>
         <source>Flip Studio %1 will install when you close Flip Studio.</source>
@@ -16508,10 +17286,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You have %1.</source>
-        <translation>لديك %1.</translation>
-    </message>
-    <message>
         <source>Install automatically when I close Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16520,52 +17294,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Skip</source>
-        <translation>تخطي</translation>
-    </message>
-    <message>
-        <source>Don&apos;t mention %1 again. Later releases are still announced.</source>
-        <translation>لا تذكر %1 مرة أخرى. ستظل الإصدارات اللاحقة معلنة.</translation>
-    </message>
-    <message>
-        <source>Later</source>
-        <translation>لاحقًا</translation>
-    </message>
-    <message>
         <source>Install when I close Flip Studio</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation type="unfinished">تحديث</translation>
     </message>
     <message>
         <source>Closes Flip Studio, installs the update and opens Flip Studio again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloads the update in the background</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Opens the release page in your browser</source>
-        <translation>يفتح صفحة الإصدار في متصفحك</translation>
-    </message>
-    <message>
         <source>Downloading Flip Studio %1…</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Preparing the update…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Restart and install</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Downloading…</source>
-        <translation type="unfinished">جارٍ التنزيل…</translation>
     </message>
 </context>
 <context>
@@ -16584,7 +17322,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished">عام</translation>
+        <translation>عام</translation>
     </message>
     <message>
         <source>Before</source>
@@ -16603,7 +17341,7 @@ If playback stutters, try another.</source>
     <name>Vec2Param</name>
     <message>
         <source>Edit %1</source>
-        <translation type="unfinished">تعديل %1</translation>
+        <translation>تعديل %1</translation>
     </message>
 </context>
 <context>
@@ -16945,6 +17683,37 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>VoiceLibrary</name>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Another voice is still being prepared</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A voice needs a name and a recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not prepare the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A recording is already in progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to start audio recording</source>
+        <translation>فشل بدء تسجيل الصوت</translation>
+    </message>
+    <message>
+        <source>The recording is too short: record at least %1 seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>VoiceoverControlBar</name>
     <message>
         <source>PAUSED</source>
@@ -16989,6 +17758,45 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel — discard recording</source>
         <translation>إلغاء — تجاهل التسجيل</translation>
+    </message>
+</context>
+<context>
+    <name>VoiceoverDialog</name>
+    <message>
+        <source>Generate voiceover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice</source>
+        <translation>الصوت البشري</translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation>اللغة</translation>
+    </message>
+    <message>
+        <source>Expressiveness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Higher values sound more dramatic and speak faster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading voice model (first use takes a while)…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>إغلاق</translation>
     </message>
 </context>
 <context>
@@ -17065,6 +17873,14 @@ If playback stutters, try another.</source>
         <translation>لا يوجد برنامج تشغيل OpenGL</translation>
     </message>
     <message>
+        <source>OpenGL context unavailable</source>
+        <translation>سياق OpenGL غير متوفر</translation>
+    </message>
+    <message>
+        <source>Graphics driver is too old</source>
+        <translation>برنامج تشغيل الرسومات قديم جدًا</translation>
+    </message>
+    <message>
         <source>Flip Studio could not create an OpenGL context, so it cannot draw its interface or render the preview.
 
 Install or update your graphics driver.</source>
@@ -17073,20 +17889,12 @@ Install or update your graphics driver.</source>
 ثبّت برنامج تشغيل الرسومات لديك أو حدّثه.</translation>
     </message>
     <message>
-        <source>OpenGL context unavailable</source>
-        <translation>سياق OpenGL غير متوفر</translation>
-    </message>
-    <message>
         <source>Flip Studio could not create an OpenGL 3.3 core profile context, though this driver reports OpenGL %1.%2 (%3).
 
 The video preview cannot render. Updating your graphics driver may help.</source>
         <translation>تعذر على Flip Studio إنشاء سياق OpenGL 3.3 core profile، على الرغم من أن برنامج التشغيل هذا يشير إلى OpenGL %1.%2 (%3).
 
 لا يمكن عرض معاينة الفيديو. قد يساعد تحديث برنامج تشغيل الرسومات لديك.</translation>
-    </message>
-    <message>
-        <source>Graphics driver is too old</source>
-        <translation>برنامج تشغيل الرسومات قديم جدًا</translation>
     </message>
     <message>
         <source>Flip Studio needs OpenGL 3.3, but this graphics driver only provides OpenGL %1.%2 (%3).

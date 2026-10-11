@@ -12,7 +12,7 @@ import "components"
 //
 // A window rather than a dialog so the timeline stays visible, matching SegmentationWindow and
 // DenoiseWindow.
-Window {
+ToolWindow {
     id: root
 
     property int trackIndex: -1
@@ -570,10 +570,12 @@ Window {
                         property real baseSpeed: 1
 
                         TapHandler {
+                            margin: Theme.touchInput ? 11 : 0
                             onTapped: root.selectedPoint = knob.index
                         }
 
                         DragHandler {
+                            margin: Theme.touchInput ? 11 : 0
                             target: null
                             onActiveChanged: {
                                 if (active) {
@@ -633,6 +635,7 @@ Window {
                         y: root.yForSpeed(root.selected.speed + dy, plot.height) - height / 2
 
                         DragHandler {
+                            margin: Theme.touchInput ? 12 : 0
                             target: null
                             onActiveChanged: {
                                 if (active) {

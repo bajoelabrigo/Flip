@@ -2,21 +2,36 @@
 
 #include "EmojiCatalog.h"
 #include "FontCatalog.h"
+#ifdef DRIFT_WITH_SKIA
+#include "SkiaFontCollection.h"
+#include "SkiaFonts.h"
+#include "SkiaTextGeometry.h"
 
-#include <QFontMetricsF>
-#include <QGlyphRun>
+#include "include/core/SkFontMetrics.h"
+#include "include/core/SkFontMgr.h"
+#include "include/core/SkPathBuilder.h"
+#include "include/core/SkTypeface.h"
+#include "modules/skparagraph/include/Paragraph.h"
+#include "modules/skparagraph/include/ParagraphBuilder.h"
+#include "modules/skparagraph/include/ParagraphStyle.h"
+#include "modules/skparagraph/include/TextStyle.h"
+#include "modules/skunicode/include/SkUnicode_icu.h"
+#endif
+
 #include <QCache>
+#include <QHash>
 #include <QMutex>
 #include <QMutexLocker>
-#include <QRawFont>
 #include <QTextBoundaryFinder>
-#include <QTextLayout>
-#include <QTextOption>
 #include <QtMath>
 
 #include <algorithm>
 #include <cmath>
 #include <limits>
+#include <mutex>
+#include <optional>
+#include <string>
+#include <vector>
 
 namespace drift::text {
 
@@ -51,41 +66,6 @@ quint64 layoutKey(const QString &text, const drift::TextStyle &s, double wrapWid
                       static_cast<int>(a.rule), a.n, a.phase, a.sizeScale, qRound(wrapWidth * 4.0),
                       qRound(blockHeight * 4.0), qRound(renderScale * 1000.0), activeWordIndex,
                       static_cast<int>(split));
-}
-
-// Colour emoji ship as a CBDT/CBLC bitmap face, which carries no glyph outlines for
-// QPainterPath::addText to take — laid out as a path they come out empty and vanish. They have
-// to be drawn with QPainter::drawText instead, so the layout has to pick them out first.
-//
-// The codepoint ranges come first so ordinary text never probes the font, and VS-16 is in them
-// because it forces emoji presentation on characters that are otherwise textual. The face's own
-// cmap then has the final say: a dingbat the emoji font does not carry stays with the styled
-// font rather than falling back to whatever the system offers.
-static bool isEmojiCluster(const QString &cluster, const QRawFont &emojiFace)
-{
-    const QList<uint> points = cluster.toUcs4();
-
-    bool candidate = false;
-    for (const uint point : points) {
-        if (point == 0xFE0F || (point >= 0x1F000 && point <= 0x1FAFF)
-            || (point >= 0x2600 && point <= 0x27BF) || (point >= 0x2B00 && point <= 0x2BFF)) {
-            candidate = true;
-            break;
-        }
-    }
-    if (!candidate)
-        return false;
-
-    for (const uint point : points) {
-        // Joiners, selectors and tag characters glue a sequence together and are in no cmap;
-        // only the visible characters say anything about coverage.
-        if (point == 0x200D || point == 0xFE0E || point == 0xFE0F
-            || (point >= 0xE0020 && point <= 0xE007F))
-            continue;
-        if (!emojiFace.supportsCharacter(point))
-            return false;
-    }
-    return true;
 }
 
 // The grapheme cluster boundaries inside [from, to), ends included. Qt's are extended clusters,
@@ -150,16 +130,172 @@ static bool accentedWord(const drift::WordAccent &accent, int index, int count, 
     return false;
 }
 
-// Lay the text out and split it into per-word (or per-character) pieces. `accentFont` differs from
-// `font` only when the pack scales its accent words, which is also the only case that needs
-// QTextLayout formats — without them the layout, and so the output, is byte-identical to the
-// single-font path this replaced.
-QList<StyledWord> layoutStyledText(const QString &text, const drift::TextStyle &style,
-                                   const QFont &font, const QFont &accentFont, double wrapWidth,
-                                   double blockHeight, int activeWordIndex, WordSplit split)
+#ifdef DRIFT_WITH_SKIA
+
+namespace {
+
+namespace skt = ::skia::textlayout;
+
+// The text as UTF-8 for Skia, with both index maps. SkParagraph reports everything in UTF-8
+// offsets; the rest of the app addresses the source QString in UTF-16.
+struct Utf8Text
+{
+    std::string text;
+    QList<int> u8At;  // UTF-16 index -> byte offset of its code point (a low surrogate shares its pair's)
+    QList<int> u16At; // byte offset -> UTF-16 index of its code point; one past the end maps to size
+};
+
+void appendUtf8(std::string &out, char32_t cp)
+{
+    if (cp < 0x80) {
+        out += char(cp);
+    } else if (cp < 0x800) {
+        out += char(0xC0 | (cp >> 6));
+        out += char(0x80 | (cp & 0x3F));
+    } else if (cp < 0x10000) {
+        out += char(0xE0 | (cp >> 12));
+        out += char(0x80 | ((cp >> 6) & 0x3F));
+        out += char(0x80 | (cp & 0x3F));
+    } else {
+        out += char(0xF0 | (cp >> 18));
+        out += char(0x80 | ((cp >> 12) & 0x3F));
+        out += char(0x80 | ((cp >> 6) & 0x3F));
+        out += char(0x80 | (cp & 0x3F));
+    }
+}
+
+Utf8Text toUtf8(const QString &source)
+{
+    Utf8Text out;
+    const int n = source.size();
+    out.u8At.resize(n + 1);
+    for (int i = 0; i < n;) {
+        const QChar c = source.at(i);
+        char32_t cp = c.unicode();
+        int units = 1;
+        if (c.isHighSurrogate() && i + 1 < n && source.at(i + 1).isLowSurrogate()) {
+            cp = QChar::surrogateToUcs4(c, source.at(i + 1));
+            units = 2;
+        } else if (c.isSurrogate()) {
+            cp = 0xFFFD;
+        }
+        const int offset = int(out.text.size());
+        for (int k = 0; k < units; ++k)
+            out.u8At[i + k] = offset;
+        appendUtf8(out.text, cp);
+        while (out.u16At.size() < out.text.size())
+            out.u16At.append(i);
+        i += units;
+    }
+    out.u8At[n] = int(out.text.size());
+    out.u16At.append(n);
+    return out;
+}
+
+// Colour emoji ship as a CBDT/CBLC bitmap face, which carries no glyph outlines, so they have to
+// be drawn as glyphs and the layout has to pick them out first.
+//
+// The codepoint ranges come first so ordinary text never probes the font, and VS-16 is in them
+// because it forces emoji presentation on characters that are otherwise textual. The face's own
+// cmap then has the final say: a dingbat the emoji font does not carry stays with the styled
+// font rather than falling back to whatever the system offers.
+bool isEmojiCluster(const QString &cluster, SkTypeface &emojiFace)
+{
+    const QList<uint> points = cluster.toUcs4();
+
+    bool candidate = false;
+    for (const uint point : points) {
+        if (point == 0xFE0F || (point >= 0x1F000 && point <= 0x1FAFF)
+            || (point >= 0x2600 && point <= 0x27BF) || (point >= 0x2B00 && point <= 0x2BFF)) {
+            candidate = true;
+            break;
+        }
+    }
+    if (!candidate)
+        return false;
+
+    for (const uint point : points) {
+        // Joiners, selectors and tag characters glue a sequence together and are in no cmap;
+        // only the visible characters say anything about coverage.
+        if (point == 0x200D || point == 0xFE0E || point == 0xFE0F
+            || (point >= 0xE0020 && point <= 0xE007F))
+            continue;
+        if (emojiFace.unicharToGlyph(SkUnichar(point)) == 0)
+            return false;
+    }
+    return true;
+}
+
+struct RunData
+{
+    int line = 0;
+    SkFont font;
+    float originX = 0;
+    float advanceX = 0;
+    std::vector<SkGlyphID> glyphs;
+    std::vector<SkPoint> positions;
+    std::vector<uint32_t> starts; // count + 1
+};
+
+skt::TextStyle makeTextStyle(const QString &family, int weight, bool italic, double px, double letterSpacing)
+{
+    skt::TextStyle style;
+    style.setFontFamilies({SkString(family.toUtf8().constData())});
+    style.setFontSize(float(px));
+    style.setFontStyle(SkFontStyle(weight, SkFontStyle::kNormal_Width,
+                                   italic ? SkFontStyle::kItalic_Slant : SkFontStyle::kUpright_Slant));
+    style.setLetterSpacing(float(letterSpacing));
+    return style;
+}
+
+bool rightToLeft(const QString &source)
+{
+    for (const uint cp : source.toUcs4()) {
+        const QChar::Direction d = QChar::direction(cp);
+        if (d == QChar::DirL)
+            return false;
+        if (d == QChar::DirR || d == QChar::DirAL)
+            return true;
+    }
+    return false;
+}
+
+// Colour glyphs have to be drawn as glyph images. Their outlines and bounds say nothing reliable:
+// a bitmap strike (CBDT, Samsung's sbix) can report empty bounds and a COLR base glyph can carry a
+// placeholder outline, so the font's tables decide.
+bool isColourTypeface(const SkTypeface *typeface)
+{
+    if (!typeface)
+        return false;
+    static QMutex mutex;
+    static QHash<SkTypefaceID, bool> known;
+    QMutexLocker lock(&mutex);
+    const auto it = known.constFind(typeface->uniqueID());
+    if (it != known.constEnd())
+        return it.value();
+    bool colour = false;
+    for (const SkFourByteTag tag : {SkSetFourByteTag('C', 'B', 'D', 'T'), SkSetFourByteTag('s', 'b', 'i', 'x'),
+                                    SkSetFourByteTag('C', 'O', 'L', 'R'), SkSetFourByteTag('S', 'V', 'G', ' ')}) {
+        if (typeface->getTableSize(tag) > 0) {
+            colour = true;
+            break;
+        }
+    }
+    known.insert(typeface->uniqueID(), colour);
+    return colour;
+}
+
+QRectF toQRect(const SkRect &r)
+{
+    return QRectF(r.left(), r.top(), r.width(), r.height());
+}
+
+} // namespace
+
+TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &style, double renderScale,
+                                  double wrapWidth, double blockHeight, int activeWordIndex, WordSplit split)
 {
     QString source = text;
-    source.replace(QLatin1Char('\n'), QChar::LineSeparator); // QTextLayout breaks on the separator
 
     // *Marked* words: remember which, then draw them without the asterisks. Stripping inside a
     // word keeps the word count, so karaoke indices still line up with the spoken words.
@@ -173,9 +309,9 @@ QList<StyledWord> layoutStyledText(const QString &text, const drift::TextStyle &
     if (marked.contains(true))
         source = drift::textWithoutWordMarks(source);
 
+    // No early-out for text without words: the inline editor still needs the paragraph to place a
+    // caret in empty or whitespace-only text. Such a set has no pieces, so nothing paints.
     const QList<WordRange> ranges = wordRanges(source);
-    if (ranges.isEmpty())
-        return {};
 
     int longestIndex = 0;
     for (int i = 1; i < ranges.size(); ++i) {
@@ -190,69 +326,175 @@ QList<StyledWord> layoutStyledText(const QString &text, const drift::TextStyle &
                            || accentedWord(style.accent, i, ranges.size(), longestIndex, activeWordIndex,
                                            keywords.value(i)));
 
-    QTextOption option;
-    option.setWrapMode(style.wordWrap ? QTextOption::WordWrap : QTextOption::NoWrap);
-    // Alignment is applied by hand below; left to Qt, an RTL paragraph would be pushed to the right
-    // edge of the (possibly unbounded) line width.
-    option.setAlignment(Qt::AlignLeft | Qt::AlignAbsolute);
-    option.setTextDirection(Qt::LayoutDirectionAuto);
-
-    QTextLayout layout(source, font);
-    layout.setTextOption(option);
-
-    bool mixedSizes = false;
-    if (accentFont.pixelSize() != font.pixelSize()) {
-        QList<QTextLayout::FormatRange> formats;
-        QTextCharFormat format;
-        format.setFont(accentFont);
-        for (int i = 0; i < ranges.size(); ++i) {
-            if (accentFlags.at(i))
-                formats.append({ranges.at(i).start, ranges.at(i).length, format});
-        }
-        if (!formats.isEmpty()) {
-            layout.setFormats(formats);
-            mixedSizes = true;
-        }
-    }
-
-    const QFontMetricsF metrics(font);
-    const double effectiveWrap = style.wordWrap ? qMax(1.0, wrapWidth) : std::numeric_limits<double>::max();
-
-    // The colour face arrives with the emoji-font addon; without it the family is empty and emoji
-    // keep falling through to the outline path and disappearing, exactly as before.
+    // Catalog lookups take the catalog's lock, so they happen before the layout lock is held:
+    // the catalog registers fonts under it in the opposite order.
+    const ResolvedFont resolved = resolveFont(style);
     const QString emojiFamily = emojiFontFamily();
-    const bool emojiCapable = !emojiFamily.isEmpty();
-    QFont emojiBaseFont;
-    QFont emojiAccentFont;
-    QRawFont emojiFace;
-    if (emojiCapable) {
-        emojiBaseFont = QFont(emojiFamily);
-        emojiBaseFont.setPixelSize(qMax(1, font.pixelSize()));
-        emojiAccentFont = QFont(emojiFamily);
-        emojiAccentFont.setPixelSize(qMax(1, accentFont.pixelSize()));
-        emojiFace = QRawFont::fromFont(emojiBaseFont);
+
+    const double letterSpacing = qFuzzyIsNull(style.letterSpacing) ? 0.0 : style.letterSpacing * renderScale;
+    const int basePx = qMax(4, qRound(style.pixelSize * renderScale));
+    int accentPx = basePx;
+    const double accentScale = style.accent.sizeScale;
+    if (style.accent.rule != drift::WordAccentRule::None && accentScale > 0.0 && !qFuzzyCompare(accentScale, 1.0))
+        accentPx = qMax(1, qRound(style.pixelSize * accentScale * renderScale));
+    const bool anyAccent = std::find(accentFlags.cbegin(), accentFlags.cend(), true) != accentFlags.cend();
+    const bool mixedSizes = accentPx != basePx && anyAccent;
+
+    std::lock_guard<std::recursive_mutex> lock(drift::skia::textLayoutMutex());
+
+    sk_sp<skt::FontCollection> collection = drift::skia::textFontCollection();
+    const sk_sp<SkTypeface> emojiFace = emojiFamily.isEmpty() ? nullptr : drift::skia::registeredTypeface(emojiFamily);
+
+    const Utf8Text utf8 = toUtf8(source);
+
+    // Grapheme ordinal of every text position, spaces included, for the animator's character
+    // domain.
+    const QList<int> graphemes = graphemeBoundaries(source, 0, source.size());
+    QList<int> graphemeAt(source.size() + 1, 0);
+    {
+        int ordinal = 0;
+        for (int g = 0; g + 1 < graphemes.size(); ++g, ++ordinal)
+            for (int pos = graphemes.at(g); pos < graphemes.at(g + 1); ++pos)
+                graphemeAt[pos] = ordinal;
+        graphemeAt[source.size()] = ordinal;
     }
 
-    layout.beginLayout();
-    forever {
-        QTextLine line = layout.createLine();
-        if (!line.isValid())
-            break;
-        line.setLineWidth(effectiveWrap);
+    // Emoji clusters take the colour face first, whatever the styled font would do with them.
+    QList<bool> emojiAt(source.size() + 1, false);
+    if (emojiFace) {
+        for (int g = 0; g + 1 < graphemes.size(); ++g) {
+            const int cs = graphemes.at(g);
+            const int ce = graphemes.at(g + 1);
+            if (isEmojiCluster(source.mid(cs, ce - cs), *emojiFace)) {
+                for (int p = cs; p < ce; ++p)
+                    emojiAt[p] = true;
+            }
+        }
     }
-    layout.endLayout();
+    QList<bool> accentAt(source.size() + 1, false);
+    for (int wi = 0; wi < ranges.size(); ++wi) {
+        if (accentFlags.at(wi)) {
+            for (int p = ranges.at(wi).start; p < ranges.at(wi).start + ranges.at(wi).length; ++p)
+                accentAt[p] = true;
+        }
+    }
 
-    const int lineCount = layout.lineCount();
-    if (lineCount == 0)
-        return {};
+    const auto styleFor = [&](bool accent, bool emoji) {
+        const double px = accent ? accentPx : basePx;
+        return emoji ? makeTextStyle(emojiFamily, 400, false, px, letterSpacing)
+                     : makeTextStyle(resolved.family, resolved.weight, resolved.italic, px, letterSpacing);
+    };
 
-    // With mixed sizes the line's own box is what keeps a scaled word from colliding with the line
-    // above; with one font it stays on the font's line spacing, exactly as before.
+    skt::ParagraphStyle paragraphStyle;
+    paragraphStyle.setTextStyle(styleFor(false, false));
+    // Alignment is applied by hand below, so it stays correct with NoWrap, where the natural text
+    // can be wider than the box.
+    paragraphStyle.setTextAlign(skt::TextAlign::kLeft);
+    paragraphStyle.setTextDirection(rightToLeft(source) ? skt::TextDirection::kRtl : skt::TextDirection::kLtr);
+    paragraphStyle.setApplyRoundingHack(false);
+
+    static const sk_sp<SkUnicode> unicode = SkUnicodes::ICU::Make();
+    std::unique_ptr<skt::ParagraphBuilder> builder = skt::ParagraphBuilder::make(paragraphStyle, collection, unicode);
+    for (int start = 0; start < source.size();) {
+        const bool accent = accentAt.at(start);
+        const bool emoji = emojiAt.at(start);
+        int end = start + 1;
+        while (end < source.size() && accentAt.at(end) == accent && emojiAt.at(end) == emoji)
+            ++end;
+        builder->pushStyle(styleFor(accent, emoji));
+        builder->addText(utf8.text.data() + utf8.u8At.at(start), size_t(utf8.u8At.at(end) - utf8.u8At.at(start)));
+        builder->pop();
+        start = end;
+    }
+    std::shared_ptr<skt::Paragraph> paragraph = builder->Build();
+    paragraph->layout(style.wordWrap ? float(qMax(1.0, wrapWidth)) : 1.0e6f);
+
+    std::vector<skt::LineMetrics> lines;
+    paragraph->getLineMetrics(lines);
+    // An empty paragraph may report no line at all; the caret still sits on one.
+    if (lines.empty())
+        lines.emplace_back(size_t(0), size_t(0), size_t(0), size_t(0), true);
+    const int lineCount = int(lines.size());
+
+    std::vector<RunData> runs;
+    paragraph->visit([&](int line, const skt::Paragraph::VisitorInfo *info) {
+        if (!info || info->count <= 0)
+            return;
+        RunData run;
+        run.line = line;
+        run.font = info->font;
+        run.font.setHinting(SkFontHinting::kNone);
+        run.font.setSubpixel(true);
+        run.font.setLinearMetrics(true);
+        run.originX = info->origin.fX;
+        run.advanceX = info->advanceX;
+        run.glyphs.assign(info->glyphs, info->glyphs + info->count);
+        run.positions.assign(info->positions, info->positions + info->count);
+        run.starts.assign(info->utf8Starts, info->utf8Starts + info->count + 1);
+        runs.push_back(std::move(run));
+    });
+
+    // A caret (and a character-split piece) may only stop where a grapheme boundary is also a
+    // shaping-cluster boundary: UAX #29 alone splits Sinhala conjuncts and pre-base vowels that
+    // HarfBuzz draws as one glyph group.
+    QList<bool> insideCluster(source.size() + 1, false);
+    for (int p = 0; p < source.size();) {
+        int next = p + (source.at(p).isHighSurrogate() && p + 1 < source.size() ? 2 : 1);
+        skt::Paragraph::GlyphClusterInfo cluster;
+        if (paragraph->getGlyphClusterAt(size_t(utf8.u8At.at(p)), &cluster)
+            && cluster.fClusterTextRange.end < size_t(utf8.u16At.size())) {
+            const int clusterEnd = utf8.u16At.at(int(cluster.fClusterTextRange.end));
+            if (clusterEnd > next) {
+                for (int q = next; q < clusterEnd; ++q)
+                    insideCluster[q] = true;
+                next = clusterEnd;
+            }
+        }
+        p = next;
+    }
+    const auto validStop = [&](int pos) { return !insideCluster.at(pos); };
+
+    auto layoutData = std::make_shared<ParagraphLayout>();
+    layoutData->paragraph = paragraph;
+    layoutData->text = source;
+    layoutData->emPx = basePx;
+    for (const int stop : graphemes) {
+        if (validStop(stop))
+            layoutData->caretStops.append(stop);
+    }
+
+    // Primary metrics decide the line step and baseline, as the font's own line spacing did; a
+    // scaled accent makes the line's own box (from the paragraph) the authority instead.
+    sk_sp<SkTypeface> primary;
+    {
+        const std::vector<sk_sp<SkTypeface>> found = collection->findTypefaces(
+            {SkString(resolved.family.toUtf8().constData())},
+            SkFontStyle(resolved.weight, SkFontStyle::kNormal_Width,
+                        resolved.italic ? SkFontStyle::kItalic_Slant : SkFontStyle::kUpright_Slant));
+        if (!found.empty())
+            primary = found.front();
+    }
+    if (!primary)
+        primary = drift::skia::systemFontMgr()->legacyMakeTypeface(nullptr, SkFontStyle());
+    struct Metrics { double ascent = 0, descent = 0, leading = 0; };
+    const auto metricsFor = [&](double px) {
+        SkFont font(primary, float(px));
+        font.setHinting(SkFontHinting::kNone);
+        font.setSubpixel(true);
+        font.setLinearMetrics(true);
+        SkFontMetrics m;
+        font.getMetrics(&m);
+        return Metrics{-double(m.fAscent), double(m.fDescent), double(m.fLeading)};
+    };
+    const Metrics baseMetrics = metricsFor(basePx);
+    const Metrics accentMetrics = metricsFor(accentPx);
+
     QList<double> steps;
     steps.reserve(lineCount);
     double totalH = 0.0;
     for (int i = 0; i < lineCount; ++i) {
-        const double natural = mixedSizes ? layout.lineAt(i).height() : metrics.lineSpacing();
+        const double natural = mixedSizes ? lines[i].fAscent + lines[i].fDescent
+                                          : baseMetrics.ascent + baseMetrics.descent + baseMetrics.leading;
         const double step = natural * qMax(0.1, style.lineHeight);
         steps.append(step);
         totalH += step;
@@ -263,111 +505,132 @@ QList<StyledWord> layoutStyledText(const QString &text, const drift::TextStyle &
         blockTop = (blockHeight - totalH) * 0.5;
     else if (style.valign == drift::TextVAlign::Bottom)
         blockTop = blockHeight - totalH;
-
-    // Grapheme ordinal of every text position, spaces included, for the animator's character
-    // domain.
-    QList<int> graphemeAt(source.size() + 1, 0);
-    {
-        const QList<int> stops = graphemeBoundaries(source, 0, source.size());
-        int ordinal = 0;
-        for (int g = 0; g + 1 < stops.size(); ++g, ++ordinal)
-            for (int pos = stops.at(g); pos < stops.at(g + 1); ++pos)
-                graphemeAt[pos] = ordinal;
-        graphemeAt[source.size()] = ordinal;
-    }
+    layoutData->blockTop = blockTop;
 
     QList<StyledWord> words;
     double y = 0.0;
     for (int i = 0; i < lineCount; ++i) {
-        const QTextLine line = layout.lineAt(i);
-        const int start = line.textStart();
-        const int len = line.textLength();
+        const skt::LineMetrics &lm = lines[i];
         const double lineTop = y;
         y += steps.at(i);
-        if (len <= 0)
-            continue;
-        const int end = start + len;
 
-        // Alignment is applied here rather than through QTextOption so it stays correct with
-        // NoWrap, where the natural text can be wider than the box.
-        const double natural = line.naturalTextWidth();
         double lineX = 0.0;
         if (style.align == drift::TextAlign::Center)
-            lineX = (wrapWidth - natural) * 0.5;
+            lineX = (wrapWidth - lm.fWidth) * 0.5;
         else if (style.align == drift::TextAlign::Right)
-            lineX = wrapWidth - natural;
+            lineX = wrapWidth - lm.fWidth;
 
-        const double baseline = blockTop + lineTop + (mixedSizes ? line.ascent() : metrics.ascent());
+        const double baseline = blockTop + lineTop + (mixedSizes ? lm.fAscent : baseMetrics.ascent);
+        layoutData->lineX.append(lineX);
+        layoutData->lineBaseline.append(baseline);
+        layoutData->lineAscent.append(mixedSizes ? lm.fAscent : baseMetrics.ascent);
+        layoutData->lineDescent.append(mixedSizes ? lm.fDescent : baseMetrics.descent);
+        layoutData->lineStart.append(qMin(int(lm.fStartIndex), int(source.size())));
+        layoutData->lineEnd.append(qMin(int(lm.fEndIndex), int(source.size())));
+        layoutData->lineVisibleEnd.append(lm.fHardBreak ? qMin(int(lm.fEndIndex), int(source.size()))
+                                                         : qMin(int(lm.fEndExcludingWhitespaces), int(source.size())));
+        layoutData->lineHardBreak.append(lm.fHardBreak);
+
+        // LineMetrics indexes are UTF-16, unlike the visitor's and the cluster queries'.
+        const int start = int(lm.fStartIndex);
+        const int end = qMin(int(lm.fEndIncludingNewline), int(source.size()));
+        if (end <= start)
+            continue;
 
         for (int wi = 0; wi < ranges.size(); ++wi) {
-            // A word wider than the box is broken across lines by Qt; each fragment is clamped to
-            // the line and keeps the whole word's index and accent.
+            // A word wider than the box is broken across lines; each fragment is clamped to the
+            // line and keeps the whole word's index and accent.
             const int ws = qMax(ranges.at(wi).start, start);
             const int we = qMin(ranges.at(wi).start + ranges.at(wi).length, end);
             if (we <= ws)
                 continue;
 
-            const QFont &wordFont = accentFlags.at(wi) ? accentFont : font;
-            const QFontMetricsF wordMetrics(wordFont);
-            const QFont &emojiFont = accentFlags.at(wi) ? emojiAccentFont : emojiBaseFont;
+            const Metrics &wordMetrics = accentFlags.at(wi) ? accentMetrics : baseMetrics;
 
-            // A ligature spanning several pieces (the لله of most Arabic fonts) comes back from
-            // glyphRuns() for every piece it covers; the first piece keeps it.
-            struct LigatureGlyph {
-                QRawFont font;
-                quint32 index;
-                QPointF pos;
-            };
-            QList<LigatureGlyph> ligatures;
-
-            auto appendRun = [&](int from, int to, bool emoji) {
+            auto appendRun = [&](int from, int to) {
                 QString slice = source.mid(from, to - from);
-                slice.remove(QChar::LineSeparator);
                 if (slice.trimmed().isEmpty())
                     return;
-                const double x0 = lineX + line.cursorToX(from);
-                const double x1 = lineX + line.cursorToX(to);
-                StyledWord word;
-                word.cellRect = QRectF(qMin(x0, x1), baseline - wordMetrics.ascent(),
-                                       std::abs(x1 - x0), wordMetrics.height());
-                if (emoji) {
-                    word.emojiText = slice;
-                    word.emojiFont = emojiFont;
-                    word.inkRect = word.cellRect;
-                } else {
-                    QPainterPath path;
-                    // Winding, not the odd-even default: at heavy weights adjacent glyph contours
-                    // overlap, and odd-even punches those overlaps out as holes.
-                    path.setFillRule(Qt::WindingFill);
-                    // The glyphs come from the line's own shaping, not a re-shaped slice: a piece
-                    // cut from a word keeps its joined forms and marks, and RTL runs keep their
-                    // visual order.
-                    const QPointF shift(lineX, baseline - (line.y() + line.ascent()));
-                    const QList<QGlyphRun> runs = line.glyphRuns(from, to - from);
-                    for (const QGlyphRun &run : runs) {
-                        const QRawFont raw = run.rawFont();
-                        const QList<quint32> indexes = run.glyphIndexes();
-                        const QList<QPointF> positions = run.positions();
-                        const bool splitLigature = run.flags().testFlag(QGlyphRun::SplitLigature);
-                        for (qsizetype g = 0; g < indexes.size(); ++g) {
-                            if (splitLigature) {
-                                const auto claimed = std::find_if(ligatures.cbegin(), ligatures.cend(), [&](const LigatureGlyph &l) {
-                                    return l.index == indexes.at(g) && l.font == raw
-                                           && (l.pos - positions.at(g)).manhattanLength() < 0.5;
-                                });
-                                if (claimed != ligatures.cend())
-                                    continue;
-                                ligatures.append({raw, indexes.at(g), positions.at(g)});
-                            }
-                            path.addPath(raw.pathForGlyph(indexes.at(g)).translated(positions.at(g) + shift));
+
+                // The glyphs come from the line's own shaping, not a re-shaped slice: a piece
+                // cut from a word keeps its joined forms and marks, and RTL runs keep their
+                // visual order. A glyph belongs to the piece holding the start of its cluster,
+                // so a ligature spanning several pieces stays with the first.
+                const uint32_t from8 = uint32_t(utf8.u8At.at(from));
+                const uint32_t to8 = uint32_t(utf8.u8At.at(to));
+                SkPathBuilder builder;
+                bool anyGlyph = false;
+                bool anyOutline = false;
+                bool anyBounds = false;
+                auto geometry = std::make_shared<PieceGeometry>();
+                float gx0 = std::numeric_limits<float>::max();
+                float gx1 = std::numeric_limits<float>::lowest();
+                for (const RunData &run : runs) {
+                    if (run.line != i)
+                        continue;
+                    for (size_t g = 0; g < run.glyphs.size(); ++g) {
+                        if (run.starts[g] < from8 || run.starts[g] >= to8)
+                            continue;
+                        anyGlyph = true;
+                        const float gx = float(lineX) + run.originX + run.positions[g].fX;
+                        const float gy = float(baseline) + run.positions[g].fY;
+                        gx0 = std::min(gx0, gx);
+                        gx1 = std::max(gx1, gx + (g + 1 < run.glyphs.size() ? run.positions[g + 1].fX - run.positions[g].fX
+                                                                           : run.advanceX - run.positions[g].fX));
+                        // Winding, not odd-even: at heavy weights adjacent glyph contours overlap,
+                        // and odd-even punches those overlaps out as holes.
+                        const std::optional<SkPath> outline = isColourTypeface(run.font.getTypeface())
+                            ? std::nullopt : run.font.getPath(run.glyphs[g]);
+                        if (isColourTypeface(run.font.getTypeface())) {
+                            anyBounds = true;
+                        } else if (outline && !outline->isEmpty()) {
+                            anyOutline = true;
+                            builder.addPath(*outline, gx, gy);
+                        } else if (!run.font.getBounds(run.glyphs[g], nullptr).isEmpty()) {
+                            anyBounds = true;
+                        }
+                        if (geometry->glyphs.empty())
+                            geometry->font = run.font;
+                        if (run.font.getTypeface() == geometry->font.getTypeface()) {
+                            geometry->glyphs.push_back(run.glyphs[g]);
+                            geometry->positions.push_back({gx, gy});
                         }
                     }
-                    const QRectF ink = path.boundingRect();
+                }
+                if (!anyGlyph)
+                    return;
+
+                double x0 = gx0;
+                double x1 = gx1;
+                const std::vector<skt::TextBox> boxes =
+                    paragraph->getRectsForRange(unsigned(from), unsigned(to), skt::RectHeightStyle::kTight,
+                                                skt::RectWidthStyle::kTight);
+                if (!boxes.empty()) {
+                    x0 = std::numeric_limits<double>::max();
+                    x1 = std::numeric_limits<double>::lowest();
+                    for (const skt::TextBox &box : boxes) {
+                        x0 = std::min(x0, lineX + box.rect.left());
+                        x1 = std::max(x1, lineX + box.rect.right());
+                    }
+                }
+
+                StyledWord word;
+                word.cellRect = QRectF(x0, baseline - wordMetrics.ascent, x1 - x0,
+                                       wordMetrics.ascent + wordMetrics.descent);
+                if (!anyOutline && anyBounds) {
+                    geometry->colour = true;
+                    word.colour = true;
+                    word.inkRect = word.cellRect;
+                } else {
+                    geometry->glyphs.clear();
+                    geometry->positions.clear();
+                    geometry->path = builder.detach();
+                    const QRectF ink = toQRect(geometry->path.getBounds());
                     if (ink.isEmpty())
                         return;
-                    word.path = path;
                     word.inkRect = ink;
                 }
+                word.geometry = std::move(geometry);
                 word.baselineY = baseline;
                 word.index = wi;
                 word.line = i;
@@ -379,53 +642,359 @@ QList<StyledWord> layoutStyledText(const QString &text, const drift::TextStyle &
                 words.append(word);
             };
 
-            // Break the piece into runs of ordinary text and single emoji clusters. Run edges are
-            // layout positions, so advances, wrapping and alignment are what they were; with no
-            // emoji in the piece this is the one whole-piece run it has always been.
+            // Break the piece into runs of ordinary text and single emoji clusters, so each
+            // emoji is its own piece and drawable bitmap; with no emoji in the piece this is the
+            // one whole-piece run.
             auto emitPiece = [&](int from, int to) {
                 const QList<int> stops = graphemeBoundaries(source, from, to);
                 int runStart = -1;
                 for (int s = 0; s + 1 < stops.size(); ++s) {
                     const int cs = stops.at(s);
                     const int ce = stops.at(s + 1);
-                    if (emojiCapable && isEmojiCluster(source.mid(cs, ce - cs), emojiFace)) {
+                    if (emojiAt.at(cs)) {
                         if (runStart >= 0)
-                            appendRun(runStart, cs, false);
+                            appendRun(runStart, cs);
                         runStart = -1;
-                        appendRun(cs, ce, true);
+                        appendRun(cs, ce);
                     } else if (runStart < 0) {
                         runStart = cs;
                     }
                 }
                 if (runStart >= 0)
-                    appendRun(runStart, to, false);
+                    appendRun(runStart, to);
             };
 
             if (split == WordSplit::Characters) {
-                // Cluster by cluster, not QChar by QChar: a flag or a ZWJ sequence is one
-                // character to the reader and must animate as one.
+                // Cluster by cluster, not QChar by QChar: a flag, a ZWJ sequence or a Sinhala
+                // conjunct is one character to the reader and must animate as one.
                 const QList<int> stops = graphemeBoundaries(source, ws, we);
-                for (int s = 0; s + 1 < stops.size(); ++s)
-                    emitPiece(stops.at(s), stops.at(s + 1));
+                int from = ws;
+                for (int s = 1; s < stops.size(); ++s) {
+                    if (s + 1 < stops.size() && !validStop(stops.at(s)))
+                        continue;
+                    emitPiece(from, stops.at(s));
+                    from = stops.at(s);
+                }
             } else {
                 emitPiece(ws, we);
             }
         }
     }
-    return words;
+    return {words, layoutData};
 }
 
-QList<StyledWord> translatedWords(const QList<StyledWord> &words, double dx, double dy)
+int unresolvedGlyphs(const ParagraphLayout &layout)
 {
-    QList<StyledWord> out = words;
-    for (StyledWord &word : out) {
-        word.path.translate(dx, dy);
-        word.inkRect.translate(dx, dy);
-        word.cellRect.translate(dx, dy);
-        word.baselineY += dy;
+    std::lock_guard<std::recursive_mutex> lock(drift::skia::textLayoutMutex());
+    return drift::skia::paragraphOf(layout) ? drift::skia::paragraphOf(layout)->unresolvedGlyphs() : 0;
+}
+
+QString firstFontFamily(const ParagraphLayout &layout)
+{
+    std::lock_guard<std::recursive_mutex> lock(drift::skia::textLayoutMutex());
+    skt::Paragraph *paragraph = drift::skia::paragraphOf(layout);
+    if (!paragraph)
+        return {};
+    SkString family;
+    paragraph->getFontAt(0).getTypeface()->getFamilyName(&family);
+    return QString::fromUtf8(family.c_str());
+}
+
+// ---------------------------------------------------------------------------------------------
+// Inline-editor geometry
+
+namespace {
+
+skt::Paragraph *paragraphIn(const FragmentSet &set)
+{
+    return set.paragraph ? drift::skia::paragraphOf(*set.paragraph) : nullptr;
+}
+
+int lineOf(const ParagraphLayout &layout, int pos)
+{
+    int line = 0;
+    for (int i = 0; i < layout.lineStart.size() && layout.lineStart.at(i) <= pos; ++i)
+        line = i;
+    return line;
+}
+
+// The caret stop at or below / above / nearest `pos`.
+int stopBelow(const QList<int> &stops, int pos)
+{
+    const auto it = std::upper_bound(stops.cbegin(), stops.cend(), pos);
+    return it == stops.cbegin() ? (stops.isEmpty() ? pos : stops.first()) : *(it - 1);
+}
+
+int stopAbove(const QList<int> &stops, int pos)
+{
+    const auto it = std::lower_bound(stops.cbegin(), stops.cend(), pos);
+    return it == stops.cend() ? (stops.isEmpty() ? pos : stops.last()) : *it;
+}
+
+int stopNearest(const QList<int> &stops, int pos)
+{
+    const int below = stopBelow(stops, pos);
+    const int above = stopAbove(stops, pos);
+    return pos - below <= above - pos ? below : above;
+}
+
+// The paragraph-space band of a line is [baseline - ascent, baseline + descent]; a box belongs to
+// the line its vertical middle falls in.
+int lineOfBox(const std::vector<skt::LineMetrics> &lines, const skt::TextBox &box)
+{
+    const double mid = (box.rect.top() + box.rect.bottom()) * 0.5;
+    int best = 0;
+    double bestDistance = std::numeric_limits<double>::max();
+    for (int i = 0; i < int(lines.size()); ++i) {
+        const double distance = std::abs(mid - (lines[i].fBaseline - lines[i].fAscent * 0.5 + lines[i].fDescent * 0.5));
+        if (distance < bestDistance) {
+            bestDistance = distance;
+            best = i;
+        }
+    }
+    return best;
+}
+
+double caretX(skt::Paragraph &paragraph, const ParagraphLayout &layout, const std::vector<skt::LineMetrics> &lines,
+              int line, int pos)
+{
+    const skt::LineMetrics &lm = lines[size_t(line)];
+    const double lineX = layout.lineX.at(line);
+    const auto boxOnLine = [&](int from, int to, skt::TextBox *out) {
+        for (const skt::TextBox &box :
+             paragraph.getRectsForRange(unsigned(from), unsigned(to), skt::RectHeightStyle::kMax,
+                                        skt::RectWidthStyle::kTight)) {
+            if (lineOfBox(lines, box) == line) {
+                *out = box;
+                return true;
+            }
+        }
+        return false;
+    };
+    const QList<int> &stops = layout.caretStops;
+    const int next = stopAbove(stops, pos + 1);
+    const auto before = std::lower_bound(stops.cbegin(), stops.cend(), pos);
+    skt::TextBox box(SkRect::MakeEmpty(), skt::TextDirection::kLtr);
+    // The grapheme after the caret, when it is on this line: its leading edge is the caret.
+    if (next > pos && next <= layout.lineEnd.at(line) && boxOnLine(pos, next, &box))
+        return lineX + (box.direction == skt::TextDirection::kLtr ? box.rect.left() : box.rect.right());
+    if (before != stops.cbegin() && *(before - 1) >= layout.lineStart.at(line) && boxOnLine(*(before - 1), pos, &box))
+        return lineX + (box.direction == skt::TextDirection::kLtr ? box.rect.right() : box.rect.left());
+    return lineX + (rightToLeft(layout.text) ? lm.fWidth : 0.0);
+}
+
+} // namespace
+
+const QList<int> &caretStops(const FragmentSet &set)
+{
+    static const QList<int> kNone;
+    return set.paragraph ? set.paragraph->caretStops : kNone;
+}
+
+QRectF caretRect(const FragmentSet &set, int pos)
+{
+    std::lock_guard<std::recursive_mutex> lock(drift::skia::textLayoutMutex());
+    skt::Paragraph *paragraph = paragraphIn(set);
+    if (!paragraph || set.paragraph->lineStart.isEmpty())
+        return {};
+    const ParagraphLayout &layout = *set.paragraph;
+    std::vector<skt::LineMetrics> lines;
+    paragraph->getLineMetrics(lines);
+    if (lines.empty())
+        lines.emplace_back(size_t(0), size_t(0), size_t(0), size_t(0), true);
+    pos = qBound(0, pos, int(layout.text.size()));
+    const int line = qMin(lineOf(layout, pos), int(lines.size()) - 1);
+    const double top = layout.lineBaseline.at(line) - layout.lineAscent.at(line);
+    return QRectF(caretX(*paragraph, layout, lines, line, pos), top, 0.0,
+                  layout.lineAscent.at(line) + layout.lineDescent.at(line));
+}
+
+QList<QRectF> selectionRects(const FragmentSet &set, int from, int to)
+{
+    std::lock_guard<std::recursive_mutex> lock(drift::skia::textLayoutMutex());
+    skt::Paragraph *paragraph = paragraphIn(set);
+    if (!paragraph || set.paragraph->lineStart.isEmpty())
+        return {};
+    const ParagraphLayout &layout = *set.paragraph;
+    from = qBound(0, from, int(layout.text.size()));
+    to = qBound(0, to, int(layout.text.size()));
+    if (from > to)
+        std::swap(from, to);
+    if (from == to)
+        return {};
+    std::vector<skt::LineMetrics> lines;
+    paragraph->getLineMetrics(lines);
+    if (lines.empty())
+        return {};
+
+    QMap<int, QList<QPair<double, double>>> spans; // line -> [left, right]
+    for (const skt::TextBox &box : paragraph->getRectsForRange(unsigned(from), unsigned(to),
+                                                               skt::RectHeightStyle::kMax,
+                                                               skt::RectWidthStyle::kTight)) {
+        if (box.rect.width() < 0.01f)
+            continue;
+        const int line = qMin(lineOfBox(lines, box), int(layout.lineX.size()) - 1);
+        const double x = layout.lineX.at(line);
+        spans[line].append({x + box.rect.left(), x + box.rect.right()});
+    }
+    QList<QRectF> out;
+    for (auto it = spans.begin(); it != spans.end(); ++it) {
+        QList<QPair<double, double>> &list = it.value();
+        std::sort(list.begin(), list.end());
+        const double top = layout.lineBaseline.at(it.key()) - layout.lineAscent.at(it.key());
+        const double height = layout.lineAscent.at(it.key()) + layout.lineDescent.at(it.key());
+        double left = list.first().first;
+        double right = list.first().second;
+        for (int i = 1; i < list.size(); ++i) {
+            if (list.at(i).first > right + 0.5) {
+                out.append(QRectF(left, top, right - left, height));
+                left = list.at(i).first;
+            }
+            right = qMax(right, list.at(i).second);
+        }
+        out.append(QRectF(left, top, right - left, height));
     }
     return out;
 }
+
+int hitTest(const FragmentSet &set, const QPointF &local)
+{
+    std::lock_guard<std::recursive_mutex> lock(drift::skia::textLayoutMutex());
+    skt::Paragraph *paragraph = paragraphIn(set);
+    if (!paragraph || set.paragraph->lineStart.isEmpty())
+        return 0;
+    const ParagraphLayout &layout = *set.paragraph;
+    if (layout.text.isEmpty())
+        return 0;
+    std::vector<skt::LineMetrics> lines;
+    paragraph->getLineMetrics(lines);
+    if (lines.empty())
+        return 0;
+
+    int line = 0;
+    double bestDistance = std::numeric_limits<double>::max();
+    for (int i = 0; i < layout.lineBaseline.size() && i < int(lines.size()); ++i) {
+        const double mid = layout.lineBaseline.at(i) + (layout.lineDescent.at(i) - layout.lineAscent.at(i)) * 0.5;
+        const double distance = std::abs(local.y() - mid);
+        if (distance < bestDistance) {
+            bestDistance = distance;
+            line = i;
+        }
+    }
+    const skt::LineMetrics &lm = lines[size_t(line)];
+    const double y = lm.fBaseline - layout.lineAscent.at(line) * 0.5 + layout.lineDescent.at(line) * 0.5;
+    int pos = int(paragraph->getGlyphPositionAtCoordinate(float(local.x() - layout.lineX.at(line)), float(y)).position);
+    pos = qBound(layout.lineStart.at(line), pos, int(layout.text.size()));
+    // Past the end of a soft-wrapped line Skia answers with the next line's first offset, which
+    // would put the caret on that line; stay before the spaces the wrap left.
+    if (line + 1 < layout.lineStart.size() && pos >= layout.lineStart.at(line + 1))
+        pos = qMax(layout.lineStart.at(line), layout.lineVisibleEnd.at(line));
+    return stopNearest(layout.caretStops, pos);
+}
+
+std::pair<int, int> wordAt(const FragmentSet &set, int pos)
+{
+    std::lock_guard<std::recursive_mutex> lock(drift::skia::textLayoutMutex());
+    skt::Paragraph *paragraph = paragraphIn(set);
+    if (!paragraph || !set.paragraph || set.paragraph->text.isEmpty())
+        return {0, 0};
+    const ParagraphLayout &layout = *set.paragraph;
+    pos = qBound(0, pos, int(layout.text.size()) - 1);
+    const auto range = paragraph->getWordBoundary(unsigned(pos));
+    int start = qBound(0, int(range.start), int(layout.text.size()));
+    int end = qBound(start, int(range.end), int(layout.text.size()));
+    return {stopBelow(layout.caretStops, start), stopAbove(layout.caretStops, end)};
+}
+
+int lineMoveCaret(const FragmentSet &set, int pos, int deltaLines, double preferredX)
+{
+    std::lock_guard<std::recursive_mutex> lock(drift::skia::textLayoutMutex());
+    if (!set.paragraph || set.paragraph->lineStart.isEmpty())
+        return pos;
+    const ParagraphLayout &layout = *set.paragraph;
+    pos = qBound(0, pos, int(layout.text.size()));
+    const int target = lineOf(layout, pos) + deltaLines;
+    if (target < 0)
+        return 0;
+    if (target >= layout.lineStart.size())
+        return int(layout.text.size());
+    if (std::isnan(preferredX))
+        preferredX = caretRect(set, pos).x();
+    const double mid = layout.lineBaseline.at(target) + (layout.lineDescent.at(target) - layout.lineAscent.at(target)) * 0.5;
+    return hitTest(set, QPointF(preferredX, mid));
+}
+
+int lineEdge(const FragmentSet &set, int pos, bool end)
+{
+    if (!set.paragraph || set.paragraph->lineStart.isEmpty())
+        return pos;
+    const ParagraphLayout &layout = *set.paragraph;
+    const int line = lineOf(layout, qBound(0, pos, int(layout.text.size())));
+    if (!end)
+        return stopBelow(layout.caretStops, layout.lineStart.at(line));
+    const bool last = line + 1 >= layout.lineStart.size();
+    const int target = last || layout.lineHardBreak.at(line)
+                           ? layout.lineEnd.at(line)
+                           : qMax(layout.lineStart.at(line), layout.lineVisibleEnd.at(line));
+    return stopBelow(layout.caretStops, target);
+}
+
+#else
+
+int unresolvedGlyphs(const ParagraphLayout &)
+{
+    return 0;
+}
+
+QString firstFontFamily(const ParagraphLayout &)
+{
+    return {};
+}
+
+TextLayoutResult layoutStyledText(const QString &, const drift::TextStyle &, double, double, double, int,
+                                  WordSplit)
+{
+    return {};
+}
+
+const QList<int> &caretStops(const FragmentSet &)
+{
+    static const QList<int> kNone;
+    return kNone;
+}
+
+QRectF caretRect(const FragmentSet &, int)
+{
+    return {};
+}
+
+QList<QRectF> selectionRects(const FragmentSet &, int, int)
+{
+    return {};
+}
+
+int hitTest(const FragmentSet &, const QPointF &)
+{
+    return 0;
+}
+
+std::pair<int, int> wordAt(const FragmentSet &, int)
+{
+    return {0, 0};
+}
+
+int lineMoveCaret(const FragmentSet &, int pos, int, double)
+{
+    return pos;
+}
+
+int lineEdge(const FragmentSet &, int pos, bool)
+{
+    return pos;
+}
+
+#endif // DRIFT_WITH_SKIA
+
 
 double textBendRise(const drift::TextStyle &style)
 {
@@ -487,32 +1056,16 @@ const drift::TextHighlight *highlightFor(const drift::TextStyle &style, bool acc
 // Fill every word's outline shape into a scratch image and blur it once. One pass serves the whole
 
 
-// The fonts differ only when the pack scales its accent words — which is exactly when the layout
-// needs QTextLayout formats.
-StyleFonts fontsForStyle(const drift::TextStyle &style, double renderScale)
-{
-    StyleFonts fonts;
-    fonts.base = fontForStyle(style, qRound(style.pixelSize * renderScale));
-    if (!qFuzzyIsNull(style.letterSpacing))
-        fonts.base.setLetterSpacing(QFont::AbsoluteSpacing, style.letterSpacing * renderScale);
-
-    fonts.accent = fonts.base;
-    const double scale = style.accent.sizeScale;
-    if (style.accent.rule != drift::WordAccentRule::None && scale > 0.0 && !qFuzzyCompare(scale, 1.0))
-        fonts.accent.setPixelSize(qMax(1, qRound(style.pixelSize * scale * renderScale)));
-    return fonts;
-}
-
 // Everything the block actually paints over: outlined glyphs plus any highlight pills. The box
 // background sizes to this.
 QRectF paintedBounds(const QList<StyledWord> &words, const drift::TextStyle &style, double renderScale)
 {
     QRectF bounds;
     for (const StyledWord &word : words) {
-        // An emoji has no path, so its cell is what the box background and the per-span ink test
+        // A colour glyph has no path, so its cell is what the box background and the per-span ink test
         // have to size to — otherwise an emoji-only span is treated as empty and dropped.
         const double grow = drift::textStrokeWidth(style, word.accent) * renderScale;
-        QRectF piece = word.emojiText.isEmpty() ? word.inkRect.adjusted(-grow, -grow, grow, grow) : word.cellRect;
+        QRectF piece = word.colour ? word.cellRect : word.inkRect.adjusted(-grow, -grow, grow, grow);
         if (const drift::TextHighlight *highlight = highlightFor(style, word.accent)) {
             const double pad = highlight->padding * renderScale;
             piece = piece.united(word.cellRect.adjusted(-pad, -pad, pad, pad));
@@ -545,8 +1098,9 @@ std::shared_ptr<const FragmentSet> fragmentsFor(const QString &text, const drift
     auto set = std::make_shared<FragmentSet>();
     set->key = key;
     set->split = split;
-    const StyleFonts fonts = fontsForStyle(style, renderScale);
-    set->frags = layoutStyledText(text, style, fonts.base, fonts.accent, wrapWidth, blockHeight, activeWordIndex, split);
+    TextLayoutResult laid = layoutStyledText(text, style, renderScale, wrapWidth, blockHeight, activeWordIndex, split);
+    set->frags = std::move(laid.words);
+    set->paragraph = std::move(laid.paragraph);
     set->infos.reserve(set->frags.size());
     int lines = 0;
     int words = 0;
