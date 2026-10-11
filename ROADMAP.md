@@ -26,27 +26,29 @@ casilla al terminarla. Última actualización: 2026-10-10 (noche).
 
 ## Qué sigue
 
-Dónde estamos: la app de escritorio va por la **v0.8.2** **v0.8.3** (publicada en GitHub el 2026-10-10; falta
-subirla a la Microsoft Store) y el **editor web** va por la etapa 5 de 6 (edita, pone las 28 transiciones y exporta MP4; se
-anunciará al terminar las etapas 5 y 6). Los dos frentes avanzan por separado; este es el orden recomendado.
+Dónde estamos: la app de escritorio va por la **v0.9.0** (publicada en GitHub el 2026-10-10; falta el
+TXT `version` → `0.9.0` y subirla a la Microsoft Store) y el **editor web** va por la etapa 5 de 6 (edita, pone
+las 28 transiciones y exporta MP4; se anunciará al terminar las etapas 5 y 6). Los dos frentes avanzan por
+separado; este es el orden recomendado.
 
 ### App de escritorio (Windows)
-1. ~~Esperar la certificación de la Store de la 0.8.2.0~~ — publicada el 2026-10-10.
-2. ~~**v0.8.3 — sin funciones rotas a la vista**~~ (2026-10-10): Market oculto sin servicio propio,
-   Extras dice "Descargas próximamente", barras de íconos más anchas. Falta: TXT `version` → `0.8.3`
-   y la actualización en la Store.
+1. ~~v0.8.2 y v0.8.3~~ — publicadas (2026-10-10).
    - Las compilaciones de escritorio se lanzan cuando hay varios cambios juntos, no por cada uno.
-3. **Add-ons propios (Fase 3.1) — v0.9.0** (rama `flip/v0.9.0`). Hecho el 2026-10-10:
-   - Clave de firma propia (Ed25519; la privada en `Downloads\FlipStudio-secretos`, con copia de
-     seguridad) y la app ya confía solo en ella. Los tests de C++ aceptan los paquetes firmados así.
-   - Repo [`bajoelabrigo/flip-addons`](https://github.com/bajoelabrigo/flip-addons) con el empaquetador
-     (`driftpkg.py`) y las recetas (`build.py`). Paquetes en su release `packages`; índice en
-     `getflipstudio.com/addons/index.json`.
-   - Primeros paquetes: **subtítulos automáticos** (Whisper small, 699 MB), **motor de IA** (ONNX
-     Runtime 1.27.0, CPU) y **32 fuentes**.
-   - Falta: compilar la 0.9.0 y probar en la app instalar y transcribir; luego **stickers** y un paquete
-     de **efectos de sonido** propio (sintetizado, sin licencias, como los de tu proyecto de Remotion).
-     Valorar Whisper `medium` (mejor en español, unos 1,5 GB) como opción aparte.
+2. ~~**v0.9.0 — extras propios, texto y subtítulos**~~ (2026-10-10):
+   - Clave de firma propia (Ed25519; la privada en `Downloads\FlipStudio-secretos`, con copia de seguridad).
+     Repo [`bajoelabrigo/flip-addons`](https://github.com/bajoelabrigo/flip-addons) con el empaquetador y las
+     recetas; paquetes en su release `packages`; índice en `getflipstudio.com/addons/index.json`.
+   - 11 extras: subtítulos (Whisper small y medium), sincronización por palabra (wav2vec2 español), motor de IA,
+     aceleración WebGPU (experimental), 104 fuentes, 52 plantillas de texto, 150 emojis 3D y 67 stickers animados.
+   - Texto y subtítulos: selector de fuentes, importar fuentes, plantillas combinadas, estilo antes de generar,
+     cortes naturales, limpieza, diccionario, buscar y reemplazar, emojis, traducción al inglés, `*resaltar*`.
+   - Línea de tiempo y vista previa al estilo CapCut (dividir, borrar izquierda/derecha, herramientas según el
+     clip, zoom y relación de aspecto).
+   - Pruebas de punta a punta sin ventana (`flipstudio.exe --headless --mcp-stdio`): ver el script en la
+     sesión del 2026-10-10. La aceleración WebGPU apenas ayuda con Whisper int8 (63 s contra 69 s en 45 s
+     de video); Whisper medium int8 en procesador es tan rápido como small fp16 y más preciso.
+3. Siguiente: un paquete de **efectos de sonido** propio (sintetizado, sin licencias) y más packs de stickers
+   y plantillas; recortar silencios y muletillas a partir de la transcripción.
 4. **Primera sincronización con Drift (3.3)** para traer sus mejoras y arreglos, y desde ahí una vez al mes.
 5. **Stock de Pexels (3.2)**: requiere el backend `api.getflipstudio.com`, que también servirá para las cuentas (Fase 6).
 6. **Firma de código** del instalador cuando haya presupuesto (quita el aviso de SmartScreen en la descarga directa).
