@@ -36,8 +36,9 @@ separado; este es el orden recomendado.
    - Las compilaciones de escritorio se lanzan cuando hay varios cambios juntos, no por cada uno.
 2. ~~**v0.9.0 — extras propios, texto y subtítulos**~~ (2026-10-10):
    - Clave de firma propia (Ed25519; la privada en `Downloads\FlipStudio-secretos`, con copia de seguridad).
-     Repo [`bajoelabrigo/flip-addons`](https://github.com/bajoelabrigo/flip-addons) con el empaquetador y las
-     recetas; paquetes en su release `packages`; índice en `getflipstudio.com/addons/index.json`.
+     Repo privado `bajoelabrigo/flip-addons` con el empaquetador y las recetas; los paquetes se descargan del
+     release `packages` del repo público [`bajoelabrigo/flipstudio-extras`](https://github.com/bajoelabrigo/flipstudio-extras);
+     índice en `getflipstudio.com/addons/index.json`.
    - 11 extras: subtítulos (Whisper small y medium), sincronización por palabra (wav2vec2 español), motor de IA,
      aceleración WebGPU (experimental), 104 fuentes, 52 plantillas de texto, 150 emojis 3D y 67 stickers animados.
    - Texto y subtítulos: selector de fuentes, importar fuentes, plantillas combinadas, estilo antes de generar,
@@ -173,11 +174,24 @@ separado; este es el orden recomendado.
   - [ ] Splash screen con el logo (`scripts/gen-android-icons.sh` apunta a un archivo que no existe).
 - [ ] **macOS**: ícono propio (`resources/macos/Drift.icon` y `Drift.icns`), firma y notarización de Apple (cuenta de desarrollador, 99 USD/año), Homebrew tap propio.
 
+## Modelo de licencias (decidido el 2026-10-11)
+
+Modelo mixto: la app de escritorio sigue siendo software libre (GPL-3.0, como Drift, del que deriva);
+lo que es 100 % de Flip Studio es propio:
+
+- **Editor web**: código cerrado desde el 2026-10-11 (repo privado). Ya no contiene código de Drift:
+  transiciones, animaciones y estilos de texto propios. Las versiones anteriores siguen bajo AGPL-3.0.
+- **Extras propios** (efectos de sonido, plantillas de texto, stickers): *Licencia de contenido Flip
+  Studio* desde esa fecha (uso libre en videos, también comerciales; prohibido redistribuirlos). Los
+  paquetes publicados antes como CC0 siguen CC0.
+- **Herramientas de los extras** (`flip-addons`): privadas.
+- Pendiente del dueño: registrar la marca "Flip Studio" y el logo en INDECOPI.
+
 ## Fase 5 — Versión web (React)
 
-- [x] Proyecto Vite + React + TypeScript, repo público https://github.com/bajoelabrigo/flipstudio-app (AGPL-3.0, `C:\Users\bajoe\Downloads\flipstudio-app`) — 2026-10-10.
+- [x] Proyecto Vite + React + TypeScript, repo `bajoelabrigo/flipstudio-app` (`C:\Users\bajoe\Downloads\flipstudio-app`) — 2026-10-10; privado y de código cerrado desde el 2026-10-11.
 - [x] Publicado en https://getflipstudio.com/editor/ (sin anunciar: `noindex` y sin enlace desde la web) con `deploy/deploy.sh` del repo del editor; nginx lo sirve desde `/var/www/flipstudio-app/editor` con su propio snippet (2026-10-10).
-- [ ] Anunciarlo cuando estén las etapas 5 y 6 (decidido el 2026-10-10): botón "Editar en el navegador" en la web y quitar el `noindex`.
+- [x] Anunciado (2026-10-11): botón "Editar en línea" en la web, sin `noindex` y en el mapa del sitio.
 - [ ] Reproducción y decodificación con **WebCodecs**; composición con **WebGL/WebGPU**.
   - [x] Etapa 1: importar (botón y arrastrar), análisis de MP4/MOV con mp4box.js + WebCodecs, miniaturas desde los fotogramas clave, vista previa en lienzo con audio y avance por fotograma, línea de tiempo con cabezal. WebM y MKV usan el reproductor del navegador.
   - [x] Etapa 2: pista principal magnética con varios clips (añadir con +, doble clic o arrastrando), dividir, recortar los bordes, reordenar, deshacer/rehacer, zoom; la vista previa reproduce la secuencia preparando el siguiente clip. 10 pruebas con Vitest en el CI.
