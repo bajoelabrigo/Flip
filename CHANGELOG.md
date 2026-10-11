@@ -12,6 +12,11 @@ registro heredado de Drift.
   texto sin el paquete de fuentes no se dibujaba.
 - Se conservan el resaltado `*palabra*`, el selector de fuentes propio (ahora con las del sistema), las
   herramientas de subtítulos, la barra tipo CapCut y la pestaña de efectos de sonido.
+- Pestaña Audio como la de CapCut: Básico (fundidos solo del sonido con `setClipAudioFade`,
+  normalizar a −14 LUFS según ITU-R BS.1770 con `normalizeClipLoudness`, mejorar voz, completar canal
+  con el procesador nuevo `channelfill`) y Modificador de voz (`VoiceChanger.qml`, `setVoiceFilter`):
+  las voces son los efectos `voz.*` del extra "Modificador de voz" (flip-addons/voces.py, 116 voces
+  hechas con los pedales del motor).
 - Extras propios nuevos: "Voz con IA" (`voz.chatterbox`, decodificador exportado con
   flip-addons/tts_export.py) y "Visor de PDF" (`pdfium`, PDFium chromium/8066).
 - El menú del selector de fuentes se queda dentro de la ventana; los estilos "Simple" y "Negrita"
