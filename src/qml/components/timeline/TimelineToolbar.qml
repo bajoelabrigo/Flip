@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Window
 import QtQuick.Controls.Basic
 import Drift
 import ".."
@@ -46,6 +47,28 @@ Item {
                        tip: qsTr("Trim start — click a clip to drop everything left of the cut") },
         "trimEnd": { glyph: Theme.icons.trimEnd, label: qsTr("Trim end"),
                      tip: qsTr("Trim end — click a clip to drop everything right of the cut") },
+        "split": { glyph: "square-split-horizontal", label: qsTr("Split"),
+                   tip: qsTr("Split at the current time"), shortcut: "split" },
+        "deleteLeft": { glyph: Theme.icons.trimStart, label: qsTr("Delete left"),
+                        tip: qsTr("Delete left — remove the selected clip's part before the current time"),
+                        shortcut: "deleteLeft" },
+        "deleteRight": { glyph: Theme.icons.trimEnd, label: qsTr("Delete right"),
+                         tip: qsTr("Delete right — remove the selected clip's part after the current time"),
+                         shortcut: "deleteRight" },
+        "flip": { glyph: "flip-horizontal-2", label: qsTr("Mirror"), tip: qsTr("Mirror the selected clip") },
+        // Shown only while a clip they apply to is selected, as in CapCut.
+        "crop": { glyph: Theme.icons.crop, label: qsTr("Crop"), tip: qsTr("Crop the selected video") },
+        "transform": { glyph: "flip-horizontal-2", label: qsTr("Reverse, mirror, rotate"),
+                       tip: qsTr("Reverse, mirror or rotate the selected clip"), menu: true },
+        "transcribe": { glyph: Theme.icons.captions, label: qsTr("Transcription"),
+                        tip: qsTr("Transcription — create captions from what is said") },
+        "removeBg": { glyph: "eraser", label: qsTr("Remove background"),
+                      tip: qsTr("Remove background — cut out the person or subject") },
+        "enhanceAudio": { glyph: "audio-waveform", label: qsTr("Enhance audio"),
+                          tip: qsTr("Enhance audio — reduce noise or enhance the voice"), menu: true },
+        "enhanceVideo": { glyph: Theme.icons.sparkles, label: qsTr("Enhance video"),
+                          tip: qsTr("Enhance video — sharper, cleaner picture (HD)") },
+        "rotate": { glyph: "rotate-cw-square", label: qsTr("Rotate"), tip: qsTr("Rotate the selected clip 90°") },
         "undo": { glyph: Theme.icons.undo, label: qsTr("Undo"), shortcut: "undo" },
         "redo": { glyph: Theme.icons.redo, label: qsTr("Redo"), shortcut: "redo" },
         "delete": { glyph: Theme.icons.trash, label: qsTr("Delete clip"), shortcut: "delete" },
@@ -72,15 +95,46 @@ Item {
                     tip: qsTr("Add camera — one viewpoint the whole timeline is seen through. With a camera already there, adds a new camera clip (a cut to a new framing) at the playhead") }
     })
 
+    // Laid out like CapCut's: tools, history, the cut group, then what acts on the selected clip.
     readonly property var defaultToolbarItems: [
-        "select", "cut", "separator", "undo", "redo", "delete", "separator",
-        "separateAudio", "unlink"
+        "select", "cut", "separator", "undo", "redo", "separator",
+        "split", "deleteLeft", "deleteRight", "delete", "bookmark", "separator",
+        "crop", "freeze", "transform", "transcribe", "removeBg", "separateAudio", "enhanceAudio",
+        "enhanceVideo", "unlink"
     ]
     readonly property var defaultMenuItems: [
         "trimStart", "trimEnd", "separator", "copy", "paste", "duplicate", "separator",
-        "bookmark", "markIn", "markOut", "loop", "clearWorkArea", "separator",
-        "merge", "freeze", "adjustmentLayer", "transformLayer", "camera"
+        "markIn", "markOut", "loop", "clearWorkArea", "separator",
+        "merge", "flip", "rotate", "adjustmentLayer", "transformLayer", "camera"
     ]
+
+    readonly property bool hasSelection: EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
+    readonly property string selectedKind: {
+        const data = EditorState.selectedClipData
+        return (data && data.kind) ? data.kind : ""
+    }
+    readonly property bool selectionIsVideo: hasSelection && selectedKind === "video"
+    readonly property bool selectionHasSound: hasSelection && (selectedKind === "video" || selectedKind === "audio")
+
+    // The choices behind a menu button.
+    function menuEntries(id) {
+        if (id === "transform")
+            return [
+                { id: "reverse", label: qsTr("Reverse"), glyph: Theme.icons.rewind, enabled: toolbar.selectionIsVideo },
+                { id: "flip", label: qsTr("Mirror"), glyph: "flip-horizontal-2", enabled: toolbar.selectionIsVisual },
+                { id: "rotate", label: qsTr("Rotate 90°"), glyph: "rotate-cw-square", enabled: toolbar.selectionIsVisual }
+            ]
+        if (id === "enhanceAudio")
+            return [
+                { id: "denoise", label: qsTr("Reduce noise"), glyph: Theme.icons.volumeOff, enabled: toolbar.selectionHasSound },
+                { id: "enhanceVoice", label: qsTr("Enhance voice"), glyph: Theme.icons.mic, enabled: toolbar.selectionHasSound }
+            ]
+        return []
+    }
+
+    // Clips with a picture to turn or mirror.
+    readonly property bool selectionIsVisual: hasSelection && selectedKind !== "audio"
+                                              && selectedKind !== "subtitle" && selectedKind !== "adjustment"
 
     // The stored layout, cleaned: unknown or repeated ids are dropped and any action missing
     // from both lists (one added in a later version) lands at the end of the menu.
@@ -121,6 +175,43 @@ Item {
         case "trimEnd": panel.timelineTool = panel.timelineTool === "trimEnd" ? "" : "trimEnd"; break
         case "separateAudio": EditorState.separateAudioFromSelection(); break
         case "unlink": EditorState.unlinkSelectedClips(); break
+        case "split": EditorState.triggerAction("split"); break
+        case "crop": toolbar.Window.window.openSourceFrame(EditorState.selectedTrack, EditorState.selectedClip); break
+        case "transcribe": toolbar.Window.window.showAssetsTab("subtitles"); break
+        case "removeBg": {
+            const data = EditorState.selectedClipData
+            toolbar.Window.window.openSegmentation(EditorState.selectedTrack, EditorState.selectedClip,
+                                                   data && data.start !== undefined ? data.start : 0,
+                                                   data && data.duration !== undefined ? data.duration : 0)
+            break
+        }
+        case "enhanceVideo": toolbar.Window.window.openRestore(EditorState.selectedTrack, EditorState.selectedClip); break
+        case "reverse": EditorState.requestClipReverse(EditorState.selectedTrack, EditorState.selectedClip); break
+        case "denoise": {
+            const data = EditorState.selectedClipData
+            toolbar.Window.window.openDenoise(EditorState.selectedTrack, EditorState.selectedClip,
+                                              data && data.duration !== undefined ? data.duration : 0)
+            break
+        }
+        case "enhanceVoice": EditorState.enhanceVoice(EditorState.selectedTrack, EditorState.selectedClip); break
+        // From the overflow menu, where there is no submenu: the first choice.
+        case "transform": toolbar.triggerAction("flip"); break
+        case "enhanceAudio": toolbar.triggerAction("denoise"); break
+        case "deleteLeft": EditorState.splitSelectedClipLeft(); break
+        case "deleteRight": EditorState.splitSelectedClipRight(); break
+        case "flip": {
+            const data = EditorState.selectedClipData
+            EditorState.setClipFlip(EditorState.selectedTrack, EditorState.selectedClip,
+                                    !(data && data.flipH), !!(data && data.flipV))
+            break
+        }
+        case "rotate": {
+            const data = EditorState.selectedClipData
+            const current = (data && data.orientation) ? data.orientation : 0
+            EditorState.setClipOrientation(EditorState.selectedTrack, EditorState.selectedClip,
+                                           (current + 90) % 360)
+            break
+        }
         case "undo": EditorState.undo(); break
         case "redo": EditorState.redo(); break
         case "delete": EditorState.deleteSelectedClip(); break
@@ -150,6 +241,12 @@ Item {
         case "clearWorkArea": return EditorState.workAreaInSeconds >= 0
                                      || EditorState.workAreaOutSeconds >= 0
         case "merge": return EditorState.mergeAvailable
+        case "deleteLeft":
+        case "deleteRight":
+        case "delete":
+        case "freeze": return toolbar.hasSelection
+        case "flip":
+        case "rotate": return toolbar.selectionIsVisual
         }
         return true
     }
@@ -176,6 +273,17 @@ Item {
             return EditorState.separateAudioAvailable
         if (id === "unlink")
             return EditorState.unlinkAvailable
+        switch (id) {
+        case "crop":
+        case "freeze":
+        case "removeBg":
+        case "enhanceVideo": return toolbar.selectionIsVideo
+        case "transform":
+        case "flip":
+        case "rotate": return toolbar.selectionIsVisual
+        case "transcribe":
+        case "enhanceAudio": return toolbar.selectionHasSound
+        }
         return true
     }
 
@@ -202,7 +310,7 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin: Theme.spacingLg
         anchors.verticalCenter: parent.verticalCenter
-        spacing: Theme.spacingXs
+        spacing: Theme.spacingLg
         // Never runs under the right-hand controls; buttons past the
         // available width are clipped rather than overlapping. Worked out from
         // widths, not x: under RTL mirroring the two groups swap edges.
@@ -244,15 +352,19 @@ Item {
                          ? toolbar.separatorNeeded(toolbar.layout.toolbar, index,
                                                    toolbar.actionShownOnToolbar)
                          : toolbar.actionShownOnToolbar(modelData)
-                width: isSeparator ? Theme.borderWidth : actionButton.width
+                width: isSeparator ? Theme.borderWidth + Theme.spacingLg * 2 : actionButton.width
                 height: isSeparator ? Theme.spacing3xl : actionButton.height
                 anchors.verticalCenter: parent ? parent.verticalCenter : undefined
 
                 Rectangle {
                     visible: slot.isSeparator
-                    anchors.fill: parent
+                    anchors.centerIn: parent
+                    width: Theme.borderWidth
+                    height: parent.height
                     color: Theme.panelBorder
                 }
+
+                readonly property bool isMenu: !slot.isSeparator && !!toolbar.actionMeta[slot.modelData].menu
 
                 IconButton {
                     id: actionButton
@@ -260,9 +372,37 @@ Item {
                     glyph: slot.isSeparator ? "" : toolbar.actionMeta[slot.modelData].glyph
                     variant: "text"
                     tooltip: slot.isSeparator ? "" : toolbar.actionTooltip(slot.modelData)
-                    active: toolbar.actionActive(slot.modelData)
+                    active: toolbar.actionActive(slot.modelData) || slotMenu.opened
                     enabled: toolbar.actionEnabled(slot.modelData)
-                    onClicked: toolbar.triggerAction(slot.modelData)
+                    onClicked: slot.isMenu ? slotMenu.popup(actionButton, 0, actionButton.height)
+                                           : toolbar.triggerAction(slot.modelData)
+                }
+
+                // A small mark that the button opens a menu.
+                IconGlyph {
+                    visible: slot.isMenu
+                    anchors.right: actionButton.right
+                    anchors.bottom: actionButton.bottom
+                    anchors.rightMargin: -2
+                    glyph: Theme.icons.chevronDown
+                    iconSize: 8
+                    iconColor: Theme.mutedForeground
+                }
+
+                ThemedContextMenu {
+                    id: slotMenu
+                    Instantiator {
+                        model: slot.isMenu ? toolbar.menuEntries(slot.modelData) : []
+                        delegate: ThemedMenuItem {
+                            required property var modelData
+                            text: modelData.label
+                            icon.name: modelData.glyph
+                            enabled: modelData.enabled
+                            onTriggered: toolbar.triggerAction(modelData.id)
+                        }
+                        onObjectAdded: (index, object) => slotMenu.insertItem(index, object)
+                        onObjectRemoved: (index, object) => slotMenu.removeItem(object)
+                    }
                 }
             }
         }
@@ -470,7 +610,25 @@ Item {
         anchors.right: parent.right
         anchors.rightMargin: Theme.spacingLg
         anchors.verticalCenter: parent.verticalCenter
-        spacing: Theme.spacingSm
+        spacing: Theme.spacingLg
+
+        IconButton {
+            id: micButton
+            glyph: EditorState.isRecordingAudio ? Theme.icons.micOff : Theme.icons.mic
+            variant: "text"
+            active: EditorState.isRecordingAudio
+            tooltip: EditorState.isRecordingAudio ? qsTr("Stop recording")
+                                                  : qsTr("Record voiceover at the current time")
+            onClicked: EditorState.isRecordingAudio ? EditorState.stopAudioRecording()
+                                                    : EditorState.startAudioRecording(-1)
+        }
+
+        Rectangle {
+            width: Theme.borderWidth
+            height: Theme.spacing3xl
+            color: Theme.panelBorder
+            anchors.verticalCenter: parent.verticalCenter
+        }
 
         IconButton {
             id: magnetButton

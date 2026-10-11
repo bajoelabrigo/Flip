@@ -3,6 +3,7 @@
 #include "WhisperTokenizer.h"
 #include "GpuPackageParse.h"
 #include "OrtRuntime.h"
+#include "OrtSupport.h"
 #include "core/Time.h"
 
 #include <QByteArray>
@@ -52,6 +53,7 @@ constexpr int kVocab = 51865;
 constexpr int kSotToken = 50258;        // <|startoftranscript|>
 constexpr int kEosToken = 50257;        // <|endoftext|>
 constexpr int kTranscribeToken = 50359; // <|transcribe|>
+constexpr int kTranslateToken = 50358;  // <|translate|>
 constexpr int kNoTimestampsToken = 50363;
 constexpr int kTimestampBegin = 50364; // <|0.00|>
 constexpr int kMaxDecodeTokens = 224;  // per 30s window
@@ -135,17 +137,49 @@ QString languageDisplayName(const QString &code)
     return code;
 }
 
+// One part of the model ("encoder_model", "decoder_model", "decoder_with_past_model") in the
+// precision the folder ships: fp16 (Whisper small), int8 (medium, which fp16 makes too big to
+// download), or full float. Empty when the folder has none.
+QString whisperPartFile(const QString &dir, const QString &part)
+{
+    for (const char *suffix : {"_fp16.onnx", "_int8.onnx", "_quantized.onnx", ".onnx"}) {
+        const QString path = QDir(dir).filePath(part + QLatin1String(suffix));
+        if (QFile::exists(path))
+            return path;
+    }
+    return {};
+}
+
+// The model's width (d_model): 768 for small, 1024 for medium. 0 when config.json is missing.
+int whisperModelWidth(const QString &dir)
+{
+    QFile file(QDir(dir).filePath(QStringLiteral("config.json")));
+    if (!file.open(QIODevice::ReadOnly))
+        return 0;
+    return QJsonDocument::fromJson(file.readAll()).object().value(QStringLiteral("d_model")).toInt();
+}
+
+// With several models installed (small and medium), the largest: it transcribes better.
 QString resolveWhisperModelDir()
 {
     const QStringList roots =
         GpuPackageParse::defaultSearchPaths(QStringLiteral("DRIFT_WHISPER_MODEL_DIR"),
                                             QStringLiteral("models/whisper-small"),
                                             QStringLiteral("whisper-model"));
+    QString best;
+    int bestWidth = -1;
     for (const QString &root : roots) {
-        if (QFile::exists(QDir(root).filePath(QStringLiteral("encoder_model_fp16.onnx"))))
-            return root;
+        if (whisperPartFile(root, QStringLiteral("encoder_model")).isEmpty()
+            || whisperPartFile(root, QStringLiteral("decoder_model")).isEmpty()
+            || whisperPartFile(root, QStringLiteral("decoder_with_past_model")).isEmpty())
+            continue;
+        const int width = whisperModelWidth(root);
+        if (width > bestWidth) {
+            best = root;
+            bestWidth = width;
+        }
     }
-    return {};
+    return best;
 }
 
 // Parse "<|en|>" -> "en" from generation_config lang_to_id keys.
@@ -614,20 +648,25 @@ bool WhisperTranscriber::Impl::ensureLoaded()
 
     try {
         Ort::Env &ortEnv = ort::env();
-        Ort::SessionOptions opts;
-        opts.SetIntraOpNumThreads(std::max(1, QThread::idealThreadCount()));
-        // fp16 graph fusions (SimplifiedLayerNormFusion) crash on load; disable them.
-        opts.SetGraphOptimizationLevel(ORT_DISABLE_ALL);
-
         const QDir dir(modelDir);
-        encoder = std::make_unique<Ort::Session>(
-            ortEnv, ortPath(dir.filePath(QStringLiteral("encoder_model_fp16.onnx"))).c_str(), opts);
-        decoder = std::make_unique<Ort::Session>(
-            ortEnv, ortPath(dir.filePath(QStringLiteral("decoder_model_fp16.onnx"))).c_str(), opts);
-        decoderPast = std::make_unique<Ort::Session>(
-            ortEnv,
-            ortPath(dir.filePath(QStringLiteral("decoder_with_past_model_fp16.onnx"))).c_str(),
-            opts);
+        // With an acceleration addon (the WebGPU provider runs on any DirectX 12 card) Whisper
+        // runs on the graphics card; buildSessions falls back to the processor when it cannot.
+        QString sessionError;
+        const bool built = ort::buildSessions(ortEnv, "whisper", false, &sessionError, [&](Ort::SessionOptions &opts) {
+            // fp16 graph fusions (SimplifiedLayerNormFusion) crash on load; disable them.
+            opts.SetGraphOptimizationLevel(ORT_DISABLE_ALL);
+            encoder = std::make_unique<Ort::Session>(
+                ortEnv, ortPath(whisperPartFile(dir.path(), QStringLiteral("encoder_model"))).c_str(), opts);
+            decoder = std::make_unique<Ort::Session>(
+                ortEnv, ortPath(whisperPartFile(dir.path(), QStringLiteral("decoder_model"))).c_str(), opts);
+            decoderPast = std::make_unique<Ort::Session>(
+                ortEnv, ortPath(whisperPartFile(dir.path(), QStringLiteral("decoder_with_past_model"))).c_str(),
+                opts);
+        });
+        if (!built) {
+            error = QStringLiteral("Failed to load Whisper model: ") + sessionError;
+            return false;
+        }
 
         encInNames = names(*encoder, true);
         encOutNames = names(*encoder, false);
@@ -792,9 +831,9 @@ QVariantList WhisperTranscriber::supportedLanguages()
 
 WhisperResult WhisperTranscriber::transcribe(
     const std::vector<float> &pcm, const std::function<bool(double, const QString &)> &progress,
-    const QString &languageCode, int maxWordsPerCue)
+    const QString &languageCode, int maxWordsPerCue, bool translateToEnglish)
 {
-    WhisperResult result = transcribeSegments(pcm, progress, languageCode);
+    WhisperResult result = transcribeSegments(pcm, progress, languageCode, translateToEnglish);
     if (result.ok) {
         // Pack into short display lines like openai-whisper's VTT writer
         // (word_timestamps + max_line_width=42, max_line_count=1), optionally capped shorter still.
@@ -820,7 +859,7 @@ void WhisperTranscriber::unload()
 
 WhisperResult WhisperTranscriber::transcribeSegments(
     const std::vector<float> &pcm, const std::function<bool(double, const QString &)> &progress,
-    const QString &languageCode)
+    const QString &languageCode, bool translateToEnglish)
 {
     WhisperResult result;
     if (!d->ensureLoaded()) {
@@ -905,8 +944,9 @@ WhisperResult WhisperTranscriber::transcribeSegments(
             }
         }
 
-        // Prompt: <|sot|> <lang> <|transcribe|>  (timestamps enabled).
-        std::vector<int64_t> prompt{kSotToken, languageToken, kTranscribeToken};
+        // Prompt: <|sot|> <lang> <|transcribe|> or <|translate|>  (timestamps enabled).
+        std::vector<int64_t> prompt{kSotToken, languageToken,
+                                    translateToEnglish ? kTranslateToken : kTranscribeToken};
 
         const double windowFrac = static_cast<double>(cursor) / total;
         const std::vector<int> generated = d->decodeWindow(

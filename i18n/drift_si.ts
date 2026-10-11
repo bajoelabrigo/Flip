@@ -174,10 +174,6 @@
         <translation>ශ්‍රව්‍ය ප්‍රයෝග</translation>
     </message>
     <message>
-        <source>Fonts</source>
-        <translation>අකුරු විලාස</translation>
-    </message>
-    <message>
         <source>Stickers</source>
         <translation>ස්ටිකර්</translation>
     </message>
@@ -280,6 +276,10 @@
     <message>
         <source>Install</source>
         <translation>ස්ථාපනය කරන්න</translation>
+    </message>
+    <message>
+        <source>Text &amp; fonts</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Custom</source>
@@ -2243,6 +2243,10 @@
         <translation>පෙළ ක්ලිපය එක් කරන ලදී</translation>
     </message>
     <message>
+        <source>Text template added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Subtitles</source>
         <translation>උපසිරැසි</translation>
     </message>
@@ -3067,6 +3071,48 @@
         <translation>උපසිරැසි යාවත්කාලීන විය</translation>
     </message>
     <message>
+        <source>“%1” is not in these subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace in subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Replaced in %n caption(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Subtitles are already clean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean up subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles cleaned up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keywords for emojis in these subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Emojis added to %n caption(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
         <source>Adjust subtitle timing</source>
         <translation>උපසිරැසි කාලය සකසන්න</translation>
     </message>
@@ -3133,6 +3179,21 @@
     <message>
         <source>Text style imported</source>
         <translation>පෙළ විලාසය ආයාත කරන ලදී</translation>
+    </message>
+    <message>
+        <source>Font added: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n fonts added</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>That file is not a font this app can read</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Resize text</source>
@@ -3407,6 +3468,14 @@
         <translation>සංක්‍රාන්තිය යාවත්කාලීන විය</translation>
     </message>
     <message>
+        <source>Enhance voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice enhanced: noise gate, de-esser, compressor and leveler</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Track solo</source>
         <translation>ට්‍රැකය තනි කරන්න (Solo)</translation>
     </message>
@@ -3577,6 +3646,10 @@
     <message>
         <source>Stabilization analysis failed: %1</source>
         <translation>ස්ථාවර කිරීමේ විශ්ලේෂණය අසමත් විය: %1</translation>
+    </message>
+    <message>
+        <source>English subtitles</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -7233,6 +7306,34 @@
 <context>
     <name>FontCatalog</name>
     <message>
+        <source>My fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bold &amp; impact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elegant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Handwritten</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fun</source>
+        <translation type="unfinished">විනෝදජනක</translation>
+    </message>
+    <message>
+        <source>Retro</source>
+        <translation type="unfinished">රෙට්රෝ</translation>
+    </message>
+    <message>
         <source>High-Impact &amp; Bold</source>
         <translation>High-Impact සහ Bold</translation>
     </message>
@@ -7252,8 +7353,64 @@
 <context>
     <name>FontPicker</name>
     <message>
+        <source>Select a font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fonts (*.ttf *.otf)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished">ප්‍රියතමයන්</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">සියල්ල</translation>
+    </message>
+    <message>
+        <source>Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Install the font pack for curated families →</source>
         <translation>තෝරාගත් අකුරු පවුල් ලබාගැනීමට අකුරු පැකේජය ස්ථාපනය කරන්න →</translation>
+    </message>
+    <message>
+        <source>No fonts match “%1”</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star fonts to keep them here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fonts you use will appear here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing in this category</source>
+        <translation type="unfinished">මෙම ප්‍රවර්ගයේ කිසිවක් නැත</translation>
+    </message>
+    <message>
+        <source>Import font…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>More fonts</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -9941,6 +10098,38 @@ If playback stutters, try another.</source>
 <context>
     <name>PreviewTransportBar</name>
     <message>
+        <source>Fit</source>
+        <translation type="unfinished">සරිලන (Fit)</translation>
+    </message>
+    <message>
+        <source>YouTube, horizontal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation type="unfinished">සමචතුරස්‍රය</translation>
+    </message>
+    <message>
+        <source>Instagram post</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Classic</source>
+        <translation type="unfinished">සම්භාව්‍ය (Classic)</translation>
+    </message>
+    <message>
+        <source>Cinema</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 (%2)</source>
         <translation type="unfinished">%1 (%2)</translation>
     </message>
@@ -9979,6 +10168,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Jump forward 1s · Shift for 5s · Ctrl for 10s</source>
         <translation type="unfinished">තත් 1ක් ඉදිරියට පනින්න · තත් 5ක් සඳහා Shift · තත් 10ක් සඳහා Ctrl</translation>
+    </message>
+    <message>
+        <source>Preview zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aspect ratio of the video</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exit fullscreen preview (Esc)</source>
@@ -12721,6 +12918,10 @@ If playback stutters, try another.</source>
         <source>%1 — click to add, or drag to the timeline or preview</source>
         <translation>%1 — එක් කිරීමට ක්ලික් කරන්න, නැතහොත් කාලරේඛාව හෝ පෙරදසුන වෙත අදින්න</translation>
     </message>
+    <message>
+        <source>Animated</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StockBrowser</name>
@@ -12945,6 +13146,90 @@ If playback stutters, try another.</source>
         <translation>නිර්යාත කළ වීඩියෝවට ගැළපෙන පරිදි නිර්යාත උපසිරැසි මෙම ක්ලිපයේ ආරම්භක වේලාවෙන් විස්ථාපනය කරන්න</translation>
     </message>
     <message>
+        <source>Emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove hesitations (eh, mmm), capitalize each caption and apply your dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find &amp; replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fix a word in every caption at once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find (e.g. jesus)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace with (e.g. Jesús)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Always fix it in new subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adds it to your subtitle dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dictionary…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Words fixed automatically in every new subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitle dictionary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">සුරකින්න</translation>
+    </message>
+    <message>
+        <source>New subtitles fix these words on their own: names, places, words the speech recognition gets wrong.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Empty for now. Use Find &amp; replace with “Always fix it” to add words.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">ඉවත් කරන්න</translation>
+    </message>
+    <message>
+        <source>Wrong</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished">දකුණ</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Add</translation>
+    </message>
+    <message>
         <source>(empty)</source>
         <translation>(හිස්)</translation>
     </message>
@@ -12959,6 +13244,10 @@ If playback stutters, try another.</source>
     <message>
         <source>No subtitles yet. Move to a time inside this clip and add one below.</source>
         <translation>තවමත් උපසිරැසි නැත. මෙම ක්ලිපය තුළ ඇති වේලාවකට ගොස් පහතින් එකක් එක් කරන්න.</translation>
+    </message>
+    <message>
+        <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type subtitle…</source>
@@ -13063,6 +13352,22 @@ If playback stutters, try another.</source>
         <translation>පළමුව කාලරේඛාවේ වීඩියෝ හෝ ශ්‍රව්‍ය ක්ලිපයක් තෝරන්න.</translation>
     </message>
     <message>
+        <source>Caption style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove hesitations (eh, mmm) and capitalize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add emojis for keywords (fuego 🔥, Dios 🙏)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>කෙටි උපසිරැසි කාලගත කරනුයේ එක් එක් වාක්‍ය ඛණ්ඩය සමානව බෙදීමෙනි, එබැවින් ඒවා කථනය සමඟ තරමක් නොගැලපී පැවතිය හැක.</translation>
     </message>
@@ -13073,6 +13378,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Select a video or audio clip first</source>
         <translation>පළමුව වීඩියෝ හෝ ශ්‍රව්‍ය ක්ලිපයක් තෝරන්න</translation>
+    </message>
+    <message>
+        <source>Add English translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Creating captions… %1%</source>
@@ -13165,8 +13478,20 @@ If playback stutters, try another.</source>
         <translation>මකන්න</translation>
     </message>
     <message>
-        <source>Built-in</source>
-        <translation>බිල්ට්-ඉන්</translation>
+        <source>Templates</source>
+        <translation type="unfinished">ආකෘති</translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation type="unfinished">මූලික</translation>
+    </message>
+    <message>
+        <source>More…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get more templates</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rename text style</source>
@@ -13509,6 +13834,42 @@ If playback stutters, try another.</source>
     <message>
         <source>Glow</source>
         <translation>දීප්තිය (Glow)</translation>
+    </message>
+    <message>
+        <source>No accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>First word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every other word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every Nth word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longest word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spoken word (karaoke)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keywords (long words and numbers)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text</source>
@@ -14564,6 +14925,94 @@ If playback stutters, try another.</source>
         <translation>අවසානය කප්පාදුව — කැපුමට දකුණුපස ඇති සියල්ල ඉවත් කිරීමට ක්ලිපයක් මත ක්ලික් කරන්න</translation>
     </message>
     <message>
+        <source>Split</source>
+        <translation type="unfinished">බෙදන්න</translation>
+    </message>
+    <message>
+        <source>Split at the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete left — remove the selected clip&apos;s part before the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete right — remove the selected clip&apos;s part after the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirror</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirror the selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop</source>
+        <translation type="unfinished">කප්පාදු (Crop)</translation>
+    </message>
+    <message>
+        <source>Crop the selected video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse, mirror, rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse, mirror or rotate the selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transcription</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transcription — create captions from what is said</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove background — cut out the person or subject</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance audio — reduce noise or enhance the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance video — sharper, cleaner picture (HD)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished">කරකවන්න</translation>
+    </message>
+    <message>
+        <source>Rotate the selected clip 90°</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Undo</source>
         <translation>අහෝසි කරන්න</translation>
     </message>
@@ -14620,6 +15069,22 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation type="unfinished">ප්‍රතිලෝම කරන්න</translation>
+    </message>
+    <message>
+        <source>Rotate 90°</source>
+        <translation type="unfinished">90° ක් කරකවන්න</translation>
+    </message>
+    <message>
+        <source>Reduce noise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Main</source>
         <translation>ප්‍රධාන</translation>
     </message>
@@ -14634,6 +15099,14 @@ If playback stutters, try another.</source>
     <message>
         <source>No composite clips yet</source>
         <translation>තවමත් සංයුක්ත ක්ලිප් නැත</translation>
+    </message>
+    <message>
+        <source>Stop recording</source>
+        <translation type="unfinished">පටිගත කිරීම නවත්වන්න</translation>
+    </message>
+    <message>
+        <source>Record voiceover at the current time</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

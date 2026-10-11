@@ -122,7 +122,7 @@ QList<WordRange> wordRanges(const QString &source)
 // Whether a pack's rule picks out this word. Positional rules are pure functions of the index, so
 // the raster stays valid for the whole cue; Karaoke is the one rule that moves with the playhead.
 static bool accentedWord(const drift::WordAccent &accent, int index, int count, int longestIndex,
-                  int activeWordIndex)
+                  int activeWordIndex, bool keyword)
 {
     switch (accent.rule) {
     case drift::WordAccentRule::None:
@@ -144,6 +144,8 @@ static bool accentedWord(const drift::WordAccent &accent, int index, int count, 
     }
     case drift::WordAccentRule::Karaoke:
         return index == activeWordIndex;
+    case drift::WordAccentRule::Keywords:
+        return keyword;
     }
     return false;
 }
@@ -159,6 +161,18 @@ QList<StyledWord> layoutStyledText(const QString &text, const drift::TextStyle &
     QString source = text;
     source.replace(QLatin1Char('\n'), QChar::LineSeparator); // QTextLayout breaks on the separator
 
+    // *Marked* words: remember which, then draw them without the asterisks. Stripping inside a
+    // word keeps the word count, so karaoke indices still line up with the spoken words.
+    QList<bool> marked;
+    QList<bool> keywords;
+    for (const WordRange &range : wordRanges(source)) {
+        const QString word = source.mid(range.start, range.length);
+        marked.append(drift::isMarkedWord(word));
+        keywords.append(drift::isKeyword(drift::stripWordMark(word)));
+    }
+    if (marked.contains(true))
+        source = drift::textWithoutWordMarks(source);
+
     const QList<WordRange> ranges = wordRanges(source);
     if (ranges.isEmpty())
         return {};
@@ -172,7 +186,9 @@ QList<StyledWord> layoutStyledText(const QString &text, const drift::TextStyle &
     QList<bool> accentFlags;
     accentFlags.reserve(ranges.size());
     for (int i = 0; i < ranges.size(); ++i)
-        accentFlags.append(accentedWord(style.accent, i, ranges.size(), longestIndex, activeWordIndex));
+        accentFlags.append(marked.value(i)
+                           || accentedWord(style.accent, i, ranges.size(), longestIndex, activeWordIndex,
+                                           keywords.value(i)));
 
     QTextOption option;
     option.setWrapMode(style.wordWrap ? QTextOption::WordWrap : QTextOption::NoWrap);

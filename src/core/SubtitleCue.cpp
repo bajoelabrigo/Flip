@@ -83,7 +83,13 @@ QList<TimedWord> flattenWords(const QList<SubtitleCue> &cues)
         const QString trimmed = cue.text.trimmed();
         if (trimmed.isEmpty() || cue.endUs <= cue.startUs)
             continue;
-        all += wordsFromCue(cue);
+        QList<TimedWord> words = wordsFromCue(cue);
+        // A segment's first word carries no leading space; joined after the previous segment's
+        // last word it would glue to it ("noches,que").
+        if (!all.isEmpty() && !words.isEmpty() && !words.first().word.isEmpty()
+            && !words.first().word.front().isSpace())
+            words.first().word.prepend(QLatin1Char(' '));
+        all += words;
     }
     return all;
 }
@@ -199,11 +205,256 @@ QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineW
             ++wordCount;
         }
         lastStart = timing.startUs;
+
+        // Natural breaks: a sentence ends the caption, and a clause does once the line is half
+        // full, so a caption reads as a phrase instead of stopping wherever the width ran out.
+        const QString word = timing.word.trimmed();
+        if (!word.isEmpty() && maxWordsPerCue != 1) {
+            const QChar last = word.back();
+            const bool sentenceEnd = last == QLatin1Char('.') || last == QLatin1Char('?')
+                                     || last == QLatin1Char('!') || last == QChar(0x2026);
+            const bool clauseEnd = last == QLatin1Char(',') || last == QLatin1Char(';')
+                                   || last == QLatin1Char(':');
+            if (sentenceEnd || (clauseEnd && lineCount == maxLineCount && lineLen * 2 >= maxLineWidth))
+                flush();
+        }
     }
     flush();
 
     sortSubtitleCues(packed);
     return packed;
+}
+
+namespace {
+
+// Hesitations only: sounds, never words ("este", "o sea" are real Spanish and stay).
+bool isHesitation(const QString &word)
+{
+    static const QStringList kHesitations = {
+        QStringLiteral("eh"), QStringLiteral("ehh"), QStringLiteral("ehm"), QStringLiteral("em"),
+        QStringLiteral("emm"), QStringLiteral("mm"), QStringLiteral("mmm"), QStringLiteral("hmm"),
+        QStringLiteral("uh"), QStringLiteral("um"), QStringLiteral("umm"), QStringLiteral("ah"),
+        QStringLiteral("ahh"), QStringLiteral("eeh"), QStringLiteral("mmh"),
+    };
+    QString bare;
+    for (const QChar c : word)
+        if (c.isLetter())
+            bare.append(c.toLower());
+    return !bare.isEmpty() && kHesitations.contains(bare);
+}
+
+} // namespace
+
+QString cleanSubtitleText(const QString &text, bool capitalize)
+{
+    const QStringList words = text.split(QLatin1Char(' '), Qt::SkipEmptyParts);
+    QStringList kept;
+    QString opening; // "¿" / "¡" a dropped hesitation opened with, for the next word
+    for (const QString &word : words) {
+        if (!isHesitation(word)) {
+            kept.append(opening + word);
+            opening.clear();
+            continue;
+        }
+        for (const QChar c : word) {
+            if (c.isLetter())
+                break;
+            if (c == QChar(0x00BF) || c == QChar(0x00A1))
+                opening.append(c);
+        }
+        // "eh," before a word: keep a sentence end the hesitation carried.
+        const QChar last = word.back();
+        if (!kept.isEmpty() && (last == QLatin1Char('.') || last == QLatin1Char('?') || last == QLatin1Char('!'))
+            && !kept.last().back().isPunct())
+            kept.last().append(last);
+    }
+    QString out = kept.join(QLatin1Char(' ')).trimmed();
+    // Leading punctuation a removed hesitation left behind (", y entonces").
+    while (!out.isEmpty() && (out.front() == QLatin1Char(',') || out.front() == QLatin1Char(';')))
+        out = out.mid(1).trimmed();
+    // Capitalise the first letter, past any opening ¿ ¡ « " (.
+    for (int i = 0; capitalize && i < out.size(); ++i) {
+        if (out.at(i).isLetter()) {
+            out[i] = out.at(i).toUpper();
+            break;
+        }
+        if (!out.at(i).isPunct() && !out.at(i).isSpace())
+            break;
+    }
+    return out;
+}
+
+QList<SubtitleCue> cleanSubtitleCues(const QList<SubtitleCue> &cues)
+{
+    QList<SubtitleCue> out;
+    for (SubtitleCue cue : cues) {
+        // A caption only starts with a capital where a sentence starts: the first one, or after
+        // one that ended a sentence. "...que el Rey de Reyes los / bendiga grandemente" stays
+        // lower-case.
+        bool sentenceStart = out.isEmpty();
+        if (!sentenceStart) {
+            const QString previous = out.last().text.trimmed();
+            const QChar last = previous.isEmpty() ? QChar() : previous.back();
+            sentenceStart = last == QLatin1Char('.') || last == QLatin1Char('?') || last == QLatin1Char('!')
+                            || last == QChar(0x2026);
+        }
+        cue.text = cleanSubtitleText(cue.text, sentenceStart);
+        if (!cue.text.isEmpty())
+            out.append(cue);
+    }
+    return out;
+}
+
+QString captionWithEmoji(const QString &text)
+{
+    // (stem, emoji): a stem matches the start of an accent-free, lower-case word; a stem ending
+    // in a space must be the whole word ("fe ", "sol "). Earlier rows win.
+    static const QList<QPair<QString, QString>> kStems = {
+        {QStringLiteral("dios"), QStringLiteral("🙏")},
+        {QStringLiteral("senor"), QStringLiteral("🙏")},
+        {QStringLiteral("jesus"), QStringLiteral("✝️")},
+        {QStringLiteral("cristo"), QStringLiteral("✝️")},
+        {QStringLiteral("cruz"), QStringLiteral("✝️")},
+        {QStringLiteral("biblia"), QStringLiteral("📖")},
+        {QStringLiteral("palabra de dios"), QStringLiteral("📖")},
+        {QStringLiteral("orac"), QStringLiteral("🙏")},
+        {QStringLiteral("orar"), QStringLiteral("🙏")},
+        {QStringLiteral("oremos"), QStringLiteral("🙏")},
+        {QStringLiteral("bendic"), QStringLiteral("🙌")},
+        {QStringLiteral("bendig"), QStringLiteral("🙌")},
+        {QStringLiteral("aleluya"), QStringLiteral("🙌")},
+        {QStringLiteral("amen"), QStringLiteral("🙏")},
+        {QStringLiteral("iglesia"), QStringLiteral("⛪")},
+        {QStringLiteral("espiritu"), QStringLiteral("🕊️")},
+        {QStringLiteral("paz"), QStringLiteral("🕊️")},
+        {QStringLiteral("fe "), QStringLiteral("✨")},
+        {QStringLiteral("milagro"), QStringLiteral("✨")},
+        {QStringLiteral("cielo"), QStringLiteral("☁️")},
+        {QStringLiteral("gloria"), QStringLiteral("✨")},
+        {QStringLiteral("gracias"), QStringLiteral("🙏")},
+        {QStringLiteral("amor"), QStringLiteral("❤️")},
+        {QStringLiteral("corazon"), QStringLiteral("❤️")},
+        {QStringLiteral("te quiero"), QStringLiteral("❤️")},
+        {QStringLiteral("familia"), QStringLiteral("👨‍👩‍👧")},
+        {QStringLiteral("hijo"), QStringLiteral("👶")},
+        {QStringLiteral("bebe"), QStringLiteral("👶")},
+        {QStringLiteral("mama"), QStringLiteral("👩")},
+        {QStringLiteral("papa"), QStringLiteral("👨")},
+        {QStringLiteral("fuego"), QStringLiteral("🔥")},
+        {QStringLiteral("increible"), QStringLiteral("🤯")},
+        {QStringLiteral("wow"), QStringLiteral("😮")},
+        {QStringLiteral("sorpresa"), QStringLiteral("😮")},
+        {QStringLiteral("risa"), QStringLiteral("😂")},
+        {QStringLiteral("jaja"), QStringLiteral("😂")},
+        {QStringLiteral("chiste"), QStringLiteral("😂")},
+        {QStringLiteral("feliz"), QStringLiteral("😊")},
+        {QStringLiteral("alegr"), QStringLiteral("😄")},
+        {QStringLiteral("triste"), QStringLiteral("😢")},
+        {QStringLiteral("llor"), QStringLiteral("😢")},
+        {QStringLiteral("miedo"), QStringLiteral("😱")},
+        {QStringLiteral("dinero"), QStringLiteral("💰")},
+        {QStringLiteral("plata "), QStringLiteral("💰")},
+        {QStringLiteral("precio"), QStringLiteral("💲")},
+        {QStringLiteral("oferta"), QStringLiteral("🏷️")},
+        {QStringLiteral("gratis"), QStringLiteral("🎁")},
+        {QStringLiteral("regalo"), QStringLiteral("🎁")},
+        {QStringLiteral("fiesta"), QStringLiteral("🎉")},
+        {QStringLiteral("celebr"), QStringLiteral("🎉")},
+        {QStringLiteral("cumpleanos"), QStringLiteral("🎂")},
+        {QStringLiteral("musica"), QStringLiteral("🎵")},
+        {QStringLiteral("cancion"), QStringLiteral("🎶")},
+        {QStringLiteral("canta"), QStringLiteral("🎤")},
+        {QStringLiteral("idea"), QStringLiteral("💡")},
+        {QStringLiteral("tiempo"), QStringLiteral("⏰")},
+        {QStringLiteral("hora"), QStringLiteral("⏰")},
+        {QStringLiteral("mundo"), QStringLiteral("🌎")},
+        {QStringLiteral("sol "), QStringLiteral("☀️")},
+        {QStringLiteral("agua"), QStringLiteral("💧")},
+        {QStringLiteral("luz"), QStringLiteral("✨")},
+        {QStringLiteral("exito"), QStringLiteral("🏆")},
+        {QStringLiteral("ganar"), QStringLiteral("🏆")}, {QStringLiteral("ganamos"), QStringLiteral("🏆")},
+        {QStringLiteral("trabajo"), QStringLiteral("💼")},
+        {QStringLiteral("fuerza"), QStringLiteral("💪")},
+        {QStringLiteral("fuerte"), QStringLiteral("💪")},
+        {QStringLiteral("comida"), QStringLiteral("🍽️")},
+        {QStringLiteral("casa"), QStringLiteral("🏠")},
+        {QStringLiteral("viaje"), QStringLiteral("✈️")},
+        {QStringLiteral("telefono"), QStringLiteral("📱")},
+        {QStringLiteral("celular"), QStringLiteral("📱")},
+        {QStringLiteral("video"), QStringLiteral("🎬")},
+        {QStringLiteral("foto"), QStringLiteral("📸")},
+        {QStringLiteral("mira"), QStringLiteral("👀")},
+        {QStringLiteral("atencion"), QStringLiteral("👀")},
+        {QStringLiteral("escucha"), QStringLiteral("👂")},
+        {QStringLiteral("importante"), QStringLiteral("⚠️")},
+        {QStringLiteral("cuidado"), QStringLiteral("⚠️")},
+        {QStringLiteral("nuevo"), QStringLiteral("✨")},
+        {QStringLiteral("primero"), QStringLiteral("🥇")},
+        {QStringLiteral("rapido"), QStringLiteral("⚡")},
+        {QStringLiteral("estudi"), QStringLiteral("📚")},
+        {QStringLiteral("libro"), QStringLiteral("📚")},
+        {QStringLiteral("escuela"), QStringLiteral("🏫")},
+        {QStringLiteral("god"), QStringLiteral("🙏")},
+        {QStringLiteral("pray"), QStringLiteral("🙏")},
+        {QStringLiteral("bless"), QStringLiteral("🙌")},
+        {QStringLiteral("church"), QStringLiteral("⛪")},
+        {QStringLiteral("love"), QStringLiteral("❤️")},
+        {QStringLiteral("heart"), QStringLiteral("❤️")},
+        {QStringLiteral("fire"), QStringLiteral("🔥")},
+        {QStringLiteral("money"), QStringLiteral("💰")},
+        {QStringLiteral("party"), QStringLiteral("🎉")},
+        {QStringLiteral("music"), QStringLiteral("🎵")},
+        {QStringLiteral("happy"), QStringLiteral("😊")},
+        {QStringLiteral("funny"), QStringLiteral("😂")},
+        {QStringLiteral("sad"), QStringLiteral("😢")},
+        {QStringLiteral("amazing"), QStringLiteral("🤯")},
+        {QStringLiteral("idea"), QStringLiteral("💡")},
+        {QStringLiteral("time"), QStringLiteral("⏰")},
+        {QStringLiteral("world"), QStringLiteral("🌎")},
+        {QStringLiteral("win "), QStringLiteral("🏆")}, {QStringLiteral("winner"), QStringLiteral("🏆")},
+        {QStringLiteral("strong"), QStringLiteral("💪")},
+        {QStringLiteral("food"), QStringLiteral("🍽️")},
+        {QStringLiteral("home"), QStringLiteral("🏠")},
+        {QStringLiteral("look"), QStringLiteral("👀")},
+        {QStringLiteral("thank"), QStringLiteral("🙏")},
+    };
+    if (text.trimmed().isEmpty())
+        return text;
+    // Already has one: a caption the user decorated, or one this already ran on.
+    for (const QChar c : text) {
+        // Supplementary-plane emoji, or the arrows/symbols/dingbats blocks (☀ ❤ ✝ ✨ ⚡ …).
+        if (c.isSurrogate() || (c.unicode() >= 0x2190 && c.unicode() <= 0x2BFF))
+            return text;
+    }
+    QString folded = text.normalized(QString::NormalizationForm_KD);
+    QString plain;
+    for (const QChar c : std::as_const(folded)) {
+        if (c.category() == QChar::Mark_NonSpacing)
+            continue;
+        plain.append(c.isLetterOrNumber() ? c.toLower() : QLatin1Char(' '));
+    }
+    const QString padded = QLatin1Char(' ') + plain.simplified() + QLatin1Char(' ');
+    for (const auto &[stem, emoji] : kStems) {
+        if (padded.contains(QLatin1Char(' ') + stem))
+            return text.trimmed() + QLatin1Char(' ') + emoji;
+    }
+    return text;
+}
+
+QString applySubtitleReplacements(const QString &text, const QList<QPair<QString, QString>> &pairs)
+{
+    QString out = text;
+    for (const auto &pair : pairs) {
+        if (pair.first.trimmed().isEmpty())
+            continue;
+        // Whole words, any case: "jesus" fixes "Jesus" and "JESUS" but not "jesusito".
+        const QRegularExpression re(QStringLiteral("(?<![\\p{L}\\p{N}])%1(?![\\p{L}\\p{N}])")
+                                        .arg(QRegularExpression::escape(pair.first.trimmed())),
+                                    QRegularExpression::CaseInsensitiveOption
+                                        | QRegularExpression::UseUnicodePropertiesOption);
+        out.replace(re, pair.second);
+    }
+    return out;
 }
 
 } // namespace drift

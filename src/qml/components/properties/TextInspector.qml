@@ -72,10 +72,12 @@ Item {
                                              700: "Bold", 800: "ExtraBold", 900: "Black"
                                          })
     readonly property var accentRules: ["none", "firstWord", "lastWord", "everyOther", "everyNth",
-                                        "longestWord", "randomStable", "karaoke"]
-    readonly property var accentRuleLabels: ["No accent", "First word", "Last word", "Every other word",
-                                             "Every Nth word", "Longest word", "Random words",
-                                             "Spoken word (karaoke)"]
+                                        "longestWord", "randomStable", "karaoke", "keywords"]
+    readonly property var accentRuleLabels: [qsTr("No accent"), qsTr("First word"), qsTr("Last word"),
+                                             qsTr("Every other word"), qsTr("Every Nth word"),
+                                             qsTr("Longest word"), qsTr("Random words"),
+                                             qsTr("Spoken word (karaoke)"),
+                                             qsTr("Keywords (long words and numbers)")]
 
     // ----- Layers / looks --------------------------------------------------
     readonly property var layers: (textStyle && textStyle.layers) || []

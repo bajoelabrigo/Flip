@@ -604,6 +604,8 @@ public:
     Q_INVOKABLE void addTextClip(const QString &text, double atSeconds,
                                  const QString &presetId = QString(), int trackIndex = -1);
     Q_INVOKABLE void addSubtitleClip(double atSeconds);
+    // A combined template from Extras: one text clip per part, placed and timed together, one undo.
+    void addTextTemplate(const drift::TextPreset &preset, double atSeconds);
     // Import a SubRip (.srt) file as a new subtitle clip at the playhead (or atSeconds).
     Q_INVOKABLE bool importSubtitleFile(const QUrl &url, double atSeconds = -1.0);
     // Replace cues on an existing subtitle clip from a .srt file.
@@ -618,6 +620,10 @@ public:
                                               int maxWordsPerCue = 0);
     // Captions every selected video/audio clip into one subtitle clip (falls back to the focused
     // clip). Returns false when the selection cannot be transcribed, e.g. clips overlap in time.
+    // The same run with Whisper's translate task: English captions, on a track of their own and
+    // placed above the original ones, for bilingual videos.
+    Q_INVOKABLE bool generateEnglishSubtitlesForSelection(const QString &language = QString(),
+                                                          int maxWordsPerCue = 0);
     Q_INVOKABLE bool generateSubtitlesForSelection(const QString &language = QString(),
                                                    int maxWordsPerCue = 0);
     // Same, for the given (track, clip) pairs instead of the selection.
@@ -924,6 +930,27 @@ public:
     Q_INVOKABLE void endTextEdit();
     bool inlineTextEditing() const { return m_inlineTextEditing; }
     Q_INVOKABLE void setSubtitleCues(int trackIndex, int clipIndex, const QVariantList &cues);
+    // Find & replace across a subtitle clip's captions (whole words, any case); returns how many
+    // captions changed. `remember` also adds the pair to the subtitle dictionary.
+    Q_INVOKABLE int replaceInSubtitles(int trackIndex, int clipIndex, const QString &find,
+                                       const QString &replace, bool remember);
+    // Hesitations out, first letters up, dictionary applied — what new captions get.
+    Q_INVOKABLE void cleanUpSubtitles(int trackIndex, int clipIndex);
+    // The user's corrections ([{find, replace}]), applied to every generated caption.
+    Q_INVOKABLE QVariantList subtitleDictionary() const;
+    Q_INVOKABLE void setSubtitleDictionary(const QVariantList &entries);
+    // The text style auto captions are created with (a text preset id) and whether they are
+    // cleaned up as they arrive.
+    Q_INVOKABLE QString subtitleStylePreset() const;
+    Q_INVOKABLE void setSubtitleStylePreset(const QString &presetId);
+    Q_INVOKABLE bool subtitleCleanupEnabled() const;
+    Q_INVOKABLE void setSubtitleCleanupEnabled(bool enabled);
+    // Caption-ready styles for the picker: built-in caption packs then the add-on "subtitulos".
+    Q_INVOKABLE QVariantList subtitleStyleChoices() const;
+    // Emojis for keywords at the end of captions: an option for new captions, and an action.
+    Q_INVOKABLE bool subtitleEmojisEnabled() const;
+    Q_INVOKABLE void setSubtitleEmojisEnabled(bool enabled);
+    Q_INVOKABLE void addEmojisToSubtitles(int trackIndex, int clipIndex);
     Q_INVOKABLE void previewSetSubtitleCues(int trackIndex, int clipIndex, const QVariantList &cues);
     Q_INVOKABLE double subtitleLocalPlayheadSeconds(int trackIndex, int clipIndex) const;
     Q_INVOKABLE void upsertSubtitleCueAtPlayhead(int trackIndex, int clipIndex, const QString &text);
@@ -975,6 +1002,10 @@ public:
     // Style packs the user saved from the inspector. Kept out of textPresets() so the built-in
     // catalog (and the MCP list it feeds) stays a stable, shippable set.
     Q_INVOKABLE QVariantList userTextPresets() const;
+    // Template packs from Extras (kind "text-styles"): {id, label, category, sampleText}, and their
+    // categories {id, label} in display order.
+    Q_INVOKABLE QVariantList addonTextPresets() const;
+    Q_INVOKABLE QVariantList addonTextPresetCategories() const;
     Q_INVOKABLE QString saveTextStyleAsPreset(int trackIndex, int clipIndex, const QString &label);
     Q_INVOKABLE bool renameUserTextPreset(const QString &presetId, const QString &label);
     Q_INVOKABLE bool deleteUserTextPreset(const QString &presetId);
@@ -982,6 +1013,11 @@ public:
     Q_INVOKABLE bool importUserTextPreset(const QUrl &fileUrl);
     Q_INVOKABLE QVariantList fontCatalog() const;
     Q_INVOKABLE QVariantList fontCategories() const;
+    // .ttf/.otf files copied into the user's fonts ("My fonts"). {ok, families, error}.
+    Q_INVOKABLE QVariantMap importFonts(const QList<QUrl> &urls);
+    // Most recently picked families first, at most eight.
+    Q_INVOKABLE QStringList recentFonts() const;
+    Q_INVOKABLE void noteRecentFont(const QString &family);
     Q_INVOKABLE void setClipBlendMode(int trackIndex, int clipIndex, const QString &mode);
     Q_INVOKABLE bool setClipSpeed(int trackIndex, int clipIndex, double speed);
     Q_INVOKABLE void setClipReverse(int trackIndex, int clipIndex, bool reverse);
@@ -1279,6 +1315,8 @@ public:
     Q_INVOKABLE QVariantList audioEffectCatalog() const;
     Q_INVOKABLE QVariantList audioEffectCategories() const;
     Q_INVOKABLE void addAudioEffect(int trackIndex, int clipIndex, const QString &effectId);
+    // CapCut's "Enhance voice": noise gate, de-esser, compressor and leveler, as one edit.
+    Q_INVOKABLE void enhanceVoice(int trackIndex, int clipIndex);
     Q_INVOKABLE void removeAudioEffect(int trackIndex, int clipIndex, int effectIndex);
     Q_INVOKABLE void setAudioEffectEnabled(int trackIndex, int clipIndex, int effectIndex, bool enabled);
     Q_INVOKABLE void moveAudioEffect(int trackIndex, int clipIndex, int fromIndex, int toIndex);
@@ -1660,6 +1698,7 @@ signals:
     void shortcutsChanged();
     void assetFavoritesChanged();
     void userTextPresetsChanged();
+    void fontCatalogChanged();
     void userEffectPresetsChanged();
     void facePropsChanged();
     void projectLayoutChosenChanged();
@@ -1836,10 +1875,11 @@ protected:
     std::optional<QList<drift::SubtitleCue>> cuesFromStoredTranscripts(const QList<SubtitleSource> &sources,
                                                                        drift::TimeUs rangeStart,
                                                                        int maxWordsPerCue) const;
+    bool m_subtitleTranslateNext = false; // the next generation run translates to English
     bool generateSubtitlesForSources(QList<SubtitleSource> sources, const QString &language,
                                      int maxWordsPerCue);
     void finalizeGeneratedSubtitles(drift::TimeUs timelineStart, drift::TimeUs timelineDuration,
-                                    const QList<drift::SubtitleCue> &cues);
+                                    const QList<drift::SubtitleCue> &cues, bool translated = false);
     void finalizeDenoise(const QString &clipId, const QString &audioPath);
     // Runs on the stabilize worker: maps a job's 0..1 onto [rangeFrom, rangeTo] of the clip's
     // progress, posts it to the UI thread, and returns false once `cancel` is set.

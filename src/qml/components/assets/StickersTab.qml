@@ -194,7 +194,7 @@ Item {
                             id: stickerImage
                             anchors.fill: parent
                             anchors.margins: Theme.pagePadding
-                            source: EditorState.imageUrl(modelData.path)
+                            source: EditorState.imageUrl(modelData.thumbnail || modelData.path)
                             fillMode: Image.PreserveAspectFit
                             asynchronous: true
                             sourceSize: Qt.size(Math.ceil((stickerGrid.cardSize - Theme.pagePadding * 2) * Screen.devicePixelRatio),
@@ -225,7 +225,7 @@ Item {
                             kind: "sticker"
                             payload: modelData.id
                             label: modelData.label
-                            thumbnail: modelData.path
+                            thumbnail: modelData.thumbnail || modelData.path
                             onTapped: {
                                 EditorState.addStickerClip(modelData.id, -1)
                                 root.added()
@@ -238,6 +238,30 @@ Item {
                             anchors.margins: 3
                             tabId: "stickers"
                             itemId: modelData.id
+                        }
+
+                        // Animated stickers move once placed; the grid shows their still.
+                        Rectangle {
+                            visible: modelData.animated === true
+                            anchors.left: parent.left
+                            anchors.bottom: parent.bottom
+                            anchors.margins: 4
+                            width: 18
+                            height: 18
+                            radius: 9
+                            color: Theme.scrimStrong
+
+                            IconGlyph {
+                                anchors.centerIn: parent
+                                glyph: Theme.icons.play
+                                iconSize: 10
+                                iconColor: Theme.onMedia
+                            }
+
+                            ThemedToolTip {
+                                text: qsTr("Animated")
+                                visible: stickerDrag.hovered
+                            }
                         }
                     }
 

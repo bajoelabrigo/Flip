@@ -5,6 +5,7 @@
 #include <QCoreApplication>
 #include <QDir>
 #include <QFile>
+#include <QFileInfo>
 #include <QFontDatabase>
 #include <QHash>
 #include <QJsonArray>
@@ -12,6 +13,8 @@
 #include <QJsonObject>
 #include <QMutex>
 #include <QMutexLocker>
+#include <QRawFont>
+#include <QStandardPaths>
 
 #include <algorithm>
 #include <cstdlib>
@@ -127,7 +130,16 @@ void rebuildLocked(const QStringList &packageRoots)
         }
     }
 
-    std::sort(g_catalog.begin(), g_catalog.end(), [](const FontFamilyEntry &a, const FontFamilyEntry &b) {
+    // Categories in fontCategories() order, then any the app has no label for.
+    QHash<QString, int> rank;
+    const QList<QPair<QString, QString>> categories = fontCategories();
+    for (int i = 0; i < categories.size(); ++i)
+        rank.insert(categories.at(i).first, i);
+    std::sort(g_catalog.begin(), g_catalog.end(), [&rank](const FontFamilyEntry &a, const FontFamilyEntry &b) {
+        const int ra = rank.value(a.category, int(rank.size()));
+        const int rb = rank.value(b.category, int(rank.size()));
+        if (ra != rb)
+            return ra < rb;
         if (a.category != b.category)
             return a.category < b.category;
         if (a.order != b.order)
@@ -196,12 +208,100 @@ const FontFamilyEntry *fontFamilyForName(const QString &family)
 
 QList<QPair<QString, QString>> fontCategories()
 {
+    // The font packs' categories, then the older bundle's four, which the packs replaced.
     return {
+        {QStringLiteral("mine"), QCoreApplication::translate("FontCatalog", "My fonts")},
+        {QStringLiteral("sans"), QCoreApplication::translate("FontCatalog", "Clean")},
+        {QStringLiteral("display"), QCoreApplication::translate("FontCatalog", "Bold & impact")},
+        {QStringLiteral("serif"), QCoreApplication::translate("FontCatalog", "Elegant")},
+        {QStringLiteral("handwriting"), QCoreApplication::translate("FontCatalog", "Handwritten")},
+        {QStringLiteral("fun"), QCoreApplication::translate("FontCatalog", "Fun")},
+        {QStringLiteral("retro"), QCoreApplication::translate("FontCatalog", "Retro")},
         {QStringLiteral("impact"), QCoreApplication::translate("FontCatalog", "High-Impact & Bold")},
         {QStringLiteral("clean"), QCoreApplication::translate("FontCatalog", "Clean & Minimal")},
         {QStringLiteral("editorial"), QCoreApplication::translate("FontCatalog", "Classy & Editorial")},
         {QStringLiteral("playful"), QCoreApplication::translate("FontCatalog", "Creative & Playful")},
     };
+}
+
+QString userFontsDir()
+{
+    const QString appData = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    return appData.isEmpty() ? QString() : QDir(appData).filePath(QStringLiteral("fonts"));
+}
+
+QStringList importUserFonts(const QStringList &files, QString *error)
+{
+    const QString root = userFontsDir();
+    if (root.isEmpty()) {
+        if (error)
+            *error = QStringLiteral("no writable data folder");
+        return {};
+    }
+    QStringList families;
+    QStringList rejected;
+    for (const QString &path : files) {
+        const QRawFont raw(path, 12);
+        if (!raw.isValid() || raw.familyName().isEmpty()) {
+            rejected.append(QFileInfo(path).fileName());
+            continue;
+        }
+        const QString family = raw.familyName();
+        QString slug;
+        for (const QChar c : family.toLower())
+            if (c.isLetterOrNumber())
+                slug.append(c);
+        // One folder per family, in the same family.json layout the font packs use, so the
+        // catalog reads an imported font exactly like an installed one.
+        const QDir dir(QDir(root).filePath(QStringLiteral("mine-") + (slug.isEmpty() ? QStringLiteral("font") : slug)));
+        if (!QDir().mkpath(dir.path())) {
+            rejected.append(QFileInfo(path).fileName());
+            continue;
+        }
+        const QString fileName = QFileInfo(path).fileName();
+        const QString dest = dir.filePath(fileName);
+        if (QFileInfo(dest) != QFileInfo(path)) {
+            QFile::remove(dest);
+            if (!QFile::copy(path, dest)) {
+                rejected.append(fileName);
+                continue;
+            }
+        }
+
+        QFile jsonFile(dir.filePath(QStringLiteral("family.json")));
+        QJsonObject json;
+        if (jsonFile.open(QIODevice::ReadOnly)) {
+            json = QJsonDocument::fromJson(jsonFile.readAll()).object();
+            jsonFile.close();
+        }
+        QJsonArray faces;
+        for (const QJsonValue &face : json.value(QStringLiteral("faces")).toArray())
+            if (face.toObject().value(QStringLiteral("file")).toString() != fileName)
+                faces.append(face);
+        faces.append(QJsonObject{
+            {QStringLiteral("file"), fileName},
+            {QStringLiteral("weight"), qBound(100, int(raw.weight()), 900)},
+            {QStringLiteral("italic"), raw.style() != QFont::StyleNormal},
+            {QStringLiteral("styleName"), raw.styleName()},
+        });
+        json.insert(QStringLiteral("id"), QStringLiteral("mine-") + slug);
+        json.insert(QStringLiteral("family"), family);
+        json.insert(QStringLiteral("category"), QStringLiteral("mine"));
+        json.insert(QStringLiteral("license"), QStringLiteral("user"));
+        json.insert(QStringLiteral("faces"), faces);
+        if (!jsonFile.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+            rejected.append(fileName);
+            continue;
+        }
+        jsonFile.write(QJsonDocument(json).toJson());
+        if (!families.contains(family))
+            families.append(family);
+    }
+    if (error && !rejected.isEmpty())
+        *error = rejected.join(QStringLiteral(", "));
+    if (!families.isEmpty())
+        reloadFontCatalog();
+    return families;
 }
 
 QFont fontForStyle(const drift::TextStyle &style, int pixelSizePx)

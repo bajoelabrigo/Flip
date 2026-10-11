@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.8.3 LANGUAGES CXX C)
+project(Drift VERSION 0.9.0 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -62,7 +62,9 @@ option(DRIFT_AUTO_UPDATE_TRANSLATIONS "Run lupdate as part of the default build"
 # The token is NOT a secret. It ships inside every binary and is trivially extractable; it exists
 # so the bucket cannot be crawled or hotlinked, which would cost operations for someone else's
 # benefit. That is also why it is fine in CMakeCache.txt.
-set(DRIFT_ADDON_INDEX_URL ""
+# Flip Studio's own add-ons: packages built and signed in bajoelabrigo/flip-addons, downloaded
+# from that repo's GitHub Releases, listed by an index on the website. No token: it is all static.
+set(DRIFT_ADDON_INDEX_URL "https://getflipstudio.com/addons/index.json"
     CACHE STRING "Addon index endpoint; empty disables the addon service")
 set(DRIFT_ADDON_CLIENT_TOKEN ""
     CACHE STRING "Client token sent to the addon service as X-Drift-Client")
@@ -650,6 +652,7 @@ add_library(driftengine STATIC
     src/engine/FontCatalog.cpp
     src/engine/StickerCatalog.h
     src/engine/StickerCatalog.cpp
+    src/engine/TextStyleCatalog.cpp
     src/engine/EmojiCatalog.h
     src/engine/EmojiCatalog.cpp
     src/engine/EmojiTable.h

@@ -22,6 +22,14 @@ public:
     bool isMultiFrame() override { return false; }
     sk_sp<SkImage> getFrame(float) override { return m_image; }
 
+    // Skottie's default samples through mipmaps, and on the preview's GL context a scaled-down
+    // image drew as an incomplete texture: a black box where an animated sticker's picture was.
+    FrameData getFrameData(float) override
+    {
+        return {m_image, SkSamplingOptions(SkFilterMode::kLinear, SkMipmapMode::kNone), SkMatrix::I(),
+                SizeFit::kCenter};
+    }
+
 private:
     sk_sp<SkImage> m_image;
 };

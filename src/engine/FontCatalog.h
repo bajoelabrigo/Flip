@@ -43,6 +43,12 @@ QList<QPair<QString, QString>> fontCategories(); // id + label, display order
 // main()/tools/tests rather than relying on the lazy path.
 void reloadFontCatalog(const QStringList &packageRoots = {});
 
+// Where imported fonts live (<app data>/fonts), one family per folder in the packs' layout.
+QString userFontsDir();
+// Copies .ttf/.otf files there under the "mine" category and reloads the catalog. Returns the
+// families added; `error` lists the files that could not be read or copied.
+QStringList importUserFonts(const QStringList &files, QString *error = nullptr);
+
 // Resolve a style to a concrete face at pixelSizePx. Falls through to the system font database for
 // families that are not in the catalog, so projects written before the bundle still render.
 QFont fontForStyle(const drift::TextStyle &style, int pixelSizePx);

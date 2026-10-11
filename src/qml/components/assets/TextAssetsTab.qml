@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls.Basic
+import QtQuick.Window
 import Drift
 import ".."
 
@@ -14,6 +15,28 @@ Item {
     signal added()
 
     readonly property var presets: EditorState.textPresets()
+
+    // Template packs from Extras, by category; "Basic" is the built-in set.
+    readonly property string builtinId: "__builtin__"
+    property var addonPresets: EditorState.addonTextPresets()
+    property var addonCategories: EditorState.addonTextPresetCategories()
+    property string activeCategory: builtinId
+    readonly property var gridPresets: activeCategory === builtinId
+                                       ? root.presets
+                                       : root.addonPresets.filter(p => p.category === root.activeCategory)
+
+    Connections {
+        target: Addons
+        function onKindChanged(kind) {
+            if (kind !== "text-styles")
+                return
+            root.addonPresets = EditorState.addonTextPresets()
+            root.addonCategories = EditorState.addonTextPresetCategories()
+            if (root.activeCategory !== root.builtinId
+                    && !root.addonCategories.some(c => c.id === root.activeCategory))
+                root.activeCategory = root.builtinId
+        }
+    }
 
     // A QVariantList from an invokable is not reactive, so the section is refreshed by poking
     // this counter from the controller's signal.
@@ -70,7 +93,7 @@ Item {
         cellWidth: Math.floor(width / columnCount)
         cellHeight: Math.round(cardSize * 0.55) + Theme.spacingSm
                     + Math.ceil(labelMetrics.height) + Theme.assetCardGap
-        model: root.presets
+        model: root.gridPresets
 
         header: Column {
             id: textColumn
@@ -232,11 +255,33 @@ Item {
 
             Text {
                 width: parent.width
-                text: qsTr("Built-in")
+                text: qsTr("Templates")
                 color: Theme.panelForeground
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeXs
                 font.weight: Font.Medium
+            }
+
+            Flow {
+                width: parent.width
+                spacing: Theme.spacingXs
+
+                Repeater {
+                    model: [{ "id": root.builtinId, "label": qsTr("Basic") }].concat(root.addonCategories)
+                    delegate: ThemedChip {
+                        required property var modelData
+                        text: modelData.label
+                        variant: "outline"
+                        selected: root.activeCategory === modelData.id
+                        onClicked: root.activeCategory = modelData.id
+                    }
+                }
+
+                ThemedChip {
+                    text: root.addonCategories.length > 0 ? qsTr("More…") : qsTr("Get more templates")
+                    variant: "outline"
+                    onClicked: root.Window.window.openAddonManager("text-styles")
+                }
             }
         }
 

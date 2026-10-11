@@ -1093,6 +1093,60 @@ void CoreTest::subtitleCuePacking()
     // A cap of 0 is the recommended packing, unchanged.
     const QList<drift::SubtitleCue> uncapped = drift::packSubtitleCues(input, 42, 1, 0);
     QCOMPARE(uncapped.size(), packed.size());
+
+    // A sentence ends its caption even with room left on the line.
+    QList<drift::SubtitleCue> sentences;
+    sentences.append({0, drift::secondsToUs(4.0), QStringLiteral("Dios es fiel. Él nos cuida.")});
+    const QList<drift::SubtitleCue> split = drift::packSubtitleCues(sentences, 42, 1);
+    QCOMPARE(split.size(), 2);
+    QCOMPARE(split.at(0).text, QStringLiteral("Dios es fiel."));
+    QCOMPARE(split.at(1).text, QStringLiteral("Él nos cuida."));
+
+    // Whisper segments packed together keep the space between them.
+    QList<drift::SubtitleCue> segments;
+    segments.append({0, drift::secondsToUs(1.0), QStringLiteral("muy buenas noches,")});
+    segments.append({drift::secondsToUs(1.0), drift::secondsToUs(2.0), QStringLiteral("que el Rey")});
+    const QList<drift::SubtitleCue> joined = drift::packSubtitleCues(segments, 42, 1);
+    QCOMPARE(joined.size(), 1);
+    QCOMPARE(joined.first().text, QStringLiteral("muy buenas noches, que el Rey"));
+
+    // Cleanup drops hesitations only, and capitalises.
+    QCOMPARE(drift::cleanSubtitleText(QStringLiteral("eh, este es el camino")),
+             QStringLiteral("Este es el camino"));
+    QCOMPARE(drift::cleanSubtitleText(QStringLiteral("¿mmm y entonces?")), QStringLiteral("¿Y entonces?"));
+    QVERIFY(drift::cleanSubtitleCues({{0, 1000, QStringLiteral("ehh")}}).isEmpty());
+    // Only a caption that starts a sentence gets a capital.
+    const QList<drift::SubtitleCue> sentence = drift::cleanSubtitleCues(
+        {{0, 1000, QStringLiteral("que el Rey de Reyes los")},
+         {1000, 2000, QStringLiteral("bendiga grandemente.")},
+         {2000, 3000, QStringLiteral("en este tutorial")}});
+    QCOMPARE(sentence.at(0).text, QStringLiteral("Que el Rey de Reyes los"));
+    QCOMPARE(sentence.at(1).text, QStringLiteral("bendiga grandemente."));
+    QCOMPARE(sentence.at(2).text, QStringLiteral("En este tutorial"));
+
+    // *Marked* words, inside punctuation too, and the Keywords rule.
+    QVERIFY(drift::isMarkedWord(QStringLiteral("*fiel*")));
+    QVERIFY(drift::isMarkedWord(QStringLiteral("¡*Amén*!")));
+    QVERIFY(!drift::isMarkedWord(QStringLiteral("5*3")));
+    QVERIFY(!drift::isMarkedWord(QStringLiteral("**")));
+    QCOMPARE(drift::textWithoutWordMarks(QStringLiteral("Dios es *fiel*, ¡*Amén*!")),
+             QStringLiteral("Dios es fiel, ¡Amén!"));
+    QVERIFY(drift::isKeyword(QStringLiteral("bendición")));
+    QVERIFY(drift::isKeyword(QStringLiteral("2026")));
+    QVERIFY(!drift::isKeyword(QStringLiteral("nosotros")));
+    QVERIFY(!drift::isKeyword(QStringLiteral("Dios")));
+
+    // One emoji for the first keyword, accent-insensitive, and never twice.
+    QCOMPARE(drift::captionWithEmoji(QStringLiteral("Que Dios te bendiga")), QStringLiteral("Que Dios te bendiga 🙏"));
+    QCOMPARE(drift::captionWithEmoji(QStringLiteral("Mucha bendición")), QStringLiteral("Mucha bendición 🙌"));
+    QCOMPARE(drift::captionWithEmoji(QStringLiteral("Ahora sí")), QStringLiteral("Ahora sí"));
+    QCOMPARE(drift::captionWithEmoji(QStringLiteral("Hay fuego 🔥")), QStringLiteral("Hay fuego 🔥"));
+    QCOMPARE(drift::captionWithEmoji(QStringLiteral("Tengo ganas")), QStringLiteral("Tengo ganas"));
+
+    // Replacements are whole words in any case.
+    const QList<QPair<QString, QString>> dictionary = {{QStringLiteral("jesus"), QStringLiteral("Jesús")}};
+    QCOMPARE(drift::applySubtitleReplacements(QStringLiteral("JESUS y jesusito"), dictionary),
+             QStringLiteral("Jesús y jesusito"));
 }
 
 void CoreTest::srtRoundTrip()

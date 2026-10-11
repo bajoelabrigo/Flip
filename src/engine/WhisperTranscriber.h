@@ -49,14 +49,18 @@ public:
     // human-readable line for the UI (may be empty to leave the last message unchanged).
     // languageCode: ISO-ish Whisper code ("en", "si", …). Empty = auto-detect from audio.
     // maxWordsPerCue: cap on words per subtitle cue; 0 leaves the default packing alone.
+    // translateToEnglish: Whisper's translate task — the speech, in any language, written in
+    // English (the only target the model has).
     WhisperResult transcribe(const std::vector<float> &pcm,
                              const std::function<bool(double, const QString &)> &progress,
-                             const QString &languageCode = QString(), int maxWordsPerCue = 0);
+                             const QString &languageCode = QString(), int maxWordsPerCue = 0,
+                             bool translateToEnglish = false);
 
     // Whisper's own timestamped segments, unpacked: what word alignment starts from.
     WhisperResult transcribeSegments(const std::vector<float> &pcm,
                                      const std::function<bool(double, const QString &)> &progress,
-                                     const QString &languageCode = QString());
+                                     const QString &languageCode = QString(),
+                                     bool translateToEnglish = false);
 
     // Frees the sessions (~750 MB) so another model can load; the next call reloads them.
     void unload();

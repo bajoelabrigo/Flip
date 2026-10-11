@@ -1,6 +1,7 @@
 #include "engine/AudioFileWriter.h"
 #include "engine/EmojiCatalog.h"
 #include "engine/FontCatalog.h"
+#include "engine/TextStyleCatalog.h"
 #include "engine/GpuDevice.h"
 #include "engine/GpuPreference.h"
 #include "engine/HwAccel.h"
@@ -631,6 +632,7 @@ int main(int argc, char *argv[])
     // Registering the bundled fonts needs a QGuiApplication, and must happen before the compositor
     // thread starts touching QFontDatabase.
     reloadFontCatalog();
+    reloadTextStyleCatalog();
     reloadEmojiCatalog();
 
     // Noise-removal A/B snippets are scratch. Anything still here is from a previous session that

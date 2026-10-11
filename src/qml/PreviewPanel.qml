@@ -170,6 +170,7 @@ PanelFrame {
             durationSeconds: root.durationSeconds
             fullscreen: root.previewFullscreen
             formatTimecode: root.formatTimecode
+            viewport: panelViewport
             onFullscreenRequested: root.fullscreenRequested()
         }
     }

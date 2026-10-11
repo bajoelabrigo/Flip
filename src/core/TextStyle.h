@@ -9,6 +9,8 @@
 #include <QJsonObject>
 #include <QList>
 #include <QMap>
+#include <QPair>
+#include <QRectF>
 #include <QString>
 #include <QStringList>
 
@@ -23,7 +25,7 @@ enum class TextVAlign { Top, Middle, Bottom };
 // stays cacheable for the whole cue; Karaoke follows the word being spoken and re-lays-out as
 // the playhead crosses each word.
 enum class WordAccentRule { None, FirstWord, LastWord, EveryOther, EveryNth, LongestWord,
-                            RandomStable, Karaoke };
+                            RandomStable, Karaoke, Keywords };
 
 QString textAlignToString(TextAlign align);
 TextAlign textAlignFromString(const QString &align);
@@ -33,6 +35,20 @@ TextVAlign textVAlignFromString(const QString &valign);
 
 QString wordAccentRuleToString(WordAccentRule rule);
 WordAccentRule wordAccentRuleFromString(const QString &rule);
+
+// Words written between asterisks ("Dios es *fiel*") are accented whatever the rule, and drawn
+// without the asterisks. A mark may sit inside opening and closing punctuation: "¡*Amén*!".
+bool isMarkedWord(const QString &word);
+QString stripWordMark(const QString &word);
+bool hasWordMarks(const QString &text);
+// The text as it reads, marks removed.
+QString textWithoutWordMarks(const QString &text);
+// A style whose accent shows something: marked words in a style with no accent look get
+// the default accent colour, so a mark never does nothing.
+TextStyle withWordMarkDefaults(const TextStyle &style);
+// The Keywords rule: words that carry the meaning — numbers, and words of seven letters or more
+// that are not common Spanish/English function words.
+bool isKeyword(const QString &word);
 
 // Rounded pill drawn behind a word. Used both for "every word" backgrounds and for the
 // accent-only highlight a pack paints under its chosen words.
@@ -144,6 +160,16 @@ QString textKeyframeLabel(const QString &key, const TextStyle &style);
 bool textStyleScalar(const TextStyle &style, const QString &key, double *out);
 bool setTextStyleScalar(TextStyle &style, const QString &key, double value);
 
+// One text of a combined template: its look, its words, where it sits (fractions of the canvas)
+// and how long after the template's start it comes in.
+struct TextTemplatePart
+{
+    TextStyle style;
+    QString text;
+    QRectF rect;
+    double delaySeconds = 0.0;
+};
+
 struct TextPreset
 {
     QString id;
@@ -152,6 +178,11 @@ struct TextPreset
     // Short phrase shown on picker thumbnails — chosen to demo the pack's look
     // (accents, wrap, weight) rather than a meaningless filler line.
     QString sampleText;
+    // Add-on packs only: the pack category it is listed under.
+    QString category;
+    // Add-on packs only: a combined template (a title with its subtitle, a name with its role…)
+    // adds one text clip per part, placed and timed together. Empty for a plain style.
+    QList<TextTemplatePart> parts;
 };
 
 // Built-in style packs only. User-saved presets live in TextPresetStore; textPresetForId()
@@ -161,6 +192,14 @@ const QList<TextPreset> &textPresets();
 // preview provider resolves ids on the image-loading thread.
 std::optional<TextPreset> textPresetForId(const QString &id);
 std::optional<TextStyle> textStyleForPresetId(const QString &id);
+
+// Styles from installed text-style add-ons, ids "pack:<pack>/<style>". The engine's catalog
+// (TextStyleCatalog) reads the packs and hands them over here, so textPresetForId resolves them
+// like built-in ones. Categories are id + label, in display order.
+bool isAddonTextPresetId(const QString &id);
+void setAddonTextPresets(const QList<TextPreset> &presets, const QList<QPair<QString, QString>> &categories);
+QList<TextPreset> addonTextPresets();
+QList<QPair<QString, QString>> addonTextPresetCategories();
 
 // Shared with the project file format, which is why these live here rather than in Project.cpp:
 // the user preset store writes the same style objects and must inherit the same key migrations.

@@ -17,8 +17,8 @@
 
 using namespace drift::addon;
 
-// The fixture is a real package signed with the production key (tests/data/, built by the
-// packer in the drift-addons repo). Damaged variants are produced by mutating bytes, so the
+// The fixture is a real package signed with Flip Studio's production key (tests/data/, built by
+// driftpkg.py in the flip-addons repo). Damaged variants are produced by mutating bytes, so the
 // tests exercise the actual trust root rather than a test-only key.
 
 class TestAddonPackage : public QObject

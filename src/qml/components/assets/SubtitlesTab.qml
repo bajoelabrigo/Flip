@@ -117,6 +117,100 @@ Item {
                 Component.onCompleted: currentIndex = 0
             }
 
+            // The look captions are created with, remembered for next time.
+            Text {
+                visible: root.whisperReady
+                width: subtitleColumn.contentWidth
+                text: qsTr("Caption style")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+
+            Grid {
+                id: captionStyleGrid
+                visible: root.whisperReady
+                width: subtitleColumn.contentWidth
+                columns: 2
+                columnSpacing: Theme.spacingSm
+                rowSpacing: Theme.spacingSm
+                readonly property real cardWidth: (width - columnSpacing) / 2
+
+                Repeater {
+                    model: root.captionStyles
+                    delegate: Column {
+                        id: styleCard
+                        required property var modelData
+                        width: captionStyleGrid.cardWidth
+                        spacing: Theme.spacingXs
+
+                        TextStylePackThumb {
+                            width: parent.width
+                            height: Math.round(width * 0.5)
+                            presetId: styleCard.modelData.id
+                            selected: root.captionStyle === styleCard.modelData.id
+                            hovered: styleMouse.containsMouse
+
+                            MouseArea {
+                                id: styleMouse
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                cursorShape: Qt.PointingHandCursor
+                                onClicked: {
+                                    root.captionStyle = styleCard.modelData.id
+                                    EditorState.setSubtitleStylePreset(styleCard.modelData.id)
+                                }
+                            }
+                        }
+
+                        Text {
+                            width: parent.width
+                            text: styleCard.modelData.label
+                            elide: Text.ElideRight
+                            horizontalAlignment: Text.AlignHCenter
+                            color: root.captionStyle === styleCard.modelData.id ? Theme.panelForeground
+                                                                                : Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                    }
+                }
+            }
+
+            // Word timing is its own download; without it captions are split by length and the
+            // karaoke word is estimated, so say what the extra buys.
+            Text {
+                visible: root.whisperReady && !root.alignReady
+                width: subtitleColumn.contentWidth
+                wrapMode: Text.WordWrap
+                text: qsTr("Tip: install “Word sync” in Extras so captions start and end exactly on the voice.")
+                color: Theme.primary
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+
+                MouseArea {
+                    anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: root.Window.window.openAddonManager("align-model")
+                }
+            }
+
+            ThemedCheckBox {
+                visible: root.whisperReady
+                width: subtitleColumn.contentWidth
+                text: qsTr("Remove hesitations (eh, mmm) and capitalize")
+                checked: EditorState.subtitleCleanupEnabled()
+                onToggled: EditorState.setSubtitleCleanupEnabled(checked)
+            }
+
+            ThemedCheckBox {
+                visible: root.whisperReady
+                width: subtitleColumn.contentWidth
+                text: qsTr("Add emojis for keywords (fuego 🔥, Dios 🙏)")
+                checked: EditorState.subtitleEmojisEnabled()
+                onToggled: EditorState.setSubtitleEmojisEnabled(checked)
+            }
+
             Text {
                 visible: root.whisperReady && captionWordsBox.currentValue > 0
                 width: subtitleColumn.contentWidth
@@ -142,6 +236,24 @@ Item {
                                  ? captionLanguageBox.currentValue
                                  : ""
                     EditorState.generateSubtitlesForSelection(lang, captionWordsBox.currentValue)
+                }
+            }
+
+            // Whisper's translate task: the same speech written in English, placed above the
+            // original captions — bilingual videos in two clicks.
+            ThemedButton {
+                visible: root.whisperReady && !EditorState.subtitleGenerating
+                width: subtitleColumn.contentWidth
+                text: qsTr("Add English translation")
+                variant: "ghost"
+                glyph: Theme.icons.languages
+                tooltip: qsTr("Captions translated to English, above the original ones. English is the only language the model translates to.")
+                enabled: root.captionTargetReady
+                onClicked: {
+                    const lang = captionLanguageBox.currentValue !== undefined
+                                 ? captionLanguageBox.currentValue
+                                 : ""
+                    EditorState.generateEnglishSubtitlesForSelection(lang, captionWordsBox.currentValue)
                 }
             }
 
@@ -213,6 +325,10 @@ Item {
         return options
     }
 
+    property bool alignReady: Addons.hasKind("align-model")
+    property var captionStyles: EditorState.subtitleStyleChoices()
+    property string captionStyle: EditorState.subtitleStylePreset()
+
     property bool whisperReady: Addons.hasKind("whisper-model")
                                 && Addons.runtimeAvailable()
     property bool runtimeReady: Addons.runtimeAvailable()
@@ -227,6 +343,15 @@ Item {
     Connections {
         target: Addons
         function onKindChanged(kind) {
+            if (kind === "text-styles") {
+                root.captionStyles = EditorState.subtitleStyleChoices()
+                root.captionStyle = EditorState.subtitleStylePreset()
+                return
+            }
+            if (kind === "align-model") {
+                root.alignReady = Addons.hasKind("align-model")
+                return
+            }
             if (kind !== "whisper-model" && kind !== "onnxruntime")
                 return
             root.runtimeReady = Addons.runtimeAvailable()

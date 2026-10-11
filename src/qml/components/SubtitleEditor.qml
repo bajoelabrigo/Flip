@@ -353,6 +353,212 @@ Item {
             text: qsTr("Timestamps from the start of the video")
             tooltip: qsTr("Offset the exported captions by this clip's start so they match the exported video")
         }
+
+        Row {
+            width: parent.width
+            spacing: 6
+
+            ThemedButton {
+                width: (parent.width - parent.spacing * 2) / 3
+                text: qsTr("Emojis")
+                variant: "secondary"
+                glyph: Theme.icons.smile
+                tooltip: qsTr("Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)")
+                enabled: root.cues.length > 0
+                onClicked: EditorState.addEmojisToSubtitles(root.trackIndex, root.clipIndex)
+            }
+
+            ThemedButton {
+                width: (parent.width - parent.spacing * 2) / 3
+                text: qsTr("Clean up")
+                variant: "secondary"
+                glyph: Theme.icons.wand
+                tooltip: qsTr("Remove hesitations (eh, mmm), capitalize each caption and apply your dictionary")
+                enabled: root.cues.length > 0
+                onClicked: EditorState.cleanUpSubtitles(root.trackIndex, root.clipIndex)
+            }
+
+            ThemedButton {
+                width: (parent.width - parent.spacing * 2) / 3
+                text: qsTr("Find & replace")
+                variant: root.replaceOpen ? "primary" : "secondary"
+                glyph: Theme.icons.search
+                tooltip: qsTr("Fix a word in every caption at once")
+                enabled: root.cues.length > 0
+                onClicked: root.replaceOpen = !root.replaceOpen
+            }
+        }
+
+        Column {
+            width: parent.width
+            spacing: 4
+            visible: root.replaceOpen
+
+            ThemedTextField {
+                id: findField
+                width: parent.width
+                placeholderText: qsTr("Find (e.g. jesus)")
+                font.family: Theme.fontFamily
+            }
+
+            ThemedTextField {
+                id: replaceField
+                width: parent.width
+                placeholderText: qsTr("Replace with (e.g. Jesús)")
+                font.family: Theme.fontFamily
+                onAccepted: replaceAllButton.clicked()
+            }
+
+            ThemedCheckBox {
+                id: rememberBox
+                width: parent.width
+                checked: true
+                text: qsTr("Always fix it in new subtitles")
+                tooltip: qsTr("Adds it to your subtitle dictionary")
+            }
+
+            Row {
+                width: parent.width
+                spacing: 6
+
+                ThemedButton {
+                    id: replaceAllButton
+                    width: (parent.width - parent.spacing) / 2
+                    text: qsTr("Replace all")
+                    variant: "primary"
+                    enabled: findField.text.trim().length > 0
+                    onClicked: {
+                        EditorState.replaceInSubtitles(root.trackIndex, root.clipIndex,
+                                                       findField.text, replaceField.text, rememberBox.checked)
+                        findField.text = ""
+                        replaceField.text = ""
+                    }
+                }
+
+                ThemedButton {
+                    width: (parent.width - parent.spacing) / 2
+                    text: qsTr("Dictionary…")
+                    variant: "ghost"
+                    tooltip: qsTr("Words fixed automatically in every new subtitle")
+                    onClicked: dictionaryDialog.openDictionary()
+                }
+            }
+        }
+    }
+
+    property bool replaceOpen: false
+
+    ThemedDialog {
+        id: dictionaryDialog
+        title: qsTr("Subtitle dictionary")
+        acceptText: qsTr("Save")
+        preferredWidth: Theme.dialogWidthMd
+
+        property var entries: []
+
+        function openDictionary() {
+            entries = EditorState.subtitleDictionary()
+            open()
+        }
+
+        onAccepted: EditorState.setSubtitleDictionary(entries)
+
+        contentItem: Column {
+            spacing: Theme.spacingMd
+
+            Text {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                text: qsTr("New subtitles fix these words on their own: names, places, words the speech recognition gets wrong.")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+
+            Text {
+                visible: dictionaryDialog.entries.length === 0
+                width: parent.width
+                wrapMode: Text.WordWrap
+                text: qsTr("Empty for now. Use Find & replace with “Always fix it” to add words.")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeSm
+            }
+
+            ListView {
+                width: parent.width
+                height: Math.min(260, contentHeight)
+                clip: true
+                model: dictionaryDialog.entries
+                ScrollBar.vertical: AppScrollBar {}
+                delegate: Item {
+                    required property var modelData
+                    required property int index
+                    width: ListView.view.width
+                    height: 30
+
+                    Text {
+                        anchors.left: parent.left
+                        anchors.right: removeButton.left
+                        anchors.verticalCenter: parent.verticalCenter
+                        elide: Text.ElideRight
+                        text: modelData.find + "  →  " + modelData.replace
+                        color: Theme.panelForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeSm
+                    }
+
+                    IconButton {
+                        id: removeButton
+                        anchors.right: parent.right
+                        anchors.verticalCenter: parent.verticalCenter
+                        glyph: Theme.icons.trash
+                        variant: "ghost"
+                        tooltip: qsTr("Remove")
+                        onClicked: {
+                            const next = dictionaryDialog.entries.slice()
+                            next.splice(index, 1)
+                            dictionaryDialog.entries = next
+                        }
+                    }
+                }
+            }
+
+            Row {
+                width: parent.width
+                spacing: 6
+
+                ThemedTextField {
+                    id: newFind
+                    width: (parent.width - addButton.width - parent.spacing * 2) / 2
+                    placeholderText: qsTr("Wrong")
+                    font.family: Theme.fontFamily
+                }
+
+                ThemedTextField {
+                    id: newReplace
+                    width: (parent.width - addButton.width - parent.spacing * 2) / 2
+                    placeholderText: qsTr("Right")
+                    font.family: Theme.fontFamily
+                    onAccepted: addButton.clicked()
+                }
+
+                IconButton {
+                    id: addButton
+                    anchors.verticalCenter: parent.verticalCenter
+                    glyph: Theme.icons.plus
+                    variant: "ghost"
+                    tooltip: qsTr("Add")
+                    enabled: newFind.text.trim().length > 0
+                    onClicked: {
+                        dictionaryDialog.entries = dictionaryDialog.entries.concat(
+                            [{ "find": newFind.text.trim(), "replace": newReplace.text }])
+                        newFind.text = ""
+                        newReplace.text = ""
+                    }
+                }
+            }
+        }
     }
 
     // ---- Lyrics list (compact, keeps neighbours in view) -----------------------
@@ -556,6 +762,15 @@ Item {
                     width: parent.width
                     spacing: 8
                     visible: root.selectedCue !== null
+
+                    Text {
+                        width: parent.width
+                        wrapMode: Text.WordWrap
+                        text: qsTr("Tip: write a word between asterisks, like *faith*, to highlight it in colour.")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
 
                     Row {
                         width: parent.width
