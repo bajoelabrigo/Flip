@@ -67,9 +67,14 @@ separado; este es el orden recomendado.
    - ~~**R2 — pistas libres**~~ (publicada el 2026-10-10): Video 1, Video 2, Gráfico 1, Texto 1, Audio 1… con los clips donde los
      sueltes, ojo y silencio por pista, forma de onda, imán y "+" para añadir pistas. Las transiciones
      van entre clips seguidos de una misma pista. Los proyectos guardados se convierten solos.
-   - **R3 — inspector**: General, Transformar (posición, escala, opacidad, ángulo) y Animación (entrada y
-     salida), como en escritorio.
-3. **Etapa 5b — efectos**: unos 45 efectos de Drift (color, estilo, glitch, desenfoque…) con sus parámetros.
+   - ~~**R3 — inspector**~~ (2026-10-10): General, Transformar y Animación, como en escritorio.
+   - ~~**Barra como CapCut**~~ (2026-10-10): Dividir, Borrar izquierda/derecha (Q/W), más espacio; en la vista
+     previa, zoom (Completa a 400 %) y Relación (16:9, 9:16, 1:1, 4:5, 4:3, 21:9).
+3. ~~**Etapa 5b — efectos**~~ (2026-10-10): pestaña Efectos con 10 filtros tipo CapCut y brillo, contraste,
+   saturación y desenfoque (filtro de canvas, igual en vista previa y exportación). Pendiente: más efectos de
+   Drift (glitch, viñeta, etc.) con shaders.
+   - ~~**Textos**~~ (2026-10-10): 29 fuentes propias con selector por categoría y 15 plantillas nuevas (Fe, Redes,
+     Subtítulos virales, Ventas, Frases).
 4. **Etapa 6 — audio**: volumen y fundidos por clip, pista de música, silenciar el audio de un video.
 5. **Probar en Edge, Firefox y Safari** (y en el celular) antes de anunciarlo.
 6. **Anunciarlo**: botón "Editar en el navegador" en la web y quitar el `noindex`.
