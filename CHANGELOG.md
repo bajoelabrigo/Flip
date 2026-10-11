@@ -3,6 +3,20 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.9.2 — sincronización con Drift, voz con IA y PDF
+
+- Primera sincronización con Drift (69 cambios): texto con SkParagraph (emojis de color, árabe y
+  hebreo, edición sobre la vista previa), enlazar clips, clips PDF, recorte de imagen y video, fuentes
+  del sistema en el selector y voz con Chatterbox.
+- Windows: Skia usa DirectWrite; elegía el gestor de fuentes de Android, que no encuentra ninguna, y el
+  texto sin el paquete de fuentes no se dibujaba.
+- Se conservan el resaltado `*palabra*`, el selector de fuentes propio (ahora con las del sistema), las
+  herramientas de subtítulos, la barra tipo CapCut y la pestaña de efectos de sonido.
+- Extras propios nuevos: "Voz con IA" (`voz.chatterbox`, decodificador exportado con
+  flip-addons/tts_export.py) y "Visor de PDF" (`pdfium`, PDFium chromium/8066).
+- El menú del selector de fuentes se queda dentro de la ventana; los estilos "Simple" y "Negrita"
+  aparecen en español.
+
 ## 0.9.1 — inicio nuevo, quitar silencios y efectos de sonido
 
 - Pantalla de inicio al estilo CapCut (StartScreen): crear con formato, herramientas rápidas y tarjetas de

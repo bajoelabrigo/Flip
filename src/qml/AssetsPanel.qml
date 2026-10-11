@@ -674,9 +674,6 @@ PanelFrame {
         Component.onCompleted: {
             if (!Market.configured)
                 dropTab("market")
-            // Flip Studio's Extras index has no voice model yet, so the Speech tab could only
-            // offer a download that does not exist. Drop this once a "tts-model" package ships.
-            dropTab("speech")
         }
     }
     property var tabIcons: [
