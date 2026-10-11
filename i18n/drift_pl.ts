@@ -15129,7 +15129,7 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     </message>
     <message>
         <source>Plain</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Prosty</translation>
     </message>
     <message>
         <source>Just text</source>

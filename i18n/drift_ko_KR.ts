@@ -15017,7 +15017,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Plain</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">일반</translation>
     </message>
     <message>
         <source>Just text</source>

@@ -15025,7 +15025,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>Plain</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Thường</translation>
     </message>
     <message>
         <source>Just text</source>

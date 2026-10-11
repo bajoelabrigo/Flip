@@ -15082,7 +15082,7 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
     </message>
     <message>
         <source>Plain</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Simple</translation>
     </message>
     <message>
         <source>Just text</source>

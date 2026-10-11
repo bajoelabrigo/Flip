@@ -15077,7 +15077,7 @@ Se a reprodução travar, experimente outro.</translation>
     </message>
     <message>
         <source>Plain</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Simples</translation>
     </message>
     <message>
         <source>Just text</source>

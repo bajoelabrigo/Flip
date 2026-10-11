@@ -15129,7 +15129,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Plain</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Обычный</translation>
     </message>
     <message>
         <source>Just text</source>

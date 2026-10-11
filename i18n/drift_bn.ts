@@ -15057,7 +15057,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Plain</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">সাধারণ</translation>
     </message>
     <message>
         <source>Just text</source>
