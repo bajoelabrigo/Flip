@@ -30,6 +30,13 @@ registro heredado de Drift.
 - Sincronización por palabra: con el extra "Sincronización por palabra (español)" (wav2vec2) cada subtítulo
   empieza y termina justo con la voz. Whisper medium como extra (más preciso; si está instalado se usa en
   lugar del small) y aceleración con tarjeta gráfica (WebGPU, experimental), que ahora también usa Whisper.
+- Línea de tiempo al estilo CapCut: Dividir, Borrar izquierda/derecha, Eliminar y Marcador en la barra,
+  más espacio entre botones, micrófono para voz en off, y herramientas que aparecen según el clip
+  seleccionado (recortar, congelar, invertir/espejo/rotar, transcripción, quitar fondo, extraer audio,
+  mejorar audio con reducir ruido y mejorar voz, mejorar video).
+- Vista previa: menú de zoom (Completa a 400 %) y de relación de aspecto (16:9, 9:16, 1:1, 4:5, 4:3, 21:9).
+- Subtítulos: entre segmentos de Whisper ya no se pegan las palabras ("noches,que"), y la limpieza solo
+  pone mayúscula donde empieza una oración.
 
 ## 0.8.3 — sin funciones rotas a la vista
 
