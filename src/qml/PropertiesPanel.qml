@@ -679,7 +679,9 @@ PanelFrame {
             Column {
                 id: tabColumn
                 x: Theme.pagePadding
-                width: parent.width - Theme.pagePadding * 2
+                // The always-on scroll bar (12 px) sits over the right edge; keep the controls
+                // clear of it so their text and values are not cut off.
+                width: parent.width - Theme.pagePadding * 2 - (root.sheetMode ? 0 : Theme.spacingLg + 4)
                 // Sections need to read apart on a phone, where the whole pane is
                 // about two of them tall.
                 spacing: root.sheetMode ? Theme.spacing2xl : Theme.spacingXl

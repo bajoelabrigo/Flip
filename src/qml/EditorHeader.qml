@@ -554,7 +554,7 @@ Rectangle {
 
                 ThemedContextMenu {
                     id: settingsMenu
-                    implicitWidth: 248
+                    minimumWidth: 248
 
                     ThemedMenuItem {
                         sectionHeader: true

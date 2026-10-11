@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.9.0 LANGUAGES CXX C)
+project(Drift VERSION 0.9.1 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -653,6 +653,7 @@ add_library(driftengine STATIC
     src/engine/StickerCatalog.h
     src/engine/StickerCatalog.cpp
     src/engine/TextStyleCatalog.cpp
+    src/engine/SoundEffectCatalog.cpp
     src/engine/EmojiCatalog.h
     src/engine/EmojiCatalog.cpp
     src/engine/EmojiTable.h
@@ -1249,6 +1250,7 @@ qt_add_qml_module(drift
         src/qml/components/assets/AssetDragSource.qml
         src/qml/components/assets/MasksTab.qml
         src/qml/components/assets/SoundsTab.qml
+        src/qml/components/assets/SoundEffectsTab.qml
         src/qml/components/assets/TransitionsTab.qml
         src/qml/components/assets/ShortcutsTab.qml
         src/qml/components/assets/MediaAssetsTab.qml

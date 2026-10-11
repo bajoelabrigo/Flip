@@ -3468,12 +3468,43 @@
         <translation>Transición actualizada</translation>
     </message>
     <message>
+        <source>Could not add that sound</source>
+        <translation>No se pudo agregar ese sonido</translation>
+    </message>
+    <message>
         <source>Enhance voice</source>
         <translation>Mejorar voz</translation>
     </message>
     <message>
         <source>Voice enhanced: noise gate, de-esser, compressor and leveler</source>
         <translation>Voz mejorada: puerta de ruido, de-esser, compresor y nivelador</translation>
+    </message>
+    <message>
+        <source>Select a video or audio clip with speech</source>
+        <translation>Selecciona un clip de video o audio con voz</translation>
+    </message>
+    <message>
+        <source>Could not analyse the speech in this clip</source>
+        <translation>No se pudo analizar la voz de este clip</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to find silences…</source>
+        <translation>Escuchando el clip para encontrar los silencios…</translation>
+    </message>
+    <message>
+        <source>No speech found in this clip</source>
+        <translation>No se encontró voz en este clip</translation>
+    </message>
+    <message>
+        <source>Could not cut this clip</source>
+        <translation>No se pudo cortar este clip</translation>
+    </message>
+    <message numerus="yes">
+        <source>Removed %1 s of pauses and %n filler word(s)</source>
+        <translation>
+            <numerusform>Se quitaron %1 s de pausas y %n muletilla</numerusform>
+            <numerusform>Se quitaron %1 s de pausas y %n muletillas</numerusform>
+        </translation>
     </message>
     <message>
         <source>Track solo</source>
@@ -4769,6 +4800,10 @@
     <message>
         <source>Audio FX</source>
         <translation>Efectos de audio</translation>
+    </message>
+    <message>
+        <source>Sound effects</source>
+        <translation>Efectos de sonido</translation>
     </message>
     <message>
         <source>Shortcuts</source>
@@ -12593,6 +12628,37 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>SoundEffectsTab</name>
+    <message>
+        <source>Search sounds</source>
+        <translation>Buscar sonidos</translation>
+    </message>
+    <message>
+        <source>No sound effects installed</source>
+        <translation>No hay efectos de sonido instalados</translation>
+    </message>
+    <message>
+        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
+        <translation>Instala el paquete de efectos de sonido: whoosh, pop, campanas, golpes y más.</translation>
+    </message>
+    <message>
+        <source>Get extras</source>
+        <translation>Conseguir extras</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>Detener</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>Escuchar</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>Agregar en el cabezal</translation>
+    </message>
+</context>
+<context>
     <name>SpeedCurveController</name>
     <message>
         <source>Custom speed works on video and audio clips</source>
@@ -15063,6 +15129,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Transcription — create captions from what is said</source>
         <translation>Transcripción: crea subtítulos con lo que se dice</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>Quitar silencios</translation>
+    </message>
+    <message>
+        <source>Remove silences and filler words — keep only the spoken parts (eh, mmm and long pauses go)</source>
+        <translation>Quita silencios y muletillas: deja solo las partes habladas (se van los eh, mmm y las pausas largas)</translation>
     </message>
     <message>
         <source>Remove background</source>

@@ -609,7 +609,7 @@ PanelFrame {
         const tabId = tabsModel.get(activeTab).tabId
         if (tabId === "text" || tabId === "subtitles" || tabId === "stickers" || tabId === "shapes"
                 || tabId === "effects" || tabId === "templates" || tabId === "adjustment"
-                || tabId === "sounds" || tabId === "transitions" || tabId === "masks"
+                || tabId === "sounds" || tabId === "sfx" || tabId === "transitions" || tabId === "masks"
                 || tabId === "shortcuts" || tabId === "scenes" || tabId === "market")
             return false
         const kinds = kindsForTab(tabId)
@@ -631,6 +631,7 @@ PanelFrame {
         "templates": qsTr("Templates"),
         "transitions": qsTr("Transitions"),
         "sounds": qsTr("Audio FX"),
+        "sfx": qsTr("Sound effects"),
         "shortcuts": qsTr("Shortcuts")
     })
 
@@ -650,6 +651,7 @@ PanelFrame {
         ListElement { tabId: "effects"; icon: 5; separatorAfter: false }
         ListElement { tabId: "templates"; icon: 6; separatorAfter: false }
         ListElement { tabId: "transitions"; icon: 7; separatorAfter: false }
+        ListElement { tabId: "sfx"; icon: 13; separatorAfter: false }
         ListElement { tabId: "sounds"; icon: 8; separatorAfter: true }
         ListElement { tabId: "shortcuts"; icon: 9; separatorAfter: false }
 
@@ -681,7 +683,8 @@ PanelFrame {
         Theme.icons.keyboard,
         Theme.icons.listVideo,
         Theme.icons.mask,
-        Theme.icons.store
+        Theme.icons.store,
+        Theme.icons.music
     ]
     property int activeTab: 0
     readonly property string currentTabId: tabsModel.get(activeTab).tabId
@@ -1044,7 +1047,7 @@ PanelFrame {
 
                         ThemedContextMenu {
                             id: importMenu
-                            implicitWidth: 220
+                            minimumWidth: 220
 
                             ThemedMenuItem {
                                 text: qsTr("Import Files…")
@@ -1104,6 +1107,19 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     SubtitlesTab {
+                        onAdded: root.addCompleted()
+                    }
+                }
+            }
+
+            Loader {
+                active: root.currentTabId === "sfx"
+                visible: active
+                width: parent.width
+                height: parent.height - assetsHeader.height
+                opacity: root.tabOpacity
+                sourceComponent: Component {
+                    SoundEffectsTab {
                         onAdded: root.addCompleted()
                     }
                 }

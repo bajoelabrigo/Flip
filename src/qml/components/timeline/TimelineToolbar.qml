@@ -422,7 +422,7 @@ Item {
 
             ThemedContextMenu {
                 id: overflowMenu
-                implicitWidth: 260
+                minimumWidth: 260
 
                 // Rebuilt on each open from the current layout. A Menu cannot host a
                 // Repeater, and Instantiator cannot mix items with separators.
@@ -564,7 +564,7 @@ Item {
 
         ThemedContextMenu {
             id: sceneMenu
-            implicitWidth: 240
+            minimumWidth: 240
 
             // Composites come and go with the project's assets, which have no notify of
             // their own here, so the list is read fresh on each open.

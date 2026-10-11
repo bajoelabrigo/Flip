@@ -1317,6 +1317,11 @@ public:
     Q_INVOKABLE void addAudioEffect(int trackIndex, int clipIndex, const QString &effectId);
     // CapCut's "Enhance voice": noise gate, de-esser, compressor and leveler, as one edit.
     Q_INVOKABLE void enhanceVoice(int trackIndex, int clipIndex);
+    // Sound effects from the "sound-effects" extras: [{id, label, category, path, url, duration}],
+    // their categories [{id, label}], and adding one at the playhead (it joins the media bin).
+    Q_INVOKABLE QVariantList soundEffects() const;
+    Q_INVOKABLE QVariantList soundEffectCategories() const;
+    Q_INVOKABLE void addSoundEffect(const QString &id);
     // CapCut's "remove silences / filler words": keeps only the spoken parts of a clip, dropping
     // pauses longer than `minPause` seconds and hesitations (eh, mmm), from a word-level
     // transcript of its media (made first when there is none). One undo step.

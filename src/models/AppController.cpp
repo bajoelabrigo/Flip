@@ -44,6 +44,7 @@
 #include "engine/Exporter.h"
 #include "engine/EmojiCatalog.h"
 #include "engine/FontCatalog.h"
+#include "engine/SoundEffectCatalog.h"
 #include "engine/LocalTranscription.h"
 #include "engine/CtcAligner.h"
 #include "engine/FrameCompositor.h"
@@ -19965,6 +19966,43 @@ QVariantList AppController::audioEffectCategories() const
         });
     }
     return out;
+}
+
+QVariantList AppController::soundEffects() const
+{
+    QVariantList out;
+    for (const SoundEffectEntry &e : ::soundEffects()) {
+        out.append(QVariantMap{{QStringLiteral("id"), e.id},
+                               {QStringLiteral("label"), e.label},
+                               {QStringLiteral("category"), e.category},
+                               {QStringLiteral("path"), e.path},
+                               {QStringLiteral("url"), QUrl::fromLocalFile(e.path).toString()},
+                               {QStringLiteral("duration"), e.duration}});
+    }
+    return out;
+}
+
+QVariantList AppController::soundEffectCategories() const
+{
+    QVariantList out;
+    for (const SoundEffectCategory &c : ::soundEffectCategories())
+        out.append(QVariantMap{{QStringLiteral("id"), c.id}, {QStringLiteral("label"), c.label}});
+    return out;
+}
+
+void AppController::addSoundEffect(const QString &id)
+{
+    for (const SoundEffectEntry &e : ::soundEffects()) {
+        if (e.id != id)
+            continue;
+        const QStringList assets = m_assetLibrary ? m_assetLibrary->importLocalPaths({e.path}) : QStringList();
+        if (assets.isEmpty()) {
+            setLastMessage(tr("Could not add that sound"), QStringLiteral("error"));
+            return;
+        }
+        addClipsFromAssets(assets);
+        return;
+    }
 }
 
 void AppController::enhanceVoice(int trackIndex, int clipIndex)

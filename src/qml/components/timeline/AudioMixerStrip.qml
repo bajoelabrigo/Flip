@@ -1067,7 +1067,7 @@ Rectangle {
 
                             ThemedContextMenu {
                                 id: voMicMenu
-                                implicitWidth: 220
+                                minimumWidth: 220
 
                                 Instantiator {
                                     model: EditorState.availableMicrophones

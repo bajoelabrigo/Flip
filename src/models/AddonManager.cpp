@@ -14,6 +14,7 @@
 #include "engine/OrtRuntime.h"
 #include "engine/StickerCatalog.h"
 #include "engine/TextStyleCatalog.h"
+#include "engine/SoundEffectCatalog.h"
 #include "engine/TransitionCatalog.h"
 #include "core/ZipArchive.h"
 
@@ -705,6 +706,8 @@ void AddonManager::reloadForKinds(const QStringList &kinds)
             reloadStickerCatalog();
         else if (kind == QLatin1String("text-styles"))
             reloadTextStyleCatalog();
+        else if (kind == QLatin1String("sound-effects"))
+            reloadSoundEffectCatalog();
         else if (kind == QLatin1String("face-props"))
             reloadFacePropCatalog();
         else if (kind == QLatin1String("emoji-font"))

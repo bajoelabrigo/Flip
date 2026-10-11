@@ -1664,8 +1664,8 @@ ApplicationWindow {
                         PropertiesPanel {
                             id: propertiesPanel
                             visible: !window.previewFullscreen
-                            SplitView.preferredWidth: Math.max(0, innerSplit.width * 0.25)
-                            SplitView.minimumWidth: Math.min(240, Math.max(0, innerSplit.width * 0.2))
+                            SplitView.preferredWidth: Math.max(0, innerSplit.width * 0.28)
+                            SplitView.minimumWidth: Math.min(280, Math.max(0, innerSplit.width * 0.22))
                             // Empty-state browse CTAs jump the assets panel to the
                             // matching library tab.
                             onWidthChanged: window.schedulePanelCapture()
