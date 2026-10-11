@@ -12154,6 +12154,8 @@ void AppController::noteRecentFont(const QString &family)
     while (recent.size() > 8)
         recent.removeLast();
     settings.setValue(QStringLiteral("fonts/recent"), recent);
+}
+
 QStringList AppController::systemFontFamilies() const
 {
     static QStringList cached;
