@@ -26,10 +26,9 @@ casilla al terminarla. Última actualización: 2026-10-10 (noche).
 
 ## Qué sigue
 
-Dónde estamos: la app de escritorio va por la **v0.9.0** (publicada en GitHub el 2026-10-10; falta el
-TXT `version` → `0.9.0` y subirla a la Microsoft Store) y el **editor web** va por la etapa 5 de 6 (edita, pone
-las 28 transiciones y exporta MP4; se anunciará al terminar las etapas 5 y 6). Los dos frentes avanzan por
-separado; este es el orden recomendado.
+Dónde estamos: la app de escritorio va por la **v0.9.1** (publicada en GitHub el 2026-10-11: inicio nuevo,
+quitar silencios, efectos de sonido; la 0.9.0 ya se subió a la Microsoft Store y la 0.9.1 va después de que
+la certifiquen) y el **editor web** está publicado y anunciado (etapa 6, audio por clip, hecha).
 
 ### App de escritorio (Windows)
 1. ~~v0.8.2 y v0.8.3~~ — publicadas (2026-10-10).
