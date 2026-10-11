@@ -1115,6 +1115,14 @@ void CoreTest::subtitleCuePacking()
              QStringLiteral("Este es el camino"));
     QCOMPARE(drift::cleanSubtitleText(QStringLiteral("¿mmm y entonces?")), QStringLiteral("¿Y entonces?"));
     QVERIFY(drift::cleanSubtitleCues({{0, 1000, QStringLiteral("ehh")}}).isEmpty());
+    // Only a caption that starts a sentence gets a capital.
+    const QList<drift::SubtitleCue> sentence = drift::cleanSubtitleCues(
+        {{0, 1000, QStringLiteral("que el Rey de Reyes los")},
+         {1000, 2000, QStringLiteral("bendiga grandemente.")},
+         {2000, 3000, QStringLiteral("en este tutorial")}});
+    QCOMPARE(sentence.at(0).text, QStringLiteral("Que el Rey de Reyes los"));
+    QCOMPARE(sentence.at(1).text, QStringLiteral("bendiga grandemente."));
+    QCOMPARE(sentence.at(2).text, QStringLiteral("En este tutorial"));
 
     // *Marked* words, inside punctuation too, and the Keywords rule.
     QVERIFY(drift::isMarkedWord(QStringLiteral("*fiel*")));

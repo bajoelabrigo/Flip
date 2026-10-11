@@ -41,9 +41,10 @@ QString subtitleClipName(const QList<SubtitleCue> &cues);
 QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineWidth = 42,
                                     int maxLineCount = 1, int maxWordsPerCue = 0);
 
-// Drops hesitation sounds ("eh", "em", "mmm" — never real words) and capitalises the first
-// letter. A caption left empty is dropped by cleanSubtitleCues.
-QString cleanSubtitleText(const QString &text);
+// Drops hesitation sounds ("eh", "em", "mmm" — never real words) and, with `capitalize`,
+// capitalises the first letter; cleanSubtitleCues only does so where a sentence starts. A caption
+// left empty is dropped by cleanSubtitleCues.
+QString cleanSubtitleText(const QString &text, bool capitalize = true);
 QList<SubtitleCue> cleanSubtitleCues(const QList<SubtitleCue> &cues);
 
 // The caption with one emoji added at its end for the first keyword it mentions ("fuego" 🔥,

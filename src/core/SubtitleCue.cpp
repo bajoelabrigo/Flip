@@ -245,7 +245,7 @@ bool isHesitation(const QString &word)
 
 } // namespace
 
-QString cleanSubtitleText(const QString &text)
+QString cleanSubtitleText(const QString &text, bool capitalize)
 {
     const QStringList words = text.split(QLatin1Char(' '), Qt::SkipEmptyParts);
     QStringList kept;
@@ -273,7 +273,7 @@ QString cleanSubtitleText(const QString &text)
     while (!out.isEmpty() && (out.front() == QLatin1Char(',') || out.front() == QLatin1Char(';')))
         out = out.mid(1).trimmed();
     // Capitalise the first letter, past any opening ¿ ¡ « " (.
-    for (int i = 0; i < out.size(); ++i) {
+    for (int i = 0; capitalize && i < out.size(); ++i) {
         if (out.at(i).isLetter()) {
             out[i] = out.at(i).toUpper();
             break;
@@ -288,7 +288,17 @@ QList<SubtitleCue> cleanSubtitleCues(const QList<SubtitleCue> &cues)
 {
     QList<SubtitleCue> out;
     for (SubtitleCue cue : cues) {
-        cue.text = cleanSubtitleText(cue.text);
+        // A caption only starts with a capital where a sentence starts: the first one, or after
+        // one that ended a sentence. "...que el Rey de Reyes los / bendiga grandemente" stays
+        // lower-case.
+        bool sentenceStart = out.isEmpty();
+        if (!sentenceStart) {
+            const QString previous = out.last().text.trimmed();
+            const QChar last = previous.isEmpty() ? QChar() : previous.back();
+            sentenceStart = last == QLatin1Char('.') || last == QLatin1Char('?') || last == QLatin1Char('!')
+                            || last == QChar(0x2026);
+        }
+        cue.text = cleanSubtitleText(cue.text, sentenceStart);
         if (!cue.text.isEmpty())
             out.append(cue);
     }
