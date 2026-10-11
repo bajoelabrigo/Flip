@@ -44,6 +44,7 @@
 #include "engine/Exporter.h"
 #include "engine/EmojiCatalog.h"
 #include "engine/FontCatalog.h"
+#include "engine/SoundEffectCatalog.h"
 #include "engine/LocalTranscription.h"
 #include "engine/CtcAligner.h"
 #include "engine/FrameCompositor.h"
@@ -19967,6 +19968,43 @@ QVariantList AppController::audioEffectCategories() const
     return out;
 }
 
+QVariantList AppController::soundEffects() const
+{
+    QVariantList out;
+    for (const SoundEffectEntry &e : ::soundEffects()) {
+        out.append(QVariantMap{{QStringLiteral("id"), e.id},
+                               {QStringLiteral("label"), e.label},
+                               {QStringLiteral("category"), e.category},
+                               {QStringLiteral("path"), e.path},
+                               {QStringLiteral("url"), QUrl::fromLocalFile(e.path).toString()},
+                               {QStringLiteral("duration"), e.duration}});
+    }
+    return out;
+}
+
+QVariantList AppController::soundEffectCategories() const
+{
+    QVariantList out;
+    for (const SoundEffectCategory &c : ::soundEffectCategories())
+        out.append(QVariantMap{{QStringLiteral("id"), c.id}, {QStringLiteral("label"), c.label}});
+    return out;
+}
+
+void AppController::addSoundEffect(const QString &id)
+{
+    for (const SoundEffectEntry &e : ::soundEffects()) {
+        if (e.id != id)
+            continue;
+        const QStringList assets = m_assetLibrary ? m_assetLibrary->importLocalPaths({e.path}) : QStringList();
+        if (assets.isEmpty()) {
+            setLastMessage(tr("Could not add that sound"), QStringLiteral("error"));
+            return;
+        }
+        addClipsFromAssets(assets);
+        return;
+    }
+}
+
 void AppController::enhanceVoice(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
@@ -19979,6 +20017,128 @@ void AppController::enhanceVoice(int trackIndex, int clipIndex)
         addAudioEffect(m_selectedTrack, m_selectedClip, QLatin1String(id));
     m_mcpController->endBatch(tr("Enhance voice"), true);
     setLastMessage(tr("Voice enhanced: noise gate, de-esser, compressor and leveler"), QStringLiteral("success"));
+}
+
+QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, double minPause, bool removeFillers)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return QStringLiteral("No such clip");
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if ((clip.type != drift::ClipType::Video && clip.type != drift::ClipType::Audio) || clip.assetId.isEmpty()) {
+        setLastMessage(tr("Select a video or audio clip with speech"), QStringLiteral("warning"));
+        return QStringLiteral("Not a video or audio clip");
+    }
+    const drift::TranscriptPtr transcript = m_project.transcript(clip.assetId);
+    if (transcript && transcript->source.matches(clip.path)) {
+        applySilenceCut(clip.id, minPause, removeFillers);
+        return {};
+    }
+
+    // No word timings yet: transcribe first (the local pipeline, aligned when the word-sync extra
+    // is installed), then cut when the job lands.
+    const QJsonObject started = m_mcpController->transcribe({clip.assetId}, QJsonObject{{QStringLiteral("force"), transcript != nullptr}});
+    const QJsonArray jobs = started.value(QStringLiteral("jobs")).toArray();
+    if (jobs.isEmpty()) {
+        if (m_project.transcript(clip.assetId)) {
+            applySilenceCut(clip.id, minPause, removeFillers);
+            return {};
+        }
+        const QString code = started.value(QStringLiteral("error")).toString();
+        setLastMessage(code == QLatin1String("addon_missing")
+                           ? tr("Install speech recognition from Extras to find the silences")
+                           : tr("Could not analyse the speech in this clip"),
+                       QStringLiteral("error"));
+        return started.value(QStringLiteral("detail")).toString(code);
+    }
+    const QString jobId = jobs.first().toObject().value(QStringLiteral("job_id")).toString();
+    m_pendingSilenceCuts.insert(jobId, QVariantMap{{QStringLiteral("clip"), clip.id},
+                                                   {QStringLiteral("minPause"), minPause},
+                                                   {QStringLiteral("fillers"), removeFillers}});
+    static bool connected = false;
+    if (!connected) {
+        connected = true;
+        connect(m_jobs, &JobRegistry::jobFinished, this, [this](const QString &id, bool ok) {
+            const auto it = m_pendingSilenceCuts.constFind(id);
+            if (it == m_pendingSilenceCuts.constEnd())
+                return;
+            const QVariantMap pending = it.value();
+            m_pendingSilenceCuts.remove(id);
+            if (!ok) {
+                setLastMessage(tr("Could not analyse the speech in this clip"), QStringLiteral("error"));
+                return;
+            }
+            // The transcript is stored by the job's own completion handler; run after it.
+            QTimer::singleShot(0, this, [this, pending]() {
+                applySilenceCut(pending.value(QStringLiteral("clip")).toString(),
+                                pending.value(QStringLiteral("minPause")).toDouble(),
+                                pending.value(QStringLiteral("fillers")).toBool());
+            });
+        });
+    }
+    setLastMessage(tr("Listening to the clip to find silences…"));
+    return {};
+}
+
+void AppController::applySilenceCut(const QString &clipId, double minPause, bool removeFillers)
+{
+    const QPair<int, int> loc = m_mcpController->locateClip(clipId);
+    if (loc.first < 0)
+        return;
+    const drift::Clip &clip = m_project.tracks().at(loc.first).clips.at(loc.second);
+    const drift::TranscriptPtr transcript = m_project.transcript(clip.assetId);
+    if (!transcript) {
+        setLastMessage(tr("Could not analyse the speech in this clip"), QStringLiteral("error"));
+        return;
+    }
+
+    // The spoken words inside the clip's trim, in source time; a hesitation is left out like a pause.
+    constexpr drift::TimeUs kPadUs = 120'000; // air kept around each run of words
+    const drift::TimeUs gapUs = drift::secondsToUs(qBound(0.2, minPause, 3.0));
+    QJsonArray ranges;
+    drift::TimeUs runStart = -1;
+    drift::TimeUs runEnd = -1;
+    int fillers = 0;
+    const auto flush = [&]() {
+        if (runStart < 0)
+            return;
+        ranges.append(QJsonObject{
+            {QStringLiteral("start"), drift::usToSeconds(qMax(clip.srcIn, runStart - kPadUs))},
+            {QStringLiteral("end"), drift::usToSeconds(qMin(clip.srcOut, runEnd + kPadUs))},
+        });
+        runStart = runEnd = -1;
+    };
+    for (const int i : transcript->wordsInRange(clip.srcIn, clip.srcOut)) {
+        const drift::TranscriptWord &w = transcript->words.at(i);
+        if (w.type == drift::TranscriptTokenType::Spacing || w.type == drift::TranscriptTokenType::AudioEvent)
+            continue;
+        const bool filler = w.type == drift::TranscriptTokenType::Filler || drift::isFillerWord(w.text)
+                            || drift::cleanSubtitleText(w.text).isEmpty();
+        if (filler && removeFillers) {
+            ++fillers;
+            continue;
+        }
+        if (runStart >= 0 && w.startUs - runEnd > gapUs)
+            flush();
+        if (runStart < 0)
+            runStart = w.startUs;
+        runEnd = qMax(runEnd, w.endUs);
+    }
+    flush();
+    if (ranges.isEmpty()) {
+        setLastMessage(tr("No speech found in this clip"), QStringLiteral("warning"));
+        return;
+    }
+    const double before = drift::usToSeconds(clip.timelineDuration); // `clip` is gone after the cut
+    const QJsonObject result = m_mcpController->keepRanges(loc.first, loc.second, ranges, 0.0, 0.03, true);
+    if (!result.value(QStringLiteral("ok")).toBool(true) && result.contains(QStringLiteral("error"))) {
+        setLastMessage(result.value(QStringLiteral("detail")).toString(tr("Could not cut this clip")),
+                       QStringLiteral("error"));
+        return;
+    }
+    const double after = result.value(QStringLiteral("duration")).toDouble(before);
+    setLastMessage(tr("Removed %1 s of pauses and %n filler word(s)", nullptr, fillers)
+                       .arg(QString::number(qMax(0.0, before - after), 'f', 1)),
+                   QStringLiteral("success"));
 }
 
 void AppController::addAudioEffect(int trackIndex, int clipIndex, const QString &effectId)

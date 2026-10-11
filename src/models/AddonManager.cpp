@@ -14,6 +14,7 @@
 #include "engine/OrtRuntime.h"
 #include "engine/StickerCatalog.h"
 #include "engine/TextStyleCatalog.h"
+#include "engine/SoundEffectCatalog.h"
 #include "engine/TransitionCatalog.h"
 #include "core/ZipArchive.h"
 
@@ -564,9 +565,10 @@ void AddonManager::finishDownload(const QString &id)
     if (reply->error() != QNetworkReply::NoError) {
         m_transfers.remove(id);
 
-        // A rejected ticket means the index we started from has gone stale, not that anything is
+        // A rejected ticket, or a package no longer where the index said (moved to another
+        // repository), means the index we started from has gone stale, not that anything is
         // wrong with the addon — fetch a fresh one and pick the download back up where it stopped.
-        if (status == 403 && !m_retried.contains(id)) {
+        if ((status == 403 || status == 404) && !m_retried.contains(id)) {
             m_retried.insert(id);
             m_awaitingFreshIndex.append(id);
             emit catalogChanged();
@@ -705,6 +707,8 @@ void AddonManager::reloadForKinds(const QStringList &kinds)
             reloadStickerCatalog();
         else if (kind == QLatin1String("text-styles"))
             reloadTextStyleCatalog();
+        else if (kind == QLatin1String("sound-effects"))
+            reloadSoundEffectCatalog();
         else if (kind == QLatin1String("face-props"))
             reloadFacePropCatalog();
         else if (kind == QLatin1String("emoji-font"))

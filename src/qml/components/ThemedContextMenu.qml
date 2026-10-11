@@ -12,7 +12,20 @@ import Drift
 Menu {
     id: root
 
-    implicitWidth: 200
+    property real minimumWidth: 200
+
+    // As wide as the longest entry (translations run longer than the English labels), so no
+    // label loses its end; minimumWidth is the floor, and a submenu arrow gets room of its own.
+    implicitWidth: {
+        let widest = 0
+        for (let i = 0; i < count; ++i) {
+            const item = itemAt(i)
+            if (item && item.visible && item.contentItem)
+                widest = Math.max(widest, item.contentItem.implicitWidth
+                                  + (item.subMenu ? Theme.iconSizeMd + Theme.spacingLg : 0))
+        }
+        return Math.min(440, Math.max(minimumWidth, widest + Theme.spacingLg + leftPadding + rightPadding))
+    }
     padding: Theme.spacingSm
     // Escape closes; clicking outside dismisses.
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside

@@ -3478,12 +3478,48 @@
         <translation>Переход обновлён</translation>
     </message>
     <message>
+        <source>Could not add that sound</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Enhance voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Voice enhanced: noise gate, de-esser, compressor and leveler</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or audio clip with speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install speech recognition from Extras to find the silences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not analyse the speech in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to find silences…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No speech found in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not cut this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Removed %1 s of pauses and %n filler word(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>Track solo</source>
@@ -4792,6 +4828,10 @@
     <message>
         <source>Audio FX</source>
         <translation>Аудиоэффекты</translation>
+    </message>
+    <message>
+        <source>Sound effects</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shortcuts</source>
@@ -6174,6 +6214,10 @@
     <message>
         <source>Save Shareable Copy</source>
         <translation>Сохранить копию для отправки</translation>
+    </message>
+    <message>
+        <source>Home — your projects</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Projects</source>
@@ -12637,6 +12681,37 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SoundEffectsTab</name>
+    <message>
+        <source>Search sounds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No sound effects installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get extras</source>
+        <translation type="unfinished">Получить дополнения</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Остановить</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SpeedCurveController</name>
     <message>
         <source>Custom speed works on video and audio clips</source>
@@ -12886,6 +12961,106 @@ If playback stutters, try another.</source>
 <context>
     <name>StartScreen</name>
     <message>
+        <source>Automatic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like your first video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles from the voice, offline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Titles, verses, lower thirds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stickers</source>
+        <translation type="unfinished">Стикеры</translation>
+    </message>
+    <message>
+        <source>3D and animated emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vertical video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For TikTok, Reels and Shorts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today, %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yesterday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extras</source>
+        <translation type="unfinished">Дополнения</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished">Настройки</translation>
+    </message>
+    <message>
+        <source>Edit online</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio in your browser, at getflipstudio.com/editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation type="unfinished">Проекты</translation>
+    </message>
+    <message>
+        <source>Search projects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open project…</source>
+        <translation type="unfinished">Открыть проект…</translation>
+    </message>
+    <message>
+        <source>Your projects will show up here once you save them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No project matches “%1”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source> (missing)</source>
         <translation> (отсутствует)</translation>
     </message>
@@ -12898,26 +13073,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Remove from recents</source>
         <translation>Убрать из недавних</translation>
-    </message>
-    <message>
-        <source>Create polished videos fast</source>
-        <translation>Быстро создавайте качественные видео</translation>
-    </message>
-    <message>
-        <source>New Project</source>
-        <translation>Новый проект</translation>
-    </message>
-    <message>
-        <source>Open Project…</source>
-        <translation>Открыть проект…</translation>
-    </message>
-    <message>
-        <source>Recent Projects</source>
-        <translation>Недавние проекты</translation>
-    </message>
-    <message>
-        <source>Nothing here yet — projects you save will show up in this list.</source>
-        <translation>Здесь пока пусто — сохранённые проекты появятся в этом списке.</translation>
     </message>
 </context>
 <context>
@@ -15029,6 +15184,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Transcription — create captions from what is said</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove silences and filler words — keep only the spoken parts (eh, mmm and long pauses go)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

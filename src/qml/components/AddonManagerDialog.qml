@@ -204,7 +204,10 @@ ThemedDialog {
         } else if (kind === "fonts" || kind === "text-styles") {
             root.kindFilter = "fonts"
             root.kindFilterKinds = ["fonts", "text-styles"]
-        } else if (kind === "transitions" || kind === "audio-effects" || kind === "stickers") {
+        } else if (kind === "audio-effects" || kind === "sound-effects") {
+            root.kindFilter = "audio-effects"
+            root.kindFilterKinds = ["audio-effects", "sound-effects"]
+        } else if (kind === "transitions" || kind === "stickers") {
             root.kindFilter = kind
             root.kindFilterKinds = [kind]
         } else {
@@ -257,7 +260,7 @@ ThemedDialog {
                     { id: "all", label: qsTr("All"), kinds: [] },
                     { id: "effects", label: qsTr("Effects"), kinds: ["effects"] },
                     { id: "transitions", label: qsTr("Transitions"), kinds: ["transitions"] },
-                    { id: "audio-effects", label: qsTr("Audio FX"), kinds: ["audio-effects"] },
+                    { id: "audio-effects", label: qsTr("Audio FX"), kinds: ["audio-effects", "sound-effects"] },
                     { id: "fonts", label: qsTr("Text & fonts"), kinds: ["fonts", "text-styles"] },
                     { id: "stickers", label: qsTr("Stickers"), kinds: ["stickers"] },
                     { id: "whisper-model", label: qsTr("AI tools"),

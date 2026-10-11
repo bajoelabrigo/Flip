@@ -3,7 +3,20 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
-## 0.9.0 — extras propios (en preparación)
+## 0.9.1 — inicio nuevo, quitar silencios y efectos de sonido
+
+- Pantalla de inicio al estilo CapCut (StartScreen): crear con formato, herramientas rápidas y tarjetas de
+  proyecto con miniatura, duración y tamaño; botón de inicio en el encabezado del editor.
+- Quitar silencios y muletillas (`cutSilencesAndFillers`, operación MCP `cut_silences`): transcribe si hace
+  falta y deja solo los tramos hablados con `keepRanges`; sin modelo de voz abre Extras.
+- Efectos de sonido: tipo de extra nuevo `sound-effects` (SoundEffectCatalog), pestaña en el panel de
+  recursos; paquete propio de 37 sonidos sintetizados (Licencia de contenido Flip Studio).
+- Extras: 21 plantillas y 13 stickers animados nuevos; los paquetes se descargan de
+  bajoelabrigo/flipstudio-extras; un paquete que da 404 refresca el índice y reintenta.
+- Panel de propiedades más ancho y con margen para la barra de desplazamiento; los menús contextuales se
+  ajustan al texto más largo.
+
+## 0.9.0 — extras propios
 
 - Extras vuelve a descargar: índice en getflipstudio.com/addons/index.json y paquetes en los GitHub Releases
   de bajoelabrigo/flip-addons, firmados con la clave de Flip Studio (la app ya no confía en la de CutWire).

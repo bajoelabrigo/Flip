@@ -3468,12 +3468,47 @@
         <translation>Transición actualizada</translation>
     </message>
     <message>
+        <source>Could not add that sound</source>
+        <translation>No se pudo agregar ese sonido</translation>
+    </message>
+    <message>
         <source>Enhance voice</source>
         <translation>Mejorar voz</translation>
     </message>
     <message>
         <source>Voice enhanced: noise gate, de-esser, compressor and leveler</source>
         <translation>Voz mejorada: puerta de ruido, de-esser, compresor y nivelador</translation>
+    </message>
+    <message>
+        <source>Select a video or audio clip with speech</source>
+        <translation>Selecciona un clip de video o audio con voz</translation>
+    </message>
+    <message>
+        <source>Install speech recognition from Extras to find the silences</source>
+        <translation>Instala el reconocimiento de voz desde Extras para encontrar los silencios</translation>
+    </message>
+    <message>
+        <source>Could not analyse the speech in this clip</source>
+        <translation>No se pudo analizar la voz de este clip</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to find silences…</source>
+        <translation>Escuchando el clip para encontrar los silencios…</translation>
+    </message>
+    <message>
+        <source>No speech found in this clip</source>
+        <translation>No se encontró voz en este clip</translation>
+    </message>
+    <message>
+        <source>Could not cut this clip</source>
+        <translation>No se pudo cortar este clip</translation>
+    </message>
+    <message numerus="yes">
+        <source>Removed %1 s of pauses and %n filler word(s)</source>
+        <translation>
+            <numerusform>Se quitaron %1 s de pausas y %n muletilla</numerusform>
+            <numerusform>Se quitaron %1 s de pausas y %n muletillas</numerusform>
+        </translation>
     </message>
     <message>
         <source>Track solo</source>
@@ -4769,6 +4804,10 @@
     <message>
         <source>Audio FX</source>
         <translation>Efectos de audio</translation>
+    </message>
+    <message>
+        <source>Sound effects</source>
+        <translation>Efectos de sonido</translation>
     </message>
     <message>
         <source>Shortcuts</source>
@@ -6144,6 +6183,10 @@
     <message>
         <source>Save Shareable Copy</source>
         <translation>Guardar copia para compartir</translation>
+    </message>
+    <message>
+        <source>Home — your projects</source>
+        <translation>Inicio: tus proyectos</translation>
     </message>
     <message>
         <source>Projects</source>
@@ -12589,6 +12632,37 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>SoundEffectsTab</name>
+    <message>
+        <source>Search sounds</source>
+        <translation>Buscar sonidos</translation>
+    </message>
+    <message>
+        <source>No sound effects installed</source>
+        <translation>No hay efectos de sonido instalados</translation>
+    </message>
+    <message>
+        <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
+        <translation>Instala el paquete de efectos de sonido: whoosh, pop, campanas, golpes y más.</translation>
+    </message>
+    <message>
+        <source>Get extras</source>
+        <translation>Conseguir extras</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>Detener</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>Escuchar</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>Agregar en el cabezal</translation>
+    </message>
+</context>
+<context>
     <name>SpeedCurveController</name>
     <message>
         <source>Custom speed works on video and audio clips</source>
@@ -12838,6 +12912,106 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>StartScreen</name>
     <message>
+        <source>Automatic</source>
+        <translation>Automático</translation>
+    </message>
+    <message>
+        <source>Like your first video</source>
+        <translation>Como tu primer video</translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts</source>
+        <translation>TikTok, Reels, Shorts</translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation>Cuadrado</translation>
+    </message>
+    <message>
+        <source>Auto captions</source>
+        <translation>Subtítulos automáticos</translation>
+    </message>
+    <message>
+        <source>Subtitles from the voice, offline</source>
+        <translation>Subtítulos desde la voz, sin internet</translation>
+    </message>
+    <message>
+        <source>Text templates</source>
+        <translation>Plantillas de texto</translation>
+    </message>
+    <message>
+        <source>Titles, verses, lower thirds</source>
+        <translation>Títulos, versículos, rótulos</translation>
+    </message>
+    <message>
+        <source>Stickers</source>
+        <translation>Stickers</translation>
+    </message>
+    <message>
+        <source>3D and animated emojis</source>
+        <translation>Emojis 3D y animados</translation>
+    </message>
+    <message>
+        <source>Vertical video</source>
+        <translation>Video vertical</translation>
+    </message>
+    <message>
+        <source>For TikTok, Reels and Shorts</source>
+        <translation>Para TikTok, Reels y Shorts</translation>
+    </message>
+    <message>
+        <source>Today, %1</source>
+        <translation>Hoy, %1</translation>
+    </message>
+    <message>
+        <source>Yesterday</source>
+        <translation>Ayer</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation>Inicio</translation>
+    </message>
+    <message>
+        <source>Extras</source>
+        <translation>Extras</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Ajustes</translation>
+    </message>
+    <message>
+        <source>Edit online</source>
+        <translation>Editar en línea</translation>
+    </message>
+    <message>
+        <source>Flip Studio in your browser, at getflipstudio.com/editor</source>
+        <translation>Flip Studio en tu navegador, en getflipstudio.com/editor</translation>
+    </message>
+    <message>
+        <source>Create project</source>
+        <translation>Crear proyecto</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Proyectos</translation>
+    </message>
+    <message>
+        <source>Search projects</source>
+        <translation>Buscar proyectos</translation>
+    </message>
+    <message>
+        <source>Open project…</source>
+        <translation>Abrir proyecto…</translation>
+    </message>
+    <message>
+        <source>Your projects will show up here once you save them.</source>
+        <translation>Aquí aparecerán tus proyectos cuando los guardes.</translation>
+    </message>
+    <message>
+        <source>No project matches “%1”.</source>
+        <translation>Ningún proyecto coincide con “%1”.</translation>
+    </message>
+    <message>
         <source> (missing)</source>
         <translation> (no encontrado)</translation>
     </message>
@@ -12850,26 +13024,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Remove from recents</source>
         <translation>Eliminar de recientes</translation>
-    </message>
-    <message>
-        <source>Create polished videos fast</source>
-        <translation>Crea videos profesionales rápidamente</translation>
-    </message>
-    <message>
-        <source>New Project</source>
-        <translation>Nuevo proyecto</translation>
-    </message>
-    <message>
-        <source>Open Project…</source>
-        <translation>Abrir proyecto…</translation>
-    </message>
-    <message>
-        <source>Recent Projects</source>
-        <translation>Proyectos recientes</translation>
-    </message>
-    <message>
-        <source>Nothing here yet — projects you save will show up in this list.</source>
-        <translation>No hay nada aquí todavía — los proyectos que guardes aparecerán en esta lista.</translation>
     </message>
 </context>
 <context>
@@ -14979,6 +15133,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Transcription — create captions from what is said</source>
         <translation>Transcripción: crea subtítulos con lo que se dice</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>Quitar silencios</translation>
+    </message>
+    <message>
+        <source>Remove silences and filler words — keep only the spoken parts (eh, mmm and long pauses go)</source>
+        <translation>Quita silencios y muletillas: deja solo las partes habladas (se van los eh, mmm y las pausas largas)</translation>
     </message>
     <message>
         <source>Remove background</source>

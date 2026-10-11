@@ -13,6 +13,7 @@
 #include "engine/AndroidUri.h"
 #include "engine/AudioFileWriter.h"
 #include "engine/EffectCatalog.h"
+#include "engine/FrameCompositor.h"
 #include "engine/Exporter.h"
 #include "engine/ProjectDependencies.h"
 #include "engine/FaceTrack.h"
@@ -29,7 +30,10 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QCryptographicHash>
+#include <QImage>
 #include <QJsonValue>
+#include <QPointer>
 #include <QSettings>
 #include <QStandardPaths>
 #include <QTimer>
@@ -1542,13 +1546,76 @@ QVariantList ProjectFileController::recentProjects() const
             continue;
         }
         const QFileInfo info(path);
-        out.append(QVariantMap{
+        QVariantMap row{
             {QStringLiteral("path"), path},
             {QStringLiteral("name"), info.fileName()},
             {QStringLiteral("exists"), info.exists()},
-        });
+        };
+        if (info.exists())
+            row.insert(QStringLiteral("modified"), info.lastModified().toMSecsSinceEpoch());
+        // The card the start screen draws: a frame and the length, kept when the project was
+        // last saved or opened (see addRecentProject).
+        const QVariantMap meta = settings.value(QStringLiteral("recentMeta/") + recentKey(path)).toMap();
+        row.insert(meta);
+        const QFileInfo thumb(recentThumbnailPath(path));
+        if (thumb.exists()) {
+            // The query busts QML's image cache when the frame is redrawn.
+            row.insert(QStringLiteral("thumbnail"),
+                       QUrl::fromLocalFile(thumb.absoluteFilePath()).toString()
+                           + QStringLiteral("?v=") + QString::number(thumb.lastModified().toMSecsSinceEpoch()));
+        }
+        out.append(row);
     }
     return out;
+}
+
+QString ProjectFileController::recentKey(const QString &path)
+{
+    return QString::fromLatin1(QCryptographicHash::hash(path.toUtf8(), QCryptographicHash::Sha1).toHex().left(16));
+}
+
+QString ProjectFileController::recentThumbnailPath(const QString &path)
+{
+    const QString dir = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation);
+    return dir.isEmpty() ? QString()
+                         : QDir(dir).filePath(QStringLiteral("project-thumbnails/") + recentKey(path) + QStringLiteral(".jpg"));
+}
+
+void ProjectFileController::refreshRecentCard(const QString &path)
+{
+    const drift::Project &project = m_app->m_project;
+    const double duration = drift::usToSeconds(project.durationUs());
+    QSettings().setValue(QStringLiteral("recentMeta/") + recentKey(path),
+                         QVariantMap{{QStringLiteral("duration"), duration},
+                                     {QStringLiteral("width"), project.width()},
+                                     {QStringLiteral("height"), project.height()}});
+    const QString out = recentThumbnailPath(path);
+    if (out.isEmpty() || project.durationUs() <= 0)
+        return;
+    QDir().mkpath(QFileInfo(out).absolutePath());
+
+    // A frame a little way in (the first is often black), drawn off the GUI thread on a copy.
+    const auto snapshot = std::make_shared<const drift::Project>(project.detachedCopy());
+    const drift::TimeUs at = qMin<drift::TimeUs>(drift::secondsToUs(1.0), project.durationUs() / 3);
+    QPointer<ProjectFileController> self(this);
+    (void)QtConcurrent::run([snapshot, at, out, self]() {
+        FrameCompositor::RenderOptions options;
+        const int longEdge = qMax(snapshot->width(), snapshot->height());
+        if (longEdge > 480)
+            options.previewScale = 480.0 / double(longEdge);
+        FrameCompositor compositor;
+        compositor.setProject(snapshot.get());
+        const QImage frame = compositor.compositeAt(at, options);
+        if (frame.isNull() || !frame.save(out, "JPG", 82))
+            return;
+        QMetaObject::invokeMethod(
+            qApp,
+            [self]() {
+                if (self)
+                    emit self->recentProjectsChanged();
+            },
+            Qt::QueuedConnection);
+    });
 }
 
 void ProjectFileController::addRecentProject(const QString &path)
@@ -1562,6 +1629,8 @@ void ProjectFileController::addRecentProject(const QString &path)
     while (paths.size() > kMaxRecentProjects)
         paths.removeLast();
     settings.setValue(QStringLiteral("recentProjects"), paths);
+    if (!path.startsWith(QLatin1String("content://"), Qt::CaseInsensitive))
+        refreshRecentCard(path);
     emit recentProjectsChanged();
 }
 
