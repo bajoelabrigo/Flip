@@ -3484,6 +3484,10 @@
         <translation>Selecciona un clip de video o audio con voz</translation>
     </message>
     <message>
+        <source>Install speech recognition from Extras to find the silences</source>
+        <translation>Instala el reconocimiento de voz desde Extras para encontrar los silencios</translation>
+    </message>
+    <message>
         <source>Could not analyse the speech in this clip</source>
         <translation>No se pudo analizar la voz de este clip</translation>
     </message>

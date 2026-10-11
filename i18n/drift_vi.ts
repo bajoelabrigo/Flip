@@ -3482,6 +3482,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Install speech recognition from Extras to find the silences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not analyse the speech in this clip</source>
         <translation type="unfinished"></translation>
     </message>

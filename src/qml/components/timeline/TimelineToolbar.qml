@@ -196,7 +196,13 @@ Item {
             break
         }
         case "enhanceVoice": EditorState.enhanceVoice(EditorState.selectedTrack, EditorState.selectedClip); break
-        case "cutSilences": EditorState.cutSilencesAndFillers(EditorState.selectedTrack, EditorState.selectedClip); break
+        case "cutSilences":
+            // Finding the pauses needs the speech model; without it, offer it rather than fail.
+            if (!Addons.hasKind("whisper-model"))
+                toolbar.Window.window.openAddonManager("whisper-model")
+            else
+                EditorState.cutSilencesAndFillers(EditorState.selectedTrack, EditorState.selectedClip)
+            break
         // From the overflow menu, where there is no submenu: the first choice.
         case "transform": toolbar.triggerAction("flip"); break
         case "enhanceAudio": toolbar.triggerAction("denoise"); break

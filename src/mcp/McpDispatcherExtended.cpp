@@ -1809,8 +1809,11 @@ QJsonObject McpDispatcher::applyOneExtended(const QString &tool, const QJsonObje
         const ClipRef ref = resolveClip(args);
         if (!ref.valid())
             return clipRefError(args);
-        m_controller->cutSilencesAndFillers(ref.track, ref.clip, jsonNumber(args.value(QStringLiteral("min_pause")), 0.6),
-                                            !args.contains(QStringLiteral("fillers")) || jsonBool(args.value(QStringLiteral("fillers"))));
+        const QString error = m_controller->cutSilencesAndFillers(
+            ref.track, ref.clip, jsonNumber(args.value(QStringLiteral("min_pause")), 0.6),
+            !args.contains(QStringLiteral("fillers")) || jsonBool(args.value(QStringLiteral("fillers"))));
+        if (!error.isEmpty())
+            return err("failed", error);
         return ok({{QStringLiteral("started"), true}});
     }
 

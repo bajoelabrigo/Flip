@@ -20019,19 +20019,19 @@ void AppController::enhanceVoice(int trackIndex, int clipIndex)
     setLastMessage(tr("Voice enhanced: noise gate, de-esser, compressor and leveler"), QStringLiteral("success"));
 }
 
-void AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, double minPause, bool removeFillers)
+QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, double minPause, bool removeFillers)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
-        return;
+        return QStringLiteral("No such clip");
     const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
     if ((clip.type != drift::ClipType::Video && clip.type != drift::ClipType::Audio) || clip.assetId.isEmpty()) {
         setLastMessage(tr("Select a video or audio clip with speech"), QStringLiteral("warning"));
-        return;
+        return QStringLiteral("Not a video or audio clip");
     }
     const drift::TranscriptPtr transcript = m_project.transcript(clip.assetId);
     if (transcript && transcript->source.matches(clip.path)) {
         applySilenceCut(clip.id, minPause, removeFillers);
-        return;
+        return {};
     }
 
     // No word timings yet: transcribe first (the local pipeline, aligned when the word-sync extra
@@ -20041,11 +20041,14 @@ void AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, double 
     if (jobs.isEmpty()) {
         if (m_project.transcript(clip.assetId)) {
             applySilenceCut(clip.id, minPause, removeFillers);
-            return;
+            return {};
         }
-        setLastMessage(started.value(QStringLiteral("detail")).toString(tr("Could not analyse the speech in this clip")),
+        const QString code = started.value(QStringLiteral("error")).toString();
+        setLastMessage(code == QLatin1String("addon_missing")
+                           ? tr("Install speech recognition from Extras to find the silences")
+                           : tr("Could not analyse the speech in this clip"),
                        QStringLiteral("error"));
-        return;
+        return started.value(QStringLiteral("detail")).toString(code);
     }
     const QString jobId = jobs.first().toObject().value(QStringLiteral("job_id")).toString();
     m_pendingSilenceCuts.insert(jobId, QVariantMap{{QStringLiteral("clip"), clip.id},
@@ -20073,6 +20076,7 @@ void AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, double 
         });
     }
     setLastMessage(tr("Listening to the clip to find silences…"));
+    return {};
 }
 
 void AppController::applySilenceCut(const QString &clipId, double minPause, bool removeFillers)

@@ -1325,7 +1325,8 @@ public:
     // CapCut's "remove silences / filler words": keeps only the spoken parts of a clip, dropping
     // pauses longer than `minPause` seconds and hesitations (eh, mmm), from a word-level
     // transcript of its media (made first when there is none). One undo step.
-    Q_INVOKABLE void cutSilencesAndFillers(int trackIndex, int clipIndex, double minPause = 0.6,
+    // Returns an error message when nothing could start, empty otherwise.
+    Q_INVOKABLE QString cutSilencesAndFillers(int trackIndex, int clipIndex, double minPause = 0.6,
                                            bool removeFillers = true);
     Q_INVOKABLE void removeAudioEffect(int trackIndex, int clipIndex, int effectIndex);
     Q_INVOKABLE void setAudioEffectEnabled(int trackIndex, int clipIndex, int effectIndex, bool enabled);
