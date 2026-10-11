@@ -43,7 +43,8 @@ Item {
                 return v.label.toLowerCase().indexOf(q) >= 0
             if (root.category === root.favoritesId)
                 return EditorState.isAssetFavorite("voices", v.id)
-            return v.category === root.category
+            // The catalog keeps ids with underscores ("voz_filtros").
+            return v.category.replace(/_/g, "-") === root.category
         })
     }
 

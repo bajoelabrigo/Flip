@@ -14,7 +14,7 @@ Column {
     readonly property string mineId: "__mine__"
     // Bumped when an addon changes the audio effects on disk (an imported .driftfx, a pack install).
     property int catalogTick: 0
-    readonly property var categories: { void catalogTick; return EditorState.audioEffectCategories().filter(c => !c.id.startsWith("voz-")) }
+    readonly property var categories: { void catalogTick; return EditorState.audioEffectCategories().filter(c => !/^voz[-_]/.test(c.id)) }
     // The voice changer's "voz.*" filters have their own grid in the Audio tab.
     readonly property var catalog: { void catalogTick; return EditorState.audioEffectCatalog().filter(e => !e.id.startsWith("voz.")) }
     property string activeCategory: categories.length > 0 ? categories[0].id : ""
