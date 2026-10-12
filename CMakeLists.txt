@@ -1275,6 +1275,10 @@ qt_add_qml_module(drift
         src/qml/components/properties/PdfInspector.qml
         src/qml/components/properties/MasksInspector.qml
         src/qml/components/properties/EffectsInspector.qml
+        # CapCut's four video pages (Basico, Eliminar fondo, Mascara, Retoque) live in this one,
+        # which composes the inspectors above. Without it here the QML is not compiled and
+        # lupdate never sees its strings, so i18n/*.ts silently loses the whole tab.
+        src/qml/components/properties/VideoInspector.qml
         src/qml/components/properties/FacePropPicker.qml
         src/qml/components/assets/TextAssetsTab.qml
         src/qml/components/assets/ScenesTab.qml
