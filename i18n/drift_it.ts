@@ -3191,6 +3191,58 @@
         <translation>Transizione aggiornata</translation>
     </message>
     <message>
+        <source>Voice changer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice changer off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio fade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill channel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Channel filled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill channel off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to normalize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Measuring loudness…</source>
+        <translation type="unfinished">Misurazione del volume percepito (loudness) in corso…</translation>
+    </message>
+    <message>
+        <source>This clip is too quiet to measure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Normalize loudness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loudness raised as far as the volume allows (it was %1 LUFS)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loudness set to %1 LUFS (it was %2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Track solo</source>
         <translation>Solo traccia</translation>
     </message>
@@ -4747,6 +4799,66 @@
     <message>
         <source>%1 words per caption</source>
         <translation>%1 parole per didascalia</translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation type="unfinished">Base</translation>
+    </message>
+    <message>
+        <source>Voice changer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fade in</source>
+        <translation type="unfinished">Dissolvenza in entrata</translation>
+    </message>
+    <message>
+        <source>Fade out</source>
+        <translation type="unfinished">Dissolvenza in uscita</translation>
+    </message>
+    <message>
+        <source>Normalize loudness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the clip&apos;s volume so it sounds as loud as social media expects (−14 LUFS).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Measuring…</source>
+        <translation type="unfinished">Misurazione in corso…</translation>
+    </message>
+    <message>
+        <source>Normalize to −14 LUFS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enhance voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clearer, fuller speech: less room echo and background noise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill channel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For recordings heard on one side only: copies that side to both.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Left to both</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Right to both</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pan</source>
@@ -17444,6 +17556,61 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
     <message>
         <source>Numpad +</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VoiceChanger</name>
+    <message>
+        <source>Change your voice with more than a hundred filters: telephone, radio, cave, robot, monster, chipmunk, harmonies and more. Install the Voice changer pack from Extras.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get the Voice changer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The next voice you pick goes on every clip with sound</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search voices</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice filters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice characters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice to song</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Right-click a voice to keep it here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No voice matches.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">Nessuno</translation>
+    </message>
+    <message>
+        <source>%1 — click to apply, right-click to add to favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation type="unfinished">Intensità</translation>
     </message>
 </context>
 <context>

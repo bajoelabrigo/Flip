@@ -136,6 +136,13 @@ All return `{started:true}` immediately. Every field below except `export` lives
 | `stabilize_clip` | Per-clip `stabilizing` / `stabilizeProgress` / `stabilizeStatus` on the detail clip row |
 | `transcribe`, `diarize`, `tts_generate`, `sfx_generate`, `estimate_depth` | Return `{job_id}` instead: poll `get_job({id})` until `active` is false, then read `ok` plus `result` or `error`. `cancel_job({id})` stops one. `inspect({detail:true}).jobs.list` keeps recent jobs, finished ones included |
 
+A fire-and-forget job that fails has nowhere else to say so: the op answered `ok`, the timeline is
+unchanged, and no progress field exists to poll. `inspect()` therefore always reports the app's own
+status line as `notice:{message, severity}` (absent when there is nothing to say, never gated on
+`detail`). Read it after any async op that appears to have done nothing — a missing model, an
+execution provider that refused a session, or a clip deleted mid-run all surface there and nowhere
+else. A `severity` of `"error"` on a job you just started means it failed.
+
 ## Toolbox reference
 
 | Toolbox | When to use |

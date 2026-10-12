@@ -163,6 +163,8 @@ class AppController : public QObject
     // "Is the timeline empty?" — asked by the empty-state copy in both shells, which used to
     // answer it by serialising the project and looping over every track.
     Q_PROPERTY(int clipCount READ clipCount NOTIFY tracksChanged)
+    // A loudness measurement (normalizeClipLoudness) is running.
+    Q_PROPERTY(bool normalizing READ normalizing NOTIFY normalizingChanged)
     // Whether the touch shell's grow/shrink-all-lanes buttons have anywhere left to go, for their
     // enabled state. Properties rather than invokables so QML gets real bindings: an invokable
     // would have to be given a dependency to re-evaluate on, and the only one available is
@@ -1246,6 +1248,19 @@ public:
     Q_INVOKABLE QString cutSilencesAndFillers(int trackIndex, int clipIndex, double minPause = 0.6,
                                            bool removeFillers = true);
     Q_INVOKABLE void removeAudioEffect(int trackIndex, int clipIndex, int effectIndex);
+    // Voice changer: the "voz.*" filter on a clip ("" for none), and replacing it in one undo
+    // step on this clip or, with allClips, on every clip with sound.
+    Q_INVOKABLE QString voiceFilterOf(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void setVoiceFilter(int trackIndex, int clipIndex, const QString &effectId, bool allClips);
+    Q_INVOKABLE double voiceFilterIntensity(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void setVoiceFilterIntensity(int trackIndex, int clipIndex, double value);
+    // The Audio tab's basics: fades on the sound only, "fill channel" (0 left, 1 right, 2 auto,
+    // -1 off) and loudness normalisation to a target (ITU-R BS.1770), measured off the GUI thread.
+    Q_INVOKABLE void setClipAudioFade(int trackIndex, int clipIndex, double fadeInSeconds, double fadeOutSeconds);
+    Q_INVOKABLE int channelFillOf(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void setChannelFill(int trackIndex, int clipIndex, int mode);
+    Q_INVOKABLE void normalizeClipLoudness(int trackIndex, int clipIndex, double targetLufs);
+    bool normalizing() const { return m_normalizing; }
     Q_INVOKABLE void setAudioEffectEnabled(int trackIndex, int clipIndex, int effectIndex, bool enabled);
     Q_INVOKABLE void moveAudioEffect(int trackIndex, int clipIndex, int fromIndex, int toIndex);
     Q_INVOKABLE bool setAudioEffectParam(int trackIndex, int clipIndex, int effectIndex,
@@ -1610,6 +1625,7 @@ signals:
     void shortcutsChanged();
     void assetFavoritesChanged();
     void userTextPresetsChanged();
+    void normalizingChanged();
     void fontCatalogChanged();
     void userFontsChanged();
     void userEffectPresetsChanged();
@@ -1758,6 +1774,8 @@ protected:
     bool m_subtitleTranslateNext = false; // the next generation run translates to English
     bool generateSubtitlesForSources(QList<SubtitleSource> sources, const QString &language,
                                      int maxWordsPerCue);
+    void finishNormalize(const QString &clipId, double lufs, double targetLufs);
+    bool m_normalizing = false;
     void finalizeGeneratedSubtitles(drift::TimeUs timelineStart, drift::TimeUs timelineDuration,
                                     const QList<drift::SubtitleCue> &cues, bool translated = false);
     // Defaulted severity so the existing call sites, which report ordinary status,

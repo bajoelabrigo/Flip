@@ -17,6 +17,10 @@ Item {
     // Read straight from a media file: stream choice, denoise and transcription need one.
     readonly property bool fileAudio: (clipKind === "audio" || clipKind === "video") && !clipData.sequenceId
     readonly property var propVolume: { "key": "volume", "label": qsTr("Volume"), "def": 1.0, "decimals": 2 }
+    // CapCut's two pages: the basics, and the voice changer's grid.
+    property string page: "basic"
+    readonly property bool hasSound: clipKind === "audio" || clipKind === "video"
+    readonly property real clipLength: hasSelection && clipData.duration !== undefined ? clipData.duration : 0
 
     // "Recommended" packs by display width like openai-whisper does; the numbered entries cap
     // words per caption on top of that.
@@ -45,6 +49,38 @@ Item {
         width: root.width
         spacing: Theme.spacingXl
 
+        Row {
+            id: audioPageRow
+            width: parent.width
+            spacing: Theme.spacingSm
+            visible: root.hasSound
+
+            Repeater {
+                model: [
+                    { "id": "basic", "label": qsTr("Basic") },
+                    { "id": "voice", "label": qsTr("Voice changer") }
+                ]
+                delegate: ThemedToggleButton {
+                    required property var modelData
+                    width: (audioPageRow.width - audioPageRow.spacing) / 2
+                    text: modelData.label
+                    checked: root.page === modelData.id
+                    onClicked: root.page = modelData.id
+                }
+            }
+        }
+
+        VoiceChanger {
+            width: parent.width
+            visible: root.hasSound && root.page === "voice"
+        }
+
+        Column {
+        id: basicColumn
+        width: parent.width
+        spacing: Theme.spacingXl
+        visible: !root.hasSound || root.page === "basic"
+
         PropertyKeyframeRow {
             width: root.width
             propDef: root.propVolume
@@ -54,6 +90,163 @@ Item {
             sliderTo: 2
             percent: true
             decibels: true
+        }
+
+        // ----- Fades on the sound ------------------------------------------
+        Repeater {
+            model: [
+                { "key": "audioFadeIn", "label": qsTr("Fade in") },
+                { "key": "audioFadeOut", "label": qsTr("Fade out") }
+            ]
+            delegate: Column {
+                id: fadeRow
+                required property var modelData
+                width: basicColumn.width
+                spacing: Theme.spacingXs
+                visible: root.hasSound
+                readonly property real seconds: {
+                    void root.clipDataRevision
+                    return root.hasSelection && root.clipData[modelData.key] !== undefined ? root.clipData[modelData.key] : 0
+                }
+
+                Row {
+                    width: parent.width
+                    Text {
+                        width: parent.width / 2
+                        text: fadeRow.modelData.label
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+                    Text {
+                        width: parent.width / 2
+                        horizontalAlignment: Text.AlignRight
+                        text: (fadeSlider.pressed ? fadeSlider.value : fadeRow.seconds).toFixed(1) + " s"
+                        color: Theme.panelForeground
+                        font.family: Theme.monoFontFamily
+                        font.pixelSize: Theme.fontSizeSm
+                    }
+                }
+
+                ThemedSlider {
+                    id: fadeSlider
+                    width: parent.width
+                    label: fadeRow.modelData.label
+                    from: 0
+                    to: Math.max(0.1, Math.min(10, root.clipLength / 2))
+                    stepSize: 0.1
+                    Binding on value {
+                        when: !fadeSlider.pressed
+                        value: fadeRow.seconds
+                    }
+                    onPressedChanged: {
+                        if (pressed)
+                            return
+                        const fadeIn = fadeRow.modelData.key === "audioFadeIn" ? value : (root.clipData.audioFadeIn || 0)
+                        const fadeOut = fadeRow.modelData.key === "audioFadeOut" ? value : (root.clipData.audioFadeOut || 0)
+                        EditorState.setClipAudioFade(EditorState.selectedTrack, EditorState.selectedClip, fadeIn, fadeOut)
+                    }
+                }
+            }
+        }
+
+        // ----- Normalize loudness -----------------------------------------
+        Column {
+            width: parent.width
+            spacing: Theme.spacingXs
+            visible: root.fileAudio
+
+            Text {
+                width: parent.width
+                text: qsTr("Normalize loudness")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+            Text {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                text: qsTr("Sets the clip's volume so it sounds as loud as social media expects (−14 LUFS).")
+                color: Theme.mutedForeground
+                opacity: 0.8
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+            ThemedButton {
+                width: parent.width
+                text: EditorState.normalizing ? qsTr("Measuring…") : qsTr("Normalize to −14 LUFS")
+                enabled: !EditorState.normalizing
+                onClicked: EditorState.normalizeClipLoudness(EditorState.selectedTrack, EditorState.selectedClip, -14)
+            }
+        }
+
+        // ----- Enhance voice ----------------------------------------------
+        Column {
+            width: parent.width
+            spacing: Theme.spacingXs
+            visible: root.fileAudio
+
+            Text {
+                width: parent.width
+                text: qsTr("Enhance voice")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+            ThemedButton {
+                width: parent.width
+                text: qsTr("Enhance voice")
+                tooltip: qsTr("Clearer, fuller speech: less room echo and background noise")
+                onClicked: EditorState.enhanceVoice(EditorState.selectedTrack, EditorState.selectedClip)
+            }
+        }
+
+        // ----- Fill channel -------------------------------------------------
+        Column {
+            id: fillSection
+            width: parent.width
+            spacing: Theme.spacingXs
+            visible: root.hasSound
+            readonly property int mode: {
+                void root.clipDataRevision
+                if (EditorState.selectedTrack < 0 || EditorState.selectedClip < 0)
+                    return -1
+                return EditorState.channelFillOf(EditorState.selectedTrack, EditorState.selectedClip)
+            }
+
+            ThemedCheckBox {
+                width: parent.width
+                text: qsTr("Fill channel")
+                checked: fillSection.mode >= 0
+                onToggled: EditorState.setChannelFill(EditorState.selectedTrack, EditorState.selectedClip,
+                                                      checked ? fillSource.currentIndex : -1)
+            }
+            Text {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                text: qsTr("For recordings heard on one side only: copies that side to both.")
+                color: Theme.mutedForeground
+                opacity: 0.8
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+            ThemedComboBox {
+                id: fillSource
+                width: parent.width
+                enabled: fillSection.mode >= 0
+                // Indexes are the processor's modes: 0 left, 1 right, 2 automatic.
+                model: [qsTr("Left to both"), qsTr("Right to both"), qsTr("Automatic")]
+                currentIndex: fillSection.mode >= 0 ? fillSection.mode : 2
+                onActivated: index => EditorState.setChannelFill(EditorState.selectedTrack, EditorState.selectedClip, index)
+            }
+        }
+
+        Rectangle {
+            visible: root.hasSound
+            width: parent.width
+            height: 1
+            color: Theme.panelBorder
+            opacity: 0.5
         }
 
         // ----- Pan (stereo balance) ----------------------------------------
@@ -340,6 +533,7 @@ Item {
             variant: "primary"
             onClicked: root.Window.window.openAddonManager(
                 parent.runtimeReady ? "whisper-model" : "onnxruntime")
+        }
         }
     }
 }

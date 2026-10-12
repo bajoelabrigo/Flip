@@ -1,0 +1,24 @@
+{"tool": "import_media", "args": {"paths": ["C:/Users/bajoe/AppData/Local/Temp/claude/C--Users-bajoe-Downloads-Flip/1f1a675d-1cf9-496a-a2ea-83605d63334a/scratchpad/proj/cara.mp4"]}}
+{"tool": "place_clip", "args": {"asset": 0, "at": 0}}
+{"tool": "inspect", "args": {"clips": true, "detail": true}, "save": "03_baseline.json"}
+
+{"tool": "add_effect", "args": {"track": 0, "index": 0, "effect": "adjust_brightness"}, "save": "04_basico_brightness.json"}
+{"tool": "add_effect", "args": {"track": 0, "index": 0, "effect": "adjust_contrast"}, "save": "05_basico_contrast.json"}
+{"tool": "add_effect", "args": {"track": 0, "index": 0, "effect": "adjust_saturation"}, "save": "06_basico_saturation.json"}
+{"tool": "list_effects", "args": {"id": "adjust_temperature", "clip": {"track": 0, "index": 0}}, "save": "07_basico_temperature_params.json"}
+{"tool": "add_effect", "args": {"track": 0, "index": 0, "effect": "adjust_temperature"}, "save": "08_basico_temperature.json"}
+{"tool": "add_effect", "args": {"track": 0, "index": 0, "effect": "adjust_hue"}, "save": "09_basico_hue.json"}
+{"tool": "add_effect", "args": {"track": 0, "index": 0, "effect": "adjust_gamma"}, "save": "10_basico_gamma.json"}
+
+{"tool": "set_mask", "args": {"track": 0, "index": 0, "mask": {"shape": "ellipse", "x": 0.5, "y": 0.5, "w": 0.6, "h": 0.8, "feather": 4}}, "save": "11_mascara_ellipse.json"}
+{"tool": "set_mask", "args": {"track": 0, "index": 0, "mask": {"shape": "rectangle", "x": 0.5, "y": 0.4, "w": 0.7, "h": 0.7, "rotation": 12}}, "save": "13_mascara_rect.json"}
+{"tool": "list_effects", "args": {"id": "face_retouch"}, "save": "14_retoque_params.json"}
+{"tool": "add_effect", "args": {"track": 0, "index": 0, "effect": "face_retouch"}, "save": "15_retoque_retouch.json"}
+{"tool": "add_effect", "args": {"track": 0, "index": 0, "effect": "face_fat_slim"}, "save": "16_retoque_slim.json"}
+{"tool": "add_effect", "args": {"track": 0, "index": 0, "effect": "face_big_eyes"}, "save": "17_retoque_eyes.json"}
+
+{"tool": "ai_capabilities", "args": {}, "save": "18_ai_capabilities.json"}
+{"tool": "detect_faces", "args": {"track": 0, "index": 0}, "sleep": 25, "save": "19_detect_faces.json"}
+{"tool": "list_face_track", "args": {"track": 0, "index": 0}, "save": "20_face_track.json"}
+{"tool": "estimate_depth", "args": {"track": 0, "index": 0}, "save": "21_depth_start.json"}
+{"tool": "inspect", "args": {"clips": true}, "save": "22_final.json"}

@@ -1,0 +1,4 @@
+# Headless MCP end-to-end runs: transcripts, captures and replies land here.
+run_*/
+*.log
+__pycache__/

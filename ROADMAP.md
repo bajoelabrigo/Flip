@@ -26,9 +26,10 @@ casilla al terminarla. Última actualización: 2026-10-11.
 
 ## Qué sigue
 
-Dónde estamos: la app de escritorio va por la **v0.9.1** (publicada en GitHub el 2026-10-11: inicio nuevo,
-quitar silencios, efectos de sonido; la 0.9.0 ya se subió a la Microsoft Store y la 0.9.1 va después de que
-la certifiquen) y el **editor web** está publicado y anunciado (etapa 6, audio por clip, hecha).
+Dónde estamos: la app de escritorio va por la **v0.9.2** (en la rama `flip/v0.9.2`, compilada y con las
+pruebas en verde, **sin publicar**: espera el visto bueno de Jorge) y el **editor web** está publicado y
+anunciado (etapa 6, audio por clip, hecha). La 0.9.1 ya se subió a la Microsoft Store y va después de que
+la certifiquen.
 
 ### App de escritorio (Windows)
 1. ~~v0.8.2 y v0.8.3~~ — publicadas (2026-10-10).
@@ -44,16 +45,49 @@ la certifiquen) y el **editor web** está publicado y anunciado (etapa 6, audio 
      cortes naturales, limpieza, diccionario, buscar y reemplazar, emojis, traducción al inglés, `*resaltar*`.
    - Línea de tiempo y vista previa al estilo CapCut (dividir, borrar izquierda/derecha, herramientas según el
      clip, zoom y relación de aspecto).
-   - Pruebas de punta a punta sin ventana (`flipstudio.exe --headless --mcp-stdio`): ver el script en la
-     sesión del 2026-10-10. La aceleración WebGPU apenas ayuda con Whisper int8 (63 s contra 69 s en 45 s
-     de video); Whisper medium int8 en procesador es tan rápido como small fp16 y más preciso.
+   - Pruebas de punta a punta sin ventana (`flipstudio.exe --headless --mcp-stdio`): el arnés vive ahora en
+     `tools/e2e/` (`mcp_e2e.py` corre una lista de llamadas JSONL y guarda cada respuesta; `sam2_full.py`
+     reproduce el pipeline de SAM2 entero en ONNX Runtime sin la app). La aceleración WebGPU apenas ayuda con
+     Whisper int8 (63 s contra 69 s en 45 s de video); Whisper medium int8 en procesador es tan rápido como
+     small fp16 y más preciso.
 3. ~~**v0.9.1**~~ (2026-10-11): inicio como CapCut, quitar silencios y muletillas a partir de la transcripción,
    efectos de sonido propios (sintetizados), más stickers y plantillas. Falta subir el MSIX a la Store cuando
    certifiquen la 0.9.0.
-4. **Primera sincronización con Drift (3.3)** — en curso (2026-10-11, rama `flip/sync-drift-1`): 69 cambios
-   (texto con SkParagraph, enlazar clips, clips PDF, voz con Chatterbox, recorte, fuentes del sistema).
-   La voz (pestaña "Voz" y "Generar locución") queda oculta y los PDF piden un extra que aún no ofrecemos:
-   falta empaquetar el modelo de voz (Chatterbox, MIT) y PDFium (BSD) en nuestros extras. Después, una vez al mes.
+4. **v0.9.2 — sincronización con Drift, voz con IA y PDF** (rama `flip/v0.9.2`, sin publicar):
+   - Primera sincronización con Drift (69 cambios): texto con SkParagraph, enlazar clips, clips PDF, recorte,
+     fuentes del sistema y voz con Chatterbox.
+   - Pestaña Audio como la de CapCut (Básico y Modificador de voz con 116 voces) y los extras "Voz con IA",
+     "Visor de PDF" y "Modificador de voz".
+   - **Herramientas de video al estilo CapCut**: Básico (`adjust_*`: brillo, contraste, saturación,
+     temperatura, tono, gamma), Eliminar fondo (recorte de sujeto SAM 2.1 o RVM sobre `set_background`),
+     Máscara (formas y máscaras de imagen en la pestaña Máscaras) y Retoque (`face_retouch` con suavizar,
+     afinar, ojos, labial, rubor; más `face_fat_slim`, `face_big_eyes` y props). Los desenfoques
+     (`gaussian_blur`, `stylize_blur`, `depth_of_field`) y la iluminación 3D (`depth_relight`, `depth_fog`)
+     cubren el resto del panel de CapCut.
+   - **Seis paquetes nuevos de modelos** (flip-addons/modelos.py), todos redistribuibles: Recorte de sujeto
+     (SAM 2.1 tiny), Quitar fondo de personas (RVM MobileNetV3), Retoque de rostro (MediaPipe Face Mesh +
+     YuNet), Iluminación 3D y profundidad (Video Depth Anything Small), Mejorar la calidad (GaterV3, NomosUni
+     2x/4x, Nomos8k 4x) y Reducir el ruido (DeepFilterNet3).
+   - **Arreglo del recorte de sujeto**: SAM2 era el único motor que no pasaba por `buildSessions`, así que no
+     reintentaba en el procesador cuando el proveedor de GPU no podía crear su sesión (su atención necesita
+     449 MiB contiguos). Fallaba en silencio; ahora `inspect` además informa `notice` con la línea de estado
+     de la app, que es donde los trabajos asíncronos dejan su error. Comprobado por partes: el export ONNX es
+     correcto (el pipeline completo en ONNX Runtime da máscaras que siguen a la cara, iou 0.95 en la semilla
+     y 0.987 al propagar) y, ya con el arreglo, SAM2 y RVM llegan al mismo punto del trabajo.
+   - **Comprobación de humo de las cuatro secciones** (`tools/e2e/calls_four.jsonl`): Básico aplica los seis
+     `adjust.*`, Máscara pone elipse y rectángulo, Retoque aplica `face_retouch`, `face_fat_slim` y
+     `face_big_eyes`, los seis paquetes de modelos figuran instalados y la línea de tiempo queda con el clip
+     más dos carriles de ajuste (efectos y máscara).
+   - **Lo que el arnés sin ventana no puede comprobar**: los sidecars (mattes de recorte y `facetracks`) se
+     escriben en `%APPDATA%\Flip Studio\Flip Studio`, y en esta máquina el ejecutable portátil recibe
+     `Permission denied` (EACCES) al abrirlos, tanto desde FFmpeg como desde Qt, mientras que el mismo archivo
+     se escribe sin problema desde fuera de la app y las ACL están limpias. Es del entorno, no del código (los
+     dos sidecars de RVM del 2026-10-11 a las 16:50 siguen en disco). Queda por verificar a ojo con la app
+     abierta: que la máscara de recorte se vea sobre el fondo y que el retoque cambie la cara.
+   - Para publicar: fusionar la rama en `main`, etiqueta `v0.9.2`, release de GitHub e instalador; subir los
+     seis paquetes nuevos al release `packages` de `flipstudio-extras` (el índice ya los trae, `dist/index.json`
+     con 21 extras) y copiar ese índice al que está en vivo; Jorge cambia el TXT `version` y sube el MSIX más
+     nuevo a la Store.
 5. **Stock de Pexels (3.2)**: requiere el backend `api.getflipstudio.com`, que también servirá para las cuentas (Fase 6).
 6. **Firma de código** del instalador cuando haya presupuesto (quita el aviso de SmartScreen en la descarga directa).
 7. Más adelante: Linux, Android y macOS (Fase 4).
@@ -61,6 +95,23 @@ la certifiquen) y el **editor web** está publicado y anunciado (etapa 6, audio 
    quitar muletillas a partir de la transcripción~~ (0.9.1), reencuadre 16:9 → 9:16 siguiendo la cara,
    subtítulos con palabras resaltadas y normalizar el audio a -14 LUFS. Revisar cuáles ya trae Drift
    antes de construirlas.
+9. **Ideas pendientes del panel de CapCut** (2026-10-11): separar audio (voz y música) y traductor de videos;
+   las dos necesitan modelos que todavía no tenemos.
+10. **Auditoría de las cuatro secciones de video de CapCut** (2026-10-12, contra las capturas del
+    2026-10-11). Lo que queda de cada una, para decidir si se hace:
+    - **Básico**: cubierto entero (escala, posición, girar, voltear, mezcla, estabilización, mejorar la
+      calidad y reducir el ruido entran como efectos; `adjust_*` es el color). Falta **flujo óptico**
+      (interpolar fotogramas para cámara lenta), que es una función de render, no un modelo.
+    - **Eliminar fondo**: los tres que ofrece CapCut están — automático (`segment_clip` con RVM o SAM2),
+      personalizado (`begin_segmentation_session` + puntos) y **chroma key** (`chroma_key`).
+    - **Máscara**: misma lista salvo el **texto como forma de máscara**; CapCut también parte el suyo en
+      "lineal" y "espejo", que aquí son un rectángulo extremo y el mismo rectángulo con `invert`.
+    - **Retoque**: cubre piel (suavizar, blanquear, tono), rostro (adelgazar, ojos grandes) y maquillaje
+      (labial, rubor), más `face_fat_slim`, `face_big_eyes` y props. Falta **quitar imperfecciones**
+      (manchas y arrugas), que puede ser un efecto suave sobre las marcas de los 468 puntos.
+    - Lo demás que se ve en la captura de Básico (quitar objetos con IA, ampliar a 4K con IA, remix,
+      contacto visual, sincronización labial) son funciones de nube de CapCut: no son modelos que
+      podamos empaquetar.
 
 ### Editor web (getflipstudio.com/editor)
 1. ~~**Etapa 5a — transiciones**~~: las 28 de Drift con WebGL2, en vista previa y exportación (publicada el 2026-10-10).

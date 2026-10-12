@@ -1,0 +1,20 @@
+{
+  "id": "utility.channelfill",
+  "displayName": "Fill Channel",
+  "category": "utility",
+  "icon": "equal",
+  "order": 470,
+  "backend": "juce",
+  "processor": "channelfill",
+  "prerollMs": 0,
+  "parameters": [
+    {
+      "identifier": "mode",
+      "displayName": "Source (0 left, 1 right, 2 auto)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 2,
+      "defaultValue": 2
+    }
+  ]
+}

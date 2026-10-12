@@ -8,6 +8,7 @@
 extern "C" {
 #include <libavcodec/avcodec.h>
 #include <libavformat/avformat.h>
+#include <libavutil/error.h>
 #include <libavutil/imgutils.h>
 #include <libavutil/opt.h>
 #include <libswscale/swscale.h>
@@ -166,8 +167,17 @@ bool MatteWriter::open(const QString &path, const QSize &size, int fpsNum, int f
     d->stream->r_frame_rate = AVRational{fpsNum, fpsDen};
 
     if (!(d->fmt->oformat->flags & AVFMT_NOFILE)) {
-        if (avio_open(&d->fmt->pb, tmpUtf8.constData(), AVIO_FLAG_WRITE) < 0)
-            return fail(QStringLiteral("Could not open the matte file for writing"));
+        const int rc = avio_open(&d->fmt->pb, tmpUtf8.constData(), AVIO_FLAG_WRITE);
+        if (rc < 0) {
+            // The path and the code, not just "could not open": this is the one step that depends
+            // on where the sidecar lands, and a bare failure says nothing about which of the two
+            // (path or permission) was wrong.
+            char reason[AV_ERROR_MAX_STRING_SIZE] = {0};
+            av_strerror(rc, reason, sizeof(reason));
+            return fail(QStringLiteral("Could not open the matte file for writing: %1 (%2, error %3)")
+                            .arg(d->tmpPath, QString::fromUtf8(reason))
+                            .arg(rc));
+        }
     }
 
     if (avformat_write_header(d->fmt, nullptr) < 0)

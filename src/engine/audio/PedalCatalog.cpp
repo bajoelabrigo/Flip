@@ -106,6 +106,8 @@ std::vector<PedalSpec> buildSpecs()
          {log("speed", "Speed", 0.1f, 2, 0.5f, "Hz"), lin("in_gain", "Input", 0, 1, 0.6f),
           lin("out_gain", "Output", 0, 1, 0.7f), lin("delay", "Delay", 0, 5, 3, "ms"),
           lin("decay", "Decay", 0, 1, 0.4f)}},
+        {"classic.channelfill", "Fill Channel", "utility", 0,
+         {choice("mode", "Source", {"Left", "Right", "Auto"}, 2)}},
         {"classic.stereowiden", "Stereo Widen", "space", 50,
          {lin("drymix", "Dry Mix", 0, 1, 0.8f), lin("delay", "Delay", 1, 100, 20, "ms"),
           lin("feedback", "Feedback", 0, 1, 0.3f), lin("crossfeed", "Crossfeed", 0, 1, 0.3f)}},

@@ -542,4 +542,52 @@ void EchoProcessor::reset()
     m_outGain.setCurrentAndTargetValue(m_outTarget);
 }
 
+void ChannelFillProcessor::setMode(float mode)
+{
+    m_mode = static_cast<Mode>(juce::jlimit(0, 2, static_cast<int>(std::lround(mode))));
+}
+
+void ChannelFillProcessor::prepare(const juce::dsp::ProcessSpec &spec)
+{
+    // About half a second for the level estimates; a 50 ms glide between choices.
+    m_follow = 1.0f - std::exp(-1.0f / (0.5f * static_cast<float>(spec.sampleRate)));
+    m_fromLeft.reset(spec.sampleRate, 0.05);
+    reset();
+}
+
+void ChannelFillProcessor::process(juce::dsp::AudioBlock<float> &block)
+{
+    if (block.getNumChannels() < 2)
+        return;
+    const int frames = static_cast<int>(block.getNumSamples());
+    for (int i = 0; i < frames; ++i) {
+        const float left = block.getSample(0, i);
+        const float right = block.getSample(1, i);
+        m_powerL += m_follow * (left * left - m_powerL);
+        m_powerR += m_follow * (right * right - m_powerR);
+        float target = 0.5f;
+        if (m_mode == Mode::Left)
+            target = 1.0f;
+        else if (m_mode == Mode::Right)
+            target = 0.0f;
+        else if (m_powerL > 400.0f * m_powerR + 1.0e-9f) // right side about 26 dB quieter
+            target = 1.0f;
+        else if (m_powerR > 400.0f * m_powerL + 1.0e-9f)
+            target = 0.0f;
+        m_fromLeft.setTargetValue(target);
+        const float k = m_fromLeft.getNextValue();
+        // k = 0.5 passes stereo through; towards 1 (or 0) both sides take the left (right) channel.
+        const float a = juce::jlimit(0.0f, 1.0f, 2.0f * k - 1.0f);  // share of "left to both"
+        const float b = juce::jlimit(0.0f, 1.0f, 1.0f - 2.0f * k);  // share of "right to both"
+        block.setSample(0, i, left * (1.0f - b) + right * b);
+        block.setSample(1, i, right * (1.0f - a) + left * a);
+    }
+}
+
+void ChannelFillProcessor::reset()
+{
+    m_powerL = m_powerR = 0.0f;
+    m_fromLeft.setCurrentAndTargetValue(m_mode == Mode::Left ? 1.0f : m_mode == Mode::Right ? 0.0f : 0.5f);
+}
+
 } // namespace drift

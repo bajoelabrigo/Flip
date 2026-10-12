@@ -187,25 +187,41 @@ bool Sam2Segmenter::Impl::ensureLoaded()
     if (!loadConstants(modelDir))
         return false;
 
+    // Shared arena: memory_attention needs one contiguous 449 MiB score matrix (28736 memory
+    // tokens x 4096 image tokens, fp32). Left alone, each of the five sessions builds its own
+    // BFC arena and between them they reserve ~3.4 GB of a 4 GB card, so that allocation fails
+    // even though the card looks nearly empty.
+    //
+    // Through buildSessions, not defaultSessionOptions: that helper is what retries on the CPU
+    // when the automatically chosen provider cannot build a session. SAM2 is the one model whose
+    // sessions are big enough that a GPU provider can refuse them outright, so skipping the retry
+    // made the whole cutout fail on machines where every other model still worked.
+    const QDir dir = graphDir(modelDir);
+    Ort::Env &ortEnv = drift::ort::env();
+    QString loadError;
+    const bool built = drift::ort::buildSessions(
+        ortEnv, "sam2", true, &loadError, [&](Ort::SessionOptions &opts) {
+            auto open = [&](const char *name) {
+                return std::make_unique<Ort::Session>(
+                    ortEnv, ortPath(dir.filePath(QLatin1String(name))).c_str(), opts);
+            };
+            vision = open("vision_encoder.onnx");
+            decoder = open("mask_decoder.onnx");
+            memEncoder = open("memory_encoder.onnx");
+            memAttention = open("memory_attention.onnx");
+            pointerTpos = open("pointer_tpos.onnx");
+        });
+    if (!built) {
+        error = QStringLiteral("Failed to load SAM2 model: ") + loadError;
+        vision.reset();
+        decoder.reset();
+        memEncoder.reset();
+        memAttention.reset();
+        pointerTpos.reset();
+        return false;
+    }
+
     try {
-        // Shared arena: memory_attention needs one contiguous 449 MiB score matrix (28736 memory
-        // tokens x 4096 image tokens, fp32). Left alone, each of the five sessions builds its own
-        // BFC arena and between them they reserve ~3.4 GB of a 4 GB card, so that allocation fails
-        // even though the card looks nearly empty.
-        Ort::Env &ortEnv = drift::ort::env();
-        Ort::SessionOptions opts = drift::ort::defaultSessionOptions(ortEnv, "sam2", true);
-
-        const QDir dir = graphDir(modelDir);
-        auto open = [&](const char *name) {
-            return std::make_unique<Ort::Session>(
-                ortEnv, ortPath(dir.filePath(QLatin1String(name))).c_str(), opts);
-        };
-        vision = open("vision_encoder.onnx");
-        decoder = open("mask_decoder.onnx");
-        memEncoder = open("memory_encoder.onnx");
-        memAttention = open("memory_attention.onnx");
-        pointerTpos = open("pointer_tpos.onnx");
-
         visionIn = sessionNames(*vision, true);
         visionOut = sessionNames(*vision, false);
         decIn = sessionNames(*decoder, true);
@@ -217,7 +233,8 @@ bool Sam2Segmenter::Impl::ensureLoaded()
         ptrIn = sessionNames(*pointerTpos, true);
         ptrOut = sessionNames(*pointerTpos, false);
     } catch (const Ort::Exception &e) {
-        error = QStringLiteral("Failed to load SAM2 model: ") + QString::fromUtf8(e.what());
+        error = QStringLiteral("Failed to read the SAM2 graph signature: ")
+                + QString::fromUtf8(e.what());
         vision.reset();
         decoder.reset();
         memEncoder.reset();

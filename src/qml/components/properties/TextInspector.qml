@@ -728,9 +728,8 @@ Item {
                     }
                 }
 
-                // Flip Studio: shown only with a voice model present; Extras has none to offer yet.
                 ThemedButton {
-                    visible: root.clipKind === "subtitle" && EditorState.tts.available
+                    visible: root.clipKind === "subtitle"
                     width: parent.width
                     variant: "secondary"
                     glyph: Theme.icons.audioLines
@@ -743,7 +742,7 @@ Item {
                 }
 
                 Text {
-                    visible: false // Flip Studio: no voice model in Extras yet (see above)
+                    visible: root.clipKind === "subtitle" && !EditorState.tts.available
                     width: parent.width
                     wrapMode: Text.WordWrap
                     text: qsTr("Install the AI engine and the voice model from the add-on manager to generate voiceovers.")
