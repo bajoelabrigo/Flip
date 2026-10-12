@@ -1070,6 +1070,11 @@ public:
     // Pin a new mask to a clip, stacking on any already there rather than replacing them, and
     // select the mask adjustment it created. Ignores clips that cannot carry a mask.
     Q_INVOKABLE void addMaskToClip(int trackIndex, int clipIndex, const QString &shape);
+    // Every mask adjustment pinned to this clip, oldest first, as
+    // {track, index, id, name, shape, media}. A clip's masks live on adjustments in its lanes, not
+    // on the clip, so this is what lets the inspector list them while the media clip is selected —
+    // which is where a user looks for them after applying one.
+    Q_INVOKABLE QVariantList linkedMaskClips(int trackIndex, int clipIndex) const;
     // A mask clip on one of `trackIndex`'s lanes, pinned to nothing: it masks whatever that track
     // shows over its span. This is what dropping a mask on empty track space means.
     Q_INVOKABLE void addMaskLaneClip(int trackIndex, const QString &shape, double atSeconds = -1.0,

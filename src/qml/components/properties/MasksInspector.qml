@@ -23,6 +23,28 @@ Item {
     // are what is offered.
     readonly property bool isMedia: maskShape === "media"
 
+    // A media clip carries no mask of its own: its masks are mask adjustments pinned to it in one
+    // of its track's lanes. Listing them here is the whole point — otherwise the only way to reach
+    // a mask you just applied is to know to click its card on the timeline.
+    readonly property bool isMediaClip: clipKind === "video"
+    readonly property var linkedMasks: {
+        void clipDataRevision
+        if (!isMediaClip || !hasSelection)
+            return []
+        return EditorState.linkedMaskClips(EditorState.selectedTrack, EditorState.selectedClip) || []
+    }
+    // "media" is not a shape the combo below lists, so an applied cutout would read as "None".
+    readonly property bool showsCutout: {
+        if (!isMediaClip)
+            return false
+        const list = linkedMasks
+        for (let i = 0; i < list.length; ++i) {
+            if (list[i].media === true)
+                return true
+        }
+        return false
+    }
+
     height: contentCol.height
     implicitHeight: contentCol.height
 
@@ -40,6 +62,52 @@ Item {
         width: root.width
         spacing: Theme.spacingXl
 
+        // Which masks this clip carries. A media clip's masks are adjustments pinned to it, so
+        // this row is the way in: pick one and it becomes the selection the fields below edit.
+        Column {
+            visible: root.isMediaClip && root.linkedMasks.length > 0
+            width: parent.width
+            spacing: Theme.spacingSm
+
+            Text {
+                width: parent.width
+                text: root.linkedMasks.length === 1
+                      ? qsTr("1 mask on this clip")
+                      : qsTr("%1 masks on this clip").arg(root.linkedMasks.length)
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+
+            Repeater {
+                model: root.linkedMasks
+                delegate: ThemedButton {
+                    required property var modelData
+                    width: contentCol.width
+                    // The cutout's own name is the clearest label; a shape falls back to its
+                    // translated name so it never shows a raw id like "freeform".
+                    text: modelData.name && modelData.name.length > 0
+                          ? modelData.name
+                          : (modelData.shape === "media" ? qsTr("Cutout")
+                                                         : modelData.shape)
+                    tooltip: qsTr("Edit this mask")
+                    onClicked: EditorState.selectClip(modelData.track, modelData.index)
+                }
+            }
+        }
+
+        // A media clip with no mask yet: say what the panel is for instead of showing inert
+        // shape controls that would create a second mask without saying so.
+        Text {
+            visible: root.isMediaClip && root.linkedMasks.length === 0
+            width: parent.width
+            wrapMode: Text.WordWrap
+            text: qsTr("This clip has no mask yet. Add one from the Masks tab in the assets panel, or drop a mask onto the clip on the timeline.")
+            color: Theme.mutedForeground
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeXs
+        }
+
         // The tab used to open with a lone unlabelled combo box
         // and no explanation of what a mask does.
         Text {
@@ -55,7 +123,10 @@ Item {
             id: maskShapeBox
             // Hidden for a media mask: "media" is not one of the shapes below, so currentIndex
             // would clamp to 0 and the control would read "None" next to an applied cutout.
-            visible: !root.isMedia
+            // Also hidden while a media clip is selected: the mask being edited is one of the
+            // adjustments listed above, not a shape on the clip, so a shape combo here would be
+            // writing to the wrong object.
+            visible: !root.isMedia && !root.isMediaClip
             width: parent.width
             model: ["none", "rectangle", "ellipse", "star", "heart", "bars", "freeform"]
             // Human labels — the raw ids were shown to the user.
@@ -81,7 +152,7 @@ Item {
         // once there is more than one: the compositor ignores the first enabled entry's op and
         // lets it seed the coverage, because a lone Subtract or Intersect would blank the layer.
         Column {
-            visible: root.maskShape !== "none"
+            visible: root.maskShape !== "none" && !root.isMediaClip
             width: parent.width
             spacing: Theme.spacingSm
 
@@ -115,7 +186,7 @@ Item {
         // Clearing a mask previously required knowing to reselect
         // "none" in the combo above.
         ThemedButton {
-            visible: root.maskShape !== "none"
+            visible: root.maskShape !== "none" && !root.isMediaClip
             text: root.isMedia ? qsTr("Remove cutout layer") : qsTr("Remove mask")
             variant: "destructive"
             glyph: Theme.icons.trash
@@ -156,6 +227,7 @@ Item {
                 required property var modelData
                 width: parent.width
                 visible: !root.isMedia
+                         && !root.isMediaClip
                          && modelData.shapes.indexOf(root.maskShape) >= 0
                 propDef: modelData
                 // Key times come back on the timeline already, keyed by the bare scalar name.
@@ -174,7 +246,7 @@ Item {
         Row {
             width: parent.width
             spacing: 8
-            visible: root.maskShape !== "none"
+            visible: root.maskShape !== "none" && !root.isMediaClip
             Text {
                 text: qsTr("Invert")
                 color: Theme.mutedForeground
