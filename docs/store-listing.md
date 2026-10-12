@@ -87,7 +87,28 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
-**Notas de la versión (0.8.1):**
+**Notas de la versión (0.9.3)** — esto es lo que va en "Novedades de esta versión" de Partner
+Center. **El campo tiene un límite de 1500 caracteres**: si lo rechaza, quitar el bloque "MÁS".
+
+> **Novedades de la 0.9.3**
+>
+> EL PANEL DE VIDEO, COMO EN CAPCUT
+> Al seleccionar un clip de video, la pestaña Video se ordena en cuatro páginas:
+> • Básico: escala, posición, girar y voltear, mezcla, estabilización y la lista de efectos, donde están mejorar la calidad, reducir el ruido y la iluminación 3D.
+> • Eliminar fondo: automático (encuentra las personas y quita el fondo), personalizado (marcas con un clic lo que quieres conservar y lo sigue) y chroma key para pantalla verde.
+> • Máscara: el rectángulo, el círculo, la estrella, el corazón, la barra y la forma libre, con centro, tamaño, rotación, difuminado e invertir.
+> • Retoque: piel, adelgazar el rostro, ojos más grandes, blanquear dientes, labial, rubor, delineador, sombra, cejas y color de ojos.
+>
+> LOS EFECTOS AHORA SON CAPAS DE VERDAD
+> Antes, si recortabas un efecto en la línea de tiempo, la siguiente edición lo estiraba otra vez sobre todo el clip. Ahora se queda donde lo pusiste.
+>
+> DIEZ TRANSICIONES NUEVAS
+> Deslizar en los cuatro sentidos, girar, disolución con desenfoque, doblez, deslizamiento con onda, barrido de cristal, barrido orgánico y papel desgarrado. En total son 39.
+>
+> MÁS
+> Las máscaras de un clip ahora se ven al seleccionar el propio clip, con la lista de las que lleva. Y el recorte de sujeto con IA funciona en equipos donde antes fallaba en silencio.
+
+**Notas de la versión (0.8.1) — anteriores, se conservan por referencia:**
 
 > Claves de API cifradas, mejoras de seguridad y nuevo botón "Acerca de Flip Studio" en Ajustes.
 
