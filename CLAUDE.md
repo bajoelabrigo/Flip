@@ -33,31 +33,34 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-12)
+## Estado (actualizado 2026-10-12, noche)
 
-**v0.9.2 PUBLICADA.** Release, tag, instalador y portable en GitHub; extras en vivo.
+**v0.9.3 PUBLICADA.** Release, tag, instalador y portable en GitHub; extras al día.
 
 ### Hecho
-- `main` = `7e987` e incluye `flip/v0.9.2` (`b7014`) completo, tag `v0.9.2`, CI en verde.
-- GitHub Release `v0.9.2` (Latest) con `FlipStudio-Setup-0.9.2-x64.exe`,
-  `FlipStudio-Portable-0.9.2-x64.zip` y `SHA256SUMS`.
-- **Índice de extras en vivo con 21 extras** (`getflipstudio.com/addons/index.json`).
-  Los seis paquetes nuevos de modelos de video están subidos y verificados por hash.
-- TXT `version.getflipstudio.com` = **0.9.2** (Jorge, 2026-10-12). El aviso de
-  actualización dentro de la app ya funciona.
-- MSIX de la 0.9.2 generado: `FlipStudio-Store\paquete-0.9.2\FlipStudio-0.9.2.0-x64.msix`.
+- `main` = `e45b3`, tiene todo lo de la 0.9.3 y **0 commits de diferencia con `flip/v0.9.2`**.
+  Tag `v0.9.3`. CI y build de Windows en verde; el portable se ejecutó y aplica efectos.
+- GitHub Release `v0.9.3` (Latest) con `FlipStudio-Setup-0.9.3-x64.exe` (109 MB, hash
+  verificado), `FlipStudio-Portable-0.9.3-x64.zip` y `SHA256SUMS`. El instalador está copiado
+  en `Downloads\FlipStudio-0.9.3\`.
+- **Índice de extras en vivo con 21 extras** (`getflipstudio.com/addons/index.json`). La 0.9.3 no
+  trae paquetes nuevos: los seis de modelos de video entraron en la 0.9.2.
+- **El panel de video quedó con las cuatro páginas de CapCut** (Básico, Eliminar fondo, Máscara,
+  Retoque) en `src/qml/components/properties/VideoInspector.qml`.
+- **Los efectos se pueden recortar** (`independentRange`), **las máscaras se ven con el clip
+  seleccionado** (`linkedMaskClips`) y hay **39 transiciones** (10 nuevas, categoría `modern`).
+- MSIX de la 0.9.3 generado: `FlipStudio-Store\paquete-0.9.3\FlipStudio-0.9.3.0-x64.msix`.
 
 ### Pendiente
-1. **Subir el MSIX a Partner Center.** Bloqueado por Jorge: la Store no acepta un envío
-   nuevo mientras certifica el anterior. Es lo único que impide cerrar la versión.
-2. **Desplegar el editor web.** `flipstudio-app` tiene el commit `28ccc` (velocidad,
-   invertir, congelar fotograma, recortar, stickers y efectos de sonido) **commiteado y
-   pusheado pero nunca compilado ni desplegado**: lo que sirve `/editor/` es el bundle
-   viejo (mismo hash `index-RhO7mBu-.js`, build del 11/10 01:54). Hay que compilar y
-   correr `flipstudio-app/deploy/deploy.sh`.
-3. **Verificar a ojo, con la 0.9.2 instalada.** ✅ **"Recortar" verificado por Jorge el
-   2026-10-12** (falta confirmar el retoque facial). Es la última milla que el arnés sin
-   ventana no cubre (ver trampas).
+1. **Jorge: cambiar el TXT `version` del DNS a `0.9.3`.** Sigue en `0.9.2` (comprobado por DNS),
+   así que a los que tienen la 0.9.2 todavía no les salta el aviso. No hay credenciales de
+   Hostinger en la máquina, así que no se puede automatizar desde aquí.
+2. **Subir el MSIX 0.9.3 a Partner Center.** Bloqueado por Jorge: la Store no acepta un envío nuevo
+   mientras certifica el anterior.
+3. **Desplegar el editor web** — pero **Jorge lo está trabajando con Claude en otra sesión**:
+   no tocar `flipstudio-app` ni desplegarlo desde aquí.
+4. **Verificar a ojo la 0.9.3**: las cuatro páginas del panel de video, que un efecto recortado se
+   quede recortado, y las transiciones nuevas. De la 0.9.2 Jorge ya verificó el "Recortar".
 
 ### Dónde vive cada cosa en la interfaz (verificado en el código)
 
@@ -65,10 +68,11 @@ Cuesta encontrarlas porque **se crean en un panel y se editan en el otro**:
 
 | Función | Se crea en | Se edita en |
 |---|---|---|
-| **Máscaras** (formas) | Panel de recursos, pestaña **"Máscaras"** (izquierda, ícono de máscara) — se aplican con clic a la selección o se arrastran sobre un clip | Panel de propiedades, pestaña **"Máscaras"** (derecha, grupo 2) |
-| **Eliminar fondo** | Igual: **"Máscaras" → "Recortar sujeto…"** (SAM 2.1) o el recorte de personas (RVM, ~20 MB) | La máscara resultante queda como carril de ajuste propio |
+| **Las cuatro páginas de video** | Pestaña **Video** del panel de la derecha (sale con un clip de video seleccionado) | Ahí mismo: Básico, Eliminar fondo, Máscara y Retoque |
+| **Máscaras** (formas) | Pestaña **Video → Máscara**, o el panel de recursos → "Máscaras"; también se arrastran sobre el clip | Pestaña **Máscaras** del panel de la derecha |
+| **Eliminar fondo** | Pestaña **Video → Eliminar fondo** | La máscara resultante queda como carril de ajuste propio |
+| **Retoque facial** | Pestaña **Video → Retoque** | Ahí, más el escaneo de caras en Efectos |
 | **Imagen o video como máscara** | **"Máscaras" → "Imagen o video como máscara…"** | Pestaña "Máscaras" |
-| **Retoque facial** | Panel de recursos → **Efectos** (`face_retouch`, etc.), o el inspector del clip | Panel de propiedades → **Efectos** (ahí vive el escaneo de caras) |
 
 Las máscaras también se pueden soltar **directamente sobre la línea de tiempo**
 (`TimelinePanel.qml` llama a `addMaskToClip` / `addMaskLaneClip`).
