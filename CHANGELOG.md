@@ -3,6 +3,22 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.9.4 — Retoque como en CapCut y el español completo
+
+- `PreferencesController::installUiTranslators()` instala siempre el catálogo base del idioma
+  (`drift_es.qm`) y uno regional solo encima, cuando coincide territorio o escritura. Antes
+  `QTranslator::load(locale, ...)` llevaba un sistema es-PE a `drift_es_CO.qm`, que tenía la
+  pestaña Video sin terminar, y la mostraba medio en inglés.
+- La página Retoque de `VideoInspector.qml` pasa a Rostro / Cuerpo / Cabello con Estilos
+  automáticos, Piel, Funciones y Maquillaje. Casi todo son ajustes de `face_retouch` que
+  reutilizan el que ya lleva el clip.
+- `AssetCategoryChips` reparte las categorías en filas (como Texto) y las pliega con un chevron;
+  los grupos de emojis la usan también.
+- `HoverPop` anima stickers y emojis bajo el ratón; `image://lottie`
+  (`LottiePreviewImageProvider`) reproduce los stickers animados en su tarjeta.
+- Transiciones: `fold` dibujaba el entrante siempre encima y `glass_wipe` mezclaba al revés.
+  Las once nuevas tienen `preview_strip.png`, generadas con `tools/transitions/make_strips.py`.
+
 ## 0.9.3 — el panel de video como el de CapCut
 
 - El panel de video se ordena en las cuatro pestañas de CapCut (**Básico**, **Eliminar fondo**,
