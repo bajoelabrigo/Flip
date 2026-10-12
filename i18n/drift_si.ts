@@ -4301,6 +4301,14 @@
         <source>Favorites</source>
         <translation>ප්‍රියතමයන්</translation>
     </message>
+    <message>
+        <source>Show fewer categories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show all categories</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AssetFavoriteButton</name>
@@ -17552,18 +17560,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished">ආවරණයක් (Mask) එක් කරන්න</translation>
     </message>
     <message>
-        <source>Skin retouch</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Smooth, whiten, tone, slim the face, bigger eyes, lipstick and blush</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Body reshape</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Slim or widen what the mesh follows</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17572,7 +17568,115 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Body</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hair</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Natural</source>
+        <translation type="unfinished">ස්වභාවික</translation>
+    </message>
+    <message>
+        <source>Light smoothing and a touch of brightness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strong smoothing for an even, soft skin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radiant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brighter, glowing skin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Defined</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crisper features and a slimmer face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Evens out the skin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Whiten</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brightens the skin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skin tone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warms the skin towards the tone colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sharpen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brings back detail after smoothing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Features</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slim face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Narrows the jaw and cheeks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Enlarges the eyes the mesh found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wide mouth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Widens the mouth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17581,6 +17685,26 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Needs the lip contour from a face scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makeup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lipstick</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colours the lips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blush</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adds colour to the cheeks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17616,7 +17740,11 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Face, body and hair retouching: skin, makeup and the fun face effects. Add what you want, then scan the clip&apos;s faces so the effect has something to follow.</source>
+        <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hair colour and volume need a hair segmentation model, which Flip Studio does not have yet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

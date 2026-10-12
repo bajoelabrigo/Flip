@@ -4301,6 +4301,14 @@
         <source>Favorites</source>
         <translation>Favoritos</translation>
     </message>
+    <message>
+        <source>Show fewer categories</source>
+        <translation>Mostrar menos categorías</translation>
+    </message>
+    <message>
+        <source>Show all categories</source>
+        <translation>Mostrar todas las categorías</translation>
+    </message>
 </context>
 <context>
     <name>AssetFavoriteButton</name>
@@ -17552,18 +17560,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Añadir máscara</translation>
     </message>
     <message>
-        <source>Skin retouch</source>
-        <translation>Retoque de piel</translation>
-    </message>
-    <message>
-        <source>Smooth, whiten, tone, slim the face, bigger eyes, lipstick and blush</source>
-        <translation>Suavizar, blanquear, tono, adelgazar el rostro, ojos grandes, labial y rubor</translation>
-    </message>
-    <message>
-        <source>Body reshape</source>
-        <translation>Reformar el cuerpo</translation>
-    </message>
-    <message>
         <source>Slim or widen what the mesh follows</source>
         <translation>Adelgaza o ensancha lo que sigue la malla</translation>
     </message>
@@ -17572,8 +17568,116 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Ojos más grandes</translation>
     </message>
     <message>
+        <source>Face</source>
+        <translation>Rostro</translation>
+    </message>
+    <message>
+        <source>Body</source>
+        <translation>Cuerpo</translation>
+    </message>
+    <message>
+        <source>Hair</source>
+        <translation>Cabello</translation>
+    </message>
+    <message>
+        <source>Auto styles</source>
+        <translation>Estilos automáticos</translation>
+    </message>
+    <message>
+        <source>Natural</source>
+        <translation>Natural</translation>
+    </message>
+    <message>
+        <source>Light smoothing and a touch of brightness</source>
+        <translation>Suavizado ligero y un toque de luz</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>Suave</translation>
+    </message>
+    <message>
+        <source>Strong smoothing for an even, soft skin</source>
+        <translation>Suavizado fuerte para una piel pareja y suave</translation>
+    </message>
+    <message>
+        <source>Radiant</source>
+        <translation>Radiante</translation>
+    </message>
+    <message>
+        <source>Brighter, glowing skin</source>
+        <translation>Piel más luminosa</translation>
+    </message>
+    <message>
+        <source>Defined</source>
+        <translation>Definido</translation>
+    </message>
+    <message>
+        <source>Crisper features and a slimmer face</source>
+        <translation>Rasgos más nítidos y rostro más delgado</translation>
+    </message>
+    <message>
+        <source>Skin</source>
+        <translation>Piel</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>Suavizar</translation>
+    </message>
+    <message>
+        <source>Evens out the skin</source>
+        <translation>Empareja la piel</translation>
+    </message>
+    <message>
+        <source>Whiten</source>
+        <translation>Blanquear</translation>
+    </message>
+    <message>
+        <source>Brightens the skin</source>
+        <translation>Aclara la piel</translation>
+    </message>
+    <message>
+        <source>Skin tone</source>
+        <translation>Tono de piel</translation>
+    </message>
+    <message>
+        <source>Warms the skin towards the tone colour</source>
+        <translation>Lleva la piel hacia el color de tono</translation>
+    </message>
+    <message>
+        <source>Sharpen</source>
+        <translation>Nitidez</translation>
+    </message>
+    <message>
+        <source>Brings back detail after smoothing</source>
+        <translation>Recupera el detalle después de suavizar</translation>
+    </message>
+    <message>
+        <source>Features</source>
+        <translation>Funciones</translation>
+    </message>
+    <message>
+        <source>Slim face</source>
+        <translation>Adelgazar rostro</translation>
+    </message>
+    <message>
+        <source>Narrows the jaw and cheeks</source>
+        <translation>Estrecha la mandíbula y las mejillas</translation>
+    </message>
+    <message>
         <source>Enlarges the eyes the mesh found</source>
         <translation>Agranda los ojos que encontró la malla</translation>
+    </message>
+    <message>
+        <source>Face width</source>
+        <translation>Ancho del rostro</translation>
+    </message>
+    <message>
+        <source>Wide mouth</source>
+        <translation>Boca ancha</translation>
+    </message>
+    <message>
+        <source>Widens the mouth</source>
+        <translation>Ensancha la boca</translation>
     </message>
     <message>
         <source>Whiten teeth</source>
@@ -17582,6 +17686,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Needs the lip contour from a face scan</source>
         <translation>Necesita el contorno de los labios de un escaneo</translation>
+    </message>
+    <message>
+        <source>Makeup</source>
+        <translation>Maquillaje</translation>
+    </message>
+    <message>
+        <source>Lipstick</source>
+        <translation>Labial</translation>
+    </message>
+    <message>
+        <source>Colours the lips</source>
+        <translation>Colorea los labios</translation>
+    </message>
+    <message>
+        <source>Blush</source>
+        <translation>Rubor</translation>
+    </message>
+    <message>
+        <source>Adds colour to the cheeks</source>
+        <translation>Da color a las mejillas</translation>
     </message>
     <message>
         <source>Eyeliner</source>
@@ -17616,8 +17740,12 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Recolorea el iris</translation>
     </message>
     <message>
-        <source>Face, body and hair retouching: skin, makeup and the fun face effects. Add what you want, then scan the clip&apos;s faces so the effect has something to follow.</source>
-        <translation>Retoque de rostro, cuerpo y cabello: piel, maquillaje y los efectos divertidos de cara. Agrega lo que quieras y después escanea las caras del clip para que el efecto tenga qué seguir.</translation>
+        <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
+        <translation>El retoque del cuerpo (cintura más delgada, piernas más largas, etc.) necesita un modelo que siga el cuerpo, y Flip Studio todavía no lo tiene.</translation>
+    </message>
+    <message>
+        <source>Hair colour and volume need a hair segmentation model, which Flip Studio does not have yet.</source>
+        <translation>El color y el volumen del cabello necesitan un modelo que separe el cabello, y Flip Studio todavía no lo tiene.</translation>
     </message>
     <message>
         <source>Select a video clip to retouch a face.</source>
