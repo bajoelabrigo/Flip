@@ -54,7 +54,8 @@ void main() {
 
     vec4 outgoing = texture(u_fromTexture, bent);
     vec4 incoming = texture(u_toTexture, bent);
-    float m = smoothstep(edge - softness, edge + softness, uv.x);
+    // Incoming behind the seam (left of it), outgoing ahead, the way wipe_left reads.
+    float m = 1.0 - smoothstep(edge - softness, edge + softness, uv.x);
     vec4 mixed = mix(outgoing, incoming, m);
 
     // Bright rim on the leading edge, and a darker one trailing it: the two together read as
