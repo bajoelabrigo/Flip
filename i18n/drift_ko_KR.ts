@@ -16282,10 +16282,6 @@ If playback stutters, try another.</source>
         <source>Add to favorites</source>
         <translation>즐겨찾기에 추가</translation>
     </message>
-    <message>
-        <source>Animated</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>StockBrowser</name>

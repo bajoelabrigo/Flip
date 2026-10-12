@@ -16339,10 +16339,6 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <source>Add to favorites</source>
         <translation>Aggiungi ai preferiti</translation>
     </message>
-    <message>
-        <source>Animated</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>StockBrowser</name>

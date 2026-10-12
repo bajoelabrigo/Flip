@@ -16339,10 +16339,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <source>Add to favorites</source>
         <translation>Añadir a favoritos</translation>
     </message>
-    <message>
-        <source>Animated</source>
-        <translation>Animado</translation>
-    </message>
 </context>
 <context>
     <name>StockBrowser</name>

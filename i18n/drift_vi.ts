@@ -16290,10 +16290,6 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <source>Add to favorites</source>
         <translation>Thêm vào mục yêu thích</translation>
     </message>
-    <message>
-        <source>Animated</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>StockBrowser</name>

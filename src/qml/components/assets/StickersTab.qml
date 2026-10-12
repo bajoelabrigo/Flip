@@ -286,7 +286,8 @@ Item {
                             itemId: modelData.id
                         }
 
-                        // Animated stickers move once placed; the grid shows their still.
+                        // Animated stickers move once placed; the grid shows their still until
+                        // hovered, when the card plays them (so no "Animated" tooltip over it).
                         Rectangle {
                             visible: modelData.animated === true
                             anchors.left: parent.left
@@ -302,11 +303,6 @@ Item {
                                 glyph: Theme.icons.play
                                 iconSize: 10
                                 iconColor: Theme.onMedia
-                            }
-
-                            ThemedToolTip {
-                                text: qsTr("Animated")
-                                visible: stickerDrag.hovered
                             }
                         }
                     }

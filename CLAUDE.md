@@ -334,6 +334,17 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 
 ## Trampas que ya nos costaron tiempo
 
+**Los nombres de los catálogos en JSON se traducen aparte.** Efectos, transiciones, efectos de
+audio, plantillas y animaciones de texto (y sus parámetros) vienen de `effect.json` & cía., que
+`lupdate` no lee. `tools/i18n/catalog_strings.py` los copia a `src/engine/CatalogStrings.cpp`
+(contexto `Catalog`) y los cargadores los pasan por `drift::catalogText()`. **Al añadir o renombrar
+un efecto o una transición: correr ese script, después `lupdate`, y traducir en `drift_es.ts`.**
+Si no, el nombre nuevo sale en inglés.
+
+**Un botón de la interfaz puede apuntar a un efecto que no existe y no avisar.** Retoque llamaba a
+`face_eyeliner` y otros cuatro que no venían con la app: cinco botones mudos durante dos versiones.
+Para comprobarlo, `list_effects` por MCP en el ejecutable real.
+
 **Todo motor de ONNX Runtime tiene que armar sus sesiones con `drift::ort::buildSessions`,
 nunca con `defaultSessionOptions` a mano.** `buildSessions` es lo que reintenta en el
 procesador cuando el proveedor elegido no puede crear la sesión. SAM2 era el único que no

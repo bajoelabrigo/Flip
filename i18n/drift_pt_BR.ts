@@ -16339,10 +16339,6 @@ Se a reprodução travar, experimente outro.</translation>
         <source>Add to favorites</source>
         <translation>Adicionar aos favoritos</translation>
     </message>
-    <message>
-        <source>Animated</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>StockBrowser</name>

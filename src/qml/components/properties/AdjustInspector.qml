@@ -213,6 +213,9 @@ Item {
                             horizontalAlignment: Text.AlignHCenter
                             wrapMode: Text.WordWrap
                             maximumLineCount: 2
+                            // A single long word ("Máscara") cannot wrap: it shrinks a little instead.
+                            fontSizeMode: Text.HorizontalFit
+                            minimumPixelSize: 8
                             elide: Text.ElideRight
                             text: cell.modelData.label
                             color: cell.index === root.pageIndex ? Theme.foreground : Theme.mutedForeground

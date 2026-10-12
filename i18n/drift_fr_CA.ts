@@ -16342,10 +16342,6 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <source>Add to favorites</source>
         <translation>Ajouter aux favoris</translation>
     </message>
-    <message>
-        <source>Animated</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>StockBrowser</name>

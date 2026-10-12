@@ -16339,10 +16339,6 @@ If playback stutters, try another.</source>
         <source>Add to favorites</source>
         <translation>ප්‍රියතමයන්ට එක් කරන්න</translation>
     </message>
-    <message>
-        <source>Animated</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>StockBrowser</name>

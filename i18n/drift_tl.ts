@@ -16331,10 +16331,6 @@ If playback stutters, try another.</source>
         <source>Add to favorites</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Animated</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>StockBrowser</name>
