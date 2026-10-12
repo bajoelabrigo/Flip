@@ -9591,7 +9591,10 @@ void EngineTest::compositorWipeRightRevealsIncomingClip()
 void EngineTest::transitionCatalogLoadsAllPackages()
 {
     const QStringList ids = transitionPresetIds();
-    QCOMPARE(ids.size(), 28);
+    // 28 original packages plus the ten added with the "modern" set (slides, spin, blur dissolve,
+    // fold, warp, glass and organic wipes). Bump this when a transition package is added: the
+    // count is what catches a package that silently fails to load.
+    QCOMPARE(ids.size(), 39);
 
     // The nine ids the pre-shader enum serialized must all still resolve.
     for (const char *legacy : {"crossfade", "dip", "dip_white", "wipe_left", "wipe_right",
