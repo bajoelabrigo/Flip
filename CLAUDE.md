@@ -339,6 +339,17 @@ commitear: una vez entraron 1854 archivos y hubo que reescribir el commit.
 named pipes. Se resuelve con `gh auth token` en un `http.extraheader`, o usando `gh` para
 las operaciones de GitHub.
 
+**El nginx del VPS (1.18) no conoce `.mjs` ni `.wasm`** y los manda como `octet-stream`; con
+`nosniff`, el navegador se niega a ejecutar un módulo así (`Failed to fetch dynamically imported
+module`). El editor declara los tipos para `/editor/ort/` en `deploy/nginx-editor.conf`. Tras
+arreglarlo hay que recargar sin caché: el navegador recuerda la respuesta mala.
+
+**Subtítulos del editor web:** Whisper base con transformers.js **4.3.0** (la 4.2.0 no carga el
+decodificador de 8 bits y en WebGPU fp16 transcribe basura). El modelo vive en el VPS en
+`/var/www/flipstudio-models/modelos/whisper-base/` (servido en `/modelos/`), fuera del editor
+para que `deploy.sh` no lo vuelva a subir. Para probar en local: servir una copia y arrancar con
+`FLIP_MODELS=http://127.0.0.1:8766 npx vite`.
+
 **En Windows no hay WSL.** El `deploy.sh` de los sitios usa `tar | ssh`; desde PowerShell se
 arma el tar con `tar.exe` y se sube con `scp`, y la mitad remota va en un `.sh` aparte
 (`tools/e2e/deploy_remote.sh`).
