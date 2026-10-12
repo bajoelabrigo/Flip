@@ -1,0 +1,13 @@
+{
+ "id": 1,
+ "jsonrpc": "2.0",
+ "result": {
+  "content": [
+   {
+    "text": "{\"assets\":[{\"dur\":3,\"id\":\"eb89f6cd-9988-4fa5-9dbc-cf64011ce39a\",\"index\":0,\"kind\":\"video\",\"name\":\"cara.mp4\",\"pending\":false}],\"ok\":true}",
+    "type": "text"
+   }
+  ],
+  "isError": false
+ }
+}

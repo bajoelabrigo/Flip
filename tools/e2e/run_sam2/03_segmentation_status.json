@@ -1,0 +1,13 @@
+{
+ "id": 4,
+ "jsonrpc": "2.0",
+ "result": {
+  "content": [
+   {
+    "text": "{\"available\":true,\"backends\":[\"sam2\",\"rvm\"],\"model\":\"tiny\",\"ok\":true}",
+    "type": "text"
+   }
+  ],
+  "isError": false
+ }
+}

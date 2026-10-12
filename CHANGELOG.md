@@ -19,6 +19,20 @@ registro heredado de Drift.
   hechas con los pedales del motor).
 - Extras propios nuevos: "Voz con IA" (`voz.chatterbox`, decodificador exportado con
   flip-addons/tts_export.py) y "Visor de PDF" (`pdfium`, PDFium chromium/8066).
+- Paquetes nuevos de modelos de IA (flip-addons/modelos.py): "Recorte de sujeto" (SAM 2.1 tiny),
+  "Quitar fondo (personas)" (RVM MobileNetV3), "Retoque de rostro" (MediaPipe Face Mesh + YuNet),
+  "Iluminación 3D y profundidad" (Video Depth Anything Small), "Mejorar la calidad" (4 modelos de
+  Philip Hofmann) y "Reducir el ruido" (DeepFilterNet3). Todos redistribuibles (Apache-2.0, MIT,
+  GPL-3.0 o CC BY 4.0) y verificados por hash contra las recetas de Drift.
+- Arreglo del recorte de sujeto con SAM 2.1: era el único motor que armaba sus sesiones de ONNX
+  Runtime sin pasar por `buildSessions`, así que nunca reintentaba en el procesador cuando el
+  proveedor elegido solo no podía crear una sesión. La atención de SAM2 necesita una matriz de
+  449 MiB en el mismo espacio de memoria, y con el proveedor de GPU la sesión no se creaba: el
+  recorte fallaba en silencio (la operación respondía `ok` y el clip quedaba igual). Igual que los
+  demás modelos, ahora cae a procesador y funciona.
+- `inspect` informa `notice:{message,severity}` con la línea de estado de la app. Los trabajos
+  largos son asíncronos y solo dejan su resultado ahí: sin esto un fallo como "Failed to load SAM2
+  model" no se podía ver desde fuera, porque la operación responde `ok` y nada cambia.
 - El menú del selector de fuentes se queda dentro de la ventana; los estilos "Simple" y "Negrita"
   aparecen en español.
 

@@ -589,6 +589,15 @@ QJsonObject McpController::inspect(const InspectOptions &options) const
          QJsonObject{{QStringLiteral("active"), m_app->m_exportInProgress},
                      {QStringLiteral("progress"), m_app->m_exportProgress}}},
     };
+    // The app's status line. Most long jobs are asynchronous and report their outcome only here,
+    // so without it a failure such as "Failed to load SAM2 model" is invisible to an agent: the
+    // op answers ok, nothing changes, and there is no way to ask why. Always present (not gated
+    // on `detail`) because a failed job is exactly when an agent has no other thread to pull.
+    if (!m_app->lastMessage().isEmpty()) {
+        extra.insert(QStringLiteral("notice"),
+                     QJsonObject{{QStringLiteral("message"), m_app->lastMessage()},
+                                 {QStringLiteral("severity"), m_app->lastMessageSeverity()}});
+    }
     if (detail) {
         QJsonArray marks;
         for (const QVariant &v : m_app->bookmarks()) {
