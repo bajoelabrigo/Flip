@@ -71,4 +71,9 @@ third_party/prebuilt/
 .env
 .env.*
 
+# An extracted portable build and its zip, kept only to drive the headless e2e harness.
+# These are build outputs: hundreds of megabytes that must never enter history.
+.e2e-app/
+FlipStudio-Portable-*.zip
+
 !resources/diagnostics/bench1080p60.mp4

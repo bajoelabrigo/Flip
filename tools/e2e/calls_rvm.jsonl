@@ -1,0 +1,5 @@
+{"tool": "import_media", "args": {"paths": ["C:/Users/bajoe/AppData/Local/Temp/claude/C--Users-bajoe-Downloads-Flip/1f1a675d-1cf9-496a-a2ea-83605d63334a/scratchpad/proj/cara.mp4"]}}
+{"tool": "place_clip", "args": {"asset": 0, "at": 0}}
+{"tool": "set_background", "args": {"kind": "color", "color": "#00ff00"}}
+{"tool": "segment_clip", "args": {"track": 0, "index": 0, "backend": "rvm"}, "sleep": 120}
+{"tool": "inspect", "args": {"clips": true}, "save": "05_inspect.json"}
