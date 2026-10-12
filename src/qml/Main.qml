@@ -1904,7 +1904,9 @@ ApplicationWindow {
                             id: propertiesPanel
                             visible: !window.previewFullscreen
                             SplitView.preferredWidth: Math.max(0, innerSplit.width * 0.28)
-                            SplitView.minimumWidth: Math.min(280, Math.max(0, innerSplit.width * 0.22))
+                            // 340: below it the five Ajuste pages ("Círculo cromático") cannot fit
+                            // their names even at the smallest label size.
+                            SplitView.minimumWidth: Math.min(340, Math.max(0, innerSplit.width * 0.22))
                             // Empty-state browse CTAs jump the assets panel to the
                             // matching library tab.
                             onWidthChanged: window.schedulePanelCapture()
