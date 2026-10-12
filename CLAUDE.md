@@ -175,6 +175,16 @@ en la hoja de ruta como requisito de Pexels y de las cuentas.
 
 ## El panel de video salió en inglés: qué se sabe (2026-10-12)
 
+> **RESUELTO (2026-10-12, tarde): la causa era la carga, no el catálogo.** El instalador real
+> de la 0.9.3 (mismo hash que el portable del release) muestra el fallo. En un sistema es-PE,
+> `QTranslator::load(locale, "drift", ...)` cargaba **`drift_es_CO.qm`**, que tiene la pestaña
+> Video sin terminar: por eso salían en español justo "Quitar fondo", "Máscara" e "Imagen o video
+> como máscara…" (las únicas con texto en `es_CO`). Arreglo en
+> `PreferencesController::installUiTranslators()`: el catálogo base del idioma (`drift_es`) se
+> instala siempre, y uno regional solo encima si coincide el territorio o la escritura exactos.
+> Lo de abajo es la investigación previa, que daba por bueno el catálogo y no miraba qué archivo
+> se cargaba.
+
 Jorge reportó que en la 0.9.3 las páginas del panel de video salen en inglés y solo "Máscara" en
 español. **La investigación no encontró un fallo en el catálogo**, y esto es lo comprobado:
 
