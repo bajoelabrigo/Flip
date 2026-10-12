@@ -1,5 +1,5 @@
 {
-  "id": "color_hsl",
+  "id": "color.hsl",
   "displayName": "HSL",
   "category": "color",
   "order": 6,

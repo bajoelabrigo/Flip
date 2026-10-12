@@ -247,7 +247,7 @@ Item {
                 SectionTitle { text: qsTr("Light"); width: parent.width - basicReset.width }
                 ResetButton {
                     id: basicReset
-                    onClicked: root.setMany("color_basic", qsTr("Reset basic adjustments"), ({
+                    onClicked: root.setMany("color.basic", qsTr("Reset basic adjustments"), ({
                         exposure: 0, brightness: 0, contrast: 0, highlights: 0, shadows: 0,
                         saturation: 0, vibrance: 0, temperature: 0, tint: 0 }))
                 }
@@ -257,7 +257,7 @@ Item {
                 delegate: ParamSlider {
                     host: root
                     required property var modelData
-                    effectId: "color_basic"
+                    effectId: "color.basic"
                     key: modelData.key
                     label: modelData.label
                 }
@@ -268,7 +268,7 @@ Item {
                 delegate: ParamSlider {
                     host: root
                     required property var modelData
-                    effectId: "color_basic"
+                    effectId: "color.basic"
                     key: modelData.key
                     label: modelData.label
                 }
@@ -302,7 +302,7 @@ Item {
                     onClicked: {
                         const v = {}
                         for (const b of hslPage.bands) { v[b.id + "Hue"] = 0; v[b.id + "Sat"] = 0; v[b.id + "Lum"] = 0 }
-                        root.setMany("color_hsl", qsTr("Reset HSL"), v)
+                        root.setMany("color.hsl", qsTr("Reset HSL"), v)
                     }
                 }
             }
@@ -349,9 +349,9 @@ Item {
                 }
             }
 
-            ParamSlider { host: root; effectId: "color_hsl"; key: hslPage.band + "Hue"; label: qsTr("Hue") }
-            ParamSlider { host: root; effectId: "color_hsl"; key: hslPage.band + "Sat"; label: qsTr("Saturation") }
-            ParamSlider { host: root; effectId: "color_hsl"; key: hslPage.band + "Lum"; label: qsTr("Lightness") }
+            ParamSlider { host: root; effectId: "color.hsl"; key: hslPage.band + "Hue"; label: qsTr("Hue") }
+            ParamSlider { host: root; effectId: "color.hsl"; key: hslPage.band + "Sat"; label: qsTr("Saturation") }
+            ParamSlider { host: root; effectId: "color.hsl"; key: hslPage.band + "Lum"; label: qsTr("Lightness") }
         }
 
         // --- Curves --------------------------------------------------------------------------
@@ -370,7 +370,7 @@ Item {
             ]
             readonly property var channelInfo: channels.find(c => c.id === channel)
             // The five points of the open channel (x = 0, .25, .5, .75, 1).
-            readonly property var points: [0, 1, 2, 3, 4].map(i => root.value("color_curves", channel + i, i / 4))
+            readonly property var points: [0, 1, 2, 3, 4].map(i => root.value("color.curves", channel + i, i / 4))
             // While a point is dragged its live value, so the drawing follows the pointer.
             property int dragIndex: -1
             property real dragValue: 0
@@ -481,7 +481,7 @@ Item {
                             onPressed: {
                                 curvesPage.dragValue = curvesPage.points[handle.index]
                                 curvesPage.dragIndex = handle.index
-                                root.beginEdit("color_curves", qsTr("Edit curve"))
+                                root.beginEdit("color.curves", qsTr("Edit curve"))
                             }
                             onPositionChanged: (mouse) => {
                                 const p = mapToItem(graph, mouse.x, mouse.y)
@@ -493,7 +493,7 @@ Item {
                                 root.endEdit()
                                 curvesPage.dragIndex = -1
                             }
-                            onDoubleClicked: root.setMany("color_curves", qsTr("Reset curve point"),
+                            onDoubleClicked: root.setMany("color.curves", qsTr("Reset curve point"),
                                                           ({ [curvesPage.channel + handle.index]: handle.index / 4 }))
                         }
                     }
@@ -507,7 +507,7 @@ Item {
                     onClicked: {
                         const v = {}
                         for (let i = 0; i < 5; i++) v[curvesPage.channel + i] = i / 4
-                        root.setMany("color_curves", qsTr("Reset curve"), v)
+                        root.setMany("color.curves", qsTr("Reset curve"), v)
                     }
                 }
                 ResetButton {
@@ -516,7 +516,7 @@ Item {
                         const v = {}
                         for (const c of curvesPage.channels)
                             for (let i = 0; i < 5; i++) v[c.id + i] = i / 4
-                        root.setMany("color_curves", qsTr("Reset curves"), v)
+                        root.setMany("color.curves", qsTr("Reset curves"), v)
                     }
                 }
             }
@@ -547,7 +547,7 @@ Item {
 
             ParamSlider {
                 host: root
-                effectId: "color_wheels"
+                effectId: "color.wheels"
                 key: "intensity"
                 label: qsTr("Intensity")
                 from: 0
@@ -571,9 +571,9 @@ Item {
                         width: wheelGrid.cell
                         spacing: 4
 
-                        readonly property real rv: root.value("color_wheels", modelData.id + "R", 0)
-                        readonly property real gv: root.value("color_wheels", modelData.id + "G", 0)
-                        readonly property real bv: root.value("color_wheels", modelData.id + "B", 0)
+                        readonly property real rv: root.value("color.wheels", modelData.id + "R", 0)
+                        readonly property real gv: root.value("color.wheels", modelData.id + "G", 0)
+                        readonly property real bv: root.value("color.wheels", modelData.id + "B", 0)
                         // The three channels as a point on the wheel: red at 0°, green at 120°,
                         // blue at 240°, distance from the centre = how strong the tint is.
                         property bool dragging: false
@@ -603,7 +603,7 @@ Item {
                                 buttonSize: 22
                                 iconSize: 12
                                 tooltip: qsTr("Reset")
-                                onClicked: root.setMany("color_wheels", qsTr("Reset %1").arg(wheelCell.modelData.label), ({
+                                onClicked: root.setMany("color.wheels", qsTr("Reset %1").arg(wheelCell.modelData.label), ({
                                     [wheelCell.modelData.id + "R"]: 0, [wheelCell.modelData.id + "G"]: 0, [wheelCell.modelData.id + "B"]: 0 }))
                             }
                         }
@@ -673,7 +673,7 @@ Item {
                                     wheelCell.dx = wheelCell.ptX
                                     wheelCell.dy = wheelCell.ptY
                                     wheelCell.dragging = true
-                                    root.beginEdit("color_wheels", qsTr("Adjust %1").arg(wheelCell.modelData.label))
+                                    root.beginEdit("color.wheels", qsTr("Adjust %1").arg(wheelCell.modelData.label))
                                     place(mouse.x, mouse.y)
                                 }
                                 onPositionChanged: (mouse) => place(mouse.x, mouse.y)
