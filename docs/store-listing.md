@@ -87,30 +87,29 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
-**Notas de la versión (0.9.4)** — esto es lo que va en "Novedades de esta versión" de Partner
-Center. **El campo tiene un límite de 1500 caracteres** (este texto tiene 1161). La 0.9.3 no llegó a
-la Store, así que estas notas cubren las dos versiones.
+**Notas de la versión (0.9.5)** — esto es lo que va en "Novedades de esta versión" de Partner
+Center. **El campo tiene un límite de 1500 caracteres** (este texto tiene 911). Ni la 0.9.3 ni la
+0.9.4 llegaron a la Store, así que estas notas cubren las tres versiones.
 
-> **Novedades de la 0.9.4**
+> **Novedades de la 0.9.5**
+>
+> AJUSTE DE COLOR, COMO EN CAPCUT
+> Nueva pestaña Ajuste con Básico (exposición, brillo, contraste, temperatura…), HSL, Curvas y Círculo cromático.
+>
+> MÚSICA LIBRE
+> Pestaña Música con 65 canciones gratis en 12 estilos, para usar también en videos monetizados. Se instala desde Extras.
 >
 > EL PANEL DE VIDEO, COMO EN CAPCUT
-> Al seleccionar un clip de video, la pestaña Video tiene cuatro páginas:
-> • Básico: escala, posición, mezcla, estabilización, mejorar la calidad, reducir el ruido e iluminación 3D.
-> • Eliminar fondo: automático, personalizado con un clic y chroma key.
-> • Máscara: rectángulo, círculo, estrella, corazón, barra y forma libre.
-> • Retoque: Rostro, Cuerpo y Cabello, con estilos automáticos, piel, funciones y maquillaje.
->
-> LOS EFECTOS SON CAPAS DE VERDAD
-> Si recortas un efecto en la línea de tiempo, se queda donde lo pusiste.
+> Básico, Quitar fondo, Máscara y Retoque. Retoque se ordena en Rostro, Cuerpo y Cabello, con estilos automáticos, piel, funciones y maquillaje.
 >
 > DIEZ TRANSICIONES NUEVAS
-> Deslizar en los cuatro sentidos, girar, disolución con desenfoque, doblez, deslizamiento con onda, barrido de cristal, barrido orgánico y papel desgarrado. Ya son 39, todas con vista previa animada.
+> Ya son 39, todas con vista previa animada. Y si recortas un efecto en la línea de tiempo, se queda donde lo pusiste.
+>
+> TODO EN ESPAÑOL
+> Los nombres de efectos, transiciones y animaciones ya salen en español, y la app vuelve a estar entera en español con Español (Colombia) elegido.
 >
 > MÁS CÓMODO
-> Las categorías de stickers, transiciones, efectos y emojis se reparten en varias filas y se pueden plegar. Los stickers y emojis se animan al pasar el ratón.
->
-> ARREGLOS
-> La app vuelve a estar entera en español: con Español (Colombia) elegido, varias pantallas salían en inglés. Y el recorte de sujeto con IA funciona en equipos donde antes fallaba.
+> Las categorías se reparten en filas que se pueden plegar, y los stickers y emojis se animan al pasar el ratón.
 
 **Notas de la versión (0.8.1) — anteriores, se conservan por referencia:**
 
