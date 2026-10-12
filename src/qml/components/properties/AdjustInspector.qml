@@ -181,8 +181,23 @@ Item {
 
                 // Every cell as tall as the tallest label, so "Círculo cromático" wraps to two
                 // lines instead of turning into "Círculo cr…".
+                // One font size for every label: the largest at which the longest single word
+                // ("cromático") still fits its cell, since a word cannot wrap.
                 property real cellHeight: 0
+                property real labelPx: Theme.fontSizeXs
+                onWidthChanged: Qt.callLater(measure)
+                Component.onCompleted: Qt.callLater(measure)
                 function measure() {
+                    const room = (width - 8) / root.pages.length - 4
+                    let px = Theme.fontSizeXs
+                    for (const page of root.pages) {
+                        for (const word of String(page.label).split(" ")) {
+                            wordMetrics.text = word
+                            if (room > 0 && wordMetrics.advanceWidth > room)
+                                px = Math.min(px, Math.floor(Theme.fontSizeXs * room / wordMetrics.advanceWidth))
+                        }
+                    }
+                    labelPx = Math.max(8, px)
                     let h = 0
                     for (let i = 0; i < stripCells.count; i++) {
                         const c = stripCells.itemAt(i)
@@ -190,6 +205,13 @@ Item {
                             h = Math.max(h, c.labelHeight)
                     }
                     cellHeight = h + 14
+                }
+
+                TextMetrics {
+                    id: wordMetrics
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                    font.weight: Font.Medium
                 }
 
                 Repeater {
@@ -213,14 +235,11 @@ Item {
                             horizontalAlignment: Text.AlignHCenter
                             wrapMode: Text.WordWrap
                             maximumLineCount: 2
-                            // A single long word ("Máscara") cannot wrap: it shrinks a little instead.
-                            fontSizeMode: Text.HorizontalFit
-                            minimumPixelSize: 8
                             elide: Text.ElideRight
                             text: cell.modelData.label
                             color: cell.index === root.pageIndex ? Theme.foreground : Theme.mutedForeground
                             font.family: Theme.fontFamily
-                            font.pixelSize: Theme.fontSizeXs
+                            font.pixelSize: strip.labelPx
                             font.weight: cell.index === root.pageIndex ? Font.Medium : Font.Normal
                         }
 
