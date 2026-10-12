@@ -1,0 +1,54 @@
+{
+  "id": "glass_wipe",
+  "displayName": "Glass Wipe",
+  "category": "modern",
+  "order": 640,
+  "parameters": [
+    {
+      "identifier": "softness",
+      "displayName": "Edge Softness",
+      "type": "float",
+      "minValue": 0.01,
+      "maxValue": 0.3,
+      "defaultValue": 0.05
+    },
+    {
+      "identifier": "thickness",
+      "displayName": "Glass Thickness",
+      "type": "float",
+      "minValue": 0.0,
+      "maxValue": 0.3,
+      "defaultValue": 0.1
+    },
+    {
+      "identifier": "refraction",
+      "displayName": "Refraction",
+      "type": "float",
+      "minValue": 0.0,
+      "maxValue": 0.1,
+      "defaultValue": 0.03
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture",
+            "index": 0
+          },
+          {
+            "type": "source_texture",
+            "index": 1
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

@@ -8704,6 +8704,26 @@
         <translation>හැඩතලය</translation>
     </message>
     <message>
+        <source>1 mask on this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 masks on this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cutout</source>
+        <translation type="unfinished">විෂය වෙන් කිරීම (Cutout)</translation>
+    </message>
+    <message>
+        <source>Edit this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This clip has no mask yet. Add one from the Masks tab in the assets panel, or drop a mask onto the clip on the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rectangle</source>
         <translation>සෘජුකෝණාස්‍රය</translation>
     </message>
@@ -10963,6 +10983,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Transform</source>
         <translation>පරිවර්තනය</translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="unfinished">වීඩියෝ</translation>
     </message>
     <message>
         <source>Camera</source>
@@ -17439,6 +17463,173 @@ If playback stutters, try another.</source>
     <message>
         <source>Variable frame rate. This clip can drift out of sync with its audio. Right-click it and choose Convert to edit-friendly format.</source>
         <translation>විචල්‍ය රාමු අනුපාතය. මෙම ක්ලිපය එහි ශ්‍රව්‍ය සමඟ අසමමුහුර්ත විය හැක. එය මත දකුණු ක්ලික් කර &apos;සංස්කරණයට පහසු ආකෘතියකට පරිවර්තනය කරන්න&apos; තෝරන්න.</translation>
+    </message>
+</context>
+<context>
+    <name>VideoInspector</name>
+    <message>
+        <source>Basic</source>
+        <translation type="unfinished">මූලික</translation>
+    </message>
+    <message>
+        <source>Remove background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask</source>
+        <translation type="unfinished">ආවරණය (Mask)</translation>
+    </message>
+    <message>
+        <source>Retouch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic removal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cut out people…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Finds the people in the clip and removes the background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video clip first</source>
+        <translation type="unfinished">පළමුව වීඩියෝ ක්ලිප් එකක් තෝරන්න</translation>
+    </message>
+    <message>
+        <source>Select a video clip to remove its background.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom removal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cut out a subject…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mark with a click what you want to keep and it follows it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chroma key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove a colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adds Chroma Key, with the colour and tolerance to tune in Effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image or video as mask…</source>
+        <translation type="unfinished">ආවරණයක් ලෙස පින්තූරයක් හෝ වීඩියෝවක්…</translation>
+    </message>
+    <message>
+        <source>Use a file&apos;s own pixels as the coverage map</source>
+        <translation type="unfinished">ආවරණ සිතියම ලෙස ගොනුවේම පික්සල භාවිත කරන්න</translation>
+    </message>
+    <message>
+        <source>Choose a mask image or video</source>
+        <translation type="unfinished">ආවරණ පින්තූරයක් හෝ වීඩියෝවක් තෝරන්න</translation>
+    </message>
+    <message>
+        <source>Media files (*.png *.jpg *.jpeg *.webp *.heic *.heif *.avif *.tif *.tiff *.bmp *.gif *.mp4 *.mov *.mkv *.webm)</source>
+        <translation type="unfinished">මාධ්‍ය ගොනු (*.png *.jpg *.jpeg *.webp *.heic *.heif *.avif *.tif *.tiff *.bmp *.gif *.mp4 *.mov *.mkv *.webm)</translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation type="unfinished">සියලු ගොනු (*)</translation>
+    </message>
+    <message>
+        <source>Add mask</source>
+        <translation type="unfinished">ආවරණයක් (Mask) එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Skin retouch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth, whiten, tone, slim the face, bigger eyes, lipstick and blush</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Body reshape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slim or widen what the mesh follows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bigger eyes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enlarges the eyes the mesh found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Whiten teeth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Needs the lip contour from a face scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Eyeliner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draws along the eyelid contour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Eyeshadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colours the eyelid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brow tint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colours the eyebrows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Eye colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Recolours the iris</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face, body and hair retouching: skin, makeup and the fun face effects. Add what you want, then scan the clip&apos;s faces so the effect has something to follow.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video clip to retouch a face.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install Face retouch from Extras (it needs the AI engine) to use these.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What the clip already carries</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

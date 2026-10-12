@@ -1012,8 +1012,17 @@ QStringList inspectorCaps(const drift::Clip &clip, drift::TrackType trackType)
 
     switch (clip.type) {
     case ClipType::Video:
+        // "maskable" is here so the Masks tab shows while the media clip itself is selected.
+        // A clip's masks live on adjustments in its lanes, not on the clip, and selecting the
+        // lane to reach them is exactly the step users could not find — see linkedMaskClips().
+        // "adj:videoEffects" and "videoTools" are what put the four CapCut-style video pages
+        // (Basico, Eliminar fondo, Mascara, Retoque) on a selected video clip: every one of them
+        // writes to the effects adjustment linked to this clip, which the effect invokables
+        // create on demand.
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
-             << QStringLiteral("audible") << QStringLiteral("retimable") << QStringLiteral("stabilizable");
+             << QStringLiteral("audible") << QStringLiteral("retimable") << QStringLiteral("stabilizable")
+             << QStringLiteral("maskable") << QStringLiteral("adj:videoEffects")
+             << QStringLiteral("videoTools");
         break;
     case ClipType::Composite:
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
@@ -4488,6 +4497,7 @@ TimelineClipsModel::Row AppController::clipRow(const drift::Clip &clip,
     row.kind = drift::clipTypeToString(clip.type);
     row.adjustmentKind = drift::adjustmentKindToString(clip.adjustmentKind);
     row.linkedClipId = clip.linkedClipId;
+    row.independentRange = clip.independentRange;
     row.linkId = clip.linkId;
     row.linked = !clip.linkId.isEmpty();
     row.filmstripPath = clip.filmstripPath;
@@ -6818,6 +6828,13 @@ void AppController::moveClip(int trackIndex, int clipIndex, double newStart)
             continue;
         drift::Clip &clip = m_project.tracks()[pair.first].clips[pair.second];
         clip.timelineStart = qMax<drift::TimeUs>(0, clip.timelineStart + clampedDelta);
+        // Dragging an adjustment that still mirrors its host gives it a range of its own, the same
+        // way trimming one does. Without this the sync in finishEdit would pull it straight back
+        // onto the host and the drag would appear to do nothing.
+        if (clampedDelta != 0 && clip.type == drift::ClipType::Adjustment
+            && !clip.linkedClipId.isEmpty() && !clip.independentRange) {
+            clip.independentRange = true;
+        }
         movedIds.insert(clip.id);
     }
     if (!m_allowClipOverlap) {
@@ -7595,6 +7612,14 @@ int AppController::applyTrim(int trackIndex, int clipIndex, const TrimComputatio
             syncOverlapTransitionsOnTrack(m_project.tracks()[p.first]);
     }
     syncOverlapTransitionsOnTrack(track);
+    // Trimming an adjustment that is still mirroring its host is the gesture that gives it a range
+    // of its own. The flag has to be set BEFORE the sync below, or the sync would immediately put
+    // the old extent back and the trim would do nothing — which is what made an effect behave like
+    // part of the video instead of a layer over it.
+    if (clip.type == drift::ClipType::Adjustment && !clip.linkedClipId.isEmpty()
+        && !clip.independentRange) {
+        clip.independentRange = true;
+    }
     // A pinned adjustment takes its extent from its clip, so it has to be brought along here --
     // this path does not always reach finishEdit.
     syncLinkedAdjustments(m_project);
@@ -9673,6 +9698,11 @@ void AppController::syncLinkedAdjustments(drift::Project &project) const
                 adjustment.linkedClipId.clear();
                 continue;
             }
+            // The user has given this one a range of its own. Mirroring the host again would
+            // stretch the effect back over the whole clip and silently undo the trim, which is
+            // exactly what made an effect feel like part of the video.
+            if (adjustment.independentRange)
+                continue;
             adjustment.timelineStart = it->first;
             adjustment.timelineDuration = it->second;
             adjustment.srcIn = 0;
@@ -15010,6 +15040,41 @@ void AppController::addMaskToClip(int trackIndex, int clipIndex, const QString &
     pushProjectEdit(before, tr("Add mask"));
     finishEdit(tr("Mask added"));
     selectClipById(addedId);
+}
+
+QVariantList AppController::linkedMaskClips(int trackIndex, int clipIndex) const
+{
+    QVariantList out;
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return out;
+    const drift::Track &track = m_project.tracks().at(trackIndex);
+    if (clipIndex < 0 || clipIndex >= track.clips.size())
+        return out;
+    if (track.clips.at(clipIndex).type != drift::ClipType::Video)
+        return out;
+
+    const QList<drift::ClipRef> refs =
+        drift::linkedMaskAdjustments(m_project, trackIndex, clipIndex);
+    for (const drift::ClipRef &ref : refs) {
+        const drift::Clip &adjustment = m_project.tracks().at(ref.trackIndex).clips.at(ref.clipIndex);
+        const drift::Mask &mask = adjustment.mask;
+        // A readable name for a mask the user never named: an image mask takes its file name, a
+        // cutout is called Cutout, and a plain shape falls back to its shape id.
+        QString name = mask.name;
+        if (name.isEmpty()) {
+            if (mask.shape == drift::MaskShape::Media)
+                name = QFileInfo(mask.mediaPath).completeBaseName();
+        }
+        out.append(QVariantMap{
+            {QStringLiteral("track"), ref.trackIndex},
+            {QStringLiteral("index"), ref.clipIndex},
+            {QStringLiteral("id"), adjustment.id},
+            {QStringLiteral("name"), name},
+            {QStringLiteral("shape"), drift::maskShapeToString(mask.shape)},
+            {QStringLiteral("media"), mask.shape == drift::MaskShape::Media},
+        });
+    }
+    return out;
 }
 
 void AppController::addMaskLaneClip(int trackIndex, const QString &shape, double atSeconds,

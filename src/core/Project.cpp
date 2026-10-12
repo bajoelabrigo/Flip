@@ -242,6 +242,7 @@ QJsonObject clipToJson(const Clip &clip)
         {QStringLiteral("type"), clipTypeToString(clip.type)},
         {QStringLiteral("adjustmentKind"), adjustmentKindToString(clip.adjustmentKind)},
         {QStringLiteral("linkedClipId"), clip.linkedClipId},
+        {QStringLiteral("independentRange"), clip.independentRange},
         {QStringLiteral("name"), clip.name},
         {QStringLiteral("textContent"), clip.textContent},
         {QStringLiteral("textStyle"), textStyleToJson(clip.textStyle)},
@@ -372,6 +373,7 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.adjustmentKind =
         adjustmentKindFromString(object.value(QStringLiteral("adjustmentKind")).toString());
     clip.linkedClipId = object.value(QStringLiteral("linkedClipId")).toString();
+    clip.independentRange = object.value(QStringLiteral("independentRange")).toBool(false);
     clip.name = object.value(QStringLiteral("name")).toString();
     clip.textContent = object.value(QStringLiteral("textContent")).toString();
     clip.textStyle = textStyleFromJson(object.value(QStringLiteral("textStyle")).toObject());

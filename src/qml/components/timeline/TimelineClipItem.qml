@@ -194,10 +194,13 @@ Item {
             EditorState.setTimelineTrimCursor(0, 0, trimCursorToken)
     }
 
-    // An adjustment pinned to a clip takes its extent from that clip, so its edges are not the
-    // user's to drag — unlink it first and they become live.
+    // An adjustment still mirroring its host clip takes its extent from that clip, so its edges
+    // are not the user's to drag. The first trim or move sets `independentRange` on it, and from
+    // then on the edges are live — that is what makes an effect a layer rather than a property of
+    // the clip it sits on.
     readonly property bool pinnedToClip: clipData.kind === "adjustment"
                                          && !!clipData.linkedClipId
+                                         && !clipData.independentRange
 
     // Trim handles stay on whenever selected.
     // Width is floored so the clip never becomes

@@ -76,4 +76,10 @@ third_party/prebuilt/
 .e2e-app/
 FlipStudio-Portable-*.zip
 
+# A throwaway Qt install, only for lupdate: i18n/*.ts is regenerated with it when new qsTr()
+# strings are added, and the Translations test fails until it is run.
+.qttools/
+.qtmingw/
+aqtinstall.log
+
 !resources/diagnostics/bench1080p60.mp4

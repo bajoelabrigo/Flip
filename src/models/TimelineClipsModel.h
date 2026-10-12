@@ -36,6 +36,7 @@ public:
         KindRole,
         AdjustmentKindRole,
         LinkedClipIdRole,
+        IndependentRangeRole,
         LinkIdRole,
         LinkedRole,
         FilmstripPathRole,
@@ -66,6 +67,9 @@ public:
         QString kind;
         QString adjustmentKind;
         QString linkedClipId;
+        // True once the user pinned this adjustment's extent. Until then it mirrors its host clip
+        // and its edges are not draggable; the QML uses this to decide whether to show them.
+        bool independentRange = false;
         QString linkId;
         bool linked = false;
         QString filmstripPath;

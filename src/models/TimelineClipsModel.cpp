@@ -26,6 +26,7 @@ QList<int> changedRoles(const TimelineClipsModel::Row &a, const TimelineClipsMod
     diff(a.kind != b.kind, TimelineClipsModel::KindRole);
     diff(a.adjustmentKind != b.adjustmentKind, TimelineClipsModel::AdjustmentKindRole);
     diff(a.linkedClipId != b.linkedClipId, TimelineClipsModel::LinkedClipIdRole);
+    diff(a.independentRange != b.independentRange, TimelineClipsModel::IndependentRangeRole);
     diff(a.linkId != b.linkId, TimelineClipsModel::LinkIdRole);
     diff(a.linked != b.linked, TimelineClipsModel::LinkedRole);
     diff(a.filmstripPath != b.filmstripPath, TimelineClipsModel::FilmstripPathRole);
@@ -188,6 +189,7 @@ QVariant TimelineClipsModel::data(const QModelIndex &index, int role) const
     case KindRole: return row.kind;
     case AdjustmentKindRole: return row.adjustmentKind;
     case LinkedClipIdRole: return row.linkedClipId;
+    case IndependentRangeRole: return row.independentRange;
     case LinkIdRole: return row.linkId;
     case LinkedRole: return row.linked;
     case FilmstripPathRole: return row.filmstripPath;
@@ -220,6 +222,7 @@ QHash<int, QByteArray> TimelineClipsModel::roleNames() const
         {KindRole, "kind"},
         {AdjustmentKindRole, "adjustmentKind"},
         {LinkedClipIdRole, "linkedClipId"},
+        {IndependentRangeRole, "independentRange"},
         {LinkIdRole, "linkId"},
         {LinkedRole, "linked"},
         {FilmstripPathRole, "filmstripPath"},

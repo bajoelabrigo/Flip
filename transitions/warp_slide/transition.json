@@ -1,0 +1,38 @@
+{
+  "id": "warp_slide",
+  "displayName": "Warp Slide",
+  "category": "modern",
+  "order": 630,
+  "parameters": [
+    {
+      "identifier": "amount",
+      "displayName": "Warp",
+      "type": "float",
+      "minValue": 0.0,
+      "maxValue": 1.0,
+      "defaultValue": 0.45
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture",
+            "index": 0
+          },
+          {
+            "type": "source_texture",
+            "index": 1
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

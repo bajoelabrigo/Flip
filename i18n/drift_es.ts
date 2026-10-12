@@ -8704,6 +8704,26 @@
         <translation>Forma</translation>
     </message>
     <message>
+        <source>1 mask on this clip</source>
+        <translation>1 máscara en este clip</translation>
+    </message>
+    <message>
+        <source>%1 masks on this clip</source>
+        <translation>%1 máscaras en este clip</translation>
+    </message>
+    <message>
+        <source>Cutout</source>
+        <translation>Recorte</translation>
+    </message>
+    <message>
+        <source>Edit this mask</source>
+        <translation>Editar esta máscara</translation>
+    </message>
+    <message>
+        <source>This clip has no mask yet. Add one from the Masks tab in the assets panel, or drop a mask onto the clip on the timeline.</source>
+        <translation>Este clip todavía no tiene máscara. Agrega una desde la pestaña Máscaras del panel de recursos, o arrastra una máscara sobre el clip en la línea de tiempo.</translation>
+    </message>
+    <message>
         <source>Rectangle</source>
         <translation>Rectángulo</translation>
     </message>
@@ -10963,6 +10983,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Transform</source>
         <translation>Transformar</translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Camera</source>
@@ -17439,6 +17463,173 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Variable frame rate. This clip can drift out of sync with its audio. Right-click it and choose Convert to edit-friendly format.</source>
         <translation>Velocidad de fotogramas variable. Este clip puede desincronizarse de su audio. Haz clic derecho en él y elige Convertir a formato optimizado para edición.</translation>
+    </message>
+</context>
+<context>
+    <name>VideoInspector</name>
+    <message>
+        <source>Basic</source>
+        <translation>Básico</translation>
+    </message>
+    <message>
+        <source>Remove background</source>
+        <translation>Quitar fondo</translation>
+    </message>
+    <message>
+        <source>Mask</source>
+        <translation>Máscara</translation>
+    </message>
+    <message>
+        <source>Retouch</source>
+        <translation>Retoque</translation>
+    </message>
+    <message>
+        <source>Automatic removal</source>
+        <translation>Eliminación automática</translation>
+    </message>
+    <message>
+        <source>Cut out people…</source>
+        <translation>Recortar personas…</translation>
+    </message>
+    <message>
+        <source>Finds the people in the clip and removes the background</source>
+        <translation>Encuentra las personas del clip y quita el fondo</translation>
+    </message>
+    <message>
+        <source>Select a video clip first</source>
+        <translation>Selecciona un clip de video primero</translation>
+    </message>
+    <message>
+        <source>Select a video clip to remove its background.</source>
+        <translation>Selecciona un clip de video para quitarle el fondo.</translation>
+    </message>
+    <message>
+        <source>Custom removal</source>
+        <translation>Eliminación personalizada</translation>
+    </message>
+    <message>
+        <source>Cut out a subject…</source>
+        <translation>Recortar un sujeto…</translation>
+    </message>
+    <message>
+        <source>Mark with a click what you want to keep and it follows it</source>
+        <translation>Marca con un clic lo que quieres conservar y lo sigue</translation>
+    </message>
+    <message>
+        <source>Chroma key</source>
+        <translation>Chroma key</translation>
+    </message>
+    <message>
+        <source>Remove a colour</source>
+        <translation>Quitar un color</translation>
+    </message>
+    <message>
+        <source>Adds Chroma Key, with the colour and tolerance to tune in Effects</source>
+        <translation>Agrega Chroma Key; el color y la tolerancia se ajustan en Efectos</translation>
+    </message>
+    <message>
+        <source>Image or video as mask…</source>
+        <translation>Imagen o video como máscara…</translation>
+    </message>
+    <message>
+        <source>Use a file&apos;s own pixels as the coverage map</source>
+        <translation>Usa los propios píxeles de un archivo como mapa de cobertura</translation>
+    </message>
+    <message>
+        <source>Choose a mask image or video</source>
+        <translation>Elige una imagen o video de máscara</translation>
+    </message>
+    <message>
+        <source>Media files (*.png *.jpg *.jpeg *.webp *.heic *.heif *.avif *.tif *.tiff *.bmp *.gif *.mp4 *.mov *.mkv *.webm)</source>
+        <translation>Archivos de medios (*.png *.jpg *.jpeg *.webp *.heic *.heif *.avif *.tif *.tiff *.bmp *.gif *.mp4 *.mov *.mkv *.webm)</translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation>Todos los archivos (*)</translation>
+    </message>
+    <message>
+        <source>Add mask</source>
+        <translation>Añadir máscara</translation>
+    </message>
+    <message>
+        <source>Skin retouch</source>
+        <translation>Retoque de piel</translation>
+    </message>
+    <message>
+        <source>Smooth, whiten, tone, slim the face, bigger eyes, lipstick and blush</source>
+        <translation>Suavizar, blanquear, tono, adelgazar el rostro, ojos grandes, labial y rubor</translation>
+    </message>
+    <message>
+        <source>Body reshape</source>
+        <translation>Reformar el cuerpo</translation>
+    </message>
+    <message>
+        <source>Slim or widen what the mesh follows</source>
+        <translation>Adelgaza o ensancha lo que sigue la malla</translation>
+    </message>
+    <message>
+        <source>Bigger eyes</source>
+        <translation>Ojos más grandes</translation>
+    </message>
+    <message>
+        <source>Enlarges the eyes the mesh found</source>
+        <translation>Agranda los ojos que encontró la malla</translation>
+    </message>
+    <message>
+        <source>Whiten teeth</source>
+        <translation>Blanquear dientes</translation>
+    </message>
+    <message>
+        <source>Needs the lip contour from a face scan</source>
+        <translation>Necesita el contorno de los labios de un escaneo</translation>
+    </message>
+    <message>
+        <source>Eyeliner</source>
+        <translation>Delineador</translation>
+    </message>
+    <message>
+        <source>Draws along the eyelid contour</source>
+        <translation>Dibuja sobre el contorno del párpado</translation>
+    </message>
+    <message>
+        <source>Eyeshadow</source>
+        <translation>Sombra de ojos</translation>
+    </message>
+    <message>
+        <source>Colours the eyelid</source>
+        <translation>Colorea el párpado</translation>
+    </message>
+    <message>
+        <source>Brow tint</source>
+        <translation>Tinte de cejas</translation>
+    </message>
+    <message>
+        <source>Colours the eyebrows</source>
+        <translation>Colorea las cejas</translation>
+    </message>
+    <message>
+        <source>Eye colour</source>
+        <translation>Color de ojos</translation>
+    </message>
+    <message>
+        <source>Recolours the iris</source>
+        <translation>Recolorea el iris</translation>
+    </message>
+    <message>
+        <source>Face, body and hair retouching: skin, makeup and the fun face effects. Add what you want, then scan the clip&apos;s faces so the effect has something to follow.</source>
+        <translation>Retoque de rostro, cuerpo y cabello: piel, maquillaje y los efectos divertidos de cara. Agrega lo que quieras y después escanea las caras del clip para que el efecto tenga qué seguir.</translation>
+    </message>
+    <message>
+        <source>Select a video clip to retouch a face.</source>
+        <translation>Selecciona un clip de video para retocar una cara.</translation>
+    </message>
+    <message>
+        <source>Install Face retouch from Extras (it needs the AI engine) to use these.</source>
+        <translation>Instala Retoque de rostro desde Extras (necesita el motor de IA) para usar esto.</translation>
+    </message>
+    <message>
+        <source>What the clip already carries</source>
+        <translation>Lo que el clip ya lleva</translation>
     </message>
 </context>
 <context>

@@ -1,0 +1,5 @@
+{"tool": "import_media", "args": {"paths": ["C:/Users/bajoe/AppData/Local/Temp/claude/C--Users-bajoe-Downloads-Flip/1f1a675d-1cf9-496a-a2ea-83605d63334a/scratchpad/proj/cara.mp4"]}}
+{"tool": "place_clip", "args": {"asset": 0, "at": 0}}
+{"tool": "inspect", "args": {"clips": true, "detail": true}, "save": "03_tabs_caps.json"}
+{"tool": "add_effect", "args": {"track": 0, "index": 0, "effect": "adjust_brightness"}, "save": "04_efecto.json"}
+{"tool": "inspect", "args": {"clips": true, "detail": true}, "save": "05_tras_efecto.json"}

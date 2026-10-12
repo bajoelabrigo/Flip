@@ -1,0 +1,46 @@
+{
+  "id": "torn_paper",
+  "displayName": "Torn Paper",
+  "category": "modern",
+  "order": 660,
+  "parameters": [
+    {
+      "identifier": "roughness",
+      "displayName": "Tear Roughness",
+      "type": "float",
+      "minValue": 0.0,
+      "maxValue": 1.0,
+      "defaultValue": 0.5
+    },
+    {
+      "identifier": "softness",
+      "displayName": "Edge Softness",
+      "type": "float",
+      "minValue": 0.002,
+      "maxValue": 0.08,
+      "defaultValue": 0.01
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture",
+            "index": 0
+          },
+          {
+            "type": "source_texture",
+            "index": 1
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

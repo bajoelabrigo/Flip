@@ -3,6 +3,30 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.9.3 — el panel de video como el de CapCut
+
+- El panel de video se ordena en las cuatro pestañas de CapCut (**Básico**, **Eliminar fondo**,
+  **Máscara**, **Retoque**) dentro de una sola pestaña "Video" (`VideoInspector.qml`). Cada página
+  reutiliza los inspectores que ya existían en vez de duplicarlos: Básico compone
+  TransformInspector, BlendingInspector, StabilizeInspector y EffectsInspector; Eliminar fondo
+  ofrece la segmentación automática y la personalizada; Máscara las formas y `MasksInspector`;
+  Retoque los efectos de rostro con sus parámetros.
+  - Los clips de video declaran `videoTools` y `adj:videoEffects`, que es lo que hace aparecer la
+    pestaña y permite aplicar un efecto al clip aunque viva en su carril de ajuste.
+  - `VideoInspector.qml` tiene que estar en la lista `QML_FILES` de CMakeLists: sin eso no se
+    compila y lupdate no ve sus cadenas, y el test de traducciones falla en los 17 idiomas con el
+    contexto vacío.
+- **Los efectos se pueden recortar.** `syncLinkedAdjustments()` re-estiraba cada ajuste fijado a
+  la duración completa de su clip en cada edición, así que recortar un efecto se deshacía solo.
+  Ahora el ajuste lleva `independentRange`, que se activa al recortarlo o moverlo por primera vez
+  y desde entonces lo deja en paz.
+- **Máscaras a la derecha**: la pestaña Máscaras sale también con el clip de video seleccionado y
+  lista las máscaras que lleva (`linkedMaskClips()`), porque las máscaras viven en ajustes y antes
+  había que saber seleccionar ese carril.
+- **Diez transiciones nuevas** (39 en total), con la categoría `modern`: deslizar en los cuatro
+  sentidos, girar, disolución con desenfoque, doblez, deslizamiento con onda, barrido de cristal,
+  barrido orgánico y papel desgarrado. Se generan con `tools/transitions/make_transitions.py`.
+
 ## 0.9.2 — sincronización con Drift, voz con IA y PDF
 
 - Primera sincronización con Drift (69 cambios): texto con SkParagraph (emojis de color, árabe y
