@@ -3,6 +3,26 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.9.5 — Ajuste de color, música libre y los catálogos en español
+
+La 0.9.4 no se publicó por separado: sale dentro de esta.
+
+- Pestaña **Ajuste** (`AdjustInspector.qml`) con Básico, HSL, Curvas, Círculo cromático y
+  Máscara, sobre los efectos nuevos `color.basic`, `color.hsl`, `color.curves` y `color.wheels`.
+- Pestaña **Música** (`SoundEffectsTab` con `music: true`) para el extra `musica.libre`.
+- Los nombres de los catálogos en JSON (efectos, transiciones, efectos de audio, plantillas,
+  animaciones de texto y sus parámetros) pasan por `drift::catalogText()` al cargarse.
+  `tools/i18n/catalog_strings.py` los lista en `src/engine/CatalogStrings.cpp` para lupdate,
+  bajo el contexto `Catalog`; hay que volver a correrlo al añadir o renombrar una entrada.
+- Se incluyen `face_eyeliner`, `face_eyeshadow`, `face_brow_tint`, `face_eye_color` y
+  `face_teeth_whiten` (de los extras de Drift, GPL): Retoque los usaba y no venían con la app.
+- `addSoundEffect` espera a que el análisis del archivo dé la duración antes de colocar el clip;
+  antes una canción recién importada entraba con los 5 s del marcador provisional.
+- `LottieHoverSprite` esperaba `AnimatedSprite.status`, que no existe; la hoja pasa antes por un
+  `Image` oculto.
+- Las tiras de páginas de Video y Ajuste pasan a dos líneas en vez de cortar el texto, y las
+  categorías largas se recortan dentro del panel.
+
 ## 0.9.4 — Retoque como en CapCut y el español completo
 
 - `PreferencesController::installUiTranslators()` instala siempre el catálogo base del idioma

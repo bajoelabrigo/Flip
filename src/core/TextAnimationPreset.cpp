@@ -1,4 +1,5 @@
 #include "TextAnimationPreset.h"
+#include "CatalogText.h"
 
 #include <QCache>
 #include <QDir>
@@ -106,7 +107,7 @@ const QList<TextAnimParamSpec> &textAnimationCommonParams()
                                double def) {
             TextAnimParamSpec s;
             s.id = QLatin1String(id);
-            s.label = QLatin1String(label);
+            s.label = catalogText(QLatin1String(label));
             s.unit = QLatin1String(unit);
             s.min = min;
             s.max = max;
@@ -117,7 +118,7 @@ const QList<TextAnimParamSpec> &textAnimationCommonParams()
         const auto enumeration = [](const char *id, const char *label, const QStringList &values, const char *def) {
             TextAnimParamSpec s;
             s.id = QLatin1String(id);
-            s.label = QLatin1String(label);
+            s.label = catalogText(QLatin1String(label));
             s.type = TextAnimParamSpec::Type::Enum;
             s.enumValues = values;
             s.defaultValue = VectorSlotValue::fromText(QLatin1String(def));
@@ -188,14 +189,14 @@ std::optional<TextAnimationPreset> TextAnimationPreset::fromJson(const QJsonObje
 {
     TextAnimationPreset p;
     p.id = o.value(QStringLiteral("id")).toString();
-    p.label = o.value(QStringLiteral("label")).toString(p.id);
+    p.label = catalogText(o.value(QStringLiteral("label")).toString(p.id));
     if (p.id.isEmpty()) {
         if (error)
             *error = QStringLiteral("preset has no id");
         return std::nullopt;
     }
     p.category = o.value(QStringLiteral("category")).toString(QStringLiteral("basic"));
-    p.sampleText = o.value(QStringLiteral("sampleText")).toString(QStringLiteral("Your text"));
+    p.sampleText = catalogText(o.value(QStringLiteral("sampleText")).toString(QStringLiteral("Your text")));
     for (const QJsonValue &v : o.value(QStringLiteral("slots")).toArray())
         p.slotKinds.append(textAnimSlotKindFromString(v.toString()));
     if (p.slotKinds.isEmpty())

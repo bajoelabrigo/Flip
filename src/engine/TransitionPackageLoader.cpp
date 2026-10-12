@@ -1,6 +1,7 @@
 #include "TransitionPackageLoader.h"
 
 #include "GpuPackageParse.h"
+#include "core/CatalogText.h"
 
 #include <QDir>
 #include <QFileInfo>
@@ -54,7 +55,7 @@ TransitionPresetEntry TransitionPackageLoader::loadPackage(const QString &packag
         setError(errorOut, &entry, QStringLiteral("transition.json missing id"));
         return entry;
     }
-    entry.meta.displayName = root.value(QStringLiteral("displayName")).toString();
+    entry.meta.displayName = drift::catalogText(root.value(QStringLiteral("displayName")).toString());
     if (entry.meta.displayName.isEmpty())
         entry.meta.displayName = entry.meta.id;
     const QString categoryRaw = root.value(QStringLiteral("category")).toString();

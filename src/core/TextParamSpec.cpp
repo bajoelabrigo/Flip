@@ -1,4 +1,5 @@
 #include "TextParamSpec.h"
+#include "CatalogText.h"
 
 #include <QJsonArray>
 
@@ -89,9 +90,9 @@ TextAnimParamSpec TextAnimParamSpec::fromJson(const QJsonObject &o)
     TextAnimParamSpec spec;
     spec.id = o.value(QStringLiteral("id")).toString();
     spec.type = textAnimParamTypeFromString(o.value(QStringLiteral("type")).toString());
-    spec.label = o.value(QStringLiteral("label")).toString(spec.id);
+    spec.label = catalogText(o.value(QStringLiteral("label")).toString(spec.id));
     spec.unit = o.value(QStringLiteral("unit")).toString();
-    spec.group = o.value(QStringLiteral("group")).toString();
+    spec.group = catalogText(o.value(QStringLiteral("group")).toString());
     spec.min = o.value(QStringLiteral("min")).toDouble(0.0);
     spec.max = o.value(QStringLiteral("max")).toDouble(1.0);
     spec.step = o.value(QStringLiteral("step")).toDouble(0.0);

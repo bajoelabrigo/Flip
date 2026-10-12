@@ -4902,6 +4902,10 @@
         <translation>Espacio</translation>
     </message>
     <message>
+        <source>Utility</source>
+        <translation>Utilidades</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Otro</translation>
     </message>
@@ -5389,6 +5393,2285 @@
     <message>
         <source>Back to rest: no pan, dolly or turn, framing the canvas head on. The lens is kept.</source>
         <translation>Vuelve al reposo: sin desplazamiento, dolly ni giro, encuadrando el lienzo de frente. Se conserva el lente.</translation>
+    </message>
+</context>
+<context>
+    <name>Catalog</name>
+    <message>
+        <source>Duration</source>
+        <translation>Duración</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Escalonado</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>Por</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>Orden</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>Curva</translation>
+    </message>
+    <message>
+        <source>Your text</source>
+        <translation>Tu texto</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Brillo</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Cantidad</translation>
+    </message>
+    <message>
+        <source>Contrast</source>
+        <translation>Contraste</translation>
+    </message>
+    <message>
+        <source>Gamma</source>
+        <translation>Gamma</translation>
+    </message>
+    <message>
+        <source>Hue</source>
+        <translation>Matiz</translation>
+    </message>
+    <message>
+        <source>Degrees</source>
+        <translation>Grados</translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation>Saturación</translation>
+    </message>
+    <message>
+        <source>Temperature</source>
+        <translation>Temperatura</translation>
+    </message>
+    <message>
+        <source>Kelvin</source>
+        <translation>Kelvin</translation>
+    </message>
+    <message>
+        <source>Beat Shake</source>
+        <translation>Sacudida al ritmo</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Rotación</translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation>Semilla</translation>
+    </message>
+    <message>
+        <source>Bling</source>
+        <translation>Destellos</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>Intensidad</translation>
+    </message>
+    <message>
+        <source>Threshold</source>
+        <translation>Umbral</translation>
+    </message>
+    <message>
+        <source>Density</source>
+        <translation>Densidad</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Tamaño</translation>
+    </message>
+    <message>
+        <source>Twinkle</source>
+        <translation>Centelleo</translation>
+    </message>
+    <message>
+        <source>Points</source>
+        <translation>Puntas</translation>
+    </message>
+    <message>
+        <source>Tint</source>
+        <translation>Tinte</translation>
+    </message>
+    <message>
+        <source>Block Glitch</source>
+        <translation>Fallo en bloques</translation>
+    </message>
+    <message>
+        <source>Block size</source>
+        <translation>Tamaño de bloque</translation>
+    </message>
+    <message>
+        <source>Shift</source>
+        <translation>Desplazamiento</translation>
+    </message>
+    <message>
+        <source>Frequency</source>
+        <translation>Frecuencia</translation>
+    </message>
+    <message>
+        <source>Bloom / Glow</source>
+        <translation>Resplandor</translation>
+    </message>
+    <message>
+        <source>Radius</source>
+        <translation>Radio</translation>
+    </message>
+    <message>
+        <source>Bokeh Dream</source>
+        <translation>Bokeh de ensueño</translation>
+    </message>
+    <message>
+        <source>Softness</source>
+        <translation>Suavidad</translation>
+    </message>
+    <message>
+        <source>Chroma Key</source>
+        <translation>Croma</translation>
+    </message>
+    <message>
+        <source>Key Colour</source>
+        <translation>Color clave</translation>
+    </message>
+    <message>
+        <source>Tolerance</source>
+        <translation>Tolerancia</translation>
+    </message>
+    <message>
+        <source>Edge Softness</source>
+        <translation>Suavidad del borde</translation>
+    </message>
+    <message>
+        <source>Spill Removal</source>
+        <translation>Quitar el reflejo</translation>
+    </message>
+    <message>
+        <source>Cinematic</source>
+        <translation>Cinematográfico</translation>
+    </message>
+    <message>
+        <source>Strength</source>
+        <translation>Fuerza</translation>
+    </message>
+    <message>
+        <source>Teal Shadows</source>
+        <translation>Sombras turquesa</translation>
+    </message>
+    <message>
+        <source>Orange Skin</source>
+        <translation>Piel anaranjada</translation>
+    </message>
+    <message>
+        <source>Basic Adjust</source>
+        <translation>Ajuste básico</translation>
+    </message>
+    <message>
+        <source>Exposure</source>
+        <translation>Exposición</translation>
+    </message>
+    <message>
+        <source>Highlights</source>
+        <translation>Altas luces</translation>
+    </message>
+    <message>
+        <source>Shadows</source>
+        <translation>Sombras</translation>
+    </message>
+    <message>
+        <source>Vibrance</source>
+        <translation>Intensidad del color</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>Curvas</translation>
+    </message>
+    <message>
+        <source>Luma 0%</source>
+        <translation>Luma 0 %</translation>
+    </message>
+    <message>
+        <source>Luma 25%</source>
+        <translation>Luma 25 %</translation>
+    </message>
+    <message>
+        <source>Luma 50%</source>
+        <translation>Luma 50 %</translation>
+    </message>
+    <message>
+        <source>Luma 75%</source>
+        <translation>Luma 75 %</translation>
+    </message>
+    <message>
+        <source>Luma 100%</source>
+        <translation>Luma 100 %</translation>
+    </message>
+    <message>
+        <source>Red 0%</source>
+        <translation>Rojo 0 %</translation>
+    </message>
+    <message>
+        <source>Red 25%</source>
+        <translation>Rojo 25 %</translation>
+    </message>
+    <message>
+        <source>Red 50%</source>
+        <translation>Rojo 50 %</translation>
+    </message>
+    <message>
+        <source>Red 75%</source>
+        <translation>Rojo 75 %</translation>
+    </message>
+    <message>
+        <source>Red 100%</source>
+        <translation>Rojo 100 %</translation>
+    </message>
+    <message>
+        <source>Green 0%</source>
+        <translation>Verde 0 %</translation>
+    </message>
+    <message>
+        <source>Green 25%</source>
+        <translation>Verde 25 %</translation>
+    </message>
+    <message>
+        <source>Green 50%</source>
+        <translation>Verde 50 %</translation>
+    </message>
+    <message>
+        <source>Green 75%</source>
+        <translation>Verde 75 %</translation>
+    </message>
+    <message>
+        <source>Green 100%</source>
+        <translation>Verde 100 %</translation>
+    </message>
+    <message>
+        <source>Blue 0%</source>
+        <translation>Azul 0 %</translation>
+    </message>
+    <message>
+        <source>Blue 25%</source>
+        <translation>Azul 25 %</translation>
+    </message>
+    <message>
+        <source>Blue 50%</source>
+        <translation>Azul 50 %</translation>
+    </message>
+    <message>
+        <source>Blue 75%</source>
+        <translation>Azul 75 %</translation>
+    </message>
+    <message>
+        <source>Blue 100%</source>
+        <translation>Azul 100 %</translation>
+    </message>
+    <message>
+        <source>HSL</source>
+        <translation>HSL</translation>
+    </message>
+    <message>
+        <source>Red hue</source>
+        <translation>Matiz del rojo</translation>
+    </message>
+    <message>
+        <source>Red saturation</source>
+        <translation>Saturación del rojo</translation>
+    </message>
+    <message>
+        <source>Red lightness</source>
+        <translation>Brillo del rojo</translation>
+    </message>
+    <message>
+        <source>Orange hue</source>
+        <translation>Matiz del naranja</translation>
+    </message>
+    <message>
+        <source>Orange saturation</source>
+        <translation>Saturación del naranja</translation>
+    </message>
+    <message>
+        <source>Orange lightness</source>
+        <translation>Brillo del naranja</translation>
+    </message>
+    <message>
+        <source>Yellow hue</source>
+        <translation>Matiz del amarillo</translation>
+    </message>
+    <message>
+        <source>Yellow saturation</source>
+        <translation>Saturación del amarillo</translation>
+    </message>
+    <message>
+        <source>Yellow lightness</source>
+        <translation>Brillo del amarillo</translation>
+    </message>
+    <message>
+        <source>Green hue</source>
+        <translation>Matiz del verde</translation>
+    </message>
+    <message>
+        <source>Green saturation</source>
+        <translation>Saturación del verde</translation>
+    </message>
+    <message>
+        <source>Green lightness</source>
+        <translation>Brillo del verde</translation>
+    </message>
+    <message>
+        <source>Aqua hue</source>
+        <translation>Matiz del aguamarina</translation>
+    </message>
+    <message>
+        <source>Aqua saturation</source>
+        <translation>Saturación del aguamarina</translation>
+    </message>
+    <message>
+        <source>Aqua lightness</source>
+        <translation>Brillo del aguamarina</translation>
+    </message>
+    <message>
+        <source>Blue hue</source>
+        <translation>Matiz del azul</translation>
+    </message>
+    <message>
+        <source>Blue saturation</source>
+        <translation>Saturación del azul</translation>
+    </message>
+    <message>
+        <source>Blue lightness</source>
+        <translation>Brillo del azul</translation>
+    </message>
+    <message>
+        <source>Purple hue</source>
+        <translation>Matiz del morado</translation>
+    </message>
+    <message>
+        <source>Purple saturation</source>
+        <translation>Saturación del morado</translation>
+    </message>
+    <message>
+        <source>Purple lightness</source>
+        <translation>Brillo del morado</translation>
+    </message>
+    <message>
+        <source>Magenta hue</source>
+        <translation>Matiz del magenta</translation>
+    </message>
+    <message>
+        <source>Magenta saturation</source>
+        <translation>Saturación del magenta</translation>
+    </message>
+    <message>
+        <source>Magenta lightness</source>
+        <translation>Brillo del magenta</translation>
+    </message>
+    <message>
+        <source>Color Wheels</source>
+        <translation>Círculo cromático</translation>
+    </message>
+    <message>
+        <source>Shadows red</source>
+        <translation>Sombras: rojo</translation>
+    </message>
+    <message>
+        <source>Shadows green</source>
+        <translation>Sombras: verde</translation>
+    </message>
+    <message>
+        <source>Shadows blue</source>
+        <translation>Sombras: azul</translation>
+    </message>
+    <message>
+        <source>Midtones red</source>
+        <translation>Gris intermedio: rojo</translation>
+    </message>
+    <message>
+        <source>Midtones green</source>
+        <translation>Gris intermedio: verde</translation>
+    </message>
+    <message>
+        <source>Midtones blue</source>
+        <translation>Gris intermedio: azul</translation>
+    </message>
+    <message>
+        <source>Highlights red</source>
+        <translation>Altas luces: rojo</translation>
+    </message>
+    <message>
+        <source>Highlights green</source>
+        <translation>Altas luces: verde</translation>
+    </message>
+    <message>
+        <source>Highlights blue</source>
+        <translation>Altas luces: azul</translation>
+    </message>
+    <message>
+        <source>Offset red</source>
+        <translation>Desplazamiento: rojo</translation>
+    </message>
+    <message>
+        <source>Offset green</source>
+        <translation>Desplazamiento: verde</translation>
+    </message>
+    <message>
+        <source>Offset blue</source>
+        <translation>Desplazamiento: azul</translation>
+    </message>
+    <message>
+        <source>Depth Fog</source>
+        <translation>Niebla de profundidad</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Color</translation>
+    </message>
+    <message>
+        <source>Starts at</source>
+        <translation>Empieza en</translation>
+    </message>
+    <message>
+        <source>Low-lying</source>
+        <translation>A ras del suelo</translation>
+    </message>
+    <message>
+        <source>Behind Subject</source>
+        <translation>Detrás del sujeto</translation>
+    </message>
+    <message>
+        <source>Clip</source>
+        <translation>Clip</translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation>Distancia</translation>
+    </message>
+    <message>
+        <source>Edge softness</source>
+        <translation>Suavidad del borde</translation>
+    </message>
+    <message>
+        <source>Use cutout edges</source>
+        <translation>Usar los bordes del recorte</translation>
+    </message>
+    <message>
+        <source>Depth of Field</source>
+        <translation>Profundidad de campo</translation>
+    </message>
+    <message>
+        <source>Focus distance</source>
+        <translation>Distancia de enfoque</translation>
+    </message>
+    <message>
+        <source>Sharp range</source>
+        <translation>Zona nítida</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Desenfoque</translation>
+    </message>
+    <message>
+        <source>Foreground blur</source>
+        <translation>Desenfoque delante</translation>
+    </message>
+    <message>
+        <source>Bokeh highlights</source>
+        <translation>Brillos bokeh</translation>
+    </message>
+    <message>
+        <source>Follow focus point</source>
+        <translation>Seguir el punto de enfoque</translation>
+    </message>
+    <message>
+        <source>Focus point left / right</source>
+        <translation>Punto de enfoque: izquierda / derecha</translation>
+    </message>
+    <message>
+        <source>Focus point up / down</source>
+        <translation>Punto de enfoque: arriba / abajo</translation>
+    </message>
+    <message>
+        <source>3D Relight</source>
+        <translation>Iluminación 3D</translation>
+    </message>
+    <message>
+        <source>Existing light</source>
+        <translation>Luz existente</translation>
+    </message>
+    <message>
+        <source>Relief</source>
+        <translation>Relieve</translation>
+    </message>
+    <message>
+        <source>Scene depth</source>
+        <translation>Profundidad de la escena</translation>
+    </message>
+    <message>
+        <source>Shine</source>
+        <translation>Brillo especular</translation>
+    </message>
+    <message>
+        <source>Shine tightness</source>
+        <translation>Concentración del brillo</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>Encendida</translation>
+    </message>
+    <message>
+        <source>Light 1</source>
+        <translation>Luz 1</translation>
+    </message>
+    <message>
+        <source>Left / right</source>
+        <translation>Izquierda / derecha</translation>
+    </message>
+    <message>
+        <source>Up / down</source>
+        <translation>Arriba / abajo</translation>
+    </message>
+    <message>
+        <source>Near / far</source>
+        <translation>Cerca / lejos</translation>
+    </message>
+    <message>
+        <source>Reach</source>
+        <translation>Alcance</translation>
+    </message>
+    <message>
+        <source>Spot angle</source>
+        <translation>Ángulo del foco</translation>
+    </message>
+    <message>
+        <source>Aim left / right</source>
+        <translation>Apuntar: izquierda / derecha</translation>
+    </message>
+    <message>
+        <source>Aim up / down</source>
+        <translation>Apuntar: arriba / abajo</translation>
+    </message>
+    <message>
+        <source>Light 2</source>
+        <translation>Luz 2</translation>
+    </message>
+    <message>
+        <source>Light 3</source>
+        <translation>Luz 3</translation>
+    </message>
+    <message>
+        <source>Light 4</source>
+        <translation>Luz 4</translation>
+    </message>
+    <message>
+        <source>Depth View</source>
+        <translation>Ver la profundidad</translation>
+    </message>
+    <message>
+        <source>Colour map</source>
+        <translation>Mapa de color</translation>
+    </message>
+    <message>
+        <source>Snap to edges</source>
+        <translation>Ajustar a los bordes</translation>
+    </message>
+    <message>
+        <source>Digital Glitch</source>
+        <translation>Fallo digital</translation>
+    </message>
+    <message>
+        <source>RGB split</source>
+        <translation>Separación RGB</translation>
+    </message>
+    <message>
+        <source>Block shift</source>
+        <translation>Desplazamiento de bloques</translation>
+    </message>
+    <message>
+        <source>Flash</source>
+        <translation>Destello</translation>
+    </message>
+    <message>
+        <source>Infinite Zoom</source>
+        <translation>Zoom infinito</translation>
+    </message>
+    <message>
+        <source>Center X</source>
+        <translation>Centro X</translation>
+    </message>
+    <message>
+        <source>Center Y</source>
+        <translation>Centro Y</translation>
+    </message>
+    <message>
+        <source>Turns</source>
+        <translation>Vueltas</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>Zoom</translation>
+    </message>
+    <message>
+        <source>Duotone</source>
+        <translation>Duotono</translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation>Sombra</translation>
+    </message>
+    <message>
+        <source>Highlight</source>
+        <translation>Luz</translation>
+    </message>
+    <message>
+        <source>Edge Glow / Neon</source>
+        <translation>Borde neón</translation>
+    </message>
+    <message>
+        <source>Alien Head</source>
+        <translation>Cabeza alienígena</translation>
+    </message>
+    <message>
+        <source>Stretch</source>
+        <translation>Estirar</translation>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation>Estrechar</translation>
+    </message>
+    <message>
+        <source>Coverage</source>
+        <translation>Cobertura</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Rostro</translation>
+    </message>
+    <message>
+        <source>Big Eyes</source>
+        <translation>Ojos grandes</translation>
+    </message>
+    <message>
+        <source>Brow Tint</source>
+        <translation>Tinte de cejas</translation>
+    </message>
+    <message>
+        <source>Shade</source>
+        <translation>Tono</translation>
+    </message>
+    <message>
+        <source>Feather</source>
+        <translation>Difuminado</translation>
+    </message>
+    <message>
+        <source>Eye Colour</source>
+        <translation>Color de ojos</translation>
+    </message>
+    <message>
+        <source>Brighten</source>
+        <translation>Aclarar</translation>
+    </message>
+    <message>
+        <source>Keep pupil</source>
+        <translation>Conservar la pupila</translation>
+    </message>
+    <message>
+        <source>Eyeliner</source>
+        <translation>Delineador</translation>
+    </message>
+    <message>
+        <source>Thickness</source>
+        <translation>Grosor</translation>
+    </message>
+    <message>
+        <source>Wing</source>
+        <translation>Cola</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacidad</translation>
+    </message>
+    <message>
+        <source>Eyeshadow</source>
+        <translation>Sombra de ojos</translation>
+    </message>
+    <message>
+        <source>Spread</source>
+        <translation>Extensión</translation>
+    </message>
+    <message>
+        <source>Fat / Slim Face</source>
+        <translation>Rostro delgado / ancho</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>Ancho</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Alto</translation>
+    </message>
+    <message>
+        <source>Face Fisheye</source>
+        <translation>Ojo de pez en el rostro</translation>
+    </message>
+    <message>
+        <source>3D Face Mesh</source>
+        <translation>Malla 3D del rostro</translation>
+    </message>
+    <message>
+        <source>Rest mesh</source>
+        <translation>Malla en reposo</translation>
+    </message>
+    <message>
+        <source>Fill Opacity</source>
+        <translation>Opacidad del relleno</translation>
+    </message>
+    <message>
+        <source>Wireframe</source>
+        <translation>Alambre</translation>
+    </message>
+    <message>
+        <source>Wire Color</source>
+        <translation>Color del alambre</translation>
+    </message>
+    <message>
+        <source>Wire Width</source>
+        <translation>Ancho del alambre</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation>Escala</translation>
+    </message>
+    <message>
+        <source>Offset X</source>
+        <translation>Desplazamiento X</translation>
+    </message>
+    <message>
+        <source>Offset Y</source>
+        <translation>Desplazamiento Y</translation>
+    </message>
+    <message>
+        <source>Offset Z</source>
+        <translation>Desplazamiento Z</translation>
+    </message>
+    <message>
+        <source>Rotate X</source>
+        <translation>Girar X</translation>
+    </message>
+    <message>
+        <source>Rotate Y</source>
+        <translation>Girar Y</translation>
+    </message>
+    <message>
+        <source>Rotate Z</source>
+        <translation>Girar Z</translation>
+    </message>
+    <message>
+        <source>Light Yaw</source>
+        <translation>Dirección de la luz</translation>
+    </message>
+    <message>
+        <source>Light Pitch</source>
+        <translation>Altura de la luz</translation>
+    </message>
+    <message>
+        <source>Light Intensity</source>
+        <translation>Intensidad de la luz</translation>
+    </message>
+    <message>
+        <source>Ambient</source>
+        <translation>Luz ambiente</translation>
+    </message>
+    <message>
+        <source>Face Props</source>
+        <translation>Accesorios faciales</translation>
+    </message>
+    <message>
+        <source>Prop</source>
+        <translation>Accesorio</translation>
+    </message>
+    <message>
+        <source>Head Occlusion</source>
+        <translation>Ocultar tras la cabeza</translation>
+    </message>
+    <message>
+        <source>Occlusion Size</source>
+        <translation>Tamaño de la ocultación</translation>
+    </message>
+    <message>
+        <source>Occlusion</source>
+        <translation>Ocultación</translation>
+    </message>
+    <message>
+        <source>Occlusion Offset</source>
+        <translation>Desplazamiento de la ocultación</translation>
+    </message>
+    <message>
+        <source>Occlusion Depth</source>
+        <translation>Profundidad de la ocultación</translation>
+    </message>
+    <message>
+        <source>Lighting</source>
+        <translation>Iluminación</translation>
+    </message>
+    <message>
+        <source>Face Retouch</source>
+        <translation>Retoque facial</translation>
+    </message>
+    <message>
+        <source>Smoothing</source>
+        <translation>Suavizado</translation>
+    </message>
+    <message>
+        <source>Sharpen</source>
+        <translation>Nitidez</translation>
+    </message>
+    <message>
+        <source>Whitening</source>
+        <translation>Blanqueado</translation>
+    </message>
+    <message>
+        <source>Skin tone</source>
+        <translation>Tono de piel</translation>
+    </message>
+    <message>
+        <source>Tone</source>
+        <translation>Tono</translation>
+    </message>
+    <message>
+        <source>Slim face</source>
+        <translation>Adelgazar rostro</translation>
+    </message>
+    <message>
+        <source>Big eyes</source>
+        <translation>Ojos grandes</translation>
+    </message>
+    <message>
+        <source>Lipstick</source>
+        <translation>Labial</translation>
+    </message>
+    <message>
+        <source>Custom lip colour</source>
+        <translation>Color de labios propio</translation>
+    </message>
+    <message>
+        <source>Lip colour</source>
+        <translation>Color de labios</translation>
+    </message>
+    <message>
+        <source>Blush</source>
+        <translation>Rubor</translation>
+    </message>
+    <message>
+        <source>Skin feather</source>
+        <translation>Difuminado de la piel</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Avanzado</translation>
+    </message>
+    <message>
+        <source>Custom blush colour</source>
+        <translation>Color de rubor propio</translation>
+    </message>
+    <message>
+        <source>Blush colour</source>
+        <translation>Color del rubor</translation>
+    </message>
+    <message>
+        <source>Face Swap</source>
+        <translation>Cambio de rostro</translation>
+    </message>
+    <message>
+        <source>Face photo</source>
+        <translation>Foto del rostro</translation>
+    </message>
+    <message>
+        <source>Edge Feather</source>
+        <translation>Difuminado del borde</translation>
+    </message>
+    <message>
+        <source>Match Lighting</source>
+        <translation>Igualar la luz</translation>
+    </message>
+    <message>
+        <source>Keep Eyes</source>
+        <translation>Conservar los ojos</translation>
+    </message>
+    <message>
+        <source>Keep Mouth</source>
+        <translation>Conservar la boca</translation>
+    </message>
+    <message>
+        <source>Face Swirl</source>
+        <translation>Remolino en el rostro</translation>
+    </message>
+    <message>
+        <source>Twist</source>
+        <translation>Torsión</translation>
+    </message>
+    <message>
+        <source>Teeth Whiten</source>
+        <translation>Blanquear dientes</translation>
+    </message>
+    <message>
+        <source>Whiten</source>
+        <translation>Blanquear</translation>
+    </message>
+    <message>
+        <source>Wide Mouth</source>
+        <translation>Boca ancha</translation>
+    </message>
+    <message>
+        <source>Widen</source>
+        <translation>Ensanchar</translation>
+    </message>
+    <message>
+        <source>Heighten</source>
+        <translation>Alargar</translation>
+    </message>
+    <message>
+        <source>Film Burn / Light Leak</source>
+        <translation>Película quemada / fuga de luz</translation>
+    </message>
+    <message>
+        <source>Warmth</source>
+        <translation>Calidez</translation>
+    </message>
+    <message>
+        <source>Flicker</source>
+        <translation>Parpadeo</translation>
+    </message>
+    <message>
+        <source>Gaussian Blur (GPU)</source>
+        <translation>Desenfoque gaussiano (GPU)</translation>
+    </message>
+    <message>
+        <source>Blur Amount</source>
+        <translation>Cantidad de desenfoque</translation>
+    </message>
+    <message>
+        <source>Halation</source>
+        <translation>Halo</translation>
+    </message>
+    <message>
+        <source>Grain</source>
+        <translation>Grano</translation>
+    </message>
+    <message>
+        <source>Comic</source>
+        <translation>Cómic</translation>
+    </message>
+    <message>
+        <source>Dot Size</source>
+        <translation>Tamaño del punto</translation>
+    </message>
+    <message>
+        <source>Levels</source>
+        <translation>Niveles</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Ángulo</translation>
+    </message>
+    <message>
+        <source>Kaleidoscope</source>
+        <translation>Caleidoscopio</translation>
+    </message>
+    <message>
+        <source>Segments</source>
+        <translation>Segmentos</translation>
+    </message>
+    <message>
+        <source>Lens Flare</source>
+        <translation>Destello de lente</translation>
+    </message>
+    <message>
+        <source>Streak</source>
+        <translation>Estela</translation>
+    </message>
+    <message>
+        <source>Ghosts</source>
+        <translation>Reflejos fantasma</translation>
+    </message>
+    <message>
+        <source>Light Leak</source>
+        <translation>Fuga de luz</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Velocidad</translation>
+    </message>
+    <message>
+        <source>Lightning Sky</source>
+        <translation>Cielo con rayos</translation>
+    </message>
+    <message>
+        <source>Motion Trail</source>
+        <translation>Estela de movimiento</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation>Longitud</translation>
+    </message>
+    <message>
+        <source>Oil Paint</source>
+        <translation>Pintura al óleo</translation>
+    </message>
+    <message>
+        <source>RGB Split</source>
+        <translation>Separación RGB</translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation>Animado</translation>
+    </message>
+    <message>
+        <source>Ripple / Water</source>
+        <translation>Ondas / agua</translation>
+    </message>
+    <message>
+        <source>Amplitude</source>
+        <translation>Amplitud</translation>
+    </message>
+    <message>
+        <source>Scanline Glitch</source>
+        <translation>Fallo de líneas</translation>
+    </message>
+    <message>
+        <source>Jitter</source>
+        <translation>Temblor</translation>
+    </message>
+    <message>
+        <source>Scanlines</source>
+        <translation>Líneas de barrido</translation>
+    </message>
+    <message>
+        <source>Color shift</source>
+        <translation>Desplazamiento de color</translation>
+    </message>
+    <message>
+        <source>Shockwave / Pulse</source>
+        <translation>Onda expansiva / pulso</translation>
+    </message>
+    <message>
+        <source>Pencil Sketch</source>
+        <translation>Dibujo a lápiz</translation>
+    </message>
+    <message>
+        <source>Detail</source>
+        <translation>Detalle</translation>
+    </message>
+    <message>
+        <source>Spin Blur</source>
+        <translation>Desenfoque giratorio</translation>
+    </message>
+    <message>
+        <source>Samples</source>
+        <translation>Muestras</translation>
+    </message>
+    <message>
+        <source>Star Filter</source>
+        <translation>Filtro estrella</translation>
+    </message>
+    <message>
+        <source>Diffraction</source>
+        <translation>Difracción</translation>
+    </message>
+    <message>
+        <source>Strobe</source>
+        <translation>Estroboscopio</translation>
+    </message>
+    <message>
+        <source>Bloom</source>
+        <translation>Resplandor</translation>
+    </message>
+    <message>
+        <source>Grayscale</source>
+        <translation>Escala de grises</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>Pixelar</translation>
+    </message>
+    <message>
+        <source>Block width</source>
+        <translation>Ancho del bloque</translation>
+    </message>
+    <message>
+        <source>Block height</source>
+        <translation>Alto del bloque</translation>
+    </message>
+    <message>
+        <source>Ripple</source>
+        <translation>Ondas</translation>
+    </message>
+    <message>
+        <source>Sepia</source>
+        <translation>Sepia</translation>
+    </message>
+    <message>
+        <source>VHS</source>
+        <translation>VHS</translation>
+    </message>
+    <message>
+        <source>Noise</source>
+        <translation>Ruido</translation>
+    </message>
+    <message>
+        <source>Chroma shift</source>
+        <translation>Desplazamiento cromático</translation>
+    </message>
+    <message>
+        <source>Vignette</source>
+        <translation>Viñeta</translation>
+    </message>
+    <message>
+        <source>Super 8</source>
+        <translation>Súper 8</translation>
+    </message>
+    <message>
+        <source>Scratches</source>
+        <translation>Rayones</translation>
+    </message>
+    <message>
+        <source>Gate Weave</source>
+        <translation>Vaivén del cuadro</translation>
+    </message>
+    <message>
+        <source>Time Echo / Trail</source>
+        <translation>Eco temporal / estela</translation>
+    </message>
+    <message>
+        <source>Frames</source>
+        <translation>Fotogramas</translation>
+    </message>
+    <message>
+        <source>Decay</source>
+        <translation>Desvanecimiento</translation>
+    </message>
+    <message>
+        <source>VHS / CRT</source>
+        <translation>VHS / CRT</translation>
+    </message>
+    <message>
+        <source>Color bleed</source>
+        <translation>Corrimiento del color</translation>
+    </message>
+    <message>
+        <source>Distortion</source>
+        <translation>Distorsión</translation>
+    </message>
+    <message>
+        <source>Desaturation</source>
+        <translation>Desaturación</translation>
+    </message>
+    <message>
+        <source>Wave Warp</source>
+        <translation>Deformación en onda</translation>
+    </message>
+    <message>
+        <source>Axis</source>
+        <translation>Eje</translation>
+    </message>
+    <message>
+        <source>Zoom Punch</source>
+        <translation>Golpe de zoom</translation>
+    </message>
+    <message>
+        <source>Punch</source>
+        <translation>Golpe</translation>
+    </message>
+    <message>
+        <source>Analog Interference</source>
+        <translation>Interferencia analógica</translation>
+    </message>
+    <message>
+        <source>Radial Stretch</source>
+        <translation>Estiramiento radial</translation>
+    </message>
+    <message>
+        <source>Wave Width</source>
+        <translation>Ancho de onda</translation>
+    </message>
+    <message>
+        <source>White Noise</source>
+        <translation>Ruido blanco</translation>
+    </message>
+    <message>
+        <source>Blur Dissolve</source>
+        <translation>Disolución con desenfoque</translation>
+    </message>
+    <message>
+        <source>Bubbling Dissolve</source>
+        <translation>Disolución en burbujas</translation>
+    </message>
+    <message>
+        <source>Bubble Density</source>
+        <translation>Densidad de burbujas</translation>
+    </message>
+    <message>
+        <source>Bubble Size</source>
+        <translation>Tamaño de las burbujas</translation>
+    </message>
+    <message>
+        <source>Rise</source>
+        <translation>Subida</translation>
+    </message>
+    <message>
+        <source>Refraction</source>
+        <translation>Refracción</translation>
+    </message>
+    <message>
+        <source>Cross-Zoom Swirl</source>
+        <translation>Zoom cruzado en remolino</translation>
+    </message>
+    <message>
+        <source>Swirl</source>
+        <translation>Remolino</translation>
+    </message>
+    <message>
+        <source>Crossfade</source>
+        <translation>Fundido cruzado</translation>
+    </message>
+    <message>
+        <source>Dip to Black</source>
+        <translation>Fundido a negro</translation>
+    </message>
+    <message>
+        <source>Dip to White</source>
+        <translation>Fundido a blanco</translation>
+    </message>
+    <message>
+        <source>Fold</source>
+        <translation>Doblez</translation>
+    </message>
+    <message>
+        <source>Fold Angle</source>
+        <translation>Ángulo del doblez</translation>
+    </message>
+    <message>
+        <source>Glass Wipe</source>
+        <translation>Barrido de cristal</translation>
+    </message>
+    <message>
+        <source>Glass Thickness</source>
+        <translation>Grosor del cristal</translation>
+    </message>
+    <message>
+        <source>Honeycomb Hexagon</source>
+        <translation>Panal hexagonal</translation>
+    </message>
+    <message>
+        <source>Cell Density</source>
+        <translation>Densidad de celdas</translation>
+    </message>
+    <message>
+        <source>Ink Bleed</source>
+        <translation>Mancha de tinta</translation>
+    </message>
+    <message>
+        <source>Noise Scale</source>
+        <translation>Escala del ruido</translation>
+    </message>
+    <message>
+        <source>Ink Darkness</source>
+        <translation>Oscuridad de la tinta</translation>
+    </message>
+    <message>
+        <source>Kaleidoscope Spin</source>
+        <translation>Caleidoscopio giratorio</translation>
+    </message>
+    <message>
+        <source>Spin</source>
+        <translation>Giro</translation>
+    </message>
+    <message>
+        <source>Tunnel Zoom</source>
+        <translation>Zoom de túnel</translation>
+    </message>
+    <message>
+        <source>Lens Flare Wipe</source>
+        <translation>Barrido con destello</translation>
+    </message>
+    <message>
+        <source>Streak Width</source>
+        <translation>Ancho de la estela</translation>
+    </message>
+    <message>
+        <source>Linear Blinds</source>
+        <translation>Persianas</translation>
+    </message>
+    <message>
+        <source>Bar Count</source>
+        <translation>Número de barras</translation>
+    </message>
+    <message>
+        <source>Motion Blur</source>
+        <translation>Desenfoque de movimiento</translation>
+    </message>
+    <message>
+        <source>Specular</source>
+        <translation>Brillo especular</translation>
+    </message>
+    <message>
+        <source>Liquid Smudge</source>
+        <translation>Mancha líquida</translation>
+    </message>
+    <message>
+        <source>Melt Strength</source>
+        <translation>Fuerza del derretido</translation>
+    </message>
+    <message>
+        <source>Downward Melt</source>
+        <translation>Derretir hacia abajo</translation>
+    </message>
+    <message>
+        <source>Bleed</source>
+        <translation>Sangrado</translation>
+    </message>
+    <message>
+        <source>Luma Fade</source>
+        <translation>Fundido por luminosidad</translation>
+    </message>
+    <message>
+        <source>Highlights First</source>
+        <translation>Primero las luces</translation>
+    </message>
+    <message>
+        <source>Digital Matrix Rain</source>
+        <translation>Lluvia digital</translation>
+    </message>
+    <message>
+        <source>Columns</source>
+        <translation>Columnas</translation>
+    </message>
+    <message>
+        <source>Trail Length</source>
+        <translation>Largo de la estela</translation>
+    </message>
+    <message>
+        <source>Glyph Brightness</source>
+        <translation>Brillo de los caracteres</translation>
+    </message>
+    <message>
+        <source>Organic Wipe</source>
+        <translation>Barrido orgánico</translation>
+    </message>
+    <message>
+        <source>Edge Roughness</source>
+        <translation>Aspereza del borde</translation>
+    </message>
+    <message>
+        <source>Particle Wind</source>
+        <translation>Viento de partículas</translation>
+    </message>
+    <message>
+        <source>Wind Strength</source>
+        <translation>Fuerza del viento</translation>
+    </message>
+    <message>
+        <source>Turbulence</source>
+        <translation>Turbulencia</translation>
+    </message>
+    <message>
+        <source>Dissolve Spread</source>
+        <translation>Dispersión</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Dirección</translation>
+    </message>
+    <message>
+        <source>Pixelate Matrix</source>
+        <translation>Matriz pixelada</translation>
+    </message>
+    <message>
+        <source>Blockiness</source>
+        <translation>Pixelado</translation>
+    </message>
+    <message>
+        <source>Colour Swap</source>
+        <translation>Cambio de color</translation>
+    </message>
+    <message>
+        <source>Plasma Burn</source>
+        <translation>Quemadura de plasma</translation>
+    </message>
+    <message>
+        <source>Ember Intensity</source>
+        <translation>Intensidad de las brasas</translation>
+    </message>
+    <message>
+        <source>Edge Width</source>
+        <translation>Ancho del borde</translation>
+    </message>
+    <message>
+        <source>Push Left</source>
+        <translation>Empujar a la izquierda</translation>
+    </message>
+    <message>
+        <source>Radial Zoom Blur</source>
+        <translation>Zoom radial con desenfoque</translation>
+    </message>
+    <message>
+        <source>Blur Strength</source>
+        <translation>Fuerza del desenfoque</translation>
+    </message>
+    <message>
+        <source>Centre X</source>
+        <translation>Centro X</translation>
+    </message>
+    <message>
+        <source>Centre Y</source>
+        <translation>Centro Y</translation>
+    </message>
+    <message>
+        <source>RGB Displacement</source>
+        <translation>Desplazamiento RGB</translation>
+    </message>
+    <message>
+        <source>Tear Amount</source>
+        <translation>Desgarro</translation>
+    </message>
+    <message>
+        <source>Channel Split</source>
+        <translation>Separación de canales</translation>
+    </message>
+    <message>
+        <source>Tear Bands</source>
+        <translation>Franjas de desgarro</translation>
+    </message>
+    <message>
+        <source>Hold Frames</source>
+        <translation>Fotogramas fijos</translation>
+    </message>
+    <message>
+        <source>Slide Down</source>
+        <translation>Deslizar hacia abajo</translation>
+    </message>
+    <message>
+        <source>Slide Left</source>
+        <translation>Deslizar a la izquierda</translation>
+    </message>
+    <message>
+        <source>Slide Right</source>
+        <translation>Deslizar a la derecha</translation>
+    </message>
+    <message>
+        <source>Slide Up</source>
+        <translation>Deslizar hacia arriba</translation>
+    </message>
+    <message>
+        <source>Torn Paper</source>
+        <translation>Papel desgarrado</translation>
+    </message>
+    <message>
+        <source>Tear Roughness</source>
+        <translation>Aspereza del desgarro</translation>
+    </message>
+    <message>
+        <source>Triangle Mosaic</source>
+        <translation>Mosaico de triángulos</translation>
+    </message>
+    <message>
+        <source>Edge Shading</source>
+        <translation>Sombreado del borde</translation>
+    </message>
+    <message>
+        <source>VHS Scanline</source>
+        <translation>Línea VHS</translation>
+    </message>
+    <message>
+        <source>Roll Speed</source>
+        <translation>Velocidad de giro</translation>
+    </message>
+    <message>
+        <source>Bar Width</source>
+        <translation>Ancho de la barra</translation>
+    </message>
+    <message>
+        <source>Static</source>
+        <translation>Estática</translation>
+    </message>
+    <message>
+        <source>Chroma Bleed</source>
+        <translation>Sangrado de color</translation>
+    </message>
+    <message>
+        <source>Voronoi Shatter</source>
+        <translation>Cristal roto</translation>
+    </message>
+    <message>
+        <source>Shard Count</source>
+        <translation>Número de fragmentos</translation>
+    </message>
+    <message>
+        <source>Push Distance</source>
+        <translation>Distancia de empuje</translation>
+    </message>
+    <message>
+        <source>Warp Slide</source>
+        <translation>Deslizar con onda</translation>
+    </message>
+    <message>
+        <source>Warp</source>
+        <translation>Deformación</translation>
+    </message>
+    <message>
+        <source>Wipe Down</source>
+        <translation>Barrido hacia abajo</translation>
+    </message>
+    <message>
+        <source>Wipe Left</source>
+        <translation>Barrido a la izquierda</translation>
+    </message>
+    <message>
+        <source>Wipe Right</source>
+        <translation>Barrido a la derecha</translation>
+    </message>
+    <message>
+        <source>Wipe Up</source>
+        <translation>Barrido hacia arriba</translation>
+    </message>
+    <message>
+        <source>Zoom In</source>
+        <translation>Acercar</translation>
+    </message>
+    <message>
+        <source>Start Scale</source>
+        <translation>Escala inicial</translation>
+    </message>
+    <message>
+        <source>Auto-Pan</source>
+        <translation>Paneo automático</translation>
+    </message>
+    <message>
+        <source>Rate</source>
+        <translation>Frecuencia</translation>
+    </message>
+    <message>
+        <source>Input Level</source>
+        <translation>Nivel de entrada</translation>
+    </message>
+    <message>
+        <source>Output Level</source>
+        <translation>Nivel de salida</translation>
+    </message>
+    <message>
+        <source>Chorus</source>
+        <translation>Coro</translation>
+    </message>
+    <message>
+        <source>Input</source>
+        <translation>Entrada</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>Salida</translation>
+    </message>
+    <message>
+        <source>Delay (ms)</source>
+        <translation>Retardo (ms)</translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation>Profundidad</translation>
+    </message>
+    <message>
+        <source>Echo</source>
+        <translation>Eco</translation>
+    </message>
+    <message>
+        <source>Wet Mix</source>
+        <translation>Mezcla del efecto</translation>
+    </message>
+    <message>
+        <source>Flanger</source>
+        <translation>Flanger</translation>
+    </message>
+    <message>
+        <source>Modulation Rate</source>
+        <translation>Frecuencia de modulación</translation>
+    </message>
+    <message>
+        <source>Stereo Phase</source>
+        <translation>Fase estéreo</translation>
+    </message>
+    <message>
+        <source>Feedback</source>
+        <translation>Realimentación</translation>
+    </message>
+    <message>
+        <source>Invert Phase</source>
+        <translation>Invertir la fase</translation>
+    </message>
+    <message>
+        <source>Phaser</source>
+        <translation>Phaser</translation>
+    </message>
+    <message>
+        <source>Delay</source>
+        <translation>Retardo</translation>
+    </message>
+    <message>
+        <source>Slapback</source>
+        <translation>Eco corto</translation>
+    </message>
+    <message>
+        <source>Tremolo</source>
+        <translation>Trémolo</translation>
+    </message>
+    <message>
+        <source>Stereo Widen</source>
+        <translation>Ampliar el estéreo</translation>
+    </message>
+    <message>
+        <source>Dry Mix</source>
+        <translation>Mezcla original</translation>
+    </message>
+    <message>
+        <source>Crossfeed</source>
+        <translation>Cruce de canales</translation>
+    </message>
+    <message>
+        <source>Bitcrush</source>
+        <translation>Reducción de bits</translation>
+    </message>
+    <message>
+        <source>Bits</source>
+        <translation>Bits</translation>
+    </message>
+    <message>
+        <source>Sample Rate</source>
+        <translation>Frecuencia de muestreo</translation>
+    </message>
+    <message>
+        <source>Mix</source>
+        <translation>Mezcla</translation>
+    </message>
+    <message>
+        <source>Crystalize</source>
+        <translation>Cristalizar</translation>
+    </message>
+    <message>
+        <source>Colors</source>
+        <translation>Colores</translation>
+    </message>
+    <message>
+        <source>8-Bit</source>
+        <translation>8 bits</translation>
+    </message>
+    <message>
+        <source>Tape Saturation</source>
+        <translation>Saturación de cinta</translation>
+    </message>
+    <message>
+        <source>Ratio</source>
+        <translation>Proporción</translation>
+    </message>
+    <message>
+        <source>Attack (ms)</source>
+        <translation>Ataque (ms)</translation>
+    </message>
+    <message>
+        <source>Release (ms)</source>
+        <translation>Liberación (ms)</translation>
+    </message>
+    <message>
+        <source>Vinyl</source>
+        <translation>Vinilo</translation>
+    </message>
+    <message>
+        <source>Flutter</source>
+        <translation>Fluctuación</translation>
+    </message>
+    <message>
+        <source>Rumble</source>
+        <translation>Retumbe</translation>
+    </message>
+    <message>
+        <source>Cutoff</source>
+        <translation>Corte</translation>
+    </message>
+    <message>
+        <source>Wobble Rate</source>
+        <translation>Frecuencia del vaivén</translation>
+    </message>
+    <message>
+        <source>Megaphone</source>
+        <translation>Megáfono</translation>
+    </message>
+    <message>
+        <source>Center Freq</source>
+        <translation>Frecuencia central</translation>
+    </message>
+    <message>
+        <source>Band Width</source>
+        <translation>Ancho de banda</translation>
+    </message>
+    <message>
+        <source>Muffled</source>
+        <translation>Apagado</translation>
+    </message>
+    <message>
+        <source>Gain</source>
+        <translation>Ganancia</translation>
+    </message>
+    <message>
+        <source>Telephone</source>
+        <translation>Teléfono</translation>
+    </message>
+    <message>
+        <source>High-Pass</source>
+        <translation>Paso alto</translation>
+    </message>
+    <message>
+        <source>Low-Pass</source>
+        <translation>Paso bajo</translation>
+    </message>
+    <message>
+        <source>Underwater</source>
+        <translation>Bajo el agua</translation>
+    </message>
+    <message>
+        <source>Motion</source>
+        <translation>Movimiento</translation>
+    </message>
+    <message>
+        <source>Walkie-Talkie</source>
+        <translation>Walkie-talkie</translation>
+    </message>
+    <message>
+        <source>Grit</source>
+        <translation>Aspereza</translation>
+    </message>
+    <message>
+        <source>Fill Channel</source>
+        <translation>Rellenar el canal</translation>
+    </message>
+    <message>
+        <source>Source (0 left, 1 right, 2 auto)</source>
+        <translation>Origen (0 izquierda, 1 derecha, 2 automático)</translation>
+    </message>
+    <message>
+        <source>Compressor</source>
+        <translation>Compresor</translation>
+    </message>
+    <message>
+        <source>Threshold (dB)</source>
+        <translation>Umbral (dB)</translation>
+    </message>
+    <message>
+        <source>Makeup Gain</source>
+        <translation>Ganancia de compensación</translation>
+    </message>
+    <message>
+        <source>De-esser</source>
+        <translation>Quitar eses</translation>
+    </message>
+    <message>
+        <source>Max Reduction</source>
+        <translation>Reducción máxima</translation>
+    </message>
+    <message>
+        <source>EQ</source>
+        <translation>Ecualizador</translation>
+    </message>
+    <message>
+        <source>Low</source>
+        <translation>Graves</translation>
+    </message>
+    <message>
+        <source>Mid</source>
+        <translation>Medios</translation>
+    </message>
+    <message>
+        <source>High</source>
+        <translation>Agudos</translation>
+    </message>
+    <message>
+        <source>Noise Gate</source>
+        <translation>Puerta de ruido</translation>
+    </message>
+    <message>
+        <source>Voice Leveler</source>
+        <translation>Nivelador de voz</translation>
+    </message>
+    <message>
+        <source>Target Peak</source>
+        <translation>Pico objetivo</translation>
+    </message>
+    <message>
+        <source>Limiter</source>
+        <translation>Limitador</translation>
+    </message>
+    <message>
+        <source>Drive</source>
+        <translation>Saturación</translation>
+    </message>
+    <message>
+        <source>Ceiling</source>
+        <translation>Techo</translation>
+    </message>
+    <message>
+        <source>Alien</source>
+        <translation>Alienígena</translation>
+    </message>
+    <message>
+        <source>Chipmunk</source>
+        <translation>Ardilla</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>Tono</translation>
+    </message>
+    <message>
+        <source>Deep Voice</source>
+        <translation>Voz grave</translation>
+    </message>
+    <message>
+        <source>Robot</source>
+        <translation>Robot</translation>
+    </message>
+    <message>
+        <source>Dark Lord</source>
+        <translation>Señor oscuro</translation>
+    </message>
+    <message>
+        <source>Echo Delay (ms)</source>
+        <translation>Retardo del eco (ms)</translation>
+    </message>
+    <message>
+        <source>Echo Decay</source>
+        <translation>Caída del eco</translation>
+    </message>
+    <message>
+        <source>Wobble</source>
+        <translation>Vaivén</translation>
+    </message>
+    <message>
+        <source>Anime Punch</source>
+        <translation>Golpe anime</translation>
+    </message>
+    <message>
+        <source>Beat Drop</source>
+        <translation>Caída del ritmo</translation>
+    </message>
+    <message>
+        <source>Bling Drop</source>
+        <translation>Caída brillante</translation>
+    </message>
+    <message>
+        <source>Blur Behind</source>
+        <translation>Fondo desenfocado</translation>
+    </message>
+    <message>
+        <source>Bubble World</source>
+        <translation>Mundo de burbujas</translation>
+    </message>
+    <message>
+        <source>Cinematic Open</source>
+        <translation>Apertura de cine</translation>
+    </message>
+    <message>
+        <source>Comic Pop</source>
+        <translation>Cómic pop</translation>
+    </message>
+    <message>
+        <source>Dream Fade</source>
+        <translation>Fundido de ensueño</translation>
+    </message>
+    <message>
+        <source>Echo Drop</source>
+        <translation>Caída con eco</translation>
+    </message>
+    <message>
+        <source>Flash Storm</source>
+        <translation>Tormenta de destellos</translation>
+    </message>
+    <message>
+        <source>Ghost Walk</source>
+        <translation>Paseo fantasma</translation>
+    </message>
+    <message>
+        <source>Glitch Cut</source>
+        <translation>Corte con fallo</translation>
+    </message>
+    <message>
+        <source>Kaleido Chaos</source>
+        <translation>Caos caleidoscópico</translation>
+    </message>
+    <message>
+        <source>Manga Intro</source>
+        <translation>Intro manga</translation>
+    </message>
+    <message>
+        <source>Neon Cutout</source>
+        <translation>Recorte neón</translation>
+    </message>
+    <message>
+        <source>Neon Night</source>
+        <translation>Noche neón</translation>
+    </message>
+    <message>
+        <source>Retro Tape</source>
+        <translation>Cinta retro</translation>
+    </message>
+    <message>
+        <source>RGB Rave</source>
+        <translation>Fiesta RGB</translation>
+    </message>
+    <message>
+        <source>Shadow Legion</source>
+        <translation>Legión de sombras</translation>
+    </message>
+    <message>
+        <source>Slowmo Drop</source>
+        <translation>Caída en cámara lenta</translation>
+    </message>
+    <message>
+        <source>Snap Transition</source>
+        <translation>Transición al chasquido</translation>
+    </message>
+    <message>
+        <source>Storm Drop</source>
+        <translation>Caída de tormenta</translation>
+    </message>
+    <message>
+        <source>Sunset Leak</source>
+        <translation>Atardecer con luz</translation>
+    </message>
+    <message>
+        <source>Blur by word</source>
+        <translation>Desenfoque por palabra</translation>
+    </message>
+    <message>
+        <source>Blur in</source>
+        <translation>Desenfocado</translation>
+    </message>
+    <message>
+        <source>Focus</source>
+        <translation>Enfoque</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Rebote</translation>
+    </message>
+    <message>
+        <source>Boing</source>
+        <translation>Boing</translation>
+    </message>
+    <message>
+        <source>Breathe</source>
+        <translation>Respirar</translation>
+    </message>
+    <message>
+        <source>Colour wave</source>
+        <translation>Ola de color</translation>
+    </message>
+    <message>
+        <source>Focus on creativity</source>
+        <translation>Enfócate en crear</translation>
+    </message>
+    <message>
+        <source>Arrive colour</source>
+        <translation>Llegada de color</translation>
+    </message>
+    <message>
+        <source>Colour pulse</source>
+        <translation>Pulso de color</translation>
+    </message>
+    <message>
+        <source>Colour A</source>
+        <translation>Color A</translation>
+    </message>
+    <message>
+        <source>Colour B</source>
+        <translation>Color B</translation>
+    </message>
+    <message>
+        <source>Converge</source>
+        <translation>Converger</translation>
+    </message>
+    <message>
+        <source>Drop</source>
+        <translation>Caer</translation>
+    </message>
+    <message>
+        <source>Drop in</source>
+        <translation>Caída</translation>
+    </message>
+    <message>
+        <source>Fade zoom</source>
+        <translation>Zoom con fundido</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation>Construir</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>Hacia</translation>
+    </message>
+    <message>
+        <source>Fade away</source>
+        <translation>Desvanecer</translation>
+    </message>
+    <message>
+        <source>Bye</source>
+        <translation>Adiós</translation>
+    </message>
+    <message>
+        <source>Fade up</source>
+        <translation>Fundido hacia arriba</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>Fundido</translation>
+    </message>
+    <message>
+        <source>Fade in</source>
+        <translation>Aparecer</translation>
+    </message>
+    <message>
+        <source>Fall</source>
+        <translation>Caída libre</translation>
+    </message>
+    <message>
+        <source>Flicker on</source>
+        <translation>Encendido con parpadeo</translation>
+    </message>
+    <message>
+        <source>OPEN</source>
+        <translation>ABIERTO</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Voltear</translation>
+    </message>
+    <message>
+        <source>Flip it</source>
+        <translation>Voltéalo</translation>
+    </message>
+    <message>
+        <source>Float</source>
+        <translation>Flotar</translation>
+    </message>
+    <message>
+        <source>Floating words</source>
+        <translation>Palabras flotantes</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>Fallo</translation>
+    </message>
+    <message>
+        <source>GLITCH</source>
+        <translation>FALLO</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>Desplazamiento</translation>
+    </message>
+    <message>
+        <source>Skew</source>
+        <translation>Inclinación</translation>
+    </message>
+    <message>
+        <source>Karaoke bounce</source>
+        <translation>Karaoke con rebote</translation>
+    </message>
+    <message>
+        <source>Bounce along</source>
+        <translation>Rebota al cantar</translation>
+    </message>
+    <message>
+        <source>Lift</source>
+        <translation>Elevación</translation>
+    </message>
+    <message>
+        <source>Karaoke pop</source>
+        <translation>Karaoke pop</translation>
+    </message>
+    <message>
+        <source>Sing along</source>
+        <translation>Canta conmigo</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>Pop</translation>
+    </message>
+    <message>
+        <source>Pop!</source>
+        <translation>¡Pop!</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Desde</translation>
+    </message>
+    <message>
+        <source>Pulse</source>
+        <translation>Pulso</translation>
+    </message>
+    <message>
+        <source>Raining</source>
+        <translation>Lluvia</translation>
+    </message>
+    <message>
+        <source>RAIN</source>
+        <translation>LLUVIA</translation>
+    </message>
+    <message>
+        <source>Remove by word</source>
+        <translation>Quitar por palabra</translation>
+    </message>
+    <message>
+        <source>titles, ads, social</source>
+        <translation>títulos, anuncios, redes</translation>
+    </message>
+    <message>
+        <source>Animate your text</source>
+        <translation>Anima tu texto</translation>
+    </message>
+    <message>
+        <source>Rise up</source>
+        <translation>Subir</translation>
+    </message>
+    <message>
+        <source>Shrink</source>
+        <translation>Encoger</translation>
+    </message>
+    <message>
+        <source>Skew slide</source>
+        <translation>Deslizar inclinado</translation>
+    </message>
+    <message>
+        <source>Fast lane</source>
+        <translation>Vía rápida</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>Deslizar</translation>
+    </message>
+    <message>
+        <source>Slow zoom</source>
+        <translation>Zoom lento</translation>
+    </message>
+    <message>
+        <source>Snap together</source>
+        <translation>Encajar</translation>
+    </message>
+    <message>
+        <source>Boost your workflow</source>
+        <translation>Impulsa tu trabajo</translation>
+    </message>
+    <message>
+        <source>Squash &amp; stretch</source>
+        <translation>Aplastar y estirar</translation>
+    </message>
+    <message>
+        <source>Rubber stamp</source>
+        <translation>Sello de goma</translation>
+    </message>
+    <message>
+        <source>STAMP</source>
+        <translation>SELLO</translation>
+    </message>
+    <message>
+        <source>Tilt</source>
+        <translation>Inclinar</translation>
+    </message>
+    <message>
+        <source>Sway</source>
+        <translation>Balanceo</translation>
+    </message>
+    <message>
+        <source>Swing</source>
+        <translation>Columpio</translation>
+    </message>
+    <message>
+        <source>Tracking drift</source>
+        <translation>Espaciado que se mueve</translation>
+    </message>
+    <message>
+        <source>DRIFT</source>
+        <translation>FLUIR</translation>
+    </message>
+    <message>
+        <source>Type-on blur</source>
+        <translation>Escritura con desenfoque</translation>
+    </message>
+    <message>
+        <source>Text Animation</source>
+        <translation>Animación de texto</translation>
+    </message>
+    <message>
+        <source>Typewriter</source>
+        <translation>Máquina de escribir</translation>
+    </message>
+    <message>
+        <source>Typing</source>
+        <translation>Escribiendo</translation>
+    </message>
+    <message>
+        <source>Caret</source>
+        <translation>Cursor</translation>
+    </message>
+    <message>
+        <source>Caret lead</source>
+        <translation>Cursor delante</translation>
+    </message>
+    <message>
+        <source>Blink</source>
+        <translation>Parpadeo</translation>
+    </message>
+    <message>
+        <source>Hold after</source>
+        <translation>Pausa al final</translation>
+    </message>
+    <message>
+        <source>Re-centre as it types</source>
+        <translation>Recentrar al escribir</translation>
+    </message>
+    <message>
+        <source>Wave</source>
+        <translation>Onda</translation>
+    </message>
+    <message>
+        <source>wavy text</source>
+        <translation>texto ondulado</translation>
+    </message>
+    <message>
+        <source>Wavelength</source>
+        <translation>Longitud de onda</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>Barrido</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipo</translation>
+    </message>
+    <message>
+        <source>Zoom in</source>
+        <translation>Acercar</translation>
+    </message>
+    <message>
+        <source>Zoom out</source>
+        <translation>Alejar</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texto</translation>
     </message>
 </context>
 <context>
@@ -6573,6 +8856,10 @@
     <message>
         <source>Depth &amp; Lighting</source>
         <translation>Profundidad e iluminación</translation>
+    </message>
+    <message>
+        <source>Background Removal</source>
+        <translation>Quitar fondo</translation>
     </message>
     <message>
         <source>Other</source>
@@ -17728,7 +20015,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Chroma key</source>
-        <translation>Chroma key</translation>
+        <translation>Croma</translation>
     </message>
     <message>
         <source>Remove a colour</source>

@@ -1,6 +1,7 @@
 #include "AudioEffectCatalog.h"
 
 #include "GpuPackageParse.h"
+#include "core/CatalogText.h"
 #include "engine/audio/AudioEffectFactory.h"
 #include "engine/audio/WavReader.h"
 
@@ -33,6 +34,8 @@ QString labelForCategory(const QString &slug)
         return QCoreApplication::translate("AudioEffectCatalog", "Texture");
     if (slug == QLatin1String("space"))
         return QCoreApplication::translate("AudioEffectCatalog", "Space");
+    if (slug == QLatin1String("utility"))
+        return QCoreApplication::translate("AudioEffectCatalog", "Utility");
     if (slug.isEmpty())
         return QCoreApplication::translate("AudioEffectCatalog", "Other");
     QString label = slug;
@@ -122,7 +125,7 @@ std::optional<AudioEffectEntry> loadManifest(const QString &packageDir, QString 
             *errorOut = QStringLiteral("audio-effect.json missing id");
         return std::nullopt;
     }
-    entry.displayName = root.value(QStringLiteral("displayName")).toString();
+    entry.displayName = drift::catalogText(root.value(QStringLiteral("displayName")).toString());
     if (entry.displayName.isEmpty())
         entry.displayName = entry.id;
     const QString categoryRaw = root.value(QStringLiteral("category")).toString();
