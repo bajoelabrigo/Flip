@@ -61,10 +61,15 @@ struct Clip
     // Adjustment clips only.
     AdjustmentKind adjustmentKind = AdjustmentKind::VideoEffects;
     // Id of the media clip this adjustment is pinned to; empty when unlinked. While set, the
-    // adjustment's timeline extent mirrors that clip's and its edges are not draggable — the
-    // mirroring is enforced centrally so every move/trim/split path keeps it true.
+    // adjustment is *shown* on the host's lane and applies only to that clip, but its own
+    // timeline extent is its own: it starts out covering the whole host clip and can then be
+    // trimmed or moved, which is what makes an effect a layer rather than a property of the clip.
     // Directional, unlike `linkId`, which symmetrically pairs A/V companions.
     QString linkedClipId;
+    // True once the user has given this adjustment a range of its own. From then on
+    // syncLinkedAdjustments() leaves its extent alone, so an edit to the host clip can no longer
+    // stretch the effect back over the whole clip and undo the trim.
+    bool independentRange = false;
 
     // When true, AudioMixer skips this video clip's embedded audio (companion audio track plays it).
     bool suppressEmbeddedAudio = false;
