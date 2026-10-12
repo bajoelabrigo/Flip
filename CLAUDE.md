@@ -65,6 +65,32 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
+## Estado al cierre del 2026-10-12 (tarde)
+
+- **0.9.4** en `flip/v0.9.4` (no publicada): arreglo del idioma (es_CO elegido), Retoque con
+  Rostro/Cuerpo/Cabello, categorías en filas plegables, animación al pasar el ratón (stickers,
+  emojis, Lottie con `image://lottie`), Doblez y Barrido de cristal arreglados + tiras de vista
+  previa. CI verde (run 38282994474, 2.º intento). Instalador de prueba en
+  `Downloads\FlipStudio-0.9.4-prueba`. **La 0.9.3 nunca se subió a la Store**; las notas de la Store
+  de la 0.9.4 cubren las dos.
+- **0.9.5** en `flip/v0.9.5` (sale de la 0.9.4, no publicada): pestaña **Ajuste** (Básico, HSL,
+  Curvas, Círculo cromático, Máscara; efectos `color.basic/hsl/curves/wheels`), pestaña **Música**,
+  la pestaña ya no salta a Video al añadir un efecto. CI verde (run 38295489464). Instalador de
+  prueba en `Downloads\FlipStudio-0.9.5-prueba`. Efectos de color probados en la app real con
+  `tools/e2e` (capturas correctas).
+- **Paquete `musica.libre`** (65 canciones FreePD, CC0, 107 MB) firmado en `flip-addons/dist` y ya
+  en `flip-addons/dist/index.json`, **sin subir**: pide la app 0.9.5. Publicarlo con la 0.9.5
+  (primero el `.driftpkg` al release `packages`, luego el índice).
+- **Web** (`flipstudio-web`): contenido de la 0.9.4 + `novedades.html` listos y **sin desplegar**;
+  HSTS y permisos del VPS ya aplicados.
+- **Editor web**: efectos propios (sin código de Drift), pestaña Video, texto con
+  Transformar/Animación/Efectos y **subtítulos automáticos** (Whisper en el navegador): todo
+  publicado.
+- El test `stabilizeRendersRangeIntoBinAndSwapsClip` falla a veces en CI (el runner solo tiene
+  OpenGL 3.0 y su aviso pisa el mensaje esperado): se relanza.
+- Los nombres de los efectos del catálogo (`effect.json` → `displayName`) no se traducen: salen en
+  inglés en la pestaña Efectos. Pendiente.
+
 ## Lo que avanzamos el 2026-10-12
 
 Sesión larga. Resumen de lo que se cerró, por si mañana hay que retomar el hilo:
