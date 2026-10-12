@@ -8704,6 +8704,26 @@
         <translation>Forma</translation>
     </message>
     <message>
+        <source>1 mask on this clip</source>
+        <translation>1 máscara en este clip</translation>
+    </message>
+    <message>
+        <source>%1 masks on this clip</source>
+        <translation>%1 máscaras en este clip</translation>
+    </message>
+    <message>
+        <source>Cutout</source>
+        <translation>Recorte</translation>
+    </message>
+    <message>
+        <source>Edit this mask</source>
+        <translation>Editar esta máscara</translation>
+    </message>
+    <message>
+        <source>This clip has no mask yet. Add one from the Masks tab in the assets panel, or drop a mask onto the clip on the timeline.</source>
+        <translation>Este clip todavía no tiene máscara. Agrega una desde la pestaña Máscaras del panel de recursos, o arrastra una máscara sobre el clip en la línea de tiempo.</translation>
+    </message>
+    <message>
         <source>Rectangle</source>
         <translation>Rectángulo</translation>
     </message>

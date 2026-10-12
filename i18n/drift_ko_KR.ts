@@ -8673,6 +8673,26 @@
         <translation>도형</translation>
     </message>
     <message>
+        <source>1 mask on this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 masks on this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cutout</source>
+        <translation type="unfinished">피사체 분리</translation>
+    </message>
+    <message>
+        <source>Edit this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This clip has no mask yet. Add one from the Masks tab in the assets panel, or drop a mask onto the clip on the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rectangle</source>
         <translation>사각형</translation>
     </message>
