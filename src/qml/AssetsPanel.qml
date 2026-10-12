@@ -610,7 +610,7 @@ PanelFrame {
         const tabId = tabsModel.get(activeTab).tabId
         if (tabId === "text" || tabId === "subtitles" || tabId === "speech" || tabId === "stickers" || tabId === "shapes"
                 || tabId === "effects" || tabId === "templates" || tabId === "adjustment"
-                || tabId === "sounds" || tabId === "sfx" || tabId === "transitions" || tabId === "masks"
+                || tabId === "sounds" || tabId === "sfx" || tabId === "music" || tabId === "transitions" || tabId === "masks"
                 || tabId === "shortcuts" || tabId === "scenes" || tabId === "market")
             return false
         const kinds = kindsForTab(tabId)
@@ -633,6 +633,7 @@ PanelFrame {
         "templates": qsTr("Templates"),
         "transitions": qsTr("Transitions"),
         "sounds": qsTr("Audio FX"),
+        "music": qsTr("Music"),
         "sfx": qsTr("Sound effects"),
         "shortcuts": qsTr("Shortcuts")
     })
@@ -654,7 +655,8 @@ PanelFrame {
         ListElement { tabId: "effects"; icon: 5; separatorAfter: false }
         ListElement { tabId: "templates"; icon: 6; separatorAfter: false }
         ListElement { tabId: "transitions"; icon: 7; separatorAfter: false }
-        ListElement { tabId: "sfx"; icon: 14; separatorAfter: false }
+        ListElement { tabId: "music"; icon: 14; separatorAfter: false }
+        ListElement { tabId: "sfx"; icon: 15; separatorAfter: false }
         ListElement { tabId: "sounds"; icon: 8; separatorAfter: true }
         ListElement { tabId: "shortcuts"; icon: 9; separatorAfter: false }
 
@@ -691,7 +693,8 @@ PanelFrame {
         Theme.icons.mask,
         Theme.icons.store,
         Theme.icons.micVocal,
-        Theme.icons.music
+        Theme.icons.music,
+        Theme.icons.volumeHigh
     ]
     property int activeTab: 0
     readonly property string currentTabId: tabsModel.get(activeTab).tabId
@@ -1115,6 +1118,20 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     SubtitlesTab {
+                        onAdded: root.addCompleted()
+                    }
+                }
+            }
+
+            Loader {
+                active: root.currentTabId === "music"
+                visible: active
+                width: parent.width
+                height: parent.height - assetsHeader.height
+                opacity: root.tabOpacity
+                sourceComponent: Component {
+                    SoundEffectsTab {
+                        music: true
                         onAdded: root.addCompleted()
                     }
                 }

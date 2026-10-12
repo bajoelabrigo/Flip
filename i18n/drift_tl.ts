@@ -4703,6 +4703,10 @@
         <translation>Epektong audyo</translation>
     </message>
     <message>
+        <source>Music</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13285,7 +13289,19 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Search music</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No sound effects installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No music installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the free music pack: 65 public-domain songs, happy, calm, epic, cinematic and more, free for your videos.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

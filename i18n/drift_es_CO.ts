@@ -4703,6 +4703,10 @@
         <translation>Efectos de audio</translation>
     </message>
     <message>
+        <source>Music</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shortcuts</source>
         <translation>Atajos</translation>
     </message>
@@ -13292,8 +13296,20 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Buscar sonidos</translation>
     </message>
     <message>
+        <source>Search music</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No sound effects installed</source>
         <translation>No hay efectos de sonido instalados</translation>
+    </message>
+    <message>
+        <source>No music installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the free music pack: 65 public-domain songs, happy, calm, epic, cinematic and more, free for your videos.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
