@@ -10986,7 +10986,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">Video</translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Camera</source>
@@ -17473,11 +17473,11 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Remove background</source>
-        <translation type="unfinished">Quitar fondo</translation>
+        <translation>Quitar fondo</translation>
     </message>
     <message>
         <source>Mask</source>
-        <translation type="unfinished">Máscara</translation>
+        <translation>Máscara</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -17497,7 +17497,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Select a video clip first</source>
-        <translation type="unfinished">Selecciona un clip de video primero</translation>
+        <translation>Selecciona un clip de video primero</translation>
     </message>
     <message>
         <source>Select a video clip to remove its background.</source>
@@ -17529,27 +17529,27 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Image or video as mask…</source>
-        <translation type="unfinished">Imagen o video como máscara…</translation>
+        <translation>Imagen o video como máscara…</translation>
     </message>
     <message>
         <source>Use a file&apos;s own pixels as the coverage map</source>
-        <translation type="unfinished">Usa los propios píxeles de un archivo como mapa de cobertura</translation>
+        <translation>Usa los propios píxeles de un archivo como mapa de cobertura</translation>
     </message>
     <message>
         <source>Choose a mask image or video</source>
-        <translation type="unfinished">Elige una imagen o video de máscara</translation>
+        <translation>Elige una imagen o video de máscara</translation>
     </message>
     <message>
         <source>Media files (*.png *.jpg *.jpeg *.webp *.heic *.heif *.avif *.tif *.tiff *.bmp *.gif *.mp4 *.mov *.mkv *.webm)</source>
-        <translation type="unfinished">Archivos de medios (*.png *.jpg *.jpeg *.webp *.heic *.heif *.avif *.tif *.tiff *.bmp *.gif *.mp4 *.mov *.mkv *.webm)</translation>
+        <translation>Archivos de medios (*.png *.jpg *.jpeg *.webp *.heic *.heif *.avif *.tif *.tiff *.bmp *.gif *.mp4 *.mov *.mkv *.webm)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished">Todos los archivos (*)</translation>
+        <translation>Todos los archivos (*)</translation>
     </message>
     <message>
         <source>Add mask</source>
-        <translation type="unfinished">Añadir máscara</translation>
+        <translation>Añadir máscara</translation>
     </message>
     <message>
         <source>Skin retouch</source>
