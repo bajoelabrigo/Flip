@@ -110,7 +110,7 @@ la Store, así que estas notas cubren las dos versiones.
 > Las categorías de stickers, transiciones, efectos y emojis se reparten en varias filas y se pueden plegar. Los stickers y emojis se animan al pasar el ratón.
 >
 > ARREGLOS
-> La app vuelve a estar entera en español en Latinoamérica: en algunos países varias pantallas salían en inglés. Y el recorte de sujeto con IA funciona en equipos donde antes fallaba.
+> La app vuelve a estar entera en español: con Español (Colombia) elegido, varias pantallas salían en inglés. Y el recorte de sujeto con IA funciona en equipos donde antes fallaba.
 
 **Notas de la versión (0.8.1) — anteriores, se conservan por referencia:**
 

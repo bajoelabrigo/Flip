@@ -177,10 +177,13 @@ en la hoja de ruta como requisito de Pexels y de las cuentas.
 ## El panel de video salió en inglés: qué se sabe (2026-10-12)
 
 > **RESUELTO (2026-10-12, tarde): la causa era la carga, no el catálogo.** El instalador real
-> de la 0.9.3 (mismo hash que el portable del release) muestra el fallo. En un sistema es-PE,
-> `QTranslator::load(locale, "drift", ...)` cargaba **`drift_es_CO.qm`**, que tiene la pestaña
-> Video sin terminar: por eso salían en español justo "Quitar fondo", "Máscara" e "Imagen o video
-> como máscara…" (las únicas con texto en `es_CO`). Arreglo en
+> de la 0.9.3 (mismo hash que el portable del release) muestra el fallo. Jorge tiene guardado
+> `language = es_CO` (Español (Colombia), elegido en el selector de idioma, `languageChosen =
+> true`, en `HKCU\Software\Flip Studio`), así que la app cargaba solo **`drift_es_CO.qm`**, que
+> tiene la pestaña Video sin terminar: por eso salían en español justo "Quitar fondo", "Máscara" e
+> "Imagen o video como máscara…" (las únicas con texto en `es_CO`). Reproducido con PySide6 sobre
+> los `.qm` reales; un es-PE sin idioma elegido sí carga `drift_es.qm`. Antes se creyó que el
+> sistema es-PE caía en `es_CO`: era falso. Arreglo en
 > `PreferencesController::installUiTranslators()`: el catálogo base del idioma (`drift_es`) se
 > instala siempre, y uno regional solo encima si coincide el territorio o la escritura exactos.
 > Lo de abajo es la investigación previa, que daba por bueno el catálogo y no miraba qué archivo
