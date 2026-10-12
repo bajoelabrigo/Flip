@@ -196,10 +196,20 @@ Item {
                             visible: stickerImage.status === Image.Loading
                         }
 
+                        // Hover gives the sticker a little life: a pop, then a gentle sway while
+                        // the pointer rests on it. An animated sticker plays its own motion instead.
+                        HoverPop {
+                            id: stickerPop
+                            target: stickerImage
+                            active: stickerDrag.hovered && !stickerDrag.active
+                            sway: modelData.animated !== true
+                        }
+
                         Image {
                             id: stickerImage
                             anchors.fill: parent
                             anchors.margins: Theme.pagePadding
+                            visible: !stickerMotion.visible
                             source: EditorState.imageUrl(modelData.thumbnail || modelData.path)
                             fillMode: Image.PreserveAspectFit
                             asynchronous: true
@@ -210,6 +220,15 @@ Item {
                             Behavior on opacity {
                                 NumberAnimation { duration: Theme.durationBase; easing.type: Theme.easing }
                             }
+                        }
+
+                        LottieHoverSprite {
+                            id: stickerMotion
+                            anchors.fill: parent
+                            anchors.margins: Theme.pagePadding
+                            path: modelData.animated === true ? modelData.path : ""
+                            hovered: stickerDrag.hovered && !stickerDrag.active
+                            scale: stickerImage.scale
                         }
 
                         IconGlyph {

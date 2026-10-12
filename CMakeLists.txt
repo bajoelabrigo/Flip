@@ -883,6 +883,8 @@ qt_add_executable(drift
     src/MulticamImageStore.cpp
     src/TextStylePreviewImageProvider.h
     src/TextStylePreviewImageProvider.cpp
+    src/LottiePreviewImageProvider.h
+    src/LottiePreviewImageProvider.cpp
     src/ShapePreviewImageProvider.h
     src/ShapePreviewImageProvider.cpp
     src/models/AddonEndpoint.h
@@ -1349,6 +1351,8 @@ qt_add_qml_module(drift
         src/qml/components/FontPicker.qml
         src/qml/components/CollapsibleSection.qml
         src/qml/components/TextStylePackThumb.qml
+        src/qml/components/HoverPop.qml
+        src/qml/components/LottieHoverSprite.qml
         src/qml/components/TextStylePackPicker.qml
         src/qml/components/NameDialog.qml
         src/qml/components/EmojiPicker.qml

@@ -118,35 +118,20 @@ Popup {
             }
         }
 
-        // The group row scrolls sideways rather than wrapping: nine categories would otherwise eat
-        // a third of the popup before a single emoji is visible.
-        Flickable {
+        // The groups wrap like every other category bar, and fold to their first row from the
+        // chevron when the popup is short of room.
+        AssetCategoryChips {
             id: groupBar
             anchors.top: search.bottom
             anchors.topMargin: Theme.spacingMd
             anchors.left: parent.left
             anchors.right: parent.right
-            height: Theme.controlHeightSm
-            contentWidth: groupRow.width
-            flickableDirection: Flickable.HorizontalFlick
-            clip: true
-            visible: root.available && root.query.length === 0
-
-            Row {
-                id: groupRow
-                spacing: Theme.spacingSm
-
-                Repeater {
-                    model: root.groups
-                    delegate: ThemedChip {
-                        required property string modelData
-                        text: modelData
-                        variant: "secondary"
-                        selected: root.activeGroup === modelData
-                        onClicked: root.activeGroup = modelData
-                    }
-                }
-            }
+            sidePadding: 0
+            showFavorites: false
+            categories: root.groups.map(g => ({ id: g, label: g }))
+            activeCategory: root.activeGroup
+            searching: !root.available || root.query.length > 0
+            onCategoryActivated: (categoryId) => root.activeGroup = categoryId
         }
 
         GridView {
@@ -182,7 +167,14 @@ Popup {
                         ColorAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
                     }
 
+                    HoverPop {
+                        target: emojiGlyph
+                        active: cellDrag.hovered && !cellDrag.active
+                        popScale: 1.25
+                    }
+
                     Text {
+                        id: emojiGlyph
                         anchors.centerIn: parent
                         text: cell.modelData.emoji
                         // The addon face, not the system one, so the grid shows what the

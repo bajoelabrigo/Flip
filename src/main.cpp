@@ -29,6 +29,7 @@
 #include "SegmentImageProvider.h"
 #include "ShapePreviewImageProvider.h"
 #include "TextStylePreviewImageProvider.h"
+#include "LottiePreviewImageProvider.h"
 #include "playback/PerfLog.h"
 #include "preview/PreviewItem.h"
 #include "timeline/TimelineTrackItem.h"
@@ -734,6 +735,7 @@ int main(int argc, char *argv[])
     engine.addImageProvider(QStringLiteral("shape"), new ShapePreviewImageProvider());
     engine.addImageProvider(QStringLiteral("textanim"), new TextAnimPreviewImageProvider());
     engine.addImageProvider(QStringLiteral("textlook"), new TextLookPreviewImageProvider());
+    engine.addImageProvider(QStringLiteral("lottie"), new LottiePreviewImageProvider());
     QObject::connect(
         &engine, &QQmlApplicationEngine::objectCreationFailed, &app, [] { QGuiApplication::exit(-1); }, Qt::QueuedConnection);
     // Shell.qml builds Main.qml (desktop) or AndroidMain.qml (touch) once, at startup. Resolved
