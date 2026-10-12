@@ -203,7 +203,7 @@ español. **La investigación no encontró un fallo en el catálogo**, y esto es
 O sea: **el `.qm` que se publicó sí lleva las traducciones**. La causa más probable es que Jorge
 esté abriendo una copia anterior a ese build (el portable de prueba que le pasé antes de la
 0.9.3), o que su app no esté cargando el catálogo español. Su sistema es es-PE y no tiene idioma
-forzado en el registro (`HKCU\Software\Flip Studio\Flip Studio` no tiene `ui/language`), así que
+forzado en el registro (**falso**: sí lo tiene, `language = es_CO`; ver el RESUELTO de arriba), así que
 debería cargar `drift_es.qm` desde `:/i18n`.
 
 **Para la próxima actualización:**
