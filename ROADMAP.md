@@ -97,6 +97,21 @@ la certifiquen.
    antes de construirlas.
 9. **Ideas pendientes del panel de CapCut** (2026-10-11): separar audio (voz y música) y traductor de videos;
    las dos necesitan modelos que todavía no tenemos.
+10. **Auditoría de las cuatro secciones de video de CapCut** (2026-10-12, contra las capturas del
+    2026-10-11). Lo que queda de cada una, para decidir si se hace:
+    - **Básico**: cubierto entero (escala, posición, girar, voltear, mezcla, estabilización, mejorar la
+      calidad y reducir el ruido entran como efectos; `adjust_*` es el color). Falta **flujo óptico**
+      (interpolar fotogramas para cámara lenta), que es una función de render, no un modelo.
+    - **Eliminar fondo**: los tres que ofrece CapCut están — automático (`segment_clip` con RVM o SAM2),
+      personalizado (`begin_segmentation_session` + puntos) y **chroma key** (`chroma_key`).
+    - **Máscara**: misma lista salvo el **texto como forma de máscara**; CapCut también parte el suyo en
+      "lineal" y "espejo", que aquí son un rectángulo extremo y el mismo rectángulo con `invert`.
+    - **Retoque**: cubre piel (suavizar, blanquear, tono), rostro (adelgazar, ojos grandes) y maquillaje
+      (labial, rubor), más `face_fat_slim`, `face_big_eyes` y props. Falta **quitar imperfecciones**
+      (manchas y arrugas), que puede ser un efecto suave sobre las marcas de los 468 puntos.
+    - Lo demás que se ve en la captura de Básico (quitar objetos con IA, ampliar a 4K con IA, remix,
+      contacto visual, sincronización labial) son funciones de nube de CapCut: no son modelos que
+      podamos empaquetar.
 
 ### Editor web (getflipstudio.com/editor)
 1. ~~**Etapa 5a — transiciones**~~: las 28 de Drift con WebGL2, en vista previa y exportación (publicada el 2026-10-10).
