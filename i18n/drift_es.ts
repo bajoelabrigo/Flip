@@ -16117,7 +16117,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Remove background</source>
-        <translation>Quitar fondo</translation>
+        <translation>Eliminar fondo</translation>
     </message>
     <message>
         <source>Remove background — cut out the person or subject</source>
@@ -17473,7 +17473,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Remove background</source>
-        <translation>Quitar fondo</translation>
+        <translation>Eliminar fondo</translation>
     </message>
     <message>
         <source>Mask</source>
