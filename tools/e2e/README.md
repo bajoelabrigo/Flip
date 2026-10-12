@@ -67,3 +67,15 @@ encoder once. Good for confirming a model directory is complete and correctly sh
   `inspect` and compare, and read `notice` when nothing changed.
 - The portable build reports itself as version `0.0.0`, so packages that require 0.9.2 refuse to
   install from Extras. Everything else in the app is testable as normal.
+- **Run the harness unsandboxed.** Anything that writes a sidecar fails with
+  `Permission denied, error -13` from `avio_open` when the app runs under a file sandbox, because
+  the sidecars go to `%APPDATA%\Flip Studio\Flip Studio\` (`mattes`, `facetracks`, `reversed`).
+  A denied write there does not mean the feature is broken: check that a plain write to that
+  directory succeeds before reading anything into the failure. The same applies to
+  `testmatte.mp4`-style probes run outside the app.
+- Setting `APPDATA` does not relocate it: Windows resolves the known folder through the shell API,
+  not that variable, so the app keeps using the real one.
+- Model directories: the six video model packages (`recorte.sujeto`, `recorte.personas`,
+  `rostro.puntos`, `profundidad`, `mejorar.video`, `ruido.voz`) are extracted under
+  `flip-addons/build/stage` and exposed through `--stage`. Without them the AI tools report
+  themselves unavailable and every cutout op fails early.
