@@ -57,12 +57,39 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
    registro tiene TTL largo, unas 4 h). No es un fallo.
 2. **Subir el MSIX 0.9.3 a Partner Center.** Bloqueado por Jorge: la Store no acepta un envío nuevo
    mientras certifica el anterior.
-3. **Desplegar el editor web** — pero **Jorge lo está trabajando con Claude en otra sesión**:
-   no tocar `flipstudio-app` ni desplegarlo desde aquí.
+3. **El editor web (`flipstudio-app`)**: Jorge aclaró el 2026-10-12 que **no** lo está trabajando en
+   otra sesión. Se puede revisar y tocar desde aquí; el objetivo sigue siendo que coincida al
+   máximo con la app de escritorio.
 4. **Verificar a ojo la 0.9.3**: las cuatro páginas del panel de video, que un efecto recortado se
    quede recortado, y las transiciones nuevas. De la 0.9.2 Jorge ya verificó el "Recortar".
 
 ---
+
+## Estado al cierre del 2026-10-12 (tarde)
+
+- **0.9.4** en `flip/v0.9.4` (no publicada): arreglo del idioma (es_CO elegido), Retoque con
+  Rostro/Cuerpo/Cabello, categorías en filas plegables, animación al pasar el ratón (stickers,
+  emojis, Lottie con `image://lottie`), Doblez y Barrido de cristal arreglados + tiras de vista
+  previa. CI verde (run 38282994474, 2.º intento). Instalador de prueba en
+  `Downloads\FlipStudio-0.9.4-prueba`. **La 0.9.3 nunca se subió a la Store**; las notas de la Store
+  de la 0.9.4 cubren las dos.
+- **0.9.5** en `flip/v0.9.5` (sale de la 0.9.4, no publicada): pestaña **Ajuste** (Básico, HSL,
+  Curvas, Círculo cromático, Máscara; efectos `color.basic/hsl/curves/wheels`), pestaña **Música**,
+  la pestaña ya no salta a Video al añadir un efecto. CI verde (run 38295489464). Instalador de
+  prueba en `Downloads\FlipStudio-0.9.5-prueba`. Efectos de color probados en la app real con
+  `tools/e2e` (capturas correctas).
+- **Paquete `musica.libre`** (65 canciones FreePD, CC0, 107 MB) firmado en `flip-addons/dist` y ya
+  en `flip-addons/dist/index.json`, **sin subir**: pide la app 0.9.5. Publicarlo con la 0.9.5
+  (primero el `.driftpkg` al release `packages`, luego el índice).
+- **Web** (`flipstudio-web`): contenido de la 0.9.4 + `novedades.html` listos y **sin desplegar**;
+  HSTS y permisos del VPS ya aplicados.
+- **Editor web**: efectos propios (sin código de Drift), pestaña Video, texto con
+  Transformar/Animación/Efectos y **subtítulos automáticos** (Whisper en el navegador): todo
+  publicado.
+- El test `stabilizeRendersRangeIntoBinAndSwapsClip` falla a veces en CI (el runner solo tiene
+  OpenGL 3.0 y su aviso pisa el mensaje esperado): se relanza.
+- Los nombres de los efectos del catálogo (`effect.json` → `displayName`) no se traducen: salen en
+  inglés en la pestaña Efectos. Pendiente.
 
 ## Lo que avanzamos el 2026-10-12
 
@@ -175,6 +202,19 @@ en la hoja de ruta como requisito de Pexels y de las cuentas.
 
 ## El panel de video salió en inglés: qué se sabe (2026-10-12)
 
+> **RESUELTO (2026-10-12, tarde): la causa era la carga, no el catálogo.** El instalador real
+> de la 0.9.3 (mismo hash que el portable del release) muestra el fallo. Jorge tiene guardado
+> `language = es_CO` (Español (Colombia), elegido en el selector de idioma, `languageChosen =
+> true`, en `HKCU\Software\Flip Studio`), así que la app cargaba solo **`drift_es_CO.qm`**, que
+> tiene la pestaña Video sin terminar: por eso salían en español justo "Quitar fondo", "Máscara" e
+> "Imagen o video como máscara…" (las únicas con texto en `es_CO`). Reproducido con PySide6 sobre
+> los `.qm` reales; un es-PE sin idioma elegido sí carga `drift_es.qm`. Antes se creyó que el
+> sistema es-PE caía en `es_CO`: era falso. Arreglo en
+> `PreferencesController::installUiTranslators()`: el catálogo base del idioma (`drift_es`) se
+> instala siempre, y uno regional solo encima si coincide el territorio o la escritura exactos.
+> Lo de abajo es la investigación previa, que daba por bueno el catálogo y no miraba qué archivo
+> se cargaba.
+
 Jorge reportó que en la 0.9.3 las páginas del panel de video salen en inglés y solo "Máscara" en
 español. **La investigación no encontró un fallo en el catálogo**, y esto es lo comprobado:
 
@@ -189,7 +229,7 @@ español. **La investigación no encontró un fallo en el catálogo**, y esto es
 O sea: **el `.qm` que se publicó sí lleva las traducciones**. La causa más probable es que Jorge
 esté abriendo una copia anterior a ese build (el portable de prueba que le pasé antes de la
 0.9.3), o que su app no esté cargando el catálogo español. Su sistema es es-PE y no tiene idioma
-forzado en el registro (`HKCU\Software\Flip Studio\Flip Studio` no tiene `ui/language`), así que
+forzado en el registro (**falso**: sí lo tiene, `language = es_CO`; ver el RESUELTO de arriba), así que
 debería cargar `drift_es.qm` desde `:/i18n`.
 
 **Para la próxima actualización:**
@@ -294,6 +334,17 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 
 ## Trampas que ya nos costaron tiempo
 
+**Los nombres de los catálogos en JSON se traducen aparte.** Efectos, transiciones, efectos de
+audio, plantillas y animaciones de texto (y sus parámetros) vienen de `effect.json` & cía., que
+`lupdate` no lee. `tools/i18n/catalog_strings.py` los copia a `src/engine/CatalogStrings.cpp`
+(contexto `Catalog`) y los cargadores los pasan por `drift::catalogText()`. **Al añadir o renombrar
+un efecto o una transición: correr ese script, después `lupdate`, y traducir en `drift_es.ts`.**
+Si no, el nombre nuevo sale en inglés.
+
+**Un botón de la interfaz puede apuntar a un efecto que no existe y no avisar.** Retoque llamaba a
+`face_eyeliner` y otros cuatro que no venían con la app: cinco botones mudos durante dos versiones.
+Para comprobarlo, `list_effects` por MCP en el ejecutable real.
+
 **Todo motor de ONNX Runtime tiene que armar sus sesiones con `drift::ort::buildSessions`,
 nunca con `defaultSessionOptions` a mano.** `buildSessions` es lo que reintenta en el
 procesador cuando el proveedor elegido no puede crear la sesión. SAM2 era el único que no
@@ -324,6 +375,17 @@ commitear: una vez entraron 1854 archivos y hubo que reescribir el commit.
 **La subida por SSH:** `git push` falla si el credential helper de msys no puede crear sus
 named pipes. Se resuelve con `gh auth token` en un `http.extraheader`, o usando `gh` para
 las operaciones de GitHub.
+
+**El nginx del VPS (1.18) no conoce `.mjs` ni `.wasm`** y los manda como `octet-stream`; con
+`nosniff`, el navegador se niega a ejecutar un módulo así (`Failed to fetch dynamically imported
+module`). El editor declara los tipos para `/editor/ort/` en `deploy/nginx-editor.conf`. Tras
+arreglarlo hay que recargar sin caché: el navegador recuerda la respuesta mala.
+
+**Subtítulos del editor web:** Whisper base con transformers.js **4.3.0** (la 4.2.0 no carga el
+decodificador de 8 bits y en WebGPU fp16 transcribe basura). El modelo vive en el VPS en
+`/var/www/flipstudio-models/modelos/whisper-base/` (servido en `/modelos/`), fuera del editor
+para que `deploy.sh` no lo vuelva a subir. Para probar en local: servir una copia y arrancar con
+`FLIP_MODELS=http://127.0.0.1:8766 npx vite`.
 
 **En Windows no hay WSL.** El `deploy.sh` de los sitios usa `tar | ssh`; desde PowerShell se
 arma el tar con `tar.exe` y se sube con `scp`, y la mitad remota va en un `.sh` aparte

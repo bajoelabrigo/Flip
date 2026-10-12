@@ -35,6 +35,7 @@ void rebuildLocked(const QStringList &packageRoots)
         {QStringLiteral("liquid"), QT_TRANSLATE_NOOP("TransitionCatalog", "Particle & Liquid")},
         {QStringLiteral("glitch"), QT_TRANSLATE_NOOP("TransitionCatalog", "Glitch & Digital")},
         {QStringLiteral("cinematic"), QT_TRANSLATE_NOOP("TransitionCatalog", "Stylized & Cinematic")},
+        {QStringLiteral("modern"), QT_TRANSLATE_NOOP("TransitionCatalog", "Modern")},
     };
 
     // Categories in first-seen (i.e. catalog order) order, so `order` in the JSON controls the UI.

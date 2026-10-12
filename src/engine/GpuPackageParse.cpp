@@ -1,6 +1,7 @@
 #include "GpuPackageParse.h"
 
 #include "AddonRegistry.h"
+#include "core/CatalogText.h"
 
 #include <QColor>
 #include <QCoreApplication>
@@ -130,6 +131,8 @@ bool parseParameters(const QJsonArray &params, QList<drift::EffectParamSpec> *ou
             spec.label = p.value(QStringLiteral("label")).toString();
         if (spec.label.isEmpty())
             spec.label = spec.key;
+        else
+            spec.label = drift::catalogText(spec.label);
         const QString type = p.value(QStringLiteral("type")).toString(QStringLiteral("float"));
         if (type == QLatin1String("bool") || type == QLatin1String("boolean"))
             spec.type = drift::EffectParamType::Bool;
@@ -204,7 +207,7 @@ bool parseParameters(const QJsonArray &params, QList<drift::EffectParamSpec> *ou
             spec.max = spec.options.size() - 1;
         }
         spec.desktopGlOnly = p.value(QStringLiteral("desktopGlOnly")).toBool(false);
-        spec.group = p.value(QStringLiteral("group")).toString();
+        spec.group = drift::catalogText(p.value(QStringLiteral("group")).toString());
         spec.groupCollapsed = p.value(QStringLiteral("groupCollapsed")).toBool(false);
 
         if (spec.key.isEmpty()) {

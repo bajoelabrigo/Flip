@@ -2,6 +2,7 @@
 
 #include "GpuEffectDefinition.h"
 #include "GpuPackageParse.h"
+#include "core/CatalogText.h"
 
 #include <QDir>
 #include <QFileInfo>
@@ -57,7 +58,7 @@ EffectPresetEntry EffectPackageLoader::loadPackage(const QString &packageDir, QS
     }
 
     entry.meta.id = root.value(QStringLiteral("id")).toString();
-    entry.meta.displayName = root.value(QStringLiteral("displayName")).toString();
+    entry.meta.displayName = drift::catalogText(root.value(QStringLiteral("displayName")).toString());
     if (entry.meta.displayName.isEmpty())
         entry.meta.displayName = entry.meta.id;
     const QString categoryRaw = root.value(QStringLiteral("category")).toString();

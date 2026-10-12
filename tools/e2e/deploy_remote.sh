@@ -11,7 +11,7 @@ test -f "$ARCHIVE" || { echo "no archive at $ARCHIVE" >&2; exit 1; }
 rm -rf "$ROOT.new"
 mkdir -p "$ROOT.new"
 tar xzf "$ARCHIVE" --no-same-owner -C "$ROOT.new"
-chmod -R a+rX "$ROOT.new"
+chmod -R a+rX,go-w "$ROOT.new"
 
 if [ -d "$ROOT" ]; then
   mv "$ROOT" "$ROOT.old"

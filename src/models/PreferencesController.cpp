@@ -6,6 +6,7 @@
 
 #include <QCoreApplication>
 #include <QDir>
+#include <QFile>
 #include <QGuiApplication>
 #include <QLibraryInfo>
 #include <QLocale>
@@ -26,6 +27,8 @@
 namespace {
 
 QTranslator g_appTranslator;
+// A regional catalog (es_CO, pt_PT, ...) layered over g_appTranslator; see installUiTranslators.
+QTranslator g_regionalTranslator;
 QTranslator g_qtTranslator;
 QString g_appliedShell;
 // QT_SCALE_FACTOR came from ui/scale rather than the user's environment.
@@ -364,6 +367,7 @@ void PreferencesController::installUiTranslators()
     if (!app)
         return;
 
+    app->removeTranslator(&g_regionalTranslator);
     app->removeTranslator(&g_appTranslator);
     app->removeTranslator(&g_qtTranslator);
 
@@ -378,7 +382,35 @@ void PreferencesController::installUiTranslators()
     if (locale.language() == QLocale::English)
         return;
 
-    if (g_appTranslator.load(locale, QStringLiteral("drift"), QStringLiteral("_"), QStringLiteral(":/i18n")))
+    // Regional catalogs trail the base one: drift_es_CO.ts still has the Video tab unfinished
+    // while drift_es.ts has it all. "Español (Colombia)" is the only Latin American Spanish in
+    // the language chooser, so it gets picked, and QTranslator::load(locale, ...) then loaded
+    // drift_es_CO.qm alone and showed that tab half in English. So the base language is always
+    // the floor, and a regional catalog only goes on top when it is the user's exact territory
+    // or script; Qt asks the last-installed translator first and falls through to the base for
+    // anything the regional one leaves empty.
+    const QString dir = QStringLiteral(":/i18n/");
+    const QString lang = QLocale::languageToCode(locale.language(), QLocale::ISO639Part1);
+    const QString base = dir + QStringLiteral("drift_%1.qm").arg(lang);
+    bool installed = false;
+    if (QFile::exists(base) && g_appTranslator.load(base)) {
+        app->installTranslator(&g_appTranslator);
+        installed = true;
+    }
+    const QStringList regional = {
+        dir + QStringLiteral("drift_%1_%2.qm").arg(lang, QLocale::territoryToCode(locale.territory())),
+        dir + QStringLiteral("drift_%1_%2.qm").arg(lang, QLocale::scriptToCode(locale.script())),
+    };
+    for (const QString &file : regional) {
+        if (QFile::exists(file) && g_regionalTranslator.load(file)) {
+            app->installTranslator(&g_regionalTranslator);
+            installed = true;
+            break;
+        }
+    }
+    // No base catalog and no exact regional one (pt-AO, zh-TW, ...): keep Qt's own matching.
+    if (!installed
+        && g_appTranslator.load(locale, QStringLiteral("drift"), QStringLiteral("_"), dir))
         app->installTranslator(&g_appTranslator);
 }
 

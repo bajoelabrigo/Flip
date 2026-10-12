@@ -1,0 +1,186 @@
+{
+  "id": "color.curves",
+  "displayName": "Curves",
+  "category": "color",
+  "order": 7,
+  "parameters": [
+    {
+      "identifier": "l0",
+      "displayName": "Luma 0%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.0
+    },
+    {
+      "identifier": "l1",
+      "displayName": "Luma 25%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.25
+    },
+    {
+      "identifier": "l2",
+      "displayName": "Luma 50%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.5
+    },
+    {
+      "identifier": "l3",
+      "displayName": "Luma 75%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.75
+    },
+    {
+      "identifier": "l4",
+      "displayName": "Luma 100%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 1.0
+    },
+    {
+      "identifier": "r0",
+      "displayName": "Red 0%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.0
+    },
+    {
+      "identifier": "r1",
+      "displayName": "Red 25%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.25
+    },
+    {
+      "identifier": "r2",
+      "displayName": "Red 50%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.5
+    },
+    {
+      "identifier": "r3",
+      "displayName": "Red 75%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.75
+    },
+    {
+      "identifier": "r4",
+      "displayName": "Red 100%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 1.0
+    },
+    {
+      "identifier": "g0",
+      "displayName": "Green 0%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.0
+    },
+    {
+      "identifier": "g1",
+      "displayName": "Green 25%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.25
+    },
+    {
+      "identifier": "g2",
+      "displayName": "Green 50%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.5
+    },
+    {
+      "identifier": "g3",
+      "displayName": "Green 75%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.75
+    },
+    {
+      "identifier": "g4",
+      "displayName": "Green 100%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 1.0
+    },
+    {
+      "identifier": "b0",
+      "displayName": "Blue 0%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.0
+    },
+    {
+      "identifier": "b1",
+      "displayName": "Blue 25%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.25
+    },
+    {
+      "identifier": "b2",
+      "displayName": "Blue 50%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.5
+    },
+    {
+      "identifier": "b3",
+      "displayName": "Blue 75%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.75
+    },
+    {
+      "identifier": "b4",
+      "displayName": "Blue 100%",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 1.0
+    }
+  ],
+  "backend": "gpu",
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

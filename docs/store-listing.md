@@ -87,26 +87,29 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
-**Notas de la versión (0.9.3)** — esto es lo que va en "Novedades de esta versión" de Partner
-Center. **El campo tiene un límite de 1500 caracteres**: si lo rechaza, quitar el bloque "MÁS".
+**Notas de la versión (0.9.5)** — esto es lo que va en "Novedades de esta versión" de Partner
+Center. **El campo tiene un límite de 1500 caracteres** (este texto tiene 911). Ni la 0.9.3 ni la
+0.9.4 llegaron a la Store, así que estas notas cubren las tres versiones.
 
-> **Novedades de la 0.9.3**
+> **Novedades de la 0.9.5**
+>
+> AJUSTE DE COLOR, COMO EN CAPCUT
+> Nueva pestaña Ajuste con Básico (exposición, brillo, contraste, temperatura…), HSL, Curvas y Círculo cromático.
+>
+> MÚSICA LIBRE
+> Pestaña Música con 65 canciones gratis en 12 estilos, para usar también en videos monetizados. Se instala desde Extras.
 >
 > EL PANEL DE VIDEO, COMO EN CAPCUT
-> Al seleccionar un clip de video, la pestaña Video se ordena en cuatro páginas:
-> • Básico: escala, posición, girar y voltear, mezcla, estabilización y la lista de efectos, donde están mejorar la calidad, reducir el ruido y la iluminación 3D.
-> • Eliminar fondo: automático (encuentra las personas y quita el fondo), personalizado (marcas con un clic lo que quieres conservar y lo sigue) y chroma key para pantalla verde.
-> • Máscara: el rectángulo, el círculo, la estrella, el corazón, la barra y la forma libre, con centro, tamaño, rotación, difuminado e invertir.
-> • Retoque: piel, adelgazar el rostro, ojos más grandes, blanquear dientes, labial, rubor, delineador, sombra, cejas y color de ojos.
->
-> LOS EFECTOS AHORA SON CAPAS DE VERDAD
-> Antes, si recortabas un efecto en la línea de tiempo, la siguiente edición lo estiraba otra vez sobre todo el clip. Ahora se queda donde lo pusiste.
+> Básico, Quitar fondo, Máscara y Retoque. Retoque se ordena en Rostro, Cuerpo y Cabello, con estilos automáticos, piel, funciones y maquillaje.
 >
 > DIEZ TRANSICIONES NUEVAS
-> Deslizar en los cuatro sentidos, girar, disolución con desenfoque, doblez, deslizamiento con onda, barrido de cristal, barrido orgánico y papel desgarrado. En total son 39.
+> Ya son 39, todas con vista previa animada. Y si recortas un efecto en la línea de tiempo, se queda donde lo pusiste.
 >
-> MÁS
-> Las máscaras de un clip ahora se ven al seleccionar el propio clip, con la lista de las que lleva. Y el recorte de sujeto con IA funciona en equipos donde antes fallaba en silencio.
+> TODO EN ESPAÑOL
+> Los nombres de efectos, transiciones y animaciones ya salen en español, y la app vuelve a estar entera en español con Español (Colombia) elegido.
+>
+> MÁS CÓMODO
+> Las categorías se reparten en filas que se pueden plegar, y los stickers y emojis se animan al pasar el ratón.
 
 **Notas de la versión (0.8.1) — anteriores, se conservan por referencia:**
 

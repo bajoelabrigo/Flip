@@ -3,8 +3,11 @@ import QtQuick.Controls.Basic
 import Drift
 import ".."
 
-// Category filter row: favorites star, then horizontal category chips.
-// ⭐ | [Color] [Glitch] …
+// Category filter: favorites star, then the category chips wrapped over as many rows as they
+// need, the way the Text tab lays out its sections. A chevron folds the chips down to their
+// first row when they would take too much of the panel; they start unfolded.
+// ⭐ | [Color] [Glitch] [Blur] …   ⌃
+//     [Retro] [Light] …
 Item {
     id: root
 
@@ -17,26 +20,40 @@ Item {
     property var categories: []
     property string activeCategory: ""
     property bool searching: false
+    property bool expanded: true
+    // Off where there is no favourites notion (the emoji groups).
+    property bool showFavorites: true
+    property real sidePadding: Theme.pagePadding
 
     signal categoryActivated(string categoryId)
 
-    width: parent ? parent.width : 0
-    height: visible ? Theme.controlHeightSm : 0
-    visible: !searching && (categories.length > 0 || showMine)
+    readonly property real rowHeight: Theme.controlHeightSm
+    // Only offer the fold when there is a second row to fold away.
+    readonly property bool wraps: chips.implicitHeight > rowHeight + 1
 
-    Row {
-        id: row
-        anchors.fill: parent
-        anchors.leftMargin: Theme.pagePadding
-        anchors.rightMargin: Theme.pagePadding
+    width: parent ? parent.width : 0
+    height: visible ? (expanded || !wraps ? chips.implicitHeight : rowHeight) : 0
+    visible: !searching && (categories.length > 0 || showMine)
+    clip: true
+
+    Behavior on height {
+        NumberAnimation { duration: Theme.durationSlow; easing.type: Easing.OutCubic }
+    }
+
+    Flow {
+        id: chips
+        x: root.sidePadding
+        // The fold button's slot is always reserved: sizing around it only when it shows would
+        // feed the wrap test back into the width it measures.
+        width: root.width - root.sidePadding * 2 - root.rowHeight - Theme.spacingSm
         spacing: Theme.spacingSm
 
         IconButton {
             id: favButton
-            anchors.verticalCenter: parent.verticalCenter
+            visible: root.showFavorites
             glyph: Theme.icons.star
             variant: "ghost"
-            buttonSize: Theme.controlHeightSm
+            buttonSize: root.rowHeight
             iconSize: 14
             active: root.activeCategory === root.favoritesId
             tooltip: qsTr("Favorites")
@@ -46,79 +63,55 @@ Item {
         ThemedChip {
             id: mineButton
             visible: root.showMine
-            anchors.verticalCenter: parent.verticalCenter
             text: root.mineLabel
+            width: Math.min(implicitWidth, chips.width)
             variant: "outline"
             selected: root.activeCategory === root.mineId
             onClicked: root.categoryActivated(root.mineId)
         }
 
-        Rectangle {
-            id: divider
-            anchors.verticalCenter: parent.verticalCenter
+        Item {
+            visible: root.showFavorites || root.showMine
             width: Theme.borderWidth
-            height: Theme.controlHeightSm - 6
-            color: Theme.panelBorder
-        }
+            height: root.rowHeight
 
-        Flickable {
-            id: categoryFlick
-            width: Math.max(0, row.width - favButton.width - divider.width - row.spacing * 2
-                               - (mineButton.visible ? mineButton.width + row.spacing : 0))
-            height: parent.height
-            contentWidth: categoryRow.width
-            flickableDirection: Flickable.HorizontalFlick
-            clip: true
-            boundsBehavior: Flickable.StopAtBounds
-            interactive: contentWidth > width
-
-            onMovementStarted: scrollAnimation.stop()
-
-            NumberAnimation {
-                id: scrollAnimation
-                target: categoryFlick
-                property: "contentX"
-                duration: 250
-                easing.type: Easing.OutCubic
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                propagateComposedEvents: true
-                acceptedButtons: Qt.NoButton
-                property real targetContentX: categoryFlick.contentX
-                onWheel: (wheel) => {
-                    const dy = wheel.angleDelta.y
-                    const dx = wheel.angleDelta.x
-                    const delta = Math.abs(dy) > Math.abs(dx) ? dy : dx
-                    if (!scrollAnimation.running)
-                        targetContentX = categoryFlick.contentX
-                    targetContentX = Math.max(0, Math.min(categoryFlick.contentWidth - categoryFlick.width, targetContentX - delta))
-                    scrollAnimation.to = targetContentX
-                    scrollAnimation.restart()
-                    wheel.accepted = true
-                }
-            }
-
-            Row {
-                id: categoryRow
-                height: parent.height
-                spacing: Theme.spacingSm
-
-                Repeater {
-                    model: root.categories
-                    delegate: ThemedChip {
-                        required property var modelData
-                        required property int index
-                        anchors.verticalCenter: parent.verticalCenter
-                        text: modelData.label
-                        variant: "secondary"
-                        accentColor: Theme.categoryColor(index)
-                        selected: root.activeCategory === modelData.id
-                        onClicked: root.categoryActivated(modelData.id)
-                    }
-                }
+            Rectangle {
+                anchors.centerIn: parent
+                width: parent.width
+                height: root.rowHeight - 6
+                color: Theme.panelBorder
             }
         }
+
+        Repeater {
+            model: root.categories
+            delegate: ThemedChip {
+                required property var modelData
+                required property int index
+                text: modelData.label
+                // A narrow panel elides the long names instead of pushing them past its edge.
+                width: Math.min(implicitWidth, chips.width)
+                tooltip: implicitWidth > chips.width ? modelData.label : ""
+                variant: "secondary"
+                accentColor: Theme.categoryColor(index)
+                selected: root.activeCategory === modelData.id
+                onClicked: root.categoryActivated(modelData.id)
+            }
+        }
+    }
+
+    IconButton {
+        id: foldButton
+        anchors.right: parent.right
+        anchors.rightMargin: root.sidePadding
+        y: 0
+        visible: root.wraps
+        width: root.rowHeight
+        glyph: root.expanded ? Theme.icons.chevronUp : Theme.icons.chevronDown
+        variant: "ghost"
+        buttonSize: root.rowHeight
+        iconSize: 14
+        tooltip: root.expanded ? qsTr("Show fewer categories") : qsTr("Show all categories")
+        onClicked: root.expanded = !root.expanded
     }
 }

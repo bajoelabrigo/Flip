@@ -2,6 +2,7 @@
 
 #include "EffectCatalog.h"
 #include "GpuPackageParse.h"
+#include "core/CatalogText.h"
 
 #include <QCoreApplication>
 #include <QDir>
@@ -150,7 +151,7 @@ std::optional<EffectTemplateEntry> loadManifest(const QString &packageDir, QStri
             *errorOut = QStringLiteral("template.json missing id");
         return std::nullopt;
     }
-    entry.displayName = root.value(QStringLiteral("displayName")).toString();
+    entry.displayName = drift::catalogText(root.value(QStringLiteral("displayName")).toString());
     if (entry.displayName.isEmpty())
         entry.displayName = entry.id;
     const QString categoryRaw = root.value(QStringLiteral("category")).toString();

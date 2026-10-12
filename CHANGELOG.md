@@ -3,6 +3,42 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.9.5 — Ajuste de color, música libre y los catálogos en español
+
+La 0.9.4 no se publicó por separado: sale dentro de esta.
+
+- Pestaña **Ajuste** (`AdjustInspector.qml`) con Básico, HSL, Curvas, Círculo cromático y
+  Máscara, sobre los efectos nuevos `color.basic`, `color.hsl`, `color.curves` y `color.wheels`.
+- Pestaña **Música** (`SoundEffectsTab` con `music: true`) para el extra `musica.libre`.
+- Los nombres de los catálogos en JSON (efectos, transiciones, efectos de audio, plantillas,
+  animaciones de texto y sus parámetros) pasan por `drift::catalogText()` al cargarse.
+  `tools/i18n/catalog_strings.py` los lista en `src/engine/CatalogStrings.cpp` para lupdate,
+  bajo el contexto `Catalog`; hay que volver a correrlo al añadir o renombrar una entrada.
+- Se incluyen `face_eyeliner`, `face_eyeshadow`, `face_brow_tint`, `face_eye_color` y
+  `face_teeth_whiten` (de los extras de Drift, GPL): Retoque los usaba y no venían con la app.
+- `addSoundEffect` espera a que el análisis del archivo dé la duración antes de colocar el clip;
+  antes una canción recién importada entraba con los 5 s del marcador provisional.
+- `LottieHoverSprite` esperaba `AnimatedSprite.status`, que no existe; la hoja pasa antes por un
+  `Image` oculto.
+- Las tiras de páginas de Video y Ajuste pasan a dos líneas en vez de cortar el texto, y las
+  categorías largas se recortan dentro del panel.
+
+## 0.9.4 — Retoque como en CapCut y el español completo
+
+- `PreferencesController::installUiTranslators()` instala siempre el catálogo base del idioma
+  (`drift_es.qm`) y uno regional solo encima, cuando coincide territorio o escritura. Antes
+  con "Español (Colombia)" elegido (la única opción latinoamericana del selector) la app cargaba
+  solo `drift_es_CO.qm`, que tenía la pestaña Video sin terminar, y la mostraba medio en inglés.
+- La página Retoque de `VideoInspector.qml` pasa a Rostro / Cuerpo / Cabello con Estilos
+  automáticos, Piel, Funciones y Maquillaje. Casi todo son ajustes de `face_retouch` que
+  reutilizan el que ya lleva el clip.
+- `AssetCategoryChips` reparte las categorías en filas (como Texto) y las pliega con un chevron;
+  los grupos de emojis la usan también.
+- `HoverPop` anima stickers y emojis bajo el ratón; `image://lottie`
+  (`LottiePreviewImageProvider`) reproduce los stickers animados en su tarjeta.
+- Transiciones: `fold` dibujaba el entrante siempre encima y `glass_wipe` mezclaba al revés.
+  Las once nuevas tienen `preview_strip.png`, generadas con `tools/transitions/make_strips.py`.
+
 ## 0.9.3 — el panel de video como el de CapCut
 
 - El panel de video se ordena en las cuatro pestañas de CapCut (**Básico**, **Eliminar fondo**,

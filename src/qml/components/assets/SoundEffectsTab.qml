@@ -7,14 +7,26 @@ import ".."
 import "."
 
 // Sound effects tab: the "sound-effects" extras by category. Play a sound to hear it; add puts it
-// on an audio track at the playhead.
+// on an audio track at the playhead. With `music` it is the Music tab instead: the free music
+// pack ships in the same format (pack id "musica"), and each tab shows only its own sounds and
+// the categories that have any.
 Item {
     id: root
 
     signal added()
 
-    property var categories: EditorState.soundEffectCategories()
-    property var allSounds: EditorState.soundEffects()
+    property bool music: false
+    readonly property string musicPrefix: "musica/"
+
+    function ownSounds() {
+        return EditorState.soundEffects().filter(s => (s.id || "").startsWith(root.musicPrefix) === root.music)
+    }
+    function ownCategories(sounds) {
+        return EditorState.soundEffectCategories().filter(c => sounds.some(s => s.category === c.id))
+    }
+
+    property var allSounds: ownSounds()
+    property var categories: ownCategories(allSounds)
     readonly property bool hasSounds: allSounds.length > 0
     property string activeCategory: categories.length > 0 ? categories[0].id : ""
     readonly property string query: search.text.trim().toLowerCase()
@@ -30,8 +42,8 @@ Item {
         function onKindChanged(kind) {
             if (kind !== "sound-effects")
                 return
-            root.categories = EditorState.soundEffectCategories()
-            root.allSounds = EditorState.soundEffects()
+            root.allSounds = root.ownSounds()
+            root.categories = root.ownCategories(root.allSounds)
             root.activeCategory = root.categories.length > 0 ? root.categories[0].id : ""
         }
     }
@@ -59,7 +71,7 @@ Item {
             x: Theme.pagePadding
             visible: root.hasSounds
             height: visible ? implicitHeight : 0
-            placeholderText: qsTr("Search sounds")
+            placeholderText: root.music ? qsTr("Search music") : qsTr("Search sounds")
             font.family: Theme.fontFamily
         }
 
@@ -86,8 +98,10 @@ Item {
                 width: parent.width - Theme.pagePadding * 2
                 compact: true
                 glyph: Theme.icons.music
-                title: qsTr("No sound effects installed")
-                hint: qsTr("Install the sound effects pack: whooshes, pops, bells, impacts and more.")
+                title: root.music ? qsTr("No music installed") : qsTr("No sound effects installed")
+                hint: root.music
+                      ? qsTr("Install the free music pack: 65 public-domain songs, happy, calm, epic, cinematic and more, free for your videos.")
+                      : qsTr("Install the sound effects pack: whooshes, pops, bells, impacts and more.")
                 actionText: qsTr("Get extras")
                 actionVariant: "primary"
                 onActionTriggered: root.Window.window.openAddonManager("sound-effects")
@@ -155,7 +169,14 @@ Item {
                         }
                         Text {
                             width: parent.width
-                            text: Number(row.modelData.duration || 0).toFixed(1) + " s"
+                            // A song reads as 2:14; a short effect keeps its tenths.
+                            text: {
+                                const d = Number(row.modelData.duration || 0)
+                                if (d < 60)
+                                    return d.toFixed(1) + " s"
+                                const s = Math.round(d)
+                                return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0")
+                            }
                             color: Theme.mutedForeground
                             font.family: Theme.fontFamily
                             font.pixelSize: Theme.fontSizeXs

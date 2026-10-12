@@ -66,13 +66,51 @@ Item {
                 width: parent.width - 6
                 spacing: 2
 
+                // Every cell as tall as the tallest label: a name that needs two lines in a
+                // narrow panel wraps instead of turning into "Quit…".
+                // One font size for every label: the largest at which the longest single word
+                // ("Máscara") still fits its cell, since a word cannot wrap.
+                property real cellHeight: 0
+                property real labelPx: Theme.fontSizeXs
+                onWidthChanged: Qt.callLater(measure)
+                Component.onCompleted: Qt.callLater(measure)
+                function measure() {
+                    const room = (width - 6) / root.pages.length - 8
+                    let px = Theme.fontSizeXs
+                    for (const page of root.pages) {
+                        for (const word of String(page.label).split(" ")) {
+                            wordMetrics.text = word
+                            if (room > 0 && wordMetrics.advanceWidth > room)
+                                px = Math.min(px, Math.floor(Theme.fontSizeXs * room / wordMetrics.advanceWidth))
+                        }
+                    }
+                    labelPx = Math.max(8, px)
+                    let h = 0
+                    for (let i = 0; i < stripCells.count; i++) {
+                        const cell = stripCells.itemAt(i)
+                        if (cell)
+                            h = Math.max(h, cell.labelHeight)
+                    }
+                    cellHeight = h + 14
+                }
+
+                TextMetrics {
+                    id: wordMetrics
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                    font.weight: Font.Medium
+                }
+
                 Repeater {
+                    id: stripCells
                     model: root.pages
                     delegate: Rectangle {
                         required property var modelData
                         required property int index
+                        readonly property real labelHeight: stripLabel.implicitHeight
+                        onLabelHeightChanged: Qt.callLater(strip.measure)
                         width: (strip.width - 6) / root.pages.length
-                        height: stripLabel.implicitHeight + 14
+                        height: strip.cellHeight
                         radius: Theme.radiusSm
                         color: index === root.pageIndex ? Theme.popoverHover : "transparent"
 
@@ -81,11 +119,13 @@ Item {
                             anchors.centerIn: parent
                             width: parent.width - 8
                             horizontalAlignment: Text.AlignHCenter
+                            wrapMode: Text.WordWrap
+                            maximumLineCount: 2
                             elide: Text.ElideRight
                             text: modelData.label
                             color: index === root.pageIndex ? Theme.foreground : Theme.mutedForeground
                             font.family: Theme.fontFamily
-                            font.pixelSize: Theme.fontSizeXs
+                            font.pixelSize: strip.labelPx
                             font.weight: index === root.pageIndex ? Font.Medium : Font.Normal
                         }
 
@@ -275,21 +315,56 @@ Item {
         }
 
         // --- Retoque -----------------------------------------------------------------------
+        // Laid out like CapCut's Retouch page: Face / Body / Hair across the top, and under Face
+        // the auto styles, skin, features and makeup. Most entries are presets of face_retouch
+        // (one shader with every skin and makeup control), so they reuse the retouch already on
+        // the clip rather than stacking a second one.
         Column {
             id: retoquePage
             visible: root.page === "retoque"
             width: parent.width
             spacing: Theme.spacingLg
 
-            readonly property var faceEffects: [
-                { id: "face_retouch", label: qsTr("Skin retouch"), hint: qsTr("Smooth, whiten, tone, slim the face, bigger eyes, lipstick and blush") },
-                { id: "face_fat_slim", label: qsTr("Body reshape"), hint: qsTr("Slim or widen what the mesh follows") },
-                { id: "face_big_eyes", label: qsTr("Bigger eyes"), hint: qsTr("Enlarges the eyes the mesh found") },
-                { id: "face_teeth_whiten", label: qsTr("Whiten teeth"), hint: qsTr("Needs the lip contour from a face scan") },
-                { id: "face_eyeliner", label: qsTr("Eyeliner"), hint: qsTr("Draws along the eyelid contour") },
-                { id: "face_eyeshadow", label: qsTr("Eyeshadow"), hint: qsTr("Colours the eyelid") },
-                { id: "face_brow_tint", label: qsTr("Brow tint"), hint: qsTr("Colours the eyebrows") },
-                { id: "face_eye_color", label: qsTr("Eye colour"), hint: qsTr("Recolours the iris") }
+            property string area: "rostro"
+            readonly property var areas: [
+                { id: "rostro", label: qsTr("Face") },
+                { id: "cuerpo", label: qsTr("Body") },
+                { id: "cabello", label: qsTr("Hair") }
+            ]
+
+            // values: face_retouch parameters to set; effect: a separate catalog effect instead.
+            readonly property var sections: [
+                { title: qsTr("Auto styles"), items: [
+                    { label: qsTr("Natural"), hint: qsTr("Light smoothing and a touch of brightness"),
+                      values: { smoothing: 0.45, whitening: 0.2, sharpen: 0.2, slimFace: 0.1, bigEyes: 0.1 } },
+                    { label: qsTr("Soft"), hint: qsTr("Strong smoothing for an even, soft skin"),
+                      values: { smoothing: 0.75, whitening: 0.3, sharpen: 0.1, slimFace: 0.1, bigEyes: 0.1 } },
+                    { label: qsTr("Radiant"), hint: qsTr("Brighter, glowing skin"),
+                      values: { smoothing: 0.55, whitening: 0.55, sharpen: 0.25, slimFace: 0.1, bigEyes: 0.1 } },
+                    { label: qsTr("Defined"), hint: qsTr("Crisper features and a slimmer face"),
+                      values: { smoothing: 0.35, whitening: 0.15, sharpen: 0.5, slimFace: 0.25, bigEyes: 0.15 } }
+                ] },
+                { title: qsTr("Skin"), items: [
+                    { label: qsTr("Smooth"), hint: qsTr("Evens out the skin"), values: { smoothing: 0.7 } },
+                    { label: qsTr("Whiten"), hint: qsTr("Brightens the skin"), values: { whitening: 0.5 } },
+                    { label: qsTr("Skin tone"), hint: qsTr("Warms the skin towards the tone colour"), values: { skinTone: 0.5 } },
+                    { label: qsTr("Sharpen"), hint: qsTr("Brings back detail after smoothing"), values: { sharpen: 0.5 } }
+                ] },
+                { title: qsTr("Features"), items: [
+                    { label: qsTr("Slim face"), hint: qsTr("Narrows the jaw and cheeks"), values: { slimFace: 0.45 } },
+                    { label: qsTr("Bigger eyes"), hint: qsTr("Enlarges the eyes the mesh found"), effect: "face_big_eyes" },
+                    { label: qsTr("Face width"), hint: qsTr("Slim or widen what the mesh follows"), effect: "face_fat_slim" },
+                    { label: qsTr("Wide mouth"), hint: qsTr("Widens the mouth"), effect: "face_wide_mouth" },
+                    { label: qsTr("Whiten teeth"), hint: qsTr("Needs the lip contour from a face scan"), effect: "face_teeth_whiten" }
+                ] },
+                { title: qsTr("Makeup"), items: [
+                    { label: qsTr("Lipstick"), hint: qsTr("Colours the lips"), values: { lipstick: 0.6 } },
+                    { label: qsTr("Blush"), hint: qsTr("Adds colour to the cheeks"), values: { blush: 0.5 } },
+                    { label: qsTr("Eyeliner"), hint: qsTr("Draws along the eyelid contour"), effect: "face_eyeliner" },
+                    { label: qsTr("Eyeshadow"), hint: qsTr("Colours the eyelid"), effect: "face_eyeshadow" },
+                    { label: qsTr("Brow tint"), hint: qsTr("Colours the eyebrows"), effect: "face_brow_tint" },
+                    { label: qsTr("Eye colour"), hint: qsTr("Recolours the iris"), effect: "face_eye_color" }
+                ] }
             ]
 
             readonly property bool faceReady: EditorState.faces.available() && Addons.runtimeAvailable()
@@ -307,17 +382,88 @@ Item {
                 }
             }
 
+            // Adds `effectId`, or reuses the one the selection already carries, then sets
+            // `values` on it. addEffect moves the selection to whatever hosts the stack, so the
+            // indices are read back after it.
+            function findLast(effectId) {
+                const effects = EditorState.selectedClipEffects || []
+                for (let i = effects.length - 1; i >= 0; i--) {
+                    if (effects[i].catalogId === effectId)
+                        return i
+                }
+                return -1
+            }
+
+            function apply(effectId, values) {
+                let index = findLast(effectId)
+                if (index < 0) {
+                    EditorState.addEffect(EditorState.selectedTrack, EditorState.selectedClip, effectId)
+                    index = findLast(effectId)
+                }
+                if (index < 0 || !values)
+                    return
+                for (const key in values)
+                    EditorState.setEffectParam(EditorState.selectedTrack, EditorState.selectedClip,
+                                               index, key, values[key])
+            }
+
+            // Face / Body / Hair, drawn like the page strip above.
+            Rectangle {
+                width: parent.width
+                height: areaStrip.height + 6
+                radius: Theme.radiusSm
+                color: Theme.panelAccent
+
+                Row {
+                    id: areaStrip
+                    anchors.centerIn: parent
+                    width: parent.width - 6
+                    spacing: 2
+
+                    Repeater {
+                        model: retoquePage.areas
+                        delegate: Rectangle {
+                            id: areaCell
+                            required property var modelData
+                            readonly property bool current: retoquePage.area === modelData.id
+                            width: (areaStrip.width - 4) / retoquePage.areas.length
+                            height: areaLabel.implicitHeight + 12
+                            radius: Theme.radiusSm
+                            color: current ? Theme.popoverHover : "transparent"
+
+                            Text {
+                                id: areaLabel
+                                anchors.centerIn: parent
+                                text: areaCell.modelData.label
+                                color: areaCell.current ? Theme.foreground : Theme.mutedForeground
+                                font.family: Theme.fontFamily
+                                font.pixelSize: Theme.fontSizeXs
+                                font.weight: areaCell.current ? Font.Medium : Font.Normal
+                            }
+
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: retoquePage.area = areaCell.modelData.id
+                            }
+                        }
+                    }
+                }
+            }
+
             Text {
+                visible: retoquePage.area !== "rostro"
                 width: parent.width
                 wrapMode: Text.WordWrap
-                text: qsTr("Face, body and hair retouching: skin, makeup and the fun face effects. Add what you want, then scan the clip's faces so the effect has something to follow.")
+                text: retoquePage.area === "cuerpo"
+                      ? qsTr("Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.")
+                      : qsTr("Hair colour and volume need a hair segmentation model, which Flip Studio does not have yet.")
                 color: Theme.mutedForeground
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeXs
             }
 
             Text {
-                visible: !retoquePage.canTrack
+                visible: retoquePage.area === "rostro" && !retoquePage.canTrack
                 width: parent.width
                 wrapMode: Text.WordWrap
                 text: qsTr("Select a video clip to retouch a face.")
@@ -327,7 +473,7 @@ Item {
             }
 
             Text {
-                visible: retoquePage.canTrack && !retoquePage.faceReady
+                visible: retoquePage.area === "rostro" && retoquePage.canTrack && !retoquePage.faceReady
                 width: parent.width
                 wrapMode: Text.WordWrap
                 text: qsTr("Install Face retouch from Extras (it needs the AI engine) to use these.")
@@ -337,15 +483,42 @@ Item {
             }
 
             Repeater {
-                model: retoquePage.faceEffects
-                delegate: ThemedButton {
+                model: retoquePage.area === "rostro" ? retoquePage.sections : []
+                delegate: Column {
+                    id: section
                     required property var modelData
-                    width: parent.width
-                    text: modelData.label
-                    enabled: retoquePage.canTrack && retoquePage.faceReady
-                    tooltip: modelData.hint
-                    onClicked: EditorState.addEffect(EditorState.selectedTrack,
-                                                     EditorState.selectedClip, modelData.id)
+                    width: retoquePage.width
+                    spacing: Theme.spacingSm
+
+                    Text {
+                        text: section.modelData.title
+                        color: Theme.foreground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeSm
+                        font.weight: Font.Medium
+                    }
+
+                    Grid {
+                        id: tiles
+                        width: parent.width
+                        // One column when the panel is too narrow for "Adelgazar rostro" twice.
+                        columns: width >= 280 ? 2 : 1
+                        columnSpacing: Theme.spacingSm
+                        rowSpacing: Theme.spacingSm
+
+                        Repeater {
+                            model: section.modelData.items
+                            delegate: ThemedButton {
+                                required property var modelData
+                                width: (tiles.width - tiles.columnSpacing * (tiles.columns - 1)) / tiles.columns
+                                text: modelData.label
+                                tooltip: modelData.hint
+                                enabled: retoquePage.canTrack && retoquePage.faceReady
+                                onClicked: retoquePage.apply(modelData.effect || "face_retouch",
+                                                             modelData.values)
+                            }
+                        }
+                    }
                 }
             }
 

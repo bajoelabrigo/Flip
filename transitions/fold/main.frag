@@ -36,27 +36,35 @@ float valueNoise(vec2 p) {
 uniform float angle;
 
 void main() {
-    // A hard vertical fold travelling left to right: the outgoing half lifts away and the
-    // incoming one is revealed underneath, with a highlight riding the crease.
-    float edge = mix(-0.1, 1.1, u_progress);
+    // A crease travelling left to right, tilted by `angle`. Ahead of it the outgoing clip still
+    // lies flat; behind it the incoming one is uncovered, and a narrow flap of the outgoing clip
+    // -- mirrored and shaded, like paper seen from behind -- lies folded over just behind the
+    // crease. The sweep runs from fully outgoing to fully incoming, flap and tilt included.
     vec2 uv = v_texCoord;
-    vec4 outgoing = texture(u_fromTexture, uv);
-    vec4 incoming = texture(u_toTexture, uv);
-
-    // Inside the folded-back band the outgoing layer is mirrored and darkened, like paper seen
-    // from behind.
     float band = 0.12;
-    float d = edge - uv.x;
-    if (d > 0.0 && d < band) {
-        float t = d / band;
-        vec2 back = vec2(edge - d, uv.y);
-        vec4 behind = texture(u_fromTexture, back);
-        outgoing = mix(outgoing, behind * 0.75, 1.0 - t);
-    } else if (uv.x > edge) {
-        outgoing = vec4(0.0);
+    float tilt = angle * (uv.y - 0.5);
+    float reach = abs(angle) * 0.5 + 0.01;
+    float edge = mix(-reach, 1.0 + band + reach, u_progress) + tilt;
+    float d = edge - uv.x;              // > 0: the crease has already passed this pixel
+
+    vec4 incoming = texture(u_toTexture, uv);
+    vec4 lying = d < 0.0 ? texture(u_fromTexture, uv) : vec4(0.0);
+
+    vec4 flap = vec4(0.0);
+    if (d >= 0.0 && d < band) {
+        vec2 back = vec2(edge + d, uv.y);
+        if (back.x <= 1.0) {
+            flap = texture(u_fromTexture, back);
+            float t = d / band;
+            flap.rgb *= mix(0.9, 0.6, t);
+        }
     }
 
-    float crease = 1.0 - smoothstep(0.0, band * angle / 0.22, abs(d));
-    incoming = mix(incoming, vec4(1.0, 1.0, 1.0, incoming.a), crease * 0.35);
-    fragColor = over(incoming, outgoing);
+    // A soft highlight on the uncovered side of the crease, and a shadow cast by the flap.
+    float glow = 1.0 - smoothstep(0.0, band * 0.6, abs(d - band));
+    incoming.rgb = mix(incoming.rgb, vec3(1.0), glow * 0.25 * float(d > band));
+    float shadow = 1.0 - smoothstep(band, band * 1.6, d);
+    incoming.rgb *= 1.0 - 0.35 * shadow * float(d >= band);
+
+    fragColor = over(flap, over(lying, incoming));
 }
