@@ -7,8 +7,8 @@ registro heredado de Drift.
 
 - `PreferencesController::installUiTranslators()` instala siempre el catálogo base del idioma
   (`drift_es.qm`) y uno regional solo encima, cuando coincide territorio o escritura. Antes
-  `QTranslator::load(locale, ...)` llevaba un sistema es-PE a `drift_es_CO.qm`, que tenía la
-  pestaña Video sin terminar, y la mostraba medio en inglés.
+  con "Español (Colombia)" elegido (la única opción latinoamericana del selector) la app cargaba
+  solo `drift_es_CO.qm`, que tenía la pestaña Video sin terminar, y la mostraba medio en inglés.
 - La página Retoque de `VideoInspector.qml` pasa a Rostro / Cuerpo / Cabello con Estilos
   automáticos, Piel, Funciones y Maquillaje. Casi todo son ajustes de `face_retouch` que
   reutilizan el que ya lleva el clip.

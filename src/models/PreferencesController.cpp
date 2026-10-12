@@ -383,11 +383,12 @@ void PreferencesController::installUiTranslators()
         return;
 
     // Regional catalogs trail the base one: drift_es_CO.ts still has the Video tab unfinished
-    // while drift_es.ts has it all. Left to QTranslator::load(locale, ...), an es-PE system
-    // ended up on drift_es_CO.qm and showed that tab half in English. So the base language is
-    // always the floor, and a regional catalog only goes on top when it is the user's exact
-    // territory or script; Qt asks the last-installed translator first and falls through to the
-    // base for anything the regional one leaves empty.
+    // while drift_es.ts has it all. "Español (Colombia)" is the only Latin American Spanish in
+    // the language chooser, so it gets picked, and QTranslator::load(locale, ...) then loaded
+    // drift_es_CO.qm alone and showed that tab half in English. So the base language is always
+    // the floor, and a regional catalog only goes on top when it is the user's exact territory
+    // or script; Qt asks the last-installed translator first and falls through to the base for
+    // anything the regional one leaves empty.
     const QString dir = QStringLiteral(":/i18n/");
     const QString lang = QLocale::languageToCode(locale.language(), QLocale::ISO639Part1);
     const QString base = dir + QStringLiteral("drift_%1.qm").arg(lang);
