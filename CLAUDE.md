@@ -38,7 +38,7 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 **v0.9.2 PUBLICADA.** Release, tag, instalador y portable en GitHub; extras en vivo.
 
 ### Hecho
-- `main` = `233e3` = `flip/v0.9.2`, tag `v0.9.2`, CI en verde.
+- `main` = `7e987` e incluye `flip/v0.9.2` (`b7014`) completo, tag `v0.9.2`, CI en verde.
 - GitHub Release `v0.9.2` (Latest) con `FlipStudio-Setup-0.9.2-x64.exe`,
   `FlipStudio-Portable-0.9.2-x64.zip` y `SHA256SUMS`.
 - **Índice de extras en vivo con 21 extras** (`getflipstudio.com/addons/index.json`).
@@ -55,9 +55,23 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
    pusheado pero nunca compilado ni desplegado**: lo que sirve `/editor/` es el bundle
    viejo (mismo hash `index-RhO7mBu-.js`, build del 11/10 01:54). Hay que compilar y
    correr `flipstudio-app/deploy/deploy.sh`.
-3. **Verificar a ojo, con la 0.9.2 instalada:** que la máscara del recorte se vea sobre el
-   fondo y que el retoque facial cambie la cara. Es la última milla que el arnés sin
+3. **Verificar a ojo, con la 0.9.2 instalada.** ✅ **"Recortar" verificado por Jorge el
+   2026-10-12** (falta confirmar el retoque facial). Es la última milla que el arnés sin
    ventana no cubre (ver trampas).
+
+### Dónde vive cada cosa en la interfaz (verificado en el código)
+
+Cuesta encontrarlas porque **se crean en un panel y se editan en el otro**:
+
+| Función | Se crea en | Se edita en |
+|---|---|---|
+| **Máscaras** (formas) | Panel de recursos, pestaña **"Máscaras"** (izquierda, ícono de máscara) — se aplican con clic a la selección o se arrastran sobre un clip | Panel de propiedades, pestaña **"Máscaras"** (derecha, grupo 2) |
+| **Eliminar fondo** | Igual: **"Máscaras" → "Recortar sujeto…"** (SAM 2.1) o el recorte de personas (RVM, ~20 MB) | La máscara resultante queda como carril de ajuste propio |
+| **Imagen o video como máscara** | **"Máscaras" → "Imagen o video como máscara…"** | Pestaña "Máscaras" |
+| **Retoque facial** | Panel de recursos → **Efectos** (`face_retouch`, etc.), o el inspector del clip | Panel de propiedades → **Efectos** (ahí vive el escaneo de caras) |
+
+Las máscaras también se pueden soltar **directamente sobre la línea de tiempo**
+(`TimelinePanel.qml` llama a `addMaskToClip` / `addMaskLaneClip`).
 
 ### Gaps conocidos de las cuatro secciones de video (auditado contra CapCut)
 - **Básico**: falta **flujo óptico** (interpolar fotogramas). Es render, no un modelo.
