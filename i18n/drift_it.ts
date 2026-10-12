@@ -17029,6 +17029,10 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Stilizzato e cinematografico</translation>
     </message>
     <message>
+        <source>Modern</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Altro</translation>
     </message>

@@ -16972,6 +16972,10 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Cách điệu &amp; Điện ảnh</translation>
     </message>
     <message>
+        <source>Modern</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Khác</translation>
     </message>

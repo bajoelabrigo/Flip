@@ -64,6 +64,7 @@ Item {
             id: mineButton
             visible: root.showMine
             text: root.mineLabel
+            width: Math.min(implicitWidth, chips.width)
             variant: "outline"
             selected: root.activeCategory === root.mineId
             onClicked: root.categoryActivated(root.mineId)
@@ -88,6 +89,9 @@ Item {
                 required property var modelData
                 required property int index
                 text: modelData.label
+                // A narrow panel elides the long names instead of pushing them past its edge.
+                width: Math.min(implicitWidth, chips.width)
+                tooltip: implicitWidth > chips.width ? modelData.label : ""
                 variant: "secondary"
                 accentColor: Theme.categoryColor(index)
                 selected: root.activeCategory === modelData.id

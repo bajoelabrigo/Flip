@@ -13,7 +13,19 @@ Item {
     property int frames: 24
     property bool playing: false
 
-    visible: playing && motion.status === Image.Ready
+    // AnimatedSprite has no load status of its own, so the same sheet goes through an Image
+    // first: the still thumbnail stays up until the sheet is actually there to play.
+    visible: playing && sheet.status === Image.Ready
+
+    readonly property string sheetUrl: playing ? "image://lottie/" + encodeURIComponent(path)
+                                                 + "?frames=" + frames + "&w=" + motion.cell + "&h=" + motion.cell : ""
+
+    Image {
+        id: sheet
+        visible: false
+        asynchronous: true
+        source: root.sheetUrl
+    }
 
     onHoveredChanged: {
         if (hovered && path.length > 0 && !Theme.touchUi)
@@ -36,8 +48,7 @@ Item {
         readonly property int cell: Math.max(16, Math.round(Math.min(root.width, root.height) * Screen.devicePixelRatio))
         width: Math.min(root.width, root.height)
         height: width
-        source: root.playing ? "image://lottie/" + encodeURIComponent(root.path)
-                               + "?frames=" + root.frames + "&w=" + cell + "&h=" + cell : ""
+        source: sheet.status === Image.Ready ? root.sheetUrl : ""
         frameCount: root.frames
         frameWidth: cell
         frameHeight: cell

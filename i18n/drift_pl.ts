@@ -17086,6 +17086,10 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>Stylizowane i filmowe</translation>
     </message>
     <message>
+        <source>Modern</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Inne</translation>
     </message>

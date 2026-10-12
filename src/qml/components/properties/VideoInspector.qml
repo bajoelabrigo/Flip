@@ -66,13 +66,29 @@ Item {
                 width: parent.width - 6
                 spacing: 2
 
+                // Every cell as tall as the tallest label: a name that needs two lines in a
+                // narrow panel wraps instead of turning into "Quit…".
+                property real cellHeight: 0
+                function measure() {
+                    let h = 0
+                    for (let i = 0; i < stripCells.count; i++) {
+                        const cell = stripCells.itemAt(i)
+                        if (cell)
+                            h = Math.max(h, cell.labelHeight)
+                    }
+                    cellHeight = h + 14
+                }
+
                 Repeater {
+                    id: stripCells
                     model: root.pages
                     delegate: Rectangle {
                         required property var modelData
                         required property int index
+                        readonly property real labelHeight: stripLabel.implicitHeight
+                        onLabelHeightChanged: Qt.callLater(strip.measure)
                         width: (strip.width - 6) / root.pages.length
-                        height: stripLabel.implicitHeight + 14
+                        height: strip.cellHeight
                         radius: Theme.radiusSm
                         color: index === root.pageIndex ? Theme.popoverHover : "transparent"
 
@@ -81,6 +97,8 @@ Item {
                             anchors.centerIn: parent
                             width: parent.width - 8
                             horizontalAlignment: Text.AlignHCenter
+                            wrapMode: Text.WordWrap
+                            maximumLineCount: 2
                             elide: Text.ElideRight
                             text: modelData.label
                             color: index === root.pageIndex ? Theme.foreground : Theme.mutedForeground
@@ -461,7 +479,8 @@ Item {
                     Grid {
                         id: tiles
                         width: parent.width
-                        columns: 2
+                        // One column when the panel is too narrow for "Adelgazar rostro" twice.
+                        columns: width >= 280 ? 2 : 1
                         columnSpacing: Theme.spacingSm
                         rowSpacing: Theme.spacingSm
 
@@ -469,7 +488,7 @@ Item {
                             model: section.modelData.items
                             delegate: ThemedButton {
                                 required property var modelData
-                                width: (tiles.width - tiles.columnSpacing) / 2
+                                width: (tiles.width - tiles.columnSpacing * (tiles.columns - 1)) / tiles.columns
                                 text: modelData.label
                                 tooltip: modelData.hint
                                 enabled: retoquePage.canTrack && retoquePage.faceReady

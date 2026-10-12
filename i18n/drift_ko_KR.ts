@@ -16964,6 +16964,10 @@ If playback stutters, try another.</source>
         <translation>스타일리시 및 시네마틱</translation>
     </message>
     <message>
+        <source>Modern</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>기타</translation>
     </message>

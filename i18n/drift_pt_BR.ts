@@ -17029,6 +17029,10 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Estilizado &amp; cinematográfico</translation>
     </message>
     <message>
+        <source>Modern</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Outros</translation>
     </message>

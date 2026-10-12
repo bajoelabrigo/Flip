@@ -179,14 +179,30 @@ Item {
                 width: parent.width - 6
                 spacing: 2
 
+                // Every cell as tall as the tallest label, so "Círculo cromático" wraps to two
+                // lines instead of turning into "Círculo cr…".
+                property real cellHeight: 0
+                function measure() {
+                    let h = 0
+                    for (let i = 0; i < stripCells.count; i++) {
+                        const c = stripCells.itemAt(i)
+                        if (c)
+                            h = Math.max(h, c.labelHeight)
+                    }
+                    cellHeight = h + 14
+                }
+
                 Repeater {
+                    id: stripCells
                     model: root.pages
                     delegate: Rectangle {
                         id: cell
                         required property var modelData
                         required property int index
+                        readonly property real labelHeight: cellLabel.implicitHeight
+                        onLabelHeightChanged: Qt.callLater(strip.measure)
                         width: (strip.width - 8) / root.pages.length
-                        height: cellLabel.implicitHeight + 14
+                        height: strip.cellHeight
                         radius: Theme.radiusSm
                         color: index === root.pageIndex ? Theme.popoverHover : "transparent"
 
@@ -195,6 +211,8 @@ Item {
                             anchors.centerIn: parent
                             width: parent.width - 4
                             horizontalAlignment: Text.AlignHCenter
+                            wrapMode: Text.WordWrap
+                            maximumLineCount: 2
                             elide: Text.ElideRight
                             text: cell.modelData.label
                             color: cell.index === root.pageIndex ? Theme.foreground : Theme.mutedForeground

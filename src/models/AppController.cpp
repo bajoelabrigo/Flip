@@ -17662,6 +17662,18 @@ void AppController::addSoundEffect(const QString &id)
             setLastMessage(tr("Could not add that sound"), QStringLiteral("error"));
             return;
         }
+        {
+            // Placing needs the probed duration: a first-time import still holds the 5 s
+            // placeholder, which cut every song from the music pack down to its first 5 seconds.
+            QEventLoop loop;
+            QTimer timeout;
+            timeout.setSingleShot(true);
+            timeout.start(15000);
+            connect(&timeout, &QTimer::timeout, &loop, &QEventLoop::quit);
+            connect(m_assetLibrary, &AssetLibrary::assetMetadataChanged, &loop, &QEventLoop::quit);
+            while (timeout.isActive() && m_assetLibrary->isImportPending(assets.first()))
+                loop.exec();
+        }
         addClipsFromAssets(assets);
         return;
     }

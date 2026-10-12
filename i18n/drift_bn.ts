@@ -17029,6 +17029,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">স্টাইলাইজড এবং সিনেমাটিক</translation>
     </message>
     <message>
+        <source>Modern</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation type="unfinished">অন্যান্য</translation>
     </message>

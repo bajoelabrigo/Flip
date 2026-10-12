@@ -169,7 +169,14 @@ Item {
                         }
                         Text {
                             width: parent.width
-                            text: Number(row.modelData.duration || 0).toFixed(1) + " s"
+                            // A song reads as 2:14; a short effect keeps its tenths.
+                            text: {
+                                const d = Number(row.modelData.duration || 0)
+                                if (d < 60)
+                                    return d.toFixed(1) + " s"
+                                const s = Math.round(d)
+                                return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0")
+                            }
                             color: Theme.mutedForeground
                             font.family: Theme.fontFamily
                             font.pixelSize: Theme.fontSizeXs

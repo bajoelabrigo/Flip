@@ -17086,6 +17086,10 @@ If playback stutters, try another.</source>
         <translation>Стилизация и кино</translation>
     </message>
     <message>
+        <source>Modern</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Другие</translation>
     </message>

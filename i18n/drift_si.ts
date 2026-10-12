@@ -17029,6 +17029,10 @@ If playback stutters, try another.</source>
         <translation>විලාසිතාමය සහ සිනමාත්මක</translation>
     </message>
     <message>
+        <source>Modern</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>වෙනත්</translation>
     </message>

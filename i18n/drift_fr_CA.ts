@@ -17034,6 +17034,10 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation>Stylisé &amp; Cinématographique</translation>
     </message>
     <message>
+        <source>Modern</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Autre</translation>
     </message>
