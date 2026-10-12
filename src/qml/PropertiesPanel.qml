@@ -50,6 +50,9 @@ PanelFrame {
         property var textExpandedLayerIds: ({})
         property real contentFieldHeight: 96
         property var shapeExpandedLayerIds: ({})
+        // Which of the Video tab's four CapCut pages is open, so switching to another tab and
+        // back lands on the page you left.
+        property string videoPage: "basico"
     }
 
     property int activeTab: 0
@@ -115,6 +118,10 @@ PanelFrame {
         { id: "subtitles", label: qsTr("Subtitles"), icon: Theme.icons.captions, group: 0, needs: ["subtitle"] },
         { id: "transform", label: qsTr("Transform"), icon: Theme.icons.maximize, group: 1,
           needs: ["transformable"], opens: "adj:transform", keyframes: true },
+        // CapCut's four video pages (Basico, Eliminar fondo, Mascara, Retoque) as one tab, so a
+        // video clip shows the tools under the names CapCut uses instead of one page per tool.
+        { id: "video", label: qsTr("Video"), icon: Theme.icons.video, group: 1,
+          needs: ["videoTools"], opens: "adj:videoEffects", keyframes: true },
         { id: "camera", label: qsTr("Camera"), icon: Theme.icons.video, group: 1,
           needs: ["adj:camera"], opens: "adj:camera", keyframes: true },
         { id: "stabilize", label: qsTr("Stabilization"), icon: Theme.icons.locateFixed, group: 1,
@@ -615,6 +622,18 @@ PanelFrame {
                             onSizeLinkedChanged: inspectorUi.sizeLinked = sizeLinked
                             positionLinked: EditorState.positionLinked
                             onPositionLinkedChanged: EditorState.positionLinked = positionLinked
+                        }
+                    }
+                }
+
+                Loader {
+                    active: root.currentTabId === "video"
+                    visible: active
+                    sourceComponent: Component {
+                        VideoInspector {
+                            width: tabColumn.width
+                            page: inspectorUi.videoPage
+                            onPageChanged: inspectorUi.videoPage = page
                         }
                     }
                 }

@@ -1015,9 +1015,14 @@ QStringList inspectorCaps(const drift::Clip &clip, drift::TrackType trackType)
         // "maskable" is here so the Masks tab shows while the media clip itself is selected.
         // A clip's masks live on adjustments in its lanes, not on the clip, and selecting the
         // lane to reach them is exactly the step users could not find — see linkedMaskClips().
+        // "adj:videoEffects" and "videoTools" are what put the four CapCut-style video pages
+        // (Basico, Eliminar fondo, Mascara, Retoque) on a selected video clip: every one of them
+        // writes to the effects adjustment linked to this clip, which the effect invokables
+        // create on demand.
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
              << QStringLiteral("audible") << QStringLiteral("retimable") << QStringLiteral("stabilizable")
-             << QStringLiteral("maskable");
+             << QStringLiteral("maskable") << QStringLiteral("adj:videoEffects")
+             << QStringLiteral("videoTools");
         break;
     case ClipType::Composite:
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
