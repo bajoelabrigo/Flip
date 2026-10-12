@@ -1,6 +1,0 @@
-Attempting to create QWindow-based QOffscreenSurface outside the gui thread. Expect failures.
-Flip Studio 0.9.2 — headless
-  platform  windows
-  opengl    3.3 (NVIDIA GeForce RTX 5060/PCIe/SSE2)
-  project   (empty timeline)
-  mcp stdio serving on stdin/stdout
