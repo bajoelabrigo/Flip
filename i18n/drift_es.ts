@@ -374,6 +374,185 @@
     </message>
 </context>
 <context>
+    <name>AdjustInspector</name>
+    <message>
+        <source>Basic</source>
+        <translation>Básico</translation>
+    </message>
+    <message>
+        <source>HSL</source>
+        <translation>HSL</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>Curvas</translation>
+    </message>
+    <message>
+        <source>Color wheels</source>
+        <translation>Círculo cromático</translation>
+    </message>
+    <message>
+        <source>Mask</source>
+        <translation>Máscara</translation>
+    </message>
+    <message>
+        <source>Adjust %1</source>
+        <translation>Ajustar %1</translation>
+    </message>
+    <message>
+        <source>Reset %1</source>
+        <translation>Restablecer %1</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Restablecer</translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to adjust its colour.</source>
+        <translation>Selecciona un clip de video o imagen para ajustar su color.</translation>
+    </message>
+    <message>
+        <source>Exposure</source>
+        <translation>Exposición</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Brillo</translation>
+    </message>
+    <message>
+        <source>Contrast</source>
+        <translation>Contraste</translation>
+    </message>
+    <message>
+        <source>Highlights</source>
+        <translation>Altas luces</translation>
+    </message>
+    <message>
+        <source>Shadows</source>
+        <translation>Sombras</translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation>Saturación</translation>
+    </message>
+    <message>
+        <source>Vibrance</source>
+        <translation>Intensidad del color</translation>
+    </message>
+    <message>
+        <source>Temperature</source>
+        <translation>Temperatura</translation>
+    </message>
+    <message>
+        <source>Tint</source>
+        <translation>Tinte</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Luz</translation>
+    </message>
+    <message>
+        <source>Reset basic adjustments</source>
+        <translation>Restablecer los ajustes básicos</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Color</translation>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation>Rojo</translation>
+    </message>
+    <message>
+        <source>Orange</source>
+        <translation>Naranja</translation>
+    </message>
+    <message>
+        <source>Yellow</source>
+        <translation>Amarillo</translation>
+    </message>
+    <message>
+        <source>Green</source>
+        <translation>Verde</translation>
+    </message>
+    <message>
+        <source>Aqua</source>
+        <translation>Aguamarina</translation>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation>Azul</translation>
+    </message>
+    <message>
+        <source>Purple</source>
+        <translation>Morado</translation>
+    </message>
+    <message>
+        <source>Magenta</source>
+        <translation>Magenta</translation>
+    </message>
+    <message>
+        <source>Colour to change</source>
+        <translation>Color que quieres cambiar</translation>
+    </message>
+    <message>
+        <source>Reset HSL</source>
+        <translation>Restablecer HSL</translation>
+    </message>
+    <message>
+        <source>Hue</source>
+        <translation>Matiz</translation>
+    </message>
+    <message>
+        <source>Lightness</source>
+        <translation>Brillo</translation>
+    </message>
+    <message>
+        <source>Luma</source>
+        <translation>Luma</translation>
+    </message>
+    <message>
+        <source>Edit curve</source>
+        <translation>Editar la curva</translation>
+    </message>
+    <message>
+        <source>Reset curve point</source>
+        <translation>Restablecer el punto de la curva</translation>
+    </message>
+    <message>
+        <source>Reset curve</source>
+        <translation>Restablecer la curva</translation>
+    </message>
+    <message>
+        <source>Reset all</source>
+        <translation>Restablecer todo</translation>
+    </message>
+    <message>
+        <source>Reset curves</source>
+        <translation>Restablecer las curvas</translation>
+    </message>
+    <message>
+        <source>Drag a point up to brighten that part of the image, down to darken it. Double-click a point to put it back.</source>
+        <translation>Arrastra un punto hacia arriba para aclarar esa parte de la imagen, o hacia abajo para oscurecerla. Doble clic en un punto para devolverlo a su sitio.</translation>
+    </message>
+    <message>
+        <source>Midtones</source>
+        <translation>Gris intermedio</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>Desplazamiento</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>Intensidad</translation>
+    </message>
+    <message>
+        <source>Add mask</source>
+        <translation>Añadir máscara</translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -10995,6 +11174,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Video</source>
         <translation>Video</translation>
+    </message>
+    <message>
+        <source>Adjust</source>
+        <translation>Ajuste</translation>
     </message>
     <message>
         <source>Camera</source>

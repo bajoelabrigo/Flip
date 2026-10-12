@@ -1281,6 +1281,7 @@ qt_add_qml_module(drift
         # which composes the inspectors above. Without it here the QML is not compiled and
         # lupdate never sees its strings, so i18n/*.ts silently loses the whole tab.
         src/qml/components/properties/VideoInspector.qml
+        src/qml/components/properties/AdjustInspector.qml
         src/qml/components/properties/FacePropPicker.qml
         src/qml/components/assets/TextAssetsTab.qml
         src/qml/components/assets/ScenesTab.qml

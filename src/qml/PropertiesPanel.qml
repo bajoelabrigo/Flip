@@ -53,6 +53,7 @@ PanelFrame {
         // Which of the Video tab's four CapCut pages is open, so switching to another tab and
         // back lands on the page you left.
         property string videoPage: "basico"
+        property string adjustPage: "basic"
     }
 
     property int activeTab: 0
@@ -122,6 +123,10 @@ PanelFrame {
         // video clip shows the tools under the names CapCut uses instead of one page per tool.
         { id: "video", label: qsTr("Video"), icon: Theme.icons.video, group: 1,
           needs: ["videoTools"], opens: "adj:videoEffects", keyframes: true },
+        // CapCut's Adjust panel (Basic, HSL, Curves, Color wheels, Mask): the colour effects
+        // live in the clip's effect stack, so the tab shows wherever that stack is editable.
+        { id: "adjust", label: qsTr("Adjust"), icon: Theme.icons.sliders, group: 1,
+          needs: ["adj:videoEffects"], opens: "adj:videoEffects", keyframes: true },
         { id: "camera", label: qsTr("Camera"), icon: Theme.icons.video, group: 1,
           needs: ["adj:camera"], opens: "adj:camera", keyframes: true },
         { id: "stabilize", label: qsTr("Stabilization"), icon: Theme.icons.locateFixed, group: 1,
@@ -184,6 +189,11 @@ PanelFrame {
     // also offers the Masks tab, but its effect stack is what you came for, so `opens` decides
     // and not tab order.
     function syncAdjustmentTab() {
+        // Already on a pane that edits this adjustment (adding an effect from the Adjust or Effects
+        // tab selects the adjustment that now holds it): stay, rather than jump to the first one.
+        const here = root.tabs[root.activeTab]
+        if (here && here.opens && root.caps.indexOf(here.opens) >= 0 && root.tabVisible(here.id))
+            return
         for (let i = 0; i < root.tabs.length; i++) {
             const opens = root.tabs[i].opens
             if (opens && root.caps.indexOf(opens) >= 0) {
@@ -634,6 +644,18 @@ PanelFrame {
                             width: tabColumn.width
                             page: inspectorUi.videoPage
                             onPageChanged: inspectorUi.videoPage = page
+                        }
+                    }
+                }
+
+                Loader {
+                    active: root.currentTabId === "adjust"
+                    visible: active
+                    sourceComponent: Component {
+                        AdjustInspector {
+                            width: tabColumn.width
+                            page: inspectorUi.adjustPage
+                            onPageChanged: inspectorUi.adjustPage = page
                         }
                     }
                 }
