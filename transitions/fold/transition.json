@@ -1,0 +1,38 @@
+{
+  "id": "fold",
+  "displayName": "Fold",
+  "category": "modern",
+  "order": 620,
+  "parameters": [
+    {
+      "identifier": "angle",
+      "displayName": "Fold Angle",
+      "type": "float",
+      "minValue": -0.6,
+      "maxValue": 0.6,
+      "defaultValue": 0.22
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture",
+            "index": 0
+          },
+          {
+            "type": "source_texture",
+            "index": 1
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

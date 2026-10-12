@@ -1,0 +1,54 @@
+{
+  "id": "organic_wipe",
+  "displayName": "Organic Wipe",
+  "category": "modern",
+  "order": 650,
+  "parameters": [
+    {
+      "identifier": "roughness",
+      "displayName": "Edge Roughness",
+      "type": "float",
+      "minValue": 0.0,
+      "maxValue": 0.6,
+      "defaultValue": 0.25
+    },
+    {
+      "identifier": "scale",
+      "displayName": "Detail",
+      "type": "float",
+      "minValue": 1.0,
+      "maxValue": 12.0,
+      "defaultValue": 5.0
+    },
+    {
+      "identifier": "softness",
+      "displayName": "Edge Softness",
+      "type": "float",
+      "minValue": 0.005,
+      "maxValue": 0.2,
+      "defaultValue": 0.05
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture",
+            "index": 0
+          },
+          {
+            "type": "source_texture",
+            "index": 1
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

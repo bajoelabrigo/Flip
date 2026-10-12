@@ -1,0 +1,38 @@
+{
+  "id": "spin",
+  "displayName": "Spin",
+  "category": "modern",
+  "order": 600,
+  "parameters": [
+    {
+      "identifier": "turns",
+      "displayName": "Turns",
+      "type": "float",
+      "minValue": 0.25,
+      "maxValue": 4.0,
+      "defaultValue": 1.0
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture",
+            "index": 0
+          },
+          {
+            "type": "source_texture",
+            "index": 1
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}
