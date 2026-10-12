@@ -1,0 +1,7 @@
+{"tool": "import_media", "args": {"paths": ["C:/Users/bajoe/AppData/Local/Temp/claude/C--Users-bajoe-Downloads-Flip/1f1a675d-1cf9-496a-a2ea-83605d63334a/scratchpad/proj/cara.mp4"]}}
+{"tool": "place_clip", "args": {"asset": 0, "at": 0}}
+{"tool": "detect_faces", "args": {"track": 0, "index": 0}, "sleep": 120, "save": "03_detect_faces.json"}
+{"tool": "list_face_track", "args": {"track": 0, "index": 0}, "save": "04_face_track.json"}
+{"tool": "inspect", "args": {"clips": true}, "save": "05_notice_after_faces.json"}
+{"tool": "estimate_depth", "args": {"track": 0, "index": 0}, "save": "06_depth_start.json"}
+{"tool": "inspect", "args": {"detail": true}, "sleep": 60, "save": "07_jobs_after_depth.json"}
