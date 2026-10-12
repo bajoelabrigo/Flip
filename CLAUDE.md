@@ -57,8 +57,9 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
    registro tiene TTL largo, unas 4 h). No es un fallo.
 2. **Subir el MSIX 0.9.3 a Partner Center.** Bloqueado por Jorge: la Store no acepta un envío nuevo
    mientras certifica el anterior.
-3. **Desplegar el editor web** — pero **Jorge lo está trabajando con Claude en otra sesión**:
-   no tocar `flipstudio-app` ni desplegarlo desde aquí.
+3. **El editor web (`flipstudio-app`)**: Jorge aclaró el 2026-10-12 que **no** lo está trabajando en
+   otra sesión. Se puede revisar y tocar desde aquí; el objetivo sigue siendo que coincida al
+   máximo con la app de escritorio.
 4. **Verificar a ojo la 0.9.3**: las cuatro páginas del panel de video, que un efecto recortado se
    quede recortado, y las transiciones nuevas. De la 0.9.2 Jorge ya verificó el "Recortar".
 
