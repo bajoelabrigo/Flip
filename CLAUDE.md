@@ -62,6 +62,58 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 4. **Verificar a ojo la 0.9.3**: las cuatro páginas del panel de video, que un efecto recortado se
    quede recortado, y las transiciones nuevas. De la 0.9.2 Jorge ya verificó el "Recortar".
 
+### El panel de video salió en inglés: qué se sabe (2026-10-12)
+
+Jorge reportó que en la 0.9.3 las páginas del panel de video salen en inglés y solo "Máscara" en
+español. **La investigación no encontró un fallo en el catálogo**, y esto es lo comprobado:
+
+- `i18n/drift_es.ts` tiene las cuatro **traducidas**: Basic→Básico, Remove background→Eliminar
+  fondo, Mask→Máscara, Retouch→Retoque, y también todos los títulos de sección (Skin retouch→
+  Retoque de piel, Bigger eyes→Ojos más grandes…).
+- `lrelease` sobre ese `.ts` da **4296 traducidas y 0 sin terminar**, y el `.qm` resultante se
+  vuelve a volcar con `lconvert` y contiene las cuatro.
+- El log del build que publicó la 0.9.3 (`38215230650`) dice:
+  `drift_es.qm … Generated 4296 translation(s) (4296 finished and 0 unfinished)`.
+
+O sea: **el `.qm` que se publicó sí lleva las traducciones**. La causa más probable es que Jorge
+esté abriendo una copia anterior a ese build (el portable de prueba que le pasé antes de la
+0.9.3), o que su app no esté cargando el catálogo español. Su sistema es es-PE y no tiene idioma
+forzado en el registro (`HKCU\Software\Flip Studio\Flip Studio` no tiene `ui/language`), así que
+debería cargar `drift_es.qm` desde `:/i18n`.
+
+**Para la próxima actualización:**
+1. **Confirmar con el instalador 0.9.3 real** (el `.exe` del release, no un portable viejo) antes
+   de tocar nada. Si ahí sigue en inglés, entonces el problema está en la carga, no en el catálogo.
+2. **Alinear la página Retoque con las capturas de Jorge**: él espera grupos **Rostro / Cuerpo /
+   Cabello**, **Estilos automáticos**, **Piel**, **Funciones** y **Maquillaje**. Hoy la página es
+   una lista plana de 8 botones con otros nombres (Skin retouch, Body reshape…). Traducirlos está
+   bien, pero los **nombres y la agrupación** no son los de CapCut.
+3. `Bottom`/`Cuerpo`: "Body reshape" debería ser "Cuerpo" para coincidir con la captura.
+4. La página **Básico** no incluye **Flujo óptico** (gap ya conocido: es render, no un modelo).
+
+### Comprobar los catálogos sin depender de CI
+
+En Windows no hay `lupdate`, así que el ciclo es: bajar un Qt desechable y correrlo a mano.
+
+```powershell
+# 1. lupdate/lrelease (una vez; .qttools/ y .qtmingw/ están en .gitignore)
+py -m pip install aqtinstall
+py -m aqt install-qt windows desktop 6.10.3 win64_mingw --archives MinGW qttools qtbase qtdeclarative -O .qtmingw
+
+# 2. Regenerar los catálogos tras añadir qsTr (y NO editar un .ts a mano: lupdate tiene que
+#    reproducirlo byte a byte o el test Translations falla en los 17 idiomas)
+.\.qtmingw\6.10.3\mingw_64\bin\lupdate.exe src i18n -no-obsolete -locations none -ts (gci i18n\drift*.ts).FullName
+
+# 3. Comprobar que quedó estable (dos pasadas iguales) y ver qué traduce de verdad
+.\.qtmingw\6.10.3\mingw_64\bin\lrelease.exe i18n\drift_es.ts -qm .qmcheck\drift_es.qm
+.\.qtmingw\6.10.3\mingw_64\bin\lconvert.exe -i .qmcheck\drift_es.qm -o .qmcheck\dump.ts
+```
+
+**Trampa que costó dos ciclos de CI:** editar un `.ts` a mano (o con un script de reemplazo) puede
+dejar el archivo en una forma que `lupdate` no reproduce, y entonces el test Translations falla
+aunque el contenido se vea correcto. El orden es: `lupdate` primero, después rellenar
+traducciones, después `lupdate` otra vez para confirmar que no cambia nada.
+
 ### Dónde vive cada cosa en la interfaz (verificado en el código)
 
 Cuesta encontrarlas porque **se crean en un panel y se editan en el otro**:
