@@ -71,10 +71,23 @@ la certifiquen.
    - **Arreglo del recorte de sujeto**: SAM2 era el único motor que no pasaba por `buildSessions`, así que no
      reintentaba en el procesador cuando el proveedor de GPU no podía crear su sesión (su atención necesita
      449 MiB contiguos). Fallaba en silencio; ahora `inspect` además informa `notice` con la línea de estado
-     de la app, que es donde los trabajos asíncronos dejan su error.
+     de la app, que es donde los trabajos asíncronos dejan su error. Comprobado por partes: el export ONNX es
+     correcto (el pipeline completo en ONNX Runtime da máscaras que siguen a la cara, iou 0.95 en la semilla
+     y 0.987 al propagar) y, ya con el arreglo, SAM2 y RVM llegan al mismo punto del trabajo.
+   - **Comprobación de humo de las cuatro secciones** (`tools/e2e/calls_four.jsonl`): Básico aplica los seis
+     `adjust.*`, Máscara pone elipse y rectángulo, Retoque aplica `face_retouch`, `face_fat_slim` y
+     `face_big_eyes`, los seis paquetes de modelos figuran instalados y la línea de tiempo queda con el clip
+     más dos carriles de ajuste (efectos y máscara).
+   - **Lo que el arnés sin ventana no puede comprobar**: los sidecars (mattes de recorte y `facetracks`) se
+     escriben en `%APPDATA%\Flip Studio\Flip Studio`, y en esta máquina el ejecutable portátil recibe
+     `Permission denied` (EACCES) al abrirlos, tanto desde FFmpeg como desde Qt, mientras que el mismo archivo
+     se escribe sin problema desde fuera de la app y las ACL están limpias. Es del entorno, no del código (los
+     dos sidecars de RVM del 2026-10-11 a las 16:50 siguen en disco). Queda por verificar a ojo con la app
+     abierta: que la máscara de recorte se vea sobre el fondo y que el retoque cambie la cara.
    - Para publicar: fusionar la rama en `main`, etiqueta `v0.9.2`, release de GitHub e instalador; subir los
-     seis paquetes nuevos al release `packages` de `flipstudio-extras` y copiar `dist/index.json` al índice
-     en vivo; Jorge cambia el TXT `version` y sube el MSIX más nuevo a la Store.
+     seis paquetes nuevos al release `packages` de `flipstudio-extras` (el índice ya los trae, `dist/index.json`
+     con 21 extras) y copiar ese índice al que está en vivo; Jorge cambia el TXT `version` y sube el MSIX más
+     nuevo a la Store.
 5. **Stock de Pexels (3.2)**: requiere el backend `api.getflipstudio.com`, que también servirá para las cuentas (Fase 6).
 6. **Firma de código** del instalador cuando haya presupuesto (quita el aviso de SmartScreen en la descarga directa).
 7. Más adelante: Linux, Android y macOS (Fase 4).
