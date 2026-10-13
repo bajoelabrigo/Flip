@@ -100,6 +100,8 @@
     QT_TRANSLATE_NOOP("Catalog", "Magenta hue"),
     QT_TRANSLATE_NOOP("Catalog", "Magenta saturation"),
     QT_TRANSLATE_NOOP("Catalog", "Magenta lightness"),
+    QT_TRANSLATE_NOOP("Catalog", "LUT"),
+    QT_TRANSLATE_NOOP("Catalog", "LUT file"),
     QT_TRANSLATE_NOOP("Catalog", "Color Wheels"),
     QT_TRANSLATE_NOOP("Catalog", "Shadows red"),
     QT_TRANSLATE_NOOP("Catalog", "Shadows green"),

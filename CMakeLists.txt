@@ -445,6 +445,8 @@ add_library(driftcore STATIC
     src/core/BlendMode.h
     src/core/Clip.h
     src/core/Clip.cpp
+    src/core/CubeLut.h
+    src/core/CubeLut.cpp
     src/core/Stabilize.h
     src/core/Stabilize.cpp
     src/core/Bezier.h
@@ -1294,6 +1296,7 @@ qt_add_qml_module(drift
         src/qml/components/properties/VideoInspector.qml
         src/qml/components/properties/VideoMaskPage.qml
         src/qml/components/properties/AdjustmentLayerInspector.qml
+        src/qml/components/properties/LutPage.qml
         src/qml/components/properties/AdjustInspector.qml
         src/qml/components/properties/FacePropPicker.qml
         src/qml/components/assets/TextAssetsTab.qml

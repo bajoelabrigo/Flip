@@ -18,6 +18,7 @@ Item {
         { id: "hsl", label: qsTr("HSL") },
         { id: "curves", label: qsTr("Curves") },
         { id: "wheels", label: qsTr("Color wheels") },
+        { id: "lut", label: qsTr("LUT") },
         { id: "mask", label: qsTr("Mask") }
     ]
     readonly property int pageIndex: Math.max(0, pages.findIndex(p => p.id === root.page))
@@ -781,6 +782,13 @@ Item {
                     }
                 }
             }
+        }
+
+        // --- LUT -----------------------------------------------------------------------------
+        LutPage {
+            visible: root.page === "lut"
+            width: parent.width
+            host: root
         }
 
         // --- Mask ----------------------------------------------------------------------------

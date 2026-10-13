@@ -9,6 +9,7 @@
 #include "MarketClient.h"
 #include "FileDialogs.h"
 #include "core/Clip.h"
+#include "core/CubeLut.h"
 #include "core/Mask.h"
 #include "core/SpeedCurve.h"
 #include "core/PrprojReader.h"
@@ -585,6 +586,11 @@ AppController::AppController(AssetLibrary *assetLibrary, QObject *parent)
         m_assetLibrary->setProject(&m_project);
     // Before the preview: its constructor asks projectFile()->projectWidth().
     m_projectFile = new ProjectFileController(this, this);
+    // LUTs a project names are looked for by name in the library, the factory set and the
+    // project's own folder, so the project still finds them after a move.
+    connect(m_projectFile, &ProjectFileController::currentProjectPathChanged, this,
+            &AppController::updateLutSearchDirs);
+    updateLutSearchDirs();
     m_assetPreview = new AssetPreviewController(this, this);
     m_speedCurve = new SpeedCurveController(this, this);
     m_curves = new CurveEditorController(this, this);
@@ -3193,8 +3199,10 @@ QVariantMap effectToMap(const drift::Effect &effect, int effectIndex, drift::Tim
             if (paramDef.isFilePath()) {
                 param.insert(QStringLiteral("fileFilters"), paramDef.fileFilters);
                 const QString path = value.toString();
+                const bool isLut = path.endsWith(QLatin1String(".cube"), Qt::CaseInsensitive);
                 param.insert(QStringLiteral("missing"),
-                             !path.isEmpty() && !QFileInfo::exists(path));
+                             !path.isEmpty()
+                                 && (isLut ? drift::CubeLut::resolve(path).isEmpty() : !QFileInfo::exists(path)));
                 const QString warn = drift::modelAssetWarning(path);
                 if (!warn.isEmpty())
                     param.insert(QStringLiteral("warning"), warn);
@@ -16613,6 +16621,194 @@ void AppController::resetClipTransform(int trackIndex, int clipIndex)
         setClipLayoutPixels(clip, 0, 0, m_project.width(), m_project.height());
     pushProjectEdit(before, tr("Reset transform"));
     finishEdit(tr("Transform reset"));
+}
+
+QString AppController::lutLibraryDir()
+{
+    return QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).filePath(QStringLiteral("luts"));
+}
+
+QString AppController::factoryLutDir()
+{
+    const EffectPresetEntry *def = effectDefForId(QStringLiteral("color.lut"));
+    return def && !def->gpu.packageDir.isEmpty() ? QDir(def->gpu.packageDir).filePath(QStringLiteral("luts"))
+                                                 : QString();
+}
+
+void AppController::updateLutSearchDirs()
+{
+    QStringList dirs{lutLibraryDir()};
+    const QString factory = factoryLutDir();
+    if (!factory.isEmpty())
+        dirs << factory;
+    const QString projectPath = m_projectFile ? m_projectFile->currentProjectPath() : QString();
+    if (!projectPath.isEmpty()) {
+        const QDir projectDir = QFileInfo(projectPath).dir();
+        dirs << projectDir.filePath(QStringLiteral("luts")) << projectDir.path();
+    }
+    drift::CubeLut::setSearchDirs(dirs);
+}
+
+namespace {
+
+// The factory looks, by file name, with the name and category the gallery shows.
+struct FactoryLook
+{
+    const char *file;
+    const char *name;
+    const char *category;
+};
+
+const FactoryLook kFactoryLooks[] = {
+    {"cinematic.cube", QT_TRANSLATE_NOOP("Lut", "Cinematic"), "cinematic"},
+    {"warm.cube", QT_TRANSLATE_NOOP("Lut", "Warm"), "warm"},
+    {"cold.cube", QT_TRANSLATE_NOOP("Lut", "Cold"), "cold"},
+    {"vintage.cube", QT_TRANSLATE_NOOP("Lut", "Vintage"), "vintage"},
+    {"teal_orange.cube", QT_TRANSLATE_NOOP("Lut", "Teal & Orange"), "tealOrange"},
+    {"black_white.cube", QT_TRANSLATE_NOOP("Lut", "Black & White"), "blackWhite"},
+};
+
+} // namespace
+
+QVariantList AppController::lutLibrary() const
+{
+    QVariantList out;
+    const QDir factory(factoryLutDir());
+    for (const FactoryLook &look : kFactoryLooks) {
+        const QString path = factory.filePath(QString::fromLatin1(look.file));
+        if (factory.path().isEmpty() || !QFileInfo::exists(path))
+            continue;
+        out.append(QVariantMap{
+            {QStringLiteral("id"), QStringLiteral("factory:") + QString::fromLatin1(look.file)},
+            {QStringLiteral("name"), QCoreApplication::translate("Lut", look.name)},
+            {QStringLiteral("path"), path},
+            {QStringLiteral("factory"), true},
+            {QStringLiteral("category"), QString::fromLatin1(look.category)},
+        });
+    }
+    const QDir library(lutLibraryDir());
+    const QFileInfoList files = library.entryInfoList({QStringLiteral("*.cube")}, QDir::Files, QDir::Name | QDir::IgnoreCase);
+    for (const QFileInfo &file : files) {
+        out.append(QVariantMap{
+            {QStringLiteral("id"), QStringLiteral("user:") + file.fileName()},
+            {QStringLiteral("name"), file.completeBaseName()},
+            {QStringLiteral("path"), file.absoluteFilePath()},
+            {QStringLiteral("factory"), false},
+            {QStringLiteral("category"), QStringLiteral("imported")},
+        });
+    }
+    return out;
+}
+
+QVariantMap AppController::importLut(const QUrl &url)
+{
+    const QString source = url.isLocalFile() ? url.toLocalFile() : url.toString();
+    QString error;
+    const drift::CubeLut lut = drift::CubeLut::load(source, &error);
+    if (!lut.isValid())
+        return {{QStringLiteral("ok"), false}, {QStringLiteral("error"), error}};
+
+    // Same contents already in the library: reuse that copy instead of piling up duplicates.
+    QFile in(source);
+    if (!in.open(QIODevice::ReadOnly))
+        return {{QStringLiteral("ok"), false}, {QStringLiteral("error"), in.errorString()}};
+    const QByteArray bytes = in.readAll();
+    const QDir library(lutLibraryDir());
+    if (!library.exists() && !QDir().mkpath(library.path())) {
+        return {{QStringLiteral("ok"), false},
+                {QStringLiteral("error"), tr("The LUT library folder could not be created.")}};
+    }
+    const QString base = QFileInfo(source).completeBaseName();
+    QString target = library.filePath(base + QStringLiteral(".cube"));
+    for (int n = 2; QFileInfo::exists(target); ++n) {
+        QFile existing(target);
+        if (existing.open(QIODevice::ReadOnly) && existing.readAll() == bytes)
+            break;
+        target = library.filePath(QStringLiteral("%1 (%2).cube").arg(base).arg(n));
+    }
+    if (!QFileInfo::exists(target)) {
+        QFile out(target);
+        if (!out.open(QIODevice::WriteOnly) || out.write(bytes) != bytes.size()) {
+            return {{QStringLiteral("ok"), false},
+                    {QStringLiteral("error"), tr("The LUT could not be copied into the library: %1").arg(out.errorString())}};
+        }
+    }
+    emit lutLibraryChanged();
+    return {{QStringLiteral("ok"), true},
+            {QStringLiteral("path"), target},
+            {QStringLiteral("name"), QFileInfo(target).completeBaseName()},
+            {QStringLiteral("title"), lut.title}};
+}
+
+QVariantMap AppController::lutInfo(const QString &path) const
+{
+    if (path.isEmpty())
+        return {{QStringLiteral("ok"), false}};
+    const QString resolved = drift::CubeLut::resolve(path);
+    QString name = QFileInfo(path).completeBaseName();
+    for (const FactoryLook &look : kFactoryLooks) {
+        if (QFileInfo(path).fileName() == QLatin1String(look.file))
+            name = QCoreApplication::translate("Lut", look.name);
+    }
+    if (resolved.isEmpty()) {
+        return {{QStringLiteral("ok"), false},
+                {QStringLiteral("missing"), true},
+                {QStringLiteral("name"), name},
+                {QStringLiteral("error"), tr("The LUT «%1» is not where the project saved it, nor in your LUT library. Find it to use it again.").arg(name)}};
+    }
+    QString error;
+    const drift::CubeLut lut = drift::CubeLut::load(resolved, &error);
+    if (!lut.isValid()) {
+        return {{QStringLiteral("ok"), false},
+                {QStringLiteral("missing"), false},
+                {QStringLiteral("name"), name},
+                {QStringLiteral("error"), error}};
+    }
+    return {{QStringLiteral("ok"), true},
+            {QStringLiteral("missing"), false},
+            {QStringLiteral("name"), name},
+            {QStringLiteral("path"), resolved},
+            {QStringLiteral("size"), lut.size},
+            {QStringLiteral("is3d"), lut.is3d}};
+}
+
+QUrl AppController::lutThumbnail(const QString &path) const
+{
+    const QString resolved = drift::CubeLut::resolve(path);
+    if (resolved.isEmpty())
+        return {};
+    QFile file(resolved);
+    if (!file.open(QIODevice::ReadOnly))
+        return {};
+    const QByteArray bytes = file.readAll();
+    const QString key = QString::fromLatin1(QCryptographicHash::hash(bytes, QCryptographicHash::Sha1).toHex().left(16));
+    const QDir cache(QDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation)).filePath(QStringLiteral("lut-thumbs")));
+    const QString out = cache.filePath(key + QStringLiteral(".jpg"));
+    if (QFileInfo::exists(out))
+        return QUrl::fromLocalFile(out);
+    const drift::CubeLut lut = drift::CubeLut::parse(bytes);
+    if (!lut.isValid())
+        return {};
+    // The retouch reference portrait (CC0): skin, hair and a background, so a look reads at a glance.
+    QImage reference(QStringLiteral(":/retouch/original.jpg"));
+    if (reference.isNull())
+        return {};
+    reference = reference.scaled(160, 160, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+    QDir().mkpath(cache.path());
+    if (!lut.apply(reference).save(out, "JPG", 88))
+        return {};
+    return QUrl::fromLocalFile(out);
+}
+
+bool AppController::removeImportedLut(const QString &path)
+{
+    const QFileInfo info(path);
+    if (QDir::cleanPath(info.absolutePath()) != QDir::cleanPath(lutLibraryDir()))
+        return false;
+    if (!QFile::remove(info.absoluteFilePath()))
+        return false;
+    emit lutLibraryChanged();
+    return true;
 }
 
 QVariantList AppController::effectCatalog() const

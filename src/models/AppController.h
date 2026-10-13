@@ -1228,6 +1228,25 @@ public:
                                               const QString &mode);
     Q_INVOKABLE void resetClipTransform(int trackIndex, int clipIndex);
     Q_INVOKABLE QVariantList effectCatalog() const;
+
+    // LUTs (the color.lut effect). The factory looks that ship with the app and the ones the
+    // person imported, each {id, name, path, factory, category}. Imported LUTs are copied into the
+    // person's LUT library (AppData/luts), so the original can move or go without breaking a
+    // project, and a project carried elsewhere finds them by name (CubeLut::resolve).
+    Q_INVOKABLE QVariantList lutLibrary() const;
+    // Checks a .cube file and copies it into the library: {ok, path, name} or {ok:false, error}.
+    Q_INVOKABLE QVariantMap importLut(const QUrl &url);
+    // {ok, name, missing, error, size, is3d} for a LUT path as a project saved it.
+    Q_INVOKABLE QVariantMap lutInfo(const QString &path) const;
+    // A small picture graded by the LUT (the real table applied on the CPU to a reference photo),
+    // as a file URL, cached by the LUT file's contents. Empty when the LUT cannot be read.
+    Q_INVOKABLE QUrl lutThumbnail(const QString &path) const;
+    // Deletes an imported LUT from the library (never a factory one). Projects that used it keep
+    // their saved path and report it missing.
+    Q_INVOKABLE bool removeImportedLut(const QString &path);
+    static QString lutLibraryDir();
+    static QString factoryLutDir();
+    void updateLutSearchDirs();
     Q_INVOKABLE QVariantList effectCategories() const;
     Q_INVOKABLE QVariantList effectTemplateCatalog() const;
     Q_INVOKABLE QVariantList effectTemplateCategories() const;
@@ -1662,6 +1681,8 @@ signals:
     void editCapabilitiesChanged();
     void sequenceTabsChanged();
     void selectedClipDataChanged();
+    // An imported LUT was added to or removed from the library.
+    void lutLibraryChanged();
     void selectedTransitionDataChanged();
     void bookmarksChanged();
     void workAreaChanged();

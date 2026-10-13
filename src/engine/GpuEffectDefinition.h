@@ -60,6 +60,10 @@ struct GpuEffectTextureSpec
     QString id;
     QString file; // relative to packageDir
     QString path; // resolved absolute path
+    // Instead of a fixed file: the .cube LUT named by this file parameter of the effect, read and
+    // uploaded when the effect runs (see GlRuntime's lutTexture). The shader also gets u_lutSize,
+    // u_lut3d, u_lutDomainMin, u_lutDomainMax and u_lutReady (0 while there is no valid table).
+    QString fromParameter;
 };
 
 struct GpuEffectPassInput

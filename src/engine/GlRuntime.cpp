@@ -1,6 +1,7 @@
 #include "GlRuntime.h"
 
 #include "ClipReader.h"
+#include "core/CubeLut.h"
 #include "Face111.h"
 #include "DepthSidecar.h"
 #include "GlModelRenderer.h"
@@ -16,6 +17,8 @@
 
 #include <QColor>
 #include <QCoreApplication>
+#include <QDateTime>
+#include <QFileInfo>
 #include <QFloat16>
 #include <QMatrix3x3>
 #include <QMutex>
@@ -1423,6 +1426,12 @@ void GlRuntime::shutdown()
                     gl->glDeleteTextures(1, &tex);
                 }
                 staticTextures.clear();
+                for (const auto &entry : lutTextures) {
+                    GLuint tex = entry.second.tex;
+                    if (tex)
+                        gl->glDeleteTextures(1, &tex);
+                }
+                lutTextures.clear();
                 for (const DepthTexture &entry : depthTextures)
                     gl->glDeleteTextures(1, &entry.texture);
                 depthTextures.clear();
@@ -3150,6 +3159,73 @@ GLuint staticTexture(GlRuntime &rt, QOpenGLExtraFunctions *gl, const QString &pa
     return tex;
 }
 
+const GlRuntime::LutTexture *lutTexture(GlRuntime &rt, QOpenGLExtraFunctions *gl, const QString &savedPath)
+{
+    // A project carried to another folder or computer finds its LUT by name (CubeLut::resolve).
+    const QString path = drift::CubeLut::resolve(savedPath);
+    if (path.isEmpty())
+        return nullptr;
+    const QFileInfo info(path);
+    const qint64 stamp = info.exists() ? (info.size() ^ (info.lastModified().toMSecsSinceEpoch() << 20)) : -1;
+    auto it = rt.lutTextures.find(path);
+    if (it != rt.lutTextures.end() && it->second.stamp == stamp)
+        return it->second.tex ? &it->second : nullptr;
+    if (it != rt.lutTextures.end() && it->second.tex) {
+        GLuint old = it->second.tex;
+        gl->glDeleteTextures(1, &old);
+    }
+
+    GlRuntime::LutTexture entry;
+    entry.stamp = stamp;
+    QString error;
+    const drift::CubeLut lut = stamp < 0 ? drift::CubeLut{} : drift::CubeLut::load(path, &error);
+    if (!lut.isValid()) {
+        if (stamp >= 0)
+            qWarning("GlRuntime: LUT '%s' not loaded: %s", qPrintable(path), qPrintable(error));
+        rt.lutTextures[path] = entry;
+        return nullptr;
+    }
+    const QImage image = lut.toTexture();
+
+    // 16 bits a channel where the context has them (every desktop GL; GLES with norm16), so a
+    // smooth gradient through the table does not band; 8 bits otherwise.
+    constexpr GLenum kRgba16 = 0x805B;
+    const QOpenGLContext *context = QOpenGLContext::currentContext();
+    const bool norm16 = context
+                        && (!context->isOpenGLES()
+                            || context->hasExtension(QByteArrayLiteral("GL_EXT_texture_norm16")));
+    GLuint tex = 0;
+    gl->glGenTextures(1, &tex);
+    gl->glBindTexture(GL_TEXTURE_2D, tex);
+    if (norm16) {
+        gl->glPixelStorei(GL_UNPACK_ALIGNMENT, 2);
+        // Format_RGBA64 rows are padded to 4 bytes, which 8-byte texels always are.
+        gl->glTexImage2D(GL_TEXTURE_2D, 0, kRgba16, image.width(), image.height(), 0, GL_RGBA,
+                         GL_UNSIGNED_SHORT, image.constBits());
+    } else {
+        const QImage rgba = image.convertToFormat(QImage::Format_RGBA8888);
+        gl->glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+        gl->glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, rgba.width(), rgba.height(), 0, GL_RGBA,
+                         GL_UNSIGNED_BYTE, rgba.constBits());
+    }
+    gl->glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
+    // Linear: the shader samples at texel centres, so the hardware does the red/green
+    // interpolation inside a slice and the shader mixes two blue slices (trilinear).
+    gl->glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    gl->glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    gl->glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    gl->glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    gl->glBindTexture(GL_TEXTURE_2D, 0);
+
+    entry.tex = tex;
+    entry.size = lut.size;
+    entry.is3d = lut.is3d;
+    std::copy(lut.domainMin, lut.domainMin + 3, entry.domainMin);
+    std::copy(lut.domainMax, lut.domainMax + 3, entry.domainMax);
+    rt.lutTextures[path] = entry;
+    return &rt.lutTextures[path];
+}
+
 GLuint depthTexture(GlRuntime &rt, QOpenGLExtraFunctions *gl, const drift::DepthFrame &frame)
 {
     for (auto it = rt.depthTextures.begin(); it != rt.depthTextures.end(); ++it) {
@@ -3736,8 +3812,15 @@ GlTarget runPipeline(GlRuntime &rt, QOpenGLExtraFunctions *gl, const QString &ca
     }
 
     std::map<QString, GLuint> textures;
-    for (const drift::GpuEffectTextureSpec &spec : gpu.textures)
+    const GlRuntime::LutTexture *lut = nullptr;
+    for (const drift::GpuEffectTextureSpec &spec : gpu.textures) {
+        if (!spec.fromParameter.isEmpty()) {
+            lut = lutTexture(rt, gl, parameters.value(spec.fromParameter).toString());
+            textures[spec.id] = lut ? lut->tex : 0;
+            continue;
+        }
         textures[spec.id] = staticTexture(rt, gl, spec.path);
+    }
 
     GLuint depthTex = 0;
     QSize depthSize;
@@ -3801,6 +3884,15 @@ GlTarget runPipeline(GlRuntime &rt, QOpenGLExtraFunctions *gl, const QString &ca
 
         program->bind();
         setPackageUniforms(program, parameters, inputSize, timeUs, progress);
+        // A LUT read from the effect's file parameter: its shape, or u_lutReady 0 without one
+        // (a missing or broken file passes the picture through rather than painting it black).
+        program->setUniformValue("u_lutReady", lut ? 1.f : 0.f);
+        if (lut) {
+            program->setUniformValue("u_lutSize", float(lut->size));
+            program->setUniformValue("u_lut3d", lut->is3d ? 1.f : 0.f);
+            program->setUniformValue("u_lutDomainMin", QVector3D(lut->domainMin[0], lut->domainMin[1], lut->domainMin[2]));
+            program->setUniformValue("u_lutDomainMax", QVector3D(lut->domainMax[0], lut->domainMax[1], lut->domainMax[2]));
+        }
 
         // Bind all declared inputs: unit 0 → u_currentTexture, unit i → u_texture{i}.
         const QList<drift::GpuEffectPassInput> inputs =

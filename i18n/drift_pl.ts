@@ -392,6 +392,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Mask</source>
         <translation type="unfinished">Maska</translation>
     </message>
@@ -3490,6 +3494,18 @@
         <translation>Zaktualizowano przejście</translation>
     </message>
     <message>
+        <source>The LUT library folder could not be created.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The LUT could not be copied into the library: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The LUT «%1» is not where the project saved it, nor in your LUT library. Find it to use it again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Voice changer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5968,6 +5984,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Color Wheels</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7995,6 +8019,65 @@
     <message>
         <source>Apply</source>
         <translation>Zastosuj</translation>
+    </message>
+</context>
+<context>
+    <name>CubeLut</name>
+    <message>
+        <source>The table starts before LUT_3D_SIZE or LUT_1D_SIZE says how big it is.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line %1 is not three numbers (red, green, blue).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The table has more rows than its size says (%1).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The file declares more than one table; only one per file is supported.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT_3D_SIZE must be between 2 and %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT_1D_SIZE must be between 2 and %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 needs three numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 needs two numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This is not a .cube LUT: it has no LUT_3D_SIZE or LUT_1D_SIZE line.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DOMAIN_MAX must be above DOMAIN_MIN on every channel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The table is incomplete: it has %1 of the %2 rows its size needs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The LUT file is not there any more: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The LUT file is too large (over 64 MB).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The LUT file could not be opened: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -10900,6 +10983,104 @@
     <message>
         <source>720p</source>
         <translation>720p</translation>
+    </message>
+</context>
+<context>
+    <name>Lut</name>
+    <message>
+        <source>Cinematic</source>
+        <translation type="unfinished">Filmowy</translation>
+    </message>
+    <message>
+        <source>Warm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vintage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Teal &amp; Orange</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black &amp; White</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LutPage</name>
+    <message>
+        <source>Import LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT (*.cube)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation type="unfinished">Wszystkie pliki (*)</translation>
+    </message>
+    <message>
+        <source>This file is not a LUT that can be used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A LUT is a ready-made colour look. Pick one, or import a .cube file; Intensity mixes it with the original colour.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import LUT…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No LUT chosen yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn the LUT off to compare with and without it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find the LUT…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation type="unfinished">Intensywność</translation>
+    </message>
+    <message>
+        <source>LUT intensity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset LUT intensity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset intensity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Looks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imported</source>
+        <translation type="unfinished">Zaimportowano</translation>
+    </message>
+    <message>
+        <source>Delete from my LUTs</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

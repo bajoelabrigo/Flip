@@ -392,6 +392,10 @@
         <translation>Círculo cromático</translation>
     </message>
     <message>
+        <source>LUT</source>
+        <translation>LUT</translation>
+    </message>
+    <message>
         <source>Mask</source>
         <translation>Máscara</translation>
     </message>
@@ -3485,6 +3489,18 @@
         <translation>Transición actualizada</translation>
     </message>
     <message>
+        <source>The LUT library folder could not be created.</source>
+        <translation>No se pudo crear la carpeta de la biblioteca de LUT.</translation>
+    </message>
+    <message>
+        <source>The LUT could not be copied into the library: %1</source>
+        <translation>No se pudo copiar el LUT a la biblioteca: %1</translation>
+    </message>
+    <message>
+        <source>The LUT «%1» is not where the project saved it, nor in your LUT library. Find it to use it again.</source>
+        <translation>El LUT «%1» no está donde lo guardó el proyecto ni en tu biblioteca de LUT. Búscalo para volver a usarlo.</translation>
+    </message>
+    <message>
         <source>Voice changer</source>
         <translation>Modificador de voz</translation>
     </message>
@@ -5944,6 +5960,14 @@
         <translation>Brillo del magenta</translation>
     </message>
     <message>
+        <source>LUT</source>
+        <translation>LUT</translation>
+    </message>
+    <message>
+        <source>LUT file</source>
+        <translation>Archivo LUT</translation>
+    </message>
+    <message>
         <source>Color Wheels</source>
         <translation>Círculo cromático</translation>
     </message>
@@ -7971,6 +7995,65 @@
     <message>
         <source>Apply</source>
         <translation>Aplicar</translation>
+    </message>
+</context>
+<context>
+    <name>CubeLut</name>
+    <message>
+        <source>The table starts before LUT_3D_SIZE or LUT_1D_SIZE says how big it is.</source>
+        <translation>La tabla empieza antes de que LUT_3D_SIZE o LUT_1D_SIZE digan su tamaño.</translation>
+    </message>
+    <message>
+        <source>Line %1 is not three numbers (red, green, blue).</source>
+        <translation>La línea %1 no tiene tres números (rojo, verde, azul).</translation>
+    </message>
+    <message>
+        <source>The table has more rows than its size says (%1).</source>
+        <translation>La tabla tiene más filas de las que indica su tamaño (%1).</translation>
+    </message>
+    <message>
+        <source>The file declares more than one table; only one per file is supported.</source>
+        <translation>El archivo declara más de una tabla; solo se admite una por archivo.</translation>
+    </message>
+    <message>
+        <source>LUT_3D_SIZE must be between 2 and %1.</source>
+        <translation>LUT_3D_SIZE debe estar entre 2 y %1.</translation>
+    </message>
+    <message>
+        <source>LUT_1D_SIZE must be between 2 and %1.</source>
+        <translation>LUT_1D_SIZE debe estar entre 2 y %1.</translation>
+    </message>
+    <message>
+        <source>%1 needs three numbers.</source>
+        <translation>%1 necesita tres números.</translation>
+    </message>
+    <message>
+        <source>%1 needs two numbers.</source>
+        <translation>%1 necesita dos números.</translation>
+    </message>
+    <message>
+        <source>This is not a .cube LUT: it has no LUT_3D_SIZE or LUT_1D_SIZE line.</source>
+        <translation>Esto no es un LUT .cube: no tiene la línea LUT_3D_SIZE ni LUT_1D_SIZE.</translation>
+    </message>
+    <message>
+        <source>DOMAIN_MAX must be above DOMAIN_MIN on every channel.</source>
+        <translation>DOMAIN_MAX debe ser mayor que DOMAIN_MIN en cada canal.</translation>
+    </message>
+    <message>
+        <source>The table is incomplete: it has %1 of the %2 rows its size needs.</source>
+        <translation>La tabla está incompleta: tiene %1 de las %2 filas que necesita su tamaño.</translation>
+    </message>
+    <message>
+        <source>The LUT file is not there any more: %1</source>
+        <translation>El archivo LUT ya no está: %1</translation>
+    </message>
+    <message>
+        <source>The LUT file is too large (over 64 MB).</source>
+        <translation>El archivo LUT es demasiado grande (más de 64 MB).</translation>
+    </message>
+    <message>
+        <source>The LUT file could not be opened: %1</source>
+        <translation>No se pudo abrir el archivo LUT: %1</translation>
     </message>
 </context>
 <context>
@@ -10868,6 +10951,104 @@
     <message>
         <source>720p</source>
         <translation>720p</translation>
+    </message>
+</context>
+<context>
+    <name>Lut</name>
+    <message>
+        <source>Cinematic</source>
+        <translation>Cinematográfico</translation>
+    </message>
+    <message>
+        <source>Warm</source>
+        <translation>Cálido</translation>
+    </message>
+    <message>
+        <source>Cold</source>
+        <translation>Frío</translation>
+    </message>
+    <message>
+        <source>Vintage</source>
+        <translation>Vintage</translation>
+    </message>
+    <message>
+        <source>Teal &amp; Orange</source>
+        <translation>Teal &amp; Orange</translation>
+    </message>
+    <message>
+        <source>Black &amp; White</source>
+        <translation>Blanco y negro</translation>
+    </message>
+</context>
+<context>
+    <name>LutPage</name>
+    <message>
+        <source>Import LUT</source>
+        <translation>Importar LUT</translation>
+    </message>
+    <message>
+        <source>LUT (*.cube)</source>
+        <translation>LUT (*.cube)</translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation>Todos los archivos (*)</translation>
+    </message>
+    <message>
+        <source>This file is not a LUT that can be used.</source>
+        <translation>Este archivo no es un LUT que se pueda usar.</translation>
+    </message>
+    <message>
+        <source>A LUT is a ready-made colour look. Pick one, or import a .cube file; Intensity mixes it with the original colour.</source>
+        <translation>Un LUT es un look de color ya hecho. Elige uno o importa un archivo .cube; la intensidad lo mezcla con el color original.</translation>
+    </message>
+    <message>
+        <source>Import LUT…</source>
+        <translation>Importar LUT…</translation>
+    </message>
+    <message>
+        <source>No LUT chosen yet</source>
+        <translation>Todavía no elegiste un LUT</translation>
+    </message>
+    <message>
+        <source>Turn the LUT off to compare with and without it</source>
+        <translation>Apaga el LUT para comparar con y sin él</translation>
+    </message>
+    <message>
+        <source>Find the LUT…</source>
+        <translation>Buscar el LUT…</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>Intensidad</translation>
+    </message>
+    <message>
+        <source>LUT intensity</source>
+        <translation>Intensidad del LUT</translation>
+    </message>
+    <message>
+        <source>Reset LUT intensity</source>
+        <translation>Restablecer la intensidad del LUT</translation>
+    </message>
+    <message>
+        <source>Reset intensity</source>
+        <translation>Restablecer la intensidad</translation>
+    </message>
+    <message>
+        <source>Remove LUT</source>
+        <translation>Quitar el LUT</translation>
+    </message>
+    <message>
+        <source>Looks</source>
+        <translation>Looks</translation>
+    </message>
+    <message>
+        <source>Imported</source>
+        <translation>Importados</translation>
+    </message>
+    <message>
+        <source>Delete from my LUTs</source>
+        <translation>Borrar de mis LUT</translation>
     </message>
 </context>
 <context>

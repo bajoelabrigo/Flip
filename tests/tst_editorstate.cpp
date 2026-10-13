@@ -96,6 +96,7 @@ private slots:
     void masksAreEditedInPlaceOnTheClip();
     void draggingAnEdgeOverANeighbourMakesADissolve();
     void missingMediaIsFoundWithItsNeighbours();
+    void importedLutGoesToTheLibraryAndBrokenOnesAreRefused();
     void transformLayerParentsPreviewBoxes();
     void transformSpanOptionsAndValidation();
     void transformLayerEntryPoints();
@@ -1373,6 +1374,63 @@ void EditorStateTest::draggingAnEdgeOverANeighbourMakesADissolve()
 
 // Missing media, as Premiere relinks it: two files whose folder was moved. Finding one points
 // its asset and clips at the new place and finds the other one there too, in one undo step.
+// Importing a .cube copies it into the LUT library (once, however often it is imported), a broken
+// file is refused with a reason, and a LUT a project names but nobody has is reported missing.
+void EditorStateTest::importedLutGoesToTheLibraryAndBrokenOnesAreRefused()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    const auto restore = qScopeGuard([] { QStandardPaths::setTestModeEnabled(false); });
+    QDir(AppController::lutLibraryDir()).removeRecursively();
+
+    AssetLibrary library;
+    AppController state(&library);
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QString good = QDir(dir.path()).filePath(QStringLiteral("Mi look.cube"));
+    {
+        QFile f(good);
+        QVERIFY(f.open(QIODevice::WriteOnly));
+        f.write("TITLE \"Mi look\"\nLUT_1D_SIZE 2\n0 0 0\n1 1 1\n");
+    }
+    const QString broken = QDir(dir.path()).filePath(QStringLiteral("roto.cube"));
+    {
+        QFile f(broken);
+        QVERIFY(f.open(QIODevice::WriteOnly));
+        f.write("LUT_3D_SIZE 4\n0 0 0\n");
+    }
+
+    QSignalSpy changed(&state, &AppController::lutLibraryChanged);
+    const QVariantMap first = state.importLut(QUrl::fromLocalFile(good));
+    QVERIFY2(first.value(QStringLiteral("ok")).toBool(), qPrintable(first.value(QStringLiteral("error")).toString()));
+    const QString copy = first.value(QStringLiteral("path")).toString();
+    QVERIFY(copy.startsWith(AppController::lutLibraryDir()));
+    QVERIFY(QFileInfo::exists(copy));
+    QCOMPARE(changed.count(), 1);
+    // The same file again reuses the copy.
+    QCOMPARE(state.importLut(QUrl::fromLocalFile(good)).value(QStringLiteral("path")).toString(), copy);
+
+    bool listed = false;
+    for (const QVariant &entry : state.lutLibrary()) {
+        const QVariantMap m = entry.toMap();
+        if (m.value(QStringLiteral("path")).toString() == copy)
+            listed = !m.value(QStringLiteral("factory")).toBool();
+    }
+    QVERIFY(listed);
+
+    const QVariantMap refused = state.importLut(QUrl::fromLocalFile(broken));
+    QVERIFY(!refused.value(QStringLiteral("ok")).toBool());
+    QVERIFY(!refused.value(QStringLiteral("error")).toString().isEmpty());
+
+    // The original can go: the project points at the library copy, which stays.
+    QVERIFY(QFile::remove(good));
+    QVERIFY(state.lutInfo(copy).value(QStringLiteral("ok")).toBool());
+    const QVariantMap gone = state.lutInfo(QStringLiteral("C:/nadie/tiene/este.cube"));
+    QVERIFY(gone.value(QStringLiteral("missing")).toBool());
+
+    QVERIFY(state.removeImportedLut(copy));
+    QVERIFY(!QFileInfo::exists(copy));
+}
+
 void EditorStateTest::missingMediaIsFoundWithItsNeighbours()
 {
     AssetLibrary library;

@@ -362,6 +362,7 @@ private slots:
     void aSwitchedOffAdjustmentIsLeftOut();
     void adjustmentStrengthMixesTheLayerWithWhatIsUnder();
     void basicAdjustWhitesBlacksAndFadeMoveTheEndsOfTheRange();
+    void lutEffectGradesThroughItsCubeFile();
     void pinnedLaneAdjustmentsStayOnTheirOwnClip();
     void transformLayerMatrixMapsTheBox();
     void parentedQuadKeepsDepthAndNearPlanes();
@@ -11005,6 +11006,58 @@ void EngineTest::basicAdjustWhitesBlacksAndFadeMoveTheEndsOfTheRange()
              qPrintable(QStringLiteral("%1 %2").arg(fade.first).arg(fade.second)));
     const auto none = render(QStringLiteral("fade"), 0.0);
     QVERIFY(qAbs(none.first - plain.first) <= 1 && qAbs(none.second - plain.second) <= 1);
+}
+
+// A LUT effect grades through the .cube its file parameter names: an inverting table turns red
+// into cyan, intensity 0 leaves the picture alone, and a missing file passes it through.
+void EngineTest::lutEffectGradesThroughItsCubeFile()
+{
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QString path = QDir(dir.path()).filePath(QStringLiteral("invert.cube"));
+    {
+        QFile file(path);
+        QVERIFY(file.open(QIODevice::WriteOnly));
+        QByteArray text = "LUT_3D_SIZE 9\n";
+        for (int b = 0; b < 9; ++b)
+            for (int g = 0; g < 9; ++g)
+                for (int r = 0; r < 9; ++r)
+                    text += QByteArray::number(1.0 - r / 8.0, 'f', 6) + ' ' + QByteArray::number(1.0 - g / 8.0, 'f', 6)
+                            + ' ' + QByteArray::number(1.0 - b / 8.0, 'f', 6) + '\n';
+        file.write(text);
+    }
+
+    QImage red(32, 32, QImage::Format_RGBA8888);
+    red.fill(QColor(230, 20, 10));
+    auto render = [&](const QString &lutPath, double intensity) {
+        drift::Effect lut;
+        lut.catalogId = QStringLiteral("color.lut");
+        lut.parameters.insert(QStringLiteral("lut"), lutPath);
+        lut.parameters.insert(QStringLiteral("intensity"), intensity);
+        GpuItem item;
+        item.layer.valid = true;
+        item.layer.source = red;
+        item.layer.rect = QRectF(0, 0, 32, 32);
+        item.layer.effects.append(lut);
+        GpuScene scene;
+        scene.canvasSize = QSize(32, 32);
+        scene.backgroundColor = Qt::black;
+        scene.items.append(item);
+        return GpuCompositor::render(scene).pixelColor(16, 16);
+    };
+
+    const QColor graded = render(path, 1.0);
+    QVERIFY2(qAbs(graded.red() - 25) <= 4 && qAbs(graded.green() - 235) <= 4 && qAbs(graded.blue() - 245) <= 4,
+             qPrintable(graded.name()));
+    const QColor none = render(path, 0.0);
+    QVERIFY2(qAbs(none.red() - 230) <= 3 && none.green() <= 23, qPrintable(none.name()));
+    const QColor half = render(path, 0.5);
+    QVERIFY2(qAbs(half.red() - 128) <= 6, qPrintable(half.name()));
+    const QColor missing = render(QDir(dir.path()).filePath(QStringLiteral("gone.cube")), 1.0);
+    QVERIFY2(qAbs(missing.red() - 230) <= 3, qPrintable(missing.name()));
 }
 
 // A transition draws the incoming clip across instants that belong to the outgoing one, where the
