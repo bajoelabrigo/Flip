@@ -2449,6 +2449,10 @@
         <translation>ක්ලිපය ගෙනයන ලදී</translation>
     </message>
     <message>
+        <source>Crossfade added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Nothing to split here — move to a clip first</source>
         <translation>මෙහි වෙන් කිරීමට කිසිවක් නැත — පළමුව ක්ලිපයක් මතට යන්න</translation>
     </message>
@@ -4687,6 +4691,25 @@
     <message>
         <source>Couldn’t import that folder.</source>
         <translation>එම ෆෝල්ඩරය ආයාත කිරීමට නොහැකි විය.</translation>
+    </message>
+    <message>
+        <source>Where is %1 now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>File found</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <source>Imported %n files into %1 folders — as many as one folder import takes. Import the remaining subfolders separately.</source>
@@ -11587,6 +11610,18 @@
         <translation>%1 — කාලරේඛාවට අදින්න, පෙරදසුන සඳහා දකුණු-ක්ලික් කරන්න</translation>
     </message>
     <message>
+        <source>Missing file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This file is not where it was. Right-click and choose Find missing file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find missing file…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open composite</source>
         <translation>Composite විවෘත කරන්න</translation>
     </message>
@@ -11742,6 +11777,21 @@
     <message>
         <source>That file is already in this project.</source>
         <translation>එම ගොනුව දැනටමත් මෙම ව්‍යාපෘතියේ ඇත.</translation>
+    </message>
+    <message>
+        <source>Relink media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Media found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>An edit is already saving</source>
@@ -12091,6 +12141,59 @@
     <message>
         <source>Reopen the project once they finish installing.</source>
         <translation>ඒවා ස්ථාපනය අවසන් වූ පසු ව්‍යාපෘතිය නැවත විවෘත කරන්න.</translation>
+    </message>
+</context>
+<context>
+    <name>MissingMediaDialog</name>
+    <message>
+        <source>Some files are missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search a folder…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Later</source>
+        <translation type="unfinished">පසුව</translation>
+    </message>
+    <message>
+        <source>Folder where the files are now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>None of the missing files are in that folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files of this project are not where they were: they were deleted, renamed or moved. Find each one, or search a folder for all of them. When you find one, the others in the same folder are found too.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Find…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Where is %1 now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation type="unfinished">සියලු ගොනු (*)</translation>
     </message>
 </context>
 <context>
@@ -19127,6 +19230,10 @@ If playback stutters, try another.</source>
         <translation>වැඩ කලාපය හිස් කරන්න</translation>
     </message>
     <message>
+        <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add transform layer</source>
         <translation>පරිවර්තන ස්තරයක් එක් කරන්න</translation>
     </message>
@@ -19165,6 +19272,14 @@ If playback stutters, try another.</source>
     <message>
         <source>No composite clips yet</source>
         <translation>තවමත් සංයුක්ත ක්ලිප් නැත</translation>
+    </message>
+    <message>
+        <source>Automatic dissolve: on. Drag a clip&apos;s edge over the next one and the overlap becomes a dissolve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic dissolve: off</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

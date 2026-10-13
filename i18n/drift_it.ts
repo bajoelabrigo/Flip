@@ -2449,6 +2449,10 @@
         <translation>Clip spostata</translation>
     </message>
     <message>
+        <source>Crossfade added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Nothing to split here — move to a clip first</source>
         <translation>Niente da dividere qui: spostati prima su una clip</translation>
     </message>
@@ -4687,6 +4691,25 @@
     <message>
         <source>Couldn’t import that folder.</source>
         <translation>Impossibile importare quella cartella.</translation>
+    </message>
+    <message>
+        <source>Where is %1 now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>File found</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <source>Imported %n files into %1 folders — as many as one folder import takes. Import the remaining subfolders separately.</source>
@@ -11587,6 +11610,18 @@
         <translation>%1 — trascina sulla timeline, fai clic con il pulsante destro del mouse per l&apos;anteprima</translation>
     </message>
     <message>
+        <source>Missing file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This file is not where it was. Right-click and choose Find missing file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find missing file…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open composite</source>
         <translation>Apri composito</translation>
     </message>
@@ -11742,6 +11777,21 @@
     <message>
         <source>That file is already in this project.</source>
         <translation>Il file è già presente in questo progetto.</translation>
+    </message>
+    <message>
+        <source>Relink media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Media found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>An edit is already saving</source>
@@ -12091,6 +12141,59 @@
     <message>
         <source>Reopen the project once they finish installing.</source>
         <translation>Riapri il progetto una volta completata l&apos;installazione.</translation>
+    </message>
+</context>
+<context>
+    <name>MissingMediaDialog</name>
+    <message>
+        <source>Some files are missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search a folder…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Later</source>
+        <translation type="unfinished">Più tardi</translation>
+    </message>
+    <message>
+        <source>Folder where the files are now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>None of the missing files are in that folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files of this project are not where they were: they were deleted, renamed or moved. Find each one, or search a folder for all of them. When you find one, the others in the same folder are found too.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Find…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Where is %1 now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation type="unfinished">Tutti i file (*)</translation>
     </message>
 </context>
 <context>
@@ -19127,6 +19230,10 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Cancella area di lavoro</translation>
     </message>
     <message>
+        <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add transform layer</source>
         <translation>Aggiungi livello di trasformazione</translation>
     </message>
@@ -19165,6 +19272,14 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
     <message>
         <source>No composite clips yet</source>
         <translation>Nessuna clip composita finora</translation>
+    </message>
+    <message>
+        <source>Automatic dissolve: on. Drag a clip&apos;s edge over the next one and the overlap becomes a dissolve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic dissolve: off</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

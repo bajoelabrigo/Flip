@@ -2447,6 +2447,10 @@
         <translation>Đã di chuyển clip</translation>
     </message>
     <message>
+        <source>Crossfade added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Nothing to split here — move to a clip first</source>
         <translation>Không có gì để cắt ở đây — trước tiên hãy chuyển đến một clip</translation>
     </message>
@@ -4669,6 +4673,24 @@
     <message>
         <source>Couldn’t import that folder.</source>
         <translation>Không thể nhập thư mục đó.</translation>
+    </message>
+    <message>
+        <source>Where is %1 now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>File found</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <source>Imported %n files into %1 folders — as many as one folder import takes. Import the remaining subfolders separately.</source>
@@ -11556,6 +11578,18 @@
         <translation>%1 - kéo vào dòng thời gian, nhấp chuột phải để xem trước</translation>
     </message>
     <message>
+        <source>Missing file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This file is not where it was. Right-click and choose Find missing file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find missing file…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open composite</source>
         <translation>Mở tổ hợp</translation>
     </message>
@@ -11705,6 +11739,20 @@
     <message>
         <source>That file is already in this project.</source>
         <translation>Tệp đó đã có trong dự án này.</translation>
+    </message>
+    <message>
+        <source>Relink media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Media found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>An edit is already saving</source>
@@ -12050,6 +12098,57 @@
     <message>
         <source>Reopen the project once they finish installing.</source>
         <translation>Mở lại dự án sau khi cài đặt xong.</translation>
+    </message>
+</context>
+<context>
+    <name>MissingMediaDialog</name>
+    <message>
+        <source>Some files are missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search a folder…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Later</source>
+        <translation type="unfinished">Để sau</translation>
+    </message>
+    <message>
+        <source>Folder where the files are now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>None of the missing files are in that folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files of this project are not where they were: they were deleted, renamed or moved. Find each one, or search a folder for all of them. When you find one, the others in the same folder are found too.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Find…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Where is %1 now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation type="unfinished">Tất cả tệp (*)</translation>
     </message>
 </context>
 <context>
@@ -19075,6 +19174,10 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Xóa khu vực làm việc</translation>
     </message>
     <message>
+        <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add transform layer</source>
         <translation>Thêm lớp chuyển đổi</translation>
     </message>
@@ -19113,6 +19216,14 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     <message>
         <source>No composite clips yet</source>
         <translation>Chưa có clip tổ hợp nào</translation>
+    </message>
+    <message>
+        <source>Automatic dissolve: on. Drag a clip&apos;s edge over the next one and the overlap becomes a dissolve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic dissolve: off</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

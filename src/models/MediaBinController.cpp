@@ -9,6 +9,7 @@
 #include "engine/MediaProbe.h"
 
 #include <QDir>
+#include <QDirIterator>
 #include <QFile>
 #include <QFileInfo>
 #include <QFutureWatcher>
@@ -358,6 +359,128 @@ bool MediaBinController::replaceSource(int assetIndex, const QUrl &url)
     m_replacingAssetSourceUri = sourceUri;
     emit replacingAssetIdChanged();
     return true;
+}
+
+QVariantList MediaBinController::missingMedia() const
+{
+    QVariantList out;
+    for (const QString &id : m_app->m_project.assetOrder()) {
+        const drift::MediaAsset *asset = m_app->m_project.asset(id);
+        if (!asset || !AssetLibrary::isMissingPath(asset->path))
+            continue;
+        out.append(QVariantMap{
+            {QStringLiteral("id"), asset->id},
+            {QStringLiteral("name"), asset->name},
+            {QStringLiteral("path"), QDir::toNativeSeparators(asset->path)},
+            {QStringLiteral("fileName"), QFileInfo(asset->path).fileName()},
+            {QStringLiteral("kind"), drift::mediaKindToString(asset->kind)},
+        });
+    }
+    return out;
+}
+
+namespace {
+
+// Points an asset, and every clip on every timeline that uses it, at `newPath`.
+void relinkAssetPath(drift::Project &project, const QString &assetId, const QString &newPath)
+{
+    drift::MediaAsset *asset = project.asset(assetId);
+    if (!asset)
+        return;
+    const QString oldPath = asset->path;
+    asset->path = newPath;
+    project.forEachTrackList([&](QList<drift::Track> &tracks) {
+        for (drift::Track &track : tracks) {
+            for (drift::Clip &clip : track.clips) {
+                if (clip.assetId == assetId || (!oldPath.isEmpty() && clip.path == oldPath))
+                    clip.path = newPath;
+            }
+        }
+    });
+}
+
+} // namespace
+
+int MediaBinController::relinkMissing(const QString &assetId, const QUrl &file)
+{
+    const QString path = file.isLocalFile() ? file.toLocalFile() : file.toString();
+    const QFileInfo info(path);
+    drift::MediaAsset *asset = m_app->m_project.asset(assetId);
+    if (!asset || !info.isFile())
+        return 0;
+
+    const drift::Project before = m_app->m_project;
+    QStringList relinked;
+    relinkAssetPath(m_app->m_project, assetId, info.absoluteFilePath());
+    relinked << assetId;
+
+    // The others are often right next to it: the whole folder was moved or renamed.
+    const QDir dir = info.absoluteDir();
+    for (const QString &id : m_app->m_project.assetOrder()) {
+        const drift::MediaAsset *other = m_app->m_project.asset(id);
+        if (!other || id == assetId || !AssetLibrary::isMissingPath(other->path))
+            continue;
+        const QString candidate = dir.absoluteFilePath(QFileInfo(other->path).fileName());
+        if (QFileInfo(candidate).isFile()) {
+            relinkAssetPath(m_app->m_project, id, candidate);
+            relinked << id;
+        }
+    }
+
+    m_app->pushProjectEdit(before, tr("Relink media"));
+    m_app->finishEdit(relinked.size() == 1 ? tr("Media found")
+                                           : tr("%n files found", "", relinked.size()));
+    for (const QString &id : relinked)
+        m_app->m_assetLibrary->assetPathChanged(id);
+    emit missingMediaChanged();
+    return relinked.size();
+}
+
+int MediaBinController::relinkMissingInFolder(const QUrl &folder)
+{
+    const QString root = folder.isLocalFile() ? folder.toLocalFile() : folder.toString();
+    if (!QFileInfo(root).isDir())
+        return 0;
+
+    // Missing file names, then one walk of the folder (bounded, so pointing at a whole drive
+    // cannot hang the app).
+    QHash<QString, QStringList> wanted; // lower-case file name -> asset ids
+    for (const QString &id : m_app->m_project.assetOrder()) {
+        const drift::MediaAsset *asset = m_app->m_project.asset(id);
+        if (asset && AssetLibrary::isMissingPath(asset->path))
+            wanted[QFileInfo(asset->path).fileName().toLower()].append(id);
+    }
+    if (wanted.isEmpty())
+        return 0;
+
+    QHash<QString, QString> found; // asset id -> new path
+    constexpr int kMaxEntries = 200000;
+    int seen = 0;
+    QDirIterator it(root, QDir::Files | QDir::NoDotAndDotDot | QDir::Readable,
+                    QDirIterator::Subdirectories);
+    while (it.hasNext() && seen < kMaxEntries && found.size() < wanted.size()) {
+        const QString path = it.next();
+        ++seen;
+        const auto hit = wanted.constFind(it.fileName().toLower());
+        if (hit == wanted.constEnd())
+            continue;
+        for (const QString &id : *hit) {
+            if (!found.contains(id))
+                found.insert(id, QFileInfo(path).absoluteFilePath());
+        }
+    }
+    if (found.isEmpty())
+        return 0;
+
+    const drift::Project before = m_app->m_project;
+    for (auto f = found.constBegin(); f != found.constEnd(); ++f)
+        relinkAssetPath(m_app->m_project, f.key(), f.value());
+    m_app->pushProjectEdit(before, tr("Relink media"));
+    m_app->finishEdit(tr("%n files found", "", found.size()));
+    for (auto f = found.constBegin(); f != found.constEnd(); ++f)
+        m_app->m_assetLibrary->assetPathChanged(f.key());
+    emit missingMediaChanged();
+    return found.size();
 }
 
 bool MediaBinController::exportImage(int assetIndex, const QUrl &url)

@@ -95,6 +95,7 @@ private slots:
     void videoFitsAGraphicTrack();
     void masksAreEditedInPlaceOnTheClip();
     void draggingAnEdgeOverANeighbourMakesADissolve();
+    void missingMediaIsFoundWithItsNeighbours();
     void transformLayerParentsPreviewBoxes();
     void transformSpanOptionsAndValidation();
     void transformLayerEntryPoints();
@@ -1368,6 +1369,62 @@ void EditorStateTest::draggingAnEdgeOverANeighbourMakesADissolve()
     QVERIFY(off.clips.at(1).timelineStart >= off.clips.at(0).timelineEnd());
     QCOMPARE(off.transitions.size(), 0);
     state.setAutoCrossfade(true);
+}
+
+// Missing media, as Premiere relinks it: two files whose folder was moved. Finding one points
+// its asset and clips at the new place and finds the other one there too, in one undo step.
+void EditorStateTest::missingMediaIsFoundWithItsNeighbours()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    QTemporaryDir moved;
+    QVERIFY(moved.isValid());
+    const QString gone = QDir(moved.path()).filePath(QStringLiteral("old-folder-that-is-gone"));
+    for (const QString &name : {QStringLiteral("a.png"), QStringLiteral("b.png")}) {
+        QFile f(QDir(moved.path()).filePath(name));
+        QVERIFY(f.open(QIODevice::WriteOnly));
+        f.write("not really a png");
+    }
+
+    drift::Project &project = *state.project();
+    project.tracks().clear();
+    drift::MediaAsset a;
+    a.name = QStringLiteral("a.png");
+    a.path = gone + QStringLiteral("/a.png");
+    a.kind = drift::MediaKind::Image;
+    const QString idA = project.addAsset(a);
+    drift::MediaAsset b = a;
+    b.id.clear();
+    b.name = QStringLiteral("b.png");
+    b.path = gone + QStringLiteral("/b.png");
+    const QString idB = project.addAsset(b);
+    drift::Track track{.type = drift::TrackType::Video};
+    drift::Clip clip;
+    clip.id = QStringLiteral("c");
+    clip.type = drift::ClipType::Image;
+    clip.assetId = idB;
+    clip.path = b.path;
+    clip.timelineDuration = drift::secondsToUs(2.0);
+    clip.srcOut = clip.timelineDuration;
+    track.clips.append(clip);
+    project.tracks().append(track);
+
+    QCOMPARE(state.bin()->missingMedia().size(), 2);
+
+    const int found = state.bin()->relinkMissing(
+        idA, QUrl::fromLocalFile(QDir(moved.path()).filePath(QStringLiteral("a.png"))));
+    QCOMPARE(found, 2);
+    QCOMPARE(state.bin()->missingMedia().size(), 0);
+    QCOMPARE(QFileInfo(state.project()->asset(idB)->path).fileName(), QStringLiteral("b.png"));
+    QVERIFY(QFileInfo::exists(state.project()->asset(idB)->path));
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).path, state.project()->asset(idB)->path);
+
+    state.undo();
+    QCOMPARE(state.bin()->missingMedia().size(), 2);
+
+    // A folder search finds them by name, however deep.
+    QCOMPARE(state.bin()->relinkMissingInFolder(QUrl::fromLocalFile(moved.path())), 2);
+    QCOMPARE(state.bin()->missingMedia().size(), 0);
 }
 
 void EditorStateTest::transformTogetherWrapsTheSelection()

@@ -457,6 +457,22 @@ PanelFrame {
         }
     }
 
+    // A file deleted, renamed or moved since import: pick it where it is now. The clips keep
+    // everything; the others missing from that same folder are found along with it.
+    function findMissingAsset(assetId, path) {
+        const fileName = String(path).split(/[\/]/).pop()
+        const url = FileDialogs.openFile(qsTr("Where is %1 now?").arg(fileName),
+                                         [qsTr("%1 (%1)").arg(fileName), AssetLibrary.mediaNameFilter(),
+                                          qsTr("All files (*)")])
+        if (!url || url.toString() === "")
+            return
+        const found = EditorState.bin.relinkMissing(assetId, url)
+        if (found > 1)
+            Toasts.success(qsTr("%n files found", "", found))
+        else if (found === 1)
+            Toasts.success(qsTr("File found"))
+    }
+
     // Points a bin row at a different file while every clip using it stays put, so a project set
     // up once — music, outro, CTA — can be re-pointed at the next video instead of rebuilt.
     function requestReplaceAsset(assetIndex) {
@@ -1323,6 +1339,7 @@ PanelFrame {
                         onAddToTimelineRequested: (assetIds) => root.requestAddToTimeline(assetIds)
                         onRemoveRequested: (assetIds) => root.requestRemoveAsset(assetIds)
                         onReplaceRequested: (assetIndex) => root.requestReplaceAsset(assetIndex)
+                        onFindMissingRequested: (assetId, path) => root.findMissingAsset(assetId, path)
                         onRenameRequested: (assetIndex) => root.requestRenameAsset(assetIndex)
                         onExportRequested: (assetIndex) => root.requestExportAsset(assetIndex)
                         onSaveAsRequested: (assetIndex) => root.requestSaveAssetAs(assetIndex)

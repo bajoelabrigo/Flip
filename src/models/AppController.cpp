@@ -6955,7 +6955,8 @@ void AppController::moveClip(int trackIndex, int clipIndex, double newStart)
 QPair<QString, QString> AppController::autoCrossfadeFor(int trackIndex, int clipIndex,
                                                         const QSet<QString> &movedIds) const
 {
-    if (!m_autoCrossfade || !isValidClipIndex(trackIndex, clipIndex))
+    // With overlap allowed, an overlap is a stack on purpose, not a fade.
+    if (!m_autoCrossfade || m_allowClipOverlap || !isValidClipIndex(trackIndex, clipIndex))
         return {};
     const drift::Track &track = m_project.tracks().at(trackIndex);
     if (!trackAllowsTransitions(track.type) || track.isAdjustment())

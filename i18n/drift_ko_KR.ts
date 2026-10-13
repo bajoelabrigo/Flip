@@ -2447,6 +2447,10 @@
         <translation>클립이 이동됨</translation>
     </message>
     <message>
+        <source>Crossfade added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Nothing to split here — move to a clip first</source>
         <translation>여기에서는 분할할 항목이 없습니다 — 먼저 클립으로 이동하세요</translation>
     </message>
@@ -4669,6 +4673,24 @@
     <message>
         <source>Couldn’t import that folder.</source>
         <translation>해당 폴더를 가져올 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Where is %1 now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>File found</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <source>Imported %n files into %1 folders — as many as one folder import takes. Import the remaining subfolders separately.</source>
@@ -11556,6 +11578,18 @@
         <translation>%1 — 타임라인으로 드래그하거나 마우스 오른쪽 버튼으로 클릭하여 미리보기</translation>
     </message>
     <message>
+        <source>Missing file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This file is not where it was. Right-click and choose Find missing file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find missing file…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open composite</source>
         <translation>컴포지트 열기</translation>
     </message>
@@ -11705,6 +11739,20 @@
     <message>
         <source>That file is already in this project.</source>
         <translation>해당 파일은 이미 이 프로젝트에 있습니다.</translation>
+    </message>
+    <message>
+        <source>Relink media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Media found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>An edit is already saving</source>
@@ -12050,6 +12098,57 @@
     <message>
         <source>Reopen the project once they finish installing.</source>
         <translation>설치가 완료되면 프로젝트를 다시 여세요.</translation>
+    </message>
+</context>
+<context>
+    <name>MissingMediaDialog</name>
+    <message>
+        <source>Some files are missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search a folder…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Later</source>
+        <translation type="unfinished">나중에</translation>
+    </message>
+    <message>
+        <source>Folder where the files are now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>None of the missing files are in that folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files of this project are not where they were: they were deleted, renamed or moved. Find each one, or search a folder for all of them. When you find one, the others in the same folder are found too.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Find…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Where is %1 now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation type="unfinished">모든 파일(*)</translation>
     </message>
 </context>
 <context>
@@ -19067,6 +19166,10 @@ If playback stutters, try another.</source>
         <translation>작업 영역 지우기</translation>
     </message>
     <message>
+        <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add transform layer</source>
         <translation>변환 레이어 추가</translation>
     </message>
@@ -19105,6 +19208,14 @@ If playback stutters, try another.</source>
     <message>
         <source>No composite clips yet</source>
         <translation>아직 컴포지트 클립이 없습니다</translation>
+    </message>
+    <message>
+        <source>Automatic dissolve: on. Drag a clip&apos;s edge over the next one and the overlap becomes a dissolve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic dissolve: off</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

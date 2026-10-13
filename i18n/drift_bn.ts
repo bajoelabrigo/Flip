@@ -2449,6 +2449,10 @@
         <translation type="unfinished">ক্লিপ সরানো হয়েছে</translation>
     </message>
     <message>
+        <source>Crossfade added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Nothing to split here — move to a clip first</source>
         <translation type="unfinished">এখানে বিভক্ত করার কিছু নেই — প্রথমে একটি ক্লিপে যান।</translation>
     </message>
@@ -4694,6 +4698,25 @@
     <message>
         <source>Couldn’t import that folder.</source>
         <translation type="unfinished">ফোল্ডারটি ইমপোর্ট করা যায়নি.</translation>
+    </message>
+    <message>
+        <source>Where is %1 now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>File found</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <source>Imported %n files into %1 folders — as many as one folder import takes. Import the remaining subfolders separately.</source>
@@ -11587,6 +11610,18 @@
         <translation type="unfinished">%1 — টাইমলাইনে টেনে আনুন, পূর্বরূপ দেখতে ডান-ক্লিক করুন</translation>
     </message>
     <message>
+        <source>Missing file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This file is not where it was. Right-click and choose Find missing file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find missing file…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open composite</source>
         <translation>কম্পোজিট খুলুন</translation>
     </message>
@@ -11742,6 +11777,21 @@
     <message>
         <source>That file is already in this project.</source>
         <translation type="unfinished">ফাইলটি ইতিমধ্যেই এই প্রকল্পে রয়েছে.</translation>
+    </message>
+    <message>
+        <source>Relink media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Media found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>An edit is already saving</source>
@@ -12091,6 +12141,59 @@
     <message>
         <source>Reopen the project once they finish installing.</source>
         <translation type="unfinished">প্রকল্পটি ইনস্টল করা শেষ হলে পুনরায় খুলুন.</translation>
+    </message>
+</context>
+<context>
+    <name>MissingMediaDialog</name>
+    <message>
+        <source>Some files are missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search a folder…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Later</source>
+        <translation type="unfinished">পরে</translation>
+    </message>
+    <message>
+        <source>Folder where the files are now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>None of the missing files are in that folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files of this project are not where they were: they were deleted, renamed or moved. Find each one, or search a folder for all of them. When you find one, the others in the same folder are found too.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Find…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Where is %1 now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation type="unfinished">সব ফাইল (*)</translation>
     </message>
 </context>
 <context>
@@ -19223,6 +19326,10 @@ If playback stutters, try another.</source>
         <translation>কাজের অংশের সীমা মুছুন</translation>
     </message>
     <message>
+        <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add transform layer</source>
         <translation>ট্রান্সফর্ম লেয়ার যোগ করুন</translation>
     </message>
@@ -19284,6 +19391,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Record voiceover at the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic dissolve: on. Drag a clip&apos;s edge over the next one and the overlap becomes a dissolve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic dissolve: off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

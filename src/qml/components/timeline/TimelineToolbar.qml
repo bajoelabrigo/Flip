@@ -90,7 +90,8 @@ Item {
                            shortcut: "clearInOut" },
         "merge": { glyph: Theme.icons.linkTwo, label: qsTr("Merge adjacent clips"), shortcut: "merge" },
         "freeze": { glyph: Theme.icons.snowflake, label: qsTr("Freeze frame at current time") },
-        "adjustmentLayer": { glyph: Theme.icons.wand, label: qsTr("Add adjustment layer") },
+        "adjustmentLayer": { glyph: "layers", label: qsTr("Add adjustment layer"),
+                             tip: qsTr("Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips") },
         "transformLayer": { glyph: Theme.icons.group, label: qsTr("Add transform layer"),
                             tip: qsTr("Add transform layer — moves the selected clips' tracks as one"),
                             shortcut: "transformTogether" },
@@ -101,14 +102,14 @@ Item {
     // Laid out like CapCut's: tools, history, the cut group, then what acts on the selected clip.
     readonly property var defaultToolbarItems: [
         "select", "cut", "separator", "undo", "redo", "separator",
-        "split", "deleteLeft", "deleteRight", "delete", "bookmark", "separator",
+        "split", "deleteLeft", "deleteRight", "delete", "bookmark", "adjustmentLayer", "separator",
         "crop", "freeze", "transform", "transcribe", "cutSilences", "removeBg", "separateAudio", "enhanceAudio",
         "enhanceVideo", "unlink", "link"
     ]
     readonly property var defaultMenuItems: [
         "trimStart", "trimEnd", "separator", "copy", "paste", "duplicate", "separator",
         "markIn", "markOut", "loop", "clearWorkArea", "separator",
-        "merge", "flip", "rotate", "adjustmentLayer", "transformLayer", "camera"
+        "merge", "flip", "rotate", "transformLayer", "camera"
     ]
 
     readonly property bool hasSelection: EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0

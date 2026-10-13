@@ -49,6 +49,9 @@ public:
         ThumbnailPathRole,
         FilmstripPathRole,
         FolderIdRole,
+        // The file is no longer where the project says: deleted, renamed or moved. The bin marks
+        // it and offers "Find missing file…" (MediaBinController::relinkMissing).
+        MissingRole,
     };
     Q_ENUM(Role)
 
@@ -149,6 +152,9 @@ public:
     bool applyProbedSource(const QString &assetId, const drift::MediaAsset &filled);
     // Re-reads the project after undo/redo has swapped it wholesale.
     void syncToProject();
+    // A relink moved an asset's path: its row, thumbnails and "missing" mark are re-read.
+    void assetPathChanged(const QString &assetId);
+    static bool isMissingPath(const QString &path);
 
     QJsonArray toJsonArray() const;
     void loadFromJsonArray(const QJsonArray &assets);
