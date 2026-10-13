@@ -27,6 +27,9 @@ Item {
     readonly property var layerMasks: (hasSelection && clipData.layerMasks) || []
     readonly property bool isLayer: hasSelection && clipKind === "adjustment" && clipData.adjustmentKind === "videoEffects"
     readonly property int layerFocus: hasSelection ? (clipData.layerMaskFocus || 0) : 0
+    // Adjust > Mask sets the shape with its tiles right above this, so the combo would only repeat
+    // them there.
+    property bool showShapeCombo: true
     function setMask(patch) {
         const mask = Object.assign({}, root.clipData.mask || {}, patch)
         EditorState.setClipMask(EditorState.selectedTrack, EditorState.selectedClip, mask)
@@ -208,7 +211,7 @@ Item {
             // Also hidden while a media clip is selected: the mask being edited is one of the
             // adjustments listed above, not a shape on the clip, so a shape combo here would be
             // writing to the wrong object.
-            visible: !root.isMedia && !root.isMediaClip
+            visible: root.showShapeCombo && !root.isMedia && !root.isMediaClip
             width: parent.width
             model: ["none", "rectangle", "ellipse", "star", "heart", "bars", "freeform", "text", "gradient"]
             // Human labels — the raw ids were shown to the user.

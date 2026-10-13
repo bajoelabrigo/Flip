@@ -865,7 +865,10 @@ Item {
                 }
             }
 
-            MasksInspector { width: parent.width }
+            MasksInspector {
+                width: parent.width
+                showShapeCombo: false
+            }
         }
     }
 }
