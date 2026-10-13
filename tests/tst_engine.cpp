@@ -361,6 +361,7 @@ private slots:
     void standaloneAdjustmentKeepsSeeThroughCanvasAlpha();
     void aSwitchedOffAdjustmentIsLeftOut();
     void adjustmentStrengthMixesTheLayerWithWhatIsUnder();
+    void basicAdjustWhitesBlacksAndFadeMoveTheEndsOfTheRange();
     void pinnedLaneAdjustmentsStayOnTheirOwnClip();
     void transformLayerMatrixMapsTheBox();
     void parentedQuadKeepsDepthAndNearPlanes();
@@ -10959,6 +10960,51 @@ void EngineTest::adjustmentStrengthMixesTheLayerWithWhatIsUnder()
     QVERIFY2(full.red() < 200 && qAbs(full.red() - full.green()) <= 6, qPrintable(full.name()));
     QVERIFY2(half.red() < none.red() && half.red() > full.red(), qPrintable(half.name()));
     QVERIFY2(qAbs(half.red() - (none.red() + full.red()) / 2) <= 24, qPrintable(half.name()));
+}
+
+// Blacks lifts the darkest tones, whites brightens the lightest, and fade flattens the range from
+// both ends; each at 0 leaves the picture as it was.
+void EngineTest::basicAdjustWhitesBlacksAndFadeMoveTheEndsOfTheRange()
+{
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+
+    QImage ramp(32, 32, QImage::Format_RGBA8888);
+    ramp.fill(QColor(20, 20, 20));
+    for (int y = 0; y < 32; ++y)
+        for (int x = 16; x < 32; ++x)
+            ramp.setPixelColor(x, y, QColor(230, 230, 230));
+
+    auto render = [&](const QString &key, double value) {
+        drift::Effect basic;
+        basic.catalogId = QStringLiteral("color.basic");
+        if (!key.isEmpty())
+            basic.parameters.insert(key, value);
+        GpuItem item;
+        item.layer.valid = true;
+        item.layer.source = ramp;
+        item.layer.rect = QRectF(0, 0, 32, 32);
+        item.layer.effects.append(basic);
+        GpuScene scene;
+        scene.canvasSize = QSize(32, 32);
+        scene.backgroundColor = Qt::black;
+        scene.items.append(item);
+        const QImage out = GpuCompositor::render(scene);
+        return std::pair<int, int>(out.pixelColor(4, 16).red(), out.pixelColor(28, 16).red());
+    };
+
+    const auto plain = render(QString(), 0.0);
+    QVERIFY2(qAbs(plain.first - 20) <= 3 && qAbs(plain.second - 230) <= 3,
+             qPrintable(QStringLiteral("%1 %2").arg(plain.first).arg(plain.second)));
+    const auto blacks = render(QStringLiteral("blacks"), 1.0);
+    QVERIFY2(blacks.first > plain.first + 15, qPrintable(QString::number(blacks.first)));
+    const auto whites = render(QStringLiteral("whites"), 1.0);
+    QVERIFY2(whites.second > plain.second + 10, qPrintable(QString::number(whites.second)));
+    const auto fade = render(QStringLiteral("fade"), 1.0);
+    QVERIFY2(fade.first > plain.first + 15 && fade.second < plain.second,
+             qPrintable(QStringLiteral("%1 %2").arg(fade.first).arg(fade.second)));
+    const auto none = render(QStringLiteral("fade"), 0.0);
+    QVERIFY(qAbs(none.first - plain.first) <= 1 && qAbs(none.second - plain.second) <= 1);
 }
 
 // A transition draws the incoming clip across instants that belong to the outgoing one, where the
