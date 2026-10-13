@@ -89,7 +89,8 @@ Item {
                     text: modelData.name && modelData.name.length > 0
                           ? modelData.name
                           : (modelData.shape === "media" ? qsTr("Cutout")
-                                                         : modelData.shape)
+                                                         : (maskShapeBox.labels[modelData.shape]
+                                                            || modelData.shape))
                     tooltip: qsTr("Edit this mask")
                     onClicked: EditorState.selectClip(modelData.track, modelData.index)
                 }
