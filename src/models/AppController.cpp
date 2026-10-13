@@ -15392,6 +15392,8 @@ QVariantList AppController::linkedMaskClips(int trackIndex, int clipIndex) const
             {QStringLiteral("id"), adjustment.id},
             {QStringLiteral("name"), name},
             {QStringLiteral("shape"), drift::maskShapeToString(mask.shape)},
+            // A smooth freeform is the Pen of the catalog.
+            {QStringLiteral("smooth"), mask.smooth},
             {QStringLiteral("media"), mask.shape == drift::MaskShape::Media},
         });
     }

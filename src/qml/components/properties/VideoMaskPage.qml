@@ -179,7 +179,8 @@ Column {
                         text: qsTr("Mask %1").arg(chip.index + 1) + "  "
                               + (chip.modelData.name && chip.modelData.name.length > 0
                                  ? chip.modelData.name
-                                 : root.shapeName(chip.modelData.shape))
+                                 : root.shapeName(chip.modelData.shape === "freeform" && chip.modelData.smooth
+                                                  ? "pen" : chip.modelData.shape))
                         color: chip.current ? Theme.foreground : Theme.mutedForeground
                         font.family: Theme.fontFamily
                         font.pixelSize: Theme.fontSizeXs

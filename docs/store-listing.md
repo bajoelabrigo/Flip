@@ -97,36 +97,20 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
-**Notas de la versión (0.9.6)**. Este texto va en "Novedades de esta versión" de Partner
-Center. **El campo tiene un límite de 1500 caracteres** (este texto tiene 1073). Ni la 0.9.3, ni la
-0.9.4, ni la 0.9.5 llegaron a la Store, así que estas notas las cubren todas.
+**Notas de la versión (0.9.7)**. Este texto va en "Novedades de esta versión" de Partner
+Center; el límite es de 1500 caracteres (este texto tiene 770).
 
-> **Novedades de la 0.9.6**
+> **Novedades de la 0.9.7**
 >
-> EL TEXTO, COMO EN CAPCUT
-> Nuevo panel de texto con Básico, Burbuja, Efectos y Animación. Trazo, fondo, brillo, sombra y curva con un interruptor cada uno. El fondo puede ir detrás de cada línea y tiene opacidad, esquinas, alto, ancho y borde.
->
-> 32 BURBUJAS Y MÁS DE 40 ESTILOS
-> Globos de diálogo, ¡Boom!, nubes, etiquetas, cintas, notas adhesivas y trazos de pincel. Estilos neón, degradado, 3D, sombra y contorno que mantienen tu fuente.
->
-> AJUSTE DE COLOR Y MÚSICA LIBRE
-> Básico, HSL, Curvas y Círculo cromático. Pestaña Música con 65 canciones gratis, también para videos monetizados.
->
-> EL PANEL DE VIDEO, COMO EN CAPCUT
-> Básico, Quitar fondo, Máscara y Retoque del rostro, con maquillaje.
->
-> FAVORITOS Y TUS PLANTILLAS
-> Marca con una estrella tu música, sonidos, estilos de texto, burbujas y animaciones. Guarda tus propios estilos de texto para reutilizarlos.
->
-> TODO EN ESPAÑOL
-> Efectos, transiciones y animaciones con nombres en español.
->
-> ARREGLOS
-> Los paneles ya no se encogen cada vez que abres la app, y las canciones entran completas.
-
-**Notas de la versión (0.8.1) — anteriores, se conservan por referencia:**
-
-> Claves de API cifradas, mejoras de seguridad y nuevo botón "Acerca de Flip Studio" en Ajustes.
+> - Fotos y videos en cualquier pista que no sea de audio, y candado para bloquear una pista.
+> - Fundido automático: monta el borde de un clip sobre el siguiente y se crea un fundido cruzado.
+> - Capas de ajuste a la vista: efectos, color y máscaras que se aplican a todo lo de abajo.
+> - Video › Máscara como en CapCut, con Pluma (agrega y borra puntos) y Texto.
+> - Retoque con fotos que muestran el resultado, e iconos en cada acción.
+> - Al final de una categoría de los catálogos, la rueda pasa a la siguiente.
+> - Archivos borrados o movidos: «Buscar archivo perdido» y aviso al abrir el proyecto.
+> - Menú de la flecha: seleccionar hacia la izquierda o la derecha.
+> - Botón Actualizar, seis temas de color y pistas de audio con altura y tamaño de onda.
 
 ## Description in English (optional, for the en-us listing)
 

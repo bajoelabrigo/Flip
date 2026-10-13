@@ -86,6 +86,17 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
   - Quitar fondo y Recortar para fotos en la barra.
 
   Las miniaturas de Retoque las renderiza la propia app (`resources/retouch/README.md`; la foto es CC0).
+- **Tercera tanda (2026-10-13, tarde)**, también en la web:
+  - fundido automático al montar el borde de un clip sobre otro, como en Sony Vegas
+    (`AppController::autoCrossfadeFor`, solo con «Permitir superposición» apagado);
+  - capa de ajuste en la barra por defecto; la web estrena las suyas (clip con `adjust: true`,
+    `drawAdjustment` en `render/compose.ts`);
+  - agrupar en la web (Ctrl+clic y Ctrl+G, por `link`);
+  - archivos que faltan como en Premiere: marca «Falta el archivo», «Buscar archivo perdido…» y
+    el diálogo al abrir (`MediaBinController::relinkMissing` / `relinkMissingInFolder`,
+    `MissingMediaDialog.qml`; en la web, `MissingMediaDialog.tsx`).
+  - En escritorio ya había agrupar: «Crear compuesto», «Transformar juntos» (Ctrl+G) y «Vincular».
+- Jorge pidió (2026-10-13) probar todo y, si funcionaba, **publicarlo todo**.
 - **Jorge tiene el espacio de trabajo fijado en «Horizontal»** (`ui/workspaceLayout`). Por eso un
   video 9:16 no cambiaba de diseño solo; ahora sale el botón «Espacio vertical».
 
