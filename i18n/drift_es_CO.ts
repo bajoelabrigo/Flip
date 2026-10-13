@@ -432,6 +432,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Whites</source>
+        <translation>Blancos</translation>
+    </message>
+    <message>
+        <source>Blacks</source>
+        <translation>Negros</translation>
+    </message>
+    <message>
         <source>Saturation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -448,16 +456,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Fade</source>
+        <translation>Desvanecer</translation>
+    </message>
+    <message>
         <source>Light</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Reset basic adjustments</source>
-        <translation type="unfinished"></translation>
+        <source>Reset light</source>
+        <translation>Restablecer la luz</translation>
     </message>
     <message>
         <source>Colour</source>
         <translation>Color</translation>
+    </message>
+    <message>
+        <source>Reset colour</source>
+        <translation>Restablecer el color</translation>
     </message>
     <message>
         <source>Red</source>
@@ -5730,6 +5746,14 @@
     <message>
         <source>Shadows</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Whites</source>
+        <translation>Blancos</translation>
+    </message>
+    <message>
+        <source>Blacks</source>
+        <translation>Negros</translation>
     </message>
     <message>
         <source>Vibrance</source>

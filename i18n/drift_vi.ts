@@ -432,6 +432,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Whites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blacks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Saturation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -448,16 +456,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Fade</source>
+        <translation type="unfinished">Mờ</translation>
+    </message>
+    <message>
         <source>Light</source>
         <translation type="unfinished">Sáng</translation>
     </message>
     <message>
-        <source>Reset basic adjustments</source>
+        <source>Reset light</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Colour</source>
         <translation type="unfinished">Màu</translation>
+    </message>
+    <message>
+        <source>Reset colour</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Red</source>
@@ -5705,6 +5721,14 @@
     </message>
     <message>
         <source>Shadows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Whites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blacks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

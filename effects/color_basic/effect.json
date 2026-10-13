@@ -45,6 +45,22 @@
       "defaultValue": 0
     },
     {
+      "identifier": "whites",
+      "displayName": "Whites",
+      "type": "float",
+      "minValue": -1,
+      "maxValue": 1,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "blacks",
+      "displayName": "Blacks",
+      "type": "float",
+      "minValue": -1,
+      "maxValue": 1,
+      "defaultValue": 0
+    },
+    {
       "identifier": "saturation",
       "displayName": "Saturation",
       "type": "float",
@@ -73,6 +89,14 @@
       "displayName": "Tint",
       "type": "float",
       "minValue": -1,
+      "maxValue": 1,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "fade",
+      "displayName": "Fade",
+      "type": "float",
+      "minValue": 0,
       "maxValue": 1,
       "defaultValue": 0
     }

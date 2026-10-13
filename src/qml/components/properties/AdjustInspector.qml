@@ -70,6 +70,10 @@ Item {
     function setMany(effectId, undoText, values) {
         if (effectIndex(effectId) < 0)
             return
+        setManyOrAdd(effectId, undoText, values)
+    }
+    // The same, adding the effect first when it is not there yet (a typed value).
+    function setManyOrAdd(effectId, undoText, values) {
         beginEdit(effectId, undoText)
         for (const k in values)
             preview(k, values[k])
@@ -115,13 +119,25 @@ Item {
                 font.pixelSize: Theme.fontSizeXs
                 elide: Text.ElideRight
             }
-            Text {
+            // The number can be typed too: Enter applies it (clamped to the range) as one step.
+            TextInput {
+                id: typed
                 width: 48
                 horizontalAlignment: Text.AlignRight
                 text: Math.round(slider.value * ps.displayScale)
                 color: Theme.panelForeground
                 font.family: Theme.monoFontFamily
                 font.pixelSize: Theme.fontSizeXs
+                selectByMouse: true
+                validator: IntValidator {
+                    bottom: Math.round(ps.from * ps.displayScale)
+                    top: Math.round(ps.to * ps.displayScale)
+                }
+                onAccepted: {
+                    const v = Math.max(ps.from, Math.min(ps.to, Number(text) / ps.displayScale))
+                    ps.host.setManyOrAdd(ps.effectId, qsTr("Adjust %1").arg(ps.label), ({ [ps.key]: v }))
+                    focus = false
+                }
             }
         }
         ThemedSlider {
@@ -273,23 +289,27 @@ Item {
                 { key: "brightness", label: qsTr("Brightness") },
                 { key: "contrast", label: qsTr("Contrast") },
                 { key: "highlights", label: qsTr("Highlights") },
-                { key: "shadows", label: qsTr("Shadows") }
+                { key: "shadows", label: qsTr("Shadows") },
+                { key: "whites", label: qsTr("Whites") },
+                { key: "blacks", label: qsTr("Blacks") }
             ]
+            // Fade only goes one way (0 = none), like CapCut's.
             readonly property var colour: [
                 { key: "saturation", label: qsTr("Saturation") },
                 { key: "vibrance", label: qsTr("Vibrance") },
                 { key: "temperature", label: qsTr("Temperature") },
-                { key: "tint", label: qsTr("Tint") }
+                { key: "tint", label: qsTr("Tint") },
+                { key: "fade", label: qsTr("Fade"), from: 0 }
             ]
 
             Row {
                 width: parent.width
-                SectionTitle { text: qsTr("Light"); width: parent.width - basicReset.width }
+                SectionTitle { text: qsTr("Light"); width: parent.width - lightReset.width }
                 ResetButton {
-                    id: basicReset
-                    onClicked: root.setMany("color.basic", qsTr("Reset basic adjustments"), ({
+                    id: lightReset
+                    onClicked: root.setMany("color.basic", qsTr("Reset light"), ({
                         exposure: 0, brightness: 0, contrast: 0, highlights: 0, shadows: 0,
-                        saturation: 0, vibrance: 0, temperature: 0, tint: 0 }))
+                        whites: 0, blacks: 0 }))
                 }
             }
             Repeater {
@@ -302,7 +322,16 @@ Item {
                     label: modelData.label
                 }
             }
-            SectionTitle { text: qsTr("Colour"); topPadding: Theme.spacingSm }
+            Row {
+                width: parent.width
+                topPadding: Theme.spacingSm
+                SectionTitle { text: qsTr("Colour"); width: parent.width - colourReset.width }
+                ResetButton {
+                    id: colourReset
+                    onClicked: root.setMany("color.basic", qsTr("Reset colour"), ({
+                        saturation: 0, vibrance: 0, temperature: 0, tint: 0, fade: 0 }))
+                }
+            }
             Repeater {
                 model: parent.colour
                 delegate: ParamSlider {
@@ -311,6 +340,7 @@ Item {
                     effectId: "color.basic"
                     key: modelData.key
                     label: modelData.label
+                    from: modelData.from !== undefined ? modelData.from : -1
                 }
             }
         }
