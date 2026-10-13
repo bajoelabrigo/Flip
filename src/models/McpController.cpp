@@ -294,6 +294,28 @@ QJsonObject mcpDetailRow(const QVariantMap &clipMap, const QVariantMap &transfor
             style.remove(QStringLiteral("lookId"));
             style.remove(QStringLiteral("lookParams"));
         }
+        if (style.value(QStringLiteral("textCase")).toString() == QLatin1String("none"))
+            style.remove(QStringLiteral("textCase"));
+        // The CapCut-style background fields only say something about a box that is drawn, and
+        // then only where they differ from the plain box.
+        const bool box = style.value(QStringLiteral("boxEnabled")).toBool();
+        if (!box || style.value(QStringLiteral("boxStyle")).toString() == QLatin1String("block"))
+            style.remove(QStringLiteral("boxStyle"));
+        if (!box || style.value(QStringLiteral("boxShape")).toString() == QLatin1String("rect"))
+            style.remove(QStringLiteral("boxShape"));
+        for (const char *key : {"boxOffsetX", "boxOffsetY"}) {
+            if (!box || style.value(QLatin1String(key)).toDouble() == 0.0)
+                style.remove(QLatin1String(key));
+        }
+        if (!box || style.value(QStringLiteral("boxBorderWidth")).toDouble() <= 0.0) {
+            style.remove(QStringLiteral("boxBorderWidth"));
+            style.remove(QStringLiteral("boxBorderColor"));
+        }
+        const double padding = style.value(QStringLiteral("boxPadding")).toDouble();
+        for (const char *key : {"boxPaddingX", "boxPaddingY"}) {
+            if (!box || style.value(QLatin1String(key)).toDouble() == padding)
+                style.remove(QLatin1String(key));
+        }
         QVariantMap animation = style.value(QStringLiteral("animation")).toMap();
         if (!animation.value(QStringLiteral("caret")).toMap().value(QStringLiteral("enabled")).toBool())
             animation.remove(QStringLiteral("caret"));
