@@ -2418,6 +2418,8 @@ QVariantMap maskToMap(const drift::Mask &m, drift::TimeUs timelineStart)
         {QStringLiteral("rotation"), m.rotation},
         {QStringLiteral("feather"), m.feather},
         {QStringLiteral("invert"), m.invert},
+        {QStringLiteral("expand"), m.expand},
+        {QStringLiteral("opacity"), m.opacity},
         {QStringLiteral("points"), points},
         {QStringLiteral("smooth"), m.smooth},
         {QStringLiteral("text"), m.text},
@@ -2450,6 +2452,8 @@ drift::Mask maskFromMap(const QVariantMap &m)
     mask.rotation = m.value(QStringLiteral("rotation"), mask.rotation).toDouble();
     mask.feather = m.value(QStringLiteral("feather"), mask.feather).toDouble();
     mask.invert = m.value(QStringLiteral("invert"), mask.invert).toBool();
+    mask.expand = m.value(QStringLiteral("expand"), mask.expand).toDouble();
+    mask.opacity = m.value(QStringLiteral("opacity"), mask.opacity).toDouble();
     mask.op = drift::maskOpFromString(m.value(QStringLiteral("op")).toString());
     mask.enabled = m.value(QStringLiteral("enabled"), mask.enabled).toBool();
     mask.name = m.value(QStringLiteral("name"), mask.name).toString();
@@ -2804,10 +2808,11 @@ drift::KeyframeTrack<double> *keyframeTrackForProp(drift::Clip &clip, const QStr
 {
     QString maskKey;
     if (parseMaskProp(prop, &maskKey)) {
+        drift::Mask &mask = clip.focusedMask();
         if (createIfMissing)
-            return &clip.mask.keyframes[maskKey];
-        const auto it = clip.mask.keyframes.find(maskKey);
-        return it == clip.mask.keyframes.end() ? nullptr : &it.value();
+            return &mask.keyframes[maskKey];
+        const auto it = mask.keyframes.find(maskKey);
+        return it == mask.keyframes.end() ? nullptr : &it.value();
     }
     QString textKey;
     if (parseTextProp(clip.textStyle, prop, &textKey)) {
@@ -2994,6 +2999,10 @@ bool writeMaskScalar(drift::Mask &mask, const QString &key, double value)
         mask.rotation = value;
     else if (key == QStringLiteral("feather"))
         mask.feather = value;
+    else if (key == QStringLiteral("expand"))
+        mask.expand = value;
+    else if (key == QStringLiteral("opacity"))
+        mask.opacity = value;
     else
         return false;
     return true;
@@ -3006,13 +3015,14 @@ bool writeClipPropValue(drift::Clip &clip, const QString &prop, drift::TimeUs re
     // the track leaves the mask where the user put it, rather than snapping to the struct default.
     QString maskKey;
     if (parseMaskProp(prop, &maskKey)) {
-        const auto existing = clip.mask.keyframes.constFind(maskKey);
-        const bool keyed = existing != clip.mask.keyframes.constEnd() && !existing->isEmpty();
+        drift::Mask &mask = clip.focusedMask();
+        const auto existing = mask.keyframes.constFind(maskKey);
+        const bool keyed = existing != mask.keyframes.constEnd() && !existing->isEmpty();
         if (!keyed && !force && !autoKey)
-            return writeMaskScalar(clip.mask, maskKey, value);
-        if (!writeKeyframeValue(clip.mask.keyframes[maskKey], relative, value, autoKey, force))
+            return writeMaskScalar(mask, maskKey, value);
+        if (!writeKeyframeValue(mask.keyframes[maskKey], relative, value, autoKey, force))
             return false;
-        writeMaskScalar(clip.mask, maskKey, value);
+        writeMaskScalar(mask, maskKey, value);
         return true;
     }
 
@@ -4447,8 +4457,12 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
         {QStringLiteral("orientation"), clipOrientation(clip)},
         // Same redirect as the effect stacks above: a media clip's mask lives on the adjustment
         // pinned to it, but the inspector and the MCP tools still ask the clip for "its" mask.
-        {QStringLiteral("mask"), maskToMap(maskHost ? maskHost->mask : clip.mask,
+        {QStringLiteral("mask"), maskToMap(maskHost ? maskHost->mask : clip.focusedMask(),
                                            maskHost ? maskHost->timelineStart : clip.timelineStart)},
+        // A standalone adjustment layer's whole stack, for the list of its masks.
+        {QStringLiteral("layerMasks"), layerMaskList(clip)},
+        {QStringLiteral("layerMaskFocus"), clip.maskFocus},
+        {QStringLiteral("masksLimitEffects"), clip.masksLimitEffects},
         {QStringLiteral("hasFaceTrack"), !face.faceTrackPath.isEmpty()},
         {QStringLiteral("faceTrackHasContours"), faceTrackHasContours(face.faceTrackPath)},
         {QStringLiteral("faceTrackHasMesh"), faceTrackHasMesh(face.faceTrackPath)},
@@ -15220,6 +15234,102 @@ void AppController::setClipMask(int trackIndex, int clipIndex, const QVariantMap
     finishEdit(tr("Clip mask updated"));
 }
 
+QVariantList AppController::layerMaskList(const drift::Clip &clip)
+{
+    QVariantList out;
+    if (clip.type != drift::ClipType::Adjustment || clip.adjustmentKind != drift::AdjustmentKind::VideoEffects)
+        return out;
+    const QList<drift::Mask> stack = clip.maskStack();
+    for (int i = 0; i < stack.size(); ++i) {
+        const drift::Mask &m = stack.at(i);
+        if (i == 0 && m.shape == drift::MaskShape::None && stack.size() == 1)
+            break;
+        out.append(QVariantMap{
+            {QStringLiteral("index"), i},
+            {QStringLiteral("name"), m.name},
+            {QStringLiteral("shape"), drift::maskShapeToString(m.shape)},
+            {QStringLiteral("enabled"), m.enabled},
+            {QStringLiteral("op"), drift::maskOpToString(m.op)},
+        });
+    }
+    return out;
+}
+
+bool AppController::addLayerMask(int trackIndex, int clipIndex, const QString &shapeId)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))
+        return false;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.type != drift::ClipType::Adjustment)
+        return false;
+    const drift::Project before = m_project.detachedCopy();
+    drift::Mask mask = maskFromCatalogId(shapeId);
+    if (mask.shape == drift::MaskShape::None)
+        mask.shape = drift::MaskShape::Ellipse;
+    seedFreeformMask(mask);
+    if (clip.mask.shape == drift::MaskShape::None && clip.extraMasks.isEmpty()) {
+        clip.mask = mask;
+        clip.maskFocus = 0;
+    } else {
+        clip.extraMasks.append(mask);
+        clip.maskFocus = clip.extraMasks.size();
+    }
+    pushProjectEdit(before, tr("Add mask"));
+    finishEdit(tr("Mask added"));
+    emit selectedClipDataChanged();
+    return true;
+}
+
+void AppController::setLayerMaskFocus(int trackIndex, int clipIndex, int index)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    const int focus = qBound(0, index, int(clip.extraMasks.size()));
+    if (clip.maskFocus == focus)
+        return;
+    // Which mask is being edited is not an edit: no undo step, but everything showing the mask
+    // (the inspector, the preview handles) has to follow.
+    clip.maskFocus = focus;
+    emit selectedClipDataChanged();
+    emit tracksChanged();
+}
+
+bool AppController::removeLayerMask(int trackIndex, int clipIndex, int index)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))
+        return false;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.type != drift::ClipType::Adjustment || index < 0 || index > clip.extraMasks.size())
+        return false;
+    const drift::Project before = m_project.detachedCopy();
+    if (index == 0)
+        clip.mask = clip.extraMasks.isEmpty() ? drift::Mask{} : clip.extraMasks.takeFirst();
+    else
+        clip.extraMasks.removeAt(index - 1);
+    clip.maskFocus = qBound(0, clip.maskFocus >= index ? clip.maskFocus - 1 : clip.maskFocus,
+                            int(clip.extraMasks.size()));
+    pushProjectEdit(before, tr("Remove mask"));
+    finishEdit(tr("Mask removed"));
+    emit selectedClipDataChanged();
+    return true;
+}
+
+void AppController::setMasksLimitEffects(int trackIndex, int clipIndex, bool limit)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))
+        return;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.masksLimitEffects == limit)
+        return;
+    const drift::Project before = m_project.detachedCopy();
+    clip.masksLimitEffects = limit;
+    pushProjectEdit(before, limit ? tr("Masks limit the effects") : tr("Masks cut the clip"));
+    finishEdit(limit ? tr("The masks now limit where the clip's effects and colour show")
+                     : tr("The masks now cut the clip"));
+    emit selectedClipDataChanged();
+}
+
 // Selecting a mask adjustment and selecting the clip it masks are both ways of reaching the same
 // mask, so both write here. On the adjustment the mask is the payload and is written in place; on
 // a media clip it is pinned through a lane, which is the only place a media clip's mask can live.
@@ -15238,8 +15348,8 @@ void AppController::writeClipMask(int trackIndex, int clipIndex, const drift::Ma
     if (clip.type == drift::ClipType::Adjustment) {
         // The kind is deliberately left alone. The Masks tab is also offered for a video-effects
         // adjustment, where a mask scopes where the chain lands; flipping it to Mask there would
-        // stop its effect stack rendering.
-        clip.mask = seeded;
+        // stop its effect stack rendering. With several masks, the one in focus is written.
+        clip.focusedMask() = seeded;
         return;
     }
     drift::setLinkedMask(m_project, trackIndex, clipIndex, seeded);
@@ -15260,6 +15370,11 @@ drift::Mask AppController::maskFromCatalogId(const QString &shape) const
         mask.text = tr("TEXT");
         mask.w = 0.8;
         mask.h = 0.35;
+    }
+    // A gradient starts across the middle with a wide, soft band: the top shows, the bottom not.
+    if (mask.shape == drift::MaskShape::LinearGradient) {
+        mask.y = 0.5;
+        mask.h = 0.4;
     }
     // maskShapeFromString falls back to None for anything it does not know, and Media needs a
     // path it cannot invent — either way the mask contributes nothing and the caller does nothing.
@@ -15285,6 +15400,7 @@ QVariantList AppController::maskCatalog() const
         {QStringLiteral("star"), tr("Star")},           {QStringLiteral("heart"), tr("Heart")},
         {QStringLiteral("bars"), tr("Bars")},           {QStringLiteral("freeform"), tr("Freeform")},
         {QStringLiteral("pen"), tr("Pen")},             {QStringLiteral("text"), tr("Text")},
+        {QStringLiteral("gradient"), tr("Linear gradient")},
     };
 
     QVariantList out;
@@ -15300,6 +15416,9 @@ QString AppController::maskShapeSvgPath(const QString &shape) const
     drift::Mask mask = maskFromCatalogId(shape);
     if (mask.shape == drift::MaskShape::None)
         return {};
+    // A ramp has no outline: the tile shows the covered half above the fade line, and the line.
+    if (mask.shape == drift::MaskShape::LinearGradient)
+        return QStringLiteral("M 6 6 L 94 6 L 94 50 L 6 50 Z M 6 50 L 94 50 M 6 70 L 94 70");
 
     // Thumbnails are authored on the 0..100 grid MasksTab.qml scales from. The mask rect is
     // normalized, so widening it here is what fills the card rather than sitting at the 60% the
@@ -16184,7 +16303,7 @@ double AppController::propertyBaseValue(int trackIndex, int clipIndex, const QSt
             // the track is empty, so it is the curve's baseline.
             QString maskKey;
             if (parseMaskProp(prop, &maskKey)) {
-                drift::Mask flat = clip.mask;
+                drift::Mask flat = clip.focusedMask();
                 flat.keyframes.clear();
                 return flat.valueAt(maskKey, 0);
             }

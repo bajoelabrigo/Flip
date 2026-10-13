@@ -205,20 +205,37 @@ uniform float u_seed;
 uniform float u_invert;
 uniform float u_alphaChannel; // 1 => coverage is the media's alpha, not its luma
 uniform int u_op;             // 0 add, 1 subtract, 2 intersect
+uniform float u_opacity;      // how much this entry counts, 0..1
 void main() {
     vec4 cover = texture(u_cover, v_texCoord);
     // Parametric coverage is written to all three channels, so .r is the value either way.
     // Media placed over black arrives premultiplied, which leaves .a usable for a cutout PNG.
     float c = mix(cover.r, cover.a, u_alphaChannel);
     c = mix(c, 1.0 - c, u_invert);
-    float o = c;
+    float k = clamp(u_opacity, 0.0, 1.0);
+    float o = c * k;
     if (u_seed < 0.5) {
         float a = texture(u_accum, v_texCoord).r;
-        if (u_op == 1) o = a * (1.0 - c);
-        else if (u_op == 2) o = a * c;
-        else o = max(a, c);
+        // Same fold as drift::maskAlphaMap: max, a*(1 - k*c), a*(1 - k + k*c).
+        if (u_op == 1) o = a * (1.0 - k * c);
+        else if (u_op == 2) o = a * (1.0 - k + k * c);
+        else o = max(a, k * c);
     }
     fragColor = vec4(o, o, o, 1.0);
+}
+)";
+
+// Masks that limit a clip's effects: the effects' result where the folded coverage (.r) is, the
+// picture as it was elsewhere, a straight mix in between (alpha included).
+constexpr const char *kEffectsMaskMixFragShader = R"(#version 330 core
+in vec2 v_texCoord;
+out vec4 fragColor;
+uniform sampler2D u_untouched;
+uniform sampler2D u_processed;
+uniform sampler2D u_cover;
+void main() {
+    float c = clamp(texture(u_cover, v_texCoord).r, 0.0, 1.0);
+    fragColor = mix(texture(u_untouched, v_texCoord), texture(u_processed, v_texCoord), c);
 }
 )";
 
@@ -372,7 +389,7 @@ QString maskCacheKey(const drift::Mask &mask)
         .arg(mask.points.size())
         .arg(quint64(pointsHash))
         // Pen and text masks draw differently from the same rect and points.
-        + QStringLiteral(":%1:%2").arg(mask.smooth ? 1 : 0).arg(qHash(mask.text));
+        + QStringLiteral(":%1:%2:%3:%4").arg(mask.smooth ? 1 : 0).arg(qHash(mask.text)).arg(mask.expand).arg(mask.opacity);
 }
 
 // Parametric coverage only changes when the stack or the size does, so it is rasterized once and
@@ -528,6 +545,9 @@ GlTarget swapInForeground(GlRuntime &rt, QOpenGLExtraFunctions *gl, GlTarget sou
 // layer is not cut out by them: the effect decides what the mask means.
 bool chainConsumesMasks(const GpuLayer &layer)
 {
+    // Masks that limit the effects are used up by buildLayerTarget's mix, never to cut.
+    if (layer.masksLimitEffects)
+        return true;
     for (const drift::Effect &effect : layer.effects) {
         if (!effect.enabled || effect.catalogId.isEmpty())
             continue;
@@ -600,6 +620,16 @@ GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
     GlTarget clipMask;
     bool clipMaskTried = false;
 
+    // Masks that limit the effects: keep the picture as it was, run the chain, then show the
+    // chain's result only where the masks cover (mix by coverage), so nothing is cut.
+    GlTarget untouched;
+    const bool limitEffects = layer.masksLimitEffects && !drift::masksAreInert(layer.masks);
+    if (limitEffects) {
+        untouched = rt.acquireTarget(target.width, target.height);
+        if (untouched.isValid() && !blitTextureToTarget(rt, gl, target.texture(), untouched))
+            rt.releaseTarget(std::move(untouched));
+    }
+
     for (const drift::Effect &effect : layer.effects) {
         const EffectPresetEntry *def =
             effect.catalogId.isEmpty() ? nullptr : effectDefForId(effect.catalogId);
@@ -658,6 +688,37 @@ GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
 
     if (clipMask.isValid())
         rt.releaseTarget(std::move(clipMask));
+
+    if (untouched.isValid()) {
+        GlTarget coverage = composeMaskTarget(rt, gl, layer, target.size());
+        QOpenGLShaderProgram *mix =
+            rt.builtinProgram(QStringLiteral("__effects_mask_mix__"), kQuadVertexShader, kEffectsMaskMixFragShader);
+        GlTarget mixed = coverage.isValid() && mix ? rt.acquireTarget(target.width, target.height) : GlTarget{};
+        if (mixed.isValid()) {
+            mixed.fbo->bind();
+            gl->glViewport(0, 0, mixed.width, mixed.height);
+            gl->glDisable(GL_BLEND);
+            mix->bind();
+            mix->setUniformValue("u_untouched", 0);
+            mix->setUniformValue("u_processed", 1);
+            mix->setUniformValue("u_cover", 2);
+            gl->glActiveTexture(GL_TEXTURE0);
+            gl->glBindTexture(GL_TEXTURE_2D, untouched.texture());
+            gl->glActiveTexture(GL_TEXTURE1);
+            gl->glBindTexture(GL_TEXTURE_2D, target.texture());
+            gl->glActiveTexture(GL_TEXTURE2);
+            gl->glBindTexture(GL_TEXTURE_2D, coverage.texture());
+            bindQuad(rt, gl);
+            mix->release();
+            mixed.fbo->release();
+            gl->glActiveTexture(GL_TEXTURE0);
+            rt.releaseTarget(std::move(target));
+            target = std::move(mixed);
+        }
+        if (coverage.isValid())
+            rt.releaseTarget(std::move(coverage));
+        rt.releaseTarget(std::move(untouched));
+    }
     return target;
 }
 
@@ -900,6 +961,7 @@ GlTarget composeMaskTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLa
             drift::Mask flat = mask;
             flat.feather = 0.0;
             flat.invert = false;
+            flat.opacity = 1.0; // applied by the fold, after invert
             const GLuint tex = maskTexture(rt, gl, {flat}, size);
             if (!tex)
                 continue;
@@ -937,6 +999,7 @@ GlTarget composeMaskTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLa
                                   ? 1.f
                                   : 0.f);
         fold->setUniformValue("u_op", int(mask.op));
+        fold->setUniformValue("u_opacity", float(qBound(0.0, mask.opacity, 1.0)));
         gl->glActiveTexture(GL_TEXTURE0);
         gl->glBindTexture(GL_TEXTURE_2D, accum.isValid() ? accum.texture() : 0);
         gl->glActiveTexture(GL_TEXTURE1);

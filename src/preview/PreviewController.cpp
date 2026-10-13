@@ -1196,20 +1196,24 @@ QVariantMap PreviewController::maskEditorState() const
         // Resolved, so a handle sits where the animation actually puts the mask this frame rather
         // than on its static value.
         const drift::TimeUs maskTimeUs = m_app.m_playheadUs - adjustment.timelineStart;
-        const drift::Mask resolved = adjustment.mask.isAnimated()
-                                         ? adjustment.mask.resolvedAt(maskTimeUs)
-                                         : adjustment.mask;
+        // An adjustment layer with several masks shows the handles of the one being edited.
+        const drift::Mask &mask = adjustment.focusedMask();
+        const drift::Mask resolved = mask.isAnimated() ? mask.resolvedAt(maskTimeUs) : mask;
         layers.append(QVariantMap{
             {QStringLiteral("track"), trackIndex},
             {QStringLiteral("clip"), clipIndex},
             {QStringLiteral("selected"), adjustment.id == selectedAdjustmentId},
-            {QStringLiteral("animated"), adjustment.mask.isAnimated()},
+            {QStringLiteral("animated"), mask.isAnimated()},
             {QStringLiteral("mask"), maskToMap(resolved, adjustment.timelineStart)},
         });
     };
 
     if (selectedClip.type == drift::ClipType::Adjustment) {
-        if (selectedClip.adjustmentKind != drift::AdjustmentKind::Mask)
+        // A Mask adjustment, or a standalone video-effects layer whose masks scope its effects.
+        const bool layerWithMask = selectedClip.adjustmentKind == drift::AdjustmentKind::VideoEffects
+                                   && !selectedTrack.isAdjustmentLane()
+                                   && selectedClip.focusedMask().shape != drift::MaskShape::None;
+        if (selectedClip.adjustmentKind != drift::AdjustmentKind::Mask && !layerWithMask)
             return out;
         selectedAdjustmentId = selectedClip.id;
         // A nested lane borrows the frame of whichever clip of its parent track is under the

@@ -16,7 +16,10 @@ namespace drift {
 // pixels are the coverage map. Segmentation produces one (a grayscale matte written by
 // MatteWriter); the user can also point it at any image or video. Spelled "matte" in projects
 // written before v5. Text is the outline of a word set in a bold font, fitted to the mask's rect.
-enum class MaskShape { None, Rectangle, Ellipse, Star, Heart, Bars, Freeform, Media, Text };
+// LinearGradient is a ramp, not an outline: full coverage on one side of a line through (x, y),
+// fading to none across a band h deep (a fraction of the frame's height), turned by rotation
+// (0: covers the top, fades downwards). w is not used. Saved as "gradient".
+enum class MaskShape { None, Rectangle, Ellipse, Star, Heart, Bars, Freeform, Media, Text, LinearGradient };
 
 QString maskShapeToString(MaskShape shape);
 MaskShape maskShapeFromString(const QString &shape);
@@ -63,6 +66,12 @@ struct Mask
     double rotation = 0.0;
     double feather = 0.0; // px blur on the alpha edge
     bool invert = false;
+    // Grows (+) or shrinks (-) the shape before feathering, as a fraction of the frame's shorter
+    // side; a gradient's line moves by it instead. Media masks ignore it.
+    double expand = 0.0;
+    // How much this entry counts, 0..1: its coverage (after invert) is scaled by it before it is
+    // folded in, so a half-opacity Subtract only half-removes. See maskAlphaMap's fold.
+    double opacity = 1.0;
     QVector<QPointF> points; // normalized, for Freeform
     // Freeform only: draw a smooth curve through the vertices instead of straight sides. This is
     // the "Pen" mask of the catalog -- the same editable points, rounded like a pen stroke.
@@ -90,7 +99,7 @@ struct Mask
     QString mediaFgrPath;
 
     // Animated scalars, keyed by the same names the inspector and the keyframe graph use:
-    // "x", "y", "w", "h", "rotation", "feather". A non-empty track wins over the scalar above at
+    // "x", "y", "w", "h", "rotation", "feather", "expand", "opacity". A non-empty track wins over the scalar above at
     // render time; the scalar still holds the last static value, so clearing a track returns the
     // property to a constant rather than to the struct default. Mirrors Effect::paramKeyframes.
     //

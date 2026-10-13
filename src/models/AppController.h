@@ -816,6 +816,16 @@ public:
     // Switches a clip off (or back on) without removing it: it keeps every setting, but the
     // compositor leaves it out. What an adjustment layer's on/off switch does.
     Q_INVOKABLE void setClipDisabled(int trackIndex, int clipIndex, bool disabled);
+
+    // A standalone adjustment layer's mask stack (Clip::mask then Clip::extraMasks). Adding puts
+    // the new mask in focus; the focused one is what setClipMask, the Masks tab, the preview
+    // handles and the "mask.<key>" keyframes edit.
+    Q_INVOKABLE bool addLayerMask(int trackIndex, int clipIndex, const QString &shapeId);
+    Q_INVOKABLE void setLayerMaskFocus(int trackIndex, int clipIndex, int index);
+    Q_INVOKABLE bool removeLayerMask(int trackIndex, int clipIndex, int index);
+    static QVariantList layerMaskList(const drift::Clip &clip);
+    // A clip's masks either cut it (the default) or limit where its effects and colour show.
+    Q_INVOKABLE void setMasksLimitEffects(int trackIndex, int clipIndex, bool limit);
     Q_INVOKABLE void commitTextEdit(int trackIndex, int clipIndex, const QString &text);
     bool inlineTextEditing() const { return m_inlineTextEditing; }
 

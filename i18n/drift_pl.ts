@@ -3414,6 +3414,22 @@
         <translation>Zaktualizowano maskę klipu</translation>
     </message>
     <message>
+        <source>Masks limit the effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Masks cut the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The masks now limit where the clip&apos;s effects and colour show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The masks now cut the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3463,6 +3479,10 @@
     </message>
     <message>
         <source>Mask removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear gradient</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11632,6 +11652,26 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Masks choose where this layer&apos;s effects, colour and LUT show: inside, the layer; outside, what is under it, untouched.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add mask</source>
+        <translation type="unfinished">Dodaj maskę</translation>
+    </message>
+    <message>
+        <source>Add a mask to this layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn this mask off without removing it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>This clip has no mask yet. Add one from the Masks tab in the assets panel, or drop a mask onto the clip on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11662,6 +11702,10 @@
     <message>
         <source>Text</source>
         <translation type="unfinished">Tekst</translation>
+    </message>
+    <message>
+        <source>Linear gradient</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TEXT</source>
@@ -11704,6 +11748,10 @@
         <translation>Usuń maskę</translation>
     </message>
     <message>
+        <source>Reset mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Center X</source>
         <translation>Środek X</translation>
     </message>
@@ -11720,12 +11768,24 @@
         <translation>Wysokość</translation>
     </message>
     <message>
+        <source>Fade length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rotation</source>
         <translation>Obrót</translation>
     </message>
     <message>
         <source>Feather</source>
         <translation>Pióro</translation>
+    </message>
+    <message>
+        <source>Expand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask opacity</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invert</source>
@@ -21476,6 +21536,10 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Gradient</source>
+        <translation type="unfinished">Gradient</translation>
+    </message>
+    <message>
         <source>Cutout</source>
         <translation type="unfinished">Wycinanie</translation>
     </message>
@@ -21572,12 +21636,36 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished">Wysokość</translation>
     </message>
     <message>
+        <source>Fade length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rotation</source>
         <translation type="unfinished">Obrót</translation>
     </message>
     <message>
         <source>Feather</source>
         <translation type="unfinished">Pióro</translation>
+    </message>
+    <message>
+        <source>Expand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The masks limit the effects: inside, the clip&apos;s effects and colour; outside, the clip as it is</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use the masks only for the effects (the clip stays whole)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask on</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invert</source>

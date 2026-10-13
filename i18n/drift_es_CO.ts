@@ -3417,6 +3417,22 @@
         <translation>Máscara del clip actualizada</translation>
     </message>
     <message>
+        <source>Masks limit the effects</source>
+        <translation>Las máscaras limitan los efectos</translation>
+    </message>
+    <message>
+        <source>Masks cut the clip</source>
+        <translation>Las máscaras recortan el clip</translation>
+    </message>
+    <message>
+        <source>The masks now limit where the clip&apos;s effects and colour show</source>
+        <translation>Ahora las máscaras limitan dónde se ven los efectos y el color del clip</translation>
+    </message>
+    <message>
+        <source>The masks now cut the clip</source>
+        <translation>Ahora las máscaras recortan el clip</translation>
+    </message>
+    <message>
         <source>TEXT</source>
         <translation type="unfinished">TEXTO</translation>
     </message>
@@ -3467,6 +3483,10 @@
     <message>
         <source>Mask removed</source>
         <translation>Máscara quitada</translation>
+    </message>
+    <message>
+        <source>Linear gradient</source>
+        <translation>Degradado lineal</translation>
     </message>
     <message>
         <source>Add mask point</source>
@@ -11600,6 +11620,26 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Masks choose where this layer&apos;s effects, colour and LUT show: inside, the layer; outside, what is under it, untouched.</source>
+        <translation>Las máscaras eligen dónde se ven los efectos, el color y el LUT de esta capa: dentro, la capa; fuera, lo de debajo tal cual.</translation>
+    </message>
+    <message>
+        <source>Mask %1</source>
+        <translation>Máscara %1</translation>
+    </message>
+    <message>
+        <source>Add mask</source>
+        <translation>Agregar máscara</translation>
+    </message>
+    <message>
+        <source>Add a mask to this layer</source>
+        <translation>Agregar una máscara a esta capa</translation>
+    </message>
+    <message>
+        <source>Turn this mask off without removing it</source>
+        <translation>Apagar esta máscara sin quitarla</translation>
+    </message>
+    <message>
         <source>This clip has no mask yet. Add one from the Masks tab in the assets panel, or drop a mask onto the clip on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11630,6 +11670,10 @@
     <message>
         <source>Text</source>
         <translation>Texto</translation>
+    </message>
+    <message>
+        <source>Linear gradient</source>
+        <translation>Degradado lineal</translation>
     </message>
     <message>
         <source>TEXT</source>
@@ -11672,6 +11716,10 @@
         <translation>Eliminar máscara</translation>
     </message>
     <message>
+        <source>Reset mask</source>
+        <translation>Restablecer la máscara</translation>
+    </message>
+    <message>
         <source>Center X</source>
         <translation>Centro X</translation>
     </message>
@@ -11688,12 +11736,24 @@
         <translation>Altura</translation>
     </message>
     <message>
+        <source>Fade length</source>
+        <translation>Largo del degradado</translation>
+    </message>
+    <message>
         <source>Rotation</source>
         <translation>Rotación</translation>
     </message>
     <message>
         <source>Feather</source>
         <translation>Desvanecimiento</translation>
+    </message>
+    <message>
+        <source>Expand</source>
+        <translation>Expandir</translation>
+    </message>
+    <message>
+        <source>Mask opacity</source>
+        <translation>Opacidad de la máscara</translation>
     </message>
     <message>
         <source>Invert</source>
@@ -21413,6 +21473,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Pluma</translation>
     </message>
     <message>
+        <source>Gradient</source>
+        <translation>Degradado</translation>
+    </message>
+    <message>
         <source>Cutout</source>
         <translation>Recorte</translation>
     </message>
@@ -21509,12 +21573,36 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Alto</translation>
     </message>
     <message>
+        <source>Fade length</source>
+        <translation>Largo del degradado</translation>
+    </message>
+    <message>
         <source>Rotation</source>
         <translation>Rotación</translation>
     </message>
     <message>
         <source>Feather</source>
         <translation>Difuminar</translation>
+    </message>
+    <message>
+        <source>Expand</source>
+        <translation>Expandir</translation>
+    </message>
+    <message>
+        <source>Mask opacity</source>
+        <translation>Opacidad de la máscara</translation>
+    </message>
+    <message>
+        <source>The masks limit the effects: inside, the clip&apos;s effects and colour; outside, the clip as it is</source>
+        <translation>Las máscaras limitan los efectos: dentro, los efectos y el color del clip; fuera, el clip tal cual</translation>
+    </message>
+    <message>
+        <source>Use the masks only for the effects (the clip stays whole)</source>
+        <translation>Usar las máscaras solo para los efectos (el clip queda entero)</translation>
+    </message>
+    <message>
+        <source>Mask on</source>
+        <translation>Máscara activada</translation>
     </message>
     <message>
         <source>Invert</source>

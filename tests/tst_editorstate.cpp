@@ -97,6 +97,7 @@ private slots:
     void draggingAnEdgeOverANeighbourMakesADissolve();
     void missingMediaIsFoundWithItsNeighbours();
     void importedLutGoesToTheLibraryAndBrokenOnesAreRefused();
+    void adjustmentLayerMaskStackIsEditedByFocus();
     void transformLayerParentsPreviewBoxes();
     void transformSpanOptionsAndValidation();
     void transformLayerEntryPoints();
@@ -1374,6 +1375,52 @@ void EditorStateTest::draggingAnEdgeOverANeighbourMakesADissolve()
 
 // Missing media, as Premiere relinks it: two files whose folder was moved. Finding one points
 // its asset and clips at the new place and finds the other one there too, in one undo step.
+// An adjustment layer's masks: adding one focuses it, the Masks tab and "mask.<key>" keyframes
+// then edit that one, the others keep theirs, and removing re-focuses a neighbour.
+void EditorStateTest::adjustmentLayerMaskStackIsEditedByFocus()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    drift::Project &project = *state.project();
+    project.tracks().clear();
+    drift::Track track{.type = drift::TrackType::Adjustment};
+    drift::Clip layer;
+    layer.id = QStringLiteral("adj");
+    layer.type = drift::ClipType::Adjustment;
+    layer.adjustmentKind = drift::AdjustmentKind::VideoEffects;
+    layer.timelineDuration = drift::secondsToUs(4.0);
+    track.clips.append(layer);
+    project.tracks().append(track);
+    state.selectClip(0, 0);
+
+    QVERIFY(state.addLayerMask(0, 0, QStringLiteral("ellipse")));
+    QVERIFY(state.addLayerMask(0, 0, QStringLiteral("gradient")));
+    const drift::Clip &clip = state.project()->tracks().at(0).clips.at(0);
+    QCOMPARE(clip.mask.shape, drift::MaskShape::Ellipse);
+    QCOMPARE(clip.extraMasks.size(), 1);
+    QCOMPARE(clip.maskFocus, 1);
+    QCOMPARE(state.selectedClipData().value(QStringLiteral("layerMasks")).toList().size(), 2);
+    QCOMPARE(state.selectedClipData().value(QStringLiteral("mask")).toMap().value(QStringLiteral("shape")).toString(),
+             QStringLiteral("gradient"));
+
+    // A key on "mask.x" lands on the focused (second) mask only.
+    state.setClipKeyframe(0, 0, QStringLiteral("mask.x"), 1.0, 0.25);
+    QVERIFY(state.project()->tracks().at(0).clips.at(0).extraMasks.constFirst().keyframes.contains(QStringLiteral("x")));
+    QVERIFY(!state.project()->tracks().at(0).clips.at(0).mask.keyframes.contains(QStringLiteral("x")));
+
+    state.setLayerMaskFocus(0, 0, 0);
+    QCOMPARE(state.selectedClipData().value(QStringLiteral("mask")).toMap().value(QStringLiteral("shape")).toString(),
+             QStringLiteral("ellipse"));
+
+    QVERIFY(state.removeLayerMask(0, 0, 0));
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).mask.shape, drift::MaskShape::LinearGradient);
+    QVERIFY(state.project()->tracks().at(0).clips.at(0).extraMasks.isEmpty());
+
+    // Undo brings the removed mask back.
+    state.undo();
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).extraMasks.size(), 1);
+}
+
 // Importing a .cube copies it into the LUT library (once, however often it is imported), a broken
 // file is refused with a reason, and a LUT a project names but nobody has is reported missing.
 void EditorStateTest::importedLutGoesToTheLibraryAndBrokenOnesAreRefused()

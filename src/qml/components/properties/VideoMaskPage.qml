@@ -69,7 +69,8 @@ Column {
         { id: "heart", label: qsTr("Heart") },
         { id: "text", label: qsTr("Text") },
         { id: "freeform", label: qsTr("Freeform") },
-        { id: "pen", label: qsTr("Pen") }
+        { id: "pen", label: qsTr("Pen") },
+        { id: "gradient", label: qsTr("Gradient") }
     ]
 
     function shapeName(id) {
@@ -108,6 +109,10 @@ Column {
             changes.text = qsTr("TEXT")
             changes.w = 0.8
             changes.h = 0.35
+        }
+        if (id === "gradient") {
+            changes.y = 0.5
+            changes.h = 0.4
         }
         writeMask(changes)
     }
@@ -460,19 +465,26 @@ Column {
     Repeater {
         model: [
             { key: "mask.x", label: qsTr("Center X"), def: 0.5, decimals: 3, min: 0, max: 1,
-              shapes: ["rectangle", "ellipse", "star", "heart", "text"] },
+              shapes: ["rectangle", "ellipse", "star", "heart", "text", "gradient"] },
             { key: "mask.y", label: qsTr("Center Y"), def: 0.5, decimals: 3, min: 0, max: 1,
-              shapes: ["rectangle", "ellipse", "star", "heart", "text"] },
+              shapes: ["rectangle", "ellipse", "star", "heart", "text", "gradient"] },
             { key: "mask.w", label: qsTr("Width"), def: 0.6, decimals: 3, min: 0.05, max: 1,
               shapes: ["rectangle", "ellipse", "star", "heart", "text"] },
             { key: "mask.h", label: qsTr("Height"), def: 0.6, decimals: 3, min: 0.05, max: 1,
               shapes: ["rectangle", "ellipse", "star", "heart", "bars", "text"] },
+            { key: "mask.h", label: qsTr("Fade length"), def: 0.4, decimals: 3, min: 0.01, max: 1,
+              shapes: ["gradient"] },
             { key: "mask.rotation", label: qsTr("Rotation"), def: 0, decimals: 1,
               min: -180, max: 180, unit: "°",
-              shapes: ["rectangle", "ellipse", "star", "heart", "text"] },
+              shapes: ["rectangle", "ellipse", "star", "heart", "text", "gradient"] },
             { key: "mask.feather", label: qsTr("Feather"), def: 0, decimals: 0,
               min: 0, max: 64, unit: "px",
-              shapes: ["rectangle", "ellipse", "star", "heart", "bars", "freeform", "text"] }
+              shapes: ["rectangle", "ellipse", "star", "heart", "bars", "freeform", "text"] },
+            { key: "mask.expand", label: qsTr("Expand"), def: 0, decimals: 3, min: -0.3, max: 0.3,
+              shapes: ["rectangle", "ellipse", "star", "heart", "bars", "freeform", "text", "gradient"] },
+            { key: "mask.opacity", label: qsTr("Mask opacity"), def: 1, decimals: 2, min: 0, max: 1,
+              percent: true,
+              shapes: ["rectangle", "ellipse", "star", "heart", "bars", "freeform", "text", "gradient"] }
         ]
         delegate: PropertyKeyframeRow {
             required property var modelData
@@ -491,6 +503,49 @@ Column {
             sliderFrom: modelData.min
             sliderTo: modelData.max
             unit: modelData.unit || ""
+            percent: !!modelData.percent
+        }
+    }
+
+    // What the masks do: cut the clip (CapCut's mask), or keep the clip whole and only limit
+    // where its effects and colour show.
+    Row {
+        visible: root.masks.length > 0
+        width: parent.width
+        spacing: Theme.spacingSm
+        Text {
+            width: parent.width - limitSwitch.width - Theme.spacingSm
+            anchors.verticalCenter: parent.verticalCenter
+            wrapMode: Text.WordWrap
+            text: limitSwitch.checked
+                  ? qsTr("The masks limit the effects: inside, the clip's effects and colour; outside, the clip as it is")
+                  : qsTr("Use the masks only for the effects (the clip stays whole)")
+            color: Theme.mutedForeground
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeXs
+        }
+        ThemedSwitch {
+            id: limitSwitch
+            checked: !!(EditorState.selectedClipData && EditorState.selectedClipData.masksLimitEffects)
+            onToggled: EditorState.setMasksLimitEffects(EditorState.selectedTrack, EditorState.selectedClip, checked)
+        }
+    }
+
+    // The focused mask on or off, kept with its settings.
+    Row {
+        visible: !!root.active
+        width: parent.width
+        spacing: Theme.spacingSm
+        Text {
+            text: qsTr("Mask on")
+            color: Theme.mutedForeground
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeXs
+            anchors.verticalCenter: parent.verticalCenter
+        }
+        ThemedSwitch {
+            checked: root.activeMask.enabled !== false
+            onToggled: root.writeMask({ enabled: checked })
         }
     }
 

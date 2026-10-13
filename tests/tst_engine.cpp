@@ -364,6 +364,8 @@ private slots:
     void basicAdjustWhitesBlacksAndFadeMoveTheEndsOfTheRange();
     void lutEffectGradesThroughItsCubeFile();
     void softLightVignetteAndGrainForAdjustmentLayers();
+    void gradientExpandAndOpacityMasks();
+    void layerMaskStackAndMasksThatLimitEffects();
     void pinnedLaneAdjustmentsStayOnTheirOwnClip();
     void transformLayerMatrixMapsTheBox();
     void parentedQuadKeepsDepthAndNearPlanes();
@@ -11120,6 +11122,149 @@ void EngineTest::softLightVignetteAndGrainForAdjustmentLayers()
         }
     QVERIFY2(differ > 200, qPrintable(QString::number(differ)));
     QVERIFY(qAbs(sum / 1024.0 - 128.0) < 8.0);
+}
+
+// The new mask properties, on the CPU rasterizer the GPU path also draws through: a linear
+// gradient ramps across its band (and flips when inverted or turned), expand grows an outline,
+// opacity scales a mask's share, and a half-opacity Intersect only half-limits.
+void EngineTest::gradientExpandAndOpacityMasks()
+{
+    drift::Mask ramp;
+    ramp.shape = drift::MaskShape::LinearGradient;
+    ramp.x = 0.5;
+    ramp.y = 0.5;
+    ramp.h = 0.5; // the fade runs from y 0.25 to 0.75
+    QImage a = drift::maskAlphaMap(ramp, 64, 64);
+    QVERIFY(!a.isNull());
+    QVERIFY(qGray(a.pixel(32, 4)) > 250);
+    QVERIFY(qGray(a.pixel(32, 60)) < 5);
+    QVERIFY(qAbs(qGray(a.pixel(32, 32)) - 128) < 20);
+    ramp.invert = true;
+    a = drift::maskAlphaMap(ramp, 64, 64);
+    QVERIFY(qGray(a.pixel(32, 4)) < 5 && qGray(a.pixel(32, 60)) > 250);
+    ramp.invert = false;
+    ramp.rotation = 180.0;
+    a = drift::maskAlphaMap(ramp, 64, 64);
+    QVERIFY(qGray(a.pixel(32, 4)) < 5 && qGray(a.pixel(32, 60)) > 250);
+
+    drift::Mask disc;
+    disc.shape = drift::MaskShape::Ellipse;
+    disc.x = disc.y = 0.5;
+    disc.w = disc.h = 0.5; // radius 16 px on 64
+    QVERIFY(qGray(drift::maskAlphaMap(disc, 64, 64).pixel(32, 12)) < 5);
+    disc.expand = 0.1; // +6.4 px on every side
+    QVERIFY(qGray(drift::maskAlphaMap(disc, 64, 64).pixel(32, 12)) > 250);
+    disc.expand = -0.1;
+    QVERIFY(qGray(drift::maskAlphaMap(disc, 64, 64).pixel(32, 20)) < 5);
+    disc.expand = 0.0;
+
+    disc.opacity = 0.5;
+    QVERIFY(qAbs(qGray(drift::maskAlphaMap(disc, 64, 64).pixel(32, 32)) - 128) <= 2);
+
+    // Full frame, then a half-opacity Intersect with the disc: outside it half stays.
+    drift::Mask all;
+    all.shape = drift::MaskShape::Rectangle;
+    all.x = all.y = 0.5;
+    all.w = all.h = 1.0;
+    drift::Mask limit = disc;
+    limit.op = drift::MaskOp::Intersect;
+    limit.opacity = 0.5;
+    const QImage folded = drift::maskAlphaMap(QList<drift::Mask>{all, limit}, 64, 64);
+    QVERIFY(qGray(folded.pixel(32, 32)) > 250);
+    QVERIFY(qAbs(qGray(folded.pixel(2, 2)) - 128) <= 3);
+
+    // Saved and read back, and an old project without them reads as before.
+    drift::Clip layer;
+    layer.type = drift::ClipType::Adjustment;
+    layer.adjustmentKind = drift::AdjustmentKind::VideoEffects;
+    layer.timelineDuration = drift::secondsToUs(2.0);
+    layer.mask = disc;
+    layer.mask.expand = 0.05;
+    layer.mask.opacity = 0.7;
+    layer.extraMasks.append(ramp);
+    layer.masksLimitEffects = true;
+    drift::Project project;
+    project.tracks().clear();
+    project.tracks().append(drift::Track{.type = drift::TrackType::Adjustment});
+    project.tracks()[0].clips.append(layer);
+    const drift::Clip back = drift::Project::fromJson(project.toJson()).tracks().constFirst().clips.constFirst();
+    QCOMPARE(back.mask.expand, 0.05);
+    QCOMPARE(back.mask.opacity, 0.7);
+    QCOMPARE(back.extraMasks.size(), 1);
+    QCOMPARE(back.extraMasks.constFirst().shape, drift::MaskShape::LinearGradient);
+    QVERIFY(back.masksLimitEffects);
+    // A clip saved before these existed: no expand, full opacity, no extra masks.
+    project.tracks()[0].clips[0] = drift::Clip{};
+    project.tracks()[0].clips[0].type = drift::ClipType::Adjustment;
+    project.tracks()[0].clips[0].mask = drift::Mask{};
+    project.tracks()[0].clips[0].mask.shape = drift::MaskShape::Ellipse;
+    const QJsonObject old = project.toJson();
+    QVERIFY(!QJsonDocument(old).toJson().contains("\"expand\""));
+    QVERIFY(!QJsonDocument(old).toJson().contains("extraMasks"));
+    const drift::Clip plain = drift::Project::fromJson(old).tracks().constFirst().clips.constFirst();
+    QCOMPARE(plain.mask.expand, 0.0);
+    QCOMPARE(plain.mask.opacity, 1.0);
+}
+
+// A standalone adjustment layer takes every mask of its stack; a media clip whose masks limit its
+// effects stays whole: the effect inside the mask, the untouched clip outside (not cut away).
+void EngineTest::layerMaskStackAndMasksThatLimitEffects()
+{
+    drift::Project project;
+    project.setResolution(64, 64);
+    project.tracks().clear();
+    project.tracks().append(drift::Track{.type = drift::TrackType::Adjustment});
+    drift::Clip layer;
+    layer.id = QStringLiteral("adj");
+    layer.type = drift::ClipType::Adjustment;
+    layer.adjustmentKind = drift::AdjustmentKind::VideoEffects;
+    layer.timelineDuration = drift::secondsToUs(4.0);
+    drift::Effect grey;
+    grey.catalogId = QStringLiteral("stylize.grayscale");
+    layer.effects.append(grey);
+    layer.mask.shape = drift::MaskShape::Ellipse;
+    drift::Mask second;
+    second.shape = drift::MaskShape::Rectangle;
+    second.op = drift::MaskOp::Subtract;
+    layer.extraMasks.append(second);
+    project.tracks()[0].clips.append(layer);
+    FrameCompositor compositor;
+    compositor.setProject(&project);
+    GpuScene scene;
+    QVERIFY(compositor.buildSceneAt(drift::secondsToUs(1.0), FrameCompositor::RenderOptions{}, &scene));
+    QCOMPARE(scene.items.size(), 1);
+    QCOMPARE(scene.items.constFirst().layer.masks.size(), 2);
+
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+    QImage red(32, 32, QImage::Format_RGBA8888);
+    red.fill(QColor(230, 20, 10));
+    drift::Mask centre;
+    centre.shape = drift::MaskShape::Ellipse;
+    centre.x = centre.y = 0.5;
+    centre.w = centre.h = 0.5;
+    auto render = [&](bool limit) {
+        GpuItem item;
+        item.layer.valid = true;
+        item.layer.source = red;
+        item.layer.rect = QRectF(0, 0, 32, 32);
+        item.layer.effects.append(grey);
+        item.layer.masks.append(centre);
+        item.layer.maskMedia.resize(1);
+        item.layer.masksLimitEffects = limit;
+        GpuScene one;
+        one.canvasSize = QSize(32, 32);
+        one.backgroundColor = Qt::black;
+        one.items.append(item);
+        return GpuCompositor::render(one);
+    };
+    const QImage limited = render(true);
+    const QColor inside = limited.pixelColor(16, 16);
+    const QColor outside = limited.pixelColor(2, 2);
+    QVERIFY2(qAbs(inside.red() - inside.green()) <= 6, qPrintable(inside.name()));
+    QVERIFY2(outside.red() > 200 && outside.green() < 40, qPrintable(outside.name()));
+    const QImage cut = render(false);
+    QVERIFY2(cut.pixelColor(2, 2).red() < 20, qPrintable(cut.pixelColor(2, 2).name()));
 }
 
 // A transition draws the incoming clip across instants that belong to the outgoing one, where the

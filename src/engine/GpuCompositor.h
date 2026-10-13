@@ -70,6 +70,9 @@ struct GpuLayer
     std::shared_ptr<const struct GpuScene> nested;
     QList<drift::Effect> effects;
     QList<drift::Mask> masks;
+    // The masks limit where `effects` show (inside: the effects, outside: the layer untouched)
+    // rather than cutting the layer. buildLayerTarget mixes by the folded coverage.
+    bool masksLimitEffects = false;
     // Index-parallel with `masks`: this frame's decoded coverage map for each Media entry, null
     // for parametric ones. Decoded by FrameCompositor, which is the only place that knows the time.
     QList<MaskMediaFrame> maskMedia;
