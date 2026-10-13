@@ -116,7 +116,13 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
     textura 3D en `gl.ts`;
   - grano de película y viñeta ajustable (escritorio); la web ya los tenía;
   - el panel derecho, al bajar, recorre las páginas de la pestaña antes de la siguiente.
-- **Falta:** probar en ventana el build de CI, y el OK de Jorge para publicar.
+- **Máscaras de capa** (tercer documento de Jorge): `Mask::expand`/`opacity` (animables),
+  `MaskShape::LinearGradient` ("gradient"), `Clip::extraMasks` + `maskFocus` (la máscara enfocada es
+  la que editan el panel, el visor y "mask.<key>"), `Clip::masksLimitEffects` (las máscaras de un clip
+  limitan sus efectos: `buildLayerTarget` mezcla por cobertura en vez de recortar). Web: `Clip.masks`
+  (pila), `masksLimitEffects`, `MaskHandles.tsx` en el visor.
+- Probado en ventana con el portable de CI (run 38464105571) y por píxeles con capturas reales.
+- **Falta:** el OK de Jorge para publicar (release 0.9.8, editor web y novedades).
 - **Límites conocidos:** en la web los parámetros de los efectos no se animan (solo la intensidad de
   la capa); los LUT importados en la web viven en ese navegador (se reconocen al volver a importar el
   mismo archivo).
@@ -399,6 +405,17 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 ---
 
 ## Trampas que ya nos costaron tiempo
+
+**Probar la interfaz en ventana sin tocar el mouse de Jorge:** `mcp_e2e.py --window` abre el editor con
+el proyecto, se conecta a él (`--mcp-stdio` sin `--headless` se *adjunta* a un editor abierto) y acepta
+las pseudo-llamadas `screenshot` (PrintWindow: solo la ventana, nunca el escritorio), `click` y
+`wheel` (mensajes enviados a la ventana, coordenadas de la captura). Necesita **Acceso de agente**
+encendido (`mcp/startOnLaunch = true` en el registro): encenderlo solo con copia del registro y
+restaurarlo al terminar. Nunca usar capturas de pantalla completa: una vez salió el navegador de Jorge.
+- Para preparar proyectos de prueba: `load` acepta un `.json` con el documento (Project::toJson); el
+  `.drift` es "DRIFTPRJ" + cabecera de 52 bytes + manifiesto zstd con `document`.
+- Las pruebas de GPU de `tst_engine` se **saltan en CI** (Linux sin GPU): lo de GPU se verifica con
+  capturas `capture full:true` del ejecutable real en Windows.
 
 **Nada que se lance desde `Flip\.e2e-app` puede escribir archivos.** Le pasa incluso a la 0.9.6
 copiada ahí, y aunque se lance sin sandbox o desde una tarea programada. No es la app: el
