@@ -94,6 +94,7 @@ private slots:
     void selectToTheRightAndLeftTakeEveryTrack();
     void videoFitsAGraphicTrack();
     void masksAreEditedInPlaceOnTheClip();
+    void draggingAnEdgeOverANeighbourMakesADissolve();
     void transformLayerParentsPreviewBoxes();
     void transformSpanOptionsAndValidation();
     void transformLayerEntryPoints();
@@ -1283,7 +1284,10 @@ void EditorStateTest::masksAreEditedInPlaceOnTheClip()
     const QString first = state.addMaskToClipInPlace(0, 0, QStringLiteral("ellipse"));
     QVERIFY(!first.isEmpty());
     QCOMPARE(state.focusedMask(), first);
-    QCOMPARE(QPair<int, int>(state.selectedTrack(), state.selectedClip()), hostIndex());
+    {
+        const auto selected = qMakePair(state.selectedTrack(), state.selectedClip());
+        QCOMPARE(selected, hostIndex());
+    }
 
     auto host = hostIndex();
     const QString second = state.addMaskToClipInPlace(host.first, host.second, QStringLiteral("pen"));
@@ -1319,7 +1323,51 @@ void EditorStateTest::masksAreEditedInPlaceOnTheClip()
     state.removeLinkedMask(penTrack, penClip);
     host = hostIndex();
     QCOMPARE(state.linkedMaskClips(host.first, host.second).size(), 1);
-    QCOMPARE(QPair<int, int>(state.selectedTrack(), state.selectedClip()), host);
+    const auto selectedAfter = qMakePair(state.selectedTrack(), state.selectedClip());
+    QCOMPARE(selectedAfter, host);
+}
+
+// Sony Vegas' automatic crossfade: a side overlap of up to half the shorter clip stays and
+// becomes a dissolve as long as the overlap; a deeper one is pushed clear as before.
+void EditorStateTest::draggingAnEdgeOverANeighbourMakesADissolve()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.setAutoCrossfade(true);
+    state.setAllowClipOverlap(false);
+    drift::Project &project = *state.project();
+    project.tracks().clear();
+    drift::Track track{.type = drift::TrackType::Shape};
+    track.id = QStringLiteral("g");
+    drift::Clip a = boxShape(QStringLiteral("a"), QRectF(0, 0, 10, 10));
+    drift::Clip b = boxShape(QStringLiteral("b"), QRectF(0, 0, 10, 10));
+    b.timelineStart = drift::secondsToUs(6.0);
+    track.clips = {a, b};
+    project.tracks().append(track);
+
+    state.moveClip(0, 1, 4.0); // b's head runs 1 s over a's tail
+    const drift::Track &after = state.project()->tracks().at(0);
+    QCOMPARE(after.clips.at(1).timelineStart, drift::secondsToUs(4.0));
+    QCOMPARE(after.transitions.size(), 1);
+    QCOMPARE(after.transitions.at(0).fromClipId, QStringLiteral("a"));
+    QCOMPARE(after.transitions.at(0).toClipId, QStringLiteral("b"));
+    QCOMPARE(after.transitions.at(0).kindId, QStringLiteral("crossfade"));
+    QCOMPARE(after.transitions.at(0).durationUs, drift::secondsToUs(1.0));
+
+    // 4 s over a 5 s clip: dropped on it, not a fade. Pushed clear.
+    state.moveClip(0, 1, 1.0);
+    const drift::Track &deep = state.project()->tracks().at(0);
+    QVERIFY(deep.clips.at(1).timelineStart >= deep.clips.at(0).timelineEnd());
+
+    // Off: an edge overlap is pushed clear too, and no fade is made.
+    state.moveClip(0, 1, 8.0); // apart: the old fade goes
+    QCOMPARE(state.project()->tracks().at(0).transitions.size(), 0);
+    state.setAutoCrossfade(false);
+    state.moveClip(0, 1, 4.0);
+    const drift::Track &off = state.project()->tracks().at(0);
+    QVERIFY(off.clips.at(1).timelineStart >= off.clips.at(0).timelineEnd());
+    QCOMPARE(off.transitions.size(), 0);
+    state.setAutoCrossfade(true);
 }
 
 void EditorStateTest::transformTogetherWrapsTheSelection()

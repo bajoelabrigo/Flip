@@ -576,6 +576,7 @@ AppController::AppController(AssetLibrary *assetLibrary, QObject *parent)
     : QObject(parent)
     , m_assetLibrary(assetLibrary)
 {
+    m_autoCrossfade = QSettings().value(QStringLiteral("timeline/autoCrossfade"), true).toBool();
     m_jobs = new JobRegistry(this);
     m_cloud = new CloudProviders(this);
     m_project.resetToDefaultTimeline();
@@ -6906,7 +6907,12 @@ void AppController::moveClip(int trackIndex, int clipIndex, double newStart)
         }
         movedIds.insert(clip.id);
     }
-    if (!m_allowClipOverlap) {
+    // Sony Vegas' automatic crossfade: a clip dragged so that one of its edges runs over the
+    // neighbouring clip on the same track keeps that overlap, and the overlap becomes a dissolve
+    // as long as it. Only a side overlap of up to half the shorter clip counts; anything more is
+    // a clip dropped on another, which is pushed clear as before.
+    const QPair<QString, QString> autoFade = autoCrossfadeFor(trackIndex, clipIndex, movedIds);
+    if (!m_allowClipOverlap && autoFade.first.isEmpty()) {
         drift::TimeUs maxPushRight = 0;
         for (const QPair<int, int> &pair : targets) {
             if (!isValidClipIndex(pair.first, pair.second))
@@ -6936,8 +6942,88 @@ void AppController::moveClip(int trackIndex, int clipIndex, double newStart)
         const drift::Clip &clip = m_project.tracks().at(pair.first).clips.at(pair.second);
         syncLinkedPartnersFrom(m_project, clip, movedIds);
     }
+    if (!autoFade.first.isEmpty()) {
+        addAutoCrossfade(trackIndex, autoFade.first, autoFade.second);
+        pushProjectEdit(before, tr("Clip moved"));
+        finishEdit(tr("Crossfade added"));
+        return;
+    }
     pushProjectEdit(before, tr("Clip moved"));
     finishEdit(tr("Clip moved"));
+}
+
+QPair<QString, QString> AppController::autoCrossfadeFor(int trackIndex, int clipIndex,
+                                                        const QSet<QString> &movedIds) const
+{
+    if (!m_autoCrossfade || !isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    const drift::Track &track = m_project.tracks().at(trackIndex);
+    if (!trackAllowsTransitions(track.type) || track.isAdjustment())
+        return {};
+    const drift::Clip &moved = track.clips.at(clipIndex);
+    if (moved.type == drift::ClipType::Adjustment)
+        return {};
+
+    QPair<QString, QString> found;
+    for (const drift::Clip &other : track.clips) {
+        if (other.id == moved.id || movedIds.contains(other.id))
+            continue;
+        const bool overlaps = other.timelineStart < moved.timelineEnd() && moved.timelineStart < other.timelineEnd();
+        if (!overlaps)
+            continue;
+        // From the right of `other` (moved starts inside it and ends past it) or from its left.
+        const bool fromRight = other.timelineStart < moved.timelineStart && moved.timelineEnd() > other.timelineEnd();
+        const bool fromLeft = moved.timelineStart < other.timelineStart && moved.timelineEnd() < other.timelineEnd();
+        const drift::TimeUs overlapUs = fromRight ? other.timelineEnd() - moved.timelineStart
+                                      : fromLeft  ? moved.timelineEnd() - other.timelineStart
+                                                  : 0;
+        const drift::TimeUs shorter = qMin(moved.timelineDuration, other.timelineDuration);
+        // Covering, inside, too deep, or a second clip under it: not a crossfade.
+        if ((!fromRight && !fromLeft) || overlapUs * 2 > shorter || !found.first.isEmpty())
+            return {};
+        if (overlapUs < drift::secondsToUs(1.0 / 30.0))
+            return {};
+        found = fromRight ? qMakePair(other.id, moved.id) : qMakePair(moved.id, other.id);
+    }
+    return found;
+}
+
+void AppController::addAutoCrossfade(int trackIndex, const QString &fromId, const QString &toId)
+{
+    drift::Track &track = m_project.tracks()[trackIndex];
+    const drift::Clip *from = drift::clipById(track, fromId);
+    const drift::Clip *to = drift::clipById(track, toId);
+    if (!from || !to || !drift::clipsPhysicallyOverlap(*from, *to))
+        return;
+    const drift::TimeUs durationUs = drift::physicalOverlapDurationUs(*from, *to);
+    // A dissolve on a picture track, a plain crossfade on an audio one: the same package.
+    const auto upsert = [&](int t, const QString &a, const QString &b) {
+        drift::Track &target = m_project.tracks()[t];
+        if (drift::Transition *existing = findTransitionBetween(target, a, b)) {
+            existing->durationUs = durationUs;
+            return;
+        }
+        drift::Transition transition;
+        transition.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        transition.fromClipId = a;
+        transition.toClipId = b;
+        transition.kindId = QStringLiteral("crossfade");
+        transition.durationUs = durationUs;
+        target.transitions.append(transition);
+    };
+    upsert(trackIndex, fromId, toId);
+    const LinkedAudioPair pair = linkedAudioPairFor(m_project, m_project.tracks().at(trackIndex), fromId, toId);
+    if (pair.valid())
+        upsert(pair.track, pair.fromId, pair.toId);
+}
+
+void AppController::setAutoCrossfade(bool on)
+{
+    if (m_autoCrossfade == on)
+        return;
+    m_autoCrossfade = on;
+    QSettings().setValue(QStringLiteral("timeline/autoCrossfade"), on);
+    emit autoCrossfadeChanged();
 }
 
 void AppController::closeGap(int trackIndex, double gapStartSeconds)

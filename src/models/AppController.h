@@ -1342,6 +1342,12 @@ public:
     // The padlock in a track's header (CapCut): its clips, and those of its lanes, cannot be
     // selected, moved, trimmed, split or dropped on until it is unlocked.
     Q_INVOKABLE void setTrackLocked(int trackIndex, bool locked);
+    // Sony Vegas' automatic crossfade: a clip moved so that one edge runs over its neighbour on
+    // the same track keeps the overlap as a dissolve. On by default; a toggle in the timeline.
+    Q_PROPERTY(bool autoCrossfade READ autoCrossfade WRITE setAutoCrossfade NOTIFY autoCrossfadeChanged)
+    bool autoCrossfade() const { return m_autoCrossfade; }
+    void setAutoCrossfade(bool on);
+    Q_SIGNAL void autoCrossfadeChanged();
     // CapCut's select-left / select-right tools: the clip and every clip that starts at or after
     // it (forward), or ends at or before it, on every unlocked track.
     Q_INVOKABLE void selectClipsFrom(int trackIndex, int clipIndex, bool forward);
@@ -2102,6 +2108,10 @@ protected:
     int m_selectedTransitionTrack = -1;
     int m_selectedTransitionLeftClip = -1;
     QString m_focusedMaskId;
+    bool m_autoCrossfade = true; // read from QSettings in the constructor
+    // The (from, to) clip ids a move should crossfade, or empty. See moveClip.
+    QPair<QString, QString> autoCrossfadeFor(int trackIndex, int clipIndex, const QSet<QString> &movedIds) const;
+    void addAutoCrossfade(int trackIndex, const QString &fromId, const QString &toId);
     int m_maskPointFocus = -1;
     QList<QPair<int, int>> m_selection;
     int m_selectionRevision = 0;

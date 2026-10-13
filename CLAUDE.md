@@ -75,6 +75,17 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
   - temas de color;
   - paso de sección con la rueda;
   - la escala fija al arrastrar (antes el clip salía disparado).
+- **Segunda tanda (2026-10-13, tarde)**, también en la web:
+  - fotos y videos en cualquier pista que no sea de audio;
+  - candado de pista;
+  - en los catálogos, la rueda pasa a la siguiente categoría;
+  - Video › Máscara como en CapCut, con la pluma que agrega y borra puntos;
+  - Retoque con fotos;
+  - iconos en las acciones;
+  - menú de la flecha con Seleccionar, Dividir y Seleccionar hacia la izquierda o la derecha;
+  - Quitar fondo y Recortar para fotos en la barra.
+
+  Las miniaturas de Retoque las renderiza la propia app (`resources/retouch/README.md`; la foto es CC0).
 - **Jorge tiene el espacio de trabajo fijado en «Horizontal»** (`ui/workspaceLayout`). Por eso un
   video 9:16 no cambiaba de diseño solo; ahora sale el botón «Espacio vertical».
 
@@ -91,8 +102,7 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
 4. Web: voz con IA (TTS) espera al backend; las opciones del navegador usan espeak-ng (GPL).
 5. Backend (`api.getflipstudio.com`): cuenta Google, ventas, Pexels, identificador de instalación
    y política de privacidad (ver el plan de abajo).
-6. **Candado para bloquear una pista** en la cabecera, como en CapCut: falta el botón.
-   `Track::locked` ya existe en el modelo y se guarda en el proyecto. Pedido de Jorge el 2026-10-13.
+6. ~~Candado para bloquear una pista~~: hecho en la 0.9.7 (escritorio y web).
 7. El selector de idioma del primer arranque marca "American English" por defecto aunque el
    sistema esté en español.
 
@@ -357,6 +367,12 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 ---
 
 ## Trampas que ya nos costaron tiempo
+
+**Nada que se lance desde `Flip\.e2e-app` puede escribir archivos.** Le pasa incluso a la 0.9.6
+copiada ahí, y aunque se lance sin sandbox o desde una tarea programada. No es la app: el
+ejecutable tiene que estar fuera del repo, por ejemplo en `Downloads\FlipStudio-0.9.7-prueba`.
+- Síntomas: el escaneo de caras da `Could not write …facetracks…`, `capture full:true` da
+  `Could not write PNG` y `save_project` no deja archivo.
 
 **Los nombres de los catálogos en JSON se traducen aparte.** Efectos, transiciones, efectos de
 audio, plantillas y animaciones de texto (y sus parámetros) vienen de `effect.json` & cía., que

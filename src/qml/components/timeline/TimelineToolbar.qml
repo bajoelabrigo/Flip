@@ -727,6 +727,18 @@ Item {
             active: EditorState.allowClipOverlap
             onClicked: EditorState.allowClipOverlap = !EditorState.allowClipOverlap
         }
+        // Sony Vegas' automatic crossfade: drag a clip's edge over its neighbour and the overlap
+        // becomes a dissolve.
+        IconButton {
+            id: autoCrossfadeButton
+            glyph: "arrow-right-left"
+            variant: "text"
+            tooltip: EditorState.autoCrossfade
+                     ? qsTr("Automatic dissolve: on. Drag a clip's edge over the next one and the overlap becomes a dissolve")
+                     : qsTr("Automatic dissolve: off")
+            active: EditorState.autoCrossfade
+            onClicked: EditorState.autoCrossfade = !EditorState.autoCrossfade
+        }
 
         Rectangle {
             width: Theme.borderWidth
