@@ -571,6 +571,46 @@
         <source>Add mask</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Film strip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Teksto</translation>
+    </message>
+    <message>
+        <source>Freeform</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AdjustmentLayerInspector</name>
@@ -11594,6 +11634,21 @@
     </message>
 </context>
 <context>
+    <name>MaskShapeTiles</name>
+    <message>
+        <source>Remove this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change this mask to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a %1 mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MasksInspector</name>
     <message>
         <source>1 mask on this clip</source>
@@ -12802,7 +12857,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Adjustment</source>
+        <source>Adjustment layer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -19212,6 +19267,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Add adjustment layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Select transform layer</source>
         <translation>Piliin ang transform layer</translation>
     </message>
@@ -21494,14 +21553,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove this mask</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change this mask to %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add a %1 mask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

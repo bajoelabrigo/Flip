@@ -571,6 +571,46 @@
         <source>Add mask</source>
         <translation>Añadir máscara</translation>
     </message>
+    <message>
+        <source>None</source>
+        <translation>Ninguna</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>Rectángulo</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation>Círculo</translation>
+    </message>
+    <message>
+        <source>Film strip</source>
+        <translation>Rollo de película</translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation>Estrella</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>Corazón</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texto</translation>
+    </message>
+    <message>
+        <source>Freeform</source>
+        <translation>Forma libre</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation>Degradado</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation>TEXTO</translation>
+    </message>
 </context>
 <context>
     <name>AdjustmentLayerInspector</name>
@@ -11594,6 +11634,21 @@
     </message>
 </context>
 <context>
+    <name>MaskShapeTiles</name>
+    <message>
+        <source>Remove this mask</source>
+        <translation>Quitar esta máscara</translation>
+    </message>
+    <message>
+        <source>Change this mask to %1</source>
+        <translation>Cambiar esta máscara a %1</translation>
+    </message>
+    <message>
+        <source>Add a %1 mask</source>
+        <translation>Agregar una máscara: %1</translation>
+    </message>
+</context>
+<context>
     <name>MasksInspector</name>
     <message>
         <source>None</source>
@@ -12802,8 +12857,8 @@
         <translation>Gráfico</translation>
     </message>
     <message>
-        <source>Adjustment</source>
-        <translation>Ajuste</translation>
+        <source>Adjustment layer</source>
+        <translation>Capa de ajuste</translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -19220,6 +19275,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Añadir capa de transformación</translation>
     </message>
     <message>
+        <source>Add adjustment layer</source>
+        <translation>Agregar capa de ajuste</translation>
+    </message>
+    <message>
         <source>Select transform layer</source>
         <translation>Seleccionar capa de transformación</translation>
     </message>
@@ -21503,14 +21562,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Remove this mask</source>
         <translation>Quitar esta máscara</translation>
-    </message>
-    <message>
-        <source>Change this mask to %1</source>
-        <translation>Cambiar esta máscara a %1</translation>
-    </message>
-    <message>
-        <source>Add a %1 mask</source>
-        <translation>Agregar una máscara: %1</translation>
     </message>
     <message>
         <source>Mask settings</source>

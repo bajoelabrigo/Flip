@@ -571,6 +571,46 @@
         <source>Add mask</source>
         <translation type="unfinished">Adicionar máscara</translation>
     </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">Retângulo</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">Círculo</translation>
+    </message>
+    <message>
+        <source>Film strip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished">Coração</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Texto</translation>
+    </message>
+    <message>
+        <source>Freeform</source>
+        <translation type="unfinished">Forma livre</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation type="unfinished">Gradiente</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AdjustmentLayerInspector</name>
@@ -11594,6 +11634,21 @@
     </message>
 </context>
 <context>
+    <name>MaskShapeTiles</name>
+    <message>
+        <source>Remove this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change this mask to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a %1 mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MasksInspector</name>
     <message>
         <source>None</source>
@@ -12802,8 +12857,8 @@
         <translation>Gráfico</translation>
     </message>
     <message>
-        <source>Adjustment</source>
-        <translation>Ajuste</translation>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">Camada de ajuste</translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -19220,6 +19275,10 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Adicionar camada de transformação</translation>
     </message>
     <message>
+        <source>Add adjustment layer</source>
+        <translation type="unfinished">Adicionar camada de ajuste</translation>
+    </message>
+    <message>
         <source>Select transform layer</source>
         <translation>Selecionar camada de transformação</translation>
     </message>
@@ -21502,14 +21561,6 @@ Se a reprodução travar, experimente outro.</translation>
     </message>
     <message>
         <source>Remove this mask</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change this mask to %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add a %1 mask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

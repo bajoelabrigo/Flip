@@ -571,6 +571,46 @@
         <source>Add mask</source>
         <translation type="unfinished">ආවරණයක් (Mask) එක් කරන්න</translation>
     </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">කිසිවක් නැත</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">සෘජුකෝණාස්‍රය</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">කවය</translation>
+    </message>
+    <message>
+        <source>Film strip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished">හදවත</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">පෙළ</translation>
+    </message>
+    <message>
+        <source>Freeform</source>
+        <translation type="unfinished">නිදහස් හැඩය (Freeform)</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation type="unfinished">ශ්‍රේණිය (Gradient)</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AdjustmentLayerInspector</name>
@@ -11594,6 +11634,21 @@
     </message>
 </context>
 <context>
+    <name>MaskShapeTiles</name>
+    <message>
+        <source>Remove this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change this mask to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a %1 mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MasksInspector</name>
     <message>
         <source>None</source>
@@ -12802,8 +12857,8 @@
         <translation>ග්‍රැෆික්</translation>
     </message>
     <message>
-        <source>Adjustment</source>
-        <translation>ගැලපුම් (Adjustment)</translation>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">ගැළපුම් ස්තරය</translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -19220,6 +19275,10 @@ If playback stutters, try another.</source>
         <translation>පරිවර්තන ස්තරයක් එක් කරන්න</translation>
     </message>
     <message>
+        <source>Add adjustment layer</source>
+        <translation type="unfinished">ගැලපුම් ස්තරයක් එක් කරන්න</translation>
+    </message>
+    <message>
         <source>Select transform layer</source>
         <translation>පරිවර්තන ස්තරය තෝරන්න</translation>
     </message>
@@ -21502,14 +21561,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove this mask</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change this mask to %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add a %1 mask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

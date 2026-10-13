@@ -571,6 +571,46 @@
         <source>Add mask</source>
         <translation type="unfinished">マスクを追加</translation>
     </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">なし</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">矩形</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">円</translation>
+    </message>
+    <message>
+        <source>Film strip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished">ハート</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">テキスト</translation>
+    </message>
+    <message>
+        <source>Freeform</source>
+        <translation type="unfinished">フリーフォーム</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation type="unfinished">グラデーション</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AdjustmentLayerInspector</name>
@@ -11562,6 +11602,21 @@
     </message>
 </context>
 <context>
+    <name>MaskShapeTiles</name>
+    <message>
+        <source>Remove this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change this mask to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a %1 mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MasksInspector</name>
     <message>
         <source>None</source>
@@ -12756,8 +12811,8 @@
         <translation>グラフィック</translation>
     </message>
     <message>
-        <source>Adjustment</source>
-        <translation>調整</translation>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">調整レイヤー</translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -19164,6 +19219,10 @@ If playback stutters, try another.</source>
         <translation>変形レイヤーを追加</translation>
     </message>
     <message>
+        <source>Add adjustment layer</source>
+        <translation type="unfinished">調整レイヤーを追加</translation>
+    </message>
+    <message>
         <source>Select transform layer</source>
         <translation>変形レイヤーを選択</translation>
     </message>
@@ -21439,14 +21498,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove this mask</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change this mask to %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add a %1 mask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

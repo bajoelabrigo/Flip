@@ -31,6 +31,8 @@ Popup {
         // nothing — so it goes through its own call rather than addTrack's bare-lane path.
         if (type === "camera")
             EditorState.addCameraTrack()
+        else if (type === "adjustmentLayer")
+            EditorState.addAdjustmentClip(-1, -1)
         else if (type.indexOf("adjustment:") === 0)
             EditorState.addAdjustmentTrack(type.substring("adjustment:".length))
         else
@@ -109,9 +111,10 @@ Popup {
         { type: "text", label: qsTr("Text"), icon: Theme.icons.type },
         { type: "subtitle", label: qsTr("Subtitle"), icon: Theme.icons.captions },
         { type: "shape", label: qsTr("Graphic"), icon: Theme.icons.shapes },
-        // Standalone adjustment tracks. These apply to everything composited below them; drag
-        // one onto a track to nest it there instead and scope it to that track alone.
-        { type: "adjustment:videoEffects", label: qsTr("Adjustment"), icon: Theme.icons.wand },
+        // A standalone adjustment layer at the playhead, ready to edit (an empty adjustment
+        // track did nothing until a layer was put on it). It applies to everything composited
+        // below; drag it onto a track to nest it there instead and scope it to that track alone.
+        { type: "adjustmentLayer", label: qsTr("Adjustment layer"), icon: Theme.icons.layers },
         { type: "adjustment:audioEffects", label: qsTr("Audio adjustment"),
           icon: Theme.icons.audioLines },
         // A transform layer moves the tracks below it, so it is only offered once there is one.

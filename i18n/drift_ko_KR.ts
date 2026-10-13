@@ -571,6 +571,46 @@
         <source>Add mask</source>
         <translation type="unfinished">마스크 추가</translation>
     </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">없음</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">사각형</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">원</translation>
+    </message>
+    <message>
+        <source>Film strip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished">하트</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">텍스트</translation>
+    </message>
+    <message>
+        <source>Freeform</source>
+        <translation type="unfinished">자유형</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation type="unfinished">그라디언트</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AdjustmentLayerInspector</name>
@@ -11562,6 +11602,21 @@
     </message>
 </context>
 <context>
+    <name>MaskShapeTiles</name>
+    <message>
+        <source>Remove this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change this mask to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a %1 mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MasksInspector</name>
     <message>
         <source>None</source>
@@ -12756,8 +12811,8 @@
         <translation>그래픽</translation>
     </message>
     <message>
-        <source>Adjustment</source>
-        <translation>보정</translation>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">보정 레이어</translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -19156,6 +19211,10 @@ If playback stutters, try another.</source>
         <translation>변환 레이어 추가</translation>
     </message>
     <message>
+        <source>Add adjustment layer</source>
+        <translation type="unfinished">보정 레이어 추가</translation>
+    </message>
+    <message>
         <source>Select transform layer</source>
         <translation>변환 레이어 선택</translation>
     </message>
@@ -21431,14 +21490,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove this mask</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change this mask to %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add a %1 mask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -805,23 +805,63 @@ Item {
                 font.pixelSize: Theme.fontSizeXs
             }
 
-            Grid {
+            // The same tiles as Video > Mask. On an adjustment layer a pick adds its first mask
+            // or changes the shape of the one being edited ("+" in the list below adds another);
+            // on a photo or video it adds a mask pinned to the clip, which stays selected.
+            MaskShapeTiles {
+                id: maskTiles
                 width: parent.width
-                columns: 3
-                spacing: Theme.spacingSm
-                readonly property real cell: (width - spacing * 2) / 3
-
-                Repeater {
-                    model: EditorState.maskCatalog()
-                    delegate: ThemedButton {
-                        required property var modelData
-                        width: parent.cell
-                        text: modelData.label
-                        enabled: root.canEdit
-                        onClicked: EditorState.addMaskToClip(EditorState.selectedTrack,
-                                                             EditorState.selectedClip,
-                                                             modelData.id)
+                enabled: root.canEdit
+                readonly property var clipInfo: EditorState.selectedClipData || ({})
+                readonly property bool onLayer: clipInfo.kind === "adjustment"
+                                              && clipInfo.adjustmentKind === "videoEffects"
+                readonly property var focused: (onLayer && clipInfo.mask) || ({})
+                readonly property string focusedShape: focused.shape || "none"
+                tiles: [
+                    { id: "none", label: qsTr("None") },
+                    { id: "rectangle", label: qsTr("Rectangle") },
+                    { id: "ellipse", label: qsTr("Circle") },
+                    { id: "bars", label: qsTr("Film strip") },
+                    { id: "star", label: qsTr("Stars") },
+                    { id: "heart", label: qsTr("Heart") },
+                    { id: "text", label: qsTr("Text") },
+                    { id: "freeform", label: qsTr("Freeform") },
+                    { id: "gradient", label: qsTr("Gradient") }
+                ]
+                currentId: focusedShape
+                editing: onLayer && focusedShape !== "none"
+                onPicked: (id) => {
+                    const t = EditorState.selectedTrack
+                    const c = EditorState.selectedClip
+                    if (!onLayer) {
+                        if (id !== "none")
+                            EditorState.addMaskToClipInPlace(t, c, id)
+                        return
                     }
+                    if (id === "none") {
+                        if (focusedShape !== "none")
+                            EditorState.removeLayerMask(t, c, clipInfo.layerMaskFocus || 0)
+                        return
+                    }
+                    if (focusedShape === "none") {
+                        EditorState.addLayerMask(t, c, id)
+                        return
+                    }
+                    if (id === focusedShape)
+                        return
+                    const mask = Object.assign({}, focused, { shape: id })
+                    if (id === "freeform")
+                        mask.points = []
+                    if (id === "text" && !mask.text) {
+                        mask.text = qsTr("TEXT")
+                        mask.w = 0.8
+                        mask.h = 0.35
+                    }
+                    if (id === "gradient") {
+                        mask.y = 0.5
+                        mask.h = 0.4
+                    }
+                    EditorState.setClipMask(t, c, mask)
                 }
             }
 

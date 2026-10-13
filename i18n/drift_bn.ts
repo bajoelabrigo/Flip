@@ -571,6 +571,46 @@
         <source>Add mask</source>
         <translation type="unfinished">মাস্ক যোগ করুন</translation>
     </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">কোনোটিই নয়</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">আয়তক্ষেত্র</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">বৃত্ত</translation>
+    </message>
+    <message>
+        <source>Film strip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished">হৃদয়</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">টেক্সট</translation>
+    </message>
+    <message>
+        <source>Freeform</source>
+        <translation type="unfinished">ফ্রিফর্ম</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation type="unfinished">গ্রেডিয়েন্ট</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AdjustmentLayerInspector</name>
@@ -11594,6 +11634,21 @@
     </message>
 </context>
 <context>
+    <name>MaskShapeTiles</name>
+    <message>
+        <source>Remove this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change this mask to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a %1 mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MasksInspector</name>
     <message>
         <source>None</source>
@@ -12802,8 +12857,8 @@
         <translation type="unfinished">গ্রাফিক</translation>
     </message>
     <message>
-        <source>Adjustment</source>
-        <translation type="unfinished">সমন্বয়</translation>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">সমন্বয় স্তর</translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -19220,6 +19275,10 @@ If playback stutters, try another.</source>
         <translation>ট্রান্সফর্ম লেয়ার যোগ করুন</translation>
     </message>
     <message>
+        <source>Add adjustment layer</source>
+        <translation type="unfinished">অ্যাডজাস্টমেন্ট লেয়ার যোগ করুন</translation>
+    </message>
+    <message>
         <source>Select transform layer</source>
         <translation>ট্রান্সফর্ম লেয়ার নির্বাচন করুন</translation>
     </message>
@@ -21502,14 +21561,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove this mask</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change this mask to %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add a %1 mask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

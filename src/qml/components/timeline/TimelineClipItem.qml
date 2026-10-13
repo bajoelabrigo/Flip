@@ -381,6 +381,15 @@ Item {
                 onTriggered: EditorState.makeTransformLayerFromSelection()
             }
             ThemedMenuItem {
+                // Over everything, for exactly this clip's time: what it grades or masks is the
+                // picture under it, and the clip itself is left untouched.
+                text: qsTr("Add adjustment layer")
+                icon.name: Theme.icons.layers
+                visible: ["video", "image", "text"].indexOf(clipItem.clipData.kind) >= 0
+                onTriggered: EditorState.addAdjustmentClip(clipItem.clipData.start || 0,
+                                                          clipItem.clipData.duration || -1)
+            }
+            ThemedMenuItem {
                 text: qsTr("Select transform layer")
                 icon.name: Theme.icons.maximize
                 visible: clipItem.hasTransformParent && !clipItem.isTransformClip
