@@ -35,61 +35,27 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-10-12, noche)
 
-**v0.9.3 PUBLICADA.** Release, tag, instalador y portable en GitHub; extras al día.
+**v0.9.5 PUBLICADA** (incluye la 0.9.4, que no salió por separado; la 0.9.3 tampoco llegó a la Store).
 
 ### Hecho
-- `main` = `cfdb0`, tiene todo lo de la 0.9.3 y **0 commits de diferencia con `flip/v0.9.2`**.
-  Tag `v0.9.3`. CI y build de Windows en verde; el portable se ejecutó y aplica efectos.
-- GitHub Release `v0.9.3` (Latest) con `FlipStudio-Setup-0.9.3-x64.exe` (109 MB, hash
-  verificado), `FlipStudio-Portable-0.9.3-x64.zip` y `SHA256SUMS`. El instalador está copiado
-  en `Downloads\FlipStudio-0.9.3\`.
-- **Índice de extras en vivo con 21 extras** (`getflipstudio.com/addons/index.json`). La 0.9.3 no
-  trae paquetes nuevos: los seis de modelos de video entraron en la 0.9.2.
-- **El panel de video quedó con las cuatro páginas de CapCut** (Básico, Eliminar fondo, Máscara,
-  Retoque) en `src/qml/components/properties/VideoInspector.qml`.
-- **Los efectos se pueden recortar** (`independentRange`), **las máscaras se ven con el clip
-  seleccionado** (`linkedMaskClips`) y hay **39 transiciones** (10 nuevas, categoría `modern`).
-- MSIX de la 0.9.3 generado: `FlipStudio-Store\paquete-0.9.3\FlipStudio-0.9.3.0-x64.msix`.
+- `main` = merge del PR #10 (`flip/v0.9.5`). Tag `v0.9.5`; release Latest con
+  `FlipStudio-Setup-0.9.5-x64.exe`, portable y `SHA256SUMS` (verificados). Copia en
+  `Downloads\FlipStudio-0.9.5\`.
+- MSIX: `FlipStudio-Store\paquete-0.9.5\FlipStudio-0.9.5.0-x64.msix` (identidad
+  `yitoweb.FlipStudio`, versión 0.9.5.0). Notas de la Store en `docs/store-listing.md` (911 car.).
+- Extras: `musica.libre` subido al release `packages`; **índice en vivo con 22 extras**.
+- Web desplegada para la 0.9.5 (cifras, Música libre, novedades.html con la 0.9.5).
+- Probado en ventana antes de publicar: Video, Retoque, Ajuste (curvas y círculos cambian la
+  imagen), Música (canciones enteras), stickers animados, transiciones y nombres en español.
 
 ### Pendiente
-1. ~~TXT `version` del DNS a `0.9.3`~~ — **hecho por Jorge el 2026-10-12**. Propagando: Google
-   (8.8.8.8) ya devolvía `0.9.3` mientras Cloudflare (1.1.1.1) seguía con `0.9.2` en caché (el
-   registro tiene TTL largo, unas 4 h). No es un fallo.
-2. **Subir el MSIX 0.9.3 a Partner Center.** Bloqueado por Jorge: la Store no acepta un envío nuevo
-   mientras certifica el anterior.
-3. **El editor web (`flipstudio-app`)**: Jorge aclaró el 2026-10-12 que **no** lo está trabajando en
-   otra sesión. Se puede revisar y tocar desde aquí; el objetivo sigue siendo que coincida al
-   máximo con la app de escritorio.
-4. **Verificar a ojo la 0.9.3**: las cuatro páginas del panel de video, que un efecto recortado se
-   quede recortado, y las transiciones nuevas. De la 0.9.2 Jorge ya verificó el "Recortar".
+1. **Jorge:** subir el MSIX 0.9.5 a Partner Center y cambiar el TXT `version` del DNS a `0.9.5`.
+2. Retoque **Cuerpo** y **Cabello** siguen sin modelo de IA.
+3. Otros idiomas: los 569 nombres de catálogo (contexto `Catalog`) solo están en español.
+4. Backend (`api.getflipstudio.com`): cuenta Google, ventas, Pexels, identificador de instalación
+   y política de privacidad (ver el plan de abajo).
 
 ---
-
-## Estado al cierre del 2026-10-12 (tarde)
-
-- **0.9.4** en `flip/v0.9.4` (no publicada): arreglo del idioma (es_CO elegido), Retoque con
-  Rostro/Cuerpo/Cabello, categorías en filas plegables, animación al pasar el ratón (stickers,
-  emojis, Lottie con `image://lottie`), Doblez y Barrido de cristal arreglados + tiras de vista
-  previa. CI verde (run 38282994474, 2.º intento). Instalador de prueba en
-  `Downloads\FlipStudio-0.9.4-prueba`. **La 0.9.3 nunca se subió a la Store**; las notas de la Store
-  de la 0.9.4 cubren las dos.
-- **0.9.5** en `flip/v0.9.5` (sale de la 0.9.4, no publicada): pestaña **Ajuste** (Básico, HSL,
-  Curvas, Círculo cromático, Máscara; efectos `color.basic/hsl/curves/wheels`), pestaña **Música**,
-  la pestaña ya no salta a Video al añadir un efecto. CI verde (run 38295489464). Instalador de
-  prueba en `Downloads\FlipStudio-0.9.5-prueba`. Efectos de color probados en la app real con
-  `tools/e2e` (capturas correctas).
-- **Paquete `musica.libre`** (65 canciones FreePD, CC0, 107 MB) firmado en `flip-addons/dist` y ya
-  en `flip-addons/dist/index.json`, **sin subir**: pide la app 0.9.5. Publicarlo con la 0.9.5
-  (primero el `.driftpkg` al release `packages`, luego el índice).
-- **Web** (`flipstudio-web`): contenido de la 0.9.4 + `novedades.html` listos y **sin desplegar**;
-  HSTS y permisos del VPS ya aplicados.
-- **Editor web**: efectos propios (sin código de Drift), pestaña Video, texto con
-  Transformar/Animación/Efectos y **subtítulos automáticos** (Whisper en el navegador): todo
-  publicado.
-- El test `stabilizeRendersRangeIntoBinAndSwapsClip` falla a veces en CI (el runner solo tiene
-  OpenGL 3.0 y su aviso pisa el mensaje esperado): se relanza.
-- Los nombres de los efectos del catálogo (`effect.json` → `displayName`) no se traducen: salen en
-  inglés en la pestaña Efectos. Pendiente.
 
 ## Lo que avanzamos el 2026-10-12
 
