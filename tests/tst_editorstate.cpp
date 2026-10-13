@@ -29,6 +29,8 @@
 #include <QAbstractItemModel>
 #include <zlib.h>
 
+#include <functional>
+
 #include "playback/CompositorService.h"
 #include "engine/HwAccel.h"
 #include "engine/MediaEditor.h"
@@ -84,6 +86,7 @@ private slots:
     void driftAssetStoreInstallsOneVariantSeparately();
     void snapTimeEnabled();
     void compositeFromSelectionUndoRedo();
+    void compositeKeepsTheSelectionsPlaceInTheStack();
     void compositeClipGetsAPreviewBox();
     void cameraMovesThePreviewOverlayWithThePicture();
     void cameraGizmoMovesAndTurnsTheEye();
@@ -1033,6 +1036,67 @@ void EditorStateTest::cameraGizmoMovesAndTurnsTheEye()
 
     state.preview()->setMode(QStringLiteral("2d"));
     QVERIFY(state.preview()->cameraBox().isEmpty());
+}
+
+// Reproduced in the app: a text alone over an adjustment layer made into a composite landed on a
+// new video track under the layer, so the layer's grade suddenly reached the text. The composite
+// takes the place of the lowest track it came from.
+void EditorStateTest::compositeKeepsTheSelectionsPlaceInTheStack()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    QList<drift::Track> &tracks = state.project()->tracks();
+    tracks.clear();
+    const auto clipOf = [](const QString &id, drift::ClipType type) {
+        drift::Clip clip;
+        clip.id = id;
+        clip.type = type;
+        clip.timelineStart = 0;
+        clip.timelineDuration = drift::secondsToUs(5.0);
+        clip.srcOut = clip.timelineDuration;
+        return clip;
+    };
+    drift::Clip layer = clipOf(QStringLiteral("layer"), drift::ClipType::Adjustment);
+    layer.adjustmentKind = drift::AdjustmentKind::VideoEffects;
+    tracks.append(drift::Track{.type = drift::TrackType::Text,
+                               .clips = {clipOf(QStringLiteral("text"), drift::ClipType::Text)}});
+    tracks.append(drift::Track{.type = drift::TrackType::Adjustment, .clips = {layer}});
+    tracks.append(drift::Track{.type = drift::TrackType::Video,
+                               .clips = {clipOf(QStringLiteral("picture"), drift::ClipType::Image)}});
+    state.project()->ensureTrackIds();
+
+    const auto trackOf = [&state](const std::function<bool(const drift::Clip &)> &match) {
+        const QList<drift::Track> &list = state.project()->tracks();
+        for (int t = 0; t < list.size(); ++t) {
+            for (const drift::Clip &clip : list.at(t).clips) {
+                if (match(clip))
+                    return t;
+            }
+        }
+        return -1;
+    };
+    const auto isComposite = [](const drift::Clip &c) { return c.type == drift::ClipType::Composite; };
+    const auto isLayer = [](const drift::Clip &c) { return c.id == QLatin1String("layer"); };
+    const auto isPicture = [](const drift::Clip &c) { return c.id == QLatin1String("picture"); };
+
+    state.selectClip(0, 0);
+    QVERIFY(state.canMakeCompositeFromSelection());
+    state.makeCompositeFromSelection();
+    QVERIFY(trackOf(isComposite) >= 0);
+    QVERIFY2(trackOf(isComposite) < trackOf(isLayer), "the text's composite went under the adjustment layer");
+    // The text track it emptied is gone; nothing else was touched.
+    QCOMPARE(state.project()->tracks().size(), 3);
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).id, QStringLiteral("layer"));
+    state.undo();
+    QCOMPARE(state.project()->tracks().size(), 3);
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).id, QStringLiteral("text"));
+
+    // The picture alone stays in its own place: under the layer, on its own track.
+    const int pictureTrack = trackOf(isPicture);
+    state.selectClip(pictureTrack, 0);
+    state.makeCompositeFromSelection();
+    QCOMPARE(trackOf(isComposite), pictureTrack);
+    QVERIFY(trackOf(isComposite) > trackOf(isLayer));
 }
 
 void EditorStateTest::compositeClipGetsAPreviewBox()

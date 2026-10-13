@@ -13352,11 +13352,17 @@ void AppController::convertSelectionToSubtitle()
 
     setPlaying(false);
     const drift::Project before = m_project;
+    // Tracks this leaves empty go too, once the composite has its place: five empty rows used to
+    // stay behind after a whole timeline went into one composite.
+    QSet<QString> emptiedTrackIds;
     for (drift::Track &track : m_project.tracks()) {
+        const bool hadClips = !track.clips.isEmpty();
         for (int i = track.clips.size() - 1; i >= 0; --i) {
             if (ids.contains(track.clips.at(i).id))
                 track.clips.removeAt(i);
         }
+        if (hadClips && track.clips.isEmpty())
+            emptiedTrackIds.insert(track.id);
         for (int i = track.transitions.size() - 1; i >= 0; --i) {
             const drift::Transition &transition = track.transitions.at(i);
             if (ids.contains(transition.fromClipId) || ids.contains(transition.toClipId))
@@ -13498,7 +13504,10 @@ void AppController::makeCompositeFromSelection()
 
     drift::TimeUs startUs = std::numeric_limits<drift::TimeUs>::max();
     drift::TimeUs endUs = 0;
-    int bottomVideoTrack = -1;
+    // The lowest picture track the selection came from: the composite takes its place in the
+    // stack, as Premiere's nest does, so what was drawn over or under the selection still is.
+    // Lanes ride with their parent and audio has no place in the picture.
+    int bottomPictureTrack = -1;
     for (int t = 0; t < m_project.tracks().size(); ++t) {
         const drift::Track &track = m_project.tracks().at(t);
         for (const drift::Clip &clip : track.clips) {
@@ -13508,8 +13517,8 @@ void AppController::makeCompositeFromSelection()
                 return;
             startUs = qMin(startUs, clip.timelineStart);
             endUs = qMax(endUs, clip.timelineEnd());
-            if (track.type == drift::TrackType::Video)
-                bottomVideoTrack = t;
+            if (track.type != drift::TrackType::Audio && !track.isAdjustmentLane())
+                bottomPictureTrack = t;
         }
     }
     if (endUs <= startUs)
@@ -13548,11 +13557,17 @@ void AppController::makeCompositeFromSelection()
         track.parentTrackId = innerTrackIds.value(track.parentTrackId);
     const QString sequenceId = m_project.addSequence(inner);
 
+    // Tracks this leaves empty go too, once the composite has its place: five empty rows used to
+    // stay behind after a whole timeline went into one composite.
+    QSet<QString> emptiedTrackIds;
     for (drift::Track &track : m_project.tracks()) {
+        const bool hadClips = !track.clips.isEmpty();
         for (int i = track.clips.size() - 1; i >= 0; --i) {
             if (ids.contains(track.clips.at(i).id))
                 track.clips.removeAt(i);
         }
+        if (hadClips && track.clips.isEmpty())
+            emptiedTrackIds.insert(track.id);
         for (int i = track.transitions.size() - 1; i >= 0; --i) {
             const drift::Transition &transition = track.transitions.at(i);
             if (ids.contains(transition.fromClipId) || ids.contains(transition.toClipId))
@@ -13587,16 +13602,21 @@ void AppController::makeCompositeFromSelection()
     composite.srcIn = 0;
     composite.srcOut = composite.timelineDuration;
 
-    // The lowest video track the selection came from, now that it is cleared — unless something
-    // left behind still occupies that span.
-    int trackIndex = bottomVideoTrack;
-    if (trackIndex >= 0) {
-        for (const drift::Clip &clip : m_project.tracks().at(trackIndex).clips) {
-            if (clip.timelineStart < endUs && startUs < clip.timelineEnd()) {
-                trackIndex = -1;
-                break;
-            }
+    // That track itself when it can take the composite and nothing left behind occupies the span;
+    // otherwise a new video track in the same place in the stack (a text-only selection used to
+    // land on the first free video track, under whatever adjustment layer sat between, and change
+    // how it looked).
+    int trackIndex = -1;
+    if (bottomPictureTrack >= 0) {
+        const drift::Track &bottom = m_project.tracks().at(bottomPictureTrack);
+        bool free = bottom.allowsClipType(drift::ClipType::Composite) && !bottom.isAdjustment();
+        for (const drift::Clip &clip : bottom.clips) {
+            if (free && clip.timelineStart < endUs && startUs < clip.timelineEnd())
+                free = false;
         }
+        trackIndex = free ? bottomPictureTrack
+                          : drift::insertTrackAboveForClipType(m_project, bottomPictureTrack,
+                                                               drift::ClipType::Composite);
     }
     if (trackIndex < 0) {
         trackIndex = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Composite, startUs,
@@ -13608,11 +13628,24 @@ void AppController::makeCompositeFromSelection()
         ++insertAt;
     clips.insert(insertAt, composite);
 
+    // A lane still holding something keeps its parent track.
+    QList<drift::Track> &tracks = m_project.tracks();
+    for (const drift::Track &track : tracks) {
+        if (!track.clips.isEmpty() && !track.parentTrackId.isEmpty())
+            emptiedTrackIds.remove(track.parentTrackId);
+    }
+    for (int t = tracks.size() - 1; t >= 0; --t) {
+        if (tracks.at(t).clips.isEmpty() && emptiedTrackIds.contains(tracks.at(t).id))
+            tracks.removeAt(t);
+    }
+    if (m_selectedTransitionTrack >= tracks.size())
+        m_selectedTransitionTrack = -1;
+
     if (m_assetLibrary)
         m_assetLibrary->syncToProject();
     pushProjectEdit(before, tr("Composite created"));
     finishEdit(tr("Composite created"));
-    selectClip(trackIndex, insertAt);
+    selectClipById(composite.id);
     emit sequenceTabsChanged();
 }
 
