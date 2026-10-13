@@ -804,7 +804,7 @@ PanelFrame {
             acceptedButtons: Qt.NoButton
             z: 5
             property real overscroll: 0
-            readonly property real threshold: 240
+            readonly property real threshold: 360
 
             onWheel: (wheel) => {
                 const dy = wheel.angleDelta.y !== 0 ? wheel.angleDelta.y : wheel.pixelDelta.y

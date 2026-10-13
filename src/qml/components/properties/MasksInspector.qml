@@ -283,7 +283,13 @@ Item {
                 visible: !root.isMedia
                          && !root.isMediaClip
                          && modelData.shapes.indexOf(root.maskShape) >= 0
-                propDef: modelData
+                // `def` is what an unkeyed row shows, so it carries the mask's own value (as the
+                // effect rows do); the fixed default made a resized mask read 0.600.
+                propDef: {
+                    const mask = root.clipData.mask || {}
+                    const own = mask[modelData.key.substring(5)]
+                    return Object.assign({}, modelData, { def: own !== undefined ? own : modelData.def })
+                }
                 // Key times come back on the timeline already, keyed by the bare scalar name.
                 keyframeList: {
                     const keys = root.clipData.mask && root.clipData.mask.keyframes

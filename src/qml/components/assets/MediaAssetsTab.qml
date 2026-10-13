@@ -1565,16 +1565,6 @@ Item {
                         wrapMode: Text.WordWrap
                     }
 
-                    // The label column fits the longest translated kind ("Imágenes",
-                    // "Vectorial"), instead of a fixed 48 px that cut them off.
-                    TextMetrics {
-                        id: formatLabelMetrics
-                        font.family: Theme.fontFamily
-                        font.pixelSize: Theme.fontSizeXs
-                        text: [qsTr("Video"), qsTr("Audio"), qsTr("Images"), qsTr("Vector"), qsTr("3D"),
-                               qsTr("PDF")].reduce((a, b) => (a.length >= b.length ? a : b))
-                    }
-
                     Repeater {
                         model: [
                             { glyph: Theme.icons.video, label: qsTr("Video"),
@@ -1591,42 +1581,44 @@ Item {
                               formats: qsTr("PDF (needs the PDF Viewer addon)") }
                         ]
 
-                        delegate: Row {
+                        // The kind on one line and its formats under it, both the full width:
+                        // three columns side by side left the formats a sliver in a narrow
+                        // panel, one word per line, running out of the frame.
+                        delegate: Column {
                             id: formatRow
                             required property var modelData
-
-                            readonly property real labelWidth: Math.min(Math.ceil(formatLabelMetrics.advanceWidth) + 2,
-                                                                        formatColumn.width * 0.4)
                             width: formatColumn.width
-                            spacing: Theme.spacingMd
+                            spacing: 2
 
-                            IconGlyph {
-                                anchors.verticalCenter: parent.verticalCenter
-                                glyph: formatRow.modelData.glyph
-                                iconSize: Theme.iconSizeSm
-                                iconColor: Theme.mutedForeground
+                            Row {
+                                width: parent.width
+                                spacing: Theme.spacingMd
+
+                                IconGlyph {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    glyph: formatRow.modelData.glyph
+                                    iconSize: Theme.iconSizeSm
+                                    iconColor: Theme.mutedForeground
+                                }
+
+                                Text {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    width: parent.width - Theme.iconSizeSm - Theme.spacingMd
+                                    text: formatRow.modelData.label
+                                    color: Theme.panelForeground
+                                    font.family: Theme.fontFamily
+                                    font.pixelSize: Theme.fontSizeXs
+                                    elide: Text.ElideRight
+                                }
                             }
 
                             Text {
-                                anchors.verticalCenter: parent.verticalCenter
-                                width: formatRow.labelWidth
-                                text: formatRow.modelData.label
-                                color: Theme.panelForeground
-                                font.family: Theme.fontFamily
-                                font.pixelSize: Theme.fontSizeXs
-                                elide: Text.ElideRight
-                            }
-
-                            Text {
-                                anchors.verticalCenter: parent.verticalCenter
-                                width: formatColumn.width - Theme.iconSizeSm - formatRow.labelWidth
-                                       - Theme.spacingMd * 2
+                                width: parent.width
+                                leftPadding: Theme.iconSizeSm + Theme.spacingMd
                                 text: formatRow.modelData.formats
                                 color: Theme.mutedForeground
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.fontSizeTiny
-                                // Wraps onto a second line in a narrow panel instead of running
-                                // past the frame.
                                 wrapMode: Text.WordWrap
                             }
                         }

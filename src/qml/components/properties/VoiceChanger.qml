@@ -227,7 +227,7 @@ Item {
 
                         ThemedToolTip {
                             visible: mouse.containsMouse && tile.modelData.id !== ""
-                            text: qsTr("%1 — click to apply, right-click to add to favorites").arg(tile.modelData.label)
+                            text: qsTr("%1 — click to apply; the star keeps it in favorites").arg(tile.modelData.label)
                         }
                     }
                 }

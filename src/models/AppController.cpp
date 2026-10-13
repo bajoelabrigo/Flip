@@ -9792,6 +9792,8 @@ void AppController::normalizeProjectStructure(const drift::Project *before)
     // importer, a tool, a test. Both passes are cheap no-ops once the shape is right.
     drift::liftAdjustmentClipsToOwnTracks(m_project);
     drift::hoistClipEffectsToAdjustmentLanes(m_project);
+    // A clip moved to another track takes its effects and masks along.
+    drift::relocateLinkedAdjustments(m_project);
     normalizeAdjustmentLanes(m_project);
     drift::normalizeTransformLayers(m_project.tracks(), before ? &before->tracks() : nullptr);
     drift::normalizeCameraLayers(m_project.tracks());

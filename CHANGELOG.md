@@ -3,6 +3,34 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.9.7 — Lo que Jorge encontró usando la 0.9.6
+
+- **Imágenes con las páginas de video.**
+  - `inspectorCaps` da a `ClipType::Image` `maskable`, `adj:videoEffects` y `videoTools`.
+  - `linkedMaskClips` acepta imágenes.
+  - `SegmentationController` recorta fotos: lee la imagen una vez (`sourceFrame`), pasa el modelo una sola vez y repite la máscara en cada fotograma.
+- **`Track::allowsClipType`:** una pista de video acepta `ClipType::Image`. El compositor y el mezclador ya lo soportaban, porque los importadores ponen imágenes ahí.
+- **`moveClipToNewTrack`:** soltar un clip encima de la primera pista o debajo de la última crea una pista de su tipo.
+- **`relocateLinkedAdjustments`**, en `normalizeProjectStructure`: los ajustes vinculados (efectos, máscaras) siguen a su clip cuando cambia de pista. Antes se quedaban en un carril de la pista vieja y dejaban de aplicarse.
+- **`secondsToUs` redondea** en vez de truncar. Un clip soltado justo al borde de otro se quedaba 1 µs dentro, y la comprobación de solapes lo empujaba detrás.
+- **Cabecera de pista:**
+  - la rueda ya no cambia la altura en toda la cabecera, solo sobre la línea inferior, que también se arrastra;
+  - las pistas de audio tienen un menú `⋯` con Altura (0,6/1,0/1,6) y Tamaño de la forma de onda (`Track::waveformScale`, 0,3/0,6/1,0, solo visual).
+- **`PropertiesPanel`:** seguir girando la rueda al final de una pestaña (360 de `angleDelta`) abre la siguiente, y al principio, la anterior.
+- **Máscaras:**
+  - `Mask::smooth` (Pluma: Catmull-Rom cerrada sobre los puntos de la forma libre);
+  - `MaskShape::Text` con `Mask::text` (`QPainterPath::addText` ajustado al rectángulo);
+  - las dos entran en la clave de caché de la máscara;
+  - los controles muestran el valor real de la máscara y no el predeterminado.
+- **Favoritos** (`AssetFavoriteButton`) en las fichas de Retoque (`retouch`, con sección Favoritos) y del Modificador de voz.
+- **Botón Actualizar siempre visible** en `EditorHeader`. En la copia de la Store abre `ms-windows-store://pdp/?productid=9NZZJ9MRGT0B`.
+- **Temas de color:** `PreferencesController::colorTheme` (`ui/colorTheme`) y `Theme.colorThemes`, con seis acentos y el tinte de las superficies oscuras.
+- **`PreviewTransportBar`:** botón para volver al espacio de trabajo que corresponde al lienzo cuando hay uno fijado que no coincide.
+- **Barra de recursos** ordenada por temas: audio junto, con Voz, y Plantillas debajo de Efectos de audio.
+- **«Formatos compatibles»:** cada tipo va con sus formatos debajo, a todo el ancho.
+- **Instalador:** el arranque tras una actualización silenciosa lleva `runasoriginaluser`. Elevado, Windows bloqueaba arrastrar archivos desde el Explorador.
+- **`drift_es_CO.ts`:** las 123 entradas sin terminar que `lupdate` rellenaba con conjeturas toman el texto de `drift_es` y quedan terminadas. `lrelease` incluye las sin terminar, así que pisaban la traducción buena.
+
 ## 0.9.6 — El texto como en CapCut
 
 - `TextInspector.qml` pasa a las páginas de CapCut: Básico, Burbuja, Efectos y Animación.

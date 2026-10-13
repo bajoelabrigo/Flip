@@ -21068,8 +21068,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Ninguna</translation>
     </message>
     <message>
-        <source>%1 — click to apply, right-click to add to favorites</source>
-        <translation>%1 — clic para aplicar, clic derecho para agregar a favoritos</translation>
+        <source>%1 — click to apply; the star keeps it in favorites</source>
+        <translation>%1: clic para aplicar; la estrella la guarda en favoritos</translation>
     </message>
     <message>
         <source>Intensity</source>

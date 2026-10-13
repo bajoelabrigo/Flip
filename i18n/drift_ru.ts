@@ -21127,7 +21127,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished">Нет</translation>
     </message>
     <message>
-        <source>%1 — click to apply, right-click to add to favorites</source>
+        <source>%1 — click to apply; the star keeps it in favorites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

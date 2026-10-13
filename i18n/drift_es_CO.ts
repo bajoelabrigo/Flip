@@ -393,7 +393,7 @@
     </message>
     <message>
         <source>Mask</source>
-        <translation type="unfinished">Máscara</translation>
+        <translation>Máscara</translation>
     </message>
     <message>
         <source>Adjust %1</source>
@@ -405,7 +405,7 @@
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished">Restablecer</translation>
+        <translation>Restablecer</translation>
     </message>
     <message>
         <source>Select a video or image clip to adjust its colour.</source>
@@ -457,11 +457,11 @@
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished">Color</translation>
+        <translation>Color</translation>
     </message>
     <message>
         <source>Red</source>
-        <translation type="unfinished">Rojo</translation>
+        <translation>Rojo</translation>
     </message>
     <message>
         <source>Orange</source>
@@ -473,7 +473,7 @@
     </message>
     <message>
         <source>Green</source>
-        <translation type="unfinished">Verde</translation>
+        <translation>Verde</translation>
     </message>
     <message>
         <source>Aqua</source>
@@ -481,7 +481,7 @@
     </message>
     <message>
         <source>Blue</source>
-        <translation type="unfinished">Azul</translation>
+        <translation>Azul</translation>
     </message>
     <message>
         <source>Purple</source>
@@ -525,7 +525,7 @@
     </message>
     <message>
         <source>Reset all</source>
-        <translation type="unfinished">Restablecer todo</translation>
+        <translation>Restablecer todo</translation>
     </message>
     <message>
         <source>Reset curves</source>
@@ -541,15 +541,15 @@
     </message>
     <message>
         <source>Offset</source>
-        <translation type="unfinished">Desplazamiento</translation>
+        <translation>Desplazamiento</translation>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">Intensidad</translation>
+        <translation>Intensidad</translation>
     </message>
     <message>
         <source>Add mask</source>
-        <translation type="unfinished">Añadir máscara</translation>
+        <translation>Añadir máscara</translation>
     </message>
 </context>
 <context>
@@ -3351,7 +3351,7 @@
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">Texto</translation>
+        <translation>Texto</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -5431,19 +5431,19 @@
     <name>Catalog</name>
     <message>
         <source>Duration</source>
-        <translation type="unfinished">Duración</translation>
+        <translation>Duración</translation>
     </message>
     <message>
         <source>Stagger</source>
-        <translation type="unfinished">Escalonamiento</translation>
+        <translation>Escalonado</translation>
     </message>
     <message>
         <source>By</source>
-        <translation type="unfinished">Por</translation>
+        <translation>Por</translation>
     </message>
     <message>
         <source>Order</source>
-        <translation type="unfinished">Orden</translation>
+        <translation>Orden</translation>
     </message>
     <message>
         <source>Ease</source>
@@ -5495,11 +5495,11 @@
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished">Rotación</translation>
+        <translation>Rotación</translation>
     </message>
     <message>
         <source>Seed</source>
-        <translation type="unfinished">Semilla</translation>
+        <translation>Semilla</translation>
     </message>
     <message>
         <source>Bling</source>
@@ -5507,7 +5507,7 @@
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">Intensidad</translation>
+        <translation>Intensidad</translation>
     </message>
     <message>
         <source>Threshold</source>
@@ -5519,7 +5519,7 @@
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">Tamaño</translation>
+        <translation>Tamaño</translation>
     </message>
     <message>
         <source>Twinkle</source>
@@ -5527,7 +5527,7 @@
     </message>
     <message>
         <source>Points</source>
-        <translation type="unfinished">Puntas</translation>
+        <translation>Puntas</translation>
     </message>
     <message>
         <source>Tint</source>
@@ -5555,7 +5555,7 @@
     </message>
     <message>
         <source>Radius</source>
-        <translation type="unfinished">Radio</translation>
+        <translation>Radio</translation>
     </message>
     <message>
         <source>Bokeh Dream</source>
@@ -5587,7 +5587,7 @@
     </message>
     <message>
         <source>Cinematic</source>
-        <translation type="unfinished">Cinematográfico</translation>
+        <translation>Cinematográfico</translation>
     </message>
     <message>
         <source>Strength</source>
@@ -5863,11 +5863,11 @@
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished">Color</translation>
+        <translation>Color</translation>
     </message>
     <message>
         <source>Starts at</source>
-        <translation type="unfinished">Comienza en</translation>
+        <translation>Empieza en</translation>
     </message>
     <message>
         <source>Low-lying</source>
@@ -5879,7 +5879,7 @@
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished">Clip</translation>
+        <translation>Clip</translation>
     </message>
     <message>
         <source>Distance</source>
@@ -5907,7 +5907,7 @@
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished">Desenfoque</translation>
+        <translation>Desenfoque</translation>
     </message>
     <message>
         <source>Foreground blur</source>
@@ -5947,7 +5947,7 @@
     </message>
     <message>
         <source>Shine</source>
-        <translation type="unfinished">Brillo</translation>
+        <translation>Brillo especular</translation>
     </message>
     <message>
         <source>Shine tightness</source>
@@ -5955,7 +5955,7 @@
     </message>
     <message>
         <source>On</source>
-        <translation type="unfinished">Activado</translation>
+        <translation>Encendida</translation>
     </message>
     <message>
         <source>Light 1</source>
@@ -6035,11 +6035,11 @@
     </message>
     <message>
         <source>Center X</source>
-        <translation type="unfinished">Centro X</translation>
+        <translation>Centro X</translation>
     </message>
     <message>
         <source>Center Y</source>
-        <translation type="unfinished">Centro Y</translation>
+        <translation>Centro Y</translation>
     </message>
     <message>
         <source>Turns</source>
@@ -6047,7 +6047,7 @@
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished">Zoom</translation>
+        <translation>Zoom</translation>
     </message>
     <message>
         <source>Duotone</source>
@@ -6055,7 +6055,7 @@
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished">Sombra</translation>
+        <translation>Sombra</translation>
     </message>
     <message>
         <source>Highlight</source>
@@ -6071,7 +6071,7 @@
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished">Estirar</translation>
+        <translation>Estirar</translation>
     </message>
     <message>
         <source>Narrow</source>
@@ -6099,7 +6099,7 @@
     </message>
     <message>
         <source>Feather</source>
-        <translation type="unfinished">Desvanecimiento</translation>
+        <translation>Difuminado</translation>
     </message>
     <message>
         <source>Eye Colour</source>
@@ -6119,7 +6119,7 @@
     </message>
     <message>
         <source>Thickness</source>
-        <translation type="unfinished">Grosor</translation>
+        <translation>Grosor</translation>
     </message>
     <message>
         <source>Wing</source>
@@ -6127,7 +6127,7 @@
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished">Opacidad</translation>
+        <translation>Opacidad</translation>
     </message>
     <message>
         <source>Eyeshadow</source>
@@ -6143,11 +6143,11 @@
     </message>
     <message>
         <source>Width</source>
-        <translation type="unfinished">Anchura</translation>
+        <translation>Ancho</translation>
     </message>
     <message>
         <source>Height</source>
-        <translation type="unfinished">Altura</translation>
+        <translation>Alto</translation>
     </message>
     <message>
         <source>Face Fisheye</source>
@@ -6179,15 +6179,15 @@
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished">Escala</translation>
+        <translation>Escala</translation>
     </message>
     <message>
         <source>Offset X</source>
-        <translation type="unfinished">Desplazamiento X</translation>
+        <translation>Desplazamiento X</translation>
     </message>
     <message>
         <source>Offset Y</source>
-        <translation type="unfinished">Desplazamiento Y</translation>
+        <translation>Desplazamiento Y</translation>
     </message>
     <message>
         <source>Offset Z</source>
@@ -6219,15 +6219,15 @@
     </message>
     <message>
         <source>Ambient</source>
-        <translation type="unfinished">Ambiente</translation>
+        <translation>Luz ambiente</translation>
     </message>
     <message>
         <source>Face Props</source>
-        <translation type="unfinished">Accesorios faciales</translation>
+        <translation>Accesorios faciales</translation>
     </message>
     <message>
         <source>Prop</source>
-        <translation type="unfinished">Accesorio</translation>
+        <translation>Accesorio</translation>
     </message>
     <message>
         <source>Head Occlusion</source>
@@ -6251,7 +6251,7 @@
     </message>
     <message>
         <source>Lighting</source>
-        <translation type="unfinished">Iluminación</translation>
+        <translation>Iluminación</translation>
     </message>
     <message>
         <source>Face Retouch</source>
@@ -6259,7 +6259,7 @@
     </message>
     <message>
         <source>Smoothing</source>
-        <translation type="unfinished">Suavizado</translation>
+        <translation>Suavizado</translation>
     </message>
     <message>
         <source>Sharpen</source>
@@ -6307,7 +6307,7 @@
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Avanzado</translation>
+        <translation>Avanzado</translation>
     </message>
     <message>
         <source>Custom blush colour</source>
@@ -6399,7 +6399,7 @@
     </message>
     <message>
         <source>Comic</source>
-        <translation type="unfinished">Cómic</translation>
+        <translation>Cómic</translation>
     </message>
     <message>
         <source>Dot Size</source>
@@ -6411,7 +6411,7 @@
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished">Ángulo</translation>
+        <translation>Ángulo</translation>
     </message>
     <message>
         <source>Kaleidoscope</source>
@@ -6439,7 +6439,7 @@
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished">Velocidad</translation>
+        <translation>Velocidad</translation>
     </message>
     <message>
         <source>Lightning Sky</source>
@@ -6463,7 +6463,7 @@
     </message>
     <message>
         <source>Animated</source>
-        <translation type="unfinished">Animado</translation>
+        <translation>Animado</translation>
     </message>
     <message>
         <source>Ripple / Water</source>
@@ -6507,7 +6507,7 @@
     </message>
     <message>
         <source>Samples</source>
-        <translation type="unfinished">Muestras</translation>
+        <translation>Muestras</translation>
     </message>
     <message>
         <source>Star Filter</source>
@@ -6543,7 +6543,7 @@
     </message>
     <message>
         <source>Ripple</source>
-        <translation type="unfinished">Desplazamiento</translation>
+        <translation>Ondas</translation>
     </message>
     <message>
         <source>Sepia</source>
@@ -6555,7 +6555,7 @@
     </message>
     <message>
         <source>Noise</source>
-        <translation type="unfinished">Ruido</translation>
+        <translation>Ruido</translation>
     </message>
     <message>
         <source>Chroma shift</source>
@@ -6783,7 +6783,7 @@
     </message>
     <message>
         <source>Columns</source>
-        <translation type="unfinished">Columnas</translation>
+        <translation>Columnas</translation>
     </message>
     <message>
         <source>Trail Length</source>
@@ -6819,7 +6819,7 @@
     </message>
     <message>
         <source>Direction</source>
-        <translation type="unfinished">Dirección</translation>
+        <translation>Dirección</translation>
     </message>
     <message>
         <source>Pixelate Matrix</source>
@@ -6859,11 +6859,11 @@
     </message>
     <message>
         <source>Centre X</source>
-        <translation type="unfinished">Centro X</translation>
+        <translation>Centro X</translation>
     </message>
     <message>
         <source>Centre Y</source>
-        <translation type="unfinished">Centro Y</translation>
+        <translation>Centro Y</translation>
     </message>
     <message>
         <source>RGB Displacement</source>
@@ -7015,11 +7015,11 @@
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished">Profundidad</translation>
+        <translation>Profundidad</translation>
     </message>
     <message>
         <source>Echo</source>
-        <translation type="unfinished">Eco</translation>
+        <translation>Eco</translation>
     </message>
     <message>
         <source>Wet Mix</source>
@@ -7107,7 +7107,7 @@
     </message>
     <message>
         <source>Ratio</source>
-        <translation type="unfinished">Relación</translation>
+        <translation>Proporción</translation>
     </message>
     <message>
         <source>Attack (ms)</source>
@@ -7175,7 +7175,7 @@
     </message>
     <message>
         <source>Motion</source>
-        <translation type="unfinished">Movimiento</translation>
+        <translation>Movimiento</translation>
     </message>
     <message>
         <source>Walkie-Talkie</source>
@@ -7263,7 +7263,7 @@
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished">Inclinación</translation>
+        <translation>Tono</translation>
     </message>
     <message>
         <source>Deep Voice</source>
@@ -7287,7 +7287,7 @@
     </message>
     <message>
         <source>Wobble</source>
-        <translation type="unfinished">Oscilación</translation>
+        <translation>Vaivén</translation>
     </message>
     <message>
         <source>Anime Punch</source>
@@ -7391,11 +7391,11 @@
     </message>
     <message>
         <source>Focus</source>
-        <translation type="unfinished">Enfoque</translation>
+        <translation>Enfoque</translation>
     </message>
     <message>
         <source>Bounce</source>
-        <translation type="unfinished">Rebote</translation>
+        <translation>Rebote</translation>
     </message>
     <message>
         <source>Boing</source>
@@ -7451,7 +7451,7 @@
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished">Hasta</translation>
+        <translation>Hacia</translation>
     </message>
     <message>
         <source>Fade away</source>
@@ -7467,7 +7467,7 @@
     </message>
     <message>
         <source>Fade</source>
-        <translation type="unfinished">Fundido</translation>
+        <translation>Fundido</translation>
     </message>
     <message>
         <source>Fade in</source>
@@ -7487,7 +7487,7 @@
     </message>
     <message>
         <source>Flip</source>
-        <translation type="unfinished">Voltear</translation>
+        <translation>Voltear</translation>
     </message>
     <message>
         <source>Flip it</source>
@@ -7511,7 +7511,7 @@
     </message>
     <message>
         <source>Offset</source>
-        <translation type="unfinished">Desplazamiento</translation>
+        <translation>Desplazamiento</translation>
     </message>
     <message>
         <source>Skew</source>
@@ -7527,11 +7527,11 @@
     </message>
     <message>
         <source>Lift</source>
-        <translation type="unfinished">Flotante</translation>
+        <translation>Elevación</translation>
     </message>
     <message>
         <source>Karaoke pop</source>
-        <translation type="unfinished">Karaoke pop</translation>
+        <translation>Karaoke pop</translation>
     </message>
     <message>
         <source>Sing along</source>
@@ -7547,7 +7547,7 @@
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished">Desde</translation>
+        <translation>Desde</translation>
     </message>
     <message>
         <source>Pulse</source>
@@ -7691,19 +7691,19 @@
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished">Tipo</translation>
+        <translation>Tipo</translation>
     </message>
     <message>
         <source>Zoom in</source>
-        <translation type="unfinished">Acercar zoom</translation>
+        <translation>Acercar</translation>
     </message>
     <message>
         <source>Zoom out</source>
-        <translation type="unfinished">Alejar zoom</translation>
+        <translation>Alejar</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">Texto</translation>
+        <translation>Texto</translation>
     </message>
 </context>
 <context>
@@ -8642,7 +8642,7 @@
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished">Color</translation>
+        <translation>Color</translation>
     </message>
     <message>
         <source>Language…</source>
@@ -8670,7 +8670,7 @@
     </message>
     <message>
         <source>Checking for updates…</source>
-        <translation type="unfinished">Buscando actualizaciones…</translation>
+        <translation>Buscando actualizaciones…</translation>
     </message>
     <message>
         <source>Check for updates (you have %1)</source>
@@ -11243,7 +11243,7 @@
     </message>
     <message>
         <source>Cutout</source>
-        <translation type="unfinished">Recorte</translation>
+        <translation>Recorte</translation>
     </message>
     <message>
         <source>Edit this mask</source>
@@ -11279,7 +11279,7 @@
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">Texto</translation>
+        <translation>Texto</translation>
     </message>
     <message>
         <source>TEXT</source>
@@ -13548,7 +13548,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">Video</translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Adjust</source>
@@ -17370,11 +17370,11 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Effects</source>
-        <translation type="unfinished">Efectos</translation>
+        <translation>Efectos</translation>
     </message>
     <message>
         <source>Animation</source>
-        <translation type="unfinished">Animación</translation>
+        <translation>Animación</translation>
     </message>
     <message>
         <source>Favorites</source>
@@ -17382,11 +17382,11 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Templates</source>
-        <translation type="unfinished">Plantillas</translation>
+        <translation>Plantillas</translation>
     </message>
     <message>
         <source>My styles</source>
-        <translation type="unfinished">Mis estilos</translation>
+        <translation>Mis estilos</translation>
     </message>
     <message>
         <source>Hello</source>
@@ -17398,7 +17398,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished">Negrita</translation>
+        <translation>Negrita</translation>
     </message>
     <message>
         <source>Case</source>
@@ -17478,7 +17478,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished">Opacidad</translation>
+        <translation>Opacidad</translation>
     </message>
     <message>
         <source>Rounded corners</source>
@@ -17486,15 +17486,15 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Height</source>
-        <translation type="unfinished">Altura</translation>
+        <translation>Alto</translation>
     </message>
     <message>
         <source>Offset Y</source>
-        <translation type="unfinished">Desplazamiento Y</translation>
+        <translation>Desplazamiento Y</translation>
     </message>
     <message>
         <source>Offset X</source>
-        <translation type="unfinished">Desplazamiento X</translation>
+        <translation>Desplazamiento X</translation>
     </message>
     <message>
         <source>Border</source>
@@ -17538,7 +17538,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">Intensidad</translation>
+        <translation>Intensidad</translation>
     </message>
     <message>
         <source>Range</source>
@@ -17558,7 +17558,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished">Desenfoque</translation>
+        <translation>Desenfoque</translation>
     </message>
     <message>
         <source>Distance</source>
@@ -17570,11 +17570,11 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished">Ángulo</translation>
+        <translation>Ángulo</translation>
     </message>
     <message>
         <source>Curve</source>
-        <translation type="unfinished">Curva</translation>
+        <translation>Curva</translation>
     </message>
     <message>
         <source>Bend a single line of text along an arc</source>
@@ -17598,11 +17598,11 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Transform</source>
-        <translation type="unfinished">Transformar</translation>
+        <translation>Transformación</translation>
     </message>
     <message>
         <source>Blend</source>
-        <translation type="unfinished">Fusión</translation>
+        <translation>Mezcla</translation>
     </message>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
@@ -17879,7 +17879,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Red</source>
-        <translation type="unfinished">Rojo</translation>
+        <translation>Rojo</translation>
     </message>
     <message>
         <source>Soft shadow</source>
@@ -17899,7 +17899,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Green</source>
-        <translation type="unfinished">Verde</translation>
+        <translation>Verde</translation>
     </message>
     <message>
         <source>Orange</source>
@@ -17911,7 +17911,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Hollow</source>
-        <translation type="unfinished">Hueco</translation>
+        <translation>Hueco</translation>
     </message>
     <message>
         <source>Pink neon</source>
@@ -17955,15 +17955,15 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Fire</source>
-        <translation type="unfinished">Fuego</translation>
+        <translation>Fuego</translation>
     </message>
     <message>
         <source>Candy</source>
-        <translation type="unfinished">Caramelo</translation>
+        <translation>Caramelo</translation>
     </message>
     <message>
         <source>Gold</source>
-        <translation type="unfinished">Oro</translation>
+        <translation>Dorado</translation>
     </message>
     <message>
         <source>Mint</source>
@@ -17995,7 +17995,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Retro</source>
-        <translation type="unfinished">Retro</translation>
+        <translation>Retro</translation>
     </message>
     <message>
         <source>Red 3D</source>
@@ -18031,7 +18031,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Speech</source>
-        <translation type="unfinished">Voz</translation>
+        <translation>Diálogo</translation>
     </message>
     <message>
         <source>Balloon</source>
@@ -18055,7 +18055,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Cloud</source>
-        <translation type="unfinished">Nube</translation>
+        <translation>Nube</translation>
     </message>
     <message>
         <source>Black pill</source>
@@ -18095,7 +18095,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Arrow</source>
-        <translation type="unfinished">Flecha</translation>
+        <translation>Flecha</translation>
     </message>
     <message>
         <source>Ticket</source>
@@ -18135,7 +18135,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished">Corazón</translation>
+        <translation>Corazón</translation>
     </message>
     <message>
         <source>Pastel cloud</source>
@@ -18159,15 +18159,15 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Neon</source>
-        <translation type="unfinished">Neón</translation>
+        <translation>Neón</translation>
     </message>
     <message>
         <source>Gradient</source>
-        <translation type="unfinished">Degradado</translation>
+        <translation>Degradado</translation>
     </message>
     <message>
         <source>3D</source>
-        <translation type="unfinished">3D</translation>
+        <translation>3D</translation>
     </message>
     <message>
         <source>Shadow and outline</source>
@@ -18175,7 +18175,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Comic</source>
-        <translation type="unfinished">Cómic</translation>
+        <translation>Cómic</translation>
     </message>
     <message>
         <source>Labels</source>
@@ -19520,7 +19520,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Predeterminada</translation>
+        <translation>Predeterminado</translation>
     </message>
     <message>
         <source>High</source>
@@ -20621,11 +20621,11 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Remove background</source>
-        <translation type="unfinished">Quitar fondo</translation>
+        <translation>Eliminar fondo</translation>
     </message>
     <message>
         <source>Mask</source>
-        <translation type="unfinished">Máscara</translation>
+        <translation>Máscara</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -20669,27 +20669,27 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Image or video as mask…</source>
-        <translation type="unfinished">Imagen o video como máscara…</translation>
+        <translation>Imagen o video como máscara…</translation>
     </message>
     <message>
         <source>Use a file&apos;s own pixels as the coverage map</source>
-        <translation type="unfinished">Usa los propios píxeles de un archivo como mapa de cobertura</translation>
+        <translation>Usa los propios píxeles de un archivo como mapa de cobertura</translation>
     </message>
     <message>
         <source>Choose a mask image or video</source>
-        <translation type="unfinished">Elige una imagen o video de máscara</translation>
+        <translation>Elige una imagen o video de máscara</translation>
     </message>
     <message>
         <source>Media files (*.png *.jpg *.jpeg *.webp *.heic *.heif *.avif *.tif *.tiff *.bmp *.gif *.mp4 *.mov *.mkv *.webm)</source>
-        <translation type="unfinished">Archivos de medios (*.png *.jpg *.jpeg *.webp *.heic *.heif *.avif *.tif *.tiff *.bmp *.gif *.mp4 *.mov *.mkv *.webm)</translation>
+        <translation>Archivos de medios (*.png *.jpg *.jpeg *.webp *.heic *.heif *.avif *.tif *.tiff *.bmp *.gif *.mp4 *.mov *.mkv *.webm)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished">Todos los archivos (*)</translation>
+        <translation>Todos los archivos (*)</translation>
     </message>
     <message>
         <source>Add mask</source>
-        <translation type="unfinished">Añadir máscara</translation>
+        <translation>Añadir máscara</translation>
     </message>
     <message>
         <source>Slim or widen what the mesh follows</source>
@@ -20725,7 +20725,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Natural</source>
-        <translation type="unfinished">Natural</translation>
+        <translation>Natural</translation>
     </message>
     <message>
         <source>Light smoothing and a touch of brightness</source>
@@ -20761,7 +20761,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Smooth</source>
-        <translation type="unfinished">Suave</translation>
+        <translation>Suavizar</translation>
     </message>
     <message>
         <source>Evens out the skin</source>
@@ -21068,8 +21068,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Ninguna</translation>
     </message>
     <message>
-        <source>%1 — click to apply, right-click to add to favorites</source>
-        <translation>%1 — clic para aplicar, clic derecho para agregar a favoritos</translation>
+        <source>%1 — click to apply; the star keeps it in favorites</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Intensity</source>
