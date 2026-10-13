@@ -132,6 +132,16 @@ Column {
 
         // One trailing gap wider than the padded area, so the cards pack from the left exactly
         // as the old Grid did. Rows are a fixed two label lines tall.
+        // Past the end of a category, the wheel goes on into the next one (CapCut).
+        CategoryScrollOn {
+            anchors.fill: presetGrid
+            flickable: presetGrid
+            categories: root.categories
+            activeCategory: root.activeCategory
+            active: root.query.length === 0
+            onCategoryActivated: (categoryId) => root.activeCategory = categoryId
+        }
+
         GridView {
             id: presetGrid
             // As many columns as fit at the nominal card size, rounded, with the cards stretched or

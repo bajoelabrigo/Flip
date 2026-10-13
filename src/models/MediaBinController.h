@@ -85,6 +85,15 @@ public:
     // is — its position, trim, effects and transitions all survive. Asynchronous: true only means
     // the probe started, and the outcome arrives as replaceFinished.
     Q_INVOKABLE bool replaceSource(int assetIndex, const QUrl &url);
+    // Missing media, as Premiere and After Effects handle it: the file was deleted, renamed or
+    // moved, so the bin row and its clips point at nothing. Relinking points them at the file
+    // where it is now — the same media, so nothing is re-probed or re-fitted — and, once one is
+    // found, looks for every other missing file in that same folder (Premiere's "relink others
+    // automatically"). One undo step. Returns how many were relinked.
+    Q_INVOKABLE QVariantList missingMedia() const;
+    Q_INVOKABLE int relinkMissing(const QString &assetId, const QUrl &file);
+    // Searches a folder and everything under it for the missing files, by name.
+    Q_INVOKABLE int relinkMissingInFolder(const QUrl &folder);
     // Writes an image asset (a freeze frame, typically) out to `url`. The format follows the
     // destination's extension, so the picker's name filter never has to be reported back.
     Q_INVOKABLE bool exportImage(int assetIndex, const QUrl &url);
@@ -118,6 +127,7 @@ signals:
     // media's name on success. `adjustedClips` counts clips whose source range no longer fitted
     // the replacement and was pulled back to it.
     void replaceFinished(bool ok, const QString &message, int adjustedClips);
+    void missingMediaChanged();
     void replacingAssetIdChanged();
     void saveFinished(bool ok, const QString &name);
     void editChanged();

@@ -463,6 +463,16 @@ void TimelineTrackItem::setShowChannelWaveforms(bool show)
     scheduleRebuild();
 }
 
+void TimelineTrackItem::setWaveformScale(qreal scale)
+{
+    scale = qBound<qreal>(0.1, scale, 1.0);
+    if (qFuzzyCompare(m_waveformScale, scale))
+        return;
+    m_waveformScale = scale;
+    emit trackChanged();
+    scheduleRebuild();
+}
+
 QObject *TimelineTrackItem::editor() const
 {
     return m_editor.data();
@@ -1124,7 +1134,7 @@ void TimelineTrackItem::buildWaveform(int index, const QRectF &area, double clip
             if (values.isEmpty())
                 continue;
             const double mid = area.top() + c * laneH + laneH / 2.0;
-            const double half = (laneH / 2.0) * 0.85;
+            const double half = (laneH / 2.0) * 0.85 * m_waveformScale;
             for (int x = 0; x < w; ++x) {
                 const double amp = std::max(0.5, columnPeak(values, x) * half);
                 const double x0 = left + x - ox;
@@ -1156,7 +1166,7 @@ void TimelineTrackItem::buildWaveform(int index, const QRectF &area, double clip
     const double mid = area.top() + area.height() / 2.0;
     const double halfHeight = area.height() / 2.0;
     for (int x = 0; x < w; ++x) {
-        const double amp = columnPeak(cached.peaks, x) * halfHeight * 0.9;
+        const double amp = columnPeak(cached.peaks, x) * halfHeight * 0.9 * m_waveformScale;
         if (amp <= 0.5)
             continue;
         const double x0 = left + x - ox;

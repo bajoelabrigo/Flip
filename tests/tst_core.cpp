@@ -47,6 +47,7 @@ class CoreTest : public QObject
 
 private slots:
     void timeConversion();
+    void linkedAdjustmentsFollowTheirClipToAnotherTrack();
     void transcriptJsonRoundTrip();
     void transcriptWordsInRange();
     void transcriptPhrasePacking();
@@ -199,6 +200,54 @@ void CoreTest::timeConversion()
     QCOMPARE(drift::secondsToUs(1.0), drift::TimeUs{1'000'000});
     QCOMPARE(drift::usToSeconds(2'500'000), 2.5);
     QCOMPARE(drift::frameDurationUs(30), drift::TimeUs{33'333});
+}
+
+// A clip's mask lives in a lane of the clip's track. Moving the clip to another track must take
+// the mask along, or it stops applying (it was left behind when a photo was dragged to a new track).
+void CoreTest::linkedAdjustmentsFollowTheirClipToAnotherTrack()
+{
+    drift::Project project;
+    project.tracks().clear();
+    drift::Track upper;
+    upper.type = drift::TrackType::Video;
+    drift::Track lower;
+    lower.type = drift::TrackType::Video;
+    drift::Clip clip;
+    clip.id = QStringLiteral("photo");
+    clip.type = drift::ClipType::Image;
+    clip.timelineStart = 0;
+    clip.timelineDuration = drift::secondsToUs(5.0);
+    lower.clips.append(clip);
+    project.tracks() = {upper, lower};
+    project.ensureTrackIds();
+
+    drift::Clip mask;
+    mask.id = QStringLiteral("mask");
+    mask.type = drift::ClipType::Adjustment;
+    mask.adjustmentKind = drift::AdjustmentKind::Mask;
+    mask.linkedClipId = clip.id;
+    mask.timelineStart = clip.timelineStart;
+    mask.timelineDuration = clip.timelineDuration;
+    const int laneIndex = drift::ensureAdjustmentLane(project, 1, drift::AdjustmentKind::Mask,
+                                                      mask.timelineStart, mask.timelineDuration);
+    QCOMPARE(laneIndex, 2);
+    project.tracks()[laneIndex].clips.append(mask);
+
+    // Nothing to do while the clip stays put.
+    QVERIFY(!drift::relocateLinkedAdjustments(project));
+
+    // The photo moves to the upper track.
+    project.tracks()[0].clips.append(project.tracks()[1].clips.takeFirst());
+    QVERIFY(drift::relocateLinkedAdjustments(project));
+
+    const QList<int> upperLanes = drift::adjustmentLaneIndexes(project, 0);
+    QCOMPARE(upperLanes.size(), 1);
+    QCOMPARE(project.tracks().at(upperLanes.first()).clips.size(), 1);
+    QCOMPARE(project.tracks().at(upperLanes.first()).clips.first().id, QStringLiteral("mask"));
+    // The emptied lane under the old track is gone.
+    const int lowerIndex = project.tracks().size() - 1;
+    QCOMPARE(project.tracks().at(lowerIndex).type, drift::TrackType::Video);
+    QVERIFY(drift::adjustmentLaneIndexes(project, lowerIndex).isEmpty());
 }
 
 void CoreTest::keyframeHoldInterpolation()
@@ -991,7 +1040,7 @@ void CoreTest::trackAllowsClipTypes()
 {
     drift::Track videoTrack{.type = drift::TrackType::Video};
     QVERIFY(videoTrack.allowsClipType(drift::ClipType::Video));
-    QVERIFY(!videoTrack.allowsClipType(drift::ClipType::Image));
+    QVERIFY(videoTrack.allowsClipType(drift::ClipType::Image));
     QVERIFY(!videoTrack.allowsClipType(drift::ClipType::Audio));
 
     drift::Track audioTrack{.type = drift::TrackType::Audio};
@@ -1002,7 +1051,9 @@ void CoreTest::trackAllowsClipTypes()
     QVERIFY(shapeTrack.allowsClipType(drift::ClipType::Image));
     QVERIFY(shapeTrack.allowsClipType(drift::ClipType::Shape));
     QVERIFY(shapeTrack.allowsClipType(drift::ClipType::Vector));
-    QVERIFY(!shapeTrack.allowsClipType(drift::ClipType::Video));
+    // A video goes on a graphic track too: only audio tracks are picky (CapCut).
+    QVERIFY(shapeTrack.allowsClipType(drift::ClipType::Video));
+    QVERIFY(!shapeTrack.allowsClipType(drift::ClipType::Audio));
 
     drift::Track subtitleTrack{.type = drift::TrackType::Subtitle};
     QVERIFY(subtitleTrack.allowsClipType(drift::ClipType::Subtitle));

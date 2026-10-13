@@ -3,7 +3,9 @@
     python mcp_e2e.py --exe <flipstudio.exe> --calls calls.jsonl --out DIR [--project P.drift]
 
 Each line of the call file is {"tool": "...", "args": {...}, "sleep": <seconds>} plus an
-optional "save" naming the reply file (defaults to NN_<tool>.json). The app is asked to
+optional "save" naming the reply file (defaults to NN_<tool>.json), and an optional
+"remember": {"name": "field"} that keeps a field of the reply (place_clip's "id", say) so a later
+call can pass it as the string "$name" anywhere in its args. The app is asked to
 attach its MCP bridge over stdin/stdout; replies come back as newline-delimited JSON-RPC.
 
 Why this exists: the GUI-less run is the only way to exercise segment_clip and friends
@@ -119,6 +121,28 @@ def save_reply(out_dir, name, reply):
         print(f"  -> {text[:400]}")
 
 
+def substitute(value, memory):
+    """Replace "$name" strings with what an earlier call remembered."""
+    if isinstance(value, str) and value.startswith("$") and value[1:] in memory:
+        return memory[value[1:]]
+    if isinstance(value, dict):
+        return {k: substitute(v, memory) for k, v in value.items()}
+    if isinstance(value, list):
+        return [substitute(v, memory) for v in value]
+    return value
+
+
+def remember(reply, wanted, memory):
+    for text in reply_text(reply):
+        try:
+            data = json.loads(text)
+        except json.JSONDecodeError:
+            continue
+        for name, field in wanted.items():
+            if isinstance(data, dict) and field in data:
+                memory[name] = data[field]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--exe", required=True)
@@ -133,15 +157,18 @@ def main():
         calls = [json.loads(line) for line in fh if line.strip()]
 
     bridge = Bridge(opts.exe, opts.project, opts.out, opts.stage)
+    memory = {}
     try:
         for index, call in enumerate(calls, start=1):
             tool = call["tool"]
-            args = call.get("args", {})
+            args = substitute(call.get("args", {}), memory)
             wait = float(call.get("wait", opts.wait))
             print(f"[{index}] {tool} {json.dumps(args)[:160]}")
             reply = bridge.call(tool, args, wait=wait)
             name = call.get("save") or f"{index:02d}_{tool}.json"
             save_reply(opts.out, name, reply)
+            if call.get("remember"):
+                remember(reply, call["remember"], memory)
             sleep = call.get("sleep")
             if sleep:
                 # Give an async job started by this op time to land before the next call.

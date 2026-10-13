@@ -457,6 +457,22 @@ PanelFrame {
         }
     }
 
+    // A file deleted, renamed or moved since import: pick it where it is now. The clips keep
+    // everything; the others missing from that same folder are found along with it.
+    function findMissingAsset(assetId, path) {
+        const fileName = String(path).split(/[\/]/).pop()
+        const url = FileDialogs.openFile(qsTr("Where is %1 now?").arg(fileName),
+                                         [qsTr("%1 (%1)").arg(fileName), AssetLibrary.mediaNameFilter(),
+                                          qsTr("All files (*)")])
+        if (!url || url.toString() === "")
+            return
+        const found = EditorState.bin.relinkMissing(assetId, url)
+        if (found > 1)
+            Toasts.success(qsTr("%n files found", "", found))
+        else if (found === 1)
+            Toasts.success(qsTr("File found"))
+    }
+
     // Points a bin row at a different file while every clip using it stays put, so a project set
     // up once — music, outro, CTA — can be re-pointed at the next video instead of rebuilt.
     function requestReplaceAsset(assetIndex) {
@@ -638,7 +654,9 @@ PanelFrame {
         "shortcuts": qsTr("Shortcuts")
     })
 
-    // Rail order: project media → on-canvas graphics → processing → prefs.
+    // Rail order, by what each tab is about: media → text → graphics on the canvas → video
+    // effects → audio (voice included) → templates → shortcuts. Templates sit under the audio
+    // tools, where Jorge asked for them.
     // `separatorAfter` draws a hairline under the tab so groups read as sections.
     // tabId "sounds" is kept for favorites persistence (settings key).
     ListModel {
@@ -646,18 +664,18 @@ PanelFrame {
         ListElement { tabId: "media"; icon: 0; separatorAfter: false }
         ListElement { tabId: "market"; icon: 12; separatorAfter: true }
         ListElement { tabId: "text"; icon: 1; separatorAfter: false }
-        ListElement { tabId: "subtitles"; icon: 2; separatorAfter: false }
-        ListElement { tabId: "speech"; icon: 13; separatorAfter: false }
+        ListElement { tabId: "subtitles"; icon: 2; separatorAfter: true }
         ListElement { tabId: "stickers"; icon: 3; separatorAfter: false }
         ListElement { tabId: "shapes"; icon: 4; separatorAfter: false }
-        ListElement { tabId: "masks"; icon: 11; separatorAfter: true }
+        ListElement { tabId: "masks"; icon: 11; separatorAfter: false }
         ListElement { tabId: "scenes"; icon: 10; separatorAfter: true }
         ListElement { tabId: "effects"; icon: 5; separatorAfter: false }
-        ListElement { tabId: "templates"; icon: 6; separatorAfter: false }
-        ListElement { tabId: "transitions"; icon: 7; separatorAfter: false }
+        ListElement { tabId: "transitions"; icon: 7; separatorAfter: true }
         ListElement { tabId: "music"; icon: 14; separatorAfter: false }
         ListElement { tabId: "sfx"; icon: 15; separatorAfter: false }
+        ListElement { tabId: "speech"; icon: 13; separatorAfter: false }
         ListElement { tabId: "sounds"; icon: 8; separatorAfter: true }
+        ListElement { tabId: "templates"; icon: 6; separatorAfter: true }
         ListElement { tabId: "shortcuts"; icon: 9; separatorAfter: false }
 
         // A build without a marketplace service (Flip Studio has none yet) drops the tab rather
@@ -1321,6 +1339,7 @@ PanelFrame {
                         onAddToTimelineRequested: (assetIds) => root.requestAddToTimeline(assetIds)
                         onRemoveRequested: (assetIds) => root.requestRemoveAsset(assetIds)
                         onReplaceRequested: (assetIndex) => root.requestReplaceAsset(assetIndex)
+                        onFindMissingRequested: (assetId, path) => root.findMissingAsset(assetId, path)
                         onRenameRequested: (assetIndex) => root.requestRenameAsset(assetIndex)
                         onExportRequested: (assetIndex) => root.requestExportAsset(assetIndex)
                         onSaveAsRequested: (assetIndex) => root.requestSaveAssetAs(assetIndex)

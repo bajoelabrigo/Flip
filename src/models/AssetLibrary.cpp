@@ -871,6 +871,8 @@ QVariant AssetLibrary::data(const QModelIndex &index, int role) const
         return asset->filmstripPath;
     case FolderIdRole:
         return asset->folderId;
+    case MissingRole:
+        return isMissingPath(asset->path);
     default:
         return {};
     }
@@ -888,6 +890,7 @@ QHash<int, QByteArray> AssetLibrary::roleNames() const
         {ThumbnailPathRole, "thumbnailPath"},
         {FilmstripPathRole, "filmstripPath"},
         {FolderIdRole, "folderId"},
+        {MissingRole, "missing"},
     };
 }
 
@@ -1418,7 +1421,28 @@ QVariantMap AssetLibrary::assetAt(int index) const
         {QStringLiteral("assetIndex"), index},
         {QStringLiteral("folderId"), asset->folderId},
         {QStringLiteral("sequenceId"), asset->sequenceId},
+        {QStringLiteral("missing"), isMissingPath(asset->path)},
     };
+}
+
+bool AssetLibrary::isMissingPath(const QString &path)
+{
+    // Generated media (composites, freeze frames still being written) and Android content URIs
+    // are not plain files to look for; only a real local path that is gone counts.
+    if (path.isEmpty() || path.startsWith(QLatin1String("content:")))
+        return false;
+    return !QFileInfo::exists(path);
+}
+
+void AssetLibrary::assetPathChanged(const QString &assetId)
+{
+    const int index = indexOfId(assetId);
+    if (index < 0)
+        return;
+    emitAssetRowChanged(index, {PathRole, ThumbnailPathRole, FilmstripPathRole, MissingRole});
+    refreshMediaAt(index);
+    bumpBadges();
+    emit assetCardChanged(assetId);
 }
 
 QString AssetLibrary::thumbnailAt(int index) const

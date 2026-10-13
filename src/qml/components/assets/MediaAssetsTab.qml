@@ -75,6 +75,8 @@ Item {
     signal removeRequested(var assetIds)
     // Emitted from the card/row context menu. The parent owns the file picker.
     signal replaceRequested(int assetIndex)
+    // Right-click > Find missing file…
+    signal findMissingRequested(string assetId, string path)
     // Emitted from the card/row context menu. The parent owns the rename dialog.
     signal renameRequested(int assetIndex)
     // Emitted from the card/row context menu, image rows only. The parent owns the save dialog.
@@ -503,6 +505,12 @@ Item {
             required property string thumbnailPath
             required property string filmstripPath
             required property int assetIndex
+            // Deleted, renamed or moved since it was imported: marked, and right-click finds it.
+            readonly property bool fileMissing: {
+                void AssetLibrary.badgeRevision
+                void path
+                return !isFolder && AssetLibrary.assetAt(assetIndex).missing === true
+            }
 
             readonly property bool selected: !isFolder && root.isAssetSelected(assetId)
 
@@ -646,6 +654,37 @@ Item {
                 // Reading the replacement off disk is the one wait in the swap with
                 // nothing on screen to show for it. Scrims this card only, so the rest of
                 // the bin stays usable.
+                // "Missing file", as Premiere shows offline media: a red band across the card.
+                Rectangle {
+                    visible: cardRoot.fileMissing
+                    z: 2
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    height: missingLabel.implicitHeight + 6
+                    color: Theme.destructive
+                    radius: 2
+
+                    Text {
+                        id: missingLabel
+                        anchors.centerIn: parent
+                        width: parent.width - 6
+                        horizontalAlignment: Text.AlignHCenter
+                        elide: Text.ElideRight
+                        text: qsTr("Missing file")
+                        color: "white"
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                        font.weight: Font.Medium
+                    }
+
+                    ThemedToolTip {
+                        visible: missingHover.hovered
+                        text: qsTr("This file is not where it was. Right-click and choose Find missing file.")
+                    }
+                    HoverHandler { id: missingHover }
+                }
+
                 Rectangle {
                     id: gridBusy
                     // Above the duration badge, which is a later sibling.
@@ -858,6 +897,13 @@ Item {
                     id: cardMenu
 
                     ThemedMenuItem {
+                        text: qsTr("Find missing file…")
+                        icon.name: "search"
+                        visible: cardRoot.fileMissing && root.selectedAssetIds.length <= 1
+                        onTriggered: root.findMissingRequested(cardRoot.assetId, cardRoot.path)
+                    }
+
+                    ThemedMenuItem {
                         text: qsTr("Open composite")
                         icon.name: Theme.icons.layers
                         visible: kind === "composite" && root.selectedAssetIds.length <= 1
@@ -1043,6 +1089,12 @@ Item {
             required property string duration
             required property string thumbnailPath
             required property int assetIndex
+            // Deleted, renamed or moved since it was imported: marked, and right-click finds it.
+            readonly property bool fileMissing: {
+                void AssetLibrary.badgeRevision
+                void path
+                return !isFolder && AssetLibrary.assetAt(assetIndex).missing === true
+            }
             required property int depth
             required property bool expanded
             required property bool expandable
@@ -1339,6 +1391,13 @@ Item {
                 id: rowMenu
 
                 ThemedMenuItem {
+                    text: qsTr("Find missing file…")
+                    icon.name: "search"
+                    visible: listRow.fileMissing && root.selectedAssetIds.length <= 1
+                    onTriggered: root.findMissingRequested(listRow.assetId, listRow.path)
+                }
+
+                ThemedMenuItem {
                     text: qsTr("Open composite")
                     icon.name: Theme.icons.layers
                     visible: kind === "composite" && root.selectedAssetIds.length <= 1
@@ -1561,6 +1620,8 @@ Item {
                         font.weight: Font.Medium
                         font.capitalization: Font.AllUppercase
                         font.letterSpacing: 0.5
+                        // "Formatos compatibles" in caps is wider than a narrow panel.
+                        wrapMode: Text.WordWrap
                     }
 
                     Repeater {
@@ -1579,39 +1640,45 @@ Item {
                               formats: qsTr("PDF (needs the PDF Viewer addon)") }
                         ]
 
-                        delegate: Row {
+                        // The kind on one line and its formats under it, both the full width:
+                        // three columns side by side left the formats a sliver in a narrow
+                        // panel, one word per line, running out of the frame.
+                        delegate: Column {
                             id: formatRow
                             required property var modelData
-
                             width: formatColumn.width
-                            spacing: Theme.spacingMd
+                            spacing: 2
 
-                            IconGlyph {
-                                anchors.verticalCenter: parent.verticalCenter
-                                glyph: formatRow.modelData.glyph
-                                iconSize: Theme.iconSizeSm
-                                iconColor: Theme.mutedForeground
+                            Row {
+                                width: parent.width
+                                spacing: Theme.spacingMd
+
+                                IconGlyph {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    glyph: formatRow.modelData.glyph
+                                    iconSize: Theme.iconSizeSm
+                                    iconColor: Theme.mutedForeground
+                                }
+
+                                Text {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    width: parent.width - Theme.iconSizeSm - Theme.spacingMd
+                                    text: formatRow.modelData.label
+                                    color: Theme.panelForeground
+                                    font.family: Theme.fontFamily
+                                    font.pixelSize: Theme.fontSizeXs
+                                    elide: Text.ElideRight
+                                }
                             }
 
                             Text {
-                                anchors.verticalCenter: parent.verticalCenter
-                                width: 48
-                                text: formatRow.modelData.label
-                                color: Theme.panelForeground
-                                font.family: Theme.fontFamily
-                                font.pixelSize: Theme.fontSizeXs
-                                elide: Text.ElideRight
-                            }
-
-                            Text {
-                                anchors.verticalCenter: parent.verticalCenter
-                                width: formatColumn.width - Theme.iconSizeSm - 48
-                                       - Theme.spacingMd * 2
+                                width: parent.width
+                                leftPadding: Theme.iconSizeSm + Theme.spacingMd
                                 text: formatRow.modelData.formats
                                 color: Theme.mutedForeground
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.fontSizeTiny
-                                elide: Text.ElideRight
+                                wrapMode: Text.WordWrap
                             }
                         }
                     }

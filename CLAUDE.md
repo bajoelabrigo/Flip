@@ -57,20 +57,64 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
   - favoritos, Mis estilos y Mis efectos, guardados en `localStorage`.
 - Web `getflipstudio.com` con la 0.9.6 en `novedades.html`.
 
+### 0.9.7 en curso (2026-10-13)
+- Rama `flip/v0.9.7`, PR #12 en borrador; versión 0.9.7 en `CMakeLists.txt`; notas en
+  `release-notes/0.9.7.md`.
+- Los 14 puntos que encontró Jorge están hechos y probados en ventana con el portable de CI.
+- **Falta:**
+  - el OK de Jorge;
+  - merge, tag y release;
+  - el MSIX, después de que la Store apruebe la 0.9.6;
+  - las notas de la Store para la 0.9.7.
+- **Editor web:** rama `web/jorge-0.9.7` en `flipstudio-app`, probada en Chrome y **sin desplegar**.
+  Incluye:
+  - menú «⋯» de audio;
+  - fotos en la pista de video;
+  - pista nueva al arrastrar;
+  - máscara de texto;
+  - temas de color;
+  - paso de sección con la rueda;
+  - la escala fija al arrastrar (antes el clip salía disparado).
+- **Segunda tanda (2026-10-13, tarde)**, también en la web:
+  - fotos y videos en cualquier pista que no sea de audio;
+  - candado de pista;
+  - en los catálogos, la rueda pasa a la siguiente categoría;
+  - Video › Máscara como en CapCut, con la pluma que agrega y borra puntos;
+  - Retoque con fotos;
+  - iconos en las acciones;
+  - menú de la flecha con Seleccionar, Dividir y Seleccionar hacia la izquierda o la derecha;
+  - Quitar fondo y Recortar para fotos en la barra.
+
+  Las miniaturas de Retoque las renderiza la propia app (`resources/retouch/README.md`; la foto es CC0).
+- **Tercera tanda (2026-10-13, tarde)**, también en la web:
+  - fundido automático al montar el borde de un clip sobre otro, como en Sony Vegas
+    (`AppController::autoCrossfadeFor`, solo con «Permitir superposición» apagado);
+  - capa de ajuste en la barra por defecto; la web estrena las suyas (clip con `adjust: true`,
+    `drawAdjustment` en `render/compose.ts`);
+  - agrupar en la web (Ctrl+clic y Ctrl+G, por `link`);
+  - archivos que faltan como en Premiere: marca «Falta el archivo», «Buscar archivo perdido…» y
+    el diálogo al abrir (`MediaBinController::relinkMissing` / `relinkMissingInFolder`,
+    `MissingMediaDialog.qml`; en la web, `MissingMediaDialog.tsx`).
+  - En escritorio ya había agrupar: «Crear compuesto», «Transformar juntos» (Ctrl+G) y «Vincular».
+- Jorge pidió (2026-10-13) probar todo y, si funcionaba, **publicarlo todo**.
+- **Jorge tiene el espacio de trabajo fijado en «Horizontal»** (`ui/workspaceLayout`). Por eso un
+  video 9:16 no cambiaba de diseño solo; ahora sale el botón «Espacio vertical».
+
 ### Pendiente
 1. **Hecho por Jorge (2026-10-13):** cambió el TXT `version` del DNS y mandó la 0.9.6 a
    certificación en Partner Center. **Falta:** confirmar que la certificación pase. La ficha
    actualizada (descripción, notas y 16 características, en es/es-co/en-us) está en
    `Downloads\FlipStudio-Store\textos\listingData-FlipStudio-0.9.6.csv`; las capturas nuevas, en
    `FlipStudio-Store\ficha` (`Guion en Voz.jpg` es una foto suelta, no una captura de la app).
-   `docs/store-listing.md` todavía tiene la descripción anterior: pasarle la del CSV.
+   `docs/store-listing.md` ya tiene la descripción del CSV (2026-10-13).
 2. Retoque **Cuerpo** y **Cabello** siguen sin modelo de IA.
 3. Otros idiomas: los nombres de catálogo (contexto `Catalog`) y lo nuevo del texto solo están en
    español.
 4. Web: voz con IA (TTS) espera al backend; las opciones del navegador usan espeak-ng (GPL).
 5. Backend (`api.getflipstudio.com`): cuenta Google, ventas, Pexels, identificador de instalación
    y política de privacidad (ver el plan de abajo).
-6. El selector de idioma del primer arranque marca "American English" por defecto aunque el
+6. ~~Candado para bloquear una pista~~: hecho en la 0.9.7 (escritorio y web).
+7. El selector de idioma del primer arranque marca "American English" por defecto aunque el
    sistema esté en español.
 
 ---
@@ -162,6 +206,23 @@ en la hoja de ruta como requisito de Pexels y de las cuentas.
     nada y una app que sí lo hace es un problema con Microsoft, no un detalle.
 - Lo primero, entonces, es un identificador anónimo de instalación y actualizar la declaración;
   atarlo a la cuenta es una decisión de producto, no un detalle técnico.
+- **Pedido de Jorge (2026-10-13), para hacerlo junto con el login y Pexels:** contar **descargas,
+  máquinas instaladas y actualizaciones instaladas**.
+  - **Descargas:** ya se pueden leer.
+    - GitHub da `download_count` por archivo del release (`gh api repos/bajoelabrigo/Flip/releases`).
+      Al 2026-10-13 eran de 0 a 3 por versión, casi todas nuestras pruebas.
+    - La Store tiene sus análisis en Partner Center.
+    - Los registros de nginx del VPS cuentan los clics en «Descargar» de la web.
+    - GitHub no separa instalación nueva de actualización: las dos bajan el mismo archivo.
+  - **Máquinas y actualizaciones:** la app tiene que avisar a `api.getflipstudio.com` con un
+    identificador **aleatorio y anónimo** (nada de la persona ni del equipo):
+    - al instalarse (versión, Windows);
+    - al actualizarse (de qué versión a cuál);
+    - y como mucho una vez al día «sigo en uso», para contar las activas por día y por mes.
+  - Con eso, un panel con instalaciones, activas, versiones en uso y actualizaciones aplicadas.
+  - **Pendiente de Jorge:** confirmar «anónimo» y un interruptor «Enviar estadísticas anónimas» en
+    Ajustes, activado por defecto. Hay que actualizar la política de privacidad y la declaración de
+    la Store **antes** de publicarlo.
 
 ### 3. Pexels (stock de video y fotos)
 
@@ -317,6 +378,12 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 ---
 
 ## Trampas que ya nos costaron tiempo
+
+**Nada que se lance desde `Flip\.e2e-app` puede escribir archivos.** Le pasa incluso a la 0.9.6
+copiada ahí, y aunque se lance sin sandbox o desde una tarea programada. No es la app: el
+ejecutable tiene que estar fuera del repo, por ejemplo en `Downloads\FlipStudio-0.9.7-prueba`.
+- Síntomas: el escaneo de caras da `Could not write …facetracks…`, `capture full:true` da
+  `Could not write PNG` y `save_project` no deja archivo.
 
 **Los nombres de los catálogos en JSON se traducen aparte.** Efectos, transiciones, efectos de
 audio, plantillas y animaciones de texto (y sus parámetros) vienen de `effect.json` & cía., que

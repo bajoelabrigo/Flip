@@ -78,6 +78,12 @@ int defaultTrackForClipType(const Project &project, ClipType type);
 // trusting the layout to be intact.
 QList<int> adjustmentLaneIndexes(const Project &project, int parentIndex);
 
+// A pinned adjustment (a clip's effects or mask) lives in a lane of its clip's track. When the
+// clip moves to another track, this moves the adjustment to a lane of that track, so the effect
+// or mask keeps applying to it instead of being left behind on a track it no longer touches.
+// Lanes it empties are removed. Returns whether anything moved.
+bool relocateLinkedAdjustments(Project &project);
+
 // Inverse: the track a lane is nested in, or -1 if `laneIndex` is not a lane.
 int adjustmentLaneParentIndex(const Project &project, int laneIndex);
 

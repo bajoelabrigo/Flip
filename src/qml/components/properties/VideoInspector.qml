@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls.Basic
 import Drift
 import ".."
+import "../assets"
 
 // The video clip's tools, laid out the way CapCut lays them out: four named pages, each one
 // holding what the corresponding CapCut page holds. The inspectors underneath are the same ones
@@ -36,6 +37,8 @@ Item {
         return d && d.kind ? d.kind : ""
     }
     property int clipRevision: 0
+    // Photos get every page too: masks, cutouts and retouch all work on a still.
+    readonly property bool visual: clipKind === "video" || clipKind === "image"
 
     Connections {
         target: EditorState
@@ -154,7 +157,11 @@ Item {
 
             BlendingInspector { width: parent.width }
 
-            StabilizeInspector { width: parent.width }
+            // Stabilizing follows motion over time; a photo has none.
+            StabilizeInspector {
+                width: parent.width
+                visible: root.clipKind === "video"
+            }
 
             // Mejorar la calidad, reducir el ruido, la iluminacion 3D y el resto de efectos de IA
             // viven en el catalogo, asi que la pestana de efectos es la que los ofrece. Se deja
@@ -180,22 +187,36 @@ Item {
                 }
             }
 
-            Text {
+            // A titled section with its icon, as CapCut heads each one.
+            Row {
                 width: parent.width
-                text: qsTr("Automatic removal")
-                color: Theme.mutedForeground
-                font.family: Theme.fontFamily
-                font.pixelSize: Theme.fontSizeXs
+                spacing: Theme.spacingSm
+
+                IconGlyph {
+                    glyph: Theme.icons.cutoutPeople
+                    iconSize: 16
+                    iconColor: Theme.foreground
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                Text {
+                    text: qsTr("Automatic removal")
+                    color: Theme.foreground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeSm
+                    font.weight: Font.Medium
+                    anchors.verticalCenter: parent.verticalCenter
+                }
             }
 
             ThemedButton {
                 width: parent.width
                 text: qsTr("Cut out people…")
-                enabled: root.clipKind === "video" && EditorState.segmentation.available()
+                glyph: Theme.icons.cutoutPeople
+                enabled: root.visual && EditorState.segmentation.available()
                          && Addons.runtimeAvailable() && !EditorState.segmentation.running
-                tooltip: root.clipKind === "video"
+                tooltip: root.visual
                          ? qsTr("Finds the people in the clip and removes the background")
-                         : qsTr("Select a video clip first")
+                         : qsTr("Select a video or image clip first")
                 onClicked: {
                     const d = EditorState.selectedClipData
                     root.Window.window.openSegmentation(EditorState.selectedTrack,
@@ -205,28 +226,42 @@ Item {
             }
 
             Text {
-                visible: !root.clipKind || root.clipKind !== "video"
+                visible: !root.visual
                 width: parent.width
                 wrapMode: Text.WordWrap
-                text: qsTr("Select a video clip to remove its background.")
+                text: qsTr("Select a video or image clip to remove its background.")
                 color: Theme.warning
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeXs
             }
 
-            Text {
+            // A titled section with its icon, as CapCut heads each one.
+            Row {
                 width: parent.width
-                text: qsTr("Custom removal")
-                color: Theme.mutedForeground
-                font.family: Theme.fontFamily
-                font.pixelSize: Theme.fontSizeXs
+                spacing: Theme.spacingSm
                 topPadding: Theme.spacingLg
+
+                IconGlyph {
+                    glyph: Theme.icons.cutoutSubject
+                    iconSize: 16
+                    iconColor: Theme.foreground
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                Text {
+                    text: qsTr("Custom removal")
+                    color: Theme.foreground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeSm
+                    font.weight: Font.Medium
+                    anchors.verticalCenter: parent.verticalCenter
+                }
             }
 
             ThemedButton {
                 width: parent.width
                 text: qsTr("Cut out a subject…")
-                enabled: root.clipKind === "video" && EditorState.segmentation.available()
+                glyph: Theme.icons.cutoutSubject
+                enabled: root.visual && EditorState.segmentation.available()
                          && Addons.runtimeAvailable() && !EditorState.segmentation.running
                 tooltip: qsTr("Mark with a click what you want to keep and it follows it")
                 onClicked: {
@@ -237,19 +272,33 @@ Item {
                 }
             }
 
-            Text {
+            // A titled section with its icon, as CapCut heads each one.
+            Row {
                 width: parent.width
-                text: qsTr("Chroma key")
-                color: Theme.mutedForeground
-                font.family: Theme.fontFamily
-                font.pixelSize: Theme.fontSizeXs
+                spacing: Theme.spacingSm
                 topPadding: Theme.spacingLg
+
+                IconGlyph {
+                    glyph: Theme.icons.chromaKey
+                    iconSize: 16
+                    iconColor: Theme.foreground
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                Text {
+                    text: qsTr("Chroma key")
+                    color: Theme.foreground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeSm
+                    font.weight: Font.Medium
+                    anchors.verticalCenter: parent.verticalCenter
+                }
             }
 
             ThemedButton {
                 width: parent.width
                 text: qsTr("Remove a colour")
-                enabled: root.clipKind === "video"
+                glyph: Theme.icons.chromaKey
+                enabled: root.visual
                 tooltip: qsTr("Adds Chroma Key, with the colour and tolerance to tune in Effects")
                 onClicked: EditorState.addEffect(EditorState.selectedTrack,
                                                  EditorState.selectedClip,
@@ -261,7 +310,8 @@ Item {
             ThemedButton {
                 width: parent.width
                 text: qsTr("Image or video as mask…")
-                enabled: root.clipKind === "video"
+                glyph: Theme.icons.imageMask
+                enabled: root.visual
                 tooltip: qsTr("Use a file's own pixels as the coverage map")
                 onClicked: {
                     const url = FileDialogs.openFile(
@@ -277,41 +327,10 @@ Item {
         }
 
         // --- Mascara -----------------------------------------------------------------------
-        Column {
+        // CapCut's page: the clip's masks, the shape tiles and the settings, edited in place.
+        VideoMaskPage {
             visible: root.page === "mascara"
             width: parent.width
-            spacing: Theme.spacingLg
-
-            Text {
-                width: parent.width
-                text: qsTr("Add mask")
-                color: Theme.mutedForeground
-                font.family: Theme.fontFamily
-                font.pixelSize: Theme.fontSizeXs
-            }
-
-            Grid {
-                width: parent.width
-                columns: 3
-                spacing: Theme.spacingSm
-                readonly property real cell: (width - spacing * 2) / 3
-
-                Repeater {
-                    model: EditorState.maskCatalog()
-                    delegate: ThemedButton {
-                        required property var modelData
-                        width: parent.cell
-                        text: modelData.label
-                        enabled: root.clipKind === "video"
-                        onClicked: EditorState.addMaskToClip(EditorState.selectedTrack,
-                                                             EditorState.selectedClip,
-                                                             modelData.id)
-                    }
-                }
-            }
-
-            // The mask's own scalars, plus the list of masks already on the clip.
-            MasksInspector { width: parent.width }
         }
 
         // --- Retoque -----------------------------------------------------------------------
@@ -327,51 +346,73 @@ Item {
 
             property string area: "rostro"
             readonly property var areas: [
-                { id: "rostro", label: qsTr("Face") },
-                { id: "cuerpo", label: qsTr("Body") },
-                { id: "cabello", label: qsTr("Hair") }
+                { id: "rostro", label: qsTr("Face"), glyph: Theme.icons.face },
+                { id: "cuerpo", label: qsTr("Body"), glyph: Theme.icons.body },
+                { id: "cabello", label: qsTr("Hair"), glyph: Theme.icons.hair }
             ]
 
             // values: face_retouch parameters to set; effect: a separate catalog effect instead.
             readonly property var sections: [
-                { title: qsTr("Auto styles"), items: [
-                    { label: qsTr("Natural"), hint: qsTr("Light smoothing and a touch of brightness"),
+                { title: qsTr("Auto styles"), glyph: Theme.icons.autoStyle, items: [
+                    { id: "auto-natural", label: qsTr("Natural"), hint: qsTr("Light smoothing and a touch of brightness"),
                       values: { smoothing: 0.45, whitening: 0.2, sharpen: 0.2, slimFace: 0.1, bigEyes: 0.1 } },
-                    { label: qsTr("Soft"), hint: qsTr("Strong smoothing for an even, soft skin"),
+                    { id: "auto-soft", label: qsTr("Soft"), hint: qsTr("Strong smoothing for an even, soft skin"),
                       values: { smoothing: 0.75, whitening: 0.3, sharpen: 0.1, slimFace: 0.1, bigEyes: 0.1 } },
-                    { label: qsTr("Radiant"), hint: qsTr("Brighter, glowing skin"),
+                    { id: "auto-radiant", label: qsTr("Radiant"), hint: qsTr("Brighter, glowing skin"),
                       values: { smoothing: 0.55, whitening: 0.55, sharpen: 0.25, slimFace: 0.1, bigEyes: 0.1 } },
-                    { label: qsTr("Defined"), hint: qsTr("Crisper features and a slimmer face"),
+                    { id: "auto-defined", label: qsTr("Defined"), hint: qsTr("Crisper features and a slimmer face"),
                       values: { smoothing: 0.35, whitening: 0.15, sharpen: 0.5, slimFace: 0.25, bigEyes: 0.15 } }
                 ] },
-                { title: qsTr("Skin"), items: [
-                    { label: qsTr("Smooth"), hint: qsTr("Evens out the skin"), values: { smoothing: 0.7 } },
-                    { label: qsTr("Whiten"), hint: qsTr("Brightens the skin"), values: { whitening: 0.5 } },
-                    { label: qsTr("Skin tone"), hint: qsTr("Warms the skin towards the tone colour"), values: { skinTone: 0.5 } },
-                    { label: qsTr("Sharpen"), hint: qsTr("Brings back detail after smoothing"), values: { sharpen: 0.5 } }
+                { title: qsTr("Skin"), glyph: Theme.icons.skin, items: [
+                    { id: "skin-smooth", label: qsTr("Smooth"), hint: qsTr("Evens out the skin"), values: { smoothing: 0.7 } },
+                    { id: "skin-whiten", label: qsTr("Whiten"), hint: qsTr("Brightens the skin"), values: { whitening: 0.5 } },
+                    { id: "skin-tone", label: qsTr("Skin tone"), hint: qsTr("Warms the skin towards the tone colour"), values: { skinTone: 0.5 } },
+                    { id: "skin-sharpen", label: qsTr("Sharpen"), hint: qsTr("Brings back detail after smoothing"), values: { sharpen: 0.5 } }
                 ] },
-                { title: qsTr("Features"), items: [
-                    { label: qsTr("Slim face"), hint: qsTr("Narrows the jaw and cheeks"), values: { slimFace: 0.45 } },
-                    { label: qsTr("Bigger eyes"), hint: qsTr("Enlarges the eyes the mesh found"), effect: "face_big_eyes" },
-                    { label: qsTr("Face width"), hint: qsTr("Slim or widen what the mesh follows"), effect: "face_fat_slim" },
-                    { label: qsTr("Wide mouth"), hint: qsTr("Widens the mouth"), effect: "face_wide_mouth" },
-                    { label: qsTr("Whiten teeth"), hint: qsTr("Needs the lip contour from a face scan"), effect: "face_teeth_whiten" }
+                { title: qsTr("Features"), glyph: Theme.icons.features, items: [
+                    { id: "slim-face", label: qsTr("Slim face"), hint: qsTr("Narrows the jaw and cheeks"), values: { slimFace: 0.45 } },
+                    { id: "big-eyes", label: qsTr("Bigger eyes"), hint: qsTr("Enlarges the eyes the mesh found"), effect: "face_big_eyes" },
+                    { id: "face-width", label: qsTr("Face width"), hint: qsTr("Slim or widen what the mesh follows"), effect: "face_fat_slim" },
+                    { id: "wide-mouth", label: qsTr("Wide mouth"), hint: qsTr("Widens the mouth"), effect: "face_wide_mouth" },
+                    { id: "whiten-teeth", label: qsTr("Whiten teeth"), hint: qsTr("Needs the lip contour from a face scan"), effect: "face_teeth_whiten" }
                 ] },
-                { title: qsTr("Makeup"), items: [
-                    { label: qsTr("Lipstick"), hint: qsTr("Colours the lips"), values: { lipstick: 0.6 } },
-                    { label: qsTr("Blush"), hint: qsTr("Adds colour to the cheeks"), values: { blush: 0.5 } },
-                    { label: qsTr("Eyeliner"), hint: qsTr("Draws along the eyelid contour"), effect: "face_eyeliner" },
-                    { label: qsTr("Eyeshadow"), hint: qsTr("Colours the eyelid"), effect: "face_eyeshadow" },
-                    { label: qsTr("Brow tint"), hint: qsTr("Colours the eyebrows"), effect: "face_brow_tint" },
-                    { label: qsTr("Eye colour"), hint: qsTr("Recolours the iris"), effect: "face_eye_color" }
+                { title: qsTr("Makeup"), glyph: Theme.icons.makeup, items: [
+                    { id: "lipstick", label: qsTr("Lipstick"), hint: qsTr("Colours the lips"), values: { lipstick: 0.6 } },
+                    { id: "blush", label: qsTr("Blush"), hint: qsTr("Adds colour to the cheeks"), values: { blush: 0.5 } },
+                    { id: "eyeliner", label: qsTr("Eyeliner"), hint: qsTr("Draws along the eyelid contour"), effect: "face_eyeliner" },
+                    { id: "eyeshadow", label: qsTr("Eyeshadow"), hint: qsTr("Colours the eyelid"), effect: "face_eyeshadow" },
+                    { id: "brow-tint", label: qsTr("Brow tint"), hint: qsTr("Colours the eyebrows"), effect: "face_brow_tint" },
+                    { id: "eye-colour", label: qsTr("Eye colour"), hint: qsTr("Recolours the iris"), effect: "face_eye_color" }
                 ] }
             ]
+
+            // Starred tiles, shown first as their own section, like the favorites of the library.
+            property int favoritesTick: 0
+            readonly property var favoriteItems: {
+                void favoritesTick
+                const out = []
+                for (const section of sections) {
+                    for (const item of section.items) {
+                        if (EditorState.isAssetFavorite("retouch", item.id))
+                            out.push(item)
+                    }
+                }
+                return out
+            }
+            readonly property var shownSections: favoriteItems.length > 0
+                                                 ? [{ title: qsTr("Favorites"), glyph: Theme.icons.star, items: favoriteItems }].concat(sections)
+                                                 : sections
+
+            Connections {
+                target: EditorState
+                function onAssetFavoritesChanged() { retoquePage.favoritesTick++ }
+            }
 
             readonly property bool faceReady: EditorState.faces.available() && Addons.runtimeAvailable()
             readonly property bool canTrack: {
                 void root.clipRevision
                 const d = EditorState.selectedClipData
-                return !!d && d.kind === "video"
+                return !!d && (d.kind === "video" || d.kind === "image")
             }
 
             Connections {
@@ -431,9 +472,19 @@ Item {
                             radius: Theme.radiusSm
                             color: current ? Theme.popoverHover : "transparent"
 
+                            IconGlyph {
+                                anchors.right: areaLabel.left
+                                anchors.rightMargin: 6
+                                anchors.verticalCenter: parent.verticalCenter
+                                glyph: areaCell.modelData.glyph
+                                iconSize: 14
+                                iconColor: areaCell.current ? Theme.foreground : Theme.mutedForeground
+                            }
+
                             Text {
                                 id: areaLabel
                                 anchors.centerIn: parent
+                                anchors.horizontalCenterOffset: 10
                                 text: areaCell.modelData.label
                                 color: areaCell.current ? Theme.foreground : Theme.mutedForeground
                                 font.family: Theme.fontFamily
@@ -466,7 +517,7 @@ Item {
                 visible: retoquePage.area === "rostro" && !retoquePage.canTrack
                 width: parent.width
                 wrapMode: Text.WordWrap
-                text: qsTr("Select a video clip to retouch a face.")
+                text: qsTr("Select a video or image clip to retouch a face.")
                 color: Theme.warning
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeXs
@@ -483,39 +534,110 @@ Item {
             }
 
             Repeater {
-                model: retoquePage.area === "rostro" ? retoquePage.sections : []
+                model: retoquePage.area === "rostro" ? retoquePage.shownSections : []
                 delegate: Column {
                     id: section
                     required property var modelData
                     width: retoquePage.width
                     spacing: Theme.spacingSm
 
-                    Text {
-                        text: section.modelData.title
-                        color: Theme.foreground
-                        font.family: Theme.fontFamily
-                        font.pixelSize: Theme.fontSizeSm
-                        font.weight: Font.Medium
+                    Row {
+                        spacing: Theme.spacingSm
+
+                        IconGlyph {
+                            visible: !!section.modelData.glyph
+                            glyph: section.modelData.glyph || ""
+                            iconSize: 16
+                            iconColor: Theme.foreground
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                        Text {
+                            text: section.modelData.title
+                            color: Theme.foreground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                            font.weight: Font.Medium
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
                     }
 
+                    // Photo tiles, as on CapCut: the same face with each look applied (rendered
+                    // by Flip Studio itself, see resources/retouch), the name underneath.
                     Grid {
                         id: tiles
                         width: parent.width
-                        // One column when the panel is too narrow for "Adelgazar rostro" twice.
-                        columns: width >= 280 ? 2 : 1
+                        columns: Math.max(3, Math.floor((width + columnSpacing) / (72 + columnSpacing)))
                         columnSpacing: Theme.spacingSm
-                        rowSpacing: Theme.spacingSm
+                        rowSpacing: Theme.spacingMd
 
                         Repeater {
                             model: section.modelData.items
-                            delegate: ThemedButton {
+                            delegate: Column {
+                                id: retouchTile
                                 required property var modelData
+                                readonly property bool usable: retoquePage.canTrack && retoquePage.faceReady
                                 width: (tiles.width - tiles.columnSpacing * (tiles.columns - 1)) / tiles.columns
-                                text: modelData.label
-                                tooltip: modelData.hint
-                                enabled: retoquePage.canTrack && retoquePage.faceReady
-                                onClicked: retoquePage.apply(modelData.effect || "face_retouch",
-                                                             modelData.values)
+                                spacing: 4
+
+                                Rectangle {
+                                    id: photoFrame
+                                    width: parent.width
+                                    height: width
+                                    radius: Theme.radiusMd
+                                    color: Theme.panelAccent
+                                    border.width: retouchHover.hovered && retouchTile.usable ? 2 : 1
+                                    border.color: retouchHover.hovered && retouchTile.usable
+                                                  ? Theme.primary : Theme.panelBorder
+                                    clip: true
+                                    opacity: retouchTile.usable ? 1 : 0.55
+
+                                    Image {
+                                        anchors.fill: parent
+                                        anchors.margins: parent.border.width
+                                        source: "qrc:/retouch/" + retouchTile.modelData.id + ".jpg"
+                                        fillMode: Image.PreserveAspectCrop
+                                        asynchronous: true
+                                        smooth: true
+                                        mipmap: true
+                                    }
+
+                                    HoverHandler {
+                                        id: retouchHover
+                                    }
+
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        enabled: retouchTile.usable
+                                        cursorShape: Qt.PointingHandCursor
+                                        onClicked: retoquePage.apply(retouchTile.modelData.effect || "face_retouch",
+                                                                     retouchTile.modelData.values)
+                                    }
+
+                                    ThemedToolTip {
+                                        visible: retouchHover.hovered
+                                        text: retouchTile.modelData.hint
+                                    }
+
+                                    // A star to keep it in Favorites, at the top of this page.
+                                    AssetFavoriteButton {
+                                        visible: favorited || retouchHover.hovered
+                                        anchors.right: parent.right
+                                        anchors.top: parent.top
+                                        anchors.margins: 2
+                                        tabId: "retouch"
+                                        itemId: retouchTile.modelData.id
+                                    }
+                                }
+
+                                Text {
+                                    width: parent.width
+                                    horizontalAlignment: Text.AlignHCenter
+                                    elide: Text.ElideRight
+                                    text: retouchTile.modelData.label
+                                    color: retouchHover.hovered ? Theme.foreground : Theme.mutedForeground
+                                    font.family: Theme.fontFamily
+                                    font.pixelSize: Theme.fontSizeXs
+                                }
                             }
                         }
                     }

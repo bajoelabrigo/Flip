@@ -326,7 +326,7 @@ void collectActivePaths(const drift::Project *project, drift::TimeUs timelineUs,
                 videoPaths.insert(drift::videoReadPath(clip, t_allowProxies));
             }
             if (track.type == drift::TrackType::Audio
-                || (track.type == drift::TrackType::Video && clip.type == drift::ClipType::Video)) {
+                || (track.isPictureTrack() && clip.type == drift::ClipType::Video)) {
                 audioPaths.insert(clip.path);
             }
         }

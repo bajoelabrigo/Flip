@@ -56,6 +56,9 @@ struct Track
     // view-only: multiplies this track's base row height so a single lane can be
     // enlarged (waveform editing) without zooming the whole timeline.
     qreal heightScale = 1.0;
+    // view-only: how tall a clip's waveform is drawn in its row, as a fraction (CapCut's
+    // 30 / 60 / 100 %). Only the drawing changes, never the sound.
+    qreal waveformScale = 1.0;
 
     // Adjustment tracks only.
     AdjustmentScope adjustmentScope = AdjustmentScope::AllBelow;
@@ -72,6 +75,11 @@ struct Track
     bool acceptsClip(const Clip &clip) const;
 
     bool isAdjustment() const { return type == TrackType::Adjustment; }
+    // Picture tracks: a video or a photo goes on either, as on CapCut, where any track but an
+    // audio one takes both. A video clip on either still plays its own sound.
+    bool isPictureTrack() const { return type == TrackType::Video || type == TrackType::Shape; }
+    // Whether the mixer reads this track: audio clips, and the sound of video clips.
+    bool carriesSound() const { return type == TrackType::Audio || isPictureTrack(); }
     // A nested lane draws inside its parent's row rather than occupying one of its own.
     bool isAdjustmentLane() const
     {

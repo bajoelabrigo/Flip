@@ -701,7 +701,8 @@ ApplicationWindow {
         }
         const modals = [shellSwitchDialogLoader.item, debugInfoDialogLoader.item, settingsDialogLoader.item,
                         pasteAttributesDialogLoader.item, updateDialogLoader.item, aboutDialogLoader.item,
-                        addonManagerDialogLoader.item, missingAddonsDialogLoader.item, addonStartupDialog,
+                        addonManagerDialogLoader.item, missingAddonsDialogLoader.item,
+                        missingMediaDialogLoader.item, addonStartupDialog,
                         projectSetupDialogLoader.item, layoutChooserDialogLoader.item,
                         languageChooserDialogLoader.item, recoveryDialogLoader.item,
                         reverseProgressDialogLoader.item, subtitleProgressDialogLoader.item]
@@ -880,6 +881,13 @@ ApplicationWindow {
         id: missingAddonsDialogLoader
         sourceComponent: Component {
             MissingAddonsDialog { }
+        }
+    }
+
+    LazyLoader {
+        id: missingMediaDialogLoader
+        sourceComponent: Component {
+            MissingMediaDialog { }
         }
     }
 
@@ -1588,6 +1596,15 @@ ApplicationWindow {
             if (ok)
                 window.showStartScreen = false
             window.openPendingLaunch()
+            // Media deleted, renamed or moved since the project was saved: offer to find it, as
+            // Premiere does on open.
+            if (ok) {
+                Qt.callLater(() => {
+                    const missing = EditorState.bin.missingMedia()
+                    if (missing.length > 0)
+                        missingMediaDialogLoader.ensure().openFor(missing)
+                })
+            }
         }
 
         function onMissingAddons(addons) {
@@ -1673,6 +1690,14 @@ ApplicationWindow {
         }
         if (id === "bladeTool") {
             timelinePanel.timelineTool = "split"
+            return
+        }
+        if (id === "selectLeftTool") {
+            timelinePanel.timelineTool = "selectLeft"
+            return
+        }
+        if (id === "selectRightTool") {
+            timelinePanel.timelineTool = "selectRight"
             return
         }
         // Timeline zoom is QML state as well, and the 1.5 step matches the

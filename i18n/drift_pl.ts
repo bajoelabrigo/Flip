@@ -2423,6 +2423,14 @@
         <translation>Narzędzie do przycinania</translation>
     </message>
     <message>
+        <source>Select to the left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select to the right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>System default</source>
         <translation>Domyślne ustawienie systemu</translation>
     </message>
@@ -2441,6 +2449,10 @@
     <message>
         <source>Clip moved</source>
         <translation>Klip przeniesiony</translation>
+    </message>
+    <message>
+        <source>Crossfade added</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nothing to split here — move to a clip first</source>
@@ -2915,6 +2927,10 @@
         <translation>Zainstaluj paczkę naklejek emoji, aby dodać emoji</translation>
     </message>
     <message>
+        <source>This track is locked. Unlock it with the padlock in its header.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Edit clip</source>
         <translation>Edytuj klip</translation>
     </message>
@@ -3315,6 +3331,10 @@
         <translation>Zaktualizowano maskę klipu</translation>
     </message>
     <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rectangle</source>
         <translation>Prostokąt</translation>
     </message>
@@ -3339,12 +3359,28 @@
         <translation>Swobodny</translation>
     </message>
     <message>
+        <source>Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Tekst</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>Dodaj maskę</translation>
     </message>
     <message>
         <source>Mask added</source>
         <translation>Dodano maskę</translation>
+    </message>
+    <message>
+        <source>Remove mask</source>
+        <translation type="unfinished">Usuń maskę</translation>
+    </message>
+    <message>
+        <source>Mask removed</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add mask point</source>
@@ -3424,6 +3460,14 @@
     </message>
     <message>
         <source>Loudness set to %1 LUFS (it was %2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track locked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track unlocked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4665,6 +4709,26 @@
     <message>
         <source>Couldn’t import that folder.</source>
         <translation>Nie udało się zaimportować tego folderu.</translation>
+    </message>
+    <message>
+        <source>Where is %1 now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>File found</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <source>Imported %n files into %1 folders — as many as one folder import takes. Import the remaining subfolders separately.</source>
@@ -7718,6 +7782,13 @@
     </message>
 </context>
 <context>
+    <name>CategoryScrollOn</name>
+    <message>
+        <source>Keep scrolling for %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ChannelKeyButton</name>
     <message>
         <source>Remove %1 keyframe at the playhead</source>
@@ -8658,6 +8729,10 @@
         <translation>Ciemny</translation>
     </message>
     <message>
+        <source>Colour</source>
+        <translation type="unfinished">Kolor</translation>
+    </message>
+    <message>
         <source>Language…</source>
         <translation>Język…</translation>
     </message>
@@ -8672,6 +8747,22 @@
     <message>
         <source>More settings…</source>
         <translation>Więcej ustawień…</translation>
+    </message>
+    <message>
+        <source>Update to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Look for updates in Microsoft Store</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checking for updates…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Check for updates (you have %1)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Agent</source>
@@ -11214,6 +11305,14 @@
         <translation>Zmieniono maskę</translation>
     </message>
     <message>
+        <source>Drag to move. Right-click or Delete removes the point.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a point here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Drag a mask from the Masks tab onto a clip to edit it here</source>
         <translation>Przeciągnij maskę z karty Maski na klip, aby edytować ją tutaj</translation>
     </message>
@@ -11275,6 +11374,26 @@
     <message>
         <source>Freeform</source>
         <translation>Swobodny</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Tekst</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth curves (pen)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Combine</source>
@@ -11523,6 +11642,18 @@
         <translation>%1 — przeciągnij na oś czasu, kliknij prawym, aby podglądać</translation>
     </message>
     <message>
+        <source>Missing file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This file is not where it was. Right-click and choose Find missing file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find missing file…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open composite</source>
         <translation>Otwórz kompozycję</translation>
     </message>
@@ -11684,6 +11815,22 @@
     <message>
         <source>That file is already in this project.</source>
         <translation>Ten plik już znajduje się w tym projekcie.</translation>
+    </message>
+    <message>
+        <source>Relink media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Media found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>An edit is already saving</source>
@@ -12037,6 +12184,61 @@
     <message>
         <source>Reopen the project once they finish installing.</source>
         <translation>Otwórz ponownie projekt, gdy zakończą instalację.</translation>
+    </message>
+</context>
+<context>
+    <name>MissingMediaDialog</name>
+    <message>
+        <source>Some files are missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search a folder…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Later</source>
+        <translation type="unfinished">Później</translation>
+    </message>
+    <message>
+        <source>Folder where the files are now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>None of the missing files are in that folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files of this project are not where they were: they were deleted, renamed or moved. Find each one, or search a folder for all of them. When you find one, the others in the same folder are found too.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Find…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Where is %1 now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation type="unfinished">Wszystkie pliki (*)</translation>
     </message>
 </context>
 <context>
@@ -13002,6 +13204,18 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished">Skocz do przodu 1s · Shift dla 5s · Ctrl dla 10s</translation>
     </message>
     <message>
+        <source>Vertical workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wide workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrange the panels for this video&apos;s shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Exit fullscreen preview (Esc)</source>
         <translation type="unfinished">Wyjdź z pełnoekranowego podglądu (Esc)</translation>
     </message>
@@ -13597,6 +13811,10 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     <message>
         <source>Save effect as preset</source>
         <translation>Zapisz efekt jako preset</translation>
+    </message>
+    <message>
+        <source>Keep scrolling for %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>My look</source>
@@ -14445,8 +14663,8 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
 <context>
     <name>SegmentationController</name>
     <message>
-        <source>Select a video clip to cut out</source>
-        <translation type="unfinished">Wybierz klip wideo do wycięcia</translation>
+        <source>Select a video or image clip to cut out</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cutout is already running</source>
@@ -18604,6 +18822,33 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     </message>
 </context>
 <context>
+    <name>Theme</name>
+    <message>
+        <source>Amber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Midnight blue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graphite teal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Violet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rose</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forest green</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ThemedColorDialog</name>
     <message>
         <source>Original colour</source>
@@ -19041,6 +19286,10 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>Wyczyść obszar roboczy</translation>
     </message>
     <message>
+        <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add transform layer</source>
         <translation>Dodaj warstwę transformacji</translation>
     </message>
@@ -19051,6 +19300,18 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     <message>
         <source>Add camera</source>
         <translation>Dodaj kamerę</translation>
+    </message>
+    <message>
+        <source>Select to the left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select to the right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pointer tools</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Main</source>
@@ -19067,6 +19328,14 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     <message>
         <source>No composite clips yet</source>
         <translation>Brak jeszcze klipów kompozycji</translation>
+    </message>
+    <message>
+        <source>Automatic dissolve: on. Drag a clip&apos;s edge over the next one and the overlap becomes a dissolve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic dissolve: off</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>
@@ -19465,12 +19734,40 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>Nagraj lektora (mikrofon)</translation>
     </message>
     <message>
+        <source>Unlock track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock track: its clips cannot be moved or edited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Turn transform on</source>
         <translation>Włącz transformację</translation>
     </message>
     <message>
         <source>Turn transform off</source>
         <translation>Wyłącz transformację</translation>
+    </message>
+    <message>
+        <source>Track options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>High</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio waveform size</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add camera clip at playhead</source>
@@ -19489,24 +19786,16 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>Dodaj warstwę transformacji powyżej</translation>
     </message>
     <message>
+        <source>Drag to change the track height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Track height</source>
         <translation>Wysokość ścieżki</translation>
     </message>
     <message>
         <source>Short</source>
         <translation>Niska</translation>
-    </message>
-    <message>
-        <source>Tall</source>
-        <translation>Wysoka</translation>
-    </message>
-    <message>
-        <source>Taller</source>
-        <translation>Wyższa</translation>
-    </message>
-    <message>
-        <source>Scroll over the header to fine-tune</source>
-        <translation>Przewiń nad nagłówkiem, aby dostroić</translation>
     </message>
     <message>
         <source>Covers</source>
@@ -19551,6 +19840,10 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     <message>
         <source>Hide track</source>
         <translation>Ukryj ścieżkę</translation>
+    </message>
+    <message>
+        <source>Drag the line under the track to fine-tune</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Taller row</source>
@@ -20596,14 +20889,6 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select a video clip first</source>
-        <translation type="unfinished">Najpierw wybierz klip wideo</translation>
-    </message>
-    <message>
-        <source>Select a video clip to remove its background.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Custom removal</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20648,15 +20933,19 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished">Wszystkie pliki (*)</translation>
     </message>
     <message>
-        <source>Add mask</source>
-        <translation type="unfinished">Dodaj maskę</translation>
-    </message>
-    <message>
         <source>Slim or widen what the mesh follows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bigger eyes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to remove its background.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20832,6 +21121,10 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">Ulubione</translation>
+    </message>
+    <message>
         <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20840,7 +21133,7 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select a video clip to retouch a face.</source>
+        <source>Select a video or image clip to retouch a face.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20849,6 +21142,173 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     </message>
     <message>
         <source>What the clip already carries</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VideoMaskPage</name>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">Prostokąt</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">Koło</translation>
+    </message>
+    <message>
+        <source>Film strip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished">Serce</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Tekst</translation>
+    </message>
+    <message>
+        <source>Freeform</source>
+        <translation type="unfinished">Swobodny</translation>
+    </message>
+    <message>
+        <source>Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cutout</source>
+        <translation type="unfinished">Wycinanie</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask</source>
+        <translation type="unfinished">Maska</translation>
+    </message>
+    <message>
+        <source>Mask %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add another mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to add a mask.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change this mask to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a %1 mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This mask is a cutout. Pick a shape above to add a shape mask next to it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 points. Drag a point in the preview to move it, click a + on a side to add one there, and right-click a point (or select it and press Delete) to remove it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add point</source>
+        <translation type="unfinished">Dodaj punkt</translation>
+    </message>
+    <message>
+        <source>Adds a point in the middle of the longest side</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete point</source>
+        <translation type="unfinished">Usuń punkt</translation>
+    </message>
+    <message>
+        <source>Removes the selected point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Removes the last point. Click a point in the preview to choose another.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth curves (pen)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Center X</source>
+        <translation type="unfinished">Środek X</translation>
+    </message>
+    <message>
+        <source>Center Y</source>
+        <translation type="unfinished">Środek Y</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished">Szerokość</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished">Wysokość</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished">Obrót</translation>
+    </message>
+    <message>
+        <source>Feather</source>
+        <translation type="unfinished">Pióro</translation>
+    </message>
+    <message>
+        <source>Invert</source>
+        <translation type="unfinished">Odwróć</translation>
+    </message>
+    <message>
+        <source>Combine with the masks before it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Dodaj</translation>
+    </message>
+    <message>
+        <source>Subtract</source>
+        <translation type="unfinished">Odejmij</translation>
+    </message>
+    <message>
+        <source>Intersect</source>
+        <translation type="unfinished">Przetnij</translation>
+    </message>
+    <message>
+        <source>Remove cutout</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -21004,7 +21464,7 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Right-click a voice to keep it here.</source>
+        <source>Click the star on a voice to keep it here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -21016,7 +21476,7 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 — click to apply, right-click to add to favorites</source>
+        <source>%1 — click to apply; the star keeps it in favorites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

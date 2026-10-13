@@ -3,6 +3,7 @@ import QtQuick.Controls.Basic
 import QtQuick.Window
 import Drift
 import ".."
+import "../assets"
 
 // The Audio tab's "Voice changer": a grid of voice filters, characters and singing styles (the
 // "voz.*" audio effects of the Modificador de voz pack), CapCut-style. One voice per clip; a click
@@ -146,7 +147,7 @@ Item {
                 visible: root.shown.length === 0
                 wrapMode: Text.WordWrap
                 text: root.category === root.favoritesId && root.query.length === 0
-                      ? qsTr("Right-click a voice to keep it here.")
+                      ? qsTr("Click the star on a voice to keep it here.")
                       : qsTr("No voice matches.")
                 color: Theme.mutedForeground
                 font.family: Theme.fontFamily
@@ -193,14 +194,9 @@ Item {
                             font.pixelSize: Theme.fontSizeXs
                         }
 
-                        Text {
-                            visible: tile.favorite
-                            anchors.top: parent.top
-                            anchors.right: parent.right
-                            anchors.margins: 3
-                            text: "★"
-                            color: Theme.primary
-                            font.pixelSize: 9
+                        // Stays hovered while the pointer is over the star, unlike the MouseArea.
+                        HoverHandler {
+                            id: tileHover
                         }
 
                         MouseArea {
@@ -219,9 +215,19 @@ Item {
                             }
                         }
 
+                        // A star to click, as in the left-hand library; right-click still works.
+                        AssetFavoriteButton {
+                            visible: tile.modelData.id !== "" && (tile.favorite || tileHover.hovered)
+                            anchors.top: parent.top
+                            anchors.right: parent.right
+                            anchors.margins: 1
+                            tabId: "voices"
+                            itemId: tile.modelData.id
+                        }
+
                         ThemedToolTip {
                             visible: mouse.containsMouse && tile.modelData.id !== ""
-                            text: qsTr("%1 — click to apply, right-click to add to favorites").arg(tile.modelData.label)
+                            text: qsTr("%1 — click to apply; the star keeps it in favorites").arg(tile.modelData.label)
                         }
                     }
                 }

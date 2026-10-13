@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Window
 import QtQml
 import QtQuick.Layouts
 import Drift
@@ -230,6 +231,22 @@ Item {
                     onObjectRemoved: (index, object) => ratioMenu.removeItem(object)
                 }
             }
+        }
+
+        // A vertical video in the wide workspace (or the other way round): one click puts the
+        // workspace back to the one that fits the video. Only shown when they disagree, which
+        // only happens after the user pinned a workspace in Settings.
+        IconButton {
+            readonly property var win: bar.Window.window
+            readonly property bool mismatch: !!win && win.portraitWorkspace !== undefined
+                                             && EditorState.projectPortrait !== win.portraitWorkspace
+            Layout.alignment: Qt.AlignVCenter
+            visible: mismatch && !bar.fullscreen && Qt.platform.os !== "android"
+            glyph: EditorState.projectPortrait ? Theme.icons.smartphone : Theme.icons.monitor
+            variant: "text"
+            text: EditorState.projectPortrait ? qsTr("Vertical workspace") : qsTr("Wide workspace")
+            tooltip: qsTr("Arrange the panels for this video's shape")
+            onClicked: EditorState.preferences.clearWorkspaceLayoutPreference()
         }
 
         IconButton {

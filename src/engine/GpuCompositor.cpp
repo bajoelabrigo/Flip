@@ -361,7 +361,9 @@ QString maskCacheKey(const drift::Mask &mask)
         .arg(mask.feather)
         .arg(mask.invert ? 1 : 0)
         .arg(mask.points.size())
-        .arg(quint64(pointsHash));
+        .arg(quint64(pointsHash))
+        // Pen and text masks draw differently from the same rect and points.
+        + QStringLiteral(":%1:%2").arg(mask.smooth ? 1 : 0).arg(qHash(mask.text));
 }
 
 // Parametric coverage only changes when the stack or the size does, so it is rasterized once and

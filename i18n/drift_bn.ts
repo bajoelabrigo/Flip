@@ -2421,6 +2421,14 @@
         <translation type="unfinished">কাট টুল</translation>
     </message>
     <message>
+        <source>Select to the left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select to the right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>System default</source>
         <translation>সিস্টেমের ডিফল্ট</translation>
     </message>
@@ -2439,6 +2447,10 @@
     <message>
         <source>Clip moved</source>
         <translation type="unfinished">ক্লিপ সরানো হয়েছে</translation>
+    </message>
+    <message>
+        <source>Crossfade added</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nothing to split here — move to a clip first</source>
@@ -2918,6 +2930,10 @@
         <translation type="unfinished">ইমোজি যোগ করতে ইমোজি স্টিকার প্যাক ইনস্টল করুন</translation>
     </message>
     <message>
+        <source>This track is locked. Unlock it with the padlock in its header.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Edit clip</source>
         <translation type="unfinished">ক্লিপ সম্পাদনা করুন</translation>
     </message>
@@ -3367,6 +3383,10 @@
         <translation type="unfinished">ক্লিপ মাস্ক আপডেট করা হয়েছে</translation>
     </message>
     <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rectangle</source>
         <translation type="unfinished">আয়তক্ষেত্র</translation>
     </message>
@@ -3391,12 +3411,28 @@
         <translation type="unfinished">ফ্রিফর্ম</translation>
     </message>
     <message>
+        <source>Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">টেক্সট</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation type="unfinished">মাস্ক যোগ করুন</translation>
     </message>
     <message>
         <source>Mask added</source>
         <translation type="unfinished">মাস্ক যোগ করা হয়েছে</translation>
+    </message>
+    <message>
+        <source>Remove mask</source>
+        <translation type="unfinished">মাস্ক সরান</translation>
+    </message>
+    <message>
+        <source>Mask removed</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add mask point</source>
@@ -3519,6 +3555,14 @@
     </message>
     <message>
         <source>Loudness set to %1 LUFS (it was %2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track locked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track unlocked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4654,6 +4698,25 @@
     <message>
         <source>Couldn’t import that folder.</source>
         <translation type="unfinished">ফোল্ডারটি ইমপোর্ট করা যায়নি.</translation>
+    </message>
+    <message>
+        <source>Where is %1 now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>File found</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <source>Imported %n files into %1 folders — as many as one folder import takes. Import the remaining subfolders separately.</source>
@@ -7695,6 +7758,13 @@
     </message>
 </context>
 <context>
+    <name>CategoryScrollOn</name>
+    <message>
+        <source>Keep scrolling for %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ChannelKeyButton</name>
     <message>
         <source>Remove %1 keyframe at the playhead</source>
@@ -8637,6 +8707,10 @@
         <translation>ডার্ক</translation>
     </message>
     <message>
+        <source>Colour</source>
+        <translation type="unfinished">রঙ</translation>
+    </message>
+    <message>
         <source>Language…</source>
         <translation>ভাষা…</translation>
     </message>
@@ -8653,7 +8727,23 @@
         <translation>আরও সেটিংস…</translation>
     </message>
     <message>
+        <source>Update to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Look for updates in Microsoft Store</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Flip Studio %1 is available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checking for updates…</source>
+        <translation type="unfinished">আপডেটের জন্য পরীক্ষা করা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Check for updates (you have %1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11183,6 +11273,14 @@
         <translation type="unfinished">মাস্ক পরিবর্তন করা হয়েছে</translation>
     </message>
     <message>
+        <source>Drag to move. Right-click or Delete removes the point.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a point here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Drag a mask from the Masks tab onto a clip to edit it here</source>
         <translation type="unfinished">এখানে সম্পাদনা করতে মাস্ক ট্যাব থেকে একটি মাস্ককে একটি ক্লিপে টেনে আনুন</translation>
     </message>
@@ -11244,6 +11342,26 @@
     <message>
         <source>Freeform</source>
         <translation type="unfinished">ফ্রিফর্ম</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">টেক্সট</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth curves (pen)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Combine</source>
@@ -11492,6 +11610,18 @@
         <translation type="unfinished">%1 — টাইমলাইনে টেনে আনুন, পূর্বরূপ দেখতে ডান-ক্লিক করুন</translation>
     </message>
     <message>
+        <source>Missing file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This file is not where it was. Right-click and choose Find missing file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find missing file…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open composite</source>
         <translation>কম্পোজিট খুলুন</translation>
     </message>
@@ -11647,6 +11777,21 @@
     <message>
         <source>That file is already in this project.</source>
         <translation type="unfinished">ফাইলটি ইতিমধ্যেই এই প্রকল্পে রয়েছে.</translation>
+    </message>
+    <message>
+        <source>Relink media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Media found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>An edit is already saving</source>
@@ -11996,6 +12141,59 @@
     <message>
         <source>Reopen the project once they finish installing.</source>
         <translation type="unfinished">প্রকল্পটি ইনস্টল করা শেষ হলে পুনরায় খুলুন.</translation>
+    </message>
+</context>
+<context>
+    <name>MissingMediaDialog</name>
+    <message>
+        <source>Some files are missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search a folder…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Later</source>
+        <translation type="unfinished">পরে</translation>
+    </message>
+    <message>
+        <source>Folder where the files are now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files found</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>None of the missing files are in that folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n files of this project are not where they were: they were deleted, renamed or moved. Find each one, or search a folder for all of them. When you find one, the others in the same folder are found too.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Find…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Where is %1 now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation type="unfinished">সব ফাইল (*)</translation>
     </message>
 </context>
 <context>
@@ -12995,6 +13193,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Vertical workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wide workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrange the panels for this video&apos;s shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Exit fullscreen preview (Esc)</source>
         <translation type="unfinished">ফুলস্ক্রিন প্রিভিউ থেকে প্রস্থান করুন (Esc)</translation>
     </message>
@@ -13549,6 +13759,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Save effect as preset</source>
         <translation type="unfinished">প্রিসেট হিসাবে ইফেক্ট সংরক্ষণ করুন</translation>
+    </message>
+    <message>
+        <source>Keep scrolling for %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>My look</source>
@@ -14396,8 +14610,8 @@ If playback stutters, try another.</source>
 <context>
     <name>SegmentationController</name>
     <message>
-        <source>Select a video clip to cut out</source>
-        <translation type="unfinished">কাটার জন্য একটি ভিডিও ক্লিপ নির্বাচন করুন</translation>
+        <source>Select a video or image clip to cut out</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cutout is already running</source>
@@ -18552,6 +18766,33 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>Theme</name>
+    <message>
+        <source>Amber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Midnight blue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graphite teal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Violet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rose</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forest green</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ThemedColorDialog</name>
     <message>
         <source>Original colour</source>
@@ -19085,6 +19326,10 @@ If playback stutters, try another.</source>
         <translation>কাজের অংশের সীমা মুছুন</translation>
     </message>
     <message>
+        <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add transform layer</source>
         <translation>ট্রান্সফর্ম লেয়ার যোগ করুন</translation>
     </message>
@@ -19095,6 +19340,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Add camera</source>
         <translation>ক্যামেরা যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Select to the left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select to the right</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reverse</source>
@@ -19110,6 +19363,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Enhance voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pointer tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -19134,6 +19391,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Record voiceover at the current time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic dissolve: on. Drag a clip&apos;s edge over the next one and the overlap becomes a dissolve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic dissolve: off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -19412,12 +19677,40 @@ If playback stutters, try another.</source>
         <translation type="unfinished">রেকর্ড ভয়েসওভার (মাইক)</translation>
     </message>
     <message>
+        <source>Unlock track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock track: its clips cannot be moved or edited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Turn transform on</source>
         <translation type="unfinished">ট্রান্সফর্ম চালু করুন</translation>
     </message>
     <message>
         <source>Turn transform off</source>
         <translation type="unfinished">ট্রান্সফর্ম বন্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Track options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>High</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio waveform size</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add camera clip at playhead</source>
@@ -19436,24 +19729,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished">উপরে ট্রান্সফর্ম লেয়ার যোগ করুন</translation>
     </message>
     <message>
+        <source>Drag to change the track height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Track height</source>
         <translation type="unfinished">ট্র্যাক উচ্চতা</translation>
     </message>
     <message>
         <source>Short</source>
         <translation type="unfinished">সংক্ষিপ্ত</translation>
-    </message>
-    <message>
-        <source>Tall</source>
-        <translation type="unfinished">লম্বা</translation>
-    </message>
-    <message>
-        <source>Taller</source>
-        <translation type="unfinished">লম্বা</translation>
-    </message>
-    <message>
-        <source>Scroll over the header to fine-tune</source>
-        <translation type="unfinished">ফাইন-টিউন করতে হেডারের উপর স্ক্রোল করুন</translation>
     </message>
     <message>
         <source>Covers</source>
@@ -19498,6 +19783,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Hide track</source>
         <translation type="unfinished">ট্র্যাক লুকান</translation>
+    </message>
+    <message>
+        <source>Drag the line under the track to fine-tune</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Taller row</source>
@@ -20537,14 +20826,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select a video clip first</source>
-        <translation type="unfinished">প্রথমে একটি ভিডিও ক্লিপ নির্বাচন করুন</translation>
-    </message>
-    <message>
-        <source>Select a video clip to remove its background.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Custom removal</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20589,15 +20870,19 @@ If playback stutters, try another.</source>
         <translation type="unfinished">সব ফাইল (*)</translation>
     </message>
     <message>
-        <source>Add mask</source>
-        <translation type="unfinished">মাস্ক যোগ করুন</translation>
-    </message>
-    <message>
         <source>Slim or widen what the mesh follows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bigger eyes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to remove its background.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20773,6 +21058,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">প্রিয়</translation>
+    </message>
+    <message>
         <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20781,7 +21070,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select a video clip to retouch a face.</source>
+        <source>Select a video or image clip to retouch a face.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20790,6 +21079,173 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>What the clip already carries</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VideoMaskPage</name>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">কোনোটিই নয়</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">আয়তক্ষেত্র</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">বৃত্ত</translation>
+    </message>
+    <message>
+        <source>Film strip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished">হৃদয়</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">টেক্সট</translation>
+    </message>
+    <message>
+        <source>Freeform</source>
+        <translation type="unfinished">ফ্রিফর্ম</translation>
+    </message>
+    <message>
+        <source>Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cutout</source>
+        <translation type="unfinished">কাটআউট</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask</source>
+        <translation type="unfinished">মাস্ক</translation>
+    </message>
+    <message>
+        <source>Mask %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add another mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to add a mask.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change this mask to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a %1 mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This mask is a cutout. Pick a shape above to add a shape mask next to it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 points. Drag a point in the preview to move it, click a + on a side to add one there, and right-click a point (or select it and press Delete) to remove it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add point</source>
+        <translation type="unfinished">পয়েন্ট যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Adds a point in the middle of the longest side</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete point</source>
+        <translation type="unfinished">মুছুন পয়েন্ট</translation>
+    </message>
+    <message>
+        <source>Removes the selected point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Removes the last point. Click a point in the preview to choose another.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth curves (pen)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Center X</source>
+        <translation type="unfinished">কেন্দ্র X</translation>
+    </message>
+    <message>
+        <source>Center Y</source>
+        <translation type="unfinished">কেন্দ্র Y</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished">প্রস্থ</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished">উচ্চতা</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished">ঘূর্ণন</translation>
+    </message>
+    <message>
+        <source>Feather</source>
+        <translation type="unfinished">পালক</translation>
+    </message>
+    <message>
+        <source>Invert</source>
+        <translation type="unfinished">উল্টানো</translation>
+    </message>
+    <message>
+        <source>Combine with the masks before it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Subtract</source>
+        <translation type="unfinished">বিয়োগ করুন</translation>
+    </message>
+    <message>
+        <source>Intersect</source>
+        <translation type="unfinished">ছেদ করুন</translation>
+    </message>
+    <message>
+        <source>Remove cutout</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -20945,7 +21401,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Right-click a voice to keep it here.</source>
+        <source>Click the star on a voice to keep it here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20957,7 +21413,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished">কোনোটিই নয়</translation>
     </message>
     <message>
-        <source>%1 — click to apply, right-click to add to favorites</source>
+        <source>%1 — click to apply; the star keeps it in favorites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

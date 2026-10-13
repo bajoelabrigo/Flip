@@ -72,11 +72,18 @@ bool Track::allowsClipType(ClipType clipType) const
     case TrackType::Subtitle:
         return clipType == ClipType::Subtitle;
     case TrackType::Shape:
+        // Any picture goes on any picture track, as on CapCut, where only audio tracks are
+        // picky: a video on an overlay track that started with a photo, a photo next to a video
+        // on the main track (below). The compositor and the mixer read both kinds of track the
+        // same way, and refusing one made a dragged clip jump back to where it came from.
         return clipType == ClipType::Image || clipType == ClipType::Shape
             || clipType == ClipType::Vector || clipType == ClipType::Model3d
-            || clipType == ClipType::Pdf;
+            || clipType == ClipType::Pdf || clipType == ClipType::Video
+            || clipType == ClipType::Composite;
     case TrackType::Video:
-        return clipType == ClipType::Video || clipType == ClipType::Composite;
+        // A photo can sit next to a video on the same track, as on CapCut's main track.
+        return clipType == ClipType::Video || clipType == ClipType::Composite
+            || clipType == ClipType::Image;
     case TrackType::Adjustment:
         return clipType == ClipType::Adjustment;
     }

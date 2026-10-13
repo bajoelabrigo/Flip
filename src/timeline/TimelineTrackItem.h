@@ -63,6 +63,7 @@ class TimelineTrackItem : public QQuickItem
     Q_PROPERTY(QString trackType READ trackType WRITE setTrackType NOTIFY trackChanged)
     Q_PROPERTY(int clipDisplay READ clipDisplay WRITE setClipDisplay NOTIFY trackChanged)
     Q_PROPERTY(bool showChannelWaveforms READ showChannelWaveforms WRITE setShowChannelWaveforms NOTIFY trackChanged)
+    Q_PROPERTY(qreal waveformScale READ waveformScale WRITE setWaveformScale NOTIFY trackChanged)
     Q_PROPERTY(QObject *editor READ editor WRITE setEditor NOTIFY servicesChanged)
     Q_PROPERTY(QObject *assets READ assets WRITE setAssets NOTIFY servicesChanged)
     Q_PROPERTY(QObject *haptics READ haptics WRITE setHaptics NOTIFY servicesChanged)
@@ -92,6 +93,8 @@ public:
     void setClipDisplay(int display);
     bool showChannelWaveforms() const { return m_showChannelWaveforms; }
     void setShowChannelWaveforms(bool show);
+    qreal waveformScale() const { return m_waveformScale; }
+    void setWaveformScale(qreal scale);
     QObject *editor() const;
     void setEditor(QObject *editor);
     QObject *assets() const;
@@ -257,6 +260,7 @@ private:
     QString m_trackType;
     int m_clipDisplay = 1;
     bool m_showChannelWaveforms = false;
+    qreal m_waveformScale = 1.0;
 
     timelinelayout::Window m_window;
     double m_builtPxPerSecond = 0.0;

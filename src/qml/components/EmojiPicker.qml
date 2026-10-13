@@ -134,6 +134,16 @@ Popup {
             onCategoryActivated: (categoryId) => root.activeGroup = categoryId
         }
 
+        // Past the end of a category, the wheel goes on into the next one (CapCut).
+        CategoryScrollOn {
+            anchors.fill: grid
+            flickable: grid
+            categories: root.groups.map(g => ({ id: g, label: g }))
+            activeCategory: root.activeGroup
+            active: root.available && root.query.length === 0
+            onCategoryActivated: (categoryId) => root.activeGroup = categoryId
+        }
+
         GridView {
             id: grid
             reuseItems: true

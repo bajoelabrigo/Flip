@@ -24,15 +24,21 @@ Item {
     property real lastPreviewDesired: -1
     property int lastPreviewTrack: -1
 
+    readonly property bool locked: area.trackData.lockedEffective === true
+
     TimelineTrackClips {
         id: renderer
         anchors.fill: parent
+        // Locked: the clips are drawn but take no press, so nothing on the track can be picked,
+        // dragged or trimmed (EditorState refuses the selection too).
+        enabled: !area.locked
         viewState: area.viewState
         clipsModel: EditorState.clipsModel(area.trackIndex)
         trackIndex: area.trackIndex
         trackType: area.trackData.type || ""
         clipDisplay: area.trackData.clipDisplay !== undefined ? area.trackData.clipDisplay : 1
         showChannelWaveforms: area.trackData.showChannelWaveforms === true
+        waveformScale: area.trackData.waveformScale !== undefined ? area.trackData.waveformScale : 1
         editor: EditorState
         assets: AssetLibrary
         haptics: Haptics
@@ -116,6 +122,11 @@ Item {
             EditorState.moveAdjustmentToOwnTrack(originTrack, originClip, newStart)
         } else if (target.track >= 0 && target.track !== originTrack) {
             EditorState.moveClipToTrack(originTrack, originClip, target.track, newStart)
+        } else if (!isAdjustment && target.track < 0 && (pos.y < 0 || pos.y > panel.totalTracksHeight())) {
+            // Dropped above the top track or below the last one: a new track for it, as on
+            // CapCut, instead of the clip going back to where it was.
+            EditorState.moveClipToNewTrack(originTrack, originClip,
+                                           pos.y < 0 ? 0 : panel.tracks.length, newStart)
         } else {
             EditorState.moveClip(originTrack, originClip, newStart)
         }
@@ -130,6 +141,28 @@ Item {
                 return
             }
         }
+    }
+
+    // Locked: hatched over, as on CapCut.
+    Canvas {
+        anchors.fill: parent
+        visible: area.locked
+        z: 3
+        onPaint: {
+            const ctx = getContext("2d")
+            ctx.reset()
+            ctx.strokeStyle = Qt.rgba(0, 0, 0, 0.28)
+            ctx.lineWidth = 3
+            for (let x = -height; x < width; x += 10) {
+                ctx.beginPath()
+                ctx.moveTo(x, height)
+                ctx.lineTo(x + height, 0)
+                ctx.stroke()
+            }
+        }
+        onWidthChanged: requestPaint()
+        onHeightChanged: requestPaint()
+        onVisibleChanged: if (visible) requestPaint()
     }
 
     Repeater {

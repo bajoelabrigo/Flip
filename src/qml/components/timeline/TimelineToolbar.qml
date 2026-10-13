@@ -90,7 +90,8 @@ Item {
                            shortcut: "clearInOut" },
         "merge": { glyph: Theme.icons.linkTwo, label: qsTr("Merge adjacent clips"), shortcut: "merge" },
         "freeze": { glyph: Theme.icons.snowflake, label: qsTr("Freeze frame at current time") },
-        "adjustmentLayer": { glyph: Theme.icons.wand, label: qsTr("Add adjustment layer") },
+        "adjustmentLayer": { glyph: "layers", label: qsTr("Add adjustment layer"),
+                             tip: qsTr("Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips") },
         "transformLayer": { glyph: Theme.icons.group, label: qsTr("Add transform layer"),
                             tip: qsTr("Add transform layer — moves the selected clips' tracks as one"),
                             shortcut: "transformTogether" },
@@ -101,14 +102,14 @@ Item {
     // Laid out like CapCut's: tools, history, the cut group, then what acts on the selected clip.
     readonly property var defaultToolbarItems: [
         "select", "cut", "separator", "undo", "redo", "separator",
-        "split", "deleteLeft", "deleteRight", "delete", "bookmark", "separator",
+        "split", "deleteLeft", "deleteRight", "delete", "bookmark", "adjustmentLayer", "separator",
         "crop", "freeze", "transform", "transcribe", "cutSilences", "removeBg", "separateAudio", "enhanceAudio",
         "enhanceVideo", "unlink", "link"
     ]
     readonly property var defaultMenuItems: [
         "trimStart", "trimEnd", "separator", "copy", "paste", "duplicate", "separator",
         "markIn", "markOut", "loop", "clearWorkArea", "separator",
-        "merge", "flip", "rotate", "adjustmentLayer", "transformLayer", "camera"
+        "merge", "flip", "rotate", "transformLayer", "camera"
     ]
 
     readonly property bool hasSelection: EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
@@ -117,7 +118,25 @@ Item {
         return (data && data.kind) ? data.kind : ""
     }
     readonly property bool selectionIsVideo: hasSelection && selectedKind === "video"
+    // A video or a photo: cropping and removing the background work on both.
+    readonly property bool selectionIsPicture: hasSelection && (selectedKind === "video" || selectedKind === "image")
     readonly property bool selectionHasSound: hasSelection && (selectedKind === "video" || selectedKind === "audio")
+
+    // The pointer tools behind the arrow's menu, as on CapCut.
+    readonly property var pointerTools: [
+        { id: "select", tool: "", label: qsTr("Select"), glyph: Theme.icons.mousePointer, shortcut: "selectTool" },
+        { id: "cut", tool: "split", label: qsTr("Split"), glyph: Theme.icons.scissors, shortcut: "bladeTool" },
+        { id: "selectLeft", tool: "selectLeft", label: qsTr("Select to the left"), glyph: "arrow-big-left-dash", shortcut: "selectLeftTool" },
+        { id: "selectRight", tool: "selectRight", label: qsTr("Select to the right"), glyph: "arrow-big-right-dash", shortcut: "selectRightTool" }
+    ]
+    // The arrow shows the tool in use, so a select-left mode is never mistaken for plain Select.
+    readonly property string pointerGlyph: {
+        for (const t of pointerTools) {
+            if (t.tool !== "" && t.tool === panel.timelineTool)
+                return t.glyph
+        }
+        return Theme.icons.mousePointer
+    }
 
     // The choices behind a menu button.
     function menuEntries(id) {
@@ -173,6 +192,8 @@ Item {
     function triggerAction(id) {
         switch (id) {
         case "select": panel.timelineTool = ""; break
+        case "selectLeft": panel.timelineTool = panel.timelineTool === "selectLeft" ? "" : "selectLeft"; break
+        case "selectRight": panel.timelineTool = panel.timelineTool === "selectRight" ? "" : "selectRight"; break
         case "cut": panel.timelineTool = panel.timelineTool === "split" ? "" : "split"; break
         case "trimStart": panel.timelineTool = panel.timelineTool === "trimStart" ? "" : "trimStart"; break
         case "trimEnd": panel.timelineTool = panel.timelineTool === "trimEnd" ? "" : "trimEnd"; break
@@ -265,7 +286,8 @@ Item {
 
     function actionActive(id) {
         switch (id) {
-        case "select": return panel.timelineTool === ""
+        case "select": return panel.timelineTool === "" || panel.timelineTool === "selectLeft"
+                              || panel.timelineTool === "selectRight"
         case "cut": return panel.timelineTool === "split"
         case "trimStart": return panel.timelineTool === "trimStart"
         case "trimEnd": return panel.timelineTool === "trimEnd"
@@ -289,8 +311,8 @@ Item {
             return EditorState.linkAvailable
         switch (id) {
         case "crop":
+        case "removeBg": return toolbar.selectionIsPicture
         case "freeze":
-        case "removeBg":
         case "enhanceVideo": return toolbar.selectionIsVideo
         case "transform":
         case "flip":
@@ -367,7 +389,8 @@ Item {
                          ? toolbar.separatorNeeded(toolbar.layout.toolbar, index,
                                                    toolbar.actionShownOnToolbar)
                          : toolbar.actionShownOnToolbar(modelData)
-                width: isSeparator ? Theme.borderWidth + Theme.spacingLg * 2 : actionButton.width
+                width: isSeparator ? Theme.borderWidth + Theme.spacingLg * 2
+                       : actionButton.width + (modelData === "select" ? Theme.controlHeightSm - 4 : 0)
                 height: isSeparator ? Theme.spacing3xl : actionButton.height
                 anchors.verticalCenter: parent ? parent.verticalCenter : undefined
 
@@ -384,13 +407,49 @@ Item {
                 IconButton {
                     id: actionButton
                     visible: !slot.isSeparator
-                    glyph: slot.isSeparator ? "" : toolbar.actionMeta[slot.modelData].glyph
+                    glyph: slot.isSeparator ? ""
+                           : slot.modelData === "select" ? toolbar.pointerGlyph
+                           : toolbar.actionMeta[slot.modelData].glyph
                     variant: "text"
                     tooltip: slot.isSeparator ? "" : toolbar.actionTooltip(slot.modelData)
                     active: toolbar.actionActive(slot.modelData) || slotMenu.opened
                     enabled: toolbar.actionEnabled(slot.modelData)
                     onClicked: slot.isMenu ? slotMenu.popup(actionButton, 0, actionButton.height)
                                            : toolbar.triggerAction(slot.modelData)
+                }
+
+                // The arrow's chevron opens the pointer tools: Select, Split and select to the
+                // left or right, each with its key, as CapCut lists them.
+                IconButton {
+                    id: pointerChevron
+                    visible: slot.modelData === "select"
+                    anchors.left: actionButton.right
+                    anchors.leftMargin: -4
+                    anchors.verticalCenter: actionButton.verticalCenter
+                    glyph: pointerMenu.opened ? Theme.icons.chevronUp : Theme.icons.chevronDown
+                    variant: "text"
+                    buttonSize: Theme.controlHeightSm
+                    iconSize: 12
+                    tooltip: qsTr("Pointer tools")
+                    onClicked: pointerMenu.opened ? pointerMenu.close()
+                                                  : pointerMenu.popup(actionButton, 0, actionButton.height)
+                }
+
+                ThemedContextMenu {
+                    id: pointerMenu
+                    minimumWidth: 280
+                    Instantiator {
+                        model: slot.modelData === "select" ? toolbar.pointerTools : []
+                        delegate: ThemedMenuItem {
+                            required property var modelData
+                            text: modelData.label
+                            icon.name: modelData.glyph
+                            shortcutText: EditorState.shortcutFor(modelData.shortcut)
+                            onTriggered: toolbar.triggerAction(modelData.id)
+                        }
+                        onObjectAdded: (index, object) => pointerMenu.insertItem(index, object)
+                        onObjectRemoved: (index, object) => pointerMenu.removeItem(object)
+                    }
                 }
 
                 // A small mark that the button opens a menu.
@@ -668,6 +727,18 @@ Item {
             tooltip: qsTr("Allow clip overlap")
             active: EditorState.allowClipOverlap
             onClicked: EditorState.allowClipOverlap = !EditorState.allowClipOverlap
+        }
+        // Sony Vegas' automatic crossfade: drag a clip's edge over its neighbour and the overlap
+        // becomes a dissolve.
+        IconButton {
+            id: autoCrossfadeButton
+            glyph: "arrow-right-left"
+            variant: "text"
+            tooltip: EditorState.autoCrossfade
+                     ? qsTr("Automatic dissolve: on. Drag a clip's edge over the next one and the overlap becomes a dissolve")
+                     : qsTr("Automatic dissolve: off")
+            active: EditorState.autoCrossfade
+            onClicked: EditorState.autoCrossfade = !EditorState.autoCrossfade
         }
 
         Rectangle {

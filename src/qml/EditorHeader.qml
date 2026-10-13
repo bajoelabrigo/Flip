@@ -624,6 +624,42 @@ Rectangle {
                         onTriggered: Theme.setDarkMode(true)
                     }
 
+                    // The accent colour, in light and in dark.
+                    ThemedContextMenu {
+                        title: qsTr("Colour")
+
+                        ThemedMenuItem {
+                            text: Theme.colorThemes[0].label
+                            icon.name: Theme.colorThemeDef.id === "amber" ? Theme.icons.check : ""
+                            onTriggered: Theme.setColorTheme("amber")
+                        }
+                        ThemedMenuItem {
+                            text: Theme.colorThemes[1].label
+                            icon.name: Theme.colorThemeDef.id === "midnight" ? Theme.icons.check : ""
+                            onTriggered: Theme.setColorTheme("midnight")
+                        }
+                        ThemedMenuItem {
+                            text: Theme.colorThemes[2].label
+                            icon.name: Theme.colorThemeDef.id === "graphite" ? Theme.icons.check : ""
+                            onTriggered: Theme.setColorTheme("graphite")
+                        }
+                        ThemedMenuItem {
+                            text: Theme.colorThemes[3].label
+                            icon.name: Theme.colorThemeDef.id === "violet" ? Theme.icons.check : ""
+                            onTriggered: Theme.setColorTheme("violet")
+                        }
+                        ThemedMenuItem {
+                            text: Theme.colorThemes[4].label
+                            icon.name: Theme.colorThemeDef.id === "rose" ? Theme.icons.check : ""
+                            onTriggered: Theme.setColorTheme("rose")
+                        }
+                        ThemedMenuItem {
+                            text: Theme.colorThemes[5].label
+                            icon.name: Theme.colorThemeDef.id === "forest" ? Theme.icons.check : ""
+                            onTriggered: Theme.setColorTheme("forest")
+                        }
+                    }
+
                     ThemedMenuSeparator { }
 
                     ThemedMenuItem {
@@ -746,27 +782,42 @@ Rectangle {
                 }
             }
 
-            // Only exists while there is a newer release to tell the user about; the check itself
-            // is silent, so this dot is the whole notification.
+            // Always there, so updating is one click away: with a newer release it says which one and
+            // opens the install dialog (the dot is the notice); without one it checks right now. A
+            // Store copy updates through the Store, so there it opens Flip Studio's Store page.
             Item {
+                readonly property bool storeCopy: !Updates.supported && Qt.platform.os === "windows"
                 implicitWidth: updateBtn.implicitWidth
                 implicitHeight: updateBtn.implicitHeight
                 width: implicitWidth
                 height: implicitHeight
                 anchors.verticalCenter: parent.verticalCenter
-                visible: Updates.updateAvailable && Qt.platform.os !== "android"
+                visible: Qt.platform.os !== "android" && (Updates.supported || storeCopy)
 
                 IconButton {
                     id: updateBtn
                     anchors.fill: parent
-                    glyph: Theme.icons.download
+                    glyph: Updates.updateAvailable ? Theme.icons.download : Theme.icons.refresh
                     variant: "ghost"
-                    text: qsTr("Update")
-                    tooltip: qsTr("Flip Studio %1 is available").arg(Updates.latestVersion)
-                    onClicked: root.Window.window.openUpdateDialog()
+                    active: Updates.updateAvailable
+                    text: Updates.updateAvailable ? qsTr("Update to %1").arg(Updates.latestVersion)
+                                                  : qsTr("Update")
+                    tooltip: parent.storeCopy
+                             ? qsTr("Look for updates in Microsoft Store")
+                             : Updates.updateAvailable
+                               ? qsTr("Flip Studio %1 is available").arg(Updates.latestVersion)
+                               : Updates.checking ? qsTr("Checking for updates…")
+                                                  : qsTr("Check for updates (you have %1)").arg(Updates.currentVersion)
+                    onClicked: {
+                        if (parent.storeCopy)
+                            Qt.openUrlExternally("ms-windows-store://pdp/?productid=9NZZJ9MRGT0B")
+                        else
+                            root.Window.window.checkForUpdates()
+                    }
                 }
 
                 Rectangle {
+                    visible: Updates.updateAvailable
                     width: 8
                     height: 8
                     radius: width / 2

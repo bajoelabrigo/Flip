@@ -576,6 +576,7 @@ AppController::AppController(AssetLibrary *assetLibrary, QObject *parent)
     : QObject(parent)
     , m_assetLibrary(assetLibrary)
 {
+    m_autoCrossfade = QSettings().value(QStringLiteral("timeline/autoCrossfade"), true).toBool();
     m_jobs = new JobRegistry(this);
     m_cloud = new CloudProviders(this);
     m_project.resetToDefaultTimeline();
@@ -1041,7 +1042,12 @@ QStringList inspectorCaps(const drift::Clip &clip, drift::TrackType trackType)
              << QStringLiteral("subtitle");
         break;
     case ClipType::Image:
-        caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable");
+        // A photo gets the same video pages as a video clip (masks, background removal, retouch,
+        // effects): every one of them works on a still too. Only the time-based tools (speed,
+        // stabilization, sound) stay with video.
+        caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
+             << QStringLiteral("maskable") << QStringLiteral("adj:videoEffects")
+             << QStringLiteral("videoTools");
         break;
     case ClipType::Shape:
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
@@ -1199,7 +1205,7 @@ QVariantList AppController::tracks() const
         bool hasAudio = track.type == drift::TrackType::Audio;
 
         for (const drift::Clip &clip : track.clips) {
-            if (!hasAudio && track.type == drift::TrackType::Video && !clip.suppressEmbeddedAudio) {
+            if (!hasAudio && track.isPictureTrack() && !clip.suppressEmbeddedAudio) {
                 const drift::MediaAsset *asset = m_project.asset(clip.assetId);
                 hasAudio = clip.type == drift::ClipType::Composite
                     || (clip.type == drift::ClipType::Video
@@ -1258,12 +1264,16 @@ QVariantList AppController::tracks() const
             {QStringLiteral("transitions"), transitions},
             {QStringLiteral("muted"), track.muted},
             {QStringLiteral("hidden"), track.hidden},
+            {QStringLiteral("locked"), track.locked},
+            // A lane follows the padlock of the track it belongs to.
+            {QStringLiteral("lockedEffective"), isTrackLocked(ti)},
             {QStringLiteral("solo"), track.solo},
             {QStringLiteral("volume"), track.volume},
             {QStringLiteral("pan"), track.pan},
             {QStringLiteral("clipDisplay"), static_cast<int>(track.clipDisplay)},
             {QStringLiteral("showChannelWaveforms"), track.showChannelWaveforms},
             {QStringLiteral("heightScale"), track.heightScale},
+            {QStringLiteral("waveformScale"), track.waveformScale},
         });
     }
 
@@ -2348,6 +2358,16 @@ void seedFreeformMask(drift::Mask &mask)
 {
     if (mask.shape != drift::MaskShape::Freeform || !mask.points.isEmpty())
         return;
+    // A pen mask starts as a rounded blob: eight points on the rect's ellipse, so the smooth curve
+    // through them has something to bend.
+    if (mask.smooth) {
+        for (int i = 0; i < 8; ++i) {
+            const double a = 2.0 * M_PI * i / 8.0;
+            mask.points.append(QPointF(mask.x + std::cos(a) * mask.w / 2.0,
+                                       mask.y + std::sin(a) * mask.h / 2.0));
+        }
+        return;
+    }
     const double left = mask.x - mask.w / 2.0;
     const double right = mask.x + mask.w / 2.0;
     const double top = mask.y - mask.h / 2.0;
@@ -2393,6 +2413,8 @@ QVariantMap maskToMap(const drift::Mask &m, drift::TimeUs timelineStart)
         {QStringLiteral("feather"), m.feather},
         {QStringLiteral("invert"), m.invert},
         {QStringLiteral("points"), points},
+        {QStringLiteral("smooth"), m.smooth},
+        {QStringLiteral("text"), m.text},
         {QStringLiteral("mediaPath"), m.mediaPath},
         {QStringLiteral("mediaFgrPath"), m.mediaFgrPath},
         {QStringLiteral("mediaSrcOffsetUs"), qint64(m.mediaSrcOffsetUs)},
@@ -2425,6 +2447,8 @@ drift::Mask maskFromMap(const QVariantMap &m)
     mask.op = drift::maskOpFromString(m.value(QStringLiteral("op")).toString());
     mask.enabled = m.value(QStringLiteral("enabled"), mask.enabled).toBool();
     mask.name = m.value(QStringLiteral("name"), mask.name).toString();
+    mask.smooth = m.value(QStringLiteral("smooth"), mask.smooth).toBool();
+    mask.text = m.value(QStringLiteral("text"), mask.text).toString();
     mask.mediaPath = m.value(QStringLiteral("mediaPath"), mask.mediaPath).toString();
     mask.mediaFgrPath = m.value(QStringLiteral("mediaFgrPath"), mask.mediaFgrPath).toString();
     mask.mediaSrcOffsetUs =
@@ -4325,7 +4349,12 @@ QHash<QString, QString> defaultShortcuts()
         // they show up in the shortcut list and can be rebound — hardcoded in
         // TimelinePanel they were neither.
         {QStringLiteral("selectTool"), QStringLiteral("V")},
-        {QStringLiteral("bladeTool"), QStringLiteral("B")},
+        // C as on CapCut, whose arrow menu lists Select V, Split C.
+        {QStringLiteral("bladeTool"), QStringLiteral("C")},
+        // CapCut's "select to the left / right": click a clip and it is selected together with
+        // everything before it (or after it) on every track.
+        {QStringLiteral("selectLeftTool"), QStringLiteral("Shift+A")},
+        {QStringLiteral("selectRightTool"), QStringLiteral("A")},
         // Timeline zoom is QML state too, so these take the same route as the tool modes.
         {QStringLiteral("zoomIn"), QStringLiteral("Ctrl+=")},
         {QStringLiteral("zoomOut"), QStringLiteral("Ctrl+-")},
@@ -5137,6 +5166,8 @@ QVariantList AppController::actions() const
         action(QStringLiteral("toggleLoop"), tr("Loop work area playback")),
         action(QStringLiteral("selectTool"), tr("Select tool")),
         action(QStringLiteral("bladeTool"), tr("Cut tool")),
+        action(QStringLiteral("selectLeftTool"), tr("Select to the left")),
+        action(QStringLiteral("selectRightTool"), tr("Select to the right")),
         action(QStringLiteral("zoomIn"), tr("Zoom in")),
         action(QStringLiteral("zoomOut"), tr("Zoom out")),
         action(QStringLiteral("multicam"), tr("Multicam window")),
@@ -6425,7 +6456,7 @@ bool AppController::trackAcceptsKind(int trackIndex, const QString &mediaKind) c
     const drift::ClipType clipType = drift::clipTypeFromString(mediaKind);
     if (clipType == drift::ClipType::Composite && !m_project.activeSequenceId().isEmpty())
         return false;
-    return m_project.tracks().at(trackIndex).allowsClipType(clipType);
+    return m_project.tracks().at(trackIndex).allowsClipType(clipType) && !isTrackLocked(trackIndex);
 }
 
 QString AppController::trackTypeForKind(const QString &mediaKind) const
@@ -6682,7 +6713,7 @@ int AppController::placeGeneratedAudioOnNewTracks(const QList<GeneratedAudioPlac
 
 void AppController::selectClip(int trackIndex, int clipIndex)
 {
-    if (!isValidClipIndex(trackIndex, clipIndex))
+    if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))
         return;
 
     m_selectedTrack = trackIndex;
@@ -6696,7 +6727,7 @@ void AppController::selectClip(int trackIndex, int clipIndex)
 
 void AppController::addToSelection(int trackIndex, int clipIndex)
 {
-    if (!isValidClipIndex(trackIndex, clipIndex))
+    if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))
         return;
 
     for (const QPair<int, int> &pair : selectionWithLinkedPartners(m_project, trackIndex, clipIndex)) {
@@ -6715,9 +6746,11 @@ void AppController::setSelection(const QVariantList &pairs)
         const QVariantMap map = value.toMap();
         const int trackIndex = map.value(QStringLiteral("track")).toInt();
         const int clipIndex = map.value(QStringLiteral("clip")).toInt();
+        if (isTrackLocked(trackIndex))
+            continue;
         // Match click-select: bring linked A/V partners along.
         for (const QPair<int, int> &pair : selectionWithLinkedPartners(m_project, trackIndex, clipIndex)) {
-            if (!next.contains(pair))
+            if (!next.contains(pair) && !isTrackLocked(pair.first))
                 next.append(pair);
         }
     }
@@ -6733,6 +6766,33 @@ void AppController::setSelection(const QVariantList &pairs)
     }
     notifySelectionChanged();
     emit selectedTransitionDataChanged();
+}
+
+void AppController::selectClipsFrom(int trackIndex, int clipIndex, bool forward)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))
+        return;
+    const drift::Clip &anchor = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    QVariantList pairs;
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        const drift::Track &track = m_project.tracks().at(t);
+        // A clip's effects and masks ride along with it; selecting their lanes too would make a
+        // delete take them off clips that are not selected.
+        if (track.isAdjustmentLane() || isTrackLocked(t))
+            continue;
+        for (int c = 0; c < track.clips.size(); ++c) {
+            const drift::Clip &clip = track.clips.at(c);
+            const bool take = forward ? clip.timelineStart >= anchor.timelineStart
+                                      : clip.timelineEnd() <= anchor.timelineEnd();
+            if (take)
+                pairs.append(QVariantMap{{QStringLiteral("track"), t}, {QStringLiteral("clip"), c}});
+        }
+    }
+    setSelection(pairs);
+    // The clicked clip leads: it is the one the inspector shows.
+    m_selectedTrack = trackIndex;
+    m_selectedClip = clipIndex;
+    notifySelectionChanged();
 }
 
 void AppController::selectAllClips()
@@ -6847,7 +6907,12 @@ void AppController::moveClip(int trackIndex, int clipIndex, double newStart)
         }
         movedIds.insert(clip.id);
     }
-    if (!m_allowClipOverlap) {
+    // Sony Vegas' automatic crossfade: a clip dragged so that one of its edges runs over the
+    // neighbouring clip on the same track keeps that overlap, and the overlap becomes a dissolve
+    // as long as it. Only a side overlap of up to half the shorter clip counts; anything more is
+    // a clip dropped on another, which is pushed clear as before.
+    const QPair<QString, QString> autoFade = autoCrossfadeFor(trackIndex, clipIndex, movedIds);
+    if (!m_allowClipOverlap && autoFade.first.isEmpty()) {
         drift::TimeUs maxPushRight = 0;
         for (const QPair<int, int> &pair : targets) {
             if (!isValidClipIndex(pair.first, pair.second))
@@ -6877,8 +6942,89 @@ void AppController::moveClip(int trackIndex, int clipIndex, double newStart)
         const drift::Clip &clip = m_project.tracks().at(pair.first).clips.at(pair.second);
         syncLinkedPartnersFrom(m_project, clip, movedIds);
     }
+    if (!autoFade.first.isEmpty()) {
+        addAutoCrossfade(trackIndex, autoFade.first, autoFade.second);
+        pushProjectEdit(before, tr("Clip moved"));
+        finishEdit(tr("Crossfade added"));
+        return;
+    }
     pushProjectEdit(before, tr("Clip moved"));
     finishEdit(tr("Clip moved"));
+}
+
+QPair<QString, QString> AppController::autoCrossfadeFor(int trackIndex, int clipIndex,
+                                                        const QSet<QString> &movedIds) const
+{
+    // With overlap allowed, an overlap is a stack on purpose, not a fade.
+    if (!m_autoCrossfade || m_allowClipOverlap || !isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    const drift::Track &track = m_project.tracks().at(trackIndex);
+    if (!trackAllowsTransitions(track.type) || track.isAdjustment())
+        return {};
+    const drift::Clip &moved = track.clips.at(clipIndex);
+    if (moved.type == drift::ClipType::Adjustment)
+        return {};
+
+    QPair<QString, QString> found;
+    for (const drift::Clip &other : track.clips) {
+        if (other.id == moved.id || movedIds.contains(other.id))
+            continue;
+        const bool overlaps = other.timelineStart < moved.timelineEnd() && moved.timelineStart < other.timelineEnd();
+        if (!overlaps)
+            continue;
+        // From the right of `other` (moved starts inside it and ends past it) or from its left.
+        const bool fromRight = other.timelineStart < moved.timelineStart && moved.timelineEnd() > other.timelineEnd();
+        const bool fromLeft = moved.timelineStart < other.timelineStart && moved.timelineEnd() < other.timelineEnd();
+        const drift::TimeUs overlapUs = fromRight ? other.timelineEnd() - moved.timelineStart
+                                      : fromLeft  ? moved.timelineEnd() - other.timelineStart
+                                                  : 0;
+        const drift::TimeUs shorter = qMin(moved.timelineDuration, other.timelineDuration);
+        // Covering, inside, too deep, or a second clip under it: not a crossfade.
+        if ((!fromRight && !fromLeft) || overlapUs * 2 > shorter || !found.first.isEmpty())
+            return {};
+        if (overlapUs < drift::secondsToUs(1.0 / 30.0))
+            return {};
+        found = fromRight ? qMakePair(other.id, moved.id) : qMakePair(moved.id, other.id);
+    }
+    return found;
+}
+
+void AppController::addAutoCrossfade(int trackIndex, const QString &fromId, const QString &toId)
+{
+    drift::Track &track = m_project.tracks()[trackIndex];
+    const drift::Clip *from = drift::clipById(track, fromId);
+    const drift::Clip *to = drift::clipById(track, toId);
+    if (!from || !to || !drift::clipsPhysicallyOverlap(*from, *to))
+        return;
+    const drift::TimeUs durationUs = drift::physicalOverlapDurationUs(*from, *to);
+    // A dissolve on a picture track, a plain crossfade on an audio one: the same package.
+    const auto upsert = [&](int t, const QString &a, const QString &b) {
+        drift::Track &target = m_project.tracks()[t];
+        if (drift::Transition *existing = findTransitionBetween(target, a, b)) {
+            existing->durationUs = durationUs;
+            return;
+        }
+        drift::Transition transition;
+        transition.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        transition.fromClipId = a;
+        transition.toClipId = b;
+        transition.kindId = QStringLiteral("crossfade");
+        transition.durationUs = durationUs;
+        target.transitions.append(transition);
+    };
+    upsert(trackIndex, fromId, toId);
+    const LinkedAudioPair pair = linkedAudioPairFor(m_project, m_project.tracks().at(trackIndex), fromId, toId);
+    if (pair.valid())
+        upsert(pair.track, pair.fromId, pair.toId);
+}
+
+void AppController::setAutoCrossfade(bool on)
+{
+    if (m_autoCrossfade == on)
+        return;
+    m_autoCrossfade = on;
+    QSettings().setValue(QStringLiteral("timeline/autoCrossfade"), on);
+    emit autoCrossfadeChanged();
 }
 
 void AppController::closeGap(int trackIndex, double gapStartSeconds)
@@ -6943,6 +7089,8 @@ void AppController::splitAtPlayhead()
 
     const QList<drift::Track> &tracksView = m_project.tracks();
     for (int trackIndex = 0; trackIndex < tracksView.size(); ++trackIndex) {
+        if (isTrackLocked(trackIndex))
+            continue;
         drift::Track &track = m_project.tracks()[trackIndex];
         for (int clipIndex = 0; clipIndex < track.clips.size(); ++clipIndex) {
             drift::Clip &clip = track.clips[clipIndex];
@@ -7784,7 +7932,8 @@ void AppController::moveClipToTrack(int trackIndex, int clipIndex, int newTrackI
 
     // Verify the leader clip can land on the destination track
     const drift::Clip &leaderClip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
-    if (!m_project.tracks().at(newTrackIndex).acceptsClip(leaderClip))
+    if (!m_project.tracks().at(newTrackIndex).acceptsClip(leaderClip) || isTrackLocked(newTrackIndex)
+        || isTrackLocked(trackIndex))
         return;
     const QString leaderId = leaderClip.id;
 
@@ -7931,6 +8080,49 @@ void AppController::moveClipToTrack(int trackIndex, int clipIndex, int newTrackI
         m_selectedTrack = newSelection.constFirst().first;
         m_selectedClip = newSelection.constFirst().second;
     }
+    m_selectedTransitionTrack = -1;
+    m_selectedTransitionLeftClip = -1;
+
+    pushProjectEdit(before, tr("Clips moved"));
+    finishEdit(tr("Clips moved"));
+}
+
+void AppController::moveClipToNewTrack(int trackIndex, int clipIndex, int insertIndex, double newStart)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Clip clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    // Adjustments live in lanes or on their own kinds of rows; they keep their own rules.
+    if (clip.type == drift::ClipType::Adjustment)
+        return;
+
+    const drift::Project before = m_project;
+    insertIndex = qBound(0, insertIndex, int(m_project.tracks().size()));
+    m_project.tracks().insert(insertIndex,
+                              drift::Track{.type = drift::trackTypeForClipType(clip.type)});
+    const int fromTrack = trackIndex >= insertIndex ? trackIndex + 1 : trackIndex;
+
+    drift::Clip moved = clip;
+    moved.timelineStart = qMax<drift::TimeUs>(0, drift::secondsToUs(newStart));
+    m_project.tracks()[fromTrack].clips.removeAt(clipIndex);
+    m_project.tracks()[insertIndex].clips.append(moved);
+
+    // A loosely linked partner (its own audio, say) follows the time shift, as in moveClipToTrack.
+    const drift::TimeUs delta = moved.timelineStart - clip.timelineStart;
+    if (moved.linkLoose && delta != 0) {
+        QSet<QString> movedIds{moved.id};
+        for (const drift::ClipRef &ref : drift::linkedPartners(m_project, moved)) {
+            drift::Clip &partner = m_project.tracks()[ref.trackIndex].clips[ref.clipIndex];
+            if (movedIds.contains(partner.id))
+                continue;
+            partner.timelineStart = qMax<drift::TimeUs>(0, partner.timelineStart + delta);
+            movedIds.insert(partner.id);
+        }
+    }
+
+    m_selectedTrack = insertIndex;
+    m_selectedClip = m_project.tracks().at(insertIndex).clips.size() - 1;
+    m_selection = {qMakePair(m_selectedTrack, m_selectedClip)};
     m_selectedTransitionTrack = -1;
     m_selectedTransitionLeftClip = -1;
 
@@ -9620,14 +9812,23 @@ drift::ClipRef AppController::effectHostRef(int trackIndex, int clipIndex,
     }
 
     const QString clipId = clip.id;
+    drift::ClipRef first;
     for (const int laneIndex : drift::adjustmentLaneIndexes(m_project, trackIndex)) {
         const drift::Track &lane = m_project.tracks().at(laneIndex);
         for (int c = 0; c < lane.clips.size(); ++c) {
             const drift::Clip &adjustment = lane.clips.at(c);
-            if (adjustment.adjustmentKind == kind && adjustment.linkedClipId == clipId)
+            if (adjustment.adjustmentKind != kind || adjustment.linkedClipId != clipId)
+                continue;
+            // A clip with several masks: the one the Video > Mask page has open.
+            if (kind != drift::AdjustmentKind::Mask || m_focusedMaskId.isEmpty()
+                || adjustment.id == m_focusedMaskId)
                 return {laneIndex, c};
+            if (first.trackIndex < 0)
+                first = {laneIndex, c};
         }
     }
+    if (first.trackIndex >= 0)
+        return first;
 
     if (!create)
         return {};
@@ -9729,6 +9930,8 @@ void AppController::normalizeProjectStructure(const drift::Project *before)
     // importer, a tool, a test. Both passes are cheap no-ops once the shape is right.
     drift::liftAdjustmentClipsToOwnTracks(m_project);
     drift::hoistClipEffectsToAdjustmentLanes(m_project);
+    // A clip moved to another track takes its effects and masks along.
+    drift::relocateLinkedAdjustments(m_project);
     normalizeAdjustmentLanes(m_project);
     drift::normalizeTransformLayers(m_project.tracks(), before ? &before->tracks() : nullptr);
     drift::normalizeCameraLayers(m_project.tracks());
@@ -10348,6 +10551,8 @@ bool AppController::trackAcceptsDropKind(int trackIndex, const QString &kind) co
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return false;
     const drift::Track &track = m_project.tracks().at(trackIndex);
+    if (isTrackLocked(trackIndex))
+        return false;
     if (const std::optional<drift::ClipType> type = placeableClipType(kind))
         return track.allowsClipType(*type) && !track.isAdjustmentLane() && !track.isTransformLayer();
     return true;
@@ -10421,6 +10626,8 @@ QVariantMap AppController::planAssetDrop(const QString &kind, const QString &pay
     if (!onTrack)
         return rejectDrop();
     const drift::Track &track = m_project.tracks().at(trackIndex);
+    if (isTrackLocked(trackIndex))
+        return rejectDrop(tr("This track is locked. Unlock it with the padlock in its header."));
 
     if (kind == QLatin1String("transition")) {
         const int left = transitionJunctionAt(trackIndex, at);
@@ -15007,7 +15214,19 @@ void AppController::writeClipMask(int trackIndex, int clipIndex, const drift::Ma
 drift::Mask AppController::maskFromCatalogId(const QString &shape) const
 {
     drift::Mask mask;
+    // "pen" is a Freeform drawn as a smooth curve, not a shape of its own.
+    if (shape == QLatin1String("pen")) {
+        mask.shape = drift::MaskShape::Freeform;
+        mask.smooth = true;
+        seedFreeformMask(mask);
+        return mask;
+    }
     mask.shape = drift::maskShapeFromString(shape);
+    if (mask.shape == drift::MaskShape::Text) {
+        mask.text = tr("TEXT");
+        mask.w = 0.8;
+        mask.h = 0.35;
+    }
     // maskShapeFromString falls back to None for anything it does not know, and Media needs a
     // path it cannot invent — either way the mask contributes nothing and the caller does nothing.
     if (mask.shape == drift::MaskShape::Media)
@@ -15031,6 +15250,7 @@ QVariantList AppController::maskCatalog() const
         {QStringLiteral("rectangle"), tr("Rectangle")}, {QStringLiteral("ellipse"), tr("Ellipse")},
         {QStringLiteral("star"), tr("Star")},           {QStringLiteral("heart"), tr("Heart")},
         {QStringLiteral("bars"), tr("Bars")},           {QStringLiteral("freeform"), tr("Freeform")},
+        {QStringLiteral("pen"), tr("Pen")},             {QStringLiteral("text"), tr("Text")},
     };
 
     QVariantList out;
@@ -15076,6 +15296,72 @@ void AppController::addMaskToClip(int trackIndex, int clipIndex, const QString &
     selectClipById(addedId);
 }
 
+QString AppController::addMaskToClipInPlace(int trackIndex, int clipIndex, const QString &shape)
+{
+    const drift::Mask mask = maskFromCatalogId(shape);
+    if (!mask.contributes())
+        return {};
+
+    const drift::Project before = m_project;
+    const drift::ClipRef added = drift::addLinkedMask(m_project, trackIndex, clipIndex, mask);
+    if (added.trackIndex < 0)
+        return {};
+    const QString addedId = m_project.tracks().at(added.trackIndex).clips.at(added.clipIndex).id;
+    // The clip's own id, to find it again once the new lane has shifted the indices.
+    const QString hostId = m_project.tracks().at(trackIndex).clips.at(clipIndex).id;
+
+    pushProjectEdit(before, tr("Add mask"));
+    finishEdit(tr("Mask added"));
+    setFocusedMask(addedId);
+    // The lane may have been inserted above the clip's track: select the clip where it is now.
+    selectClipById(hostId);
+    return addedId;
+}
+
+void AppController::setFocusedMask(const QString &maskClipId)
+{
+    if (m_focusedMaskId == maskClipId)
+        return;
+    m_focusedMaskId = maskClipId;
+    setMaskPointFocus(-1);
+    emit focusedMaskChanged();
+    // The preview handles follow the focused mask.
+    notifySelectionChanged();
+}
+
+void AppController::removeLinkedMask(int maskTrackIndex, int maskClipIndex)
+{
+    if (!isValidClipIndex(maskTrackIndex, maskClipIndex))
+        return;
+    const drift::Clip &mask = m_project.tracks().at(maskTrackIndex).clips.at(maskClipIndex);
+    if (mask.type != drift::ClipType::Adjustment || mask.adjustmentKind != drift::AdjustmentKind::Mask)
+        return;
+    if (isTrackLocked(maskTrackIndex))
+        return;
+
+    // Selection is by index; keep the host selected through the removal.
+    QString selectedId;
+    if (isValidClipIndex(m_selectedTrack, m_selectedClip))
+        selectedId = m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip).id;
+    const QString removedId = mask.id;
+
+    const drift::Project before = m_project;
+    drift::Track &lane = m_project.tracks()[maskTrackIndex];
+    lane.clips.removeAt(maskClipIndex);
+    if (lane.isAdjustmentLane() && lane.clips.isEmpty())
+        m_project.tracks().removeAt(maskTrackIndex);
+    if (m_focusedMaskId == removedId)
+        m_focusedMaskId.clear();
+
+    pushProjectEdit(before, tr("Remove mask"));
+    finishEdit(tr("Mask removed"));
+    if (!selectedId.isEmpty() && selectedId != removedId)
+        selectClipById(selectedId);
+    else
+        clearSelection();
+    emit focusedMaskChanged();
+}
+
 QVariantList AppController::linkedMaskClips(int trackIndex, int clipIndex) const
 {
     QVariantList out;
@@ -15084,7 +15370,8 @@ QVariantList AppController::linkedMaskClips(int trackIndex, int clipIndex) const
     const drift::Track &track = m_project.tracks().at(trackIndex);
     if (clipIndex < 0 || clipIndex >= track.clips.size())
         return out;
-    if (track.clips.at(clipIndex).type != drift::ClipType::Video)
+    const drift::ClipType type = track.clips.at(clipIndex).type;
+    if (type != drift::ClipType::Video && type != drift::ClipType::Image)
         return out;
 
     const QList<drift::ClipRef> refs =
@@ -15105,6 +15392,8 @@ QVariantList AppController::linkedMaskClips(int trackIndex, int clipIndex) const
             {QStringLiteral("id"), adjustment.id},
             {QStringLiteral("name"), name},
             {QStringLiteral("shape"), drift::maskShapeToString(mask.shape)},
+            // A smooth freeform is the Pen of the catalog.
+            {QStringLiteral("smooth"), mask.smooth},
             {QStringLiteral("media"), mask.shape == drift::MaskShape::Media},
         });
     }
@@ -15169,7 +15458,19 @@ void AppController::insertMaskPoint(int trackIndex, int clipIndex, int pointInde
         return;
 
     drift::Mask mask = host->mask;
-    mask.points.insert(qBound(0, pointIndex, mask.points.size()), QPointF(x, y));
+    const int at = qBound(0, pointIndex, int(mask.points.size()));
+    mask.points.insert(at, QPointF(x, y));
+    // The shape keys are vertex lists of their own and have to gain the same slot, or the counts
+    // stop matching and the animation holds its earlier key. Each key gets the middle of its own
+    // edge there, so the new point does not jump while the path animates.
+    for (auto it = mask.pathKeys.begin(); it != mask.pathKeys.end(); ++it) {
+        QVector<QPointF> &key = it.value();
+        if (key.isEmpty() || at > key.size())
+            continue;
+        const QPointF a = key.at((at - 1 + key.size()) % key.size());
+        const QPointF b = key.at(at % key.size());
+        key.insert(at, (a + b) / 2.0);
+    }
 
     const drift::Project before = m_project;
     writeClipMask(trackIndex, clipIndex, mask);
@@ -19187,6 +19488,43 @@ void AppController::setTrackHidden(int trackIndex, bool hidden)
     finishEdit(hidden ? tr("Track hidden") : tr("Track shown"));
 }
 
+void AppController::setTrackLocked(int trackIndex, bool locked)
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return;
+    if (m_project.tracks()[trackIndex].locked == locked)
+        return;
+
+    const drift::Project before = m_project;
+    m_project.tracks()[trackIndex].locked = locked;
+    pushProjectEdit(before, locked ? tr("Track locked") : tr("Track unlocked"));
+    finishEdit(locked ? tr("Track locked") : tr("Track unlocked"));
+    // Nothing on a locked track stays selected: the delete key or a nudge would still reach it.
+    if (locked) {
+        QVariantList keep;
+        for (const QPair<int, int> &pair : m_selection) {
+            if (!isTrackLocked(pair.first))
+                keep.append(QVariantMap{{QStringLiteral("track"), pair.first}, {QStringLiteral("clip"), pair.second}});
+        }
+        if (keep.size() != m_selection.size())
+            setSelection(keep);
+    }
+}
+
+bool AppController::isTrackLocked(int trackIndex) const
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return false;
+    const drift::Track &track = m_project.tracks().at(trackIndex);
+    if (track.locked)
+        return true;
+    if (track.isAdjustmentLane()) {
+        const int parent = drift::adjustmentLaneParentIndex(m_project, trackIndex);
+        return parent >= 0 && parent != trackIndex && m_project.tracks().at(parent).locked;
+    }
+    return false;
+}
+
 bool AppController::renameTrack(int trackIndex, const QString &name)
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
@@ -19422,6 +19760,20 @@ void AppController::setTrackHeightScale(int trackIndex, double scale)
 
     // View-only preference, like clipDisplay: no undo entry.
     m_project.tracks()[trackIndex].heightScale = clamped;
+    notifyTracksChanged();
+}
+
+void AppController::setTrackWaveformScale(int trackIndex, double scale)
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return;
+
+    const qreal clamped = qBound(0.1, scale, 1.0);
+    if (qFuzzyCompare(m_project.tracks()[trackIndex].waveformScale, clamped))
+        return;
+
+    // View-only preference, like the row height: no undo entry.
+    m_project.tracks()[trackIndex].waveformScale = clamped;
     notifyTracksChanged();
 }
 
@@ -20890,7 +21242,7 @@ QByteArray AppController::audioLayoutFingerprint() const
 {
     QCryptographicHash hash(QCryptographicHash::Sha1);
     for (const drift::Track &track : m_project.tracks()) {
-        if (track.type != drift::TrackType::Audio && track.type != drift::TrackType::Video)
+        if (!track.carriesSound())
             continue;
         hash.addData(track.muted ? "m" : "-");
         for (const drift::Clip &clip : track.clips) {

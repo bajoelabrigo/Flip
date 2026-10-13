@@ -90,6 +90,12 @@ private slots:
     void compositeClipSpeedRetimesToFit();
     void importedMediaIsCentredAndResetsToItsFit();
     void transformTogetherWrapsTheSelection();
+    void lockedTrackRefusesSelectionSplitAndDrops();
+    void selectToTheRightAndLeftTakeEveryTrack();
+    void videoFitsAGraphicTrack();
+    void masksAreEditedInPlaceOnTheClip();
+    void draggingAnEdgeOverANeighbourMakesADissolve();
+    void missingMediaIsFoundWithItsNeighbours();
     void transformLayerParentsPreviewBoxes();
     void transformSpanOptionsAndValidation();
     void transformLayerEntryPoints();
@@ -325,12 +331,14 @@ void EditorStateTest::trackFitAnswersForAKindMatchTheAssetForms()
     QVERIFY(!tracks.isEmpty());
     for (int i = 0; i < tracks.size(); ++i) {
         const QString type = tracks.at(i).toMap().value(QStringLiteral("type")).toString();
+        // A video fits a graphic track too, as on CapCut.
         QCOMPARE(state.trackAcceptsKind(i, QStringLiteral("video")),
-                 type == QStringLiteral("video"));
+                 type == QStringLiteral("video") || type == QStringLiteral("shape"));
         QCOMPARE(state.trackAcceptsKind(i, QStringLiteral("audio")),
                  type == QStringLiteral("audio"));
+        // A photo also fits a video track, next to the videos (CapCut's main track).
         QCOMPARE(state.trackAcceptsKind(i, QStringLiteral("image")),
-                 type == QStringLiteral("shape"));
+                 type == QStringLiteral("shape") || type == QStringLiteral("video"));
     }
 }
 
@@ -1149,6 +1157,275 @@ QVariantMap previewBoxFor(AppController &state, const QString &name)
 }
 
 } // namespace
+
+// The padlock: nothing on a locked track can be picked, split or dropped on, and locking a
+// track drops its clips from the selection.
+void EditorStateTest::lockedTrackRefusesSelectionSplitAndDrops()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    setUpTransformTracks(state);
+
+    state.selectClip(1, 0);
+    QCOMPARE(state.selectedTrack(), 1);
+    state.setTrackLocked(1, true);
+    QVERIFY(state.isTrackLocked(1));
+    QVERIFY(state.project()->tracks().at(1).locked);
+    QVERIFY(state.tracks().at(1).toMap().value(QStringLiteral("locked")).toBool());
+    QCOMPARE(state.selectedTrack(), -1);
+
+    state.selectClip(1, 0);
+    QCOMPARE(state.selectedTrack(), -1);
+    state.setSelection({QVariantMap{{QStringLiteral("track"), 1}, {QStringLiteral("clip"), 0}},
+                        QVariantMap{{QStringLiteral("track"), 0}, {QStringLiteral("clip"), 0}}});
+    QCOMPARE(state.m_selection.size(), 1);
+    QCOMPARE(state.m_selection.constFirst().first, 0);
+
+    QVERIFY(!state.trackAcceptsKind(1, QStringLiteral("image")));
+    QVERIFY(!state.trackAcceptsDropKind(1, QStringLiteral("effect")));
+
+    state.splitAtPlayhead();
+    QCOMPARE(state.project()->tracks().at(0).clips.size(), 2);
+    QCOMPARE(state.project()->tracks().at(1).clips.size(), 1);
+    QCOMPARE(state.project()->tracks().at(2).clips.size(), 2);
+
+    // Undo walks back the split, then the padlock.
+    state.undo();
+    state.undo();
+    QVERIFY(!state.isTrackLocked(1));
+    state.selectClip(1, 0);
+    QCOMPARE(state.selectedTrack(), 1);
+}
+
+// CapCut's select-right / select-left tools: the clicked clip and everything after (or before)
+// it on every track, but nothing on a locked one.
+void EditorStateTest::selectToTheRightAndLeftTakeEveryTrack()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    drift::Project &project = *state.project();
+    project.tracks().clear();
+    for (const QString &id : {QStringLiteral("t1"), QStringLiteral("t2"), QStringLiteral("t3")}) {
+        drift::Track track{.type = drift::TrackType::Shape};
+        track.id = id;
+        project.tracks().append(track);
+    }
+    const auto at = [](const QString &id, double start, double length) {
+        drift::Clip clip = boxShape(id, QRectF(0, 0, 10, 10));
+        clip.timelineStart = drift::secondsToUs(start);
+        clip.timelineDuration = drift::secondsToUs(length);
+        clip.srcOut = clip.timelineDuration;
+        return clip;
+    };
+    project.tracks()[0].clips = {at(QStringLiteral("x"), 0, 2), at(QStringLiteral("y"), 3, 2)};
+    project.tracks()[1].clips = {at(QStringLiteral("z"), 1, 3)};
+    project.tracks()[2].clips = {at(QStringLiteral("w"), 6, 1)};
+
+    state.selectClipsFrom(1, 0, true); // from z (starts at 1): z, y, w
+    QCOMPARE(state.m_selection.size(), 3);
+    QCOMPARE(state.selectedTrack(), 1);
+    QCOMPARE(state.selectedClip(), 0);
+
+    state.selectClipsFrom(0, 0, false); // up to x (ends at 2): x only
+    QCOMPARE(state.m_selection.size(), 1);
+
+    state.selectClipsFrom(0, 1, false); // up to y (ends at 5): x, y, z
+    QCOMPARE(state.m_selection.size(), 3);
+
+    state.setTrackLocked(2, true);
+    state.selectClipsFrom(0, 0, true); // from x: everything but the locked w
+    QCOMPARE(state.m_selection.size(), 3);
+}
+
+// Any picture goes on any picture track (CapCut): a video now lands on a graphic track too.
+void EditorStateTest::videoFitsAGraphicTrack()
+{
+    drift::Track graphic{.type = drift::TrackType::Shape};
+    QVERIFY(graphic.allowsClipType(drift::ClipType::Video));
+    QVERIFY(graphic.allowsClipType(drift::ClipType::Image));
+    QVERIFY(!graphic.allowsClipType(drift::ClipType::Audio));
+    QVERIFY(graphic.isPictureTrack());
+    QVERIFY(graphic.carriesSound());
+    drift::Track audio{.type = drift::TrackType::Audio};
+    QVERIFY(!audio.allowsClipType(drift::ClipType::Video));
+    QVERIFY(!audio.allowsClipType(drift::ClipType::Image));
+}
+
+// Video > Mask edits a clip's masks without leaving the clip: adding one keeps the clip
+// selected and focuses the new mask, the keyframe rows reach the focused one, and removing a
+// mask keeps the clip selected.
+void EditorStateTest::masksAreEditedInPlaceOnTheClip()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    drift::Project &project = *state.project();
+    project.setResolution(1920, 1080);
+    project.tracks().clear();
+    drift::Track track{.type = drift::TrackType::Video};
+    track.id = QStringLiteral("v1");
+    drift::Clip photo;
+    photo.id = QStringLiteral("photo");
+    photo.type = drift::ClipType::Image;
+    photo.timelineDuration = drift::secondsToUs(5.0);
+    photo.srcOut = photo.timelineDuration;
+    track.clips.append(photo);
+    project.tracks().append(track);
+
+    const auto hostIndex = [&state]() {
+        for (int t = 0; t < state.project()->tracks().size(); ++t) {
+            const drift::Track &tr = state.project()->tracks().at(t);
+            for (int c = 0; c < tr.clips.size(); ++c) {
+                if (tr.clips.at(c).id == QStringLiteral("photo"))
+                    return QPair<int, int>(t, c);
+            }
+        }
+        return QPair<int, int>(-1, -1);
+    };
+
+    const QString first = state.addMaskToClipInPlace(0, 0, QStringLiteral("ellipse"));
+    QVERIFY(!first.isEmpty());
+    QCOMPARE(state.focusedMask(), first);
+    {
+        const auto selected = qMakePair(state.selectedTrack(), state.selectedClip());
+        QCOMPARE(selected, hostIndex());
+    }
+
+    auto host = hostIndex();
+    const QString second = state.addMaskToClipInPlace(host.first, host.second, QStringLiteral("pen"));
+    QVERIFY(!second.isEmpty() && second != first);
+    QCOMPARE(state.focusedMask(), second);
+    host = hostIndex();
+    QVariantList masks = state.linkedMaskClips(host.first, host.second);
+    QCOMPARE(masks.size(), 2);
+
+    // The selected clip's "mask" is the focused one: the pen, a smooth freeform.
+    QVariantMap mask = state.selectedClipData().value(QStringLiteral("mask")).toMap();
+    QCOMPARE(mask.value(QStringLiteral("shape")).toString(), QStringLiteral("freeform"));
+    QVERIFY(mask.value(QStringLiteral("smooth")).toBool());
+    state.setFocusedMask(first);
+    mask = state.selectedClipData().value(QStringLiteral("mask")).toMap();
+    QCOMPARE(mask.value(QStringLiteral("shape")).toString(), QStringLiteral("ellipse"));
+
+    // A point added and one removed on the pen.
+    QVariantMap penRef;
+    for (const QVariant &m : masks) {
+        if (m.toMap().value(QStringLiteral("id")).toString() == second)
+            penRef = m.toMap();
+    }
+    const int penTrack = penRef.value(QStringLiteral("track")).toInt();
+    const int penClip = penRef.value(QStringLiteral("index")).toInt();
+    const int before = state.project()->tracks().at(penTrack).clips.at(penClip).mask.points.size();
+    state.insertMaskPoint(penTrack, penClip, 1, 0.5, 0.1);
+    QCOMPARE(state.project()->tracks().at(penTrack).clips.at(penClip).mask.points.size(), before + 1);
+    state.removeMaskPoint(penTrack, penClip, 0);
+    QCOMPARE(state.project()->tracks().at(penTrack).clips.at(penClip).mask.points.size(), before);
+
+    // Removing the pen keeps the photo selected.
+    state.removeLinkedMask(penTrack, penClip);
+    host = hostIndex();
+    QCOMPARE(state.linkedMaskClips(host.first, host.second).size(), 1);
+    const auto selectedAfter = qMakePair(state.selectedTrack(), state.selectedClip());
+    QCOMPARE(selectedAfter, host);
+}
+
+// Sony Vegas' automatic crossfade: a side overlap of up to half the shorter clip stays and
+// becomes a dissolve as long as the overlap; a deeper one is pushed clear as before.
+void EditorStateTest::draggingAnEdgeOverANeighbourMakesADissolve()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.setAutoCrossfade(true);
+    state.setAllowClipOverlap(false);
+    drift::Project &project = *state.project();
+    project.tracks().clear();
+    drift::Track track{.type = drift::TrackType::Shape};
+    track.id = QStringLiteral("g");
+    drift::Clip a = boxShape(QStringLiteral("a"), QRectF(0, 0, 10, 10));
+    drift::Clip b = boxShape(QStringLiteral("b"), QRectF(0, 0, 10, 10));
+    b.timelineStart = drift::secondsToUs(6.0);
+    track.clips = {a, b};
+    project.tracks().append(track);
+
+    state.moveClip(0, 1, 4.0); // b's head runs 1 s over a's tail
+    const drift::Track &after = state.project()->tracks().at(0);
+    QCOMPARE(after.clips.at(1).timelineStart, drift::secondsToUs(4.0));
+    QCOMPARE(after.transitions.size(), 1);
+    QCOMPARE(after.transitions.at(0).fromClipId, QStringLiteral("a"));
+    QCOMPARE(after.transitions.at(0).toClipId, QStringLiteral("b"));
+    QCOMPARE(after.transitions.at(0).kindId, QStringLiteral("crossfade"));
+    QCOMPARE(after.transitions.at(0).durationUs, drift::secondsToUs(1.0));
+
+    // 4 s over a 5 s clip: dropped on it, not a fade. Pushed clear.
+    state.moveClip(0, 1, 1.0);
+    const drift::Track &deep = state.project()->tracks().at(0);
+    QVERIFY(deep.clips.at(1).timelineStart >= deep.clips.at(0).timelineEnd());
+
+    // Off: an edge overlap is pushed clear too, and no fade is made.
+    state.moveClip(0, 1, 8.0); // apart: the old fade goes
+    QCOMPARE(state.project()->tracks().at(0).transitions.size(), 0);
+    state.setAutoCrossfade(false);
+    state.moveClip(0, 1, 4.0);
+    const drift::Track &off = state.project()->tracks().at(0);
+    QVERIFY(off.clips.at(1).timelineStart >= off.clips.at(0).timelineEnd());
+    QCOMPARE(off.transitions.size(), 0);
+    state.setAutoCrossfade(true);
+}
+
+// Missing media, as Premiere relinks it: two files whose folder was moved. Finding one points
+// its asset and clips at the new place and finds the other one there too, in one undo step.
+void EditorStateTest::missingMediaIsFoundWithItsNeighbours()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    QTemporaryDir moved;
+    QVERIFY(moved.isValid());
+    const QString gone = QDir(moved.path()).filePath(QStringLiteral("old-folder-that-is-gone"));
+    for (const QString &name : {QStringLiteral("a.png"), QStringLiteral("b.png")}) {
+        QFile f(QDir(moved.path()).filePath(name));
+        QVERIFY(f.open(QIODevice::WriteOnly));
+        f.write("not really a png");
+    }
+
+    drift::Project &project = *state.project();
+    project.tracks().clear();
+    drift::MediaAsset a;
+    a.name = QStringLiteral("a.png");
+    a.path = gone + QStringLiteral("/a.png");
+    a.kind = drift::MediaKind::Image;
+    const QString idA = project.addAsset(a);
+    drift::MediaAsset b = a;
+    b.id.clear();
+    b.name = QStringLiteral("b.png");
+    b.path = gone + QStringLiteral("/b.png");
+    const QString idB = project.addAsset(b);
+    drift::Track track{.type = drift::TrackType::Video};
+    drift::Clip clip;
+    clip.id = QStringLiteral("c");
+    clip.type = drift::ClipType::Image;
+    clip.assetId = idB;
+    clip.path = b.path;
+    clip.timelineDuration = drift::secondsToUs(2.0);
+    clip.srcOut = clip.timelineDuration;
+    track.clips.append(clip);
+    project.tracks().append(track);
+
+    QCOMPARE(state.bin()->missingMedia().size(), 2);
+
+    const int found = state.bin()->relinkMissing(
+        idA, QUrl::fromLocalFile(QDir(moved.path()).filePath(QStringLiteral("a.png"))));
+    QCOMPARE(found, 2);
+    QCOMPARE(state.bin()->missingMedia().size(), 0);
+    QCOMPARE(QFileInfo(state.project()->asset(idB)->path).fileName(), QStringLiteral("b.png"));
+    QVERIFY(QFileInfo::exists(state.project()->asset(idB)->path));
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).path, state.project()->asset(idB)->path);
+
+    state.undo();
+    QCOMPARE(state.bin()->missingMedia().size(), 2);
+
+    // A folder search finds them by name, however deep.
+    QCOMPARE(state.bin()->relinkMissingInFolder(QUrl::fromLocalFile(moved.path())), 2);
+    QCOMPARE(state.bin()->missingMedia().size(), 0);
+}
 
 void EditorStateTest::transformTogetherWrapsTheSelection()
 {

@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.9.6 LANGUAGES CXX C)
+project(Drift VERSION 0.9.7 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -1153,6 +1153,15 @@ qt_add_resources(drift "drift_app_icon"
     FILES resources/drift.png
 )
 
+# Video > Retouch tiles: one portrait with each retouch applied (resources/retouch/README.md).
+file(GLOB FLIP_RETOUCH_THUMBS RELATIVE "${CMAKE_SOURCE_DIR}" CONFIGURE_DEPENDS
+     "resources/retouch/*.jpg")
+qt_add_resources(drift "flip_retouch_thumbs"
+    PREFIX "/retouch"
+    BASE resources/retouch
+    FILES ${FLIP_RETOUCH_THUMBS}
+)
+
 # Fixed input for the playback diagnostics benchmark, so numbers from two different bug
 # reports are comparable. See resources/diagnostics/README.md for how it is generated.
 qt_add_resources(drift "drift_diagnostics"
@@ -1283,6 +1292,7 @@ qt_add_qml_module(drift
         # which composes the inspectors above. Without it here the QML is not compiled and
         # lupdate never sees its strings, so i18n/*.ts silently loses the whole tab.
         src/qml/components/properties/VideoInspector.qml
+        src/qml/components/properties/VideoMaskPage.qml
         src/qml/components/properties/AdjustInspector.qml
         src/qml/components/properties/FacePropPicker.qml
         src/qml/components/assets/TextAssetsTab.qml
@@ -1311,6 +1321,7 @@ qt_add_qml_module(drift
         src/qml/components/assets/StockItemDetail.qml
         src/qml/components/assets/BinBreadcrumb.qml
         src/qml/components/assets/AssetCategoryChips.qml
+        src/qml/components/assets/CategoryScrollOn.qml
         src/qml/components/assets/EffectStacksSection.qml
         src/qml/components/assets/AssetFavoriteButton.qml
         src/qml/TimelinePanel.qml
@@ -1372,6 +1383,7 @@ qt_add_qml_module(drift
         src/qml/components/AddonManagerDialog.qml
         src/qml/components/AddonStartupDialog.qml
         src/qml/components/MissingAddonsDialog.qml
+        src/qml/components/MissingMediaDialog.qml
         src/qml/components/AboutDialog.qml
         src/qml/components/UpdateDialog.qml
         src/qml/components/DebugInfoDialog.qml

@@ -1,5 +1,7 @@
 #include "TimelineOps.h"
 
+#include <QHash>
+#include <QSet>
 #include <QUuid>
 
 #include <algorithm>
@@ -281,6 +283,64 @@ int ensureAdjustmentLane(Project &project, int parentIndex, AdjustmentKind kind,
     const int insertAt = existing.isEmpty() ? parentIndex + 1 : existing.constLast() + 1;
     project.tracks().insert(insertAt, lane);
     return insertAt;
+}
+
+bool relocateLinkedAdjustments(Project &project)
+{
+    project.ensureTrackIds();
+
+    // Which track each media clip sits on, by track id (indices shift as lanes come and go).
+    QHash<QString, QString> hostTrackOfClip;
+    for (const Track &track : project.tracks()) {
+        if (track.isAdjustment())
+            continue;
+        for (const Clip &clip : track.clips)
+            hostTrackOfClip.insert(clip.id, track.id);
+    }
+
+    struct Stray {
+        Clip adjustment;
+        QString hostTrackId;
+    };
+    QList<Stray> strays;
+    QSet<QString> touchedLanes;
+    for (Track &lane : project.tracks()) {
+        if (!lane.isAdjustmentLane())
+            continue;
+        for (int c = lane.clips.size() - 1; c >= 0; --c) {
+            const Clip &adjustment = lane.clips.at(c);
+            if (adjustment.linkedClipId.isEmpty())
+                continue;
+            const QString host = hostTrackOfClip.value(adjustment.linkedClipId);
+            if (host.isEmpty() || host == lane.parentTrackId)
+                continue;
+            strays.append({adjustment, host});
+            lane.clips.removeAt(c);
+            touchedLanes.insert(lane.id);
+        }
+    }
+    if (strays.isEmpty())
+        return false;
+
+    for (const Stray &stray : strays) {
+        const int hostIndex = project.trackIndexById(stray.hostTrackId);
+        const int laneIndex = ensureAdjustmentLane(project, hostIndex, stray.adjustment.adjustmentKind,
+                                                   stray.adjustment.timelineStart,
+                                                   stray.adjustment.timelineDuration);
+        if (laneIndex < 0)
+            continue;
+        project.tracks()[laneIndex].clips.append(stray.adjustment);
+        std::sort(project.tracks()[laneIndex].clips.begin(), project.tracks()[laneIndex].clips.end(),
+                  [](const Clip &a, const Clip &b) { return a.timelineStart < b.timelineStart; });
+    }
+
+    // Only the lanes this pass emptied: a lane the user left empty on purpose stays.
+    for (int t = project.tracks().size() - 1; t >= 0; --t) {
+        const Track &track = project.tracks().at(t);
+        if (touchedLanes.contains(track.id) && track.clips.isEmpty())
+            project.tracks().removeAt(t);
+    }
+    return true;
 }
 
 namespace {
