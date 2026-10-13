@@ -612,13 +612,36 @@ ApplicationWindow {
 
     // Every extent is 0 on the first layout pass, and a fraction of 0 is 0 — so the
     // restore waits for real sizes rather than running at Component.onCompleted.
+    //
+    // It also waits for the window to be shown at its final size. Applying a fraction turns it
+    // into pixels, and a session left maximized is first laid out at its windowed size: the
+    // panels were sized against that small window, kept those pixels once it maximized, and
+    // the capture that followed saved the shrunken fractions — so every launch squeezed the
+    // preview and the libraries further towards their minimums.
     function restorePanelSizesWhenReady() {
         if (window.panelLayoutRestored)
             return
         if (rootSplit.width <= 0 || outerSplit.height <= 0 || innerSplit.width <= 0)
             return
-        window.applySavedPanelSizes()
-        window.panelLayoutRestored = true
+        if (window.visibility === Window.Hidden)
+            return
+        if (Qt.platform.os !== "android" && LayoutMemory.savedWindowMaximized()
+                && window.visibility !== Window.Maximized && window.visibility !== Window.FullScreen)
+            return
+        // Platforms report the size and the visibility of a maximize in either order; the
+        // timer lets both land before the fractions become pixels.
+        panelRestoreTimer.restart()
+    }
+
+    Timer {
+        id: panelRestoreTimer
+        interval: 150
+        onTriggered: {
+            if (window.panelLayoutRestored)
+                return
+            window.applySavedPanelSizes()
+            window.panelLayoutRestored = true
+        }
     }
 
     // A workspace flip moves the preview between splits, so the panels around it are
@@ -1426,6 +1449,9 @@ ApplicationWindow {
         // Maximizing does not have to change the window size (a window already filling
         // the work area does not), so the geometry sampler alone can miss the switch.
         window.persistWindowState()
+        // The stored panel layout waits for the window's final state (see
+        // restorePanelSizesWhenReady), and reaching it need not resize anything.
+        window.restorePanelSizesWhenReady()
         if (visible && EditorState.projectFile.recoveryAvailable && !EditorState.preferences.reopenLastProject)
             recoveryOpenTimer.start()
     }

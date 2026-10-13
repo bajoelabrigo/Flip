@@ -4364,6 +4364,26 @@
         <translation type="unfinished">চেহারা প্রয়োগ করা হয়েছে</translation>
     </message>
     <message>
+        <source>Apply text style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text style applied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply text bubble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bubble removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bubble applied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjust text look</source>
         <translation type="unfinished">টেক্সটের চেহারা সামঞ্জস্য করুন</translation>
     </message>
@@ -15607,6 +15627,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">অতিরিক্ত পান</translation>
     </message>
     <message>
+        <source>No favorites yet. Tap the star on a sound to keep it here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stop</source>
         <translation type="unfinished">থামুন</translation>
     </message>
@@ -16903,6 +16927,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">প্রিয়</translation>
+    </message>
+    <message>
         <source>More…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16975,10 +17003,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Choose the gradient&apos;s first colour</source>
         <translation type="unfinished">গ্রেডিয়েন্টের প্রথম রঙটি বেছে নিন</translation>
-    </message>
-    <message>
-        <source>Edits the first gradient stop</source>
-        <translation type="unfinished">প্রথম গ্রেডিয়েন্ট স্টপ সম্পাদনা করে</translation>
     </message>
     <message>
         <source>Style</source>
@@ -17077,14 +17101,6 @@ If playback stutters, try another.</source>
         <translation>ফন্ট</translation>
     </message>
     <message>
-        <source>Weight</source>
-        <translation>ফন্টের ওজন</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="unfinished">আকার</translation>
-    </message>
-    <message>
         <source>Stroke</source>
         <translation>স্ট্রোক</translation>
     </message>
@@ -17099,10 +17115,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Boxes and rules drawn around the text rather than on it</source>
         <translation type="unfinished">বক্স এবং নিয়ম টেক্সট এর চারপাশে আঁকা না করে</translation>
-    </message>
-    <message>
-        <source>Animate</source>
-        <translation type="unfinished">অ্যানিমেট</translation>
     </message>
     <message>
         <source>Phase</source>
@@ -17153,10 +17165,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished">তির্যক</translation>
     </message>
     <message>
-        <source>Italicise the text</source>
-        <translation type="unfinished">টেক্সটটিকে তির্যক করুন</translation>
-    </message>
-    <message>
         <source>%1 has no italic face</source>
         <translation type="unfinished">%1 এর কোন তির্যক মুখ নেই</translation>
     </message>
@@ -17179,10 +17187,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Fill</source>
         <translation>ভরাট</translation>
-    </message>
-    <message>
-        <source>Bend</source>
-        <translation type="unfinished">বাঁক</translation>
     </message>
     <message>
         <source>Align left</source>
@@ -17209,18 +17213,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished">নীচে সারিবদ্ধ করুন</translation>
     </message>
     <message>
-        <source>Line height</source>
-        <translation type="unfinished">লাইনের উচ্চতা</translation>
-    </message>
-    <message>
-        <source>Letter spacing</source>
-        <translation type="unfinished">অক্ষরের ব্যবধান</translation>
-    </message>
-    <message>
-        <source>Wrapping</source>
-        <translation type="unfinished">মোড়ানো</translation>
-    </message>
-    <message>
         <source>Word wrap</source>
         <translation type="unfinished">শব্দ মোড়ানো</translation>
     </message>
@@ -17241,28 +17233,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished">পটভূমি</translation>
     </message>
     <message>
-        <source>Draw a filled box behind the text</source>
-        <translation type="unfinished">টেক্সটের পিছনে একটি ভরা বাক্স আঁকুন</translation>
-    </message>
-    <message>
         <source>Choose background colour</source>
         <translation type="unfinished">পটভূমির রঙ চয়ন করুন</translation>
     </message>
     <message>
-        <source>Padding</source>
-        <translation type="unfinished">প্যাডিং</translation>
-    </message>
-    <message>
-        <source>Space between the text and the edge of its background box</source>
-        <translation type="unfinished">টেক্সট এবং এর পটভূমি বাক্সের প্রান্তের মধ্যে স্থান</translation>
-    </message>
-    <message>
         <source>Corner radius</source>
         <translation type="unfinished">কোণার ব্যাসার্ধ</translation>
-    </message>
-    <message>
-        <source>Roundness of the background box corners</source>
-        <translation type="unfinished">ব্যাকগ্রাউন্ড বক্স কোণার গোলাকার</translation>
     </message>
     <message>
         <source>Glow</source>
@@ -17321,26 +17297,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished">এই ক্লিপে টেক্সট প্রয়োগ করুন</translation>
     </message>
     <message>
-        <source>Edit in Style</source>
-        <translation type="unfinished">শৈলীতে সম্পাদনা করুন</translation>
-    </message>
-    <message>
-        <source>The text is painted with an image; change it on the Style page</source>
-        <translation type="unfinished">টেক্সটটি একটি চিত্র দিয়ে আঁকা হয়েছে; স্টাইল পৃষ্ঠায় এটি পরিবর্তন করুন</translation>
-    </message>
-    <message>
-        <source>The text is painted with an effect; change it on the Style page</source>
-        <translation type="unfinished">টেক্সট একটি ইফেক্ট সঙ্গে আঁকা হয়; স্টাইল পৃষ্ঠায় এটি পরিবর্তন করুন</translation>
-    </message>
-    <message>
-        <source>Spacing</source>
-        <translation type="unfinished">ব্যবধান</translation>
-    </message>
-    <message>
-        <source>Line height, letter spacing, wrapping and bend</source>
-        <translation type="unfinished">লাইনের উচ্চতা, অক্ষর ব্যবধান, মোড়ানো এবং বাঁক</translation>
-    </message>
-    <message>
         <source>Preset</source>
         <translation>প্রিসেট</translation>
     </message>
@@ -17366,10 +17322,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Install the voice model from the add-on manager first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Install the AI engine and the voice model from the add-on manager to generate voiceovers.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17415,6 +17367,254 @@ If playback stutters, try another.</source>
     <message>
         <source>Underline</source>
         <translation type="unfinished">আন্ডারলাইন করুন</translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation type="unfinished">মৌলিক</translation>
+    </message>
+    <message>
+        <source>Bubble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation type="unfinished">ইফেক্ট</translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation type="unfinished">অ্যানিমেশন</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished">প্রিয়</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished">টেমপ্লেট</translation>
+    </message>
+    <message>
+        <source>My styles</source>
+        <translation type="unfinished">আমার স্টাইল</translation>
+    </message>
+    <message>
+        <source>Hello</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Case</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>As typed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>UPPERCASE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lowercase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Title Case</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit in Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The text is painted with an image; change it under Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The text is painted with an effect; change it under Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preset style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour, outline and shadow in one tap, keeping your font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>More styles: neon, gradient, 3D…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An outline around the letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Outline the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose outline colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A box behind the text: one for the block or one per line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw a box behind the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Per line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished">অস্বচ্ছতা</translation>
+    </message>
+    <message>
+        <source>Rounded corners</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished">উচ্চতা</translation>
+    </message>
+    <message>
+        <source>Offset Y</source>
+        <translation type="unfinished">অফসেট Y</translation>
+    </message>
+    <message>
+        <source>Offset X</source>
+        <translation type="unfinished">অফসেট এক্স</translation>
+    </message>
+    <message>
+        <source>Border</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose border colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Border thickness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shapes: speech, cloud, tag, brush…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick a bubble shape on the Bubble page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A soft light around the letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a glow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strong</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose glow colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation type="unfinished">তীব্রতা</translation>
+    </message>
+    <message>
+        <source>Range</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A shadow cast by the letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose shadow colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation type="unfinished">ঝাপসা</translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adjust shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished">কোণ</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation type="unfinished">কার্ভ</translation>
+    </message>
+    <message>
+        <source>Bend a single line of text along an arc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as my style…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep this text&apos;s font, colours, background and effects to reuse them</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transform</source>
+        <translation type="unfinished">ট্রান্সফর্ম</translation>
+    </message>
+    <message>
+        <source>Blend</source>
+        <translation type="unfinished">মিশ্রিত করুন</translation>
+    </message>
+    <message>
+        <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>
@@ -17487,6 +17687,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Choose accent highlight colour</source>
         <translation type="unfinished">অ্যাকসেন্ট হাইলাইট রঙ চয়ন করুন</translation>
+    </message>
+    <message>
+        <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search text effects and styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Templates change the font too. The other styles keep yours.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>In</source>
@@ -17573,6 +17785,341 @@ If playback stutters, try another.</source>
     <message>
         <source>Images (*.png *.jpg *.jpeg *.webp)</source>
         <translation type="unfinished">ছবি (*.png *.jpg *.jpeg *.webp)</translation>
+    </message>
+</context>
+<context>
+    <name>TextQuickStyles</name>
+    <message>
+        <source>White</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thick outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black on white</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yellow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation type="unfinished">লাল</translation>
+    </message>
+    <message>
+        <source>Soft shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sticker</source>
+        <translation type="unfinished">স্টিকার</translation>
+    </message>
+    <message>
+        <source>Cyan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pink</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Green</source>
+        <translation type="unfinished">সবুজ</translation>
+    </message>
+    <message>
+        <source>Orange</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Purple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hollow</source>
+        <translation type="unfinished">ফাঁপা</translation>
+    </message>
+    <message>
+        <source>Pink neon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cyan neon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Green neon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yellow neon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Purple neon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Red neon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blue neon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warm light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sunset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ocean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fire</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Candy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rainbow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chrome</source>
+        <translation type="unfinished">ক্রোম</translation>
+    </message>
+    <message>
+        <source>White 3D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yellow 3D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pink 3D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cyan 3D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retro</source>
+        <translation type="unfinished">বিপরীতমুখী</translation>
+    </message>
+    <message>
+        <source>Red 3D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hard shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Long shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diffuse shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation type="unfinished">পপ</translation>
+    </message>
+    <message>
+        <source>Double outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark halo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">কোনোটিই নয়</translation>
+    </message>
+    <message>
+        <source>Speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Balloon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thought</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boom!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pow!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation type="unfinished">মেঘ</translation>
+    </message>
+    <message>
+        <source>Black pill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>White pill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yellow pill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caption box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Red box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Kraft tag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Red ribbon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blue ribbon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation type="unfinished">তীর</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sticky note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pink note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pink brush</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yellow brush</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blue brush</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black brush</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Kraft paper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished">হৃদয়</translation>
+    </message>
+    <message>
+        <source>Pastel cloud</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lilac speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mint pill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pink balloon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation type="unfinished">মৌলিক</translation>
+    </message>
+    <message>
+        <source>Neon</source>
+        <translation type="unfinished">নিয়ন</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation type="unfinished">গ্রেডিয়েন্ট</translation>
+    </message>
+    <message>
+        <source>3D</source>
+        <translation type="unfinished">3D</translation>
+    </message>
+    <message>
+        <source>Shadow and outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Comic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Labels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brush and paper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cute</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

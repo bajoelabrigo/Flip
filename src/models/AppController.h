@@ -891,6 +891,14 @@ public:
     // Looks: one-click recipes that rewrite the layer stack from a few params.
     Q_INVOKABLE QVariantList textLooks() const;
     Q_INVOKABLE void applyTextLook(int trackIndex, int clipIndex, const QString &lookId, const QVariantMap &params = {});
+    // The Básico / Efectos quick styles and the Burbuja backgrounds (core/TextQuickStyles.h):
+    // {id, label, category} lists, their categories as {id, label}, and one-step apply.
+    Q_INVOKABLE QVariantList textQuickStyles() const;
+    Q_INVOKABLE QVariantList textQuickStyleCategories() const;
+    Q_INVOKABLE void applyTextQuickStyle(int trackIndex, int clipIndex, const QString &styleId);
+    Q_INVOKABLE QVariantList textBubbles() const;
+    Q_INVOKABLE QVariantList textBubbleCategories() const;
+    Q_INVOKABLE void applyTextBubble(int trackIndex, int clipIndex, const QString &bubbleId);
     Q_INVOKABLE void setTextLookParam(int trackIndex, int clipIndex, const QString &key, const QVariant &value);
     Q_INVOKABLE void previewSetTextLookParam(int trackIndex, int clipIndex, const QString &key, const QVariant &value);
     Q_INVOKABLE QVariantList textPaintEffects() const;

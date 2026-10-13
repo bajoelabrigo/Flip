@@ -1452,14 +1452,23 @@ Item {
     // Import button exists. Hand-built rather than the shared EmptyState: it carries two
     // actions and the supported-format table, which no other empty state needs, and it
     // centres in the whole panel instead of sitting against the top edge.
-    Item {
+    // Centred while it fits; in a short panel it starts at the top edge and scrolls, instead of
+    // centring past that edge and drawing over the toolbar above.
+    Flickable {
         id: mediaEmptyState
         anchors.fill: parent
         visible: AssetLibrary.count === 0 && BinFolderModel.count === 0 && !root.importing
+        clip: true
+        contentWidth: width
+        contentHeight: Math.max(height, emptyColumn.height + Theme.spacingXl * 2)
+        boundsBehavior: Flickable.StopAtBounds
+        interactive: contentHeight > height
 
         Column {
-            anchors.centerIn: parent
-            width: Math.min(parent.width - Theme.spacing3xl * 2, 300)
+            id: emptyColumn
+            x: (mediaEmptyState.width - width) / 2
+            y: Math.max(Theme.spacingXl, (mediaEmptyState.height - height) / 2)
+            width: Math.min(mediaEmptyState.width - Theme.spacing3xl * 2, 300)
             spacing: Theme.spacingXl
 
             Rectangle {

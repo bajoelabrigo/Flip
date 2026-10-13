@@ -137,7 +137,12 @@ Item {
                 readonly property real cardWidth: (width - columnSpacing) / 2
 
                 Repeater {
-                    model: root.captionStyles
+                    // Starred styles first: the list is short enough that favorites need no filter.
+                    model: {
+                        void root.favoritesTick
+                        const fav = s => EditorState.isAssetFavorite("captionStyles", s.id)
+                        return root.captionStyles.filter(fav).concat(root.captionStyles.filter(s => !fav(s)))
+                    }
                     delegate: Column {
                         id: styleCard
                         required property var modelData
@@ -160,6 +165,14 @@ Item {
                                     root.captionStyle = styleCard.modelData.id
                                     EditorState.setSubtitleStylePreset(styleCard.modelData.id)
                                 }
+                            }
+
+                            AssetFavoriteButton {
+                                anchors.right: parent.right
+                                anchors.top: parent.top
+                                anchors.margins: 3
+                                tabId: "captionStyles"
+                                itemId: styleCard.modelData.id
                             }
                         }
 
@@ -327,6 +340,11 @@ Item {
 
     property bool alignReady: Addons.hasKind("align-model")
     property var captionStyles: EditorState.subtitleStyleChoices()
+    property int favoritesTick: 0
+    Connections {
+        target: EditorState
+        function onAssetFavoritesChanged() { root.favoritesTick++ }
+    }
     property string captionStyle: EditorState.subtitleStylePreset()
 
     property bool whisperReady: Addons.hasKind("whisper-model")

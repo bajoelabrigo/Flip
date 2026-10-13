@@ -4275,6 +4275,26 @@
         <translation>Zastosowano wygląd</translation>
     </message>
     <message>
+        <source>Apply text style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text style applied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply text bubble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bubble removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bubble applied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjust text look</source>
         <translation>Dostosuj wygląd tekstu</translation>
     </message>
@@ -15656,6 +15676,10 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished">Pobierz dodatki</translation>
     </message>
     <message>
+        <source>No favorites yet. Tap the star on a sound to keep it here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stop</source>
         <translation type="unfinished">Stop</translation>
     </message>
@@ -16947,6 +16971,10 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">Ulubione</translation>
+    </message>
+    <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17027,10 +17055,6 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     <message>
         <source>Choose the gradient&apos;s first colour</source>
         <translation>Wybierz pierwszy kolor gradientu</translation>
-    </message>
-    <message>
-        <source>Edits the first gradient stop</source>
-        <translation>Edytuje pierwszy punkt gradientu</translation>
     </message>
     <message>
         <source>Style</source>
@@ -17129,14 +17153,6 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>Czcionka</translation>
     </message>
     <message>
-        <source>Weight</source>
-        <translation>Grubość</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation>Rozmiar</translation>
-    </message>
-    <message>
         <source>Stroke</source>
         <translation>Obrys</translation>
     </message>
@@ -17151,10 +17167,6 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     <message>
         <source>Boxes and rules drawn around the text rather than on it</source>
         <translation>Ramki i linie rysowane wokół tekstu, a nie na nim</translation>
-    </message>
-    <message>
-        <source>Animate</source>
-        <translation>Animuj</translation>
     </message>
     <message>
         <source>Phase</source>
@@ -17205,10 +17217,6 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>Kursywa</translation>
     </message>
     <message>
-        <source>Italicise the text</source>
-        <translation>Pochyl tekst</translation>
-    </message>
-    <message>
         <source>%1 has no italic face</source>
         <translation>%1 nie ma wersji kursywy</translation>
     </message>
@@ -17231,10 +17239,6 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     <message>
         <source>Fill</source>
         <translation>Wypełnienie</translation>
-    </message>
-    <message>
-        <source>Bend</source>
-        <translation>Wygięcie</translation>
     </message>
     <message>
         <source>Align left</source>
@@ -17261,18 +17265,6 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>Wyrównaj do dołu</translation>
     </message>
     <message>
-        <source>Line height</source>
-        <translation>Wysokość linii</translation>
-    </message>
-    <message>
-        <source>Letter spacing</source>
-        <translation>Odstępy między literami</translation>
-    </message>
-    <message>
-        <source>Wrapping</source>
-        <translation>Zawijanie</translation>
-    </message>
-    <message>
         <source>Word wrap</source>
         <translation>Zawijanie słów</translation>
     </message>
@@ -17293,28 +17285,12 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>Tło</translation>
     </message>
     <message>
-        <source>Draw a filled box behind the text</source>
-        <translation>Narysuj wypełnioną ramkę za tekstem</translation>
-    </message>
-    <message>
         <source>Choose background colour</source>
         <translation>Wybierz kolor tła</translation>
     </message>
     <message>
-        <source>Padding</source>
-        <translation>Dopełnienie</translation>
-    </message>
-    <message>
-        <source>Space between the text and the edge of its background box</source>
-        <translation>Odstęp między tekstem a krawędzią ramki tła</translation>
-    </message>
-    <message>
         <source>Corner radius</source>
         <translation>Promień narożnika</translation>
-    </message>
-    <message>
-        <source>Roundness of the background box corners</source>
-        <translation>Zaokrąglenie narożników ramki tła</translation>
     </message>
     <message>
         <source>Glow</source>
@@ -17335,26 +17311,6 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     <message>
         <source>Apply the text to this clip</source>
         <translation>Zastosuj tekst do tego klipu</translation>
-    </message>
-    <message>
-        <source>Edit in Style</source>
-        <translation>Edytuj w Stylu</translation>
-    </message>
-    <message>
-        <source>The text is painted with an image; change it on the Style page</source>
-        <translation>Tekst jest malowany obrazem; zmień to na stronie Styl</translation>
-    </message>
-    <message>
-        <source>The text is painted with an effect; change it on the Style page</source>
-        <translation>Tekst jest malowany efektem; zmień to na stronie Styl</translation>
-    </message>
-    <message>
-        <source>Spacing</source>
-        <translation>Odstępy</translation>
-    </message>
-    <message>
-        <source>Line height, letter spacing, wrapping and bend</source>
-        <translation>Wysokość linii, odstępy liter, zawijanie i wygięcie</translation>
     </message>
     <message>
         <source>Preset</source>
@@ -17382,10 +17338,6 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     </message>
     <message>
         <source>Install the voice model from the add-on manager first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Install the AI engine and the voice model from the add-on manager to generate voiceovers.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17431,6 +17383,254 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     <message>
         <source>Underline</source>
         <translation>Podkreślenie</translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation type="unfinished">Podstawowe</translation>
+    </message>
+    <message>
+        <source>Bubble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation type="unfinished">Efekty</translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation type="unfinished">Animacja</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished">Ulubione</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished">Szablony</translation>
+    </message>
+    <message>
+        <source>My styles</source>
+        <translation type="unfinished">Moje style</translation>
+    </message>
+    <message>
+        <source>Hello</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Case</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>As typed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>UPPERCASE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lowercase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Title Case</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit in Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The text is painted with an image; change it under Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The text is painted with an effect; change it under Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preset style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour, outline and shadow in one tap, keeping your font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>More styles: neon, gradient, 3D…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An outline around the letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Outline the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose outline colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A box behind the text: one for the block or one per line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw a box behind the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Per line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished">Krycie</translation>
+    </message>
+    <message>
+        <source>Rounded corners</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished">Wysokość</translation>
+    </message>
+    <message>
+        <source>Offset Y</source>
+        <translation type="unfinished">Przesunięcie Y</translation>
+    </message>
+    <message>
+        <source>Offset X</source>
+        <translation type="unfinished">Przesunięcie X</translation>
+    </message>
+    <message>
+        <source>Border</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose border colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Border thickness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shapes: speech, cloud, tag, brush…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick a bubble shape on the Bubble page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A soft light around the letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a glow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strong</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose glow colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation type="unfinished">Intensywność</translation>
+    </message>
+    <message>
+        <source>Range</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A shadow cast by the letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose shadow colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation type="unfinished">Rozmycie</translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adjust shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished">Kąt</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation type="unfinished">Krzywa</translation>
+    </message>
+    <message>
+        <source>Bend a single line of text along an arc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as my style…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep this text&apos;s font, colours, background and effects to reuse them</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transform</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blend</source>
+        <translation type="unfinished">Mieszanie</translation>
+    </message>
+    <message>
+        <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>
@@ -17503,6 +17703,18 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     <message>
         <source>Choose accent highlight colour</source>
         <translation>Wybierz kolor podświetlenia akcentu</translation>
+    </message>
+    <message>
+        <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search text effects and styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Templates change the font too. The other styles keep yours.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>In</source>
@@ -17625,6 +17837,341 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     <message>
         <source>Images (*.png *.jpg *.jpeg *.webp)</source>
         <translation>Obrazy (*.png *.jpg *.jpeg *.webp)</translation>
+    </message>
+</context>
+<context>
+    <name>TextQuickStyles</name>
+    <message>
+        <source>White</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thick outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black on white</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yellow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation type="unfinished">Czerwony</translation>
+    </message>
+    <message>
+        <source>Soft shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sticker</source>
+        <translation type="unfinished">Naklejka</translation>
+    </message>
+    <message>
+        <source>Cyan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pink</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Green</source>
+        <translation type="unfinished">Zielony</translation>
+    </message>
+    <message>
+        <source>Orange</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Purple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hollow</source>
+        <translation type="unfinished">Pusty</translation>
+    </message>
+    <message>
+        <source>Pink neon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cyan neon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Green neon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yellow neon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Purple neon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Red neon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blue neon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warm light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sunset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ocean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fire</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Candy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rainbow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chrome</source>
+        <translation type="unfinished">Chrom</translation>
+    </message>
+    <message>
+        <source>White 3D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yellow 3D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pink 3D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cyan 3D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retro</source>
+        <translation type="unfinished">Retro</translation>
+    </message>
+    <message>
+        <source>Red 3D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hard shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Long shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diffuse shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation type="unfinished">Nagłe pojawienie się</translation>
+    </message>
+    <message>
+        <source>Double outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark halo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Balloon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thought</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boom!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pow!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation type="unfinished">Chmura</translation>
+    </message>
+    <message>
+        <source>Black pill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>White pill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yellow pill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caption box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Red box</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Kraft tag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Red ribbon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blue ribbon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation type="unfinished">Strzałka</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sticky note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pink note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pink brush</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yellow brush</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blue brush</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black brush</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Kraft paper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished">Serce</translation>
+    </message>
+    <message>
+        <source>Pastel cloud</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lilac speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mint pill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pink balloon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation type="unfinished">Podstawowe</translation>
+    </message>
+    <message>
+        <source>Neon</source>
+        <translation type="unfinished">Neon</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation type="unfinished">Gradient</translation>
+    </message>
+    <message>
+        <source>3D</source>
+        <translation type="unfinished">3D</translation>
+    </message>
+    <message>
+        <source>Shadow and outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Comic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Labels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brush and paper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cute</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

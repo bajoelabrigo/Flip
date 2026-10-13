@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls.Basic
 import Drift
 import ".."
+import "../assets"
 
 Item {
     id: root
@@ -134,9 +135,12 @@ Item {
         return EditorState.textAnimationCategories(root.animSlot)
     }
     readonly property var animTileModel: {
+        void root.favoritesTick
         const filtered = root.animCategory.length === 0
                          ? root.animPresets
-                         : root.animPresets.filter(p => p.category === root.animCategory)
+                         : root.animCategory === "__favorites__"
+                           ? root.animPresets.filter(p => EditorState.isAssetFavorite("textAnimations", p.id))
+                           : root.animPresets.filter(p => p.category === root.animCategory)
         return [{ "id": "", "label": qsTr("None") }].concat(filtered)
     }
     readonly property var animation: (textStyle && textStyle.animation) || ({})
@@ -168,7 +172,7 @@ Item {
 
     // Sub-page of the inspector: "text", "style" or "animate". Survives selection changes so a
     // pass over several clips stays on the page being worked in.
-    property string textTab: "text"
+    property string textTab: "basic"
 
     // The content field's user-dragged height and the id of the clip its text was loaded from,
     // so a commit can never land on a clip selected after the typing began.
@@ -185,7 +189,7 @@ Item {
 
     // Lands a freshly added text clip in its content field, where the inline editor used to open.
     function focusContent() {
-        root.textTab = "text"
+        root.textTab = "basic"
         textContentField.forceActiveFocus()
         textContentField.selectAll()
     }
@@ -210,6 +214,238 @@ Item {
         highlight[key] = value
         EditorState.setTextStyle(EditorState.selectedTrack, EditorState.selectedClip,
                                  { "accent": { "highlight": highlight } })
+    }
+
+
+    // ----- CapCut pages: Básico, Burbuja, Efectos, Animación ---------------------------------------
+    readonly property var pages: [
+        { "id": "basic", "label": qsTr("Basic") },
+        { "id": "bubble", "label": qsTr("Bubble") },
+        { "id": "effects", "label": qsTr("Effects") },
+        { "id": "animate", "label": qsTr("Animation") }
+    ]
+    // textTab is remembered across selections; an older value ("text", "style") lands on Básico.
+    readonly property string page: {
+        for (let i = 0; i < root.pages.length; ++i) {
+            if (root.pages[i].id === root.textTab)
+                return root.textTab
+        }
+        return "basic"
+    }
+    property bool advancedOpen: false
+    // The galleries cannot tell which recipe produced a style, so the one tapped last is outlined.
+    property string lastQuickId: ""
+    property string lastBubbleId: ""
+    property string bubbleCategory: ""
+    property string effectsCategory: "basic"
+    // A layer slider (shadow distance, angle) mid-drag: its release commits the preview.
+    property bool layerDragActive: false
+
+    readonly property real em: Math.max(1, Number(root.textStyle.pixelSize) || 64)
+    readonly property var quickStyles: EditorState.textQuickStyles()
+    readonly property var bubbles: EditorState.textBubbles()
+    readonly property var bubbleCategories: EditorState.textBubbleCategories()
+    readonly property var templatePresets: EditorState.textPresets()
+    readonly property var effectCategories: [{ "id": "favorites", "label": qsTr("Favorites") }]
+        .concat(EditorState.textQuickStyleCategories())
+        .concat([
+            { "id": "looks", "label": qsTr("Effects") },
+            { "id": "templates", "label": qsTr("Templates") },
+            { "id": "mine", "label": qsTr("My styles") }
+        ])
+    // The styles the user saved (Guardar estilo), and a tick that refreshes them and the stars.
+    property int savedTick: 0
+    readonly property var savedPresets: {
+        void root.savedTick
+        return EditorState.userTextPresets()
+    }
+    property int favoritesTick: 0
+    Connections {
+        target: EditorState
+        function onUserTextPresetsChanged() { root.savedTick++ }
+        function onAssetFavoritesChanged() { root.favoritesTick++ }
+    }
+    function isFavorite(tab, id) {
+        void root.favoritesTick
+        return EditorState.isAssetFavorite(tab, id)
+    }
+
+    readonly property var strokeLayer: root.layerOfKind("stroke")
+    readonly property var glowLayer: root.layerOfKind("glow")
+    readonly property var shadowLayer: root.layerOfKind("shadow")
+    readonly property real shadowDistance: root.shadowLayer
+                                           ? Math.hypot(Number(root.shadowLayer.offsetX) || 0,
+                                                        Number(root.shadowLayer.offsetY) || 0)
+                                           : 0
+    readonly property real shadowAngle: root.shadowLayer
+                                        ? Math.atan2(Number(root.shadowLayer.offsetY) || 0,
+                                                     Number(root.shadowLayer.offsetX) || 0) * 180 / Math.PI
+                                        : 45
+
+    // The front-most layer of a kind: what a Básico section (Trazo, Brillo, Sombra) edits.
+    function layerOfKind(kind) {
+        for (let i = root.layers.length - 1; i >= 0; --i) {
+            if (root.layers[i].kind === kind)
+                return root.layers[i]
+        }
+        return null
+    }
+    function layerOn(kind) {
+        const layer = root.layerOfKind(kind)
+        return !!layer && layer.enabled !== false
+    }
+    function setLayerKey(layer, patch) {
+        if (layer)
+            EditorState.setStyleLayer(EditorState.selectedTrack, EditorState.selectedClip, layer.id, patch)
+    }
+    function previewLayer(layer, patch) {
+        if (layer)
+            EditorState.previewSetStyleLayer(EditorState.selectedTrack, EditorState.selectedClip, layer.id, patch)
+    }
+    function beginLayerDrag(undoText) {
+        root.layerDragActive = true
+        EditorState.beginPreviewDrag(undoText)
+    }
+    function commitLayer(layer, patch) {
+        if (!layer)
+            return
+        if (root.layerDragActive) {
+            root.previewLayer(layer, patch)
+            EditorState.commitPreviewDrag()
+            root.layerDragActive = false
+        } else {
+            root.setLayerKey(layer, patch)
+        }
+    }
+    // A Básico section's switch: shows or hides its layer, creating it the first time where that
+    // kind belongs in the stack (addStyleLayer's natural order: shadows and glows behind the fill).
+    function enableLayer(kind, on, defaults) {
+        const existing = root.layerOfKind(kind)
+        if (!on) {
+            if (existing)
+                root.setLayerKey(existing, { "enabled": false })
+            return
+        }
+        if (existing) {
+            root.setLayerKey(existing, { "enabled": true })
+            return
+        }
+        const id = EditorState.addTextLayer(EditorState.selectedTrack, EditorState.selectedClip, kind)
+        if (id && id.length > 0)
+            EditorState.setStyleLayer(EditorState.selectedTrack, EditorState.selectedClip, id, defaults)
+    }
+    function layerColor(layer, fallback) {
+        return layer && layer.paint && layer.paint.color ? layer.paint.color : fallback
+    }
+    function layerProp(layer, field, label, decimals) {
+        if (!layer)
+            return { "key": "", "label": label, "def": 0, "decimals": decimals }
+        return { "key": "text.layer." + layer.id + "." + field, "label": label,
+                 "def": Number(layer[field]) || 0, "decimals": decimals }
+    }
+    function layerKeyframes(layer, field) {
+        return layer ? root.textKeyframes("layer." + layer.id + "." + field) : []
+    }
+    function shadowOffsets(distance, angle) {
+        const a = angle * Math.PI / 180
+        return { "offsetX": distance * Math.cos(a), "offsetY": distance * Math.sin(a) }
+    }
+    // B toggles between the family's weight nearest 700 and the one nearest 400.
+    function boldToggleWeight() {
+        const weights = root.availableWeights
+        const target = Number(root.textStyle.fontWeight) >= 600 ? 400 : 700
+        let best = weights[0]
+        for (let i = 0; i < weights.length; ++i) {
+            if (Math.abs(weights[i] - target) < Math.abs(best - target))
+                best = weights[i]
+        }
+        return best
+    }
+    // U draws the underline in the text's own colour, sized to the font.
+    function toggleUnderline() {
+        const on = root.textStyle.underlineEnabled !== true
+        const patch = { "underlineEnabled": on }
+        if (on) {
+            patch.underlineColor = root.frontFillColor
+            patch.underlineWidth = Math.max(2, root.em * 0.06)
+            patch.underlineOffset = Math.max(2, root.em * 0.1)
+        }
+        EditorState.setTextStyle(EditorState.selectedTrack, EditorState.selectedClip, patch)
+    }
+    // Colours travel as #AARRGGBB; the background's opacity slider edits only the alpha byte.
+    function hexAlpha(hex) {
+        const s = String(hex || "")
+        return s.length === 9 ? parseInt(s.substr(1, 2), 16) / 255 : 1
+    }
+    function withAlpha(hex, alpha) {
+        const s = String(hex || "#000000")
+        const rgb = s.length === 9 ? s.substr(3) : s.substr(1, 6)
+        const level = Math.round(Math.max(0, Math.min(1, alpha)) * 255)
+        return "#" + (level < 16 ? "0" : "") + level.toString(16) + rgb
+    }
+    // A colour picked without transparency keeps the background's current opacity.
+    function keepAlpha(picked, current) {
+        return root.hexAlpha(picked) < 0.999 ? picked : root.withAlpha(picked, root.hexAlpha(current))
+    }
+    function previewQuery(text) {
+        return "?text=" + encodeURIComponent(text)
+               + "&font=" + encodeURIComponent(root.textStyle.fontFamily || "")
+               + "&weight=" + Math.round(Number(root.textStyle.fontWeight) || 400)
+               + "&italic=" + (root.textStyle.italic ? 1 : 0)
+    }
+    function quickPreview(id) {
+        return "image://textlook/quick:" + id + root.previewQuery(root.lookSampleText)
+    }
+    function bubblePreview(id) {
+        return "image://textlook/bubble:" + id + root.previewQuery(qsTr("Hello"))
+    }
+    function applyQuick(id) {
+        root.lastQuickId = id
+        EditorState.applyTextQuickStyle(EditorState.selectedTrack, EditorState.selectedClip, id)
+    }
+    function applyBubble(id) {
+        root.lastBubbleId = id
+        EditorState.applyTextBubble(EditorState.selectedTrack, EditorState.selectedClip, id)
+    }
+    // Efectos: the quick styles by category, the look gallery and the built-in templates in one grid.
+    function effectTiles(search) {
+        const query = String(search || "").trim().toLowerCase()
+        const tiles = []
+        for (let i = 0; i < root.quickStyles.length; ++i) {
+            const q = root.quickStyles[i]
+            tiles.push({ "kind": "quick", "id": q.id, "label": q.label, "category": q.category,
+                         "source": root.quickPreview(q.id) })
+        }
+        for (let i = 0; i < root.looks.length; ++i) {
+            const look = root.looks[i]
+            if (look.id === "plain")
+                continue
+            tiles.push({ "kind": "look", "id": look.id, "label": look.label, "category": "looks",
+                         "source": "image://textlook/" + look.id + root.previewQuery(root.lookSampleText) })
+        }
+        for (let i = 0; i < root.templatePresets.length; ++i) {
+            const preset = root.templatePresets[i]
+            tiles.push({ "kind": "template", "id": preset.id, "label": preset.label, "category": "templates",
+                         "source": "image://textstyle/" + preset.id })
+        }
+        for (let i = 0; i < root.savedPresets.length; ++i) {
+            const preset = root.savedPresets[i]
+            tiles.push({ "kind": "template", "id": preset.id, "label": preset.label, "category": "mine",
+                         "source": "image://textstyle/" + preset.id })
+        }
+        if (query.length > 0)
+            return tiles.filter(t => String(t.label).toLowerCase().indexOf(query) >= 0)
+        if (root.effectsCategory === "favorites")
+            return tiles.filter(t => root.isFavorite("textEffects", t.kind + ":" + t.id))
+        return tiles.filter(t => t.category === root.effectsCategory)
+    }
+    function applyEffectTile(tile) {
+        if (tile.kind === "look")
+            EditorState.applyTextLook(EditorState.selectedTrack, EditorState.selectedClip, tile.id)
+        else if (tile.kind === "template")
+            EditorState.applyTextPreset(EditorState.selectedTrack, EditorState.selectedClip, tile.id)
+        else
+            root.applyQuick(tile.id)
     }
 
     function setLayerExpanded(id, on) {
@@ -299,10 +535,6 @@ Item {
         if (!root.hasTextStyle)
             return
         const s = root.textStyle
-        if (boxPaddingField && !boxPaddingField.activeFocus)
-            boxPaddingField.value = s.boxPadding
-        if (boxRadiusField && !boxRadiusField.activeFocus)
-            boxRadiusField.value = s.boxRadius
         if (wordHighlightPaddingField && !wordHighlightPaddingField.activeFocus)
             wordHighlightPaddingField.value = s.wordHighlight.padding
         if (wordHighlightRadiusField && !wordHighlightRadiusField.activeFocus)
@@ -339,36 +571,256 @@ Item {
         onTriggered: EditorState.playing = false
     }
 
+    // A card in the Estilo preestablecido / Burbuja / Efectos galleries: the recipe drawn by the
+    // real text painter (image://textlook), its name under it, the applied one outlined.
+    component GalleryTile: Item {
+        id: tile
+        property string source: ""
+        property string label: ""
+        property bool selected: false
+        property bool none: false
+        property real tileWidth: 80
+        property bool showLabel: true
+        // Set both to show a favorite star in the corner.
+        property string favoriteTab: ""
+        property string favoriteId: ""
+        signal clicked()
+
+        width: tileWidth
+        height: tileCard.height + (showLabel ? tileLabel.implicitHeight + 4 : 0)
+
+        Rectangle {
+            id: tileCard
+            width: parent.width
+            height: Math.round(tile.tileWidth * 0.62)
+            radius: Theme.radiusSm
+            color: Theme.textStylePreviewBg
+            border.width: tile.selected ? 2 : Theme.borderWidth
+            border.color: tile.selected ? Theme.primary
+                                        : (tileHover.hovered ? Theme.mutedForeground : Theme.textStylePreviewBorder)
+            clip: true
+
+            Image {
+                anchors.fill: parent
+                anchors.margins: 2
+                visible: !tile.none
+                source: tile.source
+                sourceSize: Qt.size(Math.round(width * 2), Math.round(height * 2))
+                fillMode: Image.PreserveAspectFit
+                asynchronous: true
+                cache: true
+                smooth: true
+            }
+
+            IconGlyph {
+                anchors.centerIn: parent
+                visible: tile.none
+                glyph: Theme.icons.x
+                iconSize: Theme.iconSizeLg
+                iconColor: Theme.mutedForeground
+            }
+
+            HoverHandler {
+                id: tileHover
+                cursorShape: Qt.PointingHandCursor
+            }
+            TapHandler {
+                // A tap on the star stars the card; it does not apply it.
+                onTapped: if (!tileStar.hovered) tile.clicked()
+            }
+            ThemedToolTip {
+                text: tile.label
+                visible: !tile.showLabel && tileHover.hovered && tile.label.length > 0
+            }
+
+            AssetFavoriteButton {
+                id: tileStar
+                visible: tile.favoriteTab.length > 0 && (tileHover.hovered || favorited)
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.margins: 2
+                tabId: tile.favoriteTab
+                itemId: tile.favoriteId
+            }
+        }
+
+        Text {
+            id: tileLabel
+            visible: tile.showLabel
+            anchors.top: tileCard.bottom
+            anchors.topMargin: 3
+            width: parent.width
+            horizontalAlignment: Text.AlignHCenter
+            elide: Text.ElideRight
+            text: tile.label
+            color: tile.selected ? Theme.foreground : Theme.mutedForeground
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeXs
+        }
+    }
+
+    // A labelled slider for the style values that are not keyframed (the background's size and
+    // place, the shadow's distance and angle). `moved` fires while dragging, `committed` on release.
+    component SliderRow: Column {
+        id: sliderRow
+        property string label: ""
+        property real from: 0
+        property real to: 1
+        property real stepSize: 0
+        property real value: 0
+        property string suffix: ""
+        property int decimals: 0
+        property real displayScale: 1
+        signal dragStarted()
+        signal moved(real value)
+        signal committed(real value)
+
+        width: parent ? parent.width : 200
+        spacing: 2
+
+        Row {
+            width: parent.width
+
+            Text {
+                width: parent.width - sliderReadout.width
+                text: sliderRow.label
+                elide: Text.ElideRight
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+            Text {
+                id: sliderReadout
+                text: (rowSlider.value * sliderRow.displayScale).toFixed(sliderRow.decimals) + sliderRow.suffix
+                color: Theme.panelForeground
+                font.family: Theme.monoFontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+        }
+
+        ThemedSlider {
+            id: rowSlider
+            width: parent.width
+            label: sliderRow.label
+            from: sliderRow.from
+            to: sliderRow.to
+            stepSize: sliderRow.stepSize
+            valueFormatter: function (v) {
+                return (v * sliderRow.displayScale).toFixed(sliderRow.decimals) + sliderRow.suffix
+            }
+            Binding on value {
+                when: !rowSlider.pressed
+                value: sliderRow.value
+            }
+            onMoved: {
+                if (pressed)
+                    sliderRow.moved(value)
+                else
+                    sliderRow.committed(value)
+            }
+            onPressedChanged: {
+                if (pressed)
+                    sliderRow.dragStarted()
+                else
+                    sliderRow.committed(value)
+            }
+        }
+    }
     Column {
         id: contentCol
         width: root.width
         spacing: Theme.spacingMd
 
-        Row {
-            id: textTabRow
+        // CapCut's text pages as a segmented strip: Básico, Burbuja, Efectos and Animación.
+        Rectangle {
             width: parent.width
-            spacing: Theme.spacingSm
+            height: pageStrip.height + 6
+            radius: Theme.radiusSm
+            color: Theme.panelAccent
 
-            Repeater {
-                model: [
-                    { "id": "text", "label": qsTr("Text") },
-                    { "id": "style", "label": qsTr("Style") },
-                    { "id": "animate", "label": qsTr("Animate") }
-                ]
-                delegate: ThemedToggleButton {
-                    required property var modelData
-                    width: (textTabRow.width - textTabRow.spacing * 2) / 3
-                    text: modelData.label
-                    checked: root.textTab === modelData.id
-                    onClicked: root.textTab = modelData.id
+            Row {
+                id: pageStrip
+                anchors.centerIn: parent
+                width: parent.width - 6
+                spacing: 2
+
+                // One font size for every label: the largest at which the longest single word
+                // still fits its cell, since a word cannot wrap.
+                property real cellHeight: 0
+                property real labelPx: Theme.fontSizeXs
+                onWidthChanged: Qt.callLater(measure)
+                Component.onCompleted: Qt.callLater(measure)
+                function measure() {
+                    const room = (width - 6) / root.pages.length - 8
+                    let px = Theme.fontSizeXs
+                    for (const page of root.pages) {
+                        for (const word of String(page.label).split(" ")) {
+                            pageMetrics.text = word
+                            if (room > 0 && pageMetrics.advanceWidth > room)
+                                px = Math.min(px, Math.floor(Theme.fontSizeXs * room / pageMetrics.advanceWidth))
+                        }
+                    }
+                    labelPx = Math.max(8, px)
+                    let h = 0
+                    for (let i = 0; i < pageCells.count; i++) {
+                        const cell = pageCells.itemAt(i)
+                        if (cell)
+                            h = Math.max(h, cell.labelHeight)
+                    }
+                    cellHeight = h + 14
+                }
+
+                TextMetrics {
+                    id: pageMetrics
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                    font.weight: Font.Medium
+                }
+
+                Repeater {
+                    id: pageCells
+                    model: root.pages
+                    delegate: Rectangle {
+                        id: pageCell
+                        required property var modelData
+                        required property int index
+                        readonly property bool current: root.page === modelData.id
+                        readonly property real labelHeight: pageLabel.implicitHeight
+                        onLabelHeightChanged: Qt.callLater(pageStrip.measure)
+                        width: (pageStrip.width - 6) / root.pages.length
+                        height: pageStrip.cellHeight
+                        radius: Theme.radiusSm
+                        color: current ? Theme.popoverHover : "transparent"
+
+                        Text {
+                            id: pageLabel
+                            anchors.centerIn: parent
+                            width: parent.width - 8
+                            horizontalAlignment: Text.AlignHCenter
+                            wrapMode: Text.WordWrap
+                            maximumLineCount: 2
+                            elide: Text.ElideRight
+                            text: pageCell.modelData.label
+                            color: pageCell.current ? Theme.foreground : Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: pageStrip.labelPx
+                            font.weight: pageCell.current ? Font.Medium : Font.Normal
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: root.textTab = pageCell.modelData.id
+                        }
+                    }
                 }
             }
         }
 
+        // --- Básico ---------------------------------------------------------------------------
         Column {
             width: parent.width
             spacing: Theme.spacingMd
-            visible: root.textTab === "text"
+            visible: root.page === "basic"
 
             CollapsibleSection {
                 width: parent.width
@@ -434,10 +886,48 @@ Item {
                 }
             }
 
-            CollapsibleSection {
+            // Subtitles carry two extra jobs CapCut also puts on the caption's text page.
+            Row {
                 width: parent.width
-                title: qsTr("Font")
-                collapsible: false
+                spacing: Theme.spacingSm
+                visible: root.clipKind === "subtitle" && root.hasTextStyle
+
+                ThemedButton {
+                    width: (parent.width - parent.spacing) * 0.6
+                    variant: "secondary"
+                    glyph: Theme.icons.captions
+                    text: qsTr("Apply to all captions")
+                    tooltip: qsTr("Copy this style to every other caption on this track")
+                    onClicked: EditorState.applyTextStyleToCaptions(
+                                   EditorState.selectedTrack, EditorState.selectedClip, "track")
+                }
+                ThemedButton {
+                    width: (parent.width - parent.spacing) * 0.4
+                    variant: "secondary"
+                    text: qsTr("…every track")
+                    tooltip: qsTr("Copy this style to every caption in the project")
+                    onClicked: EditorState.applyTextStyleToCaptions(
+                                   EditorState.selectedTrack, EditorState.selectedClip, "project")
+                }
+            }
+
+            ThemedButton {
+                visible: root.clipKind === "subtitle" && root.hasTextStyle
+                width: parent.width
+                variant: "secondary"
+                glyph: Theme.icons.audioLines
+                text: qsTr("Generate voiceover")
+                enabled: EditorState.tts.available
+                tooltip: EditorState.tts.available
+                         ? qsTr("Speak every caption with a generated voice")
+                         : qsTr("Install the voice model from the add-on manager first")
+                onClicked: voiceoverDialog.openFor(EditorState.selectedTrack, EditorState.selectedClip)
+            }
+
+            // Font, size, weight, case, colour, spacing and alignment: CapCut's Básico head.
+            Column {
+                width: parent.width
+                spacing: Theme.spacingMd
                 visible: root.hasTextStyle
 
                 Text {
@@ -453,109 +943,157 @@ Item {
                     onFamilyPicked: family => root.setTextStyleKey("fontFamily", family)
                 }
 
+                PropertyKeyframeRow {
+                    width: parent.width
+                    propDef: root.textProp("pixelSize", qsTr("Font size"), 0)
+                    keyframeList: root.textKeyframes("pixelSize")
+                    useSlider: true
+                    sliderFrom: 1
+                    sliderTo: 500
+                    unit: "px"
+                }
+
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+
+                    Text {
+                        width: 74
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Style")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+                    ThemedToggleButton {
+                        width: 34
+                        text: "B"
+                        checked: Number(root.textStyle.fontWeight) >= 600
+                        tooltip: qsTr("Bold")
+                        onClicked: root.setTextStyleKey("fontWeight", root.boldToggleWeight())
+                    }
+                    ThemedToggleButton {
+                        width: 34
+                        text: "U"
+                        checked: root.textStyle.underlineEnabled === true
+                        tooltip: qsTr("Underline")
+                        onClicked: root.toggleUnderline()
+                    }
+                    ThemedToggleButton {
+                        width: 34
+                        text: "I"
+                        checked: root.textStyle.italic === true
+                        enabled: root.familyHasItalic
+                        tooltip: root.familyHasItalic ? qsTr("Italic")
+                                                      : qsTr("%1 has no italic face").arg(root.textStyle.fontFamily)
+                        onClicked: root.setTextStyleKey("italic", !root.textStyle.italic)
+                    }
+                    ThemedComboBox {
+                        id: fontWeightBox
+                        width: Math.max(80, parent.width - 74 - 34 * 3 - parent.spacing * 4)
+                        model: root.availableWeights.map(w => root.weightLabels[w] || String(w))
+                        currentIndex: Math.max(0, root.availableWeights.indexOf(root.textStyle.fontWeight))
+                        onActivated: root.setTextStyleKey("fontWeight", root.availableWeights[currentIndex])
+                    }
+                }
+
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+
+                    Text {
+                        width: 74
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Case")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+                    Repeater {
+                        model: [
+                            { "id": "none", "label": "Aa", "tip": qsTr("As typed") },
+                            { "id": "upper", "label": "TT", "tip": qsTr("UPPERCASE") },
+                            { "id": "lower", "label": "tt", "tip": qsTr("lowercase") },
+                            { "id": "title", "label": "Tt", "tip": qsTr("Title Case") }
+                        ]
+                        delegate: ThemedToggleButton {
+                            required property var modelData
+                            width: 40
+                            text: modelData.label
+                            tooltip: modelData.tip
+                            checked: (root.textStyle.textCase || "none") === modelData.id
+                            onClicked: root.setTextStyleKey("textCase", modelData.id)
+                        }
+                    }
+                }
+
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+
+                    Text {
+                        width: 74
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Colour")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+                    ColorSwatchField {
+                        visible: root.frontFillPaintKind === "solid" || root.frontFillPaintKind === "gradient"
+                        hex: root.frontFillColor
+                        tooltip: root.frontFillPaintKind === "gradient"
+                                 ? qsTr("Choose the gradient's first colour")
+                                 : qsTr("Choose text colour")
+                        onEdited: value => root.setTextStyleKey("color", value)
+                    }
+                    ThemedChip {
+                        visible: root.frontFillPaintKind === "texture" || root.frontFillPaintKind === "effect"
+                        text: qsTr("Edit in Advanced")
+                        tooltip: root.frontFillPaintKind === "texture"
+                                 ? qsTr("The text is painted with an image; change it under Advanced")
+                                 : qsTr("The text is painted with an effect; change it under Advanced")
+                        onClicked: {
+                            root.advancedOpen = true
+                            if (root.frontFill)
+                                root.setLayerExpanded(root.frontFill.id, true)
+                        }
+                    }
+                }
+
                 Row {
                     width: parent.width
                     spacing: 8
-
-                    Column {
-                        width: (parent.width - parent.spacing) / 2
-                        spacing: 4
-                        Text {
-                            text: qsTr("Weight")
-                            color: Theme.mutedForeground
-                            font.pixelSize: Theme.fontSizeXs
-                            font.family: Theme.fontFamily
-                        }
-                        ThemedComboBox {
-                            id: fontWeightBox
-                            width: parent.width
-                            model: root.availableWeights.map(
-                                       w => root.weightLabels[w] || String(w))
-                            currentIndex: Math.max(0, root.availableWeights.indexOf(root.textStyle.fontWeight))
-                            onActivated: root.setTextStyleKey("fontWeight", root.availableWeights[currentIndex])
-                        }
-                    }
 
                     PropertyKeyframeRow {
                         width: (parent.width - parent.spacing) / 2
-                        propDef: root.textProp("pixelSize", qsTr("Size"), 0)
-                        keyframeList: root.textKeyframes("pixelSize")
+                        propDef: root.textProp("letterSpacing", qsTr("Character"), 1)
+                        keyframeList: root.textKeyframes("letterSpacing")
                         useSlider: true
-                        sliderFrom: 1
-                        sliderTo: 500
+                        sliderFrom: -100
+                        sliderTo: 200
                         unit: "px"
                     }
-                }
-
-                Row {
-                    width: parent.width
-                    spacing: 8
-
-                    Column {
+                    PropertyKeyframeRow {
                         width: (parent.width - parent.spacing) / 2
-                        spacing: 4
-                        Text {
-                            text: qsTr("Colour")
-                            color: Theme.mutedForeground
-                            font.pixelSize: Theme.fontSizeXs
-                            font.family: Theme.fontFamily
-                        }
-                        ColorSwatchField {
-                            visible: root.frontFillPaintKind === "solid" || root.frontFillPaintKind === "gradient"
-                            hex: root.frontFillColor
-                            tooltip: root.frontFillPaintKind === "gradient"
-                                     ? qsTr("Choose the gradient's first colour")
-                                     : qsTr("Choose text colour")
-                            onEdited: value => root.setTextStyleKey("color", value)
-                        }
-                        Text {
-                            visible: root.frontFillPaintKind === "gradient"
-                            width: parent.width
-                            text: qsTr("Edits the first gradient stop")
-                            wrapMode: Text.WordWrap
-                            color: Theme.mutedForeground
-                            font.pixelSize: Theme.fontSizeXs
-                            font.family: Theme.fontFamily
-                        }
-                        ThemedChip {
-                            visible: root.frontFillPaintKind === "texture" || root.frontFillPaintKind === "effect"
-                            text: qsTr("Edit in Style")
-                            tooltip: root.frontFillPaintKind === "texture"
-                                     ? qsTr("The text is painted with an image; change it on the Style page")
-                                     : qsTr("The text is painted with an effect; change it on the Style page")
-                            onClicked: {
-                                root.textTab = "style"
-                                if (root.frontFill)
-                                    root.setLayerExpanded(root.frontFill.id, true)
-                            }
-                        }
-                    }
-
-                    Column {
-                        width: (parent.width - parent.spacing) / 2
-                        spacing: 4
-                        Text {
-                            text: qsTr("Style")
-                            color: Theme.mutedForeground
-                            font.pixelSize: Theme.fontSizeXs
-                            font.family: Theme.fontFamily
-                        }
-                        ThemedToggleButton {
-                            width: 60
-                            text: qsTr("Italic")
-                            checked: root.textStyle.italic
-                            enabled: root.familyHasItalic
-                            tooltip: root.familyHasItalic
-                                     ? qsTr("Italicise the text")
-                                     : qsTr("%1 has no italic face").arg(root.textStyle.fontFamily)
-                            onClicked: root.setTextStyleKey("italic", !root.textStyle.italic)
-                        }
+                        propDef: root.textProp("lineHeight", qsTr("Line"), 2)
+                        keyframeList: root.textKeyframes("lineHeight")
+                        useSlider: true
+                        sliderFrom: 0.5
+                        sliderTo: 4
                     }
                 }
 
-                Row {
+                Text {
+                    text: qsTr("Alignment")
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                }
+
+                Flow {
                     width: parent.width
-                    spacing: Theme.spacingMd
+                    spacing: Theme.spacingSm
 
                     Repeater {
                         model: [
@@ -594,671 +1132,1160 @@ Item {
                             onClicked: root.setTextStyleKey("valign", modelData.value)
                         }
                     }
+
+                    ThemedToggleButton {
+                        width: 96
+                        text: qsTr("Word wrap")
+                        checked: root.textStyle.wordWrap
+                        tooltip: qsTr("Wrap long lines inside the text box instead of overflowing")
+                        onClicked: root.setTextStyleKey("wordWrap", !root.textStyle.wordWrap)
+                    }
                 }
             }
 
+            // --- Estilo preestablecido: one tap over the clip's own font ---------------------------
             CollapsibleSection {
                 width: parent.width
-                title: qsTr("Spacing")
-                tooltip: qsTr("Line height, letter spacing, wrapping and bend")
-                expanded: false
+                title: qsTr("Preset style")
+                tooltip: qsTr("Colour, outline and shadow in one tap, keeping your font")
+                collapsible: false
                 visible: root.hasTextStyle
 
-                Row {
+                Grid {
+                    id: quickGrid
                     width: parent.width
-                    spacing: 8
+                    readonly property real gap: Theme.spacingSm
+                    columns: Math.max(3, Math.floor((width + gap) / (64 + gap)))
+                    columnSpacing: gap
+                    rowSpacing: gap
+                    readonly property real tileWidth: Math.floor((width - gap * (columns - 1)) / columns)
 
-                    PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing) / 2
-                        propDef: root.textProp("lineHeight", qsTr("Line height"), 2)
-                        keyframeList: root.textKeyframes("lineHeight")
-                        useSlider: true
-                        sliderFrom: 0.5
-                        sliderTo: 4
+                    GalleryTile {
+                        tileWidth: quickGrid.tileWidth
+                        none: true
+                        showLabel: false
+                        label: qsTr("No style")
+                        selected: root.lastQuickId === "q-plain"
+                        onClicked: root.applyQuick("q-plain")
+                    }
+
+                    Repeater {
+                        model: root.quickStyles.filter(q => q.category === "basic")
+                        delegate: GalleryTile {
+                            required property var modelData
+                            tileWidth: quickGrid.tileWidth
+                            showLabel: false
+                            label: modelData.label
+                            source: root.quickPreview(modelData.id)
+                            selected: root.lastQuickId === modelData.id
+                            onClicked: root.applyQuick(modelData.id)
+                        }
+                    }
+                }
+
+                ThemedButton {
+                    width: parent.width
+                    variant: "secondary"
+                    glyph: Theme.icons.sparkles
+                    text: qsTr("More styles: neon, gradient, 3D…")
+                    onClicked: root.textTab = "effects"
+                }
+            }
+
+            // --- Trazo ---------------------------------------------------------------------------
+            CollapsibleSection {
+                width: parent.width
+                title: qsTr("Stroke")
+                tooltip: qsTr("An outline around the letters")
+                visible: root.hasTextStyle
+                showSwitch: true
+                switchChecked: root.layerOn("stroke")
+                switchTooltip: qsTr("Outline the text")
+                onSwitchToggled: on => root.enableLayer("stroke", on, {
+                                     "width": root.em * 0.07, "paint": { "color": "#ff000000" } })
+
+                Column {
+                    width: parent.width
+                    spacing: Theme.spacingMd
+                    enabled: root.layerOn("stroke")
+                    opacity: enabled ? 1 : 0.5
+
+                    Row {
+                        spacing: Theme.spacingSm
+                        Text {
+                            width: 74
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("Colour")
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                        ColorSwatchField {
+                            hex: root.layerColor(root.strokeLayer, "#ff000000")
+                            tooltip: qsTr("Choose outline colour")
+                            onEdited: value => root.setLayerKey(root.strokeLayer, { "paint": { "color": value } })
+                        }
                     }
 
                     PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing) / 2
-                        propDef: root.textProp("letterSpacing", qsTr("Letter spacing"), 1)
-                        keyframeList: root.textKeyframes("letterSpacing")
+                        width: parent.width
+                        visible: !!root.strokeLayer
+                        propDef: root.layerProp(root.strokeLayer, "width", qsTr("Thickness"), 1)
+                        keyframeList: root.layerKeyframes(root.strokeLayer, "width")
                         useSlider: true
-                        sliderFrom: -100
-                        sliderTo: 200
+                        sliderFrom: 0
+                        sliderTo: Math.max(10, root.em * 0.4)
                         unit: "px"
                     }
                 }
+            }
 
-                Row {
+            // --- Fondo ---------------------------------------------------------------------------
+            CollapsibleSection {
+                width: parent.width
+                title: qsTr("Background")
+                tooltip: qsTr("A box behind the text: one for the block or one per line")
+                visible: root.hasTextStyle
+                showSwitch: true
+                switchChecked: root.textStyle.boxEnabled === true
+                switchTooltip: qsTr("Draw a box behind the text")
+                onSwitchToggled: on => root.setTextStyleKey("boxEnabled", on)
+
+                Column {
                     width: parent.width
-                    spacing: 8
+                    spacing: Theme.spacingMd
+                    enabled: root.textStyle.boxEnabled === true
+                    opacity: enabled ? 1 : 0.5
 
-                    Column {
-                        width: (parent.width - parent.spacing) / 2
-                        spacing: 4
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingSm
+
+                        Repeater {
+                            model: [
+                                { "id": "block", "label": qsTr("Whole block") },
+                                { "id": "line", "label": qsTr("Per line") }
+                            ]
+                            delegate: ThemedToggleButton {
+                                required property var modelData
+                                width: (parent.width - parent.spacing) / 2
+                                text: modelData.label
+                                checked: (root.textStyle.boxStyle || "block") === modelData.id
+                                onClicked: root.setTextStyleKey("boxStyle", modelData.id)
+                            }
+                        }
+                    }
+
+                    Row {
+                        spacing: Theme.spacingSm
                         Text {
-                            text: qsTr("Wrapping")
+                            width: 74
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("Colour")
                             color: Theme.mutedForeground
-                            font.pixelSize: Theme.fontSizeXs
                             font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                        ColorSwatchField {
+                            hex: root.textStyle.boxColor
+                            tooltip: qsTr("Choose background colour")
+                            onEdited: value => root.setTextStyleKey("boxColor", root.keepAlpha(value, root.textStyle.boxColor))
+                        }
+                    }
+
+                    SliderRow {
+                        width: parent.width
+                        label: qsTr("Opacity")
+                        from: 0
+                        to: 1
+                        displayScale: 100
+                        suffix: "%"
+                        value: root.hexAlpha(root.textStyle.boxColor)
+                        onCommitted: v => root.setTextStyleKey("boxColor", root.withAlpha(root.textStyle.boxColor, v))
+                    }
+
+                    SliderRow {
+                        width: parent.width
+                        label: qsTr("Rounded corners")
+                        from: 0
+                        to: 1
+                        displayScale: 100
+                        suffix: "%"
+                        value: Number(root.textStyle.boxRadius) / root.em
+                        onCommitted: v => root.setTextStyleKey("boxRadius", v * root.em)
+                    }
+
+                    SliderRow {
+                        width: parent.width
+                        label: qsTr("Height")
+                        from: 0
+                        to: 1.5
+                        displayScale: 100
+                        suffix: "%"
+                        value: Number(root.textStyle.boxPaddingY) / root.em
+                        onCommitted: v => root.setTextStyleKey("boxPaddingY", v * root.em)
+                    }
+
+                    SliderRow {
+                        width: parent.width
+                        label: qsTr("Width")
+                        from: 0
+                        to: 1.5
+                        displayScale: 100
+                        suffix: "%"
+                        value: Number(root.textStyle.boxPaddingX) / root.em
+                        onCommitted: v => root.setTextStyleKey("boxPaddingX", v * root.em)
+                    }
+
+                    SliderRow {
+                        width: parent.width
+                        label: qsTr("Offset Y")
+                        from: -1
+                        to: 1
+                        displayScale: 100
+                        suffix: "%"
+                        value: Number(root.textStyle.boxOffsetY) / root.em
+                        onCommitted: v => root.setTextStyleKey("boxOffsetY", v * root.em)
+                    }
+
+                    SliderRow {
+                        width: parent.width
+                        label: qsTr("Offset X")
+                        from: -1
+                        to: 1
+                        displayScale: 100
+                        suffix: "%"
+                        value: Number(root.textStyle.boxOffsetX) / root.em
+                        onCommitted: v => root.setTextStyleKey("boxOffsetX", v * root.em)
+                    }
+
+                    Row {
+                        spacing: Theme.spacingSm
+                        Text {
+                            width: 74
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("Border")
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                        ColorSwatchField {
+                            hex: root.textStyle.boxBorderColor || "#ff000000"
+                            tooltip: qsTr("Choose border colour")
+                            onEdited: value => root.setTextStyleKey("boxBorderColor", value)
+                        }
+                    }
+
+                    SliderRow {
+                        width: parent.width
+                        label: qsTr("Border thickness")
+                        from: 0
+                        to: 0.3
+                        displayScale: 100
+                        suffix: "%"
+                        value: Number(root.textStyle.boxBorderWidth) / root.em
+                        onCommitted: v => root.setTextStyleKey("boxBorderWidth", v * root.em)
+                    }
+
+                    ThemedButton {
+                        width: parent.width
+                        variant: "secondary"
+                        glyph: Theme.icons.messageSquare
+                        text: qsTr("Shapes: speech, cloud, tag, brush…")
+                        tooltip: qsTr("Pick a bubble shape on the Bubble page")
+                        onClicked: root.textTab = "bubble"
+                    }
+                }
+            }
+
+            // --- Brillo --------------------------------------------------------------------------
+            CollapsibleSection {
+                width: parent.width
+                title: qsTr("Glow")
+                tooltip: qsTr("A soft light around the letters")
+                visible: root.hasTextStyle
+                showSwitch: true
+                switchChecked: root.layerOn("glow")
+                switchTooltip: qsTr("Add a glow")
+                onSwitchToggled: on => root.enableLayer("glow", on, {
+                                     "blur": root.em * 0.35, "opacity": 0.9, "paint": { "color": "#ffffffff" } })
+
+                Column {
+                    width: parent.width
+                    spacing: Theme.spacingMd
+                    enabled: root.layerOn("glow")
+                    opacity: enabled ? 1 : 0.5
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingSm
+                        ThemedToggleButton {
+                            width: (parent.width - parent.spacing) / 2
+                            text: qsTr("Soft")
+                            checked: !!root.glowLayer && Number(root.glowLayer.spread) <= 0.001
+                            onClicked: root.setLayerKey(root.glowLayer, { "blur": root.em * 0.45, "spread": 0, "opacity": 0.75 })
                         }
                         ThemedToggleButton {
-                            width: 96
-                            text: qsTr("Word wrap")
-                            checked: root.textStyle.wordWrap
-                            tooltip: qsTr("Wrap long lines inside the text box instead of overflowing")
-                            onClicked: root.setTextStyleKey("wordWrap", !root.textStyle.wordWrap)
+                            width: (parent.width - parent.spacing) / 2
+                            text: qsTr("Strong")
+                            checked: !!root.glowLayer && Number(root.glowLayer.spread) > 0.001
+                            onClicked: root.setLayerKey(root.glowLayer, { "blur": root.em * 0.25, "spread": root.em * 0.04, "opacity": 1 })
+                        }
+                    }
+
+                    Row {
+                        spacing: Theme.spacingSm
+                        Text {
+                            width: 74
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("Colour")
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                        ColorSwatchField {
+                            hex: root.layerColor(root.glowLayer, "#ffffffff")
+                            tooltip: qsTr("Choose glow colour")
+                            onEdited: value => root.setLayerKey(root.glowLayer, { "paint": { "color": value } })
                         }
                     }
 
                     PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing) / 2
-                        propDef: root.textProp("pathBend", qsTr("Bend"), 0)
-                        keyframeList: root.textKeyframes("pathBend")
+                        width: parent.width
+                        visible: !!root.glowLayer
+                        propDef: root.layerProp(root.glowLayer, "opacity", qsTr("Intensity"), 2)
+                        keyframeList: root.layerKeyframes(root.glowLayer, "opacity")
                         useSlider: true
-                        sliderFrom: -100
-                        sliderTo: 100
+                        sliderFrom: 0
+                        sliderTo: 1
+                        percent: true
                     }
-                }
-            }
-        }
-
-        Column {
-            width: parent.width
-            spacing: Theme.spacingMd
-            visible: root.textTab === "style" && root.hasTextStyle
-
-            CollapsibleSection {
-                width: parent.width
-                title: qsTr("Preset")
-                tooltip: qsTr("A whole text style — font, colour and effect — applied in one tap")
-                collapsible: false
-                showSeparator: false
-                visible: root.hasTextStyle
-
-                Text {
-                    width: parent.width
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Font, colour and effect in one tap. Save your own to reuse it.")
-                    color: Theme.mutedForeground
-                    font.family: Theme.fontFamily
-                    font.pixelSize: Theme.fontSizeXs
-                }
-
-                TextStylePackPicker {
-                    width: parent.width
-                    packId: root.textStyle.packId || ""
-                    onPackPicked: id => EditorState.applyTextPreset(
-                                       EditorState.selectedTrack,
-                                       EditorState.selectedClip,
-                                       id)
-                }
-
-                ThemedButton {
-                    width: parent.width
-                    variant: "secondary"
-                    glyph: Theme.icons.save
-                    text: qsTr("Save style…")
-                    tooltip: qsTr("Save this text's style as a reusable preset")
-                    onClicked: saveStyleDialog.openWith(qsTr("Save text style"),
-                                                        qsTr("My style %1")
-                                                            .arg(EditorState.userTextPresets().length + 1))
-                }
-
-                Row {
-                    width: parent.width
-                    spacing: Theme.spacingSm
-                    visible: root.clipKind === "subtitle"
-
-                    ThemedButton {
-                        width: (parent.width - parent.spacing) * 0.6
-                        variant: "secondary"
-                        glyph: Theme.icons.captions
-                        text: qsTr("Apply to all captions")
-                        tooltip: qsTr("Copy this style to every other caption on this track")
-                        onClicked: EditorState.applyTextStyleToCaptions(
-                                       EditorState.selectedTrack, EditorState.selectedClip, "track")
+                    PropertyKeyframeRow {
+                        width: parent.width
+                        visible: !!root.glowLayer
+                        propDef: root.layerProp(root.glowLayer, "blur", qsTr("Range"), 1)
+                        keyframeList: root.layerKeyframes(root.glowLayer, "blur")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: Math.max(20, root.em * 1.5)
+                        unit: "px"
                     }
-                    ThemedButton {
-                        width: (parent.width - parent.spacing) * 0.4
-                        variant: "secondary"
-                        text: qsTr("…every track")
-                        tooltip: qsTr("Copy this style to every caption in the project")
-                        onClicked: EditorState.applyTextStyleToCaptions(
-                                       EditorState.selectedTrack, EditorState.selectedClip, "project")
-                    }
-                }
-
-                ThemedButton {
-                    visible: root.clipKind === "subtitle"
-                    width: parent.width
-                    variant: "secondary"
-                    glyph: Theme.icons.audioLines
-                    text: qsTr("Generate voiceover")
-                    enabled: EditorState.tts.available
-                    tooltip: EditorState.tts.available
-                             ? qsTr("Speak every caption with a generated voice")
-                             : qsTr("Install the voice model from the add-on manager first")
-                    onClicked: voiceoverDialog.openFor(EditorState.selectedTrack, EditorState.selectedClip)
-                }
-
-                Text {
-                    visible: root.clipKind === "subtitle" && !EditorState.tts.available
-                    width: parent.width
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Install the AI engine and the voice model from the add-on manager to generate voiceovers.")
-                    color: Theme.mutedForeground
-                    font.family: Theme.fontFamily
-                    font.pixelSize: Theme.fontSizeXs
-                }
-            }
-
-            CollapsibleSection {
-                width: parent.width
-                title: qsTr("Effect")
-                tooltip: qsTr("Shadow, outline, neon and friends — a recipe that builds the layers below")
-                collapsible: false
-                visible: root.hasTextStyle
-
-                Text {
-                    width: parent.width
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Shadow, outline, neon… built as layers you can fine-tune below.")
-                    color: Theme.mutedForeground
-                    font.family: Theme.fontFamily
-                    font.pixelSize: Theme.fontSizeXs
-                }
-
-                TextLookPicker {
-                    width: parent.width
-                    lookId: root.textStyle.lookId || ""
-                    sampleText: root.lookSampleText
-                    fontFamily: root.textStyle.fontFamily || ""
-                    fontWeight: Math.round(Number(root.textStyle.fontWeight) || 400)
-                    italic: root.textStyle.italic === true
-                    onLookPicked: id => EditorState.applyTextLook(EditorState.selectedTrack,
-                                                                  EditorState.selectedClip, id)
-                }
-
-                TextParamSlots {
-                    width: parent.width
-                    visible: !!root.selectedLook && (root.selectedLook.params || []).length > 0
-                    specs: root.selectedLook ? (root.selectedLook.params || []) : []
-                    values: root.textStyle.lookParams || ({})
-                    onChanged: (id, value) => EditorState.setTextLookParam(
-                                   EditorState.selectedTrack, EditorState.selectedClip, id, value)
-                    onPreviewChanged: (id, value) => EditorState.previewSetTextLookParam(
-                                          EditorState.selectedTrack, EditorState.selectedClip, id, value)
-                    onDragStarted: EditorState.beginPreviewDrag(qsTr("Adjust text look"))
-                    onDragEnded: EditorState.commitPreviewDrag()
-                }
-
-                Row {
-                    width: parent.width
-                    spacing: Theme.spacingSm
-
-                    Text {
-                        width: parent.width - addLayerButton.width - parent.spacing
-                        anchors.verticalCenter: parent.verticalCenter
-                        text: qsTr("Layers")
-                        color: Theme.panelForeground
-                        font.family: Theme.fontFamily
-                        font.pixelSize: Theme.fontSizeSm
-                        font.weight: Font.DemiBold
-                    }
-                    ThemedButton {
-                        id: addLayerButton
-                        variant: "secondary"
-                        glyph: Theme.icons.plus
-                        text: qsTr("Add layer")
-                        tooltip: qsTr("Add a fill, stroke, shadow, glow or extrude layer")
-                        onClicked: addLayerMenu.popup()
-
-                        ThemedContextMenu {
-                            id: addLayerMenu
-                            ThemedMenuItem { text: qsTr("Fill"); onTriggered: root.addLayer("fill") }
-                            ThemedMenuItem { text: qsTr("Stroke"); onTriggered: root.addLayer("stroke") }
-                            ThemedMenuItem { text: qsTr("Shadow"); onTriggered: root.addLayer("shadow") }
-                            ThemedMenuItem { text: qsTr("Glow"); onTriggered: root.addLayer("glow") }
-                            ThemedMenuItem { text: qsTr("Extrude"); onTriggered: root.addLayer("extrude") }
+                    Row {
+                        width: parent.width
+                        spacing: 8
+                        visible: !!root.glowLayer
+                        PropertyKeyframeRow {
+                            width: (parent.width - parent.spacing) / 2
+                            propDef: root.layerProp(root.glowLayer, "offsetX", qsTr("Offset X"), 1)
+                            keyframeList: root.layerKeyframes(root.glowLayer, "offsetX")
+                            useSlider: true
+                            sliderFrom: -root.em
+                            sliderTo: root.em
+                            unit: "px"
+                        }
+                        PropertyKeyframeRow {
+                            width: (parent.width - parent.spacing) / 2
+                            propDef: root.layerProp(root.glowLayer, "offsetY", qsTr("Offset Y"), 1)
+                            keyframeList: root.layerKeyframes(root.glowLayer, "offsetY")
+                            useSlider: true
+                            sliderFrom: -root.em
+                            sliderTo: root.em
+                            unit: "px"
                         }
                     }
                 }
+            }
 
-                Text {
-                    visible: root.layers.length === 0
+            // --- Sombra --------------------------------------------------------------------------
+            CollapsibleSection {
+                width: parent.width
+                title: qsTr("Shadow")
+                tooltip: qsTr("A shadow cast by the letters")
+                visible: root.hasTextStyle
+                showSwitch: true
+                switchChecked: root.layerOn("shadow")
+                switchTooltip: qsTr("Add a shadow")
+                onSwitchToggled: on => root.enableLayer("shadow", on, {
+                                     "offsetX": root.em * 0.05, "offsetY": root.em * 0.05,
+                                     "blur": root.em * 0.12, "opacity": 0.8, "paint": { "color": "#ff000000" } })
+
+                Column {
                     width: parent.width
-                    wrapMode: Text.WordWrap
-                    text: qsTr("No layers. Pick an effect above or add a fill to start.")
-                    color: Theme.mutedForeground
-                    font.family: Theme.fontFamily
-                    font.pixelSize: Theme.fontSizeXs
+                    spacing: Theme.spacingMd
+                    enabled: root.layerOn("shadow")
+                    opacity: enabled ? 1 : 0.5
+
+                    Row {
+                        spacing: Theme.spacingSm
+                        Text {
+                            width: 74
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("Colour")
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                        ColorSwatchField {
+                            hex: root.layerColor(root.shadowLayer, "#ff000000")
+                            tooltip: qsTr("Choose shadow colour")
+                            onEdited: value => root.setLayerKey(root.shadowLayer, { "paint": { "color": value } })
+                        }
+                    }
+
+                    PropertyKeyframeRow {
+                        width: parent.width
+                        visible: !!root.shadowLayer
+                        propDef: root.layerProp(root.shadowLayer, "opacity", qsTr("Opacity"), 2)
+                        keyframeList: root.layerKeyframes(root.shadowLayer, "opacity")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 1
+                        percent: true
+                    }
+                    PropertyKeyframeRow {
+                        width: parent.width
+                        visible: !!root.shadowLayer
+                        propDef: root.layerProp(root.shadowLayer, "blur", qsTr("Blur"), 1)
+                        keyframeList: root.layerKeyframes(root.shadowLayer, "blur")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: Math.max(20, root.em)
+                        unit: "px"
+                    }
+                    SliderRow {
+                        width: parent.width
+                        visible: !!root.shadowLayer
+                        label: qsTr("Distance")
+                        from: 0
+                        to: Math.max(10, root.em * 0.5)
+                        decimals: 0
+                        suffix: " px"
+                        value: root.shadowDistance
+                        onDragStarted: root.beginLayerDrag(qsTr("Adjust shadow"))
+                        onMoved: v => root.previewLayer(root.shadowLayer, root.shadowOffsets(v, root.shadowAngle))
+                        onCommitted: v => root.commitLayer(root.shadowLayer, root.shadowOffsets(v, root.shadowAngle))
+                    }
+                    SliderRow {
+                        width: parent.width
+                        visible: !!root.shadowLayer
+                        label: qsTr("Angle")
+                        from: -180
+                        to: 180
+                        stepSize: 1
+                        decimals: 0
+                        suffix: "°"
+                        value: root.shadowAngle
+                        onDragStarted: root.beginLayerDrag(qsTr("Adjust shadow"))
+                        onMoved: v => root.previewLayer(root.shadowLayer, root.shadowOffsets(root.shadowDistance, v))
+                        onCommitted: v => root.commitLayer(root.shadowLayer, root.shadowOffsets(root.shadowDistance, v))
+                    }
+                }
+            }
+
+            // --- Curva ---------------------------------------------------------------------------
+            CollapsibleSection {
+                width: parent.width
+                title: qsTr("Curve")
+                tooltip: qsTr("Bend a single line of text along an arc")
+                visible: root.hasTextStyle
+                showSwitch: true
+                switchChecked: Math.abs(Number(root.textStyle.pathBend) || 0) > 0.01
+                switchTooltip: qsTr("Bend the text")
+                onSwitchToggled: on => root.setTextStyleKey("pathBend", on ? 40 : 0)
+
+                PropertyKeyframeRow {
+                    width: parent.width
+                    propDef: root.textProp("pathBend", qsTr("Strength"), 0)
+                    keyframeList: root.textKeyframes("pathBend")
+                    useSlider: true
+                    sliderFrom: -100
+                    sliderTo: 100
+                }
+            }
+
+            // Your own template: this text's whole look, kept under Efectos → My styles and the Text tab.
+            ThemedButton {
+                width: parent.width
+                visible: root.hasTextStyle
+                variant: "secondary"
+                glyph: Theme.icons.save
+                text: qsTr("Save as my style…")
+                tooltip: qsTr("Keep this text's font, colours, background and effects to reuse them")
+                onClicked: saveStyleDialog.openWith(qsTr("Save text style"),
+                                                    qsTr("My style %1")
+                                                        .arg(EditorState.userTextPresets().length + 1))
+            }
+
+            // --- Transformación y Mezcla, as on CapCut's text page ------------------------------------
+            CollapsibleSection {
+                width: parent.width
+                title: qsTr("Transform")
+                expanded: false
+                visible: root.hasTextStyle
+
+                TransformInspector {
+                    width: parent.width
+                    sizeLinked: EditorState.sizeLinked
+                    onSizeLinkedChanged: EditorState.sizeLinked = sizeLinked
+                    positionLinked: EditorState.positionLinked
+                    onPositionLinkedChanged: EditorState.positionLinked = positionLinked
+                }
+            }
+
+            CollapsibleSection {
+                width: parent.width
+                title: qsTr("Blend")
+                expanded: false
+                visible: root.hasTextStyle
+
+                BlendingInspector { width: parent.width }
+            }
+
+            // --- Avanzado: the full layer stack, packs, decorations and word accents ----------------
+            CollapsibleSection {
+                width: parent.width
+                title: qsTr("Advanced")
+                tooltip: qsTr("Every layer of the look, style packs, word highlight, underline and word accents")
+                expanded: root.advancedOpen
+                onExpandedChanged: root.advancedOpen = expanded
+                visible: root.hasTextStyle
+
+                CollapsibleSection {
+                    width: parent.width
+                    title: qsTr("Preset")
+                    tooltip: qsTr("A whole text style — font, colour and effect — applied in one tap")
+                    collapsible: false
+                    showSeparator: false
+                    visible: root.hasTextStyle
+
+                    Text {
+                        width: parent.width
+                        wrapMode: Text.WordWrap
+                        text: qsTr("Font, colour and effect in one tap. Save your own to reuse it.")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+
+                    TextStylePackPicker {
+                        width: parent.width
+                        packId: root.textStyle.packId || ""
+                        onPackPicked: id => EditorState.applyTextPreset(
+                                           EditorState.selectedTrack,
+                                           EditorState.selectedClip,
+                                           id)
+                    }
+
+                    ThemedButton {
+                        width: parent.width
+                        variant: "secondary"
+                        glyph: Theme.icons.save
+                        text: qsTr("Save style…")
+                        tooltip: qsTr("Save this text's style as a reusable preset")
+                        onClicked: saveStyleDialog.openWith(qsTr("Save text style"),
+                                                            qsTr("My style %1")
+                                                                .arg(EditorState.userTextPresets().length + 1))
+                    }
+
                 }
 
-                // Integer model so rows survive the fresh QVariantList every edit produces; the list
-                // is walked from the back so the front-most layer sits on top.
-                Repeater {
-                    model: root.layers.length
-                    delegate: ShadingLayerRow {
-                        required property int index
+                CollapsibleSection {
+                    width: parent.width
+                    title: qsTr("Effect")
+                    tooltip: qsTr("Shadow, outline, neon and friends — a recipe that builds the layers below")
+                    collapsible: false
+                    visible: root.hasTextStyle
+
+                    Text {
                         width: parent.width
-                        layerData: root.layers[root.layers.length - 1 - index] || ({})
-                        styleData: root.textStyle
-                        position: index
-                        count: root.layers.length
-                        expanded: root.expandedLayerIds[layerId] === true
-                        onToggleRequested: root.setLayerExpanded(layerId, !expanded)
+                        wrapMode: Text.WordWrap
+                        text: qsTr("Shadow, outline, neon… built as layers you can fine-tune below.")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+
+                    TextLookPicker {
+                        width: parent.width
+                        lookId: root.textStyle.lookId || ""
+                        sampleText: root.lookSampleText
+                        fontFamily: root.textStyle.fontFamily || ""
+                        fontWeight: Math.round(Number(root.textStyle.fontWeight) || 400)
+                        italic: root.textStyle.italic === true
+                        onLookPicked: id => EditorState.applyTextLook(EditorState.selectedTrack,
+                                                                      EditorState.selectedClip, id)
+                    }
+
+                    TextParamSlots {
+                        width: parent.width
+                        visible: !!root.selectedLook && (root.selectedLook.params || []).length > 0
+                        specs: root.selectedLook ? (root.selectedLook.params || []) : []
+                        values: root.textStyle.lookParams || ({})
+                        onChanged: (id, value) => EditorState.setTextLookParam(
+                                       EditorState.selectedTrack, EditorState.selectedClip, id, value)
+                        onPreviewChanged: (id, value) => EditorState.previewSetTextLookParam(
+                                              EditorState.selectedTrack, EditorState.selectedClip, id, value)
+                        onDragStarted: EditorState.beginPreviewDrag(qsTr("Adjust text look"))
+                        onDragEnded: EditorState.commitPreviewDrag()
+                    }
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingSm
+
+                        Text {
+                            width: parent.width - addLayerButton.width - parent.spacing
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("Layers")
+                            color: Theme.panelForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                            font.weight: Font.DemiBold
+                        }
+                        ThemedButton {
+                            id: addLayerButton
+                            variant: "secondary"
+                            glyph: Theme.icons.plus
+                            text: qsTr("Add layer")
+                            tooltip: qsTr("Add a fill, stroke, shadow, glow or extrude layer")
+                            onClicked: addLayerMenu.popup()
+
+                            ThemedContextMenu {
+                                id: addLayerMenu
+                                ThemedMenuItem { text: qsTr("Fill"); onTriggered: root.addLayer("fill") }
+                                ThemedMenuItem { text: qsTr("Stroke"); onTriggered: root.addLayer("stroke") }
+                                ThemedMenuItem { text: qsTr("Shadow"); onTriggered: root.addLayer("shadow") }
+                                ThemedMenuItem { text: qsTr("Glow"); onTriggered: root.addLayer("glow") }
+                                ThemedMenuItem { text: qsTr("Extrude"); onTriggered: root.addLayer("extrude") }
+                            }
+                        }
+                    }
+
+                    Text {
+                        visible: root.layers.length === 0
+                        width: parent.width
+                        wrapMode: Text.WordWrap
+                        text: qsTr("No layers. Pick an effect above or add a fill to start.")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+
+                    // Integer model so rows survive the fresh QVariantList every edit produces; the list
+                    // is walked from the back so the front-most layer sits on top.
+                    Repeater {
+                        model: root.layers.length
+                        delegate: ShadingLayerRow {
+                            required property int index
+                            width: parent.width
+                            layerData: root.layers[root.layers.length - 1 - index] || ({})
+                            styleData: root.textStyle
+                            position: index
+                            count: root.layers.length
+                            expanded: root.expandedLayerIds[layerId] === true
+                            onToggleRequested: root.setLayerExpanded(layerId, !expanded)
+                        }
+                    }
+
+                    CollapsibleSection {
+                        width: parent.width
+                        title: qsTr("Decorations")
+                        tooltip: qsTr("Boxes and rules drawn around the text rather than on it")
+                        expanded: false
+
+                        CollapsibleSection {
+                            width: parent.width
+                            title: qsTr("Word highlight")
+                            tooltip: qsTr("Filled pill behind every word, sized to the word itself")
+                            collapsible: false
+                            showSeparator: false
+                            showSwitch: true
+                            switchChecked: root.textStyle.wordHighlight.enabled
+                            switchTooltip: qsTr("Filled pill behind every word, sized to the word itself")
+                            onSwitchToggled: on => root.setTextGroupKey("wordHighlight", "enabled", on)
+
+                            Row {
+                                width: parent.width
+                                spacing: 8
+
+                                Column {
+                                    width: (parent.width - parent.spacing) / 2
+                                    spacing: 4
+                                    Text {
+                                        text: qsTr("Thickness")
+                                        HoverHandler { id: tipHoverHlPad }
+                                        TapHandler {
+                                            id: tipTapHlPad
+                                            acceptedDevices: PointerDevice.TouchScreen
+                                            onLongPressed: tipHlPad.held = true
+                                            onPressedChanged: if (!pressed) tipHlPad.held = false
+                                        }
+                                        ThemedToolTip { id: tipHlPad; property bool held: false; text: qsTr("How far the pill extends past the word"); visible: tipHoverHlPad.hovered || held }
+                                        color: Theme.mutedForeground
+                                        font.pixelSize: Theme.fontSizeXs
+                                        font.family: Theme.fontFamily
+                                    }
+                                    ThemedNumberField {
+                                        id: wordHighlightPaddingField
+                                        to: 200
+                                        unit: "px"
+                                        width: parent.width
+                                        decimals: 1
+                                        step: 1
+                                        from: 0
+                                        onEdited: v => root.setTextGroupKey("wordHighlight", "padding", v)
+                                    }
+                                }
+
+                                Column {
+                                    width: (parent.width - parent.spacing) / 2
+                                    spacing: 4
+                                    Text {
+                                        text: qsTr("Corner radius")
+                                        color: Theme.mutedForeground
+                                        font.pixelSize: Theme.fontSizeXs
+                                        font.family: Theme.fontFamily
+                                    }
+                                    ThemedNumberField {
+                                        id: wordHighlightRadiusField
+                                        to: 200
+                                        unit: "px"
+                                        width: parent.width
+                                        decimals: 1
+                                        step: 1
+                                        from: 0
+                                        onEdited: v => root.setTextGroupKey("wordHighlight", "radius", v)
+                                    }
+                                }
+                            }
+
+                            Column {
+                                width: parent.width
+                                spacing: 4
+                                Text {
+                                    text: qsTr("Highlight colour")
+                                    color: Theme.mutedForeground
+                                    font.pixelSize: Theme.fontSizeXs
+                                    font.family: Theme.fontFamily
+                                }
+                                ColorSwatchField {
+                                    hex: root.textStyle.wordHighlight.color
+                                    tooltip: qsTr("Choose highlight colour")
+                                    onEdited: value => root.setTextGroupKey("wordHighlight", "color", value)
+                                }
+                            }
+                        }
+
+                        CollapsibleSection {
+                            width: parent.width
+                            title: qsTr("Underline")
+                            tooltip: qsTr("Draw a rule under each line of text")
+                            collapsible: false
+                            showSeparator: false
+                            showSwitch: true
+                            switchChecked: root.textStyle.underlineEnabled
+                            switchTooltip: qsTr("Draw a rule under each line of text")
+                            onSwitchToggled: on => root.setTextStyleKey("underlineEnabled", on)
+
+                            Row {
+                                width: parent.width
+                                spacing: 8
+
+                                Column {
+                                    width: (parent.width - parent.spacing) / 2
+                                    spacing: 4
+                                    Text {
+                                        text: qsTr("Thickness")
+                                        color: Theme.mutedForeground
+                                        font.pixelSize: Theme.fontSizeXs
+                                        font.family: Theme.fontFamily
+                                    }
+                                    ThemedNumberField {
+                                        id: underlineWidthField
+                                        to: 100
+                                        unit: "px"
+                                        width: parent.width
+                                        decimals: 1
+                                        step: 0.5
+                                        from: 0
+                                        onEdited: v => root.setTextStyleKey("underlineWidth", v)
+                                    }
+                                }
+
+                                Column {
+                                    width: (parent.width - parent.spacing) / 2
+                                    spacing: 4
+                                    Text {
+                                        text: qsTr("Offset")
+                                        HoverHandler { id: tipHoverUnderlineOffset }
+                                        TapHandler {
+                                            id: tipTapUnderlineOffset
+                                            acceptedDevices: PointerDevice.TouchScreen
+                                            onLongPressed: tipUnderlineOffset.held = true
+                                            onPressedChanged: if (!pressed) tipUnderlineOffset.held = false
+                                        }
+                                        ThemedToolTip { id: tipUnderlineOffset; property bool held: false; text: qsTr("Gap between the baseline and the rule"); visible: tipHoverUnderlineOffset.hovered || held }
+                                        color: Theme.mutedForeground
+                                        font.pixelSize: Theme.fontSizeXs
+                                        font.family: Theme.fontFamily
+                                    }
+                                    ThemedNumberField {
+                                        id: underlineOffsetField
+                                        to: 200
+                                        unit: "px"
+                                        width: parent.width
+                                        decimals: 1
+                                        step: 1
+                                        from: -200
+                                        onEdited: v => root.setTextStyleKey("underlineOffset", v)
+                                    }
+                                }
+                            }
+
+                            Column {
+                                width: parent.width
+                                spacing: 4
+                                Text {
+                                    text: qsTr("Underline colour")
+                                    color: Theme.mutedForeground
+                                    font.pixelSize: Theme.fontSizeXs
+                                    font.family: Theme.fontFamily
+                                }
+                                ColorSwatchField {
+                                    hex: root.textStyle.underlineColor
+                                    tooltip: qsTr("Choose underline colour")
+                                    onEdited: value => root.setTextStyleKey("underlineColor", value)
+                                }
+                            }
+                        }
                     }
                 }
 
                 CollapsibleSection {
                     width: parent.width
-                    title: qsTr("Decorations")
-                    tooltip: qsTr("Boxes and rules drawn around the text rather than on it")
+                    title: qsTr("Word accent")
+                    tooltip: qsTr("Style some words differently from the rest, chosen by rule")
                     expanded: false
+                    visible: root.hasTextStyle
 
-                    CollapsibleSection {
+                    Row {
                         width: parent.width
-                        title: qsTr("Background")
-                        tooltip: qsTr("Draw a filled box behind the text")
-                        collapsible: false
-                        showSeparator: false
-                        showSwitch: true
-                        switchChecked: root.textStyle.boxEnabled
-                        switchTooltip: qsTr("Draw a filled box behind the text")
-                        onSwitchToggled: on => root.setTextStyleKey("boxEnabled", on)
+                        spacing: 8
 
-                        ColorSwatchField {
-                            hex: root.textStyle.boxColor
-                            tooltip: qsTr("Choose background colour")
-                            onEdited: value => root.setTextStyleKey("boxColor", value)
+                        ThemedComboBox {
+                            id: accentRuleBox
+                            width: root.textStyle.accent.rule === "everyNth"
+                                   ? (parent.width - parent.spacing) * 0.66 : parent.width
+                            model: root.accentRuleLabels
+                            currentIndex: Math.max(0, root.accentRules.indexOf(root.textStyle.accent.rule))
+                            onActivated: root.setTextGroupKey("accent", "rule",
+                                                              root.accentRules[currentIndex])
                         }
 
-                        Row {
-                            width: parent.width
-                            spacing: 8
-
-                            Column {
-                                width: (parent.width - parent.spacing) / 2
-                                spacing: 4
-                                Text {
-                                    text: qsTr("Padding")
-                                    HoverHandler { id: tipHover1088 }
-                                    TapHandler {
-                                        id: tipTap1088
-                                        acceptedDevices: PointerDevice.TouchScreen
-                                        onLongPressed: tip1088.held = true
-                                        onPressedChanged: if (!pressed) tip1088.held = false
-                                    }
-                                    ThemedToolTip { id: tip1088; property bool held: false; text: qsTr("Space between the text and the edge of its background box"); visible: tipHover1088.hovered || held }
-                                    color: Theme.mutedForeground
-                                    font.pixelSize: Theme.fontSizeXs
-                                    font.family: Theme.fontFamily
-                                }
-                                ThemedNumberField {
-                                    id: boxPaddingField
-                                    to: 500
-                                    unit: "px"
-                                    width: parent.width
-                                    decimals: 1
-                                    step: 1
-                                    from: 0
-                                    onEdited: v => root.setTextStyleKey("boxPadding", v)
-                                }
-                            }
-
-                            Column {
-                                width: (parent.width - parent.spacing) / 2
-                                spacing: 4
-                                Text {
-                                    text: qsTr("Corner radius")
-                                    HoverHandler { id: tipHover1109 }
-                                    TapHandler {
-                                        id: tipTap1109
-                                        acceptedDevices: PointerDevice.TouchScreen
-                                        onLongPressed: tip1109.held = true
-                                        onPressedChanged: if (!pressed) tip1109.held = false
-                                    }
-                                    ThemedToolTip { id: tip1109; property bool held: false; text: qsTr("Roundness of the background box corners"); visible: tipHover1109.hovered || held }
-                                    color: Theme.mutedForeground
-                                    font.pixelSize: Theme.fontSizeXs
-                                    font.family: Theme.fontFamily
-                                }
-                                ThemedNumberField {
-                                    id: boxRadiusField
-                                    to: 500
-                                    unit: "px"
-                                    width: parent.width
-                                    decimals: 1
-                                    step: 1
-                                    from: 0
-                                    onEdited: v => root.setTextStyleKey("boxRadius", v)
-                                }
-                            }
-                        }
-                    }
-
-                    CollapsibleSection {
-                        width: parent.width
-                        title: qsTr("Word highlight")
-                        tooltip: qsTr("Filled pill behind every word, sized to the word itself")
-                        collapsible: false
-                        showSeparator: false
-                        showSwitch: true
-                        switchChecked: root.textStyle.wordHighlight.enabled
-                        switchTooltip: qsTr("Filled pill behind every word, sized to the word itself")
-                        onSwitchToggled: on => root.setTextGroupKey("wordHighlight", "enabled", on)
-
-                        Row {
-                            width: parent.width
-                            spacing: 8
-
-                            Column {
-                                width: (parent.width - parent.spacing) / 2
-                                spacing: 4
-                                Text {
-                                    text: qsTr("Thickness")
-                                    HoverHandler { id: tipHoverHlPad }
-                                    TapHandler {
-                                        id: tipTapHlPad
-                                        acceptedDevices: PointerDevice.TouchScreen
-                                        onLongPressed: tipHlPad.held = true
-                                        onPressedChanged: if (!pressed) tipHlPad.held = false
-                                    }
-                                    ThemedToolTip { id: tipHlPad; property bool held: false; text: qsTr("How far the pill extends past the word"); visible: tipHoverHlPad.hovered || held }
-                                    color: Theme.mutedForeground
-                                    font.pixelSize: Theme.fontSizeXs
-                                    font.family: Theme.fontFamily
-                                }
-                                ThemedNumberField {
-                                    id: wordHighlightPaddingField
-                                    to: 200
-                                    unit: "px"
-                                    width: parent.width
-                                    decimals: 1
-                                    step: 1
-                                    from: 0
-                                    onEdited: v => root.setTextGroupKey("wordHighlight", "padding", v)
-                                }
-                            }
-
-                            Column {
-                                width: (parent.width - parent.spacing) / 2
-                                spacing: 4
-                                Text {
-                                    text: qsTr("Corner radius")
-                                    color: Theme.mutedForeground
-                                    font.pixelSize: Theme.fontSizeXs
-                                    font.family: Theme.fontFamily
-                                }
-                                ThemedNumberField {
-                                    id: wordHighlightRadiusField
-                                    to: 200
-                                    unit: "px"
-                                    width: parent.width
-                                    decimals: 1
-                                    step: 1
-                                    from: 0
-                                    onEdited: v => root.setTextGroupKey("wordHighlight", "radius", v)
-                                }
-                            }
-                        }
-
-                        Column {
-                            width: parent.width
-                            spacing: 4
-                            Text {
-                                text: qsTr("Highlight colour")
-                                color: Theme.mutedForeground
-                                font.pixelSize: Theme.fontSizeXs
-                                font.family: Theme.fontFamily
-                            }
-                            ColorSwatchField {
-                                hex: root.textStyle.wordHighlight.color
-                                tooltip: qsTr("Choose highlight colour")
-                                onEdited: value => root.setTextGroupKey("wordHighlight", "color", value)
-                            }
-                        }
-                    }
-
-                    CollapsibleSection {
-                        width: parent.width
-                        title: qsTr("Underline")
-                        tooltip: qsTr("Draw a rule under each line of text")
-                        collapsible: false
-                        showSeparator: false
-                        showSwitch: true
-                        switchChecked: root.textStyle.underlineEnabled
-                        switchTooltip: qsTr("Draw a rule under each line of text")
-                        onSwitchToggled: on => root.setTextStyleKey("underlineEnabled", on)
-
-                        Row {
-                            width: parent.width
-                            spacing: 8
-
-                            Column {
-                                width: (parent.width - parent.spacing) / 2
-                                spacing: 4
-                                Text {
-                                    text: qsTr("Thickness")
-                                    color: Theme.mutedForeground
-                                    font.pixelSize: Theme.fontSizeXs
-                                    font.family: Theme.fontFamily
-                                }
-                                ThemedNumberField {
-                                    id: underlineWidthField
-                                    to: 100
-                                    unit: "px"
-                                    width: parent.width
-                                    decimals: 1
-                                    step: 0.5
-                                    from: 0
-                                    onEdited: v => root.setTextStyleKey("underlineWidth", v)
-                                }
-                            }
-
-                            Column {
-                                width: (parent.width - parent.spacing) / 2
-                                spacing: 4
-                                Text {
-                                    text: qsTr("Offset")
-                                    HoverHandler { id: tipHoverUnderlineOffset }
-                                    TapHandler {
-                                        id: tipTapUnderlineOffset
-                                        acceptedDevices: PointerDevice.TouchScreen
-                                        onLongPressed: tipUnderlineOffset.held = true
-                                        onPressedChanged: if (!pressed) tipUnderlineOffset.held = false
-                                    }
-                                    ThemedToolTip { id: tipUnderlineOffset; property bool held: false; text: qsTr("Gap between the baseline and the rule"); visible: tipHoverUnderlineOffset.hovered || held }
-                                    color: Theme.mutedForeground
-                                    font.pixelSize: Theme.fontSizeXs
-                                    font.family: Theme.fontFamily
-                                }
-                                ThemedNumberField {
-                                    id: underlineOffsetField
-                                    to: 200
-                                    unit: "px"
-                                    width: parent.width
-                                    decimals: 1
-                                    step: 1
-                                    from: -200
-                                    onEdited: v => root.setTextStyleKey("underlineOffset", v)
-                                }
-                            }
-                        }
-
-                        Column {
-                            width: parent.width
-                            spacing: 4
-                            Text {
-                                text: qsTr("Underline colour")
-                                color: Theme.mutedForeground
-                                font.pixelSize: Theme.fontSizeXs
-                                font.family: Theme.fontFamily
-                            }
-                            ColorSwatchField {
-                                hex: root.textStyle.underlineColor
-                                tooltip: qsTr("Choose underline colour")
-                                onEdited: value => root.setTextStyleKey("underlineColor", value)
-                            }
-                        }
-                    }
-                }
-            }
-
-            CollapsibleSection {
-                width: parent.width
-                title: qsTr("Word accent")
-                tooltip: qsTr("Style some words differently from the rest, chosen by rule")
-                expanded: false
-                visible: root.hasTextStyle
-
-                Row {
-                    width: parent.width
-                    spacing: 8
-
-                    ThemedComboBox {
-                        id: accentRuleBox
-                        width: root.textStyle.accent.rule === "everyNth"
-                               ? (parent.width - parent.spacing) * 0.66 : parent.width
-                        model: root.accentRuleLabels
-                        currentIndex: Math.max(0, root.accentRules.indexOf(root.textStyle.accent.rule))
-                        onActivated: root.setTextGroupKey("accent", "rule",
-                                                          root.accentRules[currentIndex])
-                    }
-
-                    ThemedNumberField {
-                        id: accentEveryNField
-                        visible: root.textStyle.accent.rule === "everyNth"
-                        width: (parent.width - parent.spacing) * 0.34
-                        to: 16
-                        from: 1
-                        decimals: 0
-                        step: 1
-                        onEdited: v => root.setTextGroupKey("accent", "n", v)
-                    }
-                }
-
-                Column {
-                    width: parent.width
-                    spacing: Theme.spacingMd
-                    visible: root.textStyle.accent.rule !== "none"
-
-                    CollapsibleSection {
-                        width: parent.width
-                        title: qsTr("Accent colour")
-                        tooltip: qsTr("Recolour the words the rule picks out")
-                        collapsible: false
-                        showSeparator: false
-                        showSwitch: true
-                        switchChecked: root.textStyle.accent.colorEnabled
-                        switchTooltip: qsTr("Recolour the words the rule picks out")
-                        onSwitchToggled: on => root.setTextGroupKey("accent", "colorEnabled", on)
-
-                        ColorSwatchField {
-                            hex: root.textStyle.accent.color
-                            tooltip: qsTr("Choose accent colour")
-                            onEdited: value => root.setTextGroupKey("accent", "color", value)
+                        ThemedNumberField {
+                            id: accentEveryNField
+                            visible: root.textStyle.accent.rule === "everyNth"
+                            width: (parent.width - parent.spacing) * 0.34
+                            to: 16
+                            from: 1
+                            decimals: 0
+                            step: 1
+                            onEdited: v => root.setTextGroupKey("accent", "n", v)
                         }
                     }
 
                     Column {
-                        width: (parent.width - 8) / 2
-                        spacing: 4
-                        Text {
-                            text: qsTr("Accent size")
-                            HoverHandler { id: tipHoverAccentSize }
-                            TapHandler {
-                                id: tipTapAccentSize
-                                acceptedDevices: PointerDevice.TouchScreen
-                                onLongPressed: tipAccentSize.held = true
-                                onPressedChanged: if (!pressed) tipAccentSize.held = false
-                            }
-                            ThemedToolTip {
-                                id: tipAccentSize
-                                property bool held: false
-                                text: qsTr("Size of the accented words relative to the rest of the line")
-                                visible: tipHoverAccentSize.hovered || held
-                            }
-                            color: Theme.mutedForeground
-                            font.pixelSize: Theme.fontSizeXs
-                            font.family: Theme.fontFamily
-                        }
-                        ThemedNumberField {
-                            id: accentSizeScaleField
-                            to: 4
-                            unit: "x"
-                            width: parent.width
-                            decimals: 2
-                            step: 0.05
-                            from: 0.25
-                            onEdited: v => root.setTextGroupKey("accent", "sizeScale", v)
-                        }
-                    }
-
-                    CollapsibleSection {
                         width: parent.width
-                        title: qsTr("Accent outline")
-                        tooltip: qsTr("Give the accented words their own outline")
-                        collapsible: false
-                        showSeparator: false
-                        showSwitch: true
-                        switchChecked: root.textStyle.accent.outlineEnabled
-                        switchTooltip: qsTr("Give the accented words their own outline")
-                        onSwitchToggled: on => root.setTextGroupKey("accent", "outlineEnabled", on)
+                        spacing: Theme.spacingMd
+                        visible: root.textStyle.accent.rule !== "none"
 
-                        ColorSwatchField {
-                            hex: root.textStyle.accent.outlineColor
-                            tooltip: qsTr("Choose accent outline colour")
-                            onEdited: value => root.setTextGroupKey("accent", "outlineColor", value)
+                        CollapsibleSection {
+                            width: parent.width
+                            title: qsTr("Accent colour")
+                            tooltip: qsTr("Recolour the words the rule picks out")
+                            collapsible: false
+                            showSeparator: false
+                            showSwitch: true
+                            switchChecked: root.textStyle.accent.colorEnabled
+                            switchTooltip: qsTr("Recolour the words the rule picks out")
+                            onSwitchToggled: on => root.setTextGroupKey("accent", "colorEnabled", on)
+
+                            ColorSwatchField {
+                                hex: root.textStyle.accent.color
+                                tooltip: qsTr("Choose accent colour")
+                                onEdited: value => root.setTextGroupKey("accent", "color", value)
+                            }
                         }
 
                         Column {
                             width: (parent.width - 8) / 2
                             spacing: 4
                             Text {
-                                text: qsTr("Width")
+                                text: qsTr("Accent size")
+                                HoverHandler { id: tipHoverAccentSize }
+                                TapHandler {
+                                    id: tipTapAccentSize
+                                    acceptedDevices: PointerDevice.TouchScreen
+                                    onLongPressed: tipAccentSize.held = true
+                                    onPressedChanged: if (!pressed) tipAccentSize.held = false
+                                }
+                                ThemedToolTip {
+                                    id: tipAccentSize
+                                    property bool held: false
+                                    text: qsTr("Size of the accented words relative to the rest of the line")
+                                    visible: tipHoverAccentSize.hovered || held
+                                }
                                 color: Theme.mutedForeground
                                 font.pixelSize: Theme.fontSizeXs
                                 font.family: Theme.fontFamily
                             }
                             ThemedNumberField {
-                                id: accentOutlineWidthField
-                                to: 100
-                                unit: "px"
+                                id: accentSizeScaleField
+                                to: 4
+                                unit: "x"
                                 width: parent.width
-                                decimals: 1
-                                step: 0.5
-                                from: 0
-                                onEdited: v => root.setTextGroupKey("accent", "outlineWidth", v)
+                                decimals: 2
+                                step: 0.05
+                                from: 0.25
+                                onEdited: v => root.setTextGroupKey("accent", "sizeScale", v)
                             }
                         }
-                    }
 
-                    CollapsibleSection {
-                        width: parent.width
-                        title: qsTr("Accent pill")
-                        tooltip: qsTr("Highlight only the accented words, instead of every word")
-                        collapsible: false
-                        showSeparator: false
-                        showSwitch: true
-                        switchChecked: root.textStyle.accent.highlight.enabled
-                        switchTooltip: qsTr("Highlight only the accented words, instead of every word")
-                        onSwitchToggled: on => root.setTextAccentHighlightKey("enabled", on)
+                        CollapsibleSection {
+                            width: parent.width
+                            title: qsTr("Accent outline")
+                            tooltip: qsTr("Give the accented words their own outline")
+                            collapsible: false
+                            showSeparator: false
+                            showSwitch: true
+                            switchChecked: root.textStyle.accent.outlineEnabled
+                            switchTooltip: qsTr("Give the accented words their own outline")
+                            onSwitchToggled: on => root.setTextGroupKey("accent", "outlineEnabled", on)
 
-                        ColorSwatchField {
-                            hex: root.textStyle.accent.highlight.color
-                            tooltip: qsTr("Choose accent highlight colour")
-                            onEdited: value => root.setTextAccentHighlightKey("color", value)
+                            ColorSwatchField {
+                                hex: root.textStyle.accent.outlineColor
+                                tooltip: qsTr("Choose accent outline colour")
+                                onEdited: value => root.setTextGroupKey("accent", "outlineColor", value)
+                            }
+
+                            Column {
+                                width: (parent.width - 8) / 2
+                                spacing: 4
+                                Text {
+                                    text: qsTr("Width")
+                                    color: Theme.mutedForeground
+                                    font.pixelSize: Theme.fontSizeXs
+                                    font.family: Theme.fontFamily
+                                }
+                                ThemedNumberField {
+                                    id: accentOutlineWidthField
+                                    to: 100
+                                    unit: "px"
+                                    width: parent.width
+                                    decimals: 1
+                                    step: 0.5
+                                    from: 0
+                                    onEdited: v => root.setTextGroupKey("accent", "outlineWidth", v)
+                                }
+                            }
+                        }
+
+                        CollapsibleSection {
+                            width: parent.width
+                            title: qsTr("Accent pill")
+                            tooltip: qsTr("Highlight only the accented words, instead of every word")
+                            collapsible: false
+                            showSeparator: false
+                            showSwitch: true
+                            switchChecked: root.textStyle.accent.highlight.enabled
+                            switchTooltip: qsTr("Highlight only the accented words, instead of every word")
+                            onSwitchToggled: on => root.setTextAccentHighlightKey("enabled", on)
+
+                            ColorSwatchField {
+                                hex: root.textStyle.accent.highlight.color
+                                tooltip: qsTr("Choose accent highlight colour")
+                                onEdited: value => root.setTextAccentHighlightKey("color", value)
+                            }
                         }
                     }
                 }
             }
         }
 
+        // --- Burbuja ---------------------------------------------------------------------------
         Column {
             width: parent.width
             spacing: Theme.spacingMd
-            visible: root.textTab === "animate" && root.hasTextStyle
+            visible: root.page === "bubble" && root.hasTextStyle
+
+            Text {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                text: qsTr("A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+
+            Flow {
+                width: parent.width
+                spacing: Theme.spacingSm
+
+                ThemedChip {
+                    text: qsTr("All")
+                    variant: "secondary"
+                    selected: root.bubbleCategory.length === 0
+                    onClicked: root.bubbleCategory = ""
+                }
+                ThemedChip {
+                    text: qsTr("Favorites")
+                    variant: "secondary"
+                    selected: root.bubbleCategory === "favorites"
+                    onClicked: root.bubbleCategory = "favorites"
+                }
+                Repeater {
+                    model: root.bubbleCategories
+                    delegate: ThemedChip {
+                        required property var modelData
+                        required property int index
+                        text: modelData.label
+                        variant: "secondary"
+                        accentColor: Theme.categoryColor(index)
+                        selected: root.bubbleCategory === modelData.id
+                        onClicked: root.bubbleCategory = modelData.id
+                    }
+                }
+            }
+
+            Grid {
+                id: bubbleGrid
+                width: parent.width
+                readonly property real gap: Theme.spacingSm
+                columns: Math.max(3, Math.floor((width + gap) / (76 + gap)))
+                columnSpacing: gap
+                rowSpacing: gap
+                readonly property real tileWidth: Math.floor((width - gap * (columns - 1)) / columns)
+
+                Repeater {
+                    model: root.bubbles.filter(b => b.id === "none"
+                                                    || root.bubbleCategory.length === 0
+                                                    || (root.bubbleCategory === "favorites"
+                                                        ? root.isFavorite("textBubbles", b.id)
+                                                        : b.category === root.bubbleCategory))
+                    delegate: GalleryTile {
+                        required property var modelData
+                        tileWidth: bubbleGrid.tileWidth
+                        none: modelData.id === "none"
+                        label: modelData.label
+                        source: none ? "" : root.bubblePreview(modelData.id)
+                        selected: none ? root.textStyle.boxEnabled !== true
+                                       : (root.textStyle.boxEnabled === true && root.lastBubbleId === modelData.id)
+                        favoriteTab: none ? "" : "textBubbles"
+                        favoriteId: modelData.id
+                        onClicked: root.applyBubble(modelData.id)
+                    }
+                }
+            }
+        }
+
+        // --- Efectos ---------------------------------------------------------------------------
+        Column {
+            width: parent.width
+            spacing: Theme.spacingMd
+            visible: root.page === "effects" && root.hasTextStyle
+
+            ThemedTextField {
+                id: effectSearch
+                width: parent.width
+                placeholderText: qsTr("Search text effects and styles")
+            }
+
+            Flow {
+                width: parent.width
+                spacing: Theme.spacingSm
+                visible: effectSearch.text.trim().length === 0
+
+                Repeater {
+                    model: root.effectCategories
+                    delegate: ThemedChip {
+                        required property var modelData
+                        required property int index
+                        text: modelData.label
+                        variant: "secondary"
+                        accentColor: Theme.categoryColor(index)
+                        selected: root.effectsCategory === modelData.id
+                        onClicked: root.effectsCategory = modelData.id
+                    }
+                }
+            }
+
+            Text {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                visible: root.effectsCategory === "templates" && effectSearch.text.trim().length === 0
+                text: qsTr("Templates change the font too. The other styles keep yours.")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+
+            Grid {
+                id: effectGrid
+                width: parent.width
+                readonly property real gap: Theme.spacingSm
+                columns: Math.max(3, Math.floor((width + gap) / (76 + gap)))
+                columnSpacing: gap
+                rowSpacing: gap
+                readonly property real tileWidth: Math.floor((width - gap * (columns - 1)) / columns)
+
+                Repeater {
+                    model: root.effectTiles(effectSearch.text)
+                    delegate: GalleryTile {
+                        required property var modelData
+                        tileWidth: effectGrid.tileWidth
+                        none: modelData.kind === "none"
+                        label: modelData.label
+                        source: modelData.source || ""
+                        selected: modelData.kind === "look" ? root.textStyle.lookId === modelData.id
+                                : modelData.kind === "template" ? root.textStyle.packId === modelData.id
+                                : root.lastQuickId === modelData.id
+                        favoriteTab: "textEffects"
+                        favoriteId: modelData.kind + ":" + modelData.id
+                        onClicked: root.applyEffectTile(modelData)
+                    }
+                }
+            }
+
+            // Look parameters (Neon's colour, Glitch's offset…) for the look just applied.
+            TextParamSlots {
+                width: parent.width
+                visible: !!root.selectedLook && (root.selectedLook.params || []).length > 0
+                specs: root.selectedLook ? (root.selectedLook.params || []) : []
+                values: root.textStyle.lookParams || ({})
+                onChanged: (id, value) => EditorState.setTextLookParam(
+                               EditorState.selectedTrack, EditorState.selectedClip, id, value)
+                onPreviewChanged: (id, value) => EditorState.previewSetTextLookParam(
+                                      EditorState.selectedTrack, EditorState.selectedClip, id, value)
+                onDragStarted: EditorState.beginPreviewDrag(qsTr("Adjust text look"))
+                onDragEnded: EditorState.commitPreviewDrag()
+            }
+
+            ThemedButton {
+                width: parent.width
+                variant: "secondary"
+                glyph: Theme.icons.save
+                text: qsTr("Save style…")
+                tooltip: qsTr("Save this text's style as a reusable preset")
+                onClicked: saveStyleDialog.openWith(qsTr("Save text style"),
+                                                    qsTr("My style %1")
+                                                        .arg(EditorState.userTextPresets().length + 1))
+            }
+        }
+
+        Column {
+            width: parent.width
+            spacing: Theme.spacingMd
+            visible: root.page === "animate" && root.hasTextStyle
 
             Row {
                 spacing: Theme.spacingSm
@@ -1314,6 +2341,14 @@ Item {
                         onClicked: root.animCategory = ""
                     }
 
+                    ThemedChip {
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Favorites")
+                        variant: "secondary"
+                        selected: root.animCategory === "__favorites__"
+                        onClicked: root.animCategory = "__favorites__"
+                    }
+
                     Repeater {
                         model: root.animCategories
                         delegate: ThemedChip {
@@ -1352,10 +2387,19 @@ Item {
                         selected: modelData.id.length === 0
                                   ? (!root.slotHasPreset && !root.slotData.custom)
                                   : root.slotData.preset === modelData.id
-                        playing: root.textTab === "animate" && root.visible && !EditorState.playing
+                        playing: root.page === "animate" && root.visible && !EditorState.playing
                                  && modelData.id.length > 0
                                  && (Theme.touchUi ? selected : hovered)
                         onClicked: root.pickPreset(modelData.id)
+
+                        AssetFavoriteButton {
+                            visible: modelData.id.length > 0
+                            anchors.right: parent.right
+                            anchors.top: parent.top
+                            anchors.margins: 2
+                            tabId: "textAnimations"
+                            itemId: modelData.id
+                        }
                     }
                 }
             }

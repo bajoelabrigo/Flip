@@ -17,6 +17,14 @@ Item {
 
     property bool music: false
     readonly property string musicPrefix: "musica/"
+    // Favorites are kept per tab, so a starred song never shows up among the sound effects.
+    readonly property string favoritesTab: root.music ? "music" : "sounds"
+    readonly property string favoritesId: "__favorites__"
+    property int favoritesTick: 0
+    Connections {
+        target: EditorState
+        function onAssetFavoritesChanged() { root.favoritesTick++ }
+    }
 
     function ownSounds() {
         return EditorState.soundEffects().filter(s => (s.id || "").startsWith(root.musicPrefix) === root.music)
@@ -34,6 +42,10 @@ Item {
         const q = root.query
         if (q.length > 0)
             return root.allSounds.filter(s => (s.label || "").toLowerCase().indexOf(q) >= 0)
+        if (root.activeCategory === root.favoritesId) {
+            void root.favoritesTick
+            return root.allSounds.filter(s => EditorState.isAssetFavorite(root.favoritesTab, s.id))
+        }
         return root.allSounds.filter(s => s.category === root.activeCategory)
     }
 
@@ -107,6 +119,19 @@ Item {
                 onActionTriggered: root.Window.window.openAddonManager("sound-effects")
             }
 
+            Text {
+                visible: root.hasSounds && root.query.length === 0 && root.activeCategory === root.favoritesId
+                         && root.currentSounds.length === 0
+                x: Theme.pagePadding
+                y: Theme.pagePadding
+                width: parent.width - Theme.pagePadding * 2
+                wrapMode: Text.WordWrap
+                text: qsTr("No favorites yet. Tap the star on a sound to keep it here.")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+
             ListView {
                 id: list
                 x: Theme.pagePadding
@@ -156,7 +181,7 @@ Item {
                     Column {
                         anchors.left: playButton.right
                         anchors.leftMargin: Theme.spacingMd
-                        anchors.right: addButton.left
+                        anchors.right: favoriteButton.left
                         anchors.rightMargin: Theme.spacingMd
                         anchors.verticalCenter: parent.verticalCenter
                         Text {
@@ -181,6 +206,15 @@ Item {
                             font.family: Theme.fontFamily
                             font.pixelSize: Theme.fontSizeXs
                         }
+                    }
+
+                    AssetFavoriteButton {
+                        id: favoriteButton
+                        anchors.right: addButton.left
+                        anchors.rightMargin: Theme.spacingXs
+                        anchors.verticalCenter: parent.verticalCenter
+                        tabId: root.favoritesTab
+                        itemId: row.modelData.id
                     }
 
                     IconButton {

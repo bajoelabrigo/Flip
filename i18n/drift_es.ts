@@ -4264,6 +4264,26 @@
         <translation>Aspecto aplicado</translation>
     </message>
     <message>
+        <source>Apply text style</source>
+        <translation>Aplicar estilo de texto</translation>
+    </message>
+    <message>
+        <source>Text style applied</source>
+        <translation>Estilo de texto aplicado</translation>
+    </message>
+    <message>
+        <source>Apply text bubble</source>
+        <translation>Aplicar burbuja de texto</translation>
+    </message>
+    <message>
+        <source>Bubble removed</source>
+        <translation>Burbuja quitada</translation>
+    </message>
+    <message>
+        <source>Bubble applied</source>
+        <translation>Burbuja aplicada</translation>
+    </message>
+    <message>
         <source>Adjust text look</source>
         <translation>Ajustar aspecto de texto</translation>
     </message>
@@ -15607,6 +15627,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Conseguir extras</translation>
     </message>
     <message>
+        <source>No favorites yet. Tap the star on a sound to keep it here.</source>
+        <translation>Aún no hay favoritos. Toca la estrella de un sonido para guardarlo aquí.</translation>
+    </message>
+    <message>
         <source>Stop</source>
         <translation>Detener</translation>
     </message>
@@ -16895,6 +16919,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Mis estilos · %1</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation>Favoritos</translation>
+    </message>
+    <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation>%1 — haz clic para agregarlo en el cabezal o arrástralo a la línea de tiempo. Haz doble clic en la vista previa para editarlo.</translation>
     </message>
@@ -16977,12 +17005,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Elige el primer color del degradado</translation>
     </message>
     <message>
-        <source>Edits the first gradient stop</source>
-        <translation>Edita el primer punto del degradado</translation>
-    </message>
-    <message>
         <source>Style</source>
-        <translation>Estilo</translation>
+        <translation>Diseño</translation>
     </message>
     <message>
         <source>Aa</source>
@@ -17077,14 +17101,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Fuente</translation>
     </message>
     <message>
-        <source>Weight</source>
-        <translation>Peso</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation>Tamaño</translation>
-    </message>
-    <message>
         <source>Stroke</source>
         <translation>Trazo</translation>
     </message>
@@ -17099,10 +17115,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Boxes and rules drawn around the text rather than on it</source>
         <translation>Recuadros y líneas dibujados alrededor del texto en lugar de sobre él</translation>
-    </message>
-    <message>
-        <source>Animate</source>
-        <translation>Animar</translation>
     </message>
     <message>
         <source>Phase</source>
@@ -17153,10 +17165,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Cursiva</translation>
     </message>
     <message>
-        <source>Italicise the text</source>
-        <translation>Poner el texto en cursiva</translation>
-    </message>
-    <message>
         <source>%1 has no italic face</source>
         <translation>%1 no tiene variante en cursiva</translation>
     </message>
@@ -17179,10 +17187,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Fill</source>
         <translation>Relleno</translation>
-    </message>
-    <message>
-        <source>Bend</source>
-        <translation>Curvatura</translation>
     </message>
     <message>
         <source>Align left</source>
@@ -17209,18 +17213,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Alinear abajo</translation>
     </message>
     <message>
-        <source>Line height</source>
-        <translation>Altura de línea</translation>
-    </message>
-    <message>
-        <source>Letter spacing</source>
-        <translation>Espaciado entre letras</translation>
-    </message>
-    <message>
-        <source>Wrapping</source>
-        <translation>Ajuste de línea</translation>
-    </message>
-    <message>
         <source>Word wrap</source>
         <translation>Ajuste de línea</translation>
     </message>
@@ -17230,7 +17222,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Width</source>
-        <translation>Anchura</translation>
+        <translation>Ancho</translation>
     </message>
     <message>
         <source>Shadow</source>
@@ -17241,32 +17233,16 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Fondo</translation>
     </message>
     <message>
-        <source>Draw a filled box behind the text</source>
-        <translation>Dibujar un cuadro relleno detrás del texto</translation>
-    </message>
-    <message>
         <source>Choose background colour</source>
         <translation>Elegir color de fondo</translation>
-    </message>
-    <message>
-        <source>Padding</source>
-        <translation>Relleno</translation>
-    </message>
-    <message>
-        <source>Space between the text and the edge of its background box</source>
-        <translation>Espacio entre el texto y el borde de su cuadro de fondo</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation>Radio de esquinas</translation>
     </message>
     <message>
-        <source>Roundness of the background box corners</source>
-        <translation>Redondez de las esquinas del cuadro de fondo</translation>
-    </message>
-    <message>
         <source>Glow</source>
-        <translation>Resplandor</translation>
+        <translation>Brillo</translation>
     </message>
     <message>
         <source>Text</source>
@@ -17283,26 +17259,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Apply the text to this clip</source>
         <translation>Aplica el texto a este clip</translation>
-    </message>
-    <message>
-        <source>Edit in Style</source>
-        <translation>Editar en Estilo</translation>
-    </message>
-    <message>
-        <source>The text is painted with an image; change it on the Style page</source>
-        <translation>El texto está coloreado con una imagen; cámbiala en la página de Estilo</translation>
-    </message>
-    <message>
-        <source>The text is painted with an effect; change it on the Style page</source>
-        <translation>El texto está coloreado con un efecto; cámbialo en la página de Estilo</translation>
-    </message>
-    <message>
-        <source>Spacing</source>
-        <translation>Espaciado</translation>
-    </message>
-    <message>
-        <source>Line height, letter spacing, wrapping and bend</source>
-        <translation>Interlineado, espaciado entre letras, ajuste de línea y curvatura</translation>
     </message>
     <message>
         <source>Preset</source>
@@ -17331,10 +17287,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Install the voice model from the add-on manager first</source>
         <translation>Primero instala el modelo de voz desde Extras</translation>
-    </message>
-    <message>
-        <source>Install the AI engine and the voice model from the add-on manager to generate voiceovers.</source>
-        <translation>Instala el motor de IA y el modelo de voz desde Extras para generar locuciones.</translation>
     </message>
     <message>
         <source>Effect</source>
@@ -17379,6 +17331,254 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Underline</source>
         <translation>Subrayado</translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation>Básico</translation>
+    </message>
+    <message>
+        <source>Bubble</source>
+        <translation>Burbuja</translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation>Efectos</translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation>Animación</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoritos</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation>Plantillas</translation>
+    </message>
+    <message>
+        <source>My styles</source>
+        <translation>Mis estilos</translation>
+    </message>
+    <message>
+        <source>Hello</source>
+        <translation>Hola</translation>
+    </message>
+    <message>
+        <source>Font size</source>
+        <translation>Tamaño de la fuente</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>Negrita</translation>
+    </message>
+    <message>
+        <source>Case</source>
+        <translation>May./min.</translation>
+    </message>
+    <message>
+        <source>As typed</source>
+        <translation>Como se escribió</translation>
+    </message>
+    <message>
+        <source>UPPERCASE</source>
+        <translation>MAYÚSCULAS</translation>
+    </message>
+    <message>
+        <source>lowercase</source>
+        <translation>minúsculas</translation>
+    </message>
+    <message>
+        <source>Title Case</source>
+        <translation>Tipo Título</translation>
+    </message>
+    <message>
+        <source>Edit in Advanced</source>
+        <translation>Editar en Avanzado</translation>
+    </message>
+    <message>
+        <source>The text is painted with an image; change it under Advanced</source>
+        <translation>El texto está pintado con una imagen; cámbiala en Avanzado</translation>
+    </message>
+    <message>
+        <source>The text is painted with an effect; change it under Advanced</source>
+        <translation>El texto está pintado con un efecto; cámbialo en Avanzado</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>Alineación</translation>
+    </message>
+    <message>
+        <source>Preset style</source>
+        <translation>Estilo preestablecido</translation>
+    </message>
+    <message>
+        <source>Colour, outline and shadow in one tap, keeping your font</source>
+        <translation>Color, contorno y sombra con un toque, sin cambiar tu fuente</translation>
+    </message>
+    <message>
+        <source>No style</source>
+        <translation>Sin estilo</translation>
+    </message>
+    <message>
+        <source>More styles: neon, gradient, 3D…</source>
+        <translation>Más estilos: neón, degradado, 3D…</translation>
+    </message>
+    <message>
+        <source>An outline around the letters</source>
+        <translation>Un contorno alrededor de las letras</translation>
+    </message>
+    <message>
+        <source>Outline the text</source>
+        <translation>Contornear el texto</translation>
+    </message>
+    <message>
+        <source>Choose outline colour</source>
+        <translation>Elegir el color del contorno</translation>
+    </message>
+    <message>
+        <source>A box behind the text: one for the block or one per line</source>
+        <translation>Un recuadro detrás del texto: uno para todo el bloque o uno por línea</translation>
+    </message>
+    <message>
+        <source>Draw a box behind the text</source>
+        <translation>Dibujar un recuadro detrás del texto</translation>
+    </message>
+    <message>
+        <source>Per line</source>
+        <translation>Por línea</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacidad</translation>
+    </message>
+    <message>
+        <source>Rounded corners</source>
+        <translation>Esquinas redondeadas</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Alto</translation>
+    </message>
+    <message>
+        <source>Offset Y</source>
+        <translation>Desplazamiento Y</translation>
+    </message>
+    <message>
+        <source>Offset X</source>
+        <translation>Desplazamiento X</translation>
+    </message>
+    <message>
+        <source>Border</source>
+        <translation>Borde</translation>
+    </message>
+    <message>
+        <source>Choose border colour</source>
+        <translation>Elegir el color del borde</translation>
+    </message>
+    <message>
+        <source>Border thickness</source>
+        <translation>Grosor del borde</translation>
+    </message>
+    <message>
+        <source>Shapes: speech, cloud, tag, brush…</source>
+        <translation>Formas: globo, nube, etiqueta, pincel…</translation>
+    </message>
+    <message>
+        <source>Pick a bubble shape on the Bubble page</source>
+        <translation>Elige una forma de burbuja en la página Burbuja</translation>
+    </message>
+    <message>
+        <source>A soft light around the letters</source>
+        <translation>Una luz suave alrededor de las letras</translation>
+    </message>
+    <message>
+        <source>Add a glow</source>
+        <translation>Añadir brillo</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>Suave</translation>
+    </message>
+    <message>
+        <source>Strong</source>
+        <translation>Intenso</translation>
+    </message>
+    <message>
+        <source>Choose glow colour</source>
+        <translation>Elegir el color del brillo</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>Intensidad</translation>
+    </message>
+    <message>
+        <source>Range</source>
+        <translation>Alcance</translation>
+    </message>
+    <message>
+        <source>A shadow cast by the letters</source>
+        <translation>Una sombra que proyectan las letras</translation>
+    </message>
+    <message>
+        <source>Add a shadow</source>
+        <translation>Añadir sombra</translation>
+    </message>
+    <message>
+        <source>Choose shadow colour</source>
+        <translation>Elegir el color de la sombra</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Desenfoque</translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation>Distancia</translation>
+    </message>
+    <message>
+        <source>Adjust shadow</source>
+        <translation>Ajustar la sombra</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Ángulo</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation>Curva</translation>
+    </message>
+    <message>
+        <source>Bend a single line of text along an arc</source>
+        <translation>Curvar una línea de texto a lo largo de un arco</translation>
+    </message>
+    <message>
+        <source>Bend the text</source>
+        <translation>Curvar el texto</translation>
+    </message>
+    <message>
+        <source>Strength</source>
+        <translation>Fuerza</translation>
+    </message>
+    <message>
+        <source>Save as my style…</source>
+        <translation>Guardar como mi estilo…</translation>
+    </message>
+    <message>
+        <source>Keep this text&apos;s font, colours, background and effects to reuse them</source>
+        <translation>Guarda la fuente, los colores, el fondo y los efectos de este texto para volver a usarlos</translation>
+    </message>
+    <message>
+        <source>Transform</source>
+        <translation>Transformación</translation>
+    </message>
+    <message>
+        <source>Blend</source>
+        <translation>Mezcla</translation>
+    </message>
+    <message>
+        <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
+        <translation>Todas las capas del estilo, paquetes de estilos, resaltado de palabras, subrayado y acentos de palabra</translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>
@@ -17451,6 +17651,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Choose accent highlight colour</source>
         <translation>Elegir color de resaltado de acento</translation>
+    </message>
+    <message>
+        <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
+        <translation>Una forma detrás del texto: globos de diálogo, etiquetas, trazos de pincel… Ajusta su color y tamaño en Básico → Fondo.</translation>
+    </message>
+    <message>
+        <source>Search text effects and styles</source>
+        <translation>Buscar efectos y estilos de texto</translation>
+    </message>
+    <message>
+        <source>Templates change the font too. The other styles keep yours.</source>
+        <translation>Las plantillas también cambian la fuente. Los demás estilos mantienen la tuya.</translation>
     </message>
     <message>
         <source>In</source>
@@ -17573,6 +17785,341 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Images (*.png *.jpg *.jpeg *.webp)</source>
         <translation>Imágenes (*.png *.jpg *.jpeg *.webp)</translation>
+    </message>
+</context>
+<context>
+    <name>TextQuickStyles</name>
+    <message>
+        <source>White</source>
+        <translation>Blanco</translation>
+    </message>
+    <message>
+        <source>Black outline</source>
+        <translation>Contorno negro</translation>
+    </message>
+    <message>
+        <source>Thick outline</source>
+        <translation>Contorno grueso</translation>
+    </message>
+    <message>
+        <source>Black on white</source>
+        <translation>Negro con blanco</translation>
+    </message>
+    <message>
+        <source>Yellow</source>
+        <translation>Amarillo</translation>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation>Rojo</translation>
+    </message>
+    <message>
+        <source>Soft shadow</source>
+        <translation>Sombra suave</translation>
+    </message>
+    <message>
+        <source>Sticker</source>
+        <translation>Pegatina</translation>
+    </message>
+    <message>
+        <source>Cyan</source>
+        <translation>Cian</translation>
+    </message>
+    <message>
+        <source>Pink</source>
+        <translation>Rosa</translation>
+    </message>
+    <message>
+        <source>Green</source>
+        <translation>Verde</translation>
+    </message>
+    <message>
+        <source>Orange</source>
+        <translation>Naranja</translation>
+    </message>
+    <message>
+        <source>Purple</source>
+        <translation>Morado</translation>
+    </message>
+    <message>
+        <source>Hollow</source>
+        <translation>Hueco</translation>
+    </message>
+    <message>
+        <source>Pink neon</source>
+        <translation>Neón rosa</translation>
+    </message>
+    <message>
+        <source>Cyan neon</source>
+        <translation>Neón cian</translation>
+    </message>
+    <message>
+        <source>Green neon</source>
+        <translation>Neón verde</translation>
+    </message>
+    <message>
+        <source>Yellow neon</source>
+        <translation>Neón amarillo</translation>
+    </message>
+    <message>
+        <source>Purple neon</source>
+        <translation>Neón morado</translation>
+    </message>
+    <message>
+        <source>Red neon</source>
+        <translation>Neón rojo</translation>
+    </message>
+    <message>
+        <source>Blue neon</source>
+        <translation>Neón azul</translation>
+    </message>
+    <message>
+        <source>Warm light</source>
+        <translation>Luz cálida</translation>
+    </message>
+    <message>
+        <source>Sunset</source>
+        <translation>Atardecer</translation>
+    </message>
+    <message>
+        <source>Ocean</source>
+        <translation>Océano</translation>
+    </message>
+    <message>
+        <source>Fire</source>
+        <translation>Fuego</translation>
+    </message>
+    <message>
+        <source>Candy</source>
+        <translation>Caramelo</translation>
+    </message>
+    <message>
+        <source>Gold</source>
+        <translation>Dorado</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>Menta</translation>
+    </message>
+    <message>
+        <source>Rainbow</source>
+        <translation>Arcoíris</translation>
+    </message>
+    <message>
+        <source>Chrome</source>
+        <translation>Cromo</translation>
+    </message>
+    <message>
+        <source>White 3D</source>
+        <translation>3D blanco</translation>
+    </message>
+    <message>
+        <source>Yellow 3D</source>
+        <translation>3D amarillo</translation>
+    </message>
+    <message>
+        <source>Pink 3D</source>
+        <translation>3D rosa</translation>
+    </message>
+    <message>
+        <source>Cyan 3D</source>
+        <translation>3D cian</translation>
+    </message>
+    <message>
+        <source>Retro</source>
+        <translation>Retro</translation>
+    </message>
+    <message>
+        <source>Red 3D</source>
+        <translation>3D rojo</translation>
+    </message>
+    <message>
+        <source>Hard shadow</source>
+        <translation>Sombra dura</translation>
+    </message>
+    <message>
+        <source>Long shadow</source>
+        <translation>Sombra larga</translation>
+    </message>
+    <message>
+        <source>Diffuse shadow</source>
+        <translation>Sombra difusa</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>Pop</translation>
+    </message>
+    <message>
+        <source>Double outline</source>
+        <translation>Doble contorno</translation>
+    </message>
+    <message>
+        <source>Dark halo</source>
+        <translation>Halo oscuro</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ninguna</translation>
+    </message>
+    <message>
+        <source>Speech</source>
+        <translation>Diálogo</translation>
+    </message>
+    <message>
+        <source>Balloon</source>
+        <translation>Globo</translation>
+    </message>
+    <message>
+        <source>Thought</source>
+        <translation>Pensamiento</translation>
+    </message>
+    <message>
+        <source>Boom!</source>
+        <translation>¡Boom!</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>Grito</translation>
+    </message>
+    <message>
+        <source>Pow!</source>
+        <translation>¡Pow!</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>Nube</translation>
+    </message>
+    <message>
+        <source>Black pill</source>
+        <translation>Píldora negra</translation>
+    </message>
+    <message>
+        <source>White pill</source>
+        <translation>Píldora blanca</translation>
+    </message>
+    <message>
+        <source>Yellow pill</source>
+        <translation>Píldora amarilla</translation>
+    </message>
+    <message>
+        <source>Caption box</source>
+        <translation>Caja de subtítulo</translation>
+    </message>
+    <message>
+        <source>Red box</source>
+        <translation>Caja roja</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>Etiqueta</translation>
+    </message>
+    <message>
+        <source>Kraft tag</source>
+        <translation>Etiqueta kraft</translation>
+    </message>
+    <message>
+        <source>Red ribbon</source>
+        <translation>Cinta roja</translation>
+    </message>
+    <message>
+        <source>Blue ribbon</source>
+        <translation>Cinta azul</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>Flecha</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>Ticket</translation>
+    </message>
+    <message>
+        <source>Sticky note</source>
+        <translation>Nota adhesiva</translation>
+    </message>
+    <message>
+        <source>Pink note</source>
+        <translation>Nota rosa</translation>
+    </message>
+    <message>
+        <source>Pink brush</source>
+        <translation>Pincel rosa</translation>
+    </message>
+    <message>
+        <source>Yellow brush</source>
+        <translation>Pincel amarillo</translation>
+    </message>
+    <message>
+        <source>Blue brush</source>
+        <translation>Pincel azul</translation>
+    </message>
+    <message>
+        <source>Black brush</source>
+        <translation>Pincel negro</translation>
+    </message>
+    <message>
+        <source>Paper</source>
+        <translation>Papel</translation>
+    </message>
+    <message>
+        <source>Kraft paper</source>
+        <translation>Papel kraft</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>Corazón</translation>
+    </message>
+    <message>
+        <source>Pastel cloud</source>
+        <translation>Nube pastel</translation>
+    </message>
+    <message>
+        <source>Lilac speech</source>
+        <translation>Diálogo lila</translation>
+    </message>
+    <message>
+        <source>Mint pill</source>
+        <translation>Píldora menta</translation>
+    </message>
+    <message>
+        <source>Pink balloon</source>
+        <translation>Globo rosa</translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation>Básicos</translation>
+    </message>
+    <message>
+        <source>Neon</source>
+        <translation>Neón</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation>Degradado</translation>
+    </message>
+    <message>
+        <source>3D</source>
+        <translation>3D</translation>
+    </message>
+    <message>
+        <source>Shadow and outline</source>
+        <translation>Sombra y contorno</translation>
+    </message>
+    <message>
+        <source>Comic</source>
+        <translation>Cómic</translation>
+    </message>
+    <message>
+        <source>Labels</source>
+        <translation>Etiquetas</translation>
+    </message>
+    <message>
+        <source>Brush and paper</source>
+        <translation>Pincel y papel</translation>
+    </message>
+    <message>
+        <source>Cute</source>
+        <translation>Lindos</translation>
     </message>
 </context>
 <context>
