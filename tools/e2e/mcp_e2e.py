@@ -39,13 +39,15 @@ def env_with_models(stage):
 class Bridge:
     """One long-lived headless instance, with a reader thread draining stdout."""
 
-    def __init__(self, exe, project, out_dir, stage):
+    def __init__(self, exe, project, out_dir, stage, window=False):
         self.out_dir = out_dir
         os.makedirs(out_dir, exist_ok=True)
         self.stderr_path = os.path.join(out_dir, "stderr.log")
         self._stderr = open(self.stderr_path, "wb")
-        args = [exe, "--headless", "--mcp-stdio"]
-        if project:
+        # --window: the editor runs with its window (started by main(), the project on its command
+        # line) and this bridge attaches to it, so "screenshot" calls see the real UI.
+        args = [exe, "--mcp-stdio"] if window else [exe, "--headless", "--mcp-stdio"]
+        if project and not window:
             args.append(project)
         self.proc = subprocess.Popen(
             args,
@@ -143,6 +145,133 @@ def remember(reply, wanted, memory):
                 memory[name] = data[field]
 
 
+def screenshot(pid, path):
+    """The main window of process pid, drawn by the window itself (PrintWindow), so nothing in
+    front of it on the desktop can end up in the picture. Saved as a PNG."""
+    import ctypes
+    from ctypes import wintypes
+
+    from PIL import Image
+
+    user32 = ctypes.windll.user32
+    gdi32 = ctypes.windll.gdi32
+    try:
+        ctypes.windll.shcore.SetProcessDpiAwareness(2)  # real pixels, not scaled ones
+    except OSError:
+        pass
+    found = []
+
+    @ctypes.WINFUNCTYPE(wintypes.BOOL, wintypes.HWND, wintypes.LPARAM)
+    def each(hwnd, _):
+        owner = wintypes.DWORD()
+        user32.GetWindowThreadProcessId(hwnd, ctypes.byref(owner))
+        if owner.value == pid and user32.IsWindowVisible(hwnd) and user32.GetWindowTextLengthW(hwnd) > 0:
+            found.append(hwnd)
+        return True
+
+    user32.EnumWindows(each, 0)
+    if not found:
+        return "no window"
+    hwnd = found[0]
+    user32.ShowWindow(hwnd, 3)  # maximized, but never pulled in front of anything
+    time.sleep(1.5)
+    rect = wintypes.RECT()
+    user32.GetWindowRect(hwnd, ctypes.byref(rect))
+    w, h = rect.right - rect.left, rect.bottom - rect.top
+    window_dc = user32.GetWindowDC(hwnd)
+    mem_dc = gdi32.CreateCompatibleDC(window_dc)
+    bitmap = gdi32.CreateCompatibleBitmap(window_dc, w, h)
+    gdi32.SelectObject(mem_dc, bitmap)
+    user32.PrintWindow(hwnd, mem_dc, 2)  # PW_RENDERFULLCONTENT: GPU-drawn content too
+
+    class BITMAPINFOHEADER(ctypes.Structure):
+        _fields_ = [("biSize", wintypes.DWORD), ("biWidth", wintypes.LONG), ("biHeight", wintypes.LONG),
+                    ("biPlanes", wintypes.WORD), ("biBitCount", wintypes.WORD), ("biCompression", wintypes.DWORD),
+                    ("biSizeImage", wintypes.DWORD), ("biXPelsPerMeter", wintypes.LONG),
+                    ("biYPelsPerMeter", wintypes.LONG), ("biClrUsed", wintypes.DWORD), ("biClrImportant", wintypes.DWORD)]
+
+    info = BITMAPINFOHEADER()
+    info.biSize = ctypes.sizeof(BITMAPINFOHEADER)
+    info.biWidth, info.biHeight, info.biPlanes, info.biBitCount = w, -h, 1, 32
+    buffer = ctypes.create_string_buffer(w * h * 4)
+    gdi32.GetDIBits(mem_dc, bitmap, 0, h, buffer, ctypes.byref(info), 0)
+    Image.frombuffer("RGBA", (w, h), buffer, "raw", "BGRA", 0, 1).convert("RGB").save(path)
+    gdi32.DeleteObject(bitmap)
+    gdi32.DeleteDC(mem_dc)
+    user32.ReleaseDC(hwnd, window_dc)
+    return path
+
+
+def click(pid, x, y):
+    """A left click at (x, y) of the window's own picture (as a screenshot shows it), posted to the
+    window as messages: the real mouse never moves and nothing else on the desktop is touched."""
+    import ctypes
+    from ctypes import wintypes
+
+    user32 = ctypes.windll.user32
+    try:
+        ctypes.windll.shcore.SetProcessDpiAwareness(2)
+    except OSError:
+        pass
+    found = []
+
+    @ctypes.WINFUNCTYPE(wintypes.BOOL, wintypes.HWND, wintypes.LPARAM)
+    def each(hwnd, _):
+        owner = wintypes.DWORD()
+        user32.GetWindowThreadProcessId(hwnd, ctypes.byref(owner))
+        if owner.value == pid and user32.IsWindowVisible(hwnd) and user32.GetWindowTextLengthW(hwnd) > 0:
+            found.append(hwnd)
+        return True
+
+    user32.EnumWindows(each, 0)
+    if not found:
+        return "no window"
+    hwnd = found[0]
+    rect = wintypes.RECT()
+    user32.GetWindowRect(hwnd, ctypes.byref(rect))
+    point = wintypes.POINT(rect.left + int(x), rect.top + int(y))
+    user32.ScreenToClient(hwnd, ctypes.byref(point))
+    lparam = (point.y << 16) | (point.x & 0xFFFF)
+    WM_MOUSEMOVE, WM_LBUTTONDOWN, WM_LBUTTONUP, MK_LBUTTON = 0x200, 0x201, 0x202, 1
+    user32.PostMessageW(hwnd, WM_MOUSEMOVE, 0, lparam)
+    time.sleep(0.05)
+    user32.PostMessageW(hwnd, WM_LBUTTONDOWN, MK_LBUTTON, lparam)
+    time.sleep(0.08)
+    user32.PostMessageW(hwnd, WM_LBUTTONUP, 0, lparam)
+    return f"clicked {x},{y}"
+
+
+def wheel(pid, x, y, notches):
+    """Wheel notches (negative: down) at (x, y) of the window, posted like click()."""
+    import ctypes
+    from ctypes import wintypes
+
+    user32 = ctypes.windll.user32
+    found = []
+
+    @ctypes.WINFUNCTYPE(wintypes.BOOL, wintypes.HWND, wintypes.LPARAM)
+    def each(hwnd, _):
+        owner = wintypes.DWORD()
+        user32.GetWindowThreadProcessId(hwnd, ctypes.byref(owner))
+        if owner.value == pid and user32.IsWindowVisible(hwnd) and user32.GetWindowTextLengthW(hwnd) > 0:
+            found.append(hwnd)
+        return True
+
+    user32.EnumWindows(each, 0)
+    if not found:
+        return "no window"
+    hwnd = found[0]
+    rect = wintypes.RECT()
+    user32.GetWindowRect(hwnd, ctypes.byref(rect))
+    sx, sy = rect.left + int(x), rect.top + int(y)  # WM_MOUSEWHEEL takes screen coordinates
+    lparam = ((sy & 0xFFFF) << 16) | (sx & 0xFFFF)
+    for _ in range(abs(int(notches))):
+        delta = 120 if notches > 0 else -120
+        user32.PostMessageW(hwnd, 0x020A, (delta & 0xFFFF) << 16, lparam)
+        time.sleep(0.08)
+    return f"wheel {notches} at {x},{y}"
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--exe", required=True)
@@ -151,17 +280,38 @@ def main():
     ap.add_argument("--project", default="")
     ap.add_argument("--stage", default=r"C:\Users\bajoe\Downloads\flip-addons\build\stage")
     ap.add_argument("--wait", type=float, default=180.0)
+    ap.add_argument("--window", action="store_true", help="show the window; enables screenshot calls")
     opts = ap.parse_args()
 
     with open(opts.calls, encoding="utf-8") as fh:
         calls = [json.loads(line) for line in fh if line.strip()]
 
-    bridge = Bridge(opts.exe, opts.project, opts.out, opts.stage)
+    gui = None
+    if opts.window:
+        gui = subprocess.Popen([opts.exe] + ([opts.project] if opts.project else []),
+                               env=env_with_models(opts.stage), cwd=os.path.dirname(opts.exe))
+        time.sleep(15)
+    bridge = Bridge(opts.exe, opts.project, opts.out, opts.stage, window=opts.window)
     memory = {}
     try:
         for index, call in enumerate(calls, start=1):
             tool = call["tool"]
             args = substitute(call.get("args", {}), memory)
+            if tool == "click":
+                print(f"[{index}] {click(gui.pid if gui else bridge.proc.pid, args['x'], args['y'])}")
+                time.sleep(float(call.get("sleep", 1.0)))
+                continue
+            if tool == "wheel":
+                print(f"[{index}] {wheel(gui.pid if gui else bridge.proc.pid, args['x'], args['y'], args['notches'])}")
+                time.sleep(float(call.get("sleep", 1.0)))
+                continue
+            if tool == "screenshot":
+                # Not an MCP tool: a picture of the app's window (needs --window).
+                path = os.path.join(opts.out, call.get("save") or f"{index:02d}_screenshot.png")
+                print(f"[{index}] screenshot -> {screenshot(gui.pid if gui else bridge.proc.pid, path)}")
+                if call.get("sleep"):
+                    time.sleep(float(call["sleep"]))
+                continue
             wait = float(call.get("wait", opts.wait))
             print(f"[{index}] {tool} {json.dumps(args)[:160]}")
             reply = bridge.call(tool, args, wait=wait)
@@ -176,6 +326,8 @@ def main():
                 time.sleep(float(sleep))
     finally:
         bridge.close()
+        if gui:
+            gui.kill()
     print(f"done; stderr in {bridge.stderr_path}")
     return 0
 

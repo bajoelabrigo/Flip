@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Shapes
 import Drift
 import ".."
 
@@ -356,14 +357,35 @@ Item {
                 // point of the box is the handles, and the real shape is visible in the composite
                 // behind it.
                 Rectangle {
+                    // An ellipse gets its own outline below: a rounded box reads as a pill, not
+                    // the ellipse the composite shows.
+                    visible: maskBox.maskData.shape !== "ellipse"
                     anchors.fill: parent
                     color: "transparent"
                     border.width: Theme.borderWidth
                     border.color: maskBox.isSelected ? Theme.primary : Theme.mutedForeground
                     opacity: maskBox.maskData.enabled === false
                              ? 0.25 : (maskBox.isSelected ? 1.0 : 0.5)
-                    radius: maskBox.maskData.shape === "ellipse"
-                            ? Math.min(width, height) / 2 : 0
+                }
+                Shape {
+                    visible: maskBox.maskData.shape === "ellipse"
+                    anchors.fill: parent
+                    preferredRendererType: Shape.CurveRenderer
+                    opacity: maskBox.maskData.enabled === false
+                             ? 0.25 : (maskBox.isSelected ? 1.0 : 0.5)
+                    ShapePath {
+                        strokeColor: maskBox.isSelected ? Theme.primary : Theme.mutedForeground
+                        strokeWidth: Theme.borderWidth
+                        fillColor: "transparent"
+                        PathAngleArc {
+                            centerX: maskBox.width / 2
+                            centerY: maskBox.height / 2
+                            radiusX: maskBox.width / 2
+                            radiusY: maskBox.height / 2
+                            startAngle: 0
+                            sweepAngle: 360
+                        }
+                    }
                 }
 
                 // Feather reaches beyond the shape's edge, so show how far. Drawn outside so it
