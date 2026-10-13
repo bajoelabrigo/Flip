@@ -87,29 +87,29 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
-**Notas de la versión (0.9.5)** — esto es lo que va en "Novedades de esta versión" de Partner
-Center. **El campo tiene un límite de 1500 caracteres** (este texto tiene 911). Ni la 0.9.3 ni la
-0.9.4 llegaron a la Store, así que estas notas cubren las tres versiones.
+**Notas de la versión (0.9.6)**. Este texto va en "Novedades de esta versión" de Partner
+Center. **El campo tiene un límite de 1500 caracteres** (este texto tiene 904). Ni la 0.9.3, ni la
+0.9.4, ni la 0.9.5 llegaron a la Store, así que estas notas las cubren todas.
 
-> **Novedades de la 0.9.5**
+> **Novedades de la 0.9.6**
 >
-> AJUSTE DE COLOR, COMO EN CAPCUT
-> Nueva pestaña Ajuste con Básico (exposición, brillo, contraste, temperatura…), HSL, Curvas y Círculo cromático.
+> EL TEXTO, COMO EN CAPCUT
+> Nuevo panel de texto con Básico, Burbuja, Efectos y Animación. Trazo, fondo, brillo, sombra y curva con un interruptor cada uno. El fondo puede ir detrás de cada línea y tiene opacidad, esquinas, alto, ancho y borde.
 >
-> MÚSICA LIBRE
-> Pestaña Música con 65 canciones gratis en 12 estilos, para usar también en videos monetizados. Se instala desde Extras.
+> 32 BURBUJAS Y MÁS DE 40 ESTILOS
+> Globos de diálogo, ¡Boom!, nubes, etiquetas, cintas, notas adhesivas y trazos de pincel. Estilos neón, degradado, 3D, sombra y contorno que mantienen tu fuente.
+>
+> AJUSTE DE COLOR Y MÚSICA LIBRE
+> Básico, HSL, Curvas y Círculo cromático. Pestaña Música con 65 canciones gratis, también para videos monetizados.
 >
 > EL PANEL DE VIDEO, COMO EN CAPCUT
-> Básico, Quitar fondo, Máscara y Retoque. Retoque se ordena en Rostro, Cuerpo y Cabello, con estilos automáticos, piel, funciones y maquillaje.
->
-> DIEZ TRANSICIONES NUEVAS
-> Ya son 39, todas con vista previa animada. Y si recortas un efecto en la línea de tiempo, se queda donde lo pusiste.
+> Básico, Quitar fondo, Máscara y Retoque (Rostro, Cuerpo y Cabello, con maquillaje).
 >
 > TODO EN ESPAÑOL
-> Los nombres de efectos, transiciones y animaciones ya salen en español, y la app vuelve a estar entera en español con Español (Colombia) elegido.
+> Efectos, transiciones y animaciones con nombres en español.
 >
-> MÁS CÓMODO
-> Las categorías se reparten en filas que se pueden plegar, y los stickers y emojis se animan al pasar el ratón.
+> ARREGLOS
+> Los paneles ya no se encogen cada vez que abres la app, y las canciones entran completas.
 
 **Notas de la versión (0.8.1) — anteriores, se conservan por referencia:**
 

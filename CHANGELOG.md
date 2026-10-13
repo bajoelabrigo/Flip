@@ -3,6 +3,29 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.9.6 — El texto como en CapCut
+
+- `TextInspector.qml` pasa a las páginas de CapCut: Básico, Burbuja, Efectos y Animación.
+  - Básico agrupa:
+    - fuente, tamaño, B/U/I, mayúsculas/minúsculas, color, espaciado y alineación;
+    - Estilo preestablecido;
+    - las secciones con interruptor Trazo, Fondo, Brillo, Sombra y Curva, que editan la capa de ese tipo;
+    - Transformación y Mezcla;
+    - lo que antes era la página Estilo, plegado en Avanzado.
+- `TextStyle` suma `textCase`, que se aplica al maquetar sin cambiar el texto y carácter a carácter para no mover los índices.
+- El fondo suma:
+  - `boxStyle` (bloque o línea) y `boxShape`;
+  - `boxPaddingX/Y`, que si no se tocan caen en `boxPadding`;
+  - `boxOffsetX/Y` y `boxBorderColor/Width`.
+  - Solo se escriben si se usan, así que los proyectos viejos no cambian.
+- `SkiaTextPainter::drawBackground` dibuja el fondo por bloque o por línea, con desplazamiento, borde y las formas de burbuja de `bubblePath()`.
+- `core/TextQuickStyles` reúne dos catálogos:
+  - 41 estilos rápidos, que mantienen la fuente;
+  - 32 burbujas.
+  - Sus miniaturas salen de `image://textlook/quick:<id>` y `bubble:<id>`.
+- `Main.qml` ya no aplica las fracciones guardadas de los paneles antes de que la ventana llegue a su estado final (maximizada). Antes se convertían en píxeles contra la ventana sin maximizar, y cada arranque guardaba fracciones más chicas.
+- El estado vacío de Medios no se sale por encima del panel.
+
 ## 0.9.5 — Ajuste de color, música libre y los catálogos en español
 
 La 0.9.4 no se publicó por separado: sale dentro de esta.
