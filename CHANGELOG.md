@@ -23,6 +23,11 @@ registro heredado de Drift.
   - 41 estilos rápidos, que mantienen la fuente;
   - 32 burbujas.
   - Sus miniaturas salen de `image://textlook/quick:<id>` y `bubble:<id>`.
+- Favoritos (`EditorState.isAssetFavorite` y `AssetFavoriteButton`) en:
+  - Música y Efectos de sonido;
+  - los paquetes de estilos de texto y las plantillas de subtítulos;
+  - las páginas Burbuja, Efectos y Animación del texto, con su filtro Favoritos.
+- "Guardar como mi estilo…" también al final de Básico.
 - `Main.qml` ya no aplica las fracciones guardadas de los paneles antes de que la ventana llegue a su estado final (maximizada). Antes se convertían en píxeles contra la ventana sin maximizar, y cada arranque guardaba fracciones más chicas.
 - El estado vacío de Medios no se sale por encima del panel.
 
