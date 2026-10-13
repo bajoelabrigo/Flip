@@ -202,8 +202,8 @@ def screenshot(pid, path):
     return path
 
 
-def click(pid, x, y):
-    """A left click at (x, y) of the window's own picture (as a screenshot shows it), posted to the
+def click(pid, x, y, button="left"):
+    """A left (or right) click at (x, y) of the window's own picture (as a screenshot shows it), posted to the
     window as messages: the real mouse never moves and nothing else on the desktop is touched."""
     import ctypes
     from ctypes import wintypes
@@ -232,13 +232,14 @@ def click(pid, x, y):
     point = wintypes.POINT(rect.left + int(x), rect.top + int(y))
     user32.ScreenToClient(hwnd, ctypes.byref(point))
     lparam = (point.y << 16) | (point.x & 0xFFFF)
-    WM_MOUSEMOVE, WM_LBUTTONDOWN, WM_LBUTTONUP, MK_LBUTTON = 0x200, 0x201, 0x202, 1
+    WM_MOUSEMOVE = 0x200
+    down, up, held = (0x204, 0x205, 2) if button == "right" else (0x201, 0x202, 1)
     user32.PostMessageW(hwnd, WM_MOUSEMOVE, 0, lparam)
     time.sleep(0.05)
-    user32.PostMessageW(hwnd, WM_LBUTTONDOWN, MK_LBUTTON, lparam)
+    user32.PostMessageW(hwnd, down, held, lparam)
     time.sleep(0.08)
-    user32.PostMessageW(hwnd, WM_LBUTTONUP, 0, lparam)
-    return f"clicked {x},{y}"
+    user32.PostMessageW(hwnd, up, 0, lparam)
+    return f"{button}-clicked {x},{y}"
 
 
 def wheel(pid, x, y, notches):
@@ -304,7 +305,7 @@ def main():
             tool = call["tool"]
             args = substitute(call.get("args", {}), memory)
             if tool == "click":
-                print(f"[{index}] {click(gui.pid if gui else bridge.proc.pid, args['x'], args['y'])}")
+                print(f"[{index}] {click(gui.pid if gui else bridge.proc.pid, args['x'], args['y'], args.get('button', 'left'))}")
                 time.sleep(float(call.get("sleep", 1.0)))
                 continue
             if tool == "wheel":
