@@ -71,6 +71,36 @@ struct Clip
     // stretch the effect back over the whole clip and undo the trim.
     bool independentRange = false;
 
+    // Switched off (Premiere's "Enable" unticked): the clip keeps its place and every setting, but
+    // the compositor leaves it out. Saved only when true, so older projects read as before.
+    bool disabled = false;
+
+    // A standalone adjustment layer's further masks, after `mask` in the stack (each folds into
+    // the ones before it by its op). Saved as "extraMasks" only when there are any.
+    QList<Mask> extraMasks;
+    // Which of the stack the inspector, the preview handles and the "mask.<key>" keyframes edit:
+    // 0 is `mask`, i is extraMasks[i - 1]. Editing state, not saved.
+    int maskFocus = 0;
+    Mask &focusedMask()
+    {
+        return maskFocus > 0 && maskFocus <= extraMasks.size() ? extraMasks[maskFocus - 1] : mask;
+    }
+    const Mask &focusedMask() const
+    {
+        return maskFocus > 0 && maskFocus <= extraMasks.size() ? extraMasks.at(maskFocus - 1) : mask;
+    }
+    // `mask` and extraMasks, in fold order.
+    QList<Mask> maskStack() const
+    {
+        QList<Mask> all{mask};
+        all += extraMasks;
+        return all;
+    }
+
+    // A media clip's masks (its Mask lanes) limit where its effects land instead of cutting the
+    // clip: inside, the effects; outside, the clip as it was. Saved only when true.
+    bool masksLimitEffects = false;
+
     // When true, AudioMixer skips this video clip's embedded audio (companion audio track plays it).
     bool suppressEmbeddedAudio = false;
     // 0-based index among the audio streams in `path` (for multi-track video/audio files from OBS, etc.)

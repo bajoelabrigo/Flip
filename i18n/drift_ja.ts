@@ -392,6 +392,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Mask</source>
         <translation type="unfinished">マスク</translation>
     </message>
@@ -432,6 +436,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Whites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blacks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Saturation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -448,16 +460,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Fade</source>
+        <translation type="unfinished">フェード</translation>
+    </message>
+    <message>
         <source>Light</source>
         <translation type="unfinished">ライト</translation>
     </message>
     <message>
-        <source>Reset basic adjustments</source>
+        <source>Reset light</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Colour</source>
         <translation type="unfinished">カラー</translation>
+    </message>
+    <message>
+        <source>Reset colour</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Red</source>
@@ -550,6 +570,85 @@
     <message>
         <source>Add mask</source>
         <translation type="unfinished">マスクを追加</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">なし</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">矩形</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">円</translation>
+    </message>
+    <message>
+        <source>Film strip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished">ハート</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">テキスト</translation>
+    </message>
+    <message>
+        <source>Freeform</source>
+        <translation type="unfinished">フリーフォーム</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation type="unfinished">グラデーション</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdjustmentLayerInspector</name>
+    <message>
+        <source>Strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Everything you put on this layer (effects, colour, masks) applies to whatever is under it while it lasts, without touching those clips. Stretch or move it on the timeline to change where it acts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>It does not change anything yet: give it an effect (Effects tab) or a colour adjustment (Adjust tab). A mask only marks where they act.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">名前</translation>
+    </message>
+    <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">調整レイヤー</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation type="unfinished">オン</translation>
+    </message>
+    <message>
+        <source>Off: not applied, but keeps all its settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn the layer off to compare with and without it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0 %: what is under it, untouched. 100 %: the whole layer. In between, a mix of the two.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2687,6 +2786,14 @@
         <translation>このマシンでは GPU プレビューレンダリングを利用できません。「ヘルプ」→「デバッグ情報」を参照してください。</translation>
     </message>
     <message>
+        <source>Off</source>
+        <translation type="unfinished">オフ</translation>
+    </message>
+    <message>
+        <source>Off · %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Media and referenced clips removed</source>
         <translation>メディアおよび参照されたクリップを削除しました</translation>
     </message>
@@ -3009,6 +3116,22 @@
         <translation>クリップ名を変更しました</translation>
     </message>
     <message>
+        <source>Turn off clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn on clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turned off: it keeps its settings but is left out of the picture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turned on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Edit text</source>
         <translation>テキストを編集</translation>
     </message>
@@ -3321,6 +3444,22 @@
         <translation>クリップマスクを更新しました</translation>
     </message>
     <message>
+        <source>Masks limit the effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Masks cut the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The masks now limit where the clip&apos;s effects and colour show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The masks now cut the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3373,6 +3512,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Linear gradient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add mask point</source>
         <translation>マスクポイントを追加</translation>
     </message>
@@ -3399,6 +3542,18 @@
     <message>
         <source>Transition updated</source>
         <translation>トランジションを更新しました</translation>
+    </message>
+    <message>
+        <source>The LUT library folder could not be created.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The LUT could not be copied into the library: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The LUT «%1» is not where the project saved it, nor in your LUT library. Find it to use it again.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Voice changer</source>
@@ -5395,6 +5550,10 @@
         <translation>比較 (明)</translation>
     </message>
     <message>
+        <source>Soft light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>How this clip blends with the layers below</source>
         <translation>このクリップが下のレイヤーとどのようにブレンドされるか</translation>
     </message>
@@ -5645,6 +5804,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Whites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blacks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Vibrance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5830,6 +5997,14 @@
     </message>
     <message>
         <source>Magenta lightness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6406,6 +6581,18 @@
     </message>
     <message>
         <source>Flicker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Film Grain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grain size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour grain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7860,6 +8047,65 @@
     <message>
         <source>Apply</source>
         <translation>適用</translation>
+    </message>
+</context>
+<context>
+    <name>CubeLut</name>
+    <message>
+        <source>The table starts before LUT_3D_SIZE or LUT_1D_SIZE says how big it is.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line %1 is not three numbers (red, green, blue).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The table has more rows than its size says (%1).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The file declares more than one table; only one per file is supported.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT_3D_SIZE must be between 2 and %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT_1D_SIZE must be between 2 and %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 needs three numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 needs two numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This is not a .cube LUT: it has no LUT_3D_SIZE or LUT_1D_SIZE line.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DOMAIN_MAX must be above DOMAIN_MIN on every channel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The table is incomplete: it has %1 of the %2 rows its size needs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The LUT file is not there any more: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The LUT file is too large (over 64 MB).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The LUT file could not be opened: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -10752,6 +10998,104 @@
     </message>
 </context>
 <context>
+    <name>Lut</name>
+    <message>
+        <source>Cinematic</source>
+        <translation type="unfinished">シネマティック</translation>
+    </message>
+    <message>
+        <source>Warm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vintage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Teal &amp; Orange</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black &amp; White</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LutPage</name>
+    <message>
+        <source>Import LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT (*.cube)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation type="unfinished">すべてのファイル (*)</translation>
+    </message>
+    <message>
+        <source>This file is not a LUT that can be used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A LUT is a ready-made colour look. Pick one, or import a .cube file; Intensity mixes it with the original colour.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import LUT…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No LUT chosen yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn the LUT off to compare with and without it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find the LUT…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation type="unfinished">強度</translation>
+    </message>
+    <message>
+        <source>LUT intensity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset LUT intensity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset intensity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Looks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imported</source>
+        <translation type="unfinished">インポート済み</translation>
+    </message>
+    <message>
+        <source>Delete from my LUTs</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Main</name>
     <message>
         <source>&amp;File</source>
@@ -11258,6 +11602,21 @@
     </message>
 </context>
 <context>
+    <name>MaskShapeTiles</name>
+    <message>
+        <source>Remove this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change this mask to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a %1 mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MasksInspector</name>
     <message>
         <source>None</source>
@@ -11281,6 +11640,26 @@
     </message>
     <message>
         <source>Edit this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Masks choose where this layer&apos;s effects, colour and LUT show: inside, the layer; outside, what is under it, untouched.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add mask</source>
+        <translation type="unfinished">マスクを追加</translation>
+    </message>
+    <message>
+        <source>Add a mask to this layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn this mask off without removing it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11314,6 +11693,10 @@
     <message>
         <source>Text</source>
         <translation type="unfinished">テキスト</translation>
+    </message>
+    <message>
+        <source>Linear gradient</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TEXT</source>
@@ -11356,6 +11739,10 @@
         <translation>マスクを削除</translation>
     </message>
     <message>
+        <source>Reset mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Center X</source>
         <translation>センター X</translation>
     </message>
@@ -11372,12 +11759,24 @@
         <translation>高さ</translation>
     </message>
     <message>
+        <source>Fade length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rotation</source>
         <translation>回転</translation>
     </message>
     <message>
         <source>Feather</source>
         <translation>ぼかし</translation>
+    </message>
+    <message>
+        <source>Expand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask opacity</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invert</source>
@@ -12412,8 +12811,8 @@
         <translation>グラフィック</translation>
     </message>
     <message>
-        <source>Adjustment</source>
-        <translation>調整</translation>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">調整レイヤー</translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -13611,6 +14010,10 @@ If playback stutters, try another.</source>
     <message>
         <source>General</source>
         <translation>全般</translation>
+    </message>
+    <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">調整レイヤー</translation>
     </message>
     <message>
         <source>Text</source>
@@ -18816,6 +19219,10 @@ If playback stutters, try another.</source>
         <translation>変形レイヤーを追加</translation>
     </message>
     <message>
+        <source>Add adjustment layer</source>
+        <translation type="unfinished">調整レイヤーを追加</translation>
+    </message>
+    <message>
         <source>Select transform layer</source>
         <translation>変形レイヤーを選択</translation>
     </message>
@@ -19172,6 +19579,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Clear work area</source>
         <translation>ワークエリアをクリア</translation>
+    </message>
+    <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">調整レイヤー</translation>
     </message>
     <message>
         <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
@@ -21058,6 +21469,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Gradient</source>
+        <translation type="unfinished">グラデーション</translation>
+    </message>
+    <message>
         <source>Cutout</source>
         <translation type="unfinished">切り抜き</translation>
     </message>
@@ -21083,14 +21498,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove this mask</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change this mask to %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add a %1 mask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -21154,12 +21561,36 @@ If playback stutters, try another.</source>
         <translation type="unfinished">高さ</translation>
     </message>
     <message>
+        <source>Fade length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rotation</source>
         <translation type="unfinished">回転</translation>
     </message>
     <message>
         <source>Feather</source>
         <translation type="unfinished">ぼかし</translation>
+    </message>
+    <message>
+        <source>Expand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The masks limit the effects: inside, the clip&apos;s effects and colour; outside, the clip as it is</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use the masks only for the effects (the clip stays whole)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask on</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invert</source>

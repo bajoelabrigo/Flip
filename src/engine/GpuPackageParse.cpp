@@ -331,6 +331,11 @@ bool loadGpuPipeline(const QJsonObject &root, const QString &packageDir, int max
         drift::GpuEffectTextureSpec tex;
         tex.id = t.value(QStringLiteral("id")).toString();
         tex.file = t.value(QStringLiteral("file")).toString();
+        tex.fromParameter = t.value(QStringLiteral("fromParameter")).toString();
+        if (!tex.id.isEmpty() && tex.file.isEmpty() && !tex.fromParameter.isEmpty()) {
+            out->textures.append(tex);
+            continue;
+        }
         if (tex.id.isEmpty() || tex.file.isEmpty()) {
             fail(errorOut, QStringLiteral("texture needs both id and file"));
             return false;

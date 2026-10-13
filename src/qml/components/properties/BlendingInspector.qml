@@ -51,7 +51,7 @@ Item {
         ThemedComboBox {
             id: blendModeBox
             width: parent.width
-            model: ["normal", "multiply", "screen", "overlay", "add", "darken", "lighten"]
+            model: ["normal", "multiply", "screen", "overlay", "soft-light", "add", "darken", "lighten"]
             // Human labels — raw ids were shown to the user.
             property var labels: ({
                 "normal": qsTr("Normal"),
@@ -60,7 +60,8 @@ Item {
                 "overlay": qsTr("Overlay"),
                 "add": qsTr("Add"),
                 "darken": qsTr("Darken"),
-                "lighten": qsTr("Lighten")
+                "lighten": qsTr("Lighten"),
+                "soft-light": qsTr("Soft light")
             })
             displayText: labels[model[currentIndex]] || model[currentIndex]
             tooltip: qsTr("How this clip blends with the layers below")

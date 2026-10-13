@@ -3,7 +3,32 @@
   "displayName": "Vignette",
   "category": "dreamy",
   "order": 110,
-  "parameters": [],
+  "parameters": [
+    {
+      "identifier": "amount",
+      "displayName": "Amount",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1.5,
+      "defaultValue": 0.55
+    },
+    {
+      "identifier": "size",
+      "displayName": "Size",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "softness",
+      "displayName": "Softness",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 1
+    }
+  ],
   "backend": "gpu",
   "pipeline": {
     "intermediateBuffers": [],

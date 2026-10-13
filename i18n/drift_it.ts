@@ -392,6 +392,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Mask</source>
         <translation type="unfinished">Maschera</translation>
     </message>
@@ -432,6 +436,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Whites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blacks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Saturation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -448,16 +460,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Fade</source>
+        <translation type="unfinished">Dissolvenza</translation>
+    </message>
+    <message>
         <source>Light</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Reset basic adjustments</source>
+        <source>Reset light</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Colour</source>
         <translation type="unfinished">Colore</translation>
+    </message>
+    <message>
+        <source>Reset colour</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Red</source>
@@ -550,6 +570,85 @@
     <message>
         <source>Add mask</source>
         <translation type="unfinished">Aggiungi maschera</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">Nessuno</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">Rettangolo</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">Cerchio</translation>
+    </message>
+    <message>
+        <source>Film strip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished">Cuore</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Testo</translation>
+    </message>
+    <message>
+        <source>Freeform</source>
+        <translation type="unfinished">Forma libera</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdjustmentLayerInspector</name>
+    <message>
+        <source>Strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Everything you put on this layer (effects, colour, masks) applies to whatever is under it while it lasts, without touching those clips. Stretch or move it on the timeline to change where it acts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>It does not change anything yet: give it an effect (Effects tab) or a colour adjustment (Adjust tab). A mask only marks where they act.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nome</translation>
+    </message>
+    <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">Livello di regolazione</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Off: not applied, but keeps all its settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn the layer off to compare with and without it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0 %: what is under it, untouched. 100 %: the whole layer. In between, a mix of the two.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2706,6 +2805,14 @@
         <translation>Il rendering dell&apos;anteprima GPU non è disponibile su questo computer. Consulta Guida → Informazioni di debug.</translation>
     </message>
     <message>
+        <source>Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Off · %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Media rotated</source>
         <translation>Elemento multimediale ruotato</translation>
     </message>
@@ -3012,6 +3119,22 @@
     <message>
         <source>Clip renamed</source>
         <translation>Clip rinominata</translation>
+    </message>
+    <message>
+        <source>Turn off clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn on clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turned off: it keeps its settings but is left out of the picture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turned on</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit text</source>
@@ -3326,6 +3449,22 @@
         <translation>Maschera clip aggiornata</translation>
     </message>
     <message>
+        <source>Masks limit the effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Masks cut the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The masks now limit where the clip&apos;s effects and colour show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The masks now cut the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>TEXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3378,6 +3517,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Linear gradient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add mask point</source>
         <translation>Aggiungi punto maschera</translation>
     </message>
@@ -3404,6 +3547,18 @@
     <message>
         <source>Transition updated</source>
         <translation>Transizione aggiornata</translation>
+    </message>
+    <message>
+        <source>The LUT library folder could not be created.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The LUT could not be copied into the library: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The LUT «%1» is not where the project saved it, nor in your LUT library. Find it to use it again.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Voice changer</source>
@@ -5419,6 +5574,10 @@
         <translation>Schiarisci</translation>
     </message>
     <message>
+        <source>Soft light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>How this clip blends with the layers below</source>
         <translation>Come si fonde questa clip con i livelli sottostanti</translation>
     </message>
@@ -5669,6 +5828,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Whites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blacks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Vibrance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5854,6 +6021,14 @@
     </message>
     <message>
         <source>Magenta lightness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6430,6 +6605,18 @@
     </message>
     <message>
         <source>Flicker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Film Grain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grain size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour grain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7884,6 +8071,65 @@
     <message>
         <source>Apply</source>
         <translation>Applica</translation>
+    </message>
+</context>
+<context>
+    <name>CubeLut</name>
+    <message>
+        <source>The table starts before LUT_3D_SIZE or LUT_1D_SIZE says how big it is.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line %1 is not three numbers (red, green, blue).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The table has more rows than its size says (%1).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The file declares more than one table; only one per file is supported.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT_3D_SIZE must be between 2 and %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT_1D_SIZE must be between 2 and %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 needs three numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 needs two numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This is not a .cube LUT: it has no LUT_3D_SIZE or LUT_1D_SIZE line.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DOMAIN_MAX must be above DOMAIN_MIN on every channel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The table is incomplete: it has %1 of the %2 rows its size needs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The LUT file is not there any more: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The LUT file is too large (over 64 MB).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The LUT file could not be opened: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -10784,6 +11030,104 @@
     </message>
 </context>
 <context>
+    <name>Lut</name>
+    <message>
+        <source>Cinematic</source>
+        <translation type="unfinished">Cinematografico</translation>
+    </message>
+    <message>
+        <source>Warm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vintage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Teal &amp; Orange</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black &amp; White</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LutPage</name>
+    <message>
+        <source>Import LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT (*.cube)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation type="unfinished">Tutti i file (*)</translation>
+    </message>
+    <message>
+        <source>This file is not a LUT that can be used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A LUT is a ready-made colour look. Pick one, or import a .cube file; Intensity mixes it with the original colour.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import LUT…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No LUT chosen yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn the LUT off to compare with and without it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find the LUT…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation type="unfinished">Intensità</translation>
+    </message>
+    <message>
+        <source>LUT intensity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset LUT intensity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset intensity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Looks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imported</source>
+        <translation type="unfinished">Importati</translation>
+    </message>
+    <message>
+        <source>Delete from my LUTs</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Main</name>
     <message>
         <source>&amp;File</source>
@@ -11290,6 +11634,21 @@
     </message>
 </context>
 <context>
+    <name>MaskShapeTiles</name>
+    <message>
+        <source>Remove this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change this mask to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a %1 mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MasksInspector</name>
     <message>
         <source>None</source>
@@ -11313,6 +11672,26 @@
     </message>
     <message>
         <source>Edit this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Masks choose where this layer&apos;s effects, colour and LUT show: inside, the layer; outside, what is under it, untouched.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add mask</source>
+        <translation type="unfinished">Aggiungi maschera</translation>
+    </message>
+    <message>
+        <source>Add a mask to this layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn this mask off without removing it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11346,6 +11725,10 @@
     <message>
         <source>Text</source>
         <translation type="unfinished">Testo</translation>
+    </message>
+    <message>
+        <source>Linear gradient</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TEXT</source>
@@ -11388,6 +11771,10 @@
         <translation>Rimuovi maschera</translation>
     </message>
     <message>
+        <source>Reset mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Center X</source>
         <translation>Centro X</translation>
     </message>
@@ -11404,12 +11791,24 @@
         <translation>Altezza</translation>
     </message>
     <message>
+        <source>Fade length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rotation</source>
         <translation>Rotazione</translation>
     </message>
     <message>
         <source>Feather</source>
         <translation>Sfumatura bordi</translation>
+    </message>
+    <message>
+        <source>Expand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask opacity</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invert</source>
@@ -12458,8 +12857,8 @@
         <translation>Grafica</translation>
     </message>
     <message>
-        <source>Adjustment</source>
-        <translation>Regolazione</translation>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">Livello di regolazione</translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -13663,6 +14062,10 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
     <message>
         <source>General</source>
         <translation>Generale</translation>
+    </message>
+    <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">Livello di regolazione</translation>
     </message>
     <message>
         <source>Text</source>
@@ -18872,6 +19275,10 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Aggiungi livello di trasformazione</translation>
     </message>
     <message>
+        <source>Add adjustment layer</source>
+        <translation type="unfinished">Aggiungi livello di regolazione</translation>
+    </message>
+    <message>
         <source>Select transform layer</source>
         <translation>Seleziona livello di trasformazione</translation>
     </message>
@@ -19228,6 +19635,10 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
     <message>
         <source>Clear work area</source>
         <translation>Cancella area di lavoro</translation>
+    </message>
+    <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">Livello di regolazione</translation>
     </message>
     <message>
         <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
@@ -21121,6 +21532,10 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Gradient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cutout</source>
         <translation type="unfinished">Ritaglio</translation>
     </message>
@@ -21146,14 +21561,6 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Remove this mask</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change this mask to %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add a %1 mask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -21217,12 +21624,36 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation type="unfinished">Altezza</translation>
     </message>
     <message>
+        <source>Fade length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rotation</source>
         <translation type="unfinished">Rotazione</translation>
     </message>
     <message>
         <source>Feather</source>
         <translation type="unfinished">Sfumatura bordi</translation>
+    </message>
+    <message>
+        <source>Expand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The masks limit the effects: inside, the clip&apos;s effects and colour; outside, the clip as it is</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use the masks only for the effects (the clip stays whole)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask on</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invert</source>

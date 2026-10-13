@@ -29,6 +29,8 @@
 #include <QAbstractItemModel>
 #include <zlib.h>
 
+#include <functional>
+
 #include "playback/CompositorService.h"
 #include "engine/HwAccel.h"
 #include "engine/MediaEditor.h"
@@ -84,6 +86,7 @@ private slots:
     void driftAssetStoreInstallsOneVariantSeparately();
     void snapTimeEnabled();
     void compositeFromSelectionUndoRedo();
+    void compositeKeepsTheSelectionsPlaceInTheStack();
     void compositeClipGetsAPreviewBox();
     void cameraMovesThePreviewOverlayWithThePicture();
     void cameraGizmoMovesAndTurnsTheEye();
@@ -96,6 +99,8 @@ private slots:
     void masksAreEditedInPlaceOnTheClip();
     void draggingAnEdgeOverANeighbourMakesADissolve();
     void missingMediaIsFoundWithItsNeighbours();
+    void importedLutGoesToTheLibraryAndBrokenOnesAreRefused();
+    void adjustmentLayerMaskStackIsEditedByFocus();
     void transformLayerParentsPreviewBoxes();
     void transformSpanOptionsAndValidation();
     void transformLayerEntryPoints();
@@ -1033,6 +1038,67 @@ void EditorStateTest::cameraGizmoMovesAndTurnsTheEye()
     QVERIFY(state.preview()->cameraBox().isEmpty());
 }
 
+// Reproduced in the app: a text alone over an adjustment layer made into a composite landed on a
+// new video track under the layer, so the layer's grade suddenly reached the text. The composite
+// takes the place of the lowest track it came from.
+void EditorStateTest::compositeKeepsTheSelectionsPlaceInTheStack()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    QList<drift::Track> &tracks = state.project()->tracks();
+    tracks.clear();
+    const auto clipOf = [](const QString &id, drift::ClipType type) {
+        drift::Clip clip;
+        clip.id = id;
+        clip.type = type;
+        clip.timelineStart = 0;
+        clip.timelineDuration = drift::secondsToUs(5.0);
+        clip.srcOut = clip.timelineDuration;
+        return clip;
+    };
+    drift::Clip layer = clipOf(QStringLiteral("layer"), drift::ClipType::Adjustment);
+    layer.adjustmentKind = drift::AdjustmentKind::VideoEffects;
+    tracks.append(drift::Track{.type = drift::TrackType::Text,
+                               .clips = {clipOf(QStringLiteral("text"), drift::ClipType::Text)}});
+    tracks.append(drift::Track{.type = drift::TrackType::Adjustment, .clips = {layer}});
+    tracks.append(drift::Track{.type = drift::TrackType::Video,
+                               .clips = {clipOf(QStringLiteral("picture"), drift::ClipType::Image)}});
+    state.project()->ensureTrackIds();
+
+    const auto trackOf = [&state](const std::function<bool(const drift::Clip &)> &match) {
+        const QList<drift::Track> &list = state.project()->tracks();
+        for (int t = 0; t < list.size(); ++t) {
+            for (const drift::Clip &clip : list.at(t).clips) {
+                if (match(clip))
+                    return t;
+            }
+        }
+        return -1;
+    };
+    const auto isComposite = [](const drift::Clip &c) { return c.type == drift::ClipType::Composite; };
+    const auto isLayer = [](const drift::Clip &c) { return c.id == QLatin1String("layer"); };
+    const auto isPicture = [](const drift::Clip &c) { return c.id == QLatin1String("picture"); };
+
+    state.selectClip(0, 0);
+    QVERIFY(state.canMakeCompositeFromSelection());
+    state.makeCompositeFromSelection();
+    QVERIFY(trackOf(isComposite) >= 0);
+    QVERIFY2(trackOf(isComposite) < trackOf(isLayer), "the text's composite went under the adjustment layer");
+    // The text track it emptied is gone; nothing else was touched.
+    QCOMPARE(state.project()->tracks().size(), 3);
+    QCOMPARE(state.project()->tracks().at(1).clips.at(0).id, QStringLiteral("layer"));
+    state.undo();
+    QCOMPARE(state.project()->tracks().size(), 3);
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).id, QStringLiteral("text"));
+
+    // The picture alone stays in its own place: under the layer, on its own track.
+    const int pictureTrack = trackOf(isPicture);
+    state.selectClip(pictureTrack, 0);
+    state.makeCompositeFromSelection();
+    QCOMPARE(trackOf(isComposite), pictureTrack);
+    QVERIFY(trackOf(isComposite) > trackOf(isLayer));
+}
+
 void EditorStateTest::compositeClipGetsAPreviewBox()
 {
     AssetLibrary library;
@@ -1373,6 +1439,109 @@ void EditorStateTest::draggingAnEdgeOverANeighbourMakesADissolve()
 
 // Missing media, as Premiere relinks it: two files whose folder was moved. Finding one points
 // its asset and clips at the new place and finds the other one there too, in one undo step.
+// An adjustment layer's masks: adding one focuses it, the Masks tab and "mask.<key>" keyframes
+// then edit that one, the others keep theirs, and removing re-focuses a neighbour.
+void EditorStateTest::adjustmentLayerMaskStackIsEditedByFocus()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    drift::Project &project = *state.project();
+    project.tracks().clear();
+    drift::Track track{.type = drift::TrackType::Adjustment};
+    drift::Clip layer;
+    layer.id = QStringLiteral("adj");
+    layer.type = drift::ClipType::Adjustment;
+    layer.adjustmentKind = drift::AdjustmentKind::VideoEffects;
+    layer.timelineDuration = drift::secondsToUs(4.0);
+    track.clips.append(layer);
+    project.tracks().append(track);
+    state.selectClip(0, 0);
+
+    QVERIFY(state.addLayerMask(0, 0, QStringLiteral("ellipse")));
+    QVERIFY(state.addLayerMask(0, 0, QStringLiteral("gradient")));
+    const drift::Clip &clip = state.project()->tracks().at(0).clips.at(0);
+    QCOMPARE(clip.mask.shape, drift::MaskShape::Ellipse);
+    QCOMPARE(clip.extraMasks.size(), 1);
+    QCOMPARE(clip.maskFocus, 1);
+    QCOMPARE(state.selectedClipData().value(QStringLiteral("layerMasks")).toList().size(), 2);
+    QCOMPARE(state.selectedClipData().value(QStringLiteral("mask")).toMap().value(QStringLiteral("shape")).toString(),
+             QStringLiteral("gradient"));
+
+    // A key on "mask.x" lands on the focused (second) mask only.
+    state.setClipKeyframe(0, 0, QStringLiteral("mask.x"), 1.0, 0.25);
+    QVERIFY(state.project()->tracks().at(0).clips.at(0).extraMasks.constFirst().keyframes.contains(QStringLiteral("x")));
+    QVERIFY(!state.project()->tracks().at(0).clips.at(0).mask.keyframes.contains(QStringLiteral("x")));
+
+    state.setLayerMaskFocus(0, 0, 0);
+    QCOMPARE(state.selectedClipData().value(QStringLiteral("mask")).toMap().value(QStringLiteral("shape")).toString(),
+             QStringLiteral("ellipse"));
+
+    QVERIFY(state.removeLayerMask(0, 0, 0));
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).mask.shape, drift::MaskShape::LinearGradient);
+    QVERIFY(state.project()->tracks().at(0).clips.at(0).extraMasks.isEmpty());
+
+    // Undo brings the removed mask back.
+    state.undo();
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).extraMasks.size(), 1);
+}
+
+// Importing a .cube copies it into the LUT library (once, however often it is imported), a broken
+// file is refused with a reason, and a LUT a project names but nobody has is reported missing.
+void EditorStateTest::importedLutGoesToTheLibraryAndBrokenOnesAreRefused()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    const auto restore = qScopeGuard([] { QStandardPaths::setTestModeEnabled(false); });
+    QDir(AppController::lutLibraryDir()).removeRecursively();
+
+    AssetLibrary library;
+    AppController state(&library);
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QString good = QDir(dir.path()).filePath(QStringLiteral("Mi look.cube"));
+    {
+        QFile f(good);
+        QVERIFY(f.open(QIODevice::WriteOnly));
+        f.write("TITLE \"Mi look\"\nLUT_1D_SIZE 2\n0 0 0\n1 1 1\n");
+    }
+    const QString broken = QDir(dir.path()).filePath(QStringLiteral("roto.cube"));
+    {
+        QFile f(broken);
+        QVERIFY(f.open(QIODevice::WriteOnly));
+        f.write("LUT_3D_SIZE 4\n0 0 0\n");
+    }
+
+    QSignalSpy changed(&state, &AppController::lutLibraryChanged);
+    const QVariantMap first = state.importLut(QUrl::fromLocalFile(good));
+    QVERIFY2(first.value(QStringLiteral("ok")).toBool(), qPrintable(first.value(QStringLiteral("error")).toString()));
+    const QString copy = first.value(QStringLiteral("path")).toString();
+    QVERIFY(copy.startsWith(AppController::lutLibraryDir()));
+    QVERIFY(QFileInfo::exists(copy));
+    QCOMPARE(changed.count(), 1);
+    // The same file again reuses the copy.
+    QCOMPARE(state.importLut(QUrl::fromLocalFile(good)).value(QStringLiteral("path")).toString(), copy);
+
+    bool listed = false;
+    for (const QVariant &entry : state.lutLibrary()) {
+        const QVariantMap m = entry.toMap();
+        if (m.value(QStringLiteral("path")).toString() == copy)
+            listed = !m.value(QStringLiteral("factory")).toBool();
+    }
+    QVERIFY(listed);
+
+    const QVariantMap refused = state.importLut(QUrl::fromLocalFile(broken));
+    QVERIFY(!refused.value(QStringLiteral("ok")).toBool());
+    QVERIFY(!refused.value(QStringLiteral("error")).toString().isEmpty());
+
+    // The original can go: the project points at the library copy, which stays.
+    QVERIFY(QFile::remove(good));
+    QVERIFY(state.lutInfo(copy).value(QStringLiteral("ok")).toBool());
+    const QVariantMap gone = state.lutInfo(QStringLiteral("C:/nadie/tiene/este.cube"));
+    QVERIFY(gone.value(QStringLiteral("missing")).toBool());
+
+    QVERIFY(state.removeImportedLut(copy));
+    QVERIFY(!QFileInfo::exists(copy));
+}
+
 void EditorStateTest::missingMediaIsFoundWithItsNeighbours()
 {
     AssetLibrary library;

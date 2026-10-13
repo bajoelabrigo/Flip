@@ -392,6 +392,10 @@
         <translation>Círculo cromático</translation>
     </message>
     <message>
+        <source>LUT</source>
+        <translation>LUT</translation>
+    </message>
+    <message>
         <source>Mask</source>
         <translation>Máscara</translation>
     </message>
@@ -432,6 +436,14 @@
         <translation>Sombras</translation>
     </message>
     <message>
+        <source>Whites</source>
+        <translation>Blancos</translation>
+    </message>
+    <message>
+        <source>Blacks</source>
+        <translation>Negros</translation>
+    </message>
+    <message>
         <source>Saturation</source>
         <translation>Saturación</translation>
     </message>
@@ -448,16 +460,24 @@
         <translation>Tinte</translation>
     </message>
     <message>
+        <source>Fade</source>
+        <translation>Desvanecer</translation>
+    </message>
+    <message>
         <source>Light</source>
         <translation>Luz</translation>
     </message>
     <message>
-        <source>Reset basic adjustments</source>
-        <translation>Restablecer los ajustes básicos</translation>
+        <source>Reset light</source>
+        <translation>Restablecer la luz</translation>
     </message>
     <message>
         <source>Colour</source>
         <translation>Color</translation>
+    </message>
+    <message>
+        <source>Reset colour</source>
+        <translation>Restablecer el color</translation>
     </message>
     <message>
         <source>Red</source>
@@ -550,6 +570,85 @@
     <message>
         <source>Add mask</source>
         <translation>Añadir máscara</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ninguna</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>Rectángulo</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation>Círculo</translation>
+    </message>
+    <message>
+        <source>Film strip</source>
+        <translation>Rollo de película</translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation>Estrella</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>Corazón</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texto</translation>
+    </message>
+    <message>
+        <source>Freeform</source>
+        <translation>Forma libre</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation>Degradado</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation>TEXTO</translation>
+    </message>
+</context>
+<context>
+    <name>AdjustmentLayerInspector</name>
+    <message>
+        <source>Strength</source>
+        <translation>Intensidad</translation>
+    </message>
+    <message>
+        <source>Everything you put on this layer (effects, colour, masks) applies to whatever is under it while it lasts, without touching those clips. Stretch or move it on the timeline to change where it acts.</source>
+        <translation>Todo lo que le pongas a esta capa (efectos, color, máscaras) se aplica a lo que hay debajo mientras dura, sin tocar esos clips. Alárgala o muévela en la línea de tiempo para cambiar dónde actúa.</translation>
+    </message>
+    <message>
+        <source>It does not change anything yet: give it an effect (Effects tab) or a colour adjustment (Adjust tab). A mask only marks where they act.</source>
+        <translation>Todavía no cambia nada: ponle un efecto (pestaña Efectos) o un ajuste de color (pestaña Ajustar). La máscara solo marca dónde actúan.</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nombre</translation>
+    </message>
+    <message>
+        <source>Adjustment layer</source>
+        <translation>Capa de ajuste</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>Activada</translation>
+    </message>
+    <message>
+        <source>Off: not applied, but keeps all its settings</source>
+        <translation>Apagada: no se aplica, pero conserva todo</translation>
+    </message>
+    <message>
+        <source>Turn the layer off to compare with and without it</source>
+        <translation>Apaga la capa para comparar con y sin ella</translation>
+    </message>
+    <message>
+        <source>0 %: what is under it, untouched. 100 %: the whole layer. In between, a mix of the two.</source>
+        <translation>0 %: lo de debajo tal cual. 100 %: la capa completa. En medio, una mezcla de los dos.</translation>
     </message>
 </context>
 <context>
@@ -2706,6 +2805,14 @@
         <translation>El renderizado de vista previa por GPU no está disponible en este equipo. Consulta Ayuda → Información de depuración.</translation>
     </message>
     <message>
+        <source>Off</source>
+        <translation>Apagado</translation>
+    </message>
+    <message>
+        <source>Off · %1</source>
+        <translation>Apagado · %1</translation>
+    </message>
+    <message>
         <source>Media rotated</source>
         <translation>Medio rotado</translation>
     </message>
@@ -3012,6 +3119,22 @@
     <message>
         <source>Clip renamed</source>
         <translation>Nombre del clip cambiado</translation>
+    </message>
+    <message>
+        <source>Turn off clip</source>
+        <translation>Apagar clip</translation>
+    </message>
+    <message>
+        <source>Turn on clip</source>
+        <translation>Encender clip</translation>
+    </message>
+    <message>
+        <source>Turned off: it keeps its settings but is left out of the picture</source>
+        <translation>Apagado: conserva sus ajustes, pero no se ve en la imagen</translation>
+    </message>
+    <message>
+        <source>Turned on</source>
+        <translation>Encendido</translation>
     </message>
     <message>
         <source>Edit text</source>
@@ -3326,6 +3449,22 @@
         <translation>Máscara del clip actualizada</translation>
     </message>
     <message>
+        <source>Masks limit the effects</source>
+        <translation>Las máscaras limitan los efectos</translation>
+    </message>
+    <message>
+        <source>Masks cut the clip</source>
+        <translation>Las máscaras recortan el clip</translation>
+    </message>
+    <message>
+        <source>The masks now limit where the clip&apos;s effects and colour show</source>
+        <translation>Ahora las máscaras limitan dónde se ven los efectos y el color del clip</translation>
+    </message>
+    <message>
+        <source>The masks now cut the clip</source>
+        <translation>Ahora las máscaras recortan el clip</translation>
+    </message>
+    <message>
         <source>TEXT</source>
         <translation>TEXTO</translation>
     </message>
@@ -3378,6 +3517,10 @@
         <translation>Máscara quitada</translation>
     </message>
     <message>
+        <source>Linear gradient</source>
+        <translation>Degradado lineal</translation>
+    </message>
+    <message>
         <source>Add mask point</source>
         <translation>Añadir punto de máscara</translation>
     </message>
@@ -3404,6 +3547,18 @@
     <message>
         <source>Transition updated</source>
         <translation>Transición actualizada</translation>
+    </message>
+    <message>
+        <source>The LUT library folder could not be created.</source>
+        <translation>No se pudo crear la carpeta de la biblioteca de LUT.</translation>
+    </message>
+    <message>
+        <source>The LUT could not be copied into the library: %1</source>
+        <translation>No se pudo copiar el LUT a la biblioteca: %1</translation>
+    </message>
+    <message>
+        <source>The LUT «%1» is not where the project saved it, nor in your LUT library. Find it to use it again.</source>
+        <translation>El LUT «%1» no está donde lo guardó el proyecto ni en tu biblioteca de LUT. Búscalo para volver a usarlo.</translation>
     </message>
     <message>
         <source>Voice changer</source>
@@ -5419,6 +5574,10 @@
         <translation>Aclarar</translation>
     </message>
     <message>
+        <source>Soft light</source>
+        <translation>Luz suave</translation>
+    </message>
+    <message>
         <source>How this clip blends with the layers below</source>
         <translation>Cómo se fusiona este clip con las capas inferiores</translation>
     </message>
@@ -5669,6 +5828,14 @@
         <translation>Sombras</translation>
     </message>
     <message>
+        <source>Whites</source>
+        <translation>Blancos</translation>
+    </message>
+    <message>
+        <source>Blacks</source>
+        <translation>Negros</translation>
+    </message>
+    <message>
         <source>Vibrance</source>
         <translation>Intensidad del color</translation>
     </message>
@@ -5855,6 +6022,14 @@
     <message>
         <source>Magenta lightness</source>
         <translation>Brillo del magenta</translation>
+    </message>
+    <message>
+        <source>LUT</source>
+        <translation>LUT</translation>
+    </message>
+    <message>
+        <source>LUT file</source>
+        <translation>Archivo LUT</translation>
     </message>
     <message>
         <source>Color Wheels</source>
@@ -6431,6 +6606,18 @@
     <message>
         <source>Flicker</source>
         <translation>Parpadeo</translation>
+    </message>
+    <message>
+        <source>Film Grain</source>
+        <translation>Grano de película</translation>
+    </message>
+    <message>
+        <source>Grain size</source>
+        <translation>Tamaño del grano</translation>
+    </message>
+    <message>
+        <source>Colour grain</source>
+        <translation>Grano de color</translation>
     </message>
     <message>
         <source>Gaussian Blur (GPU)</source>
@@ -7884,6 +8071,65 @@
     <message>
         <source>Apply</source>
         <translation>Aplicar</translation>
+    </message>
+</context>
+<context>
+    <name>CubeLut</name>
+    <message>
+        <source>The table starts before LUT_3D_SIZE or LUT_1D_SIZE says how big it is.</source>
+        <translation>La tabla empieza antes de que LUT_3D_SIZE o LUT_1D_SIZE digan su tamaño.</translation>
+    </message>
+    <message>
+        <source>Line %1 is not three numbers (red, green, blue).</source>
+        <translation>La línea %1 no tiene tres números (rojo, verde, azul).</translation>
+    </message>
+    <message>
+        <source>The table has more rows than its size says (%1).</source>
+        <translation>La tabla tiene más filas de las que indica su tamaño (%1).</translation>
+    </message>
+    <message>
+        <source>The file declares more than one table; only one per file is supported.</source>
+        <translation>El archivo declara más de una tabla; solo se admite una por archivo.</translation>
+    </message>
+    <message>
+        <source>LUT_3D_SIZE must be between 2 and %1.</source>
+        <translation>LUT_3D_SIZE debe estar entre 2 y %1.</translation>
+    </message>
+    <message>
+        <source>LUT_1D_SIZE must be between 2 and %1.</source>
+        <translation>LUT_1D_SIZE debe estar entre 2 y %1.</translation>
+    </message>
+    <message>
+        <source>%1 needs three numbers.</source>
+        <translation>%1 necesita tres números.</translation>
+    </message>
+    <message>
+        <source>%1 needs two numbers.</source>
+        <translation>%1 necesita dos números.</translation>
+    </message>
+    <message>
+        <source>This is not a .cube LUT: it has no LUT_3D_SIZE or LUT_1D_SIZE line.</source>
+        <translation>Esto no es un LUT .cube: no tiene la línea LUT_3D_SIZE ni LUT_1D_SIZE.</translation>
+    </message>
+    <message>
+        <source>DOMAIN_MAX must be above DOMAIN_MIN on every channel.</source>
+        <translation>DOMAIN_MAX debe ser mayor que DOMAIN_MIN en cada canal.</translation>
+    </message>
+    <message>
+        <source>The table is incomplete: it has %1 of the %2 rows its size needs.</source>
+        <translation>La tabla está incompleta: tiene %1 de las %2 filas que necesita su tamaño.</translation>
+    </message>
+    <message>
+        <source>The LUT file is not there any more: %1</source>
+        <translation>El archivo LUT ya no está: %1</translation>
+    </message>
+    <message>
+        <source>The LUT file is too large (over 64 MB).</source>
+        <translation>El archivo LUT es demasiado grande (más de 64 MB).</translation>
+    </message>
+    <message>
+        <source>The LUT file could not be opened: %1</source>
+        <translation>No se pudo abrir el archivo LUT: %1</translation>
     </message>
 </context>
 <context>
@@ -10784,6 +11030,104 @@
     </message>
 </context>
 <context>
+    <name>Lut</name>
+    <message>
+        <source>Cinematic</source>
+        <translation>Cinematográfico</translation>
+    </message>
+    <message>
+        <source>Warm</source>
+        <translation>Cálido</translation>
+    </message>
+    <message>
+        <source>Cold</source>
+        <translation>Frío</translation>
+    </message>
+    <message>
+        <source>Vintage</source>
+        <translation>Vintage</translation>
+    </message>
+    <message>
+        <source>Teal &amp; Orange</source>
+        <translation>Teal &amp; Orange</translation>
+    </message>
+    <message>
+        <source>Black &amp; White</source>
+        <translation>Blanco y negro</translation>
+    </message>
+</context>
+<context>
+    <name>LutPage</name>
+    <message>
+        <source>Import LUT</source>
+        <translation>Importar LUT</translation>
+    </message>
+    <message>
+        <source>LUT (*.cube)</source>
+        <translation>LUT (*.cube)</translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation>Todos los archivos (*)</translation>
+    </message>
+    <message>
+        <source>This file is not a LUT that can be used.</source>
+        <translation>Este archivo no es un LUT que se pueda usar.</translation>
+    </message>
+    <message>
+        <source>A LUT is a ready-made colour look. Pick one, or import a .cube file; Intensity mixes it with the original colour.</source>
+        <translation>Un LUT es un look de color ya hecho. Elige uno o importa un archivo .cube; la intensidad lo mezcla con el color original.</translation>
+    </message>
+    <message>
+        <source>Import LUT…</source>
+        <translation>Importar LUT…</translation>
+    </message>
+    <message>
+        <source>No LUT chosen yet</source>
+        <translation>Todavía no elegiste un LUT</translation>
+    </message>
+    <message>
+        <source>Turn the LUT off to compare with and without it</source>
+        <translation>Apaga el LUT para comparar con y sin él</translation>
+    </message>
+    <message>
+        <source>Find the LUT…</source>
+        <translation>Buscar el LUT…</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>Intensidad</translation>
+    </message>
+    <message>
+        <source>LUT intensity</source>
+        <translation>Intensidad del LUT</translation>
+    </message>
+    <message>
+        <source>Reset LUT intensity</source>
+        <translation>Restablecer la intensidad del LUT</translation>
+    </message>
+    <message>
+        <source>Reset intensity</source>
+        <translation>Restablecer la intensidad</translation>
+    </message>
+    <message>
+        <source>Remove LUT</source>
+        <translation>Quitar el LUT</translation>
+    </message>
+    <message>
+        <source>Looks</source>
+        <translation>Looks</translation>
+    </message>
+    <message>
+        <source>Imported</source>
+        <translation>Importados</translation>
+    </message>
+    <message>
+        <source>Delete from my LUTs</source>
+        <translation>Borrar de mis LUT</translation>
+    </message>
+</context>
+<context>
     <name>Main</name>
     <message>
         <source>&amp;File</source>
@@ -11290,6 +11634,21 @@
     </message>
 </context>
 <context>
+    <name>MaskShapeTiles</name>
+    <message>
+        <source>Remove this mask</source>
+        <translation>Quitar esta máscara</translation>
+    </message>
+    <message>
+        <source>Change this mask to %1</source>
+        <translation>Cambiar esta máscara a %1</translation>
+    </message>
+    <message>
+        <source>Add a %1 mask</source>
+        <translation>Agregar una máscara: %1</translation>
+    </message>
+</context>
+<context>
     <name>MasksInspector</name>
     <message>
         <source>None</source>
@@ -11314,6 +11673,26 @@
     <message>
         <source>Edit this mask</source>
         <translation>Editar esta máscara</translation>
+    </message>
+    <message>
+        <source>Masks choose where this layer&apos;s effects, colour and LUT show: inside, the layer; outside, what is under it, untouched.</source>
+        <translation>Las máscaras eligen dónde se ven los efectos, el color y el LUT de esta capa: dentro, la capa; fuera, lo de debajo tal cual.</translation>
+    </message>
+    <message>
+        <source>Mask %1</source>
+        <translation>Máscara %1</translation>
+    </message>
+    <message>
+        <source>Add mask</source>
+        <translation>Agregar máscara</translation>
+    </message>
+    <message>
+        <source>Add a mask to this layer</source>
+        <translation>Agregar una máscara a esta capa</translation>
+    </message>
+    <message>
+        <source>Turn this mask off without removing it</source>
+        <translation>Apagar esta máscara sin quitarla</translation>
     </message>
     <message>
         <source>This clip has no mask yet. Add one from the Masks tab in the assets panel, or drop a mask onto the clip on the timeline.</source>
@@ -11346,6 +11725,10 @@
     <message>
         <source>Text</source>
         <translation>Texto</translation>
+    </message>
+    <message>
+        <source>Linear gradient</source>
+        <translation>Degradado lineal</translation>
     </message>
     <message>
         <source>TEXT</source>
@@ -11388,6 +11771,10 @@
         <translation>Eliminar máscara</translation>
     </message>
     <message>
+        <source>Reset mask</source>
+        <translation>Restablecer la máscara</translation>
+    </message>
+    <message>
         <source>Center X</source>
         <translation>Centro X</translation>
     </message>
@@ -11404,12 +11791,24 @@
         <translation>Altura</translation>
     </message>
     <message>
+        <source>Fade length</source>
+        <translation>Largo del degradado</translation>
+    </message>
+    <message>
         <source>Rotation</source>
         <translation>Rotación</translation>
     </message>
     <message>
         <source>Feather</source>
         <translation>Desvanecimiento</translation>
+    </message>
+    <message>
+        <source>Expand</source>
+        <translation>Expandir</translation>
+    </message>
+    <message>
+        <source>Mask opacity</source>
+        <translation>Opacidad de la máscara</translation>
     </message>
     <message>
         <source>Invert</source>
@@ -12458,8 +12857,8 @@
         <translation>Gráfico</translation>
     </message>
     <message>
-        <source>Adjustment</source>
-        <translation>Ajuste</translation>
+        <source>Adjustment layer</source>
+        <translation>Capa de ajuste</translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -13663,6 +14062,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>General</source>
         <translation>General</translation>
+    </message>
+    <message>
+        <source>Adjustment layer</source>
+        <translation>Capa de ajuste</translation>
     </message>
     <message>
         <source>Text</source>
@@ -18872,6 +19275,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Añadir capa de transformación</translation>
     </message>
     <message>
+        <source>Add adjustment layer</source>
+        <translation>Agregar capa de ajuste</translation>
+    </message>
+    <message>
         <source>Select transform layer</source>
         <translation>Seleccionar capa de transformación</translation>
     </message>
@@ -19228,6 +19635,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Clear work area</source>
         <translation>Borrar área de trabajo</translation>
+    </message>
+    <message>
+        <source>Adjustment layer</source>
+        <translation>Capa de ajuste</translation>
     </message>
     <message>
         <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
@@ -21121,6 +21532,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Pluma</translation>
     </message>
     <message>
+        <source>Gradient</source>
+        <translation>Degradado</translation>
+    </message>
+    <message>
         <source>Cutout</source>
         <translation>Recorte</translation>
     </message>
@@ -21147,14 +21562,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Remove this mask</source>
         <translation>Quitar esta máscara</translation>
-    </message>
-    <message>
-        <source>Change this mask to %1</source>
-        <translation>Cambiar esta máscara a %1</translation>
-    </message>
-    <message>
-        <source>Add a %1 mask</source>
-        <translation>Agregar una máscara: %1</translation>
     </message>
     <message>
         <source>Mask settings</source>
@@ -21217,12 +21624,36 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Alto</translation>
     </message>
     <message>
+        <source>Fade length</source>
+        <translation>Largo del degradado</translation>
+    </message>
+    <message>
         <source>Rotation</source>
         <translation>Rotación</translation>
     </message>
     <message>
         <source>Feather</source>
         <translation>Difuminar</translation>
+    </message>
+    <message>
+        <source>Expand</source>
+        <translation>Expandir</translation>
+    </message>
+    <message>
+        <source>Mask opacity</source>
+        <translation>Opacidad de la máscara</translation>
+    </message>
+    <message>
+        <source>The masks limit the effects: inside, the clip&apos;s effects and colour; outside, the clip as it is</source>
+        <translation>Las máscaras limitan los efectos: dentro, los efectos y el color del clip; fuera, el clip tal cual</translation>
+    </message>
+    <message>
+        <source>Use the masks only for the effects (the clip stays whole)</source>
+        <translation>Usar las máscaras solo para los efectos (el clip queda entero)</translation>
+    </message>
+    <message>
+        <source>Mask on</source>
+        <translation>Máscara activada</translation>
     </message>
     <message>
         <source>Invert</source>

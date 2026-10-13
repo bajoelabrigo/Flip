@@ -35,6 +35,8 @@ SkBlendMode toSkBlendMode(BlendMode mode)
         return SkBlendMode::kDarken;
     case BlendMode::Lighten:
         return SkBlendMode::kLighten;
+    case BlendMode::SoftLight:
+        return SkBlendMode::kSoftLight;
     }
     return SkBlendMode::kSrcOver;
 }

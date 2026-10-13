@@ -19,6 +19,11 @@ Item {
     readonly property var propVolume: { "key": "volume", "label": qsTr("Volume"), "def": 1.0, "decimals": 2 }
     // CapCut's two pages: the basics, and the voice changer's grid.
     property string page: "basic"
+    // Only a clip with sound has the voice changer's page.
+    readonly property var pages: hasSound ? [
+        { "id": "basic", "label": qsTr("Basic") },
+        { "id": "voice", "label": qsTr("Voice changer") }
+    ] : []
     readonly property bool hasSound: clipKind === "audio" || clipKind === "video"
     readonly property real clipLength: hasSelection && clipData.duration !== undefined ? clipData.duration : 0
 
@@ -56,10 +61,7 @@ Item {
             visible: root.hasSound
 
             Repeater {
-                model: [
-                    { "id": "basic", "label": qsTr("Basic") },
-                    { "id": "voice", "label": qsTr("Voice changer") }
-                ]
+                model: root.pages
                 delegate: ThemedToggleButton {
                     required property var modelData
                     width: (audioPageRow.width - audioPageRow.spacing) / 2

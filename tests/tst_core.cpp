@@ -30,10 +30,12 @@
 #include "core/Model3dSource.h"
 #include "core/VectorSource.h"
 #include "core/DotLottie.h"
+#include "core/CubeLut.h"
 #include "core/ZipArchive.h"
 #include "core/SecretStore.h"
 #include "TestZip.h"
 
+#include <QLocale>
 #include <QTemporaryDir>
 #include "core/TimelineOps.h"
 #include "core/CutOps.h"
@@ -47,6 +49,9 @@ class CoreTest : public QObject
 
 private slots:
     void timeConversion();
+    void cubeLutReadsTheFormatAndRefusesBrokenFiles();
+    void cubeLutLooksUpTrilinearlyAndMixesByIntensity();
+    void cubeLutIsFoundByNameAfterTheProjectMoves();
     void linkedAdjustmentsFollowTheirClipToAnotherTrack();
     void transcriptJsonRoundTrip();
     void transcriptWordsInRange();
@@ -6369,6 +6374,124 @@ void CoreTest::transcriptWordsFollowClipsOnTimeline()
     QCOMPARE(all[4].word.text, QStringLiteral("world."));
     QCOMPARE(all[4].word.startUs, drift::secondsToUs(20.0));
     QCOMPARE(drift::transcriptWordsOnTimeline(project, 0, drift::secondsToUs(100), QStringLiteral("rev")).size(), 3);
+}
+
+
+namespace {
+
+// An n-point identity .cube, optionally with every value turned (1 - v): the inverting look.
+QByteArray cubeText(int n, bool invert, const QByteArray &header = {})
+{
+    QByteArray text = header;
+    text += "LUT_3D_SIZE " + QByteArray::number(n) + "\n";
+    for (int b = 0; b < n; ++b)
+        for (int g = 0; g < n; ++g)
+            for (int r = 0; r < n; ++r) {
+                double v[3] = {r / double(n - 1), g / double(n - 1), b / double(n - 1)};
+                for (double &c : v)
+                    c = invert ? 1.0 - c : c;
+                text += QByteArray::number(v[0], 'f', 6) + ' ' + QByteArray::number(v[1], 'f', 6) + ' '
+                        + QByteArray::number(v[2], 'f', 6) + '\n';
+            }
+    return text;
+}
+
+} // namespace
+
+void CoreTest::cubeLutReadsTheFormatAndRefusesBrokenFiles()
+{
+    QString error;
+    // Title, comments, blank lines, tabs, CRLF and a domain: all read.
+    const QByteArray header = "# made by hand\r\nTITLE \"Invert\"\r\n\r\nDOMAIN_MIN 0 0 0\r\nDOMAIN_MAX\t1 1 1\r\n";
+    drift::CubeLut lut = drift::CubeLut::parse(cubeText(3, true, header), &error);
+    QVERIFY2(lut.isValid(), qPrintable(error));
+    QCOMPARE(lut.title, QStringLiteral("Invert"));
+    QVERIFY(lut.is3d);
+    QCOMPARE(lut.size, 3);
+
+    // The decimal point is the file's, whatever the system's locale says.
+    const QLocale before;
+    QLocale::setDefault(QLocale(QLocale::German));
+    QVERIFY(drift::CubeLut::parse("LUT_1D_SIZE 2\n0.0 0.0 0.0\n0.5 0.5 0.5\n").isValid());
+    QLocale::setDefault(before);
+
+    // 1D tables and Resolve's input range.
+    lut = drift::CubeLut::parse("LUT_1D_SIZE 2\nLUT_1D_INPUT_RANGE 0.0 2.0\n0 0 0\n1 1 1\n", &error);
+    QVERIFY2(lut.isValid(), qPrintable(error));
+    QVERIFY(!lut.is3d);
+    QCOMPARE(lut.domainMax[1], 2.f);
+
+    // Broken files are refused with a reason, never half-read.
+    const QList<QByteArray> broken = {
+        "",                                                  // nothing
+        "TITLE \"x\"\n0 0 0\n",                              // rows before a size
+        "LUT_3D_SIZE 2\n0 0 0\n1 1 1\n",                     // incomplete
+        "LUT_3D_SIZE 1\n0 0 0\n",                            // too small
+        "LUT_3D_SIZE 500\n",                                 // too large
+        "LUT_1D_SIZE 2\n0 0 0\n1 1\n",                       // a row of two numbers
+        "LUT_1D_SIZE 2\n0 0 0\n1 1 x\n",                     // not a number
+        "LUT_1D_SIZE 2\n0 0 0\n1 1 1\n1 1 1\n",              // more rows than the size
+        "LUT_1D_SIZE 2\nDOMAIN_MIN 1 1 1\nDOMAIN_MAX 0 0 0\n0 0 0\n1 1 1\n", // upside-down domain
+        "LUT_1D_SIZE 2\nLUT_3D_SIZE 2\n",                    // two tables
+    };
+    for (const QByteArray &text : broken) {
+        error.clear();
+        QVERIFY2(!drift::CubeLut::parse(text, &error).isValid(), text.constData());
+        QVERIFY2(!error.isEmpty(), text.constData());
+    }
+}
+
+void CoreTest::cubeLutLooksUpTrilinearlyAndMixesByIntensity()
+{
+    const drift::CubeLut identity = drift::CubeLut::parse(cubeText(5, false));
+    const drift::CubeLut invert = drift::CubeLut::parse(cubeText(5, true));
+    QVERIFY(identity.isValid() && invert.isValid());
+
+    // Between grid points the result is interpolated, so an identity table gives the input back.
+    const float in[3] = {0.13f, 0.62f, 0.91f};
+    float out[3];
+    identity.lookup(in, out);
+    for (int c = 0; c < 3; ++c)
+        QVERIFY(qAbs(out[c] - in[c]) < 1e-4f);
+    invert.lookup(in, out);
+    for (int c = 0; c < 3; ++c)
+        QVERIFY(qAbs(out[c] - (1.f - in[c])) < 1e-4f);
+
+    // Intensity mixes with the original; alpha is left alone.
+    QImage picture(2, 1, QImage::Format_ARGB32);
+    picture.setPixel(0, 0, qRgba(200, 40, 0, 255));
+    picture.setPixel(1, 0, qRgba(10, 20, 30, 128));
+    const QImage full = invert.apply(picture, 1.0);
+    QCOMPARE(qRed(full.pixel(0, 0)), 55);
+    QCOMPARE(qAlpha(full.pixel(1, 0)), 128);
+    QCOMPARE(invert.apply(picture, 0.0).pixel(0, 0), picture.pixel(0, 0));
+    QVERIFY(qAbs(qRed(invert.apply(picture, 0.5).pixel(0, 0)) - 128) <= 1);
+
+    // The texture holds every entry: size slices side by side.
+    const QImage texture = invert.toTexture();
+    QCOMPARE(texture.size(), QSize(25, 5));
+}
+
+void CoreTest::cubeLutIsFoundByNameAfterTheProjectMoves()
+{
+    QTemporaryDir library;
+    QVERIFY(library.isValid());
+    QFile file(QDir(library.path()).filePath(QStringLiteral("Mi look.cube")));
+    QVERIFY(file.open(QIODevice::WriteOnly));
+    file.write(cubeText(2, false));
+    file.close();
+
+    const QStringList before = drift::CubeLut::searchDirs();
+    drift::CubeLut::setSearchDirs({library.path()});
+    // Saved on another computer, under another folder (and with the other separator).
+    QCOMPARE(drift::CubeLut::resolve(QStringLiteral("D:\\Otro equipo\\LUTs\\Mi look.cube")), file.fileName());
+    QCOMPARE(drift::CubeLut::resolve(QStringLiteral("/home/alguien/Mi look.cube")), file.fileName());
+    QVERIFY(drift::CubeLut::resolve(QStringLiteral("/home/alguien/Otro.cube")).isEmpty());
+    drift::CubeLut::setSearchDirs(before);
+
+    QString error;
+    QVERIFY(!drift::CubeLut::load(QDir(library.path()).filePath(QStringLiteral("nada.cube")), &error).isValid());
+    QVERIFY(!error.isEmpty());
 }
 
 QTEST_MAIN(CoreTest)

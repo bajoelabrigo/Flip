@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.9.7 LANGUAGES CXX C)
+project(Drift VERSION 0.9.8 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -445,6 +445,8 @@ add_library(driftcore STATIC
     src/core/BlendMode.h
     src/core/Clip.h
     src/core/Clip.cpp
+    src/core/CubeLut.h
+    src/core/CubeLut.cpp
     src/core/Stabilize.h
     src/core/Stabilize.cpp
     src/core/Bezier.h
@@ -1293,6 +1295,9 @@ qt_add_qml_module(drift
         # lupdate never sees its strings, so i18n/*.ts silently loses the whole tab.
         src/qml/components/properties/VideoInspector.qml
         src/qml/components/properties/VideoMaskPage.qml
+        src/qml/components/properties/AdjustmentLayerInspector.qml
+        src/qml/components/properties/LutPage.qml
+        src/qml/components/properties/MaskShapeTiles.qml
         src/qml/components/properties/AdjustInspector.qml
         src/qml/components/properties/FacePropPicker.qml
         src/qml/components/assets/TextAssetsTab.qml

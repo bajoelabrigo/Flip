@@ -21,6 +21,8 @@ QString maskShapeToString(MaskShape shape)
         return QStringLiteral("media");
     case MaskShape::Text:
         return QStringLiteral("text");
+    case MaskShape::LinearGradient:
+        return QStringLiteral("gradient");
     case MaskShape::None:
         break;
     }
@@ -43,6 +45,8 @@ MaskShape maskShapeFromString(const QString &shape)
         return MaskShape::Freeform;
     if (shape == QStringLiteral("text"))
         return MaskShape::Text;
+    if (shape == QStringLiteral("gradient"))
+        return MaskShape::LinearGradient;
     // "matte" is what Media was called before v5.
     if (shape == QStringLiteral("media") || shape == QStringLiteral("matte"))
         return MaskShape::Media;
@@ -115,7 +119,8 @@ const QStringList &maskKeyframeProperties()
 {
     static const QStringList props{QStringLiteral("x"),        QStringLiteral("y"),
                                    QStringLiteral("w"),        QStringLiteral("h"),
-                                   QStringLiteral("rotation"), QStringLiteral("feather")};
+                                   QStringLiteral("rotation"), QStringLiteral("feather"),
+                                   QStringLiteral("expand"),   QStringLiteral("opacity")};
     return props;
 }
 
@@ -149,6 +154,10 @@ double Mask::valueAt(const QString &key, TimeUs maskTimeUs) const
         return rotation;
     if (key == QStringLiteral("feather"))
         return feather;
+    if (key == QStringLiteral("expand"))
+        return expand;
+    if (key == QStringLiteral("opacity"))
+        return opacity;
     return 0.0;
 }
 
@@ -209,6 +218,10 @@ Mask Mask::resolvedAt(TimeUs maskTimeUs) const
             out.rotation = value;
         else if (key == QStringLiteral("feather"))
             out.feather = value;
+        else if (key == QStringLiteral("expand"))
+            out.expand = value;
+        else if (key == QStringLiteral("opacity"))
+            out.opacity = value;
     }
     if (!pathKeys.isEmpty())
         out.points = pointsAt(pathKeys, maskTimeUs, points);

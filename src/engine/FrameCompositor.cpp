@@ -581,7 +581,7 @@ QList<drift::Effect> laneAdjustmentEffects(const drift::Project &project, int tr
         for (const drift::Clip &adjustment : lane.clips) {
             if (adjustment.adjustmentKind != drift::AdjustmentKind::VideoEffects)
                 continue;
-            if (!adjustment.containsTime(timelineUs))
+            if (!adjustment.containsTime(timelineUs) || adjustment.disabled)
                 continue;
             if (!adjustment.linkedClipId.isEmpty() && adjustment.linkedClipId != hostClipId)
                 continue;
@@ -1340,6 +1340,8 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
     // After the clip's own chain: a lane sits above the clip in the timeline, so it reads as the
     // later treatment. Derived face slots come after, so a lane's face effect binds too.
     layer.effects.append(laneChain);
+    // The clip's masks limit where its effects land, instead of cutting it.
+    layer.masksLimitEffects = clip.masksLimitEffects && !layer.effects.isEmpty();
     layer.faceSlots = faceSlotsForClip(clip, layer.effects, timelineUs);
     layer.depth = depthFrameForClip(clip, layer.effects, timelineUs);
     layer.valid = true;
@@ -1589,6 +1591,9 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
         for (const drift::Clip &clip : track.clips) {
             if (transitionClipIds.contains(clip.id) || !clip.containsTime(timelineUs))
                 continue;
+            // Switched off: kept on the timeline with all its settings, left out of the picture.
+            if (clip.disabled)
+                continue;
 
             if (clip.type == drift::ClipType::Adjustment) {
                 // An audio adjustment shares the timeline with the visual ones but belongs to the
@@ -1612,14 +1617,15 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
                 // Not gated on the kind: a video-effects adjustment carries a mask to scope where
                 // its chain lands, which is independent of a Mask adjustment carrying one as its
                 // whole payload.
-                if (clip.mask.contributes()) {
-                    const drift::TimeUs maskTimeUs = timelineUs - clip.timelineStart;
-                    const drift::Mask resolved = clip.mask.isAnimated()
-                                                     ? clip.mask.resolvedAt(maskTimeUs)
-                                                     : clip.mask;
-                    fillGpuLayerMasks(item.layer, clip, {drift::LaneMask{resolved, clip.id}},
-                                      timelineUs, width, height);
+                // The whole stack: `mask`, then extraMasks, each folded into the ones before it.
+                QList<drift::LaneMask> stack;
+                const drift::TimeUs maskTimeUs = timelineUs - clip.timelineStart;
+                for (const drift::Mask &mask : clip.maskStack()) {
+                    if (mask.contributes())
+                        stack.append(drift::LaneMask{mask.isAnimated() ? mask.resolvedAt(maskTimeUs) : mask, clip.id});
                 }
+                if (!stack.isEmpty())
+                    fillGpuLayerMasks(item.layer, clip, stack, timelineUs, width, height);
                 item.layer.rect = QRectF(0, 0, width, height);
                 item.layer.opacity = opacityForClip(clip, timelineUs);
                 item.layer.clipTimeUs = timelineUs - clip.timelineStart;

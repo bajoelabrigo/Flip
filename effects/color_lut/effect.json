@@ -1,0 +1,51 @@
+{
+  "id": "color.lut",
+  "displayName": "LUT",
+  "category": "color",
+  "order": 9,
+  "parameters": [
+    {
+      "identifier": "lut",
+      "displayName": "LUT file",
+      "type": "file",
+      "defaultValue": "",
+      "fileFilters": ["LUT (*.cube)", "All files (*)"]
+    },
+    {
+      "identifier": "intensity",
+      "displayName": "Intensity",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 1
+    }
+  ],
+  "backend": "gpu",
+  "pipeline": {
+    "intermediateBuffers": [],
+    "textures": [
+      {
+        "id": "lut",
+        "fromParameter": "lut"
+      }
+    ],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          },
+          {
+            "type": "texture",
+            "id": "lut"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

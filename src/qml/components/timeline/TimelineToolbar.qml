@@ -90,7 +90,8 @@ Item {
                            shortcut: "clearInOut" },
         "merge": { glyph: Theme.icons.linkTwo, label: qsTr("Merge adjacent clips"), shortcut: "merge" },
         "freeze": { glyph: Theme.icons.snowflake, label: qsTr("Freeze frame at current time") },
-        "adjustmentLayer": { glyph: "layers", label: qsTr("Add adjustment layer"),
+        // Named on the bar as well as drawn: an icon alone did not say what it adds.
+        "adjustmentLayer": { glyph: "layers", label: qsTr("Add adjustment layer"), caption: qsTr("Adjustment layer"),
                              tip: qsTr("Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips") },
         "transformLayer": { glyph: Theme.icons.group, label: qsTr("Add transform layer"),
                             tip: qsTr("Add transform layer — moves the selected clips' tracks as one"),
@@ -411,6 +412,7 @@ Item {
                            : slot.modelData === "select" ? toolbar.pointerGlyph
                            : toolbar.actionMeta[slot.modelData].glyph
                     variant: "text"
+                    text: slot.isSeparator ? "" : (toolbar.actionMeta[slot.modelData].caption || "")
                     tooltip: slot.isSeparator ? "" : toolbar.actionTooltip(slot.modelData)
                     active: toolbar.actionActive(slot.modelData) || slotMenu.opened
                     enabled: toolbar.actionEnabled(slot.modelData)

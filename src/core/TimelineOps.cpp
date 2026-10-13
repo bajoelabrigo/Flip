@@ -390,7 +390,7 @@ QList<LaneMask> laneMasksAt(const Project &project, int trackIndex, TimeUs timel
         for (const Clip &adjustment : lane.clips) {
             if (adjustment.adjustmentKind != AdjustmentKind::Mask)
                 continue;
-            if (!adjustment.containsTime(timelineUs))
+            if (!adjustment.containsTime(timelineUs) || adjustment.disabled)
                 continue;
             if (!adjustment.linkedClipId.isEmpty() && adjustment.linkedClipId != hostClipId)
                 continue;

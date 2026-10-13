@@ -100,6 +100,33 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
 - **Jorge tiene el espacio de trabajo fijado en «Horizontal»** (`ui/workspaceLayout`). Por eso un
   video 9:16 no cambiaba de diseño solo; ahora sale el botón «Espacio vertical».
 
+### 0.9.8 en curso (2026-10-13, noche): capas de ajuste profesionales y LUT
+- Rama `flip/v0.9.8` (escritorio) y `web/0.9.8` (editor web). Notas en `release-notes/0.9.8.md`.
+- Jorge pidió (con dos documentos) capas de ajuste "profesionales" y un sistema de LUT, **por etapas**,
+  **probando cada cambio** y **compilando el escritorio una sola vez al final**.
+- Hecho, en las dos:
+  - capa de ajuste con interruptor (`Clip::disabled` / `off` en la web), nombre, intensidad animable,
+    mezcla y aviso cuando no cambia nada; «Luz suave» en escritorio;
+  - Blancos, Negros y Desvanecer en `color.basic` / `adjust_basic`; números que se escriben;
+  - LUT: `core/CubeLut` + efecto `effects/color_lut` (la textura sale del parámetro de archivo:
+    `GpuEffectTextureSpec::fromParameter`, `lutTexture` en `GlRuntime`); biblioteca en
+    `AppData/luts`; búsqueda por nombre (`CubeLut::resolve`); seis looks generados por
+    `tools/luts/make_luts.py` (también copiados a `flipstudio-app/public/luts`).
+    Web: `effects/cubeLut.ts`, `lutStore.ts` (IndexedDB `flipstudio-luts`, clave por contenido),
+    textura 3D en `gl.ts`;
+  - grano de película y viñeta ajustable (escritorio); la web ya los tenía;
+  - el panel derecho, al bajar, recorre las páginas de la pestaña antes de la siguiente.
+- **Máscaras de capa** (tercer documento de Jorge): `Mask::expand`/`opacity` (animables),
+  `MaskShape::LinearGradient` ("gradient"), `Clip::extraMasks` + `maskFocus` (la máscara enfocada es
+  la que editan el panel, el visor y "mask.<key>"), `Clip::masksLimitEffects` (las máscaras de un clip
+  limitan sus efectos: `buildLayerTarget` mezcla por cobertura en vez de recortar). Web: `Clip.masks`
+  (pila), `masksLimitEffects`, `MaskHandles.tsx` en el visor.
+- Probado en ventana con el portable de CI (run 38464105571) y por píxeles con capturas reales.
+- **Falta:** el OK de Jorge para publicar (release 0.9.8, editor web y novedades).
+- **Límites conocidos:** en la web los parámetros de los efectos no se animan (solo la intensidad de
+  la capa); los LUT importados en la web viven en ese navegador (se reconocen al volver a importar el
+  mismo archivo).
+
 ### Pendiente
 1. **Hecho por Jorge (2026-10-13):** cambió el TXT `version` del DNS y mandó la 0.9.6 a
    certificación en Partner Center. **Falta:** confirmar que la certificación pase. La ficha
@@ -378,6 +405,17 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 ---
 
 ## Trampas que ya nos costaron tiempo
+
+**Probar la interfaz en ventana sin tocar el mouse de Jorge:** `mcp_e2e.py --window` abre el editor con
+el proyecto, se conecta a él (`--mcp-stdio` sin `--headless` se *adjunta* a un editor abierto) y acepta
+las pseudo-llamadas `screenshot` (PrintWindow: solo la ventana, nunca el escritorio), `click` y
+`wheel` (mensajes enviados a la ventana, coordenadas de la captura). Necesita **Acceso de agente**
+encendido (`mcp/startOnLaunch = true` en el registro): encenderlo solo con copia del registro y
+restaurarlo al terminar. Nunca usar capturas de pantalla completa: una vez salió el navegador de Jorge.
+- Para preparar proyectos de prueba: `load` acepta un `.json` con el documento (Project::toJson); el
+  `.drift` es "DRIFTPRJ" + cabecera de 52 bytes + manifiesto zstd con `document`.
+- Las pruebas de GPU de `tst_engine` se **saltan en CI** (Linux sin GPU): lo de GPU se verifica con
+  capturas `capture full:true` del ejecutable real en Windows.
 
 **Nada que se lance desde `Flip\.e2e-app` puede escribir archivos.** Le pasa incluso a la 0.9.6
 copiada ahí, y aunque se lance sin sandbox o desde una tarea programada. No es la app: el

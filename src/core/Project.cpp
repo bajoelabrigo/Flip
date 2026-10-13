@@ -41,7 +41,7 @@ QJsonObject maskToJson(const Mask &m)
         pathKeys.append(QJsonArray{qint64(it.key()), shape});
     }
 
-    return QJsonObject{
+    QJsonObject json{
         {QStringLiteral("shape"), maskShapeToString(m.shape)},
         {QStringLiteral("op"), maskOpToString(m.op)},
         {QStringLiteral("enabled"), m.enabled},
@@ -65,6 +65,12 @@ QJsonObject maskToJson(const Mask &m)
         {QStringLiteral("keyframes"), maskKeyframesJson},
         {QStringLiteral("pathKeys"), pathKeys},
     };
+    // Only when set, so masks saved before these existed (and files from them) stay byte-equal.
+    if (!qFuzzyIsNull(m.expand))
+        json.insert(QStringLiteral("expand"), m.expand);
+    if (!qFuzzyCompare(m.opacity, 1.0))
+        json.insert(QStringLiteral("opacity"), m.opacity);
+    return json;
 }
 
 Mask maskFromJson(const QJsonObject &o)
@@ -81,6 +87,8 @@ Mask maskFromJson(const QJsonObject &o)
     m.rotation = o.value(QStringLiteral("rotation")).toDouble(m.rotation);
     m.feather = o.value(QStringLiteral("feather")).toDouble(m.feather);
     m.invert = o.value(QStringLiteral("invert")).toBool(m.invert);
+    m.expand = o.value(QStringLiteral("expand")).toDouble(m.expand);
+    m.opacity = o.value(QStringLiteral("opacity")).toDouble(m.opacity);
     m.op = maskOpFromString(o.value(QStringLiteral("op")).toString());
     m.enabled = o.value(QStringLiteral("enabled")).toBool(m.enabled);
     m.name = o.value(QStringLiteral("name")).toString(m.name);
@@ -327,6 +335,16 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("z"), keyframesToJson(clip.positionZ));
     if (!clip.perspective.isEmpty())
         json.insert(QStringLiteral("perspective"), keyframesToJson(clip.perspective));
+    if (clip.disabled)
+        json.insert(QStringLiteral("disabled"), true);
+    if (!clip.extraMasks.isEmpty()) {
+        QJsonArray extra;
+        for (const Mask &m : clip.extraMasks)
+            extra.append(maskToJson(m));
+        json.insert(QStringLiteral("extraMasks"), extra);
+    }
+    if (clip.masksLimitEffects)
+        json.insert(QStringLiteral("masksLimitEffects"), true);
     return json;
 }
 
@@ -378,6 +396,10 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
         adjustmentKindFromString(object.value(QStringLiteral("adjustmentKind")).toString());
     clip.linkedClipId = object.value(QStringLiteral("linkedClipId")).toString();
     clip.independentRange = object.value(QStringLiteral("independentRange")).toBool(false);
+    clip.disabled = object.value(QStringLiteral("disabled")).toBool(false);
+    for (const QJsonValue &value : object.value(QStringLiteral("extraMasks")).toArray())
+        clip.extraMasks.append(maskFromJson(value.toObject()));
+    clip.masksLimitEffects = object.value(QStringLiteral("masksLimitEffects")).toBool(false);
     clip.name = object.value(QStringLiteral("name")).toString();
     clip.textContent = object.value(QStringLiteral("textContent")).toString();
     clip.textStyle = textStyleFromJson(object.value(QStringLiteral("textStyle")).toObject());

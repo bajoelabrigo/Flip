@@ -97,6 +97,21 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas de la versión (0.9.8)**. Este texto va en "Novedades de esta versión" de Partner
+Center; el límite es de 1500 caracteres (este texto tiene 736).
+
+> **Novedades de la 0.9.8**
+>
+> - Capas de ajuste profesionales: nombre, interruptor, intensidad animable y modo de mezcla.
+> - Se agregan desde la barra, el + de la línea de tiempo o con clic derecho sobre un clip.
+> - LUT: seis looks incluidos e importación de archivos .cube, con intensidad.
+> - Máscaras de capa: varias por capa (unir, restar, intersecar), degradado lineal, expandir y opacidad.
+> - Usa las máscaras solo para los efectos: el clip queda entero y el color solo se ve dentro.
+> - Blancos, Negros y Desvanecer en Ajustar, con números que se escriben.
+> - Grano de película, viñeta ajustable y modo de mezcla Luz suave.
+> - Crear composición respeta el orden de las pistas.
+> - La rueda recorre las páginas y categorías de los paneles, de a una.
+
 **Notas de la versión (0.9.7)**. Este texto va en "Novedades de esta versión" de Partner
 Center; el límite es de 1500 caracteres (este texto tiene 770).
 

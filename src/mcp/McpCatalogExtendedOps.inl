@@ -216,7 +216,7 @@
                                              {QStringLiteral("normal"), QStringLiteral("multiply"),
                                               QStringLiteral("screen"), QStringLiteral("overlay"),
                                               QStringLiteral("add"), QStringLiteral("darken"),
-                                              QStringLiteral("lighten")})}},
+                                              QStringLiteral("lighten"), QStringLiteral("soft-light")})}},
                                   clipRefProps()),
                        {QStringLiteral("mode")}) },
         { "set_mask", "canvas", "Show only part of a clip: rectangle, ellipse, freeform, matte",

@@ -22,6 +22,27 @@ Item {
     // its rect only ever crops the subject, so the sliders stay hidden and invert plus removal
     // are what is offered.
     readonly property bool isMedia: maskShape === "media"
+    // A standalone adjustment layer carries a stack of masks of its own; the fields below edit the
+    // one in focus.
+    readonly property var layerMasks: (hasSelection && clipData.layerMasks) || []
+    readonly property bool isLayer: hasSelection && clipKind === "adjustment" && clipData.adjustmentKind === "videoEffects"
+    readonly property int layerFocus: hasSelection ? (clipData.layerMaskFocus || 0) : 0
+    // Adjust > Mask sets the shape with its tiles right above this, so the combo would only repeat
+    // them there.
+    property bool showShapeCombo: true
+    function setMask(patch) {
+        const mask = Object.assign({}, root.clipData.mask || {}, patch)
+        EditorState.setClipMask(EditorState.selectedTrack, EditorState.selectedClip, mask)
+    }
+
+    // The preview shows the focused mask's handles while this tab is open on a layer.
+    Binding {
+        target: EditorState.preview
+        property: "maskEditMode"
+        value: true
+        when: root.visible && root.isLayer && root.maskShape !== "none"
+        restoreMode: Binding.RestoreBindingOrValue
+    }
 
     // A media clip carries no mask of its own: its masks are mask adjustments pinned to it in one
     // of its track's lanes. Listing them here is the whole point — otherwise the only way to reach
@@ -97,6 +118,69 @@ Item {
             }
         }
 
+        // An adjustment layer's masks: one chip each, the focused one lit, and + for another.
+        // Inside the masks the layer's effects and colour show; outside, what is under it.
+        Column {
+            visible: root.isLayer
+            width: parent.width
+            spacing: Theme.spacingSm
+
+            Text {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                text: qsTr("Masks choose where this layer's effects, colour and LUT show: inside, the layer; outside, what is under it, untouched.")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+
+            Flow {
+                width: parent.width
+                spacing: Theme.spacingSm
+                Repeater {
+                    model: root.layerMasks
+                    delegate: ThemedToggleButton {
+                        required property var modelData
+                        text: modelData.name && modelData.name.length > 0
+                              ? modelData.name : qsTr("Mask %1").arg(modelData.index + 1)
+                        checked: modelData.index === root.layerFocus
+                        opacity: modelData.enabled ? 1 : 0.5
+                        onClicked: EditorState.setLayerMaskFocus(EditorState.selectedTrack,
+                                                                 EditorState.selectedClip, modelData.index)
+                    }
+                }
+                ThemedButton {
+                    text: root.layerMasks.length === 0 ? qsTr("Add mask") : "+"
+                    glyph: root.layerMasks.length === 0 ? "circle-plus" : ""
+                    variant: "ghost"
+                    tooltip: qsTr("Add a mask to this layer")
+                    onClicked: EditorState.addLayerMask(EditorState.selectedTrack, EditorState.selectedClip, "ellipse")
+                }
+            }
+        }
+
+        // The focused mask's name and switch.
+        Row {
+            visible: root.isLayer && root.maskShape !== "none"
+            width: parent.width
+            spacing: Theme.spacingSm
+            ThemedTextField {
+                width: parent.width - maskOnSwitch.width - Theme.spacingSm
+                placeholderText: qsTr("Mask %1").arg(root.layerFocus + 1)
+                text: (root.clipData.mask && root.clipData.mask.name) || ""
+                onEditingFinished: {
+                    if (((root.clipData.mask && root.clipData.mask.name) || "") !== text)
+                        root.setMask({ name: text })
+                }
+            }
+            ThemedSwitch {
+                id: maskOnSwitch
+                checked: !root.clipData.mask || root.clipData.mask.enabled !== false
+                tooltip: qsTr("Turn this mask off without removing it")
+                onToggled: root.setMask({ enabled: checked })
+            }
+        }
+
         // A media clip with no mask yet: say what the panel is for instead of showing inert
         // shape controls that would create a second mask without saying so.
         Text {
@@ -127,9 +211,9 @@ Item {
             // Also hidden while a media clip is selected: the mask being edited is one of the
             // adjustments listed above, not a shape on the clip, so a shape combo here would be
             // writing to the wrong object.
-            visible: !root.isMedia && !root.isMediaClip
+            visible: root.showShapeCombo && !root.isMedia && !root.isMediaClip
             width: parent.width
-            model: ["none", "rectangle", "ellipse", "star", "heart", "bars", "freeform", "text"]
+            model: ["none", "rectangle", "ellipse", "star", "heart", "bars", "freeform", "text", "gradient"]
             // Human labels — the raw ids were shown to the user.
             readonly property var labels: ({
                 "none": qsTr("None"),
@@ -139,7 +223,8 @@ Item {
                 "heart": qsTr("Heart"),
                 "bars": qsTr("Bars"),
                 "freeform": qsTr("Freeform"),
-                "text": qsTr("Text")
+                "text": qsTr("Text"),
+                "gradient": qsTr("Linear gradient")
             })
             displayText: labels[model[currentIndex]] || model[currentIndex]
             currentIndex: Math.max(0, model.indexOf((root.clipData.mask && root.clipData.mask.shape) || "none"))
@@ -148,6 +233,10 @@ Item {
                 mask.shape = model[currentIndex]
                 if (mask.shape === "text" && !mask.text)
                     mask.text = qsTr("TEXT")
+                if (mask.shape === "gradient" && root.maskShape !== "gradient") {
+                    mask.y = 0.5
+                    mask.h = 0.4
+                }
                 EditorState.setClipMask(EditorState.selectedTrack, EditorState.selectedClip, mask)
             }
         }
@@ -208,6 +297,7 @@ Item {
         // lets it seed the coverage, because a lone Subtract or Intersect would blank the layer.
         Column {
             visible: root.maskShape !== "none" && !root.isMediaClip
+                     && (!root.isLayer || root.layerFocus > 0)
             width: parent.width
             spacing: Theme.spacingSm
 
@@ -246,10 +336,25 @@ Item {
             variant: "destructive"
             glyph: Theme.icons.trash
             onClicked: {
+                if (root.isLayer) {
+                    EditorState.removeLayerMask(EditorState.selectedTrack, EditorState.selectedClip, root.layerFocus)
+                    return
+                }
                 const mask = Object.assign({}, root.clipData.mask || {})
                 mask.shape = "none"
                 EditorState.setClipMask(EditorState.selectedTrack, EditorState.selectedClip, mask)
             }
+        }
+
+        // Back to the shape's starting place and size, keeping the shape, name and how it combines.
+        ThemedButton {
+            visible: root.maskShape !== "none" && !root.isMediaClip && !root.isMedia
+            text: qsTr("Reset mask")
+            variant: "ghost"
+            glyph: Theme.icons.reset
+            onClicked: root.setMask({ x: 0.5, y: 0.5, w: root.maskShape === "gradient" ? 0.6 : 0.6,
+                                      h: root.maskShape === "gradient" ? 0.4 : 0.6, rotation: 0,
+                                      feather: 0, expand: 0, opacity: 1, invert: false })
         }
 
         // Mask scalars animate through the same generic keyframe API as a clip's transform, so
@@ -263,20 +368,30 @@ Item {
             // nothing. Offering those sliders anyway just invites dragging something inert.
             model: [
                 { key: "mask.x", label: qsTr("Center X"), def: 0.5, decimals: 3, min: 0, max: 1,
-                  shapes: ["rectangle", "ellipse", "star", "heart", "text"] },
+                  shapes: ["rectangle", "ellipse", "star", "heart", "text", "gradient"] },
                 { key: "mask.y", label: qsTr("Center Y"), def: 0.5, decimals: 3, min: 0, max: 1,
-                  shapes: ["rectangle", "ellipse", "star", "heart", "text"] },
+                  shapes: ["rectangle", "ellipse", "star", "heart", "text", "gradient"] },
                 { key: "mask.w", label: qsTr("Width"), def: 0.6, decimals: 3, min: 0.05, max: 1,
                   shapes: ["rectangle", "ellipse", "star", "heart", "text"] },
                 { key: "mask.h", label: qsTr("Height"), def: 0.6, decimals: 3, min: 0.05, max: 1,
                   shapes: ["rectangle", "ellipse", "star", "heart", "bars", "text"] },
+                // A gradient's height is the depth of its fade.
+                { key: "mask.h", label: qsTr("Fade length"), def: 0.4, decimals: 3, min: 0.01, max: 1,
+                  shapes: ["gradient"] },
                 { key: "mask.rotation", label: qsTr("Rotation"), def: 0, decimals: 1,
                   min: -180, max: 180, unit: "°",
-                  shapes: ["rectangle", "ellipse", "star", "heart", "text"] },
+                  shapes: ["rectangle", "ellipse", "star", "heart", "text", "gradient"] },
                 // Feather blurs the finished coverage map, so it applies to every shape.
                 { key: "mask.feather", label: qsTr("Feather"), def: 0, decimals: 0,
                   min: 0, max: 64, unit: "px",
-                  shapes: ["rectangle", "ellipse", "star", "heart", "bars", "freeform", "text"] }
+                  shapes: ["rectangle", "ellipse", "star", "heart", "bars", "freeform", "text"] },
+                // Grows or shrinks the outline (a share of the frame's shorter side).
+                { key: "mask.expand", label: qsTr("Expand"), def: 0, decimals: 3,
+                  min: -0.3, max: 0.3,
+                  shapes: ["rectangle", "ellipse", "star", "heart", "bars", "freeform", "text", "gradient"] },
+                { key: "mask.opacity", label: qsTr("Mask opacity"), def: 1, decimals: 2,
+                  min: 0, max: 1, percent: true,
+                  shapes: ["rectangle", "ellipse", "star", "heart", "bars", "freeform", "text", "gradient"] }
             ]
             delegate: PropertyKeyframeRow {
                 required property var modelData
@@ -301,6 +416,7 @@ Item {
                 sliderFrom: modelData.min
                 sliderTo: modelData.max
                 unit: modelData.unit || ""
+                percent: !!modelData.percent
             }
         }
 

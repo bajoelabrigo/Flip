@@ -18,6 +18,7 @@ Item {
         { id: "hsl", label: qsTr("HSL") },
         { id: "curves", label: qsTr("Curves") },
         { id: "wheels", label: qsTr("Color wheels") },
+        { id: "lut", label: qsTr("LUT") },
         { id: "mask", label: qsTr("Mask") }
     ]
     readonly property int pageIndex: Math.max(0, pages.findIndex(p => p.id === root.page))
@@ -70,6 +71,10 @@ Item {
     function setMany(effectId, undoText, values) {
         if (effectIndex(effectId) < 0)
             return
+        setManyOrAdd(effectId, undoText, values)
+    }
+    // The same, adding the effect first when it is not there yet (a typed value).
+    function setManyOrAdd(effectId, undoText, values) {
         beginEdit(effectId, undoText)
         for (const k in values)
             preview(k, values[k])
@@ -115,13 +120,25 @@ Item {
                 font.pixelSize: Theme.fontSizeXs
                 elide: Text.ElideRight
             }
-            Text {
+            // The number can be typed too: Enter applies it (clamped to the range) as one step.
+            TextInput {
+                id: typed
                 width: 48
                 horizontalAlignment: Text.AlignRight
                 text: Math.round(slider.value * ps.displayScale)
                 color: Theme.panelForeground
                 font.family: Theme.monoFontFamily
                 font.pixelSize: Theme.fontSizeXs
+                selectByMouse: true
+                validator: IntValidator {
+                    bottom: Math.round(ps.from * ps.displayScale)
+                    top: Math.round(ps.to * ps.displayScale)
+                }
+                onAccepted: {
+                    const v = Math.max(ps.from, Math.min(ps.to, Number(text) / ps.displayScale))
+                    ps.host.setManyOrAdd(ps.effectId, qsTr("Adjust %1").arg(ps.label), ({ [ps.key]: v }))
+                    focus = false
+                }
             }
         }
         ThemedSlider {
@@ -273,23 +290,27 @@ Item {
                 { key: "brightness", label: qsTr("Brightness") },
                 { key: "contrast", label: qsTr("Contrast") },
                 { key: "highlights", label: qsTr("Highlights") },
-                { key: "shadows", label: qsTr("Shadows") }
+                { key: "shadows", label: qsTr("Shadows") },
+                { key: "whites", label: qsTr("Whites") },
+                { key: "blacks", label: qsTr("Blacks") }
             ]
+            // Fade only goes one way (0 = none), like CapCut's.
             readonly property var colour: [
                 { key: "saturation", label: qsTr("Saturation") },
                 { key: "vibrance", label: qsTr("Vibrance") },
                 { key: "temperature", label: qsTr("Temperature") },
-                { key: "tint", label: qsTr("Tint") }
+                { key: "tint", label: qsTr("Tint") },
+                { key: "fade", label: qsTr("Fade"), from: 0 }
             ]
 
             Row {
                 width: parent.width
-                SectionTitle { text: qsTr("Light"); width: parent.width - basicReset.width }
+                SectionTitle { text: qsTr("Light"); width: parent.width - lightReset.width }
                 ResetButton {
-                    id: basicReset
-                    onClicked: root.setMany("color.basic", qsTr("Reset basic adjustments"), ({
+                    id: lightReset
+                    onClicked: root.setMany("color.basic", qsTr("Reset light"), ({
                         exposure: 0, brightness: 0, contrast: 0, highlights: 0, shadows: 0,
-                        saturation: 0, vibrance: 0, temperature: 0, tint: 0 }))
+                        whites: 0, blacks: 0 }))
                 }
             }
             Repeater {
@@ -302,7 +323,16 @@ Item {
                     label: modelData.label
                 }
             }
-            SectionTitle { text: qsTr("Colour"); topPadding: Theme.spacingSm }
+            Row {
+                width: parent.width
+                topPadding: Theme.spacingSm
+                SectionTitle { text: qsTr("Colour"); width: parent.width - colourReset.width }
+                ResetButton {
+                    id: colourReset
+                    onClicked: root.setMany("color.basic", qsTr("Reset colour"), ({
+                        saturation: 0, vibrance: 0, temperature: 0, tint: 0, fade: 0 }))
+                }
+            }
             Repeater {
                 model: parent.colour
                 delegate: ParamSlider {
@@ -311,6 +341,7 @@ Item {
                     effectId: "color.basic"
                     key: modelData.key
                     label: modelData.label
+                    from: modelData.from !== undefined ? modelData.from : -1
                 }
             }
         }
@@ -753,6 +784,13 @@ Item {
             }
         }
 
+        // --- LUT -----------------------------------------------------------------------------
+        LutPage {
+            visible: root.page === "lut"
+            width: parent.width
+            host: root
+        }
+
         // --- Mask ----------------------------------------------------------------------------
         Column {
             visible: root.page === "mask"
@@ -767,27 +805,70 @@ Item {
                 font.pixelSize: Theme.fontSizeXs
             }
 
-            Grid {
+            // The same tiles as Video > Mask. On an adjustment layer a pick adds its first mask
+            // or changes the shape of the one being edited ("+" in the list below adds another);
+            // on a photo or video it adds a mask pinned to the clip, which stays selected.
+            MaskShapeTiles {
+                id: maskTiles
                 width: parent.width
-                columns: 3
-                spacing: Theme.spacingSm
-                readonly property real cell: (width - spacing * 2) / 3
-
-                Repeater {
-                    model: EditorState.maskCatalog()
-                    delegate: ThemedButton {
-                        required property var modelData
-                        width: parent.cell
-                        text: modelData.label
-                        enabled: root.canEdit
-                        onClicked: EditorState.addMaskToClip(EditorState.selectedTrack,
-                                                             EditorState.selectedClip,
-                                                             modelData.id)
+                enabled: root.canEdit
+                readonly property var clipInfo: EditorState.selectedClipData || ({})
+                readonly property bool onLayer: clipInfo.kind === "adjustment"
+                                              && clipInfo.adjustmentKind === "videoEffects"
+                readonly property var focused: (onLayer && clipInfo.mask) || ({})
+                readonly property string focusedShape: focused.shape || "none"
+                tiles: [
+                    { id: "none", label: qsTr("None") },
+                    { id: "rectangle", label: qsTr("Rectangle") },
+                    { id: "ellipse", label: qsTr("Circle") },
+                    { id: "bars", label: qsTr("Film strip") },
+                    { id: "star", label: qsTr("Stars") },
+                    { id: "heart", label: qsTr("Heart") },
+                    { id: "text", label: qsTr("Text") },
+                    { id: "freeform", label: qsTr("Freeform") },
+                    { id: "gradient", label: qsTr("Gradient") }
+                ]
+                currentId: focusedShape
+                editing: onLayer && focusedShape !== "none"
+                onPicked: (id) => {
+                    const t = EditorState.selectedTrack
+                    const c = EditorState.selectedClip
+                    if (!onLayer) {
+                        if (id !== "none")
+                            EditorState.addMaskToClipInPlace(t, c, id)
+                        return
                     }
+                    if (id === "none") {
+                        if (focusedShape !== "none")
+                            EditorState.removeLayerMask(t, c, clipInfo.layerMaskFocus || 0)
+                        return
+                    }
+                    if (focusedShape === "none") {
+                        EditorState.addLayerMask(t, c, id)
+                        return
+                    }
+                    if (id === focusedShape)
+                        return
+                    const mask = Object.assign({}, focused, { shape: id })
+                    if (id === "freeform")
+                        mask.points = []
+                    if (id === "text" && !mask.text) {
+                        mask.text = qsTr("TEXT")
+                        mask.w = 0.8
+                        mask.h = 0.35
+                    }
+                    if (id === "gradient") {
+                        mask.y = 0.5
+                        mask.h = 0.4
+                    }
+                    EditorState.setClipMask(t, c, mask)
                 }
             }
 
-            MasksInspector { width: parent.width }
+            MasksInspector {
+                width: parent.width
+                showShapeCombo: false
+            }
         }
     }
 }

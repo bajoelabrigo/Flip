@@ -813,6 +813,19 @@ public:
     Q_INVOKABLE void setClipTextContent(int trackIndex, int clipIndex, const QString &text);
     // Display label on the timeline / inspector. Does not rename the source file.
     Q_INVOKABLE void setClipName(int trackIndex, int clipIndex, const QString &name);
+    // Switches a clip off (or back on) without removing it: it keeps every setting, but the
+    // compositor leaves it out. What an adjustment layer's on/off switch does.
+    Q_INVOKABLE void setClipDisabled(int trackIndex, int clipIndex, bool disabled);
+
+    // A standalone adjustment layer's mask stack (Clip::mask then Clip::extraMasks). Adding puts
+    // the new mask in focus; the focused one is what setClipMask, the Masks tab, the preview
+    // handles and the "mask.<key>" keyframes edit.
+    Q_INVOKABLE bool addLayerMask(int trackIndex, int clipIndex, const QString &shapeId);
+    Q_INVOKABLE void setLayerMaskFocus(int trackIndex, int clipIndex, int index);
+    Q_INVOKABLE bool removeLayerMask(int trackIndex, int clipIndex, int index);
+    static QVariantList layerMaskList(const drift::Clip &clip);
+    // A clip's masks either cut it (the default) or limit where its effects and colour show.
+    Q_INVOKABLE void setMasksLimitEffects(int trackIndex, int clipIndex, bool limit);
     Q_INVOKABLE void commitTextEdit(int trackIndex, int clipIndex, const QString &text);
     bool inlineTextEditing() const { return m_inlineTextEditing; }
 
@@ -1225,6 +1238,25 @@ public:
                                               const QString &mode);
     Q_INVOKABLE void resetClipTransform(int trackIndex, int clipIndex);
     Q_INVOKABLE QVariantList effectCatalog() const;
+
+    // LUTs (the color.lut effect). The factory looks that ship with the app and the ones the
+    // person imported, each {id, name, path, factory, category}. Imported LUTs are copied into the
+    // person's LUT library (AppData/luts), so the original can move or go without breaking a
+    // project, and a project carried elsewhere finds them by name (CubeLut::resolve).
+    Q_INVOKABLE QVariantList lutLibrary() const;
+    // Checks a .cube file and copies it into the library: {ok, path, name} or {ok:false, error}.
+    Q_INVOKABLE QVariantMap importLut(const QUrl &url);
+    // {ok, name, missing, error, size, is3d} for a LUT path as a project saved it.
+    Q_INVOKABLE QVariantMap lutInfo(const QString &path) const;
+    // A small picture graded by the LUT (the real table applied on the CPU to a reference photo),
+    // as a file URL, cached by the LUT file's contents. Empty when the LUT cannot be read.
+    Q_INVOKABLE QUrl lutThumbnail(const QString &path) const;
+    // Deletes an imported LUT from the library (never a factory one). Projects that used it keep
+    // their saved path and report it missing.
+    Q_INVOKABLE bool removeImportedLut(const QString &path);
+    static QString lutLibraryDir();
+    static QString factoryLutDir();
+    void updateLutSearchDirs();
     Q_INVOKABLE QVariantList effectCategories() const;
     Q_INVOKABLE QVariantList effectTemplateCatalog() const;
     Q_INVOKABLE QVariantList effectTemplateCategories() const;
@@ -1659,6 +1691,8 @@ signals:
     void editCapabilitiesChanged();
     void sequenceTabsChanged();
     void selectedClipDataChanged();
+    // An imported LUT was added to or removed from the library.
+    void lutLibraryChanged();
     void selectedTransitionDataChanged();
     void bookmarksChanged();
     void workAreaChanged();

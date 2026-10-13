@@ -130,6 +130,17 @@ public:
     std::unique_ptr<QOpenGLShaderProgram> copyProgram;
     std::map<QString, CompiledEffect> programs;
     std::map<QString, GLuint> staticTextures; // absolute path -> GL texture
+    // .cube LUTs by path, re-read when the file changes on disk. tex 0 marks one that failed.
+    struct LutTexture
+    {
+        GLuint tex = 0;
+        qint64 stamp = 0; // file size and mtime folded together
+        int size = 0;
+        bool is3d = true;
+        float domainMin[3] = {0.f, 0.f, 0.f};
+        float domainMax[3] = {1.f, 1.f, 1.f};
+    };
+    std::map<QString, LutTexture> lutTextures;
 
     // Face Swap source photos. Keyed on "<absolutePath>|<mtimeMs>|<size>", so editing a photo in
     // place rebuilds the textures instead of serving a stale one. Destroyed in shutdown()
@@ -554,6 +565,9 @@ extern const char *const kQuadVertexShader;
 GLuint uploadTexture(QOpenGLExtraFunctions *gl, const QImage &image, bool flipVertically = false);
 bool blitTextureToTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, GLuint srcTex, GlTarget &dest);
 GLuint staticTexture(GlRuntime &rt, QOpenGLExtraFunctions *gl, const QString &path);
+// The .cube LUT at path as a texture (see drift::CubeLut::toTexture), cached; null when the file
+// is missing or not a valid table.
+const GlRuntime::LutTexture *lutTexture(GlRuntime &rt, QOpenGLExtraFunctions *gl, const QString &path);
 
 // The texture unit the depth map is bound to, clear of the units package inputs count up from.
 // GL 3.3 and GLES 3.0 both guarantee 16 fragment units.

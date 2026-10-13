@@ -3,17 +3,23 @@
 #include "core/ShapePath.h"
 
 #include <QFont>
+#include <QLinearGradient>
 #include <QPainter>
 #include <QPainterPath>
 #include <QtMath>
+
+#include <cmath>
 
 namespace drift {
 
 QPainterPath maskPath(const Mask &mask, int canvasWidth, int canvasHeight)
 {
     const QPointF center(mask.x * canvasWidth, mask.y * canvasHeight);
-    const double halfW = qMax(1.0, mask.w * canvasWidth * 0.5);
-    const double halfH = qMax(1.0, mask.h * canvasHeight * 0.5);
+    // Expand grows (or shrinks) the outline by the same distance on every side, measured on the
+    // frame's shorter side so a square stays square on a wide frame.
+    const double grow = mask.expand * qMin(canvasWidth, canvasHeight);
+    const double halfW = qMax(1.0, mask.w * canvasWidth * 0.5 + grow);
+    const double halfH = qMax(1.0, mask.h * canvasHeight * 0.5 + grow);
     // The mask's own rect. Star and heart used to be forced into a square of qMin(halfW, halfH),
     // which quietly threw away whichever of the width and height sliders was larger; both
     // generators handle a non-square box, so both sliders now mean something.
@@ -48,6 +54,24 @@ QPainterPath maskPath(const Mask &mask, int canvasWidth, int canvasHeight)
         QPainterPath path;
         if (mask.points.isEmpty())
             return path;
+        if (!qFuzzyIsNull(grow)) {
+            // Each vertex pushed away from (or towards) the middle of them all by the expand.
+            QPointF middle;
+            for (const QPointF &p : mask.points)
+                middle += QPointF(p.x() * canvasWidth, p.y() * canvasHeight);
+            middle /= double(mask.points.size());
+            Mask grown = mask;
+            grown.expand = 0.0;
+            for (QPointF &p : grown.points) {
+                const QPointF at(p.x() * canvasWidth, p.y() * canvasHeight);
+                const QPointF d = at - middle;
+                const double len = std::hypot(d.x(), d.y());
+                const double k = len > 0.0 ? qMax(0.0, len + grow) / len : 1.0;
+                const QPointF moved = middle + d * k;
+                p = QPointF(moved.x() / canvasWidth, moved.y() / canvasHeight);
+            }
+            return maskPath(grown, canvasWidth, canvasHeight);
+        }
         // Pen: a closed Catmull-Rom curve through every vertex, as cubic Beziers.
         if (mask.smooth && mask.points.size() >= 3) {
             const int n = mask.points.size();
@@ -99,6 +123,15 @@ QPainterPath maskPath(const Mask &mask, int canvasWidth, int canvasHeight)
         // Raster, not parametric: the coverage map is decoded per frame in FrameCompositor and
         // rides on GpuLayer::maskMedia. There is no path to rasterize.
         break;
+    case drift::MaskShape::LinearGradient: {
+        // A ramp has no outline; maskAlphaMap paints it. The path is the band's full-coverage
+        // side, for thumbnails and outlines.
+        const double band = qMax(1.0, mask.h * canvasHeight);
+        QPainterPath path;
+        const double far = double(canvasWidth + canvasHeight) * 2.0;
+        path.addRect(QRectF(center.x() - far, center.y() - far, far * 2.0, far - band / 2.0 + grow));
+        return path;
+    }
     case drift::MaskShape::None:
         break;
     }
@@ -160,6 +193,20 @@ QImage applyAlphaMap(const QImage &frame, const QImage &alpha, int canvasWidth, 
     return out;
 }
 
+// Coverage times a mask's opacity (1 leaves it as it is).
+QImage scaledByOpacity(QImage alpha, double opacity)
+{
+    const double k = qBound(0.0, opacity, 1.0);
+    if (k >= 1.0 || alpha.isNull())
+        return alpha;
+    for (int y = 0; y < alpha.height(); ++y) {
+        uchar *row = alpha.scanLine(y);
+        for (int x = 0; x < alpha.width(); ++x)
+            row[x] = static_cast<uchar>(std::lround(row[x] * k));
+    }
+    return alpha;
+}
+
 } // namespace
 
 namespace drift {
@@ -178,6 +225,23 @@ QImage maskAlphaMap(const Mask &mask, int canvasWidth, int canvasHeight)
     mp.setBrush(mask.invert ? Qt::black : Qt::white);
     mp.setPen(Qt::NoPen);
 
+    if (mask.shape == MaskShape::LinearGradient) {
+        // Full coverage before the band, none after it, a straight ramp across it; the line is
+        // moved along its normal by expand and turned about (x, y) by rotation.
+        const QPointF center(mask.x * canvasWidth, mask.y * canvasHeight);
+        const double band = qMax(1.0, mask.h * canvasHeight);
+        const double grow = mask.expand * qMin(canvasWidth, canvasHeight);
+        mp.translate(center);
+        mp.rotate(mask.rotation);
+        QLinearGradient ramp(0.0, -band / 2.0 + grow, 0.0, band / 2.0 + grow);
+        ramp.setColorAt(0.0, mask.invert ? Qt::black : Qt::white);
+        ramp.setColorAt(1.0, mask.invert ? Qt::white : Qt::black);
+        const double far = double(canvasWidth + canvasHeight) * 2.0;
+        mp.fillRect(QRectF(-far, -far, far * 2.0, far * 2.0), ramp);
+        mp.end();
+        return scaledByOpacity(alpha, mask.opacity);
+    }
+
     QPainterPath path = maskPath(mask, canvasWidth, canvasHeight);
     if (!path.isEmpty()) {
         const QPointF center(mask.x * canvasWidth, mask.y * canvasHeight);
@@ -195,7 +259,7 @@ QImage maskAlphaMap(const Mask &mask, int canvasWidth, int canvasHeight)
     if (mask.feather > 0.0)
         alpha = blurAlpha(alpha, qMax(1, static_cast<int>(mask.feather)));
 
-    return alpha;
+    return scaledByOpacity(alpha, mask.opacity);
 }
 
 QImage maskAlphaMap(const QList<Mask> &masks, int canvasWidth, int canvasHeight)
@@ -225,13 +289,18 @@ QImage maskAlphaMap(const QList<Mask> &masks, int canvasWidth, int canvasHeight)
             uchar *dst = accum.scanLine(y);
             const uchar *src = coverage.constScanLine(y);
             for (int x = 0; x < accum.width(); ++x) {
+                // src is already scaled by the entry's opacity o. Intersect keeps what the entry
+                // does not cover in proportion to 1 - o, so a half-opacity Intersect only
+                // half-limits: a * (1 - o + o*c).
                 switch (mask.op) {
                 case MaskOp::Subtract:
                     dst[x] = static_cast<uchar>(dst[x] * (255 - src[x]) / 255);
                     break;
-                case MaskOp::Intersect:
-                    dst[x] = static_cast<uchar>(dst[x] * src[x] / 255);
+                case MaskOp::Intersect: {
+                    const int keep = int(std::lround((1.0 - qBound(0.0, mask.opacity, 1.0)) * 255.0));
+                    dst[x] = static_cast<uchar>(dst[x] * qMin(255, src[x] + keep) / 255);
                     break;
+                }
                 case MaskOp::Add:
                     dst[x] = qMax(dst[x], src[x]);
                     break;

@@ -3,6 +3,31 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.9.8 — Capas de ajuste profesionales, LUT y máscaras de capa
+
+- **Capas de ajuste:**
+  - `Clip::disabled` (interruptor, se salta en `FrameCompositor` y en `laneMasksAt`);
+  - pestaña propia `AdjustmentLayerInspector` (nombre, intensidad animable, mezcla, aviso de capa vacía);
+  - modo de mezcla `SoftLight` («Luz suave»);
+  - se agregan desde el **+** (`NewTrackMenu`, `addAdjustmentClip`) y con clic derecho sobre foto, video o texto (cubre el tiempo del clip).
+- **Color:** `color.basic` gana `whites`, `blacks` y `fade`; los números de `AdjustInspector` se escriben; restablecer Luz y Color por separado.
+- **LUT:**
+  - `core/CubeLut` (parser .cube 3D/1D con `DOMAIN_*`, errores traducidos, `lookup` trilineal, `resolve` por nombre);
+  - efecto `color.lut`, con la textura sacada del parámetro de archivo (`GpuEffectTextureSpec::fromParameter`, `GlRuntime::lutTexture`);
+  - biblioteca en `AppData/luts`, seis looks de `tools/luts/make_luts.py`, página `LutPage.qml` con miniaturas reales.
+- **Máscaras de capa:**
+  - `Mask::expand` y `Mask::opacity` (animables), `MaskShape::LinearGradient`;
+  - `Clip::extraMasks` y `maskFocus` (la máscara enfocada es la que editan el panel, el visor y los fotogramas clave);
+  - `Clip::masksLimitEffects`: `buildLayerTarget` mezcla el resultado de los efectos por cobertura en vez de recortar el clip;
+  - `MaskShapeTiles.qml`, compartido por Video › Máscara y Ajustar › Máscara (que en una capa agrega o cambia su máscara).
+- **Efectos:** `stylize.film_grain` y viñeta con cantidad, tamaño y suavidad.
+- **Crear composición** (`makeCompositeFromSelection`): ocupa el lugar de la pista más baja de la selección (antes un texto solo caía en la primera pista de video libre, bajo una capa de ajuste) y quita las pistas que deja vacías.
+- **Paneles:**
+  - la rueda recorre las páginas de la pestaña antes de la siguiente;
+  - Texto (panel izquierdo) usa `CategoryScrollOn`;
+  - tras cada cambio de página o categoría la rueda espera a que pare (`settling`), así un giro rápido no se salta varias.
+- **Arnés e2e:** `--window`, `--keep`, `--attach`, capturas por `PrintWindow`, y clics (también derechos) y rueda enviados a la ventana.
+
 ## 0.9.7 — Lo que Jorge encontró usando la 0.9.6
 
 - **Imágenes con las páginas de video.**

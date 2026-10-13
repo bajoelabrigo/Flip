@@ -359,6 +359,13 @@ private slots:
     void effectsApplyOnTopOfTheCutoutForeground();
     void aVideoEffectsAdjustmentKeepsItsOwnMask();
     void standaloneAdjustmentKeepsSeeThroughCanvasAlpha();
+    void aSwitchedOffAdjustmentIsLeftOut();
+    void adjustmentStrengthMixesTheLayerWithWhatIsUnder();
+    void basicAdjustWhitesBlacksAndFadeMoveTheEndsOfTheRange();
+    void lutEffectGradesThroughItsCubeFile();
+    void softLightVignetteAndGrainForAdjustmentLayers();
+    void gradientExpandAndOpacityMasks();
+    void layerMaskStackAndMasksThatLimitEffects();
     void pinnedLaneAdjustmentsStayOnTheirOwnClip();
     void transformLayerMatrixMapsTheBox();
     void parentedQuadKeepsDepthAndNearPlanes();
@@ -10877,6 +10884,387 @@ void EngineTest::standaloneAdjustmentKeepsSeeThroughCanvasAlpha()
     const QImage opaqueAdjusted = GpuCompositor::render(scene);
     scene.items.removeLast();
     QCOMPARE(opaqueAdjusted.pixelColor(16, 16), GpuCompositor::render(scene).pixelColor(16, 16));
+}
+
+// An adjustment layer switched off keeps its place and settings but is not composited, and a
+// switched-off mask lane stops masking its clip.
+void EngineTest::aSwitchedOffAdjustmentIsLeftOut()
+{
+    drift::Project project;
+    project.setResolution(64, 64);
+    project.tracks().clear();
+    project.tracks().append(drift::Track{.type = drift::TrackType::Adjustment});
+
+    drift::Clip adjustment;
+    adjustment.id = QStringLiteral("adj");
+    adjustment.type = drift::ClipType::Adjustment;
+    adjustment.adjustmentKind = drift::AdjustmentKind::VideoEffects;
+    adjustment.timelineStart = 0;
+    adjustment.timelineDuration = drift::secondsToUs(4.0);
+    drift::Effect grey;
+    grey.catalogId = QStringLiteral("stylize.grayscale");
+    adjustment.effects.append(grey);
+    project.tracks()[0].clips.append(adjustment);
+
+    FrameCompositor compositor;
+    compositor.setProject(&project);
+    GpuScene scene;
+    QVERIFY(compositor.buildSceneAt(drift::secondsToUs(1.0), FrameCompositor::RenderOptions{}, &scene));
+    QCOMPARE(scene.items.size(), 1);
+
+    project.tracks()[0].clips[0].disabled = true;
+    compositor.setProject(&project);
+    GpuScene off;
+    QVERIFY(compositor.buildSceneAt(drift::secondsToUs(1.0), FrameCompositor::RenderOptions{}, &off));
+    QCOMPARE(off.items.size(), 0);
+
+    // Saved and read back: the switch survives, and a clip saved without it reads as on.
+    const drift::Project reopened = drift::Project::fromJson(project.toJson());
+    QVERIFY(reopened.tracks().constFirst().clips.constFirst().disabled);
+    project.tracks()[0].clips[0].disabled = false;
+    QVERIFY(!drift::Project::fromJson(project.toJson()).tracks().constFirst().clips.constFirst().disabled);
+}
+
+// Strength is the layer's opacity: 0 leaves what is under it as it was, 1 applies the whole layer,
+// and in between the processed picture is mixed over the original.
+void EngineTest::adjustmentStrengthMixesTheLayerWithWhatIsUnder()
+{
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+
+    QImage red(32, 32, QImage::Format_RGBA8888);
+    red.fill(QColor(255, 0, 0));
+    GpuItem clip;
+    clip.layer.valid = true;
+    clip.layer.source = red;
+    clip.layer.rect = QRectF(0, 0, 32, 32);
+
+    GpuScene scene;
+    scene.canvasSize = QSize(32, 32);
+    scene.backgroundColor = Qt::black;
+    scene.items.append(clip);
+
+    drift::Effect grey;
+    grey.catalogId = QStringLiteral("stylize.grayscale");
+    GpuItem adjustment;
+    adjustment.isAdjustment = true;
+    adjustment.layer.valid = true;
+    adjustment.layer.rect = QRectF(0, 0, 32, 32);
+    adjustment.layer.effects.append(grey);
+    scene.items.append(adjustment);
+
+    auto redAt = [&](double strength) {
+        scene.items.last().layer.opacity = strength;
+        return GpuCompositor::render(scene).pixelColor(16, 16);
+    };
+    const QColor none = redAt(0.0);
+    const QColor half = redAt(0.5);
+    const QColor full = redAt(1.0);
+    QVERIFY2(none.red() >= 250 && none.green() <= 5, qPrintable(none.name()));
+    QVERIFY2(full.red() < 200 && qAbs(full.red() - full.green()) <= 6, qPrintable(full.name()));
+    QVERIFY2(half.red() < none.red() && half.red() > full.red(), qPrintable(half.name()));
+    QVERIFY2(qAbs(half.red() - (none.red() + full.red()) / 2) <= 24, qPrintable(half.name()));
+}
+
+// Blacks lifts the darkest tones, whites brightens the lightest, and fade flattens the range from
+// both ends; each at 0 leaves the picture as it was.
+void EngineTest::basicAdjustWhitesBlacksAndFadeMoveTheEndsOfTheRange()
+{
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+
+    QImage ramp(32, 32, QImage::Format_RGBA8888);
+    ramp.fill(QColor(20, 20, 20));
+    for (int y = 0; y < 32; ++y)
+        for (int x = 16; x < 32; ++x)
+            ramp.setPixelColor(x, y, QColor(230, 230, 230));
+
+    auto render = [&](const QString &key, double value) {
+        drift::Effect basic;
+        basic.catalogId = QStringLiteral("color.basic");
+        if (!key.isEmpty())
+            basic.parameters.insert(key, value);
+        GpuItem item;
+        item.layer.valid = true;
+        item.layer.source = ramp;
+        item.layer.rect = QRectF(0, 0, 32, 32);
+        item.layer.effects.append(basic);
+        GpuScene scene;
+        scene.canvasSize = QSize(32, 32);
+        scene.backgroundColor = Qt::black;
+        scene.items.append(item);
+        const QImage out = GpuCompositor::render(scene);
+        return std::pair<int, int>(out.pixelColor(4, 16).red(), out.pixelColor(28, 16).red());
+    };
+
+    const auto plain = render(QString(), 0.0);
+    QVERIFY2(qAbs(plain.first - 20) <= 3 && qAbs(plain.second - 230) <= 3,
+             qPrintable(QStringLiteral("%1 %2").arg(plain.first).arg(plain.second)));
+    const auto blacks = render(QStringLiteral("blacks"), 1.0);
+    QVERIFY2(blacks.first > plain.first + 15, qPrintable(QString::number(blacks.first)));
+    const auto whites = render(QStringLiteral("whites"), 1.0);
+    QVERIFY2(whites.second > plain.second + 10, qPrintable(QString::number(whites.second)));
+    const auto fade = render(QStringLiteral("fade"), 1.0);
+    QVERIFY2(fade.first > plain.first + 15 && fade.second < plain.second,
+             qPrintable(QStringLiteral("%1 %2").arg(fade.first).arg(fade.second)));
+    const auto none = render(QStringLiteral("fade"), 0.0);
+    QVERIFY(qAbs(none.first - plain.first) <= 1 && qAbs(none.second - plain.second) <= 1);
+}
+
+// A LUT effect grades through the .cube its file parameter names: an inverting table turns red
+// into cyan, intensity 0 leaves the picture alone, and a missing file passes it through.
+void EngineTest::lutEffectGradesThroughItsCubeFile()
+{
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QString path = QDir(dir.path()).filePath(QStringLiteral("invert.cube"));
+    {
+        QFile file(path);
+        QVERIFY(file.open(QIODevice::WriteOnly));
+        QByteArray text = "LUT_3D_SIZE 9\n";
+        for (int b = 0; b < 9; ++b)
+            for (int g = 0; g < 9; ++g)
+                for (int r = 0; r < 9; ++r)
+                    text += QByteArray::number(1.0 - r / 8.0, 'f', 6) + ' ' + QByteArray::number(1.0 - g / 8.0, 'f', 6)
+                            + ' ' + QByteArray::number(1.0 - b / 8.0, 'f', 6) + '\n';
+        file.write(text);
+    }
+
+    QImage red(32, 32, QImage::Format_RGBA8888);
+    red.fill(QColor(230, 20, 10));
+    auto render = [&](const QString &lutPath, double intensity) {
+        drift::Effect lut;
+        lut.catalogId = QStringLiteral("color.lut");
+        lut.parameters.insert(QStringLiteral("lut"), lutPath);
+        lut.parameters.insert(QStringLiteral("intensity"), intensity);
+        GpuItem item;
+        item.layer.valid = true;
+        item.layer.source = red;
+        item.layer.rect = QRectF(0, 0, 32, 32);
+        item.layer.effects.append(lut);
+        GpuScene scene;
+        scene.canvasSize = QSize(32, 32);
+        scene.backgroundColor = Qt::black;
+        scene.items.append(item);
+        return GpuCompositor::render(scene).pixelColor(16, 16);
+    };
+
+    const QColor graded = render(path, 1.0);
+    QVERIFY2(qAbs(graded.red() - 25) <= 4 && qAbs(graded.green() - 235) <= 4 && qAbs(graded.blue() - 245) <= 4,
+             qPrintable(graded.name()));
+    const QColor none = render(path, 0.0);
+    QVERIFY2(qAbs(none.red() - 230) <= 3 && none.green() <= 23, qPrintable(none.name()));
+    const QColor half = render(path, 0.5);
+    QVERIFY2(qAbs(half.red() - 128) <= 6, qPrintable(half.name()));
+    const QColor missing = render(QDir(dir.path()).filePath(QStringLiteral("gone.cube")), 1.0);
+    QVERIFY2(qAbs(missing.red() - 230) <= 3, qPrintable(missing.name()));
+}
+
+// Soft light lightens a mid-grey under a light layer less than screen would and keeps it below
+// white; the vignette at its defaults is the old fixed one (the centre untouched, corners darker);
+// film grain changes pixels but keeps the average.
+void EngineTest::softLightVignetteAndGrainForAdjustmentLayers()
+{
+    QCOMPARE(drift::blendModeFromString(QStringLiteral("soft-light")), drift::BlendMode::SoftLight);
+    QCOMPARE(drift::blendModeToString(drift::BlendMode::SoftLight), QStringLiteral("soft-light"));
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+
+    auto plainItem = [](const QColor &colour) {
+        QImage image(32, 32, QImage::Format_RGBA8888);
+        image.fill(colour);
+        GpuItem item;
+        item.layer.valid = true;
+        item.layer.source = image;
+        item.layer.rect = QRectF(0, 0, 32, 32);
+        return item;
+    };
+    GpuScene scene;
+    scene.canvasSize = QSize(32, 32);
+    scene.backgroundColor = Qt::black;
+    scene.items.append(plainItem(QColor(128, 128, 128)));
+    GpuItem top = plainItem(QColor(220, 220, 220));
+    top.blend = drift::BlendMode::SoftLight;
+    scene.items.append(top);
+    const int soft = GpuCompositor::render(scene).pixelColor(16, 16).red();
+    scene.items.last().blend = drift::BlendMode::Screen;
+    const int screen = GpuCompositor::render(scene).pixelColor(16, 16).red();
+    QVERIFY2(soft > 135 && soft < screen && soft < 250, qPrintable(QStringLiteral("%1 %2").arg(soft).arg(screen)));
+
+    auto withEffect = [&](const QString &id, const QMap<QString, QVariant> &params) {
+        GpuItem item = plainItem(QColor(128, 128, 128));
+        drift::Effect fx;
+        fx.catalogId = id;
+        for (auto it = params.cbegin(); it != params.cend(); ++it)
+            fx.parameters.insert(it.key(), it.value());
+        item.layer.effects.append(fx);
+        GpuScene one;
+        one.canvasSize = QSize(32, 32);
+        one.backgroundColor = Qt::black;
+        one.items.append(item);
+        return GpuCompositor::render(one);
+    };
+    const QImage vignette = withEffect(QStringLiteral("stylize.vignette"), {});
+    QVERIFY(qAbs(vignette.pixelColor(16, 16).red() - 128) <= 3);
+    QVERIFY(vignette.pixelColor(0, 0).red() < 40);
+
+    const QImage grain = withEffect(QStringLiteral("stylize.film_grain"), {{QStringLiteral("amount"), 1.0}});
+    int differ = 0;
+    double sum = 0;
+    for (int y = 0; y < 32; ++y)
+        for (int x = 0; x < 32; ++x) {
+            const int r = grain.pixelColor(x, y).red();
+            differ += qAbs(r - 128) > 2;
+            sum += r;
+        }
+    QVERIFY2(differ > 200, qPrintable(QString::number(differ)));
+    QVERIFY(qAbs(sum / 1024.0 - 128.0) < 8.0);
+}
+
+// The new mask properties, on the CPU rasterizer the GPU path also draws through: a linear
+// gradient ramps across its band (and flips when inverted or turned), expand grows an outline,
+// opacity scales a mask's share, and a half-opacity Intersect only half-limits.
+void EngineTest::gradientExpandAndOpacityMasks()
+{
+    drift::Mask ramp;
+    ramp.shape = drift::MaskShape::LinearGradient;
+    ramp.x = 0.5;
+    ramp.y = 0.5;
+    ramp.h = 0.5; // the fade runs from y 0.25 to 0.75
+    QImage a = drift::maskAlphaMap(ramp, 64, 64);
+    QVERIFY(!a.isNull());
+    QVERIFY(qGray(a.pixel(32, 4)) > 250);
+    QVERIFY(qGray(a.pixel(32, 60)) < 5);
+    QVERIFY(qAbs(qGray(a.pixel(32, 32)) - 128) < 20);
+    ramp.invert = true;
+    a = drift::maskAlphaMap(ramp, 64, 64);
+    QVERIFY(qGray(a.pixel(32, 4)) < 5 && qGray(a.pixel(32, 60)) > 250);
+    ramp.invert = false;
+    ramp.rotation = 180.0;
+    a = drift::maskAlphaMap(ramp, 64, 64);
+    QVERIFY(qGray(a.pixel(32, 4)) < 5 && qGray(a.pixel(32, 60)) > 250);
+
+    drift::Mask disc;
+    disc.shape = drift::MaskShape::Ellipse;
+    disc.x = disc.y = 0.5;
+    disc.w = disc.h = 0.5; // radius 16 px on 64
+    QVERIFY(qGray(drift::maskAlphaMap(disc, 64, 64).pixel(32, 12)) < 5);
+    disc.expand = 0.1; // +6.4 px on every side
+    QVERIFY(qGray(drift::maskAlphaMap(disc, 64, 64).pixel(32, 12)) > 250);
+    disc.expand = -0.1;
+    QVERIFY(qGray(drift::maskAlphaMap(disc, 64, 64).pixel(32, 20)) < 5);
+    disc.expand = 0.0;
+
+    disc.opacity = 0.5;
+    QVERIFY(qAbs(qGray(drift::maskAlphaMap(disc, 64, 64).pixel(32, 32)) - 128) <= 2);
+
+    // Full frame, then a half-opacity Intersect with the disc: outside it half stays.
+    drift::Mask all;
+    all.shape = drift::MaskShape::Rectangle;
+    all.x = all.y = 0.5;
+    all.w = all.h = 1.0;
+    drift::Mask limit = disc;
+    limit.op = drift::MaskOp::Intersect;
+    limit.opacity = 0.5;
+    const QImage folded = drift::maskAlphaMap(QList<drift::Mask>{all, limit}, 64, 64);
+    QVERIFY(qGray(folded.pixel(32, 32)) > 250);
+    QVERIFY(qAbs(qGray(folded.pixel(2, 2)) - 128) <= 3);
+
+    // Saved and read back, and an old project without them reads as before.
+    drift::Clip layer;
+    layer.type = drift::ClipType::Adjustment;
+    layer.adjustmentKind = drift::AdjustmentKind::VideoEffects;
+    layer.timelineDuration = drift::secondsToUs(2.0);
+    layer.mask = disc;
+    layer.mask.expand = 0.05;
+    layer.mask.opacity = 0.7;
+    layer.extraMasks.append(ramp);
+    layer.masksLimitEffects = true;
+    drift::Project project;
+    project.tracks().clear();
+    project.tracks().append(drift::Track{.type = drift::TrackType::Adjustment});
+    project.tracks()[0].clips.append(layer);
+    const drift::Clip back = drift::Project::fromJson(project.toJson()).tracks().constFirst().clips.constFirst();
+    QCOMPARE(back.mask.expand, 0.05);
+    QCOMPARE(back.mask.opacity, 0.7);
+    QCOMPARE(back.extraMasks.size(), 1);
+    QCOMPARE(back.extraMasks.constFirst().shape, drift::MaskShape::LinearGradient);
+    QVERIFY(back.masksLimitEffects);
+    // A clip saved before these existed: no expand, full opacity, no extra masks.
+    project.tracks()[0].clips[0] = drift::Clip{};
+    project.tracks()[0].clips[0].type = drift::ClipType::Adjustment;
+    project.tracks()[0].clips[0].mask = drift::Mask{};
+    project.tracks()[0].clips[0].mask.shape = drift::MaskShape::Ellipse;
+    const QJsonObject old = project.toJson();
+    QVERIFY(!QJsonDocument(old).toJson().contains("\"expand\""));
+    QVERIFY(!QJsonDocument(old).toJson().contains("extraMasks"));
+    const drift::Clip plain = drift::Project::fromJson(old).tracks().constFirst().clips.constFirst();
+    QCOMPARE(plain.mask.expand, 0.0);
+    QCOMPARE(plain.mask.opacity, 1.0);
+}
+
+// A standalone adjustment layer takes every mask of its stack; a media clip whose masks limit its
+// effects stays whole: the effect inside the mask, the untouched clip outside (not cut away).
+void EngineTest::layerMaskStackAndMasksThatLimitEffects()
+{
+    drift::Project project;
+    project.setResolution(64, 64);
+    project.tracks().clear();
+    project.tracks().append(drift::Track{.type = drift::TrackType::Adjustment});
+    drift::Clip layer;
+    layer.id = QStringLiteral("adj");
+    layer.type = drift::ClipType::Adjustment;
+    layer.adjustmentKind = drift::AdjustmentKind::VideoEffects;
+    layer.timelineDuration = drift::secondsToUs(4.0);
+    drift::Effect grey;
+    grey.catalogId = QStringLiteral("stylize.grayscale");
+    layer.effects.append(grey);
+    layer.mask.shape = drift::MaskShape::Ellipse;
+    drift::Mask second;
+    second.shape = drift::MaskShape::Rectangle;
+    second.op = drift::MaskOp::Subtract;
+    layer.extraMasks.append(second);
+    project.tracks()[0].clips.append(layer);
+    FrameCompositor compositor;
+    compositor.setProject(&project);
+    GpuScene scene;
+    QVERIFY(compositor.buildSceneAt(drift::secondsToUs(1.0), FrameCompositor::RenderOptions{}, &scene));
+    QCOMPARE(scene.items.size(), 1);
+    QCOMPARE(scene.items.constFirst().layer.masks.size(), 2);
+
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+    QImage red(32, 32, QImage::Format_RGBA8888);
+    red.fill(QColor(230, 20, 10));
+    drift::Mask centre;
+    centre.shape = drift::MaskShape::Ellipse;
+    centre.x = centre.y = 0.5;
+    centre.w = centre.h = 0.5;
+    auto render = [&](bool limit) {
+        GpuItem item;
+        item.layer.valid = true;
+        item.layer.source = red;
+        item.layer.rect = QRectF(0, 0, 32, 32);
+        item.layer.effects.append(grey);
+        item.layer.masks.append(centre);
+        item.layer.maskMedia.resize(1);
+        item.layer.masksLimitEffects = limit;
+        GpuScene one;
+        one.canvasSize = QSize(32, 32);
+        one.backgroundColor = Qt::black;
+        one.items.append(item);
+        return GpuCompositor::render(one);
+    };
+    const QImage limited = render(true);
+    const QColor inside = limited.pixelColor(16, 16);
+    const QColor outside = limited.pixelColor(2, 2);
+    QVERIFY2(qAbs(inside.red() - inside.green()) <= 6, qPrintable(inside.name()));
+    QVERIFY2(outside.red() > 200 && outside.green() < 40, qPrintable(outside.name()));
+    const QImage cut = render(false);
+    QVERIFY2(cut.pixelColor(2, 2).red() < 20, qPrintable(cut.pixelColor(2, 2).name()));
 }
 
 // A transition draws the incoming clip across instants that belong to the outgoing one, where the

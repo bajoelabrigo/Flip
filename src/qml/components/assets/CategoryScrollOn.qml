@@ -25,6 +25,15 @@ MouseArea {
 
     property real overscroll: 0
     readonly property real threshold: 240
+    // Set by a category change and held while the wheel keeps rolling: one flick moves one
+    // category, instead of the rest of it running on through two or three more.
+    property bool settling: false
+
+    Timer {
+        id: settleTimer
+        interval: 450
+        onTriggered: root.settling = false
+    }
 
     readonly property int currentIndex: {
         for (let i = 0; i < categories.length; ++i) {
@@ -62,6 +71,11 @@ MouseArea {
     onActiveCategoryChanged: overscroll = 0
 
     onWheel: (wheel) => {
+        if (root.settling) {
+            settleTimer.restart()
+            wheel.accepted = true
+            return
+        }
         const dy = wheel.angleDelta.y !== 0 ? wheel.angleDelta.y : wheel.pixelDelta.y
         const forward = dy < 0
         const target = forward ? root.nextCategory : root.previousCategory
@@ -73,6 +87,8 @@ MouseArea {
             root.overscroll += -dy
             if (Math.abs(root.overscroll) >= root.threshold) {
                 root.overscroll = 0
+                root.settling = true
+                settleTimer.restart()
                 root.categoryActivated(target.id)
                 // The grid swaps its model on the next pass; land at the top of the next category,
                 // or the bottom of the previous one, once it has.

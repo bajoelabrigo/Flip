@@ -93,8 +93,10 @@ Column {
             id: search
             placeholderText: qsTr("Search effects")
 
+            // With its name, so it is found: the same layer the timeline bar adds.
             IconButton {
-                glyph: Theme.icons.wand
+                glyph: "layers"
+                text: qsTr("Adjustment layer")
                 variant: "ghost"
                 buttonSize: Theme.controlHeight
                 tooltip: qsTr("Add adjustment layer — click, or drag it onto a track")
@@ -107,7 +109,7 @@ Column {
                     kind: "adjustment"
                     payload: "videoEffects"
                     label: qsTr("Adjustment layer")
-                    glyph: Theme.icons.wand
+                    glyph: "layers"
                     onTapped: EditorState.addAdjustmentClip(-1, -1)
                 }
             }
