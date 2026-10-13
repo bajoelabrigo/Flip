@@ -57,6 +57,27 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
   - favoritos, Mis estilos y Mis efectos, guardados en `localStorage`.
 - Web `getflipstudio.com` con la 0.9.6 en `novedades.html`.
 
+### 0.9.7 en curso (2026-10-13)
+- Rama `flip/v0.9.7`, PR #12 en borrador; versión 0.9.7 en `CMakeLists.txt`; notas en
+  `release-notes/0.9.7.md`.
+- Los 14 puntos que encontró Jorge están hechos y probados en ventana con el portable de CI.
+- **Falta:**
+  - el OK de Jorge;
+  - merge, tag y release;
+  - el MSIX, después de que la Store apruebe la 0.9.6;
+  - las notas de la Store para la 0.9.7.
+- **Editor web:** rama `web/jorge-0.9.7` en `flipstudio-app`, probada en Chrome y **sin desplegar**.
+  Incluye:
+  - menú «⋯» de audio;
+  - fotos en la pista de video;
+  - pista nueva al arrastrar;
+  - máscara de texto;
+  - temas de color;
+  - paso de sección con la rueda;
+  - la escala fija al arrastrar (antes el clip salía disparado).
+- **Jorge tiene el espacio de trabajo fijado en «Horizontal»** (`ui/workspaceLayout`). Por eso un
+  video 9:16 no cambiaba de diseño solo; ahora sale el botón «Espacio vertical».
+
 ### Pendiente
 1. **Hecho por Jorge (2026-10-13):** cambió el TXT `version` del DNS y mandó la 0.9.6 a
    certificación en Partner Center. **Falta:** confirmar que la certificación pase. La ficha
