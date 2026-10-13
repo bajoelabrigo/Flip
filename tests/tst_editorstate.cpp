@@ -329,8 +329,9 @@ void EditorStateTest::trackFitAnswersForAKindMatchTheAssetForms()
                  type == QStringLiteral("video"));
         QCOMPARE(state.trackAcceptsKind(i, QStringLiteral("audio")),
                  type == QStringLiteral("audio"));
+        // A photo also fits a video track, next to the videos (CapCut's main track).
         QCOMPARE(state.trackAcceptsKind(i, QStringLiteral("image")),
-                 type == QStringLiteral("shape"));
+                 type == QStringLiteral("shape") || type == QStringLiteral("video"));
     }
 }
 
