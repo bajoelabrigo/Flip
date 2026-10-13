@@ -11111,7 +11111,7 @@ void EngineTest::softLightVignetteAndGrainForAdjustmentLayers()
     QVERIFY(qAbs(vignette.pixelColor(16, 16).red() - 128) <= 3);
     QVERIFY(vignette.pixelColor(0, 0).red() < 40);
 
-    const QImage grain = withEffect(QStringLiteral("film_grain"), {{QStringLiteral("amount"), 1.0}});
+    const QImage grain = withEffect(QStringLiteral("stylize.film_grain"), {{QStringLiteral("amount"), 1.0}});
     int differ = 0;
     double sum = 0;
     for (int y = 0; y < 32; ++y)
