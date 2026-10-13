@@ -1561,6 +1561,18 @@ Item {
                         font.weight: Font.Medium
                         font.capitalization: Font.AllUppercase
                         font.letterSpacing: 0.5
+                        // "Formatos compatibles" in caps is wider than a narrow panel.
+                        wrapMode: Text.WordWrap
+                    }
+
+                    // The label column fits the longest translated kind ("Imágenes",
+                    // "Vectorial"), instead of a fixed 48 px that cut them off.
+                    TextMetrics {
+                        id: formatLabelMetrics
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                        text: [qsTr("Video"), qsTr("Audio"), qsTr("Images"), qsTr("Vector"), qsTr("3D"),
+                               qsTr("PDF")].reduce((a, b) => (a.length >= b.length ? a : b))
                     }
 
                     Repeater {
@@ -1583,6 +1595,8 @@ Item {
                             id: formatRow
                             required property var modelData
 
+                            readonly property real labelWidth: Math.min(Math.ceil(formatLabelMetrics.advanceWidth) + 2,
+                                                                        formatColumn.width * 0.4)
                             width: formatColumn.width
                             spacing: Theme.spacingMd
 
@@ -1595,7 +1609,7 @@ Item {
 
                             Text {
                                 anchors.verticalCenter: parent.verticalCenter
-                                width: 48
+                                width: formatRow.labelWidth
                                 text: formatRow.modelData.label
                                 color: Theme.panelForeground
                                 font.family: Theme.fontFamily
@@ -1605,13 +1619,15 @@ Item {
 
                             Text {
                                 anchors.verticalCenter: parent.verticalCenter
-                                width: formatColumn.width - Theme.iconSizeSm - 48
+                                width: formatColumn.width - Theme.iconSizeSm - formatRow.labelWidth
                                        - Theme.spacingMd * 2
                                 text: formatRow.modelData.formats
                                 color: Theme.mutedForeground
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.fontSizeTiny
-                                elide: Text.ElideRight
+                                // Wraps onto a second line in a narrow panel instead of running
+                                // past the frame.
+                                wrapMode: Text.WordWrap
                             }
                         }
                     }

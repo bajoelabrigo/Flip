@@ -15,8 +15,8 @@ namespace drift {
 // Media is a raster mask backed by an image or video file rather than a parametric shape: its
 // pixels are the coverage map. Segmentation produces one (a grayscale matte written by
 // MatteWriter); the user can also point it at any image or video. Spelled "matte" in projects
-// written before v5.
-enum class MaskShape { None, Rectangle, Ellipse, Star, Heart, Bars, Freeform, Media };
+// written before v5. Text is the outline of a word set in a bold font, fitted to the mask's rect.
+enum class MaskShape { None, Rectangle, Ellipse, Star, Heart, Bars, Freeform, Media, Text };
 
 QString maskShapeToString(MaskShape shape);
 MaskShape maskShapeFromString(const QString &shape);
@@ -64,6 +64,11 @@ struct Mask
     double feather = 0.0; // px blur on the alpha edge
     bool invert = false;
     QVector<QPointF> points; // normalized, for Freeform
+    // Freeform only: draw a smooth curve through the vertices instead of straight sides. This is
+    // the "Pen" mask of the catalog -- the same editable points, rounded like a pen stroke.
+    bool smooth = false;
+    // Text only: the words whose shape is the mask.
+    QString text;
 
     // Media only: an image or video whose pixels are the coverage map.
     QString mediaPath;

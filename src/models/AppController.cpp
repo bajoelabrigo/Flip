@@ -1041,7 +1041,12 @@ QStringList inspectorCaps(const drift::Clip &clip, drift::TrackType trackType)
              << QStringLiteral("subtitle");
         break;
     case ClipType::Image:
-        caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable");
+        // A photo gets the same video pages as a video clip (masks, background removal, retouch,
+        // effects): every one of them works on a still too. Only the time-based tools (speed,
+        // stabilization, sound) stay with video.
+        caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
+             << QStringLiteral("maskable") << QStringLiteral("adj:videoEffects")
+             << QStringLiteral("videoTools");
         break;
     case ClipType::Shape:
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
@@ -1264,6 +1269,7 @@ QVariantList AppController::tracks() const
             {QStringLiteral("clipDisplay"), static_cast<int>(track.clipDisplay)},
             {QStringLiteral("showChannelWaveforms"), track.showChannelWaveforms},
             {QStringLiteral("heightScale"), track.heightScale},
+            {QStringLiteral("waveformScale"), track.waveformScale},
         });
     }
 
@@ -2348,6 +2354,16 @@ void seedFreeformMask(drift::Mask &mask)
 {
     if (mask.shape != drift::MaskShape::Freeform || !mask.points.isEmpty())
         return;
+    // A pen mask starts as a rounded blob: eight points on the rect's ellipse, so the smooth curve
+    // through them has something to bend.
+    if (mask.smooth) {
+        for (int i = 0; i < 8; ++i) {
+            const double a = 2.0 * M_PI * i / 8.0;
+            mask.points.append(QPointF(mask.x + std::cos(a) * mask.w / 2.0,
+                                       mask.y + std::sin(a) * mask.h / 2.0));
+        }
+        return;
+    }
     const double left = mask.x - mask.w / 2.0;
     const double right = mask.x + mask.w / 2.0;
     const double top = mask.y - mask.h / 2.0;
@@ -2393,6 +2409,8 @@ QVariantMap maskToMap(const drift::Mask &m, drift::TimeUs timelineStart)
         {QStringLiteral("feather"), m.feather},
         {QStringLiteral("invert"), m.invert},
         {QStringLiteral("points"), points},
+        {QStringLiteral("smooth"), m.smooth},
+        {QStringLiteral("text"), m.text},
         {QStringLiteral("mediaPath"), m.mediaPath},
         {QStringLiteral("mediaFgrPath"), m.mediaFgrPath},
         {QStringLiteral("mediaSrcOffsetUs"), qint64(m.mediaSrcOffsetUs)},
@@ -2425,6 +2443,8 @@ drift::Mask maskFromMap(const QVariantMap &m)
     mask.op = drift::maskOpFromString(m.value(QStringLiteral("op")).toString());
     mask.enabled = m.value(QStringLiteral("enabled"), mask.enabled).toBool();
     mask.name = m.value(QStringLiteral("name"), mask.name).toString();
+    mask.smooth = m.value(QStringLiteral("smooth"), mask.smooth).toBool();
+    mask.text = m.value(QStringLiteral("text"), mask.text).toString();
     mask.mediaPath = m.value(QStringLiteral("mediaPath"), mask.mediaPath).toString();
     mask.mediaFgrPath = m.value(QStringLiteral("mediaFgrPath"), mask.mediaFgrPath).toString();
     mask.mediaSrcOffsetUs =
@@ -7931,6 +7951,49 @@ void AppController::moveClipToTrack(int trackIndex, int clipIndex, int newTrackI
         m_selectedTrack = newSelection.constFirst().first;
         m_selectedClip = newSelection.constFirst().second;
     }
+    m_selectedTransitionTrack = -1;
+    m_selectedTransitionLeftClip = -1;
+
+    pushProjectEdit(before, tr("Clips moved"));
+    finishEdit(tr("Clips moved"));
+}
+
+void AppController::moveClipToNewTrack(int trackIndex, int clipIndex, int insertIndex, double newStart)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Clip clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    // Adjustments live in lanes or on their own kinds of rows; they keep their own rules.
+    if (clip.type == drift::ClipType::Adjustment)
+        return;
+
+    const drift::Project before = m_project;
+    insertIndex = qBound(0, insertIndex, int(m_project.tracks().size()));
+    m_project.tracks().insert(insertIndex,
+                              drift::Track{.type = drift::trackTypeForClipType(clip.type)});
+    const int fromTrack = trackIndex >= insertIndex ? trackIndex + 1 : trackIndex;
+
+    drift::Clip moved = clip;
+    moved.timelineStart = qMax<drift::TimeUs>(0, drift::secondsToUs(newStart));
+    m_project.tracks()[fromTrack].clips.removeAt(clipIndex);
+    m_project.tracks()[insertIndex].clips.append(moved);
+
+    // A loosely linked partner (its own audio, say) follows the time shift, as in moveClipToTrack.
+    const drift::TimeUs delta = moved.timelineStart - clip.timelineStart;
+    if (moved.linkLoose && delta != 0) {
+        QSet<QString> movedIds{moved.id};
+        for (const drift::ClipRef &ref : drift::linkedPartners(m_project, moved)) {
+            drift::Clip &partner = m_project.tracks()[ref.trackIndex].clips[ref.clipIndex];
+            if (movedIds.contains(partner.id))
+                continue;
+            partner.timelineStart = qMax<drift::TimeUs>(0, partner.timelineStart + delta);
+            movedIds.insert(partner.id);
+        }
+    }
+
+    m_selectedTrack = insertIndex;
+    m_selectedClip = m_project.tracks().at(insertIndex).clips.size() - 1;
+    m_selection = {qMakePair(m_selectedTrack, m_selectedClip)};
     m_selectedTransitionTrack = -1;
     m_selectedTransitionLeftClip = -1;
 
@@ -15007,7 +15070,19 @@ void AppController::writeClipMask(int trackIndex, int clipIndex, const drift::Ma
 drift::Mask AppController::maskFromCatalogId(const QString &shape) const
 {
     drift::Mask mask;
+    // "pen" is a Freeform drawn as a smooth curve, not a shape of its own.
+    if (shape == QLatin1String("pen")) {
+        mask.shape = drift::MaskShape::Freeform;
+        mask.smooth = true;
+        seedFreeformMask(mask);
+        return mask;
+    }
     mask.shape = drift::maskShapeFromString(shape);
+    if (mask.shape == drift::MaskShape::Text) {
+        mask.text = tr("TEXT");
+        mask.w = 0.8;
+        mask.h = 0.35;
+    }
     // maskShapeFromString falls back to None for anything it does not know, and Media needs a
     // path it cannot invent — either way the mask contributes nothing and the caller does nothing.
     if (mask.shape == drift::MaskShape::Media)
@@ -15031,6 +15106,7 @@ QVariantList AppController::maskCatalog() const
         {QStringLiteral("rectangle"), tr("Rectangle")}, {QStringLiteral("ellipse"), tr("Ellipse")},
         {QStringLiteral("star"), tr("Star")},           {QStringLiteral("heart"), tr("Heart")},
         {QStringLiteral("bars"), tr("Bars")},           {QStringLiteral("freeform"), tr("Freeform")},
+        {QStringLiteral("pen"), tr("Pen")},             {QStringLiteral("text"), tr("Text")},
     };
 
     QVariantList out;
@@ -15084,7 +15160,8 @@ QVariantList AppController::linkedMaskClips(int trackIndex, int clipIndex) const
     const drift::Track &track = m_project.tracks().at(trackIndex);
     if (clipIndex < 0 || clipIndex >= track.clips.size())
         return out;
-    if (track.clips.at(clipIndex).type != drift::ClipType::Video)
+    const drift::ClipType type = track.clips.at(clipIndex).type;
+    if (type != drift::ClipType::Video && type != drift::ClipType::Image)
         return out;
 
     const QList<drift::ClipRef> refs =
@@ -19422,6 +19499,20 @@ void AppController::setTrackHeightScale(int trackIndex, double scale)
 
     // View-only preference, like clipDisplay: no undo entry.
     m_project.tracks()[trackIndex].heightScale = clamped;
+    notifyTracksChanged();
+}
+
+void AppController::setTrackWaveformScale(int trackIndex, double scale)
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return;
+
+    const qreal clamped = qBound(0.1, scale, 1.0);
+    if (qFuzzyCompare(m_project.tracks()[trackIndex].waveformScale, clamped))
+        return;
+
+    // View-only preference, like the row height: no undo entry.
+    m_project.tracks()[trackIndex].waveformScale = clamped;
     notifyTracksChanged();
 }
 

@@ -9,6 +9,8 @@
 #include "engine/ClipReaderPool.h"
 
 #include <QFile>
+#include <QImageReader>
+#include <QTransform>
 #include <QtConcurrent>
 
 namespace {
@@ -17,6 +19,32 @@ namespace {
 constexpr quint64 kSegmentEncodeStreamId = 0xA5'11'5C'A4'00'00'00'03ull;
 constexpr quint64 kCutoutRenderStreamId = 0xA5'11'5C'A4'00'00'00'04ull;
 constexpr quint64 kSegmentScrubStreamId = 0xA5'11'5C'A4'00'00'00'0Bull;
+
+bool segmentable(drift::ClipType type)
+{
+    return type == drift::ClipType::Video || type == drift::ClipType::Image;
+}
+
+// One frame of what the cutout works on. A video decodes at that time; a photo is the same picture
+// at every time, read once with its EXIF orientation and fitted in the canvas box the way a decoded
+// video frame is.
+QImage sourceFrame(bool still, const QString &path, quint64 streamId, drift::TimeUs sourceUs,
+                   int maxWidth, int maxHeight, int rotationCorrection)
+{
+    if (!still)
+        return ClipReaderPool::instance().readVideoFrame(path, streamId, sourceUs, maxWidth,
+                                                         maxHeight, rotationCorrection);
+    QImageReader reader(path);
+    reader.setAutoTransform(true);
+    QImage image = reader.read();
+    if (image.isNull())
+        return {};
+    if (rotationCorrection != 0)
+        image = image.transformed(QTransform().rotate(rotationCorrection));
+    if (maxWidth > 0 && maxHeight > 0 && (image.width() > maxWidth || image.height() > maxHeight))
+        image = image.scaled(maxWidth, maxHeight, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    return image.convertToFormat(QImage::Format_RGB32);
+}
 }
 
 SegmentationController::SegmentationController(AppController *app, QObject *parent)
@@ -94,8 +122,8 @@ void SegmentationController::beginSession(int trackIndex, int clipIndex, double 
     const drift::Track &track = m_app->m_project.tracks().at(trackIndex);
     if (clipIndex < 0 || clipIndex >= track.clips.size())
         return;
-    if (track.clips.at(clipIndex).type != drift::ClipType::Video) {
-        m_app->setLastMessage(tr("Select a video clip to cut out"), QStringLiteral("warning"));
+    if (!segmentable(track.clips.at(clipIndex).type)) {
+        m_app->setLastMessage(tr("Select a video or image clip to cut out"), QStringLiteral("warning"));
         return;
     }
 
@@ -166,10 +194,11 @@ void SegmentationController::setFrame(double seconds)
     // The model pass is the expensive half (seconds per frame for the SAM2 encoder on a CPU
     // provider), so it runs off the GUI thread. Decodes after this are milliseconds and stay inline.
     const int rotationCorrection = clip.rotationCorrection;
+    const bool still = clip.type == drift::ClipType::Image;
     (void)QtConcurrent::run([this, path, sourceUs, canvasW, canvasH, generation, rvm, quality,
-                             rotationCorrection]() {
-        const QImage frame = ClipReaderPool::instance().readVideoFrame(
-            path, kSegmentEncodeStreamId, sourceUs, canvasW, canvasH, rotationCorrection);
+                             rotationCorrection, still]() {
+        const QImage frame = sourceFrame(still, path, kSegmentEncodeStreamId, sourceUs, canvasW,
+                                         canvasH, rotationCorrection);
         drift::Sam2Embedding embedding;
         QImage mask;
         QString error;
@@ -242,6 +271,7 @@ void SegmentationController::scrubFrame(double seconds)
     const int canvasH = m_app->m_project.height();
     const int rotationCorrection = clip.rotationCorrection;
     const int generation = m_segGeneration;
+    const bool still = clip.type == drift::ClipType::Image;
 
     // Points and mask belong to the frame being left.
     m_segScrubBusy = true;
@@ -249,9 +279,9 @@ void SegmentationController::scrubFrame(double seconds)
     ++m_segSeedGeneration;
 
     (void)QtConcurrent::run([this, path, sourceUs, canvasW, canvasH, rotationCorrection,
-                             generation]() {
-        const QImage frame = ClipReaderPool::instance().readVideoFrame(
-            path, kSegmentScrubStreamId, sourceUs, canvasW, canvasH, rotationCorrection);
+                             generation, still]() {
+        const QImage frame = sourceFrame(still, path, kSegmentScrubStreamId, sourceUs, canvasW,
+                                         canvasH, rotationCorrection);
         QMetaObject::invokeMethod(
             this,
             [this, frame, generation]() {
@@ -387,7 +417,7 @@ void SegmentationController::openSegmentationForTemplate(int trackIndex, int cli
         return;
 
     const drift::Clip &clip = track.clips.at(clipIndex);
-    if (clip.type != drift::ClipType::Video)
+    if (!segmentable(clip.type))
         return;
 
     const double startSeconds = drift::usToSeconds(clip.timelineStart);
@@ -411,11 +441,12 @@ void SegmentationController::segmentClip(int trackIndex, int clipIndex, const QV
         return;
 
     const drift::Clip clip = track.clips.at(clipIndex);
-    if (clip.type != drift::ClipType::Video) {
-        m_app->setLastMessage(tr("Select a video clip to cut out"), QStringLiteral("warning"));
+    if (!segmentable(clip.type)) {
+        m_app->setLastMessage(tr("Select a video or image clip to cut out"), QStringLiteral("warning"));
         return;
     }
-    if (clip.path.isEmpty() || clip.srcOut <= clip.srcIn) {
+    const bool still = clip.type == drift::ClipType::Image;
+    if (clip.path.isEmpty() || (!still && clip.srcOut <= clip.srcIn)) {
         m_app->setLastMessage(tr("This clip has no video to cut out"), QStringLiteral("warning"));
         return;
     }
@@ -453,7 +484,8 @@ void SegmentationController::segmentClip(int trackIndex, int clipIndex, const QV
 
     const QString path = clip.path;
     const drift::TimeUs srcIn = clip.srcIn;
-    const drift::TimeUs srcOut = clip.srcOut;
+    // A photo has no source range of its own: the matte covers as long as it is on screen.
+    const drift::TimeUs srcOut = still ? clip.srcIn + clip.timelineDuration : clip.srcOut;
     const int fps = qMax(1, m_app->m_project.fps());
     const int canvasW = m_app->m_project.width();
     const int canvasH = m_app->m_project.height();
@@ -466,7 +498,7 @@ void SegmentationController::segmentClip(int trackIndex, int clipIndex, const QV
     // orientation or the matte lands transposed.
     const int rotationCorrection = clip.rotationCorrection;
     (void)QtConcurrent::run([this, path, srcIn, srcOut, fps, canvasW, canvasH, normalized, mode,
-                             clipId, rvm, rvmQuality, rotationCorrection]() {
+                             clipId, rvm, rvmQuality, rotationCorrection, still]() {
         auto setProgress = [this](double fraction, const QString &status) {
             QMetaObject::invokeMethod(
                 this,
@@ -579,6 +611,11 @@ void SegmentationController::segmentClip(int trackIndex, int clipIndex, const QV
                 fgrWriter.abort();
         };
 
+        // A photo is cut out once; every frame of its matte repeats that answer.
+        QImage stillFrame;
+        QImage stillCoverage;
+        QImage stillForeground;
+
         for (int i = 0; i < totalFrames; ++i) {
             if (m_segmentCancel.loadRelaxed() != 0) {
                 abortAll();
@@ -587,8 +624,12 @@ void SegmentationController::segmentClip(int trackIndex, int clipIndex, const QV
             }
 
             const drift::TimeUs sourceUs = srcIn + drift::TimeUs(i) * step;
-            const QImage frame = ClipReaderPool::instance().readVideoFrame(
-                path, kCutoutRenderStreamId, sourceUs, canvasW, canvasH, rotationCorrection);
+            if (still && stillFrame.isNull())
+                stillFrame = sourceFrame(true, path, kCutoutRenderStreamId, sourceUs, canvasW,
+                                         canvasH, rotationCorrection);
+            const QImage frame = still ? stillFrame
+                                       : sourceFrame(false, path, kCutoutRenderStreamId, sourceUs,
+                                                     canvasW, canvasH, rotationCorrection);
             if (frame.isNull()) {
                 abortAll();
                 finish(false, tr("Could not decode frame %1").arg(i), {});
@@ -611,7 +652,14 @@ void SegmentationController::segmentClip(int trackIndex, int clipIndex, const QV
             }
 
             QImage coverage;
-            if (rvm) {
+            if (still && !stillCoverage.isNull()) {
+                coverage = stillCoverage;
+                if (wantFgr && !fgrWriter.writeFrame(stillForeground, &error)) {
+                    abortAll();
+                    finish(false, error, {});
+                    return;
+                }
+            } else if (rvm) {
                 // No prompt and no seed frame: the subject is "the people in shot", and the
                 // recurrent state carries identity from one frame to the next.
                 const drift::RvmResult result = rvmTrack->step(frame);
@@ -621,6 +669,8 @@ void SegmentationController::segmentClip(int trackIndex, int clipIndex, const QV
                     return;
                 }
                 coverage = result.alpha;
+                if (still)
+                    stillForeground = result.foreground;
                 if (wantFgr && !fgrWriter.writeFrame(result.foreground, &error)) {
                     abortAll();
                     finish(false, error, {});
@@ -658,6 +708,8 @@ void SegmentationController::segmentClip(int trackIndex, int clipIndex, const QV
                     ++occludedFrames;
                 coverage = result.mask;
             }
+            if (still && stillCoverage.isNull())
+                stillCoverage = coverage;
 
             if (!writer.writeFrame(coverage, &error)) {
                 abortAll();

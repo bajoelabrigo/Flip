@@ -15,6 +15,9 @@ class PreferencesController : public QObject
     // scheme live; after that the stored choice wins on every launch.
     Q_PROPERTY(bool darkModeOverridden READ darkModeOverridden NOTIFY darkModePreferenceChanged)
     Q_PROPERTY(bool darkModePreferred READ darkModePreferred NOTIFY darkModePreferenceChanged)
+    // The colour theme on top of light/dark (QSettings "ui/colorTheme"): the accent and the tint of
+    // the surfaces. "amber" is Flip Studio's own look and the default.
+    Q_PROPERTY(QString colorTheme READ colorTheme WRITE setColorTheme NOTIFY colorThemeChanged)
     // Editor workspace arrangement. In the landscape workspace the preview sits in the
     // three-pane top row, so its size is bounded by that row's *height* — a 9:16 canvas
     // ends up postage-stamp small. The portrait workspace gives the preview a full-height
@@ -92,6 +95,8 @@ public:
     bool darkModePreferred() const { return m_darkModePreferred; }
     Q_INVOKABLE void setDarkModePreference(bool enabled);
     Q_INVOKABLE void clearDarkModePreference();
+    QString colorTheme() const { return m_colorTheme; }
+    Q_INVOKABLE void setColorTheme(const QString &theme);
 
     bool workspaceLayoutOverridden() const { return m_workspaceLayoutOverridden; }
     QString workspaceLayoutPreferred() const { return m_workspaceLayoutPreferred; }
@@ -164,6 +169,7 @@ public:
 
 signals:
     void darkModePreferenceChanged();
+    void colorThemeChanged();
     void workspaceLayoutPreferenceChanged();
     void timelineOverviewVisibleChanged();
     void audioMixerVisibleChanged();
@@ -185,6 +191,7 @@ signals:
 private:
     bool m_darkModeOverridden = false;
     bool m_darkModePreferred = true;
+    QString m_colorTheme = QStringLiteral("amber");
     bool m_workspaceLayoutOverridden = false;
     QString m_workspaceLayoutPreferred = QStringLiteral("landscape");
     bool m_timelineOverviewVisible = false;

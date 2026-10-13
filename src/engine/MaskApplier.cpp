@@ -2,6 +2,7 @@
 
 #include "core/ShapePath.h"
 
+#include <QFont>
 #include <QPainter>
 #include <QPainterPath>
 #include <QtMath>
@@ -47,6 +48,21 @@ QPainterPath maskPath(const Mask &mask, int canvasWidth, int canvasHeight)
         QPainterPath path;
         if (mask.points.isEmpty())
             return path;
+        // Pen: a closed Catmull-Rom curve through every vertex, as cubic Beziers.
+        if (mask.smooth && mask.points.size() >= 3) {
+            const int n = mask.points.size();
+            const auto at = [&](int i) {
+                const QPointF &p = mask.points.at(((i % n) + n) % n);
+                return QPointF(p.x() * canvasWidth, p.y() * canvasHeight);
+            };
+            path.moveTo(at(0));
+            for (int i = 0; i < n; ++i) {
+                const QPointF p0 = at(i - 1), p1 = at(i), p2 = at(i + 1), p3 = at(i + 2);
+                path.cubicTo(p1 + (p2 - p0) / 6.0, p2 - (p3 - p1) / 6.0, p2);
+            }
+            path.closeSubpath();
+            return path;
+        }
         for (int i = 0; i < mask.points.size(); ++i) {
             const QPointF pt(mask.points.at(i).x() * canvasWidth, mask.points.at(i).y() * canvasHeight);
             if (i == 0)
@@ -56,6 +72,28 @@ QPainterPath maskPath(const Mask &mask, int canvasWidth, int canvasHeight)
         }
         path.closeSubpath();
         return path;
+    }
+    case drift::MaskShape::Text: {
+        // The words' outline in a heavy font, scaled to fill the mask's rect. Rotation is applied
+        // by maskAlphaMap like every parametric shape.
+        QPainterPath glyphs;
+        if (mask.text.trimmed().isEmpty())
+            return glyphs;
+        QFont font(QStringLiteral("Arial Black"));
+        font.setStyleHint(QFont::SansSerif);
+        font.setWeight(QFont::Black);
+        font.setPixelSize(200);
+        const QStringList lines = mask.text.split(QLatin1Char('\n'));
+        for (int i = 0; i < lines.size(); ++i)
+            glyphs.addText(0.0, 200.0 * 1.1 * i, font, lines.at(i));
+        const QRectF box = glyphs.boundingRect();
+        if (box.width() <= 0.0 || box.height() <= 0.0)
+            return {};
+        QTransform fit;
+        fit.translate(bounds.left(), bounds.top());
+        fit.scale(bounds.width() / box.width(), bounds.height() / box.height());
+        fit.translate(-box.left(), -box.top());
+        return fit.map(glyphs);
     }
     case drift::MaskShape::Media:
         // Raster, not parametric: the coverage map is decoded per frame in FrameCompositor and

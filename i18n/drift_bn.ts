@@ -3367,6 +3367,10 @@
         <translation type="unfinished">ক্লিপ মাস্ক আপডেট করা হয়েছে</translation>
     </message>
     <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rectangle</source>
         <translation type="unfinished">আয়তক্ষেত্র</translation>
     </message>
@@ -3389,6 +3393,14 @@
     <message>
         <source>Freeform</source>
         <translation type="unfinished">ফ্রিফর্ম</translation>
+    </message>
+    <message>
+        <source>Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">টেক্সট</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -8637,6 +8649,10 @@
         <translation>ডার্ক</translation>
     </message>
     <message>
+        <source>Colour</source>
+        <translation type="unfinished">রঙ</translation>
+    </message>
+    <message>
         <source>Language…</source>
         <translation>ভাষা…</translation>
     </message>
@@ -8653,7 +8669,23 @@
         <translation>আরও সেটিংস…</translation>
     </message>
     <message>
+        <source>Update to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Look for updates in Microsoft Store</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Flip Studio %1 is available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checking for updates…</source>
+        <translation type="unfinished">আপডেটের জন্য পরীক্ষা করা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Check for updates (you have %1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11246,6 +11278,26 @@
         <translation type="unfinished">ফ্রিফর্ম</translation>
     </message>
     <message>
+        <source>Text</source>
+        <translation type="unfinished">টেক্সট</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth curves (pen)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Combine</source>
         <translation type="unfinished">একত্রিত করুন</translation>
     </message>
@@ -12995,6 +13047,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Vertical workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wide workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrange the panels for this video&apos;s shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Exit fullscreen preview (Esc)</source>
         <translation type="unfinished">ফুলস্ক্রিন প্রিভিউ থেকে প্রস্থান করুন (Esc)</translation>
     </message>
@@ -13549,6 +13613,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Save effect as preset</source>
         <translation type="unfinished">প্রিসেট হিসাবে ইফেক্ট সংরক্ষণ করুন</translation>
+    </message>
+    <message>
+        <source>Keep scrolling for %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>My look</source>
@@ -14396,8 +14464,8 @@ If playback stutters, try another.</source>
 <context>
     <name>SegmentationController</name>
     <message>
-        <source>Select a video clip to cut out</source>
-        <translation type="unfinished">কাটার জন্য একটি ভিডিও ক্লিপ নির্বাচন করুন</translation>
+        <source>Select a video or image clip to cut out</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cutout is already running</source>
@@ -18552,6 +18620,33 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>Theme</name>
+    <message>
+        <source>Amber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Midnight blue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graphite teal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Violet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rose</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forest green</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ThemedColorDialog</name>
     <message>
         <source>Original colour</source>
@@ -19420,6 +19515,22 @@ If playback stutters, try another.</source>
         <translation type="unfinished">ট্রান্সফর্ম বন্ধ করুন</translation>
     </message>
     <message>
+        <source>Track options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>High</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio waveform size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add camera clip at playhead</source>
         <translation type="unfinished">প্লেহেডে ক্যামেরা ক্লিপ যোগ করুন</translation>
     </message>
@@ -19436,24 +19547,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished">উপরে ট্রান্সফর্ম লেয়ার যোগ করুন</translation>
     </message>
     <message>
+        <source>Drag to change the track height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Track height</source>
         <translation type="unfinished">ট্র্যাক উচ্চতা</translation>
     </message>
     <message>
         <source>Short</source>
         <translation type="unfinished">সংক্ষিপ্ত</translation>
-    </message>
-    <message>
-        <source>Tall</source>
-        <translation type="unfinished">লম্বা</translation>
-    </message>
-    <message>
-        <source>Taller</source>
-        <translation type="unfinished">লম্বা</translation>
-    </message>
-    <message>
-        <source>Scroll over the header to fine-tune</source>
-        <translation type="unfinished">ফাইন-টিউন করতে হেডারের উপর স্ক্রোল করুন</translation>
     </message>
     <message>
         <source>Covers</source>
@@ -19498,6 +19601,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Hide track</source>
         <translation type="unfinished">ট্র্যাক লুকান</translation>
+    </message>
+    <message>
+        <source>Drag the line under the track to fine-tune</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Taller row</source>
@@ -20537,14 +20644,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select a video clip first</source>
-        <translation type="unfinished">প্রথমে একটি ভিডিও ক্লিপ নির্বাচন করুন</translation>
-    </message>
-    <message>
-        <source>Select a video clip to remove its background.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Custom removal</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20598,6 +20697,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Bigger eyes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to remove its background.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20773,6 +20880,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">প্রিয়</translation>
+    </message>
+    <message>
         <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20781,7 +20892,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select a video clip to retouch a face.</source>
+        <source>Select a video or image clip to retouch a face.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20945,7 +21056,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Right-click a voice to keep it here.</source>
+        <source>Click the star on a voice to keep it here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

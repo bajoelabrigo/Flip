@@ -56,6 +56,9 @@ struct Track
     // view-only: multiplies this track's base row height so a single lane can be
     // enlarged (waveform editing) without zooming the whole timeline.
     qreal heightScale = 1.0;
+    // view-only: how tall a clip's waveform is drawn in its row, as a fraction (CapCut's
+    // 30 / 60 / 100 %). Only the drawing changes, never the sound.
+    qreal waveformScale = 1.0;
 
     // Adjustment tracks only.
     AdjustmentScope adjustmentScope = AdjustmentScope::AllBelow;

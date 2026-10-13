@@ -186,7 +186,66 @@ QtObject {
         panelSecondaryBorder: "#ffe7a3",
         panelSecondaryForeground: "#9a6f00"
     })
-    readonly property var _palette: darkMode ? _dark : _light
+    // --- Colour themes: an accent plus a tint of the dark surfaces ------------------------
+    // Light mode keeps its neutral surfaces and takes only the accent. "amber" is the original.
+    readonly property var colorThemes: [
+        { id: "amber", label: qsTr("Amber"), primary: "#F8B81C", primaryForeground: "#221900",
+          lightOnPanel: "#8a6300", gradient: ["#ffcf4a", "#f59e0b", "#fbbf24"],
+          secondaryDark: ["#26200a", "#4a3d00", "#ffcf4a"], secondaryLight: ["#fff6da", "#ffe7a3", "#9a6f00"],
+          dark: ({}) },
+        { id: "midnight", label: qsTr("Midnight blue"), primary: "#4F8CFF", primaryForeground: "#04122e",
+          lightOnPanel: "#1d4fbf", gradient: ["#7aa8ff", "#3b6fe0", "#5b8cff"],
+          secondaryDark: ["#0e1a33", "#1e3a75", "#8fb4ff"], secondaryLight: ["#e6efff", "#c4d8ff", "#1d4fbf"],
+          dark: ({ appBackground: "#0b0f17", border: "#1f2937", accent: "#1a2233", popoverHover: "#1b2436",
+                   panelBackground: "#121826", panelBorder: "#243049", panelAccent: "#1c2538",
+                   panelMuted: "#2d3a52" }) },
+        { id: "graphite", label: qsTr("Graphite teal"), primary: "#2DD4BF", primaryForeground: "#032420",
+          lightOnPanel: "#0f766e", gradient: ["#5eead4", "#14b8a6", "#2dd4bf"],
+          secondaryDark: ["#0b2622", "#145a51", "#5eead4"], secondaryLight: ["#e3faf6", "#b4efe5", "#0f766e"],
+          dark: ({ appBackground: "#101213", border: "#272b2e", accent: "#202427", popoverHover: "#1f2326",
+                   panelBackground: "#1a1d1f", panelBorder: "#2b3033", panelAccent: "#23272a",
+                   panelMuted: "#363b3f" }) },
+        { id: "violet", label: qsTr("Violet"), primary: "#A78BFA", primaryForeground: "#1a0b3d",
+          lightOnPanel: "#6d28d9", gradient: ["#c4b5fd", "#8b5cf6", "#a78bfa"],
+          secondaryDark: ["#1f1636", "#3d2c70", "#c4b5fd"], secondaryLight: ["#f1ecff", "#ddd2ff", "#6d28d9"],
+          dark: ({ appBackground: "#0f0d14", border: "#29233a", accent: "#211c2e", popoverHover: "#211c2d",
+                   panelBackground: "#18151f", panelBorder: "#2d2740", panelAccent: "#231e30",
+                   panelMuted: "#3a3350" }) },
+        { id: "rose", label: qsTr("Rose"), primary: "#F472B6", primaryForeground: "#3a0820",
+          lightOnPanel: "#be185d", gradient: ["#f9a8d4", "#ec4899", "#f472b6"],
+          secondaryDark: ["#2e0f1f", "#6b1d45", "#f9a8d4"], secondaryLight: ["#fdebf4", "#fbcfe5", "#be185d"],
+          dark: ({ appBackground: "#120d10", border: "#30222a", accent: "#251a20", popoverHover: "#241a1f",
+                   panelBackground: "#1c1519", panelBorder: "#33252d", panelAccent: "#271d23",
+                   panelMuted: "#40313a" }) },
+        { id: "forest", label: qsTr("Forest green"), primary: "#4ADE80", primaryForeground: "#052e14",
+          lightOnPanel: "#15803d", gradient: ["#86efac", "#22c55e", "#4ade80"],
+          secondaryDark: ["#0c2616", "#165c33", "#86efac"], secondaryLight: ["#e7f9ee", "#bff0d1", "#15803d"],
+          dark: ({ appBackground: "#0c110e", border: "#222b25", accent: "#1b231e", popoverHover: "#1a221d",
+                   panelBackground: "#151b17", panelBorder: "#26302a", panelAccent: "#1e2621",
+                   panelMuted: "#323d36" }) }
+    ]
+    readonly property var colorThemeDef: {
+        const id = EditorState.preferences.colorTheme
+        for (const t of colorThemes) {
+            if (t.id === id)
+                return t
+        }
+        return colorThemes[0]
+    }
+    function setColorTheme(id) {
+        EditorState.preferences.setColorTheme(id)
+    }
+
+    readonly property var _palette: {
+        const base = darkMode ? _dark : _light
+        const t = colorThemeDef
+        const out = Object.assign({}, base, darkMode ? t.dark : {})
+        const secondary = darkMode ? t.secondaryDark : t.secondaryLight
+        out.panelSecondaryBg = secondary[0]
+        out.panelSecondaryBorder = secondary[1]
+        out.panelSecondaryForeground = secondary[2]
+        return out
+    }
 
     // --- Colors: app shell ---------------------------------------------------
     readonly property color appBackground: _palette.appBackground
@@ -220,14 +279,14 @@ QtObject {
     readonly property color panelSecondaryForeground: _palette.panelSecondaryForeground
 
     // --- Colors: shared semantic (identical in both themes) -----------------------
-    readonly property color primary: "#F8B81C"
-    readonly property color primaryForeground: "#221900"
+    readonly property color primary: colorThemeDef.primary
+    readonly property color primaryForeground: colorThemeDef.primaryForeground
     // `primary` as a *foreground* on a panel surface. The brand amber is a fill
     // colour: on the light panel it lands at 1.69:1, so a selected tab tinted with
     // it was effectively invisible. Dark mode keeps the amber (9.8:1); light mode
     // uses the darkened brand tone (5.2:1). Only for text/glyphs on panels —
     // fills, rings and progress arcs still use `primary` in both themes.
-    readonly property color accentOnPanel: darkMode ? primary : "#8a6300"
+    readonly property color accentOnPanel: darkMode ? primary : colorThemeDef.lightOnPanel
     readonly property color destructive: "#e91616"
     readonly property color constructive: "#23d160"
     readonly property color warning: "#f97316"
@@ -238,9 +297,9 @@ QtObject {
 
     // Export CTA gradient stops (the documented inline-color exception, sourced
     // from here so the button still tracks the token system).
-    readonly property color exportGradientTop: "#ffcf4a"
-    readonly property color exportGradientBottom: "#f59e0b"
-    readonly property color exportGlow: "#fbbf24"
+    readonly property color exportGradientTop: colorThemeDef.gradient[0]
+    readonly property color exportGradientBottom: colorThemeDef.gradient[1]
+    readonly property color exportGlow: colorThemeDef.gradient[2]
 
     // Scrims/overlays drawn over media (clip name bands, preview letterbox,
     // thumbnail duration badges). Fixed regardless of app theme because they sit

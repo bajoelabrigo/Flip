@@ -76,7 +76,10 @@ Root: HKCR; Subkey: "FlipStudio.Project\shell\open\command"; ValueType: string; 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#MyAppName}}"; Flags: nowait postinstall skipifsilent
 ; Silent in-app updates pass /DRIFTUPDATE=1. skipifsilent would otherwise leave Drift closed.
-Filename: "{app}\{#MyAppExeName}"; Flags: nowait; Check: LaunchAfterSilentUpdate
+; runasoriginaluser: without it (only postinstall entries get it by default) the relaunched app
+; inherited the installer's administrator token, and Windows blocks dragging files from Explorer
+; into an elevated window, so nothing could be dropped on Media or the timeline after an update.
+Filename: "{app}\{#MyAppExeName}"; Flags: nowait runasoriginaluser; Check: LaunchAfterSilentUpdate
 
 [Code]
 function LaunchAfterSilentUpdate: Boolean;

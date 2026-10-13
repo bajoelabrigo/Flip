@@ -26,7 +26,7 @@ Item {
     // A media clip carries no mask of its own: its masks are mask adjustments pinned to it in one
     // of its track's lanes. Listing them here is the whole point — otherwise the only way to reach
     // a mask you just applied is to know to click its card on the timeline.
-    readonly property bool isMediaClip: clipKind === "video"
+    readonly property bool isMediaClip: clipKind === "video" || clipKind === "image"
     readonly property var linkedMasks: {
         void clipDataRevision
         if (!isMediaClip || !hasSelection)
@@ -128,7 +128,7 @@ Item {
             // writing to the wrong object.
             visible: !root.isMedia && !root.isMediaClip
             width: parent.width
-            model: ["none", "rectangle", "ellipse", "star", "heart", "bars", "freeform"]
+            model: ["none", "rectangle", "ellipse", "star", "heart", "bars", "freeform", "text"]
             // Human labels — the raw ids were shown to the user.
             readonly property var labels: ({
                 "none": qsTr("None"),
@@ -137,14 +137,68 @@ Item {
                 "star": qsTr("Star"),
                 "heart": qsTr("Heart"),
                 "bars": qsTr("Bars"),
-                "freeform": qsTr("Freeform")
+                "freeform": qsTr("Freeform"),
+                "text": qsTr("Text")
             })
             displayText: labels[model[currentIndex]] || model[currentIndex]
             currentIndex: Math.max(0, model.indexOf((root.clipData.mask && root.clipData.mask.shape) || "none"))
             onActivated: {
                 const mask = Object.assign({}, root.clipData.mask || {})
                 mask.shape = model[currentIndex]
+                if (mask.shape === "text" && !mask.text)
+                    mask.text = qsTr("TEXT")
                 EditorState.setClipMask(EditorState.selectedTrack, EditorState.selectedClip, mask)
+            }
+        }
+
+        // Text mask: the words whose outline shows the clip.
+        Column {
+            visible: root.maskShape === "text" && !root.isMediaClip
+            width: parent.width
+            spacing: Theme.spacingSm
+
+            Text {
+                width: parent.width
+                text: qsTr("Mask text")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+
+            ThemedTextField {
+                id: maskTextField
+                width: parent.width
+                placeholderText: qsTr("Write the text")
+                text: (root.clipData.mask && root.clipData.mask.text) || ""
+                onEditingFinished: {
+                    const mask = Object.assign({}, root.clipData.mask || {})
+                    if (mask.text === text)
+                        return
+                    mask.text = text
+                    EditorState.setClipMask(EditorState.selectedTrack, EditorState.selectedClip, mask)
+                }
+            }
+        }
+
+        // Pen: a freeform drawn as a smooth curve through its points.
+        Row {
+            width: parent.width
+            spacing: 8
+            visible: root.maskShape === "freeform" && !root.isMediaClip
+            Text {
+                text: qsTr("Smooth curves (pen)")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            ThemedSwitch {
+                checked: !!(root.clipData.mask && root.clipData.mask.smooth)
+                onToggled: {
+                    const mask = Object.assign({}, root.clipData.mask || {})
+                    mask.smooth = checked
+                    EditorState.setClipMask(EditorState.selectedTrack, EditorState.selectedClip, mask)
+                }
             }
         }
 
@@ -208,20 +262,20 @@ Item {
             // nothing. Offering those sliders anyway just invites dragging something inert.
             model: [
                 { key: "mask.x", label: qsTr("Center X"), def: 0.5, decimals: 3, min: 0, max: 1,
-                  shapes: ["rectangle", "ellipse", "star", "heart"] },
+                  shapes: ["rectangle", "ellipse", "star", "heart", "text"] },
                 { key: "mask.y", label: qsTr("Center Y"), def: 0.5, decimals: 3, min: 0, max: 1,
-                  shapes: ["rectangle", "ellipse", "star", "heart"] },
+                  shapes: ["rectangle", "ellipse", "star", "heart", "text"] },
                 { key: "mask.w", label: qsTr("Width"), def: 0.6, decimals: 3, min: 0.05, max: 1,
-                  shapes: ["rectangle", "ellipse", "star", "heart"] },
+                  shapes: ["rectangle", "ellipse", "star", "heart", "text"] },
                 { key: "mask.h", label: qsTr("Height"), def: 0.6, decimals: 3, min: 0.05, max: 1,
-                  shapes: ["rectangle", "ellipse", "star", "heart", "bars"] },
+                  shapes: ["rectangle", "ellipse", "star", "heart", "bars", "text"] },
                 { key: "mask.rotation", label: qsTr("Rotation"), def: 0, decimals: 1,
                   min: -180, max: 180, unit: "°",
-                  shapes: ["rectangle", "ellipse", "star", "heart"] },
+                  shapes: ["rectangle", "ellipse", "star", "heart", "text"] },
                 // Feather blurs the finished coverage map, so it applies to every shape.
                 { key: "mask.feather", label: qsTr("Feather"), def: 0, decimals: 0,
                   min: 0, max: 64, unit: "px",
-                  shapes: ["rectangle", "ellipse", "star", "heart", "bars", "freeform"] }
+                  shapes: ["rectangle", "ellipse", "star", "heart", "bars", "freeform", "text"] }
             ]
             delegate: PropertyKeyframeRow {
                 required property var modelData

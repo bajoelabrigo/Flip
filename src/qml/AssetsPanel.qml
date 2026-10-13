@@ -638,7 +638,9 @@ PanelFrame {
         "shortcuts": qsTr("Shortcuts")
     })
 
-    // Rail order: project media → on-canvas graphics → processing → prefs.
+    // Rail order, by what each tab is about: media → text → graphics on the canvas → video
+    // effects → audio (voice included) → templates → shortcuts. Templates sit under the audio
+    // tools, where Jorge asked for them.
     // `separatorAfter` draws a hairline under the tab so groups read as sections.
     // tabId "sounds" is kept for favorites persistence (settings key).
     ListModel {
@@ -646,18 +648,18 @@ PanelFrame {
         ListElement { tabId: "media"; icon: 0; separatorAfter: false }
         ListElement { tabId: "market"; icon: 12; separatorAfter: true }
         ListElement { tabId: "text"; icon: 1; separatorAfter: false }
-        ListElement { tabId: "subtitles"; icon: 2; separatorAfter: false }
-        ListElement { tabId: "speech"; icon: 13; separatorAfter: false }
+        ListElement { tabId: "subtitles"; icon: 2; separatorAfter: true }
         ListElement { tabId: "stickers"; icon: 3; separatorAfter: false }
         ListElement { tabId: "shapes"; icon: 4; separatorAfter: false }
-        ListElement { tabId: "masks"; icon: 11; separatorAfter: true }
+        ListElement { tabId: "masks"; icon: 11; separatorAfter: false }
         ListElement { tabId: "scenes"; icon: 10; separatorAfter: true }
         ListElement { tabId: "effects"; icon: 5; separatorAfter: false }
-        ListElement { tabId: "templates"; icon: 6; separatorAfter: false }
-        ListElement { tabId: "transitions"; icon: 7; separatorAfter: false }
+        ListElement { tabId: "transitions"; icon: 7; separatorAfter: true }
         ListElement { tabId: "music"; icon: 14; separatorAfter: false }
         ListElement { tabId: "sfx"; icon: 15; separatorAfter: false }
+        ListElement { tabId: "speech"; icon: 13; separatorAfter: false }
         ListElement { tabId: "sounds"; icon: 8; separatorAfter: true }
+        ListElement { tabId: "templates"; icon: 6; separatorAfter: true }
         ListElement { tabId: "shortcuts"; icon: 9; separatorAfter: false }
 
         // A build without a marketplace service (Flip Studio has none yet) drops the tab rather

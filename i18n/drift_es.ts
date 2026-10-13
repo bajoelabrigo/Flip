@@ -3310,6 +3310,10 @@
         <translation>Máscara del clip actualizada</translation>
     </message>
     <message>
+        <source>TEXT</source>
+        <translation>TEXTO</translation>
+    </message>
+    <message>
         <source>Rectangle</source>
         <translation>Rectángulo</translation>
     </message>
@@ -3332,6 +3336,14 @@
     <message>
         <source>Freeform</source>
         <translation>Forma libre</translation>
+    </message>
+    <message>
+        <source>Pen</source>
+        <translation>Pluma</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texto</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -8629,6 +8641,10 @@
         <translation>Oscuro</translation>
     </message>
     <message>
+        <source>Colour</source>
+        <translation>Color</translation>
+    </message>
+    <message>
         <source>Language…</source>
         <translation>Idioma…</translation>
     </message>
@@ -8643,6 +8659,22 @@
     <message>
         <source>More settings…</source>
         <translation>Más ajustes…</translation>
+    </message>
+    <message>
+        <source>Update to %1</source>
+        <translation>Actualizar a %1</translation>
+    </message>
+    <message>
+        <source>Look for updates in Microsoft Store</source>
+        <translation>Buscar actualizaciones en Microsoft Store</translation>
+    </message>
+    <message>
+        <source>Checking for updates…</source>
+        <translation>Buscando actualizaciones…</translation>
+    </message>
+    <message>
+        <source>Check for updates (you have %1)</source>
+        <translation>Buscar actualizaciones (tienes la %1)</translation>
     </message>
     <message>
         <source>Agent</source>
@@ -11246,6 +11278,26 @@
         <translation>Forma libre</translation>
     </message>
     <message>
+        <source>Text</source>
+        <translation>Texto</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation>TEXTO</translation>
+    </message>
+    <message>
+        <source>Mask text</source>
+        <translation>Texto de la máscara</translation>
+    </message>
+    <message>
+        <source>Write the text</source>
+        <translation>Escribe el texto</translation>
+    </message>
+    <message>
+        <source>Smooth curves (pen)</source>
+        <translation>Curvas suaves (pluma)</translation>
+    </message>
+    <message>
         <source>Combine</source>
         <translation>Combinar</translation>
     </message>
@@ -12955,6 +13007,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Saltar 1s adelante · Mayús para 5s · Ctrl para 10s</translation>
     </message>
     <message>
+        <source>Vertical workspace</source>
+        <translation>Espacio vertical</translation>
+    </message>
+    <message>
+        <source>Wide workspace</source>
+        <translation>Espacio horizontal</translation>
+    </message>
+    <message>
+        <source>Arrange the panels for this video&apos;s shape</source>
+        <translation>Acomoda los paneles a la forma de este video</translation>
+    </message>
+    <message>
         <source>Exit fullscreen preview (Esc)</source>
         <translation>Salir de vista previa en pantalla completa (Esc)</translation>
     </message>
@@ -13549,6 +13613,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Save effect as preset</source>
         <translation>Guardar efecto como ajuste predeterminado</translation>
+    </message>
+    <message>
+        <source>Keep scrolling for %1</source>
+        <translation>Sigue bajando para ver %1</translation>
     </message>
     <message>
         <source>My look</source>
@@ -14396,8 +14464,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>SegmentationController</name>
     <message>
-        <source>Select a video clip to cut out</source>
-        <translation>Selecciona un clip de video para recortar</translation>
+        <source>Select a video or image clip to cut out</source>
+        <translation>Selecciona un clip de video o una imagen para recortar</translation>
     </message>
     <message>
         <source>Cutout is already running</source>
@@ -18552,6 +18620,33 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>Theme</name>
+    <message>
+        <source>Amber</source>
+        <translation>Ámbar</translation>
+    </message>
+    <message>
+        <source>Midnight blue</source>
+        <translation>Azul medianoche</translation>
+    </message>
+    <message>
+        <source>Graphite teal</source>
+        <translation>Grafito turquesa</translation>
+    </message>
+    <message>
+        <source>Violet</source>
+        <translation>Violeta</translation>
+    </message>
+    <message>
+        <source>Rose</source>
+        <translation>Rosa</translation>
+    </message>
+    <message>
+        <source>Forest green</source>
+        <translation>Verde bosque</translation>
+    </message>
+</context>
+<context>
     <name>ThemedColorDialog</name>
     <message>
         <source>Original colour</source>
@@ -19420,6 +19515,22 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Desactivar transformación</translation>
     </message>
     <message>
+        <source>Track options</source>
+        <translation>Opciones de pista</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>Predeterminado</translation>
+    </message>
+    <message>
+        <source>High</source>
+        <translation>Alto</translation>
+    </message>
+    <message>
+        <source>Audio waveform size</source>
+        <translation>Tamaño de la forma de onda de audio</translation>
+    </message>
+    <message>
         <source>Add camera clip at playhead</source>
         <translation>Añadir clip de cámara en el cabezal</translation>
     </message>
@@ -19436,24 +19547,16 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Añadir capa de transformación encima</translation>
     </message>
     <message>
+        <source>Drag to change the track height</source>
+        <translation>Arrastra para cambiar la altura de la pista</translation>
+    </message>
+    <message>
         <source>Track height</source>
         <translation>Altura de pista</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation>Baja</translation>
-    </message>
-    <message>
-        <source>Tall</source>
-        <translation>Alta</translation>
-    </message>
-    <message>
-        <source>Taller</source>
-        <translation>Más alta</translation>
-    </message>
-    <message>
-        <source>Scroll over the header to fine-tune</source>
-        <translation>Desplázate sobre el encabezado para ajustar con precisión</translation>
+        <translation>Corto</translation>
     </message>
     <message>
         <source>Covers</source>
@@ -19498,6 +19601,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Hide track</source>
         <translation>Ocultar pista</translation>
+    </message>
+    <message>
+        <source>Drag the line under the track to fine-tune</source>
+        <translation>Arrastra la línea bajo la pista para ajustarla</translation>
     </message>
     <message>
         <source>Taller row</source>
@@ -20537,14 +20644,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Encuentra las personas del clip y quita el fondo</translation>
     </message>
     <message>
-        <source>Select a video clip first</source>
-        <translation>Selecciona un clip de video primero</translation>
-    </message>
-    <message>
-        <source>Select a video clip to remove its background.</source>
-        <translation>Selecciona un clip de video para quitarle el fondo.</translation>
-    </message>
-    <message>
         <source>Custom removal</source>
         <translation>Eliminación personalizada</translation>
     </message>
@@ -20599,6 +20698,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Bigger eyes</source>
         <translation>Ojos más grandes</translation>
+    </message>
+    <message>
+        <source>Select a video or image clip first</source>
+        <translation>Selecciona primero un clip de video o una imagen</translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to remove its background.</source>
+        <translation>Selecciona un clip de video o una imagen para quitarle el fondo.</translation>
     </message>
     <message>
         <source>Face</source>
@@ -20773,6 +20880,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Recolorea el iris</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation>Favoritos</translation>
+    </message>
+    <message>
         <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
         <translation>El retoque del cuerpo (cintura más delgada, piernas más largas, etc.) necesita un modelo que siga el cuerpo, y Flip Studio todavía no lo tiene.</translation>
     </message>
@@ -20781,8 +20892,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>El color y el volumen del cabello necesitan un modelo que separe el cabello, y Flip Studio todavía no lo tiene.</translation>
     </message>
     <message>
-        <source>Select a video clip to retouch a face.</source>
-        <translation>Selecciona un clip de video para retocar una cara.</translation>
+        <source>Select a video or image clip to retouch a face.</source>
+        <translation>Selecciona un clip de video o una imagen para retocar un rostro.</translation>
     </message>
     <message>
         <source>Install Face retouch from Extras (it needs the AI engine) to use these.</source>
@@ -20945,8 +21056,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Voz a canción</translation>
     </message>
     <message>
-        <source>Right-click a voice to keep it here.</source>
-        <translation>Haz clic derecho en una voz para guardarla aquí.</translation>
+        <source>Click the star on a voice to keep it here.</source>
+        <translation>Toca la estrella de una voz para guardarla aquí.</translation>
     </message>
     <message>
         <source>No voice matches.</source>

@@ -54,6 +54,8 @@ QJsonObject maskToJson(const Mask &m)
         {QStringLiteral("feather"), m.feather},
         {QStringLiteral("invert"), m.invert},
         {QStringLiteral("points"), points},
+        {QStringLiteral("smooth"), m.smooth},
+        {QStringLiteral("text"), m.text},
         {QStringLiteral("mediaPath"), m.mediaPath},
         {QStringLiteral("mediaFgrPath"), m.mediaFgrPath},
         {QStringLiteral("mediaSrcOffsetUs"), qint64(m.mediaSrcOffsetUs)},
@@ -82,6 +84,8 @@ Mask maskFromJson(const QJsonObject &o)
     m.op = maskOpFromString(o.value(QStringLiteral("op")).toString());
     m.enabled = o.value(QStringLiteral("enabled")).toBool(m.enabled);
     m.name = o.value(QStringLiteral("name")).toString(m.name);
+    m.smooth = o.value(QStringLiteral("smooth")).toBool(m.smooth);
+    m.text = o.value(QStringLiteral("text")).toString(m.text);
     // Media was called "matte" before v5 and only ever backed a segmentation cutout, so the old
     // keys map straight across.
     m.mediaPath = o.value(QStringLiteral("mediaPath"))
@@ -1089,6 +1093,8 @@ Project Project::fromJson(const QJsonObject &object, QString *errorOut)
                 trackObject.value(QStringLiteral("showChannelWaveforms")).toBool(false);
             track.heightScale = qBound(
                 0.6, trackObject.value(QStringLiteral("heightScale")).toDouble(1.0), 4.0);
+            track.waveformScale = qBound(
+                0.1, trackObject.value(QStringLiteral("waveformScale")).toDouble(1.0), 1.0);
 
             const QJsonArray clipsArray = trackObject.value(QStringLiteral("clips")).toArray();
             for (const QJsonValue &clipValue : clipsArray) {
@@ -1273,6 +1279,7 @@ QJsonObject Project::toJson(bool includeTranscripts) const
                 {QStringLiteral("clipDisplay"), static_cast<int>(track.clipDisplay)},
                 {QStringLiteral("showChannelWaveforms"), track.showChannelWaveforms},
                 {QStringLiteral("heightScale"), track.heightScale},
+                {QStringLiteral("waveformScale"), track.waveformScale},
                 {QStringLiteral("clips"), clipsArray},
                 {QStringLiteral("transitions"), transitionsArray},
             };

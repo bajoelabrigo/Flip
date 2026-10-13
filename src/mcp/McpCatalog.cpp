@@ -111,7 +111,8 @@ QJsonObject maskSchema()
          enumProp(QStringLiteral("Mask shape. Omitted or unrecognised = none, i.e. mask off."),
                   {QStringLiteral("none"), QStringLiteral("rectangle"), QStringLiteral("ellipse"),
                    QStringLiteral("star"), QStringLiteral("heart"), QStringLiteral("bars"),
-                   QStringLiteral("freeform"), QStringLiteral("media"), QStringLiteral("matte")})},
+                   QStringLiteral("freeform"), QStringLiteral("text"), QStringLiteral("media"),
+                   QStringLiteral("matte")})},
         {QStringLiteral("x"), numberProp(QStringLiteral("Center x, fraction of canvas (default 0.5)"), 0, 1)},
         {QStringLiteral("y"), numberProp(QStringLiteral("Center y, fraction of canvas (default 0.5)"), 0, 1)},
         {QStringLiteral("w"), numberProp(QStringLiteral("Width, fraction of canvas (default 0.6)"), 0, 1)},
@@ -134,6 +135,8 @@ QJsonObject maskSchema()
         {QStringLiteral("mediaChannel"), enumProp(QStringLiteral("matte/media only: which channel is the coverage"),
                                                   {QStringLiteral("luma"), QStringLiteral("alpha")})},
         {QStringLiteral("mediaLoop"), boolProp(QStringLiteral("matte/media only: loop a matte shorter than the clip"))},
+        {QStringLiteral("smooth"), boolProp(QStringLiteral("freeform only: a smooth curve through the points (the Pen mask)"))},
+        {QStringLiteral("text"), stringProp(QStringLiteral("text only: the words whose outline is the mask"))},
     });
     s.insert(QStringLiteral("description"),
              QStringLiteral("The whole mask; every omitted key reverts to its default and omitting shape turns the mask off"));

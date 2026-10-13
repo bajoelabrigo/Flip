@@ -33,6 +33,7 @@ Item {
         trackType: area.trackData.type || ""
         clipDisplay: area.trackData.clipDisplay !== undefined ? area.trackData.clipDisplay : 1
         showChannelWaveforms: area.trackData.showChannelWaveforms === true
+        waveformScale: area.trackData.waveformScale !== undefined ? area.trackData.waveformScale : 1
         editor: EditorState
         assets: AssetLibrary
         haptics: Haptics
@@ -116,6 +117,11 @@ Item {
             EditorState.moveAdjustmentToOwnTrack(originTrack, originClip, newStart)
         } else if (target.track >= 0 && target.track !== originTrack) {
             EditorState.moveClipToTrack(originTrack, originClip, target.track, newStart)
+        } else if (!isAdjustment && target.track < 0 && (pos.y < 0 || pos.y > panel.totalTracksHeight())) {
+            // Dropped above the top track or below the last one: a new track for it, as on
+            // CapCut, instead of the clip going back to where it was.
+            EditorState.moveClipToNewTrack(originTrack, originClip,
+                                           pos.y < 0 ? 0 : panel.tracks.length, newStart)
         } else {
             EditorState.moveClip(originTrack, originClip, newStart)
         }

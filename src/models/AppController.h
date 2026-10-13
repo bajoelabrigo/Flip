@@ -753,6 +753,9 @@ public:
     Q_INVOKABLE void duplicateSelectedClip();
     Q_INVOKABLE void moveClip(int trackIndex, int clipIndex, double newStart);
     Q_INVOKABLE void moveClipToTrack(int trackIndex, int clipIndex, int newTrackIndex, double newStart);
+    // Dragging a clip above the top track or below the last one: a new track of the clip's kind
+    // is made at insertIndex and the clip moves onto it, in one undo step (as on CapCut).
+    Q_INVOKABLE void moveClipToNewTrack(int trackIndex, int clipIndex, int insertIndex, double newStart);
     // Shifts every clip on `trackIndex` starting at/after `gapStartSeconds` left by the
     // width of the gap immediately following that position, closing it. Linked partner
     // clips on other tracks (e.g. a companion audio clip) follow along to stay in sync.
@@ -1340,6 +1343,8 @@ public:
     // Per-track row height multiplier (DAW-style lane resize). Clamped to
     // trackHeightScaleMin()..trackHeightScaleMax().
     Q_INVOKABLE void setTrackHeightScale(int trackIndex, double scale);
+    // How tall the waveform is drawn inside the row (0.1-1.0). View-only.
+    Q_INVOKABLE void setTrackWaveformScale(int trackIndex, double scale);
     Q_INVOKABLE double trackHeightScale(int trackIndex) const;
     Q_INVOKABLE void nudgeTrackHeightScale(int trackIndex, int steps);
     // The touch timeline has no per-lane resize handle and no room in the tool strip for a control

@@ -76,7 +76,11 @@ bool Track::allowsClipType(ClipType clipType) const
             || clipType == ClipType::Vector || clipType == ClipType::Model3d
             || clipType == ClipType::Pdf;
     case TrackType::Video:
-        return clipType == ClipType::Video || clipType == ClipType::Composite;
+        // A photo can sit next to a video on the same track, as on CapCut's main track: the
+        // compositor and the mixer already handle an image clip on a video track (importers put
+        // them there), and refusing it made a dragged photo jump back to where it came from.
+        return clipType == ClipType::Video || clipType == ClipType::Composite
+            || clipType == ClipType::Image;
     case TrackType::Adjustment:
         return clipType == ClipType::Adjustment;
     }

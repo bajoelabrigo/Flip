@@ -183,6 +183,11 @@ Item {
         return Math.abs((tracks[index].heightScale || 1) - scale) < 0.01
     }
 
+    function isWaveformPreset(index, scale) {
+        const current = tracks[index].waveformScale !== undefined ? tracks[index].waveformScale : 1
+        return Math.abs(current - scale) < 0.01
+    }
+
     // Header button order: Video -> Video + waveform -> Waveform -> Video.
     function nextClipDisplay(mode) {
         return mode === 0 ? 1 : (mode === 1 ? 2 : 0)
@@ -745,6 +750,7 @@ Item {
                 // Cycles the track's clips through filmstrip / filmstrip + waveform bar /
                 // waveform.
                 IconGlyph {
+                    id: clipDisplayToggle
                     visible: !root.compact && root.tracks[index].type === "video"
                     glyph: root.clipDisplayGlyph(trackLabelRow.clipDisplay)
                     iconSize: 16
@@ -767,6 +773,78 @@ Item {
                             Haptics.press()
                             EditorState.setTrackClipDisplay(
                                 index, root.nextClipDisplay(trackLabelRow.clipDisplay))
+                        }
+                    }
+                }
+
+                // CapCut's "..." at the end of an audio track: row height and waveform size.
+                IconGlyph {
+                    id: audioMoreIcon
+                    visible: root.tracks[index].type === "audio" && root.tracks[index].isAdjustmentLane !== true
+                    glyph: Theme.icons.ellipsis
+                    iconSize: 16
+                    iconColor: audioMoreMouse.containsMouse || audioMoreMenu.visible
+                               ? Theme.panelForeground : Theme.mutedForeground
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    Accessible.role: Accessible.Button
+                    Accessible.name: qsTr("Track options")
+
+                    ThemedToolTip {
+                        visible: audioMoreMouse.containsMouse && !audioMoreMenu.visible
+                        text: qsTr("Track options")
+                    }
+
+                    MouseArea {
+                        id: audioMoreMouse
+                        anchors.fill: parent
+                        anchors.margins: -4
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: audioMoreMenu.popup(audioMoreIcon, 0, audioMoreIcon.height + 4)
+                    }
+
+                    ThemedContextMenu {
+                        id: audioMoreMenu
+
+                        ThemedContextMenu {
+                            title: qsTr("Track height")
+
+                            ThemedMenuItem {
+                                text: qsTr("Short")
+                                icon.name: root.isHeightPreset(index, 0.6) ? Theme.icons.check : ""
+                                onTriggered: EditorState.setTrackHeightScale(index, 0.6)
+                            }
+                            ThemedMenuItem {
+                                text: qsTr("Default")
+                                icon.name: root.isHeightPreset(index, 1.0) ? Theme.icons.check : ""
+                                onTriggered: EditorState.setTrackHeightScale(index, 1.0)
+                            }
+                            ThemedMenuItem {
+                                text: qsTr("High")
+                                icon.name: root.isHeightPreset(index, 1.6) ? Theme.icons.check : ""
+                                onTriggered: EditorState.setTrackHeightScale(index, 1.6)
+                            }
+                        }
+
+                        ThemedContextMenu {
+                            title: qsTr("Audio waveform size")
+
+                            ThemedMenuItem {
+                                text: "30%"
+                                icon.name: root.isWaveformPreset(index, 0.3) ? Theme.icons.check : ""
+                                onTriggered: EditorState.setTrackWaveformScale(index, 0.3)
+                            }
+                            ThemedMenuItem {
+                                text: "60%"
+                                icon.name: root.isWaveformPreset(index, 0.6) ? Theme.icons.check : ""
+                                onTriggered: EditorState.setTrackWaveformScale(index, 0.6)
+                            }
+                            ThemedMenuItem {
+                                text: "100%"
+                                icon.name: root.isWaveformPreset(index, 1.0) ? Theme.icons.check : ""
+                                onTriggered: EditorState.setTrackWaveformScale(index, 1.0)
+                            }
                         }
                     }
                 }
@@ -960,13 +1038,13 @@ Item {
                             onTriggered: EditorState.setTrackHeightScale(index, 0.6)
                         }
                         ThemedMenuItem {
-                            text: qsTr("Tall")
+                            text: qsTr("Default")
                             icon.name: root.isHeightPreset(index, 1.0)
                                        ? Theme.icons.check : Theme.icons.list
                             onTriggered: EditorState.setTrackHeightScale(index, 1.0)
                         }
                         ThemedMenuItem {
-                            text: qsTr("Taller")
+                            text: qsTr("High")
                             icon.name: root.isHeightPreset(index, 1.6)
                                        ? Theme.icons.check : Theme.icons.listChevronsUpDown
                             onTriggered: EditorState.setTrackHeightScale(index, 1.6)
@@ -977,7 +1055,7 @@ Item {
                         ThemedMenuItem {
                             visible: !root.touchHold
                             enabled: false
-                            text: qsTr("Scroll over the header to fine-tune")
+                            text: qsTr("Drag the line under the track to fine-tune")
                             icon.name: Theme.icons.info
                         }
                     }
@@ -1031,14 +1109,37 @@ Item {
                 }
             }
 
-            // DAW-style lane zoom: wheel over this header grows/shrinks only
-            // this track, so a music track can be made tall for waveform work
-            // without zooming the whole timeline. NoButton keeps clicks, the
-            // reorder drag and the context menu working underneath.
+            // The row's bottom line resizes it, as in CapCut: drag it, or roll the wheel while on
+            // it. Only the line, not the whole header -- wheeling over a header used to grow the
+            // track for anyone who only wanted to scroll the timeline down.
             MouseArea {
-                anchors.fill: parent
-                acceptedButtons: Qt.NoButton
+                id: rowResizeLine
+                readonly property real lineY: root.trackHeight(index)
+                x: 0
+                width: parent.width
+                y: lineY - 3
+                height: (index < root.tracks.length - 1 ? Theme.trackGap : 0) + 6
                 z: 40
+                visible: !root.touchHold
+                hoverEnabled: true
+                cursorShape: Qt.SizeVerCursor
+                preventStealing: true
+
+                property real pressY: 0
+                property real startScale: 1
+                property real startHeight: 1
+
+                onPressed: (mouse) => {
+                    pressY = mapToItem(root, mouse.x, mouse.y).y
+                    startScale = root.tracks[index].heightScale || 1
+                    startHeight = Math.max(1, root.trackHeight(index))
+                }
+                onPositionChanged: (mouse) => {
+                    if (!pressed)
+                        return
+                    const dy = mapToItem(root, mouse.x, mouse.y).y - pressY
+                    EditorState.setTrackHeightScale(index, startScale * (startHeight + dy) / startHeight)
+                }
                 onWheel: (wheel) => {
                     // Modified wheel belongs to the timeline's zoom/pan.
                     if (wheel.modifiers & (Qt.ControlModifier | Qt.ShiftModifier)) {
@@ -1050,6 +1151,22 @@ Item {
                     if (dy === 0)
                         return
                     EditorState.nudgeTrackHeightScale(index, dy > 0 ? 1 : -1)
+                }
+
+                // The line lights up under the pointer, so it reads as something to grab.
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    y: 2
+                    width: parent.width - 8
+                    height: 2
+                    radius: 1
+                    color: Theme.primary
+                    opacity: rowResizeLine.containsMouse || rowResizeLine.pressed ? 0.8 : 0
+                }
+
+                ThemedToolTip {
+                    visible: rowResizeLine.containsMouse && !rowResizeLine.pressed
+                    text: qsTr("Drag to change the track height")
                 }
             }
         }

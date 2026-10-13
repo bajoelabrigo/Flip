@@ -3313,6 +3313,10 @@
         <translation>Mặt nạ clip đã cập nhật</translation>
     </message>
     <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rectangle</source>
         <translation>Hình chữ nhật</translation>
     </message>
@@ -3335,6 +3339,14 @@
     <message>
         <source>Freeform</source>
         <translation>Dạng tự do</translation>
+    </message>
+    <message>
+        <source>Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Văn bản</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -8592,6 +8604,10 @@
         <translation>Tối</translation>
     </message>
     <message>
+        <source>Colour</source>
+        <translation type="unfinished">Màu</translation>
+    </message>
+    <message>
         <source>Language…</source>
         <translation>Ngôn ngữ…</translation>
     </message>
@@ -8606,6 +8622,22 @@
     <message>
         <source>More settings…</source>
         <translation>Thêm cài đặt…</translation>
+    </message>
+    <message>
+        <source>Update to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Look for updates in Microsoft Store</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checking for updates…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Check for updates (you have %1)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Agent</source>
@@ -11215,6 +11247,26 @@
         <translation>Dạng tự do</translation>
     </message>
     <message>
+        <source>Text</source>
+        <translation type="unfinished">Văn bản</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth curves (pen)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Combine</source>
         <translation>Hợp nhất</translation>
     </message>
@@ -12908,6 +12960,18 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished">Tiến lên 1 giây · Nhấn Shift cho 5 giây · Nhấn Ctrl cho 10 giây</translation>
     </message>
     <message>
+        <source>Vertical workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wide workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrange the panels for this video&apos;s shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Exit fullscreen preview (Esc)</source>
         <translation type="unfinished">Thoát chế độ xem trước toàn màn hình (Esc)</translation>
     </message>
@@ -13501,6 +13565,10 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     <message>
         <source>Save effect as preset</source>
         <translation>Lưu hiệu ứng làm preset</translation>
+    </message>
+    <message>
+        <source>Keep scrolling for %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>My look</source>
@@ -14347,8 +14415,8 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
 <context>
     <name>SegmentationController</name>
     <message>
-        <source>Select a video clip to cut out</source>
-        <translation type="unfinished">Chọn một video clip để cắt ra</translation>
+        <source>Select a video or image clip to cut out</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cutout is already running</source>
@@ -18500,6 +18568,33 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
 </context>
 <context>
+    <name>Theme</name>
+    <message>
+        <source>Amber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Midnight blue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graphite teal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Violet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rose</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forest green</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ThemedColorDialog</name>
     <message>
         <source>Original colour</source>
@@ -19367,6 +19462,22 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Tắt chuyển đổi</translation>
     </message>
     <message>
+        <source>Track options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>High</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio waveform size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add camera clip at playhead</source>
         <translation type="unfinished"></translation>
     </message>
@@ -19383,24 +19494,16 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Thêm lớp biến đổi ở trên</translation>
     </message>
     <message>
+        <source>Drag to change the track height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Track height</source>
         <translation>Chiều cao track</translation>
     </message>
     <message>
         <source>Short</source>
         <translation>Ngắn</translation>
-    </message>
-    <message>
-        <source>Tall</source>
-        <translation>Cao</translation>
-    </message>
-    <message>
-        <source>Taller</source>
-        <translation>Cao hơn</translation>
-    </message>
-    <message>
-        <source>Scroll over the header to fine-tune</source>
-        <translation>Cuộn trên thanh tiêu đề để tinh chỉnh</translation>
     </message>
     <message>
         <source>Covers</source>
@@ -19445,6 +19548,10 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     <message>
         <source>Hide track</source>
         <translation>Ẩn track</translation>
+    </message>
+    <message>
+        <source>Drag the line under the track to fine-tune</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Taller row</source>
@@ -20478,14 +20585,6 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select a video clip first</source>
-        <translation type="unfinished">Trước tiên hãy chọn một video clip</translation>
-    </message>
-    <message>
-        <source>Select a video clip to remove its background.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Custom removal</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20539,6 +20638,14 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>Bigger eyes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to remove its background.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20714,6 +20821,10 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">Yêu thích</translation>
+    </message>
+    <message>
         <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20722,7 +20833,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select a video clip to retouch a face.</source>
+        <source>Select a video or image clip to retouch a face.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20886,7 +20997,7 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Right-click a voice to keep it here.</source>
+        <source>Click the star on a voice to keep it here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -991,7 +991,7 @@ void CoreTest::trackAllowsClipTypes()
 {
     drift::Track videoTrack{.type = drift::TrackType::Video};
     QVERIFY(videoTrack.allowsClipType(drift::ClipType::Video));
-    QVERIFY(!videoTrack.allowsClipType(drift::ClipType::Image));
+    QVERIFY(videoTrack.allowsClipType(drift::ClipType::Image));
     QVERIFY(!videoTrack.allowsClipType(drift::ClipType::Audio));
 
     drift::Track audioTrack{.type = drift::TrackType::Audio};

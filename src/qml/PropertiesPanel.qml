@@ -148,6 +148,16 @@ PanelFrame {
           needs: ["transitionable"] }
     ]
 
+    // The visible tab `step` places after (1) or before (-1) the open one, without wrapping;
+    // -1 when there is none.
+    function adjacentTab(step) {
+        for (let i = activeTab + step; i >= 0 && i < tabs.length; i += step) {
+            if (tabVisible(tabs[i].id) && tabs[i].id !== "subtitles")
+                return i
+        }
+        return -1
+    }
+
     function tabVisible(tabId) {
         const tab = root.tabs[tabIndexOf(tabId)]
         return !!tab && tab.needs.every(cap => root.caps.indexOf(cap) >= 0)
@@ -768,6 +778,59 @@ PanelFrame {
                         }
                     }
                 }
+
+                // Where scrolling on goes: the end of one tab leads into the next, as on CapCut.
+                Text {
+                    readonly property int nextTab: root.adjacentTab(1)
+                    visible: !root.sheetMode && nextTab >= 0
+                    width: tabColumn.width
+                    topPadding: Theme.spacingLg
+                    horizontalAlignment: Text.AlignHCenter
+                    text: nextTab >= 0 ? qsTr("Keep scrolling for %1").arg(root.tabs[nextTab].label) : ""
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeTiny
+                    opacity: 0.8
+                }
+            }
+        }
+
+        // CapCut-style continuous scroll: rolling the wheel on past the end of a tab opens the next
+        // one, and past the top the previous one (at its end). Over the Flickable, but it only takes
+        // the wheel at an end; everything else (and every click) goes through to the controls.
+        MouseArea {
+            anchors.fill: tabFlick
+            visible: tabFlick.visible && !root.sheetMode
+            acceptedButtons: Qt.NoButton
+            z: 5
+            property real overscroll: 0
+            readonly property real threshold: 240
+
+            onWheel: (wheel) => {
+                const dy = wheel.angleDelta.y !== 0 ? wheel.angleDelta.y : wheel.pixelDelta.y
+                const fits = tabFlick.contentHeight <= tabFlick.height + 1
+                const atEnd = fits || tabFlick.contentY >= tabFlick.contentHeight - tabFlick.height - 1
+                const atStart = fits || tabFlick.contentY <= 1
+                if ((dy < 0 && atEnd) || (dy > 0 && atStart)) {
+                    // Opposite direction starts the count again.
+                    if ((overscroll > 0) !== (dy < 0))
+                        overscroll = 0
+                    overscroll += -dy
+                    if (Math.abs(overscroll) >= threshold) {
+                        const forward = overscroll > 0
+                        overscroll = 0
+                        const target = root.adjacentTab(forward ? 1 : -1)
+                        if (target >= 0) {
+                            root.activeTab = target
+                            if (!forward)
+                                Qt.callLater(() => { tabFlick.contentY = Math.max(0, tabFlick.contentHeight - tabFlick.height) })
+                        }
+                    }
+                    wheel.accepted = true
+                    return
+                }
+                overscroll = 0
+                wheel.accepted = false
             }
         }
 
