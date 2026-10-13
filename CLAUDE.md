@@ -58,7 +58,12 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
 - Web `getflipstudio.com` con la 0.9.6 en `novedades.html`.
 
 ### Pendiente
-1. **Jorge:** subir el MSIX 0.9.6 a Partner Center y cambiar el TXT `version` del DNS a `0.9.6`.
+1. **Hecho por Jorge (2026-10-13):** cambió el TXT `version` del DNS y mandó la 0.9.6 a
+   certificación en Partner Center. **Falta:** confirmar que la certificación pase. La ficha
+   actualizada (descripción, notas y 16 características, en es/es-co/en-us) está en
+   `Downloads\FlipStudio-Store\textos\listingData-FlipStudio-0.9.6.csv`; las capturas nuevas, en
+   `FlipStudio-Store\ficha` (`Guion en Voz.jpg` es una foto suelta, no una captura de la app).
+   `docs/store-listing.md` todavía tiene la descripción anterior: pasarle la del CSV.
 2. Retoque **Cuerpo** y **Cabello** siguen sin modelo de IA.
 3. Otros idiomas: los nombres de catálogo (contexto `Catalog`) y lo nuevo del texto solo están en
    español.
