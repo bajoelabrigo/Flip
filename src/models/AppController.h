@@ -813,6 +813,9 @@ public:
     Q_INVOKABLE void setClipTextContent(int trackIndex, int clipIndex, const QString &text);
     // Display label on the timeline / inspector. Does not rename the source file.
     Q_INVOKABLE void setClipName(int trackIndex, int clipIndex, const QString &name);
+    // Switches a clip off (or back on) without removing it: it keeps every setting, but the
+    // compositor leaves it out. What an adjustment layer's on/off switch does.
+    Q_INVOKABLE void setClipDisabled(int trackIndex, int clipIndex, bool disabled);
     Q_INVOKABLE void commitTextEdit(int trackIndex, int clipIndex, const QString &text);
     bool inlineTextEditing() const { return m_inlineTextEditing; }
 

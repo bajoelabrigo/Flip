@@ -581,7 +581,7 @@ QList<drift::Effect> laneAdjustmentEffects(const drift::Project &project, int tr
         for (const drift::Clip &adjustment : lane.clips) {
             if (adjustment.adjustmentKind != drift::AdjustmentKind::VideoEffects)
                 continue;
-            if (!adjustment.containsTime(timelineUs))
+            if (!adjustment.containsTime(timelineUs) || adjustment.disabled)
                 continue;
             if (!adjustment.linkedClipId.isEmpty() && adjustment.linkedClipId != hostClipId)
                 continue;
@@ -1588,6 +1588,9 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
 
         for (const drift::Clip &clip : track.clips) {
             if (transitionClipIds.contains(clip.id) || !clip.containsTime(timelineUs))
+                continue;
+            // Switched off: kept on the timeline with all its settings, left out of the picture.
+            if (clip.disabled)
                 continue;
 
             if (clip.type == drift::ClipType::Adjustment) {

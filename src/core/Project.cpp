@@ -327,6 +327,8 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("z"), keyframesToJson(clip.positionZ));
     if (!clip.perspective.isEmpty())
         json.insert(QStringLiteral("perspective"), keyframesToJson(clip.perspective));
+    if (clip.disabled)
+        json.insert(QStringLiteral("disabled"), true);
     return json;
 }
 
@@ -378,6 +380,7 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
         adjustmentKindFromString(object.value(QStringLiteral("adjustmentKind")).toString());
     clip.linkedClipId = object.value(QStringLiteral("linkedClipId")).toString();
     clip.independentRange = object.value(QStringLiteral("independentRange")).toBool(false);
+    clip.disabled = object.value(QStringLiteral("disabled")).toBool(false);
     clip.name = object.value(QStringLiteral("name")).toString();
     clip.textContent = object.value(QStringLiteral("textContent")).toString();
     clip.textStyle = textStyleFromJson(object.value(QStringLiteral("textStyle")).toObject());

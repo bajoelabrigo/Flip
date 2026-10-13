@@ -71,6 +71,10 @@ struct Clip
     // stretch the effect back over the whole clip and undo the trim.
     bool independentRange = false;
 
+    // Switched off (Premiere's "Enable" unticked): the clip keeps its place and every setting, but
+    // the compositor leaves it out. Saved only when true, so older projects read as before.
+    bool disabled = false;
+
     // When true, AudioMixer skips this video clip's embedded audio (companion audio track plays it).
     bool suppressEmbeddedAudio = false;
     // 0-based index among the audio streams in `path` (for multi-track video/audio files from OBS, etc.)

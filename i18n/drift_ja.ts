@@ -553,6 +553,45 @@
     </message>
 </context>
 <context>
+    <name>AdjustmentLayerInspector</name>
+    <message>
+        <source>Strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Everything you put on this layer (effects, colour, masks) applies to whatever is under it while it lasts, without touching those clips. Stretch or move it on the timeline to change where it acts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>It does not change anything yet: give it an effect (Effects tab) or a colour adjustment (Adjust tab). A mask only marks where they act.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">名前</translation>
+    </message>
+    <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">調整レイヤー</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation type="unfinished">オン</translation>
+    </message>
+    <message>
+        <source>Off: not applied, but keeps all its settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn the layer off to compare with and without it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0 %: what is under it, untouched. 100 %: the whole layer. In between, a mix of the two.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -2687,6 +2726,14 @@
         <translation>このマシンでは GPU プレビューレンダリングを利用できません。「ヘルプ」→「デバッグ情報」を参照してください。</translation>
     </message>
     <message>
+        <source>Off</source>
+        <translation type="unfinished">オフ</translation>
+    </message>
+    <message>
+        <source>Off · %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Media and referenced clips removed</source>
         <translation>メディアおよび参照されたクリップを削除しました</translation>
     </message>
@@ -3007,6 +3054,22 @@
     <message>
         <source>Clip renamed</source>
         <translation>クリップ名を変更しました</translation>
+    </message>
+    <message>
+        <source>Turn off clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn on clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turned off: it keeps its settings but is left out of the picture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turned on</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit text</source>
@@ -13611,6 +13674,10 @@ If playback stutters, try another.</source>
     <message>
         <source>General</source>
         <translation>全般</translation>
+    </message>
+    <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">調整レイヤー</translation>
     </message>
     <message>
         <source>Text</source>

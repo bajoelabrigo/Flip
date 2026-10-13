@@ -359,6 +359,8 @@ private slots:
     void effectsApplyOnTopOfTheCutoutForeground();
     void aVideoEffectsAdjustmentKeepsItsOwnMask();
     void standaloneAdjustmentKeepsSeeThroughCanvasAlpha();
+    void aSwitchedOffAdjustmentIsLeftOut();
+    void adjustmentStrengthMixesTheLayerWithWhatIsUnder();
     void pinnedLaneAdjustmentsStayOnTheirOwnClip();
     void transformLayerMatrixMapsTheBox();
     void parentedQuadKeepsDepthAndNearPlanes();
@@ -10877,6 +10879,86 @@ void EngineTest::standaloneAdjustmentKeepsSeeThroughCanvasAlpha()
     const QImage opaqueAdjusted = GpuCompositor::render(scene);
     scene.items.removeLast();
     QCOMPARE(opaqueAdjusted.pixelColor(16, 16), GpuCompositor::render(scene).pixelColor(16, 16));
+}
+
+// An adjustment layer switched off keeps its place and settings but is not composited, and a
+// switched-off mask lane stops masking its clip.
+void EngineTest::aSwitchedOffAdjustmentIsLeftOut()
+{
+    drift::Project project;
+    project.setResolution(64, 64);
+    project.tracks().clear();
+    project.tracks().append(drift::Track{.type = drift::TrackType::Adjustment});
+
+    drift::Clip adjustment;
+    adjustment.id = QStringLiteral("adj");
+    adjustment.type = drift::ClipType::Adjustment;
+    adjustment.adjustmentKind = drift::AdjustmentKind::VideoEffects;
+    adjustment.timelineStart = 0;
+    adjustment.timelineDuration = drift::secondsToUs(4.0);
+    drift::Effect grey;
+    grey.catalogId = QStringLiteral("stylize.grayscale");
+    adjustment.effects.append(grey);
+    project.tracks()[0].clips.append(adjustment);
+
+    FrameCompositor compositor;
+    compositor.setProject(&project);
+    GpuScene scene;
+    QVERIFY(compositor.buildSceneAt(drift::secondsToUs(1.0), FrameCompositor::RenderOptions{}, &scene));
+    QCOMPARE(scene.items.size(), 1);
+
+    project.tracks()[0].clips[0].disabled = true;
+    compositor.setProject(&project);
+    GpuScene off;
+    QVERIFY(compositor.buildSceneAt(drift::secondsToUs(1.0), FrameCompositor::RenderOptions{}, &off));
+    QCOMPARE(off.items.size(), 0);
+
+    // Saved and read back: the switch survives, and a clip saved without it reads as on.
+    const drift::Project reopened = drift::Project::fromJson(project.toJson());
+    QVERIFY(reopened.tracks().constFirst().clips.constFirst().disabled);
+    project.tracks()[0].clips[0].disabled = false;
+    QVERIFY(!drift::Project::fromJson(project.toJson()).tracks().constFirst().clips.constFirst().disabled);
+}
+
+// Strength is the layer's opacity: 0 leaves what is under it as it was, 1 applies the whole layer,
+// and in between the processed picture is mixed over the original.
+void EngineTest::adjustmentStrengthMixesTheLayerWithWhatIsUnder()
+{
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+
+    QImage red(32, 32, QImage::Format_RGBA8888);
+    red.fill(QColor(255, 0, 0));
+    GpuItem clip;
+    clip.layer.valid = true;
+    clip.layer.source = red;
+    clip.layer.rect = QRectF(0, 0, 32, 32);
+
+    GpuScene scene;
+    scene.canvasSize = QSize(32, 32);
+    scene.backgroundColor = Qt::black;
+    scene.items.append(clip);
+
+    drift::Effect grey;
+    grey.catalogId = QStringLiteral("stylize.grayscale");
+    GpuItem adjustment;
+    adjustment.isAdjustment = true;
+    adjustment.layer.valid = true;
+    adjustment.layer.rect = QRectF(0, 0, 32, 32);
+    adjustment.layer.effects.append(grey);
+    scene.items.append(adjustment);
+
+    auto redAt = [&](double strength) {
+        scene.items.last().layer.opacity = strength;
+        return GpuCompositor::render(scene).pixelColor(16, 16);
+    };
+    const QColor none = redAt(0.0);
+    const QColor half = redAt(0.5);
+    const QColor full = redAt(1.0);
+    QVERIFY2(none.red() >= 250 && none.green() <= 5, qPrintable(none.name()));
+    QVERIFY2(full.red() < 200 && qAbs(full.red() - full.green()) <= 6, qPrintable(full.name()));
+    QVERIFY2(half.red() < none.red() && half.red() > full.red(), qPrintable(half.name()));
+    QVERIFY2(qAbs(half.red() - (none.red() + full.red()) / 2) <= 24, qPrintable(half.name()));
 }
 
 // A transition draws the incoming clip across instants that belong to the outgoing one, where the

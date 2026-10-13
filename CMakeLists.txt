@@ -1293,6 +1293,7 @@ qt_add_qml_module(drift
         # lupdate never sees its strings, so i18n/*.ts silently loses the whole tab.
         src/qml/components/properties/VideoInspector.qml
         src/qml/components/properties/VideoMaskPage.qml
+        src/qml/components/properties/AdjustmentLayerInspector.qml
         src/qml/components/properties/AdjustInspector.qml
         src/qml/components/properties/FacePropPicker.qml
         src/qml/components/assets/TextAssetsTab.qml

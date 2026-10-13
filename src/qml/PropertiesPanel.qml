@@ -111,6 +111,10 @@ PanelFrame {
     // Audio is one: volume is keyframeable and edited there.
     readonly property var tabs: [
         { id: "general", label: qsTr("General"), icon: Theme.icons.info, group: 0, needs: [] },
+        // A standalone adjustment layer: name, on/off, strength and blend. First of its tabs, and
+        // where selecting one lands.
+        { id: "adjustmentLayer", label: qsTr("Adjustment layer"), icon: "layers", group: 0,
+          needs: ["adjustmentLayer"], opens: "adjustmentLayer", keyframes: true },
         { id: "text", label: qsTr("Text"), icon: Theme.icons.type, group: 0, needs: ["textStyled"], keyframes: true },
         { id: "shape", label: qsTr("Shape"), icon: Theme.icons.shapes, group: 0, needs: ["shape"], keyframes: true },
         { id: "vector", label: qsTr("Motion"), icon: Theme.icons.layers, group: 0, needs: ["vector"], keyframes: true },
@@ -671,6 +675,12 @@ PanelFrame {
                             onPositionLinkedChanged: EditorState.positionLinked = positionLinked
                         }
                     }
+                }
+
+                Loader {
+                    active: root.currentTabId === "adjustmentLayer"
+                    visible: active
+                    sourceComponent: Component { AdjustmentLayerInspector { width: tabColumn.width } }
                 }
 
                 Loader {

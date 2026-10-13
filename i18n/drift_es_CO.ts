@@ -553,6 +553,45 @@
     </message>
 </context>
 <context>
+    <name>AdjustmentLayerInspector</name>
+    <message>
+        <source>Strength</source>
+        <translation>Intensidad</translation>
+    </message>
+    <message>
+        <source>Everything you put on this layer (effects, colour, masks) applies to whatever is under it while it lasts, without touching those clips. Stretch or move it on the timeline to change where it acts.</source>
+        <translation>Todo lo que le pongas a esta capa (efectos, color, máscaras) se aplica a lo que hay debajo mientras dura, sin tocar esos clips. Alárgala o muévela en la línea de tiempo para cambiar dónde actúa.</translation>
+    </message>
+    <message>
+        <source>It does not change anything yet: give it an effect (Effects tab) or a colour adjustment (Adjust tab). A mask only marks where they act.</source>
+        <translation>Todavía no cambia nada: ponle un efecto (pestaña Efectos) o un ajuste de color (pestaña Ajustar). La máscara solo marca dónde actúan.</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nombre</translation>
+    </message>
+    <message>
+        <source>Adjustment layer</source>
+        <translation>Capa de ajuste</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>Activada</translation>
+    </message>
+    <message>
+        <source>Off: not applied, but keeps all its settings</source>
+        <translation>Apagada: no se aplica, pero conserva todo</translation>
+    </message>
+    <message>
+        <source>Turn the layer off to compare with and without it</source>
+        <translation>Apaga la capa para comparar con y sin ella</translation>
+    </message>
+    <message>
+        <source>0 %: what is under it, untouched. 100 %: the whole layer. In between, a mix of the two.</source>
+        <translation>0 %: lo de debajo tal cual. 100 %: la capa completa. En medio, una mezcla de los dos.</translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -2706,6 +2745,14 @@
         <translation>El renderizado de vista previa por GPU no está disponible en este equipo. Consulta Ayuda → Información de depuración.</translation>
     </message>
     <message>
+        <source>Off</source>
+        <translation>Apagado</translation>
+    </message>
+    <message>
+        <source>Off · %1</source>
+        <translation>Apagado · %1</translation>
+    </message>
+    <message>
         <source>Media rotated</source>
         <translation>Medio girado</translation>
     </message>
@@ -3012,6 +3059,22 @@
     <message>
         <source>Clip renamed</source>
         <translation>Nombre del clip cambiado</translation>
+    </message>
+    <message>
+        <source>Turn off clip</source>
+        <translation>Apagar clip</translation>
+    </message>
+    <message>
+        <source>Turn on clip</source>
+        <translation>Encender clip</translation>
+    </message>
+    <message>
+        <source>Turned off: it keeps its settings but is left out of the picture</source>
+        <translation>Apagado: conserva sus ajustes, pero no se ve en la imagen</translation>
+    </message>
+    <message>
+        <source>Turned on</source>
+        <translation>Encendido</translation>
     </message>
     <message>
         <source>Edit text</source>
@@ -5642,7 +5705,7 @@
     </message>
     <message>
         <source>Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>Intensidad</translation>
     </message>
     <message>
         <source>Teal Shadows</source>
@@ -13665,6 +13728,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>General</translation>
     </message>
     <message>
+        <source>Adjustment layer</source>
+        <translation>Capa de ajuste</translation>
+    </message>
+    <message>
         <source>Text</source>
         <translation>Texto</translation>
     </message>
@@ -17732,7 +17799,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>Intensidad</translation>
     </message>
     <message>
         <source>Save as my style…</source>

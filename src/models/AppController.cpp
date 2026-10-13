@@ -4586,6 +4586,8 @@ TimelineClipsModel::Row AppController::clipRow(const drift::Clip &clip,
         }
     }
     row.effectsLabel = effectNames.join(QStringLiteral(" · "));
+    if (clip.disabled)
+        row.effectsLabel = row.effectsLabel.isEmpty() ? tr("Off") : tr("Off · %1").arg(row.effectsLabel);
     return row;
 }
 
@@ -5058,8 +5060,16 @@ QVariantMap AppController::selectedClipData() const
         const drift::TimeUs relative = qMax<drift::TimeUs>(0, m_playheadUs - clip.timelineStart);
         data.insert(QStringLiteral("rotationAtPlayhead"),
                     clipTransformValue(clip.rotation, relative, 0.0));
-        data.insert(QStringLiteral("caps"),
-                    inspectorCaps(clip, m_project.tracks().at(trackIndex).type));
+        QStringList caps = inspectorCaps(clip, m_project.tracks().at(trackIndex).type);
+        // A standalone adjustment layer (its own track, over everything below) gets its own tab:
+        // name, on/off, strength and blend. A lane pinned to a clip folds into that clip instead,
+        // where a strength of its own would mean nothing.
+        const drift::Track &track = m_project.tracks().at(trackIndex);
+        if (clip.type == drift::ClipType::Adjustment
+            && clip.adjustmentKind == drift::AdjustmentKind::VideoEffects && !track.isAdjustmentLane())
+            caps << QStringLiteral("adjustmentLayer");
+        data.insert(QStringLiteral("caps"), caps);
+        data.insert(QStringLiteral("disabled"), clip.disabled);
         return data;
     };
 
@@ -11396,6 +11406,22 @@ void AppController::setClipName(int trackIndex, int clipIndex, const QString &na
     finishEdit(tr("Clip renamed"));
     if (renamedComposite)
         emit sequenceTabsChanged();
+}
+
+void AppController::setClipDisabled(int trackIndex, int clipIndex, bool disabled)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    if (isTrackLocked(trackIndex))
+        return;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.disabled == disabled)
+        return;
+    const drift::Project before = m_project.detachedCopy();
+    clip.disabled = disabled;
+    pushProjectEdit(before, disabled ? tr("Turn off clip") : tr("Turn on clip"));
+    finishEdit(disabled ? tr("Turned off: it keeps its settings but is left out of the picture")
+                        : tr("Turned on"));
 }
 
 void AppController::commitTextEdit(int trackIndex, int clipIndex, const QString &text)
