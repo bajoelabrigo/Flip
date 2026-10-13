@@ -10,6 +10,7 @@
 #include <QCache>
 #include <QHash>
 #include <QMutex>
+#include <QMap>
 #include <QMutexLocker>
 #include <QtMath>
 
@@ -211,6 +212,159 @@ sk_sp<SkShader> wipeShader(const QRectF &box, double angleDeg, double progress, 
     return SkShaders::LinearGradient(pts, SkGradient{stops, SkGradient::Interpolation{}});
 }
 
+// The outline of a text background: a rounded box, or one of the bubbles of the Burbuja gallery
+// fitted around `b` (the padded text). `em` is the font size in the same units, for the parts —
+// a speech tail, cloud bumps, spikes — that should not grow with the amount of text.
+QPainterPath bubblePath(const QRectF &b, const QString &shape, double radius, double em)
+{
+    QPainterPath p;
+    p.setFillRule(Qt::WindingFill);
+    const double w = b.width();
+    const double h = b.height();
+    const double r = qMin(radius, qMin(w, h) / 2.0);
+    const auto tail = [&](double at, double reach) {
+        // A triangle hanging under the bottom edge, its tip leaning left like a comic balloon.
+        QPainterPath t;
+        const double x = b.left() + w * at;
+        const double half = qMax(em * 0.22, w * 0.05);
+        t.moveTo(x - half, b.bottom() - 1.0);
+        t.lineTo(x - half * 1.6, b.bottom() + reach);
+        t.lineTo(x + half, b.bottom() - 1.0);
+        t.closeSubpath();
+        return t;
+    };
+    const auto polygon = [](const QList<QPointF> &points) {
+        QPainterPath poly;
+        poly.moveTo(points.first());
+        for (int i = 1; i < points.size(); ++i)
+            poly.lineTo(points.at(i));
+        poly.closeSubpath();
+        return poly;
+    };
+    // An ellipse that still contains the whole box: a box inscribed in an ellipse touches it at
+    // the corners when the radii are the half sides times sqrt(2).
+    const QRectF ellipse = b.adjusted(-w * 0.2071, -h * 0.2071, w * 0.2071, h * 0.2071);
+
+    if (shape == QLatin1String("pill")) {
+        p.addRoundedRect(b, h / 2.0, h / 2.0);
+    } else if (shape == QLatin1String("speech")) {
+        p.addRoundedRect(b, qMax(r, h * 0.3), qMax(r, h * 0.3));
+        p = p.united(tail(0.22, em * 0.7));
+    } else if (shape == QLatin1String("oval")) {
+        p.addEllipse(ellipse);
+        QPainterPath t;
+        const double x = ellipse.left() + ellipse.width() * 0.3;
+        const double y = ellipse.bottom() - ellipse.height() * 0.08;
+        t.moveTo(x - em * 0.25, y - em * 0.1);
+        t.lineTo(x - em * 0.55, y + em * 0.75);
+        t.lineTo(x + em * 0.3, y - em * 0.05);
+        t.closeSubpath();
+        p = p.united(t);
+    } else if (shape == QLatin1String("thought")) {
+        p.addEllipse(ellipse);
+        const double d1 = em * 0.42;
+        const double d2 = em * 0.24;
+        p.addEllipse(QRectF(ellipse.left() + ellipse.width() * 0.2 - d1 / 2, ellipse.bottom() + em * 0.05, d1, d1));
+        p.addEllipse(QRectF(ellipse.left() + ellipse.width() * 0.1 - d2 / 2, ellipse.bottom() + em * 0.55, d2, d2));
+    } else if (shape == QLatin1String("cloud")) {
+        // Bumps along every edge around a solid core.
+        p.addRoundedRect(b, h * 0.3, h * 0.3);
+        const double bump = qMax(em * 0.55, h * 0.42);
+        const int across = qMax(2, qRound(w / (bump * 1.3)));
+        for (int i = 0; i <= across; ++i) {
+            const double x = b.left() + w * i / across;
+            const double d = bump * (i % 2 ? 1.0 : 1.18);
+            p.addEllipse(QPointF(x, b.top()), d * 0.62, d * 0.55);
+            p.addEllipse(QPointF(x, b.bottom()), d * 0.62, d * 0.55);
+        }
+        p.addEllipse(QPointF(b.left(), b.center().y()), bump * 0.6, h * 0.5);
+        p.addEllipse(QPointF(b.right(), b.center().y()), bump * 0.6, h * 0.5);
+        p = p.simplified();
+    } else if (shape == QLatin1String("burst") || shape == QLatin1String("shout")) {
+        // A starburst ("BOOM!") or a ragged shout: spikes around the containing ellipse.
+        const bool burst = shape == QLatin1String("burst");
+        const int spikes = burst ? 18 : 12;
+        const QPointF c = b.center();
+        const double rx = ellipse.width() / 2.0;
+        const double ry = ellipse.height() / 2.0;
+        const double reach = em * (burst ? 0.55 : 0.75);
+        QList<QPointF> points;
+        for (int i = 0; i < spikes * 2; ++i) {
+            const double a = M_PI * 2.0 * i / (spikes * 2) - M_PI / 2.0;
+            // Fixed pseudo-random lengths, so a shout is irregular but never flickers.
+            const double jitter = burst ? 1.0 : 0.65 + 0.35 * std::fabs(std::sin(i * 12.9898) * 1.7);
+            const double out = (i % 2 == 0) ? reach * jitter : -em * 0.05;
+            points.append(QPointF(c.x() + std::cos(a) * (rx + out), c.y() + std::sin(a) * (ry + out)));
+        }
+        p = polygon(points);
+    } else if (shape == QLatin1String("tag")) {
+        const double point = h * 0.5;
+        p = polygon({{b.left() - point, b.center().y()}, {b.left(), b.top()}, {b.right(), b.top()},
+                     {b.right(), b.bottom()}, {b.left(), b.bottom()}});
+        QPainterPath hole;
+        const double d = qMax(4.0, h * 0.18);
+        hole.addEllipse(QPointF(b.left() - point * 0.3, b.center().y()), d / 2, d / 2);
+        p = p.subtracted(hole);
+    } else if (shape == QLatin1String("ribbon")) {
+        const double notch = h * 0.45;
+        const double out = h * 0.55;
+        p = polygon({{b.left() - out, b.top()}, {b.right() + out, b.top()},
+                     {b.right() + out - notch, b.center().y()}, {b.right() + out, b.bottom()},
+                     {b.left() - out, b.bottom()}, {b.left() - out + notch, b.center().y()}});
+    } else if (shape == QLatin1String("arrow")) {
+        const double head = h * 0.6;
+        p = polygon({{b.left(), b.top()}, {b.right(), b.top()}, {b.right() + head, b.center().y()},
+                     {b.right(), b.bottom()}, {b.left(), b.bottom()}});
+    } else if (shape == QLatin1String("note")) {
+        const double fold = qMin(h, w) * 0.35;
+        p = polygon({{b.left(), b.top()}, {b.right() - fold, b.top()}, {b.right(), b.top() + fold},
+                     {b.right(), b.bottom()}, {b.left(), b.bottom()}});
+    } else if (shape == QLatin1String("ticket")) {
+        p.addRoundedRect(b, qMax(r, em * 0.12), qMax(r, em * 0.12));
+        QPainterPath bites;
+        const double d = h * 0.32;
+        bites.addEllipse(QPointF(b.left(), b.center().y()), d, d);
+        bites.addEllipse(QPointF(b.right(), b.center().y()), d, d);
+        p = p.subtracted(bites);
+    } else if (shape == QLatin1String("brush") || shape == QLatin1String("torn")) {
+        // A paint stroke wobbles; torn paper zigzags. Both follow a fixed pattern.
+        const bool brush = shape == QLatin1String("brush");
+        const double amp = brush ? h * 0.08 : h * 0.07;
+        const double step = brush ? em * 0.9 : em * 0.35;
+        const int n = qMax(4, qRound(w / step));
+        QList<QPointF> points;
+        for (int i = 0; i <= n; ++i) {
+            const double x = b.left() + w * i / n;
+            const double wave = brush ? std::sin(i * 1.3) * amp : (i % 2 ? amp : -amp);
+            points.append(QPointF(x, b.top() + wave));
+        }
+        points.append(QPointF(b.right() + (brush ? em * 0.35 : 0.0), b.center().y()));
+        for (int i = n; i >= 0; --i) {
+            const double x = b.left() + w * i / n;
+            const double wave = brush ? std::sin(i * 1.7 + 1.0) * amp : (i % 2 ? -amp : amp);
+            points.append(QPointF(x, b.bottom() + wave));
+        }
+        points.append(QPointF(b.left() - (brush ? em * 0.35 : 0.0), b.center().y()));
+        p = polygon(points);
+    } else if (shape == QLatin1String("heart")) {
+        // A heart large enough that the text sits in its widest band.
+        const QRectF hb = b.adjusted(-w * 0.28, -h * 0.75, w * 0.28, h * 1.35);
+        const double x = hb.left();
+        const double y = hb.top();
+        const double hw = hb.width();
+        const double hh = hb.height();
+        p.moveTo(x + hw * 0.5, y + hh * 0.25);
+        p.cubicTo(x + hw * 0.5, y, x, y, x, y + hh * 0.3);
+        p.cubicTo(x, y + hh * 0.55, x + hw * 0.3, y + hh * 0.75, x + hw * 0.5, y + hh);
+        p.cubicTo(x + hw * 0.7, y + hh * 0.75, x + hw, y + hh * 0.55, x + hw, y + hh * 0.3);
+        p.cubicTo(x + hw, y, x + hw * 0.5, y, x + hw * 0.5, y + hh * 0.25);
+        p.closeSubpath();
+    } else {
+        p.addRoundedRect(b, r, r);
+    }
+    return p;
+}
+
 QColor withAlpha(const QColor &c, double factor)
 {
     QColor out = c;
@@ -241,13 +395,8 @@ public:
         SkPaint fill;
         fill.setAntiAlias(true);
 
-        if (m_style.boxEnabled && !m_set->ink.isEmpty()) {
-            const double padding = m_style.boxPadding * m_scale;
-            const QRectF box = m_set->ink.adjusted(-padding, -padding, padding, padding);
-            fill.setColor(toSkColor(m_style.boxColor));
-            const float r = float(m_style.boxRadius * m_scale);
-            canvas.drawRoundRect(toSkRect(box), r, r, fill);
-        }
+        if (m_style.boxEnabled && !m_set->ink.isEmpty())
+            drawBackground(canvas);
 
         // Pills follow the straight cell geometry, which a bent line no longer has.
         if (!m_bend.active) {
@@ -602,6 +751,49 @@ private:
     void drawEmoji(SkCanvas &canvas, const Piece &piece, const SkPaint *paint) const
     {
         canvas.drawTextBlob(piece.emoji, 0, 0, paint ? *paint : SkPaint());
+    }
+
+    // The box behind the text: one around the block, or one per line ("line"), padded, shifted
+    // and shaped (a bubble) as the style says, with an optional border.
+    void drawBackground(SkCanvas &canvas) const
+    {
+        const double padX = m_style.boxPadX() * m_scale;
+        const double padY = m_style.boxPadY() * m_scale;
+        const QPointF shift(m_style.boxOffsetX * m_scale, m_style.boxOffsetY * m_scale);
+        const double em = m_style.pixelSize * m_scale;
+        QList<QRectF> boxes;
+        if (m_style.boxStyle == QLatin1String("line") && !m_bend.active) {
+            QMap<int, QRectF> lines;
+            for (const Piece &piece : m_pieces) {
+                QRectF &line = lines[piece.line];
+                line = line.isNull() ? piece.cellRect : line.united(piece.cellRect);
+            }
+            for (const QRectF &line : std::as_const(lines))
+                boxes.append(line);
+        }
+        if (boxes.isEmpty())
+            boxes.append(m_set->ink);
+
+        QPainterPath outline;
+        outline.setFillRule(Qt::WindingFill);
+        for (const QRectF &box : std::as_const(boxes)) {
+            const QRectF padded = box.adjusted(-padX, -padY, padX, padY).translated(shift);
+            outline.addPath(bubblePath(padded, m_style.boxShape, m_style.boxRadius * m_scale, em));
+        }
+        const SkPath path = toSkPath(outline);
+        SkPaint fill;
+        fill.setAntiAlias(true);
+        fill.setColor(toSkColor(m_style.boxColor));
+        canvas.drawPath(path, fill);
+        if (m_style.boxBorderWidth > 0.0) {
+            SkPaint border;
+            border.setAntiAlias(true);
+            border.setStyle(SkPaint::kStroke_Style);
+            border.setStrokeJoin(SkPaint::kRound_Join);
+            border.setStrokeWidth(float(m_style.boxBorderWidth * m_scale));
+            border.setColor(toSkColor(m_style.boxBorderColor));
+            canvas.drawPath(path, border);
+        }
     }
 
     void drawUnderline(SkCanvas &canvas) const

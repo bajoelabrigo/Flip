@@ -49,7 +49,10 @@ quint64 styleHash(const drift::TextStyle &s)
     return qHashMulti(0, s.fontFamily, s.pixelSize, s.fontWeight, s.italic, drift::textLayersHash(s.layers),
                       s.pathBend, static_cast<int>(s.align), static_cast<int>(s.valign), s.wordWrap,
                       s.lineHeight, s.letterSpacing, s.boxEnabled, s.boxColor.rgba(), s.boxPadding,
-                      s.boxRadius, highlightHash(s.wordHighlight), s.underlineEnabled,
+                      s.boxRadius,
+                      qHashMulti(0, s.textCase, s.boxStyle, s.boxShape, s.boxPaddingX, s.boxPaddingY,
+                                 s.boxOffsetX, s.boxOffsetY, s.boxBorderColor.rgba(), s.boxBorderWidth),
+                      highlightHash(s.wordHighlight), s.underlineEnabled,
                       s.underlineColor.rgba(), s.underlineWidth, s.underlineOffset,
                       qHashMulti(0, static_cast<int>(a.rule), a.n, a.phase, a.colorEnabled,
                                  a.color.rgba(), a.sizeScale, a.outlineEnabled, a.outlineWidth,
@@ -61,7 +64,7 @@ quint64 layoutKey(const QString &text, const drift::TextStyle &s, double wrapWid
                   double renderScale, int activeWordIndex, WordSplit split)
 {
     const drift::WordAccent &a = s.accent;
-    return qHashMulti(0, text, s.fontFamily, s.pixelSize, s.fontWeight, s.italic, static_cast<int>(s.align),
+    return qHashMulti(0, text, s.textCase, s.fontFamily, s.pixelSize, s.fontWeight, s.italic, static_cast<int>(s.align),
                       static_cast<int>(s.valign), s.wordWrap, s.lineHeight, s.letterSpacing,
                       static_cast<int>(a.rule), a.n, a.phase, a.sizeScale, qRound(wrapWidth * 4.0),
                       qRound(blockHeight * 4.0), qRound(renderScale * 1000.0), activeWordIndex,
@@ -295,7 +298,8 @@ QRectF toQRect(const SkRect &r)
 TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &style, double renderScale,
                                   double wrapWidth, double blockHeight, int activeWordIndex, WordSplit split)
 {
-    QString source = text;
+    // Same length as typed (see applyTextCase), so caret and word offsets still line up.
+    QString source = drift::applyTextCase(text, style.textCase);
 
     // *Marked* words: remember which, then draw them without the asterisks. Stripping inside a
     // word keeps the word count, so karaoke indices still line up with the spoken words.
@@ -1032,8 +1036,13 @@ double bleedFor(const drift::TextStyle &style)
         widest = qMax(widest, reach);
     }
     double bleed = qMax(widest, stroke);
-    if (style.boxEnabled)
-        bleed += style.boxPadding + style.boxRadius;
+    if (style.boxEnabled) {
+        bleed += qMax(style.boxPadX(), style.boxPadY()) + style.boxRadius + style.boxBorderWidth
+                 + qMax(qAbs(style.boxOffsetX), qAbs(style.boxOffsetY));
+        // A bubble's tail, spikes or bumps reach past the padded box.
+        if (style.boxShape != QLatin1String("rect"))
+            bleed += style.pixelSize * 0.9;
+    }
     bleed += qMax(highlightBleed(style.wordHighlight),
                   accented ? highlightBleed(accent.highlight) : 0.0);
     if (style.underlineEnabled)

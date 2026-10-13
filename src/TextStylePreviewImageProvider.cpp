@@ -3,6 +3,7 @@
 #include "core/Clip.h"
 #include "core/TextAnimationPreset.h"
 #include "core/TextLook.h"
+#include "core/TextQuickStyles.h"
 #include "core/TextStyle.h"
 #ifdef DRIFT_WITH_SKIA
 #include "engine/SkiaRuntime.h"
@@ -301,7 +302,12 @@ QImage TextLookPreviewImageProvider::requestImage(const QString &id, QSize *size
     const QUrl url(QStringLiteral("image://textlook/") + id);
     const QUrlQuery query(url);
     const QString lookId = url.path().split(QLatin1Char('/'), Qt::SkipEmptyParts).value(0);
-    if (!drift::textLookForId(lookId)) {
+    // "quick:<id>" and "bubble:<id>" draw the inspector's quick styles and bubbles the same way.
+    const bool quick = lookId.startsWith(QLatin1String("quick:"));
+    const bool bubble = lookId.startsWith(QLatin1String("bubble:"));
+    const QString recipeId = lookId.mid(lookId.indexOf(QLatin1Char(':')) + 1);
+    const bool known = quick || bubble || drift::textLookForId(lookId);
+    if (!known) {
         if (size)
             *size = QSize();
         return {};
@@ -322,7 +328,18 @@ QImage TextLookPreviewImageProvider::requestImage(const QString &id, QSize *size
                                 query.queryItemValue(QStringLiteral("weight")).toInt(),
                                 query.queryItemValue(QStringLiteral("italic")).toInt() != 0, drift::secondsToUs(1.0));
     clip.textStyle.wordWrap = false;
-    drift::applyTextLook(clip.textStyle, lookId, {});
+    bool applied = true;
+    if (quick)
+        applied = drift::applyTextQuickStyle(clip.textStyle, recipeId);
+    else if (bubble)
+        applied = drift::applyTextBubble(clip.textStyle, recipeId);
+    else
+        drift::applyTextLook(clip.textStyle, lookId, {});
+    if (!applied) {
+        if (size)
+            *size = QSize();
+        return {};
+    }
     const QImage card = renderTextCard(clip, text, QSize(width, height), height / kTileReferenceHeight);
     storeCard(key, card);
     if (size)

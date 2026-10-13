@@ -44,7 +44,7 @@ PanelFrame {
     QtObject {
         id: inspectorUi
         property bool sizeLinked: true
-        property string textTab: "text"
+        property string textTab: "basic"
         property string animSlot: "in"
         property string animCategory: ""
         property var textExpandedLayerIds: ({})

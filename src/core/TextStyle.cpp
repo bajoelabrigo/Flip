@@ -1179,6 +1179,25 @@ QJsonObject textStyleToJson(const TextStyle &s)
         json.insert(QStringLiteral("lookId"), s.lookId);
         json.insert(QStringLiteral("lookParams"), lookParams);
     }
+    // The CapCut-style controls are written only once used, so older projects stay byte-identical.
+    if (s.textCase != QLatin1String("none"))
+        json.insert(QStringLiteral("textCase"), s.textCase);
+    if (s.boxStyle != QLatin1String("block"))
+        json.insert(QStringLiteral("boxStyle"), s.boxStyle);
+    if (s.boxShape != QLatin1String("rect"))
+        json.insert(QStringLiteral("boxShape"), s.boxShape);
+    if (s.boxPaddingX >= 0.0)
+        json.insert(QStringLiteral("boxPaddingX"), s.boxPaddingX);
+    if (s.boxPaddingY >= 0.0)
+        json.insert(QStringLiteral("boxPaddingY"), s.boxPaddingY);
+    if (s.boxOffsetX != 0.0)
+        json.insert(QStringLiteral("boxOffsetX"), s.boxOffsetX);
+    if (s.boxOffsetY != 0.0)
+        json.insert(QStringLiteral("boxOffsetY"), s.boxOffsetY);
+    if (s.boxBorderWidth > 0.0) {
+        json.insert(QStringLiteral("boxBorderWidth"), s.boxBorderWidth);
+        json.insert(QStringLiteral("boxBorderColor"), s.boxBorderColor.name(QColor::HexArgb));
+    }
     // Only animated styles carry the key: projects without text animation stay byte-identical.
     if (!keyframesJson.isEmpty())
         json.insert(QStringLiteral("keyframes"), keyframesJson);
@@ -1272,6 +1291,15 @@ TextStyle textStyleFromJson(const QJsonObject &o)
     s.boxColor = QColor(o.value(QStringLiteral("boxColor")).toString(s.boxColor.name(QColor::HexArgb)));
     s.boxPadding = o.value(QStringLiteral("boxPadding")).toDouble(s.boxPadding);
     s.boxRadius = o.value(QStringLiteral("boxRadius")).toDouble(s.boxRadius);
+    s.textCase = o.value(QStringLiteral("textCase")).toString(s.textCase);
+    s.boxStyle = o.value(QStringLiteral("boxStyle")).toString(s.boxStyle);
+    s.boxShape = o.value(QStringLiteral("boxShape")).toString(s.boxShape);
+    s.boxPaddingX = o.value(QStringLiteral("boxPaddingX")).toDouble(s.boxPaddingX);
+    s.boxPaddingY = o.value(QStringLiteral("boxPaddingY")).toDouble(s.boxPaddingY);
+    s.boxOffsetX = o.value(QStringLiteral("boxOffsetX")).toDouble(s.boxOffsetX);
+    s.boxOffsetY = o.value(QStringLiteral("boxOffsetY")).toDouble(s.boxOffsetY);
+    s.boxBorderWidth = o.value(QStringLiteral("boxBorderWidth")).toDouble(s.boxBorderWidth);
+    s.boxBorderColor = QColor(o.value(QStringLiteral("boxBorderColor")).toString(s.boxBorderColor.name(QColor::HexArgb)));
     s.wordHighlight =
         textHighlightFromJson(o.value(QStringLiteral("wordHighlight")).toObject(), s.wordHighlight);
     s.underlineEnabled = o.value(QStringLiteral("underlineEnabled")).toBool(s.underlineEnabled);
@@ -1309,6 +1337,46 @@ TextStyle textStyleFromJson(const QJsonObject &o)
             s.keyframes.insert(canonical, keyframesFromJson(it.value().toObject()));
     }
     return s;
+}
+
+
+QString applyTextCase(const QString &text, const QString &textCase)
+{
+    // Character by character, never QString::toUpper: "ß" would become "SS" and every caret and
+    // word offset after it would point one character off.
+    const bool upper = textCase == QLatin1String("upper");
+    const bool lower = textCase == QLatin1String("lower");
+    const bool title = textCase == QLatin1String("title");
+    if (!upper && !lower && !title)
+        return text;
+    QString out = text;
+    bool start = true;
+    for (QChar &c : out) {
+        if (upper)
+            c = c.toUpper();
+        else if (lower)
+            c = c.toLower();
+        else if (c.isLetter()) {
+            // Title: each word's first letter up and the rest down.
+            c = start ? c.toUpper() : c.toLower();
+            start = false;
+        } else if (c.isSpace()) {
+            start = true;
+        }
+    }
+    return out;
+}
+
+QStringList textBubbleShapes()
+{
+    static const QStringList shapes{
+        QStringLiteral("pill"),   QStringLiteral("speech"), QStringLiteral("oval"),
+        QStringLiteral("thought"), QStringLiteral("cloud"), QStringLiteral("burst"),
+        QStringLiteral("shout"),  QStringLiteral("tag"),    QStringLiteral("ribbon"),
+        QStringLiteral("arrow"),  QStringLiteral("note"),   QStringLiteral("ticket"),
+        QStringLiteral("brush"),  QStringLiteral("torn"),   QStringLiteral("heart"),
+    };
+    return shapes;
 }
 
 } // namespace drift

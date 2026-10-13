@@ -480,6 +480,8 @@ add_library(driftcore STATIC
     src/core/TextAnimator.cpp
     src/core/TextStyle.h
     src/core/TextStyle.cpp
+    src/core/TextQuickStyles.h
+    src/core/TextQuickStyles.cpp
     src/core/TextPresetStore.h
     src/core/TextPresetStore.cpp
     src/core/EffectStackStore.h
@@ -1569,6 +1571,7 @@ if(Qt6LinguistTools_FOUND)
             src/core/SrtIO.cpp
             src/core/ShapeStyle.cpp
             src/core/TextStyle.cpp
+            src/core/TextQuickStyles.cpp
             src/core/SubtitleCue.cpp
         # -locations none: source line numbers in .ts files churn on every edit
         # and make i18n/*.ts conflict across PRs. Translators still see context

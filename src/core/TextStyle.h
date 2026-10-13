@@ -103,11 +103,28 @@ struct TextStyle
     bool wordWrap = true;
     double lineHeight = 1.2; // multiple of the font's natural line spacing
     double letterSpacing = 0.0; // px at pixelSize
+    // "none", "upper", "lower" or "title": applied when the text is laid out, so the typed words
+    // are kept and switching back restores them.
+    QString textCase = QStringLiteral("none");
 
     bool boxEnabled = false; // filled background behind the whole block
     QColor boxColor = QColor(0, 0, 0, 128);
     double boxPadding = 8.0;
     double boxRadius = 0.0;
+    // CapCut's background controls. "block" is one box around everything, "line" one per line.
+    // `boxShape` is "rect" or a bubble (textBubbleShapes()). The paddings are unset (< 0) until
+    // edited and fall back to boxPadding, so older projects and a keyframed boxPadding still size
+    // the box as before.
+    QString boxStyle = QStringLiteral("block");
+    QString boxShape = QStringLiteral("rect");
+    double boxPaddingX = -1.0; // px at pixelSize
+    double boxPaddingY = -1.0;
+    double boxOffsetX = 0.0;
+    double boxOffsetY = 0.0;
+    QColor boxBorderColor = QColor(0, 0, 0);
+    double boxBorderWidth = 0.0;
+    double boxPadX() const { return boxPaddingX >= 0.0 ? boxPaddingX : boxPadding; }
+    double boxPadY() const { return boxPaddingY >= 0.0 ? boxPaddingY : boxPadding; }
 
     TextHighlight wordHighlight; // pill behind every word
 
@@ -139,6 +156,11 @@ struct TextStyle
     QColor primaryColor() const;
     void setPrimaryColor(const QColor &color);
 };
+
+// `text` in the style's case ("upper", "lower", "title"; anything else leaves it as typed).
+QString applyTextCase(const QString &text, const QString &textCase);
+// The background shapes a text box can take besides "rect", in gallery order.
+QStringList textBubbleShapes();
 
 // Convenience accessors the layout and painters use so nobody spells out layer lookups.
 QColor textFillColor(const TextStyle &style, bool accent);

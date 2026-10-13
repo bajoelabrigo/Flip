@@ -25,6 +25,7 @@
 #include "core/TextAnimationPreset.h"
 #include "core/TextLook.h"
 #include "core/TextPresetStore.h"
+#include "core/TextQuickStyles.h"
 #include "core/TimelineOps.h"
 #include "core/CutOps.h"
 #include "core/Transition.h"
@@ -1840,6 +1841,15 @@ QVariantMap textStyleToMap(const drift::TextStyle &s, drift::TimeUs timelineStar
         {QStringLiteral("boxColor"), s.boxColor.name(QColor::HexArgb)},
         {QStringLiteral("boxPadding"), s.boxPadding},
         {QStringLiteral("boxRadius"), s.boxRadius},
+        {QStringLiteral("boxStyle"), s.boxStyle},
+        {QStringLiteral("boxShape"), s.boxShape},
+        {QStringLiteral("boxPaddingX"), s.boxPadX()},
+        {QStringLiteral("boxPaddingY"), s.boxPadY()},
+        {QStringLiteral("boxOffsetX"), s.boxOffsetX},
+        {QStringLiteral("boxOffsetY"), s.boxOffsetY},
+        {QStringLiteral("boxBorderColor"), s.boxBorderColor.name(QColor::HexArgb)},
+        {QStringLiteral("boxBorderWidth"), s.boxBorderWidth},
+        {QStringLiteral("textCase"), s.textCase},
         {QStringLiteral("wordHighlight"), textHighlightToMap(s.wordHighlight)},
         {QStringLiteral("underlineEnabled"), s.underlineEnabled},
         {QStringLiteral("underlineColor"), s.underlineColor.name(QColor::HexArgb)},
@@ -11797,6 +11807,30 @@ void AppController::applyTextStylePatch(drift::TextStyle &s, const QVariantMap &
         s.boxPadding = qMax(0.0, m.value(QStringLiteral("boxPadding")).toDouble());
     if (m.contains(QStringLiteral("boxRadius")))
         s.boxRadius = qMax(0.0, m.value(QStringLiteral("boxRadius")).toDouble());
+    if (m.contains(QStringLiteral("boxStyle")))
+        s.boxStyle = m.value(QStringLiteral("boxStyle")).toString() == QLatin1String("line")
+                         ? QStringLiteral("line") : QStringLiteral("block");
+    if (m.contains(QStringLiteral("boxShape"))) {
+        const QString shape = m.value(QStringLiteral("boxShape")).toString();
+        s.boxShape = drift::textBubbleShapes().contains(shape) ? shape : QStringLiteral("rect");
+    }
+    if (m.contains(QStringLiteral("boxPaddingX")))
+        s.boxPaddingX = qMax(0.0, m.value(QStringLiteral("boxPaddingX")).toDouble());
+    if (m.contains(QStringLiteral("boxPaddingY")))
+        s.boxPaddingY = qMax(0.0, m.value(QStringLiteral("boxPaddingY")).toDouble());
+    if (m.contains(QStringLiteral("boxOffsetX")))
+        s.boxOffsetX = m.value(QStringLiteral("boxOffsetX")).toDouble();
+    if (m.contains(QStringLiteral("boxOffsetY")))
+        s.boxOffsetY = m.value(QStringLiteral("boxOffsetY")).toDouble();
+    if (m.contains(QStringLiteral("boxBorderColor")))
+        s.boxBorderColor = QColor(m.value(QStringLiteral("boxBorderColor")).toString());
+    if (m.contains(QStringLiteral("boxBorderWidth")))
+        s.boxBorderWidth = qMax(0.0, m.value(QStringLiteral("boxBorderWidth")).toDouble());
+    if (m.contains(QStringLiteral("textCase"))) {
+        const QString textCase = m.value(QStringLiteral("textCase")).toString();
+        s.textCase = (textCase == QLatin1String("upper") || textCase == QLatin1String("lower")
+                      || textCase == QLatin1String("title")) ? textCase : QStringLiteral("none");
+    }
     if (m.contains(QStringLiteral("underlineEnabled")))
         s.underlineEnabled = m.value(QStringLiteral("underlineEnabled")).toBool();
     if (m.contains(QStringLiteral("underlineColor")))
@@ -22315,6 +22349,71 @@ void AppController::applyTextLook(int trackIndex, int clipIndex, const QString &
     clip->textStyle.packId.clear();
     pushProjectEdit(before, tr("Apply text look"));
     finishEdit(tr("Look applied"));
+}
+
+namespace {
+
+QVariantList galleryToList(const QList<drift::TextGalleryEntry> &entries)
+{
+    QVariantList out;
+    for (const drift::TextGalleryEntry &e : entries)
+        out.append(QVariantMap{{QStringLiteral("id"), e.id}, {QStringLiteral("label"), e.label},
+                               {QStringLiteral("category"), e.category}});
+    return out;
+}
+
+QVariantList categoriesToList(const QList<QPair<QString, QString>> &categories)
+{
+    QVariantList out;
+    for (const auto &c : categories)
+        out.append(QVariantMap{{QStringLiteral("id"), c.first}, {QStringLiteral("label"), c.second}});
+    return out;
+}
+
+} // namespace
+
+QVariantList AppController::textQuickStyles() const
+{
+    return galleryToList(drift::textQuickStyles());
+}
+
+QVariantList AppController::textQuickStyleCategories() const
+{
+    return categoriesToList(drift::textQuickStyleCategories());
+}
+
+void AppController::applyTextQuickStyle(int trackIndex, int clipIndex, const QString &styleId)
+{
+    drift::Clip *clip = textClipAt(trackIndex, clipIndex);
+    if (!clip)
+        return;
+    const drift::Project before = m_project;
+    if (!drift::applyTextQuickStyle(clip->textStyle, styleId))
+        return;
+    pushProjectEdit(before, tr("Apply text style"));
+    finishEdit(tr("Text style applied"));
+}
+
+QVariantList AppController::textBubbles() const
+{
+    return galleryToList(drift::textBubbles());
+}
+
+QVariantList AppController::textBubbleCategories() const
+{
+    return categoriesToList(drift::textBubbleCategories());
+}
+
+void AppController::applyTextBubble(int trackIndex, int clipIndex, const QString &bubbleId)
+{
+    drift::Clip *clip = textClipAt(trackIndex, clipIndex);
+    if (!clip)
+        return;
+    const drift::Project before = m_project;
+    if (!drift::applyTextBubble(clip->textStyle, bubbleId))
+        return;
+    pushProjectEdit(before, tr("Apply text bubble"));
+    finishEdit(bubbleId == QLatin1String("none") ? tr("Bubble removed") : tr("Bubble applied"));
 }
 
 void AppController::setTextLookParam(int trackIndex, int clipIndex, const QString &key, const QVariant &value)
