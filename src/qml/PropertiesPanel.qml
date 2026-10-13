@@ -847,8 +847,22 @@ PanelFrame {
             z: 5
             property real overscroll: 0
             readonly property real threshold: 240
+            // Set by a page or tab change and held while the wheel keeps rolling: one flick moves
+            // one page, instead of the rest of it running on through two or three more.
+            property bool settling: false
+
+            Timer {
+                id: settleTimer
+                interval: 450
+                onTriggered: parent.settling = false
+            }
 
             onWheel: (wheel) => {
+                if (settling) {
+                    settleTimer.restart()
+                    wheel.accepted = true
+                    return
+                }
                 const dy = wheel.angleDelta.y !== 0 ? wheel.angleDelta.y : wheel.pixelDelta.y
                 const fits = tabFlick.contentHeight <= tabFlick.height + 1
                 const atEnd = fits || tabFlick.contentY >= tabFlick.contentHeight - tabFlick.height - 1
@@ -861,6 +875,8 @@ PanelFrame {
                     if (Math.abs(overscroll) >= threshold) {
                         const forward = overscroll > 0
                         overscroll = 0
+                        settling = true
+                        settleTimer.restart()
                         const toEnd = () => { tabFlick.contentY = Math.max(0, tabFlick.contentHeight - tabFlick.height) }
                         const page = root.adjacentPage(forward ? 1 : -1)
                         if (page) {

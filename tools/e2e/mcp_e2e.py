@@ -281,13 +281,19 @@ def main():
     ap.add_argument("--stage", default=r"C:\Users\bajoe\Downloads\flip-addons\build\stage")
     ap.add_argument("--wait", type=float, default=180.0)
     ap.add_argument("--window", action="store_true", help="show the window; enables screenshot calls")
+    ap.add_argument("--keep", action="store_true", help="leave the window open when the calls are done")
+    ap.add_argument("--attach", type=int, default=0,
+                    help="pid of an editor already open (launched with --keep): drive it instead of a new one")
     opts = ap.parse_args()
 
     with open(opts.calls, encoding="utf-8") as fh:
         calls = [json.loads(line) for line in fh if line.strip()]
 
     gui = None
-    if opts.window:
+    if opts.attach:
+        opts.window = True
+        gui = type("Attached", (), {"pid": opts.attach, "kill": lambda self: None})()
+    elif opts.window:
         gui = subprocess.Popen([opts.exe] + ([opts.project] if opts.project else []),
                                env=env_with_models(opts.stage), cwd=os.path.dirname(opts.exe))
         time.sleep(15)
@@ -326,8 +332,10 @@ def main():
                 time.sleep(float(sleep))
     finally:
         bridge.close()
-        if gui:
+        if gui and not opts.keep:
             gui.kill()
+        elif gui:
+            print(f"window left open: pid {gui.pid}")
     print(f"done; stderr in {bridge.stderr_path}")
     return 0
 

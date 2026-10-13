@@ -146,6 +146,18 @@ Item {
         }
     }
 
+    // Past the end of a category, the wheel goes on into the next one (CapCut): Básicos, the
+    // template packs, then My styles.
+    CategoryScrollOn {
+        anchors.fill: packGrid
+        flickable: root.section === "mine" ? userGrid : packGrid
+        categories: [{ "id": "builtin", "label": qsTr("Basic") }]
+            .concat(root.addonCategories.map(c => ({ "id": c.id, "label": c.label })))
+            .concat([{ "id": "mine", "label": qsTr("My styles") }])
+        activeCategory: root.section
+        onCategoryActivated: (categoryId) => root.section = categoryId
+    }
+
     // Template packs and the user's own styles are separate grids, switched from the toolbar.
     GridView {
         id: packGrid
