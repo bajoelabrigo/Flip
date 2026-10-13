@@ -42,7 +42,7 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
 - `main` = merge del PR #11 (`flip/v0.9.6`). Tag `v0.9.6`; release Latest con instalador, portable y
   `SHA256SUMS`. Copia en `Downloads\FlipStudio-0.9.6\`.
 - MSIX: `FlipStudio-Store\paquete-0.9.6\FlipStudio-0.9.6.0-x64.msix`. Notas de la Store en
-  `docs/store-listing.md` (1069 caracteres; el límite es 1500).
+  `docs/store-listing.md` (1073 caracteres; el límite es 1500).
 - **Texto como en CapCut**: `TextInspector.qml` con Básico, Burbuja, Efectos y Animación.
   - Fondo por bloque o por línea, con borde y desplazamiento (`TextStyle::box*`).
   - 32 burbujas y 41 estilos rápidos (`core/TextQuickStyles`).

@@ -88,7 +88,7 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
 **Notas de la versión (0.9.6)**. Este texto va en "Novedades de esta versión" de Partner
-Center. **El campo tiene un límite de 1500 caracteres** (este texto tiene 1069). Ni la 0.9.3, ni la
+Center. **El campo tiene un límite de 1500 caracteres** (este texto tiene 1073). Ni la 0.9.3, ni la
 0.9.4, ni la 0.9.5 llegaron a la Store, así que estas notas las cubren todas.
 
 > **Novedades de la 0.9.6**
@@ -103,7 +103,7 @@ Center. **El campo tiene un límite de 1500 caracteres** (este texto tiene 1069)
 > Básico, HSL, Curvas y Círculo cromático. Pestaña Música con 65 canciones gratis, también para videos monetizados.
 >
 > EL PANEL DE VIDEO, COMO EN CAPCUT
-> Básico, Quitar fondo, Máscara y Retoque (Rostro, Cuerpo y Cabello, con maquillaje).
+> Básico, Quitar fondo, Máscara y Retoque del rostro, con maquillaje.
 >
 > FAVORITOS Y TUS PLANTILLAS
 > Marca con una estrella tu música, sonidos, estilos de texto, burbujas y animaciones. Guarda tus propios estilos de texto para reutilizarlos.
