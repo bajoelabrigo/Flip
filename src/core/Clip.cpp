@@ -103,6 +103,8 @@ QString blendModeToString(BlendMode mode)
         return QStringLiteral("darken");
     case BlendMode::Lighten:
         return QStringLiteral("lighten");
+    case BlendMode::SoftLight:
+        return QStringLiteral("soft-light");
     }
     return QStringLiteral("normal");
 }
@@ -121,6 +123,8 @@ BlendMode blendModeFromString(const QString &mode)
         return BlendMode::Darken;
     if (mode == QStringLiteral("lighten"))
         return BlendMode::Lighten;
+    if (mode == QStringLiteral("soft-light"))
+        return BlendMode::SoftLight;
     return BlendMode::Normal;
 }
 

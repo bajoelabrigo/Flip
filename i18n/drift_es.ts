@@ -5514,6 +5514,10 @@
         <translation>Aclarar</translation>
     </message>
     <message>
+        <source>Soft light</source>
+        <translation>Luz suave</translation>
+    </message>
+    <message>
         <source>How this clip blends with the layers below</source>
         <translation>Cómo se fusiona este clip con las capas inferiores</translation>
     </message>
@@ -6542,6 +6546,18 @@
     <message>
         <source>Flicker</source>
         <translation>Parpadeo</translation>
+    </message>
+    <message>
+        <source>Film Grain</source>
+        <translation>Grano de película</translation>
+    </message>
+    <message>
+        <source>Grain size</source>
+        <translation>Tamaño del grano</translation>
+    </message>
+    <message>
+        <source>Colour grain</source>
+        <translation>Grano de color</translation>
     </message>
     <message>
         <source>Gaussian Blur (GPU)</source>

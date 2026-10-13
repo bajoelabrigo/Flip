@@ -250,7 +250,7 @@ QJsonObject textLayerSchema(const QString &description)
         {QStringLiteral("paint"), paint},
         {QStringLiteral("opacity"), numberProp(QStringLiteral("0..1"), 0.0, 1.0)},
         {QStringLiteral("blend"), enumProp(QStringLiteral("Blend mode"),
-                                           {QStringLiteral("normal"), QStringLiteral("multiply"), QStringLiteral("screen"), QStringLiteral("overlay"), QStringLiteral("add"), QStringLiteral("darken"), QStringLiteral("lighten")})},
+                                           {QStringLiteral("normal"), QStringLiteral("multiply"), QStringLiteral("screen"), QStringLiteral("overlay"), QStringLiteral("add"), QStringLiteral("darken"), QStringLiteral("lighten"), QStringLiteral("soft-light")})},
         {QStringLiteral("offsetX"), numberProp(QStringLiteral("px at pixelSize"))},
         {QStringLiteral("offsetY"), numberProp(QStringLiteral("px at pixelSize"))},
         {QStringLiteral("blur"), numberProp(QStringLiteral("Shadow blur / glow radius in px"))},

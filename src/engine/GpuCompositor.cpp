@@ -128,7 +128,7 @@ uniform float u_opacity;
 uniform float u_hasMask;
 uniform float u_maskInvert;
 uniform float u_layerPremul;
-uniform int u_blendMode;      // 1 multiply, 2 screen, 3 overlay, 5 darken, 6 lighten
+uniform int u_blendMode;      // 1 multiply, 2 screen, 3 overlay, 5 darken, 6 lighten, 7 soft light
 // Depth occlusion: 1 where this layer shows, falling to 0 where the occluder's depth, laid out on
 // the canvas by kDepthPlaceFragShader, is nearer than the distance the layer was placed at.
 uniform sampler2D u_occ;
@@ -159,6 +159,13 @@ vec3 blendRgb(vec3 base, vec3 src) {
     }
     if (u_blendMode == 5) return min(base, src);
     if (u_blendMode == 6) return max(base, src);
+    if (u_blendMode == 7) {
+        // W3C soft light: darkens or lightens the base by the source, never to pure black/white.
+        vec3 d = mix(sqrt(base), ((16.0 * base - 12.0) * base + 4.0) * base, step(base, vec3(0.25)));
+        return mix(base + (2.0 * src - 1.0) * (d - base),
+                   base - (1.0 - 2.0 * src) * base * (1.0 - base),
+                   step(src, vec3(0.5)));
+    }
     return src;
 }
 
@@ -272,6 +279,8 @@ int blendModeCode(drift::BlendMode mode)
         return 5;
     case drift::BlendMode::Lighten:
         return 6;
+    case drift::BlendMode::SoftLight:
+        return 7;
     case drift::BlendMode::Normal:
         break;
     }

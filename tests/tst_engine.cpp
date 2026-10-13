@@ -363,6 +363,7 @@ private slots:
     void adjustmentStrengthMixesTheLayerWithWhatIsUnder();
     void basicAdjustWhitesBlacksAndFadeMoveTheEndsOfTheRange();
     void lutEffectGradesThroughItsCubeFile();
+    void softLightVignetteAndGrainForAdjustmentLayers();
     void pinnedLaneAdjustmentsStayOnTheirOwnClip();
     void transformLayerMatrixMapsTheBox();
     void parentedQuadKeepsDepthAndNearPlanes();
@@ -11058,6 +11059,67 @@ void EngineTest::lutEffectGradesThroughItsCubeFile()
     QVERIFY2(qAbs(half.red() - 128) <= 6, qPrintable(half.name()));
     const QColor missing = render(QDir(dir.path()).filePath(QStringLiteral("gone.cube")), 1.0);
     QVERIFY2(qAbs(missing.red() - 230) <= 3, qPrintable(missing.name()));
+}
+
+// Soft light lightens a mid-grey under a light layer less than screen would and keeps it below
+// white; the vignette at its defaults is the old fixed one (the centre untouched, corners darker);
+// film grain changes pixels but keeps the average.
+void EngineTest::softLightVignetteAndGrainForAdjustmentLayers()
+{
+    QCOMPARE(drift::blendModeFromString(QStringLiteral("soft-light")), drift::BlendMode::SoftLight);
+    QCOMPARE(drift::blendModeToString(drift::BlendMode::SoftLight), QStringLiteral("soft-light"));
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+
+    auto plainItem = [](const QColor &colour) {
+        QImage image(32, 32, QImage::Format_RGBA8888);
+        image.fill(colour);
+        GpuItem item;
+        item.layer.valid = true;
+        item.layer.source = image;
+        item.layer.rect = QRectF(0, 0, 32, 32);
+        return item;
+    };
+    GpuScene scene;
+    scene.canvasSize = QSize(32, 32);
+    scene.backgroundColor = Qt::black;
+    scene.items.append(plainItem(QColor(128, 128, 128)));
+    GpuItem top = plainItem(QColor(220, 220, 220));
+    top.blend = drift::BlendMode::SoftLight;
+    scene.items.append(top);
+    const int soft = GpuCompositor::render(scene).pixelColor(16, 16).red();
+    scene.items.last().blend = drift::BlendMode::Screen;
+    const int screen = GpuCompositor::render(scene).pixelColor(16, 16).red();
+    QVERIFY2(soft > 135 && soft < screen && soft < 250, qPrintable(QStringLiteral("%1 %2").arg(soft).arg(screen)));
+
+    auto withEffect = [&](const QString &id, const QMap<QString, QVariant> &params) {
+        GpuItem item = plainItem(QColor(128, 128, 128));
+        drift::Effect fx;
+        fx.catalogId = id;
+        for (auto it = params.cbegin(); it != params.cend(); ++it)
+            fx.parameters.insert(it.key(), it.value());
+        item.layer.effects.append(fx);
+        GpuScene one;
+        one.canvasSize = QSize(32, 32);
+        one.backgroundColor = Qt::black;
+        one.items.append(item);
+        return GpuCompositor::render(one);
+    };
+    const QImage vignette = withEffect(QStringLiteral("stylize.vignette"), {});
+    QVERIFY(qAbs(vignette.pixelColor(16, 16).red() - 128) <= 3);
+    QVERIFY(vignette.pixelColor(0, 0).red() < 40);
+
+    const QImage grain = withEffect(QStringLiteral("film_grain"), {{QStringLiteral("amount"), 1.0}});
+    int differ = 0;
+    double sum = 0;
+    for (int y = 0; y < 32; ++y)
+        for (int x = 0; x < 32; ++x) {
+            const int r = grain.pixelColor(x, y).red();
+            differ += qAbs(r - 128) > 2;
+            sum += r;
+        }
+    QVERIFY2(differ > 200, qPrintable(QString::number(differ)));
+    QVERIFY(qAbs(sum / 1024.0 - 128.0) < 8.0);
 }
 
 // A transition draws the incoming clip across instants that belong to the outgoing one, where the

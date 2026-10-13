@@ -5514,6 +5514,10 @@
         <translation type="unfinished">হালকা করুন</translation>
     </message>
     <message>
+        <source>Soft light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>How this clip blends with the layers below</source>
         <translation type="unfinished">এই ক্লিপটি নীচের স্তরগুলির সাথে কীভাবে মিশে যায়।</translation>
     </message>
@@ -6541,6 +6545,18 @@
     </message>
     <message>
         <source>Flicker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Film Grain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grain size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour grain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
