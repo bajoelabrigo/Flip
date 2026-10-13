@@ -100,6 +100,27 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
 - **Jorge tiene el espacio de trabajo fijado en «Horizontal»** (`ui/workspaceLayout`). Por eso un
   video 9:16 no cambiaba de diseño solo; ahora sale el botón «Espacio vertical».
 
+### 0.9.8 en curso (2026-10-13, noche): capas de ajuste profesionales y LUT
+- Rama `flip/v0.9.8` (escritorio) y `web/0.9.8` (editor web). Notas en `release-notes/0.9.8.md`.
+- Jorge pidió (con dos documentos) capas de ajuste "profesionales" y un sistema de LUT, **por etapas**,
+  **probando cada cambio** y **compilando el escritorio una sola vez al final**.
+- Hecho, en las dos:
+  - capa de ajuste con interruptor (`Clip::disabled` / `off` en la web), nombre, intensidad animable,
+    mezcla y aviso cuando no cambia nada; «Luz suave» en escritorio;
+  - Blancos, Negros y Desvanecer en `color.basic` / `adjust_basic`; números que se escriben;
+  - LUT: `core/CubeLut` + efecto `effects/color_lut` (la textura sale del parámetro de archivo:
+    `GpuEffectTextureSpec::fromParameter`, `lutTexture` en `GlRuntime`); biblioteca en
+    `AppData/luts`; búsqueda por nombre (`CubeLut::resolve`); seis looks generados por
+    `tools/luts/make_luts.py` (también copiados a `flipstudio-app/public/luts`).
+    Web: `effects/cubeLut.ts`, `lutStore.ts` (IndexedDB `flipstudio-luts`, clave por contenido),
+    textura 3D en `gl.ts`;
+  - grano de película y viñeta ajustable (escritorio); la web ya los tenía;
+  - el panel derecho, al bajar, recorre las páginas de la pestaña antes de la siguiente.
+- **Falta:** probar en ventana el build de CI, y el OK de Jorge para publicar.
+- **Límites conocidos:** en la web los parámetros de los efectos no se animan (solo la intensidad de
+  la capa); los LUT importados en la web viven en ese navegador (se reconocen al volver a importar el
+  mismo archivo).
+
 ### Pendiente
 1. **Hecho por Jorge (2026-10-13):** cambió el TXT `version` del DNS y mandó la 0.9.6 a
    certificación en Partner Center. **Falta:** confirmar que la certificación pase. La ficha
