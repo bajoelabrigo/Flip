@@ -33,27 +33,40 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-12, noche)
+## Estado (actualizado 2026-10-12, noche, cierre de la 0.9.6)
 
-**v0.9.5 PUBLICADA** (incluye la 0.9.4, que no salió por separado; la 0.9.3 tampoco llegó a la Store).
+**v0.9.6 PUBLICADA.** Ni la 0.9.3, ni la 0.9.4, ni la 0.9.5 llegaron a la Store: Jorge sube
+directamente la 0.9.6, y sus notas cubren las cuatro.
 
 ### Hecho
-- `main` = merge del PR #10 (`flip/v0.9.5`). Tag `v0.9.5`; release Latest con
-  `FlipStudio-Setup-0.9.5-x64.exe`, portable y `SHA256SUMS` (verificados). Copia en
-  `Downloads\FlipStudio-0.9.5\`.
-- MSIX: `FlipStudio-Store\paquete-0.9.5\FlipStudio-0.9.5.0-x64.msix` (identidad
-  `yitoweb.FlipStudio`, versión 0.9.5.0). Notas de la Store en `docs/store-listing.md` (911 car.).
-- Extras: `musica.libre` subido al release `packages`; **índice en vivo con 22 extras**.
-- Web desplegada para la 0.9.5 (cifras, Música libre, novedades.html con la 0.9.5).
-- Probado en ventana antes de publicar: Video, Retoque, Ajuste (curvas y círculos cambian la
-  imagen), Música (canciones enteras), stickers animados, transiciones y nombres en español.
+- `main` = merge del PR #11 (`flip/v0.9.6`). Tag `v0.9.6`; release Latest con instalador, portable y
+  `SHA256SUMS`. Copia en `Downloads\FlipStudio-0.9.6\`.
+- MSIX: `FlipStudio-Store\paquete-0.9.6\FlipStudio-0.9.6.0-x64.msix`. Notas de la Store en
+  `docs/store-listing.md` (1069 caracteres; el límite es 1500).
+- **Texto como en CapCut**: `TextInspector.qml` con Básico, Burbuja, Efectos y Animación.
+  - Fondo por bloque o por línea, con borde y desplazamiento (`TextStyle::box*`).
+  - 32 burbujas y 41 estilos rápidos (`core/TextQuickStyles`).
+  - `textCase`.
+- **Favoritos** (`EditorState.isAssetFavorite` / `AssetFavoriteButton`) también en Música, Sonidos,
+  estilos de texto, subtítulos, burbujas, efectos y animaciones de texto.
+- **Arreglo**: los paneles ya no se encogen en cada arranque. Probado: fracciones iguales en tres
+  arranques seguidos.
+- **Editor web** desplegado:
+  - texto con Burbuja y Efectos, Ajuste de color, Música (`/musica/` en el VPS), Formas, fotogramas
+    clave, exportar hasta 4K60;
+  - favoritos, Mis estilos y Mis efectos, guardados en `localStorage`.
+- Web `getflipstudio.com` con la 0.9.6 en `novedades.html`.
 
 ### Pendiente
-1. **Jorge:** subir el MSIX 0.9.5 a Partner Center y cambiar el TXT `version` del DNS a `0.9.5`.
+1. **Jorge:** subir el MSIX 0.9.6 a Partner Center y cambiar el TXT `version` del DNS a `0.9.6`.
 2. Retoque **Cuerpo** y **Cabello** siguen sin modelo de IA.
-3. Otros idiomas: los 569 nombres de catálogo (contexto `Catalog`) solo están en español.
-4. Backend (`api.getflipstudio.com`): cuenta Google, ventas, Pexels, identificador de instalación
+3. Otros idiomas: los nombres de catálogo (contexto `Catalog`) y lo nuevo del texto solo están en
+   español.
+4. Web: voz con IA (TTS) espera al backend; las opciones del navegador usan espeak-ng (GPL).
+5. Backend (`api.getflipstudio.com`): cuenta Google, ventas, Pexels, identificador de instalación
    y política de privacidad (ver el plan de abajo).
+6. El selector de idioma del primer arranque marca "American English" por defecto aunque el
+   sistema esté en español.
 
 ---
 
