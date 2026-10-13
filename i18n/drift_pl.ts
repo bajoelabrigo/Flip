@@ -15676,6 +15676,10 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished">Pobierz dodatki</translation>
     </message>
     <message>
+        <source>No favorites yet. Tap the star on a sound to keep it here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stop</source>
         <translation type="unfinished">Stop</translation>
     </message>
@@ -16967,6 +16971,10 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">Ulubione</translation>
+    </message>
+    <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17393,8 +17401,16 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation type="unfinished">Animacja</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">Ulubione</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation type="unfinished">Szablony</translation>
+    </message>
+    <message>
+        <source>My styles</source>
+        <translation type="unfinished">Moje style</translation>
     </message>
     <message>
         <source>Hello</source>
@@ -17594,6 +17610,14 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     </message>
     <message>
         <source>Strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as my style…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep this text&apos;s font, colours, background and effects to reuse them</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

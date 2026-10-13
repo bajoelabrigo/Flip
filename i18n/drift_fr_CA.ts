@@ -15630,6 +15630,10 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation type="unfinished">Obtenir des extras</translation>
     </message>
     <message>
+        <source>No favorites yet. Tap the star on a sound to keep it here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stop</source>
         <translation type="unfinished">Arrêter</translation>
     </message>
@@ -16920,6 +16924,10 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">Favoris</translation>
+    </message>
+    <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17346,8 +17354,16 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation type="unfinished">Animation</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">Favoris</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation type="unfinished">Préréglages</translation>
+    </message>
+    <message>
+        <source>My styles</source>
+        <translation type="unfinished">Mes styles</translation>
     </message>
     <message>
         <source>Hello</source>
@@ -17547,6 +17563,14 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
     </message>
     <message>
         <source>Strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as my style…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep this text&apos;s font, colours, background and effects to reuse them</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

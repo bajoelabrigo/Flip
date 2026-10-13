@@ -22,9 +22,17 @@ Item {
     // Template packs from Extras, by category, each behind its own chip.
     property var addonPresets: EditorState.addonTextPresets()
     property var addonCategories: EditorState.addonTextPresetCategories()
-    readonly property var gridPresets: section === "builtin"
-                                       ? root.presets
-                                       : root.addonPresets.filter(p => p.category === root.section)
+    // Starred styles, from the built-in set and every template pack.
+    property int favoritesTick: 0
+    readonly property var gridPresets: {
+        if (section === "builtin")
+            return root.presets
+        if (section === "favorites") {
+            void root.favoritesTick
+            return root.presets.concat(root.addonPresets).filter(p => EditorState.isAssetFavorite("textStyles", p.id))
+        }
+        return root.addonPresets.filter(p => p.category === root.section)
+    }
 
     Connections {
         target: Addons
@@ -50,6 +58,7 @@ Item {
     Connections {
         target: EditorState
         function onUserTextPresetsChanged() { root.userPresetsTick++ }
+        function onAssetFavoritesChanged() { root.favoritesTick++ }
     }
 
     readonly property string styleFileFilter: qsTr("Flip Studio text style (*.drifttextstyle)")
@@ -81,6 +90,16 @@ Item {
             y: Theme.pagePadding
             width: parent.width - Theme.pagePadding * 2 - Theme.controlHeight - Theme.spacingSm
             spacing: Theme.spacingSm
+
+            IconButton {
+                glyph: Theme.icons.star
+                variant: "ghost"
+                buttonSize: Theme.controlHeightSm
+                iconSize: 14
+                active: root.section === "favorites"
+                tooltip: qsTr("Favorites")
+                onClicked: root.section = "favorites"
+            }
 
             ThemedChip {
                 text: qsTr("Basic")
@@ -186,6 +205,14 @@ Item {
                 ThemedToolTip {
                     text: qsTr("%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.").arg(packCard.modelData.label)
                     visible: packDrag.hovered && !packDrag.active
+                }
+
+                AssetFavoriteButton {
+                    anchors.right: parent.right
+                    anchors.top: parent.top
+                    anchors.margins: 3
+                    tabId: "textStyles"
+                    itemId: packCard.modelData.id
                 }
 
                 ThemedContextMenu {

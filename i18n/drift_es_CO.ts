@@ -15627,6 +15627,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Conseguir extras</translation>
     </message>
     <message>
+        <source>No favorites yet. Tap the star on a sound to keep it here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stop</source>
         <translation>Detener</translation>
     </message>
@@ -16915,6 +16919,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Mis estilos · %1</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation>%1 — haz clic para agregarlo en el cabezal o arrástralo a la línea de tiempo. Haz doble clic en la vista previa para editarlo.</translation>
     </message>
@@ -17301,8 +17309,16 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished">Animación</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation type="unfinished">Plantillas</translation>
+    </message>
+    <message>
+        <source>My styles</source>
+        <translation type="unfinished">Mis estilos</translation>
     </message>
     <message>
         <source>Hello</source>
@@ -17502,6 +17518,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as my style…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep this text&apos;s font, colours, background and effects to reuse them</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

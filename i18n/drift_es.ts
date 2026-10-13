@@ -15627,6 +15627,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Conseguir extras</translation>
     </message>
     <message>
+        <source>No favorites yet. Tap the star on a sound to keep it here.</source>
+        <translation>Aún no hay favoritos. Toca la estrella de un sonido para guardarlo aquí.</translation>
+    </message>
+    <message>
         <source>Stop</source>
         <translation>Detener</translation>
     </message>
@@ -16915,6 +16919,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Mis estilos · %1</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation>Favoritos</translation>
+    </message>
+    <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation>%1 — haz clic para agregarlo en el cabezal o arrástralo a la línea de tiempo. Haz doble clic en la vista previa para editarlo.</translation>
     </message>
@@ -17341,8 +17349,16 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Animación</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation>Favoritos</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>Plantillas</translation>
+    </message>
+    <message>
+        <source>My styles</source>
+        <translation>Mis estilos</translation>
     </message>
     <message>
         <source>Hello</source>
@@ -17543,6 +17559,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Strength</source>
         <translation>Fuerza</translation>
+    </message>
+    <message>
+        <source>Save as my style…</source>
+        <translation>Guardar como mi estilo…</translation>
+    </message>
+    <message>
+        <source>Keep this text&apos;s font, colours, background and effects to reuse them</source>
+        <translation>Guarda la fuente, los colores, el fondo y los efectos de este texto para volver a usarlos</translation>
     </message>
     <message>
         <source>Transform</source>

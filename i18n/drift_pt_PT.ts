@@ -15627,6 +15627,10 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished">Obter extras</translation>
     </message>
     <message>
+        <source>No favorites yet. Tap the star on a sound to keep it here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stop</source>
         <translation type="unfinished">Parar</translation>
     </message>
@@ -16915,6 +16919,10 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">Favoritos</translation>
+    </message>
+    <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17341,8 +17349,16 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished">Animação</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">Favoritos</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation type="unfinished">Modelos</translation>
+    </message>
+    <message>
+        <source>My styles</source>
+        <translation type="unfinished">Meus estilos</translation>
     </message>
     <message>
         <source>Hello</source>
@@ -17542,6 +17558,14 @@ Se a reprodução travar, experimente outro.</translation>
     </message>
     <message>
         <source>Strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as my style…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep this text&apos;s font, colours, background and effects to reuse them</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

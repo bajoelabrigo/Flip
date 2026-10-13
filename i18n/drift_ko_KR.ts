@@ -15571,6 +15571,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">추가 기능 받기</translation>
     </message>
     <message>
+        <source>No favorites yet. Tap the star on a sound to keep it here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stop</source>
         <translation type="unfinished">중지</translation>
     </message>
@@ -16855,6 +16859,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">즐겨찾기</translation>
+    </message>
+    <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17281,8 +17289,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished">애니메이션</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">즐겨찾기</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation type="unfinished">템플릿</translation>
+    </message>
+    <message>
+        <source>My styles</source>
+        <translation type="unfinished">내 스타일</translation>
     </message>
     <message>
         <source>Hello</source>
@@ -17482,6 +17498,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as my style…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep this text&apos;s font, colours, background and effects to reuse them</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

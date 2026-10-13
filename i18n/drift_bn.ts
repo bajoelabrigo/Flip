@@ -15627,6 +15627,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">অতিরিক্ত পান</translation>
     </message>
     <message>
+        <source>No favorites yet. Tap the star on a sound to keep it here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stop</source>
         <translation type="unfinished">থামুন</translation>
     </message>
@@ -16923,6 +16927,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">প্রিয়</translation>
+    </message>
+    <message>
         <source>More…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17377,8 +17385,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished">অ্যানিমেশন</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">প্রিয়</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation type="unfinished">টেমপ্লেট</translation>
+    </message>
+    <message>
+        <source>My styles</source>
+        <translation type="unfinished">আমার স্টাইল</translation>
     </message>
     <message>
         <source>Hello</source>
@@ -17578,6 +17594,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as my style…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep this text&apos;s font, colours, background and effects to reuse them</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

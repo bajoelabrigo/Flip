@@ -15578,6 +15578,10 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished">Tải gói bổ trợ</translation>
     </message>
     <message>
+        <source>No favorites yet. Tap the star on a sound to keep it here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16863,6 +16867,10 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">Yêu thích</translation>
+    </message>
+    <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17249,8 +17257,16 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished">Hoạt ảnh</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished">Yêu thích</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation type="unfinished">Mẫu</translation>
+    </message>
+    <message>
+        <source>My styles</source>
+        <translation type="unfinished">Kiểu của tôi</translation>
     </message>
     <message>
         <source>Hello</source>
@@ -17450,6 +17466,14 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>Strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as my style…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep this text&apos;s font, colours, background and effects to reuse them</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

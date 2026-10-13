@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls.Basic
 import Drift
 import ".."
+import "../assets"
 
 Item {
     id: root
@@ -134,9 +135,12 @@ Item {
         return EditorState.textAnimationCategories(root.animSlot)
     }
     readonly property var animTileModel: {
+        void root.favoritesTick
         const filtered = root.animCategory.length === 0
                          ? root.animPresets
-                         : root.animPresets.filter(p => p.category === root.animCategory)
+                         : root.animCategory === "__favorites__"
+                           ? root.animPresets.filter(p => EditorState.isAssetFavorite("textAnimations", p.id))
+                           : root.animPresets.filter(p => p.category === root.animCategory)
         return [{ "id": "", "label": qsTr("None") }].concat(filtered)
     }
     readonly property var animation: (textStyle && textStyle.animation) || ({})
@@ -242,10 +246,29 @@ Item {
     readonly property var bubbles: EditorState.textBubbles()
     readonly property var bubbleCategories: EditorState.textBubbleCategories()
     readonly property var templatePresets: EditorState.textPresets()
-    readonly property var effectCategories: EditorState.textQuickStyleCategories().concat([
-        { "id": "looks", "label": qsTr("Effects") },
-        { "id": "templates", "label": qsTr("Templates") }
-    ])
+    readonly property var effectCategories: [{ "id": "favorites", "label": qsTr("Favorites") }]
+        .concat(EditorState.textQuickStyleCategories())
+        .concat([
+            { "id": "looks", "label": qsTr("Effects") },
+            { "id": "templates", "label": qsTr("Templates") },
+            { "id": "mine", "label": qsTr("My styles") }
+        ])
+    // The styles the user saved (Guardar estilo), and a tick that refreshes them and the stars.
+    property int savedTick: 0
+    readonly property var savedPresets: {
+        void root.savedTick
+        return EditorState.userTextPresets()
+    }
+    property int favoritesTick: 0
+    Connections {
+        target: EditorState
+        function onUserTextPresetsChanged() { root.savedTick++ }
+        function onAssetFavoritesChanged() { root.favoritesTick++ }
+    }
+    function isFavorite(tab, id) {
+        void root.favoritesTick
+        return EditorState.isAssetFavorite(tab, id)
+    }
 
     readonly property var strokeLayer: root.layerOfKind("stroke")
     readonly property var glowLayer: root.layerOfKind("glow")
@@ -405,8 +428,15 @@ Item {
             tiles.push({ "kind": "template", "id": preset.id, "label": preset.label, "category": "templates",
                          "source": "image://textstyle/" + preset.id })
         }
+        for (let i = 0; i < root.savedPresets.length; ++i) {
+            const preset = root.savedPresets[i]
+            tiles.push({ "kind": "template", "id": preset.id, "label": preset.label, "category": "mine",
+                         "source": "image://textstyle/" + preset.id })
+        }
         if (query.length > 0)
             return tiles.filter(t => String(t.label).toLowerCase().indexOf(query) >= 0)
+        if (root.effectsCategory === "favorites")
+            return tiles.filter(t => root.isFavorite("textEffects", t.kind + ":" + t.id))
         return tiles.filter(t => t.category === root.effectsCategory)
     }
     function applyEffectTile(tile) {
@@ -551,6 +581,9 @@ Item {
         property bool none: false
         property real tileWidth: 80
         property bool showLabel: true
+        // Set both to show a favorite star in the corner.
+        property string favoriteTab: ""
+        property string favoriteId: ""
         signal clicked()
 
         width: tileWidth
@@ -592,11 +625,22 @@ Item {
                 cursorShape: Qt.PointingHandCursor
             }
             TapHandler {
-                onTapped: tile.clicked()
+                // A tap on the star stars the card; it does not apply it.
+                onTapped: if (!tileStar.hovered) tile.clicked()
             }
             ThemedToolTip {
                 text: tile.label
                 visible: !tile.showLabel && tileHover.hovered && tile.label.length > 0
+            }
+
+            AssetFavoriteButton {
+                id: tileStar
+                visible: tile.favoriteTab.length > 0 && (tileHover.hovered || favorited)
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.margins: 2
+                tabId: tile.favoriteTab
+                itemId: tile.favoriteId
             }
         }
 
@@ -1559,6 +1603,19 @@ Item {
                 }
             }
 
+            // Your own template: this text's whole look, kept under Efectos → My styles and the Text tab.
+            ThemedButton {
+                width: parent.width
+                visible: root.hasTextStyle
+                variant: "secondary"
+                glyph: Theme.icons.save
+                text: qsTr("Save as my style…")
+                tooltip: qsTr("Keep this text's font, colours, background and effects to reuse them")
+                onClicked: saveStyleDialog.openWith(qsTr("Save text style"),
+                                                    qsTr("My style %1")
+                                                        .arg(EditorState.userTextPresets().length + 1))
+            }
+
             // --- Transformación y Mezcla, as on CapCut's text page ------------------------------------
             CollapsibleSection {
                 width: parent.width
@@ -2080,6 +2137,12 @@ Item {
                     selected: root.bubbleCategory.length === 0
                     onClicked: root.bubbleCategory = ""
                 }
+                ThemedChip {
+                    text: qsTr("Favorites")
+                    variant: "secondary"
+                    selected: root.bubbleCategory === "favorites"
+                    onClicked: root.bubbleCategory = "favorites"
+                }
                 Repeater {
                     model: root.bubbleCategories
                     delegate: ThemedChip {
@@ -2106,7 +2169,9 @@ Item {
                 Repeater {
                     model: root.bubbles.filter(b => b.id === "none"
                                                     || root.bubbleCategory.length === 0
-                                                    || b.category === root.bubbleCategory)
+                                                    || (root.bubbleCategory === "favorites"
+                                                        ? root.isFavorite("textBubbles", b.id)
+                                                        : b.category === root.bubbleCategory))
                     delegate: GalleryTile {
                         required property var modelData
                         tileWidth: bubbleGrid.tileWidth
@@ -2115,6 +2180,8 @@ Item {
                         source: none ? "" : root.bubblePreview(modelData.id)
                         selected: none ? root.textStyle.boxEnabled !== true
                                        : (root.textStyle.boxEnabled === true && root.lastBubbleId === modelData.id)
+                        favoriteTab: none ? "" : "textBubbles"
+                        favoriteId: modelData.id
                         onClicked: root.applyBubble(modelData.id)
                     }
                 }
@@ -2182,6 +2249,8 @@ Item {
                         selected: modelData.kind === "look" ? root.textStyle.lookId === modelData.id
                                 : modelData.kind === "template" ? root.textStyle.packId === modelData.id
                                 : root.lastQuickId === modelData.id
+                        favoriteTab: "textEffects"
+                        favoriteId: modelData.kind + ":" + modelData.id
                         onClicked: root.applyEffectTile(modelData)
                     }
                 }
@@ -2272,6 +2341,14 @@ Item {
                         onClicked: root.animCategory = ""
                     }
 
+                    ThemedChip {
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Favorites")
+                        variant: "secondary"
+                        selected: root.animCategory === "__favorites__"
+                        onClicked: root.animCategory = "__favorites__"
+                    }
+
                     Repeater {
                         model: root.animCategories
                         delegate: ThemedChip {
@@ -2314,6 +2391,15 @@ Item {
                                  && modelData.id.length > 0
                                  && (Theme.touchUi ? selected : hovered)
                         onClicked: root.pickPreset(modelData.id)
+
+                        AssetFavoriteButton {
+                            visible: modelData.id.length > 0
+                            anchors.right: parent.right
+                            anchors.top: parent.top
+                            anchors.margins: 2
+                            tabId: "textAnimations"
+                            itemId: modelData.id
+                        }
                     }
                 }
             }
