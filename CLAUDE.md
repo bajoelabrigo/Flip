@@ -70,7 +70,9 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
 4. Web: voz con IA (TTS) espera al backend; las opciones del navegador usan espeak-ng (GPL).
 5. Backend (`api.getflipstudio.com`): cuenta Google, ventas, Pexels, identificador de instalación
    y política de privacidad (ver el plan de abajo).
-6. El selector de idioma del primer arranque marca "American English" por defecto aunque el
+6. **Candado para bloquear una pista** en la cabecera, como en CapCut: falta el botón.
+   `Track::locked` ya existe en el modelo y se guarda en el proyecto. Pedido de Jorge el 2026-10-13.
+7. El selector de idioma del primer arranque marca "American English" por defecto aunque el
    sistema esté en español.
 
 ---
@@ -162,6 +164,23 @@ en la hoja de ruta como requisito de Pexels y de las cuentas.
     nada y una app que sí lo hace es un problema con Microsoft, no un detalle.
 - Lo primero, entonces, es un identificador anónimo de instalación y actualizar la declaración;
   atarlo a la cuenta es una decisión de producto, no un detalle técnico.
+- **Pedido de Jorge (2026-10-13), para hacerlo junto con el login y Pexels:** contar **descargas,
+  máquinas instaladas y actualizaciones instaladas**.
+  - **Descargas:** ya se pueden leer.
+    - GitHub da `download_count` por archivo del release (`gh api repos/bajoelabrigo/Flip/releases`).
+      Al 2026-10-13 eran de 0 a 3 por versión, casi todas nuestras pruebas.
+    - La Store tiene sus análisis en Partner Center.
+    - Los registros de nginx del VPS cuentan los clics en «Descargar» de la web.
+    - GitHub no separa instalación nueva de actualización: las dos bajan el mismo archivo.
+  - **Máquinas y actualizaciones:** la app tiene que avisar a `api.getflipstudio.com` con un
+    identificador **aleatorio y anónimo** (nada de la persona ni del equipo):
+    - al instalarse (versión, Windows);
+    - al actualizarse (de qué versión a cuál);
+    - y como mucho una vez al día «sigo en uso», para contar las activas por día y por mes.
+  - Con eso, un panel con instalaciones, activas, versiones en uso y actualizaciones aplicadas.
+  - **Pendiente de Jorge:** confirmar «anónimo» y un interruptor «Enviar estadísticas anónimas» en
+    Ajustes, activado por defecto. Hay que actualizar la política de privacidad y la declaración de
+    la Store **antes** de publicarlo.
 
 ### 3. Pexels (stock de video y fotos)
 
