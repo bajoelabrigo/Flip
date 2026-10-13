@@ -100,7 +100,7 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
 - **Jorge tiene el espacio de trabajo fijado en «Horizontal»** (`ui/workspaceLayout`). Por eso un
   video 9:16 no cambiaba de diseño solo; ahora sale el botón «Espacio vertical».
 
-### 0.9.8 en curso (2026-10-13, noche): capas de ajuste profesionales y LUT
+### 0.9.8 PUBLICADA (2026-10-13, noche): capas de ajuste profesionales y LUT
 - Rama `flip/v0.9.8` (escritorio) y `web/0.9.8` (editor web). Notas en `release-notes/0.9.8.md`.
 - Jorge pidió (con dos documentos) capas de ajuste "profesionales" y un sistema de LUT, **por etapas**,
   **probando cada cambio** y **compilando el escritorio una sola vez al final**.
@@ -122,7 +122,17 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
   limitan sus efectos: `buildLayerTarget` mezcla por cobertura en vez de recortar). Web: `Clip.masks`
   (pila), `masksLimitEffects`, `MaskHandles.tsx` en el visor.
 - Probado en ventana con el portable de CI (run 38464105571) y por píxeles con capturas reales.
-- **Falta:** el OK de Jorge para publicar (release 0.9.8, editor web y novedades).
+- **Publicada** a pedido de Jorge («publica»): PR #13, tag `v0.9.8`, editor web desplegado (`flipstudio-app`
+  `main` = `web/0.9.8`), novedades 0.9.8 en la web y la portada con `assets/shot-flip-text.webp` (Jorge no quiere
+  su foto en la portada). Notas de la Store en `docs/store-listing.md`. **Falta:** el MSIX, cuando la Store apruebe.
+- Segunda tanda del mismo día:
+  - capa de ajuste desde el **+** (`NewTrackMenu`) y con clic derecho sobre foto, video o texto;
+  - Texto (panel izquierdo) con `CategoryScrollOn`, y la rueda espera a que pare tras cada cambio (`settling`);
+  - Ajustar › Máscara con `MaskShapeTiles.qml` (compartido con Video › Máscara).
+- **Auditoría de «Crear composición»:** es una secuencia anidada (un solo nivel, instancias compartidas). Antes y
+  después, deshacer, rehacer, guardar y reabrir, y exportar con y sin composición dan lo mismo al píxel. Se corrigió
+  dónde queda: ocupa el lugar de la pista más baja de la selección y quita las pistas que deja vacías.
+- **Para la 0.9.9:** traducir «Tipo: composite» en General (sale en inglés).
 - **Límites conocidos:** en la web los parámetros de los efectos no se animan (solo la intensidad de
   la capa); los LUT importados en la web viven en ese navegador (se reconocen al volver a importar el
   mismo archivo).
@@ -405,6 +415,13 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 ---
 
 ## Trampas que ya nos costaron tiempo
+
+**La app escribe en el registro de Jorge aunque se lance para pruebas, incluso sin ventana:** anota el proyecto
+de prueba en `recentProjects`/`lastSessionPath` y guarda preferencias. Quitar solo `mcp/startOnLaunch` no basta:
+con la app cerrada, `reg delete "HKCU\Software\Flip Studio" /f` y `reg import` de la copia, y comparar el
+`reg export` con la copia. Borrar también la carpeta del proyecto de prueba en `%APPDATA%\Flip Studio\Flip Studio\projects`.
+`mcp_e2e.py` acepta además `--keep` (deja la ventana abierta), `--attach <pid>` (sigue en esa ventana) y
+`click` con `"button": "right"`.
 
 **Probar la interfaz en ventana sin tocar el mouse de Jorge:** `mcp_e2e.py --window` abre el editor con
 el proyecto, se conecta a él (`--mcp-stdio` sin `--headless` se *adjunta* a un editor abierto) y acepta
