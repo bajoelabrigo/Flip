@@ -19166,6 +19166,10 @@ If playback stutters, try another.</source>
         <translation>작업 영역 지우기</translation>
     </message>
     <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">보정 레이어</translation>
+    </message>
+    <message>
         <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
         <translation type="unfinished"></translation>
     </message>

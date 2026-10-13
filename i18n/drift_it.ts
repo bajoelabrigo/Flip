@@ -19230,6 +19230,10 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Cancella area di lavoro</translation>
     </message>
     <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">Livello di regolazione</translation>
+    </message>
+    <message>
         <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
         <translation type="unfinished"></translation>
     </message>

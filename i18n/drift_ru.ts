@@ -19286,6 +19286,10 @@ If playback stutters, try another.</source>
         <translation>Очистить рабочую область</translation>
     </message>
     <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">Корректирующий слой</translation>
+    </message>
+    <message>
         <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
         <translation type="unfinished"></translation>
     </message>

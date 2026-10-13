@@ -19235,6 +19235,10 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation>Effacer la zone de travail</translation>
     </message>
     <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">Calque d&apos;ajustement</translation>
+    </message>
+    <message>
         <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
         <translation type="unfinished"></translation>
     </message>

@@ -19230,6 +19230,10 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Limpar área de trabalho</translation>
     </message>
     <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">Camada de ajuste</translation>
+    </message>
+    <message>
         <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
         <translation type="unfinished"></translation>
     </message>

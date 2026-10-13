@@ -19174,6 +19174,10 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Xóa khu vực làm việc</translation>
     </message>
     <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">Lớp điều chỉnh</translation>
+    </message>
+    <message>
         <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
         <translation type="unfinished"></translation>
     </message>

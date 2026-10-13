@@ -19454,6 +19454,10 @@ If playback stutters, try another.</source>
         <translation>مسح منطقة العمل</translation>
     </message>
     <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">طبقة ضبط</translation>
+    </message>
+    <message>
         <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
         <translation type="unfinished"></translation>
     </message>

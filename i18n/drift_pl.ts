@@ -19286,6 +19286,10 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>Wyczyść obszar roboczy</translation>
     </message>
     <message>
+        <source>Adjustment layer</source>
+        <translation type="unfinished">Warstwa korekcyjna</translation>
+    </message>
+    <message>
         <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
         <translation type="unfinished"></translation>
     </message>

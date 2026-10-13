@@ -158,6 +158,33 @@ PanelFrame {
         return -1
     }
 
+    // The open tab's own CapCut pages (Básico, Burbuja, Efectos… or Básico, Eliminar fondo,
+    // Máscara, Retoque), so scrolling on walks through them before it moves to the next tab.
+    function pageHost() {
+        const id = root.currentTabId
+        const item = id === "text" ? textLoader.item : id === "video" ? videoLoader.item
+                   : id === "adjust" ? adjustLoader.item : id === "audio" ? audioLoader.item : null
+        return item && item.pages && item.pages.length > 1 ? item : null
+    }
+
+    function adjacentPage(step) {
+        const host = pageHost()
+        if (!host)
+            return null
+        const i = host.pages.findIndex(p => p.id === host.page) + step
+        return i >= 0 && i < host.pages.length ? host.pages[i] : null
+    }
+
+    function openPage(id) {
+        const host = pageHost()
+        if (!host)
+            return
+        if (root.currentTabId === "text")
+            host.textTab = id
+        else
+            host.page = id
+    }
+
     function tabVisible(tabId) {
         const tab = root.tabs[tabIndexOf(tabId)]
         return !!tab && tab.needs.every(cap => root.caps.indexOf(cap) >= 0)
@@ -647,6 +674,7 @@ PanelFrame {
                 }
 
                 Loader {
+                    id: videoLoader
                     active: root.currentTabId === "video"
                     visible: active
                     sourceComponent: Component {
@@ -659,6 +687,7 @@ PanelFrame {
                 }
 
                 Loader {
+                    id: adjustLoader
                     active: root.currentTabId === "adjust"
                     visible: active
                     sourceComponent: Component {
@@ -689,6 +718,7 @@ PanelFrame {
                 }
 
                 Loader {
+                    id: audioLoader
                     active: root.currentTabId === "audio"
                     visible: active
                     sourceComponent: Component { AudioInspector { width: tabColumn.width } }
@@ -781,12 +811,14 @@ PanelFrame {
 
                 // Where scrolling on goes: the end of one tab leads into the next, as on CapCut.
                 Text {
+                    readonly property var nextPage: root.adjacentPage(1)
                     readonly property int nextTab: root.adjacentTab(1)
-                    visible: !root.sheetMode && nextTab >= 0
+                    visible: !root.sheetMode && (nextPage !== null || nextTab >= 0)
                     width: tabColumn.width
                     topPadding: Theme.spacingLg
                     horizontalAlignment: Text.AlignHCenter
-                    text: nextTab >= 0 ? qsTr("Keep scrolling for %1").arg(root.tabs[nextTab].label) : ""
+                    text: nextPage ? qsTr("Keep scrolling for %1").arg(nextPage.label)
+                        : nextTab >= 0 ? qsTr("Keep scrolling for %1").arg(root.tabs[nextTab].label) : ""
                     color: Theme.mutedForeground
                     font.family: Theme.fontFamily
                     font.pixelSize: Theme.fontSizeTiny
@@ -819,11 +851,36 @@ PanelFrame {
                     if (Math.abs(overscroll) >= threshold) {
                         const forward = overscroll > 0
                         overscroll = 0
-                        const target = root.adjacentTab(forward ? 1 : -1)
-                        if (target >= 0) {
-                            root.activeTab = target
-                            if (!forward)
-                                Qt.callLater(() => { tabFlick.contentY = Math.max(0, tabFlick.contentHeight - tabFlick.height) })
+                        const toEnd = () => { tabFlick.contentY = Math.max(0, tabFlick.contentHeight - tabFlick.height) }
+                        const page = root.adjacentPage(forward ? 1 : -1)
+                        if (page) {
+                            // The next page of this tab first: at its top going on, at its end going back.
+                            root.openPage(page.id)
+                            if (forward)
+                                tabFlick.contentY = 0
+                            else
+                                Qt.callLater(toEnd)
+                        } else {
+                            const target = root.adjacentTab(forward ? 1 : -1)
+                            if (target >= 0) {
+                                root.activeTab = target
+                                if (forward) {
+                                    // A tab with pages opens on its first one.
+                                    Qt.callLater(() => {
+                                        const host = root.pageHost()
+                                        if (host)
+                                            root.openPage(host.pages[0].id)
+                                        tabFlick.contentY = 0
+                                    })
+                                } else {
+                                    Qt.callLater(() => {
+                                        const host = root.pageHost()
+                                        if (host)
+                                            root.openPage(host.pages[host.pages.length - 1].id)
+                                        Qt.callLater(toEnd)
+                                    })
+                                }
+                            }
                         }
                     }
                     wheel.accepted = true

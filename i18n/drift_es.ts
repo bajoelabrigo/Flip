@@ -19230,6 +19230,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Borrar área de trabajo</translation>
     </message>
     <message>
+        <source>Adjustment layer</source>
+        <translation>Capa de ajuste</translation>
+    </message>
+    <message>
         <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
         <translation>Capa de ajuste: sus efectos, color y máscaras se aplican a todo lo que hay debajo mientras dura, sin tocar esos clips</translation>
     </message>
