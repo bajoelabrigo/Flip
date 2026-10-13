@@ -63,7 +63,7 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
    actualizada (descripción, notas y 16 características, en es/es-co/en-us) está en
    `Downloads\FlipStudio-Store\textos\listingData-FlipStudio-0.9.6.csv`; las capturas nuevas, en
    `FlipStudio-Store\ficha` (`Guion en Voz.jpg` es una foto suelta, no una captura de la app).
-   `docs/store-listing.md` todavía tiene la descripción anterior: pasarle la del CSV.
+   `docs/store-listing.md` ya tiene la descripción del CSV (2026-10-13).
 2. Retoque **Cuerpo** y **Cabello** siguen sin modelo de IA.
 3. Otros idiomas: los nombres de catálogo (contexto `Catalog`) y lo nuevo del texto solo están en
    español.
