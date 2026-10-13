@@ -75,6 +75,11 @@ struct Track
     bool acceptsClip(const Clip &clip) const;
 
     bool isAdjustment() const { return type == TrackType::Adjustment; }
+    // Picture tracks: a video or a photo goes on either, as on CapCut, where any track but an
+    // audio one takes both. A video clip on either still plays its own sound.
+    bool isPictureTrack() const { return type == TrackType::Video || type == TrackType::Shape; }
+    // Whether the mixer reads this track: audio clips, and the sound of video clips.
+    bool carriesSound() const { return type == TrackType::Audio || isPictureTrack(); }
     // A nested lane draws inside its parent's row rather than occupying one of its own.
     bool isAdjustmentLane() const
     {

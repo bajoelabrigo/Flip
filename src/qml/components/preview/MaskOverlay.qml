@@ -312,6 +312,15 @@ Item {
                 Keys.onPressed: function(event) {
                     if (!maskBox.isSelected || !maskBox.movable)
                         return
+                    // Delete / Backspace: the pen or freeform point picked last goes.
+                    if ((event.key === Qt.Key_Delete || event.key === Qt.Key_Backspace)
+                            && maskBox.isFreeform && EditorState.maskPointFocus >= 0) {
+                        EditorState.removeMaskPoint(maskBox.layerTrack, maskBox.layerClip,
+                                                    EditorState.maskPointFocus)
+                        EditorState.maskPointFocus = -1
+                        event.accepted = true
+                        return
+                    }
                     const stepX = ((event.modifiers & Qt.ShiftModifier) ? 10 : 1)
                                 / Math.max(1, clipFrame.width)
                     const stepY = ((event.modifiers & Qt.ShiftModifier) ? 10 : 1)
@@ -520,14 +529,20 @@ Item {
                         // Deliberately larger than the resize grips: a vertex is a point target
                         // rather than an edge to catch, and it is the only way to reshape a
                         // freeform, so it has to be easy to hit.
-                        readonly property real vs: Theme.spacingLg * 1.25
+                        readonly property bool picked: EditorState.maskPointFocus === index
+                        readonly property real vs: Theme.spacingLg * (picked ? 1.6 : 1.25)
                         width: vs
                         height: vs
                         radius: vs / 2
-                        color: vertexArea.containsMouse || vertexArea.pressed
+                        color: vertexArea.containsMouse || vertexArea.pressed || picked
                                ? Theme.primaryForeground : Theme.primary
-                        border.width: Theme.borderWidth
-                        border.color: Theme.primaryForeground
+                        border.width: picked ? 3 : Theme.borderWidth
+                        border.color: picked ? Theme.primary : Theme.primaryForeground
+
+                        ThemedToolTip {
+                            visible: vertexArea.containsMouse && !vertexArea.pressed
+                            text: qsTr("Drag to move. Right-click or Delete removes the point.")
+                        }
 
                         // Live position during a drag, so the dot tracks the cursor without
                         // waiting for the model to come back.
@@ -558,8 +573,10 @@ Item {
                                 if (mouse.button === Qt.RightButton) {
                                     EditorState.removeMaskPoint(maskBox.layerTrack,
                                                                 maskBox.layerClip, vertex.index)
+                                    EditorState.maskPointFocus = -1
                                     return
                                 }
+                                EditorState.maskPointFocus = vertex.index
                                 root.interacting = true
                                 maskBox.forceActiveFocus()
                                 EditorState.beginPreviewDrag(qsTr("Mask changed"))
@@ -621,16 +638,35 @@ Item {
                                 ? (modelData.y + nextPoint.y) / 2 : modelData.y
 
                         parent: clipFrame
-                        width: Theme.spacingMd
-                        height: Theme.spacingMd
+                        // A "+" on every side: click it and the side gets a new point there.
+                        width: Theme.spacingLg
+                        height: Theme.spacingLg
                         radius: width / 2
-                        color: "transparent"
+                        color: midArea.containsMouse ? Theme.primary : Qt.rgba(0, 0, 0, 0.55)
                         border.width: Theme.borderWidth
                         border.color: Theme.primary
-                        opacity: midArea.containsMouse ? 1.0 : 0.5
+                        opacity: midArea.containsMouse ? 1.0 : 0.85
                         x: mxN * clipFrame.width - width / 2
                         y: myN * clipFrame.height - height / 2
                         z: 199
+
+                        Rectangle {
+                            anchors.centerIn: parent
+                            width: parent.width * 0.55
+                            height: 2
+                            color: midArea.containsMouse ? Theme.primaryForeground : Theme.primary
+                        }
+                        Rectangle {
+                            anchors.centerIn: parent
+                            width: 2
+                            height: parent.height * 0.55
+                            color: midArea.containsMouse ? Theme.primaryForeground : Theme.primary
+                        }
+
+                        ThemedToolTip {
+                            visible: midArea.containsMouse
+                            text: qsTr("Add a point here")
+                        }
 
                         MouseArea {
                             id: midArea
@@ -641,9 +677,13 @@ Item {
                             preventStealing: true
                             onWheel: (wheel) => { wheel.accepted = false }
                             // Inserting before the far end of the edge splits that edge.
-                            onClicked: EditorState.insertMaskPoint(
-                                maskBox.layerTrack, maskBox.layerClip,
-                                midpoint.index + 1, midpoint.mxN, midpoint.myN)
+                            onClicked: {
+                                EditorState.insertMaskPoint(
+                                    maskBox.layerTrack, maskBox.layerClip,
+                                    midpoint.index + 1, midpoint.mxN, midpoint.myN)
+                                EditorState.maskPointFocus = midpoint.index + 1
+                                maskBox.forceActiveFocus()
+                            }
                         }
                     }
                 }

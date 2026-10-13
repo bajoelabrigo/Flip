@@ -1086,6 +1086,28 @@ public:
     // on the clip, so this is what lets the inspector list them while the media clip is selected —
     // which is where a user looks for them after applying one.
     Q_INVOKABLE QVariantList linkedMaskClips(int trackIndex, int clipIndex) const;
+    // The Video > Mask page edits a clip's masks in place, CapCut style, without moving the
+    // selection to the mask's lane: it adds one and makes it the "focused" mask, which is the one
+    // the keyframe rows (redirectToKeyframeHost) and the preview handles reach while the media
+    // clip stays selected. Returns the new mask's clip id, or empty.
+    Q_INVOKABLE QString addMaskToClipInPlace(int trackIndex, int clipIndex, const QString &shape);
+    Q_INVOKABLE void setFocusedMask(const QString &maskClipId);
+    Q_INVOKABLE QString focusedMask() const { return m_focusedMaskId; }
+    // Deletes one mask (a Mask adjustment linked to a clip), and its lane when that empties it.
+    Q_INVOKABLE void removeLinkedMask(int maskTrackIndex, int maskClipIndex);
+    // A freeform/pen point the user picked in the preview, so the inspector's "Delete point" and
+    // the Delete key act on it. -1: none. Not saved, not undoable: it is a view state.
+    Q_PROPERTY(int maskPointFocus READ maskPointFocus WRITE setMaskPointFocus NOTIFY maskPointFocusChanged)
+    int maskPointFocus() const { return m_maskPointFocus; }
+    void setMaskPointFocus(int index)
+    {
+        if (m_maskPointFocus == index)
+            return;
+        m_maskPointFocus = index;
+        emit maskPointFocusChanged();
+    }
+    Q_SIGNAL void maskPointFocusChanged();
+    Q_SIGNAL void focusedMaskChanged();
     // A mask clip on one of `trackIndex`'s lanes, pinned to nothing: it masks whatever that track
     // shows over its span. This is what dropping a mask on empty track space means.
     Q_INVOKABLE void addMaskLaneClip(int trackIndex, const QString &shape, double atSeconds = -1.0,
@@ -1317,6 +1339,13 @@ public:
     Q_INVOKABLE bool importUserEffectPreset(const QUrl &fileUrl);
     Q_INVOKABLE void setTrackMuted(int trackIndex, bool muted);
     Q_INVOKABLE void setTrackHidden(int trackIndex, bool hidden);
+    // The padlock in a track's header (CapCut): its clips, and those of its lanes, cannot be
+    // selected, moved, trimmed, split or dropped on until it is unlocked.
+    Q_INVOKABLE void setTrackLocked(int trackIndex, bool locked);
+    // CapCut's select-left / select-right tools: the clip and every clip that starts at or after
+    // it (forward), or ends at or before it, on every unlocked track.
+    Q_INVOKABLE void selectClipsFrom(int trackIndex, int clipIndex, bool forward);
+    Q_INVOKABLE bool isTrackLocked(int trackIndex) const;
     Q_INVOKABLE void setTrackSolo(int trackIndex, bool solo);
     Q_INVOKABLE bool trackSolo(int trackIndex) const;
     Q_INVOKABLE void setTrackVolume(int trackIndex, double volume);
@@ -2072,6 +2101,8 @@ protected:
     int m_selectedClip = -1;
     int m_selectedTransitionTrack = -1;
     int m_selectedTransitionLeftClip = -1;
+    QString m_focusedMaskId;
+    int m_maskPointFocus = -1;
     QList<QPair<int, int>> m_selection;
     int m_selectionRevision = 0;
     int m_timelineTrimCursorSide = 0;

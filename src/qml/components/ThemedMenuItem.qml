@@ -15,6 +15,8 @@ MenuItem {
     // menu). Not an entry: it never highlights and never takes a click.
     property bool sectionHeader: false
     enabled: !sectionHeader
+    // A key to show at the right edge, as a menu lists its shortcuts ("V", "Shift+A").
+    property string shortcutText: ""
 
     // A section header is a label, not a target: giving it the MenuItem role would have
     // assistive tooling and uiautomator offer it as something to activate.
@@ -33,6 +35,7 @@ MenuItem {
         spacing: Theme.spacingLg
         leftPadding: Theme.spacingLg
         rightPadding: Theme.spacingLg
+                      + (root.shortcutText.length > 0 ? shortcutLabel.implicitWidth + Theme.spacing3xl : 0)
 
         IconGlyph {
             anchors.verticalCenter: parent.verticalCenter
@@ -55,6 +58,18 @@ MenuItem {
             font.weight: root.sectionHeader ? Font.DemiBold : Font.Normal
             elide: Text.ElideRight
         }
+    }
+
+    Text {
+        id: shortcutLabel
+        visible: root.shortcutText.length > 0
+        x: root.width - width - Theme.spacingLg
+        anchors.verticalCenter: parent.verticalCenter
+        text: root.shortcutText
+        color: Theme.mutedForeground
+        opacity: root.enabled ? 1 : 0.5
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSizeXs
     }
 
     // The Basic style's submenu arrow is drawn in its own dark-on-dark colour.

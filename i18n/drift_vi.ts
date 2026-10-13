@@ -2419,6 +2419,14 @@
         <translation>Công cụ cắt</translation>
     </message>
     <message>
+        <source>Select to the left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select to the right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>System default</source>
         <translation>Mặc định hệ thống</translation>
     </message>
@@ -2905,6 +2913,10 @@
         <translation>Cài đặt gói nhãn dán biểu tượng cảm xúc để thêm biểu tượng cảm xúc</translation>
     </message>
     <message>
+        <source>This track is locked. Unlock it with the padlock in its header.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Edit clip</source>
         <translation>Chỉnh sửa clip</translation>
     </message>
@@ -3357,6 +3369,14 @@
         <translation>Đã thêm mặt nạ</translation>
     </message>
     <message>
+        <source>Remove mask</source>
+        <translation type="unfinished">Xóa mặt nạ</translation>
+    </message>
+    <message>
+        <source>Mask removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add mask point</source>
         <translation>Thêm điểm mặt nạ</translation>
     </message>
@@ -3434,6 +3454,14 @@
     </message>
     <message>
         <source>Loudness set to %1 LUFS (it was %2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track locked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track unlocked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7684,6 +7712,13 @@
     </message>
 </context>
 <context>
+    <name>CategoryScrollOn</name>
+    <message>
+        <source>Keep scrolling for %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ChannelKeyButton</name>
     <message>
         <source>Remove %1 keyframe at the playhead</source>
@@ -11182,6 +11217,14 @@
     <message>
         <source>Mask changed</source>
         <translation>Mặt nạ đã thay đổi</translation>
+    </message>
+    <message>
+        <source>Drag to move. Right-click or Delete removes the point.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a point here</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drag a mask from the Masks tab onto a clip to edit it here</source>
@@ -19044,6 +19087,18 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select to the left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select to the right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pointer tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Main</source>
         <translation>Chính</translation>
     </message>
@@ -19452,6 +19507,18 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     <message>
         <source>Record voiceover (mic)</source>
         <translation>Thu lồng tiếng (micrô)</translation>
+    </message>
+    <message>
+        <source>Unlock track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock track: its clips cannot be moved or edited</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Turn transform on</source>
@@ -20629,10 +20696,6 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished">Tất cả tệp (*)</translation>
     </message>
     <message>
-        <source>Add mask</source>
-        <translation type="unfinished">Thêm mặt nạ</translation>
-    </message>
-    <message>
         <source>Slim or widen what the mesh follows</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20842,6 +20905,173 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     </message>
     <message>
         <source>What the clip already carries</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VideoMaskPage</name>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">Không</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">Hình chữ nhật</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">Hình tròn</translation>
+    </message>
+    <message>
+        <source>Film strip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished">Trái tim</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Văn bản</translation>
+    </message>
+    <message>
+        <source>Freeform</source>
+        <translation type="unfinished">Dạng tự do</translation>
+    </message>
+    <message>
+        <source>Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cutout</source>
+        <translation type="unfinished">Tách nền</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask</source>
+        <translation type="unfinished">Mặt nạ</translation>
+    </message>
+    <message>
+        <source>Mask %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add another mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to add a mask.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change this mask to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a %1 mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This mask is a cutout. Pick a shape above to add a shape mask next to it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 points. Drag a point in the preview to move it, click a + on a side to add one there, and right-click a point (or select it and press Delete) to remove it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add point</source>
+        <translation type="unfinished">Thêm điểm</translation>
+    </message>
+    <message>
+        <source>Adds a point in the middle of the longest side</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete point</source>
+        <translation type="unfinished">Xóa điểm</translation>
+    </message>
+    <message>
+        <source>Removes the selected point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Removes the last point. Click a point in the preview to choose another.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth curves (pen)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Center X</source>
+        <translation type="unfinished">Trung tâm X</translation>
+    </message>
+    <message>
+        <source>Center Y</source>
+        <translation type="unfinished">Trung tâm Y</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished">Chiều rộng</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished">Chiều cao</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished">Xoay</translation>
+    </message>
+    <message>
+        <source>Feather</source>
+        <translation type="unfinished">Độ mờ biên</translation>
+    </message>
+    <message>
+        <source>Invert</source>
+        <translation type="unfinished">Đảo ngược</translation>
+    </message>
+    <message>
+        <source>Combine with the masks before it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Thêm</translation>
+    </message>
+    <message>
+        <source>Subtract</source>
+        <translation type="unfinished">Loại trừ</translation>
+    </message>
+    <message>
+        <source>Intersect</source>
+        <translation type="unfinished">Giao điểm</translation>
+    </message>
+    <message>
+        <source>Remove cutout</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

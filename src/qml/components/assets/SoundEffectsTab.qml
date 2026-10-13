@@ -132,6 +132,16 @@ Item {
                 font.pixelSize: Theme.fontSizeXs
             }
 
+            // Past the end of a category, the wheel goes on into the next one (CapCut).
+            CategoryScrollOn {
+                anchors.fill: list
+                flickable: list
+                categories: root.categories
+                activeCategory: root.activeCategory
+                active: root.query.length === 0
+                onCategoryActivated: (categoryId) => root.activeCategory = categoryId
+            }
+
             ListView {
                 id: list
                 x: Theme.pagePadding

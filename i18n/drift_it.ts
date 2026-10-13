@@ -2421,6 +2421,14 @@
         <translation>Strumento Taglierina</translation>
     </message>
     <message>
+        <source>Select to the left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select to the right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>System default</source>
         <translation>Predefinito di sistema</translation>
     </message>
@@ -2910,6 +2918,10 @@
         <translation>Installa il pacchetto adesivi emoji per aggiungere emoji</translation>
     </message>
     <message>
+        <source>This track is locked. Unlock it with the padlock in its header.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Edit clip</source>
         <translation>Modifica clip</translation>
     </message>
@@ -3354,6 +3366,14 @@
         <translation>Maschera aggiunta</translation>
     </message>
     <message>
+        <source>Remove mask</source>
+        <translation type="unfinished">Rimuovi maschera</translation>
+    </message>
+    <message>
+        <source>Mask removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add mask point</source>
         <translation>Aggiungi punto maschera</translation>
     </message>
@@ -3431,6 +3451,14 @@
     </message>
     <message>
         <source>Loudness set to %1 LUFS (it was %2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track locked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track unlocked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7707,6 +7735,13 @@
     </message>
 </context>
 <context>
+    <name>CategoryScrollOn</name>
+    <message>
+        <source>Keep scrolling for %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ChannelKeyButton</name>
     <message>
         <source>Remove %1 keyframe at the playhead</source>
@@ -11213,6 +11248,14 @@
     <message>
         <source>Mask changed</source>
         <translation>Maschera modificata</translation>
+    </message>
+    <message>
+        <source>Drag to move. Right-click or Delete removes the point.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a point here</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drag a mask from the Masks tab onto a clip to edit it here</source>
@@ -19096,6 +19139,18 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select to the left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select to the right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pointer tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Main</source>
         <translation>Principale</translation>
     </message>
@@ -19505,6 +19560,18 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
     <message>
         <source>Record voiceover (mic)</source>
         <translation>Registra voce fuori campo (microfono)</translation>
+    </message>
+    <message>
+        <source>Unlock track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock track: its clips cannot be moved or edited</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Turn transform on</source>
@@ -20688,10 +20755,6 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation type="unfinished">Tutti i file (*)</translation>
     </message>
     <message>
-        <source>Add mask</source>
-        <translation type="unfinished">Aggiungi maschera</translation>
-    </message>
-    <message>
         <source>Slim or widen what the mesh follows</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20901,6 +20964,173 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>What the clip already carries</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VideoMaskPage</name>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">Nessuno</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">Rettangolo</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">Cerchio</translation>
+    </message>
+    <message>
+        <source>Film strip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished">Cuore</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Testo</translation>
+    </message>
+    <message>
+        <source>Freeform</source>
+        <translation type="unfinished">Forma libera</translation>
+    </message>
+    <message>
+        <source>Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cutout</source>
+        <translation type="unfinished">Ritaglio</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask</source>
+        <translation type="unfinished">Maschera</translation>
+    </message>
+    <message>
+        <source>Mask %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add another mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to add a mask.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change this mask to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a %1 mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This mask is a cutout. Pick a shape above to add a shape mask next to it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 points. Drag a point in the preview to move it, click a + on a side to add one there, and right-click a point (or select it and press Delete) to remove it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add point</source>
+        <translation type="unfinished">Aggiungi punto</translation>
+    </message>
+    <message>
+        <source>Adds a point in the middle of the longest side</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete point</source>
+        <translation type="unfinished">Elimina punto</translation>
+    </message>
+    <message>
+        <source>Removes the selected point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Removes the last point. Click a point in the preview to choose another.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth curves (pen)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Center X</source>
+        <translation type="unfinished">Centro X</translation>
+    </message>
+    <message>
+        <source>Center Y</source>
+        <translation type="unfinished">Centro Y</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished">Larghezza</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished">Altezza</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished">Rotazione</translation>
+    </message>
+    <message>
+        <source>Feather</source>
+        <translation type="unfinished">Sfumatura bordi</translation>
+    </message>
+    <message>
+        <source>Invert</source>
+        <translation type="unfinished">Inverti</translation>
+    </message>
+    <message>
+        <source>Combine with the masks before it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Aggiungi</translation>
+    </message>
+    <message>
+        <source>Subtract</source>
+        <translation type="unfinished">Sottrai</translation>
+    </message>
+    <message>
+        <source>Intersect</source>
+        <translation type="unfinished">Interseca</translation>
+    </message>
+    <message>
+        <source>Remove cutout</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

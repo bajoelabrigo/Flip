@@ -1051,7 +1051,9 @@ void CoreTest::trackAllowsClipTypes()
     QVERIFY(shapeTrack.allowsClipType(drift::ClipType::Image));
     QVERIFY(shapeTrack.allowsClipType(drift::ClipType::Shape));
     QVERIFY(shapeTrack.allowsClipType(drift::ClipType::Vector));
-    QVERIFY(!shapeTrack.allowsClipType(drift::ClipType::Video));
+    // A video goes on a graphic track too: only audio tracks are picky (CapCut).
+    QVERIFY(shapeTrack.allowsClipType(drift::ClipType::Video));
+    QVERIFY(!shapeTrack.allowsClipType(drift::ClipType::Audio));
 
     drift::Track subtitleTrack{.type = drift::TrackType::Subtitle};
     QVERIFY(subtitleTrack.allowsClipType(drift::ClipType::Subtitle));

@@ -90,6 +90,10 @@ private slots:
     void compositeClipSpeedRetimesToFit();
     void importedMediaIsCentredAndResetsToItsFit();
     void transformTogetherWrapsTheSelection();
+    void lockedTrackRefusesSelectionSplitAndDrops();
+    void selectToTheRightAndLeftTakeEveryTrack();
+    void videoFitsAGraphicTrack();
+    void masksAreEditedInPlaceOnTheClip();
     void transformLayerParentsPreviewBoxes();
     void transformSpanOptionsAndValidation();
     void transformLayerEntryPoints();
@@ -325,8 +329,9 @@ void EditorStateTest::trackFitAnswersForAKindMatchTheAssetForms()
     QVERIFY(!tracks.isEmpty());
     for (int i = 0; i < tracks.size(); ++i) {
         const QString type = tracks.at(i).toMap().value(QStringLiteral("type")).toString();
+        // A video fits a graphic track too, as on CapCut.
         QCOMPARE(state.trackAcceptsKind(i, QStringLiteral("video")),
-                 type == QStringLiteral("video"));
+                 type == QStringLiteral("video") || type == QStringLiteral("shape"));
         QCOMPARE(state.trackAcceptsKind(i, QStringLiteral("audio")),
                  type == QStringLiteral("audio"));
         // A photo also fits a video track, next to the videos (CapCut's main track).
@@ -1150,6 +1155,172 @@ QVariantMap previewBoxFor(AppController &state, const QString &name)
 }
 
 } // namespace
+
+// The padlock: nothing on a locked track can be picked, split or dropped on, and locking a
+// track drops its clips from the selection.
+void EditorStateTest::lockedTrackRefusesSelectionSplitAndDrops()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    setUpTransformTracks(state);
+
+    state.selectClip(1, 0);
+    QCOMPARE(state.selectedTrack(), 1);
+    state.setTrackLocked(1, true);
+    QVERIFY(state.isTrackLocked(1));
+    QVERIFY(state.project()->tracks().at(1).locked);
+    QVERIFY(state.tracks().at(1).toMap().value(QStringLiteral("locked")).toBool());
+    QCOMPARE(state.selectedTrack(), -1);
+
+    state.selectClip(1, 0);
+    QCOMPARE(state.selectedTrack(), -1);
+    state.setSelection({QVariantMap{{QStringLiteral("track"), 1}, {QStringLiteral("clip"), 0}},
+                        QVariantMap{{QStringLiteral("track"), 0}, {QStringLiteral("clip"), 0}}});
+    QCOMPARE(state.m_selection.size(), 1);
+    QCOMPARE(state.m_selection.constFirst().first, 0);
+
+    QVERIFY(!state.trackAcceptsKind(1, QStringLiteral("image")));
+    QVERIFY(!state.trackAcceptsDropKind(1, QStringLiteral("effect")));
+
+    state.splitAtPlayhead();
+    QCOMPARE(state.project()->tracks().at(0).clips.size(), 2);
+    QCOMPARE(state.project()->tracks().at(1).clips.size(), 1);
+    QCOMPARE(state.project()->tracks().at(2).clips.size(), 2);
+
+    // Undo walks back the split, then the padlock.
+    state.undo();
+    state.undo();
+    QVERIFY(!state.isTrackLocked(1));
+    state.selectClip(1, 0);
+    QCOMPARE(state.selectedTrack(), 1);
+}
+
+// CapCut's select-right / select-left tools: the clicked clip and everything after (or before)
+// it on every track, but nothing on a locked one.
+void EditorStateTest::selectToTheRightAndLeftTakeEveryTrack()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    drift::Project &project = *state.project();
+    project.tracks().clear();
+    for (const QString &id : {QStringLiteral("t1"), QStringLiteral("t2"), QStringLiteral("t3")}) {
+        drift::Track track{.type = drift::TrackType::Shape};
+        track.id = id;
+        project.tracks().append(track);
+    }
+    const auto at = [](const QString &id, double start, double length) {
+        drift::Clip clip = boxShape(id, QRectF(0, 0, 10, 10));
+        clip.timelineStart = drift::secondsToUs(start);
+        clip.timelineDuration = drift::secondsToUs(length);
+        clip.srcOut = clip.timelineDuration;
+        return clip;
+    };
+    project.tracks()[0].clips = {at(QStringLiteral("x"), 0, 2), at(QStringLiteral("y"), 3, 2)};
+    project.tracks()[1].clips = {at(QStringLiteral("z"), 1, 3)};
+    project.tracks()[2].clips = {at(QStringLiteral("w"), 6, 1)};
+
+    state.selectClipsFrom(1, 0, true); // from z (starts at 1): z, y, w
+    QCOMPARE(state.m_selection.size(), 3);
+    QCOMPARE(state.selectedTrack(), 1);
+    QCOMPARE(state.selectedClip(), 0);
+
+    state.selectClipsFrom(0, 0, false); // up to x (ends at 2): x only
+    QCOMPARE(state.m_selection.size(), 1);
+
+    state.selectClipsFrom(0, 1, false); // up to y (ends at 5): x, y, z
+    QCOMPARE(state.m_selection.size(), 3);
+
+    state.setTrackLocked(2, true);
+    state.selectClipsFrom(0, 0, true); // from x: everything but the locked w
+    QCOMPARE(state.m_selection.size(), 3);
+}
+
+// Any picture goes on any picture track (CapCut): a video now lands on a graphic track too.
+void EditorStateTest::videoFitsAGraphicTrack()
+{
+    drift::Track graphic{.type = drift::TrackType::Shape};
+    QVERIFY(graphic.allowsClipType(drift::ClipType::Video));
+    QVERIFY(graphic.allowsClipType(drift::ClipType::Image));
+    QVERIFY(!graphic.allowsClipType(drift::ClipType::Audio));
+    QVERIFY(graphic.isPictureTrack());
+    QVERIFY(graphic.carriesSound());
+    drift::Track audio{.type = drift::TrackType::Audio};
+    QVERIFY(!audio.allowsClipType(drift::ClipType::Video));
+    QVERIFY(!audio.allowsClipType(drift::ClipType::Image));
+}
+
+// Video > Mask edits a clip's masks without leaving the clip: adding one keeps the clip
+// selected and focuses the new mask, the keyframe rows reach the focused one, and removing a
+// mask keeps the clip selected.
+void EditorStateTest::masksAreEditedInPlaceOnTheClip()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    drift::Project &project = *state.project();
+    project.setResolution(1920, 1080);
+    project.tracks().clear();
+    drift::Track track{.type = drift::TrackType::Video};
+    track.id = QStringLiteral("v1");
+    drift::Clip photo;
+    photo.id = QStringLiteral("photo");
+    photo.type = drift::ClipType::Image;
+    photo.timelineDuration = drift::secondsToUs(5.0);
+    photo.srcOut = photo.timelineDuration;
+    track.clips.append(photo);
+    project.tracks().append(track);
+
+    const auto hostIndex = [&state]() {
+        for (int t = 0; t < state.project()->tracks().size(); ++t) {
+            const drift::Track &tr = state.project()->tracks().at(t);
+            for (int c = 0; c < tr.clips.size(); ++c) {
+                if (tr.clips.at(c).id == QStringLiteral("photo"))
+                    return QPair<int, int>(t, c);
+            }
+        }
+        return QPair<int, int>(-1, -1);
+    };
+
+    const QString first = state.addMaskToClipInPlace(0, 0, QStringLiteral("ellipse"));
+    QVERIFY(!first.isEmpty());
+    QCOMPARE(state.focusedMask(), first);
+    QCOMPARE(QPair<int, int>(state.selectedTrack(), state.selectedClip()), hostIndex());
+
+    auto host = hostIndex();
+    const QString second = state.addMaskToClipInPlace(host.first, host.second, QStringLiteral("pen"));
+    QVERIFY(!second.isEmpty() && second != first);
+    QCOMPARE(state.focusedMask(), second);
+    host = hostIndex();
+    QVariantList masks = state.linkedMaskClips(host.first, host.second);
+    QCOMPARE(masks.size(), 2);
+
+    // The selected clip's "mask" is the focused one: the pen, a smooth freeform.
+    QVariantMap mask = state.selectedClipData().value(QStringLiteral("mask")).toMap();
+    QCOMPARE(mask.value(QStringLiteral("shape")).toString(), QStringLiteral("freeform"));
+    QVERIFY(mask.value(QStringLiteral("smooth")).toBool());
+    state.setFocusedMask(first);
+    mask = state.selectedClipData().value(QStringLiteral("mask")).toMap();
+    QCOMPARE(mask.value(QStringLiteral("shape")).toString(), QStringLiteral("ellipse"));
+
+    // A point added and one removed on the pen.
+    QVariantMap penRef;
+    for (const QVariant &m : masks) {
+        if (m.toMap().value(QStringLiteral("id")).toString() == second)
+            penRef = m.toMap();
+    }
+    const int penTrack = penRef.value(QStringLiteral("track")).toInt();
+    const int penClip = penRef.value(QStringLiteral("index")).toInt();
+    const int before = state.project()->tracks().at(penTrack).clips.at(penClip).mask.points.size();
+    state.insertMaskPoint(penTrack, penClip, 1, 0.5, 0.1);
+    QCOMPARE(state.project()->tracks().at(penTrack).clips.at(penClip).mask.points.size(), before + 1);
+    state.removeMaskPoint(penTrack, penClip, 0);
+    QCOMPARE(state.project()->tracks().at(penTrack).clips.at(penClip).mask.points.size(), before);
+
+    // Removing the pen keeps the photo selected.
+    state.removeLinkedMask(penTrack, penClip);
+    host = hostIndex();
+    QCOMPARE(state.linkedMaskClips(host.first, host.second).size(), 1);
+    QCOMPARE(QPair<int, int>(state.selectedTrack(), state.selectedClip()), host);
+}
 
 void EditorStateTest::transformTogetherWrapsTheSelection()
 {

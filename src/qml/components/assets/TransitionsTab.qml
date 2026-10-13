@@ -138,6 +138,16 @@ Item {
                 font.weight: Font.Medium
             }
 
+            // Past the end of a category, the wheel goes on into the next one (CapCut).
+            CategoryScrollOn {
+                anchors.fill: transitionGrid
+                flickable: transitionGrid
+                categories: root.categories
+                activeCategory: root.activeCategory
+                active: root.query.length === 0
+                onCategoryActivated: (categoryId) => root.activeCategory = categoryId
+            }
+
             GridView {
                 id: transitionGrid
                 // As many columns as fit at the nominal card size, rounded, with the cards stretched or

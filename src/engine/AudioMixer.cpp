@@ -607,7 +607,7 @@ void AudioMixer::mix(drift::TimeUs timelineStartUs, int sampleCount, int sampleR
                                     interleavedStereoOut, m_clipAudioMutex, m_clipAudio,
                                     live, laneKey, m_streamSalt, m_depth, serial, &peakL, &peakR);
             }
-        } else if (track.type == drift::TrackType::Video) {
+        } else if (track.isPictureTrack()) {
             for (const drift::Clip &clip : track.clips) {
                 if ((clip.type == drift::ClipType::Video || clip.type == drift::ClipType::Composite)
                     && !clip.suppressEmbeddedAudio) {

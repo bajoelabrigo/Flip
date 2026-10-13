@@ -2423,7 +2423,7 @@ QJsonObject McpController::audioSummary() const
         const drift::Track &track = tracks.at(t);
         // Same rule the mixer applies: audio clips always, video clips unless their embedded
         // audio is suppressed. Anything else on the timeline is silent by construction.
-        if (track.type != drift::TrackType::Audio && track.type != drift::TrackType::Video)
+        if (!track.carriesSound())
             continue;
 
         QJsonArray clipRows;

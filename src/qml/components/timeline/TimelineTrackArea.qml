@@ -24,9 +24,14 @@ Item {
     property real lastPreviewDesired: -1
     property int lastPreviewTrack: -1
 
+    readonly property bool locked: area.trackData.lockedEffective === true
+
     TimelineTrackClips {
         id: renderer
         anchors.fill: parent
+        // Locked: the clips are drawn but take no press, so nothing on the track can be picked,
+        // dragged or trimmed (EditorState refuses the selection too).
+        enabled: !area.locked
         viewState: area.viewState
         clipsModel: EditorState.clipsModel(area.trackIndex)
         trackIndex: area.trackIndex
@@ -136,6 +141,28 @@ Item {
                 return
             }
         }
+    }
+
+    // Locked: hatched over, as on CapCut.
+    Canvas {
+        anchors.fill: parent
+        visible: area.locked
+        z: 3
+        onPaint: {
+            const ctx = getContext("2d")
+            ctx.reset()
+            ctx.strokeStyle = Qt.rgba(0, 0, 0, 0.28)
+            ctx.lineWidth = 3
+            for (let x = -height; x < width; x += 10) {
+                ctx.beginPath()
+                ctx.moveTo(x, height)
+                ctx.lineTo(x + height, 0)
+                ctx.stroke()
+            }
+        }
+        onWidthChanged: requestPaint()
+        onHeightChanged: requestPaint()
+        onVisibleChanged: if (visible) requestPaint()
     }
 
     Repeater {

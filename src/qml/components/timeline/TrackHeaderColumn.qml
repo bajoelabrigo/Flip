@@ -330,6 +330,7 @@ Item {
             // getters) so the toggles rebind on tracksChanged.
             readonly property bool trackMuted: root.tracks[index].muted === true
             readonly property bool trackHidden: root.tracks[index].hidden === true
+            readonly property bool trackLocked: root.tracks[index].locked === true
             readonly property int clipDisplay: root.tracks[index].clipDisplay !== undefined
                                                ? root.tracks[index].clipDisplay : 1
             readonly property bool trackWaveform: clipDisplay === 2
@@ -619,9 +620,46 @@ Item {
                     }
                 }
 
+                // The padlock, as on CapCut: a locked track's clips cannot be picked, moved,
+                // trimmed, split or dropped on. A lane follows its track, so it has none.
                 IconGlyph {
+                    id: lockGlyph
+                    visible: root.tracks[index].isAdjustmentLane !== true
+                    glyph: trackLabelRow.trackLocked ? Theme.icons.lock : Theme.icons.lockOpen
+                    iconSize: 16
+                    iconColor: trackLabelRow.trackLocked ? Theme.primary : Theme.mutedForeground
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    Accessible.role: Accessible.CheckBox
+                    Accessible.name: trackLabelRow.trackLocked ? qsTr("Unlock track") : qsTr("Lock track")
+                    Accessible.checked: trackLabelRow.trackLocked
+                    Accessible.onToggleAction: lockMouse.clicked(null)
+
+                    ThemedToolTip {
+                        visible: lockMouse.containsMouse
+                        text: trackLabelRow.trackLocked
+                              ? qsTr("Unlock track")
+                              : qsTr("Lock track: its clips cannot be moved or edited")
+                    }
+
+                    MouseArea {
+                        id: lockMouse
+                        anchors.fill: parent
+                        anchors.margins: -4
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            Haptics.toggle(!trackLabelRow.trackLocked)
+                            EditorState.setTrackLocked(index, !trackLabelRow.trackLocked)
+                        }
+                    }
+                }
+
+                IconGlyph {
+                    // A graphic track gets one once a video with sound lands on it.
                     visible: root.tracks[index].type === "video"
                              || root.tracks[index].type === "audio"
+                             || (root.tracks[index].type === "shape" && root.tracks[index].hasAudio === true)
                     glyph: trackLabelRow.trackMuted ? Theme.icons.volumeOff : Theme.icons.volumeHigh
                     iconSize: 16
                     iconColor: trackLabelRow.trackMuted ? Theme.destructive : Theme.mutedForeground

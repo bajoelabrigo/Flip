@@ -2419,6 +2419,14 @@
         <translation>切り取りツール</translation>
     </message>
     <message>
+        <source>Select to the left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select to the right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>System default</source>
         <translation>システムデフォルト</translation>
     </message>
@@ -2905,6 +2913,10 @@
         <translation>絵文字を追加するには絵文字スタンプパックをインストールしてください</translation>
     </message>
     <message>
+        <source>This track is locked. Unlock it with the padlock in its header.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Edit clip</source>
         <translation>クリップを編集</translation>
     </message>
@@ -3349,6 +3361,14 @@
         <translation>マスクが追加されました</translation>
     </message>
     <message>
+        <source>Remove mask</source>
+        <translation type="unfinished">マスクを削除</translation>
+    </message>
+    <message>
+        <source>Mask removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add mask point</source>
         <translation>マスクポイントを追加</translation>
     </message>
@@ -3426,6 +3446,14 @@
     </message>
     <message>
         <source>Loudness set to %1 LUFS (it was %2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track locked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track unlocked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7684,6 +7712,13 @@
     </message>
 </context>
 <context>
+    <name>CategoryScrollOn</name>
+    <message>
+        <source>Keep scrolling for %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ChannelKeyButton</name>
     <message>
         <source>Remove %1 keyframe at the playhead</source>
@@ -11182,6 +11217,14 @@
     <message>
         <source>Mask changed</source>
         <translation>マスクを変更しました</translation>
+    </message>
+    <message>
+        <source>Drag to move. Right-click or Delete removes the point.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a point here</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drag a mask from the Masks tab onto a clip to edit it here</source>
@@ -19044,6 +19087,18 @@ If playback stutters, try another.</source>
         <translation>カメラを追加</translation>
     </message>
     <message>
+        <source>Select to the left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select to the right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pointer tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Main</source>
         <translation>メイン</translation>
     </message>
@@ -19452,6 +19507,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Record voiceover (mic)</source>
         <translation>ボイスオーバーを録音 (マイク)</translation>
+    </message>
+    <message>
+        <source>Unlock track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock track: its clips cannot be moved or edited</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Turn transform on</source>
@@ -20629,10 +20696,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished">すべてのファイル (*)</translation>
     </message>
     <message>
-        <source>Add mask</source>
-        <translation type="unfinished">マスクを追加</translation>
-    </message>
-    <message>
         <source>Slim or widen what the mesh follows</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20842,6 +20905,173 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>What the clip already carries</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VideoMaskPage</name>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">なし</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">矩形</translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">円</translation>
+    </message>
+    <message>
+        <source>Film strip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished">ハート</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">テキスト</translation>
+    </message>
+    <message>
+        <source>Freeform</source>
+        <translation type="unfinished">フリーフォーム</translation>
+    </message>
+    <message>
+        <source>Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cutout</source>
+        <translation type="unfinished">切り抜き</translation>
+    </message>
+    <message>
+        <source>TEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask</source>
+        <translation type="unfinished">マスク</translation>
+    </message>
+    <message>
+        <source>Mask %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add another mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to add a mask.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove this mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change this mask to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a %1 mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This mask is a cutout. Pick a shape above to add a shape mask next to it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 points. Drag a point in the preview to move it, click a + on a side to add one there, and right-click a point (or select it and press Delete) to remove it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add point</source>
+        <translation type="unfinished">ポイントを追加</translation>
+    </message>
+    <message>
+        <source>Adds a point in the middle of the longest side</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete point</source>
+        <translation type="unfinished">ポイントを削除</translation>
+    </message>
+    <message>
+        <source>Removes the selected point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Removes the last point. Click a point in the preview to choose another.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth curves (pen)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Center X</source>
+        <translation type="unfinished">センター X</translation>
+    </message>
+    <message>
+        <source>Center Y</source>
+        <translation type="unfinished">センター Y</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished">幅</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished">高さ</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished">回転</translation>
+    </message>
+    <message>
+        <source>Feather</source>
+        <translation type="unfinished">ぼかし</translation>
+    </message>
+    <message>
+        <source>Invert</source>
+        <translation type="unfinished">反転</translation>
+    </message>
+    <message>
+        <source>Combine with the masks before it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">加算</translation>
+    </message>
+    <message>
+        <source>Subtract</source>
+        <translation type="unfinished">減算</translation>
+    </message>
+    <message>
+        <source>Intersect</source>
+        <translation type="unfinished">交差</translation>
+    </message>
+    <message>
+        <source>Remove cutout</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

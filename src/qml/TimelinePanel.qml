@@ -37,7 +37,7 @@ PanelFrame {
     property real panLastSceneX: 0
     property real panLastSceneY: 0
 
-    // CapCut: V = Select, B = Blade. These are registered actions ("selectTool" /
+    // CapCut: V = Select, C = Blade, Shift+A / A = select to the left / right. These are registered actions ("selectTool" /
     // "bladeTool") so they appear in the shortcut list and can be rebound; the tool
     // state lives here rather than in the backend, so Main.qml dispatches them
     // alongside Escape, which exits the tool without clearing the selection.
@@ -2885,6 +2885,8 @@ PanelFrame {
 
                         readonly property bool trimMode: root.timelineTool === "trimStart"
                                                          || root.timelineTool === "trimEnd"
+                        readonly property bool selectMode: root.timelineTool === "selectLeft"
+                                                           || root.timelineTool === "selectRight"
                         readonly property var hoverClip: (root.cutHoverTrack >= 0 && root.cutHoverClip >= 0
                             && root.cutHoverTrack < root.tracks.length
                             && root.cutHoverClip < root.tracks[root.cutHoverTrack].clips.length)
@@ -2908,7 +2910,7 @@ PanelFrame {
                             id: cutMouse
                             anchors.fill: parent
                             hoverEnabled: true
-                            cursorShape: Qt.CrossCursor
+                            cursorShape: cutOverlay.selectMode ? Qt.PointingHandCursor : Qt.CrossCursor
                             acceptedButtons: Qt.LeftButton
                             onEntered: cutOverlay.updateHover(mouseX, mouseY)
                             onPositionChanged: (mouse) => cutOverlay.updateHover(mouse.x, mouse.y)
@@ -2925,7 +2927,10 @@ PanelFrame {
                                 const clipIdx = root.clipIndexAtPosition(trackIdx, Math.max(0, mouse.x))
                                 if (clipIdx < 0)
                                     return
-                                if (root.timelineTool === "trimStart")
+                                if (cutOverlay.selectMode)
+                                    EditorState.selectClipsFrom(trackIdx, clipIdx,
+                                                                root.timelineTool === "selectRight")
+                                else if (root.timelineTool === "trimStart")
                                     EditorState.splitClipLeftAt(trackIdx, clipIdx, atSeconds)
                                 else if (root.timelineTool === "trimEnd")
                                     EditorState.splitClipRightAt(trackIdx, clipIdx, atSeconds)
@@ -2980,10 +2985,26 @@ PanelFrame {
                             }
                         }
 
+                        // Select left / right: a band over everything the click would take,
+                        // from the hovered clip's edge to that end of the timeline.
+                        Rectangle {
+                            visible: cutOverlay.selectMode && cutOverlay.hoverClip !== null
+                            readonly property real edgeX: !cutOverlay.hoverClip ? 0
+                                : root.timelineTool === "selectRight"
+                                  ? cutOverlay.hoverClip.start * root.pxPerSecond
+                                  : (cutOverlay.hoverClip.start + cutOverlay.hoverClip.duration) * root.pxPerSecond
+                            x: root.timelineTool === "selectRight" ? edgeX : 0
+                            width: root.timelineTool === "selectRight" ? Math.max(0, cutOverlay.width - edgeX) : edgeX
+                            height: cutOverlay.height
+                            color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.12)
+                            border.width: 1
+                            border.color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.6)
+                        }
+
                         // Red dashed virtual playhead. A column of dashes reflows
                         // with the track height without any repaint plumbing.
                         Column {
-                            visible: root.cutHoverSeconds >= 0
+                            visible: root.cutHoverSeconds >= 0 && !cutOverlay.selectMode
                             x: root.cutHoverSeconds * root.pxPerSecond
                             spacing: 3
                             Repeater {
