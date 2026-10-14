@@ -36,6 +36,8 @@ class AccountController : public QObject
     Q_PROPERTY(QUrl avatarUrl READ avatarUrl NOTIFY accountChanged)
     // Last failure in one sentence, cleared when a new attempt starts.
     Q_PROPERTY(QString error READ error NOTIFY errorChanged)
+    // Google's sign-in page while a sign-in is waiting, so it can be copied when no browser opened.
+    Q_PROPERTY(QString signInUrl READ signInUrl NOTIFY busyChanged)
     // The first-launch welcome ("Sign in with Google / Continue without an account") is still due.
     Q_PROPERTY(bool needsWelcome READ needsWelcome NOTIFY needsWelcomeChanged)
 
@@ -50,6 +52,7 @@ public:
     QString email() const { return m_email; }
     QUrl avatarUrl() const { return m_avatarUrl; }
     QString error() const { return m_error; }
+    QString signInUrl() const { return m_busy ? m_signInUrl : QString(); }
     bool needsWelcome() const;
 
     // A valid access token, or empty when signed out. May be about to expire; callers that get a
@@ -58,6 +61,8 @@ public:
 
     Q_INVOKABLE void signIn();
     Q_INVOKABLE void cancelSignIn();
+    // Puts signInUrl on the clipboard, for pasting into a browser by hand.
+    Q_INVOKABLE void copySignInUrl();
     Q_INVOKABLE void signOut();
     // Deletes the account on the server (sessions too; installs become anonymous), then signs out.
     Q_INVOKABLE void deleteAccount();
@@ -89,6 +94,7 @@ private:
     void setBusy(bool busy);
     void setError(const QString &error);
     void finishLoopback();
+    bool openBrowser(const QUrl &url);
     void handleRedirect(const QByteArray &requestLine, class QTcpSocket *socket);
     void exchangeCode(const QString &code);
     void applySession(const QByteArray &payload);
@@ -103,6 +109,7 @@ private:
     QString m_verifier;
     QString m_state;
     QString m_redirectUri;
+    QString m_signInUrl;
 
     QString m_accessToken;
     qint64 m_accessExpiresAt = 0;

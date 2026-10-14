@@ -3,13 +3,16 @@
 
 #include <QCryptographicHash>
 #include <QDateTime>
+#include <QClipboard>
 #include <QDesktopServices>
+#include <QGuiApplication>
 #include <QHostAddress>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
+#include <QProcess>
 #include <QRandomGenerator>
 #include <QSettings>
 #include <QSysInfo>
@@ -220,14 +223,37 @@ void AccountController::signIn()
     query.addQueryItem(QStringLiteral("prompt"), QStringLiteral("select_account"));
     auth.setQuery(query);
 
+    m_signInUrl = auth.toString(QUrl::FullyEncoded);
     setBusy(true);
     m_loopbackTimeout->start();
-    if (!QDesktopServices::openUrl(auth)) {
-        finishLoopback();
-        setBusy(false);
-        setError(tr("Could not open the web browser."));
-        emit signInFinished(false);
-    }
+    // The sign-in keeps waiting either way: with no browser opened, the dialog offers the link to
+    // paste into one, and the redirect still comes back to this computer.
+    if (!openBrowser(auth))
+        setError(tr("Could not open the web browser. Copy the link and paste it into your browser."));
+}
+
+bool AccountController::openBrowser(const QUrl &url)
+{
+    if (QDesktopServices::openUrl(url))
+        return true;
+#ifdef Q_OS_WIN
+    // QDesktopServices has been seen failing here with "ShellExecute … failed (error 2)" while
+    // the same URL opened fine from another process. A fresh helper process hands the URL to the
+    // shell with a clean environment.
+    if (QProcess::startDetached(QStringLiteral("rundll32.exe"),
+                                {QStringLiteral("url.dll,FileProtocolHandler"),
+                                 url.toString(QUrl::FullyEncoded)}))
+        return true;
+#endif
+    return false;
+}
+
+void AccountController::copySignInUrl()
+{
+    if (m_signInUrl.isEmpty())
+        return;
+    if (auto *clipboard = QGuiApplication::clipboard())
+        clipboard->setText(m_signInUrl);
 }
 
 void AccountController::cancelSignIn()

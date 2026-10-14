@@ -254,6 +254,10 @@ Item {
                 onClicked: Account.signIn()
             }
 
+            CopySignInLinkButton {
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
             ThemedLabel {
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter

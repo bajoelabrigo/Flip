@@ -510,6 +510,8 @@ Item {
                         onClicked: Account.cancelSignIn()
                     }
 
+                    CopySignInLinkButton { }
+
                     ThemedButton {
                         visible: Account.signedIn
                         variant: "secondary"

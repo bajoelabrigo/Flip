@@ -43,7 +43,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Could not open the web browser.</source>
+        <source>Could not open the web browser. Copy the link and paste it into your browser.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8232,6 +8232,21 @@
     </message>
     <message>
         <source>Select Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CopySignInLinkButton</name>
+    <message>
+        <source>Link copied — paste it into your browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy the link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If no browser window opened, paste this link into your browser to sign in.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

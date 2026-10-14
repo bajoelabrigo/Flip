@@ -53,6 +53,10 @@ ThemedDialog {
             text: qsTr("Choose your account in the browser window that opened, then come back here.")
         }
 
+        CopySignInLinkButton {
+            width: parent.width
+        }
+
         ThemedLabel {
             width: parent.width
             visible: Account.error.length > 0

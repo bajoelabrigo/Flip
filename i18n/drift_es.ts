@@ -43,8 +43,8 @@
         <translation>No se pudo iniciar sesión en este equipo.</translation>
     </message>
     <message>
-        <source>Could not open the web browser.</source>
-        <translation>No se pudo abrir el navegador.</translation>
+        <source>Could not open the web browser. Copy the link and paste it into your browser.</source>
+        <translation>No se pudo abrir el navegador. Copia el enlace y pégalo en tu navegador.</translation>
     </message>
     <message>
         <source>Sign-in failed</source>
@@ -8233,6 +8233,21 @@
     <message>
         <source>Select Color</source>
         <translation>Seleccionar color</translation>
+    </message>
+</context>
+<context>
+    <name>CopySignInLinkButton</name>
+    <message>
+        <source>Link copied — paste it into your browser</source>
+        <translation>Enlace copiado: pégalo en tu navegador</translation>
+    </message>
+    <message>
+        <source>Copy the link</source>
+        <translation>Copiar el enlace</translation>
+    </message>
+    <message>
+        <source>If no browser window opened, paste this link into your browser to sign in.</source>
+        <translation>Si no se abrió el navegador, pega este enlace en tu navegador para iniciar sesión.</translation>
     </message>
 </context>
 <context>
