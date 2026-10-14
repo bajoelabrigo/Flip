@@ -672,6 +672,15 @@ public:
     // become draggable and it stops following the clip.
     Q_INVOKABLE void unlinkAdjustment(int trackIndex, int clipIndex);
     Q_INVOKABLE void relinkAdjustment(int trackIndex, int clipIndex, int mediaTrack, int mediaClip);
+    // What an adjustment or mask layer applies to, as Photoshop's clipped adjustment layers:
+    // everything below it (standalone), one track (a lane) or one clip of it (a pinned lane).
+    // {mode: "allBelow"|"track"|"clip", targetTrack, targetClipId, targets: [{track, clip, id,
+    // name, kind, trackLabel}]}; targets are the visual clips below it that it overlaps, nearest
+    // track first. Empty for anything that is not such a layer.
+    Q_INVOKABLE QVariantMap adjustmentTargetState(int trackIndex, int clipIndex) const;
+    // One undo step that re-scopes it and keeps it selected: targetTrack < 0 for everything below,
+    // else that track, pinned to `targetClip` when it is >= 0.
+    Q_INVOKABLE void setAdjustmentTarget(int trackIndex, int clipIndex, int targetTrack, int targetClip);
     Q_INVOKABLE void addStickerClip(const QString &stickerId, double atSeconds,
                                     int trackIndex = -1);
     Q_INVOKABLE QVariantList builtinStickers() const;
@@ -1074,6 +1083,10 @@ public:
     // Renders the composite clip's range to a new video file and swaps the clip (and any audio
     // separated from it) over to that file. Runs in the background on the export slot.
     Q_INVOKABLE bool flattenComposite(int trackIndex, int clipIndex);
+    // Puts a group's clips back on the main timeline where it plays them, as Photoshop's Ungroup.
+    // One undo step. Refused (with a message) when the group has motion, speed, effects or layers
+    // of its own that would be lost.
+    Q_INVOKABLE bool ungroupComposite(int trackIndex, int clipIndex);
     Q_INVOKABLE void separateAllAudioTracks(int trackIndex, int clipIndex);
     Q_INVOKABLE void separateAllAudioTracksFromSelection();
     Q_INVOKABLE QVariantList clipAudioStreams(int trackIndex, int clipIndex) const;

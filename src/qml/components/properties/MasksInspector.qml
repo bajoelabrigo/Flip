@@ -83,6 +83,13 @@ Item {
         width: root.width
         spacing: Theme.spacingXl
 
+        // A mask layer, like an adjustment layer: over everything under it, or clipped to one clip.
+        // An effects layer has this in its own tab.
+        AdjustmentTargetSection {
+            width: parent.width
+            visible: available && root.clipKind === "adjustment" && root.clipData.adjustmentKind === "mask"
+        }
+
         // Which masks this clip carries. A media clip's masks are adjustments pinned to it, so
         // this row is the way in: pick one and it becomes the selection the fields below edit.
         Column {

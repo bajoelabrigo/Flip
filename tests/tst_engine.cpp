@@ -366,6 +366,7 @@ private slots:
     void softLightVignetteAndGrainForAdjustmentLayers();
     void gradientExpandAndOpacityMasks();
     void layerMaskStackAndMasksThatLimitEffects();
+    void laneAdjustmentMasksScopeItsEffects();
     void pinnedLaneAdjustmentsStayOnTheirOwnClip();
     void transformLayerMatrixMapsTheBox();
     void parentedQuadKeepsDepthAndNearPlanes();
@@ -11265,6 +11266,86 @@ void EngineTest::layerMaskStackAndMasksThatLimitEffects()
     QVERIFY2(outside.red() > 200 && outside.green() < 40, qPrintable(outside.name()));
     const QImage cut = render(false);
     QVERIFY2(cut.pixelColor(2, 2).red() < 20, qPrintable(cut.pixelColor(2, 2).name()));
+}
+
+// An adjustment layer on a clip's lane folds its effects into that clip's chain; its own masks
+// used to be dropped on the way, so the grade covered the whole clip. They now scope its run of
+// the chain: the effect inside, the clip untouched outside, and the clip's other effects unscoped.
+void EngineTest::laneAdjustmentMasksScopeItsEffects()
+{
+    drift::Project project;
+    project.setResolution(64, 64);
+    project.tracks().clear();
+    project.tracks().append(drift::Track{.type = drift::TrackType::Video});
+    drift::Clip host;
+    host.id = QStringLiteral("host");
+    host.type = drift::ClipType::Shape;
+    host.timelineDuration = drift::secondsToUs(4.0);
+    host.shapeStyle.kind = drift::ShapeKind::Rectangle;
+    drift::Effect grey;
+    grey.catalogId = QStringLiteral("stylize.grayscale");
+    host.effects.append(grey);
+    project.tracks()[0].clips.append(host);
+
+    const int lane = drift::ensureAdjustmentLane(project, 0, drift::AdjustmentKind::VideoEffects, 0,
+                                                 drift::secondsToUs(4.0));
+    QVERIFY(lane >= 0);
+    drift::Clip layer;
+    layer.id = QStringLiteral("adj");
+    layer.type = drift::ClipType::Adjustment;
+    layer.adjustmentKind = drift::AdjustmentKind::VideoEffects;
+    layer.timelineDuration = drift::secondsToUs(4.0);
+    layer.effects.append(grey);
+    layer.mask.shape = drift::MaskShape::Rectangle;
+    drift::Mask second;
+    second.shape = drift::MaskShape::Ellipse;
+    second.op = drift::MaskOp::Subtract;
+    layer.extraMasks.append(second);
+    project.tracks()[lane].clips.append(layer);
+
+    FrameCompositor compositor;
+    compositor.setProject(&project);
+    GpuScene scene;
+    QVERIFY(compositor.buildSceneAt(drift::secondsToUs(1.0), FrameCompositor::RenderOptions{}, &scene));
+    QCOMPARE(scene.items.size(), 1);
+    const GpuLayer &built = scene.items.constFirst().layer;
+    QCOMPARE(built.effects.size(), 2);
+    QVERIFY(built.masks.isEmpty()); // the clip itself is not cut
+    QCOMPARE(built.effectScopes.size(), 1);
+    QCOMPARE(built.effectScopes.constFirst().first, 1); // after the clip's own effect
+    QCOMPARE(built.effectScopes.constFirst().count, 1);
+    QCOMPARE(built.effectScopes.constFirst().masks.size(), 2);
+
+    // Switched off, the mask no longer scopes anything.
+    project.tracks()[lane].clips[0].mask.enabled = false;
+    project.tracks()[lane].clips[0].extraMasks[0].enabled = false;
+    GpuScene unmasked;
+    QVERIFY(compositor.buildSceneAt(drift::secondsToUs(1.0), FrameCompositor::RenderOptions{}, &unmasked));
+    QVERIFY(unmasked.items.constFirst().layer.effectScopes.isEmpty());
+
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+    QImage red(32, 32, QImage::Format_RGBA8888);
+    red.fill(QColor(230, 20, 10));
+    drift::Mask centre;
+    centre.shape = drift::MaskShape::Rectangle;
+    centre.x = centre.y = 0.5;
+    centre.w = centre.h = 0.5;
+    GpuItem item;
+    item.layer.valid = true;
+    item.layer.source = red;
+    item.layer.rect = QRectF(0, 0, 32, 32);
+    item.layer.effects.append(grey);
+    item.layer.effectScopes.append(GpuLayer::ScopedEffects{0, 1, {centre}, {MaskMediaFrame{}}});
+    GpuScene one;
+    one.canvasSize = QSize(32, 32);
+    one.backgroundColor = Qt::black;
+    one.items.append(item);
+    const QImage image = GpuCompositor::render(one);
+    const QColor inside = image.pixelColor(16, 16);
+    const QColor outside = image.pixelColor(2, 2);
+    QVERIFY2(qAbs(inside.red() - inside.green()) <= 6, qPrintable(inside.name()));
+    QVERIFY2(outside.red() > 200 && outside.green() < 40, qPrintable(outside.name()));
 }
 
 // A transition draws the incoming clip across instants that belong to the outgoing one, where the

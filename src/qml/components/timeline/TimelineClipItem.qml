@@ -336,6 +336,17 @@ Item {
             // Loader's item there would destroy an object still unwinding.
             onClosed: Qt.callLater(function() { clipContextMenuLoader.active = false })
 
+            // Several clips selected: first thing offered, as Photoshop's Group. A group is a
+            // composite — one clip on the timeline, opened to edit what is inside, and an
+            // adjustment or mask layer can be clipped to it alone.
+            ThemedMenuItem {
+                text: qsTr("Group")
+                icon.name: Theme.icons.group
+                visible: EditorState.selection.length > 1 && EditorState.makeCompositeAvailable
+                onTriggered: EditorState.makeCompositeFromSelection()
+            }
+            ThemedMenuSeparator { visible: EditorState.selection.length > 1 && EditorState.makeCompositeAvailable }
+
             ThemedMenuItem {
                 text: qsTr("Properties")
                 icon.name: Theme.icons.sliders
@@ -361,6 +372,14 @@ Item {
                 onTriggered: EditorState.openCompositeClip(clipItem.trackIndex, clipItem.clipIndex)
             }
             ThemedMenuItem {
+                // Puts its clips back on the timeline, as Photoshop's Ungroup.
+                text: qsTr("Ungroup")
+                icon.name: Theme.icons.group
+                visible: clipItem.clipData.kind === "composite"
+                onTriggered: EditorState.ungroupComposite(clipItem.trackIndex, clipItem.clipIndex)
+            }
+            ThemedMenuItem {
+                // Renders it into one video clip.
                 text: qsTr("Flatten composite")
                 icon.name: Theme.icons.film
                 visible: clipItem.clipData.kind === "composite"
@@ -370,7 +389,8 @@ Item {
             ThemedMenuItem {
                 text: qsTr("Make composite")
                 icon.name: Theme.icons.layers
-                visible: EditorState.makeCompositeAvailable
+                // With several clips selected, Group (at the top) is this same action.
+                visible: EditorState.makeCompositeAvailable && EditorState.selection.length <= 1
                 onTriggered: EditorState.makeCompositeFromSelection()
             }
             ThemedMenuItem {

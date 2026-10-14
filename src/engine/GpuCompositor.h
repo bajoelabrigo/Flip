@@ -73,6 +73,17 @@ struct GpuLayer
     // The masks limit where `effects` show (inside: the effects, outside: the layer untouched)
     // rather than cutting the layer. buildLayerTarget mixes by the folded coverage.
     bool masksLimitEffects = false;
+    // A run of `effects` that came from one lane adjustment carrying masks of its own: the run shows
+    // only inside them (mixed by coverage, like masksLimitEffects), in this clip's frame. The masks
+    // are separate from `masks`, which still cut or limit the layer as a whole.
+    struct ScopedEffects
+    {
+        int first = 0;
+        int count = 0;
+        QList<drift::Mask> masks;
+        QList<MaskMediaFrame> maskMedia; // index-parallel with `masks`, as below
+    };
+    QList<ScopedEffects> effectScopes;
     // Index-parallel with `masks`: this frame's decoded coverage map for each Media entry, null
     // for parametric ones. Decoded by FrameCompositor, which is the only place that knows the time.
     QList<MaskMediaFrame> maskMedia;

@@ -619,8 +619,8 @@
         <translation>Intensidad</translation>
     </message>
     <message>
-        <source>Everything you put on this layer (effects, colour, masks) applies to whatever is under it while it lasts, without touching those clips. Stretch or move it on the timeline to change where it acts.</source>
-        <translation>Todo lo que le pongas a esta capa (efectos, color, máscaras) se aplica a lo que hay debajo mientras dura, sin tocar esos clips. Alárgala o muévela en la línea de tiempo para cambiar dónde actúa.</translation>
+        <source>Everything you put on this layer (effects, colour, masks) applies while it lasts, without touching the clips themselves. Stretch or move it on the timeline to change when it acts.</source>
+        <translation>Todo lo que pongas en esta capa (efectos, color, máscaras) se aplica mientras dura, sin tocar los clips. Estírala o muévela en la línea de tiempo para cambiar cuándo actúa.</translation>
     </message>
     <message>
         <source>It does not change anything yet: give it an effect (Effects tab) or a colour adjustment (Adjust tab). A mask only marks where they act.</source>
@@ -649,6 +649,85 @@
     <message>
         <source>0 %: what is under it, untouched. 100 %: the whole layer. In between, a mix of the two.</source>
         <translation>0 %: lo de debajo tal cual. 100 %: la capa completa. En medio, una mezcla de los dos.</translation>
+    </message>
+</context>
+<context>
+    <name>AdjustmentTargetSection</name>
+    <message>
+        <source>Video</source>
+        <translation>Video</translation>
+    </message>
+    <message>
+        <source>Photo</source>
+        <translation>Foto</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texto</translation>
+    </message>
+    <message>
+        <source>Subtitles</source>
+        <translation>Subtítulos</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Grupo</translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation>Animación</translation>
+    </message>
+    <message>
+        <source>Clip</source>
+        <translation>Clip</translation>
+    </message>
+    <message>
+        <source>Everything below it</source>
+        <translation>Todo lo de abajo</translation>
+    </message>
+    <message>
+        <source>The whole track below</source>
+        <translation>Toda la pista de abajo</translation>
+    </message>
+    <message>
+        <source>The whole track «%1»</source>
+        <translation>Toda la pista «%1»</translation>
+    </message>
+    <message>
+        <source>Only %1: %2</source>
+        <translation>Solo %1: %2</translation>
+    </message>
+    <message>
+        <source>untitled</source>
+        <translation>sin nombre</translation>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation>Aplicar a</translation>
+    </message>
+    <message>
+        <source>Like an adjustment layer in Photoshop: over everything under it, or clipped to one clip</source>
+        <translation>Como una capa de ajuste en Photoshop: sobre todo lo de abajo, o enlazada a un solo clip</translation>
+    </message>
+    <message>
+        <source>The mask cuts everything under it while it lasts.</source>
+        <translation>La máscara recorta todo lo de abajo mientras dura.</translation>
+    </message>
+    <message>
+        <source>Changes everything under it while it lasts.</source>
+        <translation>Cambia todo lo de abajo mientras dura.</translation>
+    </message>
+    <message>
+        <source>The mask cuts only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
+        <translation>La máscara recorta solo ese clip; lo demás queda igual. En la línea de tiempo se dibuja dentro de la fila del clip.</translation>
+    </message>
+    <message>
+        <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
+        <translation>Cambia solo ese clip; lo demás queda igual. En la línea de tiempo se dibuja dentro de la fila del clip.</translation>
     </message>
 </context>
 <context>
@@ -3025,6 +3104,22 @@
         <translation>Ajuste vinculado</translation>
     </message>
     <message>
+        <source>Change what the layer applies to</source>
+        <translation>Cambiar a qué se aplica la capa</translation>
+    </message>
+    <message>
+        <source>The layer applies to everything below it</source>
+        <translation>La capa se aplica a todo lo de abajo</translation>
+    </message>
+    <message>
+        <source>The layer applies to one track</source>
+        <translation>La capa se aplica a una pista</translation>
+    </message>
+    <message>
+        <source>The layer applies to one clip</source>
+        <translation>La capa se aplica a un solo clip</translation>
+    </message>
+    <message>
         <source>Install the emoji sticker pack to add emoji</source>
         <translation>Instala el paquete de pegatinas de emojis para añadir emojis</translation>
     </message>
@@ -3327,6 +3422,18 @@
     <message>
         <source>Could not flatten the composite: %1</source>
         <translation>No se pudo acoplar la composición: %1</translation>
+    </message>
+    <message>
+        <source>This group was moved, changed or has layers of its own; ungrouping would lose them. Open it to edit its clips, or undo those changes first.</source>
+        <translation>Este grupo se movió, se cambió o tiene capas propias, y al desagruparlo se perderían. Ábrelo para editar sus clips, o deshaz esos cambios primero.</translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation>Desagrupar</translation>
+    </message>
+    <message>
+        <source>Ungrouped</source>
+        <translation>Desagrupado</translation>
     </message>
     <message>
         <source>The composite clip was removed before flattening finished</source>
@@ -10325,6 +10432,22 @@
     <message>
         <source>Adjustment</source>
         <translation>Ajuste</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Grupo</translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation>Animación</translation>
+    </message>
+    <message>
+        <source>3D Model</source>
+        <translation>Modelo 3D</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation>PDF</translation>
     </message>
     <message>
         <source>Clip name</source>
@@ -19247,6 +19370,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>%1, pista %2</translation>
     </message>
     <message>
+        <source>Group</source>
+        <translation>Agrupar</translation>
+    </message>
+    <message>
         <source>Properties</source>
         <translation>Propiedades</translation>
     </message>
@@ -19259,8 +19386,12 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Abrir clip compuesto</translation>
     </message>
     <message>
+        <source>Ungroup</source>
+        <translation>Desagrupar</translation>
+    </message>
+    <message>
         <source>Flatten composite</source>
-        <translation>Acoplar clip compuesto</translation>
+        <translation>Acoplar composición</translation>
     </message>
     <message>
         <source>Make composite</source>

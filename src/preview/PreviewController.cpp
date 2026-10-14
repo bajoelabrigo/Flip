@@ -1209,9 +1209,9 @@ QVariantMap PreviewController::maskEditorState() const
     };
 
     if (selectedClip.type == drift::ClipType::Adjustment) {
-        // A Mask adjustment, or a standalone video-effects layer whose masks scope its effects.
+        // A Mask adjustment, or a video-effects layer whose masks scope its effects (standalone,
+        // or nested in a lane, where they are placed on the host clip like a Mask adjustment's).
         const bool layerWithMask = selectedClip.adjustmentKind == drift::AdjustmentKind::VideoEffects
-                                   && !selectedTrack.isAdjustmentLane()
                                    && selectedClip.focusedMask().shape != drift::MaskShape::None;
         if (selectedClip.adjustmentKind != drift::AdjustmentKind::Mask && !layerWithMask)
             return out;
@@ -1276,7 +1276,11 @@ QVariantMap PreviewController::maskEditorState() const
             const drift::Track &lane = m_app.m_project.tracks().at(laneIndex);
             for (int c = 0; c < lane.clips.size(); ++c) {
                 const drift::Clip &adjustment = lane.clips.at(c);
-                if (adjustment.adjustmentKind != drift::AdjustmentKind::Mask)
+                // A video-effects layer's mask shows only while that layer is the one selected.
+                const bool selectedEffectsLayer =
+                    adjustment.adjustmentKind == drift::AdjustmentKind::VideoEffects
+                    && adjustment.id == selectedAdjustmentId;
+                if (adjustment.adjustmentKind != drift::AdjustmentKind::Mask && !selectedEffectsLayer)
                     continue;
                 if (!adjustment.containsTime(m_app.m_playheadUs))
                     continue;

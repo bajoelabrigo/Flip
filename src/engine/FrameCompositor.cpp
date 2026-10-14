@@ -570,10 +570,21 @@ QList<drift::Effect> resolvedClipEffects(const drift::Clip &clip, drift::TimeUs 
 // Keyframes resolve against the adjustment's own start, so an unlinked lane adjustment spanning
 // several clips animates over its own span rather than restarting on each one. For a linked
 // adjustment the two coincide, which is why migrated effects keyframe exactly as before.
-QList<drift::Effect> laneAdjustmentEffects(const drift::Project &project, int trackIndex,
-                                           drift::TimeUs timelineUs, const QString &hostClipId)
+//
+// An adjustment layer's own masks scope its effects: they show only inside them, in the host
+// clip's frame (where the viewer puts their handles). They ride along index-parallel in `masks`.
+struct LaneChain
 {
-    QList<drift::Effect> result;
+    QList<drift::Effect> effects;
+    // Index-parallel with `effects`: the masks of the adjustment the effect came from, resolved at
+    // this instant; empty when it has none.
+    QList<QList<drift::LaneMask>> masks;
+};
+
+LaneChain laneAdjustmentChain(const drift::Project &project, int trackIndex, drift::TimeUs timelineUs,
+                              const QString &hostClipId)
+{
+    LaneChain result;
     for (const int laneIndex : drift::adjustmentLaneIndexes(project, trackIndex)) {
         const drift::Track &lane = project.tracks().at(laneIndex);
         if (lane.hidden)
@@ -585,15 +596,29 @@ QList<drift::Effect> laneAdjustmentEffects(const drift::Project &project, int tr
                 continue;
             if (!adjustment.linkedClipId.isEmpty() && adjustment.linkedClipId != hostClipId)
                 continue;
+            const drift::TimeUs localUs = timelineUs - adjustment.timelineStart;
+            QList<drift::LaneMask> masks;
+            for (const drift::Mask &mask : adjustment.maskStack()) {
+                if (mask.contributes())
+                    masks.append(drift::LaneMask{mask.isAnimated() ? mask.resolvedAt(localUs) : mask, adjustment.id});
+            }
             // time_echo stays in: buildGpuLayer lifts it out for the decode, which is the only
             // place a trail can be built. Resolved here, against the adjustment's own start.
             for (const drift::Effect &effect : adjustment.effects) {
-                if (effect.enabled)
-                    result.append(effect.resolvedAt(timelineUs - adjustment.timelineStart));
+                if (!effect.enabled)
+                    continue;
+                result.effects.append(effect.resolvedAt(localUs));
+                result.masks.append(masks);
             }
         }
     }
     return result;
+}
+
+QList<drift::Effect> laneAdjustmentEffects(const drift::Project &project, int trackIndex,
+                                           drift::TimeUs timelineUs, const QString &hostClipId)
+{
+    return laneAdjustmentChain(project, trackIndex, timelineUs, hostClipId).effects;
 }
 
 QList<drift::Mask> plainMasks(const QList<drift::LaneMask> &laneMasks)
@@ -1149,7 +1174,7 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
                        drift::TimeUs timelineUs, int projectWidth,
                        int projectHeight, double renderScale, int canvasWidth, int canvasHeight,
                        int projectFps, int maxTimeEchoHistoryFrames,
-                       const QList<drift::Effect> &laneEffects = {},
+                       const LaneChain &lane = {},
                        const QList<drift::LaneMask> &laneMasks = {},
                        bool editingText = false)
 {
@@ -1162,10 +1187,13 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
     const drift::Effect *timeEcho = findTimeEchoEffect(clip.effects);
     drift::Effect laneEcho;
     QList<drift::Effect> laneChain;
-    laneChain.reserve(laneEffects.size());
-    for (const drift::Effect &effect : laneEffects) {
+    QList<QList<drift::LaneMask>> laneChainMasks;
+    laneChain.reserve(lane.effects.size());
+    for (int i = 0; i < lane.effects.size(); ++i) {
+        const drift::Effect &effect = lane.effects.at(i);
         if (effect.catalogId != QStringLiteral("time_echo")) {
             laneChain.append(effect);
+            laneChainMasks.append(lane.masks.value(i));
         } else if (!timeEcho) {
             laneEcho = effect;
             timeEcho = &laneEcho;
@@ -1339,6 +1367,30 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
     layer.clipTimeUs = timelineUs - clip.timelineStart;
     // After the clip's own chain: a lane sits above the clip in the timeline, so it reads as the
     // later treatment. Derived face slots come after, so a lane's face effect binds too.
+    // Each adjustment with masks of its own becomes one scope over its run of the chain.
+    const int laneOffset = layer.effects.size();
+    for (int i = 0; i < laneChain.size(); ++i) {
+        const QList<drift::LaneMask> &masks = laneChainMasks.at(i);
+        if (masks.isEmpty())
+            continue;
+        const QString owner = masks.first().adjustmentId;
+        if (!layer.effectScopes.isEmpty()) {
+            GpuLayer::ScopedEffects &last = layer.effectScopes.last();
+            if (last.first + last.count == laneOffset + i
+                && laneChainMasks.at(i - 1).value(0).adjustmentId == owner) {
+                ++last.count;
+                continue;
+            }
+        }
+        GpuLayer::ScopedEffects scope;
+        scope.first = laneOffset + i;
+        scope.count = 1;
+        GpuLayer coverage;
+        fillGpuLayerMasks(coverage, clip, masks, timelineUs, canvasWidth, canvasHeight);
+        scope.masks = coverage.masks;
+        scope.maskMedia = coverage.maskMedia;
+        layer.effectScopes.append(scope);
+    }
     layer.effects.append(laneChain);
     // The clip's masks limit where its effects land, instead of cutting it.
     layer.masksLimitEffects = clip.masksLimitEffects && !layer.effects.isEmpty();
@@ -1379,6 +1431,7 @@ void appendTextEditDecor(GpuScene &scene, const GpuItem &textItem, const drift::
     layer.vector = painted.painter;
     layer.source = QImage();
     layer.effects.clear();
+    layer.effectScopes.clear();
     layer.masks.clear();
     layer.maskMedia.clear();
     layer.fgr = {};
@@ -1557,11 +1610,11 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
                 item.isTransition = true;
                 item.from = buildGpuLayer(project, *fromClip, timelineUs, projectWidth, projectHeight, renderScale,
                                           width, height, fps, options.maxTimeEchoHistoryFrames,
-                                          laneAdjustmentEffects(project, ti, timelineUs, fromClip->id),
+                                          laneAdjustmentChain(project, ti, timelineUs, fromClip->id),
                                           drift::laneMasksAt(project, ti, timelineUs, fromClip->id));
                 item.to = buildGpuLayer(project, *toClip, timelineUs, projectWidth, projectHeight, renderScale,
                                         width, height, fps, options.maxTimeEchoHistoryFrames,
-                                        laneAdjustmentEffects(project, ti, timelineUs, toClip->id),
+                                        laneAdjustmentChain(project, ti, timelineUs, toClip->id),
                                         drift::laneMasksAt(project, ti, timelineUs, toClip->id));
                 applyParent(item.from, ti);
                 applyParent(item.to, ti);
@@ -1640,7 +1693,7 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
             item.blend = clip.blendMode;
             item.layer = buildGpuLayer(project, clip, timelineUs, projectWidth, projectHeight, renderScale, width,
                                        height, fps, options.maxTimeEchoHistoryFrames,
-                                       laneAdjustmentEffects(project, ti, timelineUs, clip.id),
+                                       laneAdjustmentChain(project, ti, timelineUs, clip.id),
                                        drift::laneMasksAt(project, ti, timelineUs, clip.id), editingText);
             if (!item.layer.valid)
                 continue;

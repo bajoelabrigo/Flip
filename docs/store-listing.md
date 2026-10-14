@@ -97,8 +97,42 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
-**Notas de la versión (0.9.8)**. Este texto va en "Novedades de esta versión" de Partner
-Center; el límite es de 1500 caracteres (este texto tiene 736).
+**Notas para la Store (0.9.7 + 0.9.8 + 0.9.9)**. Ni la 0.9.7 ni la 0.9.8 llegaron a la Store: el MSIX
+de la 0.9.9 lleva este texto combinado en "Novedades de esta versión" (1068 de 1500 caracteres).
+
+> **Novedades de la 0.9.7, 0.9.8 y 0.9.9**
+>
+> - Capas de ajuste como en Photoshop: sobre todo lo de abajo o enlazadas a un solo clip o grupo. Con nombre, interruptor, intensidad animable y modo de mezcla.
+> - Agrupar: selecciona varios clips y elige «Agrupar» con clic derecho.
+> - LUT: seis looks incluidos e importación de archivos .cube, con intensidad.
+> - Máscaras de capa: varias por capa (unir, restar, intersecar), degradado lineal, expandir y opacidad.
+> - Video › Máscara como en CapCut, con Pluma y Texto.
+> - Blancos, Negros y Desvanecer en Ajustar; grano de película, viñeta ajustable y mezcla Luz suave.
+> - Fotos y videos en cualquier pista que no sea de audio, y candado para bloquear una pista.
+> - Fundido automático: monta el borde de un clip sobre el siguiente y se crea un fundido cruzado.
+> - Retoque con fotos que muestran el resultado.
+> - Archivos borrados o movidos: «Buscar archivo perdido» y aviso al abrir el proyecto.
+> - Botón Actualizar, seis temas de color y pistas de audio con altura y tamaño de onda.
+> - La rueda recorre las páginas y categorías de los paneles.
+
+En inglés, para la ficha en-us (1032 de 1500 caracteres):
+
+> **What's new in 0.9.7, 0.9.8 and 0.9.9**
+>
+> - Adjustment layers like in Photoshop: over everything below, or clipped to a single clip or group. With a name, on/off switch, animatable intensity and blend mode.
+> - Group: select several clips and choose "Group" from the right-click menu.
+> - LUTs: six built-in looks and .cube file import, with intensity.
+> - Layer masks: several per layer (add, subtract, intersect), linear gradient, expand and opacity.
+> - Video › Mask like in CapCut, with Pen and Text.
+> - Whites, Blacks and Fade in Adjust; film grain, adjustable vignette and Soft Light blending.
+> - Photos and videos on any non-audio track, plus a padlock to lock a track.
+> - Automatic crossfade: overlap a clip's edge onto the next one to create a crossfade.
+> - Retouch with preview photos of the result.
+> - Deleted or moved files: "Find missing file" and a warning when opening the project.
+> - Update button, six color themes and audio tracks with adjustable height and waveform size.
+> - The mouse wheel steps through panel pages and categories.
+
+**Notas de la versión (0.9.8)** (solo la 0.9.8, como referencia; 736 caracteres).
 
 > **Novedades de la 0.9.8**
 >

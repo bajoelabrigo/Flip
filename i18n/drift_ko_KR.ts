@@ -619,7 +619,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Everything you put on this layer (effects, colour, masks) applies to whatever is under it while it lasts, without touching those clips. Stretch or move it on the timeline to change where it acts.</source>
+        <source>Everything you put on this layer (effects, colour, masks) applies while it lasts, without touching the clips themselves. Stretch or move it on the timeline to change when it acts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -648,6 +648,85 @@
     </message>
     <message>
         <source>0 %: what is under it, untouched. 100 %: the whole layer. In between, a mix of the two.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdjustmentTargetSection</name>
+    <message>
+        <source>Video</source>
+        <translation type="unfinished">동영상</translation>
+    </message>
+    <message>
+        <source>Photo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">텍스트</translation>
+    </message>
+    <message>
+        <source>Subtitles</source>
+        <translation type="unfinished">자막</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation type="unfinished">도형</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation type="unfinished">애니메이션</translation>
+    </message>
+    <message>
+        <source>Clip</source>
+        <translation type="unfinished">클립</translation>
+    </message>
+    <message>
+        <source>Everything below it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The whole track below</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The whole track «%1»</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only %1: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>untitled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like an adjustment layer in Photoshop: over everything under it, or clipped to one clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The mask cuts everything under it while it lasts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changes everything under it while it lasts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The mask cuts only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3020,6 +3099,22 @@
         <translation>보정이 연결됨</translation>
     </message>
     <message>
+        <source>Change what the layer applies to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The layer applies to everything below it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The layer applies to one track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The layer applies to one clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Install the emoji sticker pack to add emoji</source>
         <translation>이모지 스티커 팩을 설치하여 이모지를 추가하세요</translation>
     </message>
@@ -3322,6 +3417,18 @@
     <message>
         <source>Could not flatten the composite: %1</source>
         <translation>컴포지트를 병합 해제할 수 없습니다: %1</translation>
+    </message>
+    <message>
+        <source>This group was moved, changed or has layers of its own; ungrouping would lose them. Open it to edit its clips, or undo those changes first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungrouped</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The composite clip was removed before flattening finished</source>
@@ -10294,6 +10401,22 @@
     <message>
         <source>Adjustment</source>
         <translation>보정</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation type="unfinished">애니메이션</translation>
+    </message>
+    <message>
+        <source>3D Model</source>
+        <translation type="unfinished">3D 모델</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clip name</source>
@@ -19183,6 +19306,10 @@ If playback stutters, try another.</source>
         <translation>%1, 트랙 %2</translation>
     </message>
     <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Properties</source>
         <translation>속성</translation>
     </message>
@@ -19195,8 +19322,12 @@ If playback stutters, try another.</source>
         <translation>컴포지트 열기</translation>
     </message>
     <message>
+        <source>Ungroup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Flatten composite</source>
-        <translation>컴포지트 병합</translation>
+        <translation type="unfinished">컴포지트 병합</translation>
     </message>
     <message>
         <source>Make composite</source>

@@ -620,7 +620,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Everything you put on this layer (effects, colour, masks) applies to whatever is under it while it lasts, without touching those clips. Stretch or move it on the timeline to change where it acts.</source>
+        <source>Everything you put on this layer (effects, colour, masks) applies while it lasts, without touching the clips themselves. Stretch or move it on the timeline to change when it acts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -649,6 +649,85 @@
     </message>
     <message>
         <source>0 %: what is under it, untouched. 100 %: the whole layer. In between, a mix of the two.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdjustmentTargetSection</name>
+    <message>
+        <source>Video</source>
+        <translation type="unfinished">Vidéo</translation>
+    </message>
+    <message>
+        <source>Photo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Texte</translation>
+    </message>
+    <message>
+        <source>Subtitles</source>
+        <translation type="unfinished">Sous-titres</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation type="unfinished">Forme</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation type="unfinished">Animation</translation>
+    </message>
+    <message>
+        <source>Clip</source>
+        <translation type="unfinished">Clip</translation>
+    </message>
+    <message>
+        <source>Everything below it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The whole track below</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The whole track «%1»</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only %1: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>untitled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like an adjustment layer in Photoshop: over everything under it, or clipped to one clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The mask cuts everything under it while it lasts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changes everything under it while it lasts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The mask cuts only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3031,6 +3110,22 @@
         <translation>Réglage lié</translation>
     </message>
     <message>
+        <source>Change what the layer applies to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The layer applies to everything below it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The layer applies to one track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The layer applies to one clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Install the emoji sticker pack to add emoji</source>
         <translation>Installez l&apos;extension d&apos;autocollants emoji pour ajouter des emojis</translation>
     </message>
@@ -3333,6 +3428,18 @@
     <message>
         <source>Could not flatten the composite: %1</source>
         <translation>Impossible d&apos;aplatir le composite : %1</translation>
+    </message>
+    <message>
+        <source>This group was moved, changed or has layers of its own; ungrouping would lose them. Open it to edit its clips, or undo those changes first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungrouped</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The composite clip was removed before flattening finished</source>
@@ -10327,6 +10434,22 @@
     <message>
         <source>Adjustment</source>
         <translation>Ajustement</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation type="unfinished">Animation</translation>
+    </message>
+    <message>
+        <source>3D Model</source>
+        <translation type="unfinished">Modèle 3D</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clip name</source>
@@ -19252,6 +19375,10 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation>%1, piste %2</translation>
     </message>
     <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Properties</source>
         <translation>Propriétés</translation>
     </message>
@@ -19264,8 +19391,12 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation>Ouvrir la composition</translation>
     </message>
     <message>
+        <source>Ungroup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Flatten composite</source>
-        <translation>Aplatir la composition</translation>
+        <translation type="unfinished">Aplatir le composite</translation>
     </message>
     <message>
         <source>Make composite</source>
