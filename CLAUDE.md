@@ -140,6 +140,8 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
 ### 0.9.9 PUBLICADA (2026-10-14): capas de ajuste como en Photoshop
 - La 0.9.8 **no** fue a la Store: Jorge sube directamente la 0.9.9. Las notas combinadas (0.9.7 + 0.9.8 + 0.9.9,
   es/en) están en `docs/store-listing.md`. MSIX en `FlipStudio-Store\paquete-0.9.9\`.
+- **Jorge (2026-10-14):** cambió el TXT `version` a 0.9.9 (comprobado en DNS) y mandó la 0.9.9 a certificación.
+  **Falta:** confirmar que pase.
 - PR #14, tag `v0.9.9`. Notas en `release-notes/0.9.9.md`.
 - **«Aplicar a»** (`AdjustmentTargetSection.qml`, `AppController::adjustmentTargetState` / `setAdjustmentTarget`):
   una capa de ajuste o de máscara va sobre todo lo de abajo (pista suelta, `AllBelow`) o enlazada a un clip (carril
