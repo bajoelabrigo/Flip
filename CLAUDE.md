@@ -197,8 +197,17 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
      cuenta»); sin cuenta se envían estadísticas anónimas con interruptor en Ajustes; base en MongoDB Atlas, en un
      clúster aparte del de holyapp (desde el 2026-10-14; la base de prueba que quedó en el de holyapp se borró). La cuenta se usará para su tienda personal (vender plantillas, más adelante; el pago por la web
      con PayPal, como holyapp, para no necesitar cuenta de empresa en Partner Center).
-   - **Falta nuestro:** el inicio de sesión y los avisos en la app de escritorio; política de privacidad y ficha
-     de la Store **antes** de publicar esa versión.
+   - **App de escritorio (rama `flip/cuentas`, 2026-10-14):** `AccountController` (Google con PKCE + loopback,
+     sesión con DPAPI), `InstallStats` (instalación, actualización y uso diario; interruptor en Ajustes;
+     `FLIP_NO_STATS=1` lo apaga, y `mcp_e2e.py` lo pone solo), bienvenida tras el idioma
+     (`AccountWelcomeDialog.qml`, una vez), sección «Cuenta» en Ajustes, y la pestaña Market heredada pasa a
+     **Stock** con la cuenta (`MarketClient::setAccount`: sin HMAC ni id del equipo). El servidor cumple el
+     contrato de `docs/marketplace/openapi.yaml` en `/v1/market`. CI: 17/17 pruebas y build de Windows OK.
+     **Falta:** probarlo en ventana (con la pantalla de Jorge bloqueada las capturas salen en blanco, también
+     con la 0.9.9: no es la app), el primer inicio de sesión real desde la app, y el OK de Jorge.
+   - **Privacidad:** borrador en la rama `privacidad-cuentas` de `flipstudio-web` (**sin desplegar**). nginx ya no
+     registra la IP de `/v1/installs/event` y los días de uso se borran a los 13 meses (TTL). Falta la ficha de la
+     Store (`docs/store-listing.md` dice «no recoge datos personales» y «sin cuenta»).
 6. **Plantillas (plan del 2026-10-14, después del servidor):** las de efectos dejan rombos en cada golpe y no
    guardan sus parámetros → sección «Plantilla» con Intensidad/Caída/Ritmo que regenera los puntos y «Quitar
    plantilla»; las de escena entran como composición con capas con nombre, huecos «Tu foto aquí» y panel
