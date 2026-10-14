@@ -56,6 +56,129 @@ ThemedDialog {
         return out
     }
 
+    property string favoriteGroup: ""
+    readonly property string shownGroup: favorites.some(g => g.id === favoriteGroup)
+                                         ? favoriteGroup
+                                         : (favorites.length > 0 ? favorites[0].id : "")
+
+    // The favourites of one group as tiles: { label, source (image), glyph (when there is no
+    // image), font (a family to write "Aa" in), strip/frames (a transition's preview strip) }.
+    // Each group reads the same catalog its own panel shows, so a tile looks like it does there.
+    function favoriteTiles(groupId) {
+        void root.revision
+        const isFav = id => EditorState.isAssetFavorite(groupId, id)
+        const enc = encodeURIComponent
+        const sample = "?text=" + enc("Aa")
+        const out = []
+        const add = (label, extra) => out.push(Object.assign({ label: label, source: "", glyph: "", font: "" }, extra))
+        switch (groupId) {
+        case "music":
+            for (const m of EditorState.soundEffects().filter(e => (e.id || "").startsWith("musica/") && isFav(e.id)))
+                add(m.label, { glyph: Theme.icons.music })
+            break
+        case "sounds":
+            for (const e of EditorState.soundEffects().filter(e => !(e.id || "").startsWith("musica/") && isFav(e.id)))
+                add(e.label, { glyph: "audio-lines" })
+            for (const e of EditorState.audioEffectCatalog().filter(e => !e.id.startsWith("voz.") && isFav(e.id)))
+                add(e.label, { source: e.thumbnailPath ? EditorState.imageUrl(e.thumbnailPath) : "",
+                               glyph: e.icon || "audio-lines" })
+            break
+        case "effects":
+            for (const e of EditorState.effectCatalog().filter(e => isFav(e.id)))
+                add(e.label, { source: e.thumbnailPath ? EditorState.imageUrl(e.thumbnailPath) : "",
+                               glyph: Theme.icons.sparkles })
+            break
+        case "transitions":
+            for (const t of EditorState.transitionKinds().filter(t => isFav(t.kind)))
+                add(t.label, { strip: t.previewStripPath ? EditorState.imageUrl(t.previewStripPath) : "",
+                               frames: Math.max(1, t.previewFrames || 1), glyph: Theme.icons.chevronsRight })
+            break
+        case "templates":
+            for (const t of EditorState.effectTemplateCatalog().filter(t => isFav(t.id))) {
+                const thumbs = t.effectThumbnails || []
+                const path = t.thumbnailPath || (thumbs.length > 0 ? thumbs[0] : "")
+                add(t.label, { source: path ? EditorState.imageUrl(path) : "", glyph: Theme.icons.sparkles })
+            }
+            break
+        case "stickers":
+            for (const st of EditorState.builtinStickers().filter(st => isFav(st.id)))
+                add(st.label, { source: EditorState.imageUrl(st.thumbnail || st.path), fit: true })
+            break
+        case "shapes":
+            for (const sh of EditorState.builtinShapes().filter(sh => isFav(sh.id)))
+                add(sh.label, { source: "image://shape/" + sh.id, fit: true })
+            break
+        case "textStyles":
+            for (const t of EditorState.textPresets().concat(EditorState.addonTextPresets()).filter(t => isFav(t.id)))
+                add(t.label, { source: "image://textstyle/" + t.id, text: true })
+            break
+        case "captionStyles":
+            for (const t of EditorState.subtitleStyleChoices().filter(t => isFav(t.id)))
+                add(t.label, { source: "image://textstyle/" + t.id, text: true })
+            break
+        case "textEffects": {
+            const quick = EditorState.textQuickStyles()
+            const looks = EditorState.textLooks()
+            const presets = EditorState.textPresets().concat(EditorState.userTextPresets())
+            for (const q of quick.filter(q => isFav("quick:" + q.id)))
+                add(q.label, { source: "image://textlook/quick:" + q.id + sample, text: true })
+            for (const l of looks.filter(l => l.id !== "plain" && isFav("look:" + l.id)))
+                add(l.label, { source: "image://textlook/" + l.id + sample, text: true })
+            for (const t of presets.filter(t => isFav("template:" + t.id)))
+                add(t.label, { source: "image://textstyle/" + t.id, text: true })
+            break
+        }
+        case "textBubbles":
+            for (const b of EditorState.textBubbles().filter(b => b.id !== "none" && isFav(b.id)))
+                add(b.label, { source: "image://textlook/bubble:" + b.id + "?text=" + enc(qsTr("Hello")), text: true })
+            break
+        case "textAnimations":
+            for (const a of EditorState.textAnimationPresets("").filter(a => isFav(a.id))) {
+                const slot = (a.slots && a.slots.length > 0) ? a.slots[0] : "in"
+                add(a.label, { source: "image://textanim/" + slot + "/" + a.id + "?w=104&h=58&still=1", text: true })
+            }
+            break
+        case "fonts":
+            for (const name of EditorState.assetFavoriteIds("fonts"))
+                add(name, { font: name })
+            break
+        case "voices":
+            for (const v of EditorState.audioEffectCatalog().filter(v => v.id.startsWith("voz.") && isFav(v.id)))
+                add(v.label, { glyph: Theme.icons.mic })
+            break
+        case "retouch":
+            for (const id of EditorState.assetFavoriteIds("retouch"))
+                add(qsTranslate("VideoInspector", root.retouchLabels[id] || id),
+                    { source: "qrc:/retouch/" + id + ".jpg" })
+            break
+        }
+        return out
+    }
+
+    // Retouch lives in a local list in VideoInspector; its labels are reused (and translated)
+    // from there.
+    readonly property var retouchLabels: ({
+        "auto-natural": QT_TRANSLATE_NOOP("VideoInspector", "Natural"),
+        "auto-soft": QT_TRANSLATE_NOOP("VideoInspector", "Soft"),
+        "auto-radiant": QT_TRANSLATE_NOOP("VideoInspector", "Radiant"),
+        "auto-defined": QT_TRANSLATE_NOOP("VideoInspector", "Defined"),
+        "skin-smooth": QT_TRANSLATE_NOOP("VideoInspector", "Smooth"),
+        "skin-whiten": QT_TRANSLATE_NOOP("VideoInspector", "Whiten"),
+        "skin-tone": QT_TRANSLATE_NOOP("VideoInspector", "Skin tone"),
+        "skin-sharpen": QT_TRANSLATE_NOOP("VideoInspector", "Sharpen"),
+        "slim-face": QT_TRANSLATE_NOOP("VideoInspector", "Slim face"),
+        "big-eyes": QT_TRANSLATE_NOOP("VideoInspector", "Bigger eyes"),
+        "face-width": QT_TRANSLATE_NOOP("VideoInspector", "Face width"),
+        "wide-mouth": QT_TRANSLATE_NOOP("VideoInspector", "Wide mouth"),
+        "whiten-teeth": QT_TRANSLATE_NOOP("VideoInspector", "Whiten teeth"),
+        "lipstick": QT_TRANSLATE_NOOP("VideoInspector", "Lipstick"),
+        "blush": QT_TRANSLATE_NOOP("VideoInspector", "Blush"),
+        "eyeliner": QT_TRANSLATE_NOOP("VideoInspector", "Eyeliner"),
+        "eyeshadow": QT_TRANSLATE_NOOP("VideoInspector", "Eyeshadow"),
+        "brow-tint": QT_TRANSLATE_NOOP("VideoInspector", "Brow tint"),
+        "eye-colour": QT_TRANSLATE_NOOP("VideoInspector", "Eye colour")
+    })
+
     readonly property var downloads: {
         void root.revision
         return Market.configured ? Market.downloadHistory() : []
@@ -68,6 +191,10 @@ ThemedDialog {
     Connections {
         target: Market
         function onDownloadHistoryChanged() { root.revision++ }
+    }
+    Connections {
+        target: EditorState
+        function onAssetFavoritesChanged() { root.revision++ }
     }
 
     contentItem: Column {
@@ -207,10 +334,11 @@ ThemedDialog {
             }
         }
 
-        // Favourites: one row per group, with a jump to the panel that shows them.
+        // Favourites, as in CapCut: a chip per group, then every favourite with its picture.
+        // A tile opens the panel it comes from.
         Column {
             width: parent.width
-            spacing: Theme.spacingSm
+            spacing: Theme.spacingLg
             visible: root.section === "favorites"
 
             ThemedLabel {
@@ -219,52 +347,143 @@ ThemedDialog {
                 text: qsTr("No favorites yet. Mark music, effects, text styles and more with the star in each panel and they gather here.")
             }
 
-            Repeater {
-                model: root.favorites
-                delegate: Rectangle {
-                    required property var modelData
-                    width: parent.width
-                    height: 44
-                    radius: Theme.radiusSm
-                    color: rowHover.hovered ? Theme.popoverHover : Theme.panelSecondaryBg
+            Flow {
+                width: parent.width
+                spacing: Theme.spacingSm
+                visible: root.favorites.length > 0
 
-                    HoverHandler { id: rowHover }
+                Repeater {
+                    model: root.favorites
+                    delegate: Rectangle {
+                        required property var modelData
+                        readonly property bool active: root.shownGroup === modelData.id
+                        width: chipText.implicitWidth + Theme.spacingXl * 2
+                        height: 28
+                        radius: height / 2
+                        color: active ? Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.16)
+                                      : Theme.panelSecondaryBg
+                        border.width: Theme.borderWidth
+                        border.color: active ? Theme.primary : "transparent"
 
-                    IconGlyph {
-                        id: star
-                        anchors.left: parent.left
-                        anchors.leftMargin: Theme.spacingLg
-                        anchors.verticalCenter: parent.verticalCenter
-                        glyph: Theme.icons.star
-                        iconSize: 16
-                        iconColor: Theme.primary
-                    }
-                    ThemedLabel {
-                        anchors.left: star.right
-                        anchors.leftMargin: Theme.spacingMd
-                        anchors.verticalCenter: parent.verticalCenter
-                        size: "sm"
-                        tone: "default"
-                        text: parent.modelData.label
-                    }
-                    ThemedLabel {
-                        anchors.right: openButton.left
-                        anchors.rightMargin: Theme.spacingLg
-                        anchors.verticalCenter: parent.verticalCenter
-                        text: qsTr("%n favorite(s)", "", parent.modelData.count)
-                    }
-                    ThemedButton {
-                        id: openButton
-                        anchors.right: parent.right
-                        anchors.rightMargin: Theme.spacingSm
-                        anchors.verticalCenter: parent.verticalCenter
-                        variant: "ghost"
-                        visible: parent.modelData.tab.length > 0
-                        text: qsTr("Open")
-                        tooltip: qsTr("Opens the panel; pick ★ Favorites there")
-                        onClicked: root.assetsTabRequested(parent.modelData.tab)
+                        Text {
+                            id: chipText
+                            anchors.centerIn: parent
+                            text: parent.modelData.label + "  " + parent.modelData.count
+                            color: parent.active ? Theme.panelForeground : Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                            font.weight: parent.active ? Font.DemiBold : Font.Normal
+                        }
+                        HoverHandler { cursorShape: Qt.PointingHandCursor }
+                        TapHandler { onTapped: root.favoriteGroup = parent.modelData.id }
                     }
                 }
+            }
+
+            Flickable {
+                id: favFlick
+                readonly property var group: root.favorites.find(g => g.id === root.shownGroup) || ({ tab: "" })
+                readonly property var tiles: root.favoriteTiles(root.shownGroup)
+                width: parent.width
+                height: Math.min(favGrid.implicitHeight, 300)
+                contentHeight: favGrid.implicitHeight
+                clip: true
+                visible: root.favorites.length > 0
+                boundsBehavior: Flickable.StopAtBounds
+                ScrollBar.vertical: AppScrollBar { }
+
+                Flow {
+                    id: favGrid
+                    width: parent.width
+                    spacing: Theme.spacingLg
+
+                    Repeater {
+                        model: favFlick.tiles
+                        delegate: Column {
+                            id: favTile
+                            required property var modelData
+                            width: 104
+                            spacing: Theme.spacingXs
+
+                            Rectangle {
+                                id: tileBox
+                                width: 104
+                                height: 80
+                                radius: Theme.radiusSm
+                                color: favTile.modelData.text ? Theme.textStylePreviewBg : Theme.panelSecondaryBg
+                                border.width: tileHover.hovered ? 2 : 0
+                                border.color: Theme.primary
+                                clip: true
+
+                                // Plain picture: thumbnail, sticker, shape, text preview, retouch.
+                                Image {
+                                    id: tileImage
+                                    anchors.fill: parent
+                                    anchors.margins: favTile.modelData.fit || favTile.modelData.text ? Theme.spacingSm : 0
+                                    visible: favTile.modelData.source.length > 0 && status === Image.Ready
+                                    source: favTile.modelData.source
+                                    sourceSize: Qt.size(208, 160)
+                                    fillMode: favTile.modelData.fit || favTile.modelData.text
+                                              ? Image.PreserveAspectFit : Image.PreserveAspectCrop
+                                    asynchronous: true
+                                }
+
+                                // A transition's preview strip: one square frame of it.
+                                Item {
+                                    anchors.fill: parent
+                                    visible: !!favTile.modelData.strip
+                                    clip: true
+                                    Image {
+                                        readonly property int frame: Math.round(0.45 * ((favTile.modelData.frames || 1) - 1))
+                                        height: parent.height
+                                        width: parent.height * (favTile.modelData.frames || 1)
+                                        x: (parent.width - parent.height) / 2 - frame * parent.height
+                                        source: favTile.modelData.strip || ""
+                                        asynchronous: true
+                                    }
+                                }
+
+                                // A font: written in itself.
+                                Text {
+                                    anchors.centerIn: parent
+                                    visible: favTile.modelData.font.length > 0
+                                    text: "Aa"
+                                    color: Theme.panelForeground
+                                    font.family: favTile.modelData.font
+                                    font.pixelSize: 30
+                                }
+
+                                // No picture (music, sounds, voices) or one that failed to load.
+                                IconGlyph {
+                                    anchors.centerIn: parent
+                                    visible: favTile.modelData.font.length === 0 && !favTile.modelData.strip
+                                             && !tileImage.visible
+                                    glyph: favTile.modelData.glyph || Theme.icons.star
+                                    iconSize: 28
+                                    iconColor: Theme.mutedForeground
+                                }
+
+                                HoverHandler { id: tileHover; cursorShape: Qt.PointingHandCursor }
+                                TapHandler {
+                                    onTapped: if (favFlick.group.tab) root.assetsTabRequested(favFlick.group.tab)
+                                }
+                            }
+                            ThemedLabel {
+                                width: parent.width
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                                tone: "default"
+                                text: favTile.modelData.label
+                            }
+                        }
+                    }
+                }
+            }
+
+            ThemedLabel {
+                width: parent.width
+                visible: root.favorites.length > 0 && favFlick.group.tab.length > 0
+                text: qsTr("Click one to open its panel.")
             }
         }
 

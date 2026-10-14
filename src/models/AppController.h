@@ -1529,6 +1529,8 @@ public:
     Q_INVOKABLE bool isAssetFavorite(const QString &tabId, const QString &itemId) const;
     // How many favourites each group holds ({"music": 3, "effects": 1, …}), empty groups left out.
     Q_INVOKABLE QVariantMap assetFavoriteCounts() const;
+    // The item ids starred in one group, sorted (font family names for "fonts").
+    Q_INVOKABLE QStringList assetFavoriteIds(const QString &tabId) const;
     Q_INVOKABLE void toggleAssetFavorite(const QString &tabId, const QString &itemId);
     Q_INVOKABLE void togglePlayback();
     // Bracket a scrub gesture (a dragged playhead, or the phone timeline being scrolled under

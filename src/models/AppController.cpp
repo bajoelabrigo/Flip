@@ -21814,6 +21814,14 @@ QVariantMap AppController::assetFavoriteCounts() const
     return counts;
 }
 
+QStringList AppController::assetFavoriteIds(const QString &tabId) const
+{
+    const QSet<QString> ids = m_assetFavorites.value(tabId);
+    QStringList out(ids.cbegin(), ids.cend());
+    out.sort(Qt::CaseInsensitive);
+    return out;
+}
+
 bool AppController::isAssetFavorite(const QString &tabId, const QString &itemId) const
 {
     return m_assetFavorites.value(tabId).contains(itemId);

@@ -150,6 +150,10 @@
         <translation>Retoque</translation>
     </message>
     <message>
+        <source>Hello</source>
+        <translation>Hola</translation>
+    </message>
+    <message>
         <source>Not signed in</source>
         <translation>Sin sesión iniciada</translation>
     </message>
@@ -192,20 +196,9 @@
         <source>No favorites yet. Mark music, effects, text styles and more with the star in each panel and they gather here.</source>
         <translation>Todavía no tienes favoritos. Marca música, efectos, estilos de texto y más con la estrella de cada panel y se reúnen aquí.</translation>
     </message>
-    <message numerus="yes">
-        <source>%n favorite(s)</source>
-        <translation>
-            <numerusform>%n favorito</numerusform>
-            <numerusform>%n favoritos</numerusform>
-        </translation>
-    </message>
     <message>
-        <source>Open</source>
-        <translation>Abrir</translation>
-    </message>
-    <message>
-        <source>Opens the panel; pick ★ Favorites there</source>
-        <translation>Abre el panel; ahí elige ★ Favoritos</translation>
+        <source>Click one to open its panel.</source>
+        <translation>Haz clic en uno para abrir su panel.</translation>
     </message>
     <message>
         <source>Nothing downloaded from Stock yet. Free photos and videos you download there are listed here.</source>

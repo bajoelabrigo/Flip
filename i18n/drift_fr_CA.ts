@@ -150,6 +150,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Hello</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Not signed in</source>
         <translation type="unfinished"></translation>
     </message>
@@ -192,19 +196,8 @@
         <source>No favorites yet. Mark music, effects, text styles and more with the star in each panel and they gather here.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message numerus="yes">
-        <source>%n favorite(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
     <message>
-        <source>Open</source>
-        <translation type="unfinished">Ouvrir</translation>
-    </message>
-    <message>
-        <source>Opens the panel; pick ★ Favorites there</source>
+        <source>Click one to open its panel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
