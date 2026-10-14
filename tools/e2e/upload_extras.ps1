@@ -2,7 +2,7 @@
 # Each one is retried: large gh asset uploads fail often on the first try, and a partial
 # release would leave the index pointing at 404s.
 $ErrorActionPreference = 'Continue'
-$dist = 'C:\Users\bajoe\Downloads\flip-addons\dist'
+$dist = 'C:\Users\bajoe\Downloads\FlipStudio\codigo\flip-addons\dist'
 $repo = 'bajoelabrigo/flipstudio-extras'
 $tag = 'packages'
 $names = @(
