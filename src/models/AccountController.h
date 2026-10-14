@@ -1,5 +1,6 @@
 #pragma once
 
+#include <QDateTime>
 #include <QObject>
 #include <QPointer>
 #include <QString>
@@ -34,6 +35,8 @@ class AccountController : public QObject
     Q_PROPERTY(QString name READ name NOTIFY accountChanged)
     Q_PROPERTY(QString email READ email NOTIFY accountChanged)
     Q_PROPERTY(QUrl avatarUrl READ avatarUrl NOTIFY accountChanged)
+    // When the account was created on api.getflipstudio.com; invalid until the server said.
+    Q_PROPERTY(QDateTime memberSince READ memberSince NOTIFY accountChanged)
     // Last failure in one sentence, cleared when a new attempt starts.
     Q_PROPERTY(QString error READ error NOTIFY errorChanged)
     // Google's sign-in page while a sign-in is waiting, so it can be copied when no browser opened.
@@ -51,6 +54,7 @@ public:
     QString name() const { return m_name; }
     QString email() const { return m_email; }
     QUrl avatarUrl() const { return m_avatarUrl; }
+    QDateTime memberSince() const { return m_memberSince; }
     QString error() const { return m_error; }
     QString signInUrl() const { return m_busy ? m_signInUrl : QString(); }
     bool needsWelcome() const;
@@ -117,6 +121,7 @@ private:
     QString m_name;
     QString m_email;
     QUrl m_avatarUrl;
+    QDateTime m_memberSince;
     QString m_error;
     bool m_busy = false;
 

@@ -1414,6 +1414,8 @@ qt_add_qml_module(drift
         src/qml/components/preview/PlaybackStatsOverlay.qml
         src/qml/components/ProjectSetupDialog.qml
         src/qml/components/LayoutChooserDialog.qml
+        src/qml/components/AccountAvatar.qml
+        src/qml/components/AccountDialog.qml
         src/qml/components/AccountWelcomeDialog.qml
         src/qml/components/CopySignInLinkButton.qml
         src/qml/components/LanguageChooserDialog.qml

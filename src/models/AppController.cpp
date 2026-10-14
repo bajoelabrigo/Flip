@@ -21804,6 +21804,16 @@ void AppController::saveAssetFavorites(const QString &tabId)
     settings.endGroup();
 }
 
+QVariantMap AppController::assetFavoriteCounts() const
+{
+    QVariantMap counts;
+    for (auto it = m_assetFavorites.cbegin(); it != m_assetFavorites.cend(); ++it) {
+        if (!it.key().isEmpty() && !it.value().isEmpty())
+            counts.insert(it.key(), int(it.value().size()));
+    }
+    return counts;
+}
+
 bool AppController::isAssetFavorite(const QString &tabId, const QString &itemId) const
 {
     return m_assetFavorites.value(tabId).contains(itemId);

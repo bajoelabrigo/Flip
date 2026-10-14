@@ -80,6 +80,159 @@
     </message>
 </context>
 <context>
+    <name>AccountDialog</name>
+    <message>
+        <source>My account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sounds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation type="unfinished">ප්‍රයෝග</translation>
+    </message>
+    <message>
+        <source>Transitions</source>
+        <translation type="unfinished">සංක්‍රාන්ති</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished">ආකෘති</translation>
+    </message>
+    <message>
+        <source>Stickers</source>
+        <translation type="unfinished">ස්ටිකර්</translation>
+    </message>
+    <message>
+        <source>Shapes</source>
+        <translation type="unfinished">හැඩතල</translation>
+    </message>
+    <message>
+        <source>Text styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text bubbles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text animations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caption styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voices</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retouch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not signed in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Flip Studio since %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n project(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free plan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The whole editor, with no watermark.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished">ප්‍රියතමයන්</translation>
+    </message>
+    <message>
+        <source>Stock downloads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No favorites yet. Mark music, effects, text styles and more with the star in each panel and they gather here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n favorite(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation type="unfinished">විවෘත කරන්න</translation>
+    </message>
+    <message>
+        <source>Opens the panel; pick ★ Favorites there</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing downloaded from Stock yet. Free photos and videos you download there are listed here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File moved or deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear the list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forgets this list; the downloaded files stay where they are</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Account settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AccountWelcomeDialog</name>
     <message>
         <source>Welcome to Flip Studio</source>
@@ -9237,6 +9390,18 @@
         <translation>නියෝජිත (Agent) ප්‍රවේශය ක්‍රියාත්මකයි</translation>
     </message>
     <message>
+        <source>My account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My account (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Recommended packs and updates</source>
         <translation>නිර්දේශිත පැකේජ සහ යාවත්කාලීන</translation>
     </message>
@@ -17242,6 +17407,18 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Yesterday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With Google, optional</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

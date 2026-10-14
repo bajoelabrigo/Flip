@@ -1487,9 +1487,60 @@ void MarketClient::importReadyFile(const QString &itemId, const QString &path,
             job->title = displayName;
     }
     bumpDownloads();
+    rememberDownload(itemId, path, displayName);
     // A finished job frees a slot for whatever is waiting behind it.
     pumpDownloadQueue();
     emit downloadImported(itemId, displayName);
+}
+
+namespace {
+constexpr int kDownloadHistoryMax = 200;
+}
+
+void MarketClient::rememberDownload(const QString &itemId, const QString &path,
+                                    const QString &displayName)
+{
+    const QVariantMap item = itemById(itemId);
+    const auto job = m_jobs.value(itemId);
+    QVariantMap entry{
+        {QStringLiteral("itemId"), itemId},
+        {QStringLiteral("title"), job && !job->title.isEmpty() ? job->title : displayName},
+        {QStringLiteral("mediaKind"), job ? job->mediaKind : QString()},
+        {QStringLiteral("provider"), item.value(QStringLiteral("provider"))},
+        {QStringLiteral("thumb"), item.value(QStringLiteral("thumb_url"))},
+        {QStringLiteral("author"), item.value(QStringLiteral("creator")).toMap().value(QStringLiteral("name"))},
+        {QStringLiteral("filePath"), path},
+        {QStringLiteral("at"), QDateTime::currentDateTime()},
+    };
+    QVariantList history = QSettings().value(settingsKey("history")).toList();
+    // The same item downloaded again moves to the top instead of appearing twice.
+    for (int i = history.size() - 1; i >= 0; --i) {
+        if (history.at(i).toMap().value(QStringLiteral("itemId")).toString() == itemId)
+            history.removeAt(i);
+    }
+    history.prepend(entry);
+    while (history.size() > kDownloadHistoryMax)
+        history.removeLast();
+    QSettings().setValue(settingsKey("history"), history);
+    emit downloadHistoryChanged();
+}
+
+QVariantList MarketClient::downloadHistory() const
+{
+    QVariantList out;
+    for (const QVariant &row : QSettings().value(settingsKey("history")).toList()) {
+        QVariantMap entry = row.toMap();
+        entry.insert(QStringLiteral("exists"),
+                     QFileInfo::exists(entry.value(QStringLiteral("filePath")).toString()));
+        out.append(entry);
+    }
+    return out;
+}
+
+void MarketClient::clearDownloadHistory()
+{
+    QSettings().remove(settingsKey("history"));
+    emit downloadHistoryChanged();
 }
 
 void MarketClient::loadStoredAuth()

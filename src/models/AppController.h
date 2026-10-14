@@ -1527,6 +1527,8 @@ public:
     Q_INVOKABLE void triggerAction(const QString &actionId);
     // Per-tab favorites in the assets panel (effects, sounds, shapes, stickers, transitions, templates).
     Q_INVOKABLE bool isAssetFavorite(const QString &tabId, const QString &itemId) const;
+    // How many favourites each group holds ({"music": 3, "effects": 1, …}), empty groups left out.
+    Q_INVOKABLE QVariantMap assetFavoriteCounts() const;
     Q_INVOKABLE void toggleAssetFavorite(const QString &tabId, const QString &itemId);
     Q_INVOKABLE void togglePlayback();
     // Bracket a scrub gesture (a dragged playhead, or the phone timeline being scrolled under

@@ -80,6 +80,159 @@
     </message>
 </context>
 <context>
+    <name>AccountDialog</name>
+    <message>
+        <source>My account</source>
+        <translation>Mi cuenta</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>Hecho</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation>Música</translation>
+    </message>
+    <message>
+        <source>Sounds</source>
+        <translation>Sonidos</translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation>Efectos</translation>
+    </message>
+    <message>
+        <source>Transitions</source>
+        <translation>Transiciones</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation>Plantillas</translation>
+    </message>
+    <message>
+        <source>Stickers</source>
+        <translation>Stickers</translation>
+    </message>
+    <message>
+        <source>Shapes</source>
+        <translation>Formas</translation>
+    </message>
+    <message>
+        <source>Text styles</source>
+        <translation>Estilos de texto</translation>
+    </message>
+    <message>
+        <source>Text effects</source>
+        <translation>Efectos de texto</translation>
+    </message>
+    <message>
+        <source>Text bubbles</source>
+        <translation>Burbujas de texto</translation>
+    </message>
+    <message>
+        <source>Text animations</source>
+        <translation>Animaciones de texto</translation>
+    </message>
+    <message>
+        <source>Fonts</source>
+        <translation>Fuentes</translation>
+    </message>
+    <message>
+        <source>Caption styles</source>
+        <translation>Estilos de subtítulos</translation>
+    </message>
+    <message>
+        <source>Voices</source>
+        <translation>Voces</translation>
+    </message>
+    <message>
+        <source>Retouch</source>
+        <translation>Retoque</translation>
+    </message>
+    <message>
+        <source>Not signed in</source>
+        <translation>Sin sesión iniciada</translation>
+    </message>
+    <message>
+        <source>In Flip Studio since %1</source>
+        <translation>En Flip Studio desde %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n project(s)</source>
+        <translation>
+            <numerusform>%n proyecto</numerusform>
+            <numerusform>%n proyectos</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Esperando al navegador…</translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation>Iniciar sesión con Google</translation>
+    </message>
+    <message>
+        <source>Free plan</source>
+        <translation>Plan gratis</translation>
+    </message>
+    <message>
+        <source>The whole editor, with no watermark.</source>
+        <translation>Todo el editor, sin marca de agua.</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoritos</translation>
+    </message>
+    <message>
+        <source>Stock downloads</source>
+        <translation>Descargas de Stock</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Mark music, effects, text styles and more with the star in each panel and they gather here.</source>
+        <translation>Todavía no tienes favoritos. Marca música, efectos, estilos de texto y más con la estrella de cada panel y se reúnen aquí.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n favorite(s)</source>
+        <translation>
+            <numerusform>%n favorito</numerusform>
+            <numerusform>%n favoritos</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>Abrir</translation>
+    </message>
+    <message>
+        <source>Opens the panel; pick ★ Favorites there</source>
+        <translation>Abre el panel; ahí elige ★ Favoritos</translation>
+    </message>
+    <message>
+        <source>Nothing downloaded from Stock yet. Free photos and videos you download there are listed here.</source>
+        <translation>Todavía no descargaste nada de Stock. Las fotos y videos gratis que descargues ahí aparecen aquí.</translation>
+    </message>
+    <message>
+        <source>File moved or deleted</source>
+        <translation>Archivo movido o borrado</translation>
+    </message>
+    <message>
+        <source>Clear the list</source>
+        <translation>Vaciar la lista</translation>
+    </message>
+    <message>
+        <source>Forgets this list; the downloaded files stay where they are</source>
+        <translation>Olvida esta lista; los archivos descargados se quedan donde están</translation>
+    </message>
+    <message>
+        <source>Account settings</source>
+        <translation>Ajustes de la cuenta</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Cerrar sesión</translation>
+    </message>
+</context>
+<context>
     <name>AccountWelcomeDialog</name>
     <message>
         <source>Welcome to Flip Studio</source>
@@ -9237,6 +9390,18 @@
         <translation>El acceso de agente está activado</translation>
     </message>
     <message>
+        <source>My account</source>
+        <translation>Mi cuenta</translation>
+    </message>
+    <message>
+        <source>My account (%1)</source>
+        <translation>Mi cuenta (%1)</translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation>Iniciar sesión con Google</translation>
+    </message>
+    <message>
         <source>Recommended packs and updates</source>
         <translation>Paquetes recomendados y actualizaciones</translation>
     </message>
@@ -17243,6 +17408,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Yesterday</source>
         <translation>Ayer</translation>
+    </message>
+    <message>
+        <source>My account</source>
+        <translation>Mi cuenta</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Iniciar sesión</translation>
+    </message>
+    <message>
+        <source>With Google, optional</source>
+        <translation>Con Google, opcional</translation>
     </message>
     <message>
         <source>Home</source>

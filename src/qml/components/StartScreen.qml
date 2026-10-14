@@ -142,6 +142,55 @@ Rectangle {
                 }
             }
 
+            // The account, as in CapCut's start page: picture, name and email, or the way in.
+            Rectangle {
+                visible: Account.available
+                width: parent.width
+                height: 56
+                radius: Theme.radiusMd
+                color: accountHover.hovered ? Theme.popoverHover : Theme.panelSecondaryBg
+                Accessible.role: Accessible.Button
+                Accessible.name: qsTr("My account")
+
+                Row {
+                    anchors.fill: parent
+                    anchors.leftMargin: Theme.spacingLg
+                    anchors.rightMargin: Theme.spacingLg
+                    spacing: Theme.spacingMd
+
+                    AccountAvatar {
+                        size: 36
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Column {
+                        width: parent.width - 36 - parent.spacing
+                        anchors.verticalCenter: parent.verticalCenter
+                        spacing: 2
+                        Text {
+                            width: parent.width
+                            elide: Text.ElideRight
+                            text: Account.signedIn
+                                  ? (Account.name.length > 0 ? Account.name : Account.email)
+                                  : qsTr("Sign in")
+                            color: Theme.foreground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                            font.weight: Font.DemiBold
+                        }
+                        Text {
+                            width: parent.width
+                            elide: Text.ElideRight
+                            text: Account.signedIn ? Account.email : qsTr("With Google, optional")
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                    }
+                }
+                HoverHandler { id: accountHover; cursorShape: Qt.PointingHandCursor }
+                TapHandler { onTapped: root.Window.window.openAccount() }
+            }
+
             Column {
                 width: parent.width
                 spacing: Theme.spacingXs

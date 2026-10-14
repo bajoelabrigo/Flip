@@ -382,6 +382,10 @@ void AccountController::applySession(const QByteArray &payload)
         m_name = user.value(QStringLiteral("name")).toString();
         m_email = user.value(QStringLiteral("email")).toString();
         m_avatarUrl = QUrl(user.value(QStringLiteral("avatar")).toString());
+        const QDateTime created = QDateTime::fromString(
+            user.value(QStringLiteral("createdAt")).toString(), Qt::ISODateWithMs);
+        if (created.isValid())
+            m_memberSince = created;
     }
     store();
     emit accountChanged();
@@ -498,6 +502,7 @@ void AccountController::loadStored()
     m_name = settings.value(key("name")).toString();
     m_email = settings.value(key("email")).toString();
     m_avatarUrl = settings.value(key("avatar")).toUrl();
+    m_memberSince = settings.value(key("memberSince")).toDateTime();
 }
 
 void AccountController::store()
@@ -509,6 +514,7 @@ void AccountController::store()
     settings.setValue(key("name"), m_name);
     settings.setValue(key("email"), m_email);
     settings.setValue(key("avatar"), m_avatarUrl);
+    settings.setValue(key("memberSince"), m_memberSince);
 }
 
 void AccountController::clearLocal()
@@ -520,8 +526,10 @@ void AccountController::clearLocal()
     m_name.clear();
     m_email.clear();
     m_avatarUrl.clear();
+    m_memberSince = {};
     QSettings settings;
-    for (const char *k : {"refreshToken", "accessToken", "accessExpiresAt", "name", "email", "avatar"})
+    for (const char *k : {"refreshToken", "accessToken", "accessExpiresAt", "name", "email", "avatar",
+                          "memberSince"})
         settings.remove(key(k));
     if (was) {
         emit accountChanged();
