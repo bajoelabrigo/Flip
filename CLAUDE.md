@@ -33,7 +33,7 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-12, noche, cierre de la 0.9.6)
+## Estado (actualizado 2026-10-14, cierre de la 0.9.9; ver su sección más abajo)
 
 **v0.9.6 PUBLICADA.** Ni la 0.9.3, ni la 0.9.4, ni la 0.9.5 llegaron a la Store: Jorge sube
 directamente la 0.9.6, y sus notas cubren las cuatro.
@@ -136,6 +136,24 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
 - **Límites conocidos:** en la web los parámetros de los efectos no se animan (solo la intensidad de
   la capa); los LUT importados en la web viven en ese navegador (se reconocen al volver a importar el
   mismo archivo).
+
+### 0.9.9 PUBLICADA (2026-10-14): capas de ajuste como en Photoshop
+- La 0.9.8 **no** fue a la Store: Jorge sube directamente la 0.9.9. Las notas combinadas (0.9.7 + 0.9.8 + 0.9.9,
+  es/en) están en `docs/store-listing.md`. MSIX en `FlipStudio-Store\paquete-0.9.9\`.
+- PR #14, tag `v0.9.9`. Notas en `release-notes/0.9.9.md`.
+- **«Aplicar a»** (`AdjustmentTargetSection.qml`, `AppController::adjustmentTargetState` / `setAdjustmentTarget`):
+  una capa de ajuste o de máscara va sobre todo lo de abajo (pista suelta, `AllBelow`) o enlazada a un clip (carril
+  `ParentTrack` + `linkedClipId`). **Ojo:** la máscara de un carril se mide sobre el marco del clip y la de una pista
+  suelta sobre el lienzo; `setAdjustmentTarget` la convierte (`remapMask`) para que no se mueva en pantalla.
+- **Arreglo:** la máscara de una capa de ajuste en carril se ignoraba al plegar sus efectos en el clip. Ahora
+  `GpuLayer::effectScopes` mezcla cada tramo de efectos por la cobertura de sus máscaras (`laneAdjustmentChain`).
+- **Agrupar** (clic derecho con varios clips = `makeCompositeFromSelection`) y **Desagrupar** (`ungroupComposite`:
+  devuelve las pistas del grupo sin renderizar; se niega si el grupo tiene movimiento, velocidad, efectos o capas
+  propias). **Trampa:** `flattenComposite` **renderiza** el grupo a un video («Acoplar composición»); no es desagrupar.
+- **Trampa de pruebas:** matar la app de prueba deja `recovery\autosave.json` y la siguiente apertura pregunta
+  «Trabajo no guardado»; borrarlo al terminar. La prueba de estabilizar de Windows a veces falla en CI por OpenGL 3.0
+  del runner: relanzar con `gh run rerun <id> --failed`.
+- Falta (menor): las máscaras de video/imagen en capas de ajuste en carril no se precargan en `forEachMediaMask`.
 
 ### Pendiente
 1. **Hecho por Jorge (2026-10-13):** cambió el TXT `version` del DNS y mandó la 0.9.6 a
