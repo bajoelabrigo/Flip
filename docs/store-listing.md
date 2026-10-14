@@ -17,15 +17,26 @@ Textos y respuestas para el envío en Partner Center (producto **Flip Studio**, 
 - **Contacto de soporte:** soporte@getflipstudio.com
 - **Requisitos del sistema:** Windows 10 versión 1809 o posterior, 64 bits. Gráficos compatibles con
   OpenGL 3.3.
-- **Declaraciones:** no recoge datos personales, no contiene publicidad, no tiene compras dentro de la
-  aplicación.
+- **Declaraciones (desde la 0.10.0):** no contiene publicidad y no tiene compras dentro de la aplicación.
+  **Sí recoge datos personales, solo si la persona inicia sesión** (opcional): nombre, correo y foto de su
+  cuenta de Google. Además envía estadísticas de uso **anónimas** (número de instalación aleatorio, versión,
+  edición de Windows), que se pueden apagar. Todo está en la política de privacidad, actualizada el 14 de
+  octubre de 2026, que **tiene que estar publicada antes de enviar el paquete**.
+- **Notas para la certificación** (campo «Notes for certification»):
+
+  > Signing in is optional. On first launch the app offers "Sign in with Google" or "Continue without an
+  > account"; every editing feature works without an account. The account only unlocks the Stock tab
+  > (free photos and videos from Pexels and Pixabay). To review it, sign in with any Google account: the
+  > sign-in runs in the system browser. The app sends anonymous usage statistics (random install id,
+  > version, Windows edition), which can be turned off in Settings › Account.
 
 ## Clasificación por edad (cuestionario IARC)
 
 - Tipo de app: **aplicación** (no es juego). Es una herramienta de edición de video.
 - No contiene violencia, lenguaje, contenido sexual, drogas, apuestas ni compras.
 - **No** permite que los usuarios se comuniquen entre sí ni comparte su ubicación.
-- No comparte información personal del usuario.
+- No comparte información personal del usuario con terceros. La cuenta de Google es opcional y sus datos
+  (nombre, correo, foto) solo se guardan en el servidor de Flip Studio.
 - Resultado esperado: apta para todas las edades.
 
 ## Envío — funcionalidad restringida `runFullTrust`
@@ -43,13 +54,13 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 **Descripción breve:**
 
-> Editor de video gratuito y de código abierto: texto como en CapCut, efectos, transiciones, música libre e IA en tu equipo. Sin marca de agua y sin cuenta.
+> Editor de video gratuito y de código abierto: texto como en CapCut, efectos, transiciones, música libre e IA en tu equipo. Sin marca de agua y sin cuenta obligatoria.
 
 **Descripción:**
 
 > Flip Studio es un editor de video para Windows pensado para que tus videos se vean terminados, no "suficientemente buenos". Reels y Shorts, clips de juegos, tutoriales, trabajos de clase o demos de producto: suelta tus clips, añade efectos, títulos y música, y exporta un video pulido.
 >
-> Gratis, sin marca de agua y sin crear una cuenta. Tus proyectos se quedan en tu computadora.
+> Gratis y sin marca de agua. La cuenta de Google es opcional: sin ella todo funciona igual, y con ella buscas fotos y videos gratis de Pexels y Pixabay sin salir del editor. Tus proyectos se quedan en tu computadora.
 >
 > LO QUE INCLUYE
 > • Línea de tiempo multipista con cortes precisos, imán al ritmo, máscaras y capas.
@@ -60,6 +71,7 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 > • Ajuste de color con Básico, HSL, Curvas y Círculo cromático.
 > • Panel de video con Quitar fondo, Máscara y Retoque del rostro, con maquillaje.
 > • Música: 65 canciones gratis, también para videos monetizados.
+> • Stock: fotos y videos gratis de Pexels y Pixabay, con filtro vertical para reels.
 > • Favoritos con una estrella y tus propios estilos de texto para reutilizarlos.
 > • Keyframes con curvas editables para animar posición, escala, rotación y efectos.
 > • 3D en la línea de tiempo y animaciones Lottie.
@@ -76,7 +88,8 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 **Características del producto** (una por línea, máximo 20):
 
-> Sin marca de agua y sin cuenta
+> Sin marca de agua y sin cuenta obligatoria
+> Fotos y videos gratis de Pexels y Pixabay
 > Línea de tiempo multipista
 > Panel de texto como en CapCut
 > 32 burbujas y más de 40 estilos de texto
@@ -96,6 +109,27 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 **Palabras clave de búsqueda** (máximo 7):
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
+
+**Notas para la Store (0.10.0)**. Si la 0.9.9 ya pasó la certificación, este es el texto de "Novedades de
+esta versión" (599 de 1500 caracteres):
+
+> **Novedades de la 0.10.0**
+>
+> - Cuenta de Flip Studio con Google, opcional: al abrir la app eliges iniciar sesión o seguir sin cuenta, y la edición funciona igual.
+> - Stock: fotos y videos gratis de Pexels y Pixabay sin salir del editor, con filtro de orientación (vertical para reels). Lo descargado entra directo en Medios.
+> - Nuevo botón Stock en la barra de arriba.
+> - En Ajustes › Cuenta: tu cuenta, cerrar sesión y borrar la cuenta.
+> - Estadísticas de uso anónimas (versión, edición de Windows y un número de instalación aleatorio) para saber cuántas personas usan Flip Studio; se apagan en Ajustes.
+
+En inglés, para la ficha en-us:
+
+> **What's new in 0.10.0**
+>
+> - Optional Flip Studio account with Google: on first launch, sign in or continue without an account; editing works the same.
+> - Stock: free photos and videos from Pexels and Pixabay right inside the editor, with an orientation filter (portrait for reels). Downloads go straight into Media.
+> - New Stock button in the top bar.
+> - Settings › Account: your account, sign out and delete the account.
+> - Anonymous usage statistics (version, Windows edition and a random install number) to count how many people use Flip Studio; turn them off in Settings.
 
 **Notas para la Store (0.9.7 + 0.9.8 + 0.9.9)**. Ni la 0.9.7 ni la 0.9.8 llegaron a la Store: el MSIX
 de la 0.9.9 lleva este texto combinado en "Novedades de esta versión" (1068 de 1500 caracteres).
@@ -165,13 +199,13 @@ Center; el límite es de 1500 caracteres (este texto tiene 770).
 
 **Short description:**
 
-> Free, open-source video editor: CapCut-style text, effects, transitions, free music and AI on your own PC. No watermark, no account.
+> Free, open-source video editor: CapCut-style text, effects, transitions, free music and AI on your own PC. No watermark, no account required.
 
 **Description:**
 
 > Flip Studio is a Windows video editor built to make your videos look finished, not "good enough". Reels and Shorts, game clips, tutorials, school projects or product demos: drop in your clips, add effects, titles and music, and export a polished video.
 >
-> Free, with no watermark and no account. Your projects stay on your computer.
+> Free, with no watermark. A Google account is optional: everything works without one, and with one you can search free photos and videos from Pexels and Pixabay inside the editor. Your projects stay on your computer.
 >
 > WHAT YOU GET
 > • Multi-track timeline with precise cuts, beat snapping, masks and layers.
