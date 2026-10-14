@@ -33,6 +33,96 @@
     </message>
 </context>
 <context>
+    <name>AccountController</name>
+    <message>
+        <source>Sign-in timed out. Try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not start sign-in on this computer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not open the web browser.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign-in failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This page is from an older attempt. Go back to Flip Studio and try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign-in cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can close this tab and go back to Flip Studio.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Google did not complete the sign-in.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are signed in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not reach Flip Studio. Check your connection and try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not delete the account. Try again later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AccountWelcomeDialog</name>
+    <message>
+        <source>Welcome to Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with your Google account to search free photos and videos from Pexels and Pixabay right inside the editor. Your account will also hold your templates and your store.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can also continue without an account: editing works exactly the same.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose your account in the browser window that opened, then come back here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Continue without an account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send anonymous usage statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only the version, the Windows edition and a random install number, to count installs and updates. Never your projects or files. &lt;a href=&quot;https://getflipstudio.com/privacidad.html&quot;&gt;Privacy policy&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AddonManager</name>
     <message>
         <source>Automatic (recommended)</source>
@@ -5000,10 +5090,6 @@
         <translation>Coletar mídia para pasta</translation>
     </message>
     <message>
-        <source>Market</source>
-        <translation>Mercado</translation>
-    </message>
-    <message>
         <source>Text</source>
         <translation>Texto</translation>
     </message>
@@ -5114,6 +5200,10 @@
     <message>
         <source>Move to folder</source>
         <translation>Mover para pasta</translation>
+    </message>
+    <message>
+        <source>Stock</source>
+        <translation type="unfinished">Estoque</translation>
     </message>
     <message>
         <source>New Folder</source>
@@ -11705,16 +11795,28 @@
         <translation>Pesquise ou cole um link</translation>
     </message>
     <message>
-        <source>Assets</source>
-        <translation>Recursos</translation>
-    </message>
-    <message>
         <source>SFX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stock footage</source>
         <translation>Vídeos de estoque</translation>
+    </message>
+    <message>
+        <source>Free photos and videos from Pexels and Pixabay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with your Google account to search and download them straight into your project.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Loading sources…</source>
@@ -15501,6 +15603,54 @@ Se a reprodução travar, experimente outro.</translation>
         <translation>Idioma dos menus e rótulos. Tem efeito imediatamente.</translation>
     </message>
     <message>
+        <source>Account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google to search free photos and videos from Pexels and Pixabay. Editing works the same without an account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete account…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete your Flip Studio account? Your name, email and sessions are erased from our server and this install becomes anonymous. Your projects on this computer are not touched.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send anonymous usage statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only the version, the Windows edition and a random install number, to count installs and updates. Never your projects or files. &lt;a href=&quot;https://getflipstudio.com/privacidad.html&quot;&gt;Privacy policy&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>App</source>
         <translation>Aplicação</translation>
     </message>
@@ -15607,26 +15757,6 @@ Se a reprodução travar, experimente outro.</translation>
     <message>
         <source>Transcription model</source>
         <translation>Modelo de transcrição</translation>
-    </message>
-    <message>
-        <source>Marketplace</source>
-        <translation>Marketplace</translation>
-    </message>
-    <message>
-        <source>Account connected (%1)</source>
-        <translation>Conta conectada (%1)</translation>
-    </message>
-    <message>
-        <source>Marketplace account connected</source>
-        <translation>Conta do Marketplace conectada</translation>
-    </message>
-    <message>
-        <source>Disconnect</source>
-        <translation>Desconectar</translation>
-    </message>
-    <message>
-        <source>Unlink the marketplace account from this device</source>
-        <translation>Desvincular a conta do marketplace deste dispositivo</translation>
     </message>
     <message>
         <source>Downloading…</source>

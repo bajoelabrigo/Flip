@@ -848,6 +848,10 @@ QtObject {
         brandTiktok: "brand-tiktok",
         brandSnapchat: "brand-snapchat",
         brandX: "brand-x",
-        brandLinkedin: "brand-linkedin"
+        brandLinkedin: "brand-linkedin",
+        brandGoogle: "brand-google",
+        // Flip Studio account
+        account: "circle-user",
+        signOut: "log-out"
     })
 }

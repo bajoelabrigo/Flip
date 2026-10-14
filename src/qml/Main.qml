@@ -774,6 +774,19 @@ ApplicationWindow {
     // Header Extras icon pulses while true; never auto-opens a dialog.
     readonly property alias addonAttentionNeeded: addonStartupDialog.needsAttention
 
+    // The account welcome closed this session (signed in or "Continue without an account").
+    property bool accountWelcomeDone: false
+
+    // After the language: "Sign in with Google / Continue without an account", once.
+    function promptAccountWelcomeIfNeeded() {
+        if (!Account.needsWelcome || window.accountWelcomeDone)
+            return false
+        if (accountWelcomeDialogLoader.shown)
+            return true
+        accountWelcomeDialogLoader.ensure().open()
+        return true
+    }
+
     function promptLanguageChooserIfNeeded() {
         if (!EditorState.preferences.needsUiLanguagePrompt)
             return false
@@ -784,7 +797,8 @@ ApplicationWindow {
     }
 
     function promptLayoutChooserIfNeeded() {
-        if (EditorState.preferences.needsUiLanguagePrompt || languageChooserDialogLoader.shown)
+        if (EditorState.preferences.needsUiLanguagePrompt || languageChooserDialogLoader.shown
+                || accountWelcomeDialogLoader.shown)
             return
         if (EditorState.projectFile.recoveryAvailable || EditorState.projectLayoutChosen)
             return
@@ -813,6 +827,19 @@ ApplicationWindow {
         id: projectSetupDialogLoader
         sourceComponent: Component {
             ProjectSetupDialog { }
+        }
+    }
+
+    LazyLoader {
+        id: accountWelcomeDialogLoader
+        sourceComponent: Component {
+            AccountWelcomeDialog {
+                onClosed: {
+                    window.accountWelcomeDone = true
+                    Account.dismissWelcome()
+                    window.continueStartupAfterLanguage()
+                }
+            }
         }
     }
 
@@ -1318,7 +1345,8 @@ ApplicationWindow {
     }
 
     function promptRecoveryIfNeeded() {
-        if (EditorState.preferences.needsUiLanguagePrompt || languageChooserDialogLoader.shown)
+        if (EditorState.preferences.needsUiLanguagePrompt || languageChooserDialogLoader.shown
+                || accountWelcomeDialogLoader.shown)
             return
         if (!EditorState.projectFile.recoveryAvailable || recoveryDialogLoader.shown)
             return
@@ -1431,6 +1459,8 @@ ApplicationWindow {
     }
 
     function continueStartupAfterLanguage() {
+        if (window.promptAccountWelcomeIfNeeded())
+            return
         if (Qt.platform.os === "android" && window.routeAndroidIntent(FileDialogs.takeLaunchIntent()))
             return
         // A document the shell asked us to open (argv / QFileOpenEvent) wins over last-session
@@ -1575,7 +1605,8 @@ ApplicationWindow {
         target: EditorState.projectFile
 
         function onRecoveryChanged() {
-            if (EditorState.preferences.needsUiLanguagePrompt || languageChooserDialogLoader.shown)
+            if (EditorState.preferences.needsUiLanguagePrompt || languageChooserDialogLoader.shown
+                    || accountWelcomeDialogLoader.shown)
                 return
             if (EditorState.preferences.reopenLastProject)
                 return

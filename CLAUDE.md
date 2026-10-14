@@ -30,7 +30,7 @@ Los portables de prueba viejos se borraron; las versiones publicadas siguen en l
 | `flip-addons` | Recetas y empaquetador de los extras (privado) | Paquetes al release `packages` de `flipstudio-extras` |
 | `flipstudio-web` | getflipstudio.com (privado) | VPS `holyvps` con `deploy/deploy.sh` |
 | `flipstudio-app` | El editor web de `/editor/` (AGPL) | VPS, con su propio `deploy/deploy.sh` |
-| `flipstudio-api` | `api.getflipstudio.com` (privado): cuentas de Google, estadísticas de instalación, stock de Pexels y Pixabay. Express + MongoDB Atlas (base `flipstudio`), sobre el modelo de holyapp (`Downloads\chat-app`) | VPS `holyvps`, PM2 + nginx |
+| `flipstudio-api` | `api.getflipstudio.com` (privado): cuentas de Google, estadísticas de instalación, stock de Pexels y Pixabay. Express + MongoDB Atlas (clúster propio `cluster0.jsfmxek`, base `flipstudio`; la cadena está en `secretos\api-claves.txt`), sobre el modelo de holyapp (`Downloads\chat-app`) | VPS `holyvps`, PM2 + nginx |
 
 **Claves y secretos:** `Downloads\FlipStudio\secretos\addon-signing.key` (Ed25519, la
 privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se commitea.
@@ -194,8 +194,8 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
    - **Trampa:** desde aquí no se puede abrir el navegador de Jorge (`start`/`rundll32` no hacen nada o cortan la
      URL en el `&`); para probar, imprimir la URL y que él la abra.
    - **Decisiones de Jorge:** la cuenta de Google se pide al primer arranque pero se puede saltar («Continuar sin
-     cuenta»); sin cuenta se envían estadísticas anónimas con interruptor en Ajustes; base en MongoDB Atlas, base
-     `flipstudio`. La cuenta se usará para su tienda personal (vender plantillas, más adelante; el pago por la web
+     cuenta»); sin cuenta se envían estadísticas anónimas con interruptor en Ajustes; base en MongoDB Atlas, en un
+     clúster aparte del de holyapp (desde el 2026-10-14; la base de prueba que quedó en el de holyapp se borró). La cuenta se usará para su tienda personal (vender plantillas, más adelante; el pago por la web
      con PayPal, como holyapp, para no necesitar cuenta de empresa en Partner Center).
    - **Falta nuestro:** el inicio de sesión y los avisos en la app de escritorio; política de privacidad y ficha
      de la Store **antes** de publicar esa versión.

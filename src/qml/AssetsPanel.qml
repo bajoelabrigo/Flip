@@ -637,7 +637,7 @@ PanelFrame {
     // evaluated. Labels are translated via tabLabels below.
     property var tabLabels: ({
         "media": qsTr("Media"),
-        "market": qsTr("Market"),
+        "market": qsTr("Stock"),
         "text": qsTr("Text"),
         "subtitles": qsTr("Subtitles"),
         "speech": qsTr("Speech"),
@@ -1389,7 +1389,8 @@ PanelFrame {
                                 searchText = saved.search
                             if (saved.submittedQuery)
                                 submittedQuery = saved.submittedQuery
-                            if (saved.section)
+                            // "assets" is Drift's own pack, which Flip Studio does not have.
+                            if (saved.section && saved.section !== "assets")
                                 section = saved.section
                         }
                         onSearchTextChanged: root.rememberTab("market", "search", searchText)

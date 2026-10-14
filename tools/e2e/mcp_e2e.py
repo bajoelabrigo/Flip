@@ -33,6 +33,8 @@ def env_with_models(stage):
     env["DRIFT_DEPTH_MODEL_DIR"] = os.path.join(stage, "profundidad", "models", "depth")
     env["DRIFT_RESTORE_MODEL_DIR"] = os.path.join(stage, "mejorar.video", "models", "restore")
     env["DRIFT_DENOISE_MODEL_DIR"] = os.path.join(stage, "ruido.voz", "models", "deepfilternet3")
+    # Test runs must not count as installs in the statistics of api.getflipstudio.com.
+    env.setdefault("FLIP_NO_STATS", "1")
     return env
 
 

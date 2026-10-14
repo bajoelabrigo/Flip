@@ -19,6 +19,8 @@
 #include "models/PointerDevices.h"
 #include "models/LayoutStore.h"
 #include "models/MarketClient.h"
+#include "models/AccountController.h"
+#include "models/InstallStats.h"
 #include "models/DriftAssetStore.h"
 #include "models/SfxLibrary.h"
 #include "models/UpdateChecker.h"
@@ -680,12 +682,15 @@ int main(int argc, char *argv[])
     static FileDialogs fileDialogs;
     static AddonManager addonManager;
     static MarketClient marketClient;
+    static AccountController account;
+    static InstallStats installStats(&account);
     static UpdateChecker updateChecker;
     static LayoutStore layoutStore;
     static drift::Haptics haptics;
     static drift::PointerDevices pointerDevices;
     editorState.setAddonManager(&addonManager);
     marketClient.setAssetLibrary(&assetLibrary);
+    marketClient.setAccount(&account);
     editorState.setMarketClient(&marketClient);
     static DriftAssetStore driftAssets(&marketClient, &assetLibrary, &editorState);
     static SfxLibrary sfxLibrary(&marketClient, &assetLibrary);
@@ -699,6 +704,9 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("Drift", 1, 0, "DriftAssets", &driftAssets);
     qmlRegisterSingletonInstance("Drift", 1, 0, "Sfx", &sfxLibrary);
     qmlRegisterSingletonInstance("Drift", 1, 0, "Updates", &updateChecker);
+    qmlRegisterSingletonInstance("Drift", 1, 0, "Account", &account);
+    qmlRegisterSingletonInstance("Drift", 1, 0, "UsageStats", &installStats);
+    installStats.start();
     qmlRegisterSingletonInstance("Drift", 1, 0, "LayoutMemory", &layoutStore);
     qmlRegisterSingletonInstance("Drift", 1, 0, "Haptics", &haptics);
     qmlRegisterSingletonInstance("Drift", 1, 0, "PointerDevices", &pointerDevices);
