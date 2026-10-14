@@ -1,5 +1,5 @@
 import re
-p = r"C:\Users\bajoe\Downloads\Flip\i18n\drift_es.ts"
+p = r"C:\Users\bajoe\Downloads\FlipStudio\codigo\Flip\i18n\drift_es.ts"
 t = open(p, encoding="utf-8").read()
 # "Remove background" is the Video page's name, and the rest of the app calls the feature
 # "Eliminar fondo" (MasksTab, the effects). Two names for one thing read as two features.

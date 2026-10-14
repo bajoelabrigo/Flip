@@ -1,5 +1,5 @@
 import json, os, glob
-root = r"C:\Users\bajoe\Downloads\Flip\transitions"
+root = r"C:\Users\bajoe\Downloads\FlipStudio\codigo\Flip\transitions"
 bad = []
 ids = {}
 for d in sorted(os.listdir(root)):

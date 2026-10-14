@@ -44,7 +44,19 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-14, cierre de la 0.9.9; ver su sección más abajo)
+## Estado (actualizado 2026-10-14, noche)
+
+### 0.10.0 PUBLICADA EN GITHUB (2026-10-14): cuenta de Google, Stock y estadísticas anónimas
+- PR #15, tag `v0.10.0`, release con instalador, portable y `SHA256SUMS` (copia en `FlipStudio\versiones\FlipStudio-0.10.0`).
+  Novedades 0.10.0 y política de privacidad nueva publicadas en getflipstudio.com. Google Cloud: app **en producción**.
+- **Sin MSIX y sin cambiar el TXT `version` a propósito** (decisión de Jorge): la próxima actualización completa
+  (0.10.0 + Etapa 1) es la que va al TXT y a la Store. La 0.9.9 ya está aprobada y en la Store.
+- Detalles de la cuenta, el servidor y las trampas en «Pendiente» (punto 5) y en las trampas (navegador y WSA).
+- **Lo siguiente:** Etapa 1 de plantillas (rombos editables: Intensidad/Caída/Ritmo, «Quitar plantilla», las de
+  recorte como composición). Ver el punto 6 de «Pendiente».
+- Al cerrar la sesión el repo se mudó a `Downloads\FlipStudio\codigo\Flip`: abrir Claude desde ahí.
+
+### Anterior: cierre de la 0.9.9
 
 **v0.9.6 PUBLICADA.** Ni la 0.9.3, ni la 0.9.4, ni la 0.9.5 llegaron a la Store: Jorge sube
 directamente la 0.9.6, y sus notas cubren las cuatro.
@@ -151,8 +163,8 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
 ### 0.9.9 PUBLICADA (2026-10-14): capas de ajuste como en Photoshop
 - La 0.9.8 **no** fue a la Store: Jorge sube directamente la 0.9.9. Las notas combinadas (0.9.7 + 0.9.8 + 0.9.9,
   es/en) están en `docs/store-listing.md`. MSIX en `FlipStudio-Store\paquete-0.9.9\`.
-- **Jorge (2026-10-14):** cambió el TXT `version` a 0.9.9 (comprobado en DNS) y mandó la 0.9.9 a certificación.
-  **Falta:** confirmar que pase.
+- **Jorge (2026-10-14):** cambió el TXT `version` a 0.9.9 y mandó la 0.9.9 a certificación. **Microsoft la aprobó
+  el mismo 2026-10-14: la 0.9.9 está en la Store.** El próximo envío lleva solo lo nuevo desde la 0.9.9.
 - PR #14, tag `v0.9.9`. Notas en `release-notes/0.9.9.md`.
 - **«Aplicar a»** (`AdjustmentTargetSection.qml`, `AppController::adjustmentTargetState` / `setAdjustmentTarget`):
   una capa de ajuste o de máscara va sobre todo lo de abajo (pista suelta, `AllBelow`) o enlazada a un clip (carril
@@ -213,6 +225,14 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
    plantilla»; las de escena entran como composición con capas con nombre, huecos «Tu foto aquí» y panel
    «Rellenar plantilla»; reactivar la importación de MOGRT; LottieFiles; catálogo propio; más adelante, plantillas
    hechas y vendidas por los usuarios.
+   - **Publicación por tandas (Jorge, 2026-10-14):** la 0.10.0 se publica en GitHub (tag, release y novedades
+     en la web), pero **sin MSIX ni cambio del TXT `version`**. La próxima actualización completa (0.10.0 +
+     Etapa 1, quizá 0.11.0) es la que va al TXT y a la Store: cada envío tarda días en certificarse.
+   - **Decisión de Jorge (2026-10-14):** las plantillas también salen en **Stock › Plantillas**, como escaparate en
+     línea servido por `api.getflipstudio.com` (catálogo propio, de pago y, más adelante, las tiendas de los
+     usuarios), con un botón **«Usar»** que la descarga, la guarda en la pestaña Plantillas y la pone en la línea
+     de tiempo como composición. La pestaña Plantillas sigue siendo «lo que ya tienes». Llega con la Etapa 2;
+     `MarketClient::applyCatalog` hoy solo acepta tipos `delivery: "media"`, así que hace falta otro tipo de entrega.
 7. ~~Candado para bloquear una pista~~: hecho en la 0.9.7 (escritorio y web).
 8. El selector de idioma del primer arranque marca "American English" por defecto aunque el
    sistema esté en español.

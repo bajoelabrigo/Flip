@@ -1,5 +1,5 @@
 import re
-p = r"C:\Users\bajoe\Downloads\Flip\i18n\drift_es.ts"
+p = r"C:\Users\bajoe\Downloads\FlipStudio\codigo\Flip\i18n\drift_es.ts"
 t = open(p, encoding="utf-8").read()
 # An entry with text but still flagged unfinished is one lupdate could not confirm; the text is
 # right, so finish it. Empty unfinished entries are left alone.

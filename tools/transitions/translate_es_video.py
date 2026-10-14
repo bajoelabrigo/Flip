@@ -8,7 +8,7 @@ unfinished so nothing silently ships in English.
 import re
 import sys
 
-PATH = r"C:\Users\bajoe\Downloads\Flip\i18n\drift_es.ts"
+PATH = r"C:\Users\bajoe\Downloads\FlipStudio\codigo\Flip\i18n\drift_es.ts"
 
 TRANSLATIONS = {
     "Video": "Video",

@@ -340,7 +340,7 @@ def manifest(spec):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--repo", default=r"C:\Users\bajoe\Downloads\Flip")
+    ap.add_argument("--repo", default=r"C:\Users\bajoe\Downloads\FlipStudio\codigo\Flip")
     ap.add_argument("--force", action="store_true")
     opts = ap.parse_args()
 

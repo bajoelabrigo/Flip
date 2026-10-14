@@ -17,7 +17,7 @@ import os
 import re
 import sys
 
-ROOT = r"C:\Users\bajoe\Downloads\Flip\i18n"
+ROOT = r"C:\Users\bajoe\Downloads\FlipStudio\codigo\Flip\i18n"
 
 # An opening message tag, with or without attributes.
 OPENER = re.compile(r"^\s*<message(\s[^>]*)?>\s*$")
