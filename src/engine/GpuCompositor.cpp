@@ -575,6 +575,51 @@ QMatrix4x4 layerViewProjection(const GpuLayer &layer, const QSize &canvas)
     return view;
 }
 
+// A pooled copy of `source`, or an invalid target when it cannot be made.
+GlTarget copyTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GlTarget &source)
+{
+    GlTarget copy = rt.acquireTarget(source.width, source.height);
+    if (copy.isValid() && !blitTextureToTarget(rt, gl, source.texture(), copy))
+        rt.releaseTarget(std::move(copy));
+    return copy;
+}
+
+// `processed` where `coverage` covers and `untouched` elsewhere. Takes all three; when the mix
+// cannot run (no coverage: nothing contributes) the processed picture stands, as before masks.
+GlTarget mixByCoverage(GlRuntime &rt, QOpenGLExtraFunctions *gl, GlTarget untouched,
+                       GlTarget processed, GlTarget coverage)
+{
+    QOpenGLShaderProgram *mix =
+        rt.builtinProgram(QStringLiteral("__effects_mask_mix__"), kQuadVertexShader, kEffectsMaskMixFragShader);
+    GlTarget mixed = coverage.isValid() && mix ? rt.acquireTarget(processed.width, processed.height) : GlTarget{};
+    if (mixed.isValid()) {
+        mixed.fbo->bind();
+        gl->glViewport(0, 0, mixed.width, mixed.height);
+        gl->glDisable(GL_BLEND);
+        mix->bind();
+        mix->setUniformValue("u_untouched", 0);
+        mix->setUniformValue("u_processed", 1);
+        mix->setUniformValue("u_cover", 2);
+        gl->glActiveTexture(GL_TEXTURE0);
+        gl->glBindTexture(GL_TEXTURE_2D, untouched.texture());
+        gl->glActiveTexture(GL_TEXTURE1);
+        gl->glBindTexture(GL_TEXTURE_2D, processed.texture());
+        gl->glActiveTexture(GL_TEXTURE2);
+        gl->glBindTexture(GL_TEXTURE_2D, coverage.texture());
+        bindQuad(rt, gl);
+        mix->release();
+        mixed.fbo->release();
+        gl->glActiveTexture(GL_TEXTURE0);
+        rt.releaseTarget(std::move(processed));
+        processed = std::move(mixed);
+    }
+    if (coverage.isValid())
+        rt.releaseTarget(std::move(coverage));
+    if (untouched.isValid())
+        rt.releaseTarget(std::move(untouched));
+    return processed;
+}
+
 // `modelDepth`: for a model layer that takes part in depth occlusion, its packed depth.
 GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLayer &layer,
                           const QSize &canvasSize, GlTarget *modelDepth = nullptr)
@@ -624,19 +669,16 @@ GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
     // chain's result only where the masks cover (mix by coverage), so nothing is cut.
     GlTarget untouched;
     const bool limitEffects = layer.masksLimitEffects && !drift::masksAreInert(layer.masks);
-    if (limitEffects) {
-        untouched = rt.acquireTarget(target.width, target.height);
-        if (untouched.isValid() && !blitTextureToTarget(rt, gl, target.texture(), untouched))
-            rt.releaseTarget(std::move(untouched));
-    }
+    if (limitEffects)
+        untouched = copyTarget(rt, gl, target);
 
-    for (const drift::Effect &effect : layer.effects) {
+    const auto runEffect = [&](const drift::Effect &effect) {
         const EffectPresetEntry *def =
             effect.catalogId.isEmpty() ? nullptr : effectDefForId(effect.catalogId);
         if (!def)
-            continue;
+            return;
         if (def->meta.id == QStringLiteral("time_echo"))
-            continue; // history is assembled before the scene is built
+            return; // history is assembled before the scene is built
 
         if (def->isModel3d) {
             QMap<QString, QVariant> params = resolvedEffectParameters(effect, *def);
@@ -644,10 +686,10 @@ GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
             GlTarget next =
                 drawFaceModelEffect(rt, gl, modelParams, layer.faceSlots, target);
             if (!next.isValid())
-                continue; // grace mode
+                return; // grace mode
             rt.releaseTarget(std::move(target));
             target = std::move(next);
-            continue;
+            return;
         }
 
         if (def->isFaceSwap) {
@@ -656,14 +698,14 @@ GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
                 drift::faceSwapParamsFromMap(params, def->gpu.packageDir);
             GlTarget next = drawFaceSwapEffect(rt, gl, swapParams, layer.faceSlots, target);
             if (!next.isValid())
-                continue; // grace mode
+                return; // grace mode
             rt.releaseTarget(std::move(target));
             target = std::move(next);
-            continue;
+            return;
         }
 
         if (!def->isGpu || !def->gpu.valid)
-            continue;
+            return;
 
         QMap<QString, QVariant> params = resolvedEffectParameters(effect, *def);
         if (def->needsFace)
@@ -680,44 +722,47 @@ GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
         GlTarget next = runPipeline(rt, gl, def->meta.id, def->gpu, sources, params,
                                     layer.clipTimeUs, 0.0, target.size(), &aux);
         if (!next.isValid())
-            continue; // grace mode
+            return; // grace mode
 
         rt.releaseTarget(std::move(target));
         target = std::move(next);
+    };
+
+    // A lane adjustment's own masks: its run of effects shows only inside them. Scopes are
+    // disjoint and in chain order, so one snapshot is open at a time.
+    int scopeIndex = 0;
+    GlTarget scopeUntouched;
+    for (int i = 0; i < layer.effects.size(); ++i) {
+        while (scopeIndex < layer.effectScopes.size()
+               && layer.effectScopes.at(scopeIndex).first + layer.effectScopes.at(scopeIndex).count <= i)
+            ++scopeIndex;
+        const GpuLayer::ScopedEffects *scope =
+            scopeIndex < layer.effectScopes.size() && layer.effectScopes.at(scopeIndex).first <= i
+                ? &layer.effectScopes.at(scopeIndex)
+                : nullptr;
+        if (scope && i == scope->first && !drift::masksAreInert(scope->masks))
+            scopeUntouched = copyTarget(rt, gl, target);
+
+        runEffect(layer.effects.at(i));
+
+        if (scope && i == scope->first + scope->count - 1 && scopeUntouched.isValid()) {
+            GpuLayer scopeMasks;
+            scopeMasks.masks = scope->masks;
+            scopeMasks.maskMedia = scope->maskMedia;
+            GlTarget coverage = composeMaskTarget(rt, gl, scopeMasks, target.size());
+            target = mixByCoverage(rt, gl, std::move(scopeUntouched), std::move(target),
+                                   std::move(coverage));
+        }
     }
+    if (scopeUntouched.isValid())
+        rt.releaseTarget(std::move(scopeUntouched));
 
     if (clipMask.isValid())
         rt.releaseTarget(std::move(clipMask));
 
     if (untouched.isValid()) {
         GlTarget coverage = composeMaskTarget(rt, gl, layer, target.size());
-        QOpenGLShaderProgram *mix =
-            rt.builtinProgram(QStringLiteral("__effects_mask_mix__"), kQuadVertexShader, kEffectsMaskMixFragShader);
-        GlTarget mixed = coverage.isValid() && mix ? rt.acquireTarget(target.width, target.height) : GlTarget{};
-        if (mixed.isValid()) {
-            mixed.fbo->bind();
-            gl->glViewport(0, 0, mixed.width, mixed.height);
-            gl->glDisable(GL_BLEND);
-            mix->bind();
-            mix->setUniformValue("u_untouched", 0);
-            mix->setUniformValue("u_processed", 1);
-            mix->setUniformValue("u_cover", 2);
-            gl->glActiveTexture(GL_TEXTURE0);
-            gl->glBindTexture(GL_TEXTURE_2D, untouched.texture());
-            gl->glActiveTexture(GL_TEXTURE1);
-            gl->glBindTexture(GL_TEXTURE_2D, target.texture());
-            gl->glActiveTexture(GL_TEXTURE2);
-            gl->glBindTexture(GL_TEXTURE_2D, coverage.texture());
-            bindQuad(rt, gl);
-            mix->release();
-            mixed.fbo->release();
-            gl->glActiveTexture(GL_TEXTURE0);
-            rt.releaseTarget(std::move(target));
-            target = std::move(mixed);
-        }
-        if (coverage.isValid())
-            rt.releaseTarget(std::move(coverage));
-        rt.releaseTarget(std::move(untouched));
+        target = mixByCoverage(rt, gl, std::move(untouched), std::move(target), std::move(coverage));
     }
     return target;
 }
@@ -1319,6 +1364,7 @@ GlTarget maskCanvasTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
         out.fbo->release();
         GpuLayer placed = layer;
         placed.effects.clear();
+        placed.effectScopes.clear();
         placed.masks.clear();
         placed.maskMedia.clear();
         placed.opacity = 1.0;
