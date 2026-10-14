@@ -10422,6 +10422,22 @@
         <translation>Ajuste</translation>
     </message>
     <message>
+        <source>Group</source>
+        <translation>Grupo</translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation>Animación</translation>
+    </message>
+    <message>
+        <source>3D Model</source>
+        <translation>Modelo 3D</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation>PDF</translation>
+    </message>
+    <message>
         <source>Clip name</source>
         <translation>Nombre del clip</translation>
     </message>

@@ -62,6 +62,10 @@ Item {
         case "shape": return qsTr("Shape")
         case "sticker": return qsTr("Sticker")
         case "adjustment": return qsTr("Adjustment")
+        case "composite": return qsTr("Group")
+        case "vector": return qsTr("Animation")
+        case "model3d": return qsTr("3D Model")
+        case "pdf": return qsTr("PDF")
         }
         return kind.length > 0 ? kind : "—"
     }

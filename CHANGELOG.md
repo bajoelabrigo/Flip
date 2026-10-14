@@ -3,6 +3,13 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.9.9 — Capas de ajuste como en Photoshop y Agrupar
+
+- **Máscara de una capa enlazada:** `laneAdjustmentChain` lleva las máscaras de cada capa de un carril junto a sus efectos; `GpuLayer::effectScopes` las aplica a su tramo de la cadena (`buildLayerTarget` mezcla por cobertura con `mixByCoverage`). Antes se descartaban y el ajuste cubría todo el clip. El visor (`maskEditorState`) muestra sus asas sobre el clip.
+- **«Aplicar a»** (`AdjustmentTargetSection.qml`): todo lo de abajo o un solo clip de abajo, para capas de efectos y de máscara (`adjustmentTargetState`, `setAdjustmentTarget`: un paso de deshacer y conserva la selección). La pestaña Capa de ajuste sale también en los carriles; intensidad y mezcla, solo en las sueltas.
+- **Agrupar / Desagrupar** en el menú de clic derecho con varios clips (es `makeCompositeFromSelection` / `flattenComposite`).
+- General: tipo de clip traducido para composición («Grupo»), vector, modelo 3D y PDF.
+
 ## 0.9.8 — Capas de ajuste profesionales, LUT y máscaras de capa
 
 - **Capas de ajuste:**

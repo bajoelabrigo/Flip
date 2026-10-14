@@ -10391,6 +10391,22 @@
         <translation>보정</translation>
     </message>
     <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation type="unfinished">애니메이션</translation>
+    </message>
+    <message>
+        <source>3D Model</source>
+        <translation type="unfinished">3D 모델</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Clip name</source>
         <translation>클립 이름</translation>
     </message>

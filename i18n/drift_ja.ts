@@ -10391,6 +10391,22 @@
         <translation>調整</translation>
     </message>
     <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation type="unfinished">アニメーション</translation>
+    </message>
+    <message>
+        <source>3D Model</source>
+        <translation type="unfinished">3D モデル</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Clip name</source>
         <translation>クリップ名</translation>
     </message>

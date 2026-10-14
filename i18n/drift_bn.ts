@@ -10422,6 +10422,22 @@
         <translation type="unfinished">সমন্বয়</translation>
     </message>
     <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation type="unfinished">অ্যানিমেশন</translation>
+    </message>
+    <message>
+        <source>3D Model</source>
+        <translation type="unfinished">3D মডেল</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Clip name</source>
         <translation>ক্লিপের নাম</translation>
     </message>
