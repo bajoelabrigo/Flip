@@ -3424,6 +3424,18 @@
         <translation>No se pudo acoplar la composición: %1</translation>
     </message>
     <message>
+        <source>This group was moved, changed or has layers of its own; ungrouping would lose them. Open it to edit its clips, or undo those changes first.</source>
+        <translation>Este grupo se movió, se cambió o tiene capas propias, y al desagruparlo se perderían. Ábrelo para editar sus clips, o deshaz esos cambios primero.</translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation>Desagrupar</translation>
+    </message>
+    <message>
+        <source>Ungrouped</source>
+        <translation>Desagrupado</translation>
+    </message>
+    <message>
         <source>The composite clip was removed before flattening finished</source>
         <translation>El clip compuesto se eliminó antes de que finalizara el acoplamiento</translation>
     </message>
@@ -19376,6 +19388,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Ungroup</source>
         <translation>Desagrupar</translation>
+    </message>
+    <message>
+        <source>Flatten composite</source>
+        <translation>Acoplar composición</translation>
     </message>
     <message>
         <source>Make composite</source>

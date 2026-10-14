@@ -3430,6 +3430,18 @@
         <translation>Impossible d&apos;aplatir le composite : %1</translation>
     </message>
     <message>
+        <source>This group was moved, changed or has layers of its own; ungrouping would lose them. Open it to edit its clips, or undo those changes first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungrouped</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The composite clip was removed before flattening finished</source>
         <translation>Le clip composite a été supprimé avant la fin de l&apos;aplatissement</translation>
     </message>
@@ -19381,6 +19393,10 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
     <message>
         <source>Ungroup</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flatten composite</source>
+        <translation type="unfinished">Aplatir le composite</translation>
     </message>
     <message>
         <source>Make composite</source>

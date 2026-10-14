@@ -3419,6 +3419,18 @@
         <translation>컴포지트를 병합 해제할 수 없습니다: %1</translation>
     </message>
     <message>
+        <source>This group was moved, changed or has layers of its own; ungrouping would lose them. Open it to edit its clips, or undo those changes first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungrouped</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The composite clip was removed before flattening finished</source>
         <translation>병합 해제가 완료되기 전에 컴포지트 클립이 제거됨</translation>
     </message>
@@ -19312,6 +19324,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Ungroup</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flatten composite</source>
+        <translation type="unfinished">컴포지트 병합</translation>
     </message>
     <message>
         <source>Make composite</source>

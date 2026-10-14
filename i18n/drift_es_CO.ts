@@ -3432,6 +3432,18 @@
         <translation>No se pudo aplanar la composición: %1</translation>
     </message>
     <message>
+        <source>This group was moved, changed or has layers of its own; ungrouping would lose them. Open it to edit its clips, or undo those changes first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungrouped</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The composite clip was removed before flattening finished</source>
         <translation>El clip de composición se eliminó antes de que finalizara el aplanado</translation>
     </message>
@@ -19376,6 +19388,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Ungroup</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flatten composite</source>
+        <translation type="unfinished">Acoplar composición</translation>
     </message>
     <message>
         <source>Make composite</source>

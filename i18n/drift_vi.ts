@@ -3427,6 +3427,18 @@
         <translation>Không thể làm phẳng tổ hợp: %1</translation>
     </message>
     <message>
+        <source>This group was moved, changed or has layers of its own; ungrouping would lose them. Open it to edit its clips, or undo those changes first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungrouped</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The composite clip was removed before flattening finished</source>
         <translation>Clip tổ hợp đã bị xóa trước khi quá trình làm phẳng hoàn tất</translation>
     </message>
@@ -19320,6 +19332,10 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     <message>
         <source>Ungroup</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flatten composite</source>
+        <translation type="unfinished">Làm phẳng tổ hợp</translation>
     </message>
     <message>
         <source>Make composite</source>

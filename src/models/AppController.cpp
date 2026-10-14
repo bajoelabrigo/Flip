@@ -10426,6 +10426,123 @@ bool isRescopableAdjustment(const drift::Clip &clip)
                || clip.adjustmentKind == drift::AdjustmentKind::Mask);
 }
 
+// What a layer's mask coordinates are normalized to: in a lane, the clip under it (as the viewer's
+// mask handles place them); standalone, the whole canvas. In canvas pixels, rotated about its
+// centre.
+struct MaskFrame
+{
+    double x = 0.0;
+    double y = 0.0;
+    double w = 1.0;
+    double h = 1.0;
+    double rotation = 0.0;
+
+    QPointF toCanvas(QPointF uv) const
+    {
+        const double radians = qDegreesToRadians(rotation);
+        const double dx = (uv.x() - 0.5) * w;
+        const double dy = (uv.y() - 0.5) * h;
+        return {x + w * 0.5 + dx * std::cos(radians) - dy * std::sin(radians),
+                y + h * 0.5 + dx * std::sin(radians) + dy * std::cos(radians)};
+    }
+
+    QPointF fromCanvas(QPointF point) const
+    {
+        const double radians = qDegreesToRadians(rotation);
+        const double dx = point.x() - (x + w * 0.5);
+        const double dy = point.y() - (y + h * 0.5);
+        return {(dx * std::cos(radians) + dy * std::sin(radians)) / w + 0.5,
+                (-dx * std::sin(radians) + dy * std::cos(radians)) / h + 0.5};
+    }
+};
+
+MaskFrame clipMaskFrame(const drift::Clip &clip, drift::TimeUs atUs, double canvasWidth, double canvasHeight)
+{
+    const drift::TimeUs relative = atUs - clip.timelineStart;
+    const auto value = [&](const drift::KeyframeTrack<double> &track, double fallback) {
+        return track.isEmpty() ? fallback : track.evaluateAt(relative);
+    };
+    MaskFrame frame;
+    frame.x = value(clip.transformX, 0.0);
+    frame.y = value(clip.transformY, 0.0);
+    frame.w = value(clip.transformW, canvasWidth);
+    frame.h = value(clip.transformH, canvasHeight);
+    frame.rotation = value(clip.rotation, 0.0);
+    return frame;
+}
+
+// The picture clip of `track` a lane layer's mask is placed on at `atUs`: the pinned one, else
+// whichever is under that instant.
+const drift::Clip *maskHostClip(const drift::Track &track, const QString &pinnedId, drift::TimeUs atUs)
+{
+    for (const drift::Clip &clip : track.clips) {
+        if (clip.type == drift::ClipType::Adjustment || clip.type == drift::ClipType::Audio)
+            continue;
+        if (pinnedId.isEmpty() ? clip.containsTime(atUs) : clip.id == pinnedId)
+            return &clip;
+    }
+    return nullptr;
+}
+
+void remapKeys(drift::KeyframeTrack<double> &track, double scale, double offset)
+{
+    const QList<drift::TimeUs> times = track.keyframes().keys();
+    for (const drift::TimeUs time : times) {
+        if (drift::Keyframe<double> *key = track.keyframeRef(time)) {
+            key->value = key->value * scale + offset;
+            key->inDy *= scale;
+            key->outDy *= scale;
+        }
+    }
+}
+
+// Re-expresses a mask from one frame in another so it stays where it was on screen, as a
+// Photoshop mask does when its layer is clipped or released. Exact for frames that are not turned
+// relative to each other; animated x/y are mapped per axis.
+void remapMask(drift::Mask &mask, const MaskFrame &from, const MaskFrame &to)
+{
+    if (from.w <= 0.0 || from.h <= 0.0 || to.w <= 0.0 || to.h <= 0.0)
+        return;
+    const auto map = [&](QPointF uv) { return to.fromCanvas(from.toCanvas(uv)); };
+    const QPointF centre(mask.x, mask.y);
+    const QPointF origin = map(QPointF(0.0, centre.y()));
+    const QPointF unitX = map(QPointF(1.0, centre.y()));
+    const QPointF originY = map(QPointF(centre.x(), 0.0));
+    const QPointF unitY = map(QPointF(centre.x(), 1.0));
+    const double scaleW = from.w / to.w;
+    const double scaleH = from.h / to.h;
+    const double turn = from.rotation - to.rotation;
+    const double scaleExpand = std::min(from.w, from.h) / std::min(to.w, to.h);
+
+    const QPointF moved = map(centre);
+    mask.x = moved.x();
+    mask.y = moved.y();
+    mask.w *= scaleW;
+    mask.h *= scaleH;
+    mask.rotation += turn;
+    mask.expand *= scaleExpand;
+    for (QPointF &point : mask.points)
+        point = map(point);
+    for (auto it = mask.pathKeys.begin(); it != mask.pathKeys.end(); ++it) {
+        for (QPointF &point : it.value())
+            point = map(point);
+    }
+    for (auto it = mask.keyframes.begin(); it != mask.keyframes.end(); ++it) {
+        if (it.key() == QLatin1String("x"))
+            remapKeys(it.value(), unitX.x() - origin.x(), origin.x());
+        else if (it.key() == QLatin1String("y"))
+            remapKeys(it.value(), unitY.y() - originY.y(), originY.y());
+        else if (it.key() == QLatin1String("w"))
+            remapKeys(it.value(), scaleW, 0.0);
+        else if (it.key() == QLatin1String("h"))
+            remapKeys(it.value(), scaleH, 0.0);
+        else if (it.key() == QLatin1String("rotation"))
+            remapKeys(it.value(), 1.0, turn);
+        else if (it.key() == QLatin1String("expand"))
+            remapKeys(it.value(), scaleExpand, 0.0);
+    }
+}
+
 } // namespace
 
 QVariantMap AppController::adjustmentTargetState(int trackIndex, int clipIndex) const
@@ -10515,6 +10632,26 @@ void AppController::setAdjustmentTarget(int trackIndex, int clipIndex, int targe
     drift::Clip adjustment = m_project.tracks().at(trackIndex).clips.at(clipIndex);
     const QString adjustmentId = adjustment.id;
     const QString sourceTrackId = m_project.tracks().at(trackIndex).id;
+
+    // Its masks keep their place on screen, although the frame they are measured in changes.
+    const drift::TimeUs atUs = adjustment.containsTime(m_playheadUs) ? m_playheadUs : adjustment.timelineStart;
+    const auto frameOn = [&](int hostTrack, const QString &pinnedId, MaskFrame *frame) {
+        if (hostTrack < 0) {
+            *frame = MaskFrame{0.0, 0.0, double(m_project.width()), double(m_project.height()), 0.0};
+            return true;
+        }
+        const drift::Clip *host = maskHostClip(m_project.tracks().at(hostTrack), pinnedId, atUs);
+        if (host)
+            *frame = clipMaskFrame(*host, atUs, m_project.width(), m_project.height());
+        return host != nullptr;
+    };
+    MaskFrame fromFrame;
+    MaskFrame toFrame;
+    if (frameOn(parent, adjustment.linkedClipId, &fromFrame) && frameOn(targetTrack, targetClipId, &toFrame)) {
+        remapMask(adjustment.mask, fromFrame, toFrame);
+        for (drift::Mask &extra : adjustment.extraMasks)
+            remapMask(extra, fromFrame, toFrame);
+    }
     adjustment.linkedClipId = targetClipId;
 
     const auto removeSource = [&] {
@@ -10545,8 +10682,8 @@ void AppController::setAdjustmentTarget(int trackIndex, int clipIndex, int targe
         own.clips.append(adjustment);
         m_project.tracks().insert(qMax(0, m_project.trackIndexById(parentId)), own);
     } else if (parent == targetTrack) {
-        // Same track: only the pin changes.
-        m_project.tracks()[trackIndex].clips[clipIndex].linkedClipId = targetClipId;
+        // Same track: only the pin (and the clip its masks are placed on) changes.
+        m_project.tracks()[trackIndex].clips[clipIndex] = adjustment;
     } else {
         const QString hostId = m_project.tracks().at(targetTrack).id;
         removeSource();
@@ -14335,6 +14472,135 @@ bool AppController::flattenComposite(int trackIndex, int clipIndex)
             },
             Qt::QueuedConnection);
     });
+    return true;
+}
+
+namespace {
+
+// True when the group plays its clips exactly as they are: nothing of its own (motion, speed,
+// effects, the layers in its track's lanes) that putting the clips back would silently drop.
+bool groupHasNothingOfItsOwn(const drift::Project &project, int trackIndex, const drift::Clip &group)
+{
+    const auto still = [](const drift::KeyframeTrack<double> &track, double rest) {
+        for (const drift::Keyframe<double> &key : track.keyframes()) {
+            if (qAbs(key.value - rest) > 1e-6)
+                return false;
+        }
+        return true;
+    };
+    if (qAbs(group.effectiveSpeed() - 1.0) > 1e-9 || group.hasSpeedCurve() || group.reverse || group.flipH
+        || group.flipV || group.layer3d || group.blendMode != drift::BlendMode::Normal || !group.effects.isEmpty()
+        || group.fadeInUs > 0 || group.fadeOutUs > 0 || group.animIn.kind != drift::ClipAnimKind::None
+        || group.animOut.kind != drift::ClipAnimKind::None) {
+        return false;
+    }
+    if (!still(group.opacity, 1.0) || !still(group.transformX, 0.0) || !still(group.transformY, 0.0)
+        || !still(group.transformW, project.width()) || !still(group.transformH, project.height())
+        || !still(group.rotation, 0.0)) {
+        return false;
+    }
+    if (!drift::linkedPartners(project, group).isEmpty())
+        return false;
+    for (const int lane : drift::adjustmentLaneIndexes(project, trackIndex)) {
+        for (const drift::Clip &layer : project.tracks().at(lane).clips) {
+            if (layer.timelineStart < group.timelineEnd() && group.timelineStart < layer.timelineEnd())
+                return false;
+        }
+    }
+    return true;
+}
+
+} // namespace
+
+bool AppController::ungroupComposite(int trackIndex, int clipIndex)
+{
+    // Groups live on the main timeline only (one level of nesting).
+    if (!m_project.activeSequenceId().isEmpty() || !isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    const drift::Clip group = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (group.type != drift::ClipType::Composite || group.sequenceId.isEmpty()
+        || !m_project.hasSequence(group.sequenceId)) {
+        return false;
+    }
+    if (!groupHasNothingOfItsOwn(m_project, trackIndex, group)) {
+        setLastMessage(tr("This group was moved, changed or has layers of its own; ungrouping would lose "
+                          "them. Open it to edit its clips, or undo those changes first."),
+                       QStringLiteral("warning"));
+        return false;
+    }
+
+    setPlaying(false);
+    const drift::Project before = m_project.detachedCopy();
+    m_project.ensureTrackIds();
+
+    // The part of the group this instance plays, moved back to where it plays. The sequence may
+    // be shared by other instances, so everything gets ids of its own.
+    const drift::TimeUs offsetUs = group.timelineStart - group.srcIn;
+    QHash<QString, QString> clipIds;
+    QHash<QString, QString> linkIds;
+    QHash<QString, QString> trackIds;
+    drift::TrackList restored;
+    for (const drift::Track &source : m_project.sequenceTracks(group.sequenceId)) {
+        drift::Track track = source;
+        track.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        trackIds.insert(source.id, track.id);
+        track.clips.clear();
+        for (drift::Clip clip : source.clips) {
+            clip.timelineStart += offsetUs;
+            drift::Clip slice;
+            if (!drift::sliceClipToTimelineRange(clip, group.timelineStart, group.timelineEnd(), slice))
+                continue;
+            slice.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+            clipIds.insert(clip.id, slice.id);
+            if (!slice.linkId.isEmpty()) {
+                if (!linkIds.contains(slice.linkId))
+                    linkIds.insert(slice.linkId, QUuid::createUuid().toString(QUuid::WithoutBraces));
+                slice.linkId = linkIds.value(slice.linkId);
+            }
+            track.clips.append(slice);
+        }
+        if (!track.clips.isEmpty())
+            restored.append(track);
+    }
+    for (drift::Track &track : restored) {
+        track.parentTrackId = trackIds.value(track.parentTrackId);
+        for (drift::Clip &clip : track.clips)
+            clip.linkedClipId = clipIds.value(clip.linkedClipId);
+        for (int i = track.transitions.size() - 1; i >= 0; --i) {
+            drift::Transition &transition = track.transitions[i];
+            if (!clipIds.contains(transition.fromClipId) || !clipIds.contains(transition.toClipId)) {
+                track.transitions.removeAt(i);
+                continue;
+            }
+            transition.fromClipId = clipIds.value(transition.fromClipId);
+            transition.toClipId = clipIds.value(transition.toClipId);
+        }
+    }
+    if (restored.isEmpty())
+        return false;
+
+    // In the group's place in the stack: right above its track (and the lanes over it), so what
+    // was drawn over or under the group still is.
+    QList<drift::Track> &tracks = m_project.tracks();
+    const QString groupTrackId = tracks.at(trackIndex).id;
+    tracks[trackIndex].clips.removeAt(clipIndex);
+    int insertAt = trackIndex;
+    for (const int lane : drift::adjustmentLaneIndexes(m_project, trackIndex))
+        insertAt = qMin(insertAt, lane);
+    for (int i = 0; i < restored.size(); ++i)
+        tracks.insert(insertAt + i, restored.at(i));
+    const int groupTrack = m_project.trackIndexById(groupTrackId);
+    if (groupTrack >= 0 && tracks.at(groupTrack).clips.isEmpty()
+        && drift::adjustmentLaneIndexes(m_project, groupTrack).isEmpty()) {
+        tracks.removeAt(groupTrack);
+    }
+    if (m_selectedTransitionTrack >= tracks.size())
+        m_selectedTransitionTrack = -1;
+
+    normalizeAdjustmentLanes(m_project);
+    pushProjectEdit(before, tr("Ungroup"));
+    finishEdit(tr("Ungrouped"));
+    selectClipById(restored.constFirst().clips.constFirst().id);
     return true;
 }
 

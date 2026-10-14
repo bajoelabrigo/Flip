@@ -374,6 +374,13 @@ Item {
             ThemedMenuItem {
                 // Puts its clips back on the timeline, as Photoshop's Ungroup.
                 text: qsTr("Ungroup")
+                icon.name: Theme.icons.group
+                visible: clipItem.clipData.kind === "composite"
+                onTriggered: EditorState.ungroupComposite(clipItem.trackIndex, clipItem.clipIndex)
+            }
+            ThemedMenuItem {
+                // Renders it into one video clip.
+                text: qsTr("Flatten composite")
                 icon.name: Theme.icons.film
                 visible: clipItem.clipData.kind === "composite"
                 enabled: !EditorState.exportInProgress

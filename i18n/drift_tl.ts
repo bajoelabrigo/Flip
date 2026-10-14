@@ -3424,6 +3424,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>This group was moved, changed or has layers of its own; ungrouping would lose them. Open it to edit its clips, or undo those changes first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungrouped</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The composite clip was removed before flattening finished</source>
         <translation type="unfinished"></translation>
     </message>
@@ -19368,6 +19380,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Ungroup</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flatten composite</source>
+        <translation type="unfinished">I-flatten ang composite</translation>
     </message>
     <message>
         <source>Make composite</source>

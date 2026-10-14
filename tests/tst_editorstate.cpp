@@ -292,6 +292,8 @@ private slots:
     void projectV3MigratesEffectsOntoAdjustmentLanes();
     void adjustmentMovesBetweenStandaloneAndNested();
     void adjustmentTargetClipsToOneClipLikePhotoshop();
+    void adjustmentTargetKeepsTheMaskInPlace();
+    void ungroupPutsTheClipsBack();
     void trackRowHeightsForAdjustmentsAndLanes();
     void overlappingAdjustmentsGetASecondLane();
     void multiClipMoveLeftPreservesSelectionAndRelativeSpacing();
@@ -800,6 +802,43 @@ void EditorStateTest::compositeFromSelectionUndoRedo()
     state.redo();
     QCOMPARE(state.project()->tracks().at(0).clips.at(0).type, drift::ClipType::Composite);
     QCOMPARE(library.count(), 2);
+}
+
+// Ungroup puts the clips back where they played, as Photoshop's: no render, one undo step.
+void EditorStateTest::ungroupPutsTheClipsBack()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    setUpTwoClipSelection(library, state);
+    const QList<drift::Clip> original = state.project()->tracks().at(0).clips;
+    state.makeCompositeFromSelection();
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).type, drift::ClipType::Composite);
+
+    QVERIFY(state.ungroupComposite(0, 0));
+    QVERIFY(!state.exportInProgress());
+    QList<drift::Clip> back;
+    for (const drift::Track &track : state.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            QVERIFY(clip.type != drift::ClipType::Composite);
+            back.append(clip);
+        }
+    }
+    QCOMPARE(back.size(), original.size());
+    for (int i = 0; i < original.size(); ++i) {
+        QCOMPARE(back.at(i).timelineStart, original.at(i).timelineStart);
+        QCOMPARE(back.at(i).timelineDuration, original.at(i).timelineDuration);
+        QCOMPARE(back.at(i).srcIn, original.at(i).srcIn);
+        QCOMPARE(back.at(i).assetId, original.at(i).assetId);
+    }
+
+    state.undo();
+    QCOMPARE(state.project()->tracks().at(0).clips.size(), 1);
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).type, drift::ClipType::Composite);
+
+    // A group moved on its own would lose that move, so it is left alone.
+    state.project()->tracks()[0].clips[0].transformX.setKeyframe(0, 300.0);
+    QVERIFY(!state.ungroupComposite(0, 0));
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).type, drift::ClipType::Composite);
 }
 
 // The bug this guards: the overlay used to place a clip's outline and grips with the eye fixed at
@@ -9648,6 +9687,60 @@ void EditorStateTest::adjustmentTargetClipsToOneClipLikePhotoshop()
     state.undo();
     QCOMPARE(drift::adjustmentLaneIndexes(*state.project(),
                                           state.project()->trackIndexById(videoTrackId)).size(), 1);
+}
+
+// A lane's mask is measured on the clip under it and a standalone one's on the canvas, so changing
+// what the layer applies to re-expresses the mask: it stays where it was on screen.
+void EditorStateTest::adjustmentTargetKeepsTheMaskInPlace()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    appendTwoVideoClips(*state.project());
+    state.project()->ensureTrackIds();
+    const QString videoTrackId = state.project()->tracks().at(0).id;
+    const double canvasW = state.project()->width();
+    const double canvasH = state.project()->height();
+    {
+        // A square shot, off to the right: its frame is not the canvas.
+        drift::Clip &shot = state.project()->tracks()[0].clips[0];
+        shot.transformX.setKeyframe(0, 420.0);
+        shot.transformY.setKeyframe(0, 0.0);
+        shot.transformW.setKeyframe(0, canvasH);
+        shot.transformH.setKeyframe(0, canvasH);
+    }
+
+    state.addAdjustmentClip(0.0, 2.0);
+    const int standalone = state.project()->trackIndexById(videoTrackId) == 1 ? 0 : 1;
+    drift::Mask &mask = state.project()->tracks()[standalone].clips[0].mask;
+    mask.shape = drift::MaskShape::Ellipse;
+    mask.x = 0.4;
+    mask.y = 0.5;
+    mask.w = 0.22;
+    mask.h = 0.6;
+
+    state.setAdjustmentTarget(standalone, 0, state.project()->trackIndexById(videoTrackId), 0);
+    const QList<int> lanes =
+        drift::adjustmentLaneIndexes(*state.project(), state.project()->trackIndexById(videoTrackId));
+    QCOMPARE(lanes.size(), 1);
+    const drift::Mask &onClip = state.project()->tracks().at(lanes.at(0)).clips.at(0).mask;
+    QVERIFY(qAbs(onClip.x - (0.4 * canvasW - 420.0) / canvasH) < 1e-9);
+    QVERIFY(qAbs(onClip.y - 0.5) < 1e-9);
+    QVERIFY(qAbs(onClip.w - 0.22 * canvasW / canvasH) < 1e-9);
+    QVERIFY(qAbs(onClip.h - 0.6) < 1e-9);
+
+    // Released again: back on the canvas, exactly where it started.
+    state.setAdjustmentTarget(lanes.at(0), 0, -1, -1);
+    int nowStandalone = -1;
+    for (int i = 0; i < state.project()->tracks().size(); ++i) {
+        if (state.project()->tracks().at(i).isAdjustment())
+            nowStandalone = i;
+    }
+    QVERIFY(nowStandalone >= 0);
+    const drift::Mask &back = state.project()->tracks().at(nowStandalone).clips.at(0).mask;
+    QVERIFY(qAbs(back.x - 0.4) < 1e-9);
+    QVERIFY(qAbs(back.y - 0.5) < 1e-9);
+    QVERIFY(qAbs(back.w - 0.22) < 1e-9);
+    QVERIFY(qAbs(back.h - 0.6) < 1e-9);
 }
 
 // Two adjustments of the same kind overlapping in time cannot share a lane, so a second one

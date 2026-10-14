@@ -1083,6 +1083,10 @@ public:
     // Renders the composite clip's range to a new video file and swaps the clip (and any audio
     // separated from it) over to that file. Runs in the background on the export slot.
     Q_INVOKABLE bool flattenComposite(int trackIndex, int clipIndex);
+    // Puts a group's clips back on the main timeline where it plays them, as Photoshop's Ungroup.
+    // One undo step. Refused (with a message) when the group has motion, speed, effects or layers
+    // of its own that would be lost.
+    Q_INVOKABLE bool ungroupComposite(int trackIndex, int clipIndex);
     Q_INVOKABLE void separateAllAudioTracks(int trackIndex, int clipIndex);
     Q_INVOKABLE void separateAllAudioTracksFromSelection();
     Q_INVOKABLE QVariantList clipAudioStreams(int trackIndex, int clipIndex) const;
