@@ -33,6 +33,8 @@ def env_with_models(stage):
     env["DRIFT_DEPTH_MODEL_DIR"] = os.path.join(stage, "profundidad", "models", "depth")
     env["DRIFT_RESTORE_MODEL_DIR"] = os.path.join(stage, "mejorar.video", "models", "restore")
     env["DRIFT_DENOISE_MODEL_DIR"] = os.path.join(stage, "ruido.voz", "models", "deepfilternet3")
+    # Test runs must not count as installs in the statistics of api.getflipstudio.com.
+    env.setdefault("FLIP_NO_STATS", "1")
     return env
 
 
@@ -279,7 +281,7 @@ def main():
     ap.add_argument("--calls", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--project", default="")
-    ap.add_argument("--stage", default=r"C:\Users\bajoe\Downloads\flip-addons\build\stage")
+    ap.add_argument("--stage", default=r"C:\Users\bajoe\Downloads\FlipStudio\codigo\flip-addons\build\stage")
     ap.add_argument("--wait", type=float, default=180.0)
     ap.add_argument("--window", action="store_true", help="show the window; enables screenshot calls")
     ap.add_argument("--keep", action="store_true", help="leave the window open when the calls are done")

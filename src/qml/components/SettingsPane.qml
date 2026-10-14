@@ -421,6 +421,184 @@ Item {
                 }
             }
 
+            // Flip Studio account (Google) and the anonymous statistics switch. The marketplace's
+            // own account card is gone: the Market tab signs in with this account.
+            SettingsSection {
+                id: accountSection
+                title: qsTr("Account")
+                visible: Account.available || UsageStats.available
+
+                property bool confirmingDelete: false
+
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingLg
+                    visible: Account.signedIn
+
+                    Rectangle {
+                        width: 40
+                        height: 40
+                        radius: 20
+                        color: Theme.panelMuted
+                        clip: true
+
+                        IconGlyph {
+                            anchors.centerIn: parent
+                            glyph: Theme.icons.account
+                            iconSize: 24
+                            iconColor: Theme.mutedForeground
+                            visible: avatar.status !== Image.Ready
+                        }
+
+                        Image {
+                            id: avatar
+                            anchors.fill: parent
+                            source: Account.avatarUrl
+                            fillMode: Image.PreserveAspectCrop
+                            asynchronous: true
+                            visible: status === Image.Ready
+                        }
+                    }
+
+                    Column {
+                        width: parent.width - 40 - parent.spacing
+                        anchors.verticalCenter: parent.verticalCenter
+                        spacing: 2
+
+                        ThemedLabel {
+                            width: parent.width
+                            size: "sm"
+                            tone: "default"
+                            elide: Text.ElideRight
+                            wrapMode: Text.NoWrap
+                            text: Account.name.length > 0 ? Account.name : Account.email
+                        }
+
+                        ThemedLabel {
+                            width: parent.width
+                            elide: Text.ElideRight
+                            wrapMode: Text.NoWrap
+                            text: Account.email
+                            visible: Account.name.length > 0
+                        }
+                    }
+                }
+
+                ThemedLabel {
+                    width: parent.width
+                    visible: Account.available && !Account.signedIn
+                    text: qsTr("Sign in with Google to search free photos and videos from Pexels and Pixabay. Editing works the same without an account.")
+                }
+
+                Row {
+                    spacing: Theme.spacingMd
+                    visible: Account.available && !accountSection.confirmingDelete
+
+                    ThemedButton {
+                        visible: !Account.signedIn
+                        variant: "primary"
+                        glyph: Account.busy ? Theme.icons.spinner : Theme.icons.brandGoogle
+                        text: Account.busy ? qsTr("Waiting for the browser…") : qsTr("Sign in with Google")
+                        enabled: !Account.busy
+                        onClicked: Account.signIn()
+                    }
+
+                    ThemedButton {
+                        visible: !Account.signedIn && Account.busy
+                        variant: "ghost"
+                        text: qsTr("Cancel")
+                        onClicked: Account.cancelSignIn()
+                    }
+
+                    CopySignInLinkButton { }
+
+                    ThemedButton {
+                        visible: Account.signedIn
+                        variant: "secondary"
+                        glyph: Theme.icons.signOut
+                        text: qsTr("Sign out")
+                        onClicked: Account.signOut()
+                    }
+
+                    ThemedButton {
+                        visible: Account.signedIn
+                        variant: "ghost"
+                        text: qsTr("Delete account…")
+                        enabled: !Account.busy
+                        onClicked: accountSection.confirmingDelete = true
+                    }
+                }
+
+                Column {
+                    width: parent.width
+                    spacing: Theme.spacingMd
+                    visible: Account.signedIn && accountSection.confirmingDelete
+
+                    ThemedLabel {
+                        width: parent.width
+                        tone: "default"
+                        text: qsTr("Delete your Flip Studio account? Your name, email and sessions are erased from our server and this install becomes anonymous. Your projects on this computer are not touched.")
+                    }
+
+                    Row {
+                        spacing: Theme.spacingMd
+
+                        ThemedButton {
+                            variant: "destructive"
+                            glyph: Theme.icons.trash
+                            text: Account.busy ? qsTr("Deleting…") : qsTr("Delete account")
+                            enabled: !Account.busy
+                            onClicked: Account.deleteAccount()
+                        }
+
+                        ThemedButton {
+                            variant: "ghost"
+                            text: qsTr("Cancel")
+                            enabled: !Account.busy
+                            onClicked: accountSection.confirmingDelete = false
+                        }
+                    }
+                }
+
+                Connections {
+                    target: Account
+                    function onAccountChanged() {
+                        if (!Account.signedIn)
+                            accountSection.confirmingDelete = false
+                    }
+                }
+
+                ThemedLabel {
+                    width: parent.width
+                    visible: Account.error.length > 0
+                    color: Theme.destructive
+                    text: Account.error
+                }
+
+                Rectangle {
+                    width: parent.width
+                    height: Theme.borderWidth
+                    color: Theme.panelBorder
+                    visible: Account.available && UsageStats.available
+                }
+
+                ThemedSwitch {
+                    visible: UsageStats.available
+                    checked: UsageStats.enabled
+                    text: qsTr("Send anonymous usage statistics")
+                    onToggled: UsageStats.enabled = checked
+                }
+
+                ThemedLabel {
+                    width: parent.width
+                    visible: UsageStats.available
+                    textFormat: Text.StyledText
+                    linkColor: Theme.primary
+                    text: qsTr("Only the version, the Windows edition and a random install number, to count installs and updates. Never your projects or files. <a href=\"https://getflipstudio.com/privacidad.html\">Privacy policy</a>")
+                    onLinkActivated: (link) => Qt.openUrlExternally(link)
+                }
+            }
+
             SettingsSection {
                 title: qsTr("App")
 
@@ -683,25 +861,6 @@ Item {
                 }
             }
 
-            SettingsSection {
-                title: qsTr("Marketplace")
-                visible: Market.configured && Market.authenticated
-
-                ThemedLabel {
-                    width: parent.width
-                    text: Market.accountName.length > 0
-                          ? qsTr("Account connected (%1)").arg(Market.accountName)
-                          : qsTr("Marketplace account connected")
-                    color: Theme.panelForeground
-                }
-
-                ThemedButton {
-                    text: qsTr("Disconnect")
-                    variant: "ghost"
-                    tooltip: qsTr("Unlink the marketplace account from this device")
-                    onClicked: Market.disconnectAccount()
-                }
-            }
         }
     }
 }

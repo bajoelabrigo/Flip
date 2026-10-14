@@ -33,6 +33,96 @@
     </message>
 </context>
 <context>
+    <name>AccountController</name>
+    <message>
+        <source>Sign-in timed out. Try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not start sign-in on this computer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not open the web browser. Copy the link and paste it into your browser.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign-in failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This page is from an older attempt. Go back to Flip Studio and try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign-in cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can close this tab and go back to Flip Studio.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Google did not complete the sign-in.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are signed in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not reach Flip Studio. Check your connection and try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not delete the account. Try again later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AccountWelcomeDialog</name>
+    <message>
+        <source>Welcome to Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with your Google account to search free photos and videos from Pexels and Pixabay right inside the editor. Your account will also hold your templates and your store.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can also continue without an account: editing works exactly the same.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose your account in the browser window that opened, then come back here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Anuluj</translation>
+    </message>
+    <message>
+        <source>Continue without an account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send anonymous usage statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only the version, the Windows edition and a random install number, to count installs and updates. Never your projects or files. &lt;a href=&quot;https://getflipstudio.com/privacidad.html&quot;&gt;Privacy policy&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AddonManager</name>
     <message>
         <source>Automatic (recommended)</source>
@@ -5021,10 +5111,6 @@
         <translation>Zbierz media do folderu</translation>
     </message>
     <message>
-        <source>Market</source>
-        <translation>Sklep</translation>
-    </message>
-    <message>
         <source>Text</source>
         <translation>Tekst</translation>
     </message>
@@ -5135,6 +5221,10 @@
     <message>
         <source>Move to folder</source>
         <translation>Przenieś do folderu</translation>
+    </message>
+    <message>
+        <source>Stock</source>
+        <translation type="unfinished">Stock</translation>
     </message>
     <message>
         <source>New Folder</source>
@@ -8170,6 +8260,21 @@
     </message>
 </context>
 <context>
+    <name>CopySignInLinkButton</name>
+    <message>
+        <source>Link copied — paste it into your browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy the link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If no browser window opened, paste this link into your browser to sign in.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CropOverlay</name>
     <message>
         <source>Drag the edges to reframe</source>
@@ -9064,6 +9169,14 @@
     <message>
         <source>Video size and layout</source>
         <translation>Rozmiar i układ wideo</translation>
+    </message>
+    <message>
+        <source>Stock</source>
+        <translation type="unfinished">Stock</translation>
+    </message>
+    <message>
+        <source>Free photos and videos from Pexels and Pixabay</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Settings</source>
@@ -11481,6 +11594,18 @@
         <translation>Dodatki…</translation>
     </message>
     <message>
+        <source>“%1” was added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>Sprawdź czy są aktualizacje…</translation>
     </message>
@@ -11547,14 +11672,6 @@
     <message>
         <source>Couldn’t install “%1”: %2</source>
         <translation>Nie udało się zainstalować „%1”: %2</translation>
-    </message>
-    <message>
-        <source>Imported “%1”.</source>
-        <translation>Zaimportowano „%1”.</translation>
-    </message>
-    <message>
-        <source>Imported from the marketplace.</source>
-        <translation>Zaimportowano ze sklepu.</translation>
     </message>
     <message>
         <source>About Flip Studio</source>
@@ -11667,36 +11784,32 @@
 <context>
     <name>MarketConsentPanel</name>
     <message>
-        <source>The marketplace is experimental</source>
-        <translation>Sklep jest eksperymentalny</translation>
+        <source>Free photos and videos</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This feature is still being built and can change or stop working at any time. Before you use it, please read what it can and cannot do.</source>
-        <translation>Ta funkcja jest nadal w budowie i może się zmienić lub przestać działać w dowolnym momencie. Przed użyciem przeczytaj, co potrafi, a czego nie.</translation>
+        <source>Search free photos and videos from Pexels and Pixabay and download them straight into your project. Before you start:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You get a limited number of downloads per day. The limit is small, may change without notice, and once it is used up you have to wait.</source>
-        <translation>Otrzymujesz ograniczoną liczbę pobrań dziennie. Limit jest mały, może się zmienić bez powiadomienia, a po jego wyczerpaniu musisz poczekać.</translation>
+        <source>Everything comes from Pexels and Pixabay, under their own licenses: you can use it in your videos for free, including commercial ones, and crediting the author is appreciated but not required.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that any source stays available. Sources can be removed, rate-limited or broken by the sites they pull from, at any time and without warning.</source>
-        <translation>Nie możemy zagwarantować, że jakiekolwiek źródło pozostanie dostępne. Źródła mogą być usuwane, ograniczane lub uszkodzone przez strony, z których pochodzą, w dowolnym momencie i bez ostrzeżenia.</translation>
+        <source>Do not resell the photos or videos as they are, or offer them as your own stock collection. People and brands that appear in them may need their own permission.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that a download will succeed, finish, or give you the quality you picked. Some items will simply fail.</source>
-        <translation>Nie możemy zagwarantować, że pobieranie się powiedzie, zakończy lub da jakość, którą wybrałeś. Niektóre elementy po prostu nie zadziałają.</translation>
+        <source>Flip Studio does not own or review this material: check that each item suits your use. Searches go through Flip Studio&apos;s server; the files download straight from Pexels and Pixabay.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I understand</source>
         <translation>Rozumiem</translation>
     </message>
     <message>
-        <source>Continue to the marketplace</source>
-        <translation>Kontynuuj do sklepu</translation>
-    </message>
-    <message>
-        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>Wszystko tutaj pochodzi od osób trzecich. Flip Studio nie hostuje, nie posiada ani nie weryfikuje tego — Ty odpowiadasz za upewnienie się, że masz prawo używać tego, co pobierasz.</translation>
+        <source>Continue</source>
+        <translation type="unfinished">Kontynuuj</translation>
     </message>
 </context>
 <context>
@@ -11737,16 +11850,28 @@
         <translation>Szukaj lub wklej link</translation>
     </message>
     <message>
-        <source>Assets</source>
-        <translation>Zasoby</translation>
-    </message>
-    <message>
         <source>SFX</source>
         <translation>Specjalne efekty dźwiękowe</translation>
     </message>
     <message>
         <source>Stock footage</source>
         <translation>Materiały stockowe</translation>
+    </message>
+    <message>
+        <source>Free photos and videos from Pexels and Pixabay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with your Google account to search and download them straight into your project.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Loading sources…</source>
@@ -15554,6 +15679,54 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>Język menu i etykiet. Działa natychmiast.</translation>
     </message>
     <message>
+        <source>Account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google to search free photos and videos from Pexels and Pixabay. Editing works the same without an account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Anuluj</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete account…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete your Flip Studio account? Your name, email and sessions are erased from our server and this install becomes anonymous. Your projects on this computer are not touched.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send anonymous usage statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only the version, the Windows edition and a random install number, to count installs and updates. Never your projects or files. &lt;a href=&quot;https://getflipstudio.com/privacidad.html&quot;&gt;Privacy policy&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>App</source>
         <translation>Aplikacja</translation>
     </message>
@@ -15660,26 +15833,6 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
     <message>
         <source>Transcription model</source>
         <translation>Model transkrypcji</translation>
-    </message>
-    <message>
-        <source>Marketplace</source>
-        <translation>Sklep</translation>
-    </message>
-    <message>
-        <source>Account connected (%1)</source>
-        <translation>Konto połączone (%1)</translation>
-    </message>
-    <message>
-        <source>Marketplace account connected</source>
-        <translation>Konto sklepu połączone</translation>
-    </message>
-    <message>
-        <source>Disconnect</source>
-        <translation>Rozłącz</translation>
-    </message>
-    <message>
-        <source>Unlink the marketplace account from this device</source>
-        <translation>Odłącz konto sklepu od tego urządzenia</translation>
     </message>
     <message>
         <source>Downloading…</source>

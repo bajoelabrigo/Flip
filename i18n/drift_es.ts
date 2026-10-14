@@ -33,6 +33,96 @@
     </message>
 </context>
 <context>
+    <name>AccountController</name>
+    <message>
+        <source>Sign-in timed out. Try again.</source>
+        <translation>Se agotó el tiempo para iniciar sesión. Vuelve a intentarlo.</translation>
+    </message>
+    <message>
+        <source>Could not start sign-in on this computer.</source>
+        <translation>No se pudo iniciar sesión en este equipo.</translation>
+    </message>
+    <message>
+        <source>Could not open the web browser. Copy the link and paste it into your browser.</source>
+        <translation>No se pudo abrir el navegador. Copia el enlace y pégalo en tu navegador.</translation>
+    </message>
+    <message>
+        <source>Sign-in failed</source>
+        <translation>No se pudo iniciar sesión</translation>
+    </message>
+    <message>
+        <source>This page is from an older attempt. Go back to Flip Studio and try again.</source>
+        <translation>Esta página es de un intento anterior. Vuelve a Flip Studio e inténtalo de nuevo.</translation>
+    </message>
+    <message>
+        <source>Sign-in cancelled</source>
+        <translation>Inicio de sesión cancelado</translation>
+    </message>
+    <message>
+        <source>You can close this tab and go back to Flip Studio.</source>
+        <translation>Ya puedes cerrar esta pestaña y volver a Flip Studio.</translation>
+    </message>
+    <message>
+        <source>Google did not complete the sign-in.</source>
+        <translation>Google no completó el inicio de sesión.</translation>
+    </message>
+    <message>
+        <source>You are signed in</source>
+        <translation>Sesión iniciada</translation>
+    </message>
+    <message>
+        <source>Could not reach Flip Studio. Check your connection and try again.</source>
+        <translation>No se pudo conectar con Flip Studio. Revisa tu conexión y vuelve a intentarlo.</translation>
+    </message>
+    <message>
+        <source>Could not delete the account. Try again later.</source>
+        <translation>No se pudo borrar la cuenta. Inténtalo más tarde.</translation>
+    </message>
+</context>
+<context>
+    <name>AccountWelcomeDialog</name>
+    <message>
+        <source>Welcome to Flip Studio</source>
+        <translation>Te damos la bienvenida a Flip Studio</translation>
+    </message>
+    <message>
+        <source>Sign in with your Google account to search free photos and videos from Pexels and Pixabay right inside the editor. Your account will also hold your templates and your store.</source>
+        <translation>Inicia sesión con tu cuenta de Google para buscar fotos y videos gratis de Pexels y Pixabay sin salir del editor. Tu cuenta también guardará tus plantillas y tu tienda.</translation>
+    </message>
+    <message>
+        <source>You can also continue without an account: editing works exactly the same.</source>
+        <translation>También puedes seguir sin cuenta: la edición funciona exactamente igual.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Esperando al navegador…</translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation>Iniciar sesión con Google</translation>
+    </message>
+    <message>
+        <source>Choose your account in the browser window that opened, then come back here.</source>
+        <translation>Elige tu cuenta en la ventana del navegador que se abrió y luego vuelve aquí.</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Continue without an account</source>
+        <translation>Continuar sin cuenta</translation>
+    </message>
+    <message>
+        <source>Send anonymous usage statistics</source>
+        <translation>Enviar estadísticas de uso anónimas</translation>
+    </message>
+    <message>
+        <source>Only the version, the Windows edition and a random install number, to count installs and updates. Never your projects or files. &lt;a href=&quot;https://getflipstudio.com/privacidad.html&quot;&gt;Privacy policy&lt;/a&gt;</source>
+        <translation>Solo la versión, la edición de Windows y un número de instalación aleatorio, para contar instalaciones y actualizaciones. Nunca tus proyectos ni tus archivos. &lt;a href=&quot;https://getflipstudio.com/privacidad.html&quot;&gt;Política de privacidad&lt;/a&gt;</translation>
+    </message>
+</context>
+<context>
     <name>AddonManager</name>
     <message>
         <source>Automatic (recommended)</source>
@@ -5000,10 +5090,6 @@
         <translation>Recopilar medios en una carpeta</translation>
     </message>
     <message>
-        <source>Market</source>
-        <translation>Mercado</translation>
-    </message>
-    <message>
         <source>Text</source>
         <translation>Texto</translation>
     </message>
@@ -5114,6 +5200,10 @@
     <message>
         <source>Move to folder</source>
         <translation>Mover a la carpeta</translation>
+    </message>
+    <message>
+        <source>Stock</source>
+        <translation>Stock</translation>
     </message>
     <message>
         <source>New Folder</source>
@@ -8146,6 +8236,21 @@
     </message>
 </context>
 <context>
+    <name>CopySignInLinkButton</name>
+    <message>
+        <source>Link copied — paste it into your browser</source>
+        <translation>Enlace copiado: pégalo en tu navegador</translation>
+    </message>
+    <message>
+        <source>Copy the link</source>
+        <translation>Copiar el enlace</translation>
+    </message>
+    <message>
+        <source>If no browser window opened, paste this link into your browser to sign in.</source>
+        <translation>Si no se abrió el navegador, pega este enlace en tu navegador para iniciar sesión.</translation>
+    </message>
+</context>
+<context>
     <name>CropOverlay</name>
     <message>
         <source>Drag the edges to reframe</source>
@@ -9034,6 +9139,14 @@
     <message>
         <source>Video size and layout</source>
         <translation>Tamaño y diseño del video</translation>
+    </message>
+    <message>
+        <source>Stock</source>
+        <translation>Stock</translation>
+    </message>
+    <message>
+        <source>Free photos and videos from Pexels and Pixabay</source>
+        <translation>Fotos y videos gratis de Pexels y Pixabay</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -11449,6 +11562,18 @@
         <translation>Extras…</translation>
     </message>
     <message>
+        <source>“%1” was added to Media.</source>
+        <translation>«%1» se agregó a Medios.</translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation>Se agregó a Medios.</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation>Ver</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>Buscar actualizaciones…</translation>
     </message>
@@ -11515,14 +11640,6 @@
     <message>
         <source>Couldn’t install “%1”: %2</source>
         <translation>No se pudo instalar “%1”: %2</translation>
-    </message>
-    <message>
-        <source>Imported “%1”.</source>
-        <translation>Se importó «%1».</translation>
-    </message>
-    <message>
-        <source>Imported from the marketplace.</source>
-        <translation>Importado del mercado.</translation>
     </message>
     <message>
         <source>About Flip Studio</source>
@@ -11635,36 +11752,32 @@
 <context>
     <name>MarketConsentPanel</name>
     <message>
-        <source>The marketplace is experimental</source>
-        <translation>El mercado es experimental</translation>
+        <source>Free photos and videos</source>
+        <translation>Fotos y videos gratis</translation>
     </message>
     <message>
-        <source>This feature is still being built and can change or stop working at any time. Before you use it, please read what it can and cannot do.</source>
-        <translation>Esta función aún se está creando y puede cambiar o dejar de funcionar en cualquier momento. Antes de usarla, lee lo que puede y no puede hacer.</translation>
+        <source>Search free photos and videos from Pexels and Pixabay and download them straight into your project. Before you start:</source>
+        <translation>Busca fotos y videos gratis de Pexels y Pixabay y descárgalos directo a tu proyecto. Antes de empezar:</translation>
     </message>
     <message>
-        <source>You get a limited number of downloads per day. The limit is small, may change without notice, and once it is used up you have to wait.</source>
-        <translation>Tienes un número limitado de descargas al día. El límite es reducido, puede cambiar sin previo aviso y, una vez agotado, tienes que esperar.</translation>
+        <source>Everything comes from Pexels and Pixabay, under their own licenses: you can use it in your videos for free, including commercial ones, and crediting the author is appreciated but not required.</source>
+        <translation>Todo viene de Pexels y Pixabay, con sus propias licencias: puedes usarlo gratis en tus videos, también comerciales, y mencionar al autor se agradece pero no es obligatorio.</translation>
     </message>
     <message>
-        <source>We cannot guarantee that any source stays available. Sources can be removed, rate-limited or broken by the sites they pull from, at any time and without warning.</source>
-        <translation>No podemos garantizar que ninguna fuente permanezca disponible. Las fuentes se pueden eliminar, limitar en frecuencia o dejar de funcionar por los sitios de los que extraen contenido, en cualquier momento y sin previo aviso.</translation>
+        <source>Do not resell the photos or videos as they are, or offer them as your own stock collection. People and brands that appear in them may need their own permission.</source>
+        <translation>No revendas las fotos ni los videos tal cual, ni los ofrezcas como tu propia colección de stock. Las personas y marcas que aparecen pueden necesitar su propio permiso.</translation>
     </message>
     <message>
-        <source>We cannot guarantee that a download will succeed, finish, or give you the quality you picked. Some items will simply fail.</source>
-        <translation>No podemos garantizar que una descarga tenga éxito, finalice o te ofrezca la calidad que elegiste. Algunos elementos simplemente fallarán.</translation>
+        <source>Flip Studio does not own or review this material: check that each item suits your use. Searches go through Flip Studio&apos;s server; the files download straight from Pexels and Pixabay.</source>
+        <translation>Flip Studio no es dueño de este material ni lo revisa: comprueba que cada elemento sirva para tu uso. Las búsquedas pasan por el servidor de Flip Studio; los archivos se descargan directo desde Pexels y Pixabay.</translation>
     </message>
     <message>
         <source>I understand</source>
         <translation>Entendido</translation>
     </message>
     <message>
-        <source>Continue to the marketplace</source>
-        <translation>Continuar al mercado</translation>
-    </message>
-    <message>
-        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>Todo lo que hay aquí procede de terceros. Flip Studio no lo aloja, no es su propietario ni lo revisa — eres responsable de asegurarte de que tienes derecho a usar lo que descargues.</translation>
+        <source>Continue</source>
+        <translation>Continuar</translation>
     </message>
 </context>
 <context>
@@ -11705,16 +11818,28 @@
         <translation>Busca o pega un enlace</translation>
     </message>
     <message>
-        <source>Assets</source>
-        <translation>Recursos</translation>
-    </message>
-    <message>
         <source>SFX</source>
         <translation>SFX</translation>
     </message>
     <message>
         <source>Stock footage</source>
         <translation>Metraje de archivo</translation>
+    </message>
+    <message>
+        <source>Free photos and videos from Pexels and Pixabay</source>
+        <translation>Fotos y videos gratis de Pexels y Pixabay</translation>
+    </message>
+    <message>
+        <source>Sign in with your Google account to search and download them straight into your project.</source>
+        <translation>Inicia sesión con tu cuenta de Google para buscarlos y descargarlos directo a tu proyecto.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Esperando al navegador…</translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation>Iniciar sesión con Google</translation>
     </message>
     <message>
         <source>Loading sources…</source>
@@ -15501,6 +15626,54 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Idioma para menús y etiquetas. Surte efecto inmediatamente.</translation>
     </message>
     <message>
+        <source>Account</source>
+        <translation>Cuenta</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to search free photos and videos from Pexels and Pixabay. Editing works the same without an account.</source>
+        <translation>Inicia sesión con Google para buscar fotos y videos gratis de Pexels y Pixabay. Sin cuenta, la edición funciona igual.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Esperando al navegador…</translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation>Iniciar sesión con Google</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Cerrar sesión</translation>
+    </message>
+    <message>
+        <source>Delete account…</source>
+        <translation>Borrar la cuenta…</translation>
+    </message>
+    <message>
+        <source>Delete your Flip Studio account? Your name, email and sessions are erased from our server and this install becomes anonymous. Your projects on this computer are not touched.</source>
+        <translation>¿Borrar tu cuenta de Flip Studio? Tu nombre, tu correo y tus sesiones se eliminan de nuestro servidor y esta instalación vuelve a ser anónima. Tus proyectos en este equipo no se tocan.</translation>
+    </message>
+    <message>
+        <source>Deleting…</source>
+        <translation>Borrando…</translation>
+    </message>
+    <message>
+        <source>Delete account</source>
+        <translation>Borrar la cuenta</translation>
+    </message>
+    <message>
+        <source>Send anonymous usage statistics</source>
+        <translation>Enviar estadísticas de uso anónimas</translation>
+    </message>
+    <message>
+        <source>Only the version, the Windows edition and a random install number, to count installs and updates. Never your projects or files. &lt;a href=&quot;https://getflipstudio.com/privacidad.html&quot;&gt;Privacy policy&lt;/a&gt;</source>
+        <translation>Solo la versión, la edición de Windows y un número de instalación aleatorio, para contar instalaciones y actualizaciones. Nunca tus proyectos ni tus archivos. &lt;a href=&quot;https://getflipstudio.com/privacidad.html&quot;&gt;Política de privacidad&lt;/a&gt;</translation>
+    </message>
+    <message>
         <source>App</source>
         <translation>Aplicación</translation>
     </message>
@@ -15607,26 +15780,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Transcription model</source>
         <translation>Modelo de transcripción</translation>
-    </message>
-    <message>
-        <source>Marketplace</source>
-        <translation>Mercado</translation>
-    </message>
-    <message>
-        <source>Account connected (%1)</source>
-        <translation>Cuenta conectada (%1)</translation>
-    </message>
-    <message>
-        <source>Marketplace account connected</source>
-        <translation>Cuenta de Mercado conectada</translation>
-    </message>
-    <message>
-        <source>Disconnect</source>
-        <translation>Desconectar</translation>
-    </message>
-    <message>
-        <source>Unlink the marketplace account from this device</source>
-        <translation>Desvincular la cuenta de Mercado de este dispositivo</translation>
     </message>
     <message>
         <source>Downloading…</source>

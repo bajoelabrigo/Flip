@@ -13,15 +13,16 @@ Item {
     property bool compact: Theme.compact
     property alias searchText: field.text
     property alias submittedQuery: stock.submittedQuery
-    // "assets", "sfx", or a Market type id.
-    property string section: "assets"
+    // "assets", "sfx", or a Market type id. Flip Studio has no Drift Assets pack, so the tab
+    // opens on stock footage.
+    property string section: "stock"
     readonly property bool stockSection: section !== "assets" && section !== "sfx"
 
     readonly property string query: field.text.trim()
     readonly property real sidePadding: compact ? Theme.androidPagePadding : Theme.pagePadding
     // Until the catalog is in (no consent yet, still loading, or unreachable) the stock tabs
     // collapse into one that leads to the consent panel or the loading and error states.
-    readonly property var stockTabs: Market.consented && Market.types.length > 0
+    readonly property var stockTabs: Market.authenticated && Market.consented && Market.types.length > 0
                                      ? Market.types
                                      : [{ id: "stock", label: qsTr("Stock") }]
 
@@ -42,7 +43,7 @@ Item {
 
     // A search that the pack could not answer, carried over to stock footage.
     function searchStock(typeId) {
-        if (!Market.consented) {
+        if (!Market.authenticated || !Market.consented) {
             root.showSection("stock")
             return
         }
@@ -63,7 +64,8 @@ Item {
             return
         if (!Sfx.loaded && !Sfx.loading)
             Sfx.refresh()
-        if (!Market.consented)
+        // Stock goes through the Flip Studio account (Settings › Account).
+        if (!Market.authenticated || !Market.consented)
             return
         if (Market.types.length === 0 && !Market.catalogLoading)
             Market.refreshCatalog()
@@ -79,6 +81,11 @@ Item {
             if (Market.consented && root.section === "stock")
                 root.section = Market.activeTypeId || "stock"
         }
+        function onAuthChanged() {
+            if (!Market.authenticated && root.stockSection)
+                root.section = "stock"
+            root.ensureCatalog()
+        }
     }
 
     // The server hides every category from some builds; the tab goes with them.
@@ -86,7 +93,7 @@ Item {
         target: Sfx
         function onLibraryChanged() {
             if (root.section === "sfx" && !Sfx.available)
-                root.section = "assets"
+                root.section = "stock"
         }
     }
 
@@ -139,8 +146,7 @@ Item {
                 spacing: Theme.spacing2xl
 
                 Repeater {
-                    model: [{ id: "assets", label: qsTr("Assets") }]
-                           .concat(Sfx.available ? [{ id: "sfx", label: qsTr("SFX") }] : [])
+                    model: (Sfx.available ? [{ id: "sfx", label: qsTr("SFX") }] : [])
                            .concat(root.stockTabs)
                     delegate: Item {
                         required property var modelData
@@ -211,9 +217,59 @@ Item {
             query: root.section === "sfx" ? root.query : ""
         }
 
+        // Signed out: stock needs the Flip Studio account.
+        Column {
+            anchors.centerIn: parent
+            width: Math.min(parent.width - root.sidePadding * 2, 360)
+            spacing: Theme.spacingLg
+            visible: root.stockSection && !Market.authenticated
+
+            IconGlyph {
+                anchors.horizontalCenter: parent.horizontalCenter
+                glyph: Theme.icons.account
+                iconSize: 32
+                iconColor: Theme.mutedForeground
+            }
+
+            ThemedLabel {
+                width: parent.width
+                size: "sm"
+                tone: "default"
+                horizontalAlignment: Text.AlignHCenter
+                text: qsTr("Free photos and videos from Pexels and Pixabay")
+            }
+
+            ThemedLabel {
+                width: parent.width
+                horizontalAlignment: Text.AlignHCenter
+                text: qsTr("Sign in with your Google account to search and download them straight into your project.")
+            }
+
+            ThemedButton {
+                anchors.horizontalCenter: parent.horizontalCenter
+                variant: "primary"
+                glyph: Account.busy ? Theme.icons.spinner : Theme.icons.brandGoogle
+                text: Account.busy ? qsTr("Waiting for the browser…") : qsTr("Sign in with Google")
+                enabled: Account.available && !Account.busy
+                onClicked: Account.signIn()
+            }
+
+            CopySignInLinkButton {
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
+            ThemedLabel {
+                width: parent.width
+                horizontalAlignment: Text.AlignHCenter
+                visible: Account.error.length > 0
+                color: Theme.destructive
+                text: Account.error
+            }
+        }
+
         MarketConsentPanel {
             anchors.fill: parent
-            visible: root.stockSection && !Market.consented
+            visible: root.stockSection && Market.authenticated && !Market.consented
             sideMargin: root.sidePadding
             onAccepted: root.ensureCatalog()
         }
@@ -221,8 +277,8 @@ Item {
         EmptyState {
             anchors.centerIn: parent
             width: parent.width
-            visible: root.stockSection && Market.consented && Market.catalogLoading
-                     && Market.types.length === 0
+            visible: root.stockSection && Market.authenticated && Market.consented
+                     && Market.catalogLoading && Market.types.length === 0
             glyph: Theme.icons.spinner
             glyphSpinning: true
             title: qsTr("Loading sources…")
@@ -231,8 +287,9 @@ Item {
         EmptyState {
             anchors.centerIn: parent
             width: parent.width
-            visible: root.stockSection && Market.consented && !Market.catalogLoading
-                     && Market.catalogError.length > 0 && Market.types.length === 0
+            visible: root.stockSection && Market.authenticated && Market.consented
+                     && !Market.catalogLoading && Market.catalogError.length > 0
+                     && Market.types.length === 0
             glyph: Theme.icons.error
             title: qsTr("Couldn’t reach the marketplace")
             hint: Market.catalogError
@@ -244,7 +301,8 @@ Item {
         StockBrowser {
             id: stock
             anchors.fill: parent
-            visible: root.stockSection && Market.consented && Market.types.length > 0
+            visible: root.stockSection && Market.authenticated && Market.consented
+                     && Market.types.length > 0
             compact: root.compact
             query: root.query
         }

@@ -11,6 +11,7 @@
 #include <memory>
 
 class AssetLibrary;
+class AccountController;
 class QNetworkAccessManager;
 class QNetworkReply;
 class QNetworkRequest;
@@ -72,6 +73,9 @@ public:
     ~MarketClient() override;
 
     void setAssetLibrary(AssetLibrary *library);
+    // Flip Studio: requests carry the Flip Studio account's token instead of the marketplace's
+    // own sign-in, and no machine-derived client id is sent.
+    void setAccount(AccountController *account);
 
     bool configured() const;
     bool consented() const { return m_consented; }
@@ -101,8 +105,8 @@ public:
     QVariantList downloads() const;
     int activeDownloadCount() const;
     int maxConcurrentDownloads() const;
-    bool authenticated() const { return !m_accessToken.isEmpty(); }
-    QString accountName() const { return m_accountName; }
+    bool authenticated() const;
+    QString accountName() const;
     int coins() const { return m_coins; }
 
     // The one-time opt-in gate. Nothing in the store — catalog, search, resolve or download —
@@ -199,6 +203,7 @@ private:
     void applySearchPage(const QJsonObject &page, bool append);
     void applyResolvedItem(const QJsonObject &item);
     void startSearch(bool append);
+    bool retryAfterAuth(const QString &code, const std::function<void()> &retry);
     void abortInFlightSearch();
     void pollJobs();
     void finishJobFile(Job *job, const QJsonObject &file, const QString &attribution);
@@ -227,6 +232,10 @@ private:
                                 int networkError = 0);
 
     AssetLibrary *m_library = nullptr;
+    QPointer<AccountController> m_account;
+    // One token refresh and retry per failed request, so a session the server no longer accepts
+    // ends in an error instead of a loop.
+    bool m_authRetrying = false;
     QNetworkAccessManager *m_network = nullptr;
     QTimer *m_pollTimer = nullptr;
 

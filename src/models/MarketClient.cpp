@@ -1,4 +1,5 @@
 #include "MarketClient.h"
+#include "AccountController.h"
 
 #include "AssetLibrary.h"
 #include "MarketEndpoint.h"
@@ -182,6 +183,51 @@ void MarketClient::setAssetLibrary(AssetLibrary *library)
     m_library = library;
 }
 
+void MarketClient::setAccount(AccountController *account)
+{
+    m_account = account;
+    if (!account)
+        return;
+    connect(account, &AccountController::accountChanged, this, [this] {
+        emit authChanged();
+        if (!m_account->signedIn()) {
+            m_types.clear();
+            emit catalogChanged();
+            m_items.clear();
+            m_itemIndex.clear();
+            emit itemsChanged();
+        } else if (m_consented) {
+            refreshCatalog();
+        }
+    });
+}
+
+bool MarketClient::authenticated() const
+{
+    return m_account ? m_account->signedIn() : !m_accessToken.isEmpty();
+}
+
+QString MarketClient::accountName() const
+{
+    return m_account ? m_account->name() : m_accountName;
+}
+
+// A request refused for an expired session: refresh the account token once and run `retry`.
+// Returns false when there is nothing to retry with, so the caller shows the error.
+bool MarketClient::retryAfterAuth(const QString &code, const std::function<void()> &retry)
+{
+    if (code != QLatin1String("auth_required") || !m_account || !m_account->signedIn()
+        || m_authRetrying)
+        return false;
+    m_authRetrying = true;
+    m_account->refresh([this, retry](bool ok) {
+        if (ok)
+            retry();
+        m_authRetrying = false;
+    });
+    return true;
+}
+
 // DRIFT_MARKET_API_URL in the environment points the client at another service — a local
 // fake in tests, a staging deployment — without a rebuild. The compiled-in key still signs.
 QString MarketClient::apiBase()
@@ -334,6 +380,11 @@ void MarketClient::setActiveTypeId(const QString &id)
         providerId = list.first().toMap().value(QStringLiteral("id")).toString();
     emit activeTypeIdChanged();
     emit providersChanged();
+    // Photos and videos both default to "*" (all sources), so the provider id often does not
+    // change with the type. Without clearing it, setActiveProviderId took its "unchanged" early
+    // return: the previous type's search kept running and landing, its results stayed on
+    // screen, and no search for the new type started.
+    m_activeProviderId.clear();
     setActiveProviderId(providerId);
 }
 
@@ -385,6 +436,8 @@ void MarketClient::refreshCatalog()
                 parseProblem(reply->readAll(),
                              reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt(),
                              &code, &reason, &retryable, int(reply->error()));
+            if (retryAfterAuth(code, [this] { refreshCatalog(); }))
+                return;
             setCatalogError(message, retryable);
             return;
         }
@@ -825,6 +878,15 @@ QUrl MarketClient::apiUrl(const QString &path) const
 
 void MarketClient::sign(QNetworkRequest *request, const QByteArray &method, const QByteArray &body) const
 {
+    if (m_account) {
+        // Flip Studio's service authorizes by account; the HMAC identity is CutWire's and its
+        // client id is derived from the machine, which Flip Studio does not send.
+        request->setRawHeader("X-Cutwire-App", appHeader().toUtf8());
+        request->setRawHeader("X-Cutwire-Distribution", distributionId().toUtf8());
+        request->setHeader(QNetworkRequest::UserAgentHeader, appHeader());
+        applyAuthHeader(request);
+        return;
+    }
     const QString timestamp = QString::number(QDateTime::currentSecsSinceEpoch());
     const QString nonce = makeNonce();
     const QString id = clientId();
@@ -843,9 +905,10 @@ void MarketClient::sign(QNetworkRequest *request, const QByteArray &method, cons
 
 void MarketClient::applyAuthHeader(QNetworkRequest *request) const
 {
-    if (m_accessToken.isEmpty())
+    const QString token = m_account ? m_account->accessToken() : m_accessToken;
+    if (token.isEmpty())
         return;
-    request->setRawHeader("Authorization", QByteArray("Bearer ") + m_accessToken.toUtf8());
+    request->setRawHeader("Authorization", QByteArray("Bearer ") + token.toUtf8());
 }
 
 QNetworkReply *MarketClient::get(const QUrl &url)
@@ -1072,6 +1135,8 @@ void MarketClient::startSearch(bool append)
             bool retryable = true;
             const QString message =
                 parseProblem(payload, status, &code, &reason, &retryable, int(reply->error()));
+            if (retryAfterAuth(code, [this, append] { startSearch(append); }))
+                return;
             setSearchError(message, retryable, code);
             return;
         }

@@ -35,7 +35,7 @@ la certifiquen.
 1. ~~v0.8.2 y v0.8.3~~ — publicadas (2026-10-10).
    - Las compilaciones de escritorio se lanzan cuando hay varios cambios juntos, no por cada uno.
 2. ~~**v0.9.0 — extras propios, texto y subtítulos**~~ (2026-10-10):
-   - Clave de firma propia (Ed25519; la privada en `Downloads\FlipStudio-secretos`, con copia de seguridad).
+   - Clave de firma propia (Ed25519; la privada en `Downloads\FlipStudio\secretos`, con copia de seguridad).
      Repo privado `bajoelabrigo/flip-addons` con el empaquetador y las recetas; los paquetes se descargan del
      release `packages` del repo público [`bajoelabrigo/flipstudio-extras`](https://github.com/bajoelabrigo/flipstudio-extras);
      índice en `getflipstudio.com/addons/index.json`.
@@ -179,7 +179,7 @@ la certifiquen.
   - [x] Código listo; versión `0.8.2` en `CMakeLists.txt`, `CHANGELOG.md` y `release-notes/0.8.2.md`.
   - [x] Compilada con **Actions → Build → windows** y probada con el portable.
   - [x] Fusionada en `main`, etiqueta `v0.8.2`, GitHub Release y TXT `version` → `0.8.2`.
-  - [x] Microsoft Store: MSIX `0.8.2.0` certificado y publicado el 2026-10-10 (paquete en `C:\Users\bajoe\Downloads\FlipStudio-Store\paquete`).
+  - [x] Microsoft Store: MSIX `0.8.2.0` certificado y publicado el 2026-10-10 (paquete en `C:\Users\bajoe\Downloads\FlipStudio\tienda\FlipStudio-Store\paquete`).
 - [x] `release.yml` adaptado: publica solo en tus Releases (Windows), sin Homebrew ni Discord de CutWire. Notas en `release-notes/<versión>.md`.
 - [x] `nightly.yml` sin uso: GitHub lo dejó desactivado (`disabled_fork`) y no se puede ejecutar salvo que alguien lo active; aun así se salta las ejecuciones programadas fuera del repo de CutWire. Se deja sin tocar para no complicar los merges con Drift.
 
@@ -193,7 +193,7 @@ la certifiquen.
   - [ ] Repetir el cuestionario IARC cuando se activen stock, cuentas o suscripción.
   - Cada versión nueva: subir el número MSIX (`A.B.C.0`), generar el paquete y crear un envío nuevo en Partner Center.
 - [ ] **Firma de código** del instalador `.exe` para quitar el aviso de SmartScreen (certificado OV/EV o Azure Trusted Signing). La Store firma su propio paquete, así que esto solo hace falta para la descarga directa.
-- [x] Web de `getflipstudio.com` hecha (`C:\Users\bajoe\Downloads\flipstudio-web`, repo privado https://github.com/bajoelabrigo/flipstudio-web): inicio, descarga automática de la última versión, preguntas, privacidad y términos. Se publica con `deploy/deploy.sh`.
+- [x] Web de `getflipstudio.com` hecha (`C:\Users\bajoe\Downloads\FlipStudio\codigo\flipstudio-web`, repo privado https://github.com/bajoelabrigo/flipstudio-web): inicio, descarga automática de la última versión, preguntas, privacidad y términos. Se publica con `deploy/deploy.sh`.
 - [x] Captura real de la app en la web; textos legales bajo ley peruana (Ley 29733).
 - [x] DNS `A @ → 145.223.27.84`, publicada en el VPS y con HTTPS: https://getflipstudio.com (2026-10-09). Rediseño con recorrido interactivo y hoja de ruta.
 - [x] Correo de soporte `soporte@getflipstudio.com`.
@@ -244,7 +244,7 @@ lo que es 100 % de Flip Studio es propio:
 
 ## Fase 5 — Versión web (React)
 
-- [x] Proyecto Vite + React + TypeScript, repo `bajoelabrigo/flipstudio-app` (`C:\Users\bajoe\Downloads\flipstudio-app`) — 2026-10-10; privado y de código cerrado desde el 2026-10-11.
+- [x] Proyecto Vite + React + TypeScript, repo `bajoelabrigo/flipstudio-app` (`C:\Users\bajoe\Downloads\FlipStudio\codigo\flipstudio-app`) — 2026-10-10; privado y de código cerrado desde el 2026-10-11.
 - [x] Publicado en https://getflipstudio.com/editor/ (sin anunciar: `noindex` y sin enlace desde la web) con `deploy/deploy.sh` del repo del editor; nginx lo sirve desde `/var/www/flipstudio-app/editor` con su propio snippet (2026-10-10).
 - [x] Anunciado (2026-10-11): botón "Editar en línea" en la web, sin `noindex` y en el mapa del sitio.
 - [ ] Reproducción y decodificación con **WebCodecs**; composición con **WebGL/WebGPU**.

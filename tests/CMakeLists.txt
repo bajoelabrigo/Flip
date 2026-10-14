@@ -68,6 +68,7 @@ qt_add_executable(tst_editorstate
     ../src/mcp/McpValidate.cpp
     ../src/mcp/McpMarket.cpp
     ../src/models/MarketClient.cpp
+    ../src/models/AccountController.cpp
     ../src/models/DriftAssetStore.cpp
     ../src/models/MarketIdentity.cpp
     ../src/mcp/McpServer.cpp
@@ -139,6 +140,16 @@ target_compile_definitions(tst_marketidentity PRIVATE
     DRIFT_MARKET_CLIENT_KEY="0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
     DRIFT_VERSION="0")
 add_test(NAME MarketIdentity COMMAND tst_marketidentity)
+
+qt_add_executable(tst_account
+    tst_account.cpp
+    ../src/models/AccountController.cpp
+    ../src/models/InstallStats.cpp
+)
+target_include_directories(tst_account PRIVATE ../src)
+target_link_libraries(tst_account PRIVATE Qt6::Test Qt6::Gui Qt6::Network driftcore driftengine)
+target_compile_definitions(tst_account PRIVATE DRIFT_VERSION="0.9.9" DRIFT_DISTRIBUTION="windows")
+add_test(NAME Account COMMAND tst_account)
 
 qt_add_executable(tst_projectbundle tst_projectbundle.cpp)
 target_include_directories(tst_projectbundle PRIVATE ../src)
@@ -242,6 +253,7 @@ qt_add_executable(tst_mcp
     ../src/mcp/McpValidate.cpp
     ../src/mcp/McpMarket.cpp
     ../src/models/MarketClient.cpp
+    ../src/models/AccountController.cpp
     ../src/models/DriftAssetStore.cpp
     ../src/models/MarketIdentity.cpp
     ../src/mcp/McpServer.cpp

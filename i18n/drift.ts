@@ -33,6 +33,96 @@
     </message>
 </context>
 <context>
+    <name>AccountController</name>
+    <message>
+        <source>Sign-in timed out. Try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not start sign-in on this computer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not open the web browser. Copy the link and paste it into your browser.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign-in failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This page is from an older attempt. Go back to Flip Studio and try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign-in cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can close this tab and go back to Flip Studio.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Google did not complete the sign-in.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are signed in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not reach Flip Studio. Check your connection and try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not delete the account. Try again later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AccountWelcomeDialog</name>
+    <message>
+        <source>Welcome to Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with your Google account to search free photos and videos from Pexels and Pixabay right inside the editor. Your account will also hold your templates and your store.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can also continue without an account: editing works exactly the same.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose your account in the browser window that opened, then come back here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Continue without an account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send anonymous usage statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only the version, the Windows edition and a random install number, to count installs and updates. Never your projects or files. &lt;a href=&quot;https://getflipstudio.com/privacidad.html&quot;&gt;Privacy policy&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AddonManager</name>
     <message>
         <source>Automatic (recommended)</source>
@@ -5000,10 +5090,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Market</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5113,6 +5199,10 @@
     </message>
     <message>
         <source>Move to folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8146,6 +8236,21 @@
     </message>
 </context>
 <context>
+    <name>CopySignInLinkButton</name>
+    <message>
+        <source>Link copied — paste it into your browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy the link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If no browser window opened, paste this link into your browser to sign in.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CropOverlay</name>
     <message>
         <source>Drag the edges to reframe</source>
@@ -9033,6 +9138,14 @@
     </message>
     <message>
         <source>Video size and layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free photos and videos from Pexels and Pixabay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11449,6 +11562,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>“%1” was added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11514,14 +11639,6 @@
     </message>
     <message>
         <source>Couldn’t install “%1”: %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Imported “%1”.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Imported from the marketplace.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11635,23 +11752,23 @@
 <context>
     <name>MarketConsentPanel</name>
     <message>
-        <source>The marketplace is experimental</source>
+        <source>Free photos and videos</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This feature is still being built and can change or stop working at any time. Before you use it, please read what it can and cannot do.</source>
+        <source>Search free photos and videos from Pexels and Pixabay and download them straight into your project. Before you start:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You get a limited number of downloads per day. The limit is small, may change without notice, and once it is used up you have to wait.</source>
+        <source>Everything comes from Pexels and Pixabay, under their own licenses: you can use it in your videos for free, including commercial ones, and crediting the author is appreciated but not required.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that any source stays available. Sources can be removed, rate-limited or broken by the sites they pull from, at any time and without warning.</source>
+        <source>Do not resell the photos or videos as they are, or offer them as your own stock collection. People and brands that appear in them may need their own permission.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that a download will succeed, finish, or give you the quality you picked. Some items will simply fail.</source>
+        <source>Flip Studio does not own or review this material: check that each item suits your use. Searches go through Flip Studio&apos;s server; the files download straight from Pexels and Pixabay.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11659,11 +11776,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Continue to the marketplace</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
+        <source>Continue</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -11705,15 +11818,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Assets</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>SFX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stock footage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free photos and videos from Pexels and Pixabay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with your Google account to search and download them straight into your project.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15494,6 +15619,54 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google to search free photos and videos from Pexels and Pixabay. Editing works the same without an account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete account…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete your Flip Studio account? Your name, email and sessions are erased from our server and this install becomes anonymous. Your projects on this computer are not touched.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send anonymous usage statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only the version, the Windows edition and a random install number, to count installs and updates. Never your projects or files. &lt;a href=&quot;https://getflipstudio.com/privacidad.html&quot;&gt;Privacy policy&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>App</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15599,26 +15772,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Transcription model</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Marketplace</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Account connected (%1)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Marketplace account connected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Disconnect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unlink the marketplace account from this device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

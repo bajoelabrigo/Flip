@@ -10,7 +10,7 @@ Runs a JSONL call list against a built executable and writes every reply to a di
 
 ```powershell
 python tools/e2e/mcp_e2e.py `
-  --exe "C:\Users\bajoe\Downloads\FlipStudio-0.9.2-prueba\app\Flip Studio\flipstudio.exe" `
+  --exe "C:\Users\bajoe\Downloads\FlipStudio\pruebas\FlipStudio-0.9.2-prueba\app\Flip Studio\flipstudio.exe" `
   --calls tools/e2e/calls_sam2.jsonl `
   --out   tools/e2e/run_sam2
 ```
@@ -30,7 +30,7 @@ Each line is one tool call:
 - `save` renames the reply file; the default is `NN_<tool>.json`.
 - `--project` opens a `.drift` file first.
 - `--stage` points at the staged extras tree whose model directories get exported as `DRIFT_*_MODEL_DIR`
-  (default `C:\Users\bajoe\Downloads\flip-addons\build\stage`). The video and audio models are
+  (default `C:\Users\bajoe\Downloads\FlipStudio\codigo\flip-addons\build\stage`). The video and audio models are
   addons and are not inside the portable build, so without this the AI tools report themselves
   unavailable.
 
@@ -51,7 +51,7 @@ bug is in the app. It needs `onnxruntime`, `numpy` and `Pillow`; the `flip-addon
 them:
 
 ```powershell
-C:\Users\bajoe\Downloads\flip-addons\work\tts\.venv\Scripts\python.exe tools\e2e\sam2_full.py ...
+C:\Users\bajoe\Downloads\FlipStudio\codigo\flip-addons\work\tts\.venv\Scripts\python.exe tools\e2e\sam2_full.py ...
 ```
 
 ## `sam2_probe.py`

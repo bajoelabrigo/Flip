@@ -131,6 +131,7 @@ private slots:
     void listScenesExposesThumb();
     void marketOpsGateOnConsent();
     void marketSearchAndDownloadImportsAsset();
+    void marketTypeSwitchDropsTheOldSearch();
     void sceneOpsAcceptClipRef();
     void addEffectReportsHost();
     void graphicsAtTheSameTimeStackOnTheirOwnLanes();
@@ -5318,6 +5319,62 @@ public:
     }
 };
 
+// Two types (photo, video), each with two unmetered sources, so both default to "*" (all
+// sources). Photo searches answer late, to leave one in flight while the type changes.
+class FakeStock : public QObject
+{
+public:
+    QTcpServer server;
+    QString base() const { return QStringLiteral("http://127.0.0.1:%1").arg(server.serverPort()); }
+
+    bool start()
+    {
+        if (!server.listen(QHostAddress::LocalHost))
+            return false;
+        connect(&server, &QTcpServer::newConnection, this, [this] {
+            while (QTcpSocket *sock = server.nextPendingConnection()) {
+                connect(sock, &QTcpSocket::readyRead, this, [this, sock] { handle(sock); });
+                connect(sock, &QTcpSocket::disconnected, sock, &QObject::deleteLater);
+            }
+        });
+        return true;
+    }
+
+    void handle(QTcpSocket *sock)
+    {
+        const QByteArray buf = sock->readAll();
+        const QUrl url = QUrl::fromEncoded(buf.left(buf.indexOf('\n')).trimmed().split(' ').value(1));
+        const QUrlQuery query(url);
+        QByteArray body;
+        int delayMs = 0;
+        if (url.path() == QLatin1String("/api/v1/catalog")) {
+            body = R"({"types": [
+                {"id": "photo", "label": "Photos", "delivery": "media", "providers": [
+                    {"id": "a", "label": "A", "capabilities": ["search"]},
+                    {"id": "b", "label": "B", "capabilities": ["search"]}]},
+                {"id": "video", "label": "Videos", "delivery": "media", "providers": [
+                    {"id": "a", "label": "A", "capabilities": ["search"]},
+                    {"id": "b", "label": "B", "capabilities": ["search"]}]}]})";
+        } else if (url.path() == QLatin1String("/api/v1/search")) {
+            const QString type = query.queryItemValue(QStringLiteral("type"));
+            const QString provider = query.queryItemValue(QStringLiteral("provider"));
+            body = QJsonDocument(QJsonObject{{QStringLiteral("items"), QJsonArray{QJsonObject{
+                {QStringLiteral("id"), type + QLatin1Char('-') + provider},
+                {QStringLiteral("type"), type},
+                {QStringLiteral("provider"), provider}}}}}).toJson(QJsonDocument::Compact);
+            if (type == QLatin1String("photo"))
+                delayMs = 400;
+        }
+        const QByteArray response = "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\nContent-Length: "
+                                    + QByteArray::number(body.size()) + "\r\nConnection: close\r\n\r\n" + body;
+        QTimer::singleShot(delayMs, sock, [sock, response] {
+            sock->write(response);
+            sock->flush();
+            sock->disconnectFromHost();
+        });
+    }
+};
+
 } // namespace
 
 void McpTest::marketOpsGateOnConsent()
@@ -6236,6 +6293,43 @@ void McpTest::getWaveformImageReportsWords()
     QCOMPARE(words.size(), 6);
     QCOMPARE(words.at(3).toObject().value(QStringLiteral("i")).toInt(), 3);
     QVERIFY(r.value(QStringLiteral("image")).toObject().value(QStringLiteral("lanes")).toArray().contains(QStringLiteral("words")));
+}
+
+// Photos -> Videos while a photo search is still answering: the photo results must go at once
+// and never come back, and the provider change must be announced so the Stock tab searches
+// again. Both types default to "*", which used to look like "nothing changed".
+void McpTest::marketTypeSwitchDropsTheOldSearch()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    FakeStock fake;
+    QVERIFY(fake.start());
+    qputenv("DRIFT_MARKET_API_URL", (fake.base() + QStringLiteral("/api/v1")).toUtf8());
+    const auto unset = qScopeGuard([] { qunsetenv("DRIFT_MARKET_API_URL"); });
+
+    MarketClient client;
+    client.acceptTerms();
+    client.refreshCatalog();
+    QTRY_COMPARE(client.types().size(), 2);
+    client.setActiveTypeId(QStringLiteral("photo"));
+    QCOMPARE(client.activeProviderId(), QStringLiteral("*"));
+
+    client.search(QString());
+    QTRY_VERIFY(client.searching());
+
+    QSignalSpy providerChanged(&client, &MarketClient::activeProviderIdChanged);
+    client.setActiveTypeId(QStringLiteral("video"));
+    QCOMPARE(client.activeProviderId(), QStringLiteral("*"));
+    QCOMPARE(providerChanged.count(), 1);
+    QVERIFY(client.items().isEmpty());
+
+    client.search(QString());
+    QTRY_COMPARE(client.items().size(), 2);
+    // Long enough for the abandoned photo answers to have arrived.
+    QTest::qWait(700);
+    QCOMPARE(client.items().size(), 2);
+    for (const QVariant &item : client.items())
+        QVERIFY2(item.toMap().value(QStringLiteral("type")).toString() == QLatin1String("video"),
+                 qPrintable(item.toMap().value(QStringLiteral("id")).toString()));
 }
 
 QTEST_MAIN(McpTest)

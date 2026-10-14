@@ -3,6 +3,14 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.10.0 — Cuenta de Google, Stock (Pexels y Pixabay) y estadísticas anónimas
+
+- **Servidor propio** `api.getflipstudio.com` (repo privado `flipstudio-api`): cuentas, estadísticas y el contrato de Market (`docs/marketplace/openapi.yaml`) sobre Pexels y Pixabay.
+- **`AccountController`:** Google con PKCE y redirección a `127.0.0.1` (el código se canjea en el servidor; sin secretos en el `.exe`), sesión de 15 min con refresco rotado y guardado con DPAPI, cerrar sesión y borrar la cuenta. Si `QDesktopServices` no abre el navegador, se abre el navegador predeterminado directamente (`AssocQueryStringW`) y se ofrece «Copiar el enlace».
+- **`AccountWelcomeDialog`** tras el idioma (una vez) y sección **Cuenta** en Ajustes.
+- **`InstallStats`:** instalación, actualización y uso diario con un UUID aleatorio; interruptor (encendido por defecto); `FLIP_NO_STATS` lo apaga en pruebas; la instalación se liga a la cuenta al iniciar sesión.
+- **Stock:** la pestaña Market heredada usa la cuenta (`MarketClient::setAccount`, sin la firma HMAC ni el id derivado del equipo), botón en la barra, aviso de licencias propio, aviso «Se agregó a Medios» con «Ver», y al cambiar de Fotos a Videos se cancela la búsqueda anterior (`setActiveTypeId`).
+
 ## 0.9.9 — Capas de ajuste como en Photoshop y Agrupar
 
 - **Máscara de una capa enlazada:** `laneAdjustmentChain` lleva las máscaras de cada capa de un carril junto a sus efectos; `GpuLayer::effectScopes` las aplica a su tramo de la cadena (`buildLayerTarget` mezcla por cobertura con `mixByCoverage`). Antes se descartaban y el ajuste cubría todo el clip. El visor (`maskEditorState`) muestra sus asas sobre el clip.

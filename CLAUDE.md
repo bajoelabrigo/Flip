@@ -10,9 +10,19 @@ en inglés y no se traduce.
 
 ---
 
-## Los cuatro repos
+## Los repos y la carpeta del proyecto
 
-Todos en `C:\Users\bajoe\Downloads`.
+Todo vive en `C:\Users\bajoe\Downloads\FlipStudio` (ordenado el 2026-10-14):
+
+| Carpeta | Qué hay |
+|---|---|
+| `codigo\` | Los repos: `Flip`, `flip-addons`, `flipstudio-web`, `flipstudio-app`, `flipstudio-api` |
+| `secretos\` | Claves privadas (`addon-signing.key`, y los `.env` del servidor). Nunca se commitea nada de aquí |
+| `tienda\FlipStudio-Store\` | Paquetes MSIX (`paquete-<versión>`), textos y capturas de la ficha |
+| `versiones\` | Copias de cada versión publicada (`FlipStudio-<versión>`) y `FlipStudio-backup-releases` |
+| `pruebas\` | Portables para probar en ventana (el ejecutable tiene que estar fuera del repo) |
+
+Los portables de prueba viejos se borraron; las versiones publicadas siguen en los releases de GitHub.
 
 | Repo | Qué es | Dónde se publica |
 |---|---|---|
@@ -20,8 +30,9 @@ Todos en `C:\Users\bajoe\Downloads`.
 | `flip-addons` | Recetas y empaquetador de los extras (privado) | Paquetes al release `packages` de `flipstudio-extras` |
 | `flipstudio-web` | getflipstudio.com (privado) | VPS `holyvps` con `deploy/deploy.sh` |
 | `flipstudio-app` | El editor web de `/editor/` (AGPL) | VPS, con su propio `deploy/deploy.sh` |
+| `flipstudio-api` | `api.getflipstudio.com` (privado): cuentas de Google, estadísticas de instalación, stock de Pexels y Pixabay. Express + MongoDB Atlas (clúster propio `cluster0.jsfmxek`, base `flipstudio`; la cadena está en `secretos\api-claves.txt`), sobre el modelo de holyapp (`Downloads\chat-app`) | VPS `holyvps`, PM2 + nginx |
 
-**Claves y secretos:** `Downloads\FlipStudio-secretos\addon-signing.key` (Ed25519, la
+**Claves y secretos:** `Downloads\FlipStudio\secretos\addon-signing.key` (Ed25519, la
 privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se commitea.
 
 **Reglas que no cambian:**
@@ -40,7 +51,7 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
 
 ### Hecho
 - `main` = merge del PR #11 (`flip/v0.9.6`). Tag `v0.9.6`; release Latest con instalador, portable y
-  `SHA256SUMS`. Copia en `Downloads\FlipStudio-0.9.6\`.
+  `SHA256SUMS`. Copia en `Downloads\FlipStudio\versiones\FlipStudio-0.9.6\`.
 - MSIX: `FlipStudio-Store\paquete-0.9.6\FlipStudio-0.9.6.0-x64.msix`. Notas de la Store en
   `docs/store-listing.md` (1073 caracteres; el límite es 1500).
 - **Texto como en CapCut**: `TextInspector.qml` con Básico, Burbuja, Efectos y Animación.
@@ -161,7 +172,7 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
 1. **Hecho por Jorge (2026-10-13):** cambió el TXT `version` del DNS y mandó la 0.9.6 a
    certificación en Partner Center. **Falta:** confirmar que la certificación pase. La ficha
    actualizada (descripción, notas y 16 características, en es/es-co/en-us) está en
-   `Downloads\FlipStudio-Store\textos\listingData-FlipStudio-0.9.6.csv`; las capturas nuevas, en
+   `Downloads\FlipStudio\tienda\FlipStudio-Store\textos\listingData-FlipStudio-0.9.6.csv`; las capturas nuevas, en
    `FlipStudio-Store\ficha` (`Guion en Voz.jpg` es una foto suelta, no una captura de la app).
    `docs/store-listing.md` ya tiene la descripción del CSV (2026-10-13).
 2. Retoque **Cuerpo** y **Cabello** siguen sin modelo de IA.
@@ -170,8 +181,40 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
 4. Web: voz con IA (TTS) espera al backend; las opciones del navegador usan espeak-ng (GPL).
 5. Backend (`api.getflipstudio.com`): cuenta Google, ventas, Pexels, identificador de instalación
    y política de privacidad (ver el plan de abajo).
-6. ~~Candado para bloquear una pista~~: hecho en la 0.9.7 (escritorio y web).
-7. El selector de idioma del primer arranque marca "American English" por defecto aunque el
+   - **2026-10-14:** repo `codigo\flipstudio-api` creado y probado en local (12 pruebas): cuentas de Google,
+     instalaciones (anónimas sin sesión, atadas a la cuenta con sesión) y stock de Pexels y Pixabay (solo con
+     cuenta). Repo privado `bajoelabrigo/flipstudio-api`. **Desplegado (2026-10-14):** `https://api.getflipstudio.com`
+     (PM2 `flipstudio-api` en `127.0.0.1:3100`, `/var/www/flipstudio-api`, nginx + certbot). El `.env` sale de
+     `secretos\flipstudio-api.env` (armado con `api-claves.txt` + el JSON `client_secret_*.json` de Google; Pexels
+     usa la misma clave que holyapp porque Pexels da una por cuenta). Probado de punta a punta con la cuenta de
+     Jorge: PKCE + loopback → login 200, `/v1/me`, Pexels y Pixabay con 30 resultados.
+   - **Google Cloud:** proyecto «Flip Studio», cliente «Flip Studio Windows» (App de escritorio), en modo
+     **Prueba** (solo usuarios de prueba). Publicarlo antes de la versión con inicio de sesión. Sin logo, a
+     propósito (el logo obliga a revisar la marca).
+   - **Trampa:** desde aquí no se puede abrir el navegador de Jorge (`start`/`rundll32` no hacen nada o cortan la
+     URL en el `&`); para probar, imprimir la URL y que él la abra.
+   - **Decisiones de Jorge:** la cuenta de Google se pide al primer arranque pero se puede saltar («Continuar sin
+     cuenta»); sin cuenta se envían estadísticas anónimas con interruptor en Ajustes; base en MongoDB Atlas, en un
+     clúster aparte del de holyapp (desde el 2026-10-14; la base de prueba que quedó en el de holyapp se borró). La cuenta se usará para su tienda personal (vender plantillas, más adelante; el pago por la web
+     con PayPal, como holyapp, para no necesitar cuenta de empresa en Partner Center).
+   - **App de escritorio (rama `flip/cuentas`, 2026-10-14):** `AccountController` (Google con PKCE + loopback,
+     sesión con DPAPI), `InstallStats` (instalación, actualización y uso diario; interruptor en Ajustes;
+     `FLIP_NO_STATS=1` lo apaga, y `mcp_e2e.py` lo pone solo), bienvenida tras el idioma
+     (`AccountWelcomeDialog.qml`, una vez), sección «Cuenta» en Ajustes, y la pestaña Market heredada pasa a
+     **Stock** con la cuenta (`MarketClient::setAccount`: sin HMAC ni id del equipo). El servidor cumple el
+     contrato de `docs/marketplace/openapi.yaml` en `/v1/market`. CI: 17/17 pruebas y build de Windows OK.
+     **Falta:** probarlo en ventana (con la pantalla de Jorge bloqueada las capturas salen en blanco, también
+     con la 0.9.9: no es la app), el primer inicio de sesión real desde la app, y el OK de Jorge.
+   - **Privacidad:** borrador en la rama `privacidad-cuentas` de `flipstudio-web` (**sin desplegar**). nginx ya no
+     registra la IP de `/v1/installs/event` y los días de uso se borran a los 13 meses (TTL). Falta la ficha de la
+     Store (`docs/store-listing.md` dice «no recoge datos personales» y «sin cuenta»).
+6. **Plantillas (plan del 2026-10-14, después del servidor):** las de efectos dejan rombos en cada golpe y no
+   guardan sus parámetros → sección «Plantilla» con Intensidad/Caída/Ritmo que regenera los puntos y «Quitar
+   plantilla»; las de escena entran como composición con capas con nombre, huecos «Tu foto aquí» y panel
+   «Rellenar plantilla»; reactivar la importación de MOGRT; LottieFiles; catálogo propio; más adelante, plantillas
+   hechas y vendidas por los usuarios.
+7. ~~Candado para bloquear una pista~~: hecho en la 0.9.7 (escritorio y web).
+8. El selector de idioma del primer arranque marca "American English" por defecto aunque el
    sistema esté en español.
 
 ---
@@ -454,9 +497,19 @@ restaurarlo al terminar. Nunca usar capturas de pantalla completa: una vez sali�
 - Las pruebas de GPU de `tst_engine` se **saltan en CI** (Linux sin GPU): lo de GPU se verifica con
   capturas `capture full:true` del ejecutable real en Windows.
 
+**«No se pudo abrir el navegador» al iniciar sesión con Google (2026-10-14).** En el equipo de Jorge ninguna
+app abría `accounts.google.com` (Flip, Antigravity, el plugin de YouTube de OBS): `ShellExecute` daba error 2
+solo para dominios de Google. Causa: un **Subsistema de Windows para Android** roto (registrado, sin archivos)
+reclamaba 64 dominios como «app para sitios web»
+(`HKCU\Software\Classes\Local Settings\…\SystemAppData\<paquete>\AppUriHandlers`). Se desinstaló con
+`Remove-AppxPackage` y volvió a funcionar. Para otros usuarios, `AccountController::openBrowser` abre el
+navegador predeterminado directamente (`AssocQueryStringW`) si `QDesktopServices` falla, y ofrece «Copiar el
+enlace». Pistas para diagnosticar: las capas implícitas de Vulkan (OBS, TikTok LIVE Studio) se inyectan en toda
+app que usa la GPU, pero **no** eran la causa.
+
 **Nada que se lance desde `Flip\.e2e-app` puede escribir archivos.** Le pasa incluso a la 0.9.6
 copiada ahí, y aunque se lance sin sandbox o desde una tarea programada. No es la app: el
-ejecutable tiene que estar fuera del repo, por ejemplo en `Downloads\FlipStudio-0.9.7-prueba`.
+ejecutable tiene que estar fuera del repo, por ejemplo en `Downloads\FlipStudio\pruebas\FlipStudio-0.9.7-prueba`.
 - Síntomas: el escaneo de caras da `Could not write …facetracks…`, `capture full:true` da
   `Could not write PNG` y `save_project` no deja archivo.
 

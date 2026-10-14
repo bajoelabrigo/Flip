@@ -774,6 +774,19 @@ ApplicationWindow {
     // Header Extras icon pulses while true; never auto-opens a dialog.
     readonly property alias addonAttentionNeeded: addonStartupDialog.needsAttention
 
+    // The account welcome closed this session (signed in or "Continue without an account").
+    property bool accountWelcomeDone: false
+
+    // After the language: "Sign in with Google / Continue without an account", once.
+    function promptAccountWelcomeIfNeeded() {
+        if (!Account.needsWelcome || window.accountWelcomeDone)
+            return false
+        if (accountWelcomeDialogLoader.shown)
+            return true
+        accountWelcomeDialogLoader.ensure().open()
+        return true
+    }
+
     function promptLanguageChooserIfNeeded() {
         if (!EditorState.preferences.needsUiLanguagePrompt)
             return false
@@ -784,7 +797,8 @@ ApplicationWindow {
     }
 
     function promptLayoutChooserIfNeeded() {
-        if (EditorState.preferences.needsUiLanguagePrompt || languageChooserDialogLoader.shown)
+        if (EditorState.preferences.needsUiLanguagePrompt || languageChooserDialogLoader.shown
+                || accountWelcomeDialogLoader.shown)
             return
         if (EditorState.projectFile.recoveryAvailable || EditorState.projectLayoutChosen)
             return
@@ -813,6 +827,19 @@ ApplicationWindow {
         id: projectSetupDialogLoader
         sourceComponent: Component {
             ProjectSetupDialog { }
+        }
+    }
+
+    LazyLoader {
+        id: accountWelcomeDialogLoader
+        sourceComponent: Component {
+            AccountWelcomeDialog {
+                onClosed: {
+                    window.accountWelcomeDone = true
+                    Account.dismissWelcome()
+                    window.continueStartupAfterLanguage()
+                }
+            }
         }
     }
 
@@ -1318,7 +1345,8 @@ ApplicationWindow {
     }
 
     function promptRecoveryIfNeeded() {
-        if (EditorState.preferences.needsUiLanguagePrompt || languageChooserDialogLoader.shown)
+        if (EditorState.preferences.needsUiLanguagePrompt || languageChooserDialogLoader.shown
+                || accountWelcomeDialogLoader.shown)
             return
         if (!EditorState.projectFile.recoveryAvailable || recoveryDialogLoader.shown)
             return
@@ -1431,6 +1459,8 @@ ApplicationWindow {
     }
 
     function continueStartupAfterLanguage() {
+        if (window.promptAccountWelcomeIfNeeded())
+            return
         if (Qt.platform.os === "android" && window.routeAndroidIntent(FileDialogs.takeLaunchIntent()))
             return
         // A document the shell asked us to open (argv / QFileOpenEvent) wins over last-session
@@ -1575,7 +1605,8 @@ ApplicationWindow {
         target: EditorState.projectFile
 
         function onRecoveryChanged() {
-            if (EditorState.preferences.needsUiLanguagePrompt || languageChooserDialogLoader.shown)
+            if (EditorState.preferences.needsUiLanguagePrompt || languageChooserDialogLoader.shown
+                    || accountWelcomeDialogLoader.shown)
                 return
             if (EditorState.preferences.reopenLastProject)
                 return
@@ -1654,9 +1685,12 @@ ApplicationWindow {
                 Toasts.error(message)
         }
         function onDownloadImported(itemId, name) {
-            Toasts.success(name.length > 0
-                           ? qsTr("Imported “%1”.").arg(name)
-                           : qsTr("Imported from the marketplace."))
+            // Says where the file went, with a jump there: the download itself leaves the user on
+            // the Stock tab, where nothing shows that the clip is now in the bin.
+            Toasts.post("success",
+                        name.length > 0 ? qsTr("“%1” was added to Media.").arg(name)
+                                        : qsTr("Added to Media."),
+                        8000, qsTr("Show"), () => window.showAssetsTab("media"))
         }
         function onDownloadFailed(itemId, code, message) {
             Toasts.error(message)
@@ -1798,6 +1832,8 @@ ApplicationWindow {
             width: parent.width
             visible: !window.previewFullscreen
             onDownloadsRequested: downloadsWindowLoader.ensure().show()
+            onStockRequested: window.showAssetsTab("market")
+            stockActive: assetsPanel.currentTabId === "market"
         }
 
         Item {

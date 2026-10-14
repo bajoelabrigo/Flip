@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.9.9 LANGUAGES CXX C)
+project(Drift VERSION 0.10.0 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -78,10 +78,22 @@ set(DRIFT_ADDON_CLIENT_TOKEN ""
 #                  -DDRIFT_MARKET_CLIENT_KEY=...
 #
 #   cmake -B build -DDRIFT_MARKET_API_URL=      # no marketplace
-set(DRIFT_MARKET_API_URL ""
+# Flip Studio points it at its own service on api.getflipstudio.com (repo flipstudio-api), which
+# serves Pexels and Pixabay behind the Flip Studio account. That service authorizes by account and
+# ignores the HMAC, so the key is only a non-empty placeholder that switches the client on.
+set(DRIFT_MARKET_API_URL "https://api.getflipstudio.com/v1/market"
     CACHE STRING "Marketplace API base; empty disables the marketplace")
-set(DRIFT_MARKET_CLIENT_KEY ""
+set(DRIFT_MARKET_CLIENT_KEY "flipstudio"
     CACHE STRING "HMAC key for marketplace client identity and request signing")
+
+# --- Flip Studio account and install statistics ---------------------------------------
+# Google sign-in and anonymous install statistics, both through api.getflipstudio.com. The client
+# id is public by design (Google identifies the app with it); the client secret lives only on the
+# server. Empty URL turns both off.
+set(DRIFT_ACCOUNT_API_URL "https://api.getflipstudio.com"
+    CACHE STRING "Flip Studio account and statistics API; empty disables both")
+set(DRIFT_GOOGLE_CLIENT_ID "770431047496-fe6of9ilvrvfoocrpo117m6jb3evpr75.apps.googleusercontent.com"
+    CACHE STRING "Google OAuth client id (Desktop app) for Flip Studio sign-in")
 
 # --- Flip Studio ---------------------------------------------------------------------
 # Flip Studio is a fork of Drift (CutWire Studios). The addon service and marketplace above are CutWire's
@@ -532,6 +544,8 @@ target_link_libraries(driftcore PUBLIC Qt6::Core Qt6::Gui Qt6::Xml ZLIB::ZLIB)
 if(WIN32)
     # DPAPI (CryptProtectData) seals API keys and tokens in SecretStore.
     target_link_libraries(driftcore PUBLIC Crypt32)
+    # AssocQueryStringW: AccountController opens the default browser directly when the shell cannot.
+    target_link_libraries(driftcore PUBLIC Shlwapi)
 endif()
 
 file(GLOB DRIFT_TEXT_ANIMATION_FILES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/presets/text-animations/*.json")
@@ -903,6 +917,10 @@ qt_add_executable(drift
     src/models/MarketIdentity.cpp
     src/models/MarketClient.h
     src/models/MarketClient.cpp
+    src/models/AccountController.h
+    src/models/AccountController.cpp
+    src/models/InstallStats.h
+    src/models/InstallStats.cpp
     src/models/DriftAssetStore.h
     src/models/DriftAssetStore.cpp
     src/models/SfxLibrary.h
@@ -1396,6 +1414,8 @@ qt_add_qml_module(drift
         src/qml/components/preview/PlaybackStatsOverlay.qml
         src/qml/components/ProjectSetupDialog.qml
         src/qml/components/LayoutChooserDialog.qml
+        src/qml/components/AccountWelcomeDialog.qml
+        src/qml/components/CopySignInLinkButton.qml
         src/qml/components/LanguageChooserDialog.qml
         src/qml/components/AgentAccessControls.qml
         src/qml/components/AgentAccessDialog.qml
@@ -1666,6 +1686,8 @@ target_compile_definitions(drift PRIVATE
     DRIFT_ADDON_CLIENT_TOKEN="${DRIFT_ADDON_CLIENT_TOKEN}"
     DRIFT_MARKET_API_URL="${DRIFT_MARKET_API_URL}"
     DRIFT_MARKET_CLIENT_KEY="${DRIFT_MARKET_CLIENT_KEY}"
+    DRIFT_ACCOUNT_API_URL="${DRIFT_ACCOUNT_API_URL}"
+    DRIFT_GOOGLE_CLIENT_ID="${DRIFT_GOOGLE_CLIENT_ID}"
     DRIFT_UPDATE_FEED_URL="${DRIFT_UPDATE_FEED_URL}"
     DRIFT_UPDATE_VERSION_HOST="${DRIFT_UPDATE_VERSION_HOST}"
     DRIFT_VERSION="${DRIFT_VERSION_STRING}"
