@@ -4185,6 +4185,34 @@
         <translation>템플릿이 적용됨</translation>
     </message>
     <message>
+        <source>Change template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Template updated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change template rhythm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No beats under this clip for that rhythm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Template rhythm changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Template removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>This effect needs a subject cutout — open Extras to install it</source>
         <translation>이 효과에는 피사체 분리가 필요합니다 — 추가 기능을 열어 설치하세요</translation>
     </message>
@@ -9653,6 +9681,72 @@
     <message>
         <source>Clear depth</source>
         <translation>깊이 지우기</translation>
+    </message>
+    <message>
+        <source>Every strong sound</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every beat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start to end of the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Template: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Its keyframes follow these controls: change them here instead of one by one.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intensity: %1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation type="unfinished">강도</translation>
+    </message>
+    <message>
+        <source>Decay: %1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rhythm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Analysing the music…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>One effect from the start to the end of the clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n pulse(s) under this clip.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Remove template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Takes off every effect and keyframe this template added</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This clip was scanned before the face mesh was supported. Re-detect faces to enable 3D Face Mesh and Face Retouch.</source>

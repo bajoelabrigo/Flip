@@ -4192,6 +4192,34 @@
         <translation>Plantilla aplicada</translation>
     </message>
     <message>
+        <source>Change template</source>
+        <translation>Cambiar plantilla</translation>
+    </message>
+    <message>
+        <source>Template updated</source>
+        <translation>Plantilla actualizada</translation>
+    </message>
+    <message>
+        <source>Change template rhythm</source>
+        <translation>Cambiar el ritmo de la plantilla</translation>
+    </message>
+    <message>
+        <source>No beats under this clip for that rhythm</source>
+        <translation>No hay golpes bajo este clip con ese ritmo</translation>
+    </message>
+    <message>
+        <source>Template rhythm changed</source>
+        <translation>Ritmo de la plantilla cambiado</translation>
+    </message>
+    <message>
+        <source>Remove template</source>
+        <translation>Quitar plantilla</translation>
+    </message>
+    <message>
+        <source>Template removed</source>
+        <translation>Plantilla quitada</translation>
+    </message>
+    <message>
         <source>This effect needs a subject cutout — open Extras to install it</source>
         <translation>Este efecto necesita un recorte de sujeto — abre Extras para instalarlo</translation>
     </message>
@@ -9684,6 +9712,73 @@
     <message>
         <source>Clear depth</source>
         <translation>Borrar profundidad</translation>
+    </message>
+    <message>
+        <source>Every strong sound</source>
+        <translation>Cada sonido fuerte</translation>
+    </message>
+    <message>
+        <source>Every beat</source>
+        <translation>Cada golpe</translation>
+    </message>
+    <message>
+        <source>Every bar</source>
+        <translation>Cada compás</translation>
+    </message>
+    <message>
+        <source>Start to end of the clip</source>
+        <translation>De inicio a fin del clip</translation>
+    </message>
+    <message>
+        <source>Template: %1</source>
+        <translation>Plantilla: %1</translation>
+    </message>
+    <message>
+        <source>Its keyframes follow these controls: change them here instead of one by one.</source>
+        <translation>Sus fotogramas clave siguen estos controles: cámbialos aquí en vez de uno por uno.</translation>
+    </message>
+    <message>
+        <source>Intensity: %1%</source>
+        <translation>Intensidad: %1 %</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>Intensidad</translation>
+    </message>
+    <message>
+        <source>Decay: %1%</source>
+        <translation>Caída: %1 %</translation>
+    </message>
+    <message>
+        <source>Decay</source>
+        <translation>Caída</translation>
+    </message>
+    <message>
+        <source>Rhythm</source>
+        <translation>Ritmo</translation>
+    </message>
+    <message>
+        <source>Analysing the music…</source>
+        <translation>Analizando la música…</translation>
+    </message>
+    <message>
+        <source>One effect from the start to the end of the clip.</source>
+        <translation>Un solo efecto de inicio a fin del clip.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n pulse(s) under this clip.</source>
+        <translation>
+            <numerusform>%n golpe bajo este clip.</numerusform>
+            <numerusform>%n golpes bajo este clip.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Remove template</source>
+        <translation>Quitar plantilla</translation>
+    </message>
+    <message>
+        <source>Takes off every effect and keyframe this template added</source>
+        <translation>Quita todos los efectos y fotogramas clave que puso esta plantilla</translation>
     </message>
     <message>
         <source>This clip was scanned before the face mesh was supported. Re-detect faces to enable 3D Face Mesh and Face Retouch.</source>

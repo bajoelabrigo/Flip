@@ -1275,6 +1275,16 @@ public:
     Q_INVOKABLE QVariantList effectTemplateCategories() const;
     Q_INVOKABLE void addEffect(int trackIndex, int clipIndex, const QString &effectId);
     Q_INVOKABLE void applyEffectTemplate(int trackIndex, int clipIndex, const QString &templateId);
+    // The single-clip effect template on this clip (its effects carry a template tag), for the
+    // Effects › Template section: name, rhythm, intensity, decay. Empty when there is none.
+    Q_INVOKABLE QVariantMap effectTemplateInfo(int trackIndex, int clipIndex) const;
+    // Rebuilds every pulse of that template; 1 = as designed for both.
+    Q_INVOKABLE void setEffectTemplateShape(int trackIndex, int clipIndex, double intensity,
+                                            double decay);
+    // "onset", "beat", "bar" or "clip"; analyses the music first when it has to.
+    Q_INVOKABLE void setEffectTemplateRhythm(int trackIndex, int clipIndex, const QString &sync);
+    // Takes the template's effects (and its speed curve) off the clip in one step.
+    Q_INVOKABLE void removeEffectTemplate(int trackIndex, int clipIndex);
     Q_INVOKABLE void removeEffect(int trackIndex, int clipIndex, int effectIndex);
     Q_INVOKABLE void setEffectEnabled(int trackIndex, int clipIndex, int effectIndex, bool enabled);
     Q_INVOKABLE void moveEffect(int trackIndex, int clipIndex, int fromIndex, int toIndex);
@@ -1819,6 +1829,12 @@ protected:
                                    drift::TimeUs matteSrcOffsetUs = 0);
     bool resolveTemplateApplyTarget(int *trackIndex, int *clipIndex) const;
     bool beatAnalysisReadyForClip(const drift::Clip &clip, const QString &sync) const;
+    QList<drift::TimeUs> templateSyncPoints(const drift::Clip &sourceClip, const QString &sync) const;
+    // Removes the effects of a single-clip template (all of them when templateId is empty) from
+    // the clip and its linked effects adjustment, and its speed curve. No undo step of its own.
+    void removeTemplateEffects(int trackIndex, int clipIndex, const QString &templateId);
+    bool reshapeEffectTemplate(int trackIndex, int clipIndex, double intensity, double decay,
+                               const QString &sync, const QList<drift::TimeUs> *points);
     // Digest of everything the AudioMixer reads; a change means detected beats are stale.
     QByteArray audioLayoutFingerprint() const;
     // Single key lookup for the tangent editors; null when nothing sits at `atSeconds`.
@@ -2282,6 +2298,8 @@ protected:
         bool valid() const { return trackIndex >= 0 && clipIndex >= 0 && !templateId.isEmpty(); }
     };
     std::optional<PendingEffectTemplate> m_pendingEffectTemplate;
+    // A template rhythm change waiting on beat analysis: (clip id, sync).
+    std::optional<QPair<QString, QString>> m_pendingTemplateRhythm;
     // Beats and onsets as snap targets, thinned so a dense onset list cannot make every
     // position on the timeline snap to something. Only the visible layers contribute.
     QList<drift::TimeUs> m_beatSnapTargets;

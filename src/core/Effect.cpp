@@ -98,6 +98,24 @@ QJsonArray effectsToJson(const QList<Effect> &effects)
             object.insert(QStringLiteral("enabled"), false);
         if (!paramKeyframes.isEmpty())
             object.insert(QStringLiteral("paramKeyframes"), paramKeyframes);
+        if (effect.templateTag.isValid()) {
+            const EffectTemplateTag &tag = effect.templateTag;
+            QJsonArray points;
+            for (TimeUs t : tag.points)
+                points.append(static_cast<double>(t));
+            QJsonObject templ{
+                {QStringLiteral("id"), tag.templateId},
+                {QStringLiteral("instance"), tag.instance},
+                {QStringLiteral("layer"), tag.layer},
+                {QStringLiteral("sync"), tag.sync},
+                {QStringLiteral("intensity"), tag.intensity},
+                {QStringLiteral("decay"), tag.decay},
+                {QStringLiteral("points"), points},
+            };
+            if (tag.speedApplied)
+                templ.insert(QStringLiteral("speedApplied"), true);
+            object.insert(QStringLiteral("template"), templ);
+        }
         array.append(object);
     }
     return array;
@@ -118,6 +136,19 @@ QList<Effect> effectsFromJson(const QJsonArray &array)
         const QJsonObject paramKeyframes = object.value(QStringLiteral("paramKeyframes")).toObject();
         for (auto it = paramKeyframes.constBegin(); it != paramKeyframes.constEnd(); ++it)
             effect.paramKeyframes.insert(it.key(), keyframesFromJson(it.value().toObject()));
+        const QJsonObject templ = object.value(QStringLiteral("template")).toObject();
+        if (!templ.isEmpty()) {
+            EffectTemplateTag &tag = effect.templateTag;
+            tag.templateId = templ.value(QStringLiteral("id")).toString();
+            tag.instance = templ.value(QStringLiteral("instance")).toString();
+            tag.layer = templ.value(QStringLiteral("layer")).toInt(-1);
+            tag.sync = templ.value(QStringLiteral("sync")).toString();
+            tag.intensity = templ.value(QStringLiteral("intensity")).toDouble(1.0);
+            tag.decay = templ.value(QStringLiteral("decay")).toDouble(1.0);
+            for (const QJsonValue &t : templ.value(QStringLiteral("points")).toArray())
+                tag.points.append(static_cast<TimeUs>(t.toDouble()));
+            tag.speedApplied = templ.value(QStringLiteral("speedApplied")).toBool(false);
+        }
         effects.append(effect);
     }
     return effects;

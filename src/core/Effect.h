@@ -12,6 +12,30 @@
 
 namespace drift {
 
+// Marks an effect an effect template put on a clip, with what is needed to rebuild its pulses
+// (intensity, decay, rhythm) or take the whole template off again. Every effect of one application
+// carries the same `instance`; the tag rides along when hoisting moves the effects onto the clip's
+// linked adjustment, where a list stored on the clip itself would be left behind.
+struct EffectTemplateTag
+{
+    QString templateId;
+    QString instance;
+    // Index into the template's `layers`: which pulse rule this effect follows.
+    int layer = -1;
+    // "onset", "beat", "bar" or "clip".
+    QString sync;
+    // Pulse height relative to the template's (1 = as designed), and decay length likewise.
+    double intensity = 1.0;
+    double decay = 1.0;
+    // Pulse times, relative to the start of the clip the template was applied to.
+    QList<TimeUs> points;
+    // The template also wrote a speed curve on that clip, to undo with the template.
+    bool speedApplied = false;
+
+    bool isValid() const { return !instance.isEmpty(); }
+    bool operator==(const EffectTemplateTag &) const = default;
+};
+
 // Per-clip libavfilter effect with named parameters.
 struct Effect
 {
@@ -31,6 +55,9 @@ struct Effect
     // When false the effect stays on the clip (params/keyframes preserved) but is
     // skipped at render/mix time. Default true so older projects load as enabled.
     bool enabled = true;
+
+    // Set when an effect template added this effect; empty otherwise.
+    EffectTemplateTag templateTag;
 
     QString filterGraphString() const;
 

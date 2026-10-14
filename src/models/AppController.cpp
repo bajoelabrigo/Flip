@@ -17609,39 +17609,58 @@ drift::Clip deriveMaskedClip(const drift::Clip &source, const QString &suffix)
     return clip;
 }
 
-void applyTemplateLayersToClip(drift::Clip &clip, const QList<EffectTemplateLayer> &layers,
-                               const QString &sync, const QList<drift::TimeUs> &syncPoints)
+// Writes one template layer's pulse onto effect `effectIndex` of `clip`: a peak at each sync point
+// falling back to rest after the decay, or one ramp across the clip for "clip" sync. Intensity
+// scales the height above rest and decay the fall time, both relative to the template's design.
+// `offsetUs` moves the points from the clip they were measured on to the clip that hosts the
+// effect (a linked adjustment can start elsewhere).
+void writeTemplatePulse(drift::Clip &clip, int effectIndex, const EffectTemplatePulse &pulse,
+                        const QString &sync, const QList<drift::TimeUs> &syncPoints,
+                        double intensity, double decay, drift::TimeUs offsetUs = 0)
 {
-    const int baseEffectIndex = clip.effects.size();
-    for (const EffectTemplateLayer &layer : layers) {
+    if (!pulse.valid || effectIndex < 0 || effectIndex >= clip.effects.size())
+        return;
+    clip.effects[effectIndex].paramKeyframes.remove(pulse.param);
+    const QString prop = QStringLiteral("fx.%1.%2").arg(effectIndex).arg(pulse.param);
+    const double peak = pulse.rest + (pulse.peak - pulse.rest) * qMax(0.0, intensity);
+    const drift::TimeUs decayUs =
+        static_cast<drift::TimeUs>(qMax(pulse.decayMs, 0) * qMax(0.05, decay)) * 1000;
+    if (sync == QLatin1String("clip") && syncPoints.size() >= 2) {
+        writeClipPropValue(clip, prop, syncPoints.first() + offsetUs, peak, false, true);
+        writeClipPropValue(clip, prop, syncPoints.last() + offsetUs, pulse.rest, false, true);
+        return;
+    }
+    for (drift::TimeUs t : syncPoints) {
+        writeClipPropValue(clip, prop, t + offsetUs, peak, false, true);
+        writeClipPropValue(clip, prop, t + offsetUs + decayUs, pulse.rest, false, true);
+    }
+    // With no beats in range the effect would keep whatever value it had; rest is the template's
+    // idea of "nothing happening".
+    if (syncPoints.isEmpty())
+        clip.effects[effectIndex].parameters.insert(pulse.param, pulse.rest);
+}
+
+// `tagBase` set: every effect added is tagged with it (and its layer index), so the template can
+// be reshaped or removed later, and its intensity and decay shape the pulses written now.
+void applyTemplateLayersToClip(drift::Clip &clip, const QList<EffectTemplateLayer> &layers,
+                               const QString &sync, const QList<drift::TimeUs> &syncPoints,
+                               const drift::EffectTemplateTag *tagBase = nullptr)
+{
+    const double intensity = tagBase ? tagBase->intensity : 1.0;
+    const double decay = tagBase ? tagBase->decay : 1.0;
+    for (int layerIndex = 0; layerIndex < layers.size(); ++layerIndex) {
+        const EffectTemplateLayer &layer = layers.at(layerIndex);
         const EffectPresetEntry *def = effectDefForId(layer.effectId);
         if (!def)
             continue;
-        clip.effects.append(effectFromCatalogEntry(*def, layer.params));
-    }
-
-    for (int layerIndex = 0; layerIndex < layers.size(); ++layerIndex) {
-        const EffectTemplateLayer &layer = layers.at(layerIndex);
-        if (!layer.pulse.valid)
-            continue;
-
-        const int effectIndex = baseEffectIndex + layerIndex;
-        if (effectIndex >= clip.effects.size())
-            continue;
-
-        const QString prop =
-            QStringLiteral("fx.%1.%2").arg(effectIndex).arg(layer.pulse.param);
-        const drift::TimeUs decayUs =
-            static_cast<drift::TimeUs>(qMax(layer.pulse.decayMs, 0)) * 1000;
-        if (sync == QLatin1String("clip") && syncPoints.size() >= 2) {
-            writeClipPropValue(clip, prop, syncPoints.first(), layer.pulse.peak, false, true);
-            writeClipPropValue(clip, prop, syncPoints.last(), layer.pulse.rest, false, true);
-            continue;
+        drift::Effect effect = effectFromCatalogEntry(*def, layer.params);
+        if (tagBase) {
+            effect.templateTag = *tagBase;
+            effect.templateTag.layer = layerIndex;
         }
-        for (drift::TimeUs t : syncPoints) {
-            writeClipPropValue(clip, prop, t, layer.pulse.peak, false, true);
-            writeClipPropValue(clip, prop, t + decayUs, layer.pulse.rest, false, true);
-        }
+        clip.effects.append(effect);
+        writeTemplatePulse(clip, clip.effects.size() - 1, layer.pulse, sync, syncPoints,
+                           intensity, decay);
     }
 }
 
@@ -17881,35 +17900,7 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
     const bool segmented = entry.requiresSegmentation || entry.usesMultiTrack();
     const bool haveMatte = matte.isMedia();
 
-    QList<drift::TimeUs> syncPoints;
-    const drift::TimeUs clipStart = sourceClip.timelineStart;
-    const drift::TimeUs clipEnd = clipStart + sourceClip.timelineDuration;
-    if (entry.sync == QLatin1String("clip")) {
-        syncPoints.append(0);
-        if (sourceClip.timelineDuration > 0)
-            syncPoints.append(sourceClip.timelineDuration);
-    } else if (entry.sync == QLatin1String("onset")) {
-        for (const AudioOnset &onset : std::as_const(m_beatAnalysisRaw.onsets)) {
-            const drift::TimeUs at = drift::secondsToUs(onset.seconds);
-            if (at >= clipStart && at < clipEnd)
-                syncPoints.append(at - clipStart);
-        }
-    } else {
-        int beatIndex = 0;
-        for (double beatSeconds : std::as_const(m_beatAnalysisRaw.beats)) {
-            const drift::TimeUs at = drift::secondsToUs(beatSeconds);
-            if (at >= clipStart && at < clipEnd) {
-                if (entry.sync == QLatin1String("bar")) {
-                    const int rel = beatIndex - m_beatAnalysisRaw.firstDownbeat;
-                    if (rel >= 0 && rel % m_beatAnalysisRaw.beatsPerBar == 0)
-                        syncPoints.append(at - clipStart);
-                } else {
-                    syncPoints.append(at - clipStart);
-                }
-            }
-            ++beatIndex;
-        }
-    }
+    const QList<drift::TimeUs> syncPoints = templateSyncPoints(sourceClip, entry.sync);
 
     auto applyTrackLayers = [&](drift::Clip &clip, const EffectTemplateTrack &trackDef) {
         applyTemplateLayersToClip(clip, trackDef.layers, entry.sync, syncPoints);
@@ -18049,9 +18040,22 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
         if (const EffectTemplateTrack *fgDef = trackForRole(entry, QStringLiteral("foreground")))
             applyTrackLayers(track.clips[clipIndex], *fgDef);
     } else {
-        applyTemplateLayersToClip(track.clips[clipIndex], entry.layers, entry.sync, syncPoints);
+        // A single-clip template stays editable afterwards: its effects carry what is needed to
+        // rebuild the pulses (Effects › Template) or take them all off again.
+        drift::EffectTemplateTag tag;
+        tag.templateId = entry.id;
+        tag.instance = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        tag.sync = entry.sync;
+        tag.points = syncPoints;
+        tag.speedApplied = entry.speedPulse.valid;
+        // One template per clip, as in CapCut: a new one replaces the previous one (and the same
+        // one again replaces itself) instead of stacking another set of pulses.
+        removeTemplateEffects(trackIndex, clipIndex, QString());
+        drift::Track &freshTrack = m_project.tracks()[trackIndex];
+        applyTemplateLayersToClip(freshTrack.clips[clipIndex], entry.layers, entry.sync, syncPoints,
+                                  &tag);
         if (entry.speedPulse.valid)
-            applyTemplateSpeedPulse(track.clips[clipIndex], entry.speedPulse, entry.sync,
+            applyTemplateSpeedPulse(freshTrack.clips[clipIndex], entry.speedPulse, entry.sync,
                                     syncPoints);
     }
 
@@ -18082,6 +18086,217 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
     m_selection = {qMakePair(selectTrack, selectClip)};
     pushProjectEdit(before, tr("Apply effect template"));
     finishEdit(tr("Template applied"));
+}
+
+QList<drift::TimeUs> AppController::templateSyncPoints(const drift::Clip &sourceClip,
+                                                       const QString &sync) const
+{
+    QList<drift::TimeUs> syncPoints;
+    const drift::TimeUs clipStart = sourceClip.timelineStart;
+    const drift::TimeUs clipEnd = clipStart + sourceClip.timelineDuration;
+    if (sync == QLatin1String("clip")) {
+        syncPoints.append(0);
+        if (sourceClip.timelineDuration > 0)
+            syncPoints.append(sourceClip.timelineDuration);
+    } else if (sync == QLatin1String("onset")) {
+        for (const AudioOnset &onset : std::as_const(m_beatAnalysisRaw.onsets)) {
+            const drift::TimeUs at = drift::secondsToUs(onset.seconds);
+            if (at >= clipStart && at < clipEnd)
+                syncPoints.append(at - clipStart);
+        }
+    } else {
+        int beatIndex = 0;
+        for (double beatSeconds : std::as_const(m_beatAnalysisRaw.beats)) {
+            const drift::TimeUs at = drift::secondsToUs(beatSeconds);
+            if (at >= clipStart && at < clipEnd) {
+                if (sync == QLatin1String("bar")) {
+                    const int rel = beatIndex - m_beatAnalysisRaw.firstDownbeat;
+                    if (rel >= 0 && m_beatAnalysisRaw.beatsPerBar > 0
+                        && rel % m_beatAnalysisRaw.beatsPerBar == 0)
+                        syncPoints.append(at - clipStart);
+                } else {
+                    syncPoints.append(at - clipStart);
+                }
+            }
+            ++beatIndex;
+        }
+    }
+    return syncPoints;
+}
+
+// The media clip a (track, clip) pair is about: itself, or the clip an adjustment is linked to.
+// Template pulses are measured on that clip, whichever of the two the user has selected.
+static bool templateSourceClip(const drift::Project &project, int trackIndex, int clipIndex,
+                               int *sourceTrack, int *sourceClip)
+{
+    if (trackIndex < 0 || trackIndex >= project.tracks().size())
+        return false;
+    const drift::Track &track = project.tracks().at(trackIndex);
+    if (clipIndex < 0 || clipIndex >= track.clips.size())
+        return false;
+    const drift::Clip &clip = track.clips.at(clipIndex);
+    if (clip.type == drift::ClipType::Adjustment && !clip.linkedClipId.isEmpty())
+        return findClipById(project, clip.linkedClipId, sourceTrack, sourceClip);
+    *sourceTrack = trackIndex;
+    *sourceClip = clipIndex;
+    return true;
+}
+
+void AppController::removeTemplateEffects(int trackIndex, int clipIndex, const QString &templateId)
+{
+    int sourceTrack = -1;
+    int sourceClip = -1;
+    if (!templateSourceClip(m_project, trackIndex, clipIndex, &sourceTrack, &sourceClip))
+        return;
+    bool speedApplied = false;
+    // Effects not hoisted yet sit on the clip; hoisted ones on its linked adjustment.
+    const auto strip = [&](drift::Clip &clip) {
+        for (int i = clip.effects.size() - 1; i >= 0; --i) {
+            const drift::EffectTemplateTag &tag = clip.effects.at(i).templateTag;
+            if (!tag.isValid() || (!templateId.isEmpty() && tag.templateId != templateId))
+                continue;
+            speedApplied = speedApplied || tag.speedApplied;
+            clip.effects.removeAt(i);
+            dropKeyframeGraphPropertiesForEffect(i);
+        }
+    };
+    strip(m_project.tracks()[sourceTrack].clips[sourceClip]);
+    const drift::ClipRef host =
+        effectHostRef(sourceTrack, sourceClip, drift::AdjustmentKind::VideoEffects, false);
+    if (host.trackIndex >= 0)
+        strip(m_project.tracks()[host.trackIndex].clips[host.clipIndex]);
+    // The template's speed curve goes with it: back to the clip's plain speed.
+    if (speedApplied) {
+        drift::Clip &clip = m_project.tracks()[sourceTrack].clips[sourceClip];
+        clip.speedCurve.setPoints({});
+        clip.syncDurationFromSpeedCurve();
+    }
+}
+
+QVariantMap AppController::effectTemplateInfo(int trackIndex, int clipIndex) const
+{
+    const drift::Clip *host = effectHostClip(trackIndex, clipIndex, drift::AdjustmentKind::VideoEffects);
+    if (!host)
+        return {};
+    for (const drift::Effect &effect : host->effects) {
+        const drift::EffectTemplateTag &tag = effect.templateTag;
+        if (!tag.isValid())
+            continue;
+        const EffectTemplateEntry *entry = effectTemplateForId(tag.templateId);
+        return {
+            {QStringLiteral("templateId"), tag.templateId},
+            {QStringLiteral("name"), entry ? entry->displayName : tag.templateId},
+            {QStringLiteral("sync"), tag.sync},
+            {QStringLiteral("designedSync"), entry ? entry->sync : tag.sync},
+            {QStringLiteral("intensity"), tag.intensity},
+            {QStringLiteral("decay"), tag.decay},
+            {QStringLiteral("pulses"), tag.points.size()},
+            {QStringLiteral("rhythmPending"), m_pendingTemplateRhythm.has_value()},
+        };
+    }
+    return {};
+}
+
+// Rewrites every pulse of the template on this clip from its tag, with new intensity, decay,
+// rhythm or sync points. Effects keep their place in the stack and every other edit on them.
+bool AppController::reshapeEffectTemplate(int trackIndex, int clipIndex, double intensity,
+                                          double decay, const QString &sync,
+                                          const QList<drift::TimeUs> *points)
+{
+    int sourceTrack = -1;
+    int sourceClip = -1;
+    if (!templateSourceClip(m_project, trackIndex, clipIndex, &sourceTrack, &sourceClip))
+        return false;
+    const drift::ClipRef ref =
+        effectHostRef(sourceTrack, sourceClip, drift::AdjustmentKind::VideoEffects, false);
+    if (ref.trackIndex < 0)
+        return false;
+    const drift::TimeUs sourceStart =
+        m_project.tracks().at(sourceTrack).clips.at(sourceClip).timelineStart;
+    drift::Clip &host = m_project.tracks()[ref.trackIndex].clips[ref.clipIndex];
+    const drift::TimeUs offsetUs = sourceStart - host.timelineStart;
+    bool changed = false;
+    for (int i = 0; i < host.effects.size(); ++i) {
+        drift::EffectTemplateTag &tag = host.effects[i].templateTag;
+        if (!tag.isValid())
+            continue;
+        const EffectTemplateEntry *entry = effectTemplateForId(tag.templateId);
+        if (!entry || tag.layer < 0 || tag.layer >= entry->layers.size())
+            continue;
+        tag.intensity = qBound(0.0, intensity, 3.0);
+        tag.decay = qBound(0.1, decay, 5.0);
+        if (!sync.isEmpty())
+            tag.sync = sync;
+        if (points)
+            tag.points = *points;
+        const drift::EffectTemplateTag snapshot = tag;
+        writeTemplatePulse(host, i, entry->layers.at(snapshot.layer).pulse, snapshot.sync,
+                           snapshot.points, snapshot.intensity, snapshot.decay, offsetUs);
+        changed = true;
+    }
+    return changed;
+}
+
+void AppController::setEffectTemplateShape(int trackIndex, int clipIndex, double intensity,
+                                           double decay)
+{
+    const QVariantMap info = effectTemplateInfo(trackIndex, clipIndex);
+    if (info.isEmpty())
+        return;
+    if (qFuzzyCompare(info.value(QStringLiteral("intensity")).toDouble(), intensity)
+        && qFuzzyCompare(info.value(QStringLiteral("decay")).toDouble(), decay))
+        return;
+    const drift::Project before = m_project;
+    if (!reshapeEffectTemplate(trackIndex, clipIndex, intensity, decay, QString(), nullptr))
+        return;
+    pushProjectEdit(before, tr("Change template"));
+    finishEdit(tr("Template updated"));
+}
+
+void AppController::setEffectTemplateRhythm(int trackIndex, int clipIndex, const QString &sync)
+{
+    static const QStringList kSyncs{QStringLiteral("onset"), QStringLiteral("beat"),
+                                    QStringLiteral("bar"), QStringLiteral("clip")};
+    if (!kSyncs.contains(sync))
+        return;
+    const QVariantMap info = effectTemplateInfo(trackIndex, clipIndex);
+    if (info.isEmpty())
+        return;
+    int sourceTrack = -1;
+    int sourceClip = -1;
+    if (!templateSourceClip(m_project, trackIndex, clipIndex, &sourceTrack, &sourceClip))
+        return;
+    const drift::Clip &source = m_project.tracks().at(sourceTrack).clips.at(sourceClip);
+    // Beats and onsets come from the music under the clip; analyse first if that is not done for
+    // this stretch yet, and finish the change when the analysis lands.
+    if (templateSyncNeedsBeats(sync) && !beatAnalysisReadyForClip(source, sync)) {
+        m_pendingTemplateRhythm = qMakePair(source.id, sync);
+        if (!m_beatAnalysisRunning) {
+            analyzeBeats(drift::usToSeconds(source.timelineStart),
+                         drift::usToSeconds(source.timelineDuration));
+        }
+        emit selectedClipDataChanged();
+        return;
+    }
+    m_pendingTemplateRhythm.reset();
+    const QList<drift::TimeUs> points = templateSyncPoints(source, sync);
+    const drift::Project before = m_project;
+    if (!reshapeEffectTemplate(trackIndex, clipIndex, info.value(QStringLiteral("intensity")).toDouble(),
+                               info.value(QStringLiteral("decay")).toDouble(), sync, &points))
+        return;
+    pushProjectEdit(before, tr("Change template rhythm"));
+    finishEdit(points.isEmpty() ? tr("No beats under this clip for that rhythm")
+                                : tr("Template rhythm changed"));
+}
+
+void AppController::removeEffectTemplate(int trackIndex, int clipIndex)
+{
+    if (effectTemplateInfo(trackIndex, clipIndex).isEmpty())
+        return;
+    const drift::Project before = m_project;
+    removeTemplateEffects(trackIndex, clipIndex, QString());
+    pushProjectEdit(before, tr("Remove template"));
+    finishEdit(tr("Template removed"));
 }
 
 void AppController::applyEffectTemplate(int trackIndex, int clipIndex, const QString &templateId)
@@ -22141,6 +22356,19 @@ void AppController::applyBeatAnalysis(const AudioBeatAnalysis &analysis, double 
     m_beatAudioFingerprint = fingerprint;
     m_beatAnalysisRunning = false;
     emit beatAnalysisChanged();
+
+    if (m_pendingTemplateRhythm) {
+        const auto [clipId, sync] = *m_pendingTemplateRhythm;
+        int t = -1;
+        int c = -1;
+        if (findClipById(m_project, clipId, &t, &c)
+            && beatAnalysisReadyForClip(m_project.tracks().at(t).clips.at(c), sync)) {
+            setEffectTemplateRhythm(t, c, sync);
+        } else {
+            m_pendingTemplateRhythm.reset();
+            emit selectedClipDataChanged();
+        }
+    }
 
     if (m_pendingEffectTemplate && m_pendingEffectTemplate->valid()) {
         const PendingEffectTemplate pending = *m_pendingEffectTemplate;

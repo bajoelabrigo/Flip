@@ -27,6 +27,19 @@ QString mintId()
 
 } // namespace
 
+namespace {
+
+// A template's tag holds pulse times measured on the clip it was applied to; carried to another
+// clip by a paste or a preset it would describe the wrong beats. The copies are plain effects.
+QList<Effect> withoutTemplateTags(QList<Effect> effects)
+{
+    for (Effect &effect : effects)
+        effect.templateTag = {};
+    return effects;
+}
+
+} // namespace
+
 QJsonObject effectStackToJson(const EffectStackPreset &preset)
 {
     QJsonObject object{
@@ -34,8 +47,8 @@ QJsonObject effectStackToJson(const EffectStackPreset &preset)
         {QStringLiteral("version"), kPayloadVersion},
         {QStringLiteral("label"), preset.label},
         {QStringLiteral("sourceDurationUs"), static_cast<double>(preset.sourceDurationUs)},
-        {QStringLiteral("effects"), effectsToJson(preset.effects)},
-        {QStringLiteral("audioEffects"), effectsToJson(preset.audioEffects)},
+        {QStringLiteral("effects"), effectsToJson(withoutTemplateTags(preset.effects))},
+        {QStringLiteral("audioEffects"), effectsToJson(withoutTemplateTags(preset.audioEffects))},
     };
     if (!preset.id.isEmpty())
         object.insert(QStringLiteral("id"), preset.id);
