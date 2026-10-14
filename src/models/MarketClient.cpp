@@ -380,6 +380,11 @@ void MarketClient::setActiveTypeId(const QString &id)
         providerId = list.first().toMap().value(QStringLiteral("id")).toString();
     emit activeTypeIdChanged();
     emit providersChanged();
+    // Photos and videos both default to "*" (all sources), so the provider id often does not
+    // change with the type. Without clearing it, setActiveProviderId took its "unchanged" early
+    // return: the previous type's search kept running and landing, its results stayed on
+    // screen, and no search for the new type started.
+    m_activeProviderId.clear();
     setActiveProviderId(providerId);
 }
 
