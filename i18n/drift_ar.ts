@@ -9261,6 +9261,14 @@
         <translation>حجم الفيديو وتخطيطه</translation>
     </message>
     <message>
+        <source>Stock</source>
+        <translation type="unfinished">محتوى جاهز</translation>
+    </message>
+    <message>
+        <source>Free photos and videos from Pexels and Pixabay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Settings</source>
         <translation>الإعدادات</translation>
     </message>
@@ -11682,6 +11690,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>“%1” was added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11748,14 +11768,6 @@
     <message>
         <source>Couldn’t install “%1”: %2</source>
         <translation>تعذر تثبيت “%1”: %2</translation>
-    </message>
-    <message>
-        <source>Imported “%1”.</source>
-        <translation>تم استيراد “%1”.</translation>
-    </message>
-    <message>
-        <source>Imported from the marketplace.</source>
-        <translation>تم الاستيراد من المتجر.</translation>
     </message>
     <message>
         <source>About Flip Studio</source>
@@ -11868,36 +11880,32 @@
 <context>
     <name>MarketConsentPanel</name>
     <message>
-        <source>The marketplace is experimental</source>
-        <translation>المتجر تجريبي</translation>
+        <source>Free photos and videos</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This feature is still being built and can change or stop working at any time. Before you use it, please read what it can and cannot do.</source>
-        <translation>هذه الميزة لا تزال قيد التطوير وقد تتغير أو تتوقف عن العمل في أي وقت. قبل استخدامها، يُرجى قراءة ما يمكنها وما لا يمكنها فعله.</translation>
+        <source>Search free photos and videos from Pexels and Pixabay and download them straight into your project. Before you start:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You get a limited number of downloads per day. The limit is small, may change without notice, and once it is used up you have to wait.</source>
-        <translation>تحصل على عدد محدود من التنزيلات يوميًا. الحد صغير، وقد يتغير دون إشعار، وبمجرد استنفاده سيتعين عليك الانتظار.</translation>
+        <source>Everything comes from Pexels and Pixabay, under their own licenses: you can use it in your videos for free, including commercial ones, and crediting the author is appreciated but not required.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that any source stays available. Sources can be removed, rate-limited or broken by the sites they pull from, at any time and without warning.</source>
-        <translation>لا يمكننا ضمان بقاء أي مصدر متوفرًا. يمكن إزالة المصادر أو تقييد معدلها أو تعطلها من قِبل المواقع التي تسحب منها، في أي وقت ودون تحذير.</translation>
+        <source>Do not resell the photos or videos as they are, or offer them as your own stock collection. People and brands that appear in them may need their own permission.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that a download will succeed, finish, or give you the quality you picked. Some items will simply fail.</source>
-        <translation>لا يمكننا ضمان نجاح التنزيل أو اكتماله أو منحك الجودة التي اخترتها. ستفشل بعض العناصر ببساطة.</translation>
+        <source>Flip Studio does not own or review this material: check that each item suits your use. Searches go through Flip Studio&apos;s server; the files download straight from Pexels and Pixabay.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I understand</source>
         <translation>أفهم ذلك</translation>
     </message>
     <message>
-        <source>Continue to the marketplace</source>
-        <translation>المتابعة إلى المتجر</translation>
-    </message>
-    <message>
-        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>كل شيء هنا يأتي من أطراف خارجية. لا تستضيفه Flip Studio ولا تملكه ولا تدققه — وأنت مسؤول عن التأكد من امتلاكك حق استخدام ما تقوم بتنزيله.</translation>
+        <source>Continue</source>
+        <translation type="unfinished">متابعة</translation>
     </message>
 </context>
 <context>

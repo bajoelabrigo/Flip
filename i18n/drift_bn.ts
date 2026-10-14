@@ -9149,6 +9149,14 @@
         <translation>ভিডিওর আকার ও লেআউট</translation>
     </message>
     <message>
+        <source>Stock</source>
+        <translation type="unfinished">স্টক</translation>
+    </message>
+    <message>
+        <source>Free photos and videos from Pexels and Pixabay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Settings</source>
         <translation>সেটিংস</translation>
     </message>
@@ -11554,6 +11562,18 @@
         <translation type="unfinished">অতিরিক্ত…</translation>
     </message>
     <message>
+        <source>“%1” was added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation type="unfinished">আপডেটের জন্য চেক করুন…</translation>
     </message>
@@ -11628,14 +11648,6 @@
     <message>
         <source>Couldn’t install “%1”: %2</source>
         <translation>“%1” ইনস্টল করা যায়নি: %2</translation>
-    </message>
-    <message>
-        <source>Imported “%1”.</source>
-        <translation>“%1” ইমপোর্ট করা হয়েছে.</translation>
-    </message>
-    <message>
-        <source>Imported from the marketplace.</source>
-        <translation type="unfinished">মার্কেটপ্লেস থেকে ইমপোর্ট করা.</translation>
     </message>
 </context>
 <context>
@@ -11740,27 +11752,23 @@
 <context>
     <name>MarketConsentPanel</name>
     <message>
-        <source>The marketplace is experimental</source>
-        <translation type="unfinished">মার্কেটপ্লেসটি পরীক্ষামূলক</translation>
+        <source>Free photos and videos</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This feature is still being built and can change or stop working at any time. Before you use it, please read what it can and cannot do.</source>
-        <translation type="unfinished">এই বৈশিষ্ট্যটি এখনও তৈরি করা হচ্ছে এবং যে কোনও সময় পরিবর্তন বা কাজ বন্ধ করতে পারে। আপনি এটি ব্যবহার করার আগে, এটি কি করতে পারে এবং কি করতে পারে না দয়া করে পড়ুন.</translation>
+        <source>Search free photos and videos from Pexels and Pixabay and download them straight into your project. Before you start:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You get a limited number of downloads per day. The limit is small, may change without notice, and once it is used up you have to wait.</source>
-        <translation type="unfinished">আপনি প্রতিদিন সীমিত সংখ্যক ডাউনলোড পাবেন। সীমাটি ছোট, নোটিশ ছাড়াই পরিবর্তন হতে পারে এবং একবার এটি ব্যবহার হয়ে গেলে আপনাকে অপেক্ষা করতে হবে.</translation>
+        <source>Everything comes from Pexels and Pixabay, under their own licenses: you can use it in your videos for free, including commercial ones, and crediting the author is appreciated but not required.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that any source stays available. Sources can be removed, rate-limited or broken by the sites they pull from, at any time and without warning.</source>
-        <translation type="unfinished">আমরা গ্যারান্টি দিতে পারি না যে কোনো উৎস উপলব্ধ থাকবে। উত্সগুলি সরানো যেতে পারে, রেট-সীমিত বা বিচ্ছিন্ন করা যেতে পারে সাইটগুলি থেকে, যে কোনও সময় এবং সতর্কতা ছাড়াই.</translation>
+        <source>Do not resell the photos or videos as they are, or offer them as your own stock collection. People and brands that appear in them may need their own permission.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that a download will succeed, finish, or give you the quality you picked. Some items will simply fail.</source>
-        <translation type="unfinished">আমরা গ্যারান্টি দিতে পারি না যে একটি ডাউনলোড সফল হবে, শেষ হবে বা আপনার বেছে নেওয়া গুণমান আপনাকে দেবে। কিছু আইটেম সহজভাবে ব্যর্থ হবে.</translation>
-    </message>
-    <message>
-        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
+        <source>Flip Studio does not own or review this material: check that each item suits your use. Searches go through Flip Studio&apos;s server; the files download straight from Pexels and Pixabay.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11768,8 +11776,8 @@
         <translation type="unfinished">আমি বুঝতে পেরেছি</translation>
     </message>
     <message>
-        <source>Continue to the marketplace</source>
-        <translation type="unfinished">মার্কেটপ্লেসে চালিয়ে যান</translation>
+        <source>Continue</source>
+        <translation type="unfinished">এগিয়ে যান</translation>
     </message>
 </context>
 <context>

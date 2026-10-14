@@ -9141,6 +9141,14 @@
         <translation>වීඩියෝ ප්‍රමාණය සහ පිරිසැලසුම</translation>
     </message>
     <message>
+        <source>Stock</source>
+        <translation type="unfinished">ස්ටොක්</translation>
+    </message>
+    <message>
+        <source>Free photos and videos from Pexels and Pixabay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Settings</source>
         <translation>සැකසීම්</translation>
     </message>
@@ -11554,6 +11562,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>“%1” was added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11620,14 +11640,6 @@
     <message>
         <source>Couldn’t install “%1”: %2</source>
         <translation>“%1” ස්ථාපනය කිරීමට නොහැකි විය: %2</translation>
-    </message>
-    <message>
-        <source>Imported “%1”.</source>
-        <translation>“%1” ආයාත කරන ලදී.</translation>
-    </message>
-    <message>
-        <source>Imported from the marketplace.</source>
-        <translation>Marketplace වෙතින් ආයාත කරන ලදී.</translation>
     </message>
     <message>
         <source>About Flip Studio</source>
@@ -11740,36 +11752,32 @@
 <context>
     <name>MarketConsentPanel</name>
     <message>
-        <source>The marketplace is experimental</source>
-        <translation>Marketplace යනු අත්හදා බැලීමේ මට්ටමේ පවතින අංගයකි</translation>
+        <source>Free photos and videos</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This feature is still being built and can change or stop working at any time. Before you use it, please read what it can and cannot do.</source>
-        <translation>මෙම අංගය තවමත් නිර්මාණය වෙමින් පවතින අතර ඕනෑම වේලාවක වෙනස් වීමට හෝ ක්‍රියා විරහිත වීමට ඉඩ ඇත. ඔබ එය භාවිත කිරීමට පෙර, එයට කළ හැකි සහ කළ නොහැකි දෑ පිළිබඳව කරුණාකර කියවන්න.</translation>
+        <source>Search free photos and videos from Pexels and Pixabay and download them straight into your project. Before you start:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You get a limited number of downloads per day. The limit is small, may change without notice, and once it is used up you have to wait.</source>
-        <translation>ඔබට දිනකට සීමිත බාගැනීම් සංඛ්‍යාවක් ලැබේ. සීමාව කුඩා වන අතර, දැනුම්දීමකින් තොරව වෙනස් විය හැක, එමෙන්ම එය අවසන් වූ පසු ඔබට රැඳී සිටීමට සිදුවේ.</translation>
+        <source>Everything comes from Pexels and Pixabay, under their own licenses: you can use it in your videos for free, including commercial ones, and crediting the author is appreciated but not required.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that any source stays available. Sources can be removed, rate-limited or broken by the sites they pull from, at any time and without warning.</source>
-        <translation>කිසිදු මූලාශ්‍රයක් දිගටම පවතිනු ඇති බවට අපට සහතික විය නොහැක. මූලාශ්‍ර ලබාගන්නා වෙබ් අඩවි මඟින් ඕනෑම වේලාවක සහ පූර්ව අනතුරු ඇඟවීමකින් තොරව මූලාශ්‍ර ඉවත් කිරීම, සීමා කිරීම හෝ අක්‍රිය වීම සිදුවිය හැක.</translation>
+        <source>Do not resell the photos or videos as they are, or offer them as your own stock collection. People and brands that appear in them may need their own permission.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that a download will succeed, finish, or give you the quality you picked. Some items will simply fail.</source>
-        <translation>බාගැනීමක් සාර්ථක වන බවට, අවසන් වන බවට හෝ ඔබ තෝරාගත් ගුණත්වය ලබාදෙන බවට අපට සහතික විය නොහැක. සමහර අයිතම හුදෙක්ම අසාර්ථක විය හැක.</translation>
+        <source>Flip Studio does not own or review this material: check that each item suits your use. Searches go through Flip Studio&apos;s server; the files download straight from Pexels and Pixabay.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I understand</source>
         <translation>මට වැටහේ</translation>
     </message>
     <message>
-        <source>Continue to the marketplace</source>
-        <translation>Marketplace වෙත ඉදිරියට යන්න</translation>
-    </message>
-    <message>
-        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>මෙහි ඇති සියල්ල තෙවන පාර්ශවයන්ගෙන් ලැබේ. Flip Studio ඒවා සත්කාරකත්වය නොදරයි, හිමිකාරිත්වයක් නොදරයි හෝ තහවුරු නොකරයි — ඔබ බාගන්නා ඕනෑම දෙයක් භාවිත කිරීමට ඔබට අයිතියක් ඇති බව තහවුරු කරගැනීමට ඔබ වගකිව යුතුය.</translation>
+        <source>Continue</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

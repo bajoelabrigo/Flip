@@ -9111,6 +9111,14 @@
         <translation>ビデオサイズとレイアウト</translation>
     </message>
     <message>
+        <source>Stock</source>
+        <translation type="unfinished">ストック</translation>
+    </message>
+    <message>
+        <source>Free photos and videos from Pexels and Pixabay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Settings</source>
         <translation>設定</translation>
     </message>
@@ -11522,6 +11530,18 @@
         <translation>エクストラ…</translation>
     </message>
     <message>
+        <source>“%1” was added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>更新の確認…</translation>
     </message>
@@ -11588,14 +11608,6 @@
     <message>
         <source>Couldn’t install “%1”: %2</source>
         <translation>「%1」をインストールできませんでした : %2</translation>
-    </message>
-    <message>
-        <source>Imported “%1”.</source>
-        <translation>「%1」をインポートしました。</translation>
-    </message>
-    <message>
-        <source>Imported from the marketplace.</source>
-        <translation>マーケットプレイスからインポートされました。</translation>
     </message>
     <message>
         <source>About Flip Studio</source>
@@ -11708,36 +11720,32 @@
 <context>
     <name>MarketConsentPanel</name>
     <message>
-        <source>The marketplace is experimental</source>
-        <translation>マーケットプレイスは実験的機能です</translation>
+        <source>Free photos and videos</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This feature is still being built and can change or stop working at any time. Before you use it, please read what it can and cannot do.</source>
-        <translation>この機能は現在開発中であり、予告なく変更または利用できなくなる可能性があります。ご利用の前に、機能の仕様や制限事項をご確認ください。</translation>
+        <source>Search free photos and videos from Pexels and Pixabay and download them straight into your project. Before you start:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You get a limited number of downloads per day. The limit is small, may change without notice, and once it is used up you have to wait.</source>
-        <translation>1日あたりのダウンロード回数には制限があります。制限数は少なく、予告なく変更される場合があり、上限に達した場合は一定時間待つ必要があります。</translation>
+        <source>Everything comes from Pexels and Pixabay, under their own licenses: you can use it in your videos for free, including commercial ones, and crediting the author is appreciated but not required.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that any source stays available. Sources can be removed, rate-limited or broken by the sites they pull from, at any time and without warning.</source>
-        <translation>ソースの継続的な利用可能性は保証されません。取得元のサイトの都合により、予告なくソースが削除・通信制限・利用不可となる場合があります。</translation>
+        <source>Do not resell the photos or videos as they are, or offer them as your own stock collection. People and brands that appear in them may need their own permission.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that a download will succeed, finish, or give you the quality you picked. Some items will simply fail.</source>
-        <translation>ダウンロードの成功、完了、または指定した画質・音質での取得を保証するものではありません。一部のアイテムは正常に取得できない場合があります。</translation>
+        <source>Flip Studio does not own or review this material: check that each item suits your use. Searches go through Flip Studio&apos;s server; the files download straight from Pexels and Pixabay.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I understand</source>
         <translation>理解しました</translation>
     </message>
     <message>
-        <source>Continue to the marketplace</source>
-        <translation>マーケットプレイスへ進む</translation>
-    </message>
-    <message>
-        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>提供されるコンテンツはすべてサードパーティによるものです。Flip Studio がこれをホスト、所有、審査することはありません。ダウンロードした素材の使用権限の確認は利用者の責任で行ってください。</translation>
+        <source>Continue</source>
+        <translation type="unfinished">続行</translation>
     </message>
 </context>
 <context>

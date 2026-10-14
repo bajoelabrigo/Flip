@@ -52,6 +52,19 @@ InstallStats::InstallStats(AccountController *account, QObject *parent)
     // Hourly is enough to notice the day changed while the app stays open overnight.
     m_dailyTimer->setInterval(60 * 60 * 1000);
     connect(m_dailyTimer, &QTimer::timeout, this, &InstallStats::report);
+    if (m_account) {
+        // accountChanged also fires on every token refresh; only the sign-in itself counts.
+        m_wasSignedIn = m_account->signedIn();
+        connect(m_account, &AccountController::accountChanged, this, [this] {
+            const bool signedIn = m_account->signedIn();
+            const bool justSignedIn = signedIn && !m_wasSignedIn;
+            m_wasSignedIn = signedIn;
+            if (!justSignedIn)
+                return;
+            m_reportAfterSignIn = true;
+            report();
+        });
+    }
 }
 
 bool InstallStats::available() const
@@ -146,8 +159,11 @@ void InstallStats::report()
     // "-" in pendingFrom means the first run of a build that reports, with no earlier version.
     const QString pending = settings.value(QStringLiteral("stats/pendingFrom")).toString();
     const QString lastRun = pending.isEmpty() ? current : (pending == QLatin1String("-") ? QString() : pending);
-    const Event event = decide(lastRun, current, settings.value(QStringLiteral("stats/lastReportedDay")).toString(),
-                               today());
+    Event event = decide(lastRun, current, settings.value(QStringLiteral("stats/lastReportedDay")).toString(),
+                         today());
+    if (event.type.isEmpty() && m_reportAfterSignIn)
+        event.type = QStringLiteral("active");
+    m_reportAfterSignIn = false;
     if (event.type.isEmpty())
         return;
 

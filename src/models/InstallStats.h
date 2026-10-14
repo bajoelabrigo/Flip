@@ -57,4 +57,7 @@ private:
     QNetworkAccessManager *m_network = nullptr;
     QTimer *m_dailyTimer = nullptr;
     bool m_sending = false;
+    // A sign-in ties this install to the account now, even if today was already reported.
+    bool m_reportAfterSignIn = false;
+    bool m_wasSignedIn = false;
 };

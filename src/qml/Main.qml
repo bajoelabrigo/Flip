@@ -1685,9 +1685,12 @@ ApplicationWindow {
                 Toasts.error(message)
         }
         function onDownloadImported(itemId, name) {
-            Toasts.success(name.length > 0
-                           ? qsTr("Imported “%1”.").arg(name)
-                           : qsTr("Imported from the marketplace."))
+            // Says where the file went, with a jump there: the download itself leaves the user on
+            // the Stock tab, where nothing shows that the clip is now in the bin.
+            Toasts.post("success",
+                        name.length > 0 ? qsTr("“%1” was added to Media.").arg(name)
+                                        : qsTr("Added to Media."),
+                        8000, qsTr("Show"), () => window.showAssetsTab("media"))
         }
         function onDownloadFailed(itemId, code, message) {
             Toasts.error(message)
@@ -1829,6 +1832,8 @@ ApplicationWindow {
             width: parent.width
             visible: !window.previewFullscreen
             onDownloadsRequested: downloadsWindowLoader.ensure().show()
+            onStockRequested: window.showAssetsTab("market")
+            stockActive: assetsPanel.currentTabId === "market"
         }
 
         Item {

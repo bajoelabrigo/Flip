@@ -10,6 +10,9 @@ Rectangle {
 
     // Main owns the window; the header only asks for it.
     signal downloadsRequested()
+    // The Stock tab (Pexels, Pixabay) in the assets panel, which Main owns.
+    signal stockRequested()
+    property bool stockActive: false
 
     height: Theme.headerHeight
     color: Theme.appBackground
@@ -467,6 +470,17 @@ Rectangle {
                 tooltip: qsTr("Video size and layout")
                 anchors.verticalCenter: parent.verticalCenter
                 onClicked: videoSizeDialogLoader.ensure().openDialog()
+            }
+
+            IconButton {
+                glyph: Theme.icons.store
+                variant: "ghost"
+                text: qsTr("Stock")
+                visible: Market.configured
+                active: root.stockActive
+                tooltip: qsTr("Free photos and videos from Pexels and Pixabay")
+                anchors.verticalCenter: parent.verticalCenter
+                onClicked: root.stockRequested()
             }
         }
 

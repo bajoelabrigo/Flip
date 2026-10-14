@@ -9111,6 +9111,14 @@
         <translation>동영상 크기 및 레이아웃</translation>
     </message>
     <message>
+        <source>Stock</source>
+        <translation type="unfinished">스톡</translation>
+    </message>
+    <message>
+        <source>Free photos and videos from Pexels and Pixabay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Settings</source>
         <translation>설정</translation>
     </message>
@@ -11522,6 +11530,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>“%1” was added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11588,14 +11608,6 @@
     <message>
         <source>Couldn’t install “%1”: %2</source>
         <translation>“%1”을(를) 설치할 수 없습니다: %2</translation>
-    </message>
-    <message>
-        <source>Imported “%1”.</source>
-        <translation>“%1”을(를) 가져왔습니다.</translation>
-    </message>
-    <message>
-        <source>Imported from the marketplace.</source>
-        <translation>마켓플레이스에서 가져왔습니다.</translation>
     </message>
     <message>
         <source>About Flip Studio</source>
@@ -11708,36 +11720,32 @@
 <context>
     <name>MarketConsentPanel</name>
     <message>
-        <source>The marketplace is experimental</source>
-        <translation>마켓플레이스는 실험적 기능입니다</translation>
+        <source>Free photos and videos</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This feature is still being built and can change or stop working at any time. Before you use it, please read what it can and cannot do.</source>
-        <translation>이 기능은 아직 개발 중이며 언제든지 변경되거나 작동하지 않을 수 있습니다. 사용하기 전에 할 수 있는 작업과 할 수 없는 작업을 확인하세요.</translation>
+        <source>Search free photos and videos from Pexels and Pixabay and download them straight into your project. Before you start:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You get a limited number of downloads per day. The limit is small, may change without notice, and once it is used up you have to wait.</source>
-        <translation>하루에 다운로드할 수 있는 횟수가 제한됩니다. 한도는 적고 예고 없이 변경될 수 있으며, 모두 사용하면 기다려야 합니다.</translation>
+        <source>Everything comes from Pexels and Pixabay, under their own licenses: you can use it in your videos for free, including commercial ones, and crediting the author is appreciated but not required.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that any source stays available. Sources can be removed, rate-limited or broken by the sites they pull from, at any time and without warning.</source>
-        <translation>어떤 소스도 계속 이용할 수 있다고 보장할 수 없습니다. 소스는 언제든지 예고 없이 제거되거나 요청 제한이 적용되거나 해당 사이트의 문제로 작동하지 않을 수 있습니다.</translation>
+        <source>Do not resell the photos or videos as they are, or offer them as your own stock collection. People and brands that appear in them may need their own permission.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that a download will succeed, finish, or give you the quality you picked. Some items will simply fail.</source>
-        <translation>다운로드가 성공하거나 완료되거나 선택한 화질을 제공한다고 보장할 수 없습니다. 일부 항목은 그냥 실패할 수 있습니다.</translation>
+        <source>Flip Studio does not own or review this material: check that each item suits your use. Searches go through Flip Studio&apos;s server; the files download straight from Pexels and Pixabay.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I understand</source>
         <translation>이해했습니다</translation>
     </message>
     <message>
-        <source>Continue to the marketplace</source>
-        <translation>마켓플레이스로 계속</translation>
-    </message>
-    <message>
-        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>여기의 모든 항목은 제3자가 제공합니다. Drift가 호스팅하거나 소유하거나 검증하지 않습니다 — 다운로드한 항목을 사용할 권리가 있는지 확인할 책임은 사용자에게 있습니다.</translation>
+        <source>Continue</source>
+        <translation type="unfinished">계속</translation>
     </message>
 </context>
 <context>

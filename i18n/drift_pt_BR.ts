@@ -9141,6 +9141,14 @@
         <translation>Tamanho e layout do vídeo</translation>
     </message>
     <message>
+        <source>Stock</source>
+        <translation type="unfinished">Estoque</translation>
+    </message>
+    <message>
+        <source>Free photos and videos from Pexels and Pixabay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Settings</source>
         <translation>Configurações</translation>
     </message>
@@ -11554,6 +11562,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>“%1” was added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11620,14 +11640,6 @@
     <message>
         <source>Couldn’t install “%1”: %2</source>
         <translation>Não foi possível instalar “%1”: %2</translation>
-    </message>
-    <message>
-        <source>Imported “%1”.</source>
-        <translation>“%1” importado.</translation>
-    </message>
-    <message>
-        <source>Imported from the marketplace.</source>
-        <translation>Importado do mercado.</translation>
     </message>
     <message>
         <source>About Flip Studio</source>
@@ -11740,36 +11752,32 @@
 <context>
     <name>MarketConsentPanel</name>
     <message>
-        <source>The marketplace is experimental</source>
-        <translation>O mercado é experimental</translation>
+        <source>Free photos and videos</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This feature is still being built and can change or stop working at any time. Before you use it, please read what it can and cannot do.</source>
-        <translation>Este recurso ainda está sendo desenvolvido e pode mudar ou parar de funcionar a qualquer momento. Antes de usá-lo, leia o que ele pode e não pode fazer.</translation>
+        <source>Search free photos and videos from Pexels and Pixabay and download them straight into your project. Before you start:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You get a limited number of downloads per day. The limit is small, may change without notice, and once it is used up you have to wait.</source>
-        <translation>Você tem um número limitado de downloads por dia. O limite é pequeno, pode mudar sem aviso prévio e, quando acabar, você terá que esperar.</translation>
+        <source>Everything comes from Pexels and Pixabay, under their own licenses: you can use it in your videos for free, including commercial ones, and crediting the author is appreciated but not required.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that any source stays available. Sources can be removed, rate-limited or broken by the sites they pull from, at any time and without warning.</source>
-        <translation>Não podemos garantir que qualquer fonte permaneça disponível. As fontes podem ser removidas, ter acessos limitados ou parar de funcionar por causa dos sites de onde puxam dados, a qualquer momento e sem aviso prévio.</translation>
+        <source>Do not resell the photos or videos as they are, or offer them as your own stock collection. People and brands that appear in them may need their own permission.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that a download will succeed, finish, or give you the quality you picked. Some items will simply fail.</source>
-        <translation>Não podemos garantir que um download seja bem-sucedido, termine ou entregue a qualidade que você escolheu. Alguns itens simplesmente vão falhar.</translation>
+        <source>Flip Studio does not own or review this material: check that each item suits your use. Searches go through Flip Studio&apos;s server; the files download straight from Pexels and Pixabay.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I understand</source>
         <translation>Entendi</translation>
     </message>
     <message>
-        <source>Continue to the marketplace</source>
-        <translation>Continuar para o mercado</translation>
-    </message>
-    <message>
-        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>Tudo aqui vem de terceiros. O Flip Studio não hospeda, possui nem verifica esse conteúdo — você é responsável por garantir que tem o direito de usar o que baixar.</translation>
+        <source>Continue</source>
+        <translation type="unfinished">Continuar</translation>
     </message>
 </context>
 <context>

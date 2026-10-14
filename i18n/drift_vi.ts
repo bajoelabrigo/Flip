@@ -9103,6 +9103,14 @@
         <translation>Kích thước và bố cục video</translation>
     </message>
     <message>
+        <source>Stock</source>
+        <translation type="unfinished">Kho</translation>
+    </message>
+    <message>
+        <source>Free photos and videos from Pexels and Pixabay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Settings</source>
         <translation>Cài đặt</translation>
     </message>
@@ -11522,6 +11530,18 @@
         <translation>Bổ trợ…</translation>
     </message>
     <message>
+        <source>“%1” was added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>Kiểm tra cập nhật…</translation>
     </message>
@@ -11588,14 +11608,6 @@
     <message>
         <source>Couldn’t install “%1”: %2</source>
         <translation>Không thể cài đặt “%1”: %2</translation>
-    </message>
-    <message>
-        <source>Imported “%1”.</source>
-        <translation>Đã nhập “%1”.</translation>
-    </message>
-    <message>
-        <source>Imported from the marketplace.</source>
-        <translation>Được nhập từ cửa hàng ứng dụng.</translation>
     </message>
     <message>
         <source>About Flip Studio</source>
@@ -11708,36 +11720,32 @@
 <context>
     <name>MarketConsentPanel</name>
     <message>
-        <source>The marketplace is experimental</source>
-        <translation>Cửa hàng đang được thử nghiệm</translation>
+        <source>Free photos and videos</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This feature is still being built and can change or stop working at any time. Before you use it, please read what it can and cannot do.</source>
-        <translation>Tính năng này vẫn đang được xây dựng và có thể thay đổi hoặc ngừng hoạt động bất cứ lúc nào. Trước khi sử dụng, vui lòng đọc những gì nó có thể và không thể làm.</translation>
+        <source>Search free photos and videos from Pexels and Pixabay and download them straight into your project. Before you start:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You get a limited number of downloads per day. The limit is small, may change without notice, and once it is used up you have to wait.</source>
-        <translation>Bạn nhận được số lượng tải xuống giới hạn mỗi ngày. Giới hạn này nhỏ, có thể thay đổi mà không báo trước và sau khi sử dụng hết, bạn phải đợi.</translation>
+        <source>Everything comes from Pexels and Pixabay, under their own licenses: you can use it in your videos for free, including commercial ones, and crediting the author is appreciated but not required.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that any source stays available. Sources can be removed, rate-limited or broken by the sites they pull from, at any time and without warning.</source>
-        <translation>Chúng tôi không thể đảm bảo rằng bất kỳ nguồn nào vẫn có sẵn. Các nguồn có thể bị xóa, bị giới hạn tỷ lệ hoặc bị hỏng bởi các trang web mà chúng lấy từ đó bất cứ lúc nào mà không cần cảnh báo.</translation>
+        <source>Do not resell the photos or videos as they are, or offer them as your own stock collection. People and brands that appear in them may need their own permission.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>We cannot guarantee that a download will succeed, finish, or give you the quality you picked. Some items will simply fail.</source>
-        <translation>Chúng tôi không thể đảm bảo rằng quá trình tải xuống sẽ thành công, hoàn tất hoặc mang lại cho bạn chất lượng mà bạn đã chọn. Một số mặt hàng sẽ đơn giản là thất bại.</translation>
+        <source>Flip Studio does not own or review this material: check that each item suits your use. Searches go through Flip Studio&apos;s server; the files download straight from Pexels and Pixabay.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I understand</source>
         <translation>Tôi đã hiểu</translation>
     </message>
     <message>
-        <source>Continue to the marketplace</source>
-        <translation>Tiếp tục đến cửa hàng</translation>
-    </message>
-    <message>
-        <source>Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.</source>
-        <translation>Mọi thứ ở đây đều đến từ bên thứ ba. Flip Studio không lưu trữ, sở hữu hoặc kiểm tra nó - bạn có trách nhiệm đảm bảo rằng bạn có quyền sử dụng bất cứ thứ gì bạn tải xuống.</translation>
+        <source>Continue</source>
+        <translation type="unfinished">Tiếp tục</translation>
     </message>
 </context>
 <context>

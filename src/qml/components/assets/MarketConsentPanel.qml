@@ -38,9 +38,9 @@ Item {
 
                 IconGlyph {
                     anchors.centerIn: parent
-                    glyph: Theme.icons.warning
+                    glyph: Theme.icons.store
                     iconSize: Theme.iconSizeXl
-                    iconColor: Theme.warning
+                    iconColor: Theme.primary
                 }
             }
 
@@ -48,12 +48,12 @@ Item {
                 width: parent.width
                 tone: "default"
                 size: "base"
-                text: qsTr("The marketplace is experimental")
+                text: qsTr("Free photos and videos")
             }
 
             ThemedLabel {
                 width: parent.width
-                text: qsTr("This feature is still being built and can change or stop working at any time. Before you use it, please read what it can and cannot do.")
+                text: qsTr("Search free photos and videos from Pexels and Pixabay and download them straight into your project. Before you start:")
             }
 
             Column {
@@ -62,10 +62,9 @@ Item {
 
                 Repeater {
                     model: [
-                        qsTr("You get a limited number of downloads per day. The limit is small, may change without notice, and once it is used up you have to wait."),
-                        qsTr("We cannot guarantee that any source stays available. Sources can be removed, rate-limited or broken by the sites they pull from, at any time and without warning."),
-                        qsTr("We cannot guarantee that a download will succeed, finish, or give you the quality you picked. Some items will simply fail."),
-                        qsTr("Everything here comes from third parties. Flip Studio does not host, own or vet it — you are responsible for making sure you have the right to use whatever you download.")
+                        qsTr("Everything comes from Pexels and Pixabay, under their own licenses: you can use it in your videos for free, including commercial ones, and crediting the author is appreciated but not required."),
+                        qsTr("Do not resell the photos or videos as they are, or offer them as your own stock collection. People and brands that appear in them may need their own permission."),
+                        qsTr("Flip Studio does not own or review this material: check that each item suits your use. Searches go through Flip Studio's server; the files download straight from Pexels and Pixabay.")
                     ]
 
                     delegate: Row {
@@ -98,7 +97,7 @@ Item {
 
             ThemedButton {
                 variant: "primary"
-                text: qsTr("Continue to the marketplace")
+                text: qsTr("Continue")
                 enabled: understood.checked
                 onClicked: {
                     Market.acceptTerms()
