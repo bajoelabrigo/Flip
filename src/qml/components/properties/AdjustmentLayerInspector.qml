@@ -3,9 +3,11 @@ import QtQuick.Controls.Basic
 import Drift
 import ".."
 
-// A standalone adjustment layer's own tab, as Premiere's and CapCut's: its name, an on/off switch
-// that keeps every setting, how strongly it applies (its opacity, keyframeable: 0 % leaves what is
-// under it untouched, 100 % applies the whole layer, in between mixes the two) and how it blends.
+// An adjustment layer's own tab, as Premiere's and CapCut's: what it applies to (everything under
+// it, or clipped to one clip as in Photoshop), its name, an on/off switch that keeps every setting,
+// and for one over everything below how strongly it applies (its opacity, keyframeable: 0 % leaves
+// what is under it untouched, 100 % applies the whole layer, in between mixes the two) and how it
+// blends. Clipped to a clip it joins that clip's chain, where neither means anything.
 // Its effects, colour and masks are edited in the Adjust, Effects and Masks tabs as on any clip.
 Item {
     id: root
@@ -17,6 +19,7 @@ Item {
     }
     readonly property bool hasSelection: !!clipData && Object.keys(clipData).length > 0
     readonly property bool layerOn: hasSelection && !clipData.disabled
+    readonly property bool inLane: hasSelection && clipData.inLane === true
     readonly property int effectCount: {
         void clipDataRevision
         const list = EditorState.selectedClipEffects
@@ -44,10 +47,14 @@ Item {
         Text {
             width: parent.width
             wrapMode: Text.WordWrap
-            text: qsTr("Everything you put on this layer (effects, colour, masks) applies to whatever is under it while it lasts, without touching those clips. Stretch or move it on the timeline to change where it acts.")
+            text: qsTr("Everything you put on this layer (effects, colour, masks) applies while it lasts, without touching the clips themselves. Stretch or move it on the timeline to change when it acts.")
             color: Theme.mutedForeground
             font.family: Theme.fontFamily
             font.pixelSize: Theme.fontSizeXs
+        }
+
+        AdjustmentTargetSection {
+            width: parent.width
         }
 
         // Without an effect the layer passes what is under it through unchanged, mask or not.
@@ -104,6 +111,7 @@ Item {
         }
 
         PropertyKeyframeRow {
+            visible: !root.inLane
             width: parent.width
             propDef: root.propOpacity
             keyframeList: (root.clipData.keyframes && root.clipData.keyframes.opacity
@@ -115,6 +123,7 @@ Item {
         }
 
         Text {
+            visible: !root.inLane
             width: parent.width
             wrapMode: Text.WordWrap
             text: qsTr("0 %: what is under it, untouched. 100 %: the whole layer. In between, a mix of the two.")
@@ -125,6 +134,7 @@ Item {
         }
 
         BlendingInspector {
+            visible: !root.inLane
             width: parent.width
         }
     }

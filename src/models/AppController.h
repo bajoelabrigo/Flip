@@ -672,6 +672,15 @@ public:
     // become draggable and it stops following the clip.
     Q_INVOKABLE void unlinkAdjustment(int trackIndex, int clipIndex);
     Q_INVOKABLE void relinkAdjustment(int trackIndex, int clipIndex, int mediaTrack, int mediaClip);
+    // What an adjustment or mask layer applies to, as Photoshop's clipped adjustment layers:
+    // everything below it (standalone), one track (a lane) or one clip of it (a pinned lane).
+    // {mode: "allBelow"|"track"|"clip", targetTrack, targetClipId, targets: [{track, clip, id,
+    // name, kind, trackLabel}]}; targets are the visual clips below it that it overlaps, nearest
+    // track first. Empty for anything that is not such a layer.
+    Q_INVOKABLE QVariantMap adjustmentTargetState(int trackIndex, int clipIndex) const;
+    // One undo step that re-scopes it and keeps it selected: targetTrack < 0 for everything below,
+    // else that track, pinned to `targetClip` when it is >= 0.
+    Q_INVOKABLE void setAdjustmentTarget(int trackIndex, int clipIndex, int targetTrack, int targetClip);
     Q_INVOKABLE void addStickerClip(const QString &stickerId, double atSeconds,
                                     int trackIndex = -1);
     Q_INVOKABLE QVariantList builtinStickers() const;

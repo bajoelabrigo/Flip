@@ -291,6 +291,7 @@ private slots:
     void trackMovesAndDeletesCarryTheirAdjustmentLanes();
     void projectV3MigratesEffectsOntoAdjustmentLanes();
     void adjustmentMovesBetweenStandaloneAndNested();
+    void adjustmentTargetClipsToOneClipLikePhotoshop();
     void trackRowHeightsForAdjustmentsAndLanes();
     void overlappingAdjustmentsGetASecondLane();
     void multiClipMoveLeftPreservesSelectionAndRelativeSpacing();
@@ -9589,6 +9590,61 @@ void EditorStateTest::adjustmentMovesBetweenStandaloneAndNested()
 
     // Both moves are ordinary undoable edits.
     QVERIFY(state.undoAvailable());
+    state.undo();
+    QCOMPARE(drift::adjustmentLaneIndexes(*state.project(),
+                                          state.project()->trackIndexById(videoTrackId)).size(), 1);
+}
+
+// The "Applies to" choice, as Photoshop's clipped adjustment layers: over everything below, or
+// clipped to one clip below (pinned in that clip's lane) — in one undo step, keeping it selected.
+void EditorStateTest::adjustmentTargetClipsToOneClipLikePhotoshop()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    appendTwoVideoClips(*state.project());
+    state.project()->ensureTrackIds();
+    const QString videoTrackId = state.project()->tracks().at(0).id;
+
+    state.addAdjustmentClip(0.0, 2.0);
+    const int standalone = state.project()->trackIndexById(videoTrackId) == 1 ? 0 : 1;
+    const QString adjustmentId = state.project()->tracks().at(standalone).clips.at(0).id;
+
+    QVariantMap target = state.adjustmentTargetState(standalone, 0);
+    QCOMPARE(target.value(QStringLiteral("mode")).toString(), QStringLiteral("allBelow"));
+    // Only what it overlaps: the first shot (0-2 s), not the second (2-6 s).
+    const QVariantList targets = target.value(QStringLiteral("targets")).toList();
+    QCOMPARE(targets.size(), 1);
+    QCOMPARE(targets.at(0).toMap().value(QStringLiteral("id")).toString(), QStringLiteral("clip-0"));
+
+    // Clip it to the first shot.
+    state.setAdjustmentTarget(standalone, 0, state.project()->trackIndexById(videoTrackId), 0);
+    const int videoIndex = state.project()->trackIndexById(videoTrackId);
+    const QList<int> lanes = drift::adjustmentLaneIndexes(*state.project(), videoIndex);
+    QCOMPARE(lanes.size(), 1);
+    QCOMPARE(state.project()->tracks().size(), 2); // the emptied standalone row is gone
+    const drift::Clip &clipped = state.project()->tracks().at(lanes.at(0)).clips.at(0);
+    QCOMPARE(clipped.id, adjustmentId);
+    QCOMPARE(clipped.linkedClipId, QStringLiteral("clip-0"));
+    QCOMPARE(state.selectedTrack(), lanes.at(0));
+    QCOMPARE(state.selectedClip(), 0);
+    target = state.adjustmentTargetState(lanes.at(0), 0);
+    QCOMPARE(target.value(QStringLiteral("mode")).toString(), QStringLiteral("clip"));
+    QCOMPARE(target.value(QStringLiteral("targetClipId")).toString(), QStringLiteral("clip-0"));
+
+    // And back over everything below: a row of its own, above the track it was clipped to.
+    state.setAdjustmentTarget(lanes.at(0), 0, -1, -1);
+    int nowStandalone = -1;
+    for (int i = 0; i < state.project()->tracks().size(); ++i) {
+        QVERIFY(!state.project()->tracks().at(i).isAdjustmentLane());
+        if (state.project()->tracks().at(i).isAdjustment())
+            nowStandalone = i;
+    }
+    QVERIFY(nowStandalone >= 0 && nowStandalone < state.project()->trackIndexById(videoTrackId));
+    QVERIFY(state.project()->tracks().at(nowStandalone).clips.at(0).linkedClipId.isEmpty());
+    QCOMPARE(state.adjustmentTargetState(nowStandalone, 0).value(QStringLiteral("mode")).toString(),
+             QStringLiteral("allBelow"));
+
+    // Each change is one undo step.
     state.undo();
     QCOMPARE(drift::adjustmentLaneIndexes(*state.project(),
                                           state.project()->trackIndexById(videoTrackId)).size(), 1);

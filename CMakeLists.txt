@@ -1296,6 +1296,7 @@ qt_add_qml_module(drift
         src/qml/components/properties/VideoInspector.qml
         src/qml/components/properties/VideoMaskPage.qml
         src/qml/components/properties/AdjustmentLayerInspector.qml
+        src/qml/components/properties/AdjustmentTargetSection.qml
         src/qml/components/properties/LutPage.qml
         src/qml/components/properties/MaskShapeTiles.qml
         src/qml/components/properties/AdjustInspector.qml

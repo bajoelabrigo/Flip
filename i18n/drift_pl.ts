@@ -619,7 +619,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Everything you put on this layer (effects, colour, masks) applies to whatever is under it while it lasts, without touching those clips. Stretch or move it on the timeline to change where it acts.</source>
+        <source>Everything you put on this layer (effects, colour, masks) applies while it lasts, without touching the clips themselves. Stretch or move it on the timeline to change when it acts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -648,6 +648,85 @@
     </message>
     <message>
         <source>0 %: what is under it, untouched. 100 %: the whole layer. In between, a mix of the two.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdjustmentTargetSection</name>
+    <message>
+        <source>Video</source>
+        <translation type="unfinished">Wideo</translation>
+    </message>
+    <message>
+        <source>Photo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Tekst</translation>
+    </message>
+    <message>
+        <source>Subtitles</source>
+        <translation type="unfinished">Napisy</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation type="unfinished">Kształt</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation type="unfinished">Animacja</translation>
+    </message>
+    <message>
+        <source>Clip</source>
+        <translation type="unfinished">Klip</translation>
+    </message>
+    <message>
+        <source>Everything below it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The whole track below</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The whole track «%1»</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only %1: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>untitled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like an adjustment layer in Photoshop: over everything under it, or clipped to one clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The mask cuts everything under it while it lasts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changes everything under it while it lasts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The mask cuts only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3028,6 +3107,22 @@
     <message>
         <source>Adjustment linked</source>
         <translation>Połączono korektę</translation>
+    </message>
+    <message>
+        <source>Change what the layer applies to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The layer applies to everything below it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The layer applies to one track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The layer applies to one clip</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Install the emoji sticker pack to add emoji</source>
@@ -19303,6 +19398,10 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>%1, ścieżka %2</translation>
     </message>
     <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Properties</source>
         <translation>Właściwości</translation>
     </message>
@@ -19315,8 +19414,8 @@ Jeśli odtwarzanie się zacina, spróbuj innego.</translation>
         <translation>Otwórz kompozycję</translation>
     </message>
     <message>
-        <source>Flatten composite</source>
-        <translation>Spłaszcz kompozycję</translation>
+        <source>Ungroup</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Make composite</source>
