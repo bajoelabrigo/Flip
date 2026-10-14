@@ -544,6 +544,8 @@ target_link_libraries(driftcore PUBLIC Qt6::Core Qt6::Gui Qt6::Xml ZLIB::ZLIB)
 if(WIN32)
     # DPAPI (CryptProtectData) seals API keys and tokens in SecretStore.
     target_link_libraries(driftcore PUBLIC Crypt32)
+    # AssocQueryStringW: AccountController opens the default browser directly when the shell cannot.
+    target_link_libraries(driftcore PUBLIC Shlwapi)
 endif()
 
 file(GLOB DRIFT_TEXT_ANIMATION_FILES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/presets/text-animations/*.json")

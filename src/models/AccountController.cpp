@@ -23,6 +23,11 @@
 
 #include <utility>
 
+#ifdef Q_OS_WIN
+#include <qt_windows.h>
+#include <shlwapi.h>
+#endif
+
 // Configured in CMakeLists.txt. A translation unit built outside the `drift` target gets no
 // account service rather than a stale hardcoded one.
 #ifndef DRIFT_ACCOUNT_API_URL
@@ -237,13 +242,20 @@ bool AccountController::openBrowser(const QUrl &url)
     if (QDesktopServices::openUrl(url))
         return true;
 #ifdef Q_OS_WIN
-    // QDesktopServices has been seen failing here with "ShellExecute … failed (error 2)" while
-    // the same URL opened fine from another process. A fresh helper process hands the URL to the
-    // shell with a clean environment.
-    if (QProcess::startDetached(QStringLiteral("rundll32.exe"),
-                                {QStringLiteral("url.dll,FileProtocolHandler"),
-                                 url.toString(QUrl::FullyEncoded)}))
-        return true;
+    // ShellExecute hands a URL to whatever app claims its host ("Apps for websites") before the
+    // default browser. A broken claimant fails every link to that host with error 2: seen with a
+    // leftover Windows Subsystem for Android that claimed accounts.google.com, so no app on that
+    // computer could open Google sign-in. Starting the default browser directly skips that.
+    wchar_t browser[MAX_PATH] = {};
+    DWORD size = MAX_PATH;
+    if (SUCCEEDED(AssocQueryStringW(ASSOCF_NONE, ASSOCSTR_EXECUTABLE, L"https", L"open", browser, &size))) {
+        QString exe = QString::fromWCharArray(browser);
+        // Old Edge registrations point at a launcher stub that does not take a URL.
+        if (exe.contains(QLatin1String("LaunchWinApp.exe"), Qt::CaseInsensitive))
+            exe = QStringLiteral("msedge.exe");
+        if (QProcess::startDetached(exe, {url.toString(QUrl::FullyEncoded)}))
+            return true;
+    }
 #endif
     return false;
 }

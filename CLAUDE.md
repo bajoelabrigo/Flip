@@ -497,6 +497,16 @@ restaurarlo al terminar. Nunca usar capturas de pantalla completa: una vez sali�
 - Las pruebas de GPU de `tst_engine` se **saltan en CI** (Linux sin GPU): lo de GPU se verifica con
   capturas `capture full:true` del ejecutable real en Windows.
 
+**«No se pudo abrir el navegador» al iniciar sesión con Google (2026-10-14).** En el equipo de Jorge ninguna
+app abría `accounts.google.com` (Flip, Antigravity, el plugin de YouTube de OBS): `ShellExecute` daba error 2
+solo para dominios de Google. Causa: un **Subsistema de Windows para Android** roto (registrado, sin archivos)
+reclamaba 64 dominios como «app para sitios web»
+(`HKCU\Software\Classes\Local Settings\…\SystemAppData\<paquete>\AppUriHandlers`). Se desinstaló con
+`Remove-AppxPackage` y volvió a funcionar. Para otros usuarios, `AccountController::openBrowser` abre el
+navegador predeterminado directamente (`AssocQueryStringW`) si `QDesktopServices` falla, y ofrece «Copiar el
+enlace». Pistas para diagnosticar: las capas implícitas de Vulkan (OBS, TikTok LIVE Studio) se inyectan en toda
+app que usa la GPU, pero **no** eran la causa.
+
 **Nada que se lance desde `Flip\.e2e-app` puede escribir archivos.** Le pasa incluso a la 0.9.6
 copiada ahí, y aunque se lance sin sandbox o desde una tarea programada. No es la app: el
 ejecutable tiene que estar fuera del repo, por ejemplo en `Downloads\FlipStudio\pruebas\FlipStudio-0.9.7-prueba`.
