@@ -142,8 +142,8 @@ QVariantList AppController::sceneTemplates() const
              entry.thumbnailPath.isEmpty() ? QString() : QUrl::fromLocalFile(entry.thumbnailPath).toString()},
             {QStringLiteral("preview"),
              entry.previewPath.isEmpty() ? QString() : QUrl::fromLocalFile(entry.previewPath).toString()},
-            {QStringLiteral("slots"), entry.slots},
-            {QStringLiteral("texts"), entry.texts},
+            {QStringLiteral("slots"), entry.slotCount},
+            {QStringLiteral("texts"), entry.textCount},
             {QStringLiteral("durationSec"), drift::usToSeconds(entry.durationUs)},
             {QStringLiteral("width"), entry.width},
             {QStringLiteral("height"), entry.height},
@@ -510,10 +510,10 @@ int AppController::fillTemplateSlotsFromUrls(const QString &compositeAssetId, co
     }
 
     // The clicked slot first, then the empty ones after it in order.
-    const QVariantList slots = sceneTemplateInfo(compositeAssetId).value(QStringLiteral("slots")).toList();
+    const QVariantList slotList = sceneTemplateInfo(compositeAssetId).value(QStringLiteral("slots")).toList();
     QStringList targets;
     bool reached = firstSlotClipId.isEmpty();
-    for (const QVariant &value : slots) {
+    for (const QVariant &value : slotList) {
         const QVariantMap slot = value.toMap();
         const QString clipId = slot.value(QStringLiteral("clipId")).toString();
         if (clipId == firstSlotClipId) {

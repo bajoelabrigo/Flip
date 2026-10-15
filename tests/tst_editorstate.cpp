@@ -986,12 +986,12 @@ void EditorStateTest::sceneTemplateInsertsAndFillsSlots()
 
     const QVariantMap info = state.sceneTemplateInfo(assetId);
     QCOMPARE(info.value(QStringLiteral("emptySlots")).toInt(), 1);
-    const QVariantList slots = info.value(QStringLiteral("slots")).toList();
+    const QVariantList slotList = info.value(QStringLiteral("slots")).toList();
     const QVariantList texts = info.value(QStringLiteral("texts")).toList();
-    QCOMPARE(slots.size(), 1);
+    QCOMPARE(slotList.size(), 1);
     QCOMPARE(texts.size(), 1);
     QCOMPARE(texts.first().toMap().value(QStringLiteral("text")).toString(), QStringLiteral("Hola"));
-    const QString slotClipId = slots.first().toMap().value(QStringLiteral("clipId")).toString();
+    const QString slotClipId = slotList.first().toMap().value(QStringLiteral("clipId")).toString();
     QVERIFY(clipIn(slotClipId));
     const QString standIn = clipIn(slotClipId)->assetId;
     QVERIFY(state.project()->asset(standIn));

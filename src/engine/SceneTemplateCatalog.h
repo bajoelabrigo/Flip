@@ -28,8 +28,8 @@ struct SceneTemplateEntry
     int width = 1080;
     int height = 1920;
     drift::TimeUs durationUs = 0;
-    int slots = 0;
-    int texts = 0;
+    int slotCount = 0;
+    int textCount = 0;
     bool premium = false;
     QStringList tags;
     QString packageDir;
