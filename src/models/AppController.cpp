@@ -17999,6 +17999,9 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
     // index this block holds. So the matte assignments are queued by clip id and applied once the
     // structural work below is finished.
     QList<QPair<QString, drift::Mask>> pendingMasks;
+    // The clips a cutout template builds (subject, background, clones): they go into one
+    // composition with the source once the stack is complete.
+    QStringList stackIds;
     const auto pinMatte = [&pendingMasks, &matte](const drift::Clip &clip, bool invert) {
         drift::Mask copy = matte;
         copy.invert = invert;
@@ -18069,12 +18072,14 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
             m_project.tracks()[fgTrack].clips.append(
                 deriveMaskedClip(sourceClip, QStringLiteral(" (fg)")));
             pinMatte(m_project.tracks()[fgTrack].clips.constLast(), false);
+            stackIds.append(m_project.tracks()[fgTrack].clips.constLast().id);
 
             const int bgTrack =
                 drift::insertTrackAboveForClipType(m_project, fgTrack + 1, drift::ClipType::Video);
             m_project.tracks()[bgTrack].clips.append(
                 deriveMaskedClip(sourceClip, QStringLiteral(" (bg)")));
             pinMatte(m_project.tracks()[bgTrack].clips.constLast(), true);
+            stackIds.append(m_project.tracks()[bgTrack].clips.constLast().id);
 
             selectTrack = fgTrack;
             selectClip = 0;
@@ -18114,6 +18119,7 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
                         if (trail)
                             clone.effects.append(effectFromCatalogEntry(*trail, {}));
                     }
+                    stackIds.append(clone.id);
                     m_project.tracks()[cloneTrack].clips.append(clone);
                     insertAbove = cloneTrack + 1;
                 }
@@ -18155,7 +18161,8 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
         // edited apart. A clip already in a composition, or a composition itself, gets the layer
         // on a track of its own above it instead.
         QString compositeId;
-        if (asLayer && sourceClip.type != drift::ClipType::Composite) {
+        if (asLayer && sourceClip.type != drift::ClipType::Composite
+            && m_project.activeSequenceId().isEmpty()) {
             QSet<QString> ids;
             for (const QPair<int, int> &linked : selectionWithLinkedPartners(m_project, trackIndex, clipIndex))
                 ids.insert(m_project.tracks().at(linked.first).clips.at(linked.second).id);
@@ -18232,7 +18239,46 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
         if (findClipById(m_project, pending.first, &maskTrack, &maskClip))
             drift::addLinkedMask(m_project, maskTrack, maskClip, pending.second);
     }
-    if (!selectId.isEmpty()) {
+    // A cutout template's stack (the hidden source, subject, background and clones, with their
+    // matte lanes and the source's linked audio) goes into a composition named after it, as the
+    // single-clip templates do: outside it is moved, trimmed or cut as one block and the pieces
+    // can no longer slide apart; inside (double-click) each layer is still edited on its own.
+    // One level of nesting only, so inside a composition the stack stays where it is.
+    QString stackCompositeId;
+    if (!stackIds.isEmpty() && m_project.activeSequenceId().isEmpty()
+        && sourceClip.type != drift::ClipType::Composite) {
+        QSet<QString> ids(stackIds.cbegin(), stackIds.cend());
+        int sourceTrackNow = -1;
+        int sourceClipNow = -1;
+        if (findClipById(m_project, sourceClip.id, &sourceTrackNow, &sourceClipNow)) {
+            for (const QPair<int, int> &linked :
+                 selectionWithLinkedPartners(m_project, sourceTrackNow, sourceClipNow))
+                ids.insert(m_project.tracks().at(linked.first).clips.at(linked.second).id);
+        }
+        // Lanes and adjustments pinned to any of them, and whatever is pinned to those.
+        for (bool grew = true; grew;) {
+            grew = false;
+            for (const drift::Track &t : m_project.tracks()) {
+                for (const drift::Clip &c : t.clips) {
+                    if (!c.linkedClipId.isEmpty() && ids.contains(c.linkedClipId)
+                        && !ids.contains(c.id)) {
+                        ids.insert(c.id);
+                        grew = true;
+                    }
+                }
+            }
+        }
+        stackCompositeId =
+            buildCompositeFromClipIds(ids, tr("Template: %1").arg(entry.displayName), {});
+    }
+    if (!stackCompositeId.isEmpty()) {
+        int foundTrack = -1;
+        int foundClip = -1;
+        if (findClipById(m_project, stackCompositeId, &foundTrack, &foundClip)) {
+            selectTrack = foundTrack;
+            selectClip = foundClip;
+        }
+    } else if (!selectId.isEmpty()) {
         int foundTrack = -1;
         int foundClip = -1;
         if (findClipById(m_project, selectId, &foundTrack, &foundClip)) {

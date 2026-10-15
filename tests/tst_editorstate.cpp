@@ -275,6 +275,7 @@ private slots:
     void clipEffectsLiveOnALinkedAdjustmentLane();
     void effectTemplateStaysEditable();
     void trackKeyframeRowsUnfoldAndEdit();
+    void cutoutTemplateLandsInAComposition();
     void splittingAGradedClipKeepsEffectsOnBothHalves();
     void transitionPartnerIsTheNearestClipNotTheEarliest();
     void linkedAdjustmentFollowsItsClip();
@@ -8859,6 +8860,74 @@ void EditorStateTest::splittingAGradedClipKeepsEffectsOnBothHalves()
 // video's own effects stay. snap_transition syncs to the clip, so no beat analysis is needed.
 // The After Effects twirl on a track: unfolded, the row grows one line per animated property,
 // and the keys on those lines are added, moved, shaped and removed in place.
+// A cutout template (subject over a treated background, clones…) builds several tracks. They go
+// into one composition with the hidden source, so the stack is moved and cut as one block.
+void EditorStateTest::cutoutTemplateLandsInAComposition()
+{
+    for (const QString &templateId : {QStringLiteral("blur_behind"), QStringLiteral("ghost_walk")}) {
+        AssetLibrary library;
+        AppController state(&library);
+
+        drift::Clip clip;
+        clip.id = QStringLiteral("clip-cutout");
+        clip.type = drift::ClipType::Video;
+        clip.name = QStringLiteral("Shot");
+        clip.path = QStringLiteral("/tmp/does-not-need-to-exist.mp4");
+        clip.timelineStart = drift::secondsToUs(2.0);
+        clip.timelineDuration = drift::secondsToUs(4.0);
+        clip.srcIn = 0;
+        clip.srcOut = drift::secondsToUs(4.0);
+        drift::Track track{.type = drift::TrackType::Video};
+        track.clips.append(clip);
+        state.project()->tracks().clear();
+        state.project()->tracks().append(track);
+
+        const EffectTemplateEntry *entry = effectTemplateForId(templateId);
+        QVERIFY2(entry, qPrintable(templateId));
+        QVERIFY(entry->usesMultiTrack());
+        state.applyEffectTemplateInternal(0, 0, *entry, QStringLiteral("/tmp/matte.mp4"), 0);
+
+        // Outside: one composition where the clip was, named after the template.
+        int composites = 0;
+        const drift::Clip *outer = nullptr;
+        for (const drift::Track &t : state.project()->tracks()) {
+            for (const drift::Clip &c : t.clips) {
+                QCOMPARE(c.type, drift::ClipType::Composite);
+                outer = &c;
+                ++composites;
+            }
+        }
+        QCOMPARE(composites, 1);
+        QVERIFY(outer->name.contains(entry->displayName));
+        QCOMPARE(outer->timelineStart, clip.timelineStart);
+        QCOMPARE(outer->timelineDuration, clip.timelineDuration);
+        QCOMPARE(state.selectedTrack(), 0);
+
+        // Inside: the hidden source, the subject and background, and the clones, each on its track.
+        const QList<drift::Track> &inner = state.project()->sequenceTracks(outer->sequenceId);
+        QVERIFY(!inner.isEmpty());
+        int pictureClips = 0;
+        bool sourceHidden = false;
+        for (const drift::Track &t : inner) {
+            for (const drift::Clip &c : t.clips) {
+                if (c.type != drift::ClipType::Video)
+                    continue;
+                ++pictureClips;
+                QCOMPARE(c.timelineStart, drift::TimeUs{0});
+                if (c.id == clip.id)
+                    sourceHidden = c.opacity.evaluateAt(0) < 0.05;
+            }
+        }
+        QVERIFY(sourceHidden);
+        QCOMPARE(pictureClips, 3 + entry->clones.count);
+
+        state.undo();
+        QCOMPARE(state.project()->tracks().size(), 1);
+        QCOMPARE(state.project()->tracks().at(0).clips.size(), 1);
+        QCOMPARE(state.project()->tracks().at(0).clips.at(0).id, clip.id);
+    }
+}
+
 void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()
 {
     AssetLibrary library;
