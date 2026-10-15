@@ -1839,6 +1839,13 @@ protected:
     void removeTemplateEffects(int trackIndex, int clipIndex, const QString &templateId,
                                bool dropEmptyLayer = false);
     void refreshTemplateSpans(drift::Project &project) const;
+    // Moves the clips in `ids` into a new composite placed where they were, and returns the
+    // composite clip's id (empty when nothing could be nested). `prepareInner` may add to the
+    // inner tracks first (it gets them shifted to start at 0, plus the original start). No undo
+    // step: the caller records one.
+    QString buildCompositeFromClipIds(
+        const QSet<QString> &ids, const QString &name,
+        const std::function<void(drift::TrackList &, drift::TimeUs)> &prepareInner);
     bool reshapeEffectTemplate(int trackIndex, int clipIndex, double intensity, double decay,
                                const QString &sync, const QList<drift::TimeUs> *points);
     // Digest of everything the AudioMixer reads; a change means detected beats are stale.

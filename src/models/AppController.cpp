@@ -13793,6 +13793,21 @@ void AppController::makeCompositeFromSelection()
         }
     }
 
+    setPlaying(false);
+    const drift::Project before = m_project.detachedCopy();
+    const QString compositeId = buildCompositeFromClipIds(ids, QString(), {});
+    if (compositeId.isEmpty())
+        return;
+    pushProjectEdit(before, tr("Composite created"));
+    finishEdit(tr("Composite created"));
+    selectClipById(compositeId);
+    emit sequenceTabsChanged();
+}
+
+QString AppController::buildCompositeFromClipIds(
+    const QSet<QString> &ids, const QString &name,
+    const std::function<void(drift::TrackList &, drift::TimeUs)> &prepareInner)
+{
     drift::TimeUs startUs = std::numeric_limits<drift::TimeUs>::max();
     drift::TimeUs endUs = 0;
     // The lowest picture track the selection came from: the composite takes its place in the
@@ -13805,7 +13820,7 @@ void AppController::makeCompositeFromSelection()
             if (!ids.contains(clip.id))
                 continue;
             if (!clip.sequenceId.isEmpty())
-                return;
+                return {};
             startUs = qMin(startUs, clip.timelineStart);
             endUs = qMax(endUs, clip.timelineEnd());
             if (track.type != drift::TrackType::Audio && !track.isAdjustmentLane())
@@ -13813,10 +13828,7 @@ void AppController::makeCompositeFromSelection()
         }
     }
     if (endUs <= startUs)
-        return;
-
-    setPlaying(false);
-    const drift::Project before = m_project.detachedCopy();
+        return {};
 
     // The composite keeps the selection's track layout, shifted to start at zero. Only tracks that
     // contribute a clip come along; a lane whose parent stays behind becomes a standalone
@@ -13846,6 +13858,8 @@ void AppController::makeCompositeFromSelection()
     }
     for (drift::Track &track : inner)
         track.parentTrackId = innerTrackIds.value(track.parentTrackId);
+    if (prepareInner)
+        prepareInner(inner, startUs);
     const QString sequenceId = m_project.addSequence(inner);
 
     // Tracks this leaves empty go too, once the composite has its place: five empty rows used to
@@ -13873,7 +13887,7 @@ void AppController::makeCompositeFromSelection()
     }
     drift::MediaAsset asset;
     asset.kind = drift::MediaKind::Composite;
-    asset.name = tr("Composite %1").arg(compositeCount + 1);
+    asset.name = name.isEmpty() ? tr("Composite %1").arg(compositeCount + 1) : name;
     asset.sequenceId = sequenceId;
     asset.durationUs = endUs - startUs;
     asset.width = m_project.width();
@@ -13934,10 +13948,7 @@ void AppController::makeCompositeFromSelection()
 
     if (m_assetLibrary)
         m_assetLibrary->syncToProject();
-    pushProjectEdit(before, tr("Composite created"));
-    finishEdit(tr("Composite created"));
-    selectClipById(composite.id);
-    emit sequenceTabsChanged();
+    return composite.id;
 }
 
 namespace {
@@ -18060,19 +18071,71 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
         // and affects everything below it (Apply to narrows it to one clip). A template that
         // changes the clip's speed stays on the clip: speed belongs to the clip, not to a layer.
         const bool asLayer = sourceClip.type != drift::ClipType::Adjustment && !entry.speedPulse.valid;
+        drift::Clip layer;
         if (asLayer) {
-            const int layerTrack =
-                drift::insertTrackAboveForClipType(m_project, trackIndex, drift::ClipType::Adjustment);
-            drift::Clip layer;
             layer.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
             layer.type = drift::ClipType::Adjustment;
             layer.adjustmentKind = drift::AdjustmentKind::VideoEffects;
             layer.name = tr("Template: %1").arg(entry.displayName);
-            layer.timelineStart = sourceClip.timelineStart;
             layer.timelineDuration = sourceClip.timelineDuration;
             layer.srcIn = 0;
             layer.srcOut = sourceClip.timelineDuration;
             applyTemplateLayersToClip(layer, entry.layers, entry.sync, syncPoints, &tag);
+        }
+        // The clip and the template go into a composition named after it, the layer right above
+        // the clip inside, so the pulses stay tied to the footage: outside, the composition is
+        // moved, trimmed or cut as one block; inside (double-click) the clip and the template are
+        // edited apart. A clip already in a composition, or a composition itself, gets the layer
+        // on a track of its own above it instead.
+        QString compositeId;
+        if (asLayer && sourceClip.type != drift::ClipType::Composite) {
+            QSet<QString> ids;
+            for (const QPair<int, int> &linked : selectionWithLinkedPartners(m_project, trackIndex, clipIndex))
+                ids.insert(m_project.tracks().at(linked.first).clips.at(linked.second).id);
+            for (const drift::Track &t : m_project.tracks()) {
+                for (const drift::Clip &c : t.clips) {
+                    if (!c.linkedClipId.isEmpty() && ids.contains(c.linkedClipId))
+                        ids.insert(c.id);
+                }
+            }
+            const QString sourceId = sourceClip.id;
+            compositeId = buildCompositeFromClipIds(
+                ids, tr("Template: %1").arg(entry.displayName),
+                [&layer, sourceId](drift::TrackList &inner, drift::TimeUs startUs) {
+                    for (int t = 0; t < inner.size(); ++t) {
+                        for (const drift::Clip &c : inner.at(t).clips) {
+                            if (c.id != sourceId)
+                                continue;
+                            drift::Clip placed = layer;
+                            placed.timelineStart = c.timelineStart;
+                            for (drift::Effect &e : placed.effects) {
+                                e.templateTag.spanStart = c.timelineStart;
+                                e.templateTag.spanDuration = c.timelineDuration;
+                            }
+                            drift::Track layerTrack;
+                            layerTrack.type = drift::TrackType::Adjustment;
+                            layerTrack.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+                            layerTrack.clips.append(placed);
+                            inner.insert(t, layerTrack);
+                            Q_UNUSED(startUs);
+                            return;
+                        }
+                    }
+                });
+        }
+        if (!compositeId.isEmpty()) {
+            int t = -1;
+            int c = -1;
+            if (findClipById(m_project, compositeId, &t, &c)) {
+                selectTrack = t;
+                selectClip = c;
+            }
+        } else if (asLayer) {
+            const int layerTrack =
+                drift::insertTrackAboveForClipType(m_project, trackIndex, drift::ClipType::Adjustment);
+            layer.timelineStart = sourceClip.timelineStart;
+            for (drift::Effect &e : layer.effects)
+                e.templateTag.spanStart = sourceClip.timelineStart;
             m_project.tracks()[layerTrack].clips.append(layer);
             selectTrack = layerTrack;
             selectClip = m_project.tracks().at(layerTrack).clips.size() - 1;
@@ -18116,6 +18179,7 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
     m_selection = {qMakePair(selectTrack, selectClip)};
     pushProjectEdit(before, tr("Apply effect template"));
     finishEdit(tr("Template applied"));
+    emit sequenceTabsChanged();
 }
 
 QList<drift::TimeUs> AppController::templateSyncPoints(const drift::Clip &sourceClip,
