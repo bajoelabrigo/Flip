@@ -4660,7 +4660,7 @@
     </message>
     <message>
         <source>Rotation</source>
-        <translation>Rotación</translation>
+        <translation>Ángulo</translation>
     </message>
     <message>
         <source>Tilt X</source>
