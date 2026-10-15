@@ -8921,6 +8921,16 @@ void EditorStateTest::effectTemplateStaysEditable()
     QCOMPARE(fx.size(), 1);
     QCOMPARE(fx.at(0).catalogId, QStringLiteral("adjust.contrast"));
     QVERIFY(state.effectTemplateInfo(0, 0).isEmpty());
+
+    // A clip whose only effects were the template's: removing it leaves no empty effects lane.
+    const int tracksBefore = state.project()->tracks().size();
+    const drift::Clip second = state.project()->tracks().at(0).clips.at(1);
+    state.selectClip(0, 1);
+    state.applyEffectTemplate(0, 1, QStringLiteral("snap_transition"));
+    QVERIFY(adjustmentFor(*state.project(), second.id, drift::AdjustmentKind::VideoEffects));
+    state.removeEffectTemplate(0, 1);
+    QVERIFY(!adjustmentFor(*state.project(), second.id, drift::AdjustmentKind::VideoEffects));
+    QCOMPARE(state.project()->tracks().size(), tracksBefore);
 }
 
 void EditorStateTest::clipEffectsLiveOnALinkedAdjustmentLane()

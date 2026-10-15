@@ -17623,8 +17623,12 @@ void writeTemplatePulse(drift::Clip &clip, int effectIndex, const EffectTemplate
     clip.effects[effectIndex].paramKeyframes.remove(pulse.param);
     const QString prop = QStringLiteral("fx.%1.%2").arg(effectIndex).arg(pulse.param);
     const double peak = pulse.rest + (pulse.peak - pulse.rest) * qMax(0.0, intensity);
-    const drift::TimeUs decayUs =
+    drift::TimeUs decayUs =
         static_cast<drift::TimeUs>(qMax(pulse.decayMs, 0) * qMax(0.05, decay)) * 1000;
+    // Templates made for "clip" sync can say 0 ms: one ramp over the whole clip. Moved onto beats,
+    // a zero fall would put the peak and the rest on the same instant and the pulse would vanish.
+    if (sync != QLatin1String("clip"))
+        decayUs = qMax<drift::TimeUs>(decayUs, static_cast<drift::TimeUs>(150 * 1000 * qMax(0.25, decay)));
     if (sync == QLatin1String("clip") && syncPoints.size() >= 2) {
         writeClipPropValue(clip, prop, syncPoints.first() + offsetUs, peak, false, true);
         writeClipPropValue(clip, prop, syncPoints.last() + offsetUs, pulse.rest, false, true);
@@ -18163,8 +18167,20 @@ void AppController::removeTemplateEffects(int trackIndex, int clipIndex, const Q
     strip(m_project.tracks()[sourceTrack].clips[sourceClip]);
     const drift::ClipRef host =
         effectHostRef(sourceTrack, sourceClip, drift::AdjustmentKind::VideoEffects, false);
-    if (host.trackIndex >= 0)
-        strip(m_project.tracks()[host.trackIndex].clips[host.clipIndex]);
+    if (host.trackIndex >= 0) {
+        drift::Track &lane = m_project.tracks()[host.trackIndex];
+        drift::Clip &hostClip = lane.clips[host.clipIndex];
+        strip(hostClip);
+        // The template brought the effects lane along; with nothing left on it, it goes too
+        // rather than leaving an empty "Adjustment" bar under the clip.
+        if (hostClip.type == drift::ClipType::Adjustment && hostClip.effects.isEmpty()
+            && hostClip.audioEffects.isEmpty() && host.trackIndex != sourceTrack) {
+            lane.clips.removeAt(host.clipIndex);
+            // Lanes are stored below their parent, so dropping one never moves the source clip.
+            if (lane.clips.isEmpty() && lane.isAdjustmentLane() && host.trackIndex > sourceTrack)
+                m_project.tracks().removeAt(host.trackIndex);
+        }
+    }
     // The template's speed curve goes with it: back to the clip's plain speed.
     if (speedApplied) {
         drift::Clip &clip = m_project.tracks()[sourceTrack].clips[sourceClip];
