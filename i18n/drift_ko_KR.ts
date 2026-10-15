@@ -9,11 +9,11 @@
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished"></translation>
+        <translation>버전 %1</translation>
     </message>
     <message>
         <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio 정보</translation>
     </message>
     <message>
         <source>Flip Studio</source>
@@ -21,262 +21,262 @@
     </message>
     <message>
         <source>Open-source video editor based on Drift by CutWire Studios.</source>
-        <translation type="unfinished"></translation>
+        <translation>CutWire Studios의 Drift를 기반으로 한 오픈 소스 동영상 편집기입니다.</translation>
     </message>
     <message>
         <source>Licensed under GPLv3. Copyright © CutWire Studios and Flip Studio contributors.</source>
-        <translation type="unfinished"></translation>
+        <translation>GPLv3 라이선스. Copyright © CutWire Studios 및 Flip Studio 기여자.</translation>
     </message>
     <message>
         <source>Source code</source>
-        <translation type="unfinished"></translation>
+        <translation>소스 코드</translation>
     </message>
 </context>
 <context>
     <name>AccountController</name>
     <message>
         <source>Sign-in timed out. Try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>로그인 시간이 초과되었습니다. 다시 시도하세요.</translation>
     </message>
     <message>
         <source>Could not start sign-in on this computer.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 컴퓨터에서 로그인을 시작할 수 없습니다.</translation>
     </message>
     <message>
         <source>Could not open the web browser. Copy the link and paste it into your browser.</source>
-        <translation type="unfinished"></translation>
+        <translation>웹 브라우저를 열 수 없습니다. 링크를 복사해 브라우저에 붙여 넣으세요.</translation>
     </message>
     <message>
         <source>Sign-in failed</source>
-        <translation type="unfinished"></translation>
+        <translation>로그인 실패</translation>
     </message>
     <message>
         <source>This page is from an older attempt. Go back to Flip Studio and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>이전 시도의 페이지입니다. Flip Studio로 돌아가 다시 시도하세요.</translation>
     </message>
     <message>
         <source>Sign-in cancelled</source>
-        <translation type="unfinished"></translation>
+        <translation>로그인 취소됨</translation>
     </message>
     <message>
         <source>You can close this tab and go back to Flip Studio.</source>
-        <translation type="unfinished"></translation>
+        <translation>이제 이 탭을 닫고 Flip Studio로 돌아가도 됩니다.</translation>
     </message>
     <message>
         <source>Google did not complete the sign-in.</source>
-        <translation type="unfinished"></translation>
+        <translation>Google에서 로그인을 완료하지 않았습니다.</translation>
     </message>
     <message>
         <source>You are signed in</source>
-        <translation type="unfinished"></translation>
+        <translation>로그인되었습니다</translation>
     </message>
     <message>
         <source>Could not reach Flip Studio. Check your connection and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio에 연결할 수 없습니다. 연결 상태를 확인하고 다시 시도하세요.</translation>
     </message>
     <message>
         <source>Could not delete the account. Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>계정을 삭제할 수 없습니다. 나중에 다시 시도하세요.</translation>
     </message>
 </context>
 <context>
     <name>AccountDialog</name>
     <message>
         <source>My account</source>
-        <translation type="unfinished"></translation>
+        <translation>내 계정</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished">완료</translation>
+        <translation>완료</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>음악</translation>
     </message>
     <message>
         <source>Sounds</source>
-        <translation type="unfinished"></translation>
+        <translation>사운드</translation>
     </message>
     <message>
         <source>Effects</source>
-        <translation type="unfinished">효과</translation>
+        <translation>효과</translation>
     </message>
     <message>
         <source>Transitions</source>
-        <translation type="unfinished">전환</translation>
+        <translation>전환</translation>
     </message>
     <message>
         <source>Templates</source>
-        <translation type="unfinished">템플릿</translation>
+        <translation>템플릿</translation>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished">스티커</translation>
+        <translation>스티커</translation>
     </message>
     <message>
         <source>Shapes</source>
-        <translation type="unfinished">도형</translation>
+        <translation>도형</translation>
     </message>
     <message>
         <source>Text styles</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 스타일</translation>
     </message>
     <message>
         <source>Text effects</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 효과</translation>
     </message>
     <message>
         <source>Text bubbles</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 말풍선</translation>
     </message>
     <message>
         <source>Text animations</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 애니메이션</translation>
     </message>
     <message>
         <source>Fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>글꼴</translation>
     </message>
     <message>
         <source>Caption styles</source>
-        <translation type="unfinished"></translation>
+        <translation>자막 스타일</translation>
     </message>
     <message>
         <source>Voices</source>
-        <translation type="unfinished"></translation>
+        <translation>음성</translation>
     </message>
     <message>
         <source>Retouch</source>
-        <translation type="unfinished"></translation>
+        <translation>리터치</translation>
     </message>
     <message>
         <source>Hello</source>
-        <translation type="unfinished"></translation>
+        <translation>안녕하세요</translation>
     </message>
     <message>
         <source>Template</source>
-        <translation type="unfinished">템플릿</translation>
+        <translation>템플릿</translation>
     </message>
     <message>
         <source>Not signed in</source>
-        <translation type="unfinished"></translation>
+        <translation>로그인하지 않음</translation>
     </message>
     <message>
         <source>In Flip Studio since %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1부터 Flip Studio 사용</translation>
     </message>
     <message numerus="yes">
         <source>%n project(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>프로젝트 %n개</numerusform>
         </translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>브라우저를 기다리는 중…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
-        <translation type="unfinished"></translation>
+        <translation>Google로 로그인</translation>
     </message>
     <message>
         <source>Free plan</source>
-        <translation type="unfinished"></translation>
+        <translation>무료 요금제</translation>
     </message>
     <message>
         <source>The whole editor, with no watermark.</source>
-        <translation type="unfinished"></translation>
+        <translation>워터마크 없이 모든 편집 기능을 사용할 수 있습니다.</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished">즐겨찾기</translation>
+        <translation>즐겨찾기</translation>
     </message>
     <message>
         <source>Stock downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>스톡 다운로드</translation>
     </message>
     <message>
         <source>No favorites yet. Mark music, effects, text styles and more with the star in each panel and they gather here.</source>
-        <translation type="unfinished"></translation>
+        <translation>아직 즐겨찾기가 없습니다. 각 패널의 별표로 음악, 효과, 텍스트 스타일 등을 표시하면 여기에 모입니다.</translation>
     </message>
     <message>
         <source>Click one to open its panel.</source>
-        <translation type="unfinished"></translation>
+        <translation>클릭하면 해당 패널이 열립니다.</translation>
     </message>
     <message>
         <source>Nothing downloaded from Stock yet. Free templates, photos and videos you download there stay here, in your account.</source>
-        <translation type="unfinished"></translation>
+        <translation>아직 스톡에서 다운로드한 항목이 없습니다. 스톡에서 다운로드한 무료 템플릿, 사진, 동영상은 계정의 이곳에 남습니다.</translation>
     </message>
     <message>
         <source>Use this template: it goes at the playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>이 템플릿 사용: 재생 헤드 위치에 배치됩니다</translation>
     </message>
     <message>
         <source>It is in your media bin</source>
-        <translation type="unfinished"></translation>
+        <translation>미디어에 있습니다</translation>
     </message>
     <message>
         <source>Not on this computer: search for it in Stock to download it again</source>
-        <translation type="unfinished"></translation>
+        <translation>이 컴퓨터에 없습니다. 스톡에서 검색해 다시 다운로드하세요</translation>
     </message>
     <message>
         <source>Clear the list</source>
-        <translation type="unfinished"></translation>
+        <translation>목록 지우기</translation>
     </message>
     <message>
         <source>Forgets this list; the downloaded files stay where they are</source>
-        <translation type="unfinished"></translation>
+        <translation>이 목록만 지웁니다. 다운로드한 파일은 그대로 남습니다</translation>
     </message>
     <message>
         <source>Account settings</source>
-        <translation type="unfinished"></translation>
+        <translation>계정 설정</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"></translation>
+        <translation>로그아웃</translation>
     </message>
 </context>
 <context>
     <name>AccountWelcomeDialog</name>
     <message>
         <source>Welcome to Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio에 오신 것을 환영합니다</translation>
     </message>
     <message>
         <source>Sign in with your Google account to search free photos and videos from Pexels and Pixabay right inside the editor. Your account will also hold your templates and your store.</source>
-        <translation type="unfinished"></translation>
+        <translation>Google 계정으로 로그인하면 편집기 안에서 바로 Pexels와 Pixabay의 무료 사진과 동영상을 검색할 수 있습니다. 계정에는 템플릿과 스토어도 저장됩니다.</translation>
     </message>
     <message>
         <source>You can also continue without an account: editing works exactly the same.</source>
-        <translation type="unfinished"></translation>
+        <translation>계정 없이 계속할 수도 있습니다. 편집 기능은 똑같이 작동합니다.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>브라우저를 기다리는 중…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
-        <translation type="unfinished"></translation>
+        <translation>Google로 로그인</translation>
     </message>
     <message>
         <source>Choose your account in the browser window that opened, then come back here.</source>
-        <translation type="unfinished"></translation>
+        <translation>열린 브라우저 창에서 계정을 선택한 다음 여기로 돌아오세요.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">취소</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <source>Continue without an account</source>
-        <translation type="unfinished"></translation>
+        <translation>계정 없이 계속</translation>
     </message>
     <message>
         <source>Send anonymous usage statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>익명 사용 통계 보내기</translation>
     </message>
     <message>
         <source>Only the version, the Windows edition and a random install number, to count installs and updates. Never your projects or files. &lt;a href=&quot;https://getflipstudio.com/privacidad.html&quot;&gt;Privacy policy&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>설치와 업데이트 횟수를 세기 위해 버전, Windows 에디션, 임의의 설치 번호만 보냅니다. 프로젝트나 파일은 절대 보내지 않습니다. &lt;a href=&quot;https://getflipstudio.com/privacidad.html&quot;&gt;개인정보 처리방침&lt;/a&gt;</translation>
     </message>
 </context>
 <context>
@@ -299,27 +299,27 @@
     </message>
     <message>
         <source>Could not open that file.</source>
-        <translation type="unfinished"></translation>
+        <translation>해당 파일을 열 수 없습니다.</translation>
     </message>
     <message>
         <source>Could not read that file.</source>
-        <translation type="unfinished"></translation>
+        <translation>해당 파일을 읽을 수 없습니다.</translation>
     </message>
     <message>
         <source>Another addon is still installing.</source>
-        <translation type="unfinished"></translation>
+        <translation>다른 애드온을 아직 설치하는 중입니다.</translation>
     </message>
     <message>
         <source>Could not use this addon (%1).</source>
-        <translation type="unfinished"></translation>
+        <translation>이 애드온을 사용할 수 없습니다(%1).</translation>
     </message>
     <message>
         <source>This is not a Flip Studio effect file (%1).</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio 효과 파일이 아닙니다(%1).</translation>
     </message>
     <message>
         <source>This is not a Flip Studio addon file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio 애드온 파일이 아닙니다.</translation>
     </message>
 </context>
 <context>
@@ -346,51 +346,51 @@
     </message>
     <message>
         <source>Install this transition?</source>
-        <translation type="unfinished"></translation>
+        <translation>이 전환을 설치할까요?</translation>
     </message>
     <message>
         <source>Install this audio effect?</source>
-        <translation type="unfinished"></translation>
+        <translation>이 오디오 효과를 설치할까요?</translation>
     </message>
     <message>
         <source>Install this effect?</source>
-        <translation type="unfinished"></translation>
+        <translation>이 효과를 설치할까요?</translation>
     </message>
     <message>
         <source>“%1” by %2</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1” - %2</translation>
     </message>
     <message>
         <source>Install Addon</source>
-        <translation type="unfinished"></translation>
+        <translation>애드온 설치</translation>
     </message>
     <message>
         <source>Install an unofficial addon?</source>
-        <translation type="unfinished"></translation>
+        <translation>비공식 애드온을 설치할까요?</translation>
     </message>
     <message>
         <source>Install anyway</source>
-        <translation type="unfinished"></translation>
+        <translation>그래도 설치</translation>
     </message>
     <message>
         <source>“%1”</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1”</translation>
     </message>
     <message>
         <source>It contains code that runs on your computer.</source>
-        <translation type="unfinished"></translation>
+        <translation>컴퓨터에서 실행되는 코드가 포함되어 있습니다.</translation>
     </message>
     <message>
         <source>It will replace “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1”을(를) 대체합니다.</translation>
     </message>
     <message>
         <source>Could not install “%1”: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1”을(를) 설치할 수 없습니다: %2</translation>
     </message>
     <message>
         <source>Installed “%1”</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1” 설치됨</translation>
     </message>
     <message>
         <source>All</source>
@@ -470,11 +470,11 @@
     </message>
     <message>
         <source>Unofficial</source>
-        <translation type="unfinished"></translation>
+        <translation>비공식</translation>
     </message>
     <message>
         <source>Installed from file</source>
-        <translation type="unfinished"></translation>
+        <translation>파일에서 설치됨</translation>
     </message>
     <message>
         <source>%1 download</source>
@@ -502,15 +502,15 @@
     </message>
     <message>
         <source>Install from file…</source>
-        <translation type="unfinished"></translation>
+        <translation>파일에서 설치…</translation>
     </message>
     <message>
         <source>Open addons folder</source>
-        <translation type="unfinished"></translation>
+        <translation>애드온 폴더 열기</translation>
     </message>
     <message>
         <source>Put addon folders here, then reopen Extras</source>
-        <translation type="unfinished"></translation>
+        <translation>여기에 애드온 폴더를 넣은 다음 추가 기능을 다시 여세요</translation>
     </message>
     <message>
         <source>Delete this pack&apos;s downloaded data</source>
@@ -518,15 +518,15 @@
     </message>
     <message>
         <source>Flip Studio addons (*.driftpkg *.driftfx *.zip)</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio 애드온 (*.driftpkg *.driftfx *.zip)</translation>
     </message>
     <message>
         <source>%1 is not signed by the Flip Studio team. Only install files you trust.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1은(는) Flip Studio 팀의 서명이 없습니다. 신뢰할 수 있는 파일만 설치하세요.</translation>
     </message>
     <message>
         <source>%1 was made by a user, not the Flip Studio team, and nothing has checked it. Only install files you trust.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1은(는) Flip Studio 팀이 아닌 사용자가 만들었으며 아무도 검토하지 않았습니다. 신뢰할 수 있는 파일만 설치하세요.</translation>
     </message>
     <message>
         <source>Restart Flip Studio for this to take effect.</source>
@@ -534,19 +534,19 @@
     </message>
     <message>
         <source>Downloads coming soon</source>
-        <translation type="unfinished"></translation>
+        <translation>다운로드 준비 중</translation>
     </message>
     <message>
         <source>Automatic subtitles, fonts, stickers and more will be available to download in an upcoming update. Extras you install from a file still work.</source>
-        <translation type="unfinished"></translation>
+        <translation>자동 자막, 글꼴, 스티커 등은 다음 업데이트에서 다운로드할 수 있습니다. 파일에서 설치한 추가 기능은 계속 작동합니다.</translation>
     </message>
     <message>
         <source>Requires Flip Studio %1 or newer</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio %1 이상 필요</translation>
     </message>
     <message>
         <source>Text &amp; fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 및 글꼴</translation>
     </message>
 </context>
 <context>
@@ -624,357 +624,357 @@
     <name>AdjustInspector</name>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">기본</translation>
+        <translation>기본</translation>
     </message>
     <message>
         <source>HSL</source>
-        <translation type="unfinished"></translation>
+        <translation>HSL</translation>
     </message>
     <message>
         <source>Curves</source>
-        <translation type="unfinished"></translation>
+        <translation>곡선</translation>
     </message>
     <message>
         <source>Color wheels</source>
-        <translation type="unfinished"></translation>
+        <translation>색상환</translation>
     </message>
     <message>
         <source>LUT</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT</translation>
     </message>
     <message>
         <source>Mask</source>
-        <translation type="unfinished">마스크</translation>
+        <translation>마스크</translation>
     </message>
     <message>
         <source>Adjust %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 조정</translation>
     </message>
     <message>
         <source>Reset %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 초기화</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished">초기화</translation>
+        <translation>초기화</translation>
     </message>
     <message>
         <source>Select a video or image clip to adjust its colour.</source>
-        <translation type="unfinished"></translation>
+        <translation>색상을 조정할 동영상 또는 이미지 클립을 선택하세요.</translation>
     </message>
     <message>
         <source>Exposure</source>
-        <translation type="unfinished"></translation>
+        <translation>노출</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>밝기</translation>
     </message>
     <message>
         <source>Contrast</source>
-        <translation type="unfinished"></translation>
+        <translation>대비</translation>
     </message>
     <message>
         <source>Highlights</source>
-        <translation type="unfinished"></translation>
+        <translation>하이라이트</translation>
     </message>
     <message>
         <source>Shadows</source>
-        <translation type="unfinished"></translation>
+        <translation>그림자</translation>
     </message>
     <message>
         <source>Whites</source>
-        <translation type="unfinished"></translation>
+        <translation>흰색</translation>
     </message>
     <message>
         <source>Blacks</source>
-        <translation type="unfinished"></translation>
+        <translation>검은색</translation>
     </message>
     <message>
         <source>Saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>채도</translation>
     </message>
     <message>
         <source>Vibrance</source>
-        <translation type="unfinished"></translation>
+        <translation>활기</translation>
     </message>
     <message>
         <source>Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>색온도</translation>
     </message>
     <message>
         <source>Tint</source>
-        <translation type="unfinished"></translation>
+        <translation>색조</translation>
     </message>
     <message>
         <source>Fade</source>
-        <translation type="unfinished">페이드</translation>
+        <translation>페이드</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished">밝게</translation>
+        <translation>조명</translation>
     </message>
     <message>
         <source>Reset light</source>
-        <translation type="unfinished"></translation>
+        <translation>조명 초기화</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished">색상</translation>
+        <translation>색상</translation>
     </message>
     <message>
         <source>Reset colour</source>
-        <translation type="unfinished"></translation>
+        <translation>색상 초기화</translation>
     </message>
     <message>
         <source>Red</source>
-        <translation type="unfinished">빨강</translation>
+        <translation>빨강</translation>
     </message>
     <message>
         <source>Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>주황</translation>
     </message>
     <message>
         <source>Yellow</source>
-        <translation type="unfinished"></translation>
+        <translation>노랑</translation>
     </message>
     <message>
         <source>Green</source>
-        <translation type="unfinished">초록</translation>
+        <translation>초록</translation>
     </message>
     <message>
         <source>Aqua</source>
-        <translation type="unfinished"></translation>
+        <translation>청록</translation>
     </message>
     <message>
         <source>Blue</source>
-        <translation type="unfinished">파랑</translation>
+        <translation>파랑</translation>
     </message>
     <message>
         <source>Purple</source>
-        <translation type="unfinished"></translation>
+        <translation>보라</translation>
     </message>
     <message>
         <source>Magenta</source>
-        <translation type="unfinished"></translation>
+        <translation>마젠타</translation>
     </message>
     <message>
         <source>Colour to change</source>
-        <translation type="unfinished"></translation>
+        <translation>변경할 색상</translation>
     </message>
     <message>
         <source>Reset HSL</source>
-        <translation type="unfinished"></translation>
+        <translation>HSL 초기화</translation>
     </message>
     <message>
         <source>Hue</source>
-        <translation type="unfinished"></translation>
+        <translation>색상</translation>
     </message>
     <message>
         <source>Lightness</source>
-        <translation type="unfinished"></translation>
+        <translation>명도</translation>
     </message>
     <message>
         <source>Luma</source>
-        <translation type="unfinished"></translation>
+        <translation>루마</translation>
     </message>
     <message>
         <source>Edit curve</source>
-        <translation type="unfinished"></translation>
+        <translation>곡선 편집</translation>
     </message>
     <message>
         <source>Reset curve point</source>
-        <translation type="unfinished"></translation>
+        <translation>곡선 점 초기화</translation>
     </message>
     <message>
         <source>Reset curve</source>
-        <translation type="unfinished"></translation>
+        <translation>곡선 초기화</translation>
     </message>
     <message>
         <source>Reset all</source>
-        <translation type="unfinished">모두 초기화</translation>
+        <translation>모두 초기화</translation>
     </message>
     <message>
         <source>Reset curves</source>
-        <translation type="unfinished"></translation>
+        <translation>곡선 모두 초기화</translation>
     </message>
     <message>
         <source>Drag a point up to brighten that part of the image, down to darken it. Double-click a point to put it back.</source>
-        <translation type="unfinished"></translation>
+        <translation>점을 위로 끌면 이미지의 해당 부분이 밝아지고, 아래로 끌면 어두워집니다. 점을 두 번 클릭하면 원래 위치로 돌아갑니다.</translation>
     </message>
     <message>
         <source>Midtones</source>
-        <translation type="unfinished"></translation>
+        <translation>중간 톤</translation>
     </message>
     <message>
         <source>Offset</source>
-        <translation type="unfinished">오프셋</translation>
+        <translation>오프셋</translation>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">강도</translation>
+        <translation>강도</translation>
     </message>
     <message>
         <source>Add mask</source>
-        <translation type="unfinished">마스크 추가</translation>
+        <translation>마스크 추가</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">없음</translation>
+        <translation>없음</translation>
     </message>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished">사각형</translation>
+        <translation>직사각형</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished">원</translation>
+        <translation>원</translation>
     </message>
     <message>
         <source>Film strip</source>
-        <translation type="unfinished"></translation>
+        <translation>필름 스트립</translation>
     </message>
     <message>
         <source>Stars</source>
-        <translation type="unfinished"></translation>
+        <translation>별</translation>
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished">하트</translation>
+        <translation>하트</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">텍스트</translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <source>Freeform</source>
-        <translation type="unfinished">자유형</translation>
+        <translation>자유형</translation>
     </message>
     <message>
         <source>Gradient</source>
-        <translation type="unfinished">그라디언트</translation>
+        <translation>그라디언트</translation>
     </message>
     <message>
         <source>TEXT</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트</translation>
     </message>
 </context>
 <context>
     <name>AdjustmentLayerInspector</name>
     <message>
         <source>Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>강도</translation>
     </message>
     <message>
         <source>Everything you put on this layer (effects, colour, masks) applies while it lasts, without touching the clips themselves. Stretch or move it on the timeline to change when it acts.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 레이어에 넣은 모든 것(효과, 색상, 마스크)은 클립 자체를 건드리지 않고 레이어가 지속되는 동안 적용됩니다. 타임라인에서 늘이거나 옮겨 적용 시점을 바꾸세요.</translation>
     </message>
     <message>
         <source>It does not change anything yet: give it an effect (Effects tab) or a colour adjustment (Adjust tab). A mask only marks where they act.</source>
-        <translation type="unfinished"></translation>
+        <translation>아직 아무것도 바뀌지 않습니다. 효과(효과 탭)나 색상 조정(조정 탭)을 추가하세요. 마스크는 적용 위치만 표시합니다.</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">이름</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <source>Adjustment layer</source>
-        <translation type="unfinished">보정 레이어</translation>
+        <translation>조정 레이어</translation>
     </message>
     <message>
         <source>On</source>
-        <translation type="unfinished">켜기</translation>
+        <translation>켜짐</translation>
     </message>
     <message>
         <source>Off: not applied, but keeps all its settings</source>
-        <translation type="unfinished"></translation>
+        <translation>꺼짐: 적용되지 않지만 모든 설정은 유지됩니다</translation>
     </message>
     <message>
         <source>Turn the layer off to compare with and without it</source>
-        <translation type="unfinished"></translation>
+        <translation>레이어를 꺼서 적용 전후를 비교하세요</translation>
     </message>
     <message>
         <source>0 %: what is under it, untouched. 100 %: the whole layer. In between, a mix of the two.</source>
-        <translation type="unfinished"></translation>
+        <translation>0 %: 아래에 있는 그대로. 100 %: 레이어 전체. 그 사이는 둘을 섞은 결과입니다.</translation>
     </message>
 </context>
 <context>
     <name>AdjustmentTargetSection</name>
     <message>
         <source>Video</source>
-        <translation type="unfinished">동영상</translation>
+        <translation>동영상</translation>
     </message>
     <message>
         <source>Photo</source>
-        <translation type="unfinished"></translation>
+        <translation>사진</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">텍스트</translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <source>Subtitles</source>
-        <translation type="unfinished">자막</translation>
+        <translation>자막</translation>
     </message>
     <message>
         <source>Shape</source>
-        <translation type="unfinished">도형</translation>
+        <translation>도형</translation>
     </message>
     <message>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>그룹</translation>
     </message>
     <message>
         <source>Animation</source>
-        <translation type="unfinished">애니메이션</translation>
+        <translation>애니메이션</translation>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished">클립</translation>
+        <translation>클립</translation>
     </message>
     <message>
         <source>Everything below it</source>
-        <translation type="unfinished"></translation>
+        <translation>아래의 모든 항목</translation>
     </message>
     <message>
         <source>The whole track below</source>
-        <translation type="unfinished"></translation>
+        <translation>아래 트랙 전체</translation>
     </message>
     <message>
         <source>The whole track «%1»</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1” 트랙 전체</translation>
     </message>
     <message>
         <source>Only %1: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1만: %2</translation>
     </message>
     <message>
         <source>untitled</source>
-        <translation type="unfinished"></translation>
+        <translation>제목 없음</translation>
     </message>
     <message>
         <source>Applies to</source>
-        <translation type="unfinished"></translation>
+        <translation>적용 대상</translation>
     </message>
     <message>
         <source>Like an adjustment layer in Photoshop: over everything under it, or clipped to one clip</source>
-        <translation type="unfinished"></translation>
+        <translation>Photoshop의 조정 레이어처럼 아래의 모든 항목에 적용하거나 한 클립에만 고정합니다</translation>
     </message>
     <message>
         <source>The mask cuts everything under it while it lasts.</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크가 지속되는 동안 아래의 모든 항목을 잘라냅니다.</translation>
     </message>
     <message>
         <source>Changes everything under it while it lasts.</source>
-        <translation type="unfinished"></translation>
+        <translation>지속되는 동안 아래의 모든 항목을 변경합니다.</translation>
     </message>
     <message>
         <source>The mask cuts only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크가 해당 클립만 잘라내고 나머지는 그대로입니다. 타임라인에서 클립의 행 안에 표시됩니다.</translation>
     </message>
     <message>
         <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
-        <translation type="unfinished"></translation>
+        <translation>해당 클립만 변경하고 나머지는 그대로입니다. 타임라인에서 클립의 행 안에 표시됩니다.</translation>
     </message>
 </context>
 <context>
@@ -1139,11 +1139,11 @@
     </message>
     <message>
         <source>Speech</source>
-        <translation type="unfinished"></translation>
+        <translation>음성</translation>
     </message>
     <message>
         <source>Turn a script into a voiceover</source>
-        <translation type="unfinished"></translation>
+        <translation>대본을 내레이션으로 변환</translation>
     </message>
     <message>
         <source>Stickers</source>
@@ -1341,7 +1341,7 @@
     <name>AndroidEditor</name>
     <message>
         <source>Flip Studio project (*.flip *.drift)</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio 프로젝트 (*.flip *.drift)</translation>
     </message>
     <message>
         <source>Save Project</source>
@@ -1389,7 +1389,7 @@
     </message>
     <message>
         <source>Select all</source>
-        <translation type="unfinished"></translation>
+        <translation>모두 선택</translation>
     </message>
 </context>
 <context>
@@ -1589,7 +1589,7 @@
     </message>
     <message>
         <source>Flip Studio project (*.flip *.drift)</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio 프로젝트 (*.flip *.drift)</translation>
     </message>
     <message>
         <source>Couldn’t create captions: %1</source>
@@ -1628,11 +1628,11 @@
     </message>
     <message>
         <source>Unlock crop ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>자르기 비율 잠금 해제</translation>
     </message>
     <message>
         <source>Lock crop ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>자르기 비율 잠금</translation>
     </message>
     <message>
         <source>Trim</source>
@@ -1672,11 +1672,11 @@
     </message>
     <message>
         <source>Save keeps the original file and stores this crop.</source>
-        <translation type="unfinished"></translation>
+        <translation>저장하면 원본 파일은 유지되고 이 자르기가 저장됩니다.</translation>
     </message>
     <message>
         <source>Save keeps the original file and stores this trim.</source>
-        <translation type="unfinished"></translation>
+        <translation>저장하면 원본 파일은 유지되고 이 트리밍이 저장됩니다.</translation>
     </message>
     <message>
         <source>Nothing changed yet. Trim or crop above, or go back and drag this onto the timeline.</source>
@@ -2209,7 +2209,7 @@
     </message>
     <message>
         <source>Add-ons and model packs</source>
-        <translation type="unfinished"></translation>
+        <translation>추가 기능 및 모델 팩</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -2225,15 +2225,15 @@
     </message>
     <message>
         <source>Switch the app’s colour scheme</source>
-        <translation type="unfinished"></translation>
+        <translation>앱의 색상 테마 변경</translation>
     </message>
     <message>
         <source>Switch to desktop layout</source>
-        <translation type="unfinished"></translation>
+        <translation>데스크톱 레이아웃으로 전환</translation>
     </message>
     <message>
         <source>Use the wide editor layout</source>
-        <translation type="unfinished"></translation>
+        <translation>넓은 편집기 레이아웃 사용</translation>
     </message>
     <message>
         <source>Update available</source>
@@ -2241,7 +2241,7 @@
     </message>
     <message>
         <source>A newer version of Flip Studio is ready</source>
-        <translation type="unfinished"></translation>
+        <translation>새 버전의 Flip Studio가 준비되었습니다</translation>
     </message>
     <message>
         <source>Debug info</source>
@@ -2249,15 +2249,15 @@
     </message>
     <message>
         <source>Version, device and logs</source>
-        <translation type="unfinished"></translation>
+        <translation>버전, 기기 및 로그</translation>
     </message>
     <message>
         <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio 정보</translation>
     </message>
     <message>
         <source>Version, licence and credits</source>
-        <translation type="unfinished"></translation>
+        <translation>버전, 라이선스 및 크레딧</translation>
     </message>
     <message>
         <source>Appearance, extras and agent access</source>
@@ -2346,15 +2346,15 @@
     <name>AndroidTextComposer</name>
     <message>
         <source>Previous caption</source>
-        <translation type="unfinished"></translation>
+        <translation>이전 자막</translation>
     </message>
     <message>
         <source>Next caption</source>
-        <translation type="unfinished"></translation>
+        <translation>다음 자막</translation>
     </message>
     <message>
         <source>Caption %1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation>자막 %1 / %2</translation>
     </message>
     <message>
         <source>Done</source>
@@ -2382,11 +2382,11 @@
     </message>
     <message>
         <source>Back one frame</source>
-        <translation type="unfinished"></translation>
+        <translation>한 프레임 뒤로</translation>
     </message>
     <message>
         <source>Forward one frame</source>
-        <translation type="unfinished"></translation>
+        <translation>한 프레임 앞으로</translation>
     </message>
 </context>
 <context>
@@ -2709,11 +2709,11 @@
     </message>
     <message>
         <source>Crop clip</source>
-        <translation type="unfinished"></translation>
+        <translation>클립 자르기</translation>
     </message>
     <message>
         <source>Crop saved</source>
-        <translation type="unfinished"></translation>
+        <translation>자르기 저장됨</translation>
     </message>
     <message>
         <source>New project</source>
@@ -2777,7 +2777,7 @@
     </message>
     <message>
         <source>Link clips</source>
-        <translation type="unfinished"></translation>
+        <translation>클립 연결</translation>
     </message>
     <message>
         <source>Clear selection</source>
@@ -2845,11 +2845,11 @@
     </message>
     <message>
         <source>Select to the left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽으로 선택</translation>
     </message>
     <message>
         <source>Select to the right</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽으로 선택</translation>
     </message>
     <message>
         <source>System default</source>
@@ -2873,7 +2873,7 @@
     </message>
     <message>
         <source>Crossfade added</source>
-        <translation type="unfinished"></translation>
+        <translation>크로스페이드 추가됨</translation>
     </message>
     <message>
         <source>Nothing to split here — move to a clip first</source>
@@ -3127,11 +3127,11 @@
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished">끄기</translation>
+        <translation>꺼짐</translation>
     </message>
     <message>
         <source>Off · %1</source>
-        <translation type="unfinished"></translation>
+        <translation>꺼짐 · %1</translation>
     </message>
     <message>
         <source>Media rotated</source>
@@ -3347,19 +3347,19 @@
     </message>
     <message>
         <source>Change what the layer applies to</source>
-        <translation type="unfinished"></translation>
+        <translation>레이어 적용 대상 변경</translation>
     </message>
     <message>
         <source>The layer applies to everything below it</source>
-        <translation type="unfinished"></translation>
+        <translation>레이어가 아래의 모든 항목에 적용됩니다</translation>
     </message>
     <message>
         <source>The layer applies to one track</source>
-        <translation type="unfinished"></translation>
+        <translation>레이어가 한 트랙에 적용됩니다</translation>
     </message>
     <message>
         <source>The layer applies to one clip</source>
-        <translation type="unfinished"></translation>
+        <translation>레이어가 한 클립에만 적용됩니다</translation>
     </message>
     <message>
         <source>Install the emoji sticker pack to add emoji</source>
@@ -3367,7 +3367,7 @@
     </message>
     <message>
         <source>This track is locked. Unlock it with the padlock in its header.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 트랙은 잠겨 있습니다. 트랙 헤더의 자물쇠로 잠금을 해제하세요.</translation>
     </message>
     <message>
         <source>Edit clip</source>
@@ -3415,11 +3415,11 @@
     </message>
     <message>
         <source>Move camera</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 이동</translation>
     </message>
     <message>
         <source>Rotate camera</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 회전</translation>
     </message>
     <message>
         <source>Edit effect</source>
@@ -3459,19 +3459,19 @@
     </message>
     <message>
         <source>Turn off clip</source>
-        <translation type="unfinished"></translation>
+        <translation>클립 끄기</translation>
     </message>
     <message>
         <source>Turn on clip</source>
-        <translation type="unfinished"></translation>
+        <translation>클립 켜기</translation>
     </message>
     <message>
         <source>Turned off: it keeps its settings but is left out of the picture</source>
-        <translation type="unfinished"></translation>
+        <translation>꺼짐: 설정은 유지되지만 화면에 표시되지 않습니다</translation>
     </message>
     <message>
         <source>Turned on</source>
-        <translation type="unfinished"></translation>
+        <translation>켜짐</translation>
     </message>
     <message>
         <source>Edit text</source>
@@ -3551,15 +3551,15 @@
     </message>
     <message>
         <source>Could not import the font</source>
-        <translation type="unfinished"></translation>
+        <translation>글꼴을 가져올 수 없습니다</translation>
     </message>
     <message>
         <source>Added %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 추가됨</translation>
     </message>
     <message>
         <source>Removed %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 제거됨</translation>
     </message>
     <message>
         <source>Resize text</source>
@@ -3667,15 +3667,15 @@
     </message>
     <message>
         <source>This group was moved, changed or has layers of its own; ungrouping would lose them. Open it to edit its clips, or undo those changes first.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 그룹은 이동되었거나 변경되었거나 자체 레이어가 있어 그룹을 해제하면 사라집니다. 그룹을 열어 클립을 편집하거나 먼저 해당 변경을 실행 취소하세요.</translation>
     </message>
     <message>
         <source>Ungroup</source>
-        <translation type="unfinished"></translation>
+        <translation>그룹 해제</translation>
     </message>
     <message>
         <source>Ungrouped</source>
-        <translation type="unfinished"></translation>
+        <translation>그룹 해제됨</translation>
     </message>
     <message>
         <source>The composite clip was removed before flattening finished</source>
@@ -3711,7 +3711,7 @@
     </message>
     <message>
         <source>Clips linked</source>
-        <translation type="unfinished"></translation>
+        <translation>클립 연결됨</translation>
     </message>
     <message>
         <source>Fade updated</source>
@@ -3779,11 +3779,11 @@
     </message>
     <message>
         <source>PDF options</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF 옵션</translation>
     </message>
     <message>
         <source>PDF options updated</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF 옵션 업데이트됨</translation>
     </message>
     <message>
         <source>Animation slot</source>
@@ -3799,23 +3799,23 @@
     </message>
     <message>
         <source>Masks limit the effects</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크가 효과를 제한함</translation>
     </message>
     <message>
         <source>Masks cut the clip</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크가 클립을 잘라냄</translation>
     </message>
     <message>
         <source>The masks now limit where the clip&apos;s effects and colour show</source>
-        <translation type="unfinished"></translation>
+        <translation>이제 마스크가 클립의 효과와 색상이 보이는 영역을 제한합니다</translation>
     </message>
     <message>
         <source>The masks now cut the clip</source>
-        <translation type="unfinished"></translation>
+        <translation>이제 마스크가 클립을 잘라냅니다</translation>
     </message>
     <message>
         <source>TEXT</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <source>Rectangle</source>
@@ -3843,11 +3843,11 @@
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"></translation>
+        <translation>펜</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">텍스트</translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -3859,15 +3859,15 @@
     </message>
     <message>
         <source>Remove mask</source>
-        <translation type="unfinished">마스크 제거</translation>
+        <translation>마스크 제거</translation>
     </message>
     <message>
         <source>Mask removed</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크 제거됨</translation>
     </message>
     <message>
         <source>Linear gradient</source>
-        <translation type="unfinished"></translation>
+        <translation>선형 그라디언트</translation>
     </message>
     <message>
         <source>Add mask point</source>
@@ -3899,75 +3899,75 @@
     </message>
     <message>
         <source>The LUT library folder could not be created.</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT 라이브러리 폴더를 만들 수 없습니다.</translation>
     </message>
     <message>
         <source>The LUT could not be copied into the library: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT를 라이브러리에 복사할 수 없습니다: %1</translation>
     </message>
     <message>
         <source>The LUT «%1» is not where the project saved it, nor in your LUT library. Find it to use it again.</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT «%1»이(가) 프로젝트에 저장된 위치에도, LUT 라이브러리에도 없습니다. 다시 사용하려면 파일을 찾으세요.</translation>
     </message>
     <message>
         <source>Voice changer</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 변조</translation>
     </message>
     <message>
         <source>Voice: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>음성: %1</translation>
     </message>
     <message>
         <source>Voice changer off</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 변조 꺼짐</translation>
     </message>
     <message>
         <source>Audio fade</source>
-        <translation type="unfinished"></translation>
+        <translation>오디오 페이드</translation>
     </message>
     <message>
         <source>Fill channel</source>
-        <translation type="unfinished"></translation>
+        <translation>채널 채우기</translation>
     </message>
     <message>
         <source>Channel filled</source>
-        <translation type="unfinished"></translation>
+        <translation>채널 채움</translation>
     </message>
     <message>
         <source>Fill channel off</source>
-        <translation type="unfinished"></translation>
+        <translation>채널 채우기 꺼짐</translation>
     </message>
     <message>
         <source>Select a clip with sound to normalize</source>
-        <translation type="unfinished"></translation>
+        <translation>노멀라이즈할 소리가 있는 클립을 선택하세요</translation>
     </message>
     <message>
         <source>Measuring loudness…</source>
-        <translation type="unfinished">라우드니스 측정 중…</translation>
+        <translation>라우드니스 측정 중…</translation>
     </message>
     <message>
         <source>This clip is too quiet to measure</source>
-        <translation type="unfinished"></translation>
+        <translation>이 클립은 너무 조용해서 측정할 수 없습니다</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
-        <translation type="unfinished"></translation>
+        <translation>라우드니스 노멀라이즈</translation>
     </message>
     <message>
         <source>Loudness raised as far as the volume allows (it was %1 LUFS)</source>
-        <translation type="unfinished"></translation>
+        <translation>볼륨이 허용하는 최대치까지 라우드니스를 올렸습니다(이전 %1 LUFS)</translation>
     </message>
     <message>
         <source>Loudness set to %1 LUFS (it was %2)</source>
-        <translation type="unfinished"></translation>
+        <translation>라우드니스를 %1 LUFS로 설정했습니다(이전 %2)</translation>
     </message>
     <message>
         <source>Track locked</source>
-        <translation type="unfinished"></translation>
+        <translation>트랙 잠김</translation>
     </message>
     <message>
         <source>Track unlocked</source>
-        <translation type="unfinished"></translation>
+        <translation>트랙 잠금 해제됨</translation>
     </message>
     <message>
         <source>Track solo</source>
@@ -4127,19 +4127,19 @@
     </message>
     <message>
         <source>Enable depth occlusion</source>
-        <translation type="unfinished"></translation>
+        <translation>깊이 가림 사용</translation>
     </message>
     <message>
         <source>Disable depth occlusion</source>
-        <translation type="unfinished"></translation>
+        <translation>깊이 가림 사용 안 함</translation>
     </message>
     <message>
         <source>Clip is occluded by depth</source>
-        <translation type="unfinished"></translation>
+        <translation>클립이 깊이에 따라 가려짐</translation>
     </message>
     <message>
         <source>Clip uses track order</source>
-        <translation type="unfinished"></translation>
+        <translation>클립이 트랙 순서를 따름</translation>
     </message>
     <message>
         <source>Subtitles converted to text</source>
@@ -4173,19 +4173,19 @@
     </message>
     <message>
         <source>Add camera</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 추가</translation>
     </message>
     <message>
         <source>Add camera clip</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 클립 추가</translation>
     </message>
     <message>
         <source>Camera added</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 추가됨</translation>
     </message>
     <message>
         <source>Camera clip added</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 클립 추가됨</translation>
     </message>
     <message>
         <source>Transform together</source>
@@ -4299,11 +4299,11 @@
     </message>
     <message>
         <source>Reset camera</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 초기화</translation>
     </message>
     <message>
         <source>Camera reset</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 초기화됨</translation>
     </message>
     <message>
         <source>Reset transform</source>
@@ -4319,7 +4319,7 @@
     </message>
     <message>
         <source>Mask effects read one clip&apos;s masks, so they go on a clip, not on an adjustment layer.</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크 효과는 한 클립의 마스크를 읽으므로 조정 레이어가 아닌 클립에 적용됩니다.</translation>
     </message>
     <message>
         <source>Face effects follow one clip&apos;s faces, so they go on a clip, not on an adjustment layer.</source>
@@ -4335,7 +4335,7 @@
     </message>
     <message>
         <source>Template: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿: %1</translation>
     </message>
     <message>
         <source>Apply effect template</source>
@@ -4347,47 +4347,47 @@
     </message>
     <message>
         <source>This template follows the music, and this clip has none: it keeps a steady 120 BPM beat. Add music under it and pick the rhythm again in Effects › Template.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 템플릿은 음악을 따르는데 이 클립에는 음악이 없어 120 BPM의 고정 박자를 사용합니다. 아래에 음악을 넣고 효과 › 템플릿에서 리듬을 다시 선택하세요.</translation>
     </message>
     <message>
         <source>Change template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 변경</translation>
     </message>
     <message>
         <source>Template updated</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 업데이트됨</translation>
     </message>
     <message>
         <source>Change template rhythm</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 리듬 변경</translation>
     </message>
     <message>
         <source>Template rhythm changed</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 리듬 변경됨</translation>
     </message>
     <message>
         <source>No music under this clip: the template keeps a steady 120 BPM beat</source>
-        <translation type="unfinished"></translation>
+        <translation>이 클립 아래에 음악이 없습니다. 템플릿이 120 BPM의 고정 박자를 사용합니다</translation>
     </message>
     <message>
         <source>Remove template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 제거</translation>
     </message>
     <message>
         <source>Template removed</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 제거됨</translation>
     </message>
     <message>
         <source>This template was moved, changed or has layers of its own; removing it would lose them. Undo those changes first, or open it and delete its layer.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 템플릿은 이동되었거나 변경되었거나 자체 레이어가 있어 제거하면 사라집니다. 먼저 해당 변경을 실행 취소하거나, 템플릿을 열고 레이어를 삭제하세요.</translation>
     </message>
     <message>
         <source>Template removed: the original clip is back in its place</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 제거됨: 원래 클립이 제자리로 돌아왔습니다</translation>
     </message>
     <message>
         <source>Select a clip, or put the playhead over one, to apply the template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿을 적용하려면 클립을 선택하거나 재생 헤드를 클립 위에 두세요</translation>
     </message>
     <message>
         <source>This effect needs a subject cutout — open Extras to install it</source>
@@ -4451,7 +4451,7 @@
     </message>
     <message>
         <source>That style shares its folder with other styles</source>
-        <translation type="unfinished"></translation>
+        <translation>이 스타일은 다른 스타일과 폴더를 공유합니다</translation>
     </message>
     <message>
         <source>Could not delete the face prop</source>
@@ -4609,15 +4609,15 @@
     </message>
     <message>
         <source>Only effects you imported can be deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>가져온 효과만 삭제할 수 있습니다</translation>
     </message>
     <message>
         <source>Could not delete %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1을(를) 삭제할 수 없습니다</translation>
     </message>
     <message>
         <source>Deleted %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 삭제됨</translation>
     </message>
     <message>
         <source>Could not export the effect preset</source>
@@ -4661,71 +4661,71 @@
     </message>
     <message>
         <source>X position</source>
-        <translation type="unfinished">X 위치</translation>
+        <translation>X 위치</translation>
     </message>
     <message>
         <source>Y position</source>
-        <translation type="unfinished">Y 위치</translation>
+        <translation>Y 위치</translation>
     </message>
     <message>
         <source>Width</source>
-        <translation type="unfinished">너비</translation>
+        <translation>너비</translation>
     </message>
     <message>
         <source>Height</source>
-        <translation type="unfinished">높이</translation>
+        <translation>높이</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished">회전</translation>
+        <translation>회전</translation>
     </message>
     <message>
         <source>Tilt X</source>
-        <translation type="unfinished">X 기울기</translation>
+        <translation>X 기울기</translation>
     </message>
     <message>
         <source>Tilt Y</source>
-        <translation type="unfinished">Y 기울기</translation>
+        <translation>Y 기울기</translation>
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished">깊이</translation>
+        <translation>깊이</translation>
     </message>
     <message>
         <source>Perspective</source>
-        <translation type="unfinished">원근</translation>
+        <translation>원근</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished">불투명도</translation>
+        <translation>불투명도</translation>
     </message>
     <message>
         <source>Volume</source>
-        <translation type="unfinished">볼륨</translation>
+        <translation>볼륨</translation>
     </message>
     <message>
         <source>Mask X</source>
-        <translation type="unfinished">마스크 X</translation>
+        <translation>마스크 X</translation>
     </message>
     <message>
         <source>Mask Y</source>
-        <translation type="unfinished">마스크 Y</translation>
+        <translation>마스크 Y</translation>
     </message>
     <message>
         <source>Mask width</source>
-        <translation type="unfinished">마스크 너비</translation>
+        <translation>마스크 너비</translation>
     </message>
     <message>
         <source>Mask height</source>
-        <translation type="unfinished">마스크 높이</translation>
+        <translation>마스크 높이</translation>
     </message>
     <message>
         <source>Mask rotation</source>
-        <translation type="unfinished">마스크 회전</translation>
+        <translation>마스크 회전</translation>
     </message>
     <message>
         <source>Mask feather</source>
-        <translation type="unfinished">마스크 페더</translation>
+        <translation>마스크 페더</translation>
     </message>
     <message>
         <source>Move track</source>
@@ -4745,33 +4745,33 @@
     </message>
     <message>
         <source>Delete tracks</source>
-        <translation type="unfinished"></translation>
+        <translation>트랙 삭제</translation>
     </message>
     <message numerus="yes">
         <source>%n track(s) deleted</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>트랙 %n개 삭제됨</numerusform>
         </translation>
     </message>
     <message>
         <source>Tracks can only be grouped on the main timeline</source>
-        <translation type="unfinished"></translation>
+        <translation>트랙은 기본 타임라인에서만 그룹화할 수 있습니다</translation>
     </message>
     <message>
         <source>These tracks hold a composition, and a composition cannot go inside another one</source>
-        <translation type="unfinished"></translation>
+        <translation>이 트랙에는 컴포지션이 있으며, 컴포지션은 다른 컴포지션 안에 넣을 수 없습니다</translation>
     </message>
     <message>
         <source>These tracks are empty: there is nothing to group</source>
-        <translation type="unfinished"></translation>
+        <translation>이 트랙은 비어 있어 그룹화할 항목이 없습니다</translation>
     </message>
     <message>
         <source>Group tracks</source>
-        <translation type="unfinished"></translation>
+        <translation>트랙 그룹화</translation>
     </message>
     <message>
         <source>Tracks grouped</source>
-        <translation type="unfinished"></translation>
+        <translation>트랙 그룹화됨</translation>
     </message>
     <message>
         <source>Add track</source>
@@ -4953,23 +4953,23 @@
     </message>
     <message>
         <source>Apply text style</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 스타일 적용</translation>
     </message>
     <message>
         <source>Text style applied</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 스타일 적용됨</translation>
     </message>
     <message>
         <source>Apply text bubble</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 말풍선 적용</translation>
     </message>
     <message>
         <source>Bubble removed</source>
-        <translation type="unfinished"></translation>
+        <translation>말풍선 제거됨</translation>
     </message>
     <message>
         <source>Bubble applied</source>
-        <translation type="unfinished"></translation>
+        <translation>말풍선 적용됨</translation>
     </message>
     <message>
         <source>Adjust text look</source>
@@ -5077,206 +5077,206 @@
     </message>
     <message>
         <source>Text template added</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 템플릿 추가됨</translation>
     </message>
     <message>
         <source>“%1” is not in these subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>이 자막에 “%1”이(가) 없습니다</translation>
     </message>
     <message>
         <source>Replace in subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>자막에서 바꾸기</translation>
     </message>
     <message numerus="yes">
         <source>Replaced in %n caption(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>자막 %n개에서 바꿈</numerusform>
         </translation>
     </message>
     <message>
         <source>Subtitles are already clean</source>
-        <translation type="unfinished"></translation>
+        <translation>자막이 이미 깔끔합니다</translation>
     </message>
     <message>
         <source>Clean up subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>자막 정리</translation>
     </message>
     <message>
         <source>Subtitles cleaned up</source>
-        <translation type="unfinished"></translation>
+        <translation>자막 정리됨</translation>
     </message>
     <message>
         <source>No keywords for emojis in these subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>이 자막에는 이모지용 키워드가 없습니다</translation>
     </message>
     <message>
         <source>Add emojis</source>
-        <translation type="unfinished"></translation>
+        <translation>이모지 추가</translation>
     </message>
     <message numerus="yes">
         <source>Emojis added to %n caption(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>자막 %n개에 이모지 추가됨</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n fonts added</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>글꼴 %n개 추가됨</numerusform>
         </translation>
     </message>
     <message>
         <source>Could not add that sound</source>
-        <translation type="unfinished"></translation>
+        <translation>해당 사운드를 추가할 수 없습니다</translation>
     </message>
     <message>
         <source>Enhance voice</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 향상</translation>
     </message>
     <message>
         <source>Voice enhanced: noise gate, de-esser, compressor and leveler</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 향상됨: 노이즈 게이트, 디에서, 컴프레서, 레벨러</translation>
     </message>
     <message>
         <source>Select a video or audio clip with speech</source>
-        <translation type="unfinished"></translation>
+        <translation>음성이 있는 동영상 또는 오디오 클립을 선택하세요</translation>
     </message>
     <message>
         <source>Install speech recognition from Extras to find the silences</source>
-        <translation type="unfinished"></translation>
+        <translation>무음 구간을 찾으려면 추가 기능에서 음성 인식을 설치하세요</translation>
     </message>
     <message>
         <source>Could not analyse the speech in this clip</source>
-        <translation type="unfinished"></translation>
+        <translation>이 클립의 음성을 분석할 수 없습니다</translation>
     </message>
     <message>
         <source>Listening to the clip to find silences…</source>
-        <translation type="unfinished"></translation>
+        <translation>클립을 들으며 무음 구간을 찾는 중…</translation>
     </message>
     <message>
         <source>No speech found in this clip</source>
-        <translation type="unfinished"></translation>
+        <translation>이 클립에서 음성을 찾을 수 없습니다</translation>
     </message>
     <message>
         <source>Could not cut this clip</source>
-        <translation type="unfinished"></translation>
+        <translation>이 클립을 자를 수 없습니다</translation>
     </message>
     <message numerus="yes">
         <source>Removed %1 s of pauses and %n filler word(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%1초의 멈춤과 군말 %n개를 제거했습니다</numerusform>
         </translation>
     </message>
     <message>
         <source>English subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>영어 자막</translation>
     </message>
     <message>
         <source>That template is not installed</source>
-        <translation type="unfinished"></translation>
+        <translation>해당 템플릿이 설치되어 있지 않습니다</translation>
     </message>
     <message>
         <source>Templates go on the main timeline: close the composition first</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿은 기본 타임라인에 들어갑니다. 먼저 컴포지션을 닫으세요</translation>
     </message>
     <message>
         <source>Could not read the template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿을 읽을 수 없습니다</translation>
     </message>
     <message>
         <source>Slot %1</source>
-        <translation type="unfinished"></translation>
+        <translation>슬롯 %1</translation>
     </message>
     <message>
         <source>Your photo or video here</source>
-        <translation type="unfinished"></translation>
+        <translation>여기에 사진 또는 동영상</translation>
     </message>
     <message>
         <source>Photo %1</source>
-        <translation type="unfinished"></translation>
+        <translation>사진 %1</translation>
     </message>
     <message>
         <source>This template is empty</source>
-        <translation type="unfinished"></translation>
+        <translation>이 템플릿은 비어 있습니다</translation>
     </message>
     <message>
         <source>Could not place the template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿을 배치할 수 없습니다</translation>
     </message>
     <message>
         <source>Add template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 추가</translation>
     </message>
     <message>
         <source>Template added, but it uses fonts this computer does not have: %1. Install the Fonts packs from Extras so it looks as designed.</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿이 추가되었지만 이 컴퓨터에 없는 글꼴을 사용합니다: %1. 디자인대로 보이도록 추가 기능에서 글꼴 팩을 설치하세요.</translation>
     </message>
     <message numerus="yes">
         <source>Template added: fill its %n slot(s) in the panel on the right</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>템플릿 추가됨: 오른쪽 패널에서 슬롯 %n개를 채우세요</numerusform>
         </translation>
     </message>
     <message>
         <source>Template added</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 추가됨</translation>
     </message>
     <message>
         <source>A slot takes a photo or a video</source>
-        <translation type="unfinished"></translation>
+        <translation>슬롯에는 사진이나 동영상이 들어갑니다</translation>
     </message>
     <message>
         <source>Fill template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 채우기</translation>
     </message>
     <message>
         <source>Template text</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 텍스트</translation>
     </message>
     <message>
         <source>Make slot</source>
-        <translation type="unfinished"></translation>
+        <translation>슬롯으로 만들기</translation>
     </message>
     <message>
         <source>Remove slot</source>
-        <translation type="unfinished"></translation>
+        <translation>슬롯 제거</translation>
     </message>
     <message>
         <source>Only a composition can be saved as a template</source>
-        <translation type="unfinished"></translation>
+        <translation>컴포지션만 템플릿으로 저장할 수 있습니다</translation>
     </message>
     <message>
         <source>Could not create the template folder</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 폴더를 만들 수 없습니다</translation>
     </message>
     <message>
         <source>Could not copy %1 into the template</source>
-        <translation type="unfinished"></translation>
+        <translation>%1을(를) 템플릿에 복사할 수 없습니다</translation>
     </message>
     <message>
         <source>Could not save the template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿을 저장할 수 없습니다</translation>
     </message>
     <message>
         <source>Saved in Templates › Scenes. It has no slots yet: open the composition and make photos into slots with a right click.</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 › 장면에 저장되었습니다. 아직 슬롯이 없습니다. 컴포지션을 열고 사진을 마우스 오른쪽 버튼으로 클릭해 슬롯으로 만드세요.</translation>
     </message>
     <message numerus="yes">
         <source>Saved in Templates › Scenes, with %n slot(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>템플릿 › 장면에 슬롯 %n개와 함께 저장됨</numerusform>
         </translation>
     </message>
     <message>
         <source>Template deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 삭제됨</translation>
     </message>
 </context>
 <context>
     <name>AssetCategoryChips</name>
     <message>
         <source>My Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>내 효과</translation>
     </message>
     <message>
         <source>Favorites</source>
@@ -5284,11 +5284,11 @@
     </message>
     <message>
         <source>Show fewer categories</source>
-        <translation type="unfinished"></translation>
+        <translation>카테고리 적게 보기</translation>
     </message>
     <message>
         <source>Show all categories</source>
-        <translation type="unfinished"></translation>
+        <translation>모든 카테고리 보기</translation>
     </message>
 </context>
 <context>
@@ -5403,7 +5403,7 @@
     </message>
     <message>
         <source>%1 file (*.%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 파일 (*.%2)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -5411,19 +5411,19 @@
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>다른 이름으로 저장</translation>
     </message>
     <message>
         <source>Saving “%1”…</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1” 저장 중…</translation>
     </message>
     <message>
         <source>Couldn’t save “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1”을(를) 저장할 수 없습니다.</translation>
     </message>
     <message>
         <source>Saved “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1” 저장됨.</translation>
     </message>
     <message>
         <source>Couldn’t import that folder.</source>
@@ -5431,21 +5431,21 @@
     </message>
     <message>
         <source>Where is %1 now?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1은(는) 지금 어디에 있나요?</translation>
     </message>
     <message>
         <source>%1 (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (%1)</translation>
     </message>
     <message numerus="yes">
         <source>%n files found</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>파일 %n개 찾음</numerusform>
         </translation>
     </message>
     <message>
         <source>File found</source>
-        <translation type="unfinished"></translation>
+        <translation>파일 찾음</translation>
     </message>
     <message numerus="yes">
         <source>Imported %n files into %1 folders — as many as one folder import takes. Import the remaining subfolders separately.</source>
@@ -5481,7 +5481,7 @@
     </message>
     <message>
         <source>Speech</source>
-        <translation type="unfinished"></translation>
+        <translation>음성</translation>
     </message>
     <message>
         <source>Stickers</source>
@@ -5517,7 +5517,7 @@
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>음악</translation>
     </message>
     <message>
         <source>Shortcuts</source>
@@ -5585,7 +5585,7 @@
     </message>
     <message>
         <source>Stock</source>
-        <translation type="unfinished">스톡</translation>
+        <translation>스톡</translation>
     </message>
     <message>
         <source>New Folder</source>
@@ -5619,7 +5619,7 @@
     </message>
     <message>
         <source>Sound effects</source>
-        <translation type="unfinished"></translation>
+        <translation>효과음</translation>
     </message>
 </context>
 <context>
@@ -5642,11 +5642,11 @@
     </message>
     <message>
         <source>Install a custom audio effect or effect from a .driftfx file made in Drift Forge</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge에서 만든 .driftfx 파일로 사용자 지정 오디오 효과나 효과를 설치합니다</translation>
     </message>
     <message>
         <source>My Audio Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>내 오디오 효과</translation>
     </message>
     <message>
         <source>No audio effects match “%1”.</source>
@@ -5654,7 +5654,7 @@
     </message>
     <message>
         <source>Nothing here yet. Import a .driftfx file to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>아직 아무것도 없습니다. .driftfx 파일을 가져와 직접 추가하세요.</translation>
     </message>
     <message>
         <source>No favorites yet. Star presets to save them here.</source>
@@ -5666,11 +5666,11 @@
     </message>
     <message>
         <source>%1 is empty</source>
-        <translation type="unfinished"></translation>
+        <translation>%1이(가) 비어 있습니다</translation>
     </message>
     <message>
         <source>Import a .driftfx file made in Drift Forge to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge에서 만든 .driftfx 파일을 가져와 직접 추가하세요.</translation>
     </message>
     <message>
         <source>Import</source>
@@ -5678,11 +5678,11 @@
     </message>
     <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 — 클릭하면 선택 항목에 적용되고, 클립 위로 끌어 놓을 수도 있습니다</translation>
     </message>
     <message>
         <source>%1 — drag onto a clip in the timeline</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 — 타임라인의 클립 위로 끌어 놓으세요</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -5717,7 +5717,7 @@
     </message>
     <message>
         <source>Utility</source>
-        <translation type="unfinished"></translation>
+        <translation>유틸리티</translation>
     </message>
     <message>
         <source>Other</source>
@@ -5811,63 +5811,63 @@
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">기본</translation>
+        <translation>기본</translation>
     </message>
     <message>
         <source>Voice changer</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 변조</translation>
     </message>
     <message>
         <source>Fade in</source>
-        <translation type="unfinished">페이드 인</translation>
+        <translation>페이드 인</translation>
     </message>
     <message>
         <source>Fade out</source>
-        <translation type="unfinished">페이드 아웃</translation>
+        <translation>페이드 아웃</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
-        <translation type="unfinished"></translation>
+        <translation>라우드니스 노멀라이즈</translation>
     </message>
     <message>
         <source>Sets the clip&apos;s volume so it sounds as loud as social media expects (−14 LUFS).</source>
-        <translation type="unfinished"></translation>
+        <translation>소셜 미디어에서 기대하는 음량(−14 LUFS)으로 들리도록 클립의 볼륨을 설정합니다.</translation>
     </message>
     <message>
         <source>Measuring…</source>
-        <translation type="unfinished">측정 중…</translation>
+        <translation>측정 중…</translation>
     </message>
     <message>
         <source>Normalize to −14 LUFS</source>
-        <translation type="unfinished"></translation>
+        <translation>−14 LUFS로 노멀라이즈</translation>
     </message>
     <message>
         <source>Enhance voice</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 향상</translation>
     </message>
     <message>
         <source>Clearer, fuller speech: less room echo and background noise</source>
-        <translation type="unfinished"></translation>
+        <translation>더 선명하고 풍성한 음성: 방 울림과 배경 소음 감소</translation>
     </message>
     <message>
         <source>Fill channel</source>
-        <translation type="unfinished"></translation>
+        <translation>채널 채우기</translation>
     </message>
     <message>
         <source>For recordings heard on one side only: copies that side to both.</source>
-        <translation type="unfinished"></translation>
+        <translation>한쪽에서만 들리는 녹음용: 해당 쪽을 양쪽으로 복사합니다.</translation>
     </message>
     <message>
         <source>Left to both</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽을 양쪽으로</translation>
     </message>
     <message>
         <source>Right to both</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽을 양쪽으로</translation>
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished"></translation>
+        <translation>자동</translation>
     </message>
     <message>
         <source>Pan</source>
@@ -6151,7 +6151,7 @@
     </message>
     <message>
         <source>Soft light</source>
-        <translation type="unfinished"></translation>
+        <translation>소프트 라이트</translation>
     </message>
     <message>
         <source>How this clip blends with the layers below</source>
@@ -6166,2376 +6166,2376 @@
     <name>CameraInspector</name>
     <message>
         <source>Pan X</source>
-        <translation type="unfinished"></translation>
+        <translation>팬 X</translation>
     </message>
     <message>
         <source>Pan Y</source>
-        <translation type="unfinished"></translation>
+        <translation>팬 Y</translation>
     </message>
     <message>
         <source>Dolly</source>
-        <translation type="unfinished"></translation>
+        <translation>돌리</translation>
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"></translation>
+        <translation>피치</translation>
     </message>
     <message>
         <source>Yaw</source>
-        <translation type="unfinished"></translation>
+        <translation>요</translation>
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"></translation>
+        <translation>롤</translation>
     </message>
     <message>
         <source>Lens</source>
-        <translation type="unfinished"></translation>
+        <translation>렌즈</translation>
     </message>
     <message>
         <source>Select a camera clip to frame the shot.</source>
-        <translation type="unfinished"></translation>
+        <translation>샷을 구성할 카메라 클립을 선택하세요.</translation>
     </message>
     <message>
         <source>Everything on the timeline is seen through this camera while the clip lasts. A camera at rest looks exactly like no camera at all, so the numbers below are all offsets from the normal view.</source>
-        <translation type="unfinished"></translation>
+        <translation>클립이 지속되는 동안 타임라인의 모든 것이 이 카메라를 통해 보입니다. 정지 상태의 카메라는 카메라가 없는 것과 똑같이 보이므로, 아래 값은 모두 기본 보기에서의 오프셋입니다.</translation>
     </message>
     <message>
         <source>A short lens exaggerates depth; a long one flattens it. While this camera is running it replaces each clip&apos;s own Perspective value, because a scene has one viewer.</source>
-        <translation type="unfinished"></translation>
+        <translation>짧은 렌즈는 깊이를 과장하고 긴 렌즈는 평평하게 만듭니다. 장면에는 보는 사람이 한 명이므로, 이 카메라가 작동하는 동안에는 각 클립의 원근 값을 대체합니다.</translation>
     </message>
     <message>
         <source>Reset camera position</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 위치 초기화</translation>
     </message>
     <message>
         <source>Back to rest: no pan, dolly or turn, framing the canvas head on. The lens is kept.</source>
-        <translation type="unfinished"></translation>
+        <translation>정지 상태로 돌아갑니다. 팬, 돌리, 회전 없이 캔버스를 정면으로 잡습니다. 렌즈는 유지됩니다.</translation>
     </message>
 </context>
 <context>
     <name>Catalog</name>
     <message>
         <source>Duration</source>
-        <translation type="unfinished">재생 시간</translation>
+        <translation>길이</translation>
     </message>
     <message>
         <source>Stagger</source>
-        <translation type="unfinished">간격</translation>
+        <translation>시차</translation>
     </message>
     <message>
         <source>By</source>
-        <translation type="unfinished">기준</translation>
+        <translation>단위</translation>
     </message>
     <message>
         <source>Order</source>
-        <translation type="unfinished">순서</translation>
+        <translation>순서</translation>
     </message>
     <message>
         <source>Ease</source>
-        <translation type="unfinished">이징</translation>
+        <translation>이징</translation>
     </message>
     <message>
         <source>Your text</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 입력</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>밝기</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation type="unfinished"></translation>
+        <translation>양</translation>
     </message>
     <message>
         <source>Contrast</source>
-        <translation type="unfinished"></translation>
+        <translation>대비</translation>
     </message>
     <message>
         <source>Gamma</source>
-        <translation type="unfinished"></translation>
+        <translation>감마</translation>
     </message>
     <message>
         <source>Hue</source>
-        <translation type="unfinished"></translation>
+        <translation>색상</translation>
     </message>
     <message>
         <source>Degrees</source>
-        <translation type="unfinished"></translation>
+        <translation>각도</translation>
     </message>
     <message>
         <source>Saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>채도</translation>
     </message>
     <message>
         <source>Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>색온도</translation>
     </message>
     <message>
         <source>Kelvin</source>
-        <translation type="unfinished"></translation>
+        <translation>켈빈</translation>
     </message>
     <message>
         <source>Beat Shake</source>
-        <translation type="unfinished"></translation>
+        <translation>비트 흔들기</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished">회전</translation>
+        <translation>회전</translation>
     </message>
     <message>
         <source>Seed</source>
-        <translation type="unfinished">시드</translation>
+        <translation>시드</translation>
     </message>
     <message>
         <source>Bling</source>
-        <translation type="unfinished"></translation>
+        <translation>반짝임</translation>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">강도</translation>
+        <translation>강도</translation>
     </message>
     <message>
         <source>Threshold</source>
-        <translation type="unfinished"></translation>
+        <translation>임계값</translation>
     </message>
     <message>
         <source>Density</source>
-        <translation type="unfinished"></translation>
+        <translation>밀도</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">크기</translation>
+        <translation>크기</translation>
     </message>
     <message>
         <source>Twinkle</source>
-        <translation type="unfinished"></translation>
+        <translation>깜빡임</translation>
     </message>
     <message>
         <source>Points</source>
-        <translation type="unfinished">점</translation>
+        <translation>꼭짓점</translation>
     </message>
     <message>
         <source>Tint</source>
-        <translation type="unfinished"></translation>
+        <translation>색조</translation>
     </message>
     <message>
         <source>Block Glitch</source>
-        <translation type="unfinished"></translation>
+        <translation>블록 글리치</translation>
     </message>
     <message>
         <source>Block size</source>
-        <translation type="unfinished"></translation>
+        <translation>블록 크기</translation>
     </message>
     <message>
         <source>Shift</source>
-        <translation type="unfinished"></translation>
+        <translation>이동</translation>
     </message>
     <message>
         <source>Frequency</source>
-        <translation type="unfinished"></translation>
+        <translation>빈도</translation>
     </message>
     <message>
         <source>Bloom / Glow</source>
-        <translation type="unfinished"></translation>
+        <translation>블룸 / 글로우</translation>
     </message>
     <message>
         <source>Radius</source>
-        <translation type="unfinished">반경</translation>
+        <translation>반경</translation>
     </message>
     <message>
         <source>Bokeh Dream</source>
-        <translation type="unfinished"></translation>
+        <translation>몽환적인 보케</translation>
     </message>
     <message>
         <source>Softness</source>
-        <translation type="unfinished"></translation>
+        <translation>부드러움</translation>
     </message>
     <message>
         <source>Chroma Key</source>
-        <translation type="unfinished"></translation>
+        <translation>크로마 키</translation>
     </message>
     <message>
         <source>Key Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>키 색상</translation>
     </message>
     <message>
         <source>Tolerance</source>
-        <translation type="unfinished"></translation>
+        <translation>허용 범위</translation>
     </message>
     <message>
         <source>Edge Softness</source>
-        <translation type="unfinished"></translation>
+        <translation>가장자리 부드러움</translation>
     </message>
     <message>
         <source>Spill Removal</source>
-        <translation type="unfinished"></translation>
+        <translation>스필 제거</translation>
     </message>
     <message>
         <source>Cinematic</source>
-        <translation type="unfinished">시네마틱</translation>
+        <translation>시네마틱</translation>
     </message>
     <message>
         <source>Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>강도</translation>
     </message>
     <message>
         <source>Teal Shadows</source>
-        <translation type="unfinished"></translation>
+        <translation>청록 그림자</translation>
     </message>
     <message>
         <source>Orange Skin</source>
-        <translation type="unfinished"></translation>
+        <translation>주황 피부</translation>
     </message>
     <message>
         <source>Basic Adjust</source>
-        <translation type="unfinished"></translation>
+        <translation>기본 조정</translation>
     </message>
     <message>
         <source>Exposure</source>
-        <translation type="unfinished"></translation>
+        <translation>노출</translation>
     </message>
     <message>
         <source>Highlights</source>
-        <translation type="unfinished"></translation>
+        <translation>밝은 영역</translation>
     </message>
     <message>
         <source>Shadows</source>
-        <translation type="unfinished"></translation>
+        <translation>어두운 영역</translation>
     </message>
     <message>
         <source>Whites</source>
-        <translation type="unfinished"></translation>
+        <translation>흰색 계열</translation>
     </message>
     <message>
         <source>Blacks</source>
-        <translation type="unfinished"></translation>
+        <translation>검은색 계열</translation>
     </message>
     <message>
         <source>Vibrance</source>
-        <translation type="unfinished"></translation>
+        <translation>생동감</translation>
     </message>
     <message>
         <source>Curves</source>
-        <translation type="unfinished"></translation>
+        <translation>커브</translation>
     </message>
     <message>
         <source>Luma 0%</source>
-        <translation type="unfinished"></translation>
+        <translation>루마 0%</translation>
     </message>
     <message>
         <source>Luma 25%</source>
-        <translation type="unfinished"></translation>
+        <translation>루마 25%</translation>
     </message>
     <message>
         <source>Luma 50%</source>
-        <translation type="unfinished"></translation>
+        <translation>루마 50%</translation>
     </message>
     <message>
         <source>Luma 75%</source>
-        <translation type="unfinished"></translation>
+        <translation>루마 75%</translation>
     </message>
     <message>
         <source>Luma 100%</source>
-        <translation type="unfinished"></translation>
+        <translation>루마 100%</translation>
     </message>
     <message>
         <source>Red 0%</source>
-        <translation type="unfinished"></translation>
+        <translation>빨강 0%</translation>
     </message>
     <message>
         <source>Red 25%</source>
-        <translation type="unfinished"></translation>
+        <translation>빨강 25%</translation>
     </message>
     <message>
         <source>Red 50%</source>
-        <translation type="unfinished"></translation>
+        <translation>빨강 50%</translation>
     </message>
     <message>
         <source>Red 75%</source>
-        <translation type="unfinished"></translation>
+        <translation>빨강 75%</translation>
     </message>
     <message>
         <source>Red 100%</source>
-        <translation type="unfinished"></translation>
+        <translation>빨강 100%</translation>
     </message>
     <message>
         <source>Green 0%</source>
-        <translation type="unfinished"></translation>
+        <translation>초록 0%</translation>
     </message>
     <message>
         <source>Green 25%</source>
-        <translation type="unfinished"></translation>
+        <translation>초록 25%</translation>
     </message>
     <message>
         <source>Green 50%</source>
-        <translation type="unfinished"></translation>
+        <translation>초록 50%</translation>
     </message>
     <message>
         <source>Green 75%</source>
-        <translation type="unfinished"></translation>
+        <translation>초록 75%</translation>
     </message>
     <message>
         <source>Green 100%</source>
-        <translation type="unfinished"></translation>
+        <translation>초록 100%</translation>
     </message>
     <message>
         <source>Blue 0%</source>
-        <translation type="unfinished"></translation>
+        <translation>파랑 0%</translation>
     </message>
     <message>
         <source>Blue 25%</source>
-        <translation type="unfinished"></translation>
+        <translation>파랑 25%</translation>
     </message>
     <message>
         <source>Blue 50%</source>
-        <translation type="unfinished"></translation>
+        <translation>파랑 50%</translation>
     </message>
     <message>
         <source>Blue 75%</source>
-        <translation type="unfinished"></translation>
+        <translation>파랑 75%</translation>
     </message>
     <message>
         <source>Blue 100%</source>
-        <translation type="unfinished"></translation>
+        <translation>파랑 100%</translation>
     </message>
     <message>
         <source>HSL</source>
-        <translation type="unfinished"></translation>
+        <translation>HSL</translation>
     </message>
     <message>
         <source>Red hue</source>
-        <translation type="unfinished"></translation>
+        <translation>빨강 색조</translation>
     </message>
     <message>
         <source>Red saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>빨강 채도</translation>
     </message>
     <message>
         <source>Red lightness</source>
-        <translation type="unfinished"></translation>
+        <translation>빨강 밝기</translation>
     </message>
     <message>
         <source>Orange hue</source>
-        <translation type="unfinished"></translation>
+        <translation>주황 색조</translation>
     </message>
     <message>
         <source>Orange saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>주황 채도</translation>
     </message>
     <message>
         <source>Orange lightness</source>
-        <translation type="unfinished"></translation>
+        <translation>주황 밝기</translation>
     </message>
     <message>
         <source>Yellow hue</source>
-        <translation type="unfinished"></translation>
+        <translation>노랑 색조</translation>
     </message>
     <message>
         <source>Yellow saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>노랑 채도</translation>
     </message>
     <message>
         <source>Yellow lightness</source>
-        <translation type="unfinished"></translation>
+        <translation>노랑 밝기</translation>
     </message>
     <message>
         <source>Green hue</source>
-        <translation type="unfinished"></translation>
+        <translation>초록 색조</translation>
     </message>
     <message>
         <source>Green saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>초록 채도</translation>
     </message>
     <message>
         <source>Green lightness</source>
-        <translation type="unfinished"></translation>
+        <translation>초록 밝기</translation>
     </message>
     <message>
         <source>Aqua hue</source>
-        <translation type="unfinished"></translation>
+        <translation>아쿠아 색조</translation>
     </message>
     <message>
         <source>Aqua saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>아쿠아 채도</translation>
     </message>
     <message>
         <source>Aqua lightness</source>
-        <translation type="unfinished"></translation>
+        <translation>아쿠아 밝기</translation>
     </message>
     <message>
         <source>Blue hue</source>
-        <translation type="unfinished"></translation>
+        <translation>파랑 색조</translation>
     </message>
     <message>
         <source>Blue saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>파랑 채도</translation>
     </message>
     <message>
         <source>Blue lightness</source>
-        <translation type="unfinished"></translation>
+        <translation>파랑 밝기</translation>
     </message>
     <message>
         <source>Purple hue</source>
-        <translation type="unfinished"></translation>
+        <translation>보라 색조</translation>
     </message>
     <message>
         <source>Purple saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>보라 채도</translation>
     </message>
     <message>
         <source>Purple lightness</source>
-        <translation type="unfinished"></translation>
+        <translation>보라 밝기</translation>
     </message>
     <message>
         <source>Magenta hue</source>
-        <translation type="unfinished"></translation>
+        <translation>마젠타 색조</translation>
     </message>
     <message>
         <source>Magenta saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>마젠타 채도</translation>
     </message>
     <message>
         <source>Magenta lightness</source>
-        <translation type="unfinished"></translation>
+        <translation>마젠타 밝기</translation>
     </message>
     <message>
         <source>LUT</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT</translation>
     </message>
     <message>
         <source>LUT file</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT 파일</translation>
     </message>
     <message>
         <source>Color Wheels</source>
-        <translation type="unfinished"></translation>
+        <translation>컬러 휠</translation>
     </message>
     <message>
         <source>Shadows red</source>
-        <translation type="unfinished"></translation>
+        <translation>어두운 영역: 빨강</translation>
     </message>
     <message>
         <source>Shadows green</source>
-        <translation type="unfinished"></translation>
+        <translation>어두운 영역: 초록</translation>
     </message>
     <message>
         <source>Shadows blue</source>
-        <translation type="unfinished"></translation>
+        <translation>어두운 영역: 파랑</translation>
     </message>
     <message>
         <source>Midtones red</source>
-        <translation type="unfinished"></translation>
+        <translation>중간 톤: 빨강</translation>
     </message>
     <message>
         <source>Midtones green</source>
-        <translation type="unfinished"></translation>
+        <translation>중간 톤: 초록</translation>
     </message>
     <message>
         <source>Midtones blue</source>
-        <translation type="unfinished"></translation>
+        <translation>중간 톤: 파랑</translation>
     </message>
     <message>
         <source>Highlights red</source>
-        <translation type="unfinished"></translation>
+        <translation>밝은 영역: 빨강</translation>
     </message>
     <message>
         <source>Highlights green</source>
-        <translation type="unfinished"></translation>
+        <translation>밝은 영역: 초록</translation>
     </message>
     <message>
         <source>Highlights blue</source>
-        <translation type="unfinished"></translation>
+        <translation>밝은 영역: 파랑</translation>
     </message>
     <message>
         <source>Offset red</source>
-        <translation type="unfinished"></translation>
+        <translation>오프셋: 빨강</translation>
     </message>
     <message>
         <source>Offset green</source>
-        <translation type="unfinished"></translation>
+        <translation>오프셋: 초록</translation>
     </message>
     <message>
         <source>Offset blue</source>
-        <translation type="unfinished"></translation>
+        <translation>오프셋: 파랑</translation>
     </message>
     <message>
         <source>Depth Fog</source>
-        <translation type="unfinished"></translation>
+        <translation>깊이 안개</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished">색상</translation>
+        <translation>색상</translation>
     </message>
     <message>
         <source>Starts at</source>
-        <translation type="unfinished">시작 시점</translation>
+        <translation>시작 위치</translation>
     </message>
     <message>
         <source>Low-lying</source>
-        <translation type="unfinished"></translation>
+        <translation>낮게 깔림</translation>
     </message>
     <message>
         <source>Behind Subject</source>
-        <translation type="unfinished"></translation>
+        <translation>피사체 뒤</translation>
     </message>
     <message>
         <source>Clip</source>
-        <translation type="unfinished">클립</translation>
+        <translation>클립</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>거리</translation>
     </message>
     <message>
         <source>Edge softness</source>
-        <translation type="unfinished"></translation>
+        <translation>가장자리 부드러움</translation>
     </message>
     <message>
         <source>Use cutout edges</source>
-        <translation type="unfinished"></translation>
+        <translation>누끼 가장자리 사용</translation>
     </message>
     <message>
         <source>Depth of Field</source>
-        <translation type="unfinished"></translation>
+        <translation>피사계 심도</translation>
     </message>
     <message>
         <source>Focus distance</source>
-        <translation type="unfinished"></translation>
+        <translation>초점 거리</translation>
     </message>
     <message>
         <source>Sharp range</source>
-        <translation type="unfinished"></translation>
+        <translation>선명한 범위</translation>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished">블러</translation>
+        <translation>블러</translation>
     </message>
     <message>
         <source>Foreground blur</source>
-        <translation type="unfinished"></translation>
+        <translation>전경 블러</translation>
     </message>
     <message>
         <source>Bokeh highlights</source>
-        <translation type="unfinished"></translation>
+        <translation>보케 하이라이트</translation>
     </message>
     <message>
         <source>Follow focus point</source>
-        <translation type="unfinished"></translation>
+        <translation>초점 지점 따라가기</translation>
     </message>
     <message>
         <source>Focus point left / right</source>
-        <translation type="unfinished"></translation>
+        <translation>초점 지점 좌/우</translation>
     </message>
     <message>
         <source>Focus point up / down</source>
-        <translation type="unfinished"></translation>
+        <translation>초점 지점 위/아래</translation>
     </message>
     <message>
         <source>3D Relight</source>
-        <translation type="unfinished"></translation>
+        <translation>3D 조명</translation>
     </message>
     <message>
         <source>Existing light</source>
-        <translation type="unfinished"></translation>
+        <translation>기존 조명</translation>
     </message>
     <message>
         <source>Relief</source>
-        <translation type="unfinished"></translation>
+        <translation>입체감</translation>
     </message>
     <message>
         <source>Scene depth</source>
-        <translation type="unfinished"></translation>
+        <translation>장면 깊이</translation>
     </message>
     <message>
         <source>Shine</source>
-        <translation type="unfinished">빛</translation>
+        <translation>광택</translation>
     </message>
     <message>
         <source>Shine tightness</source>
-        <translation type="unfinished"></translation>
+        <translation>광택 집중도</translation>
     </message>
     <message>
         <source>On</source>
-        <translation type="unfinished">켜기</translation>
+        <translation>켜기</translation>
     </message>
     <message>
         <source>Light 1</source>
-        <translation type="unfinished"></translation>
+        <translation>조명 1</translation>
     </message>
     <message>
         <source>Left / right</source>
-        <translation type="unfinished"></translation>
+        <translation>좌/우</translation>
     </message>
     <message>
         <source>Up / down</source>
-        <translation type="unfinished"></translation>
+        <translation>위/아래</translation>
     </message>
     <message>
         <source>Near / far</source>
-        <translation type="unfinished"></translation>
+        <translation>가까이/멀리</translation>
     </message>
     <message>
         <source>Reach</source>
-        <translation type="unfinished"></translation>
+        <translation>도달 범위</translation>
     </message>
     <message>
         <source>Spot angle</source>
-        <translation type="unfinished"></translation>
+        <translation>스포트 각도</translation>
     </message>
     <message>
         <source>Aim left / right</source>
-        <translation type="unfinished"></translation>
+        <translation>조준 좌/우</translation>
     </message>
     <message>
         <source>Aim up / down</source>
-        <translation type="unfinished"></translation>
+        <translation>조준 위/아래</translation>
     </message>
     <message>
         <source>Light 2</source>
-        <translation type="unfinished"></translation>
+        <translation>조명 2</translation>
     </message>
     <message>
         <source>Light 3</source>
-        <translation type="unfinished"></translation>
+        <translation>조명 3</translation>
     </message>
     <message>
         <source>Light 4</source>
-        <translation type="unfinished"></translation>
+        <translation>조명 4</translation>
     </message>
     <message>
         <source>Depth View</source>
-        <translation type="unfinished"></translation>
+        <translation>깊이 보기</translation>
     </message>
     <message>
         <source>Colour map</source>
-        <translation type="unfinished"></translation>
+        <translation>컬러 맵</translation>
     </message>
     <message>
         <source>Snap to edges</source>
-        <translation type="unfinished"></translation>
+        <translation>가장자리에 맞추기</translation>
     </message>
     <message>
         <source>Digital Glitch</source>
-        <translation type="unfinished"></translation>
+        <translation>디지털 글리치</translation>
     </message>
     <message>
         <source>RGB split</source>
-        <translation type="unfinished"></translation>
+        <translation>RGB 분리</translation>
     </message>
     <message>
         <source>Block shift</source>
-        <translation type="unfinished"></translation>
+        <translation>블록 이동</translation>
     </message>
     <message>
         <source>Flash</source>
-        <translation type="unfinished"></translation>
+        <translation>플래시</translation>
     </message>
     <message>
         <source>Infinite Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>무한 줌</translation>
     </message>
     <message>
         <source>Center X</source>
-        <translation type="unfinished">중앙 X</translation>
+        <translation>중심 X</translation>
     </message>
     <message>
         <source>Center Y</source>
-        <translation type="unfinished">중앙 Y</translation>
+        <translation>중심 Y</translation>
     </message>
     <message>
         <source>Turns</source>
-        <translation type="unfinished"></translation>
+        <translation>회전 수</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>줌</translation>
     </message>
     <message>
         <source>Duotone</source>
-        <translation type="unfinished"></translation>
+        <translation>듀오톤</translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished">그림자</translation>
+        <translation>그림자</translation>
     </message>
     <message>
         <source>Highlight</source>
-        <translation type="unfinished"></translation>
+        <translation>하이라이트</translation>
     </message>
     <message>
         <source>Edge Glow / Neon</source>
-        <translation type="unfinished"></translation>
+        <translation>가장자리 글로우/네온</translation>
     </message>
     <message>
         <source>Alien Head</source>
-        <translation type="unfinished"></translation>
+        <translation>외계인 머리</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished">늘이기</translation>
+        <translation>늘이기</translation>
     </message>
     <message>
         <source>Narrow</source>
-        <translation type="unfinished"></translation>
+        <translation>좁히기</translation>
     </message>
     <message>
         <source>Coverage</source>
-        <translation type="unfinished"></translation>
+        <translation>적용 범위</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"></translation>
+        <translation>얼굴</translation>
     </message>
     <message>
         <source>Big Eyes</source>
-        <translation type="unfinished"></translation>
+        <translation>큰 눈</translation>
     </message>
     <message>
         <source>Brow Tint</source>
-        <translation type="unfinished"></translation>
+        <translation>눈썹 틴트</translation>
     </message>
     <message>
         <source>Shade</source>
-        <translation type="unfinished"></translation>
+        <translation>색조</translation>
     </message>
     <message>
         <source>Feather</source>
-        <translation type="unfinished">페더</translation>
+        <translation>페더</translation>
     </message>
     <message>
         <source>Eye Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>눈동자 색</translation>
     </message>
     <message>
         <source>Brighten</source>
-        <translation type="unfinished"></translation>
+        <translation>밝게</translation>
     </message>
     <message>
         <source>Keep pupil</source>
-        <translation type="unfinished"></translation>
+        <translation>동공 유지</translation>
     </message>
     <message>
         <source>Eyeliner</source>
-        <translation type="unfinished"></translation>
+        <translation>아이라이너</translation>
     </message>
     <message>
         <source>Thickness</source>
-        <translation type="unfinished">두께</translation>
+        <translation>두께</translation>
     </message>
     <message>
         <source>Wing</source>
-        <translation type="unfinished"></translation>
+        <translation>꼬리</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished">불투명도</translation>
+        <translation>불투명도</translation>
     </message>
     <message>
         <source>Eyeshadow</source>
-        <translation type="unfinished"></translation>
+        <translation>아이섀도</translation>
     </message>
     <message>
         <source>Spread</source>
-        <translation type="unfinished">확산</translation>
+        <translation>퍼짐</translation>
     </message>
     <message>
         <source>Fat / Slim Face</source>
-        <translation type="unfinished"></translation>
+        <translation>얼굴 넓게/갸름하게</translation>
     </message>
     <message>
         <source>Width</source>
-        <translation type="unfinished">너비</translation>
+        <translation>너비</translation>
     </message>
     <message>
         <source>Height</source>
-        <translation type="unfinished">높이</translation>
+        <translation>높이</translation>
     </message>
     <message>
         <source>Face Fisheye</source>
-        <translation type="unfinished"></translation>
+        <translation>얼굴 어안</translation>
     </message>
     <message>
         <source>3D Face Mesh</source>
-        <translation type="unfinished"></translation>
+        <translation>3D 얼굴 메시</translation>
     </message>
     <message>
         <source>Rest mesh</source>
-        <translation type="unfinished"></translation>
+        <translation>기본 메시</translation>
     </message>
     <message>
         <source>Fill Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>채우기 불투명도</translation>
     </message>
     <message>
         <source>Wireframe</source>
-        <translation type="unfinished"></translation>
+        <translation>와이어프레임</translation>
     </message>
     <message>
         <source>Wire Color</source>
-        <translation type="unfinished"></translation>
+        <translation>와이어 색상</translation>
     </message>
     <message>
         <source>Wire Width</source>
-        <translation type="unfinished"></translation>
+        <translation>와이어 두께</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished">크기 조정</translation>
+        <translation>크기</translation>
     </message>
     <message>
         <source>Offset X</source>
-        <translation type="unfinished">오프셋 X</translation>
+        <translation>오프셋 X</translation>
     </message>
     <message>
         <source>Offset Y</source>
-        <translation type="unfinished">오프셋 Y</translation>
+        <translation>오프셋 Y</translation>
     </message>
     <message>
         <source>Offset Z</source>
-        <translation type="unfinished"></translation>
+        <translation>오프셋 Z</translation>
     </message>
     <message>
         <source>Rotate X</source>
-        <translation type="unfinished"></translation>
+        <translation>X 회전</translation>
     </message>
     <message>
         <source>Rotate Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y 회전</translation>
     </message>
     <message>
         <source>Rotate Z</source>
-        <translation type="unfinished"></translation>
+        <translation>Z 회전</translation>
     </message>
     <message>
         <source>Light Yaw</source>
-        <translation type="unfinished"></translation>
+        <translation>조명 방향</translation>
     </message>
     <message>
         <source>Light Pitch</source>
-        <translation type="unfinished"></translation>
+        <translation>조명 높이</translation>
     </message>
     <message>
         <source>Light Intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>조명 강도</translation>
     </message>
     <message>
         <source>Ambient</source>
-        <translation type="unfinished">주변광</translation>
+        <translation>주변광</translation>
     </message>
     <message>
         <source>Face Props</source>
-        <translation type="unfinished">얼굴 소품</translation>
+        <translation>얼굴 소품</translation>
     </message>
     <message>
         <source>Prop</source>
-        <translation type="unfinished">소품</translation>
+        <translation>소품</translation>
     </message>
     <message>
         <source>Head Occlusion</source>
-        <translation type="unfinished"></translation>
+        <translation>머리 가림</translation>
     </message>
     <message>
         <source>Occlusion Size</source>
-        <translation type="unfinished"></translation>
+        <translation>가림 크기</translation>
     </message>
     <message>
         <source>Occlusion</source>
-        <translation type="unfinished"></translation>
+        <translation>가림</translation>
     </message>
     <message>
         <source>Occlusion Offset</source>
-        <translation type="unfinished"></translation>
+        <translation>가림 오프셋</translation>
     </message>
     <message>
         <source>Occlusion Depth</source>
-        <translation type="unfinished"></translation>
+        <translation>가림 깊이</translation>
     </message>
     <message>
         <source>Lighting</source>
-        <translation type="unfinished">조명</translation>
+        <translation>조명</translation>
     </message>
     <message>
         <source>Face Retouch</source>
-        <translation type="unfinished"></translation>
+        <translation>얼굴 보정</translation>
     </message>
     <message>
         <source>Smoothing</source>
-        <translation type="unfinished">부드러움</translation>
+        <translation>스무딩</translation>
     </message>
     <message>
         <source>Sharpen</source>
-        <translation type="unfinished"></translation>
+        <translation>선명하게</translation>
     </message>
     <message>
         <source>Whitening</source>
-        <translation type="unfinished"></translation>
+        <translation>미백</translation>
     </message>
     <message>
         <source>Skin tone</source>
-        <translation type="unfinished"></translation>
+        <translation>피부 톤</translation>
     </message>
     <message>
         <source>Tone</source>
-        <translation type="unfinished"></translation>
+        <translation>톤</translation>
     </message>
     <message>
         <source>Slim face</source>
-        <translation type="unfinished"></translation>
+        <translation>갸름한 얼굴</translation>
     </message>
     <message>
         <source>Big eyes</source>
-        <translation type="unfinished"></translation>
+        <translation>큰 눈</translation>
     </message>
     <message>
         <source>Lipstick</source>
-        <translation type="unfinished"></translation>
+        <translation>립스틱</translation>
     </message>
     <message>
         <source>Custom lip colour</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자 지정 입술 색</translation>
     </message>
     <message>
         <source>Lip colour</source>
-        <translation type="unfinished"></translation>
+        <translation>입술 색</translation>
     </message>
     <message>
         <source>Blush</source>
-        <translation type="unfinished"></translation>
+        <translation>블러셔</translation>
     </message>
     <message>
         <source>Skin feather</source>
-        <translation type="unfinished"></translation>
+        <translation>피부 페더</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">고급</translation>
+        <translation>고급</translation>
     </message>
     <message>
         <source>Custom blush colour</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자 지정 블러셔 색</translation>
     </message>
     <message>
         <source>Blush colour</source>
-        <translation type="unfinished"></translation>
+        <translation>블러셔 색</translation>
     </message>
     <message>
         <source>Face Swap</source>
-        <translation type="unfinished"></translation>
+        <translation>얼굴 교체</translation>
     </message>
     <message>
         <source>Face photo</source>
-        <translation type="unfinished"></translation>
+        <translation>얼굴 사진</translation>
     </message>
     <message>
         <source>Edge Feather</source>
-        <translation type="unfinished"></translation>
+        <translation>가장자리 페더</translation>
     </message>
     <message>
         <source>Match Lighting</source>
-        <translation type="unfinished"></translation>
+        <translation>조명 맞추기</translation>
     </message>
     <message>
         <source>Keep Eyes</source>
-        <translation type="unfinished"></translation>
+        <translation>눈 유지</translation>
     </message>
     <message>
         <source>Keep Mouth</source>
-        <translation type="unfinished"></translation>
+        <translation>입 유지</translation>
     </message>
     <message>
         <source>Face Swirl</source>
-        <translation type="unfinished"></translation>
+        <translation>얼굴 소용돌이</translation>
     </message>
     <message>
         <source>Twist</source>
-        <translation type="unfinished"></translation>
+        <translation>비틀기</translation>
     </message>
     <message>
         <source>Teeth Whiten</source>
-        <translation type="unfinished"></translation>
+        <translation>치아 미백</translation>
     </message>
     <message>
         <source>Whiten</source>
-        <translation type="unfinished"></translation>
+        <translation>미백</translation>
     </message>
     <message>
         <source>Wide Mouth</source>
-        <translation type="unfinished"></translation>
+        <translation>넓은 입</translation>
     </message>
     <message>
         <source>Widen</source>
-        <translation type="unfinished"></translation>
+        <translation>넓히기</translation>
     </message>
     <message>
         <source>Heighten</source>
-        <translation type="unfinished"></translation>
+        <translation>높이기</translation>
     </message>
     <message>
         <source>Film Burn / Light Leak</source>
-        <translation type="unfinished"></translation>
+        <translation>필름 번/라이트 릭</translation>
     </message>
     <message>
         <source>Warmth</source>
-        <translation type="unfinished"></translation>
+        <translation>따뜻함</translation>
     </message>
     <message>
         <source>Flicker</source>
-        <translation type="unfinished"></translation>
+        <translation>깜빡임</translation>
     </message>
     <message>
         <source>Film Grain</source>
-        <translation type="unfinished"></translation>
+        <translation>필름 그레인</translation>
     </message>
     <message>
         <source>Grain size</source>
-        <translation type="unfinished"></translation>
+        <translation>그레인 크기</translation>
     </message>
     <message>
         <source>Colour grain</source>
-        <translation type="unfinished"></translation>
+        <translation>컬러 그레인</translation>
     </message>
     <message>
         <source>Gaussian Blur (GPU)</source>
-        <translation type="unfinished"></translation>
+        <translation>가우시안 블러(GPU)</translation>
     </message>
     <message>
         <source>Blur Amount</source>
-        <translation type="unfinished"></translation>
+        <translation>블러 양</translation>
     </message>
     <message>
         <source>Halation</source>
-        <translation type="unfinished"></translation>
+        <translation>할레이션</translation>
     </message>
     <message>
         <source>Grain</source>
-        <translation type="unfinished"></translation>
+        <translation>그레인</translation>
     </message>
     <message>
         <source>Comic</source>
-        <translation type="unfinished"></translation>
+        <translation>코믹</translation>
     </message>
     <message>
         <source>Dot Size</source>
-        <translation type="unfinished"></translation>
+        <translation>점 크기</translation>
     </message>
     <message>
         <source>Levels</source>
-        <translation type="unfinished"></translation>
+        <translation>레벨</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished">각도</translation>
+        <translation>각도</translation>
     </message>
     <message>
         <source>Kaleidoscope</source>
-        <translation type="unfinished"></translation>
+        <translation>만화경</translation>
     </message>
     <message>
         <source>Segments</source>
-        <translation type="unfinished"></translation>
+        <translation>조각 수</translation>
     </message>
     <message>
         <source>Lens Flare</source>
-        <translation type="unfinished"></translation>
+        <translation>렌즈 플레어</translation>
     </message>
     <message>
         <source>Streak</source>
-        <translation type="unfinished"></translation>
+        <translation>광선</translation>
     </message>
     <message>
         <source>Ghosts</source>
-        <translation type="unfinished"></translation>
+        <translation>고스트</translation>
     </message>
     <message>
         <source>Light Leak</source>
-        <translation type="unfinished"></translation>
+        <translation>라이트 릭</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished">속도</translation>
+        <translation>속도</translation>
     </message>
     <message>
         <source>Lightning Sky</source>
-        <translation type="unfinished"></translation>
+        <translation>번개 치는 하늘</translation>
     </message>
     <message>
         <source>Motion Trail</source>
-        <translation type="unfinished"></translation>
+        <translation>모션 트레일</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation type="unfinished"></translation>
+        <translation>길이</translation>
     </message>
     <message>
         <source>Oil Paint</source>
-        <translation type="unfinished"></translation>
+        <translation>유화</translation>
     </message>
     <message>
         <source>RGB Split</source>
-        <translation type="unfinished"></translation>
+        <translation>RGB 분리</translation>
     </message>
     <message>
         <source>Animated</source>
-        <translation type="unfinished"></translation>
+        <translation>애니메이션</translation>
     </message>
     <message>
         <source>Ripple / Water</source>
-        <translation type="unfinished"></translation>
+        <translation>물결/물</translation>
     </message>
     <message>
         <source>Amplitude</source>
-        <translation type="unfinished"></translation>
+        <translation>진폭</translation>
     </message>
     <message>
         <source>Scanline Glitch</source>
-        <translation type="unfinished"></translation>
+        <translation>스캔라인 글리치</translation>
     </message>
     <message>
         <source>Jitter</source>
-        <translation type="unfinished"></translation>
+        <translation>흔들림</translation>
     </message>
     <message>
         <source>Scanlines</source>
-        <translation type="unfinished"></translation>
+        <translation>스캔라인</translation>
     </message>
     <message>
         <source>Color shift</source>
-        <translation type="unfinished"></translation>
+        <translation>색상 이동</translation>
     </message>
     <message>
         <source>Shockwave / Pulse</source>
-        <translation type="unfinished"></translation>
+        <translation>충격파/펄스</translation>
     </message>
     <message>
         <source>Pencil Sketch</source>
-        <translation type="unfinished"></translation>
+        <translation>연필 스케치</translation>
     </message>
     <message>
         <source>Detail</source>
-        <translation type="unfinished"></translation>
+        <translation>디테일</translation>
     </message>
     <message>
         <source>Spin Blur</source>
-        <translation type="unfinished"></translation>
+        <translation>회전 블러</translation>
     </message>
     <message>
         <source>Samples</source>
-        <translation type="unfinished">샘플</translation>
+        <translation>샘플 수</translation>
     </message>
     <message>
         <source>Star Filter</source>
-        <translation type="unfinished"></translation>
+        <translation>스타 필터</translation>
     </message>
     <message>
         <source>Diffraction</source>
-        <translation type="unfinished"></translation>
+        <translation>회절</translation>
     </message>
     <message>
         <source>Strobe</source>
-        <translation type="unfinished"></translation>
+        <translation>스트로브</translation>
     </message>
     <message>
         <source>Bloom</source>
-        <translation type="unfinished"></translation>
+        <translation>블룸</translation>
     </message>
     <message>
         <source>Grayscale</source>
-        <translation type="unfinished"></translation>
+        <translation>흑백</translation>
     </message>
     <message>
         <source>Pixelate</source>
-        <translation type="unfinished"></translation>
+        <translation>픽셀화</translation>
     </message>
     <message>
         <source>Block width</source>
-        <translation type="unfinished"></translation>
+        <translation>블록 너비</translation>
     </message>
     <message>
         <source>Block height</source>
-        <translation type="unfinished"></translation>
+        <translation>블록 높이</translation>
     </message>
     <message>
         <source>Ripple</source>
-        <translation type="unfinished">리플</translation>
+        <translation>물결</translation>
     </message>
     <message>
         <source>Sepia</source>
-        <translation type="unfinished"></translation>
+        <translation>세피아</translation>
     </message>
     <message>
         <source>VHS</source>
-        <translation type="unfinished"></translation>
+        <translation>VHS</translation>
     </message>
     <message>
         <source>Noise</source>
-        <translation type="unfinished">노이즈</translation>
+        <translation>노이즈</translation>
     </message>
     <message>
         <source>Chroma shift</source>
-        <translation type="unfinished"></translation>
+        <translation>색수차 이동</translation>
     </message>
     <message>
         <source>Vignette</source>
-        <translation type="unfinished"></translation>
+        <translation>비네트</translation>
     </message>
     <message>
         <source>Super 8</source>
-        <translation type="unfinished"></translation>
+        <translation>슈퍼 8</translation>
     </message>
     <message>
         <source>Scratches</source>
-        <translation type="unfinished"></translation>
+        <translation>스크래치</translation>
     </message>
     <message>
         <source>Gate Weave</source>
-        <translation type="unfinished"></translation>
+        <translation>게이트 흔들림</translation>
     </message>
     <message>
         <source>Time Echo / Trail</source>
-        <translation type="unfinished"></translation>
+        <translation>타임 에코/트레일</translation>
     </message>
     <message>
         <source>Frames</source>
-        <translation type="unfinished"></translation>
+        <translation>프레임</translation>
     </message>
     <message>
         <source>Decay</source>
-        <translation type="unfinished"></translation>
+        <translation>감쇠</translation>
     </message>
     <message>
         <source>VHS / CRT</source>
-        <translation type="unfinished"></translation>
+        <translation>VHS/CRT</translation>
     </message>
     <message>
         <source>Color bleed</source>
-        <translation type="unfinished"></translation>
+        <translation>색 번짐</translation>
     </message>
     <message>
         <source>Distortion</source>
-        <translation type="unfinished"></translation>
+        <translation>왜곡</translation>
     </message>
     <message>
         <source>Desaturation</source>
-        <translation type="unfinished"></translation>
+        <translation>채도 감소</translation>
     </message>
     <message>
         <source>Wave Warp</source>
-        <translation type="unfinished"></translation>
+        <translation>웨이브 왜곡</translation>
     </message>
     <message>
         <source>Axis</source>
-        <translation type="unfinished"></translation>
+        <translation>축</translation>
     </message>
     <message>
         <source>Zoom Punch</source>
-        <translation type="unfinished"></translation>
+        <translation>줌 펀치</translation>
     </message>
     <message>
         <source>Punch</source>
-        <translation type="unfinished"></translation>
+        <translation>펀치</translation>
     </message>
     <message>
         <source>Analog Interference</source>
-        <translation type="unfinished"></translation>
+        <translation>아날로그 간섭</translation>
     </message>
     <message>
         <source>Radial Stretch</source>
-        <translation type="unfinished"></translation>
+        <translation>방사형 늘이기</translation>
     </message>
     <message>
         <source>Wave Width</source>
-        <translation type="unfinished"></translation>
+        <translation>웨이브 너비</translation>
     </message>
     <message>
         <source>White Noise</source>
-        <translation type="unfinished"></translation>
+        <translation>백색 소음</translation>
     </message>
     <message>
         <source>Blur Dissolve</source>
-        <translation type="unfinished"></translation>
+        <translation>블러 디졸브</translation>
     </message>
     <message>
         <source>Bubbling Dissolve</source>
-        <translation type="unfinished"></translation>
+        <translation>버블 디졸브</translation>
     </message>
     <message>
         <source>Bubble Density</source>
-        <translation type="unfinished"></translation>
+        <translation>버블 밀도</translation>
     </message>
     <message>
         <source>Bubble Size</source>
-        <translation type="unfinished"></translation>
+        <translation>버블 크기</translation>
     </message>
     <message>
         <source>Rise</source>
-        <translation type="unfinished"></translation>
+        <translation>상승</translation>
     </message>
     <message>
         <source>Refraction</source>
-        <translation type="unfinished"></translation>
+        <translation>굴절</translation>
     </message>
     <message>
         <source>Cross-Zoom Swirl</source>
-        <translation type="unfinished"></translation>
+        <translation>크로스 줌 소용돌이</translation>
     </message>
     <message>
         <source>Swirl</source>
-        <translation type="unfinished"></translation>
+        <translation>소용돌이</translation>
     </message>
     <message>
         <source>Crossfade</source>
-        <translation type="unfinished"></translation>
+        <translation>크로스페이드</translation>
     </message>
     <message>
         <source>Dip to Black</source>
-        <translation type="unfinished"></translation>
+        <translation>검은색으로 페이드</translation>
     </message>
     <message>
         <source>Dip to White</source>
-        <translation type="unfinished"></translation>
+        <translation>흰색으로 페이드</translation>
     </message>
     <message>
         <source>Fold</source>
-        <translation type="unfinished"></translation>
+        <translation>접기</translation>
     </message>
     <message>
         <source>Fold Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>접기 각도</translation>
     </message>
     <message>
         <source>Glass Wipe</source>
-        <translation type="unfinished"></translation>
+        <translation>유리 와이프</translation>
     </message>
     <message>
         <source>Glass Thickness</source>
-        <translation type="unfinished"></translation>
+        <translation>유리 두께</translation>
     </message>
     <message>
         <source>Honeycomb Hexagon</source>
-        <translation type="unfinished"></translation>
+        <translation>벌집 육각형</translation>
     </message>
     <message>
         <source>Cell Density</source>
-        <translation type="unfinished"></translation>
+        <translation>셀 밀도</translation>
     </message>
     <message>
         <source>Ink Bleed</source>
-        <translation type="unfinished"></translation>
+        <translation>잉크 번짐</translation>
     </message>
     <message>
         <source>Noise Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>노이즈 스케일</translation>
     </message>
     <message>
         <source>Ink Darkness</source>
-        <translation type="unfinished"></translation>
+        <translation>잉크 농도</translation>
     </message>
     <message>
         <source>Kaleidoscope Spin</source>
-        <translation type="unfinished"></translation>
+        <translation>회전 만화경</translation>
     </message>
     <message>
         <source>Spin</source>
-        <translation type="unfinished"></translation>
+        <translation>회전</translation>
     </message>
     <message>
         <source>Tunnel Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>터널 줌</translation>
     </message>
     <message>
         <source>Lens Flare Wipe</source>
-        <translation type="unfinished"></translation>
+        <translation>렌즈 플레어 와이프</translation>
     </message>
     <message>
         <source>Streak Width</source>
-        <translation type="unfinished"></translation>
+        <translation>광선 너비</translation>
     </message>
     <message>
         <source>Linear Blinds</source>
-        <translation type="unfinished"></translation>
+        <translation>선형 블라인드</translation>
     </message>
     <message>
         <source>Bar Count</source>
-        <translation type="unfinished"></translation>
+        <translation>막대 수</translation>
     </message>
     <message>
         <source>Motion Blur</source>
-        <translation type="unfinished"></translation>
+        <translation>모션 블러</translation>
     </message>
     <message>
         <source>Specular</source>
-        <translation type="unfinished"></translation>
+        <translation>반사광</translation>
     </message>
     <message>
         <source>Liquid Smudge</source>
-        <translation type="unfinished"></translation>
+        <translation>리퀴드 번짐</translation>
     </message>
     <message>
         <source>Melt Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>녹아내림 강도</translation>
     </message>
     <message>
         <source>Downward Melt</source>
-        <translation type="unfinished"></translation>
+        <translation>아래로 녹아내림</translation>
     </message>
     <message>
         <source>Bleed</source>
-        <translation type="unfinished"></translation>
+        <translation>번짐</translation>
     </message>
     <message>
         <source>Luma Fade</source>
-        <translation type="unfinished"></translation>
+        <translation>루마 페이드</translation>
     </message>
     <message>
         <source>Highlights First</source>
-        <translation type="unfinished"></translation>
+        <translation>밝은 영역 먼저</translation>
     </message>
     <message>
         <source>Digital Matrix Rain</source>
-        <translation type="unfinished"></translation>
+        <translation>디지털 매트릭스 레인</translation>
     </message>
     <message>
         <source>Columns</source>
-        <translation type="unfinished"></translation>
+        <translation>열</translation>
     </message>
     <message>
         <source>Trail Length</source>
-        <translation type="unfinished"></translation>
+        <translation>트레일 길이</translation>
     </message>
     <message>
         <source>Glyph Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>문자 밝기</translation>
     </message>
     <message>
         <source>Organic Wipe</source>
-        <translation type="unfinished"></translation>
+        <translation>오가닉 와이프</translation>
     </message>
     <message>
         <source>Edge Roughness</source>
-        <translation type="unfinished"></translation>
+        <translation>가장자리 거칠기</translation>
     </message>
     <message>
         <source>Particle Wind</source>
-        <translation type="unfinished"></translation>
+        <translation>파티클 바람</translation>
     </message>
     <message>
         <source>Wind Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>바람 세기</translation>
     </message>
     <message>
         <source>Turbulence</source>
-        <translation type="unfinished"></translation>
+        <translation>난류</translation>
     </message>
     <message>
         <source>Dissolve Spread</source>
-        <translation type="unfinished"></translation>
+        <translation>디졸브 퍼짐</translation>
     </message>
     <message>
         <source>Direction</source>
-        <translation type="unfinished">방향</translation>
+        <translation>방향</translation>
     </message>
     <message>
         <source>Pixelate Matrix</source>
-        <translation type="unfinished"></translation>
+        <translation>픽셀 매트릭스</translation>
     </message>
     <message>
         <source>Blockiness</source>
-        <translation type="unfinished"></translation>
+        <translation>블록 정도</translation>
     </message>
     <message>
         <source>Colour Swap</source>
-        <translation type="unfinished"></translation>
+        <translation>색상 교체</translation>
     </message>
     <message>
         <source>Plasma Burn</source>
-        <translation type="unfinished"></translation>
+        <translation>플라스마 번</translation>
     </message>
     <message>
         <source>Ember Intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>불씨 강도</translation>
     </message>
     <message>
         <source>Edge Width</source>
-        <translation type="unfinished"></translation>
+        <translation>가장자리 너비</translation>
     </message>
     <message>
         <source>Push Left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽으로 밀기</translation>
     </message>
     <message>
         <source>Radial Zoom Blur</source>
-        <translation type="unfinished"></translation>
+        <translation>방사형 줌 블러</translation>
     </message>
     <message>
         <source>Blur Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>블러 강도</translation>
     </message>
     <message>
         <source>Centre X</source>
-        <translation type="unfinished">중앙 X</translation>
+        <translation>중심 X</translation>
     </message>
     <message>
         <source>Centre Y</source>
-        <translation type="unfinished">중앙 Y</translation>
+        <translation>중심 Y</translation>
     </message>
     <message>
         <source>RGB Displacement</source>
-        <translation type="unfinished"></translation>
+        <translation>RGB 변위</translation>
     </message>
     <message>
         <source>Tear Amount</source>
-        <translation type="unfinished"></translation>
+        <translation>찢김 정도</translation>
     </message>
     <message>
         <source>Channel Split</source>
-        <translation type="unfinished"></translation>
+        <translation>채널 분리</translation>
     </message>
     <message>
         <source>Tear Bands</source>
-        <translation type="unfinished"></translation>
+        <translation>찢김 띠</translation>
     </message>
     <message>
         <source>Hold Frames</source>
-        <translation type="unfinished"></translation>
+        <translation>정지 프레임</translation>
     </message>
     <message>
         <source>Slide Down</source>
-        <translation type="unfinished"></translation>
+        <translation>아래로 슬라이드</translation>
     </message>
     <message>
         <source>Slide Left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽으로 슬라이드</translation>
     </message>
     <message>
         <source>Slide Right</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽으로 슬라이드</translation>
     </message>
     <message>
         <source>Slide Up</source>
-        <translation type="unfinished"></translation>
+        <translation>위로 슬라이드</translation>
     </message>
     <message>
         <source>Torn Paper</source>
-        <translation type="unfinished"></translation>
+        <translation>찢어진 종이</translation>
     </message>
     <message>
         <source>Tear Roughness</source>
-        <translation type="unfinished"></translation>
+        <translation>찢김 거칠기</translation>
     </message>
     <message>
         <source>Triangle Mosaic</source>
-        <translation type="unfinished"></translation>
+        <translation>삼각형 모자이크</translation>
     </message>
     <message>
         <source>Edge Shading</source>
-        <translation type="unfinished"></translation>
+        <translation>가장자리 음영</translation>
     </message>
     <message>
         <source>VHS Scanline</source>
-        <translation type="unfinished"></translation>
+        <translation>VHS 스캔라인</translation>
     </message>
     <message>
         <source>Roll Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>롤 속도</translation>
     </message>
     <message>
         <source>Bar Width</source>
-        <translation type="unfinished"></translation>
+        <translation>막대 너비</translation>
     </message>
     <message>
         <source>Static</source>
-        <translation type="unfinished"></translation>
+        <translation>정전기 노이즈</translation>
     </message>
     <message>
         <source>Chroma Bleed</source>
-        <translation type="unfinished"></translation>
+        <translation>색 번짐</translation>
     </message>
     <message>
         <source>Voronoi Shatter</source>
-        <translation type="unfinished"></translation>
+        <translation>보로노이 파편</translation>
     </message>
     <message>
         <source>Shard Count</source>
-        <translation type="unfinished"></translation>
+        <translation>파편 수</translation>
     </message>
     <message>
         <source>Push Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>밀기 거리</translation>
     </message>
     <message>
         <source>Warp Slide</source>
-        <translation type="unfinished"></translation>
+        <translation>워프 슬라이드</translation>
     </message>
     <message>
         <source>Warp</source>
-        <translation type="unfinished"></translation>
+        <translation>워프</translation>
     </message>
     <message>
         <source>Wipe Down</source>
-        <translation type="unfinished"></translation>
+        <translation>아래로 와이프</translation>
     </message>
     <message>
         <source>Wipe Left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽으로 와이프</translation>
     </message>
     <message>
         <source>Wipe Right</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽으로 와이프</translation>
     </message>
     <message>
         <source>Wipe Up</source>
-        <translation type="unfinished"></translation>
+        <translation>위로 와이프</translation>
     </message>
     <message>
         <source>Zoom In</source>
-        <translation type="unfinished"></translation>
+        <translation>확대</translation>
     </message>
     <message>
         <source>Start Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>시작 크기</translation>
     </message>
     <message>
         <source>Auto-Pan</source>
-        <translation type="unfinished"></translation>
+        <translation>자동 패닝</translation>
     </message>
     <message>
         <source>Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>속도</translation>
     </message>
     <message>
         <source>Input Level</source>
-        <translation type="unfinished"></translation>
+        <translation>입력 레벨</translation>
     </message>
     <message>
         <source>Output Level</source>
-        <translation type="unfinished"></translation>
+        <translation>출력 레벨</translation>
     </message>
     <message>
         <source>Chorus</source>
-        <translation type="unfinished"></translation>
+        <translation>코러스</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"></translation>
+        <translation>입력</translation>
     </message>
     <message>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>출력</translation>
     </message>
     <message>
         <source>Delay (ms)</source>
-        <translation type="unfinished"></translation>
+        <translation>딜레이(ms)</translation>
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished">깊이</translation>
+        <translation>깊이</translation>
     </message>
     <message>
         <source>Echo</source>
-        <translation type="unfinished">에코</translation>
+        <translation>에코</translation>
     </message>
     <message>
         <source>Wet Mix</source>
-        <translation type="unfinished"></translation>
+        <translation>효과음 믹스</translation>
     </message>
     <message>
         <source>Flanger</source>
-        <translation type="unfinished"></translation>
+        <translation>플랜저</translation>
     </message>
     <message>
         <source>Modulation Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>변조 속도</translation>
     </message>
     <message>
         <source>Stereo Phase</source>
-        <translation type="unfinished"></translation>
+        <translation>스테레오 위상</translation>
     </message>
     <message>
         <source>Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation>피드백</translation>
     </message>
     <message>
         <source>Invert Phase</source>
-        <translation type="unfinished"></translation>
+        <translation>위상 반전</translation>
     </message>
     <message>
         <source>Phaser</source>
-        <translation type="unfinished"></translation>
+        <translation>페이저</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>딜레이</translation>
     </message>
     <message>
         <source>Slapback</source>
-        <translation type="unfinished"></translation>
+        <translation>슬랩백</translation>
     </message>
     <message>
         <source>Tremolo</source>
-        <translation type="unfinished"></translation>
+        <translation>트레몰로</translation>
     </message>
     <message>
         <source>Stereo Widen</source>
-        <translation type="unfinished"></translation>
+        <translation>스테레오 확장</translation>
     </message>
     <message>
         <source>Dry Mix</source>
-        <translation type="unfinished"></translation>
+        <translation>원음 믹스</translation>
     </message>
     <message>
         <source>Crossfeed</source>
-        <translation type="unfinished"></translation>
+        <translation>크로스피드</translation>
     </message>
     <message>
         <source>Bitcrush</source>
-        <translation type="unfinished"></translation>
+        <translation>비트크러시</translation>
     </message>
     <message>
         <source>Bits</source>
-        <translation type="unfinished"></translation>
+        <translation>비트</translation>
     </message>
     <message>
         <source>Sample Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>샘플 레이트</translation>
     </message>
     <message>
         <source>Mix</source>
-        <translation type="unfinished"></translation>
+        <translation>믹스</translation>
     </message>
     <message>
         <source>Crystalize</source>
-        <translation type="unfinished"></translation>
+        <translation>크리스털화</translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>색상 수</translation>
     </message>
     <message>
         <source>8-Bit</source>
-        <translation type="unfinished"></translation>
+        <translation>8비트</translation>
     </message>
     <message>
         <source>Tape Saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>테이프 새츄레이션</translation>
     </message>
     <message>
         <source>Ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>비율</translation>
     </message>
     <message>
         <source>Attack (ms)</source>
-        <translation type="unfinished"></translation>
+        <translation>어택(ms)</translation>
     </message>
     <message>
         <source>Release (ms)</source>
-        <translation type="unfinished"></translation>
+        <translation>릴리스(ms)</translation>
     </message>
     <message>
         <source>Vinyl</source>
-        <translation type="unfinished"></translation>
+        <translation>바이닐</translation>
     </message>
     <message>
         <source>Flutter</source>
-        <translation type="unfinished"></translation>
+        <translation>플러터</translation>
     </message>
     <message>
         <source>Rumble</source>
-        <translation type="unfinished"></translation>
+        <translation>럼블</translation>
     </message>
     <message>
         <source>Cutoff</source>
-        <translation type="unfinished"></translation>
+        <translation>컷오프</translation>
     </message>
     <message>
         <source>Wobble Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>흔들림 속도</translation>
     </message>
     <message>
         <source>Megaphone</source>
-        <translation type="unfinished"></translation>
+        <translation>확성기</translation>
     </message>
     <message>
         <source>Center Freq</source>
-        <translation type="unfinished"></translation>
+        <translation>중심 주파수</translation>
     </message>
     <message>
         <source>Band Width</source>
-        <translation type="unfinished"></translation>
+        <translation>대역폭</translation>
     </message>
     <message>
         <source>Muffled</source>
-        <translation type="unfinished"></translation>
+        <translation>먹먹하게</translation>
     </message>
     <message>
         <source>Gain</source>
-        <translation type="unfinished"></translation>
+        <translation>게인</translation>
     </message>
     <message>
         <source>Telephone</source>
-        <translation type="unfinished"></translation>
+        <translation>전화</translation>
     </message>
     <message>
         <source>High-Pass</source>
-        <translation type="unfinished"></translation>
+        <translation>하이패스</translation>
     </message>
     <message>
         <source>Low-Pass</source>
-        <translation type="unfinished"></translation>
+        <translation>로우패스</translation>
     </message>
     <message>
         <source>Underwater</source>
-        <translation type="unfinished"></translation>
+        <translation>수중</translation>
     </message>
     <message>
         <source>Motion</source>
-        <translation type="unfinished">모션</translation>
+        <translation>움직임</translation>
     </message>
     <message>
         <source>Walkie-Talkie</source>
-        <translation type="unfinished"></translation>
+        <translation>무전기</translation>
     </message>
     <message>
         <source>Grit</source>
-        <translation type="unfinished"></translation>
+        <translation>거칠기</translation>
     </message>
     <message>
         <source>Fill Channel</source>
-        <translation type="unfinished"></translation>
+        <translation>채널 채우기</translation>
     </message>
     <message>
         <source>Source (0 left, 1 right, 2 auto)</source>
-        <translation type="unfinished"></translation>
+        <translation>소스(0 왼쪽, 1 오른쪽, 2 자동)</translation>
     </message>
     <message>
         <source>Compressor</source>
-        <translation type="unfinished"></translation>
+        <translation>컴프레서</translation>
     </message>
     <message>
         <source>Threshold (dB)</source>
-        <translation type="unfinished"></translation>
+        <translation>임계값(dB)</translation>
     </message>
     <message>
         <source>Makeup Gain</source>
-        <translation type="unfinished"></translation>
+        <translation>메이크업 게인</translation>
     </message>
     <message>
         <source>De-esser</source>
-        <translation type="unfinished"></translation>
+        <translation>디에서</translation>
     </message>
     <message>
         <source>Max Reduction</source>
-        <translation type="unfinished"></translation>
+        <translation>최대 감소량</translation>
     </message>
     <message>
         <source>EQ</source>
-        <translation type="unfinished"></translation>
+        <translation>EQ</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"></translation>
+        <translation>저음</translation>
     </message>
     <message>
         <source>Mid</source>
-        <translation type="unfinished"></translation>
+        <translation>중음</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"></translation>
+        <translation>고음</translation>
     </message>
     <message>
         <source>Noise Gate</source>
-        <translation type="unfinished"></translation>
+        <translation>노이즈 게이트</translation>
     </message>
     <message>
         <source>Voice Leveler</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 레벨러</translation>
     </message>
     <message>
         <source>Target Peak</source>
-        <translation type="unfinished"></translation>
+        <translation>목표 피크</translation>
     </message>
     <message>
         <source>Limiter</source>
-        <translation type="unfinished"></translation>
+        <translation>리미터</translation>
     </message>
     <message>
         <source>Drive</source>
-        <translation type="unfinished"></translation>
+        <translation>드라이브</translation>
     </message>
     <message>
         <source>Ceiling</source>
-        <translation type="unfinished"></translation>
+        <translation>실링</translation>
     </message>
     <message>
         <source>Alien</source>
-        <translation type="unfinished"></translation>
+        <translation>외계인</translation>
     </message>
     <message>
         <source>Chipmunk</source>
-        <translation type="unfinished"></translation>
+        <translation>다람쥐</translation>
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"></translation>
+        <translation>피치</translation>
     </message>
     <message>
         <source>Deep Voice</source>
-        <translation type="unfinished"></translation>
+        <translation>굵은 목소리</translation>
     </message>
     <message>
         <source>Robot</source>
-        <translation type="unfinished"></translation>
+        <translation>로봇</translation>
     </message>
     <message>
         <source>Dark Lord</source>
-        <translation type="unfinished"></translation>
+        <translation>다크 로드</translation>
     </message>
     <message>
         <source>Echo Delay (ms)</source>
-        <translation type="unfinished"></translation>
+        <translation>에코 딜레이(ms)</translation>
     </message>
     <message>
         <source>Echo Decay</source>
-        <translation type="unfinished"></translation>
+        <translation>에코 감쇠</translation>
     </message>
     <message>
         <source>Wobble</source>
-        <translation type="unfinished">흔들림</translation>
+        <translation>흔들림</translation>
     </message>
     <message>
         <source>Anime Punch</source>
-        <translation type="unfinished"></translation>
+        <translation>애니메 펀치</translation>
     </message>
     <message>
         <source>Beat Drop</source>
-        <translation type="unfinished"></translation>
+        <translation>비트 드롭</translation>
     </message>
     <message>
         <source>Bling Drop</source>
-        <translation type="unfinished"></translation>
+        <translation>블링 드롭</translation>
     </message>
     <message>
         <source>Blur Behind</source>
-        <translation type="unfinished"></translation>
+        <translation>배경 블러</translation>
     </message>
     <message>
         <source>Bubble World</source>
-        <translation type="unfinished"></translation>
+        <translation>버블 월드</translation>
     </message>
     <message>
         <source>Cinematic Open</source>
-        <translation type="unfinished"></translation>
+        <translation>시네마틱 오프닝</translation>
     </message>
     <message>
         <source>Comic Pop</source>
-        <translation type="unfinished"></translation>
+        <translation>코믹 팝</translation>
     </message>
     <message>
         <source>Dream Fade</source>
-        <translation type="unfinished"></translation>
+        <translation>드림 페이드</translation>
     </message>
     <message>
         <source>Echo Drop</source>
-        <translation type="unfinished"></translation>
+        <translation>에코 드롭</translation>
     </message>
     <message>
         <source>Flash Storm</source>
-        <translation type="unfinished"></translation>
+        <translation>플래시 스톰</translation>
     </message>
     <message>
         <source>Ghost Walk</source>
-        <translation type="unfinished"></translation>
+        <translation>고스트 워크</translation>
     </message>
     <message>
         <source>Glitch Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>글리치 컷</translation>
     </message>
     <message>
         <source>Kaleido Chaos</source>
-        <translation type="unfinished"></translation>
+        <translation>만화경 카오스</translation>
     </message>
     <message>
         <source>Manga Intro</source>
-        <translation type="unfinished"></translation>
+        <translation>만화 인트로</translation>
     </message>
     <message>
         <source>Neon Cutout</source>
-        <translation type="unfinished"></translation>
+        <translation>네온 누끼</translation>
     </message>
     <message>
         <source>Neon Night</source>
-        <translation type="unfinished"></translation>
+        <translation>네온 나이트</translation>
     </message>
     <message>
         <source>Retro Tape</source>
-        <translation type="unfinished"></translation>
+        <translation>레트로 테이프</translation>
     </message>
     <message>
         <source>RGB Rave</source>
-        <translation type="unfinished"></translation>
+        <translation>RGB 레이브</translation>
     </message>
     <message>
         <source>Shadow Legion</source>
-        <translation type="unfinished"></translation>
+        <translation>섀도 군단</translation>
     </message>
     <message>
         <source>Slowmo Drop</source>
-        <translation type="unfinished"></translation>
+        <translation>슬로모 드롭</translation>
     </message>
     <message>
         <source>Snap Transition</source>
-        <translation type="unfinished"></translation>
+        <translation>스냅 전환</translation>
     </message>
     <message>
         <source>Storm Drop</source>
-        <translation type="unfinished"></translation>
+        <translation>스톰 드롭</translation>
     </message>
     <message>
         <source>Sunset Leak</source>
-        <translation type="unfinished"></translation>
+        <translation>선셋 빛번짐</translation>
     </message>
     <message>
         <source>Blur by word</source>
-        <translation type="unfinished"></translation>
+        <translation>단어별 흐림</translation>
     </message>
     <message>
         <source>Blur in</source>
-        <translation type="unfinished"></translation>
+        <translation>흐림 인</translation>
     </message>
     <message>
         <source>Focus</source>
-        <translation type="unfinished">초점</translation>
+        <translation>초점</translation>
     </message>
     <message>
         <source>Bounce</source>
-        <translation type="unfinished">바운스</translation>
+        <translation>바운스</translation>
     </message>
     <message>
         <source>Boing</source>
-        <translation type="unfinished"></translation>
+        <translation>보잉</translation>
     </message>
     <message>
         <source>Breathe</source>
-        <translation type="unfinished"></translation>
+        <translation>숨쉬기</translation>
     </message>
     <message>
         <source>Colour wave</source>
-        <translation type="unfinished"></translation>
+        <translation>컬러 웨이브</translation>
     </message>
     <message>
         <source>Focus on creativity</source>
-        <translation type="unfinished"></translation>
+        <translation>창작에 집중하세요</translation>
     </message>
     <message>
         <source>Arrive colour</source>
-        <translation type="unfinished"></translation>
+        <translation>컬러 등장</translation>
     </message>
     <message>
         <source>Colour pulse</source>
-        <translation type="unfinished"></translation>
+        <translation>컬러 펄스</translation>
     </message>
     <message>
         <source>Colour A</source>
-        <translation type="unfinished"></translation>
+        <translation>색상 A</translation>
     </message>
     <message>
         <source>Colour B</source>
-        <translation type="unfinished"></translation>
+        <translation>색상 B</translation>
     </message>
     <message>
         <source>Converge</source>
-        <translation type="unfinished"></translation>
+        <translation>모으기</translation>
     </message>
     <message>
         <source>Drop</source>
-        <translation type="unfinished"></translation>
+        <translation>떨어지기</translation>
     </message>
     <message>
         <source>Drop in</source>
-        <translation type="unfinished"></translation>
+        <translation>드롭 인</translation>
     </message>
     <message>
         <source>Fade zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>페이드 줌</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished"></translation>
+        <translation>쌓기</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished">끝</translation>
+        <translation>끝</translation>
     </message>
     <message>
         <source>Fade away</source>
-        <translation type="unfinished"></translation>
+        <translation>사라지기</translation>
     </message>
     <message>
         <source>Bye</source>
-        <translation type="unfinished"></translation>
+        <translation>안녕</translation>
     </message>
     <message>
         <source>Fade up</source>
-        <translation type="unfinished"></translation>
+        <translation>위로 페이드</translation>
     </message>
     <message>
         <source>Fade</source>
-        <translation type="unfinished">페이드</translation>
+        <translation>페이드</translation>
     </message>
     <message>
         <source>Fade in</source>
-        <translation type="unfinished">페이드 인</translation>
+        <translation>페이드 인</translation>
     </message>
     <message>
         <source>Fall</source>
-        <translation type="unfinished"></translation>
+        <translation>낙하</translation>
     </message>
     <message>
         <source>Flicker on</source>
-        <translation type="unfinished"></translation>
+        <translation>깜빡이며 켜기</translation>
     </message>
     <message>
         <source>OPEN</source>
-        <translation type="unfinished"></translation>
+        <translation>오픈</translation>
     </message>
     <message>
         <source>Flip</source>
-        <translation type="unfinished">뒤집기</translation>
+        <translation>뒤집기</translation>
     </message>
     <message>
         <source>Flip it</source>
-        <translation type="unfinished"></translation>
+        <translation>뒤집어 봐</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation type="unfinished"></translation>
+        <translation>떠다니기</translation>
     </message>
     <message>
         <source>Floating words</source>
-        <translation type="unfinished"></translation>
+        <translation>떠다니는 단어</translation>
     </message>
     <message>
         <source>Glitch</source>
-        <translation type="unfinished">글리치</translation>
+        <translation>글리치</translation>
     </message>
     <message>
         <source>GLITCH</source>
-        <translation type="unfinished"></translation>
+        <translation>글리치</translation>
     </message>
     <message>
         <source>Offset</source>
-        <translation type="unfinished">오프셋</translation>
+        <translation>오프셋</translation>
     </message>
     <message>
         <source>Skew</source>
-        <translation type="unfinished"></translation>
+        <translation>기울이기</translation>
     </message>
     <message>
         <source>Karaoke bounce</source>
-        <translation type="unfinished"></translation>
+        <translation>가라오케 바운스</translation>
     </message>
     <message>
         <source>Bounce along</source>
-        <translation type="unfinished"></translation>
+        <translation>따라 부르며 통통</translation>
     </message>
     <message>
         <source>Lift</source>
-        <translation type="unfinished">들어 올리기</translation>
+        <translation>들어올리기</translation>
     </message>
     <message>
         <source>Karaoke pop</source>
-        <translation type="unfinished"></translation>
+        <translation>가라오케 팝</translation>
     </message>
     <message>
         <source>Sing along</source>
-        <translation type="unfinished"></translation>
+        <translation>함께 불러요</translation>
     </message>
     <message>
         <source>Pop</source>
-        <translation type="unfinished">팝</translation>
+        <translation>팝</translation>
     </message>
     <message>
         <source>Pop!</source>
-        <translation type="unfinished"></translation>
+        <translation>팝!</translation>
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished">시작</translation>
+        <translation>시작</translation>
     </message>
     <message>
         <source>Pulse</source>
-        <translation type="unfinished"></translation>
+        <translation>펄스</translation>
     </message>
     <message>
         <source>Raining</source>
-        <translation type="unfinished"></translation>
+        <translation>비 내리기</translation>
     </message>
     <message>
         <source>RAIN</source>
-        <translation type="unfinished"></translation>
+        <translation>비</translation>
     </message>
     <message>
         <source>Remove by word</source>
-        <translation type="unfinished"></translation>
+        <translation>단어별 제거</translation>
     </message>
     <message>
         <source>titles, ads, social</source>
-        <translation type="unfinished"></translation>
+        <translation>타이틀, 광고, 소셜</translation>
     </message>
     <message>
         <source>Animate your text</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트에 애니메이션을</translation>
     </message>
     <message>
         <source>Rise up</source>
-        <translation type="unfinished"></translation>
+        <translation>솟아오르기</translation>
     </message>
     <message>
         <source>Shrink</source>
-        <translation type="unfinished"></translation>
+        <translation>축소</translation>
     </message>
     <message>
         <source>Skew slide</source>
-        <translation type="unfinished"></translation>
+        <translation>기울여 슬라이드</translation>
     </message>
     <message>
         <source>Fast lane</source>
-        <translation type="unfinished"></translation>
+        <translation>고속 차선</translation>
     </message>
     <message>
         <source>Slide</source>
-        <translation type="unfinished"></translation>
+        <translation>슬라이드</translation>
     </message>
     <message>
         <source>Slow zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>느린 줌</translation>
     </message>
     <message>
         <source>Snap together</source>
-        <translation type="unfinished"></translation>
+        <translation>맞물리기</translation>
     </message>
     <message>
         <source>Boost your workflow</source>
-        <translation type="unfinished"></translation>
+        <translation>작업 속도를 높이세요</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
-        <translation type="unfinished"></translation>
+        <translation>찌그러뜨리기 및 늘이기</translation>
     </message>
     <message>
         <source>Rubber stamp</source>
-        <translation type="unfinished"></translation>
+        <translation>고무 도장</translation>
     </message>
     <message>
         <source>STAMP</source>
-        <translation type="unfinished"></translation>
+        <translation>스탬프</translation>
     </message>
     <message>
         <source>Tilt</source>
-        <translation type="unfinished"></translation>
+        <translation>틸트</translation>
     </message>
     <message>
         <source>Sway</source>
-        <translation type="unfinished"></translation>
+        <translation>흔들기</translation>
     </message>
     <message>
         <source>Swing</source>
-        <translation type="unfinished"></translation>
+        <translation>스윙</translation>
     </message>
     <message>
         <source>Tracking drift</source>
-        <translation type="unfinished"></translation>
+        <translation>자간 흐름</translation>
     </message>
     <message>
         <source>DRIFT</source>
-        <translation type="unfinished"></translation>
+        <translation>흐름</translation>
     </message>
     <message>
         <source>Type-on blur</source>
-        <translation type="unfinished"></translation>
+        <translation>흐림 타이핑</translation>
     </message>
     <message>
         <source>Text Animation</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 애니메이션</translation>
     </message>
     <message>
         <source>Typewriter</source>
-        <translation type="unfinished"></translation>
+        <translation>타자기</translation>
     </message>
     <message>
         <source>Typing</source>
-        <translation type="unfinished"></translation>
+        <translation>타이핑</translation>
     </message>
     <message>
         <source>Caret</source>
-        <translation type="unfinished"></translation>
+        <translation>커서</translation>
     </message>
     <message>
         <source>Caret lead</source>
-        <translation type="unfinished"></translation>
+        <translation>커서 앞서기</translation>
     </message>
     <message>
         <source>Blink</source>
-        <translation type="unfinished"></translation>
+        <translation>깜빡임</translation>
     </message>
     <message>
         <source>Hold after</source>
-        <translation type="unfinished"></translation>
+        <translation>끝에서 유지</translation>
     </message>
     <message>
         <source>Re-centre as it types</source>
-        <translation type="unfinished"></translation>
+        <translation>입력하며 다시 가운데 정렬</translation>
     </message>
     <message>
         <source>Wave</source>
-        <translation type="unfinished"></translation>
+        <translation>웨이브</translation>
     </message>
     <message>
         <source>wavy text</source>
-        <translation type="unfinished"></translation>
+        <translation>물결 텍스트</translation>
     </message>
     <message>
         <source>Wavelength</source>
-        <translation type="unfinished"></translation>
+        <translation>파장</translation>
     </message>
     <message>
         <source>Wipe</source>
-        <translation type="unfinished"></translation>
+        <translation>와이프</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished">유형</translation>
+        <translation>유형</translation>
     </message>
     <message>
         <source>Zoom in</source>
-        <translation type="unfinished">확대</translation>
+        <translation>확대</translation>
     </message>
     <message>
         <source>Zoom out</source>
-        <translation type="unfinished">축소</translation>
+        <translation>축소</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">텍스트</translation>
+        <translation>텍스트</translation>
     </message>
 </context>
 <context>
     <name>CategoryScrollOn</name>
     <message>
         <source>Keep scrolling for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>계속 스크롤하면 %1</translation>
     </message>
 </context>
 <context>
     <name>ChannelKeyButton</name>
     <message>
         <source>Remove %1 keyframe at the playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 헤드에서 %1 키프레임 제거</translation>
     </message>
     <message>
         <source>Add %1 keyframe at the playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 헤드에 %1 키프레임 추가</translation>
     </message>
 </context>
 <context>
@@ -8618,15 +8618,15 @@
     <name>CopySignInLinkButton</name>
     <message>
         <source>Link copied — paste it into your browser</source>
-        <translation type="unfinished"></translation>
+        <translation>링크를 복사했습니다 — 브라우저에 붙여 넣으세요</translation>
     </message>
     <message>
         <source>Copy the link</source>
-        <translation type="unfinished"></translation>
+        <translation>링크 복사</translation>
     </message>
     <message>
         <source>If no browser window opened, paste this link into your browser to sign in.</source>
-        <translation type="unfinished"></translation>
+        <translation>브라우저 창이 열리지 않았다면 이 링크를 브라우저에 붙여 넣어 로그인하세요.</translation>
     </message>
 </context>
 <context>
@@ -8668,82 +8668,82 @@
     <name>CubeLut</name>
     <message>
         <source>The table starts before LUT_3D_SIZE or LUT_1D_SIZE says how big it is.</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT_3D_SIZE 또는 LUT_1D_SIZE로 크기를 지정하기 전에 표가 시작됩니다.</translation>
     </message>
     <message>
         <source>Line %1 is not three numbers (red, green, blue).</source>
-        <translation type="unfinished"></translation>
+        <translation>%1번째 줄이 세 개의 숫자(빨강, 초록, 파랑)가 아닙니다.</translation>
     </message>
     <message>
         <source>The table has more rows than its size says (%1).</source>
-        <translation type="unfinished"></translation>
+        <translation>표의 행이 지정된 크기(%1)보다 많습니다.</translation>
     </message>
     <message>
         <source>The file declares more than one table; only one per file is supported.</source>
-        <translation type="unfinished"></translation>
+        <translation>파일에 표가 두 개 이상 선언되어 있습니다. 파일당 하나만 지원됩니다.</translation>
     </message>
     <message>
         <source>LUT_3D_SIZE must be between 2 and %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT_3D_SIZE는 2에서 %1 사이여야 합니다.</translation>
     </message>
     <message>
         <source>LUT_1D_SIZE must be between 2 and %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT_1D_SIZE는 2에서 %1 사이여야 합니다.</translation>
     </message>
     <message>
         <source>%1 needs three numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1에는 숫자 세 개가 필요합니다.</translation>
     </message>
     <message>
         <source>%1 needs two numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1에는 숫자 두 개가 필요합니다.</translation>
     </message>
     <message>
         <source>This is not a .cube LUT: it has no LUT_3D_SIZE or LUT_1D_SIZE line.</source>
-        <translation type="unfinished"></translation>
+        <translation>.cube LUT가 아닙니다. LUT_3D_SIZE 또는 LUT_1D_SIZE 줄이 없습니다.</translation>
     </message>
     <message>
         <source>DOMAIN_MAX must be above DOMAIN_MIN on every channel.</source>
-        <translation type="unfinished"></translation>
+        <translation>모든 채널에서 DOMAIN_MAX가 DOMAIN_MIN보다 커야 합니다.</translation>
     </message>
     <message>
         <source>The table is incomplete: it has %1 of the %2 rows its size needs.</source>
-        <translation type="unfinished"></translation>
+        <translation>표가 불완전합니다. 크기에 필요한 %2개 행 중 %1개만 있습니다.</translation>
     </message>
     <message>
         <source>The LUT file is not there any more: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT 파일이 더 이상 없습니다: %1</translation>
     </message>
     <message>
         <source>The LUT file is too large (over 64 MB).</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT 파일이 너무 큽니다(64MB 초과).</translation>
     </message>
     <message>
         <source>The LUT file could not be opened: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT 파일을 열 수 없습니다: %1</translation>
     </message>
 </context>
 <context>
     <name>CurveEditorController</name>
     <message>
         <source>That transition is gone — open the custom curve again</source>
-        <translation type="unfinished">해당 전환이 사라졌습니다 — 사용자 지정 곡선을 다시 여세요</translation>
+        <translation>해당 전환이 없어졌습니다 — 사용자 지정 곡선을 다시 여세요</translation>
     </message>
     <message>
         <source>Custom transition curve</source>
-        <translation type="unfinished">사용자 지정 전환 곡선</translation>
+        <translation>사용자 지정 전환 곡선</translation>
     </message>
     <message>
         <source>Custom transition curve applied</source>
-        <translation type="unfinished">사용자 지정 전환 곡선이 적용됨</translation>
+        <translation>사용자 지정 전환 곡선을 적용했습니다</translation>
     </message>
     <message>
         <source>That clip moved — open Custom fade again</source>
-        <translation type="unfinished">클립이 이동했습니다 — 사용자 지정 페이드를 다시 열어주세요</translation>
+        <translation>해당 클립이 이동했습니다 — 사용자 지정 페이드를 다시 여세요</translation>
     </message>
     <message>
         <source>Custom fade applied</source>
-        <translation type="unfinished">사용자 지정 페이드가 적용됨</translation>
+        <translation>사용자 지정 페이드를 적용했습니다</translation>
     </message>
 </context>
 <context>
@@ -8922,11 +8922,11 @@
     </message>
     <message>
         <source>Help and frequently asked questions</source>
-        <translation type="unfinished"></translation>
+        <translation>도움말 및 자주 묻는 질문</translation>
     </message>
     <message>
         <source>Email support: soporte@getflipstudio.com</source>
-        <translation type="unfinished"></translation>
+        <translation>이메일 지원: soporte@getflipstudio.com</translation>
     </message>
 </context>
 <context>
@@ -9221,8 +9221,8 @@
     </message>
     <message numerus="yes">
         <source>%n style(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>스타일 %n개</numerusform>
         </translation>
     </message>
     <message>
@@ -9511,7 +9511,7 @@
     </message>
     <message>
         <source>Flip Studio project (*.flip *.drift)</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio 프로젝트 (*.flip *.drift)</translation>
     </message>
     <message>
         <source>Video size and layout</source>
@@ -9519,11 +9519,11 @@
     </message>
     <message>
         <source>Stock</source>
-        <translation type="unfinished">스톡</translation>
+        <translation>스톡</translation>
     </message>
     <message>
         <source>Free photos and videos from Pexels and Pixabay</source>
-        <translation type="unfinished"></translation>
+        <translation>Pexels 및 Pixabay의 무료 사진과 동영상</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -9543,7 +9543,7 @@
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished">색상</translation>
+        <translation>색상</translation>
     </message>
     <message>
         <source>Language…</source>
@@ -9551,7 +9551,7 @@
     </message>
     <message>
         <source>Switch to mobile layout…</source>
-        <translation type="unfinished"></translation>
+        <translation>모바일 레이아웃으로 전환…</translation>
     </message>
     <message>
         <source>Debug info…</source>
@@ -9563,19 +9563,19 @@
     </message>
     <message>
         <source>Update to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1(으)로 업데이트</translation>
     </message>
     <message>
         <source>Look for updates in Microsoft Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Microsoft Store에서 업데이트 확인</translation>
     </message>
     <message>
         <source>Checking for updates…</source>
-        <translation type="unfinished"></translation>
+        <translation>업데이트 확인 중…</translation>
     </message>
     <message>
         <source>Check for updates (you have %1)</source>
-        <translation type="unfinished"></translation>
+        <translation>업데이트 확인 (현재 버전 %1)</translation>
     </message>
     <message>
         <source>Agent</source>
@@ -9587,15 +9587,15 @@
     </message>
     <message>
         <source>My account</source>
-        <translation type="unfinished"></translation>
+        <translation>내 계정</translation>
     </message>
     <message>
         <source>My account (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>내 계정 (%1)</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
-        <translation type="unfinished"></translation>
+        <translation>Google로 로그인</translation>
     </message>
     <message>
         <source>Recommended packs and updates</source>
@@ -9655,7 +9655,7 @@
     </message>
     <message>
         <source>Home — your projects</source>
-        <translation type="unfinished"></translation>
+        <translation>홈 — 내 프로젝트</translation>
     </message>
     <message>
         <source>Flip Studio %1 is available</source>
@@ -9690,15 +9690,15 @@
     </message>
     <message>
         <source>Install a custom effect or transition from a .driftfx file made in Drift Forge</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge에서 만든 .driftfx 파일로 사용자 지정 효과나 전환 설치</translation>
     </message>
     <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
-        <translation type="unfinished"></translation>
+        <translation>조정 레이어 추가 — 클릭하거나 트랙으로 드래그하세요</translation>
     </message>
     <message>
         <source>My Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>내 효과</translation>
     </message>
     <message>
         <source>No effects match “%1”.</source>
@@ -9706,7 +9706,7 @@
     </message>
     <message>
         <source>Nothing here yet. Import a .driftfx file to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>아직 아무것도 없습니다. .driftfx 파일을 가져와 직접 추가하세요.</translation>
     </message>
     <message>
         <source>No favorites yet. Star presets to save them here.</source>
@@ -9718,19 +9718,19 @@
     </message>
     <message>
         <source>%1 is empty</source>
-        <translation type="unfinished"></translation>
+        <translation>%1이(가) 비어 있습니다</translation>
     </message>
     <message>
         <source>Import a .driftfx file made in Drift Forge to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge에서 만든 .driftfx 파일을 가져와 직접 추가하세요.</translation>
     </message>
     <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 — 클릭하면 선택 항목에 적용하고, 클립 위로 드래그할 수도 있습니다</translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 — 클릭하면 조정 레이어로 추가하고, 클립 위로 드래그할 수도 있습니다</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -9746,7 +9746,7 @@
     </message>
     <message>
         <source>Delete from My Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>내 효과에서 삭제</translation>
     </message>
     <message>
         <source>Built-in</source>
@@ -9754,7 +9754,7 @@
     </message>
     <message>
         <source>Delete effect</source>
-        <translation type="unfinished"></translation>
+        <translation>효과 삭제</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -9762,13 +9762,13 @@
     </message>
     <message numerus="yes">
         <source>Delete “%1” from My Effects? It is used %n time(s) in this project, and those clips will play without it.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>내 효과에서 “%1”을(를) 삭제할까요? 이 프로젝트에서 %n번 사용되며, 해당 클립은 이 효과 없이 재생됩니다.</numerusform>
         </translation>
     </message>
     <message>
         <source>Delete “%1” from My Effects? You can import its .driftfx file again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>내 효과에서 “%1”을(를) 삭제할까요? 나중에 .driftfx 파일을 다시 가져올 수 있습니다.</translation>
     </message>
 </context>
 <context>
@@ -9819,7 +9819,7 @@
     </message>
     <message>
         <source>Background Removal</source>
-        <translation type="unfinished"></translation>
+        <translation>배경 제거</translation>
     </message>
     <message>
         <source>Other</source>
@@ -9838,7 +9838,7 @@
     </message>
     <message>
         <source>No saved presets</source>
-        <translation type="unfinished"></translation>
+        <translation>저장된 프리셋 없음</translation>
     </message>
     <message>
         <source>Tune a clip&apos;s effects, then use “Save as preset…” in the properties Effects tab to keep them here.</source>
@@ -9925,31 +9925,31 @@
     </message>
     <message>
         <source>%1 — click to apply music-synced effects to the selection</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 — 클릭하면 음악에 맞춘 효과를 선택 항목에 적용합니다</translation>
     </message>
     <message>
         <source>%1 — click to apply it to the clip under the playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 — 클릭하면 재생 헤드 아래 클립에 적용합니다</translation>
     </message>
     <message>
         <source>Follows the beat of the music. On a clip with no music it keeps a steady 120 BPM beat.</source>
-        <translation type="unfinished"></translation>
+        <translation>음악 비트를 따릅니다. 음악이 없는 클립에서는 120 BPM의 일정한 비트를 사용합니다.</translation>
     </message>
     <message>
         <source>Needs cutout: it cuts the person out of the video first, which takes a moment.</source>
-        <translation type="unfinished"></translation>
+        <translation>누끼 필요: 먼저 동영상에서 인물을 잘라내므로 잠시 시간이 걸립니다.</translation>
     </message>
     <message>
         <source>Apply template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 적용</translation>
     </message>
     <message>
         <source>Apply to the selected clip</source>
-        <translation type="unfinished"></translation>
+        <translation>선택한 클립에 적용</translation>
     </message>
     <message>
         <source>Apply to the clip under the playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 헤드 아래 클립에 적용</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
@@ -10087,97 +10087,97 @@
     </message>
     <message>
         <source>Every strong sound</source>
-        <translation type="unfinished"></translation>
+        <translation>강한 소리마다</translation>
     </message>
     <message>
         <source>Every beat</source>
-        <translation type="unfinished"></translation>
+        <translation>비트마다</translation>
     </message>
     <message>
         <source>Every bar</source>
-        <translation type="unfinished"></translation>
+        <translation>마디마다</translation>
     </message>
     <message>
         <source>Start to end of the clip</source>
-        <translation type="unfinished"></translation>
+        <translation>클립 처음부터 끝까지</translation>
     </message>
     <message>
         <source>Template: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿: %1</translation>
     </message>
     <message>
         <source>Its keyframes follow these controls: change them here instead of one by one.</source>
-        <translation type="unfinished"></translation>
+        <translation>키프레임이 이 컨트롤을 따릅니다. 하나씩 바꾸지 말고 여기서 변경하세요.</translation>
     </message>
     <message>
         <source>Intensity: %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>강도: %1%</translation>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">강도</translation>
+        <translation>강도</translation>
     </message>
     <message>
         <source>Decay: %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>감쇠: %1%</translation>
     </message>
     <message>
         <source>Decay</source>
-        <translation type="unfinished"></translation>
+        <translation>감쇠</translation>
     </message>
     <message>
         <source>Rhythm</source>
-        <translation type="unfinished"></translation>
+        <translation>리듬</translation>
     </message>
     <message>
         <source>Analysing the music…</source>
-        <translation type="unfinished"></translation>
+        <translation>음악 분석 중…</translation>
     </message>
     <message>
         <source>One effect from the start to the end of the clip.</source>
-        <translation type="unfinished"></translation>
+        <translation>클립 처음부터 끝까지 효과 하나.</translation>
     </message>
     <message numerus="yes">
         <source>%n pulse(s) under this clip.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>이 클립 아래 펄스 %n개.</numerusform>
         </translation>
     </message>
     <message>
         <source>This clip has no music, so the template keeps a steady 120 BPM beat. Put music under it and pick the rhythm again to follow its beats.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 클립에는 음악이 없어 템플릿이 120 BPM의 일정한 비트를 사용합니다. 아래에 음악을 넣고 리듬을 다시 선택하면 비트를 따라갑니다.</translation>
     </message>
     <message>
         <source>Remove template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 제거</translation>
     </message>
     <message>
         <source>Puts the original clip back in its place on the timeline, without the template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 없이 원본 클립을 타임라인의 원래 자리로 되돌립니다</translation>
     </message>
     <message>
         <source>Takes off every effect and keyframe this template added</source>
-        <translation type="unfinished"></translation>
+        <translation>이 템플릿이 추가한 모든 효과와 키프레임을 제거합니다</translation>
     </message>
     <message>
         <source>Remove only its effects</source>
-        <translation type="unfinished"></translation>
+        <translation>효과만 제거</translation>
     </message>
     <message>
         <source>Takes off the template&apos;s effects and keeps the composition</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿의 효과를 제거하고 컴포지션은 유지합니다</translation>
     </message>
     <message>
         <source>The template is inside this composition. Open it (double-click) to change its intensity or rhythm.</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿이 이 컴포지션 안에 있습니다. 열어서(더블 클릭) 강도나 리듬을 변경하세요.</translation>
     </message>
     <message>
         <source>Open template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 열기</translation>
     </message>
     <message>
         <source>This clip was scanned before the face mesh was supported. Re-detect faces to enable 3D Face Mesh and Face Retouch.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 클립은 얼굴 메시가 지원되기 전에 분석되었습니다. 얼굴을 다시 감지하면 3D 얼굴 메시와 얼굴 보정을 사용할 수 있습니다.</translation>
     </message>
     <message>
         <source>Move to a time, set a value, then click the diamond to add a keyframe. With Auto keyframes on, dragging a slider also creates them.</source>
@@ -10245,7 +10245,7 @@
     </message>
     <message>
         <source>%1 opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 불투명도</translation>
     </message>
     <message>
         <source>Automatic (clip beneath)</source>
@@ -10273,7 +10273,7 @@
     </message>
     <message>
         <source>Face %1</source>
-        <translation type="unfinished"></translation>
+        <translation>얼굴 %1</translation>
     </message>
     <message>
         <source>Anything in “%1” nearer than Distance passes in front of this layer.</source>
@@ -10407,7 +10407,7 @@
     </message>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>해상도</translation>
     </message>
     <message>
         <source>Export at %1×%2</source>
@@ -10415,19 +10415,19 @@
     </message>
     <message>
         <source>Bigger than the project: it is drawn at this size, so text, shapes and graphics come out sharp. Your video clips are enlarged from their own resolution.</source>
-        <translation type="unfinished"></translation>
+        <translation>프로젝트보다 큽니다. 이 크기로 그려지므로 텍스트, 도형, 그래픽이 선명하게 나옵니다. 동영상 클립은 원래 해상도에서 확대됩니다.</translation>
     </message>
     <message>
         <source>H.264 stops at 4096 pixels a side. Choose H.265 or AV1 under Advanced to export at this size.</source>
-        <translation type="unfinished"></translation>
+        <translation>H.264는 한 변이 4096픽셀까지만 지원합니다. 이 크기로 내보내려면 고급에서 H.265 또는 AV1을 선택하세요.</translation>
     </message>
     <message>
         <source>8K needs H.265 or AV1, so the encoder changed from %1 to %2.</source>
-        <translation type="unfinished"></translation>
+        <translation>8K에는 H.265 또는 AV1이 필요하므로 인코더가 %1에서 %2(으)로 변경되었습니다.</translation>
     </message>
     <message>
         <source>8K takes much longer to export and needs a lot of video memory. Try a short work area first.</source>
-        <translation type="unfinished"></translation>
+        <translation>8K는 내보내기에 훨씬 오래 걸리고 비디오 메모리가 많이 필요합니다. 먼저 짧은 작업 영역으로 시험해 보세요.</translation>
     </message>
     <message>
         <source>Frame rate</source>
@@ -10605,27 +10605,27 @@
     </message>
     <message>
         <source>variants must be a list</source>
-        <translation type="unfinished"></translation>
+        <translation>variants는 목록이어야 합니다</translation>
     </message>
     <message>
         <source>a variant must be an object</source>
-        <translation type="unfinished"></translation>
+        <translation>변형은 객체여야 합니다</translation>
     </message>
     <message>
         <source>invalid variant id “%1”</source>
-        <translation type="unfinished"></translation>
+        <translation>잘못된 변형 ID “%1”</translation>
     </message>
     <message>
         <source>a variant must name a .glb model in the prop folder</source>
-        <translation type="unfinished"></translation>
+        <translation>변형은 소품 폴더에 있는 .glb 모델을 지정해야 합니다</translation>
     </message>
     <message>
         <source>a variant thumbnail must be a file in the prop folder</source>
-        <translation type="unfinished"></translation>
+        <translation>변형 썸네일은 소품 폴더에 있는 파일이어야 합니다</translation>
     </message>
     <message>
         <source>a variant names the same file twice</source>
-        <translation type="unfinished"></translation>
+        <translation>변형이 같은 파일을 두 번 지정합니다</translation>
     </message>
     <message>
         <source>Could not open %1</source>
@@ -10892,19 +10892,19 @@
     <name>FontCatalog</name>
     <message>
         <source>Choose a .ttf, .otf or .ttc font file</source>
-        <translation type="unfinished"></translation>
+        <translation>.ttf, .otf 또는 .ttc 글꼴 파일을 선택하세요</translation>
     </message>
     <message>
         <source>Could not create the fonts folder</source>
-        <translation type="unfinished"></translation>
+        <translation>글꼴 폴더를 만들 수 없습니다</translation>
     </message>
     <message>
         <source>Could not copy the font file</source>
-        <translation type="unfinished"></translation>
+        <translation>글꼴 파일을 복사할 수 없습니다</translation>
     </message>
     <message>
         <source>That file is not a usable font</source>
-        <translation type="unfinished"></translation>
+        <translation>사용할 수 있는 글꼴 파일이 아닙니다</translation>
     </message>
     <message>
         <source>High-Impact &amp; Bold</source>
@@ -10924,46 +10924,46 @@
     </message>
     <message>
         <source>My fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>내 글꼴</translation>
     </message>
     <message>
         <source>Clean</source>
-        <translation type="unfinished"></translation>
+        <translation>깔끔함</translation>
     </message>
     <message>
         <source>Bold &amp; impact</source>
-        <translation type="unfinished"></translation>
+        <translation>굵고 강렬함</translation>
     </message>
     <message>
         <source>Elegant</source>
-        <translation type="unfinished"></translation>
+        <translation>우아함</translation>
     </message>
     <message>
         <source>Handwritten</source>
-        <translation type="unfinished"></translation>
+        <translation>손글씨</translation>
     </message>
     <message>
         <source>Fun</source>
-        <translation type="unfinished">재미</translation>
+        <translation>재미</translation>
     </message>
     <message>
         <source>Retro</source>
-        <translation type="unfinished">레트로</translation>
+        <translation>레트로</translation>
     </message>
 </context>
 <context>
     <name>FontPicker</name>
     <message>
         <source>My fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>내 글꼴</translation>
     </message>
     <message>
         <source>System fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>시스템 글꼴</translation>
     </message>
     <message>
         <source>Search fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>글꼴 검색</translation>
     </message>
     <message>
         <source>Install the font pack for curated families →</source>
@@ -10971,51 +10971,51 @@
     </message>
     <message>
         <source>Select a font</source>
-        <translation type="unfinished"></translation>
+        <translation>글꼴 선택</translation>
     </message>
     <message>
         <source>Import fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>글꼴 가져오기</translation>
     </message>
     <message>
         <source>Fonts (*.ttf *.otf)</source>
-        <translation type="unfinished"></translation>
+        <translation>글꼴 (*.ttf *.otf)</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished">즐겨찾기</translation>
+        <translation>즐겨찾기</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">모두</translation>
+        <translation>전체</translation>
     </message>
     <message>
         <source>Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>최근</translation>
     </message>
     <message>
         <source>No fonts match “%1”</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1”과(와) 일치하는 글꼴이 없습니다</translation>
     </message>
     <message>
         <source>Star fonts to keep them here.</source>
-        <translation type="unfinished"></translation>
+        <translation>글꼴에 별표를 표시하면 여기에 보관됩니다.</translation>
     </message>
     <message>
         <source>Fonts you use will appear here.</source>
-        <translation type="unfinished"></translation>
+        <translation>사용한 글꼴이 여기에 표시됩니다.</translation>
     </message>
     <message>
         <source>Nothing in this category</source>
-        <translation type="unfinished">이 카테고리에는 항목이 없습니다</translation>
+        <translation>이 카테고리에 항목이 없습니다</translation>
     </message>
     <message>
         <source>Import font…</source>
-        <translation type="unfinished"></translation>
+        <translation>글꼴 가져오기…</translation>
     </message>
     <message>
         <source>More fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>더 많은 글꼴</translation>
     </message>
 </context>
 <context>
@@ -11054,19 +11054,19 @@
     </message>
     <message>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>그룹</translation>
     </message>
     <message>
         <source>Animation</source>
-        <translation type="unfinished">애니메이션</translation>
+        <translation>애니메이션</translation>
     </message>
     <message>
         <source>3D Model</source>
-        <translation type="unfinished">3D 모델</translation>
+        <translation>3D 모델</translation>
     </message>
     <message>
         <source>PDF</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF</translation>
     </message>
     <message>
         <source>Clip name</source>
@@ -11130,15 +11130,15 @@
     </message>
     <message>
         <source>Unlock crop ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>자르기 비율 잠금 해제</translation>
     </message>
     <message>
         <source>Lock crop ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>자르기 비율 잠금</translation>
     </message>
     <message>
         <source>Crop…</source>
-        <translation type="unfinished"></translation>
+        <translation>자르기…</translation>
     </message>
     <message>
         <source>Which part of the original file this clip plays</source>
@@ -11520,11 +11520,11 @@
     </message>
     <message>
         <source>Collapse curve editor to compact view (88px)</source>
-        <translation type="unfinished"></translation>
+        <translation>곡선 편집기를 간단히 보기(88px)로 접기</translation>
     </message>
     <message>
         <source>Expand curve editor to view and edit Bezier handles (180px)</source>
-        <translation type="unfinished"></translation>
+        <translation>곡선 편집기를 펼쳐 베지어 핸들 보기 및 편집(180px)</translation>
     </message>
     <message>
         <source>Analyzing…</source>
@@ -11570,7 +11570,7 @@
     </message>
     <message>
         <source>Expand for handles</source>
-        <translation type="unfinished"></translation>
+        <translation>펼쳐서 핸들 보기</translation>
     </message>
     <message>
         <source> BPM</source>
@@ -11774,277 +11774,277 @@
     <name>Lut</name>
     <message>
         <source>Cinematic</source>
-        <translation type="unfinished">시네마틱</translation>
+        <translation>시네마틱</translation>
     </message>
     <message>
         <source>Warm</source>
-        <translation type="unfinished"></translation>
+        <translation>따뜻함</translation>
     </message>
     <message>
         <source>Cold</source>
-        <translation type="unfinished"></translation>
+        <translation>차가움</translation>
     </message>
     <message>
         <source>Vintage</source>
-        <translation type="unfinished"></translation>
+        <translation>빈티지</translation>
     </message>
     <message>
         <source>Teal &amp; Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>틸 &amp; 오렌지</translation>
     </message>
     <message>
         <source>Black &amp; White</source>
-        <translation type="unfinished"></translation>
+        <translation>흑백</translation>
     </message>
 </context>
 <context>
     <name>LutPage</name>
     <message>
         <source>Import LUT</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT 가져오기</translation>
     </message>
     <message>
         <source>LUT (*.cube)</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT (*.cube)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished">모든 파일(*)</translation>
+        <translation>모든 파일 (*)</translation>
     </message>
     <message>
         <source>This file is not a LUT that can be used.</source>
-        <translation type="unfinished"></translation>
+        <translation>사용할 수 있는 LUT 파일이 아닙니다.</translation>
     </message>
     <message>
         <source>A LUT is a ready-made colour look. Pick one, or import a .cube file; Intensity mixes it with the original colour.</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT는 미리 만들어진 색상 룩입니다. 하나를 선택하거나 .cube 파일을 가져오세요. 강도는 원래 색상과 섞는 정도입니다.</translation>
     </message>
     <message>
         <source>Import LUT…</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT 가져오기…</translation>
     </message>
     <message>
         <source>No LUT chosen yet</source>
-        <translation type="unfinished"></translation>
+        <translation>아직 선택한 LUT가 없습니다</translation>
     </message>
     <message>
         <source>Turn the LUT off to compare with and without it</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT를 끄고 적용 전후를 비교하세요</translation>
     </message>
     <message>
         <source>Find the LUT…</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT 찾기…</translation>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">강도</translation>
+        <translation>강도</translation>
     </message>
     <message>
         <source>LUT intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT 강도</translation>
     </message>
     <message>
         <source>Reset LUT intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT 강도 재설정</translation>
     </message>
     <message>
         <source>Reset intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>강도 재설정</translation>
     </message>
     <message>
         <source>Remove LUT</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT 제거</translation>
     </message>
     <message>
         <source>Looks</source>
-        <translation type="unfinished"></translation>
+        <translation>룩</translation>
     </message>
     <message>
         <source>Imported</source>
-        <translation type="unfinished">가져옴</translation>
+        <translation>가져온 항목</translation>
     </message>
     <message>
         <source>Delete from my LUTs</source>
-        <translation type="unfinished"></translation>
+        <translation>내 LUT에서 삭제</translation>
     </message>
 </context>
 <context>
     <name>Main</name>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>파일(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;New Project</source>
-        <translation type="unfinished"></translation>
+        <translation>새 프로젝트(&amp;N)</translation>
     </message>
     <message>
         <source>&amp;Open Project…</source>
-        <translation type="unfinished"></translation>
+        <translation>프로젝트 열기(&amp;O)…</translation>
     </message>
     <message>
         <source>&amp;Save Project</source>
-        <translation type="unfinished"></translation>
+        <translation>프로젝트 저장(&amp;S)</translation>
     </message>
     <message>
         <source>Save Project &amp;As…</source>
-        <translation type="unfinished"></translation>
+        <translation>다른 이름으로 프로젝트 저장(&amp;A)…</translation>
     </message>
     <message>
         <source>Save Project &amp;JSON…</source>
-        <translation type="unfinished"></translation>
+        <translation>프로젝트를 JSON으로 저장(&amp;J)…</translation>
     </message>
     <message>
         <source>Open Project JSON…</source>
-        <translation type="unfinished"></translation>
+        <translation>프로젝트 JSON 열기…</translation>
     </message>
     <message>
         <source>&amp;Export Video…</source>
-        <translation type="unfinished"></translation>
+        <translation>동영상 내보내기(&amp;E)…</translation>
     </message>
     <message>
         <source>&amp;Package Project…</source>
-        <translation type="unfinished"></translation>
+        <translation>프로젝트 패키지(&amp;P)…</translation>
     </message>
     <message>
         <source>&amp;Close Project</source>
-        <translation type="unfinished"></translation>
+        <translation>프로젝트 닫기(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>편집(&amp;E)</translation>
     </message>
     <message>
         <source>&amp;Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>실행 취소(&amp;U)</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>다시 실행(&amp;R)</translation>
     </message>
     <message>
         <source>Cu&amp;t</source>
-        <translation type="unfinished"></translation>
+        <translation>잘라내기(&amp;T)</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>복사(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>붙여넣기(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>삭제(&amp;D)</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation type="unfinished"></translation>
+        <translation>모두 선택(&amp;A)</translation>
     </message>
     <message>
         <source>Clear Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>선택 해제</translation>
     </message>
     <message>
         <source>Split Clip</source>
-        <translation type="unfinished"></translation>
+        <translation>클립 분할</translation>
     </message>
     <message>
         <source>Duplicate Clip</source>
-        <translation type="unfinished"></translation>
+        <translation>클립 복제</translation>
     </message>
     <message>
         <source>Copy Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>효과 복사</translation>
     </message>
     <message>
         <source>Paste Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>효과 붙여넣기</translation>
     </message>
     <message>
         <source>Paste Attributes…</source>
-        <translation type="unfinished"></translation>
+        <translation>속성 붙여넣기…</translation>
     </message>
     <message>
         <source>&amp;Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>재생(&amp;P)</translation>
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 / 일시 정지</translation>
     </message>
     <message>
         <source>Step Back One Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>한 프레임 뒤로</translation>
     </message>
     <message>
         <source>Step Forward One Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>한 프레임 앞으로</translation>
     </message>
     <message>
         <source>Previous Cut Point</source>
-        <translation type="unfinished"></translation>
+        <translation>이전 편집 점</translation>
     </message>
     <message>
         <source>Next Cut Point</source>
-        <translation type="unfinished"></translation>
+        <translation>다음 편집 점</translation>
     </message>
     <message>
         <source>Go to Start of Timeline</source>
-        <translation type="unfinished"></translation>
+        <translation>타임라인 시작으로 이동</translation>
     </message>
     <message>
         <source>Toggle Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>북마크 설정/해제</translation>
     </message>
     <message>
         <source>Next Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>다음 북마크</translation>
     </message>
     <message>
         <source>Previous Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>이전 북마크</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>보기(&amp;V)</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished"></translation>
+        <translation>확대(&amp;I)</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished"></translation>
+        <translation>축소(&amp;O)</translation>
     </message>
     <message>
         <source>Toggle Fullscreen Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>전체 화면 미리 보기 전환</translation>
     </message>
     <message>
         <source>Toggle Guides</source>
-        <translation type="unfinished"></translation>
+        <translation>안내선 표시/숨기기</translation>
     </message>
     <message>
         <source>Switch to Mobile Layout…</source>
-        <translation type="unfinished"></translation>
+        <translation>모바일 레이아웃으로 전환…</translation>
     </message>
     <message>
         <source>&amp;Window</source>
-        <translation type="unfinished"></translation>
+        <translation>창(&amp;W)</translation>
     </message>
     <message>
         <source>Landscape Workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>가로 작업 공간</translation>
     </message>
     <message>
         <source>Portrait Workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>세로 작업 공간</translation>
     </message>
     <message>
         <source>Auto Workspace (Follow Canvas)</source>
-        <translation type="unfinished"></translation>
+        <translation>자동 작업 공간 (캔버스에 맞춤)</translation>
     </message>
     <message>
         <source>Downloads</source>
@@ -12056,39 +12056,39 @@
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>도움말(&amp;H)</translation>
     </message>
     <message>
         <source>Keyboard Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>키보드 단축키</translation>
     </message>
     <message>
         <source>Extras…</source>
-        <translation type="unfinished"></translation>
+        <translation>확장 기능…</translation>
     </message>
     <message>
         <source>“%1” was added to Media.</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1”을(를) 미디어에 추가했습니다.</translation>
     </message>
     <message>
         <source>Added to Media.</source>
-        <translation type="unfinished"></translation>
+        <translation>미디어에 추가했습니다.</translation>
     </message>
     <message>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>보기</translation>
     </message>
     <message>
         <source>Check for Updates…</source>
-        <translation type="unfinished"></translation>
+        <translation>업데이트 확인…</translation>
     </message>
     <message>
         <source>Settings…</source>
-        <translation type="unfinished"></translation>
+        <translation>설정…</translation>
     </message>
     <message>
         <source>Debug Info…</source>
-        <translation type="unfinished"></translation>
+        <translation>디버그 정보…</translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -12104,15 +12104,15 @@
     </message>
     <message>
         <source>Already checking for updates…</source>
-        <translation type="unfinished"></translation>
+        <translation>이미 업데이트를 확인하고 있습니다…</translation>
     </message>
     <message>
         <source>Checking for updates…</source>
-        <translation type="unfinished"></translation>
+        <translation>업데이트 확인 중…</translation>
     </message>
     <message>
         <source>Links can’t be opened in this layout.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 레이아웃에서는 링크를 열 수 없습니다.</translation>
     </message>
     <message>
         <source>Export finished.</source>
@@ -12148,11 +12148,11 @@
     </message>
     <message>
         <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio 정보</translation>
     </message>
     <message>
         <source>Flip Studio %1 is the latest version.</source>
-        <translation type="unfinished">Flip Studio %1이(가) 최신 버전입니다.</translation>
+        <translation>Flip Studio %1이(가) 최신 버전입니다.</translation>
     </message>
 </context>
 <context>
@@ -12203,11 +12203,11 @@
     </message>
     <message>
         <source>Could not install that template.</source>
-        <translation type="unfinished"></translation>
+        <translation>해당 템플릿을 설치할 수 없습니다.</translation>
     </message>
     <message>
         <source>In Templates</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿에 있음</translation>
     </message>
     <message>
         <source>Could not import that file.</source>
@@ -12266,23 +12266,23 @@
     <name>MarketConsentPanel</name>
     <message>
         <source>Free photos and videos</source>
-        <translation type="unfinished"></translation>
+        <translation>무료 사진 및 동영상</translation>
     </message>
     <message>
         <source>Search free photos and videos from Pexels and Pixabay and download them straight into your project. Before you start:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pexels와 Pixabay에서 무료 사진과 동영상을 검색하고 프로젝트로 바로 다운로드하세요. 시작하기 전에:</translation>
     </message>
     <message>
         <source>Everything comes from Pexels and Pixabay, under their own licenses: you can use it in your videos for free, including commercial ones, and crediting the author is appreciated but not required.</source>
-        <translation type="unfinished"></translation>
+        <translation>모든 자료는 Pexels와 Pixabay의 자체 라이선스를 따릅니다. 상업용을 포함해 동영상에 무료로 사용할 수 있으며, 작성자 표기는 권장되지만 필수는 아닙니다.</translation>
     </message>
     <message>
         <source>Do not resell the photos or videos as they are, or offer them as your own stock collection. People and brands that appear in them may need their own permission.</source>
-        <translation type="unfinished"></translation>
+        <translation>사진이나 동영상을 그대로 재판매하거나 자신의 스톡 컬렉션으로 제공하지 마세요. 등장하는 인물과 브랜드는 별도의 허가가 필요할 수 있습니다.</translation>
     </message>
     <message>
         <source>Flip Studio does not own or review this material: check that each item suits your use. Searches go through Flip Studio&apos;s server; the files download straight from Pexels and Pixabay.</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio는 이 자료를 소유하거나 검토하지 않습니다. 각 항목이 용도에 맞는지 확인하세요. 검색은 Flip Studio 서버를 거치며, 파일은 Pexels와 Pixabay에서 직접 다운로드됩니다.</translation>
     </message>
     <message>
         <source>I understand</source>
@@ -12290,7 +12290,7 @@
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished">계속</translation>
+        <translation>계속</translation>
     </message>
 </context>
 <context>
@@ -12324,7 +12324,7 @@
     </message>
     <message>
         <source>Search sound effects</source>
-        <translation type="unfinished"></translation>
+        <translation>효과음 검색</translation>
     </message>
     <message>
         <source>Search, or paste a link</source>
@@ -12332,7 +12332,7 @@
     </message>
     <message>
         <source>SFX</source>
-        <translation type="unfinished"></translation>
+        <translation>효과음</translation>
     </message>
     <message>
         <source>Stock footage</source>
@@ -12340,19 +12340,19 @@
     </message>
     <message>
         <source>Free templates, photos and videos</source>
-        <translation type="unfinished"></translation>
+        <translation>무료 템플릿, 사진 및 동영상</translation>
     </message>
     <message>
         <source>Sign in with your Google account to search and download them straight into your project.</source>
-        <translation type="unfinished"></translation>
+        <translation>Google 계정으로 로그인하면 검색하고 프로젝트로 바로 다운로드할 수 있습니다.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>브라우저를 기다리는 중…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
-        <translation type="unfinished"></translation>
+        <translation>Google로 로그인</translation>
     </message>
     <message>
         <source>Loading sources…</source>
@@ -12379,11 +12379,11 @@
     </message>
     <message>
         <source>Drag to move. Right-click or Delete removes the point.</source>
-        <translation type="unfinished"></translation>
+        <translation>드래그하여 이동합니다. 마우스 오른쪽 클릭 또는 Delete 키로 점을 삭제합니다.</translation>
     </message>
     <message>
         <source>Add a point here</source>
-        <translation type="unfinished"></translation>
+        <translation>여기에 점 추가</translation>
     </message>
     <message>
         <source>Drag a mask from the Masks tab onto a clip to edit it here</source>
@@ -12398,15 +12398,15 @@
     <name>MaskShapeTiles</name>
     <message>
         <source>Remove this mask</source>
-        <translation type="unfinished"></translation>
+        <translation>이 마스크 제거</translation>
     </message>
     <message>
         <source>Change this mask to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>이 마스크를 %1(으)로 변경</translation>
     </message>
     <message>
         <source>Add a %1 mask</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 마스크 추가</translation>
     </message>
 </context>
 <context>
@@ -12421,43 +12421,43 @@
     </message>
     <message>
         <source>1 mask on this clip</source>
-        <translation type="unfinished"></translation>
+        <translation>이 클립의 마스크 1개</translation>
     </message>
     <message>
         <source>%1 masks on this clip</source>
-        <translation type="unfinished"></translation>
+        <translation>이 클립의 마스크 %1개</translation>
     </message>
     <message>
         <source>Cutout</source>
-        <translation type="unfinished">피사체 분리</translation>
+        <translation>누끼</translation>
     </message>
     <message>
         <source>Edit this mask</source>
-        <translation type="unfinished"></translation>
+        <translation>이 마스크 편집</translation>
     </message>
     <message>
         <source>Masks choose where this layer&apos;s effects, colour and LUT show: inside, the layer; outside, what is under it, untouched.</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크는 이 레이어의 효과, 색상, LUT가 보일 위치를 정합니다. 안쪽에는 레이어가, 바깥쪽에는 아래 내용이 그대로 보입니다.</translation>
     </message>
     <message>
         <source>Mask %1</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크 %1</translation>
     </message>
     <message>
         <source>Add mask</source>
-        <translation type="unfinished">마스크 추가</translation>
+        <translation>마스크 추가</translation>
     </message>
     <message>
         <source>Add a mask to this layer</source>
-        <translation type="unfinished"></translation>
+        <translation>이 레이어에 마스크 추가</translation>
     </message>
     <message>
         <source>Turn this mask off without removing it</source>
-        <translation type="unfinished"></translation>
+        <translation>이 마스크를 제거하지 않고 끄기</translation>
     </message>
     <message>
         <source>This clip has no mask yet. Add one from the Masks tab in the assets panel, or drop a mask onto the clip on the timeline.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 클립에는 아직 마스크가 없습니다. 에셋 패널의 마스크 탭에서 추가하거나 타임라인의 클립 위로 마스크를 드롭하세요.</translation>
     </message>
     <message>
         <source>Rectangle</source>
@@ -12485,27 +12485,27 @@
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">텍스트</translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <source>Linear gradient</source>
-        <translation type="unfinished"></translation>
+        <translation>선형 그라디언트</translation>
     </message>
     <message>
         <source>TEXT</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <source>Mask text</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크 텍스트</translation>
     </message>
     <message>
         <source>Write the text</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트를 입력하세요</translation>
     </message>
     <message>
         <source>Smooth curves (pen)</source>
-        <translation type="unfinished"></translation>
+        <translation>부드러운 곡선 (펜)</translation>
     </message>
     <message>
         <source>Combine</source>
@@ -12533,7 +12533,7 @@
     </message>
     <message>
         <source>Reset mask</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크 재설정</translation>
     </message>
     <message>
         <source>Center X</source>
@@ -12553,7 +12553,7 @@
     </message>
     <message>
         <source>Fade length</source>
-        <translation type="unfinished"></translation>
+        <translation>페이드 길이</translation>
     </message>
     <message>
         <source>Rotation</source>
@@ -12565,11 +12565,11 @@
     </message>
     <message>
         <source>Expand</source>
-        <translation type="unfinished"></translation>
+        <translation>확장</translation>
     </message>
     <message>
         <source>Mask opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크 불투명도</translation>
     </message>
     <message>
         <source>Invert</source>
@@ -12695,11 +12695,11 @@
     </message>
     <message>
         <source>PDF</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF</translation>
     </message>
     <message>
         <source>PDF (needs the PDF Viewer addon)</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF (PDF 뷰어 확장 기능 필요)</translation>
     </message>
     <message>
         <source>Search media</source>
@@ -12771,15 +12771,15 @@
     </message>
     <message>
         <source>Missing file</source>
-        <translation type="unfinished"></translation>
+        <translation>파일 없음</translation>
     </message>
     <message>
         <source>This file is not where it was. Right-click and choose Find missing file.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 파일이 원래 위치에 없습니다. 마우스 오른쪽 버튼을 클릭하고 “누락된 파일 찾기”를 선택하세요.</translation>
     </message>
     <message>
         <source>Find missing file…</source>
-        <translation type="unfinished"></translation>
+        <translation>누락된 파일 찾기…</translation>
     </message>
     <message>
         <source>Open composite</source>
@@ -12787,7 +12787,7 @@
     </message>
     <message>
         <source>Save as template…</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿으로 저장…</translation>
     </message>
     <message>
         <source>Preview and edit…</source>
@@ -12795,7 +12795,7 @@
     </message>
     <message>
         <source>Trim, crop and upscale…</source>
-        <translation type="unfinished"></translation>
+        <translation>트리밍, 자르기 및 업스케일…</translation>
     </message>
     <message>
         <source>Replace media…</source>
@@ -12827,7 +12827,7 @@
     </message>
     <message>
         <source>Save As…</source>
-        <translation type="unfinished"></translation>
+        <translation>다른 이름으로 저장…</translation>
     </message>
     <message>
         <source>Remove from project</source>
@@ -12938,16 +12938,16 @@
     </message>
     <message>
         <source>Relink media</source>
-        <translation type="unfinished"></translation>
+        <translation>미디어 다시 연결</translation>
     </message>
     <message>
         <source>Media found</source>
-        <translation type="unfinished"></translation>
+        <translation>미디어를 찾았습니다</translation>
     </message>
     <message numerus="yes">
         <source>%n files found</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>파일 %n개를 찾았습니다</numerusform>
         </translation>
     </message>
     <message>
@@ -12960,15 +12960,15 @@
     </message>
     <message>
         <source>Crop image</source>
-        <translation type="unfinished"></translation>
+        <translation>이미지 자르기</translation>
     </message>
     <message>
         <source>Crop saved</source>
-        <translation type="unfinished"></translation>
+        <translation>자르기를 저장했습니다</translation>
     </message>
     <message>
         <source>Crop video</source>
-        <translation type="unfinished"></translation>
+        <translation>동영상 자르기</translation>
     </message>
     <message>
         <source>Media trimmed</source>
@@ -12984,15 +12984,15 @@
     </message>
     <message>
         <source>%1 (trimmed)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (트리밍됨)</translation>
     </message>
     <message>
         <source>Rendering…</source>
-        <translation type="unfinished"></translation>
+        <translation>렌더링 중…</translation>
     </message>
     <message>
         <source>Render Trimmed Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>트리밍된 사본 렌더링</translation>
     </message>
     <message>
         <source>Couldn’t save that edit</source>
@@ -13154,23 +13154,23 @@
     </message>
     <message>
         <source>Upscale this video?</source>
-        <translation type="unfinished"></translation>
+        <translation>이 동영상을 업스케일할까요?</translation>
     </message>
     <message>
         <source>%1p</source>
-        <translation type="unfinished"></translation>
+        <translation>%1p</translation>
     </message>
     <message>
         <source>Length %1</source>
-        <translation type="unfinished"></translation>
+        <translation>길이 %1</translation>
     </message>
     <message>
         <source>This video is under 700 pixels on its shorter side. Upscaling it with an AI model can make it look sharper.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 동영상은 짧은 변이 700픽셀 미만입니다. AI 모델로 업스케일하면 더 선명해 보일 수 있습니다.</translation>
     </message>
     <message>
         <source>This resolution is already good for most projects. You can still upscale it.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 해상도는 대부분의 프로젝트에 충분합니다. 그래도 업스케일할 수 있습니다.</translation>
     </message>
     <message>
         <source>Saving…</source>
@@ -13182,7 +13182,7 @@
     </message>
     <message>
         <source>Crop — %1</source>
-        <translation type="unfinished"></translation>
+        <translation>자르기 — %1</translation>
     </message>
     <message>
         <source>Crop</source>
@@ -13190,43 +13190,43 @@
     </message>
     <message>
         <source>Drag the box to crop. The original image stays available, so the crop can be changed later.</source>
-        <translation type="unfinished"></translation>
+        <translation>상자를 드래그하여 자르세요. 원본 이미지는 그대로 유지되므로 나중에 자르기를 변경할 수 있습니다.</translation>
     </message>
     <message>
         <source>Drag the box to crop. The original video stays available, so the crop can be changed later.</source>
-        <translation type="unfinished"></translation>
+        <translation>상자를 드래그하여 자르세요. 원본 동영상은 그대로 유지되므로 나중에 자르기를 변경할 수 있습니다.</translation>
     </message>
     <message>
         <source>Original: %1×%2 • Crop: %3×%4</source>
-        <translation type="unfinished"></translation>
+        <translation>원본: %1×%2 • 자르기: %3×%4</translation>
     </message>
     <message>
         <source>Unlock crop ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>자르기 비율 잠금 해제</translation>
     </message>
     <message>
         <source>Lock crop ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>자르기 비율 잠금</translation>
     </message>
     <message>
         <source>Done keeps the original video and stores this range and crop. Upscale renders them as a new video in the media bin, then opens it in the Enhance window.</source>
-        <translation type="unfinished"></translation>
+        <translation>완료를 누르면 원본 동영상을 유지하고 이 구간과 자르기를 저장합니다. 업스케일은 이를 미디어 빈에 새 동영상으로 렌더링한 뒤 향상 창에서 엽니다.</translation>
     </message>
     <message>
         <source>Choose the part and crop to keep, then Next.</source>
-        <translation type="unfinished"></translation>
+        <translation>유지할 부분과 자르기를 선택한 다음 다음을 누르세요.</translation>
     </message>
     <message>
         <source>Save keeps the original file and stores this crop.</source>
-        <translation type="unfinished"></translation>
+        <translation>저장을 누르면 원본 파일을 유지하고 이 자르기를 저장합니다.</translation>
     </message>
     <message>
         <source>Save keeps the original file and stores this trim.</source>
-        <translation type="unfinished"></translation>
+        <translation>저장을 누르면 원본 파일을 유지하고 이 트리밍을 저장합니다.</translation>
     </message>
     <message>
         <source>Adjust the crop or Reset to restore the full picture.</source>
-        <translation type="unfinished"></translation>
+        <translation>자르기를 조정하거나 재설정을 눌러 전체 화면으로 되돌리세요.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -13242,7 +13242,7 @@
     </message>
     <message>
         <source>Upscale…</source>
-        <translation type="unfinished"></translation>
+        <translation>업스케일…</translation>
     </message>
     <message>
         <source>Save</source>
@@ -13250,7 +13250,7 @@
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>다음</translation>
     </message>
     <message>
         <source>Done</source>
@@ -13300,51 +13300,51 @@
     <name>MissingMediaDialog</name>
     <message>
         <source>Some files are missing</source>
-        <translation type="unfinished"></translation>
+        <translation>일부 파일이 없습니다</translation>
     </message>
     <message>
         <source>Search a folder…</source>
-        <translation type="unfinished"></translation>
+        <translation>폴더 검색…</translation>
     </message>
     <message>
         <source>Later</source>
-        <translation type="unfinished">나중에</translation>
+        <translation>나중에</translation>
     </message>
     <message>
         <source>Folder where the files are now</source>
-        <translation type="unfinished"></translation>
+        <translation>파일이 현재 있는 폴더</translation>
     </message>
     <message numerus="yes">
         <source>%n files found</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>파일 %n개를 찾았습니다</numerusform>
         </translation>
     </message>
     <message>
         <source>None of the missing files are in that folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>누락된 파일이 해당 폴더에 하나도 없습니다.</translation>
     </message>
     <message numerus="yes">
         <source>%n files of this project are not where they were: they were deleted, renamed or moved. Find each one, or search a folder for all of them. When you find one, the others in the same folder are found too.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>이 프로젝트의 파일 %n개가 원래 위치에 없습니다. 삭제되었거나 이름이 바뀌었거나 이동되었습니다. 각 파일을 찾거나, 폴더를 검색해 모두 찾으세요. 하나를 찾으면 같은 폴더에 있는 나머지 파일도 함께 찾습니다.</numerusform>
         </translation>
     </message>
     <message>
         <source>Find…</source>
-        <translation type="unfinished"></translation>
+        <translation>찾기…</translation>
     </message>
     <message>
         <source>Where is %1 now?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1은(는) 지금 어디에 있나요?</translation>
     </message>
     <message>
         <source>%1 (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (%1)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished">모든 파일(*)</translation>
+        <translation>모든 파일 (*)</translation>
     </message>
 </context>
 <context>
@@ -13429,7 +13429,7 @@
     </message>
     <message>
         <source>Position, size, rotation and depth occlusion are on the Transform tab.</source>
-        <translation type="unfinished"></translation>
+        <translation>위치, 크기, 회전 및 깊이 가림은 변형 탭에 있습니다.</translation>
     </message>
     <message>
         <source>Lighting</source>
@@ -13609,7 +13609,7 @@
     </message>
     <message>
         <source>Adjustment layer</source>
-        <translation type="unfinished">보정 레이어</translation>
+        <translation>조정 레이어</translation>
     </message>
     <message>
         <source>Audio adjustment</source>
@@ -13621,7 +13621,7 @@
     </message>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라</translation>
     </message>
     <message>
         <source>New track</source>
@@ -13829,99 +13829,99 @@
     <name>PdfClipRenderer</name>
     <message>
         <source>Install the PDF viewer addon to show this PDF</source>
-        <translation type="unfinished"></translation>
+        <translation>이 PDF를 표시하려면 PDF 뷰어 확장 기능을 설치하세요</translation>
     </message>
     <message>
         <source>Can&apos;t open this PDF</source>
-        <translation type="unfinished"></translation>
+        <translation>이 PDF를 열 수 없습니다</translation>
     </message>
 </context>
 <context>
     <name>PdfInspector</name>
     <message>
         <source>PDF pages need the PDF Viewer addon.</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF 페이지에는 PDF 뷰어 확장 기능이 필요합니다.</translation>
     </message>
     <message>
         <source>Install PDF Viewer</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF 뷰어 설치</translation>
     </message>
     <message>
         <source>Pages</source>
-        <translation type="unfinished"></translation>
+        <translation>페이지</translation>
     </message>
     <message numerus="yes">
         <source>%n page(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n페이지</numerusform>
         </translation>
     </message>
     <message>
         <source>First page</source>
-        <translation type="unfinished"></translation>
+        <translation>첫 페이지</translation>
     </message>
     <message>
         <source>Last page</source>
-        <translation type="unfinished"></translation>
+        <translation>마지막 페이지</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>레이아웃</translation>
     </message>
     <message>
         <source>Column</source>
-        <translation type="unfinished"></translation>
+        <translation>열</translation>
     </message>
     <message>
         <source>Row</source>
-        <translation type="unfinished"></translation>
+        <translation>행</translation>
     </message>
     <message>
         <source>Grid</source>
-        <translation type="unfinished"></translation>
+        <translation>격자</translation>
     </message>
     <message>
         <source>How the pages are arranged</source>
-        <translation type="unfinished"></translation>
+        <translation>페이지 배열 방식</translation>
     </message>
     <message>
         <source>Columns</source>
-        <translation type="unfinished"></translation>
+        <translation>열 수</translation>
     </message>
     <message>
         <source>Gap</source>
-        <translation type="unfinished"></translation>
+        <translation>간격</translation>
     </message>
     <message>
         <source>Viewport</source>
-        <translation type="unfinished"></translation>
+        <translation>뷰포트</translation>
     </message>
     <message>
         <source>Scroll X</source>
-        <translation type="unfinished"></translation>
+        <translation>스크롤 X</translation>
     </message>
     <message>
         <source>Scroll Y</source>
-        <translation type="unfinished"></translation>
+        <translation>스크롤 Y</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>확대/축소</translation>
     </message>
 </context>
 <context>
     <name>PdfSource</name>
     <message>
         <source>Scroll X</source>
-        <translation type="unfinished"></translation>
+        <translation>스크롤 X</translation>
     </message>
     <message>
         <source>Scroll Y</source>
-        <translation type="unfinished"></translation>
+        <translation>스크롤 Y</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>확대/축소</translation>
     </message>
 </context>
 <context>
@@ -14049,50 +14049,50 @@
     </message>
     <message>
         <source>Gizmo follows the selection&apos;s own axes (click for world axes)</source>
-        <translation type="unfinished"></translation>
+        <translation>기즈모가 선택 항목의 자체 축을 따릅니다 (클릭하면 월드 축)</translation>
     </message>
     <message>
         <source>Gizmo follows the world axes (click for the selection&apos;s own)</source>
-        <translation type="unfinished"></translation>
+        <translation>기즈모가 월드 축을 따릅니다 (클릭하면 선택 항목의 자체 축)</translation>
     </message>
     <message>
         <source>Look through the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 시점으로 보기</translation>
     </message>
     <message>
         <source>Numpad 0</source>
-        <translation type="unfinished"></translation>
+        <translation>숫자 키패드 0</translation>
     </message>
     <message>
         <source>Reset the scene camera&apos;s position</source>
-        <translation type="unfinished"></translation>
+        <translation>장면 카메라 위치 재설정</translation>
     </message>
     <message>
         <source>Frame the selection</source>
-        <translation type="unfinished"></translation>
+        <translation>선택 항목에 맞춰 보기</translation>
     </message>
     <message>
         <source>Reset the view</source>
-        <translation type="unfinished"></translation>
+        <translation>보기 재설정</translation>
     </message>
 </context>
 <context>
     <name>PreviewModeSwitch</name>
     <message>
         <source>Camera Output</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 출력</translation>
     </message>
     <message>
         <source>The camera&apos;s picture, as it exports. Clips move and snap on the canvas.</source>
-        <translation type="unfinished"></translation>
+        <translation>내보내기와 동일한 카메라 화면입니다. 클립이 캔버스에서 이동하고 스냅됩니다.</translation>
     </message>
     <message>
         <source>3D Scene</source>
-        <translation type="unfinished"></translation>
+        <translation>3D 장면</translation>
     </message>
     <message>
         <source>The scene from a free viewpoint, with the camera in it. Middle- or right-drag orbits, Shift pans, the wheel zooms, and the corner pad steps the view.</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라가 포함된 장면을 자유 시점으로 봅니다. 가운데 또는 오른쪽 버튼 드래그로 궤도 회전, Shift로 이동, 휠로 확대/축소하며, 모서리 패드로 보기를 단계별로 바꿉니다.</translation>
     </message>
 </context>
 <context>
@@ -14121,7 +14121,9 @@
         <source>Preview quality — lower is smoother while editing.
 Full, Half and Quarter are fixed fractions of the project resolution: Full composites exactly what an export would.
 Auto renders only as many pixels as the preview actually shows, and lowers that further while playback cannot keep up.</source>
-        <translation type="unfinished">미리보기 화질 — 낮을수록 편집 중 더 부드럽습니다.\n전체, 절반 및 1/4은 프로젝트 해상도의 고정 비율입니다. 전체는 내보내기와 동일한 픽셀을 정확히 합성합니다.\n자동은 미리보기에 실제로 표시되는 픽셀 수만큼만 렌더링하며, 재생이 따라가지 못하면 더 낮춥니다.</translation>
+        <translation>미리 보기 품질 — 낮을수록 편집 중에 더 부드럽습니다.
+전체, 1/2, 1/4은 프로젝트 해상도의 고정 비율입니다. 전체는 내보내기와 똑같이 합성합니다.
+자동은 미리 보기에 실제로 표시되는 만큼의 픽셀만 렌더링하며, 재생이 따라가지 못하면 더 낮춥니다.</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -14141,23 +14143,27 @@ Auto picks per clip: hardware for high-quality 4K, software otherwise.
 Software is smoother for most clips. It uses more CPU.
 Hardware is better for high-quality 4K, and forces one GPU decoder.
 If playback stutters, try another.</source>
-        <translation type="unfinished">미리보기를 위해 동영상을 디코딩하는 방식입니다.\n자동은 클립마다 선택합니다: 고화질 4K에는 하드웨어, 그 외에는 소프트웨어를 사용합니다.\n소프트웨어는 대부분의 클립에서 더 부드럽지만 CPU를 더 사용합니다.\n하드웨어는 고화질 4K에 적합하며 GPU 디코더 하나를 사용합니다.\n재생이 끊기면 다른 옵션을 사용해 보세요.</translation>
+        <translation>미리 보기용 동영상 디코딩 방식입니다.
+자동은 클립마다 선택합니다: 고품질 4K에는 하드웨어, 그 외에는 소프트웨어.
+소프트웨어는 대부분의 클립에서 더 부드럽지만 CPU를 더 많이 사용합니다.
+하드웨어는 고품질 4K에 더 좋으며, GPU 디코더 하나를 강제로 사용합니다.
+재생이 끊기면 다른 방식을 시도해 보세요.</translation>
     </message>
     <message>
         <source>Keep mask handles up</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크 핸들 계속 표시</translation>
     </message>
     <message>
         <source>Keep mask handles on the preview while another clip is selected</source>
-        <translation type="unfinished">다른 클립을 선택한 상태에서도 미리보기에 마스크 핸들을 유지</translation>
+        <translation>다른 클립을 선택해도 미리 보기에 마스크 핸들을 계속 표시합니다</translation>
     </message>
     <message>
         <source>Decoding on a different graphics card</source>
-        <translation type="unfinished">다른 그래픽 카드에서 디코딩 중</translation>
+        <translation>다른 그래픽 카드에서 디코딩 중</translation>
     </message>
     <message>
         <source>Use anyway</source>
-        <translation type="unfinished">그래도 사용</translation>
+        <translation>그래도 사용</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -14165,26 +14171,26 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Open graphics settings</source>
-        <translation type="unfinished"></translation>
+        <translation>그래픽 설정 열기</translation>
     </message>
     <message>
         <source>Launching Flip Studio with prime-run (or DRI_PRIME=1) puts OpenGL on the same card as the decoder.</source>
-        <translation type="unfinished">prime-run(또는 DRI_PRIME=1)으로 Drift를 실행하면 OpenGL이 디코더와 같은 그래픽 카드를 사용합니다.</translation>
+        <translation>prime-run(또는 DRI_PRIME=1)으로 Flip Studio를 실행하면 OpenGL이 디코더와 같은 카드에서 실행됩니다.</translation>
     </message>
     <message>
         <source>Run Flip Studio on the high-performance graphics card</source>
-        <translation type="unfinished">고성능 그래픽 카드에서 Flip Studio 실행</translation>
+        <translation>고성능 그래픽 카드에서 Flip Studio 실행</translation>
     </message>
     <message>
         <source>Set Flip Studio to High performance in Windows Settings &gt; Display &gt; Graphics, then restart Flip Studio.</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 설정 &gt; 디스플레이 &gt; 그래픽에서 Flip Studio를 고성능으로 설정한 다음 Flip Studio를 다시 시작하세요.</translation>
     </message>
 </context>
 <context>
     <name>PreviewOsd</name>
     <message>
         <source>Preview zoom — Ctrl+scroll over the preview to zoom, middle-drag to pan. Click to reset to 100%.</source>
-        <translation type="unfinished">미리보기 확대/축소 — 미리보기 위에서 Ctrl+스크롤로 확대/축소하고 가운데 버튼 드래그로 패닝합니다. 클릭하면 100%로 초기화됩니다.</translation>
+        <translation>미리 보기 확대/축소 — 미리 보기 위에서 Ctrl+스크롤로 확대/축소하고, 가운데 버튼 드래그로 이동합니다. 클릭하면 100%로 재설정됩니다.</translation>
     </message>
     <message>
         <source>Toggle guides</source>
@@ -14196,7 +14202,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview options</source>
-        <translation type="unfinished"></translation>
+        <translation>미리 보기 옵션</translation>
     </message>
 </context>
 <context>
@@ -14210,23 +14216,23 @@ If playback stutters, try another.</source>
     <name>PreviewStatusLayer</name>
     <message>
         <source>PAUSED %1s</source>
-        <translation type="unfinished">일시정지 %1초</translation>
+        <translation>일시 정지 %1s</translation>
     </message>
     <message>
         <source>REC %1s</source>
-        <translation type="unfinished">REC %1초</translation>
+        <translation>REC %1s</translation>
     </message>
     <message>
         <source>Nothing to preview yet</source>
-        <translation type="unfinished">아직 미리볼 항목이 없습니다</translation>
+        <translation>아직 미리 볼 내용이 없습니다</translation>
     </message>
     <message>
         <source>Import media and drag it onto the timeline below to see it here.</source>
-        <translation type="unfinished">미디어를 가져와 아래 타임라인으로 드래그하면 여기에 표시됩니다.</translation>
+        <translation>미디어를 가져와 아래 타임라인으로 드래그하면 여기에 표시됩니다.</translation>
     </message>
     <message>
         <source>GPU preview unavailable</source>
-        <translation type="unfinished">GPU 미리보기를 사용할 수 없음</translation>
+        <translation>GPU 미리 보기를 사용할 수 없습니다</translation>
     </message>
     <message>
         <source>Debug info</source>
@@ -14242,11 +14248,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Your graphics driver only provides %1. Flip Studio&apos;s preview needs OpenGL 3.3.</source>
-        <translation type="unfinished">그래픽 드라이버가 %1만 제공합니다. Drift의 미리보기에는 OpenGL 3.3이 필요합니다.</translation>
+        <translation>그래픽 드라이버가 %1만 제공합니다. Flip Studio 미리 보기에는 OpenGL 3.3이 필요합니다.</translation>
     </message>
     <message>
         <source>Flip Studio could not start its GPU renderer, so the preview cannot draw.</source>
-        <translation type="unfinished">Drift에서 GPU 렌더러를 시작할 수 없어 미리보기를 표시할 수 없습니다.</translation>
+        <translation>Flip Studio가 GPU 렌더러를 시작할 수 없어 미리 보기를 그릴 수 없습니다.</translation>
     </message>
 </context>
 <context>
@@ -14257,11 +14263,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Current time / total · %1 frames per second</source>
-        <translation type="unfinished">현재 시간/전체 · 초당 %1프레임</translation>
+        <translation>현재 시간 / 전체 · 초당 %1프레임</translation>
     </message>
     <message>
         <source>Jump back 1s · Shift for 5s · Ctrl for 10s</source>
-        <translation type="unfinished">1초 뒤로 · Shift: 5초 · Ctrl: 10초</translation>
+        <translation>1초 뒤로 이동 · Shift는 5초 · Ctrl은 10초</translation>
     </message>
     <message>
         <source>Previous frame</source>
@@ -14281,31 +14287,31 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Loop work area on — click to turn off</source>
-        <translation type="unfinished">작업 영역 반복 재생 켜짐 — 클릭하여 끄기</translation>
+        <translation>작업 영역 반복 켜짐 — 클릭하여 끄기</translation>
     </message>
     <message>
         <source>Loop work area off — click to turn on</source>
-        <translation type="unfinished">작업 영역 반복 재생 꺼짐 — 클릭하여 켜기</translation>
+        <translation>작업 영역 반복 꺼짐 — 클릭하여 켜기</translation>
     </message>
     <message>
         <source>Jump forward 1s · Shift for 5s · Ctrl for 10s</source>
-        <translation type="unfinished">1초 앞으로 · Shift: 5초 · Ctrl: 10초</translation>
+        <translation>1초 앞으로 이동 · Shift는 5초 · Ctrl은 10초</translation>
     </message>
     <message>
         <source>Vertical workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>세로 작업 공간</translation>
     </message>
     <message>
         <source>Wide workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>가로 작업 공간</translation>
     </message>
     <message>
         <source>Arrange the panels for this video&apos;s shape</source>
-        <translation type="unfinished"></translation>
+        <translation>이 동영상의 모양에 맞게 패널 배치</translation>
     </message>
     <message>
         <source>Exit fullscreen preview (Esc)</source>
-        <translation type="unfinished">전체 화면 미리보기 종료(Esc)</translation>
+        <translation>전체 화면 미리 보기 종료(Esc)</translation>
     </message>
     <message>
         <source>Fullscreen preview</source>
@@ -14313,43 +14319,43 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished">맞춤</translation>
+        <translation>맞춤</translation>
     </message>
     <message>
         <source>YouTube, horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>YouTube, 가로</translation>
     </message>
     <message>
         <source>TikTok, Reels, Shorts</source>
-        <translation type="unfinished"></translation>
+        <translation>TikTok, Reels, Shorts</translation>
     </message>
     <message>
         <source>Square</source>
-        <translation type="unfinished">정사각형</translation>
+        <translation>정사각형</translation>
     </message>
     <message>
         <source>Instagram post</source>
-        <translation type="unfinished"></translation>
+        <translation>Instagram 게시물</translation>
     </message>
     <message>
         <source>Classic</source>
-        <translation type="unfinished">클래식</translation>
+        <translation>클래식</translation>
     </message>
     <message>
         <source>Cinema</source>
-        <translation type="unfinished"></translation>
+        <translation>시네마</translation>
     </message>
     <message>
         <source>Ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>비율</translation>
     </message>
     <message>
         <source>Preview zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>미리 보기 확대/축소</translation>
     </message>
     <message>
         <source>Aspect ratio of the video</source>
-        <translation type="unfinished"></translation>
+        <translation>동영상 화면 비율</translation>
     </message>
 </context>
 <context>
@@ -14684,14 +14690,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Untitled Project</source>
-        <translation type="unfinished">제목 없는 프로젝트</translation>
+        <translation>제목 없는 프로젝트</translation>
     </message>
 </context>
 <context>
     <name>ProjectLoadDialog</name>
     <message>
         <source>Opening project</source>
-        <translation type="unfinished"></translation>
+        <translation>프로젝트 여는 중</translation>
     </message>
     <message>
         <source>Unpacking project media…</source>
@@ -14800,7 +14806,7 @@ If playback stutters, try another.</source>
     <name>PropertiesPanel</name>
     <message>
         <source>Template</source>
-        <translation type="unfinished">템플릿</translation>
+        <translation>템플릿</translation>
     </message>
     <message>
         <source>General</source>
@@ -14808,7 +14814,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Adjustment layer</source>
-        <translation type="unfinished">보정 레이어</translation>
+        <translation>조정 레이어</translation>
     </message>
     <message>
         <source>Text</source>
@@ -14828,7 +14834,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>PDF</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF</translation>
     </message>
     <message>
         <source>Subtitles</source>
@@ -14840,15 +14846,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">동영상</translation>
+        <translation>동영상</translation>
     </message>
     <message>
         <source>Adjust</source>
-        <translation type="unfinished"></translation>
+        <translation>조정</translation>
     </message>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라</translation>
     </message>
     <message>
         <source>Stabilization</source>
@@ -14908,7 +14914,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Keep scrolling for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>계속 스크롤하면 %1</translation>
     </message>
     <message>
         <source>My look</source>
@@ -15141,7 +15147,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Loading the models…</source>
-        <translation type="unfinished"></translation>
+        <translation>모델 불러오는 중…</translation>
     </message>
     <message>
         <source>%1 s</source>
@@ -15153,19 +15159,19 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>%1 h %2 min</source>
-        <translation type="unfinished"></translation>
+        <translation>%1시간 %2분</translation>
     </message>
     <message>
         <source>Enhancing… %1% — about %2 left</source>
-        <translation type="unfinished"></translation>
+        <translation>개선 중… %1% — 약 %2 남음</translation>
     </message>
     <message>
         <source>Enhancing… %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>개선 중… %1%</translation>
     </message>
     <message>
         <source>Enhancing this frame… %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>이 프레임 개선 중… %1%</translation>
     </message>
     <message>
         <source>Scanning frame %1 of %2…</source>
@@ -15257,11 +15263,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>The voice sample must be at least %1 seconds of speech</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 샘플은 최소 %1초 분량의 말소리가 필요합니다</translation>
     </message>
     <message>
         <source>Could not save the voice</source>
-        <translation type="unfinished"></translation>
+        <translation>음성을 저장할 수 없습니다</translation>
     </message>
 </context>
 <context>
@@ -15359,42 +15365,42 @@ If playback stutters, try another.</source>
     <name>RestoreController</name>
     <message>
         <source>Select a video clip to enhance</source>
-        <translation type="unfinished"></translation>
+        <translation>개선할 동영상 클립을 선택하세요</translation>
     </message>
     <message>
         <source>Choose a model to enhance with</source>
-        <translation type="unfinished"></translation>
+        <translation>개선에 사용할 모델을 선택하세요</translation>
     </message>
     <message>
         <source>This clip is already being enhanced</source>
-        <translation type="unfinished"></translation>
+        <translation>이 클립은 이미 개선 중입니다</translation>
     </message>
     <message>
         <source>%1 (enhanced %2x)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1(%2배 개선됨)</translation>
     </message>
     <message>
         <source>%1 (enhanced)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1(개선됨)</translation>
     </message>
     <message>
         <source>Enhance Video</source>
-        <translation type="unfinished"></translation>
+        <translation>동영상 개선</translation>
     </message>
     <message>
         <source>Enhanced video added to the media bin</source>
-        <translation type="unfinished"></translation>
+        <translation>개선된 동영상이 미디어 라이브러리에 추가됨</translation>
     </message>
     <message>
         <source>Enhancing video…</source>
-        <translation type="unfinished"></translation>
+        <translation>동영상 개선 중…</translation>
     </message>
 </context>
 <context>
     <name>RestoreWindow</name>
     <message>
         <source>under a second</source>
-        <translation type="unfinished"></translation>
+        <translation>1초 미만</translation>
     </message>
     <message>
         <source>%1 s</source>
@@ -15406,15 +15412,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>%1 h %2 min</source>
-        <translation type="unfinished"></translation>
+        <translation>%1시간 %2분</translation>
     </message>
     <message>
         <source>%1 s per frame</source>
-        <translation type="unfinished"></translation>
+        <translation>프레임당 %1초</translation>
     </message>
     <message>
         <source>Enhance video</source>
-        <translation type="unfinished"></translation>
+        <translation>동영상 개선</translation>
     </message>
     <message>
         <source>None</source>
@@ -15422,15 +15428,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>No upscaling</source>
-        <translation type="unfinished"></translation>
+        <translation>업스케일 안 함</translation>
     </message>
     <message>
         <source>Keep the original size.</source>
-        <translation type="unfinished"></translation>
+        <translation>원래 크기를 유지합니다.</translation>
     </message>
     <message>
         <source>%1 (custom, experimental)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1(사용자 지정, 실험적)</translation>
     </message>
     <message>
         <source>Original</source>
@@ -15438,15 +15444,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Enhanced — out of date, preview again</source>
-        <translation type="unfinished"></translation>
+        <translation>개선됨 — 최신 상태 아님, 다시 미리 보기</translation>
     </message>
     <message>
         <source>Enhanced %1 × %2</source>
-        <translation type="unfinished"></translation>
+        <translation>개선됨 %1 × %2</translation>
     </message>
     <message>
         <source>Loading this frame…</source>
-        <translation type="unfinished"></translation>
+        <translation>이 프레임 불러오는 중…</translation>
     </message>
     <message>
         <source>Working…</source>
@@ -15454,7 +15460,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Choose models, then Preview to compare this frame</source>
-        <translation type="unfinished"></translation>
+        <translation>모델을 선택한 다음 미리 보기를 눌러 이 프레임을 비교하세요</translation>
     </message>
     <message>
         <source>Frame</source>
@@ -15470,39 +15476,39 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview one frame, then enhance the whole video. The result is added to the media bin. Enhancing is slow — minutes per second of video without a GPU.</source>
-        <translation type="unfinished"></translation>
+        <translation>프레임 하나를 미리 본 다음 동영상 전체를 개선하세요. 결과는 미디어 라이브러리에 추가됩니다. 개선은 느립니다. GPU가 없으면 동영상 1초당 몇 분이 걸립니다.</translation>
     </message>
     <message>
         <source>Preview one frame, then enhance the part of the clip used on the timeline. The result is added to the media bin. Enhancing is slow — minutes per second of video without a GPU.</source>
-        <translation type="unfinished"></translation>
+        <translation>프레임 하나를 미리 본 다음 타임라인에서 사용 중인 클립 부분을 개선하세요. 결과는 미디어 라이브러리에 추가됩니다. 개선은 느립니다. GPU가 없으면 동영상 1초당 몇 분이 걸립니다.</translation>
     </message>
     <message>
         <source>Remove compression</source>
-        <translation type="unfinished"></translation>
+        <translation>압축 노이즈 제거</translation>
     </message>
     <message>
         <source>Upscale</source>
-        <translation type="unfinished"></translation>
+        <translation>업스케일</translation>
     </message>
     <message>
         <source>Output: %1 × %2</source>
-        <translation type="unfinished"></translation>
+        <translation>출력: %1 × %2</translation>
     </message>
     <message>
         <source> — larger than 4K, which is slow to edit and export</source>
-        <translation type="unfinished"></translation>
+        <translation> — 4K보다 커서 편집과 내보내기가 느립니다</translation>
     </message>
     <message>
         <source>Up to about %1 on this computer&apos;s CPU.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 컴퓨터의 CPU로 최대 약 %1.</translation>
     </message>
     <message>
         <source>Up to about %1 on a typical laptop CPU. Preview a frame for an estimate for this computer.</source>
-        <translation type="unfinished"></translation>
+        <translation>일반 노트북 CPU로 최대 약 %1. 프레임을 미리 보면 이 컴퓨터의 예상 시간을 알 수 있습니다.</translation>
     </message>
     <message>
         <source>Preview this frame</source>
-        <translation type="unfinished"></translation>
+        <translation>이 프레임 미리 보기</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -15514,19 +15520,19 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Enhance clip</source>
-        <translation type="unfinished"></translation>
+        <translation>클립 개선</translation>
     </message>
     <message>
         <source>Anime and drawings</source>
-        <translation type="unfinished"></translation>
+        <translation>애니메이션 및 그림</translation>
     </message>
     <message>
         <source>Live action</source>
-        <translation type="unfinished"></translation>
+        <translation>실사</translation>
     </message>
     <message>
         <source>3D animation and games</source>
-        <translation type="unfinished"></translation>
+        <translation>3D 애니메이션 및 게임</translation>
     </message>
     <message>
         <source>General</source>
@@ -15534,7 +15540,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Choose an upscaler</source>
-        <translation type="unfinished"></translation>
+        <translation>업스케일러 선택</translation>
     </message>
     <message>
         <source>All</source>
@@ -15542,11 +15548,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speeds are per frame of this clip. Custom models are experimental and may not work. Drop an ONNX export (fp32 or fp16, RGB, 1x/2x/4x) into the folder; put the scale in the file name, e.g. &quot;2x_Name.onnx&quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>속도는 이 클립의 프레임당 기준입니다. 사용자 지정 모델은 실험적이며 작동하지 않을 수 있습니다. ONNX 모델(fp32 또는 fp16, RGB, 1x/2x/4x)을 폴더에 넣고 파일 이름에 배율을 넣으세요(예: &quot;2x_Name.onnx&quot;).</translation>
     </message>
     <message>
         <source>Get models (openmodeldb.info)</source>
-        <translation type="unfinished"></translation>
+        <translation>모델 받기(openmodeldb.info)</translation>
     </message>
     <message>
         <source>Install AI engine first</source>
@@ -15554,11 +15560,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Open custom models folder</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자 지정 모델 폴더 열기</translation>
     </message>
     <message>
         <source>Refresh model list</source>
-        <translation type="unfinished"></translation>
+        <translation>모델 목록 새로 고침</translation>
     </message>
 </context>
 <context>
@@ -15627,73 +15633,73 @@ If playback stutters, try another.</source>
     <name>SaveTemplateDialog</name>
     <message>
         <source>My templates</source>
-        <translation type="unfinished"></translation>
+        <translation>내 템플릿</translation>
     </message>
     <message>
         <source>Photo reels</source>
-        <translation type="unfinished"></translation>
+        <translation>사진 릴스</translation>
     </message>
     <message>
         <source>Intros and titles</source>
-        <translation type="unfinished"></translation>
+        <translation>인트로 및 타이틀</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">텍스트</translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <source>Collages</source>
-        <translation type="unfinished"></translation>
+        <translation>콜라주</translation>
     </message>
     <message>
         <source>Before and after</source>
-        <translation type="unfinished"></translation>
+        <translation>비포 앤 애프터</translation>
     </message>
     <message>
         <source>Products</source>
-        <translation type="unfinished"></translation>
+        <translation>제품</translation>
     </message>
     <message>
         <source>Celebrations</source>
-        <translation type="unfinished"></translation>
+        <translation>축하</translation>
     </message>
     <message>
         <source>Countdowns</source>
-        <translation type="unfinished"></translation>
+        <translation>카운트다운</translation>
     </message>
     <message>
         <source>Endings</source>
-        <translation type="unfinished"></translation>
+        <translation>엔딩</translation>
     </message>
     <message>
         <source>Save as template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿으로 저장</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">저장</translation>
+        <translation>저장</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">이름</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <source>My template</source>
-        <translation type="unfinished"></translation>
+        <translation>내 템플릿</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished"></translation>
+        <translation>카테고리</translation>
     </message>
     <message numerus="yes">
         <source>%n slot(s) for photos and videos, and %1 editable text(s). The rest of the composition is saved as it is.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>사진 및 동영상 슬롯 %n개, 편집 가능한 텍스트 %1개. 컴포지션의 나머지는 그대로 저장됩니다.</numerusform>
         </translation>
     </message>
     <message>
         <source>It has no slots yet. To leave room for other people&apos;s photos, open the composition and right-click a photo or video › Make template slot.</source>
-        <translation type="unfinished"></translation>
+        <translation>아직 슬롯이 없습니다. 다른 사람의 사진을 넣을 자리를 만들려면 컴포지션을 열고 사진이나 동영상을 마우스 오른쪽 버튼으로 클릭한 다음 › 템플릿 슬롯으로 만들기를 선택하세요.</translation>
     </message>
 </context>
 <context>
@@ -15737,110 +15743,110 @@ If playback stutters, try another.</source>
     <name>SceneTemplateBrowser</name>
     <message>
         <source>Search templates</source>
-        <translation type="unfinished">템플릿 검색</translation>
+        <translation>템플릿 검색</translation>
     </message>
     <message>
         <source>No scene templates yet</source>
-        <translation type="unfinished"></translation>
+        <translation>아직 장면 템플릿이 없습니다</translation>
     </message>
     <message>
         <source>Get them from Stock › Templates: they install here and stay in your account.</source>
-        <translation type="unfinished"></translation>
+        <translation>스톡 › 템플릿에서 받으세요. 여기에 설치되고 계정에 보관됩니다.</translation>
     </message>
     <message>
         <source>Sign in and get them from Stock › Templates: they install here and stay in your account.</source>
-        <translation type="unfinished"></translation>
+        <translation>로그인한 다음 스톡 › 템플릿에서 받으세요. 여기에 설치되고 계정에 보관됩니다.</translation>
     </message>
     <message>
         <source>No templates match “%1”.</source>
-        <translation type="unfinished">“%1”과(와) 일치하는 템플릿이 없습니다.</translation>
+        <translation>“%1”과(와) 일치하는 템플릿이 없습니다.</translation>
     </message>
     <message>
         <source>No favorites yet. Star templates to save them here.</source>
-        <translation type="unfinished">아직 즐겨찾기가 없습니다. 템플릿에 별표를 표시하여 여기에 저장하세요.</translation>
+        <translation>아직 즐겨찾기가 없습니다. 템플릿에 별표를 눌러 여기에 저장하세요.</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
-        <translation type="unfinished">이 카테고리에는 항목이 없습니다.</translation>
+        <translation>이 카테고리에 항목이 없습니다.</translation>
     </message>
     <message>
         <source>%1 — click to add it at the playhead, then fill its photos in the panel on the right</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 — 클릭하면 재생 헤드 위치에 추가됩니다. 그런 다음 오른쪽 패널에서 사진을 채우세요</translation>
     </message>
     <message>
         <source>Add at the playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 헤드 위치에 추가</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
-        <translation type="unfinished">즐겨찾기에서 제거</translation>
+        <translation>즐겨찾기에서 제거</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished">즐겨찾기에 추가</translation>
+        <translation>즐겨찾기에 추가</translation>
     </message>
     <message>
         <source>Delete template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 삭제</translation>
     </message>
     <message>
         <source>Use template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 사용</translation>
     </message>
     <message>
         <source>Use this template</source>
-        <translation type="unfinished"></translation>
+        <translation>이 템플릿 사용</translation>
     </message>
     <message>
         <source>In your account, not on this computer yet: using it downloads it</source>
-        <translation type="unfinished"></translation>
+        <translation>계정에는 있지만 아직 이 컴퓨터에는 없습니다. 사용하면 다운로드됩니다</translation>
     </message>
 </context>
 <context>
     <name>SceneTemplateCatalog</name>
     <message>
         <source>My templates</source>
-        <translation type="unfinished"></translation>
+        <translation>내 템플릿</translation>
     </message>
     <message>
         <source>Photo reels</source>
-        <translation type="unfinished"></translation>
+        <translation>사진 릴스</translation>
     </message>
     <message>
         <source>Intros and titles</source>
-        <translation type="unfinished"></translation>
+        <translation>인트로 및 타이틀</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">텍스트</translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <source>Collages</source>
-        <translation type="unfinished"></translation>
+        <translation>콜라주</translation>
     </message>
     <message>
         <source>Before and after</source>
-        <translation type="unfinished"></translation>
+        <translation>비포 앤 애프터</translation>
     </message>
     <message>
         <source>Products</source>
-        <translation type="unfinished"></translation>
+        <translation>제품</translation>
     </message>
     <message>
         <source>Celebrations</source>
-        <translation type="unfinished"></translation>
+        <translation>축하</translation>
     </message>
     <message>
         <source>Countdowns</source>
-        <translation type="unfinished"></translation>
+        <translation>카운트다운</translation>
     </message>
     <message>
         <source>Endings</source>
-        <translation type="unfinished"></translation>
+        <translation>엔딩</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished">기타</translation>
+        <translation>기타</translation>
     </message>
 </context>
 <context>
@@ -15938,19 +15944,19 @@ If playback stutters, try another.</source>
     <name>SegmentationController</name>
     <message>
         <source>Select a video or image clip to cut out</source>
-        <translation type="unfinished"></translation>
+        <translation>잘라낼 동영상 또는 이미지 클립을 선택하세요</translation>
     </message>
     <message>
         <source>Cutout is already running</source>
-        <translation type="unfinished">피사체 분리가 이미 실행 중입니다</translation>
+        <translation>누끼 작업이 이미 실행 중입니다</translation>
     </message>
     <message>
         <source>This clip has no video to cut out</source>
-        <translation type="unfinished">이 클립에는 분리할 동영상이 없습니다</translation>
+        <translation>이 클립에는 잘라낼 동영상이 없습니다</translation>
     </message>
     <message>
         <source>Click the subject first</source>
-        <translation type="unfinished">먼저 피사체를 클릭하세요</translation>
+        <translation>먼저 피사체를 클릭하세요</translation>
     </message>
     <message>
         <source>Getting ready…</source>
@@ -15958,7 +15964,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Cutting out subject…</source>
-        <translation type="unfinished">피사체 분리 중…</translation>
+        <translation>피사체 잘라내는 중…</translation>
     </message>
     <message>
         <source>Done</source>
@@ -15966,15 +15972,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Clip is too short to cut out</source>
-        <translation type="unfinished">클립이 너무 짧아 피사체를 분리할 수 없습니다</translation>
+        <translation>클립이 너무 짧아 잘라낼 수 없습니다</translation>
     </message>
     <message>
         <source>Could not create a cutout file</source>
-        <translation type="unfinished">피사체 분리 파일을 만들 수 없습니다</translation>
+        <translation>누끼 파일을 만들 수 없습니다</translation>
     </message>
     <message>
         <source>Cutout cancelled</source>
-        <translation type="unfinished">피사체 분리가 취소됨</translation>
+        <translation>누끼 작업 취소됨</translation>
     </message>
     <message>
         <source>Could not decode frame %1</source>
@@ -15982,23 +15988,23 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Processing frame %1 of %2…</source>
-        <translation type="unfinished">%2개 중 %1번째 프레임 처리 중…</translation>
+        <translation>프레임 %1/%2 처리 중…</translation>
     </message>
     <message>
         <source>Cutout complete — subject cut out on %1 of %2 frames</source>
-        <translation type="unfinished">피사체 분리 완료 — %2개 프레임 중 %1개에서 피사체가 분리됨</translation>
+        <translation>누끼 완료 — %2개 프레임 중 %1개에서 피사체를 잘라냄</translation>
     </message>
     <message>
         <source>Cutout complete</source>
-        <translation type="unfinished">피사체 분리 완료</translation>
+        <translation>누끼 완료</translation>
     </message>
     <message>
         <source>That clip no longer exists</source>
-        <translation type="unfinished">해당 클립이 더 이상 존재하지 않습니다</translation>
+        <translation>해당 클립이 더 이상 존재하지 않습니다</translation>
     </message>
     <message>
         <source>Cutout</source>
-        <translation type="unfinished">피사체 분리</translation>
+        <translation>누끼</translation>
     </message>
     <message>
         <source>Cut out subject</source>
@@ -16041,7 +16047,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Tap marks the subject, press and hold marks what to exclude. Tap a marker to remove it.</source>
-        <translation type="unfinished"></translation>
+        <translation>탭하면 피사체를 표시하고, 길게 누르면 제외할 부분을 표시합니다. 마커를 탭하면 제거됩니다.</translation>
     </message>
     <message>
         <source>Left-click marks the subject, right-click marks what to exclude. Click a marker to remove it.</source>
@@ -16211,7 +16217,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Open graphics settings</source>
-        <translation type="unfinished"></translation>
+        <translation>그래픽 설정 열기</translation>
     </message>
     <message>
         <source>Playback</source>
@@ -16251,31 +16257,31 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>레이아웃</translation>
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished"></translation>
+        <translation>자동</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>데스크톱</translation>
     </message>
     <message>
         <source>Mobile</source>
-        <translation type="unfinished"></translation>
+        <translation>모바일</translation>
     </message>
     <message>
         <source>Desktop suits a mouse and keyboard, including tablets in desktop mode. Mobile is the touch layout made for phones. Takes effect after restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>데스크톱은 데스크톱 모드의 태블릿을 포함해 마우스와 키보드에 적합합니다. 모바일은 휴대폰용 터치 레이아웃입니다. 다시 시작하면 적용됩니다.</translation>
     </message>
     <message>
         <source>Restart Flip Studio to switch layouts.</source>
-        <translation type="unfinished"></translation>
+        <translation>레이아웃을 바꾸려면 Flip Studio를 다시 시작하세요.</translation>
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"></translation>
+        <translation>지금 다시 시작</translation>
     </message>
     <message>
         <source>Horizontal mouse-wheel pan</source>
@@ -16303,51 +16309,51 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>계정</translation>
     </message>
     <message>
         <source>Sign in with Google to search free photos and videos from Pexels and Pixabay. Editing works the same without an account.</source>
-        <translation type="unfinished"></translation>
+        <translation>Google로 로그인하면 Pexels와 Pixabay의 무료 사진과 동영상을 검색할 수 있습니다. 계정이 없어도 편집 기능은 똑같이 작동합니다.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>브라우저를 기다리는 중…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
-        <translation type="unfinished"></translation>
+        <translation>Google로 로그인</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">취소</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"></translation>
+        <translation>로그아웃</translation>
     </message>
     <message>
         <source>Delete account…</source>
-        <translation type="unfinished"></translation>
+        <translation>계정 삭제…</translation>
     </message>
     <message>
         <source>Delete your Flip Studio account? Your name, email and sessions are erased from our server and this install becomes anonymous. Your projects on this computer are not touched.</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio 계정을 삭제할까요? 이름, 이메일, 세션이 서버에서 지워지고 이 설치는 익명이 됩니다. 이 컴퓨터의 프로젝트는 그대로 유지됩니다.</translation>
     </message>
     <message>
         <source>Deleting…</source>
-        <translation type="unfinished"></translation>
+        <translation>삭제 중…</translation>
     </message>
     <message>
         <source>Delete account</source>
-        <translation type="unfinished"></translation>
+        <translation>계정 삭제</translation>
     </message>
     <message>
         <source>Send anonymous usage statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>익명 사용 통계 보내기</translation>
     </message>
     <message>
         <source>Only the version, the Windows edition and a random install number, to count installs and updates. Never your projects or files. &lt;a href=&quot;https://getflipstudio.com/privacidad.html&quot;&gt;Privacy policy&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>설치와 업데이트 횟수를 세기 위해 버전, Windows 에디션, 임의의 설치 번호만 보냅니다. 프로젝트나 파일은 절대 보내지 않습니다. &lt;a href=&quot;https://getflipstudio.com/privacidad.html&quot;&gt;개인정보 처리방침&lt;/a&gt;</translation>
     </message>
     <message>
         <source>App</source>
@@ -16467,7 +16473,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Choose which graphics card Flip Studio runs on in Windows Settings, under Display &gt; Graphics. Takes effect after restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows 설정의 디스플레이 &gt; 그래픽에서 Flip Studio가 사용할 그래픽 카드를 선택하세요. 다시 시작하면 적용됩니다.</translation>
     </message>
     <message>
         <source>Restart Flip Studio to apply this size.</source>
@@ -16479,11 +16485,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>About Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio 정보</translation>
     </message>
     <message>
         <source>Keys are encrypted for your Windows user account. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
-        <translation type="unfinished"></translation>
+        <translation>키는 Windows 사용자 계정용으로 암호화되어 저장됩니다. 환경 변수의 ELEVENLABS_API_KEY와 FISH_API_KEY가 우선합니다. 사용 요금은 본인 계정에 청구됩니다.</translation>
     </message>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
@@ -16495,7 +16501,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Once a day, check whether a newer Flip Studio has been released</source>
-        <translation type="unfinished"></translation>
+        <translation>하루에 한 번 새 Flip Studio 버전이 나왔는지 확인</translation>
     </message>
 </context>
 <context>
@@ -16506,11 +16512,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Loading sound effects…</source>
-        <translation type="unfinished"></translation>
+        <translation>효과음 불러오는 중…</translation>
     </message>
     <message>
         <source>Couldn’t load sound effects</source>
-        <translation type="unfinished"></translation>
+        <translation>효과음을 불러올 수 없습니다</translation>
     </message>
     <message>
         <source>Try again</source>
@@ -16522,11 +16528,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>No sound effects match “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1”과(와) 일치하는 효과음이 없습니다.</translation>
     </message>
     <message>
         <source>No sound effects here.</source>
-        <translation type="unfinished"></translation>
+        <translation>여기에 효과음이 없습니다.</translation>
     </message>
     <message>
         <source>Pause</source>
@@ -16538,18 +16544,18 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add to the media bin</source>
-        <translation type="unfinished"></translation>
+        <translation>미디어 라이브러리에 추가</translation>
     </message>
     <message>
         <source>Add to the timeline</source>
-        <translation type="unfinished"></translation>
+        <translation>타임라인에 추가</translation>
     </message>
 </context>
 <context>
     <name>SfxLibrary</name>
     <message>
         <source>Could not load sound effects. Check your connection and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>효과음을 불러올 수 없습니다. 연결을 확인하고 다시 시도하세요.</translation>
     </message>
     <message>
         <source>Could not write to the app data folder.</source>
@@ -16557,7 +16563,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Could not download that sound. Check your connection and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>해당 사운드를 다운로드할 수 없습니다. 연결을 확인하고 다시 시도하세요.</translation>
     </message>
     <message>
         <source>That download was damaged. Try again.</source>
@@ -16565,7 +16571,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Could not add that sound to the media bin.</source>
-        <translation type="unfinished"></translation>
+        <translation>해당 사운드를 미디어 라이브러리에 추가할 수 없습니다.</translation>
     </message>
 </context>
 <context>
@@ -17072,23 +17078,23 @@ If playback stutters, try another.</source>
     <name>ShellSwitchDialog</name>
     <message>
         <source>Switch to the mobile layout?</source>
-        <translation type="unfinished"></translation>
+        <translation>모바일 레이아웃으로 전환할까요?</translation>
     </message>
     <message>
         <source>Switch to the desktop layout?</source>
-        <translation type="unfinished"></translation>
+        <translation>데스크톱 레이아웃으로 전환할까요?</translation>
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"></translation>
+        <translation>지금 다시 시작</translation>
     </message>
     <message>
         <source>Switch</source>
-        <translation type="unfinished"></translation>
+        <translation>전환</translation>
     </message>
     <message>
         <source>Not now</source>
-        <translation type="unfinished"></translation>
+        <translation>나중에</translation>
     </message>
     <message>
         <source>Later</source>
@@ -17096,19 +17102,19 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Restart Flip Studio to switch layouts.</source>
-        <translation type="unfinished"></translation>
+        <translation>레이아웃을 바꾸려면 Flip Studio를 다시 시작하세요.</translation>
     </message>
     <message>
         <source>A mouse is connected. The desktop layout has full menus, panels and precise timeline editing. Flip Studio restarts to switch, and your project is kept.</source>
-        <translation type="unfinished"></translation>
+        <translation>마우스가 연결되어 있습니다. 데스크톱 레이아웃에는 모든 메뉴와 패널, 정밀한 타임라인 편집이 있습니다. 전환하려면 Flip Studio가 다시 시작되며 프로젝트는 유지됩니다.</translation>
     </message>
     <message>
         <source>The mobile layout is the touch interface made for phones. Flip Studio restarts to switch.</source>
-        <translation type="unfinished"></translation>
+        <translation>모바일 레이아웃은 휴대폰용 터치 인터페이스입니다. 전환하려면 Flip Studio가 다시 시작됩니다.</translation>
     </message>
     <message>
         <source>The desktop layout suits a mouse and keyboard. Flip Studio restarts to switch.</source>
-        <translation type="unfinished"></translation>
+        <translation>데스크톱 레이아웃은 마우스와 키보드에 적합합니다. 전환하려면 Flip Studio가 다시 시작됩니다.</translation>
     </message>
 </context>
 <context>
@@ -17169,66 +17175,66 @@ If playback stutters, try another.</source>
     <name>SoundEffectsTab</name>
     <message>
         <source>Search sounds</source>
-        <translation type="unfinished"></translation>
+        <translation>사운드 검색</translation>
     </message>
     <message>
         <source>Search music</source>
-        <translation type="unfinished"></translation>
+        <translation>음악 검색</translation>
     </message>
     <message>
         <source>No sound effects installed</source>
-        <translation type="unfinished"></translation>
+        <translation>설치된 효과음이 없습니다</translation>
     </message>
     <message>
         <source>No music installed</source>
-        <translation type="unfinished"></translation>
+        <translation>설치된 음악이 없습니다</translation>
     </message>
     <message>
         <source>Install the free music pack: 65 public-domain songs, happy, calm, epic, cinematic and more, free for your videos.</source>
-        <translation type="unfinished"></translation>
+        <translation>무료 음악 팩을 설치하세요. 밝은, 차분한, 웅장한, 영화 같은 곡 등 퍼블릭 도메인 65곡을 동영상에 무료로 쓸 수 있습니다.</translation>
     </message>
     <message>
         <source>Install the sound effects pack: whooshes, pops, bells, impacts and more.</source>
-        <translation type="unfinished"></translation>
+        <translation>효과음 팩을 설치하세요. 휙, 팝, 벨, 충격음 등이 들어 있습니다.</translation>
     </message>
     <message>
         <source>Get extras</source>
-        <translation type="unfinished">추가 기능 받기</translation>
+        <translation>추가 기능 받기</translation>
     </message>
     <message>
         <source>No favorites yet. Tap the star on a sound to keep it here.</source>
-        <translation type="unfinished"></translation>
+        <translation>아직 즐겨찾기가 없습니다. 사운드의 별표를 탭하면 여기에 보관됩니다.</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">중지</translation>
+        <translation>정지</translation>
     </message>
     <message>
         <source>Listen</source>
-        <translation type="unfinished"></translation>
+        <translation>듣기</translation>
     </message>
     <message>
         <source>Add at the playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 헤드 위치에 추가</translation>
     </message>
 </context>
 <context>
     <name>SpeechTab</name>
     <message>
         <source>Voice saved</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 저장됨</translation>
     </message>
     <message>
         <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation type="unfinished"></translation>
+        <translation>기본 제공 음성이나 복제한 음성으로 대본을 음성으로 바꿉니다. 이 기기에서 생성되어 재생 헤드 위치에 추가됩니다.</translation>
     </message>
     <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 생성은 이 기기에서 실행되며 음성 모델이 필요합니다.</translation>
     </message>
     <message>
         <source>Download voice model</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 모델 다운로드</translation>
     </message>
     <message>
         <source>Install AI engine first</source>
@@ -17236,19 +17242,19 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Needed to generate speech</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 생성에 필요</translation>
     </message>
     <message>
         <source>Type what the voice should say</source>
-        <translation type="unfinished"></translation>
+        <translation>음성이 말할 내용을 입력하세요</translation>
     </message>
     <message>
         <source>%1 characters, about %2 s</source>
-        <translation type="unfinished"></translation>
+        <translation>%1자, 약 %2초</translation>
     </message>
     <message>
         <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation type="unfinished"></translation>
+        <translation>30초가 넘는 음성은 알아들을 수 없는 소리나 무음으로 끝나는 경우가 많습니다. 대본을 더 짧게 나누세요.</translation>
     </message>
     <message>
         <source>Voice</source>
@@ -17260,11 +17266,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Play the voice sample</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 샘플 재생</translation>
     </message>
     <message>
         <source>Rename or delete this voice</source>
-        <translation type="unfinished"></translation>
+        <translation>이 음성 이름 바꾸기 또는 삭제</translation>
     </message>
     <message>
         <source>Rename…</source>
@@ -17272,7 +17278,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Rename voice</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 이름 바꾸기</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -17280,31 +17286,31 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>New voice</source>
-        <translation type="unfinished"></translation>
+        <translation>새 음성</translation>
     </message>
     <message>
         <source>Clone a voice from a recording</source>
-        <translation type="unfinished"></translation>
+        <translation>녹음에서 음성 복제</translation>
     </message>
     <message>
         <source>From selected clip</source>
-        <translation type="unfinished"></translation>
+        <translation>선택한 클립에서</translation>
     </message>
     <message>
         <source>Record…</source>
-        <translation type="unfinished"></translation>
+        <translation>녹음…</translation>
     </message>
     <message>
         <source>Import file…</source>
-        <translation type="unfinished"></translation>
+        <translation>파일 가져오기…</translation>
     </message>
     <message>
         <source>Loading voice model (first use takes a while)…</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 모델 불러오는 중(처음에는 시간이 걸립니다)…</translation>
     </message>
     <message>
         <source>Learning the voice…</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 학습 중…</translation>
     </message>
     <message>
         <source>Language</source>
@@ -17312,19 +17318,19 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Expressiveness</source>
-        <translation type="unfinished"></translation>
+        <translation>표현력</translation>
     </message>
     <message>
         <source>Higher values sound more dramatic and speak faster</source>
-        <translation type="unfinished"></translation>
+        <translation>값이 높을수록 더 극적으로 들리고 말이 빨라집니다</translation>
     </message>
     <message>
         <source>Generate speech</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 생성</translation>
     </message>
     <message>
         <source>Generate speech and add it at the playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>음성을 생성해 재생 헤드 위치에 추가</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -17332,19 +17338,19 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Stop generating</source>
-        <translation type="unfinished"></translation>
+        <translation>생성 중지</translation>
     </message>
     <message>
         <source>Record a voice</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 녹음</translation>
     </message>
     <message>
         <source>Import a voice</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 가져오기</translation>
     </message>
     <message>
         <source>Voice from clip</source>
-        <translation type="unfinished"></translation>
+        <translation>클립의 음성</translation>
     </message>
     <message>
         <source>Save</source>
@@ -17352,15 +17358,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>My voice</source>
-        <translation type="unfinished"></translation>
+        <translation>내 음성</translation>
     </message>
     <message>
         <source>Import a voice sample</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 샘플 가져오기</translation>
     </message>
     <message>
         <source>Audio files (*.wav *.mp3 *.flac *.ogg *.m4a *.aac *.opus)</source>
-        <translation type="unfinished"></translation>
+        <translation>오디오 파일 (*.wav *.mp3 *.flac *.ogg *.m4a *.aac *.opus)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -17372,11 +17378,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>The clip is longer than 20 seconds, so 20 seconds are used. Starting at %1 s.</source>
-        <translation type="unfinished"></translation>
+        <translation>클립이 20초보다 길어서 %1초부터 20초만 사용합니다.</translation>
     </message>
     <message>
         <source>Using %1 seconds of the selected clip.</source>
-        <translation type="unfinished"></translation>
+        <translation>선택한 클립의 %1초를 사용합니다.</translation>
     </message>
     <message>
         <source>Start offset</source>
@@ -17388,42 +17394,42 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation type="unfinished"></translation>
+        <translation>조용한 곳에서 5~20초 동안 녹음하세요. 평소 목소리로 다음 문장을 소리 내어 읽으세요:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
-        <translation type="unfinished"></translation>
+        <translation>다람쥐 헌 쳇바퀴에 타고파. 부드러운 바람이 조용한 정원을 지나가고 저녁 햇살이 천천히 저물어 갑니다.</translation>
     </message>
     <message>
         <source>Recording…</source>
-        <translation type="unfinished"></translation>
+        <translation>녹음 중…</translation>
     </message>
     <message>
         <source>Start recording</source>
-        <translation type="unfinished"></translation>
+        <translation>녹음 시작</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
-        <translation type="unfinished"></translation>
+        <translation>이 사람의 음성을 사용할 권리가 있습니다</translation>
     </message>
 </context>
 <context>
     <name>SpeedCurveController</name>
     <message>
         <source>Custom speed works on video and audio clips</source>
-        <translation type="unfinished">사용자 지정 속도는 동영상 및 오디오 클립에서 작동합니다</translation>
+        <translation>사용자 지정 속도는 동영상 및 오디오 클립에서 작동합니다</translation>
     </message>
     <message>
         <source>This clip has no media to speed up or slow down</source>
-        <translation type="unfinished">이 클립에는 속도를 높이거나 낮출 미디어가 없습니다</translation>
+        <translation>이 클립에는 빠르게 하거나 느리게 할 미디어가 없습니다</translation>
     </message>
     <message>
         <source>That clip moved — open Custom speed again</source>
-        <translation type="unfinished">클립이 이동했습니다 — 사용자 지정 속도를 다시 열어주세요</translation>
+        <translation>클립이 이동되었습니다 — 사용자 지정 속도를 다시 여세요</translation>
     </message>
     <message>
         <source>Custom speed applied</source>
-        <translation type="unfinished">사용자 지정 속도가 적용됨</translation>
+        <translation>사용자 지정 속도 적용됨</translation>
     </message>
 </context>
 <context>
@@ -17567,7 +17573,7 @@ If playback stutters, try another.</source>
     <name>StabilizeController</name>
     <message>
         <source>%1 (stabilized)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1(안정화됨)</translation>
     </message>
     <message>
         <source>Select a video clip to stabilize</source>
@@ -17583,11 +17589,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>This build of Flip Studio has no video stabilization support</source>
-        <translation type="unfinished">이 Flip Studio 빌드에서는 동영상 안정화를 지원하지 않습니다</translation>
+        <translation>이 Flip Studio 빌드는 동영상 안정화를 지원하지 않습니다</translation>
     </message>
     <message>
         <source>The video this clip was stabilized from is no longer in the media bin</source>
-        <translation type="unfinished"></translation>
+        <translation>이 클립을 안정화한 원본 동영상이 더 이상 미디어 라이브러리에 없습니다</translation>
     </message>
     <message>
         <source>Could not create stabilization cache directory</source>
@@ -17643,7 +17649,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Stabilized video added to the media bin</source>
-        <translation type="unfinished"></translation>
+        <translation>안정화된 동영상이 미디어 라이브러리에 추가됨</translation>
     </message>
     <message>
         <source>Stabilization analysis failed.</source>
@@ -17678,7 +17684,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Render a new video</source>
-        <translation type="unfinished"></translation>
+        <translation>새 동영상 렌더링</translation>
     </message>
     <message>
         <source>Update stabilization</source>
@@ -17710,7 +17716,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Render a stabilized copy, or animate the clip with sparse transform keys</source>
-        <translation type="unfinished"></translation>
+        <translation>안정화된 사본을 렌더링하거나, 적은 수의 변형 키프레임으로 클립에 애니메이션 적용</translation>
     </message>
     <message>
         <source>Smoothing</source>
@@ -17750,7 +17756,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Smooths camera shake. Flip Studio scans the clip once, then renders a stabilized copy into the media bin and switches the clip to it. Changing smoothness or tripod does not update the preview until you apply.</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 흔들림을 부드럽게 합니다. Flip Studio가 클립을 한 번 분석한 다음 안정화된 사본을 미디어 라이브러리에 렌더링하고 클립을 그 사본으로 바꿉니다. 부드러움이나 삼각대 설정을 바꿔도 적용하기 전까지는 미리 보기가 업데이트되지 않습니다.</translation>
     </message>
 </context>
 <context>
@@ -17770,115 +17776,115 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished"></translation>
+        <translation>자동</translation>
     </message>
     <message>
         <source>Like your first video</source>
-        <translation type="unfinished"></translation>
+        <translation>첫 번째 동영상에 맞춤</translation>
     </message>
     <message>
         <source>TikTok, Reels, Shorts</source>
-        <translation type="unfinished"></translation>
+        <translation>TikTok, Reels, Shorts</translation>
     </message>
     <message>
         <source>Square</source>
-        <translation type="unfinished">정사각형</translation>
+        <translation>정사각형</translation>
     </message>
     <message>
         <source>Auto captions</source>
-        <translation type="unfinished"></translation>
+        <translation>자동 자막</translation>
     </message>
     <message>
         <source>Subtitles from the voice, offline</source>
-        <translation type="unfinished"></translation>
+        <translation>음성으로 자막 생성, 오프라인</translation>
     </message>
     <message>
         <source>Text templates</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 템플릿</translation>
     </message>
     <message>
         <source>Titles, verses, lower thirds</source>
-        <translation type="unfinished"></translation>
+        <translation>타이틀, 성경 구절, 하단 자막</translation>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished">스티커</translation>
+        <translation>스티커</translation>
     </message>
     <message>
         <source>3D and animated emojis</source>
-        <translation type="unfinished"></translation>
+        <translation>3D 및 애니메이션 이모지</translation>
     </message>
     <message>
         <source>Vertical video</source>
-        <translation type="unfinished"></translation>
+        <translation>세로 동영상</translation>
     </message>
     <message>
         <source>For TikTok, Reels and Shorts</source>
-        <translation type="unfinished"></translation>
+        <translation>TikTok, Reels, Shorts용</translation>
     </message>
     <message>
         <source>Today, %1</source>
-        <translation type="unfinished"></translation>
+        <translation>오늘, %1</translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation type="unfinished"></translation>
+        <translation>어제</translation>
     </message>
     <message>
         <source>My account</source>
-        <translation type="unfinished"></translation>
+        <translation>내 계정</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"></translation>
+        <translation>로그인</translation>
     </message>
     <message>
         <source>With Google, optional</source>
-        <translation type="unfinished"></translation>
+        <translation>Google 계정, 선택 사항</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>홈</translation>
     </message>
     <message>
         <source>Extras</source>
-        <translation type="unfinished">추가 기능</translation>
+        <translation>추가 기능</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">설정</translation>
+        <translation>설정</translation>
     </message>
     <message>
         <source>Edit online</source>
-        <translation type="unfinished"></translation>
+        <translation>온라인으로 편집</translation>
     </message>
     <message>
         <source>Flip Studio in your browser, at getflipstudio.com/editor</source>
-        <translation type="unfinished"></translation>
+        <translation>브라우저에서 쓰는 Flip Studio, getflipstudio.com/editor</translation>
     </message>
     <message>
         <source>Create project</source>
-        <translation type="unfinished"></translation>
+        <translation>프로젝트 만들기</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation type="unfinished">프로젝트</translation>
+        <translation>프로젝트</translation>
     </message>
     <message>
         <source>Search projects</source>
-        <translation type="unfinished"></translation>
+        <translation>프로젝트 검색</translation>
     </message>
     <message>
         <source>Open project…</source>
-        <translation type="unfinished">프로젝트 열기…</translation>
+        <translation>프로젝트 열기…</translation>
     </message>
     <message>
         <source>Your projects will show up here once you save them.</source>
-        <translation type="unfinished"></translation>
+        <translation>프로젝트를 저장하면 여기에 표시됩니다.</translation>
     </message>
     <message>
         <source>No project matches “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1”과(와) 일치하는 프로젝트가 없습니다.</translation>
     </message>
 </context>
 <context>
@@ -17978,15 +17984,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
-        <translation type="unfinished"></translation>
+        <translation>더 필요하신가요? LottieFiles에서 무료 애니메이션(.json 또는 .lottie)을 다운로드해 미디어에 끌어다 놓으세요.</translation>
     </message>
     <message>
         <source>LottieFiles</source>
-        <translation type="unfinished"></translation>
+        <translation>LottieFiles</translation>
     </message>
     <message>
         <source>Opens lottiefiles.com in your browser</source>
-        <translation type="unfinished"></translation>
+        <translation>브라우저에서 lottiefiles.com 열기</translation>
     </message>
     <message>
         <source>Looking up that link…</source>
@@ -18059,7 +18065,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Use template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 사용</translation>
     </message>
     <message>
         <source>Download again</source>
@@ -18137,7 +18143,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation type="unfinished"></translation>
+        <translation>타임라인을 재생하면 화면에 나오는 줄이 강조됩니다. 아무 줄이나 탭해서 편집하세요.</translation>
     </message>
     <message>
         <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
@@ -18241,91 +18247,91 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Emojis</source>
-        <translation type="unfinished"></translation>
+        <translation>이모지</translation>
     </message>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
-        <translation type="unfinished"></translation>
+        <translation>키워드가 들어간 자막 끝에 이모지 추가(불 🔥, 파티 🎉)</translation>
     </message>
     <message>
         <source>Clean up</source>
-        <translation type="unfinished"></translation>
+        <translation>정리</translation>
     </message>
     <message>
         <source>Remove hesitations (eh, mmm), capitalize each caption and apply your dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation>군말(어, 음) 제거, 각 자막 첫 글자 대문자화, 사전 적용</translation>
     </message>
     <message>
         <source>Find &amp; replace</source>
-        <translation type="unfinished"></translation>
+        <translation>찾기 및 바꾸기</translation>
     </message>
     <message>
         <source>Fix a word in every caption at once</source>
-        <translation type="unfinished"></translation>
+        <translation>모든 자막에서 한 단어를 한 번에 수정</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>
-        <translation type="unfinished"></translation>
+        <translation>찾기(예: jesus)</translation>
     </message>
     <message>
         <source>Replace with (e.g. Jesús)</source>
-        <translation type="unfinished"></translation>
+        <translation>바꿀 내용(예: Jesús)</translation>
     </message>
     <message>
         <source>Always fix it in new subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>새 자막에서도 항상 수정</translation>
     </message>
     <message>
         <source>Adds it to your subtitle dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation>자막 사전에 추가합니다</translation>
     </message>
     <message>
         <source>Replace all</source>
-        <translation type="unfinished"></translation>
+        <translation>모두 바꾸기</translation>
     </message>
     <message>
         <source>Dictionary…</source>
-        <translation type="unfinished"></translation>
+        <translation>사전…</translation>
     </message>
     <message>
         <source>Words fixed automatically in every new subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>새 자막마다 자동으로 수정되는 단어</translation>
     </message>
     <message>
         <source>Subtitle dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation>자막 사전</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">저장</translation>
+        <translation>저장</translation>
     </message>
     <message>
         <source>New subtitles fix these words on their own: names, places, words the speech recognition gets wrong.</source>
-        <translation type="unfinished"></translation>
+        <translation>새 자막은 이 단어들을 자동으로 수정합니다: 이름, 장소, 음성 인식이 잘못 쓰는 단어.</translation>
     </message>
     <message>
         <source>Empty for now. Use Find &amp; replace with “Always fix it” to add words.</source>
-        <translation type="unfinished"></translation>
+        <translation>아직 비어 있습니다. 찾기 및 바꾸기에서 “항상 수정”을 사용해 단어를 추가하세요.</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">제거</translation>
+        <translation>제거</translation>
     </message>
     <message>
         <source>Wrong</source>
-        <translation type="unfinished"></translation>
+        <translation>잘못된 단어</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished">오른쪽</translation>
+        <translation>올바른 단어</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">더하기</translation>
+        <translation>추가</translation>
     </message>
     <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
-        <translation type="unfinished"></translation>
+        <translation>팁: *믿음*처럼 단어를 별표 사이에 쓰면 색으로 강조됩니다.</translation>
     </message>
 </context>
 <context>
@@ -18439,115 +18445,115 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Caption style</source>
-        <translation type="unfinished"></translation>
+        <translation>자막 스타일</translation>
     </message>
     <message>
         <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
-        <translation type="unfinished"></translation>
+        <translation>팁: 추가 기능에서 “단어 동기화”를 설치하면 자막이 음성에 정확히 맞춰 시작하고 끝납니다.</translation>
     </message>
     <message>
         <source>Remove hesitations (eh, mmm) and capitalize</source>
-        <translation type="unfinished"></translation>
+        <translation>군말(어, 음) 제거 및 대문자화</translation>
     </message>
     <message>
         <source>Add emojis for keywords (fuego 🔥, Dios 🙏)</source>
-        <translation type="unfinished"></translation>
+        <translation>키워드에 이모지 추가(불 🔥, 하나님 🙏)</translation>
     </message>
     <message>
         <source>Add English translation</source>
-        <translation type="unfinished"></translation>
+        <translation>영어 번역 추가</translation>
     </message>
     <message>
         <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
-        <translation type="unfinished"></translation>
+        <translation>원래 자막 위에 영어로 번역된 자막을 표시합니다. 모델은 영어로만 번역합니다.</translation>
     </message>
 </context>
 <context>
     <name>TemplateFillPanel</name>
     <message>
         <source>Choose photos and videos</source>
-        <translation type="unfinished"></translation>
+        <translation>사진 및 동영상 선택</translation>
     </message>
     <message>
         <source>Choose a photo or video</source>
-        <translation type="unfinished"></translation>
+        <translation>사진 또는 동영상 선택</translation>
     </message>
     <message numerus="yes">
         <source>All %n slot(s) filled. Click one to change it.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>슬롯 %n개가 모두 채워졌습니다. 바꾸려면 슬롯을 클릭하세요.</numerusform>
         </translation>
     </message>
     <message>
         <source>%1 of %2 filled. Click a slot, or drop photos and videos on it.</source>
-        <translation type="unfinished"></translation>
+        <translation>%2개 중 %1개 채워짐. 슬롯을 클릭하거나 사진과 동영상을 끌어다 놓으세요.</translation>
     </message>
     <message>
         <source>Fill with several photos…</source>
-        <translation type="unfinished"></translation>
+        <translation>여러 사진으로 채우기…</translation>
     </message>
     <message>
         <source>Fill the empty slots…</source>
-        <translation type="unfinished"></translation>
+        <translation>빈 슬롯 채우기…</translation>
     </message>
     <message>
         <source>Pick several files at once: they go in order into the empty slots</source>
-        <translation type="unfinished"></translation>
+        <translation>여러 파일을 한 번에 선택하면 빈 슬롯에 순서대로 들어갑니다</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">더하기</translation>
+        <translation>추가</translation>
     </message>
     <message>
         <source>Slot %1 (from %2): click to choose a photo or video, or drop one here</source>
-        <translation type="unfinished"></translation>
+        <translation>슬롯 %1(%2부터): 클릭해 사진이나 동영상을 선택하거나 여기에 끌어다 놓으세요</translation>
     </message>
     <message>
         <source>%1 — click to change it</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 — 클릭해서 바꾸기</translation>
     </message>
     <message>
         <source>Texts</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">텍스트</translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <source>Open the composition</source>
-        <translation type="unfinished"></translation>
+        <translation>컴포지션 열기</translation>
     </message>
     <message>
         <source>Edit the template inside: move, retime or restyle any of its layers</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 내부 편집: 레이어를 이동하거나 타이밍 또는 스타일을 바꿉니다</translation>
     </message>
     <message>
         <source>Save as my template…</source>
-        <translation type="unfinished"></translation>
+        <translation>내 템플릿으로 저장…</translation>
     </message>
     <message>
         <source>Keep this version, with your changes, in Templates › Scenes</source>
-        <translation type="unfinished"></translation>
+        <translation>변경 사항을 포함한 이 버전을 템플릿 › 장면에 보관합니다</translation>
     </message>
 </context>
 <context>
     <name>TemplatesTab</name>
     <message>
         <source>Scenes</source>
-        <translation type="unfinished">장면</translation>
+        <translation>장면</translation>
     </message>
     <message>
         <source>Whole edits with slots for your photos and videos</source>
-        <translation type="unfinished"></translation>
+        <translation>사진과 동영상을 넣을 슬롯이 있는 완성된 편집본</translation>
     </message>
     <message>
         <source>Effects</source>
-        <translation type="unfinished">효과</translation>
+        <translation>효과</translation>
     </message>
     <message>
         <source>Music-synced effects for a clip you already have</source>
-        <translation type="unfinished"></translation>
+        <translation>이미 있는 클립에 음악 박자에 맞춘 효과</translation>
     </message>
 </context>
 <context>
@@ -18597,15 +18603,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>My styles · %1</source>
-        <translation type="unfinished"></translation>
+        <translation>내 스타일 · %1</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished">즐겨찾기</translation>
+        <translation>즐겨찾기</translation>
     </message>
     <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 — 클릭하면 재생 헤드 위치에 추가되고, 타임라인으로 끌어다 놓을 수도 있습니다. 미리 보기에서 두 번 클릭하면 편집합니다.</translation>
     </message>
     <message>
         <source>Add at playhead</source>
@@ -18613,7 +18619,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>No saved styles</source>
-        <translation type="unfinished"></translation>
+        <translation>저장된 스타일 없음</translation>
     </message>
     <message>
         <source>Import</source>
@@ -18637,15 +18643,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">기본</translation>
+        <translation>기본</translation>
     </message>
     <message>
         <source>More…</source>
-        <translation type="unfinished"></translation>
+        <translation>더 보기…</translation>
     </message>
     <message>
         <source>Get more templates</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 더 받기</translation>
     </message>
 </context>
 <context>
@@ -18959,15 +18965,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Generate voiceover</source>
-        <translation type="unfinished"></translation>
+        <translation>보이스오버 생성</translation>
     </message>
     <message>
         <source>Speak every caption with a generated voice</source>
-        <translation type="unfinished"></translation>
+        <translation>생성된 음성으로 모든 자막 읽기</translation>
     </message>
     <message>
         <source>Install the voice model from the add-on manager first</source>
-        <translation type="unfinished"></translation>
+        <translation>먼저 추가 기능에서 음성 모델을 설치하세요</translation>
     </message>
     <message>
         <source>Effect</source>
@@ -19015,251 +19021,251 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">기본</translation>
+        <translation>기본</translation>
     </message>
     <message>
         <source>Bubble</source>
-        <translation type="unfinished"></translation>
+        <translation>말풍선</translation>
     </message>
     <message>
         <source>Effects</source>
-        <translation type="unfinished">효과</translation>
+        <translation>효과</translation>
     </message>
     <message>
         <source>Animation</source>
-        <translation type="unfinished">애니메이션</translation>
+        <translation>애니메이션</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished">즐겨찾기</translation>
+        <translation>즐겨찾기</translation>
     </message>
     <message>
         <source>Templates</source>
-        <translation type="unfinished">템플릿</translation>
+        <translation>템플릿</translation>
     </message>
     <message>
         <source>My styles</source>
-        <translation type="unfinished">내 스타일</translation>
+        <translation>내 스타일</translation>
     </message>
     <message>
         <source>Hello</source>
-        <translation type="unfinished"></translation>
+        <translation>안녕하세요</translation>
     </message>
     <message>
         <source>Font size</source>
-        <translation type="unfinished"></translation>
+        <translation>글꼴 크기</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>굵게</translation>
     </message>
     <message>
         <source>Case</source>
-        <translation type="unfinished"></translation>
+        <translation>대/소문자</translation>
     </message>
     <message>
         <source>As typed</source>
-        <translation type="unfinished"></translation>
+        <translation>입력한 대로</translation>
     </message>
     <message>
         <source>UPPERCASE</source>
-        <translation type="unfinished"></translation>
+        <translation>대문자</translation>
     </message>
     <message>
         <source>lowercase</source>
-        <translation type="unfinished"></translation>
+        <translation>소문자</translation>
     </message>
     <message>
         <source>Title Case</source>
-        <translation type="unfinished"></translation>
+        <translation>단어 첫 글자 대문자</translation>
     </message>
     <message>
         <source>Edit in Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>고급에서 편집</translation>
     </message>
     <message>
         <source>The text is painted with an image; change it under Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트가 이미지로 채워져 있습니다. 고급에서 바꾸세요</translation>
     </message>
     <message>
         <source>The text is painted with an effect; change it under Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트가 효과로 채워져 있습니다. 고급에서 바꾸세요</translation>
     </message>
     <message>
         <source>Alignment</source>
-        <translation type="unfinished"></translation>
+        <translation>정렬</translation>
     </message>
     <message>
         <source>Preset style</source>
-        <translation type="unfinished"></translation>
+        <translation>사전 설정 스타일</translation>
     </message>
     <message>
         <source>Colour, outline and shadow in one tap, keeping your font</source>
-        <translation type="unfinished"></translation>
+        <translation>글꼴은 그대로 두고 색, 윤곽선, 그림자를 한 번에</translation>
     </message>
     <message>
         <source>No style</source>
-        <translation type="unfinished"></translation>
+        <translation>스타일 없음</translation>
     </message>
     <message>
         <source>More styles: neon, gradient, 3D…</source>
-        <translation type="unfinished"></translation>
+        <translation>더 많은 스타일: 네온, 그라데이션, 3D…</translation>
     </message>
     <message>
         <source>An outline around the letters</source>
-        <translation type="unfinished"></translation>
+        <translation>글자 주위의 윤곽선</translation>
     </message>
     <message>
         <source>Outline the text</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 윤곽선</translation>
     </message>
     <message>
         <source>Choose outline colour</source>
-        <translation type="unfinished"></translation>
+        <translation>윤곽선 색 선택</translation>
     </message>
     <message>
         <source>A box behind the text: one for the block or one per line</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 뒤의 상자: 블록 전체에 하나 또는 줄마다 하나</translation>
     </message>
     <message>
         <source>Draw a box behind the text</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 뒤에 상자 그리기</translation>
     </message>
     <message>
         <source>Per line</source>
-        <translation type="unfinished"></translation>
+        <translation>줄마다</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished">불투명도</translation>
+        <translation>불투명도</translation>
     </message>
     <message>
         <source>Rounded corners</source>
-        <translation type="unfinished"></translation>
+        <translation>둥근 모서리</translation>
     </message>
     <message>
         <source>Height</source>
-        <translation type="unfinished">높이</translation>
+        <translation>높이</translation>
     </message>
     <message>
         <source>Offset Y</source>
-        <translation type="unfinished">오프셋 Y</translation>
+        <translation>오프셋 Y</translation>
     </message>
     <message>
         <source>Offset X</source>
-        <translation type="unfinished">오프셋 X</translation>
+        <translation>오프셋 X</translation>
     </message>
     <message>
         <source>Border</source>
-        <translation type="unfinished"></translation>
+        <translation>테두리</translation>
     </message>
     <message>
         <source>Choose border colour</source>
-        <translation type="unfinished"></translation>
+        <translation>테두리 색 선택</translation>
     </message>
     <message>
         <source>Border thickness</source>
-        <translation type="unfinished"></translation>
+        <translation>테두리 두께</translation>
     </message>
     <message>
         <source>Shapes: speech, cloud, tag, brush…</source>
-        <translation type="unfinished"></translation>
+        <translation>모양: 말풍선, 구름, 태그, 붓…</translation>
     </message>
     <message>
         <source>Pick a bubble shape on the Bubble page</source>
-        <translation type="unfinished"></translation>
+        <translation>말풍선 페이지에서 말풍선 모양을 선택하세요</translation>
     </message>
     <message>
         <source>A soft light around the letters</source>
-        <translation type="unfinished"></translation>
+        <translation>글자 주위의 부드러운 빛</translation>
     </message>
     <message>
         <source>Add a glow</source>
-        <translation type="unfinished"></translation>
+        <translation>광선 추가</translation>
     </message>
     <message>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>부드럽게</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation type="unfinished"></translation>
+        <translation>강하게</translation>
     </message>
     <message>
         <source>Choose glow colour</source>
-        <translation type="unfinished"></translation>
+        <translation>광선 색 선택</translation>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">강도</translation>
+        <translation>강도</translation>
     </message>
     <message>
         <source>Range</source>
-        <translation type="unfinished"></translation>
+        <translation>범위</translation>
     </message>
     <message>
         <source>A shadow cast by the letters</source>
-        <translation type="unfinished"></translation>
+        <translation>글자가 드리우는 그림자</translation>
     </message>
     <message>
         <source>Add a shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>그림자 추가</translation>
     </message>
     <message>
         <source>Choose shadow colour</source>
-        <translation type="unfinished"></translation>
+        <translation>그림자 색 선택</translation>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished">블러</translation>
+        <translation>흐림</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>거리</translation>
     </message>
     <message>
         <source>Adjust shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>그림자 조정</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished">각도</translation>
+        <translation>각도</translation>
     </message>
     <message>
         <source>Curve</source>
-        <translation type="unfinished">곡선</translation>
+        <translation>곡선</translation>
     </message>
     <message>
         <source>Bend a single line of text along an arc</source>
-        <translation type="unfinished"></translation>
+        <translation>한 줄 텍스트를 호를 따라 구부리기</translation>
     </message>
     <message>
         <source>Bend the text</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 구부리기</translation>
     </message>
     <message>
         <source>Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>강도</translation>
     </message>
     <message>
         <source>Save as my style…</source>
-        <translation type="unfinished"></translation>
+        <translation>내 스타일로 저장…</translation>
     </message>
     <message>
         <source>Keep this text&apos;s font, colours, background and effects to reuse them</source>
-        <translation type="unfinished"></translation>
+        <translation>이 텍스트의 글꼴, 색, 배경, 효과를 저장해 다시 사용합니다</translation>
     </message>
     <message>
         <source>Transform</source>
-        <translation type="unfinished">변환</translation>
+        <translation>변형</translation>
     </message>
     <message>
         <source>Blend</source>
-        <translation type="unfinished">혼합</translation>
+        <translation>혼합</translation>
     </message>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
-        <translation type="unfinished"></translation>
+        <translation>모양의 모든 레이어, 스타일 팩, 단어 강조, 밑줄, 단어 악센트</translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>
@@ -19335,15 +19341,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 뒤의 모양: 말풍선, 라벨, 붓 터치… 색과 크기는 기본 → 배경에서 세부 조정하세요.</translation>
     </message>
     <message>
         <source>Search text effects and styles</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 효과 및 스타일 검색</translation>
     </message>
     <message>
         <source>Templates change the font too. The other styles keep yours.</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿은 글꼴도 바꿉니다. 다른 스타일은 현재 글꼴을 유지합니다.</translation>
     </message>
     <message>
         <source>In</source>
@@ -19387,39 +19393,39 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>No accent</source>
-        <translation type="unfinished"></translation>
+        <translation>강조 없음</translation>
     </message>
     <message>
         <source>First word</source>
-        <translation type="unfinished"></translation>
+        <translation>첫 단어</translation>
     </message>
     <message>
         <source>Last word</source>
-        <translation type="unfinished"></translation>
+        <translation>마지막 단어</translation>
     </message>
     <message>
         <source>Every other word</source>
-        <translation type="unfinished"></translation>
+        <translation>한 단어 걸러</translation>
     </message>
     <message>
         <source>Every Nth word</source>
-        <translation type="unfinished"></translation>
+        <translation>N번째 단어마다</translation>
     </message>
     <message>
         <source>Longest word</source>
-        <translation type="unfinished"></translation>
+        <translation>가장 긴 단어</translation>
     </message>
     <message>
         <source>Random words</source>
-        <translation type="unfinished"></translation>
+        <translation>임의의 단어</translation>
     </message>
     <message>
         <source>Spoken word (karaoke)</source>
-        <translation type="unfinished"></translation>
+        <translation>말하는 단어(노래방)</translation>
     </message>
     <message>
         <source>Keywords (long words and numbers)</source>
-        <translation type="unfinished"></translation>
+        <translation>키워드(긴 단어와 숫자)</translation>
     </message>
 </context>
 <context>
@@ -19472,335 +19478,335 @@ If playback stutters, try another.</source>
     <name>TextQuickStyles</name>
     <message>
         <source>White</source>
-        <translation type="unfinished"></translation>
+        <translation>흰색</translation>
     </message>
     <message>
         <source>Black outline</source>
-        <translation type="unfinished"></translation>
+        <translation>검은 윤곽선</translation>
     </message>
     <message>
         <source>Thick outline</source>
-        <translation type="unfinished"></translation>
+        <translation>두꺼운 윤곽선</translation>
     </message>
     <message>
         <source>Black on white</source>
-        <translation type="unfinished"></translation>
+        <translation>흰 바탕에 검정</translation>
     </message>
     <message>
         <source>Yellow</source>
-        <translation type="unfinished"></translation>
+        <translation>노란색</translation>
     </message>
     <message>
         <source>Red</source>
-        <translation type="unfinished">빨강</translation>
+        <translation>빨간색</translation>
     </message>
     <message>
         <source>Soft shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>부드러운 그림자</translation>
     </message>
     <message>
         <source>Sticker</source>
-        <translation type="unfinished">스티커</translation>
+        <translation>스티커</translation>
     </message>
     <message>
         <source>Cyan</source>
-        <translation type="unfinished"></translation>
+        <translation>청록색</translation>
     </message>
     <message>
         <source>Pink</source>
-        <translation type="unfinished"></translation>
+        <translation>분홍색</translation>
     </message>
     <message>
         <source>Green</source>
-        <translation type="unfinished">초록</translation>
+        <translation>초록색</translation>
     </message>
     <message>
         <source>Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>주황색</translation>
     </message>
     <message>
         <source>Purple</source>
-        <translation type="unfinished"></translation>
+        <translation>보라색</translation>
     </message>
     <message>
         <source>Hollow</source>
-        <translation type="unfinished">속 비우기</translation>
+        <translation>속 빈 글자</translation>
     </message>
     <message>
         <source>Pink neon</source>
-        <translation type="unfinished"></translation>
+        <translation>분홍 네온</translation>
     </message>
     <message>
         <source>Cyan neon</source>
-        <translation type="unfinished"></translation>
+        <translation>청록 네온</translation>
     </message>
     <message>
         <source>Green neon</source>
-        <translation type="unfinished"></translation>
+        <translation>초록 네온</translation>
     </message>
     <message>
         <source>Yellow neon</source>
-        <translation type="unfinished"></translation>
+        <translation>노랑 네온</translation>
     </message>
     <message>
         <source>Purple neon</source>
-        <translation type="unfinished"></translation>
+        <translation>보라 네온</translation>
     </message>
     <message>
         <source>Red neon</source>
-        <translation type="unfinished"></translation>
+        <translation>빨강 네온</translation>
     </message>
     <message>
         <source>Blue neon</source>
-        <translation type="unfinished"></translation>
+        <translation>파랑 네온</translation>
     </message>
     <message>
         <source>Warm light</source>
-        <translation type="unfinished"></translation>
+        <translation>따뜻한 빛</translation>
     </message>
     <message>
         <source>Sunset</source>
-        <translation type="unfinished"></translation>
+        <translation>노을</translation>
     </message>
     <message>
         <source>Ocean</source>
-        <translation type="unfinished"></translation>
+        <translation>바다</translation>
     </message>
     <message>
         <source>Fire</source>
-        <translation type="unfinished"></translation>
+        <translation>불꽃</translation>
     </message>
     <message>
         <source>Candy</source>
-        <translation type="unfinished"></translation>
+        <translation>캔디</translation>
     </message>
     <message>
         <source>Gold</source>
-        <translation type="unfinished"></translation>
+        <translation>골드</translation>
     </message>
     <message>
         <source>Mint</source>
-        <translation type="unfinished"></translation>
+        <translation>민트</translation>
     </message>
     <message>
         <source>Rainbow</source>
-        <translation type="unfinished"></translation>
+        <translation>무지개</translation>
     </message>
     <message>
         <source>Chrome</source>
-        <translation type="unfinished">크롬</translation>
+        <translation>크롬</translation>
     </message>
     <message>
         <source>White 3D</source>
-        <translation type="unfinished"></translation>
+        <translation>흰색 3D</translation>
     </message>
     <message>
         <source>Yellow 3D</source>
-        <translation type="unfinished"></translation>
+        <translation>노란색 3D</translation>
     </message>
     <message>
         <source>Pink 3D</source>
-        <translation type="unfinished"></translation>
+        <translation>분홍색 3D</translation>
     </message>
     <message>
         <source>Cyan 3D</source>
-        <translation type="unfinished"></translation>
+        <translation>청록색 3D</translation>
     </message>
     <message>
         <source>Retro</source>
-        <translation type="unfinished">레트로</translation>
+        <translation>레트로</translation>
     </message>
     <message>
         <source>Red 3D</source>
-        <translation type="unfinished"></translation>
+        <translation>빨간색 3D</translation>
     </message>
     <message>
         <source>Hard shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>선명한 그림자</translation>
     </message>
     <message>
         <source>Long shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>긴 그림자</translation>
     </message>
     <message>
         <source>Diffuse shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>확산 그림자</translation>
     </message>
     <message>
         <source>Pop</source>
-        <translation type="unfinished">팝</translation>
+        <translation>팝</translation>
     </message>
     <message>
         <source>Double outline</source>
-        <translation type="unfinished"></translation>
+        <translation>이중 윤곽선</translation>
     </message>
     <message>
         <source>Dark halo</source>
-        <translation type="unfinished"></translation>
+        <translation>어두운 후광</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">없음</translation>
+        <translation>없음</translation>
     </message>
     <message>
         <source>Speech</source>
-        <translation type="unfinished"></translation>
+        <translation>대화</translation>
     </message>
     <message>
         <source>Balloon</source>
-        <translation type="unfinished"></translation>
+        <translation>풍선</translation>
     </message>
     <message>
         <source>Thought</source>
-        <translation type="unfinished"></translation>
+        <translation>생각</translation>
     </message>
     <message>
         <source>Boom!</source>
-        <translation type="unfinished"></translation>
+        <translation>쾅!</translation>
     </message>
     <message>
         <source>Shout</source>
-        <translation type="unfinished"></translation>
+        <translation>외침</translation>
     </message>
     <message>
         <source>Pow!</source>
-        <translation type="unfinished"></translation>
+        <translation>퍽!</translation>
     </message>
     <message>
         <source>Cloud</source>
-        <translation type="unfinished">구름</translation>
+        <translation>구름</translation>
     </message>
     <message>
         <source>Black pill</source>
-        <translation type="unfinished"></translation>
+        <translation>검은 알약</translation>
     </message>
     <message>
         <source>White pill</source>
-        <translation type="unfinished"></translation>
+        <translation>흰 알약</translation>
     </message>
     <message>
         <source>Yellow pill</source>
-        <translation type="unfinished"></translation>
+        <translation>노란 알약</translation>
     </message>
     <message>
         <source>Caption box</source>
-        <translation type="unfinished"></translation>
+        <translation>자막 상자</translation>
     </message>
     <message>
         <source>Red box</source>
-        <translation type="unfinished"></translation>
+        <translation>빨간 상자</translation>
     </message>
     <message>
         <source>Tag</source>
-        <translation type="unfinished"></translation>
+        <translation>태그</translation>
     </message>
     <message>
         <source>Kraft tag</source>
-        <translation type="unfinished"></translation>
+        <translation>크라프트 태그</translation>
     </message>
     <message>
         <source>Red ribbon</source>
-        <translation type="unfinished"></translation>
+        <translation>빨간 리본</translation>
     </message>
     <message>
         <source>Blue ribbon</source>
-        <translation type="unfinished"></translation>
+        <translation>파란 리본</translation>
     </message>
     <message>
         <source>Arrow</source>
-        <translation type="unfinished">화살표</translation>
+        <translation>화살표</translation>
     </message>
     <message>
         <source>Ticket</source>
-        <translation type="unfinished"></translation>
+        <translation>티켓</translation>
     </message>
     <message>
         <source>Sticky note</source>
-        <translation type="unfinished"></translation>
+        <translation>포스트잇</translation>
     </message>
     <message>
         <source>Pink note</source>
-        <translation type="unfinished"></translation>
+        <translation>분홍 메모</translation>
     </message>
     <message>
         <source>Pink brush</source>
-        <translation type="unfinished"></translation>
+        <translation>분홍 붓</translation>
     </message>
     <message>
         <source>Yellow brush</source>
-        <translation type="unfinished"></translation>
+        <translation>노랑 붓</translation>
     </message>
     <message>
         <source>Blue brush</source>
-        <translation type="unfinished"></translation>
+        <translation>파랑 붓</translation>
     </message>
     <message>
         <source>Black brush</source>
-        <translation type="unfinished"></translation>
+        <translation>검정 붓</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation type="unfinished"></translation>
+        <translation>종이</translation>
     </message>
     <message>
         <source>Kraft paper</source>
-        <translation type="unfinished"></translation>
+        <translation>크라프트지</translation>
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished">하트</translation>
+        <translation>하트</translation>
     </message>
     <message>
         <source>Pastel cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>파스텔 구름</translation>
     </message>
     <message>
         <source>Lilac speech</source>
-        <translation type="unfinished"></translation>
+        <translation>라일락 말풍선</translation>
     </message>
     <message>
         <source>Mint pill</source>
-        <translation type="unfinished"></translation>
+        <translation>민트 알약</translation>
     </message>
     <message>
         <source>Pink balloon</source>
-        <translation type="unfinished"></translation>
+        <translation>분홍 풍선</translation>
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">기본</translation>
+        <translation>기본</translation>
     </message>
     <message>
         <source>Neon</source>
-        <translation type="unfinished">네온</translation>
+        <translation>네온</translation>
     </message>
     <message>
         <source>Gradient</source>
-        <translation type="unfinished">그라디언트</translation>
+        <translation>그라데이션</translation>
     </message>
     <message>
         <source>3D</source>
-        <translation type="unfinished">3D</translation>
+        <translation>3D</translation>
     </message>
     <message>
         <source>Shadow and outline</source>
-        <translation type="unfinished"></translation>
+        <translation>그림자 및 윤곽선</translation>
     </message>
     <message>
         <source>Comic</source>
-        <translation type="unfinished"></translation>
+        <translation>만화</translation>
     </message>
     <message>
         <source>Labels</source>
-        <translation type="unfinished"></translation>
+        <translation>라벨</translation>
     </message>
     <message>
         <source>Brush and paper</source>
-        <translation type="unfinished"></translation>
+        <translation>붓과 종이</translation>
     </message>
     <message>
         <source>Cute</source>
-        <translation type="unfinished"></translation>
+        <translation>귀여움</translation>
     </message>
 </context>
 <context>
@@ -19931,275 +19937,275 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Plain</source>
-        <translation type="unfinished">일반</translation>
+        <translation>일반</translation>
     </message>
     <message>
         <source>Just text</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트만</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>굵게</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished">제목</translation>
+        <translation>제목</translation>
     </message>
     <message>
         <source>Main Title</source>
-        <translation type="unfinished"></translation>
+        <translation>메인 제목</translation>
     </message>
     <message>
         <source>Subtitle</source>
-        <translation type="unfinished">자막</translation>
+        <translation>부제목</translation>
     </message>
     <message>
         <source>A supporting line</source>
-        <translation type="unfinished"></translation>
+        <translation>보조 문구</translation>
     </message>
     <message>
         <source>Lower third</source>
-        <translation type="unfinished"></translation>
+        <translation>하단 자막</translation>
     </message>
     <message>
         <source>Alex Rivera · Host</source>
-        <translation type="unfinished"></translation>
+        <translation>Alex Rivera · 진행자</translation>
     </message>
     <message>
         <source>Caption</source>
-        <translation type="unfinished"></translation>
+        <translation>캡션</translation>
     </message>
     <message>
         <source>Watch until the end</source>
-        <translation type="unfinished"></translation>
+        <translation>끝까지 시청하세요</translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>인용</translation>
     </message>
     <message>
         <source>Words worth keeping</source>
-        <translation type="unfinished"></translation>
+        <translation>간직할 만한 말</translation>
     </message>
     <message>
         <source>Impact</source>
-        <translation type="unfinished">임팩트</translation>
+        <translation>임팩트</translation>
     </message>
     <message>
         <source>STOP SCROLLING</source>
-        <translation type="unfinished"></translation>
+        <translation>스크롤을 멈추세요</translation>
     </message>
     <message>
         <source>Pop</source>
-        <translation type="unfinished">팝</translation>
+        <translation>팝</translation>
     </message>
     <message>
         <source>Big news!</source>
-        <translation type="unfinished"></translation>
+        <translation>빅 뉴스!</translation>
     </message>
     <message>
         <source>Neon</source>
-        <translation type="unfinished">네온</translation>
+        <translation>네온</translation>
     </message>
     <message>
         <source>NEON NIGHTS</source>
-        <translation type="unfinished"></translation>
+        <translation>네온 나이트</translation>
     </message>
     <message>
         <source>Handwritten</source>
-        <translation type="unfinished"></translation>
+        <translation>손글씨</translation>
     </message>
     <message>
         <source>With love</source>
-        <translation type="unfinished"></translation>
+        <translation>사랑을 담아</translation>
     </message>
     <message>
         <source>Hormozi</source>
-        <translation type="unfinished"></translation>
+        <translation>Hormozi</translation>
     </message>
     <message>
         <source>Stop wasting time</source>
-        <translation type="unfinished"></translation>
+        <translation>시간 낭비는 그만</translation>
     </message>
     <message>
         <source>One word colour</source>
-        <translation type="unfinished"></translation>
+        <translation>한 단어 색상</translation>
     </message>
     <message>
         <source>Make every word count</source>
-        <translation type="unfinished"></translation>
+        <translation>모든 단어가 중요하게</translation>
     </message>
     <message>
         <source>Word background</source>
-        <translation type="unfinished"></translation>
+        <translation>단어 배경</translation>
     </message>
     <message>
         <source>Highlight what matters most</source>
-        <translation type="unfinished"></translation>
+        <translation>가장 중요한 것을 강조하세요</translation>
     </message>
     <message>
         <source>Sentence background</source>
-        <translation type="unfinished"></translation>
+        <translation>문장 배경</translation>
     </message>
     <message>
         <source>Read this carefully</source>
-        <translation type="unfinished"></translation>
+        <translation>이것을 주의 깊게 읽으세요</translation>
     </message>
     <message>
         <source>Karaoke pop</source>
-        <translation type="unfinished"></translation>
+        <translation>노래방 팝</translation>
     </message>
     <message>
         <source>Sing along with me</source>
-        <translation type="unfinished"></translation>
+        <translation>함께 불러요</translation>
     </message>
     <message>
         <source>Karaoke highlight</source>
-        <translation type="unfinished"></translation>
+        <translation>노래방 강조</translation>
     </message>
     <message>
         <source>Follow the bouncing words</source>
-        <translation type="unfinished"></translation>
+        <translation>통통 튀는 단어를 따라가세요</translation>
     </message>
     <message>
         <source>Mirage</source>
-        <translation type="unfinished"></translation>
+        <translation>신기루</translation>
     </message>
     <message>
         <source>Soft and dreamy</source>
-        <translation type="unfinished"></translation>
+        <translation>부드럽고 몽환적인</translation>
     </message>
     <message>
         <source>Underline</source>
-        <translation type="unfinished">밑줄</translation>
+        <translation>밑줄</translation>
     </message>
     <message>
         <source>Underline this line</source>
-        <translation type="unfinished"></translation>
+        <translation>이 줄에 밑줄을 그으세요</translation>
     </message>
     <message>
         <source>Bulky</source>
-        <translation type="unfinished"></translation>
+        <translation>두툼하게</translation>
     </message>
     <message>
         <source>Big first word</source>
-        <translation type="unfinished"></translation>
+        <translation>큰 첫 단어</translation>
     </message>
     <message>
         <source>Word outline</source>
-        <translation type="unfinished"></translation>
+        <translation>단어 윤곽선</translation>
     </message>
     <message>
         <source>Outline every other word</source>
-        <translation type="unfinished"></translation>
+        <translation>한 단어씩 걸러 윤곽선</translation>
     </message>
     <message>
         <source>Gold</source>
-        <translation type="unfinished"></translation>
+        <translation>골드</translation>
     </message>
     <message>
         <source>GOLD STANDARD</source>
-        <translation type="unfinished"></translation>
+        <translation>골드 스탠더드</translation>
     </message>
     <message>
         <source>Chrome</source>
-        <translation type="unfinished">크롬</translation>
+        <translation>크롬</translation>
     </message>
     <message>
         <source>CHROME</source>
-        <translation type="unfinished"></translation>
+        <translation>크롬</translation>
     </message>
     <message>
         <source>Retro 3D</source>
-        <translation type="unfinished"></translation>
+        <translation>레트로 3D</translation>
     </message>
     <message>
         <source>TOTALLY RAD</source>
-        <translation type="unfinished"></translation>
+        <translation>완전 멋져</translation>
     </message>
     <message>
         <source>Glitch</source>
-        <translation type="unfinished">글리치</translation>
+        <translation>글리치</translation>
     </message>
     <message>
         <source>SIGNAL LOST</source>
-        <translation type="unfinished"></translation>
+        <translation>신호 없음</translation>
     </message>
     <message>
         <source>Comic</source>
-        <translation type="unfinished"></translation>
+        <translation>만화</translation>
     </message>
     <message>
         <source>KAPOW!</source>
-        <translation type="unfinished"></translation>
+        <translation>쾅!</translation>
     </message>
     <message>
         <source>Fire</source>
-        <translation type="unfinished"></translation>
+        <translation>불꽃</translation>
     </message>
     <message>
         <source>ON FIRE</source>
-        <translation type="unfinished"></translation>
+        <translation>불타오르네</translation>
     </message>
     <message>
         <source>Ice</source>
-        <translation type="unfinished"></translation>
+        <translation>얼음</translation>
     </message>
     <message>
         <source>FROZEN</source>
-        <translation type="unfinished"></translation>
+        <translation>꽁꽁 얼었어</translation>
     </message>
     <message>
         <source>Candy</source>
-        <translation type="unfinished"></translation>
+        <translation>캔디</translation>
     </message>
     <message>
         <source>Sweet treats</source>
-        <translation type="unfinished"></translation>
+        <translation>달콤한 간식</translation>
     </message>
     <message>
         <source>Sticker</source>
-        <translation type="unfinished">스티커</translation>
+        <translation>스티커</translation>
     </message>
     <message>
         <source>Sticker!</source>
-        <translation type="unfinished"></translation>
+        <translation>스티커!</translation>
     </message>
     <message>
         <source>Rainbow wave</source>
-        <translation type="unfinished"></translation>
+        <translation>무지개 물결</translation>
     </message>
     <message>
         <source>Taste the rainbow</source>
-        <translation type="unfinished"></translation>
+        <translation>무지개를 맛보세요</translation>
     </message>
     <message>
         <source>Cinematic</source>
-        <translation type="unfinished">시네마틱</translation>
+        <translation>시네마틱</translation>
     </message>
     <message>
         <source>THE BEGINNING</source>
-        <translation type="unfinished"></translation>
+        <translation>시작</translation>
     </message>
     <message>
         <source>Shimmer</source>
-        <translation type="unfinished"></translation>
+        <translation>반짝임</translation>
     </message>
     <message>
         <source>Sketch</source>
-        <translation type="unfinished"></translation>
+        <translation>스케치</translation>
     </message>
     <message>
         <source>Rough draft</source>
-        <translation type="unfinished"></translation>
+        <translation>초안</translation>
     </message>
     <message>
         <source>Editorial</source>
-        <translation type="unfinished"></translation>
+        <translation>에디토리얼</translation>
     </message>
     <message>
         <source>The quiet issue</source>
-        <translation type="unfinished"></translation>
+        <translation>조용한 호</translation>
     </message>
 </context>
 <context>
@@ -20236,27 +20242,27 @@ If playback stutters, try another.</source>
     <name>Theme</name>
     <message>
         <source>Amber</source>
-        <translation type="unfinished"></translation>
+        <translation>앰버</translation>
     </message>
     <message>
         <source>Midnight blue</source>
-        <translation type="unfinished"></translation>
+        <translation>미드나잇 블루</translation>
     </message>
     <message>
         <source>Graphite teal</source>
-        <translation type="unfinished"></translation>
+        <translation>그래파이트 틸</translation>
     </message>
     <message>
         <source>Violet</source>
-        <translation type="unfinished"></translation>
+        <translation>바이올렛</translation>
     </message>
     <message>
         <source>Rose</source>
-        <translation type="unfinished"></translation>
+        <translation>로즈</translation>
     </message>
     <message>
         <source>Forest green</source>
-        <translation type="unfinished"></translation>
+        <translation>포레스트 그린</translation>
     </message>
 </context>
 <context>
@@ -20312,7 +20318,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>그룹화</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -20324,23 +20330,23 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Stop being a template slot</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 슬롯 해제</translation>
     </message>
     <message>
         <source>Make template slot</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 슬롯으로 만들기</translation>
     </message>
     <message>
         <source>Stop being an editable template text</source>
-        <translation type="unfinished"></translation>
+        <translation>편집 가능한 템플릿 텍스트 해제</translation>
     </message>
     <message>
         <source>Make editable template text</source>
-        <translation type="unfinished"></translation>
+        <translation>편집 가능한 템플릿 텍스트로 만들기</translation>
     </message>
     <message>
         <source>Save as template…</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿으로 저장…</translation>
     </message>
     <message>
         <source>Open composite</source>
@@ -20348,15 +20354,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove template</source>
-        <translation type="unfinished"></translation>
+        <translation>템플릿 제거</translation>
     </message>
     <message>
         <source>Ungroup</source>
-        <translation type="unfinished"></translation>
+        <translation>그룹 해제</translation>
     </message>
     <message>
         <source>Flatten composite</source>
-        <translation type="unfinished">컴포지트 병합</translation>
+        <translation>컴포지션 병합</translation>
     </message>
     <message>
         <source>Make composite</source>
@@ -20372,7 +20378,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add adjustment layer</source>
-        <translation type="unfinished">보정 레이어 추가</translation>
+        <translation>조정 레이어 추가</translation>
     </message>
     <message>
         <source>Select transform layer</source>
@@ -20404,11 +20410,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Crop…</source>
-        <translation type="unfinished"></translation>
+        <translation>자르기…</translation>
     </message>
     <message>
         <source>Enhance video…</source>
-        <translation type="unfinished"></translation>
+        <translation>비디오 향상…</translation>
     </message>
     <message>
         <source>Unlink</source>
@@ -20416,7 +20422,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>연결</translation>
     </message>
     <message>
         <source>Merge subtitle clips</source>
@@ -20670,7 +20676,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Link selected clips</source>
-        <translation type="unfinished"></translation>
+        <translation>선택한 클립 연결</translation>
     </message>
     <message>
         <source>Trim start</source>
@@ -20734,11 +20740,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Adjustment layer</source>
-        <translation type="unfinished">보정 레이어</translation>
+        <translation>조정 레이어</translation>
     </message>
     <message>
         <source>Adjustment layer: its effects, colour and masks apply to everything under it while it lasts, without touching those clips</source>
-        <translation type="unfinished"></translation>
+        <translation>조정 레이어: 효과, 색상, 마스크가 지속되는 동안 아래의 모든 항목에 적용되며, 해당 클립은 변경되지 않습니다</translation>
     </message>
     <message>
         <source>Add transform layer</source>
@@ -20750,19 +20756,19 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add camera</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 추가</translation>
     </message>
     <message>
         <source>Select to the left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽으로 선택</translation>
     </message>
     <message>
         <source>Select to the right</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽으로 선택</translation>
     </message>
     <message>
         <source>Pointer tools</source>
-        <translation type="unfinished"></translation>
+        <translation>선택 도구</translation>
     </message>
     <message>
         <source>Main</source>
@@ -20782,15 +20788,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Automatic dissolve: on. Drag a clip&apos;s edge over the next one and the overlap becomes a dissolve</source>
-        <translation type="unfinished"></translation>
+        <translation>자동 디졸브: 켜짐. 클립 가장자리를 다음 클립 위로 드래그하면 겹치는 부분이 디졸브가 됩니다</translation>
     </message>
     <message>
         <source>Automatic dissolve: off</source>
-        <translation type="unfinished"></translation>
+        <translation>자동 디졸브: 꺼짐</translation>
     </message>
     <message>
         <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
-        <translation type="unfinished"></translation>
+        <translation>커브 편집기: 선택한 클립의 키프레임 커브를 직접 조정합니다</translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>
@@ -20822,7 +20828,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add camera — one viewpoint the whole timeline is seen through. With a camera already there, adds a new camera clip (a cut to a new framing) at the playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라 추가 — 타임라인 전체를 보는 하나의 시점입니다. 이미 카메라가 있으면 재생 헤드 위치에 새 카메라 클립(새 구도로의 컷)을 추가합니다</translation>
     </message>
     <message>
         <source>Customize toolbar…</source>
@@ -20866,123 +20872,123 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Split</source>
-        <translation type="unfinished">분할</translation>
+        <translation>분할</translation>
     </message>
     <message>
         <source>Split at the current time</source>
-        <translation type="unfinished"></translation>
+        <translation>현재 시간에서 분할</translation>
     </message>
     <message>
         <source>Delete left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽 삭제</translation>
     </message>
     <message>
         <source>Delete left — remove the selected clip&apos;s part before the current time</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽 삭제 — 선택한 클립에서 현재 시간 이전 부분을 제거합니다</translation>
     </message>
     <message>
         <source>Delete right</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽 삭제</translation>
     </message>
     <message>
         <source>Delete right — remove the selected clip&apos;s part after the current time</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽 삭제 — 선택한 클립에서 현재 시간 이후 부분을 제거합니다</translation>
     </message>
     <message>
         <source>Mirror</source>
-        <translation type="unfinished"></translation>
+        <translation>미러</translation>
     </message>
     <message>
         <source>Mirror the selected clip</source>
-        <translation type="unfinished"></translation>
+        <translation>선택한 클립 좌우 반전</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation type="unfinished">크롭</translation>
+        <translation>자르기</translation>
     </message>
     <message>
         <source>Crop the selected video</source>
-        <translation type="unfinished"></translation>
+        <translation>선택한 비디오 자르기</translation>
     </message>
     <message>
         <source>Reverse, mirror, rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>역재생, 미러, 회전</translation>
     </message>
     <message>
         <source>Reverse, mirror or rotate the selected clip</source>
-        <translation type="unfinished"></translation>
+        <translation>선택한 클립 역재생, 미러 또는 회전</translation>
     </message>
     <message>
         <source>Transcription</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 변환</translation>
     </message>
     <message>
         <source>Transcription — create captions from what is said</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트 변환 — 음성에서 자막 만들기</translation>
     </message>
     <message>
         <source>Remove silences</source>
-        <translation type="unfinished"></translation>
+        <translation>무음 제거</translation>
     </message>
     <message>
         <source>Remove silences and filler words — keep only the spoken parts (eh, mmm and long pauses go)</source>
-        <translation type="unfinished"></translation>
+        <translation>무음 및 군말 제거 — 말하는 부분만 남깁니다(어, 음 같은 소리와 긴 쉼은 제거)</translation>
     </message>
     <message>
         <source>Remove background</source>
-        <translation type="unfinished"></translation>
+        <translation>배경 제거</translation>
     </message>
     <message>
         <source>Remove background — cut out the person or subject</source>
-        <translation type="unfinished"></translation>
+        <translation>배경 제거 — 사람이나 피사체를 오려냅니다</translation>
     </message>
     <message>
         <source>Enhance audio</source>
-        <translation type="unfinished"></translation>
+        <translation>오디오 향상</translation>
     </message>
     <message>
         <source>Enhance audio — reduce noise or enhance the voice</source>
-        <translation type="unfinished"></translation>
+        <translation>오디오 향상 — 노이즈 감소 또는 음성 향상</translation>
     </message>
     <message>
         <source>Enhance video</source>
-        <translation type="unfinished"></translation>
+        <translation>비디오 향상</translation>
     </message>
     <message>
         <source>Enhance video — sharper, cleaner picture (HD)</source>
-        <translation type="unfinished"></translation>
+        <translation>비디오 향상 — 더 선명하고 깨끗한 화질(HD)</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished">회전</translation>
+        <translation>회전</translation>
     </message>
     <message>
         <source>Rotate the selected clip 90°</source>
-        <translation type="unfinished"></translation>
+        <translation>선택한 클립 90° 회전</translation>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished">반전</translation>
+        <translation>역재생</translation>
     </message>
     <message>
         <source>Rotate 90°</source>
-        <translation type="unfinished">90° 회전</translation>
+        <translation>90° 회전</translation>
     </message>
     <message>
         <source>Reduce noise</source>
-        <translation type="unfinished"></translation>
+        <translation>노이즈 감소</translation>
     </message>
     <message>
         <source>Enhance voice</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 향상</translation>
     </message>
     <message>
         <source>Stop recording</source>
-        <translation type="unfinished">녹음 중지</translation>
+        <translation>녹음 중지</translation>
     </message>
     <message>
         <source>Record voiceover at the current time</source>
-        <translation type="unfinished"></translation>
+        <translation>현재 시간에서 내레이션 녹음</translation>
     </message>
 </context>
 <context>
@@ -21088,23 +21094,23 @@ If playback stutters, try another.</source>
     </message>
     <message numerus="yes">
         <source>Delete %n track(s)?</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>트랙 %n개를 삭제하시겠습니까?</numerusform>
         </translation>
     </message>
     <message>
         <source>Delete tracks</source>
-        <translation type="unfinished"></translation>
+        <translation>트랙 삭제</translation>
     </message>
     <message numerus="yes">
         <source>This removes the selected tracks and their %n clips. You can undo afterwards.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>선택한 트랙과 그 안의 클립 %n개가 삭제됩니다. 나중에 실행 취소할 수 있습니다.</numerusform>
         </translation>
     </message>
     <message>
         <source>This removes the selected tracks, which are empty. You can undo afterwards.</source>
-        <translation type="unfinished"></translation>
+        <translation>비어 있는 선택한 트랙이 삭제됩니다. 나중에 실행 취소할 수 있습니다.</translation>
     </message>
     <message>
         <source>Waveform</source>
@@ -21116,7 +21122,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>CAM</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라</translation>
     </message>
     <message>
         <source>TF</source>
@@ -21148,7 +21154,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>카메라</translation>
     </message>
     <message>
         <source>Transform</source>
@@ -21188,11 +21194,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Turn adjustment on</source>
-        <translation type="unfinished"></translation>
+        <translation>조정 켜기</translation>
     </message>
     <message>
         <source>Turn adjustment off</source>
-        <translation type="unfinished"></translation>
+        <translation>조정 끄기</translation>
     </message>
     <message>
         <source>Stop recording</source>
@@ -21208,15 +21214,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Unlock track</source>
-        <translation type="unfinished"></translation>
+        <translation>트랙 잠금 해제</translation>
     </message>
     <message>
         <source>Lock track</source>
-        <translation type="unfinished"></translation>
+        <translation>트랙 잠금</translation>
     </message>
     <message>
         <source>Lock track: its clips cannot be moved or edited</source>
-        <translation type="unfinished"></translation>
+        <translation>트랙 잠금: 클립을 이동하거나 편집할 수 없습니다</translation>
     </message>
     <message>
         <source>Turn transform on</source>
@@ -21228,43 +21234,43 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Track options</source>
-        <translation type="unfinished"></translation>
+        <translation>트랙 옵션</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>기본값</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"></translation>
+        <translation>높음</translation>
     </message>
     <message>
         <source>Audio waveform size</source>
-        <translation type="unfinished"></translation>
+        <translation>오디오 파형 크기</translation>
     </message>
     <message>
         <source>Hide keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>키프레임 숨기기</translation>
     </message>
     <message>
         <source>Show keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>키프레임 표시</translation>
     </message>
     <message numerus="yes">
         <source>Group %n tracks</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>트랙 %n개 그룹화</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Delete %n tracks</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>트랙 %n개 삭제</numerusform>
         </translation>
     </message>
     <message>
         <source>Add camera clip at playhead</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 헤드에 카메라 클립 추가</translation>
     </message>
     <message>
         <source>Covers…</source>
@@ -21280,7 +21286,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Drag to change the track height</source>
-        <translation type="unfinished"></translation>
+        <translation>드래그하여 트랙 높이 변경</translation>
     </message>
     <message>
         <source>Track height</source>
@@ -21336,7 +21342,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Drag the line under the track to fine-tune</source>
-        <translation type="unfinished"></translation>
+        <translation>트랙 아래 선을 드래그하여 미세 조정</translation>
     </message>
     <message>
         <source>Taller row</source>
@@ -21371,39 +21377,39 @@ If playback stutters, try another.</source>
     <name>TrackKeyframeRows</name>
     <message>
         <source>Double-click to add a keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>두 번 클릭하여 키프레임 추가</translation>
     </message>
     <message>
         <source>Move keyframe</source>
-        <translation type="unfinished">키프레임 이동</translation>
+        <translation>키프레임 이동</translation>
     </message>
     <message>
         <source>Linear</source>
-        <translation type="unfinished">선형</translation>
+        <translation>선형</translation>
     </message>
     <message>
         <source>Easy ease</source>
-        <translation type="unfinished"></translation>
+        <translation>이지 이즈</translation>
     </message>
     <message>
         <source>Easy ease in</source>
-        <translation type="unfinished"></translation>
+        <translation>이지 이즈 인</translation>
     </message>
     <message>
         <source>Easy ease out</source>
-        <translation type="unfinished"></translation>
+        <translation>이지 이즈 아웃</translation>
     </message>
     <message>
         <source>Hold</source>
-        <translation type="unfinished">유지</translation>
+        <translation>고정</translation>
     </message>
     <message>
         <source>Edit curve…</source>
-        <translation type="unfinished"></translation>
+        <translation>커브 편집…</translation>
     </message>
     <message>
         <source>Delete keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>키프레임 삭제</translation>
     </message>
 </context>
 <context>
@@ -21462,15 +21468,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Position (px, linked)</source>
-        <translation type="unfinished"></translation>
+        <translation>위치(px, 연결됨)</translation>
     </message>
     <message>
         <source>Separate X and Y keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>X 및 Y 키프레임 분리</translation>
     </message>
     <message>
         <source>Link X and Y keyframes and motion curves</source>
-        <translation type="unfinished"></translation>
+        <translation>X 및 Y 키프레임과 모션 커브 연결</translation>
     </message>
     <message>
         <source>Measured inside %1&apos;s frame</source>
@@ -21514,15 +21520,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Occlude by depth</source>
-        <translation type="unfinished"></translation>
+        <translation>깊이로 가리기</translation>
     </message>
     <message>
         <source>Let depth decide what covers this clip, instead of its track position. Only clips with this on sort against each other; everything else still draws in track order.</source>
-        <translation type="unfinished"></translation>
+        <translation>트랙 위치 대신 깊이에 따라 이 클립을 무엇이 가릴지 결정합니다. 이 옵션이 켜진 클립끼리만 정렬되며, 나머지는 계속 트랙 순서대로 그려집니다.</translation>
     </message>
     <message>
         <source>Needs the Normal blend mode — the others read the canvas behind the clip, which depth cannot sort.</source>
-        <translation type="unfinished"></translation>
+        <translation>일반 혼합 모드가 필요합니다 — 다른 모드는 클립 뒤의 캔버스를 읽기 때문에 깊이로 정렬할 수 없습니다.</translation>
     </message>
     <message>
         <source>Move</source>
@@ -21734,7 +21740,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Modern</source>
-        <translation type="unfinished"></translation>
+        <translation>모던</translation>
     </message>
     <message>
         <source>Other</source>
@@ -21828,11 +21834,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Install a custom transition or effect from a .driftfx file made in Drift Forge</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge에서 만든 .driftfx 파일로 사용자 지정 전환 또는 효과 설치</translation>
     </message>
     <message>
         <source>My Transitions</source>
-        <translation type="unfinished"></translation>
+        <translation>내 전환</translation>
     </message>
     <message>
         <source>No transitions available</source>
@@ -21852,7 +21858,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>No custom transitions yet</source>
-        <translation type="unfinished"></translation>
+        <translation>아직 사용자 지정 전환이 없습니다</translation>
     </message>
     <message>
         <source>No favorites yet</source>
@@ -21868,7 +21874,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Import a .driftfx file made in Drift Forge to add your own.</source>
-        <translation type="unfinished"></translation>
+        <translation>Drift Forge에서 만든 .driftfx 파일을 가져와 나만의 전환을 추가하세요.</translation>
     </message>
     <message>
         <source>Star transitions to save them here.</source>
@@ -21884,15 +21890,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>%1 — click to swap the selected transition for it, or drag it onto where two clips meet (on touch, hold then drag)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 — 클릭하면 선택한 전환을 이것으로 바꾸고, 두 클립이 만나는 곳으로 드래그하면 추가합니다(터치에서는 길게 누른 후 드래그)</translation>
     </message>
     <message>
         <source>Replace the selected transition</source>
-        <translation type="unfinished"></translation>
+        <translation>선택한 전환 바꾸기</translation>
     </message>
     <message>
         <source>Add after the selected clip</source>
-        <translation type="unfinished"></translation>
+        <translation>선택한 클립 뒤에 추가</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
@@ -21907,7 +21913,7 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Install the voice model first</source>
-        <translation type="unfinished"></translation>
+        <translation>먼저 음성 모델을 설치하세요</translation>
     </message>
     <message>
         <source>Queued</source>
@@ -21919,34 +21925,34 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speech added to the timeline</source>
-        <translation type="unfinished"></translation>
+        <translation>음성이 타임라인에 추가되었습니다</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
-        <translation type="unfinished"></translation>
+        <translation>먼저 자막 클립을 선택하세요</translation>
     </message>
     <message>
         <source>This subtitle clip has no text to speak</source>
-        <translation type="unfinished"></translation>
+        <translation>이 자막 클립에는 읽을 텍스트가 없습니다</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
-        <translation type="unfinished"></translation>
+        <translation>내레이션 생성</translation>
     </message>
     <message>
         <source>Could not add the voiceover</source>
-        <translation type="unfinished"></translation>
+        <translation>내레이션을 추가할 수 없습니다</translation>
     </message>
     <message numerus="yes">
         <source>Generated %n line(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n줄 생성됨</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>; %n ran longer than their captions</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>; %n개가 자막보다 길어졌습니다</numerusform>
         </translation>
     </message>
 </context>
@@ -21981,11 +21987,11 @@ If playback stutters, try another.</source>
     <name>UpdateChecker</name>
     <message>
         <source>Preparing the update…</source>
-        <translation type="unfinished"></translation>
+        <translation>업데이트 준비 중…</translation>
     </message>
     <message>
         <source>Ready to install</source>
-        <translation type="unfinished"></translation>
+        <translation>설치 준비 완료</translation>
     </message>
     <message>
         <source>Couldn’t check for updates: %1</source>
@@ -21997,35 +22003,35 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Couldn’t download the update: the cache isn’t writable.</source>
-        <translation type="unfinished"></translation>
+        <translation>업데이트를 다운로드할 수 없습니다: 캐시에 쓸 수 없습니다.</translation>
     </message>
     <message>
         <source>Couldn’t download the update: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>업데이트를 다운로드할 수 없습니다: %1</translation>
     </message>
     <message>
         <source>the download was interrupted.</source>
-        <translation type="unfinished"></translation>
+        <translation>다운로드가 중단되었습니다.</translation>
     </message>
     <message>
         <source>Couldn’t download the update: the file didn’t match the release.</source>
-        <translation type="unfinished"></translation>
+        <translation>업데이트를 다운로드할 수 없습니다: 파일이 릴리스와 일치하지 않습니다.</translation>
     </message>
     <message>
         <source>Couldn’t prepare the update.</source>
-        <translation type="unfinished"></translation>
+        <translation>업데이트를 준비할 수 없습니다.</translation>
     </message>
     <message>
         <source>Flip Studio %1 update</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio %1 업데이트</translation>
     </message>
     <message>
         <source>Installs when you close Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio를 닫으면 설치됩니다</translation>
     </message>
     <message>
         <source>Flip Studio %1 will install when you close Flip Studio.</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio를 닫으면 Flip Studio %1이(가) 설치됩니다.</translation>
     </message>
     <message>
         <source>Flip Studio %1 is the latest version.</source>
@@ -22037,7 +22043,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Flip Studio %1 is ready to install.</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio %1 설치 준비가 완료되었습니다.</translation>
     </message>
 </context>
 <context>
@@ -22048,7 +22054,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Update ready</source>
-        <translation type="unfinished"></translation>
+        <translation>업데이트 준비 완료</translation>
     </message>
     <message>
         <source>You have %1.</source>
@@ -22072,7 +22078,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Downloads the update in the background</source>
-        <translation type="unfinished"></translation>
+        <translation>백그라운드에서 업데이트를 다운로드합니다</translation>
     </message>
     <message>
         <source>Opens the release page in your browser</source>
@@ -22080,11 +22086,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preparing the update…</source>
-        <translation type="unfinished"></translation>
+        <translation>업데이트 준비 중…</translation>
     </message>
     <message>
         <source>Restart and install</source>
-        <translation type="unfinished"></translation>
+        <translation>다시 시작하고 설치</translation>
     </message>
     <message>
         <source>Downloading…</source>
@@ -22092,11 +22098,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Flip Studio %1 will install when you close Flip Studio.</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio를 닫으면 Flip Studio %1이(가) 설치됩니다.</translation>
     </message>
     <message>
         <source>Flip Studio %1 is downloaded and ready to install</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio %1이(가) 다운로드되어 설치할 준비가 되었습니다</translation>
     </message>
     <message>
         <source>Flip Studio %1 is available</source>
@@ -22104,42 +22110,42 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>A new Flip Studio update is available</source>
-        <translation type="unfinished"></translation>
+        <translation>새 Flip Studio 업데이트를 사용할 수 있습니다</translation>
     </message>
     <message>
         <source>Install automatically when I close Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio를 닫을 때 자동으로 설치</translation>
     </message>
     <message>
         <source>Downloads in the background and installs the next time you close Flip Studio. Unchecked, you choose when to install once the download finishes.</source>
-        <translation type="unfinished"></translation>
+        <translation>백그라운드에서 다운로드하고 다음에 Flip Studio를 닫을 때 설치합니다. 선택을 해제하면 다운로드가 끝난 뒤 설치 시점을 직접 선택합니다.</translation>
     </message>
     <message>
         <source>Install when I close Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio를 닫을 때 설치</translation>
     </message>
     <message>
         <source>Closes Flip Studio, installs the update and opens Flip Studio again</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio를 닫고 업데이트를 설치한 후 다시 엽니다</translation>
     </message>
     <message>
         <source>Downloading Flip Studio %1…</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio %1 다운로드 중…</translation>
     </message>
 </context>
 <context>
     <name>UpscaleModelCard</name>
     <message>
         <source>Anime and drawings</source>
-        <translation type="unfinished"></translation>
+        <translation>애니메이션 및 그림</translation>
     </message>
     <message>
         <source>Live action</source>
-        <translation type="unfinished"></translation>
+        <translation>실사</translation>
     </message>
     <message>
         <source>3D animation and games</source>
-        <translation type="unfinished"></translation>
+        <translation>3D 애니메이션 및 게임</translation>
     </message>
     <message>
         <source>General</source>
@@ -22147,15 +22153,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Before</source>
-        <translation type="unfinished"></translation>
+        <translation>이전</translation>
     </message>
     <message>
         <source>After</source>
-        <translation type="unfinished"></translation>
+        <translation>이후</translation>
     </message>
     <message>
         <source>Custom model</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자 지정 모델</translation>
     </message>
 </context>
 <context>
@@ -22390,474 +22396,474 @@ If playback stutters, try another.</source>
     <name>VideoInspector</name>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">기본</translation>
+        <translation>기본</translation>
     </message>
     <message>
         <source>Remove background</source>
-        <translation type="unfinished"></translation>
+        <translation>배경 제거</translation>
     </message>
     <message>
         <source>Mask</source>
-        <translation type="unfinished">마스크</translation>
+        <translation>마스크</translation>
     </message>
     <message>
         <source>Retouch</source>
-        <translation type="unfinished"></translation>
+        <translation>리터치</translation>
     </message>
     <message>
         <source>Automatic removal</source>
-        <translation type="unfinished"></translation>
+        <translation>자동 제거</translation>
     </message>
     <message>
         <source>Cut out people…</source>
-        <translation type="unfinished"></translation>
+        <translation>사람 오려내기…</translation>
     </message>
     <message>
         <source>Finds the people in the clip and removes the background</source>
-        <translation type="unfinished"></translation>
+        <translation>클립에서 사람을 찾아 배경을 제거합니다</translation>
     </message>
     <message>
         <source>Custom removal</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자 지정 제거</translation>
     </message>
     <message>
         <source>Cut out a subject…</source>
-        <translation type="unfinished"></translation>
+        <translation>피사체 오려내기…</translation>
     </message>
     <message>
         <source>Mark with a click what you want to keep and it follows it</source>
-        <translation type="unfinished"></translation>
+        <translation>남길 부분을 클릭으로 표시하면 따라갑니다</translation>
     </message>
     <message>
         <source>Chroma key</source>
-        <translation type="unfinished"></translation>
+        <translation>크로마 키</translation>
     </message>
     <message>
         <source>Remove a colour</source>
-        <translation type="unfinished"></translation>
+        <translation>색상 제거</translation>
     </message>
     <message>
         <source>Adds Chroma Key, with the colour and tolerance to tune in Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>크로마 키를 추가합니다. 색상과 허용 범위는 효과에서 조정합니다</translation>
     </message>
     <message>
         <source>Image or video as mask…</source>
-        <translation type="unfinished">마스크로 사용할 이미지 또는 동영상…</translation>
+        <translation>이미지 또는 비디오를 마스크로…</translation>
     </message>
     <message>
         <source>Use a file&apos;s own pixels as the coverage map</source>
-        <translation type="unfinished">파일 자체의 픽셀을 가림 영역 맵으로 사용</translation>
+        <translation>파일 자체의 픽셀을 커버리지 맵으로 사용</translation>
     </message>
     <message>
         <source>Choose a mask image or video</source>
-        <translation type="unfinished">마스크 이미지 또는 동영상 선택</translation>
+        <translation>마스크 이미지 또는 비디오 선택</translation>
     </message>
     <message>
         <source>Media files (*.png *.jpg *.jpeg *.webp *.heic *.heif *.avif *.tif *.tiff *.bmp *.gif *.mp4 *.mov *.mkv *.webm)</source>
-        <translation type="unfinished">미디어 파일 (*.png *.jpg *.jpeg *.webp *.heic *.heif *.avif *.tif *.tiff *.bmp *.gif *.mp4 *.mov *.mkv *.webm)</translation>
+        <translation>미디어 파일 (*.png *.jpg *.jpeg *.webp *.heic *.heif *.avif *.tif *.tiff *.bmp *.gif *.mp4 *.mov *.mkv *.webm)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished">모든 파일(*)</translation>
+        <translation>모든 파일 (*)</translation>
     </message>
     <message>
         <source>Slim or widen what the mesh follows</source>
-        <translation type="unfinished"></translation>
+        <translation>메시가 추적하는 부분을 가늘게 또는 넓게</translation>
     </message>
     <message>
         <source>Bigger eyes</source>
-        <translation type="unfinished"></translation>
+        <translation>큰 눈</translation>
     </message>
     <message>
         <source>Select a video or image clip first</source>
-        <translation type="unfinished"></translation>
+        <translation>먼저 비디오 또는 이미지 클립을 선택하세요</translation>
     </message>
     <message>
         <source>Select a video or image clip to remove its background.</source>
-        <translation type="unfinished"></translation>
+        <translation>배경을 제거할 비디오 또는 이미지 클립을 선택하세요.</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"></translation>
+        <translation>얼굴</translation>
     </message>
     <message>
         <source>Body</source>
-        <translation type="unfinished"></translation>
+        <translation>몸</translation>
     </message>
     <message>
         <source>Hair</source>
-        <translation type="unfinished"></translation>
+        <translation>헤어</translation>
     </message>
     <message>
         <source>Auto styles</source>
-        <translation type="unfinished"></translation>
+        <translation>자동 스타일</translation>
     </message>
     <message>
         <source>Natural</source>
-        <translation type="unfinished">자연스럽게</translation>
+        <translation>내추럴</translation>
     </message>
     <message>
         <source>Light smoothing and a touch of brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>가벼운 보정과 약간의 화사함</translation>
     </message>
     <message>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>소프트</translation>
     </message>
     <message>
         <source>Strong smoothing for an even, soft skin</source>
-        <translation type="unfinished"></translation>
+        <translation>균일하고 부드러운 피부를 위한 강한 보정</translation>
     </message>
     <message>
         <source>Radiant</source>
-        <translation type="unfinished"></translation>
+        <translation>광채</translation>
     </message>
     <message>
         <source>Brighter, glowing skin</source>
-        <translation type="unfinished"></translation>
+        <translation>더 밝고 빛나는 피부</translation>
     </message>
     <message>
         <source>Defined</source>
-        <translation type="unfinished"></translation>
+        <translation>선명함</translation>
     </message>
     <message>
         <source>Crisper features and a slimmer face</source>
-        <translation type="unfinished"></translation>
+        <translation>더 뚜렷한 이목구비와 갸름한 얼굴</translation>
     </message>
     <message>
         <source>Skin</source>
-        <translation type="unfinished"></translation>
+        <translation>피부</translation>
     </message>
     <message>
         <source>Smooth</source>
-        <translation type="unfinished">부드럽게</translation>
+        <translation>매끄럽게</translation>
     </message>
     <message>
         <source>Evens out the skin</source>
-        <translation type="unfinished"></translation>
+        <translation>피부 톤을 고르게 합니다</translation>
     </message>
     <message>
         <source>Whiten</source>
-        <translation type="unfinished"></translation>
+        <translation>미백</translation>
     </message>
     <message>
         <source>Brightens the skin</source>
-        <translation type="unfinished"></translation>
+        <translation>피부를 밝게 합니다</translation>
     </message>
     <message>
         <source>Skin tone</source>
-        <translation type="unfinished"></translation>
+        <translation>피부 톤</translation>
     </message>
     <message>
         <source>Warms the skin towards the tone colour</source>
-        <translation type="unfinished"></translation>
+        <translation>피부를 톤 색상 쪽으로 따뜻하게 합니다</translation>
     </message>
     <message>
         <source>Sharpen</source>
-        <translation type="unfinished"></translation>
+        <translation>선명하게</translation>
     </message>
     <message>
         <source>Brings back detail after smoothing</source>
-        <translation type="unfinished"></translation>
+        <translation>보정 후 디테일을 되살립니다</translation>
     </message>
     <message>
         <source>Features</source>
-        <translation type="unfinished"></translation>
+        <translation>이목구비</translation>
     </message>
     <message>
         <source>Slim face</source>
-        <translation type="unfinished"></translation>
+        <translation>갸름한 얼굴</translation>
     </message>
     <message>
         <source>Narrows the jaw and cheeks</source>
-        <translation type="unfinished"></translation>
+        <translation>턱과 볼을 좁힙니다</translation>
     </message>
     <message>
         <source>Enlarges the eyes the mesh found</source>
-        <translation type="unfinished"></translation>
+        <translation>메시가 찾은 눈을 키웁니다</translation>
     </message>
     <message>
         <source>Face width</source>
-        <translation type="unfinished"></translation>
+        <translation>얼굴 너비</translation>
     </message>
     <message>
         <source>Wide mouth</source>
-        <translation type="unfinished"></translation>
+        <translation>넓은 입</translation>
     </message>
     <message>
         <source>Widens the mouth</source>
-        <translation type="unfinished"></translation>
+        <translation>입을 넓힙니다</translation>
     </message>
     <message>
         <source>Whiten teeth</source>
-        <translation type="unfinished"></translation>
+        <translation>치아 미백</translation>
     </message>
     <message>
         <source>Needs the lip contour from a face scan</source>
-        <translation type="unfinished"></translation>
+        <translation>얼굴 스캔의 입술 윤곽이 필요합니다</translation>
     </message>
     <message>
         <source>Makeup</source>
-        <translation type="unfinished"></translation>
+        <translation>메이크업</translation>
     </message>
     <message>
         <source>Lipstick</source>
-        <translation type="unfinished"></translation>
+        <translation>립스틱</translation>
     </message>
     <message>
         <source>Colours the lips</source>
-        <translation type="unfinished"></translation>
+        <translation>입술에 색을 입힙니다</translation>
     </message>
     <message>
         <source>Blush</source>
-        <translation type="unfinished"></translation>
+        <translation>블러셔</translation>
     </message>
     <message>
         <source>Adds colour to the cheeks</source>
-        <translation type="unfinished"></translation>
+        <translation>볼에 색을 더합니다</translation>
     </message>
     <message>
         <source>Eyeliner</source>
-        <translation type="unfinished"></translation>
+        <translation>아이라이너</translation>
     </message>
     <message>
         <source>Draws along the eyelid contour</source>
-        <translation type="unfinished"></translation>
+        <translation>눈꺼풀 윤곽을 따라 그립니다</translation>
     </message>
     <message>
         <source>Eyeshadow</source>
-        <translation type="unfinished"></translation>
+        <translation>아이섀도</translation>
     </message>
     <message>
         <source>Colours the eyelid</source>
-        <translation type="unfinished"></translation>
+        <translation>눈꺼풀에 색을 입힙니다</translation>
     </message>
     <message>
         <source>Brow tint</source>
-        <translation type="unfinished"></translation>
+        <translation>눈썹 틴트</translation>
     </message>
     <message>
         <source>Colours the eyebrows</source>
-        <translation type="unfinished"></translation>
+        <translation>눈썹에 색을 입힙니다</translation>
     </message>
     <message>
         <source>Eye colour</source>
-        <translation type="unfinished"></translation>
+        <translation>눈동자 색</translation>
     </message>
     <message>
         <source>Recolours the iris</source>
-        <translation type="unfinished"></translation>
+        <translation>홍채 색을 바꿉니다</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished">즐겨찾기</translation>
+        <translation>즐겨찾기</translation>
     </message>
     <message>
         <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
-        <translation type="unfinished"></translation>
+        <translation>몸 리터치(가는 허리, 긴 다리 등)에는 신체 추적 모델이 필요하지만 Flip Studio에는 아직 없습니다.</translation>
     </message>
     <message>
         <source>Hair colour and volume need a hair segmentation model, which Flip Studio does not have yet.</source>
-        <translation type="unfinished"></translation>
+        <translation>머리카락 색과 볼륨에는 헤어 분할 모델이 필요하지만 Flip Studio에는 아직 없습니다.</translation>
     </message>
     <message>
         <source>Select a video or image clip to retouch a face.</source>
-        <translation type="unfinished"></translation>
+        <translation>얼굴을 리터치할 비디오 또는 이미지 클립을 선택하세요.</translation>
     </message>
     <message>
         <source>Install Face retouch from Extras (it needs the AI engine) to use these.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 기능을 사용하려면 추가 기능에서 얼굴 리터치를 설치하세요(AI 엔진 필요).</translation>
     </message>
     <message>
         <source>What the clip already carries</source>
-        <translation type="unfinished"></translation>
+        <translation>클립에 이미 적용된 항목</translation>
     </message>
 </context>
 <context>
     <name>VideoMaskPage</name>
     <message>
         <source>None</source>
-        <translation type="unfinished">없음</translation>
+        <translation>없음</translation>
     </message>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished">사각형</translation>
+        <translation>사각형</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished">원</translation>
+        <translation>원</translation>
     </message>
     <message>
         <source>Film strip</source>
-        <translation type="unfinished"></translation>
+        <translation>필름 스트립</translation>
     </message>
     <message>
         <source>Stars</source>
-        <translation type="unfinished"></translation>
+        <translation>별</translation>
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished">하트</translation>
+        <translation>하트</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">텍스트</translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <source>Freeform</source>
-        <translation type="unfinished">자유형</translation>
+        <translation>자유형</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"></translation>
+        <translation>펜</translation>
     </message>
     <message>
         <source>Gradient</source>
-        <translation type="unfinished">그라디언트</translation>
+        <translation>그라데이션</translation>
     </message>
     <message>
         <source>Cutout</source>
-        <translation type="unfinished">피사체 분리</translation>
+        <translation>오려내기</translation>
     </message>
     <message>
         <source>TEXT</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <source>Mask</source>
-        <translation type="unfinished">마스크</translation>
+        <translation>마스크</translation>
     </message>
     <message>
         <source>Mask %1</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크 %1</translation>
     </message>
     <message>
         <source>Add another mask</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크 하나 더 추가</translation>
     </message>
     <message>
         <source>Select a video or image clip to add a mask.</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크를 추가할 비디오 또는 이미지 클립을 선택하세요.</translation>
     </message>
     <message>
         <source>Remove this mask</source>
-        <translation type="unfinished"></translation>
+        <translation>이 마스크 제거</translation>
     </message>
     <message>
         <source>Mask settings</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크 설정</translation>
     </message>
     <message>
         <source>This mask is a cutout. Pick a shape above to add a shape mask next to it.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 마스크는 오려내기입니다. 위에서 모양을 선택하면 옆에 모양 마스크가 추가됩니다.</translation>
     </message>
     <message>
         <source>Mask text</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크 텍스트</translation>
     </message>
     <message>
         <source>Write the text</source>
-        <translation type="unfinished"></translation>
+        <translation>텍스트를 입력하세요</translation>
     </message>
     <message>
         <source>%1 points. Drag a point in the preview to move it, click a + on a side to add one there, and right-click a point (or select it and press Delete) to remove it.</source>
-        <translation type="unfinished"></translation>
+        <translation>점 %1개. 미리보기에서 점을 드래그해 이동하고, 변의 +를 클릭해 점을 추가하며, 점을 마우스 오른쪽 버튼으로 클릭하거나 선택 후 Delete 키를 눌러 제거합니다.</translation>
     </message>
     <message>
         <source>Add point</source>
-        <translation type="unfinished">점 추가</translation>
+        <translation>점 추가</translation>
     </message>
     <message>
         <source>Adds a point in the middle of the longest side</source>
-        <translation type="unfinished"></translation>
+        <translation>가장 긴 변의 가운데에 점을 추가합니다</translation>
     </message>
     <message>
         <source>Delete point</source>
-        <translation type="unfinished">점 삭제</translation>
+        <translation>점 삭제</translation>
     </message>
     <message>
         <source>Removes the selected point</source>
-        <translation type="unfinished"></translation>
+        <translation>선택한 점을 제거합니다</translation>
     </message>
     <message>
         <source>Removes the last point. Click a point in the preview to choose another.</source>
-        <translation type="unfinished"></translation>
+        <translation>마지막 점을 제거합니다. 다른 점을 선택하려면 미리보기에서 점을 클릭하세요.</translation>
     </message>
     <message>
         <source>Smooth curves (pen)</source>
-        <translation type="unfinished"></translation>
+        <translation>부드러운 곡선(펜)</translation>
     </message>
     <message>
         <source>Center X</source>
-        <translation type="unfinished">중앙 X</translation>
+        <translation>중심 X</translation>
     </message>
     <message>
         <source>Center Y</source>
-        <translation type="unfinished">중앙 Y</translation>
+        <translation>중심 Y</translation>
     </message>
     <message>
         <source>Width</source>
-        <translation type="unfinished">너비</translation>
+        <translation>너비</translation>
     </message>
     <message>
         <source>Height</source>
-        <translation type="unfinished">높이</translation>
+        <translation>높이</translation>
     </message>
     <message>
         <source>Fade length</source>
-        <translation type="unfinished"></translation>
+        <translation>페이드 길이</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished">회전</translation>
+        <translation>회전</translation>
     </message>
     <message>
         <source>Feather</source>
-        <translation type="unfinished">페더</translation>
+        <translation>페더</translation>
     </message>
     <message>
         <source>Expand</source>
-        <translation type="unfinished"></translation>
+        <translation>확장</translation>
     </message>
     <message>
         <source>Mask opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크 불투명도</translation>
     </message>
     <message>
         <source>The masks limit the effects: inside, the clip&apos;s effects and colour; outside, the clip as it is</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크가 효과를 제한합니다: 안쪽은 클립의 효과와 색상, 바깥쪽은 원래 클립</translation>
     </message>
     <message>
         <source>Use the masks only for the effects (the clip stays whole)</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크를 효과에만 사용(클립은 그대로 유지)</translation>
     </message>
     <message>
         <source>Mask on</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크 켜짐</translation>
     </message>
     <message>
         <source>Invert</source>
-        <translation type="unfinished">반전</translation>
+        <translation>반전</translation>
     </message>
     <message>
         <source>Combine with the masks before it</source>
-        <translation type="unfinished"></translation>
+        <translation>앞의 마스크와 결합</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">더하기</translation>
+        <translation>더하기</translation>
     </message>
     <message>
         <source>Subtract</source>
-        <translation type="unfinished">빼기</translation>
+        <translation>빼기</translation>
     </message>
     <message>
         <source>Intersect</source>
-        <translation type="unfinished">교집합</translation>
+        <translation>교차</translation>
     </message>
     <message>
         <source>Remove cutout</source>
-        <translation type="unfinished"></translation>
+        <translation>오려내기 제거</translation>
     </message>
 </context>
 <context>
@@ -22926,133 +22932,133 @@ If playback stutters, try another.</source>
     <name>ViewNavPad</name>
     <message>
         <source>%1 (%2)</source>
-        <translation type="unfinished">%1(%2)</translation>
+        <translation>%1 (%2)</translation>
     </message>
     <message>
         <source>Orbit left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽으로 궤도 회전</translation>
     </message>
     <message>
         <source>Numpad 4</source>
-        <translation type="unfinished"></translation>
+        <translation>숫자 키패드 4</translation>
     </message>
     <message>
         <source>Orbit up</source>
-        <translation type="unfinished"></translation>
+        <translation>위로 궤도 회전</translation>
     </message>
     <message>
         <source>Numpad 8</source>
-        <translation type="unfinished"></translation>
+        <translation>숫자 키패드 8</translation>
     </message>
     <message>
         <source>Orbit right</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽으로 궤도 회전</translation>
     </message>
     <message>
         <source>Numpad 6</source>
-        <translation type="unfinished"></translation>
+        <translation>숫자 키패드 6</translation>
     </message>
     <message>
         <source>Zoom out</source>
-        <translation type="unfinished">축소</translation>
+        <translation>축소</translation>
     </message>
     <message>
         <source>Numpad -</source>
-        <translation type="unfinished"></translation>
+        <translation>숫자 키패드 -</translation>
     </message>
     <message>
         <source>Orbit down</source>
-        <translation type="unfinished"></translation>
+        <translation>아래로 궤도 회전</translation>
     </message>
     <message>
         <source>Numpad 2</source>
-        <translation type="unfinished"></translation>
+        <translation>숫자 키패드 2</translation>
     </message>
     <message>
         <source>Zoom in</source>
-        <translation type="unfinished">확대</translation>
+        <translation>확대</translation>
     </message>
     <message>
         <source>Numpad +</source>
-        <translation type="unfinished"></translation>
+        <translation>숫자 키패드 +</translation>
     </message>
 </context>
 <context>
     <name>VoiceChanger</name>
     <message>
         <source>Change your voice with more than a hundred filters: telephone, radio, cave, robot, monster, chipmunk, harmonies and more. Install the Voice changer pack from Extras.</source>
-        <translation type="unfinished"></translation>
+        <translation>전화, 라디오, 동굴, 로봇, 괴물, 다람쥐, 하모니 등 100개가 넘는 필터로 목소리를 바꿔 보세요. 추가 기능에서 음성 변조 팩을 설치하세요.</translation>
     </message>
     <message>
         <source>Get the Voice changer</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 변조 받기</translation>
     </message>
     <message>
         <source>Apply to all</source>
-        <translation type="unfinished"></translation>
+        <translation>모두에 적용</translation>
     </message>
     <message>
         <source>The next voice you pick goes on every clip with sound</source>
-        <translation type="unfinished"></translation>
+        <translation>다음에 선택하는 음성이 소리가 있는 모든 클립에 적용됩니다</translation>
     </message>
     <message>
         <source>Search voices</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 검색</translation>
     </message>
     <message>
         <source>Voice filters</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 필터</translation>
     </message>
     <message>
         <source>Voice characters</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 캐릭터</translation>
     </message>
     <message>
         <source>Voice to song</source>
-        <translation type="unfinished"></translation>
+        <translation>음성을 노래로</translation>
     </message>
     <message>
         <source>Click the star on a voice to keep it here.</source>
-        <translation type="unfinished"></translation>
+        <translation>음성의 별표를 클릭하면 여기에 보관됩니다.</translation>
     </message>
     <message>
         <source>No voice matches.</source>
-        <translation type="unfinished"></translation>
+        <translation>일치하는 음성이 없습니다.</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">없음</translation>
+        <translation>없음</translation>
     </message>
     <message>
         <source>%1 — click to apply; the star keeps it in favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 — 클릭하여 적용, 별표로 즐겨찾기에 보관</translation>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">강도</translation>
+        <translation>강도</translation>
     </message>
 </context>
 <context>
     <name>VoiceLibrary</name>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>기본값</translation>
     </message>
     <message>
         <source>Another voice is still being prepared</source>
-        <translation type="unfinished"></translation>
+        <translation>다른 음성을 아직 준비 중입니다</translation>
     </message>
     <message>
         <source>A voice needs a name and a recording</source>
-        <translation type="unfinished"></translation>
+        <translation>음성에는 이름과 녹음이 필요합니다</translation>
     </message>
     <message>
         <source>Could not prepare the voice</source>
-        <translation type="unfinished"></translation>
+        <translation>음성을 준비할 수 없습니다</translation>
     </message>
     <message>
         <source>A recording is already in progress</source>
-        <translation type="unfinished"></translation>
+        <translation>이미 녹음이 진행 중입니다</translation>
     </message>
     <message>
         <source>Failed to start audio recording</source>
@@ -23060,7 +23066,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>녹음이 너무 짧습니다: %1초 이상 녹음하세요</translation>
     </message>
 </context>
 <context>
@@ -23114,7 +23120,7 @@ If playback stutters, try another.</source>
     <name>VoiceoverDialog</name>
     <message>
         <source>Generate voiceover</source>
-        <translation type="unfinished"></translation>
+        <translation>내레이션 생성</translation>
     </message>
     <message>
         <source>Voice</source>
@@ -23126,19 +23132,19 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Expressiveness</source>
-        <translation type="unfinished"></translation>
+        <translation>표현력</translation>
     </message>
     <message>
         <source>Higher values sound more dramatic and speak faster</source>
-        <translation type="unfinished"></translation>
+        <translation>값이 높을수록 더 극적으로 들리고 말이 빨라집니다</translation>
     </message>
     <message>
         <source>Loading voice model (first use takes a while)…</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 모델 로드 중(처음 사용 시 시간이 걸립니다)…</translation>
     </message>
     <message>
         <source>Generate</source>
-        <translation type="unfinished"></translation>
+        <translation>생성</translation>
     </message>
     <message>
         <source>Cancel</source>
