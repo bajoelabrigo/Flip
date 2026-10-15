@@ -16111,6 +16111,14 @@ If playback stutters, try another.</source>
         <translation>Концовки</translation>
     </message>
     <message>
+        <source>Special dates</source>
+        <translation>Особые даты</translation>
+    </message>
+    <message>
+        <source>Business</source>
+        <translation>Бизнес</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Другое</translation>
     </message>

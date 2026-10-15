@@ -16052,6 +16052,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Cierres</translation>
     </message>
     <message>
+        <source>Special dates</source>
+        <translation>Fechas especiales</translation>
+    </message>
+    <message>
+        <source>Business</source>
+        <translation>Negocios</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Otras</translation>
     </message>

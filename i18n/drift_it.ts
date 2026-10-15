@@ -16052,6 +16052,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Finali</translation>
     </message>
     <message>
+        <source>Special dates</source>
+        <translation>Date speciali</translation>
+    </message>
+    <message>
+        <source>Business</source>
+        <translation>Attività</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Altro</translation>
     </message>

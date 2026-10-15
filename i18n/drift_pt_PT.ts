@@ -16052,6 +16052,14 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Finais</translation>
     </message>
     <message>
+        <source>Special dates</source>
+        <translation>Datas especiais</translation>
+    </message>
+    <message>
+        <source>Business</source>
+        <translation>Negócios</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Outros</translation>
     </message>

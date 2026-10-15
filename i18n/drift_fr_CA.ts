@@ -16055,6 +16055,14 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Fins</translation>
     </message>
     <message>
+        <source>Special dates</source>
+        <translation>Dates spéciales</translation>
+    </message>
+    <message>
+        <source>Business</source>
+        <translation>Entreprises</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Autres</translation>
     </message>

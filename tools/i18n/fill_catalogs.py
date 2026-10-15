@@ -16,6 +16,7 @@ import html
 import json
 import re
 import sys
+import time
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
@@ -135,7 +136,16 @@ def import_(work: Path) -> None:
             return MESSAGE.sub(msg_sub, cm.group(0))
 
         s = CONTEXT.sub(ctx_sub, s)
-        ts.write_text(s, encoding="utf-8", newline="")
+        if counter["done"]:
+            # Windows sometimes refuses the open for a moment (a scanner holding the file).
+            for attempt in range(10):
+                try:
+                    ts.write_text(s, encoding="utf-8", newline="")
+                    break
+                except OSError:
+                    if attempt == 9:
+                        raise
+                    time.sleep(0.5)
         print(f"{lang}: {counter['done']} translated, {counter['bad']} rejected (placeholders), "
               f"{counter['i'] - counter['done']} left")
 

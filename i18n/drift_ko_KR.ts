@@ -15992,6 +15992,14 @@ If playback stutters, try another.</source>
         <translation>엔딩</translation>
     </message>
     <message>
+        <source>Special dates</source>
+        <translation>특별한 날</translation>
+    </message>
+    <message>
+        <source>Business</source>
+        <translation>비즈니스</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>기타</translation>
     </message>

@@ -15993,6 +15993,14 @@ If playback stutters, try another.</source>
         <translation>エンディング</translation>
     </message>
     <message>
+        <source>Special dates</source>
+        <translation>特別な日</translation>
+    </message>
+    <message>
+        <source>Business</source>
+        <translation>ビジネス</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>その他</translation>
     </message>

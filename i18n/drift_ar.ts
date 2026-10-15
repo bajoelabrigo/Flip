@@ -16288,6 +16288,14 @@ If playback stutters, try another.</source>
         <translation>خواتيم</translation>
     </message>
     <message>
+        <source>Special dates</source>
+        <translation>مناسبات خاصة</translation>
+    </message>
+    <message>
+        <source>Business</source>
+        <translation>أعمال</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>أخرى</translation>
     </message>

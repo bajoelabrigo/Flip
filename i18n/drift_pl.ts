@@ -16111,6 +16111,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Zakończenia</translation>
     </message>
     <message>
+        <source>Special dates</source>
+        <translation>Wyjątkowe dni</translation>
+    </message>
+    <message>
+        <source>Business</source>
+        <translation>Biznes</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Inne</translation>
     </message>

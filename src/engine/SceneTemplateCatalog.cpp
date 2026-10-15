@@ -45,6 +45,10 @@ QString labelForCategory(const QString &slug)
         return QCoreApplication::translate("SceneTemplateCatalog", "Countdowns");
     if (slug == QLatin1String("outro"))
         return QCoreApplication::translate("SceneTemplateCatalog", "Endings");
+    if (slug == QLatin1String("seasonal"))
+        return QCoreApplication::translate("SceneTemplateCatalog", "Special dates");
+    if (slug == QLatin1String("business"))
+        return QCoreApplication::translate("SceneTemplateCatalog", "Business");
     if (slug.isEmpty())
         return QCoreApplication::translate("SceneTemplateCatalog", "Other");
     QString label = slug;

@@ -15993,6 +15993,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Kết thúc</translation>
     </message>
     <message>
+        <source>Special dates</source>
+        <translation>Ngày đặc biệt</translation>
+    </message>
+    <message>
+        <source>Business</source>
+        <translation>Kinh doanh</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Khác</translation>
     </message>
