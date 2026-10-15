@@ -85,6 +85,7 @@ if(DRIFT_WITH_SKIA)
 endif()
 add_test(NAME EditorState COMMAND tst_editorstate)
 drift_copy_effects(tst_editorstate)
+drift_copy_effect_templates(tst_editorstate)
 drift_copy_audio_effects(tst_editorstate)
 drift_copy_transitions(tst_editorstate)
 

@@ -80,6 +80,152 @@
     </message>
 </context>
 <context>
+    <name>AccountDialog</name>
+    <message>
+        <source>My account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished">Hecho</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sounds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation type="unfinished">Efectos</translation>
+    </message>
+    <message>
+        <source>Transitions</source>
+        <translation type="unfinished">Transiciones</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished">Plantillas</translation>
+    </message>
+    <message>
+        <source>Stickers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shapes</source>
+        <translation type="unfinished">Formas</translation>
+    </message>
+    <message>
+        <source>Text styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text bubbles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text animations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fonts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caption styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voices</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retouch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hello</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not signed in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Flip Studio since %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n project(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free plan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The whole editor, with no watermark.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stock downloads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No favorites yet. Mark music, effects, text styles and more with the star in each panel and they gather here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click one to open its panel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing downloaded from Stock yet. Free photos and videos you download there are listed here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File moved or deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear the list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forgets this list; the downloaded files stay where they are</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Account settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AccountWelcomeDialog</name>
     <message>
         <source>Welcome to Flip Studio</source>
@@ -4192,12 +4338,52 @@
         <translation>Efecto añadido</translation>
     </message>
     <message>
+        <source>Template: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply effect template</source>
         <translation>Aplicar plantilla de efecto</translation>
     </message>
     <message>
         <source>Template applied</source>
         <translation>Plantilla aplicada</translation>
+    </message>
+    <message>
+        <source>This template follows the music, and this clip has none: it keeps a steady 120 BPM beat. Add music under it and pick the rhythm again in Effects › Template.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Template updated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change template rhythm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Template rhythm changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No music under this clip: the template keeps a steady 120 BPM beat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Template removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip, or put the playhead over one, to apply the template</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This effect needs a subject cutout — open Extras to install it</source>
@@ -4471,6 +4657,74 @@
     <message>
         <source>Track shown</source>
         <translation>Pista visible</translation>
+    </message>
+    <message>
+        <source>X position</source>
+        <translation type="unfinished">Posición X</translation>
+    </message>
+    <message>
+        <source>Y position</source>
+        <translation type="unfinished">Posición Y</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished">Rotación</translation>
+    </message>
+    <message>
+        <source>Tilt X</source>
+        <translation type="unfinished">Inclinación X</translation>
+    </message>
+    <message>
+        <source>Tilt Y</source>
+        <translation type="unfinished">Inclinación Y</translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation type="unfinished">Profundidad</translation>
+    </message>
+    <message>
+        <source>Perspective</source>
+        <translation type="unfinished">Perspectiva</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished">Opacidad</translation>
+    </message>
+    <message>
+        <source>Volume</source>
+        <translation type="unfinished">Volumen</translation>
+    </message>
+    <message>
+        <source>Mask X</source>
+        <translation type="unfinished">Máscara X</translation>
+    </message>
+    <message>
+        <source>Mask Y</source>
+        <translation type="unfinished">Máscara Y</translation>
+    </message>
+    <message>
+        <source>Mask width</source>
+        <translation type="unfinished">Ancho de máscara</translation>
+    </message>
+    <message>
+        <source>Mask height</source>
+        <translation type="unfinished">Alto de máscara</translation>
+    </message>
+    <message>
+        <source>Mask rotation</source>
+        <translation type="unfinished">Rotación de máscara</translation>
+    </message>
+    <message>
+        <source>Mask feather</source>
+        <translation type="unfinished">Calado de máscara</translation>
     </message>
     <message>
         <source>Move track</source>
@@ -9209,6 +9463,18 @@
         <translation>El acceso de agente está activado</translation>
     </message>
     <message>
+        <source>My account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My account (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Recommended packs and updates</source>
         <translation>Paquetes recomendados y actualizaciones</translation>
     </message>
@@ -9544,8 +9810,24 @@
         <translation>%1 — haz clic para aplicar efectos al ritmo de la música en la selección</translation>
     </message>
     <message>
-        <source>%1 — select a clip, then click to apply</source>
-        <translation>%1 — selecciona un clip y haz clic para aplicarlo</translation>
+        <source>%1 — click to apply it to the clip under the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follows the beat of the music. On a clip with no music it keeps a steady 120 BPM beat.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to the selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to the clip under the playhead</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove from favorites</source>
@@ -9684,6 +9966,77 @@
     <message>
         <source>Clear depth</source>
         <translation>Borrar profundidad</translation>
+    </message>
+    <message>
+        <source>Every strong sound</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every beat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start to end of the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Template: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Its keyframes follow these controls: change them here instead of one by one.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intensity: %1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation type="unfinished">Intensidad</translation>
+    </message>
+    <message>
+        <source>Decay: %1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rhythm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Analysing the music…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>One effect from the start to the end of the clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n pulse(s) under this clip.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has no music, so the template keeps a steady 120 BPM beat. Put music under it and pick the rhythm again to follow its beats.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Takes off every effect and keyframe this template added</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This clip was scanned before the face mesh was supported. Re-detect faces to enable 3D Face Mesh and Face Retouch.</source>
@@ -17150,6 +17503,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Ayer</translation>
     </message>
     <message>
+        <source>My account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With Google, optional</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Home</source>
         <translation>Inicio</translation>
     </message>
@@ -19977,6 +20342,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Fundido automático: desactivado</translation>
     </message>
     <message>
+        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Toggle audio mixer strip</source>
         <translation>Alternar tira del mezclador de audio</translation>
     </message>
@@ -20408,6 +20777,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Hide keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add camera clip at playhead</source>
         <translation>Añadir clip de cámara en el cabezal</translation>
     </message>
@@ -20510,6 +20887,45 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Rename…</source>
         <translation>Cambiar nombre…</translation>
+    </message>
+</context>
+<context>
+    <name>TrackKeyframeRows</name>
+    <message>
+        <source>Double-click to add a keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished">Mover fotograma clave</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished">Lineal</translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished">Mantener</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

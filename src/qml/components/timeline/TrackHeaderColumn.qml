@@ -138,7 +138,8 @@ Item {
             "subtitle": Theme.trackHeightSubtitle,
             "shape": Theme.trackHeightShape,
             "adjustment": Theme.trackHeightAdjustment,
-            "lane": Theme.adjustmentLaneHeight
+            "lane": Theme.adjustmentLaneHeight,
+            "keyframeRow": root.compact ? 0 : Theme.keyframeRowHeight
         })
     }
 
@@ -356,6 +357,17 @@ Item {
             readonly property bool transformable: ["video", "text", "subtitle", "shape"]
                                                   .indexOf(root.tracks[index].type) !== -1
             readonly property bool insideBracket: (root.tracks[index].transformCoveredBy || []).length > 0
+            // The After Effects twirl: unfolds one line per animated property under the clips.
+            readonly property bool keyframesExpanded: root.tracks[index].keyframesExpanded === true
+            readonly property bool hasKeyframes: !root.compact
+                                                 && (root.tracks.length, EditorState.trackHasKeyframes(index))
+            readonly property var keyframeRows: keyframesExpanded && !root.compact
+                                                ? (root.tracks.length, EditorState.trackKeyframeRows(index)) : []
+            readonly property real keyframeRowsHeight: keyframeRows.length * Theme.keyframeRowHeight
+            // The row without its property lines: what the name band and the icons lay out in.
+            readonly property real baseHeight: root.trackHeight(index) - keyframeRowsHeight
+            // The name moves right to make room for the twirl.
+            readonly property real nameInset: hasKeyframes ? 14 : 0
             // Tinted while a bracket foot is dragged over it: this is what the span would cover.
             readonly property bool spanPreviewed: root.spanPreviewLayer >= 0
                                                   && index > root.spanPreviewLayer
@@ -494,7 +506,7 @@ Item {
                 anchors.left: parent.left
                 anchors.leftMargin: root.compact ? 4 : 8
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.verticalCenterOffset: index < root.tracks.length - 1 ? -Theme.trackGap / 2 : 0
+                anchors.verticalCenterOffset: (index < root.tracks.length - 1 ? -Theme.trackGap / 2 : 0) - trackLabelRow.keyframeRowsHeight / 2
                 glyph: Theme.icons.gripVertical
                 iconSize: root.compact ? 12 : 14
                 iconColor: trackDragMouse.hovered || root.draggingTrackFrom === index
@@ -566,7 +578,7 @@ Item {
                 anchors.right: parent.right
                 anchors.rightMargin: root.compact ? 4 : 12
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.verticalCenterOffset: index < root.tracks.length - 1 ? -Theme.trackGap / 2 : 0
+                anchors.verticalCenterOffset: (index < root.tracks.length - 1 ? -Theme.trackGap / 2 : 0) - trackLabelRow.keyframeRowsHeight / 2
                 // Each toggle's hit area overhangs its glyph by 4 either side, so a 4px
                 // gap left the mute and hide targets touching: half the visible gap fired
                 // the wrong one, and both silently drop the track from render and export.
@@ -893,13 +905,14 @@ Item {
             // overlapping), so the name sits inline here instead, between the grip and the
             // type/toggle icons.
             Text {
-                visible: !root.compact && root.trackHeight(index) < 40
+                id: inlineTrackName
+                visible: !root.compact && trackLabelRow.baseHeight < 40
                 anchors.left: parent.left
-                anchors.leftMargin: Theme.spacing3xl + Theme.spacingSm
+                anchors.leftMargin: Theme.spacing3xl + Theme.spacingSm + trackLabelRow.nameInset
                 anchors.right: trackIconRow.left
                 anchors.rightMargin: Theme.spacingSm
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.verticalCenterOffset: index < root.tracks.length - 1 ? -Theme.trackGap / 2 : 0
+                anchors.verticalCenterOffset: (index < root.tracks.length - 1 ? -Theme.trackGap / 2 : 0) - trackLabelRow.keyframeRowsHeight / 2
                 text: trackLabelRow.trackDisplayName
                 color: Theme.mutedForeground
                 font.family: Theme.fontFamily
@@ -919,7 +932,7 @@ Item {
                 anchors.right: trackIconRow.left
                 anchors.rightMargin: Theme.spacingSm
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.verticalCenterOffset: index < root.tracks.length - 1 ? -Theme.trackGap / 2 : 0
+                anchors.verticalCenterOffset: (index < root.tracks.length - 1 ? -Theme.trackGap / 2 : 0) - trackLabelRow.keyframeRowsHeight / 2
                 text: trackLabelRow.trackCompactLabel
                 color: Theme.mutedForeground
                 font.family: Theme.fontFamily
@@ -954,8 +967,9 @@ Item {
             // Track name. Nothing in the header used to say which
             // track this was beyond the type glyph.
             Text {
+                id: bandTrackName
                 anchors.left: parent.left
-                anchors.leftMargin: Theme.spacing3xl + Theme.spacingSm
+                anchors.leftMargin: Theme.spacing3xl + Theme.spacingSm + trackLabelRow.nameInset
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.spacingLg
                 anchors.top: parent.top
@@ -965,7 +979,80 @@ Item {
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeTiny
                 elide: Text.ElideRight
-                visible: !root.compact && root.trackHeight(index) >= 40
+                visible: !root.compact && trackLabelRow.baseHeight >= 40
+            }
+
+            // The twirl, level with the track name: open, the row grows one line per animated
+            // property of its clips, keys drawn on each (TrackKeyframeRows in the timeline).
+            IconGlyph {
+                id: keyframeTwirl
+                readonly property Item nameItem: bandTrackName.visible ? bandTrackName : inlineTrackName
+                visible: trackLabelRow.hasKeyframes
+                x: Theme.spacing3xl + Theme.spacingSm - 2
+                y: nameItem.y + (nameItem.height - height) / 2
+                z: 3
+                glyph: trackLabelRow.keyframesExpanded ? Theme.icons.chevronDown : Theme.icons.chevronRight
+                iconSize: 12
+                iconColor: twirlMouse.containsMouse || trackLabelRow.keyframesExpanded
+                           ? Theme.panelForeground : Theme.mutedForeground
+
+                Accessible.role: Accessible.Button
+                Accessible.name: trackLabelRow.keyframesExpanded ? qsTr("Hide keyframes")
+                                                                 : qsTr("Show keyframes")
+
+                ThemedToolTip {
+                    visible: twirlMouse.containsMouse
+                    text: trackLabelRow.keyframesExpanded ? qsTr("Hide keyframes")
+                                                          : qsTr("Show keyframes")
+                }
+
+                MouseArea {
+                    id: twirlMouse
+                    anchors.fill: parent
+                    anchors.margins: -5
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: EditorState.setTrackKeyframesExpanded(index, !trackLabelRow.keyframesExpanded)
+                }
+            }
+
+            // The names of the unfolded property lines, level with their keys in the timeline.
+            Column {
+                visible: trackLabelRow.keyframeRows.length > 0
+                y: trackLabelRow.baseHeight
+                z: 2
+                width: parent.width - 1
+                Repeater {
+                    model: trackLabelRow.keyframeRows
+                    delegate: Rectangle {
+                        required property var modelData
+                        required property int index
+                        width: parent.width
+                        height: Theme.keyframeRowHeight
+                        color: Qt.rgba(0, 0, 0, index % 2 === 0 ? 0.16 : 0.08)
+
+                        Rectangle {
+                            x: Theme.spacing3xl + Theme.spacingSm + 2
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: 7
+                            height: 7
+                            rotation: 45
+                            color: Theme.keyframeCurveColor(modelData.prop)
+                        }
+                        Text {
+                            anchors.left: parent.left
+                            anchors.leftMargin: Theme.spacing3xl + Theme.spacingSm + 16
+                            anchors.right: parent.right
+                            anchors.rightMargin: Theme.spacingSm
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: modelData.label
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeTiny
+                            elide: Text.ElideRight
+                        }
+                    }
+                }
             }
 
             // Track context menu. Right-click on desktop; on touch it is opened from the

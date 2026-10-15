@@ -435,29 +435,8 @@ Item {
                     spacing: Theme.spacingLg
                     visible: Account.signedIn
 
-                    Rectangle {
-                        width: 40
-                        height: 40
-                        radius: 20
-                        color: Theme.panelMuted
-                        clip: true
-
-                        IconGlyph {
-                            anchors.centerIn: parent
-                            glyph: Theme.icons.account
-                            iconSize: 24
-                            iconColor: Theme.mutedForeground
-                            visible: avatar.status !== Image.Ready
-                        }
-
-                        Image {
-                            id: avatar
-                            anchors.fill: parent
-                            source: Account.avatarUrl
-                            fillMode: Image.PreserveAspectCrop
-                            asynchronous: true
-                            visible: status === Image.Ready
-                        }
+                    AccountAvatar {
+                        size: 40
                     }
 
                     Column {

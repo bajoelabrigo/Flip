@@ -139,6 +139,10 @@ public:
     // the URL was consumed so callers must not treat it as a project file.
     Q_INVOKABLE bool handleIncomingUrl(const QUrl &url);
     Q_INVOKABLE void disconnectAccount();
+    // Stock items imported on this computer, newest first (title, kind, provider, thumbnail,
+    // file, date), kept across runs for Settings › My account.
+    Q_INVOKABLE QVariantList downloadHistory() const;
+    Q_INVOKABLE void clearDownloadHistory();
 
     // A signed GET on the Drift API, for other stores that share this identity (Drift Assets).
     QNetworkReply *signedGet(const QString &path) { return get(apiUrl(path)); }
@@ -160,6 +164,7 @@ signals:
     void downloadProgress(const QString &itemId, double fraction, const QString &phase);
     void downloadFailed(const QString &itemId, const QString &code, const QString &message);
     void downloadImported(const QString &itemId, const QString &name);
+    void downloadHistoryChanged();
     // Raised once per job when it is first accepted, so the manager window can show itself
     // without polling activeDownloadCount.
     void downloadStarted(const QString &itemId);
@@ -204,6 +209,7 @@ private:
     void applyResolvedItem(const QJsonObject &item);
     void startSearch(bool append);
     bool retryAfterAuth(const QString &code, const std::function<void()> &retry);
+    void rememberDownload(const QString &itemId, const QString &path, const QString &displayName);
     void abortInFlightSearch();
     void pollJobs();
     void finishJobFile(Job *job, const QJsonObject &file, const QString &attribution);

@@ -209,6 +209,162 @@ Item {
         width: root.width
         spacing: Theme.spacingXl
 
+        // An effect template put on this clip (Templates tab): its pulses are rebuilt from these
+        // controls instead of being edited diamond by diamond, and the whole template comes off
+        // in one step.
+        Column {
+            id: templateSection
+            readonly property var info: {
+                void root.clipDataRevision
+                return root.hasSelection
+                       ? EditorState.effectTemplateInfo(EditorState.selectedTrack, EditorState.selectedClip)
+                       : ({})
+            }
+            readonly property bool present: !!info && !!info.templateId
+            readonly property var rhythms: [
+                { id: "onset", label: qsTr("Every strong sound") },
+                { id: "beat", label: qsTr("Every beat") },
+                { id: "bar", label: qsTr("Every bar") },
+                { id: "clip", label: qsTr("Start to end of the clip") }
+            ]
+
+            function commitShape(intensity, decay) {
+                EditorState.setEffectTemplateShape(EditorState.selectedTrack, EditorState.selectedClip,
+                                                   intensity, decay)
+            }
+
+            visible: present
+            width: parent.width
+            spacing: Theme.spacingSm
+
+            Row {
+                width: parent.width
+                spacing: Theme.spacingMd
+
+                IconGlyph {
+                    anchors.verticalCenter: parent.verticalCenter
+                    glyph: Theme.icons.sparkles
+                    iconSize: 16
+                    iconColor: Theme.primary
+                }
+
+                ThemedLabel {
+                    width: parent.width - 16 - parent.spacing
+                    anchors.verticalCenter: parent.verticalCenter
+                    size: "sm"
+                    tone: "default"
+                    elide: Text.ElideRight
+                    wrapMode: Text.NoWrap
+                    text: qsTr("Template: %1").arg(templateSection.info.name || "")
+                }
+            }
+
+            ThemedLabel {
+                width: parent.width
+                text: qsTr("Its keyframes follow these controls: change them here instead of one by one.")
+            }
+
+            ThemedLabel {
+                width: parent.width
+                text: qsTr("Intensity: %1%").arg(Math.round(intensitySlider.value * 100))
+            }
+            ThemedSlider {
+                id: intensitySlider
+                width: parent.width
+                label: qsTr("Intensity")
+                from: 0
+                to: 2
+                stepSize: 0.05
+                value: templateSection.info.intensity !== undefined ? templateSection.info.intensity : 1
+                valueFormatter: function (v) { return Math.round(v * 100) + "%" }
+                onPressedChanged: if (!pressed) templateSection.commitShape(value, decaySlider.value)
+            }
+
+            ThemedLabel {
+                width: parent.width
+                text: qsTr("Decay: %1%").arg(Math.round(decaySlider.value * 100))
+            }
+            ThemedSlider {
+                id: decaySlider
+                width: parent.width
+                label: qsTr("Decay")
+                from: 0.25
+                to: 3
+                stepSize: 0.05
+                value: templateSection.info.decay !== undefined ? templateSection.info.decay : 1
+                valueFormatter: function (v) { return Math.round(v * 100) + "%" }
+                onPressedChanged: if (!pressed) templateSection.commitShape(intensitySlider.value, value)
+            }
+
+            ThemedLabel {
+                width: parent.width
+                text: qsTr("Rhythm")
+            }
+            ThemedComboBox {
+                width: parent.width
+                model: templateSection.rhythms.map(r => r.label)
+                currentIndex: Math.max(0, templateSection.rhythms.findIndex(r => r.id === templateSection.info.sync))
+                onActivated: (index) => EditorState.setEffectTemplateRhythm(
+                                 EditorState.selectedTrack, EditorState.selectedClip,
+                                 templateSection.rhythms[index].id)
+            }
+            ThemedLabel {
+                width: parent.width
+                text: templateSection.info.rhythmPending
+                      ? qsTr("Analysing the music…")
+                      : (templateSection.info.sync === "clip"
+                         ? qsTr("One effect from the start to the end of the clip.")
+                         : qsTr("%n pulse(s) under this clip.", "", templateSection.info.pulses || 0))
+            }
+            // Follows the music, and there is none: say so, so a template that seems to do
+            // little is not taken for a broken one.
+            Rectangle {
+                visible: templateSection.info.steadyBeat === true && !templateSection.info.rhythmPending
+                width: parent.width
+                height: visible ? steadyNote.implicitHeight + 2 * Theme.spacingSm : 0
+                radius: Theme.radiusSm
+                color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.12)
+                border.width: 1
+                border.color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.45)
+
+                Row {
+                    id: steadyNote
+                    x: Theme.spacingSm
+                    y: Theme.spacingSm
+                    width: parent.width - 2 * Theme.spacingSm
+                    spacing: Theme.spacingSm
+
+                    IconGlyph {
+                        glyph: Theme.icons.music
+                        iconSize: 14
+                        iconColor: Theme.primary
+                    }
+                    Text {
+                        width: parent.width - 14 - Theme.spacingSm
+                        text: qsTr("This clip has no music, so the template keeps a steady 120 BPM beat. Put music under it and pick the rhythm again to follow its beats.")
+                        color: Theme.panelForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeSm
+                        wrapMode: Text.WordWrap
+                    }
+                }
+            }
+
+            ThemedButton {
+                variant: "ghost"
+                glyph: Theme.icons.trash
+                text: qsTr("Remove template")
+                tooltip: qsTr("Takes off every effect and keyframe this template added")
+                onClicked: EditorState.removeEffectTemplate(EditorState.selectedTrack, EditorState.selectedClip)
+            }
+
+            Rectangle {
+                width: parent.width
+                height: Theme.borderWidth
+                color: Theme.panelBorder
+            }
+        }
+
         // The face warp effects follow baked landmarks and pass the frame through untouched
         // without them, so the scan is offered here — beside the stack that needs it — rather
         // than as a step on every clip. Adding a face effect starts the scan by itself

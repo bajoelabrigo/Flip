@@ -1172,6 +1172,29 @@ ApplicationWindow {
         settingsDialogLoader.ensure().open()
     }
 
+    // My account: from the picture in the editor header and the card on the start screen.
+    function openAccount() {
+        accountDialogLoader.ensure().open()
+    }
+
+    LazyLoader {
+        id: accountDialogLoader
+        sourceComponent: Component {
+            AccountDialog {
+                onAssetsTabRequested: (tabId) => {
+                    close()
+                    // From the start screen the panels are behind it.
+                    window.showStartScreen = false
+                    window.showAssetsTab(tabId)
+                }
+                onSettingsRequested: {
+                    close()
+                    window.openSettings()
+                }
+            }
+        }
+    }
+
     function switchShell(target) {
         shellSwitchDialogLoader.ensure().openFor(target, false)
     }
@@ -1833,6 +1856,7 @@ ApplicationWindow {
             visible: !window.previewFullscreen
             onDownloadsRequested: downloadsWindowLoader.ensure().show()
             onStockRequested: window.showAssetsTab("market")
+            onAccountRequested: window.openAccount()
             stockActive: assetsPanel.currentTabId === "market"
         }
 

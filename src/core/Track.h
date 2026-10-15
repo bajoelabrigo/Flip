@@ -59,6 +59,9 @@ struct Track
     // view-only: how tall a clip's waveform is drawn in its row, as a fraction (CapCut's
     // 30 / 60 / 100 %). Only the drawing changes, never the sound.
     qreal waveformScale = 1.0;
+    // view-only: the row is unfolded (the twirl in its header, as in After Effects) to show one
+    // line per animated property of its clips, with their keyframes.
+    bool keyframesExpanded = false;
 
     // Adjustment tracks only.
     AdjustmentScope adjustmentScope = AdjustmentScope::AllBelow;

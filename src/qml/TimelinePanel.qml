@@ -548,7 +548,8 @@ PanelFrame {
             "subtitle": Theme.trackHeightSubtitle,
             "shape": Theme.trackHeightShape,
             "adjustment": Theme.trackHeightAdjustment,
-            "lane": Theme.adjustmentLaneHeight
+            "lane": Theme.adjustmentLaneHeight,
+            "keyframeRow": Theme.keyframeRowHeight
         })
     }
 
@@ -1274,12 +1275,18 @@ PanelFrame {
             Loader {
                 id: keyframesBar
                 width: parent.width - (audioMixer.visible ? audioMixer.width : 0)
-                active: root.keyframesTab && EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
+                // Opt-in: the keys live in each track's unfolded rows; this strip is the curve
+                // editor, opened from the toolbar or a key's "Edit curve…".
+                active: EditorState.preferences.curveEditorVisible
+                        && EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
+                // The Column skips an invisible child. Without this, closing the editor left its
+                // last height reserved over the tracks: a Loader keeps the size its item gave it.
+                visible: active && item !== null && item.hasContent
                 sourceComponent: Component {
                     KeyframeGraph {
                         pxPerSecond: root.pxPerSecond
                         labelsWidth: EditorState.preferences.trackLabelsWidth
-                        keyframesTab: root.keyframesTab
+                        keyframesTab: true
                         // Keep keys/playhead lined up with the track scroll view below.
                         contentX: flick.contentX
                         contentWidth: flick.contentWidth
@@ -1294,6 +1301,7 @@ PanelFrame {
                 id: subtitleLane
                 width: parent.width - (audioMixer.visible ? audioMixer.width : 0)
                 active: EditorState.subtitleEditing
+                visible: active && item !== null
                 sourceComponent: Component {
                     SubtitleCueLane {
                         pxPerSecond: root.pxPerSecond
@@ -1892,6 +1900,13 @@ PanelFrame {
                                 visible: !root.tracks[trackIndex].isAdjustmentLane
                                 width: flick.contentWidth
                                 height: root.trackHeight(trackIndex)
+                                // The unfolded property lines at the bottom of the row (the twirl
+                                // in the track header). Read through root.tracks so they follow
+                                // every edit.
+                                readonly property var keyframeRows:
+                                    root.tracks[trackIndex] && root.tracks[trackIndex].keyframesExpanded === true
+                                    ? (root.tracks.length, EditorState.trackKeyframeRows(trackIndex)) : []
+                                readonly property real keyframeRowsHeight: keyframeRows.length * Theme.keyframeRowHeight
                                 // Faint row tint on hover, and an empty track now
                                 // reads as a track rather than as blank space.
                                 color: trackHover.hovered
@@ -2209,7 +2224,8 @@ PanelFrame {
                                     property int trackIndex: trackRow.trackIndex
                                     y: adjustmentLaneStrips.height
                                     width: trackRow.width
-                                    height: Math.max(0, trackRow.height - adjustmentLaneStrips.height)
+                                    height: Math.max(0, trackRow.height - adjustmentLaneStrips.height
+                                                        - trackRow.keyframeRowsHeight)
 
                                     TimelineTrackArea {
                                         id: trackClipsRenderer
@@ -2356,6 +2372,17 @@ PanelFrame {
                                             }
                                         }
                                     }
+                                }
+
+                                // The unfolded property lines, under the clips.
+                                TrackKeyframeRows {
+                                    visible: trackRow.keyframeRows.length > 0
+                                    y: trackRow.height - trackRow.keyframeRowsHeight
+                                    width: trackRow.width
+                                    z: 5
+                                    trackIndex: trackRow.trackIndex
+                                    pxPerSecond: root.pxPerSecond
+                                    liveRows: trackRow.keyframeRows
                                 }
 
                                 // Right-click a gap to ripple everything after it (and any

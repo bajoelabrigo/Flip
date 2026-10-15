@@ -1249,6 +1249,12 @@ public:
                                      double atSeconds, bool hold);
     Q_INVOKABLE void setKeyframeInterpolation(int trackIndex, int clipIndex, const QString &prop,
                                               const QString &mode);
+    // The key nearest atSeconds: "linear", "ease", "easeIn", "easeOut" or "hold".
+    Q_INVOKABLE void setKeyframeEasingAt(int trackIndex, int clipIndex, const QString &prop,
+                                         double atSeconds, const QString &mode);
+    // A key at atSeconds with the value the property already has there.
+    Q_INVOKABLE void addClipKeyframeAt(int trackIndex, int clipIndex, const QString &prop,
+                                       double atSeconds);
     Q_INVOKABLE void resetClipTransform(int trackIndex, int clipIndex);
     Q_INVOKABLE QVariantList effectCatalog() const;
 
@@ -1274,7 +1280,19 @@ public:
     Q_INVOKABLE QVariantList effectTemplateCatalog() const;
     Q_INVOKABLE QVariantList effectTemplateCategories() const;
     Q_INVOKABLE void addEffect(int trackIndex, int clipIndex, const QString &effectId);
+    // The selected clip, or the top picture clip under the playhead.
+    Q_INVOKABLE void applyEffectTemplateToCurrentClip(const QString &templateId);
     Q_INVOKABLE void applyEffectTemplate(int trackIndex, int clipIndex, const QString &templateId);
+    // The single-clip effect template on this clip (its effects carry a template tag), for the
+    // Effects › Template section: name, rhythm, intensity, decay. Empty when there is none.
+    Q_INVOKABLE QVariantMap effectTemplateInfo(int trackIndex, int clipIndex) const;
+    // Rebuilds every pulse of that template; 1 = as designed for both.
+    Q_INVOKABLE void setEffectTemplateShape(int trackIndex, int clipIndex, double intensity,
+                                            double decay);
+    // "onset", "beat", "bar" or "clip"; analyses the music first when it has to.
+    Q_INVOKABLE void setEffectTemplateRhythm(int trackIndex, int clipIndex, const QString &sync);
+    // Takes the template's effects (and its speed curve) off the clip in one step.
+    Q_INVOKABLE void removeEffectTemplate(int trackIndex, int clipIndex);
     Q_INVOKABLE void removeEffect(int trackIndex, int clipIndex, int effectIndex);
     Q_INVOKABLE void setEffectEnabled(int trackIndex, int clipIndex, int effectIndex, bool enabled);
     Q_INVOKABLE void moveEffect(int trackIndex, int clipIndex, int fromIndex, int toIndex);
@@ -1423,6 +1441,15 @@ public:
     // Per-track row height multiplier (DAW-style lane resize). Clamped to
     // trackHeightScaleMin()..trackHeightScaleMax().
     Q_INVOKABLE void setTrackHeightScale(int trackIndex, double scale);
+    // The After-Effects-style twirl on a track header: unfolds one line per animated property
+    // of the track's clips under it. View-only, saved with the project.
+    Q_INVOKABLE void setTrackKeyframesExpanded(int trackIndex, bool expanded);
+    Q_INVOKABLE bool trackHasKeyframes(int trackIndex) const;
+    // [{label, prop, clips: [{clip, prop, start, duration, keys: clipKeyframes()}]}], one per
+    // property name across the track's clips.
+    Q_INVOKABLE QVariantList trackKeyframeRows(int trackIndex) const;
+    // "X position", "Zoom punch · Punch"… for a keyframed property of a clip.
+    Q_INVOKABLE QString animatedPropertyLabel(int trackIndex, int clipIndex, const QString &prop) const;
     // How tall the waveform is drawn inside the row (0.1-1.0). View-only.
     Q_INVOKABLE void setTrackWaveformScale(int trackIndex, double scale);
     Q_INVOKABLE double trackHeightScale(int trackIndex) const;
@@ -1517,6 +1544,10 @@ public:
     Q_INVOKABLE void triggerAction(const QString &actionId);
     // Per-tab favorites in the assets panel (effects, sounds, shapes, stickers, transitions, templates).
     Q_INVOKABLE bool isAssetFavorite(const QString &tabId, const QString &itemId) const;
+    // How many favourites each group holds ({"music": 3, "effects": 1, …}), empty groups left out.
+    Q_INVOKABLE QVariantMap assetFavoriteCounts() const;
+    // The item ids starred in one group, sorted (font family names for "fonts").
+    Q_INVOKABLE QStringList assetFavoriteIds(const QString &tabId) const;
     Q_INVOKABLE void toggleAssetFavorite(const QString &tabId, const QString &itemId);
     Q_INVOKABLE void togglePlayback();
     // Bracket a scrub gesture (a dragged playhead, or the phone timeline being scrolled under
@@ -1818,7 +1849,23 @@ protected:
                                    const QString &mattePath = {},
                                    drift::TimeUs matteSrcOffsetUs = 0);
     bool resolveTemplateApplyTarget(int *trackIndex, int *clipIndex) const;
+    bool beatAnalysisCoversClip(const drift::Clip &clip) const;
     bool beatAnalysisReadyForClip(const drift::Clip &clip, const QString &sync) const;
+    QList<drift::TimeUs> templateSyncPoints(const drift::Clip &sourceClip, const QString &sync) const;
+    // Removes the effects of a single-clip template (all of them when templateId is empty) from
+    // the clip and its linked effects adjustment, and its speed curve. No undo step of its own.
+    void removeTemplateEffects(int trackIndex, int clipIndex, const QString &templateId,
+                               bool dropEmptyLayer = false);
+    void refreshTemplateSpans(drift::Project &project) const;
+    // Moves the clips in `ids` into a new composite placed where they were, and returns the
+    // composite clip's id (empty when nothing could be nested). `prepareInner` may add to the
+    // inner tracks first (it gets them shifted to start at 0, plus the original start). No undo
+    // step: the caller records one.
+    QString buildCompositeFromClipIds(
+        const QSet<QString> &ids, const QString &name,
+        const std::function<void(drift::TrackList &, drift::TimeUs)> &prepareInner);
+    bool reshapeEffectTemplate(int trackIndex, int clipIndex, double intensity, double decay,
+                               const QString &sync, const QList<drift::TimeUs> *points);
     // Digest of everything the AudioMixer reads; a change means detected beats are stale.
     QByteArray audioLayoutFingerprint() const;
     // Single key lookup for the tangent editors; null when nothing sits at `atSeconds`.
@@ -2282,6 +2329,8 @@ protected:
         bool valid() const { return trackIndex >= 0 && clipIndex >= 0 && !templateId.isEmpty(); }
     };
     std::optional<PendingEffectTemplate> m_pendingEffectTemplate;
+    // A template rhythm change waiting on beat analysis: (clip id, sync).
+    std::optional<QPair<QString, QString>> m_pendingTemplateRhythm;
     // Beats and onsets as snap targets, thinned so a dense onset list cannot make every
     // position on the timeline snap to something. Only the visible layers contribute.
     QList<drift::TimeUs> m_beatSnapTargets;

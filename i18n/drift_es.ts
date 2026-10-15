@@ -80,6 +80,152 @@
     </message>
 </context>
 <context>
+    <name>AccountDialog</name>
+    <message>
+        <source>My account</source>
+        <translation>Mi cuenta</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>Hecho</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation>Música</translation>
+    </message>
+    <message>
+        <source>Sounds</source>
+        <translation>Sonidos</translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation>Efectos</translation>
+    </message>
+    <message>
+        <source>Transitions</source>
+        <translation>Transiciones</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation>Plantillas</translation>
+    </message>
+    <message>
+        <source>Stickers</source>
+        <translation>Stickers</translation>
+    </message>
+    <message>
+        <source>Shapes</source>
+        <translation>Formas</translation>
+    </message>
+    <message>
+        <source>Text styles</source>
+        <translation>Estilos de texto</translation>
+    </message>
+    <message>
+        <source>Text effects</source>
+        <translation>Efectos de texto</translation>
+    </message>
+    <message>
+        <source>Text bubbles</source>
+        <translation>Burbujas de texto</translation>
+    </message>
+    <message>
+        <source>Text animations</source>
+        <translation>Animaciones de texto</translation>
+    </message>
+    <message>
+        <source>Fonts</source>
+        <translation>Fuentes</translation>
+    </message>
+    <message>
+        <source>Caption styles</source>
+        <translation>Estilos de subtítulos</translation>
+    </message>
+    <message>
+        <source>Voices</source>
+        <translation>Voces</translation>
+    </message>
+    <message>
+        <source>Retouch</source>
+        <translation>Retoque</translation>
+    </message>
+    <message>
+        <source>Hello</source>
+        <translation>Hola</translation>
+    </message>
+    <message>
+        <source>Not signed in</source>
+        <translation>Sin sesión iniciada</translation>
+    </message>
+    <message>
+        <source>In Flip Studio since %1</source>
+        <translation>En Flip Studio desde %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n project(s)</source>
+        <translation>
+            <numerusform>%n proyecto</numerusform>
+            <numerusform>%n proyectos</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Esperando al navegador…</translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation>Iniciar sesión con Google</translation>
+    </message>
+    <message>
+        <source>Free plan</source>
+        <translation>Plan gratis</translation>
+    </message>
+    <message>
+        <source>The whole editor, with no watermark.</source>
+        <translation>Todo el editor, sin marca de agua.</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoritos</translation>
+    </message>
+    <message>
+        <source>Stock downloads</source>
+        <translation>Descargas de Stock</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Mark music, effects, text styles and more with the star in each panel and they gather here.</source>
+        <translation>Todavía no tienes favoritos. Marca música, efectos, estilos de texto y más con la estrella de cada panel y se reúnen aquí.</translation>
+    </message>
+    <message>
+        <source>Click one to open its panel.</source>
+        <translation>Haz clic en uno para abrir su panel.</translation>
+    </message>
+    <message>
+        <source>Nothing downloaded from Stock yet. Free photos and videos you download there are listed here.</source>
+        <translation>Todavía no descargaste nada de Stock. Las fotos y videos gratis que descargues ahí aparecen aquí.</translation>
+    </message>
+    <message>
+        <source>File moved or deleted</source>
+        <translation>Archivo movido o borrado</translation>
+    </message>
+    <message>
+        <source>Clear the list</source>
+        <translation>Vaciar la lista</translation>
+    </message>
+    <message>
+        <source>Forgets this list; the downloaded files stay where they are</source>
+        <translation>Olvida esta lista; los archivos descargados se quedan donde están</translation>
+    </message>
+    <message>
+        <source>Account settings</source>
+        <translation>Ajustes de la cuenta</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Cerrar sesión</translation>
+    </message>
+</context>
+<context>
     <name>AccountWelcomeDialog</name>
     <message>
         <source>Welcome to Flip Studio</source>
@@ -4184,12 +4330,52 @@
         <translation>Efecto añadido</translation>
     </message>
     <message>
+        <source>Template: %1</source>
+        <translation>Plantilla: %1</translation>
+    </message>
+    <message>
         <source>Apply effect template</source>
         <translation>Aplicar plantilla de efecto</translation>
     </message>
     <message>
         <source>Template applied</source>
         <translation>Plantilla aplicada</translation>
+    </message>
+    <message>
+        <source>This template follows the music, and this clip has none: it keeps a steady 120 BPM beat. Add music under it and pick the rhythm again in Effects › Template.</source>
+        <translation>Esta plantilla sigue la música y este clip no tiene: usa un ritmo fijo de 120 BPM. Pon música debajo y elige otra vez el ritmo en Efectos › Plantilla.</translation>
+    </message>
+    <message>
+        <source>Change template</source>
+        <translation>Cambiar plantilla</translation>
+    </message>
+    <message>
+        <source>Template updated</source>
+        <translation>Plantilla actualizada</translation>
+    </message>
+    <message>
+        <source>Change template rhythm</source>
+        <translation>Cambiar el ritmo de la plantilla</translation>
+    </message>
+    <message>
+        <source>Template rhythm changed</source>
+        <translation>Ritmo de la plantilla cambiado</translation>
+    </message>
+    <message>
+        <source>No music under this clip: the template keeps a steady 120 BPM beat</source>
+        <translation>El clip no tiene música: la plantilla sigue un ritmo fijo de 120 BPM</translation>
+    </message>
+    <message>
+        <source>Remove template</source>
+        <translation>Quitar plantilla</translation>
+    </message>
+    <message>
+        <source>Template removed</source>
+        <translation>Plantilla quitada</translation>
+    </message>
+    <message>
+        <source>Select a clip, or put the playhead over one, to apply the template</source>
+        <translation>Selecciona un clip, o pon el cabezal sobre uno, para aplicar la plantilla</translation>
     </message>
     <message>
         <source>This effect needs a subject cutout — open Extras to install it</source>
@@ -4463,6 +4649,74 @@
     <message>
         <source>Track shown</source>
         <translation>Pista visible</translation>
+    </message>
+    <message>
+        <source>X position</source>
+        <translation>Posición X</translation>
+    </message>
+    <message>
+        <source>Y position</source>
+        <translation>Posición Y</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>Ancho</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Alto</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Ángulo</translation>
+    </message>
+    <message>
+        <source>Tilt X</source>
+        <translation>Inclinación X</translation>
+    </message>
+    <message>
+        <source>Tilt Y</source>
+        <translation>Inclinación Y</translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation>Profundidad</translation>
+    </message>
+    <message>
+        <source>Perspective</source>
+        <translation>Perspectiva</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacidad</translation>
+    </message>
+    <message>
+        <source>Volume</source>
+        <translation>Volumen</translation>
+    </message>
+    <message>
+        <source>Mask X</source>
+        <translation>Máscara X</translation>
+    </message>
+    <message>
+        <source>Mask Y</source>
+        <translation>Máscara Y</translation>
+    </message>
+    <message>
+        <source>Mask width</source>
+        <translation>Ancho de máscara</translation>
+    </message>
+    <message>
+        <source>Mask height</source>
+        <translation>Alto de máscara</translation>
+    </message>
+    <message>
+        <source>Mask rotation</source>
+        <translation>Rotación de máscara</translation>
+    </message>
+    <message>
+        <source>Mask feather</source>
+        <translation>Calado de máscara</translation>
     </message>
     <message>
         <source>Move track</source>
@@ -9209,6 +9463,18 @@
         <translation>El acceso de agente está activado</translation>
     </message>
     <message>
+        <source>My account</source>
+        <translation>Mi cuenta</translation>
+    </message>
+    <message>
+        <source>My account (%1)</source>
+        <translation>Mi cuenta (%1)</translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation>Iniciar sesión con Google</translation>
+    </message>
+    <message>
         <source>Recommended packs and updates</source>
         <translation>Paquetes recomendados y actualizaciones</translation>
     </message>
@@ -9544,8 +9810,24 @@
         <translation>%1 — haz clic para aplicar efectos al ritmo de la música en la selección</translation>
     </message>
     <message>
-        <source>%1 — select a clip, then click to apply</source>
-        <translation>%1 — selecciona un clip y haz clic para aplicarlo</translation>
+        <source>%1 — click to apply it to the clip under the playhead</source>
+        <translation>%1 — haz clic para aplicarla al clip bajo el cabezal</translation>
+    </message>
+    <message>
+        <source>Follows the beat of the music. On a clip with no music it keeps a steady 120 BPM beat.</source>
+        <translation>Sigue el ritmo de la música. En un clip sin música usa un ritmo fijo de 120 BPM.</translation>
+    </message>
+    <message>
+        <source>Apply template</source>
+        <translation>Aplicar plantilla</translation>
+    </message>
+    <message>
+        <source>Apply to the selected clip</source>
+        <translation>Aplicar al clip seleccionado</translation>
+    </message>
+    <message>
+        <source>Apply to the clip under the playhead</source>
+        <translation>Aplicar al clip bajo el cabezal</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
@@ -9684,6 +9966,77 @@
     <message>
         <source>Clear depth</source>
         <translation>Borrar profundidad</translation>
+    </message>
+    <message>
+        <source>Every strong sound</source>
+        <translation>Cada sonido fuerte</translation>
+    </message>
+    <message>
+        <source>Every beat</source>
+        <translation>Cada golpe</translation>
+    </message>
+    <message>
+        <source>Every bar</source>
+        <translation>Cada compás</translation>
+    </message>
+    <message>
+        <source>Start to end of the clip</source>
+        <translation>De inicio a fin del clip</translation>
+    </message>
+    <message>
+        <source>Template: %1</source>
+        <translation>Plantilla: %1</translation>
+    </message>
+    <message>
+        <source>Its keyframes follow these controls: change them here instead of one by one.</source>
+        <translation>Sus fotogramas clave siguen estos controles: cámbialos aquí en vez de uno por uno.</translation>
+    </message>
+    <message>
+        <source>Intensity: %1%</source>
+        <translation>Intensidad: %1 %</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>Intensidad</translation>
+    </message>
+    <message>
+        <source>Decay: %1%</source>
+        <translation>Caída: %1 %</translation>
+    </message>
+    <message>
+        <source>Decay</source>
+        <translation>Caída</translation>
+    </message>
+    <message>
+        <source>Rhythm</source>
+        <translation>Ritmo</translation>
+    </message>
+    <message>
+        <source>Analysing the music…</source>
+        <translation>Analizando la música…</translation>
+    </message>
+    <message>
+        <source>One effect from the start to the end of the clip.</source>
+        <translation>Un solo efecto de inicio a fin del clip.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n pulse(s) under this clip.</source>
+        <translation>
+            <numerusform>%n golpe bajo este clip.</numerusform>
+            <numerusform>%n golpes bajo este clip.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has no music, so the template keeps a steady 120 BPM beat. Put music under it and pick the rhythm again to follow its beats.</source>
+        <translation>Este clip no tiene música, así que la plantilla usa un ritmo fijo de 120 BPM. Pon música debajo y elige otra vez el ritmo para que siga sus golpes.</translation>
+    </message>
+    <message>
+        <source>Remove template</source>
+        <translation>Quitar plantilla</translation>
+    </message>
+    <message>
+        <source>Takes off every effect and keyframe this template added</source>
+        <translation>Quita todos los efectos y fotogramas clave que puso esta plantilla</translation>
     </message>
     <message>
         <source>This clip was scanned before the face mesh was supported. Re-detect faces to enable 3D Face Mesh and Face Retouch.</source>
@@ -17150,6 +17503,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Ayer</translation>
     </message>
     <message>
+        <source>My account</source>
+        <translation>Mi cuenta</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Iniciar sesión</translation>
+    </message>
+    <message>
+        <source>With Google, optional</source>
+        <translation>Con Google, opcional</translation>
+    </message>
+    <message>
         <source>Home</source>
         <translation>Inicio</translation>
     </message>
@@ -19977,6 +20342,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Fundido automático: desactivado</translation>
     </message>
     <message>
+        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
+        <translation>Editor de curvas: da forma a mano a las curvas de los fotogramas clave del clip seleccionado</translation>
+    </message>
+    <message>
         <source>Toggle audio mixer strip</source>
         <translation>Alternar tira del mezclador de audio</translation>
     </message>
@@ -20408,6 +20777,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Tamaño de la forma de onda de audio</translation>
     </message>
     <message>
+        <source>Hide keyframes</source>
+        <translation>Ocultar fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Show keyframes</source>
+        <translation>Mostrar fotogramas clave</translation>
+    </message>
+    <message>
         <source>Add camera clip at playhead</source>
         <translation>Añadir clip de cámara en el cabezal</translation>
     </message>
@@ -20510,6 +20887,45 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Rename…</source>
         <translation>Cambiar nombre…</translation>
+    </message>
+</context>
+<context>
+    <name>TrackKeyframeRows</name>
+    <message>
+        <source>Double-click to add a keyframe</source>
+        <translation>Doble clic para agregar un fotograma clave</translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation>Mover fotograma clave</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Lineal</translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation>Suave (entrada y salida)</translation>
+    </message>
+    <message>
+        <source>Easy ease in</source>
+        <translation>Entrada suave</translation>
+    </message>
+    <message>
+        <source>Easy ease out</source>
+        <translation>Salida suave</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Mantener</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation>Editar curva…</translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation>Borrar fotograma clave</translation>
     </message>
 </context>
 <context>

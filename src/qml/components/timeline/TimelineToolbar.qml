@@ -818,6 +818,14 @@ Item {
         }
 
         IconButton {
+            glyph: Theme.icons.penCurve
+            variant: "text"
+            tooltip: qsTr("Curve editor: shape the selected clip's keyframe curves by hand")
+            active: EditorState.preferences.curveEditorVisible
+            onClicked: EditorState.preferences.curveEditorVisible = !EditorState.preferences.curveEditorVisible
+        }
+
+        IconButton {
             glyph: Theme.icons.slidersVertical
             variant: "text"
             tooltip: qsTr("Toggle audio mixer strip")

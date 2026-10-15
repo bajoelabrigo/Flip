@@ -1280,6 +1280,7 @@ QVariantList AppController::tracks() const
             {QStringLiteral("showChannelWaveforms"), track.showChannelWaveforms},
             {QStringLiteral("heightScale"), track.heightScale},
             {QStringLiteral("waveformScale"), track.waveformScale},
+            {QStringLiteral("keyframesExpanded"), track.keyframesExpanded},
         });
     }
 
@@ -9967,6 +9968,7 @@ void AppController::normalizeProjectStructure(const drift::Project *before)
     // A clip moved to another track takes its effects and masks along.
     drift::relocateLinkedAdjustments(m_project);
     normalizeAdjustmentLanes(m_project);
+    refreshTemplateSpans(m_project);
     drift::normalizeTransformLayers(m_project.tracks(), before ? &before->tracks() : nullptr);
     drift::normalizeCameraLayers(m_project.tracks());
     m_project.ensureTrackIds();
@@ -13792,6 +13794,21 @@ void AppController::makeCompositeFromSelection()
         }
     }
 
+    setPlaying(false);
+    const drift::Project before = m_project.detachedCopy();
+    const QString compositeId = buildCompositeFromClipIds(ids, QString(), {});
+    if (compositeId.isEmpty())
+        return;
+    pushProjectEdit(before, tr("Composite created"));
+    finishEdit(tr("Composite created"));
+    selectClipById(compositeId);
+    emit sequenceTabsChanged();
+}
+
+QString AppController::buildCompositeFromClipIds(
+    const QSet<QString> &ids, const QString &name,
+    const std::function<void(drift::TrackList &, drift::TimeUs)> &prepareInner)
+{
     drift::TimeUs startUs = std::numeric_limits<drift::TimeUs>::max();
     drift::TimeUs endUs = 0;
     // The lowest picture track the selection came from: the composite takes its place in the
@@ -13804,7 +13821,7 @@ void AppController::makeCompositeFromSelection()
             if (!ids.contains(clip.id))
                 continue;
             if (!clip.sequenceId.isEmpty())
-                return;
+                return {};
             startUs = qMin(startUs, clip.timelineStart);
             endUs = qMax(endUs, clip.timelineEnd());
             if (track.type != drift::TrackType::Audio && !track.isAdjustmentLane())
@@ -13812,10 +13829,7 @@ void AppController::makeCompositeFromSelection()
         }
     }
     if (endUs <= startUs)
-        return;
-
-    setPlaying(false);
-    const drift::Project before = m_project.detachedCopy();
+        return {};
 
     // The composite keeps the selection's track layout, shifted to start at zero. Only tracks that
     // contribute a clip come along; a lane whose parent stays behind becomes a standalone
@@ -13845,6 +13859,8 @@ void AppController::makeCompositeFromSelection()
     }
     for (drift::Track &track : inner)
         track.parentTrackId = innerTrackIds.value(track.parentTrackId);
+    if (prepareInner)
+        prepareInner(inner, startUs);
     const QString sequenceId = m_project.addSequence(inner);
 
     // Tracks this leaves empty go too, once the composite has its place: five empty rows used to
@@ -13872,7 +13888,7 @@ void AppController::makeCompositeFromSelection()
     }
     drift::MediaAsset asset;
     asset.kind = drift::MediaKind::Composite;
-    asset.name = tr("Composite %1").arg(compositeCount + 1);
+    asset.name = name.isEmpty() ? tr("Composite %1").arg(compositeCount + 1) : name;
     asset.sequenceId = sequenceId;
     asset.durationUs = endUs - startUs;
     asset.width = m_project.width();
@@ -13933,10 +13949,7 @@ void AppController::makeCompositeFromSelection()
 
     if (m_assetLibrary)
         m_assetLibrary->syncToProject();
-    pushProjectEdit(before, tr("Composite created"));
-    finishEdit(tr("Composite created"));
-    selectClipById(composite.id);
-    emit sequenceTabsChanged();
+    return composite.id;
 }
 
 namespace {
@@ -16626,9 +16639,15 @@ void AppController::previewMoveClipKeyframe(int trackIndex, int clipIndex, const
     const drift::TimeUs fromRel = qMax<drift::TimeUs>(0, drift::secondsToUs(fromSeconds) - clip.timelineStart);
     const drift::TimeUs toRel = qMax<drift::TimeUs>(0, drift::secondsToUs(toSeconds) - clip.timelineStart);
     const drift::TimeUs nearest = kt->nearestKeyframe(fromRel, kKeyframeToleranceUs);
-    if (nearest >= 0)
+    if (nearest >= 0) {
+        // The key travels with its shape (ease, hold, hand-drawn tangents); only the value is new.
+        drift::Keyframe<double> moved = kt->keyframes().value(nearest);
+        moved.value = value;
         kt->removeKeyframe(nearest);
-    kt->setKeyframe(toRel, value);
+        kt->setKeyframe(toRel, moved);
+    } else {
+        kt->setKeyframe(toRel, value);
+    }
 
     if (m_positionLinked && (prop == QLatin1String("x") || prop == QLatin1String("y"))) {
         const QString otherProp = (prop == QLatin1String("x")) ? QStringLiteral("y") : QStringLiteral("x");
@@ -17022,6 +17041,66 @@ void AppController::setKeyframeInterpolation(int trackIndex, int clipIndex, cons
 
     pushProjectEdit(before, tr("Keyframe easing changed"));
     finishEdit(tr("Keyframe easing updated"));
+}
+
+// The keyframe rows under a track: the shape of one key, picked from its right-click menu.
+// "easeIn" / "easeOut" flatten only the side coming into / leaving the key, as After Effects'
+// Easy Ease In / Out do; "ease" both; "linear" and "hold" as the strip's chips.
+void AppController::setKeyframeEasingAt(int trackIndex, int clipIndex, const QString &prop,
+                                        double atSeconds, const QString &mode)
+{
+    const drift::Project before = m_project;
+    bool changed = false;
+    auto shape = [&](const QString &p) {
+        int t = trackIndex;
+        int c = clipIndex;
+        redirectToKeyframeHost(&t, &c, p);
+        if (t < 0 || t >= m_project.tracks().size() || c < 0
+            || c >= m_project.tracks().at(t).clips.size())
+            return;
+        drift::Clip &clip = m_project.tracks()[t].clips[c];
+        drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, p, /*createIfMissing=*/false);
+        if (!kt || kt->isEmpty())
+            return;
+        const drift::TimeUs at =
+            kt->nearestKeyframe(drift::secondsToUs(atSeconds) - clip.timelineStart, kKeyframeToleranceUs);
+        if (at < 0)
+            return;
+        if (mode == QLatin1String("easeIn") || mode == QLatin1String("easeOut")) {
+            kt->setEasing(at, drift::Interpolation::Ease);
+            drift::Keyframe<double> *key = keyframeAt(trackIndex, clipIndex, p, atSeconds);
+            if (!key)
+                return;
+            if (mode == QLatin1String("easeIn")) {
+                key->outDx = 0.0;
+                key->outDy = 0.0;
+            } else {
+                key->inDx = 0.0;
+                key->inDy = 0.0;
+            }
+            key->corner = true;
+        } else {
+            kt->setEasing(at, drift::interpolationFromString(mode));
+        }
+        changed = true;
+    };
+    shape(prop);
+    if (m_positionLinked && (prop == QLatin1String("x") || prop == QLatin1String("y")))
+        shape(prop == QLatin1String("x") ? QStringLiteral("y") : QStringLiteral("x"));
+    if (!changed)
+        return;
+    pushProjectEdit(before, tr("Keyframe easing changed"));
+    finishEdit(tr("Keyframe easing updated"));
+}
+
+// Double-click on a keyframe row: a key at that time holding the value the property has there,
+// so adding it changes nothing until it is moved or edited.
+void AppController::addClipKeyframeAt(int trackIndex, int clipIndex, const QString &prop,
+                                      double atSeconds)
+{
+    const double value = propertyValueAt(trackIndex, clipIndex, prop, atSeconds,
+                                         propertyBaseValue(trackIndex, clipIndex, prop));
+    setClipKeyframe(trackIndex, clipIndex, prop, atSeconds, value);
 }
 
 void AppController::syncLinkedTangents(int trackIndex, int clipIndex, const QString &prop,
@@ -17609,39 +17688,62 @@ drift::Clip deriveMaskedClip(const drift::Clip &source, const QString &suffix)
     return clip;
 }
 
-void applyTemplateLayersToClip(drift::Clip &clip, const QList<EffectTemplateLayer> &layers,
-                               const QString &sync, const QList<drift::TimeUs> &syncPoints)
+// Writes one template layer's pulse onto effect `effectIndex` of `clip`: a peak at each sync point
+// falling back to rest after the decay, or one ramp across the clip for "clip" sync. Intensity
+// scales the height above rest and decay the fall time, both relative to the template's design.
+// `offsetUs` moves the points from the clip they were measured on to the clip that hosts the
+// effect (a linked adjustment can start elsewhere).
+void writeTemplatePulse(drift::Clip &clip, int effectIndex, const EffectTemplatePulse &pulse,
+                        const QString &sync, const QList<drift::TimeUs> &syncPoints,
+                        double intensity, double decay, drift::TimeUs offsetUs = 0)
 {
-    const int baseEffectIndex = clip.effects.size();
-    for (const EffectTemplateLayer &layer : layers) {
+    if (!pulse.valid || effectIndex < 0 || effectIndex >= clip.effects.size())
+        return;
+    clip.effects[effectIndex].paramKeyframes.remove(pulse.param);
+    const QString prop = QStringLiteral("fx.%1.%2").arg(effectIndex).arg(pulse.param);
+    const double peak = pulse.rest + (pulse.peak - pulse.rest) * qMax(0.0, intensity);
+    drift::TimeUs decayUs =
+        static_cast<drift::TimeUs>(qMax(pulse.decayMs, 0) * qMax(0.05, decay)) * 1000;
+    // Templates made for "clip" sync can say 0 ms: one ramp over the whole clip. Moved onto beats,
+    // a zero fall would put the peak and the rest on the same instant and the pulse would vanish.
+    if (sync != QLatin1String("clip"))
+        decayUs = qMax<drift::TimeUs>(decayUs, static_cast<drift::TimeUs>(150 * 1000 * qMax(0.25, decay)));
+    if (sync == QLatin1String("clip") && syncPoints.size() >= 2) {
+        writeClipPropValue(clip, prop, syncPoints.first() + offsetUs, peak, false, true);
+        writeClipPropValue(clip, prop, syncPoints.last() + offsetUs, pulse.rest, false, true);
+        return;
+    }
+    for (drift::TimeUs t : syncPoints) {
+        writeClipPropValue(clip, prop, t + offsetUs, peak, false, true);
+        writeClipPropValue(clip, prop, t + offsetUs + decayUs, pulse.rest, false, true);
+    }
+    // With no beats in range the effect would keep whatever value it had; rest is the template's
+    // idea of "nothing happening".
+    if (syncPoints.isEmpty())
+        clip.effects[effectIndex].parameters.insert(pulse.param, pulse.rest);
+}
+
+// `tagBase` set: every effect added is tagged with it (and its layer index), so the template can
+// be reshaped or removed later, and its intensity and decay shape the pulses written now.
+void applyTemplateLayersToClip(drift::Clip &clip, const QList<EffectTemplateLayer> &layers,
+                               const QString &sync, const QList<drift::TimeUs> &syncPoints,
+                               const drift::EffectTemplateTag *tagBase = nullptr)
+{
+    const double intensity = tagBase ? tagBase->intensity : 1.0;
+    const double decay = tagBase ? tagBase->decay : 1.0;
+    for (int layerIndex = 0; layerIndex < layers.size(); ++layerIndex) {
+        const EffectTemplateLayer &layer = layers.at(layerIndex);
         const EffectPresetEntry *def = effectDefForId(layer.effectId);
         if (!def)
             continue;
-        clip.effects.append(effectFromCatalogEntry(*def, layer.params));
-    }
-
-    for (int layerIndex = 0; layerIndex < layers.size(); ++layerIndex) {
-        const EffectTemplateLayer &layer = layers.at(layerIndex);
-        if (!layer.pulse.valid)
-            continue;
-
-        const int effectIndex = baseEffectIndex + layerIndex;
-        if (effectIndex >= clip.effects.size())
-            continue;
-
-        const QString prop =
-            QStringLiteral("fx.%1.%2").arg(effectIndex).arg(layer.pulse.param);
-        const drift::TimeUs decayUs =
-            static_cast<drift::TimeUs>(qMax(layer.pulse.decayMs, 0)) * 1000;
-        if (sync == QLatin1String("clip") && syncPoints.size() >= 2) {
-            writeClipPropValue(clip, prop, syncPoints.first(), layer.pulse.peak, false, true);
-            writeClipPropValue(clip, prop, syncPoints.last(), layer.pulse.rest, false, true);
-            continue;
+        drift::Effect effect = effectFromCatalogEntry(*def, layer.params);
+        if (tagBase) {
+            effect.templateTag = *tagBase;
+            effect.templateTag.layer = layerIndex;
         }
-        for (drift::TimeUs t : syncPoints) {
-            writeClipPropValue(clip, prop, t, layer.pulse.peak, false, true);
-            writeClipPropValue(clip, prop, t + decayUs, layer.pulse.rest, false, true);
-        }
+        clip.effects.append(effect);
+        writeTemplatePulse(clip, clip.effects.size() - 1, layer.pulse, sync, syncPoints,
+                           intensity, decay);
     }
 }
 
@@ -17786,6 +17888,7 @@ QVariantList AppController::effectTemplateCatalog() const
             {QStringLiteral("category"), entry.category},
             {QStringLiteral("categoryLabel"), effectTemplateCategoryLabel(entry.category)},
             {QStringLiteral("sync"), entry.sync},
+            {QStringLiteral("followsMusic"), templateSyncNeedsBeats(entry.sync)},
             {QStringLiteral("thumbnailPath"), entry.thumbnailPath},
             {QStringLiteral("effectThumbnails"), effectThumbnails},
             {QStringLiteral("effectCount"), seenEffectIds.size()},
@@ -17806,6 +17909,19 @@ QVariantList AppController::effectTemplateCategories() const
         });
     }
     return out;
+}
+
+// The music under the clip has been analysed (the result may still hold no beats: a silent video
+// or a photo). Templates waiting on beats go ahead then, on the steady fallback rhythm.
+bool AppController::beatAnalysisCoversClip(const drift::Clip &clip) const
+{
+    if (m_beatAnalysis.isEmpty() || audioLayoutFingerprint() != m_beatAudioFingerprint)
+        return false;
+    const double rangeStart = m_beatAnalysis.value(QStringLiteral("rangeStart")).toDouble();
+    const double rangeDur = m_beatAnalysis.value(QStringLiteral("rangeDuration")).toDouble();
+    const double clipStart = drift::usToSeconds(clip.timelineStart);
+    const double clipEnd = drift::usToSeconds(clip.timelineStart + clip.timelineDuration);
+    return clipStart >= rangeStart - 0.001 && clipEnd <= rangeStart + rangeDur + 0.001;
 }
 
 bool AppController::beatAnalysisReadyForClip(const drift::Clip &clip, const QString &sync) const
@@ -17881,35 +17997,10 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
     const bool segmented = entry.requiresSegmentation || entry.usesMultiTrack();
     const bool haveMatte = matte.isMedia();
 
-    QList<drift::TimeUs> syncPoints;
-    const drift::TimeUs clipStart = sourceClip.timelineStart;
-    const drift::TimeUs clipEnd = clipStart + sourceClip.timelineDuration;
-    if (entry.sync == QLatin1String("clip")) {
-        syncPoints.append(0);
-        if (sourceClip.timelineDuration > 0)
-            syncPoints.append(sourceClip.timelineDuration);
-    } else if (entry.sync == QLatin1String("onset")) {
-        for (const AudioOnset &onset : std::as_const(m_beatAnalysisRaw.onsets)) {
-            const drift::TimeUs at = drift::secondsToUs(onset.seconds);
-            if (at >= clipStart && at < clipEnd)
-                syncPoints.append(at - clipStart);
-        }
-    } else {
-        int beatIndex = 0;
-        for (double beatSeconds : std::as_const(m_beatAnalysisRaw.beats)) {
-            const drift::TimeUs at = drift::secondsToUs(beatSeconds);
-            if (at >= clipStart && at < clipEnd) {
-                if (entry.sync == QLatin1String("bar")) {
-                    const int rel = beatIndex - m_beatAnalysisRaw.firstDownbeat;
-                    if (rel >= 0 && rel % m_beatAnalysisRaw.beatsPerBar == 0)
-                        syncPoints.append(at - clipStart);
-                } else {
-                    syncPoints.append(at - clipStart);
-                }
-            }
-            ++beatIndex;
-        }
-    }
+    const QList<drift::TimeUs> syncPoints = templateSyncPoints(sourceClip, entry.sync);
+    // Follows the music, but there is none under the clip: the steady fallback beat.
+    const bool steadyBeat =
+        templateSyncNeedsBeats(entry.sync) && !beatAnalysisReadyForClip(sourceClip, entry.sync);
 
     auto applyTrackLayers = [&](drift::Clip &clip, const EffectTemplateTrack &trackDef) {
         applyTemplateLayersToClip(clip, trackDef.layers, entry.sync, syncPoints);
@@ -17925,6 +18016,9 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
     // index this block holds. So the matte assignments are queued by clip id and applied once the
     // structural work below is finished.
     QList<QPair<QString, drift::Mask>> pendingMasks;
+    // The clips a cutout template builds (subject, background, clones): they go into one
+    // composition with the source once the stack is complete.
+    QStringList stackIds;
     const auto pinMatte = [&pendingMasks, &matte](const drift::Clip &clip, bool invert) {
         drift::Mask copy = matte;
         copy.invert = invert;
@@ -17995,12 +18089,14 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
             m_project.tracks()[fgTrack].clips.append(
                 deriveMaskedClip(sourceClip, QStringLiteral(" (fg)")));
             pinMatte(m_project.tracks()[fgTrack].clips.constLast(), false);
+            stackIds.append(m_project.tracks()[fgTrack].clips.constLast().id);
 
             const int bgTrack =
                 drift::insertTrackAboveForClipType(m_project, fgTrack + 1, drift::ClipType::Video);
             m_project.tracks()[bgTrack].clips.append(
                 deriveMaskedClip(sourceClip, QStringLiteral(" (bg)")));
             pinMatte(m_project.tracks()[bgTrack].clips.constLast(), true);
+            stackIds.append(m_project.tracks()[bgTrack].clips.constLast().id);
 
             selectTrack = fgTrack;
             selectClip = 0;
@@ -18040,6 +18136,7 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
                         if (trail)
                             clone.effects.append(effectFromCatalogEntry(*trail, {}));
                     }
+                    stackIds.append(clone.id);
                     m_project.tracks()[cloneTrack].clips.append(clone);
                     insertAbove = cloneTrack + 1;
                 }
@@ -18049,10 +18146,102 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
         if (const EffectTemplateTrack *fgDef = trackForRole(entry, QStringLiteral("foreground")))
             applyTrackLayers(track.clips[clipIndex], *fgDef);
     } else {
-        applyTemplateLayersToClip(track.clips[clipIndex], entry.layers, entry.sync, syncPoints);
-        if (entry.speedPulse.valid)
-            applyTemplateSpeedPulse(track.clips[clipIndex], entry.speedPulse, entry.sync,
-                                    syncPoints);
+        // A single-clip template stays editable afterwards: its effects carry what is needed to
+        // rebuild the pulses (Effects › Template) or take them all off again.
+        drift::EffectTemplateTag tag;
+        tag.templateId = entry.id;
+        tag.instance = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        tag.sync = entry.sync;
+        tag.points = syncPoints;
+        tag.steadyBeat = steadyBeat;
+        tag.speedApplied = entry.speedPulse.valid;
+        tag.spanStart = sourceClip.timelineStart;
+        tag.spanDuration = sourceClip.timelineDuration;
+        // Applied to a media clip, the template becomes its own layer: an adjustment clip on a new
+        // track right above, spanning the clip, that can be moved, trimmed or cut like any clip
+        // and affects everything below it (Apply to narrows it to one clip). A template that
+        // changes the clip's speed stays on the clip: speed belongs to the clip, not to a layer.
+        const bool asLayer = sourceClip.type != drift::ClipType::Adjustment && !entry.speedPulse.valid;
+        drift::Clip layer;
+        if (asLayer) {
+            layer.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+            layer.type = drift::ClipType::Adjustment;
+            layer.adjustmentKind = drift::AdjustmentKind::VideoEffects;
+            layer.name = tr("Template: %1").arg(entry.displayName);
+            layer.timelineDuration = sourceClip.timelineDuration;
+            layer.srcIn = 0;
+            layer.srcOut = sourceClip.timelineDuration;
+            applyTemplateLayersToClip(layer, entry.layers, entry.sync, syncPoints, &tag);
+        }
+        // The clip and the template go into a composition named after it, the layer right above
+        // the clip inside, so the pulses stay tied to the footage: outside, the composition is
+        // moved, trimmed or cut as one block; inside (double-click) the clip and the template are
+        // edited apart. A clip already in a composition, or a composition itself, gets the layer
+        // on a track of its own above it instead.
+        QString compositeId;
+        if (asLayer && sourceClip.type != drift::ClipType::Composite
+            && m_project.activeSequenceId().isEmpty()) {
+            QSet<QString> ids;
+            for (const QPair<int, int> &linked : selectionWithLinkedPartners(m_project, trackIndex, clipIndex))
+                ids.insert(m_project.tracks().at(linked.first).clips.at(linked.second).id);
+            for (const drift::Track &t : m_project.tracks()) {
+                for (const drift::Clip &c : t.clips) {
+                    if (!c.linkedClipId.isEmpty() && ids.contains(c.linkedClipId))
+                        ids.insert(c.id);
+                }
+            }
+            const QString sourceId = sourceClip.id;
+            compositeId = buildCompositeFromClipIds(
+                ids, tr("Template: %1").arg(entry.displayName),
+                [&layer, sourceId](drift::TrackList &inner, drift::TimeUs startUs) {
+                    for (int t = 0; t < inner.size(); ++t) {
+                        for (const drift::Clip &c : inner.at(t).clips) {
+                            if (c.id != sourceId)
+                                continue;
+                            drift::Clip placed = layer;
+                            placed.timelineStart = c.timelineStart;
+                            for (drift::Effect &e : placed.effects) {
+                                e.templateTag.spanStart = c.timelineStart;
+                                e.templateTag.spanDuration = c.timelineDuration;
+                            }
+                            drift::Track layerTrack;
+                            layerTrack.type = drift::TrackType::Adjustment;
+                            layerTrack.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+                            layerTrack.clips.append(placed);
+                            inner.insert(t, layerTrack);
+                            Q_UNUSED(startUs);
+                            return;
+                        }
+                    }
+                });
+        }
+        if (!compositeId.isEmpty()) {
+            int t = -1;
+            int c = -1;
+            if (findClipById(m_project, compositeId, &t, &c)) {
+                selectTrack = t;
+                selectClip = c;
+            }
+        } else if (asLayer) {
+            const int layerTrack =
+                drift::insertTrackAboveForClipType(m_project, trackIndex, drift::ClipType::Adjustment);
+            layer.timelineStart = sourceClip.timelineStart;
+            for (drift::Effect &e : layer.effects)
+                e.templateTag.spanStart = sourceClip.timelineStart;
+            m_project.tracks()[layerTrack].clips.append(layer);
+            selectTrack = layerTrack;
+            selectClip = m_project.tracks().at(layerTrack).clips.size() - 1;
+        } else {
+            // On a layer (or a clip whose speed it changes): one template per host, as in
+            // CapCut, so a new one replaces the previous one instead of stacking more pulses.
+            removeTemplateEffects(trackIndex, clipIndex, QString());
+            drift::Track &freshTrack = m_project.tracks()[trackIndex];
+            applyTemplateLayersToClip(freshTrack.clips[clipIndex], entry.layers, entry.sync,
+                                      syncPoints, &tag);
+            if (entry.speedPulse.valid)
+                applyTemplateSpeedPulse(freshTrack.clips[clipIndex], entry.speedPulse, entry.sync,
+                                        syncPoints);
+        }
     }
 
     // Now that no reference into the track list is live, pin the mattes. Each one can insert a
@@ -18068,7 +18257,46 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
         if (findClipById(m_project, pending.first, &maskTrack, &maskClip))
             drift::addLinkedMask(m_project, maskTrack, maskClip, pending.second);
     }
-    if (!selectId.isEmpty()) {
+    // A cutout template's stack (the hidden source, subject, background and clones, with their
+    // matte lanes and the source's linked audio) goes into a composition named after it, as the
+    // single-clip templates do: outside it is moved, trimmed or cut as one block and the pieces
+    // can no longer slide apart; inside (double-click) each layer is still edited on its own.
+    // One level of nesting only, so inside a composition the stack stays where it is.
+    QString stackCompositeId;
+    if (!stackIds.isEmpty() && m_project.activeSequenceId().isEmpty()
+        && sourceClip.type != drift::ClipType::Composite) {
+        QSet<QString> ids(stackIds.cbegin(), stackIds.cend());
+        int sourceTrackNow = -1;
+        int sourceClipNow = -1;
+        if (findClipById(m_project, sourceClip.id, &sourceTrackNow, &sourceClipNow)) {
+            for (const QPair<int, int> &linked :
+                 selectionWithLinkedPartners(m_project, sourceTrackNow, sourceClipNow))
+                ids.insert(m_project.tracks().at(linked.first).clips.at(linked.second).id);
+        }
+        // Lanes and adjustments pinned to any of them, and whatever is pinned to those.
+        for (bool grew = true; grew;) {
+            grew = false;
+            for (const drift::Track &t : m_project.tracks()) {
+                for (const drift::Clip &c : t.clips) {
+                    if (!c.linkedClipId.isEmpty() && ids.contains(c.linkedClipId)
+                        && !ids.contains(c.id)) {
+                        ids.insert(c.id);
+                        grew = true;
+                    }
+                }
+            }
+        }
+        stackCompositeId =
+            buildCompositeFromClipIds(ids, tr("Template: %1").arg(entry.displayName), {});
+    }
+    if (!stackCompositeId.isEmpty()) {
+        int foundTrack = -1;
+        int foundClip = -1;
+        if (findClipById(m_project, stackCompositeId, &foundTrack, &foundClip)) {
+            selectTrack = foundTrack;
+            selectClip = foundClip;
+        }
+    } else if (!selectId.isEmpty()) {
         int foundTrack = -1;
         int foundClip = -1;
         if (findClipById(m_project, selectId, &foundTrack, &foundClip)) {
@@ -18082,6 +18310,353 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
     m_selection = {qMakePair(selectTrack, selectClip)};
     pushProjectEdit(before, tr("Apply effect template"));
     finishEdit(tr("Template applied"));
+    if (steadyBeat) {
+        setLastMessage(tr("This template follows the music, and this clip has none: it keeps a "
+                          "steady 120 BPM beat. Add music under it and pick the rhythm again in "
+                          "Effects › Template."),
+                       QStringLiteral("warning"));
+    }
+    emit sequenceTabsChanged();
+}
+
+QList<drift::TimeUs> AppController::templateSyncPoints(const drift::Clip &sourceClip,
+                                                       const QString &sync) const
+{
+    QList<drift::TimeUs> syncPoints;
+    const drift::TimeUs clipStart = sourceClip.timelineStart;
+    const drift::TimeUs clipEnd = clipStart + sourceClip.timelineDuration;
+    if (sync == QLatin1String("clip")) {
+        syncPoints.append(0);
+        if (sourceClip.timelineDuration > 0)
+            syncPoints.append(sourceClip.timelineDuration);
+    } else if (sync == QLatin1String("onset")) {
+        for (const AudioOnset &onset : std::as_const(m_beatAnalysisRaw.onsets)) {
+            const drift::TimeUs at = drift::secondsToUs(onset.seconds);
+            if (at >= clipStart && at < clipEnd)
+                syncPoints.append(at - clipStart);
+        }
+    } else {
+        int beatIndex = 0;
+        for (double beatSeconds : std::as_const(m_beatAnalysisRaw.beats)) {
+            const drift::TimeUs at = drift::secondsToUs(beatSeconds);
+            if (at >= clipStart && at < clipEnd) {
+                if (sync == QLatin1String("bar")) {
+                    const int rel = beatIndex - m_beatAnalysisRaw.firstDownbeat;
+                    if (rel >= 0 && m_beatAnalysisRaw.beatsPerBar > 0
+                        && rel % m_beatAnalysisRaw.beatsPerBar == 0)
+                        syncPoints.append(at - clipStart);
+                } else {
+                    syncPoints.append(at - clipStart);
+                }
+            }
+            ++beatIndex;
+        }
+    }
+    // No music under the clip (a silent video, a photo): a steady 120 BPM, one pulse every half
+    // second (every bar of four for "bar"), so the template still moves instead of doing nothing.
+    if (syncPoints.isEmpty() && templateSyncNeedsBeats(sync) && sourceClip.timelineDuration > 0) {
+        const drift::TimeUs step = drift::secondsToUs(sync == QLatin1String("bar") ? 2.0 : 0.5);
+        for (drift::TimeUs at = 0; at < sourceClip.timelineDuration; at += step)
+            syncPoints.append(at);
+    }
+    return syncPoints;
+}
+
+// The media clip a (track, clip) pair is about: itself, or the clip an adjustment is linked to.
+// Template pulses are measured on that clip, whichever of the two the user has selected.
+static bool templateSourceClip(const drift::Project &project, int trackIndex, int clipIndex,
+                               int *sourceTrack, int *sourceClip)
+{
+    if (trackIndex < 0 || trackIndex >= project.tracks().size())
+        return false;
+    const drift::Track &track = project.tracks().at(trackIndex);
+    if (clipIndex < 0 || clipIndex >= track.clips.size())
+        return false;
+    const drift::Clip &clip = track.clips.at(clipIndex);
+    if (clip.type == drift::ClipType::Adjustment && !clip.linkedClipId.isEmpty())
+        return findClipById(project, clip.linkedClipId, sourceTrack, sourceClip);
+    *sourceTrack = trackIndex;
+    *sourceClip = clipIndex;
+    return true;
+}
+
+void AppController::removeTemplateEffects(int trackIndex, int clipIndex, const QString &templateId,
+                                          bool dropEmptyLayer)
+{
+    int sourceTrack = -1;
+    int sourceClip = -1;
+    if (!templateSourceClip(m_project, trackIndex, clipIndex, &sourceTrack, &sourceClip))
+        return;
+    bool speedApplied = false;
+    // Effects not hoisted yet sit on the clip; hoisted ones on its linked adjustment.
+    const auto strip = [&](drift::Clip &clip) {
+        for (int i = clip.effects.size() - 1; i >= 0; --i) {
+            const drift::EffectTemplateTag &tag = clip.effects.at(i).templateTag;
+            if (!tag.isValid() || (!templateId.isEmpty() && tag.templateId != templateId))
+                continue;
+            speedApplied = speedApplied || tag.speedApplied;
+            clip.effects.removeAt(i);
+            dropKeyframeGraphPropertiesForEffect(i);
+        }
+    };
+    strip(m_project.tracks()[sourceTrack].clips[sourceClip]);
+    const drift::ClipRef host =
+        effectHostRef(sourceTrack, sourceClip, drift::AdjustmentKind::VideoEffects, false);
+    if (host.trackIndex >= 0) {
+        drift::Track &lane = m_project.tracks()[host.trackIndex];
+        drift::Clip &hostClip = lane.clips[host.clipIndex];
+        strip(hostClip);
+        // The template brought the effects lane along; with nothing left on it, it goes too
+        // rather than leaving an empty "Adjustment" bar under the clip.
+        if (hostClip.type == drift::ClipType::Adjustment && hostClip.effects.isEmpty()
+            && hostClip.audioEffects.isEmpty() && host.trackIndex != sourceTrack) {
+            lane.clips.removeAt(host.clipIndex);
+            // Lanes are stored below their parent, so dropping one never moves the source clip.
+            if (lane.clips.isEmpty() && lane.isAdjustmentLane() && host.trackIndex > sourceTrack)
+                m_project.tracks().removeAt(host.trackIndex);
+        }
+    }
+    // The template's speed curve goes with it: back to the clip's plain speed.
+    if (speedApplied) {
+        drift::Clip &clip = m_project.tracks()[sourceTrack].clips[sourceClip];
+        clip.speedCurve.setPoints({});
+        clip.syncDurationFromSpeedCurve();
+    }
+    // A template layer with nothing left is the template itself: take the layer away too, and
+    // its track when that was all the track held.
+    if (dropEmptyLayer) {
+        drift::Track &track = m_project.tracks()[sourceTrack];
+        const drift::Clip &layer = track.clips.at(sourceClip);
+        if (layer.type == drift::ClipType::Adjustment && layer.linkedClipId.isEmpty()
+            && layer.effects.isEmpty() && layer.audioEffects.isEmpty()) {
+            track.clips.removeAt(sourceClip);
+            if (track.clips.isEmpty() && track.isAdjustment() && !track.isAdjustmentLane())
+                m_project.tracks().removeAt(sourceTrack);
+            clearSelection();
+        }
+    }
+}
+
+// A clip carrying template pulses was cut, trimmed, stretched or moved: lay its pulses out again
+// for the stretch it covers now. "clip" rhythm ramps across the new span; beat rhythms take the
+// analysed beats under it, or, without an analysis for that stretch, keep the beats they had in
+// place on the timeline and drop those that fell outside.
+void AppController::refreshTemplateSpans(drift::Project &project) const
+{
+    for (drift::Track &track : project.tracks()) {
+        for (drift::Clip &clip : track.clips) {
+            bool tagged = false;
+            for (const drift::Effect &effect : clip.effects)
+                tagged = tagged || effect.templateTag.isValid();
+            if (!tagged)
+                continue;
+            for (int i = 0; i < clip.effects.size(); ++i) {
+                drift::EffectTemplateTag &tag = clip.effects[i].templateTag;
+                if (!tag.isValid())
+                    continue;
+                if (tag.spanDuration < 0) {
+                    // Recorded before spans existed: adopt the current one as the reference.
+                    tag.spanStart = clip.timelineStart;
+                    tag.spanDuration = clip.timelineDuration;
+                    continue;
+                }
+                if (tag.spanStart == clip.timelineStart && tag.spanDuration == clip.timelineDuration)
+                    continue;
+                const EffectTemplateEntry *entry = effectTemplateForId(tag.templateId);
+                if (!entry || tag.layer < 0 || tag.layer >= entry->layers.size())
+                    continue;
+                QList<drift::TimeUs> points;
+                if (tag.sync == QLatin1String("clip") || beatAnalysisReadyForClip(clip, tag.sync)) {
+                    points = templateSyncPoints(clip, tag.sync);
+                    tag.steadyBeat = false;
+                } else {
+                    const drift::TimeUs shift = tag.spanStart - clip.timelineStart;
+                    for (drift::TimeUs p : std::as_const(tag.points)) {
+                        const drift::TimeUs moved = p + shift;
+                        if (moved >= 0 && moved < clip.timelineDuration)
+                            points.append(moved);
+                    }
+                }
+                tag.points = points;
+                tag.spanStart = clip.timelineStart;
+                tag.spanDuration = clip.timelineDuration;
+                const drift::EffectTemplateTag snapshot = tag;
+                writeTemplatePulse(clip, i, entry->layers.at(snapshot.layer).pulse, snapshot.sync,
+                                   snapshot.points, snapshot.intensity, snapshot.decay);
+            }
+        }
+    }
+}
+
+QVariantMap AppController::effectTemplateInfo(int trackIndex, int clipIndex) const
+{
+    const drift::Clip *host = effectHostClip(trackIndex, clipIndex, drift::AdjustmentKind::VideoEffects);
+    if (!host)
+        return {};
+    for (const drift::Effect &effect : host->effects) {
+        const drift::EffectTemplateTag &tag = effect.templateTag;
+        if (!tag.isValid())
+            continue;
+        const EffectTemplateEntry *entry = effectTemplateForId(tag.templateId);
+        return {
+            {QStringLiteral("templateId"), tag.templateId},
+            {QStringLiteral("name"), entry ? entry->displayName : tag.templateId},
+            {QStringLiteral("sync"), tag.sync},
+            {QStringLiteral("designedSync"), entry ? entry->sync : tag.sync},
+            {QStringLiteral("intensity"), tag.intensity},
+            {QStringLiteral("decay"), tag.decay},
+            {QStringLiteral("pulses"), tag.points.size()},
+            {QStringLiteral("rhythmPending"), m_pendingTemplateRhythm.has_value()},
+            {QStringLiteral("steadyBeat"), tag.steadyBeat && templateSyncNeedsBeats(tag.sync)},
+        };
+    }
+    return {};
+}
+
+// Rewrites every pulse of the template on this clip from its tag, with new intensity, decay,
+// rhythm or sync points. Effects keep their place in the stack and every other edit on them.
+bool AppController::reshapeEffectTemplate(int trackIndex, int clipIndex, double intensity,
+                                          double decay, const QString &sync,
+                                          const QList<drift::TimeUs> *points)
+{
+    int sourceTrack = -1;
+    int sourceClip = -1;
+    if (!templateSourceClip(m_project, trackIndex, clipIndex, &sourceTrack, &sourceClip))
+        return false;
+    const drift::ClipRef ref =
+        effectHostRef(sourceTrack, sourceClip, drift::AdjustmentKind::VideoEffects, false);
+    if (ref.trackIndex < 0)
+        return false;
+    const drift::TimeUs sourceStart =
+        m_project.tracks().at(sourceTrack).clips.at(sourceClip).timelineStart;
+    drift::Clip &host = m_project.tracks()[ref.trackIndex].clips[ref.clipIndex];
+    const drift::TimeUs offsetUs = sourceStart - host.timelineStart;
+    bool changed = false;
+    for (int i = 0; i < host.effects.size(); ++i) {
+        drift::EffectTemplateTag &tag = host.effects[i].templateTag;
+        if (!tag.isValid())
+            continue;
+        const EffectTemplateEntry *entry = effectTemplateForId(tag.templateId);
+        if (!entry || tag.layer < 0 || tag.layer >= entry->layers.size())
+            continue;
+        tag.intensity = qBound(0.0, intensity, 3.0);
+        tag.decay = qBound(0.1, decay, 5.0);
+        if (!sync.isEmpty())
+            tag.sync = sync;
+        if (points)
+            tag.points = *points;
+        tag.spanStart = sourceStart;
+        tag.spanDuration = m_project.tracks().at(sourceTrack).clips.at(sourceClip).timelineDuration;
+        const drift::EffectTemplateTag snapshot = tag;
+        writeTemplatePulse(host, i, entry->layers.at(snapshot.layer).pulse, snapshot.sync,
+                           snapshot.points, snapshot.intensity, snapshot.decay, offsetUs);
+        changed = true;
+    }
+    return changed;
+}
+
+void AppController::setEffectTemplateShape(int trackIndex, int clipIndex, double intensity,
+                                           double decay)
+{
+    const QVariantMap info = effectTemplateInfo(trackIndex, clipIndex);
+    if (info.isEmpty())
+        return;
+    if (qFuzzyCompare(info.value(QStringLiteral("intensity")).toDouble(), intensity)
+        && qFuzzyCompare(info.value(QStringLiteral("decay")).toDouble(), decay))
+        return;
+    const drift::Project before = m_project;
+    if (!reshapeEffectTemplate(trackIndex, clipIndex, intensity, decay, QString(), nullptr))
+        return;
+    pushProjectEdit(before, tr("Change template"));
+    finishEdit(tr("Template updated"));
+}
+
+void AppController::setEffectTemplateRhythm(int trackIndex, int clipIndex, const QString &sync)
+{
+    static const QStringList kSyncs{QStringLiteral("onset"), QStringLiteral("beat"),
+                                    QStringLiteral("bar"), QStringLiteral("clip")};
+    if (!kSyncs.contains(sync))
+        return;
+    const QVariantMap info = effectTemplateInfo(trackIndex, clipIndex);
+    if (info.isEmpty())
+        return;
+    int sourceTrack = -1;
+    int sourceClip = -1;
+    if (!templateSourceClip(m_project, trackIndex, clipIndex, &sourceTrack, &sourceClip))
+        return;
+    const drift::Clip &source = m_project.tracks().at(sourceTrack).clips.at(sourceClip);
+    // Beats and onsets come from the music under the clip; analyse first if that is not done for
+    // this stretch yet, and finish the change when the analysis lands.
+    if (templateSyncNeedsBeats(sync) && !beatAnalysisReadyForClip(source, sync)
+        && !beatAnalysisCoversClip(source)) {
+        m_pendingTemplateRhythm = qMakePair(source.id, sync);
+        if (!m_beatAnalysisRunning) {
+            analyzeBeats(drift::usToSeconds(source.timelineStart),
+                         drift::usToSeconds(source.timelineDuration));
+        }
+        emit selectedClipDataChanged();
+        return;
+    }
+    m_pendingTemplateRhythm.reset();
+    const QList<drift::TimeUs> points = templateSyncPoints(source, sync);
+    const drift::Project before = m_project;
+    if (!reshapeEffectTemplate(trackIndex, clipIndex, info.value(QStringLiteral("intensity")).toDouble(),
+                               info.value(QStringLiteral("decay")).toDouble(), sync, &points))
+        return;
+    const bool steadyBeat = templateSyncNeedsBeats(sync) && !beatAnalysisReadyForClip(source, sync);
+    const drift::ClipRef host =
+        effectHostRef(sourceTrack, sourceClip, drift::AdjustmentKind::VideoEffects, false);
+    if (host.trackIndex >= 0) {
+        for (drift::Effect &effect : m_project.tracks()[host.trackIndex].clips[host.clipIndex].effects) {
+            if (effect.templateTag.isValid())
+                effect.templateTag.steadyBeat = steadyBeat;
+        }
+    }
+    pushProjectEdit(before, tr("Change template rhythm"));
+    finishEdit(tr("Template rhythm changed"));
+    if (steadyBeat) {
+        setLastMessage(tr("No music under this clip: the template keeps a steady 120 BPM beat"),
+                       QStringLiteral("warning"));
+    }
+}
+
+void AppController::removeEffectTemplate(int trackIndex, int clipIndex)
+{
+    if (effectTemplateInfo(trackIndex, clipIndex).isEmpty())
+        return;
+    const drift::Project before = m_project;
+    removeTemplateEffects(trackIndex, clipIndex, QString(), /*dropEmptyLayer=*/true);
+    pushProjectEdit(before, tr("Remove template"));
+    finishEdit(tr("Template removed"));
+}
+
+// The template card's + button: the selected clip, or else the top picture clip under the
+// playhead (selected too, so the inspector shows what was changed). Says so when there is neither,
+// instead of the button doing nothing.
+void AppController::applyEffectTemplateToCurrentClip(const QString &templateId)
+{
+    if (isValidClipIndex(m_selectedTrack, m_selectedClip)) {
+        applyEffectTemplate(m_selectedTrack, m_selectedClip, templateId);
+        return;
+    }
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        const drift::Track &track = m_project.tracks().at(t);
+        if (track.hidden || track.type == drift::TrackType::Audio || track.isAdjustment())
+            continue;
+        for (int c = 0; c < track.clips.size(); ++c) {
+            const drift::Clip &clip = track.clips.at(c);
+            if (!clip.containsTime(m_playheadUs))
+                continue;
+            if (clip.type != drift::ClipType::Video && clip.type != drift::ClipType::Image
+                && clip.type != drift::ClipType::Composite)
+                continue;
+            selectClip(t, c);
+            applyEffectTemplate(t, c, templateId);
+            return;
+        }
+    }
+    setLastMessage(tr("Select a clip, or put the playhead over one, to apply the template"),
+                   QStringLiteral("warning"));
 }
 
 void AppController::applyEffectTemplate(int trackIndex, int clipIndex, const QString &templateId)
@@ -18101,7 +18676,8 @@ void AppController::applyEffectTemplate(int trackIndex, int clipIndex, const QSt
 
     const drift::Clip &clip = track.clips[clipIndex];
 
-    if (templateSyncNeedsBeats(entry->sync) && !beatAnalysisReadyForClip(clip, entry->sync)) {
+    if (templateSyncNeedsBeats(entry->sync) && !beatAnalysisReadyForClip(clip, entry->sync)
+        && !beatAnalysisCoversClip(clip)) {
         m_pendingEffectTemplate = PendingEffectTemplate{trackIndex, clipIndex, templateId};
         if (!m_beatAnalysisRunning) {
             analyzeBeats(drift::usToSeconds(clip.timelineStart),
@@ -20614,7 +21190,126 @@ int AppController::trackRowHeight(int trackIndex, const QVariantMap &metrics) co
     const double scale = track.heightScale > 0 ? track.heightScale : 1.0;
     const double lanes =
         drift::adjustmentLaneIndexes(m_project, trackIndex).size() * metric("lane", 20.0);
-    return qRound(qMax(20.0, base * scale + lanes));
+    // Unfolded: one line per animated property under the clips.
+    const double keyframeRows = track.keyframesExpanded
+        ? trackKeyframeRows(trackIndex).size() * metric("keyframeRow", 18.0)
+        : 0.0;
+    return qRound(qMax(20.0, base * scale + lanes) + keyframeRows);
+}
+
+void AppController::setTrackKeyframesExpanded(int trackIndex, bool expanded)
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return;
+    if (m_project.tracks().at(trackIndex).keyframesExpanded == expanded)
+        return;
+    // View-only, like heightScale: no undo entry.
+    m_project.tracks()[trackIndex].keyframesExpanded = expanded;
+    notifyTracksChanged();
+}
+
+bool AppController::trackHasKeyframes(int trackIndex) const
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size()
+        || m_project.tracks().at(trackIndex).isAdjustmentLane())
+        return false;
+    for (int c = 0; c < m_project.tracks().at(trackIndex).clips.size(); ++c) {
+        if (!clipAnimatedProperties(trackIndex, c).isEmpty())
+            return true;
+    }
+    return false;
+}
+
+QString AppController::animatedPropertyLabel(int trackIndex, int clipIndex, const QString &prop) const
+{
+    static const QHash<QString, const char *> kTransform{
+        {QStringLiteral("x"), QT_TR_NOOP("X position")},
+        {QStringLiteral("y"), QT_TR_NOOP("Y position")},
+        {QStringLiteral("width"), QT_TR_NOOP("Width")},
+        {QStringLiteral("height"), QT_TR_NOOP("Height")},
+        {QStringLiteral("rotation"), QT_TR_NOOP("Rotation")},
+        {QStringLiteral("rotationX"), QT_TR_NOOP("Tilt X")},
+        {QStringLiteral("rotationY"), QT_TR_NOOP("Tilt Y")},
+        {QStringLiteral("z"), QT_TR_NOOP("Depth")},
+        {QStringLiteral("perspective"), QT_TR_NOOP("Perspective")},
+        {QStringLiteral("opacity"), QT_TR_NOOP("Opacity")},
+        {QStringLiteral("volume"), QT_TR_NOOP("Volume")},
+        {QStringLiteral("mask.x"), QT_TR_NOOP("Mask X")},
+        {QStringLiteral("mask.y"), QT_TR_NOOP("Mask Y")},
+        {QStringLiteral("mask.w"), QT_TR_NOOP("Mask width")},
+        {QStringLiteral("mask.h"), QT_TR_NOOP("Mask height")},
+        {QStringLiteral("mask.rotation"), QT_TR_NOOP("Mask rotation")},
+        {QStringLiteral("mask.feather"), QT_TR_NOOP("Mask feather")},
+    };
+    if (const auto it = kTransform.constFind(prop); it != kTransform.constEnd())
+        return tr(it.value());
+
+    int effectIndex = -1;
+    QString paramKey;
+    if (parseEffectProp(prop, &effectIndex, &paramKey)) {
+        const drift::Clip *host = nullptr;
+        if (trackIndex >= 0 && trackIndex < m_project.tracks().size()
+            && clipIndex >= 0 && clipIndex < m_project.tracks().at(trackIndex).clips.size()) {
+            const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+            host = clip.type == drift::ClipType::Adjustment
+                ? &clip
+                : effectHostClip(trackIndex, clipIndex, drift::AdjustmentKind::VideoEffects);
+        }
+        if (host && effectIndex >= 0 && effectIndex < host->effects.size()) {
+            const drift::Effect &effect = host->effects.at(effectIndex);
+            if (const EffectPresetEntry *def = effectDefForId(effect.catalogId)) {
+                for (const drift::EffectParamSpec &p : def->meta.parameters) {
+                    if (p.key == paramKey)
+                        return def->meta.displayName + QStringLiteral(" · ") + p.label;
+                }
+                return def->meta.displayName + QStringLiteral(" · ") + paramKey;
+            }
+        }
+        return paramKey;
+    }
+    const QString label = keyframePropertyLabel(trackIndex, clipIndex, prop);
+    return label.isEmpty() ? prop : label;
+}
+
+QVariantList AppController::trackKeyframeRows(int trackIndex) const
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size()
+        || m_project.tracks().at(trackIndex).isAdjustmentLane())
+        return {};
+    // One row per property name across the track's clips (two clips each animating "Opacity"
+    // share a row, as one layer's property does in After Effects), in first-seen order.
+    QStringList order;
+    QHash<QString, QVariantList> clipsByLabel;
+    const int clipCount = m_project.tracks().at(trackIndex).clips.size();
+    for (int c = 0; c < clipCount; ++c) {
+        for (const QString &prop : clipAnimatedProperties(trackIndex, c)) {
+            const QVariantList keys = clipKeyframes(trackIndex, c, prop);
+            if (keys.isEmpty())
+                continue;
+            const QString label = animatedPropertyLabel(trackIndex, c, prop);
+            if (!clipsByLabel.contains(label))
+                order.append(label);
+            clipsByLabel[label].append(QVariantMap{
+                {QStringLiteral("clip"), c},
+                {QStringLiteral("prop"), prop},
+                {QStringLiteral("start"), drift::usToSeconds(
+                     m_project.tracks().at(trackIndex).clips.at(c).timelineStart)},
+                {QStringLiteral("duration"), drift::usToSeconds(
+                     m_project.tracks().at(trackIndex).clips.at(c).timelineDuration)},
+                {QStringLiteral("keys"), keys},
+            });
+        }
+    }
+    QVariantList rows;
+    for (const QString &label : std::as_const(order)) {
+        const QVariantList clips = clipsByLabel.value(label);
+        rows.append(QVariantMap{
+            {QStringLiteral("label"), label},
+            {QStringLiteral("prop"), clips.first().toMap().value(QStringLiteral("prop"))},
+            {QStringLiteral("clips"), clips},
+        });
+    }
+    return rows;
 }
 
 int AppController::adjustmentLaneCount(int trackIndex) const
@@ -21589,6 +22284,24 @@ void AppController::saveAssetFavorites(const QString &tabId)
     settings.endGroup();
 }
 
+QVariantMap AppController::assetFavoriteCounts() const
+{
+    QVariantMap counts;
+    for (auto it = m_assetFavorites.cbegin(); it != m_assetFavorites.cend(); ++it) {
+        if (!it.key().isEmpty() && !it.value().isEmpty())
+            counts.insert(it.key(), int(it.value().size()));
+    }
+    return counts;
+}
+
+QStringList AppController::assetFavoriteIds(const QString &tabId) const
+{
+    const QSet<QString> ids = m_assetFavorites.value(tabId);
+    QStringList out(ids.cbegin(), ids.cend());
+    out.sort(Qt::CaseInsensitive);
+    return out;
+}
+
 bool AppController::isAssetFavorite(const QString &tabId, const QString &itemId) const
 {
     return m_assetFavorites.value(tabId).contains(itemId);
@@ -22142,13 +22855,28 @@ void AppController::applyBeatAnalysis(const AudioBeatAnalysis &analysis, double 
     m_beatAnalysisRunning = false;
     emit beatAnalysisChanged();
 
+    if (m_pendingTemplateRhythm) {
+        const auto [clipId, sync] = *m_pendingTemplateRhythm;
+        int t = -1;
+        int c = -1;
+        if (findClipById(m_project, clipId, &t, &c)
+            && (beatAnalysisReadyForClip(m_project.tracks().at(t).clips.at(c), sync)
+                || beatAnalysisCoversClip(m_project.tracks().at(t).clips.at(c)))) {
+            setEffectTemplateRhythm(t, c, sync);
+        } else {
+            m_pendingTemplateRhythm.reset();
+            emit selectedClipDataChanged();
+        }
+    }
+
     if (m_pendingEffectTemplate && m_pendingEffectTemplate->valid()) {
         const PendingEffectTemplate pending = *m_pendingEffectTemplate;
         const EffectTemplateEntry *entry = effectTemplateForId(pending.templateId);
         if (entry && pending.trackIndex >= 0 && pending.trackIndex < m_project.tracks().size()) {
             const drift::Track &track = m_project.tracks()[pending.trackIndex];
             if (pending.clipIndex >= 0 && pending.clipIndex < track.clips.size()
-                && beatAnalysisReadyForClip(track.clips[pending.clipIndex], entry->sync)) {
+                && (beatAnalysisReadyForClip(track.clips[pending.clipIndex], entry->sync)
+                    || beatAnalysisCoversClip(track.clips[pending.clipIndex]))) {
                 const bool needsSegment =
                     (entry->requiresSegmentation || entry->usesMultiTrack())
                     && !clipHasMatte(m_project, pending.trackIndex, pending.clipIndex);

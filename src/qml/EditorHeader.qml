@@ -12,6 +12,8 @@ Rectangle {
     signal downloadsRequested()
     // The Stock tab (Pexels, Pixabay) in the assets panel, which Main owns.
     signal stockRequested()
+    // The picture at the right end: My account, which Main owns.
+    signal accountRequested()
     property bool stockActive: false
 
     height: Theme.headerHeight
@@ -990,6 +992,42 @@ Rectangle {
                     hoverEnabled: true
                     cursorShape: exportButton.busy ? Qt.ArrowCursor : Qt.PointingHandCursor
                     onClicked: if (!exportButton.busy) root.exportVideo()
+                }
+            }
+
+            // The account, rightmost as in CapCut: the Google picture once signed in, a person
+            // icon otherwise. Opens My account (or sign-in, when signed out).
+            Item {
+                id: accountButton
+                visible: Account.available
+                width: visible ? 32 : 0
+                height: 32
+                anchors.verticalCenter: parent.verticalCenter
+                Accessible.role: Accessible.Button
+                Accessible.name: qsTr("My account")
+
+                Rectangle {
+                    anchors.fill: parent
+                    radius: width / 2
+                    color: "transparent"
+                    border.width: accountMouse.containsMouse ? 2 : 0
+                    border.color: Theme.primary
+                }
+                AccountAvatar {
+                    anchors.centerIn: parent
+                    size: 28
+                }
+                ThemedToolTip {
+                    visible: accountMouse.containsMouse
+                    text: Account.signedIn ? qsTr("My account (%1)").arg(Account.email)
+                                           : qsTr("Sign in with Google")
+                }
+                MouseArea {
+                    id: accountMouse
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: root.accountRequested()
                 }
             }
         }

@@ -175,8 +175,43 @@ def screenshot(pid, path):
     if not found:
         return "no window"
     hwnd = found[0]
-    user32.ShowWindow(hwnd, 3)  # maximized, but never pulled in front of anything
-    time.sleep(1.5)
+    if not user32.IsZoomed(hwnd):
+        # Maximized, but never pulled in front of anything. Skipped when it already is: showing it
+        # again activates it, which closes an open menu before it can be pictured.
+        user32.ShowWindow(hwnd, 3)
+        time.sleep(1.5)
+    popups = []
+
+    @ctypes.WINFUNCTYPE(wintypes.BOOL, wintypes.HWND, wintypes.LPARAM)
+    def each_popup(other, _):
+        owner = wintypes.DWORD()
+        user32.GetWindowThreadProcessId(other, ctypes.byref(owner))
+        if owner.value == pid and other != hwnd and user32.IsWindowVisible(other):
+            popups.append(other)
+        return True
+
+    # Menus and tooltips are windows of their own: pictured too, pasted where they sit over it.
+    user32.EnumWindows(each_popup, 0)
+    rect = wintypes.RECT()
+    user32.GetWindowRect(hwnd, ctypes.byref(rect))
+    picture = _grab(hwnd)
+    for other in reversed(popups):
+        other_rect = wintypes.RECT()
+        user32.GetWindowRect(other, ctypes.byref(other_rect))
+        if other_rect.right - other_rect.left <= 0 or other_rect.bottom - other_rect.top <= 0:
+            continue
+        picture.paste(_grab(other), (other_rect.left - rect.left, other_rect.top - rect.top))
+    picture.save(path)
+    return path
+
+
+def _grab(hwnd):
+    import ctypes
+    from ctypes import wintypes
+    from PIL import Image
+
+    user32 = ctypes.windll.user32
+    gdi32 = ctypes.windll.gdi32
     rect = wintypes.RECT()
     user32.GetWindowRect(hwnd, ctypes.byref(rect))
     w, h = rect.right - rect.left, rect.bottom - rect.top
@@ -197,11 +232,11 @@ def screenshot(pid, path):
     info.biWidth, info.biHeight, info.biPlanes, info.biBitCount = w, -h, 1, 32
     buffer = ctypes.create_string_buffer(w * h * 4)
     gdi32.GetDIBits(mem_dc, bitmap, 0, h, buffer, ctypes.byref(info), 0)
-    Image.frombuffer("RGBA", (w, h), buffer, "raw", "BGRA", 0, 1).convert("RGB").save(path)
+    image = Image.frombuffer("RGBA", (w, h), buffer, "raw", "BGRA", 0, 1).convert("RGB")
     gdi32.DeleteObject(bitmap)
     gdi32.DeleteDC(mem_dc)
     user32.ReleaseDC(hwnd, window_dc)
-    return path
+    return image
 
 
 def click(pid, x, y, button="left"):
@@ -242,6 +277,75 @@ def click(pid, x, y, button="left"):
     time.sleep(0.08)
     user32.PostMessageW(hwnd, up, 0, lparam)
     return f"{button}-clicked {x},{y}"
+
+
+def _window_lparam(pid, x, y):
+    """The app's window and the client-coordinate lparam for (x, y) of its picture."""
+    import ctypes
+    from ctypes import wintypes
+
+    user32 = ctypes.windll.user32
+    found = []
+
+    @ctypes.WINFUNCTYPE(wintypes.BOOL, wintypes.HWND, wintypes.LPARAM)
+    def each(hwnd, _):
+        owner = wintypes.DWORD()
+        user32.GetWindowThreadProcessId(hwnd, ctypes.byref(owner))
+        if owner.value == pid and user32.IsWindowVisible(hwnd) and user32.GetWindowTextLengthW(hwnd) > 0:
+            found.append(hwnd)
+        return True
+
+    user32.EnumWindows(each, 0)
+    if not found:
+        return None, None
+    hwnd = found[0]
+    rect = wintypes.RECT()
+    user32.GetWindowRect(hwnd, ctypes.byref(rect))
+
+    def lparam(px, py):
+        point = wintypes.POINT(rect.left + int(px), rect.top + int(py))
+        user32.ScreenToClient(hwnd, ctypes.byref(point))
+        return (point.y << 16) | (point.x & 0xFFFF)
+
+    return hwnd, lparam
+
+
+def drag(pid, x, y, x2, y2, steps=12):
+    """A left-button drag from (x, y) to (x2, y2), posted like click()."""
+    import ctypes
+
+    user32 = ctypes.windll.user32
+    hwnd, lparam = _window_lparam(pid, x, y)
+    if not hwnd:
+        return "no window"
+    user32.PostMessageW(hwnd, 0x200, 0, lparam(x, y))
+    time.sleep(0.05)
+    user32.PostMessageW(hwnd, 0x201, 1, lparam(x, y))
+    time.sleep(0.08)
+    for i in range(1, steps + 1):
+        px = x + (x2 - x) * i / steps
+        py = y + (y2 - y) * i / steps
+        user32.PostMessageW(hwnd, 0x200, 1, lparam(px, py))
+        time.sleep(0.04)
+    user32.PostMessageW(hwnd, 0x202, 0, lparam(x2, y2))
+    return f"dragged {x},{y} -> {x2},{y2}"
+
+
+def double_click(pid, x, y):
+    """A left double-click at (x, y), posted like click()."""
+    import ctypes
+
+    user32 = ctypes.windll.user32
+    hwnd, lparam = _window_lparam(pid, x, y)
+    if not hwnd:
+        return "no window"
+    at = lparam(x, y)
+    user32.PostMessageW(hwnd, 0x200, 0, at)
+    time.sleep(0.05)
+    for message, held in ((0x201, 1), (0x202, 0), (0x203, 1), (0x202, 0)):
+        user32.PostMessageW(hwnd, message, held, at)
+        time.sleep(0.04)
+    return f"double-clicked {x},{y}"
 
 
 def wheel(pid, x, y, notches):
@@ -308,6 +412,14 @@ def main():
             args = substitute(call.get("args", {}), memory)
             if tool == "click":
                 print(f"[{index}] {click(gui.pid if gui else bridge.proc.pid, args['x'], args['y'], args.get('button', 'left'))}")
+                time.sleep(float(call.get("sleep", 1.0)))
+                continue
+            if tool == "drag":
+                print(f"[{index}] {drag(gui.pid if gui else bridge.proc.pid, args['x'], args['y'], args['x2'], args['y2'])}")
+                time.sleep(float(call.get("sleep", 1.0)))
+                continue
+            if tool == "dblclick":
+                print(f"[{index}] {double_click(gui.pid if gui else bridge.proc.pid, args['x'], args['y'])}")
                 time.sleep(float(call.get("sleep", 1.0)))
                 continue
             if tool == "wheel":

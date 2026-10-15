@@ -3,6 +3,15 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.11.0 — Plantillas editables, plantillas como composición y fotogramas en la pista
+
+- **Plantillas de efectos editables:** `drift::EffectTemplateTag` en cada efecto de una plantilla (se guarda; copiar o guardar como preajuste lo quita). Efectos › Plantilla: Intensidad, Caída, Ritmo (`setEffectTemplateShape` / `setEffectTemplateRhythm`, que analiza la música si hace falta) y «Quitar plantilla» (`removeEffectTemplate`). `refreshTemplateSpans` rehace los golpes al cortar, recortar, estirar o mover la capa.
+- **Plantillas como composición:** `buildCompositeFromClipIds` (lo usa también `makeCompositeFromSelection`). Una plantilla de un clip crea «Plantilla: …» con el clip y su capa de ajuste encima; las 10 de recorte meten el video oculto, la persona, el fondo, los clones y sus carriles de máscara. Dentro de una composición no se anida otra: la capa va en su propia pista. Las que cambian la velocidad siguen en el clip.
+- **Fotogramas en la pista, como en After Effects:** `Track::keyframesExpanded` (se guarda; sin deshacer), `trackKeyframeRows`, `animatedPropertyLabel`, `setKeyframeEasingAt` (lineal, suave, entrada o salida suave, mantener) y `addClipKeyframeAt`; `TrackKeyframeRows.qml` y el triángulo en `TrackHeaderColumn`. `previewMoveClipKeyframe` conserva la curva del fotograma.
+- **Editor de curvas opcional:** preferencia `ui/curveEditorVisible` (apagada) con botón en la barra; la franja se oculta sin dejar su espacio (también la de subtítulos).
+- **Mi cuenta:** `AccountAvatar`, `AccountDialog` con Favoritos por grupo y miniaturas (`assetFavoriteIds`) y el historial de descargas de Stock (`MarketClient`, `market/history`).
+- `tools/e2e/mcp_e2e.py`: `drag`, `dblclick` y capturas que incluyen los menús emergentes.
+
 ## 0.10.0 — Cuenta de Google, Stock (Pexels y Pixabay) y estadísticas anónimas
 
 - **Servidor propio** `api.getflipstudio.com` (repo privado `flipstudio-api`): cuentas, estadísticas y el contrato de Market (`docs/marketplace/openapi.yaml`) sobre Pexels y Pixabay.

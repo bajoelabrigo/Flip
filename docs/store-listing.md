@@ -22,7 +22,7 @@ Textos y respuestas para el envío en Partner Center (producto **Flip Studio**, 
   cuenta de Google. Además envía estadísticas de uso **anónimas** (número de instalación aleatorio, versión,
   edición de Windows), que se pueden apagar. Todo está en la política de privacidad, actualizada el 14 de
   octubre de 2026, que **tiene que estar publicada antes de enviar el paquete**.
-- **Notas para la certificación** (campo «Notes for certification»):
+- **Notas para la certificación** (campo «Notes for certification»; valen igual para la 0.11.0):
 
   > Signing in is optional. On first launch the app offers "Sign in with Google" or "Continue without an
   > account"; every editing feature works without an account. The account only unlocks the Stock tab
@@ -109,6 +109,33 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 **Palabras clave de búsqueda** (máximo 7):
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
+
+**Notas para la Store (0.10.0 + 0.11.0)**. La 0.10.0 no fue a la Store: el MSIX de la 0.11.0 lleva este
+texto combinado en "Novedades de esta versión" (996 de 1500 caracteres):
+
+> **Novedades de la 0.10.0 y la 0.11.0**
+>
+> - Plantillas de efectos editables: al aplicarlas a un video quedan en una composición que se mueve y se corta como un bloque. Ajusta su intensidad, caída y ritmo, o quítalas.
+> - Las plantillas que recortan a la persona también entran como composición, con la persona, el fondo y los clones en capas.
+> - Fotogramas clave dentro de la pista, como en After Effects: despliega la pista, arrastra, agrega o borra fotogramas y elige lineal, suave, entrada o salida suave, o mantener.
+> - El editor de curvas se abre solo cuando lo necesitas.
+> - Cuenta de Flip Studio con Google, opcional: la edición funciona igual sin cuenta.
+> - Mi cuenta: tu foto arriba a la derecha, tus favoritos con miniaturas y tus descargas.
+> - Stock: fotos y videos gratis de Pexels y Pixabay dentro del editor, con filtro de orientación. Lo descargado entra directo en Medios.
+> - Estadísticas de uso anónimas (versión, edición de Windows y un número de instalación aleatorio); se apagan en Ajustes.
+
+En inglés, para la ficha en-us (941 caracteres):
+
+> **What's new in 0.10.0 and 0.11.0**
+>
+> - Editable effect templates: applied to a video they become a composition you move and cut as one block. Adjust their intensity, decay and rhythm, or remove them.
+> - Templates that cut out the person also arrive as a composition, with the person, background and clones on their own layers.
+> - Keyframes inside the track, as in After Effects: unfold the track, drag, add or delete keyframes and pick linear, ease, ease in, ease out or hold.
+> - The curve editor opens only when you need it.
+> - Optional Flip Studio account with Google: editing works the same without one.
+> - My account: your photo at the top right, your favorites with thumbnails and your downloads.
+> - Stock: free photos and videos from Pexels and Pixabay inside the editor, with an orientation filter. Downloads go straight into Media.
+> - Anonymous usage statistics (version, Windows edition and a random install number); turn them off in Settings.
 
 **Notas para la Store (0.10.0)**. Si la 0.9.9 ya pasó la certificación, este es el texto de "Novedades de
 esta versión" (599 de 1500 caracteres):

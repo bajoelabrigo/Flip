@@ -44,7 +44,29 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-14, noche)
+## Estado (actualizado 2026-10-15)
+
+### 0.11.0 PUBLICADA (2026-10-15): plantillas editables, plantillas como composición, fotogramas en la pista
+- Rama `flip/plantillas-editables` → PR a `main`, tag `v0.11.0`. Notas en `release-notes/0.11.0.md`; novedades para
+  la Store (0.10.0 + 0.11.0, 996 caracteres) en `docs/store-listing.md`. **Esta sí va a la Store y al TXT `version`.**
+- Probada en ventana con Jorge («funciona todo ok»):
+  - plantillas de un clip y las 10 de recorte como composición «Plantilla: …» (`buildCompositeFromClipIds`);
+  - fotogramas en la pista con el triángulo (`TrackKeyframeRows.qml`), editor de curvas opcional;
+  - «+» amarillo en las tarjetas (`applyEffectTemplateToCurrentClip`: selección o clip bajo el cabezal);
+  - plantillas de ritmo en videos mudos y fotos: ritmo fijo de 120 BPM, ♪ en la tarjeta (`followsMusic`), aviso y
+    nota en Efectos › Plantilla (`EffectTemplateTag::steadyBeat`).
+- **Trampa:** `finishEdit(msg)` **ignora** el texto; para que el usuario vea un aviso, `setLastMessage(msg, severidad)`.
+- **Trampa:** sin música, el análisis de golpes termina vacío y `analyzeBeats` no repite el mismo tramo: cualquier
+  cosa que espere golpes tiene que aceptar también `beatAnalysisCoversClip`.
+
+### Para la próxima versión (pedido de Jorge, 2026-10-15)
+1. **La composición de una plantilla tiene que aparecer en Medios**, y desde ahí poder entrar a editarla o borrarla
+   con Suprimir. Hoy el asset `Composite` se crea pero Jorge no lo ve en Medios.
+2. **«Quitar plantilla» (Efectos) no deshace la plantilla:** borra la capa de ajuste con la animación pero deja la
+   composición «Plantilla: …». Tiene que devolver el clip original a su sitio (desagrupar) o dar las dos opciones.
+3. **Tarjetas de plantillas:** la etiqueta «Necesita recorte» es tan ancha que tapa el ♪ y el botón de favorito no
+   sale. Achicarla (un icono con tooltip) o moverla.
+4. `Theme.scrimColor` / `scrimStrong` transparentes (ver trampas).
 
 ### 0.10.0 PUBLICADA EN GITHUB (2026-10-14): cuenta de Google, Stock y estadísticas anónimas
 - PR #15, tag `v0.10.0`, release con instalador, portable y `SHA256SUMS` (copia en `FlipStudio\versiones\FlipStudio-0.10.0`).
@@ -52,8 +74,18 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - **Sin MSIX y sin cambiar el TXT `version` a propósito** (decisión de Jorge): la próxima actualización completa
   (0.10.0 + Etapa 1) es la que va al TXT y a la Store. La 0.9.9 ya está aprobada y en la Store.
 - Detalles de la cuenta, el servidor y las trampas en «Pendiente» (punto 5) y en las trampas (navegador y WSA).
-- **Lo siguiente:** Etapa 1 de plantillas (rombos editables: Intensidad/Caída/Ritmo, «Quitar plantilla», las de
-  recorte como composición). Ver el punto 6 de «Pendiente».
+- **Rama `flip/plantillas-editables` (2026-10-14, noche), probada en ventana con Jorge:**
+  - **Etapa 1a:** las 13 plantillas de un clip marcan sus efectos con `drift::EffectTemplateTag` (Effect.h, se
+    guarda en el proyecto; copiar/preajuste la quita). Aplicadas a un video crean una **capa de ajuste propia**
+    («Plantilla: …», pista nueva justo encima, misma duración: se mueve, se acorta, se corta con la tijera).
+    Efectos › Plantilla: Intensidad, Caída, Ritmo (analiza la música si hace falta) y «Quitar plantilla» (borra la
+    capa y su pista si queda vacía). Las que cambian la velocidad (slowmo_drop) siguen en el clip. Golpes de al
+    menos 150 ms cuando el ritmo es por golpes. Prueba `effectTemplateStaysEditable`.
+  - **Mi cuenta:** foto a la derecha de Exportar (`AccountAvatar`), tarjeta en la pantalla de inicio,
+    `AccountDialog` con Favoritos como CapCut (chips + miniaturas de los 15 grupos; `assetFavoriteIds`) y
+    Descargas de Stock (historial persistente en `market/history`, últimas 200).
+- **Ojo en las pruebas:** el botón «Dividir» de la barra corta **todas** las pistas en el cabezal; para cortar un
+  solo clip, la tijera.
 - Al cerrar la sesión el repo se mudó a `Downloads\FlipStudio\codigo\Flip`: abrir Claude desde ahí.
 
 ### Anterior: cierre de la 0.9.9
@@ -498,6 +530,8 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 ---
 
 ## Trampas que ya nos costaron tiempo
+
+**Colores de 8 dígitos en QML son `#AARRGGBB`, no `#RRGGBBAA`.** `Theme.scrimColor` (`#00000066`) y `Theme.scrimStrong` (`#000000b3`) salen **transparentes**, heredado de Drift, y se usan en unos 38 sitios (etiquetas sobre miniaturas, velos). En la 0.11.0 solo se corrigieron las etiquetas de las tarjetas de plantillas (`Qt.rgba(0, 0, 0, 0.7)`); arreglar el tema es pendiente: revisar a ojo cada uso antes, porque oscurecerá zonas que hoy se ven claras. Igual `waveformColor` `#ffffffb3` es amarillo pálido y no blanco al 70 %.
 
 **La app escribe en el registro de Jorge aunque se lance para pruebas, incluso sin ventana:** anota el proyecto
 de prueba en `recentProjects`/`lastSessionPath` y guarda preferencias. Quitar solo `mcp/startOnLaunch` no basta:
