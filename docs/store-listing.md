@@ -19,9 +19,9 @@ Textos y respuestas para el envío en Partner Center (producto **Flip Studio**, 
   OpenGL 3.3.
 - **Declaraciones (desde la 0.10.0):** no contiene publicidad y no tiene compras dentro de la aplicación.
   **Sí recoge datos personales, solo si la persona inicia sesión** (opcional): nombre, correo y foto de su
-  cuenta de Google. Además envía estadísticas de uso **anónimas** (número de instalación aleatorio, versión,
-  edición de Windows), que se pueden apagar. Todo está en la política de privacidad, actualizada el 14 de
-  octubre de 2026, que **tiene que estar publicada antes de enviar el paquete**.
+  cuenta de Google y, desde la 0.12.0, la lista de lo que baja de Stock (su biblioteca). Además envía
+  estadísticas de uso **anónimas** (número de instalación aleatorio, versión, edición de Windows), que se pueden
+  apagar. Todo está en la política de privacidad, actualizada el 15 de octubre de 2026 (ya publicada).
 - **Notas para la certificación** (campo «Notes for certification»; valen igual para la 0.11.0):
 
   > Signing in is optional. On first launch the app offers "Sign in with Google" or "Continue without an
@@ -109,6 +109,30 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 **Palabras clave de búsqueda** (máximo 7):
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
+
+**Notas para la Store (0.12.0)**. Texto de "Novedades de esta versión" del MSIX de la 0.12.0, si la 0.11.0 ya
+se subió (813 de 1500 caracteres). Si la 0.11.0 no llegó a subirse, se sube directamente la 0.12.0 con
+este texto: lo de la 0.10.0 y la 0.11.0 ya está en la descripción.
+
+> **Novedades de la 0.12.0**
+>
+> - 32 plantillas de escena gratis en Stock › Plantillas: reels de fotos, intros, textos, collages, antes y después, productos, cumpleaños, XV años, Día de la Madre, graduación, aniversarios, cuentas regresivas y cierres. Todas en vertical, con música libre.
+> - «Usar plantilla» la pone en tu proyecto: rellena sus huecos con tus fotos y videos (uno a uno o varios a la vez) y cambia sus textos desde el panel Plantilla.
+> - Lo que bajas de Stock queda en tu cuenta: lo ves en Mi cuenta y en otras computadoras.
+> - Exporta en 2K, 4K y 8K, también por encima de la resolución del proyecto, con textos y gráficos nítidos.
+> - Elige varias pistas a la vez desde su cabecera para borrarlas o agruparlas.
+> - Cambia una transición ya colocada por otra, y «Quitar plantilla» devuelve el clip original.
+
+En inglés, para la ficha en-us (781 caracteres):
+
+> **What's new in 0.12.0**
+>
+> - 32 free scene templates in Stock › Templates: photo reels, intros, text, collages, before and after, products, birthdays, quinceañeras, Mother's Day, graduations, anniversaries, countdowns and endings. All vertical, with free music.
+> - "Use template" puts it in your project: fill its slots with your photos and videos (one by one or several at once) and change its texts from the Template panel.
+> - What you download from Stock stays in your account: see it in My account and on other computers.
+> - Export in 2K, 4K and 8K, even above the project's resolution, with sharp text and graphics.
+> - Pick several tracks at once from their headers to delete or group them.
+> - Swap a placed transition for another, and "Remove template" puts the original clip back.
 
 **Notas para la Store (0.10.0 + 0.11.0)**. La 0.10.0 no fue a la Store: el MSIX de la 0.11.0 lleva este
 texto combinado en "Novedades de esta versión" (996 de 1500 caracteres):
