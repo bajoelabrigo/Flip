@@ -1279,6 +1279,9 @@ PanelFrame {
                 // editor, opened from the toolbar or a key's "Edit curve…".
                 active: EditorState.preferences.curveEditorVisible
                         && EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
+                // The Column skips an invisible child. Without this, closing the editor left its
+                // last height reserved over the tracks: a Loader keeps the size its item gave it.
+                visible: active && item !== null && item.visible
                 sourceComponent: Component {
                     KeyframeGraph {
                         pxPerSecond: root.pxPerSecond
@@ -1298,6 +1301,7 @@ PanelFrame {
                 id: subtitleLane
                 width: parent.width - (audioMixer.visible ? audioMixer.width : 0)
                 active: EditorState.subtitleEditing
+                visible: active && item !== null
                 sourceComponent: Component {
                     SubtitleCueLane {
                         pxPerSecond: root.pxPerSecond
