@@ -74,10 +74,12 @@ def fill(color: str, alpha: float = 1.0, id: str = "fill") -> dict:
     return {"id": id, "kind": "fill", "enabled": True, "paint": {"kind": "solid", "color": argb(color, alpha)}, "opacity": 1.0}
 
 
-def gradient(stops: list[tuple[float, str]], angle: float = 90.0, id: str = "fill") -> dict:
+def gradient(stops: list[tuple], angle: float = 90.0, id: str = "fill") -> dict:
+    """stops: (pos, '#rrggbb'[, alpha])."""
+    colours = [argb(st[1], st[2] if len(st) > 2 else 1.0) for st in stops]
     return {"id": id, "kind": "fill", "enabled": True, "opacity": 1.0,
-            "paint": {"kind": "gradient", "color": argb(stops[0][1]),
-                      "gradient": {"kind": "linear", "stops": [{"pos": p, "color": argb(c)} for p, c in stops],
+            "paint": {"kind": "gradient", "color": colours[0],
+                      "gradient": {"kind": "linear", "stops": [{"pos": st[0], "color": c} for st, c in zip(stops, colours)],
                                    "angle": angle, "space": "block"}}}
 
 
@@ -132,7 +134,7 @@ def text_style(font: str, size: int, layers: list[dict], *, weight: int = 700, i
                align: str = "center", valign: str = "middle", spacing: float = 0.0, line: float = 1.12,
                case: str = "none", box: tuple[str, float] | None = None, box_pad: float = 18, box_radius: float = 0,
                anim_in: dict | None = None, anim_out: dict | None = None, anim_loop: dict | None = None,
-               accent: dict | None = None) -> dict:
+               accent: dict | None = None, keyframes: dict | None = None) -> dict:
     style = {
         "fontFamily": font, "pixelSize": size, "fontWeight": weight, "italic": italic, "layers": layers,
         "align": align, "valign": valign, "wordWrap": True, "lineHeight": line, "letterSpacing": spacing,
@@ -147,6 +149,8 @@ def text_style(font: str, size: int, layers: list[dict], *, weight: int = 700, i
         style["animation"]["out"] = anim_out
     if anim_loop:
         style["animation"]["loop"] = anim_loop
+    if keyframes:
+        style["keyframes"] = keyframes  # e.g. {"pixelSize": keys([...])}
     return style
 
 
@@ -282,10 +286,16 @@ class Template:
         return clip
 
     def photo(self, track: Track, sample: str, t0: float, dur: float, box: Box = FULL, motion=None, *,
-              label: str | None = None, slot: bool = True, **extra) -> dict:
-        """A photo slot (or, slot=False, a fixed picture from the package's media)."""
+              label: str | None = None, slot: bool = True, reuse: str | None = None, **extra) -> dict:
+        """A photo slot (or, slot=False, a fixed picture from the package's media). reuse="p2" shows slot
+        p2's picture again: one fill fills every clip of that slot."""
         clip = self._clip("image", t0, dur, **layout(box, motion))
-        if slot:
+        if reuse:
+            first = next(s for s in self.slots if s.id == reuse)
+            clip["placeholderId"] = first.id
+            clip["placeholderLabel"] = first.label
+            clip["_sample"] = first.sample
+        elif slot:
             number = len(self.slots) + 1
             clip["placeholderId"] = f"p{number}"
             clip["placeholderLabel"] = label or f"Foto {number}"
@@ -318,15 +328,20 @@ class Template:
 
     def mask(self, track: Track, host: dict, shape: str = "ellipse", feather: float = 0, **geometry) -> None:
         """Clips `host` (on `track`) to a shape, normalised to its box."""
-        lane = Track(type="adjustment", name="Máscara")
-        lane.extra.update(adjustmentScope="parentTrack", parentTrackId=track.id)
+        # Masks of clips in turn share one lane; one that would overlap gets a lane of its own.
+        lane = next((l for l in track.lanes
+                     if all(c["timelineStartUs"] + c["timelineDurationUs"] <= host["timelineStartUs"] for c in l.clips)),
+                    None)
+        if lane is None:
+            lane = Track(type="adjustment", name="Máscara")
+            lane.extra.update(adjustmentScope="parentTrack", parentTrackId=track.id)
+            track.lanes.append(lane)
         m = {"shape": shape, "x": 0.5, "y": 0.5, "w": 1.0, "h": 1.0, "feather": feather, "enabled": True}
         m.update(geometry)
         lane.clips.append({"id": new_id("m"), "type": "adjustment", "adjustmentKind": "mask",
                            "linkedClipId": host["id"], "timelineStartUs": host["timelineStartUs"],
                            "timelineDurationUs": host["timelineDurationUs"], "srcInUs": 0,
                            "srcOutUs": host["timelineDurationUs"], "mask": m})
-        track.lanes.append(lane)
 
     def transition(self, track: Track, a: dict, b: dict, kind: str = "crossfade", duration: float = 0.5, **params) -> None:
         track.transitions.append({"id": new_id("x"), "kind": kind, "fromClipId": a["id"], "toClipId": b["id"],

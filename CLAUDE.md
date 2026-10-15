@@ -73,6 +73,26 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - **Falta:** probar en ventana (sobre todo exportar 4K/8K con GPU y con `DRIFT_EXPORT_SWSCALE=1`), versión 0.12.0
   en `CMakeLists.txt`, `release-notes/0.12.0.md`, y el OK de Jorge.
 
+### Etapa 2 de plantillas (en curso, 2026-10-15) — misma rama `flip/v0.12.0`
+- Jorge: **al menos 30 plantillas en Stock › Plantillas**, «con calma», buenas miniaturas.
+- Hecho en la app: paquete de plantilla de escena (`engine/SceneTemplateCatalog`, carpeta `scene-templates/`, tipo de
+  extra `scene-templates`), `AppController::insertSceneTemplate` (composición en el cabezal; proyecto vacío toma 9:16;
+  si no, `scaleTemplateLayout`), huecos = clips con `placeholderId` (se rellenan con `fillTemplateSlot*`, recorte
+  «cover»; un mismo `placeholderId` repetido se rellena junto), pestaña «Plantilla» del inspector
+  (`TemplateFillPanel.qml`) y Plantillas › Escenas/Efectos (`TemplatesTab.qml`, `SceneTemplateBrowser.qml`).
+- **Las 32 plantillas** se generan con `tools/scene_templates/` (`scene.py` = bloques, `templates*.py` = diseños,
+  `build.py` = paquetes + miniaturas/previas renderizadas por la 0.11.0 portable sin ventana; guarda y restaura el
+  registro). Guía de diseño en `BRIEF.md`, formato en `FORMAT.md`. Salida fuera del repo:
+  `Downloads\FlipStudio\tienda\plantillas\paquetes\<id>` (32 MB) y `catalogo-32.png`. Fotos de ejemplo (Pexels, con
+  `CREDITS.json`) en `tienda\plantillas\muestras`: **solo** para miniaturas; los paquetes van con huecos vacíos.
+  Música: cortes de la música libre CC0 de Flip. Tipografías: las de `fonts.basic`/`fonts.extra`.
+- **Trampa:** un efecto con picos animados (`rgb_split`, `strobe_flash`, `beat_shake`, `zoom_pulse`) necesita la
+  clave de caída en `"hold"`, si no sube en rampa hasta el siguiente pico y lava la imagen.
+- **Trampa:** evitar fotos de ejemplo con marcas (Converse, Nike, Adidas…): revisar la cuadrícula.
+- **Falta:** Stock › Plantillas (servidor `api.getflipstudio.com` con el catálogo y las descargas + tipo de entrega
+  nuevo en `MarketClient::applyCatalog` + botón «Usar»), elegir cuáles van incluidas en la app, aviso si faltan
+  las tipografías, probar todo en ventana con la build de la rama.
+
 ### Para la próxima versión (pedido de Jorge, 2026-10-15)
 1. **La composición de una plantilla tiene que aparecer en Medios**, y desde ahí poder entrar a editarla o borrarla
    con Suprimir. Hoy el asset `Composite` se crea pero Jorge no lo ve en Medios.

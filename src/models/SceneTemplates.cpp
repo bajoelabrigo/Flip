@@ -23,6 +23,7 @@
 #include <QUrl>
 #include <QUuid>
 
+#include <algorithm>
 #include <memory>
 
 namespace {
@@ -229,6 +230,7 @@ QString AppController::insertSceneTemplate(const QString &templateId)
     const drift::TimeUs startUs = m_playheadUs;
     QSet<QString> ids;
     int slotNumber = 0;
+    QHash<QString, QString> standIns; // placeholderId -> its stand-in picture
     for (drift::Track &track : tracks) {
         track.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
         track.locked = false;
@@ -247,6 +249,18 @@ QString AppController::insertSceneTemplate(const QString &templateId)
                 }
             }
             if (!clip.placeholderId.isEmpty() && clip.type != drift::ClipType::Text
+                && clip.type != drift::ClipType::Subtitle && standIns.contains(clip.placeholderId)) {
+                // A repeat of a slot: the same stand-in.
+                const drift::MediaAsset *picture = m_project.asset(standIns.value(clip.placeholderId));
+                clip.assetId = picture->id;
+                clip.type = drift::ClipType::Image;
+                clip.path = picture->path;
+                clip.thumbnailPath = picture->path;
+                clip.sourceFrame = QRectF(0, 0, 1, 1);
+                clip.srcIn = 0;
+                clip.srcOut = clip.timelineDuration;
+                clip.placeholderEmpty = true;
+            } else if (!clip.placeholderId.isEmpty() && clip.type != drift::ClipType::Text
                 && clip.type != drift::ClipType::Subtitle) {
                 ++slotNumber;
                 const QSizeF box = slotSize(clip, m_project.width(), m_project.height());
@@ -259,6 +273,7 @@ QString AppController::insertSceneTemplate(const QString &templateId)
                 picture.height = probe.height();
                 picture.folderId = folder.id;
                 clip.assetId = m_project.addAsset(picture);
+                standIns.insert(clip.placeholderId, clip.assetId);
                 clip.type = drift::ClipType::Image;
                 clip.path = picture.path;
                 clip.thumbnailPath = picture.path;
@@ -365,6 +380,7 @@ QVariantMap AppController::sceneTemplateInfo(const QString &compositeAssetId) co
     QList<Slot> media;
     QList<Slot> texts;
     const QList<drift::Track> &tracks = m_project.sequenceTracks(asset->sequenceId);
+    QSet<QString> seenSlots;
     // Top of the stack is index 0; reading bottom-up numbers slots the way they were laid out.
     for (int t = 0; t < tracks.size(); ++t) {
         for (const drift::Clip &clip : tracks.at(t).clips) {
@@ -381,7 +397,10 @@ QVariantMap AppController::sceneTemplateInfo(const QString &compositeAssetId) co
             if (isText) {
                 map.insert(QStringLiteral("text"), clip.textContent);
                 texts.append({clip.timelineStart, t, map});
+            } else if (seenSlots.contains(clip.placeholderId)) {
+                continue; // a repeat of a slot already listed: one fill fills them all
             } else {
+                seenSlots.insert(clip.placeholderId);
                 const drift::MediaAsset *media_ = m_project.asset(clip.assetId);
                 map.insert(QStringLiteral("empty"), clip.placeholderEmpty);
                 map.insert(QStringLiteral("kind"), clip.type == drift::ClipType::Video ? QStringLiteral("video")
@@ -429,44 +448,67 @@ bool AppController::fillTemplateSlotWithAsset(const QString &slotClipId, const Q
     drift::Project before;
     if (recordUndo)
         before = m_project.detachedCopy();
-    drift::Clip *clip = findClipAnywhere(m_project, slotClipId);
-    if (!clip || clip->placeholderId.isEmpty())
+    const drift::Clip *picked = findClipAnywhere(m_project, slotClipId);
+    if (!picked || picked->placeholderId.isEmpty())
         return false;
+    const QString placeholderId = picked->placeholderId;
 
-    const QString oldAssetId = clip->assetId;
-    const bool wasEmpty = clip->placeholderEmpty;
-    clip->assetId = media->id;
-    clip->type = media->kind == drift::MediaKind::Video ? drift::ClipType::Video : drift::ClipType::Image;
-    clip->name = media->name;
-    clip->path = media->path;
-    clip->thumbnailPath = media->thumbnailPath.isEmpty() ? media->path : media->thumbnailPath;
-    clip->filmstripPath = media->filmstripPath;
-    clip->rotationCorrection = drift::rotationCorrectionOf(*media);
-    clip->faceTrackPath.clear();
-    clip->depthPath.clear();
-    clip->placeholderEmpty = false;
-    // Fill the slot's box without stretching: the middle of the picture, cut on its long side.
-    QSizeF mediaSize(media->width, media->height);
-    if (clip->rotationCorrection == 90 || clip->rotationCorrection == 270)
-        mediaSize.transpose();
-    clip->sourceFrame = drift::coverSourceFrame(mediaSize, slotSize(*clip, m_project.width(), m_project.height()),
-                                                media->sourceFrame);
-    clip->reverse = false;
-    clip->speedCurve = {};
-    clip->srcIn = 0;
-    if (clip->type == drift::ClipType::Video && media->durationUs > 0) {
-        // A clip shorter than its slot is slowed to cover it rather than leaving a hole.
-        clip->speed = media->durationUs >= clip->timelineDuration
-                          ? 1.0
-                          : qMax(0.1, double(media->durationUs) / double(clip->timelineDuration));
-        clip->srcOut = qMin<drift::TimeUs>(media->durationUs, clip->sourceSpanUs());
-    } else {
-        clip->speed = 1.0;
-        clip->srcOut = clip->timelineDuration;
+    // A slot may show up more than once (a picture repeated on the beat): every clip of it, in the
+    // same template, takes the picture.
+    QList<drift::Clip *> targets;
+    m_project.forEachTrackList([&](QList<drift::Track> &tracks) {
+        bool here = false;
+        for (const drift::Track &track : tracks) {
+            for (const drift::Clip &clip : track.clips)
+                here = here || clip.id == slotClipId;
+        }
+        if (!here)
+            return;
+        for (drift::Track &track : tracks) {
+            for (drift::Clip &clip : track.clips) {
+                if (clip.placeholderId == placeholderId && clip.type != drift::ClipType::Text)
+                    targets.append(&clip);
+            }
+        }
+    });
+
+    QSet<QString> standIns;
+    for (drift::Clip *clip : std::as_const(targets)) {
+        if (clip->placeholderEmpty && clip->assetId != mediaAssetId)
+            standIns.insert(clip->assetId);
+        clip->assetId = media->id;
+        clip->type = media->kind == drift::MediaKind::Video ? drift::ClipType::Video : drift::ClipType::Image;
+        clip->name = media->name;
+        clip->path = media->path;
+        clip->thumbnailPath = media->thumbnailPath.isEmpty() ? media->path : media->thumbnailPath;
+        clip->filmstripPath = media->filmstripPath;
+        clip->rotationCorrection = drift::rotationCorrectionOf(*media);
+        clip->faceTrackPath.clear();
+        clip->depthPath.clear();
+        clip->placeholderEmpty = false;
+        // Fill the slot's box without stretching: the middle of the picture, cut on its long side.
+        QSizeF mediaSize(media->width, media->height);
+        if (clip->rotationCorrection == 90 || clip->rotationCorrection == 270)
+            mediaSize.transpose();
+        clip->sourceFrame = drift::coverSourceFrame(mediaSize, slotSize(*clip, m_project.width(), m_project.height()),
+                                                    media->sourceFrame);
+        clip->reverse = false;
+        clip->speedCurve = {};
+        clip->srcIn = 0;
+        if (clip->type == drift::ClipType::Video && media->durationUs > 0) {
+            // A clip shorter than its slot is slowed to cover it rather than leaving a hole.
+            clip->speed = media->durationUs >= clip->timelineDuration
+                              ? 1.0
+                              : qMax(0.1, double(media->durationUs) / double(clip->timelineDuration));
+            clip->srcOut = qMin<drift::TimeUs>(media->durationUs, clip->sourceSpanUs());
+        } else {
+            clip->speed = 1.0;
+            clip->srcOut = clip->timelineDuration;
+        }
     }
 
-    // The stand-in picture goes once nothing shows it any more.
-    if (wasEmpty && oldAssetId != mediaAssetId) {
+    // The stand-in pictures go once nothing shows them any more.
+    for (const QString &oldAssetId : std::as_const(standIns)) {
         bool used = false;
         m_project.forEachTrackList([&](QList<drift::Track> &tracks) {
             for (const drift::Track &track : tracks) {
