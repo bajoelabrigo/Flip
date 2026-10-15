@@ -4330,6 +4330,10 @@
         <translation>Efecto añadido</translation>
     </message>
     <message>
+        <source>Template: %1</source>
+        <translation>Plantilla: %1</translation>
+    </message>
+    <message>
         <source>Apply effect template</source>
         <translation>Aplicar plantilla de efecto</translation>
     </message>

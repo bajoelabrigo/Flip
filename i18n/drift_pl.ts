@@ -4338,6 +4338,10 @@
         <translation>Dodano efekt</translation>
     </message>
     <message>
+        <source>Template: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply effect template</source>
         <translation>Zastosuj szablon efektu</translation>
     </message>

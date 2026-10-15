@@ -8850,9 +8850,11 @@ void EditorStateTest::splittingAGradedClipKeepsEffectsOnBothHalves()
     QCOMPARE(state.clipAt(0, 2).value(QStringLiteral("effects")).toList().size(), 1);
 }
 
-// An effect template is not a one-way bake: its effects remember the template, so intensity and
-// decay rebuild every pulse at once, re-applying replaces it, and it comes off in one step while
-// the user's own effects stay. snap_transition syncs to the clip, so no beat analysis is needed.
+// An effect template is not a one-way bake. Put on a video it becomes its own layer above it,
+// spanning the clip, that can be moved, trimmed or cut; its effects remember the template, so
+// intensity and decay rebuild every pulse at once, re-applying replaces it, and removing it takes
+// the layer away while the video's own effects stay. snap_transition syncs to the clip, so no beat
+// analysis is needed.
 void EditorStateTest::effectTemplateStaysEditable()
 {
     AssetLibrary library;
@@ -8861,26 +8863,42 @@ void EditorStateTest::effectTemplateStaysEditable()
     state.project()->ensureTrackIds();
     state.selectClip(0, 0);
     state.addEffect(0, 0, QStringLiteral("adjust.contrast"));
+    const int tracksBefore = state.project()->tracks().size();
+    const drift::Clip video = state.project()->tracks().at(0).clips.at(0);
 
     const EffectTemplateEntry *entry = effectTemplateForId(QStringLiteral("snap_transition"));
     QVERIFY2(entry, "snap_transition should be among the bundled templates");
     QCOMPARE(entry->sync, QStringLiteral("clip"));
+    QVERIFY(!entry->speedPulse.valid);
     const EffectTemplatePulse pulse = entry->layers.at(0).pulse;
     QVERIFY(pulse.valid);
 
     state.applyEffectTemplate(0, 0, QStringLiteral("snap_transition"));
-    const drift::Clip clip = state.project()->tracks().at(0).clips.at(0);
-    QList<drift::Effect> fx = videoEffectsOf(*state.project(), clip);
-    QCOMPARE(fx.size(), 1 + entry->layers.size());
-    QVERIFY(!fx.at(0).templateTag.isValid());
-    const QString instance = fx.at(1).templateTag.instance;
+
+    // A layer on a new track right above the video, spanning it, selected.
+    QCOMPARE(state.project()->tracks().size(), tracksBefore + 1);
+    QVERIFY(state.project()->tracks().at(0).isAdjustment());
+    QVERIFY(!state.project()->tracks().at(0).isAdjustmentLane());
+    const drift::Clip layer = state.project()->tracks().at(0).clips.at(0);
+    QCOMPARE(layer.type, drift::ClipType::Adjustment);
+    QVERIFY(layer.linkedClipId.isEmpty());
+    QCOMPARE(layer.timelineStart, video.timelineStart);
+    QCOMPARE(layer.timelineDuration, video.timelineDuration);
+    QCOMPARE(state.selectedTrack(), 0);
+    QCOMPARE(state.selectedClip(), 0);
+
+    QList<drift::Effect> fx = layer.effects;
+    QCOMPARE(fx.size(), entry->layers.size());
+    const QString instance = fx.at(0).templateTag.instance;
     QVERIFY(!instance.isEmpty());
-    for (int i = 1; i < fx.size(); ++i) {
+    for (int i = 0; i < fx.size(); ++i) {
         QCOMPARE(fx.at(i).templateTag.templateId, QStringLiteral("snap_transition"));
         QCOMPARE(fx.at(i).templateTag.instance, instance);
-        QCOMPARE(fx.at(i).templateTag.layer, i - 1);
+        QCOMPARE(fx.at(i).templateTag.layer, i);
     }
-    QCOMPARE(fx.at(1).valueAt(pulse.param, 0).toDouble(), pulse.peak);
+    QCOMPARE(fx.at(0).valueAt(pulse.param, 0).toDouble(), pulse.peak);
+    // The video keeps exactly its own effects.
+    QCOMPARE(videoEffectsOf(*state.project(), state.project()->tracks().at(1).clips.at(0)).size(), 1);
 
     QVariantMap info = state.effectTemplateInfo(0, 0);
     QCOMPARE(info.value(QStringLiteral("templateId")).toString(), QStringLiteral("snap_transition"));
@@ -8889,48 +8907,43 @@ void EditorStateTest::effectTemplateStaysEditable()
 
     // Half intensity: every pulse rebuilt at half height, in one undo step.
     state.setEffectTemplateShape(0, 0, 0.5, 1.0);
-    fx = videoEffectsOf(*state.project(), clip);
-    QCOMPARE(fx.at(1).valueAt(pulse.param, 0).toDouble(), pulse.rest + (pulse.peak - pulse.rest) * 0.5);
+    fx = state.project()->tracks().at(0).clips.at(0).effects;
+    QCOMPARE(fx.at(0).valueAt(pulse.param, 0).toDouble(), pulse.rest + (pulse.peak - pulse.rest) * 0.5);
     QCOMPARE(state.effectTemplateInfo(0, 0).value(QStringLiteral("intensity")).toDouble(), 0.5);
     state.undo();
-    fx = videoEffectsOf(*state.project(), clip);
-    QCOMPARE(fx.at(1).valueAt(pulse.param, 0).toDouble(), pulse.peak);
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).effects.at(0).valueAt(pulse.param, 0).toDouble(),
+             pulse.peak);
     state.redo();
 
     // The tag survives saving and loading.
     QString error;
     const drift::Project reloaded = drift::Project::fromJson(state.project()->toJson(), &error);
     QVERIFY2(error.isEmpty(), qPrintable(error));
-    const QList<drift::Effect> reloadedFx =
-        videoEffectsOf(reloaded, reloaded.tracks().at(0).clips.at(0));
-    QCOMPARE(reloadedFx.at(1).templateTag, videoEffectsOf(*state.project(), clip).at(1).templateTag);
+    QCOMPARE(reloaded.tracks().at(0).clips.at(0).effects.at(0).templateTag,
+             state.project()->tracks().at(0).clips.at(0).effects.at(0).templateTag);
 
-    // Applying it again replaces it instead of stacking a second set of pulses.
+    // Applying it again on the layer replaces it instead of stacking a second set of pulses.
+    state.selectClip(0, 0);
     state.applyEffectTemplate(0, 0, QStringLiteral("snap_transition"));
-    QCOMPARE(videoEffectsOf(*state.project(), clip).size(), 1 + entry->layers.size());
+    QCOMPARE(state.project()->tracks().size(), tracksBefore + 1);
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).effects.size(), entry->layers.size());
 
     // Copies are plain effects: a pasted stack must not claim the template's pulses.
-    state.copyEffectToClipboard(0, 0, 1);
+    state.copyEffectToClipboard(0, 0, 0);
     QVERIFY(!drift::effectStackFromJson(QJsonDocument::fromJson(
                  QGuiApplication::clipboard()->text().toUtf8()).object())
                  .effects.value(0).templateTag.isValid());
 
-    // Remove: the template's effects go, the user's contrast stays.
+    // Remove: the layer and its track go, the video and its contrast stay.
     state.removeEffectTemplate(0, 0);
-    fx = videoEffectsOf(*state.project(), clip);
+    QCOMPARE(state.project()->tracks().size(), tracksBefore);
+    const drift::Clip &back = state.project()->tracks().at(0).clips.at(0);
+    QCOMPARE(back.id, video.id);
+    fx = videoEffectsOf(*state.project(), back);
     QCOMPARE(fx.size(), 1);
     QCOMPARE(fx.at(0).catalogId, QStringLiteral("adjust.contrast"));
-    QVERIFY(state.effectTemplateInfo(0, 0).isEmpty());
-
-    // A clip whose only effects were the template's: removing it leaves no empty effects lane.
-    const int tracksBefore = state.project()->tracks().size();
-    const drift::Clip second = state.project()->tracks().at(0).clips.at(1);
-    state.selectClip(0, 1);
-    state.applyEffectTemplate(0, 1, QStringLiteral("snap_transition"));
-    QVERIFY(adjustmentFor(*state.project(), second.id, drift::AdjustmentKind::VideoEffects));
-    state.removeEffectTemplate(0, 1);
-    QVERIFY(!adjustmentFor(*state.project(), second.id, drift::AdjustmentKind::VideoEffects));
-    QCOMPARE(state.project()->tracks().size(), tracksBefore);
+    state.undo();
+    QCOMPARE(state.project()->tracks().size(), tracksBefore + 1);
 }
 
 void EditorStateTest::clipEffectsLiveOnALinkedAdjustmentLane()

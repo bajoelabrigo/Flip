@@ -4338,6 +4338,10 @@
         <translation>Эффект добавлен</translation>
     </message>
     <message>
+        <source>Template: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply effect template</source>
         <translation>Применить шаблон эффектов</translation>
     </message>

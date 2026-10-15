@@ -18052,15 +18052,38 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
         tag.sync = entry.sync;
         tag.points = syncPoints;
         tag.speedApplied = entry.speedPulse.valid;
-        // One template per clip, as in CapCut: a new one replaces the previous one (and the same
-        // one again replaces itself) instead of stacking another set of pulses.
-        removeTemplateEffects(trackIndex, clipIndex, QString());
-        drift::Track &freshTrack = m_project.tracks()[trackIndex];
-        applyTemplateLayersToClip(freshTrack.clips[clipIndex], entry.layers, entry.sync, syncPoints,
-                                  &tag);
-        if (entry.speedPulse.valid)
-            applyTemplateSpeedPulse(freshTrack.clips[clipIndex], entry.speedPulse, entry.sync,
-                                    syncPoints);
+        // Applied to a media clip, the template becomes its own layer: an adjustment clip on a new
+        // track right above, spanning the clip, that can be moved, trimmed or cut like any clip
+        // and affects everything below it (Apply to narrows it to one clip). A template that
+        // changes the clip's speed stays on the clip: speed belongs to the clip, not to a layer.
+        const bool asLayer = sourceClip.type != drift::ClipType::Adjustment && !entry.speedPulse.valid;
+        if (asLayer) {
+            const int layerTrack =
+                drift::insertTrackAboveForClipType(m_project, trackIndex, drift::ClipType::Adjustment);
+            drift::Clip layer;
+            layer.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+            layer.type = drift::ClipType::Adjustment;
+            layer.adjustmentKind = drift::AdjustmentKind::VideoEffects;
+            layer.name = tr("Template: %1").arg(entry.displayName);
+            layer.timelineStart = sourceClip.timelineStart;
+            layer.timelineDuration = sourceClip.timelineDuration;
+            layer.srcIn = 0;
+            layer.srcOut = sourceClip.timelineDuration;
+            applyTemplateLayersToClip(layer, entry.layers, entry.sync, syncPoints, &tag);
+            m_project.tracks()[layerTrack].clips.append(layer);
+            selectTrack = layerTrack;
+            selectClip = m_project.tracks().at(layerTrack).clips.size() - 1;
+        } else {
+            // On a layer (or a clip whose speed it changes): one template per host, as in
+            // CapCut, so a new one replaces the previous one instead of stacking more pulses.
+            removeTemplateEffects(trackIndex, clipIndex, QString());
+            drift::Track &freshTrack = m_project.tracks()[trackIndex];
+            applyTemplateLayersToClip(freshTrack.clips[clipIndex], entry.layers, entry.sync,
+                                      syncPoints, &tag);
+            if (entry.speedPulse.valid)
+                applyTemplateSpeedPulse(freshTrack.clips[clipIndex], entry.speedPulse, entry.sync,
+                                        syncPoints);
+        }
     }
 
     // Now that no reference into the track list is live, pin the mattes. Each one can insert a
@@ -18146,7 +18169,8 @@ static bool templateSourceClip(const drift::Project &project, int trackIndex, in
     return true;
 }
 
-void AppController::removeTemplateEffects(int trackIndex, int clipIndex, const QString &templateId)
+void AppController::removeTemplateEffects(int trackIndex, int clipIndex, const QString &templateId,
+                                          bool dropEmptyLayer)
 {
     int sourceTrack = -1;
     int sourceClip = -1;
@@ -18186,6 +18210,19 @@ void AppController::removeTemplateEffects(int trackIndex, int clipIndex, const Q
         drift::Clip &clip = m_project.tracks()[sourceTrack].clips[sourceClip];
         clip.speedCurve.setPoints({});
         clip.syncDurationFromSpeedCurve();
+    }
+    // A template layer with nothing left is the template itself: take the layer away too, and
+    // its track when that was all the track held.
+    if (dropEmptyLayer) {
+        drift::Track &track = m_project.tracks()[sourceTrack];
+        const drift::Clip &layer = track.clips.at(sourceClip);
+        if (layer.type == drift::ClipType::Adjustment && layer.linkedClipId.isEmpty()
+            && layer.effects.isEmpty() && layer.audioEffects.isEmpty()) {
+            track.clips.removeAt(sourceClip);
+            if (track.clips.isEmpty() && track.isAdjustment() && !track.isAdjustmentLane())
+                m_project.tracks().removeAt(sourceTrack);
+            clearSelection();
+        }
     }
 }
 
@@ -18310,7 +18347,7 @@ void AppController::removeEffectTemplate(int trackIndex, int clipIndex)
     if (effectTemplateInfo(trackIndex, clipIndex).isEmpty())
         return;
     const drift::Project before = m_project;
-    removeTemplateEffects(trackIndex, clipIndex, QString());
+    removeTemplateEffects(trackIndex, clipIndex, QString(), /*dropEmptyLayer=*/true);
     pushProjectEdit(before, tr("Remove template"));
     finishEdit(tr("Template removed"));
 }

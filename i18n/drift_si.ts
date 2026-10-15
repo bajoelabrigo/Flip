@@ -4330,6 +4330,10 @@
         <translation>ප්‍රයෝගය එක් කරන ලදී</translation>
     </message>
     <message>
+        <source>Template: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply effect template</source>
         <translation>ප්‍රයෝග ආකෘතියක් යොදන්න</translation>
     </message>

@@ -1836,7 +1836,8 @@ protected:
     QList<drift::TimeUs> templateSyncPoints(const drift::Clip &sourceClip, const QString &sync) const;
     // Removes the effects of a single-clip template (all of them when templateId is empty) from
     // the clip and its linked effects adjustment, and its speed curve. No undo step of its own.
-    void removeTemplateEffects(int trackIndex, int clipIndex, const QString &templateId);
+    void removeTemplateEffects(int trackIndex, int clipIndex, const QString &templateId,
+                               bool dropEmptyLayer = false);
     bool reshapeEffectTemplate(int trackIndex, int clipIndex, double intensity, double decay,
                                const QString &sync, const QList<drift::TimeUs> *points);
     // Digest of everything the AudioMixer reads; a change means detected beats are stale.

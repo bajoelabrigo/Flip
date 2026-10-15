@@ -4330,6 +4330,10 @@
         <translation>Efeito adicionado</translation>
     </message>
     <message>
+        <source>Template: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply effect template</source>
         <translation>Aplicar modelo de efeito</translation>
     </message>

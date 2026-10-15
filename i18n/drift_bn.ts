@@ -4430,6 +4430,10 @@
         <translation type="unfinished">ইফেক্ট যোগ করা হয়েছে</translation>
     </message>
     <message>
+        <source>Template: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply effect template</source>
         <translation type="unfinished">ইফেক্ট টেমপ্লেট প্রয়োগ করুন</translation>
     </message>

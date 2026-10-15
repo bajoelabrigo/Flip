@@ -4262,6 +4262,10 @@
         <translation>تمت إضافة التأثير</translation>
     </message>
     <message>
+        <source>Template: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply effect template</source>
         <translation>تطبيق قالب التأثير</translation>
     </message>

@@ -4322,6 +4322,10 @@
         <translation>エフェクトを追加しました</translation>
     </message>
     <message>
+        <source>Template: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply effect template</source>
         <translation>エフェクトテンプレートを適用</translation>
     </message>
