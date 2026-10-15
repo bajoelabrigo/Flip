@@ -3898,10 +3898,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Template applied. No music under this clip: it keeps a steady 120 BPM beat</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Voice changer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4336,6 +4332,10 @@
     <message>
         <source>Template applied</source>
         <translation>템플릿이 적용됨</translation>
+    </message>
+    <message>
+        <source>This template follows the music, and this clip has none: it keeps a steady 120 BPM beat. Add music under it and pick the rhythm again in Effects › Template.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Change template</source>
@@ -9782,6 +9782,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Follows the beat of the music. On a clip with no music it keeps a steady 120 BPM beat.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply template</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9988,6 +9992,10 @@
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
+    </message>
+    <message>
+        <source>This clip has no music, so the template keeps a steady 120 BPM beat. Put music under it and pick the rhythm again to follow its beats.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove template</source>

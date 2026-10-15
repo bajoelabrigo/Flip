@@ -316,6 +316,39 @@ Item {
                          ? qsTr("One effect from the start to the end of the clip.")
                          : qsTr("%n pulse(s) under this clip.", "", templateSection.info.pulses || 0))
             }
+            // Follows the music, and there is none: say so, so a template that seems to do
+            // little is not taken for a broken one.
+            Rectangle {
+                visible: templateSection.info.steadyBeat === true && !templateSection.info.rhythmPending
+                width: parent.width
+                height: visible ? steadyNote.implicitHeight + 2 * Theme.spacingSm : 0
+                radius: Theme.radiusSm
+                color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.12)
+                border.width: 1
+                border.color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.45)
+
+                Row {
+                    id: steadyNote
+                    x: Theme.spacingSm
+                    y: Theme.spacingSm
+                    width: parent.width - 2 * Theme.spacingSm
+                    spacing: Theme.spacingSm
+
+                    IconGlyph {
+                        glyph: Theme.icons.music
+                        iconSize: 14
+                        iconColor: Theme.primary
+                    }
+                    Text {
+                        width: parent.width - 14 - Theme.spacingSm
+                        text: qsTr("This clip has no music, so the template keeps a steady 120 BPM beat. Put music under it and pick the rhythm again to follow its beats.")
+                        color: Theme.panelForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeSm
+                        wrapMode: Text.WordWrap
+                    }
+                }
+            }
 
             ThemedButton {
                 variant: "ghost"

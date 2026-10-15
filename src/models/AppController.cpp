@@ -17888,6 +17888,7 @@ QVariantList AppController::effectTemplateCatalog() const
             {QStringLiteral("category"), entry.category},
             {QStringLiteral("categoryLabel"), effectTemplateCategoryLabel(entry.category)},
             {QStringLiteral("sync"), entry.sync},
+            {QStringLiteral("followsMusic"), templateSyncNeedsBeats(entry.sync)},
             {QStringLiteral("thumbnailPath"), entry.thumbnailPath},
             {QStringLiteral("effectThumbnails"), effectThumbnails},
             {QStringLiteral("effectCount"), seenEffectIds.size()},
@@ -17997,6 +17998,9 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
     const bool haveMatte = matte.isMedia();
 
     const QList<drift::TimeUs> syncPoints = templateSyncPoints(sourceClip, entry.sync);
+    // Follows the music, but there is none under the clip: the steady fallback beat.
+    const bool steadyBeat =
+        templateSyncNeedsBeats(entry.sync) && !beatAnalysisReadyForClip(sourceClip, entry.sync);
 
     auto applyTrackLayers = [&](drift::Clip &clip, const EffectTemplateTrack &trackDef) {
         applyTemplateLayersToClip(clip, trackDef.layers, entry.sync, syncPoints);
@@ -18149,6 +18153,7 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
         tag.instance = QUuid::createUuid().toString(QUuid::WithoutBraces);
         tag.sync = entry.sync;
         tag.points = syncPoints;
+        tag.steadyBeat = steadyBeat;
         tag.speedApplied = entry.speedPulse.valid;
         tag.spanStart = sourceClip.timelineStart;
         tag.spanDuration = sourceClip.timelineDuration;
@@ -18304,9 +18309,13 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
     m_selectedClip = selectClip;
     m_selection = {qMakePair(selectTrack, selectClip)};
     pushProjectEdit(before, tr("Apply effect template"));
-    finishEdit(templateSyncNeedsBeats(entry.sync) && !beatAnalysisReadyForClip(sourceClip, entry.sync)
-                   ? tr("Template applied. No music under this clip: it keeps a steady 120 BPM beat")
-                   : tr("Template applied"));
+    finishEdit(tr("Template applied"));
+    if (steadyBeat) {
+        setLastMessage(tr("This template follows the music, and this clip has none: it keeps a "
+                          "steady 120 BPM beat. Add music under it and pick the rhythm again in "
+                          "Effects › Template."),
+                       QStringLiteral("warning"));
+    }
     emit sequenceTabsChanged();
 }
 
@@ -18459,6 +18468,7 @@ void AppController::refreshTemplateSpans(drift::Project &project) const
                 QList<drift::TimeUs> points;
                 if (tag.sync == QLatin1String("clip") || beatAnalysisReadyForClip(clip, tag.sync)) {
                     points = templateSyncPoints(clip, tag.sync);
+                    tag.steadyBeat = false;
                 } else {
                     const drift::TimeUs shift = tag.spanStart - clip.timelineStart;
                     for (drift::TimeUs p : std::as_const(tag.points)) {
@@ -18497,6 +18507,7 @@ QVariantMap AppController::effectTemplateInfo(int trackIndex, int clipIndex) con
             {QStringLiteral("decay"), tag.decay},
             {QStringLiteral("pulses"), tag.points.size()},
             {QStringLiteral("rhythmPending"), m_pendingTemplateRhythm.has_value()},
+            {QStringLiteral("steadyBeat"), tag.steadyBeat && templateSyncNeedsBeats(tag.sync)},
         };
     }
     return {};
@@ -18592,10 +18603,21 @@ void AppController::setEffectTemplateRhythm(int trackIndex, int clipIndex, const
     if (!reshapeEffectTemplate(trackIndex, clipIndex, info.value(QStringLiteral("intensity")).toDouble(),
                                info.value(QStringLiteral("decay")).toDouble(), sync, &points))
         return;
+    const bool steadyBeat = templateSyncNeedsBeats(sync) && !beatAnalysisReadyForClip(source, sync);
+    const drift::ClipRef host =
+        effectHostRef(sourceTrack, sourceClip, drift::AdjustmentKind::VideoEffects, false);
+    if (host.trackIndex >= 0) {
+        for (drift::Effect &effect : m_project.tracks()[host.trackIndex].clips[host.clipIndex].effects) {
+            if (effect.templateTag.isValid())
+                effect.templateTag.steadyBeat = steadyBeat;
+        }
+    }
     pushProjectEdit(before, tr("Change template rhythm"));
-    finishEdit(beatAnalysisReadyForClip(source, sync) || !templateSyncNeedsBeats(sync)
-                   ? tr("Template rhythm changed")
-                   : tr("No music under this clip: the template keeps a steady 120 BPM beat"));
+    finishEdit(tr("Template rhythm changed"));
+    if (steadyBeat) {
+        setLastMessage(tr("No music under this clip: the template keeps a steady 120 BPM beat"),
+                       QStringLiteral("warning"));
+    }
 }
 
 void AppController::removeEffectTemplate(int trackIndex, int clipIndex)

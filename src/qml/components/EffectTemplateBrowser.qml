@@ -340,7 +340,35 @@ Column {
                         }
                     }
 
+                    // Follows the music: on a clip without any, it falls back to a steady beat.
                     Rectangle {
+                        anchors.left: parent.left
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 4
+                        anchors.leftMargin: templateCard.modelData.requiresSegmentation === true
+                                            ? segBadgeBox.width + 8 : 4
+                        visible: templateCard.modelData.followsMusic === true
+                        width: 18
+                        height: 18
+                        radius: Theme.radiusXs
+                        color: Theme.scrimStrong
+
+                        IconGlyph {
+                            anchors.centerIn: parent
+                            glyph: Theme.icons.music
+                            iconSize: 11
+                            iconColor: Theme.onMedia
+                        }
+
+                        HoverHandler { id: musicBadgeHover }
+                        ThemedToolTip {
+                            visible: musicBadgeHover.hovered
+                            text: qsTr("Follows the beat of the music. On a clip with no music it keeps a steady 120 BPM beat.")
+                        }
+                    }
+
+                    Rectangle {
+                        id: segBadgeBox
                         anchors.left: parent.left
                         anchors.bottom: parent.bottom
                         anchors.margins: 4

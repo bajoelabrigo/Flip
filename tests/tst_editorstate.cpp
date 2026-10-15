@@ -8911,6 +8911,18 @@ void EditorStateTest::beatTemplateOnSilentClipStillApplies()
     // Every half second across the four seconds.
     QCOMPARE(tagged->templateTag.points.size(), 8);
     QCOMPARE(tagged->templateTag.points.at(1), drift::secondsToUs(0.5));
+    // Remembered (and saved), so Effects › Template can say why the beat is steady.
+    QVERIFY(tagged->templateTag.steadyBeat);
+    QVERIFY(drift::effectsFromJson(drift::effectsToJson({*tagged})).first().templateTag.steadyBeat);
+    QCOMPARE(state.lastMessageSeverity(), QStringLiteral("warning"));
+    // The catalog marks every template that follows the music, whatever its source.
+    bool marked = false;
+    for (const QVariant &v : state.effectTemplateCatalog()) {
+        const QVariantMap item = v.toMap();
+        if (item.value(QStringLiteral("id")).toString() == entry->id)
+            marked = item.value(QStringLiteral("followsMusic")).toBool();
+    }
+    QVERIFY(marked);
 }
 
 void EditorStateTest::cutoutTemplateLandsInAComposition()

@@ -31,6 +31,10 @@ struct EffectTemplateTag
     QList<TimeUs> points;
     // The template also wrote a speed curve on that clip, to undo with the template.
     bool speedApplied = false;
+    // The template follows the music but there was none under the clip: its pulses are the steady
+    // 120 BPM fallback, which Effects › Template says, so a still-looking result is not taken for
+    // a broken template.
+    bool steadyBeat = false;
     // The stretch of timeline the pulses were laid out for (start, duration). When the clip that
     // carries them is cut, trimmed, stretched or moved, the pulses are rebuilt for its new span.
     // -1: not recorded yet (projects from before this field).

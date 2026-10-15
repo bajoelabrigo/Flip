@@ -114,6 +114,8 @@ QJsonArray effectsToJson(const QList<Effect> &effects)
             };
             if (tag.speedApplied)
                 templ.insert(QStringLiteral("speedApplied"), true);
+            if (tag.steadyBeat)
+                templ.insert(QStringLiteral("steadyBeat"), true);
             if (tag.spanDuration >= 0) {
                 templ.insert(QStringLiteral("span"),
                              QJsonArray{static_cast<double>(tag.spanStart),
@@ -153,6 +155,7 @@ QList<Effect> effectsFromJson(const QJsonArray &array)
             for (const QJsonValue &t : templ.value(QStringLiteral("points")).toArray())
                 tag.points.append(static_cast<TimeUs>(t.toDouble()));
             tag.speedApplied = templ.value(QStringLiteral("speedApplied")).toBool(false);
+            tag.steadyBeat = templ.value(QStringLiteral("steadyBeat")).toBool(false);
             const QJsonArray span = templ.value(QStringLiteral("span")).toArray();
             if (span.size() == 2) {
                 tag.spanStart = static_cast<TimeUs>(span.at(0).toDouble());

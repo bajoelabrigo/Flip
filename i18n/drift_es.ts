@@ -3904,10 +3904,6 @@
         <translation>El LUT «%1» no está donde lo guardó el proyecto ni en tu biblioteca de LUT. Búscalo para volver a usarlo.</translation>
     </message>
     <message>
-        <source>Template applied. No music under this clip: it keeps a steady 120 BPM beat</source>
-        <translation>Plantilla aplicada. El clip no tiene música: sigue un ritmo fijo de 120 BPM</translation>
-    </message>
-    <message>
         <source>Voice changer</source>
         <translation>Modificador de voz</translation>
     </message>
@@ -4344,6 +4340,10 @@
     <message>
         <source>Template applied</source>
         <translation>Plantilla aplicada</translation>
+    </message>
+    <message>
+        <source>This template follows the music, and this clip has none: it keeps a steady 120 BPM beat. Add music under it and pick the rhythm again in Effects › Template.</source>
+        <translation>Esta plantilla sigue la música y este clip no tiene: usa un ritmo fijo de 120 BPM. Pon música debajo y elige otra vez el ritmo en Efectos › Plantilla.</translation>
     </message>
     <message>
         <source>Change template</source>
@@ -9814,6 +9814,10 @@
         <translation>%1 — haz clic para aplicarla al clip bajo el cabezal</translation>
     </message>
     <message>
+        <source>Follows the beat of the music. On a clip with no music it keeps a steady 120 BPM beat.</source>
+        <translation>Sigue el ritmo de la música. En un clip sin música usa un ritmo fijo de 120 BPM.</translation>
+    </message>
+    <message>
         <source>Apply template</source>
         <translation>Aplicar plantilla</translation>
     </message>
@@ -10021,6 +10025,10 @@
             <numerusform>%n golpe bajo este clip.</numerusform>
             <numerusform>%n golpes bajo este clip.</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>This clip has no music, so the template keeps a steady 120 BPM beat. Put music under it and pick the rhythm again to follow its beats.</source>
+        <translation>Este clip no tiene música, así que la plantilla usa un ritmo fijo de 120 BPM. Pon música debajo y elige otra vez el ritmo para que siga sus golpes.</translation>
     </message>
     <message>
         <source>Remove template</source>
