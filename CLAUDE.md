@@ -89,9 +89,19 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - **Trampa:** un efecto con picos animados (`rgb_split`, `strobe_flash`, `beat_shake`, `zoom_pulse`) necesita la
   clave de caída en `"hold"`, si no sube en rampa hasta el siguiente pico y lava la imagen.
 - **Trampa:** evitar fotos de ejemplo con marcas (Converse, Nike, Adidas…): revisar la cuadrícula.
-- **Falta:** Stock › Plantillas (servidor `api.getflipstudio.com` con el catálogo y las descargas + tipo de entrega
-  nuevo en `MarketClient::applyCatalog` + botón «Usar»), elegir cuáles van incluidas en la app, aviso si faltan
-  las tipografías, probar todo en ventana con la build de la rama.
+- **Jorge (2026-10-15):** todas gratis, **todas en Stock** (ninguna incluida en la app), Stock pide iniciar sesión
+  y **lo descargado queda en la cuenta** (como «mis materiales» de holyapp).
+- **Stock › Plantillas desplegado (2026-10-15):** `flipstudio-api` `main` (tipo `template`, `delivery:
+  "scene-template"`, búsqueda sin tildes, filtro «Mis plantillas», `GET /library`, `DELETE /library/:id`, modelo
+  `LibraryItem` único por cuenta+elemento, se borra con la cuenta). Paquetes en el VPS en
+  `/var/www/flipstudio-templates` servidos en `https://api.getflipstudio.com/plantillas/` (nginx `location ^~`:
+  sin `^~` una regla de imágenes se come los `.png`). Subir: `tools/scene_templates/build.py` → `publish.py` →
+  `flipstudio-api/deploy/plantillas.ps1` (cambia la carpeta entera).
+- App: «Usar plantilla» baja el zip, lo instala en `AppData/scene-templates/<id>` (`installSceneTemplatePackage`,
+  va antes que las incluidas) y la pone en el cabezal; las de la cuenta que faltan en el equipo salen en
+  Escenas con insignia de descarga; «Mi cuenta» › Descargas muestra la biblioteca de la cuenta.
+- **Falta:** probar en ventana con la build de la rama, aviso si faltan las tipografías, y que la política de
+  privacidad diga que la cuenta guarda lo que bajas de Stock.
 
 ### Para la próxima versión (pedido de Jorge, 2026-10-15)
 1. **La composición de una plantilla tiene que aparecer en Medios**, y desde ahí poder entrar a editarla o borrarla
