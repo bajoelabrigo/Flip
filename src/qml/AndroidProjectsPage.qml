@@ -230,7 +230,7 @@ Item {
 
                             readonly property string projectLabel: {
                                 const n = card.modelData.name || ""
-                                return n.replace(/\.drift$/i, "") || qsTr("Untitled")
+                                return n.replace(/\.(flip|drift)$/i, "") || qsTr("Untitled")
                             }
 
                             Column {

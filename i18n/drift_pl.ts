@@ -1342,6 +1342,10 @@
 <context>
     <name>AndroidEditor</name>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save Project</source>
         <translation>Zapisz projekt</translation>
     </message>
@@ -1388,10 +1392,6 @@
     <message>
         <source>Select all</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Projekt Flip Studio (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -1590,6 +1590,10 @@
         <translation>Utworzono napisy.</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Couldn’t create captions: %1</source>
         <translation>Nie udało się utworzyć napisów: %1</translation>
     </message>
@@ -1608,10 +1612,6 @@
     <message>
         <source>Imported from the marketplace.</source>
         <translation>Zaimportowano ze sklepu.</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Projekt Flip Studio (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -9578,6 +9578,10 @@
         <translation>Wideo</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Video size and layout</source>
         <translation>Rozmiar i układ wideo</translation>
     </message>
@@ -9716,10 +9720,6 @@
     <message>
         <source>Theme</source>
         <translation>Motyw</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Projekt Flip Studio (*.drift)</translation>
     </message>
     <message>
         <source>Home — your projects</source>

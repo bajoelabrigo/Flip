@@ -1340,6 +1340,10 @@
 <context>
     <name>AndroidEditor</name>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save Project</source>
         <translation>프로젝트 저장</translation>
     </message>
@@ -1386,10 +1390,6 @@
     <message>
         <source>Select all</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Flip Studio 프로젝트 (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -1588,6 +1588,10 @@
         <translation>캡션이 생성되었습니다.</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Couldn’t create captions: %1</source>
         <translation>캡션을 만들 수 없습니다: %1</translation>
     </message>
@@ -1606,10 +1610,6 @@
     <message>
         <source>Imported from the marketplace.</source>
         <translation>마켓플레이스에서 가져왔습니다.</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Flip Studio 프로젝트 (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -9510,6 +9510,10 @@
         <translation>동영상</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Video size and layout</source>
         <translation>동영상 크기 및 레이아웃</translation>
     </message>
@@ -9648,10 +9652,6 @@
     <message>
         <source>Theme</source>
         <translation>테마</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Flip Studio 프로젝트 (*.drift)</translation>
     </message>
     <message>
         <source>Home — your projects</source>

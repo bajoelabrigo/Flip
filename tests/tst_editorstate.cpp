@@ -187,6 +187,7 @@ private slots:
     void addTrackInsertsEmptyTrackByType();
     void renameTrackAndUndo();
     void projectPersistenceRoundTrip();
+    void flipAndDriftProjectsBothOpen();
     void saveProjectAsDuplicatesProject();
     void projectJsonExportImportRoundTrip();
     void guidesTravelWithProject();
@@ -3475,6 +3476,32 @@ void EditorStateTest::packagedProjectCarriesDerivedArtifacts()
     QVERIFY(loadedPath != mattePath);
     QVERIFY2(QFileInfo::exists(loadedPath), qPrintable(loadedPath));
     QCOMPARE(QFileInfo(loadedPath).size(), 1024);
+}
+
+// Projects are saved as .flip now (the save dialogs suggest it) and a .drift from an earlier version
+// still opens: the file is told by its contents, not its name.
+void EditorStateTest::flipAndDriftProjectsBothOpen()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    for (const QString &name : {QStringLiteral("nuevo.flip"), QStringLiteral("antiguo.drift")}) {
+        AssetLibrary library;
+        AppController state(&library);
+        state.addTextClip(name, 0.0);
+        const QString path = dir.filePath(name);
+        state.projectFile()->saveProject(QUrl::fromLocalFile(path));
+        QVERIFY2(QFileInfo::exists(path), qPrintable(path));
+        QFile file(path);
+        QVERIFY(file.open(QIODevice::ReadOnly));
+        QCOMPARE(file.read(8), QByteArray("DRIFTPRJ"));
+        file.close();
+
+        AssetLibrary otherLibrary;
+        AppController other(&otherLibrary);
+        other.projectFile()->loadProject(QUrl::fromLocalFile(path));
+        QTRY_VERIFY(!other.projectFile()->projectLoadPending());
+        QCOMPARE(other.tracks().at(0).toMap().value(QStringLiteral("type")).toString(), QStringLiteral("text"));
+    }
 }
 
 void EditorStateTest::projectPersistenceRoundTrip()

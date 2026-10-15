@@ -1345,6 +1345,10 @@
 <context>
     <name>AndroidEditor</name>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save Project</source>
         <translation>حفظ المشروع</translation>
     </message>
@@ -1391,10 +1395,6 @@
     <message>
         <source>Select all</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>مشروع Flip Studio (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -1593,6 +1593,10 @@
         <translation>تم إنشاء التسميات التوضيحية.</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Couldn’t create captions: %1</source>
         <translation>تعذر إنشاء التسميات التوضيحية: %1</translation>
     </message>
@@ -1611,10 +1615,6 @@
     <message>
         <source>Imported from the marketplace.</source>
         <translation>تم الاستيراد من المتجر.</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>مشروع Flip Studio (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -9680,6 +9680,10 @@
         <translation>الفيديو</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Video size and layout</source>
         <translation>حجم الفيديو وتخطيطه</translation>
     </message>
@@ -9818,10 +9822,6 @@
     <message>
         <source>Theme</source>
         <translation>المظهر</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>مشروع Flip Studio (*.drift)</translation>
     </message>
     <message>
         <source>Home — your projects</source>

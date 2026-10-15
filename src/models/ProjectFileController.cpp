@@ -977,7 +977,7 @@ void ProjectFileController::packageProject(const QUrl &url)
 {
     // The bundle writer needs a real file to seek in, so on Android this stages into app storage
     // and the finished bundle is streamed into the picked document below.
-    const QString path = writeTargetPath(url, QStringLiteral("drift"));
+    const QString path = writeTargetPath(url, QStringLiteral("flip"));
     if (path.isEmpty()) {
         m_app->setLastMessage(tr("That save location isn’t valid"), QStringLiteral("error"));
         return;

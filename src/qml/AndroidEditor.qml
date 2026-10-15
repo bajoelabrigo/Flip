@@ -30,7 +30,7 @@ Item {
         previewFullscreen = false
     }
 
-    readonly property var projectFilter: [qsTr("Flip Studio project (*.drift)")]
+    readonly property var projectFilter: [qsTr("Flip Studio project (*.flip *.drift)")]
 
     function openAssetsTab(tabId) {
         composer.close()
@@ -200,7 +200,7 @@ Item {
             return !EditorState.projectFile.hasUnsavedChanges
         }
         const url = FileDialogs.saveFile(qsTr("Save Project"), root.projectFilter,
-                                         EditorState.projectFile.projectName, "drift")
+                                         EditorState.projectFile.projectName, "flip")
         if (url === "")
             return false
         EditorState.projectFile.saveProject(url)
@@ -212,7 +212,7 @@ Item {
     // variation. Suggests "<name> copy" so the default cannot land back on the original.
     function saveProjectAs() {
         const url = FileDialogs.saveFile(qsTr("Save Project As"), root.projectFilter,
-                                         qsTr("%1 copy").arg(EditorState.projectFile.projectName), "drift")
+                                         qsTr("%1 copy").arg(EditorState.projectFile.projectName), "flip")
         if (url === "")
             return false
         EditorState.projectFile.saveProjectAs(url)
@@ -221,7 +221,7 @@ Item {
 
     function packageProject() {
         const url = FileDialogs.saveFile(qsTr("Save Shareable Copy"), root.projectFilter,
-                                         EditorState.projectFile.projectName, "drift")
+                                         EditorState.projectFile.projectName, "flip")
         if (url !== "")
             EditorState.projectFile.packageProject(url)
     }

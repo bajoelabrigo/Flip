@@ -1340,6 +1340,10 @@
 <context>
     <name>AndroidEditor</name>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save Project</source>
         <translation>プロジェクトを保存</translation>
     </message>
@@ -1386,10 +1390,6 @@
     <message>
         <source>Select all</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Flip Studio プロジェクト (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -1588,6 +1588,10 @@
         <translation>キャプションを作成しました。</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Couldn’t create captions: %1</source>
         <translation>キャプションを作成できませんでした : %1</translation>
     </message>
@@ -1606,10 +1610,6 @@
     <message>
         <source>Imported from the marketplace.</source>
         <translation>マーケットプレイスからインポートされました。</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Flip Studio プロジェクト (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -9510,6 +9510,10 @@
         <translation>ビデオ</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Video size and layout</source>
         <translation>ビデオサイズとレイアウト</translation>
     </message>
@@ -9648,10 +9652,6 @@
     <message>
         <source>Theme</source>
         <translation>テーマ</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Flip Studio プロジェクト (*.drift)</translation>
     </message>
     <message>
         <source>Home — your projects</source>

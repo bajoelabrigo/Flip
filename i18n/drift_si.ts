@@ -1341,6 +1341,10 @@
 <context>
     <name>AndroidEditor</name>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save Project</source>
         <translation>ව්‍යාපෘතිය සුරකින්න</translation>
     </message>
@@ -1387,10 +1391,6 @@
     <message>
         <source>Select all</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Flip Studio ව්‍යාපෘතිය (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -1589,6 +1589,10 @@
         <translation>උපසිරැසි සාදන ලදී.</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Couldn’t create captions: %1</source>
         <translation>උපසිරැසි සෑදීමට නොහැකි විය: %1</translation>
     </message>
@@ -1607,10 +1611,6 @@
     <message>
         <source>Imported from the marketplace.</source>
         <translation>වෙළඳපොළෙන් ආයාත කරන ලදී.</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Flip Studio ව්‍යාපෘතිය (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -9544,6 +9544,10 @@
         <translation>වීඩියෝ</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Video size and layout</source>
         <translation>වීඩියෝ ප්‍රමාණය සහ පිරිසැලසුම</translation>
     </message>
@@ -9682,10 +9686,6 @@
     <message>
         <source>Theme</source>
         <translation>තේමාව</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Flip Studio ව්‍යාපෘතිය (*.drift)</translation>
     </message>
     <message>
         <source>Home — your projects</source>

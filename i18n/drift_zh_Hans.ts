@@ -1340,6 +1340,10 @@
 <context>
     <name>AndroidEditor</name>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save Project</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1385,10 +1389,6 @@
     </message>
     <message>
         <source>Select all</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1588,6 +1588,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Couldn’t create captions: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1605,10 +1609,6 @@
     </message>
     <message>
         <source>Imported from the marketplace.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -9510,6 +9510,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Video size and layout</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9647,10 +9651,6 @@
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

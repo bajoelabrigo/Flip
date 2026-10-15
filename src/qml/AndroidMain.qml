@@ -62,7 +62,7 @@ ApplicationWindow {
     palette.toolTipBase: Theme.panelBackground
     palette.toolTipText: Theme.panelForeground
 
-    readonly property var projectFilter: [qsTr("Flip Studio project (*.drift)")]
+    readonly property var projectFilter: [qsTr("Flip Studio project (*.flip *.drift)")]
     property bool inEditor: false
     property bool forceClose: false
     property var _pendingAfterUnsaved: null
@@ -109,7 +109,7 @@ ApplicationWindow {
             return !EditorState.projectFile.hasUnsavedChanges
         }
         const url = FileDialogs.saveFile(qsTr("Save Project"), window.projectFilter,
-                                         EditorState.projectFile.projectName, "drift")
+                                         EditorState.projectFile.projectName, "flip")
         if (url === "")
             return false
         EditorState.projectFile.saveProject(url)

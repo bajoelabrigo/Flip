@@ -1342,6 +1342,10 @@
 <context>
     <name>AndroidEditor</name>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save Project</source>
         <translation>Сохранить проект</translation>
     </message>
@@ -1388,10 +1392,6 @@
     <message>
         <source>Select all</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Проект Flip Studio (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -1590,6 +1590,10 @@
         <translation>Субтитры созданы.</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Couldn’t create captions: %1</source>
         <translation>Не удалось создать субтитры: %1</translation>
     </message>
@@ -1608,10 +1612,6 @@
     <message>
         <source>Imported from the marketplace.</source>
         <translation>Импортировано из магазина.</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Проект Flip Studio (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -9578,6 +9578,10 @@
         <translation>Видео</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Video size and layout</source>
         <translation>Размер и расположение видео</translation>
     </message>
@@ -9716,10 +9720,6 @@
     <message>
         <source>Theme</source>
         <translation>Тема</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Проект Flip Studio (*.drift)</translation>
     </message>
     <message>
         <source>Home — your projects</source>

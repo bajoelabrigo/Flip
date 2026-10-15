@@ -1341,7 +1341,7 @@
 <context>
     <name>AndroidEditor</name>
     <message>
-        <source>Flip Studio project (*.drift)</source>
+        <source>Flip Studio project (*.flip *.drift)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1537,6 +1537,10 @@
 <context>
     <name>AndroidMain</name>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save Project</source>
         <translation>প্রকল্প সংরক্ষণ করুন</translation>
     </message>
@@ -1587,10 +1591,6 @@
     <message>
         <source>Captions created.</source>
         <translation>ক্যাপশন তৈরি হয়েছে.</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Couldn’t create captions: %1</source>
@@ -9485,10 +9485,6 @@
         <translation>সব ফাইল (*)</translation>
     </message>
     <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Save Project As</source>
         <translation>নতুন নামে প্রকল্প সংরক্ষণ করুন</translation>
     </message>
@@ -9550,6 +9546,10 @@
     <message>
         <source>Video</source>
         <translation>ভিডিও</translation>
+    </message>
+    <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Video size and layout</source>

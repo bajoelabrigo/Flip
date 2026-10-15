@@ -1341,6 +1341,10 @@
 <context>
     <name>AndroidEditor</name>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save Project</source>
         <translation>Guardar proyecto</translation>
     </message>
@@ -1387,10 +1391,6 @@
     <message>
         <source>Select all</source>
         <translation>Seleccionar todo</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Proyecto Flip Studio (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -1589,6 +1589,10 @@
         <translation>Subtítulos creados.</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Couldn’t create captions: %1</source>
         <translation>No se pudieron crear los subtítulos: %1</translation>
     </message>
@@ -1607,10 +1611,6 @@
     <message>
         <source>Imported from the marketplace.</source>
         <translation>Importado del mercado.</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Proyecto Flip Studio (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -9544,6 +9544,10 @@
         <translation>Video</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Video size and layout</source>
         <translation>Tamaño y diseño del video</translation>
     </message>
@@ -9682,10 +9686,6 @@
     <message>
         <source>Theme</source>
         <translation>Tema</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Proyecto Flip Studio (*.drift)</translation>
     </message>
     <message>
         <source>Home — your projects</source>

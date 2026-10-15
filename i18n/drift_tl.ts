@@ -1341,6 +1341,10 @@
 <context>
     <name>AndroidEditor</name>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save Project</source>
         <translation>I-save ang Proyekto</translation>
     </message>
@@ -1387,10 +1391,6 @@
     <message>
         <source>Select all</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Proyekto ng Flip Studio (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -1589,6 +1589,10 @@
         <translation>Nalikha ang mga caption.</translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Couldn’t create captions: %1</source>
         <translation>Hindi malikha ang mga caption: %1</translation>
     </message>
@@ -1607,10 +1611,6 @@
     <message>
         <source>Imported from the marketplace.</source>
         <translation>Naangkat mula sa marketplace.</translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
-        <translation>Proyektong Flip Studio (*.drift)</translation>
     </message>
 </context>
 <context>
@@ -9544,6 +9544,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Video size and layout</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9681,10 +9685,6 @@
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
