@@ -59,3 +59,32 @@ celebraciones cada 2–4 golpes.
   stock dentro del paquete de una plantilla de pago: los huecos van vacíos. Nada de Unsplash+.
   Pexels permite expresamente «una plantilla que vendes». Sin logos ni marcas visibles.
 - Música: mood + biblioteca propia o con licencia; nunca pistas comerciales.
+
+## Las 100 de tendencia (pedido de Jorge, 2026-10-15: «surtir la tienda»)
+
+Investigación (CapCut explore, TikTok, octubre 2026): lo más usado son las ediciones **cámara lenta + canción**,
+**velocity / cambios de velocidad**, **cortes al ritmo**, **photo dump cinemático**, **resúmenes del mes**
+(«octubre en fotos»), **antes y después / glow-up**, **POV y ganchos de texto**, **3D zoom / Ken Burns**, y las
+de temporada (Halloween, Día de Muertos, Navidad, Año Nuevo, Black Friday). Público latinoamericano, en español.
+
+Cinco tandas de 20, cada una en su archivo (`templates_t1.py` … `templates_t5.py`, cada uno con su `TEMPLATES`):
+
+| Tanda | Archivo | Tema | Categorías | order |
+|---|---|---|---|---|
+| 1 | templates_t1.py | Fechas especiales | `seasonal` | 1000–1099 |
+| 2 | templates_t2.py | Ediciones de tendencia | `reels` (y `collage`, `beforeafter`) | 1100–1199 |
+| 3 | templates_t3.py | Negocios | `business`, `product` | 1200–1299 |
+| 4 | templates_t4.py | Vida y personas | `celebration`, `reels`, `collage` | 1300–1399 |
+| 5 | templates_t5.py | Texto, intros y cierres | `text`, `intro`, `outro`, `countdown` | 1400–1499 |
+
+Reglas comunes, además de las de arriba (miniaturas, licencias):
+- Ids en español, en minúsculas con guiones, **únicos** frente a las 32 de la tabla y a las otras tandas
+  (prefijo de tanda si hace falta).
+- Nombre `es` corto y vendedor; `en` traducido; 4–6 etiquetas en español para la búsqueda.
+- Solo fotos de `tienda/plantillas/muestras` (ver `CREDITS.json`; mirar la foto antes: nada de marcas ni logos),
+  solo música de `musica.libre` (ids de la carpeta), solo tipografías de `fonts.basic` / `fonts.extra`, solo
+  efectos y animaciones de texto que ya existen (los usados en las 32, o un id que esté en `Flip/effects`).
+- Cada plantilla con identidad propia (paleta, tipografía, ritmo y movimiento distintos): que no parezcan 20
+  variaciones de la misma. Entre 5 y 15 s; huecos (fotos) y textos editables con etiqueta clara.
+- Validar con `build.py --no-render --only <ids>` (paquetes sin abrir la app). El render de miniaturas y
+  previas lo hace una sola sesión de la app al final.

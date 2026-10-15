@@ -117,6 +117,25 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   salían sin ojos).
 - **Trampa curvas:** tangentes Catmull-Rom → Bézier = (siguiente − anterior) / 6, no / 2.
 
+### 101 plantillas de tendencia en Stock (2026-10-15, pedido de Jorge: «surtir la tienda»)
+- `tools/scene_templates/templates_t1.py` … `t5.py` (fechas especiales, ediciones de tendencia, negocios, vida y
+  personas, texto/intros/cierres); guía en `BRIEF.md` › «Las 100 de tendencia». Categorías nuevas `seasonal`
+  («Fechas especiales») y `business` («Negocios»), con nombre en la app (`SceneTemplateCatalog`) y en `publish.py`.
+- Renderizadas con el portable de `pruebas\FlipStudio-body`, revisadas en hojas de contacto y **desplegadas**: 133 en
+  Stock › Plantillas. Fotos de ejemplo nuevas (24 temas) bajadas con `fetch_samples.py`.
+- **Trampa:** un canal animado vale su **primera clave** antes de ella: un pico que empieza en el s 10 deja el efecto
+  al máximo los 10 s anteriores. Los ayudantes `spikes()` ponen `(0, 0, "hold")` delante.
+- Para elegir el momento de una miniatura: `scan_thumbs.py` (scratch) captura un fotograma por segundo.
+
+### Retoque › Cuerpo y Cabello (rama `flip/plantillas-propias`, 2026-10-15)
+- `engine/BodyLandmarker` (MediaPipe Pose sin detector + Selfie Multiclass), `engine/PoseTrack` (sidecar en
+  `AppData/posetracks`, `Clip::poseTrackPath`), efecto `body.reshape` (`"requires": "pose"`, uniforms `u_body*`),
+  `hair.color` en una capa de ajuste enlazada con la máscara del pelo, `BodyController` (`EditorState.body`), MCP
+  `analyze_body` / `color_hair`. Extra `cuerpo.cabello` (tipo `body-model`, app ≥ 0.13.0) preparado en flip-addons,
+  **sin publicar**. Probado con el ejecutable real (cuerpo y pelo) — falta mirar el panel en ventana.
+- **Arreglo:** `MatteWriter` redondea a pares (una foto de 867 px no abría el codificador; afectaba también a
+  «Quitar fondo» con fotos).
+
 ### Lista de la 0.12.0 (pedido de Jorge, 2026-10-15) — TODO HECHO y publicado en la 0.12.0
 1. **La composición de una plantilla tiene que aparecer en Medios**, y desde ahí poder entrar a editarla o borrarla
    con Suprimir. Hoy el asset `Composite` se crea pero Jorge no lo ve en Medios.

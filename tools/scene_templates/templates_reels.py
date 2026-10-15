@@ -90,7 +90,7 @@ def hype_glitch() -> Template:
     t = Template("hype-glitch", "Hype con glitch", "Glitch hype", "reels", 8.0,
                  order=40, tags=["hype", "glitch", "energía", "gym", "fiesta"], thumb_at=6.75)
     photos = t.track("video", "Fotos")
-    samples = ["fashion-01", "gym-02", "man-03", "fashion-04", "friends-04", "man-02", "gym-05", "man-01"]
+    samples = ["fashion-03", "gym-02", "man-03", "fashion-04", "friends-04", "man-02", "gym-01", "man-01"]
     for i, sample in enumerate(samples):
         t.photo(photos, sample, i * 1.0, 1.0, FULL,
                 [(0, {"s": 1.22}, "snap"), (0.18, {"s": 1.04}, "linear"), (0.5, {"s": 1.16}, "snap"),

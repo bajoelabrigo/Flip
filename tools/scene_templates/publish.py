@@ -30,6 +30,8 @@ CATEGORY_NAMES = {
     "beforeafter": {"es": "Antes y después", "en": "Before and after"},
     "product": {"es": "Productos", "en": "Products"},
     "celebration": {"es": "Celebraciones", "en": "Celebrations"},
+    "seasonal": {"es": "Fechas especiales", "en": "Special dates"},
+    "business": {"es": "Negocios", "en": "Business"},
     "countdown": {"es": "Cuentas regresivas", "en": "Countdowns"},
     "outro": {"es": "Cierres", "en": "Endings"},
 }
