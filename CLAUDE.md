@@ -70,6 +70,10 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 5. **Transiciones (Jorge, 2026-10-15, revisar mañana):** una vez colocada una transición entre dos clips no deja
    cambiarla por otra. Reproducirlo primero en ventana (soltar otra encima, elegirla en el panel, el tipo en el
    inspector) antes de tocar código.
+6. **Seleccionar varias pistas (capas) desde su cabecera (Jorge, 2026-10-15):** Mayús + clic selecciona un rango
+   de pistas seguidas y Ctrl + clic suma o quita pistas sueltas, como en Premiere/After Effects. Con varias
+   seleccionadas: **agrupar** (composición con todo su contenido) y **eliminar las pistas completas** con todos sus
+   clips (Suprimir y clic derecho). Hoy la selección múltiple es solo de clips.
 
 ### 0.10.0 PUBLICADA EN GITHUB (2026-10-14): cuenta de Google, Stock y estadísticas anónimas
 - PR #15, tag `v0.10.0`, release con instalador, portable y `SHA256SUMS` (copia en `FlipStudio\versiones\FlipStudio-0.10.0`).
