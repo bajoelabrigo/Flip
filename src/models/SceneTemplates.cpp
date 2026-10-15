@@ -7,9 +7,14 @@
 #include "MarketClient.h"
 #include "MediaBinController.h"
 #include "core/SceneTemplateLayout.h"
+#include "engine/FrameCompositor.h"
+#include "engine/GpuCompositor.h"
 #include "engine/SceneTemplateCatalog.h"
 
 #include <QCryptographicHash>
+#include <QDateTime>
+#include <QFontDatabase>
+#include <QLocale>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
@@ -165,6 +170,7 @@ QVariantList AppController::sceneTemplates() const
             {QStringLiteral("height"), entry.height},
             {QStringLiteral("premium"), entry.premium},
             {QStringLiteral("tags"), entry.tags},
+            {QStringLiteral("mine"), entry.origin == QLatin1String("user")},
         });
     }
     return out;
@@ -405,6 +411,16 @@ QString AppController::insertSceneTemplate(const QString &templateId)
         m_assetLibrary->syncToProject();
     pushProjectEdit(before, tr("Add template"));
     finishEdit(QString());
+    const QStringList missingFonts = missingTemplateFonts(tracks);
+    if (!missingFonts.isEmpty()) {
+        // It still goes in: the text falls back to another font until these are installed.
+        setLastMessage(tr("Template added, but it uses fonts this computer does not have: %1. Install the "
+                          "Fonts packs from Extras so it looks as designed.").arg(missingFonts.join(QStringLiteral(", "))),
+                       QStringLiteral("warning"));
+        selectClipById(compositeId);
+        emit sequenceTabsChanged();
+        return compositeId;
+    }
     setLastMessage(slotNumber > 0 ? tr("Template added: fill its %n slot(s) in the panel on the right", "", slotNumber)
                                   : tr("Template added"),
                    QStringLiteral("info"));
@@ -685,4 +701,292 @@ bool AppController::setTemplateText(const QString &textClipId, const QString &te
     pushProjectEdit(before, tr("Template text"));
     finishEdit(QString());
     return true;
+}
+
+// --- Templates of one's own ------------------------------------------------------------------
+
+namespace {
+
+bool isTextKind(drift::ClipType type)
+{
+    return type == drift::ClipType::Text || type == drift::ClipType::Subtitle;
+}
+
+bool isMediaSlotKind(drift::ClipType type)
+{
+    return type == drift::ClipType::Image || type == drift::ClipType::Video;
+}
+
+// "Mi reel de viaje" -> "mi-reel-de-viaje": the readable part of a user template's id.
+QString slugFor(const QString &name)
+{
+    QString s = name.normalized(QString::NormalizationForm_D).toLower();
+    QString out;
+    for (const QChar c : s) {
+        if (c.isLetterOrNumber() && c.unicode() < 128)
+            out.append(c);
+        else if ((c.isSpace() || c == QLatin1Char('-') || c == QLatin1Char('_')) && !out.endsWith(QLatin1Char('-')))
+            out.append(QLatin1Char('-'));
+    }
+    while (out.endsWith(QLatin1Char('-')))
+        out.chop(1);
+    return out.left(40).isEmpty() ? QStringLiteral("plantilla") : out.left(40);
+}
+
+} // namespace
+
+QVariantMap AppController::clipPlaceholderState(int trackIndex, int clipIndex) const
+{
+    // Slots are marked inside a composition: that is what a template is made of.
+    if (m_project.activeSequenceId().isEmpty() || !isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const bool text = isTextKind(clip.type);
+    if (!text && !isMediaSlotKind(clip.type) && clip.placeholderId.isEmpty())
+        return {};
+    return QVariantMap{
+        {QStringLiteral("kind"), text ? QStringLiteral("text") : QStringLiteral("media")},
+        {QStringLiteral("marked"), !clip.placeholderId.isEmpty()},
+        {QStringLiteral("label"), clip.placeholderLabel},
+    };
+}
+
+bool AppController::setClipPlaceholder(int trackIndex, int clipIndex, bool marked)
+{
+    if (clipPlaceholderState(trackIndex, clipIndex).isEmpty())
+        return false;
+    const drift::Project before = m_project.detachedCopy();
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (marked == !clip.placeholderId.isEmpty())
+        return false;
+    if (!marked) {
+        clip.placeholderId.clear();
+        clip.placeholderLabel.clear();
+        clip.placeholderEmpty = false;
+    } else if (isTextKind(clip.type)) {
+        clip.placeholderId = QStringLiteral("t") + QUuid::createUuid().toString(QUuid::Id128).left(8);
+        const QString text = clip.textContent.simplified();
+        clip.placeholderLabel = text.size() > 24 ? text.left(23) + QChar(0x2026) : text;
+        if (clip.placeholderLabel.isEmpty())
+            clip.placeholderLabel = tr("Text");
+    } else {
+        QSet<QString> slotIds;
+        for (const drift::Track &track : m_project.tracks()) {
+            for (const drift::Clip &other : track.clips) {
+                if (!other.placeholderId.isEmpty() && !isTextKind(other.type))
+                    slotIds.insert(other.placeholderId);
+            }
+        }
+        clip.placeholderId = QStringLiteral("p") + QUuid::createUuid().toString(QUuid::Id128).left(8);
+        clip.placeholderLabel = tr("Photo %1").arg(slotIds.size() + 1);
+        clip.placeholderEmpty = false;
+    }
+    pushProjectEdit(before, marked ? tr("Make slot") : tr("Remove slot"));
+    finishEdit(QString());
+    return true;
+}
+
+QString AppController::clipAssetId(int trackIndex, int clipIndex) const
+{
+    return isValidClipIndex(trackIndex, clipIndex) ? m_project.tracks().at(trackIndex).clips.at(clipIndex).assetId
+                                                   : QString();
+}
+
+void AppController::requestSaveTemplate(const QString &compositeAssetId)
+{
+    const drift::MediaAsset *asset = m_project.asset(compositeAssetId);
+    if (!asset || asset->kind != drift::MediaKind::Composite)
+        return;
+    emit saveTemplateRequested(compositeAssetId, asset->name);
+}
+
+QVariantMap AppController::compositeTemplateSummary(const QString &compositeAssetId) const
+{
+    const drift::MediaAsset *asset = m_project.asset(compositeAssetId);
+    if (!asset || asset->kind != drift::MediaKind::Composite)
+        return {};
+    QSet<QString> slotIds;
+    int texts = 0;
+    for (const drift::Track &track : m_project.sequenceTracks(asset->sequenceId)) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.placeholderId.isEmpty())
+                continue;
+            if (isTextKind(clip.type))
+                ++texts;
+            else
+                slotIds.insert(clip.placeholderId);
+        }
+    }
+    return QVariantMap{
+        {QStringLiteral("name"), asset->name},
+        {QStringLiteral("slots"), int(slotIds.size())},
+        {QStringLiteral("texts"), texts},
+    };
+}
+
+QString AppController::saveCompositeAsTemplate(const QString &compositeAssetId, const QString &name,
+                                               const QString &category)
+{
+    const drift::MediaAsset *composite = m_project.asset(compositeAssetId);
+    if (!composite || composite->kind != drift::MediaKind::Composite) {
+        setLastMessage(tr("Only a composition can be saved as a template"), QStringLiteral("warning"));
+        return {};
+    }
+    const QString title = name.trimmed().isEmpty() ? composite->name : name.trimmed();
+    const QString root = userSceneTemplatesDir();
+    const QString id = QStringLiteral("mine-%1-%2").arg(slugFor(title),
+                                                      QUuid::createUuid().toString(QUuid::Id128).left(6));
+    const QString dir = QDir(root).filePath(id);
+    if (root.isEmpty() || !QDir().mkpath(QDir(dir).filePath(QStringLiteral("media")))) {
+        setLastMessage(tr("Could not create the template folder"), QStringLiteral("error"));
+        return {};
+    }
+
+    // The composition's own timeline, with its pictures copied into the package (slots excepted:
+    // whoever uses the template brings their own) and its paths made relative.
+    drift::Project content;
+    content.setResolution(m_project.width(), m_project.height());
+    content.setFps(m_project.fps());
+    content.tracks() = m_project.sequenceTracks(composite->sequenceId);
+    QHash<QString, QString> copied; // asset id -> relative path
+    QSet<QString> slotIds;
+    int texts = 0;
+    int fileNumber = 0;
+    for (drift::Track &track : content.tracks()) {
+        for (drift::Clip &clip : track.clips) {
+            if (!clip.placeholderId.isEmpty()) {
+                if (isTextKind(clip.type)) {
+                    ++texts;
+                    continue;
+                }
+                slotIds.insert(clip.placeholderId);
+                clip.assetId.clear();
+                clip.path.clear();
+                clip.thumbnailPath.clear();
+                clip.filmstripPath.clear();
+                clip.faceTrackPath.clear();
+                clip.depthPath.clear();
+                clip.sourceFrame = QRectF(0, 0, 1, 1);
+                continue;
+            }
+            if (clip.assetId.isEmpty())
+                continue;
+            const drift::MediaAsset *media = m_project.asset(clip.assetId);
+            if (!media || media->path.isEmpty())
+                continue;
+            if (!copied.contains(media->id)) {
+                const QString rel = QStringLiteral("media/%1-%2").arg(++fileNumber).arg(QFileInfo(media->path).fileName());
+                if (!QFile::copy(media->path, QDir(dir).filePath(rel))) {
+                    QDir(dir).removeRecursively();
+                    setLastMessage(tr("Could not copy %1 into the template").arg(media->name), QStringLiteral("error"));
+                    return {};
+                }
+                drift::MediaAsset packed = *media;
+                packed.path = rel;
+                packed.thumbnailPath.clear();
+                packed.filmstripPath.clear();
+                packed.folderId.clear();
+                content.addAsset(packed);
+                copied.insert(media->id, rel);
+            }
+            clip.path = copied.value(media->id);
+            clip.thumbnailPath.clear();
+            clip.filmstripPath.clear();
+            clip.faceTrackPath.clear();
+            clip.depthPath.clear();
+        }
+    }
+    {
+        QFile file(QDir(dir).filePath(QStringLiteral("project.json")));
+        if (!file.open(QIODevice::WriteOnly) || file.write(QJsonDocument(content.toJson(false)).toJson()) <= 0) {
+            QDir(dir).removeRecursively();
+            setLastMessage(tr("Could not save the template"), QStringLiteral("error"));
+            return {};
+        }
+    }
+
+    // The card: the composition at the middle of its length, as the compositor draws it.
+    const drift::TimeUs durationUs = m_project.sequenceDurationUs(composite->sequenceId);
+    {
+        const drift::Project view = m_project.sequenceView(composite->sequenceId);
+        FrameCompositor compositor;
+        compositor.setProject(&view);
+        FrameCompositor::RenderOptions options;
+        options.previewScale = qMin(1.0, 768.0 / qMax(1, qMax(view.width(), view.height())));
+        QImage frame = GpuCompositor::isAvailable() ? compositor.compositeAt(durationUs / 2, options) : QImage();
+        if (frame.isNull()) {
+            frame = QImage(432, 768, QImage::Format_RGB32);
+            frame.fill(QColor(0x2b, 0x2f, 0x3d));
+        }
+        frame.save(QDir(dir).filePath(QStringLiteral("thumbnail.png")));
+    }
+
+    const QString locale = QLocale().name().section(QLatin1Char('_'), 0, 0);
+    QJsonObject names{{QStringLiteral("en"), title}};
+    names.insert(locale.isEmpty() ? QStringLiteral("es") : locale, title);
+    const QJsonObject manifest{
+        {QStringLiteral("id"), id},
+        {QStringLiteral("displayName"), title},
+        {QStringLiteral("names"), names},
+        {QStringLiteral("category"), category.trimmed().isEmpty() ? QStringLiteral("mine") : category.trimmed()},
+        // Ahead of ours: a person's own templates are the first thing they look for.
+        {QStringLiteral("order"), -1000},
+        {QStringLiteral("width"), m_project.width()},
+        {QStringLiteral("height"), m_project.height()},
+        {QStringLiteral("durationSec"), drift::usToSeconds(durationUs)},
+        {QStringLiteral("slots"), int(slotIds.size())},
+        {QStringLiteral("texts"), texts},
+        {QStringLiteral("origin"), QStringLiteral("user")},
+        {QStringLiteral("createdAt"), QDateTime::currentDateTimeUtc().toString(Qt::ISODate)},
+    };
+    QFile manifestFile(QDir(dir).filePath(QStringLiteral("template.json")));
+    if (!manifestFile.open(QIODevice::WriteOnly) || manifestFile.write(QJsonDocument(manifest).toJson()) <= 0) {
+        QDir(dir).removeRecursively();
+        setLastMessage(tr("Could not save the template"), QStringLiteral("error"));
+        return {};
+    }
+    manifestFile.close();
+    reloadSceneTemplateCatalog();
+    emit sceneTemplatesChanged();
+    setLastMessage(slotIds.isEmpty()
+                       ? tr("Saved in Templates › Scenes. It has no slots yet: open the composition and make "
+                            "photos into slots with a right click.")
+                       : tr("Saved in Templates › Scenes, with %n slot(s)", "", int(slotIds.size())),
+                   slotIds.isEmpty() ? QStringLiteral("warning") : QStringLiteral("info"));
+    return id;
+}
+
+bool AppController::deleteUserSceneTemplate(const QString &templateId)
+{
+    const SceneTemplateEntry *entry = sceneTemplateForId(templateId);
+    const QString root = userSceneTemplatesDir();
+    if (!entry || entry->origin != QLatin1String("user") || root.isEmpty()
+        || !QDir::cleanPath(entry->packageDir).startsWith(QDir::cleanPath(root) + QLatin1Char('/'))) {
+        return false;
+    }
+    if (!QDir(entry->packageDir).removeRecursively())
+        return false;
+    reloadSceneTemplateCatalog();
+    emit sceneTemplatesChanged();
+    setLastMessage(tr("Template deleted"), QStringLiteral("info"));
+    return true;
+}
+
+QStringList AppController::missingTemplateFonts(const QList<drift::Track> &tracks)
+{
+    QSet<QString> wanted;
+    for (const drift::Track &track : tracks) {
+        for (const drift::Clip &clip : track.clips) {
+            if (isTextKind(clip.type) && !clip.textStyle.fontFamily.isEmpty())
+                wanted.insert(clip.textStyle.fontFamily);
+        }
+    }
+    const QStringList installed = QFontDatabase::families();
+    QStringList missing;
+    for (const QString &family : std::as_const(wanted)) {
+        if (!installed.contains(family, Qt::CaseInsensitive))
+            missing.append(family);
+    }
+    std::sort(missing.begin(), missing.end());
+    return missing;
 }

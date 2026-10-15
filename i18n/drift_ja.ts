@@ -5207,6 +5207,10 @@
         <source>Add template</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Template added, but it uses fonts this computer does not have: %1. Install the Fonts packs from Extras so it looks as designed.</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
         <source>Template added: fill its %n slot(s) in the panel on the right</source>
         <translation type="unfinished">
@@ -5227,6 +5231,44 @@
     </message>
     <message>
         <source>Template text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make slot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove slot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only a composition can be saved as a template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create the template folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not copy %1 into the template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not save the template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saved in Templates › Scenes. It has no slots yet: open the composition and make photos into slots with a right click.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Saved in Templates › Scenes, with %n slot(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Template deleted</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -12744,6 +12786,10 @@
         <translation>コンポジットを開く</translation>
     </message>
     <message>
+        <source>Save as template…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Preview and edit…</source>
         <translation>プレビューと編集…</translation>
     </message>
@@ -15585,6 +15631,79 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SaveTemplateDialog</name>
+    <message>
+        <source>My templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Photo reels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intros and titles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">テキスト</translation>
+    </message>
+    <message>
+        <source>Collages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Before and after</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Products</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Celebrations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Countdowns</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Endings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">保存</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">名前</translation>
+    </message>
+    <message>
+        <source>My template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n slot(s) for photos and videos, and %1 editable text(s). The rest of the composition is saved as it is.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>It has no slots yet. To leave room for other people&apos;s photos, open the composition and right-click a photo or video › Make template slot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SceneDetectController</name>
     <message>
         <source>Already looking for scenes</source>
@@ -15668,6 +15787,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">お気に入りに追加</translation>
     </message>
     <message>
+        <source>Delete template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Use template</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15682,6 +15805,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SceneTemplateCatalog</name>
+    <message>
+        <source>My templates</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Photo reels</source>
         <translation type="unfinished"></translation>
@@ -18391,6 +18518,14 @@ If playback stutters, try another.</source>
         <source>Edit the template inside: move, retime or restyle any of its layers</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Save as my template…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep this version, with your changes, in Templates › Scenes</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TemplatesTab</name>
@@ -20182,6 +20317,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Select multiple</source>
         <translation>複数選択</translation>
+    </message>
+    <message>
+        <source>Stop being a template slot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make template slot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop being an editable template text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make editable template text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as template…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open composite</source>

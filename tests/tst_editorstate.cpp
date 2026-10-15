@@ -305,6 +305,7 @@ private slots:
     void trackHeadersPickGroupAndDelete();
     void sceneTemplateInsertsAndFillsSlots();
     void sceneTemplateLayoutScalesAndCovers();
+    void userTemplateSavesFromComposition();
     void trackRowHeightsForAdjustmentsAndLanes();
     void overlappingAdjustmentsGetASecondLane();
     void multiClipMoveLeftPreservesSelectionAndRelativeSpacing();
@@ -1060,6 +1061,91 @@ void EditorStateTest::sceneTemplateLayoutScalesAndCovers()
 
     // Cover: a square picture in a tall slot keeps its middle, full height.
     QCOMPARE(drift::coverSourceFrame(QSizeF(1000, 1000), QSizeF(500, 1000)), QRectF(0.25, 0, 0.5, 1));
+}
+
+// A template of one's own: inside a composition a photo becomes a slot and a text an editable text;
+// saved, the composition becomes a package under AppData/scene-templates with the other media
+// copied in and the slot left empty; another project inserts it with that one slot; it can be deleted.
+void EditorStateTest::userTemplateSavesFromComposition()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    const auto restore = qScopeGuard([] {
+        QDir(userSceneTemplatesDir()).removeRecursively();
+        QStandardPaths::setTestModeEnabled(false);
+        reloadSceneTemplateCatalog();
+    });
+    QDir(userSceneTemplatesDir()).removeRecursively();
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+
+    AssetLibrary library;
+    AppController state(&library);
+    state.setSnapEnabled(false);
+    const auto addImage = [&](const QString &name, QColor colour) {
+        QImage image(64, 64, QImage::Format_RGB32);
+        image.fill(colour);
+        const QString path = dir.filePath(name);
+        image.save(path);
+        drift::MediaAsset asset;
+        asset.kind = drift::MediaKind::Image;
+        asset.name = name;
+        asset.path = path;
+        asset.width = 64;
+        asset.height = 64;
+        state.project()->addAsset(asset);
+        library.syncToProject();
+        return library.count() - 1;
+    };
+    const int photo = addImage(QStringLiteral("photo.png"), Qt::red);
+    const int logo = addImage(QStringLiteral("logo.png"), Qt::blue);
+    state.addClipFromAssetAt(photo, 0, 0.0);
+    state.addClipFromAssetAt(logo, 0, 5.0);
+    QCOMPARE(state.project()->tracks().at(0).clips.size(), 2);
+    state.setSelection({QVariantMap{{QStringLiteral("track"), 0}, {QStringLiteral("clip"), 0}},
+                        QVariantMap{{QStringLiteral("track"), 0}, {QStringLiteral("clip"), 1}}});
+    state.makeCompositeFromSelection();
+    const QString compositeAssetId = state.clipAssetId(0, 0);
+    QVERIFY(!compositeAssetId.isEmpty());
+
+    // Slots are marked inside the composition, and not on the main timeline.
+    QVERIFY(state.clipPlaceholderState(0, 0).isEmpty());
+    state.openCompositeClip(0, 0);
+    QVERIFY(!state.project()->activeSequenceId().isEmpty());
+    int photoTrack = -1;
+    for (int t = 0; t < state.project()->tracks().size(); ++t) {
+        if (!state.project()->tracks().at(t).clips.isEmpty())
+            photoTrack = t;
+    }
+    QVERIFY(photoTrack >= 0);
+    QCOMPARE(state.clipPlaceholderState(photoTrack, 0).value(QStringLiteral("kind")).toString(), QStringLiteral("media"));
+    QVERIFY(state.setClipPlaceholder(photoTrack, 0, true));
+    QVERIFY(state.clipPlaceholderState(photoTrack, 0).value(QStringLiteral("marked")).toBool());
+    state.openSequence(QString());
+    QCOMPARE(state.compositeTemplateSummary(compositeAssetId).value(QStringLiteral("slots")).toInt(), 1);
+
+    const QString id = state.saveCompositeAsTemplate(compositeAssetId, QStringLiteral("Mi plantilla"));
+    QVERIFY(id.startsWith(QStringLiteral("mine-mi-plantilla-")));
+    const SceneTemplateEntry *entry = sceneTemplateForId(id);
+    QVERIFY(entry);
+    QCOMPARE(entry->origin, QStringLiteral("user"));
+    QCOMPARE(entry->slotCount, 1);
+    QCOMPARE(entry->category, QStringLiteral("mine"));
+    QVERIFY(QFileInfo::exists(QDir(entry->packageDir).filePath(QStringLiteral("thumbnail.png"))));
+    // The logo travels with it; the slot's photo does not.
+    const QStringList media = QDir(QDir(entry->packageDir).filePath(QStringLiteral("media"))).entryList(QDir::Files);
+    QCOMPARE(media.size(), 1);
+    QVERIFY(media.first().endsWith(QStringLiteral("logo.png")));
+
+    AssetLibrary otherLibrary;
+    AppController other(&otherLibrary);
+    QVERIFY(!other.insertSceneTemplate(id).isEmpty());
+    const QString inserted = other.sceneTemplateAssetAt(other.selectedTrack(), other.selectedClip());
+    const QVariantList slotList = other.sceneTemplateInfo(inserted).value(QStringLiteral("slots")).toList();
+    QCOMPARE(slotList.size(), 1);
+    QVERIFY(slotList.first().toMap().value(QStringLiteral("empty")).toBool());
+
+    QVERIFY(state.deleteUserSceneTemplate(id));
+    QVERIFY(!sceneTemplateForId(id));
 }
 
 // The bug this guards: the overlay used to place a clip's outline and grips with the eye fixed at

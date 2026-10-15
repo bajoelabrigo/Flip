@@ -231,6 +231,13 @@ Column {
                             icon.name: Theme.icons.star
                             onTriggered: EditorState.toggleAssetFavorite("sceneTemplates", card.modelData.id)
                         }
+                        ThemedMenuItem {
+                            // Only one's own: ours come back from Stock, these would not.
+                            visible: card.modelData.mine === true
+                            text: qsTr("Delete template")
+                            icon.name: Theme.icons.trash
+                            onTriggered: EditorState.deleteUserSceneTemplate(card.modelData.id)
+                        }
                     }
 
                     // How many photos it takes: the first thing anyone choosing a template asks.

@@ -1325,6 +1325,21 @@ public:
     Q_INVOKABLE int fillTemplateSlotsFromUrls(const QString &compositeAssetId, const QString &firstSlotClipId,
                                               const QList<QUrl> &urls);
     Q_INVOKABLE bool setTemplateText(const QString &textClipId, const QString &text);
+    // Templates of one's own. Inside a composition a photo or video can be made a slot and a text
+    // made editable: {kind: "media"|"text", marked, label}, empty when the clip can be neither.
+    Q_INVOKABLE QVariantMap clipPlaceholderState(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE bool setClipPlaceholder(int trackIndex, int clipIndex, bool marked);
+    // Opens the Save as template dialog (saveTemplateRequested) for a composition.
+    Q_INVOKABLE void requestSaveTemplate(const QString &compositeAssetId);
+    Q_INVOKABLE QString clipAssetId(int trackIndex, int clipIndex) const;
+    // {name, slots, texts} of a composition, for that dialog.
+    Q_INVOKABLE QVariantMap compositeTemplateSummary(const QString &compositeAssetId) const;
+    // Writes the composition as a scene template under AppData/scene-templates ("My templates"):
+    // its media copied in, its slots left empty, a thumbnail of its middle frame. Returns the id.
+    Q_INVOKABLE QString saveCompositeAsTemplate(const QString &compositeAssetId, const QString &name,
+                                                const QString &category = QString());
+    // Only templates of one's own can be deleted.
+    Q_INVOKABLE bool deleteUserSceneTemplate(const QString &templateId);
     Q_INVOKABLE void removeEffect(int trackIndex, int clipIndex, int effectIndex);
     Q_INVOKABLE void setEffectEnabled(int trackIndex, int clipIndex, int effectIndex, bool enabled);
     Q_INVOKABLE void moveEffect(int trackIndex, int clipIndex, int fromIndex, int toIndex);
@@ -1807,6 +1822,7 @@ signals:
     void fontCatalogChanged();
     // Scene templates were installed or removed (Stock, Extras).
     void sceneTemplatesChanged();
+    void saveTemplateRequested(const QString &compositeAssetId, const QString &name);
     void userFontsChanged();
     void userEffectPresetsChanged();
     void facePropsChanged();
@@ -1911,6 +1927,7 @@ protected:
     // inner tracks first (it gets them shifted to start at 0, plus the original start). No undo
     // step: the caller records one.
     bool fillTemplateSlotWithAsset(const QString &slotClipId, const QString &mediaAssetId, bool recordUndo);
+    static QStringList missingTemplateFonts(const QList<drift::Track> &tracks);
     QString buildCompositeFromClipIds(
         const QSet<QString> &ids, const QString &name,
         const std::function<void(drift::TrackList &, drift::TimeUs)> &prepareInner);

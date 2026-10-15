@@ -5226,6 +5226,10 @@
         <source>Add template</source>
         <translation>Agregar plantilla</translation>
     </message>
+    <message>
+        <source>Template added, but it uses fonts this computer does not have: %1. Install the Fonts packs from Extras so it looks as designed.</source>
+        <translation>Plantilla agregada, pero usa tipografías que este equipo no tiene: %1. Instala los paquetes de Tipografías desde Extras para que se vea como fue diseñada.</translation>
+    </message>
     <message numerus="yes">
         <source>Template added: fill its %n slot(s) in the panel on the right</source>
         <translation>
@@ -5248,6 +5252,45 @@
     <message>
         <source>Template text</source>
         <translation>Texto de la plantilla</translation>
+    </message>
+    <message>
+        <source>Make slot</source>
+        <translation>Convertir en hueco</translation>
+    </message>
+    <message>
+        <source>Remove slot</source>
+        <translation>Quitar hueco</translation>
+    </message>
+    <message>
+        <source>Only a composition can be saved as a template</source>
+        <translation>Solo una composición se puede guardar como plantilla</translation>
+    </message>
+    <message>
+        <source>Could not create the template folder</source>
+        <translation>No se pudo crear la carpeta de la plantilla</translation>
+    </message>
+    <message>
+        <source>Could not copy %1 into the template</source>
+        <translation>No se pudo copiar %1 a la plantilla</translation>
+    </message>
+    <message>
+        <source>Could not save the template</source>
+        <translation>No se pudo guardar la plantilla</translation>
+    </message>
+    <message>
+        <source>Saved in Templates › Scenes. It has no slots yet: open the composition and make photos into slots with a right click.</source>
+        <translation>Guardada en Plantillas › Escenas. Todavía no tiene huecos: abre la composición y convierte fotos en huecos con clic derecho.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Saved in Templates › Scenes, with %n slot(s)</source>
+        <translation>
+            <numerusform>Guardada en Plantillas › Escenas, con %n hueco</numerusform>
+            <numerusform>Guardada en Plantillas › Escenas, con %n huecos</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Template deleted</source>
+        <translation>Plantilla eliminada</translation>
     </message>
 </context>
 <context>
@@ -12780,6 +12823,10 @@
         <translation>Abrir composición</translation>
     </message>
     <message>
+        <source>Save as template…</source>
+        <translation>Guardar como plantilla…</translation>
+    </message>
+    <message>
         <source>Preview and edit…</source>
         <translation>Vista previa y editar…</translation>
     </message>
@@ -15641,6 +15688,80 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>SaveTemplateDialog</name>
+    <message>
+        <source>My templates</source>
+        <translation>Mis plantillas</translation>
+    </message>
+    <message>
+        <source>Photo reels</source>
+        <translation>Reels de fotos</translation>
+    </message>
+    <message>
+        <source>Intros and titles</source>
+        <translation>Intros y títulos</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texto</translation>
+    </message>
+    <message>
+        <source>Collages</source>
+        <translation>Collages</translation>
+    </message>
+    <message>
+        <source>Before and after</source>
+        <translation>Antes y después</translation>
+    </message>
+    <message>
+        <source>Products</source>
+        <translation>Productos</translation>
+    </message>
+    <message>
+        <source>Celebrations</source>
+        <translation>Celebraciones</translation>
+    </message>
+    <message>
+        <source>Countdowns</source>
+        <translation>Cuentas regresivas</translation>
+    </message>
+    <message>
+        <source>Endings</source>
+        <translation>Cierres</translation>
+    </message>
+    <message>
+        <source>Save as template</source>
+        <translation>Guardar como plantilla</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Guardar</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nombre</translation>
+    </message>
+    <message>
+        <source>My template</source>
+        <translation>Mi plantilla</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation>Categoría</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n slot(s) for photos and videos, and %1 editable text(s). The rest of the composition is saved as it is.</source>
+        <translation>
+            <numerusform>%n hueco para fotos y videos y %1 texto(s) editable(s). El resto de la composición se guarda tal cual.</numerusform>
+            <numerusform>%n huecos para fotos y videos y %1 texto(s) editable(s). El resto de la composición se guarda tal cual.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>It has no slots yet. To leave room for other people&apos;s photos, open the composition and right-click a photo or video › Make template slot.</source>
+        <translation>Todavía no tiene huecos. Para dejar sitio a las fotos de otros, abre la composición y haz clic derecho en una foto o un video › Convertir en hueco de la plantilla.</translation>
+    </message>
+</context>
+<context>
     <name>SceneDetectController</name>
     <message>
         <source>Already looking for scenes</source>
@@ -15725,6 +15846,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Agregar a favoritos</translation>
     </message>
     <message>
+        <source>Delete template</source>
+        <translation>Eliminar plantilla</translation>
+    </message>
+    <message>
         <source>Use template</source>
         <translation>Usar plantilla</translation>
     </message>
@@ -15739,6 +15864,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 </context>
 <context>
     <name>SceneTemplateCatalog</name>
+    <message>
+        <source>My templates</source>
+        <translation>Mis plantillas</translation>
+    </message>
     <message>
         <source>Photo reels</source>
         <translation>Reels de fotos</translation>
@@ -18452,6 +18581,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <source>Edit the template inside: move, retime or restyle any of its layers</source>
         <translation>Edita la plantilla por dentro: mueve, cambia el tiempo o el estilo de cualquiera de sus capas</translation>
     </message>
+    <message>
+        <source>Save as my template…</source>
+        <translation>Guardar como mi plantilla…</translation>
+    </message>
+    <message>
+        <source>Keep this version, with your changes, in Templates › Scenes</source>
+        <translation>Guarda esta versión, con tus cambios, en Plantillas › Escenas</translation>
+    </message>
 </context>
 <context>
     <name>TemplatesTab</name>
@@ -20243,6 +20380,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Select multiple</source>
         <translation>Selección múltiple</translation>
+    </message>
+    <message>
+        <source>Stop being a template slot</source>
+        <translation>Dejar de ser hueco de la plantilla</translation>
+    </message>
+    <message>
+        <source>Make template slot</source>
+        <translation>Convertir en hueco de la plantilla</translation>
+    </message>
+    <message>
+        <source>Stop being an editable template text</source>
+        <translation>Dejar de ser texto editable de la plantilla</translation>
+    </message>
+    <message>
+        <source>Make editable template text</source>
+        <translation>Convertir en texto editable de la plantilla</translation>
+    </message>
+    <message>
+        <source>Save as template…</source>
+        <translation>Guardar como plantilla…</translation>
     </message>
     <message>
         <source>Open composite</source>

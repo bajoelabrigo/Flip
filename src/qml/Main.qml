@@ -918,6 +918,20 @@ ApplicationWindow {
         }
     }
 
+    LazyLoader {
+        id: saveTemplateDialogLoader
+        sourceComponent: Component {
+            SaveTemplateDialog { }
+        }
+    }
+
+    Connections {
+        target: EditorState
+        function onSaveTemplateRequested(assetId, name) {
+            saveTemplateDialogLoader.ensure().openFor(assetId, name)
+        }
+    }
+
     Connections {
         target: Updates
         function onUpdateReady() {

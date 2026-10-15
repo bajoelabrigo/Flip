@@ -910,6 +910,12 @@ Item {
                         onTriggered: EditorState.openCompositeAsset(assetId)
                     }
                     ThemedMenuItem {
+                        text: qsTr("Save as template…")
+                        icon.name: Theme.icons.layers
+                        visible: kind === "composite" && root.selectedAssetIds.length <= 1
+                        onTriggered: EditorState.requestSaveTemplate(assetId)
+                    }
+                    ThemedMenuItem {
                         text: root.selectedAssetIds.length > 1
                               ? qsTr("Add %n items to timeline", "", root.selectedAssetIds.length)
                               : qsTr("Add to timeline")
@@ -1402,6 +1408,12 @@ Item {
                     icon.name: Theme.icons.layers
                     visible: kind === "composite" && root.selectedAssetIds.length <= 1
                     onTriggered: EditorState.openCompositeAsset(assetId)
+                }
+                ThemedMenuItem {
+                    text: qsTr("Save as template…")
+                    icon.name: Theme.icons.layers
+                    visible: kind === "composite" && root.selectedAssetIds.length <= 1
+                    onTriggered: EditorState.requestSaveTemplate(assetId)
                 }
                 ThemedMenuItem {
                     text: root.selectedAssetIds.length > 1
