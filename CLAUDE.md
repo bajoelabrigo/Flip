@@ -103,6 +103,20 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - **Falta:** probar en ventana con la build de la rama, aviso si faltan las tipografías, y que la política de
   privacidad diga que la cuenta guarda lo que bajas de Stock.
 
+### 0.12.0 PUBLICADA (2026-10-15) — y Etapa 3 de plantillas en curso (rama `flip/plantillas-propias`)
+- 0.12.0: PR #17, tag `v0.12.0`, release con instalador/portable/SHA256SUMS, copia en `versiones\FlipStudio-0.12.0`,
+  novedades en la web, política de privacidad con «Tu biblioteca de Stock». MSIX: `msstore.yml` run 38808515108 →
+  `tienda\FlipStudio-Store\paquete-0.12.0`. **Falta (Jorge):** TXT `version` = 0.12.0 y subir el MSIX.
+- Etapa 3 (Jorge: «hagamos lo que sugeriste»): **MOGRT fuera**; **plantillas propias** (convertir en hueco /
+  texto editable, «Guardar como plantilla…», «Mis plantillas», borrar las propias, aviso de tipografías que faltan);
+  **Stock › Animaciones**: 65 stickers Lottie hechos por nosotros (`tools/animations`: `designs.py` + `designs2.py`,
+  `build.py` renderiza tarjetas con la app, `publish.py` los deja en `publicar/animaciones`), colores como slots
+  (`sid`), botón «LottieFiles» que abre su web (su licencia prohíbe servir su catálogo). **Servidor desplegado**
+  (tipo `animation`, `delivery: "media"`): la 0.12.0 ya las ve y las importa a Medios.
+- **Trampa Lottie:** la primera forma de una capa se dibuja **encima**: los detalles van antes que el fondo (las caras
+  salían sin ojos).
+- **Trampa curvas:** tangentes Catmull-Rom → Bézier = (siguiente − anterior) / 6, no / 2.
+
 ### Para la próxima versión (pedido de Jorge, 2026-10-15)
 1. **La composición de una plantilla tiene que aparecer en Medios**, y desde ahí poder entrar a editarla o borrarla
    con Suprimir. Hoy el asset `Composite` se crea pero Jorge no lo ve en Medios.
