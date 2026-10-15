@@ -195,7 +195,7 @@ void MarketClient::setAccount(AccountController *account)
     connect(account, &AccountController::accountChanged, this, [this] {
         emit authChanged();
         if (!m_account->signedIn()) {
-            m_library.clear();
+            m_accountLibrary.clear();
             emit libraryChanged();
             m_types.clear();
             emit catalogChanged();
@@ -231,7 +231,7 @@ void MarketClient::refreshLibrary()
         QVariantList items;
         for (const QJsonValue &value : QJsonDocument::fromJson(reply->readAll()).object().value(QStringLiteral("items")).toArray())
             items.append(objectToMap(value.toObject()));
-        m_library = items;
+        m_accountLibrary = items;
         emit libraryChanged();
     });
 }
@@ -240,9 +240,9 @@ void MarketClient::removeFromLibrary(const QString &itemId)
 {
     if (!configured() || !authenticated() || itemId.isEmpty())
         return;
-    for (int i = m_library.size() - 1; i >= 0; --i) {
-        if (m_library.at(i).toMap().value(QStringLiteral("id")).toString() == itemId)
-            m_library.removeAt(i);
+    for (int i = m_accountLibrary.size() - 1; i >= 0; --i) {
+        if (m_accountLibrary.at(i).toMap().value(QStringLiteral("id")).toString() == itemId)
+            m_accountLibrary.removeAt(i);
     }
     emit libraryChanged();
     QNetworkRequest request(apiUrl(QStringLiteral("/library/") + QString::fromLatin1(QUrl::toPercentEncoding(itemId))));

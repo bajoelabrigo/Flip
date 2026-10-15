@@ -135,7 +135,7 @@ public:
     Q_INVOKABLE void refreshLibrary();
     // Takes an item off the account's list (the files on this machine stay).
     Q_INVOKABLE void removeFromLibrary(const QString &itemId);
-    QVariantList library() const { return m_library; }
+    QVariantList library() const { return m_accountLibrary; }
     // The scene template id a Stock item stands for ("flip:template:<id>"), or empty.
     Q_INVOKABLE QString sceneTemplateIdForItem(const QString &itemId) const;
     Q_INVOKABLE bool sceneTemplateInstalled(const QString &itemId) const;
@@ -204,7 +204,7 @@ private:
     void setSearching(bool searching);
     void setSearchError(const QString &error, bool retryable = true, const QString &code = {});
     void bumpDownloads();
-    QVariantList m_library;
+    QVariantList m_accountLibrary;
     // Resolve is a job now, not a synchronous reply: extraction can outlive any sane HTTP
     // timeout, so the POST only creates it and this polls until it is ready or failed.
     void pollResolve();
