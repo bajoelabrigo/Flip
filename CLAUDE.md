@@ -62,6 +62,17 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - **Trampa:** sin música, el análisis de golpes termina vacío y `analyzeBeats` no repite el mismo tramo: cualquier
   cosa que espere golpes tiene que aceptar también `beatAnalysisCoversClip`.
 
+### 0.12.0 en curso (2026-10-15): rama `flip/v0.12.0` (subida a GitHub)
+- Los 7 puntos de abajo están hechos, cada uno en su commit (`a8d9d` tema y tarjetas, `ac720` plantillas en Medios y
+  «Quitar plantilla» que devuelve el clip, `bd909` cambiar una transición, `285cb` varias pistas, `067b6` 2K/4K/8K).
+- Varias pistas: clic en la cabecera, Mayús (rango), Ctrl (suelta); Suprimir y el menú las borran con sus clips;
+  «Agrupar N pistas» = composición (`selectTrackHeader`, `removeSelectedTracks`, `groupSelectedTracks`).
+- Exportar: las resoluciones se nombran por el **lado corto** (4K de un 9:16 = 2160×3840; antes «1080p» de un
+  vertical daba 608×1080). Por encima del proyecto el compositor dibuja a ese tamaño (`kMaxExportScale` = 8).
+  H.264 se niega a pasar de 4096 por lado; el diálogo cambia a H.265 de la misma familia.
+- **Falta:** probar en ventana (sobre todo exportar 4K/8K con GPU y con `DRIFT_EXPORT_SWSCALE=1`), versión 0.12.0
+  en `CMakeLists.txt`, `release-notes/0.12.0.md`, y el OK de Jorge.
+
 ### Para la próxima versión (pedido de Jorge, 2026-10-15)
 1. **La composición de una plantilla tiene que aparecer en Medios**, y desde ahí poder entrar a editarla o borrarla
    con Suprimir. Hoy el asset `Composite` se crea pero Jorge no lo ve en Medios.
