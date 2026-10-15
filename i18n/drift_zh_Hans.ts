@@ -5159,6 +5159,64 @@
         <source>English subtitles</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>That template is not installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Templates go on the main timeline: close the composition first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not read the template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slot %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your photo or video here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Photo %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This template is empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not place the template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Template added: fill its %n slot(s) in the panel on the right</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Template added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A slot takes a photo or a video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Template text</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AssetCategoryChips</name>
@@ -14675,6 +14733,10 @@ If playback stutters, try another.</source>
 <context>
     <name>PropertiesPanel</name>
     <message>
+        <source>Template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>General</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15529,6 +15591,100 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Scene detection cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SceneTemplateBrowser</name>
+    <message>
+        <source>Search templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No scene templates yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get them from Stock › Templates: they install here and stay yours.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No templates match “%1”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star templates to save them here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing in this category.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to add it at the playhead, then fill its photos in the panel on the right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this template</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SceneTemplateCatalog</name>
+    <message>
+        <source>Photo reels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intros and titles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">文本</translation>
+    </message>
+    <message>
+        <source>Collages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Before and after</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Products</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Celebrations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Countdowns</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Endings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -18132,6 +18288,86 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TemplateFillPanel</name>
+    <message>
+        <source>Choose photos and videos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose a photo or video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>All %n slot(s) filled. Click one to change it.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 of %2 filled. Click a slot, or drop photos and videos on it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill with several photos…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill the empty slots…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick several files at once: they go in order into the empty slots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slot %1 (%2 s): click to choose a photo or video, or drop one here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to change it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">文本</translation>
+    </message>
+    <message>
+        <source>Open the composition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit the template inside: move, retime or restyle any of its layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TemplatesTab</name>
+    <message>
+        <source>Scenes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Whole edits with slots for your photos and videos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation type="unfinished">效果</translation>
+    </message>
+    <message>
+        <source>Music-synced effects for a clip you already have</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

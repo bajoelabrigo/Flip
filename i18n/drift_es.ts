@@ -5178,6 +5178,65 @@
         <source>English subtitles</source>
         <translation>Subtítulos en inglés</translation>
     </message>
+    <message>
+        <source>That template is not installed</source>
+        <translation>Esa plantilla no está instalada</translation>
+    </message>
+    <message>
+        <source>Templates go on the main timeline: close the composition first</source>
+        <translation>Las plantillas van en la línea de tiempo principal: cierra primero la composición</translation>
+    </message>
+    <message>
+        <source>Could not read the template</source>
+        <translation>No se pudo leer la plantilla</translation>
+    </message>
+    <message>
+        <source>Slot %1</source>
+        <translation>Hueco %1</translation>
+    </message>
+    <message>
+        <source>Your photo or video here</source>
+        <translation>Tu foto o video aquí</translation>
+    </message>
+    <message>
+        <source>Photo %1</source>
+        <translation>Foto %1</translation>
+    </message>
+    <message>
+        <source>This template is empty</source>
+        <translation>Esta plantilla está vacía</translation>
+    </message>
+    <message>
+        <source>Could not place the template</source>
+        <translation>No se pudo colocar la plantilla</translation>
+    </message>
+    <message>
+        <source>Add template</source>
+        <translation>Agregar plantilla</translation>
+    </message>
+    <message numerus="yes">
+        <source>Template added: fill its %n slot(s) in the panel on the right</source>
+        <translation>
+            <numerusform>Plantilla agregada: rellena su hueco en el panel de la derecha</numerusform>
+            <numerusform>Plantilla agregada: rellena sus %n huecos en el panel de la derecha</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Template added</source>
+        <translation>Plantilla agregada</translation>
+    </message>
+    <message>
+        <source>A slot takes a photo or a video</source>
+        <translation>En un hueco va una foto o un video</translation>
+    </message>
+    <message>
+        <source>Fill template</source>
+        <translation>Rellenar plantilla</translation>
+    </message>
+    <message>
+        <source>Template text</source>
+        <translation>Texto de la plantilla</translation>
+    </message>
 </context>
 <context>
     <name>AssetCategoryChips</name>
@@ -14736,6 +14795,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>PropertiesPanel</name>
     <message>
+        <source>Template</source>
+        <translation>Plantilla</translation>
+    </message>
+    <message>
         <source>General</source>
         <translation>General</translation>
     </message>
@@ -15593,6 +15656,100 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Scene detection cancelled</source>
         <translation>Detección de escenas cancelada</translation>
+    </message>
+</context>
+<context>
+    <name>SceneTemplateBrowser</name>
+    <message>
+        <source>Search templates</source>
+        <translation>Buscar plantillas</translation>
+    </message>
+    <message>
+        <source>No scene templates yet</source>
+        <translation>Todavía no hay plantillas de escena</translation>
+    </message>
+    <message>
+        <source>Get them from Stock › Templates: they install here and stay yours.</source>
+        <translation>Consíguelas en Stock › Plantillas: se instalan aquí y quedan tuyas.</translation>
+    </message>
+    <message>
+        <source>No templates match “%1”.</source>
+        <translation>Ninguna plantilla coincide con «%1».</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star templates to save them here.</source>
+        <translation>Aún no hay favoritas. Marca plantillas con la estrella para guardarlas aquí.</translation>
+    </message>
+    <message>
+        <source>Nothing in this category.</source>
+        <translation>No hay nada en esta categoría.</translation>
+    </message>
+    <message>
+        <source>%1 — click to add it at the playhead, then fill its photos in the panel on the right</source>
+        <translation>%1 — haz clic para agregarla en el cabezal y luego rellena sus fotos en el panel de la derecha</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>Agregar en el cabezal</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Quitar de favoritos</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Agregar a favoritos</translation>
+    </message>
+    <message>
+        <source>Use template</source>
+        <translation>Usar plantilla</translation>
+    </message>
+    <message>
+        <source>Use this template</source>
+        <translation>Usar esta plantilla</translation>
+    </message>
+</context>
+<context>
+    <name>SceneTemplateCatalog</name>
+    <message>
+        <source>Photo reels</source>
+        <translation>Reels de fotos</translation>
+    </message>
+    <message>
+        <source>Intros and titles</source>
+        <translation>Intros y títulos</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texto</translation>
+    </message>
+    <message>
+        <source>Collages</source>
+        <translation>Collages</translation>
+    </message>
+    <message>
+        <source>Before and after</source>
+        <translation>Antes y después</translation>
+    </message>
+    <message>
+        <source>Products</source>
+        <translation>Productos</translation>
+    </message>
+    <message>
+        <source>Celebrations</source>
+        <translation>Celebraciones</translation>
+    </message>
+    <message>
+        <source>Countdowns</source>
+        <translation>Cuentas regresivas</translation>
+    </message>
+    <message>
+        <source>Endings</source>
+        <translation>Cierres</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation>Otras</translation>
     </message>
 </context>
 <context>
@@ -18200,6 +18357,87 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
         <translation>Subtítulos traducidos al inglés, encima de los originales. El modelo solo traduce al inglés.</translation>
+    </message>
+</context>
+<context>
+    <name>TemplateFillPanel</name>
+    <message>
+        <source>Choose photos and videos</source>
+        <translation>Elegir fotos y videos</translation>
+    </message>
+    <message>
+        <source>Choose a photo or video</source>
+        <translation>Elegir una foto o un video</translation>
+    </message>
+    <message numerus="yes">
+        <source>All %n slot(s) filled. Click one to change it.</source>
+        <translation>
+            <numerusform>El hueco está lleno. Haz clic en él para cambiarlo.</numerusform>
+            <numerusform>Los %n huecos están llenos. Haz clic en uno para cambiarlo.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 of %2 filled. Click a slot, or drop photos and videos on it.</source>
+        <translation>%1 de %2 llenos. Haz clic en un hueco o suelta fotos y videos sobre él.</translation>
+    </message>
+    <message>
+        <source>Fill with several photos…</source>
+        <translation>Rellenar con varias fotos…</translation>
+    </message>
+    <message>
+        <source>Fill the empty slots…</source>
+        <translation>Rellenar los huecos vacíos…</translation>
+    </message>
+    <message>
+        <source>Pick several files at once: they go in order into the empty slots</source>
+        <translation>Elige varios archivos a la vez: van en orden a los huecos vacíos</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Agregar</translation>
+    </message>
+    <message>
+        <source>Slot %1 (%2 s): click to choose a photo or video, or drop one here</source>
+        <translation>Hueco %1 (%2 s): haz clic para elegir una foto o un video, o suéltalo aquí</translation>
+    </message>
+    <message>
+        <source>%1 — click to change it</source>
+        <translation>%1 — haz clic para cambiarlo</translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation>Textos</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texto</translation>
+    </message>
+    <message>
+        <source>Open the composition</source>
+        <translation>Abrir la composición</translation>
+    </message>
+    <message>
+        <source>Edit the template inside: move, retime or restyle any of its layers</source>
+        <translation>Edita la plantilla por dentro: mueve, cambia el tiempo o el estilo de cualquiera de sus capas</translation>
+    </message>
+</context>
+<context>
+    <name>TemplatesTab</name>
+    <message>
+        <source>Scenes</source>
+        <translation>Escenas</translation>
+    </message>
+    <message>
+        <source>Whole edits with slots for your photos and videos</source>
+        <translation>Ediciones completas con huecos para tus fotos y videos</translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation>Efectos</translation>
+    </message>
+    <message>
+        <source>Music-synced effects for a clip you already have</source>
+        <translation>Efectos al ritmo de la música para un clip que ya tienes</translation>
     </message>
 </context>
 <context>
