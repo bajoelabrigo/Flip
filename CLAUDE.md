@@ -117,7 +117,7 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   salían sin ojos).
 - **Trampa curvas:** tangentes Catmull-Rom → Bézier = (siguiente − anterior) / 6, no / 2.
 
-### Para la próxima versión (pedido de Jorge, 2026-10-15)
+### Lista de la 0.12.0 (pedido de Jorge, 2026-10-15) — TODO HECHO y publicado en la 0.12.0
 1. **La composición de una plantilla tiene que aparecer en Medios**, y desde ahí poder entrar a editarla o borrarla
    con Suprimir. Hoy el asset `Composite` se crea pero Jorge no lo ve en Medios.
 2. **«Quitar plantilla» (Efectos) no deshace la plantilla:** borra la capa de ajuste con la animación pero deja la
@@ -606,7 +606,7 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 
 ## Trampas que ya nos costaron tiempo
 
-**Colores de 8 dígitos en QML son `#AARRGGBB`, no `#RRGGBBAA`.** `Theme.scrimColor` (`#00000066`) y `Theme.scrimStrong` (`#000000b3`) salen **transparentes**, heredado de Drift, y se usan en unos 38 sitios (etiquetas sobre miniaturas, velos). En la 0.11.0 solo se corrigieron las etiquetas de las tarjetas de plantillas (`Qt.rgba(0, 0, 0, 0.7)`); arreglar el tema es pendiente: revisar a ojo cada uso antes, porque oscurecerá zonas que hoy se ven claras. Igual `waveformColor` `#ffffffb3` es amarillo pálido y no blanco al 70 %.
+**Colores de 8 dígitos en QML son `#AARRGGBB`, no `#RRGGBBAA`.** `Theme.scrimColor`, `scrimStrong` y `waveformColor` venían de Drift al revés (transparentes o amarillos); corregidos en la 0.12.0 (`a8d9d`). Al escribir un color con alfa, el alfa va primero.
 
 **Restaurar el registro tras una prueba puede cerrar la sesión de Google de Jorge.** El servidor rota el token de
 refresco en cada uso y, si llega uno ya usado, cierra toda la familia (2026-10-14 22:34 UTC pasó). Si la app de
