@@ -4366,6 +4366,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select a clip, or put the playhead over one, to apply the template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>This effect needs a subject cutout — open Extras to install it</source>
         <translation>이 효과에는 피사체 분리가 필요합니다 — 추가 기능을 열어 설치하세요</translation>
     </message>
@@ -9774,7 +9778,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 — select a clip, then click to apply</source>
+        <source>%1 — click to apply it to the clip under the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to the selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to the clip under the playhead</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

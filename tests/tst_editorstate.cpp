@@ -8888,7 +8888,9 @@ void EditorStateTest::beatTemplateOnSilentClipStillApplies()
     const EffectTemplateEntry *entry = effectTemplateForId(QStringLiteral("anime_punch"));
     QVERIFY(entry);
     QCOMPARE(entry->sync, QStringLiteral("onset"));
-    state.applyEffectTemplate(0, 0, entry->id);
+    // Through the card's + button, with nothing selected: it takes the clip under the playhead.
+    QVERIFY(state.selectedClip() < 0);
+    state.applyEffectTemplateToCurrentClip(entry->id);
 
     // The analysis runs in the background; the template lands when it reports back empty.
     QTRY_VERIFY_WITH_TIMEOUT(state.project()->tracks().at(0).clips.at(0).type

@@ -4374,6 +4374,10 @@
         <translation>Plantilla quitada</translation>
     </message>
     <message>
+        <source>Select a clip, or put the playhead over one, to apply the template</source>
+        <translation>Selecciona un clip, o pon el cabezal sobre uno, para aplicar la plantilla</translation>
+    </message>
+    <message>
         <source>This effect needs a subject cutout — open Extras to install it</source>
         <translation>Este efecto necesita un recorte de sujeto — abre Extras para instalarlo</translation>
     </message>
@@ -9806,8 +9810,20 @@
         <translation>%1 — haz clic para aplicar efectos al ritmo de la música en la selección</translation>
     </message>
     <message>
-        <source>%1 — select a clip, then click to apply</source>
-        <translation>%1 — selecciona un clip y haz clic para aplicarlo</translation>
+        <source>%1 — click to apply it to the clip under the playhead</source>
+        <translation>%1 — haz clic para aplicarla al clip bajo el cabezal</translation>
+    </message>
+    <message>
+        <source>Apply template</source>
+        <translation>Aplicar plantilla</translation>
+    </message>
+    <message>
+        <source>Apply to the selected clip</source>
+        <translation>Aplicar al clip seleccionado</translation>
+    </message>
+    <message>
+        <source>Apply to the clip under the playhead</source>
+        <translation>Aplicar al clip bajo el cabezal</translation>
     </message>
     <message>
         <source>Remove from favorites</source>

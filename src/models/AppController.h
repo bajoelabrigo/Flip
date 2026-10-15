@@ -1280,6 +1280,8 @@ public:
     Q_INVOKABLE QVariantList effectTemplateCatalog() const;
     Q_INVOKABLE QVariantList effectTemplateCategories() const;
     Q_INVOKABLE void addEffect(int trackIndex, int clipIndex, const QString &effectId);
+    // The selected clip, or the top picture clip under the playhead.
+    Q_INVOKABLE void applyEffectTemplateToCurrentClip(const QString &templateId);
     Q_INVOKABLE void applyEffectTemplate(int trackIndex, int clipIndex, const QString &templateId);
     // The single-clip effect template on this clip (its effects carry a template tag), for the
     // Effects › Template section: name, rhythm, intensity, decay. Empty when there is none.

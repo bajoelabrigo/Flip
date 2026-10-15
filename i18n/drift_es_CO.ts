@@ -4382,6 +4382,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select a clip, or put the playhead over one, to apply the template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>This effect needs a subject cutout — open Extras to install it</source>
         <translation>Este efecto necesita un recorte de sujeto — abre Extras para instalarlo</translation>
     </message>
@@ -9806,8 +9810,20 @@
         <translation>%1 — haz clic para aplicar efectos al ritmo de la música en la selección</translation>
     </message>
     <message>
-        <source>%1 — select a clip, then click to apply</source>
-        <translation>%1 — selecciona un clip y haz clic para aplicarlo</translation>
+        <source>%1 — click to apply it to the clip under the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to the selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to the clip under the playhead</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove from favorites</source>

@@ -4382,6 +4382,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select a clip, or put the playhead over one, to apply the template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>This effect needs a subject cutout — open Extras to install it</source>
         <translation>Для этого эффекта требуется вырезать объект — установите дополнение через раздел «Дополнения»</translation>
     </message>
@@ -9838,7 +9842,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 — select a clip, then click to apply</source>
+        <source>%1 — click to apply it to the clip under the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to the selected clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to the clip under the playhead</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

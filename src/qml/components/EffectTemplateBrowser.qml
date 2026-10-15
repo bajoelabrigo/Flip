@@ -46,10 +46,9 @@ Column {
         })
     }
 
+    // The selected clip, or else the one under the playhead; the app says so when there is none.
     function applyTemplate(templateId) {
-        if (EditorState.selectedClip < 0)
-            return
-        EditorState.applyEffectTemplate(EditorState.selectedTrack, EditorState.selectedClip, templateId)
+        EditorState.applyEffectTemplateToCurrentClip(templateId)
     }
 
     AssetSearchBar {
@@ -198,7 +197,7 @@ Column {
                     ThemedToolTip {
                         text: EditorState.selectedClip >= 0
                               ? qsTr("%1 — click to apply music-synced effects to the selection").arg(templateCard.modelData.label)
-                              : qsTr("%1 — select a clip, then click to apply").arg(templateCard.modelData.label)
+                              : qsTr("%1 — click to apply it to the clip under the playhead").arg(templateCard.modelData.label)
                         visible: cardHover.hovered && !templateDrag.active
                     }
 
@@ -332,7 +331,6 @@ Column {
                         ThemedMenuItem {
                             text: qsTr("Apply to selected clip")
                             icon.name: Theme.icons.plus
-                            enabled: EditorState.selectedClip >= 0
                             onTriggered: templateDrag.tapped()
                         }
                         ThemedMenuItem {
@@ -363,17 +361,53 @@ Column {
                         }
                     }
 
-                    IconButton {
+                    // Always shown, in the accent colour, so it reads as the way to use the template
+                    // (a faint 18 px ghost button used to be easy to miss, and it went dead with
+                    // no clip selected).
+                    Rectangle {
+                        id: applyButton
                         anchors.right: parent.right
                         anchors.top: parent.top
-                        anchors.margins: 3
-                        glyph: Theme.icons.plus
-                        variant: "ghost"
-                        buttonSize: 18
-                        iconSize: 12
-                        tooltip: qsTr("Apply to selected clip")
-                        enabled: EditorState.selectedClip >= 0
-                        onClicked: root.applyTemplate(templateCard.modelData.id)
+                        anchors.margins: 4
+                        width: 24
+                        height: 24
+                        radius: width / 2
+                        z: 2
+                        color: applyMouse.pressed ? Qt.darker(Theme.primary, 1.15) : Theme.primary
+                        border.width: 1
+                        border.color: Qt.rgba(0, 0, 0, 0.35)
+                        scale: applyMouse.containsMouse ? 1.12 : 1.0
+
+                        Behavior on scale {
+                            NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
+                        }
+
+                        IconGlyph {
+                            anchors.centerIn: parent
+                            glyph: Theme.icons.plus
+                            iconSize: 15
+                            iconColor: Theme.primaryForeground
+                        }
+
+                        Accessible.role: Accessible.Button
+                        Accessible.name: qsTr("Apply template")
+                        Accessible.onPressAction: applyMouse.clicked(null)
+
+                        ThemedToolTip {
+                            visible: applyMouse.containsMouse
+                            text: EditorState.selectedClip >= 0
+                                  ? qsTr("Apply to the selected clip")
+                                  : qsTr("Apply to the clip under the playhead")
+                        }
+
+                        MouseArea {
+                            id: applyMouse
+                            anchors.fill: parent
+                            anchors.margins: -3
+                            hoverEnabled: true
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: root.applyTemplate(templateCard.modelData.id)
+                        }
                     }
 
                     AssetFavoriteButton {

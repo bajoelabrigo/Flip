@@ -18608,6 +18608,35 @@ void AppController::removeEffectTemplate(int trackIndex, int clipIndex)
     finishEdit(tr("Template removed"));
 }
 
+// The template card's + button: the selected clip, or else the top picture clip under the
+// playhead (selected too, so the inspector shows what was changed). Says so when there is neither,
+// instead of the button doing nothing.
+void AppController::applyEffectTemplateToCurrentClip(const QString &templateId)
+{
+    if (isValidClipIndex(m_selectedTrack, m_selectedClip)) {
+        applyEffectTemplate(m_selectedTrack, m_selectedClip, templateId);
+        return;
+    }
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        const drift::Track &track = m_project.tracks().at(t);
+        if (track.hidden || track.type == drift::TrackType::Audio || track.isAdjustment())
+            continue;
+        for (int c = 0; c < track.clips.size(); ++c) {
+            const drift::Clip &clip = track.clips.at(c);
+            if (!clip.containsTime(m_playheadUs))
+                continue;
+            if (clip.type != drift::ClipType::Video && clip.type != drift::ClipType::Image
+                && clip.type != drift::ClipType::Composite)
+                continue;
+            selectClip(t, c);
+            applyEffectTemplate(t, c, templateId);
+            return;
+        }
+    }
+    setLastMessage(tr("Select a clip, or put the playhead over one, to apply the template"),
+                   QStringLiteral("warning"));
+}
+
 void AppController::applyEffectTemplate(int trackIndex, int clipIndex, const QString &templateId)
 {
     const EffectTemplateEntry *entry = effectTemplateForId(templateId);
