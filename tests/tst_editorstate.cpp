@@ -8900,7 +8900,15 @@ void EditorStateTest::cutoutTemplateLandsInAComposition()
         QCOMPARE(composites, 1);
         QVERIFY(outer->name.contains(entry->displayName));
         QCOMPARE(outer->timelineStart, clip.timelineStart);
-        QCOMPARE(outer->timelineDuration, clip.timelineDuration);
+        // Ghost walk slows one of its layers down, which makes that layer (and the composition
+        // that holds it) longer than the clip.
+        bool slowsALayer = false;
+        for (const EffectTemplateTrack &t : entry->tracks)
+            slowsALayer = slowsALayer || t.speedPulse.valid;
+        if (slowsALayer)
+            QVERIFY(outer->timelineDuration > clip.timelineDuration);
+        else
+            QCOMPARE(outer->timelineDuration, clip.timelineDuration);
         QCOMPARE(state.selectedTrack(), 0);
 
         // Inside: the hidden source, the subject and background, and the clones, each on its track.
