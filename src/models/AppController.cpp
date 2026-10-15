@@ -17910,6 +17910,19 @@ QVariantList AppController::effectTemplateCategories() const
     return out;
 }
 
+// The music under the clip has been analysed (the result may still hold no beats: a silent video
+// or a photo). Templates waiting on beats go ahead then, on the steady fallback rhythm.
+bool AppController::beatAnalysisCoversClip(const drift::Clip &clip) const
+{
+    if (m_beatAnalysis.isEmpty() || audioLayoutFingerprint() != m_beatAudioFingerprint)
+        return false;
+    const double rangeStart = m_beatAnalysis.value(QStringLiteral("rangeStart")).toDouble();
+    const double rangeDur = m_beatAnalysis.value(QStringLiteral("rangeDuration")).toDouble();
+    const double clipStart = drift::usToSeconds(clip.timelineStart);
+    const double clipEnd = drift::usToSeconds(clip.timelineStart + clip.timelineDuration);
+    return clipStart >= rangeStart - 0.001 && clipEnd <= rangeStart + rangeDur + 0.001;
+}
+
 bool AppController::beatAnalysisReadyForClip(const drift::Clip &clip, const QString &sync) const
 {
     if (sync == QLatin1String("clip"))
@@ -18291,7 +18304,9 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
     m_selectedClip = selectClip;
     m_selection = {qMakePair(selectTrack, selectClip)};
     pushProjectEdit(before, tr("Apply effect template"));
-    finishEdit(tr("Template applied"));
+    finishEdit(templateSyncNeedsBeats(entry.sync) && !beatAnalysisReadyForClip(sourceClip, entry.sync)
+                   ? tr("Template applied. No music under this clip: it keeps a steady 120 BPM beat")
+                   : tr("Template applied"));
     emit sequenceTabsChanged();
 }
 
@@ -18327,6 +18342,13 @@ QList<drift::TimeUs> AppController::templateSyncPoints(const drift::Clip &source
             }
             ++beatIndex;
         }
+    }
+    // No music under the clip (a silent video, a photo): a steady 120 BPM, one pulse every half
+    // second (every bar of four for "bar"), so the template still moves instead of doing nothing.
+    if (syncPoints.isEmpty() && templateSyncNeedsBeats(sync) && sourceClip.timelineDuration > 0) {
+        const drift::TimeUs step = drift::secondsToUs(sync == QLatin1String("bar") ? 2.0 : 0.5);
+        for (drift::TimeUs at = 0; at < sourceClip.timelineDuration; at += step)
+            syncPoints.append(at);
     }
     return syncPoints;
 }
@@ -18554,7 +18576,8 @@ void AppController::setEffectTemplateRhythm(int trackIndex, int clipIndex, const
     const drift::Clip &source = m_project.tracks().at(sourceTrack).clips.at(sourceClip);
     // Beats and onsets come from the music under the clip; analyse first if that is not done for
     // this stretch yet, and finish the change when the analysis lands.
-    if (templateSyncNeedsBeats(sync) && !beatAnalysisReadyForClip(source, sync)) {
+    if (templateSyncNeedsBeats(sync) && !beatAnalysisReadyForClip(source, sync)
+        && !beatAnalysisCoversClip(source)) {
         m_pendingTemplateRhythm = qMakePair(source.id, sync);
         if (!m_beatAnalysisRunning) {
             analyzeBeats(drift::usToSeconds(source.timelineStart),
@@ -18570,8 +18593,9 @@ void AppController::setEffectTemplateRhythm(int trackIndex, int clipIndex, const
                                info.value(QStringLiteral("decay")).toDouble(), sync, &points))
         return;
     pushProjectEdit(before, tr("Change template rhythm"));
-    finishEdit(points.isEmpty() ? tr("No beats under this clip for that rhythm")
-                                : tr("Template rhythm changed"));
+    finishEdit(beatAnalysisReadyForClip(source, sync) || !templateSyncNeedsBeats(sync)
+                   ? tr("Template rhythm changed")
+                   : tr("No music under this clip: the template keeps a steady 120 BPM beat"));
 }
 
 void AppController::removeEffectTemplate(int trackIndex, int clipIndex)
@@ -18601,7 +18625,8 @@ void AppController::applyEffectTemplate(int trackIndex, int clipIndex, const QSt
 
     const drift::Clip &clip = track.clips[clipIndex];
 
-    if (templateSyncNeedsBeats(entry->sync) && !beatAnalysisReadyForClip(clip, entry->sync)) {
+    if (templateSyncNeedsBeats(entry->sync) && !beatAnalysisReadyForClip(clip, entry->sync)
+        && !beatAnalysisCoversClip(clip)) {
         m_pendingEffectTemplate = PendingEffectTemplate{trackIndex, clipIndex, templateId};
         if (!m_beatAnalysisRunning) {
             analyzeBeats(drift::usToSeconds(clip.timelineStart),
@@ -22784,7 +22809,8 @@ void AppController::applyBeatAnalysis(const AudioBeatAnalysis &analysis, double 
         int t = -1;
         int c = -1;
         if (findClipById(m_project, clipId, &t, &c)
-            && beatAnalysisReadyForClip(m_project.tracks().at(t).clips.at(c), sync)) {
+            && (beatAnalysisReadyForClip(m_project.tracks().at(t).clips.at(c), sync)
+                || beatAnalysisCoversClip(m_project.tracks().at(t).clips.at(c)))) {
             setEffectTemplateRhythm(t, c, sync);
         } else {
             m_pendingTemplateRhythm.reset();
@@ -22798,7 +22824,8 @@ void AppController::applyBeatAnalysis(const AudioBeatAnalysis &analysis, double 
         if (entry && pending.trackIndex >= 0 && pending.trackIndex < m_project.tracks().size()) {
             const drift::Track &track = m_project.tracks()[pending.trackIndex];
             if (pending.clipIndex >= 0 && pending.clipIndex < track.clips.size()
-                && beatAnalysisReadyForClip(track.clips[pending.clipIndex], entry->sync)) {
+                && (beatAnalysisReadyForClip(track.clips[pending.clipIndex], entry->sync)
+                    || beatAnalysisCoversClip(track.clips[pending.clipIndex]))) {
                 const bool needsSegment =
                     (entry->requiresSegmentation || entry->usesMultiTrack())
                     && !clipHasMatte(m_project, pending.trackIndex, pending.clipIndex);

@@ -276,6 +276,7 @@ private slots:
     void effectTemplateStaysEditable();
     void trackKeyframeRowsUnfoldAndEdit();
     void cutoutTemplateLandsInAComposition();
+    void beatTemplateOnSilentClipStillApplies();
     void splittingAGradedClipKeepsEffectsOnBothHalves();
     void transitionPartnerIsTheNearestClipNotTheEarliest();
     void linkedAdjustmentFollowsItsClip();
@@ -8862,6 +8863,54 @@ void EditorStateTest::splittingAGradedClipKeepsEffectsOnBothHalves()
 // and the keys on those lines are added, moved, shaped and removed in place.
 // A cutout template (subject over a treated background, clones…) builds several tracks. They go
 // into one composition with the hidden source, so the stack is moved and cut as one block.
+// A template that follows the music, on a clip with no sound (a silent video, a photo): the
+// analysis finds no beats, and the template used to wait for them forever without a word. It now
+// lands on a steady 120 BPM beat.
+void EditorStateTest::beatTemplateOnSilentClipStillApplies()
+{
+    AssetLibrary library;
+    AppController state(&library);
+
+    drift::Clip clip;
+    clip.id = QStringLiteral("clip-silent");
+    clip.type = drift::ClipType::Video;
+    clip.name = QStringLiteral("Silent");
+    clip.path = QStringLiteral("/tmp/does-not-need-to-exist.mp4");
+    clip.timelineStart = 0;
+    clip.timelineDuration = drift::secondsToUs(4.0);
+    clip.srcIn = 0;
+    clip.srcOut = drift::secondsToUs(4.0);
+    drift::Track track{.type = drift::TrackType::Video};
+    track.clips.append(clip);
+    state.project()->tracks().clear();
+    state.project()->tracks().append(track);
+
+    const EffectTemplateEntry *entry = effectTemplateForId(QStringLiteral("anime_punch"));
+    QVERIFY(entry);
+    QCOMPARE(entry->sync, QStringLiteral("onset"));
+    state.applyEffectTemplate(0, 0, entry->id);
+
+    // The analysis runs in the background; the template lands when it reports back empty.
+    QTRY_VERIFY_WITH_TIMEOUT(state.project()->tracks().at(0).clips.at(0).type
+                                 == drift::ClipType::Composite,
+                             15000);
+    const QList<drift::Track> &inner =
+        state.project()->sequenceTracks(state.project()->tracks().at(0).clips.at(0).sequenceId);
+    const drift::Effect *tagged = nullptr;
+    for (const drift::Track &t : inner) {
+        for (const drift::Clip &c : t.clips) {
+            for (const drift::Effect &e : c.effects) {
+                if (e.templateTag.isValid())
+                    tagged = &e;
+            }
+        }
+    }
+    QVERIFY(tagged);
+    // Every half second across the four seconds.
+    QCOMPARE(tagged->templateTag.points.size(), 8);
+    QCOMPARE(tagged->templateTag.points.at(1), drift::secondsToUs(0.5));
+}
+
 void EditorStateTest::cutoutTemplateLandsInAComposition()
 {
     for (const QString &templateId : {QStringLiteral("blur_behind"), QStringLiteral("ghost_walk")}) {

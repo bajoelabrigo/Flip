@@ -3912,6 +3912,10 @@
         <translation>El LUT «%1» no está donde lo guardó el proyecto ni en tu biblioteca de LUT. Búscalo para volver a usarlo.</translation>
     </message>
     <message>
+        <source>Template applied. No music under this clip: it keeps a steady 120 BPM beat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Voice changer</source>
         <translation>Modificador de voz</translation>
     </message>
@@ -4362,11 +4366,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No beats under this clip for that rhythm</source>
+        <source>Template rhythm changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Template rhythm changed</source>
+        <source>No music under this clip: the template keeps a steady 120 BPM beat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

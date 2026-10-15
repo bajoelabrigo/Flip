@@ -3904,6 +3904,10 @@
         <translation>El LUT «%1» no está donde lo guardó el proyecto ni en tu biblioteca de LUT. Búscalo para volver a usarlo.</translation>
     </message>
     <message>
+        <source>Template applied. No music under this clip: it keeps a steady 120 BPM beat</source>
+        <translation>Plantilla aplicada. El clip no tiene música: sigue un ritmo fijo de 120 BPM</translation>
+    </message>
+    <message>
         <source>Voice changer</source>
         <translation>Modificador de voz</translation>
     </message>
@@ -4354,12 +4358,12 @@
         <translation>Cambiar el ritmo de la plantilla</translation>
     </message>
     <message>
-        <source>No beats under this clip for that rhythm</source>
-        <translation>No hay golpes bajo este clip con ese ritmo</translation>
-    </message>
-    <message>
         <source>Template rhythm changed</source>
         <translation>Ritmo de la plantilla cambiado</translation>
+    </message>
+    <message>
+        <source>No music under this clip: the template keeps a steady 120 BPM beat</source>
+        <translation>El clip no tiene música: la plantilla sigue un ritmo fijo de 120 BPM</translation>
     </message>
     <message>
         <source>Remove template</source>

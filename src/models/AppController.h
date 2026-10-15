@@ -1847,6 +1847,7 @@ protected:
                                    const QString &mattePath = {},
                                    drift::TimeUs matteSrcOffsetUs = 0);
     bool resolveTemplateApplyTarget(int *trackIndex, int *clipIndex) const;
+    bool beatAnalysisCoversClip(const drift::Clip &clip) const;
     bool beatAnalysisReadyForClip(const drift::Clip &clip, const QString &sync) const;
     QList<drift::TimeUs> templateSyncPoints(const drift::Clip &sourceClip, const QString &sync) const;
     // Removes the effects of a single-clip template (all of them when templateId is empty) from
