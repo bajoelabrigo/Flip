@@ -67,6 +67,9 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 3. **Tarjetas de plantillas:** la etiqueta «Necesita recorte» es tan ancha que tapa el ♪ y el botón de favorito no
    sale. Achicarla (un icono con tooltip) o moverla.
 4. `Theme.scrimColor` / `scrimStrong` transparentes (ver trampas).
+5. **Transiciones (Jorge, 2026-10-15, revisar mañana):** una vez colocada una transición entre dos clips no deja
+   cambiarla por otra. Reproducirlo primero en ventana (soltar otra encima, elegirla en el panel, el tipo en el
+   inspector) antes de tocar código.
 
 ### 0.10.0 PUBLICADA EN GITHUB (2026-10-14): cuenta de Google, Stock y estadísticas anónimas
 - PR #15, tag `v0.10.0`, release con instalador, portable y `SHA256SUMS` (copia en `FlipStudio\versiones\FlipStudio-0.10.0`).
