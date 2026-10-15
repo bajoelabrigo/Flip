@@ -249,7 +249,35 @@ QString AppController::insertSceneTemplate(const QString &templateId)
 
     const drift::TimeUs startUs = m_playheadUs;
     QSet<QString> ids;
-    int slotNumber = 0;
+    // Slots are numbered in the order they appear, as the Fill template panel lists them (by time,
+    // then bottom track first), so the stand-in showing "3" is the panel's slot 3.
+    QHash<QString, int> slotNumbers;
+    {
+        struct First
+        {
+            drift::TimeUs start;
+            int track;
+            QString id;
+        };
+        QHash<QString, First> firsts;
+        for (int t = 0; t < tracks.size(); ++t) {
+            for (const drift::Clip &clip : tracks.at(t).clips) {
+                if (clip.placeholderId.isEmpty() || clip.type == drift::ClipType::Text
+                    || clip.type == drift::ClipType::Subtitle)
+                    continue;
+                auto it = firsts.find(clip.placeholderId);
+                if (it == firsts.end() || clip.timelineStart < it->start)
+                    firsts.insert(clip.placeholderId, {clip.timelineStart, t, clip.placeholderId});
+            }
+        }
+        QList<First> order = firsts.values();
+        std::sort(order.begin(), order.end(), [](const First &a, const First &b) {
+            return a.start != b.start ? a.start < b.start : a.track > b.track;
+        });
+        for (int i = 0; i < order.size(); ++i)
+            slotNumbers.insert(order.at(i).id, i + 1);
+    }
+    const int slotNumber = int(slotNumbers.size());
     QHash<QString, QString> standIns; // placeholderId -> its stand-in picture
     for (drift::Track &track : tracks) {
         track.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
@@ -282,12 +310,12 @@ QString AppController::insertSceneTemplate(const QString &templateId)
                 clip.placeholderEmpty = true;
             } else if (!clip.placeholderId.isEmpty() && clip.type != drift::ClipType::Text
                 && clip.type != drift::ClipType::Subtitle) {
-                ++slotNumber;
+                const int number = slotNumbers.value(clip.placeholderId);
                 const QSizeF box = slotSize(clip, m_project.width(), m_project.height());
                 drift::MediaAsset picture;
                 picture.kind = drift::MediaKind::Image;
-                picture.name = clip.placeholderLabel.isEmpty() ? tr("Slot %1").arg(slotNumber) : clip.placeholderLabel;
-                picture.path = slotPicture(box, slotNumber, tr("Your photo or video here"));
+                picture.name = clip.placeholderLabel.isEmpty() ? tr("Slot %1").arg(number) : clip.placeholderLabel;
+                picture.path = slotPicture(box, number, tr("Your photo or video here"));
                 const QImage probe(picture.path);
                 picture.width = probe.width();
                 picture.height = probe.height();
@@ -302,7 +330,7 @@ QString AppController::insertSceneTemplate(const QString &templateId)
                 clip.srcOut = clip.timelineDuration;
                 clip.placeholderEmpty = true;
                 if (clip.placeholderLabel.isEmpty())
-                    clip.placeholderLabel = tr("Photo %1").arg(slotNumber);
+                    clip.placeholderLabel = tr("Photo %1").arg(number);
             }
             if (hasMusic && clip.type == drift::ClipType::Video)
                 clip.suppressEmbeddedAudio = true;
@@ -344,6 +372,24 @@ QString AppController::insertSceneTemplate(const QString &templateId)
         m_project = before;
         setLastMessage(tr("Could not place the template"), QStringLiteral("error"));
         return {};
+    }
+    if (timelineEmpty) {
+        int own = -1;
+        int target = -1;
+        for (int t = 0; t < m_project.tracks().size(); ++t) {
+            const drift::Track &track = m_project.tracks().at(t);
+            for (const drift::Clip &clip : track.clips) {
+                if (clip.id == compositeId)
+                    own = t;
+            }
+            if (target < 0 && track.clips.isEmpty() && track.type == drift::TrackType::Video
+                && !track.isAdjustment())
+                target = t;
+        }
+        if (own >= 0 && target >= 0 && m_project.tracks().at(own).clips.size() == 1) {
+            m_project.tracks()[target].clips.append(m_project.tracks().at(own).clips.first());
+            m_project.tracks().removeAt(own);
+        }
     }
     drift::Clip *composite = findClipAnywhere(m_project, compositeId);
     if (composite) {

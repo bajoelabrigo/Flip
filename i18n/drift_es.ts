@@ -18429,8 +18429,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Agregar</translation>
     </message>
     <message>
-        <source>Slot %1 (%2 s): click to choose a photo or video, or drop one here</source>
-        <translation>Hueco %1 (%2 s): haz clic para elegir una foto o un video, o suéltalo aquí</translation>
+        <source>Slot %1 (from %2): click to choose a photo or video, or drop one here</source>
+        <translation>Hueco %1 (desde %2): haz clic para elegir una foto o un video, o suéltalo aquí</translation>
     </message>
     <message>
         <source>%1 — click to change it</source>

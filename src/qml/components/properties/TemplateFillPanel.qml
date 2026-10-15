@@ -33,6 +33,11 @@ Item {
         function onSelectedClipDataChanged() { root.localRevision++ }
     }
 
+    function timeLabel(seconds) {
+        const s = Math.max(0, seconds)
+        return Math.floor(s / 60) + ":" + (s % 60).toFixed(1).padStart(4, "0")
+    }
+
     function pickFiles(firstSlotClipId, many) {
         const filters = [AssetLibrary.mediaNameFilter()]
         const urls = many ? FileDialogs.openFiles(qsTr("Choose photos and videos"), filters)
@@ -163,9 +168,10 @@ Item {
                         anchors.bottom: parent.bottom
                         height: 16
                         color: Qt.rgba(0, 0, 0, 0.6)
+                        // When it shows up in the template: what tells the slots of a pile apart.
                         Text {
                             anchors.centerIn: parent
-                            text: tile.modelData.durationSec.toFixed(1) + " s"
+                            text: root.timeLabel(tile.modelData.startSec)
                             color: "white"
                             font.family: Theme.fontFamily
                             font.pixelSize: Theme.fontSizeXs
@@ -175,8 +181,8 @@ Item {
                     ThemedToolTip {
                         visible: tileHover.hovered && !drop.containsDrag
                         text: tile.empty
-                              ? qsTr("Slot %1 (%2 s): click to choose a photo or video, or drop one here")
-                                    .arg(tile.modelData.number).arg(tile.modelData.durationSec.toFixed(1))
+                              ? qsTr("Slot %1 (from %2): click to choose a photo or video, or drop one here")
+                                    .arg(tile.modelData.number).arg(root.timeLabel(tile.modelData.startSec))
                               : qsTr("%1 — click to change it").arg(tile.modelData.mediaName || tile.modelData.label)
                     }
 

@@ -18421,7 +18421,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Slot %1 (%2 s): click to choose a photo or video, or drop one here</source>
+        <source>Slot %1 (from %2): click to choose a photo or video, or drop one here</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
