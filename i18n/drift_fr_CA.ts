@@ -18048,6 +18048,18 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
         <translation>Obtenir à partir de ce lien</translation>
     </message>
     <message>
+        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LottieFiles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opens lottiefiles.com in your browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Looking up that link…</source>
         <translation>Vérification de ce lien…</translation>
     </message>

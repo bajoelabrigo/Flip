@@ -18045,6 +18045,18 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
         <translation>Ottieni da questo link</translation>
     </message>
     <message>
+        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LottieFiles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opens lottiefiles.com in your browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Looking up that link…</source>
         <translation>Ricerca del link in corso…</translation>
     </message>

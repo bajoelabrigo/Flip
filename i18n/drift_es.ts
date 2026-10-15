@@ -18045,6 +18045,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Obtener desde este enlace</translation>
     </message>
     <message>
+        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
+        <translation>¿Quieres más? Descarga una animación gratis de LottieFiles (.json o .lottie) y suéltala en Medios.</translation>
+    </message>
+    <message>
+        <source>LottieFiles</source>
+        <translation>LottieFiles</translation>
+    </message>
+    <message>
+        <source>Opens lottiefiles.com in your browser</source>
+        <translation>Abre lottiefiles.com en tu navegador</translation>
+    </message>
+    <message>
         <source>Looking up that link…</source>
         <translation>Consultando ese enlace…</translation>
     </message>

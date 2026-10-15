@@ -34,6 +34,9 @@ Item {
     }
     // Stock › Templates: phone-shaped cards, and "Use" instead of a download.
     readonly property bool templates: mediaKind === "template"
+    // Stock › Animaciones: our own Lottie stickers, square cards.
+    readonly property bool animations: mediaKind === "animation"
+    readonly property real tileAspect: templates ? 16 / 9 : (animations ? 1 : 9 / 16)
     readonly property bool queryIsLink: Market.canResolve && /^(https?:\/\/|www\.)\S+$/i.test(query)
     readonly property var linkSource: {
         const q = query.toLowerCase()
@@ -358,6 +361,34 @@ Item {
             HoverHandler { id: linkHover; cursorShape: Qt.PointingHandCursor }
             TapHandler { onTapped: root.runResolve() }
         }
+
+        // LottieFiles has no API we may search for the user, but its free animations can be used:
+        // the user downloads one there and drops the file here.
+        Row {
+            visible: root.animations
+            x: root.sidePadding
+            width: parent.width - root.sidePadding * 2
+            spacing: Theme.spacingMd
+            topPadding: Theme.spacingSm
+
+            Text {
+                width: parent.width - lottieButton.width - parent.spacing
+                anchors.verticalCenter: lottieButton.verticalCenter
+                text: qsTr("Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+                wrapMode: Text.WordWrap
+            }
+            ThemedButton {
+                id: lottieButton
+                variant: "secondary"
+                glyph: Theme.icons.search
+                text: qsTr("LottieFiles")
+                tooltip: qsTr("Opens lottiefiles.com in your browser")
+                onClicked: Qt.openUrlExternally("https://lottiefiles.com/free-animations")
+            }
+        }
     }
 
     Item {
@@ -431,7 +462,7 @@ Item {
             anchors.rightMargin: root.sidePadding - Theme.assetCardGap
             visible: Market.items.length > 0 && root.mediaKind !== "audio" && root.mediaKind !== "image"
             cellWidth: Math.floor(width / columnCount)
-            cellHeight: tileWidth * (root.templates ? 16 / 9 : 9 / 16) + Theme.fontSizeXs * 2.6 + Theme.assetCardGap
+            cellHeight: tileWidth * root.tileAspect + Theme.fontSizeXs * 2.6 + Theme.assetCardGap
             cacheBuffer: Math.max(0, Math.round(height))
             clip: true
             model: visible ? Market.items : []
@@ -449,7 +480,7 @@ Item {
 
                 StockThumb {
                     width: parent.width
-                    height: width * (root.templates ? 16 / 9 : 9 / 16)
+                    height: width * root.tileAspect
                     item: modelData
                     compact: root.compact
                     current: grid.activeFocus && index === grid.currentIndex

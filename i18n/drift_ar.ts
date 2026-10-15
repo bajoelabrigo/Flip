@@ -18285,6 +18285,18 @@ If playback stutters, try another.</source>
         <translation>الحصول من هذا الرابط</translation>
     </message>
     <message>
+        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LottieFiles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opens lottiefiles.com in your browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Looking up that link…</source>
         <translation>جارٍ البحث عن هذا الرابط…</translation>
     </message>

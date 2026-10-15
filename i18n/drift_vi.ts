@@ -17985,6 +17985,18 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Nhận từ liên kết này</translation>
     </message>
     <message>
+        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LottieFiles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opens lottiefiles.com in your browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Looking up that link…</source>
         <translation>Đang tìm liên kết đó…</translation>
     </message>
