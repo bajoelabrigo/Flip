@@ -12115,7 +12115,7 @@ void EngineTest::poseTrackRoundTripsAndInterpolates()
 
 void EngineTest::bodyReshapeFollowsThePose()
 {
-    const EffectPresetEntry *def = effectDefForId(QStringLiteral("body_reshape"));
+    const EffectPresetEntry *def = effectDefForId(QStringLiteral("body.reshape"));
     QVERIFY(def);
     QVERIFY(def->needsPose);
     if (!GpuEffectExecutor::instance().isAvailable())
@@ -12133,7 +12133,7 @@ void EngineTest::bodyReshapeFollowsThePose()
     }
 
     drift::Effect effect;
-    effect.catalogId = QStringLiteral("body_reshape");
+    effect.catalogId = QStringLiteral("body.reshape");
     effect.parameters.insert(QStringLiteral("slim"), 0.8);
     effect.parameters.insert(QStringLiteral("waist"), 0.8);
     effect.parameters.insert(QStringLiteral("legs"), 0.8);
@@ -12153,7 +12153,7 @@ void EngineTest::bodyReshapeFollowsThePose()
 
 void EngineTest::hairColorDyesKeepingTheLight()
 {
-    QVERIFY(effectDefForId(QStringLiteral("hair_color")));
+    QVERIFY(effectDefForId(QStringLiteral("hair.color")));
     if (!GpuEffectExecutor::instance().isAvailable())
         QSKIP("GPU effect executor unavailable");
 
@@ -12164,7 +12164,7 @@ void EngineTest::hairColorDyesKeepingTheLight()
         source.setPixelColor(32, y, QColor(120, 90, 70));
 
     drift::Effect effect;
-    effect.catalogId = QStringLiteral("hair_color");
+    effect.catalogId = QStringLiteral("hair.color");
     effect.parameters.insert(QStringLiteral("shade"), QStringLiteral("#3c6fd2"));
     effect.parameters.insert(QStringLiteral("strength"), 1.0);
     effect.parameters.insert(QStringLiteral("lift"), 0.0);

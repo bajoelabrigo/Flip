@@ -15,13 +15,13 @@
   `pose-model`) → trabajo de escaneo como `FaceTrackingController::detect` (QtConcurrent, progreso, cancelar,
   seguimiento con la pose anterior) → sidecar JSON `AppData/posetracks` → `Clip::poseTrackPath` +
   `poseTrackSrcOffsetUs` → al componer, `sampleAll` interpolado → uniforms `u_pose*` (como
-  `applyFaceUniforms`) → efecto `body_reshape` con `"requires": "pose"` (añadirlo en
+  `applyFaceUniforms`) → efecto `body.reshape` con `"requires": "pose"` (añadirlo en
   `EffectPackageLoader.cpp:70-90`): warp inverso en el fragment shader (cintura, cuerpo, piernas, hombros,
   cabeza, brazos), limitado por la máscara de la persona. Suavizado One-Euro por punto.
 - **Cabello:** `HairSegmenter` (ORT, `DRIFT_HAIR_MODEL_DIR`, tipo `hair-model`) → trabajo como
   `SegmentationController` → video de cobertura con `MatteWriter` → `Clip::hairMattePath` +
   `hairMatteSrcOffsetUs` → textura propia como la de profundidad (`PipelineAux`, unidad de textura nueva,
-  preludio `"requires": "hair"`) → efecto `hair_color`: cambia tono y saturación conservando la luminancia.
+  preludio `"requires": "hair"`) → efecto `hair.color`: cambia tono y saturación conservando la luminancia.
 - UI: `VideoInspector.qml` (página Retoque, `areas` rostro/cuerpo/cabello en :347-352; aviso «sin modelo» en
   :504-514): `bodySections`/`hairSections`, botón «Analizar cuerpo»/«Analizar cabello» como «Escanear caras».
 - Extras: recetas en `flip-addons/modelos.py` (`cuerpo.pose`, `cabello.segmentacion`), `build.py`, subir al

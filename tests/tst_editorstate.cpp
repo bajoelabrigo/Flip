@@ -9770,7 +9770,7 @@ void EditorStateTest::hairColorPinsItsOwnMaskedAdjustment()
     QCOMPARE(adjustment.mask.mediaSrcOffsetUs, drift::secondsToUs(0.5));
     QCOMPARE(adjustment.mask.w, 1.0);
     QCOMPARE(adjustment.effects.size(), 1);
-    QCOMPARE(adjustment.effects.at(0).catalogId, QStringLiteral("hair_color"));
+    QCOMPARE(adjustment.effects.at(0).catalogId, QStringLiteral("hair.color"));
     // The clip itself is left alone and stays selected for the next swatch.
     QCOMPARE(state.project()->tracks().at(0).clips.at(0).path, source.path);
     QCOMPARE(state.selectedTrack(), 0);
@@ -9801,23 +9801,19 @@ void EditorStateTest::hairColorPinsItsOwnMaskedAdjustment()
 // clip's media is swapped for another.
 void EditorStateTest::poseTrackTravelsWithTheClip()
 {
-    drift::Clip clip;
-    clip.id = QStringLiteral("c1");
-    clip.type = drift::ClipType::Video;
+    AssetLibrary library;
+    AppController state(&library);
+    appendTwoVideoClips(*state.project());
+    drift::Clip &clip = state.project()->tracks()[0].clips[0];
     clip.poseTrackPath = QStringLiteral("/tmp/posetracks/pose-1.json");
     clip.poseTrackSrcOffsetUs = drift::secondsToUs(1.25);
-    drift::Project project;
-    drift::Track track;
-    track.type = drift::TrackType::Video;
-    track.clips.append(clip);
-    project.tracks().append(track);
 
     QString error;
-    const drift::Project back = drift::Project::fromJson(project.toJson(), &error);
+    const drift::Project back = drift::Project::fromJson(state.project()->toJson(), &error);
     QVERIFY2(error.isEmpty(), qPrintable(error));
     const drift::Clip &read = back.tracks().at(0).clips.at(0);
-    QCOMPARE(read.poseTrackPath, clip.poseTrackPath);
-    QCOMPARE(read.poseTrackSrcOffsetUs, clip.poseTrackSrcOffsetUs);
+    QCOMPARE(read.poseTrackPath, QStringLiteral("/tmp/posetracks/pose-1.json"));
+    QCOMPARE(read.poseTrackSrcOffsetUs, drift::secondsToUs(1.25));
 }
 
 // The cutout feature: running segmentation adds one mask layer inside the clip's own track and

@@ -19,7 +19,7 @@
 namespace {
 
 constexpr quint64 kBodyStreamId = 0xA5'11'5C'A4'00'00'00'0Bull;
-const QString kHairEffectId = QStringLiteral("hair_color");
+const QString kHairEffectId = QStringLiteral("hair.color");
 
 bool locateClip(const drift::Project &project, const QString &clipId, int *trackOut, int *clipOut)
 {
@@ -37,7 +37,7 @@ bool locateClip(const drift::Project &project, const QString &clipId, int *track
 }
 
 // The hair-colour adjustment pinned to a clip: a video-effects adjustment on one of its lanes
-// carrying hair_color and the hair matte.
+// carrying hair.color and the hair matte.
 drift::ClipRef hairAdjustmentFor(const drift::Project &project, int trackIndex, const QString &clipId)
 {
     for (const int laneIndex : drift::adjustmentLaneIndexes(project, trackIndex)) {

@@ -2336,7 +2336,7 @@ QJsonObject McpController::aiCapabilities() const
         {"face-model", drift::FaceLandmarker::modelPresent(),
          "face tracking and the face warp effects"},
         {"body-model", drift::BodyLandmarker::modelPresent(),
-         "body pose for body_reshape and the hair matte for Retouch > Hair colour"},
+         "body pose for body.reshape and the hair matte for Retouch > Hair colour"},
         {"denoise-model", drift::DeepFilterDenoiser::modelPresent(),
          "background noise removal from audio"},
         {"object-model", m_app->objectDetectionAvailable(),

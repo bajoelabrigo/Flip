@@ -1037,15 +1037,15 @@
         { "clear_face_track", "ai", "Remove face track",
           "Delete the stored face track from a clip, undoing detect_faces.",
           objectSchema(clipRefProps()), false, true },
-        { "analyze_body", "ai", "Track the body for body_reshape",
+        { "analyze_body", "ai", "Track the body for body.reshape",
           "Run the body-model addon over a video or image clip and store its body pose, which the "
-          "body_reshape effect follows (slim, waist, longer legs, shoulders, head size). Adding "
-          "body_reshape starts this on its own. inspect({clips:true,detail:true}) reports "
+          "body.reshape effect follows (slim, waist, longer legs, shoulders, head size). Adding "
+          "body.reshape starts this on its own. inspect({clips:true,detail:true}) reports "
           "hasPoseTrack. Async; read inspect's notice for the result. Cancel with cancel_body.",
           objectSchema(clipRefProps()) },
         { "color_hair", "ai", "Dye the hair in a clip",
           "Find the hair in every frame (body-model addon) and pin a \"Hair colour\" adjustment to "
-          "the clip, masked by it, with hair_color at `shade` (\"#rrggbb\"). On a clip that already "
+          "the clip, masked by it, with hair.color at `shade` (\"#rrggbb\"). On a clip that already "
           "has one, only the shade changes. Async the first time; read inspect's notice.",
           objectSchema(mergeProps(
               clipRefProps(),
