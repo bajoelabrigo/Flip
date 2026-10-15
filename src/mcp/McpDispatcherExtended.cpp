@@ -2210,6 +2210,25 @@ QJsonObject McpDispatcher::applyOneExtended(const QString &tool, const QJsonObje
         return ok(clipFeedback(ref));
     }
 
+    if (tool == QLatin1String("analyze_body") || tool == QLatin1String("color_hair")) {
+        const ClipRef ref = resolveClip(args);
+        if (!ref.valid())
+            return clipRefError(args);
+        if (!m_controller->body()->available())
+            return err("addon_missing", QStringLiteral("Body and hair need the body-model addon: "
+                                                       "list_addons, then install_addon."));
+        if (tool == QLatin1String("analyze_body"))
+            m_controller->body()->analyzeBody(ref.track, ref.clip);
+        else
+            m_controller->body()->colorHair(ref.track, ref.clip, argString(args, QStringLiteral("shade")));
+        return ok(clipFeedback(ref, {{QStringLiteral("started"), m_controller->body()->running()}}));
+    }
+
+    if (tool == QLatin1String("cancel_body")) {
+        m_controller->body()->cancel();
+        return ok({{QStringLiteral("cancelled"), true}});
+    }
+
     if (tool == QLatin1String("estimate_depth")) {
         const ClipRef ref = resolveClip(args);
         if (!ref.valid())

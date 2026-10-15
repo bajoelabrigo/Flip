@@ -30,6 +30,7 @@ def env_with_models(stage):
     env["DRIFT_SAM2_MODEL_DIR"] = os.path.join(stage, "recorte.sujeto", "models", "sam2")
     env["DRIFT_RVM_MODEL_DIR"] = os.path.join(stage, "recorte.personas", "models", "rvm")
     env["DRIFT_FACE_MODEL_DIR"] = os.path.join(stage, "rostro.puntos", "models", "face")
+    env["DRIFT_BODY_MODEL_DIR"] = os.path.join(stage, "cuerpo.cabello", "models", "body")
     env["DRIFT_DEPTH_MODEL_DIR"] = os.path.join(stage, "profundidad", "models", "depth")
     env["DRIFT_RESTORE_MODEL_DIR"] = os.path.join(stage, "mejorar.video", "models", "restore")
     env["DRIFT_DENOISE_MODEL_DIR"] = os.path.join(stage, "ruido.voz", "models", "deepfilternet3")

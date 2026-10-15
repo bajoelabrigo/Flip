@@ -566,6 +566,7 @@ bool AppController::fillTemplateSlotWithAsset(const QString &slotClipId, const Q
         clip->filmstripPath = media->filmstripPath;
         clip->rotationCorrection = drift::rotationCorrectionOf(*media);
         clip->faceTrackPath.clear();
+        clip->poseTrackPath.clear();
         clip->depthPath.clear();
         clip->placeholderEmpty = false;
         // Fill the slot's box without stretching: the middle of the picture, cut on its long side.
@@ -865,6 +866,7 @@ QString AppController::saveCompositeAsTemplate(const QString &compositeAssetId, 
                 clip.thumbnailPath.clear();
                 clip.filmstripPath.clear();
                 clip.faceTrackPath.clear();
+                clip.poseTrackPath.clear();
                 clip.depthPath.clear();
                 clip.sourceFrame = QRectF(0, 0, 1, 1);
                 continue;
@@ -893,6 +895,7 @@ QString AppController::saveCompositeAsTemplate(const QString &compositeAssetId, 
             clip.thumbnailPath.clear();
             clip.filmstripPath.clear();
             clip.faceTrackPath.clear();
+            clip.poseTrackPath.clear();
             clip.depthPath.clear();
         }
     }

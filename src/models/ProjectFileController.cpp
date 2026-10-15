@@ -1425,6 +1425,7 @@ void ProjectFileController::remapProjectPaths(const QHash<QString, QString> &rem
                 repoint(clip.mask.mediaPath);
                 repoint(clip.mask.mediaFgrPath);
                 repoint(clip.faceTrackPath);
+                repoint(clip.poseTrackPath);
                 repoint(clip.depthPath);
                 repoint(clip.legacyStabilizePath);
                 for (drift::VectorSlotValue &slot : clip.vector.slotValues) {

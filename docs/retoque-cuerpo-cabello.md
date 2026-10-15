@@ -28,3 +28,16 @@
   release `packages` y luego el `index.json` (en ese orden).
 - Pruebas a copiar: `tst_engine` `faceTrackRoundTripsAndInterpolates`, `faceRetouchPassesThroughWithoutFace`,
   `compositorAppliesFaceWarpFromBakedTrack`; `tst_core` `faceTrackSerialization`.
+
+## Validación en Python (2026-10-15, `flip-addons/work/pose/check.py`)
+- `pose_detector.tflite` no se convierte (tf2onnx: «cannot reshape array of size 96»). Se trabaja **sin
+  detector**: primera pasada del modelo de puntos sobre el cuadro entero (cuadrado, con bordes negros), y
+  luego tres pasadas sobre el ROI de MediaPipe: centro = punto auxiliar 33, lado = 2·|p34 − p33|·1,25.
+  Con el ROI por la caja de los puntos visibles los hombros caían en la cara; con el de los auxiliares,
+  bien en 3 de 4 fotos de prueba (la cuarta, con chaqueta y brazo delante, aceptable).
+- Entrada de los dos modelos: RGB **0..1** (con −1..1 el cabello sale mucho peor).
+- Salida de puntos: `Identity` 39×5 (x, y en píxeles del recorte de 256, z, visibilidad y presencia en
+  logits → sigmoide).
+- Cabello: segmentar sobre el **cuadrado de la persona** (ROI de la pose ×1,15), no sobre el cuadro
+  aplastado ni sobre un recorte de la cabeza (corta el pelo largo). Clase 1 = pelo. Límite del modelo:
+  una gorra sobre el pelo cuenta como pelo.

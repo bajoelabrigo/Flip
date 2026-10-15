@@ -165,6 +165,11 @@ struct Clip
     QString faceTrackPath;
     TimeUs faceTrackSrcOffsetUs = 0;
 
+    // Baked body pose (PoseTrack) driving the Retouch › Body warps. Same conventions as the face
+    // track: written by the analysis job, indexed at (sourceUs - poseTrackSrcOffsetUs).
+    QString poseTrackPath;
+    TimeUs poseTrackSrcOffsetUs = 0;
+
     // Estimated depth (DepthSidecar) driving the depth effects. Timestamped in source time, so
     // unlike a matte it needs no offset to be looked up; it only has to be dropped whenever the
     // pixels it was estimated from change.

@@ -228,6 +228,7 @@ QList<MediaEntry> collectMedia(const Project &project, bool embedSource)
             append(clip.mask.mediaPath, MediaRole::Matte, true);
             append(clip.mask.mediaFgrPath, MediaRole::Matte, true);
             append(clip.faceTrackPath, MediaRole::FaceTrack, true);
+            append(clip.poseTrackPath, MediaRole::FaceTrack, true);
             append(clip.depthPath, MediaRole::Depth, true);
             for (const VectorSlotValue &slot : clip.vector.slotValues) {
                 if (slot.type == VectorSlotValue::Type::Image)

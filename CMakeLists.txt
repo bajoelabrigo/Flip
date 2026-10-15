@@ -747,6 +747,10 @@ add_library(driftengine STATIC
     src/engine/FaceLandmarker.cpp
     src/engine/FaceTrack.h
     src/engine/FaceTrack.cpp
+    src/engine/BodyLandmarker.h
+    src/engine/BodyLandmarker.cpp
+    src/engine/PoseTrack.h
+    src/engine/PoseTrack.cpp
     src/engine/FaceModelTransform.h
     src/engine/FaceModelTransform.cpp
     src/engine/ModelAnimation.h
@@ -961,6 +965,8 @@ qt_add_executable(drift
     src/models/RestoreController.cpp
     src/models/FaceTrackingController.h
     src/models/FaceTrackingController.cpp
+    src/models/BodyController.h
+    src/models/BodyController.cpp
     src/models/StabilizeController.h
     src/models/StabilizeController.cpp
     src/models/MediaBinController.h

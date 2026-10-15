@@ -80,6 +80,8 @@ EffectPresetEntry EffectPackageLoader::loadPackage(const QString &packageDir, QS
             entry.needsFace = true;
         } else if (requirement == QLatin1String("depth") && backend == QLatin1String("gpu")) {
             entry.needsDepth = true;
+        } else if (requirement == QLatin1String("pose") && backend == QLatin1String("gpu")) {
+            entry.needsPose = true;
         } else if (requirement == QLatin1String("mask") && backend == QLatin1String("gpu")) {
             entry.needsMask = true;
         } else {

@@ -273,6 +273,8 @@ QJsonObject clipToJson(const Clip &clip)
         {QStringLiteral("mask"), maskToJson(clip.mask)},
         {QStringLiteral("faceTrackPath"), clip.faceTrackPath},
         {QStringLiteral("faceTrackSrcOffsetUs"), qint64(clip.faceTrackSrcOffsetUs)},
+        {QStringLiteral("poseTrackPath"), clip.poseTrackPath},
+        {QStringLiteral("poseTrackSrcOffsetUs"), qint64(clip.poseTrackSrcOffsetUs)},
         {QStringLiteral("depthPath"), clip.depthPath},
         {QStringLiteral("stabilizeMode"), stabilizeModeToString(clip.stabilizeMode)},
         {QStringLiteral("stabilizeSmoothing"), clip.stabilizeSmoothing},
@@ -433,6 +435,9 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.faceTrackPath = object.value(QStringLiteral("faceTrackPath")).toString();
     clip.faceTrackSrcOffsetUs =
         TimeUs(object.value(QStringLiteral("faceTrackSrcOffsetUs")).toInteger(0));
+    clip.poseTrackPath = object.value(QStringLiteral("poseTrackPath")).toString();
+    clip.poseTrackSrcOffsetUs =
+        TimeUs(object.value(QStringLiteral("poseTrackSrcOffsetUs")).toInteger(0));
     clip.depthPath = object.value(QStringLiteral("depthPath")).toString();
     clip.legacyStabilizePath = object.value(QStringLiteral("stabilizePath")).toString();
     clip.stabilizeMode =

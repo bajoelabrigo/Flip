@@ -602,6 +602,7 @@ AppController::AppController(AssetLibrary *assetLibrary, QObject *parent)
     m_denoise = new DenoiseController(this, this);
     m_restore = new RestoreController(this, this);
     m_faces = new FaceTrackingController(this, this);
+    m_body = new BodyController(this, this);
     m_stabilize = new StabilizeController(this, this);
     m_bin = new MediaBinController(this, this);
     m_tts = new TtsController(this, this);
@@ -4467,6 +4468,7 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
         {QStringLiteral("layerMaskFocus"), clip.maskFocus},
         {QStringLiteral("masksLimitEffects"), clip.masksLimitEffects},
         {QStringLiteral("hasFaceTrack"), !face.faceTrackPath.isEmpty()},
+        {QStringLiteral("hasPoseTrack"), !face.poseTrackPath.isEmpty()},
         {QStringLiteral("faceTrackHasContours"), faceTrackHasContours(face.faceTrackPath)},
         {QStringLiteral("faceTrackHasMesh"), faceTrackHasMesh(face.faceTrackPath)},
         {QStringLiteral("faceTrackFaceCount"), faceTrackFaceCount(face.faceTrackPath)},
@@ -9865,6 +9867,15 @@ drift::ClipRef AppController::effectHostRef(int trackIndex, int clipIndex,
             const drift::Clip &adjustment = lane.clips.at(c);
             if (adjustment.adjustmentKind != kind || adjustment.linkedClipId != clipId)
                 continue;
+            // An effects adjustment masked by a matte (Retouch › Hair colour) is a treatment of
+            // its own, not where the clip's other effects go: they would land on the hair only.
+            if (kind == drift::AdjustmentKind::VideoEffects) {
+                bool matted = false;
+                for (const drift::Mask &mask : adjustment.maskStack())
+                    matted = matted || mask.isMedia();
+                if (matted)
+                    continue;
+            }
             // A clip with several masks: the one the Video > Mask page has open.
             if (kind != drift::AdjustmentKind::Mask || m_focusedMaskId.isEmpty()
                 || adjustment.id == m_focusedMaskId)
@@ -17581,7 +17592,8 @@ bool isFaceEffectId(const QString &catalogId)
 bool AppController::effectFitsTrack(int trackIndex, const QString &effectId, QString *why) const
 {
     const EffectPresetEntry *def = effectDefForId(effectId);
-    if (!def || !(def->needsFace || def->needsDepth || def->needsMask || def->isFaceSwap || def->isModel3d))
+    if (!def || !(def->needsFace || def->needsDepth || def->needsMask || def->needsPose || def->isFaceSwap
+                  || def->isModel3d))
         return true;
     const bool standalone = trackIndex < 0
                             || (trackIndex < m_project.tracks().size()
@@ -17594,6 +17606,8 @@ bool AppController::effectFitsTrack(int trackIndex, const QString &effectId, QSt
                    ? tr("Depth effects read one clip's depth, so they go on a clip, not on an adjustment layer.")
                : def->needsMask
                    ? tr("Mask effects read one clip's masks, so they go on a clip, not on an adjustment layer.")
+               : def->needsPose
+                   ? tr("Body effects follow one clip's body, so they go on a clip, not on an adjustment layer.")
                    : tr("Face effects follow one clip's faces, so they go on a clip, not on an adjustment layer.");
     }
     return false;
@@ -17632,6 +17646,16 @@ void AppController::addEffect(int trackIndex, int clipIndex, const QString &effe
     // the scan rather than leaving the user to discover why the effect looks inert. Captured by
     // id before the edit, because minting a lane shifts every index after it.
     QString faceSourceId;
+    QString bodySourceId;
+    if (def->needsPose) {
+        const drift::ClipRef source = sourceClipRef(trackIndex, clipIndex);
+        if (source.trackIndex >= 0) {
+            const drift::Clip &sourceClip =
+                m_project.tracks().at(source.trackIndex).clips.at(source.clipIndex);
+            if (sourceClip.poseTrackPath.isEmpty())
+                bodySourceId = sourceClip.id;
+        }
+    }
     if (isFaceEffectId(effectId)) {
         const drift::ClipRef source = sourceClipRef(trackIndex, clipIndex);
         if (source.trackIndex >= 0) {
@@ -17664,6 +17688,14 @@ void AppController::addEffect(int trackIndex, int clipIndex, const QString &effe
 
     pushProjectEdit(before, tr("Add effect"));
     finishEdit(tr("Effect added"));
+
+    // A body warp follows the baked pose the same way, so adding one starts the analysis.
+    if (!bodySourceId.isEmpty() && !m_body->running() && m_body->available()) {
+        int bodyTrack = -1;
+        int bodyClip = -1;
+        if (findClipById(m_project, bodySourceId, &bodyTrack, &bodyClip))
+            m_body->analyzeBody(bodyTrack, bodyClip);
+    }
 
     if (faceSourceId.isEmpty() || m_faces->detecting() || !m_faces->available())
         return;

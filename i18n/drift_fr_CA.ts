@@ -4336,6 +4336,10 @@
         <translation>Les effets de masque lisent les masques d&apos;un clip; ils vont donc sur un clip, pas sur un calque de réglage.</translation>
     </message>
     <message>
+        <source>Body effects follow one clip&apos;s body, so they go on a clip, not on an adjustment layer.</source>
+        <translation>Les effets de corps suivent le corps d&apos;un seul clip : ils s&apos;appliquent à un clip, pas à un calque de réglage.</translation>
+    </message>
+    <message>
         <source>Face effects follow one clip&apos;s faces, so they go on a clip, not on an adjustment layer.</source>
         <translation>Les effets de visage suivent les visages d&apos;un clip, ils se placent donc sur un clip et non sur un calque de réglage.</translation>
     </message>
@@ -6193,6 +6197,117 @@
     </message>
 </context>
 <context>
+    <name>BodyController</name>
+    <message>
+        <source>Body analysis already in progress</source>
+        <translation>Analyse du corps déjà en cours</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>Préparation en cours…</translation>
+    </message>
+    <message>
+        <source>Clear body analysis</source>
+        <translation>Effacer l&apos;analyse du corps</translation>
+    </message>
+    <message>
+        <source>Select a video or image clip</source>
+        <translation>Sélectionnez un clip vidéo ou image</translation>
+    </message>
+    <message>
+        <source>This clip has no picture to analyse</source>
+        <translation>Ce clip n&apos;a pas d&apos;image à analyser</translation>
+    </message>
+    <message>
+        <source>Analysing the body…</source>
+        <translation>Analyse du corps…</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>Terminé</translation>
+    </message>
+    <message>
+        <source>Clip is too short to analyse</source>
+        <translation>Le clip est trop court pour être analysé</translation>
+    </message>
+    <message>
+        <source>Body analysis cancelled</source>
+        <translation>Analyse du corps annulée</translation>
+    </message>
+    <message>
+        <source>Could not decode frame %1</source>
+        <translation>Impossible de décoder l&apos;image %1</translation>
+    </message>
+    <message>
+        <source>Analysing frame %1 of %2…</source>
+        <translation>Analyse de l&apos;image %1 sur %2…</translation>
+    </message>
+    <message>
+        <source>No person found in this clip</source>
+        <translation>Aucune personne trouvée dans ce clip</translation>
+    </message>
+    <message>
+        <source>Could not write the body analysis</source>
+        <translation>Impossible d&apos;enregistrer l&apos;analyse du corps</translation>
+    </message>
+    <message>
+        <source>Body analysis complete — a person was visible in %1 of %2 frames</source>
+        <translation>Analyse du corps terminée — une personne était visible dans %1 images sur %2</translation>
+    </message>
+    <message>
+        <source>Body analysis complete</source>
+        <translation>Analyse du corps terminée</translation>
+    </message>
+    <message>
+        <source>That clip no longer exists</source>
+        <translation>Ce clip n&apos;existe plus</translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation>Analyser le corps</translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation>Retirer la couleur des cheveux</translation>
+    </message>
+    <message>
+        <source>Hair colour</source>
+        <translation>Couleur des cheveux</translation>
+    </message>
+    <message>
+        <source>The hair colour effect is missing</source>
+        <translation>L&apos;effet de couleur des cheveux est introuvable</translation>
+    </message>
+    <message>
+        <source>Finding the hair…</source>
+        <translation>Détection des cheveux…</translation>
+    </message>
+    <message>
+        <source>Could not create a hair matte file</source>
+        <translation>Impossible de créer le fichier de cache des cheveux</translation>
+    </message>
+    <message>
+        <source>Hair analysis cancelled</source>
+        <translation>Analyse des cheveux annulée</translation>
+    </message>
+    <message>
+        <source>No hair found in this clip</source>
+        <translation>Aucun cheveu trouvé dans ce clip</translation>
+    </message>
+    <message>
+        <source>Hair colour applied</source>
+        <translation>Couleur des cheveux appliquée</translation>
+    </message>
+    <message>
+        <source>Hair</source>
+        <translation>Cheveux</translation>
+    </message>
+    <message>
+        <source>This clip cannot take an adjustment</source>
+        <translation>Ce clip ne peut pas recevoir de réglage</translation>
+    </message>
+</context>
+<context>
     <name>CameraInspector</name>
     <message>
         <source>Pan X</source>
@@ -7230,8 +7345,40 @@
         <translation>Flou gaussien (GPU)</translation>
     </message>
     <message>
+        <source>Body Reshape</source>
+        <translation>Remodelage du corps</translation>
+    </message>
+    <message>
+        <source>Slim</source>
+        <translation>Affiner</translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation>Taille</translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation>Jambes plus longues</translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation>Épaules</translation>
+    </message>
+    <message>
+        <source>Head size</source>
+        <translation>Taille de la tête</translation>
+    </message>
+    <message>
         <source>Blur Amount</source>
         <translation>Quantité de flou</translation>
+    </message>
+    <message>
+        <source>Hair Colour</source>
+        <translation>Couleur des cheveux</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>Éclaircir</translation>
     </message>
     <message>
         <source>Halation</source>
@@ -22552,6 +22699,98 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Affiner ou élargir ce que suit le maillage</translation>
     </message>
     <message>
+        <source>Select a video or image clip to retouch a body.</source>
+        <translation>Sélectionnez un clip vidéo ou image pour retoucher un corps.</translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to colour the hair.</source>
+        <translation>Sélectionnez un clip vidéo ou image pour colorer les cheveux.</translation>
+    </message>
+    <message>
+        <source>Install Body and hair retouch from Extras (it needs the AI engine) to use these.</source>
+        <translation>Installez Retouche du corps et des cheveux depuis Extras (il nécessite le moteur d&apos;IA) pour utiliser ces options.</translation>
+    </message>
+    <message>
+        <source>The body in this clip is analysed: the sliders below follow it.</source>
+        <translation>Le corps de ce clip est analysé : les curseurs ci-dessous le suivent.</translation>
+    </message>
+    <message>
+        <source>Pick a look: the clip is analysed first, so the warps know where the body is.</source>
+        <translation>Choisissez un style : le clip est d&apos;abord analysé, pour que les déformations sachent où se trouve le corps.</translation>
+    </message>
+    <message>
+        <source>Analyse the body again</source>
+        <translation>Analyser le corps de nouveau</translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation>Analyser le corps</translation>
+    </message>
+    <message>
+        <source>Black</source>
+        <translation>Noir</translation>
+    </message>
+    <message>
+        <source>Brown</source>
+        <translation>Brun</translation>
+    </message>
+    <message>
+        <source>Chocolate</source>
+        <translation>Chocolat</translation>
+    </message>
+    <message>
+        <source>Caramel</source>
+        <translation>Caramel</translation>
+    </message>
+    <message>
+        <source>Blonde</source>
+        <translation>Blond</translation>
+    </message>
+    <message>
+        <source>Platinum</source>
+        <translation>Platine</translation>
+    </message>
+    <message>
+        <source>Copper</source>
+        <translation>Cuivré</translation>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation>Roux</translation>
+    </message>
+    <message>
+        <source>Pink</source>
+        <translation>Rose</translation>
+    </message>
+    <message>
+        <source>Lilac</source>
+        <translation>Lilas</translation>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation>Bleu</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>Menthe</translation>
+    </message>
+    <message>
+        <source>Pick another colour to change it. Strength and lightening are on the Hair colour row of the timeline.</source>
+        <translation>Choisissez une autre couleur pour la changer. L&apos;intensité et l&apos;éclaircissement sont sur la rangée Couleur des cheveux de la ligne du temps.</translation>
+    </message>
+    <message>
+        <source>Pick a colour: the hair is found in every frame first, which takes a moment.</source>
+        <translation>Choisissez une couleur : les cheveux sont d&apos;abord détectés dans chaque image, ce qui prend un moment.</translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation>Retirer la couleur des cheveux</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuler</translation>
+    </message>
+    <message>
         <source>Bigger eyes</source>
         <translation>Yeux plus grands</translation>
     </message>
@@ -22736,16 +22975,48 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Recolore l&apos;iris</translation>
     </message>
     <message>
+        <source>Slim</source>
+        <translation>Affiner</translation>
+    </message>
+    <message>
+        <source>Slims the whole body</source>
+        <translation>Affine tout le corps</translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation>Taille</translation>
+    </message>
+    <message>
+        <source>Narrows the waist</source>
+        <translation>Affine la taille</translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation>Jambes plus longues</translation>
+    </message>
+    <message>
+        <source>Lengthens the legs below the hips</source>
+        <translation>Allonge les jambes sous les hanches</translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation>Épaules</translation>
+    </message>
+    <message>
+        <source>Widens the shoulders</source>
+        <translation>Élargit les épaules</translation>
+    </message>
+    <message>
+        <source>Smaller head</source>
+        <translation>Tête plus petite</translation>
+    </message>
+    <message>
+        <source>Makes the head a little smaller</source>
+        <translation>Rend la tête un peu plus petite</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>Favoris</translation>
-    </message>
-    <message>
-        <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
-        <translation>La retouche du corps (taille plus fine, jambes plus longues, etc.) nécessite un modèle de suivi du corps, que Flip Studio n&apos;a pas encore.</translation>
-    </message>
-    <message>
-        <source>Hair colour and volume need a hair segmentation model, which Flip Studio does not have yet.</source>
-        <translation>La couleur et le volume des cheveux nécessitent un modèle de segmentation des cheveux, que Flip Studio n&apos;a pas encore.</translation>
     </message>
     <message>
         <source>Select a video or image clip to retouch a face.</source>

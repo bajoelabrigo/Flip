@@ -4330,6 +4330,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Body effects follow one clip&apos;s body, so they go on a clip, not on an adjustment layer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Face effects follow one clip&apos;s faces, so they go on a clip, not on an adjustment layer.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6191,6 +6195,117 @@
     </message>
 </context>
 <context>
+    <name>BodyController</name>
+    <message>
+        <source>Body analysis already in progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear body analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This clip has no picture to analyse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Analysing the body…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished">Tapos na</translation>
+    </message>
+    <message>
+        <source>Clip is too short to analyse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Body analysis cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not decode frame %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Analysing frame %1 of %2…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No person found in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not write the body analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Body analysis complete — a person was visible in %1 of %2 frames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Body analysis complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>That clip no longer exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hair colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The hair colour effect is missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Finding the hair…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create a hair matte file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hair analysis cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No hair found in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hair colour applied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hair</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This clip cannot take an adjustment</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CameraInspector</name>
     <message>
         <source>Pan X</source>
@@ -7228,7 +7343,39 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Body Reshape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slim</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Head size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Blur Amount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hair Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lighten</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22539,6 +22686,98 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select a video or image clip to retouch a body.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to colour the hair.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install Body and hair retouch from Extras (it needs the AI engine) to use these.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The body in this clip is analysed: the sliders below follow it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick a look: the clip is analysed first, so the warps know where the body is.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Analyse the body again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chocolate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caramel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blonde</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Platinum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pink</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lilac</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick another colour to change it. Strength and lightening are on the Hair colour row of the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick a colour: the hair is found in every frame first, which takes a moment.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Kanselahin</translation>
+    </message>
+    <message>
         <source>Bigger eyes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -22723,15 +22962,47 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Slim</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slims the whole body</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Narrows the waist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lengthens the legs below the hips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Widens the shoulders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smaller head</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makes the head a little smaller</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hair colour and volume need a hair segmentation model, which Flip Studio does not have yet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

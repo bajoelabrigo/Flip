@@ -4322,6 +4322,10 @@
         <translation>마스크 효과는 한 클립의 마스크를 읽으므로 조정 레이어가 아닌 클립에 적용됩니다.</translation>
     </message>
     <message>
+        <source>Body effects follow one clip&apos;s body, so they go on a clip, not on an adjustment layer.</source>
+        <translation>몸 효과는 한 클립의 몸을 따라가므로 조정 레이어가 아닌 클립에 적용됩니다.</translation>
+    </message>
+    <message>
         <source>Face effects follow one clip&apos;s faces, so they go on a clip, not on an adjustment layer.</source>
         <translation>얼굴 효과는 한 클립의 얼굴을 따라가므로 보정 레이어가 아닌 클립에 적용합니다.</translation>
     </message>
@@ -6163,6 +6167,117 @@
     </message>
 </context>
 <context>
+    <name>BodyController</name>
+    <message>
+        <source>Body analysis already in progress</source>
+        <translation>몸 분석이 이미 진행 중입니다</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>준비 중…</translation>
+    </message>
+    <message>
+        <source>Clear body analysis</source>
+        <translation>몸 분석 지우기</translation>
+    </message>
+    <message>
+        <source>Select a video or image clip</source>
+        <translation>동영상 또는 이미지 클립을 선택하세요</translation>
+    </message>
+    <message>
+        <source>This clip has no picture to analyse</source>
+        <translation>이 클립에는 분석할 화면이 없습니다</translation>
+    </message>
+    <message>
+        <source>Analysing the body…</source>
+        <translation>몸 분석 중…</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>완료</translation>
+    </message>
+    <message>
+        <source>Clip is too short to analyse</source>
+        <translation>클립이 너무 짧아 분석할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Body analysis cancelled</source>
+        <translation>몸 분석이 취소됨</translation>
+    </message>
+    <message>
+        <source>Could not decode frame %1</source>
+        <translation>프레임 %1을(를) 디코딩할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Analysing frame %1 of %2…</source>
+        <translation>프레임 %1/%2 분석 중…</translation>
+    </message>
+    <message>
+        <source>No person found in this clip</source>
+        <translation>이 클립에서 사람을 찾을 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Could not write the body analysis</source>
+        <translation>몸 분석을 저장할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Body analysis complete — a person was visible in %1 of %2 frames</source>
+        <translation>몸 분석 완료 — %2개 프레임 중 %1개에서 사람이 보였습니다</translation>
+    </message>
+    <message>
+        <source>Body analysis complete</source>
+        <translation>몸 분석 완료</translation>
+    </message>
+    <message>
+        <source>That clip no longer exists</source>
+        <translation>해당 클립이 더 이상 존재하지 않습니다</translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation>몸 분석</translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation>헤어 컬러 제거</translation>
+    </message>
+    <message>
+        <source>Hair colour</source>
+        <translation>헤어 컬러</translation>
+    </message>
+    <message>
+        <source>The hair colour effect is missing</source>
+        <translation>헤어 컬러 효과가 없습니다</translation>
+    </message>
+    <message>
+        <source>Finding the hair…</source>
+        <translation>헤어 찾는 중…</translation>
+    </message>
+    <message>
+        <source>Could not create a hair matte file</source>
+        <translation>헤어 매트 파일을 만들 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Hair analysis cancelled</source>
+        <translation>헤어 분석이 취소됨</translation>
+    </message>
+    <message>
+        <source>No hair found in this clip</source>
+        <translation>이 클립에서 헤어를 찾을 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Hair colour applied</source>
+        <translation>헤어 컬러 적용됨</translation>
+    </message>
+    <message>
+        <source>Hair</source>
+        <translation>헤어</translation>
+    </message>
+    <message>
+        <source>This clip cannot take an adjustment</source>
+        <translation>이 클립에는 조정을 적용할 수 없습니다</translation>
+    </message>
+</context>
+<context>
     <name>CameraInspector</name>
     <message>
         <source>Pan X</source>
@@ -7200,8 +7315,40 @@
         <translation>가우시안 블러(GPU)</translation>
     </message>
     <message>
+        <source>Body Reshape</source>
+        <translation>몸매 보정</translation>
+    </message>
+    <message>
+        <source>Slim</source>
+        <translation>슬림</translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation>허리</translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation>다리 길이</translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation>어깨</translation>
+    </message>
+    <message>
+        <source>Head size</source>
+        <translation>머리 크기</translation>
+    </message>
+    <message>
         <source>Blur Amount</source>
         <translation>블러 양</translation>
+    </message>
+    <message>
+        <source>Hair Colour</source>
+        <translation>헤어 컬러</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>밝게</translation>
     </message>
     <message>
         <source>Halation</source>
@@ -22471,6 +22618,98 @@ If playback stutters, try another.</source>
         <translation>메시가 추적하는 부분을 가늘게 또는 넓게</translation>
     </message>
     <message>
+        <source>Select a video or image clip to retouch a body.</source>
+        <translation>몸을 리터치하려면 동영상 또는 이미지 클립을 선택하세요.</translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to colour the hair.</source>
+        <translation>헤어 컬러를 바꾸려면 동영상 또는 이미지 클립을 선택하세요.</translation>
+    </message>
+    <message>
+        <source>Install Body and hair retouch from Extras (it needs the AI engine) to use these.</source>
+        <translation>이 기능을 사용하려면 추가 기능에서 몸 및 헤어 리터치를 설치하세요(AI 엔진 필요).</translation>
+    </message>
+    <message>
+        <source>The body in this clip is analysed: the sliders below follow it.</source>
+        <translation>이 클립의 몸이 분석되었습니다. 아래 슬라이더가 몸을 따라갑니다.</translation>
+    </message>
+    <message>
+        <source>Pick a look: the clip is analysed first, so the warps know where the body is.</source>
+        <translation>스타일을 고르세요. 변형이 몸의 위치를 알 수 있도록 먼저 클립을 분석합니다.</translation>
+    </message>
+    <message>
+        <source>Analyse the body again</source>
+        <translation>몸 다시 분석</translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation>몸 분석</translation>
+    </message>
+    <message>
+        <source>Black</source>
+        <translation>블랙</translation>
+    </message>
+    <message>
+        <source>Brown</source>
+        <translation>브라운</translation>
+    </message>
+    <message>
+        <source>Chocolate</source>
+        <translation>초콜릿</translation>
+    </message>
+    <message>
+        <source>Caramel</source>
+        <translation>캐러멜</translation>
+    </message>
+    <message>
+        <source>Blonde</source>
+        <translation>블론드</translation>
+    </message>
+    <message>
+        <source>Platinum</source>
+        <translation>플래티넘</translation>
+    </message>
+    <message>
+        <source>Copper</source>
+        <translation>코퍼</translation>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation>레드</translation>
+    </message>
+    <message>
+        <source>Pink</source>
+        <translation>핑크</translation>
+    </message>
+    <message>
+        <source>Lilac</source>
+        <translation>라일락</translation>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation>블루</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>민트</translation>
+    </message>
+    <message>
+        <source>Pick another colour to change it. Strength and lightening are on the Hair colour row of the timeline.</source>
+        <translation>다른 색을 고르면 바뀝니다. 강도와 밝기는 타임라인의 헤어 컬러 행에 있습니다.</translation>
+    </message>
+    <message>
+        <source>Pick a colour: the hair is found in every frame first, which takes a moment.</source>
+        <translation>색을 고르세요. 먼저 모든 프레임에서 헤어를 찾으므로 잠시 시간이 걸립니다.</translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation>헤어 컬러 제거</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>취소</translation>
+    </message>
+    <message>
         <source>Bigger eyes</source>
         <translation>큰 눈</translation>
     </message>
@@ -22655,16 +22894,48 @@ If playback stutters, try another.</source>
         <translation>홍채 색을 바꿉니다</translation>
     </message>
     <message>
+        <source>Slim</source>
+        <translation>슬림</translation>
+    </message>
+    <message>
+        <source>Slims the whole body</source>
+        <translation>몸 전체를 날씬하게</translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation>허리</translation>
+    </message>
+    <message>
+        <source>Narrows the waist</source>
+        <translation>허리를 가늘게</translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation>다리 길이</translation>
+    </message>
+    <message>
+        <source>Lengthens the legs below the hips</source>
+        <translation>엉덩이 아래 다리를 길게</translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation>어깨</translation>
+    </message>
+    <message>
+        <source>Widens the shoulders</source>
+        <translation>어깨를 넓게</translation>
+    </message>
+    <message>
+        <source>Smaller head</source>
+        <translation>작은 머리</translation>
+    </message>
+    <message>
+        <source>Makes the head a little smaller</source>
+        <translation>머리를 조금 작게</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>즐겨찾기</translation>
-    </message>
-    <message>
-        <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
-        <translation>몸 리터치(가는 허리, 긴 다리 등)에는 신체 추적 모델이 필요하지만 Flip Studio에는 아직 없습니다.</translation>
-    </message>
-    <message>
-        <source>Hair colour and volume need a hair segmentation model, which Flip Studio does not have yet.</source>
-        <translation>머리카락 색과 볼륨에는 헤어 분할 모델이 필요하지만 Flip Studio에는 아직 없습니다.</translation>
     </message>
     <message>
         <source>Select a video or image clip to retouch a face.</source>

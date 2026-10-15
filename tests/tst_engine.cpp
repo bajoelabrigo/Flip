@@ -83,6 +83,7 @@
 #include "engine/EffectPackageLoader.h"
 #include "engine/EffectProcessor.h"
 #include "engine/FaceTrack.h"
+#include "engine/PoseTrack.h"
 #include "engine/FaceMesh.h"
 #include "engine/Face111.h"
 #include "engine/FacePropCatalog.h"
@@ -384,6 +385,9 @@ private slots:
     void exporterDefaultCrfIsNearLosslessForH264();
     void exporterOffersSizesAboveTheProject();
     void sceneTemplatePackageInstallsFromStock();
+    void poseTrackRoundTripsAndInterpolates();
+    void bodyReshapeFollowsThePose();
+    void hairColorDyesKeepingTheLight();
     void exporterHardwareCodecsListedForThisOs();
     void exporterHardwarePreferredContainerIsMp4();
     void exporterSettingsFromMapRoundTripsHardwareCodec();
@@ -12033,6 +12037,144 @@ void EngineTest::gpuNv12MatchesSwsBt709()
 // A template from Stock arrives as a zip of its folder: it unpacks into AppData/scene-templates,
 // the catalog finds it there ahead of the bundled copies, and a package whose id could escape the
 // folder is refused.
+namespace {
+
+// A standing figure in uv: shoulders at y 0.3, hips at 0.55, centred on x.
+drift::BodyPose testPose(double shiftX)
+{
+    drift::BodyPose pose;
+    pose.valid = true;
+    pose.score = 1.0;
+    for (int i = 0; i < drift::body::kPointCount; ++i) {
+        pose.points.append(QPointF(0.5 + shiftX, 0.5));
+        pose.visibility.append(0.9f);
+    }
+    pose.points[drift::body::kNose] = QPointF(0.5 + shiftX, 0.18);
+    pose.points[drift::body::kShoulderLeft] = QPointF(0.6 + shiftX, 0.3);
+    pose.points[drift::body::kShoulderRight] = QPointF(0.4 + shiftX, 0.3);
+    pose.points[drift::body::kHipLeft] = QPointF(0.56 + shiftX, 0.55);
+    pose.points[drift::body::kHipRight] = QPointF(0.44 + shiftX, 0.55);
+    pose.roiCenter = QPointF(0.5 + shiftX, 0.55);
+    pose.roiSize = 0.6;
+    return pose;
+}
+
+} // namespace
+
+// Retouch > Body bakes the pose like the face scan bakes landmarks: the sidecar has to come back
+// as written, sample between frames, refuse to blend across a frame with nobody in it, and the
+// smoothing must leave a still body exactly where it is.
+void EngineTest::poseTrackRoundTripsAndInterpolates()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QString path = dir.filePath(QStringLiteral("pose.json"));
+
+    drift::PoseTrack track;
+    track.fps = 10;
+    track.startSrcUs = drift::secondsToUs(2.0);
+    track.frames = {testPose(0.0), testPose(0.1), drift::BodyPose(), testPose(0.0)};
+    QString error;
+    QVERIFY2(drift::writePoseTrack(path, track, &error), qPrintable(error));
+
+    drift::PoseTrack read;
+    QVERIFY2(drift::readPoseTrack(path, &read, &error), qPrintable(error));
+    QCOMPARE(read.fps, 10);
+    QCOMPARE(read.startSrcUs, drift::secondsToUs(2.0));
+    QCOMPARE(read.frames.size(), 4);
+    QVERIFY(read.frames.at(0).valid);
+    QVERIFY(!read.frames.at(2).valid);
+    QCOMPARE(read.frames.at(1).points.size(), drift::body::kPointCount);
+    QVERIFY(qAbs(read.frames.at(1).points.at(drift::body::kShoulderLeft).x() - 0.7) < 1e-4);
+    QVERIFY(qAbs(read.frames.at(0).roiSize - 0.6) < 1e-4);
+
+    // Half way between frames 0 and 1: half the shift.
+    const drift::BodyPose mid = read.sample(drift::secondsToUs(0.05));
+    QVERIFY(mid.valid);
+    QVERIFY(qAbs(mid.points.at(drift::body::kShoulderLeft).x() - 0.65) < 1e-3);
+    // Next to the empty frame: nothing, rather than a pose half way to nowhere.
+    QVERIFY(!read.sample(drift::secondsToUs(0.15)).valid);
+    // Past the end: the last frame.
+    QVERIFY(read.sample(drift::secondsToUs(5.0)).valid);
+
+    drift::PoseTrack still;
+    still.fps = 10;
+    still.frames = {testPose(0.0), testPose(0.0), testPose(0.0), testPose(0.0), testPose(0.0)};
+    drift::smoothPoseTrack(&still);
+    QCOMPARE(still.frames.at(2).points.at(drift::body::kHipLeft), QPointF(0.56, 0.55));
+
+    // The uniforms the shader reads, and pass-through without a pose.
+    QMap<QString, QVariant> params;
+    drift::applyPoseUniforms(&params, testPose(0.0));
+    QCOMPARE(params.value(QStringLiteral("u_bodyValid")).toDouble(), 1.0);
+    QVERIFY(qAbs(params.value(QStringLiteral("u_bodyHipLY")).toDouble() - 0.55) < 1e-9);
+    QMap<QString, QVariant> none;
+    drift::applyPoseUniforms(&none, drift::BodyPose());
+    QCOMPARE(none.value(QStringLiteral("u_bodyValid")).toDouble(), 0.0);
+}
+
+void EngineTest::bodyReshapeFollowsThePose()
+{
+    const EffectPresetEntry *def = effectDefForId(QStringLiteral("body_reshape"));
+    QVERIFY(def);
+    QVERIFY(def->needsPose);
+    if (!GpuEffectExecutor::instance().isAvailable())
+        QSKIP("GPU effect executor unavailable");
+
+    // Vertical stripes, so any horizontal squeeze or vertical stretch moves pixels.
+    QImage source(128, 128, QImage::Format_RGBA8888);
+    for (int y = 0; y < source.height(); ++y) {
+        for (int x = 0; x < source.width(); ++x)
+            source.setPixelColor(x, y, ((x / 4) % 2) ? QColor(240, 240, 240) : QColor(20, 40, 60));
+    }
+    for (int y = 0; y < source.height(); y += 8) {
+        for (int x = 0; x < source.width(); ++x)
+            source.setPixelColor(x, y, QColor(200, 30, 30));
+    }
+
+    drift::Effect effect;
+    effect.catalogId = QStringLiteral("body_reshape");
+    effect.parameters.insert(QStringLiteral("slim"), 0.8);
+    effect.parameters.insert(QStringLiteral("waist"), 0.8);
+    effect.parameters.insert(QStringLiteral("legs"), 0.8);
+
+    // No pose: untouched.
+    const QImage untouched = EffectProcessor::applyEffects(source, {effect}, 0, {}, nullptr);
+    QVERIFY(untouched.convertToFormat(source.format()) == source);
+
+    // A pose: the body region moves.
+    const QImage warped =
+        EffectProcessor::applyEffects(source, {effect}, 0, {}, nullptr, testPose(0.0)).convertToFormat(source.format());
+    QCOMPARE(warped.size(), source.size());
+    QVERIFY(warped != source);
+    // The top corners are far from the body and above the hips: they stay put.
+    QCOMPARE(warped.pixelColor(1, 1), source.pixelColor(1, 1));
+}
+
+void EngineTest::hairColorDyesKeepingTheLight()
+{
+    QVERIFY(effectDefForId(QStringLiteral("hair_color")));
+    if (!GpuEffectExecutor::instance().isAvailable())
+        QSKIP("GPU effect executor unavailable");
+
+    // Dark brown "hair" with a lighter strand.
+    QImage source(64, 64, QImage::Format_RGBA8888);
+    source.fill(QColor(60, 40, 30));
+    for (int y = 0; y < 64; ++y)
+        source.setPixelColor(32, y, QColor(120, 90, 70));
+
+    drift::Effect effect;
+    effect.catalogId = QStringLiteral("hair_color");
+    effect.parameters.insert(QStringLiteral("shade"), QStringLiteral("#3c6fd2"));
+    effect.parameters.insert(QStringLiteral("strength"), 1.0);
+    effect.parameters.insert(QStringLiteral("lift"), 0.0);
+    const QImage out = EffectProcessor::applyEffects(source, {effect}).convertToFormat(source.format());
+    const QColor dyed = out.pixelColor(10, 10);
+    // Blue now, and the strand is still lighter than the rest.
+    QVERIFY2(dyed.blue() > dyed.red(), qPrintable(dyed.name()));
+    QVERIFY(out.pixelColor(32, 10).lightness() > dyed.lightness());
+}
+
 void EngineTest::sceneTemplatePackageInstallsFromStock()
 {
     QStandardPaths::setTestModeEnabled(true);

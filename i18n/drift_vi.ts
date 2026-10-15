@@ -4330,6 +4330,10 @@
         <translation>Hiệu ứng mặt nạ đọc mặt nạ của một clip, vì vậy chúng xuất hiện trên clip chứ không phải trên lớp điều chỉnh.</translation>
     </message>
     <message>
+        <source>Body effects follow one clip&apos;s body, so they go on a clip, not on an adjustment layer.</source>
+        <translation>Hiệu ứng cơ thể bám theo cơ thể trong một clip, nên chúng được áp dụng cho clip chứ không phải lớp điều chỉnh.</translation>
+    </message>
+    <message>
         <source>Face effects follow one clip&apos;s faces, so they go on a clip, not on an adjustment layer.</source>
         <translation>Các hiệu ứng khuôn mặt tuân theo các khuôn mặt của một clip, vì vậy chúng xuất hiện trên một clip chứ không phải trên lớp điều chỉnh.</translation>
     </message>
@@ -6163,6 +6167,117 @@
     </message>
 </context>
 <context>
+    <name>BodyController</name>
+    <message>
+        <source>Body analysis already in progress</source>
+        <translation>Đang phân tích cơ thể</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>Đang chuẩn bị…</translation>
+    </message>
+    <message>
+        <source>Clear body analysis</source>
+        <translation>Xóa phân tích cơ thể</translation>
+    </message>
+    <message>
+        <source>Select a video or image clip</source>
+        <translation>Chọn một clip video hoặc hình ảnh</translation>
+    </message>
+    <message>
+        <source>This clip has no picture to analyse</source>
+        <translation>Clip này không có hình ảnh để phân tích</translation>
+    </message>
+    <message>
+        <source>Analysing the body…</source>
+        <translation>Đang phân tích cơ thể…</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>Xong</translation>
+    </message>
+    <message>
+        <source>Clip is too short to analyse</source>
+        <translation>Clip quá ngắn để phân tích</translation>
+    </message>
+    <message>
+        <source>Body analysis cancelled</source>
+        <translation>Đã hủy phân tích cơ thể</translation>
+    </message>
+    <message>
+        <source>Could not decode frame %1</source>
+        <translation>Không thể giải mã khung %1</translation>
+    </message>
+    <message>
+        <source>Analysing frame %1 of %2…</source>
+        <translation>Đang phân tích khung %1 / %2…</translation>
+    </message>
+    <message>
+        <source>No person found in this clip</source>
+        <translation>Không tìm thấy người trong clip này</translation>
+    </message>
+    <message>
+        <source>Could not write the body analysis</source>
+        <translation>Không thể ghi kết quả phân tích cơ thể</translation>
+    </message>
+    <message>
+        <source>Body analysis complete — a person was visible in %1 of %2 frames</source>
+        <translation>Đã phân tích cơ thể xong — có người xuất hiện trong %1 / %2 khung hình</translation>
+    </message>
+    <message>
+        <source>Body analysis complete</source>
+        <translation>Đã phân tích cơ thể xong</translation>
+    </message>
+    <message>
+        <source>That clip no longer exists</source>
+        <translation>Clip đó không còn tồn tại</translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation>Phân tích cơ thể</translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation>Bỏ màu tóc</translation>
+    </message>
+    <message>
+        <source>Hair colour</source>
+        <translation>Màu tóc</translation>
+    </message>
+    <message>
+        <source>The hair colour effect is missing</source>
+        <translation>Thiếu hiệu ứng màu tóc</translation>
+    </message>
+    <message>
+        <source>Finding the hair…</source>
+        <translation>Đang tìm tóc…</translation>
+    </message>
+    <message>
+        <source>Could not create a hair matte file</source>
+        <translation>Không thể tạo tệp mặt nạ tóc</translation>
+    </message>
+    <message>
+        <source>Hair analysis cancelled</source>
+        <translation>Đã hủy phân tích tóc</translation>
+    </message>
+    <message>
+        <source>No hair found in this clip</source>
+        <translation>Không tìm thấy tóc trong clip này</translation>
+    </message>
+    <message>
+        <source>Hair colour applied</source>
+        <translation>Đã áp dụng màu tóc</translation>
+    </message>
+    <message>
+        <source>Hair</source>
+        <translation>Tóc</translation>
+    </message>
+    <message>
+        <source>This clip cannot take an adjustment</source>
+        <translation>Clip này không thể nhận điều chỉnh</translation>
+    </message>
+</context>
+<context>
     <name>CameraInspector</name>
     <message>
         <source>Pan X</source>
@@ -7200,8 +7315,40 @@
         <translation>Làm mờ Gauss (GPU)</translation>
     </message>
     <message>
+        <source>Body Reshape</source>
+        <translation>Chỉnh dáng</translation>
+    </message>
+    <message>
+        <source>Slim</source>
+        <translation>Thon gọn</translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation>Eo</translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation>Chân dài</translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation>Vai</translation>
+    </message>
+    <message>
+        <source>Head size</source>
+        <translation>Kích thước đầu</translation>
+    </message>
+    <message>
         <source>Blur Amount</source>
         <translation>Mức làm mờ</translation>
+    </message>
+    <message>
+        <source>Hair Colour</source>
+        <translation>Màu tóc</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>Sáng hơn</translation>
     </message>
     <message>
         <source>Halation</source>
@@ -22473,6 +22620,98 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Làm gọn hoặc nới rộng phần mà lưới theo dõi</translation>
     </message>
     <message>
+        <source>Select a video or image clip to retouch a body.</source>
+        <translation>Chọn một clip video hoặc hình ảnh để chỉnh dáng.</translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to colour the hair.</source>
+        <translation>Chọn một clip video hoặc hình ảnh để nhuộm tóc.</translation>
+    </message>
+    <message>
+        <source>Install Body and hair retouch from Extras (it needs the AI engine) to use these.</source>
+        <translation>Cài Chỉnh dáng và tóc từ Tiện ích (cần công cụ AI) để dùng các tính năng này.</translation>
+    </message>
+    <message>
+        <source>The body in this clip is analysed: the sliders below follow it.</source>
+        <translation>Cơ thể trong clip này đã được phân tích: các thanh trượt bên dưới bám theo nó.</translation>
+    </message>
+    <message>
+        <source>Pick a look: the clip is analysed first, so the warps know where the body is.</source>
+        <translation>Chọn một kiểu: clip được phân tích trước để biến dạng biết cơ thể ở đâu.</translation>
+    </message>
+    <message>
+        <source>Analyse the body again</source>
+        <translation>Phân tích lại cơ thể</translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation>Phân tích cơ thể</translation>
+    </message>
+    <message>
+        <source>Black</source>
+        <translation>Đen</translation>
+    </message>
+    <message>
+        <source>Brown</source>
+        <translation>Nâu</translation>
+    </message>
+    <message>
+        <source>Chocolate</source>
+        <translation>Nâu socola</translation>
+    </message>
+    <message>
+        <source>Caramel</source>
+        <translation>Caramel</translation>
+    </message>
+    <message>
+        <source>Blonde</source>
+        <translation>Vàng</translation>
+    </message>
+    <message>
+        <source>Platinum</source>
+        <translation>Bạch kim</translation>
+    </message>
+    <message>
+        <source>Copper</source>
+        <translation>Đồng</translation>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation>Đỏ</translation>
+    </message>
+    <message>
+        <source>Pink</source>
+        <translation>Hồng</translation>
+    </message>
+    <message>
+        <source>Lilac</source>
+        <translation>Tím nhạt</translation>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation>Xanh dương</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>Xanh bạc hà</translation>
+    </message>
+    <message>
+        <source>Pick another colour to change it. Strength and lightening are on the Hair colour row of the timeline.</source>
+        <translation>Chọn màu khác để đổi. Cường độ và độ sáng nằm ở hàng Màu tóc trên dòng thời gian.</translation>
+    </message>
+    <message>
+        <source>Pick a colour: the hair is found in every frame first, which takes a moment.</source>
+        <translation>Chọn một màu: tóc được tìm trong từng khung hình trước, việc này mất một lúc.</translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation>Bỏ màu tóc</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Hủy</translation>
+    </message>
+    <message>
         <source>Bigger eyes</source>
         <translation>Mắt to hơn</translation>
     </message>
@@ -22657,16 +22896,48 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Đổi màu mống mắt</translation>
     </message>
     <message>
+        <source>Slim</source>
+        <translation>Thon gọn</translation>
+    </message>
+    <message>
+        <source>Slims the whole body</source>
+        <translation>Làm thon gọn toàn thân</translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation>Eo</translation>
+    </message>
+    <message>
+        <source>Narrows the waist</source>
+        <translation>Thu nhỏ vòng eo</translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation>Chân dài</translation>
+    </message>
+    <message>
+        <source>Lengthens the legs below the hips</source>
+        <translation>Kéo dài chân dưới hông</translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation>Vai</translation>
+    </message>
+    <message>
+        <source>Widens the shoulders</source>
+        <translation>Mở rộng vai</translation>
+    </message>
+    <message>
+        <source>Smaller head</source>
+        <translation>Đầu nhỏ hơn</translation>
+    </message>
+    <message>
+        <source>Makes the head a little smaller</source>
+        <translation>Làm đầu nhỏ đi một chút</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>Yêu thích</translation>
-    </message>
-    <message>
-        <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
-        <translation>Chỉnh sửa cơ thể (eo thon, chân dài hơn, v.v.) cần mô hình theo dõi cơ thể, mà Flip Studio hiện chưa có.</translation>
-    </message>
-    <message>
-        <source>Hair colour and volume need a hair segmentation model, which Flip Studio does not have yet.</source>
-        <translation>Màu tóc và độ phồng tóc cần mô hình phân đoạn tóc, mà Flip Studio hiện chưa có.</translation>
     </message>
     <message>
         <source>Select a video or image clip to retouch a face.</source>

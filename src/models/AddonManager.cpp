@@ -740,7 +740,7 @@ void AddonManager::reloadForKinds(const QStringList &kinds)
             if (drift::pdfium::loaded())
                 m_runtimeRestartRequired = true;
         }
-        // whisper-model, sam2-model, face-model and object-model need nothing: sessions are
+        // whisper-model, sam2-model, face-model, body-model and object-model need nothing: sessions are
         // created lazily on next use.
         emit kindChanged(kind);
     }

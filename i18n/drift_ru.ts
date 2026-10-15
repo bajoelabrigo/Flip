@@ -4338,6 +4338,10 @@
         <translation>Эффекты масок читают маски одного клипа, поэтому применяются к клипу, а не к корректирующему слою.</translation>
     </message>
     <message>
+        <source>Body effects follow one clip&apos;s body, so they go on a clip, not on an adjustment layer.</source>
+        <translation>Эффекты тела следуют за телом в одном клипе, поэтому их применяют к клипу, а не к корректирующему слою.</translation>
+    </message>
+    <message>
         <source>Face effects follow one clip&apos;s faces, so they go on a clip, not on an adjustment layer.</source>
         <translation>Эффекты лица отслеживают лица в одном клипе, поэтому применяются к клипу, а не к корректирующему слою.</translation>
     </message>
@@ -6219,6 +6223,117 @@
     </message>
 </context>
 <context>
+    <name>BodyController</name>
+    <message>
+        <source>Body analysis already in progress</source>
+        <translation>Анализ тела уже выполняется</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>Подготовка…</translation>
+    </message>
+    <message>
+        <source>Clear body analysis</source>
+        <translation>Очистить анализ тела</translation>
+    </message>
+    <message>
+        <source>Select a video or image clip</source>
+        <translation>Выберите видео- или фотоклип</translation>
+    </message>
+    <message>
+        <source>This clip has no picture to analyse</source>
+        <translation>В этом клипе нет изображения для анализа</translation>
+    </message>
+    <message>
+        <source>Analysing the body…</source>
+        <translation>Анализ тела…</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>Готово</translation>
+    </message>
+    <message>
+        <source>Clip is too short to analyse</source>
+        <translation>Клип слишком короткий для анализа</translation>
+    </message>
+    <message>
+        <source>Body analysis cancelled</source>
+        <translation>Анализ тела отменён</translation>
+    </message>
+    <message>
+        <source>Could not decode frame %1</source>
+        <translation>Не удалось декодировать кадр %1</translation>
+    </message>
+    <message>
+        <source>Analysing frame %1 of %2…</source>
+        <translation>Анализ кадра %1 из %2…</translation>
+    </message>
+    <message>
+        <source>No person found in this clip</source>
+        <translation>В этом клипе не найден человек</translation>
+    </message>
+    <message>
+        <source>Could not write the body analysis</source>
+        <translation>Не удалось записать анализ тела</translation>
+    </message>
+    <message>
+        <source>Body analysis complete — a person was visible in %1 of %2 frames</source>
+        <translation>Анализ тела завершён — человек виден в %1 из %2 кадров</translation>
+    </message>
+    <message>
+        <source>Body analysis complete</source>
+        <translation>Анализ тела завершён</translation>
+    </message>
+    <message>
+        <source>That clip no longer exists</source>
+        <translation>Этого клипа больше нет</translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation>Анализ тела</translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation>Убрать цвет волос</translation>
+    </message>
+    <message>
+        <source>Hair colour</source>
+        <translation>Цвет волос</translation>
+    </message>
+    <message>
+        <source>The hair colour effect is missing</source>
+        <translation>Эффект цвета волос не найден</translation>
+    </message>
+    <message>
+        <source>Finding the hair…</source>
+        <translation>Поиск волос…</translation>
+    </message>
+    <message>
+        <source>Could not create a hair matte file</source>
+        <translation>Не удалось создать файл маски волос</translation>
+    </message>
+    <message>
+        <source>Hair analysis cancelled</source>
+        <translation>Анализ волос отменён</translation>
+    </message>
+    <message>
+        <source>No hair found in this clip</source>
+        <translation>В этом клипе не найдены волосы</translation>
+    </message>
+    <message>
+        <source>Hair colour applied</source>
+        <translation>Цвет волос применён</translation>
+    </message>
+    <message>
+        <source>Hair</source>
+        <translation>Волосы</translation>
+    </message>
+    <message>
+        <source>This clip cannot take an adjustment</source>
+        <translation>К этому клипу нельзя применить коррекцию</translation>
+    </message>
+</context>
+<context>
     <name>CameraInspector</name>
     <message>
         <source>Pan X</source>
@@ -7256,8 +7371,40 @@
         <translation>Размытие по Гауссу (GPU)</translation>
     </message>
     <message>
+        <source>Body Reshape</source>
+        <translation>Коррекция фигуры</translation>
+    </message>
+    <message>
+        <source>Slim</source>
+        <translation>Стройность</translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation>Талия</translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation>Длинные ноги</translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation>Плечи</translation>
+    </message>
+    <message>
+        <source>Head size</source>
+        <translation>Размер головы</translation>
+    </message>
+    <message>
         <source>Blur Amount</source>
         <translation>Сила размытия</translation>
+    </message>
+    <message>
+        <source>Hair Colour</source>
+        <translation>Цвет волос</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>Осветление</translation>
     </message>
     <message>
         <source>Halation</source>
@@ -22621,6 +22768,98 @@ If playback stutters, try another.</source>
         <translation>Сузить или расширить то, за чем следует сетка</translation>
     </message>
     <message>
+        <source>Select a video or image clip to retouch a body.</source>
+        <translation>Выберите видео- или фотоклип, чтобы отретушировать фигуру.</translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to colour the hair.</source>
+        <translation>Выберите видео- или фотоклип, чтобы покрасить волосы.</translation>
+    </message>
+    <message>
+        <source>Install Body and hair retouch from Extras (it needs the AI engine) to use these.</source>
+        <translation>Установите «Ретушь тела и волос» из «Дополнений» (нужен ИИ-движок), чтобы использовать это.</translation>
+    </message>
+    <message>
+        <source>The body in this clip is analysed: the sliders below follow it.</source>
+        <translation>Тело в этом клипе проанализировано: ползунки ниже следуют за ним.</translation>
+    </message>
+    <message>
+        <source>Pick a look: the clip is analysed first, so the warps know where the body is.</source>
+        <translation>Выберите образ: сначала клип анализируется, чтобы деформации знали, где находится тело.</translation>
+    </message>
+    <message>
+        <source>Analyse the body again</source>
+        <translation>Проанализировать тело заново</translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation>Анализ тела</translation>
+    </message>
+    <message>
+        <source>Black</source>
+        <translation>Чёрный</translation>
+    </message>
+    <message>
+        <source>Brown</source>
+        <translation>Каштановый</translation>
+    </message>
+    <message>
+        <source>Chocolate</source>
+        <translation>Шоколадный</translation>
+    </message>
+    <message>
+        <source>Caramel</source>
+        <translation>Карамельный</translation>
+    </message>
+    <message>
+        <source>Blonde</source>
+        <translation>Блонд</translation>
+    </message>
+    <message>
+        <source>Platinum</source>
+        <translation>Платиновый</translation>
+    </message>
+    <message>
+        <source>Copper</source>
+        <translation>Медный</translation>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation>Рыжий</translation>
+    </message>
+    <message>
+        <source>Pink</source>
+        <translation>Розовый</translation>
+    </message>
+    <message>
+        <source>Lilac</source>
+        <translation>Сиреневый</translation>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation>Синий</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>Мятный</translation>
+    </message>
+    <message>
+        <source>Pick another colour to change it. Strength and lightening are on the Hair colour row of the timeline.</source>
+        <translation>Выберите другой цвет, чтобы сменить его. Сила и осветление находятся в строке «Цвет волос» на таймлайне.</translation>
+    </message>
+    <message>
+        <source>Pick a colour: the hair is found in every frame first, which takes a moment.</source>
+        <translation>Выберите цвет: сначала волосы находятся в каждом кадре, это занимает немного времени.</translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation>Убрать цвет волос</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
         <source>Bigger eyes</source>
         <translation>Увеличить глаза</translation>
     </message>
@@ -22805,16 +23044,48 @@ If playback stutters, try another.</source>
         <translation>Перекрашивает радужку</translation>
     </message>
     <message>
+        <source>Slim</source>
+        <translation>Стройность</translation>
+    </message>
+    <message>
+        <source>Slims the whole body</source>
+        <translation>Делает всё тело стройнее</translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation>Талия</translation>
+    </message>
+    <message>
+        <source>Narrows the waist</source>
+        <translation>Сужает талию</translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation>Длинные ноги</translation>
+    </message>
+    <message>
+        <source>Lengthens the legs below the hips</source>
+        <translation>Удлиняет ноги ниже бёдер</translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation>Плечи</translation>
+    </message>
+    <message>
+        <source>Widens the shoulders</source>
+        <translation>Расширяет плечи</translation>
+    </message>
+    <message>
+        <source>Smaller head</source>
+        <translation>Меньше голова</translation>
+    </message>
+    <message>
+        <source>Makes the head a little smaller</source>
+        <translation>Немного уменьшает голову</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>Избранное</translation>
-    </message>
-    <message>
-        <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
-        <translation>Для ретуши тела (тоньше талия, длиннее ноги и т. п.) нужна модель отслеживания тела, которой в Flip Studio пока нет.</translation>
-    </message>
-    <message>
-        <source>Hair colour and volume need a hair segmentation model, which Flip Studio does not have yet.</source>
-        <translation>Для цвета и объёма волос нужна модель сегментации волос, которой в Flip Studio пока нет.</translation>
     </message>
     <message>
         <source>Select a video or image clip to retouch a face.</source>

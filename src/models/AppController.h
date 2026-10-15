@@ -65,6 +65,7 @@ struct MediaEditSpec;
 #include "CurveEditorController.h"
 #include "DenoiseController.h"
 #include "DepthController.h"
+#include "BodyController.h"
 #include "FaceTrackingController.h"
 #include "McpController.h"
 #include "RestoreController.h"
@@ -98,6 +99,7 @@ class AppController : public QObject
     friend class DenoiseController;
     friend class RestoreController;
     friend class FaceTrackingController;
+    friend class BodyController;
     friend class StabilizeController;
     friend class MediaBinController;
     friend class TtsController;
@@ -133,6 +135,7 @@ class AppController : public QObject
     Q_PROPERTY(RestoreController *restore READ restore CONSTANT)
     // Face landmark tracking and Face Swap source ingest. QML: EditorState.faces.
     Q_PROPERTY(FaceTrackingController *faces READ faces CONSTANT)
+    Q_PROPERTY(BodyController *body READ body CONSTANT)
     // Clip stabilization. QML: EditorState.stabilize.
     Q_PROPERTY(StabilizeController *stabilize READ stabilize CONSTANT)
     // Local text-to-speech and the cloned-voice library. QML: EditorState.tts, EditorState.voices.
@@ -328,6 +331,7 @@ public:
     DenoiseController *denoise() const { return m_denoise; }
     RestoreController *restore() const { return m_restore; }
     FaceTrackingController *faces() const { return m_faces; }
+    BodyController *body() const { return m_body; }
     StabilizeController *stabilize() const { return m_stabilize; }
     TtsController *tts() const { return m_tts; }
     VoiceLibrary *voices() const { return m_voices; }
@@ -2308,6 +2312,7 @@ protected:
     DenoiseController *m_denoise = nullptr;
     RestoreController *m_restore = nullptr;
     FaceTrackingController *m_faces = nullptr;
+    BodyController *m_body = nullptr;
     StabilizeController *m_stabilize = nullptr;
     MediaBinController *m_bin = nullptr;
     TtsController *m_tts = nullptr;

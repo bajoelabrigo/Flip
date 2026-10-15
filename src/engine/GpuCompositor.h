@@ -8,6 +8,7 @@
 #include "engine/ClipTransform3d.h"
 #include "engine/SceneCamera3d.h"
 #include "engine/DepthSidecar.h"
+#include "engine/BodyLandmarker.h"
 #include "engine/FaceLandmarker.h"
 #include "engine/GpuStatus.h"
 #include "engine/PreviewVideoFrame.h"
@@ -118,6 +119,9 @@ struct GpuLayer
     // This frame's baked face anchors, one per tracked slot, sampled by FrameCompositor. Carried
     // by value: the scene outlives the cache lookup that produced them.
     QList<drift::FaceAnchors> faceSlots;
+    // This frame's body pose for "requires": "pose" effects, sampled the same way. Invalid when
+    // the clip has not been analysed, which the body shaders take as pass-through.
+    drift::BodyPose body;
     // This frame's depth map, when the chain has a "requires": "depth" effect and the clip has
     // been estimated. Shared, not copied: the sidecar's frame cache owns it.
     std::shared_ptr<const drift::DepthFrame> depth;

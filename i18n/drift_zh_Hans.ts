@@ -4322,6 +4322,10 @@
         <translation>蒙版特效读取单个片段的蒙版，因此需放在片段上，而不是调整图层上。</translation>
     </message>
     <message>
+        <source>Body effects follow one clip&apos;s body, so they go on a clip, not on an adjustment layer.</source>
+        <translation>身体特效跟随单个片段中的身体，因此要应用到片段上，而不是调整图层。</translation>
+    </message>
+    <message>
         <source>Face effects follow one clip&apos;s faces, so they go on a clip, not on an adjustment layer.</source>
         <translation>人脸特效跟随单个片段中的人脸，因此需放在片段上，而不是调整图层上。</translation>
     </message>
@@ -6163,6 +6167,117 @@
     </message>
 </context>
 <context>
+    <name>BodyController</name>
+    <message>
+        <source>Body analysis already in progress</source>
+        <translation>身体分析已在进行中</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>正在准备…</translation>
+    </message>
+    <message>
+        <source>Clear body analysis</source>
+        <translation>清除身体分析</translation>
+    </message>
+    <message>
+        <source>Select a video or image clip</source>
+        <translation>请选择一个视频或图片片段</translation>
+    </message>
+    <message>
+        <source>This clip has no picture to analyse</source>
+        <translation>此片段没有可分析的画面</translation>
+    </message>
+    <message>
+        <source>Analysing the body…</source>
+        <translation>正在分析身体…</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>完成</translation>
+    </message>
+    <message>
+        <source>Clip is too short to analyse</source>
+        <translation>片段太短，无法分析</translation>
+    </message>
+    <message>
+        <source>Body analysis cancelled</source>
+        <translation>已取消身体分析</translation>
+    </message>
+    <message>
+        <source>Could not decode frame %1</source>
+        <translation>无法解码第 %1 帧</translation>
+    </message>
+    <message>
+        <source>Analysing frame %1 of %2…</source>
+        <translation>正在分析第 %1 帧，共 %2 帧…</translation>
+    </message>
+    <message>
+        <source>No person found in this clip</source>
+        <translation>此片段中未找到人物</translation>
+    </message>
+    <message>
+        <source>Could not write the body analysis</source>
+        <translation>无法写入身体分析</translation>
+    </message>
+    <message>
+        <source>Body analysis complete — a person was visible in %1 of %2 frames</source>
+        <translation>身体分析完成 — %2 帧中有 %1 帧可见人物</translation>
+    </message>
+    <message>
+        <source>Body analysis complete</source>
+        <translation>身体分析完成</translation>
+    </message>
+    <message>
+        <source>That clip no longer exists</source>
+        <translation>该片段已不存在</translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation>分析身体</translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation>移除发色</translation>
+    </message>
+    <message>
+        <source>Hair colour</source>
+        <translation>发色</translation>
+    </message>
+    <message>
+        <source>The hair colour effect is missing</source>
+        <translation>缺少发色特效</translation>
+    </message>
+    <message>
+        <source>Finding the hair…</source>
+        <translation>正在查找头发…</translation>
+    </message>
+    <message>
+        <source>Could not create a hair matte file</source>
+        <translation>无法创建头发遮罩文件</translation>
+    </message>
+    <message>
+        <source>Hair analysis cancelled</source>
+        <translation>已取消头发分析</translation>
+    </message>
+    <message>
+        <source>No hair found in this clip</source>
+        <translation>此片段中未找到头发</translation>
+    </message>
+    <message>
+        <source>Hair colour applied</source>
+        <translation>已应用发色</translation>
+    </message>
+    <message>
+        <source>Hair</source>
+        <translation>头发</translation>
+    </message>
+    <message>
+        <source>This clip cannot take an adjustment</source>
+        <translation>此片段无法应用调整</translation>
+    </message>
+</context>
+<context>
     <name>CameraInspector</name>
     <message>
         <source>Pan X</source>
@@ -7200,8 +7315,40 @@
         <translation>高斯模糊（GPU）</translation>
     </message>
     <message>
+        <source>Body Reshape</source>
+        <translation>美体</translation>
+    </message>
+    <message>
+        <source>Slim</source>
+        <translation>瘦身</translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation>细腰</translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation>长腿</translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation>肩宽</translation>
+    </message>
+    <message>
+        <source>Head size</source>
+        <translation>头部大小</translation>
+    </message>
+    <message>
         <source>Blur Amount</source>
         <translation>模糊程度</translation>
+    </message>
+    <message>
+        <source>Hair Colour</source>
+        <translation>发色</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>提亮</translation>
     </message>
     <message>
         <source>Halation</source>
@@ -22472,6 +22619,98 @@ If playback stutters, try another.</source>
         <translation>收窄或加宽网格跟随的部位</translation>
     </message>
     <message>
+        <source>Select a video or image clip to retouch a body.</source>
+        <translation>选择一个视频或图片片段来美体。</translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to colour the hair.</source>
+        <translation>选择一个视频或图片片段来染发。</translation>
+    </message>
+    <message>
+        <source>Install Body and hair retouch from Extras (it needs the AI engine) to use these.</source>
+        <translation>从扩展中安装“美体与头发”（需要 AI 引擎）即可使用这些功能。</translation>
+    </message>
+    <message>
+        <source>The body in this clip is analysed: the sliders below follow it.</source>
+        <translation>此片段中的身体已分析：下方滑块会跟随身体。</translation>
+    </message>
+    <message>
+        <source>Pick a look: the clip is analysed first, so the warps know where the body is.</source>
+        <translation>选择一个效果：会先分析片段，让变形知道身体的位置。</translation>
+    </message>
+    <message>
+        <source>Analyse the body again</source>
+        <translation>重新分析身体</translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation>分析身体</translation>
+    </message>
+    <message>
+        <source>Black</source>
+        <translation>黑色</translation>
+    </message>
+    <message>
+        <source>Brown</source>
+        <translation>棕色</translation>
+    </message>
+    <message>
+        <source>Chocolate</source>
+        <translation>巧克力色</translation>
+    </message>
+    <message>
+        <source>Caramel</source>
+        <translation>焦糖色</translation>
+    </message>
+    <message>
+        <source>Blonde</source>
+        <translation>金色</translation>
+    </message>
+    <message>
+        <source>Platinum</source>
+        <translation>铂金色</translation>
+    </message>
+    <message>
+        <source>Copper</source>
+        <translation>铜色</translation>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation>红色</translation>
+    </message>
+    <message>
+        <source>Pink</source>
+        <translation>粉色</translation>
+    </message>
+    <message>
+        <source>Lilac</source>
+        <translation>淡紫色</translation>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation>蓝色</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>薄荷绿</translation>
+    </message>
+    <message>
+        <source>Pick another colour to change it. Strength and lightening are on the Hair colour row of the timeline.</source>
+        <translation>选择其他颜色即可更换。强度和提亮位于时间线的“发色”行。</translation>
+    </message>
+    <message>
+        <source>Pick a colour: the hair is found in every frame first, which takes a moment.</source>
+        <translation>选择一种颜色：会先在每一帧中查找头发，需要一点时间。</translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation>移除发色</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
         <source>Bigger eyes</source>
         <translation>大眼</translation>
     </message>
@@ -22656,16 +22895,48 @@ If playback stutters, try another.</source>
         <translation>为虹膜重新着色</translation>
     </message>
     <message>
+        <source>Slim</source>
+        <translation>瘦身</translation>
+    </message>
+    <message>
+        <source>Slims the whole body</source>
+        <translation>让全身更纤细</translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation>细腰</translation>
+    </message>
+    <message>
+        <source>Narrows the waist</source>
+        <translation>收窄腰部</translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation>长腿</translation>
+    </message>
+    <message>
+        <source>Lengthens the legs below the hips</source>
+        <translation>拉长臀部以下的腿</translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation>肩宽</translation>
+    </message>
+    <message>
+        <source>Widens the shoulders</source>
+        <translation>加宽肩膀</translation>
+    </message>
+    <message>
+        <source>Smaller head</source>
+        <translation>小头</translation>
+    </message>
+    <message>
+        <source>Makes the head a little smaller</source>
+        <translation>让头部稍微变小</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>收藏</translation>
-    </message>
-    <message>
-        <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
-        <translation>身体美化（瘦腰、长腿等）需要身体跟踪模型，Flip Studio 目前还没有。</translation>
-    </message>
-    <message>
-        <source>Hair colour and volume need a hair segmentation model, which Flip Studio does not have yet.</source>
-        <translation>头发颜色和蓬松度需要头发分割模型，Flip Studio 目前还没有。</translation>
     </message>
     <message>
         <source>Select a video or image clip to retouch a face.</source>

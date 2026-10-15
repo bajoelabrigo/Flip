@@ -386,6 +386,17 @@ Item {
                 ] }
             ]
 
+            // Body: presets of body_reshape. Adding it starts the body analysis when the clip has none.
+            readonly property var bodySections: [
+                { title: qsTr("Body"), glyph: Theme.icons.body, items: [
+                    { id: "body-slim", label: qsTr("Slim"), hint: qsTr("Slims the whole body"), effect: "body_reshape", values: { slim: 0.5 } },
+                    { id: "body-waist", label: qsTr("Waist"), hint: qsTr("Narrows the waist"), effect: "body_reshape", values: { waist: 0.6 } },
+                    { id: "body-legs", label: qsTr("Longer legs"), hint: qsTr("Lengthens the legs below the hips"), effect: "body_reshape", values: { legs: 0.5 } },
+                    { id: "body-shoulders", label: qsTr("Shoulders"), hint: qsTr("Widens the shoulders"), effect: "body_reshape", values: { shoulders: 0.5 } },
+                    { id: "body-head", label: qsTr("Smaller head"), hint: qsTr("Makes the head a little smaller"), effect: "body_reshape", values: { head: -0.4 } }
+                ] }
+            ]
+
             // Starred tiles, shown first as their own section, like the favorites of the library.
             property int favoritesTick: 0
             readonly property var favoriteItems: {
@@ -408,7 +419,8 @@ Item {
                 function onAssetFavoritesChanged() { retoquePage.favoritesTick++ }
             }
 
-            readonly property bool faceReady: EditorState.faces.available() && Addons.runtimeAvailable()
+            property bool faceReady: EditorState.faces.available() && Addons.runtimeAvailable()
+            property bool bodyReady: EditorState.body.available() && Addons.runtimeAvailable()
             readonly property bool canTrack: {
                 void root.clipRevision
                 const d = EditorState.selectedClipData
@@ -420,6 +432,8 @@ Item {
                 function onKindChanged(kind) {
                     if (kind === "face-model" || kind === "onnxruntime")
                         retoquePage.faceReady = EditorState.faces.available() && Addons.runtimeAvailable()
+                    if (kind === "body-model" || kind === "onnxruntime")
+                        retoquePage.bodyReady = EditorState.body.available() && Addons.runtimeAvailable()
                 }
             }
 
@@ -502,15 +516,190 @@ Item {
             }
 
             Text {
-                visible: retoquePage.area !== "rostro"
+                visible: retoquePage.area !== "rostro" && !retoquePage.canTrack
                 width: parent.width
                 wrapMode: Text.WordWrap
                 text: retoquePage.area === "cuerpo"
-                      ? qsTr("Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.")
-                      : qsTr("Hair colour and volume need a hair segmentation model, which Flip Studio does not have yet.")
-                color: Theme.mutedForeground
+                      ? qsTr("Select a video or image clip to retouch a body.")
+                      : qsTr("Select a video or image clip to colour the hair.")
+                color: Theme.warning
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeXs
+            }
+
+            Text {
+                visible: retoquePage.area !== "rostro" && retoquePage.canTrack && !retoquePage.bodyReady
+                width: parent.width
+                wrapMode: Text.WordWrap
+                text: qsTr("Install Body and hair retouch from Extras (it needs the AI engine) to use these.")
+                color: Theme.warning
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+
+            // --- Cuerpo: the analysis the body warps follow. The tiles are in the grid below.
+            Column {
+                id: bodySection
+                visible: retoquePage.area === "cuerpo"
+                width: parent.width
+                spacing: Theme.spacingSm
+
+                readonly property bool analysed: {
+                    void root.clipRevision
+                    const d = EditorState.selectedClipData
+                    return !!d && !!d.hasPoseTrack
+                }
+
+                Text {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    visible: retoquePage.canTrack && retoquePage.bodyReady && !EditorState.body.running
+                    text: bodySection.analysed
+                          ? qsTr("The body in this clip is analysed: the sliders below follow it.")
+                          : qsTr("Pick a look: the clip is analysed first, so the warps know where the body is.")
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                }
+
+                ThemedButton {
+                    visible: retoquePage.canTrack && retoquePage.bodyReady && !EditorState.body.running
+                    width: parent.width
+                    text: bodySection.analysed ? qsTr("Analyse the body again") : qsTr("Analyse body")
+                    variant: bodySection.analysed ? "ghost" : "secondary"
+                    onClicked: EditorState.body.analyzeBody(EditorState.selectedTrack, EditorState.selectedClip)
+                }
+            }
+
+            // --- Cabello: colour swatches. The first one finds the hair; the rest only recolour.
+            Column {
+                id: hairSection
+                visible: retoquePage.area === "cabello"
+                width: parent.width
+                spacing: Theme.spacingSm
+
+                readonly property var current: {
+                    void root.clipRevision
+                    return retoquePage.canTrack
+                           ? EditorState.body.hairColor(EditorState.selectedTrack, EditorState.selectedClip)
+                           : ({})
+                }
+                readonly property bool coloured: !!current.shade
+                readonly property bool usable: retoquePage.canTrack && retoquePage.bodyReady
+                                               && !EditorState.body.running
+                readonly property var shades: [
+                    { id: "hair-black", label: qsTr("Black"), color: "#1f1a17" },
+                    { id: "hair-brown", label: qsTr("Brown"), color: "#5a3825" },
+                    { id: "hair-chocolate", label: qsTr("Chocolate"), color: "#3e2418" },
+                    { id: "hair-caramel", label: qsTr("Caramel"), color: "#a3672f" },
+                    { id: "hair-blonde", label: qsTr("Blonde"), color: "#d8b06a" },
+                    { id: "hair-platinum", label: qsTr("Platinum"), color: "#e6dfcc" },
+                    { id: "hair-copper", label: qsTr("Copper"), color: "#b4542a" },
+                    { id: "hair-red", label: qsTr("Red"), color: "#a3192d" },
+                    { id: "hair-pink", label: qsTr("Pink"), color: "#e27aa8" },
+                    { id: "hair-lilac", label: qsTr("Lilac"), color: "#9c80d8" },
+                    { id: "hair-blue", label: qsTr("Blue"), color: "#3c6fd2" },
+                    { id: "hair-mint", label: qsTr("Mint"), color: "#5fc4a8" }
+                ]
+
+                Text {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    visible: retoquePage.canTrack && retoquePage.bodyReady
+                    text: hairSection.coloured
+                          ? qsTr("Pick another colour to change it. Strength and lightening are on the Hair colour row of the timeline.")
+                          : qsTr("Pick a colour: the hair is found in every frame first, which takes a moment.")
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                }
+
+                Grid {
+                    id: swatches
+                    width: parent.width
+                    columns: Math.max(4, Math.floor((width + columnSpacing) / (56 + columnSpacing)))
+                    columnSpacing: Theme.spacingSm
+                    rowSpacing: Theme.spacingMd
+
+                    Repeater {
+                        model: hairSection.shades
+                        delegate: Column {
+                            id: swatch
+                            required property var modelData
+                            readonly property bool picked: hairSection.coloured
+                                                           && hairSection.current.shade.toLowerCase() === modelData.color
+                            width: (swatches.width - swatches.columnSpacing * (swatches.columns - 1)) / swatches.columns
+                            spacing: 4
+                            opacity: hairSection.usable ? 1 : 0.55
+
+                            Rectangle {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                width: Math.min(parent.width, 44)
+                                height: width
+                                radius: width / 2
+                                color: swatch.modelData.color
+                                border.width: swatch.picked || swatchHover.hovered ? 2 : 1
+                                border.color: swatch.picked ? Theme.primary
+                                              : swatchHover.hovered ? Theme.foreground : Theme.panelBorder
+
+                                HoverHandler { id: swatchHover }
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    enabled: hairSection.usable
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: EditorState.body.colorHair(EditorState.selectedTrack,
+                                                                          EditorState.selectedClip,
+                                                                          swatch.modelData.color)
+                                }
+                            }
+
+                            Text {
+                                width: parent.width
+                                horizontalAlignment: Text.AlignHCenter
+                                elide: Text.ElideRight
+                                text: swatch.modelData.label
+                                color: swatch.picked ? Theme.foreground : Theme.mutedForeground
+                                font.family: Theme.fontFamily
+                                font.pixelSize: Theme.fontSizeXs
+                            }
+                        }
+                    }
+                }
+
+                ThemedButton {
+                    visible: hairSection.coloured && !EditorState.body.running
+                    width: parent.width
+                    text: qsTr("Remove hair colour")
+                    variant: "ghost"
+                    onClicked: EditorState.body.removeHairColor(EditorState.selectedTrack, EditorState.selectedClip)
+                }
+            }
+
+            // Progress of either analysis, wherever it was started from.
+            Column {
+                visible: retoquePage.area !== "rostro" && EditorState.body.running
+                width: parent.width
+                spacing: Theme.spacingSm
+
+                Text {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    text: EditorState.body.status
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                }
+                ThemedProgressBar {
+                    width: parent.width
+                    value: EditorState.body.progress
+                }
+                ThemedButton {
+                    width: parent.width
+                    text: qsTr("Cancel")
+                    variant: "ghost"
+                    onClicked: EditorState.body.cancel()
+                }
             }
 
             Text {
@@ -534,7 +723,8 @@ Item {
             }
 
             Repeater {
-                model: retoquePage.area === "rostro" ? retoquePage.shownSections : []
+                model: retoquePage.area === "rostro" ? retoquePage.shownSections
+                       : retoquePage.area === "cuerpo" ? retoquePage.bodySections : []
                 delegate: Column {
                     id: section
                     required property var modelData
@@ -575,7 +765,9 @@ Item {
                             delegate: Column {
                                 id: retouchTile
                                 required property var modelData
-                                readonly property bool usable: retoquePage.canTrack && retoquePage.faceReady
+                                readonly property bool usable: retoquePage.canTrack
+                                                               && (retoquePage.area === "cuerpo" ? retoquePage.bodyReady
+                                                                                                 : retoquePage.faceReady)
                                 width: (tiles.width - tiles.columnSpacing * (tiles.columns - 1)) / tiles.columns
                                 spacing: 4
 

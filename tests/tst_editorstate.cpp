@@ -286,6 +286,8 @@ private slots:
     void linkedAdjustmentFollowsItsClip();
     void deletingAClipUnlinksRatherThanStrandsItsAdjustment();
     void cutoutLandsAsAMaskLayerOnTheClipsOwnLane();
+    void hairColorPinsItsOwnMaskedAdjustment();
+    void poseTrackTravelsWithTheClip();
     void maskRoundTripsThroughTheInspectorMap();
     void maskScalarsKeyframeThroughTheGenericApi();
     void freeformMaskPointsAreEditable();
@@ -9738,6 +9740,84 @@ void EditorStateTest::linkedAdjustmentFollowsItsClip()
     // Once unlinked the stack is no longer reported as the clip's own — it is an independent
     // adjustment the user edits by selecting it.
     QCOMPARE(state.clipAt(0, 0).value(QStringLiteral("effects")).toList().size(), 0);
+}
+
+// Retouch > Hair: the colour is an effects adjustment of its own, pinned to the clip and masked by
+// the hair matte. Picking another colour only changes its shade; the clip's other effects never
+// land on it (they would then show on the hair only); removing it takes the row away.
+void EditorStateTest::hairColorPinsItsOwnMaskedAdjustment()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    appendTwoVideoClips(*state.project());
+    const drift::Clip source = state.project()->tracks().at(0).clips.at(0);
+    const int tracksBefore = state.project()->tracks().size();
+
+    state.body()->finalizeHair(source.id, QStringLiteral("/tmp/mattes/hair.mp4"), drift::secondsToUs(0.5),
+                               QStringLiteral("#3c6fd2"));
+    QCOMPARE(state.project()->tracks().size(), tracksBefore + 1);
+
+    const QVariantMap hair = state.body()->hairColor(0, 0);
+    QCOMPARE(hair.value(QStringLiteral("shade")).toString(), QStringLiteral("#3c6fd2"));
+    const int laneIndex = hair.value(QStringLiteral("trackIndex")).toInt();
+    const drift::Clip adjustment =
+        state.project()->tracks().at(laneIndex).clips.at(hair.value(QStringLiteral("clipIndex")).toInt());
+    QVERIFY(state.project()->tracks().at(laneIndex).isAdjustmentLane());
+    QCOMPARE(adjustment.adjustmentKind, drift::AdjustmentKind::VideoEffects);
+    QCOMPARE(adjustment.linkedClipId, source.id);
+    QCOMPARE(adjustment.mask.shape, drift::MaskShape::Media);
+    QCOMPARE(adjustment.mask.mediaPath, QStringLiteral("/tmp/mattes/hair.mp4"));
+    QCOMPARE(adjustment.mask.mediaSrcOffsetUs, drift::secondsToUs(0.5));
+    QCOMPARE(adjustment.mask.w, 1.0);
+    QCOMPARE(adjustment.effects.size(), 1);
+    QCOMPARE(adjustment.effects.at(0).catalogId, QStringLiteral("hair_color"));
+    // The clip itself is left alone and stays selected for the next swatch.
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).path, source.path);
+    QCOMPARE(state.selectedTrack(), 0);
+    QCOMPARE(state.selectedClip(), 0);
+
+    // Another colour: same row, new shade, no second scan.
+    state.body()->colorHair(0, 0, QStringLiteral("#E27AA8"));
+    QVERIFY(!state.body()->running());
+    QCOMPARE(state.project()->tracks().size(), tracksBefore + 1);
+    QCOMPARE(state.body()->hairColor(0, 0).value(QStringLiteral("shade")).toString(), QStringLiteral("#e27aa8"));
+
+    // An ordinary effect gets a host of its own instead of joining the masked one.
+    state.addEffect(0, 0, QStringLiteral("adjust.contrast"));
+    const drift::ClipRef host = state.effectHostRef(0, 0, drift::AdjustmentKind::VideoEffects, false);
+    QVERIFY(host.trackIndex >= 0);
+    const drift::Clip &plain = state.project()->tracks().at(host.trackIndex).clips.at(host.clipIndex);
+    QVERIFY(plain.id != adjustment.id);
+    QCOMPARE(plain.mask.shape, drift::MaskShape::None);
+    QCOMPARE(state.body()->hairColor(0, 0).value(QStringLiteral("shade")).toString(), QStringLiteral("#e27aa8"));
+
+    state.body()->removeHairColor(0, 0);
+    QVERIFY(state.body()->hairColor(0, 0).isEmpty());
+    state.undo();
+    QCOMPARE(state.body()->hairColor(0, 0).value(QStringLiteral("shade")).toString(), QStringLiteral("#e27aa8"));
+}
+
+// The body pose rides on the clip like the face track: saved with the project, dropped when the
+// clip's media is swapped for another.
+void EditorStateTest::poseTrackTravelsWithTheClip()
+{
+    drift::Clip clip;
+    clip.id = QStringLiteral("c1");
+    clip.type = drift::ClipType::Video;
+    clip.poseTrackPath = QStringLiteral("/tmp/posetracks/pose-1.json");
+    clip.poseTrackSrcOffsetUs = drift::secondsToUs(1.25);
+    drift::Project project;
+    drift::Track track;
+    track.type = drift::TrackType::Video;
+    track.clips.append(clip);
+    project.tracks().append(track);
+
+    QString error;
+    const drift::Project back = drift::Project::fromJson(project.toJson(), &error);
+    QVERIFY2(error.isEmpty(), qPrintable(error));
+    const drift::Clip &read = back.tracks().at(0).clips.at(0);
+    QCOMPARE(read.poseTrackPath, clip.poseTrackPath);
+    QCOMPARE(read.poseTrackSrcOffsetUs, clip.poseTrackSrcOffsetUs);
 }
 
 // The cutout feature: running segmentation adds one mask layer inside the clip's own track and

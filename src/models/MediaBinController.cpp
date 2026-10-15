@@ -1032,6 +1032,8 @@ int MediaBinController::rebindClipsToAsset(const QString &assetId, const drift::
             // warps tracking a face the new footage never had, and render without erroring.
             clip.faceTrackPath.clear();
             clip.faceTrackSrcOffsetUs = 0;
+            clip.poseTrackPath.clear();
+            clip.poseTrackSrcOffsetUs = 0;
             clip.depthPath.clear();
 
             // Stills have no source range to fit.

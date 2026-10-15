@@ -2,6 +2,7 @@
 
 #include "EffectCatalog.h"
 #include "FaceTrack.h"
+#include "PoseTrack.h"
 #include "GpuEffectExecutor.h"
 
 #include <cstring>
@@ -148,7 +149,8 @@ QImage applyLibavFilterGraph(const QImage &input, const QString &filters)
 
 QImage EffectProcessor::applyEffects(const QImage &input, const QList<drift::Effect> &effects,
                                      drift::TimeUs timeUs, const QList<drift::FaceAnchors> &faceSlots,
-                                     const std::shared_ptr<const drift::DepthFrame> &depth)
+                                     const std::shared_ptr<const drift::DepthFrame> &depth,
+                                     const drift::BodyPose &body)
 {
     if (input.isNull() || effects.isEmpty())
         return input;
@@ -202,6 +204,8 @@ QImage EffectProcessor::applyEffects(const QImage &input, const QList<drift::Eff
             QMap<QString, QVariant> params = resolvedEffectParameters(effect, *def);
             if (def->needsFace)
                 drift::applyFaceUniforms(&params, faceSlots);
+            if (def->needsPose)
+                drift::applyPoseUniforms(&params, body);
             gpuChain.append(GpuEffectExecutor::ChainStep{def->meta.id, &def->gpu, nullptr, params, {},
                                                          def->needsDepth ? depth : nullptr});
             continue;

@@ -4262,6 +4262,10 @@
         <translation>تأثيرات القناع تقرأ أقنعة مقطع واحد، لذا توضع على مقطع لا على طبقة ضبط.</translation>
     </message>
     <message>
+        <source>Body effects follow one clip&apos;s body, so they go on a clip, not on an adjustment layer.</source>
+        <translation>تتبع تأثيرات الجسم جسم مقطع واحد، لذا توضع على مقطع وليس على طبقة ضبط.</translation>
+    </message>
+    <message>
         <source>Face effects follow one clip&apos;s faces, so they go on a clip, not on an adjustment layer.</source>
         <translation>تتبع تأثيرات الوجه وجوه مقطع واحد، لذا توضع على مقطع، وليس على طبقة ضبط.</translation>
     </message>
@@ -6303,6 +6307,117 @@
     </message>
 </context>
 <context>
+    <name>BodyController</name>
+    <message>
+        <source>Body analysis already in progress</source>
+        <translation>تحليل الجسم قيد التنفيذ بالفعل</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>جارٍ التحضير…</translation>
+    </message>
+    <message>
+        <source>Clear body analysis</source>
+        <translation>مسح تحليل الجسم</translation>
+    </message>
+    <message>
+        <source>Select a video or image clip</source>
+        <translation>اختر مقطع فيديو أو صورة</translation>
+    </message>
+    <message>
+        <source>This clip has no picture to analyse</source>
+        <translation>لا يحتوي هذا المقطع على صورة لتحليلها</translation>
+    </message>
+    <message>
+        <source>Analysing the body…</source>
+        <translation>جارٍ تحليل الجسم…</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>تم</translation>
+    </message>
+    <message>
+        <source>Clip is too short to analyse</source>
+        <translation>المقطع قصير جدًا لتحليله</translation>
+    </message>
+    <message>
+        <source>Body analysis cancelled</source>
+        <translation>تم إلغاء تحليل الجسم</translation>
+    </message>
+    <message>
+        <source>Could not decode frame %1</source>
+        <translation>تعذر فك ترميز الإطار %1</translation>
+    </message>
+    <message>
+        <source>Analysing frame %1 of %2…</source>
+        <translation>جارٍ تحليل الإطار %1 من %2…</translation>
+    </message>
+    <message>
+        <source>No person found in this clip</source>
+        <translation>لم يُعثر على أي شخص في هذا المقطع</translation>
+    </message>
+    <message>
+        <source>Could not write the body analysis</source>
+        <translation>تعذرت كتابة تحليل الجسم</translation>
+    </message>
+    <message>
+        <source>Body analysis complete — a person was visible in %1 of %2 frames</source>
+        <translation>اكتمل تحليل الجسم — ظهر شخص في %1 من %2 إطار</translation>
+    </message>
+    <message>
+        <source>Body analysis complete</source>
+        <translation>اكتمل تحليل الجسم</translation>
+    </message>
+    <message>
+        <source>That clip no longer exists</source>
+        <translation>ذلك المقطع لم يعد موجودًا</translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation>تحليل الجسم</translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation>إزالة لون الشعر</translation>
+    </message>
+    <message>
+        <source>Hair colour</source>
+        <translation>لون الشعر</translation>
+    </message>
+    <message>
+        <source>The hair colour effect is missing</source>
+        <translation>تأثير لون الشعر غير موجود</translation>
+    </message>
+    <message>
+        <source>Finding the hair…</source>
+        <translation>جارٍ العثور على الشعر…</translation>
+    </message>
+    <message>
+        <source>Could not create a hair matte file</source>
+        <translation>تعذر إنشاء ملف قناع الشعر</translation>
+    </message>
+    <message>
+        <source>Hair analysis cancelled</source>
+        <translation>تم إلغاء تحليل الشعر</translation>
+    </message>
+    <message>
+        <source>No hair found in this clip</source>
+        <translation>لم يُعثر على شعر في هذا المقطع</translation>
+    </message>
+    <message>
+        <source>Hair colour applied</source>
+        <translation>تم تطبيق لون الشعر</translation>
+    </message>
+    <message>
+        <source>Hair</source>
+        <translation>الشعر</translation>
+    </message>
+    <message>
+        <source>This clip cannot take an adjustment</source>
+        <translation>لا يقبل هذا المقطع تعديلًا</translation>
+    </message>
+</context>
+<context>
     <name>CameraInspector</name>
     <message>
         <source>Pan X</source>
@@ -7340,8 +7455,40 @@
         <translation>تمويه غاوسي (GPU)</translation>
     </message>
     <message>
+        <source>Body Reshape</source>
+        <translation>إعادة تشكيل الجسم</translation>
+    </message>
+    <message>
+        <source>Slim</source>
+        <translation>تنحيف</translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation>الخصر</translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation>ساقان أطول</translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation>الكتفان</translation>
+    </message>
+    <message>
+        <source>Head size</source>
+        <translation>حجم الرأس</translation>
+    </message>
+    <message>
         <source>Blur Amount</source>
         <translation>مقدار التمويه</translation>
+    </message>
+    <message>
+        <source>Hair Colour</source>
+        <translation>لون الشعر</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>تفتيح</translation>
     </message>
     <message>
         <source>Halation</source>
@@ -22843,6 +22990,98 @@ If playback stutters, try another.</source>
         <translation>تنحيف ما تتبعه الشبكة أو توسيعه</translation>
     </message>
     <message>
+        <source>Select a video or image clip to retouch a body.</source>
+        <translation>اختر مقطع فيديو أو صورة لتنقيح الجسم.</translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to colour the hair.</source>
+        <translation>اختر مقطع فيديو أو صورة لتلوين الشعر.</translation>
+    </message>
+    <message>
+        <source>Install Body and hair retouch from Extras (it needs the AI engine) to use these.</source>
+        <translation>ثبّت «تنقيح الجسم والشعر» من الإضافات (يحتاج إلى محرك الذكاء الاصطناعي) لاستخدام هذه الخيارات.</translation>
+    </message>
+    <message>
+        <source>The body in this clip is analysed: the sliders below follow it.</source>
+        <translation>تم تحليل الجسم في هذا المقطع: أشرطة التمرير أدناه تتبعه.</translation>
+    </message>
+    <message>
+        <source>Pick a look: the clip is analysed first, so the warps know where the body is.</source>
+        <translation>اختر مظهرًا: يُحلَّل المقطع أولًا لتعرف التشوهات مكان الجسم.</translation>
+    </message>
+    <message>
+        <source>Analyse the body again</source>
+        <translation>تحليل الجسم من جديد</translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation>تحليل الجسم</translation>
+    </message>
+    <message>
+        <source>Black</source>
+        <translation>أسود</translation>
+    </message>
+    <message>
+        <source>Brown</source>
+        <translation>بني</translation>
+    </message>
+    <message>
+        <source>Chocolate</source>
+        <translation>شوكولاتة</translation>
+    </message>
+    <message>
+        <source>Caramel</source>
+        <translation>كراميل</translation>
+    </message>
+    <message>
+        <source>Blonde</source>
+        <translation>أشقر</translation>
+    </message>
+    <message>
+        <source>Platinum</source>
+        <translation>بلاتيني</translation>
+    </message>
+    <message>
+        <source>Copper</source>
+        <translation>نحاسي</translation>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation>أحمر</translation>
+    </message>
+    <message>
+        <source>Pink</source>
+        <translation>وردي</translation>
+    </message>
+    <message>
+        <source>Lilac</source>
+        <translation>ليلكي</translation>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation>أزرق</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>نعناعي</translation>
+    </message>
+    <message>
+        <source>Pick another colour to change it. Strength and lightening are on the Hair colour row of the timeline.</source>
+        <translation>اختر لونًا آخر لتغييره. الشدة والتفتيح موجودان في صف «لون الشعر» في المخطط الزمني.</translation>
+    </message>
+    <message>
+        <source>Pick a colour: the hair is found in every frame first, which takes a moment.</source>
+        <translation>اختر لونًا: يُعثر على الشعر في كل إطار أولًا، وهذا يستغرق لحظة.</translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation>إزالة لون الشعر</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
         <source>Bigger eyes</source>
         <translation>عيون أكبر</translation>
     </message>
@@ -23027,16 +23266,48 @@ If playback stutters, try another.</source>
         <translation>يعيد تلوين القزحية</translation>
     </message>
     <message>
+        <source>Slim</source>
+        <translation>تنحيف</translation>
+    </message>
+    <message>
+        <source>Slims the whole body</source>
+        <translation>ينحّف الجسم كله</translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation>الخصر</translation>
+    </message>
+    <message>
+        <source>Narrows the waist</source>
+        <translation>يضيّق الخصر</translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation>ساقان أطول</translation>
+    </message>
+    <message>
+        <source>Lengthens the legs below the hips</source>
+        <translation>يطيل الساقين أسفل الوركين</translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation>الكتفان</translation>
+    </message>
+    <message>
+        <source>Widens the shoulders</source>
+        <translation>يوسّع الكتفين</translation>
+    </message>
+    <message>
+        <source>Smaller head</source>
+        <translation>رأس أصغر</translation>
+    </message>
+    <message>
+        <source>Makes the head a little smaller</source>
+        <translation>يصغّر الرأس قليلًا</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>المفضلة</translation>
-    </message>
-    <message>
-        <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
-        <translation>يحتاج تنقيح الجسم (خصر أنحف، وساقان أطول، وغير ذلك) إلى نموذج لتتبّع الجسم، ولا يتوفر بعد في Flip Studio.</translation>
-    </message>
-    <message>
-        <source>Hair colour and volume need a hair segmentation model, which Flip Studio does not have yet.</source>
-        <translation>يحتاج لون الشعر وكثافته إلى نموذج لفصل الشعر، ولا يتوفر بعد في Flip Studio.</translation>
     </message>
     <message>
         <source>Select a video or image clip to retouch a face.</source>
