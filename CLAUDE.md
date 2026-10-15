@@ -272,6 +272,8 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
 - Falta (menor): las máscaras de video/imagen en capas de ajuste en carril no se precargan en `forEachMediaMask`.
 
 ### Pendiente
+0. **Al final de todo el proyecto (Jorge, 2026-10-15):** el sistema de pagos, la tienda de cada usuario (vender sus
+   plantillas) y todo lo que tiene que ver con cobrar. Hasta entonces todo lo de Stock es gratis.
 1. **Hecho por Jorge (2026-10-13):** cambió el TXT `version` del DNS y mandó la 0.9.6 a
    certificación en Partner Center. **Falta:** confirmar que la certificación pase. La ficha
    actualizada (descripción, notas y 16 características, en es/es-co/en-us) está en
