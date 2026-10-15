@@ -179,14 +179,40 @@ ThemedDialog {
         "eye-colour": QT_TRANSLATE_NOOP("VideoInspector", "Eye colour")
     })
 
-    readonly property var downloads: {
+    // This computer's downloads: tells whether a file from the account's list is here.
+    readonly property var localDownloads: {
         void root.revision
         return Market.configured ? Market.downloadHistory() : []
+    }
+    // Signed in: the account's own list, kept on the server (it follows to another computer).
+    // Signed out: this computer's history, in the same shape.
+    readonly property var downloads: {
+        if (Account.signedIn && Market.configured)
+            return Market.library
+        return localDownloads.map(d => ({ id: d.itemId, title: d.title, thumb_url: d.thumb, type: d.mediaKind,
+                                          provider: d.provider, last_at: d.at }))
+    }
+    function localEntry(itemId) {
+        for (let i = 0; i < localDownloads.length; ++i) {
+            if (localDownloads[i].itemId === itemId)
+                return localDownloads[i]
+        }
+        return null
+    }
+    function isTemplate(item) { return Market.sceneTemplateIdForItem(item.id || "") !== "" }
+    function sourceName(item) {
+        if (isTemplate(item))
+            return qsTr("Template")
+        return item.provider === "pixabay" ? "Pixabay" : "Pexels"
     }
 
     readonly property int projectCount: EditorState.projectFile.recentProjects.length
 
-    onOpened: root.revision++
+    onOpened: {
+        root.revision++
+        if (Account.signedIn)
+            Market.refreshLibrary()
+    }
 
     Connections {
         target: Market
@@ -487,7 +513,7 @@ ThemedDialog {
             }
         }
 
-        // Stock downloads: what came from Pexels and Pixabay onto this computer.
+        // Stock downloads: templates, photos and videos this account got from Stock.
         Column {
             width: parent.width
             spacing: Theme.spacingMd
@@ -496,7 +522,7 @@ ThemedDialog {
             ThemedLabel {
                 width: parent.width
                 visible: root.downloads.length === 0
-                text: qsTr("Nothing downloaded from Stock yet. Free photos and videos you download there are listed here.")
+                text: qsTr("Nothing downloaded from Stock yet. Free templates, photos and videos you download there stay here, in your account.")
             }
 
             Flickable {
@@ -527,16 +553,55 @@ ThemedDialog {
                                 color: Theme.panelSecondaryBg
                                 clip: true
 
+                                id: downloadCard
+                                readonly property var item: parent.modelData
+                                readonly property var local: root.localEntry(item.id)
+                                readonly property bool here: root.isTemplate(item) ? Market.sceneTemplateInstalled(item.id)
+                                                                                  : !!(local && local.exists)
+
                                 Image {
                                     anchors.fill: parent
-                                    source: parent.parent.modelData.thumb || ""
+                                    source: downloadCard.item.thumb_url || ""
                                     fillMode: Image.PreserveAspectCrop
                                     asynchronous: true
-                                    opacity: parent.parent.modelData.exists ? 1 : 0.35
+                                    opacity: downloadCard.here || root.isTemplate(downloadCard.item) ? 1 : 0.45
                                 }
-                                HoverHandler { cursorShape: Qt.PointingHandCursor }
+                                HoverHandler { id: downloadHover; cursorShape: Qt.PointingHandCursor }
+                                ThemedToolTip {
+                                    visible: downloadHover.hovered
+                                    text: root.isTemplate(downloadCard.item)
+                                          ? qsTr("Use this template: it goes at the playhead")
+                                          : (downloadCard.here ? qsTr("It is in your media bin")
+                                                               : qsTr("Not on this computer: search for it in Stock to download it again"))
+                                }
                                 TapHandler {
-                                    onTapped: if (parent.parent.modelData.exists) root.assetsTabRequested("media")
+                                    onTapped: {
+                                        if (root.isTemplate(downloadCard.item)) {
+                                            Market.useSceneTemplate(downloadCard.item.id, downloadCard.item.title || "")
+                                            root.close()
+                                        } else if (downloadCard.here) {
+                                            root.assetsTabRequested("media")
+                                        }
+                                    }
+                                }
+
+                                // Off the account's list; the files on this computer stay.
+                                Rectangle {
+                                    anchors.right: parent.right
+                                    anchors.top: parent.top
+                                    anchors.margins: 4
+                                    visible: Account.signedIn && downloadHover.hovered
+                                    width: 22
+                                    height: 22
+                                    radius: 11
+                                    color: Qt.rgba(0, 0, 0, 0.7)
+                                    IconGlyph {
+                                        anchors.centerIn: parent
+                                        glyph: Theme.icons.x
+                                        iconSize: 12
+                                        iconColor: "white"
+                                    }
+                                    TapHandler { onTapped: Market.removeFromLibrary(downloadCard.item.id) }
                                 }
                             }
                             ThemedLabel {
@@ -544,16 +609,14 @@ ThemedDialog {
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                                 tone: "default"
-                                text: parent.modelData.title
+                                text: parent.modelData.title || ""
                             }
                             ThemedLabel {
                                 width: parent.width
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
-                                text: parent.modelData.exists
-                                      ? [parent.modelData.provider === "pixabay" ? "Pixabay" : "Pexels",
-                                         Qt.formatDate(parent.modelData.at, Qt.locale().dateFormat(Locale.ShortFormat))].join(" · ")
-                                      : qsTr("File moved or deleted")
+                                text: [root.sourceName(parent.modelData),
+                                       Qt.formatDate(new Date(parent.modelData.last_at), Qt.locale().dateFormat(Locale.ShortFormat))].join(" · ")
                             }
                         }
                     }
@@ -561,7 +624,8 @@ ThemedDialog {
             }
 
             ThemedButton {
-                visible: root.downloads.length > 0
+                // The account's list is cleared one item at a time; this one is the local history.
+                visible: root.downloads.length > 0 && !Account.signedIn
                 variant: "ghost"
                 text: qsTr("Clear the list")
                 tooltip: qsTr("Forgets this list; the downloaded files stay where they are")

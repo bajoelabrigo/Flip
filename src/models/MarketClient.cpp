@@ -15,6 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QLocale>
 #include <QNetworkAccessManager>
 #include <QNetworkDiskCache>
 #include <QNetworkReply>
@@ -194,14 +195,64 @@ void MarketClient::setAccount(AccountController *account)
     connect(account, &AccountController::accountChanged, this, [this] {
         emit authChanged();
         if (!m_account->signedIn()) {
+            m_library.clear();
+            emit libraryChanged();
             m_types.clear();
             emit catalogChanged();
             m_items.clear();
             m_itemIndex.clear();
             emit itemsChanged();
-        } else if (m_consented) {
-            refreshCatalog();
+        } else {
+            refreshLibrary();
+            if (m_consented)
+                refreshCatalog();
         }
+    });
+    if (account->signedIn())
+        QTimer::singleShot(0, this, &MarketClient::refreshLibrary);
+}
+
+void MarketClient::refreshLibrary()
+{
+    if (!configured() || !authenticated())
+        return;
+    QNetworkReply *reply = get(apiUrl(QStringLiteral("/library")));
+    connect(reply, &QNetworkReply::finished, this, [this, reply] {
+        reply->deleteLater();
+        if (reply->error() != QNetworkReply::NoError) {
+            QString code;
+            QString reason;
+            bool retryable = true;
+            parseProblem(reply->readAll(), reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt(),
+                         &code, &reason, &retryable, int(reply->error()));
+            retryAfterAuth(code, [this] { refreshLibrary(); });
+            return; // the list is a convenience: keep what was shown
+        }
+        QVariantList items;
+        for (const QJsonValue &value : QJsonDocument::fromJson(reply->readAll()).object().value(QStringLiteral("items")).toArray())
+            items.append(objectToMap(value.toObject()));
+        m_library = items;
+        emit libraryChanged();
+    });
+}
+
+void MarketClient::removeFromLibrary(const QString &itemId)
+{
+    if (!configured() || !authenticated() || itemId.isEmpty())
+        return;
+    for (int i = m_library.size() - 1; i >= 0; --i) {
+        if (m_library.at(i).toMap().value(QStringLiteral("id")).toString() == itemId)
+            m_library.removeAt(i);
+    }
+    emit libraryChanged();
+    QNetworkRequest request(apiUrl(QStringLiteral("/library/") + QString::fromLatin1(QUrl::toPercentEncoding(itemId))));
+    request.setRawHeader("Accept", "application/json");
+    request.setTransferTimeout(kApiTimeoutMs);
+    sign(&request, "DELETE", {});
+    QNetworkReply *reply = m_network->deleteResource(request);
+    connect(reply, &QNetworkReply::finished, this, [this, reply] {
+        reply->deleteLater();
+        refreshLibrary();
     });
 }
 
@@ -918,6 +969,8 @@ QNetworkReply *MarketClient::get(const QUrl &url)
 {
     QNetworkRequest request(url);
     request.setRawHeader("Accept", "application/json");
+    // The service names things (types, templates) in the language of the UI, not the system's.
+    request.setRawHeader("Accept-Language", QLocale().bcp47Name().toUtf8());
     request.setTransferTimeout(kApiTimeoutMs);
     sign(&request, "GET", {});
     return m_network->get(request);
@@ -928,6 +981,7 @@ QNetworkReply *MarketClient::post(const QUrl &url, const QByteArray &body)
     QNetworkRequest request(url);
     request.setRawHeader("Accept", "application/json");
     request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+    request.setRawHeader("Accept-Language", QLocale().bcp47Name().toUtf8());
     request.setTransferTimeout(kApiTimeoutMs);
     sign(&request, "POST", body);
     return m_network->post(request, body);
@@ -1524,6 +1578,7 @@ void MarketClient::importReadyFile(const QString &itemId, const QString &path,
         pumpDownloadQueue();
         emit sceneTemplateReady(templateId, use);
         emit downloadImported(itemId, displayName);
+        refreshLibrary();
         return;
     }
     if (!m_library) {
@@ -1552,6 +1607,7 @@ void MarketClient::importReadyFile(const QString &itemId, const QString &path,
     // A finished job frees a slot for whatever is waiting behind it.
     pumpDownloadQueue();
     emit downloadImported(itemId, displayName);
+    refreshLibrary();
 }
 
 namespace {

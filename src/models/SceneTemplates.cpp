@@ -178,6 +178,11 @@ QVariantList AppController::sceneTemplateCategoryList() const
     return out;
 }
 
+QString AppController::sceneTemplateCategoryLabelFor(const QString &categoryId) const
+{
+    return sceneTemplateCategoryLabel(categoryId);
+}
+
 QString AppController::insertSceneTemplate(const QString &templateId)
 {
     const SceneTemplateEntry *entry = sceneTemplateForId(templateId);

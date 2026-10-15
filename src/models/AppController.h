@@ -1310,6 +1310,7 @@ public:
     // slots, texts, durationSec, width, height, premium, tags}.
     Q_INVOKABLE QVariantList sceneTemplates() const;
     Q_INVOKABLE QVariantList sceneTemplateCategoryList() const;
+    Q_INVOKABLE QString sceneTemplateCategoryLabelFor(const QString &categoryId) const;
     // At the playhead, on top of the stack. An empty project takes the template's size first.
     // Returns the composition clip's id, or empty.
     Q_INVOKABLE QString insertSceneTemplate(const QString &templateId);

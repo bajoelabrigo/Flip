@@ -236,7 +236,7 @@ Item {
                 size: "sm"
                 tone: "default"
                 horizontalAlignment: Text.AlignHCenter
-                text: qsTr("Free photos and videos from Pexels and Pixabay")
+                text: qsTr("Free templates, photos and videos")
             }
 
             ThemedLabel {

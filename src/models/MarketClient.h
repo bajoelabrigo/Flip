@@ -67,6 +67,10 @@ class MarketClient : public QObject
     Q_PROPERTY(bool authenticated READ authenticated NOTIFY authChanged)
     Q_PROPERTY(QString accountName READ accountName NOTIFY authChanged)
     Q_PROPERTY(int coins READ coins NOTIFY authChanged)
+    // What this account got from Stock, newest first, kept on the server so it follows the person
+    // to another machine: templates as full items (they can be installed again), photos and videos
+    // as {id, type, title, thumb_url}. Each has obtained_at, last_at and times.
+    Q_PROPERTY(QVariantList library READ library NOTIFY libraryChanged)
 
 public:
     explicit MarketClient(QObject *parent = nullptr);
@@ -128,6 +132,10 @@ public:
     // Stock › Templates: puts the template on the timeline, downloading and installing it first
     // when this machine does not have it yet (sceneTemplateReady carries it to the editor).
     Q_INVOKABLE void useSceneTemplate(const QString &itemId, const QString &title = QString());
+    Q_INVOKABLE void refreshLibrary();
+    // Takes an item off the account's list (the files on this machine stay).
+    Q_INVOKABLE void removeFromLibrary(const QString &itemId);
+    QVariantList library() const { return m_library; }
     // The scene template id a Stock item stands for ("flip:template:<id>"), or empty.
     Q_INVOKABLE QString sceneTemplateIdForItem(const QString &itemId) const;
     Q_INVOKABLE bool sceneTemplateInstalled(const QString &itemId) const;
@@ -173,6 +181,7 @@ signals:
     // A template from Stock is installed (or was already): the editor reloads the Templates tab
     // and, when `use` is set, puts it at the playhead.
     void sceneTemplateReady(const QString &templateId, bool use);
+    void libraryChanged();
     void downloadHistoryChanged();
     // Raised once per job when it is first accepted, so the manager window can show itself
     // without polling activeDownloadCount.
@@ -195,6 +204,7 @@ private:
     void setSearching(bool searching);
     void setSearchError(const QString &error, bool retryable = true, const QString &code = {});
     void bumpDownloads();
+    QVariantList m_library;
     // Resolve is a job now, not a synchronous reply: extraction can outlive any sane HTTP
     // timeout, so the POST only creates it and this polls until it is ready or failed.
     void pollResolve();

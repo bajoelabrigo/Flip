@@ -154,6 +154,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Template</source>
+        <translation type="unfinished">テンプレート</translation>
+    </message>
+    <message>
         <source>Not signed in</source>
         <translation type="unfinished"></translation>
     </message>
@@ -200,11 +204,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Nothing downloaded from Stock yet. Free photos and videos you download there are listed here.</source>
+        <source>Nothing downloaded from Stock yet. Free templates, photos and videos you download there stay here, in your account.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>File moved or deleted</source>
+        <source>Use this template: it goes at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>It is in your media bin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not on this computer: search for it in Stock to download it again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12285,7 +12297,7 @@
         <translation>ストック映像</translation>
     </message>
     <message>
-        <source>Free photos and videos from Pexels and Pixabay</source>
+        <source>Free templates, photos and videos</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15620,7 +15632,11 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Get them from Stock › Templates: they install here and stay yours.</source>
+        <source>Get them from Stock › Templates: they install here and stay in your account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in and get them from Stock › Templates: they install here and stay in your account.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15657,6 +15673,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Use this template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In your account, not on this computer yet: using it downloads it</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

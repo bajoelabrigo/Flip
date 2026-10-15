@@ -11,8 +11,32 @@ Column {
     spacing: 0
 
     readonly property string favoritesId: "__favorites__"
-    property var catalog: EditorState.sceneTemplates()
-    property var categories: EditorState.sceneTemplateCategoryList()
+    property var installed: EditorState.sceneTemplates()
+    // Templates this account got from Stock that are not on this machine (another computer, a
+    // reinstall): shown with a download badge, a tap fetches and uses them.
+    readonly property var cloud: {
+        const out = []
+        const lib = Market.library || []
+        for (let i = 0; i < lib.length; ++i) {
+            const it = lib[i]
+            const id = Market.sceneTemplateIdForItem(it.id || "")
+            if (id === "" || it.downloadable === false || root.installed.some(t => t.id === id))
+                continue
+            out.push({ id: id, itemId: it.id, name: it.title || id, thumbnail: it.thumb_url || "",
+                       category: it.category || "", categoryLabel: EditorState.sceneTemplateCategoryLabelFor(it.category || ""),
+                       slots: it.slots || 0, durationSec: (it.duration_ms || 0) / 1000, tags: [], cloud: true })
+        }
+        return out
+    }
+    readonly property var catalog: installed.concat(cloud)
+    readonly property var categories: {
+        const out = EditorState.sceneTemplateCategoryList()
+        for (let i = 0; i < cloud.length; ++i) {
+            if (cloud[i].category && !out.some(c => c.id === cloud[i].category))
+                out.push({ id: cloud[i].category, label: cloud[i].categoryLabel })
+        }
+        return out
+    }
     property string activeCategory: categories.length > 0 ? categories[0].id : ""
     property alias searchText: search.text
     readonly property string query: search.text.trim().toLowerCase()
@@ -20,8 +44,7 @@ Column {
 
     // Installing from Stock or Extras adds packages while the tab is open.
     function reload() {
-        catalog = EditorState.sceneTemplates()
-        categories = EditorState.sceneTemplateCategoryList()
+        installed = EditorState.sceneTemplates()
         if (categories.length > 0 && activeCategory !== favoritesId
                 && !categories.some(c => c.id === activeCategory))
             activeCategory = categories[0].id
@@ -31,6 +54,13 @@ Column {
         target: EditorState
         function onAssetFavoritesChanged() { root.favoritesTick++ }
         function onSceneTemplatesChanged() { root.reload() }
+    }
+
+    function use(t) {
+        if (t.cloud)
+            Market.useSceneTemplate(t.itemId, t.name)
+        else
+            EditorState.insertSceneTemplate(t.id)
     }
 
     readonly property var visibleTemplates: {
@@ -82,7 +112,9 @@ Column {
             compact: true
             glyph: Theme.icons.layers
             title: qsTr("No scene templates yet")
-            hint: qsTr("Get them from Stock › Templates: they install here and stay yours.")
+            hint: Market.authenticated
+                  ? qsTr("Get them from Stock › Templates: they install here and stay in your account.")
+                  : qsTr("Sign in and get them from Stock › Templates: they install here and stay in your account.")
         }
 
         Text {
@@ -181,7 +213,7 @@ Column {
                         payload: card.modelData.id
                         label: card.modelData.name
                         glyph: Theme.icons.layers
-                        onTapped: EditorState.insertSceneTemplate(card.modelData.id)
+                        onTapped: root.use(card.modelData)
                     }
 
                     ThemedContextMenu {
@@ -192,7 +224,7 @@ Column {
                         ThemedMenuItem {
                             text: qsTr("Add at the playhead")
                             icon.name: Theme.icons.plus
-                            onTriggered: EditorState.insertSceneTemplate(card.modelData.id)
+                            onTriggered: root.use(card.modelData)
                         }
                         ThemedMenuItem {
                             text: cardMenu.favorited ? qsTr("Remove from favorites") : qsTr("Add to favorites")
@@ -292,7 +324,28 @@ Column {
                             anchors.margins: -3
                             hoverEnabled: true
                             cursorShape: Qt.PointingHandCursor
-                            onClicked: EditorState.insertSceneTemplate(card.modelData.id)
+                            onClicked: root.use(card.modelData)
+                        }
+                    }
+
+                    // From the account, not on this machine yet: the first use downloads it.
+                    Rectangle {
+                        anchors.centerIn: parent
+                        visible: card.modelData.cloud === true
+                        width: 44
+                        height: 44
+                        radius: 22
+                        color: Qt.rgba(0, 0, 0, 0.62)
+                        IconGlyph {
+                            anchors.centerIn: parent
+                            glyph: Theme.icons.download
+                            iconSize: 22
+                            iconColor: "white"
+                        }
+                        HoverHandler { id: cloudHover }
+                        ThemedToolTip {
+                            visible: cloudHover.hovered
+                            text: qsTr("In your account, not on this computer yet: using it downloads it")
                         }
                     }
 

@@ -154,6 +154,10 @@
         <translation>Hola</translation>
     </message>
     <message>
+        <source>Template</source>
+        <translation>Plantilla</translation>
+    </message>
+    <message>
         <source>Not signed in</source>
         <translation>Sin sesión iniciada</translation>
     </message>
@@ -201,12 +205,20 @@
         <translation>Haz clic en uno para abrir su panel.</translation>
     </message>
     <message>
-        <source>Nothing downloaded from Stock yet. Free photos and videos you download there are listed here.</source>
-        <translation>Todavía no descargaste nada de Stock. Las fotos y videos gratis que descargues ahí aparecen aquí.</translation>
+        <source>Nothing downloaded from Stock yet. Free templates, photos and videos you download there stay here, in your account.</source>
+        <translation>Todavía no bajaste nada de Stock. Las plantillas, fotos y videos gratis que bajes allí se quedan aquí, en tu cuenta.</translation>
     </message>
     <message>
-        <source>File moved or deleted</source>
-        <translation>Archivo movido o borrado</translation>
+        <source>Use this template: it goes at the playhead</source>
+        <translation>Usar esta plantilla: va en el cabezal</translation>
+    </message>
+    <message>
+        <source>It is in your media bin</source>
+        <translation>Está en tus Medios</translation>
+    </message>
+    <message>
+        <source>Not on this computer: search for it in Stock to download it again</source>
+        <translation>No está en este equipo: búscalo en Stock para volver a bajarlo</translation>
     </message>
     <message>
         <source>Clear the list</source>
@@ -12321,8 +12333,8 @@
         <translation>Metraje de archivo</translation>
     </message>
     <message>
-        <source>Free photos and videos from Pexels and Pixabay</source>
-        <translation>Fotos y videos gratis de Pexels y Pixabay</translation>
+        <source>Free templates, photos and videos</source>
+        <translation>Plantillas, fotos y videos gratis</translation>
     </message>
     <message>
         <source>Sign in with your Google account to search and download them straight into your project.</source>
@@ -15677,8 +15689,12 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Todavía no hay plantillas de escena</translation>
     </message>
     <message>
-        <source>Get them from Stock › Templates: they install here and stay yours.</source>
-        <translation>Consíguelas en Stock › Plantillas: se instalan aquí y quedan tuyas.</translation>
+        <source>Get them from Stock › Templates: they install here and stay in your account.</source>
+        <translation>Consíguelas en Stock › Plantillas: se instalan aquí y quedan en tu cuenta.</translation>
+    </message>
+    <message>
+        <source>Sign in and get them from Stock › Templates: they install here and stay in your account.</source>
+        <translation>Inicia sesión y consíguelas en Stock › Plantillas: se instalan aquí y quedan en tu cuenta.</translation>
     </message>
     <message>
         <source>No templates match “%1”.</source>
@@ -15715,6 +15731,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Use this template</source>
         <translation>Usar esta plantilla</translation>
+    </message>
+    <message>
+        <source>In your account, not on this computer yet: using it downloads it</source>
+        <translation>Está en tu cuenta pero aún no en este equipo: al usarla se descarga</translation>
     </message>
 </context>
 <context>
