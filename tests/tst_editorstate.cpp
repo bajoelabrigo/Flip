@@ -5859,6 +5859,12 @@ void EditorStateTest::replaceTransitionOnDrop()
     QCOMPARE(replaced.value(QStringLiteral("id")).toString(), firstId);
     QCOMPARE(replaced.value(QStringLiteral("kind")).toString(), QStringLiteral("wipe_right"));
     QCOMPARE(state.project()->tracks().at(0).transitions.size(), 1);
+
+    // A length the user set survives swapping the kind (on a cut, not an overlap).
+    state.setTransitionDuration(0, firstId, 1.25);
+    state.addTransition(0, 0, QStringLiteral("crossfade"), 0.5);
+    QCOMPARE(state.project()->tracks().at(0).transitions.at(0).kindId, QStringLiteral("crossfade"));
+    QCOMPARE(state.project()->tracks().at(0).transitions.at(0).durationUs, drift::secondsToUs(1.25));
 }
 
 void EditorStateTest::overlapDoesNotAutoApplyCrossfade()

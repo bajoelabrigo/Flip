@@ -16215,7 +16215,10 @@ void AppController::addTransition(int trackIndex, int clipIndex, const QString &
         if (drift::Transition *existing = findTransitionBetween(target, a, b)) {
             existing->kindId = kindForTrack;
             existing->parameters.clear(); // overrides belong to the old package
-            existing->durationUs = durationUs;
+            // A new kind keeps the length the user gave the old one; only an overlap, which is
+            // the transition's length by definition, sets it.
+            if (overlapUs > 0)
+                existing->durationUs = durationUs;
             return true;
         }
         drift::Transition transition;
