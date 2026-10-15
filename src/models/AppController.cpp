@@ -6750,6 +6750,7 @@ void AppController::selectClip(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))
         return;
+    clearTrackSelection();
 
     m_selectedTrack = trackIndex;
     m_selectedClip = clipIndex;
@@ -6764,6 +6765,7 @@ void AppController::addToSelection(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))
         return;
+    clearTrackSelection();
 
     for (const QPair<int, int> &pair : selectionWithLinkedPartners(m_project, trackIndex, clipIndex)) {
         if (!m_selection.contains(pair))
@@ -6776,6 +6778,7 @@ void AppController::addToSelection(int trackIndex, int clipIndex)
 
 void AppController::setSelection(const QVariantList &pairs)
 {
+    clearTrackSelection();
     QList<QPair<int, int>> next;
     for (const QVariant &value : pairs) {
         const QVariantMap map = value.toMap();
@@ -6847,6 +6850,7 @@ void AppController::selectAllClips()
 
 void AppController::clearSelection()
 {
+    clearTrackSelection();
     if (m_selectedTrack < 0 && m_selectedClip < 0 && m_selection.isEmpty() && m_selectedTransitionTrack < 0)
         return;
 
@@ -21732,6 +21736,177 @@ void AppController::removeTrack(int trackIndex)
     finishEdit(tr("Track deleted"));
 }
 
+QStringList AppController::selectedTrackIds() const
+{
+    // Ids of tracks that are gone (deleted, undone) drop out on their own.
+    QStringList ids;
+    for (const QString &id : m_selectedTrackIds) {
+        if (m_project.trackIndexById(id) >= 0)
+            ids.append(id);
+    }
+    return ids;
+}
+
+bool AppController::isTrackSelected(int trackIndex) const
+{
+    return trackIndex >= 0 && trackIndex < m_project.tracks().size()
+           && !m_project.tracks().at(trackIndex).id.isEmpty()
+           && m_selectedTrackIds.contains(m_project.tracks().at(trackIndex).id);
+}
+
+void AppController::clearTrackSelection()
+{
+    m_trackSelectionAnchor.clear();
+    if (m_selectedTrackIds.isEmpty())
+        return;
+    m_selectedTrackIds.clear();
+    emit selectedTracksChanged();
+}
+
+void AppController::selectTrackHeader(int trackIndex, bool extendRange, bool toggle)
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return;
+    m_project.ensureTrackIds();
+    const QString id = m_project.tracks().at(trackIndex).id;
+    QStringList next = selectedTrackIds();
+    QString anchorId = m_trackSelectionAnchor;
+    const int anchor = m_project.trackIndexById(anchorId);
+    if (extendRange && anchor >= 0) {
+        // Every track row between the two clicks; lanes go with their track anyway.
+        next.clear();
+        for (int i = qMin(anchor, trackIndex); i <= qMax(anchor, trackIndex); ++i) {
+            const drift::Track &track = m_project.tracks().at(i);
+            if (!track.isAdjustmentLane())
+                next.append(track.id);
+        }
+    } else if (toggle) {
+        if (next.contains(id))
+            next.removeAll(id);
+        else
+            next.append(id);
+        anchorId = id;
+    } else {
+        next = {id};
+        anchorId = id;
+    }
+    clearSelection(); // clips and transitions; this empties the track list too
+    m_trackSelectionAnchor = anchorId;
+    m_selectedTrackIds = next;
+    emit selectedTracksChanged();
+}
+
+namespace {
+
+// The picked tracks and the lanes that belong to them.
+QSet<QString> tracksWithTheirLanes(const drift::Project &project, const QStringList &ids)
+{
+    QSet<QString> all(ids.cbegin(), ids.cend());
+    for (const drift::Track &track : project.tracks()) {
+        if (track.isAdjustmentLane() && all.contains(track.parentTrackId))
+            all.insert(track.id);
+    }
+    return all;
+}
+
+} // namespace
+
+int AppController::selectedTracksClipCount() const
+{
+    const QSet<QString> ids = tracksWithTheirLanes(m_project, selectedTrackIds());
+    int count = 0;
+    for (const drift::Track &track : m_project.tracks()) {
+        if (ids.contains(track.id))
+            count += track.clips.size();
+    }
+    return count;
+}
+
+bool AppController::removeSelectedTracks()
+{
+    const QStringList picked = selectedTrackIds();
+    if (picked.isEmpty())
+        return false;
+    setPlaying(false);
+    const drift::Project before = m_project;
+    const QSet<QString> doomed = tracksWithTheirLanes(m_project, picked);
+    QSet<QString> removedClipIds;
+    for (int i = m_project.tracks().size() - 1; i >= 0; --i) {
+        if (!doomed.contains(m_project.tracks().at(i).id))
+            continue;
+        for (const drift::Clip &clip : m_project.tracks().at(i).clips)
+            removedClipIds.insert(clip.id);
+        m_project.tracks().removeAt(i);
+    }
+    // An effect or mask pinned to a clip that went goes with it, wherever its lane was.
+    for (drift::Track &track : m_project.tracks()) {
+        for (int c = track.clips.size() - 1; c >= 0; --c) {
+            if (!track.clips.at(c).linkedClipId.isEmpty()
+                && removedClipIds.contains(track.clips.at(c).linkedClipId)) {
+                track.clips.removeAt(c);
+            }
+        }
+    }
+    normalizeAdjustmentLanes(m_project);
+    clearSelection();
+    pushProjectEdit(before, tr("Delete tracks"));
+    finishEdit(QString());
+    setLastMessage(tr("%n track(s) deleted", "", int(picked.size())), QStringLiteral("info"));
+    return true;
+}
+
+bool AppController::groupSelectedTracks()
+{
+    const QStringList picked = selectedTrackIds();
+    if (picked.isEmpty())
+        return false;
+    if (!m_project.activeSequenceId().isEmpty()) {
+        setLastMessage(tr("Tracks can only be grouped on the main timeline"), QStringLiteral("warning"));
+        return false;
+    }
+    const QSet<QString> trackIds = tracksWithTheirLanes(m_project, picked);
+    QSet<QString> ids;
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        const drift::Track &track = m_project.tracks().at(t);
+        if (!trackIds.contains(track.id))
+            continue;
+        for (int c = 0; c < track.clips.size(); ++c) {
+            if (!track.clips.at(c).sequenceId.isEmpty()) {
+                setLastMessage(tr("These tracks hold a composition, and a composition cannot go inside "
+                                  "another one"),
+                               QStringLiteral("warning"));
+                return false;
+            }
+            // Linked A/V partners travel with their clip, as when grouping clips.
+            for (const QPair<int, int> &linked : selectionWithLinkedPartners(m_project, t, c))
+                ids.insert(m_project.tracks().at(linked.first).clips.at(linked.second).id);
+        }
+    }
+    for (const drift::Track &track : m_project.tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (!clip.linkedClipId.isEmpty() && ids.contains(clip.linkedClipId))
+                ids.insert(clip.id);
+        }
+    }
+    if (ids.isEmpty()) {
+        setLastMessage(tr("These tracks are empty: there is nothing to group"), QStringLiteral("warning"));
+        return false;
+    }
+
+    setPlaying(false);
+    const drift::Project before = m_project.detachedCopy();
+    const QString compositeId = buildCompositeFromClipIds(ids, QString(), {});
+    if (compositeId.isEmpty()) {
+        m_project = before;
+        return false;
+    }
+    pushProjectEdit(before, tr("Group tracks"));
+    finishEdit(tr("Tracks grouped"));
+    selectClipById(compositeId);
+    emit sequenceTabsChanged();
+    return true;
+}
+
 void AppController::addTrack(const QString &type)
 {
     const QString normalized = type.trimmed().toLower();
@@ -22627,8 +22802,12 @@ void AppController::triggerAction(const QString &actionId)
         togglePlayback();
     else if (actionId == QStringLiteral("multicam"))
         emit openMulticamWindowRequested();
-    else if (actionId == QStringLiteral("delete"))
-        deleteSelectedClip();
+    else if (actionId == QStringLiteral("delete")) {
+        if (!selectedTrackIds().isEmpty())
+            emit trackDeletionRequested();
+        else
+            deleteSelectedClip();
+    }
     else if (actionId == QStringLiteral("undo"))
         undo();
     else if (actionId == QStringLiteral("redo"))

@@ -4374,6 +4374,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>This template was moved, changed or has layers of its own; removing it would lose them. Undo those changes first, or open it and delete its layer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Template removed: the original clip is back in its place</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Select a clip, or put the playhead over one, to apply the template</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4730,6 +4738,36 @@
     <message>
         <source>Track deleted</source>
         <translation>Đã xóa track</translation>
+    </message>
+    <message>
+        <source>Delete tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n track(s) deleted</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Tracks can only be grouped on the main timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>These tracks hold a composition, and a composition cannot go inside another one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>These tracks are empty: there is nothing to group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracks grouped</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add track</source>
@@ -9786,6 +9824,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Needs cutout: it cuts the person out of the video first, which takes a moment.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply template</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9804,10 +9846,6 @@
     <message>
         <source>Add to favorites</source>
         <translation>Thêm vào mục yêu thích</translation>
-    </message>
-    <message>
-        <source>Needs cutout</source>
-        <translation>Cần cắt bỏ</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -10002,7 +10040,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Puts the original clip back in its place on the timeline, without the template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Takes off every effect and keyframe this template added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove only its effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Takes off the template&apos;s effects and keeps the composition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The template is inside this composition. Open it (double-click) to change its intensity or rhythm.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -19846,6 +19904,10 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Mở tổ hợp</translation>
     </message>
     <message>
+        <source>Remove template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Ungroup</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20581,6 +20643,26 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <source>This removes the empty track. You can undo afterwards.</source>
         <translation>Điều này xóa bỏ track trống. Bạn có thể hoàn tác sau đó.</translation>
     </message>
+    <message numerus="yes">
+        <source>Delete %n track(s)?</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Delete tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>This removes the selected tracks and their %n clips. You can undo afterwards.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This removes the selected tracks, which are empty. You can undo afterwards.</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Waveform</source>
         <translation>Dạng sóng</translation>
@@ -20724,6 +20806,18 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     <message>
         <source>Show keyframes</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Group %n tracks</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n tracks</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>Add camera clip at playhead</source>
@@ -21346,7 +21440,15 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation>Nhập</translation>
     </message>
     <message>
-        <source>%1 — drag onto where two clips meet, or on touch hold then drag</source>
+        <source>%1 — click to swap the selected transition for it, or drag it onto where two clips meet (on touch, hold then drag)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace the selected transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add after the selected clip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

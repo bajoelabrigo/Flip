@@ -4374,6 +4374,14 @@
         <translation>Plantilla quitada</translation>
     </message>
     <message>
+        <source>This template was moved, changed or has layers of its own; removing it would lose them. Undo those changes first, or open it and delete its layer.</source>
+        <translation>Esta plantilla se movió, se cambió o tiene capas propias; quitarla las perdería. Deshaz esos cambios primero, o ábrela y borra su capa.</translation>
+    </message>
+    <message>
+        <source>Template removed: the original clip is back in its place</source>
+        <translation>Plantilla quitada: el clip original volvió a su sitio</translation>
+    </message>
+    <message>
         <source>Select a clip, or put the playhead over one, to apply the template</source>
         <translation>Selecciona un clip, o pon el cabezal sobre uno, para aplicar la plantilla</translation>
     </message>
@@ -4733,6 +4741,37 @@
     <message>
         <source>Track deleted</source>
         <translation>Pista eliminada</translation>
+    </message>
+    <message>
+        <source>Delete tracks</source>
+        <translation>Eliminar pistas</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n track(s) deleted</source>
+        <translation>
+            <numerusform>%n pista eliminada</numerusform>
+            <numerusform>%n pistas eliminadas</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Tracks can only be grouped on the main timeline</source>
+        <translation>Las pistas solo se pueden agrupar en la línea de tiempo principal</translation>
+    </message>
+    <message>
+        <source>These tracks hold a composition, and a composition cannot go inside another one</source>
+        <translation>Estas pistas tienen una composición, y una composición no puede ir dentro de otra</translation>
+    </message>
+    <message>
+        <source>These tracks are empty: there is nothing to group</source>
+        <translation>Estas pistas están vacías: no hay nada que agrupar</translation>
+    </message>
+    <message>
+        <source>Group tracks</source>
+        <translation>Agrupar pistas</translation>
+    </message>
+    <message>
+        <source>Tracks grouped</source>
+        <translation>Pistas agrupadas</translation>
     </message>
     <message>
         <source>Add track</source>
@@ -9818,6 +9857,10 @@
         <translation>Sigue el ritmo de la música. En un clip sin música usa un ritmo fijo de 120 BPM.</translation>
     </message>
     <message>
+        <source>Needs cutout: it cuts the person out of the video first, which takes a moment.</source>
+        <translation>Necesita recorte: primero recorta a la persona del video, y eso tarda un momento.</translation>
+    </message>
+    <message>
         <source>Apply template</source>
         <translation>Aplicar plantilla</translation>
     </message>
@@ -9836,10 +9879,6 @@
     <message>
         <source>Add to favorites</source>
         <translation>Añadir a favoritos</translation>
-    </message>
-    <message>
-        <source>Needs cutout</source>
-        <translation>Necesita recorte</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -10035,8 +10074,28 @@
         <translation>Quitar plantilla</translation>
     </message>
     <message>
+        <source>Puts the original clip back in its place on the timeline, without the template</source>
+        <translation>Devuelve el clip original a su sitio en la línea de tiempo, sin la plantilla</translation>
+    </message>
+    <message>
         <source>Takes off every effect and keyframe this template added</source>
         <translation>Quita todos los efectos y fotogramas clave que puso esta plantilla</translation>
+    </message>
+    <message>
+        <source>Remove only its effects</source>
+        <translation>Quitar solo sus efectos</translation>
+    </message>
+    <message>
+        <source>Takes off the template&apos;s effects and keeps the composition</source>
+        <translation>Quita los efectos de la plantilla y conserva la composición</translation>
+    </message>
+    <message>
+        <source>The template is inside this composition. Open it (double-click) to change its intensity or rhythm.</source>
+        <translation>La plantilla está dentro de esta composición. Ábrela (doble clic) para cambiar su intensidad o su ritmo.</translation>
+    </message>
+    <message>
+        <source>Open template</source>
+        <translation>Abrir plantilla</translation>
     </message>
     <message>
         <source>This clip was scanned before the face mesh was supported. Re-detect faces to enable 3D Face Mesh and Face Retouch.</source>
@@ -19904,6 +19963,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Abrir clip compuesto</translation>
     </message>
     <message>
+        <source>Remove template</source>
+        <translation>Quitar plantilla</translation>
+    </message>
+    <message>
         <source>Ungroup</source>
         <translation>Desagrupar</translation>
     </message>
@@ -20640,6 +20703,28 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <source>This removes the empty track. You can undo afterwards.</source>
         <translation>Esto eliminará la pista vacía. Puedes deshacerlo después.</translation>
     </message>
+    <message numerus="yes">
+        <source>Delete %n track(s)?</source>
+        <translation>
+            <numerusform>¿Eliminar %n pista?</numerusform>
+            <numerusform>¿Eliminar %n pistas?</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Delete tracks</source>
+        <translation>Eliminar pistas</translation>
+    </message>
+    <message numerus="yes">
+        <source>This removes the selected tracks and their %n clips. You can undo afterwards.</source>
+        <translation>
+            <numerusform>Esto elimina las pistas seleccionadas y su clip. Puedes deshacerlo después.</numerusform>
+            <numerusform>Esto elimina las pistas seleccionadas y sus %n clips. Puedes deshacerlo después.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This removes the selected tracks, which are empty. You can undo afterwards.</source>
+        <translation>Esto elimina las pistas seleccionadas, que están vacías. Puedes deshacerlo después.</translation>
+    </message>
     <message>
         <source>Waveform</source>
         <translation>Forma de onda</translation>
@@ -20783,6 +20868,20 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Show keyframes</source>
         <translation>Mostrar fotogramas clave</translation>
+    </message>
+    <message numerus="yes">
+        <source>Group %n tracks</source>
+        <translation>
+            <numerusform>Agrupar %n pista</numerusform>
+            <numerusform>Agrupar %n pistas</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n tracks</source>
+        <translation>
+            <numerusform>Eliminar %n pista</numerusform>
+            <numerusform>Eliminar %n pistas</numerusform>
+        </translation>
     </message>
     <message>
         <source>Add camera clip at playhead</source>
@@ -21409,8 +21508,16 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Importar</translation>
     </message>
     <message>
-        <source>%1 — drag onto where two clips meet, or on touch hold then drag</source>
-        <translation>%1 — arrástrala donde se unen dos clips; en pantalla táctil, mantén presionado y arrastra</translation>
+        <source>%1 — click to swap the selected transition for it, or drag it onto where two clips meet (on touch, hold then drag)</source>
+        <translation>%1 — haz clic para cambiar por ella la transición seleccionada, o arrástrala donde se unen dos clips (en pantalla táctil, mantén presionado y arrastra)</translation>
+    </message>
+    <message>
+        <source>Replace the selected transition</source>
+        <translation>Reemplazar la transición seleccionada</translation>
+    </message>
+    <message>
+        <source>Add after the selected clip</source>
+        <translation>Agregar después del clip seleccionado</translation>
     </message>
     <message>
         <source>Remove from favorites</source>

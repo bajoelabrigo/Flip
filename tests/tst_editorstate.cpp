@@ -300,6 +300,7 @@ private slots:
     void adjustmentTargetClipsToOneClipLikePhotoshop();
     void adjustmentTargetKeepsTheMaskInPlace();
     void ungroupPutsTheClipsBack();
+    void trackHeadersPickGroupAndDelete();
     void trackRowHeightsForAdjustmentsAndLanes();
     void overlappingAdjustmentsGetASecondLane();
     void multiClipMoveLeftPreservesSelectionAndRelativeSpacing();
@@ -845,6 +846,57 @@ void EditorStateTest::ungroupPutsTheClipsBack()
     state.project()->tracks()[0].clips[0].transformX.setKeyframe(0, 300.0);
     QVERIFY(!state.ungroupComposite(0, 0));
     QCOMPARE(state.project()->tracks().at(0).clips.at(0).type, drift::ClipType::Composite);
+}
+
+// Premiere-style track picking: Shift for a range, Ctrl for one more; the picked tracks group
+// into one composition or go away with their clips, each in one undo step.
+void EditorStateTest::trackHeadersPickGroupAndDelete()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    setUpTwoClipSelection(library, state);
+    state.project()->ensureTrackIds();
+    const QString clipsId = state.project()->tracks().at(0).id;
+    state.addTrack(QStringLiteral("video")); // goes on top
+    const int trackCount = state.project()->tracks().size();
+    const int clips = state.project()->trackIndexById(clipsId);
+    QCOMPARE(clips, 1);
+
+    state.selectTrackHeader(clips, false, false);
+    QCOMPARE(state.selectedTrackIds(), QStringList{clipsId});
+    QVERIFY(state.isTrackSelected(clips));
+    QCOMPARE(state.selectedTracksClipCount(), 2);
+
+    // Ctrl adds and takes off one track; Shift takes the whole run from the last click.
+    state.selectTrackHeader(0, false, true);
+    QCOMPARE(state.selectedTrackIds().size(), 2);
+    state.selectTrackHeader(0, false, true);
+    QCOMPARE(state.selectedTrackIds(), QStringList{clipsId});
+    state.selectTrackHeader(0, false, false);
+    state.selectTrackHeader(trackCount - 1, true, false);
+    QCOMPARE(state.selectedTrackIds().size(), trackCount);
+
+    // Picking a clip drops the picked tracks.
+    state.selectClip(clips, 0);
+    QVERIFY(state.selectedTrackIds().isEmpty());
+
+    state.selectTrackHeader(clips, false, false);
+    QVERIFY(state.groupSelectedTracks());
+    const int grouped = state.project()->trackIndexById(clipsId);
+    QVERIFY(grouped >= 0);
+    QCOMPARE(state.project()->tracks().at(grouped).clips.size(), 1);
+    QCOMPARE(state.project()->tracks().at(grouped).clips.at(0).type, drift::ClipType::Composite);
+    state.undo();
+    QCOMPARE(state.project()->tracks().at(state.project()->trackIndexById(clipsId)).clips.size(), 2);
+
+    state.selectTrackHeader(state.project()->trackIndexById(clipsId), false, false);
+    QVERIFY(state.removeSelectedTracks());
+    QCOMPARE(state.project()->tracks().size(), trackCount - 1);
+    QVERIFY(state.project()->trackIndexById(clipsId) < 0);
+    QVERIFY(state.selectedTrackIds().isEmpty());
+    state.undo();
+    QCOMPARE(state.project()->tracks().size(), trackCount);
+    QCOMPARE(state.project()->tracks().at(state.project()->trackIndexById(clipsId)).clips.size(), 2);
 }
 
 // The bug this guards: the overlay used to place a clip's outline and grips with the eye fixed at

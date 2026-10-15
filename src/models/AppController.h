@@ -263,6 +263,8 @@ class AppController : public QObject
     Q_PROPERTY(QVariantMap selectedTransitionData READ selectedTransitionData NOTIFY selectedTransitionDataChanged)
     Q_PROPERTY(int selectedTransitionTrack READ selectedTransitionTrack NOTIFY selectedTransitionDataChanged)
     Q_PROPERTY(int selectedTransitionLeftClip READ selectedTransitionLeftClip NOTIFY selectedTransitionDataChanged)
+    // Tracks picked from their headers (ids, so a reorder keeps them), as in Premiere.
+    Q_PROPERTY(QStringList selectedTrackIds READ selectedTrackIds NOTIFY selectedTracksChanged)
     // Every set the picker offers: built-ins, the app-wide library, then copies carried by the
     // project for sets this machine's library does not have. Each {id, name, builtIn, active,
     // inLibrary, items}.
@@ -433,6 +435,7 @@ public:
     QVariantMap selectedTransitionData() const;
     int selectedTransitionTrack() const { return m_selectedTransitionTrack; }
     int selectedTransitionLeftClip() const { return m_selectedTransitionLeftClip; }
+    QStringList selectedTrackIds() const;
     QVariantList guideSets() const;
     QVariantList guideItems() const;
     Q_INVOKABLE void setGuideSetActive(const QString &id, bool active);
@@ -1491,6 +1494,18 @@ public:
     Q_INVOKABLE void moveTrack(int fromIndex, int toIndex);
     Q_INVOKABLE void addTrack(const QString &type);
     Q_INVOKABLE void removeTrack(int trackIndex);
+    // A click on a track header: picks that track alone; `extendRange` (Shift) adds every track
+    // from the last one clicked, `toggle` (Ctrl) adds or takes off just this one. Clears the
+    // clip selection, and picking a clip clears it in turn.
+    Q_INVOKABLE void selectTrackHeader(int trackIndex, bool extendRange, bool toggle);
+    Q_INVOKABLE void clearTrackSelection();
+    Q_INVOKABLE bool isTrackSelected(int trackIndex) const;
+    // How many clips the picked tracks hold (lanes included), for the confirmation.
+    Q_INVOKABLE int selectedTracksClipCount() const;
+    // Deletes the picked tracks with every clip on them and their lanes, in one undo step.
+    Q_INVOKABLE bool removeSelectedTracks();
+    // Groups everything on the picked tracks into one composition, as Group does for clips.
+    Q_INVOKABLE bool groupSelectedTracks();
     Q_INVOKABLE void addBookmark(double seconds, const QString &label);
     Q_INVOKABLE void removeBookmark(int index);
     Q_INVOKABLE void updateBookmark(int index, double seconds, const QString &label);
@@ -1746,6 +1761,9 @@ signals:
     // An imported LUT was added to or removed from the library.
     void lutLibraryChanged();
     void selectedTransitionDataChanged();
+    void selectedTracksChanged();
+    // Delete was pressed with tracks picked: the headers ask before deleting them.
+    void trackDeletionRequested();
     void bookmarksChanged();
     void workAreaChanged();
     void loopWorkAreaEnabledChanged();
@@ -2218,6 +2236,8 @@ protected:
     int m_selectedClip = -1;
     int m_selectedTransitionTrack = -1;
     int m_selectedTransitionLeftClip = -1;
+    QStringList m_selectedTrackIds;
+    QString m_trackSelectionAnchor;
     QString m_focusedMaskId;
     bool m_autoCrossfade = true; // read from QSettings in the constructor
     // The (from, to) clip ids a move should crossfade, or empty. See moveClip.
