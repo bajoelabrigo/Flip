@@ -592,6 +592,11 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 
 **Colores de 8 dígitos en QML son `#AARRGGBB`, no `#RRGGBBAA`.** `Theme.scrimColor` (`#00000066`) y `Theme.scrimStrong` (`#000000b3`) salen **transparentes**, heredado de Drift, y se usan en unos 38 sitios (etiquetas sobre miniaturas, velos). En la 0.11.0 solo se corrigieron las etiquetas de las tarjetas de plantillas (`Qt.rgba(0, 0, 0, 0.7)`); arreglar el tema es pendiente: revisar a ojo cada uso antes, porque oscurecerá zonas que hoy se ven claras. Igual `waveformColor` `#ffffffb3` es amarillo pálido y no blanco al 70 %.
 
+**Restaurar el registro tras una prueba puede cerrar la sesión de Google de Jorge.** El servidor rota el token de
+refresco en cada uso y, si llega uno ya usado, cierra toda la familia (2026-10-14 22:34 UTC pasó). Si la app de
+prueba usó la cuenta (Stock, Mi cuenta), exportar `HKCU\Software\Flip Studio\Flip Studio\account` **después** de la
+prueba, restaurar la copia y volver a importar esa clave. Comprobar en Mongo (`sessions`, `revokedAt`) si hay dudas.
+
 **La app escribe en el registro de Jorge aunque se lance para pruebas, incluso sin ventana:** anota el proyecto
 de prueba en `recentProjects`/`lastSessionPath` y guarda preferencias. Quitar solo `mcp/startOnLaunch` no basta:
 con la app cerrada, `reg delete "HKCU\Software\Flip Studio" /f` y `reg import` de la copia, y comparar el
