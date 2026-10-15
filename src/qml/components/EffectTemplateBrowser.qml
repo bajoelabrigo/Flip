@@ -229,7 +229,7 @@ Column {
                                 Rectangle {
                                     anchors.fill: parent
                                     visible: index === 3 && templateCard.effectCount > 4
-                                    color: Theme.scrimStrong
+                                    color: Qt.rgba(0, 0, 0, 0.7) // Theme.scrimStrong reads as transparent (#RRGGBBAA parsed as #AARRGGBB)
 
                                     Text {
                                         anchors.centerIn: parent
@@ -282,7 +282,7 @@ Column {
                         width: stackBadgeRow.implicitWidth + 8
                         height: stackBadgeRow.implicitHeight + 4
                         radius: Theme.radiusXs
-                        color: Theme.scrimStrong
+                        color: Qt.rgba(0, 0, 0, 0.7) // Theme.scrimStrong reads as transparent (#RRGGBBAA parsed as #AARRGGBB)
 
                         Row {
                             id: stackBadgeRow
@@ -348,16 +348,20 @@ Column {
                         anchors.leftMargin: templateCard.modelData.requiresSegmentation === true
                                             ? segBadgeBox.width + 8 : 4
                         visible: templateCard.modelData.followsMusic === true
-                        width: 18
-                        height: 18
-                        radius: Theme.radiusXs
-                        color: Theme.scrimStrong
+                        width: 20
+                        height: 20
+                        radius: width / 2
+                        // Solid, not the shared scrim: over a white thumbnail the scrim left the
+                        // note invisible.
+                        color: Qt.rgba(0, 0, 0, 0.72)
+                        border.width: 1
+                        border.color: Qt.rgba(1, 1, 1, 0.25)
 
                         IconGlyph {
                             anchors.centerIn: parent
                             glyph: Theme.icons.music
-                            iconSize: 11
-                            iconColor: Theme.onMedia
+                            iconSize: 12
+                            iconColor: "white"
                         }
 
                         HoverHandler { id: musicBadgeHover }
@@ -376,7 +380,7 @@ Column {
                         width: segBadge.implicitWidth + 8
                         height: segBadge.implicitHeight + 4
                         radius: Theme.radiusXs
-                        color: Theme.scrimStrong
+                        color: Qt.rgba(0, 0, 0, 0.7) // Theme.scrimStrong reads as transparent (#RRGGBBAA parsed as #AARRGGBB)
 
                         Text {
                             id: segBadge
