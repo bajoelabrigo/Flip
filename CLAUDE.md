@@ -52,8 +52,20 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - **Sin MSIX y sin cambiar el TXT `version` a propósito** (decisión de Jorge): la próxima actualización completa
   (0.10.0 + Etapa 1) es la que va al TXT y a la Store. La 0.9.9 ya está aprobada y en la Store.
 - Detalles de la cuenta, el servidor y las trampas en «Pendiente» (punto 5) y en las trampas (navegador y WSA).
-- **Lo siguiente:** Etapa 1 de plantillas (rombos editables: Intensidad/Caída/Ritmo, «Quitar plantilla», las de
-  recorte como composición). Ver el punto 6 de «Pendiente».
+- **Rama `flip/plantillas-editables` (2026-10-14, noche), probada en ventana con Jorge:**
+  - **Etapa 1a:** las 13 plantillas de un clip marcan sus efectos con `drift::EffectTemplateTag` (Effect.h, se
+    guarda en el proyecto; copiar/preajuste la quita). Aplicadas a un video crean una **capa de ajuste propia**
+    («Plantilla: …», pista nueva justo encima, misma duración: se mueve, se acorta, se corta con la tijera).
+    Efectos › Plantilla: Intensidad, Caída, Ritmo (analiza la música si hace falta) y «Quitar plantilla» (borra la
+    capa y su pista si queda vacía). Las que cambian la velocidad (slowmo_drop) siguen en el clip. Golpes de al
+    menos 150 ms cuando el ritmo es por golpes. Prueba `effectTemplateStaysEditable`.
+  - **Mi cuenta:** foto a la derecha de Exportar (`AccountAvatar`), tarjeta en la pantalla de inicio,
+    `AccountDialog` con Favoritos como CapCut (chips + miniaturas de los 15 grupos; `assetFavoriteIds`) y
+    Descargas de Stock (historial persistente en `market/history`, últimas 200).
+  - **Falta:** Etapa 1b (las 10 de recorte como composición), PR, y la versión siguiente (0.11.0, que sí va a la
+    Store con la 0.10.0).
+- **Ojo en las pruebas:** el botón «Dividir» de la barra corta **todas** las pistas en el cabezal; para cortar un
+  solo clip, la tijera.
 - Al cerrar la sesión el repo se mudó a `Downloads\FlipStudio\codigo\Flip`: abrir Claude desde ahí.
 
 ### Anterior: cierre de la 0.9.9
