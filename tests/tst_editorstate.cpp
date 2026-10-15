@@ -40,6 +40,8 @@
 #include "engine/ClipReaderPool.h"
 #include "models/AppController.h"
 #include "engine/EffectTemplateCatalog.h"
+#include "engine/SceneTemplateCatalog.h"
+#include "core/SceneTemplateLayout.h"
 #include "models/TimelineClipsModel.h"
 #include "timeline/TimelineLayout.h"
 #include "timeline/TimelineTrackItem.h"
@@ -274,6 +276,7 @@ private slots:
     void adjustmentLayerCreationAndCompositing();
     void clipEffectsLiveOnALinkedAdjustmentLane();
     void effectTemplateStaysEditable();
+    void removingATemplatePutsTheClipBack();
     void trackKeyframeRowsUnfoldAndEdit();
     void cutoutTemplateLandsInAComposition();
     void beatTemplateOnSilentClipStillApplies();
@@ -299,6 +302,9 @@ private slots:
     void adjustmentTargetClipsToOneClipLikePhotoshop();
     void adjustmentTargetKeepsTheMaskInPlace();
     void ungroupPutsTheClipsBack();
+    void trackHeadersPickGroupAndDelete();
+    void sceneTemplateInsertsAndFillsSlots();
+    void sceneTemplateLayoutScalesAndCovers();
     void trackRowHeightsForAdjustmentsAndLanes();
     void overlappingAdjustmentsGetASecondLane();
     void multiClipMoveLeftPreservesSelectionAndRelativeSpacing();
@@ -844,6 +850,216 @@ void EditorStateTest::ungroupPutsTheClipsBack()
     state.project()->tracks()[0].clips[0].transformX.setKeyframe(0, 300.0);
     QVERIFY(!state.ungroupComposite(0, 0));
     QCOMPARE(state.project()->tracks().at(0).clips.at(0).type, drift::ClipType::Composite);
+}
+
+// Premiere-style track picking: Shift for a range, Ctrl for one more; the picked tracks group
+// into one composition or go away with their clips, each in one undo step.
+void EditorStateTest::trackHeadersPickGroupAndDelete()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    setUpTwoClipSelection(library, state);
+    state.project()->ensureTrackIds();
+    const QString clipsId = state.project()->tracks().at(0).id;
+    state.addTrack(QStringLiteral("video")); // goes on top
+    const int trackCount = state.project()->tracks().size();
+    const int clips = state.project()->trackIndexById(clipsId);
+    QCOMPARE(clips, 1);
+
+    state.selectTrackHeader(clips, false, false);
+    QCOMPARE(state.selectedTrackIds(), QStringList{clipsId});
+    QVERIFY(state.isTrackSelected(clips));
+    QCOMPARE(state.selectedTracksClipCount(), 2);
+
+    // Ctrl adds and takes off one track; Shift takes the whole run from the last click.
+    state.selectTrackHeader(0, false, true);
+    QCOMPARE(state.selectedTrackIds().size(), 2);
+    state.selectTrackHeader(0, false, true);
+    QCOMPARE(state.selectedTrackIds(), QStringList{clipsId});
+    state.selectTrackHeader(0, false, false);
+    state.selectTrackHeader(trackCount - 1, true, false);
+    QCOMPARE(state.selectedTrackIds().size(), trackCount);
+
+    // Picking a clip drops the picked tracks.
+    state.selectClip(clips, 0);
+    QVERIFY(state.selectedTrackIds().isEmpty());
+
+    state.selectTrackHeader(clips, false, false);
+    QVERIFY(state.groupSelectedTracks());
+    const int grouped = state.project()->trackIndexById(clipsId);
+    QVERIFY(grouped >= 0);
+    QCOMPARE(state.project()->tracks().at(grouped).clips.size(), 1);
+    QCOMPARE(state.project()->tracks().at(grouped).clips.at(0).type, drift::ClipType::Composite);
+    state.undo();
+    QCOMPARE(state.project()->tracks().at(state.project()->trackIndexById(clipsId)).clips.size(), 2);
+
+    state.selectTrackHeader(state.project()->trackIndexById(clipsId), false, false);
+    QVERIFY(state.removeSelectedTracks());
+    QCOMPARE(state.project()->tracks().size(), trackCount - 1);
+    QVERIFY(state.project()->trackIndexById(clipsId) < 0);
+    QVERIFY(state.selectedTrackIds().isEmpty());
+    state.undo();
+    QCOMPARE(state.project()->tracks().size(), trackCount);
+    QCOMPARE(state.project()->tracks().at(state.project()->trackIndexById(clipsId)).clips.size(), 2);
+}
+
+// A scene template package goes in as one composition: the empty project takes its 9:16 shape, the
+// photo slot shows a stand-in, and filling it cuts the photo to the slot's box (cover), keeps the
+// slot's timing, drops the stand-in from the bin, and undoes in one step.
+void EditorStateTest::sceneTemplateInsertsAndFillsSlots()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    const auto restore = qScopeGuard([] {
+        QStandardPaths::setTestModeEnabled(false);
+        reloadSceneTemplateCatalog();
+    });
+    QTemporaryDir root;
+    QVERIFY(root.isValid());
+    const QString packageDir = QDir(root.path()).filePath(QStringLiteral("demo"));
+    QVERIFY(QDir().mkpath(packageDir));
+
+    drift::Project content;
+    content.setResolution(1080, 1920);
+    content.tracks().clear();
+    drift::Clip slot;
+    slot.id = QStringLiteral("slot-a");
+    slot.type = drift::ClipType::Image;
+    slot.placeholderId = QStringLiteral("p1");
+    slot.placeholderLabel = QStringLiteral("Foto 1");
+    slot.timelineStart = drift::secondsToUs(0.5);
+    slot.timelineDuration = drift::secondsToUs(2.0);
+    slot.transformX.setKeyframe(0, 140.0);
+    slot.transformY.setKeyframe(0, 360.0);
+    slot.transformW.setKeyframe(0, 800.0); // a 800x1000 box: 4:5
+    slot.transformH.setKeyframe(0, 1000.0);
+    drift::Clip title;
+    title.id = QStringLiteral("title-a");
+    title.type = drift::ClipType::Text;
+    title.placeholderId = QStringLiteral("t1");
+    title.placeholderLabel = QStringLiteral("Title");
+    title.textContent = QStringLiteral("Hola");
+    title.timelineDuration = drift::secondsToUs(3.0);
+    content.tracks().append(drift::Track{.type = drift::TrackType::Text, .clips = {title}});
+    content.tracks().append(drift::Track{.type = drift::TrackType::Video, .clips = {slot}});
+    content.ensureTrackIds();
+    {
+        QFile project(QDir(packageDir).filePath(QStringLiteral("project.json")));
+        QVERIFY(project.open(QIODevice::WriteOnly));
+        project.write(QJsonDocument(content.toJson(false)).toJson());
+        QFile manifest(QDir(packageDir).filePath(QStringLiteral("template.json")));
+        QVERIFY(manifest.open(QIODevice::WriteOnly));
+        manifest.write(QJsonDocument(QJsonObject{
+                                         {QStringLiteral("id"), QStringLiteral("demo")},
+                                         {QStringLiteral("displayName"), QStringLiteral("Demo")},
+                                         {QStringLiteral("category"), QStringLiteral("reels")},
+                                         {QStringLiteral("width"), 1080},
+                                         {QStringLiteral("height"), 1920},
+                                         {QStringLiteral("durationSec"), 3.0},
+                                         {QStringLiteral("slots"), 1},
+                                         {QStringLiteral("texts"), 1},
+                                     })
+                           .toJson());
+    }
+    reloadSceneTemplateCatalog({root.path()});
+    QVERIFY(sceneTemplateForId(QStringLiteral("demo")));
+
+    AssetLibrary library;
+    AppController state(&library);
+    QCOMPARE(state.sceneTemplates().size(), 1);
+    const QString compositeId = state.insertSceneTemplate(QStringLiteral("demo"));
+    QVERIFY(!compositeId.isEmpty());
+    QCOMPARE(state.project()->width(), 1080);
+    QCOMPARE(state.project()->height(), 1920);
+
+    const QString assetId = state.sceneTemplateAssetAt(state.selectedTrack(), state.selectedClip());
+    QVERIFY(!assetId.isEmpty());
+    const QString sequenceId = state.project()->asset(assetId)->sequenceId;
+    const auto clipIn = [&](const QString &clipId) -> const drift::Clip * {
+        for (const drift::Track &track : state.project()->sequenceTracks(sequenceId)) {
+            for (const drift::Clip &clip : track.clips) {
+                if (clip.id == clipId)
+                    return &clip;
+            }
+        }
+        return nullptr;
+    };
+
+    const QVariantMap info = state.sceneTemplateInfo(assetId);
+    QCOMPARE(info.value(QStringLiteral("emptySlots")).toInt(), 1);
+    const QVariantList slotList = info.value(QStringLiteral("slots")).toList();
+    const QVariantList texts = info.value(QStringLiteral("texts")).toList();
+    QCOMPARE(slotList.size(), 1);
+    QCOMPARE(texts.size(), 1);
+    QCOMPARE(texts.first().toMap().value(QStringLiteral("text")).toString(), QStringLiteral("Hola"));
+    const QString slotClipId = slotList.first().toMap().value(QStringLiteral("clipId")).toString();
+    QVERIFY(clipIn(slotClipId));
+    const QString standIn = clipIn(slotClipId)->assetId;
+    QVERIFY(state.project()->asset(standIn));
+    QCOMPARE(clipIn(slotClipId)->timelineDuration, drift::secondsToUs(2.0));
+
+    // A 16:9 photo into the 4:5 slot keeps the middle of its width.
+    const QString photoPath = QDir(root.path()).filePath(QStringLiteral("wide.png"));
+    QImage wide(1600, 900, QImage::Format_RGB32);
+    wide.fill(Qt::red);
+    QVERIFY(wide.save(photoPath));
+    drift::MediaAsset photo;
+    photo.kind = drift::MediaKind::Image;
+    photo.name = QStringLiteral("wide.png");
+    photo.path = photoPath;
+    photo.width = 1600;
+    photo.height = 900;
+    const QString photoId = state.project()->addAsset(photo);
+    library.syncToProject();
+
+    QVERIFY(state.fillTemplateSlot(slotClipId, photoId));
+    const drift::Clip *filled = clipIn(slotClipId);
+    QVERIFY(filled);
+    QCOMPARE(filled->assetId, photoId);
+    QVERIFY(!filled->placeholderEmpty);
+    QCOMPARE(filled->timelineDuration, drift::secondsToUs(2.0));
+    QVERIFY(qAbs(filled->sourceFrame.width() - (0.8 / (16.0 / 9.0))) < 1e-6);
+    QVERIFY(qAbs(filled->sourceFrame.x() - (1.0 - filled->sourceFrame.width()) / 2.0) < 1e-6);
+    QVERIFY(!state.project()->asset(standIn));
+    QCOMPARE(state.sceneTemplateInfo(assetId).value(QStringLiteral("emptySlots")).toInt(), 0);
+
+    state.undo();
+    QCOMPARE(state.sceneTemplateInfo(assetId).value(QStringLiteral("emptySlots")).toInt(), 1);
+    QVERIFY(state.project()->asset(standIn));
+
+    const QString titleClipId = texts.first().toMap().value(QStringLiteral("clipId")).toString();
+    QVERIFY(state.setTemplateText(titleClipId, QStringLiteral("Feliz dia")));
+    QCOMPARE(clipIn(titleClipId)->textContent, QStringLiteral("Feliz dia"));
+}
+
+void EditorStateTest::sceneTemplateLayoutScalesAndCovers()
+{
+    drift::Clip box;
+    box.type = drift::ClipType::Image;
+    box.transformX.setKeyframe(0, 120.0);
+    box.transformY.setKeyframe(0, 210.0);
+    box.transformW.setKeyframe(0, 540.0);
+    box.transformH.setKeyframe(0, 960.0);
+    drift::Clip text;
+    text.type = drift::ClipType::Text;
+    text.textStyle.pixelSize = 81;
+    QList<drift::Track> tracks{drift::Track{.type = drift::TrackType::Video, .clips = {box, text}}};
+
+    // 1080x1920 into 720x1280: two thirds, nothing to centre.
+    drift::scaleTemplateLayout(tracks, 1080, 1920, 720, 1280);
+    QVERIFY(qFuzzyCompare(tracks.at(0).clips.at(0).transformX.evaluateAt(0), 80.0));
+    QVERIFY(qFuzzyCompare(tracks.at(0).clips.at(0).transformW.evaluateAt(0), 360.0));
+    QCOMPARE(tracks.at(0).clips.at(1).textStyle.pixelSize, 54);
+    // An unset box was the whole canvas: it becomes the whole scaled canvas.
+    QVERIFY(qFuzzyCompare(tracks.at(0).clips.at(1).transformW.evaluateAt(0), 720.0));
+
+    // Into 16:9 the template is fitted by height and centred.
+    QList<drift::Track> wide{drift::Track{.type = drift::TrackType::Video, .clips = {box}}};
+    drift::scaleTemplateLayout(wide, 1080, 1920, 1920, 1080);
+    const double s = 1080.0 / 1920.0;
+    QVERIFY(qFuzzyCompare(wide.at(0).clips.at(0).transformX.evaluateAt(0), 120.0 * s + (1920 - 1080 * s) / 2.0));
+
+    // Cover: a square picture in a tall slot keeps its middle, full height.
+    QCOMPARE(drift::coverSourceFrame(QSizeF(1000, 1000), QSizeF(500, 1000)), QRectF(0.25, 0, 0.5, 1));
 }
 
 // The bug this guards: the overlay used to place a clip's outline and grips with the eye fixed at
@@ -5858,6 +6074,12 @@ void EditorStateTest::replaceTransitionOnDrop()
     QCOMPARE(replaced.value(QStringLiteral("id")).toString(), firstId);
     QCOMPARE(replaced.value(QStringLiteral("kind")).toString(), QStringLiteral("wipe_right"));
     QCOMPARE(state.project()->tracks().at(0).transitions.size(), 1);
+
+    // A length the user set survives swapping the kind (on a cut, not an overlap).
+    state.setTransitionDuration(0, firstId, 1.25);
+    state.addTransition(0, 0, QStringLiteral("crossfade"), 0.5);
+    QCOMPARE(state.project()->tracks().at(0).transitions.at(0).kindId, QStringLiteral("crossfade"));
+    QCOMPARE(state.project()->tracks().at(0).transitions.at(0).durationUs, drift::secondsToUs(1.25));
 }
 
 void EditorStateTest::overlapDoesNotAutoApplyCrossfade()
@@ -9221,6 +9443,80 @@ void EditorStateTest::effectTemplateStaysEditable()
                 contrastStays = left.size() == 1 && left.at(0).catalogId == QStringLiteral("adjust.contrast");
             }
     QVERIFY(contrastStays);
+}
+
+// "Remove template" on the composition a template made puts the original clip back where it was,
+// with its own effects and without the template's layer, and the composition leaves Media.
+// A composition from 0.11.0, without the template record, is recognised by what is inside.
+void EditorStateTest::removingATemplatePutsTheClipBack()
+{
+    for (const bool legacy : {false, true}) {
+        AssetLibrary library;
+        AppController state(&library);
+        appendTwoVideoClips(*state.project());
+        state.project()->ensureTrackIds();
+        state.selectClip(0, 0);
+        state.addEffect(0, 0, QStringLiteral("adjust.contrast"));
+        const drift::Clip video = state.project()->tracks().at(0).clips.at(0);
+        const int tracksBefore = state.project()->tracks().size();
+
+        state.applyEffectTemplate(0, 0, QStringLiteral("snap_transition"));
+        const int t = state.selectedTrack();
+        const int c = state.selectedClip();
+        const drift::Clip composite = state.project()->tracks().at(t).clips.at(c);
+        QCOMPARE(composite.type, drift::ClipType::Composite);
+        drift::MediaAsset *asset = state.project()->asset(composite.assetId);
+        QVERIFY(asset);
+        QCOMPARE(asset->generator.value(QStringLiteral("kind")).toString(), QStringLiteral("template"));
+        QCOMPARE(asset->generator.value(QStringLiteral("added")).toArray().size(), 1);
+        if (legacy)
+            asset->generator = {};
+
+        const QVariantMap info = state.templateCompositeInfo(t, c);
+        QCOMPARE(info.value(QStringLiteral("assetId")).toString(), composite.assetId);
+        QVERIFY(!info.value(QStringLiteral("inside")).toBool());
+        QVERIFY(!info.value(QStringLiteral("name")).toString().isEmpty());
+        // Inside, the open tab says which composition it is.
+        state.openSequence(composite.sequenceId);
+        QCOMPARE(state.templateCompositeInfo(0, 0).value(QStringLiteral("assetId")).toString(),
+                 composite.assetId);
+        QVERIFY(state.templateCompositeInfo(0, 0).value(QStringLiteral("inside")).toBool());
+
+        // Removed from inside: back on the main timeline, the video where it was.
+        QVERIFY(state.removeTemplateComposite(composite.assetId));
+        QVERIFY(state.project()->activeSequenceId().isEmpty());
+        QVERIFY(!state.project()->asset(composite.assetId));
+        QVERIFY(!state.project()->hasSequence(composite.sequenceId));
+        int found = 0;
+        bool templateLayerLeft = false;
+        for (const drift::Track &track : state.project()->tracks()) {
+            for (const drift::Clip &clip : track.clips) {
+                QVERIFY(clip.type != drift::ClipType::Composite);
+                for (const drift::Effect &e : clip.effects)
+                    templateLayerLeft = templateLayerLeft || e.templateTag.isValid();
+                if (clip.type == drift::ClipType::Video && clip.assetId == video.assetId
+                    && clip.timelineStart == video.timelineStart) {
+                    ++found;
+                    QCOMPARE(clip.timelineDuration, video.timelineDuration);
+                    const QList<drift::Effect> left = videoEffectsOf(*state.project(), clip);
+                    QCOMPARE(left.size(), 1);
+                    QCOMPARE(left.at(0).catalogId, QStringLiteral("adjust.contrast"));
+                }
+            }
+        }
+        QCOMPARE(found, 1);
+        QVERIFY(!templateLayerLeft);
+        QCOMPARE(state.project()->tracks().size(), tracksBefore);
+
+        // One undo step brings the composition back.
+        state.undo();
+        QVERIFY(state.project()->asset(composite.assetId));
+        bool compositeBack = false;
+        for (const drift::Track &track : state.project()->tracks())
+            for (const drift::Clip &clip : track.clips)
+                compositeBack = compositeBack || clip.id == composite.id;
+        QVERIFY(compositeBack);
+    }
 }
 
 void EditorStateTest::clipEffectsLiveOnALinkedAdjustmentLane()

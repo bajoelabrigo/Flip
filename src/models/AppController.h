@@ -263,6 +263,8 @@ class AppController : public QObject
     Q_PROPERTY(QVariantMap selectedTransitionData READ selectedTransitionData NOTIFY selectedTransitionDataChanged)
     Q_PROPERTY(int selectedTransitionTrack READ selectedTransitionTrack NOTIFY selectedTransitionDataChanged)
     Q_PROPERTY(int selectedTransitionLeftClip READ selectedTransitionLeftClip NOTIFY selectedTransitionDataChanged)
+    // Tracks picked from their headers (ids, so a reorder keeps them), as in Premiere.
+    Q_PROPERTY(QStringList selectedTrackIds READ selectedTrackIds NOTIFY selectedTracksChanged)
     // Every set the picker offers: built-ins, the app-wide library, then copies carried by the
     // project for sets this machine's library does not have. Each {id, name, builtIn, active,
     // inLibrary, items}.
@@ -433,6 +435,7 @@ public:
     QVariantMap selectedTransitionData() const;
     int selectedTransitionTrack() const { return m_selectedTransitionTrack; }
     int selectedTransitionLeftClip() const { return m_selectedTransitionLeftClip; }
+    QStringList selectedTrackIds() const;
     QVariantList guideSets() const;
     QVariantList guideItems() const;
     Q_INVOKABLE void setGuideSetActive(const QString &id, bool active);
@@ -521,7 +524,8 @@ public:
                                        const QString &undoText);
 
     void setAddonManager(AddonManager *manager);
-    void setMarketClient(MarketClient *client) { m_marketClient = client; }
+    // Also hears Stock's templates: installed ones reload the Templates tab, "Use" places them.
+    void setMarketClient(MarketClient *client);
     MarketClient *marketClient() const { return m_marketClient; }
     AddonManager *addonManager() const { return m_addonManager; }
     // Strip chip click — folds `prop`'s curve away, or brings it back. Purely a view filter: the
@@ -1293,6 +1297,34 @@ public:
     Q_INVOKABLE void setEffectTemplateRhythm(int trackIndex, int clipIndex, const QString &sync);
     // Takes the template's effects (and its speed curve) off the clip in one step.
     Q_INVOKABLE void removeEffectTemplate(int trackIndex, int clipIndex);
+    // The composition a template made ("Template: …"), when this clip is one on the main timeline
+    // or the open tab is one: {assetId, name, inside}. Empty otherwise.
+    Q_INVOKABLE QVariantMap templateCompositeInfo(int trackIndex, int clipIndex) const;
+    // Undoes a template applied as a composition: every instance on the main timeline is replaced
+    // by the original clip (and what was linked to it) as it was before, without the template's
+    // layers, and the composition leaves Media. One undo step. Refused, with a message, when an
+    // instance has motion, speed or effects of its own that would be lost.
+    Q_INVOKABLE bool removeTemplateComposite(const QString &assetId);
+    // Scene templates (SceneTemplates.cpp): packaged little edits that go in as one composition
+    // with photo slots and texts to fill. {id, name, category, categoryLabel, thumbnail, preview,
+    // slots, texts, durationSec, width, height, premium, tags}.
+    Q_INVOKABLE QVariantList sceneTemplates() const;
+    Q_INVOKABLE QVariantList sceneTemplateCategoryList() const;
+    Q_INVOKABLE QString sceneTemplateCategoryLabelFor(const QString &categoryId) const;
+    // At the playhead, on top of the stack. An empty project takes the template's size first.
+    // Returns the composition clip's id, or empty.
+    Q_INVOKABLE QString insertSceneTemplate(const QString &templateId);
+    // The scene template asset behind a clip (or the open composition), or empty.
+    Q_INVOKABLE QString sceneTemplateAssetAt(int trackIndex, int clipIndex) const;
+    // {assetId, name, emptySlots, slots[{clipId, slotId, number, label, empty, kind, mediaName,
+    // thumbnail, startSec, durationSec}], texts[{clipId, slotId, label, text, ...}]}.
+    Q_INVOKABLE QVariantMap sceneTemplateInfo(const QString &compositeAssetId) const;
+    // Puts a bin photo or video in a slot, cut to fill its box; one undo step.
+    Q_INVOKABLE bool fillTemplateSlot(const QString &slotClipId, const QString &mediaAssetId);
+    // Imports the files and fills the given slot, then the empty ones after it. Returns how many.
+    Q_INVOKABLE int fillTemplateSlotsFromUrls(const QString &compositeAssetId, const QString &firstSlotClipId,
+                                              const QList<QUrl> &urls);
+    Q_INVOKABLE bool setTemplateText(const QString &textClipId, const QString &text);
     Q_INVOKABLE void removeEffect(int trackIndex, int clipIndex, int effectIndex);
     Q_INVOKABLE void setEffectEnabled(int trackIndex, int clipIndex, int effectIndex, bool enabled);
     Q_INVOKABLE void moveEffect(int trackIndex, int clipIndex, int fromIndex, int toIndex);
@@ -1483,6 +1515,18 @@ public:
     Q_INVOKABLE void moveTrack(int fromIndex, int toIndex);
     Q_INVOKABLE void addTrack(const QString &type);
     Q_INVOKABLE void removeTrack(int trackIndex);
+    // A click on a track header: picks that track alone; `extendRange` (Shift) adds every track
+    // from the last one clicked, `toggle` (Ctrl) adds or takes off just this one. Clears the
+    // clip selection, and picking a clip clears it in turn.
+    Q_INVOKABLE void selectTrackHeader(int trackIndex, bool extendRange, bool toggle);
+    Q_INVOKABLE void clearTrackSelection();
+    Q_INVOKABLE bool isTrackSelected(int trackIndex) const;
+    // How many clips the picked tracks hold (lanes included), for the confirmation.
+    Q_INVOKABLE int selectedTracksClipCount() const;
+    // Deletes the picked tracks with every clip on them and their lanes, in one undo step.
+    Q_INVOKABLE bool removeSelectedTracks();
+    // Groups everything on the picked tracks into one composition, as Group does for clips.
+    Q_INVOKABLE bool groupSelectedTracks();
     Q_INVOKABLE void addBookmark(double seconds, const QString &label);
     Q_INVOKABLE void removeBookmark(int index);
     Q_INVOKABLE void updateBookmark(int index, double seconds, const QString &label);
@@ -1738,6 +1782,9 @@ signals:
     // An imported LUT was added to or removed from the library.
     void lutLibraryChanged();
     void selectedTransitionDataChanged();
+    void selectedTracksChanged();
+    // Delete was pressed with tracks picked: the headers ask before deleting them.
+    void trackDeletionRequested();
     void bookmarksChanged();
     void workAreaChanged();
     void loopWorkAreaEnabledChanged();
@@ -1758,6 +1805,8 @@ signals:
     void userTextPresetsChanged();
     void normalizingChanged();
     void fontCatalogChanged();
+    // Scene templates were installed or removed (Stock, Extras).
+    void sceneTemplatesChanged();
     void userFontsChanged();
     void userEffectPresetsChanged();
     void facePropsChanged();
@@ -1861,9 +1910,19 @@ protected:
     // composite clip's id (empty when nothing could be nested). `prepareInner` may add to the
     // inner tracks first (it gets them shifted to start at 0, plus the original start). No undo
     // step: the caller records one.
+    bool fillTemplateSlotWithAsset(const QString &slotClipId, const QString &mediaAssetId, bool recordUndo);
     QString buildCompositeFromClipIds(
         const QSet<QString> &ids, const QString &name,
         const std::function<void(drift::TrackList &, drift::TimeUs)> &prepareInner);
+    // Records on the composition's asset that a template made it: which template, the clips it
+    // added inside (everything not in `idsBefore`) and the source clip, so it can be undone later.
+    void markTemplateComposite(const QString &compositeClipId, const QString &templateId,
+                               const drift::Clip &sourceClip, const QSet<QString> &idsBefore);
+    // Ungroup's work without the checks or the undo step: replaces the composite clip with the
+    // clips it plays, minus `dropClipIds` (ids inside the sequence). `idMap` gets inner id → new
+    // id. Returns the first restored clip's id, empty when nothing was put back.
+    QString ungroupCompositeAt(int trackIndex, int clipIndex, const QSet<QString> &dropClipIds,
+                            QHash<QString, QString> *idMap);
     bool reshapeEffectTemplate(int trackIndex, int clipIndex, double intensity, double decay,
                                const QString &sync, const QList<drift::TimeUs> *points);
     // Digest of everything the AudioMixer reads; a change means detected beats are stale.
@@ -2201,6 +2260,8 @@ protected:
     int m_selectedClip = -1;
     int m_selectedTransitionTrack = -1;
     int m_selectedTransitionLeftClip = -1;
+    QStringList m_selectedTrackIds;
+    QString m_trackSelectionAnchor;
     QString m_focusedMaskId;
     bool m_autoCrossfade = true; // read from QSettings in the constructor
     // The (from, to) clip ids a move should crossfade, or empty. See moveClip.

@@ -154,6 +154,10 @@
         <translation>Hola</translation>
     </message>
     <message>
+        <source>Template</source>
+        <translation>Plantilla</translation>
+    </message>
+    <message>
         <source>Not signed in</source>
         <translation>Sin sesión iniciada</translation>
     </message>
@@ -201,12 +205,20 @@
         <translation>Haz clic en uno para abrir su panel.</translation>
     </message>
     <message>
-        <source>Nothing downloaded from Stock yet. Free photos and videos you download there are listed here.</source>
-        <translation>Todavía no descargaste nada de Stock. Las fotos y videos gratis que descargues ahí aparecen aquí.</translation>
+        <source>Nothing downloaded from Stock yet. Free templates, photos and videos you download there stay here, in your account.</source>
+        <translation>Todavía no bajaste nada de Stock. Las plantillas, fotos y videos gratis que bajes allí se quedan aquí, en tu cuenta.</translation>
     </message>
     <message>
-        <source>File moved or deleted</source>
-        <translation>Archivo movido o borrado</translation>
+        <source>Use this template: it goes at the playhead</source>
+        <translation>Usar esta plantilla: va en el cabezal</translation>
+    </message>
+    <message>
+        <source>It is in your media bin</source>
+        <translation>Está en tus Medios</translation>
+    </message>
+    <message>
+        <source>Not on this computer: search for it in Stock to download it again</source>
+        <translation>No está en este equipo: búscalo en Stock para volver a bajarlo</translation>
     </message>
     <message>
         <source>Clear the list</source>
@@ -4374,6 +4386,14 @@
         <translation>Plantilla quitada</translation>
     </message>
     <message>
+        <source>This template was moved, changed or has layers of its own; removing it would lose them. Undo those changes first, or open it and delete its layer.</source>
+        <translation>Esta plantilla se movió, se cambió o tiene capas propias; quitarla las perdería. Deshaz esos cambios primero, o ábrela y borra su capa.</translation>
+    </message>
+    <message>
+        <source>Template removed: the original clip is back in its place</source>
+        <translation>Plantilla quitada: el clip original volvió a su sitio</translation>
+    </message>
+    <message>
         <source>Select a clip, or put the playhead over one, to apply the template</source>
         <translation>Selecciona un clip, o pon el cabezal sobre uno, para aplicar la plantilla</translation>
     </message>
@@ -4733,6 +4753,37 @@
     <message>
         <source>Track deleted</source>
         <translation>Pista eliminada</translation>
+    </message>
+    <message>
+        <source>Delete tracks</source>
+        <translation>Eliminar pistas</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n track(s) deleted</source>
+        <translation>
+            <numerusform>%n pista eliminada</numerusform>
+            <numerusform>%n pistas eliminadas</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Tracks can only be grouped on the main timeline</source>
+        <translation>Las pistas solo se pueden agrupar en la línea de tiempo principal</translation>
+    </message>
+    <message>
+        <source>These tracks hold a composition, and a composition cannot go inside another one</source>
+        <translation>Estas pistas tienen una composición, y una composición no puede ir dentro de otra</translation>
+    </message>
+    <message>
+        <source>These tracks are empty: there is nothing to group</source>
+        <translation>Estas pistas están vacías: no hay nada que agrupar</translation>
+    </message>
+    <message>
+        <source>Group tracks</source>
+        <translation>Agrupar pistas</translation>
+    </message>
+    <message>
+        <source>Tracks grouped</source>
+        <translation>Pistas agrupadas</translation>
     </message>
     <message>
         <source>Add track</source>
@@ -5138,6 +5189,65 @@
     <message>
         <source>English subtitles</source>
         <translation>Subtítulos en inglés</translation>
+    </message>
+    <message>
+        <source>That template is not installed</source>
+        <translation>Esa plantilla no está instalada</translation>
+    </message>
+    <message>
+        <source>Templates go on the main timeline: close the composition first</source>
+        <translation>Las plantillas van en la línea de tiempo principal: cierra primero la composición</translation>
+    </message>
+    <message>
+        <source>Could not read the template</source>
+        <translation>No se pudo leer la plantilla</translation>
+    </message>
+    <message>
+        <source>Slot %1</source>
+        <translation>Hueco %1</translation>
+    </message>
+    <message>
+        <source>Your photo or video here</source>
+        <translation>Tu foto o video aquí</translation>
+    </message>
+    <message>
+        <source>Photo %1</source>
+        <translation>Foto %1</translation>
+    </message>
+    <message>
+        <source>This template is empty</source>
+        <translation>Esta plantilla está vacía</translation>
+    </message>
+    <message>
+        <source>Could not place the template</source>
+        <translation>No se pudo colocar la plantilla</translation>
+    </message>
+    <message>
+        <source>Add template</source>
+        <translation>Agregar plantilla</translation>
+    </message>
+    <message numerus="yes">
+        <source>Template added: fill its %n slot(s) in the panel on the right</source>
+        <translation>
+            <numerusform>Plantilla agregada: rellena su hueco en el panel de la derecha</numerusform>
+            <numerusform>Plantilla agregada: rellena sus %n huecos en el panel de la derecha</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Template added</source>
+        <translation>Plantilla agregada</translation>
+    </message>
+    <message>
+        <source>A slot takes a photo or a video</source>
+        <translation>En un hueco va una foto o un video</translation>
+    </message>
+    <message>
+        <source>Fill template</source>
+        <translation>Rellenar plantilla</translation>
+    </message>
+    <message>
+        <source>Template text</source>
+        <translation>Texto de la plantilla</translation>
     </message>
 </context>
 <context>
@@ -9818,6 +9928,10 @@
         <translation>Sigue el ritmo de la música. En un clip sin música usa un ritmo fijo de 120 BPM.</translation>
     </message>
     <message>
+        <source>Needs cutout: it cuts the person out of the video first, which takes a moment.</source>
+        <translation>Necesita recorte: primero recorta a la persona del video, y eso tarda un momento.</translation>
+    </message>
+    <message>
         <source>Apply template</source>
         <translation>Aplicar plantilla</translation>
     </message>
@@ -9836,10 +9950,6 @@
     <message>
         <source>Add to favorites</source>
         <translation>Añadir a favoritos</translation>
-    </message>
-    <message>
-        <source>Needs cutout</source>
-        <translation>Necesita recorte</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -10035,8 +10145,28 @@
         <translation>Quitar plantilla</translation>
     </message>
     <message>
+        <source>Puts the original clip back in its place on the timeline, without the template</source>
+        <translation>Devuelve el clip original a su sitio en la línea de tiempo, sin la plantilla</translation>
+    </message>
+    <message>
         <source>Takes off every effect and keyframe this template added</source>
         <translation>Quita todos los efectos y fotogramas clave que puso esta plantilla</translation>
+    </message>
+    <message>
+        <source>Remove only its effects</source>
+        <translation>Quitar solo sus efectos</translation>
+    </message>
+    <message>
+        <source>Takes off the template&apos;s effects and keeps the composition</source>
+        <translation>Quita los efectos de la plantilla y conserva la composición</translation>
+    </message>
+    <message>
+        <source>The template is inside this composition. Open it (double-click) to change its intensity or rhythm.</source>
+        <translation>La plantilla está dentro de esta composición. Ábrela (doble clic) para cambiar su intensidad o su ritmo.</translation>
+    </message>
+    <message>
+        <source>Open template</source>
+        <translation>Abrir plantilla</translation>
     </message>
     <message>
         <source>This clip was scanned before the face mesh was supported. Re-detect faces to enable 3D Face Mesh and Face Retouch.</source>
@@ -10269,12 +10399,28 @@
         <translation>Guarda lo que ves en la vista previa. Elige un tamaño: la forma de la imagen se mantiene.</translation>
     </message>
     <message>
-        <source>Downscale</source>
-        <translation>Reducir escala</translation>
+        <source>Resolution</source>
+        <translation>Resolución</translation>
     </message>
     <message>
         <source>Export at %1×%2</source>
         <translation>Exportar a %1×%2</translation>
+    </message>
+    <message>
+        <source>Bigger than the project: it is drawn at this size, so text, shapes and graphics come out sharp. Your video clips are enlarged from their own resolution.</source>
+        <translation>Más grande que el proyecto: se dibuja a este tamaño, así que los textos, las formas y los gráficos salen nítidos. Tus clips de video se amplían desde su propia resolución.</translation>
+    </message>
+    <message>
+        <source>H.264 stops at 4096 pixels a side. Choose H.265 or AV1 under Advanced to export at this size.</source>
+        <translation>H.264 no pasa de 4096 píxeles por lado. Elige H.265 o AV1 en Avanzado para exportar a este tamaño.</translation>
+    </message>
+    <message>
+        <source>8K needs H.265 or AV1, so the encoder changed from %1 to %2.</source>
+        <translation>8K necesita H.265 o AV1, así que el codificador cambió de %1 a %2.</translation>
+    </message>
+    <message>
+        <source>8K takes much longer to export and needs a lot of video memory. Try a short work area first.</source>
+        <translation>8K tarda mucho más en exportarse y necesita mucha memoria de video. Prueba antes con un área de trabajo corta.</translation>
     </message>
     <message>
         <source>Frame rate</source>
@@ -12050,6 +12196,14 @@
         <translation>Importando…</translation>
     </message>
     <message>
+        <source>Could not install that template.</source>
+        <translation>No se pudo instalar esa plantilla.</translation>
+    </message>
+    <message>
+        <source>In Templates</source>
+        <translation>En Plantillas</translation>
+    </message>
+    <message>
         <source>Could not import that file.</source>
         <translation>No se pudo importar ese archivo.</translation>
     </message>
@@ -12179,8 +12333,8 @@
         <translation>Metraje de archivo</translation>
     </message>
     <message>
-        <source>Free photos and videos from Pexels and Pixabay</source>
-        <translation>Fotos y videos gratis de Pexels y Pixabay</translation>
+        <source>Free templates, photos and videos</source>
+        <translation>Plantillas, fotos y videos gratis</translation>
     </message>
     <message>
         <source>Sign in with your Google account to search and download them straight into your project.</source>
@@ -14661,6 +14815,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>PropertiesPanel</name>
     <message>
+        <source>Template</source>
+        <translation>Plantilla</translation>
+    </message>
+    <message>
         <source>General</source>
         <translation>General</translation>
     </message>
@@ -15518,6 +15676,108 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Scene detection cancelled</source>
         <translation>Detección de escenas cancelada</translation>
+    </message>
+</context>
+<context>
+    <name>SceneTemplateBrowser</name>
+    <message>
+        <source>Search templates</source>
+        <translation>Buscar plantillas</translation>
+    </message>
+    <message>
+        <source>No scene templates yet</source>
+        <translation>Todavía no hay plantillas de escena</translation>
+    </message>
+    <message>
+        <source>Get them from Stock › Templates: they install here and stay in your account.</source>
+        <translation>Consíguelas en Stock › Plantillas: se instalan aquí y quedan en tu cuenta.</translation>
+    </message>
+    <message>
+        <source>Sign in and get them from Stock › Templates: they install here and stay in your account.</source>
+        <translation>Inicia sesión y consíguelas en Stock › Plantillas: se instalan aquí y quedan en tu cuenta.</translation>
+    </message>
+    <message>
+        <source>No templates match “%1”.</source>
+        <translation>Ninguna plantilla coincide con «%1».</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star templates to save them here.</source>
+        <translation>Aún no hay favoritas. Marca plantillas con la estrella para guardarlas aquí.</translation>
+    </message>
+    <message>
+        <source>Nothing in this category.</source>
+        <translation>No hay nada en esta categoría.</translation>
+    </message>
+    <message>
+        <source>%1 — click to add it at the playhead, then fill its photos in the panel on the right</source>
+        <translation>%1 — haz clic para agregarla en el cabezal y luego rellena sus fotos en el panel de la derecha</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>Agregar en el cabezal</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Quitar de favoritos</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Agregar a favoritos</translation>
+    </message>
+    <message>
+        <source>Use template</source>
+        <translation>Usar plantilla</translation>
+    </message>
+    <message>
+        <source>Use this template</source>
+        <translation>Usar esta plantilla</translation>
+    </message>
+    <message>
+        <source>In your account, not on this computer yet: using it downloads it</source>
+        <translation>Está en tu cuenta pero aún no en este equipo: al usarla se descarga</translation>
+    </message>
+</context>
+<context>
+    <name>SceneTemplateCatalog</name>
+    <message>
+        <source>Photo reels</source>
+        <translation>Reels de fotos</translation>
+    </message>
+    <message>
+        <source>Intros and titles</source>
+        <translation>Intros y títulos</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texto</translation>
+    </message>
+    <message>
+        <source>Collages</source>
+        <translation>Collages</translation>
+    </message>
+    <message>
+        <source>Before and after</source>
+        <translation>Antes y después</translation>
+    </message>
+    <message>
+        <source>Products</source>
+        <translation>Productos</translation>
+    </message>
+    <message>
+        <source>Celebrations</source>
+        <translation>Celebraciones</translation>
+    </message>
+    <message>
+        <source>Countdowns</source>
+        <translation>Cuentas regresivas</translation>
+    </message>
+    <message>
+        <source>Endings</source>
+        <translation>Cierres</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation>Otras</translation>
     </message>
 </context>
 <context>
@@ -17726,6 +17986,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Descargando…</translation>
     </message>
     <message>
+        <source>Use template</source>
+        <translation>Usar plantilla</translation>
+    </message>
+    <message>
         <source>Download again</source>
         <translation>Descargar de nuevo</translation>
     </message>
@@ -18125,6 +18389,87 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
         <translation>Subtítulos traducidos al inglés, encima de los originales. El modelo solo traduce al inglés.</translation>
+    </message>
+</context>
+<context>
+    <name>TemplateFillPanel</name>
+    <message>
+        <source>Choose photos and videos</source>
+        <translation>Elegir fotos y videos</translation>
+    </message>
+    <message>
+        <source>Choose a photo or video</source>
+        <translation>Elegir una foto o un video</translation>
+    </message>
+    <message numerus="yes">
+        <source>All %n slot(s) filled. Click one to change it.</source>
+        <translation>
+            <numerusform>El hueco está lleno. Haz clic en él para cambiarlo.</numerusform>
+            <numerusform>Los %n huecos están llenos. Haz clic en uno para cambiarlo.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 of %2 filled. Click a slot, or drop photos and videos on it.</source>
+        <translation>%1 de %2 llenos. Haz clic en un hueco o suelta fotos y videos sobre él.</translation>
+    </message>
+    <message>
+        <source>Fill with several photos…</source>
+        <translation>Rellenar con varias fotos…</translation>
+    </message>
+    <message>
+        <source>Fill the empty slots…</source>
+        <translation>Rellenar los huecos vacíos…</translation>
+    </message>
+    <message>
+        <source>Pick several files at once: they go in order into the empty slots</source>
+        <translation>Elige varios archivos a la vez: van en orden a los huecos vacíos</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Agregar</translation>
+    </message>
+    <message>
+        <source>Slot %1 (from %2): click to choose a photo or video, or drop one here</source>
+        <translation>Hueco %1 (desde %2): haz clic para elegir una foto o un video, o suéltalo aquí</translation>
+    </message>
+    <message>
+        <source>%1 — click to change it</source>
+        <translation>%1 — haz clic para cambiarlo</translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation>Textos</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texto</translation>
+    </message>
+    <message>
+        <source>Open the composition</source>
+        <translation>Abrir la composición</translation>
+    </message>
+    <message>
+        <source>Edit the template inside: move, retime or restyle any of its layers</source>
+        <translation>Edita la plantilla por dentro: mueve, cambia el tiempo o el estilo de cualquiera de sus capas</translation>
+    </message>
+</context>
+<context>
+    <name>TemplatesTab</name>
+    <message>
+        <source>Scenes</source>
+        <translation>Escenas</translation>
+    </message>
+    <message>
+        <source>Whole edits with slots for your photos and videos</source>
+        <translation>Ediciones completas con huecos para tus fotos y videos</translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation>Efectos</translation>
+    </message>
+    <message>
+        <source>Music-synced effects for a clip you already have</source>
+        <translation>Efectos al ritmo de la música para un clip que ya tienes</translation>
     </message>
 </context>
 <context>
@@ -19904,6 +20249,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Abrir clip compuesto</translation>
     </message>
     <message>
+        <source>Remove template</source>
+        <translation>Quitar plantilla</translation>
+    </message>
+    <message>
         <source>Ungroup</source>
         <translation>Desagrupar</translation>
     </message>
@@ -20640,6 +20989,28 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <source>This removes the empty track. You can undo afterwards.</source>
         <translation>Esto eliminará la pista vacía. Puedes deshacerlo después.</translation>
     </message>
+    <message numerus="yes">
+        <source>Delete %n track(s)?</source>
+        <translation>
+            <numerusform>¿Eliminar %n pista?</numerusform>
+            <numerusform>¿Eliminar %n pistas?</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Delete tracks</source>
+        <translation>Eliminar pistas</translation>
+    </message>
+    <message numerus="yes">
+        <source>This removes the selected tracks and their %n clips. You can undo afterwards.</source>
+        <translation>
+            <numerusform>Esto elimina las pistas seleccionadas y su clip. Puedes deshacerlo después.</numerusform>
+            <numerusform>Esto elimina las pistas seleccionadas y sus %n clips. Puedes deshacerlo después.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This removes the selected tracks, which are empty. You can undo afterwards.</source>
+        <translation>Esto elimina las pistas seleccionadas, que están vacías. Puedes deshacerlo después.</translation>
+    </message>
     <message>
         <source>Waveform</source>
         <translation>Forma de onda</translation>
@@ -20783,6 +21154,20 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Show keyframes</source>
         <translation>Mostrar fotogramas clave</translation>
+    </message>
+    <message numerus="yes">
+        <source>Group %n tracks</source>
+        <translation>
+            <numerusform>Agrupar %n pista</numerusform>
+            <numerusform>Agrupar %n pistas</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n tracks</source>
+        <translation>
+            <numerusform>Eliminar %n pista</numerusform>
+            <numerusform>Eliminar %n pistas</numerusform>
+        </translation>
     </message>
     <message>
         <source>Add camera clip at playhead</source>
@@ -21409,8 +21794,16 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Importar</translation>
     </message>
     <message>
-        <source>%1 — drag onto where two clips meet, or on touch hold then drag</source>
-        <translation>%1 — arrástrala donde se unen dos clips; en pantalla táctil, mantén presionado y arrastra</translation>
+        <source>%1 — click to swap the selected transition for it, or drag it onto where two clips meet (on touch, hold then drag)</source>
+        <translation>%1 — haz clic para cambiar por ella la transición seleccionada, o arrástrala donde se unen dos clips (en pantalla táctil, mantén presionado y arrastra)</translation>
+    </message>
+    <message>
+        <source>Replace the selected transition</source>
+        <translation>Reemplazar la transición seleccionada</translation>
+    </message>
+    <message>
+        <source>Add after the selected clip</source>
+        <translation>Agregar después del clip seleccionado</translation>
     </message>
     <message>
         <source>Remove from favorites</source>

@@ -183,6 +183,15 @@ Item {
 
                     GridView.onPooled: transitionCard.scrub = 0.45
 
+                    function applyToSelection() {
+                        const kind = transitionCard.modelData.kind
+                        if (EditorState.selectedTransitionTrack >= 0)
+                            EditorState.addTransition(EditorState.selectedTransitionTrack,
+                                                      EditorState.selectedTransitionLeftClip, kind, 0.5)
+                        else if (EditorState.selectedClip >= 0)
+                            EditorState.addTransition(EditorState.selectedTrack, EditorState.selectedClip, kind, 0.5)
+                    }
+
                     Behavior on opacity {
                         NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
                     }
@@ -253,13 +262,21 @@ Item {
                         }
 
                         ThemedToolTip {
-                            text: qsTr("%1 — drag onto where two clips meet, or on touch hold then drag").arg(transitionCard.modelData.label)
+                            text: qsTr("%1 — click to swap the selected transition for it, or drag it onto where two clips meet (on touch, hold then drag)").arg(transitionCard.modelData.label)
                             visible: transitionHover.hovered
                         }
 
                         TapHandler {
                             acceptedButtons: Qt.RightButton
                             onTapped: cardMenu.popup()
+                        }
+
+                        // Click: swaps the selected transition for this one (keeping its length),
+                        // or adds it after the selected clip. Dragging still picks any join.
+                        TapHandler {
+                            acceptedButtons: Qt.LeftButton
+                            acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
+                            onTapped: transitionCard.applyToSelection()
                         }
 
                         DragHandler {
@@ -288,6 +305,15 @@ Item {
                             property bool favorited: false
 
                             onAboutToShow: favorited = EditorState.isAssetFavorite("transitions", transitionCard.modelData.kind)
+
+                            ThemedMenuItem {
+                                text: EditorState.selectedTransitionTrack >= 0
+                                      ? qsTr("Replace the selected transition")
+                                      : qsTr("Add after the selected clip")
+                                icon.name: Theme.icons.chevronsRight
+                                enabled: EditorState.selectedTransitionTrack >= 0 || EditorState.selectedClip >= 0
+                                onTriggered: transitionCard.applyToSelection()
+                            }
 
                             ThemedMenuItem {
                                 text: cardMenu.favorited ? qsTr("Remove from favorites") : qsTr("Add to favorites")

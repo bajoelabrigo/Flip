@@ -18,6 +18,7 @@ QtObject {
         "effect": "application/x-drift-effect",
         "audioEffect": "application/x-drift-audio-effect",
         "template": "application/x-drift-effect-template",
+        "sceneTemplate": "application/x-drift-scene-template",
         "effectStack": "application/x-drift-effect-stack",
         "transition": "application/x-drift-transition",
         "shape": "application/x-drift-shape",

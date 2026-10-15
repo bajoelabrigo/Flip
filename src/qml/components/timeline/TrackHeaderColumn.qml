@@ -59,6 +59,12 @@ Item {
     property int pendingDeleteTrack: -1
     // Same idea for the rename dialog.
     property int pendingRenameTrack: -1
+    // Tracks picked from their headers (Shift for a range, Ctrl for one more), as in Premiere.
+    readonly property var selectedTrackIds: EditorState.selectedTrackIds
+    function trackPicked(index) {
+        return index >= 0 && index < tracks.length
+               && selectedTrackIds.indexOf(tracks[index].id) !== -1
+    }
 
     clip: true
 
@@ -122,6 +128,38 @@ Item {
             root.pendingDeleteTrack = -1
         }
         onRejected: root.pendingDeleteTrack = -1
+    }
+
+    ThemedDialog {
+        id: confirmDeleteTracks
+        title: qsTr("Delete %n track(s)?", "", root.selectedTrackIds.length)
+        acceptText: qsTr("Delete tracks")
+        acceptVariant: "destructive"
+        preferredWidth: Theme.dialogWidthSm
+        acceptOnReturn: false
+
+        property int clipCount: 0
+        onAboutToShow: clipCount = EditorState.selectedTracksClipCount()
+
+        contentItem: ThemedLabel {
+            width: parent ? parent.width : Theme.dialogWidthSm
+            wrapMode: Text.WordWrap
+            size: "sm"
+            text: confirmDeleteTracks.clipCount > 0
+                  ? qsTr("This removes the selected tracks and their %n clips. You can undo afterwards.",
+                         "", confirmDeleteTracks.clipCount)
+                  : qsTr("This removes the selected tracks, which are empty. You can undo afterwards.")
+        }
+
+        onAccepted: EditorState.removeSelectedTracks()
+    }
+
+    Connections {
+        target: EditorState
+        function onTrackDeletionRequested() {
+            if (root.selectedTrackIds.length > 0 && !root.compact)
+                confirmDeleteTracks.open()
+        }
     }
 
     // The one definition of a row's height, shared with TimelinePanel and AndroidTimeline. It
@@ -353,6 +391,9 @@ Item {
                   : root.trackTypeShortLabel(root.tracks[index].type, root.tracks[index].isTransformLayer)
                     + root.trackTypeOrdinal(index)
             readonly property bool isTransformLayer: root.tracks[index].isTransformLayer === true
+            readonly property bool picked: root.trackPicked(index)
+            // Right-clicked on one of several picked tracks: the menu acts on all of them.
+            readonly property bool actsOnPicked: picked && root.selectedTrackIds.length > 1
             readonly property bool isCameraLayer: root.tracks[index].isCameraLayer === true
             readonly property bool transformable: ["video", "text", "subtitle", "shape"]
                                                   .indexOf(root.tracks[index].type) !== -1
@@ -455,7 +496,12 @@ Item {
                                                root.draggingTrackFrom,
                                                root.draggingTrackSlot)
                 }
-                onReleased: {
+                onReleased: (mouse) => {
+                    // A plain click (no reorder) picks the track; Shift and Ctrl as in Premiere.
+                    if (!touchHold && !moved && !root.compact)
+                        EditorState.selectTrackHeader(index,
+                                                      (mouse.modifiers & Qt.ShiftModifier) !== 0,
+                                                      (mouse.modifiers & Qt.ControlModifier) !== 0)
                     const wantsMenu = touchHold && armed && !moved
                     armed = false
                     if (wantsMenu) {
@@ -496,6 +542,20 @@ Item {
 
                 Behavior on opacity {
                     NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
+                }
+            }
+
+            // Picked from the header: tinted, with a bar on the left edge.
+            Rectangle {
+                width: parent.width
+                height: root.trackHeight(index)
+                visible: trackLabelRow.picked
+                color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.18)
+
+                Rectangle {
+                    width: 3
+                    height: parent.height
+                    color: Theme.primary
                 }
             }
 
@@ -1068,6 +1128,21 @@ Item {
                 ThemedContextMenu {
                     id: trackContextMenu
 
+                    ThemedMenuItem {
+                        visible: trackLabelRow.actsOnPicked
+                        text: qsTr("Group %n tracks", "", root.selectedTrackIds.length)
+                        icon.name: Theme.icons.layers
+                        onTriggered: EditorState.groupSelectedTracks()
+                    }
+                    ThemedMenuItem {
+                        visible: trackLabelRow.actsOnPicked
+                        text: qsTr("Delete %n tracks", "", root.selectedTrackIds.length)
+                        icon.name: Theme.icons.trash
+                        onTriggered: confirmDeleteTracks.open()
+                    }
+                    ThemedMenuSeparator {
+                        visible: trackLabelRow.actsOnPicked
+                    }
                     ThemedMenuItem {
                         text: qsTr("Rename…")
                         icon.name: Theme.icons.pencil

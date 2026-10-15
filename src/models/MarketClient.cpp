@@ -4,6 +4,7 @@
 #include "AssetLibrary.h"
 #include "MarketEndpoint.h"
 #include "MarketIdentity.h"
+#include "engine/SceneTemplateCatalog.h"
 
 #include <QCryptographicHash>
 #include <QDateTime>
@@ -14,6 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QLocale>
 #include <QNetworkAccessManager>
 #include <QNetworkDiskCache>
 #include <QNetworkReply>
@@ -124,6 +126,8 @@ struct MarketClient::Job
     qint64 sampleBytes = 0;
     QPointer<QNetworkReply> reply;
     bool cancelled = false;
+    // A Stock template downloaded through "Use": once installed it goes on the timeline.
+    bool useWhenReady = false;
 };
 
 bool MarketClient::jobIsRunning(const Job &job)
@@ -191,14 +195,64 @@ void MarketClient::setAccount(AccountController *account)
     connect(account, &AccountController::accountChanged, this, [this] {
         emit authChanged();
         if (!m_account->signedIn()) {
+            m_accountLibrary.clear();
+            emit libraryChanged();
             m_types.clear();
             emit catalogChanged();
             m_items.clear();
             m_itemIndex.clear();
             emit itemsChanged();
-        } else if (m_consented) {
-            refreshCatalog();
+        } else {
+            refreshLibrary();
+            if (m_consented)
+                refreshCatalog();
         }
+    });
+    if (account->signedIn())
+        QTimer::singleShot(0, this, &MarketClient::refreshLibrary);
+}
+
+void MarketClient::refreshLibrary()
+{
+    if (!configured() || !authenticated())
+        return;
+    QNetworkReply *reply = get(apiUrl(QStringLiteral("/library")));
+    connect(reply, &QNetworkReply::finished, this, [this, reply] {
+        reply->deleteLater();
+        if (reply->error() != QNetworkReply::NoError) {
+            QString code;
+            QString reason;
+            bool retryable = true;
+            parseProblem(reply->readAll(), reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt(),
+                         &code, &reason, &retryable, int(reply->error()));
+            retryAfterAuth(code, [this] { refreshLibrary(); });
+            return; // the list is a convenience: keep what was shown
+        }
+        QVariantList items;
+        for (const QJsonValue &value : QJsonDocument::fromJson(reply->readAll()).object().value(QStringLiteral("items")).toArray())
+            items.append(objectToMap(value.toObject()));
+        m_accountLibrary = items;
+        emit libraryChanged();
+    });
+}
+
+void MarketClient::removeFromLibrary(const QString &itemId)
+{
+    if (!configured() || !authenticated() || itemId.isEmpty())
+        return;
+    for (int i = m_accountLibrary.size() - 1; i >= 0; --i) {
+        if (m_accountLibrary.at(i).toMap().value(QStringLiteral("id")).toString() == itemId)
+            m_accountLibrary.removeAt(i);
+    }
+    emit libraryChanged();
+    QNetworkRequest request(apiUrl(QStringLiteral("/library/") + QString::fromLatin1(QUrl::toPercentEncoding(itemId))));
+    request.setRawHeader("Accept", "application/json");
+    request.setTransferTimeout(kApiTimeoutMs);
+    sign(&request, "DELETE", {});
+    QNetworkReply *reply = m_network->deleteResource(request);
+    connect(reply, &QNetworkReply::finished, this, [this, reply] {
+        reply->deleteLater();
+        refreshLibrary();
     });
 }
 
@@ -915,6 +969,8 @@ QNetworkReply *MarketClient::get(const QUrl &url)
 {
     QNetworkRequest request(url);
     request.setRawHeader("Accept", "application/json");
+    // The service names things (types, templates) in the language of the UI, not the system's.
+    request.setRawHeader("Accept-Language", QLocale().bcp47Name().toUtf8());
     request.setTransferTimeout(kApiTimeoutMs);
     sign(&request, "GET", {});
     return m_network->get(request);
@@ -925,6 +981,7 @@ QNetworkReply *MarketClient::post(const QUrl &url, const QByteArray &body)
     QNetworkRequest request(url);
     request.setRawHeader("Accept", "application/json");
     request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+    request.setRawHeader("Accept-Language", QLocale().bcp47Name().toUtf8());
     request.setTransferTimeout(kApiTimeoutMs);
     sign(&request, "POST", body);
     return m_network->post(request, body);
@@ -997,7 +1054,9 @@ void MarketClient::applyCatalog(const QJsonArray &types)
     for (const QJsonValue &value : types) {
         QVariantMap type = objectToMap(value.toObject());
         const QString delivery = type.value(QStringLiteral("delivery")).toString();
-        if (!delivery.isEmpty() && delivery != QLatin1String("media"))
+        // Scene templates arrive as packages that install into the Templates tab.
+        if (!delivery.isEmpty() && delivery != QLatin1String("media")
+            && delivery != QLatin1String("scene-template"))
             continue;
         filtered.append(type);
     }
@@ -1330,7 +1389,8 @@ void MarketClient::finishJobFile(Job *job, const QJsonObject &file, const QStrin
     // A folder the user picked is written to directly; without one the file goes to the
     // per-item app data area it always used.
     const QString dir = job->destinationDir.isEmpty()
-                        ? downloadsRoot() + QLatin1Char('/') + job->itemId
+                        // "pexels:photo:123": a colon is not allowed in a Windows folder name.
+                        ? downloadsRoot() + QLatin1Char('/') + sanitizeFileName(QString(job->itemId).replace(QLatin1Char(':'), QLatin1Char('_')))
                         : job->destinationDir;
     QDir().mkpath(dir);
     // Their own folder may already hold a file of this name, and silently writing over it
@@ -1455,6 +1515,32 @@ void MarketClient::failJob(const QString &itemId, const QString &code, const QSt
     emit downloadFailed(itemId, resolvedCode, resolved);
 }
 
+QString MarketClient::sceneTemplateIdForItem(const QString &itemId) const
+{
+    static const QString prefix = QStringLiteral("flip:template:");
+    return itemId.startsWith(prefix) ? itemId.mid(prefix.size()) : QString();
+}
+
+bool MarketClient::sceneTemplateInstalled(const QString &itemId) const
+{
+    const QString id = sceneTemplateIdForItem(itemId);
+    return !id.isEmpty() && sceneTemplateForId(id) != nullptr;
+}
+
+void MarketClient::useSceneTemplate(const QString &itemId, const QString &title)
+{
+    const QString id = sceneTemplateIdForItem(itemId);
+    if (id.isEmpty())
+        return;
+    if (sceneTemplateForId(id)) {
+        emit sceneTemplateReady(id, true);
+        return;
+    }
+    download(itemId, QString(), QUrl(), title, QStringLiteral("template"));
+    if (const auto job = m_jobs.value(itemId))
+        job->useWhenReady = true;
+}
+
 void MarketClient::importReadyFile(const QString &itemId, const QString &path,
                                    const QString &displayName)
 {
@@ -1464,6 +1550,36 @@ void MarketClient::importReadyFile(const QString &itemId, const QString &path,
         job->phase = tr("Importing…");
         job->progress = 1;
         bumpDownloads();
+    }
+    // A template package installs into the Templates tab instead of the media bin.
+    if (!sceneTemplateIdForItem(itemId).isEmpty()) {
+        QString error;
+        const QString templateId = installSceneTemplatePackage(path, &error);
+        if (templateId.isEmpty()) {
+            qWarning("MarketClient: template %s: %s", qPrintable(itemId), qPrintable(error));
+            failJob(itemId, QStringLiteral("download_failed"), tr("Could not install that template."));
+            pumpDownloadQueue();
+            return;
+        }
+        QFile::remove(path); // the package is unpacked; the zip is not needed any more
+        const bool use = job && job->useWhenReady;
+        if (job) {
+            job->status = QStringLiteral("done");
+            job->phase = tr("In Templates");
+            job->progress = 1;
+            job->filePath = QDir(userSceneTemplatesDir()).filePath(templateId);
+            job->finishedAt = QDateTime::currentDateTime();
+            job->speedBytesPerSec = 0;
+            if (job->title.isEmpty())
+                job->title = displayName;
+        }
+        bumpDownloads();
+        rememberDownload(itemId, QDir(userSceneTemplatesDir()).filePath(templateId), displayName);
+        pumpDownloadQueue();
+        emit sceneTemplateReady(templateId, use);
+        emit downloadImported(itemId, displayName);
+        refreshLibrary();
+        return;
     }
     if (!m_library) {
         failJob(itemId, QStringLiteral("download_failed"), tr("Could not import that file."));
@@ -1491,6 +1607,7 @@ void MarketClient::importReadyFile(const QString &itemId, const QString &path,
     // A finished job frees a slot for whatever is waiting behind it.
     pumpDownloadQueue();
     emit downloadImported(itemId, displayName);
+    refreshLibrary();
 }
 
 namespace {

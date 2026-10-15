@@ -154,6 +154,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Template</source>
+        <translation type="unfinished">قالب</translation>
+    </message>
+    <message>
         <source>Not signed in</source>
         <translation type="unfinished"></translation>
     </message>
@@ -205,11 +209,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Nothing downloaded from Stock yet. Free photos and videos you download there are listed here.</source>
+        <source>Nothing downloaded from Stock yet. Free templates, photos and videos you download there stay here, in your account.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>File moved or deleted</source>
+        <source>Use this template: it goes at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>It is in your media bin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not on this computer: search for it in Stock to download it again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4306,6 +4318,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>This template was moved, changed or has layers of its own; removing it would lose them. Undo those changes first, or open it and delete its layer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Template removed: the original clip is back in its place</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Select a clip, or put the playhead over one, to apply the template</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4767,6 +4787,41 @@
         <translation>تم حذف المسار</translation>
     </message>
     <message>
+        <source>Delete tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n track(s) deleted</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Tracks can only be grouped on the main timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>These tracks hold a composition, and a composition cannot go inside another one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>These tracks are empty: there is nothing to group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracks grouped</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add track</source>
         <translation>إضافة مسار</translation>
     </message>
@@ -5210,6 +5265,69 @@
             <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
+    </message>
+    <message>
+        <source>That template is not installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Templates go on the main timeline: close the composition first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not read the template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slot %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your photo or video here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Photo %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This template is empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not place the template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Template added: fill its %n slot(s) in the panel on the right</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Template added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A slot takes a photo or a video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Template text</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -9946,6 +10064,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Needs cutout: it cuts the person out of the video first, which takes a moment.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply template</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9964,10 +10086,6 @@
     <message>
         <source>Add to favorites</source>
         <translation>إضافة إلى المفضلة</translation>
-    </message>
-    <message>
-        <source>Needs cutout</source>
-        <translation>يتطلب تفريغًا</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -10155,7 +10273,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Puts the original clip back in its place on the timeline, without the template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Takes off every effect and keyframe this template added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove only its effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Takes off the template&apos;s effects and keeps the composition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The template is inside this composition. Open it (double-click) to change its intensity or rhythm.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -10401,12 +10539,28 @@
         <translation>يحفظ ما تراه في المعاينة. اختر حجمًا — يبقى شكل الصورة كما هو.</translation>
     </message>
     <message>
-        <source>Downscale</source>
-        <translation>تصغير الحجم</translation>
+        <source>Resolution</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export at %1×%2</source>
         <translation>تصدير بدقة %1×%2</translation>
+    </message>
+    <message>
+        <source>Bigger than the project: it is drawn at this size, so text, shapes and graphics come out sharp. Your video clips are enlarged from their own resolution.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>H.264 stops at 4096 pixels a side. Choose H.265 or AV1 under Advanced to export at this size.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>8K needs H.265 or AV1, so the encoder changed from %1 to %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>8K takes much longer to export and needs a lot of video memory. Try a short work area first.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Frame rate</source>
@@ -12186,6 +12340,14 @@
         <translation>جارٍ الاستيراد…</translation>
     </message>
     <message>
+        <source>Could not install that template.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not import that file.</source>
         <translation>تعذر استيراد ذلك الملف.</translation>
     </message>
@@ -12315,7 +12477,7 @@
         <translation>لقطات جاهزة</translation>
     </message>
     <message>
-        <source>Free photos and videos from Pexels and Pixabay</source>
+        <source>Free templates, photos and videos</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -14877,6 +15039,10 @@ If playback stutters, try another.</source>
 <context>
     <name>PropertiesPanel</name>
     <message>
+        <source>Template</source>
+        <translation type="unfinished">قالب</translation>
+    </message>
+    <message>
         <source>General</source>
         <translation>عام</translation>
     </message>
@@ -15738,6 +15904,108 @@ If playback stutters, try another.</source>
     <message>
         <source>Scene detection cancelled</source>
         <translation>تم إلغاء اكتشاف المشاهد</translation>
+    </message>
+</context>
+<context>
+    <name>SceneTemplateBrowser</name>
+    <message>
+        <source>Search templates</source>
+        <translation type="unfinished">البحث في القوالب</translation>
+    </message>
+    <message>
+        <source>No scene templates yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get them from Stock › Templates: they install here and stay in your account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in and get them from Stock › Templates: they install here and stay in your account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No templates match “%1”.</source>
+        <translation type="unfinished">لا توجد قوالب تطابق “%1”.</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star templates to save them here.</source>
+        <translation type="unfinished">لا توجد عناصر مفضلة بعد. ميّز القوالب بنجمة لحفظها هنا.</translation>
+    </message>
+    <message>
+        <source>Nothing in this category.</source>
+        <translation type="unfinished">لا يوجد شيء في هذه الفئة.</translation>
+    </message>
+    <message>
+        <source>%1 — click to add it at the playhead, then fill its photos in the panel on the right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation type="unfinished">إزالة من المفضلة</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished">إضافة إلى المفضلة</translation>
+    </message>
+    <message>
+        <source>Use template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In your account, not on this computer yet: using it downloads it</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SceneTemplateCatalog</name>
+    <message>
+        <source>Photo reels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intros and titles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Before and after</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Products</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Celebrations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Countdowns</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Endings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished">أخرى</translation>
     </message>
 </context>
 <context>
@@ -17954,6 +18222,10 @@ If playback stutters, try another.</source>
         <translation>جارٍ التنزيل…</translation>
     </message>
     <message>
+        <source>Use template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Download again</source>
         <translation>إعادة التنزيل</translation>
     </message>
@@ -18356,6 +18628,91 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Captions translated to English, above the original ones. English is the only language the model translates to.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TemplateFillPanel</name>
+    <message>
+        <source>Choose photos and videos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose a photo or video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>All %n slot(s) filled. Click one to change it.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 of %2 filled. Click a slot, or drop photos and videos on it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill with several photos…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill the empty slots…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick several files at once: they go in order into the empty slots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">إضافة</translation>
+    </message>
+    <message>
+        <source>Slot %1 (from %2): click to choose a photo or video, or drop one here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to change it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open the composition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit the template inside: move, retime or restyle any of its layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TemplatesTab</name>
+    <message>
+        <source>Scenes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Whole edits with slots for your photos and videos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Music-synced effects for a clip you already have</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -20136,6 +20493,10 @@ If playback stutters, try another.</source>
         <translation>فتح المركب</translation>
     </message>
     <message>
+        <source>Remove template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Ungroup</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20876,6 +21237,36 @@ If playback stutters, try another.</source>
         <source>This removes the empty track. You can undo afterwards.</source>
         <translation>سيؤدي هذا إلى إزالة المسار الفارغ. يمكنك التراجع بعد ذلك.</translation>
     </message>
+    <message numerus="yes">
+        <source>Delete %n track(s)?</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Delete tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>This removes the selected tracks and their %n clips. You can undo afterwards.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This removes the selected tracks, which are empty. You can undo afterwards.</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Waveform</source>
         <translation>الشكل الموجي</translation>
@@ -21007,6 +21398,28 @@ If playback stutters, try another.</source>
     <message>
         <source>Show keyframes</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Group %n tracks</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n tracks</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>Add camera clip at playhead</source>
@@ -21661,7 +22074,15 @@ If playback stutters, try another.</source>
         <translation>استيراد</translation>
     </message>
     <message>
-        <source>%1 — drag onto where two clips meet, or on touch hold then drag</source>
+        <source>%1 — click to swap the selected transition for it, or drag it onto where two clips meet (on touch, hold then drag)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace the selected transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add after the selected clip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

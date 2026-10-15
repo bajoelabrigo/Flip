@@ -372,6 +372,15 @@ Item {
                 onTriggered: EditorState.openCompositeClip(clipItem.trackIndex, clipItem.clipIndex)
             }
             ThemedMenuItem {
+                // A template's composition: the original clip back in its place, without it.
+                readonly property var templateInfo: clipItem.clipData.kind === "composite"
+                        ? EditorState.templateCompositeInfo(clipItem.trackIndex, clipItem.clipIndex) : ({})
+                text: qsTr("Remove template")
+                icon.name: Theme.icons.trash
+                visible: !!templateInfo.assetId
+                onTriggered: EditorState.removeTemplateComposite(templateInfo.assetId)
+            }
+            ThemedMenuItem {
                 // Puts its clips back on the timeline, as Photoshop's Ungroup.
                 text: qsTr("Ungroup")
                 icon.name: Theme.icons.group

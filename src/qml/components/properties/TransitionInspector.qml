@@ -204,16 +204,17 @@ Item {
                     textRole: "label"
                     valueRole: "kind"
                     model: EditorState.transitionKindsForTrack(root.transitionEditTrack)
+                    // Only a pick by the user changes the kind. The index also moves on its own
+                    // (the box starts at 0, which is the crossfade, and resets when the list is
+                    // rebuilt), and saving on those moves turned every new transition back into
+                    // a crossfade as soon as the inspector opened.
                     onActivated: transitionKindBox.commitTransitionKind()
-                    onCurrentIndexChanged: {
-                        if (root.suppressTransitionKindUpdate || !root.hasActiveTransition)
-                            return
-                        transitionKindBox.commitTransitionKind()
-                    }
+                    onModelChanged: Qt.callLater(root.refreshFields)
 
                     function commitTransitionKind() {
                         const item = model[currentIndex]
-                        if (!item || !root.hasActiveTransition)
+                        if (!item || !root.hasActiveTransition
+                                || item.kind === (root.activeTransition.kind || "crossfade"))
                             return
                         EditorState.setTransitionKind(
                             root.transitionEditTrack,

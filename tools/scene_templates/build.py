@@ -1,0 +1,178 @@
+"""Builds the scene template packages and renders their thumbnails and previews with the app.
+
+    <venv python> tools/scene_templates/build.py [--only id,id] [--no-render]
+
+For every template in templates.py:
+  <out>/<id>/template.json, project.json (slots empty), media/ (music cut, fixed pictures)
+  <work>/<id>/render.json      the same edit with the sample photos in the slots, absolute paths
+then, with --exe (a portable build OUTSIDE the repo), one headless app session loads each render
+copy, captures the thumbnail frame and exports a small preview:
+  <out>/<id>/thumbnail.png (432x768), preview.mp4 (360x640)
+
+The app writes to HKCU\\Software\\Flip Studio even headless (recent projects, preferences): the key
+is exported first and put back afterwards, and a leftover autosave is removed (CLAUDE.md).
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+import time
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+sys.path.insert(0, str(HERE.parent / "e2e"))
+
+from PIL import Image  # noqa: E402
+
+import templates  # noqa: E402
+from mcp_e2e import Bridge, reply_text  # noqa: E402
+
+ROOT = Path(os.environ["USERPROFILE"]) / "Downloads" / "FlipStudio"
+APPDATA = Path(os.environ["APPDATA"]) / "Flip Studio" / "Flip Studio"
+DEFAULTS = {
+    "out": ROOT / "tienda" / "plantillas" / "paquetes",
+    "work": ROOT / "tienda" / "plantillas" / "trabajo",
+    "samples": ROOT / "tienda" / "plantillas" / "muestras",
+    "music": APPDATA / "addons" / "musica.libre" / "sound-effects" / "musica",
+    "exe": ROOT / "pruebas" / "FlipStudio-0.11.0-prueba" / "app" / "Flip Studio" / "flipstudio.exe",
+}
+REG_KEY = r"HKCU\Software\Flip Studio"
+
+
+def photo_size_from(samples: Path, media: Path):
+    cache: dict[str, tuple[int, int]] = {}
+
+    def size(name: str) -> tuple[int, int]:
+        if name not in cache:
+            path = samples / f"{name}.jpg"
+            if not path.exists():
+                path = media / name
+            with Image.open(path) as im:
+                cache[name] = im.size
+        return cache[name]
+    return size
+
+
+def cut_music(music_dir: Path, music_id: str, start: float, duration: float, target: Path) -> None:
+    source = music_dir / f"{music_id}.m4a"
+    if not source.exists():
+        raise SystemExit(f"music {music_id} not found in {music_dir}")
+    fade = min(1.2, duration / 4)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{start:.3f}", "-t", f"{duration:.3f}",
+                    "-i", str(source), "-af", f"afade=t=in:d=0.15,afade=t=out:st={duration - fade:.3f}:d={fade:.3f}",
+                    "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-ac", "2", str(target)], check=True)
+
+
+def build_package(t, out: Path, work: Path, samples: Path, music_dir: Path) -> Path:
+    pkg = out / t.id
+    if pkg.exists():
+        shutil.rmtree(pkg)
+    (pkg / "media").mkdir(parents=True)
+    if t.music:
+        cut_music(music_dir, t.music[0], t.music[1], t.duration, pkg / "media" / "music.m4a")
+    size = photo_size_from(samples, HERE / "media")
+    for clip in (c for track in t.tracks for c in track.clips):
+        if "_media" in clip:
+            shutil.copy2(HERE / "media" / clip["_media"], pkg / "media" / clip["_media"])
+    package_doc = t.document(render=False, photo_size=size, sample_path=lambda n: samples / f"{n}.jpg", media_root=None)
+    render_doc = t.document(render=True, photo_size=size, sample_path=lambda n: samples / f"{n}.jpg",
+                            media_root=pkg / "media")
+    (pkg / "project.json").write_text(json.dumps(package_doc, ensure_ascii=False, indent=1), encoding="utf-8")
+    (pkg / "template.json").write_text(json.dumps(t.manifest(), ensure_ascii=False, indent=2), encoding="utf-8")
+    (work / t.id).mkdir(parents=True, exist_ok=True)
+    render_path = work / t.id / "render.json"
+    render_path.write_text(json.dumps(render_doc, ensure_ascii=False, indent=1), encoding="utf-8")
+    return render_path
+
+
+def payload(reply) -> dict:
+    for text in reply_text(reply):
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError:
+            continue
+    return {"error": reply.get("error") or reply}
+
+
+def render_all(jobs, exe: Path, work: Path) -> None:
+    backup = Path(tempfile.gettempdir()) / f"flip-reg-{os.getpid()}.reg"
+    subprocess.run(["reg", "export", REG_KEY, str(backup), "/y"], check=True, capture_output=True)
+    autosave = APPDATA / "recovery" / "autosave.json"
+    had_autosave = autosave.exists()
+    projects_before = set(os.listdir(APPDATA / "projects")) if (APPDATA / "projects").exists() else set()
+    bridge = Bridge(str(exe), "", str(work / "_mcp"), str(ROOT / "codigo" / "flip-addons" / "build" / "stage"))
+    try:
+        time.sleep(3)
+        for t, render_path, pkg in jobs:
+            print(f"render {t.id}", flush=True)
+            loaded = payload(bridge.call("load_project", {"path": str(render_path)}, wait=120))
+            if loaded.get("error") or loaded.get("ok") is False:
+                print(f"  load failed: {loaded}", flush=True)
+                continue
+            shot = payload(bridge.call("capture", {"at": t.thumb_at, "full": True}, wait=120))
+            path = shot.get("path")
+            if not path or not Path(path).exists():
+                print(f"  capture failed: {shot}", flush=True)
+                continue
+            with Image.open(path) as im:
+                im.convert("RGB").resize((432, 768), Image.LANCZOS).save(pkg / "thumbnail.png", optimize=True)
+            shutil.copy2(path, work / t.id / "frame.png")
+            os.remove(path)
+            preview = pkg / "preview.mp4"
+            exported = payload(bridge.call("export_video", {
+                "path": str(preview), "in": 0, "out": t.duration, "video": "h264", "audio": "aac", "rate": "crf",
+                "crf": 30, "fps": 30, "height": 640}, wait=900))
+            # Older builds return as soon as the encode starts.
+            deadline = time.time() + 900
+            while time.time() < deadline:
+                status = payload(bridge.call("export_status", {}, wait=30))
+                if not status.get("active") and not status.get("busy"):
+                    break
+                time.sleep(1.0)
+            if not preview.exists() or preview.stat().st_size < 10_000:
+                print(f"  export failed: {exported}", flush=True)
+    finally:
+        bridge.close()
+        subprocess.run(["reg", "delete", REG_KEY, "/f"], capture_output=True)
+        subprocess.run(["reg", "import", str(backup)], check=True, capture_output=True)
+        backup.unlink(missing_ok=True)
+        if autosave.exists() and not had_autosave:
+            autosave.unlink()
+        if (APPDATA / "projects").exists():
+            for name in set(os.listdir(APPDATA / "projects")) - projects_before:
+                shutil.rmtree(APPDATA / "projects" / name, ignore_errors=True)
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    for key, value in DEFAULTS.items():
+        parser.add_argument(f"--{key}", type=Path, default=value)
+    parser.add_argument("--only", default="")
+    parser.add_argument("--no-render", action="store_true")
+    args = parser.parse_args()
+    if HERE in args.exe.resolve().parents or Path.cwd() in args.exe.resolve().parents and ".e2e-app" in str(args.exe):
+        raise SystemExit("the app must live outside the repo, or it cannot write files")
+    only = {s for s in args.only.split(",") if s}
+    jobs = []
+    for make in templates.TEMPLATES:
+        t = make()
+        if only and t.id not in only:
+            continue
+        render_path = build_package(t, args.out, args.work, args.samples, args.music)
+        print(f"built {t.id}: {len(t.slots)} slots, {t.texts} texts, {t.duration:g} s", flush=True)
+        jobs.append((t, render_path, args.out / t.id))
+    if not args.no_render and jobs:
+        render_all(jobs, args.exe, args.work)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

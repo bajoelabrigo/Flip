@@ -50,8 +50,8 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - Rama `flip/plantillas-editables` → PR a `main`, tag `v0.11.0`. Notas en `release-notes/0.11.0.md`; novedades para
   la Store (0.10.0 + 0.11.0, 996 caracteres) en `docs/store-listing.md`. **Esta sí va a la Store y al TXT `version`.**
 - Release en GitHub, copia en `versiones\FlipStudio-0.11.0`, novedades en la web. **TXT `version` = 0.11.0** (Jorge,
-  comprobado en DNS el 2026-10-15). **Falta:** el MSIX (`msstore.yml`, run 38702261969) → `tienda\FlipStudio-Store\paquete-0.11.0`
-  y que Jorge lo suba a Partner Center.
+  comprobado en DNS el 2026-10-15). MSIX listo en `tienda\FlipStudio-Store\paquete-0.11.0\FlipStudio-0.11.0.0-x64.msix`
+  (run 38702261969). **Falta:** que Jorge lo suba a Partner Center.
 - Probada en ventana con Jorge («funciona todo ok»):
   - plantillas de un clip y las 10 de recorte como composición «Plantilla: …» (`buildCompositeFromClipIds`);
   - fotogramas en la pista con el triángulo (`TrackKeyframeRows.qml`), editor de curvas opcional;
@@ -61,6 +61,47 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - **Trampa:** `finishEdit(msg)` **ignora** el texto; para que el usuario vea un aviso, `setLastMessage(msg, severidad)`.
 - **Trampa:** sin música, el análisis de golpes termina vacío y `analyzeBeats` no repite el mismo tramo: cualquier
   cosa que espere golpes tiene que aceptar también `beatAnalysisCoversClip`.
+
+### 0.12.0 en curso (2026-10-15): rama `flip/v0.12.0` (subida a GitHub)
+- Los 7 puntos de abajo están hechos, cada uno en su commit (`a8d9d` tema y tarjetas, `ac720` plantillas en Medios y
+  «Quitar plantilla» que devuelve el clip, `bd909` cambiar una transición, `285cb` varias pistas, `067b6` 2K/4K/8K).
+- Varias pistas: clic en la cabecera, Mayús (rango), Ctrl (suelta); Suprimir y el menú las borran con sus clips;
+  «Agrupar N pistas» = composición (`selectTrackHeader`, `removeSelectedTracks`, `groupSelectedTracks`).
+- Exportar: las resoluciones se nombran por el **lado corto** (4K de un 9:16 = 2160×3840; antes «1080p» de un
+  vertical daba 608×1080). Por encima del proyecto el compositor dibuja a ese tamaño (`kMaxExportScale` = 8).
+  H.264 se niega a pasar de 4096 por lado; el diálogo cambia a H.265 de la misma familia.
+- **Falta:** probar en ventana (sobre todo exportar 4K/8K con GPU y con `DRIFT_EXPORT_SWSCALE=1`), versión 0.12.0
+  en `CMakeLists.txt`, `release-notes/0.12.0.md`, y el OK de Jorge.
+
+### Etapa 2 de plantillas (en curso, 2026-10-15) — misma rama `flip/v0.12.0`
+- Jorge: **al menos 30 plantillas en Stock › Plantillas**, «con calma», buenas miniaturas.
+- Hecho en la app: paquete de plantilla de escena (`engine/SceneTemplateCatalog`, carpeta `scene-templates/`, tipo de
+  extra `scene-templates`), `AppController::insertSceneTemplate` (composición en el cabezal; proyecto vacío toma 9:16;
+  si no, `scaleTemplateLayout`), huecos = clips con `placeholderId` (se rellenan con `fillTemplateSlot*`, recorte
+  «cover»; un mismo `placeholderId` repetido se rellena junto), pestaña «Plantilla» del inspector
+  (`TemplateFillPanel.qml`) y Plantillas › Escenas/Efectos (`TemplatesTab.qml`, `SceneTemplateBrowser.qml`).
+- **Las 32 plantillas** se generan con `tools/scene_templates/` (`scene.py` = bloques, `templates*.py` = diseños,
+  `build.py` = paquetes + miniaturas/previas renderizadas por la 0.11.0 portable sin ventana; guarda y restaura el
+  registro). Guía de diseño en `BRIEF.md`, formato en `FORMAT.md`. Salida fuera del repo:
+  `Downloads\FlipStudio\tienda\plantillas\paquetes\<id>` (32 MB) y `catalogo-32.png`. Fotos de ejemplo (Pexels, con
+  `CREDITS.json`) en `tienda\plantillas\muestras`: **solo** para miniaturas; los paquetes van con huecos vacíos.
+  Música: cortes de la música libre CC0 de Flip. Tipografías: las de `fonts.basic`/`fonts.extra`.
+- **Trampa:** un efecto con picos animados (`rgb_split`, `strobe_flash`, `beat_shake`, `zoom_pulse`) necesita la
+  clave de caída en `"hold"`, si no sube en rampa hasta el siguiente pico y lava la imagen.
+- **Trampa:** evitar fotos de ejemplo con marcas (Converse, Nike, Adidas…): revisar la cuadrícula.
+- **Jorge (2026-10-15):** todas gratis, **todas en Stock** (ninguna incluida en la app), Stock pide iniciar sesión
+  y **lo descargado queda en la cuenta** (como «mis materiales» de holyapp).
+- **Stock › Plantillas desplegado (2026-10-15):** `flipstudio-api` `main` (tipo `template`, `delivery:
+  "scene-template"`, búsqueda sin tildes, filtro «Mis plantillas», `GET /library`, `DELETE /library/:id`, modelo
+  `LibraryItem` único por cuenta+elemento, se borra con la cuenta). Paquetes en el VPS en
+  `/var/www/flipstudio-templates` servidos en `https://api.getflipstudio.com/plantillas/` (nginx `location ^~`:
+  sin `^~` una regla de imágenes se come los `.png`). Subir: `tools/scene_templates/build.py` → `publish.py` →
+  `flipstudio-api/deploy/plantillas.ps1` (cambia la carpeta entera).
+- App: «Usar plantilla» baja el zip, lo instala en `AppData/scene-templates/<id>` (`installSceneTemplatePackage`,
+  va antes que las incluidas) y la pone en el cabezal; las de la cuenta que faltan en el equipo salen en
+  Escenas con insignia de descarga; «Mi cuenta» › Descargas muestra la biblioteca de la cuenta.
+- **Falta:** probar en ventana con la build de la rama, aviso si faltan las tipografías, y que la política de
+  privacidad diga que la cuenta guarda lo que bajas de Stock.
 
 ### Para la próxima versión (pedido de Jorge, 2026-10-15)
 1. **La composición de una plantilla tiene que aparecer en Medios**, y desde ahí poder entrar a editarla o borrarla
@@ -550,6 +591,11 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 ## Trampas que ya nos costaron tiempo
 
 **Colores de 8 dígitos en QML son `#AARRGGBB`, no `#RRGGBBAA`.** `Theme.scrimColor` (`#00000066`) y `Theme.scrimStrong` (`#000000b3`) salen **transparentes**, heredado de Drift, y se usan en unos 38 sitios (etiquetas sobre miniaturas, velos). En la 0.11.0 solo se corrigieron las etiquetas de las tarjetas de plantillas (`Qt.rgba(0, 0, 0, 0.7)`); arreglar el tema es pendiente: revisar a ojo cada uso antes, porque oscurecerá zonas que hoy se ven claras. Igual `waveformColor` `#ffffffb3` es amarillo pálido y no blanco al 70 %.
+
+**Restaurar el registro tras una prueba puede cerrar la sesión de Google de Jorge.** El servidor rota el token de
+refresco en cada uso y, si llega uno ya usado, cierra toda la familia (2026-10-14 22:34 UTC pasó). Si la app de
+prueba usó la cuenta (Stock, Mi cuenta), exportar `HKCU\Software\Flip Studio\Flip Studio\account` **después** de la
+prueba, restaurar la copia y volver a importar esa clave. Comprobar en Mongo (`sessions`, `revokedAt`) si hay dudas.
 
 **La app escribe en el registro de Jorge aunque se lance para pruebas, incluso sin ventana:** anota el proyecto
 de prueba en `recentProjects`/`lastSessionPath` y guarda preferencias. Quitar solo `mcp/startOnLaunch` no basta:

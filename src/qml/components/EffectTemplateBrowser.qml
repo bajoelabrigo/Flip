@@ -229,7 +229,7 @@ Column {
                                 Rectangle {
                                     anchors.fill: parent
                                     visible: index === 3 && templateCard.effectCount > 4
-                                    color: Qt.rgba(0, 0, 0, 0.7) // Theme.scrimStrong reads as transparent (#RRGGBBAA parsed as #AARRGGBB)
+                                    color: Theme.scrimStrong
 
                                     Text {
                                         anchors.centerIn: parent
@@ -282,7 +282,7 @@ Column {
                         width: stackBadgeRow.implicitWidth + 8
                         height: stackBadgeRow.implicitHeight + 4
                         radius: Theme.radiusXs
-                        color: Qt.rgba(0, 0, 0, 0.7) // Theme.scrimStrong reads as transparent (#RRGGBBAA parsed as #AARRGGBB)
+                        color: Theme.scrimStrong
 
                         Row {
                             id: stackBadgeRow
@@ -346,7 +346,7 @@ Column {
                         anchors.bottom: parent.bottom
                         anchors.bottomMargin: 4
                         anchors.leftMargin: templateCard.modelData.requiresSegmentation === true
-                                            ? segBadgeBox.width + 8 : 4
+                                            ? segBadgeBox.width + 7 : 4
                         visible: templateCard.modelData.followsMusic === true
                         width: 20
                         height: 20
@@ -371,25 +371,32 @@ Column {
                         }
                     }
 
+                    // An icon rather than the words: the «Needs cutout» pill took the whole bottom edge
+                    // of the card and hid the ♪ and the favourite star.
                     Rectangle {
                         id: segBadgeBox
                         anchors.left: parent.left
                         anchors.bottom: parent.bottom
                         anchors.margins: 4
                         visible: templateCard.modelData.requiresSegmentation === true
-                        width: segBadge.implicitWidth + 8
-                        height: segBadge.implicitHeight + 4
-                        radius: Theme.radiusXs
-                        color: Qt.rgba(0, 0, 0, 0.7) // Theme.scrimStrong reads as transparent (#RRGGBBAA parsed as #AARRGGBB)
+                        width: 20
+                        height: 20
+                        radius: width / 2
+                        color: Qt.rgba(0, 0, 0, 0.72)
+                        border.width: 1
+                        border.color: Qt.rgba(1, 1, 1, 0.25)
 
-                        Text {
-                            id: segBadge
+                        IconGlyph {
                             anchors.centerIn: parent
-                            text: qsTr("Needs cutout")
-                            color: Theme.onMedia
-                            font.family: Theme.fontFamily
-                            font.pixelSize: Theme.fontSizeXs
-                            font.weight: Font.Medium
+                            glyph: Theme.icons.cutoutSubject
+                            iconSize: 12
+                            iconColor: "white"
+                        }
+
+                        HoverHandler { id: segBadgeHover }
+                        ThemedToolTip {
+                            visible: segBadgeHover.hovered
+                            text: qsTr("Needs cutout: it cuts the person out of the video first, which takes a moment.")
                         }
                     }
 
@@ -442,12 +449,25 @@ Column {
                         }
                     }
 
-                    AssetFavoriteButton {
+                    // On its own disc in the panel colour: the bare ghost star vanished over bright
+                    // thumbnails, and the panel colour keeps it legible in the light theme too.
+                    Rectangle {
                         anchors.right: parent.right
                         anchors.bottom: parent.bottom
                         anchors.margins: 3
-                        tabId: "templates"
-                        itemId: templateCard.modelData.id
+                        width: 22
+                        height: 22
+                        radius: width / 2
+                        z: 2
+                        color: Qt.rgba(Theme.panelBackground.r, Theme.panelBackground.g, Theme.panelBackground.b, 0.88)
+                        border.width: 1
+                        border.color: Theme.panelBorder
+
+                        AssetFavoriteButton {
+                            anchors.centerIn: parent
+                            tabId: "templates"
+                            itemId: templateCard.modelData.id
+                        }
                     }
                 }
 

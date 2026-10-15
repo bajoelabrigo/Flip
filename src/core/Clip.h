@@ -100,6 +100,13 @@ struct Clip
     // A media clip's masks (its Mask lanes) limit where its effects land instead of cutting the
     // clip: inside, the effects; outside, the clip as it was. Saved only when true.
     bool masksLimitEffects = false;
+    // A slot of a scene template ("Your photo here"): the composition's Fill template panel lists
+    // these, and filling one swaps the media while the slot keeps its frame, timing and motion.
+    // On a text clip it marks the text the panel offers to edit. Saved only when set.
+    QString placeholderId;
+    QString placeholderLabel;
+    // The slot still shows the template's stand-in picture rather than the user's media.
+    bool placeholderEmpty = false;
 
     // When true, AudioMixer skips this video clip's embedded audio (companion audio track plays it).
     bool suppressEmbeddedAudio = false;
