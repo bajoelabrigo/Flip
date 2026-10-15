@@ -381,6 +381,7 @@ private slots:
     void exporterTagsSdrBt709ColorMetadata();
     void gpuNv12MatchesSwsBt709();
     void exporterDefaultCrfIsNearLosslessForH264();
+    void exporterOffersSizesAboveTheProject();
     void exporterHardwareCodecsListedForThisOs();
     void exporterHardwarePreferredContainerIsMp4();
     void exporterSettingsFromMapRoundTripsHardwareCodec();
@@ -12025,6 +12026,41 @@ void EngineTest::gpuNv12MatchesSwsBt709()
         }
     }
     QVERIFY2(maxUv <= 2, qPrintable(QStringLiteral("tiled interior UV delta %1").arg(maxUv)));
+}
+
+// 2K, 4K and 8K above the project, named by the short side so a vertical project gets 2160×3840,
+// and 8K flagged as past H.264.
+void EngineTest::exporterOffersSizesAboveTheProject()
+{
+    const auto byId = [](const QVariantList &options) {
+        QHash<QString, QVariantMap> out;
+        for (const QVariant &option : options)
+            out.insert(option.toMap().value(QStringLiteral("id")).toString(), option.toMap());
+        return out;
+    };
+
+    const auto landscape = byId(Exporter::scaleOptions(1920, 1080));
+    QVERIFY(landscape.contains(QStringLiteral("source")));
+    QVERIFY(!landscape.contains(QStringLiteral("1080p"))); // that is "Same as project"
+    QCOMPARE(landscape.value(QStringLiteral("2160p")).value(QStringLiteral("width")).toInt(), 3840);
+    QCOMPARE(landscape.value(QStringLiteral("2160p")).value(QStringLiteral("height")).toInt(), 2160);
+    QVERIFY(landscape.value(QStringLiteral("2160p")).value(QStringLiteral("upscale")).toBool());
+    QVERIFY(!landscape.value(QStringLiteral("2160p")).value(QStringLiteral("needsHevc")).toBool());
+    QCOMPARE(landscape.value(QStringLiteral("4320p")).value(QStringLiteral("width")).toInt(), 7680);
+    QVERIFY(landscape.value(QStringLiteral("4320p")).value(QStringLiteral("needsHevc")).toBool());
+    QVERIFY(landscape.value(QStringLiteral("4320p")).value(QStringLiteral("heavy")).toBool());
+    QCOMPARE(landscape.value(QStringLiteral("1440p")).value(QStringLiteral("width")).toInt(), 2560);
+    QVERIFY(!landscape.value(QStringLiteral("720p")).value(QStringLiteral("upscale")).toBool());
+
+    const auto vertical = byId(Exporter::scaleOptions(1080, 1920));
+    QCOMPARE(vertical.value(QStringLiteral("2160p")).value(QStringLiteral("width")).toInt(), 2160);
+    QCOMPARE(vertical.value(QStringLiteral("2160p")).value(QStringLiteral("height")).toInt(), 3840);
+    QCOMPARE(vertical.value(QStringLiteral("720p")).value(QStringLiteral("width")).toInt(), 720);
+
+    // A small project is not offered a re-drawn 1080p, only the big formats.
+    const auto small = byId(Exporter::scaleOptions(1280, 720));
+    QVERIFY(!small.contains(QStringLiteral("1080p")));
+    QVERIFY(small.contains(QStringLiteral("1440p")));
 }
 
 void EngineTest::exporterDefaultCrfIsNearLosslessForH264()

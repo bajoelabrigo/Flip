@@ -12,8 +12,10 @@
 #include <QString>
 
 // Preview canvas as a fraction of project resolution. Below this, text and effect
-// radii collapse to subpixels. The compositor never upscales past 1.0.
+// radii collapse to subpixels. Previews stay at or under 1.0; only export goes above,
+// so a 1080p project can come out in 4K or 8K drawn at that size, not stretched.
 inline constexpr double kMinPreviewScale = 0.02;
+inline constexpr double kMaxExportScale = 8.0;
 inline constexpr int kMinPreviewScalePercent = 2;
 
 // Composites all visible tracks into a single RGBA frame at timeline time T.

@@ -60,6 +60,32 @@ ThemedDialog {
     readonly property bool isAudioOnly: exportMode === "audio"
     readonly property bool isGifExport: exportMode === "gif"
 
+    // The picked size, and what it asks of the encoder (Exporter::scaleOptions).
+    readonly property var currentScale: {
+        for (var i = 0; i < scaleOptions.length; ++i) {
+            if (scaleOptions[i].id === scaleId)
+                return scaleOptions[i]
+        }
+        return null
+    }
+    readonly property bool scaleNeedsHevc: !!(currentScale && currentScale.needsHevc)
+    readonly property bool codecTooSmallForScale: scaleNeedsHevc && videoCodecId.indexOf("h264") === 0
+    property string codecSwitchedFrom: ""
+
+    // 8K is past H.264 (4096 pixels a side): switch to the same family's H.265.
+    function fitCodecToScale() {
+        if (!codecTooSmallForScale)
+            return
+        var hevc = codecById(videoCodecs, "h265" + videoCodecId.substring(4))
+        if (!hevc || !hevc.available)
+            return
+        codecSwitchedFrom = currentVideoCodec && currentVideoCodec.label ? currentVideoCodec.label : videoCodecId
+        videoCodecId = hevc.id
+        applyVideoCodecDefaults(hevc)
+        refreshCodecMeta()
+        syncComboIndices()
+    }
+
     function codecById(list, id) {
         for (var i = 0; i < list.length; ++i) {
             if (list[i].id === id)
@@ -180,6 +206,11 @@ ThemedDialog {
         }
         if (EditorState.workAreaActive)
             exportWorkAreaOnly = true
+        // The GIF chips leave out sizes above the project.
+        if (currentScale && currentScale.upscale) {
+            scaleId = "source"
+            targetHeight = 0
+        }
     }
 
     function openDialog() {
@@ -260,6 +291,8 @@ ThemedDialog {
         if (!hasRemembered)
             applyVideoCodecDefaults(codecById(videoCodecs, videoCodecId))
         refreshCodecMeta()
+        codecSwitchedFrom = ""
+        fitCodecToScale()
         syncComboIndices()
         open()
     }
@@ -440,7 +473,7 @@ ThemedDialog {
                 }
 
                 ThemedLabel {
-                    text: qsTr("Downscale")
+                    text: qsTr("Resolution")
                 }
 
                 Flow {
@@ -460,9 +493,38 @@ ThemedDialog {
                                 root.targetHeight = modelData.targetHeight
                                 if (modelData.videoBitrateKbps)
                                     root.videoBitrateKbps = modelData.videoBitrateKbps
+                                root.fitCodecToScale()
                             }
                         }
                     }
+                }
+
+                ThemedLabel {
+                    width: parent.width
+                    visible: !!(root.currentScale && root.currentScale.upscale)
+                    size: "sm"
+                    text: qsTr("Bigger than the project: it is drawn at this size, so text, shapes and graphics come out sharp. Your video clips are enlarged from their own resolution.")
+                }
+                ThemedLabel {
+                    width: parent.width
+                    visible: root.codecTooSmallForScale
+                    size: "sm"
+                    color: Theme.warning
+                    text: qsTr("H.264 stops at 4096 pixels a side. Choose H.265 or AV1 under Advanced to export at this size.")
+                }
+                ThemedLabel {
+                    width: parent.width
+                    visible: root.scaleNeedsHevc && !root.codecTooSmallForScale && root.codecSwitchedFrom !== ""
+                    size: "sm"
+                    text: qsTr("8K needs H.265 or AV1, so the encoder changed from %1 to %2.")
+                          .arg(root.codecSwitchedFrom)
+                          .arg(root.currentVideoCodec && root.currentVideoCodec.label ? root.currentVideoCodec.label : "")
+                }
+                ThemedLabel {
+                    width: parent.width
+                    visible: !!(root.currentScale && root.currentScale.heavy)
+                    size: "sm"
+                    text: qsTr("8K takes much longer to export and needs a lot of video memory. Try a short work area first.")
                 }
 
                 Column {
@@ -796,7 +858,7 @@ ThemedDialog {
                 }
 
                 ThemedLabel {
-                    text: qsTr("Downscale")
+                    text: qsTr("Resolution")
                 }
 
                 Flow {
@@ -808,6 +870,8 @@ ThemedDialog {
 
                         delegate: ThemedChip {
                             required property var modelData
+                            // A GIF bigger than the project is all file size and no gain.
+                            visible: !modelData.upscale
                             text: modelData.label
                             selected: root.scaleId === modelData.id
                             tooltip: qsTr("Export at %1×%2").arg(modelData.width).arg(modelData.height)

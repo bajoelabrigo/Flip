@@ -10362,12 +10362,28 @@
         <translation>Сохраняет изображение из предпросмотра. Выберите размер — соотношение сторон сохранится.</translation>
     </message>
     <message>
-        <source>Downscale</source>
-        <translation>Уменьшение размера</translation>
+        <source>Resolution</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export at %1×%2</source>
         <translation>Экспортировать в размере %1×%2</translation>
+    </message>
+    <message>
+        <source>Bigger than the project: it is drawn at this size, so text, shapes and graphics come out sharp. Your video clips are enlarged from their own resolution.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>H.264 stops at 4096 pixels a side. Choose H.265 or AV1 under Advanced to export at this size.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>8K needs H.265 or AV1, so the encoder changed from %1 to %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>8K takes much longer to export and needs a lot of video memory. Try a short work area first.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Frame rate</source>

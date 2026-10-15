@@ -15,13 +15,14 @@ namespace drift {
 class Project;
 }
 
-// Named scale targets used by the simple downscale chips. Resolution is derived
-// from the project's aspect ratio so export never distorts.
+// Named resolutions for the export chips. The number is the short side ("4K" is 2160, so a
+// vertical 9:16 project comes out 2160×3840) and the other side follows the project's aspect
+// ratio, so export never distorts. Presets above the project are drawn at that size.
 struct ExportScalePreset
 {
     QString id;
     QString label;
-    int targetHeight = 0; // 0 = keep project height
+    int targetHeight = 0; // short side; 0 = keep the project size
     int videoBitrateKbps = 12000;
 };
 
@@ -31,7 +32,7 @@ inline constexpr int kMaxExportFps = 480;
 // Full encode settings passed from the export dialog.
 struct ExportSettings
 {
-    int targetHeight = 0; // 0 = keep project height
+    int targetHeight = 0; // short side (see ExportScalePreset); 0 = keep the project size
     // Output frame rate. 0 = follow the project fps. Rational so NTSC rates
     // (24000/1001, 30000/1001, 60000/1001) round-trip exactly.
     int fpsNum = 0;

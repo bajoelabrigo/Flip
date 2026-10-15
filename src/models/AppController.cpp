@@ -23920,6 +23920,13 @@ void AppController::exportWithPreset(const QUrl &outputUrl, const QString &prese
         map.insert(QStringLiteral("scaleId"), preset->id);
         map.insert(QStringLiteral("targetHeight"), preset->targetHeight);
         map.insert(QStringLiteral("videoBitrateKbps"), preset->videoBitrateKbps);
+        // 8K is past H.264: the same encoder family's H.265 takes over.
+        const QString codec = map.value(QStringLiteral("videoCodecId")).toString();
+        if (preset->targetHeight > 2304 && codec.startsWith(QLatin1String("h264"))) {
+            const QString hevc = QStringLiteral("h265") + codec.mid(4);
+            if (!Exporter::videoCodecById(hevc).isEmpty())
+                map.insert(QStringLiteral("videoCodecId"), hevc);
+        }
     }
     exportWithSettings(outputUrl, map);
 }

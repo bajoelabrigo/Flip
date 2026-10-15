@@ -10294,12 +10294,28 @@
         <translation>미리보기에서 보이는 내용을 저장합니다. 크기를 선택해도 화면 비율은 그대로 유지됩니다.</translation>
     </message>
     <message>
-        <source>Downscale</source>
-        <translation>축소</translation>
+        <source>Resolution</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export at %1×%2</source>
         <translation>%1×%2로 내보내기</translation>
+    </message>
+    <message>
+        <source>Bigger than the project: it is drawn at this size, so text, shapes and graphics come out sharp. Your video clips are enlarged from their own resolution.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>H.264 stops at 4096 pixels a side. Choose H.265 or AV1 under Advanced to export at this size.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>8K needs H.265 or AV1, so the encoder changed from %1 to %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>8K takes much longer to export and needs a lot of video memory. Try a short work area first.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Frame rate</source>

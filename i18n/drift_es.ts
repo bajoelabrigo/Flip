@@ -10328,12 +10328,28 @@
         <translation>Guarda lo que ves en la vista previa. Elige un tamaño: la forma de la imagen se mantiene.</translation>
     </message>
     <message>
-        <source>Downscale</source>
-        <translation>Reducir escala</translation>
+        <source>Resolution</source>
+        <translation>Resolución</translation>
     </message>
     <message>
         <source>Export at %1×%2</source>
         <translation>Exportar a %1×%2</translation>
+    </message>
+    <message>
+        <source>Bigger than the project: it is drawn at this size, so text, shapes and graphics come out sharp. Your video clips are enlarged from their own resolution.</source>
+        <translation>Más grande que el proyecto: se dibuja a este tamaño, así que los textos, las formas y los gráficos salen nítidos. Tus clips de video se amplían desde su propia resolución.</translation>
+    </message>
+    <message>
+        <source>H.264 stops at 4096 pixels a side. Choose H.265 or AV1 under Advanced to export at this size.</source>
+        <translation>H.264 no pasa de 4096 píxeles por lado. Elige H.265 o AV1 en Avanzado para exportar a este tamaño.</translation>
+    </message>
+    <message>
+        <source>8K needs H.265 or AV1, so the encoder changed from %1 to %2.</source>
+        <translation>8K necesita H.265 o AV1, así que el codificador cambió de %1 a %2.</translation>
+    </message>
+    <message>
+        <source>8K takes much longer to export and needs a lot of video memory. Try a short work area first.</source>
+        <translation>8K tarda mucho más en exportarse y necesita mucha memoria de video. Prueba antes con un área de trabajo corta.</translation>
     </message>
     <message>
         <source>Frame rate</source>

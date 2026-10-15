@@ -585,11 +585,21 @@ void evenDims(int &w, int &h)
     h = qMax(2, h);
 }
 
-void scaleSize(int projW, int projH, int targetH, int &outW, int &outH)
+// `target` is the short side, so "1080p" or "4K" means the same thing for a vertical project.
+void scaleSize(int projW, int projH, int target, int &outW, int &outH)
 {
-    outH = targetH > 0 ? targetH : projH;
-    outW = static_cast<int>(std::llround(static_cast<double>(projW) * outH / projH));
+    const int shortSide = qMin(projW, projH);
+    const double factor = target > 0 && shortSide > 0 ? double(target) / double(shortSide) : 1.0;
+    outW = static_cast<int>(std::llround(projW * factor));
+    outH = static_cast<int>(std::llround(projH * factor));
     evenDims(outW, outH);
+}
+
+// H.264 stops at 4096 pixels a side (level 5.2, and the NVIDIA encoder's own limit); 8K needs
+// H.265 or AV1.
+bool codecFitsSize(const QString &codecId, int width, int height)
+{
+    return !codecId.startsWith(QLatin1String("h264")) || qMax(width, height) <= 4096;
 }
 
 void fillLimitedBlackNv12(uint8_t *y, int yStride, uint8_t *uv, int uvStride, int w, int h)
@@ -1612,6 +1622,10 @@ const QList<ExportScalePreset> &Exporter::scalePresets()
 {
     static const QList<ExportScalePreset> kPresets = {
         {QStringLiteral("source"), QStringLiteral("Same as project"), 0, 16000},
+        // Above the project these are drawn at that size: text, shapes and vectors stay sharp.
+        {QStringLiteral("4320p"), QStringLiteral("8K"), 4320, 120000},
+        {QStringLiteral("2160p"), QStringLiteral("4K"), 2160, 45000},
+        {QStringLiteral("1440p"), QStringLiteral("2K"), 1440, 24000},
         {QStringLiteral("1080p"), QStringLiteral("1080p"), 1080, 12000},
         {QStringLiteral("720p"), QStringLiteral("720p"), 720, 8000},
         {QStringLiteral("480p"), QStringLiteral("480p"), 480, 4000},
@@ -1768,9 +1782,14 @@ QVariantList Exporter::scaleOptions(int projectWidth, int projectHeight)
     if (projectWidth <= 0 || projectHeight <= 0)
         return out;
 
+    const int shortSide = qMin(projectWidth, projectHeight);
     for (const ExportScalePreset &preset : scalePresets()) {
-        // Skip downscale targets that would upscale.
-        if (preset.targetHeight > 0 && projectHeight <= preset.targetHeight)
+        // The project's own size is "Same as project". Going up is offered only for the big
+        // formats: a 720p project re-drawn at 1080p gains little over the player's own scaling.
+        if (preset.targetHeight == shortSide)
+            continue;
+        const bool upscale = preset.targetHeight > shortSide;
+        if (upscale && preset.targetHeight < 1440)
             continue;
 
         int outW = 0;
@@ -1786,6 +1805,11 @@ QVariantList Exporter::scaleOptions(int projectWidth, int projectHeight)
             {QStringLiteral("width"), outW},
             {QStringLiteral("height"), outH},
             {QStringLiteral("videoBitrateKbps"), preset.videoBitrateKbps},
+            {QStringLiteral("upscale"), upscale},
+            // Only H.265 and AV1 reach it.
+            {QStringLiteral("needsHevc"), qMax(outW, outH) > 4096},
+            // 8K: a long encode and a lot of video memory; the dialog says so.
+            {QStringLiteral("heavy"), qint64(outW) * outH > qint64(4096) * 2304},
         });
     }
 
@@ -1991,6 +2015,16 @@ bool Exporter::run(const drift::Project &project, const ExportSettings &settings
     int outW = 0;
     int outH = 0;
     scaleSize(projW, projH, settings.targetHeight, outW, outH);
+    if (!codecFitsSize(QString::fromLatin1(vdef->id), outW, outH)) {
+        if (errorOut)
+            *errorOut = QStringLiteral("H.264 cannot encode %1×%2: it stops at 4096 pixels a side. "
+                                       "Choose H.265 or AV1.").arg(outW).arg(outH);
+        return false;
+    }
+    // Bigger than the project: the frame is composited at the output size, not stretched.
+    const bool upscale = qint64(outW) * outH > qint64(projW) * projH;
+    const int srcW = upscale ? outW : projW;
+    const int srcH = upscale ? outH : projH;
 
     // The export rate is independent of the project rate: sampling the timeline
     // faster pulls extra frames out of the source wherever it has them, which is
@@ -2183,8 +2217,8 @@ bool Exporter::run(const drift::Project &project, const ExportSettings &settings
 
         if (!useGpuNv12) {
             // Lanczos when down/upscaling; bicubic is enough for a pure format convert.
-            const int swsFlags = (projW != outW || projH != outH) ? SWS_LANCZOS : SWS_BICUBIC;
-            sws = sws_getContext(projW, projH, AV_PIX_FMT_RGBA, outW, outH, swPixFmt, swsFlags,
+            const int swsFlags = (srcW != outW || srcH != outH) ? SWS_LANCZOS : SWS_BICUBIC;
+            sws = sws_getContext(srcW, srcH, AV_PIX_FMT_RGBA, outW, outH, swPixFmt, swsFlags,
                                  nullptr, nullptr, nullptr);
             if (!sws) {
                 error = QStringLiteral("Could not create the scaler");
@@ -2313,7 +2347,7 @@ bool Exporter::run(const drift::Project &project, const ExportSettings &settings
         };
 
         FrameCompositor::RenderOptions composeOptions;
-        if (outH < projH)
+        if (outH != projH)
             composeOptions.previewScale = double(outH) / double(projH);
         composeOptions.readAheadUs = static_cast<drift::TimeUs>(
             std::llround(2.0 * 1e6 * frameRate.den / frameRate.num));
@@ -2436,15 +2470,15 @@ bool Exporter::run(const drift::Project &project, const ExportSettings &settings
                 continue;
             }
 
-            QImage img = compositor.compositeAt(t);
+            QImage img = upscale ? compositor.compositeAt(t, composeOptions) : compositor.compositeAt(t);
             if (img.isNull()) {
-                img = QImage(projW, projH, QImage::Format_RGBA8888);
+                img = QImage(srcW, srcH, QImage::Format_RGBA8888);
                 img.fill(vdef->hasAlpha ? Qt::transparent : Qt::black);
             } else if (img.format() != QImage::Format_RGBA8888) {
                 img = img.convertToFormat(QImage::Format_RGBA8888);
             }
-            if (img.width() != projW || img.height() != projH)
-                img = img.scaled(projW, projH, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+            if (img.width() != srcW || img.height() != srcH)
+                img = img.scaled(srcW, srcH, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 
             if (av_frame_make_writable(vframe) < 0) {
                 error = QStringLiteral("Video frame not writable");
@@ -2453,7 +2487,7 @@ bool Exporter::run(const drift::Project &project, const ExportSettings &settings
             {
                 const uint8_t *srcData[4] = {img.constBits(), nullptr, nullptr, nullptr};
                 const int srcStride[4] = {static_cast<int>(img.bytesPerLine()), 0, 0, 0};
-                sws_scale(sws, srcData, srcStride, 0, projH, vframe->data, vframe->linesize);
+                sws_scale(sws, srcData, srcStride, 0, srcH, vframe->data, vframe->linesize);
             }
             if (!sendVideoAndAudio(i))
                 goto cleanup;
