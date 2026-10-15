@@ -32,6 +32,8 @@ Item {
         }
         return ""
     }
+    // Stock › Templates: phone-shaped cards, and "Use" instead of a download.
+    readonly property bool templates: mediaKind === "template"
     readonly property bool queryIsLink: Market.canResolve && /^(https?:\/\/|www\.)\S+$/i.test(query)
     readonly property var linkSource: {
         const q = query.toLowerCase()
@@ -94,6 +96,10 @@ Item {
     function download(item) {
         if (!item.id || item.downloadable === false)
             return
+        if (Market.sceneTemplateIdForItem(item.id) !== "") {
+            Market.useSceneTemplate(item.id, item.title || "")
+            return
+        }
         const title = item.title || ""
         const kind = item.media_kind || item.type || ""
         if (!FileDialogs.supportsDirectoryPicker()) {
@@ -425,7 +431,7 @@ Item {
             anchors.rightMargin: root.sidePadding - Theme.assetCardGap
             visible: Market.items.length > 0 && root.mediaKind !== "audio" && root.mediaKind !== "image"
             cellWidth: Math.floor(width / columnCount)
-            cellHeight: tileWidth * 9 / 16 + Theme.fontSizeXs * 2.6 + Theme.assetCardGap
+            cellHeight: tileWidth * (root.templates ? 16 / 9 : 9 / 16) + Theme.fontSizeXs * 2.6 + Theme.assetCardGap
             cacheBuffer: Math.max(0, Math.round(height))
             clip: true
             model: visible ? Market.items : []
@@ -443,7 +449,7 @@ Item {
 
                 StockThumb {
                     width: parent.width
-                    height: width * 9 / 16
+                    height: width * (root.templates ? 16 / 9 : 9 / 16)
                     item: modelData
                     compact: root.compact
                     current: grid.activeFocus && index === grid.currentIndex

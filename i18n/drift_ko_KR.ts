@@ -12148,6 +12148,14 @@
         <translation>가져오는 중…</translation>
     </message>
     <message>
+        <source>Could not install that template.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not import that file.</source>
         <translation>해당 파일을 가져올 수 없습니다.</translation>
     </message>
@@ -17889,6 +17897,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Downloading…</source>
         <translation>다운로드 중…</translation>
+    </message>
+    <message>
+        <source>Use template</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Download again</source>

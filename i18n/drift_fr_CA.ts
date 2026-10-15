@@ -12187,6 +12187,14 @@
         <translation>Importation en cours…</translation>
     </message>
     <message>
+        <source>Could not install that template.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not import that file.</source>
         <translation>Impossible d&apos;importer ce fichier.</translation>
     </message>
@@ -17959,6 +17967,10 @@ En cas de saccades à la lecture, essayez un autre mode.</translation>
     <message>
         <source>Downloading…</source>
         <translation>Téléchargement en cours…</translation>
+    </message>
+    <message>
+        <source>Use template</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Download again</source>

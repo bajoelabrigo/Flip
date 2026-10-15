@@ -47,3 +47,11 @@ QString sceneTemplateCategoryLabel(const QString &categoryId);
 
 void reloadSceneTemplateCatalog(const QStringList &packageRoots = {});
 QStringList defaultSceneTemplateSearchPaths();
+
+// Where templates got from Stock live: AppData/scene-templates. Searched before the bundled copies,
+// so a newer version of a bundled template wins.
+QString userSceneTemplatesDir();
+// Unpacks a template package (.zip of the folder, at its root or inside one top folder) into
+// userSceneTemplatesDir()/<id>, replacing an older copy, and reloads the catalog. Returns the
+// template id, or empty with *error set.
+QString installSceneTemplatePackage(const QString &zipPath, QString *error = nullptr);

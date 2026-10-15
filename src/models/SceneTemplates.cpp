@@ -4,6 +4,7 @@
 #include "AppController.h"
 
 #include "AssetLibrary.h"
+#include "MarketClient.h"
 #include "MediaBinController.h"
 #include "core/SceneTemplateLayout.h"
 #include "engine/SceneTemplateCatalog.h"
@@ -129,6 +130,20 @@ QString slotPicture(const QSizeF &slot, int number, const QString &caption)
 }
 
 } // namespace
+
+void AppController::setMarketClient(MarketClient *client)
+{
+    if (m_marketClient)
+        disconnect(m_marketClient, &MarketClient::sceneTemplateReady, this, nullptr);
+    m_marketClient = client;
+    if (!client)
+        return;
+    connect(client, &MarketClient::sceneTemplateReady, this, [this](const QString &templateId, bool use) {
+        emit sceneTemplatesChanged();
+        if (use)
+            insertSceneTemplate(templateId);
+    });
+}
 
 QVariantList AppController::sceneTemplates() const
 {

@@ -125,6 +125,12 @@ public:
                               const QUrl &destinationDir = QUrl(),
                               const QString &title = QString(),
                               const QString &mediaKind = QString());
+    // Stock › Templates: puts the template on the timeline, downloading and installing it first
+    // when this machine does not have it yet (sceneTemplateReady carries it to the editor).
+    Q_INVOKABLE void useSceneTemplate(const QString &itemId, const QString &title = QString());
+    // The scene template id a Stock item stands for ("flip:template:<id>"), or empty.
+    Q_INVOKABLE QString sceneTemplateIdForItem(const QString &itemId) const;
+    Q_INVOKABLE bool sceneTemplateInstalled(const QString &itemId) const;
     // Forgets finished, failed and cancelled jobs. Running ones are left alone.
     Q_INVOKABLE void clearFinishedDownloads();
     Q_INVOKABLE void retryDownload(const QString &itemId);
@@ -164,6 +170,9 @@ signals:
     void downloadProgress(const QString &itemId, double fraction, const QString &phase);
     void downloadFailed(const QString &itemId, const QString &code, const QString &message);
     void downloadImported(const QString &itemId, const QString &name);
+    // A template from Stock is installed (or was already): the editor reloads the Templates tab
+    // and, when `use` is set, puts it at the playhead.
+    void sceneTemplateReady(const QString &templateId, bool use);
     void downloadHistoryChanged();
     // Raised once per job when it is first accepted, so the manager window can show itself
     // without polling activeDownloadCount.

@@ -1,6 +1,7 @@
 #include "SceneTemplateCatalog.h"
 
 #include "GpuPackageParse.h"
+#include "core/ZipArchive.h"
 
 #include <QCoreApplication>
 #include <QDir>
@@ -10,7 +11,9 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QLocale>
+#include <QRegularExpression>
 #include <QSet>
+#include <QStandardPaths>
 
 #include <algorithm>
 #include <optional>
@@ -150,11 +153,106 @@ void ensureLoaded()
 
 } // namespace
 
+QString userSceneTemplatesDir()
+{
+    const QString appData = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    return appData.isEmpty() ? QString() : QDir(appData).filePath(QStringLiteral("scene-templates"));
+}
+
 QStringList defaultSceneTemplateSearchPaths()
 {
-    return GpuPackageParse::defaultSearchPaths(QStringLiteral("DRIFT_SCENE_TEMPLATES_DIR"),
-                                               QStringLiteral("scene-templates"),
-                                               QStringLiteral("scene-templates"));
+    QStringList roots = GpuPackageParse::defaultSearchPaths(QStringLiteral("DRIFT_SCENE_TEMPLATES_DIR"),
+                                                            QStringLiteral("scene-templates"),
+                                                            QStringLiteral("scene-templates"));
+    // What came from Stock goes ahead of the bundled packages: an update has to win.
+    const QString user = userSceneTemplatesDir();
+    if (!user.isEmpty()) {
+        roots.removeAll(user);
+        roots.insert(qEnvironmentVariableIsSet("DRIFT_SCENE_TEMPLATES_DIR") ? 1 : 0, user);
+    }
+    return roots;
+}
+
+QString installSceneTemplatePackage(const QString &zipPath, QString *error)
+{
+    const auto fail = [error](const QString &message) {
+        if (error)
+            *error = message;
+        return QString();
+    };
+    QFile zip(zipPath);
+    if (!zip.open(QIODevice::ReadOnly))
+        return fail(zip.errorString());
+    QString zipError;
+    const QList<drift::zip::Entry> entries = drift::zip::readEntries(zip, &zipError);
+    if (entries.isEmpty())
+        return fail(zipError.isEmpty() ? QStringLiteral("the package is empty") : zipError);
+
+    // template.json at the root, or inside a single top folder.
+    QString prefix;
+    bool found = false;
+    for (const drift::zip::Entry &entry : entries) {
+        if (entry.isDir)
+            continue;
+        if (entry.path == QLatin1String("template.json")) {
+            prefix.clear();
+            found = true;
+            break;
+        }
+        if (entry.path.endsWith(QLatin1String("/template.json")) && entry.path.count(QLatin1Char('/')) == 1) {
+            prefix = entry.path.left(entry.path.size() - int(qstrlen("template.json")));
+            found = true;
+        }
+    }
+    if (!found)
+        return fail(QStringLiteral("not a template package (no template.json)"));
+
+    QByteArray manifestBytes;
+    for (const drift::zip::Entry &entry : entries) {
+        if (entry.path == prefix + QLatin1String("template.json")) {
+            drift::zip::extractEntry(zip, entry, manifestBytes);
+            break;
+        }
+    }
+    const QString id = QJsonDocument::fromJson(manifestBytes).object().value(QStringLiteral("id")).toString().trimmed();
+    static const QRegularExpression safeId(QStringLiteral("^[a-z0-9][a-z0-9._-]{0,63}$"));
+    if (!safeId.match(id).hasMatch())
+        return fail(QStringLiteral("the package has no usable id"));
+
+    const QString root = userSceneTemplatesDir();
+    if (root.isEmpty() || !QDir().mkpath(root))
+        return fail(QStringLiteral("cannot create the templates folder"));
+    const QString dest = QDir(root).filePath(id);
+    const QString staging = dest + QStringLiteral(".partial");
+    QDir(staging).removeRecursively();
+    for (const drift::zip::Entry &entry : entries) {
+        if (entry.isDir || !entry.path.startsWith(prefix))
+            continue;
+        QByteArray bytes;
+        if (!drift::zip::extractEntry(zip, entry, bytes)) {
+            QDir(staging).removeRecursively();
+            return fail(QStringLiteral("cannot extract %1").arg(entry.path));
+        }
+        const QString target = QDir(staging).filePath(entry.path.mid(prefix.size()));
+        QFile out(target);
+        if (!QDir().mkpath(QFileInfo(target).absolutePath()) || !out.open(QIODevice::WriteOnly | QIODevice::Truncate)
+            || out.write(bytes) != bytes.size()) {
+            QDir(staging).removeRecursively();
+            return fail(QStringLiteral("cannot write %1").arg(target));
+        }
+    }
+    QString manifestError;
+    if (!loadManifest(staging, &manifestError)) {
+        QDir(staging).removeRecursively();
+        return fail(manifestError);
+    }
+    QDir(dest).removeRecursively();
+    if (!QDir().rename(staging, dest)) {
+        QDir(staging).removeRecursively();
+        return fail(QStringLiteral("cannot move the template into place"));
+    }
+    reloadSceneTemplateCatalog();
+    return id;
 }
 
 void reloadSceneTemplateCatalog(const QStringList &packageRoots)

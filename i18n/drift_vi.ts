@@ -12148,6 +12148,14 @@
         <translation>Đang nhập…</translation>
     </message>
     <message>
+        <source>Could not install that template.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not import that file.</source>
         <translation>Không thể nhập tệp đó.</translation>
     </message>
@@ -17897,6 +17905,10 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     <message>
         <source>Downloading…</source>
         <translation>Đang tải xuống…</translation>
+    </message>
+    <message>
+        <source>Use template</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Download again</source>

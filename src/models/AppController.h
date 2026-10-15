@@ -524,7 +524,8 @@ public:
                                        const QString &undoText);
 
     void setAddonManager(AddonManager *manager);
-    void setMarketClient(MarketClient *client) { m_marketClient = client; }
+    // Also hears Stock's templates: installed ones reload the Templates tab, "Use" places them.
+    void setMarketClient(MarketClient *client);
     MarketClient *marketClient() const { return m_marketClient; }
     AddonManager *addonManager() const { return m_addonManager; }
     // Strip chip click — folds `prop`'s curve away, or brings it back. Purely a view filter: the

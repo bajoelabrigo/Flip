@@ -12184,6 +12184,14 @@
         <translation>Importazione in corso…</translation>
     </message>
     <message>
+        <source>Could not install that template.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not import that file.</source>
         <translation>Impossibile importare quel file.</translation>
     </message>
@@ -17956,6 +17964,10 @@ Se la riproduzione va a scatti, prova un&apos;altra opzione.</translation>
     <message>
         <source>Downloading…</source>
         <translation>Download in corso…</translation>
+    </message>
+    <message>
+        <source>Use template</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Download again</source>

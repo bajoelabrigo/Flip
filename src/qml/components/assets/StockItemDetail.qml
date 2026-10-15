@@ -20,6 +20,7 @@ Rectangle {
 
     readonly property string kind: item.media_kind || item.type || ""
     readonly property bool isImage: kind === "photo" || kind === "image"
+    readonly property bool isTemplate: Market.sceneTemplateIdForItem(item.id || "") !== ""
     readonly property var job: {
         void Market.downloadsRevision
         return item.id ? Market.downloadInfo(item.id) : ({})
@@ -165,6 +166,7 @@ Rectangle {
                 variant: "primary"
                 enabled: !root.busy && root.item.downloadable !== false
                 text: root.busy ? qsTr("Downloading…")
+                                : root.isTemplate ? qsTr("Use template")
                                 : (root.job.status === "done" ? qsTr("Download again") : qsTr("Download"))
                 tooltip: root.item.downloadable === false ? qsTr("You have used today’s downloads from this source") : ""
                 onClicked: root.downloadRequested()
@@ -174,7 +176,8 @@ Rectangle {
             Row {
                 width: parent.width
                 spacing: Theme.spacingLg
-                visible: FileDialogs.supportsDirectoryPicker()
+                // A template installs into Templates; there is no folder to choose.
+                visible: FileDialogs.supportsDirectoryPicker() && !root.isTemplate
 
                 Text {
                     width: Math.min(implicitWidth, parent.width - changeFolder.width - parent.spacing)

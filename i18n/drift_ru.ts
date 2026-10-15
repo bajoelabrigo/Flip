@@ -12220,6 +12220,14 @@
         <translation>Импорт…</translation>
     </message>
     <message>
+        <source>Could not install that template.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not import that file.</source>
         <translation>Не удалось импортировать файл.</translation>
     </message>
@@ -18015,6 +18023,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Downloading…</source>
         <translation>Загрузка…</translation>
+    </message>
+    <message>
+        <source>Use template</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Download again</source>

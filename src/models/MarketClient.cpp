@@ -4,6 +4,7 @@
 #include "AssetLibrary.h"
 #include "MarketEndpoint.h"
 #include "MarketIdentity.h"
+#include "engine/SceneTemplateCatalog.h"
 
 #include <QCryptographicHash>
 #include <QDateTime>
@@ -124,6 +125,8 @@ struct MarketClient::Job
     qint64 sampleBytes = 0;
     QPointer<QNetworkReply> reply;
     bool cancelled = false;
+    // A Stock template downloaded through "Use": once installed it goes on the timeline.
+    bool useWhenReady = false;
 };
 
 bool MarketClient::jobIsRunning(const Job &job)
@@ -997,7 +1000,9 @@ void MarketClient::applyCatalog(const QJsonArray &types)
     for (const QJsonValue &value : types) {
         QVariantMap type = objectToMap(value.toObject());
         const QString delivery = type.value(QStringLiteral("delivery")).toString();
-        if (!delivery.isEmpty() && delivery != QLatin1String("media"))
+        // Scene templates arrive as packages that install into the Templates tab.
+        if (!delivery.isEmpty() && delivery != QLatin1String("media")
+            && delivery != QLatin1String("scene-template"))
             continue;
         filtered.append(type);
     }
@@ -1330,7 +1335,8 @@ void MarketClient::finishJobFile(Job *job, const QJsonObject &file, const QStrin
     // A folder the user picked is written to directly; without one the file goes to the
     // per-item app data area it always used.
     const QString dir = job->destinationDir.isEmpty()
-                        ? downloadsRoot() + QLatin1Char('/') + job->itemId
+                        // "pexels:photo:123": a colon is not allowed in a Windows folder name.
+                        ? downloadsRoot() + QLatin1Char('/') + sanitizeFileName(QString(job->itemId).replace(QLatin1Char(':'), QLatin1Char('_')))
                         : job->destinationDir;
     QDir().mkpath(dir);
     // Their own folder may already hold a file of this name, and silently writing over it
@@ -1455,6 +1461,32 @@ void MarketClient::failJob(const QString &itemId, const QString &code, const QSt
     emit downloadFailed(itemId, resolvedCode, resolved);
 }
 
+QString MarketClient::sceneTemplateIdForItem(const QString &itemId) const
+{
+    static const QString prefix = QStringLiteral("flip:template:");
+    return itemId.startsWith(prefix) ? itemId.mid(prefix.size()) : QString();
+}
+
+bool MarketClient::sceneTemplateInstalled(const QString &itemId) const
+{
+    const QString id = sceneTemplateIdForItem(itemId);
+    return !id.isEmpty() && sceneTemplateForId(id) != nullptr;
+}
+
+void MarketClient::useSceneTemplate(const QString &itemId, const QString &title)
+{
+    const QString id = sceneTemplateIdForItem(itemId);
+    if (id.isEmpty())
+        return;
+    if (sceneTemplateForId(id)) {
+        emit sceneTemplateReady(id, true);
+        return;
+    }
+    download(itemId, QString(), QUrl(), title, QStringLiteral("template"));
+    if (const auto job = m_jobs.value(itemId))
+        job->useWhenReady = true;
+}
+
 void MarketClient::importReadyFile(const QString &itemId, const QString &path,
                                    const QString &displayName)
 {
@@ -1464,6 +1496,35 @@ void MarketClient::importReadyFile(const QString &itemId, const QString &path,
         job->phase = tr("Importing…");
         job->progress = 1;
         bumpDownloads();
+    }
+    // A template package installs into the Templates tab instead of the media bin.
+    if (!sceneTemplateIdForItem(itemId).isEmpty()) {
+        QString error;
+        const QString templateId = installSceneTemplatePackage(path, &error);
+        if (templateId.isEmpty()) {
+            qWarning("MarketClient: template %s: %s", qPrintable(itemId), qPrintable(error));
+            failJob(itemId, QStringLiteral("download_failed"), tr("Could not install that template."));
+            pumpDownloadQueue();
+            return;
+        }
+        QFile::remove(path); // the package is unpacked; the zip is not needed any more
+        const bool use = job && job->useWhenReady;
+        if (job) {
+            job->status = QStringLiteral("done");
+            job->phase = tr("In Templates");
+            job->progress = 1;
+            job->filePath = QDir(userSceneTemplatesDir()).filePath(templateId);
+            job->finishedAt = QDateTime::currentDateTime();
+            job->speedBytesPerSec = 0;
+            if (job->title.isEmpty())
+                job->title = displayName;
+        }
+        bumpDownloads();
+        rememberDownload(itemId, QDir(userSceneTemplatesDir()).filePath(templateId), displayName);
+        pumpDownloadQueue();
+        emit sceneTemplateReady(templateId, use);
+        emit downloadImported(itemId, displayName);
+        return;
     }
     if (!m_library) {
         failJob(itemId, QStringLiteral("download_failed"), tr("Could not import that file."));

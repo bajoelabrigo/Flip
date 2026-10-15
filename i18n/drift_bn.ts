@@ -12184,6 +12184,14 @@
         <translation type="unfinished">ইমপোর্ট করা হচ্ছে…</translation>
     </message>
     <message>
+        <source>Could not install that template.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not import that file.</source>
         <translation type="unfinished">ফাইলটি ইমপোর্ট করা যায়নি.</translation>
     </message>
@@ -17956,6 +17964,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Downloading…</source>
         <translation>ডাউনলোড করা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Use template</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Download again</source>

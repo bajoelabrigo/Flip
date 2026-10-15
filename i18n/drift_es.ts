@@ -12184,6 +12184,14 @@
         <translation>Importando…</translation>
     </message>
     <message>
+        <source>Could not install that template.</source>
+        <translation>No se pudo instalar esa plantilla.</translation>
+    </message>
+    <message>
+        <source>In Templates</source>
+        <translation>En Plantillas</translation>
+    </message>
+    <message>
         <source>Could not import that file.</source>
         <translation>No se pudo importar ese archivo.</translation>
     </message>
@@ -17956,6 +17964,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Downloading…</source>
         <translation>Descargando…</translation>
+    </message>
+    <message>
+        <source>Use template</source>
+        <translation>Usar plantilla</translation>
     </message>
     <message>
         <source>Download again</source>

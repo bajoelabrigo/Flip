@@ -12184,6 +12184,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Could not install that template.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not import that file.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17947,6 +17955,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Downloading…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
