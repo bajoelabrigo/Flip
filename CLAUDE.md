@@ -49,6 +49,9 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 ### 0.11.0 PUBLICADA (2026-10-15): plantillas editables, plantillas como composición, fotogramas en la pista
 - Rama `flip/plantillas-editables` → PR a `main`, tag `v0.11.0`. Notas en `release-notes/0.11.0.md`; novedades para
   la Store (0.10.0 + 0.11.0, 996 caracteres) en `docs/store-listing.md`. **Esta sí va a la Store y al TXT `version`.**
+- Release en GitHub, copia en `versiones\FlipStudio-0.11.0`, novedades en la web. **TXT `version` = 0.11.0** (Jorge,
+  comprobado en DNS el 2026-10-15). **Falta:** el MSIX (`msstore.yml`, run 38702261969) → `tienda\FlipStudio-Store\paquete-0.11.0`
+  y que Jorge lo suba a Partner Center.
 - Probada en ventana con Jorge («funciona todo ok»):
   - plantillas de un clip y las 10 de recorte como composición «Plantilla: …» (`buildCompositeFromClipIds`);
   - fotogramas en la pista con el triángulo (`TrackKeyframeRows.qml`), editor de curvas opcional;
