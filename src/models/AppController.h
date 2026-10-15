@@ -1293,6 +1293,14 @@ public:
     Q_INVOKABLE void setEffectTemplateRhythm(int trackIndex, int clipIndex, const QString &sync);
     // Takes the template's effects (and its speed curve) off the clip in one step.
     Q_INVOKABLE void removeEffectTemplate(int trackIndex, int clipIndex);
+    // The composition a template made ("Template: …"), when this clip is one on the main timeline
+    // or the open tab is one: {assetId, name, inside}. Empty otherwise.
+    Q_INVOKABLE QVariantMap templateCompositeInfo(int trackIndex, int clipIndex) const;
+    // Undoes a template applied as a composition: every instance on the main timeline is replaced
+    // by the original clip (and what was linked to it) as it was before, without the template's
+    // layers, and the composition leaves Media. One undo step. Refused, with a message, when an
+    // instance has motion, speed or effects of its own that would be lost.
+    Q_INVOKABLE bool removeTemplateComposite(const QString &assetId);
     Q_INVOKABLE void removeEffect(int trackIndex, int clipIndex, int effectIndex);
     Q_INVOKABLE void setEffectEnabled(int trackIndex, int clipIndex, int effectIndex, bool enabled);
     Q_INVOKABLE void moveEffect(int trackIndex, int clipIndex, int fromIndex, int toIndex);
@@ -1864,6 +1872,15 @@ protected:
     QString buildCompositeFromClipIds(
         const QSet<QString> &ids, const QString &name,
         const std::function<void(drift::TrackList &, drift::TimeUs)> &prepareInner);
+    // Records on the composition's asset that a template made it: which template, the clips it
+    // added inside (everything not in `idsBefore`) and the source clip, so it can be undone later.
+    void markTemplateComposite(const QString &compositeClipId, const QString &templateId,
+                               const drift::Clip &sourceClip, const QSet<QString> &idsBefore);
+    // Ungroup's work without the checks or the undo step: replaces the composite clip with the
+    // clips it plays, minus `dropClipIds` (ids inside the sequence). `idMap` gets inner id → new
+    // id. Returns the first restored clip's id, empty when nothing was put back.
+    QString ungroupCompositeAt(int trackIndex, int clipIndex, const QSet<QString> &dropClipIds,
+                            QHash<QString, QString> *idMap);
     bool reshapeEffectTemplate(int trackIndex, int clipIndex, double intensity, double decay,
                                const QString &sync, const QList<drift::TimeUs> *points);
     // Digest of everything the AudioMixer reads; a change means detected beats are stale.

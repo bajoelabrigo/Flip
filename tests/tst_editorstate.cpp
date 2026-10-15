@@ -274,6 +274,7 @@ private slots:
     void adjustmentLayerCreationAndCompositing();
     void clipEffectsLiveOnALinkedAdjustmentLane();
     void effectTemplateStaysEditable();
+    void removingATemplatePutsTheClipBack();
     void trackKeyframeRowsUnfoldAndEdit();
     void cutoutTemplateLandsInAComposition();
     void beatTemplateOnSilentClipStillApplies();
@@ -9221,6 +9222,80 @@ void EditorStateTest::effectTemplateStaysEditable()
                 contrastStays = left.size() == 1 && left.at(0).catalogId == QStringLiteral("adjust.contrast");
             }
     QVERIFY(contrastStays);
+}
+
+// "Remove template" on the composition a template made puts the original clip back where it was,
+// with its own effects and without the template's layer, and the composition leaves Media.
+// A composition from 0.11.0, without the template record, is recognised by what is inside.
+void EditorStateTest::removingATemplatePutsTheClipBack()
+{
+    for (const bool legacy : {false, true}) {
+        AssetLibrary library;
+        AppController state(&library);
+        appendTwoVideoClips(*state.project());
+        state.project()->ensureTrackIds();
+        state.selectClip(0, 0);
+        state.addEffect(0, 0, QStringLiteral("adjust.contrast"));
+        const drift::Clip video = state.project()->tracks().at(0).clips.at(0);
+        const int tracksBefore = state.project()->tracks().size();
+
+        state.applyEffectTemplate(0, 0, QStringLiteral("snap_transition"));
+        const int t = state.selectedTrack();
+        const int c = state.selectedClip();
+        const drift::Clip composite = state.project()->tracks().at(t).clips.at(c);
+        QCOMPARE(composite.type, drift::ClipType::Composite);
+        drift::MediaAsset *asset = state.project()->asset(composite.assetId);
+        QVERIFY(asset);
+        QCOMPARE(asset->generator.value(QStringLiteral("kind")).toString(), QStringLiteral("template"));
+        QCOMPARE(asset->generator.value(QStringLiteral("added")).toArray().size(), 1);
+        if (legacy)
+            asset->generator = {};
+
+        const QVariantMap info = state.templateCompositeInfo(t, c);
+        QCOMPARE(info.value(QStringLiteral("assetId")).toString(), composite.assetId);
+        QVERIFY(!info.value(QStringLiteral("inside")).toBool());
+        QVERIFY(!info.value(QStringLiteral("name")).toString().isEmpty());
+        // Inside, the open tab says which composition it is.
+        state.openSequence(composite.sequenceId);
+        QCOMPARE(state.templateCompositeInfo(0, 0).value(QStringLiteral("assetId")).toString(),
+                 composite.assetId);
+        QVERIFY(state.templateCompositeInfo(0, 0).value(QStringLiteral("inside")).toBool());
+
+        // Removed from inside: back on the main timeline, the video where it was.
+        QVERIFY(state.removeTemplateComposite(composite.assetId));
+        QVERIFY(state.project()->activeSequenceId().isEmpty());
+        QVERIFY(!state.project()->asset(composite.assetId));
+        QVERIFY(!state.project()->hasSequence(composite.sequenceId));
+        int found = 0;
+        bool templateLayerLeft = false;
+        for (const drift::Track &track : state.project()->tracks()) {
+            for (const drift::Clip &clip : track.clips) {
+                QVERIFY(clip.type != drift::ClipType::Composite);
+                for (const drift::Effect &e : clip.effects)
+                    templateLayerLeft = templateLayerLeft || e.templateTag.isValid();
+                if (clip.type == drift::ClipType::Video && clip.assetId == video.assetId
+                    && clip.timelineStart == video.timelineStart) {
+                    ++found;
+                    QCOMPARE(clip.timelineDuration, video.timelineDuration);
+                    const QList<drift::Effect> left = videoEffectsOf(*state.project(), clip);
+                    QCOMPARE(left.size(), 1);
+                    QCOMPARE(left.at(0).catalogId, QStringLiteral("adjust.contrast"));
+                }
+            }
+        }
+        QCOMPARE(found, 1);
+        QVERIFY(!templateLayerLeft);
+        QCOMPARE(state.project()->tracks().size(), tracksBefore);
+
+        // One undo step brings the composition back.
+        state.undo();
+        QVERIFY(state.project()->asset(composite.assetId));
+        bool compositeBack = false;
+        for (const drift::Track &track : state.project()->tracks())
+            for (const drift::Clip &clip : track.clips)
+                compositeBack = compositeBack || clip.id == composite.id;
+        QVERIFY(compositeBack);
+    }
 }
 
 void EditorStateTest::clipEffectsLiveOnALinkedAdjustmentLane()

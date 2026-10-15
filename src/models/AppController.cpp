@@ -14544,6 +14544,25 @@ bool AppController::ungroupComposite(int trackIndex, int clipIndex)
 
     setPlaying(false);
     const drift::Project before = m_project.detachedCopy();
+    const QString firstId = ungroupCompositeAt(trackIndex, clipIndex, {}, nullptr);
+    if (firstId.isEmpty()) {
+        m_project = before;
+        return false;
+    }
+    pushProjectEdit(before, tr("Ungroup"));
+    finishEdit(tr("Ungrouped"));
+    selectClipById(firstId);
+    return true;
+}
+
+QString AppController::ungroupCompositeAt(int trackIndex, int clipIndex, const QSet<QString> &dropClipIds,
+                                          QHash<QString, QString> *idMap)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    const drift::Clip group = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (group.type != drift::ClipType::Composite || !m_project.hasSequence(group.sequenceId))
+        return {};
     m_project.ensureTrackIds();
 
     // The part of the group this instance plays, moved back to where it plays. The sequence may
@@ -14559,6 +14578,8 @@ bool AppController::ungroupComposite(int trackIndex, int clipIndex)
         trackIds.insert(source.id, track.id);
         track.clips.clear();
         for (drift::Clip clip : source.clips) {
+            if (dropClipIds.contains(clip.id))
+                continue;
             clip.timelineStart += offsetUs;
             drift::Clip slice;
             if (!drift::sliceClipToTimelineRange(clip, group.timelineStart, group.timelineEnd(), slice))
@@ -14590,7 +14611,7 @@ bool AppController::ungroupComposite(int trackIndex, int clipIndex)
         }
     }
     if (restored.isEmpty())
-        return false;
+        return {};
 
     // In the group's place in the stack: right above its track (and the lanes over it), so what
     // was drawn over or under the group still is.
@@ -14602,6 +14623,35 @@ bool AppController::ungroupComposite(int trackIndex, int clipIndex)
         insertAt = qMin(insertAt, lane);
     for (int i = 0; i < restored.size(); ++i)
         tracks.insert(insertAt + i, restored.at(i));
+    // The group's lowest picture track goes back onto the group's own track when its clips fit
+    // there, so a clip that was grouped alone (a template's) ends up where it was, not on a new
+    // track. Its lanes follow it: normalizeAdjustmentLanes gathers them under their parent.
+    const int homeIndex = m_project.trackIndexById(groupTrackId);
+    for (int i = restored.size() - 1; i >= 0 && homeIndex >= 0; --i) {
+        if (restored.at(i).isAdjustment())
+            continue;
+        const QString movedId = restored.at(i).id;
+        const int movedIndex = m_project.trackIndexById(movedId);
+        const drift::Track moved = tracks.at(movedIndex);
+        bool fits = moved.type == tracks.at(homeIndex).type;
+        for (const drift::Clip &a : moved.clips) {
+            for (const drift::Clip &b : tracks.at(homeIndex).clips)
+                fits = fits && (a.timelineEnd() <= b.timelineStart || b.timelineEnd() <= a.timelineStart);
+        }
+        if (fits) {
+            drift::Track &home = tracks[homeIndex];
+            home.clips.append(moved.clips);
+            std::sort(home.clips.begin(), home.clips.end(),
+                      [](const drift::Clip &a, const drift::Clip &b) { return a.timelineStart < b.timelineStart; });
+            home.transitions.append(moved.transitions);
+            for (drift::Track &lane : tracks) {
+                if (lane.parentTrackId == movedId)
+                    lane.parentTrackId = groupTrackId;
+            }
+            tracks.removeAt(movedIndex);
+        }
+        break;
+    }
     const int groupTrack = m_project.trackIndexById(groupTrackId);
     if (groupTrack >= 0 && tracks.at(groupTrack).clips.isEmpty()
         && drift::adjustmentLaneIndexes(m_project, groupTrack).isEmpty()) {
@@ -14611,10 +14661,9 @@ bool AppController::ungroupComposite(int trackIndex, int clipIndex)
         m_selectedTransitionTrack = -1;
 
     normalizeAdjustmentLanes(m_project);
-    pushProjectEdit(before, tr("Ungroup"));
-    finishEdit(tr("Ungrouped"));
-    selectClipById(restored.constFirst().clips.constFirst().id);
-    return true;
+    if (idMap)
+        *idMap = clipIds;
+    return restored.constFirst().clips.constFirst().id;
 }
 
 void AppController::finishFlatten(const QString &clipId, const QString &sequenceId,
@@ -17988,6 +18037,12 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
 
     const drift::Clip sourceClip = track.clips[clipIndex];
     const drift::Project before = m_project;
+    // What was there before, so the composition can tell what the template added.
+    QSet<QString> idsBefore;
+    for (const drift::Track &t : m_project.tracks()) {
+        for (const drift::Clip &c : t.clips)
+            idsBefore.insert(c.id);
+    }
 
     // Full-frame: the matte's own pixels place the subject, and the parametric defaults would
     // crop it to 60% of the frame.
@@ -18216,6 +18271,7 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
                 });
         }
         if (!compositeId.isEmpty()) {
+            markTemplateComposite(compositeId, entry.id, sourceClip, idsBefore);
             int t = -1;
             int c = -1;
             if (findClipById(m_project, compositeId, &t, &c)) {
@@ -18290,6 +18346,7 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
             buildCompositeFromClipIds(ids, tr("Template: %1").arg(entry.displayName), {});
     }
     if (!stackCompositeId.isEmpty()) {
+        markTemplateComposite(stackCompositeId, entry.id, sourceClip, idsBefore);
         int foundTrack = -1;
         int foundClip = -1;
         if (findClipById(m_project, stackCompositeId, &foundTrack, &foundClip)) {
@@ -18628,6 +18685,235 @@ void AppController::removeEffectTemplate(int trackIndex, int clipIndex)
     removeTemplateEffects(trackIndex, clipIndex, QString(), /*dropEmptyLayer=*/true);
     pushProjectEdit(before, tr("Remove template"));
     finishEdit(tr("Template removed"));
+}
+
+namespace {
+
+// The template record of a composition (see markTemplateComposite); empty when a template did not
+// make it. Compositions from 0.11.0 carry none, so it is read off what is inside: adjustment layers
+// whose effects all carry a template tag, and the cutout's " (fg)", " (bg)" and " (clone)" layers
+// over a hidden source.
+QJsonObject templateGenerator(const drift::Project &project, const drift::MediaAsset &asset)
+{
+    if (asset.kind != drift::MediaKind::Composite)
+        return {};
+    if (asset.generator.value(QStringLiteral("kind")).toString() == QLatin1String("template"))
+        return asset.generator;
+    if (!asset.generator.isEmpty() || !project.hasSequence(asset.sequenceId))
+        return {};
+    const drift::TrackList inner = project.sequenceTracks(asset.sequenceId);
+    QJsonArray added;
+    QString templateId;
+    QString sourceId;
+    bool cutout = false;
+    for (const drift::Track &track : inner) {
+        for (const drift::Clip &clip : track.clips) {
+            bool tagged = clip.type == drift::ClipType::Adjustment && clip.linkedClipId.isEmpty()
+                          && !clip.effects.isEmpty();
+            for (const drift::Effect &effect : clip.effects)
+                tagged = tagged && effect.templateTag.isValid();
+            if (tagged) {
+                added.append(clip.id);
+                templateId = clip.effects.constFirst().templateTag.templateId;
+            } else if (clip.name.endsWith(QLatin1String(" (fg)")) || clip.name.endsWith(QLatin1String(" (bg)"))
+                       || clip.name.endsWith(QLatin1String(" (clone)"))) {
+                added.append(clip.id);
+                cutout = true;
+            }
+        }
+    }
+    if (added.isEmpty())
+        return {};
+    if (cutout) {
+        for (const drift::Track &track : inner) {
+            for (const drift::Clip &clip : track.clips) {
+                if (clip.type != drift::ClipType::Adjustment && !added.contains(clip.id)
+                    && clip.opacity.evaluateAt(0) < 0.05) {
+                    sourceId = clip.id;
+                }
+            }
+        }
+        // The matte the template pinned on the source.
+        for (const drift::Track &track : inner) {
+            for (const drift::Clip &clip : track.clips) {
+                if (!sourceId.isEmpty() && clip.linkedClipId == sourceId && clip.mask.isMedia())
+                    added.append(clip.id);
+            }
+        }
+    }
+    const qsizetype colon = asset.name.indexOf(QLatin1Char(':'));
+    return QJsonObject{
+        {QStringLiteral("kind"), QStringLiteral("template")},
+        {QStringLiteral("templateId"), templateId},
+        {QStringLiteral("templateName"), colon >= 0 ? asset.name.mid(colon + 1).trimmed() : asset.name},
+        {QStringLiteral("sourceClipId"), sourceId},
+        {QStringLiteral("added"), added},
+        {QStringLiteral("hidSource"), cutout && !sourceId.isEmpty()},
+        {QStringLiteral("sourceOpacityKeys"), 0},
+        {QStringLiteral("sourceOpacity"), 1.0},
+    };
+}
+
+} // namespace
+
+void AppController::markTemplateComposite(const QString &compositeClipId, const QString &templateId,
+                                          const drift::Clip &sourceClip, const QSet<QString> &idsBefore)
+{
+    int t = -1;
+    int c = -1;
+    if (!findClipById(m_project, compositeClipId, &t, &c))
+        return;
+    const drift::Clip &composite = m_project.tracks().at(t).clips.at(c);
+    drift::MediaAsset *asset = m_project.asset(composite.assetId);
+    if (!asset)
+        return;
+    QJsonArray added;
+    bool hidSource = false;
+    for (const drift::Track &track : m_project.sequenceTracks(composite.sequenceId)) {
+        for (const drift::Clip &clip : track.clips) {
+            if (!idsBefore.contains(clip.id))
+                added.append(clip.id);
+            // A cutout template hides the source under its subject, background and clones.
+            if (clip.id == sourceClip.id)
+                hidSource = clip.opacity.evaluateAt(0) < 0.05 && sourceClip.opacity.evaluateAt(0) >= 0.05;
+        }
+    }
+    const EffectTemplateEntry *entry = effectTemplateForId(templateId);
+    asset->generator = QJsonObject{
+        {QStringLiteral("kind"), QStringLiteral("template")},
+        {QStringLiteral("templateId"), templateId},
+        {QStringLiteral("templateName"), entry ? entry->displayName : templateId},
+        {QStringLiteral("sourceClipId"), sourceClip.id},
+        {QStringLiteral("added"), added},
+        {QStringLiteral("hidSource"), hidSource},
+        {QStringLiteral("sourceOpacityKeys"), int(sourceClip.opacity.keyframes().size())},
+        {QStringLiteral("sourceOpacity"), sourceClip.opacity.evaluateAt(0)},
+    };
+}
+
+QVariantMap AppController::templateCompositeInfo(int trackIndex, int clipIndex) const
+{
+    const auto infoFor = [this](const drift::MediaAsset &asset, bool inside) {
+        const QJsonObject generator = templateGenerator(m_project, asset);
+        if (generator.isEmpty())
+            return QVariantMap{};
+        return QVariantMap{
+            {QStringLiteral("assetId"), asset.id},
+            {QStringLiteral("name"), generator.value(QStringLiteral("templateName")).toString()},
+            {QStringLiteral("inside"), inside},
+        };
+    };
+    const QString active = m_project.activeSequenceId();
+    if (!active.isEmpty()) {
+        for (const drift::MediaAsset &asset : m_project.assets()) {
+            if (asset.kind == drift::MediaKind::Composite && asset.sequenceId == active)
+                return infoFor(asset, true);
+        }
+        return {};
+    }
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Composite)
+        return {};
+    const drift::MediaAsset *asset = m_project.asset(clip.assetId);
+    return asset ? infoFor(*asset, false) : QVariantMap{};
+}
+
+bool AppController::removeTemplateComposite(const QString &assetId)
+{
+    const drift::MediaAsset *asset = m_project.asset(assetId);
+    const QJsonObject generator = asset ? templateGenerator(m_project, *asset) : QJsonObject();
+    if (generator.isEmpty())
+        return false;
+    const QString sequenceId = asset->sequenceId;
+    const QString sourceId = generator.value(QStringLiteral("sourceClipId")).toString();
+
+    // What the template added inside, and whatever is pinned to it (its matte lanes).
+    QSet<QString> drop;
+    for (const QJsonValue &id : generator.value(QStringLiteral("added")).toArray())
+        drop.insert(id.toString());
+    drop.remove(sourceId);
+    if (m_project.hasSequence(sequenceId)) {
+        const drift::TrackList inner = m_project.sequenceTracks(sequenceId);
+        for (bool grew = true; grew;) {
+            grew = false;
+            for (const drift::Track &track : inner) {
+                for (const drift::Clip &clip : track.clips) {
+                    if (!clip.linkedClipId.isEmpty() && drop.contains(clip.linkedClipId)
+                        && !drop.contains(clip.id) && clip.id != sourceId) {
+                        drop.insert(clip.id);
+                        grew = true;
+                    }
+                }
+            }
+        }
+    }
+
+    setPlaying(false);
+    // The instances live on the main timeline (one level of nesting).
+    if (!m_project.activeSequenceId().isEmpty())
+        openSequence(QString());
+    QStringList instanceIds;
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        for (const drift::Clip &clip : m_project.tracks().at(t).clips) {
+            if (clip.type != drift::ClipType::Composite || clip.sequenceId != sequenceId)
+                continue;
+            if (!groupHasNothingOfItsOwn(m_project, t, clip)) {
+                setLastMessage(tr("This template was moved, changed or has layers of its own; removing it "
+                                  "would lose them. Undo those changes first, or open it and delete its "
+                                  "layer."),
+                               QStringLiteral("warning"));
+                return false;
+            }
+            instanceIds.append(clip.id);
+        }
+    }
+
+    const drift::Project before = m_project.detachedCopy();
+    QString selectId;
+    for (const QString &id : std::as_const(instanceIds)) {
+        int t = -1;
+        int c = -1;
+        if (!findClipById(m_project, id, &t, &c))
+            continue;
+        QHash<QString, QString> idMap;
+        const QString first = ungroupCompositeAt(t, c, drop, &idMap);
+        if (first.isEmpty())
+            continue;
+        const QString restoredSource = idMap.value(sourceId);
+        if (selectId.isEmpty())
+            selectId = restoredSource.isEmpty() ? first : restoredSource;
+        // A cutout template hid the source under its layers: show it as it was.
+        int st = -1;
+        int sc = -1;
+        if (generator.value(QStringLiteral("hidSource")).toBool()
+            && findClipById(m_project, restoredSource, &st, &sc)) {
+            drift::KeyframeTrack<double> &opacity = m_project.tracks()[st].clips[sc].opacity;
+            const int keys = generator.value(QStringLiteral("sourceOpacityKeys")).toInt();
+            if (keys == 0)
+                opacity = drift::KeyframeTrack<double>();
+            else if (keys == 1 && opacity.keyframes().size() == 1)
+                opacity.setKeyframe(opacity.keyframes().firstKey(),
+                                    generator.value(QStringLiteral("sourceOpacity")).toDouble(1.0));
+        }
+    }
+
+    // The composition goes from Media too: it was only the template's wrapper.
+    const int index = m_assetLibrary ? m_assetLibrary->indexOfId(assetId) : -1;
+    if (index >= 0)
+        m_assetLibrary->removeAssetAt(index);
+    else {
+        m_project.assets().remove(assetId);
+        m_project.assetOrder().removeAll(assetId);
+    }
+    pruneOrphanSequences();
+    pushProjectEdit(before, tr("Remove template"));
+    finishEdit(QString());
+    setLastMessage(tr("Template removed: the original clip is back in its place"), QStringLiteral("info"));
+    if (!selectId.isEmpty())
+        selectClipById(selectId);
+    return true;
 }
 
 // The template card's + button: the selected clip, or else the top picture clip under the

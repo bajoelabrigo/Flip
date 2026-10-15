@@ -221,6 +221,13 @@ Item {
                        : ({})
             }
             readonly property bool present: !!info && !!info.templateId
+            // The composition this template made, when the clip is inside it.
+            readonly property var wrapper: {
+                void root.clipDataRevision
+                return present
+                       ? EditorState.templateCompositeInfo(EditorState.selectedTrack, EditorState.selectedClip)
+                       : ({})
+            }
             readonly property var rhythms: [
                 { id: "onset", label: qsTr("Every strong sound") },
                 { id: "beat", label: qsTr("Every beat") },
@@ -350,12 +357,89 @@ Item {
                 }
             }
 
+            // Inside the composition the template made, removing it puts the original clip back
+            // on the timeline; taking off only its effects leaves the composition as it is.
             ThemedButton {
                 variant: "ghost"
                 glyph: Theme.icons.trash
                 text: qsTr("Remove template")
-                tooltip: qsTr("Takes off every effect and keyframe this template added")
+                tooltip: templateSection.wrapper.assetId
+                         ? qsTr("Puts the original clip back in its place on the timeline, without the template")
+                         : qsTr("Takes off every effect and keyframe this template added")
+                onClicked: templateSection.wrapper.assetId
+                           ? EditorState.removeTemplateComposite(templateSection.wrapper.assetId)
+                           : EditorState.removeEffectTemplate(EditorState.selectedTrack, EditorState.selectedClip)
+            }
+            ThemedButton {
+                visible: !!templateSection.wrapper.assetId
+                variant: "ghost"
+                glyph: Theme.icons.sparkles
+                text: qsTr("Remove only its effects")
+                tooltip: qsTr("Takes off the template's effects and keeps the composition")
                 onClicked: EditorState.removeEffectTemplate(EditorState.selectedTrack, EditorState.selectedClip)
+            }
+
+            Rectangle {
+                width: parent.width
+                height: Theme.borderWidth
+                color: Theme.panelBorder
+            }
+        }
+
+        // A template's composition selected on the main timeline: its controls live inside, so
+        // this says how to get there and takes the template off in one step.
+        Column {
+            id: templateCompositeSection
+            readonly property var info: {
+                void root.clipDataRevision
+                return root.hasSelection
+                       ? EditorState.templateCompositeInfo(EditorState.selectedTrack, EditorState.selectedClip)
+                       : ({})
+            }
+
+            visible: !templateSection.present && !!info && !!info.assetId && !info.inside
+            width: parent.width
+            spacing: Theme.spacingSm
+
+            Row {
+                width: parent.width
+                spacing: Theme.spacingMd
+
+                IconGlyph {
+                    anchors.verticalCenter: parent.verticalCenter
+                    glyph: Theme.icons.sparkles
+                    iconSize: 16
+                    iconColor: Theme.primary
+                }
+
+                ThemedLabel {
+                    width: parent.width - 16 - parent.spacing
+                    anchors.verticalCenter: parent.verticalCenter
+                    size: "sm"
+                    tone: "default"
+                    elide: Text.ElideRight
+                    wrapMode: Text.NoWrap
+                    text: qsTr("Template: %1").arg(templateCompositeSection.info.name || "")
+                }
+            }
+
+            ThemedLabel {
+                width: parent.width
+                text: qsTr("The template is inside this composition. Open it (double-click) to change its intensity or rhythm.")
+            }
+
+            ThemedButton {
+                variant: "ghost"
+                glyph: Theme.icons.layers
+                text: qsTr("Open template")
+                onClicked: EditorState.openCompositeClip(EditorState.selectedTrack, EditorState.selectedClip)
+            }
+            ThemedButton {
+                variant: "ghost"
+                glyph: Theme.icons.trash
+                text: qsTr("Remove template")
+                tooltip: qsTr("Puts the original clip back in its place on the timeline, without the template")
+                onClicked: EditorState.removeTemplateComposite(templateCompositeSection.info.assetId)
             }
 
             Rectangle {
