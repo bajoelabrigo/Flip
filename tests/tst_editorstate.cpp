@@ -8922,6 +8922,24 @@ void EditorStateTest::effectTemplateStaysEditable()
     QCOMPARE(reloaded.tracks().at(0).clips.at(0).effects.at(0).templateTag,
              state.project()->tracks().at(0).clips.at(0).effects.at(0).templateTag);
 
+    // Cutting the layer re-lays each piece's pulses over its own span: with "clip" rhythm the
+    // ramp starts at the peak at the start of each piece and is back at rest at its end.
+    {
+        const drift::TimeUs cut = layer.timelineStart + layer.timelineDuration / 2;
+        state.splitClipAt(0, 0, drift::usToSeconds(cut));
+        QCOMPARE(state.project()->tracks().at(0).clips.size(), 2);
+        const double halfPeak = pulse.rest + (pulse.peak - pulse.rest) * 0.5;
+        for (const drift::Clip &piece : state.project()->tracks().at(0).clips) {
+            const drift::Effect &e = piece.effects.at(0);
+            QCOMPARE(e.templateTag.spanStart, piece.timelineStart);
+            QCOMPARE(e.templateTag.spanDuration, piece.timelineDuration);
+            QCOMPARE(e.valueAt(pulse.param, 0).toDouble(), halfPeak);
+            QCOMPARE(e.valueAt(pulse.param, piece.timelineDuration).toDouble(), pulse.rest);
+        }
+        state.undo();
+        QCOMPARE(state.project()->tracks().at(0).clips.size(), 1);
+    }
+
     // Applying it again on the layer replaces it instead of stacking a second set of pulses.
     state.selectClip(0, 0);
     state.applyEffectTemplate(0, 0, QStringLiteral("snap_transition"));

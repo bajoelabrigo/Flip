@@ -9967,6 +9967,7 @@ void AppController::normalizeProjectStructure(const drift::Project *before)
     // A clip moved to another track takes its effects and masks along.
     drift::relocateLinkedAdjustments(m_project);
     normalizeAdjustmentLanes(m_project);
+    refreshTemplateSpans(m_project);
     drift::normalizeTransformLayers(m_project.tracks(), before ? &before->tracks() : nullptr);
     drift::normalizeCameraLayers(m_project.tracks());
     m_project.ensureTrackIds();
@@ -18052,6 +18053,8 @@ void AppController::applyEffectTemplateInternal(int trackIndex, int clipIndex,
         tag.sync = entry.sync;
         tag.points = syncPoints;
         tag.speedApplied = entry.speedPulse.valid;
+        tag.spanStart = sourceClip.timelineStart;
+        tag.spanDuration = sourceClip.timelineDuration;
         // Applied to a media clip, the template becomes its own layer: an adjustment clip on a new
         // track right above, spanning the clip, that can be moved, trimmed or cut like any clip
         // and affects everything below it (Apply to narrows it to one clip). A template that
@@ -18226,6 +18229,56 @@ void AppController::removeTemplateEffects(int trackIndex, int clipIndex, const Q
     }
 }
 
+// A clip carrying template pulses was cut, trimmed, stretched or moved: lay its pulses out again
+// for the stretch it covers now. "clip" rhythm ramps across the new span; beat rhythms take the
+// analysed beats under it, or, without an analysis for that stretch, keep the beats they had in
+// place on the timeline and drop those that fell outside.
+void AppController::refreshTemplateSpans(drift::Project &project) const
+{
+    for (drift::Track &track : project.tracks()) {
+        for (drift::Clip &clip : track.clips) {
+            bool tagged = false;
+            for (const drift::Effect &effect : clip.effects)
+                tagged = tagged || effect.templateTag.isValid();
+            if (!tagged)
+                continue;
+            for (int i = 0; i < clip.effects.size(); ++i) {
+                drift::EffectTemplateTag &tag = clip.effects[i].templateTag;
+                if (!tag.isValid())
+                    continue;
+                if (tag.spanDuration < 0) {
+                    // Recorded before spans existed: adopt the current one as the reference.
+                    tag.spanStart = clip.timelineStart;
+                    tag.spanDuration = clip.timelineDuration;
+                    continue;
+                }
+                if (tag.spanStart == clip.timelineStart && tag.spanDuration == clip.timelineDuration)
+                    continue;
+                const EffectTemplateEntry *entry = effectTemplateForId(tag.templateId);
+                if (!entry || tag.layer < 0 || tag.layer >= entry->layers.size())
+                    continue;
+                QList<drift::TimeUs> points;
+                if (tag.sync == QLatin1String("clip") || beatAnalysisReadyForClip(clip, tag.sync)) {
+                    points = templateSyncPoints(clip, tag.sync);
+                } else {
+                    const drift::TimeUs shift = tag.spanStart - clip.timelineStart;
+                    for (drift::TimeUs p : std::as_const(tag.points)) {
+                        const drift::TimeUs moved = p + shift;
+                        if (moved >= 0 && moved < clip.timelineDuration)
+                            points.append(moved);
+                    }
+                }
+                tag.points = points;
+                tag.spanStart = clip.timelineStart;
+                tag.spanDuration = clip.timelineDuration;
+                const drift::EffectTemplateTag snapshot = tag;
+                writeTemplatePulse(clip, i, entry->layers.at(snapshot.layer).pulse, snapshot.sync,
+                                   snapshot.points, snapshot.intensity, snapshot.decay);
+            }
+        }
+    }
+}
+
 QVariantMap AppController::effectTemplateInfo(int trackIndex, int clipIndex) const
 {
     const drift::Clip *host = effectHostClip(trackIndex, clipIndex, drift::AdjustmentKind::VideoEffects);
@@ -18282,6 +18335,8 @@ bool AppController::reshapeEffectTemplate(int trackIndex, int clipIndex, double 
             tag.sync = sync;
         if (points)
             tag.points = *points;
+        tag.spanStart = sourceStart;
+        tag.spanDuration = m_project.tracks().at(sourceTrack).clips.at(sourceClip).timelineDuration;
         const drift::EffectTemplateTag snapshot = tag;
         writeTemplatePulse(host, i, entry->layers.at(snapshot.layer).pulse, snapshot.sync,
                            snapshot.points, snapshot.intensity, snapshot.decay, offsetUs);

@@ -1838,6 +1838,7 @@ protected:
     // the clip and its linked effects adjustment, and its speed curve. No undo step of its own.
     void removeTemplateEffects(int trackIndex, int clipIndex, const QString &templateId,
                                bool dropEmptyLayer = false);
+    void refreshTemplateSpans(drift::Project &project) const;
     bool reshapeEffectTemplate(int trackIndex, int clipIndex, double intensity, double decay,
                                const QString &sync, const QList<drift::TimeUs> *points);
     // Digest of everything the AudioMixer reads; a change means detected beats are stale.

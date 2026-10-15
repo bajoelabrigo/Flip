@@ -31,6 +31,11 @@ struct EffectTemplateTag
     QList<TimeUs> points;
     // The template also wrote a speed curve on that clip, to undo with the template.
     bool speedApplied = false;
+    // The stretch of timeline the pulses were laid out for (start, duration). When the clip that
+    // carries them is cut, trimmed, stretched or moved, the pulses are rebuilt for its new span.
+    // -1: not recorded yet (projects from before this field).
+    TimeUs spanStart = -1;
+    TimeUs spanDuration = -1;
 
     bool isValid() const { return !instance.isEmpty(); }
     bool operator==(const EffectTemplateTag &) const = default;
