@@ -304,8 +304,9 @@ QtObject {
     // Scrims/overlays drawn over media (clip name bands, preview letterbox,
     // thumbnail duration badges). Fixed regardless of app theme because they sit
     // on photographic content, not on panel surfaces.
-    readonly property color scrimColor: "#00000066"
-    readonly property color scrimStrong: "#000000b3"
+    // QML reads 8-digit colours as #AARRGGBB (alpha first), not CSS #RRGGBBAA.
+    readonly property color scrimColor: "#66000000"
+    readonly property color scrimStrong: "#b3000000"
     readonly property color overlayColor: "#000000"
     // Guides and handles drawn on top of preview media.
     readonly property color guideStrong: "#99ffffff"
@@ -345,16 +346,16 @@ QtObject {
     // minimap gives footage a neutral slate that stays distinct from the coloured clip types.
     readonly property color clipVideoOverview: "#6E7A85"
     readonly property color transitionOverlap: "#9B5DE5"
-    readonly property color waveformColor: "#ffffffb3" // rgba(255,255,255,0.7) — on dark clip chrome
+    readonly property color waveformColor: "#b3ffffff" // white at 70 % — on dark clip chrome
     // Waveform drawn on panel surfaces (subtitle cue lane, etc.): follows light/dark FG.
-    readonly property color panelWaveformColor: darkMode ? "#ffffffb3" : "#212121b3"
+    readonly property color panelWaveformColor: darkMode ? "#b3ffffff" : "#b3212121"
     // Detected beat grid in the keyframe strip. Bar lines get the stronger alpha; the
     // beats between them the weaker one, so the metre reads at a glance without the grid
     // competing with the keyframe curves drawn on top of it.
-    readonly property color beatBarColor: darkMode ? "#7ac8ff8c" : "#1f6fb24d"
-    readonly property color beatGridColor: darkMode ? "#7ac8ff47" : "#1f6fb230"
+    readonly property color beatBarColor: darkMode ? "#8c7ac8ff" : "#4d1f6fb2"
+    readonly property color beatGridColor: darkMode ? "#477ac8ff" : "#301f6fb2"
     // Transients that do not land on the grid — drawn as short vertically-centered bars.
-    readonly property color beatOnsetColor: darkMode ? "#ffffff8c" : "#2121218c"
+    readonly property color beatOnsetColor: darkMode ? "#8cffffff" : "#8c212121"
     // Video clips normally show real thumbnails (always photographic/dark-ish); until
     // thumbnail generation exists, use a fixed dark placeholder so the white filename
     // scrim stays legible in light mode too instead of following panelAccent.
