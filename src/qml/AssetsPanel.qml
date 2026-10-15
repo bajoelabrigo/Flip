@@ -1298,8 +1298,17 @@ PanelFrame {
                 height: parent.height - assetsHeader.height
                 opacity: root.tabOpacity
                 sourceComponent: Component {
-                    EffectTemplateBrowser {
-                        Component.onCompleted: root.restoreBrowserTab(this, "templates")
+                    TemplatesTab {
+                        Component.onCompleted: {
+                            const saved = root.tabState["templates"] || {}
+                            if (saved.mode)
+                                mode = saved.mode
+                            if (saved.search)
+                                searchText = saved.search
+                            if (saved.category)
+                                activeCategory = saved.category
+                        }
+                        onModeChanged: root.rememberTab("templates", "mode", mode)
                         onSearchTextChanged: root.rememberTab("templates", "search", searchText)
                         onActiveCategoryChanged: root.rememberTab("templates", "category", activeCategory)
                     }

@@ -550,6 +550,8 @@ void AppController::setAddonManager(AddonManager *manager)
         connect(manager, &AddonManager::kindChanged, m_tts, &TtsController::refreshAvailability);
     if (manager) {
         connect(manager, &AddonManager::kindChanged, this, [this](const QString &kind) {
+            if (kind == QLatin1String("scene-templates"))
+                emit sceneTemplatesChanged();
             if (kind != QLatin1String(drift::pdfium::kPdfiumKind))
                 return;
             drift::clearPdfRenderCaches();
@@ -5092,6 +5094,11 @@ QVariantMap AppController::selectedClipData() const
             && clip.adjustmentKind == drift::AdjustmentKind::VideoEffects
             && (track.isAdjustmentLane() || track.adjustmentScope == drift::AdjustmentScope::AllBelow))
             caps << QStringLiteral("adjustmentLayer");
+        // A scene template's composition: its slots and texts get a tab of their own, first.
+        const QString sceneAsset = sceneTemplateAssetAt(trackIndex, clipIndex);
+        if (!sceneAsset.isEmpty())
+            caps << QStringLiteral("sceneTemplate");
+        data.insert(QStringLiteral("sceneTemplateAssetId"), sceneAsset);
         data.insert(QStringLiteral("inLane"), track.isAdjustmentLane());
         data.insert(QStringLiteral("caps"), caps);
         data.insert(QStringLiteral("disabled"), clip.disabled);

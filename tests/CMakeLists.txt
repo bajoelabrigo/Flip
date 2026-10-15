@@ -23,6 +23,7 @@ qt_add_executable(tst_editorstate
     # requestImage is called directly.
     ../src/MulticamImageProvider.cpp
     ../src/models/AppController.cpp
+    ../src/models/SceneTemplates.cpp
     ../src/models/McpController.cpp
     ../src/models/PreferencesController.cpp
     ../src/models/ProjectFileController.cpp
@@ -217,6 +218,7 @@ qt_add_executable(tst_mcp
     ../src/ClipPreviewImageStore.cpp
     ../src/MulticamImageStore.cpp
     ../src/models/AppController.cpp
+    ../src/models/SceneTemplates.cpp
     ../src/models/McpController.cpp
     ../src/models/PreferencesController.cpp
     ../src/models/ProjectFileController.cpp

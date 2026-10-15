@@ -56,7 +56,7 @@ PanelFrame {
         property string adjustPage: "basic"
     }
 
-    property int activeTab: 0
+    property int activeTab: 1 // General; 0 is the scene template tab, shown only for one
     readonly property string currentTabId: tabs[activeTab].id
     readonly property bool keyframesTab: !!tabs[activeTab].keyframes
 
@@ -71,6 +71,9 @@ PanelFrame {
             root.clipDataRevision++
             root.syncAdjustmentTab()
             root.openSubtitlesTabOnSelect()
+            // Picking a scene template is picking its slots to fill.
+            if (root.tabVisible("template"))
+                root.activeTab = tabIndexOf("template")
             root.syncActiveTab()
         }
         function onSelectedClipDataChanged() {
@@ -110,6 +113,8 @@ PanelFrame {
     // tab that edits keyframeable properties, which is when the timeline opens its keyframe lane.
     // Audio is one: volume is keyframeable and edited there.
     readonly property var tabs: [
+        // A scene template's composition: fill its photo slots and texts (first, so it opens).
+        { id: "template", label: qsTr("Template"), icon: Theme.icons.layers, group: 0, needs: ["sceneTemplate"] },
         { id: "general", label: qsTr("General"), icon: Theme.icons.info, group: 0, needs: [] },
         // A standalone adjustment layer: name, on/off, strength and blend. First of its tabs, and
         // where selecting one lands.
@@ -248,7 +253,7 @@ PanelFrame {
     // selected the tab is kept, so reselecting a clip lands where you were.
     function syncActiveTab() {
         if (root.hasSelection && !root.tabVisible(root.currentTabId))
-            root.activeTab = 0
+            root.activeTab = root.tabVisible("template") ? tabIndexOf("template") : tabIndexOf("general")
     }
 
     // Tell the timeline to show its subtitle-cue lane only while the Subtitles tab is open.
@@ -640,6 +645,18 @@ PanelFrame {
                     active: root.currentTabId === "general"
                     visible: active
                     sourceComponent: Component { GeneralInspector { width: tabColumn.width } }
+                }
+
+                Loader {
+                    active: root.currentTabId === "template"
+                    visible: active
+                    sourceComponent: Component {
+                        TemplateFillPanel {
+                            width: tabColumn.width
+                            assetId: root.clipData.sceneTemplateAssetId || ""
+                            revision: root.clipDataRevision
+                        }
+                    }
                 }
 
                 Loader {

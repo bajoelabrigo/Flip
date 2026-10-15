@@ -345,6 +345,12 @@ QJsonObject clipToJson(const Clip &clip)
     }
     if (clip.masksLimitEffects)
         json.insert(QStringLiteral("masksLimitEffects"), true);
+    if (!clip.placeholderId.isEmpty()) {
+        json.insert(QStringLiteral("placeholderId"), clip.placeholderId);
+        json.insert(QStringLiteral("placeholderLabel"), clip.placeholderLabel);
+        if (clip.placeholderEmpty)
+            json.insert(QStringLiteral("placeholderEmpty"), true);
+    }
     return json;
 }
 
@@ -400,6 +406,9 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     for (const QJsonValue &value : object.value(QStringLiteral("extraMasks")).toArray())
         clip.extraMasks.append(maskFromJson(value.toObject()));
     clip.masksLimitEffects = object.value(QStringLiteral("masksLimitEffects")).toBool(false);
+    clip.placeholderId = object.value(QStringLiteral("placeholderId")).toString();
+    clip.placeholderLabel = object.value(QStringLiteral("placeholderLabel")).toString();
+    clip.placeholderEmpty = object.value(QStringLiteral("placeholderEmpty")).toBool(false);
     clip.name = object.value(QStringLiteral("name")).toString();
     clip.textContent = object.value(QStringLiteral("textContent")).toString();
     clip.textStyle = textStyleFromJson(object.value(QStringLiteral("textStyle")).toObject());

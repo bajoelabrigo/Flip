@@ -40,6 +40,8 @@
 #include "engine/ClipReaderPool.h"
 #include "models/AppController.h"
 #include "engine/EffectTemplateCatalog.h"
+#include "engine/SceneTemplateCatalog.h"
+#include "core/SceneTemplateLayout.h"
 #include "models/TimelineClipsModel.h"
 #include "timeline/TimelineLayout.h"
 #include "timeline/TimelineTrackItem.h"
@@ -301,6 +303,8 @@ private slots:
     void adjustmentTargetKeepsTheMaskInPlace();
     void ungroupPutsTheClipsBack();
     void trackHeadersPickGroupAndDelete();
+    void sceneTemplateInsertsAndFillsSlots();
+    void sceneTemplateLayoutScalesAndCovers();
     void trackRowHeightsForAdjustmentsAndLanes();
     void overlappingAdjustmentsGetASecondLane();
     void multiClipMoveLeftPreservesSelectionAndRelativeSpacing();
@@ -897,6 +901,165 @@ void EditorStateTest::trackHeadersPickGroupAndDelete()
     state.undo();
     QCOMPARE(state.project()->tracks().size(), trackCount);
     QCOMPARE(state.project()->tracks().at(state.project()->trackIndexById(clipsId)).clips.size(), 2);
+}
+
+// A scene template package goes in as one composition: the empty project takes its 9:16 shape, the
+// photo slot shows a stand-in, and filling it cuts the photo to the slot's box (cover), keeps the
+// slot's timing, drops the stand-in from the bin, and undoes in one step.
+void EditorStateTest::sceneTemplateInsertsAndFillsSlots()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    const auto restore = qScopeGuard([] {
+        QStandardPaths::setTestModeEnabled(false);
+        reloadSceneTemplateCatalog();
+    });
+    QTemporaryDir root;
+    QVERIFY(root.isValid());
+    const QString packageDir = QDir(root.path()).filePath(QStringLiteral("demo"));
+    QVERIFY(QDir().mkpath(packageDir));
+
+    drift::Project content;
+    content.setResolution(1080, 1920);
+    content.tracks().clear();
+    drift::Clip slot;
+    slot.id = QStringLiteral("slot-a");
+    slot.type = drift::ClipType::Image;
+    slot.placeholderId = QStringLiteral("p1");
+    slot.placeholderLabel = QStringLiteral("Foto 1");
+    slot.timelineStart = drift::secondsToUs(0.5);
+    slot.timelineDuration = drift::secondsToUs(2.0);
+    slot.transformX.setKeyframe(0, 140.0);
+    slot.transformY.setKeyframe(0, 360.0);
+    slot.transformW.setKeyframe(0, 800.0); // a 800x1000 box: 4:5
+    slot.transformH.setKeyframe(0, 1000.0);
+    drift::Clip title;
+    title.id = QStringLiteral("title-a");
+    title.type = drift::ClipType::Text;
+    title.placeholderId = QStringLiteral("t1");
+    title.placeholderLabel = QStringLiteral("Title");
+    title.textContent = QStringLiteral("Hola");
+    title.timelineDuration = drift::secondsToUs(3.0);
+    content.tracks().append(drift::Track{.type = drift::TrackType::Text, .clips = {title}});
+    content.tracks().append(drift::Track{.type = drift::TrackType::Video, .clips = {slot}});
+    content.ensureTrackIds();
+    {
+        QFile project(QDir(packageDir).filePath(QStringLiteral("project.json")));
+        QVERIFY(project.open(QIODevice::WriteOnly));
+        project.write(QJsonDocument(content.toJson(false)).toJson());
+        QFile manifest(QDir(packageDir).filePath(QStringLiteral("template.json")));
+        QVERIFY(manifest.open(QIODevice::WriteOnly));
+        manifest.write(QJsonDocument(QJsonObject{
+                                         {QStringLiteral("id"), QStringLiteral("demo")},
+                                         {QStringLiteral("displayName"), QStringLiteral("Demo")},
+                                         {QStringLiteral("category"), QStringLiteral("reels")},
+                                         {QStringLiteral("width"), 1080},
+                                         {QStringLiteral("height"), 1920},
+                                         {QStringLiteral("durationSec"), 3.0},
+                                         {QStringLiteral("slots"), 1},
+                                         {QStringLiteral("texts"), 1},
+                                     })
+                           .toJson());
+    }
+    reloadSceneTemplateCatalog({root.path()});
+    QVERIFY(sceneTemplateForId(QStringLiteral("demo")));
+
+    AssetLibrary library;
+    AppController state(&library);
+    QCOMPARE(state.sceneTemplates().size(), 1);
+    const QString compositeId = state.insertSceneTemplate(QStringLiteral("demo"));
+    QVERIFY(!compositeId.isEmpty());
+    QCOMPARE(state.project()->width(), 1080);
+    QCOMPARE(state.project()->height(), 1920);
+
+    const QString assetId = state.sceneTemplateAssetAt(state.selectedTrack(), state.selectedClip());
+    QVERIFY(!assetId.isEmpty());
+    const QString sequenceId = state.project()->asset(assetId)->sequenceId;
+    const auto clipIn = [&](const QString &clipId) -> const drift::Clip * {
+        for (const drift::Track &track : state.project()->sequenceTracks(sequenceId)) {
+            for (const drift::Clip &clip : track.clips) {
+                if (clip.id == clipId)
+                    return &clip;
+            }
+        }
+        return nullptr;
+    };
+
+    const QVariantMap info = state.sceneTemplateInfo(assetId);
+    QCOMPARE(info.value(QStringLiteral("emptySlots")).toInt(), 1);
+    const QVariantList slots = info.value(QStringLiteral("slots")).toList();
+    const QVariantList texts = info.value(QStringLiteral("texts")).toList();
+    QCOMPARE(slots.size(), 1);
+    QCOMPARE(texts.size(), 1);
+    QCOMPARE(texts.first().toMap().value(QStringLiteral("text")).toString(), QStringLiteral("Hola"));
+    const QString slotClipId = slots.first().toMap().value(QStringLiteral("clipId")).toString();
+    QVERIFY(clipIn(slotClipId));
+    const QString standIn = clipIn(slotClipId)->assetId;
+    QVERIFY(state.project()->asset(standIn));
+    QCOMPARE(clipIn(slotClipId)->timelineDuration, drift::secondsToUs(2.0));
+
+    // A 16:9 photo into the 4:5 slot keeps the middle of its width.
+    const QString photoPath = QDir(root.path()).filePath(QStringLiteral("wide.png"));
+    QImage wide(1600, 900, QImage::Format_RGB32);
+    wide.fill(Qt::red);
+    QVERIFY(wide.save(photoPath));
+    drift::MediaAsset photo;
+    photo.kind = drift::MediaKind::Image;
+    photo.name = QStringLiteral("wide.png");
+    photo.path = photoPath;
+    photo.width = 1600;
+    photo.height = 900;
+    const QString photoId = state.project()->addAsset(photo);
+    library.syncToProject();
+
+    QVERIFY(state.fillTemplateSlot(slotClipId, photoId));
+    const drift::Clip *filled = clipIn(slotClipId);
+    QVERIFY(filled);
+    QCOMPARE(filled->assetId, photoId);
+    QVERIFY(!filled->placeholderEmpty);
+    QCOMPARE(filled->timelineDuration, drift::secondsToUs(2.0));
+    QVERIFY(qAbs(filled->sourceFrame.width() - (0.8 / (16.0 / 9.0))) < 1e-6);
+    QVERIFY(qAbs(filled->sourceFrame.x() - (1.0 - filled->sourceFrame.width()) / 2.0) < 1e-6);
+    QVERIFY(!state.project()->asset(standIn));
+    QCOMPARE(state.sceneTemplateInfo(assetId).value(QStringLiteral("emptySlots")).toInt(), 0);
+
+    state.undo();
+    QCOMPARE(state.sceneTemplateInfo(assetId).value(QStringLiteral("emptySlots")).toInt(), 1);
+    QVERIFY(state.project()->asset(standIn));
+
+    const QString titleClipId = texts.first().toMap().value(QStringLiteral("clipId")).toString();
+    QVERIFY(state.setTemplateText(titleClipId, QStringLiteral("Feliz dia")));
+    QCOMPARE(clipIn(titleClipId)->textContent, QStringLiteral("Feliz dia"));
+}
+
+void EditorStateTest::sceneTemplateLayoutScalesAndCovers()
+{
+    drift::Clip box;
+    box.type = drift::ClipType::Image;
+    box.transformX.setKeyframe(0, 120.0);
+    box.transformY.setKeyframe(0, 210.0);
+    box.transformW.setKeyframe(0, 540.0);
+    box.transformH.setKeyframe(0, 960.0);
+    drift::Clip text;
+    text.type = drift::ClipType::Text;
+    text.textStyle.pixelSize = 81;
+    QList<drift::Track> tracks{drift::Track{.type = drift::TrackType::Video, .clips = {box, text}}};
+
+    // 1080x1920 into 720x1280: two thirds, nothing to centre.
+    drift::scaleTemplateLayout(tracks, 1080, 1920, 720, 1280);
+    QVERIFY(qFuzzyCompare(tracks.at(0).clips.at(0).transformX.evaluateAt(0), 80.0));
+    QVERIFY(qFuzzyCompare(tracks.at(0).clips.at(0).transformW.evaluateAt(0), 360.0));
+    QCOMPARE(tracks.at(0).clips.at(1).textStyle.pixelSize, 54);
+    // An unset box was the whole canvas: it becomes the whole scaled canvas.
+    QVERIFY(qFuzzyCompare(tracks.at(0).clips.at(1).transformW.evaluateAt(0), 720.0));
+
+    // Into 16:9 the template is fitted by height and centred.
+    QList<drift::Track> wide{drift::Track{.type = drift::TrackType::Video, .clips = {box}}};
+    drift::scaleTemplateLayout(wide, 1080, 1920, 1920, 1080);
+    const double s = 1080.0 / 1920.0;
+    QVERIFY(qFuzzyCompare(wide.at(0).clips.at(0).transformX.evaluateAt(0), 120.0 * s + (1920 - 1080 * s) / 2.0));
+
+    // Cover: a square picture in a tall slot keeps its middle, full height.
+    QCOMPARE(drift::coverSourceFrame(QSizeF(1000, 1000), QSizeF(500, 1000)), QRectF(0.25, 0, 0.5, 1));
 }
 
 // The bug this guards: the overlay used to place a clip's outline and grips with the eye fixed at

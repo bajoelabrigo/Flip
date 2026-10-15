@@ -1304,6 +1304,25 @@ public:
     // layers, and the composition leaves Media. One undo step. Refused, with a message, when an
     // instance has motion, speed or effects of its own that would be lost.
     Q_INVOKABLE bool removeTemplateComposite(const QString &assetId);
+    // Scene templates (SceneTemplates.cpp): packaged little edits that go in as one composition
+    // with photo slots and texts to fill. {id, name, category, categoryLabel, thumbnail, preview,
+    // slots, texts, durationSec, width, height, premium, tags}.
+    Q_INVOKABLE QVariantList sceneTemplates() const;
+    Q_INVOKABLE QVariantList sceneTemplateCategoryList() const;
+    // At the playhead, on top of the stack. An empty project takes the template's size first.
+    // Returns the composition clip's id, or empty.
+    Q_INVOKABLE QString insertSceneTemplate(const QString &templateId);
+    // The scene template asset behind a clip (or the open composition), or empty.
+    Q_INVOKABLE QString sceneTemplateAssetAt(int trackIndex, int clipIndex) const;
+    // {assetId, name, emptySlots, slots[{clipId, slotId, number, label, empty, kind, mediaName,
+    // thumbnail, startSec, durationSec}], texts[{clipId, slotId, label, text, ...}]}.
+    Q_INVOKABLE QVariantMap sceneTemplateInfo(const QString &compositeAssetId) const;
+    // Puts a bin photo or video in a slot, cut to fill its box; one undo step.
+    Q_INVOKABLE bool fillTemplateSlot(const QString &slotClipId, const QString &mediaAssetId);
+    // Imports the files and fills the given slot, then the empty ones after it. Returns how many.
+    Q_INVOKABLE int fillTemplateSlotsFromUrls(const QString &compositeAssetId, const QString &firstSlotClipId,
+                                              const QList<QUrl> &urls);
+    Q_INVOKABLE bool setTemplateText(const QString &textClipId, const QString &text);
     Q_INVOKABLE void removeEffect(int trackIndex, int clipIndex, int effectIndex);
     Q_INVOKABLE void setEffectEnabled(int trackIndex, int clipIndex, int effectIndex, bool enabled);
     Q_INVOKABLE void moveEffect(int trackIndex, int clipIndex, int fromIndex, int toIndex);
@@ -1784,6 +1803,8 @@ signals:
     void userTextPresetsChanged();
     void normalizingChanged();
     void fontCatalogChanged();
+    // Scene templates were installed or removed (Stock, Extras).
+    void sceneTemplatesChanged();
     void userFontsChanged();
     void userEffectPresetsChanged();
     void facePropsChanged();
@@ -1887,6 +1908,7 @@ protected:
     // composite clip's id (empty when nothing could be nested). `prepareInner` may add to the
     // inner tracks first (it gets them shifted to start at 0, plus the original start). No undo
     // step: the caller records one.
+    bool fillTemplateSlotWithAsset(const QString &slotClipId, const QString &mediaAssetId, bool recordUndo);
     QString buildCompositeFromClipIds(
         const QSet<QString> &ids, const QString &name,
         const std::function<void(drift::TrackList &, drift::TimeUs)> &prepareInner);
