@@ -74,6 +74,14 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
    de pistas seguidas y Ctrl + clic suma o quita pistas sueltas, como en Premiere/After Effects. Con varias
    seleccionadas: **agrupar** (composición con todo su contenido) y **eliminar las pistas completas** con todos sus
    clips (Suprimir y clic derecho). Hoy la selección múltiple es solo de clips.
+7. **Exportar en 2K, 4K y 8K (Jorge, 2026-10-15):** hoy `Exporter::scaleOptions` solo ofrece la resolución del
+   proyecto o menos («Skip downscale targets that would upscale»): un proyecto 1080p no puede salir en 4K. Hace falta:
+   - presets 1440p (2K), 2160p (4K) y 4320p (8K) también por encima del proyecto, renderizando el compositor a ese
+     tamaño (no escalar el 1080p ya hecho: textos, formas y vectores se ven nítidos si se dibujan a la resolución final);
+   - códec: H.264 llega a 4096×2304 (nivel 5.2) y NVENC H.264 no pasa de 4096 de ancho; **8K exige HEVC o AV1**.
+     Elegirlo solo o avisar;
+   - tasa de bits sugerida por preset, memoria de GPU y tiempo de exportación (avisar en 8K);
+   - el editor web ya exporta hasta 4K60 (ver `flipstudio-app`): mismo criterio de nombres.
 
 ### 0.10.0 PUBLICADA EN GITHUB (2026-10-14): cuenta de Google, Stock y estadísticas anónimas
 - PR #15, tag `v0.10.0`, release con instalador, portable y `SHA256SUMS` (copia en `FlipStudio\versiones\FlipStudio-0.10.0`).
