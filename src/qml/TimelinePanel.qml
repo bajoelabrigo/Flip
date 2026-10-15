@@ -1281,7 +1281,7 @@ PanelFrame {
                         && EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
                 // The Column skips an invisible child. Without this, closing the editor left its
                 // last height reserved over the tracks: a Loader keeps the size its item gave it.
-                visible: active && item !== null && item.visible
+                visible: active && item !== null && item.hasContent
                 sourceComponent: Component {
                     KeyframeGraph {
                         pxPerSecond: root.pxPerSecond

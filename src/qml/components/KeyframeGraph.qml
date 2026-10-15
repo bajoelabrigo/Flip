@@ -347,10 +347,13 @@ Item {
             laneHeight = expandedHeight
     }
 
-    height: visible ? laneHeight : 0
     // Open whenever the clip has an animation to show, even if every curve is currently folded
-    // away — otherwise hiding the last one would take the chips with it.
-    visible: keyframesTab && hasClip && clip && allSeries.length > 0
+    // away — otherwise hiding the last one would take the chips with it. Its own property rather
+    // than `visible`, which reads false while the item's parent is hidden: the panel decides
+    // whether to show the strip from this.
+    readonly property bool hasContent: keyframesTab && hasClip && !!clip && allSeries.length > 0
+    height: hasContent ? laneHeight : 0
+    visible: hasContent
 
     // Curve editing focuses one series: it gets tangent handles and owns the value axis,
     // while the others stay drawn as dimmed context. Handles from two series normalized to
