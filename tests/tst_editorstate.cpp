@@ -274,6 +274,7 @@ private slots:
     void adjustmentLayerCreationAndCompositing();
     void clipEffectsLiveOnALinkedAdjustmentLane();
     void effectTemplateStaysEditable();
+    void trackKeyframeRowsUnfoldAndEdit();
     void splittingAGradedClipKeepsEffectsOnBothHalves();
     void transitionPartnerIsTheNearestClipNotTheEarliest();
     void linkedAdjustmentFollowsItsClip();
@@ -8856,6 +8857,104 @@ void EditorStateTest::splittingAGradedClipKeepsEffectsOnBothHalves()
 // remember the template: intensity and decay rebuild every pulse at once, cutting the layer
 // re-lays each piece, re-applying replaces it, and removing it takes the layer away while the
 // video's own effects stay. snap_transition syncs to the clip, so no beat analysis is needed.
+// The After Effects twirl on a track: unfolded, the row grows one line per animated property,
+// and the keys on those lines are added, moved, shaped and removed in place.
+void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()
+{
+    AssetLibrary library;
+    AppController state(&library);
+
+    drift::Clip clip;
+    clip.id = QStringLiteral("clip-rows");
+    clip.type = drift::ClipType::Video;
+    clip.name = QStringLiteral("Shot");
+    clip.path = QStringLiteral("/tmp/does-not-need-to-exist.mp4");
+    clip.timelineStart = drift::secondsToUs(1.0);
+    clip.timelineDuration = drift::secondsToUs(4.0);
+    clip.srcIn = 0;
+    clip.srcOut = drift::secondsToUs(4.0);
+    drift::Track track{.type = drift::TrackType::Video};
+    track.clips.append(clip);
+    state.project()->tracks().clear();
+    state.project()->tracks().append(track);
+
+    const QVariantMap metrics{{QStringLiteral("video"), 60.0}, {QStringLiteral("lane"), 20.0},
+                              {QStringLiteral("keyframeRow"), 18.0}};
+    QVERIFY(!state.trackHasKeyframes(0));
+    QVERIFY(state.trackKeyframeRows(0).isEmpty());
+
+    const QString opacity = QStringLiteral("opacity");
+    state.setClipKeyframe(0, 0, opacity, 1.0, 1.0);
+    state.setClipKeyframe(0, 0, opacity, 3.0, 0.0);
+    state.setClipKeyframe(0, 0, opacity, 5.0, 1.0);
+    QVERIFY(state.trackHasKeyframes(0));
+    const QVariantList rows = state.trackKeyframeRows(0);
+    QCOMPARE(rows.size(), 1);
+    const QVariantMap row = rows.first().toMap();
+    QCOMPARE(row.value(QStringLiteral("prop")).toString(), opacity);
+    QVERIFY(!row.value(QStringLiteral("label")).toString().isEmpty());
+    const QVariantMap entry = row.value(QStringLiteral("clips")).toList().first().toMap();
+    QCOMPARE(entry.value(QStringLiteral("start")).toDouble(), 1.0);
+    QCOMPARE(entry.value(QStringLiteral("duration")).toDouble(), 4.0);
+    QCOMPARE(entry.value(QStringLiteral("keys")).toList().size(), 3);
+
+    // Folded the row keeps its height; unfolded it grows by one line, saved with the project.
+    const int folded = state.trackRowHeight(0, metrics);
+    state.setTrackKeyframesExpanded(0, true);
+    QCOMPARE(state.trackRowHeight(0, metrics), folded + 18);
+    {
+        QString error;
+        const drift::Project reloaded = drift::Project::fromJson(state.project()->toJson(), &error);
+        QVERIFY2(error.isEmpty(), qPrintable(error));
+        QVERIFY(reloaded.tracks().at(0).keyframesExpanded);
+    }
+
+    auto keyAt = [&](double seconds) {
+        for (const QVariant &k : state.clipKeyframes(0, 0, opacity)) {
+            const QVariantMap key = k.toMap();
+            if (std::abs(key.value(QStringLiteral("seconds")).toDouble() - seconds) < 1e-6)
+                return key;
+        }
+        return QVariantMap{};
+    };
+
+    // Easy ease in flattens only the side coming into the key, ease out only the side leaving it.
+    state.setKeyframeEasingAt(0, 0, opacity, 3.0, QStringLiteral("easeIn"));
+    QVariantMap key = keyAt(3.0);
+    QVERIFY(key.value(QStringLiteral("inDx")).toDouble() < 0.0);
+    QCOMPARE(key.value(QStringLiteral("outDx")).toDouble(), 0.0);
+    state.setKeyframeEasingAt(0, 0, opacity, 3.0, QStringLiteral("easeOut"));
+    key = keyAt(3.0);
+    QCOMPARE(key.value(QStringLiteral("inDx")).toDouble(), 0.0);
+    QVERIFY(key.value(QStringLiteral("outDx")).toDouble() > 0.0);
+    state.setKeyframeEasingAt(0, 0, opacity, 3.0, QStringLiteral("hold"));
+    QVERIFY(keyAt(3.0).value(QStringLiteral("hold")).toBool());
+    state.setKeyframeEasingAt(0, 0, opacity, 3.0, QStringLiteral("ease"));
+    key = keyAt(3.0);
+    QVERIFY(key.value(QStringLiteral("inDx")).toDouble() < 0.0);
+    QVERIFY(key.value(QStringLiteral("outDx")).toDouble() > 0.0);
+
+    // Moving a key keeps its shape.
+    state.beginPreviewDrag(QStringLiteral("Move keyframe"));
+    state.previewMoveClipKeyframe(0, 0, opacity, 3.0, 2.5, 0.0);
+    state.commitPreviewDrag();
+    QVERIFY(keyAt(3.0).isEmpty());
+    key = keyAt(2.5);
+    QVERIFY(!key.isEmpty());
+    QVERIFY(key.value(QStringLiteral("outDx")).toDouble() > 0.0);
+    state.undo();
+    QVERIFY(!keyAt(3.0).isEmpty());
+
+    // Adding a key on the line holds the value the property already has there.
+    const double before = state.propertyValueAt(0, 0, opacity, 4.0, -1.0);
+    state.addClipKeyframeAt(0, 0, opacity, 4.0);
+    QCOMPARE(state.clipKeyframes(0, 0, opacity).size(), 4);
+    QVERIFY(std::abs(keyAt(4.0).value(QStringLiteral("value")).toDouble() - before) < 1e-6);
+
+    state.removeClipKeyframe(0, 0, opacity, 4.0);
+    QCOMPARE(state.clipKeyframes(0, 0, opacity).size(), 3);
+}
+
 void EditorStateTest::effectTemplateStaysEditable()
 {
     AssetLibrary library;

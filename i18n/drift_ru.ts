@@ -4654,6 +4654,74 @@
         <translation>Дорожка показана</translation>
     </message>
     <message>
+        <source>X position</source>
+        <translation type="unfinished">Положение X</translation>
+    </message>
+    <message>
+        <source>Y position</source>
+        <translation type="unfinished">Положение Y</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished">Ширина</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished">Высота</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished">Поворот</translation>
+    </message>
+    <message>
+        <source>Tilt X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tilt Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation type="unfinished">Глубина</translation>
+    </message>
+    <message>
+        <source>Perspective</source>
+        <translation type="unfinished">Перспектива</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished">Непрозрачность</translation>
+    </message>
+    <message>
+        <source>Volume</source>
+        <translation type="unfinished">Громкость</translation>
+    </message>
+    <message>
+        <source>Mask X</source>
+        <translation type="unfinished">Положение маски по X</translation>
+    </message>
+    <message>
+        <source>Mask Y</source>
+        <translation type="unfinished">Положение маски по Y</translation>
+    </message>
+    <message>
+        <source>Mask width</source>
+        <translation type="unfinished">Ширина маски</translation>
+    </message>
+    <message>
+        <source>Mask height</source>
+        <translation type="unfinished">Высота маски</translation>
+    </message>
+    <message>
+        <source>Mask rotation</source>
+        <translation type="unfinished">Поворот маски</translation>
+    </message>
+    <message>
+        <source>Mask feather</source>
+        <translation type="unfinished">Растушёвка маски</translation>
+    </message>
+    <message>
         <source>Move track</source>
         <translation>Переместить дорожку</translation>
     </message>
@@ -20304,6 +20372,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Toggle audio mixer strip</source>
         <translation>Показать или скрыть аудиомикшер</translation>
     </message>
@@ -20736,6 +20808,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Hide keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add camera clip at playhead</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20838,6 +20918,45 @@ If playback stutters, try another.</source>
     <message>
         <source>Rename…</source>
         <translation>Переименовать…</translation>
+    </message>
+</context>
+<context>
+    <name>TrackKeyframeRows</name>
+    <message>
+        <source>Double-click to add a keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished">Переместить ключевой кадр</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished">Удержание</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

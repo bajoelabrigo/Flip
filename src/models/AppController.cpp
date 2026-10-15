@@ -1280,6 +1280,7 @@ QVariantList AppController::tracks() const
             {QStringLiteral("showChannelWaveforms"), track.showChannelWaveforms},
             {QStringLiteral("heightScale"), track.heightScale},
             {QStringLiteral("waveformScale"), track.waveformScale},
+            {QStringLiteral("keyframesExpanded"), track.keyframesExpanded},
         });
     }
 
@@ -16638,9 +16639,15 @@ void AppController::previewMoveClipKeyframe(int trackIndex, int clipIndex, const
     const drift::TimeUs fromRel = qMax<drift::TimeUs>(0, drift::secondsToUs(fromSeconds) - clip.timelineStart);
     const drift::TimeUs toRel = qMax<drift::TimeUs>(0, drift::secondsToUs(toSeconds) - clip.timelineStart);
     const drift::TimeUs nearest = kt->nearestKeyframe(fromRel, kKeyframeToleranceUs);
-    if (nearest >= 0)
+    if (nearest >= 0) {
+        // The key travels with its shape (ease, hold, hand-drawn tangents); only the value is new.
+        drift::Keyframe<double> moved = kt->keyframes().value(nearest);
+        moved.value = value;
         kt->removeKeyframe(nearest);
-    kt->setKeyframe(toRel, value);
+        kt->setKeyframe(toRel, moved);
+    } else {
+        kt->setKeyframe(toRel, value);
+    }
 
     if (m_positionLinked && (prop == QLatin1String("x") || prop == QLatin1String("y"))) {
         const QString otherProp = (prop == QLatin1String("x")) ? QStringLiteral("y") : QStringLiteral("x");
@@ -17034,6 +17041,66 @@ void AppController::setKeyframeInterpolation(int trackIndex, int clipIndex, cons
 
     pushProjectEdit(before, tr("Keyframe easing changed"));
     finishEdit(tr("Keyframe easing updated"));
+}
+
+// The keyframe rows under a track: the shape of one key, picked from its right-click menu.
+// "easeIn" / "easeOut" flatten only the side coming into / leaving the key, as After Effects'
+// Easy Ease In / Out do; "ease" both; "linear" and "hold" as the strip's chips.
+void AppController::setKeyframeEasingAt(int trackIndex, int clipIndex, const QString &prop,
+                                        double atSeconds, const QString &mode)
+{
+    const drift::Project before = m_project;
+    bool changed = false;
+    auto shape = [&](const QString &p) {
+        int t = trackIndex;
+        int c = clipIndex;
+        redirectToKeyframeHost(&t, &c, p);
+        if (t < 0 || t >= m_project.tracks().size() || c < 0
+            || c >= m_project.tracks().at(t).clips.size())
+            return;
+        drift::Clip &clip = m_project.tracks()[t].clips[c];
+        drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, p, /*createIfMissing=*/false);
+        if (!kt || kt->isEmpty())
+            return;
+        const drift::TimeUs at =
+            kt->nearestKeyframe(drift::secondsToUs(atSeconds) - clip.timelineStart, kKeyframeToleranceUs);
+        if (at < 0)
+            return;
+        if (mode == QLatin1String("easeIn") || mode == QLatin1String("easeOut")) {
+            kt->setEasing(at, drift::Interpolation::Ease);
+            drift::Keyframe<double> *key = keyframeAt(trackIndex, clipIndex, p, atSeconds);
+            if (!key)
+                return;
+            if (mode == QLatin1String("easeIn")) {
+                key->outDx = 0.0;
+                key->outDy = 0.0;
+            } else {
+                key->inDx = 0.0;
+                key->inDy = 0.0;
+            }
+            key->corner = true;
+        } else {
+            kt->setEasing(at, drift::interpolationFromString(mode));
+        }
+        changed = true;
+    };
+    shape(prop);
+    if (m_positionLinked && (prop == QLatin1String("x") || prop == QLatin1String("y")))
+        shape(prop == QLatin1String("x") ? QStringLiteral("y") : QStringLiteral("x"));
+    if (!changed)
+        return;
+    pushProjectEdit(before, tr("Keyframe easing changed"));
+    finishEdit(tr("Keyframe easing updated"));
+}
+
+// Double-click on a keyframe row: a key at that time holding the value the property has there,
+// so adding it changes nothing until it is moved or edited.
+void AppController::addClipKeyframeAt(int trackIndex, int clipIndex, const QString &prop,
+                                      double atSeconds)
+{
+    const double value = propertyValueAt(trackIndex, clipIndex, prop, atSeconds,
+                                         propertyBaseValue(trackIndex, clipIndex, prop));
+    setClipKeyframe(trackIndex, clipIndex, prop, atSeconds, value);
 }
 
 void AppController::syncLinkedTangents(int trackIndex, int clipIndex, const QString &prop,
@@ -21001,7 +21068,126 @@ int AppController::trackRowHeight(int trackIndex, const QVariantMap &metrics) co
     const double scale = track.heightScale > 0 ? track.heightScale : 1.0;
     const double lanes =
         drift::adjustmentLaneIndexes(m_project, trackIndex).size() * metric("lane", 20.0);
-    return qRound(qMax(20.0, base * scale + lanes));
+    // Unfolded: one line per animated property under the clips.
+    const double keyframeRows = track.keyframesExpanded
+        ? trackKeyframeRows(trackIndex).size() * metric("keyframeRow", 18.0)
+        : 0.0;
+    return qRound(qMax(20.0, base * scale + lanes) + keyframeRows);
+}
+
+void AppController::setTrackKeyframesExpanded(int trackIndex, bool expanded)
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return;
+    if (m_project.tracks().at(trackIndex).keyframesExpanded == expanded)
+        return;
+    // View-only, like heightScale: no undo entry.
+    m_project.tracks()[trackIndex].keyframesExpanded = expanded;
+    notifyTracksChanged();
+}
+
+bool AppController::trackHasKeyframes(int trackIndex) const
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size()
+        || m_project.tracks().at(trackIndex).isAdjustmentLane())
+        return false;
+    for (int c = 0; c < m_project.tracks().at(trackIndex).clips.size(); ++c) {
+        if (!clipAnimatedProperties(trackIndex, c).isEmpty())
+            return true;
+    }
+    return false;
+}
+
+QString AppController::animatedPropertyLabel(int trackIndex, int clipIndex, const QString &prop) const
+{
+    static const QHash<QString, const char *> kTransform{
+        {QStringLiteral("x"), QT_TR_NOOP("X position")},
+        {QStringLiteral("y"), QT_TR_NOOP("Y position")},
+        {QStringLiteral("width"), QT_TR_NOOP("Width")},
+        {QStringLiteral("height"), QT_TR_NOOP("Height")},
+        {QStringLiteral("rotation"), QT_TR_NOOP("Rotation")},
+        {QStringLiteral("rotationX"), QT_TR_NOOP("Tilt X")},
+        {QStringLiteral("rotationY"), QT_TR_NOOP("Tilt Y")},
+        {QStringLiteral("z"), QT_TR_NOOP("Depth")},
+        {QStringLiteral("perspective"), QT_TR_NOOP("Perspective")},
+        {QStringLiteral("opacity"), QT_TR_NOOP("Opacity")},
+        {QStringLiteral("volume"), QT_TR_NOOP("Volume")},
+        {QStringLiteral("mask.x"), QT_TR_NOOP("Mask X")},
+        {QStringLiteral("mask.y"), QT_TR_NOOP("Mask Y")},
+        {QStringLiteral("mask.w"), QT_TR_NOOP("Mask width")},
+        {QStringLiteral("mask.h"), QT_TR_NOOP("Mask height")},
+        {QStringLiteral("mask.rotation"), QT_TR_NOOP("Mask rotation")},
+        {QStringLiteral("mask.feather"), QT_TR_NOOP("Mask feather")},
+    };
+    if (const auto it = kTransform.constFind(prop); it != kTransform.constEnd())
+        return tr(it.value());
+
+    int effectIndex = -1;
+    QString paramKey;
+    if (parseEffectProp(prop, &effectIndex, &paramKey)) {
+        const drift::Clip *host = nullptr;
+        if (trackIndex >= 0 && trackIndex < m_project.tracks().size()
+            && clipIndex >= 0 && clipIndex < m_project.tracks().at(trackIndex).clips.size()) {
+            const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+            host = clip.type == drift::ClipType::Adjustment
+                ? &clip
+                : effectHostClip(trackIndex, clipIndex, drift::AdjustmentKind::VideoEffects);
+        }
+        if (host && effectIndex >= 0 && effectIndex < host->effects.size()) {
+            const drift::Effect &effect = host->effects.at(effectIndex);
+            if (const EffectPresetEntry *def = effectDefForId(effect.catalogId)) {
+                for (const drift::EffectParamSpec &p : def->meta.parameters) {
+                    if (p.key == paramKey)
+                        return def->meta.displayName + QStringLiteral(" · ") + p.label;
+                }
+                return def->meta.displayName + QStringLiteral(" · ") + paramKey;
+            }
+        }
+        return paramKey;
+    }
+    const QString label = keyframePropertyLabel(trackIndex, clipIndex, prop);
+    return label.isEmpty() ? prop : label;
+}
+
+QVariantList AppController::trackKeyframeRows(int trackIndex) const
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size()
+        || m_project.tracks().at(trackIndex).isAdjustmentLane())
+        return {};
+    // One row per property name across the track's clips (two clips each animating "Opacity"
+    // share a row, as one layer's property does in After Effects), in first-seen order.
+    QStringList order;
+    QHash<QString, QVariantList> clipsByLabel;
+    const int clipCount = m_project.tracks().at(trackIndex).clips.size();
+    for (int c = 0; c < clipCount; ++c) {
+        for (const QString &prop : clipAnimatedProperties(trackIndex, c)) {
+            const QVariantList keys = clipKeyframes(trackIndex, c, prop);
+            if (keys.isEmpty())
+                continue;
+            const QString label = animatedPropertyLabel(trackIndex, c, prop);
+            if (!clipsByLabel.contains(label))
+                order.append(label);
+            clipsByLabel[label].append(QVariantMap{
+                {QStringLiteral("clip"), c},
+                {QStringLiteral("prop"), prop},
+                {QStringLiteral("start"), drift::usToSeconds(
+                     m_project.tracks().at(trackIndex).clips.at(c).timelineStart)},
+                {QStringLiteral("duration"), drift::usToSeconds(
+                     m_project.tracks().at(trackIndex).clips.at(c).timelineDuration)},
+                {QStringLiteral("keys"), keys},
+            });
+        }
+    }
+    QVariantList rows;
+    for (const QString &label : std::as_const(order)) {
+        const QVariantList clips = clipsByLabel.value(label);
+        rows.append(QVariantMap{
+            {QStringLiteral("label"), label},
+            {QStringLiteral("prop"), clips.first().toMap().value(QStringLiteral("prop"))},
+            {QStringLiteral("clips"), clips},
+        });
+    }
+    return rows;
 }
 
 int AppController::adjustmentLaneCount(int trackIndex) const

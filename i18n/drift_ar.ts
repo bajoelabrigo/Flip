@@ -4675,6 +4675,74 @@
         <translation>تم تغيير توزيع صوت المسار</translation>
     </message>
     <message>
+        <source>X position</source>
+        <translation type="unfinished">الموضع X</translation>
+    </message>
+    <message>
+        <source>Y position</source>
+        <translation type="unfinished">الموضع Y</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished">العرض</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished">الارتفاع</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished">الدوران</translation>
+    </message>
+    <message>
+        <source>Tilt X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tilt Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation type="unfinished">العمق</translation>
+    </message>
+    <message>
+        <source>Perspective</source>
+        <translation type="unfinished">المنظور</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished">العتامة</translation>
+    </message>
+    <message>
+        <source>Volume</source>
+        <translation type="unfinished">مستوى الصوت</translation>
+    </message>
+    <message>
+        <source>Mask X</source>
+        <translation type="unfinished">X القناع</translation>
+    </message>
+    <message>
+        <source>Mask Y</source>
+        <translation type="unfinished">Y القناع</translation>
+    </message>
+    <message>
+        <source>Mask width</source>
+        <translation type="unfinished">عرض القناع</translation>
+    </message>
+    <message>
+        <source>Mask height</source>
+        <translation type="unfinished">ارتفاع القناع</translation>
+    </message>
+    <message>
+        <source>Mask rotation</source>
+        <translation type="unfinished">دوران القناع</translation>
+    </message>
+    <message>
+        <source>Mask feather</source>
+        <translation type="unfinished">تنعيم القناع</translation>
+    </message>
+    <message>
         <source>Move track</source>
         <translation>نقل المسار</translation>
     </message>
@@ -20482,6 +20550,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Toggle audio mixer strip</source>
         <translation>تبديل شريط مازج الصوت</translation>
     </message>
@@ -20901,6 +20973,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Hide keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add camera clip at playhead</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21015,6 +21095,45 @@ If playback stutters, try another.</source>
     <message>
         <source>Rename…</source>
         <translation>إعادة تسمية…</translation>
+    </message>
+</context>
+<context>
+    <name>TrackKeyframeRows</name>
+    <message>
+        <source>Double-click to add a keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished">تحريك الإطار المفتاحي</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished">خطي</translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished">ثبات</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

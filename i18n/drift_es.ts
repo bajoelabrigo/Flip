@@ -4643,6 +4643,74 @@
         <translation>Pista visible</translation>
     </message>
     <message>
+        <source>X position</source>
+        <translation>Posición X</translation>
+    </message>
+    <message>
+        <source>Y position</source>
+        <translation>Posición Y</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>Ancho</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Alto</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Rotación</translation>
+    </message>
+    <message>
+        <source>Tilt X</source>
+        <translation>Inclinación X</translation>
+    </message>
+    <message>
+        <source>Tilt Y</source>
+        <translation>Inclinación Y</translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation>Profundidad</translation>
+    </message>
+    <message>
+        <source>Perspective</source>
+        <translation>Perspectiva</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacidad</translation>
+    </message>
+    <message>
+        <source>Volume</source>
+        <translation>Volumen</translation>
+    </message>
+    <message>
+        <source>Mask X</source>
+        <translation>Máscara X</translation>
+    </message>
+    <message>
+        <source>Mask Y</source>
+        <translation>Máscara Y</translation>
+    </message>
+    <message>
+        <source>Mask width</source>
+        <translation>Ancho de máscara</translation>
+    </message>
+    <message>
+        <source>Mask height</source>
+        <translation>Alto de máscara</translation>
+    </message>
+    <message>
+        <source>Mask rotation</source>
+        <translation>Rotación de máscara</translation>
+    </message>
+    <message>
+        <source>Mask feather</source>
+        <translation>Calado de máscara</translation>
+    </message>
+    <message>
         <source>Move track</source>
         <translation>Mover pista</translation>
     </message>
@@ -20246,6 +20314,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Fundido automático: desactivado</translation>
     </message>
     <message>
+        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
+        <translation>Editor de curvas: da forma a mano a las curvas de los fotogramas clave del clip seleccionado</translation>
+    </message>
+    <message>
         <source>Toggle audio mixer strip</source>
         <translation>Alternar tira del mezclador de audio</translation>
     </message>
@@ -20677,6 +20749,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Tamaño de la forma de onda de audio</translation>
     </message>
     <message>
+        <source>Hide keyframes</source>
+        <translation>Ocultar fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Show keyframes</source>
+        <translation>Mostrar fotogramas clave</translation>
+    </message>
+    <message>
         <source>Add camera clip at playhead</source>
         <translation>Añadir clip de cámara en el cabezal</translation>
     </message>
@@ -20779,6 +20859,45 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Rename…</source>
         <translation>Cambiar nombre…</translation>
+    </message>
+</context>
+<context>
+    <name>TrackKeyframeRows</name>
+    <message>
+        <source>Double-click to add a keyframe</source>
+        <translation>Doble clic para agregar un fotograma clave</translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation>Mover fotograma clave</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Lineal</translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation>Suave (entrada y salida)</translation>
+    </message>
+    <message>
+        <source>Easy ease in</source>
+        <translation>Entrada suave</translation>
+    </message>
+    <message>
+        <source>Easy ease out</source>
+        <translation>Salida suave</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Mantener</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation>Editar curva…</translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation>Borrar fotograma clave</translation>
     </message>
 </context>
 <context>

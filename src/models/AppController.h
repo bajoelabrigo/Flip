@@ -1249,6 +1249,12 @@ public:
                                      double atSeconds, bool hold);
     Q_INVOKABLE void setKeyframeInterpolation(int trackIndex, int clipIndex, const QString &prop,
                                               const QString &mode);
+    // The key nearest atSeconds: "linear", "ease", "easeIn", "easeOut" or "hold".
+    Q_INVOKABLE void setKeyframeEasingAt(int trackIndex, int clipIndex, const QString &prop,
+                                         double atSeconds, const QString &mode);
+    // A key at atSeconds with the value the property already has there.
+    Q_INVOKABLE void addClipKeyframeAt(int trackIndex, int clipIndex, const QString &prop,
+                                       double atSeconds);
     Q_INVOKABLE void resetClipTransform(int trackIndex, int clipIndex);
     Q_INVOKABLE QVariantList effectCatalog() const;
 
@@ -1433,6 +1439,15 @@ public:
     // Per-track row height multiplier (DAW-style lane resize). Clamped to
     // trackHeightScaleMin()..trackHeightScaleMax().
     Q_INVOKABLE void setTrackHeightScale(int trackIndex, double scale);
+    // The After-Effects-style twirl on a track header: unfolds one line per animated property
+    // of the track's clips under it. View-only, saved with the project.
+    Q_INVOKABLE void setTrackKeyframesExpanded(int trackIndex, bool expanded);
+    Q_INVOKABLE bool trackHasKeyframes(int trackIndex) const;
+    // [{label, prop, clips: [{clip, prop, start, duration, keys: clipKeyframes()}]}], one per
+    // property name across the track's clips.
+    Q_INVOKABLE QVariantList trackKeyframeRows(int trackIndex) const;
+    // "X position", "Zoom punch · Punch"… for a keyframed property of a clip.
+    Q_INVOKABLE QString animatedPropertyLabel(int trackIndex, int clipIndex, const QString &prop) const;
     // How tall the waveform is drawn inside the row (0.1-1.0). View-only.
     Q_INVOKABLE void setTrackWaveformScale(int trackIndex, double scale);
     Q_INVOKABLE double trackHeightScale(int trackIndex) const;

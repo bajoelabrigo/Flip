@@ -4643,6 +4643,74 @@
         <translation>ට්‍රැකය පෙන්වන ලදී</translation>
     </message>
     <message>
+        <source>X position</source>
+        <translation type="unfinished">X පිහිටීම</translation>
+    </message>
+    <message>
+        <source>Y position</source>
+        <translation type="unfinished">Y පිහිටීම</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished">පළල</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished">උස</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished">භ්‍රමණය</translation>
+    </message>
+    <message>
+        <source>Tilt X</source>
+        <translation type="unfinished">X ඇලවීම</translation>
+    </message>
+    <message>
+        <source>Tilt Y</source>
+        <translation type="unfinished">Y ඇලවීම</translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Perspective</source>
+        <translation type="unfinished">පර්යාලෝකය</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished">පාරාන්ධතාව</translation>
+    </message>
+    <message>
+        <source>Volume</source>
+        <translation type="unfinished">ශබ්ද මට්ටම</translation>
+    </message>
+    <message>
+        <source>Mask X</source>
+        <translation type="unfinished">ආවරණ X</translation>
+    </message>
+    <message>
+        <source>Mask Y</source>
+        <translation type="unfinished">ආවරණ Y</translation>
+    </message>
+    <message>
+        <source>Mask width</source>
+        <translation type="unfinished">ආවරණ පළල</translation>
+    </message>
+    <message>
+        <source>Mask height</source>
+        <translation type="unfinished">ආවරණ උස</translation>
+    </message>
+    <message>
+        <source>Mask rotation</source>
+        <translation type="unfinished">ආවරණ භ්‍රමණය</translation>
+    </message>
+    <message>
+        <source>Mask feather</source>
+        <translation type="unfinished">ආවරණ මෘදු බව (Feather)</translation>
+    </message>
+    <message>
         <source>Move track</source>
         <translation>ට්‍රැකය ගෙනයන්න</translation>
     </message>
@@ -20246,6 +20314,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Toggle audio mixer strip</source>
         <translation>ශ්‍රව්‍ය මිශ්‍රක තීරුව ටොගල් කරන්න</translation>
     </message>
@@ -20677,6 +20749,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Hide keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add camera clip at playhead</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20779,6 +20859,45 @@ If playback stutters, try another.</source>
     <message>
         <source>Rename…</source>
         <translation>නම වෙනස් කරන්න…</translation>
+    </message>
+</context>
+<context>
+    <name>TrackKeyframeRows</name>
+    <message>
+        <source>Double-click to add a keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished">කීෆ්‍රේමය ගෙනයන්න</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished">රේඛීය</translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished">රඳවාගැනීම (Hold)</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

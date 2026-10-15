@@ -4632,6 +4632,74 @@
         <translation>트랙 표시</translation>
     </message>
     <message>
+        <source>X position</source>
+        <translation type="unfinished">X 위치</translation>
+    </message>
+    <message>
+        <source>Y position</source>
+        <translation type="unfinished">Y 위치</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished">너비</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished">높이</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished">회전</translation>
+    </message>
+    <message>
+        <source>Tilt X</source>
+        <translation type="unfinished">X 기울기</translation>
+    </message>
+    <message>
+        <source>Tilt Y</source>
+        <translation type="unfinished">Y 기울기</translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation type="unfinished">깊이</translation>
+    </message>
+    <message>
+        <source>Perspective</source>
+        <translation type="unfinished">원근</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished">불투명도</translation>
+    </message>
+    <message>
+        <source>Volume</source>
+        <translation type="unfinished">볼륨</translation>
+    </message>
+    <message>
+        <source>Mask X</source>
+        <translation type="unfinished">마스크 X</translation>
+    </message>
+    <message>
+        <source>Mask Y</source>
+        <translation type="unfinished">마스크 Y</translation>
+    </message>
+    <message>
+        <source>Mask width</source>
+        <translation type="unfinished">마스크 너비</translation>
+    </message>
+    <message>
+        <source>Mask height</source>
+        <translation type="unfinished">마스크 높이</translation>
+    </message>
+    <message>
+        <source>Mask rotation</source>
+        <translation type="unfinished">마스크 회전</translation>
+    </message>
+    <message>
+        <source>Mask feather</source>
+        <translation type="unfinished">마스크 페더</translation>
+    </message>
+    <message>
         <source>Move track</source>
         <translation>트랙 이동</translation>
     </message>
@@ -20180,6 +20248,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Toggle audio mixer strip</source>
         <translation>오디오 믹서 스트립 전환</translation>
     </message>
@@ -20610,6 +20682,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Hide keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add camera clip at playhead</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20712,6 +20792,45 @@ If playback stutters, try another.</source>
     <message>
         <source>Rename…</source>
         <translation>이름 변경…</translation>
+    </message>
+</context>
+<context>
+    <name>TrackKeyframeRows</name>
+    <message>
+        <source>Double-click to add a keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished">키프레임 이동</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished">선형</translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished">유지</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

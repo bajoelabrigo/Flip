@@ -4643,6 +4643,74 @@
         <translation>Faixa visível</translation>
     </message>
     <message>
+        <source>X position</source>
+        <translation type="unfinished">Posição X</translation>
+    </message>
+    <message>
+        <source>Y position</source>
+        <translation type="unfinished">Posição Y</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished">Largura</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished">Altura</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished">Rotação</translation>
+    </message>
+    <message>
+        <source>Tilt X</source>
+        <translation type="unfinished">Inclinação X</translation>
+    </message>
+    <message>
+        <source>Tilt Y</source>
+        <translation type="unfinished">Inclinação Y</translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation type="unfinished">Profundidade</translation>
+    </message>
+    <message>
+        <source>Perspective</source>
+        <translation type="unfinished">Perspectiva</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished">Opacidade</translation>
+    </message>
+    <message>
+        <source>Volume</source>
+        <translation type="unfinished">Volume</translation>
+    </message>
+    <message>
+        <source>Mask X</source>
+        <translation type="unfinished">Máscara X</translation>
+    </message>
+    <message>
+        <source>Mask Y</source>
+        <translation type="unfinished">Máscara Y</translation>
+    </message>
+    <message>
+        <source>Mask width</source>
+        <translation type="unfinished">Largura da máscara</translation>
+    </message>
+    <message>
+        <source>Mask height</source>
+        <translation type="unfinished">Altura da máscara</translation>
+    </message>
+    <message>
+        <source>Mask rotation</source>
+        <translation type="unfinished">Rotação da máscara</translation>
+    </message>
+    <message>
+        <source>Mask feather</source>
+        <translation type="unfinished">Difusão da máscara</translation>
+    </message>
+    <message>
         <source>Move track</source>
         <translation>Mover faixa</translation>
     </message>
@@ -20246,6 +20314,10 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Toggle audio mixer strip</source>
         <translation>Alternar faixa do mixer de áudio</translation>
     </message>
@@ -20677,6 +20749,14 @@ Se a reprodução travar, experimente outro.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Hide keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add camera clip at playhead</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20779,6 +20859,45 @@ Se a reprodução travar, experimente outro.</translation>
     <message>
         <source>Rename…</source>
         <translation>Renomear…</translation>
+    </message>
+</context>
+<context>
+    <name>TrackKeyframeRows</name>
+    <message>
+        <source>Double-click to add a keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished">Mover quadro-chave</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished">Linear</translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished">Manter</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

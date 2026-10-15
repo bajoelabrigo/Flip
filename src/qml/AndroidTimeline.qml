@@ -927,7 +927,9 @@ Item {
             "subtitle": Theme.trackHeightSubtitle,
             "shape": Theme.trackHeightShape,
             "adjustment": Theme.trackHeightAdjustment,
-            "lane": Theme.adjustmentLaneHeight
+            "lane": Theme.adjustmentLaneHeight,
+            // The phone timeline draws no keyframe rows under a track.
+            "keyframeRow": 0
         })
     }
 

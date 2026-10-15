@@ -4743,6 +4743,74 @@
         <translation type="unfinished">ট্র্যাক দেখানো হয়েছে</translation>
     </message>
     <message>
+        <source>X position</source>
+        <translation type="unfinished">X অবস্থান</translation>
+    </message>
+    <message>
+        <source>Y position</source>
+        <translation type="unfinished">Y অবস্থান</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished">প্রস্থ</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished">উচ্চতা</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished">ঘূর্ণন</translation>
+    </message>
+    <message>
+        <source>Tilt X</source>
+        <translation type="unfinished">টিল্ট X</translation>
+    </message>
+    <message>
+        <source>Tilt Y</source>
+        <translation type="unfinished">টিল্ট Y</translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation type="unfinished">গভীরতা</translation>
+    </message>
+    <message>
+        <source>Perspective</source>
+        <translation type="unfinished">দৃষ্টিকোণ</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished">অস্বচ্ছতা</translation>
+    </message>
+    <message>
+        <source>Volume</source>
+        <translation type="unfinished">আয়তন</translation>
+    </message>
+    <message>
+        <source>Mask X</source>
+        <translation type="unfinished">মাস্ক এক্স</translation>
+    </message>
+    <message>
+        <source>Mask Y</source>
+        <translation type="unfinished">মাস্ক Y</translation>
+    </message>
+    <message>
+        <source>Mask width</source>
+        <translation type="unfinished">মাস্ক প্রস্থ</translation>
+    </message>
+    <message>
+        <source>Mask height</source>
+        <translation type="unfinished">মুখোশের উচ্চতা</translation>
+    </message>
+    <message>
+        <source>Mask rotation</source>
+        <translation type="unfinished">মাস্ক রোটেশন</translation>
+    </message>
+    <message>
+        <source>Mask feather</source>
+        <translation type="unfinished">মুখোশের পালক</translation>
+    </message>
+    <message>
         <source>Move track</source>
         <translation type="unfinished">ট্র্যাক সরান</translation>
     </message>
@@ -20366,6 +20434,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Toggle audio mixer strip</source>
         <translation type="unfinished">অডিও মিক্সার স্ট্রিপ টগল করুন</translation>
     </message>
@@ -20677,6 +20749,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Hide keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add camera clip at playhead</source>
         <translation type="unfinished">প্লেহেডে ক্যামেরা ক্লিপ যোগ করুন</translation>
     </message>
@@ -20779,6 +20859,45 @@ If playback stutters, try another.</source>
     <message>
         <source>Rename…</source>
         <translation>নাম পরিবর্তন করুন…</translation>
+    </message>
+</context>
+<context>
+    <name>TrackKeyframeRows</name>
+    <message>
+        <source>Double-click to add a keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished">কীফ্রেম সরান</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished">সরলরৈখিক</translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished">ধরে রাখুন</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

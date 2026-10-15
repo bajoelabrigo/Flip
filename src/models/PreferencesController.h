@@ -31,6 +31,10 @@ class PreferencesController : public QObject
                    NOTIFY workspaceLayoutPreferenceChanged)
     // On by default. Worth turning off on a very long timeline: the strip repaints every clip
     // in the project on every edit.
+    // The big keyframe curve strip over the tracks. Off by default: keys live in each track's
+    // unfolded rows (the twirl in its header); the strip is for shaping curves by hand.
+    Q_PROPERTY(bool curveEditorVisible READ curveEditorVisible WRITE setCurveEditorVisible
+                   NOTIFY curveEditorVisibleChanged)
     Q_PROPERTY(bool timelineOverviewVisible READ timelineOverviewVisible
                    WRITE setTimelineOverviewVisible NOTIFY timelineOverviewVisibleChanged)
     Q_PROPERTY(bool audioMixerVisible READ audioMixerVisible
@@ -107,6 +111,8 @@ public:
 
     bool timelineOverviewVisible() const { return m_timelineOverviewVisible; }
     void setTimelineOverviewVisible(bool visible);
+    bool curveEditorVisible() const { return m_curveEditorVisible; }
+    void setCurveEditorVisible(bool visible);
     bool audioMixerVisible() const { return m_audioMixerVisible; }
     void setAudioMixerVisible(bool visible);
     qreal audioMixerWidth() const { return m_audioMixerWidth; }
@@ -172,6 +178,7 @@ signals:
     void colorThemeChanged();
     void workspaceLayoutPreferenceChanged();
     void timelineOverviewVisibleChanged();
+    void curveEditorVisibleChanged();
     void audioMixerVisibleChanged();
     void audioMixerWidthChanged();
     void trackLabelsWidthChanged();
@@ -195,6 +202,7 @@ private:
     bool m_workspaceLayoutOverridden = false;
     QString m_workspaceLayoutPreferred = QStringLiteral("landscape");
     bool m_timelineOverviewVisible = false;
+    bool m_curveEditorVisible = false;
     bool m_audioMixerVisible = false;
     qreal m_audioMixerWidth = 0;
     qreal m_trackLabelsWidth = 130;

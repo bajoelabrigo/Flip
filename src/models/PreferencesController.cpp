@@ -124,6 +124,7 @@ PreferencesController::PreferencesController(QObject *parent)
     m_reopenLastProject = settings.value(QStringLiteral("editor/reopenLastProject"), false).toBool();
     m_timelineOverviewVisible =
         settings.value(QStringLiteral("ui/timelineOverviewVisible"), false).toBool();
+    m_curveEditorVisible = settings.value(QStringLiteral("ui/curveEditorVisible"), false).toBool();
     m_audioMixerVisible =
         settings.value(QStringLiteral("ui/audioMixerVisible"), false).toBool();
     m_audioMixerWidth = settings.value(QStringLiteral("ui/audioMixerWidth"), 0.0).toDouble();
@@ -219,6 +220,16 @@ void PreferencesController::clearWorkspaceLayoutPreference()
     QSettings settings;
     settings.remove(QStringLiteral("ui/workspaceLayout"));
     emit workspaceLayoutPreferenceChanged();
+}
+
+void PreferencesController::setCurveEditorVisible(bool visible)
+{
+    if (m_curveEditorVisible == visible)
+        return;
+    m_curveEditorVisible = visible;
+    QSettings settings;
+    settings.setValue(QStringLiteral("ui/curveEditorVisible"), m_curveEditorVisible);
+    emit curveEditorVisibleChanged();
 }
 
 void PreferencesController::setTimelineOverviewVisible(bool visible)

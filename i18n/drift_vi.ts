@@ -4640,6 +4640,74 @@
         <translation>Hiện track</translation>
     </message>
     <message>
+        <source>X position</source>
+        <translation type="unfinished">Vị trí X</translation>
+    </message>
+    <message>
+        <source>Y position</source>
+        <translation type="unfinished">Vị trí Y</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished">Chiều rộng</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished">Chiều cao</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished">Xoay</translation>
+    </message>
+    <message>
+        <source>Tilt X</source>
+        <translation type="unfinished">Nghiêng X</translation>
+    </message>
+    <message>
+        <source>Tilt Y</source>
+        <translation type="unfinished">Nghiêng Y</translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation type="unfinished">Độ sâu</translation>
+    </message>
+    <message>
+        <source>Perspective</source>
+        <translation type="unfinished">Phối cảnh</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished">Độ mờ</translation>
+    </message>
+    <message>
+        <source>Volume</source>
+        <translation type="unfinished">Âm lượng</translation>
+    </message>
+    <message>
+        <source>Mask X</source>
+        <translation type="unfinished">Mặt nạ X</translation>
+    </message>
+    <message>
+        <source>Mask Y</source>
+        <translation type="unfinished">Mặt nạ Y</translation>
+    </message>
+    <message>
+        <source>Mask width</source>
+        <translation type="unfinished">Chiều rộng mặt nạ</translation>
+    </message>
+    <message>
+        <source>Mask height</source>
+        <translation type="unfinished">Chiều cao mặt nạ</translation>
+    </message>
+    <message>
+        <source>Mask rotation</source>
+        <translation type="unfinished">Xoay mặt nạ</translation>
+    </message>
+    <message>
+        <source>Mask feather</source>
+        <translation type="unfinished">Độ mờ mặt nạ</translation>
+    </message>
+    <message>
         <source>Move track</source>
         <translation>Di chuyển track</translation>
     </message>
@@ -20188,6 +20256,10 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Toggle audio mixer strip</source>
         <translation>Bật tắt dải trộn âm thanh</translation>
     </message>
@@ -20618,6 +20690,14 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Hide keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add camera clip at playhead</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20720,6 +20800,45 @@ Nếu phát lại bị giật, hãy thử cái khác.</translation>
     <message>
         <source>Rename…</source>
         <translation>Đổi tên…</translation>
+    </message>
+</context>
+<context>
+    <name>TrackKeyframeRows</name>
+    <message>
+        <source>Double-click to add a keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished">Di chuyển keyframe</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished">Tuyến tính</translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished">Giữ</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

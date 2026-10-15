@@ -1117,6 +1117,8 @@ Project Project::fromJson(const QJsonObject &object, QString *errorOut)
                 0.6, trackObject.value(QStringLiteral("heightScale")).toDouble(1.0), 4.0);
             track.waveformScale = qBound(
                 0.1, trackObject.value(QStringLiteral("waveformScale")).toDouble(1.0), 1.0);
+            track.keyframesExpanded =
+                trackObject.value(QStringLiteral("keyframesExpanded")).toBool(false);
 
             const QJsonArray clipsArray = trackObject.value(QStringLiteral("clips")).toArray();
             for (const QJsonValue &clipValue : clipsArray) {
@@ -1302,6 +1304,7 @@ QJsonObject Project::toJson(bool includeTranscripts) const
                 {QStringLiteral("showChannelWaveforms"), track.showChannelWaveforms},
                 {QStringLiteral("heightScale"), track.heightScale},
                 {QStringLiteral("waveformScale"), track.waveformScale},
+                {QStringLiteral("keyframesExpanded"), track.keyframesExpanded},
                 {QStringLiteral("clips"), clipsArray},
                 {QStringLiteral("transitions"), transitionsArray},
             };
