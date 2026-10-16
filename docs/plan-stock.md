@@ -95,14 +95,35 @@ la computadora de cada uno, así que lo que crece son los servidores de Stock, c
 ## Estado
 Jorge (2026-10-16): mirar las tendencias de CapCut, Instagram, Premiere, After Effects, Filmora… y hacer **al menos
 200 de cada tipo**, con calma y calidad primero.
-**Desplegado el 2026-10-16** (llega ya a la 0.13.0, sin versión nueva):
-- **Plantillas: 533** (133 + 200 horizontales 16:9 + 200 reels), con filtro de formato vertical/horizontal.
-- **Animaciones (stickers Lottie): 222** en 14 categorías (nuevas: fechas especiales, comida, deportes, iconos).
-- **Superposiciones: 200** (WebM con transparencia): luces, partículas, celebración, amor, garabatos, clima,
-  película, glitch, cámara, marcos y texturas.
-- **Sonidos: 200** (sintetizados): transiciones, impactos, botones, juegos, magia, comedia, suspenso, ritmo.
-- **Fondos animados: 200** en bucle: degradados, geométricos, luces, texturas y fechas especiales.
 
-Siguen (necesitan la 0.14.0 de la app): LUTs y looks en Stock, textos animados, inicio de Stock tipo tienda,
-elegir variante vertical/horizontal, tarjetas anchas para las 16:9, vista previa de audio al pasar el mouse.
-Sin app: música por ánimo (falta una fuente CC0 o música propia de calidad).
+### Desplegado el 2026-10-17 (contenido y servidor; la app llega con la 0.14.0)
+- **Plantillas: 883** (533 + **350 de formatos nuevos**: publicaciones 1:1, historias de 15 s, anuncios de 6 s,
+  miniaturas de YouTube, tercios inferiores, presentaciones de fotos, transiciones y separadores), con filtro de
+  formato y «Formato» (vertical, horizontal, cuadrado) en todos los tipos.
+- **Animaciones (stickers Lottie): 222** en 14 categorías (nuevas: fechas especiales, comida, deportes, iconos).
+- **Superposiciones: 400** (200 verticales + 200 horizontales 16:9), WebM con transparencia: luces, partículas,
+  celebración, amor, garabatos, clima, película, glitch, cámara, marcos y texturas.
+- **Sonidos: 200** (sintetizados): transiciones, impactos, botones, juegos, magia, comedia, suspenso, ritmo.
+- **Fondos animados: 400** (200 verticales + 200 horizontales) en bucle: degradados, geométricos, luces, texturas
+  y fechas especiales.
+- **Música: 328 cortes** por ánimo (15, 30 y 60 s; 9 pistas FMA en espera de oírlas para descartar voces), con la
+  duración nominal en la tarjeta.
+- **LUTs: 200** (`.cube` de 33 puntos, tarjeta con la foto de muestra partida antes/después), **looks de Ajustar:
+  209**, **estilos de texto: 200**, **textos animados: 200**, **transiciones: 200** y **formas: 200**.
+- **i18n:** los 13 idiomas de `tools/stock_i18n` cubren **3.642 elementos y 145 categorías** (`build.py --strict`).
+- **Servidor (`flipstudio-api`, rama `stock-0.14`):** cada tipo con su `delivery`, búsqueda en todo Stock a la vez
+  con sinónimos, inicio tipo tienda (`/v1/market/home` con estantes y colecciones), novedades (`/v1/market/news`),
+  pedidos con votos (`/v1/market/requests`) y favoritos en la cuenta (`/v1/me/favorites`).
+- Todo subido con `flipstudio-api/deploy/plantillas.ps1` (swap de la carpeta entera) y `deploy/deploy.ps1`.
+
+### Lo que llega con la 0.14.0 de la app (rama `flip/v0.14.0`)
+Instalación de los tipos nuevos (LUT, look, estilo y texto animado, transición y forma), inicio de Stock tipo
+tienda, tarjetas con la forma de cada elemento y **tarjetas anchas** (`thumbWide`/`previewWide`), elegir variante
+por el filtro «Formato», vista previa de audio al pasar el mouse, contador de usos, favoritos y novedades de la
+cuenta, «Usar con mis fotos», «Cambiar plantilla», cortes al ritmo, formulario de textos y «Mi marca».
+
+### Pendiente para después de la 0.14.0
+- **Pagos** (Jorge: al final del proyecto), tiendas de los usuarios y todo lo de cobrar.
+- Ideas del plan que no entraron: caché de búsquedas de Pexels/Pixabay y CDN para lo pesado (a las 10.000 descargas,
+  punto 5 del plan).
+

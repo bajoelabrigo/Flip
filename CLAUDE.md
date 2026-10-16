@@ -44,13 +44,58 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-15)
+## Estado (actualizado 2026-10-17)
 
-### Plan de Stock (Jorge, 2026-10-16): lo siguiente
+### 0.14.0 en curso (2026-10-17), rama `flip/v0.14.0` — Stock completo
+Lo de Stock que **no necesitaba versión nueva ya está desplegado** (2026-10-16/17):
+- **Contenido en `api.getflipstudio.com/plantillas/`** (4,87 GB, subido con `deploy/plantillas.ps1`, que cambia la
+  carpeta entera): **883 plantillas** (533 + **350 de formatos nuevos**: publicaciones 1:1, historias de 15 s,
+  anuncios de 6 s, miniaturas de YouTube), **328 cortes de música** (ánimos, 15/30/60 s; 9 pistas FMA en espera de
+  oírlas), **200 LUTs**, **209 looks**, **200 estilos de texto**, **200 textos animados**, **200 transiciones**,
+  **200 formas**, más lo que ya estaba: 222 stickers, 400 superposiciones (vertical + horizontal), 200 sonidos y
+  400 fondos (vertical + horizontal).
+- **i18n: segunda pasada completa.** Los 13 idiomas (`tools/stock_i18n/<lang>.json`) cubren **3.642 elementos y 145
+  categorías** (`build.py --strict` sin faltantes) y `publicar/i18n/` ya está en el VPS (8,1 MB). Para traducir se
+  usaron agentes en paralelo: `collect.py --size 300` → una tanda por agente (`work/todo/<lang>-NN.json` →
+  `work/done/<lang>-NN.json`, 91 tandas) → `merge.py` → `check.py` → `build.py --strict`. `work/verify.py` comprueba
+  que cada tanda tenga las mismas claves y 3–6 etiquetas.
+- **Servidor `flipstudio-api` rama `stock-0.14` DESPLEGADO** (PM2 `flipstudio-api`, health `{"ok":true}`): tipos
+  nuevos con su `delivery` (`lut`, `effect-preset`, `text-style`, `text-animation`, `transition`, `shape`),
+  `GET /v1/market/search?type=all` con sinónimos, `GET /v1/market/home` (estantes, `services/seasons.ts`,
+  `colecciones.json`), `GET /v1/market/news`, `GET|POST /v1/market/requests` con votos y `GET|PUT /v1/me/favorites`.
+  Comprobado en vivo: `/v1/market/news` responde 3.642 elementos; `home` y `requests` piden cuenta (401 sin sesión).
+- **App (rama `flip/v0.14.0`, unión de `flip/stock-superposiciones` + `stock-plantillas-formatos` +
+  `stock-looks-transiciones` + `v0.14.0-stock` + `v0.14.0-plantillas`):** instalación de los tipos nuevos
+  (`AppController::installStockFile`), inicio tipo tienda (`StockHome.qml`), tarjetas con la forma de cada elemento
+  y **tarjetas anchas** (`StockThumb.qml` usa `thumb_wide_url`/`preview_wide_url`, que el servidor sirve desde
+  `thumbWide`/`previewWide`), vista previa de audio al pasar el mouse, contador de usos, novedades, favoritos en la
+  cuenta, «Pide una plantilla», «Usar con mis fotos», «Cambiar plantilla», cortes al ritmo, formulario de textos y
+  «Mi marca». Versión 0.14.0 en `CMakeLists.txt`, notas en `release-notes/0.14.0.md`, CHANGELOG (con 0.12.0 y
+  0.13.0 recuperados) y notas de la Store en `docs/store-listing.md` (1.069/1.500 caracteres).
+- **Trampas de esta tanda:**
+  - `tools/luts_stock/publish.py` no existía: se escribió (índice como el de sonidos + `delivery: "lut"`).
+  - Las **tarjetas de los looks** se renderizan con la app (`tools/looks_stock/build.py` + `appsession.py`, portable
+    de `pruebas\FlipStudio-0.13.0-arreglo`): los `.json` y `meta.json` se habían construido, los `thumbnail.png` no.
+  - `tools/scene_templates/publish.py` (rama de formatos) **no conservaba** `colecciones.json` ni el `addedAt` de
+    cada plantilla: se portó de `flip/v0.14.0-stock` al unir. El índice desplegado de la 0.13.0 no tenía `addedAt`
+    (el campo llega con la 0.14.0), así que las 883 quedan con fecha de hoy.
+  - Al unir las dos ramas de app, los conflictos fueron **aditivos**: `MarketClient.h` (home/novedades/pedidos/
+    favoritos + sugerencias de plantilla) y `SceneTemplates.cpp` (`QPointer` + `QSet`). Se conservan los dos lados.
+  - **El fallo del CI de `flip/v0.14.0-stock` era real y ya estaba arreglado en la punta de la rama** (run
+    38967194866 probó `d6c24fa`, antes de `3334f`): `McpTest::setMaskRoundTripsFreeformPoints` fallaba porque el
+    esquema de `set_mask` aún no conocía `pathData`/`pathEvenOdd` y el validador los marcaba como `ignored`.
+- **Falta (para cerrar la 0.14.0):** el build de Windows en verde (`build.yml` sobre `flip/v0.14.0`), probar en
+  ventana con el portable (`mcp_e2e.py --window` y `calls_stock014.jsonl` en `tools/e2e/`), PR a `main`, tag
+  `v0.14.0` (release), MSIX con `msstore.yml`, y desplegar las novedades de la web (`flipstudio-web/novedades.html`
+  ya tiene la sección 0.14.0, **sin desplegar**).
+
+### Plan de Stock (Jorge, 2026-10-16)
 - Stock es **pieza central** de la app. El plan completo, acordado con Jorge, está en `docs/plan-stock.md`:
   contenido nuevo (textos animados, overlays, marcos, fondos, sonidos, música, LUTs, stickers, tercios inferiores,
   fechas y negocios, formatos 16:9/1:1), inicio de Stock tipo tienda, búsqueda y filtros, uso más rápido y novedades
   semanales. **Para el mundo entero:** nada de fiestas solo peruanas o latinas. Pagos, al final.
+- Orden de Jorge (2026-10-16): primero todo lo de Stock que no necesita versión nueva (servidor y contenido); al
+  final la 0.14.0 con todo lo que sí, y al terminar: **compilar una vez, probar en ventana y publicar todo**.
 
 ### Stock ampliado y DESPLEGADO (2026-10-16), rama `flip/stock-superposiciones`
 - En producción: 533 plantillas, 222 animaciones (`tools/animations`, rama de stickers unida), 200 superposiciones,

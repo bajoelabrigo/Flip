@@ -1,0 +1,19 @@
+{"tool": "market_status", "save": "01_status.json"}
+{"tool": "market_search", "args": {"type": "lut", "provider": "flip", "q": "turquesa", "limit": 5}, "save": "02_search_lut.json"}
+{"tool": "market_download", "args": {"id": "flip:lut:cine-teal-naranja", "wait": 120}, "save": "03_download_lut.json"}
+{"tool": "market_search", "args": {"type": "look", "provider": "flip", "q": "cine turquesa", "limit": 5}, "save": "04_search_look.json"}
+{"tool": "market_download", "args": {"id": "flip:look:cine-teal-naranja", "wait": 120}, "save": "05_download_look.json"}
+{"tool": "market_search", "args": {"type": "text-style", "provider": "flip", "q": "karaoke", "limit": 5}, "save": "06_search_text_style.json"}
+{"tool": "market_download", "args": {"id": "flip:text-style:sub-karaoke-amarillo", "wait": 120}, "save": "07_download_text_style.json"}
+{"tool": "market_search", "args": {"type": "text-animation", "provider": "flip", "q": "tecleo", "limit": 5}, "save": "08_search_text_animation.json"}
+{"tool": "market_download", "args": {"id": "flip:text-animation:maq-cursor", "wait": 120}, "save": "09_download_text_animation.json"}
+{"tool": "market_search", "args": {"type": "transition", "provider": "flip", "q": "glitch", "limit": 5}, "save": "10_search_transition.json"}
+{"tool": "market_download", "args": {"id": "flip:transition:glitch-golpe-rgb", "wait": 120}, "save": "11_download_transition.json"}
+{"tool": "market_search", "args": {"type": "shape", "provider": "flip", "q": "corazon", "limit": 5}, "save": "12_search_shape.json"}
+{"tool": "market_download", "args": {"id": "flip:shape:heart-classic", "wait": 120}, "save": "13_download_shape.json"}
+{"tool": "market_search", "args": {"type": "music", "provider": "flip", "q": "advertime", "limit": 5}, "save": "14_search_music.json"}
+{"tool": "market_download", "args": {"id": "flip:music:advertime-15s", "wait": 180}, "save": "15_download_music.json"}
+{"tool": "market_search", "args": {"type": "template", "provider": "flip", "q": "precio", "limit": 5}, "save": "16_search_template.json"}
+{"tool": "market_download", "args": {"id": "flip:template:s-oferta-burbuja", "wait": 180}, "save": "17_download_template.json"}
+{"tool": "market_search", "args": {"type": "all", "provider": "flip", "q": "cumpleanos", "limit": 20}, "save": "18_search_all.json"}
+{"tool": "market_downloads", "args": {}, "save": "19_downloads.json"}
