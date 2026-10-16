@@ -53,6 +53,7 @@ PanelFrame {
         // Which of the Video tab's four CapCut pages is open, so switching to another tab and
         // back lands on the page you left.
         property string videoPage: "basico"
+        property string retouchArea: "rostro"
         property string adjustPage: "basic"
     }
 
@@ -709,6 +710,8 @@ PanelFrame {
                             width: tabColumn.width
                             page: inspectorUi.videoPage
                             onPageChanged: inspectorUi.videoPage = page
+                            retouchArea: inspectorUi.retouchArea
+                            onRetouchAreaChanged: inspectorUi.retouchArea = retouchArea
                         }
                     }
                 }

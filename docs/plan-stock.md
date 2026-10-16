@@ -79,5 +79,18 @@ aquí es gratis.
 - **Pedidos de la comunidad:** botón «Pide una plantilla» con un formulario; se hacen las más votadas.
 - **Más adelante, con los pagos:** plantillas de creadores, un «Pro» opcional y tiendas de usuarios.
 
+## 5. Preparar el crecimiento (Jorge, 2026-10-16)
+Hacerlo **al llegar a unas 10 000 descargas**, antes de que haga falta (uno o dos días de trabajo). La app corre en
+la computadora de cada uno, así que lo que crece son los servidores de Stock, cuentas y extras.
+- **Pexels y Pixabay:** pedir límites más altos (la clave gratis de Pexels trae unas 200 búsquedas por hora) y guardar
+  en caché del servidor las búsquedas repetidas.
+- **CDN para lo pesado:** las plantillas (hoy en el VPS) y los extras de IA (hoy en GitHub) a Cloudflare R2 o Bunny.
+  Basta cambiar las URLs del índice.
+- **MongoDB Atlas:** revisar el plan del clúster (el gratuito M0 tiene 512 MB) y resumir las estadísticas viejas.
+- **Reporte de fallos dentro de la app** y una página de preguntas frecuentes.
+- Después: segundo servidor detrás de Cloudflare si el VPS no da abasto, y límites por cuenta contra la descarga
+  masiva de Stock.
+- Costo estimado con un millón de descargas y todo gratis: unos 100-300 USD al mes.
+
 ## Estado
 Nada empezado todavía (2026-10-16).

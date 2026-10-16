@@ -757,6 +757,9 @@ public:
     bool projectLayoutChosen() const { return m_projectLayoutChosen; }
     Q_INVOKABLE void markProjectLayoutChosen();
     Q_INVOKABLE void selectClip(int trackIndex, int clipIndex);
+    // Selects a clip by id. Pinning a mask or adding an effect inserts a lane and normalization
+    // reorders, so an index captured before the edit is stale by the time there is something to select.
+    Q_INVOKABLE bool selectClipById(const QString &clipId);
     Q_INVOKABLE void addToSelection(int trackIndex, int clipIndex);
     Q_INVOKABLE void setSelection(const QVariantList &pairs);
     Q_INVOKABLE void selectAllClips();
@@ -1288,6 +1291,11 @@ public:
     Q_INVOKABLE QVariantList effectTemplateCatalog() const;
     Q_INVOKABLE QVariantList effectTemplateCategories() const;
     Q_INVOKABLE void addEffect(int trackIndex, int clipIndex, const QString &effectId);
+    // Retouch tiles: sets `values` on the clip's last effectId, adding it first when there is none,
+    // and leaves the clip selected (addEffect moves the selection to the adjustment it creates,
+    // which unloads the Video tab that asked).
+    Q_INVOKABLE void applyRetouchLook(int trackIndex, int clipIndex, const QString &effectId,
+                                      const QVariantMap &values);
     // The selected clip, or the top picture clip under the playhead.
     Q_INVOKABLE void applyEffectTemplateToCurrentClip(const QString &templateId);
     Q_INVOKABLE void applyEffectTemplate(int trackIndex, int clipIndex, const QString &templateId);
@@ -2075,9 +2083,6 @@ protected:
     // A ready-to-use mask for a maskCatalog() id, Freeform already seeded with the quad its rect
     // implies. An unknown id yields a mask with shape None, which contributes nothing.
     drift::Mask maskFromCatalogId(const QString &shape) const;
-    // Select the clip with this id. Pinning a mask inserts a lane and normalization reorders, so
-    // an index captured before the edit is stale by the time there is something to select.
-    void selectClipById(const QString &clipId);
     // Re-establishes the two structural invariants the adjustment model rests on: no stack sits
     // on a media clip, and every lane is adjacent to and directly above its parent. Both passes
     // can insert or reorder tracks, so the selection is carried across by id. Idempotent and

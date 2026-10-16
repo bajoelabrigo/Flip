@@ -22,6 +22,8 @@ Item {
     // Which of the four pages is open. Owned by PropertiesPanel's inspectorUi so it survives a
     // tab switch, like every other view state in this panel.
     property string page: "basico"
+    // Face / Body / Hair on the Retouch page; kept by the panel across reloads like `page`.
+    property string retouchArea: "rostro"
 
     readonly property var pages: [
         { id: "basico", label: qsTr("Basic") },
@@ -344,7 +346,7 @@ Item {
             width: parent.width
             spacing: Theme.spacingLg
 
-            property string area: "rostro"
+            property alias area: root.retouchArea
             readonly property var areas: [
                 { id: "rostro", label: qsTr("Face"), glyph: Theme.icons.face },
                 { id: "cuerpo", label: qsTr("Body"), glyph: Theme.icons.body },
@@ -389,11 +391,11 @@ Item {
             // Body: presets of body.reshape. Adding it starts the body analysis when the clip has none.
             readonly property var bodySections: [
                 { title: qsTr("Body"), glyph: Theme.icons.body, items: [
-                    { id: "body-slim", label: qsTr("Slim"), hint: qsTr("Slims the whole body"), effect: "body.reshape", values: { slim: 0.5 } },
-                    { id: "body-waist", label: qsTr("Waist"), hint: qsTr("Narrows the waist"), effect: "body.reshape", values: { waist: 0.6 } },
-                    { id: "body-legs", label: qsTr("Longer legs"), hint: qsTr("Lengthens the legs below the hips"), effect: "body.reshape", values: { legs: 0.5 } },
-                    { id: "body-shoulders", label: qsTr("Shoulders"), hint: qsTr("Widens the shoulders"), effect: "body.reshape", values: { shoulders: 0.5 } },
-                    { id: "body-head", label: qsTr("Smaller head"), hint: qsTr("Makes the head a little smaller"), effect: "body.reshape", values: { head: -0.4 } }
+                    { id: "body-slim", label: qsTr("Slim"), hint: qsTr("Slims the whole body"), effect: "body.reshape", values: { slim: 0.8 } },
+                    { id: "body-waist", label: qsTr("Waist"), hint: qsTr("Narrows the waist"), effect: "body.reshape", values: { waist: 0.8 } },
+                    { id: "body-legs", label: qsTr("Longer legs"), hint: qsTr("Lengthens the legs below the hips"), effect: "body.reshape", values: { legs: 0.7 } },
+                    { id: "body-shoulders", label: qsTr("Shoulders"), hint: qsTr("Widens the shoulders"), effect: "body.reshape", values: { shoulders: 0.7 } },
+                    { id: "body-head", label: qsTr("Smaller head"), hint: qsTr("Makes the head a little smaller"), effect: "body.reshape", values: { head: -0.6 } }
                 ] }
             ]
 
@@ -437,29 +439,11 @@ Item {
                 }
             }
 
-            // Adds `effectId`, or reuses the one the selection already carries, then sets
-            // `values` on it. addEffect moves the selection to whatever hosts the stack, so the
-            // indices are read back after it.
-            function findLast(effectId) {
-                const effects = EditorState.selectedClipEffects || []
-                for (let i = effects.length - 1; i >= 0; i--) {
-                    if (effects[i].catalogId === effectId)
-                        return i
-                }
-                return -1
-            }
-
+            // Adds `effectId`, or reuses the one the clip already carries, then sets `values` on it.
+            // Done in C++: adding moves the selection, which unloads this tab mid-call.
             function apply(effectId, values) {
-                let index = findLast(effectId)
-                if (index < 0) {
-                    EditorState.addEffect(EditorState.selectedTrack, EditorState.selectedClip, effectId)
-                    index = findLast(effectId)
-                }
-                if (index < 0 || !values)
-                    return
-                for (const key in values)
-                    EditorState.setEffectParam(EditorState.selectedTrack, EditorState.selectedClip,
-                                               index, key, values[key])
+                EditorState.applyRetouchLook(EditorState.selectedTrack, EditorState.selectedClip, effectId,
+                                             values || {})
             }
 
             // Face / Body / Hair, drawn like the page strip above.

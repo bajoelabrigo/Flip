@@ -6770,6 +6770,16 @@ void AppController::selectClip(int trackIndex, int clipIndex)
     emit selectedTransitionDataChanged();
 }
 
+bool AppController::selectClipById(const QString &clipId)
+{
+    int trackIndex = -1;
+    int clipIndex = -1;
+    if (clipId.isEmpty() || !findClipById(m_project, clipId, &trackIndex, &clipIndex))
+        return false;
+    selectClip(trackIndex, clipIndex);
+    return m_selectedTrack == trackIndex && m_selectedClip == clipIndex;
+}
+
 void AppController::addToSelection(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))
@@ -15920,14 +15930,6 @@ drift::Mask AppController::maskFromCatalogId(const QString &shape) const
     return mask;
 }
 
-void AppController::selectClipById(const QString &clipId)
-{
-    int foundTrack = -1;
-    int foundClip = -1;
-    if (!clipId.isEmpty() && findClipById(m_project, clipId, &foundTrack, &foundClip))
-        selectClip(foundTrack, foundClip);
-}
-
 QVariantList AppController::maskCatalog() const
 {
     // Ordered as the inspector's shape combo lists them, so the two read alike.
@@ -17703,6 +17705,38 @@ void AppController::addEffect(int trackIndex, int clipIndex, const QString &effe
     int faceClip = -1;
     if (findClipById(m_project, faceSourceId, &faceTrack, &faceClip))
         m_faces->detect(faceTrack, faceClip);
+}
+
+void AppController::applyRetouchLook(int trackIndex, int clipIndex, const QString &effectId,
+                                     const QVariantMap &values)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const QString clipId = m_project.tracks().at(trackIndex).clips.at(clipIndex).id;
+    const auto lastIndex = [&](int track, int clip) {
+        const drift::Clip *host = effectHostClip(track, clip, drift::AdjustmentKind::VideoEffects);
+        if (!host)
+            return -1;
+        for (int i = host->effects.size() - 1; i >= 0; --i) {
+            if (host->effects.at(i).catalogId == effectId)
+                return i;
+        }
+        return -1;
+    };
+
+    int index = lastIndex(trackIndex, clipIndex);
+    if (index < 0) {
+        addEffect(trackIndex, clipIndex, effectId);
+        // Adding mints a lane, so the clip's indices may have moved.
+        if (!findClipById(m_project, clipId, &trackIndex, &clipIndex))
+            return;
+        index = lastIndex(trackIndex, clipIndex);
+    }
+    selectClip(trackIndex, clipIndex);
+    if (index < 0)
+        return;
+    for (auto it = values.constBegin(); it != values.constEnd(); ++it)
+        setEffectParam(trackIndex, clipIndex, index, it.key(), it.value().toDouble());
 }
 
 namespace {
