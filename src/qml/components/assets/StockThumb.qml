@@ -41,9 +41,20 @@ Rectangle {
         return Math.floor(s / 60) + ":" + (s % 60 < 10 ? "0" : "") + (s % 60)
     }
 
+    // Music and sounds play once the pointer has rested a moment, so sweeping across a shelf
+    // stays quiet.
+    property bool audioArmed: false
+
     HoverHandler {
         id: hover
         cursorShape: Qt.PointingHandCursor
+        onHoveredChanged: {
+            root.audioArmed = false
+            if (hovered && root.isAudio)
+                audioDelay.restart()
+            else
+                audioDelay.stop()
+        }
     }
 
     SkeletonBox {
@@ -83,14 +94,13 @@ Rectangle {
         }
     }
 
-    // Music and sounds: heard on hover (after a moment, so sweeping across a shelf is quiet).
     Timer {
         id: audioDelay
         interval: 300
-        running: root.isAudio && hover.hovered && !root.busy && !!root.item.preview_url && !root.compact
+        onTriggered: root.audioArmed = true
     }
     Loader {
-        active: root.isAudio && hover.hovered && !audioDelay.running && !root.busy
+        active: root.isAudio && root.audioArmed && hover.hovered && !root.busy
                 && !!root.item.preview_url && !root.compact
         sourceComponent: MediaPlayer {
             source: root.item.preview_url

@@ -136,7 +136,6 @@ Item {
                 clip: true
                 boundsBehavior: Flickable.StopAtBounds
                 model: shelf.modelData.items || []
-                ScrollBar.horizontal: AppScrollBar { }
 
                 delegate: Column {
                     id: card
