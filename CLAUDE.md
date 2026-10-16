@@ -68,6 +68,21 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - **Fotos de muestra con marcas, no usar:** product-01…04 (Jordan, Converse), gym-03 (Adidas), fashion-05/06,
   family-06 (Timberland), barber-04, bakery-01, car-*, sport-01/02 (patrocinadores), nails-01, skate-02/03.
 - En `git bash` el `/y` de `reg export` se convierte en ruta: usar `MSYS_NO_PATHCONV=1`.
+- **Sonidos (200, desplegados):** `tools/sounds` (`dsp.py` = síntesis con numpy/scipy, `designs.py`, `build.py` = WAV
+  48 kHz + MP3 de vista previa + tarjeta con la onda + `informe.txt` con nivel y centroide para revisar sin oír).
+  Tipo `sound` (`media_kind: "audio"`). Revisar con espectrogramas: un whoosh con centroide de 8–10 kHz es siseo.
+- **Fondos (200, en `publicar/fondos`):** `tools/backgrounds` (45 motivos × 4 paletas + 10 fechas × 2), MP4 en bucle.
+  Tipo `background`. **Trampa de bucles:** lo que avanza con `% periodo` tiene que moverse un periodo entero por
+  vuelta (`(y + u * (h + m)) % (h + m)`), si no salta al reiniciar; medir primer vs. último cuadro.
+- **Trampa de proporción:** en coordenadas 0–1 de un cuadro 9:16, `y` vale 1,78 veces `x` en píxeles: un círculo
+  necesita `(y - cy) * 1.78`, no `* 0.56` (salen soles en forma de bala).
+- **Plantillas: 533 desplegadas** (133 + 200 horizontales 16:9 + 200 reels), unidas desde `flip/stock-plantillas-400`.
+  Servidor: `width`/`height` del índice y filtro «Formato» (vertical/horizontal). Las 16:9 llevan una tarjeta 9:16
+  tipo guion gráfico porque la grilla de la app recorta a 9:16; `thumbWide`/`previewWide` quedan para la 0.14.0.
+  Se quitaron fotos con marcas, iconos que imitaban logos (YouTube, Facebook, WhatsApp) y textos solo peruanos.
+  **App (sin compilar):** 3 categorías nuevas en `SceneTemplateCatalog.cpp` (`slideshow`, `lowerthird`, `transition`).
+- **Para la 0.14.0:** LUT en Stock (hoy Medios no importa `.cube`), elegir variante (vertical/horizontal), tarjetas
+  anchas, vista previa de audio al pasar el mouse, inicio de Stock tipo tienda.
 
 ### 0.13.0 PUBLICADA (2026-10-16): Retoque › Cuerpo y Cabello, plantillas propias, 101 plantillas, Stock › Animaciones
 - Rama `flip/plantillas-propias` → PR a `main`, tag `v0.13.0`. Notas en `release-notes/0.13.0.md`; novedades para la
