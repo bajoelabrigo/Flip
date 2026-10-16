@@ -42,10 +42,10 @@ def main() -> int:
     parser.add_argument("--packages", type=Path, default=ROOT / "paquetes")
     parser.add_argument("--out", type=Path, default=ROOT / "publicar")
     args = parser.parse_args()
-    # The animations and overlays (tools/animations, tools/overlays) share the folder: keep them.
+    # The animations, overlays and sounds (tools/animations, tools/overlays, tools/sounds) share the folder: keep them.
     if args.out.exists():
         for child in args.out.iterdir():
-            if child.name in ("animaciones", "superposiciones"):
+            if child.name in ("animaciones", "superposiciones", "sonidos"):
                 continue
             shutil.rmtree(child) if child.is_dir() else child.unlink()
     args.out.mkdir(parents=True, exist_ok=True)
