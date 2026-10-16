@@ -164,6 +164,32 @@ def heart_path(size=100, x=0, y=0) -> dict:
                                       "o": [[ox * k, oy * k] for _, _, (ox, oy) in pts]})}
 
 
+def sample_curve(points, count, smooth=1.0):
+    """`count` + 1 points along the smoothed polyline through `points` (open), evenly by arc length."""
+    b = path(points, smooth=smooth)["ks"]["k"]
+    dense = []
+    for seg in range(len(b["v"]) - 1):
+        p0, p3 = b["v"][seg], b["v"][seg + 1]
+        p1 = [p0[0] + b["o"][seg][0], p0[1] + b["o"][seg][1]]
+        p2 = [p3[0] + b["i"][seg + 1][0], p3[1] + b["i"][seg + 1][1]]
+        for j in range(40):
+            t = j / 40
+            dense.append(tuple((1 - t) ** 3 * p0[c] + 3 * (1 - t) ** 2 * t * p1[c] + 3 * (1 - t) * t * t * p2[c] + t ** 3 * p3[c] for c in (0, 1)))
+    dense.append(tuple(b["v"][-1]))
+    lengths = [0.0]
+    for a, c in zip(dense, dense[1:]):
+        lengths.append(lengths[-1] + math.hypot(c[0] - a[0], c[1] - a[1]))
+    out, j = [], 0
+    for k in range(count + 1):
+        target = lengths[-1] * k / count
+        while j < len(lengths) - 2 and lengths[j + 1] < target:
+            j += 1
+        span = lengths[j + 1] - lengths[j] or 1
+        u = (target - lengths[j]) / span
+        out.append((dense[j][0] + (dense[j + 1][0] - dense[j][0]) * u, dense[j][1] + (dense[j + 1][1] - dense[j][1]) * u))
+    return out
+
+
 def arrow_head(tip, frm, size=50, spread=32):
     """Open chevron head at `tip`, pointing away from `frm`."""
     dx, dy = tip[0] - frm[0], tip[1] - frm[1]

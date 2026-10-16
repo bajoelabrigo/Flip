@@ -271,7 +271,7 @@ def seguir_persona() -> Sticker:
 
 
 def reacciones_vivo() -> Sticker:
-    s = Sticker("reacciones-vivo", "Reacciones en vivo", "Live reactions", "redes", frames=90, order=465,
+    s = Sticker("reacciones-vivo", "Reacciones en vivo", "Live reactions", "redes", frames=90, order=465, thumb=0.38,
                 tags=["reacciones", "en vivo", "me gusta", "corazones"])
     h = s.slot("corazon", "#FF2D55")
     st = s.slot("estrella", "#FFD23F")
@@ -284,7 +284,7 @@ def reacciones_vivo() -> Sticker:
     for k in range(9):
         kind = kinds[k % 3]
         sway = rng.uniform(25, 45) * (1 if k % 2 else -1)
-        x0 = 330 + rng.uniform(-50, 50)
+        x0 = [230, 330, 400][k % 3] + rng.uniform(-20, 20)
         size = rng.choice([130, 150, 170])
         def make(t0, kind=kind, sway=sway, x0=x0, size=size):
             return kind(), layer_transform(p=anim([(t0, [x0, 470, 0], EASE_IN_OUT), (t0 + 20, [x0 + sway, 360, 0], EASE_IN_OUT),

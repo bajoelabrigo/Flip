@@ -5,7 +5,7 @@ from __future__ import annotations
 import math
 import random
 
-from kit import (FALL, IN, arrow_head, at, bob, breathe, circle, circle_pts, cyclic, draw_on, heart_path, line, morph,
+from kit import (FALL, IN, arrow_head, sample_curve, at, bob, breathe, circle, circle_pts, cyclic, draw_on, heart_path, line, morph,
                  oval, outline, pop, rrect, scale_keys, solid, swing, wave, wobble)
 from lottie import (EASE_BACK, EASE_IN_OUT, EASE_OUT, LINEAR, Sticker, anim, ellipse, fill, group, layer_transform, path,
                     polar, rect, star, static, stroke, transform, trim)
@@ -574,7 +574,7 @@ def scroll_abajo() -> Sticker:
 
 
 def cursor_clic() -> Sticker:
-    s = Sticker("cursor-clic", "Clic", "Click", "flechas", frames=40, order=267, thumb=0.3,
+    s = Sticker("cursor-clic", "Clic", "Click", "flechas", frames=40, order=267, thumb=0.22,
                 tags=["clic", "toca", "botón", "enlace"])
     ring = s.slot("onda", "#FFD23F")
     body = s.slot("cursor", "#FFFFFF")
@@ -582,7 +582,7 @@ def cursor_clic() -> Sticker:
     for k in range(2):
         d = 6 + k * 4
         s.layer(group(circle(60), stroke("#FFD23F", 8, ring)),
-                ks=layer_transform(p=tip, s=scale_keys([(d, 40, EASE_OUT), (d + 20, 300)]), o=anim([(d, 100), (d + 20, 0)])), ip=d, op=d + 20)
+                ks=layer_transform(p=tip, s=scale_keys([(d, 40, EASE_OUT), (d + 20, 300)]), o=anim([(d, 100), (d + 10, 100, IN), (d + 20, 0)])), ip=d, op=d + 20)
     for a in (-150, -110, -70):
         s.layer(group(line(polar(0, 0, 46, a), polar(0, 0, 80, a)), stroke("#FFD23F", 10, ring),
                       trim(anim([(6, 0, EASE_OUT), (12, 100)]), start=anim([(10, 0, EASE_IN_OUT), (18, 100)]))),
@@ -598,12 +598,15 @@ def flecha_punteada() -> Sticker:
                 tags=["camino", "ruta", "señalar", "flecha"])
     sid = s.slot("color", "#FFFFFF")
     pts = [(-200, 150), (-100, -40), (60, -110), (190, -60)]
-    curve = path(pts, smooth=1.0)
-    # The dashes are one dashed stroke drawn on; the head pops at the end.
-    dash = {"ty": "st", "c": static([1, 1, 1, 1]), "o": static(100), "w": static(14), "lc": 2, "lj": 2,
-            "d": [{"n": "d", "nm": "dash", "v": static(1)}, {"n": "g", "nm": "gap", "v": static(34)}]}
-    dash["c"]["sid"] = sid
-    s.layer(group(curve, dash, draw_on(0, 22)), ks=layer_transform(p=(C, C)))
+    # Separate dashes (not a dashed stroke: the app's renderer drew it solid), each popping in turn.
+    along = sample_curve(pts, 26)
+    n = 13
+    for k in range(n):
+        a, b = along[2 * k], along[2 * k + 1]
+        mx, my = (a[0] + b[0]) / 2, (a[1] + b[1]) / 2
+        d = round(k * 20 / n)
+        s.layer(group(line((a[0] - mx, a[1] - my), (b[0] - mx, b[1] - my)), stroke("#FFFFFF", 14, sid)),
+                ks=layer_transform(p=(C + mx, C + my), s=scale_keys([(d, 0, EASE_OUT), (d + 5, 100)])))
     s.layer(group(arrow_head((200, -55), (150, -85), 50, 36), stroke("#FFFFFF", 14, sid)), ks=layer_transform(p=(C + 200, C - 55), a=(200, -55),
                                                                                                s=pop(20, 12)))
     return s

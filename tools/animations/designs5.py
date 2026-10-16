@@ -159,7 +159,7 @@ def tienda() -> Sticker:
             group(*[band(k) for k in range(6) if k % 2 == 0], *[scallop(k) for k in range(6) if k % 2 == 0], fill("#FF4D6D", a)),
             ks=layer_transform(p=(C, C - 90), a=(0, -60), s=scale_keys([(8, [100, 0, 100], EASE_OUT), (18, [100, 115, 100], EASE_IN_OUT), (24, [100, 100, 100])])))
     s.layer(group(line((-30, 0), (0, -40), (30, 0)), stroke("#FFFFFF", 5)), group(rrect(120, 54, 10, 0, 27), fill("#FFFFFF", b)),
-            ks=layer_transform(p=(C - 60, C + 40), a=(0, -40), r=swing(36, 14, 3, start=20), s=pop(16, 10)))
+            ks=layer_transform(p=(C + 70, C + 10), a=(0, -40), r=swing(36, 14, 3, start=20), s=pop(16, 10)))
     return s
 
 
@@ -209,7 +209,6 @@ def bombilla() -> Sticker:
     bulb = s.slot("bombilla", "#FFD23F")
     base = s.slot("base", "#9CA3AF")
     rays = s.slot("rayos", "#FFD23F")
-    s.layer(group(circle(330), fill("#FFD23F", bulb, o=14)), ks=layer_transform(p=(C, C - 30), s=breathe(48, 90, 110)))
     s.layer(group(path([(-30, 40), (-14, 0), (0, 30), (14, 0), (30, 40)]), stroke("#E09B1A", 9)),
             group(path([(-60, 50), (-100, -10), (-100, -80), (-60, -130), (0, -150), (60, -130), (100, -80), (100, -10), (60, 50)], closed=True, smooth=0.8),
                   fill("#FFD23F", bulb)),
@@ -432,7 +431,7 @@ def copo_nieve() -> Sticker:
 
 
 def viento() -> Sticker:
-    s = Sticker("viento", "Viento", "Wind", "clima", frames=48, order=825,
+    s = Sticker("viento", "Viento", "Wind", "clima", frames=48, order=825, thumb=0.33,
                 tags=["viento", "brisa", "aire", "frío"])
     sid = s.slot("color", "#FFFFFF")
     for k, (y, length, d) in enumerate([(-90, 300, 0), (0, 380, 10), (90, 260, 22)]):

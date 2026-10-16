@@ -235,7 +235,6 @@ def diya() -> Sticker:
     lamp = s.slot("lampara", "#E07A3F")
     flame = s.slot("llama", "#FFC93C")
     dots = s.slot("detalle", "#FFE066")
-    s.layer(group(circle(240), fill("#FFC93C", flame, o=16)), ks=layer_transform(p=(C, C - 30), s=wave(30, lambda u: [100 + 8 * math.sin(2 * math.pi * u * 2)] * 2 + [100])))
     shapes = [[(0, -110), (30, -40), (24, 0), (0, 14), (-24, 0), (-30, -40)], [(10, -120), (32, -40), (22, 0), (0, 14), (-26, 0), (-26, -44)],
               [(-8, -106), (28, -42), (26, 0), (0, 14), (-22, 0), (-32, -38)]]
     fl = morph([(0, shapes[0]), (10, shapes[1]), (20, shapes[2]), (30, shapes[0])], smooth=0.9)
@@ -293,7 +292,7 @@ def birrete() -> Sticker:
     toss = anim([(0, [C, C + 60, 0], EASE_OUT), (20, [C, C - 90, 0], IN), (40, [C, C + 60, 0], EASE_OUT), (44, [C, C + 50, 0], EASE_IN_OUT), (48, [C, C + 60, 0]), (60, [C, C + 60, 0])])
     s.layer(group(line((0, 0), (130, 10), (130, 90)), stroke("#FFD23F", 8, tassel)), group(rrect(26, 50, 8, 130, 100), fill("#FFD23F", tassel)),
             group(circle(24), fill("#FFD23F", tassel)),
-            group(path([(0, -90), (210, 0), (0, 90), (-210, 0)], closed=True), fill("#2B2D42", cap)),
+            group(path([(0, -90), (210, 0), (0, 90), (-210, 0)], closed=True), fill("#2B2D42", cap), stroke("#6B7090", 8)),
             group(path([(-110, 30), (110, 30), (110, 110), (0, 130), (-110, 110)], closed=True, smooth=0.3), fill("#1A1B29")),
             ks=layer_transform(p=toss, r=anim([(0, 0, EASE_OUT), (20, -12, IN), (40, 0), (60, 0)]), s=scale_keys([(0, 100), (38, 100, EASE_OUT), (40, [108, 92, 100], EASE_IN_OUT), (46, 100)])))
     for x, y, d in [(C - 160, C - 150, 14), (C + 170, C - 120, 18), (C + 150, C + 160, 44)]:

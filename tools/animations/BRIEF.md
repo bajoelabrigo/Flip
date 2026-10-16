@@ -72,5 +72,9 @@ Categorías nuevas: `fechas` (Fechas especiales), `comida` (Comida y bebida), `d
 
 ### Revisar sin la app
 `py tools/animations/preview.py --module designs3 --sheet hoja.png [--strip 8]` dibuja una hoja de contacto con
-QPainter (tarjetas o una tira de fotogramas por sticker). No dibuja los trazos discontinuos (`d`); la referencia
-sigue siendo la tarjeta que renderiza la app (`build.py`).
+QPainter (tarjetas o una tira de fotogramas por sticker). Coincide con lo que dibuja la app en lo que usamos; la
+referencia sigue siendo la tarjeta que renderiza la app (`build.py`).
+
+14. **Nada de trazos discontinuos (`d`)**: la app los dibujó como línea continua. Una línea punteada se hace con
+    trazos sueltos (`kit.sample_curve` reparte puntos a igual distancia sobre la curva).
+15. Los halos de luz con poca opacidad se ven barrosos sobre fondo oscuro: mejor rayos o nada.
