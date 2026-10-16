@@ -327,8 +327,14 @@ def play() -> Sticker:
 
 
 import designs2  # noqa: E402
+import designs3  # noqa: E402
+import designs4  # noqa: E402
+import designs5  # noqa: E402
+import designs6  # noqa: E402
+import designs7  # noqa: E402
 
 STICKERS_1 = [confeti, destellos, corazones, fuegos, estrellas, circulo_marcador, subrayado, palomita, tachar, enfasis,
             marco_esquinas, flecha_abajo, flecha_curva, flechas_derecha, deslizar_arriba, ondas, cargando, puntos, sol,
             corazon_like, campana, play]
-STICKERS = STICKERS_1 + designs2.STICKERS
+STICKERS = (STICKERS_1 + designs2.STICKERS + designs3.STICKERS + designs4.STICKERS + designs5.STICKERS + designs6.STICKERS
+            + designs7.STICKERS)

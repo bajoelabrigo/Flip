@@ -30,6 +30,10 @@ CATEGORY_NAMES = {
     "llamadas": {"es": "Llamadas y marcos", "en": "Callouts and frames"},
     "clima": {"es": "Clima", "en": "Weather"},
     "transiciones": {"es": "Transiciones", "en": "Transitions"},
+    "fechas": {"es": "Fechas especiales", "en": "Special days"},
+    "comida": {"es": "Comida y bebida", "en": "Food and drink"},
+    "deportes": {"es": "Deportes", "en": "Sports"},
+    "iconos": {"es": "Iconos", "en": "Icons"},
 }
 
 
