@@ -45,7 +45,7 @@ def main() -> int:
     # The animations, overlays and sounds (tools/animations, tools/overlays, tools/sounds) share the folder: keep them.
     if args.out.exists():
         for child in args.out.iterdir():
-            if child.name in ("animaciones", "superposiciones", "sonidos"):
+            if child.name in ("animaciones", "superposiciones", "sonidos", "fondos"):
                 continue
             shutil.rmtree(child) if child.is_dir() else child.unlink()
     args.out.mkdir(parents=True, exist_ok=True)
