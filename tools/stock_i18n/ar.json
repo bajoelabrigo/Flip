@@ -1,0 +1,12260 @@
+{
+ "categories": {
+  "animation:celebracion": "احتفال",
+  "animation:clima": "الطقس",
+  "animation:comida": "طعام ومشروبات",
+  "animation:deportes": "رياضة",
+  "animation:emociones": "مشاعر",
+  "animation:fechas": "مناسبات خاصة",
+  "animation:flechas": "أسهم",
+  "animation:formas": "أشكال",
+  "animation:iconos": "أيقونات",
+  "animation:llamadas": "فقاعات وإطارات",
+  "animation:negocios": "أعمال",
+  "animation:redes": "تواصل اجتماعي",
+  "animation:resaltar": "إبراز",
+  "animation:transiciones": "انتقالات",
+  "background:ambiente": "أضواء وأجواء",
+  "background:degradados": "تدرجات وسوائل",
+  "background:fechas": "مناسبات خاصة",
+  "background:geometricos": "هندسية",
+  "background:texturas": "خامات",
+  "overlay:amor": "حب",
+  "overlay:camara": "كاميرا وشاشة",
+  "overlay:celebracion": "احتفال",
+  "overlay:clima": "طقس وطبيعة",
+  "overlay:garabatos": "رسومات يدوية",
+  "overlay:glitch": "تشويش رقمي",
+  "overlay:luces": "تسربات ضوء ووهج",
+  "overlay:marcos": "إطارات وخامات",
+  "overlay:particulas": "جزيئات ولمعان",
+  "overlay:pelicula": "أفلام وريترو",
+  "sound:comedia": "كوميديا",
+  "sound:impactos": "ضربات",
+  "sound:interfaz": "أزرار وتنبيهات",
+  "sound:juegos": "عملات وألعاب",
+  "sound:magia": "سحر ولمعان",
+  "sound:ritmo": "إيقاعات وموسيقى",
+  "sound:suspenso": "تشويق ودراما",
+  "sound:transiciones": "انتقالات",
+  "template:beforeafter": "قبل وبعد",
+  "template:business": "أعمال",
+  "template:celebration": "احتفالات",
+  "template:collage": "كولاج",
+  "template:countdown": "عد تنازلي",
+  "template:intro": "مقدمات وعناوين",
+  "template:lowerthird": "أشرطة أسماء",
+  "template:outro": "خواتيم",
+  "template:product": "منتجات",
+  "template:reels": "ريلز صور",
+  "template:seasonal": "مناسبات خاصة",
+  "template:slideshow": "عروض صور",
+  "template:text": "نصوص",
+  "template:transition": "انتقالات وفواصل"
+ },
+ "items": {
+  "animation:advertencia": {
+   "name": "تحذير",
+   "tags": [
+    "تحذير",
+    "تنبيه",
+    "خطر",
+    "علامة"
+   ]
+  },
+  "animation:alcancia": {
+   "name": "حصّالة",
+   "tags": [
+    "حصالة",
+    "ادخار",
+    "مال",
+    "توفير"
+   ]
+  },
+  "animation:anillos-boda": {
+   "name": "خواتم الزفاف",
+   "tags": [
+    "خواتم",
+    "زفاف",
+    "زواج",
+    "خطوبة"
+   ]
+  },
+  "animation:anillos-puntos": {
+   "name": "حلقات منقّطة",
+   "tags": [
+    "حلقات",
+    "نقاط",
+    "دوائر",
+    "دوران"
+   ]
+  },
+  "animation:arbol-navidad": {
+   "name": "شجرة الميلاد",
+   "tags": [
+    "شجرة الميلاد",
+    "كريسماس",
+    "زينة",
+    "ديسمبر"
+   ]
+  },
+  "animation:arcoiris": {
+   "name": "قوس قزح",
+   "tags": [
+    "قوس قزح",
+    "الوان",
+    "مطر",
+    "سماء"
+   ]
+  },
+  "animation:asterisco": {
+   "name": "نجمة الحواشي",
+   "tags": [
+    "نجمة",
+    "رمز",
+    "شكل",
+    "زينة"
+   ]
+  },
+  "animation:avion-papel": {
+   "name": "طائرة ورقية",
+   "tags": [
+    "طائرة ورقية",
+    "ارسال",
+    "رسالة",
+    "ورق"
+   ]
+  },
+  "animation:balon-futbol": {
+   "name": "كرة قدم",
+   "tags": [
+    "كرة قدم",
+    "كرة",
+    "رياضة",
+    "هدف"
+   ]
+  },
+  "animation:baloncesto": {
+   "name": "كرة سلة",
+   "tags": [
+    "كرة سلة",
+    "سلة",
+    "رياضة",
+    "كرة"
+   ]
+  },
+  "animation:bandera": {
+   "name": "علم يرفرف",
+   "tags": [
+    "علم",
+    "راية",
+    "رفرفة",
+    "وطني"
+   ]
+  },
+  "animation:bandera-meta": {
+   "name": "علم خط النهاية",
+   "tags": [
+    "خط النهاية",
+    "علم",
+    "سباق",
+    "فوز"
+   ]
+  },
+  "animation:banderines": {
+   "name": "رايات زينة",
+   "tags": [
+    "رايات",
+    "زينة",
+    "حفلة",
+    "احتفال"
+   ]
+  },
+  "animation:barrido-diagonal": {
+   "name": "مسح قطري",
+   "tags": [
+    "مسح",
+    "قطري",
+    "انتقال",
+    "مائل"
+   ]
+  },
+  "animation:bateria-carga": {
+   "name": "بطارية تُشحن",
+   "tags": [
+    "بطارية",
+    "شحن",
+    "طاقة",
+    "جوال"
+   ]
+  },
+  "animation:bengala": {
+   "name": "شعلة نارية",
+   "tags": [
+    "شعلة",
+    "شرار",
+    "احتفال",
+    "ليل"
+   ]
+  },
+  "animation:birrete": {
+   "name": "قبعة التخرّج",
+   "tags": [
+    "تخرج",
+    "قبعة",
+    "جامعة",
+    "دفعة"
+   ]
+  },
+  "animation:bocadillo": {
+   "name": "فقاعة كلام",
+   "tags": [
+    "فقاعة كلام",
+    "كلام",
+    "حوار",
+    "كوميكس"
+   ]
+  },
+  "animation:bocadillo-grito": {
+   "name": "فقاعة صراخ",
+   "tags": [
+    "صراخ",
+    "فقاعة",
+    "كوميكس",
+    "انفجار"
+   ]
+  },
+  "animation:bola-disco": {
+   "name": "كرة ديسكو",
+   "tags": [
+    "ديسكو",
+    "كرة",
+    "حفلة",
+    "رقص"
+   ]
+  },
+  "animation:bolsa-compras": {
+   "name": "حقيبة تسوّق",
+   "tags": [
+    "تسوق",
+    "حقيبة",
+    "شراء",
+    "متجر"
+   ]
+  },
+  "animation:bombilla-idea": {
+   "name": "فكرة!",
+   "tags": [
+    "فكرة",
+    "مصباح",
+    "ابداع",
+    "الهام"
+   ]
+  },
+  "animation:boton-play": {
+   "name": "زر التشغيل",
+   "tags": [
+    "تشغيل",
+    "زر",
+    "فيديو",
+    "بلاي"
+   ]
+  },
+  "animation:boton-seguir": {
+   "name": "زر المتابعة",
+   "tags": [
+    "متابعة",
+    "تابع",
+    "زر",
+    "حساب"
+   ]
+  },
+  "animation:brillo-y2k": {
+   "name": "لمعة Y2K",
+   "tags": [
+    "y2k",
+    "لمعة",
+    "نجمة",
+    "بريق"
+   ]
+  },
+  "animation:burbujas": {
+   "name": "فقاعات",
+   "tags": [
+    "فقاعات",
+    "ماء",
+    "صابون",
+    "عائمة"
+   ]
+  },
+  "animation:cafe-humeante": {
+   "name": "قهوة ساخنة",
+   "tags": [
+    "قهوة",
+    "ساخن",
+    "كوب",
+    "صباح"
+   ]
+  },
+  "animation:caja-envio": {
+   "name": "صندوق شحن",
+   "tags": [
+    "شحن",
+    "توصيل",
+    "صندوق",
+    "طرد"
+   ]
+  },
+  "animation:calabaza": {
+   "name": "يقطينة الهالوين",
+   "tags": [
+    "يقطين",
+    "هالوين",
+    "قرع",
+    "رعب"
+   ]
+  },
+  "animation:calendario": {
+   "name": "تقويم",
+   "tags": [
+    "تقويم",
+    "تاريخ",
+    "موعد",
+    "يوم"
+   ]
+  },
+  "animation:camara-foto": {
+   "name": "كاميرا تصوير",
+   "tags": [
+    "كاميرا",
+    "تصوير",
+    "صورة",
+    "فلاش"
+   ]
+  },
+  "animation:campana": {
+   "name": "جرس الإشعارات",
+   "tags": [
+    "جرس",
+    "اشعارات",
+    "اشتراك",
+    "تنبيه"
+   ]
+  },
+  "animation:campanas-navidad": {
+   "name": "أجراس الميلاد",
+   "tags": [
+    "اجراس",
+    "كريسماس",
+    "زينة",
+    "اعياد"
+   ]
+  },
+  "animation:candado": {
+   "name": "قفل",
+   "tags": [
+    "قفل",
+    "امان",
+    "حماية",
+    "مغلق"
+   ]
+  },
+  "animation:cara-angel": {
+   "name": "ملاك صغير",
+   "tags": [
+    "ملاك",
+    "بريء",
+    "هالة",
+    "ايموجي"
+   ]
+  },
+  "animation:cara-beso": {
+   "name": "قبلة",
+   "tags": [
+    "قبلة",
+    "بوسة",
+    "حب",
+    "ايموجي"
+   ]
+  },
+  "animation:cara-derretida": {
+   "name": "وجه يذوب",
+   "tags": [
+    "ذوبان",
+    "حر",
+    "احراج",
+    "ايموجي"
+   ]
+  },
+  "animation:cara-diablillo": {
+   "name": "شيطان صغير",
+   "tags": [
+    "شيطان",
+    "شقي",
+    "مشاغب",
+    "ايموجي"
+   ]
+  },
+  "animation:cara-dormida": {
+   "name": "وجه نائم",
+   "tags": [
+    "نوم",
+    "نعسان",
+    "تعب",
+    "ايموجي"
+   ]
+  },
+  "animation:cara-enamorada": {
+   "name": "وجه عاشق",
+   "tags": [
+    "عاشق",
+    "حب",
+    "قلوب",
+    "ايموجي"
+   ]
+  },
+  "animation:cara-enojada": {
+   "name": "وجه غاضب",
+   "tags": [
+    "غضب",
+    "زعل",
+    "عصبي",
+    "ايموجي"
+   ]
+  },
+  "animation:cara-estrellas": {
+   "name": "منبهر",
+   "tags": [
+    "انبهار",
+    "نجوم",
+    "اعجاب",
+    "ايموجي"
+   ]
+  },
+  "animation:cara-fiesta": {
+   "name": "وجه احتفال",
+   "tags": [
+    "احتفال",
+    "حفلة",
+    "مرح",
+    "ايموجي"
+   ]
+  },
+  "animation:cara-guino": {
+   "name": "غمزة",
+   "tags": [
+    "غمزة",
+    "وجه",
+    "مرح",
+    "ايموجي"
+   ]
+  },
+  "animation:cara-lentes": {
+   "name": "وجه بنظارة شمسية",
+   "tags": [
+    "نظارة شمسية",
+    "رايق",
+    "كول",
+    "ايموجي"
+   ]
+  },
+  "animation:cara-llorando": {
+   "name": "وجه يبكي",
+   "tags": [
+    "بكاء",
+    "حزن",
+    "دموع",
+    "ايموجي"
+   ]
+  },
+  "animation:cara-nerviosa": {
+   "name": "وجه متوتّر",
+   "tags": [
+    "توتر",
+    "قلق",
+    "خوف",
+    "ايموجي"
+   ]
+  },
+  "animation:cara-pensando": {
+   "name": "يفكّر",
+   "tags": [
+    "تفكير",
+    "سؤال",
+    "حيرة",
+    "ايموجي"
+   ]
+  },
+  "animation:cara-risa": {
+   "name": "وجه ضاحك",
+   "tags": [
+    "ضحك",
+    "مضحك",
+    "ايموجي",
+    "وجه"
+   ]
+  },
+  "animation:cara-sorpresa": {
+   "name": "وجه مندهش",
+   "tags": [
+    "دهشة",
+    "مفاجاة",
+    "صدمة",
+    "ايموجي"
+   ]
+  },
+  "animation:cargando": {
+   "name": "جارٍ التحميل",
+   "tags": [
+    "تحميل",
+    "انتظار",
+    "دائرة",
+    "تقدم"
+   ]
+  },
+  "animation:carrito": {
+   "name": "عربة تسوّق",
+   "tags": [
+    "عربة",
+    "سلة",
+    "تسوق",
+    "شراء"
+   ]
+  },
+  "animation:carta-amor": {
+   "name": "رسالة حب",
+   "tags": [
+    "رسالة",
+    "حب",
+    "ظرف",
+    "عيد الحب"
+   ]
+  },
+  "animation:chat-corazon": {
+   "name": "رسالة حب",
+   "tags": [
+    "رسالة",
+    "قلب",
+    "حب",
+    "دردشة"
+   ]
+  },
+  "animation:chincheta": {
+   "name": "دبوس تثبيت",
+   "tags": [
+    "دبوس",
+    "تثبيت",
+    "ملاحظة",
+    "لوح"
+   ]
+  },
+  "animation:cinta": {
+   "name": "شريط لافتة",
+   "tags": [
+    "شريط",
+    "لافتة",
+    "عنوان",
+    "زينة"
+   ]
+  },
+  "animation:cinta-adhesiva": {
+   "name": "شريط لاصق مزخرف",
+   "tags": [
+    "شريط لاصق",
+    "زخرفة",
+    "قصاصات",
+    "يدوي"
+   ]
+  },
+  "animation:circulo-flecha": {
+   "name": "دائرة مع سهم",
+   "tags": [
+    "دائرة",
+    "سهم",
+    "تحديد",
+    "اشارة"
+   ]
+  },
+  "animation:circulo-marcador": {
+   "name": "دائرة مرسومة باليد",
+   "tags": [
+    "دائرة",
+    "رسم يدوي",
+    "تحديد",
+    "ابراز"
+   ]
+  },
+  "animation:circulos-barrido": {
+   "name": "مسح بالدوائر",
+   "tags": [
+    "دوائر",
+    "مسح",
+    "انتقال",
+    "اشكال"
+   ]
+  },
+  "animation:cohete": {
+   "name": "صاروخ",
+   "tags": [
+    "صاروخ",
+    "اطلاق",
+    "نمو",
+    "انطلاق"
+   ]
+  },
+  "animation:comentar": {
+   "name": "تعليق",
+   "tags": [
+    "تعليق",
+    "علق",
+    "دردشة",
+    "تفاعل"
+   ]
+  },
+  "animation:compartir": {
+   "name": "مشاركة",
+   "tags": [
+    "مشاركة",
+    "شارك",
+    "ارسال",
+    "سوشيال"
+   ]
+  },
+  "animation:confeti": {
+   "name": "انفجار قصاصات ملونة",
+   "tags": [
+    "قصاصات",
+    "كونفيتي",
+    "احتفال",
+    "حفلة"
+   ]
+  },
+  "animation:cono-fiesta": {
+   "name": "مدفع قصاصات",
+   "tags": [
+    "مدفع قصاصات",
+    "حفلة",
+    "احتفال",
+    "مفاجاة"
+   ]
+  },
+  "animation:conversacion": {
+   "name": "محادثة",
+   "tags": [
+    "محادثة",
+    "دردشة",
+    "رسائل",
+    "حوار"
+   ]
+  },
+  "animation:copas-brindis": {
+   "name": "نخب",
+   "tags": [
+    "نخب",
+    "كؤوس",
+    "احتفال",
+    "راس السنة"
+   ]
+  },
+  "animation:copo-nieve": {
+   "name": "ندفة ثلج",
+   "tags": [
+    "ندفة",
+    "ثلج",
+    "شتاء",
+    "برد"
+   ]
+  },
+  "animation:corazon-a-mano": {
+   "name": "قلب مرسوم باليد",
+   "tags": [
+    "قلب",
+    "رسم يدوي",
+    "حب",
+    "خربشة"
+   ]
+  },
+  "animation:corazon-flechado": {
+   "name": "قلب وسهم",
+   "tags": [
+    "قلب",
+    "سهم",
+    "حب",
+    "عيد الحب"
+   ]
+  },
+  "animation:corazon-roto": {
+   "name": "قلب مكسور",
+   "tags": [
+    "قلب مكسور",
+    "حزن",
+    "فراق",
+    "حب"
+   ]
+  },
+  "animation:corazones": {
+   "name": "قلوب طائرة",
+   "tags": [
+    "قلوب",
+    "حب",
+    "طائرة",
+    "رومانسي"
+   ]
+  },
+  "animation:corchetes": {
+   "name": "أقواس تركيز",
+   "tags": [
+    "اقواس",
+    "تركيز",
+    "تحديد",
+    "اطار"
+   ]
+  },
+  "animation:corona": {
+   "name": "تاج",
+   "tags": [
+    "تاج",
+    "ملك",
+    "ملكة",
+    "فخم"
+   ]
+  },
+  "animation:correo": {
+   "name": "بريد جديد",
+   "tags": [
+    "بريد",
+    "رسالة",
+    "ايميل",
+    "ظرف"
+   ]
+  },
+  "animation:corte-dividido": {
+   "name": "انزلاق منقسم",
+   "tags": [
+    "انقسام",
+    "انزلاق",
+    "انتقال",
+    "قطع"
+   ]
+  },
+  "animation:cronometro": {
+   "name": "ساعة توقيت",
+   "tags": [
+    "توقيت",
+    "ساعة",
+    "وقت",
+    "سباق"
+   ]
+  },
+  "animation:cuadros-zoom": {
+   "name": "شبكة مربعات",
+   "tags": [
+    "مربعات",
+    "شبكة",
+    "انتقال",
+    "زوم"
+   ]
+  },
+  "animation:cuenta-regresiva": {
+   "name": "عد تنازلي",
+   "tags": [
+    "عد تنازلي",
+    "ارقام",
+    "وقت",
+    "بداية"
+   ]
+  },
+  "animation:cupcake": {
+   "name": "كب كيك",
+   "tags": [
+    "كب كيك",
+    "حلويات",
+    "كعك",
+    "عيد ميلاد"
+   ]
+  },
+  "animation:cursor-clic": {
+   "name": "نقرة",
+   "tags": [
+    "نقرة",
+    "مؤشر",
+    "ماوس",
+    "كليك"
+   ]
+  },
+  "animation:descargar": {
+   "name": "تنزيل",
+   "tags": [
+    "تنزيل",
+    "تحميل",
+    "سهم",
+    "ملف"
+   ]
+  },
+  "animation:desliza-arriba": {
+   "name": "اسحب للأعلى",
+   "tags": [
+    "اسحب",
+    "اعلى",
+    "سوايب",
+    "رابط"
+   ]
+  },
+  "animation:destellos": {
+   "name": "لمعان",
+   "tags": [
+    "لمعان",
+    "بريق",
+    "نجوم",
+    "سحر"
+   ]
+  },
+  "animation:diana": {
+   "name": "لوحة تصويب",
+   "tags": [
+    "هدف",
+    "تصويب",
+    "دقة",
+    "نجاح"
+   ]
+  },
+  "animation:diya": {
+   "name": "مصباح ديا",
+   "tags": [
+    "ديا",
+    "ديوالي",
+    "مصباح",
+    "شعلة"
+   ]
+  },
+  "animation:dona": {
+   "name": "دونات",
+   "tags": [
+    "دونات",
+    "حلويات",
+    "سكر",
+    "فطور"
+   ]
+  },
+  "animation:en-vivo": {
+   "name": "مباشر",
+   "tags": [
+    "مباشر",
+    "لايف",
+    "بث",
+    "الان"
+   ]
+  },
+  "animation:enfasis": {
+   "name": "خطوط تأكيد",
+   "tags": [
+    "تاكيد",
+    "خطوط",
+    "انتباه",
+    "ابراز"
+   ]
+  },
+  "animation:engranajes": {
+   "name": "تروس",
+   "tags": [
+    "تروس",
+    "اعدادات",
+    "الة",
+    "عمل"
+   ]
+  },
+  "animation:enlace": {
+   "name": "رابط",
+   "tags": [
+    "رابط",
+    "لينك",
+    "وصلة",
+    "موقع"
+   ]
+  },
+  "animation:equis": {
+   "name": "علامة خطأ",
+   "tags": [
+    "خطا",
+    "اكس",
+    "رفض",
+    "علامة"
+   ]
+  },
+  "animation:escribiendo": {
+   "name": "يكتب…",
+   "tags": [
+    "يكتب",
+    "نقاط",
+    "دردشة",
+    "رسالة"
+   ]
+  },
+  "animation:esfera-navidad": {
+   "name": "كرة زينة الميلاد",
+   "tags": [
+    "كرة زينة",
+    "كريسماس",
+    "شجرة",
+    "زينة"
+   ]
+  },
+  "animation:espiral-garabato": {
+   "name": "حلزون مرسوم باليد",
+   "tags": [
+    "حلزون",
+    "رسم يدوي",
+    "خربشة",
+    "دوامة"
+   ]
+  },
+  "animation:estallido-comic": {
+   "name": "انفجار كوميكس",
+   "tags": [
+    "كوميكس",
+    "انفجار",
+    "بوم",
+    "بوب"
+   ]
+  },
+  "animation:estrella-a-mano": {
+   "name": "نجمة مرسومة باليد",
+   "tags": [
+    "نجمة",
+    "رسم يدوي",
+    "خربشة",
+    "ابراز"
+   ]
+  },
+  "animation:estrella-fugaz": {
+   "name": "شهاب",
+   "tags": [
+    "شهاب",
+    "نجمة",
+    "امنية",
+    "سماء"
+   ]
+  },
+  "animation:estrella-giro": {
+   "name": "نجمة دوّارة",
+   "tags": [
+    "نجمة",
+    "دوران",
+    "انتقال",
+    "لمعان"
+   ]
+  },
+  "animation:estrellas-pop": {
+   "name": "نجوم منبثقة",
+   "tags": [
+    "نجوم",
+    "بوب",
+    "مرح",
+    "لمعان"
+   ]
+  },
+  "animation:estrellas-valoracion": {
+   "name": "تقييم 5 نجوم",
+   "tags": [
+    "تقييم",
+    "5 نجوم",
+    "مراجعة",
+    "نجوم"
+   ]
+  },
+  "animation:etiqueta-precio": {
+   "name": "بطاقة سعر",
+   "tags": [
+    "سعر",
+    "بطاقة",
+    "تخفيض",
+    "منتج"
+   ]
+  },
+  "animation:exclamaciones": {
+   "name": "علامات تعجب",
+   "tags": [
+    "تعجب",
+    "انتباه",
+    "تنبيه",
+    "مهم"
+   ]
+  },
+  "animation:fantasma": {
+   "name": "شبح",
+   "tags": [
+    "شبح",
+    "هالوين",
+    "رعب",
+    "مخيف"
+   ]
+  },
+  "animation:farol-rojo": {
+   "name": "فانوس أحمر",
+   "tags": [
+    "فانوس",
+    "احمر",
+    "السنة القمرية",
+    "صيني"
+   ]
+  },
+  "animation:flecha-abajo": {
+   "name": "سهم يقفز",
+   "tags": [
+    "سهم",
+    "قفز",
+    "اسفل",
+    "انتباه"
+   ]
+  },
+  "animation:flecha-bucle": {
+   "name": "سهم بحلقة",
+   "tags": [
+    "سهم",
+    "حلقة",
+    "منحني",
+    "رسم يدوي"
+   ]
+  },
+  "animation:flecha-circular": {
+   "name": "سهم دائري",
+   "tags": [
+    "سهم",
+    "دائري",
+    "تحديث",
+    "تكرار"
+   ]
+  },
+  "animation:flecha-curva": {
+   "name": "سهم مرسوم باليد",
+   "tags": [
+    "سهم",
+    "رسم يدوي",
+    "منحني",
+    "اشارة"
+   ]
+  },
+  "animation:flecha-doble": {
+   "name": "سهم مزدوج",
+   "tags": [
+    "سهم",
+    "مزدوج",
+    "اتجاهين",
+    "تبديل"
+   ]
+  },
+  "animation:flecha-gruesa": {
+   "name": "سهم عريض",
+   "tags": [
+    "سهم",
+    "عريض",
+    "جريء",
+    "اتجاه"
+   ]
+  },
+  "animation:flecha-ondulada": {
+   "name": "سهم متموّج",
+   "tags": [
+    "سهم",
+    "متموج",
+    "منحني",
+    "اتجاه"
+   ]
+  },
+  "animation:flecha-punteada": {
+   "name": "سهم منقّط",
+   "tags": [
+    "سهم",
+    "منقط",
+    "مسار",
+    "اتجاه"
+   ]
+  },
+  "animation:flecha-u": {
+   "name": "سهم على شكل U",
+   "tags": [
+    "سهم",
+    "رجوع",
+    "انعطاف",
+    "u"
+   ]
+  },
+  "animation:flecha-zigzag": {
+   "name": "سهم متعرّج",
+   "tags": [
+    "سهم",
+    "متعرج",
+    "زجزاج",
+    "اتجاه"
+   ]
+  },
+  "animation:flechas-centro": {
+   "name": "أسهم نحو المركز",
+   "tags": [
+    "اسهم",
+    "مركز",
+    "تركيز",
+    "وسط"
+   ]
+  },
+  "animation:flechas-derecha": {
+   "name": "صف أسهم",
+   "tags": [
+    "اسهم",
+    "صف",
+    "يمين",
+    "اتجاه"
+   ]
+  },
+  "animation:flor-crece": {
+   "name": "زهرة تنمو",
+   "tags": [
+    "زهرة",
+    "نمو",
+    "ربيع",
+    "نبات"
+   ]
+  },
+  "animation:foco-luz": {
+   "name": "بقعة ضوء",
+   "tags": [
+    "بقعة ضوء",
+    "اضاءة",
+    "تركيز",
+    "مسرح"
+   ]
+  },
+  "animation:formas-memphis": {
+   "name": "أشكال عائمة",
+   "tags": [
+    "اشكال",
+    "عائمة",
+    "هندسية",
+    "الوان"
+   ]
+  },
+  "animation:franjas-diagonales": {
+   "name": "خطوط قطرية",
+   "tags": [
+    "خطوط",
+    "قطري",
+    "انتقال",
+    "مائل"
+   ]
+  },
+  "animation:fuego": {
+   "name": "نار",
+   "tags": [
+    "نار",
+    "رائع",
+    "حماس",
+    "ايموجي"
+   ]
+  },
+  "animation:fuegos-artificiales": {
+   "name": "ألعاب نارية",
+   "tags": [
+    "العاب نارية",
+    "احتفال",
+    "راس السنة",
+    "ليل"
+   ]
+  },
+  "animation:garabato-infinito": {
+   "name": "حلقة اللانهاية",
+   "tags": [
+    "لانهاية",
+    "حلقة",
+    "خربشة",
+    "شكل"
+   ]
+  },
+  "animation:globo-info": {
+   "name": "فقاعة معلومات",
+   "tags": [
+    "معلومات",
+    "تلميح",
+    "فقاعة",
+    "شرح"
+   ]
+  },
+  "animation:globos": {
+   "name": "بالونات",
+   "tags": [
+    "بالونات",
+    "حفلة",
+    "عيد ميلاد",
+    "احتفال"
+   ]
+  },
+  "animation:gorro-fiesta": {
+   "name": "قبعة حفلة",
+   "tags": [
+    "قبعة",
+    "حفلة",
+    "عيد ميلاد",
+    "مرح"
+   ]
+  },
+  "animation:gorro-santa": {
+   "name": "قبعة سانتا",
+   "tags": [
+    "سانتا",
+    "قبعة",
+    "كريسماس",
+    "اعياد"
+   ]
+  },
+  "animation:gota": {
+   "name": "قطرة",
+   "tags": [
+    "قطرة",
+    "ماء",
+    "سائل",
+    "شكل"
+   ]
+  },
+  "animation:grafico-barras": {
+   "name": "مخطط أعمدة",
+   "tags": [
+    "مخطط",
+    "اعمدة",
+    "احصائيات",
+    "بيانات"
+   ]
+  },
+  "animation:grafico-linea": {
+   "name": "اتجاه صاعد",
+   "tags": [
+    "صعود",
+    "نمو",
+    "مخطط",
+    "ارباح"
+   ]
+  },
+  "animation:grafico-torta": {
+   "name": "مخطط دائري",
+   "tags": [
+    "مخطط دائري",
+    "نسب",
+    "بيانات",
+    "احصائيات"
+   ]
+  },
+  "animation:guardar": {
+   "name": "حفظ",
+   "tags": [
+    "حفظ",
+    "علامة",
+    "احفظ",
+    "منشور"
+   ]
+  },
+  "animation:guirnalda-luces": {
+   "name": "سلسلة أضواء",
+   "tags": [
+    "اضواء",
+    "زينة",
+    "سلسلة",
+    "دافئ"
+   ]
+  },
+  "animation:hamburguesa": {
+   "name": "برغر",
+   "tags": [
+    "برغر",
+    "همبرغر",
+    "اكل",
+    "وجبة سريعة"
+   ]
+  },
+  "animation:hashtag": {
+   "name": "هاشتاغ",
+   "tags": [
+    "هاشتاغ",
+    "وسم",
+    "ترند",
+    "سوشيال"
+   ]
+  },
+  "animation:helado": {
+   "name": "آيس كريم",
+   "tags": [
+    "ايس كريم",
+    "بوظة",
+    "حلويات",
+    "صيف"
+   ]
+  },
+  "animation:hojas": {
+   "name": "أوراق متساقطة",
+   "tags": [
+    "اوراق",
+    "خريف",
+    "تساقط",
+    "شجر"
+   ]
+  },
+  "animation:huevo-pascua": {
+   "name": "بيضة الفصح",
+   "tags": [
+    "بيضة",
+    "عيد الفصح",
+    "ربيع",
+    "ملونة"
+   ]
+  },
+  "animation:iris": {
+   "name": "انتقال القزحية",
+   "tags": [
+    "قزحية",
+    "دائرة",
+    "انتقال",
+    "اغلاق"
+   ]
+  },
+  "animation:llamada-linea": {
+   "name": "تعليق بخط إشارة",
+   "tags": [
+    "خط اشارة",
+    "تعليق",
+    "شرح",
+    "تحديد"
+   ]
+  },
+  "animation:lluvia-dinero": {
+   "name": "مطر أوراق نقدية",
+   "tags": [
+    "مال",
+    "فلوس",
+    "مطر",
+    "ثراء"
+   ]
+  },
+  "animation:luna-estrellas": {
+   "name": "قمر ونجوم",
+   "tags": [
+    "قمر",
+    "نجوم",
+    "ليل",
+    "نوم"
+   ]
+  },
+  "animation:luna-farol": {
+   "name": "هلال وفانوس",
+   "tags": [
+    "هلال",
+    "فانوس",
+    "رمضان",
+    "عيد"
+   ]
+  },
+  "animation:lupa": {
+   "name": "عدسة مكبّرة",
+   "tags": [
+    "عدسة مكبرة",
+    "بحث",
+    "تكبير",
+    "تفاصيل"
+   ]
+  },
+  "animation:mancha": {
+   "name": "بقعة عضوية",
+   "tags": [
+    "بقعة",
+    "شكل",
+    "سائل",
+    "عضوي"
+   ]
+  },
+  "animation:mancha-liquida": {
+   "name": "مسح بقعة سائلة",
+   "tags": [
+    "سائل",
+    "بقعة",
+    "انتقال",
+    "مسح"
+   ]
+  },
+  "animation:mano-senala": {
+   "name": "يد تشير",
+   "tags": [
+    "يد",
+    "اشارة",
+    "اصبع",
+    "هنا"
+   ]
+  },
+  "animation:marco-circular": {
+   "name": "إطار دائري",
+   "tags": [
+    "اطار",
+    "دائري",
+    "دائرة",
+    "صورة"
+   ]
+  },
+  "animation:marco-esquinas": {
+   "name": "زوايا تركيز",
+   "tags": [
+    "زوايا",
+    "تركيز",
+    "اطار",
+    "تحديد"
+   ]
+  },
+  "animation:marco-polaroid": {
+   "name": "إطار صورة فورية",
+   "tags": [
+    "صورة فورية",
+    "اطار",
+    "صورة",
+    "ريترو"
+   ]
+  },
+  "animation:margarita-retro": {
+   "name": "زهرة أقحوان ريترو",
+   "tags": [
+    "اقحوان",
+    "زهرة",
+    "ريترو",
+    "سبعينات"
+   ]
+  },
+  "animation:me-gusta": {
+   "name": "إعجاب",
+   "tags": [
+    "اعجاب",
+    "لايك",
+    "قلب",
+    "سوشيال"
+   ]
+  },
+  "animation:medalla": {
+   "name": "ميدالية",
+   "tags": [
+    "ميدالية",
+    "فوز",
+    "جائزة",
+    "مركز اول"
+   ]
+  },
+  "animation:megafono": {
+   "name": "مكبّر صوت",
+   "tags": [
+    "مكبر صوت",
+    "اعلان",
+    "تنبيه",
+    "ترويج"
+   ]
+  },
+  "animation:microfono": {
+   "name": "ميكروفون",
+   "tags": [
+    "ميكروفون",
+    "مايك",
+    "صوت",
+    "بودكاست"
+   ]
+  },
+  "animation:mira-enfoque": {
+   "name": "علامة تصويب",
+   "tags": [
+    "تصويب",
+    "هدف",
+    "تركيز",
+    "منظار"
+   ]
+  },
+  "animation:moneda": {
+   "name": "عملة تدور",
+   "tags": [
+    "عملة",
+    "مال",
+    "دوران",
+    "ذهب"
+   ]
+  },
+  "animation:morph-estrella": {
+   "name": "نجمة متحوّلة",
+   "tags": [
+    "تحول",
+    "نجمة",
+    "شكل",
+    "مورف"
+   ]
+  },
+  "animation:murcielago": {
+   "name": "خفّاش",
+   "tags": [
+    "خفاش",
+    "هالوين",
+    "ليل",
+    "رعب"
+   ]
+  },
+  "animation:nieve": {
+   "name": "ثلج",
+   "tags": [
+    "ثلج",
+    "شتاء",
+    "برد",
+    "تساقط"
+   ]
+  },
+  "animation:nota-adhesiva": {
+   "name": "ورقة ملاحظات لاصقة",
+   "tags": [
+    "ملاحظة",
+    "لاصقة",
+    "ورقة",
+    "تذكير"
+   ]
+  },
+  "animation:notas-musicales": {
+   "name": "نوتات موسيقية",
+   "tags": [
+    "نوتات",
+    "موسيقى",
+    "اغنية",
+    "لحن"
+   ]
+  },
+  "animation:nube-lluvia": {
+   "name": "سحابة ممطرة",
+   "tags": [
+    "سحابة",
+    "مطر",
+    "طقس",
+    "شتاء"
+   ]
+  },
+  "animation:nube-pensamiento": {
+   "name": "فقاعة تفكير",
+   "tags": [
+    "تفكير",
+    "فقاعة",
+    "سحابة",
+    "كوميكس"
+   ]
+  },
+  "animation:nueva-notificacion": {
+   "name": "إشعار جديد",
+   "tags": [
+    "اشعار",
+    "تنبيه",
+    "جديد",
+    "رسالة"
+   ]
+  },
+  "animation:ojo-mira": {
+   "name": "عين تنظر",
+   "tags": [
+    "عين",
+    "نظرة",
+    "انتباه",
+    "شاهد"
+   ]
+  },
+  "animation:olas": {
+   "name": "أمواج",
+   "tags": [
+    "امواج",
+    "بحر",
+    "موجة",
+    "ماء"
+   ]
+  },
+  "animation:onda-liquida": {
+   "name": "موجة سائلة",
+   "tags": [
+    "موجة",
+    "سائل",
+    "انتقال",
+    "ماء"
+   ]
+  },
+  "animation:ondas": {
+   "name": "حلقات نابضة",
+   "tags": [
+    "موجات",
+    "نبض",
+    "حلقات",
+    "دوائر"
+   ]
+  },
+  "animation:palomita": {
+   "name": "علامة صح",
+   "tags": [
+    "صح",
+    "علامة",
+    "موافق",
+    "تم"
+   ]
+  },
+  "animation:palomitas": {
+   "name": "فشار",
+   "tags": [
+    "فشار",
+    "سينما",
+    "فيلم",
+    "تسالي"
+   ]
+  },
+  "animation:paraguas": {
+   "name": "مظلة",
+   "tags": [
+    "مظلة",
+    "مطر",
+    "شتاء",
+    "طقس"
+   ]
+  },
+  "animation:pastel-velas": {
+   "name": "كعكة عيد ميلاد",
+   "tags": [
+    "كعكة",
+    "شموع",
+    "عيد ميلاد",
+    "تورتة"
+   ]
+  },
+  "animation:perfecto": {
+   "name": "ممتاز!",
+   "tags": [
+    "ممتاز",
+    "تمام",
+    "رائع",
+    "ايموجي"
+   ]
+  },
+  "animation:pergamino": {
+   "name": "لفافة رقّ",
+   "tags": [
+    "لفافة",
+    "مخطوطة",
+    "قديم",
+    "لافتة"
+   ]
+  },
+  "animation:persiana": {
+   "name": "ستارة شرائح",
+   "tags": [
+    "ستارة",
+    "شرائح",
+    "انتقال",
+    "خطوط"
+   ]
+  },
+  "animation:pesas": {
+   "name": "دمبل",
+   "tags": [
+    "دمبل",
+    "اثقال",
+    "جيم",
+    "تمرين"
+   ]
+  },
+  "animation:petalos-cerezo": {
+   "name": "بتلات الكرز",
+   "tags": [
+    "كرز",
+    "بتلات",
+    "ربيع",
+    "ساكورا"
+   ]
+  },
+  "animation:pizza": {
+   "name": "شريحة بيتزا",
+   "tags": [
+    "بيتزا",
+    "اكل",
+    "وجبة",
+    "شريحة"
+   ]
+  },
+  "animation:podio": {
+   "name": "منصة التتويج",
+   "tags": [
+    "منصة",
+    "تتويج",
+    "فوز",
+    "مركز اول"
+   ]
+  },
+  "animation:porcentaje-oferta": {
+   "name": "خصم بالنسبة المئوية",
+   "tags": [
+    "خصم",
+    "نسبة",
+    "عرض",
+    "تخفيض"
+   ]
+  },
+  "animation:pulso-cardiaco": {
+   "name": "نبضات القلب",
+   "tags": [
+    "نبض",
+    "قلب",
+    "لياقة",
+    "صحة"
+   ]
+  },
+  "animation:puntos-onda": {
+   "name": "نقاط متموّجة",
+   "tags": [
+    "نقاط",
+    "موجة",
+    "تموج",
+    "شكل"
+   ]
+  },
+  "animation:rayos-fondo": {
+   "name": "أشعة دوّارة",
+   "tags": [
+    "اشعة",
+    "دوران",
+    "خلفية",
+    "ضوء"
+   ]
+  },
+  "animation:reacciones-vivo": {
+   "name": "تفاعلات مباشرة",
+   "tags": [
+    "تفاعلات",
+    "قلوب",
+    "مباشر",
+    "ايموجي"
+   ]
+  },
+  "animation:recuadro-a-mano": {
+   "name": "مربع مرسوم باليد",
+   "tags": [
+    "مربع",
+    "رسم يدوي",
+    "اطار",
+    "تحديد"
+   ]
+  },
+  "animation:refresco": {
+   "name": "مشروب بالمصّاصة",
+   "tags": [
+    "مشروب",
+    "عصير",
+    "مصاصة",
+    "غازي"
+   ]
+  },
+  "animation:regalo-sorpresa": {
+   "name": "هدية مفاجئة",
+   "tags": [
+    "هدية",
+    "مفاجاة",
+    "علبة",
+    "احتفال"
+   ]
+  },
+  "animation:reloj": {
+   "name": "ساعة",
+   "tags": [
+    "ساعة",
+    "وقت",
+    "موعد",
+    "زمن"
+   ]
+  },
+  "animation:reloj-arena": {
+   "name": "ساعة رملية",
+   "tags": [
+    "ساعة رملية",
+    "وقت",
+    "انتظار",
+    "رمل"
+   ]
+  },
+  "animation:reloj-medianoche": {
+   "name": "منتصف الليل",
+   "tags": [
+    "منتصف الليل",
+    "ساعة",
+    "راس السنة",
+    "عد تنازلي"
+   ]
+  },
+  "animation:republicar": {
+   "name": "إعادة نشر",
+   "tags": [
+    "اعادة نشر",
+    "ريبوست",
+    "مشاركة",
+    "سوشيال"
+   ]
+  },
+  "animation:resaltador": {
+   "name": "قلم تمييز",
+   "tags": [
+    "قلم تمييز",
+    "تظليل",
+    "ابراز",
+    "نص"
+   ]
+  },
+  "animation:salpicadura": {
+   "name": "رذاذ",
+   "tags": [
+    "رذاذ",
+    "بقع",
+    "طلاء",
+    "سائل"
+   ]
+  },
+  "animation:sandia": {
+   "name": "بطيخ",
+   "tags": [
+    "بطيخ",
+    "فاكهة",
+    "صيف",
+    "منعش"
+   ]
+  },
+  "animation:scroll-abajo": {
+   "name": "مرّر للأسفل",
+   "tags": [
+    "تمرير",
+    "اسفل",
+    "سكرول",
+    "سهم"
+   ]
+  },
+  "animation:seguir-persona": {
+   "name": "متابع جديد",
+   "tags": [
+    "متابع",
+    "جديد",
+    "متابعين",
+    "حساب"
+   ]
+  },
+  "animation:sello-oferta": {
+   "name": "شارة عرض",
+   "tags": [
+    "عرض",
+    "تخفيضات",
+    "شارة",
+    "خصم"
+   ]
+  },
+  "animation:sello-ondulado": {
+   "name": "شارة متموّجة",
+   "tags": [
+    "شارة",
+    "ختم",
+    "متموج",
+    "ملصق"
+   ]
+  },
+  "animation:serpentinas": {
+   "name": "شرائط احتفال",
+   "tags": [
+    "شرائط",
+    "احتفال",
+    "حفلة",
+    "الوان"
+   ]
+  },
+  "animation:silbato": {
+   "name": "صافرة",
+   "tags": [
+    "صافرة",
+    "حكم",
+    "مباراة",
+    "رياضة"
+   ]
+  },
+  "animation:sol": {
+   "name": "شمس تدور",
+   "tags": [
+    "شمس",
+    "دوران",
+    "صيف",
+    "اشعة"
+   ]
+  },
+  "animation:sol-nube": {
+   "name": "شمس بين الغيوم",
+   "tags": [
+    "شمس",
+    "غيوم",
+    "طقس",
+    "غائم جزئيا"
+   ]
+  },
+  "animation:subrayado": {
+   "name": "خط سفلي باليد",
+   "tags": [
+    "خط سفلي",
+    "تسطير",
+    "رسم يدوي",
+    "ابراز"
+   ]
+  },
+  "animation:subrayado-ondulado": {
+   "name": "خط سفلي متموّج",
+   "tags": [
+    "خط متموج",
+    "تسطير",
+    "رسم يدوي",
+    "ابراز"
+   ]
+  },
+  "animation:tachado-garabato": {
+   "name": "شطب بالخربشة",
+   "tags": [
+    "شطب",
+    "خربشة",
+    "رسم يدوي",
+    "خطا"
+   ]
+  },
+  "animation:tarjeta-aviso": {
+   "name": "بطاقة إشعار",
+   "tags": [
+    "اشعار",
+    "بطاقة",
+    "تنبيه",
+    "رسالة"
+   ]
+  },
+  "animation:tarjeta-pago": {
+   "name": "بطاقة دفع",
+   "tags": [
+    "بطاقة",
+    "دفع",
+    "شراء",
+    "بنك"
+   ]
+  },
+  "animation:tazon-fideos": {
+   "name": "وعاء نودلز",
+   "tags": [
+    "نودلز",
+    "معكرونة",
+    "وعاء",
+    "اسيوي"
+   ]
+  },
+  "animation:telefono": {
+   "name": "مكالمة هاتفية",
+   "tags": [
+    "هاتف",
+    "اتصال",
+    "مكالمة",
+    "تواصل"
+   ]
+  },
+  "animation:tercio-inferior": {
+   "name": "شريط اسم",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "عنوان",
+    "اسفل الشاشة"
+   ]
+  },
+  "animation:termometro-calor": {
+   "name": "حر شديد",
+   "tags": [
+    "حر",
+    "حرارة",
+    "ميزان حرارة",
+    "صيف"
+   ]
+  },
+  "animation:tienda": {
+   "name": "متجر",
+   "tags": [
+    "متجر",
+    "محل",
+    "تسوق",
+    "مشروع"
+   ]
+  },
+  "animation:toca-aqui": {
+   "name": "اضغط هنا",
+   "tags": [
+    "اضغط هنا",
+    "لمس",
+    "زر",
+    "تفاعل"
+   ]
+  },
+  "animation:tormenta": {
+   "name": "عاصفة رعدية",
+   "tags": [
+    "عاصفة",
+    "رعد",
+    "برق",
+    "مطر"
+   ]
+  },
+  "animation:trofeo": {
+   "name": "كأس",
+   "tags": [
+    "كاس",
+    "فوز",
+    "جائزة",
+    "بطل"
+   ]
+  },
+  "animation:ubicacion": {
+   "name": "دبوس الموقع",
+   "tags": [
+    "موقع",
+    "خريطة",
+    "عنوان",
+    "مكان"
+   ]
+  },
+  "animation:varita-magica": {
+   "name": "عصا سحرية",
+   "tags": [
+    "عصا سحرية",
+    "سحر",
+    "لمعان",
+    "خيال"
+   ]
+  },
+  "animation:verificado": {
+   "name": "موثّق",
+   "tags": [
+    "موثق",
+    "علامة زرقاء",
+    "حساب",
+    "تحقق"
+   ]
+  },
+  "animation:viento": {
+   "name": "رياح",
+   "tags": [
+    "رياح",
+    "هواء",
+    "طقس",
+    "عاصف"
+   ]
+  },
+  "animation:wifi": {
+   "name": "إشارة واي فاي",
+   "tags": [
+    "واي فاي",
+    "انترنت",
+    "اشارة",
+    "اتصال"
+   ]
+  },
+  "background:acuarela-calido": {
+   "name": "ألوان مائية (دافئ)",
+   "tags": [
+    "الوان مائية",
+    "رسم",
+    "فني",
+    "دافئ"
+   ]
+  },
+  "background:acuarela-frio": {
+   "name": "ألوان مائية (بارد)",
+   "tags": [
+    "الوان مائية",
+    "رسم",
+    "فني",
+    "بارد"
+   ]
+  },
+  "background:acuarela-oscuro": {
+   "name": "ألوان مائية (داكن)",
+   "tags": [
+    "الوان مائية",
+    "رسم",
+    "فني",
+    "داكن"
+   ]
+  },
+  "background:acuarela-vibrante": {
+   "name": "ألوان مائية (حيوي)",
+   "tags": [
+    "الوان مائية",
+    "رسم",
+    "فني",
+    "حيوي"
+   ]
+  },
+  "background:ajedrez-calido": {
+   "name": "مربعات متحركة (دافئ)",
+   "tags": [
+    "مربعات",
+    "شطرنج",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:ajedrez-frio": {
+   "name": "مربعات متحركة (بارد)",
+   "tags": [
+    "مربعات",
+    "شطرنج",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:ajedrez-oscuro": {
+   "name": "مربعات متحركة (داكن)",
+   "tags": [
+    "مربعات",
+    "شطرنج",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:ajedrez-vibrante": {
+   "name": "مربعات متحركة (حيوي)",
+   "tags": [
+    "مربعات",
+    "شطرنج",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:anio-nuevo": {
+   "name": "رأس السنة",
+   "tags": [
+    "راس السنة",
+    "سنة جديدة",
+    "احتفال",
+    "العاب نارية"
+   ]
+  },
+  "background:anio-nuevo-2": {
+   "name": "رأس السنة 2",
+   "tags": [
+    "راس السنة",
+    "سنة جديدة",
+    "احتفال",
+    "ذهبي"
+   ]
+  },
+  "background:atardecer-calido": {
+   "name": "غروب (دافئ)",
+   "tags": [
+    "غروب",
+    "دافئ",
+    "سماء",
+    "تدرج"
+   ]
+  },
+  "background:atardecer-frio": {
+   "name": "غروب (بارد)",
+   "tags": [
+    "غروب",
+    "بارد",
+    "سماء",
+    "تدرج"
+   ]
+  },
+  "background:atardecer-oscuro": {
+   "name": "غروب (داكن)",
+   "tags": [
+    "غروب",
+    "داكن",
+    "سماء",
+    "تدرج"
+   ]
+  },
+  "background:atardecer-vibrante": {
+   "name": "غروب (حيوي)",
+   "tags": [
+    "غروب",
+    "حيوي",
+    "سماء",
+    "الوان"
+   ]
+  },
+  "background:aurora-calido": {
+   "name": "شفق قطبي (دافئ)",
+   "tags": [
+    "شفق",
+    "دافئ",
+    "سماء",
+    "الوان"
+   ]
+  },
+  "background:aurora-frio": {
+   "name": "شفق قطبي (بارد)",
+   "tags": [
+    "شفق",
+    "بارد",
+    "سماء",
+    "الوان"
+   ]
+  },
+  "background:aurora-oscuro": {
+   "name": "شفق قطبي (داكن)",
+   "tags": [
+    "شفق",
+    "داكن",
+    "ليل",
+    "سماء"
+   ]
+  },
+  "background:aurora-vibrante": {
+   "name": "شفق قطبي (حيوي)",
+   "tags": [
+    "شفق",
+    "حيوي",
+    "الوان",
+    "سماء"
+   ]
+  },
+  "background:bokeh-calido": {
+   "name": "بوكيه (دافئ)",
+   "tags": [
+    "بوكيه",
+    "اضواء",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:bokeh-frio": {
+   "name": "بوكيه (بارد)",
+   "tags": [
+    "بوكيه",
+    "اضواء",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:bokeh-oscuro": {
+   "name": "بوكيه (داكن)",
+   "tags": [
+    "بوكيه",
+    "اضواء",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:bokeh-vibrante": {
+   "name": "بوكيه (حيوي)",
+   "tags": [
+    "بوكيه",
+    "اضواء",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:burbujas-calido": {
+   "name": "فقاعات (دافئ)",
+   "tags": [
+    "فقاعات",
+    "عائمة",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:burbujas-frio": {
+   "name": "فقاعات (بارد)",
+   "tags": [
+    "فقاعات",
+    "عائمة",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:burbujas-oscuro": {
+   "name": "فقاعات (داكن)",
+   "tags": [
+    "فقاعات",
+    "عائمة",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:burbujas-vibrante": {
+   "name": "فقاعات (حيوي)",
+   "tags": [
+    "فقاعات",
+    "عائمة",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:cielo-estrellado-calido": {
+   "name": "سماء مرصّعة بالنجوم (دافئ)",
+   "tags": [
+    "نجوم",
+    "سماء",
+    "ليل",
+    "دافئ"
+   ]
+  },
+  "background:cielo-estrellado-frio": {
+   "name": "سماء مرصّعة بالنجوم (بارد)",
+   "tags": [
+    "نجوم",
+    "سماء",
+    "ليل",
+    "بارد"
+   ]
+  },
+  "background:cielo-estrellado-oscuro": {
+   "name": "سماء مرصّعة بالنجوم (داكن)",
+   "tags": [
+    "نجوم",
+    "سماء",
+    "ليل",
+    "داكن"
+   ]
+  },
+  "background:cielo-estrellado-vibrante": {
+   "name": "سماء مرصّعة بالنجوم (حيوي)",
+   "tags": [
+    "نجوم",
+    "سماء",
+    "ليل",
+    "حيوي"
+   ]
+  },
+  "background:circuito-calido": {
+   "name": "لوحة دوائر (دافئ)",
+   "tags": [
+    "دوائر الكترونية",
+    "تقنية",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:circuito-frio": {
+   "name": "لوحة دوائر (بارد)",
+   "tags": [
+    "دوائر الكترونية",
+    "تقنية",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:circuito-oscuro": {
+   "name": "لوحة دوائر (داكن)",
+   "tags": [
+    "دوائر الكترونية",
+    "تقنية",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:circuito-vibrante": {
+   "name": "لوحة دوائر (حيوي)",
+   "tags": [
+    "دوائر الكترونية",
+    "تقنية",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:circulos-calido": {
+   "name": "حلقات متداخلة (دافئ)",
+   "tags": [
+    "حلقات",
+    "دوائر",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:circulos-frio": {
+   "name": "حلقات متداخلة (بارد)",
+   "tags": [
+    "حلقات",
+    "دوائر",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:circulos-oscuro": {
+   "name": "حلقات متداخلة (داكن)",
+   "tags": [
+    "حلقات",
+    "دوائر",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:circulos-vibrante": {
+   "name": "حلقات متداخلة (حيوي)",
+   "tags": [
+    "حلقات",
+    "دوائر",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:colinas-calido": {
+   "name": "تلال (دافئ)",
+   "tags": [
+    "تلال",
+    "منظر",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:colinas-frio": {
+   "name": "تلال (بارد)",
+   "tags": [
+    "تلال",
+    "منظر",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:colinas-oscuro": {
+   "name": "تلال (داكن)",
+   "tags": [
+    "تلال",
+    "منظر",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:colinas-vibrante": {
+   "name": "تلال (حيوي)",
+   "tags": [
+    "تلال",
+    "منظر",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:confeti-calido": {
+   "name": "قصاصات ناعمة (دافئ)",
+   "tags": [
+    "قصاصات",
+    "احتفال",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:confeti-frio": {
+   "name": "قصاصات ناعمة (بارد)",
+   "tags": [
+    "قصاصات",
+    "احتفال",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:confeti-oscuro": {
+   "name": "قصاصات ناعمة (داكن)",
+   "tags": [
+    "قصاصات",
+    "احتفال",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:confeti-vibrante": {
+   "name": "قصاصات ناعمة (حيوي)",
+   "tags": [
+    "قصاصات",
+    "احتفال",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:cuadricula-retro-calido": {
+   "name": "شبكة ريترو (دافئ)",
+   "tags": [
+    "شبكة",
+    "ريترو",
+    "سينث ويف",
+    "دافئ"
+   ]
+  },
+  "background:cuadricula-retro-frio": {
+   "name": "شبكة ريترو (بارد)",
+   "tags": [
+    "شبكة",
+    "ريترو",
+    "سينث ويف",
+    "بارد"
+   ]
+  },
+  "background:cuadricula-retro-oscuro": {
+   "name": "شبكة ريترو (داكن)",
+   "tags": [
+    "شبكة",
+    "ريترو",
+    "سينث ويف",
+    "داكن"
+   ]
+  },
+  "background:cuadricula-retro-vibrante": {
+   "name": "شبكة ريترو (حيوي)",
+   "tags": [
+    "شبكة",
+    "ريترو",
+    "سينث ويف",
+    "حيوي"
+   ]
+  },
+  "background:cumpleanos": {
+   "name": "عيد ميلاد",
+   "tags": [
+    "عيد ميلاد",
+    "حفلة",
+    "بالونات",
+    "احتفال"
+   ]
+  },
+  "background:cumpleanos-2": {
+   "name": "عيد ميلاد 2",
+   "tags": [
+    "عيد ميلاد",
+    "حفلة",
+    "قصاصات",
+    "احتفال"
+   ]
+  },
+  "background:degradado-diagonal-calido": {
+   "name": "تدرج قطري (دافئ)",
+   "tags": [
+    "تدرج",
+    "قطري",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:degradado-diagonal-frio": {
+   "name": "تدرج قطري (بارد)",
+   "tags": [
+    "تدرج",
+    "قطري",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:degradado-diagonal-oscuro": {
+   "name": "تدرج قطري (داكن)",
+   "tags": [
+    "تدرج",
+    "قطري",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:degradado-diagonal-vibrante": {
+   "name": "تدرج قطري (حيوي)",
+   "tags": [
+    "تدرج",
+    "قطري",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:degradado-malla-calido": {
+   "name": "تدرج شبكي (دافئ)",
+   "tags": [
+    "تدرج",
+    "شبكي",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:degradado-malla-frio": {
+   "name": "تدرج شبكي (بارد)",
+   "tags": [
+    "تدرج",
+    "شبكي",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:degradado-malla-oscuro": {
+   "name": "تدرج شبكي (داكن)",
+   "tags": [
+    "تدرج",
+    "شبكي",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:degradado-malla-vibrante": {
+   "name": "تدرج شبكي (حيوي)",
+   "tags": [
+    "تدرج",
+    "شبكي",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:degradado-movil-calido": {
+   "name": "تدرج متحرك (دافئ)",
+   "tags": [
+    "تدرج",
+    "متحرك",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:degradado-movil-frio": {
+   "name": "تدرج متحرك (بارد)",
+   "tags": [
+    "تدرج",
+    "متحرك",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:degradado-movil-oscuro": {
+   "name": "تدرج متحرك (داكن)",
+   "tags": [
+    "تدرج",
+    "متحرك",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:degradado-movil-vibrante": {
+   "name": "تدرج متحرك (حيوي)",
+   "tags": [
+    "تدرج",
+    "متحرك",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:diwali": {
+   "name": "ديوالي",
+   "tags": [
+    "ديوالي",
+    "مصابيح",
+    "اضواء",
+    "احتفال"
+   ]
+  },
+  "background:diwali-2": {
+   "name": "ديوالي 2",
+   "tags": [
+    "ديوالي",
+    "مصابيح",
+    "اضواء",
+    "هند"
+   ]
+  },
+  "background:ecualizador-calido": {
+   "name": "معادل صوت (دافئ)",
+   "tags": [
+    "معادل صوت",
+    "موسيقى",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:ecualizador-frio": {
+   "name": "معادل صوت (بارد)",
+   "tags": [
+    "معادل صوت",
+    "موسيقى",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:ecualizador-oscuro": {
+   "name": "معادل صوت (داكن)",
+   "tags": [
+    "معادل صوت",
+    "موسيقى",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:ecualizador-vibrante": {
+   "name": "معادل صوت (حيوي)",
+   "tags": [
+    "معادل صوت",
+    "موسيقى",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:escenario-calido": {
+   "name": "أضواء المسرح (دافئ)",
+   "tags": [
+    "مسرح",
+    "اضواء",
+    "حفلة",
+    "دافئ"
+   ]
+  },
+  "background:escenario-frio": {
+   "name": "أضواء المسرح (بارد)",
+   "tags": [
+    "مسرح",
+    "اضواء",
+    "حفلة",
+    "بارد"
+   ]
+  },
+  "background:escenario-oscuro": {
+   "name": "أضواء المسرح (داكن)",
+   "tags": [
+    "مسرح",
+    "اضواء",
+    "حفلة",
+    "داكن"
+   ]
+  },
+  "background:escenario-vibrante": {
+   "name": "أضواء المسرح (حيوي)",
+   "tags": [
+    "مسرح",
+    "اضواء",
+    "حفلة",
+    "حيوي"
+   ]
+  },
+  "background:espiral-calido": {
+   "name": "حلزون (دافئ)",
+   "tags": [
+    "حلزون",
+    "دوامة",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:espiral-frio": {
+   "name": "حلزون (بارد)",
+   "tags": [
+    "حلزون",
+    "دوامة",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:espiral-oscuro": {
+   "name": "حلزون (داكن)",
+   "tags": [
+    "حلزون",
+    "دوامة",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:espiral-vibrante": {
+   "name": "حلزون (حيوي)",
+   "tags": [
+    "حلزون",
+    "دوامة",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:formas-flotantes-calido": {
+   "name": "أشكال عائمة (دافئ)",
+   "tags": [
+    "اشكال",
+    "عائمة",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:formas-flotantes-frio": {
+   "name": "أشكال عائمة (بارد)",
+   "tags": [
+    "اشكال",
+    "عائمة",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:formas-flotantes-oscuro": {
+   "name": "أشكال عائمة (داكن)",
+   "tags": [
+    "اشكال",
+    "عائمة",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:formas-flotantes-vibrante": {
+   "name": "أشكال عائمة (حيوي)",
+   "tags": [
+    "اشكال",
+    "عائمة",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:galaxia-calido": {
+   "name": "مجرّة (دافئ)",
+   "tags": [
+    "مجرة",
+    "فضاء",
+    "نجوم",
+    "دافئ"
+   ]
+  },
+  "background:galaxia-frio": {
+   "name": "مجرّة (بارد)",
+   "tags": [
+    "مجرة",
+    "فضاء",
+    "نجوم",
+    "بارد"
+   ]
+  },
+  "background:galaxia-oscuro": {
+   "name": "مجرّة (داكن)",
+   "tags": [
+    "مجرة",
+    "فضاء",
+    "نجوم",
+    "داكن"
+   ]
+  },
+  "background:galaxia-vibrante": {
+   "name": "مجرّة (حيوي)",
+   "tags": [
+    "مجرة",
+    "فضاء",
+    "نجوم",
+    "حيوي"
+   ]
+  },
+  "background:graduacion": {
+   "name": "تخرّج",
+   "tags": [
+    "تخرج",
+    "جامعة",
+    "دفعة",
+    "احتفال"
+   ]
+  },
+  "background:graduacion-2": {
+   "name": "تخرّج 2",
+   "tags": [
+    "تخرج",
+    "قبعة",
+    "دفعة",
+    "احتفال"
+   ]
+  },
+  "background:halloween": {
+   "name": "الهالوين",
+   "tags": [
+    "هالوين",
+    "رعب",
+    "يقطين",
+    "اكتوبر"
+   ]
+  },
+  "background:halloween-2": {
+   "name": "الهالوين 2",
+   "tags": [
+    "هالوين",
+    "رعب",
+    "خفافيش",
+    "ليل"
+   ]
+  },
+  "background:hexagonos-calido": {
+   "name": "سداسيات (دافئ)",
+   "tags": [
+    "سداسي",
+    "هندسي",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:hexagonos-frio": {
+   "name": "سداسيات (بارد)",
+   "tags": [
+    "سداسي",
+    "هندسي",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:hexagonos-oscuro": {
+   "name": "سداسيات (داكن)",
+   "tags": [
+    "سداسي",
+    "هندسي",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:hexagonos-vibrante": {
+   "name": "سداسيات (حيوي)",
+   "tags": [
+    "سداسي",
+    "هندسي",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:humo-color-calido": {
+   "name": "دخان ملوّن (دافئ)",
+   "tags": [
+    "دخان",
+    "ملون",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:humo-color-frio": {
+   "name": "دخان ملوّن (بارد)",
+   "tags": [
+    "دخان",
+    "ملون",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:humo-color-oscuro": {
+   "name": "دخان ملوّن (داكن)",
+   "tags": [
+    "دخان",
+    "ملون",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:humo-color-vibrante": {
+   "name": "دخان ملوّن (حيوي)",
+   "tags": [
+    "دخان",
+    "ملون",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:lampara-lava-calido": {
+   "name": "مصباح الحمم (دافئ)",
+   "tags": [
+    "مصباح الحمم",
+    "سائل",
+    "دافئ",
+    "ريترو"
+   ]
+  },
+  "background:lampara-lava-frio": {
+   "name": "مصباح الحمم (بارد)",
+   "tags": [
+    "مصباح الحمم",
+    "سائل",
+    "بارد",
+    "ريترو"
+   ]
+  },
+  "background:lampara-lava-oscuro": {
+   "name": "مصباح الحمم (داكن)",
+   "tags": [
+    "مصباح الحمم",
+    "سائل",
+    "داكن",
+    "ريترو"
+   ]
+  },
+  "background:lampara-lava-vibrante": {
+   "name": "مصباح الحمم (حيوي)",
+   "tags": [
+    "مصباح الحمم",
+    "سائل",
+    "حيوي",
+    "ريترو"
+   ]
+  },
+  "background:liquido-calido": {
+   "name": "سائل (دافئ)",
+   "tags": [
+    "سائل",
+    "تموج",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:liquido-frio": {
+   "name": "سائل (بارد)",
+   "tags": [
+    "سائل",
+    "تموج",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:liquido-oscuro": {
+   "name": "سائل (داكن)",
+   "tags": [
+    "سائل",
+    "تموج",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:liquido-vibrante": {
+   "name": "سائل (حيوي)",
+   "tags": [
+    "سائل",
+    "تموج",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:lluvia-luces-calido": {
+   "name": "مطر أضواء (دافئ)",
+   "tags": [
+    "مطر",
+    "اضواء",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:lluvia-luces-frio": {
+   "name": "مطر أضواء (بارد)",
+   "tags": [
+    "مطر",
+    "اضواء",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:lluvia-luces-oscuro": {
+   "name": "مطر أضواء (داكن)",
+   "tags": [
+    "مطر",
+    "اضواء",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:lluvia-luces-vibrante": {
+   "name": "مطر أضواء (حيوي)",
+   "tags": [
+    "مطر",
+    "اضواء",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:low-poly-calido": {
+   "name": "مضلعات (دافئ)",
+   "tags": [
+    "مضلعات",
+    "لو بولي",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:low-poly-frio": {
+   "name": "مضلعات (بارد)",
+   "tags": [
+    "مضلعات",
+    "لو بولي",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:low-poly-oscuro": {
+   "name": "مضلعات (داكن)",
+   "tags": [
+    "مضلعات",
+    "لو بولي",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:low-poly-vibrante": {
+   "name": "مضلعات (حيوي)",
+   "tags": [
+    "مضلعات",
+    "لو بولي",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:luces-ciudad-calido": {
+   "name": "أضواء المدينة (دافئ)",
+   "tags": [
+    "مدينة",
+    "اضواء",
+    "ليل",
+    "دافئ"
+   ]
+  },
+  "background:luces-ciudad-frio": {
+   "name": "أضواء المدينة (بارد)",
+   "tags": [
+    "مدينة",
+    "اضواء",
+    "ليل",
+    "بارد"
+   ]
+  },
+  "background:luces-ciudad-oscuro": {
+   "name": "أضواء المدينة (داكن)",
+   "tags": [
+    "مدينة",
+    "اضواء",
+    "ليل",
+    "داكن"
+   ]
+  },
+  "background:luces-ciudad-vibrante": {
+   "name": "أضواء المدينة (حيوي)",
+   "tags": [
+    "مدينة",
+    "اضواء",
+    "ليل",
+    "حيوي"
+   ]
+  },
+  "background:luciernagas-calido": {
+   "name": "يراعات (دافئ)",
+   "tags": [
+    "يراعات",
+    "اضواء",
+    "ليل",
+    "دافئ"
+   ]
+  },
+  "background:luciernagas-frio": {
+   "name": "يراعات (بارد)",
+   "tags": [
+    "يراعات",
+    "اضواء",
+    "ليل",
+    "بارد"
+   ]
+  },
+  "background:luciernagas-oscuro": {
+   "name": "يراعات (داكن)",
+   "tags": [
+    "يراعات",
+    "اضواء",
+    "ليل",
+    "داكن"
+   ]
+  },
+  "background:luciernagas-vibrante": {
+   "name": "يراعات (حيوي)",
+   "tags": [
+    "يراعات",
+    "اضواء",
+    "ليل",
+    "حيوي"
+   ]
+  },
+  "background:marmol-calido": {
+   "name": "رخام (دافئ)",
+   "tags": [
+    "رخام",
+    "خامة",
+    "فخم",
+    "دافئ"
+   ]
+  },
+  "background:marmol-frio": {
+   "name": "رخام (بارد)",
+   "tags": [
+    "رخام",
+    "خامة",
+    "فخم",
+    "بارد"
+   ]
+  },
+  "background:marmol-oscuro": {
+   "name": "رخام (داكن)",
+   "tags": [
+    "رخام",
+    "خامة",
+    "فخم",
+    "داكن"
+   ]
+  },
+  "background:marmol-vibrante": {
+   "name": "رخام (حيوي)",
+   "tags": [
+    "رخام",
+    "خامة",
+    "فخم",
+    "حيوي"
+   ]
+  },
+  "background:memphis-calido": {
+   "name": "نمط ممفيس (دافئ)",
+   "tags": [
+    "ممفيس",
+    "اشكال",
+    "دافئ",
+    "ثمانينات"
+   ]
+  },
+  "background:memphis-frio": {
+   "name": "نمط ممفيس (بارد)",
+   "tags": [
+    "ممفيس",
+    "اشكال",
+    "بارد",
+    "ثمانينات"
+   ]
+  },
+  "background:memphis-oscuro": {
+   "name": "نمط ممفيس (داكن)",
+   "tags": [
+    "ممفيس",
+    "اشكال",
+    "داكن",
+    "ثمانينات"
+   ]
+  },
+  "background:memphis-vibrante": {
+   "name": "نمط ممفيس (حيوي)",
+   "tags": [
+    "ممفيس",
+    "اشكال",
+    "حيوي",
+    "ثمانينات"
+   ]
+  },
+  "background:navidad": {
+   "name": "عيد الميلاد",
+   "tags": [
+    "كريسماس",
+    "عيد الميلاد",
+    "زينة",
+    "ديسمبر"
+   ]
+  },
+  "background:navidad-2": {
+   "name": "عيد الميلاد 2",
+   "tags": [
+    "كريسماس",
+    "عيد الميلاد",
+    "ثلج",
+    "اعياد"
+   ]
+  },
+  "background:neon-calido": {
+   "name": "خطوط نيون (دافئ)",
+   "tags": [
+    "نيون",
+    "خطوط",
+    "ليل",
+    "دافئ"
+   ]
+  },
+  "background:neon-frio": {
+   "name": "خطوط نيون (بارد)",
+   "tags": [
+    "نيون",
+    "خطوط",
+    "ليل",
+    "بارد"
+   ]
+  },
+  "background:neon-oscuro": {
+   "name": "خطوط نيون (داكن)",
+   "tags": [
+    "نيون",
+    "خطوط",
+    "ليل",
+    "داكن"
+   ]
+  },
+  "background:neon-vibrante": {
+   "name": "خطوط نيون (حيوي)",
+   "tags": [
+    "نيون",
+    "خطوط",
+    "ليل",
+    "حيوي"
+   ]
+  },
+  "background:nieve-calido": {
+   "name": "تساقط الثلج (دافئ)",
+   "tags": [
+    "ثلج",
+    "شتاء",
+    "تساقط",
+    "دافئ"
+   ]
+  },
+  "background:nieve-frio": {
+   "name": "تساقط الثلج (بارد)",
+   "tags": [
+    "ثلج",
+    "شتاء",
+    "تساقط",
+    "بارد"
+   ]
+  },
+  "background:nieve-oscuro": {
+   "name": "تساقط الثلج (داكن)",
+   "tags": [
+    "ثلج",
+    "شتاء",
+    "تساقط",
+    "داكن"
+   ]
+  },
+  "background:nieve-vibrante": {
+   "name": "تساقط الثلج (حيوي)",
+   "tags": [
+    "ثلج",
+    "شتاء",
+    "تساقط",
+    "حيوي"
+   ]
+  },
+  "background:nubes-calido": {
+   "name": "غيوم (دافئ)",
+   "tags": [
+    "غيوم",
+    "سماء",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:nubes-frio": {
+   "name": "غيوم (بارد)",
+   "tags": [
+    "غيوم",
+    "سماء",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:nubes-oscuro": {
+   "name": "غيوم (داكن)",
+   "tags": [
+    "غيوم",
+    "سماء",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:nubes-vibrante": {
+   "name": "غيوم (حيوي)",
+   "tags": [
+    "غيوم",
+    "سماء",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:ondas-sonido-calido": {
+   "name": "موجات صوتية (دافئ)",
+   "tags": [
+    "موجات صوتية",
+    "صوت",
+    "موسيقى",
+    "دافئ"
+   ]
+  },
+  "background:ondas-sonido-frio": {
+   "name": "موجات صوتية (بارد)",
+   "tags": [
+    "موجات صوتية",
+    "صوت",
+    "موسيقى",
+    "بارد"
+   ]
+  },
+  "background:ondas-sonido-oscuro": {
+   "name": "موجات صوتية (داكن)",
+   "tags": [
+    "موجات صوتية",
+    "صوت",
+    "موسيقى",
+    "داكن"
+   ]
+  },
+  "background:ondas-sonido-vibrante": {
+   "name": "موجات صوتية (حيوي)",
+   "tags": [
+    "موجات صوتية",
+    "صوت",
+    "موسيقى",
+    "حيوي"
+   ]
+  },
+  "background:ondas-suaves-calido": {
+   "name": "موجات ناعمة (دافئ)",
+   "tags": [
+    "موجات",
+    "ناعمة",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:ondas-suaves-frio": {
+   "name": "موجات ناعمة (بارد)",
+   "tags": [
+    "موجات",
+    "ناعمة",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:ondas-suaves-oscuro": {
+   "name": "موجات ناعمة (داكن)",
+   "tags": [
+    "موجات",
+    "ناعمة",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:ondas-suaves-vibrante": {
+   "name": "موجات ناعمة (حيوي)",
+   "tags": [
+    "موجات",
+    "ناعمة",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:otono": {
+   "name": "الخريف",
+   "tags": [
+    "خريف",
+    "اوراق",
+    "موسم",
+    "دافئ"
+   ]
+  },
+  "background:otono-2": {
+   "name": "الخريف 2",
+   "tags": [
+    "خريف",
+    "اوراق",
+    "موسم",
+    "طبيعة"
+   ]
+  },
+  "background:papel-calido": {
+   "name": "ورق (دافئ)",
+   "tags": [
+    "ورق",
+    "خامة",
+    "قديم",
+    "دافئ"
+   ]
+  },
+  "background:papel-frio": {
+   "name": "ورق (بارد)",
+   "tags": [
+    "ورق",
+    "خامة",
+    "قديم",
+    "بارد"
+   ]
+  },
+  "background:papel-oscuro": {
+   "name": "ورق (داكن)",
+   "tags": [
+    "ورق",
+    "خامة",
+    "قديم",
+    "داكن"
+   ]
+  },
+  "background:papel-vibrante": {
+   "name": "ورق (حيوي)",
+   "tags": [
+    "ورق",
+    "خامة",
+    "الوان",
+    "حيوي"
+   ]
+  },
+  "background:particulas-calido": {
+   "name": "جزيئات (دافئ)",
+   "tags": [
+    "جزيئات",
+    "نقاط",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:particulas-frio": {
+   "name": "جزيئات (بارد)",
+   "tags": [
+    "جزيئات",
+    "نقاط",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:particulas-oscuro": {
+   "name": "جزيئات (داكن)",
+   "tags": [
+    "جزيئات",
+    "نقاط",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:particulas-vibrante": {
+   "name": "جزيئات (حيوي)",
+   "tags": [
+    "جزيئات",
+    "نقاط",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:pizarra-calido": {
+   "name": "سبورة (دافئ)",
+   "tags": [
+    "سبورة",
+    "طباشير",
+    "مدرسة",
+    "دافئ"
+   ]
+  },
+  "background:pizarra-frio": {
+   "name": "سبورة (بارد)",
+   "tags": [
+    "سبورة",
+    "طباشير",
+    "مدرسة",
+    "بارد"
+   ]
+  },
+  "background:pizarra-oscuro": {
+   "name": "سبورة (داكن)",
+   "tags": [
+    "سبورة",
+    "طباشير",
+    "مدرسة",
+    "داكن"
+   ]
+  },
+  "background:pizarra-vibrante": {
+   "name": "سبورة (حيوي)",
+   "tags": [
+    "سبورة",
+    "طباشير",
+    "مدرسة",
+    "حيوي"
+   ]
+  },
+  "background:primavera": {
+   "name": "الربيع",
+   "tags": [
+    "ربيع",
+    "زهور",
+    "موسم",
+    "طبيعة"
+   ]
+  },
+  "background:primavera-2": {
+   "name": "الربيع 2",
+   "tags": [
+    "ربيع",
+    "زهور",
+    "موسم",
+    "الوان"
+   ]
+  },
+  "background:prisma-calido": {
+   "name": "منشور ضوئي (دافئ)",
+   "tags": [
+    "منشور",
+    "انكسار",
+    "الوان",
+    "دافئ"
+   ]
+  },
+  "background:prisma-frio": {
+   "name": "منشور ضوئي (بارد)",
+   "tags": [
+    "منشور",
+    "انكسار",
+    "الوان",
+    "بارد"
+   ]
+  },
+  "background:prisma-oscuro": {
+   "name": "منشور ضوئي (داكن)",
+   "tags": [
+    "منشور",
+    "انكسار",
+    "الوان",
+    "داكن"
+   ]
+  },
+  "background:prisma-vibrante": {
+   "name": "منشور ضوئي (حيوي)",
+   "tags": [
+    "منشور",
+    "انكسار",
+    "الوان",
+    "حيوي"
+   ]
+  },
+  "background:puntos-calido": {
+   "name": "نقاط نابضة (دافئ)",
+   "tags": [
+    "نقاط",
+    "نابضة",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:puntos-frio": {
+   "name": "نقاط نابضة (بارد)",
+   "tags": [
+    "نقاط",
+    "نابضة",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:puntos-oscuro": {
+   "name": "نقاط نابضة (داكن)",
+   "tags": [
+    "نقاط",
+    "نابضة",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:puntos-vibrante": {
+   "name": "نقاط نابضة (حيوي)",
+   "tags": [
+    "نقاط",
+    "نابضة",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:ramadan": {
+   "name": "رمضان والعيد",
+   "tags": [
+    "رمضان",
+    "عيد",
+    "هلال",
+    "فانوس"
+   ]
+  },
+  "background:ramadan-2": {
+   "name": "رمضان والعيد 2",
+   "tags": [
+    "رمضان",
+    "عيد",
+    "هلال",
+    "فانوس"
+   ]
+  },
+  "background:rayas-calido": {
+   "name": "خطوط متحركة (دافئ)",
+   "tags": [
+    "خطوط",
+    "متحركة",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:rayas-frio": {
+   "name": "خطوط متحركة (بارد)",
+   "tags": [
+    "خطوط",
+    "متحركة",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:rayas-oscuro": {
+   "name": "خطوط متحركة (داكن)",
+   "tags": [
+    "خطوط",
+    "متحركة",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:rayas-vibrante": {
+   "name": "خطوط متحركة (حيوي)",
+   "tags": [
+    "خطوط",
+    "متحركة",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:rayos-luz-calido": {
+   "name": "أشعة ضوء (دافئ)",
+   "tags": [
+    "اشعة",
+    "ضوء",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:rayos-luz-frio": {
+   "name": "أشعة ضوء (بارد)",
+   "tags": [
+    "اشعة",
+    "ضوء",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:rayos-luz-oscuro": {
+   "name": "أشعة ضوء (داكن)",
+   "tags": [
+    "اشعة",
+    "ضوء",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:rayos-luz-vibrante": {
+   "name": "أشعة ضوء (حيوي)",
+   "tags": [
+    "اشعة",
+    "ضوء",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "background:rayos-sol-calido": {
+   "name": "أشعة دوّارة (دافئ)",
+   "tags": [
+    "اشعة",
+    "دوران",
+    "شمس",
+    "دافئ"
+   ]
+  },
+  "background:rayos-sol-frio": {
+   "name": "أشعة دوّارة (بارد)",
+   "tags": [
+    "اشعة",
+    "دوران",
+    "شمس",
+    "بارد"
+   ]
+  },
+  "background:rayos-sol-oscuro": {
+   "name": "أشعة دوّارة (داكن)",
+   "tags": [
+    "اشعة",
+    "دوران",
+    "شمس",
+    "داكن"
+   ]
+  },
+  "background:rayos-sol-vibrante": {
+   "name": "أشعة دوّارة (حيوي)",
+   "tags": [
+    "اشعة",
+    "دوران",
+    "شمس",
+    "حيوي"
+   ]
+  },
+  "background:san-valentin": {
+   "name": "عيد الحب",
+   "tags": [
+    "عيد الحب",
+    "قلوب",
+    "حب",
+    "رومانسي"
+   ]
+  },
+  "background:san-valentin-2": {
+   "name": "عيد الحب 2",
+   "tags": [
+    "عيد الحب",
+    "قلوب",
+    "حب",
+    "وردي"
+   ]
+  },
+  "background:tinta-calido": {
+   "name": "حبر في الماء (دافئ)",
+   "tags": [
+    "حبر",
+    "ماء",
+    "سائل",
+    "دافئ"
+   ]
+  },
+  "background:tinta-frio": {
+   "name": "حبر في الماء (بارد)",
+   "tags": [
+    "حبر",
+    "ماء",
+    "سائل",
+    "بارد"
+   ]
+  },
+  "background:tinta-oscuro": {
+   "name": "حبر في الماء (داكن)",
+   "tags": [
+    "حبر",
+    "ماء",
+    "سائل",
+    "داكن"
+   ]
+  },
+  "background:tinta-vibrante": {
+   "name": "حبر في الماء (حيوي)",
+   "tags": [
+    "حبر",
+    "ماء",
+    "سائل",
+    "حيوي"
+   ]
+  },
+  "background:tunel-calido": {
+   "name": "نفق (دافئ)",
+   "tags": [
+    "نفق",
+    "عمق",
+    "دافئ",
+    "خلفية"
+   ]
+  },
+  "background:tunel-frio": {
+   "name": "نفق (بارد)",
+   "tags": [
+    "نفق",
+    "عمق",
+    "بارد",
+    "خلفية"
+   ]
+  },
+  "background:tunel-oscuro": {
+   "name": "نفق (داكن)",
+   "tags": [
+    "نفق",
+    "عمق",
+    "داكن",
+    "خلفية"
+   ]
+  },
+  "background:tunel-vibrante": {
+   "name": "نفق (حيوي)",
+   "tags": [
+    "نفق",
+    "عمق",
+    "حيوي",
+    "خلفية"
+   ]
+  },
+  "overlay:amor-corazones": {
+   "name": "قلوب عائمة",
+   "tags": [
+    "قلوب",
+    "حب",
+    "عائمة",
+    "رومانسي"
+   ]
+  },
+  "overlay:amor-corazones-brillo": {
+   "name": "قلوب لامعة",
+   "tags": [
+    "قلوب",
+    "لامعة",
+    "حب",
+    "بريق"
+   ]
+  },
+  "overlay:amor-corazones-contorno": {
+   "name": "قلوب محدّدة",
+   "tags": [
+    "قلوب",
+    "خطوط",
+    "حب",
+    "بسيط"
+   ]
+  },
+  "overlay:amor-corazones-neon": {
+   "name": "قلوب نيون",
+   "tags": [
+    "قلوب",
+    "نيون",
+    "حب",
+    "ليل"
+   ]
+  },
+  "overlay:amor-corazones-rojos": {
+   "name": "قلوب حمراء",
+   "tags": [
+    "قلوب",
+    "احمر",
+    "حب",
+    "عيد الحب"
+   ]
+  },
+  "overlay:amor-explosion-corazones": {
+   "name": "انفجار قلوب",
+   "tags": [
+    "قلوب",
+    "انفجار",
+    "حب",
+    "مفاجاة"
+   ]
+  },
+  "overlay:amor-globos-corazon": {
+   "name": "بالونات قلوب",
+   "tags": [
+    "بالونات",
+    "قلوب",
+    "حب",
+    "عيد الحب"
+   ]
+  },
+  "overlay:amor-likes": {
+   "name": "قلوب البث المباشر",
+   "tags": [
+    "قلوب",
+    "لايكات",
+    "بث مباشر",
+    "تفاعل"
+   ]
+  },
+  "overlay:amor-lluvia-corazones": {
+   "name": "مطر قلوب",
+   "tags": [
+    "قلوب",
+    "مطر",
+    "حب",
+    "رومانسي"
+   ]
+  },
+  "overlay:amor-marco-corazones": {
+   "name": "إطار قلوب",
+   "tags": [
+    "اطار",
+    "قلوب",
+    "حب",
+    "رومانسي"
+   ]
+  },
+  "overlay:amor-petalos": {
+   "name": "بتلات ورد",
+   "tags": [
+    "بتلات",
+    "ورد",
+    "حب",
+    "زفاف"
+   ]
+  },
+  "overlay:amor-petalos-blancos": {
+   "name": "بتلات بيضاء",
+   "tags": [
+    "بتلات",
+    "ابيض",
+    "زفاف",
+    "ناعم"
+   ]
+  },
+  "overlay:amor-petalos-rosa": {
+   "name": "بتلات وردية فاتحة",
+   "tags": [
+    "بتلات",
+    "وردي",
+    "ناعم",
+    "رومانسي"
+   ]
+  },
+  "overlay:cam-bateria-baja": {
+   "name": "بطارية منخفضة",
+   "tags": [
+    "بطارية",
+    "منخفضة",
+    "شحن",
+    "كاميرا"
+   ]
+  },
+  "overlay:cam-cuenta-regresiva": {
+   "name": "عد تنازلي سينمائي",
+   "tags": [
+    "عد تنازلي",
+    "سينما",
+    "فيلم",
+    "قديم"
+   ]
+  },
+  "overlay:cam-en-vivo": {
+   "name": "شارة مباشر (LIVE)",
+   "tags": [
+    "مباشر",
+    "لايف",
+    "بث",
+    "شارة"
+   ]
+  },
+  "overlay:cam-enfoque": {
+   "name": "قفل التركيز",
+   "tags": [
+    "تركيز",
+    "فوكس",
+    "كاميرا",
+    "عدسة"
+   ]
+  },
+  "overlay:cam-flash": {
+   "name": "فلاش الكاميرا",
+   "tags": [
+    "فلاش",
+    "كاميرا",
+    "تصوير",
+    "وميض"
+   ]
+  },
+  "overlay:cam-grabando-pantalla": {
+   "name": "تسجيل الشاشة",
+   "tags": [
+    "تسجيل الشاشة",
+    "شاشة",
+    "تسجيل",
+    "جوال"
+   ]
+  },
+  "overlay:cam-obturador": {
+   "name": "غالق الكاميرا",
+   "tags": [
+    "غالق",
+    "كاميرا",
+    "تصوير",
+    "لقطة"
+   ]
+  },
+  "overlay:cam-rec": {
+   "name": "كاميرا تسجّل (REC)",
+   "tags": [
+    "تسجيل",
+    "rec",
+    "كاميرا",
+    "فيديو"
+   ]
+  },
+  "overlay:cam-rec-minimal": {
+   "name": "REC بسيط",
+   "tags": [
+    "rec",
+    "تسجيل",
+    "بسيط",
+    "كاميرا"
+   ]
+  },
+  "overlay:cam-seguridad": {
+   "name": "كاميرا مراقبة",
+   "tags": [
+    "كاميرا مراقبة",
+    "امن",
+    "مراقبة",
+    "تسجيل"
+   ]
+  },
+  "overlay:cam-vision-nocturna": {
+   "name": "رؤية ليلية",
+   "tags": [
+    "رؤية ليلية",
+    "اخضر",
+    "ليل",
+    "كاميرا"
+   ]
+  },
+  "overlay:cam-visor": {
+   "name": "عدسة الكاميرا",
+   "tags": [
+    "عدسة",
+    "منظار الكاميرا",
+    "تصوير",
+    "اطار"
+   ]
+  },
+  "overlay:cel-confeti": {
+   "name": "مطر قصاصات ملونة",
+   "tags": [
+    "قصاصات",
+    "كونفيتي",
+    "احتفال",
+    "حفلة"
+   ]
+  },
+  "overlay:cel-confeti-circulos": {
+   "name": "قصاصات منقّطة",
+   "tags": [
+    "قصاصات",
+    "نقاط",
+    "دوائر",
+    "احتفال"
+   ]
+  },
+  "overlay:cel-confeti-corazones": {
+   "name": "قصاصات قلوب",
+   "tags": [
+    "قصاصات",
+    "قلوب",
+    "حب",
+    "احتفال"
+   ]
+  },
+  "overlay:cel-confeti-desde-arriba": {
+   "name": "قصاصات من الأعلى",
+   "tags": [
+    "قصاصات",
+    "تساقط",
+    "احتفال",
+    "حفلة"
+   ]
+  },
+  "overlay:cel-confeti-dorado": {
+   "name": "قصاصات ذهبية",
+   "tags": [
+    "قصاصات",
+    "ذهبي",
+    "احتفال",
+    "فخم"
+   ]
+  },
+  "overlay:cel-confeti-explosion": {
+   "name": "انفجار قصاصات",
+   "tags": [
+    "قصاصات",
+    "انفجار",
+    "احتفال",
+    "مفاجاة"
+   ]
+  },
+  "overlay:cel-confeti-grande": {
+   "name": "قصاصات كبيرة",
+   "tags": [
+    "قصاصات",
+    "كبيرة",
+    "احتفال",
+    "حفلة"
+   ]
+  },
+  "overlay:cel-confeti-pastel": {
+   "name": "قصاصات باستيل",
+   "tags": [
+    "قصاصات",
+    "باستيل",
+    "ناعم",
+    "احتفال"
+   ]
+  },
+  "overlay:cel-confeti-plata": {
+   "name": "قصاصات فضية",
+   "tags": [
+    "قصاصات",
+    "فضي",
+    "احتفال",
+    "لمعان"
+   ]
+  },
+  "overlay:cel-estrellas": {
+   "name": "مطر نجوم",
+   "tags": [
+    "نجوم",
+    "مطر",
+    "تساقط",
+    "احتفال"
+   ]
+  },
+  "overlay:cel-estrellas-doradas": {
+   "name": "نجوم ذهبية",
+   "tags": [
+    "نجوم",
+    "ذهبي",
+    "احتفال",
+    "لمعان"
+   ]
+  },
+  "overlay:cel-explosion-centro": {
+   "name": "انفجار في المنتصف",
+   "tags": [
+    "انفجار",
+    "وسط",
+    "احتفال",
+    "مفاجاة"
+   ]
+  },
+  "overlay:cel-explosion-dorada": {
+   "name": "انفجار ذهبي",
+   "tags": [
+    "انفجار",
+    "ذهبي",
+    "احتفال",
+    "فخم"
+   ]
+  },
+  "overlay:cel-explosion-estrellas": {
+   "name": "انفجار نجوم",
+   "tags": [
+    "انفجار",
+    "نجوم",
+    "احتفال",
+    "لمعان"
+   ]
+  },
+  "overlay:cel-fuegos-artificiales": {
+   "name": "ألعاب نارية",
+   "tags": [
+    "العاب نارية",
+    "احتفال",
+    "ليل",
+    "راس السنة"
+   ]
+  },
+  "overlay:cel-fuegos-dorados": {
+   "name": "ألعاب نارية ذهبية",
+   "tags": [
+    "العاب نارية",
+    "ذهبي",
+    "احتفال",
+    "فخم"
+   ]
+  },
+  "overlay:cel-fuegos-final": {
+   "name": "ختام الألعاب النارية",
+   "tags": [
+    "العاب نارية",
+    "ختام",
+    "احتفال",
+    "ضخم"
+   ]
+  },
+  "overlay:cel-fuegos-lejanos": {
+   "name": "ألعاب نارية بعيدة",
+   "tags": [
+    "العاب نارية",
+    "بعيدة",
+    "ليل",
+    "مدينة"
+   ]
+  },
+  "overlay:cel-globos": {
+   "name": "بالونات",
+   "tags": [
+    "بالونات",
+    "حفلة",
+    "عيد ميلاد",
+    "احتفال"
+   ]
+  },
+  "overlay:cel-globos-dorados": {
+   "name": "بالونات ذهبية وفضية",
+   "tags": [
+    "بالونات",
+    "ذهبي",
+    "فضي",
+    "احتفال"
+   ]
+  },
+  "overlay:cel-globos-pastel": {
+   "name": "بالونات باستيل",
+   "tags": [
+    "بالونات",
+    "باستيل",
+    "حفلة",
+    "ناعم"
+   ]
+  },
+  "overlay:cel-lluvia-billetes": {
+   "name": "مطر أوراق نقدية",
+   "tags": [
+    "مال",
+    "فلوس",
+    "مطر",
+    "ثراء"
+   ]
+  },
+  "overlay:cel-lluvia-emojis": {
+   "name": "مطر إيموجي",
+   "tags": [
+    "ايموجي",
+    "مطر",
+    "مرح",
+    "وجوه"
+   ]
+  },
+  "overlay:cel-lluvia-monedas": {
+   "name": "مطر عملات",
+   "tags": [
+    "عملات",
+    "مطر",
+    "ذهب",
+    "فوز"
+   ]
+  },
+  "overlay:cel-lluvia-regalos": {
+   "name": "مطر هدايا",
+   "tags": [
+    "هدايا",
+    "مطر",
+    "مفاجاة",
+    "احتفال"
+   ]
+  },
+  "overlay:cel-purpurina": {
+   "name": "جليتر",
+   "tags": [
+    "جليتر",
+    "لمعان",
+    "بريق",
+    "احتفال"
+   ]
+  },
+  "overlay:cel-serpentinas": {
+   "name": "شرائط احتفال",
+   "tags": [
+    "شرائط",
+    "احتفال",
+    "حفلة",
+    "الوان"
+   ]
+  },
+  "overlay:clima-arcoiris": {
+   "name": "قوس قزح",
+   "tags": [
+    "قوس قزح",
+    "الوان",
+    "سماء",
+    "مطر"
+   ]
+  },
+  "overlay:clima-copos": {
+   "name": "ندف ثلج",
+   "tags": [
+    "ندف",
+    "ثلج",
+    "شتاء",
+    "برد"
+   ]
+  },
+  "overlay:clima-dientes-de-leon": {
+   "name": "بذور الهندباء",
+   "tags": [
+    "هندباء",
+    "بذور",
+    "طبيعة",
+    "هواء"
+   ]
+  },
+  "overlay:clima-gotas-cristal": {
+   "name": "قطرات مطر على الزجاج",
+   "tags": [
+    "قطرات",
+    "مطر",
+    "زجاج",
+    "نافذة"
+   ]
+  },
+  "overlay:clima-hojas": {
+   "name": "أوراق الخريف",
+   "tags": [
+    "اوراق",
+    "خريف",
+    "تساقط",
+    "شجر"
+   ]
+  },
+  "overlay:clima-hojas-verdes": {
+   "name": "أوراق خضراء",
+   "tags": [
+    "اوراق",
+    "اخضر",
+    "طبيعة",
+    "ربيع"
+   ]
+  },
+  "overlay:clima-humo": {
+   "name": "دخان",
+   "tags": [
+    "دخان",
+    "ضباب",
+    "غموض",
+    "جو"
+   ]
+  },
+  "overlay:clima-humo-azul": {
+   "name": "دخان أزرق",
+   "tags": [
+    "دخان",
+    "ازرق",
+    "ضباب",
+    "جو"
+   ]
+  },
+  "overlay:clima-humo-colores": {
+   "name": "دخان ملوّن",
+   "tags": [
+    "دخان",
+    "الوان",
+    "هولي",
+    "حفلة"
+   ]
+  },
+  "overlay:clima-humo-rosa": {
+   "name": "دخان وردي",
+   "tags": [
+    "دخان",
+    "وردي",
+    "كشف جنس المولود",
+    "جو"
+   ]
+  },
+  "overlay:clima-lluvia": {
+   "name": "مطر",
+   "tags": [
+    "مطر",
+    "شتاء",
+    "طقس",
+    "قطرات"
+   ]
+  },
+  "overlay:clima-lluvia-ligera": {
+   "name": "رذاذ مطر",
+   "tags": [
+    "رذاذ",
+    "مطر خفيف",
+    "طقس",
+    "قطرات"
+   ]
+  },
+  "overlay:clima-nevada": {
+   "name": "عاصفة ثلجية",
+   "tags": [
+    "عاصفة ثلجية",
+    "ثلج",
+    "شتاء",
+    "برد"
+   ]
+  },
+  "overlay:clima-niebla": {
+   "name": "ضباب",
+   "tags": [
+    "ضباب",
+    "غموض",
+    "جو",
+    "صباح"
+   ]
+  },
+  "overlay:clima-niebla-baja": {
+   "name": "ضباب منخفض",
+   "tags": [
+    "ضباب",
+    "منخفض",
+    "ارض",
+    "غموض"
+   ]
+  },
+  "overlay:clima-nieve": {
+   "name": "ثلج خفيف",
+   "tags": [
+    "ثلج",
+    "خفيف",
+    "شتاء",
+    "هادئ"
+   ]
+  },
+  "overlay:clima-noche-estrellada": {
+   "name": "ليلة مرصّعة بالنجوم",
+   "tags": [
+    "نجوم",
+    "ليل",
+    "سماء",
+    "هادئ"
+   ]
+  },
+  "overlay:clima-petalos-flores": {
+   "name": "بتلات ملوّنة",
+   "tags": [
+    "بتلات",
+    "الوان",
+    "زهور",
+    "ربيع"
+   ]
+  },
+  "overlay:clima-polvo-viento": {
+   "name": "غبار تذروه الرياح",
+   "tags": [
+    "غبار",
+    "رياح",
+    "صحراء",
+    "جو"
+   ]
+  },
+  "overlay:clima-relampago": {
+   "name": "ضربة برق",
+   "tags": [
+    "برق",
+    "صاعقة",
+    "عاصفة",
+    "طقس"
+   ]
+  },
+  "overlay:clima-sakura": {
+   "name": "أزهار الكرز",
+   "tags": [
+    "كرز",
+    "ساكورا",
+    "ربيع",
+    "بتلات"
+   ]
+  },
+  "overlay:clima-tormenta": {
+   "name": "عاصفة رعدية",
+   "tags": [
+    "عاصفة",
+    "رعد",
+    "مطر",
+    "برق"
+   ]
+  },
+  "overlay:garabato-angel": {
+   "name": "جناحا ملاك وهالة",
+   "tags": [
+    "ملاك",
+    "اجنحة",
+    "هالة",
+    "خربشة"
+   ]
+  },
+  "overlay:garabato-angel-dorado": {
+   "name": "أجنحة ذهبية",
+   "tags": [
+    "اجنحة",
+    "ذهبي",
+    "ملاك",
+    "خربشة"
+   ]
+  },
+  "overlay:garabato-brillo": {
+   "name": "خطوط لمعان",
+   "tags": [
+    "لمعان",
+    "خطوط",
+    "خربشة",
+    "رسم يدوي"
+   ]
+  },
+  "overlay:garabato-caritas": {
+   "name": "وجوه مبتسمة مرسومة",
+   "tags": [
+    "وجوه",
+    "ابتسامة",
+    "خربشة",
+    "رسم يدوي"
+   ]
+  },
+  "overlay:garabato-cielo": {
+   "name": "غيوم وشمس مرسومة",
+   "tags": [
+    "غيوم",
+    "شمس",
+    "سماء",
+    "رسم يدوي"
+   ]
+  },
+  "overlay:garabato-circulo": {
+   "name": "دائرة مرسومة باليد",
+   "tags": [
+    "دائرة",
+    "رسم يدوي",
+    "تحديد",
+    "خربشة"
+   ]
+  },
+  "overlay:garabato-circulo-rojo": {
+   "name": "دائرة حمراء باليد",
+   "tags": [
+    "دائرة",
+    "احمر",
+    "رسم يدوي",
+    "تحديد"
+   ]
+  },
+  "overlay:garabato-corazones": {
+   "name": "قلوب مخربشة",
+   "tags": [
+    "قلوب",
+    "خربشة",
+    "رسم يدوي",
+    "حب"
+   ]
+  },
+  "overlay:garabato-corazones-rosa": {
+   "name": "قلوب وردية مرسومة",
+   "tags": [
+    "قلوب",
+    "وردي",
+    "رسم يدوي",
+    "خربشة"
+   ]
+  },
+  "overlay:garabato-corona": {
+   "name": "تاج مرسوم",
+   "tags": [
+    "تاج",
+    "رسم يدوي",
+    "خربشة",
+    "ملكة"
+   ]
+  },
+  "overlay:garabato-corona-dorada": {
+   "name": "تاج ذهبي مرسوم",
+   "tags": [
+    "تاج",
+    "ذهبي",
+    "رسم يدوي",
+    "خربشة"
+   ]
+  },
+  "overlay:garabato-diablito": {
+   "name": "قرون شيطان صغير",
+   "tags": [
+    "قرون",
+    "شيطان",
+    "شقي",
+    "خربشة"
+   ]
+  },
+  "overlay:garabato-diablito-blanco": {
+   "name": "قرون مرسومة",
+   "tags": [
+    "قرون",
+    "ابيض",
+    "رسم يدوي",
+    "خربشة"
+   ]
+  },
+  "overlay:garabato-estallido": {
+   "name": "انفجار مرسوم",
+   "tags": [
+    "انفجار",
+    "رسم يدوي",
+    "خربشة",
+    "طاقة"
+   ]
+  },
+  "overlay:garabato-estrellas": {
+   "name": "نجوم مخربشة",
+   "tags": [
+    "نجوم",
+    "خربشة",
+    "رسم يدوي",
+    "لطيف"
+   ]
+  },
+  "overlay:garabato-estrellas-doradas": {
+   "name": "نجوم ذهبية مرسومة",
+   "tags": [
+    "نجوم",
+    "ذهبي",
+    "رسم يدوي",
+    "خربشة"
+   ]
+  },
+  "overlay:garabato-flechas": {
+   "name": "أسهم مرسومة",
+   "tags": [
+    "اسهم",
+    "رسم يدوي",
+    "خربشة",
+    "اشارة"
+   ]
+  },
+  "overlay:garabato-flechas-girando": {
+   "name": "أسهم دوّارة",
+   "tags": [
+    "اسهم",
+    "دوران",
+    "خربشة",
+    "حركة"
+   ]
+  },
+  "overlay:garabato-flechas-neon": {
+   "name": "أسهم نيون",
+   "tags": [
+    "اسهم",
+    "نيون",
+    "خربشة",
+    "ليل"
+   ]
+  },
+  "overlay:garabato-flores": {
+   "name": "زهور مرسومة",
+   "tags": [
+    "زهور",
+    "رسم يدوي",
+    "خربشة",
+    "ربيع"
+   ]
+  },
+  "overlay:garabato-mariposas": {
+   "name": "فراشات مرسومة",
+   "tags": [
+    "فراشات",
+    "رسم يدوي",
+    "خربشة",
+    "لطيف"
+   ]
+  },
+  "overlay:garabato-mix": {
+   "name": "خربشات متنوعة",
+   "tags": [
+    "خربشات",
+    "متنوعة",
+    "رسم يدوي",
+    "ملصقات"
+   ]
+  },
+  "overlay:garabato-mix-negro": {
+   "name": "خربشات سوداء",
+   "tags": [
+    "خربشات",
+    "اسود",
+    "رسم يدوي",
+    "متنوعة"
+   ]
+  },
+  "overlay:garabato-mix-rosa": {
+   "name": "خربشات وردية",
+   "tags": [
+    "خربشات",
+    "وردي",
+    "رسم يدوي",
+    "متنوعة"
+   ]
+  },
+  "overlay:garabato-musica": {
+   "name": "نوتات موسيقية مرسومة",
+   "tags": [
+    "نوتات",
+    "موسيقى",
+    "رسم يدوي",
+    "خربشة"
+   ]
+  },
+  "overlay:garabato-neon-corazones": {
+   "name": "قلوب نيون مرسومة",
+   "tags": [
+    "قلوب",
+    "نيون",
+    "رسم يدوي",
+    "خربشة"
+   ]
+  },
+  "overlay:garabato-rayos": {
+   "name": "برق مرسوم",
+   "tags": [
+    "برق",
+    "صاعقة",
+    "رسم يدوي",
+    "طاقة"
+   ]
+  },
+  "overlay:garabato-signos": {
+   "name": "علامات مرسومة",
+   "tags": [
+    "علامات",
+    "رموز",
+    "رسم يدوي",
+    "خربشة"
+   ]
+  },
+  "overlay:garabato-subrayado": {
+   "name": "خط سفلي باليد",
+   "tags": [
+    "خط سفلي",
+    "تسطير",
+    "رسم يدوي",
+    "ابراز"
+   ]
+  },
+  "overlay:glitch-bloques": {
+   "name": "تشويش كتل",
+   "tags": [
+    "جليتش",
+    "كتل",
+    "تشويش",
+    "رقمي"
+   ]
+  },
+  "overlay:glitch-codigo": {
+   "name": "مطر الأكواد",
+   "tags": [
+    "اكواد",
+    "برمجة",
+    "ماتريكس",
+    "رقمي"
+   ]
+  },
+  "overlay:glitch-estatica": {
+   "name": "تشويش التلفاز",
+   "tags": [
+    "تشويش",
+    "تلفاز",
+    "ثلج",
+    "اشارة"
+   ]
+  },
+  "overlay:glitch-rgb": {
+   "name": "تشويش RGB",
+   "tags": [
+    "rgb",
+    "جليتش",
+    "الوان",
+    "رقمي"
+   ]
+  },
+  "overlay:glitch-transicion": {
+   "name": "انتقال بالتشويش",
+   "tags": [
+    "جليتش",
+    "انتقال",
+    "تشويش",
+    "سريع"
+   ]
+  },
+  "overlay:luz-arcoiris": {
+   "name": "ضوء قوس قزح",
+   "tags": [
+    "قوس قزح",
+    "ضوء",
+    "الوان",
+    "وهج"
+   ]
+  },
+  "overlay:luz-barrido-calido": {
+   "name": "مسحة ضوء دافئ",
+   "tags": [
+    "ضوء دافئ",
+    "مسحة",
+    "وهج",
+    "سينمائي"
+   ]
+  },
+  "overlay:luz-barrido-rosa": {
+   "name": "مسحة ضوء وردي",
+   "tags": [
+    "ضوء وردي",
+    "مسحة",
+    "وهج",
+    "رومانسي"
+   ]
+  },
+  "overlay:luz-bokeh-azul": {
+   "name": "بوكيه أزرق ليلي",
+   "tags": [
+    "بوكيه",
+    "ازرق",
+    "ليل",
+    "اضواء"
+   ]
+  },
+  "overlay:luz-bokeh-blanco": {
+   "name": "بوكيه أبيض",
+   "tags": [
+    "بوكيه",
+    "ابيض",
+    "اضواء",
+    "ضبابي"
+   ]
+  },
+  "overlay:luz-bokeh-cayendo": {
+   "name": "بوكيه متساقط",
+   "tags": [
+    "بوكيه",
+    "تساقط",
+    "اضواء",
+    "حالم"
+   ]
+  },
+  "overlay:luz-bokeh-color": {
+   "name": "بوكيه ملوّن",
+   "tags": [
+    "بوكيه",
+    "الوان",
+    "اضواء",
+    "حفلة"
+   ]
+  },
+  "overlay:luz-bokeh-corazones": {
+   "name": "بوكيه قلوب",
+   "tags": [
+    "بوكيه",
+    "قلوب",
+    "حب",
+    "اضواء"
+   ]
+  },
+  "overlay:luz-bokeh-dorado": {
+   "name": "بوكيه ذهبي",
+   "tags": [
+    "بوكيه",
+    "ذهبي",
+    "اضواء",
+    "فخم"
+   ]
+  },
+  "overlay:luz-bokeh-estrellas": {
+   "name": "بوكيه نجوم",
+   "tags": [
+    "بوكيه",
+    "نجوم",
+    "اضواء",
+    "لمعان"
+   ]
+  },
+  "overlay:luz-bokeh-rosa": {
+   "name": "بوكيه وردي",
+   "tags": [
+    "بوكيه",
+    "وردي",
+    "اضواء",
+    "ناعم"
+   ]
+  },
+  "overlay:luz-destello": {
+   "name": "وهج العدسة",
+   "tags": [
+    "وهج العدسة",
+    "ضوء",
+    "شمس",
+    "سينمائي"
+   ]
+  },
+  "overlay:luz-destello-azul": {
+   "name": "وهج أنامورفي أزرق",
+   "tags": [
+    "وهج",
+    "انامورفي",
+    "ازرق",
+    "سينمائي"
+   ]
+  },
+  "overlay:luz-escaner": {
+   "name": "خط ماسح ضوئي",
+   "tags": [
+    "ماسح",
+    "خط",
+    "مسح",
+    "تقنية"
+   ]
+  },
+  "overlay:luz-flash-transicion": {
+   "name": "انتقال بالوميض",
+   "tags": [
+    "فلاش",
+    "وميض",
+    "انتقال",
+    "ابيض"
+   ]
+  },
+  "overlay:luz-fuga-calida": {
+   "name": "تسرّب ضوء دافئ",
+   "tags": [
+    "تسرب ضوء",
+    "دافئ",
+    "فيلم",
+    "ريترو"
+   ]
+  },
+  "overlay:luz-fuga-dorada": {
+   "name": "تسرّب ضوء ذهبي",
+   "tags": [
+    "تسرب ضوء",
+    "ذهبي",
+    "دافئ",
+    "فيلم"
+   ]
+  },
+  "overlay:luz-fuga-esquina": {
+   "name": "توهّج الزوايا",
+   "tags": [
+    "توهج",
+    "زوايا",
+    "ضوء",
+    "فيلم"
+   ]
+  },
+  "overlay:luz-fuga-esquina-rosa": {
+   "name": "توهّج وردي في الزوايا",
+   "tags": [
+    "توهج",
+    "وردي",
+    "زوايا",
+    "ضوء"
+   ]
+  },
+  "overlay:luz-fuga-fria": {
+   "name": "تسرّب ضوء بارد",
+   "tags": [
+    "تسرب ضوء",
+    "بارد",
+    "ازرق",
+    "فيلم"
+   ]
+  },
+  "overlay:luz-fuga-roja": {
+   "name": "تسرّب ضوء أحمر",
+   "tags": [
+    "تسرب ضوء",
+    "احمر",
+    "فيلم",
+    "ريترو"
+   ]
+  },
+  "overlay:luz-fuga-rosa": {
+   "name": "تسرّب ضوء وردي",
+   "tags": [
+    "تسرب ضوء",
+    "وردي",
+    "فيلم",
+    "حالم"
+   ]
+  },
+  "overlay:luz-fuga-turquesa": {
+   "name": "تسرّب ضوء فيروزي وبرتقالي",
+   "tags": [
+    "تسرب ضوء",
+    "فيروزي",
+    "برتقالي",
+    "سينمائي"
+   ]
+  },
+  "overlay:luz-fuga-verde": {
+   "name": "تسرّب ضوء أخضر قديم",
+   "tags": [
+    "تسرب ضوء",
+    "اخضر",
+    "فينتاج",
+    "فيلم"
+   ]
+  },
+  "overlay:luz-fuga-violeta": {
+   "name": "تسرّب ضوء بنفسجي",
+   "tags": [
+    "تسرب ضوء",
+    "بنفسجي",
+    "فيلم",
+    "حالم"
+   ]
+  },
+  "overlay:luz-luces-ciudad": {
+   "name": "أضواء المدينة",
+   "tags": [
+    "مدينة",
+    "اضواء",
+    "ليل",
+    "بوكيه"
+   ]
+  },
+  "overlay:luz-luces-navidad": {
+   "name": "أضواء الميلاد",
+   "tags": [
+    "كريسماس",
+    "اضواء",
+    "زينة",
+    "اعياد"
+   ]
+  },
+  "overlay:luz-luciernagas": {
+   "name": "يراعات",
+   "tags": [
+    "يراعات",
+    "اضواء",
+    "ليل",
+    "سحري"
+   ]
+  },
+  "overlay:luz-neon-barrido": {
+   "name": "مسحة نيون",
+   "tags": [
+    "نيون",
+    "مسحة",
+    "ضوء",
+    "ليل"
+   ]
+  },
+  "overlay:luz-prisma": {
+   "name": "منشور قوس قزح",
+   "tags": [
+    "منشور",
+    "قوس قزح",
+    "انكسار",
+    "الوان"
+   ]
+  },
+  "overlay:luz-rayos": {
+   "name": "أشعة الشمس",
+   "tags": [
+    "اشعة",
+    "شمس",
+    "ضوء",
+    "صباح"
+   ]
+  },
+  "overlay:luz-sol": {
+   "name": "وهج الشمس",
+   "tags": [
+    "شمس",
+    "وهج",
+    "صيف",
+    "ضوء"
+   ]
+  },
+  "overlay:marco-brillos": {
+   "name": "إطار لامع",
+   "tags": [
+    "اطار",
+    "لمعان",
+    "بريق",
+    "نجوم"
+   ]
+  },
+  "overlay:marco-lineas-laterales": {
+   "name": "خطوط حركة",
+   "tags": [
+    "خطوط",
+    "حركة",
+    "كوميكس",
+    "طاقة"
+   ]
+  },
+  "overlay:marco-lineas-velocidad": {
+   "name": "خطوط السرعة",
+   "tags": [
+    "خطوط السرعة",
+    "سرعة",
+    "انمي",
+    "كوميكس"
+   ]
+  },
+  "overlay:marco-neon-azul": {
+   "name": "إطار نيون أزرق",
+   "tags": [
+    "اطار",
+    "نيون",
+    "ازرق",
+    "ليل"
+   ]
+  },
+  "overlay:marco-neon-rosa": {
+   "name": "إطار نيون وردي",
+   "tags": [
+    "اطار",
+    "نيون",
+    "وردي",
+    "ليل"
+   ]
+  },
+  "overlay:marco-papel-cinta": {
+   "name": "إطار ورقي بشريط لاصق",
+   "tags": [
+    "ورق",
+    "شريط لاصق",
+    "اطار",
+    "يدوي"
+   ]
+  },
+  "overlay:marco-papel-negro": {
+   "name": "إطار ورق مقصوص أسود",
+   "tags": [
+    "ورق",
+    "مقصوص",
+    "اسود",
+    "اطار"
+   ]
+  },
+  "overlay:marco-papel-recortado": {
+   "name": "إطار ورق مقصوص",
+   "tags": [
+    "ورق",
+    "مقصوص",
+    "اطار",
+    "يدوي"
+   ]
+  },
+  "overlay:marco-polaroid": {
+   "name": "إطار صورة فورية",
+   "tags": [
+    "صورة فورية",
+    "اطار",
+    "ريترو",
+    "صورة"
+   ]
+  },
+  "overlay:marco-semitono": {
+   "name": "نقاط كوميكس نصفية",
+   "tags": [
+    "كوميكس",
+    "نقاط",
+    "بوب ارت",
+    "طباعة"
+   ]
+  },
+  "overlay:part-ascendentes": {
+   "name": "أضواء صاعدة",
+   "tags": [
+    "اضواء",
+    "صاعدة",
+    "جزيئات",
+    "سحري"
+   ]
+  },
+  "overlay:part-bengala": {
+   "name": "شعلة نارية",
+   "tags": [
+    "شعلة",
+    "شرار",
+    "احتفال",
+    "جزيئات"
+   ]
+  },
+  "overlay:part-brasas": {
+   "name": "جمر",
+   "tags": [
+    "جمر",
+    "نار",
+    "شرار",
+    "جزيئات"
+   ]
+  },
+  "overlay:part-brasas-azules": {
+   "name": "جمر أزرق",
+   "tags": [
+    "جمر",
+    "ازرق",
+    "نار",
+    "جزيئات"
+   ]
+  },
+  "overlay:part-brillos": {
+   "name": "تلألؤ",
+   "tags": [
+    "تلالؤ",
+    "لمعان",
+    "بريق",
+    "نجوم"
+   ]
+  },
+  "overlay:part-brillos-azules": {
+   "name": "تلألؤ أزرق",
+   "tags": [
+    "تلالؤ",
+    "ازرق",
+    "لمعان",
+    "بريق"
+   ]
+  },
+  "overlay:part-brillos-dorados": {
+   "name": "تلألؤ ذهبي",
+   "tags": [
+    "تلالؤ",
+    "ذهبي",
+    "لمعان",
+    "بريق"
+   ]
+  },
+  "overlay:part-brillos-rosa": {
+   "name": "تلألؤ وردي",
+   "tags": [
+    "تلالؤ",
+    "وردي",
+    "لمعان",
+    "بريق"
+   ]
+  },
+  "overlay:part-burbujas": {
+   "name": "فقاعات",
+   "tags": [
+    "فقاعات",
+    "صابون",
+    "عائمة",
+    "جزيئات"
+   ]
+  },
+  "overlay:part-burbujas-arcoiris": {
+   "name": "فقاعات بألوان قزحية",
+   "tags": [
+    "فقاعات",
+    "قزحي",
+    "الوان",
+    "صابون"
+   ]
+  },
+  "overlay:part-chispas": {
+   "name": "شرارات",
+   "tags": [
+    "شرار",
+    "نار",
+    "جزيئات",
+    "لمعان"
+   ]
+  },
+  "overlay:part-chispas-azules": {
+   "name": "شرارات زرقاء",
+   "tags": [
+    "شرار",
+    "ازرق",
+    "كهرباء",
+    "جزيئات"
+   ]
+  },
+  "overlay:part-destellos-grandes": {
+   "name": "لمعات كبيرة",
+   "tags": [
+    "لمعان",
+    "كبير",
+    "نجوم",
+    "بريق"
+   ]
+  },
+  "overlay:part-estrellas-fugaces": {
+   "name": "شهب",
+   "tags": [
+    "شهب",
+    "نجوم",
+    "سماء",
+    "ليل"
+   ]
+  },
+  "overlay:part-estrellitas": {
+   "name": "نجوم صغيرة",
+   "tags": [
+    "نجوم",
+    "صغيرة",
+    "لمعان",
+    "لطيف"
+   ]
+  },
+  "overlay:part-explosion-chispas": {
+   "name": "انفجار شرارات",
+   "tags": [
+    "انفجار",
+    "شرار",
+    "جزيئات",
+    "طاقة"
+   ]
+  },
+  "overlay:part-lluvia-luces": {
+   "name": "مطر أضواء",
+   "tags": [
+    "مطر",
+    "اضواء",
+    "جزيئات",
+    "سحري"
+   ]
+  },
+  "overlay:part-lluvia-meteoros": {
+   "name": "زخّة شهب",
+   "tags": [
+    "شهب",
+    "نيازك",
+    "سماء",
+    "ليل"
+   ]
+  },
+  "overlay:part-motas-luz": {
+   "name": "ذرات غبار في الضوء",
+   "tags": [
+    "غبار",
+    "ضوء",
+    "شمس",
+    "جزيئات"
+   ]
+  },
+  "overlay:part-nieve-brillante": {
+   "name": "ثلج لامع",
+   "tags": [
+    "ثلج",
+    "لامع",
+    "جليتر",
+    "شتاء"
+   ]
+  },
+  "overlay:part-orbes": {
+   "name": "كرات ضوء",
+   "tags": [
+    "كرات ضوء",
+    "اضواء",
+    "حالم",
+    "جزيئات"
+   ]
+  },
+  "overlay:part-polvo-dorado": {
+   "name": "غبار ذهبي",
+   "tags": [
+    "غبار",
+    "ذهبي",
+    "لمعان",
+    "فخم"
+   ]
+  },
+  "overlay:part-polvo-magico": {
+   "name": "أثر غبار سحري",
+   "tags": [
+    "غبار سحري",
+    "سحر",
+    "لمعان",
+    "خيال"
+   ]
+  },
+  "overlay:part-polvo-plateado": {
+   "name": "غبار فضي",
+   "tags": [
+    "غبار",
+    "فضي",
+    "لمعان",
+    "بريق"
+   ]
+  },
+  "overlay:part-polvo-rosa": {
+   "name": "غبار وردي",
+   "tags": [
+    "غبار",
+    "وردي",
+    "لمعان",
+    "ناعم"
+   ]
+  },
+  "overlay:part-velocidad-luz": {
+   "name": "سرعة الضوء",
+   "tags": [
+    "سرعة الضوء",
+    "فضاء",
+    "نجوم",
+    "انطلاق"
+   ]
+  },
+  "overlay:pel-8mm": {
+   "name": "فيلم 8 مم",
+   "tags": [
+    "8 مم",
+    "فيلم",
+    "ريترو",
+    "فينتاج"
+   ]
+  },
+  "overlay:pel-cine-mudo": {
+   "name": "سينما صامتة",
+   "tags": [
+    "سينما صامتة",
+    "ابيض واسود",
+    "قديم",
+    "فيلم"
+   ]
+  },
+  "overlay:pel-crt": {
+   "name": "تلفاز قديم (CRT)",
+   "tags": [
+    "تلفاز",
+    "قديم",
+    "crt",
+    "ريترو"
+   ]
+  },
+  "overlay:pel-flash-blanco": {
+   "name": "وميض فيلم",
+   "tags": [
+    "وميض",
+    "فيلم",
+    "ابيض",
+    "انتقال"
+   ]
+  },
+  "overlay:pel-grano": {
+   "name": "حبيبات الفيلم",
+   "tags": [
+    "حبيبات",
+    "فيلم",
+    "تناظري",
+    "ريترو"
+   ]
+  },
+  "overlay:pel-grano-16mm": {
+   "name": "حبيبات 16 مم",
+   "tags": [
+    "16 مم",
+    "حبيبات",
+    "فيلم",
+    "سينمائي"
+   ]
+  },
+  "overlay:pel-grano-fino": {
+   "name": "حبيبات ناعمة",
+   "tags": [
+    "حبيبات",
+    "ناعمة",
+    "فيلم",
+    "خفيف"
+   ]
+  },
+  "overlay:pel-grano-fuerte": {
+   "name": "حبيبات كثيفة",
+   "tags": [
+    "حبيبات",
+    "كثيفة",
+    "فيلم",
+    "قوي"
+   ]
+  },
+  "overlay:pel-marco-super8": {
+   "name": "إطار سوبر 8",
+   "tags": [
+    "سوبر 8",
+    "اطار",
+    "فيلم",
+    "ريترو"
+   ]
+  },
+  "overlay:pel-polvo-rayas": {
+   "name": "غبار وخدوش الفيلم",
+   "tags": [
+    "غبار",
+    "خدوش",
+    "فيلم",
+    "قديم"
+   ]
+  },
+  "overlay:pel-polvo-suave": {
+   "name": "غبار خفيف",
+   "tags": [
+    "غبار",
+    "خفيف",
+    "فيلم",
+    "قديم"
+   ]
+  },
+  "overlay:pel-quemado": {
+   "name": "احتراق الفيلم",
+   "tags": [
+    "احتراق",
+    "فيلم",
+    "ريترو",
+    "انتقال"
+   ]
+  },
+  "overlay:pel-quemado-azul": {
+   "name": "احتراق أزرق",
+   "tags": [
+    "احتراق",
+    "ازرق",
+    "فيلم",
+    "انتقال"
+   ]
+  },
+  "overlay:pel-quemado-bordes": {
+   "name": "احتراق الحواف",
+   "tags": [
+    "احتراق",
+    "حواف",
+    "فيلم",
+    "ريترو"
+   ]
+  },
+  "overlay:pel-quemado-centro": {
+   "name": "احتراق من المنتصف",
+   "tags": [
+    "احتراق",
+    "منتصف",
+    "فيلم",
+    "انتقال"
+   ]
+  },
+  "overlay:pel-quemado-rojo": {
+   "name": "احتراق أحمر",
+   "tags": [
+    "احتراق",
+    "احمر",
+    "فيلم",
+    "دافئ"
+   ]
+  },
+  "overlay:pel-quemado-rosa": {
+   "name": "احتراق وردي",
+   "tags": [
+    "احتراق",
+    "وردي",
+    "فيلم",
+    "حالم"
+   ]
+  },
+  "overlay:pel-tira-35mm": {
+   "name": "شريط فيلم 35 مم",
+   "tags": [
+    "35 مم",
+    "شريط فيلم",
+    "سينما",
+    "ريترو"
+   ]
+  },
+  "overlay:pel-vhs": {
+   "name": "VHS",
+   "tags": [
+    "vhs",
+    "فيديو قديم",
+    "ريترو",
+    "تسعينات"
+   ]
+  },
+  "overlay:pel-vhs-pausa": {
+   "name": "VHS متوقف مؤقتًا",
+   "tags": [
+    "vhs",
+    "ايقاف مؤقت",
+    "ريترو",
+    "شريط"
+   ]
+  },
+  "overlay:pel-vhs-rebobinar": {
+   "name": "VHS يُرجَّع",
+   "tags": [
+    "vhs",
+    "ترجيع",
+    "ريترو",
+    "شريط"
+   ]
+  },
+  "overlay:pel-vhs-rec": {
+   "name": "VHS يسجّل",
+   "tags": [
+    "vhs",
+    "تسجيل",
+    "rec",
+    "ريترو"
+   ]
+  },
+  "overlay:textura-grunge": {
+   "name": "خامة جرانج",
+   "tags": [
+    "جرانج",
+    "خامة",
+    "خشن",
+    "قديم"
+   ]
+  },
+  "overlay:textura-papel": {
+   "name": "خامة ورق",
+   "tags": [
+    "ورق",
+    "خامة",
+    "قديم",
+    "طبيعي"
+   ]
+  },
+  "sound:angelical": {
+   "name": "صوت ملائكي",
+   "tags": [
+    "ملائكي",
+    "سماوي",
+    "هادئ",
+    "سحر"
+   ]
+  },
+  "sound:aparicion": {
+   "name": "ظهور مفاجئ",
+   "tags": [
+    "ظهور",
+    "سحر",
+    "دخان",
+    "مفاجاة"
+   ]
+  },
+  "sound:aplausos": {
+   "name": "تصفيق",
+   "tags": [
+    "تصفيق",
+    "جمهور",
+    "تشجيع",
+    "نجاح"
+   ]
+  },
+  "sound:arpa-bajada": {
+   "name": "قيثارة هابطة",
+   "tags": [
+    "قيثارة",
+    "هبوط",
+    "سحر",
+    "حلم"
+   ]
+  },
+  "sound:arpa-subida": {
+   "name": "قيثارة صاعدة",
+   "tags": [
+    "قيثارة",
+    "صعود",
+    "سحر",
+    "حلم"
+   ]
+  },
+  "sound:aura": {
+   "name": "هالة متلألئة",
+   "tags": [
+    "هالة",
+    "لمعان",
+    "سحر",
+    "طاقة"
+   ]
+  },
+  "sound:ba-dum-tss": {
+   "name": "با دوم تس",
+   "tags": [
+    "نكتة",
+    "طبل",
+    "مضحك",
+    "كوميديا"
+   ]
+  },
+  "sound:bass-drop": {
+   "name": "سقوط الباص",
+   "tags": [
+    "باص",
+    "دروب",
+    "بيس",
+    "ضربة"
+   ]
+  },
+  "sound:bass-drop-corto": {
+   "name": "سقوط باص قصير",
+   "tags": [
+    "باص",
+    "دروب",
+    "قصير",
+    "ضربة"
+   ]
+  },
+  "sound:bass-drop-distorsion": {
+   "name": "سقوط باص مشوّه",
+   "tags": [
+    "باص",
+    "دروب",
+    "تشويه",
+    "ضربة"
+   ]
+  },
+  "sound:bloquear": {
+   "name": "قفل",
+   "tags": [
+    "قفل",
+    "جوال",
+    "شاشة",
+    "اغلاق"
+   ]
+  },
+  "sound:bocina-payaso": {
+   "name": "بوق المهرّج",
+   "tags": [
+    "مهرج",
+    "بوق",
+    "مضحك",
+    "سيرك"
+   ]
+  },
+  "sound:bofetada": {
+   "name": "صفعة",
+   "tags": [
+    "صفعة",
+    "كف",
+    "ضربة",
+    "مضحك"
+   ]
+  },
+  "sound:boing": {
+   "name": "بوينغ",
+   "tags": [
+    "بوينغ",
+    "نطة",
+    "مضحك",
+    "كرتون"
+   ]
+  },
+  "sound:boing-agudo": {
+   "name": "بوينغ حاد",
+   "tags": [
+    "بوينغ",
+    "حاد",
+    "مضحك",
+    "كرتون"
+   ]
+  },
+  "sound:boing-grave": {
+   "name": "بوينغ عميق",
+   "tags": [
+    "بوينغ",
+    "عميق",
+    "مضحك",
+    "كرتون"
+   ]
+  },
+  "sound:bombo": {
+   "name": "طبلة كيك",
+   "tags": [
+    "كيك",
+    "طبل",
+    "ايقاع",
+    "بيس"
+   ]
+  },
+  "sound:bonk": {
+   "name": "طرقة على الرأس",
+   "tags": [
+    "طرقة",
+    "راس",
+    "مضحك",
+    "ميم"
+   ]
+  },
+  "sound:bonus": {
+   "name": "مكافأة",
+   "tags": [
+    "مكافاة",
+    "بونص",
+    "العاب",
+    "نقاط"
+   ]
+  },
+  "sound:boom-cine": {
+   "name": "انفجار سينمائي",
+   "tags": [
+    "بوم",
+    "سينمائي",
+    "انفجار",
+    "ضربة"
+   ]
+  },
+  "sound:boom-lejano": {
+   "name": "انفجار بعيد",
+   "tags": [
+    "بوم",
+    "بعيد",
+    "انفجار",
+    "ضربة"
+   ]
+  },
+  "sound:boom-profundo": {
+   "name": "انفجار عميق",
+   "tags": [
+    "بوم",
+    "عميق",
+    "ثقيل",
+    "ضربة"
+   ]
+  },
+  "sound:braam": {
+   "name": "برام",
+   "tags": [
+    "برام",
+    "سينمائي",
+    "اعلان فيلم",
+    "ضربة"
+   ]
+  },
+  "sound:braam-grave": {
+   "name": "برام عميق",
+   "tags": [
+    "برام",
+    "عميق",
+    "سينمائي",
+    "ثقيل"
+   ]
+  },
+  "sound:brillo-escena": {
+   "name": "لمعة تغيير المشهد",
+   "tags": [
+    "لمعان",
+    "مشهد",
+    "انتقال",
+    "سحر"
+   ]
+  },
+  "sound:brillo-largo": {
+   "name": "لمعان طويل",
+   "tags": [
+    "لمعان",
+    "طويل",
+    "سحر",
+    "بريق"
+   ]
+  },
+  "sound:brillo-oscuro": {
+   "name": "لمعان غامض",
+   "tags": [
+    "لمعان",
+    "غامض",
+    "سحر",
+    "مظلم"
+   ]
+  },
+  "sound:burbujas-magicas": {
+   "name": "فقاعات سحرية",
+   "tags": [
+    "فقاعات",
+    "سحر",
+    "خيال",
+    "لطيف"
+   ]
+  },
+  "sound:caida-caricatura": {
+   "name": "سقوط كرتوني",
+   "tags": [
+    "سقوط",
+    "كرتون",
+    "مضحك",
+    "كوميديا"
+   ]
+  },
+  "sound:caida-larga": {
+   "name": "هبوط طويل",
+   "tags": [
+    "هبوط",
+    "طويل",
+    "انتقال",
+    "مؤثر صوتي"
+   ]
+  },
+  "sound:caida-objeto": {
+   "name": "سقوط جسم",
+   "tags": [
+    "سقوط",
+    "جسم",
+    "ارتطام",
+    "ضربة"
+   ]
+  },
+  "sound:caida-ruido": {
+   "name": "هبوط بالضوضاء",
+   "tags": [
+    "هبوط",
+    "ضوضاء",
+    "انتقال",
+    "مؤثر صوتي"
+   ]
+  },
+  "sound:caida-sinte": {
+   "name": "هبوط سينث",
+   "tags": [
+    "هبوط",
+    "سينث",
+    "الكتروني",
+    "انتقال"
+   ]
+  },
+  "sound:caja": {
+   "name": "طبلة سنير",
+   "tags": [
+    "سنير",
+    "طبل",
+    "ايقاع",
+    "ضربة"
+   ]
+  },
+  "sound:caja-registradora": {
+   "name": "آلة النقود",
+   "tags": [
+    "كاشير",
+    "نقود",
+    "بيع",
+    "شراء"
+   ]
+  },
+  "sound:camara-foto": {
+   "name": "غالق الكاميرا",
+   "tags": [
+    "كاميرا",
+    "غالق",
+    "تصوير",
+    "صورة"
+   ]
+  },
+  "sound:campana-iglesia": {
+   "name": "جرس كنيسة",
+   "tags": [
+    "جرس",
+    "كنيسة",
+    "رنين",
+    "درامي"
+   ]
+  },
+  "sound:campanas-boda": {
+   "name": "أجراس الزفاف",
+   "tags": [
+    "اجراس",
+    "زفاف",
+    "عرس",
+    "احتفال"
+   ]
+  },
+  "sound:campanitas": {
+   "name": "أجراس الرياح",
+   "tags": [
+    "اجراس",
+    "رياح",
+    "رنين",
+    "هادئ"
+   ]
+  },
+  "sound:campanitas-rapidas": {
+   "name": "رنين أجراس سريع",
+   "tags": [
+    "اجراس",
+    "سريع",
+    "رنين",
+    "سحر"
+   ]
+  },
+  "sound:captura-pantalla": {
+   "name": "لقطة شاشة",
+   "tags": [
+    "لقطة شاشة",
+    "سكرين شوت",
+    "شاشة",
+    "جوال"
+   ]
+  },
+  "sound:carrera-caricatura": {
+   "name": "ركض كرتوني",
+   "tags": [
+    "ركض",
+    "كرتون",
+    "مضحك",
+    "سريع"
+   ]
+  },
+  "sound:chasquido": {
+   "name": "فرقعة أصابع",
+   "tags": [
+    "فرقعة اصابع",
+    "طقطقة",
+    "ايقاع",
+    "سناب"
+   ]
+  },
+  "sound:chillido-doble": {
+   "name": "صرير مزدوج",
+   "tags": [
+    "صرير",
+    "مزدوج",
+    "مضحك",
+    "لعبة"
+   ]
+  },
+  "sound:chillido-juguete": {
+   "name": "لعبة تصرّ",
+   "tags": [
+    "لعبة",
+    "صرير",
+    "مطاط",
+    "مضحك"
+   ]
+  },
+  "sound:cinta-frenada": {
+   "name": "توقّف الشريط",
+   "tags": [
+    "توقف الشريط",
+    "تباطؤ",
+    "انتقال",
+    "دي جي"
+   ]
+  },
+  "sound:cinta-frenada-lenta": {
+   "name": "توقّف الشريط ببطء",
+   "tags": [
+    "توقف الشريط",
+    "بطيء",
+    "تباطؤ",
+    "انتقال"
+   ]
+  },
+  "sound:clic": {
+   "name": "نقرة",
+   "tags": [
+    "نقرة",
+    "كليك",
+    "زر",
+    "واجهة"
+   ]
+  },
+  "sound:clic-boligrafo": {
+   "name": "نقرة قلم",
+   "tags": [
+    "قلم",
+    "نقرة",
+    "مكتب",
+    "كليك"
+   ]
+  },
+  "sound:clic-raton": {
+   "name": "نقرة الماوس",
+   "tags": [
+    "ماوس",
+    "نقرة",
+    "كمبيوتر",
+    "كليك"
+   ]
+  },
+  "sound:completado": {
+   "name": "اكتمل",
+   "tags": [
+    "اكتمل",
+    "تم",
+    "نجاح",
+    "انهاء"
+   ]
+  },
+  "sound:contador-puntos": {
+   "name": "عدّاد النقاط",
+   "tags": [
+    "نقاط",
+    "عداد",
+    "العاب",
+    "نتيجة"
+   ]
+  },
+  "sound:corneta-aire": {
+   "name": "بوق هوائي",
+   "tags": [
+    "بوق",
+    "هوائي",
+    "حفلة",
+    "دي جي"
+   ]
+  },
+  "sound:coro-celestial": {
+   "name": "جوقة سماوية",
+   "tags": [
+    "جوقة",
+    "سماوي",
+    "ملائكي",
+    "غناء"
+   ]
+  },
+  "sound:correcto": {
+   "name": "إجابة صحيحة",
+   "tags": [
+    "صحيح",
+    "صح",
+    "نجاح",
+    "مسابقة"
+   ]
+  },
+  "sound:cremallera": {
+   "name": "سحّاب",
+   "tags": [
+    "سحاب",
+    "سوستة",
+    "ملابس",
+    "اغلاق"
+   ]
+  },
+  "sound:cristal": {
+   "name": "رنين كأس زجاجي",
+   "tags": [
+    "زجاج",
+    "كاس",
+    "رنين",
+    "تينغ"
+   ]
+  },
+  "sound:cuenta-palillos": {
+   "name": "عدّ بالعصي",
+   "tags": [
+    "عصي",
+    "عد",
+    "طبل",
+    "بداية"
+   ]
+  },
+  "sound:dano": {
+   "name": "إصابة",
+   "tags": [
+    "اصابة",
+    "ضرر",
+    "العاب",
+    "خسارة"
+   ]
+  },
+  "sound:desaparicion": {
+   "name": "اختفاء",
+   "tags": [
+    "اختفاء",
+    "سحر",
+    "تلاشي",
+    "خدعة"
+   ]
+  },
+  "sound:desbloquear": {
+   "name": "فتح القفل",
+   "tags": [
+    "فتح",
+    "قفل",
+    "جوال",
+    "شاشة"
+   ]
+  },
+  "sound:deslizar-abajo": {
+   "name": "سحب للأسفل",
+   "tags": [
+    "سحب",
+    "اسفل",
+    "سوايب",
+    "انتقال"
+   ]
+  },
+  "sound:deslizar-arriba": {
+   "name": "سحب للأعلى",
+   "tags": [
+    "سحب",
+    "اعلى",
+    "سوايب",
+    "انتقال"
+   ]
+  },
+  "sound:deslizar-interfaz": {
+   "name": "سحب على الشاشة",
+   "tags": [
+    "سحب",
+    "سوايب",
+    "شاشة",
+    "واجهة"
+   ]
+  },
+  "sound:despertador": {
+   "name": "منبّه",
+   "tags": [
+    "منبه",
+    "ساعة",
+    "صباح",
+    "استيقاظ"
+   ]
+  },
+  "sound:destello-ding": {
+   "name": "لمعة دينغ",
+   "tags": [
+    "لمعة",
+    "دينغ",
+    "بريق",
+    "سحر"
+   ]
+  },
+  "sound:disco-rayado": {
+   "name": "خدش أسطوانة",
+   "tags": [
+    "اسطوانة",
+    "خدش",
+    "توقف",
+    "مضحك"
+   ]
+  },
+  "sound:disco-rayado-frenada": {
+   "name": "توقّف الأسطوانة",
+   "tags": [
+    "اسطوانة",
+    "توقف",
+    "فجاة",
+    "مضحك"
+   ]
+  },
+  "sound:dron-metalico": {
+   "name": "طنين معدني",
+   "tags": [
+    "طنين",
+    "معدني",
+    "غامض",
+    "تشويق"
+   ]
+  },
+  "sound:dron-oscuro": {
+   "name": "طنين قاتم",
+   "tags": [
+    "طنين",
+    "قاتم",
+    "رعب",
+    "تشويق"
+   ]
+  },
+  "sound:drop-fill": {
+   "name": "ختام طبول",
+   "tags": [
+    "طبول",
+    "فيل",
+    "ايقاع",
+    "انتقال"
+   ]
+  },
+  "sound:error-negativo": {
+   "name": "نغمة سلبية",
+   "tags": [
+    "خطا",
+    "سلبي",
+    "رفض",
+    "فشل"
+   ]
+  },
+  "sound:error-zumbido": {
+   "name": "طنين خطأ",
+   "tags": [
+    "خطا",
+    "طنين",
+    "رفض",
+    "تنبيه"
+   ]
+  },
+  "sound:explosion": {
+   "name": "انفجار",
+   "tags": [
+    "انفجار",
+    "بوم",
+    "تفجير",
+    "اكشن"
+   ]
+  },
+  "sound:explosion-8bits": {
+   "name": "انفجار 8 بت",
+   "tags": [
+    "8 بت",
+    "انفجار",
+    "العاب",
+    "ريترو"
+   ]
+  },
+  "sound:explosion-lejana": {
+   "name": "انفجار بعيد المدى",
+   "tags": [
+    "انفجار",
+    "بعيد",
+    "حرب",
+    "اكشن"
+   ]
+  },
+  "sound:fanfarria": {
+   "name": "فانفار",
+   "tags": [
+    "فانفار",
+    "ابواق",
+    "اعلان",
+    "احتفال"
+   ]
+  },
+  "sound:fanfarria-victoria": {
+   "name": "فانفار النصر",
+   "tags": [
+    "فانفار",
+    "نصر",
+    "فوز",
+    "احتفال"
+   ]
+  },
+  "sound:game-over": {
+   "name": "انتهت اللعبة",
+   "tags": [
+    "انتهت اللعبة",
+    "خسارة",
+    "العاب",
+    "جيم اوفر"
+   ]
+  },
+  "sound:gema": {
+   "name": "جوهرة",
+   "tags": [
+    "جوهرة",
+    "العاب",
+    "مكافاة",
+    "لمعان"
+   ]
+  },
+  "sound:glitch-corto": {
+   "name": "تشويش قصير",
+   "tags": [
+    "جليتش",
+    "تشويش",
+    "قصير",
+    "رقمي"
+   ]
+  },
+  "sound:glitch-digital": {
+   "name": "تشويش رقمي",
+   "tags": [
+    "جليتش",
+    "رقمي",
+    "تشويش",
+    "الكتروني"
+   ]
+  },
+  "sound:glitch-estatica": {
+   "name": "انفجار تشويش",
+   "tags": [
+    "تشويش",
+    "ستاتيك",
+    "راديو",
+    "انتقال"
+   ]
+  },
+  "sound:glitch-tartamudeo": {
+   "name": "تقطّع رقمي",
+   "tags": [
+    "تقطع",
+    "جليتش",
+    "رقمي",
+    "تكرار"
+   ]
+  },
+  "sound:golpe": {
+   "name": "لكمة",
+   "tags": [
+    "لكمة",
+    "ضربة",
+    "قتال",
+    "بوكس"
+   ]
+  },
+  "sound:golpe-dramatico": {
+   "name": "ضربة درامية",
+   "tags": [
+    "درامي",
+    "ضربة",
+    "صدمة",
+    "تشويق"
+   ]
+  },
+  "sound:golpe-dramatico-corto": {
+   "name": "لمسة درامية قصيرة",
+   "tags": [
+    "درامي",
+    "قصير",
+    "صدمة",
+    "تشويق"
+   ]
+  },
+  "sound:golpe-fuerte": {
+   "name": "لكمة قوية",
+   "tags": [
+    "لكمة",
+    "قوية",
+    "قتال",
+    "ضربة"
+   ]
+  },
+  "sound:golpe-glitch": {
+   "name": "ضربة تشويش",
+   "tags": [
+    "جليتش",
+    "ضربة",
+    "رقمي",
+    "تشويش"
+   ]
+  },
+  "sound:golpe-metal": {
+   "name": "ضربة معدنية",
+   "tags": [
+    "معدن",
+    "ضربة",
+    "رنين",
+    "حديد"
+   ]
+  },
+  "sound:golpe-metal-agudo": {
+   "name": "ضربة معدنية حادة",
+   "tags": [
+    "معدن",
+    "حاد",
+    "رنين",
+    "ضربة"
+   ]
+  },
+  "sound:gong": {
+   "name": "غونغ",
+   "tags": [
+    "غونغ",
+    "رنين",
+    "اسيوي",
+    "ضربة"
+   ]
+  },
+  "sound:grillos": {
+   "name": "صراصير الليل (صمت محرج)",
+   "tags": [
+    "صراصير",
+    "صمت",
+    "محرج",
+    "مضحك"
+   ]
+  },
+  "sound:hechizo": {
+   "name": "تعويذة",
+   "tags": [
+    "تعويذة",
+    "سحر",
+    "ساحر",
+    "خيال"
+   ]
+  },
+  "sound:impacto-reverso": {
+   "name": "ضربة معكوسة",
+   "tags": [
+    "معكوس",
+    "ضربة",
+    "تصاعد",
+    "انتقال"
+   ]
+  },
+  "sound:impacto-trailer": {
+   "name": "ضربة إعلان فيلم",
+   "tags": [
+    "اعلان فيلم",
+    "تريلر",
+    "سينمائي",
+    "ضربة"
+   ]
+  },
+  "sound:impacto-trailer-brillante": {
+   "name": "ضربة سينمائية لامعة",
+   "tags": [
+    "تريلر",
+    "لامع",
+    "سينمائي",
+    "ضربة"
+   ]
+  },
+  "sound:impacto-trailer-oscuro": {
+   "name": "ضربة سينمائية قاتمة",
+   "tags": [
+    "تريلر",
+    "قاتم",
+    "سينمائي",
+    "ضربة"
+   ]
+  },
+  "sound:inicio-juego": {
+   "name": "بداية اللعبة",
+   "tags": [
+    "بداية",
+    "لعبة",
+    "العاب",
+    "انطلاق"
+   ]
+  },
+  "sound:interruptor-apagar": {
+   "name": "إطفاء المفتاح",
+   "tags": [
+    "مفتاح",
+    "اطفاء",
+    "كهرباء",
+    "ضوء"
+   ]
+  },
+  "sound:interruptor-encender": {
+   "name": "تشغيل المفتاح",
+   "tags": [
+    "مفتاح",
+    "تشغيل",
+    "كهرباء",
+    "ضوء"
+   ]
+  },
+  "sound:laser": {
+   "name": "ليزر",
+   "tags": [
+    "ليزر",
+    "العاب",
+    "فضاء",
+    "اطلاق"
+   ]
+  },
+  "sound:laser-doble": {
+   "name": "ليزر مزدوج",
+   "tags": [
+    "ليزر",
+    "مزدوج",
+    "العاب",
+    "فضاء"
+   ]
+  },
+  "sound:latido": {
+   "name": "نبض القلب",
+   "tags": [
+    "نبض",
+    "قلب",
+    "توتر",
+    "تشويق"
+   ]
+  },
+  "sound:latido-rapido": {
+   "name": "نبض متسارع",
+   "tags": [
+    "نبض",
+    "سريع",
+    "خوف",
+    "توتر"
+   ]
+  },
+  "sound:latigazo": {
+   "name": "فرقعة سوط",
+   "tags": [
+    "سوط",
+    "فرقعة",
+    "جلدة",
+    "ضربة"
+   ]
+  },
+  "sound:lluvia-monedas": {
+   "name": "مطر عملات",
+   "tags": [
+    "عملات",
+    "مطر",
+    "العاب",
+    "فوز"
+   ]
+  },
+  "sound:logro": {
+   "name": "إنجاز",
+   "tags": [
+    "انجاز",
+    "نجاح",
+    "مكافاة",
+    "فوز"
+   ]
+  },
+  "sound:maquina-escribir": {
+   "name": "آلة كاتبة",
+   "tags": [
+    "الة كاتبة",
+    "كتابة",
+    "حروف",
+    "قديم"
+   ]
+  },
+  "sound:maraca": {
+   "name": "خشخيشة",
+   "tags": [
+    "خشخيشة",
+    "ماراكاس",
+    "ايقاع",
+    "لاتيني"
+   ]
+  },
+  "sound:me-gusta": {
+   "name": "إعجاب",
+   "tags": [
+    "اعجاب",
+    "لايك",
+    "سوشيال",
+    "قلب"
+   ]
+  },
+  "sound:mensaje-enviado": {
+   "name": "تم إرسال الرسالة",
+   "tags": [
+    "رسالة",
+    "ارسال",
+    "دردشة",
+    "جوال"
+   ]
+  },
+  "sound:mensaje-recibido": {
+   "name": "رسالة واردة",
+   "tags": [
+    "رسالة",
+    "استلام",
+    "دردشة",
+    "جوال"
+   ]
+  },
+  "sound:menu-seleccion": {
+   "name": "اختيار من القائمة",
+   "tags": [
+    "قائمة",
+    "اختيار",
+    "العاب",
+    "واجهة"
+   ]
+  },
+  "sound:moneda": {
+   "name": "عملة",
+   "tags": [
+    "عملة",
+    "العاب",
+    "نقاط",
+    "جمع"
+   ]
+  },
+  "sound:moneda-doble": {
+   "name": "عملتان",
+   "tags": [
+    "عملة",
+    "مزدوج",
+    "العاب",
+    "جمع"
+   ]
+  },
+  "sound:notificacion-campanita": {
+   "name": "إشعار بجرس صغير",
+   "tags": [
+    "اشعار",
+    "جرس",
+    "تنبيه",
+    "رنين"
+   ]
+  },
+  "sound:notificacion-cristal": {
+   "name": "تنبيه زجاجي",
+   "tags": [
+    "تنبيه",
+    "زجاج",
+    "اشعار",
+    "رنين"
+   ]
+  },
+  "sound:notificacion-dos-tonos": {
+   "name": "تنبيه بنغمتين",
+   "tags": [
+    "تنبيه",
+    "نغمتين",
+    "اشعار",
+    "رنين"
+   ]
+  },
+  "sound:notificacion-mensaje": {
+   "name": "رسالة جديدة",
+   "tags": [
+    "رسالة جديدة",
+    "اشعار",
+    "دردشة",
+    "تنبيه"
+   ]
+  },
+  "sound:notificacion-suave": {
+   "name": "تنبيه ناعم",
+   "tags": [
+    "تنبيه",
+    "ناعم",
+    "اشعار",
+    "هادئ"
+   ]
+  },
+  "sound:palmas": {
+   "name": "تصفيقة",
+   "tags": [
+    "تصفيق",
+    "كف",
+    "ايقاع",
+    "كلاب"
+   ]
+  },
+  "sound:pasar-pagina": {
+   "name": "قلب صفحة",
+   "tags": [
+    "صفحة",
+    "كتاب",
+    "ورق",
+    "انتقال"
+   ]
+  },
+  "sound:platillo": {
+   "name": "صنج كراش",
+   "tags": [
+    "صنج",
+    "كراش",
+    "طبول",
+    "ضربة"
+   ]
+  },
+  "sound:platillo-corto": {
+   "name": "صنج قصير",
+   "tags": [
+    "صنج",
+    "قصير",
+    "طبول",
+    "ضربة"
+   ]
+  },
+  "sound:platillo-reverso": {
+   "name": "صنج معكوس",
+   "tags": [
+    "صنج",
+    "معكوس",
+    "تصاعد",
+    "انتقال"
+   ]
+  },
+  "sound:platillo-reverso-largo": {
+   "name": "صنج معكوس طويل",
+   "tags": [
+    "صنج",
+    "معكوس",
+    "طويل",
+    "تصاعد"
+   ]
+  },
+  "sound:poder": {
+   "name": "قوة خاصة",
+   "tags": [
+    "قوة",
+    "باور اب",
+    "العاب",
+    "ترقية"
+   ]
+  },
+  "sound:polvo-hada": {
+   "name": "غبار الجنيّات",
+   "tags": [
+    "جنيات",
+    "غبار سحري",
+    "سحر",
+    "لمعان"
+   ]
+  },
+  "sound:pop": {
+   "name": "فرقعة",
+   "tags": [
+    "بوب",
+    "فرقعة",
+    "فقاعة",
+    "واجهة"
+   ]
+  },
+  "sound:pop-agudo": {
+   "name": "فرقعة حادة",
+   "tags": [
+    "بوب",
+    "فرقعة",
+    "حاد",
+    "واجهة"
+   ]
+  },
+  "sound:pop-doble": {
+   "name": "فرقعة مزدوجة",
+   "tags": [
+    "بوب",
+    "فرقعة",
+    "مزدوج",
+    "واجهة"
+   ]
+  },
+  "sound:pop-grave": {
+   "name": "فرقعة عميقة",
+   "tags": [
+    "بوب",
+    "فرقعة",
+    "عميق",
+    "واجهة"
+   ]
+  },
+  "sound:pop-suave": {
+   "name": "فرقعة ناعمة",
+   "tags": [
+    "بوب",
+    "فرقعة",
+    "ناعم",
+    "واجهة"
+   ]
+  },
+  "sound:portazo": {
+   "name": "صفق الباب",
+   "tags": [
+    "باب",
+    "صفق",
+    "اغلاق",
+    "غضب"
+   ]
+  },
+  "sound:premio-mayor": {
+   "name": "الجائزة الكبرى",
+   "tags": [
+    "جائزة كبرى",
+    "فوز",
+    "عملات",
+    "حظ"
+   ]
+  },
+  "sound:rafaga-viento": {
+   "name": "هبّة ريح",
+   "tags": [
+    "ريح",
+    "هواء",
+    "عاصفة",
+    "انتقال"
+   ]
+  },
+  "sound:rampa-velocidad": {
+   "name": "تسارع السرعة",
+   "tags": [
+    "تسارع",
+    "سرعة",
+    "انتقال",
+    "ووش"
+   ]
+  },
+  "sound:redoble": {
+   "name": "قرع طبول",
+   "tags": [
+    "قرع طبول",
+    "تشويق",
+    "اعلان",
+    "مفاجاة"
+   ]
+  },
+  "sound:redoble-platillo": {
+   "name": "قرع طبول مع صنج",
+   "tags": [
+    "قرع طبول",
+    "صنج",
+    "اعلان",
+    "ذروة"
+   ]
+  },
+  "sound:reloj": {
+   "name": "تكتكة ساعة",
+   "tags": [
+    "ساعة",
+    "تكتكة",
+    "وقت",
+    "انتظار"
+   ]
+  },
+  "sound:reloj-rapido": {
+   "name": "تكتكة سريعة",
+   "tags": [
+    "ساعة",
+    "سريع",
+    "وقت",
+    "توتر"
+   ]
+  },
+  "sound:resorte": {
+   "name": "نابض",
+   "tags": [
+    "نابض",
+    "زنبرك",
+    "اهتزاز",
+    "مضحك"
+   ]
+  },
+  "sound:revelacion": {
+   "name": "لحظة الكشف",
+   "tags": [
+    "كشف",
+    "مفاجاة",
+    "درامي",
+    "اعلان"
+   ]
+  },
+  "sound:riser-2s": {
+   "name": "تصاعد 2 ث",
+   "tags": [
+    "تصاعد",
+    "رايزر",
+    "توتر",
+    "انتقال"
+   ]
+  },
+  "sound:riser-4s": {
+   "name": "تصاعد 4 ث",
+   "tags": [
+    "تصاعد",
+    "رايزر",
+    "توتر",
+    "طويل"
+   ]
+  },
+  "sound:riser-brillante": {
+   "name": "تصاعد لامع",
+   "tags": [
+    "تصاعد",
+    "لامع",
+    "رايزر",
+    "انتقال"
+   ]
+  },
+  "sound:riser-golpe": {
+   "name": "تصاعد وضربة",
+   "tags": [
+    "تصاعد",
+    "ضربة",
+    "رايزر",
+    "ذروة"
+   ]
+  },
+  "sound:riser-rapido": {
+   "name": "تصاعد سريع",
+   "tags": [
+    "تصاعد",
+    "سريع",
+    "رايزر",
+    "انتقال"
+   ]
+  },
+  "sound:riser-sinte-2s": {
+   "name": "تصاعد سينث 2 ث",
+   "tags": [
+    "تصاعد",
+    "سينث",
+    "الكتروني",
+    "رايزر"
+   ]
+  },
+  "sound:riser-sinte-4s": {
+   "name": "تصاعد سينث 4 ث",
+   "tags": [
+    "تصاعد",
+    "سينث",
+    "الكتروني",
+    "طويل"
+   ]
+  },
+  "sound:riser-tension": {
+   "name": "تصاعد التوتر",
+   "tags": [
+    "تصاعد",
+    "توتر",
+    "تشويق",
+    "رايزر"
+   ]
+  },
+  "sound:salto": {
+   "name": "قفزة",
+   "tags": [
+    "قفزة",
+    "العاب",
+    "نط",
+    "ريترو"
+   ]
+  },
+  "sound:sarten": {
+   "name": "ضربة مقلاة",
+   "tags": [
+    "مقلاة",
+    "ضربة",
+    "مضحك",
+    "معدن"
+   ]
+  },
+  "sound:scratch-dj": {
+   "name": "خدش دي جي",
+   "tags": [
+    "دي جي",
+    "سكراتش",
+    "اسطوانة",
+    "هيب هوب"
+   ]
+  },
+  "sound:scratch-doble": {
+   "name": "خدش مزدوج",
+   "tags": [
+    "سكراتش",
+    "مزدوج",
+    "دي جي",
+    "اسطوانة"
+   ]
+  },
+  "sound:seguir": {
+   "name": "متابع جديد",
+   "tags": [
+    "متابع",
+    "متابعة",
+    "سوشيال",
+    "اشعار"
+   ]
+  },
+  "sound:silbato-bajada": {
+   "name": "صفّارة هابطة",
+   "tags": [
+    "صفارة",
+    "هبوط",
+    "مضحك",
+    "كرتون"
+   ]
+  },
+  "sound:silbato-subida": {
+   "name": "صفّارة صاعدة",
+   "tags": [
+    "صفارة",
+    "صعود",
+    "مضحك",
+    "كرتون"
+   ]
+  },
+  "sound:sirena": {
+   "name": "صفارة إنذار",
+   "tags": [
+    "صفارة انذار",
+    "شرطة",
+    "اسعاف",
+    "طوارئ"
+   ]
+  },
+  "sound:sub-drop": {
+   "name": "هبوط عميق (Sub drop)",
+   "tags": [
+    "ساب دروب",
+    "باص",
+    "عميق",
+    "ضربة"
+   ]
+  },
+  "sound:subir-nivel": {
+   "name": "الانتقال لمستوى أعلى",
+   "tags": [
+    "مستوى",
+    "ترقية",
+    "العاب",
+    "فوز"
+   ]
+  },
+  "sound:susto-terror": {
+   "name": "إخافة مفاجئة",
+   "tags": [
+    "رعب",
+    "اخافة",
+    "مفاجاة",
+    "صراخ"
+   ]
+  },
+  "sound:swoosh-titulo": {
+   "name": "ووش للعنوان",
+   "tags": [
+    "ووش",
+    "عنوان",
+    "نص",
+    "انتقال"
+   ]
+  },
+  "sound:tambaleo": {
+   "name": "تمايل",
+   "tags": [
+    "تمايل",
+    "اهتزاز",
+    "مضحك",
+    "كرتون"
+   ]
+  },
+  "sound:tambor-taiko": {
+   "name": "طبل تايكو",
+   "tags": [
+    "طبل",
+    "تايكو",
+    "ياباني",
+    "ضربة"
+   ]
+  },
+  "sound:tambor-taiko-doble": {
+   "name": "تايكو مزدوج",
+   "tags": [
+    "طبل",
+    "تايكو",
+    "مزدوج",
+    "ضربة"
+   ]
+  },
+  "sound:teclado": {
+   "name": "كتابة على لوحة المفاتيح",
+   "tags": [
+    "لوحة مفاتيح",
+    "كتابة",
+    "كيبورد",
+    "كمبيوتر"
+   ]
+  },
+  "sound:teclado-mecanico": {
+   "name": "لوحة مفاتيح ميكانيكية",
+   "tags": [
+    "لوحة مفاتيح",
+    "ميكانيكي",
+    "كيبورد",
+    "كتابة"
+   ]
+  },
+  "sound:teclado-rapido": {
+   "name": "كتابة سريعة",
+   "tags": [
+    "لوحة مفاتيح",
+    "سريع",
+    "كتابة",
+    "كيبورد"
+   ]
+  },
+  "sound:teletransporte": {
+   "name": "انتقال آني",
+   "tags": [
+    "انتقال اني",
+    "خيال علمي",
+    "سحر",
+    "اختفاء"
+   ]
+  },
+  "sound:tension-subiendo": {
+   "name": "توتر متصاعد",
+   "tags": [
+    "توتر",
+    "تصاعد",
+    "تشويق",
+    "درامي"
+   ]
+  },
+  "sound:toque": {
+   "name": "لمسة",
+   "tags": [
+    "لمسة",
+    "نقرة",
+    "شاشة",
+    "واجهة"
+   ]
+  },
+  "sound:toque-doble": {
+   "name": "لمسة مزدوجة",
+   "tags": [
+    "لمسة",
+    "مزدوجة",
+    "نقرتين",
+    "شاشة"
+   ]
+  },
+  "sound:transicion-foto": {
+   "name": "انتقال بصوت الكاميرا",
+   "tags": [
+    "كاميرا",
+    "صورة",
+    "انتقال",
+    "غالق"
+   ]
+  },
+  "sound:trombon-triste": {
+   "name": "ترومبون حزين",
+   "tags": [
+    "ترومبون",
+    "حزين",
+    "فشل",
+    "مضحك"
+   ]
+  },
+  "sound:trueno": {
+   "name": "رعد",
+   "tags": [
+    "رعد",
+    "عاصفة",
+    "برق",
+    "طقس"
+   ]
+  },
+  "sound:varita-magica": {
+   "name": "عصا سحرية",
+   "tags": [
+    "عصا سحرية",
+    "سحر",
+    "لمعان",
+    "خيال"
+   ]
+  },
+  "sound:varita-subida": {
+   "name": "عصا سحرية صاعدة",
+   "tags": [
+    "عصا سحرية",
+    "صعود",
+    "سحر",
+    "لمعان"
+   ]
+  },
+  "sound:victoria-8bits": {
+   "name": "فوز 8 بت",
+   "tags": [
+    "فوز",
+    "8 بت",
+    "العاب",
+    "ريترو"
+   ]
+  },
+  "sound:vida-extra": {
+   "name": "حياة إضافية",
+   "tags": [
+    "حياة اضافية",
+    "العاب",
+    "مكافاة",
+    "ريترو"
+   ]
+  },
+  "sound:viento-misterio": {
+   "name": "رياح غامضة",
+   "tags": [
+    "رياح",
+    "غامض",
+    "رعب",
+    "مخيف"
+   ]
+  },
+  "sound:vinilo": {
+   "name": "طقطقة أسطوانة",
+   "tags": [
+    "اسطوانة",
+    "فينيل",
+    "طقطقة",
+    "ريترو"
+   ]
+  },
+  "sound:whoosh": {
+   "name": "ووش",
+   "tags": [
+    "ووش",
+    "اندفاع",
+    "هواء",
+    "انتقال"
+   ]
+  },
+  "sound:whoosh-aire": {
+   "name": "ووش هوائي",
+   "tags": [
+    "ووش",
+    "هواء",
+    "خفيف",
+    "انتقال"
+   ]
+  },
+  "sound:whoosh-boom": {
+   "name": "ووش وانفجار",
+   "tags": [
+    "ووش",
+    "بوم",
+    "انتقال",
+    "ضربة"
+   ]
+  },
+  "sound:whoosh-corto": {
+   "name": "ووش قصير",
+   "tags": [
+    "ووش",
+    "قصير",
+    "سريع",
+    "انتقال"
+   ]
+  },
+  "sound:whoosh-derecha-izquierda": {
+   "name": "ووش من اليمين إلى اليسار",
+   "tags": [
+    "ووش",
+    "يمين",
+    "يسار",
+    "انتقال"
+   ]
+  },
+  "sound:whoosh-doble": {
+   "name": "ووش مزدوج",
+   "tags": [
+    "ووش",
+    "مزدوج",
+    "انتقال",
+    "سريع"
+   ]
+  },
+  "sound:whoosh-espada": {
+   "name": "سيف يشقّ الهواء",
+   "tags": [
+    "سيف",
+    "ووش",
+    "قتال",
+    "هواء"
+   ]
+  },
+  "sound:whoosh-fuego": {
+   "name": "ووش ناري",
+   "tags": [
+    "ووش",
+    "نار",
+    "لهب",
+    "انتقال"
+   ]
+  },
+  "sound:whoosh-golpe": {
+   "name": "ووش وضربة",
+   "tags": [
+    "ووش",
+    "ضربة",
+    "انتقال",
+    "سريع"
+   ]
+  },
+  "sound:whoosh-grave": {
+   "name": "ووش عميق",
+   "tags": [
+    "ووش",
+    "عميق",
+    "ثقيل",
+    "انتقال"
+   ]
+  },
+  "sound:whoosh-izquierda-derecha": {
+   "name": "ووش من اليسار إلى اليمين",
+   "tags": [
+    "ووش",
+    "يسار",
+    "يمين",
+    "انتقال"
+   ]
+  },
+  "sound:whoosh-largo": {
+   "name": "ووش طويل",
+   "tags": [
+    "ووش",
+    "طويل",
+    "انتقال",
+    "هواء"
+   ]
+  },
+  "sound:whoosh-metalico": {
+   "name": "ووش معدني",
+   "tags": [
+    "ووش",
+    "معدني",
+    "انتقال",
+    "حاد"
+   ]
+  },
+  "sound:whoosh-reverso": {
+   "name": "ووش معكوس",
+   "tags": [
+    "ووش",
+    "معكوس",
+    "انتقال",
+    "عكسي"
+   ]
+  },
+  "sound:whoosh-tela": {
+   "name": "رفرفة قماش",
+   "tags": [
+    "قماش",
+    "رفرفة",
+    "ووش",
+    "حركة"
+   ]
+  },
+  "sound:zoom-entrada": {
+   "name": "تقريب للداخل",
+   "tags": [
+    "زوم",
+    "تقريب",
+    "دخول",
+    "انتقال"
+   ]
+  },
+  "sound:zoom-salida": {
+   "name": "تبعيد للخارج",
+   "tags": [
+    "زوم",
+    "تبعيد",
+    "خروج",
+    "انتقال"
+   ]
+  },
+  "template:album-scrapbook": {
+   "name": "ألبوم قصاصات",
+   "tags": [
+    "البوم",
+    "قصاصات",
+    "ذكريات",
+    "زوجين"
+   ]
+  },
+  "template:anio-nuevo-cuenta-regresiva": {
+   "name": "عد تنازلي لرأس السنة",
+   "tags": [
+    "راس السنة",
+    "عد تنازلي",
+    "2027",
+    "العاب نارية"
+   ]
+  },
+  "template:aniversario-pareja": {
+   "name": "ذكرى ارتباط",
+   "tags": [
+    "ذكرى",
+    "زوجين",
+    "حب",
+    "سنوات معا"
+   ]
+  },
+  "template:antes-despues-deslizador": {
+   "name": "قبل وبعد",
+   "tags": [
+    "قبل",
+    "بعد",
+    "مقارنة",
+    "تغيير"
+   ]
+  },
+  "template:anuncio-embarazo": {
+   "name": "إعلان الحمل",
+   "tags": [
+    "حمل",
+    "مولود",
+    "اعلان",
+    "عائلة"
+   ]
+  },
+  "template:apertura-pelicula": {
+   "name": "افتتاحية فيلم",
+   "tags": [
+    "فيلم",
+    "سينما",
+    "عائلة",
+    "عنوان"
+   ]
+  },
+  "template:baby-shower": {
+   "name": "حفلة استقبال المولود",
+   "tags": [
+    "بيبي شاور",
+    "مولود",
+    "دعوة",
+    "حفلة"
+   ]
+  },
+  "template:barberia-antes-despues": {
+   "name": "حلاقة: قبل وبعد",
+   "tags": [
+    "حلاق",
+    "قصة شعر",
+    "لحية",
+    "قبل وبعد"
+   ]
+  },
+  "template:black-friday-ofertas": {
+   "name": "عروض الجمعة البيضاء",
+   "tags": [
+    "بلاك فرايدي",
+    "الجمعة البيضاء",
+    "عروض",
+    "خصم"
+   ]
+  },
+  "template:black-friday-ultimas-horas": {
+   "name": "الجمعة البيضاء: الساعات الأخيرة",
+   "tags": [
+    "بلاك فرايدي",
+    "ساعات اخيرة",
+    "عرض",
+    "موضة"
+   ]
+  },
+  "template:blanco-y-negro-a-color": {
+   "name": "من الأبيض والأسود إلى الألوان",
+   "tags": [
+    "ابيض واسود",
+    "الوان",
+    "كشف",
+    "حب"
+   ]
+  },
+  "template:boda-save-the-date": {
+   "name": "احفظوا الموعد: زفاف",
+   "tags": [
+    "زفاف",
+    "احفظ الموعد",
+    "دعوة",
+    "عرسان"
+   ]
+  },
+  "template:cafe-nuevo-en-la-carta": {
+   "name": "جديد في القائمة",
+   "tags": [
+    "مقهى",
+    "قهوة",
+    "جديد",
+    "مشروب"
+   ]
+  },
+  "template:camara-lenta-con-letra": {
+   "name": "حركة بطيئة مع كلمات أغنية",
+   "tags": [
+    "حركة بطيئة",
+    "كلمات",
+    "اغنية",
+    "سينمائي"
+   ]
+  },
+  "template:cancion-criolla": {
+   "name": "ليلة موسيقى حية",
+   "tags": [
+    "موسيقى حية",
+    "حفلة",
+    "ليلة",
+    "كلاسيكي"
+   ]
+  },
+  "template:catrina-dia-de-muertos": {
+   "name": "مكياج الجمجمة",
+   "tags": [
+    "جمجمة",
+    "مكياج",
+    "يوم الموتى",
+    "زهور"
+   ]
+  },
+  "template:checklist-que-se-marca": {
+   "name": "قائمة مهام تُشطب",
+   "tags": [
+    "قائمة مهام",
+    "قائمة",
+    "سفر",
+    "تنظيم"
+   ]
+  },
+  "template:cierre-negocio": {
+   "name": "خاتمة لنشاط تجاري",
+   "tags": [
+    "اعمال",
+    "تواصل",
+    "مشروع",
+    "توصيل"
+   ]
+  },
+  "template:cierre-parte-2": {
+   "name": "الجزء 2 في حسابي",
+   "tags": [
+    "الجزء 2",
+    "يتبع",
+    "خاتمة",
+    "متابعة"
+   ]
+  },
+  "template:cierre-siguenos": {
+   "name": "خاتمة: تابعونا",
+   "tags": [
+    "خاتمة",
+    "متابعة",
+    "اشتراك",
+    "سوشيال"
+   ]
+  },
+  "template:cita-minimalista": {
+   "name": "اقتباس بسيط",
+   "tags": [
+    "اقتباس",
+    "عبارة",
+    "بسيط",
+    "انيق"
+   ]
+  },
+  "template:clip-de-podcast": {
+   "name": "مقطع بودكاست",
+   "tags": [
+    "بودكاست",
+    "ترجمة",
+    "مقابلة",
+    "حوار"
+   ]
+  },
+  "template:collage-2x2": {
+   "name": "كولاج 2×2",
+   "tags": [
+    "كولاج",
+    "شبكة",
+    "صور",
+    "عطلة"
+   ]
+  },
+  "template:concierto-festival": {
+   "name": "ليلة الحفل الموسيقي",
+   "tags": [
+    "حفلة",
+    "مهرجان",
+    "موسيقى",
+    "مباشر"
+   ]
+  },
+  "template:cosas-que-no-sabias": {
+   "name": "أشياء لا تعرفها",
+   "tags": [
+    "معلومات",
+    "هل تعلم",
+    "غرائب",
+    "تعليمي"
+   ]
+  },
+  "template:cuenta-3-2-1": {
+   "name": "عد تنازلي 3-2-1",
+   "tags": [
+    "عد تنازلي",
+    "اطلاق",
+    "مفاجاة",
+    "3 2 1"
+   ]
+  },
+  "template:cuenta-regresiva-10": {
+   "name": "عد تنازلي 10 ثوانٍ",
+   "tags": [
+    "عد تنازلي",
+    "10 ثواني",
+    "اطلاق",
+    "حفلة"
+   ]
+  },
+  "template:cumple-sorpresa": {
+   "name": "عيد ميلاد مفاجئ",
+   "tags": [
+    "مفاجاة",
+    "عيد ميلاد",
+    "حفلة",
+    "اصدقاء"
+   ]
+  },
+  "template:cupon-de-descuento": {
+   "name": "قسيمة خصم",
+   "tags": [
+    "كوبون",
+    "خصم",
+    "كود",
+    "عرض"
+   ]
+  },
+  "template:cyber-monday": {
+   "name": "سايبر مونداي",
+   "tags": [
+    "سايبر مونداي",
+    "عروض",
+    "متجر الكتروني",
+    "شحن مجاني"
+   ]
+  },
+  "template:delivery-pide-por-whatsapp": {
+   "name": "توصيل: اطلب عبر الرسائل",
+   "tags": [
+    "توصيل",
+    "رسائل",
+    "طلبات",
+    "اكل"
+   ]
+  },
+  "template:dia-de-la-amistad": {
+   "name": "يوم الصداقة",
+   "tags": [
+    "صداقة",
+    "صديقات",
+    "اصدقاء",
+    "كشك صور"
+   ]
+  },
+  "template:dia-de-playa": {
+   "name": "وضع الشاطئ",
+   "tags": [
+    "شاطئ",
+    "صيف",
+    "عطلة",
+    "بحر"
+   ]
+  },
+  "template:dia-del-padre": {
+   "name": "عيد أب سعيد",
+   "tags": [
+    "عيد الاب",
+    "ابي",
+    "عائلة",
+    "بطل"
+   ]
+  },
+  "template:diario-de-comida": {
+   "name": "ماذا أكلت اليوم",
+   "tags": [
+    "اكل",
+    "يوميات",
+    "طعام",
+    "وصفات"
+   ]
+  },
+  "template:domingo-en-familia": {
+   "name": "يوم عائلي",
+   "tags": [
+    "عائلة",
+    "عطلة",
+    "اجداد",
+    "ذكريات"
+   ]
+  },
+  "template:duotono-pop": {
+   "name": "لونان بأسلوب البوب",
+   "tags": [
+    "لونين",
+    "بوب ارت",
+    "الوان",
+    "بورتريه"
+   ]
+  },
+  "template:edicion-callejera": {
+   "name": "مونتاج الشارع",
+   "tags": [
+    "سكيت",
+    "شارع",
+    "حضري",
+    "مدينة"
+   ]
+  },
+  "template:encuesta-cual-prefieres": {
+   "name": "أيهما تفضّل؟",
+   "tags": [
+    "تصويت",
+    "ايهما تفضل",
+    "علق",
+    "تفاعل"
+   ]
+  },
+  "template:entrevista-con-rotulo": {
+   "name": "مقابلة مع شريط اسم",
+   "tags": [
+    "مقابلة",
+    "شريط اسم",
+    "اسم",
+    "اخبار"
+   ]
+  },
+  "template:espejo-caleidoscopio": {
+   "name": "مرآة مشكال",
+   "tags": [
+    "مراة",
+    "مشكال",
+    "تاثير",
+    "ترند"
+   ]
+  },
+  "template:estamos-contratando": {
+   "name": "نحن نوظّف!",
+   "tags": [
+    "توظيف",
+    "وظيفة",
+    "عمل",
+    "شاغر"
+   ]
+  },
+  "template:este-o-este": {
+   "name": "هذا أم هذا؟",
+   "tags": [
+    "اختر",
+    "تصويت",
+    "هذا ام هذا",
+    "مرح"
+   ]
+  },
+  "template:estrobo-y-temblor": {
+   "name": "وميض واهتزاز",
+   "tags": [
+    "وميض",
+    "اهتزاز",
+    "ايقاع",
+    "حفلة"
+   ]
+  },
+  "template:estudia-conmigo": {
+   "name": "ادرس معي",
+   "tags": [
+    "ادرس معي",
+    "دراسة",
+    "جامعة",
+    "انتاجية"
+   ]
+  },
+  "template:evento-taller-entrada": {
+   "name": "فعالية أو ورشة",
+   "tags": [
+    "فعالية",
+    "ورشة",
+    "دورة",
+    "تسجيل"
+   ]
+  },
+  "template:faltan-dias": {
+   "name": "باقي X أيام",
+   "tags": [
+    "عد تنازلي",
+    "ايام",
+    "حدث",
+    "اطلاق"
+   ]
+  },
+  "template:feliz-cumple": {
+   "name": "عيد ميلاد سعيد",
+   "tags": [
+    "عيد ميلاد",
+    "حفلة",
+    "عائلة",
+    "تهنئة"
+   ]
+  },
+  "template:feliz-navidad-luces": {
+   "name": "ميلاد مجيد بالأضواء",
+   "tags": [
+    "كريسماس",
+    "اضواء",
+    "تهنئة",
+    "بطاقة"
+   ]
+  },
+  "template:fiestas-patrias-peru": {
+   "name": "اليوم الوطني",
+   "tags": [
+    "يوم وطني",
+    "استقلال",
+    "علم",
+    "فخر"
+   ]
+  },
+  "template:frase-del-dia": {
+   "name": "عبارة اليوم",
+   "tags": [
+    "عبارة",
+    "تحفيز",
+    "اقتباس",
+    "حكمة"
+   ]
+  },
+  "template:gancho-espera-al-final": {
+   "name": "انتظر حتى النهاية",
+   "tags": [
+    "انتظر النهاية",
+    "تشويق",
+    "تيك توك",
+    "فيرال"
+   ]
+  },
+  "template:gimnasio-matricula-gratis": {
+   "name": "نادي رياضي: عرض الشهر",
+   "tags": [
+    "جيم",
+    "اشتراك",
+    "عرض",
+    "لياقة"
+   ]
+  },
+  "template:glitch-neon": {
+   "name": "تشويش نيون",
+   "tags": [
+    "جليتش",
+    "نيون",
+    "حفلة",
+    "ليل"
+   ]
+  },
+  "template:gran-inauguracion": {
+   "name": "افتتاح كبير",
+   "tags": [
+    "افتتاح",
+    "محل جديد",
+    "فتحنا",
+    "حدث"
+   ]
+  },
+  "template:grwm-arreglate-conmigo": {
+   "name": "GRWM: استعدّي معي",
+   "tags": [
+    "grwm",
+    "مكياج",
+    "استعدي معي",
+    "روتين"
+   ]
+  },
+  "template:h-cele-15-16": {
+   "name": "عيد الميلاد الـ15 أو الـ16",
+   "tags": [
+    "15 سنة",
+    "16 سنة",
+    "عيد ميلاد",
+    "حفلة"
+   ]
+  },
+  "template:h-cele-aniversario": {
+   "name": "ذكرى سعيدة",
+   "tags": [
+    "ذكرى",
+    "زوجين",
+    "حب",
+    "تهنئة"
+   ]
+  },
+  "template:h-cele-baby-shower": {
+   "name": "حفلة استقبال المولود",
+   "tags": [
+    "بيبي شاور",
+    "مولود",
+    "حفلة",
+    "دعوة"
+   ]
+  },
+  "template:h-cele-bautizo": {
+   "name": "حفل تعميد",
+   "tags": [
+    "تعميد",
+    "طفل",
+    "عائلة",
+    "كنيسة"
+   ]
+  },
+  "template:h-cele-bienvenida-bebe": {
+   "name": "أهلًا بالمولود",
+   "tags": [
+    "مولود",
+    "ترحيب",
+    "طفل",
+    "عائلة"
+   ]
+  },
+  "template:h-cele-boda-invitacion": {
+   "name": "دعوة زفاف",
+   "tags": [
+    "زفاف",
+    "دعوة",
+    "عرس",
+    "عرسان"
+   ]
+  },
+  "template:h-cele-compromiso": {
+   "name": "لقد خُطبنا",
+   "tags": [
+    "خطوبة",
+    "خاتم",
+    "زوجين",
+    "حب"
+   ]
+  },
+  "template:h-cele-cumple": {
+   "name": "عيد ميلاد سعيد",
+   "tags": [
+    "عيد ميلاد",
+    "تهنئة",
+    "حفلة",
+    "كعكة"
+   ]
+  },
+  "template:h-cele-despedida": {
+   "name": "حفل وداع",
+   "tags": [
+    "وداع",
+    "حفلة",
+    "اصدقاء",
+    "زملاء"
+   ]
+  },
+  "template:h-cele-fiesta-invitacion": {
+   "name": "دعوة إلى حفلة",
+   "tags": [
+    "دعوة",
+    "حفلة",
+    "موعد",
+    "احتفال"
+   ]
+  },
+  "template:h-cele-graduacion": {
+   "name": "تخرّج",
+   "tags": [
+    "تخرج",
+    "دفعة",
+    "جامعة",
+    "تهنئة"
+   ]
+  },
+  "template:h-cele-jubilacion": {
+   "name": "تقاعد سعيد",
+   "tags": [
+    "تقاعد",
+    "تهنئة",
+    "عمل",
+    "احتفال"
+   ]
+  },
+  "template:h-cele-logro": {
+   "name": "لقد نجحنا!",
+   "tags": [
+    "نجاح",
+    "انجاز",
+    "فريق",
+    "احتفال"
+   ]
+  },
+  "template:h-cele-premios": {
+   "name": "حفل توزيع جوائز",
+   "tags": [
+    "جوائز",
+    "تكريم",
+    "فائز",
+    "حفل"
+   ]
+  },
+  "template:h-cele-reunion": {
+   "name": "لمّة العائلة",
+   "tags": [
+    "عائلة",
+    "لقاء",
+    "تجمع",
+    "ذكريات"
+   ]
+  },
+  "template:h-cierre-gracias": {
+   "name": "شكرًا للمشاهدة",
+   "tags": [
+    "شكرا",
+    "مشاهدة",
+    "خاتمة",
+    "نهاية"
+   ]
+  },
+  "template:h-cierre-like": {
+   "name": "اضغط إعجاب",
+   "tags": [
+    "اعجاب",
+    "لايك",
+    "خاتمة",
+    "تفاعل"
+   ]
+  },
+  "template:h-cierre-proximo": {
+   "name": "في الفيديو القادم",
+   "tags": [
+    "الفيديو القادم",
+    "قريبا",
+    "خاتمة",
+    "يتبع"
+   ]
+  },
+  "template:h-cierre-redes": {
+   "name": "تابعني",
+   "tags": [
+    "تابعني",
+    "سوشيال",
+    "حسابات",
+    "خاتمة"
+   ]
+  },
+  "template:h-cierre-suscribete-campana": {
+   "name": "اشترك وفعّل الجرس",
+   "tags": [
+    "اشتراك",
+    "جرس",
+    "اشعارات",
+    "يوتيوب"
+   ]
+  },
+  "template:h-cuenta-10-neon": {
+   "name": "عد تنازلي نيون من 10",
+   "tags": [
+    "عد تنازلي",
+    "نيون",
+    "10",
+    "حفلة"
+   ]
+  },
+  "template:h-cuenta-5-cine": {
+   "name": "عد تنازلي سينما قديمة",
+   "tags": [
+    "عد تنازلي",
+    "سينما",
+    "قديم",
+    "ريترو"
+   ]
+  },
+  "template:h-cuenta-anio-nuevo": {
+   "name": "عد تنازلي لرأس السنة",
+   "tags": [
+    "راس السنة",
+    "عد تنازلي",
+    "حفلة",
+    "سنة جديدة"
+   ]
+  },
+  "template:h-cuenta-deportes": {
+   "name": "عد تنازلي للمباراة",
+   "tags": [
+    "مباراة",
+    "عد تنازلي",
+    "رياضة",
+    "كرة قدم"
+   ]
+  },
+  "template:h-cuenta-dias-evento": {
+   "name": "باقي X أيام",
+   "tags": [
+    "ايام",
+    "عد تنازلي",
+    "حدث",
+    "موعد"
+   ]
+  },
+  "template:h-cuenta-directo": {
+   "name": "نبدأ قريبًا",
+   "tags": [
+    "بث مباشر",
+    "قريبا",
+    "انتظار",
+    "عد تنازلي"
+   ]
+  },
+  "template:h-cuenta-lanzamiento": {
+   "name": "عد تنازلي للإطلاق",
+   "tags": [
+    "اطلاق",
+    "عد تنازلي",
+    "منتج",
+    "قريبا"
+   ]
+  },
+  "template:h-cuenta-minimal": {
+   "name": "عد تنازلي بسيط",
+   "tags": [
+    "عد تنازلي",
+    "بسيط",
+    "نظيف",
+    "ارقام"
+   ]
+  },
+  "template:h-fecha-accion-gracias": {
+   "name": "عيد الشكر",
+   "tags": [
+    "عيد الشكر",
+    "عائلة",
+    "عشاء",
+    "خريف"
+   ]
+  },
+  "template:h-fecha-anio-nuevo": {
+   "name": "سنة جديدة سعيدة",
+   "tags": [
+    "راس السنة",
+    "سنة جديدة",
+    "تهنئة",
+    "احتفال"
+   ]
+  },
+  "template:h-fecha-anio-nuevo-lunar": {
+   "name": "رأس السنة القمرية",
+   "tags": [
+    "السنة القمرية",
+    "صيني",
+    "فوانيس",
+    "احتفال"
+   ]
+  },
+  "template:h-fecha-dia-madre": {
+   "name": "عيد الأم",
+   "tags": [
+    "عيد الام",
+    "امي",
+    "عائلة",
+    "حب"
+   ]
+  },
+  "template:h-fecha-dia-maestro": {
+   "name": "يوم المعلم",
+   "tags": [
+    "يوم المعلم",
+    "معلم",
+    "مدرسة",
+    "شكر"
+   ]
+  },
+  "template:h-fecha-dia-mujer": {
+   "name": "يوم المرأة",
+   "tags": [
+    "يوم المراة",
+    "مراة",
+    "8 مارس",
+    "تمكين"
+   ]
+  },
+  "template:h-fecha-dia-padre": {
+   "name": "عيد الأب",
+   "tags": [
+    "عيد الاب",
+    "ابي",
+    "عائلة",
+    "تهنئة"
+   ]
+  },
+  "template:h-fecha-dia-tierra": {
+   "name": "يوم الأرض",
+   "tags": [
+    "يوم الارض",
+    "بيئة",
+    "طبيعة",
+    "كوكب"
+   ]
+  },
+  "template:h-fecha-diwali": {
+   "name": "ديوالي سعيد",
+   "tags": [
+    "ديوالي",
+    "اضواء",
+    "مصابيح",
+    "هند"
+   ]
+  },
+  "template:h-fecha-eid": {
+   "name": "عيد مبارك",
+   "tags": [
+    "عيد",
+    "عيد مبارك",
+    "تهنئة",
+    "عيد الفطر"
+   ]
+  },
+  "template:h-fecha-halloween": {
+   "name": "الهالوين",
+   "tags": [
+    "هالوين",
+    "رعب",
+    "ازياء",
+    "اكتوبر"
+   ]
+  },
+  "template:h-fecha-invierno": {
+   "name": "الشتاء",
+   "tags": [
+    "شتاء",
+    "ثلج",
+    "برد",
+    "موسم"
+   ]
+  },
+  "template:h-fecha-navidad": {
+   "name": "ميلاد مجيد",
+   "tags": [
+    "كريسماس",
+    "عيد الميلاد",
+    "ديسمبر",
+    "تهنئة"
+   ]
+  },
+  "template:h-fecha-otono": {
+   "name": "مرحبًا بالخريف",
+   "tags": [
+    "خريف",
+    "اوراق",
+    "دافئ",
+    "موسم"
+   ]
+  },
+  "template:h-fecha-pascua": {
+   "name": "عيد الفصح",
+   "tags": [
+    "عيد الفصح",
+    "بيض",
+    "ربيع",
+    "تهنئة"
+   ]
+  },
+  "template:h-fecha-primavera": {
+   "name": "الربيع",
+   "tags": [
+    "ربيع",
+    "زهور",
+    "موسم",
+    "طبيعة"
+   ]
+  },
+  "template:h-fecha-ramadan": {
+   "name": "رمضان كريم",
+   "tags": [
+    "رمضان",
+    "رمضان كريم",
+    "فانوس",
+    "هلال"
+   ]
+  },
+  "template:h-fecha-regreso-clases": {
+   "name": "العودة إلى المدرسة",
+   "tags": [
+    "العودة للمدارس",
+    "مدرسة",
+    "طلاب",
+    "دراسة"
+   ]
+  },
+  "template:h-fecha-san-valentin": {
+   "name": "عيد الحب",
+   "tags": [
+    "عيد الحب",
+    "حب",
+    "زوجين",
+    "قلوب"
+   ]
+  },
+  "template:h-fecha-verano": {
+   "name": "جاء الصيف",
+   "tags": [
+    "صيف",
+    "شاطئ",
+    "عطلة",
+    "شمس"
+   ]
+  },
+  "template:h-final-1-video": {
+   "name": "شاشة النهاية: فيديو واحد",
+   "tags": [
+    "شاشة النهاية",
+    "فيديو",
+    "يوتيوب",
+    "اشتراك"
+   ]
+  },
+  "template:h-final-2-videos": {
+   "name": "شاشة النهاية: فيديوهان",
+   "tags": [
+    "شاشة النهاية",
+    "فيديوهات",
+    "يوتيوب",
+    "اشتراك"
+   ]
+  },
+  "template:h-final-cocina": {
+   "name": "خاتمة طبخ",
+   "tags": [
+    "طبخ",
+    "وصفات",
+    "خاتمة",
+    "شيف"
+   ]
+  },
+  "template:h-final-colorida": {
+   "name": "شاشة نهاية ملوّنة",
+   "tags": [
+    "شاشة النهاية",
+    "الوان",
+    "مرح",
+    "خاتمة"
+   ]
+  },
+  "template:h-final-curso": {
+   "name": "خاتمة دورة تدريبية",
+   "tags": [
+    "دورة",
+    "تعليم",
+    "درس",
+    "خاتمة"
+   ]
+  },
+  "template:h-final-familia": {
+   "name": "خاتمة عائلية",
+   "tags": [
+    "عائلة",
+    "ذكريات",
+    "خاتمة",
+    "نهاية"
+   ]
+  },
+  "template:h-final-gaming": {
+   "name": "شاشة نهاية للألعاب",
+   "tags": [
+    "شاشة النهاية",
+    "العاب",
+    "جيمر",
+    "بث"
+   ]
+  },
+  "template:h-final-minimal": {
+   "name": "شاشة نهاية بسيطة",
+   "tags": [
+    "شاشة النهاية",
+    "بسيط",
+    "نظيف",
+    "خاتمة"
+   ]
+  },
+  "template:h-final-negocio": {
+   "name": "خاتمة لنشاط تجاري",
+   "tags": [
+    "اعمال",
+    "شركة",
+    "تواصل",
+    "خاتمة"
+   ]
+  },
+  "template:h-final-noticias": {
+   "name": "خاتمة إخبارية",
+   "tags": [
+    "اخبار",
+    "نشرة",
+    "خاتمة",
+    "نهاية"
+   ]
+  },
+  "template:h-final-oscura": {
+   "name": "شاشة نهاية داكنة",
+   "tags": [
+    "شاشة النهاية",
+    "داكن",
+    "اسود",
+    "خاتمة"
+   ]
+  },
+  "template:h-final-papel": {
+   "name": "شاشة نهاية ورقية",
+   "tags": [
+    "ورق",
+    "يدوي",
+    "خاتمة",
+    "شاشة النهاية"
+   ]
+  },
+  "template:h-final-podcast": {
+   "name": "خاتمة بودكاست",
+   "tags": [
+    "بودكاست",
+    "خاتمة",
+    "حلقة",
+    "نهاية"
+   ]
+  },
+  "template:h-final-retro": {
+   "name": "خاتمة تلفاز قديم",
+   "tags": [
+    "تلفاز",
+    "ريترو",
+    "قديم",
+    "خاتمة"
+   ]
+  },
+  "template:h-final-viajes": {
+   "name": "خاتمة سفر",
+   "tags": [
+    "سفر",
+    "رحلات",
+    "خاتمة",
+    "مغامرة"
+   ]
+  },
+  "template:h-intro-barras-diagonales": {
+   "name": "مقدمة بأشرطة مائلة",
+   "tags": [
+    "مقدمة",
+    "يوتيوب",
+    "قناة",
+    "شعار"
+   ]
+  },
+  "template:h-intro-boda": {
+   "name": "مقدمة زفاف",
+   "tags": [
+    "زفاف",
+    "عرس",
+    "مقدمة",
+    "عرسان"
+   ]
+  },
+  "template:h-intro-cinematica-oscura": {
+   "name": "افتتاحية سينمائية",
+   "tags": [
+    "سينما",
+    "سينمائي",
+    "فيلم",
+    "درامي"
+   ]
+  },
+  "template:h-intro-cocina": {
+   "name": "مقدمة قناة طبخ",
+   "tags": [
+    "طبخ",
+    "وصفات",
+    "اكل",
+    "شيف"
+   ]
+  },
+  "template:h-intro-colorida-formas": {
+   "name": "مقدمة بأشكال ملوّنة",
+   "tags": [
+    "اشكال",
+    "الوان",
+    "مقدمة",
+    "مرح"
+   ]
+  },
+  "template:h-intro-corporativa": {
+   "name": "افتتاحية للشركات",
+   "tags": [
+    "شركات",
+    "اعمال",
+    "عرض تقديمي",
+    "شعار"
+   ]
+  },
+  "template:h-intro-deportes": {
+   "name": "مقدمة رياضية",
+   "tags": [
+    "رياضة",
+    "كرة قدم",
+    "طاقة",
+    "مقدمة"
+   ]
+  },
+  "template:h-intro-documental": {
+   "name": "افتتاحية وثائقي",
+   "tags": [
+    "وثائقي",
+    "تاريخ",
+    "جاد",
+    "سينما"
+   ]
+  },
+  "template:h-intro-elegante-oro": {
+   "name": "مقدمة ذهبية أنيقة",
+   "tags": [
+    "ذهبي",
+    "انيق",
+    "فخم",
+    "مقدمة"
+   ]
+  },
+  "template:h-intro-fitness": {
+   "name": "مقدمة لياقة بدنية",
+   "tags": [
+    "لياقة",
+    "جيم",
+    "تمرين",
+    "مقدمة"
+   ]
+  },
+  "template:h-intro-gaming-neon": {
+   "name": "مقدمة ألعاب نيون",
+   "tags": [
+    "العاب",
+    "جيمر",
+    "نيون",
+    "بث"
+   ]
+  },
+  "template:h-intro-glitch": {
+   "name": "مقدمة تشويش",
+   "tags": [
+    "جليتش",
+    "رقمي",
+    "العاب",
+    "تقنية"
+   ]
+  },
+  "template:h-intro-logo-destello": {
+   "name": "شعار بوميض",
+   "tags": [
+    "شعار",
+    "كشف",
+    "وميض",
+    "انيق"
+   ]
+  },
+  "template:h-intro-minimal-linea": {
+   "name": "مقدمة بسيطة",
+   "tags": [
+    "بسيط",
+    "نظيف",
+    "مقدمة",
+    "انيق"
+   ]
+  },
+  "template:h-intro-musica": {
+   "name": "مقدمة قناة موسيقى",
+   "tags": [
+    "موسيقى",
+    "قناة",
+    "اغاني",
+    "مقدمة"
+   ]
+  },
+  "template:h-intro-ninos": {
+   "name": "مقدمة للأطفال",
+   "tags": [
+    "اطفال",
+    "مرح",
+    "الوان",
+    "مقدمة"
+   ]
+  },
+  "template:h-intro-noticias": {
+   "name": "افتتاحية نشرة أخبار",
+   "tags": [
+    "اخبار",
+    "نشرة",
+    "صحافة",
+    "مقدمة"
+   ]
+  },
+  "template:h-intro-papel": {
+   "name": "مقدمة بقصاصات ورق",
+   "tags": [
+    "ورق",
+    "قص",
+    "يدوي",
+    "مقدمة"
+   ]
+  },
+  "template:h-intro-podcast-ondas": {
+   "name": "مقدمة بودكاست بالموجات",
+   "tags": [
+    "بودكاست",
+    "صوت",
+    "مقابلة",
+    "موجات"
+   ]
+  },
+  "template:h-intro-pop-comic": {
+   "name": "مقدمة بأسلوب الكوميكس",
+   "tags": [
+    "كوميكس",
+    "بوب",
+    "مرح",
+    "مقدمة"
+   ]
+  },
+  "template:h-intro-retro-80s": {
+   "name": "مقدمة ريترو الثمانينات",
+   "tags": [
+    "ريترو",
+    "الثمانينات",
+    "سينث ويف",
+    "نيون"
+   ]
+  },
+  "template:h-intro-split": {
+   "name": "مقدمة بشاشة مقسومة",
+   "tags": [
+    "شاشة مقسومة",
+    "مقدمة",
+    "تقسيم",
+    "صور"
+   ]
+  },
+  "template:h-intro-suscriptores": {
+   "name": "مقدمة بعدّاد المشتركين",
+   "tags": [
+    "مشتركين",
+    "عداد",
+    "يوتيوب",
+    "قناة"
+   ]
+  },
+  "template:h-intro-tech": {
+   "name": "مقدمة تقنية",
+   "tags": [
+    "تقنية",
+    "تكنولوجيا",
+    "رقمي",
+    "مراجعات"
+   ]
+  },
+  "template:h-intro-texto-gigante": {
+   "name": "مقدمة بنص عملاق",
+   "tags": [
+    "نص كبير",
+    "عنوان",
+    "مقدمة",
+    "جريء"
+   ]
+  },
+  "template:h-intro-tinta": {
+   "name": "مقدمة بالحبر",
+   "tags": [
+    "حبر",
+    "فني",
+    "الوان مائية",
+    "بقع"
+   ]
+  },
+  "template:h-intro-tiza": {
+   "name": "مقدمة على السبورة",
+   "tags": [
+    "سبورة",
+    "طباشير",
+    "مدرسة",
+    "تعليم"
+   ]
+  },
+  "template:h-intro-viajes-mapa": {
+   "name": "مقدمة سفر بالخريطة",
+   "tags": [
+    "سفر",
+    "خريطة",
+    "طريق",
+    "مغامرة"
+   ]
+  },
+  "template:h-intro-vlog-polaroid": {
+   "name": "مقدمة فلوج بصور فورية",
+   "tags": [
+    "فلوج",
+    "صور فورية",
+    "مقدمة",
+    "صور"
+   ]
+  },
+  "template:h-intro-zoom-fotos": {
+   "name": "مقدمة بتقريب الصور",
+   "tags": [
+    "صور",
+    "زوم",
+    "مقدمة",
+    "تقريب"
+   ]
+  },
+  "template:h-neg-academia": {
+   "name": "أكاديمية ودورات",
+   "tags": [
+    "اكاديمية",
+    "دورات",
+    "تعليم",
+    "تسجيل"
+   ]
+  },
+  "template:h-neg-agenda-evento": {
+   "name": "برنامج الفعالية",
+   "tags": [
+    "برنامج",
+    "فعالية",
+    "جدول",
+    "مواعيد"
+   ]
+  },
+  "template:h-neg-cafeteria": {
+   "name": "مقهى",
+   "tags": [
+    "مقهى",
+    "قهوة",
+    "كافيه",
+    "مشروبات"
+   ]
+  },
+  "template:h-neg-cifras": {
+   "name": "نتائج العام بالأرقام",
+   "tags": [
+    "نتائج",
+    "ارقام",
+    "احصائيات",
+    "سنة"
+   ]
+  },
+  "template:h-neg-comunidad": {
+   "name": "اجتماع المجتمع",
+   "tags": [
+    "اجتماع",
+    "مجتمع",
+    "حي",
+    "اعلان"
+   ]
+  },
+  "template:h-neg-contacto": {
+   "name": "تواصل معنا",
+   "tags": [
+    "تواصل",
+    "اتصال",
+    "هاتف",
+    "عنوان"
+   ]
+  },
+  "template:h-neg-contratando": {
+   "name": "نحن نوظّف",
+   "tags": [
+    "توظيف",
+    "وظائف",
+    "شاغر",
+    "عمل"
+   ]
+  },
+  "template:h-neg-escuela": {
+   "name": "مدرسة: التسجيل مفتوح",
+   "tags": [
+    "مدرسة",
+    "تسجيل",
+    "قبول",
+    "طلاب"
+   ]
+  },
+  "template:h-neg-ferreteria": {
+   "name": "محل أدوات",
+   "tags": [
+    "عدد وادوات",
+    "خردوات",
+    "ادوات",
+    "محل"
+   ]
+  },
+  "template:h-neg-gimnasio": {
+   "name": "اشتراكات النادي الرياضي",
+   "tags": [
+    "جيم",
+    "اشتراكات",
+    "لياقة",
+    "باقات"
+   ]
+  },
+  "template:h-neg-inmobiliaria": {
+   "name": "عقار للبيع",
+   "tags": [
+    "عقار",
+    "للبيع",
+    "منزل",
+    "شقة"
+   ]
+  },
+  "template:h-neg-lanzamiento": {
+   "name": "إطلاق منتج",
+   "tags": [
+    "اطلاق",
+    "منتج",
+    "جديد",
+    "اعلان"
+   ]
+  },
+  "template:h-neg-mudanzas": {
+   "name": "نقل أثاث ومواصلات",
+   "tags": [
+    "نقل اثاث",
+    "شحن",
+    "نقل",
+    "خدمات"
+   ]
+  },
+  "template:h-neg-presentacion": {
+   "name": "تعريف بالشركة",
+   "tags": [
+    "شركة",
+    "عرض تقديمي",
+    "اعمال",
+    "تعريف"
+   ]
+  },
+  "template:h-neg-rebajas": {
+   "name": "تخفيضات كبرى",
+   "tags": [
+    "تخفيضات",
+    "خصم",
+    "عروض",
+    "تنزيلات"
+   ]
+  },
+  "template:h-neg-restaurante-menu": {
+   "name": "قائمة مطعم",
+   "tags": [
+    "مطعم",
+    "قائمة طعام",
+    "اطباق",
+    "اسعار"
+   ]
+  },
+  "template:h-neg-supermercado": {
+   "name": "عروض السوبرماركت",
+   "tags": [
+    "سوبرماركت",
+    "عروض",
+    "تخفيضات",
+    "مشتريات"
+   ]
+  },
+  "template:h-neg-testimonio": {
+   "name": "شهادة عميل",
+   "tags": [
+    "شهادة",
+    "عميل",
+    "تقييم",
+    "راي"
+   ]
+  },
+  "template:h-neg-tienda-barrio": {
+   "name": "بقالة الحي",
+   "tags": [
+    "بقالة",
+    "محل",
+    "حي",
+    "عروض"
+   ]
+  },
+  "template:h-neg-webinar": {
+   "name": "ندوة عبر الإنترنت",
+   "tags": [
+    "ويبينار",
+    "ندوة",
+    "اونلاين",
+    "بث"
+   ]
+  },
+  "template:h-presenta-amistad": {
+   "name": "أصدقاء للأبد",
+   "tags": [
+    "اصدقاء",
+    "صداقة",
+    "للابد",
+    "ذكريات"
+   ]
+  },
+  "template:h-presenta-anio": {
+   "name": "عامنا",
+   "tags": [
+    "سنة",
+    "ملخص",
+    "ذكريات",
+    "صور"
+   ]
+  },
+  "template:h-presenta-antes-despues": {
+   "name": "قبل وبعد",
+   "tags": [
+    "قبل وبعد",
+    "مقارنة",
+    "تحول",
+    "صور"
+   ]
+  },
+  "template:h-presenta-bebe": {
+   "name": "طفلي يكبر",
+   "tags": [
+    "طفل",
+    "شهر بشهر",
+    "نمو",
+    "عائلة"
+   ]
+  },
+  "template:h-presenta-boda": {
+   "name": "زفافنا",
+   "tags": [
+    "زفاف",
+    "عرس",
+    "صور",
+    "ذكريات"
+   ]
+  },
+  "template:h-presenta-cinematica": {
+   "name": "عرض صور سينمائي",
+   "tags": [
+    "سينمائي",
+    "عرض صور",
+    "فيلم",
+    "صور"
+   ]
+  },
+  "template:h-presenta-circulos": {
+   "name": "صور في دوائر",
+   "tags": [
+    "دوائر",
+    "صور",
+    "عرض صور",
+    "اشكال"
+   ]
+  },
+  "template:h-presenta-collage-libre": {
+   "name": "كولاج حر",
+   "tags": [
+    "كولاج",
+    "صور",
+    "حر",
+    "عشوائي"
+   ]
+  },
+  "template:h-presenta-comida": {
+   "name": "القائمة بالصور",
+   "tags": [
+    "قائمة طعام",
+    "مطعم",
+    "اكل",
+    "صور"
+   ]
+  },
+  "template:h-presenta-deportes": {
+   "name": "الموسم الرياضي",
+   "tags": [
+    "رياضة",
+    "موسم",
+    "فريق",
+    "مباريات"
+   ]
+  },
+  "template:h-presenta-equipo": {
+   "name": "تعرّف على الفريق",
+   "tags": [
+    "فريق",
+    "شركة",
+    "موظفين",
+    "تعارف"
+   ]
+  },
+  "template:h-presenta-escuela": {
+   "name": "العام الدراسي",
+   "tags": [
+    "مدرسة",
+    "عام دراسي",
+    "طلاب",
+    "ذكريات"
+   ]
+  },
+  "template:h-presenta-evento": {
+   "name": "ملخص الفعالية",
+   "tags": [
+    "فعالية",
+    "حدث",
+    "ملخص",
+    "صور"
+   ]
+  },
+  "template:h-presenta-glitch": {
+   "name": "عرض صور بالتشويش",
+   "tags": [
+    "جليتش",
+    "عرض صور",
+    "رقمي",
+    "صور"
+   ]
+  },
+  "template:h-presenta-graduacion": {
+   "name": "دفعة التخرج",
+   "tags": [
+    "تخرج",
+    "دفعة",
+    "مدرسة",
+    "جامعة"
+   ]
+  },
+  "template:h-presenta-homenaje": {
+   "name": "في الذكرى",
+   "tags": [
+    "ذكرى",
+    "تكريم",
+    "وفاء",
+    "عائلة"
+   ]
+  },
+  "template:h-presenta-inmueble": {
+   "name": "جولة في العقار",
+   "tags": [
+    "عقار",
+    "منزل",
+    "شقة",
+    "بيع"
+   ]
+  },
+  "template:h-presenta-mascota": {
+   "name": "حيواني الأليف",
+   "tags": [
+    "حيوان اليف",
+    "كلب",
+    "قطة",
+    "صور"
+   ]
+  },
+  "template:h-presenta-mosaico": {
+   "name": "فسيفساء صور",
+   "tags": [
+    "فسيفساء",
+    "صور",
+    "شبكة",
+    "كولاج"
+   ]
+  },
+  "template:h-presenta-paralaje": {
+   "name": "عرض صور بارالاكس",
+   "tags": [
+    "بارالاكس",
+    "عمق",
+    "عرض صور",
+    "حركة"
+   ]
+  },
+  "template:h-presenta-pelicula": {
+   "name": "عرض شريط فيلم",
+   "tags": [
+    "شريط فيلم",
+    "عرض صور",
+    "ريترو",
+    "سينما"
+   ]
+  },
+  "template:h-presenta-polaroid": {
+   "name": "صور فورية على الخشب",
+   "tags": [
+    "صور فورية",
+    "خشب",
+    "عرض صور",
+    "ذكريات"
+   ]
+  },
+  "template:h-presenta-portafolio": {
+   "name": "معرض أعمال",
+   "tags": [
+    "اعمال",
+    "بورتفوليو",
+    "مشاريع",
+    "تصميم"
+   ]
+  },
+  "template:h-presenta-producto": {
+   "name": "كتالوج منتجات",
+   "tags": [
+    "كتالوج",
+    "منتجات",
+    "متجر",
+    "بيع"
+   ]
+  },
+  "template:h-presenta-recuerdos": {
+   "name": "ذكريات",
+   "tags": [
+    "ذكريات",
+    "عرض صور",
+    "صور",
+    "حنين"
+   ]
+  },
+  "template:h-presenta-revista": {
+   "name": "صفحات مجلة",
+   "tags": [
+    "مجلة",
+    "صفحات",
+    "موضة",
+    "صور"
+   ]
+  },
+  "template:h-presenta-split": {
+   "name": "عرض بشاشة مقسومة",
+   "tags": [
+    "شاشة مقسومة",
+    "عرض صور",
+    "تقسيم",
+    "صور"
+   ]
+  },
+  "template:h-presenta-tinta": {
+   "name": "عرض صور بالحبر",
+   "tags": [
+    "حبر",
+    "عرض صور",
+    "فني",
+    "صور"
+   ]
+  },
+  "template:h-presenta-viaje": {
+   "name": "يوميات سفر",
+   "tags": [
+    "سفر",
+    "يوميات",
+    "رحلة",
+    "صور"
+   ]
+  },
+  "template:h-presenta-vintage": {
+   "name": "ألبوم قديم",
+   "tags": [
+    "قديم",
+    "فينتاج",
+    "البوم",
+    "ذكريات"
+   ]
+  },
+  "template:h-tercio-a-mano": {
+   "name": "شريط اسم بخط اليد",
+   "tags": [
+    "خط يد",
+    "يدوي",
+    "اسم",
+    "شريط"
+   ]
+  },
+  "template:h-tercio-boda": {
+   "name": "شريط زفاف",
+   "tags": [
+    "زفاف",
+    "عرسان",
+    "اسماء",
+    "شريط"
+   ]
+  },
+  "template:h-tercio-caja-color": {
+   "name": "شريط اسم في صندوق",
+   "tags": [
+    "شريط اسم",
+    "صندوق",
+    "لون",
+    "اسم"
+   ]
+  },
+  "template:h-tercio-chat": {
+   "name": "تعليق مميز",
+   "tags": [
+    "تعليق",
+    "دردشة",
+    "مميز",
+    "متابعين"
+   ]
+  },
+  "template:h-tercio-cita": {
+   "name": "اقتباس على الشاشة",
+   "tags": [
+    "اقتباس",
+    "عبارة",
+    "نص",
+    "شاشة"
+   ]
+  },
+  "template:h-tercio-corporativo": {
+   "name": "شريط اسم للشركات",
+   "tags": [
+    "شركات",
+    "اسم",
+    "منصب",
+    "شريط"
+   ]
+  },
+  "template:h-tercio-deportes": {
+   "name": "شريط رياضي",
+   "tags": [
+    "رياضة",
+    "لاعب",
+    "اسم",
+    "شريط"
+   ]
+  },
+  "template:h-tercio-diagonal": {
+   "name": "شريط اسم مائل",
+   "tags": [
+    "مائل",
+    "قطري",
+    "اسم",
+    "شريط"
+   ]
+  },
+  "template:h-tercio-doble": {
+   "name": "شريط لشخصين",
+   "tags": [
+    "شخصين",
+    "اسماء",
+    "مقابلة",
+    "شريط"
+   ]
+  },
+  "template:h-tercio-duotono": {
+   "name": "شريط اسم بلونين",
+   "tags": [
+    "شريط اسم",
+    "لونين",
+    "اسم",
+    "عنوان"
+   ]
+  },
+  "template:h-tercio-elegante": {
+   "name": "شريط اسم أنيق",
+   "tags": [
+    "انيق",
+    "اسم",
+    "شريط",
+    "فخم"
+   ]
+  },
+  "template:h-tercio-entrevista": {
+   "name": "مقابلة",
+   "tags": [
+    "مقابلة",
+    "اسم",
+    "ضيف",
+    "شريط"
+   ]
+  },
+  "template:h-tercio-fecha": {
+   "name": "التاريخ والوقت",
+   "tags": [
+    "تاريخ",
+    "وقت",
+    "ساعة",
+    "يوم"
+   ]
+  },
+  "template:h-tercio-gaming": {
+   "name": "شريط اسم للألعاب",
+   "tags": [
+    "العاب",
+    "جيمر",
+    "بث",
+    "شريط"
+   ]
+  },
+  "template:h-tercio-glass": {
+   "name": "شريط اسم زجاجي",
+   "tags": [
+    "زجاج",
+    "شفاف",
+    "اسم",
+    "شريط"
+   ]
+  },
+  "template:h-tercio-minimal-linea": {
+   "name": "شريط اسم بسيط",
+   "tags": [
+    "شريط اسم",
+    "بسيط",
+    "اسم",
+    "خط"
+   ]
+  },
+  "template:h-tercio-noticias": {
+   "name": "شريط أخبار",
+   "tags": [
+    "اخبار",
+    "شريط",
+    "نشرة",
+    "عاجل"
+   ]
+  },
+  "template:h-tercio-podcast": {
+   "name": "شريط بودكاست",
+   "tags": [
+    "بودكاست",
+    "ضيف",
+    "اسم",
+    "شريط"
+   ]
+  },
+  "template:h-tercio-precio": {
+   "name": "السعر على الشاشة",
+   "tags": [
+    "سعر",
+    "منتج",
+    "عرض",
+    "بيع"
+   ]
+  },
+  "template:h-tercio-redes": {
+   "name": "شريط حساب التواصل",
+   "tags": [
+    "حساب",
+    "سوشيال",
+    "متابعة",
+    "اسم المستخدم"
+   ]
+  },
+  "template:h-tercio-redondeado": {
+   "name": "شريط اسم مع صورة",
+   "tags": [
+    "شريط اسم",
+    "صورة",
+    "دائري",
+    "اسم"
+   ]
+  },
+  "template:h-tercio-retro": {
+   "name": "شريط اسم ريترو",
+   "tags": [
+    "ريترو",
+    "قديم",
+    "اسم",
+    "شريط"
+   ]
+  },
+  "template:h-tercio-suscribete": {
+   "name": "زر الاشتراك في الزاوية",
+   "tags": [
+    "اشتراك",
+    "زر",
+    "يوتيوب",
+    "زاوية"
+   ]
+  },
+  "template:h-tercio-tutorial-paso": {
+   "name": "خطوة الشرح",
+   "tags": [
+    "خطوة",
+    "شرح",
+    "تعليمي",
+    "رقم"
+   ]
+  },
+  "template:h-tercio-ubicacion": {
+   "name": "الموقع",
+   "tags": [
+    "موقع",
+    "مكان",
+    "خريطة",
+    "سفر"
+   ]
+  },
+  "template:h-texto-advertencia": {
+   "name": "تنبيه",
+   "tags": [
+    "تحذير",
+    "تنبيه",
+    "انتباه",
+    "علامة"
+   ]
+  },
+  "template:h-texto-agenda": {
+   "name": "محتوى الفيديو",
+   "tags": [
+    "محتوى",
+    "فهرس",
+    "اقسام",
+    "جدول"
+   ]
+  },
+  "template:h-texto-capitulo": {
+   "name": "بطاقة فصل",
+   "tags": [
+    "فصل",
+    "عنوان",
+    "قسم",
+    "بطاقة"
+   ]
+  },
+  "template:h-texto-cinetico": {
+   "name": "طباعة حركية",
+   "tags": [
+    "نص متحرك",
+    "حركي",
+    "طباعة",
+    "كلمات"
+   ]
+  },
+  "template:h-texto-cita-serif": {
+   "name": "اقتباس أنيق",
+   "tags": [
+    "اقتباس",
+    "انيق",
+    "عبارة",
+    "حكمة"
+   ]
+  },
+  "template:h-texto-comparacion": {
+   "name": "مقارنة",
+   "tags": [
+    "مقارنة",
+    "ضد",
+    "فرق",
+    "اختيار"
+   ]
+  },
+  "template:h-texto-creditos": {
+   "name": "شارة النهاية",
+   "tags": [
+    "شارة",
+    "نهاية",
+    "اسماء",
+    "فيلم"
+   ]
+  },
+  "template:h-texto-dato-curioso": {
+   "name": "معلومة طريفة",
+   "tags": [
+    "معلومة",
+    "هل تعلم",
+    "غريب",
+    "تعليمي"
+   ]
+  },
+  "template:h-texto-estadistica": {
+   "name": "إحصائية كبيرة",
+   "tags": [
+    "احصائية",
+    "رقم",
+    "بيانات",
+    "نسبة"
+   ]
+  },
+  "template:h-texto-frase-neon": {
+   "name": "لافتة نيون",
+   "tags": [
+    "نيون",
+    "لافتة",
+    "عبارة",
+    "ليل"
+   ]
+  },
+  "template:h-texto-lecciones": {
+   "name": "ما ستتعلمه",
+   "tags": [
+    "تعلم",
+    "دروس",
+    "دورة",
+    "تعليمي"
+   ]
+  },
+  "template:h-texto-linea-tiempo": {
+   "name": "خط زمني",
+   "tags": [
+    "خط زمني",
+    "تاريخ",
+    "مراحل",
+    "سنوات"
+   ]
+  },
+  "template:h-texto-lista-5": {
+   "name": "قائمة أفضل 5",
+   "tags": [
+    "قائمة",
+    "توب 5",
+    "ترتيب",
+    "افضل"
+   ]
+  },
+  "template:h-texto-maquina": {
+   "name": "آلة كاتبة",
+   "tags": [
+    "الة كاتبة",
+    "كتابة",
+    "نص",
+    "حروف"
+   ]
+  },
+  "template:h-texto-marcador": {
+   "name": "النتيجة النهائية",
+   "tags": [
+    "نتيجة",
+    "مباراة",
+    "رياضة",
+    "اهداف"
+   ]
+  },
+  "template:h-texto-portada-video": {
+   "name": "صورة مصغّرة للفيديو",
+   "tags": [
+    "صورة مصغرة",
+    "غلاف",
+    "يوتيوب",
+    "عنوان"
+   ]
+  },
+  "template:h-texto-pregunta": {
+   "name": "سؤال للجمهور",
+   "tags": [
+    "سؤال",
+    "جمهور",
+    "تفاعل",
+    "علق"
+   ]
+  },
+  "template:h-texto-receta-ingredientes": {
+   "name": "مكوّنات الوصفة",
+   "tags": [
+    "مكونات",
+    "وصفة",
+    "طبخ",
+    "اكل"
+   ]
+  },
+  "template:h-texto-titular-revista": {
+   "name": "عنوان مجلة",
+   "tags": [
+    "مجلة",
+    "عنوان",
+    "موضة",
+    "غلاف"
+   ]
+  },
+  "template:h-texto-titulo-grande": {
+   "name": "عنوان كبير",
+   "tags": [
+    "عنوان",
+    "كبير",
+    "نص",
+    "جريء"
+   ]
+  },
+  "template:h-trans-barrido-color": {
+   "name": "مسح لوني",
+   "tags": [
+    "انتقال",
+    "مسح",
+    "لون",
+    "فاصل"
+   ]
+  },
+  "template:h-trans-capitulo-numero": {
+   "name": "رقم الفصل",
+   "tags": [
+    "فصل",
+    "رقم",
+    "فاصل",
+    "قسم"
+   ]
+  },
+  "template:h-trans-circulo": {
+   "name": "فاصل دائري",
+   "tags": [
+    "دائرة",
+    "فاصل",
+    "انتقال",
+    "شكل"
+   ]
+  },
+  "template:h-trans-diagonal": {
+   "name": "مسح قطري",
+   "tags": [
+    "قطري",
+    "مسح",
+    "انتقال",
+    "مائل"
+   ]
+  },
+  "template:h-trans-formas": {
+   "name": "أشكال تملأ الشاشة",
+   "tags": [
+    "اشكال",
+    "ملء",
+    "انتقال",
+    "الوان"
+   ]
+  },
+  "template:h-trans-glitch-corto": {
+   "name": "ضربة تشويش",
+   "tags": [
+    "جليتش",
+    "تشويش",
+    "انتقال",
+    "سريع"
+   ]
+  },
+  "template:h-trans-mientras-tanto": {
+   "name": "«في هذه الأثناء…»",
+   "tags": [
+    "في هذه الاثناء",
+    "فاصل",
+    "مضحك",
+    "انتقال"
+   ]
+  },
+  "template:h-trans-papel": {
+   "name": "ورق ممزّق",
+   "tags": [
+    "ورق",
+    "تمزق",
+    "انتقال",
+    "فاصل"
+   ]
+  },
+  "template:h-trans-pelicula": {
+   "name": "احتراق شريط فيلم",
+   "tags": [
+    "فيلم",
+    "احتراق",
+    "ريترو",
+    "انتقال"
+   ]
+  },
+  "template:h-trans-persiana": {
+   "name": "ستارة شرائح",
+   "tags": [
+    "ستارة",
+    "شرائح",
+    "انتقال",
+    "فاصل"
+   ]
+  },
+  "template:h-trans-tinta": {
+   "name": "مسح بالحبر",
+   "tags": [
+    "حبر",
+    "مسح",
+    "انتقال",
+    "فني"
+   ]
+  },
+  "template:h-trans-zoom-golpe": {
+   "name": "تقريب بضربة",
+   "tags": [
+    "زوم",
+    "ضربة",
+    "انتقال",
+    "سريع"
+   ]
+  },
+  "template:halloween-photo-dump": {
+   "name": "تفريغ صور الهالوين",
+   "tags": [
+    "هالوين",
+    "صور",
+    "ازياء",
+    "رعب",
+    "اكتوبر"
+   ]
+  },
+  "template:halloween-revelacion-disfraz": {
+   "name": "كشف الزي التنكري",
+   "tags": [
+    "هالوين",
+    "زي تنكري",
+    "تحول",
+    "قبل وبعد"
+   ]
+  },
+  "template:halloween-truco-o-trato": {
+   "name": "حلوى أو خدعة: دعوة حفلة",
+   "tags": [
+    "هالوين",
+    "حفلة",
+    "دعوة",
+    "اطفال",
+    "ازياء"
+   ]
+  },
+  "template:horario-de-atencion": {
+   "name": "ساعات العمل",
+   "tags": [
+    "مواعيد",
+    "ساعات العمل",
+    "مفتوح",
+    "محل"
+   ]
+  },
+  "template:hype-glitch": {
+   "name": "حماس مع تشويش",
+   "tags": [
+    "حماس",
+    "جليتش",
+    "طاقة",
+    "جيم",
+    "حفلة"
+   ]
+  },
+  "template:intro-de-canal": {
+   "name": "مقدمة قناة",
+   "tags": [
+    "مقدمة",
+    "قناة",
+    "يوتيوب",
+    "شعار"
+   ]
+  },
+  "template:intro-de-podcast": {
+   "name": "مقدمة بودكاست",
+   "tags": [
+    "بودكاست",
+    "مقدمة",
+    "حلقة",
+    "برنامج"
+   ]
+  },
+  "template:intro-de-vlog": {
+   "name": "مقدمة فلوج",
+   "tags": [
+    "فلوج",
+    "مقدمة",
+    "يوم معي",
+    "روتين"
+   ]
+  },
+  "template:jugadas-destacadas": {
+   "name": "أبرز اللقطات الرياضية",
+   "tags": [
+    "رياضة",
+    "كرة قدم",
+    "اهداف",
+    "مباراة"
+   ]
+  },
+  "template:lanzamiento-ya-disponible": {
+   "name": "إطلاق: متوفر الآن",
+   "tags": [
+    "اطلاق",
+    "منتج",
+    "جديد",
+    "متجر الكتروني"
+   ]
+  },
+  "template:letra-al-ritmo": {
+   "name": "كلمات على الإيقاع",
+   "tags": [
+    "كلمات",
+    "اغنية",
+    "ايقاع",
+    "حفلة"
+   ]
+  },
+  "template:me-gradue": {
+   "name": "تخرّجت!",
+   "tags": [
+    "تخرج",
+    "دفعة",
+    "انجاز",
+    "جامعة"
+   ]
+  },
+  "template:mejores-amigas": {
+   "name": "أعز الصديقات",
+   "tags": [
+    "صديقات",
+    "صداقة",
+    "بيستيز",
+    "bff"
+   ]
+  },
+  "template:meme-texto-arriba-abajo": {
+   "name": "ميم كلاسيكي",
+   "tags": [
+    "ميم",
+    "فكاهة",
+    "نص",
+    "مضحك"
+   ]
+  },
+  "template:menu-del-dia-pizarra": {
+   "name": "قائمة اليوم على السبورة",
+   "tags": [
+    "قائمة طعام",
+    "مطعم",
+    "غداء",
+    "سعر"
+   ]
+  },
+  "template:menu-navideno": {
+   "name": "قائمة طعام الكريسماس",
+   "tags": [
+    "كريسماس",
+    "قائمة طعام",
+    "عشاء",
+    "مطعم"
+   ]
+  },
+  "template:mi-2026-en-fotos": {
+   "name": "عامي 2026 بالصور",
+   "tags": [
+    "سنة جديدة",
+    "ملخص",
+    "2026",
+    "ذكريات",
+    "صور"
+   ]
+  },
+  "template:mi-glow-up": {
+   "name": "تحوّلي (Glow up)",
+   "tags": [
+    "جلو اب",
+    "قبل وبعد",
+    "مكياج",
+    "جمال"
+   ]
+  },
+  "template:mi-mascota": {
+   "name": "حيواني الأليف",
+   "tags": [
+    "حيوان اليف",
+    "كلب",
+    "قطة",
+    "صديقي"
+   ]
+  },
+  "template:mis-mejores-fotos": {
+   "name": "أفضل صوري",
+   "tags": [
+    "عرض صور",
+    "افضل الصور",
+    "ذكريات",
+    "باستيل"
+   ]
+  },
+  "template:mis-xv": {
+   "name": "عيد ميلادي الخامس عشر",
+   "tags": [
+    "15 سنة",
+    "عيد ميلاد",
+    "حفلة",
+    "بنات"
+   ]
+  },
+  "template:mochilero-por-peru": {
+   "name": "رحلة على الأقدام",
+   "tags": [
+    "سفر",
+    "رحالة",
+    "مغامرة",
+    "جبال"
+   ]
+  },
+  "template:moodboard-aesthetic": {
+   "name": "لوحة إلهام جمالية",
+   "tags": [
+    "مودبورد",
+    "استاتيك",
+    "الهام",
+    "كولاج"
+   ]
+  },
+  "template:muertos-ofrenda": {
+   "name": "ذكرى أحبّائنا",
+   "tags": [
+    "ذكرى",
+    "تكريم",
+    "عائلة",
+    "يوم الموتى",
+    "شموع"
+   ]
+  },
+  "template:navidad-en-familia": {
+   "name": "عيد الميلاد مع العائلة",
+   "tags": [
+    "كريسماس",
+    "عائلة",
+    "ديسمبر",
+    "اعياد"
+   ]
+  },
+  "template:navidad-regalo-sorpresa": {
+   "name": "هدية مفاجئة",
+   "tags": [
+    "هدية",
+    "مفاجاة",
+    "كريسماس",
+    "فتح علبة"
+   ]
+  },
+  "template:nosotros-vs-otros": {
+   "name": "نحن ضد الآخرين",
+   "tags": [
+    "مقارنة",
+    "جودة",
+    "لماذا نحن",
+    "ضد"
+   ]
+  },
+  "template:nuestra-historia": {
+   "name": "قصتنا",
+   "tags": [
+    "زوجين",
+    "ذكرى",
+    "حب",
+    "عيد الحب"
+   ]
+  },
+  "template:nueva-coleccion-ropa": {
+   "name": "تشكيلة جديدة",
+   "tags": [
+    "تشكيلة جديدة",
+    "ملابس",
+    "موضة",
+    "بوتيك"
+   ]
+  },
+  "template:octubre-en-fotos": {
+   "name": "أكتوبر بالصور",
+   "tags": [
+    "اكتوبر",
+    "ملخص",
+    "شهر",
+    "خريف"
+   ]
+  },
+  "template:oferta-flash": {
+   "name": "عرض خاطف",
+   "tags": [
+    "عرض",
+    "خصم",
+    "بيع",
+    "تخفيضات"
+   ]
+  },
+  "template:ootd-outfit": {
+   "name": "إطلالة اليوم",
+   "tags": [
+    "اطلالة",
+    "ootd",
+    "موضة",
+    "ستايل"
+   ]
+  },
+  "template:opinion-impopular": {
+   "name": "رأي غير شائع",
+   "tags": [
+    "راي",
+    "نقاش",
+    "جدل",
+    "علق"
+   ]
+  },
+  "template:pantalla-final-2-videos": {
+   "name": "شاشة النهاية: فيديوهان",
+   "tags": [
+    "شاشة النهاية",
+    "فيديوهات مقترحة",
+    "اشتراك",
+    "يوتيوب"
+   ]
+  },
+  "template:pantalla-triple": {
+   "name": "شاشة مقسومة لثلاثة",
+   "tags": [
+    "شاشة مقسومة",
+    "ثلاثة",
+    "مدينة",
+    "كولاج"
+   ]
+  },
+  "template:para-mama": {
+   "name": "إلى أمي",
+   "tags": [
+    "امي",
+    "عيد الام",
+    "عائلة",
+    "حب"
+   ]
+  },
+  "template:photo-dump-cinematico": {
+   "name": "تفريغ صور سينمائي",
+   "tags": [
+    "فوتو دمب",
+    "سينما",
+    "صور",
+    "ذكريات"
+   ]
+  },
+  "template:photo-dump-ritmo": {
+   "name": "تفريغ صور على الإيقاع",
+   "tags": [
+    "صور",
+    "ايقاع",
+    "فوتو دمب",
+    "اصدقاء"
+   ]
+  },
+  "template:polaroids": {
+   "name": "صور فورية على الطاولة",
+   "tags": [
+    "صور فورية",
+    "صور",
+    "ذكريات",
+    "صيف"
+   ]
+  },
+  "template:portada-de-tutorial": {
+   "name": "غلاف شرح",
+   "tags": [
+    "شرح",
+    "خطوة بخطوة",
+    "غلاف",
+    "تعلم"
+   ]
+  },
+  "template:portada-revista": {
+   "name": "غلاف مجلة",
+   "tags": [
+    "مجلة",
+    "غلاف",
+    "موضة",
+    "جلام"
+   ]
+  },
+  "template:pov-chat-mensajes": {
+   "name": "POV في الرسائل",
+   "tags": [
+    "pov",
+    "دردشة",
+    "رسائل",
+    "فكاهة"
+   ]
+  },
+  "template:pov-cinematografico": {
+   "name": "POV سينمائي",
+   "tags": [
+    "pov",
+    "سينما",
+    "بطل",
+    "ترجمة"
+   ]
+  },
+  "template:pov-texto": {
+   "name": "POV بالنص",
+   "tags": [
+    "pov",
+    "ميم",
+    "تيك توك",
+    "نص"
+   ]
+  },
+  "template:preguntas-frecuentes": {
+   "name": "الأسئلة الشائعة",
+   "tags": [
+    "اسئلة",
+    "شائعة",
+    "خدمة العملاء",
+    "شحن"
+   ]
+  },
+  "template:primer-anio-bebe": {
+   "name": "سنتي الأولى شهرًا بشهر",
+   "tags": [
+    "طفل",
+    "السنة الاولى",
+    "شهر بشهر",
+    "عائلة"
+   ]
+  },
+  "template:producto-estrella": {
+   "name": "المنتج المميز",
+   "tags": [
+    "منتج",
+    "متجر",
+    "مشروع",
+    "بيع"
+   ]
+  },
+  "template:progreso-gym": {
+   "name": "أسبوع التمرين",
+   "tags": [
+    "جيم",
+    "تمرين",
+    "لياقة",
+    "تقدم"
+   ]
+  },
+  "template:propositos-2027": {
+   "name": "أهدافي لعام 2027",
+   "tags": [
+    "سنة جديدة",
+    "اهداف",
+    "قرارات",
+    "2027"
+   ]
+  },
+  "template:r-abuelos": {
+   "name": "شكرًا يا جدّي وجدّتي",
+   "tags": [
+    "اجداد",
+    "جدي",
+    "جدتي",
+    "عائلة"
+   ]
+  },
+  "template:r-academia-idiomas": {
+   "name": "معهد لغات",
+   "tags": [
+    "لغات",
+    "معهد",
+    "انجليزي",
+    "دورات"
+   ]
+  },
+  "template:r-accion-gracias": {
+   "name": "عيد الشكر",
+   "tags": [
+    "عيد الشكر",
+    "عائلة",
+    "عشاء",
+    "امتنان"
+   ]
+  },
+  "template:r-agenda-citas": {
+   "name": "احجز موعدك",
+   "tags": [
+    "حجز",
+    "موعد",
+    "مواعيد",
+    "خدمات"
+   ]
+  },
+  "template:r-agotado-vuelta": {
+   "name": "نفد ← عاد من جديد!",
+   "tags": [
+    "نفد",
+    "متوفر",
+    "عاد",
+    "مخزون"
+   ]
+  },
+  "template:r-album-stickers": {
+   "name": "ألبوم بالملصقات",
+   "tags": [
+    "البوم",
+    "ملصقات",
+    "ذكريات",
+    "لطيف"
+   ]
+  },
+  "template:r-anio-nuevo-elegante": {
+   "name": "رأس سنة أنيق",
+   "tags": [
+    "راس السنة",
+    "انيق",
+    "ذهبي",
+    "احتفال"
+   ]
+  },
+  "template:r-anio-nuevo-lunar": {
+   "name": "رأس السنة القمرية",
+   "tags": [
+    "السنة القمرية",
+    "فوانيس",
+    "احمر",
+    "احتفال"
+   ]
+  },
+  "template:r-aniversario-bodas": {
+   "name": "ذكرى الزواج",
+   "tags": [
+    "ذكرى الزواج",
+    "زوجين",
+    "حب",
+    "سنوات"
+   ]
+  },
+  "template:r-antes-ahora": {
+   "name": "زمان والآن",
+   "tags": [
+    "زمان",
+    "الان",
+    "قبل وبعد",
+    "ذكريات"
+   ]
+  },
+  "template:r-atardecer-cine": {
+   "name": "غروب سينمائي",
+   "tags": [
+    "غروب",
+    "سينمائي",
+    "شمس",
+    "سماء"
+   ]
+  },
+  "template:r-ba-auto": {
+   "name": "قبل وبعد: سيارة",
+   "tags": [
+    "سيارة",
+    "تلميع",
+    "قبل وبعد",
+    "تعديل"
+   ]
+  },
+  "template:r-ba-casa": {
+   "name": "قبل وبعد: منزلي",
+   "tags": [
+    "منزل",
+    "تجديد",
+    "قبل وبعد",
+    "ديكور"
+   ]
+  },
+  "template:r-ba-cocina": {
+   "name": "قبل وبعد: وصفة",
+   "tags": [
+    "وصفة",
+    "طبخ",
+    "قبل وبعد",
+    "اكل"
+   ]
+  },
+  "template:r-ba-cortina": {
+   "name": "قبل وبعد: ستارة",
+   "tags": [
+    "قبل وبعد",
+    "ستارة",
+    "مقارنة",
+    "كشف"
+   ]
+  },
+  "template:r-ba-dia-1-100": {
+   "name": "اليوم 1 / اليوم 100",
+   "tags": [
+    "اليوم 1",
+    "اليوم 100",
+    "تقدم",
+    "تحول"
+   ]
+  },
+  "template:r-ba-dibujo": {
+   "name": "من الرسم الأولي إلى الألوان",
+   "tags": [
+    "رسم",
+    "تلوين",
+    "فن",
+    "قبل وبعد"
+   ]
+  },
+  "template:r-ba-jardin": {
+   "name": "قبل وبعد: الحديقة",
+   "tags": [
+    "حديقة",
+    "زراعة",
+    "قبل وبعد",
+    "نباتات"
+   ]
+  },
+  "template:r-ba-maquillaje": {
+   "name": "قبل وبعد: مكياج",
+   "tags": [
+    "مكياج",
+    "قبل وبعد",
+    "جمال",
+    "تحول"
+   ]
+  },
+  "template:r-ba-mascota": {
+   "name": "من جرو صغير إلى كبير",
+   "tags": [
+    "جرو",
+    "كلب",
+    "نمو",
+    "قبل وبعد"
+   ]
+  },
+  "template:r-ba-peinado": {
+   "name": "قبل وبعد: تسريحة",
+   "tags": [
+    "تسريحة",
+    "شعر",
+    "قبل وبعد",
+    "صالون"
+   ]
+  },
+  "template:r-bautizo": {
+   "name": "التعميد",
+   "tags": [
+    "تعميد",
+    "طفل",
+    "عائلة",
+    "كنيسة"
+   ]
+  },
+  "template:r-beneficios": {
+   "name": "قائمة المزايا",
+   "tags": [
+    "مزايا",
+    "فوائد",
+    "قائمة",
+    "منتج"
+   ]
+  },
+  "template:r-bienvenida-casa": {
+   "name": "أهلًا بك في البيت",
+   "tags": [
+    "ترحيب",
+    "بيت",
+    "عودة",
+    "عائلة"
+   ]
+  },
+  "template:r-bienvenidos-canal": {
+   "name": "أهلًا بكم في قناتي",
+   "tags": [
+    "ترحيب",
+    "قناة",
+    "مقدمة",
+    "يوتيوب"
+   ]
+  },
+  "template:r-boda-primer-baile": {
+   "name": "زفاف: الرقصة الأولى",
+   "tags": [
+    "زفاف",
+    "رقصة",
+    "عرسان",
+    "رومانسي"
+   ]
+  },
+  "template:r-boda-votos": {
+   "name": "زفاف: العهود",
+   "tags": [
+    "زفاف",
+    "عهود",
+    "عرسان",
+    "حب"
+   ]
+  },
+  "template:r-cafeteria-latte": {
+   "name": "مقهى: فن اللاتيه",
+   "tags": [
+    "لاتيه",
+    "قهوة",
+    "مقهى",
+    "باريستا"
+   ]
+  },
+  "template:r-camara-desechable": {
+   "name": "كاميرا للاستعمال مرة واحدة",
+   "tags": [
+    "كاميرا",
+    "فيلم",
+    "ريترو",
+    "فلاش"
+   ]
+  },
+  "template:r-cambio-ropa": {
+   "name": "تغيير الإطلالة على الإيقاع",
+   "tags": [
+    "اطلالة",
+    "تغيير ملابس",
+    "ايقاع",
+    "موضة"
+   ]
+  },
+  "template:r-carrusel": {
+   "name": "دوّامة صور منزلقة",
+   "tags": [
+    "كاروسيل",
+    "انزلاق",
+    "صور",
+    "عرض"
+   ]
+  },
+  "template:r-casa-nueva": {
+   "name": "منزل جديد",
+   "tags": [
+    "منزل جديد",
+    "بيت",
+    "انتقال",
+    "مفاتيح"
+   ]
+  },
+  "template:r-casa-venta": {
+   "name": "منزل للبيع",
+   "tags": [
+    "للبيع",
+    "منزل",
+    "عقارات",
+    "بيت"
+   ]
+  },
+  "template:r-ciudad-neon": {
+   "name": "مدينة النيون",
+   "tags": [
+    "مدينة",
+    "نيون",
+    "ليل",
+    "حضري"
+   ]
+  },
+  "template:r-collage-2-mas-1": {
+   "name": "كولاج 2 + 1",
+   "tags": [
+    "كولاج",
+    "ثلاث صور",
+    "شبكة",
+    "صور"
+   ]
+  },
+  "template:r-collage-3-vertical": {
+   "name": "كولاج بثلاثة أشرطة",
+   "tags": [
+    "كولاج",
+    "ثلاثة",
+    "عمودي",
+    "صور"
+   ]
+  },
+  "template:r-collage-circulos": {
+   "name": "كولاج دوائر",
+   "tags": [
+    "دوائر",
+    "كولاج",
+    "صور",
+    "اشكال"
+   ]
+  },
+  "template:r-collage-respira": {
+   "name": "كولاج نابض",
+   "tags": [
+    "كولاج",
+    "نابض",
+    "حركة",
+    "صور"
+   ]
+  },
+  "template:r-colores-disponibles": {
+   "name": "الألوان المتوفرة",
+   "tags": [
+    "الوان",
+    "متوفر",
+    "منتج",
+    "خيارات"
+   ]
+  },
+  "template:r-combo": {
+   "name": "باقة منتجات",
+   "tags": [
+    "باقة",
+    "كومبو",
+    "منتجات",
+    "عرض"
+   ]
+  },
+  "template:r-comenta": {
+   "name": "اكتب إجابتك في التعليقات",
+   "tags": [
+    "علق",
+    "تعليقات",
+    "تفاعل",
+    "اجابة"
+   ]
+  },
+  "template:r-comparar-tamanos": {
+   "name": "مقارنة المقاسات",
+   "tags": [
+    "مقاسات",
+    "احجام",
+    "مقارنة",
+    "منتج"
+   ]
+  },
+  "template:r-compartelo": {
+   "name": "شاركه مع شخص تحبه",
+   "tags": [
+    "شارك",
+    "مشاركة",
+    "اصدقاء",
+    "خاتمة"
+   ]
+  },
+  "template:r-comunidad-reunion": {
+   "name": "المجتمع: لقاء أسبوعي",
+   "tags": [
+    "لقاء",
+    "اسبوعي",
+    "مجتمع",
+    "مجموعة"
+   ]
+  },
+  "template:r-consejo-finanzas": {
+   "name": "نصيحة مالية",
+   "tags": [
+    "مال",
+    "ادخار",
+    "نصيحة",
+    "مالية"
+   ]
+  },
+  "template:r-contador-fotos": {
+   "name": "صورة بصورة مع عدّاد",
+   "tags": [
+    "عداد",
+    "صور",
+    "ارقام",
+    "ترند"
+   ]
+  },
+  "template:r-core-memory": {
+   "name": "ذكريات لامعة",
+   "tags": [
+    "ذكريات",
+    "لمعان",
+    "حنين",
+    "core memory"
+   ]
+  },
+  "template:r-cosas-felices": {
+   "name": "أشياء تسعدني",
+   "tags": [
+    "سعادة",
+    "اشياء",
+    "قائمة",
+    "ايجابية"
+   ]
+  },
+  "template:r-cuadros-4-3": {
+   "name": "إطارات 4:3",
+   "tags": [
+    "4:3",
+    "اطارات",
+    "ريترو",
+    "صور"
+   ]
+  },
+  "template:r-cuenta-5-seg": {
+   "name": "عد تنازلي 5 ثوانٍ",
+   "tags": [
+    "عد تنازلي",
+    "5 ثواني",
+    "ارقام",
+    "بداية"
+   ]
+  },
+  "template:r-cuenta-boda": {
+   "name": "عد تنازلي للزفاف",
+   "tags": [
+    "زفاف",
+    "عد تنازلي",
+    "عرسان",
+    "موعد"
+   ]
+  },
+  "template:r-cuenta-cumple": {
+   "name": "عد تنازلي لعيد ميلادي",
+   "tags": [
+    "عيد ميلاد",
+    "عد تنازلي",
+    "حفلة",
+    "ايام"
+   ]
+  },
+  "template:r-cuenta-revelar": {
+   "name": "عد تنازلي للكشف",
+   "tags": [
+    "عد تنازلي",
+    "كشف",
+    "مفاجاة",
+    "اعلان"
+   ]
+  },
+  "template:r-cuenta-vacaciones": {
+   "name": "عد تنازلي للإجازة",
+   "tags": [
+    "اجازة",
+    "عطلة",
+    "عد تنازلي",
+    "سفر"
+   ]
+  },
+  "template:r-cumple-adulto": {
+   "name": "عيد ميلاد أنيق",
+   "tags": [
+    "عيد ميلاد",
+    "انيق",
+    "فخم",
+    "حفلة"
+   ]
+  },
+  "template:r-cumple-infantil": {
+   "name": "عيد ميلاد طفل",
+   "tags": [
+    "عيد ميلاد",
+    "اطفال",
+    "حفلة",
+    "بالونات"
+   ]
+  },
+  "template:r-cumple-mama": {
+   "name": "عيد ميلاد أمي",
+   "tags": [
+    "عيد ميلاد",
+    "امي",
+    "عائلة",
+    "حب"
+   ]
+  },
+  "template:r-cumple-ritmo": {
+   "name": "عيد ميلاد على الإيقاع",
+   "tags": [
+    "عيد ميلاد",
+    "ايقاع",
+    "حفلة",
+    "تهنئة"
+   ]
+  },
+  "template:r-despedida-soltera": {
+   "name": "حفلة توديع العزوبية",
+   "tags": [
+    "توديع العزوبية",
+    "عروس",
+    "صديقات",
+    "حفلة"
+   ]
+  },
+  "template:r-detalle-lupa": {
+   "name": "تفاصيل بالعدسة المكبّرة",
+   "tags": [
+    "تفاصيل",
+    "عدسة مكبرة",
+    "منتج",
+    "جودة"
+   ]
+  },
+  "template:r-detras-camaras": {
+   "name": "خلف الكواليس",
+   "tags": [
+    "كواليس",
+    "تصوير",
+    "خلف الكاميرا",
+    "صناعة"
+   ]
+  },
+  "template:r-dia-abuelos": {
+   "name": "يوم الأجداد",
+   "tags": [
+    "اجداد",
+    "جدي",
+    "جدتي",
+    "عائلة"
+   ]
+  },
+  "template:r-dia-madre-floral": {
+   "name": "عيد الأم بالزهور",
+   "tags": [
+    "عيد الام",
+    "زهور",
+    "امي",
+    "حب"
+   ]
+  },
+  "template:r-dia-maestro": {
+   "name": "يوم المعلم",
+   "tags": [
+    "يوم المعلم",
+    "معلم",
+    "شكر",
+    "مدرسة"
+   ]
+  },
+  "template:r-dia-mujer": {
+   "name": "يوم المرأة",
+   "tags": [
+    "يوم المراة",
+    "مراة",
+    "تمكين",
+    "8 مارس"
+   ]
+  },
+  "template:r-dia-nino": {
+   "name": "يوم الطفل",
+   "tags": [
+    "يوم الطفل",
+    "اطفال",
+    "مرح",
+    "العاب"
+   ]
+  },
+  "template:r-dia-padre-deportivo": {
+   "name": "عيد الأب الرياضي",
+   "tags": [
+    "عيد الاب",
+    "رياضة",
+    "ابي",
+    "بطل"
+   ]
+  },
+  "template:r-dia-perfecto": {
+   "name": "يومي المثالي",
+   "tags": [
+    "يوم مثالي",
+    "يوميات",
+    "روتين",
+    "سعادة"
+   ]
+  },
+  "template:r-dia-tierra": {
+   "name": "يوم الأرض",
+   "tags": [
+    "يوم الارض",
+    "بيئة",
+    "طبيعة",
+    "اخضر"
+   ]
+  },
+  "template:r-dia-x-de": {
+   "name": "اليوم X من…",
+   "tags": [
+    "يوم",
+    "تحدي",
+    "يوميات",
+    "سلسلة"
+   ]
+  },
+  "template:r-diario-cinta": {
+   "name": "مذكرات بشريط لاصق",
+   "tags": [
+    "مذكرات",
+    "شريط لاصق",
+    "يوميات",
+    "صور"
+   ]
+  },
+  "template:r-diwali": {
+   "name": "ديوالي سعيد",
+   "tags": [
+    "ديوالي",
+    "اضواء",
+    "مصابيح",
+    "احتفال"
+   ]
+  },
+  "template:r-dump-fecha": {
+   "name": "تفريغ صور بتاريخ الكاميرا",
+   "tags": [
+    "فوتو دمب",
+    "تاريخ",
+    "كاميرا",
+    "ريترو"
+   ]
+  },
+  "template:r-dump-finde": {
+   "name": "تفريغ صور نهاية الأسبوع",
+   "tags": [
+    "فوتو دمب",
+    "نهاية الاسبوع",
+    "ويكند",
+    "صور"
+   ]
+  },
+  "template:r-dump-viaje-mapa": {
+   "name": "تفريغ صور سفر مع خريطة",
+   "tags": [
+    "سفر",
+    "خريطة",
+    "فوتو دمب",
+    "رحلة"
+   ]
+  },
+  "template:r-eid": {
+   "name": "عيد مبارك",
+   "tags": [
+    "عيد",
+    "عيد مبارك",
+    "تهنئة",
+    "عيد الاضحى"
+   ]
+  },
+  "template:r-en-otra-vida": {
+   "name": "في حياة أخرى",
+   "tags": [
+    "حياة اخرى",
+    "عاطفي",
+    "ترند",
+    "حنين"
+   ]
+  },
+  "template:r-en-vivo-ahora": {
+   "name": "مباشر الآن",
+   "tags": [
+    "بث مباشر",
+    "لايف",
+    "الان",
+    "بث"
+   ]
+  },
+  "template:r-envio-gratis": {
+   "name": "متجر إلكتروني: شحن مجاني",
+   "tags": [
+    "شحن مجاني",
+    "متجر الكتروني",
+    "توصيل",
+    "تسوق"
+   ]
+  },
+  "template:r-escuela-musica": {
+   "name": "مدرسة موسيقى",
+   "tags": [
+    "موسيقى",
+    "مدرسة",
+    "دروس",
+    "الات"
+   ]
+  },
+  "template:r-esta-soy-yo": {
+   "name": "هذه أنا",
+   "tags": [
+    "هذه انا",
+    "تعريف",
+    "شخصية",
+    "نص"
+   ]
+  },
+  "template:r-expectativa-realidad": {
+   "name": "التوقع ضد الواقع",
+   "tags": [
+    "توقع",
+    "واقع",
+    "مقارنة",
+    "مضحك"
+   ]
+  },
+  "template:r-farmacia-consejo": {
+   "name": "صيدلية: نصيحة صحية",
+   "tags": [
+    "صيدلية",
+    "صحة",
+    "نصيحة",
+    "دواء"
+   ]
+  },
+  "template:r-ferreteria": {
+   "name": "محل أدوات",
+   "tags": [
+    "عدد وادوات",
+    "ادوات",
+    "خردوات",
+    "بناء"
+   ]
+  },
+  "template:r-fiesta-fin-anio": {
+   "name": "حفلة نهاية العام",
+   "tags": [
+    "نهاية العام",
+    "حفلة",
+    "راس السنة",
+    "احتفال"
+   ]
+  },
+  "template:r-fin-curso": {
+   "name": "نهاية العام الدراسي",
+   "tags": [
+    "نهاية العام",
+    "مدرسة",
+    "عطلة",
+    "طلاب"
+   ]
+  },
+  "template:r-flash-camara": {
+   "name": "فلاشات المصوّرين",
+   "tags": [
+    "فلاش",
+    "باباراتزي",
+    "كاميرا",
+    "نجم"
+   ]
+  },
+  "template:r-floristeria": {
+   "name": "محل زهور",
+   "tags": [
+    "زهور",
+    "ورد",
+    "باقات",
+    "هدايا"
+   ]
+  },
+  "template:r-foto-en-foto": {
+   "name": "صورة داخل صورة",
+   "tags": [
+    "صورة في صورة",
+    "اطار",
+    "كولاج",
+    "تاثير"
+   ]
+  },
+  "template:r-foto-rompe": {
+   "name": "صور تتحطّم",
+   "tags": [
+    "تحطم",
+    "كسر",
+    "زجاج",
+    "تاثير"
+   ]
+  },
+  "template:r-fotografo": {
+   "name": "مصوّر",
+   "tags": [
+    "مصور",
+    "تصوير",
+    "جلسة",
+    "صور"
+   ]
+  },
+  "template:r-fotomaton": {
+   "name": "شريط كشك الصور",
+   "tags": [
+    "كشك صور",
+    "شريط",
+    "اصدقاء",
+    "مرح"
+   ]
+  },
+  "template:r-frase-comunidad": {
+   "name": "خاطرة اليوم للمجتمع",
+   "tags": [
+    "خاطرة",
+    "عبارة",
+    "مجتمع",
+    "الهام"
+   ]
+  },
+  "template:r-frase-pelicula": {
+   "name": "عبارة من فيلم",
+   "tags": [
+    "فيلم",
+    "اقتباس",
+    "سينما",
+    "عبارة"
+   ]
+  },
+  "template:r-frase-subrayada": {
+   "name": "عبارة مسطّرة",
+   "tags": [
+    "عبارة",
+    "تسطير",
+    "اقتباس",
+    "نص"
+   ]
+  },
+  "template:r-giro-camara": {
+   "name": "دوران الكاميرا",
+   "tags": [
+    "دوران",
+    "كاميرا",
+    "انتقال",
+    "حركة"
+   ]
+  },
+  "template:r-gracias-1k": {
+   "name": "شكرًا على 1000 متابع",
+   "tags": [
+    "1000",
+    "متابعين",
+    "شكرا",
+    "احتفال"
+   ]
+  },
+  "template:r-gracias-por-tanto": {
+   "name": "شكرًا على كل شيء",
+   "tags": [
+    "شكرا",
+    "امتنان",
+    "عائلة",
+    "حب"
+   ]
+  },
+  "template:r-graduacion-kinder": {
+   "name": "تخرّج الروضة",
+   "tags": [
+    "روضة",
+    "تخرج",
+    "اطفال",
+    "مدرسة"
+   ]
+  },
+  "template:r-graduacion-universidad": {
+   "name": "تخرّج الجامعة",
+   "tags": [
+    "جامعة",
+    "تخرج",
+    "دفعة",
+    "انجاز"
+   ]
+  },
+  "template:r-grano-analogico": {
+   "name": "فيلم تناظري",
+   "tags": [
+    "تناظري",
+    "حبيبات",
+    "فيلم",
+    "ريترو"
+   ]
+  },
+  "template:r-guardalo": {
+   "name": "احفظه لوقت لاحق",
+   "tags": [
+    "احفظ",
+    "حفظ",
+    "لاحقا",
+    "خاتمة"
+   ]
+  },
+  "template:r-hanukkah": {
+   "name": "حانوكا سعيد",
+   "tags": [
+    "حانوكا",
+    "شموع",
+    "اضواء",
+    "تهنئة"
+   ]
+  },
+  "template:r-hecho-a-mano": {
+   "name": "مشروع صناعة يدوية",
+   "tags": [
+    "يدوي",
+    "حرف",
+    "مشروع",
+    "صنع باليد"
+   ]
+  },
+  "template:r-heladeria": {
+   "name": "محل آيس كريم",
+   "tags": [
+    "ايس كريم",
+    "بوظة",
+    "حلويات",
+    "صيف"
+   ]
+  },
+  "template:r-hilo-post": {
+   "name": "سلسلة منشورات",
+   "tags": [
+    "منشورات",
+    "سلسلة",
+    "تغريدات",
+    "نص"
+   ]
+  },
+  "template:r-hola-soy": {
+   "name": "مرحبًا، أنا…",
+   "tags": [
+    "مرحبا",
+    "تعريف",
+    "مقدمة",
+    "انا"
+   ]
+  },
+  "template:r-holi": {
+   "name": "هولي سعيد",
+   "tags": [
+    "هولي",
+    "الوان",
+    "مهرجان",
+    "بودرة"
+   ]
+  },
+  "template:r-intro-serie": {
+   "name": "افتتاحية مسلسل",
+   "tags": [
+    "مسلسل",
+    "افتتاحية",
+    "حلقة",
+    "مقدمة"
+   ]
+  },
+  "template:r-invierno": {
+   "name": "الشتاء",
+   "tags": [
+    "شتاء",
+    "ثلج",
+    "برد",
+    "دافئ"
+   ]
+  },
+  "template:r-jubilacion": {
+   "name": "تقاعدت!",
+   "tags": [
+    "تقاعد",
+    "احتفال",
+    "عمل",
+    "راحة"
+   ]
+  },
+  "template:r-lavanderia": {
+   "name": "مغسلة ملابس",
+   "tags": [
+    "مغسلة",
+    "غسيل",
+    "ملابس",
+    "تنظيف"
+   ]
+  },
+  "template:r-letra-sube": {
+   "name": "كلمات متصاعدة",
+   "tags": [
+    "كلمات",
+    "اغنية",
+    "نص",
+    "تمرير"
+   ]
+  },
+  "template:r-link-perfil": {
+   "name": "الرابط في البايو",
+   "tags": [
+    "رابط",
+    "بايو",
+    "حساب",
+    "خاتمة"
+   ]
+  },
+  "template:r-lista-pendientes": {
+   "name": "قائمة المهام",
+   "tags": [
+    "مهام",
+    "قائمة",
+    "تنظيم",
+    "انتاجية"
+   ]
+  },
+  "template:r-lo-que-no-se-vio": {
+   "name": "لقطات لم تُعرض",
+   "tags": [
+    "اخطاء",
+    "كواليس",
+    "مضحك",
+    "لقطات"
+   ]
+  },
+  "template:r-logro-deportivo": {
+   "name": "أبطال!",
+   "tags": [
+    "ابطال",
+    "فوز",
+    "كاس",
+    "رياضة"
+   ]
+  },
+  "template:r-luces-fiesta": {
+   "name": "أضواء الحفلة",
+   "tags": [
+    "حفلة",
+    "اضواء",
+    "ديسكو",
+    "ليل"
+   ]
+  },
+  "template:r-lugar-feliz": {
+   "name": "مكاني السعيد",
+   "tags": [
+    "مكان",
+    "سعادة",
+    "هدوء",
+    "طبيعة"
+   ]
+  },
+  "template:r-main-characters": {
+   "name": "أبطال القصة",
+   "tags": [
+    "ابطال",
+    "اصدقاء",
+    "سينمائي",
+    "ترند"
+   ]
+  },
+  "template:r-marco-camara": {
+   "name": "إطار الكاميرا",
+   "tags": [
+    "كاميرا",
+    "اطار",
+    "تسجيل",
+    "صور"
+   ]
+  },
+  "template:r-mas-vendido": {
+   "name": "الأكثر مبيعًا",
+   "tags": [
+    "الاكثر مبيعا",
+    "منتج",
+    "مميز",
+    "متجر"
+   ]
+  },
+  "template:r-mito-verdad": {
+   "name": "خرافة أم حقيقة؟",
+   "tags": [
+    "خرافة",
+    "حقيقة",
+    "معلومات",
+    "تعليمي"
+   ]
+  },
+  "template:r-modo-bestia": {
+   "name": "وضع الوحش",
+   "tags": [
+    "وحش",
+    "جيم",
+    "قوة",
+    "حماس"
+   ]
+  },
+  "template:r-mosaico-3x3": {
+   "name": "فسيفساء 3×3",
+   "tags": [
+    "فسيفساء",
+    "3x3",
+    "شبكة",
+    "صور"
+   ]
+  },
+  "template:r-mudanzas": {
+   "name": "نقل أثاث",
+   "tags": [
+    "نقل اثاث",
+    "شاحنة",
+    "انتقال",
+    "خدمات"
+   ]
+  },
+  "template:r-nadie-yo": {
+   "name": "«لا أحد: / أنا:»",
+   "tags": [
+    "ميم",
+    "لا احد",
+    "انا",
+    "فكاهة"
+   ]
+  },
+  "template:r-navidad-minimal": {
+   "name": "كريسماس بسيط",
+   "tags": [
+    "كريسماس",
+    "بسيط",
+    "تهنئة",
+    "ديسمبر"
+   ]
+  },
+  "template:r-nochebuena": {
+   "name": "ليلة الميلاد في البيت",
+   "tags": [
+    "ليلة الميلاد",
+    "كريسماس",
+    "عائلة",
+    "عشاء"
+   ]
+  },
+  "template:r-nos-vemos-manana": {
+   "name": "نراكم غدًا",
+   "tags": [
+    "غدا",
+    "وداع",
+    "خاتمة",
+    "يتبع"
+   ]
+  },
+  "template:r-nota-celular": {
+   "name": "ملاحظة الجوال",
+   "tags": [
+    "ملاحظات",
+    "جوال",
+    "نص",
+    "مذكرة"
+   ]
+  },
+  "template:r-nuevo-capitulo": {
+   "name": "فصل جديد",
+   "tags": [
+    "فصل جديد",
+    "بداية",
+    "مقدمة",
+    "تغيير"
+   ]
+  },
+  "template:r-nuevo-empleo": {
+   "name": "وظيفة جديدة",
+   "tags": [
+    "وظيفة",
+    "عمل جديد",
+    "انجاز",
+    "تهنئة"
+   ]
+  },
+  "template:r-nuevo-video": {
+   "name": "فيديو جديد!",
+   "tags": [
+    "فيديو جديد",
+    "اعلان",
+    "قناة",
+    "جديد"
+   ]
+  },
+  "template:r-ojo-pez": {
+   "name": "عين السمكة التسعينية",
+   "tags": [
+    "عين السمكة",
+    "تسعينات",
+    "سكيت",
+    "ريترو"
+   ]
+  },
+  "template:r-ong-donaciones": {
+   "name": "حملة تبرعات",
+   "tags": [
+    "تبرعات",
+    "خيري",
+    "حملة",
+    "مساعدة"
+   ]
+  },
+  "template:r-otono-acogedor": {
+   "name": "خريف دافئ",
+   "tags": [
+    "خريف",
+    "دافئ",
+    "اوراق",
+    "قهوة"
+   ]
+  },
+  "template:r-outfit-check": {
+   "name": "تفقّد الإطلالة بالأسهم",
+   "tags": [
+    "اطلالة",
+    "اسهم",
+    "موضة",
+    "ستايل"
+   ]
+  },
+  "template:r-palabra-del-dia": {
+   "name": "كلمة اليوم",
+   "tags": [
+    "كلمة اليوم",
+    "لغة",
+    "تعلم",
+    "مفردات"
+   ]
+  },
+  "template:r-panaderia": {
+   "name": "مخبز: طازج من الفرن",
+   "tags": [
+    "مخبز",
+    "خبز",
+    "معجنات",
+    "طازج"
+   ]
+  },
+  "template:r-pantalla-celular": {
+   "name": "شاشة الجوال",
+   "tags": [
+    "جوال",
+    "شاشة",
+    "هاتف",
+    "تطبيق"
+   ]
+  },
+  "template:r-papa-hijo": {
+   "name": "أبي وأنا",
+   "tags": [
+    "ابي",
+    "اب",
+    "عائلة",
+    "حب"
+   ]
+  },
+  "template:r-pareja-lento": {
+   "name": "مونتاج زوجين هادئ",
+   "tags": [
+    "زوجين",
+    "حب",
+    "بطيء",
+    "رومانسي"
+   ]
+  },
+  "template:r-pareja-ritmo": {
+   "name": "مونتاج زوجين على الإيقاع",
+   "tags": [
+    "زوجين",
+    "حب",
+    "ايقاع",
+    "مونتاج"
+   ]
+  },
+  "template:r-parte-1": {
+   "name": "الجزء 1",
+   "tags": [
+    "الجزء 1",
+    "سلسلة",
+    "بداية",
+    "يتبع"
+   ]
+  },
+  "template:r-pascua": {
+   "name": "فصح سعيد",
+   "tags": [
+    "عيد الفصح",
+    "بيض",
+    "ربيع",
+    "ارانب"
+   ]
+  },
+  "template:r-pastel-velas": {
+   "name": "كعكة وشموع",
+   "tags": [
+    "كعكة",
+    "شموع",
+    "عيد ميلاد",
+    "تورتة"
+   ]
+  },
+  "template:r-peluqueria-mascotas": {
+   "name": "تجميل الحيوانات الأليفة",
+   "tags": [
+    "حيوانات اليفة",
+    "تجميل",
+    "كلاب",
+    "استحمام"
+   ]
+  },
+  "template:r-pensamiento-dia": {
+   "name": "خاطرة اليوم",
+   "tags": [
+    "خاطرة",
+    "تأمل",
+    "عبارة",
+    "الهام"
+   ]
+  },
+  "template:r-plato-del-dia": {
+   "name": "طبق اليوم",
+   "tags": [
+    "طبق اليوم",
+    "مطعم",
+    "اكل",
+    "قائمة"
+   ]
+  },
+  "template:r-poema-corto": {
+   "name": "قصيدة قصيرة",
+   "tags": [
+    "شعر",
+    "قصيدة",
+    "ابيات",
+    "ادب"
+   ]
+  },
+  "template:r-portada-blog": {
+   "name": "غلاف مدونة",
+   "tags": [
+    "مدونة",
+    "غلاف",
+    "عنوان",
+    "مقال"
+   ]
+  },
+  "template:r-pregunta-respuesta": {
+   "name": "سؤال وجواب",
+   "tags": [
+    "سؤال",
+    "جواب",
+    "اسئلة",
+    "تفاعل"
+   ]
+  },
+  "template:r-primavera": {
+   "name": "الربيع",
+   "tags": [
+    "ربيع",
+    "زهور",
+    "طبيعة",
+    "الوان"
+   ]
+  },
+  "template:r-primera-cita": {
+   "name": "موعدنا الأول",
+   "tags": [
+    "موعد",
+    "اول موعد",
+    "حب",
+    "زوجين"
+   ]
+  },
+  "template:r-primera-comunion": {
+   "name": "المناولة الأولى",
+   "tags": [
+    "مناولة",
+    "كنيسة",
+    "طفل",
+    "عائلة"
+   ]
+  },
+  "template:r-producto-360": {
+   "name": "منتج بزاوية 360°",
+   "tags": [
+    "360",
+    "منتج",
+    "دوران",
+    "عرض"
+   ]
+  },
+  "template:r-propuesta": {
+   "name": "قالت نعم!",
+   "tags": [
+    "طلب زواج",
+    "خطوبة",
+    "خاتم",
+    "نعم"
+   ]
+  },
+  "template:r-ramadan": {
+   "name": "رمضان كريم",
+   "tags": [
+    "رمضان",
+    "فانوس",
+    "هلال",
+    "افطار"
+   ]
+  },
+  "template:r-ranking-5-1": {
+   "name": "ترتيب من 5 إلى 1",
+   "tags": [
+    "ترتيب",
+    "توب 5",
+    "قائمة",
+    "افضل"
+   ]
+  },
+  "template:r-reaccion-esquina": {
+   "name": "رد فعل في الزاوية",
+   "tags": [
+    "رد فعل",
+    "زاوية",
+    "رياكشن",
+    "مضحك"
+   ]
+  },
+  "template:r-receta-texto": {
+   "name": "وصفة نصية",
+   "tags": [
+    "وصفة",
+    "طبخ",
+    "مكونات",
+    "نص"
+   ]
+  },
+  "template:r-recorrido-ubicacion": {
+   "name": "جولة بالمواقع",
+   "tags": [
+    "مواقع",
+    "جولة",
+    "سفر",
+    "اماكن"
+   ]
+  },
+  "template:r-recortes-revista": {
+   "name": "قصاصات مجلة",
+   "tags": [
+    "قصاصات",
+    "مجلة",
+    "كولاج",
+    "فني"
+   ]
+  },
+  "template:r-recuerdo-proyector": {
+   "name": "ذكرى على جهاز العرض",
+   "tags": [
+    "جهاز عرض",
+    "ذكريات",
+    "ريترو",
+    "حنين"
+   ]
+  },
+  "template:r-recuerdo-verano": {
+   "name": "ذكرى صيفية",
+   "tags": [
+    "صيف",
+    "ذكريات",
+    "شاطئ",
+    "عطلة"
+   ]
+  },
+  "template:r-reflejo": {
+   "name": "انعكاس على الماء",
+   "tags": [
+    "انعكاس",
+    "ماء",
+    "مراة",
+    "تاثير"
+   ]
+  },
+  "template:r-regreso-clases": {
+   "name": "العودة إلى المدرسة",
+   "tags": [
+    "العودة للمدارس",
+    "مدرسة",
+    "حقيبة",
+    "طلاب"
+   ]
+  },
+  "template:r-rejilla-bordes": {
+   "name": "شبكة بحواف عريضة",
+   "tags": [
+    "شبكة",
+    "حواف",
+    "كولاج",
+    "جريء"
+   ]
+  },
+  "template:r-resena-estrellas": {
+   "name": "تقييم بالنجوم",
+   "tags": [
+    "تقييم",
+    "نجوم",
+    "مراجعة",
+    "راي"
+   ]
+  },
+  "template:r-reto-30-dias": {
+   "name": "تحدي 30 يومًا",
+   "tags": [
+    "تحدي",
+    "30 يوم",
+    "عادات",
+    "هدف"
+   ]
+  },
+  "template:r-sacudida-3d": {
+   "name": "دوران ثلاثي الأبعاد على الإيقاع",
+   "tags": [
+    "3d",
+    "دوران",
+    "ايقاع",
+    "ترند"
+   ]
+  },
+  "template:r-san-valentin-divertido": {
+   "name": "عيد حب مرح",
+   "tags": [
+    "عيد الحب",
+    "مرح",
+    "قلوب",
+    "زوجين"
+   ]
+  },
+  "template:r-si-te-ries": {
+   "name": "إذا ضحكت تخسر",
+   "tags": [
+    "تحدي",
+    "ضحك",
+    "مضحك",
+    "ميم"
+   ]
+  },
+  "template:r-signos": {
+   "name": "الأبراج",
+   "tags": [
+    "ابراج",
+    "فلك",
+    "برج",
+    "حظ"
+   ]
+  },
+  "template:r-siguenos-mas": {
+   "name": "تابعني للمزيد",
+   "tags": [
+    "تابعني",
+    "المزيد",
+    "متابعة",
+    "خاتمة"
+   ]
+  },
+  "template:r-slowmo-destello": {
+   "name": "حركة بطيئة مع وهج",
+   "tags": [
+    "حركة بطيئة",
+    "وهج",
+    "سينمائي",
+    "ضوء"
+   ]
+  },
+  "template:r-spa": {
+   "name": "سبا واسترخاء",
+   "tags": [
+    "سبا",
+    "استرخاء",
+    "تدليك",
+    "عناية"
+   ]
+  },
+  "template:r-split-ritmo": {
+   "name": "شاشة مقسومة على الإيقاع",
+   "tags": [
+    "شاشة مقسومة",
+    "ايقاع",
+    "كولاج",
+    "تقسيم"
+   ]
+  },
+  "template:r-super-ofertas": {
+   "name": "سوبرماركت: عروض",
+   "tags": [
+    "سوبرماركت",
+    "عروض",
+    "خصومات",
+    "تسوق"
+   ]
+  },
+  "template:r-tablero-corcho": {
+   "name": "لوح فلين",
+   "tags": [
+    "لوح",
+    "فلين",
+    "صور",
+    "دبابيس"
+   ]
+  },
+  "template:r-taller-mecanico": {
+   "name": "ورشة ميكانيك",
+   "tags": [
+    "ميكانيك",
+    "سيارات",
+    "ورشة",
+    "صيانة"
+   ]
+  },
+  "template:r-tarjetas-apiladas": {
+   "name": "بطاقات متراكمة",
+   "tags": [
+    "بطاقات",
+    "متراكمة",
+    "صور",
+    "كولاج"
+   ]
+  },
+  "template:r-tienda-barrio": {
+   "name": "بقالة الحي",
+   "tags": [
+    "بقالة",
+    "محل",
+    "حي",
+    "منتجات"
+   ]
+  },
+  "template:r-tierno-stickers": {
+   "name": "لطيف مع ملصقات",
+   "tags": [
+    "لطيف",
+    "ملصقات",
+    "كيوت",
+    "الوان"
+   ]
+  },
+  "template:r-traduccion": {
+   "name": "كيف تقولها؟",
+   "tags": [
+    "ترجمة",
+    "لغات",
+    "تعلم",
+    "كلمات"
+   ]
+  },
+  "template:r-tres-errores": {
+   "name": "3 أخطاء ترتكبها",
+   "tags": [
+    "اخطاء",
+    "نصائح",
+    "تعليمي",
+    "قائمة"
+   ]
+  },
+  "template:r-trivia": {
+   "name": "مسابقة اختيار من متعدد",
+   "tags": [
+    "مسابقة",
+    "اسئلة",
+    "اختيارات",
+    "معلومات"
+   ]
+  },
+  "template:r-unboxing": {
+   "name": "فتح العلبة",
+   "tags": [
+    "انبوكسينج",
+    "فتح علبة",
+    "منتج",
+    "تجربة"
+   ]
+  },
+  "template:r-velocity-duro": {
+   "name": "سرعة متغيرة قوية",
+   "tags": [
+    "فيلوسيتي",
+    "سرعة",
+    "قوي",
+    "ايقاع"
+   ]
+  },
+  "template:r-velocity-suave": {
+   "name": "سرعة متغيرة ناعمة",
+   "tags": [
+    "فيلوسيتي",
+    "سرعة",
+    "ناعم",
+    "ايقاع"
+   ]
+  },
+  "template:r-verano": {
+   "name": "مرحبًا بالصيف",
+   "tags": [
+    "صيف",
+    "شمس",
+    "شاطئ",
+    "عطلة"
+   ]
+  },
+  "template:r-veterinaria": {
+   "name": "عيادة بيطرية",
+   "tags": [
+    "بيطري",
+    "حيوانات",
+    "عيادة",
+    "كلاب"
+   ]
+  },
+  "template:r-vt-horario": {
+   "name": "ساعات العمل عمودي",
+   "tags": [
+    "ساعات العمل",
+    "مواعيد",
+    "عمودي",
+    "محل"
+   ]
+  },
+  "template:r-vt-nombre": {
+   "name": "شريط اسم عمودي",
+   "tags": [
+    "اسم",
+    "شريط",
+    "عمودي",
+    "ريلز"
+   ]
+  },
+  "template:r-vt-precio": {
+   "name": "سعر عمودي",
+   "tags": [
+    "سعر",
+    "منتج",
+    "عمودي",
+    "عرض"
+   ]
+  },
+  "template:r-vt-ubicacion": {
+   "name": "الموقع عمودي",
+   "tags": [
+    "موقع",
+    "مكان",
+    "عمودي",
+    "سفر"
+   ]
+  },
+  "template:r-vt-usuario": {
+   "name": "@اسم المستخدم عمودي",
+   "tags": [
+    "اسم المستخدم",
+    "حساب",
+    "عمودي",
+    "سوشيال"
+   ]
+  },
+  "template:r-yo-vs-yo": {
+   "name": "أنا صغيرًا ضد أنا الآن",
+   "tags": [
+    "طفولة",
+    "الان",
+    "قبل وبعد",
+    "مقارنة"
+   ]
+  },
+  "template:r-zoom-golpe": {
+   "name": "تقريب بضربة",
+   "tags": [
+    "زوم",
+    "ضربة",
+    "ايقاع",
+    "سريع"
+   ]
+  },
+  "template:recap-del-anio": {
+   "name": "سنتي في 12 شهرًا",
+   "tags": [
+    "ملخص",
+    "سنة",
+    "شهور",
+    "ذكريات",
+    "2026"
+   ]
+  },
+  "template:receta-rapida": {
+   "name": "وصفة في 15 ثانية",
+   "tags": [
+    "وصفة",
+    "طبخ",
+    "اكل",
+    "سلطة"
+   ]
+  },
+  "template:red-flags-green-flags": {
+   "name": "علامات حمراء وخضراء",
+   "tags": [
+    "ريد فلاج",
+    "جرين فلاج",
+    "علاقات",
+    "فكاهة"
+   ]
+  },
+  "template:remodelacion": {
+   "name": "المكان قبل وبعد",
+   "tags": [
+    "تجديد",
+    "منزل",
+    "عقارات",
+    "ديكور"
+   ]
+  },
+  "template:resenas-lo-que-dicen": {
+   "name": "ماذا يقول عملاؤنا",
+   "tags": [
+    "مراجعات",
+    "اراء",
+    "عملاء",
+    "5 نجوم"
+   ]
+  },
+  "template:resumen-de-boda": {
+   "name": "ملخص حفل الزفاف",
+   "tags": [
+    "زفاف",
+    "عرس",
+    "ملخص",
+    "سينمائي"
+   ]
+  },
+  "template:revelacion-de-genero": {
+   "name": "كشف جنس المولود",
+   "tags": [
+    "ولد ام بنت",
+    "مولود",
+    "حمل",
+    "كشف"
+   ]
+  },
+  "template:salon-de-belleza-servicios": {
+   "name": "صالون تجميل",
+   "tags": [
+    "صالون",
+    "تجميل",
+    "تصفيف شعر",
+    "خدمات",
+    "مواعيد"
+   ]
+  },
+  "template:san-valentin-carta": {
+   "name": "رسالة حب",
+   "tags": [
+    "عيد الحب",
+    "حب",
+    "زوجين",
+    "رسالة"
+   ]
+  },
+  "template:slowmo-cinematico": {
+   "name": "حركة بطيئة سينمائية",
+   "tags": [
+    "سينمائي",
+    "بطيء",
+    "غروب",
+    "سلو موشن"
+   ]
+  },
+  "template:storytime-les-cuento": {
+   "name": "وقت القصة: سأحكي لكم",
+   "tags": [
+    "قصة",
+    "حكاية",
+    "موقف",
+    "تيك توك"
+   ]
+  },
+  "template:testimonio-cliente-estrellas": {
+   "name": "رأي العميل",
+   "tags": [
+    "شهادة",
+    "عميل",
+    "تقييم",
+    "نجوم",
+    "ثقة"
+   ]
+  },
+  "template:texto-cinetico": {
+   "name": "نص حركي",
+   "tags": [
+    "نص",
+    "تحفيز",
+    "عبارة",
+    "متحرك"
+   ]
+  },
+  "template:tira-pelicula": {
+   "name": "شريط فيلم",
+   "tags": [
+    "فيلم",
+    "تناظري",
+    "شريط",
+    "ريترو"
+   ]
+  },
+  "template:top-5-mas-vendidos": {
+   "name": "أفضل 5 مبيعًا",
+   "tags": [
+    "توب 5",
+    "الاكثر مبيعا",
+    "ترتيب",
+    "ملابس"
+   ]
+  },
+  "template:tour-inmobiliario": {
+   "name": "جولة في عقار",
+   "tags": [
+    "عقارات",
+    "منزل",
+    "بيع",
+    "شقة"
+   ]
+  },
+  "template:transformacion-gym": {
+   "name": "تحول في الجيم",
+   "tags": [
+    "جيم",
+    "لياقة",
+    "تحول",
+    "قبل وبعد"
+   ]
+  },
+  "template:transiciones-al-ritmo": {
+   "name": "انتقالات على الإيقاع",
+   "tags": [
+    "انتقالات",
+    "ايقاع",
+    "اصدقاء",
+    "ترند"
+   ]
+  },
+  "template:tres-consejos": {
+   "name": "3 نصائح لـ…",
+   "tags": [
+    "نصائح",
+    "قائمة",
+    "دراسة",
+    "تعليمي"
+   ]
+  },
+  "template:tutorial-en-3-pasos": {
+   "name": "شرح في 3 خطوات",
+   "tags": [
+    "شرح",
+    "خطوات",
+    "طريقة",
+    "نصائح"
+   ]
+  },
+  "template:ultimo-momento-noticia": {
+   "name": "عاجل",
+   "tags": [
+    "خبر",
+    "عاجل",
+    "اعلان",
+    "مباشر"
+   ]
+  },
+  "template:un-dia-en-mi-vida": {
+   "name": "يوم في حياتي",
+   "tags": [
+    "يوم في حياتي",
+    "روتين",
+    "فلوج",
+    "يوميات"
+   ]
+  },
+  "template:unas-nail-art": {
+   "name": "أظافر وفن الأظافر",
+   "tags": [
+    "اظافر",
+    "مانيكير",
+    "نيل ارت",
+    "جمال"
+   ]
+  },
+  "template:velocity-al-ritmo": {
+   "name": "تأثير السرعة على الإيقاع",
+   "tags": [
+    "فيلوسيتي",
+    "سرعة",
+    "ايقاع",
+    "ترند"
+   ]
+  },
+  "template:vhs-de-los-2000": {
+   "name": "VHS من الألفينات",
+   "tags": [
+    "vhs",
+    "ريترو",
+    "الفينات",
+    "حنين"
+   ]
+  },
+  "template:vlog-de-viaje": {
+   "name": "فلوج سفر قصير",
+   "tags": [
+    "سفر",
+    "فلوج",
+    "سياحة",
+    "رحلة"
+   ]
+  },
+  "template:y2k-brillitos": {
+   "name": "لمعان Y2K",
+   "tags": [
+    "y2k",
+    "لمعان",
+    "وردي",
+    "ستايل"
+   ]
+  },
+  "template:zoom-3d-parallax": {
+   "name": "تقريب ثلاثي الأبعاد",
+   "tags": [
+    "زوم 3d",
+    "بارالاكس",
+    "سفر",
+    "ترند"
+   ]
+  }
+ }
+}
