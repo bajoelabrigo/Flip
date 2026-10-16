@@ -19,6 +19,7 @@
 #include <QStandardPaths>
 #include <algorithm>
 #include <optional>
+#include <utility>
 
 namespace drift {
 namespace {
