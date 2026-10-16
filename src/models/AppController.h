@@ -757,7 +757,8 @@ public:
     bool projectLayoutChosen() const { return m_projectLayoutChosen; }
     Q_INVOKABLE void markProjectLayoutChosen();
     Q_INVOKABLE void selectClip(int trackIndex, int clipIndex);
-    // Selects a clip by id: for callers whose indices went stale because an edit inserted a track.
+    // Selects a clip by id. Pinning a mask or adding an effect inserts a lane and normalization
+    // reorders, so an index captured before the edit is stale by the time there is something to select.
     Q_INVOKABLE bool selectClipById(const QString &clipId);
     Q_INVOKABLE void addToSelection(int trackIndex, int clipIndex);
     Q_INVOKABLE void setSelection(const QVariantList &pairs);
@@ -2077,9 +2078,6 @@ protected:
     // A ready-to-use mask for a maskCatalog() id, Freeform already seeded with the quad its rect
     // implies. An unknown id yields a mask with shape None, which contributes nothing.
     drift::Mask maskFromCatalogId(const QString &shape) const;
-    // Select the clip with this id. Pinning a mask inserts a lane and normalization reorders, so
-    // an index captured before the edit is stale by the time there is something to select.
-    void selectClipById(const QString &clipId);
     // Re-establishes the two structural invariants the adjustment model rests on: no stack sits
     // on a media clip, and every lane is adjacent to and directly above its parent. Both passes
     // can insert or reorder tracks, so the selection is carried across by id. Idempotent and

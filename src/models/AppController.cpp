@@ -15930,14 +15930,6 @@ drift::Mask AppController::maskFromCatalogId(const QString &shape) const
     return mask;
 }
 
-void AppController::selectClipById(const QString &clipId)
-{
-    int foundTrack = -1;
-    int foundClip = -1;
-    if (!clipId.isEmpty() && findClipById(m_project, clipId, &foundTrack, &foundClip))
-        selectClip(foundTrack, foundClip);
-}
-
 QVariantList AppController::maskCatalog() const
 {
     // Ordered as the inspector's shape combo lists them, so the two read alike.
