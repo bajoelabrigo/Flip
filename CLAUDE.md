@@ -58,7 +58,7 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   la Store (0.10.0 + 0.11.0, 996 caracteres) en `docs/store-listing.md`. **Esta sí va a la Store y al TXT `version`.**
 - Release en GitHub, copia en `versiones\FlipStudio-0.11.0`, novedades en la web. **TXT `version` = 0.11.0** (Jorge,
   comprobado en DNS el 2026-10-15). MSIX listo en `tienda\FlipStudio-Store\paquete-0.11.0\FlipStudio-0.11.0.0-x64.msix`
-  (run 38702261969). **Falta:** que Jorge lo suba a Partner Center.
+  (run 38702261969). **Aprobada en la Store (Jorge, 2026-10-16).**
 - Probada en ventana con Jorge («funciona todo ok»):
   - plantillas de un clip y las 10 de recorte como composición «Plantilla: …» (`buildCompositeFromClipIds`);
   - fotogramas en la pista con el triángulo (`TrackKeyframeRows.qml`), editor de curvas opcional;
