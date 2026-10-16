@@ -416,8 +416,8 @@ def corchetes() -> Sticker:
     for side in (-1, 1):
         br = path([(side * -40, -130), (0, -130), (0, 130), (side * -40, 130)])
         s.layer(group(br, stroke("#FFFFFF", 18, sid)), ks=layer_transform(
-            p=anim([(0, [C + side * 30, C, 0], EASE_OUT), (12, [C + side * 214, C, 0], EASE_IN_OUT), (18, [C + side * 196, C, 0], EASE_IN_OUT),
-                    (24, [C + side * 200, C, 0])]),
+            p=anim([(0, [C + side * 30, C, 0], EASE_OUT), (12, [C + side * 184, C, 0], EASE_IN_OUT), (18, [C + side * 166, C, 0], EASE_IN_OUT),
+                    (24, [C + side * 170, C, 0])]),
             o=anim([(0, 0), (4, 100)])))
     return s
 
