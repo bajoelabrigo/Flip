@@ -58,16 +58,16 @@ QString nextPhotoCountBucket(const QString &bucket)
     return i >= 0 && i + 1 < order.size() ? order.at(i + 1) : QString();
 }
 
-double sceneTemplateMatchScore(int slots, const QString &templateShape, int mediaCount, const QString &mediaShape,
+double sceneTemplateMatchScore(int slotCount, const QString &templateShape, int mediaCount, const QString &mediaShape,
                                const QString &projectShape)
 {
-    if (slots <= 0)
+    if (slotCount <= 0)
         return -1.0;
     double score = 100.0;
-    if (slots >= mediaCount)
-        score -= 10.0 * (slots - mediaCount); // empty slots left over: the user has to find more
+    if (slotCount >= mediaCount)
+        score -= 10.0 * (slotCount - mediaCount); // empty slotCount left over: the user has to find more
     else
-        score -= 16.0 * (mediaCount - slots); // pictures left out
+        score -= 16.0 * (mediaCount - slotCount); // pictures left out
     if (!mediaShape.isEmpty() && templateShape == mediaShape)
         score += 30.0;
     // A project that already has a shape keeps it: a template of that shape needs no letterbox.
@@ -158,24 +158,24 @@ void refitSource(Clip &clip, const std::function<TimeUs(const QString &)> &media
 int retimeTemplateSlotsToBeats(QList<Track> &tracks, const QList<TimeUs> &beats, TimeUs minDurationUs,
                                const std::function<TimeUs(const QString &assetId)> &mediaDurationUs)
 {
-    constexpr TimeUs kMaxGapUs = 500'000; // further apart than this, two slots are not one sequence
+    constexpr TimeUs kMaxGapUs = 500'000; // further apart than this, two slotIndices are not one sequence
     int moved = 0;
     QHash<QString, QPair<TimeUs, TimeUs>> movedSpans; // clip id -> new start, duration
     for (Track &track : tracks) {
-        QList<int> slots;
+        QList<int> slotIndices;
         for (int c = 0; c < track.clips.size(); ++c) {
             if (isSlotMedia(track.clips.at(c)))
-                slots.append(c);
+                slotIndices.append(c);
         }
-        std::sort(slots.begin(), slots.end(), [&](int a, int b) {
+        std::sort(slotIndices.begin(), slotIndices.end(), [&](int a, int b) {
             return track.clips.at(a).timelineStart < track.clips.at(b).timelineStart;
         });
         int first = 0;
-        while (first < slots.size()) {
+        while (first < slotIndices.size()) {
             int last = first;
-            while (last + 1 < slots.size()) {
-                const Clip &a = track.clips.at(slots.at(last));
-                const Clip &b = track.clips.at(slots.at(last + 1));
+            while (last + 1 < slotIndices.size()) {
+                const Clip &a = track.clips.at(slotIndices.at(last));
+                const Clip &b = track.clips.at(slotIndices.at(last + 1));
                 if (b.timelineStart <= a.timelineStart || b.timelineStart - a.timelineEnd() > kMaxGapUs)
                     break;
                 ++last;
@@ -183,23 +183,23 @@ int retimeTemplateSlotsToBeats(QList<Track> &tracks, const QList<TimeUs> &beats,
             if (last > first) {
                 QList<TimeUs> cuts;
                 for (int k = first + 1; k <= last; ++k)
-                    cuts.append(track.clips.at(slots.at(k)).timelineStart);
-                const TimeUs start = track.clips.at(slots.at(first)).timelineStart;
-                const TimeUs end = track.clips.at(slots.at(last)).timelineEnd();
+                    cuts.append(track.clips.at(slotIndices.at(k)).timelineStart);
+                const TimeUs start = track.clips.at(slotIndices.at(first)).timelineStart;
+                const TimeUs end = track.clips.at(slotIndices.at(last)).timelineEnd();
                 const QList<TimeUs> snapped = snapCutsToBeats(cuts, beats, start, end, minDurationUs);
                 for (int k = 0; k < cuts.size(); ++k) {
                     const TimeUs delta = snapped.at(k) - cuts.at(k);
                     if (delta == 0)
                         continue;
-                    Clip &a = track.clips[slots.at(first + k)];
-                    Clip &b = track.clips[slots.at(first + k + 1)];
+                    Clip &a = track.clips[slotIndices.at(first + k)];
+                    Clip &b = track.clips[slotIndices.at(first + k + 1)];
                     a.timelineDuration += delta;
                     b.timelineStart += delta;
                     b.timelineDuration -= delta;
                     ++moved;
                 }
                 for (int k = first; k <= last; ++k) {
-                    Clip &clip = track.clips[slots.at(k)];
+                    Clip &clip = track.clips[slotIndices.at(k)];
                     refitSource(clip, mediaDurationUs);
                     movedSpans.insert(clip.id, {clip.timelineStart, clip.timelineDuration});
                 }

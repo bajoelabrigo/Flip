@@ -1327,7 +1327,7 @@ QString AppController::insertSceneTemplateWithMedia(const QString &templateId, c
         return compositeId;
     const drift::Clip *composite = findClipAnywhere(m_project, compositeId);
     const QString assetId = composite ? composite->assetId : QString();
-    const int slots = int(sceneTemplateInfo(assetId).value(QStringLiteral("slots")).toList().size());
+    const int slotCount = int(sceneTemplateInfo(assetId).value(QStringLiteral("slots")).toList().size());
     const int filled = fillTemplateSlotsFromUrls(assetId, QString(), urls);
     int media = 0;
     for (const QUrl &url : urls) {
@@ -1336,10 +1336,10 @@ QString AppController::insertSceneTemplateWithMedia(const QString &templateId, c
     }
     if (media > filled && filled > 0) {
         setLastMessage(tr("Template added with %n of your photos. The rest did not fit: it has %1 slot(s).", "", filled)
-                           .arg(slots),
+                           .arg(slotCount),
                        QStringLiteral("info"));
     } else if (filled > 0) {
-        setLastMessage(slots > filled
+        setLastMessage(slotCount > filled
                            ? tr("Template added with your %n photo(s). Fill the other slots in the panel on the right.",
                                 "", filled)
                            : tr("Template added with your %n photo(s)", "", filled),

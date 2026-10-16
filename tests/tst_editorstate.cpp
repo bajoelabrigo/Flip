@@ -1048,14 +1048,14 @@ void EditorStateTest::sceneTemplateSwapKeepsTheFill()
     });
     QTemporaryDir root;
     QVERIFY(root.isValid());
-    const auto writePackage = [&](const QString &id, int slots, const QList<QPair<QString, int>> &texts) {
+    const auto writePackage = [&](const QString &id, int slotCount, const QList<QPair<QString, int>> &texts) {
         const QString dir = QDir(root.path()).filePath(id);
         QVERIFY(QDir().mkpath(dir));
         drift::Project content;
         content.setResolution(1080, 1920);
         content.tracks().clear();
         drift::Track photos{.type = drift::TrackType::Video};
-        for (int i = 0; i < slots; ++i) {
+        for (int i = 0; i < slotCount; ++i) {
             drift::Clip slot;
             slot.id = QStringLiteral("s%1").arg(i);
             slot.type = drift::ClipType::Image;
@@ -1074,7 +1074,7 @@ void EditorStateTest::sceneTemplateSwapKeepsTheFill()
             text.textContent = texts.at(i).first;
             text.textStyle.pixelSize = texts.at(i).second;
             text.timelineStart = drift::secondsToUs(0.1 * i);
-            text.timelineDuration = drift::secondsToUs(1.0 * slots);
+            text.timelineDuration = drift::secondsToUs(1.0 * slotCount);
             words.clips.append(text);
         }
         content.tracks() = {words, photos};
@@ -1089,8 +1089,8 @@ void EditorStateTest::sceneTemplateSwapKeepsTheFill()
                                                  {QStringLiteral("category"), QStringLiteral("reels")},
                                                  {QStringLiteral("width"), 1080},
                                                  {QStringLiteral("height"), 1920},
-                                                 {QStringLiteral("durationSec"), 1.0 * slots},
-                                                 {QStringLiteral("slots"), slots},
+                                                 {QStringLiteral("durationSec"), 1.0 * slotCount},
+                                                 {QStringLiteral("slots"), slotCount},
                                                  {QStringLiteral("texts"), int(texts.size())}})
                            .toJson());
     };

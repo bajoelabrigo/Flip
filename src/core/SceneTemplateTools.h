@@ -30,7 +30,7 @@ QString nextPhotoCountBucket(const QString &bucket);
 // How well a template fits mediaCount pictures of shape `mediaShape` in a project of
 // projectShape (empty when the project is empty and takes the template's shape). Higher is
 // better; below 0 it is not worth suggesting (no slots at all).
-double sceneTemplateMatchScore(int slots, const QString &templateShape, int mediaCount, const QString &mediaShape,
+double sceneTemplateMatchScore(int slotCount, const QString &templateShape, int mediaCount, const QString &mediaShape,
                                const QString &projectShape);
 
 // --- Fit the cuts to the beat ---------------------------------------------------------------
