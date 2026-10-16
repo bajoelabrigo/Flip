@@ -15,8 +15,8 @@ from kit import (Style, accent, extrude, fill, fx, glow, grad, hard, hollow_fill
 # Caption motion: quick pop by word in, short fade out, as the trend packs do.
 POP_WORD = tslot("pop", 0.22, "back", unit="word", stagger=0.05)
 FADE_OUT = tslot("fade", 0.15, "easeIn")
-KARAOKE_POP = tslot("karaoke-pop", scale=108)
-KARAOKE_BOUNCE = tslot("karaoke-bounce", lift=0.08, scale=106)
+KARAOKE_POP = tslot("karaoke-bounce", lift=0.07, scale=100)
+KARAOKE_BOUNCE = tslot("karaoke-bounce", lift=0.06, scale=100)
 
 
 def sub(id, es, en, sample, font, size, weight, layers, *, acc=None, loop=None, anim_in=POP_WORD, tags=(), **kw):
@@ -34,7 +34,7 @@ def karaoke_color(id, es, en, font, weight, color, sample, *, size=80, line=0.09
 
 def karaoke_pill(id, es, en, font, weight, pill, text, sample, *, size=78, tags=()):
     return sub(id, es, en, sample, font, size, weight, [stroke(0.05), fill("#ffffff")],
-               acc=accent("karaoke", text, pill=pill, pad=0.12, radius=0.16), loop=KARAOKE_BOUNCE,
+               acc=accent("karaoke", text, pill=pill, pad=0.1, radius=0.16, outline=(0.05, pill)), loop=KARAOKE_BOUNCE,
                tags=["karaoke", "caja", "box", "highlight", *tags])
 
 
@@ -103,7 +103,7 @@ SUBTITLES = [
         "Baloo 2", 88, 800, [shadow(dy=0.05, blur=0.08, opacity=0.6), stroke(0.11), fill("#ffffff")],
         acc=accent("karaoke", "#ffd23f", size=1.15), loop=KARAOKE_POP, tags=["emoji", "karaoke", "divertido"]),
     sub("sub-emoji-burbuja", "Burbuja con emoji", "Emoji bubble", ("Me encantó el resultado 😍", "I loved how it turned out 😍"),
-        "Nunito", 66, 900, [fill("#141414")], box="#ffffff", box_shape="pill", box_pad=(0.55, 0.3),
+        "Nunito", 66, 900, [fill("#141414")], box="#ffffff", box_pad=(0.5, 0.3), box_radius=0.6,
         tags=["emoji", "burbuja", "pill"], card="#3b3550"),
     sub("sub-podcast", "Podcast", "Podcast", ("La clave está en la constancia", "The key is consistency"),
         "Sora", 70, 700, [shadow(dy=0.03, blur=0.1, opacity=0.7), fill("#ffffff")],
@@ -137,7 +137,7 @@ SUBTITLES = [
         "Rubik", 78, 800, [stroke(0.07, "#0b1630"), fill("#ffffff")], acc=accent("everyOther", "#4dd9ff"),
         tags=["dos colores", "alterno"]),
     sub("sub-contorno-relleno", "Contorno que se rellena", "Outline to fill", ("Escucha bien cada palabra", "Listen to every word"),
-        "Montserrat", 84, 900, [stroke(0.04, "#ffffff"), hollow_fill()], acc=accent("karaoke", "#ffffff"),
+        "Poppins", 84, 900, [stroke(0.05, "#ffffff", align="center"), hollow_fill()], acc=accent("karaoke", "#ffffff"),
         loop=KARAOKE_POP, tags=["contorno", "hueco", "karaoke"]),
     sub("sub-degradado", "Degradado por palabra", "Gradient words", ("Colores que se mueven contigo", "Colours that move with you"),
         "Outfit", 82, 900, [stroke(0.07, "#2a0d2e"), fill(grad([(0, "#ffd36e"), (1, "#ff4f9a")], 90, space="word"))],
@@ -155,7 +155,7 @@ SUBTITLES = [
         acc=accent("firstWord", "#ffe08a"), anim_in=tslot("wipe", 0.35, "easeOut", angle=0), tags=["noticias", "news"]),
     sub("sub-tierno", "Tierno pastel", "Pastel cute", ("Mi gatito aprendió un truco nuevo", "My kitten learned a new trick"),
         "Fredoka", 76, 700, [stroke(0.07, "#5a1a3a"), fill("#ffffff")],
-        acc=accent("karaoke", "#5a1a3a", pill="#ffb3d9", pad=0.12, radius=0.3), loop=KARAOKE_BOUNCE,
+        acc=accent("karaoke", "#5a1a3a", pill="#ffb3d9", pad=0.1, radius=0.3, outline=(0.07, "#ffb3d9")), loop=KARAOKE_BOUNCE,
         tags=["tierno", "pastel", "cute", "karaoke"]),
 ]
 
@@ -175,7 +175,7 @@ TITLES = [
           "Cinzel", 96, 700, [glow("#ffcc66", 0.35, 0.45), stroke(0.02, "#4a3200"),
                               fill(grad([(0, "#fff4c4"), (0.5, "#e2b04a"), (1, "#8a5a12")], 90))],
           spacing=0.12, anim_in=tslot("blur-in", 0.9, "easeOut"), tags=["cine", "trailer", "dorado"], card="night"),
-    title("tit-espaciado", "Minimal espaciado", "Wide minimal", ("NUEVA COLECCIÓN", "NEW COLLECTION"), "Josefin Sans", 78,
+    title("tit-espaciado", "Minimal espaciado", "Wide minimal", ("NUEVA COLECCIÓN", "NEW COLLECTION"), "Josefin Sans", 62,
           400, [fill("#ffffff")], spacing=0.32, case="upper", anim_in=tslot("snap-together", 0.8, "easeOut"),
           tags=["minimal", "moda", "limpio"]),
     title("tit-editorial", "Editorial en cursiva", "Editorial italic", ("La belleza de lo simple", "The beauty of simple things"),
@@ -209,21 +209,21 @@ TITLES = [
     title("tit-sombras-color", "Sombras de colores", "Colour echoes", ("¡Vamos!", "Let's go!"), "Titan One", 150, 400,
           [hard("#00c9c8", 0.14, 0.14, id="shadow2"), hard("#ff5e5b", 0.07, 0.07), fill("#fff6d6")],
           anim_in=tslot("bounce", 0.6), tags=["sombra", "colores", "divertido"], card="#2b2f6b"),
-    title("tit-destello", "Destello que recorre", "Shine sweep", ("ESTRENO", "PREMIERE"), "Montserrat", 150, 900,
+    title("tit-destello", "Destello que recorre", "Shine sweep", ("ESTRENO", "PREMIERE"), "Montserrat", 120, 900,
           [shadow(dy=0.05, blur=0.12, opacity=0.6), fill("#ffffff"),
            fill(fx("shine", "#00000000", speed=0.45, width=0.18, angle=20, intensity=1.1), id="shine", blend="screen")],
           case="upper", tags=["brillo", "shine", "estreno"], card="#2a1d4f"),
-    title("tit-holografico", "Holográfico", "Holographic", ("FUTURO", "FUTURE"), "Outfit", 170, 900,
+    title("tit-holografico", "Holográfico", "Holographic", ("FUTURO", "FUTURE"), "Outfit", 140, 900,
           [glow("#b9a6ff", 0.3, 0.45), fill(fx("shimmer", "#ffffff", speed=0.3, scale=3, intensity=0.75))],
           case="upper", tags=["holografico", "y2k", "futuro"], card="night"),
     title("tit-rgb", "RGB desplazado", "RGB split", ("SEÑAL", "SIGNAL"), "Bebas Neue", 190, 400,
           [fill("#ff00d4", id="glitcha", offsetX=-0.035, opacity=0.85, blend="screen"),
            fill("#00f0ff", id="glitchb", offsetX=0.035, opacity=0.85, blend="screen"), fill("#ffffff")],
           spacing=0.04, anim_in=tslot("glitch-in", 0.3, "linear"), tags=["glitch", "rgb", "tecnologia"], card="night"),
-    title("tit-pincelada", "Pincelada", "Brush stroke", ("Sabor casero", "Homemade taste"), "Kaushan Script", 104, 400,
+    title("tit-pincelada", "Pincelada", "Brush stroke", ("Sabor casero", "Homemade taste"), "Kaushan Script", 84, 400,
           [fill("#ffffff")], box="#e2412f", box_shape="brush", box_pad=(0.55, 0.32),
           anim_in=tslot("wipe", 0.5, "easeOut", angle=0), tags=["pincel", "comida", "artesanal"]),
-    title("tit-arco", "Título en arco", "Arched title", ("SÚPER VERANO", "SUPER SUMMER"), "Luckiest Guy", 120, 400,
+    title("tit-arco", "Título en arco", "Arched title", ("SÚPER VERANO", "SUPER SUMMER"), "Luckiest Guy", 90, 400,
           [hard("#c2185b", 0.0, 0.07), stroke(0.08, "#c2185b"), fill("#ffe94d")], bend=35, case="upper",
           anim_in=tslot("drop", 0.6, unit="character", stagger=0.04), tags=["arco", "verano", "divertido"],
           card="#1f8fbf"),
@@ -252,15 +252,15 @@ CTAS = [
         [fill("#141414")], box="#ffffff", box_shape="speech", box_pad=(0.6, 0.38), box_border=(0.05, "#141414"),
         tags=["comenta", "comment", "dialogo"]),
     cta("cta-guarda", "Guarda este video", "Save this video", ("Guarda este video 📌", "Save this video 📌"), "Poppins",
-        64, 800, [fill("#111111")], box="#ffffff", box_shape="pill", box_pad=(0.6, 0.32), box_border=(0.06, "#111111"),
+        54, 800, [fill("#111111")], box="#ffffff", box_shape="pill", box_pad=(0.6, 0.32), box_border=(0.06, "#111111"),
         box_offset=(0.0, 0.0), tags=["guardar", "save"], card="#4b6cb7"),
     cta("cta-comparte", "Compártelo", "Share it", ("Compártelo con alguien", "Share it with someone"), "Montserrat", 74,
         900, [glow("#00e5ff", 0.25, 0.5), stroke(0.07, "#05212b"), fill("#ffffff")],
         acc=accent("lastWord", "#00e5ff"), tags=["compartir", "share"]),
     cta("cta-perfil", "Enlace en el perfil", "Link in profile", ("Enlace en el perfil 👆", "Link in profile 👆"), "Inter",
-        62, 800, [fill("#ffffff")], box="#111111", box_shape="pill", box_pad=(0.6, 0.34),
+        54, 800, [fill("#ffffff")], box="#111111", box_shape="pill", box_pad=(0.6, 0.34),
         loop=tslot("float", amount=0.08, speed=0.8), tags=["link", "bio", "perfil"], card="#e9b949"),
-    cta("cta-nuevo", "¡Nuevo!", "New!", ("¡NUEVO!", "NEW!"), "Bangers", 110, 400, [fill("#e3001b")], box="#ffe600",
+    cta("cta-nuevo", "¡Nuevo!", "New!", ("¡NUEVO!", "NEW!"), "Bangers", 84, 400, [fill("#e3001b")], box="#ffe600",
         box_shape="burst", box_pad=(0.8, 0.7), box_border=(0.05, "#e3001b"), spacing=0.03,
         loop=tslot("jitter", amount=1.2, angle=2.5, speed=10), tags=["nuevo", "new", "comic"]),
     cta("cta-espera-final", "Espera al final", "Wait for the end", ("Espera al final… ⏳", "Wait for the end… ⏳"),
@@ -272,7 +272,7 @@ CTAS = [
     cta("cta-desliza", "Desliza", "Swipe", ("Desliza ➜", "Swipe ➜"), "Outfit", 92, 800,
         [glow("#ffffff", 0.3, 0.45), fill("#ffffff")], spacing=0.08, case="upper",
         loop=tslot("wave", amount=0.04, frequency=1.2, phase=20), tags=["desliza", "carrusel", "swipe"], card="#ff6a3d"),
-    cta("cta-mira-esto", "¡Mira esto!", "Look at this!", ("¡MIRA ESTO!", "LOOK AT THIS!"), "Luckiest Guy", 90, 400,
+    cta("cta-mira-esto", "¡Mira esto!", "Look at this!", ("¡MIRA ESTO!", "LOOK AT THIS!"), "Luckiest Guy", 70, 400,
         [fill("#141414")], box="#ffffff", box_shape="shout", box_pad=(0.75, 0.55), box_border=(0.06, "#141414"),
         loop=tslot("jitter", amount=1.0, angle=1.5, speed=8), tags=["mira", "comic", "gancho"], card="#ff8a00"),
     cta("cta-en-vivo", "En vivo", "Live now", ("● EN VIVO", "● LIVE"), "Inter", 66, 800, [fill("#ffffff")],
@@ -300,7 +300,7 @@ LOWER_THIRDS = [
           box="#111111e6", box_pad=(0.45, 0.3), box_radius=0.12, acc=accent("firstWord", "#ffc83d"), line=1.25,
           tags=["entrevista", "caja"]),
     lower("ter-cinta-azul", "Cinta azul", "Blue ribbon", ("Carlos Méndez · Chef", "Carlos Méndez · Chef"), "Montserrat",
-          58, 800, [fill("#ffffff")], box="#2f5bff", box_shape="ribbon", box_pad=(0.7, 0.32), tags=["cinta", "ribbon"]),
+          48, 800, [fill("#ffffff")], box="#2f5bff", box_shape="ribbon", box_pad=(0.7, 0.32), tags=["cinta", "ribbon"]),
     lower("ter-etiqueta", "Etiqueta amarilla", "Yellow tag", ("Laura Kim · Fotógrafa", "Laura Kim · Photographer"), "Inter",
           54, 800, [fill("#151515")], box="#ffd60a", box_shape="tag", box_pad=(0.6, 0.3), tags=["etiqueta", "tag"]),
     lower("ter-subrayado", "Subrayado de color", "Colour underline", NAME, "Montserrat", 58, 700, [fill("#ffffff")],
@@ -343,8 +343,8 @@ def price(id, es, en, sample, font, size, weight, layers, *, tags=(), loop=None,
 
 
 PRICES = [
-    price("pre-estallido", "Estallido de oferta", "Sale burst", ("-50%", "-50%"), "Anton", 150, 400, [fill("#ffffff")],
-          box="#ff1f3d", box_shape="burst", box_pad=(0.6, 0.55), box_border=(0.04, "#ffffff"),
+    price("pre-estallido", "Estallido de oferta", "Sale burst", ("-50%", "-50%"), "Anton", 120, 400, [fill("#ffffff")],
+          box="#ff1f3d", box_shape="burst", box_pad=(0.45, 0.4), box_border=(0.04, "#ffffff"),
           loop=tslot("pulse", amount=6, speed=1.5), tags=["descuento", "porcentaje"]),
     price("pre-etiqueta-verde", "Etiqueta de precio", "Price tag", ("$9.99", "$9.99"), "Poppins", 110, 800,
           [fill("#ffffff")], box="#16a34a", box_shape="tag", box_pad=(0.55, 0.28), tags=["etiqueta", "tag"]),
@@ -357,22 +357,23 @@ PRICES = [
           [hard("#000000", 0.07, 0.07), stroke(0.05), fill("#ffe600")], loop=tslot("jitter", amount=0.8, angle=1, speed=6),
           tags=["precio", "grande"], card="#e63946"),
     price("pre-tachado", "Antes y ahora", "Was and now", ("Antes $49 · Hoy $29", "Was $49 · Now $29"), "Montserrat", 74,
-          900, [stroke(0.06, "#111111"), fill("#ffffff")], acc=accent("lastWord", "#111111", pill="#ffe600", size=1.35),
+          900, [shadow(dy=0.05, blur=0.1, opacity=0.7), fill("#ffffff")],
+          acc=accent("lastWord", "#111111", pill="#ffe600", size=1.35, pad=0.08),
           tags=["antes", "ahora", "rebaja"]),
     price("pre-envio-gratis", "Envío gratis", "Free shipping", ("ENVÍO GRATIS 🚚", "FREE SHIPPING 🚚"), "Inter", 66, 900,
           [fill("#ffffff")], box="#10b981", box_shape="pill", box_pad=(0.55, 0.3), spacing=0.04,
           anim_in=tslot("slide-right", 0.4, "back"), tags=["envio", "gratis", "delivery"]),
     price("pre-viernes-negro", "Viernes de ofertas", "Big sale Friday", ("BLACK FRIDAY", "BLACK FRIDAY"), "Bebas Neue", 150,
           400, [fill("#ffd400")], box="#000000", box_pad=(0.45, 0.16), spacing=0.06,
-          anim_in=tslot("glitch-in", 0.3, "linear"), tags=["black friday", "viernes", "ofertas"], card="#c9c9c9"),
-    price("pre-sello", "Sello de liquidación", "Clearance stamp", ("LIQUIDACIÓN", "CLEARANCE"), "Black Ops One", 100, 400,
+          anim_in=tslot("glitch-in", 0.3, "linear"), tags=["black friday", "viernes", "ofertas"], card="#d9a400"),
+    price("pre-sello", "Sello de liquidación", "Clearance stamp", ("LIQUIDACIÓN", "CLEARANCE"), "Black Ops One", 74, 400,
           [stroke(0.04, "#d7263d", align="center", sketchLength=8, sketchDeviation=2.5), fill("#d7263d", alpha=0.92)],
           box="#00000000", box_pad=(0.35, 0.2), box_border=(0.06, "#d7263d"), box_radius=0.1, card="light",
           anim_in=tslot("stamp", 0.35, "easeIn"), tags=["sello", "stamp", "liquidacion"]),
     price("pre-solo-hoy", "Solo hoy", "Today only", ("Solo hoy", "Today only"), "Shrikhand", 130, 400,
           [glow("#ff8a3d", 0.3, 0.6), stroke(0.05, "#5b1600"), fill(grad([(0, "#fff3b0"), (1, "#ff7a2f")], 90))],
           tags=["solo hoy", "urgente"], card="#3b0d3f"),
-    price("pre-cupon", "Cupón", "Coupon", ("CUPÓN: AHORRA10", "COUPON: SAVE10"), "Sora", 62, 800,
+    price("pre-cupon", "Cupón", "Coupon", ("CUPÓN: AHORRA10", "COUPON: SAVE10"), "Sora", 50, 800,
           [fill("#7a1fa2")], box="#ffffff", box_shape="ticket", box_pad=(0.6, 0.32), box_border=(0.04, "#7a1fa2"),
           spacing=0.04, tags=["cupon", "codigo", "coupon"], card="#7a1fa2"),
     price("pre-neon-descuento", "Descuento neón", "Neon discount", ("-30%", "-30%"), "Audiowide", 170, 400,

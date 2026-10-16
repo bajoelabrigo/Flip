@@ -35,7 +35,7 @@ import anims_a  # noqa: E402
 import anims_b  # noqa: E402
 import styles_a  # noqa: E402
 import styles_b  # noqa: E402
-from kit import ROOT, Style, argb, available_fonts, fill, glow, grad, shadow, stroke  # noqa: E402
+from kit import ROOT, Style, accent, argb, available_fonts, fill, glow, grad, neon_stack, shadow, stroke  # noqa: E402
 
 OUT = ROOT / "tienda" / "textos"
 APPDATA = Path(os.environ["APPDATA"]) / "Flip Studio" / "Flip Studio"
@@ -44,7 +44,7 @@ ACCOUNT_KEY = r"HKCU\Software\Flip Studio\Flip Studio\account"
 EXE = ROOT / "pruebas" / "FlipStudio-0.13.0-arreglo" / "Flip Studio" / "flipstudio.exe"
 BUILTIN_ANIMS = HERE.parents[1] / "presets" / "text-animations"
 
-CARD = 1080       # the render project is CARD x CARD
+CARD = 810        # the render project is CARD x CARD (smaller than a reel, so the card reads bigger)
 THUMB = 384
 PREVIEW = 360
 US = 1_000_000
@@ -92,10 +92,14 @@ BACKDROPS = {
 
 # The text look an animation card is shown in.
 LOOKS = {
-    "bold": dict(font="Montserrat", size=104, weight=900,
+    "bold": dict(font="Montserrat", size=90, weight=900,
                  layers=[shadow(dy=0.05, blur=0.14, opacity=0.6), stroke(0.05, "#16181f"), fill("#ffffff")]),
+    # The engine only tracks the spoken word for a karaoke accent rule, so the card's look has one
+    # (with nothing to show of its own) for the karaoke presets to follow.
     "caption": dict(font="Montserrat", size=86, weight=900,
-                    layers=[shadow(dy=0.05, blur=0.1, opacity=0.6), stroke(0.09), fill("#ffffff")]),
+                    layers=[shadow(dy=0.05, blur=0.1, opacity=0.6), stroke(0.09), fill("#ffffff")],
+                    acc=accent("karaoke")),
+    "neon": dict(font="Montserrat", size=96, weight=800, layers=neon_stack("#ff2fd0")),
     "mono": dict(font="Special Elite", size=92, weight=400, layers=[fill("#f4efe2")]),
     "tech": dict(font="Orbitron", size=88, weight=800,
                  layers=[glow("#00e5ff", 0.25, 0.55), stroke(0.02, "#00e5ff"), fill("#f2feff")]),
@@ -126,7 +130,7 @@ def box(x, y, w, h) -> dict:
     return {"x": kf(x), "y": kf(y), "width": kf(w), "height": kf(h)}
 
 
-def project(text: str, style: dict, seconds: float, colors: tuple[str, str], margin: int = 60) -> dict:
+def project(text: str, style: dict, seconds: float, colors: tuple[str, str], margin: int = 45) -> dict:
     us = int(round(seconds * US))
     inner, outer = colors
     bg = {"kind": "rectangle", "cornerRadius": 0, "layers": [
@@ -160,7 +164,12 @@ def style_job(st: Style) -> dict:
     render_style["valign"] = "middle"  # the card centres captions and lower thirds
     seconds = 3.0
     render = folder / "render.json"
-    render.write_text(json.dumps(project(st.sample[0], render_style, seconds, backdrop(st.card))), encoding="utf-8")
+    # Boxes and bubbles grow past the text: keep them inside the card.
+    margin = 70 + (round(st.box_pad[0] * st.size) if st.box else 0)
+    if st.box and st.box_shape in ("burst", "shout", "cloud", "thought", "oval"):
+        margin += round(0.35 * st.size)  # these shapes reach well past their padding
+    render.write_text(json.dumps(project(st.sample[0], render_style, seconds, backdrop(st.card), margin)),
+                      encoding="utf-8")
     meta = {"id": st.id, "names": {"es": st.es, "en": st.en}, "category": st.category, "tags": st.tags,
             "subtitle": st.subtitle, "durationSec": seconds, "font": st.font, "sample": st.sample[0]}
     (folder / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -196,8 +205,9 @@ def anim_job(an, presets_dir: Path) -> dict:
     text = json.dumps(doc, ensure_ascii=False, indent=1)
     (folder / f"{an.id}.json").write_text(text, encoding="utf-8")
     (presets_dir / f"{an.id}.json").write_text(text, encoding="utf-8")
-    look = LOOKS[an.look]
-    style = Style(an.id, "", "", "", an.sample, look["font"], look["size"], look["weight"], look["layers"]).style_json()
+    look = LOOKS["neon" if an.category == "neon" and an.look == "bold" else an.look]
+    style = Style(an.id, "", "", "", an.sample, look["font"], look["size"], look["weight"], look["layers"],
+                  acc=look.get("acc")).style_json()
     slot = {"preset": an.id}
     if "in" in an.slots:
         style["animation"]["in"] = slot
@@ -215,7 +225,7 @@ def anim_job(an, presets_dir: Path) -> dict:
         at = min(seconds * 0.4, 1.3) if not period else period * 0.42 + (period if period < 1.0 else 0)
     elif an.slots == ["out"]:
         seconds = 0.9 + reveal
-        at = 0.9 + reveal * 0.45
+        at = 0.9 + reveal * 0.3
     elif "in" in an.slots and "out" in an.slots:
         seconds = caret_lead + reveal + hold + reveal
         at = caret_lead + reveal * 0.62
