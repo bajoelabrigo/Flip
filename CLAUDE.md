@@ -46,6 +46,13 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-10-15)
 
+### 0.13.0 PUBLICADA (2026-10-16): Retoque › Cuerpo y Cabello, plantillas propias, 101 plantillas, Stock › Animaciones
+- Rama `flip/plantillas-propias` → PR a `main`, tag `v0.13.0`. Notas en `release-notes/0.13.0.md`; novedades para la
+  Store (0.12.0 + 0.13.0, 1014 caracteres) en `docs/store-listing.md`: la 0.12.0 no llegó a subirse (Jorge: «subimos
+  la versión 13 de una vez»). Extra `cuerpo.cabello` 1.0.0 publicado (paquete primero, índice después).
+- Probado con el ejecutable de la build (run 38844618103): análisis, los cinco retoques y el tinte. **Falta:** mirar
+  el panel en ventana (la pantalla estaba bloqueada y las capturas salían en blanco), que Jorge suba el MSIX y el TXT.
+
 ### 0.11.0 PUBLICADA (2026-10-15): plantillas editables, plantillas como composición, fotogramas en la pista
 - Rama `flip/plantillas-editables` → PR a `main`, tag `v0.11.0`. Notas en `release-notes/0.11.0.md`; novedades para
   la Store (0.10.0 + 0.11.0, 996 caracteres) en `docs/store-listing.md`. **Esta sí va a la Store y al TXT `version`.**
@@ -313,7 +320,7 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
    `Downloads\FlipStudio\tienda\FlipStudio-Store\textos\listingData-FlipStudio-0.9.6.csv`; las capturas nuevas, en
    `FlipStudio-Store\ficha` (`Guion en Voz.jpg` es una foto suelta, no una captura de la app).
    `docs/store-listing.md` ya tiene la descripción del CSV (2026-10-13).
-2. Retoque **Cuerpo** y **Cabello** siguen sin modelo de IA.
+2. ~~Retoque Cuerpo y Cabello sin modelo~~: hecho en la 0.13.0.
 3. Otros idiomas: los nombres de catálogo (contexto `Catalog`) y lo nuevo del texto solo están en
    español.
 4. Web: voz con IA (TTS) espera al backend; las opciones del navegador usan espeak-ng (GPL).
