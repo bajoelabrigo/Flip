@@ -2056,6 +2056,1986 @@
     "wifi"
    ]
   },
+  "background:acuarela-calido": {
+   "name": "水彩（暖色）",
+   "tags": [
+    "水彩",
+    "绘画",
+    "艺术",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:acuarela-frio": {
+   "name": "水彩（冷色）",
+   "tags": [
+    "水彩",
+    "绘画",
+    "艺术",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:acuarela-oscuro": {
+   "name": "水彩（暗色）",
+   "tags": [
+    "水彩",
+    "绘画",
+    "艺术",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:acuarela-vibrante": {
+   "name": "水彩（鲜艳）",
+   "tags": [
+    "水彩",
+    "绘画",
+    "艺术",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:ajedrez-calido": {
+   "name": "流动棋盘格（暖色）",
+   "tags": [
+    "棋盘格",
+    "格子",
+    "复古",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:ajedrez-frio": {
+   "name": "流动棋盘格（冷色）",
+   "tags": [
+    "棋盘格",
+    "格子",
+    "复古",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:ajedrez-oscuro": {
+   "name": "流动棋盘格（暗色）",
+   "tags": [
+    "棋盘格",
+    "格子",
+    "复古",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:ajedrez-vibrante": {
+   "name": "流动棋盘格（鲜艳）",
+   "tags": [
+    "棋盘格",
+    "格子",
+    "复古",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:anio-nuevo": {
+   "name": "新年背景",
+   "tags": [
+    "新年",
+    "干杯",
+    "派对",
+    "背景"
+   ]
+  },
+  "background:anio-nuevo-2": {
+   "name": "新年背景2",
+   "tags": [
+    "新年",
+    "干杯",
+    "派对",
+    "背景"
+   ]
+  },
+  "background:atardecer-calido": {
+   "name": "日落（暖色）",
+   "tags": [
+    "日落",
+    "夕阳",
+    "夏天",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:atardecer-frio": {
+   "name": "日落（冷色）",
+   "tags": [
+    "日落",
+    "夕阳",
+    "夏天",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:atardecer-oscuro": {
+   "name": "日落（暗色）",
+   "tags": [
+    "日落",
+    "夕阳",
+    "夏天",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:atardecer-vibrante": {
+   "name": "日落（鲜艳）",
+   "tags": [
+    "日落",
+    "夕阳",
+    "夏天",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:aurora-calido": {
+   "name": "极光（暖色）",
+   "tags": [
+    "极光",
+    "天空",
+    "夜晚",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:aurora-frio": {
+   "name": "极光（冷色）",
+   "tags": [
+    "极光",
+    "天空",
+    "夜晚",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:aurora-oscuro": {
+   "name": "极光（暗色）",
+   "tags": [
+    "极光",
+    "天空",
+    "夜晚",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:aurora-vibrante": {
+   "name": "极光（鲜艳）",
+   "tags": [
+    "极光",
+    "天空",
+    "夜晚",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:bokeh-calido": {
+   "name": "光斑（暖色）",
+   "tags": [
+    "光斑",
+    "灯光",
+    "虚化",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:bokeh-frio": {
+   "name": "光斑（冷色）",
+   "tags": [
+    "光斑",
+    "灯光",
+    "虚化",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:bokeh-oscuro": {
+   "name": "光斑（暗色）",
+   "tags": [
+    "光斑",
+    "灯光",
+    "虚化",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:bokeh-vibrante": {
+   "name": "光斑（鲜艳）",
+   "tags": [
+    "光斑",
+    "灯光",
+    "虚化",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:burbujas-calido": {
+   "name": "泡泡（暖色）",
+   "tags": [
+    "泡泡",
+    "水",
+    "儿童",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:burbujas-frio": {
+   "name": "泡泡（冷色）",
+   "tags": [
+    "泡泡",
+    "水",
+    "儿童",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:burbujas-oscuro": {
+   "name": "泡泡（暗色）",
+   "tags": [
+    "泡泡",
+    "水",
+    "儿童",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:burbujas-vibrante": {
+   "name": "泡泡（鲜艳）",
+   "tags": [
+    "泡泡",
+    "水",
+    "儿童",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:cielo-estrellado-calido": {
+   "name": "星空（暖色）",
+   "tags": [
+    "星空",
+    "夜晚",
+    "宇宙",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:cielo-estrellado-frio": {
+   "name": "星空（冷色）",
+   "tags": [
+    "星空",
+    "夜晚",
+    "宇宙",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:cielo-estrellado-oscuro": {
+   "name": "星空（暗色）",
+   "tags": [
+    "星空",
+    "夜晚",
+    "宇宙",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:cielo-estrellado-vibrante": {
+   "name": "星空（鲜艳）",
+   "tags": [
+    "星空",
+    "夜晚",
+    "宇宙",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:circuito-calido": {
+   "name": "电路板（暖色）",
+   "tags": [
+    "电路",
+    "科技",
+    "数码",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:circuito-frio": {
+   "name": "电路板（冷色）",
+   "tags": [
+    "电路",
+    "科技",
+    "数码",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:circuito-oscuro": {
+   "name": "电路板（暗色）",
+   "tags": [
+    "电路",
+    "科技",
+    "数码",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:circuito-vibrante": {
+   "name": "电路板（鲜艳）",
+   "tags": [
+    "电路",
+    "科技",
+    "数码",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:circulos-calido": {
+   "name": "同心圆（暖色）",
+   "tags": [
+    "同心圆",
+    "圆环",
+    "催眠",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:circulos-frio": {
+   "name": "同心圆（冷色）",
+   "tags": [
+    "同心圆",
+    "圆环",
+    "催眠",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:circulos-oscuro": {
+   "name": "同心圆（暗色）",
+   "tags": [
+    "同心圆",
+    "圆环",
+    "催眠",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:circulos-vibrante": {
+   "name": "同心圆（鲜艳）",
+   "tags": [
+    "同心圆",
+    "圆环",
+    "催眠",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:colinas-calido": {
+   "name": "起伏山丘（暖色）",
+   "tags": [
+    "山丘",
+    "风景",
+    "扁平",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:colinas-frio": {
+   "name": "起伏山丘（冷色）",
+   "tags": [
+    "山丘",
+    "风景",
+    "扁平",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:colinas-oscuro": {
+   "name": "起伏山丘（暗色）",
+   "tags": [
+    "山丘",
+    "风景",
+    "扁平",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:colinas-vibrante": {
+   "name": "起伏山丘（鲜艳）",
+   "tags": [
+    "山丘",
+    "风景",
+    "扁平",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:confeti-calido": {
+   "name": "柔和彩纸（暖色）",
+   "tags": [
+    "彩纸",
+    "派对",
+    "生日",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:confeti-frio": {
+   "name": "柔和彩纸（冷色）",
+   "tags": [
+    "彩纸",
+    "派对",
+    "生日",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:confeti-oscuro": {
+   "name": "柔和彩纸（暗色）",
+   "tags": [
+    "彩纸",
+    "派对",
+    "生日",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:confeti-vibrante": {
+   "name": "柔和彩纸（鲜艳）",
+   "tags": [
+    "彩纸",
+    "派对",
+    "生日",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:cuadricula-retro-calido": {
+   "name": "复古网格（暖色）",
+   "tags": [
+    "复古",
+    "合成波",
+    "80年代",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:cuadricula-retro-frio": {
+   "name": "复古网格（冷色）",
+   "tags": [
+    "复古",
+    "合成波",
+    "80年代",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:cuadricula-retro-oscuro": {
+   "name": "复古网格（暗色）",
+   "tags": [
+    "复古",
+    "合成波",
+    "80年代",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:cuadricula-retro-vibrante": {
+   "name": "复古网格（鲜艳）",
+   "tags": [
+    "复古",
+    "合成波",
+    "80年代",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:cumpleanos": {
+   "name": "生日背景",
+   "tags": [
+    "生日",
+    "派对",
+    "庆祝",
+    "背景"
+   ]
+  },
+  "background:cumpleanos-2": {
+   "name": "生日背景2",
+   "tags": [
+    "生日",
+    "派对",
+    "庆祝",
+    "背景"
+   ]
+  },
+  "background:degradado-diagonal-calido": {
+   "name": "斜向渐变（暖色）",
+   "tags": [
+    "渐变",
+    "斜向",
+    "彩虹",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:degradado-diagonal-frio": {
+   "name": "斜向渐变（冷色）",
+   "tags": [
+    "渐变",
+    "斜向",
+    "彩虹",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:degradado-diagonal-oscuro": {
+   "name": "斜向渐变（暗色）",
+   "tags": [
+    "渐变",
+    "斜向",
+    "彩虹",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:degradado-diagonal-vibrante": {
+   "name": "斜向渐变（鲜艳）",
+   "tags": [
+    "渐变",
+    "斜向",
+    "彩虹",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:degradado-malla-calido": {
+   "name": "网格渐变（暖色）",
+   "tags": [
+    "渐变",
+    "网格渐变",
+    "现代",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:degradado-malla-frio": {
+   "name": "网格渐变（冷色）",
+   "tags": [
+    "渐变",
+    "网格渐变",
+    "现代",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:degradado-malla-oscuro": {
+   "name": "网格渐变（暗色）",
+   "tags": [
+    "渐变",
+    "网格渐变",
+    "现代",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:degradado-malla-vibrante": {
+   "name": "网格渐变（鲜艳）",
+   "tags": [
+    "渐变",
+    "网格渐变",
+    "现代",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:degradado-movil-calido": {
+   "name": "流动渐变（暖色）",
+   "tags": [
+    "渐变",
+    "流动",
+    "柔和",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:degradado-movil-frio": {
+   "name": "流动渐变（冷色）",
+   "tags": [
+    "渐变",
+    "流动",
+    "柔和",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:degradado-movil-oscuro": {
+   "name": "流动渐变（暗色）",
+   "tags": [
+    "渐变",
+    "流动",
+    "柔和",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:degradado-movil-vibrante": {
+   "name": "流动渐变（鲜艳）",
+   "tags": [
+    "渐变",
+    "流动",
+    "柔和",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:diwali": {
+   "name": "排灯节背景",
+   "tags": [
+    "排灯节",
+    "灯光",
+    "节日",
+    "背景"
+   ]
+  },
+  "background:diwali-2": {
+   "name": "排灯节背景2",
+   "tags": [
+    "排灯节",
+    "灯光",
+    "节日",
+    "背景"
+   ]
+  },
+  "background:ecualizador-calido": {
+   "name": "均衡器（暖色）",
+   "tags": [
+    "均衡器",
+    "音乐",
+    "音频",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:ecualizador-frio": {
+   "name": "均衡器（冷色）",
+   "tags": [
+    "均衡器",
+    "音乐",
+    "音频",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:ecualizador-oscuro": {
+   "name": "均衡器（暗色）",
+   "tags": [
+    "均衡器",
+    "音乐",
+    "音频",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:ecualizador-vibrante": {
+   "name": "均衡器（鲜艳）",
+   "tags": [
+    "均衡器",
+    "音乐",
+    "音频",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:escenario-calido": {
+   "name": "舞台灯光（暖色）",
+   "tags": [
+    "舞台",
+    "演唱会",
+    "灯光",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:escenario-frio": {
+   "name": "舞台灯光（冷色）",
+   "tags": [
+    "舞台",
+    "演唱会",
+    "灯光",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:escenario-oscuro": {
+   "name": "舞台灯光（暗色）",
+   "tags": [
+    "舞台",
+    "演唱会",
+    "灯光",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:escenario-vibrante": {
+   "name": "舞台灯光（鲜艳）",
+   "tags": [
+    "舞台",
+    "演唱会",
+    "灯光",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:espiral-calido": {
+   "name": "螺旋（暖色）",
+   "tags": [
+    "螺旋",
+    "催眠",
+    "漩涡",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:espiral-frio": {
+   "name": "螺旋（冷色）",
+   "tags": [
+    "螺旋",
+    "催眠",
+    "漩涡",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:espiral-oscuro": {
+   "name": "螺旋（暗色）",
+   "tags": [
+    "螺旋",
+    "催眠",
+    "漩涡",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:espiral-vibrante": {
+   "name": "螺旋（鲜艳）",
+   "tags": [
+    "螺旋",
+    "催眠",
+    "漩涡",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:formas-flotantes-calido": {
+   "name": "漂浮图形（暖色）",
+   "tags": [
+    "图形",
+    "几何",
+    "有趣",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:formas-flotantes-frio": {
+   "name": "漂浮图形（冷色）",
+   "tags": [
+    "图形",
+    "几何",
+    "有趣",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:formas-flotantes-oscuro": {
+   "name": "漂浮图形（暗色）",
+   "tags": [
+    "图形",
+    "几何",
+    "有趣",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:formas-flotantes-vibrante": {
+   "name": "漂浮图形（鲜艳）",
+   "tags": [
+    "图形",
+    "几何",
+    "有趣",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:galaxia-calido": {
+   "name": "银河（暖色）",
+   "tags": [
+    "银河",
+    "太空",
+    "宇宙",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:galaxia-frio": {
+   "name": "银河（冷色）",
+   "tags": [
+    "银河",
+    "太空",
+    "宇宙",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:galaxia-oscuro": {
+   "name": "银河（暗色）",
+   "tags": [
+    "银河",
+    "太空",
+    "宇宙",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:galaxia-vibrante": {
+   "name": "银河（鲜艳）",
+   "tags": [
+    "银河",
+    "太空",
+    "宇宙",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:graduacion": {
+   "name": "毕业背景",
+   "tags": [
+    "毕业",
+    "成就",
+    "毕业季",
+    "背景"
+   ]
+  },
+  "background:graduacion-2": {
+   "name": "毕业背景2",
+   "tags": [
+    "毕业",
+    "成就",
+    "毕业季",
+    "背景"
+   ]
+  },
+  "background:halloween": {
+   "name": "万圣节背景",
+   "tags": [
+    "万圣节",
+    "恐怖",
+    "南瓜",
+    "背景"
+   ]
+  },
+  "background:halloween-2": {
+   "name": "万圣节背景2",
+   "tags": [
+    "万圣节",
+    "恐怖",
+    "南瓜",
+    "背景"
+   ]
+  },
+  "background:hexagonos-calido": {
+   "name": "六边形（暖色）",
+   "tags": [
+    "六边形",
+    "蜂巢",
+    "科技",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:hexagonos-frio": {
+   "name": "六边形（冷色）",
+   "tags": [
+    "六边形",
+    "蜂巢",
+    "科技",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:hexagonos-oscuro": {
+   "name": "六边形（暗色）",
+   "tags": [
+    "六边形",
+    "蜂巢",
+    "科技",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:hexagonos-vibrante": {
+   "name": "六边形（鲜艳）",
+   "tags": [
+    "六边形",
+    "蜂巢",
+    "科技",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:humo-color-calido": {
+   "name": "彩色烟雾（暖色）",
+   "tags": [
+    "烟雾",
+    "彩色",
+    "神秘",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:humo-color-frio": {
+   "name": "彩色烟雾（冷色）",
+   "tags": [
+    "烟雾",
+    "彩色",
+    "神秘",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:humo-color-oscuro": {
+   "name": "彩色烟雾（暗色）",
+   "tags": [
+    "烟雾",
+    "彩色",
+    "神秘",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:humo-color-vibrante": {
+   "name": "彩色烟雾（鲜艳）",
+   "tags": [
+    "烟雾",
+    "彩色",
+    "神秘",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:lampara-lava-calido": {
+   "name": "熔岩灯（暖色）",
+   "tags": [
+    "熔岩灯",
+    "复古",
+    "70年代",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:lampara-lava-frio": {
+   "name": "熔岩灯（冷色）",
+   "tags": [
+    "熔岩灯",
+    "复古",
+    "70年代",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:lampara-lava-oscuro": {
+   "name": "熔岩灯（暗色）",
+   "tags": [
+    "熔岩灯",
+    "复古",
+    "70年代",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:lampara-lava-vibrante": {
+   "name": "熔岩灯（鲜艳）",
+   "tags": [
+    "熔岩灯",
+    "复古",
+    "70年代",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:liquido-calido": {
+   "name": "流体（暖色）",
+   "tags": [
+    "流体",
+    "液体",
+    "大理石纹",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:liquido-frio": {
+   "name": "流体（冷色）",
+   "tags": [
+    "流体",
+    "液体",
+    "大理石纹",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:liquido-oscuro": {
+   "name": "流体（暗色）",
+   "tags": [
+    "流体",
+    "液体",
+    "大理石纹",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:liquido-vibrante": {
+   "name": "流体（鲜艳）",
+   "tags": [
+    "流体",
+    "液体",
+    "大理石纹",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:lluvia-luces-calido": {
+   "name": "光雨（暖色）",
+   "tags": [
+    "光雨",
+    "灯光",
+    "派对",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:lluvia-luces-frio": {
+   "name": "光雨（冷色）",
+   "tags": [
+    "光雨",
+    "灯光",
+    "派对",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:lluvia-luces-oscuro": {
+   "name": "光雨（暗色）",
+   "tags": [
+    "光雨",
+    "灯光",
+    "派对",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:lluvia-luces-vibrante": {
+   "name": "光雨（鲜艳）",
+   "tags": [
+    "光雨",
+    "灯光",
+    "派对",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:low-poly-calido": {
+   "name": "低多边形（暖色）",
+   "tags": [
+    "低多边形",
+    "几何",
+    "现代",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:low-poly-frio": {
+   "name": "低多边形（冷色）",
+   "tags": [
+    "低多边形",
+    "几何",
+    "现代",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:low-poly-oscuro": {
+   "name": "低多边形（暗色）",
+   "tags": [
+    "低多边形",
+    "几何",
+    "现代",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:low-poly-vibrante": {
+   "name": "低多边形（鲜艳）",
+   "tags": [
+    "低多边形",
+    "几何",
+    "现代",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:luces-ciudad-calido": {
+   "name": "城市灯光（暖色）",
+   "tags": [
+    "城市",
+    "夜晚",
+    "光斑",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:luces-ciudad-frio": {
+   "name": "城市灯光（冷色）",
+   "tags": [
+    "城市",
+    "夜晚",
+    "光斑",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:luces-ciudad-oscuro": {
+   "name": "城市灯光（暗色）",
+   "tags": [
+    "城市",
+    "夜晚",
+    "光斑",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:luces-ciudad-vibrante": {
+   "name": "城市灯光（鲜艳）",
+   "tags": [
+    "城市",
+    "夜晚",
+    "光斑",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:luciernagas-calido": {
+   "name": "萤火虫（暖色）",
+   "tags": [
+    "萤火虫",
+    "夜晚",
+    "魔法",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:luciernagas-frio": {
+   "name": "萤火虫（冷色）",
+   "tags": [
+    "萤火虫",
+    "夜晚",
+    "魔法",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:luciernagas-oscuro": {
+   "name": "萤火虫（暗色）",
+   "tags": [
+    "萤火虫",
+    "夜晚",
+    "魔法",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:luciernagas-vibrante": {
+   "name": "萤火虫（鲜艳）",
+   "tags": [
+    "萤火虫",
+    "夜晚",
+    "魔法",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:marmol-calido": {
+   "name": "大理石（暖色）",
+   "tags": [
+    "大理石",
+    "优雅",
+    "奢华",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:marmol-frio": {
+   "name": "大理石（冷色）",
+   "tags": [
+    "大理石",
+    "优雅",
+    "奢华",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:marmol-oscuro": {
+   "name": "大理石（暗色）",
+   "tags": [
+    "大理石",
+    "优雅",
+    "奢华",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:marmol-vibrante": {
+   "name": "大理石（鲜艳）",
+   "tags": [
+    "大理石",
+    "优雅",
+    "奢华",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:memphis-calido": {
+   "name": "孟菲斯风格（暖色）",
+   "tags": [
+    "孟菲斯",
+    "80年代",
+    "波普",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:memphis-frio": {
+   "name": "孟菲斯风格（冷色）",
+   "tags": [
+    "孟菲斯",
+    "80年代",
+    "波普",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:memphis-oscuro": {
+   "name": "孟菲斯风格（暗色）",
+   "tags": [
+    "孟菲斯",
+    "80年代",
+    "波普",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:memphis-vibrante": {
+   "name": "孟菲斯风格（鲜艳）",
+   "tags": [
+    "孟菲斯",
+    "80年代",
+    "波普",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:navidad": {
+   "name": "圣诞背景",
+   "tags": [
+    "圣诞",
+    "十二月",
+    "节日",
+    "背景"
+   ]
+  },
+  "background:navidad-2": {
+   "name": "圣诞背景2",
+   "tags": [
+    "圣诞",
+    "十二月",
+    "节日",
+    "背景"
+   ]
+  },
+  "background:neon-calido": {
+   "name": "霓虹线条（暖色）",
+   "tags": [
+    "霓虹",
+    "线条",
+    "赛博",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:neon-frio": {
+   "name": "霓虹线条（冷色）",
+   "tags": [
+    "霓虹",
+    "线条",
+    "赛博",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:neon-oscuro": {
+   "name": "霓虹线条（暗色）",
+   "tags": [
+    "霓虹",
+    "线条",
+    "赛博",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:neon-vibrante": {
+   "name": "霓虹线条（鲜艳）",
+   "tags": [
+    "霓虹",
+    "线条",
+    "赛博",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:nieve-calido": {
+   "name": "飘雪（暖色）",
+   "tags": [
+    "雪",
+    "冬天",
+    "圣诞",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:nieve-frio": {
+   "name": "飘雪（冷色）",
+   "tags": [
+    "雪",
+    "冬天",
+    "圣诞",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:nieve-oscuro": {
+   "name": "飘雪（暗色）",
+   "tags": [
+    "雪",
+    "冬天",
+    "圣诞",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:nieve-vibrante": {
+   "name": "飘雪（鲜艳）",
+   "tags": [
+    "雪",
+    "冬天",
+    "圣诞",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:nubes-calido": {
+   "name": "云朵（暖色）",
+   "tags": [
+    "云朵",
+    "天空",
+    "梦幻",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:nubes-frio": {
+   "name": "云朵（冷色）",
+   "tags": [
+    "云朵",
+    "天空",
+    "梦幻",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:nubes-oscuro": {
+   "name": "云朵（暗色）",
+   "tags": [
+    "云朵",
+    "天空",
+    "梦幻",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:nubes-vibrante": {
+   "name": "云朵（鲜艳）",
+   "tags": [
+    "云朵",
+    "天空",
+    "梦幻",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:ondas-sonido-calido": {
+   "name": "声波（暖色）",
+   "tags": [
+    "声波",
+    "播客",
+    "音乐",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:ondas-sonido-frio": {
+   "name": "声波（冷色）",
+   "tags": [
+    "声波",
+    "播客",
+    "音乐",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:ondas-sonido-oscuro": {
+   "name": "声波（暗色）",
+   "tags": [
+    "声波",
+    "播客",
+    "音乐",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:ondas-sonido-vibrante": {
+   "name": "声波（鲜艳）",
+   "tags": [
+    "声波",
+    "播客",
+    "音乐",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:ondas-suaves-calido": {
+   "name": "柔和波浪（暖色）",
+   "tags": [
+    "波浪",
+    "柔和",
+    "大海",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:ondas-suaves-frio": {
+   "name": "柔和波浪（冷色）",
+   "tags": [
+    "波浪",
+    "柔和",
+    "大海",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:ondas-suaves-oscuro": {
+   "name": "柔和波浪（暗色）",
+   "tags": [
+    "波浪",
+    "柔和",
+    "大海",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:ondas-suaves-vibrante": {
+   "name": "柔和波浪（鲜艳）",
+   "tags": [
+    "波浪",
+    "柔和",
+    "大海",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:otono": {
+   "name": "秋天背景",
+   "tags": [
+    "秋天",
+    "落叶",
+    "感恩节",
+    "背景"
+   ]
+  },
+  "background:otono-2": {
+   "name": "秋天背景2",
+   "tags": [
+    "秋天",
+    "落叶",
+    "感恩节",
+    "背景"
+   ]
+  },
+  "background:papel-calido": {
+   "name": "纸张（暖色）",
+   "tags": [
+    "纸张",
+    "纹理",
+    "复古",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:papel-frio": {
+   "name": "纸张（冷色）",
+   "tags": [
+    "纸张",
+    "纹理",
+    "复古",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:papel-oscuro": {
+   "name": "纸张（暗色）",
+   "tags": [
+    "纸张",
+    "纹理",
+    "复古",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:papel-vibrante": {
+   "name": "纸张（鲜艳）",
+   "tags": [
+    "纸张",
+    "纹理",
+    "复古",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:particulas-calido": {
+   "name": "粒子（暖色）",
+   "tags": [
+    "粒子",
+    "微尘",
+    "平静",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:particulas-frio": {
+   "name": "粒子（冷色）",
+   "tags": [
+    "粒子",
+    "微尘",
+    "平静",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:particulas-oscuro": {
+   "name": "粒子（暗色）",
+   "tags": [
+    "粒子",
+    "微尘",
+    "平静",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:particulas-vibrante": {
+   "name": "粒子（鲜艳）",
+   "tags": [
+    "粒子",
+    "微尘",
+    "平静",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:pizarra-calido": {
+   "name": "黑板（暖色）",
+   "tags": [
+    "黑板",
+    "学校",
+    "教育",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:pizarra-frio": {
+   "name": "黑板（冷色）",
+   "tags": [
+    "黑板",
+    "学校",
+    "教育",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:pizarra-oscuro": {
+   "name": "黑板（暗色）",
+   "tags": [
+    "黑板",
+    "学校",
+    "教育",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:pizarra-vibrante": {
+   "name": "黑板（鲜艳）",
+   "tags": [
+    "黑板",
+    "学校",
+    "教育",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:primavera": {
+   "name": "春天背景",
+   "tags": [
+    "春天",
+    "鲜花",
+    "母亲节",
+    "背景"
+   ]
+  },
+  "background:primavera-2": {
+   "name": "春天背景2",
+   "tags": [
+    "春天",
+    "鲜花",
+    "母亲节",
+    "背景"
+   ]
+  },
+  "background:prisma-calido": {
+   "name": "棱镜（暖色）",
+   "tags": [
+    "棱镜",
+    "彩虹",
+    "氛围感",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:prisma-frio": {
+   "name": "棱镜（冷色）",
+   "tags": [
+    "棱镜",
+    "彩虹",
+    "氛围感",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:prisma-oscuro": {
+   "name": "棱镜（暗色）",
+   "tags": [
+    "棱镜",
+    "彩虹",
+    "氛围感",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:prisma-vibrante": {
+   "name": "棱镜（鲜艳）",
+   "tags": [
+    "棱镜",
+    "彩虹",
+    "氛围感",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:puntos-calido": {
+   "name": "跳动圆点（暖色）",
+   "tags": [
+    "圆点",
+    "波点",
+    "波普",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:puntos-frio": {
+   "name": "跳动圆点（冷色）",
+   "tags": [
+    "圆点",
+    "波点",
+    "波普",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:puntos-oscuro": {
+   "name": "跳动圆点（暗色）",
+   "tags": [
+    "圆点",
+    "波点",
+    "波普",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:puntos-vibrante": {
+   "name": "跳动圆点（鲜艳）",
+   "tags": [
+    "圆点",
+    "波点",
+    "波普",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:ramadan": {
+   "name": "斋月与开斋节背景",
+   "tags": [
+    "斋月",
+    "开斋节",
+    "月亮",
+    "背景"
+   ]
+  },
+  "background:ramadan-2": {
+   "name": "斋月与开斋节背景2",
+   "tags": [
+    "斋月",
+    "开斋节",
+    "月亮",
+    "背景"
+   ]
+  },
+  "background:rayas-calido": {
+   "name": "流动条纹（暖色）",
+   "tags": [
+    "条纹",
+    "线条",
+    "动感",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:rayas-frio": {
+   "name": "流动条纹（冷色）",
+   "tags": [
+    "条纹",
+    "线条",
+    "动感",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:rayas-oscuro": {
+   "name": "流动条纹（暗色）",
+   "tags": [
+    "条纹",
+    "线条",
+    "动感",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:rayas-vibrante": {
+   "name": "流动条纹（鲜艳）",
+   "tags": [
+    "条纹",
+    "线条",
+    "动感",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:rayos-luz-calido": {
+   "name": "光束（暖色）",
+   "tags": [
+    "光束",
+    "天空",
+    "希望",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:rayos-luz-frio": {
+   "name": "光束（冷色）",
+   "tags": [
+    "光束",
+    "天空",
+    "希望",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:rayos-luz-oscuro": {
+   "name": "光束（暗色）",
+   "tags": [
+    "光束",
+    "天空",
+    "希望",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:rayos-luz-vibrante": {
+   "name": "光束（鲜艳）",
+   "tags": [
+    "光束",
+    "天空",
+    "希望",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:rayos-sol-calido": {
+   "name": "旋转光芒（暖色）",
+   "tags": [
+    "光芒",
+    "促销",
+    "儿童",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:rayos-sol-frio": {
+   "name": "旋转光芒（冷色）",
+   "tags": [
+    "光芒",
+    "促销",
+    "儿童",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:rayos-sol-oscuro": {
+   "name": "旋转光芒（暗色）",
+   "tags": [
+    "光芒",
+    "促销",
+    "儿童",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:rayos-sol-vibrante": {
+   "name": "旋转光芒（鲜艳）",
+   "tags": [
+    "光芒",
+    "促销",
+    "儿童",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:san-valentin": {
+   "name": "情人节背景",
+   "tags": [
+    "情人节",
+    "爱情",
+    "爱心",
+    "背景"
+   ]
+  },
+  "background:san-valentin-2": {
+   "name": "情人节背景2",
+   "tags": [
+    "情人节",
+    "爱情",
+    "爱心",
+    "背景"
+   ]
+  },
+  "background:tinta-calido": {
+   "name": "水中墨迹（暖色）",
+   "tags": [
+    "水墨",
+    "墨水",
+    "艺术",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:tinta-frio": {
+   "name": "水中墨迹（冷色）",
+   "tags": [
+    "水墨",
+    "墨水",
+    "艺术",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:tinta-oscuro": {
+   "name": "水中墨迹（暗色）",
+   "tags": [
+    "水墨",
+    "墨水",
+    "艺术",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:tinta-vibrante": {
+   "name": "水中墨迹（鲜艳）",
+   "tags": [
+    "水墨",
+    "墨水",
+    "艺术",
+    "鲜艳",
+    "背景"
+   ]
+  },
+  "background:tunel-calido": {
+   "name": "隧道（暖色）",
+   "tags": [
+    "隧道",
+    "穿梭",
+    "迷幻",
+    "暖色",
+    "背景"
+   ]
+  },
+  "background:tunel-frio": {
+   "name": "隧道（冷色）",
+   "tags": [
+    "隧道",
+    "穿梭",
+    "迷幻",
+    "冷色",
+    "背景"
+   ]
+  },
+  "background:tunel-oscuro": {
+   "name": "隧道（暗色）",
+   "tags": [
+    "隧道",
+    "穿梭",
+    "迷幻",
+    "暗色",
+    "背景"
+   ]
+  },
+  "background:tunel-vibrante": {
+   "name": "隧道（鲜艳）",
+   "tags": [
+    "隧道",
+    "穿梭",
+    "迷幻",
+    "鲜艳",
+    "背景"
+   ]
+  },
   "overlay:amor-corazones": {
    "name": "漂浮爱心",
    "tags": [
@@ -2172,6 +4152,114 @@
     "粉色",
     "婚礼",
     "浪漫"
+   ]
+  },
+  "overlay:cam-bateria-baja": {
+   "name": "电量低",
+   "tags": [
+    "电池",
+    "低电量",
+    "相机",
+    "vlog"
+   ]
+  },
+  "overlay:cam-cuenta-regresiva": {
+   "name": "胶片片头倒计时",
+   "tags": [
+    "倒计时",
+    "电影",
+    "片头",
+    "321"
+   ]
+  },
+  "overlay:cam-en-vivo": {
+   "name": "直播标志（LIVE）",
+   "tags": [
+    "直播",
+    "live",
+    "直播中",
+    "社交"
+   ]
+  },
+  "overlay:cam-enfoque": {
+   "name": "对焦锁定",
+   "tags": [
+    "对焦",
+    "相机",
+    "照片",
+    "自动对焦"
+   ]
+  },
+  "overlay:cam-flash": {
+   "name": "拍照闪光",
+   "tags": [
+    "闪光",
+    "拍照",
+    "相机",
+    "转场"
+   ]
+  },
+  "overlay:cam-grabando-pantalla": {
+   "name": "屏幕录制",
+   "tags": [
+    "录屏",
+    "教程",
+    "屏幕",
+    "手机"
+   ]
+  },
+  "overlay:cam-obturador": {
+   "name": "相机快门",
+   "tags": [
+    "快门",
+    "相机",
+    "拍照",
+    "转场"
+   ]
+  },
+  "overlay:cam-rec": {
+   "name": "相机录制（REC）",
+   "tags": [
+    "rec",
+    "录制",
+    "相机",
+    "取景器"
+   ]
+  },
+  "overlay:cam-rec-minimal": {
+   "name": "极简REC",
+   "tags": [
+    "rec",
+    "录制",
+    "极简",
+    "vlog"
+   ]
+  },
+  "overlay:cam-seguridad": {
+   "name": "监控摄像头",
+   "tags": [
+    "监控",
+    "摄像头",
+    "安防",
+    "恶搞"
+   ]
+  },
+  "overlay:cam-vision-nocturna": {
+   "name": "夜视",
+   "tags": [
+    "夜视",
+    "绿色",
+    "相机",
+    "神秘"
+   ]
+  },
+  "overlay:cam-visor": {
+   "name": "相机取景器",
+   "tags": [
+    "取景器",
+    "网格",
+    "相机",
+    "拍照"
    ]
   },
   "overlay:cel-confeti": {
@@ -2592,6 +4680,43 @@
     "春天"
    ]
   },
+  "overlay:clima-polvo-viento": {
+   "name": "风沙",
+   "tags": [
+    "风沙",
+    "灰尘",
+    "沙子",
+    "风",
+    "自然"
+   ]
+  },
+  "overlay:clima-relampago": {
+   "name": "闪电",
+   "tags": [
+    "闪电",
+    "雷电",
+    "天气",
+    "暴风雨"
+   ]
+  },
+  "overlay:clima-sakura": {
+   "name": "樱花飘落",
+   "tags": [
+    "樱花",
+    "春天",
+    "花朵",
+    "浪漫"
+   ]
+  },
+  "overlay:clima-tormenta": {
+   "name": "雷暴",
+   "tags": [
+    "雷暴",
+    "暴风雨",
+    "闪电",
+    "天气"
+   ]
+  },
   "overlay:garabato-angel": {
    "name": "天使翅膀和光环",
    "tags": [
@@ -2856,6 +4981,51 @@
     "手绘",
     "下划线",
     "强调"
+   ]
+  },
+  "overlay:glitch-bloques": {
+   "name": "色块故障",
+   "tags": [
+    "故障",
+    "色块",
+    "像素",
+    "数码"
+   ]
+  },
+  "overlay:glitch-codigo": {
+   "name": "代码雨",
+   "tags": [
+    "代码",
+    "二进制",
+    "黑客",
+    "数码"
+   ]
+  },
+  "overlay:glitch-estatica": {
+   "name": "电视雪花屏",
+   "tags": [
+    "雪花屏",
+    "电视",
+    "噪点",
+    "信号"
+   ]
+  },
+  "overlay:glitch-rgb": {
+   "name": "RGB故障",
+   "tags": [
+    "故障",
+    "rgb",
+    "数码",
+    "赛博"
+   ]
+  },
+  "overlay:glitch-transicion": {
+   "name": "故障转场",
+   "tags": [
+    "故障",
+    "转场",
+    "数码",
+    "切换"
    ]
   },
   "overlay:luz-arcoiris": {
@@ -3160,6 +5330,96 @@
     "阳光"
    ]
   },
+  "overlay:marco-brillos": {
+   "name": "闪光边框",
+   "tags": [
+    "边框",
+    "闪光",
+    "亮晶晶",
+    "装饰"
+   ]
+  },
+  "overlay:marco-lineas-laterales": {
+   "name": "动感线条",
+   "tags": [
+    "动感线",
+    "动漫",
+    "快速",
+    "运动"
+   ]
+  },
+  "overlay:marco-lineas-velocidad": {
+   "name": "速度线",
+   "tags": [
+    "速度线",
+    "动漫",
+    "漫画",
+    "冲击"
+   ]
+  },
+  "overlay:marco-neon-azul": {
+   "name": "蓝色霓虹边框",
+   "tags": [
+    "边框",
+    "霓虹",
+    "蓝色",
+    "发光"
+   ]
+  },
+  "overlay:marco-neon-rosa": {
+   "name": "粉色霓虹边框",
+   "tags": [
+    "边框",
+    "霓虹",
+    "粉色",
+    "发光"
+   ]
+  },
+  "overlay:marco-papel-cinta": {
+   "name": "胶带纸张边框",
+   "tags": [
+    "边框",
+    "纸张",
+    "胶带",
+    "手账"
+   ]
+  },
+  "overlay:marco-papel-negro": {
+   "name": "黑色剪纸边框",
+   "tags": [
+    "边框",
+    "剪纸",
+    "黑色",
+    "纸张"
+   ]
+  },
+  "overlay:marco-papel-recortado": {
+   "name": "剪纸边框",
+   "tags": [
+    "边框",
+    "剪纸",
+    "纸张",
+    "拼贴"
+   ]
+  },
+  "overlay:marco-polaroid": {
+   "name": "拍立得边框",
+   "tags": [
+    "边框",
+    "拍立得",
+    "照片",
+    "相框"
+   ]
+  },
+  "overlay:marco-semitono": {
+   "name": "漫画网点",
+   "tags": [
+    "网点",
+    "漫画",
+    "波普",
+    "复古"
+   ]
+  },
   "overlay:part-ascendentes": {
    "name": "上升光点",
    "tags": [
@@ -3401,6 +5661,2022 @@
     "太空",
     "星星",
     "超空间"
+   ]
+  },
+  "overlay:pel-8mm": {
+   "name": "8毫米胶片",
+   "tags": [
+    "8毫米",
+    "胶片",
+    "复古",
+    "回忆"
+   ]
+  },
+  "overlay:pel-cine-mudo": {
+   "name": "默片",
+   "tags": [
+    "默片",
+    "老电影",
+    "复古",
+    "怀旧"
+   ]
+  },
+  "overlay:pel-crt": {
+   "name": "老式电视（CRT）",
+   "tags": [
+    "老电视",
+    "crt",
+    "复古",
+    "扫描线"
+   ]
+  },
+  "overlay:pel-flash-blanco": {
+   "name": "胶片闪白",
+   "tags": [
+    "闪白",
+    "胶片",
+    "转场",
+    "白色"
+   ]
+  },
+  "overlay:pel-grano": {
+   "name": "胶片颗粒",
+   "tags": [
+    "颗粒",
+    "胶片",
+    "噪点",
+    "质感"
+   ]
+  },
+  "overlay:pel-grano-16mm": {
+   "name": "16毫米颗粒",
+   "tags": [
+    "颗粒",
+    "16毫米",
+    "胶片",
+    "复古"
+   ]
+  },
+  "overlay:pel-grano-fino": {
+   "name": "细颗粒",
+   "tags": [
+    "颗粒",
+    "细腻",
+    "电影",
+    "胶片"
+   ]
+  },
+  "overlay:pel-grano-fuerte": {
+   "name": "粗颗粒",
+   "tags": [
+    "颗粒",
+    "粗糙",
+    "噪点",
+    "胶片"
+   ]
+  },
+  "overlay:pel-marco-super8": {
+   "name": "Super 8胶片框",
+   "tags": [
+    "胶片框",
+    "8毫米",
+    "边框",
+    "复古"
+   ]
+  },
+  "overlay:pel-polvo-rayas": {
+   "name": "胶片灰尘划痕",
+   "tags": [
+    "胶片",
+    "灰尘",
+    "划痕",
+    "复古"
+   ]
+  },
+  "overlay:pel-polvo-suave": {
+   "name": "轻微灰尘",
+   "tags": [
+    "灰尘",
+    "轻柔",
+    "胶片",
+    "质感"
+   ]
+  },
+  "overlay:pel-quemado": {
+   "name": "胶片烧灼",
+   "tags": [
+    "烧灼",
+    "胶片",
+    "转场",
+    "火光"
+   ]
+  },
+  "overlay:pel-quemado-azul": {
+   "name": "蓝色胶片烧灼",
+   "tags": [
+    "烧灼",
+    "蓝色",
+    "胶片",
+    "转场"
+   ]
+  },
+  "overlay:pel-quemado-bordes": {
+   "name": "边缘胶片烧灼",
+   "tags": [
+    "烧灼",
+    "边缘",
+    "胶片",
+    "转场"
+   ]
+  },
+  "overlay:pel-quemado-centro": {
+   "name": "中心胶片烧灼",
+   "tags": [
+    "烧灼",
+    "中心",
+    "胶片",
+    "转场"
+   ]
+  },
+  "overlay:pel-quemado-rojo": {
+   "name": "红色胶片烧灼",
+   "tags": [
+    "烧灼",
+    "红色",
+    "胶片",
+    "转场"
+   ]
+  },
+  "overlay:pel-quemado-rosa": {
+   "name": "粉色胶片烧灼",
+   "tags": [
+    "烧灼",
+    "粉色",
+    "胶片",
+    "转场"
+   ]
+  },
+  "overlay:pel-tira-35mm": {
+   "name": "35毫米胶片条",
+   "tags": [
+    "35毫米",
+    "胶片条",
+    "边框",
+    "胶卷"
+   ]
+  },
+  "overlay:pel-vhs": {
+   "name": "VHS录像带",
+   "tags": [
+    "vhs",
+    "录像带",
+    "复古",
+    "90年代"
+   ]
+  },
+  "overlay:pel-vhs-pausa": {
+   "name": "VHS暂停",
+   "tags": [
+    "vhs",
+    "暂停",
+    "复古",
+    "录像带"
+   ]
+  },
+  "overlay:pel-vhs-rebobinar": {
+   "name": "VHS倒带",
+   "tags": [
+    "vhs",
+    "倒带",
+    "复古",
+    "转场"
+   ]
+  },
+  "overlay:pel-vhs-rec": {
+   "name": "VHS录制中",
+   "tags": [
+    "vhs",
+    "录制",
+    "rec",
+    "复古"
+   ]
+  },
+  "overlay:textura-grunge": {
+   "name": "做旧纹理",
+   "tags": [
+    "做旧",
+    "纹理",
+    "脏污",
+    "摇滚"
+   ]
+  },
+  "overlay:textura-papel": {
+   "name": "纸张纹理",
+   "tags": [
+    "纹理",
+    "纸张",
+    "复古",
+    "拼贴"
+   ]
+  },
+  "sound:angelical": {
+   "name": "天使之音",
+   "tags": [
+    "天使",
+    "神圣",
+    "天堂",
+    "宁静"
+   ]
+  },
+  "sound:aparicion": {
+   "name": "噗地出现",
+   "tags": [
+    "出现",
+    "噗",
+    "揭晓",
+    "魔法"
+   ]
+  },
+  "sound:aplausos": {
+   "name": "掌声",
+   "tags": [
+    "掌声",
+    "鼓掌",
+    "观众",
+    "喝彩"
+   ]
+  },
+  "sound:arpa-bajada": {
+   "name": "竖琴下滑音",
+   "tags": [
+    "竖琴",
+    "下滑",
+    "回忆",
+    "闪回"
+   ]
+  },
+  "sound:arpa-subida": {
+   "name": "竖琴上滑音",
+   "tags": [
+    "竖琴",
+    "上滑",
+    "梦境",
+    "魔法"
+   ]
+  },
+  "sound:aura": {
+   "name": "闪耀光环",
+   "tags": [
+    "光环",
+    "闪耀",
+    "氛围",
+    "魔法"
+   ]
+  },
+  "sound:ba-dum-tss": {
+   "name": "冷笑话鼓点",
+   "tags": [
+    "冷笑话",
+    "鼓点",
+    "笑话",
+    "搞笑"
+   ]
+  },
+  "sound:bass-drop": {
+   "name": "低音下坠",
+   "tags": [
+    "低音",
+    "drop",
+    "下坠",
+    "重低音"
+   ]
+  },
+  "sound:bass-drop-corto": {
+   "name": "短低音下坠",
+   "tags": [
+    "低音",
+    "drop",
+    "短促",
+    "重低音"
+   ]
+  },
+  "sound:bass-drop-distorsion": {
+   "name": "失真低音下坠",
+   "tags": [
+    "低音",
+    "drop",
+    "失真",
+    "重低音"
+   ]
+  },
+  "sound:bloquear": {
+   "name": "锁屏",
+   "tags": [
+    "锁屏",
+    "锁定",
+    "手机",
+    "界面"
+   ]
+  },
+  "sound:bocina-payaso": {
+   "name": "小丑喇叭",
+   "tags": [
+    "喇叭",
+    "小丑",
+    "搞笑",
+    "滑稽"
+   ]
+  },
+  "sound:bofetada": {
+   "name": "扇耳光",
+   "tags": [
+    "耳光",
+    "巴掌",
+    "搞笑",
+    "打"
+   ]
+  },
+  "sound:boing": {
+   "name": "弹簧boing",
+   "tags": [
+    "弹簧",
+    "弹跳",
+    "搞笑",
+    "卡通"
+   ]
+  },
+  "sound:boing-agudo": {
+   "name": "高音boing",
+   "tags": [
+    "弹簧",
+    "高音",
+    "搞笑",
+    "卡通"
+   ]
+  },
+  "sound:boing-grave": {
+   "name": "低音boing",
+   "tags": [
+    "弹簧",
+    "低音",
+    "搞笑",
+    "卡通"
+   ]
+  },
+  "sound:bombo": {
+   "name": "底鼓",
+   "tags": [
+    "底鼓",
+    "鼓",
+    "节拍",
+    "鼓点"
+   ]
+  },
+  "sound:bonk": {
+   "name": "敲头",
+   "tags": [
+    "敲头",
+    "咚",
+    "搞笑",
+    "木头"
+   ]
+  },
+  "sound:bonus": {
+   "name": "奖励",
+   "tags": [
+    "奖励",
+    "额外",
+    "游戏",
+    "加分"
+   ]
+  },
+  "sound:boom-cine": {
+   "name": "电影轰鸣",
+   "tags": [
+    "轰鸣",
+    "冲击",
+    "电影",
+    "砰"
+   ]
+  },
+  "sound:boom-lejano": {
+   "name": "远处轰鸣",
+   "tags": [
+    "轰鸣",
+    "远处",
+    "冲击",
+    "砰"
+   ]
+  },
+  "sound:boom-profundo": {
+   "name": "深沉轰鸣",
+   "tags": [
+    "轰鸣",
+    "低沉",
+    "冲击",
+    "砰"
+   ]
+  },
+  "sound:braam": {
+   "name": "Braam号角",
+   "tags": [
+    "braam",
+    "预告片",
+    "史诗",
+    "电影"
+   ]
+  },
+  "sound:braam-grave": {
+   "name": "低沉Braam",
+   "tags": [
+    "braam",
+    "预告片",
+    "低沉",
+    "黑暗"
+   ]
+  },
+  "sound:brillo-escena": {
+   "name": "场景切换闪光",
+   "tags": [
+    "闪光",
+    "魔法",
+    "转场",
+    "亮晶晶"
+   ]
+  },
+  "sound:brillo-largo": {
+   "name": "长闪光音",
+   "tags": [
+    "闪光",
+    "魔法",
+    "长",
+    "亮晶晶"
+   ]
+  },
+  "sound:brillo-oscuro": {
+   "name": "神秘闪光",
+   "tags": [
+    "闪光",
+    "神秘",
+    "魔法",
+    "黑暗"
+   ]
+  },
+  "sound:burbujas-magicas": {
+   "name": "魔法泡泡",
+   "tags": [
+    "泡泡",
+    "魔法",
+    "儿童",
+    "可爱"
+   ]
+  },
+  "sound:caida-caricatura": {
+   "name": "卡通摔倒",
+   "tags": [
+    "摔倒",
+    "卡通",
+    "搞笑",
+    "掉落"
+   ]
+  },
+  "sound:caida-larga": {
+   "name": "长下落音效",
+   "tags": [
+    "下落",
+    "降调",
+    "转场",
+    "音效"
+   ]
+  },
+  "sound:caida-objeto": {
+   "name": "物体掉落",
+   "tags": [
+    "掉落",
+    "物体",
+    "撞击",
+    "闷响"
+   ]
+  },
+  "sound:caida-ruido": {
+   "name": "噪音下落",
+   "tags": [
+    "下落",
+    "噪音",
+    "转场",
+    "音效"
+   ]
+  },
+  "sound:caida-sinte": {
+   "name": "合成器下落",
+   "tags": [
+    "下落",
+    "合成器",
+    "转场",
+    "音效"
+   ]
+  },
+  "sound:caja": {
+   "name": "军鼓",
+   "tags": [
+    "军鼓",
+    "鼓",
+    "节拍",
+    "鼓点"
+   ]
+  },
+  "sound:caja-registradora": {
+   "name": "收银机",
+   "tags": [
+    "收银机",
+    "钱",
+    "销售",
+    "叮"
+   ]
+  },
+  "sound:camara-foto": {
+   "name": "相机快门声",
+   "tags": [
+    "快门",
+    "拍照",
+    "相机",
+    "咔嚓"
+   ]
+  },
+  "sound:campana-iglesia": {
+   "name": "教堂钟声",
+   "tags": [
+    "钟声",
+    "教堂",
+    "婚礼",
+    "庄严"
+   ]
+  },
+  "sound:campanas-boda": {
+   "name": "婚礼钟声",
+   "tags": [
+    "婚礼",
+    "钟声",
+    "新人",
+    "庆祝"
+   ]
+  },
+  "sound:campanitas": {
+   "name": "风铃",
+   "tags": [
+    "风铃",
+    "铃声",
+    "轻柔",
+    "清脆"
+   ]
+  },
+  "sound:campanitas-rapidas": {
+   "name": "快速风铃",
+   "tags": [
+    "风铃",
+    "快速",
+    "闪光",
+    "清脆"
+   ]
+  },
+  "sound:captura-pantalla": {
+   "name": "截屏",
+   "tags": [
+    "截屏",
+    "截图",
+    "屏幕",
+    "手机"
+   ]
+  },
+  "sound:carrera-caricatura": {
+   "name": "卡通奔跑",
+   "tags": [
+    "奔跑",
+    "跑",
+    "卡通",
+    "搞笑"
+   ]
+  },
+  "sound:chasquido": {
+   "name": "打响指",
+   "tags": [
+    "响指",
+    "打响指",
+    "手指",
+    "魔法"
+   ]
+  },
+  "sound:chillido-doble": {
+   "name": "双重吱吱",
+   "tags": [
+    "吱吱",
+    "捏捏",
+    "玩具",
+    "搞笑"
+   ]
+  },
+  "sound:chillido-juguete": {
+   "name": "玩具吱吱声",
+   "tags": [
+    "吱吱",
+    "玩具",
+    "捏捏",
+    "宠物"
+   ]
+  },
+  "sound:cinta-frenada": {
+   "name": "磁带刹停",
+   "tags": [
+    "磁带刹停",
+    "停止",
+    "卡顿",
+    "结束"
+   ]
+  },
+  "sound:cinta-frenada-lenta": {
+   "name": "慢速磁带刹停",
+   "tags": [
+    "磁带刹停",
+    "慢速",
+    "结束",
+    "停止"
+   ]
+  },
+  "sound:clic": {
+   "name": "点击",
+   "tags": [
+    "点击",
+    "咔哒",
+    "按钮",
+    "界面"
+   ]
+  },
+  "sound:clic-boligrafo": {
+   "name": "按动圆珠笔",
+   "tags": [
+    "圆珠笔",
+    "按动",
+    "咔哒",
+    "点击"
+   ]
+  },
+  "sound:clic-raton": {
+   "name": "鼠标点击",
+   "tags": [
+    "鼠标",
+    "点击",
+    "电脑",
+    "咔哒"
+   ]
+  },
+  "sound:completado": {
+   "name": "完成提示",
+   "tags": [
+    "完成",
+    "搞定",
+    "提示音",
+    "界面"
+   ]
+  },
+  "sound:contador-puntos": {
+   "name": "计分",
+   "tags": [
+    "计分",
+    "得分",
+    "计数",
+    "游戏"
+   ]
+  },
+  "sound:corneta-aire": {
+   "name": "气笛喇叭",
+   "tags": [
+    "气笛",
+    "喇叭",
+    "派对",
+    "dj"
+   ]
+  },
+  "sound:coro-celestial": {
+   "name": "天籁合唱",
+   "tags": [
+    "合唱",
+    "天籁",
+    "天使",
+    "神圣"
+   ]
+  },
+  "sound:correcto": {
+   "name": "正确提示",
+   "tags": [
+    "正确",
+    "对勾",
+    "成功",
+    "提示音"
+   ]
+  },
+  "sound:cremallera": {
+   "name": "拉链",
+   "tags": [
+    "拉链",
+    "拉开",
+    "衣服",
+    "音效"
+   ]
+  },
+  "sound:cristal": {
+   "name": "玻璃杯叮",
+   "tags": [
+    "玻璃杯",
+    "碰杯",
+    "干杯",
+    "叮"
+   ]
+  },
+  "sound:cuenta-palillos": {
+   "name": "鼓棒数拍",
+   "tags": [
+    "数拍",
+    "1234",
+    "鼓棒",
+    "开场"
+   ]
+  },
+  "sound:dano": {
+   "name": "受伤",
+   "tags": [
+    "受伤",
+    "扣血",
+    "打击",
+    "游戏"
+   ]
+  },
+  "sound:desaparicion": {
+   "name": "消失",
+   "tags": [
+    "消失",
+    "魔法",
+    "噗",
+    "不见"
+   ]
+  },
+  "sound:desbloquear": {
+   "name": "解锁",
+   "tags": [
+    "解锁",
+    "手机",
+    "界面",
+    "提示音"
+   ]
+  },
+  "sound:deslizar-abajo": {
+   "name": "向下滑动",
+   "tags": [
+    "滑动",
+    "下滑",
+    "界面",
+    "音效"
+   ]
+  },
+  "sound:deslizar-arriba": {
+   "name": "向上滑动",
+   "tags": [
+    "滑动",
+    "上滑",
+    "界面",
+    "音效"
+   ]
+  },
+  "sound:deslizar-interfaz": {
+   "name": "屏幕滑动",
+   "tags": [
+    "滑动",
+    "屏幕",
+    "手机",
+    "界面"
+   ]
+  },
+  "sound:despertador": {
+   "name": "闹钟",
+   "tags": [
+    "闹钟",
+    "起床",
+    "早晨",
+    "铃声"
+   ]
+  },
+  "sound:destello-ding": {
+   "name": "闪光叮",
+   "tags": [
+    "叮",
+    "闪光",
+    "干净",
+    "提示"
+   ]
+  },
+  "sound:disco-rayado": {
+   "name": "唱片刮擦",
+   "tags": [
+    "唱片刮擦",
+    "暂停",
+    "尴尬",
+    "搞笑"
+   ]
+  },
+  "sound:disco-rayado-frenada": {
+   "name": "唱片急停",
+   "tags": [
+    "唱片",
+    "急停",
+    "暂停",
+    "搞笑"
+   ]
+  },
+  "sound:dron-metalico": {
+   "name": "金属嗡鸣",
+   "tags": [
+    "嗡鸣",
+    "金属",
+    "工业",
+    "神秘"
+   ]
+  },
+  "sound:dron-oscuro": {
+   "name": "暗黑嗡鸣",
+   "tags": [
+    "嗡鸣",
+    "黑暗",
+    "悬疑",
+    "氛围"
+   ]
+  },
+  "sound:drop-fill": {
+   "name": "鼓点加花",
+   "tags": [
+    "加花",
+    "鼓",
+    "drop",
+    "过门"
+   ]
+  },
+  "sound:error-negativo": {
+   "name": "否定提示音",
+   "tags": [
+    "错误",
+    "否定",
+    "失败",
+    "提示音"
+   ]
+  },
+  "sound:error-zumbido": {
+   "name": "错误蜂鸣",
+   "tags": [
+    "错误",
+    "蜂鸣",
+    "不对",
+    "提示音"
+   ]
+  },
+  "sound:explosion": {
+   "name": "爆炸",
+   "tags": [
+    "爆炸",
+    "炸弹",
+    "轰",
+    "动作"
+   ]
+  },
+  "sound:explosion-8bits": {
+   "name": "8位爆炸",
+   "tags": [
+    "爆炸",
+    "8位",
+    "复古",
+    "游戏"
+   ]
+  },
+  "sound:explosion-lejana": {
+   "name": "远处爆炸",
+   "tags": [
+    "爆炸",
+    "远处",
+    "战争",
+    "轰"
+   ]
+  },
+  "sound:fanfarria": {
+   "name": "号角齐鸣",
+   "tags": [
+    "号角",
+    "小号",
+    "宣布",
+    "开场"
+   ]
+  },
+  "sound:fanfarria-victoria": {
+   "name": "胜利号角",
+   "tags": [
+    "胜利",
+    "号角",
+    "冠军",
+    "奖励"
+   ]
+  },
+  "sound:game-over": {
+   "name": "游戏结束",
+   "tags": [
+    "游戏结束",
+    "失败",
+    "结束",
+    "游戏"
+   ]
+  },
+  "sound:gema": {
+   "name": "宝石",
+   "tags": [
+    "宝石",
+    "钻石",
+    "收集",
+    "游戏"
+   ]
+  },
+  "sound:glitch-corto": {
+   "name": "短促故障音",
+   "tags": [
+    "故障",
+    "数码",
+    "错误",
+    "短促"
+   ]
+  },
+  "sound:glitch-digital": {
+   "name": "数码故障音",
+   "tags": [
+    "故障",
+    "数码",
+    "错误",
+    "电子"
+   ]
+  },
+  "sound:glitch-estatica": {
+   "name": "静电噪声",
+   "tags": [
+    "静电",
+    "噪声",
+    "故障",
+    "信号"
+   ]
+  },
+  "sound:glitch-tartamudeo": {
+   "name": "卡顿故障音",
+   "tags": [
+    "卡顿",
+    "故障",
+    "数码",
+    "错误"
+   ]
+  },
+  "sound:golpe": {
+   "name": "出拳",
+   "tags": [
+    "拳头",
+    "打击",
+    "打架",
+    "冲击"
+   ]
+  },
+  "sound:golpe-dramatico": {
+   "name": "戏剧性重音",
+   "tags": [
+    "戏剧",
+    "震惊",
+    "反转",
+    "当当当"
+   ]
+  },
+  "sound:golpe-dramatico-corto": {
+   "name": "短促戏剧重音",
+   "tags": [
+    "戏剧",
+    "重音",
+    "震惊",
+    "短促"
+   ]
+  },
+  "sound:golpe-fuerte": {
+   "name": "重拳",
+   "tags": [
+    "重击",
+    "拳头",
+    "打架",
+    "冲击"
+   ]
+  },
+  "sound:golpe-glitch": {
+   "name": "故障冲击",
+   "tags": [
+    "故障",
+    "冲击",
+    "数码",
+    "打击"
+   ]
+  },
+  "sound:golpe-metal": {
+   "name": "金属撞击",
+   "tags": [
+    "金属",
+    "撞击",
+    "铁",
+    "冲击"
+   ]
+  },
+  "sound:golpe-metal-agudo": {
+   "name": "清脆金属撞击",
+   "tags": [
+    "金属",
+    "清脆",
+    "撞击",
+    "铃"
+   ]
+  },
+  "sound:gong": {
+   "name": "锣",
+   "tags": [
+    "锣",
+    "开场",
+    "东方",
+    "庄严"
+   ]
+  },
+  "sound:grillos": {
+   "name": "蟋蟀声（尴尬沉默）",
+   "tags": [
+    "蟋蟀",
+    "尴尬",
+    "冷场",
+    "沉默"
+   ]
+  },
+  "sound:hechizo": {
+   "name": "咒语",
+   "tags": [
+    "咒语",
+    "魔法",
+    "施法",
+    "奇幻"
+   ]
+  },
+  "sound:impacto-reverso": {
+   "name": "反向冲击",
+   "tags": [
+    "反向",
+    "冲击",
+    "进场",
+    "悬疑"
+   ]
+  },
+  "sound:impacto-trailer": {
+   "name": "预告片冲击",
+   "tags": [
+    "预告片",
+    "冲击",
+    "电影",
+    "史诗"
+   ]
+  },
+  "sound:impacto-trailer-brillante": {
+   "name": "明亮预告片冲击",
+   "tags": [
+    "预告片",
+    "冲击",
+    "明亮",
+    "史诗"
+   ]
+  },
+  "sound:impacto-trailer-oscuro": {
+   "name": "暗黑预告片冲击",
+   "tags": [
+    "预告片",
+    "冲击",
+    "黑暗",
+    "史诗"
+   ]
+  },
+  "sound:inicio-juego": {
+   "name": "游戏开始",
+   "tags": [
+    "开始",
+    "游戏",
+    "开局",
+    "提示音"
+   ]
+  },
+  "sound:interruptor-apagar": {
+   "name": "关闭开关",
+   "tags": [
+    "开关",
+    "关闭",
+    "咔哒",
+    "界面"
+   ]
+  },
+  "sound:interruptor-encender": {
+   "name": "打开开关",
+   "tags": [
+    "开关",
+    "打开",
+    "咔哒",
+    "界面"
+   ]
+  },
+  "sound:laser": {
+   "name": "激光",
+   "tags": [
+    "激光",
+    "射击",
+    "biu",
+    "科幻"
+   ]
+  },
+  "sound:laser-doble": {
+   "name": "双发激光",
+   "tags": [
+    "激光",
+    "射击",
+    "双发",
+    "游戏"
+   ]
+  },
+  "sound:latido": {
+   "name": "心跳声",
+   "tags": [
+    "心跳",
+    "紧张",
+    "心脏",
+    "悬疑"
+   ]
+  },
+  "sound:latido-rapido": {
+   "name": "急促心跳",
+   "tags": [
+    "心跳",
+    "急促",
+    "害怕",
+    "紧张"
+   ]
+  },
+  "sound:latigazo": {
+   "name": "甩鞭",
+   "tags": [
+    "鞭子",
+    "啪",
+    "快速",
+    "甩鞭"
+   ]
+  },
+  "sound:lluvia-monedas": {
+   "name": "金币雨",
+   "tags": [
+    "金币",
+    "掉落",
+    "游戏",
+    "奖励"
+   ]
+  },
+  "sound:logro": {
+   "name": "成就解锁",
+   "tags": [
+    "成就",
+    "成功",
+    "奖励",
+    "提示音"
+   ]
+  },
+  "sound:maquina-escribir": {
+   "name": "打字机",
+   "tags": [
+    "打字机",
+    "复古",
+    "打字",
+    "文字"
+   ]
+  },
+  "sound:maraca": {
+   "name": "沙锤",
+   "tags": [
+    "沙锤",
+    "节奏",
+    "拉丁",
+    "打击乐"
+   ]
+  },
+  "sound:me-gusta": {
+   "name": "点赞声",
+   "tags": [
+    "点赞",
+    "喜欢",
+    "爱心",
+    "社交"
+   ]
+  },
+  "sound:mensaje-enviado": {
+   "name": "消息已发送",
+   "tags": [
+    "发送",
+    "消息",
+    "聊天",
+    "提示音"
+   ]
+  },
+  "sound:mensaje-recibido": {
+   "name": "收到消息",
+   "tags": [
+    "收到",
+    "消息",
+    "聊天",
+    "提示音"
+   ]
+  },
+  "sound:menu-seleccion": {
+   "name": "菜单选择",
+   "tags": [
+    "菜单",
+    "选择",
+    "游戏",
+    "界面"
+   ]
+  },
+  "sound:moneda": {
+   "name": "金币",
+   "tags": [
+    "金币",
+    "收集",
+    "游戏",
+    "叮"
+   ]
+  },
+  "sound:moneda-doble": {
+   "name": "双金币",
+   "tags": [
+    "金币",
+    "双倍",
+    "游戏",
+    "收集"
+   ]
+  },
+  "sound:notificacion-campanita": {
+   "name": "铃铛通知",
+   "tags": [
+    "通知",
+    "铃铛",
+    "提醒",
+    "提示音"
+   ]
+  },
+  "sound:notificacion-cristal": {
+   "name": "清脆通知",
+   "tags": [
+    "通知",
+    "清脆",
+    "提醒",
+    "提示音"
+   ]
+  },
+  "sound:notificacion-dos-tonos": {
+   "name": "双音通知",
+   "tags": [
+    "通知",
+    "双音",
+    "提醒",
+    "提示音"
+   ]
+  },
+  "sound:notificacion-mensaje": {
+   "name": "新消息提示",
+   "tags": [
+    "通知",
+    "新消息",
+    "提醒",
+    "提示音"
+   ]
+  },
+  "sound:notificacion-suave": {
+   "name": "柔和通知",
+   "tags": [
+    "通知",
+    "柔和",
+    "提醒",
+    "提示音"
+   ]
+  },
+  "sound:palmas": {
+   "name": "拍手",
+   "tags": [
+    "拍手",
+    "掌声",
+    "节拍",
+    "鼓点"
+   ]
+  },
+  "sound:pasar-pagina": {
+   "name": "翻页",
+   "tags": [
+    "翻页",
+    "书本",
+    "纸张",
+    "转场"
+   ]
+  },
+  "sound:platillo": {
+   "name": "吊镲",
+   "tags": [
+    "镲片",
+    "吊镲",
+    "重音",
+    "鼓"
+   ]
+  },
+  "sound:platillo-corto": {
+   "name": "短促镲片",
+   "tags": [
+    "镲片",
+    "短促",
+    "重音",
+    "鼓"
+   ]
+  },
+  "sound:platillo-reverso": {
+   "name": "反向镲片",
+   "tags": [
+    "镲片",
+    "反向",
+    "转场",
+    "铺垫"
+   ]
+  },
+  "sound:platillo-reverso-largo": {
+   "name": "长反向镲片",
+   "tags": [
+    "镲片",
+    "反向",
+    "长",
+    "铺垫"
+   ]
+  },
+  "sound:poder": {
+   "name": "能量提升",
+   "tags": [
+    "能量",
+    "道具",
+    "游戏",
+    "变强"
+   ]
+  },
+  "sound:polvo-hada": {
+   "name": "仙女粉尘",
+   "tags": [
+    "仙女",
+    "粉尘",
+    "魔法",
+    "闪光"
+   ]
+  },
+  "sound:pop": {
+   "name": "啵",
+   "tags": [
+    "啵",
+    "弹出",
+    "文字",
+    "按钮"
+   ]
+  },
+  "sound:pop-agudo": {
+   "name": "高音啵",
+   "tags": [
+    "啵",
+    "高音",
+    "弹出",
+    "文字"
+   ]
+  },
+  "sound:pop-doble": {
+   "name": "双重啵",
+   "tags": [
+    "啵",
+    "双重",
+    "弹出",
+    "文字"
+   ]
+  },
+  "sound:pop-grave": {
+   "name": "低音啵",
+   "tags": [
+    "啵",
+    "低音",
+    "弹出",
+    "文字"
+   ]
+  },
+  "sound:pop-suave": {
+   "name": "轻柔啵",
+   "tags": [
+    "啵",
+    "轻柔",
+    "弹出",
+    "文字"
+   ]
+  },
+  "sound:portazo": {
+   "name": "摔门",
+   "tags": [
+    "摔门",
+    "门",
+    "砰",
+    "撞击"
+   ]
+  },
+  "sound:premio-mayor": {
+   "name": "头奖",
+   "tags": [
+    "头奖",
+    "大奖",
+    "中奖",
+    "赌场"
+   ]
+  },
+  "sound:rafaga-viento": {
+   "name": "一阵风",
+   "tags": [
+    "风声",
+    "嗖",
+    "转场",
+    "呼啸"
+   ]
+  },
+  "sound:rampa-velocidad": {
+   "name": "变速音效",
+   "tags": [
+    "变速",
+    "速度",
+    "转场",
+    "加速"
+   ]
+  },
+  "sound:redoble": {
+   "name": "滚奏鼓",
+   "tags": [
+    "滚奏",
+    "鼓",
+    "悬念",
+    "揭晓"
+   ]
+  },
+  "sound:redoble-platillo": {
+   "name": "滚奏加镲",
+   "tags": [
+    "滚奏",
+    "镲片",
+    "宣布",
+    "揭晓"
+   ]
+  },
+  "sound:reloj": {
+   "name": "时钟滴答",
+   "tags": [
+    "时钟",
+    "滴答",
+    "时间",
+    "倒计时"
+   ]
+  },
+  "sound:reloj-rapido": {
+   "name": "急促滴答",
+   "tags": [
+    "时钟",
+    "急促",
+    "赶时间",
+    "倒计时"
+   ]
+  },
+  "sound:resorte": {
+   "name": "弹簧",
+   "tags": [
+    "弹簧",
+    "弹跳",
+    "搞笑",
+    "卡通"
+   ]
+  },
+  "sound:revelacion": {
+   "name": "揭晓音效",
+   "tags": [
+    "揭晓",
+    "惊喜",
+    "前后对比",
+    "反转"
+   ]
+  },
+  "sound:riser-2s": {
+   "name": "上升音效2秒",
+   "tags": [
+    "上升",
+    "铺垫",
+    "紧张",
+    "2秒"
+   ]
+  },
+  "sound:riser-4s": {
+   "name": "上升音效4秒",
+   "tags": [
+    "上升",
+    "铺垫",
+    "紧张",
+    "4秒"
+   ]
+  },
+  "sound:riser-brillante": {
+   "name": "明亮上升音",
+   "tags": [
+    "上升",
+    "明亮",
+    "铺垫",
+    "转场"
+   ]
+  },
+  "sound:riser-golpe": {
+   "name": "上升加冲击",
+   "tags": [
+    "上升",
+    "冲击",
+    "转场",
+    "砰"
+   ]
+  },
+  "sound:riser-rapido": {
+   "name": "快速上升音",
+   "tags": [
+    "上升",
+    "快速",
+    "铺垫",
+    "紧张"
+   ]
+  },
+  "sound:riser-sinte-2s": {
+   "name": "合成器上升2秒",
+   "tags": [
+    "上升",
+    "合成器",
+    "铺垫",
+    "2秒"
+   ]
+  },
+  "sound:riser-sinte-4s": {
+   "name": "合成器上升4秒",
+   "tags": [
+    "上升",
+    "合成器",
+    "铺垫",
+    "4秒"
+   ]
+  },
+  "sound:riser-tension": {
+   "name": "紧张上升音",
+   "tags": [
+    "上升",
+    "紧张",
+    "悬疑",
+    "铺垫"
+   ]
+  },
+  "sound:salto": {
+   "name": "跳跃",
+   "tags": [
+    "跳跃",
+    "跳",
+    "游戏",
+    "弹跳"
+   ]
+  },
+  "sound:sarten": {
+   "name": "平底锅敲击",
+   "tags": [
+    "平底锅",
+    "敲",
+    "搞笑",
+    "咚"
+   ]
+  },
+  "sound:scratch-dj": {
+   "name": "DJ搓碟",
+   "tags": [
+    "搓碟",
+    "dj",
+    "嘻哈",
+    "唱片"
+   ]
+  },
+  "sound:scratch-doble": {
+   "name": "双重搓碟",
+   "tags": [
+    "搓碟",
+    "dj",
+    "双重",
+    "嘻哈"
+   ]
+  },
+  "sound:seguir": {
+   "name": "新粉丝提示",
+   "tags": [
+    "关注",
+    "粉丝",
+    "订阅",
+    "提示音"
+   ]
+  },
+  "sound:silbato-bajada": {
+   "name": "下滑哨音",
+   "tags": [
+    "哨子",
+    "下滑",
+    "掉落",
+    "搞笑"
+   ]
+  },
+  "sound:silbato-subida": {
+   "name": "上滑哨音",
+   "tags": [
+    "哨子",
+    "上滑",
+    "搞笑",
+    "卡通"
+   ]
+  },
+  "sound:sirena": {
+   "name": "警笛",
+   "tags": [
+    "警笛",
+    "警报",
+    "警察",
+    "紧急"
+   ]
+  },
+  "sound:sub-drop": {
+   "name": "超低音下坠",
+   "tags": [
+    "超低音",
+    "drop",
+    "下坠",
+    "重低音"
+   ]
+  },
+  "sound:subir-nivel": {
+   "name": "升级",
+   "tags": [
+    "升级",
+    "等级",
+    "游戏",
+    "成就"
+   ]
+  },
+  "sound:susto-terror": {
+   "name": "惊吓",
+   "tags": [
+    "惊吓",
+    "恐怖",
+    "吓人",
+    "害怕"
+   ]
+  },
+  "sound:swoosh-titulo": {
+   "name": "标题嗖声",
+   "tags": [
+    "嗖",
+    "标题",
+    "转场",
+    "文字"
+   ]
+  },
+  "sound:tambaleo": {
+   "name": "摇晃",
+   "tags": [
+    "摇晃",
+    "晕",
+    "搞笑",
+    "卡通"
+   ]
+  },
+  "sound:tambor-taiko": {
+   "name": "太鼓",
+   "tags": [
+    "太鼓",
+    "鼓",
+    "史诗",
+    "打击"
+   ]
+  },
+  "sound:tambor-taiko-doble": {
+   "name": "双击太鼓",
+   "tags": [
+    "太鼓",
+    "双击",
+    "鼓",
+    "史诗"
+   ]
+  },
+  "sound:teclado": {
+   "name": "键盘打字",
+   "tags": [
+    "键盘",
+    "打字",
+    "电脑",
+    "敲击"
+   ]
+  },
+  "sound:teclado-mecanico": {
+   "name": "机械键盘",
+   "tags": [
+    "机械键盘",
+    "键盘",
+    "游戏",
+    "解压"
+   ]
+  },
+  "sound:teclado-rapido": {
+   "name": "快速打字",
+   "tags": [
+    "键盘",
+    "快速",
+    "打字",
+    "黑客"
+   ]
+  },
+  "sound:teletransporte": {
+   "name": "瞬移",
+   "tags": [
+    "瞬移",
+    "传送",
+    "科幻",
+    "消失"
+   ]
+  },
+  "sound:tension-subiendo": {
+   "name": "紧张升级",
+   "tags": [
+    "紧张",
+    "悬疑",
+    "上升",
+    "害怕"
+   ]
+  },
+  "sound:toque": {
+   "name": "轻触",
+   "tags": [
+    "轻触",
+    "点击",
+    "屏幕",
+    "手机"
+   ]
+  },
+  "sound:toque-doble": {
+   "name": "双击",
+   "tags": [
+    "双击",
+    "点击",
+    "点赞",
+    "屏幕"
+   ]
+  },
+  "sound:transicion-foto": {
+   "name": "拍照转场音",
+   "tags": [
+    "拍照",
+    "相机",
+    "转场",
+    "快门"
+   ]
+  },
+  "sound:trombon-triste": {
+   "name": "悲伤长号",
+   "tags": [
+    "长号",
+    "悲伤",
+    "失败",
+    "搞笑"
+   ]
+  },
+  "sound:trueno": {
+   "name": "雷声",
+   "tags": [
+    "雷声",
+    "打雷",
+    "暴风雨",
+    "闪电"
+   ]
+  },
+  "sound:varita-magica": {
+   "name": "魔法棒",
+   "tags": [
+    "魔法棒",
+    "仙女",
+    "魔法",
+    "闪光"
+   ]
+  },
+  "sound:varita-subida": {
+   "name": "魔法棒上升",
+   "tags": [
+    "魔法棒",
+    "上升",
+    "魔法",
+    "出现"
+   ]
+  },
+  "sound:victoria-8bits": {
+   "name": "8位胜利",
+   "tags": [
+    "胜利",
+    "赢",
+    "8位",
+    "游戏"
+   ]
+  },
+  "sound:vida-extra": {
+   "name": "额外生命",
+   "tags": [
+    "加命",
+    "1up",
+    "游戏",
+    "奖励"
+   ]
+  },
+  "sound:viento-misterio": {
+   "name": "诡异风声",
+   "tags": [
+    "风声",
+    "神秘",
+    "恐怖",
+    "夜晚"
+   ]
+  },
+  "sound:vinilo": {
+   "name": "黑胶噼啪声",
+   "tags": [
+    "黑胶",
+    "唱片",
+    "噼啪",
+    "复古"
+   ]
+  },
+  "sound:whoosh": {
+   "name": "嗖",
+   "tags": [
+    "嗖",
+    "呼啸",
+    "转场",
+    "音效"
+   ]
+  },
+  "sound:whoosh-aire": {
+   "name": "空气嗖声",
+   "tags": [
+    "嗖",
+    "空气",
+    "转场",
+    "轻柔"
+   ]
+  },
+  "sound:whoosh-boom": {
+   "name": "嗖+轰",
+   "tags": [
+    "嗖",
+    "轰",
+    "转场",
+    "冲击"
+   ]
+  },
+  "sound:whoosh-corto": {
+   "name": "短嗖声",
+   "tags": [
+    "嗖",
+    "短促",
+    "转场",
+    "快速"
+   ]
+  },
+  "sound:whoosh-derecha-izquierda": {
+   "name": "从右到左嗖声",
+   "tags": [
+    "嗖",
+    "右到左",
+    "转场",
+    "方向"
+   ]
+  },
+  "sound:whoosh-doble": {
+   "name": "双重嗖声",
+   "tags": [
+    "嗖",
+    "双重",
+    "转场",
+    "音效"
+   ]
+  },
+  "sound:whoosh-espada": {
+   "name": "挥剑声",
+   "tags": [
+    "挥剑",
+    "剑",
+    "嗖",
+    "动作"
+   ]
+  },
+  "sound:whoosh-fuego": {
+   "name": "火焰呼啸",
+   "tags": [
+    "火焰",
+    "嗖",
+    "转场",
+    "呼啸"
+   ]
+  },
+  "sound:whoosh-golpe": {
+   "name": "嗖+撞击",
+   "tags": [
+    "嗖",
+    "撞击",
+    "转场",
+    "冲击"
+   ]
+  },
+  "sound:whoosh-grave": {
+   "name": "低沉嗖声",
+   "tags": [
+    "嗖",
+    "低沉",
+    "转场",
+    "厚重"
+   ]
+  },
+  "sound:whoosh-izquierda-derecha": {
+   "name": "从左到右嗖声",
+   "tags": [
+    "嗖",
+    "左到右",
+    "转场",
+    "方向"
+   ]
+  },
+  "sound:whoosh-largo": {
+   "name": "长嗖声",
+   "tags": [
+    "嗖",
+    "长",
+    "转场",
+    "呼啸"
+   ]
+  },
+  "sound:whoosh-metalico": {
+   "name": "金属嗖声",
+   "tags": [
+    "嗖",
+    "金属",
+    "转场",
+    "音效"
+   ]
+  },
+  "sound:whoosh-reverso": {
+   "name": "反向嗖声",
+   "tags": [
+    "嗖",
+    "反向",
+    "转场",
+    "音效"
+   ]
+  },
+  "sound:whoosh-tela": {
+   "name": "布料抖动声",
+   "tags": [
+    "布料",
+    "抖动",
+    "嗖",
+    "转场"
+   ]
+  },
+  "sound:zoom-entrada": {
+   "name": "拉近音效",
+   "tags": [
+    "拉近",
+    "放大",
+    "转场",
+    "缩放"
+   ]
+  },
+  "sound:zoom-salida": {
+   "name": "拉远音效",
+   "tags": [
+    "拉远",
+    "缩小",
+    "转场",
+    "缩放"
    ]
   },
   "template:album-scrapbook": {

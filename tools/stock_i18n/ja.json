@@ -2050,6 +2050,1952 @@
     "wifi"
    ]
   },
+  "background:acuarela-calido": {
+   "name": "水彩（暖色）",
+   "tags": [
+    "水彩",
+    "絵の具",
+    "アート",
+    "やわらか",
+    "背景"
+   ]
+  },
+  "background:acuarela-frio": {
+   "name": "水彩（寒色）",
+   "tags": [
+    "水彩",
+    "絵の具",
+    "アート",
+    "やわらか",
+    "背景"
+   ]
+  },
+  "background:acuarela-oscuro": {
+   "name": "水彩（ダーク）",
+   "tags": [
+    "水彩",
+    "絵の具",
+    "アート",
+    "やわらか",
+    "背景"
+   ]
+  },
+  "background:acuarela-vibrante": {
+   "name": "水彩（ビビッド）",
+   "tags": [
+    "水彩",
+    "絵の具",
+    "アート",
+    "やわらか",
+    "背景"
+   ]
+  },
+  "background:ajedrez-calido": {
+   "name": "動くチェック柄（暖色）",
+   "tags": [
+    "チェック柄",
+    "市松模様",
+    "レトロ",
+    "背景"
+   ]
+  },
+  "background:ajedrez-frio": {
+   "name": "動くチェック柄（寒色）",
+   "tags": [
+    "チェック柄",
+    "市松模様",
+    "レトロ",
+    "背景"
+   ]
+  },
+  "background:ajedrez-oscuro": {
+   "name": "動くチェック柄（ダーク）",
+   "tags": [
+    "チェック柄",
+    "市松模様",
+    "レトロ",
+    "背景"
+   ]
+  },
+  "background:ajedrez-vibrante": {
+   "name": "動くチェック柄（ビビッド）",
+   "tags": [
+    "チェック柄",
+    "市松模様",
+    "レトロ",
+    "背景"
+   ]
+  },
+  "background:anio-nuevo": {
+   "name": "新年",
+   "tags": [
+    "新年",
+    "正月",
+    "乾杯",
+    "パーティー",
+    "背景"
+   ]
+  },
+  "background:anio-nuevo-2": {
+   "name": "新年 2",
+   "tags": [
+    "新年",
+    "正月",
+    "乾杯",
+    "パーティー",
+    "背景"
+   ]
+  },
+  "background:atardecer-calido": {
+   "name": "夕焼け（暖色）",
+   "tags": [
+    "夕焼け",
+    "夕日",
+    "太陽",
+    "夏",
+    "背景"
+   ]
+  },
+  "background:atardecer-frio": {
+   "name": "夕焼け（寒色）",
+   "tags": [
+    "夕焼け",
+    "夕日",
+    "太陽",
+    "夏",
+    "背景"
+   ]
+  },
+  "background:atardecer-oscuro": {
+   "name": "夕焼け（ダーク）",
+   "tags": [
+    "夕焼け",
+    "夕日",
+    "太陽",
+    "夏",
+    "背景"
+   ]
+  },
+  "background:atardecer-vibrante": {
+   "name": "夕焼け（ビビッド）",
+   "tags": [
+    "夕焼け",
+    "夕日",
+    "太陽",
+    "夏",
+    "背景"
+   ]
+  },
+  "background:aurora-calido": {
+   "name": "オーロラ（暖色）",
+   "tags": [
+    "オーロラ",
+    "空",
+    "夜",
+    "背景"
+   ]
+  },
+  "background:aurora-frio": {
+   "name": "オーロラ（寒色）",
+   "tags": [
+    "オーロラ",
+    "空",
+    "夜",
+    "背景"
+   ]
+  },
+  "background:aurora-oscuro": {
+   "name": "オーロラ（ダーク）",
+   "tags": [
+    "オーロラ",
+    "空",
+    "夜",
+    "背景"
+   ]
+  },
+  "background:aurora-vibrante": {
+   "name": "オーロラ（ビビッド）",
+   "tags": [
+    "オーロラ",
+    "空",
+    "夜",
+    "背景"
+   ]
+  },
+  "background:bokeh-calido": {
+   "name": "ボケ（暖色）",
+   "tags": [
+    "ボケ",
+    "ライト",
+    "ぼかし",
+    "エレガント",
+    "背景"
+   ]
+  },
+  "background:bokeh-frio": {
+   "name": "ボケ（寒色）",
+   "tags": [
+    "ボケ",
+    "ライト",
+    "ぼかし",
+    "エレガント",
+    "背景"
+   ]
+  },
+  "background:bokeh-oscuro": {
+   "name": "ボケ（ダーク）",
+   "tags": [
+    "ボケ",
+    "ライト",
+    "ぼかし",
+    "エレガント",
+    "背景"
+   ]
+  },
+  "background:bokeh-vibrante": {
+   "name": "ボケ（ビビッド）",
+   "tags": [
+    "ボケ",
+    "ライト",
+    "ぼかし",
+    "エレガント",
+    "背景"
+   ]
+  },
+  "background:burbujas-calido": {
+   "name": "泡（暖色）",
+   "tags": [
+    "泡",
+    "シャボン玉",
+    "水",
+    "キッズ",
+    "背景"
+   ]
+  },
+  "background:burbujas-frio": {
+   "name": "泡（寒色）",
+   "tags": [
+    "泡",
+    "シャボン玉",
+    "水",
+    "キッズ",
+    "背景"
+   ]
+  },
+  "background:burbujas-oscuro": {
+   "name": "泡（ダーク）",
+   "tags": [
+    "泡",
+    "シャボン玉",
+    "水",
+    "キッズ",
+    "背景"
+   ]
+  },
+  "background:burbujas-vibrante": {
+   "name": "泡（ビビッド）",
+   "tags": [
+    "泡",
+    "シャボン玉",
+    "水",
+    "キッズ",
+    "背景"
+   ]
+  },
+  "background:cielo-estrellado-calido": {
+   "name": "星空（暖色）",
+   "tags": [
+    "星空",
+    "夜",
+    "宇宙",
+    "空",
+    "背景"
+   ]
+  },
+  "background:cielo-estrellado-frio": {
+   "name": "星空（寒色）",
+   "tags": [
+    "星空",
+    "夜",
+    "宇宙",
+    "空",
+    "背景"
+   ]
+  },
+  "background:cielo-estrellado-oscuro": {
+   "name": "星空（ダーク）",
+   "tags": [
+    "星空",
+    "夜",
+    "宇宙",
+    "空",
+    "背景"
+   ]
+  },
+  "background:cielo-estrellado-vibrante": {
+   "name": "星空（ビビッド）",
+   "tags": [
+    "星空",
+    "夜",
+    "宇宙",
+    "空",
+    "背景"
+   ]
+  },
+  "background:circuito-calido": {
+   "name": "回路基板（暖色）",
+   "tags": [
+    "回路",
+    "テクノロジー",
+    "テック",
+    "デジタル",
+    "背景"
+   ]
+  },
+  "background:circuito-frio": {
+   "name": "回路基板（寒色）",
+   "tags": [
+    "回路",
+    "テクノロジー",
+    "テック",
+    "デジタル",
+    "背景"
+   ]
+  },
+  "background:circuito-oscuro": {
+   "name": "回路基板（ダーク）",
+   "tags": [
+    "回路",
+    "テクノロジー",
+    "テック",
+    "デジタル",
+    "背景"
+   ]
+  },
+  "background:circuito-vibrante": {
+   "name": "回路基板（ビビッド）",
+   "tags": [
+    "回路",
+    "テクノロジー",
+    "テック",
+    "デジタル",
+    "背景"
+   ]
+  },
+  "background:circulos-calido": {
+   "name": "同心円（暖色）",
+   "tags": [
+    "同心円",
+    "リング",
+    "催眠",
+    "背景"
+   ]
+  },
+  "background:circulos-frio": {
+   "name": "同心円（寒色）",
+   "tags": [
+    "同心円",
+    "リング",
+    "催眠",
+    "背景"
+   ]
+  },
+  "background:circulos-oscuro": {
+   "name": "同心円（ダーク）",
+   "tags": [
+    "同心円",
+    "リング",
+    "催眠",
+    "背景"
+   ]
+  },
+  "background:circulos-vibrante": {
+   "name": "同心円（ビビッド）",
+   "tags": [
+    "同心円",
+    "リング",
+    "催眠",
+    "背景"
+   ]
+  },
+  "background:colinas-calido": {
+   "name": "なだらかな丘（暖色）",
+   "tags": [
+    "丘",
+    "風景",
+    "フラット",
+    "背景"
+   ]
+  },
+  "background:colinas-frio": {
+   "name": "なだらかな丘（寒色）",
+   "tags": [
+    "丘",
+    "風景",
+    "フラット",
+    "背景"
+   ]
+  },
+  "background:colinas-oscuro": {
+   "name": "なだらかな丘（ダーク）",
+   "tags": [
+    "丘",
+    "風景",
+    "フラット",
+    "背景"
+   ]
+  },
+  "background:colinas-vibrante": {
+   "name": "なだらかな丘（ビビッド）",
+   "tags": [
+    "丘",
+    "風景",
+    "フラット",
+    "背景"
+   ]
+  },
+  "background:confeti-calido": {
+   "name": "やわらか紙吹雪（暖色）",
+   "tags": [
+    "紙吹雪",
+    "パーティー",
+    "お祝い",
+    "誕生日",
+    "背景"
+   ]
+  },
+  "background:confeti-frio": {
+   "name": "やわらか紙吹雪（寒色）",
+   "tags": [
+    "紙吹雪",
+    "パーティー",
+    "お祝い",
+    "誕生日",
+    "背景"
+   ]
+  },
+  "background:confeti-oscuro": {
+   "name": "やわらか紙吹雪（ダーク）",
+   "tags": [
+    "紙吹雪",
+    "パーティー",
+    "お祝い",
+    "誕生日",
+    "背景"
+   ]
+  },
+  "background:confeti-vibrante": {
+   "name": "やわらか紙吹雪（ビビッド）",
+   "tags": [
+    "紙吹雪",
+    "パーティー",
+    "お祝い",
+    "誕生日",
+    "背景"
+   ]
+  },
+  "background:cuadricula-retro-calido": {
+   "name": "レトログリッド（暖色）",
+   "tags": [
+    "レトロ",
+    "シンセウェーブ",
+    "80年代",
+    "グリッド",
+    "ヴェイパーウェイヴ"
+   ]
+  },
+  "background:cuadricula-retro-frio": {
+   "name": "レトログリッド（寒色）",
+   "tags": [
+    "レトロ",
+    "シンセウェーブ",
+    "80年代",
+    "グリッド",
+    "ヴェイパーウェイヴ"
+   ]
+  },
+  "background:cuadricula-retro-oscuro": {
+   "name": "レトログリッド（ダーク）",
+   "tags": [
+    "レトロ",
+    "シンセウェーブ",
+    "80年代",
+    "グリッド",
+    "ヴェイパーウェイヴ"
+   ]
+  },
+  "background:cuadricula-retro-vibrante": {
+   "name": "レトログリッド（ビビッド）",
+   "tags": [
+    "レトロ",
+    "シンセウェーブ",
+    "80年代",
+    "グリッド",
+    "ヴェイパーウェイヴ"
+   ]
+  },
+  "background:cumpleanos": {
+   "name": "誕生日",
+   "tags": [
+    "誕生日",
+    "バースデー",
+    "パーティー",
+    "お祝い",
+    "背景"
+   ]
+  },
+  "background:cumpleanos-2": {
+   "name": "誕生日 2",
+   "tags": [
+    "誕生日",
+    "バースデー",
+    "パーティー",
+    "お祝い",
+    "背景"
+   ]
+  },
+  "background:degradado-diagonal-calido": {
+   "name": "斜めグラデーション（暖色）",
+   "tags": [
+    "グラデーション",
+    "斜め",
+    "虹色",
+    "背景"
+   ]
+  },
+  "background:degradado-diagonal-frio": {
+   "name": "斜めグラデーション（寒色）",
+   "tags": [
+    "グラデーション",
+    "斜め",
+    "虹色",
+    "背景"
+   ]
+  },
+  "background:degradado-diagonal-oscuro": {
+   "name": "斜めグラデーション（ダーク）",
+   "tags": [
+    "グラデーション",
+    "斜め",
+    "虹色",
+    "背景"
+   ]
+  },
+  "background:degradado-diagonal-vibrante": {
+   "name": "斜めグラデーション（ビビッド）",
+   "tags": [
+    "グラデーション",
+    "斜め",
+    "虹色",
+    "背景"
+   ]
+  },
+  "background:degradado-malla-calido": {
+   "name": "メッシュグラデーション（暖色）",
+   "tags": [
+    "メッシュ",
+    "グラデーション",
+    "モダン",
+    "背景"
+   ]
+  },
+  "background:degradado-malla-frio": {
+   "name": "メッシュグラデーション（寒色）",
+   "tags": [
+    "メッシュ",
+    "グラデーション",
+    "モダン",
+    "背景"
+   ]
+  },
+  "background:degradado-malla-oscuro": {
+   "name": "メッシュグラデーション（ダーク）",
+   "tags": [
+    "メッシュ",
+    "グラデーション",
+    "モダン",
+    "背景"
+   ]
+  },
+  "background:degradado-malla-vibrante": {
+   "name": "メッシュグラデーション（ビビッド）",
+   "tags": [
+    "メッシュ",
+    "グラデーション",
+    "モダン",
+    "背景"
+   ]
+  },
+  "background:degradado-movil-calido": {
+   "name": "動くグラデーション（暖色）",
+   "tags": [
+    "グラデーション",
+    "動く",
+    "やわらか",
+    "背景"
+   ]
+  },
+  "background:degradado-movil-frio": {
+   "name": "動くグラデーション（寒色）",
+   "tags": [
+    "グラデーション",
+    "動く",
+    "やわらか",
+    "背景"
+   ]
+  },
+  "background:degradado-movil-oscuro": {
+   "name": "動くグラデーション（ダーク）",
+   "tags": [
+    "グラデーション",
+    "動く",
+    "やわらか",
+    "背景"
+   ]
+  },
+  "background:degradado-movil-vibrante": {
+   "name": "動くグラデーション（ビビッド）",
+   "tags": [
+    "グラデーション",
+    "動く",
+    "やわらか",
+    "背景"
+   ]
+  },
+  "background:diwali": {
+   "name": "ディワリ",
+   "tags": [
+    "ディワリ",
+    "光",
+    "祭り",
+    "ろうそく",
+    "背景"
+   ]
+  },
+  "background:diwali-2": {
+   "name": "ディワリ 2",
+   "tags": [
+    "ディワリ",
+    "光",
+    "祭り",
+    "ろうそく",
+    "背景"
+   ]
+  },
+  "background:ecualizador-calido": {
+   "name": "イコライザー（暖色）",
+   "tags": [
+    "イコライザー",
+    "音楽",
+    "ポッドキャスト",
+    "音声",
+    "dj"
+   ]
+  },
+  "background:ecualizador-frio": {
+   "name": "イコライザー（寒色）",
+   "tags": [
+    "イコライザー",
+    "音楽",
+    "ポッドキャスト",
+    "音声",
+    "dj"
+   ]
+  },
+  "background:ecualizador-oscuro": {
+   "name": "イコライザー（ダーク）",
+   "tags": [
+    "イコライザー",
+    "音楽",
+    "ポッドキャスト",
+    "音声",
+    "dj"
+   ]
+  },
+  "background:ecualizador-vibrante": {
+   "name": "イコライザー（ビビッド）",
+   "tags": [
+    "イコライザー",
+    "音楽",
+    "ポッドキャスト",
+    "音声",
+    "dj"
+   ]
+  },
+  "background:escenario-calido": {
+   "name": "ステージライト（暖色）",
+   "tags": [
+    "ステージ",
+    "コンサート",
+    "ショー",
+    "ライト",
+    "背景"
+   ]
+  },
+  "background:escenario-frio": {
+   "name": "ステージライト（寒色）",
+   "tags": [
+    "ステージ",
+    "コンサート",
+    "ショー",
+    "ライト",
+    "背景"
+   ]
+  },
+  "background:escenario-oscuro": {
+   "name": "ステージライト（ダーク）",
+   "tags": [
+    "ステージ",
+    "コンサート",
+    "ショー",
+    "ライト",
+    "背景"
+   ]
+  },
+  "background:escenario-vibrante": {
+   "name": "ステージライト（ビビッド）",
+   "tags": [
+    "ステージ",
+    "コンサート",
+    "ショー",
+    "ライト",
+    "背景"
+   ]
+  },
+  "background:espiral-calido": {
+   "name": "スパイラル（暖色）",
+   "tags": [
+    "スパイラル",
+    "渦巻き",
+    "催眠",
+    "背景"
+   ]
+  },
+  "background:espiral-frio": {
+   "name": "スパイラル（寒色）",
+   "tags": [
+    "スパイラル",
+    "渦巻き",
+    "催眠",
+    "背景"
+   ]
+  },
+  "background:espiral-oscuro": {
+   "name": "スパイラル（ダーク）",
+   "tags": [
+    "スパイラル",
+    "渦巻き",
+    "催眠",
+    "背景"
+   ]
+  },
+  "background:espiral-vibrante": {
+   "name": "スパイラル（ビビッド）",
+   "tags": [
+    "スパイラル",
+    "渦巻き",
+    "催眠",
+    "背景"
+   ]
+  },
+  "background:formas-flotantes-calido": {
+   "name": "浮かぶ図形（暖色）",
+   "tags": [
+    "図形",
+    "幾何学",
+    "楽しい",
+    "背景"
+   ]
+  },
+  "background:formas-flotantes-frio": {
+   "name": "浮かぶ図形（寒色）",
+   "tags": [
+    "図形",
+    "幾何学",
+    "楽しい",
+    "背景"
+   ]
+  },
+  "background:formas-flotantes-oscuro": {
+   "name": "浮かぶ図形（ダーク）",
+   "tags": [
+    "図形",
+    "幾何学",
+    "楽しい",
+    "背景"
+   ]
+  },
+  "background:formas-flotantes-vibrante": {
+   "name": "浮かぶ図形（ビビッド）",
+   "tags": [
+    "図形",
+    "幾何学",
+    "楽しい",
+    "背景"
+   ]
+  },
+  "background:galaxia-calido": {
+   "name": "銀河（暖色）",
+   "tags": [
+    "銀河",
+    "宇宙",
+    "ギャラクシー",
+    "コスモ",
+    "背景"
+   ]
+  },
+  "background:galaxia-frio": {
+   "name": "銀河（寒色）",
+   "tags": [
+    "銀河",
+    "宇宙",
+    "ギャラクシー",
+    "コスモ",
+    "背景"
+   ]
+  },
+  "background:galaxia-oscuro": {
+   "name": "銀河（ダーク）",
+   "tags": [
+    "銀河",
+    "宇宙",
+    "ギャラクシー",
+    "コスモ",
+    "背景"
+   ]
+  },
+  "background:galaxia-vibrante": {
+   "name": "銀河（ビビッド）",
+   "tags": [
+    "銀河",
+    "宇宙",
+    "ギャラクシー",
+    "コスモ",
+    "背景"
+   ]
+  },
+  "background:graduacion": {
+   "name": "卒業",
+   "tags": [
+    "卒業",
+    "卒業式",
+    "達成",
+    "背景"
+   ]
+  },
+  "background:graduacion-2": {
+   "name": "卒業 2",
+   "tags": [
+    "卒業",
+    "卒業式",
+    "達成",
+    "背景"
+   ]
+  },
+  "background:halloween": {
+   "name": "ハロウィン",
+   "tags": [
+    "ハロウィン",
+    "ホラー",
+    "10月",
+    "かぼちゃ",
+    "背景"
+   ]
+  },
+  "background:halloween-2": {
+   "name": "ハロウィン 2",
+   "tags": [
+    "ハロウィン",
+    "ホラー",
+    "10月",
+    "かぼちゃ",
+    "背景"
+   ]
+  },
+  "background:hexagonos-calido": {
+   "name": "六角形（暖色）",
+   "tags": [
+    "六角形",
+    "ハニカム",
+    "テクノロジー",
+    "ゲーム",
+    "背景"
+   ]
+  },
+  "background:hexagonos-frio": {
+   "name": "六角形（寒色）",
+   "tags": [
+    "六角形",
+    "ハニカム",
+    "テクノロジー",
+    "ゲーム",
+    "背景"
+   ]
+  },
+  "background:hexagonos-oscuro": {
+   "name": "六角形（ダーク）",
+   "tags": [
+    "六角形",
+    "ハニカム",
+    "テクノロジー",
+    "ゲーム",
+    "背景"
+   ]
+  },
+  "background:hexagonos-vibrante": {
+   "name": "六角形（ビビッド）",
+   "tags": [
+    "六角形",
+    "ハニカム",
+    "テクノロジー",
+    "ゲーム",
+    "背景"
+   ]
+  },
+  "background:humo-color-calido": {
+   "name": "カラースモーク（暖色）",
+   "tags": [
+    "煙",
+    "スモーク",
+    "ミステリー",
+    "背景"
+   ]
+  },
+  "background:humo-color-frio": {
+   "name": "カラースモーク（寒色）",
+   "tags": [
+    "煙",
+    "スモーク",
+    "ミステリー",
+    "背景"
+   ]
+  },
+  "background:humo-color-oscuro": {
+   "name": "カラースモーク（ダーク）",
+   "tags": [
+    "煙",
+    "スモーク",
+    "ミステリー",
+    "背景"
+   ]
+  },
+  "background:humo-color-vibrante": {
+   "name": "カラースモーク（ビビッド）",
+   "tags": [
+    "煙",
+    "スモーク",
+    "ミステリー",
+    "背景"
+   ]
+  },
+  "background:lampara-lava-calido": {
+   "name": "ラバランプ（暖色）",
+   "tags": [
+    "ラバランプ",
+    "泡",
+    "レトロ",
+    "70年代",
+    "背景"
+   ]
+  },
+  "background:lampara-lava-frio": {
+   "name": "ラバランプ（寒色）",
+   "tags": [
+    "ラバランプ",
+    "泡",
+    "レトロ",
+    "70年代",
+    "背景"
+   ]
+  },
+  "background:lampara-lava-oscuro": {
+   "name": "ラバランプ（ダーク）",
+   "tags": [
+    "ラバランプ",
+    "泡",
+    "レトロ",
+    "70年代",
+    "背景"
+   ]
+  },
+  "background:lampara-lava-vibrante": {
+   "name": "ラバランプ（ビビッド）",
+   "tags": [
+    "ラバランプ",
+    "泡",
+    "レトロ",
+    "70年代",
+    "背景"
+   ]
+  },
+  "background:liquido-calido": {
+   "name": "リキッド（暖色）",
+   "tags": [
+    "リキッド",
+    "流体",
+    "マーブル",
+    "サイケデリック",
+    "背景"
+   ]
+  },
+  "background:liquido-frio": {
+   "name": "リキッド（寒色）",
+   "tags": [
+    "リキッド",
+    "流体",
+    "マーブル",
+    "サイケデリック",
+    "背景"
+   ]
+  },
+  "background:liquido-oscuro": {
+   "name": "リキッド（ダーク）",
+   "tags": [
+    "リキッド",
+    "流体",
+    "マーブル",
+    "サイケデリック",
+    "背景"
+   ]
+  },
+  "background:liquido-vibrante": {
+   "name": "リキッド（ビビッド）",
+   "tags": [
+    "リキッド",
+    "流体",
+    "マーブル",
+    "サイケデリック",
+    "背景"
+   ]
+  },
+  "background:lluvia-luces-calido": {
+   "name": "光の雨（暖色）",
+   "tags": [
+    "光の雨",
+    "ライト",
+    "夜",
+    "パーティー",
+    "背景"
+   ]
+  },
+  "background:lluvia-luces-frio": {
+   "name": "光の雨（寒色）",
+   "tags": [
+    "光の雨",
+    "ライト",
+    "夜",
+    "パーティー",
+    "背景"
+   ]
+  },
+  "background:lluvia-luces-oscuro": {
+   "name": "光の雨（ダーク）",
+   "tags": [
+    "光の雨",
+    "ライト",
+    "夜",
+    "パーティー",
+    "背景"
+   ]
+  },
+  "background:lluvia-luces-vibrante": {
+   "name": "光の雨（ビビッド）",
+   "tags": [
+    "光の雨",
+    "ライト",
+    "夜",
+    "パーティー",
+    "背景"
+   ]
+  },
+  "background:low-poly-calido": {
+   "name": "ローポリ（暖色）",
+   "tags": [
+    "ローポリ",
+    "ポリゴン",
+    "クリスタル",
+    "モダン",
+    "背景"
+   ]
+  },
+  "background:low-poly-frio": {
+   "name": "ローポリ（寒色）",
+   "tags": [
+    "ローポリ",
+    "ポリゴン",
+    "クリスタル",
+    "モダン",
+    "背景"
+   ]
+  },
+  "background:low-poly-oscuro": {
+   "name": "ローポリ（ダーク）",
+   "tags": [
+    "ローポリ",
+    "ポリゴン",
+    "クリスタル",
+    "モダン",
+    "背景"
+   ]
+  },
+  "background:low-poly-vibrante": {
+   "name": "ローポリ（ビビッド）",
+   "tags": [
+    "ローポリ",
+    "ポリゴン",
+    "クリスタル",
+    "モダン",
+    "背景"
+   ]
+  },
+  "background:luces-ciudad-calido": {
+   "name": "街の灯り（暖色）",
+   "tags": [
+    "街",
+    "夜景",
+    "ボケ",
+    "アーバン",
+    "背景"
+   ]
+  },
+  "background:luces-ciudad-frio": {
+   "name": "街の灯り（寒色）",
+   "tags": [
+    "街",
+    "夜景",
+    "ボケ",
+    "アーバン",
+    "背景"
+   ]
+  },
+  "background:luces-ciudad-oscuro": {
+   "name": "街の灯り（ダーク）",
+   "tags": [
+    "街",
+    "夜景",
+    "ボケ",
+    "アーバン",
+    "背景"
+   ]
+  },
+  "background:luces-ciudad-vibrante": {
+   "name": "街の灯り（ビビッド）",
+   "tags": [
+    "街",
+    "夜景",
+    "ボケ",
+    "アーバン",
+    "背景"
+   ]
+  },
+  "background:luciernagas-calido": {
+   "name": "ホタル（暖色）",
+   "tags": [
+    "ホタル",
+    "夜",
+    "魔法",
+    "森",
+    "背景"
+   ]
+  },
+  "background:luciernagas-frio": {
+   "name": "ホタル（寒色）",
+   "tags": [
+    "ホタル",
+    "夜",
+    "魔法",
+    "森",
+    "背景"
+   ]
+  },
+  "background:luciernagas-oscuro": {
+   "name": "ホタル（ダーク）",
+   "tags": [
+    "ホタル",
+    "夜",
+    "魔法",
+    "森",
+    "背景"
+   ]
+  },
+  "background:luciernagas-vibrante": {
+   "name": "ホタル（ビビッド）",
+   "tags": [
+    "ホタル",
+    "夜",
+    "魔法",
+    "森",
+    "背景"
+   ]
+  },
+  "background:marmol-calido": {
+   "name": "大理石（暖色）",
+   "tags": [
+    "大理石",
+    "マーブル",
+    "エレガント",
+    "高級",
+    "背景"
+   ]
+  },
+  "background:marmol-frio": {
+   "name": "大理石（寒色）",
+   "tags": [
+    "大理石",
+    "マーブル",
+    "エレガント",
+    "高級",
+    "背景"
+   ]
+  },
+  "background:marmol-oscuro": {
+   "name": "大理石（ダーク）",
+   "tags": [
+    "大理石",
+    "マーブル",
+    "エレガント",
+    "高級",
+    "背景"
+   ]
+  },
+  "background:marmol-vibrante": {
+   "name": "大理石（ビビッド）",
+   "tags": [
+    "大理石",
+    "マーブル",
+    "エレガント",
+    "高級",
+    "背景"
+   ]
+  },
+  "background:memphis-calido": {
+   "name": "メンフィス柄（暖色）",
+   "tags": [
+    "メンフィス",
+    "80年代",
+    "ポップ",
+    "図形",
+    "背景"
+   ]
+  },
+  "background:memphis-frio": {
+   "name": "メンフィス柄（寒色）",
+   "tags": [
+    "メンフィス",
+    "80年代",
+    "ポップ",
+    "図形",
+    "背景"
+   ]
+  },
+  "background:memphis-oscuro": {
+   "name": "メンフィス柄（ダーク）",
+   "tags": [
+    "メンフィス",
+    "80年代",
+    "ポップ",
+    "図形",
+    "背景"
+   ]
+  },
+  "background:memphis-vibrante": {
+   "name": "メンフィス柄（ビビッド）",
+   "tags": [
+    "メンフィス",
+    "80年代",
+    "ポップ",
+    "図形",
+    "背景"
+   ]
+  },
+  "background:navidad": {
+   "name": "クリスマス",
+   "tags": [
+    "クリスマス",
+    "12月",
+    "ホリデー",
+    "背景"
+   ]
+  },
+  "background:navidad-2": {
+   "name": "クリスマス 2",
+   "tags": [
+    "クリスマス",
+    "12月",
+    "ホリデー",
+    "背景"
+   ]
+  },
+  "background:neon-calido": {
+   "name": "ネオンライン（暖色）",
+   "tags": [
+    "ネオン",
+    "ライン",
+    "夜",
+    "サイバー",
+    "背景"
+   ]
+  },
+  "background:neon-frio": {
+   "name": "ネオンライン（寒色）",
+   "tags": [
+    "ネオン",
+    "ライン",
+    "夜",
+    "サイバー",
+    "背景"
+   ]
+  },
+  "background:neon-oscuro": {
+   "name": "ネオンライン（ダーク）",
+   "tags": [
+    "ネオン",
+    "ライン",
+    "夜",
+    "サイバー",
+    "背景"
+   ]
+  },
+  "background:neon-vibrante": {
+   "name": "ネオンライン（ビビッド）",
+   "tags": [
+    "ネオン",
+    "ライン",
+    "夜",
+    "サイバー",
+    "背景"
+   ]
+  },
+  "background:nieve-calido": {
+   "name": "降雪（暖色）",
+   "tags": [
+    "雪",
+    "冬",
+    "クリスマス",
+    "寒い",
+    "背景"
+   ]
+  },
+  "background:nieve-frio": {
+   "name": "降雪（寒色）",
+   "tags": [
+    "雪",
+    "冬",
+    "クリスマス",
+    "寒い",
+    "背景"
+   ]
+  },
+  "background:nieve-oscuro": {
+   "name": "降雪（ダーク）",
+   "tags": [
+    "雪",
+    "冬",
+    "クリスマス",
+    "寒い",
+    "背景"
+   ]
+  },
+  "background:nieve-vibrante": {
+   "name": "降雪（ビビッド）",
+   "tags": [
+    "雪",
+    "冬",
+    "クリスマス",
+    "寒い",
+    "背景"
+   ]
+  },
+  "background:nubes-calido": {
+   "name": "雲（暖色）",
+   "tags": [
+    "雲",
+    "空",
+    "夢",
+    "背景"
+   ]
+  },
+  "background:nubes-frio": {
+   "name": "雲（寒色）",
+   "tags": [
+    "雲",
+    "空",
+    "夢",
+    "背景"
+   ]
+  },
+  "background:nubes-oscuro": {
+   "name": "雲（ダーク）",
+   "tags": [
+    "雲",
+    "空",
+    "夢",
+    "背景"
+   ]
+  },
+  "background:nubes-vibrante": {
+   "name": "雲（ビビッド）",
+   "tags": [
+    "雲",
+    "空",
+    "夢",
+    "背景"
+   ]
+  },
+  "background:ondas-sonido-calido": {
+   "name": "音の波形（暖色）",
+   "tags": [
+    "波形",
+    "サウンド",
+    "ポッドキャスト",
+    "音楽",
+    "音声"
+   ]
+  },
+  "background:ondas-sonido-frio": {
+   "name": "音の波形（寒色）",
+   "tags": [
+    "波形",
+    "サウンド",
+    "ポッドキャスト",
+    "音楽",
+    "音声"
+   ]
+  },
+  "background:ondas-sonido-oscuro": {
+   "name": "音の波形（ダーク）",
+   "tags": [
+    "波形",
+    "サウンド",
+    "ポッドキャスト",
+    "音楽",
+    "音声"
+   ]
+  },
+  "background:ondas-sonido-vibrante": {
+   "name": "音の波形（ビビッド）",
+   "tags": [
+    "波形",
+    "サウンド",
+    "ポッドキャスト",
+    "音楽",
+    "音声"
+   ]
+  },
+  "background:ondas-suaves-calido": {
+   "name": "やさしい波（暖色）",
+   "tags": [
+    "波",
+    "ウェーブ",
+    "海",
+    "やわらか",
+    "背景"
+   ]
+  },
+  "background:ondas-suaves-frio": {
+   "name": "やさしい波（寒色）",
+   "tags": [
+    "波",
+    "ウェーブ",
+    "海",
+    "やわらか",
+    "背景"
+   ]
+  },
+  "background:ondas-suaves-oscuro": {
+   "name": "やさしい波（ダーク）",
+   "tags": [
+    "波",
+    "ウェーブ",
+    "海",
+    "やわらか",
+    "背景"
+   ]
+  },
+  "background:ondas-suaves-vibrante": {
+   "name": "やさしい波（ビビッド）",
+   "tags": [
+    "波",
+    "ウェーブ",
+    "海",
+    "やわらか",
+    "背景"
+   ]
+  },
+  "background:otono": {
+   "name": "秋",
+   "tags": [
+    "秋",
+    "落ち葉",
+    "感謝祭",
+    "紅葉",
+    "背景"
+   ]
+  },
+  "background:otono-2": {
+   "name": "秋 2",
+   "tags": [
+    "秋",
+    "落ち葉",
+    "感謝祭",
+    "紅葉",
+    "背景"
+   ]
+  },
+  "background:papel-calido": {
+   "name": "紙（暖色）",
+   "tags": [
+    "紙",
+    "テクスチャ",
+    "コラージュ",
+    "ビンテージ",
+    "背景"
+   ]
+  },
+  "background:papel-frio": {
+   "name": "紙（寒色）",
+   "tags": [
+    "紙",
+    "テクスチャ",
+    "コラージュ",
+    "ビンテージ",
+    "背景"
+   ]
+  },
+  "background:papel-oscuro": {
+   "name": "紙（ダーク）",
+   "tags": [
+    "紙",
+    "テクスチャ",
+    "コラージュ",
+    "ビンテージ",
+    "背景"
+   ]
+  },
+  "background:papel-vibrante": {
+   "name": "紙（ビビッド）",
+   "tags": [
+    "紙",
+    "テクスチャ",
+    "コラージュ",
+    "ビンテージ",
+    "背景"
+   ]
+  },
+  "background:particulas-calido": {
+   "name": "パーティクル（暖色）",
+   "tags": [
+    "パーティクル",
+    "粒子",
+    "やわらか",
+    "落ち着き",
+    "背景"
+   ]
+  },
+  "background:particulas-frio": {
+   "name": "パーティクル（寒色）",
+   "tags": [
+    "パーティクル",
+    "粒子",
+    "やわらか",
+    "落ち着き",
+    "背景"
+   ]
+  },
+  "background:particulas-oscuro": {
+   "name": "パーティクル（ダーク）",
+   "tags": [
+    "パーティクル",
+    "粒子",
+    "やわらか",
+    "落ち着き",
+    "背景"
+   ]
+  },
+  "background:particulas-vibrante": {
+   "name": "パーティクル（ビビッド）",
+   "tags": [
+    "パーティクル",
+    "粒子",
+    "やわらか",
+    "落ち着き",
+    "背景"
+   ]
+  },
+  "background:pizarra-calido": {
+   "name": "黒板（暖色）",
+   "tags": [
+    "黒板",
+    "学校",
+    "授業",
+    "教育",
+    "背景"
+   ]
+  },
+  "background:pizarra-frio": {
+   "name": "黒板（寒色）",
+   "tags": [
+    "黒板",
+    "学校",
+    "授業",
+    "教育",
+    "背景"
+   ]
+  },
+  "background:pizarra-oscuro": {
+   "name": "黒板（ダーク）",
+   "tags": [
+    "黒板",
+    "学校",
+    "授業",
+    "教育",
+    "背景"
+   ]
+  },
+  "background:pizarra-vibrante": {
+   "name": "黒板（ビビッド）",
+   "tags": [
+    "黒板",
+    "学校",
+    "授業",
+    "教育",
+    "背景"
+   ]
+  },
+  "background:primavera": {
+   "name": "春",
+   "tags": [
+    "春",
+    "花",
+    "母の日",
+    "背景"
+   ]
+  },
+  "background:primavera-2": {
+   "name": "春 2",
+   "tags": [
+    "春",
+    "花",
+    "母の日",
+    "背景"
+   ]
+  },
+  "background:prisma-calido": {
+   "name": "プリズム（暖色）",
+   "tags": [
+    "プリズム",
+    "虹色",
+    "クリスタル",
+    "エモい",
+    "背景"
+   ]
+  },
+  "background:prisma-frio": {
+   "name": "プリズム（寒色）",
+   "tags": [
+    "プリズム",
+    "虹色",
+    "クリスタル",
+    "エモい",
+    "背景"
+   ]
+  },
+  "background:prisma-oscuro": {
+   "name": "プリズム（ダーク）",
+   "tags": [
+    "プリズム",
+    "虹色",
+    "クリスタル",
+    "エモい",
+    "背景"
+   ]
+  },
+  "background:prisma-vibrante": {
+   "name": "プリズム（ビビッド）",
+   "tags": [
+    "プリズム",
+    "虹色",
+    "クリスタル",
+    "エモい",
+    "背景"
+   ]
+  },
+  "background:puntos-calido": {
+   "name": "脈打つドット（暖色）",
+   "tags": [
+    "ドット",
+    "水玉",
+    "網点",
+    "ポップ",
+    "背景"
+   ]
+  },
+  "background:puntos-frio": {
+   "name": "脈打つドット（寒色）",
+   "tags": [
+    "ドット",
+    "水玉",
+    "網点",
+    "ポップ",
+    "背景"
+   ]
+  },
+  "background:puntos-oscuro": {
+   "name": "脈打つドット（ダーク）",
+   "tags": [
+    "ドット",
+    "水玉",
+    "網点",
+    "ポップ",
+    "背景"
+   ]
+  },
+  "background:puntos-vibrante": {
+   "name": "脈打つドット（ビビッド）",
+   "tags": [
+    "ドット",
+    "水玉",
+    "網点",
+    "ポップ",
+    "背景"
+   ]
+  },
+  "background:ramadan": {
+   "name": "ラマダン＆イード",
+   "tags": [
+    "ラマダン",
+    "イード",
+    "月",
+    "夜",
+    "背景"
+   ]
+  },
+  "background:ramadan-2": {
+   "name": "ラマダン＆イード 2",
+   "tags": [
+    "ラマダン",
+    "イード",
+    "月",
+    "夜",
+    "背景"
+   ]
+  },
+  "background:rayas-calido": {
+   "name": "動くストライプ（暖色）",
+   "tags": [
+    "ストライプ",
+    "ライン",
+    "ダイナミック",
+    "背景"
+   ]
+  },
+  "background:rayas-frio": {
+   "name": "動くストライプ（寒色）",
+   "tags": [
+    "ストライプ",
+    "ライン",
+    "ダイナミック",
+    "背景"
+   ]
+  },
+  "background:rayas-oscuro": {
+   "name": "動くストライプ（ダーク）",
+   "tags": [
+    "ストライプ",
+    "ライン",
+    "ダイナミック",
+    "背景"
+   ]
+  },
+  "background:rayas-vibrante": {
+   "name": "動くストライプ（ビビッド）",
+   "tags": [
+    "ストライプ",
+    "ライン",
+    "ダイナミック",
+    "背景"
+   ]
+  },
+  "background:rayos-luz-calido": {
+   "name": "光の筋（暖色）",
+   "tags": [
+    "光線",
+    "光",
+    "空",
+    "希望",
+    "背景"
+   ]
+  },
+  "background:rayos-luz-frio": {
+   "name": "光の筋（寒色）",
+   "tags": [
+    "光線",
+    "光",
+    "空",
+    "希望",
+    "背景"
+   ]
+  },
+  "background:rayos-luz-oscuro": {
+   "name": "光の筋（ダーク）",
+   "tags": [
+    "光線",
+    "光",
+    "空",
+    "希望",
+    "背景"
+   ]
+  },
+  "background:rayos-luz-vibrante": {
+   "name": "光の筋（ビビッド）",
+   "tags": [
+    "光線",
+    "光",
+    "空",
+    "希望",
+    "背景"
+   ]
+  },
+  "background:rayos-sol-calido": {
+   "name": "回転する放射光（暖色）",
+   "tags": [
+    "放射線",
+    "サンバースト",
+    "セール",
+    "キッズ",
+    "背景"
+   ]
+  },
+  "background:rayos-sol-frio": {
+   "name": "回転する放射光（寒色）",
+   "tags": [
+    "放射線",
+    "サンバースト",
+    "セール",
+    "キッズ",
+    "背景"
+   ]
+  },
+  "background:rayos-sol-oscuro": {
+   "name": "回転する放射光（ダーク）",
+   "tags": [
+    "放射線",
+    "サンバースト",
+    "セール",
+    "キッズ",
+    "背景"
+   ]
+  },
+  "background:rayos-sol-vibrante": {
+   "name": "回転する放射光（ビビッド）",
+   "tags": [
+    "放射線",
+    "サンバースト",
+    "セール",
+    "キッズ",
+    "背景"
+   ]
+  },
+  "background:san-valentin": {
+   "name": "バレンタインデー",
+   "tags": [
+    "バレンタイン",
+    "恋愛",
+    "ハート",
+    "2月",
+    "背景"
+   ]
+  },
+  "background:san-valentin-2": {
+   "name": "バレンタインデー 2",
+   "tags": [
+    "バレンタイン",
+    "恋愛",
+    "ハート",
+    "2月",
+    "背景"
+   ]
+  },
+  "background:tinta-calido": {
+   "name": "水中のインク（暖色）",
+   "tags": [
+    "インク",
+    "水",
+    "アート",
+    "流体",
+    "背景"
+   ]
+  },
+  "background:tinta-frio": {
+   "name": "水中のインク（寒色）",
+   "tags": [
+    "インク",
+    "水",
+    "アート",
+    "流体",
+    "背景"
+   ]
+  },
+  "background:tinta-oscuro": {
+   "name": "水中のインク（ダーク）",
+   "tags": [
+    "インク",
+    "水",
+    "アート",
+    "流体",
+    "背景"
+   ]
+  },
+  "background:tinta-vibrante": {
+   "name": "水中のインク（ビビッド）",
+   "tags": [
+    "インク",
+    "水",
+    "アート",
+    "流体",
+    "背景"
+   ]
+  },
+  "background:tunel-calido": {
+   "name": "トンネル（暖色）",
+   "tags": [
+    "トンネル",
+    "ワープ",
+    "ズーム",
+    "サイケデリック",
+    "背景"
+   ]
+  },
+  "background:tunel-frio": {
+   "name": "トンネル（寒色）",
+   "tags": [
+    "トンネル",
+    "ワープ",
+    "ズーム",
+    "サイケデリック",
+    "背景"
+   ]
+  },
+  "background:tunel-oscuro": {
+   "name": "トンネル（ダーク）",
+   "tags": [
+    "トンネル",
+    "ワープ",
+    "ズーム",
+    "サイケデリック",
+    "背景"
+   ]
+  },
+  "background:tunel-vibrante": {
+   "name": "トンネル（ビビッド）",
+   "tags": [
+    "トンネル",
+    "ワープ",
+    "ズーム",
+    "サイケデリック",
+    "背景"
+   ]
+  },
   "overlay:amor-corazones": {
    "name": "浮かぶハート",
    "tags": [
@@ -2165,6 +4111,114 @@
     "ピンク",
     "結婚式",
     "かわいい"
+   ]
+  },
+  "overlay:cam-bateria-baja": {
+   "name": "バッテリー残量低下",
+   "tags": [
+    "バッテリー",
+    "残量",
+    "カメラ",
+    "低下"
+   ]
+  },
+  "overlay:cam-cuenta-regresiva": {
+   "name": "フィルムリーダーのカウントダウン",
+   "tags": [
+    "カウントダウン",
+    "映画",
+    "フィルム",
+    "3 2 1"
+   ]
+  },
+  "overlay:cam-en-vivo": {
+   "name": "LIVEバッジ",
+   "tags": [
+    "ライブ",
+    "生配信",
+    "配信",
+    "live"
+   ]
+  },
+  "overlay:cam-enfoque": {
+   "name": "フォーカスロック",
+   "tags": [
+    "フォーカス",
+    "ピント",
+    "カメラ",
+    "オートフォーカス"
+   ]
+  },
+  "overlay:cam-flash": {
+   "name": "カメラのフラッシュ",
+   "tags": [
+    "フラッシュ",
+    "写真",
+    "カメラ",
+    "トランジション"
+   ]
+  },
+  "overlay:cam-grabando-pantalla": {
+   "name": "画面録画",
+   "tags": [
+    "画面録画",
+    "チュートリアル",
+    "画面",
+    "rec"
+   ]
+  },
+  "overlay:cam-obturador": {
+   "name": "カメラのシャッター",
+   "tags": [
+    "シャッター",
+    "カメラ",
+    "写真",
+    "トランジション"
+   ]
+  },
+  "overlay:cam-rec": {
+   "name": "カメラ録画中（REC）",
+   "tags": [
+    "rec",
+    "カメラ",
+    "録画",
+    "ビデオ"
+   ]
+  },
+  "overlay:cam-rec-minimal": {
+   "name": "ミニマルなREC",
+   "tags": [
+    "rec",
+    "録画",
+    "ミニマル",
+    "vlog"
+   ]
+  },
+  "overlay:cam-seguridad": {
+   "name": "防犯カメラ",
+   "tags": [
+    "防犯カメラ",
+    "監視カメラ",
+    "セキュリティ",
+    "cctv"
+   ]
+  },
+  "overlay:cam-vision-nocturna": {
+   "name": "暗視カメラ",
+   "tags": [
+    "暗視",
+    "ナイトビジョン",
+    "緑",
+    "夜"
+   ]
+  },
+  "overlay:cam-visor": {
+   "name": "カメラのファインダー",
+   "tags": [
+    "ファインダー",
+    "グリッド",
+    "カメラ",
+    "撮影"
    ]
   },
   "overlay:cel-confeti": {
@@ -2575,6 +4629,44 @@
     "春"
    ]
   },
+  "overlay:clima-polvo-viento": {
+   "name": "風に舞うほこり",
+   "tags": [
+    "ほこり",
+    "風",
+    "砂",
+    "天気",
+    "自然"
+   ]
+  },
+  "overlay:clima-relampago": {
+   "name": "稲妻",
+   "tags": [
+    "稲妻",
+    "雷",
+    "嵐",
+    "天気"
+   ]
+  },
+  "overlay:clima-sakura": {
+   "name": "桜吹雪",
+   "tags": [
+    "桜",
+    "花びら",
+    "春",
+    "さくら"
+   ]
+  },
+  "overlay:clima-tormenta": {
+   "name": "雷雨",
+   "tags": [
+    "雷雨",
+    "嵐",
+    "雨",
+    "雷",
+    "天気"
+   ]
+  },
   "overlay:garabato-angel": {
    "name": "天使の羽と輪",
    "tags": [
@@ -2837,6 +4929,52 @@
     "手描き",
     "下線",
     "強調"
+   ]
+  },
+  "overlay:glitch-bloques": {
+   "name": "ブロックグリッチ",
+   "tags": [
+    "グリッチ",
+    "ブロック",
+    "ピクセル",
+    "デジタル"
+   ]
+  },
+  "overlay:glitch-codigo": {
+   "name": "コードの雨",
+   "tags": [
+    "コード",
+    "バイナリ",
+    "マトリックス",
+    "ハッカー"
+   ]
+  },
+  "overlay:glitch-estatica": {
+   "name": "テレビの砂嵐",
+   "tags": [
+    "砂嵐",
+    "ノイズ",
+    "テレビ",
+    "スタティック"
+   ]
+  },
+  "overlay:glitch-rgb": {
+   "name": "RGBグリッチ",
+   "tags": [
+    "グリッチ",
+    "rgb",
+    "エラー",
+    "デジタル",
+    "サイバー"
+   ]
+  },
+  "overlay:glitch-transicion": {
+   "name": "グリッチトランジション",
+   "tags": [
+    "グリッチ",
+    "トランジション",
+    "エラー",
+    "デジタル"
    ]
   },
   "overlay:luz-arcoiris": {
@@ -3129,6 +5267,96 @@
     "日差し"
    ]
   },
+  "overlay:marco-brillos": {
+   "name": "キラキラフレーム",
+   "tags": [
+    "フレーム",
+    "枠",
+    "キラキラ",
+    "輝き"
+   ]
+  },
+  "overlay:marco-lineas-laterales": {
+   "name": "動きの線",
+   "tags": [
+    "動線",
+    "動き",
+    "アニメ",
+    "速い"
+   ]
+  },
+  "overlay:marco-lineas-velocidad": {
+   "name": "集中線",
+   "tags": [
+    "集中線",
+    "スピード線",
+    "アニメ",
+    "漫画"
+   ]
+  },
+  "overlay:marco-neon-azul": {
+   "name": "青いネオンフレーム",
+   "tags": [
+    "フレーム",
+    "枠",
+    "ネオン",
+    "青"
+   ]
+  },
+  "overlay:marco-neon-rosa": {
+   "name": "ピンクのネオンフレーム",
+   "tags": [
+    "フレーム",
+    "枠",
+    "ネオン",
+    "ピンク"
+   ]
+  },
+  "overlay:marco-papel-cinta": {
+   "name": "テープ留めの紙フレーム",
+   "tags": [
+    "フレーム",
+    "紙",
+    "テープ",
+    "スクラップブック"
+   ]
+  },
+  "overlay:marco-papel-negro": {
+   "name": "黒い切り絵フレーム",
+   "tags": [
+    "フレーム",
+    "紙",
+    "切り絵",
+    "黒"
+   ]
+  },
+  "overlay:marco-papel-recortado": {
+   "name": "切り絵フレーム",
+   "tags": [
+    "フレーム",
+    "紙",
+    "切り絵",
+    "枠"
+   ]
+  },
+  "overlay:marco-polaroid": {
+   "name": "インスタント写真の枠",
+   "tags": [
+    "フレーム",
+    "インスタント写真",
+    "枠",
+    "写真"
+   ]
+  },
+  "overlay:marco-semitono": {
+   "name": "コミックの網点",
+   "tags": [
+    "網点",
+    "ハーフトーン",
+    "コミック",
+    "ポップアート"
+   ]
+  },
   "overlay:part-ascendentes": {
    "name": "昇る光",
    "tags": [
@@ -3362,6 +5590,2032 @@
     "ワープ",
     "宇宙",
     "星"
+   ]
+  },
+  "overlay:pel-8mm": {
+   "name": "8mmフィルム",
+   "tags": [
+    "8mm",
+    "8ミリ",
+    "フィルム",
+    "ビンテージ"
+   ]
+  },
+  "overlay:pel-cine-mudo": {
+   "name": "サイレント映画",
+   "tags": [
+    "無声映画",
+    "サイレント",
+    "昔",
+    "セピア"
+   ]
+  },
+  "overlay:pel-crt": {
+   "name": "ブラウン管テレビ",
+   "tags": [
+    "ブラウン管",
+    "テレビ",
+    "レトロ",
+    "走査線"
+   ]
+  },
+  "overlay:pel-flash-blanco": {
+   "name": "フィルムフラッシュ",
+   "tags": [
+    "フラッシュ",
+    "白",
+    "トランジション",
+    "フィルム"
+   ]
+  },
+  "overlay:pel-grano": {
+   "name": "フィルムグレイン",
+   "tags": [
+    "粒子",
+    "グレイン",
+    "フィルム",
+    "ノイズ"
+   ]
+  },
+  "overlay:pel-grano-16mm": {
+   "name": "16mmの粒子",
+   "tags": [
+    "粒子",
+    "グレイン",
+    "16mm",
+    "フィルム"
+   ]
+  },
+  "overlay:pel-grano-fino": {
+   "name": "細かい粒子",
+   "tags": [
+    "粒子",
+    "グレイン",
+    "細かい",
+    "映画"
+   ]
+  },
+  "overlay:pel-grano-fuerte": {
+   "name": "強い粒子",
+   "tags": [
+    "粒子",
+    "グレイン",
+    "強め",
+    "ノイズ"
+   ]
+  },
+  "overlay:pel-marco-super8": {
+   "name": "スーパー8のフレーム",
+   "tags": [
+    "スーパー8",
+    "8mm",
+    "フレーム",
+    "フィルム"
+   ]
+  },
+  "overlay:pel-polvo-rayas": {
+   "name": "フィルムのほこりと傷",
+   "tags": [
+    "フィルム",
+    "ほこり",
+    "傷",
+    "ビンテージ"
+   ]
+  },
+  "overlay:pel-polvo-suave": {
+   "name": "軽いほこり",
+   "tags": [
+    "ほこり",
+    "やわらか",
+    "フィルム",
+    "ビンテージ"
+   ]
+  },
+  "overlay:pel-quemado": {
+   "name": "フィルムバーン",
+   "tags": [
+    "フィルムバーン",
+    "焼け",
+    "フィルム",
+    "トランジション"
+   ]
+  },
+  "overlay:pel-quemado-azul": {
+   "name": "青いフィルムバーン",
+   "tags": [
+    "フィルムバーン",
+    "青",
+    "フィルム",
+    "トランジション"
+   ]
+  },
+  "overlay:pel-quemado-bordes": {
+   "name": "ふちのフィルムバーン",
+   "tags": [
+    "フィルムバーン",
+    "ふち",
+    "フィルム",
+    "トランジション"
+   ]
+  },
+  "overlay:pel-quemado-centro": {
+   "name": "中央からのフィルムバーン",
+   "tags": [
+    "フィルムバーン",
+    "中央",
+    "フィルム",
+    "トランジション"
+   ]
+  },
+  "overlay:pel-quemado-rojo": {
+   "name": "赤いフィルムバーン",
+   "tags": [
+    "フィルムバーン",
+    "赤",
+    "フィルム",
+    "トランジション"
+   ]
+  },
+  "overlay:pel-quemado-rosa": {
+   "name": "ピンクのフィルムバーン",
+   "tags": [
+    "フィルムバーン",
+    "ピンク",
+    "フィルム",
+    "トランジション"
+   ]
+  },
+  "overlay:pel-tira-35mm": {
+   "name": "35mmフィルムストリップ",
+   "tags": [
+    "35mm",
+    "フィルムストリップ",
+    "フィルム",
+    "フレーム"
+   ]
+  },
+  "overlay:pel-vhs": {
+   "name": "VHS",
+   "tags": [
+    "vhs",
+    "レトロ",
+    "90年代",
+    "ビデオテープ"
+   ]
+  },
+  "overlay:pel-vhs-pausa": {
+   "name": "VHS一時停止",
+   "tags": [
+    "vhs",
+    "一時停止",
+    "レトロ",
+    "90年代"
+   ]
+  },
+  "overlay:pel-vhs-rebobinar": {
+   "name": "VHS巻き戻し",
+   "tags": [
+    "vhs",
+    "巻き戻し",
+    "レトロ",
+    "90年代"
+   ]
+  },
+  "overlay:pel-vhs-rec": {
+   "name": "VHS録画中",
+   "tags": [
+    "vhs",
+    "rec",
+    "録画",
+    "レトロ",
+    "90年代"
+   ]
+  },
+  "overlay:textura-grunge": {
+   "name": "グランジテクスチャ",
+   "tags": [
+    "グランジ",
+    "テクスチャ",
+    "汚れ",
+    "ロック"
+   ]
+  },
+  "overlay:textura-papel": {
+   "name": "紙のテクスチャ",
+   "tags": [
+    "テクスチャ",
+    "紙",
+    "ペーパー",
+    "ビンテージ"
+   ]
+  },
+  "sound:angelical": {
+   "name": "天使の音",
+   "tags": [
+    "天使",
+    "天国",
+    "癒し",
+    "奇跡"
+   ]
+  },
+  "sound:aparicion": {
+   "name": "ポンッと登場",
+   "tags": [
+    "登場",
+    "ポン",
+    "出現",
+    "お披露目"
+   ]
+  },
+  "sound:aplausos": {
+   "name": "拍手",
+   "tags": [
+    "拍手",
+    "観客",
+    "ブラボー",
+    "おめでとう"
+   ]
+  },
+  "sound:arpa-bajada": {
+   "name": "下降するハープ",
+   "tags": [
+    "ハープ",
+    "グリッサンド",
+    "下降",
+    "回想"
+   ]
+  },
+  "sound:arpa-subida": {
+   "name": "上昇するハープ",
+   "tags": [
+    "ハープ",
+    "グリッサンド",
+    "夢",
+    "回想"
+   ]
+  },
+  "sound:aura": {
+   "name": "きらめくオーラ",
+   "tags": [
+    "オーラ",
+    "きらめき",
+    "キラキラ",
+    "やわらか"
+   ]
+  },
+  "sound:ba-dum-tss": {
+   "name": "ドラムのオチ（バドゥンツッ）",
+   "tags": [
+    "オチ",
+    "ドラム",
+    "ジョーク",
+    "ユーモア"
+   ]
+  },
+  "sound:bass-drop": {
+   "name": "ベースドロップ",
+   "tags": [
+    "ベースドロップ",
+    "ドロップ",
+    "低音",
+    "インパクト"
+   ]
+  },
+  "sound:bass-drop-corto": {
+   "name": "短いベースドロップ",
+   "tags": [
+    "ベースドロップ",
+    "ドロップ",
+    "低音",
+    "短い"
+   ]
+  },
+  "sound:bass-drop-distorsion": {
+   "name": "歪んだベースドロップ",
+   "tags": [
+    "ベースドロップ",
+    "ディストーション",
+    "低音",
+    "インパクト"
+   ]
+  },
+  "sound:bloquear": {
+   "name": "ロック音",
+   "tags": [
+    "ロック",
+    "施錠",
+    "スマホ",
+    "操作音"
+   ]
+  },
+  "sound:bocina-payaso": {
+   "name": "ピエロのラッパ",
+   "tags": [
+    "ラッパ",
+    "ピエロ",
+    "パフパフ",
+    "ユーモア"
+   ]
+  },
+  "sound:bofetada": {
+   "name": "ビンタ",
+   "tags": [
+    "ビンタ",
+    "平手打ち",
+    "ユーモア",
+    "ドラマ"
+   ]
+  },
+  "sound:boing": {
+   "name": "ビヨーン",
+   "tags": [
+    "ビヨーン",
+    "バネ",
+    "跳ねる",
+    "ユーモア",
+    "アニメ"
+   ]
+  },
+  "sound:boing-agudo": {
+   "name": "高いビヨーン",
+   "tags": [
+    "ビヨーン",
+    "高音",
+    "ユーモア"
+   ]
+  },
+  "sound:boing-grave": {
+   "name": "低いビヨーン",
+   "tags": [
+    "ビヨーン",
+    "低音",
+    "ユーモア"
+   ]
+  },
+  "sound:bombo": {
+   "name": "キックドラム",
+   "tags": [
+    "キック",
+    "バスドラム",
+    "ドラム",
+    "ビート"
+   ]
+  },
+  "sound:bonk": {
+   "name": "ゴツン",
+   "tags": [
+    "ゴツン",
+    "頭",
+    "叩く",
+    "ユーモア"
+   ]
+  },
+  "sound:bonus": {
+   "name": "ボーナス",
+   "tags": [
+    "ボーナス",
+    "おまけ",
+    "ゲーム",
+    "賞品"
+   ]
+  },
+  "sound:boom-cine": {
+   "name": "シネマティックなブーン",
+   "tags": [
+    "ブーン",
+    "インパクト",
+    "衝撃",
+    "壮大",
+    "映画"
+   ]
+  },
+  "sound:boom-lejano": {
+   "name": "遠くのブーン",
+   "tags": [
+    "ブーン",
+    "インパクト",
+    "遠く",
+    "壮大"
+   ]
+  },
+  "sound:boom-profundo": {
+   "name": "重低音のブーン",
+   "tags": [
+    "ブーン",
+    "インパクト",
+    "重低音",
+    "壮大"
+   ]
+  },
+  "sound:braam": {
+   "name": "ブラーム",
+   "tags": [
+    "ブラーム",
+    "予告編",
+    "壮大",
+    "映画",
+    "ドラマ"
+   ]
+  },
+  "sound:braam-grave": {
+   "name": "低音のブラーム",
+   "tags": [
+    "ブラーム",
+    "予告編",
+    "低音",
+    "ダーク"
+   ]
+  },
+  "sound:brillo-escena": {
+   "name": "場面転換のキラキラ",
+   "tags": [
+    "キラキラ",
+    "魔法",
+    "場面転換",
+    "輝き"
+   ]
+  },
+  "sound:brillo-largo": {
+   "name": "長いキラキラ",
+   "tags": [
+    "キラキラ",
+    "魔法",
+    "長い",
+    "輝き"
+   ]
+  },
+  "sound:brillo-oscuro": {
+   "name": "ミステリアスなきらめき",
+   "tags": [
+    "キラキラ",
+    "魔法",
+    "ミステリアス",
+    "ダーク"
+   ]
+  },
+  "sound:burbujas-magicas": {
+   "name": "魔法の泡",
+   "tags": [
+    "泡",
+    "魔法",
+    "キッズ",
+    "ポコポコ"
+   ]
+  },
+  "sound:caida-caricatura": {
+   "name": "アニメの転倒音",
+   "tags": [
+    "転倒",
+    "ヒューン",
+    "アニメ",
+    "ユーモア"
+   ]
+  },
+  "sound:caida-larga": {
+   "name": "長いダウンリフター",
+   "tags": [
+    "ダウンリフター",
+    "下降",
+    "トランジション",
+    "エンディング"
+   ]
+  },
+  "sound:caida-objeto": {
+   "name": "物が落ちる音",
+   "tags": [
+    "落下",
+    "ドスン",
+    "物",
+    "衝撃"
+   ]
+  },
+  "sound:caida-ruido": {
+   "name": "ノイズのダウンリフター",
+   "tags": [
+    "ダウンリフター",
+    "ノイズ",
+    "下降",
+    "トランジション"
+   ]
+  },
+  "sound:caida-sinte": {
+   "name": "シンセの下降音",
+   "tags": [
+    "ダウンリフター",
+    "シンセ",
+    "下降",
+    "トランジション"
+   ]
+  },
+  "sound:caja": {
+   "name": "スネアドラム",
+   "tags": [
+    "スネア",
+    "ドラム",
+    "ビート"
+   ]
+  },
+  "sound:caja-registradora": {
+   "name": "レジの音",
+   "tags": [
+    "レジ",
+    "チャリーン",
+    "売上",
+    "お金"
+   ]
+  },
+  "sound:camara-foto": {
+   "name": "カメラのシャッター音",
+   "tags": [
+    "カメラ",
+    "シャッター",
+    "写真",
+    "カシャ",
+    "自撮り"
+   ]
+  },
+  "sound:campana-iglesia": {
+   "name": "教会の鐘",
+   "tags": [
+    "鐘",
+    "教会",
+    "結婚式",
+    "厳か"
+   ]
+  },
+  "sound:campanas-boda": {
+   "name": "ウェディングベル",
+   "tags": [
+    "結婚式",
+    "鐘",
+    "ウェディング",
+    "新郎新婦"
+   ]
+  },
+  "sound:campanitas": {
+   "name": "ウィンドチャイム",
+   "tags": [
+    "チャイム",
+    "風鈴",
+    "風",
+    "やさしい"
+   ]
+  },
+  "sound:campanitas-rapidas": {
+   "name": "速いチャイム",
+   "tags": [
+    "チャイム",
+    "速い",
+    "キラキラ",
+    "シャララ"
+   ]
+  },
+  "sound:captura-pantalla": {
+   "name": "スクリーンショット",
+   "tags": [
+    "スクショ",
+    "スクリーンショット",
+    "画面",
+    "スマホ"
+   ]
+  },
+  "sound:carrera-caricatura": {
+   "name": "アニメの走る音",
+   "tags": [
+    "走る",
+    "ダッシュ",
+    "アニメ",
+    "逃げる"
+   ]
+  },
+  "sound:chasquido": {
+   "name": "指パッチン",
+   "tags": [
+    "指パッチン",
+    "スナップ",
+    "魔法",
+    "切り替え"
+   ]
+  },
+  "sound:chillido-doble": {
+   "name": "ダブルのキュッキュッ",
+   "tags": [
+    "キュッ",
+    "おもちゃ",
+    "ダブル",
+    "ユーモア"
+   ]
+  },
+  "sound:chillido-juguete": {
+   "name": "おもちゃのキュッ",
+   "tags": [
+    "キュッ",
+    "おもちゃ",
+    "ペット",
+    "ユーモア"
+   ]
+  },
+  "sound:cinta-frenada": {
+   "name": "テープストップ",
+   "tags": [
+    "テープストップ",
+    "停止",
+    "カット",
+    "dj"
+   ]
+  },
+  "sound:cinta-frenada-lenta": {
+   "name": "ゆっくりテープストップ",
+   "tags": [
+    "テープストップ",
+    "停止",
+    "スロー",
+    "エンディング"
+   ]
+  },
+  "sound:clic": {
+   "name": "クリック",
+   "tags": [
+    "クリック",
+    "カチッ",
+    "ボタン"
+   ]
+  },
+  "sound:clic-boligrafo": {
+   "name": "ボールペンのカチッ",
+   "tags": [
+    "カチッ",
+    "ボールペン",
+    "ペン",
+    "クリック"
+   ]
+  },
+  "sound:clic-raton": {
+   "name": "マウスクリック",
+   "tags": [
+    "クリック",
+    "マウス",
+    "パソコン",
+    "チュートリアル"
+   ]
+  },
+  "sound:completado": {
+   "name": "完了",
+   "tags": [
+    "完了",
+    "終わり",
+    "成功",
+    "操作音"
+   ]
+  },
+  "sound:contador-puntos": {
+   "name": "スコアカウンター",
+   "tags": [
+    "スコア",
+    "ポイント",
+    "カウンター",
+    "ゲーム"
+   ]
+  },
+  "sound:corneta-aire": {
+   "name": "エアホーン",
+   "tags": [
+    "エアホーン",
+    "パーティー",
+    "dj",
+    "盛り上げ"
+   ]
+  },
+  "sound:coro-celestial": {
+   "name": "天上の合唱",
+   "tags": [
+    "合唱",
+    "天国",
+    "天使",
+    "お披露目"
+   ]
+  },
+  "sound:correcto": {
+   "name": "正解",
+   "tags": [
+    "正解",
+    "ピンポン",
+    "成功",
+    "チェック"
+   ]
+  },
+  "sound:cremallera": {
+   "name": "ファスナー",
+   "tags": [
+    "ファスナー",
+    "ジッパー",
+    "服",
+    "ジーッ"
+   ]
+  },
+  "sound:cristal": {
+   "name": "グラスのチーン",
+   "tags": [
+    "グラス",
+    "乾杯",
+    "チーン",
+    "ガラス"
+   ]
+  },
+  "sound:cuenta-palillos": {
+   "name": "スティックのカウント",
+   "tags": [
+    "カウント",
+    "1 2 3 4",
+    "スティック",
+    "スタート"
+   ]
+  },
+  "sound:dano": {
+   "name": "ダメージ",
+   "tags": [
+    "ダメージ",
+    "被弾",
+    "ゲーム",
+    "痛い"
+   ]
+  },
+  "sound:desaparicion": {
+   "name": "消える音",
+   "tags": [
+    "消える",
+    "魔法",
+    "パッ",
+    "消滅"
+   ]
+  },
+  "sound:desbloquear": {
+   "name": "ロック解除",
+   "tags": [
+    "ロック解除",
+    "解除",
+    "スマホ",
+    "操作音"
+   ]
+  },
+  "sound:deslizar-abajo": {
+   "name": "下にスワイプ",
+   "tags": [
+    "スワイプ",
+    "下",
+    "ui",
+    "操作音"
+   ]
+  },
+  "sound:deslizar-arriba": {
+   "name": "上にスワイプ",
+   "tags": [
+    "スワイプ",
+    "上",
+    "ui",
+    "速い"
+   ]
+  },
+  "sound:deslizar-interfaz": {
+   "name": "画面スワイプ",
+   "tags": [
+    "スワイプ",
+    "画面",
+    "スマホ",
+    "アプリ"
+   ]
+  },
+  "sound:despertador": {
+   "name": "目覚まし時計",
+   "tags": [
+    "目覚まし",
+    "アラーム",
+    "朝",
+    "起床"
+   ]
+  },
+  "sound:destello-ding": {
+   "name": "キラーン",
+   "tags": [
+    "キラーン",
+    "輝き",
+    "ピカピカ",
+    "新品"
+   ]
+  },
+  "sound:disco-rayado": {
+   "name": "レコードスクラッチ",
+   "tags": [
+    "スクラッチ",
+    "レコード",
+    "停止",
+    "え？",
+    "ユーモア"
+   ]
+  },
+  "sound:disco-rayado-frenada": {
+   "name": "レコードストップ",
+   "tags": [
+    "レコード",
+    "停止",
+    "一時停止",
+    "気まずい"
+   ]
+  },
+  "sound:dron-metalico": {
+   "name": "金属的なドローン音",
+   "tags": [
+    "ドローン音",
+    "金属",
+    "インダストリアル",
+    "ミステリー"
+   ]
+  },
+  "sound:dron-oscuro": {
+   "name": "ダークなドローン音",
+   "tags": [
+    "ドローン音",
+    "ダーク",
+    "サスペンス",
+    "ホラー"
+   ]
+  },
+  "sound:drop-fill": {
+   "name": "ドラムフィル",
+   "tags": [
+    "フィル",
+    "ドラム",
+    "ドロップ",
+    "トランジション"
+   ]
+  },
+  "sound:error-negativo": {
+   "name": "ネガティブ音",
+   "tags": [
+    "エラー",
+    "ブブー",
+    "ダメ",
+    "失敗"
+   ]
+  },
+  "sound:error-zumbido": {
+   "name": "エラーブザー",
+   "tags": [
+    "エラー",
+    "不正解",
+    "ブザー",
+    "ブー"
+   ]
+  },
+  "sound:explosion": {
+   "name": "爆発",
+   "tags": [
+    "爆発",
+    "爆弾",
+    "ドカン",
+    "アクション"
+   ]
+  },
+  "sound:explosion-8bits": {
+   "name": "8ビットの爆発",
+   "tags": [
+    "爆発",
+    "8ビット",
+    "レトロ",
+    "ゲーム"
+   ]
+  },
+  "sound:explosion-lejana": {
+   "name": "遠くの爆発",
+   "tags": [
+    "爆発",
+    "遠く",
+    "戦争",
+    "ドカン"
+   ]
+  },
+  "sound:fanfarria": {
+   "name": "ファンファーレ",
+   "tags": [
+    "ファンファーレ",
+    "トランペット",
+    "発表",
+    "勝者"
+   ]
+  },
+  "sound:fanfarria-victoria": {
+   "name": "勝利のファンファーレ",
+   "tags": [
+    "勝利",
+    "ファンファーレ",
+    "勝者",
+    "優勝"
+   ]
+  },
+  "sound:game-over": {
+   "name": "ゲームオーバー",
+   "tags": [
+    "ゲームオーバー",
+    "終わり",
+    "負け",
+    "ゲーム",
+    "失敗"
+   ]
+  },
+  "sound:gema": {
+   "name": "宝石ゲット",
+   "tags": [
+    "宝石",
+    "ダイヤ",
+    "ゲーム",
+    "キラキラ"
+   ]
+  },
+  "sound:glitch-corto": {
+   "name": "短いグリッチ",
+   "tags": [
+    "グリッチ",
+    "デジタル",
+    "エラー",
+    "トランジション"
+   ]
+  },
+  "sound:glitch-digital": {
+   "name": "デジタルグリッチ",
+   "tags": [
+    "グリッチ",
+    "デジタル",
+    "エラー",
+    "トランジション"
+   ]
+  },
+  "sound:glitch-estatica": {
+   "name": "砂嵐ノイズ",
+   "tags": [
+    "グリッチ",
+    "砂嵐",
+    "ノイズ",
+    "トランジション"
+   ]
+  },
+  "sound:glitch-tartamudeo": {
+   "name": "スタッターグリッチ",
+   "tags": [
+    "グリッチ",
+    "スタッター",
+    "デジタル",
+    "トランジション"
+   ]
+  },
+  "sound:golpe": {
+   "name": "パンチ",
+   "tags": [
+    "パンチ",
+    "殴る",
+    "ケンカ",
+    "アクション"
+   ]
+  },
+  "sound:golpe-dramatico": {
+   "name": "ドラマチックな衝撃音",
+   "tags": [
+    "ドラマチック",
+    "ジャジャーン",
+    "驚き",
+    "ドラマ",
+    "お披露目"
+   ]
+  },
+  "sound:golpe-dramatico-corto": {
+   "name": "短いドラマチックな衝撃音",
+   "tags": [
+    "ドラマチック",
+    "アクセント",
+    "ドラマ",
+    "衝撃"
+   ]
+  },
+  "sound:golpe-fuerte": {
+   "name": "強烈なパンチ",
+   "tags": [
+    "パンチ",
+    "強い",
+    "ケンカ",
+    "アクション"
+   ]
+  },
+  "sound:golpe-glitch": {
+   "name": "グリッチヒット",
+   "tags": [
+    "グリッチ",
+    "ヒット",
+    "デジタル",
+    "インパクト"
+   ]
+  },
+  "sound:golpe-metal": {
+   "name": "金属の打撃音",
+   "tags": [
+    "金属",
+    "打撃",
+    "カキーン",
+    "インパクト"
+   ]
+  },
+  "sound:golpe-metal-agudo": {
+   "name": "高い金属音",
+   "tags": [
+    "金属",
+    "高音",
+    "鐘",
+    "インパクト"
+   ]
+  },
+  "sound:gong": {
+   "name": "銅鑼",
+   "tags": [
+    "銅鑼",
+    "ゴング",
+    "開始",
+    "瞑想"
+   ]
+  },
+  "sound:grillos": {
+   "name": "コオロギ（気まずい沈黙）",
+   "tags": [
+    "コオロギ",
+    "沈黙",
+    "気まずい",
+    "シーン"
+   ]
+  },
+  "sound:hechizo": {
+   "name": "呪文",
+   "tags": [
+    "呪文",
+    "魔法",
+    "ファンタジー"
+   ]
+  },
+  "sound:impacto-reverso": {
+   "name": "リバースヒット",
+   "tags": [
+    "リバース",
+    "逆再生",
+    "入り",
+    "サスペンス"
+   ]
+  },
+  "sound:impacto-trailer": {
+   "name": "予告編のヒット",
+   "tags": [
+    "予告編",
+    "インパクト",
+    "映画",
+    "壮大"
+   ]
+  },
+  "sound:impacto-trailer-brillante": {
+   "name": "明るい予告編ヒット",
+   "tags": [
+    "予告編",
+    "インパクト",
+    "明るい",
+    "映画"
+   ]
+  },
+  "sound:impacto-trailer-oscuro": {
+   "name": "ダークな予告編ヒット",
+   "tags": [
+    "予告編",
+    "インパクト",
+    "ダーク",
+    "映画"
+   ]
+  },
+  "sound:inicio-juego": {
+   "name": "ゲームスタート",
+   "tags": [
+    "スタート",
+    "開始",
+    "ゲーム"
+   ]
+  },
+  "sound:interruptor-apagar": {
+   "name": "スイッチオフ",
+   "tags": [
+    "スイッチ",
+    "オフ",
+    "消す",
+    "カチッ"
+   ]
+  },
+  "sound:interruptor-encender": {
+   "name": "スイッチオン",
+   "tags": [
+    "スイッチ",
+    "オン",
+    "つける",
+    "ライト"
+   ]
+  },
+  "sound:laser": {
+   "name": "レーザー",
+   "tags": [
+    "レーザー",
+    "ビーム",
+    "sf",
+    "ゲーム"
+   ]
+  },
+  "sound:laser-doble": {
+   "name": "ダブルレーザー",
+   "tags": [
+    "レーザー",
+    "ビーム",
+    "ダブル",
+    "ゲーム"
+   ]
+  },
+  "sound:latido": {
+   "name": "心臓の鼓動",
+   "tags": [
+    "鼓動",
+    "心臓",
+    "ドキドキ",
+    "緊張",
+    "サスペンス"
+   ]
+  },
+  "sound:latido-rapido": {
+   "name": "速い鼓動",
+   "tags": [
+    "鼓動",
+    "速い",
+    "恐怖",
+    "緊張"
+   ]
+  },
+  "sound:latigazo": {
+   "name": "ムチの音",
+   "tags": [
+    "ムチ",
+    "ピシッ",
+    "速い",
+    "アクション"
+   ]
+  },
+  "sound:lluvia-monedas": {
+   "name": "コインシャワー",
+   "tags": [
+    "コイン",
+    "ゲーム",
+    "お金",
+    "チャリン"
+   ]
+  },
+  "sound:logro": {
+   "name": "実績解除",
+   "tags": [
+    "達成",
+    "実績",
+    "成功",
+    "レベルアップ"
+   ]
+  },
+  "sound:maquina-escribir": {
+   "name": "タイプライター",
+   "tags": [
+    "タイプライター",
+    "レトロ",
+    "文字",
+    "タイピング"
+   ]
+  },
+  "sound:maraca": {
+   "name": "シェイカー",
+   "tags": [
+    "マラカス",
+    "シェイカー",
+    "リズム",
+    "パーカッション"
+   ]
+  },
+  "sound:me-gusta": {
+   "name": "いいね",
+   "tags": [
+    "いいね",
+    "ハート",
+    "sns",
+    "通知"
+   ]
+  },
+  "sound:mensaje-enviado": {
+   "name": "メッセージ送信",
+   "tags": [
+    "送信",
+    "メッセージ",
+    "チャット",
+    "シュッ"
+   ]
+  },
+  "sound:mensaje-recibido": {
+   "name": "メッセージ受信",
+   "tags": [
+    "受信",
+    "メッセージ",
+    "チャット",
+    "通知"
+   ]
+  },
+  "sound:menu-seleccion": {
+   "name": "メニュー選択",
+   "tags": [
+    "メニュー",
+    "選択",
+    "ゲーム",
+    "ボタン"
+   ]
+  },
+  "sound:moneda": {
+   "name": "コイン",
+   "tags": [
+    "コイン",
+    "ゲーム",
+    "お金",
+    "チャリン"
+   ]
+  },
+  "sound:moneda-doble": {
+   "name": "コイン2枚",
+   "tags": [
+    "コイン",
+    "ゲーム",
+    "お金",
+    "ダブル"
+   ]
+  },
+  "sound:notificacion-campanita": {
+   "name": "ベルの通知音",
+   "tags": [
+    "通知音",
+    "ベル",
+    "お知らせ",
+    "スマホ"
+   ]
+  },
+  "sound:notificacion-cristal": {
+   "name": "ガラスの通知音",
+   "tags": [
+    "通知音",
+    "ガラス",
+    "チーン",
+    "スマホ"
+   ]
+  },
+  "sound:notificacion-dos-tonos": {
+   "name": "2音の通知音",
+   "tags": [
+    "通知音",
+    "ピロン",
+    "お知らせ",
+    "スマホ"
+   ]
+  },
+  "sound:notificacion-mensaje": {
+   "name": "新着メッセージ",
+   "tags": [
+    "通知音",
+    "メッセージ",
+    "着信",
+    "スマホ"
+   ]
+  },
+  "sound:notificacion-suave": {
+   "name": "やさしい通知音",
+   "tags": [
+    "通知音",
+    "やさしい",
+    "お知らせ",
+    "スマホ"
+   ]
+  },
+  "sound:palmas": {
+   "name": "クラップ",
+   "tags": [
+    "手拍子",
+    "クラップ",
+    "拍手",
+    "ビート"
+   ]
+  },
+  "sound:pasar-pagina": {
+   "name": "ページをめくる音",
+   "tags": [
+    "ページ",
+    "本",
+    "紙",
+    "トランジション"
+   ]
+  },
+  "sound:platillo": {
+   "name": "クラッシュシンバル",
+   "tags": [
+    "シンバル",
+    "クラッシュ",
+    "アクセント"
+   ]
+  },
+  "sound:platillo-corto": {
+   "name": "短いシンバル",
+   "tags": [
+    "シンバル",
+    "短い",
+    "アクセント"
+   ]
+  },
+  "sound:platillo-reverso": {
+   "name": "リバースシンバル",
+   "tags": [
+    "シンバル",
+    "リバース",
+    "逆再生",
+    "トランジション"
+   ]
+  },
+  "sound:platillo-reverso-largo": {
+   "name": "長いリバースシンバル",
+   "tags": [
+    "シンバル",
+    "リバース",
+    "逆再生",
+    "長い"
+   ]
+  },
+  "sound:poder": {
+   "name": "パワーアップ",
+   "tags": [
+    "パワーアップ",
+    "ゲーム",
+    "エネルギー",
+    "強化"
+   ]
+  },
+  "sound:polvo-hada": {
+   "name": "妖精の粉",
+   "tags": [
+    "妖精",
+    "粉",
+    "魔法",
+    "キラキラ"
+   ]
+  },
+  "sound:pop": {
+   "name": "ポップ",
+   "tags": [
+    "ポン",
+    "ポップ",
+    "テキスト",
+    "登場",
+    "泡"
+   ]
+  },
+  "sound:pop-agudo": {
+   "name": "高いポップ",
+   "tags": [
+    "ポン",
+    "ポップ",
+    "高音",
+    "登場"
+   ]
+  },
+  "sound:pop-doble": {
+   "name": "ダブルポップ",
+   "tags": [
+    "ポン",
+    "ポップ",
+    "ダブル",
+    "登場"
+   ]
+  },
+  "sound:pop-grave": {
+   "name": "低いポップ",
+   "tags": [
+    "ポン",
+    "ポップ",
+    "低音",
+    "登場"
+   ]
+  },
+  "sound:pop-suave": {
+   "name": "やわらかポップ",
+   "tags": [
+    "ポン",
+    "ポップ",
+    "やわらか",
+    "登場"
+   ]
+  },
+  "sound:portazo": {
+   "name": "ドアをバタンと閉める音",
+   "tags": [
+    "ドア",
+    "バタン",
+    "衝撃",
+    "怒り"
+   ]
+  },
+  "sound:premio-mayor": {
+   "name": "大当たり",
+   "tags": [
+    "大当たり",
+    "ジャックポット",
+    "当選",
+    "カジノ",
+    "抽選"
+   ]
+  },
+  "sound:rafaga-viento": {
+   "name": "突風",
+   "tags": [
+    "風",
+    "ヒュー",
+    "シュッ",
+    "トランジション"
+   ]
+  },
+  "sound:rampa-velocidad": {
+   "name": "スピードランプ",
+   "tags": [
+    "スピードランプ",
+    "速度変化",
+    "トランジション",
+    "編集"
+   ]
+  },
+  "sound:redoble": {
+   "name": "ドラムロール",
+   "tags": [
+    "ドラムロール",
+    "ドラム",
+    "サスペンス",
+    "発表"
+   ]
+  },
+  "sound:redoble-platillo": {
+   "name": "ドラムロール＆シンバル",
+   "tags": [
+    "ドラムロール",
+    "シンバル",
+    "発表",
+    "お披露目",
+    "勝者"
+   ]
+  },
+  "sound:reloj": {
+   "name": "時計のチクタク",
+   "tags": [
+    "時計",
+    "チクタク",
+    "時間",
+    "待機"
+   ]
+  },
+  "sound:reloj-rapido": {
+   "name": "速いチクタク",
+   "tags": [
+    "時計",
+    "速い",
+    "焦り",
+    "カウントダウン"
+   ]
+  },
+  "sound:resorte": {
+   "name": "バネ",
+   "tags": [
+    "バネ",
+    "ビヨン",
+    "跳ねる",
+    "ユーモア"
+   ]
+  },
+  "sound:revelacion": {
+   "name": "発表のジャン",
+   "tags": [
+    "発表",
+    "お披露目",
+    "サプライズ",
+    "ビフォーアフター",
+    "結果"
+   ]
+  },
+  "sound:riser-2s": {
+   "name": "ライザー 2秒",
+   "tags": [
+    "ライザー",
+    "盛り上げ",
+    "緊張感",
+    "ビルドアップ"
+   ]
+  },
+  "sound:riser-4s": {
+   "name": "ライザー 4秒",
+   "tags": [
+    "ライザー",
+    "盛り上げ",
+    "緊張感",
+    "ビルドアップ"
+   ]
+  },
+  "sound:riser-brillante": {
+   "name": "明るいアップリフター",
+   "tags": [
+    "ライザー",
+    "盛り上げ",
+    "明るい",
+    "ビルドアップ"
+   ]
+  },
+  "sound:riser-golpe": {
+   "name": "ライザー＆ヒット",
+   "tags": [
+    "ライザー",
+    "ヒット",
+    "トランジション",
+    "インパクト",
+    "編集"
+   ]
+  },
+  "sound:riser-rapido": {
+   "name": "速いライザー",
+   "tags": [
+    "ライザー",
+    "盛り上げ",
+    "速い",
+    "ビルドアップ"
+   ]
+  },
+  "sound:riser-sinte-2s": {
+   "name": "シンセライザー 2秒",
+   "tags": [
+    "ライザー",
+    "シンセ",
+    "盛り上げ",
+    "ビルドアップ"
+   ]
+  },
+  "sound:riser-sinte-4s": {
+   "name": "シンセライザー 4秒",
+   "tags": [
+    "ライザー",
+    "シンセ",
+    "盛り上げ",
+    "ビルドアップ"
+   ]
+  },
+  "sound:riser-tension": {
+   "name": "緊張感のライザー",
+   "tags": [
+    "ライザー",
+    "緊張感",
+    "サスペンス",
+    "ビルドアップ"
+   ]
+  },
+  "sound:salto": {
+   "name": "ジャンプ",
+   "tags": [
+    "ジャンプ",
+    "ゲーム",
+    "跳ぶ"
+   ]
+  },
+  "sound:sarten": {
+   "name": "フライパンでカーン",
+   "tags": [
+    "フライパン",
+    "叩く",
+    "ユーモア",
+    "料理"
+   ]
+  },
+  "sound:scratch-dj": {
+   "name": "DJスクラッチ",
+   "tags": [
+    "スクラッチ",
+    "dj",
+    "ヒップホップ",
+    "レコード",
+    "トランジション"
+   ]
+  },
+  "sound:scratch-doble": {
+   "name": "ダブルスクラッチ",
+   "tags": [
+    "スクラッチ",
+    "dj",
+    "ダブル",
+    "ヒップホップ"
+   ]
+  },
+  "sound:seguir": {
+   "name": "新しいフォロワー",
+   "tags": [
+    "フォロー",
+    "フォロワー",
+    "登録",
+    "sns"
+   ]
+  },
+  "sound:silbato-bajada": {
+   "name": "下がるスライドホイッスル",
+   "tags": [
+    "ホイッスル",
+    "下降",
+    "落ちる",
+    "ユーモア"
+   ]
+  },
+  "sound:silbato-subida": {
+   "name": "上がるスライドホイッスル",
+   "tags": [
+    "ホイッスル",
+    "上昇",
+    "ユーモア"
+   ]
+  },
+  "sound:sirena": {
+   "name": "サイレン",
+   "tags": [
+    "サイレン",
+    "警報",
+    "パトカー",
+    "緊急"
+   ]
+  },
+  "sound:sub-drop": {
+   "name": "サブドロップ",
+   "tags": [
+    "サブドロップ",
+    "ベースドロップ",
+    "低音",
+    "インパクト"
+   ]
+  },
+  "sound:subir-nivel": {
+   "name": "レベルアップ",
+   "tags": [
+    "レベルアップ",
+    "ゲーム",
+    "達成",
+    "8ビット"
+   ]
+  },
+  "sound:susto-terror": {
+   "name": "ジャンプスケア",
+   "tags": [
+    "驚かし",
+    "ホラー",
+    "ジャンプスケア",
+    "恐怖",
+    "ハロウィン"
+   ]
+  },
+  "sound:swoosh-titulo": {
+   "name": "タイトルのシュッ",
+   "tags": [
+    "シュッ",
+    "スウッシュ",
+    "タイトル",
+    "トランジション"
+   ]
+  },
+  "sound:tambaleo": {
+   "name": "ふらふら",
+   "tags": [
+    "ふらふら",
+    "めまい",
+    "ワブル",
+    "ユーモア",
+    "酔っぱらい"
+   ]
+  },
+  "sound:tambor-taiko": {
+   "name": "和太鼓",
+   "tags": [
+    "太鼓",
+    "和太鼓",
+    "ドン",
+    "壮大",
+    "インパクト"
+   ]
+  },
+  "sound:tambor-taiko-doble": {
+   "name": "和太鼓ダブル",
+   "tags": [
+    "太鼓",
+    "和太鼓",
+    "ダブル",
+    "壮大"
+   ]
+  },
+  "sound:teclado": {
+   "name": "キーボードのタイピング",
+   "tags": [
+    "キーボード",
+    "タイピング",
+    "パソコン",
+    "文字"
+   ]
+  },
+  "sound:teclado-mecanico": {
+   "name": "メカニカルキーボード",
+   "tags": [
+    "キーボード",
+    "メカニカル",
+    "ゲーム",
+    "asmr"
+   ]
+  },
+  "sound:teclado-rapido": {
+   "name": "高速タイピング",
+   "tags": [
+    "キーボード",
+    "高速",
+    "タイピング",
+    "ハッカー"
+   ]
+  },
+  "sound:teletransporte": {
+   "name": "テレポート",
+   "tags": [
+    "テレポート",
+    "瞬間移動",
+    "sf",
+    "消える"
+   ]
+  },
+  "sound:tension-subiendo": {
+   "name": "高まる緊張感",
+   "tags": [
+    "緊張感",
+    "サスペンス",
+    "上昇",
+    "恐怖"
+   ]
+  },
+  "sound:toque": {
+   "name": "タップ",
+   "tags": [
+    "タップ",
+    "画面",
+    "スマホ",
+    "トン"
+   ]
+  },
+  "sound:toque-doble": {
+   "name": "ダブルタップ",
+   "tags": [
+    "ダブルタップ",
+    "タップ",
+    "いいね"
+   ]
+  },
+  "sound:transicion-foto": {
+   "name": "写真のトランジション音",
+   "tags": [
+    "写真",
+    "カメラ",
+    "シャッター",
+    "トランジション"
+   ]
+  },
+  "sound:trombon-triste": {
+   "name": "残念なトロンボーン",
+   "tags": [
+    "トロンボーン",
+    "残念",
+    "失敗",
+    "ワワワ"
+   ]
+  },
+  "sound:trueno": {
+   "name": "雷鳴",
+   "tags": [
+    "雷",
+    "嵐",
+    "ゴロゴロ",
+    "雨"
+   ]
+  },
+  "sound:varita-magica": {
+   "name": "魔法の杖",
+   "tags": [
+    "魔法の杖",
+    "妖精",
+    "魔法",
+    "呪文"
+   ]
+  },
+  "sound:varita-subida": {
+   "name": "上昇する魔法の杖",
+   "tags": [
+    "魔法の杖",
+    "上昇",
+    "魔法",
+    "登場"
+   ]
+  },
+  "sound:victoria-8bits": {
+   "name": "8ビットの勝利",
+   "tags": [
+    "勝利",
+    "クリア",
+    "ゲーム",
+    "ファンファーレ"
+   ]
+  },
+  "sound:vida-extra": {
+   "name": "1UP",
+   "tags": [
+    "1up",
+    "残機",
+    "ゲーム",
+    "ボーナス"
+   ]
+  },
+  "sound:viento-misterio": {
+   "name": "不気味な風",
+   "tags": [
+    "風",
+    "ミステリー",
+    "ホラー",
+    "夜",
+    "幽霊"
+   ]
+  },
+  "sound:vinilo": {
+   "name": "レコードのパチパチ音",
+   "tags": [
+    "レコード",
+    "パチパチ",
+    "レトロ",
+    "lofi"
+   ]
+  },
+  "sound:whoosh": {
+   "name": "ヒュッ",
+   "tags": [
+    "ヒュッ",
+    "シュッ",
+    "風切り音",
+    "トランジション"
+   ]
+  },
+  "sound:whoosh-aire": {
+   "name": "空気のヒュッ",
+   "tags": [
+    "ヒュッ",
+    "風切り音",
+    "空気",
+    "トランジション"
+   ]
+  },
+  "sound:whoosh-boom": {
+   "name": "ヒュッ＆ドーン",
+   "tags": [
+    "ヒュッ",
+    "ドーン",
+    "トランジション",
+    "インパクト",
+    "編集"
+   ]
+  },
+  "sound:whoosh-corto": {
+   "name": "短いヒュッ",
+   "tags": [
+    "ヒュッ",
+    "風切り音",
+    "短い",
+    "トランジション"
+   ]
+  },
+  "sound:whoosh-derecha-izquierda": {
+   "name": "右から左へのヒュッ",
+   "tags": [
+    "ヒュッ",
+    "風切り音",
+    "右から左",
+    "トランジション"
+   ]
+  },
+  "sound:whoosh-doble": {
+   "name": "ダブルのヒュッ",
+   "tags": [
+    "ヒュッ",
+    "風切り音",
+    "ダブル",
+    "トランジション"
+   ]
+  },
+  "sound:whoosh-espada": {
+   "name": "剣を振る音",
+   "tags": [
+    "剣",
+    "風切り音",
+    "ヒュッ",
+    "アクション"
+   ]
+  },
+  "sound:whoosh-fuego": {
+   "name": "炎のゴォッ",
+   "tags": [
+    "炎",
+    "風切り音",
+    "ヒュッ",
+    "トランジション"
+   ]
+  },
+  "sound:whoosh-golpe": {
+   "name": "ヒュッ＆ヒット",
+   "tags": [
+    "ヒュッ",
+    "ヒット",
+    "トランジション",
+    "インパクト",
+    "編集"
+   ]
+  },
+  "sound:whoosh-grave": {
+   "name": "低音のヒュッ",
+   "tags": [
+    "ヒュッ",
+    "風切り音",
+    "低音",
+    "トランジション"
+   ]
+  },
+  "sound:whoosh-izquierda-derecha": {
+   "name": "左から右へのヒュッ",
+   "tags": [
+    "ヒュッ",
+    "風切り音",
+    "左から右",
+    "トランジション"
+   ]
+  },
+  "sound:whoosh-largo": {
+   "name": "長いヒュッ",
+   "tags": [
+    "ヒュッ",
+    "風切り音",
+    "長い",
+    "トランジション"
+   ]
+  },
+  "sound:whoosh-metalico": {
+   "name": "金属的なヒュッ",
+   "tags": [
+    "ヒュッ",
+    "風切り音",
+    "金属",
+    "トランジション"
+   ]
+  },
+  "sound:whoosh-reverso": {
+   "name": "逆再生のヒュッ",
+   "tags": [
+    "ヒュッ",
+    "風切り音",
+    "リバース",
+    "トランジション"
+   ]
+  },
+  "sound:whoosh-tela": {
+   "name": "布がはためく音",
+   "tags": [
+    "布",
+    "バサッ",
+    "風切り音",
+    "トランジション"
+   ]
+  },
+  "sound:zoom-entrada": {
+   "name": "ズームイン",
+   "tags": [
+    "ズーム",
+    "ズームイン",
+    "寄る",
+    "トランジション"
+   ]
+  },
+  "sound:zoom-salida": {
+   "name": "ズームアウト",
+   "tags": [
+    "ズーム",
+    "ズームアウト",
+    "引く",
+    "トランジション"
    ]
   },
   "template:album-scrapbook": {

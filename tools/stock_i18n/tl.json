@@ -53,6 +53,15 @@
   "template:transition": "Transition at separator"
  },
  "items": {
+  "animation:advertencia": {
+   "name": "Babala",
+   "tags": [
+    "babala",
+    "ingat",
+    "alerto",
+    "pansin"
+   ]
+  },
   "animation:alcancia": {
    "name": "Alkansiya",
    "tags": [
@@ -64,7 +73,7 @@
    ]
   },
   "animation:anillos-boda": {
-   "name": "Wedding rings",
+   "name": "Singsing pangkasal",
    "tags": [
     "kasal",
     "singsing",
@@ -83,7 +92,7 @@
    ]
   },
   "animation:arbol-navidad": {
-   "name": "Christmas tree",
+   "name": "Christmas tree ng Pasko",
    "tags": [
     "pasko",
     "christmas tree",
@@ -102,7 +111,7 @@
    ]
   },
   "animation:asterisco": {
-   "name": "Asterisk",
+   "name": "Asterisko",
    "tags": [
     "asterisk",
     "hugis",
@@ -131,7 +140,7 @@
    ]
   },
   "animation:baloncesto": {
-   "name": "Basketball",
+   "name": "Bola ng basketbol",
    "tags": [
     "basketball",
     "basketbol",
@@ -149,7 +158,7 @@
    ]
   },
   "animation:bandera-meta": {
-   "name": "Finish flag",
+   "name": "Watawat sa dulo ng karera",
    "tags": [
     "finish line",
     "karera",
@@ -168,7 +177,7 @@
    ]
   },
   "animation:barrido-diagonal": {
-   "name": "Diagonal wipe",
+   "name": "Pahilis na wipe",
    "tags": [
     "transition",
     "wipe",
@@ -176,8 +185,17 @@
     "diagonal"
    ]
   },
+  "animation:bateria-carga": {
+   "name": "Nagcha-charge na baterya",
+   "tags": [
+    "baterya",
+    "charge",
+    "enerhiya",
+    "recharge"
+   ]
+  },
   "animation:bengala": {
-   "name": "Sparkler",
+   "name": "Lusis",
    "tags": [
     "sparkler",
     "lusis",
@@ -187,7 +205,7 @@
    ]
   },
   "animation:birrete": {
-   "name": "Graduation cap",
+   "name": "Sombrero ng pagtatapos",
    "tags": [
     "graduation",
     "graduate",
@@ -197,7 +215,7 @@
    ]
   },
   "animation:bocadillo": {
-   "name": "Speech bubble",
+   "name": "Lobo ng usapan",
    "tags": [
     "dialogue",
     "salita",
@@ -206,7 +224,7 @@
    ]
   },
   "animation:bocadillo-grito": {
-   "name": "Shout bubble",
+   "name": "Lobo ng sigaw",
    "tags": [
     "sigaw",
     "wow",
@@ -215,7 +233,7 @@
    ]
   },
   "animation:bola-disco": {
-   "name": "Disco ball",
+   "name": "Bolang pang-disco",
    "tags": [
     "disco ball",
     "party",
@@ -225,7 +243,7 @@
    ]
   },
   "animation:bolsa-compras": {
-   "name": "Shopping bag",
+   "name": "Bag pamili",
    "tags": [
     "shopping",
     "tindahan",
@@ -243,7 +261,7 @@
    ]
   },
   "animation:boton-play": {
-   "name": "Play button",
+   "name": "Button ng play",
    "tags": [
     "video",
     "play",
@@ -252,7 +270,7 @@
    ]
   },
   "animation:boton-seguir": {
-   "name": "Follow button",
+   "name": "Button na I-follow",
    "tags": [
     "follow",
     "subscribe",
@@ -290,7 +308,7 @@
    ]
   },
   "animation:caja-envio": {
-   "name": "Delivery box",
+   "name": "Kahon ng padala",
    "tags": [
     "delivery",
     "shipping",
@@ -299,7 +317,7 @@
    ]
   },
   "animation:calabaza": {
-   "name": "Jack-o'-lantern",
+   "name": "Kalabasang may ilaw",
    "tags": [
     "halloween",
     "kalabasa",
@@ -326,7 +344,7 @@
    ]
   },
   "animation:campana": {
-   "name": "Notification bell",
+   "name": "Kampanilya ng notification",
    "tags": [
     "subscribe",
     "notification",
@@ -335,7 +353,7 @@
    ]
   },
   "animation:campanas-navidad": {
-   "name": "Jingle bells",
+   "name": "Kampanilya ng Pasko",
    "tags": [
     "pasko",
     "kampana",
@@ -401,7 +419,7 @@
    ]
   },
   "animation:cara-enamorada": {
-   "name": "In love",
+   "name": "Mukhang inlove",
    "tags": [
     "in love",
     "pag-ibig",
@@ -419,7 +437,7 @@
    ]
   },
   "animation:cara-estrellas": {
-   "name": "Star-struck",
+   "name": "Matang may bituin",
    "tags": [
     "wow",
     "grabe",
@@ -429,7 +447,7 @@
    ]
   },
   "animation:cara-fiesta": {
-   "name": "Party face",
+   "name": "Mukhang pang-party",
    "tags": [
     "party",
     "kaarawan",
@@ -502,7 +520,7 @@
    ]
   },
   "animation:cargando": {
-   "name": "Loading",
+   "name": "Naglo-load",
    "tags": [
     "loading",
     "hintay",
@@ -511,7 +529,7 @@
    ]
   },
   "animation:carrito": {
-   "name": "Cart",
+   "name": "Cart pamili",
    "tags": [
     "bumili",
     "cart",
@@ -539,7 +557,7 @@
    ]
   },
   "animation:chincheta": {
-   "name": "Push pin",
+   "name": "Thumbtack",
    "tags": [
     "push pin",
     "thumbtack",
@@ -549,7 +567,7 @@
    ]
   },
   "animation:cinta": {
-   "name": "Ribbon banner",
+   "name": "Laso na banner",
    "tags": [
     "title",
     "banner",
@@ -558,7 +576,7 @@
    ]
   },
   "animation:cinta-adhesiva": {
-   "name": "Washi tape",
+   "name": "Dekoratibong tape",
    "tags": [
     "frame",
     "litrato",
@@ -586,7 +604,7 @@
    ]
   },
   "animation:circulos-barrido": {
-   "name": "Circle wipe",
+   "name": "Wipe ng mga bilog",
    "tags": [
     "transition",
     "bilog",
@@ -595,7 +613,7 @@
    ]
   },
   "animation:cohete": {
-   "name": "Rocket",
+   "name": "Rocket na lumilipad",
    "tags": [
     "launch",
     "lipad",
@@ -604,7 +622,7 @@
    ]
   },
   "animation:comentar": {
-   "name": "Comment",
+   "name": "Mag-comment",
    "tags": [
     "comment",
     "komento",
@@ -614,7 +632,7 @@
    ]
   },
   "animation:compartir": {
-   "name": "Share",
+   "name": "I-share",
    "tags": [
     "share",
     "ipadala",
@@ -632,7 +650,7 @@
    ]
   },
   "animation:cono-fiesta": {
-   "name": "Party popper",
+   "name": "Pasabog ng confetti",
    "tags": [
     "party popper",
     "confetti",
@@ -642,7 +660,7 @@
    ]
   },
   "animation:conversacion": {
-   "name": "Chat",
+   "name": "Usapan sa chat",
    "tags": [
     "chat",
     "usapan",
@@ -651,7 +669,7 @@
    ]
   },
   "animation:copas-brindis": {
-   "name": "Cheers",
+   "name": "Tagay ng baso",
    "tags": [
     "cheers",
     "toast",
@@ -661,7 +679,7 @@
    ]
   },
   "animation:copo-nieve": {
-   "name": "Snowflake",
+   "name": "Butil ng niyebe",
    "tags": [
     "niyebe",
     "winter",
@@ -708,7 +726,7 @@
    ]
   },
   "animation:corchetes": {
-   "name": "Focus brackets",
+   "name": "Bracket na pang-focus",
    "tags": [
     "brackets",
     "highlight",
@@ -737,7 +755,7 @@
    ]
   },
   "animation:corte-dividido": {
-   "name": "Split slide",
+   "name": "Hating slide",
    "tags": [
     "transition",
     "slide",
@@ -746,7 +764,7 @@
    ]
   },
   "animation:cronometro": {
-   "name": "Stopwatch",
+   "name": "Orasang pang-karera",
    "tags": [
     "oras",
     "takbuhan",
@@ -755,7 +773,7 @@
    ]
   },
   "animation:cuadros-zoom": {
-   "name": "Square grid",
+   "name": "Mga kuwadrado",
    "tags": [
     "transition",
     "kuwadrado",
@@ -763,8 +781,17 @@
     "scene change"
    ]
   },
+  "animation:cuenta-regresiva": {
+   "name": "Pagbilang pababa",
+   "tags": [
+    "countdown",
+    "3 2 1",
+    "simula",
+    "hintay"
+   ]
+  },
   "animation:cupcake": {
-   "name": "Cupcake",
+   "name": "Maliit na cake",
    "tags": [
     "cupcake",
     "dessert",
@@ -773,7 +800,7 @@
    ]
   },
   "animation:cursor-clic": {
-   "name": "Click",
+   "name": "Pag-click",
    "tags": [
     "click",
     "tap",
@@ -783,7 +810,7 @@
    ]
   },
   "animation:descargar": {
-   "name": "Download",
+   "name": "I-download",
    "tags": [
     "download",
     "i-save",
@@ -792,7 +819,7 @@
    ]
   },
   "animation:desliza-arriba": {
-   "name": "Swipe up",
+   "name": "I-swipe pataas",
    "tags": [
     "swipe up",
     "pataas",
@@ -810,7 +837,7 @@
    ]
   },
   "animation:diana": {
-   "name": "Bullseye",
+   "name": "Gitna ng target",
    "tags": [
     "target",
     "layunin",
@@ -819,7 +846,7 @@
    ]
   },
   "animation:diya": {
-   "name": "Diya lamp",
+   "name": "Lamparang diya",
    "tags": [
     "diwali",
     "ilaw",
@@ -828,7 +855,7 @@
    ]
   },
   "animation:dona": {
-   "name": "Donut",
+   "name": "Doughnut",
    "tags": [
     "donut",
     "dessert",
@@ -837,7 +864,7 @@
    ]
   },
   "animation:en-vivo": {
-   "name": "Live",
+   "name": "Live ngayon",
    "tags": [
     "live",
     "live stream",
@@ -846,7 +873,7 @@
    ]
   },
   "animation:enfasis": {
-   "name": "Emphasis lines",
+   "name": "Guhit ng diin",
    "tags": [
     "emphasis",
     "gulat",
@@ -855,7 +882,7 @@
    ]
   },
   "animation:engranajes": {
-   "name": "Gears",
+   "name": "Mga gear",
    "tags": [
     "settings",
     "proseso",
@@ -864,7 +891,7 @@
    ]
   },
   "animation:enlace": {
-   "name": "Link",
+   "name": "Link na pindutin",
    "tags": [
     "link",
     "bio",
@@ -910,7 +937,7 @@
    ]
   },
   "animation:estallido-comic": {
-   "name": "Comic burst",
+   "name": "Pagsabog na pang-komiks",
    "tags": [
     "pow",
     "wow",
@@ -929,7 +956,7 @@
    ]
   },
   "animation:estrella-fugaz": {
-   "name": "Shooting star",
+   "name": "Bulalakaw",
    "tags": [
     "shooting star",
     "bulalakaw",
@@ -957,7 +984,7 @@
    ]
   },
   "animation:estrellas-valoracion": {
-   "name": "5-star rating",
+   "name": "Rating na 5 bituin",
    "tags": [
     "review",
     "rating",
@@ -966,7 +993,7 @@
    ]
   },
   "animation:etiqueta-precio": {
-   "name": "Price tag",
+   "name": "Tatak ng presyo",
    "tags": [
     "presyo",
     "price tag",
@@ -1123,7 +1150,7 @@
    ]
   },
   "animation:foco-luz": {
-   "name": "Spotlight",
+   "name": "Tutok na ilaw",
    "tags": [
     "spotlight",
     "entablado",
@@ -1142,7 +1169,7 @@
    ]
   },
   "animation:franjas-diagonales": {
-   "name": "Diagonal stripes",
+   "name": "Pahilis na guhit",
    "tags": [
     "transition",
     "stripes",
@@ -1171,7 +1198,7 @@
    ]
   },
   "animation:garabato-infinito": {
-   "name": "Infinity loop",
+   "name": "Walang hanggang loop",
    "tags": [
     "infinity",
     "loop",
@@ -1180,7 +1207,7 @@
    ]
   },
   "animation:globo-info": {
-   "name": "Tooltip",
+   "name": "Lobo ng impormasyon",
    "tags": [
     "impormasyon",
     "detalye",
@@ -1199,7 +1226,7 @@
    ]
   },
   "animation:gorro-fiesta": {
-   "name": "Party hat",
+   "name": "Sombrerong pang-party",
    "tags": [
     "party hat",
     "sumbrero",
@@ -1208,7 +1235,7 @@
    ]
   },
   "animation:gorro-santa": {
-   "name": "Santa hat",
+   "name": "Sombrero ni Santa",
    "tags": [
     "pasko",
     "santa hat",
@@ -1226,7 +1253,7 @@
    ]
   },
   "animation:grafico-barras": {
-   "name": "Bar chart",
+   "name": "Bar graph",
    "tags": [
     "paglago",
     "benta",
@@ -1245,7 +1272,7 @@
    ]
   },
   "animation:grafico-torta": {
-   "name": "Pie chart",
+   "name": "Pabilog na graph",
    "tags": [
     "statistic",
     "porsyento",
@@ -1254,7 +1281,7 @@
    ]
   },
   "animation:guardar": {
-   "name": "Save",
+   "name": "I-save",
    "tags": [
     "save",
     "bookmark",
@@ -1263,7 +1290,7 @@
    ]
   },
   "animation:guirnalda-luces": {
-   "name": "String lights",
+   "name": "Hanay ng ilaw",
    "tags": [
     "string lights",
     "ilaw",
@@ -1273,7 +1300,7 @@
    ]
   },
   "animation:hamburguesa": {
-   "name": "Burger",
+   "name": "Hamburger",
    "tags": [
     "burger",
     "fast food",
@@ -1286,12 +1313,12 @@
    "tags": [
     "hashtag",
     "trending",
-    "tag",
-    "social media"
+    "social media",
+    "tag"
    ]
   },
   "animation:helado": {
-   "name": "Ice cream",
+   "name": "Sorbetes",
    "tags": [
     "ice cream",
     "sorbetes",
@@ -1310,7 +1337,7 @@
    ]
   },
   "animation:huevo-pascua": {
-   "name": "Easter egg",
+   "name": "Itlog ng Easter",
    "tags": [
     "easter",
     "spring",
@@ -1319,7 +1346,7 @@
    ]
   },
   "animation:iris": {
-   "name": "Iris",
+   "name": "Pabilog na iris",
    "tags": [
     "transition",
     "bilog",
@@ -1365,7 +1392,7 @@
    ]
   },
   "animation:lupa": {
-   "name": "Magnifier",
+   "name": "Lente pampalaki",
    "tags": [
     "magnifier",
     "hanapin",
@@ -1375,7 +1402,7 @@
    ]
   },
   "animation:mancha": {
-   "name": "Organic blob",
+   "name": "Malambot na mantsa",
    "tags": [
     "blob",
     "background",
@@ -1384,7 +1411,7 @@
    ]
   },
   "animation:mancha-liquida": {
-   "name": "Liquid blob wipe",
+   "name": "Wipe ng likidong mantsa",
    "tags": [
     "transition",
     "liquid",
@@ -1411,7 +1438,7 @@
    ]
   },
   "animation:marco-esquinas": {
-   "name": "Focus corners",
+   "name": "Sulok na pang-focus",
    "tags": [
     "frame",
     "focus",
@@ -1420,7 +1447,7 @@
    ]
   },
   "animation:marco-polaroid": {
-   "name": "Instant photo frame",
+   "name": "Frame ng instant photo",
    "tags": [
     "litrato",
     "frame",
@@ -1439,7 +1466,7 @@
    ]
   },
   "animation:me-gusta": {
-   "name": "Like",
+   "name": "Like na puso",
    "tags": [
     "like",
     "puso",
@@ -1458,7 +1485,7 @@
    ]
   },
   "animation:megafono": {
-   "name": "Megaphone",
+   "name": "Megaponong pang-anunsyo",
    "tags": [
     "anunsyo",
     "balita",
@@ -1477,7 +1504,7 @@
    ]
   },
   "animation:mira-enfoque": {
-   "name": "Target reticle",
+   "name": "Tutok ng target",
    "tags": [
     "target",
     "focus",
@@ -1523,12 +1550,22 @@
    ]
   },
   "animation:nota-adhesiva": {
-   "name": "Sticky note",
+   "name": "Malagkit na papel na paalala",
    "tags": [
     "note",
     "paalala",
     "tala",
     "gawain"
+   ]
+  },
+  "animation:notas-musicales": {
+   "name": "Mga nota ng musika",
+   "tags": [
+    "musika",
+    "kanta",
+    "audio",
+    "sayaw",
+    "nota"
    ]
   },
   "animation:nube-lluvia": {
@@ -1541,7 +1578,7 @@
    ]
   },
   "animation:nube-pensamiento": {
-   "name": "Thought bubble",
+   "name": "Lobo ng isip",
    "tags": [
     "isip",
     "ideya",
@@ -1578,7 +1615,7 @@
    ]
   },
   "animation:onda-liquida": {
-   "name": "Liquid wave",
+   "name": "Likidong alon",
    "tags": [
     "transition",
     "liquid",
@@ -1587,7 +1624,7 @@
    ]
   },
   "animation:ondas": {
-   "name": "Pulse rings",
+   "name": "Pumipintig na bilog",
    "tags": [
     "pulse",
     "radar",
@@ -1596,7 +1633,7 @@
    ]
   },
   "animation:palomita": {
-   "name": "Check mark",
+   "name": "Tsek",
    "tags": [
     "check",
     "tama",
@@ -1605,7 +1642,7 @@
    ]
   },
   "animation:palomitas": {
-   "name": "Popcorn",
+   "name": "Popcorn sa sinehan",
    "tags": [
     "sine",
     "pelikula",
@@ -1623,7 +1660,7 @@
    ]
   },
   "animation:pastel-velas": {
-   "name": "Birthday cake",
+   "name": "Cake pang-birthday",
    "tags": [
     "cake",
     "kandila",
@@ -1641,7 +1678,7 @@
    ]
   },
   "animation:pergamino": {
-   "name": "Scroll banner",
+   "name": "Banner na kasulatan",
    "tags": [
     "title",
     "banner",
@@ -1651,7 +1688,7 @@
    ]
   },
   "animation:persiana": {
-   "name": "Blinds",
+   "name": "Blinds na transition",
    "tags": [
     "transition",
     "blinds",
@@ -1660,7 +1697,7 @@
    ]
   },
   "animation:pesas": {
-   "name": "Dumbbell",
+   "name": "Pabigat sa gym",
    "tags": [
     "gym",
     "lakas",
@@ -1669,7 +1706,7 @@
    ]
   },
   "animation:petalos-cerezo": {
-   "name": "Cherry blossom petals",
+   "name": "Talulot ng sakura",
    "tags": [
     "spring",
     "sakura",
@@ -1687,7 +1724,7 @@
    ]
   },
   "animation:podio": {
-   "name": "Podium",
+   "name": "Entablado ng mga panalo",
    "tags": [
     "panalo",
     "first place",
@@ -1696,7 +1733,7 @@
    ]
   },
   "animation:porcentaje-oferta": {
-   "name": "Percent off",
+   "name": "Bawas-porsyento",
    "tags": [
     "discount",
     "sale",
@@ -1735,7 +1772,7 @@
    ]
   },
   "animation:reacciones-vivo": {
-   "name": "Live reactions",
+   "name": "Reaksyon sa live",
    "tags": [
     "reactions",
     "live",
@@ -1782,7 +1819,7 @@
    ]
   },
   "animation:reloj-arena": {
-   "name": "Hourglass",
+   "name": "Orasang buhangin",
    "tags": [
     "hintay",
     "oras",
@@ -1800,7 +1837,7 @@
    ]
   },
   "animation:republicar": {
-   "name": "Repost",
+   "name": "I-repost",
    "tags": [
     "repost",
     "share",
@@ -1809,7 +1846,7 @@
    ]
   },
   "animation:resaltador": {
-   "name": "Highlighter",
+   "name": "Pang-highlight",
    "tags": [
     "highlighter",
     "highlight",
@@ -1818,7 +1855,7 @@
    ]
   },
   "animation:salpicadura": {
-   "name": "Splash",
+   "name": "Tilamsik",
    "tags": [
     "splash",
     "pintura",
@@ -1836,7 +1873,7 @@
    ]
   },
   "animation:scroll-abajo": {
-   "name": "Scroll down",
+   "name": "I-scroll pababa",
    "tags": [
     "scroll",
     "pababa",
@@ -1854,7 +1891,7 @@
    ]
   },
   "animation:sello-oferta": {
-   "name": "Sale badge",
+   "name": "Tatak ng sale",
    "tags": [
     "sale",
     "discount",
@@ -1872,7 +1909,7 @@
    ]
   },
   "animation:serpentinas": {
-   "name": "Streamers",
+   "name": "Palamuting laso",
    "tags": [
     "streamers",
     "party",
@@ -1927,7 +1964,7 @@
    ]
   },
   "animation:tachado-garabato": {
-   "name": "Scribble out",
+   "name": "Kinaskas na guhit",
    "tags": [
     "guhitan",
     "mali",
@@ -1937,7 +1974,7 @@
    ]
   },
   "animation:tarjeta-aviso": {
-   "name": "Notification card",
+   "name": "Card ng abiso",
    "tags": [
     "abiso",
     "notification",
@@ -1946,7 +1983,7 @@
    ]
   },
   "animation:tarjeta-pago": {
-   "name": "Payment card",
+   "name": "Card pambayad",
    "tags": [
     "bayad",
     "card",
@@ -1974,7 +2011,7 @@
    ]
   },
   "animation:tercio-inferior": {
-   "name": "Lower third",
+   "name": "Bar ng pangalan",
    "tags": [
     "pangalan",
     "title",
@@ -2029,7 +2066,7 @@
    ]
   },
   "animation:ubicacion": {
-   "name": "Location pin",
+   "name": "Pin ng lokasyon",
    "tags": [
     "lokasyon",
     "mapa",
@@ -2038,7 +2075,7 @@
    ]
   },
   "animation:varita-magica": {
-   "name": "Magic wand",
+   "name": "Mahiwagang baston",
    "tags": [
     "magic wand",
     "mahika",
@@ -2048,7 +2085,7 @@
    ]
   },
   "animation:verificado": {
-   "name": "Verified",
+   "name": "Beripikado",
    "tags": [
     "verified",
     "official",
@@ -2063,6 +2100,5750 @@
     "simoy",
     "malamig",
     "wind"
+   ]
+  },
+  "animation:wifi": {
+   "name": "Signal ng Wi-Fi",
+   "tags": [
+    "internet",
+    "wifi",
+    "signal",
+    "online"
+   ]
+  },
+  "background:acuarela-calido": {
+   "name": "Watercolor (mainit)",
+   "tags": [
+    "watercolor",
+    "pintura",
+    "art",
+    "malambot",
+    "background"
+   ]
+  },
+  "background:acuarela-frio": {
+   "name": "Watercolor (malamig)",
+   "tags": [
+    "watercolor",
+    "pintura",
+    "art",
+    "malambot",
+    "background"
+   ]
+  },
+  "background:acuarela-oscuro": {
+   "name": "Watercolor (madilim)",
+   "tags": [
+    "watercolor",
+    "pintura",
+    "art",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:acuarela-vibrante": {
+   "name": "Watercolor (matingkad)",
+   "tags": [
+    "watercolor",
+    "pintura",
+    "art",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:ajedrez-calido": {
+   "name": "Gumagalaw na checkers (mainit)",
+   "tags": [
+    "checkers",
+    "checkered",
+    "retro",
+    "kuwadrado",
+    "background"
+   ]
+  },
+  "background:ajedrez-frio": {
+   "name": "Gumagalaw na checkers (malamig)",
+   "tags": [
+    "checkers",
+    "checkered",
+    "retro",
+    "kuwadrado",
+    "background"
+   ]
+  },
+  "background:ajedrez-oscuro": {
+   "name": "Gumagalaw na checkers (madilim)",
+   "tags": [
+    "checkers",
+    "checkered",
+    "retro",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:ajedrez-vibrante": {
+   "name": "Gumagalaw na checkers (matingkad)",
+   "tags": [
+    "checkers",
+    "checkered",
+    "retro",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:anio-nuevo": {
+   "name": "Bagong Taon",
+   "tags": [
+    "bagong taon",
+    "new year",
+    "toast",
+    "party",
+    "background"
+   ]
+  },
+  "background:anio-nuevo-2": {
+   "name": "Bagong Taon 2",
+   "tags": [
+    "bagong taon",
+    "new year",
+    "toast",
+    "party",
+    "background"
+   ]
+  },
+  "background:atardecer-calido": {
+   "name": "Paglubog ng araw (mainit)",
+   "tags": [
+    "paglubog ng araw",
+    "sunset",
+    "araw",
+    "background"
+   ]
+  },
+  "background:atardecer-frio": {
+   "name": "Paglubog ng araw (malamig)",
+   "tags": [
+    "paglubog ng araw",
+    "sunset",
+    "araw",
+    "background"
+   ]
+  },
+  "background:atardecer-oscuro": {
+   "name": "Paglubog ng araw (madilim)",
+   "tags": [
+    "paglubog ng araw",
+    "sunset",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:atardecer-vibrante": {
+   "name": "Paglubog ng araw (matingkad)",
+   "tags": [
+    "paglubog ng araw",
+    "sunset",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:aurora-calido": {
+   "name": "Aurora (mainit)",
+   "tags": [
+    "aurora",
+    "northern lights",
+    "langit",
+    "gabi",
+    "background"
+   ]
+  },
+  "background:aurora-frio": {
+   "name": "Aurora (malamig)",
+   "tags": [
+    "aurora",
+    "northern lights",
+    "langit",
+    "gabi",
+    "background"
+   ]
+  },
+  "background:aurora-oscuro": {
+   "name": "Aurora (madilim)",
+   "tags": [
+    "aurora",
+    "northern lights",
+    "madilim",
+    "gabi",
+    "background"
+   ]
+  },
+  "background:aurora-vibrante": {
+   "name": "Aurora (matingkad)",
+   "tags": [
+    "aurora",
+    "northern lights",
+    "matingkad",
+    "langit",
+    "background"
+   ]
+  },
+  "background:bokeh-calido": {
+   "name": "Bokeh (mainit)",
+   "tags": [
+    "bokeh",
+    "ilaw",
+    "blur",
+    "elegante",
+    "background"
+   ]
+  },
+  "background:bokeh-frio": {
+   "name": "Bokeh (malamig)",
+   "tags": [
+    "bokeh",
+    "ilaw",
+    "blur",
+    "elegante",
+    "background"
+   ]
+  },
+  "background:bokeh-oscuro": {
+   "name": "Bokeh (madilim)",
+   "tags": [
+    "bokeh",
+    "ilaw",
+    "blur",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:bokeh-vibrante": {
+   "name": "Bokeh (matingkad)",
+   "tags": [
+    "bokeh",
+    "ilaw",
+    "blur",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:burbujas-calido": {
+   "name": "Bula (mainit)",
+   "tags": [
+    "bula",
+    "bubbles",
+    "tubig",
+    "pambata",
+    "background"
+   ]
+  },
+  "background:burbujas-frio": {
+   "name": "Bula (malamig)",
+   "tags": [
+    "bula",
+    "bubbles",
+    "tubig",
+    "pambata",
+    "background"
+   ]
+  },
+  "background:burbujas-oscuro": {
+   "name": "Bula (madilim)",
+   "tags": [
+    "bula",
+    "bubbles",
+    "tubig",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:burbujas-vibrante": {
+   "name": "Bula (matingkad)",
+   "tags": [
+    "bula",
+    "bubbles",
+    "tubig",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:cielo-estrellado-calido": {
+   "name": "Mabituing langit (mainit)",
+   "tags": [
+    "bituin",
+    "gabi",
+    "kalawakan",
+    "langit",
+    "background"
+   ]
+  },
+  "background:cielo-estrellado-frio": {
+   "name": "Mabituing langit (malamig)",
+   "tags": [
+    "bituin",
+    "gabi",
+    "kalawakan",
+    "langit",
+    "background"
+   ]
+  },
+  "background:cielo-estrellado-oscuro": {
+   "name": "Mabituing langit (madilim)",
+   "tags": [
+    "bituin",
+    "gabi",
+    "kalawakan",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:cielo-estrellado-vibrante": {
+   "name": "Mabituing langit (matingkad)",
+   "tags": [
+    "bituin",
+    "gabi",
+    "kalawakan",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:circuito-calido": {
+   "name": "Circuit (mainit)",
+   "tags": [
+    "circuit",
+    "teknolohiya",
+    "tech",
+    "digital",
+    "background"
+   ]
+  },
+  "background:circuito-frio": {
+   "name": "Circuit (malamig)",
+   "tags": [
+    "circuit",
+    "teknolohiya",
+    "tech",
+    "digital",
+    "background"
+   ]
+  },
+  "background:circuito-oscuro": {
+   "name": "Circuit (madilim)",
+   "tags": [
+    "circuit",
+    "teknolohiya",
+    "tech",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:circuito-vibrante": {
+   "name": "Circuit (matingkad)",
+   "tags": [
+    "circuit",
+    "teknolohiya",
+    "tech",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:circulos-calido": {
+   "name": "Concentric na bilog (mainit)",
+   "tags": [
+    "bilog",
+    "rings",
+    "hypnotic",
+    "background"
+   ]
+  },
+  "background:circulos-frio": {
+   "name": "Concentric na bilog (malamig)",
+   "tags": [
+    "bilog",
+    "rings",
+    "hypnotic",
+    "background"
+   ]
+  },
+  "background:circulos-oscuro": {
+   "name": "Concentric na bilog (madilim)",
+   "tags": [
+    "bilog",
+    "rings",
+    "hypnotic",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:circulos-vibrante": {
+   "name": "Concentric na bilog (matingkad)",
+   "tags": [
+    "bilog",
+    "rings",
+    "hypnotic",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:colinas-calido": {
+   "name": "Mga burol (mainit)",
+   "tags": [
+    "burol",
+    "tanawin",
+    "flat",
+    "landscape",
+    "background"
+   ]
+  },
+  "background:colinas-frio": {
+   "name": "Mga burol (malamig)",
+   "tags": [
+    "burol",
+    "tanawin",
+    "flat",
+    "landscape",
+    "background"
+   ]
+  },
+  "background:colinas-oscuro": {
+   "name": "Mga burol (madilim)",
+   "tags": [
+    "burol",
+    "tanawin",
+    "flat",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:colinas-vibrante": {
+   "name": "Mga burol (matingkad)",
+   "tags": [
+    "burol",
+    "tanawin",
+    "flat",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:confeti-calido": {
+   "name": "Malambot na confetti (mainit)",
+   "tags": [
+    "confetti",
+    "party",
+    "selebrasyon",
+    "kaarawan",
+    "background"
+   ]
+  },
+  "background:confeti-frio": {
+   "name": "Malambot na confetti (malamig)",
+   "tags": [
+    "confetti",
+    "party",
+    "selebrasyon",
+    "kaarawan",
+    "background"
+   ]
+  },
+  "background:confeti-oscuro": {
+   "name": "Malambot na confetti (madilim)",
+   "tags": [
+    "confetti",
+    "party",
+    "selebrasyon",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:confeti-vibrante": {
+   "name": "Malambot na confetti (matingkad)",
+   "tags": [
+    "confetti",
+    "party",
+    "selebrasyon",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:cuadricula-retro-calido": {
+   "name": "Retro na grid (mainit)",
+   "tags": [
+    "retro",
+    "synthwave",
+    "80s",
+    "grid",
+    "background"
+   ]
+  },
+  "background:cuadricula-retro-frio": {
+   "name": "Retro na grid (malamig)",
+   "tags": [
+    "retro",
+    "synthwave",
+    "80s",
+    "grid",
+    "background"
+   ]
+  },
+  "background:cuadricula-retro-oscuro": {
+   "name": "Retro na grid (madilim)",
+   "tags": [
+    "retro",
+    "synthwave",
+    "80s",
+    "grid",
+    "madilim"
+   ]
+  },
+  "background:cuadricula-retro-vibrante": {
+   "name": "Retro na grid (matingkad)",
+   "tags": [
+    "retro",
+    "synthwave",
+    "80s",
+    "grid",
+    "matingkad"
+   ]
+  },
+  "background:cumpleanos": {
+   "name": "Kaarawan",
+   "tags": [
+    "kaarawan",
+    "birthday",
+    "party",
+    "selebrasyon",
+    "background"
+   ]
+  },
+  "background:cumpleanos-2": {
+   "name": "Kaarawan 2",
+   "tags": [
+    "kaarawan",
+    "birthday",
+    "party",
+    "selebrasyon",
+    "background"
+   ]
+  },
+  "background:degradado-diagonal-calido": {
+   "name": "Diagonal na gradient (mainit)",
+   "tags": [
+    "diagonal",
+    "gradient",
+    "kulay",
+    "background"
+   ]
+  },
+  "background:degradado-diagonal-frio": {
+   "name": "Diagonal na gradient (malamig)",
+   "tags": [
+    "diagonal",
+    "gradient",
+    "kulay",
+    "background"
+   ]
+  },
+  "background:degradado-diagonal-oscuro": {
+   "name": "Diagonal na gradient (madilim)",
+   "tags": [
+    "diagonal",
+    "gradient",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:degradado-diagonal-vibrante": {
+   "name": "Diagonal na gradient (matingkad)",
+   "tags": [
+    "diagonal",
+    "gradient",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:degradado-malla-calido": {
+   "name": "Halo-halong gradient (mainit)",
+   "tags": [
+    "mesh",
+    "gradient",
+    "moderno",
+    "background"
+   ]
+  },
+  "background:degradado-malla-frio": {
+   "name": "Halo-halong gradient (malamig)",
+   "tags": [
+    "mesh",
+    "gradient",
+    "moderno",
+    "background"
+   ]
+  },
+  "background:degradado-malla-oscuro": {
+   "name": "Halo-halong gradient (madilim)",
+   "tags": [
+    "mesh",
+    "gradient",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:degradado-malla-vibrante": {
+   "name": "Halo-halong gradient (matingkad)",
+   "tags": [
+    "mesh",
+    "gradient",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:degradado-movil-calido": {
+   "name": "Gumagalaw na gradient (mainit)",
+   "tags": [
+    "gradient",
+    "gumagalaw",
+    "kulay",
+    "background"
+   ]
+  },
+  "background:degradado-movil-frio": {
+   "name": "Gumagalaw na gradient (malamig)",
+   "tags": [
+    "gradient",
+    "gumagalaw",
+    "kulay",
+    "background"
+   ]
+  },
+  "background:degradado-movil-oscuro": {
+   "name": "Gumagalaw na gradient (madilim)",
+   "tags": [
+    "gradient",
+    "gumagalaw",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:degradado-movil-vibrante": {
+   "name": "Gumagalaw na gradient (matingkad)",
+   "tags": [
+    "gradient",
+    "gumagalaw",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:diwali": {
+   "name": "Diwali",
+   "tags": [
+    "diwali",
+    "pista ng ilaw",
+    "diya",
+    "ilaw",
+    "pagdiriwang"
+   ]
+  },
+  "background:diwali-2": {
+   "name": "Diwali 2",
+   "tags": [
+    "diwali",
+    "pista ng ilaw",
+    "diya",
+    "ilaw",
+    "pagdiriwang"
+   ]
+  },
+  "background:ecualizador-calido": {
+   "name": "Equalizer ng musika (mainit)",
+   "tags": [
+    "equalizer",
+    "musika",
+    "podcast",
+    "audio",
+    "dj"
+   ]
+  },
+  "background:ecualizador-frio": {
+   "name": "Equalizer ng musika (malamig)",
+   "tags": [
+    "equalizer",
+    "musika",
+    "podcast",
+    "audio",
+    "dj"
+   ]
+  },
+  "background:ecualizador-oscuro": {
+   "name": "Equalizer ng musika (madilim)",
+   "tags": [
+    "equalizer",
+    "musika",
+    "podcast",
+    "madilim",
+    "dj"
+   ]
+  },
+  "background:ecualizador-vibrante": {
+   "name": "Equalizer ng musika (matingkad)",
+   "tags": [
+    "equalizer",
+    "musika",
+    "podcast",
+    "matingkad",
+    "dj"
+   ]
+  },
+  "background:escenario-calido": {
+   "name": "Ilaw ng entablado (mainit)",
+   "tags": [
+    "entablado",
+    "konsiyerto",
+    "show",
+    "ilaw",
+    "background"
+   ]
+  },
+  "background:escenario-frio": {
+   "name": "Ilaw ng entablado (malamig)",
+   "tags": [
+    "entablado",
+    "konsiyerto",
+    "show",
+    "ilaw",
+    "background"
+   ]
+  },
+  "background:escenario-oscuro": {
+   "name": "Ilaw ng entablado (madilim)",
+   "tags": [
+    "entablado",
+    "konsiyerto",
+    "show",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:escenario-vibrante": {
+   "name": "Ilaw ng entablado (matingkad)",
+   "tags": [
+    "entablado",
+    "konsiyerto",
+    "show",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:espiral-calido": {
+   "name": "Ikid (mainit)",
+   "tags": [
+    "spiral",
+    "hypnotic",
+    "ikot",
+    "background"
+   ]
+  },
+  "background:espiral-frio": {
+   "name": "Ikid (malamig)",
+   "tags": [
+    "spiral",
+    "hypnotic",
+    "ikot",
+    "background"
+   ]
+  },
+  "background:espiral-oscuro": {
+   "name": "Ikid (madilim)",
+   "tags": [
+    "spiral",
+    "hypnotic",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:espiral-vibrante": {
+   "name": "Ikid (matingkad)",
+   "tags": [
+    "spiral",
+    "hypnotic",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:formas-flotantes-calido": {
+   "name": "Lumulutang na hugis (mainit)",
+   "tags": [
+    "hugis",
+    "geometric",
+    "masaya",
+    "background"
+   ]
+  },
+  "background:formas-flotantes-frio": {
+   "name": "Lumulutang na hugis (malamig)",
+   "tags": [
+    "hugis",
+    "geometric",
+    "masaya",
+    "background"
+   ]
+  },
+  "background:formas-flotantes-oscuro": {
+   "name": "Lumulutang na hugis (madilim)",
+   "tags": [
+    "hugis",
+    "geometric",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:formas-flotantes-vibrante": {
+   "name": "Lumulutang na hugis (matingkad)",
+   "tags": [
+    "hugis",
+    "geometric",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:galaxia-calido": {
+   "name": "Kalawakan (mainit)",
+   "tags": [
+    "galaxy",
+    "kalawakan",
+    "uniberso",
+    "cosmos",
+    "background"
+   ]
+  },
+  "background:galaxia-frio": {
+   "name": "Kalawakan (malamig)",
+   "tags": [
+    "galaxy",
+    "kalawakan",
+    "uniberso",
+    "cosmos",
+    "background"
+   ]
+  },
+  "background:galaxia-oscuro": {
+   "name": "Kalawakan (madilim)",
+   "tags": [
+    "galaxy",
+    "kalawakan",
+    "uniberso",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:galaxia-vibrante": {
+   "name": "Kalawakan (matingkad)",
+   "tags": [
+    "galaxy",
+    "kalawakan",
+    "uniberso",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:graduacion": {
+   "name": "Pagtatapos",
+   "tags": [
+    "graduation",
+    "pagtatapos",
+    "tagumpay",
+    "batch",
+    "background"
+   ]
+  },
+  "background:graduacion-2": {
+   "name": "Pagtatapos 2",
+   "tags": [
+    "graduation",
+    "pagtatapos",
+    "tagumpay",
+    "batch",
+    "background"
+   ]
+  },
+  "background:halloween": {
+   "name": "Halloween",
+   "tags": [
+    "halloween",
+    "nakakatakot",
+    "kalabasa",
+    "multo",
+    "undas"
+   ]
+  },
+  "background:halloween-2": {
+   "name": "Halloween 2",
+   "tags": [
+    "halloween",
+    "nakakatakot",
+    "kalabasa",
+    "multo",
+    "undas"
+   ]
+  },
+  "background:hexagonos-calido": {
+   "name": "Hexagon (mainit)",
+   "tags": [
+    "hexagon",
+    "honeycomb",
+    "tech",
+    "gaming",
+    "background"
+   ]
+  },
+  "background:hexagonos-frio": {
+   "name": "Hexagon (malamig)",
+   "tags": [
+    "hexagon",
+    "honeycomb",
+    "tech",
+    "gaming",
+    "background"
+   ]
+  },
+  "background:hexagonos-oscuro": {
+   "name": "Hexagon (madilim)",
+   "tags": [
+    "hexagon",
+    "honeycomb",
+    "tech",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:hexagonos-vibrante": {
+   "name": "Hexagon (matingkad)",
+   "tags": [
+    "hexagon",
+    "honeycomb",
+    "tech",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:humo-color-calido": {
+   "name": "Makulay na usok (mainit)",
+   "tags": [
+    "usok",
+    "smoke",
+    "misteryo",
+    "background"
+   ]
+  },
+  "background:humo-color-frio": {
+   "name": "Makulay na usok (malamig)",
+   "tags": [
+    "usok",
+    "smoke",
+    "misteryo",
+    "background"
+   ]
+  },
+  "background:humo-color-oscuro": {
+   "name": "Makulay na usok (madilim)",
+   "tags": [
+    "usok",
+    "smoke",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:humo-color-vibrante": {
+   "name": "Makulay na usok (matingkad)",
+   "tags": [
+    "usok",
+    "smoke",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:lampara-lava-calido": {
+   "name": "Lava lamp (mainit)",
+   "tags": [
+    "lava lamp",
+    "bula",
+    "retro",
+    "70s",
+    "blob"
+   ]
+  },
+  "background:lampara-lava-frio": {
+   "name": "Lava lamp (malamig)",
+   "tags": [
+    "lava lamp",
+    "bula",
+    "retro",
+    "70s",
+    "blob"
+   ]
+  },
+  "background:lampara-lava-oscuro": {
+   "name": "Lava lamp (madilim)",
+   "tags": [
+    "lava lamp",
+    "bula",
+    "retro",
+    "madilim",
+    "blob"
+   ]
+  },
+  "background:lampara-lava-vibrante": {
+   "name": "Lava lamp (matingkad)",
+   "tags": [
+    "lava lamp",
+    "bula",
+    "retro",
+    "matingkad",
+    "blob"
+   ]
+  },
+  "background:liquido-calido": {
+   "name": "Likido (mainit)",
+   "tags": [
+    "liquid",
+    "fluid",
+    "marble",
+    "psychedelic",
+    "background"
+   ]
+  },
+  "background:liquido-frio": {
+   "name": "Likido (malamig)",
+   "tags": [
+    "liquid",
+    "fluid",
+    "marble",
+    "psychedelic",
+    "background"
+   ]
+  },
+  "background:liquido-oscuro": {
+   "name": "Likido (madilim)",
+   "tags": [
+    "liquid",
+    "fluid",
+    "marble",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:liquido-vibrante": {
+   "name": "Likido (matingkad)",
+   "tags": [
+    "liquid",
+    "fluid",
+    "marble",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:lluvia-luces-calido": {
+   "name": "Ulan ng ilaw (mainit)",
+   "tags": [
+    "ilaw",
+    "ulan ng ilaw",
+    "gabi",
+    "party",
+    "background"
+   ]
+  },
+  "background:lluvia-luces-frio": {
+   "name": "Ulan ng ilaw (malamig)",
+   "tags": [
+    "ilaw",
+    "ulan ng ilaw",
+    "gabi",
+    "party",
+    "background"
+   ]
+  },
+  "background:lluvia-luces-oscuro": {
+   "name": "Ulan ng ilaw (madilim)",
+   "tags": [
+    "ilaw",
+    "ulan ng ilaw",
+    "gabi",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:lluvia-luces-vibrante": {
+   "name": "Ulan ng ilaw (matingkad)",
+   "tags": [
+    "ilaw",
+    "ulan ng ilaw",
+    "gabi",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:low-poly-calido": {
+   "name": "Mga polygon (mainit)",
+   "tags": [
+    "low poly",
+    "polygon",
+    "kristal",
+    "moderno",
+    "background"
+   ]
+  },
+  "background:low-poly-frio": {
+   "name": "Mga polygon (malamig)",
+   "tags": [
+    "low poly",
+    "polygon",
+    "kristal",
+    "moderno",
+    "background"
+   ]
+  },
+  "background:low-poly-oscuro": {
+   "name": "Mga polygon (madilim)",
+   "tags": [
+    "low poly",
+    "polygon",
+    "madilim",
+    "moderno",
+    "background"
+   ]
+  },
+  "background:low-poly-vibrante": {
+   "name": "Mga polygon (matingkad)",
+   "tags": [
+    "low poly",
+    "polygon",
+    "matingkad",
+    "moderno",
+    "background"
+   ]
+  },
+  "background:luces-ciudad-calido": {
+   "name": "Ilaw ng lungsod (mainit)",
+   "tags": [
+    "lungsod",
+    "gabi",
+    "bokeh",
+    "urban",
+    "background"
+   ]
+  },
+  "background:luces-ciudad-frio": {
+   "name": "Ilaw ng lungsod (malamig)",
+   "tags": [
+    "lungsod",
+    "gabi",
+    "bokeh",
+    "urban",
+    "background"
+   ]
+  },
+  "background:luces-ciudad-oscuro": {
+   "name": "Ilaw ng lungsod (madilim)",
+   "tags": [
+    "lungsod",
+    "gabi",
+    "bokeh",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:luces-ciudad-vibrante": {
+   "name": "Ilaw ng lungsod (matingkad)",
+   "tags": [
+    "lungsod",
+    "gabi",
+    "bokeh",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:luciernagas-calido": {
+   "name": "Alitaptap (mainit)",
+   "tags": [
+    "alitaptap",
+    "gabi",
+    "mahika",
+    "gubat",
+    "background"
+   ]
+  },
+  "background:luciernagas-frio": {
+   "name": "Alitaptap (malamig)",
+   "tags": [
+    "alitaptap",
+    "gabi",
+    "mahika",
+    "gubat",
+    "background"
+   ]
+  },
+  "background:luciernagas-oscuro": {
+   "name": "Alitaptap (madilim)",
+   "tags": [
+    "alitaptap",
+    "gabi",
+    "mahika",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:luciernagas-vibrante": {
+   "name": "Alitaptap (matingkad)",
+   "tags": [
+    "alitaptap",
+    "gabi",
+    "mahika",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:marmol-calido": {
+   "name": "Marmol (mainit)",
+   "tags": [
+    "marmol",
+    "marble",
+    "elegante",
+    "luxury",
+    "background"
+   ]
+  },
+  "background:marmol-frio": {
+   "name": "Marmol (malamig)",
+   "tags": [
+    "marmol",
+    "marble",
+    "elegante",
+    "luxury",
+    "background"
+   ]
+  },
+  "background:marmol-oscuro": {
+   "name": "Marmol (madilim)",
+   "tags": [
+    "marmol",
+    "marble",
+    "elegante",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:marmol-vibrante": {
+   "name": "Marmol (matingkad)",
+   "tags": [
+    "marmol",
+    "marble",
+    "elegante",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:memphis-calido": {
+   "name": "Istilong Memphis (mainit)",
+   "tags": [
+    "memphis",
+    "80s",
+    "pop",
+    "hugis",
+    "background"
+   ]
+  },
+  "background:memphis-frio": {
+   "name": "Istilong Memphis (malamig)",
+   "tags": [
+    "memphis",
+    "80s",
+    "pop",
+    "hugis",
+    "background"
+   ]
+  },
+  "background:memphis-oscuro": {
+   "name": "Istilong Memphis (madilim)",
+   "tags": [
+    "memphis",
+    "80s",
+    "pop",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:memphis-vibrante": {
+   "name": "Istilong Memphis (matingkad)",
+   "tags": [
+    "memphis",
+    "80s",
+    "pop",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:navidad": {
+   "name": "Pasko",
+   "tags": [
+    "pasko",
+    "christmas",
+    "disyembre",
+    "holiday",
+    "background"
+   ]
+  },
+  "background:navidad-2": {
+   "name": "Pasko 2",
+   "tags": [
+    "pasko",
+    "christmas",
+    "disyembre",
+    "holiday",
+    "background"
+   ]
+  },
+  "background:neon-calido": {
+   "name": "Mga linyang neon (mainit)",
+   "tags": [
+    "neon",
+    "linya",
+    "gabi",
+    "cyber",
+    "background"
+   ]
+  },
+  "background:neon-frio": {
+   "name": "Mga linyang neon (malamig)",
+   "tags": [
+    "neon",
+    "linya",
+    "gabi",
+    "cyber",
+    "background"
+   ]
+  },
+  "background:neon-oscuro": {
+   "name": "Mga linyang neon (madilim)",
+   "tags": [
+    "neon",
+    "linya",
+    "gabi",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:neon-vibrante": {
+   "name": "Mga linyang neon (matingkad)",
+   "tags": [
+    "neon",
+    "linya",
+    "gabi",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:nieve-calido": {
+   "name": "Niyebe (mainit)",
+   "tags": [
+    "niyebe",
+    "winter",
+    "pasko",
+    "malamig",
+    "background"
+   ]
+  },
+  "background:nieve-frio": {
+   "name": "Niyebe (malamig)",
+   "tags": [
+    "niyebe",
+    "winter",
+    "pasko",
+    "malamig",
+    "background"
+   ]
+  },
+  "background:nieve-oscuro": {
+   "name": "Niyebe (madilim)",
+   "tags": [
+    "niyebe",
+    "winter",
+    "pasko",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:nieve-vibrante": {
+   "name": "Niyebe (matingkad)",
+   "tags": [
+    "niyebe",
+    "winter",
+    "pasko",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:nubes-calido": {
+   "name": "Mga ulap (mainit)",
+   "tags": [
+    "ulap",
+    "langit",
+    "clouds",
+    "dreamy",
+    "background"
+   ]
+  },
+  "background:nubes-frio": {
+   "name": "Mga ulap (malamig)",
+   "tags": [
+    "ulap",
+    "langit",
+    "clouds",
+    "dreamy",
+    "background"
+   ]
+  },
+  "background:nubes-oscuro": {
+   "name": "Mga ulap (madilim)",
+   "tags": [
+    "ulap",
+    "langit",
+    "clouds",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:nubes-vibrante": {
+   "name": "Mga ulap (matingkad)",
+   "tags": [
+    "ulap",
+    "langit",
+    "clouds",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:ondas-sonido-calido": {
+   "name": "Alon ng tunog (mainit)",
+   "tags": [
+    "sound wave",
+    "tunog",
+    "podcast",
+    "musika",
+    "audio"
+   ]
+  },
+  "background:ondas-sonido-frio": {
+   "name": "Alon ng tunog (malamig)",
+   "tags": [
+    "sound wave",
+    "tunog",
+    "podcast",
+    "musika",
+    "audio"
+   ]
+  },
+  "background:ondas-sonido-oscuro": {
+   "name": "Alon ng tunog (madilim)",
+   "tags": [
+    "sound wave",
+    "tunog",
+    "podcast",
+    "madilim",
+    "audio"
+   ]
+  },
+  "background:ondas-sonido-vibrante": {
+   "name": "Alon ng tunog (matingkad)",
+   "tags": [
+    "sound wave",
+    "tunog",
+    "podcast",
+    "matingkad",
+    "audio"
+   ]
+  },
+  "background:ondas-suaves-calido": {
+   "name": "Malambot na alon (mainit)",
+   "tags": [
+    "alon",
+    "waves",
+    "dagat",
+    "malambot",
+    "background"
+   ]
+  },
+  "background:ondas-suaves-frio": {
+   "name": "Malambot na alon (malamig)",
+   "tags": [
+    "alon",
+    "waves",
+    "dagat",
+    "malambot",
+    "background"
+   ]
+  },
+  "background:ondas-suaves-oscuro": {
+   "name": "Malambot na alon (madilim)",
+   "tags": [
+    "alon",
+    "waves",
+    "madilim",
+    "malambot",
+    "background"
+   ]
+  },
+  "background:ondas-suaves-vibrante": {
+   "name": "Malambot na alon (matingkad)",
+   "tags": [
+    "alon",
+    "waves",
+    "matingkad",
+    "malambot",
+    "background"
+   ]
+  },
+  "background:otono": {
+   "name": "Taglagas",
+   "tags": [
+    "autumn",
+    "taglagas",
+    "dahon",
+    "thanksgiving",
+    "background"
+   ]
+  },
+  "background:otono-2": {
+   "name": "Taglagas 2",
+   "tags": [
+    "autumn",
+    "taglagas",
+    "dahon",
+    "thanksgiving",
+    "background"
+   ]
+  },
+  "background:papel-calido": {
+   "name": "Papel (mainit)",
+   "tags": [
+    "papel",
+    "paper",
+    "texture",
+    "collage",
+    "vintage"
+   ]
+  },
+  "background:papel-frio": {
+   "name": "Papel (malamig)",
+   "tags": [
+    "papel",
+    "paper",
+    "texture",
+    "collage",
+    "vintage"
+   ]
+  },
+  "background:papel-oscuro": {
+   "name": "Papel (madilim)",
+   "tags": [
+    "papel",
+    "paper",
+    "texture",
+    "madilim",
+    "vintage"
+   ]
+  },
+  "background:papel-vibrante": {
+   "name": "Papel (matingkad)",
+   "tags": [
+    "papel",
+    "paper",
+    "texture",
+    "matingkad",
+    "vintage"
+   ]
+  },
+  "background:particulas-calido": {
+   "name": "Mga butil (mainit)",
+   "tags": [
+    "particles",
+    "alikabok",
+    "malambot",
+    "kalmado",
+    "background"
+   ]
+  },
+  "background:particulas-frio": {
+   "name": "Mga butil (malamig)",
+   "tags": [
+    "particles",
+    "alikabok",
+    "malambot",
+    "kalmado",
+    "background"
+   ]
+  },
+  "background:particulas-oscuro": {
+   "name": "Mga butil (madilim)",
+   "tags": [
+    "particles",
+    "alikabok",
+    "malambot",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:particulas-vibrante": {
+   "name": "Mga butil (matingkad)",
+   "tags": [
+    "particles",
+    "alikabok",
+    "malambot",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:pizarra-calido": {
+   "name": "Pisara (mainit)",
+   "tags": [
+    "pisara",
+    "chalkboard",
+    "paaralan",
+    "klase",
+    "edukasyon"
+   ]
+  },
+  "background:pizarra-frio": {
+   "name": "Pisara (malamig)",
+   "tags": [
+    "pisara",
+    "chalkboard",
+    "paaralan",
+    "klase",
+    "edukasyon"
+   ]
+  },
+  "background:pizarra-oscuro": {
+   "name": "Pisara (madilim)",
+   "tags": [
+    "pisara",
+    "chalkboard",
+    "paaralan",
+    "madilim",
+    "edukasyon"
+   ]
+  },
+  "background:pizarra-vibrante": {
+   "name": "Pisara (matingkad)",
+   "tags": [
+    "pisara",
+    "chalkboard",
+    "paaralan",
+    "matingkad",
+    "edukasyon"
+   ]
+  },
+  "background:primavera": {
+   "name": "Tagsibol",
+   "tags": [
+    "spring",
+    "tagsibol",
+    "bulaklak",
+    "mother's day",
+    "background"
+   ]
+  },
+  "background:primavera-2": {
+   "name": "Tagsibol 2",
+   "tags": [
+    "spring",
+    "tagsibol",
+    "bulaklak",
+    "mother's day",
+    "background"
+   ]
+  },
+  "background:prisma-calido": {
+   "name": "Prisma (mainit)",
+   "tags": [
+    "prism",
+    "rainbow",
+    "kristal",
+    "aesthetic",
+    "background"
+   ]
+  },
+  "background:prisma-frio": {
+   "name": "Prisma (malamig)",
+   "tags": [
+    "prism",
+    "rainbow",
+    "kristal",
+    "aesthetic",
+    "background"
+   ]
+  },
+  "background:prisma-oscuro": {
+   "name": "Prisma (madilim)",
+   "tags": [
+    "prism",
+    "rainbow",
+    "kristal",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:prisma-vibrante": {
+   "name": "Prisma (matingkad)",
+   "tags": [
+    "prism",
+    "rainbow",
+    "kristal",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:puntos-calido": {
+   "name": "Pumipintig na tuldok (mainit)",
+   "tags": [
+    "tuldok",
+    "dots",
+    "halftone",
+    "pop",
+    "background"
+   ]
+  },
+  "background:puntos-frio": {
+   "name": "Pumipintig na tuldok (malamig)",
+   "tags": [
+    "tuldok",
+    "dots",
+    "halftone",
+    "pop",
+    "background"
+   ]
+  },
+  "background:puntos-oscuro": {
+   "name": "Pumipintig na tuldok (madilim)",
+   "tags": [
+    "tuldok",
+    "dots",
+    "halftone",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:puntos-vibrante": {
+   "name": "Pumipintig na tuldok (matingkad)",
+   "tags": [
+    "tuldok",
+    "dots",
+    "halftone",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:ramadan": {
+   "name": "Ramadan at Eid",
+   "tags": [
+    "ramadan",
+    "eid",
+    "buwan",
+    "gabi",
+    "background"
+   ]
+  },
+  "background:ramadan-2": {
+   "name": "Ramadan at Eid 2",
+   "tags": [
+    "ramadan",
+    "eid",
+    "buwan",
+    "gabi",
+    "background"
+   ]
+  },
+  "background:rayas-calido": {
+   "name": "Gumagalaw na guhit (mainit)",
+   "tags": [
+    "guhit",
+    "stripes",
+    "linya",
+    "dynamic",
+    "background"
+   ]
+  },
+  "background:rayas-frio": {
+   "name": "Gumagalaw na guhit (malamig)",
+   "tags": [
+    "guhit",
+    "stripes",
+    "linya",
+    "dynamic",
+    "background"
+   ]
+  },
+  "background:rayas-oscuro": {
+   "name": "Gumagalaw na guhit (madilim)",
+   "tags": [
+    "guhit",
+    "stripes",
+    "linya",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:rayas-vibrante": {
+   "name": "Gumagalaw na guhit (matingkad)",
+   "tags": [
+    "guhit",
+    "stripes",
+    "linya",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:rayos-luz-calido": {
+   "name": "Sinag ng liwanag (mainit)",
+   "tags": [
+    "sinag",
+    "liwanag",
+    "langit",
+    "pag-asa",
+    "background"
+   ]
+  },
+  "background:rayos-luz-frio": {
+   "name": "Sinag ng liwanag (malamig)",
+   "tags": [
+    "sinag",
+    "liwanag",
+    "langit",
+    "pag-asa",
+    "background"
+   ]
+  },
+  "background:rayos-luz-oscuro": {
+   "name": "Sinag ng liwanag (madilim)",
+   "tags": [
+    "sinag",
+    "liwanag",
+    "langit",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:rayos-luz-vibrante": {
+   "name": "Sinag ng liwanag (matingkad)",
+   "tags": [
+    "sinag",
+    "liwanag",
+    "langit",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:rayos-sol-calido": {
+   "name": "Umiikot na sunburst (mainit)",
+   "tags": [
+    "sunburst",
+    "sinag",
+    "promo",
+    "pambata",
+    "background"
+   ]
+  },
+  "background:rayos-sol-frio": {
+   "name": "Umiikot na sunburst (malamig)",
+   "tags": [
+    "sunburst",
+    "sinag",
+    "promo",
+    "pambata",
+    "background"
+   ]
+  },
+  "background:rayos-sol-oscuro": {
+   "name": "Umiikot na sunburst (madilim)",
+   "tags": [
+    "sunburst",
+    "sinag",
+    "promo",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:rayos-sol-vibrante": {
+   "name": "Umiikot na sunburst (matingkad)",
+   "tags": [
+    "sunburst",
+    "sinag",
+    "promo",
+    "matingkad",
+    "background"
+   ]
+  },
+  "background:san-valentin": {
+   "name": "Araw ng mga Puso",
+   "tags": [
+    "valentine's",
+    "pag-ibig",
+    "puso",
+    "pebrero",
+    "background"
+   ]
+  },
+  "background:san-valentin-2": {
+   "name": "Araw ng mga Puso 2",
+   "tags": [
+    "valentine's",
+    "pag-ibig",
+    "puso",
+    "pebrero",
+    "background"
+   ]
+  },
+  "background:tinta-calido": {
+   "name": "Tinta sa tubig (mainit)",
+   "tags": [
+    "tinta",
+    "ink",
+    "tubig",
+    "art",
+    "fluid"
+   ]
+  },
+  "background:tinta-frio": {
+   "name": "Tinta sa tubig (malamig)",
+   "tags": [
+    "tinta",
+    "ink",
+    "tubig",
+    "art",
+    "fluid"
+   ]
+  },
+  "background:tinta-oscuro": {
+   "name": "Tinta sa tubig (madilim)",
+   "tags": [
+    "tinta",
+    "ink",
+    "tubig",
+    "madilim",
+    "fluid"
+   ]
+  },
+  "background:tinta-vibrante": {
+   "name": "Tinta sa tubig (matingkad)",
+   "tags": [
+    "tinta",
+    "ink",
+    "tubig",
+    "matingkad",
+    "fluid"
+   ]
+  },
+  "background:tunel-calido": {
+   "name": "Lagusan (mainit)",
+   "tags": [
+    "tunnel",
+    "lagusan",
+    "zoom",
+    "psychedelic",
+    "background"
+   ]
+  },
+  "background:tunel-frio": {
+   "name": "Lagusan (malamig)",
+   "tags": [
+    "tunnel",
+    "lagusan",
+    "zoom",
+    "psychedelic",
+    "background"
+   ]
+  },
+  "background:tunel-oscuro": {
+   "name": "Lagusan (madilim)",
+   "tags": [
+    "tunnel",
+    "lagusan",
+    "zoom",
+    "madilim",
+    "background"
+   ]
+  },
+  "background:tunel-vibrante": {
+   "name": "Lagusan (matingkad)",
+   "tags": [
+    "tunnel",
+    "lagusan",
+    "zoom",
+    "matingkad",
+    "background"
+   ]
+  },
+  "overlay:amor-corazones": {
+   "name": "Lumulutang na puso",
+   "tags": [
+    "puso",
+    "hearts",
+    "pag-ibig",
+    "love",
+    "valentine's"
+   ]
+  },
+  "overlay:amor-corazones-brillo": {
+   "name": "Makinang na puso",
+   "tags": [
+    "puso",
+    "hearts",
+    "kinang",
+    "pag-ibig",
+    "valentine's"
+   ]
+  },
+  "overlay:amor-corazones-contorno": {
+   "name": "Outline na puso",
+   "tags": [
+    "puso",
+    "hearts",
+    "outline",
+    "pag-ibig",
+    "valentine's"
+   ]
+  },
+  "overlay:amor-corazones-neon": {
+   "name": "Neon na puso",
+   "tags": [
+    "puso",
+    "hearts",
+    "neon",
+    "pag-ibig",
+    "valentine's"
+   ]
+  },
+  "overlay:amor-corazones-rojos": {
+   "name": "Pulang puso",
+   "tags": [
+    "puso",
+    "pula",
+    "hearts",
+    "pag-ibig",
+    "valentine's"
+   ]
+  },
+  "overlay:amor-explosion-corazones": {
+   "name": "Pagsabog ng puso",
+   "tags": [
+    "puso",
+    "pagsabog",
+    "burst",
+    "pag-ibig",
+    "love"
+   ]
+  },
+  "overlay:amor-globos-corazon": {
+   "name": "Hugis-pusong lobo",
+   "tags": [
+    "lobo",
+    "puso",
+    "heart balloons",
+    "pag-ibig",
+    "valentine's"
+   ]
+  },
+  "overlay:amor-likes": {
+   "name": "Mga puso sa live",
+   "tags": [
+    "puso",
+    "likes",
+    "live",
+    "hearts",
+    "pag-ibig"
+   ]
+  },
+  "overlay:amor-lluvia-corazones": {
+   "name": "Ulan ng puso",
+   "tags": [
+    "puso",
+    "hearts",
+    "ulan",
+    "pag-ibig",
+    "valentine's"
+   ]
+  },
+  "overlay:amor-marco-corazones": {
+   "name": "Frame ng puso",
+   "tags": [
+    "puso",
+    "frame",
+    "hearts",
+    "pag-ibig",
+    "valentine's"
+   ]
+  },
+  "overlay:amor-petalos": {
+   "name": "Talulot ng rosas",
+   "tags": [
+    "talulot",
+    "rosas",
+    "rose petals",
+    "kasal",
+    "pag-ibig"
+   ]
+  },
+  "overlay:amor-petalos-blancos": {
+   "name": "Puting talulot",
+   "tags": [
+    "talulot",
+    "puti",
+    "white",
+    "kasal",
+    "wedding"
+   ]
+  },
+  "overlay:amor-petalos-rosa": {
+   "name": "Blush na talulot",
+   "tags": [
+    "talulot",
+    "pink",
+    "blush",
+    "kasal",
+    "debut"
+   ]
+  },
+  "overlay:cam-bateria-baja": {
+   "name": "Lowbat na baterya",
+   "tags": [
+    "baterya",
+    "low battery",
+    "lowbat",
+    "camera"
+   ]
+  },
+  "overlay:cam-cuenta-regresiva": {
+   "name": "Countdown ng lumang pelikula",
+   "tags": [
+    "countdown",
+    "sine",
+    "film leader",
+    "vintage"
+   ]
+  },
+  "overlay:cam-en-vivo": {
+   "name": "Tatak na LIVE",
+   "tags": [
+    "live",
+    "live stream",
+    "broadcast",
+    "stream"
+   ]
+  },
+  "overlay:cam-enfoque": {
+   "name": "Tutok ng camera",
+   "tags": [
+    "focus",
+    "camera",
+    "litrato",
+    "autofocus"
+   ]
+  },
+  "overlay:cam-flash": {
+   "name": "Flash ng camera",
+   "tags": [
+    "flash",
+    "litrato",
+    "camera",
+    "transition"
+   ]
+  },
+  "overlay:cam-grabando-pantalla": {
+   "name": "Nire-record ang screen",
+   "tags": [
+    "screen recording",
+    "tutorial",
+    "record",
+    "screen"
+   ]
+  },
+  "overlay:cam-obturador": {
+   "name": "Shutter ng camera",
+   "tags": [
+    "shutter",
+    "camera",
+    "litrato",
+    "transition"
+   ]
+  },
+  "overlay:cam-rec": {
+   "name": "Nagre-record na camera (REC)",
+   "tags": [
+    "rec",
+    "camera",
+    "record",
+    "recording"
+   ]
+  },
+  "overlay:cam-rec-minimal": {
+   "name": "Minimal na REC",
+   "tags": [
+    "rec",
+    "record",
+    "minimal",
+    "camera",
+    "vlog"
+   ]
+  },
+  "overlay:cam-seguridad": {
+   "name": "Camera ng seguridad",
+   "tags": [
+    "security",
+    "cctv",
+    "camera",
+    "bantay"
+   ]
+  },
+  "overlay:cam-vision-nocturna": {
+   "name": "Paningin sa gabi",
+   "tags": [
+    "night vision",
+    "berde",
+    "camera",
+    "gabi"
+   ]
+  },
+  "overlay:cam-visor": {
+   "name": "Viewfinder ng camera",
+   "tags": [
+    "viewfinder",
+    "grid",
+    "camera",
+    "frame"
+   ]
+  },
+  "overlay:cel-confeti": {
+   "name": "Ulan ng confetti",
+   "tags": [
+    "confetti",
+    "party",
+    "kaarawan",
+    "selebrasyon"
+   ]
+  },
+  "overlay:cel-confeti-circulos": {
+   "name": "Tuldok na confetti",
+   "tags": [
+    "confetti",
+    "tuldok",
+    "dots",
+    "bilog",
+    "party"
+   ]
+  },
+  "overlay:cel-confeti-corazones": {
+   "name": "Hugis-pusong confetti",
+   "tags": [
+    "confetti",
+    "puso",
+    "hearts",
+    "kasal",
+    "pag-ibig"
+   ]
+  },
+  "overlay:cel-confeti-desde-arriba": {
+   "name": "Confetti mula sa itaas",
+   "tags": [
+    "confetti",
+    "burst",
+    "party popper",
+    "sorpresa",
+    "itaas"
+   ]
+  },
+  "overlay:cel-confeti-dorado": {
+   "name": "Gintong confetti",
+   "tags": [
+    "confetti",
+    "ginto",
+    "gold",
+    "bagong taon",
+    "new year"
+   ]
+  },
+  "overlay:cel-confeti-explosion": {
+   "name": "Pagsabog ng confetti",
+   "tags": [
+    "confetti",
+    "pagsabog",
+    "burst",
+    "party popper",
+    "sorpresa"
+   ]
+  },
+  "overlay:cel-confeti-grande": {
+   "name": "Malaking confetti",
+   "tags": [
+    "confetti",
+    "malaki",
+    "big",
+    "party",
+    "masaya"
+   ]
+  },
+  "overlay:cel-confeti-pastel": {
+   "name": "Pastel na confetti",
+   "tags": [
+    "confetti",
+    "pastel",
+    "baby shower",
+    "baby",
+    "kaarawan"
+   ]
+  },
+  "overlay:cel-confeti-plata": {
+   "name": "Silver na confetti",
+   "tags": [
+    "confetti",
+    "silver",
+    "pilak",
+    "kasal",
+    "anibersaryo"
+   ]
+  },
+  "overlay:cel-estrellas": {
+   "name": "Ulan ng bituin",
+   "tags": [
+    "bituin",
+    "stars",
+    "party",
+    "pambata",
+    "selebrasyon"
+   ]
+  },
+  "overlay:cel-estrellas-doradas": {
+   "name": "Gintong bituin",
+   "tags": [
+    "bituin",
+    "ginto",
+    "gold",
+    "stars",
+    "award"
+   ]
+  },
+  "overlay:cel-explosion-centro": {
+   "name": "Pagsabog sa gitna",
+   "tags": [
+    "confetti",
+    "pagsabog",
+    "burst",
+    "gitna",
+    "sorpresa"
+   ]
+  },
+  "overlay:cel-explosion-dorada": {
+   "name": "Gintong pagsabog",
+   "tags": [
+    "confetti",
+    "pagsabog",
+    "ginto",
+    "burst",
+    "sorpresa"
+   ]
+  },
+  "overlay:cel-explosion-estrellas": {
+   "name": "Pagsabog ng bituin",
+   "tags": [
+    "bituin",
+    "pagsabog",
+    "star burst",
+    "confetti",
+    "sorpresa"
+   ]
+  },
+  "overlay:cel-fuegos-artificiales": {
+   "name": "Paputok",
+   "tags": [
+    "paputok",
+    "fireworks",
+    "bagong taon",
+    "new year",
+    "party"
+   ]
+  },
+  "overlay:cel-fuegos-dorados": {
+   "name": "Gintong paputok",
+   "tags": [
+    "paputok",
+    "fireworks",
+    "ginto",
+    "bagong taon",
+    "party"
+   ]
+  },
+  "overlay:cel-fuegos-final": {
+   "name": "Grand finale ng paputok",
+   "tags": [
+    "paputok",
+    "fireworks",
+    "finale",
+    "bagong taon",
+    "party"
+   ]
+  },
+  "overlay:cel-fuegos-lejanos": {
+   "name": "Malayong paputok",
+   "tags": [
+    "paputok",
+    "fireworks",
+    "malayo",
+    "bagong taon",
+    "gabi"
+   ]
+  },
+  "overlay:cel-globos": {
+   "name": "Lobo",
+   "tags": [
+    "lobo",
+    "balloons",
+    "kaarawan",
+    "birthday",
+    "party"
+   ]
+  },
+  "overlay:cel-globos-dorados": {
+   "name": "Gold at silver na lobo",
+   "tags": [
+    "lobo",
+    "balloons",
+    "gold",
+    "silver",
+    "party"
+   ]
+  },
+  "overlay:cel-globos-pastel": {
+   "name": "Pastel na lobo",
+   "tags": [
+    "lobo",
+    "balloons",
+    "pastel",
+    "kaarawan",
+    "party"
+   ]
+  },
+  "overlay:cel-lluvia-billetes": {
+   "name": "Ulan ng pera",
+   "tags": [
+    "pera",
+    "money",
+    "yaman",
+    "panalo",
+    "bills"
+   ]
+  },
+  "overlay:cel-lluvia-emojis": {
+   "name": "Ulan ng emoji",
+   "tags": [
+    "emoji",
+    "smiley",
+    "saya",
+    "katatawanan",
+    "masaya"
+   ]
+  },
+  "overlay:cel-lluvia-monedas": {
+   "name": "Ulan ng barya",
+   "tags": [
+    "barya",
+    "coins",
+    "pera",
+    "money",
+    "panalo"
+   ]
+  },
+  "overlay:cel-lluvia-regalos": {
+   "name": "Ulan ng regalo",
+   "tags": [
+    "regalo",
+    "gifts",
+    "pasko",
+    "kaarawan",
+    "giveaway"
+   ]
+  },
+  "overlay:cel-purpurina": {
+   "name": "Kumikinang na glitter",
+   "tags": [
+    "glitter",
+    "kinang",
+    "ginto",
+    "party"
+   ]
+  },
+  "overlay:cel-serpentinas": {
+   "name": "Palamuting laso",
+   "tags": [
+    "streamers",
+    "party",
+    "karnabal",
+    "kaarawan"
+   ]
+  },
+  "overlay:clima-arcoiris": {
+   "name": "Bahaghari",
+   "tags": [
+    "bahaghari",
+    "rainbow",
+    "panahon",
+    "kalikasan"
+   ]
+  },
+  "overlay:clima-copos": {
+   "name": "Mga butil ng niyebe",
+   "tags": [
+    "niyebe",
+    "snowflakes",
+    "winter",
+    "panahon"
+   ]
+  },
+  "overlay:clima-dientes-de-leon": {
+   "name": "Buto ng dandelion",
+   "tags": [
+    "dandelion",
+    "kalikasan",
+    "hangin",
+    "lumilipad"
+   ]
+  },
+  "overlay:clima-gotas-cristal": {
+   "name": "Patak ng ulan sa salamin",
+   "tags": [
+    "patak",
+    "ulan",
+    "salamin",
+    "bintana",
+    "raindrops"
+   ]
+  },
+  "overlay:clima-hojas": {
+   "name": "Dahon ng taglagas",
+   "tags": [
+    "dahon",
+    "autumn",
+    "taglagas",
+    "fall",
+    "leaves"
+   ]
+  },
+  "overlay:clima-hojas-verdes": {
+   "name": "Berdeng dahon",
+   "tags": [
+    "dahon",
+    "berde",
+    "green",
+    "kalikasan"
+   ]
+  },
+  "overlay:clima-humo": {
+   "name": "Usok",
+   "tags": [
+    "usok",
+    "smoke",
+    "singaw",
+    "misteryo",
+    "dramatic"
+   ]
+  },
+  "overlay:clima-humo-azul": {
+   "name": "Asul na usok",
+   "tags": [
+    "usok",
+    "asul",
+    "smoke",
+    "blue"
+   ]
+  },
+  "overlay:clima-humo-colores": {
+   "name": "Makulay na usok",
+   "tags": [
+    "usok",
+    "makulay",
+    "color smoke",
+    "smoke bomb"
+   ]
+  },
+  "overlay:clima-humo-rosa": {
+   "name": "Pink na usok",
+   "tags": [
+    "usok",
+    "pink",
+    "smoke",
+    "aesthetic"
+   ]
+  },
+  "overlay:clima-lluvia": {
+   "name": "Ulan",
+   "tags": [
+    "ulan",
+    "rain",
+    "bagyo",
+    "malungkot",
+    "senti"
+   ]
+  },
+  "overlay:clima-lluvia-ligera": {
+   "name": "Ambon",
+   "tags": [
+    "ambon",
+    "mahinang ulan",
+    "drizzle",
+    "ulan"
+   ]
+  },
+  "overlay:clima-nevada": {
+   "name": "Bagyo ng niyebe",
+   "tags": [
+    "niyebe",
+    "snowstorm",
+    "bagyo",
+    "winter"
+   ]
+  },
+  "overlay:clima-niebla": {
+   "name": "Hamog",
+   "tags": [
+    "hamog",
+    "fog",
+    "ulap",
+    "mist",
+    "misteryo"
+   ]
+  },
+  "overlay:clima-niebla-baja": {
+   "name": "Mababang hamog",
+   "tags": [
+    "hamog",
+    "low fog",
+    "mist",
+    "kalikasan"
+   ]
+  },
+  "overlay:clima-nieve": {
+   "name": "Mahinang niyebe",
+   "tags": [
+    "niyebe",
+    "snow",
+    "winter",
+    "pasko"
+   ]
+  },
+  "overlay:clima-noche-estrellada": {
+   "name": "Mabituing gabi",
+   "tags": [
+    "bituin",
+    "gabi",
+    "starry night",
+    "langit"
+   ]
+  },
+  "overlay:clima-petalos-flores": {
+   "name": "Makukulay na talulot",
+   "tags": [
+    "talulot",
+    "bulaklak",
+    "makulay",
+    "petals",
+    "kalikasan"
+   ]
+  },
+  "overlay:clima-polvo-viento": {
+   "name": "Alikabok sa hangin",
+   "tags": [
+    "alikabok",
+    "hangin",
+    "dust",
+    "disyerto"
+   ]
+  },
+  "overlay:clima-relampago": {
+   "name": "Kidlat",
+   "tags": [
+    "kidlat",
+    "lightning",
+    "bagyo",
+    "panahon"
+   ]
+  },
+  "overlay:clima-sakura": {
+   "name": "Bulaklak ng sakura",
+   "tags": [
+    "sakura",
+    "cherry blossom",
+    "spring",
+    "bulaklak"
+   ]
+  },
+  "overlay:clima-tormenta": {
+   "name": "Bagyo",
+   "tags": [
+    "bagyo",
+    "kidlat",
+    "ulan",
+    "thunderstorm",
+    "panahon"
+   ]
+  },
+  "overlay:garabato-angel": {
+   "name": "Pakpak at halo ng anghel",
+   "tags": [
+    "doodle",
+    "anghel",
+    "pakpak",
+    "halo",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-angel-dorado": {
+   "name": "Gintong pakpak ng anghel",
+   "tags": [
+    "doodle",
+    "anghel",
+    "pakpak",
+    "ginto",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-brillo": {
+   "name": "Guhit ng kinang",
+   "tags": [
+    "doodle",
+    "kinang",
+    "shine",
+    "hand drawn",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-caritas": {
+   "name": "Doodle na smiley",
+   "tags": [
+    "doodle",
+    "smiley",
+    "mukha",
+    "hand drawn",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-cielo": {
+   "name": "Doodle na ulap at araw",
+   "tags": [
+    "doodle",
+    "ulap",
+    "araw",
+    "langit",
+    "hand drawn"
+   ]
+  },
+  "overlay:garabato-circulo": {
+   "name": "Hand-drawn na bilog",
+   "tags": [
+    "doodle",
+    "bilog",
+    "hand drawn",
+    "highlight"
+   ]
+  },
+  "overlay:garabato-circulo-rojo": {
+   "name": "Pulang hand-drawn na bilog",
+   "tags": [
+    "doodle",
+    "bilog",
+    "pula",
+    "hand drawn",
+    "highlight"
+   ]
+  },
+  "overlay:garabato-corazones": {
+   "name": "Doodle na puso",
+   "tags": [
+    "doodle",
+    "puso",
+    "hearts",
+    "hand drawn",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-corazones-rosa": {
+   "name": "Pink na doodle na puso",
+   "tags": [
+    "doodle",
+    "puso",
+    "pink",
+    "hand drawn",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-corona": {
+   "name": "Doodle na korona",
+   "tags": [
+    "doodle",
+    "korona",
+    "crown",
+    "hand drawn",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-corona-dorada": {
+   "name": "Gintong doodle na korona",
+   "tags": [
+    "doodle",
+    "korona",
+    "ginto",
+    "hand drawn",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-diablito": {
+   "name": "Sungay ng maliit na demonyo",
+   "tags": [
+    "doodle",
+    "sungay",
+    "devil",
+    "pilyo",
+    "hand drawn"
+   ]
+  },
+  "overlay:garabato-diablito-blanco": {
+   "name": "Doodle na sungay",
+   "tags": [
+    "doodle",
+    "sungay",
+    "horns",
+    "puti",
+    "hand drawn"
+   ]
+  },
+  "overlay:garabato-estallido": {
+   "name": "Doodle na pagsabog",
+   "tags": [
+    "doodle",
+    "burst",
+    "sabog",
+    "hand drawn",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-estrellas": {
+   "name": "Doodle na bituin",
+   "tags": [
+    "doodle",
+    "bituin",
+    "stars",
+    "hand drawn",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-estrellas-doradas": {
+   "name": "Gintong doodle na bituin",
+   "tags": [
+    "doodle",
+    "bituin",
+    "ginto",
+    "hand drawn",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-flechas": {
+   "name": "Doodle na arrow",
+   "tags": [
+    "doodle",
+    "arrow",
+    "hand drawn",
+    "ituro"
+   ]
+  },
+  "overlay:garabato-flechas-girando": {
+   "name": "Umiikot na arrow",
+   "tags": [
+    "doodle",
+    "arrow",
+    "ikot",
+    "hand drawn"
+   ]
+  },
+  "overlay:garabato-flechas-neon": {
+   "name": "Neon na doodle arrow",
+   "tags": [
+    "doodle",
+    "arrow",
+    "neon",
+    "hand drawn"
+   ]
+  },
+  "overlay:garabato-flores": {
+   "name": "Doodle na bulaklak",
+   "tags": [
+    "doodle",
+    "bulaklak",
+    "flowers",
+    "hand drawn",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-mariposas": {
+   "name": "Doodle na paru-paro",
+   "tags": [
+    "doodle",
+    "paru-paro",
+    "butterfly",
+    "hand drawn",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-mix": {
+   "name": "Halo-halong doodle",
+   "tags": [
+    "doodle",
+    "mix",
+    "hand drawn",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-mix-negro": {
+   "name": "Itim na doodle mix",
+   "tags": [
+    "doodle",
+    "itim",
+    "black",
+    "hand drawn",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-mix-rosa": {
+   "name": "Pink na doodle mix",
+   "tags": [
+    "doodle",
+    "pink",
+    "hand drawn",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-musica": {
+   "name": "Doodle na music notes",
+   "tags": [
+    "doodle",
+    "nota",
+    "musika",
+    "hand drawn"
+   ]
+  },
+  "overlay:garabato-neon-corazones": {
+   "name": "Neon na doodle na puso",
+   "tags": [
+    "doodle",
+    "puso",
+    "neon",
+    "hand drawn",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-rayos": {
+   "name": "Doodle na kidlat",
+   "tags": [
+    "doodle",
+    "kidlat",
+    "lightning",
+    "hand drawn"
+   ]
+  },
+  "overlay:garabato-signos": {
+   "name": "Doodle na marka",
+   "tags": [
+    "doodle",
+    "marka",
+    "simbolo",
+    "hand drawn"
+   ]
+  },
+  "overlay:garabato-subrayado": {
+   "name": "Hand-drawn na underline",
+   "tags": [
+    "doodle",
+    "underline",
+    "salungguhit",
+    "hand drawn"
+   ]
+  },
+  "overlay:glitch-bloques": {
+   "name": "Glitch na pa-bloke",
+   "tags": [
+    "glitch",
+    "blocks",
+    "pixel",
+    "digital"
+   ]
+  },
+  "overlay:glitch-codigo": {
+   "name": "Ulan ng code",
+   "tags": [
+    "code",
+    "binary",
+    "matrix",
+    "hacker"
+   ]
+  },
+  "overlay:glitch-estatica": {
+   "name": "Static ng TV",
+   "tags": [
+    "static",
+    "tv",
+    "noise",
+    "ingay"
+   ]
+  },
+  "overlay:glitch-rgb": {
+   "name": "Glitch na RGB",
+   "tags": [
+    "glitch",
+    "rgb",
+    "error",
+    "digital",
+    "cyber"
+   ]
+  },
+  "overlay:glitch-transicion": {
+   "name": "Transition na glitch",
+   "tags": [
+    "glitch",
+    "transition",
+    "error",
+    "digital"
+   ]
+  },
+  "overlay:luz-arcoiris": {
+   "name": "Rainbow na liwanag",
+   "tags": [
+    "liwanag",
+    "rainbow",
+    "bahaghari",
+    "prism",
+    "kulay"
+   ]
+  },
+  "overlay:luz-barrido-calido": {
+   "name": "Daloy ng mainit na liwanag",
+   "tags": [
+    "light sweep",
+    "transition",
+    "liwanag",
+    "warm"
+   ]
+  },
+  "overlay:luz-barrido-rosa": {
+   "name": "Daloy ng pink na liwanag",
+   "tags": [
+    "light sweep",
+    "transition",
+    "liwanag",
+    "pink"
+   ]
+  },
+  "overlay:luz-bokeh-azul": {
+   "name": "Asul na night bokeh",
+   "tags": [
+    "bokeh",
+    "asul",
+    "gabi",
+    "night",
+    "lungsod"
+   ]
+  },
+  "overlay:luz-bokeh-blanco": {
+   "name": "Puting bokeh",
+   "tags": [
+    "bokeh",
+    "puti",
+    "white",
+    "ilaw",
+    "blur"
+   ]
+  },
+  "overlay:luz-bokeh-cayendo": {
+   "name": "Bumabagsak na bokeh",
+   "tags": [
+    "bokeh",
+    "falling",
+    "ilaw",
+    "pasko"
+   ]
+  },
+  "overlay:luz-bokeh-color": {
+   "name": "Makulay na bokeh",
+   "tags": [
+    "bokeh",
+    "makulay",
+    "party",
+    "ilaw",
+    "gabi"
+   ]
+  },
+  "overlay:luz-bokeh-corazones": {
+   "name": "Bokeh na hugis-puso",
+   "tags": [
+    "bokeh",
+    "puso",
+    "hearts",
+    "pag-ibig",
+    "love"
+   ]
+  },
+  "overlay:luz-bokeh-dorado": {
+   "name": "Gintong bokeh",
+   "tags": [
+    "bokeh",
+    "gold",
+    "ginto",
+    "ilaw",
+    "blur"
+   ]
+  },
+  "overlay:luz-bokeh-estrellas": {
+   "name": "Bokeh na hugis-bituin",
+   "tags": [
+    "bokeh",
+    "bituin",
+    "stars",
+    "mahika",
+    "pasko"
+   ]
+  },
+  "overlay:luz-bokeh-rosa": {
+   "name": "Rosas na bokeh",
+   "tags": [
+    "bokeh",
+    "pink",
+    "rosas",
+    "romantic",
+    "debut"
+   ]
+  },
+  "overlay:luz-destello": {
+   "name": "Silaw ng lente",
+   "tags": [
+    "flare",
+    "lens flare",
+    "liwanag",
+    "araw"
+   ]
+  },
+  "overlay:luz-destello-azul": {
+   "name": "Asul na anamorphic flare",
+   "tags": [
+    "flare",
+    "anamorphic",
+    "asul",
+    "cinematic",
+    "sine"
+   ]
+  },
+  "overlay:luz-escaner": {
+   "name": "Linya ng scanner",
+   "tags": [
+    "scanner",
+    "laser",
+    "teknolohiya",
+    "tech"
+   ]
+  },
+  "overlay:luz-flash-transicion": {
+   "name": "Transition na flash",
+   "tags": [
+    "flash",
+    "transition",
+    "puti",
+    "liwanag"
+   ]
+  },
+  "overlay:luz-fuga-calida": {
+   "name": "Mainit na light leak",
+   "tags": [
+    "light leak",
+    "warm",
+    "orange",
+    "film",
+    "liwanag"
+   ]
+  },
+  "overlay:luz-fuga-dorada": {
+   "name": "Gintong light leak",
+   "tags": [
+    "light leak",
+    "gold",
+    "film",
+    "liwanag",
+    "ginto"
+   ]
+  },
+  "overlay:luz-fuga-esquina": {
+   "name": "Liwanag sa mga sulok",
+   "tags": [
+    "light leak",
+    "corner glow",
+    "sulok",
+    "film",
+    "liwanag"
+   ]
+  },
+  "overlay:luz-fuga-esquina-rosa": {
+   "name": "Pink na liwanag sa mga sulok",
+   "tags": [
+    "light leak",
+    "corner glow",
+    "pink",
+    "sulok",
+    "film"
+   ]
+  },
+  "overlay:luz-fuga-fria": {
+   "name": "Malamig na light leak",
+   "tags": [
+    "light leak",
+    "asul",
+    "cool",
+    "blue",
+    "film"
+   ]
+  },
+  "overlay:luz-fuga-roja": {
+   "name": "Pulang light leak",
+   "tags": [
+    "light leak",
+    "pula",
+    "red",
+    "film",
+    "liwanag"
+   ]
+  },
+  "overlay:luz-fuga-rosa": {
+   "name": "Rosas na light leak",
+   "tags": [
+    "light leak",
+    "pink",
+    "rosas",
+    "romantic",
+    "film"
+   ]
+  },
+  "overlay:luz-fuga-turquesa": {
+   "name": "Teal at orange light leak",
+   "tags": [
+    "light leak",
+    "teal",
+    "orange",
+    "film",
+    "cinematic"
+   ]
+  },
+  "overlay:luz-fuga-verde": {
+   "name": "Vintage na berdeng light leak",
+   "tags": [
+    "light leak",
+    "berde",
+    "green",
+    "vintage",
+    "film"
+   ]
+  },
+  "overlay:luz-fuga-violeta": {
+   "name": "Lilang light leak",
+   "tags": [
+    "light leak",
+    "violet",
+    "purple",
+    "film",
+    "liwanag"
+   ]
+  },
+  "overlay:luz-luces-ciudad": {
+   "name": "Ilaw ng lungsod",
+   "tags": [
+    "lungsod",
+    "city lights",
+    "ilaw",
+    "gabi",
+    "night"
+   ]
+  },
+  "overlay:luz-luces-navidad": {
+   "name": "Mga ilaw pamasko",
+   "tags": [
+    "pasko",
+    "christmas lights",
+    "ilaw",
+    "bokeh",
+    "parol"
+   ]
+  },
+  "overlay:luz-luciernagas": {
+   "name": "Alitaptap",
+   "tags": [
+    "alitaptap",
+    "fireflies",
+    "mahika",
+    "gabi",
+    "gubat"
+   ]
+  },
+  "overlay:luz-neon-barrido": {
+   "name": "Daloy ng neon",
+   "tags": [
+    "neon",
+    "sweep",
+    "transition",
+    "liwanag"
+   ]
+  },
+  "overlay:luz-prisma": {
+   "name": "Prismang bahaghari",
+   "tags": [
+    "prism",
+    "rainbow",
+    "bahaghari",
+    "refraction",
+    "liwanag"
+   ]
+  },
+  "overlay:luz-rayos": {
+   "name": "Sinag ng araw",
+   "tags": [
+    "sinag",
+    "araw",
+    "sun rays",
+    "liwanag"
+   ]
+  },
+  "overlay:luz-sol": {
+   "name": "Silaw ng araw",
+   "tags": [
+    "araw",
+    "sun",
+    "flare",
+    "summer",
+    "liwanag"
+   ]
+  },
+  "overlay:marco-brillos": {
+   "name": "Kumikinang na frame",
+   "tags": [
+    "frame",
+    "border",
+    "kislap",
+    "sparkle"
+   ]
+  },
+  "overlay:marco-lineas-laterales": {
+   "name": "Guhit ng galaw",
+   "tags": [
+    "linya",
+    "galaw",
+    "motion lines",
+    "anime"
+   ]
+  },
+  "overlay:marco-lineas-velocidad": {
+   "name": "Guhit ng bilis",
+   "tags": [
+    "speed lines",
+    "bilis",
+    "anime",
+    "manga"
+   ]
+  },
+  "overlay:marco-neon-azul": {
+   "name": "Asul na neon frame",
+   "tags": [
+    "frame",
+    "border",
+    "neon",
+    "asul"
+   ]
+  },
+  "overlay:marco-neon-rosa": {
+   "name": "Pink na neon frame",
+   "tags": [
+    "frame",
+    "border",
+    "neon",
+    "pink"
+   ]
+  },
+  "overlay:marco-papel-cinta": {
+   "name": "Papel na may tape",
+   "tags": [
+    "frame",
+    "border",
+    "papel",
+    "tape"
+   ]
+  },
+  "overlay:marco-papel-negro": {
+   "name": "Itim na cut-out frame",
+   "tags": [
+    "frame",
+    "border",
+    "papel",
+    "itim",
+    "cut-out"
+   ]
+  },
+  "overlay:marco-papel-recortado": {
+   "name": "Cut-out na papel",
+   "tags": [
+    "frame",
+    "border",
+    "papel",
+    "cut-out"
+   ]
+  },
+  "overlay:marco-polaroid": {
+   "name": "Frame ng instant photo",
+   "tags": [
+    "frame",
+    "border",
+    "instant photo",
+    "litrato"
+   ]
+  },
+  "overlay:marco-semitono": {
+   "name": "Tuldok-tuldok na komiks",
+   "tags": [
+    "halftone",
+    "komiks",
+    "pop art",
+    "tuldok"
+   ]
+  },
+  "overlay:part-ascendentes": {
+   "name": "Pataas na ilaw",
+   "tags": [
+    "ilaw",
+    "pataas",
+    "rising",
+    "spiritual",
+    "kapayapaan"
+   ]
+  },
+  "overlay:part-bengala": {
+   "name": "Lusis",
+   "tags": [
+    "sparkler",
+    "lusis",
+    "kislap",
+    "bagong taon",
+    "kasal"
+   ]
+  },
+  "overlay:part-brasas": {
+   "name": "Baga",
+   "tags": [
+    "baga",
+    "embers",
+    "apoy",
+    "bonfire",
+    "warm"
+   ]
+  },
+  "overlay:part-brasas-azules": {
+   "name": "Asul na baga",
+   "tags": [
+    "baga",
+    "asul",
+    "embers",
+    "mahika",
+    "fantasy"
+   ]
+  },
+  "overlay:part-brillos": {
+   "name": "Kislap",
+   "tags": [
+    "kislap",
+    "twinkle",
+    "sparkle",
+    "mahika"
+   ]
+  },
+  "overlay:part-brillos-azules": {
+   "name": "Asul na kislap",
+   "tags": [
+    "kislap",
+    "asul",
+    "blue",
+    "sparkle",
+    "yelo"
+   ]
+  },
+  "overlay:part-brillos-dorados": {
+   "name": "Gintong kislap",
+   "tags": [
+    "kislap",
+    "ginto",
+    "gold",
+    "sparkle",
+    "elegante"
+   ]
+  },
+  "overlay:part-brillos-rosa": {
+   "name": "Pink na kislap",
+   "tags": [
+    "kislap",
+    "pink",
+    "sparkle",
+    "aesthetic"
+   ]
+  },
+  "overlay:part-burbujas": {
+   "name": "Bula",
+   "tags": [
+    "bula",
+    "bubbles",
+    "sabon",
+    "tubig",
+    "bata"
+   ]
+  },
+  "overlay:part-burbujas-arcoiris": {
+   "name": "Iridescent na bula",
+   "tags": [
+    "bula",
+    "iridescent",
+    "rainbow",
+    "sabon",
+    "bubbles"
+   ]
+  },
+  "overlay:part-chispas": {
+   "name": "Tilamsik ng apoy",
+   "tags": [
+    "sparks",
+    "kislap",
+    "apoy",
+    "sparkler",
+    "enerhiya"
+   ]
+  },
+  "overlay:part-chispas-azules": {
+   "name": "Asul na tilamsik",
+   "tags": [
+    "sparks",
+    "asul",
+    "blue",
+    "enerhiya",
+    "kislap"
+   ]
+  },
+  "overlay:part-destellos-grandes": {
+   "name": "Malalaking kislap",
+   "tags": [
+    "kislap",
+    "malaki",
+    "sparkle",
+    "kinang",
+    "produkto"
+   ]
+  },
+  "overlay:part-estrellas-fugaces": {
+   "name": "Mga shooting star",
+   "tags": [
+    "shooting stars",
+    "bulalakaw",
+    "langit",
+    "gabi",
+    "wish"
+   ]
+  },
+  "overlay:part-estrellitas": {
+   "name": "Maliliit na bituin",
+   "tags": [
+    "bituin",
+    "stars",
+    "pambata",
+    "kids",
+    "mahika"
+   ]
+  },
+  "overlay:part-explosion-chispas": {
+   "name": "Pagsabog ng kislap",
+   "tags": [
+    "pagsabog",
+    "sparks",
+    "burst",
+    "impact"
+   ]
+  },
+  "overlay:part-lluvia-luces": {
+   "name": "Ulan ng ilaw",
+   "tags": [
+    "ulan ng ilaw",
+    "light rain",
+    "ilaw",
+    "party",
+    "disco"
+   ]
+  },
+  "overlay:part-lluvia-meteoros": {
+   "name": "Ulan ng bulalakaw",
+   "tags": [
+    "meteor shower",
+    "bulalakaw",
+    "shooting stars",
+    "langit",
+    "gabi"
+   ]
+  },
+  "overlay:part-motas-luz": {
+   "name": "Alikabok sa sinag ng araw",
+   "tags": [
+    "alikabok",
+    "dust",
+    "liwanag",
+    "sinag",
+    "araw"
+   ]
+  },
+  "overlay:part-nieve-brillante": {
+   "name": "Makinang na niyebe",
+   "tags": [
+    "niyebe",
+    "glitter",
+    "kinang",
+    "winter",
+    "pasko"
+   ]
+  },
+  "overlay:part-orbes": {
+   "name": "Mga bola ng liwanag",
+   "tags": [
+    "orbs",
+    "liwanag",
+    "malambot",
+    "dreamy"
+   ]
+  },
+  "overlay:part-polvo-dorado": {
+   "name": "Gintong alikabok",
+   "tags": [
+    "gold dust",
+    "ginto",
+    "alikabok",
+    "mahika",
+    "kinang"
+   ]
+  },
+  "overlay:part-polvo-magico": {
+   "name": "Bakas ng mahiwagang alikabok",
+   "tags": [
+    "mahika",
+    "magic",
+    "wand",
+    "kislap",
+    "dust"
+   ]
+  },
+  "overlay:part-polvo-plateado": {
+   "name": "Pilak na alikabok",
+   "tags": [
+    "silver",
+    "pilak",
+    "dust",
+    "winter",
+    "kinang"
+   ]
+  },
+  "overlay:part-polvo-rosa": {
+   "name": "Rosas na alikabok",
+   "tags": [
+    "pink",
+    "dust",
+    "kinang",
+    "aesthetic"
+   ]
+  },
+  "overlay:part-velocidad-luz": {
+   "name": "Bilis ng liwanag",
+   "tags": [
+    "bilis",
+    "warp",
+    "kalawakan",
+    "space",
+    "bituin"
+   ]
+  },
+  "overlay:pel-8mm": {
+   "name": "8 mm na film",
+   "tags": [
+    "8mm",
+    "super 8",
+    "film",
+    "pelikula",
+    "vintage"
+   ]
+  },
+  "overlay:pel-cine-mudo": {
+   "name": "Lumang pelikulang walang tunog",
+   "tags": [
+    "silent film",
+    "lumang pelikula",
+    "sepia",
+    "luma"
+   ]
+  },
+  "overlay:pel-crt": {
+   "name": "Lumang TV (CRT)",
+   "tags": [
+    "crt",
+    "tv",
+    "telebisyon",
+    "retro",
+    "scanlines"
+   ]
+  },
+  "overlay:pel-flash-blanco": {
+   "name": "Puting flash ng pelikula",
+   "tags": [
+    "flash",
+    "puti",
+    "transition",
+    "film"
+   ]
+  },
+  "overlay:pel-grano": {
+   "name": "Butil ng pelikula",
+   "tags": [
+    "grain",
+    "film",
+    "pelikula",
+    "noise"
+   ]
+  },
+  "overlay:pel-grano-16mm": {
+   "name": "16 mm na grain",
+   "tags": [
+    "grain",
+    "16mm",
+    "film",
+    "pelikula"
+   ]
+  },
+  "overlay:pel-grano-fino": {
+   "name": "Pinong grain",
+   "tags": [
+    "grain",
+    "pino",
+    "fine",
+    "cinematic"
+   ]
+  },
+  "overlay:pel-grano-fuerte": {
+   "name": "Makapal na grain",
+   "tags": [
+    "grain",
+    "makapal",
+    "heavy",
+    "noise"
+   ]
+  },
+  "overlay:pel-marco-super8": {
+   "name": "Super 8 na frame",
+   "tags": [
+    "super 8",
+    "8mm",
+    "frame",
+    "film"
+   ]
+  },
+  "overlay:pel-polvo-rayas": {
+   "name": "Alikabok at gasgas ng film",
+   "tags": [
+    "film",
+    "alikabok",
+    "gasgas",
+    "scratches",
+    "vintage"
+   ]
+  },
+  "overlay:pel-polvo-suave": {
+   "name": "Mahinang alikabok",
+   "tags": [
+    "alikabok",
+    "dust",
+    "malambot",
+    "film"
+   ]
+  },
+  "overlay:pel-quemado": {
+   "name": "Sunog na pelikula",
+   "tags": [
+    "film burn",
+    "pelikula",
+    "transition",
+    "apoy"
+   ]
+  },
+  "overlay:pel-quemado-azul": {
+   "name": "Asul na film burn",
+   "tags": [
+    "film burn",
+    "asul",
+    "transition",
+    "pelikula"
+   ]
+  },
+  "overlay:pel-quemado-bordes": {
+   "name": "Film burn sa gilid",
+   "tags": [
+    "film burn",
+    "gilid",
+    "transition",
+    "pelikula"
+   ]
+  },
+  "overlay:pel-quemado-centro": {
+   "name": "Film burn mula sa gitna",
+   "tags": [
+    "film burn",
+    "gitna",
+    "transition",
+    "pelikula"
+   ]
+  },
+  "overlay:pel-quemado-rojo": {
+   "name": "Pulang film burn",
+   "tags": [
+    "film burn",
+    "pula",
+    "transition",
+    "pelikula"
+   ]
+  },
+  "overlay:pel-quemado-rosa": {
+   "name": "Pink na film burn",
+   "tags": [
+    "film burn",
+    "pink",
+    "transition",
+    "pelikula"
+   ]
+  },
+  "overlay:pel-tira-35mm": {
+   "name": "35 mm na film strip",
+   "tags": [
+    "35mm",
+    "film strip",
+    "pelikula",
+    "frame"
+   ]
+  },
+  "overlay:pel-vhs": {
+   "name": "Lumang VHS",
+   "tags": [
+    "vhs",
+    "retro",
+    "90s",
+    "tape"
+   ]
+  },
+  "overlay:pel-vhs-pausa": {
+   "name": "VHS na naka-pause",
+   "tags": [
+    "vhs",
+    "pause",
+    "retro",
+    "90s"
+   ]
+  },
+  "overlay:pel-vhs-rebobinar": {
+   "name": "VHS na nagre-rewind",
+   "tags": [
+    "vhs",
+    "rewind",
+    "retro",
+    "90s"
+   ]
+  },
+  "overlay:pel-vhs-rec": {
+   "name": "VHS na nagre-record",
+   "tags": [
+    "vhs",
+    "rec",
+    "record",
+    "retro",
+    "90s"
+   ]
+  },
+  "overlay:textura-grunge": {
+   "name": "Grunge na texture",
+   "tags": [
+    "grunge",
+    "texture",
+    "madumi",
+    "rock"
+   ]
+  },
+  "overlay:textura-papel": {
+   "name": "Texture ng papel",
+   "tags": [
+    "texture",
+    "papel",
+    "paper",
+    "vintage"
+   ]
+  },
+  "sound:angelical": {
+   "name": "Pang-anghel",
+   "tags": [
+    "anghel",
+    "angelic",
+    "langit",
+    "kapayapaan",
+    "himala"
+   ]
+  },
+  "sound:aparicion": {
+   "name": "Biglang paglitaw",
+   "tags": [
+    "poof",
+    "lumitaw",
+    "reveal",
+    "mahika"
+   ]
+  },
+  "sound:aplausos": {
+   "name": "Palakpakan",
+   "tags": [
+    "palakpak",
+    "applause",
+    "audience",
+    "bravo",
+    "congrats"
+   ]
+  },
+  "sound:arpa-bajada": {
+   "name": "Pababang harp",
+   "tags": [
+    "harp",
+    "alpa",
+    "pababa",
+    "flashback"
+   ]
+  },
+  "sound:arpa-subida": {
+   "name": "Pataas na harp",
+   "tags": [
+    "harp",
+    "alpa",
+    "glissando",
+    "panaginip",
+    "alaala"
+   ]
+  },
+  "sound:aura": {
+   "name": "Kumikinang na aura",
+   "tags": [
+    "aura",
+    "shimmer",
+    "kinang",
+    "malambot"
+   ]
+  },
+  "sound:ba-dum-tss": {
+   "name": "Ba dum tss",
+   "tags": [
+    "ba dum tss",
+    "rimshot",
+    "joke",
+    "biro",
+    "katatawanan"
+   ]
+  },
+  "sound:bass-drop": {
+   "name": "Bagsak ng bass",
+   "tags": [
+    "bass drop",
+    "drop",
+    "bass",
+    "impact"
+   ]
+  },
+  "sound:bass-drop-corto": {
+   "name": "Maikling bass drop",
+   "tags": [
+    "bass drop",
+    "maikli",
+    "drop",
+    "impact"
+   ]
+  },
+  "sound:bass-drop-distorsion": {
+   "name": "Distorted na bass drop",
+   "tags": [
+    "bass drop",
+    "distortion",
+    "drop",
+    "impact"
+   ]
+  },
+  "sound:bloquear": {
+   "name": "I-lock",
+   "tags": [
+    "lock",
+    "kandado",
+    "cellphone",
+    "i-lock"
+   ]
+  },
+  "sound:bocina-payaso": {
+   "name": "Busina ng payaso",
+   "tags": [
+    "busina",
+    "payaso",
+    "honk",
+    "katatawanan"
+   ]
+  },
+  "sound:bofetada": {
+   "name": "Sampal",
+   "tags": [
+    "sampal",
+    "slap",
+    "katatawanan",
+    "drama"
+   ]
+  },
+  "sound:boing": {
+   "name": "Boing",
+   "tags": [
+    "boing",
+    "talbog",
+    "nakakatawa",
+    "comedy"
+   ]
+  },
+  "sound:boing-agudo": {
+   "name": "Matinis na boing",
+   "tags": [
+    "boing",
+    "matinis",
+    "katatawanan",
+    "cartoon"
+   ]
+  },
+  "sound:boing-grave": {
+   "name": "Malalim na boing",
+   "tags": [
+    "boing",
+    "malalim",
+    "katatawanan",
+    "cartoon"
+   ]
+  },
+  "sound:bombo": {
+   "name": "Tambol na kick",
+   "tags": [
+    "kick",
+    "tambol",
+    "drum",
+    "beat"
+   ]
+  },
+  "sound:bonk": {
+   "name": "Pukpok sa ulo",
+   "tags": [
+    "bonk",
+    "pukpok",
+    "ulo",
+    "katatawanan"
+   ]
+  },
+  "sound:bonus": {
+   "name": "Bonus na premyo",
+   "tags": [
+    "bonus",
+    "extra",
+    "laro",
+    "premyo"
+   ]
+  },
+  "sound:boom-cine": {
+   "name": "Boom na pampelikula",
+   "tags": [
+    "boom",
+    "impact",
+    "cinematic",
+    "epic"
+   ]
+  },
+  "sound:boom-lejano": {
+   "name": "Malayong boom",
+   "tags": [
+    "boom",
+    "impact",
+    "malayo",
+    "epic"
+   ]
+  },
+  "sound:boom-profundo": {
+   "name": "Malalim na boom",
+   "tags": [
+    "boom",
+    "impact",
+    "malalim",
+    "epic"
+   ]
+  },
+  "sound:braam": {
+   "name": "Braam ng trailer",
+   "tags": [
+    "braam",
+    "trailer",
+    "epic",
+    "cinematic",
+    "drama"
+   ]
+  },
+  "sound:braam-grave": {
+   "name": "Malalim na braam",
+   "tags": [
+    "braam",
+    "trailer",
+    "malalim",
+    "dark"
+   ]
+  },
+  "sound:brillo-escena": {
+   "name": "Kislap sa paglipat ng eksena",
+   "tags": [
+    "kislap",
+    "sparkle",
+    "mahika",
+    "glitter",
+    "transition"
+   ]
+  },
+  "sound:brillo-largo": {
+   "name": "Mahabang kislap",
+   "tags": [
+    "kislap",
+    "sparkle",
+    "mahika",
+    "glitter",
+    "mahaba"
+   ]
+  },
+  "sound:brillo-oscuro": {
+   "name": "Misteryosong kislap",
+   "tags": [
+    "kislap",
+    "shimmer",
+    "misteryo",
+    "mahika",
+    "dark"
+   ]
+  },
+  "sound:burbujas-magicas": {
+   "name": "Mahiwagang bula",
+   "tags": [
+    "bula",
+    "bubbles",
+    "mahika",
+    "pambata"
+   ]
+  },
+  "sound:caida-caricatura": {
+   "name": "Cartoon na pagbagsak",
+   "tags": [
+    "bagsak",
+    "fall",
+    "cartoon",
+    "katatawanan"
+   ]
+  },
+  "sound:caida-larga": {
+   "name": "Mahabang downlifter",
+   "tags": [
+    "downlifter",
+    "pababa",
+    "transition",
+    "ending"
+   ]
+  },
+  "sound:caida-objeto": {
+   "name": "Bumagsak na bagay",
+   "tags": [
+    "bagsak",
+    "drop",
+    "bagay",
+    "kalabog"
+   ]
+  },
+  "sound:caida-ruido": {
+   "name": "Pababang ingay",
+   "tags": [
+    "downlifter",
+    "noise",
+    "pababa",
+    "transition"
+   ]
+  },
+  "sound:caida-sinte": {
+   "name": "Pababang synth",
+   "tags": [
+    "synth",
+    "downlifter",
+    "pababa",
+    "transition"
+   ]
+  },
+  "sound:caja": {
+   "name": "Tambol na snare",
+   "tags": [
+    "snare",
+    "tambol",
+    "drum",
+    "beat"
+   ]
+  },
+  "sound:caja-registradora": {
+   "name": "Kaha ng tindahan",
+   "tags": [
+    "cash register",
+    "kaha",
+    "benta",
+    "pera",
+    "ka-ching"
+   ]
+  },
+  "sound:camara-foto": {
+   "name": "Shutter ng camera",
+   "tags": [
+    "camera",
+    "litrato",
+    "shutter",
+    "click",
+    "selfie"
+   ]
+  },
+  "sound:campana-iglesia": {
+   "name": "Kampana ng simbahan",
+   "tags": [
+    "kampana",
+    "simbahan",
+    "church bell",
+    "kasal",
+    "solemne"
+   ]
+  },
+  "sound:campanas-boda": {
+   "name": "Kampana ng kasal",
+   "tags": [
+    "kasal",
+    "kampana",
+    "wedding",
+    "ikakasal"
+   ]
+  },
+  "sound:campanitas": {
+   "name": "Kampanilyang hinahangin",
+   "tags": [
+    "wind chimes",
+    "kampanilya",
+    "hangin",
+    "malambot"
+   ]
+  },
+  "sound:campanitas-rapidas": {
+   "name": "Mabilis na chimes",
+   "tags": [
+    "chimes",
+    "kampanilya",
+    "mabilis",
+    "kislap"
+   ]
+  },
+  "sound:captura-pantalla": {
+   "name": "Pag-screenshot",
+   "tags": [
+    "screenshot",
+    "screen",
+    "cellphone",
+    "capture"
+   ]
+  },
+  "sound:carrera-caricatura": {
+   "name": "Cartoon na pagtakbo",
+   "tags": [
+    "takbo",
+    "run",
+    "cartoon",
+    "tumakas"
+   ]
+  },
+  "sound:chasquido": {
+   "name": "Pitik ng daliri",
+   "tags": [
+    "pitik",
+    "snap",
+    "daliri",
+    "mahika",
+    "transition"
+   ]
+  },
+  "sound:chillido-doble": {
+   "name": "Dobleng squeak",
+   "tags": [
+    "squeak",
+    "laruan",
+    "doble",
+    "katatawanan"
+   ]
+  },
+  "sound:chillido-juguete": {
+   "name": "Squeaky na laruan",
+   "tags": [
+    "squeak",
+    "laruan",
+    "toy",
+    "alaga"
+   ]
+  },
+  "sound:cinta-frenada": {
+   "name": "Huminto ang tape",
+   "tags": [
+    "tape stop",
+    "huminto",
+    "cut",
+    "dj"
+   ]
+  },
+  "sound:cinta-frenada-lenta": {
+   "name": "Mabagal na tape stop",
+   "tags": [
+    "tape stop",
+    "mabagal",
+    "huminto",
+    "ending"
+   ]
+  },
+  "sound:clic": {
+   "name": "Pag-click",
+   "tags": [
+    "click",
+    "pindot",
+    "button"
+   ]
+  },
+  "sound:clic-boligrafo": {
+   "name": "Click ng ballpen",
+   "tags": [
+    "click",
+    "ballpen",
+    "pen",
+    "pindot"
+   ]
+  },
+  "sound:clic-raton": {
+   "name": "Click ng mouse",
+   "tags": [
+    "click",
+    "mouse",
+    "computer",
+    "tutorial"
+   ]
+  },
+  "sound:completado": {
+   "name": "Tapos na",
+   "tags": [
+    "tapos na",
+    "done",
+    "kumpleto",
+    "success"
+   ]
+  },
+  "sound:contador-puntos": {
+   "name": "Bilang ng puntos",
+   "tags": [
+    "puntos",
+    "score",
+    "counter",
+    "laro"
+   ]
+  },
+  "sound:corneta-aire": {
+   "name": "Businang pang-party",
+   "tags": [
+    "air horn",
+    "busina",
+    "party",
+    "dj",
+    "hype"
+   ]
+  },
+  "sound:coro-celestial": {
+   "name": "Makalangit na koro",
+   "tags": [
+    "koro",
+    "choir",
+    "anghel",
+    "langit",
+    "reveal"
+   ]
+  },
+  "sound:correcto": {
+   "name": "Tama",
+   "tags": [
+    "tama",
+    "check",
+    "correct",
+    "success"
+   ]
+  },
+  "sound:cremallera": {
+   "name": "Siper",
+   "tags": [
+    "zipper",
+    "siper",
+    "damit",
+    "sara"
+   ]
+  },
+  "sound:cristal": {
+   "name": "Ting ng baso",
+   "tags": [
+    "baso",
+    "glass",
+    "toast",
+    "cheers",
+    "ting"
+   ]
+  },
+  "sound:cuenta-palillos": {
+   "name": "Count-in ng drumsticks",
+   "tags": [
+    "count-in",
+    "1 2 3 4",
+    "drumsticks",
+    "simula"
+   ]
+  },
+  "sound:dano": {
+   "name": "Nasaktan",
+   "tags": [
+    "hurt",
+    "damage",
+    "tama",
+    "laro"
+   ]
+  },
+  "sound:desaparicion": {
+   "name": "Paglaho",
+   "tags": [
+    "paglaho",
+    "vanish",
+    "mahika",
+    "puf"
+   ]
+  },
+  "sound:desbloquear": {
+   "name": "I-unlock",
+   "tags": [
+    "unlock",
+    "cellphone",
+    "bukas",
+    "i-unlock"
+   ]
+  },
+  "sound:deslizar-abajo": {
+   "name": "I-swipe pababa",
+   "tags": [
+    "swipe",
+    "pababa",
+    "ui",
+    "button"
+   ]
+  },
+  "sound:deslizar-arriba": {
+   "name": "I-swipe pataas",
+   "tags": [
+    "swipe",
+    "pataas",
+    "ui",
+    "mabilis"
+   ]
+  },
+  "sound:deslizar-interfaz": {
+   "name": "Swipe sa screen",
+   "tags": [
+    "swipe",
+    "screen",
+    "cellphone",
+    "app"
+   ]
+  },
+  "sound:despertador": {
+   "name": "Alarma sa paggising",
+   "tags": [
+    "alarm",
+    "gising",
+    "umaga",
+    "orasan"
+   ]
+  },
+  "sound:destello-ding": {
+   "name": "Kislap na ding",
+   "tags": [
+    "ding",
+    "kislap",
+    "malinis",
+    "bago"
+   ]
+  },
+  "sound:disco-rayado": {
+   "name": "Gasgas ng plaka",
+   "tags": [
+    "record scratch",
+    "pause",
+    "ano daw",
+    "katatawanan"
+   ]
+  },
+  "sound:disco-rayado-frenada": {
+   "name": "Paghinto ng plaka",
+   "tags": [
+    "record stop",
+    "huminto",
+    "pause",
+    "awkward silence"
+   ]
+  },
+  "sound:dron-metalico": {
+   "name": "Metal na ugong",
+   "tags": [
+    "drone",
+    "metal",
+    "industrial",
+    "misteryo"
+   ]
+  },
+  "sound:dron-oscuro": {
+   "name": "Madilim na drone",
+   "tags": [
+    "drone",
+    "dark",
+    "suspense",
+    "katatakutan"
+   ]
+  },
+  "sound:drop-fill": {
+   "name": "Palo ng drums",
+   "tags": [
+    "drum fill",
+    "drums",
+    "drop",
+    "transition"
+   ]
+  },
+  "sound:error-negativo": {
+   "name": "Negatibong tunog",
+   "tags": [
+    "error",
+    "mali",
+    "hindi",
+    "fail"
+   ]
+  },
+  "sound:error-zumbido": {
+   "name": "Ugong ng error",
+   "tags": [
+    "error",
+    "mali",
+    "wrong",
+    "buzz"
+   ]
+  },
+  "sound:explosion": {
+   "name": "Pagsabog",
+   "tags": [
+    "pagsabog",
+    "explosion",
+    "bomba",
+    "boom",
+    "action"
+   ]
+  },
+  "sound:explosion-8bits": {
+   "name": "8-bit na pagsabog",
+   "tags": [
+    "pagsabog",
+    "8-bit",
+    "retro",
+    "laro"
+   ]
+  },
+  "sound:explosion-lejana": {
+   "name": "Malayong pagsabog",
+   "tags": [
+    "pagsabog",
+    "malayo",
+    "explosion",
+    "giyera"
+   ]
+  },
+  "sound:fanfarria": {
+   "name": "Tunog ng trumpeta",
+   "tags": [
+    "fanfare",
+    "trumpeta",
+    "anunsyo",
+    "panalo"
+   ]
+  },
+  "sound:fanfarria-victoria": {
+   "name": "Trumpeta ng tagumpay",
+   "tags": [
+    "panalo",
+    "fanfare",
+    "victory",
+    "premyo",
+    "kampeon"
+   ]
+  },
+  "sound:game-over": {
+   "name": "Talo na sa laro",
+   "tags": [
+    "game over",
+    "talo",
+    "katapusan",
+    "laro",
+    "fail"
+   ]
+  },
+  "sound:gema": {
+   "name": "Hiyas",
+   "tags": [
+    "hiyas",
+    "diamond",
+    "gem",
+    "laro",
+    "kinang"
+   ]
+  },
+  "sound:glitch-corto": {
+   "name": "Maikling glitch",
+   "tags": [
+    "glitch",
+    "digital",
+    "error",
+    "transition"
+   ]
+  },
+  "sound:glitch-digital": {
+   "name": "Digital na glitch",
+   "tags": [
+    "glitch",
+    "digital",
+    "error",
+    "transition"
+   ]
+  },
+  "sound:glitch-estatica": {
+   "name": "Biglang static",
+   "tags": [
+    "static",
+    "glitch",
+    "ingay",
+    "transition"
+   ]
+  },
+  "sound:glitch-tartamudeo": {
+   "name": "Pautal na glitch",
+   "tags": [
+    "glitch",
+    "stutter",
+    "digital",
+    "transition"
+   ]
+  },
+  "sound:golpe": {
+   "name": "Suntok",
+   "tags": [
+    "suntok",
+    "punch",
+    "away",
+    "action"
+   ]
+  },
+  "sound:golpe-dramatico": {
+   "name": "Dramatikong tunog",
+   "tags": [
+    "dramatic",
+    "dun dun dun",
+    "gulat",
+    "drama",
+    "reveal"
+   ]
+  },
+  "sound:golpe-dramatico-corto": {
+   "name": "Maikling dramatic sting",
+   "tags": [
+    "dramatic",
+    "sting",
+    "drama",
+    "shock"
+   ]
+  },
+  "sound:golpe-fuerte": {
+   "name": "Malakas na suntok",
+   "tags": [
+    "suntok",
+    "malakas",
+    "punch",
+    "away"
+   ]
+  },
+  "sound:golpe-glitch": {
+   "name": "Tama ng glitch",
+   "tags": [
+    "glitch",
+    "hit",
+    "digital",
+    "impact"
+   ]
+  },
+  "sound:golpe-metal": {
+   "name": "Palo sa metal",
+   "tags": [
+    "metal",
+    "bakal",
+    "hit",
+    "impact"
+   ]
+  },
+  "sound:golpe-metal-agudo": {
+   "name": "Matinis na metal hit",
+   "tags": [
+    "metal",
+    "matinis",
+    "kampana",
+    "impact"
+   ]
+  },
+  "sound:gong": {
+   "name": "Gong na solemne",
+   "tags": [
+    "gong",
+    "oriental",
+    "simula",
+    "solemne",
+    "meditation"
+   ]
+  },
+  "sound:grillos": {
+   "name": "Kuliglig (awkward silence)",
+   "tags": [
+    "kuliglig",
+    "crickets",
+    "awkward",
+    "katahimikan"
+   ]
+  },
+  "sound:hechizo": {
+   "name": "Orasyon",
+   "tags": [
+    "spell",
+    "orasyon",
+    "mahika",
+    "fantasy"
+   ]
+  },
+  "sound:impacto-reverso": {
+   "name": "Pabaligtad na tama",
+   "tags": [
+    "reverse",
+    "intro",
+    "suspense",
+    "impact"
+   ]
+  },
+  "sound:impacto-trailer": {
+   "name": "Tama ng trailer",
+   "tags": [
+    "trailer",
+    "impact",
+    "cinematic",
+    "epic",
+    "hit"
+   ]
+  },
+  "sound:impacto-trailer-brillante": {
+   "name": "Matingkad na trailer hit",
+   "tags": [
+    "trailer",
+    "impact",
+    "cinematic",
+    "epic",
+    "bright"
+   ]
+  },
+  "sound:impacto-trailer-oscuro": {
+   "name": "Madilim na trailer hit",
+   "tags": [
+    "trailer",
+    "impact",
+    "cinematic",
+    "epic",
+    "dark"
+   ]
+  },
+  "sound:inicio-juego": {
+   "name": "Simula ng laro",
+   "tags": [
+    "start",
+    "simula",
+    "laro",
+    "umpisa"
+   ]
+  },
+  "sound:interruptor-apagar": {
+   "name": "Pag-off ng switch",
+   "tags": [
+    "switch",
+    "off",
+    "patay",
+    "ilaw"
+   ]
+  },
+  "sound:interruptor-encender": {
+   "name": "Pag-on ng switch",
+   "tags": [
+    "switch",
+    "on",
+    "sindi",
+    "ilaw"
+   ]
+  },
+  "sound:laser": {
+   "name": "Putok ng laser",
+   "tags": [
+    "laser",
+    "baril",
+    "pew",
+    "sci-fi",
+    "laro"
+   ]
+  },
+  "sound:laser-doble": {
+   "name": "Dobleng laser",
+   "tags": [
+    "laser",
+    "baril",
+    "doble",
+    "laro"
+   ]
+  },
+  "sound:latido": {
+   "name": "Tibok ng puso",
+   "tags": [
+    "tibok",
+    "heartbeat",
+    "puso",
+    "tension",
+    "suspense"
+   ]
+  },
+  "sound:latido-rapido": {
+   "name": "Mabilis na tibok ng puso",
+   "tags": [
+    "tibok",
+    "mabilis",
+    "takot",
+    "kaba"
+   ]
+  },
+  "sound:latigazo": {
+   "name": "Lagitik ng latigo",
+   "tags": [
+    "latigo",
+    "whip",
+    "crack",
+    "mabilis"
+   ]
+  },
+  "sound:lluvia-monedas": {
+   "name": "Ulan ng barya",
+   "tags": [
+    "barya",
+    "coin",
+    "laro",
+    "game",
+    "pera"
+   ]
+  },
+  "sound:logro": {
+   "name": "Tagumpay",
+   "tags": [
+    "achievement",
+    "tagumpay",
+    "success",
+    "panalo"
+   ]
+  },
+  "sound:maquina-escribir": {
+   "name": "Makinilya",
+   "tags": [
+    "typewriter",
+    "makinilya",
+    "retro",
+    "teksto",
+    "type"
+   ]
+  },
+  "sound:maraca": {
+   "name": "Maracas",
+   "tags": [
+    "maracas",
+    "shaker",
+    "ritmo",
+    "latin",
+    "percussion"
+   ]
+  },
+  "sound:me-gusta": {
+   "name": "Pindot ng like",
+   "tags": [
+    "like",
+    "puso",
+    "social media",
+    "heart"
+   ]
+  },
+  "sound:mensaje-enviado": {
+   "name": "Naipadala ang mensahe",
+   "tags": [
+    "sent",
+    "naipadala",
+    "mensahe",
+    "chat"
+   ]
+  },
+  "sound:mensaje-recibido": {
+   "name": "Natanggap ang mensahe",
+   "tags": [
+    "received",
+    "natanggap",
+    "mensahe",
+    "chat"
+   ]
+  },
+  "sound:menu-seleccion": {
+   "name": "Pagpili sa menu",
+   "tags": [
+    "menu",
+    "select",
+    "pumili",
+    "laro",
+    "button"
+   ]
+  },
+  "sound:moneda": {
+   "name": "Barya",
+   "tags": [
+    "barya",
+    "coin",
+    "laro",
+    "game",
+    "pera"
+   ]
+  },
+  "sound:moneda-doble": {
+   "name": "Dalawang barya",
+   "tags": [
+    "barya",
+    "coin",
+    "doble",
+    "laro",
+    "pera"
+   ]
+  },
+  "sound:notificacion-campanita": {
+   "name": "Kampanilyang abiso",
+   "tags": [
+    "notification",
+    "bell",
+    "abiso",
+    "alerto"
+   ]
+  },
+  "sound:notificacion-cristal": {
+   "name": "Abisong parang kristal",
+   "tags": [
+    "notification",
+    "glass",
+    "abiso",
+    "cellphone"
+   ]
+  },
+  "sound:notificacion-dos-tonos": {
+   "name": "Abisong may dalawang tono",
+   "tags": [
+    "notification",
+    "two-tone",
+    "abiso",
+    "cellphone"
+   ]
+  },
+  "sound:notificacion-mensaje": {
+   "name": "Bagong mensahe",
+   "tags": [
+    "notification",
+    "mensahe",
+    "abiso",
+    "cellphone"
+   ]
+  },
+  "sound:notificacion-suave": {
+   "name": "Mahinang alert",
+   "tags": [
+    "notification",
+    "mahina",
+    "abiso",
+    "cellphone"
+   ]
+  },
+  "sound:palmas": {
+   "name": "Palakpak",
+   "tags": [
+    "palakpak",
+    "clap",
+    "beat",
+    "applause"
+   ]
+  },
+  "sound:pasar-pagina": {
+   "name": "Paglipat ng pahina",
+   "tags": [
+    "pahina",
+    "page turn",
+    "libro",
+    "papel",
+    "transition"
+   ]
+  },
+  "sound:platillo": {
+   "name": "Kalansing ng cymbal",
+   "tags": [
+    "cymbal",
+    "crash",
+    "piyangpiyang",
+    "accent"
+   ]
+  },
+  "sound:platillo-corto": {
+   "name": "Maikling cymbal",
+   "tags": [
+    "cymbal",
+    "maikli",
+    "crash",
+    "accent"
+   ]
+  },
+  "sound:platillo-reverso": {
+   "name": "Pabaligtad na cymbal",
+   "tags": [
+    "cymbal",
+    "reverse",
+    "transition",
+    "intro"
+   ]
+  },
+  "sound:platillo-reverso-largo": {
+   "name": "Mahabang reverse cymbal",
+   "tags": [
+    "cymbal",
+    "reverse",
+    "mahaba",
+    "transition"
+   ]
+  },
+  "sound:poder": {
+   "name": "Dagdag-lakas",
+   "tags": [
+    "power up",
+    "lakas",
+    "laro",
+    "enerhiya"
+   ]
+  },
+  "sound:polvo-hada": {
+   "name": "Alikabok ng diwata",
+   "tags": [
+    "diwata",
+    "fairy",
+    "dust",
+    "mahika"
+   ]
+  },
+  "sound:pop": {
+   "name": "Pop na lumitaw",
+   "tags": [
+    "pop",
+    "teksto",
+    "lumitaw",
+    "button",
+    "bula"
+   ]
+  },
+  "sound:pop-agudo": {
+   "name": "Matinis na pop",
+   "tags": [
+    "pop",
+    "matinis",
+    "teksto",
+    "button"
+   ]
+  },
+  "sound:pop-doble": {
+   "name": "Dobleng pop",
+   "tags": [
+    "pop",
+    "doble",
+    "teksto",
+    "button"
+   ]
+  },
+  "sound:pop-grave": {
+   "name": "Malalim na pop",
+   "tags": [
+    "pop",
+    "malalim",
+    "teksto",
+    "button"
+   ]
+  },
+  "sound:pop-suave": {
+   "name": "Mahinang pop",
+   "tags": [
+    "pop",
+    "mahina",
+    "teksto",
+    "button"
+   ]
+  },
+  "sound:portazo": {
+   "name": "Pagbalibag ng pinto",
+   "tags": [
+    "pinto",
+    "door slam",
+    "kalabog",
+    "galit"
+   ]
+  },
+  "sound:premio-mayor": {
+   "name": "Malaking premyo",
+   "tags": [
+    "jackpot",
+    "premyo",
+    "panalo",
+    "casino",
+    "raffle"
+   ]
+  },
+  "sound:rafaga-viento": {
+   "name": "Bugso ng hangin",
+   "tags": [
+    "hangin",
+    "whoosh",
+    "swoosh",
+    "transition"
+   ]
+  },
+  "sound:rampa-velocidad": {
+   "name": "Pagbilis ng tunog",
+   "tags": [
+    "speed ramp",
+    "bilis",
+    "transition",
+    "edit"
+   ]
+  },
+  "sound:redoble": {
+   "name": "Rolyo ng tambol",
+   "tags": [
+    "drumroll",
+    "tambol",
+    "suspense",
+    "anunsyo"
+   ]
+  },
+  "sound:redoble-platillo": {
+   "name": "Drumroll na may crash",
+   "tags": [
+    "drumroll",
+    "cymbal",
+    "anunsyo",
+    "reveal",
+    "panalo"
+   ]
+  },
+  "sound:reloj": {
+   "name": "Tik-tak ng orasan",
+   "tags": [
+    "orasan",
+    "tik tak",
+    "clock",
+    "oras",
+    "hintay"
+   ]
+  },
+  "sound:reloj-rapido": {
+   "name": "Mabilis na orasan",
+   "tags": [
+    "orasan",
+    "mabilis",
+    "nagmamadali",
+    "countdown"
+   ]
+  },
+  "sound:resorte": {
+   "name": "Talbog ng spring",
+   "tags": [
+    "spring",
+    "talbog",
+    "boing",
+    "katatawanan"
+   ]
+  },
+  "sound:revelacion": {
+   "name": "Tunog ng pagbubunyag",
+   "tags": [
+    "reveal",
+    "sorpresa",
+    "before after",
+    "resulta"
+   ]
+  },
+  "sound:riser-2s": {
+   "name": "Pataas na riser 2 s",
+   "tags": [
+    "riser",
+    "pataas",
+    "tension",
+    "build up"
+   ]
+  },
+  "sound:riser-4s": {
+   "name": "Pataas na riser 4 s",
+   "tags": [
+    "riser",
+    "pataas",
+    "tension",
+    "build up"
+   ]
+  },
+  "sound:riser-brillante": {
+   "name": "Matingkad na uplifter",
+   "tags": [
+    "riser",
+    "uplifter",
+    "pataas",
+    "build up"
+   ]
+  },
+  "sound:riser-golpe": {
+   "name": "Riser at hit",
+   "tags": [
+    "riser",
+    "hit",
+    "transition",
+    "impact",
+    "edit"
+   ]
+  },
+  "sound:riser-rapido": {
+   "name": "Mabilis na riser",
+   "tags": [
+    "riser",
+    "mabilis",
+    "pataas",
+    "build up"
+   ]
+  },
+  "sound:riser-sinte-2s": {
+   "name": "Synth na riser 2 s",
+   "tags": [
+    "riser",
+    "synth",
+    "pataas",
+    "build up"
+   ]
+  },
+  "sound:riser-sinte-4s": {
+   "name": "Synth na riser 4 s",
+   "tags": [
+    "riser",
+    "synth",
+    "pataas",
+    "build up"
+   ]
+  },
+  "sound:riser-tension": {
+   "name": "Riser ng tensyon",
+   "tags": [
+    "riser",
+    "tension",
+    "kaba",
+    "build up"
+   ]
+  },
+  "sound:salto": {
+   "name": "Talon",
+   "tags": [
+    "talon",
+    "jump",
+    "laro",
+    "lundag"
+   ]
+  },
+  "sound:sarten": {
+   "name": "Pukpok ng kawali",
+   "tags": [
+    "kawali",
+    "pan",
+    "pukpok",
+    "katatawanan",
+    "kusina"
+   ]
+  },
+  "sound:scratch-dj": {
+   "name": "Kaskas ng DJ",
+   "tags": [
+    "scratch",
+    "dj",
+    "hip hop",
+    "vinyl",
+    "transition"
+   ]
+  },
+  "sound:scratch-doble": {
+   "name": "Dobleng scratch",
+   "tags": [
+    "scratch",
+    "dj",
+    "doble",
+    "hip hop"
+   ]
+  },
+  "sound:seguir": {
+   "name": "Bagong follower",
+   "tags": [
+    "follow",
+    "follower",
+    "subscribe",
+    "social media"
+   ]
+  },
+  "sound:silbato-bajada": {
+   "name": "Pababang slide whistle",
+   "tags": [
+    "slide whistle",
+    "pito",
+    "pababa",
+    "katatawanan"
+   ]
+  },
+  "sound:silbato-subida": {
+   "name": "Pataas na slide whistle",
+   "tags": [
+    "slide whistle",
+    "pito",
+    "pataas",
+    "katatawanan"
+   ]
+  },
+  "sound:sirena": {
+   "name": "Sirena",
+   "tags": [
+    "sirena",
+    "alarm",
+    "pulis",
+    "emergency",
+    "siren"
+   ]
+  },
+  "sound:sub-drop": {
+   "name": "Malalim na bagsak ng bass",
+   "tags": [
+    "sub drop",
+    "bass drop",
+    "drop",
+    "bass",
+    "impact"
+   ]
+  },
+  "sound:subir-nivel": {
+   "name": "Pag-level up",
+   "tags": [
+    "level up",
+    "laro",
+    "tagumpay",
+    "8-bit"
+   ]
+  },
+  "sound:susto-terror": {
+   "name": "Biglang gulat",
+   "tags": [
+    "gulat",
+    "katatakutan",
+    "jump scare",
+    "takot",
+    "halloween"
+   ]
+  },
+  "sound:swoosh-titulo": {
+   "name": "Swoosh ng pamagat",
+   "tags": [
+    "swoosh",
+    "whoosh",
+    "title",
+    "transition"
+   ]
+  },
+  "sound:tambaleo": {
+   "name": "Pagewang-gewang",
+   "tags": [
+    "wobble",
+    "hilo",
+    "pagewang",
+    "katatawanan",
+    "lasing"
+   ]
+  },
+  "sound:tambor-taiko": {
+   "name": "Tambol na taiko",
+   "tags": [
+    "tambol",
+    "taiko",
+    "drum",
+    "epic",
+    "impact"
+   ]
+  },
+  "sound:tambor-taiko-doble": {
+   "name": "Dobleng taiko",
+   "tags": [
+    "tambol",
+    "taiko",
+    "doble",
+    "epic"
+   ]
+  },
+  "sound:teclado": {
+   "name": "Pag-type sa keyboard",
+   "tags": [
+    "keyboard",
+    "typing",
+    "type",
+    "computer"
+   ]
+  },
+  "sound:teclado-mecanico": {
+   "name": "Mekanikal na keyboard",
+   "tags": [
+    "keyboard",
+    "mechanical",
+    "gaming",
+    "asmr"
+   ]
+  },
+  "sound:teclado-rapido": {
+   "name": "Mabilis na pag-type",
+   "tags": [
+    "keyboard",
+    "mabilis",
+    "typing",
+    "hacker"
+   ]
+  },
+  "sound:teletransporte": {
+   "name": "Biglang paglipat",
+   "tags": [
+    "teleport",
+    "sci-fi",
+    "paglaho",
+    "mahika"
+   ]
+  },
+  "sound:tension-subiendo": {
+   "name": "Tumataas na tensyon",
+   "tags": [
+    "tension",
+    "suspense",
+    "pataas",
+    "takot"
+   ]
+  },
+  "sound:toque": {
+   "name": "Pindot",
+   "tags": [
+    "tap",
+    "pindot",
+    "screen",
+    "cellphone"
+   ]
+  },
+  "sound:toque-doble": {
+   "name": "Dobleng pindot",
+   "tags": [
+    "double tap",
+    "tap",
+    "like",
+    "pindot"
+   ]
+  },
+  "sound:transicion-foto": {
+   "name": "Transition ng litrato",
+   "tags": [
+    "litrato",
+    "camera",
+    "transition",
+    "flash"
+   ]
+  },
+  "sound:trombon-triste": {
+   "name": "Malungkot na trombone",
+   "tags": [
+    "trombone",
+    "malungkot",
+    "sad",
+    "fail"
+   ]
+  },
+  "sound:trueno": {
+   "name": "Kulog",
+   "tags": [
+    "kulog",
+    "thunder",
+    "bagyo",
+    "kidlat",
+    "ulan"
+   ]
+  },
+  "sound:varita-magica": {
+   "name": "Mahiwagang baston",
+   "tags": [
+    "magic wand",
+    "diwata",
+    "mahika",
+    "spell"
+   ]
+  },
+  "sound:varita-subida": {
+   "name": "Pataas na magic wand",
+   "tags": [
+    "magic wand",
+    "pataas",
+    "mahika",
+    "lumitaw"
+   ]
+  },
+  "sound:victoria-8bits": {
+   "name": "8-bit na tagumpay",
+   "tags": [
+    "panalo",
+    "victory",
+    "win",
+    "laro",
+    "fanfare"
+   ]
+  },
+  "sound:vida-extra": {
+   "name": "Dagdag na buhay",
+   "tags": [
+    "extra life",
+    "1up",
+    "laro",
+    "bonus"
+   ]
+  },
+  "sound:viento-misterio": {
+   "name": "Nakakakilabot na hangin",
+   "tags": [
+    "hangin",
+    "misteryo",
+    "katatakutan",
+    "gabi",
+    "multo"
+   ]
+  },
+  "sound:vinilo": {
+   "name": "Kaluskos ng vinyl",
+   "tags": [
+    "vinyl",
+    "plaka",
+    "crackle",
+    "retro",
+    "lofi"
+   ]
+  },
+  "sound:whoosh": {
+   "name": "Whoosh",
+   "tags": [
+    "whoosh",
+    "hangin",
+    "transition",
+    "mabilis"
+   ]
+  },
+  "sound:whoosh-aire": {
+   "name": "Mahanging whoosh",
+   "tags": [
+    "whoosh",
+    "hangin",
+    "swoosh",
+    "transition"
+   ]
+  },
+  "sound:whoosh-boom": {
+   "name": "Whoosh at boom",
+   "tags": [
+    "whoosh",
+    "boom",
+    "transition",
+    "impact",
+    "edit"
+   ]
+  },
+  "sound:whoosh-corto": {
+   "name": "Maikling whoosh",
+   "tags": [
+    "whoosh",
+    "maikli",
+    "swoosh",
+    "transition"
+   ]
+  },
+  "sound:whoosh-derecha-izquierda": {
+   "name": "Whoosh mula kanan pakaliwa",
+   "tags": [
+    "whoosh",
+    "kanan pakaliwa",
+    "swoosh",
+    "transition"
+   ]
+  },
+  "sound:whoosh-doble": {
+   "name": "Dobleng whoosh",
+   "tags": [
+    "whoosh",
+    "doble",
+    "swoosh",
+    "transition"
+   ]
+  },
+  "sound:whoosh-espada": {
+   "name": "Hagupit ng espada",
+   "tags": [
+    "espada",
+    "sword",
+    "whoosh",
+    "laban"
+   ]
+  },
+  "sound:whoosh-fuego": {
+   "name": "Whoosh ng apoy",
+   "tags": [
+    "whoosh",
+    "apoy",
+    "fire",
+    "transition"
+   ]
+  },
+  "sound:whoosh-golpe": {
+   "name": "Whoosh at hit",
+   "tags": [
+    "whoosh",
+    "hit",
+    "transition",
+    "impact",
+    "edit"
+   ]
+  },
+  "sound:whoosh-grave": {
+   "name": "Malalim na whoosh",
+   "tags": [
+    "whoosh",
+    "malalim",
+    "deep",
+    "transition"
+   ]
+  },
+  "sound:whoosh-izquierda-derecha": {
+   "name": "Whoosh mula kaliwa pakanan",
+   "tags": [
+    "whoosh",
+    "kaliwa pakanan",
+    "swoosh",
+    "transition"
+   ]
+  },
+  "sound:whoosh-largo": {
+   "name": "Mahabang whoosh",
+   "tags": [
+    "whoosh",
+    "mahaba",
+    "swoosh",
+    "transition"
+   ]
+  },
+  "sound:whoosh-metalico": {
+   "name": "Metallic na whoosh",
+   "tags": [
+    "whoosh",
+    "metal",
+    "swoosh",
+    "transition"
+   ]
+  },
+  "sound:whoosh-reverso": {
+   "name": "Pabaligtad na whoosh",
+   "tags": [
+    "whoosh",
+    "reverse",
+    "swoosh",
+    "transition"
+   ]
+  },
+  "sound:whoosh-tela": {
+   "name": "Pagaspas ng tela",
+   "tags": [
+    "tela",
+    "cloth",
+    "whoosh",
+    "galaw"
+   ]
+  },
+  "sound:zoom-entrada": {
+   "name": "Zoom papalapit",
+   "tags": [
+    "zoom",
+    "zoom in",
+    "lapit",
+    "transition"
+   ]
+  },
+  "sound:zoom-salida": {
+   "name": "Zoom papalayo",
+   "tags": [
+    "zoom",
+    "zoom out",
+    "layo",
+    "transition"
    ]
   },
   "template:album-scrapbook": {
@@ -2105,7 +7886,7 @@
    ]
   },
   "template:anuncio-embarazo": {
-   "name": "Pregnancy announcement",
+   "name": "Anunsyo ng pagbubuntis",
    "tags": [
     "buntis",
     "baby",
@@ -2124,7 +7905,7 @@
    ]
   },
   "template:baby-shower": {
-   "name": "Baby shower",
+   "name": "Baby shower ni baby",
    "tags": [
     "baby shower",
     "baby",
@@ -2144,7 +7925,7 @@
    ]
   },
   "template:black-friday-ofertas": {
-   "name": "Black Friday deals",
+   "name": "Mga sale ng Black Friday",
    "tags": [
     "black friday",
     "sale",
@@ -2272,7 +8053,7 @@
    ]
   },
   "template:clip-de-podcast": {
-   "name": "Podcast clip",
+   "name": "Clip ng podcast",
    "tags": [
     "podcast",
     "subtitle",
@@ -2329,7 +8110,7 @@
    ]
   },
   "template:cumple-sorpresa": {
-   "name": "Surprise party",
+   "name": "Sorpresang kaarawan",
    "tags": [
     "sorpresa",
     "kaarawan",
@@ -2339,7 +8120,7 @@
    ]
   },
   "template:cupon-de-descuento": {
-   "name": "Discount coupon",
+   "name": "Kupon ng diskwento",
    "tags": [
     "coupon",
     "discount",
@@ -2349,7 +8130,7 @@
    ]
   },
   "template:cyber-monday": {
-   "name": "Cyber Monday",
+   "name": "Sale ng Cyber Monday",
    "tags": [
     "cyber monday",
     "sale",
@@ -2379,7 +8160,7 @@
    ]
   },
   "template:dia-de-playa": {
-   "name": "Beach mode",
+   "name": "Beach mode na",
    "tags": [
     "beach",
     "dagat",
@@ -2419,7 +8200,7 @@
    ]
   },
   "template:duotono-pop": {
-   "name": "Pop duotone",
+   "name": "Pop na dalawang kulay",
    "tags": [
     "duotone",
     "pop art",
@@ -2429,7 +8210,7 @@
    ]
   },
   "template:edicion-callejera": {
-   "name": "Street edit",
+   "name": "Edit sa kalye",
    "tags": [
     "skate",
     "kalye",
@@ -2499,7 +8280,7 @@
    ]
   },
   "template:estudia-conmigo": {
-   "name": "Study with me",
+   "name": "Mag-aral tayo",
    "tags": [
     "study with me",
     "pag-aaral",
@@ -2585,7 +8366,7 @@
    ]
   },
   "template:glitch-neon": {
-   "name": "Neon glitch",
+   "name": "Glitch na neon",
    "tags": [
     "glitch",
     "neon",
@@ -2595,7 +8376,7 @@
    ]
   },
   "template:gran-inauguracion": {
-   "name": "Grand opening",
+   "name": "Engrandeng pagbubukas",
    "tags": [
     "grand opening",
     "pagbubukas",
@@ -2605,7 +8386,7 @@
    ]
   },
   "template:grwm-arreglate-conmigo": {
-   "name": "GRWM: get ready with me",
+   "name": "GRWM: mag-ayos tayo",
    "tags": [
     "grwm",
     "makeup",
@@ -2635,7 +8416,7 @@
    ]
   },
   "template:h-cele-baby-shower": {
-   "name": "Baby shower",
+   "name": "Baby shower para kay baby",
    "tags": [
     "baby shower",
     "baby",
@@ -2715,7 +8496,7 @@
    ]
   },
   "template:h-cele-graduacion": {
-   "name": "Graduation",
+   "name": "Pagtatapos",
    "tags": [
     "graduation",
     "toga",
@@ -2755,7 +8536,7 @@
    ]
   },
   "template:h-cele-reunion": {
-   "name": "Family reunion",
+   "name": "Reunion ng pamilya",
    "tags": [
     "reunion",
     "pamilya",
@@ -2893,7 +8674,7 @@
    ]
   },
   "template:h-fecha-accion-gracias": {
-   "name": "Thanksgiving",
+   "name": "Araw ng Pasasalamat",
    "tags": [
     "thanksgiving",
     "pasasalamat",
@@ -2912,7 +8693,7 @@
    ]
   },
   "template:h-fecha-anio-nuevo-lunar": {
-   "name": "Lunar New Year",
+   "name": "Bagong Taong Lunar",
    "tags": [
     "lunar new year",
     "chinese new year",
@@ -2982,7 +8763,7 @@
    ]
   },
   "template:h-fecha-eid": {
-   "name": "Eid Mubarak",
+   "name": "Eid Mubarak sa pamilya",
    "tags": [
     "eid",
     "eid mubarak",
@@ -2995,14 +8776,14 @@
    "name": "Halloween",
    "tags": [
     "halloween",
-    "katatakutan",
+    "nakakatakot",
     "kalabasa",
     "costume",
-    "oktubre"
+    "undas"
    ]
   },
   "template:h-fecha-invierno": {
-   "name": "Winter",
+   "name": "Taglamig",
    "tags": [
     "winter",
     "taglamig",
@@ -3022,7 +8803,7 @@
    ]
   },
   "template:h-fecha-otono": {
-   "name": "Hello autumn",
+   "name": "Hello, taglagas",
    "tags": [
     "autumn",
     "taglagas",
@@ -3032,7 +8813,7 @@
    ]
   },
   "template:h-fecha-pascua": {
-   "name": "Easter",
+   "name": "Pasko ng Pagkabuhay",
    "tags": [
     "easter",
     "pasko ng pagkabuhay",
@@ -3042,7 +8823,7 @@
    ]
   },
   "template:h-fecha-primavera": {
-   "name": "Spring",
+   "name": "Tagsibol",
    "tags": [
     "spring",
     "tagsibol",
@@ -3055,10 +8836,10 @@
    "name": "Ramadan Kareem",
    "tags": [
     "ramadan",
-    "ramadan kareem",
+    "eid",
     "buwan",
-    "parol",
-    "iftar"
+    "pagdiriwang",
+    "pamilya"
    ]
   },
   "template:h-fecha-regreso-clases": {
@@ -3092,7 +8873,7 @@
    ]
   },
   "template:h-final-1-video": {
-   "name": "End screen: 1 video",
+   "name": "End screen: 1 video lang",
    "tags": [
     "end screen",
     "youtube",
@@ -3338,7 +9119,7 @@
    ]
   },
   "template:h-intro-gaming-neon": {
-   "name": "Neon gaming intro",
+   "name": "Gaming intro na neon",
    "tags": [
     "gaming",
     "gamer",
@@ -3558,7 +9339,7 @@
    ]
   },
   "template:h-neg-cafeteria": {
-   "name": "Coffee shop",
+   "name": "Kapihan",
    "tags": [
     "coffee shop",
     "kape",
@@ -3618,7 +9399,7 @@
    ]
   },
   "template:h-neg-ferreteria": {
-   "name": "Hardware store",
+   "name": "Tindahan ng hardware",
    "tags": [
     "hardware",
     "kagamitan",
@@ -3638,7 +9419,7 @@
    ]
   },
   "template:h-neg-inmobiliaria": {
-   "name": "Property for sale",
+   "name": "Ari-ariang ibinebenta",
    "tags": [
     "real estate",
     "for sale",
@@ -3648,7 +9429,7 @@
    ]
   },
   "template:h-neg-lanzamiento": {
-   "name": "Product launch",
+   "name": "Paglulunsad ng produkto",
    "tags": [
     "launch",
     "bago",
@@ -3678,7 +9459,7 @@
    ]
   },
   "template:h-neg-rebajas": {
-   "name": "Big sale",
+   "name": "Malaking sale",
    "tags": [
     "sale",
     "discount",
@@ -3698,7 +9479,7 @@
    ]
   },
   "template:h-neg-supermercado": {
-   "name": "Supermarket deals",
+   "name": "Mga deal sa supermarket",
    "tags": [
     "supermarket",
     "sale",
@@ -3708,7 +9489,7 @@
    ]
   },
   "template:h-neg-testimonio": {
-   "name": "Testimonial",
+   "name": "Patotoo ng customer",
    "tags": [
     "testimonial",
     "review",
@@ -3728,7 +9509,7 @@
    ]
   },
   "template:h-neg-webinar": {
-   "name": "Webinar",
+   "name": "Webinar online",
    "tags": [
     "webinar",
     "online talk",
@@ -3808,7 +9589,7 @@
    ]
   },
   "template:h-presenta-collage-libre": {
-   "name": "Free collage",
+   "name": "Malayang collage",
    "tags": [
     "collage",
     "litrato",
@@ -3828,7 +9609,7 @@
    ]
   },
   "template:h-presenta-deportes": {
-   "name": "Sports season",
+   "name": "Season ng sports",
    "tags": [
     "sports",
     "season",
@@ -3848,7 +9629,7 @@
    ]
   },
   "template:h-presenta-escuela": {
-   "name": "School year",
+   "name": "Taon ng pag-aaral",
    "tags": [
     "paaralan",
     "school year",
@@ -3858,7 +9639,7 @@
    ]
   },
   "template:h-presenta-evento": {
-   "name": "Event recap",
+   "name": "Buod ng event",
    "tags": [
     "event",
     "recap",
@@ -3868,7 +9649,7 @@
    ]
   },
   "template:h-presenta-glitch": {
-   "name": "Glitch slideshow",
+   "name": "Slideshow na glitch",
    "tags": [
     "glitch",
     "mabilis",
@@ -3898,7 +9679,7 @@
    ]
   },
   "template:h-presenta-inmueble": {
-   "name": "Property tour",
+   "name": "Pasyal sa property",
    "tags": [
     "real estate",
     "bahay",
@@ -3918,7 +9699,7 @@
    ]
   },
   "template:h-presenta-mosaico": {
-   "name": "Photo mosaic",
+   "name": "Mosaic ng litrato",
    "tags": [
     "mosaic",
     "grid",
@@ -3927,7 +9708,7 @@
    ]
   },
   "template:h-presenta-paralaje": {
-   "name": "Parallax slideshow",
+   "name": "Slideshow na parallax",
    "tags": [
     "parallax",
     "3d",
@@ -3937,7 +9718,7 @@
    ]
   },
   "template:h-presenta-pelicula": {
-   "name": "Film strip slideshow",
+   "name": "Slideshow na film strip",
    "tags": [
     "film",
     "film strip",
@@ -3957,7 +9738,7 @@
    ]
   },
   "template:h-presenta-portafolio": {
-   "name": "Portfolio",
+   "name": "Portfolio ng mga gawa",
    "tags": [
     "portfolio",
     "mga gawa",
@@ -3997,7 +9778,7 @@
    ]
   },
   "template:h-presenta-split": {
-   "name": "Split screen slideshow",
+   "name": "Slideshow na hati ang screen",
    "tags": [
     "split screen",
     "dalawang litrato",
@@ -4006,7 +9787,7 @@
    ]
   },
   "template:h-presenta-tinta": {
-   "name": "Ink slideshow",
+   "name": "Slideshow na may tinta",
    "tags": [
     "tinta",
     "artistic",
@@ -4016,7 +9797,7 @@
    ]
   },
   "template:h-presenta-viaje": {
-   "name": "Travel diary",
+   "name": "Talaarawan ng biyahe",
    "tags": [
     "biyahe",
     "diary",
@@ -4306,7 +10087,7 @@
    ]
   },
   "template:h-texto-capitulo": {
-   "name": "Chapter card",
+   "name": "Card ng kabanata",
    "tags": [
     "kabanata",
     "chapter",
@@ -4316,7 +10097,7 @@
    ]
   },
   "template:h-texto-cinetico": {
-   "name": "Kinetic typography",
+   "name": "Gumagalaw na teksto",
    "tags": [
     "kinetic text",
     "typography",
@@ -4346,7 +10127,7 @@
    ]
   },
   "template:h-texto-creditos": {
-   "name": "End credits",
+   "name": "Credits sa dulo",
    "tags": [
     "credits",
     "katapusan",
@@ -4356,7 +10137,7 @@
    ]
   },
   "template:h-texto-dato-curioso": {
-   "name": "Fun fact",
+   "name": "Alam mo ba?",
    "tags": [
     "fun fact",
     "alam mo ba",
@@ -4376,7 +10157,7 @@
    ]
   },
   "template:h-texto-frase-neon": {
-   "name": "Neon sign",
+   "name": "Karatulang neon",
    "tags": [
     "neon",
     "karatula",
@@ -4396,7 +10177,7 @@
    ]
   },
   "template:h-texto-linea-tiempo": {
-   "name": "Timeline",
+   "name": "Takbo ng panahon",
    "tags": [
     "timeline",
     "kasaysayan",
@@ -4416,7 +10197,7 @@
    ]
   },
   "template:h-texto-maquina": {
-   "name": "Typewriter",
+   "name": "Makinilya",
    "tags": [
     "typewriter",
     "makinilya",
@@ -4426,7 +10207,7 @@
    ]
   },
   "template:h-texto-marcador": {
-   "name": "Final score",
+   "name": "Huling iskor",
    "tags": [
     "score",
     "resulta",
@@ -4515,7 +10296,7 @@
    ]
   },
   "template:h-trans-diagonal": {
-   "name": "Diagonal wipe",
+   "name": "Pahilis na wipe",
    "tags": [
     "transition",
     "diagonal",
@@ -4525,7 +10306,7 @@
    ]
   },
   "template:h-trans-formas": {
-   "name": "Shape fill",
+   "name": "Pagpuno ng mga hugis",
    "tags": [
     "transition",
     "hugis",
@@ -4535,7 +10316,7 @@
    ]
   },
   "template:h-trans-glitch-corto": {
-   "name": "Glitch hit",
+   "name": "Tama ng glitch",
    "tags": [
     "transition",
     "glitch",
@@ -4565,7 +10346,7 @@
    ]
   },
   "template:h-trans-pelicula": {
-   "name": "Film burn",
+   "name": "Sunog na pelikula",
    "tags": [
     "transition",
     "film burn",
@@ -4575,7 +10356,7 @@
    ]
   },
   "template:h-trans-persiana": {
-   "name": "Blinds",
+   "name": "Blinds na transition",
    "tags": [
     "transition",
     "blinds",
@@ -4585,7 +10366,7 @@
    ]
   },
   "template:h-trans-tinta": {
-   "name": "Ink wipe",
+   "name": "Wipe ng tinta",
    "tags": [
     "transition",
     "tinta",
@@ -4595,7 +10376,7 @@
    ]
   },
   "template:h-trans-zoom-golpe": {
-   "name": "Zoom punch",
+   "name": "Zoom na may tama",
    "tags": [
     "transition",
     "zoom",
@@ -4605,7 +10386,7 @@
    ]
   },
   "template:halloween-photo-dump": {
-   "name": "Halloween photo dump",
+   "name": "Photo dump ng Halloween",
    "tags": [
     "halloween",
     "photo dump",
@@ -4615,7 +10396,7 @@
    ]
   },
   "template:halloween-revelacion-disfraz": {
-   "name": "Costume reveal",
+   "name": "Pagbubunyag ng costume",
    "tags": [
     "halloween",
     "costume",
@@ -4684,7 +10465,7 @@
    ]
   },
   "template:jugadas-destacadas": {
-   "name": "Sports highlights",
+   "name": "Mga tampok na laro",
    "tags": [
     "sports",
     "football",
@@ -4723,7 +10504,7 @@
    ]
   },
   "template:mejores-amigas": {
-   "name": "Best friends",
+   "name": "Matalik na magkaibigan",
    "tags": [
     "best friends",
     "besties",
@@ -4901,7 +10682,7 @@
    ]
   },
   "template:oferta-flash": {
-   "name": "Flash sale",
+   "name": "Biglaang sale",
    "tags": [
     "sale",
     "discount",
@@ -4920,7 +10701,7 @@
    ]
   },
   "template:opinion-impopular": {
-   "name": "Unpopular opinion",
+   "name": "Opinyong hindi sikat",
    "tags": [
     "unpopular opinion",
     "debate",
@@ -4940,7 +10721,7 @@
    ]
   },
   "template:pantalla-triple": {
-   "name": "Triple split screen",
+   "name": "Screen na hati sa tatlo",
    "tags": [
     "split screen",
     "tatlo",
@@ -5094,7 +10875,7 @@
    ]
   },
   "template:r-academia-idiomas": {
-   "name": "Language school",
+   "name": "Paaralan ng wika",
    "tags": [
     "wika",
     "english",
@@ -5104,7 +10885,7 @@
    ]
   },
   "template:r-accion-gracias": {
-   "name": "Thanksgiving",
+   "name": "Araw ng Pasasalamat",
    "tags": [
     "thanksgiving",
     "pasasalamat",
@@ -5154,7 +10935,7 @@
    ]
   },
   "template:r-anio-nuevo-lunar": {
-   "name": "Lunar New Year",
+   "name": "Bagong Taong Lunar",
    "tags": [
     "lunar new year",
     "chinese new year",
@@ -5233,7 +11014,7 @@
    ]
   },
   "template:r-ba-dia-1-100": {
-   "name": "Day 1 / Day 100",
+   "name": "Araw 1 / Araw 100",
    "tags": [
     "day 1",
     "day 100",
@@ -5313,7 +11094,7 @@
    ]
   },
   "template:r-bienvenida-casa": {
-   "name": "Welcome home",
+   "name": "Maligayang pag-uwi",
    "tags": [
     "welcome home",
     "pag-uwi",
@@ -5363,7 +11144,7 @@
    ]
   },
   "template:r-camara-desechable": {
-   "name": "Disposable camera",
+   "name": "Disposable na camera",
    "tags": [
     "disposable camera",
     "flash",
@@ -5521,7 +11302,7 @@
    ]
   },
   "template:r-consejo-finanzas": {
-   "name": "Money tip",
+   "name": "Payo sa pera",
    "tags": [
     "pera",
     "finance",
@@ -5531,7 +11312,7 @@
    ]
   },
   "template:r-contador-fotos": {
-   "name": "Photo counter",
+   "name": "Bilang ng litrato",
    "tags": [
     "counter",
     "litrato",
@@ -5541,7 +11322,7 @@
    ]
   },
   "template:r-core-memory": {
-   "name": "Core memories",
+   "name": "Mga kumikinang na alaala",
    "tags": [
     "alaala",
     "core memory",
@@ -5660,7 +11441,7 @@
    ]
   },
   "template:r-despedida-soltera": {
-   "name": "Bachelorette party",
+   "name": "Despedida ng bride",
    "tags": [
     "bachelorette",
     "barkada",
@@ -5680,7 +11461,7 @@
    ]
   },
   "template:r-detras-camaras": {
-   "name": "Behind the scenes",
+   "name": "Sa likod ng camera",
    "tags": [
     "behind the scenes",
     "bts",
@@ -5810,7 +11591,7 @@
    ]
   },
   "template:r-dump-finde": {
-   "name": "Weekend dump",
+   "name": "Photo dump ng weekend",
    "tags": [
     "weekend",
     "photo dump",
@@ -5830,7 +11611,7 @@
    ]
   },
   "template:r-eid": {
-   "name": "Eid Mubarak",
+   "name": "Eid Mubarak sa pamilya",
    "tags": [
     "eid",
     "eid mubarak",
@@ -5870,7 +11651,7 @@
    ]
   },
   "template:r-escuela-musica": {
-   "name": "Music school",
+   "name": "Paaralan ng musika",
    "tags": [
     "musika",
     "klase",
@@ -5909,7 +11690,7 @@
    ]
   },
   "template:r-ferreteria": {
-   "name": "Hardware store",
+   "name": "Tindahan ng hardware",
    "tags": [
     "hardware",
     "kagamitan",
@@ -5919,7 +11700,7 @@
    ]
   },
   "template:r-fiesta-fin-anio": {
-   "name": "Year-end party",
+   "name": "Party sa katapusan ng taon",
    "tags": [
     "year-end",
     "party",
@@ -5959,7 +11740,7 @@
    ]
   },
   "template:r-foto-en-foto": {
-   "name": "Picture in picture",
+   "name": "Litrato sa loob ng litrato",
    "tags": [
     "picture in picture",
     "pip",
@@ -5979,7 +11760,7 @@
    ]
   },
   "template:r-fotografo": {
-   "name": "Photographer",
+   "name": "Litratista",
    "tags": [
     "photographer",
     "photoshoot",
@@ -6029,7 +11810,7 @@
    ]
   },
   "template:r-giro-camara": {
-   "name": "Camera spin",
+   "name": "Ikot ng camera",
    "tags": [
     "spin",
     "ikot",
@@ -6079,7 +11860,7 @@
    ]
   },
   "template:r-grano-analogico": {
-   "name": "Analog film",
+   "name": "Analog na pelikula",
    "tags": [
     "analog",
     "film",
@@ -6108,7 +11889,7 @@
    ]
   },
   "template:r-hecho-a-mano": {
-   "name": "Handmade shop",
+   "name": "Tindahan ng gawang-kamay",
    "tags": [
     "handmade",
     "gawang-kamay",
@@ -6168,7 +11949,7 @@
    ]
   },
   "template:r-invierno": {
-   "name": "Winter",
+   "name": "Taglamig",
    "tags": [
     "winter",
     "niyebe",
@@ -6218,7 +11999,7 @@
    ]
   },
   "template:r-lista-pendientes": {
-   "name": "To-do list",
+   "name": "Listahan ng gagawin",
    "tags": [
     "to do",
     "listahan",
@@ -6228,7 +12009,7 @@
    ]
   },
   "template:r-lo-que-no-se-vio": {
-   "name": "Bloopers",
+   "name": "Mga hindi napanood",
    "tags": [
     "bloopers",
     "mali",
@@ -6248,7 +12029,7 @@
    ]
   },
   "template:r-luces-fiesta": {
-   "name": "Party lights",
+   "name": "Ilaw ng party",
    "tags": [
     "party",
     "ilaw",
@@ -6278,7 +12059,7 @@
    ]
   },
   "template:r-marco-camara": {
-   "name": "Camera frame",
+   "name": "Frame ng camera",
    "tags": [
     "camera",
     "frame",
@@ -6288,7 +12069,7 @@
    ]
   },
   "template:r-mas-vendido": {
-   "name": "Best seller",
+   "name": "Pinakamabenta",
    "tags": [
     "best seller",
     "pinakamabenta",
@@ -6308,7 +12089,7 @@
    ]
   },
   "template:r-modo-bestia": {
-   "name": "Beast mode",
+   "name": "Halimaw mode",
    "tags": [
     "gym",
     "beast mode",
@@ -6518,7 +12299,7 @@
    ]
   },
   "template:r-parte-1": {
-   "name": "Part 1",
+   "name": "Unang bahagi",
    "tags": [
     "part 1",
     "serye",
@@ -6548,7 +12329,7 @@
    ]
   },
   "template:r-peluqueria-mascotas": {
-   "name": "Pet grooming",
+   "name": "Paliguan ng alaga",
    "tags": [
     "pet grooming",
     "paligo",
@@ -6598,17 +12379,16 @@
    ]
   },
   "template:r-pregunta-respuesta": {
-   "name": "Q&A",
+   "name": "Tanong at sagot (Q&A)",
    "tags": [
+    "q&a",
     "tanong",
     "sagot",
-    "q&a",
-    "followers",
-    "ask me"
+    "tanungan"
    ]
   },
   "template:r-primavera": {
-   "name": "Spring",
+   "name": "Tagsibol",
    "tags": [
     "spring",
     "tagsibol",
@@ -6661,10 +12441,10 @@
    "name": "Ramadan Kareem",
    "tags": [
     "ramadan",
-    "iftar",
-    "pamilya",
+    "eid",
     "buwan",
-    "parol"
+    "pagdiriwang",
+    "pamilya"
    ]
   },
   "template:r-ranking-5-1": {
@@ -6778,7 +12558,7 @@
    ]
   },
   "template:r-reto-30-dias": {
-   "name": "30-day challenge",
+   "name": "Hamon sa loob ng 30 araw",
    "tags": [
     "challenge",
     "30 araw",
@@ -6877,7 +12657,7 @@
    ]
   },
   "template:r-tablero-corcho": {
-   "name": "Cork board",
+   "name": "Corkboard ng alaala",
    "tags": [
     "cork board",
     "board",
@@ -6947,7 +12727,7 @@
    ]
   },
   "template:r-trivia": {
-   "name": "Multiple-choice trivia",
+   "name": "Trivia na pipili ng sagot",
    "tags": [
     "trivia",
     "quiz",
@@ -6960,14 +12740,14 @@
    "name": "Unboxing",
    "tags": [
     "unboxing",
-    "pagbubukas",
+    "pagbukas",
     "order",
     "produkto",
-    "haul"
+    "review"
    ]
   },
   "template:r-velocity-duro": {
-   "name": "Hard velocity",
+   "name": "Matinding velocity",
    "tags": [
     "velocity",
     "speed ramp",
@@ -6987,7 +12767,7 @@
    ]
   },
   "template:r-verano": {
-   "name": "Hello summer",
+   "name": "Hello, tag-init",
    "tags": [
     "summer",
     "beach",
@@ -6997,7 +12777,7 @@
    ]
   },
   "template:r-veterinaria": {
-   "name": "Vet clinic",
+   "name": "Klinika ng beterinaryo",
    "tags": [
     "beterinaryo",
     "vet",
@@ -7067,7 +12847,7 @@
    ]
   },
   "template:r-zoom-golpe": {
-   "name": "Punch zoom",
+   "name": "Zoom na may tama",
    "tags": [
     "zoom",
     "punch",
@@ -7125,7 +12905,7 @@
    ]
   },
   "template:resumen-de-boda": {
-   "name": "Wedding recap",
+   "name": "Buod ng kasal",
    "tags": [
     "kasal",
     "wedding",
@@ -7144,7 +12924,7 @@
    ]
   },
   "template:salon-de-belleza-servicios": {
-   "name": "Beauty salon",
+   "name": "Parlor at mga serbisyo",
    "tags": [
     "salon",
     "beauty",
@@ -7202,7 +12982,7 @@
    ]
   },
   "template:tira-pelicula": {
-   "name": "Film strip",
+   "name": "Hanay ng pelikula",
    "tags": [
     "film",
     "analog",
@@ -7231,7 +13011,7 @@
    ]
   },
   "template:transformacion-gym": {
-   "name": "Gym transformation",
+   "name": "Pagbabago sa gym",
    "tags": [
     "gym",
     "fitness",
@@ -7270,7 +13050,7 @@
    ]
   },
   "template:ultimo-momento-noticia": {
-   "name": "Breaking news",
+   "name": "Huling balita",
    "tags": [
     "balita",
     "breaking news",
@@ -7319,7 +13099,7 @@
    ]
   },
   "template:vlog-de-viaje": {
-   "name": "Mini travel vlog",
+   "name": "Maikling vlog ng biyahe",
    "tags": [
     "biyahe",
     "vlog",
@@ -7337,7 +13117,7 @@
    ]
   },
   "template:zoom-3d-parallax": {
-   "name": "3D zoom",
+   "name": "Zoom na 3D",
    "tags": [
     "3d zoom",
     "parallax",

@@ -2057,6 +2057,2062 @@
     "와이파이"
    ]
   },
+  "background:acuarela-calido": {
+   "name": "수채화 (따뜻한)",
+   "tags": [
+    "수채화",
+    "페인팅",
+    "아트",
+    "부드러운",
+    "따뜻한"
+   ]
+  },
+  "background:acuarela-frio": {
+   "name": "수채화 (차가운)",
+   "tags": [
+    "수채화",
+    "페인팅",
+    "아트",
+    "부드러운",
+    "차가운"
+   ]
+  },
+  "background:acuarela-oscuro": {
+   "name": "수채화 (다크)",
+   "tags": [
+    "수채화",
+    "페인팅",
+    "아트",
+    "부드러운",
+    "다크"
+   ]
+  },
+  "background:acuarela-vibrante": {
+   "name": "수채화 (비비드)",
+   "tags": [
+    "수채화",
+    "페인팅",
+    "아트",
+    "부드러운",
+    "비비드"
+   ]
+  },
+  "background:ajedrez-calido": {
+   "name": "움직이는 체커보드 (따뜻한)",
+   "tags": [
+    "체커보드",
+    "체스판",
+    "격자무늬",
+    "레트로",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:ajedrez-frio": {
+   "name": "움직이는 체커보드 (차가운)",
+   "tags": [
+    "체커보드",
+    "체스판",
+    "격자무늬",
+    "레트로",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:ajedrez-oscuro": {
+   "name": "움직이는 체커보드 (다크)",
+   "tags": [
+    "체커보드",
+    "체스판",
+    "격자무늬",
+    "레트로",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:ajedrez-vibrante": {
+   "name": "움직이는 체커보드 (비비드)",
+   "tags": [
+    "체커보드",
+    "체스판",
+    "격자무늬",
+    "레트로",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:anio-nuevo": {
+   "name": "새해",
+   "tags": [
+    "새해",
+    "신년",
+    "건배",
+    "파티",
+    "배경"
+   ]
+  },
+  "background:anio-nuevo-2": {
+   "name": "새해 2",
+   "tags": [
+    "새해",
+    "신년",
+    "건배",
+    "파티",
+    "배경"
+   ]
+  },
+  "background:atardecer-calido": {
+   "name": "노을 (따뜻한)",
+   "tags": [
+    "노을",
+    "선셋",
+    "햇살",
+    "여름",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:atardecer-frio": {
+   "name": "노을 (차가운)",
+   "tags": [
+    "노을",
+    "선셋",
+    "햇살",
+    "여름",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:atardecer-oscuro": {
+   "name": "노을 (다크)",
+   "tags": [
+    "노을",
+    "선셋",
+    "햇살",
+    "여름",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:atardecer-vibrante": {
+   "name": "노을 (비비드)",
+   "tags": [
+    "노을",
+    "선셋",
+    "햇살",
+    "여름",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:aurora-calido": {
+   "name": "오로라 (따뜻한)",
+   "tags": [
+    "오로라",
+    "북극광",
+    "하늘",
+    "밤",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:aurora-frio": {
+   "name": "오로라 (차가운)",
+   "tags": [
+    "오로라",
+    "북극광",
+    "하늘",
+    "밤",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:aurora-oscuro": {
+   "name": "오로라 (다크)",
+   "tags": [
+    "오로라",
+    "북극광",
+    "하늘",
+    "밤",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:aurora-vibrante": {
+   "name": "오로라 (비비드)",
+   "tags": [
+    "오로라",
+    "북극광",
+    "하늘",
+    "밤",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:bokeh-calido": {
+   "name": "보케 (따뜻한)",
+   "tags": [
+    "보케",
+    "빛망울",
+    "블러",
+    "우아한",
+    "따뜻한"
+   ]
+  },
+  "background:bokeh-frio": {
+   "name": "보케 (차가운)",
+   "tags": [
+    "보케",
+    "빛망울",
+    "블러",
+    "우아한",
+    "차가운"
+   ]
+  },
+  "background:bokeh-oscuro": {
+   "name": "보케 (다크)",
+   "tags": [
+    "보케",
+    "빛망울",
+    "블러",
+    "우아한",
+    "다크"
+   ]
+  },
+  "background:bokeh-vibrante": {
+   "name": "보케 (비비드)",
+   "tags": [
+    "보케",
+    "빛망울",
+    "블러",
+    "우아한",
+    "비비드"
+   ]
+  },
+  "background:burbujas-calido": {
+   "name": "비눗방울 (따뜻한)",
+   "tags": [
+    "비눗방울",
+    "물",
+    "키즈",
+    "부드러운",
+    "따뜻한"
+   ]
+  },
+  "background:burbujas-frio": {
+   "name": "비눗방울 (차가운)",
+   "tags": [
+    "비눗방울",
+    "물",
+    "키즈",
+    "부드러운",
+    "차가운"
+   ]
+  },
+  "background:burbujas-oscuro": {
+   "name": "비눗방울 (다크)",
+   "tags": [
+    "비눗방울",
+    "물",
+    "키즈",
+    "부드러운",
+    "다크"
+   ]
+  },
+  "background:burbujas-vibrante": {
+   "name": "비눗방울 (비비드)",
+   "tags": [
+    "비눗방울",
+    "물",
+    "키즈",
+    "부드러운",
+    "비비드"
+   ]
+  },
+  "background:cielo-estrellado-calido": {
+   "name": "별이 빛나는 하늘 (따뜻한)",
+   "tags": [
+    "별",
+    "밤",
+    "우주",
+    "하늘",
+    "따뜻한"
+   ]
+  },
+  "background:cielo-estrellado-frio": {
+   "name": "별이 빛나는 하늘 (차가운)",
+   "tags": [
+    "별",
+    "밤",
+    "우주",
+    "하늘",
+    "차가운"
+   ]
+  },
+  "background:cielo-estrellado-oscuro": {
+   "name": "별이 빛나는 하늘 (다크)",
+   "tags": [
+    "별",
+    "밤",
+    "우주",
+    "하늘",
+    "다크"
+   ]
+  },
+  "background:cielo-estrellado-vibrante": {
+   "name": "별이 빛나는 하늘 (비비드)",
+   "tags": [
+    "별",
+    "밤",
+    "우주",
+    "하늘",
+    "비비드"
+   ]
+  },
+  "background:circuito-calido": {
+   "name": "회로 기판 (따뜻한)",
+   "tags": [
+    "회로",
+    "기술",
+    "테크",
+    "디지털",
+    "데이터",
+    "따뜻한"
+   ]
+  },
+  "background:circuito-frio": {
+   "name": "회로 기판 (차가운)",
+   "tags": [
+    "회로",
+    "기술",
+    "테크",
+    "디지털",
+    "데이터",
+    "차가운"
+   ]
+  },
+  "background:circuito-oscuro": {
+   "name": "회로 기판 (다크)",
+   "tags": [
+    "회로",
+    "기술",
+    "테크",
+    "디지털",
+    "데이터",
+    "다크"
+   ]
+  },
+  "background:circuito-vibrante": {
+   "name": "회로 기판 (비비드)",
+   "tags": [
+    "회로",
+    "기술",
+    "테크",
+    "디지털",
+    "데이터",
+    "비비드"
+   ]
+  },
+  "background:circulos-calido": {
+   "name": "동심원 (따뜻한)",
+   "tags": [
+    "원",
+    "링",
+    "최면",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:circulos-frio": {
+   "name": "동심원 (차가운)",
+   "tags": [
+    "원",
+    "링",
+    "최면",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:circulos-oscuro": {
+   "name": "동심원 (다크)",
+   "tags": [
+    "원",
+    "링",
+    "최면",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:circulos-vibrante": {
+   "name": "동심원 (비비드)",
+   "tags": [
+    "원",
+    "링",
+    "최면",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:colinas-calido": {
+   "name": "완만한 언덕 (따뜻한)",
+   "tags": [
+    "언덕",
+    "풍경",
+    "플랫",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:colinas-frio": {
+   "name": "완만한 언덕 (차가운)",
+   "tags": [
+    "언덕",
+    "풍경",
+    "플랫",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:colinas-oscuro": {
+   "name": "완만한 언덕 (다크)",
+   "tags": [
+    "언덕",
+    "풍경",
+    "플랫",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:colinas-vibrante": {
+   "name": "완만한 언덕 (비비드)",
+   "tags": [
+    "언덕",
+    "풍경",
+    "플랫",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:confeti-calido": {
+   "name": "은은한 꽃가루 (따뜻한)",
+   "tags": [
+    "꽃가루",
+    "파티",
+    "축하",
+    "생일",
+    "따뜻한"
+   ]
+  },
+  "background:confeti-frio": {
+   "name": "은은한 꽃가루 (차가운)",
+   "tags": [
+    "꽃가루",
+    "파티",
+    "축하",
+    "생일",
+    "차가운"
+   ]
+  },
+  "background:confeti-oscuro": {
+   "name": "은은한 꽃가루 (다크)",
+   "tags": [
+    "꽃가루",
+    "파티",
+    "축하",
+    "생일",
+    "다크"
+   ]
+  },
+  "background:confeti-vibrante": {
+   "name": "은은한 꽃가루 (비비드)",
+   "tags": [
+    "꽃가루",
+    "파티",
+    "축하",
+    "생일",
+    "비비드"
+   ]
+  },
+  "background:cuadricula-retro-calido": {
+   "name": "레트로 그리드 (따뜻한)",
+   "tags": [
+    "레트로",
+    "신스웨이브",
+    "80년대",
+    "그리드",
+    "베이퍼웨이브",
+    "따뜻한"
+   ]
+  },
+  "background:cuadricula-retro-frio": {
+   "name": "레트로 그리드 (차가운)",
+   "tags": [
+    "레트로",
+    "신스웨이브",
+    "80년대",
+    "그리드",
+    "베이퍼웨이브",
+    "차가운"
+   ]
+  },
+  "background:cuadricula-retro-oscuro": {
+   "name": "레트로 그리드 (다크)",
+   "tags": [
+    "레트로",
+    "신스웨이브",
+    "80년대",
+    "그리드",
+    "베이퍼웨이브",
+    "다크"
+   ]
+  },
+  "background:cuadricula-retro-vibrante": {
+   "name": "레트로 그리드 (비비드)",
+   "tags": [
+    "레트로",
+    "신스웨이브",
+    "80년대",
+    "그리드",
+    "베이퍼웨이브",
+    "비비드"
+   ]
+  },
+  "background:cumpleanos": {
+   "name": "생일",
+   "tags": [
+    "생일",
+    "파티",
+    "축하",
+    "케이크",
+    "배경"
+   ]
+  },
+  "background:cumpleanos-2": {
+   "name": "생일 2",
+   "tags": [
+    "생일",
+    "파티",
+    "축하",
+    "케이크",
+    "배경"
+   ]
+  },
+  "background:degradado-diagonal-calido": {
+   "name": "대각선 그라데이션 (따뜻한)",
+   "tags": [
+    "대각선",
+    "그라데이션",
+    "무지개",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:degradado-diagonal-frio": {
+   "name": "대각선 그라데이션 (차가운)",
+   "tags": [
+    "대각선",
+    "그라데이션",
+    "무지개",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:degradado-diagonal-oscuro": {
+   "name": "대각선 그라데이션 (다크)",
+   "tags": [
+    "대각선",
+    "그라데이션",
+    "무지개",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:degradado-diagonal-vibrante": {
+   "name": "대각선 그라데이션 (비비드)",
+   "tags": [
+    "대각선",
+    "그라데이션",
+    "무지개",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:degradado-malla-calido": {
+   "name": "메시 그라데이션 (따뜻한)",
+   "tags": [
+    "메시",
+    "그라데이션",
+    "모던",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:degradado-malla-frio": {
+   "name": "메시 그라데이션 (차가운)",
+   "tags": [
+    "메시",
+    "그라데이션",
+    "모던",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:degradado-malla-oscuro": {
+   "name": "메시 그라데이션 (다크)",
+   "tags": [
+    "메시",
+    "그라데이션",
+    "모던",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:degradado-malla-vibrante": {
+   "name": "메시 그라데이션 (비비드)",
+   "tags": [
+    "메시",
+    "그라데이션",
+    "모던",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:degradado-movil-calido": {
+   "name": "움직이는 그라데이션 (따뜻한)",
+   "tags": [
+    "그라데이션",
+    "부드러운",
+    "움직이는",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:degradado-movil-frio": {
+   "name": "움직이는 그라데이션 (차가운)",
+   "tags": [
+    "그라데이션",
+    "부드러운",
+    "움직이는",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:degradado-movil-oscuro": {
+   "name": "움직이는 그라데이션 (다크)",
+   "tags": [
+    "그라데이션",
+    "부드러운",
+    "움직이는",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:degradado-movil-vibrante": {
+   "name": "움직이는 그라데이션 (비비드)",
+   "tags": [
+    "그라데이션",
+    "부드러운",
+    "움직이는",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:diwali": {
+   "name": "디왈리",
+   "tags": [
+    "디왈리",
+    "빛",
+    "축제",
+    "촛불",
+    "배경"
+   ]
+  },
+  "background:diwali-2": {
+   "name": "디왈리 2",
+   "tags": [
+    "디왈리",
+    "빛",
+    "축제",
+    "촛불",
+    "배경"
+   ]
+  },
+  "background:ecualizador-calido": {
+   "name": "이퀄라이저 (따뜻한)",
+   "tags": [
+    "이퀄라이저",
+    "음악",
+    "팟캐스트",
+    "오디오",
+    "dj",
+    "따뜻한"
+   ]
+  },
+  "background:ecualizador-frio": {
+   "name": "이퀄라이저 (차가운)",
+   "tags": [
+    "이퀄라이저",
+    "음악",
+    "팟캐스트",
+    "오디오",
+    "dj",
+    "차가운"
+   ]
+  },
+  "background:ecualizador-oscuro": {
+   "name": "이퀄라이저 (다크)",
+   "tags": [
+    "이퀄라이저",
+    "음악",
+    "팟캐스트",
+    "오디오",
+    "dj",
+    "다크"
+   ]
+  },
+  "background:ecualizador-vibrante": {
+   "name": "이퀄라이저 (비비드)",
+   "tags": [
+    "이퀄라이저",
+    "음악",
+    "팟캐스트",
+    "오디오",
+    "dj",
+    "비비드"
+   ]
+  },
+  "background:escenario-calido": {
+   "name": "무대 조명 (따뜻한)",
+   "tags": [
+    "무대",
+    "콘서트",
+    "쇼",
+    "조명",
+    "따뜻한"
+   ]
+  },
+  "background:escenario-frio": {
+   "name": "무대 조명 (차가운)",
+   "tags": [
+    "무대",
+    "콘서트",
+    "쇼",
+    "조명",
+    "차가운"
+   ]
+  },
+  "background:escenario-oscuro": {
+   "name": "무대 조명 (다크)",
+   "tags": [
+    "무대",
+    "콘서트",
+    "쇼",
+    "조명",
+    "다크"
+   ]
+  },
+  "background:escenario-vibrante": {
+   "name": "무대 조명 (비비드)",
+   "tags": [
+    "무대",
+    "콘서트",
+    "쇼",
+    "조명",
+    "비비드"
+   ]
+  },
+  "background:espiral-calido": {
+   "name": "소용돌이 (따뜻한)",
+   "tags": [
+    "소용돌이",
+    "나선",
+    "최면",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:espiral-frio": {
+   "name": "소용돌이 (차가운)",
+   "tags": [
+    "소용돌이",
+    "나선",
+    "최면",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:espiral-oscuro": {
+   "name": "소용돌이 (다크)",
+   "tags": [
+    "소용돌이",
+    "나선",
+    "최면",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:espiral-vibrante": {
+   "name": "소용돌이 (비비드)",
+   "tags": [
+    "소용돌이",
+    "나선",
+    "최면",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:formas-flotantes-calido": {
+   "name": "떠다니는 도형 (따뜻한)",
+   "tags": [
+    "도형",
+    "기하학",
+    "재미",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:formas-flotantes-frio": {
+   "name": "떠다니는 도형 (차가운)",
+   "tags": [
+    "도형",
+    "기하학",
+    "재미",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:formas-flotantes-oscuro": {
+   "name": "떠다니는 도형 (다크)",
+   "tags": [
+    "도형",
+    "기하학",
+    "재미",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:formas-flotantes-vibrante": {
+   "name": "떠다니는 도형 (비비드)",
+   "tags": [
+    "도형",
+    "기하학",
+    "재미",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:galaxia-calido": {
+   "name": "은하 (따뜻한)",
+   "tags": [
+    "은하",
+    "우주",
+    "유니버스",
+    "코스모스",
+    "따뜻한"
+   ]
+  },
+  "background:galaxia-frio": {
+   "name": "은하 (차가운)",
+   "tags": [
+    "은하",
+    "우주",
+    "유니버스",
+    "코스모스",
+    "차가운"
+   ]
+  },
+  "background:galaxia-oscuro": {
+   "name": "은하 (다크)",
+   "tags": [
+    "은하",
+    "우주",
+    "유니버스",
+    "코스모스",
+    "다크"
+   ]
+  },
+  "background:galaxia-vibrante": {
+   "name": "은하 (비비드)",
+   "tags": [
+    "은하",
+    "우주",
+    "유니버스",
+    "코스모스",
+    "비비드"
+   ]
+  },
+  "background:graduacion": {
+   "name": "졸업",
+   "tags": [
+    "졸업",
+    "성취",
+    "졸업식",
+    "학사모",
+    "배경"
+   ]
+  },
+  "background:graduacion-2": {
+   "name": "졸업 2",
+   "tags": [
+    "졸업",
+    "성취",
+    "졸업식",
+    "학사모",
+    "배경"
+   ]
+  },
+  "background:halloween": {
+   "name": "핼러윈",
+   "tags": [
+    "핼러윈",
+    "공포",
+    "10월",
+    "호박",
+    "배경"
+   ]
+  },
+  "background:halloween-2": {
+   "name": "핼러윈 2",
+   "tags": [
+    "핼러윈",
+    "공포",
+    "10월",
+    "호박",
+    "배경"
+   ]
+  },
+  "background:hexagonos-calido": {
+   "name": "육각형 (따뜻한)",
+   "tags": [
+    "육각형",
+    "벌집",
+    "기술",
+    "게이밍",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:hexagonos-frio": {
+   "name": "육각형 (차가운)",
+   "tags": [
+    "육각형",
+    "벌집",
+    "기술",
+    "게이밍",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:hexagonos-oscuro": {
+   "name": "육각형 (다크)",
+   "tags": [
+    "육각형",
+    "벌집",
+    "기술",
+    "게이밍",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:hexagonos-vibrante": {
+   "name": "육각형 (비비드)",
+   "tags": [
+    "육각형",
+    "벌집",
+    "기술",
+    "게이밍",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:humo-color-calido": {
+   "name": "컬러 스모크 (따뜻한)",
+   "tags": [
+    "연기",
+    "스모크",
+    "미스터리",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:humo-color-frio": {
+   "name": "컬러 스모크 (차가운)",
+   "tags": [
+    "연기",
+    "스모크",
+    "미스터리",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:humo-color-oscuro": {
+   "name": "컬러 스모크 (다크)",
+   "tags": [
+    "연기",
+    "스모크",
+    "미스터리",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:humo-color-vibrante": {
+   "name": "컬러 스모크 (비비드)",
+   "tags": [
+    "연기",
+    "스모크",
+    "미스터리",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:lampara-lava-calido": {
+   "name": "라바 램프 (따뜻한)",
+   "tags": [
+    "라바 램프",
+    "버블",
+    "레트로",
+    "70년대",
+    "따뜻한"
+   ]
+  },
+  "background:lampara-lava-frio": {
+   "name": "라바 램프 (차가운)",
+   "tags": [
+    "라바 램프",
+    "버블",
+    "레트로",
+    "70년대",
+    "차가운"
+   ]
+  },
+  "background:lampara-lava-oscuro": {
+   "name": "라바 램프 (다크)",
+   "tags": [
+    "라바 램프",
+    "버블",
+    "레트로",
+    "70년대",
+    "다크"
+   ]
+  },
+  "background:lampara-lava-vibrante": {
+   "name": "라바 램프 (비비드)",
+   "tags": [
+    "라바 램프",
+    "버블",
+    "레트로",
+    "70년대",
+    "비비드"
+   ]
+  },
+  "background:liquido-calido": {
+   "name": "리퀴드 (따뜻한)",
+   "tags": [
+    "리퀴드",
+    "유체",
+    "대리석",
+    "사이키델릭",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:liquido-frio": {
+   "name": "리퀴드 (차가운)",
+   "tags": [
+    "리퀴드",
+    "유체",
+    "대리석",
+    "사이키델릭",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:liquido-oscuro": {
+   "name": "리퀴드 (다크)",
+   "tags": [
+    "리퀴드",
+    "유체",
+    "대리석",
+    "사이키델릭",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:liquido-vibrante": {
+   "name": "리퀴드 (비비드)",
+   "tags": [
+    "리퀴드",
+    "유체",
+    "대리석",
+    "사이키델릭",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:lluvia-luces-calido": {
+   "name": "빛의 비 (따뜻한)",
+   "tags": [
+    "빛",
+    "빛의 비",
+    "밤",
+    "파티",
+    "따뜻한"
+   ]
+  },
+  "background:lluvia-luces-frio": {
+   "name": "빛의 비 (차가운)",
+   "tags": [
+    "빛",
+    "빛의 비",
+    "밤",
+    "파티",
+    "차가운"
+   ]
+  },
+  "background:lluvia-luces-oscuro": {
+   "name": "빛의 비 (다크)",
+   "tags": [
+    "빛",
+    "빛의 비",
+    "밤",
+    "파티",
+    "다크"
+   ]
+  },
+  "background:lluvia-luces-vibrante": {
+   "name": "빛의 비 (비비드)",
+   "tags": [
+    "빛",
+    "빛의 비",
+    "밤",
+    "파티",
+    "비비드"
+   ]
+  },
+  "background:low-poly-calido": {
+   "name": "로우 폴리 (따뜻한)",
+   "tags": [
+    "폴리곤",
+    "로우 폴리",
+    "크리스털",
+    "모던",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:low-poly-frio": {
+   "name": "로우 폴리 (차가운)",
+   "tags": [
+    "폴리곤",
+    "로우 폴리",
+    "크리스털",
+    "모던",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:low-poly-oscuro": {
+   "name": "로우 폴리 (다크)",
+   "tags": [
+    "폴리곤",
+    "로우 폴리",
+    "크리스털",
+    "모던",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:low-poly-vibrante": {
+   "name": "로우 폴리 (비비드)",
+   "tags": [
+    "폴리곤",
+    "로우 폴리",
+    "크리스털",
+    "모던",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:luces-ciudad-calido": {
+   "name": "도시의 불빛 (따뜻한)",
+   "tags": [
+    "도시",
+    "밤",
+    "보케",
+    "어반",
+    "따뜻한"
+   ]
+  },
+  "background:luces-ciudad-frio": {
+   "name": "도시의 불빛 (차가운)",
+   "tags": [
+    "도시",
+    "밤",
+    "보케",
+    "어반",
+    "차가운"
+   ]
+  },
+  "background:luces-ciudad-oscuro": {
+   "name": "도시의 불빛 (다크)",
+   "tags": [
+    "도시",
+    "밤",
+    "보케",
+    "어반",
+    "다크"
+   ]
+  },
+  "background:luces-ciudad-vibrante": {
+   "name": "도시의 불빛 (비비드)",
+   "tags": [
+    "도시",
+    "밤",
+    "보케",
+    "어반",
+    "비비드"
+   ]
+  },
+  "background:luciernagas-calido": {
+   "name": "반딧불이 (따뜻한)",
+   "tags": [
+    "반딧불이",
+    "밤",
+    "마법",
+    "숲",
+    "따뜻한"
+   ]
+  },
+  "background:luciernagas-frio": {
+   "name": "반딧불이 (차가운)",
+   "tags": [
+    "반딧불이",
+    "밤",
+    "마법",
+    "숲",
+    "차가운"
+   ]
+  },
+  "background:luciernagas-oscuro": {
+   "name": "반딧불이 (다크)",
+   "tags": [
+    "반딧불이",
+    "밤",
+    "마법",
+    "숲",
+    "다크"
+   ]
+  },
+  "background:luciernagas-vibrante": {
+   "name": "반딧불이 (비비드)",
+   "tags": [
+    "반딧불이",
+    "밤",
+    "마법",
+    "숲",
+    "비비드"
+   ]
+  },
+  "background:marmol-calido": {
+   "name": "대리석 (따뜻한)",
+   "tags": [
+    "대리석",
+    "마블",
+    "우아한",
+    "럭셔리",
+    "따뜻한"
+   ]
+  },
+  "background:marmol-frio": {
+   "name": "대리석 (차가운)",
+   "tags": [
+    "대리석",
+    "마블",
+    "우아한",
+    "럭셔리",
+    "차가운"
+   ]
+  },
+  "background:marmol-oscuro": {
+   "name": "대리석 (다크)",
+   "tags": [
+    "대리석",
+    "마블",
+    "우아한",
+    "럭셔리",
+    "다크"
+   ]
+  },
+  "background:marmol-vibrante": {
+   "name": "대리석 (비비드)",
+   "tags": [
+    "대리석",
+    "마블",
+    "우아한",
+    "럭셔리",
+    "비비드"
+   ]
+  },
+  "background:memphis-calido": {
+   "name": "멤피스 스타일 (따뜻한)",
+   "tags": [
+    "멤피스",
+    "80년대",
+    "팝",
+    "도형",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:memphis-frio": {
+   "name": "멤피스 스타일 (차가운)",
+   "tags": [
+    "멤피스",
+    "80년대",
+    "팝",
+    "도형",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:memphis-oscuro": {
+   "name": "멤피스 스타일 (다크)",
+   "tags": [
+    "멤피스",
+    "80년대",
+    "팝",
+    "도형",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:memphis-vibrante": {
+   "name": "멤피스 스타일 (비비드)",
+   "tags": [
+    "멤피스",
+    "80년대",
+    "팝",
+    "도형",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:navidad": {
+   "name": "크리스마스",
+   "tags": [
+    "크리스마스",
+    "성탄절",
+    "12월",
+    "연말",
+    "배경"
+   ]
+  },
+  "background:navidad-2": {
+   "name": "크리스마스 2",
+   "tags": [
+    "크리스마스",
+    "성탄절",
+    "12월",
+    "연말",
+    "배경"
+   ]
+  },
+  "background:neon-calido": {
+   "name": "네온 라인 (따뜻한)",
+   "tags": [
+    "네온",
+    "라인",
+    "밤",
+    "사이버",
+    "따뜻한"
+   ]
+  },
+  "background:neon-frio": {
+   "name": "네온 라인 (차가운)",
+   "tags": [
+    "네온",
+    "라인",
+    "밤",
+    "사이버",
+    "차가운"
+   ]
+  },
+  "background:neon-oscuro": {
+   "name": "네온 라인 (다크)",
+   "tags": [
+    "네온",
+    "라인",
+    "밤",
+    "사이버",
+    "다크"
+   ]
+  },
+  "background:neon-vibrante": {
+   "name": "네온 라인 (비비드)",
+   "tags": [
+    "네온",
+    "라인",
+    "밤",
+    "사이버",
+    "비비드"
+   ]
+  },
+  "background:nieve-calido": {
+   "name": "눈 내리는 배경 (따뜻한)",
+   "tags": [
+    "눈",
+    "겨울",
+    "크리스마스",
+    "추위",
+    "따뜻한"
+   ]
+  },
+  "background:nieve-frio": {
+   "name": "눈 내리는 배경 (차가운)",
+   "tags": [
+    "눈",
+    "겨울",
+    "크리스마스",
+    "추위",
+    "차가운"
+   ]
+  },
+  "background:nieve-oscuro": {
+   "name": "눈 내리는 배경 (다크)",
+   "tags": [
+    "눈",
+    "겨울",
+    "크리스마스",
+    "추위",
+    "다크"
+   ]
+  },
+  "background:nieve-vibrante": {
+   "name": "눈 내리는 배경 (비비드)",
+   "tags": [
+    "눈",
+    "겨울",
+    "크리스마스",
+    "추위",
+    "비비드"
+   ]
+  },
+  "background:nubes-calido": {
+   "name": "구름 (따뜻한)",
+   "tags": [
+    "구름",
+    "하늘",
+    "몽환",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:nubes-frio": {
+   "name": "구름 (차가운)",
+   "tags": [
+    "구름",
+    "하늘",
+    "몽환",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:nubes-oscuro": {
+   "name": "구름 (다크)",
+   "tags": [
+    "구름",
+    "하늘",
+    "몽환",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:nubes-vibrante": {
+   "name": "구름 (비비드)",
+   "tags": [
+    "구름",
+    "하늘",
+    "몽환",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:ondas-sonido-calido": {
+   "name": "음파 (따뜻한)",
+   "tags": [
+    "음파",
+    "사운드",
+    "팟캐스트",
+    "음악",
+    "따뜻한"
+   ]
+  },
+  "background:ondas-sonido-frio": {
+   "name": "음파 (차가운)",
+   "tags": [
+    "음파",
+    "사운드",
+    "팟캐스트",
+    "음악",
+    "차가운"
+   ]
+  },
+  "background:ondas-sonido-oscuro": {
+   "name": "음파 (다크)",
+   "tags": [
+    "음파",
+    "사운드",
+    "팟캐스트",
+    "음악",
+    "다크"
+   ]
+  },
+  "background:ondas-sonido-vibrante": {
+   "name": "음파 (비비드)",
+   "tags": [
+    "음파",
+    "사운드",
+    "팟캐스트",
+    "음악",
+    "비비드"
+   ]
+  },
+  "background:ondas-suaves-calido": {
+   "name": "잔잔한 물결 (따뜻한)",
+   "tags": [
+    "물결",
+    "웨이브",
+    "바다",
+    "부드러운",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:ondas-suaves-frio": {
+   "name": "잔잔한 물결 (차가운)",
+   "tags": [
+    "물결",
+    "웨이브",
+    "바다",
+    "부드러운",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:ondas-suaves-oscuro": {
+   "name": "잔잔한 물결 (다크)",
+   "tags": [
+    "물결",
+    "웨이브",
+    "바다",
+    "부드러운",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:ondas-suaves-vibrante": {
+   "name": "잔잔한 물결 (비비드)",
+   "tags": [
+    "물결",
+    "웨이브",
+    "바다",
+    "부드러운",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:otono": {
+   "name": "가을",
+   "tags": [
+    "가을",
+    "낙엽",
+    "추수감사절",
+    "단풍",
+    "배경"
+   ]
+  },
+  "background:otono-2": {
+   "name": "가을 2",
+   "tags": [
+    "가을",
+    "낙엽",
+    "추수감사절",
+    "단풍",
+    "배경"
+   ]
+  },
+  "background:papel-calido": {
+   "name": "종이 (따뜻한)",
+   "tags": [
+    "종이",
+    "텍스처",
+    "질감",
+    "콜라주",
+    "따뜻한"
+   ]
+  },
+  "background:papel-frio": {
+   "name": "종이 (차가운)",
+   "tags": [
+    "종이",
+    "텍스처",
+    "질감",
+    "콜라주",
+    "차가운"
+   ]
+  },
+  "background:papel-oscuro": {
+   "name": "종이 (다크)",
+   "tags": [
+    "종이",
+    "텍스처",
+    "질감",
+    "콜라주",
+    "다크"
+   ]
+  },
+  "background:papel-vibrante": {
+   "name": "종이 (비비드)",
+   "tags": [
+    "종이",
+    "텍스처",
+    "질감",
+    "콜라주",
+    "비비드"
+   ]
+  },
+  "background:particulas-calido": {
+   "name": "파티클 (따뜻한)",
+   "tags": [
+    "파티클",
+    "먼지",
+    "부드러운",
+    "차분한",
+    "따뜻한"
+   ]
+  },
+  "background:particulas-frio": {
+   "name": "파티클 (차가운)",
+   "tags": [
+    "파티클",
+    "먼지",
+    "부드러운",
+    "차분한",
+    "차가운"
+   ]
+  },
+  "background:particulas-oscuro": {
+   "name": "파티클 (다크)",
+   "tags": [
+    "파티클",
+    "먼지",
+    "부드러운",
+    "차분한",
+    "다크"
+   ]
+  },
+  "background:particulas-vibrante": {
+   "name": "파티클 (비비드)",
+   "tags": [
+    "파티클",
+    "먼지",
+    "부드러운",
+    "차분한",
+    "비비드"
+   ]
+  },
+  "background:pizarra-calido": {
+   "name": "칠판 (따뜻한)",
+   "tags": [
+    "칠판",
+    "학교",
+    "수업",
+    "교육",
+    "따뜻한"
+   ]
+  },
+  "background:pizarra-frio": {
+   "name": "칠판 (차가운)",
+   "tags": [
+    "칠판",
+    "학교",
+    "수업",
+    "교육",
+    "차가운"
+   ]
+  },
+  "background:pizarra-oscuro": {
+   "name": "칠판 (다크)",
+   "tags": [
+    "칠판",
+    "학교",
+    "수업",
+    "교육",
+    "다크"
+   ]
+  },
+  "background:pizarra-vibrante": {
+   "name": "칠판 (비비드)",
+   "tags": [
+    "칠판",
+    "학교",
+    "수업",
+    "교육",
+    "비비드"
+   ]
+  },
+  "background:primavera": {
+   "name": "봄",
+   "tags": [
+    "봄",
+    "꽃",
+    "어머니의 날",
+    "계절",
+    "배경"
+   ]
+  },
+  "background:primavera-2": {
+   "name": "봄 2",
+   "tags": [
+    "봄",
+    "꽃",
+    "어머니의 날",
+    "계절",
+    "배경"
+   ]
+  },
+  "background:prisma-calido": {
+   "name": "프리즘 (따뜻한)",
+   "tags": [
+    "프리즘",
+    "무지개",
+    "크리스털",
+    "감성",
+    "따뜻한"
+   ]
+  },
+  "background:prisma-frio": {
+   "name": "프리즘 (차가운)",
+   "tags": [
+    "프리즘",
+    "무지개",
+    "크리스털",
+    "감성",
+    "차가운"
+   ]
+  },
+  "background:prisma-oscuro": {
+   "name": "프리즘 (다크)",
+   "tags": [
+    "프리즘",
+    "무지개",
+    "크리스털",
+    "감성",
+    "다크"
+   ]
+  },
+  "background:prisma-vibrante": {
+   "name": "프리즘 (비비드)",
+   "tags": [
+    "프리즘",
+    "무지개",
+    "크리스털",
+    "감성",
+    "비비드"
+   ]
+  },
+  "background:puntos-calido": {
+   "name": "두근거리는 도트 (따뜻한)",
+   "tags": [
+    "도트",
+    "땡땡이",
+    "하프톤",
+    "팝",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:puntos-frio": {
+   "name": "두근거리는 도트 (차가운)",
+   "tags": [
+    "도트",
+    "땡땡이",
+    "하프톤",
+    "팝",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:puntos-oscuro": {
+   "name": "두근거리는 도트 (다크)",
+   "tags": [
+    "도트",
+    "땡땡이",
+    "하프톤",
+    "팝",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:puntos-vibrante": {
+   "name": "두근거리는 도트 (비비드)",
+   "tags": [
+    "도트",
+    "땡땡이",
+    "하프톤",
+    "팝",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:ramadan": {
+   "name": "라마단과 이드",
+   "tags": [
+    "라마단",
+    "이드",
+    "달",
+    "밤",
+    "배경"
+   ]
+  },
+  "background:ramadan-2": {
+   "name": "라마단과 이드 2",
+   "tags": [
+    "라마단",
+    "이드",
+    "달",
+    "밤",
+    "배경"
+   ]
+  },
+  "background:rayas-calido": {
+   "name": "움직이는 줄무늬 (따뜻한)",
+   "tags": [
+    "줄무늬",
+    "스트라이프",
+    "라인",
+    "다이내믹",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:rayas-frio": {
+   "name": "움직이는 줄무늬 (차가운)",
+   "tags": [
+    "줄무늬",
+    "스트라이프",
+    "라인",
+    "다이내믹",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:rayas-oscuro": {
+   "name": "움직이는 줄무늬 (다크)",
+   "tags": [
+    "줄무늬",
+    "스트라이프",
+    "라인",
+    "다이내믹",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:rayas-vibrante": {
+   "name": "움직이는 줄무늬 (비비드)",
+   "tags": [
+    "줄무늬",
+    "스트라이프",
+    "라인",
+    "다이내믹",
+    "배경",
+    "비비드"
+   ]
+  },
+  "background:rayos-luz-calido": {
+   "name": "빛줄기 (따뜻한)",
+   "tags": [
+    "빛줄기",
+    "빛",
+    "하늘",
+    "희망",
+    "따뜻한"
+   ]
+  },
+  "background:rayos-luz-frio": {
+   "name": "빛줄기 (차가운)",
+   "tags": [
+    "빛줄기",
+    "빛",
+    "하늘",
+    "희망",
+    "차가운"
+   ]
+  },
+  "background:rayos-luz-oscuro": {
+   "name": "빛줄기 (다크)",
+   "tags": [
+    "빛줄기",
+    "빛",
+    "하늘",
+    "희망",
+    "다크"
+   ]
+  },
+  "background:rayos-luz-vibrante": {
+   "name": "빛줄기 (비비드)",
+   "tags": [
+    "빛줄기",
+    "빛",
+    "하늘",
+    "희망",
+    "비비드"
+   ]
+  },
+  "background:rayos-sol-calido": {
+   "name": "회전하는 선버스트 (따뜻한)",
+   "tags": [
+    "광선",
+    "선버스트",
+    "프로모션",
+    "키즈",
+    "특가",
+    "따뜻한"
+   ]
+  },
+  "background:rayos-sol-frio": {
+   "name": "회전하는 선버스트 (차가운)",
+   "tags": [
+    "광선",
+    "선버스트",
+    "프로모션",
+    "키즈",
+    "특가",
+    "차가운"
+   ]
+  },
+  "background:rayos-sol-oscuro": {
+   "name": "회전하는 선버스트 (다크)",
+   "tags": [
+    "광선",
+    "선버스트",
+    "프로모션",
+    "키즈",
+    "특가",
+    "다크"
+   ]
+  },
+  "background:rayos-sol-vibrante": {
+   "name": "회전하는 선버스트 (비비드)",
+   "tags": [
+    "광선",
+    "선버스트",
+    "프로모션",
+    "키즈",
+    "특가",
+    "비비드"
+   ]
+  },
+  "background:san-valentin": {
+   "name": "발렌타인데이",
+   "tags": [
+    "발렌타인데이",
+    "사랑",
+    "하트",
+    "2월",
+    "배경"
+   ]
+  },
+  "background:san-valentin-2": {
+   "name": "발렌타인데이 2",
+   "tags": [
+    "발렌타인데이",
+    "사랑",
+    "하트",
+    "2월",
+    "배경"
+   ]
+  },
+  "background:tinta-calido": {
+   "name": "물속 잉크 (따뜻한)",
+   "tags": [
+    "잉크",
+    "물",
+    "아트",
+    "유체",
+    "따뜻한"
+   ]
+  },
+  "background:tinta-frio": {
+   "name": "물속 잉크 (차가운)",
+   "tags": [
+    "잉크",
+    "물",
+    "아트",
+    "유체",
+    "차가운"
+   ]
+  },
+  "background:tinta-oscuro": {
+   "name": "물속 잉크 (다크)",
+   "tags": [
+    "잉크",
+    "물",
+    "아트",
+    "유체",
+    "다크"
+   ]
+  },
+  "background:tinta-vibrante": {
+   "name": "물속 잉크 (비비드)",
+   "tags": [
+    "잉크",
+    "물",
+    "아트",
+    "유체",
+    "비비드"
+   ]
+  },
+  "background:tunel-calido": {
+   "name": "터널 (따뜻한)",
+   "tags": [
+    "터널",
+    "여행",
+    "줌",
+    "배경",
+    "따뜻한"
+   ]
+  },
+  "background:tunel-frio": {
+   "name": "터널 (차가운)",
+   "tags": [
+    "터널",
+    "여행",
+    "줌",
+    "배경",
+    "차가운"
+   ]
+  },
+  "background:tunel-oscuro": {
+   "name": "터널 (다크)",
+   "tags": [
+    "터널",
+    "여행",
+    "줌",
+    "배경",
+    "다크"
+   ]
+  },
+  "background:tunel-vibrante": {
+   "name": "터널 (비비드)",
+   "tags": [
+    "터널",
+    "여행",
+    "줌",
+    "배경",
+    "비비드"
+   ]
+  },
   "overlay:amor-corazones": {
    "name": "떠오르는 하트",
    "tags": [
@@ -2172,6 +4228,117 @@
     "핑크",
     "결혼식",
     "로맨틱"
+   ]
+  },
+  "overlay:cam-bateria-baja": {
+   "name": "배터리 부족",
+   "tags": [
+    "배터리",
+    "부족",
+    "카메라",
+    "캠코더"
+   ]
+  },
+  "overlay:cam-cuenta-regresiva": {
+   "name": "필름 리더 카운트다운",
+   "tags": [
+    "카운트다운",
+    "영화",
+    "필름 리더",
+    "3 2 1"
+   ]
+  },
+  "overlay:cam-en-vivo": {
+   "name": "라이브 배지",
+   "tags": [
+    "라이브",
+    "생방송",
+    "방송",
+    "스트리밍"
+   ]
+  },
+  "overlay:cam-enfoque": {
+   "name": "초점 고정",
+   "tags": [
+    "초점",
+    "포커스",
+    "카메라",
+    "사진",
+    "자동 초점"
+   ]
+  },
+  "overlay:cam-flash": {
+   "name": "카메라 플래시",
+   "tags": [
+    "플래시",
+    "사진",
+    "카메라",
+    "전환"
+   ]
+  },
+  "overlay:cam-grabando-pantalla": {
+   "name": "화면 녹화",
+   "tags": [
+    "화면 녹화",
+    "튜토리얼",
+    "화면",
+    "rec"
+   ]
+  },
+  "overlay:cam-obturador": {
+   "name": "카메라 셔터",
+   "tags": [
+    "셔터",
+    "카메라",
+    "사진",
+    "전환"
+   ]
+  },
+  "overlay:cam-rec": {
+   "name": "카메라 녹화 (REC)",
+   "tags": [
+    "rec",
+    "카메라",
+    "녹화 중",
+    "캠코더"
+   ]
+  },
+  "overlay:cam-rec-minimal": {
+   "name": "미니멀 REC",
+   "tags": [
+    "rec",
+    "녹화 중",
+    "미니멀",
+    "카메라",
+    "브이로그"
+   ]
+  },
+  "overlay:cam-seguridad": {
+   "name": "보안 카메라",
+   "tags": [
+    "보안",
+    "cctv",
+    "카메라",
+    "감시"
+   ]
+  },
+  "overlay:cam-vision-nocturna": {
+   "name": "야간 투시경",
+   "tags": [
+    "야간 투시",
+    "나이트 비전",
+    "그린",
+    "카메라",
+    "밤"
+   ]
+  },
+  "overlay:cam-visor": {
+   "name": "카메라 뷰파인더",
+   "tags": [
+    "뷰파인더",
+    "그리드",
+    "카메라",
+    "촬영"
    ]
   },
   "overlay:cel-confeti": {
@@ -2584,6 +4751,43 @@
     "봄"
    ]
   },
+  "overlay:clima-polvo-viento": {
+   "name": "바람에 날리는 먼지",
+   "tags": [
+    "먼지",
+    "바람",
+    "사막",
+    "날씨"
+   ]
+  },
+  "overlay:clima-relampago": {
+   "name": "번개",
+   "tags": [
+    "번개",
+    "폭풍",
+    "날씨",
+    "임팩트"
+   ]
+  },
+  "overlay:clima-sakura": {
+   "name": "벚꽃",
+   "tags": [
+    "벚꽃",
+    "사쿠라",
+    "봄",
+    "꽃잎"
+   ]
+  },
+  "overlay:clima-tormenta": {
+   "name": "뇌우",
+   "tags": [
+    "뇌우",
+    "폭풍",
+    "비",
+    "번개",
+    "날씨"
+   ]
+  },
   "overlay:garabato-angel": {
    "name": "천사 날개와 링",
    "tags": [
@@ -2849,6 +5053,52 @@
     "두들",
     "밑줄",
     "강조"
+   ]
+  },
+  "overlay:glitch-bloques": {
+   "name": "블록 글리치",
+   "tags": [
+    "글리치",
+    "블록",
+    "픽셀",
+    "디지털"
+   ]
+  },
+  "overlay:glitch-codigo": {
+   "name": "코드 비",
+   "tags": [
+    "코드",
+    "바이너리",
+    "매트릭스",
+    "해커"
+   ]
+  },
+  "overlay:glitch-estatica": {
+   "name": "TV 지지직",
+   "tags": [
+    "노이즈",
+    "지지직",
+    "tv",
+    "잡음"
+   ]
+  },
+  "overlay:glitch-rgb": {
+   "name": "RGB 글리치",
+   "tags": [
+    "글리치",
+    "rgb",
+    "오류",
+    "디지털",
+    "사이버"
+   ]
+  },
+  "overlay:glitch-transicion": {
+   "name": "글리치 전환",
+   "tags": [
+    "글리치",
+    "전환",
+    "오류",
+    "디지털"
    ]
   },
   "overlay:luz-arcoiris": {
@@ -3142,6 +5392,97 @@
     "태양"
    ]
   },
+  "overlay:marco-brillos": {
+   "name": "반짝이 프레임",
+   "tags": [
+    "프레임",
+    "테두리",
+    "반짝이",
+    "스파클"
+   ]
+  },
+  "overlay:marco-lineas-laterales": {
+   "name": "모션 라인",
+   "tags": [
+    "라인",
+    "움직임",
+    "모션 라인",
+    "애니",
+    "빠른"
+   ]
+  },
+  "overlay:marco-lineas-velocidad": {
+   "name": "집중선",
+   "tags": [
+    "집중선",
+    "스피드 라인",
+    "애니",
+    "만화"
+   ]
+  },
+  "overlay:marco-neon-azul": {
+   "name": "블루 네온 프레임",
+   "tags": [
+    "프레임",
+    "테두리",
+    "네온",
+    "블루"
+   ]
+  },
+  "overlay:marco-neon-rosa": {
+   "name": "핑크 네온 프레임",
+   "tags": [
+    "프레임",
+    "테두리",
+    "네온",
+    "핑크"
+   ]
+  },
+  "overlay:marco-papel-cinta": {
+   "name": "테이프 붙인 종이 프레임",
+   "tags": [
+    "프레임",
+    "테두리",
+    "종이",
+    "테이프"
+   ]
+  },
+  "overlay:marco-papel-negro": {
+   "name": "블랙 페이퍼 컷 프레임",
+   "tags": [
+    "프레임",
+    "테두리",
+    "종이",
+    "블랙"
+   ]
+  },
+  "overlay:marco-papel-recortado": {
+   "name": "페이퍼 컷 프레임",
+   "tags": [
+    "프레임",
+    "테두리",
+    "종이",
+    "오려낸"
+   ]
+  },
+  "overlay:marco-polaroid": {
+   "name": "즉석 사진 프레임",
+   "tags": [
+    "프레임",
+    "테두리",
+    "즉석 사진",
+    "사진"
+   ]
+  },
+  "overlay:marco-semitono": {
+   "name": "만화 하프톤",
+   "tags": [
+    "하프톤",
+    "만화",
+    "팝아트",
+    "도트"
+   ]
+  },
   "overlay:part-ascendentes": {
    "name": "떠오르는 빛",
    "tags": [
@@ -3374,6 +5715,2024 @@
     "워프",
     "우주",
     "별"
+   ]
+  },
+  "overlay:pel-8mm": {
+   "name": "8mm 필름",
+   "tags": [
+    "8mm",
+    "슈퍼 8",
+    "필름",
+    "빈티지"
+   ]
+  },
+  "overlay:pel-cine-mudo": {
+   "name": "무성 영화",
+   "tags": [
+    "무성 영화",
+    "옛날",
+    "세피아",
+    "흑백"
+   ]
+  },
+  "overlay:pel-crt": {
+   "name": "옛날 TV (CRT)",
+   "tags": [
+    "crt",
+    "tv",
+    "브라운관",
+    "레트로",
+    "주사선"
+   ]
+  },
+  "overlay:pel-flash-blanco": {
+   "name": "필름 플래시",
+   "tags": [
+    "플래시",
+    "화이트",
+    "전환",
+    "필름"
+   ]
+  },
+  "overlay:pel-grano": {
+   "name": "필름 그레인",
+   "tags": [
+    "그레인",
+    "필름",
+    "노이즈",
+    "질감"
+   ]
+  },
+  "overlay:pel-grano-16mm": {
+   "name": "16mm 그레인",
+   "tags": [
+    "그레인",
+    "16mm",
+    "필름",
+    "빈티지"
+   ]
+  },
+  "overlay:pel-grano-fino": {
+   "name": "고운 그레인",
+   "tags": [
+    "그레인",
+    "고운",
+    "시네마",
+    "필름"
+   ]
+  },
+  "overlay:pel-grano-fuerte": {
+   "name": "거친 그레인",
+   "tags": [
+    "그레인",
+    "거친",
+    "노이즈",
+    "필름"
+   ]
+  },
+  "overlay:pel-marco-super8": {
+   "name": "슈퍼 8 프레임",
+   "tags": [
+    "슈퍼 8",
+    "8mm",
+    "프레임",
+    "필름"
+   ]
+  },
+  "overlay:pel-polvo-rayas": {
+   "name": "필름 먼지와 스크래치",
+   "tags": [
+    "필름",
+    "먼지",
+    "스크래치",
+    "빈티지"
+   ]
+  },
+  "overlay:pel-polvo-suave": {
+   "name": "가벼운 먼지",
+   "tags": [
+    "먼지",
+    "부드러운",
+    "필름",
+    "빈티지"
+   ]
+  },
+  "overlay:pel-quemado": {
+   "name": "필름 번",
+   "tags": [
+    "필름 번",
+    "필름",
+    "전환",
+    "불"
+   ]
+  },
+  "overlay:pel-quemado-azul": {
+   "name": "블루 필름 번",
+   "tags": [
+    "필름 번",
+    "블루",
+    "필름",
+    "전환"
+   ]
+  },
+  "overlay:pel-quemado-bordes": {
+   "name": "가장자리 필름 번",
+   "tags": [
+    "필름 번",
+    "가장자리",
+    "필름",
+    "전환"
+   ]
+  },
+  "overlay:pel-quemado-centro": {
+   "name": "중앙 필름 번",
+   "tags": [
+    "필름 번",
+    "중앙",
+    "필름",
+    "전환"
+   ]
+  },
+  "overlay:pel-quemado-rojo": {
+   "name": "레드 필름 번",
+   "tags": [
+    "필름 번",
+    "레드",
+    "필름",
+    "전환"
+   ]
+  },
+  "overlay:pel-quemado-rosa": {
+   "name": "핑크 필름 번",
+   "tags": [
+    "필름 번",
+    "핑크",
+    "필름",
+    "전환"
+   ]
+  },
+  "overlay:pel-tira-35mm": {
+   "name": "35mm 필름 스트립",
+   "tags": [
+    "35mm",
+    "필름 스트립",
+    "필름",
+    "프레임"
+   ]
+  },
+  "overlay:pel-vhs": {
+   "name": "VHS",
+   "tags": [
+    "vhs",
+    "레트로",
+    "90년대",
+    "비디오테이프"
+   ]
+  },
+  "overlay:pel-vhs-pausa": {
+   "name": "VHS 일시정지",
+   "tags": [
+    "vhs",
+    "일시정지",
+    "레트로",
+    "90년대"
+   ]
+  },
+  "overlay:pel-vhs-rebobinar": {
+   "name": "VHS 되감기",
+   "tags": [
+    "vhs",
+    "되감기",
+    "레트로",
+    "90년대"
+   ]
+  },
+  "overlay:pel-vhs-rec": {
+   "name": "VHS 녹화",
+   "tags": [
+    "vhs",
+    "rec",
+    "녹화 중",
+    "레트로",
+    "90년대"
+   ]
+  },
+  "overlay:textura-grunge": {
+   "name": "그런지 텍스처",
+   "tags": [
+    "그런지",
+    "텍스처",
+    "거친",
+    "록"
+   ]
+  },
+  "overlay:textura-papel": {
+   "name": "종이 텍스처",
+   "tags": [
+    "텍스처",
+    "종이",
+    "질감",
+    "빈티지"
+   ]
+  },
+  "sound:angelical": {
+   "name": "천상의 소리",
+   "tags": [
+    "천사",
+    "천상",
+    "하늘",
+    "평화"
+   ]
+  },
+  "sound:aparicion": {
+   "name": "펑 등장",
+   "tags": [
+    "등장",
+    "펑",
+    "나타남",
+    "공개"
+   ]
+  },
+  "sound:aplausos": {
+   "name": "박수갈채",
+   "tags": [
+    "박수",
+    "환호",
+    "관객",
+    "브라보"
+   ]
+  },
+  "sound:arpa-bajada": {
+   "name": "하강 하프 글리산도",
+   "tags": [
+    "하프",
+    "글리산도",
+    "하강",
+    "회상"
+   ]
+  },
+  "sound:arpa-subida": {
+   "name": "상승 하프 글리산도",
+   "tags": [
+    "하프",
+    "글리산도",
+    "상승",
+    "꿈"
+   ]
+  },
+  "sound:aura": {
+   "name": "반짝이는 오라",
+   "tags": [
+    "오라",
+    "반짝임",
+    "빛",
+    "배경음"
+   ]
+  },
+  "sound:ba-dum-tss": {
+   "name": "바둠츠",
+   "tags": [
+    "바둠츠",
+    "림샷",
+    "개그",
+    "농담"
+   ]
+  },
+  "sound:bass-drop": {
+   "name": "베이스 드롭",
+   "tags": [
+    "베이스 드롭",
+    "드롭",
+    "저음",
+    "임팩트"
+   ]
+  },
+  "sound:bass-drop-corto": {
+   "name": "짧은 베이스 드롭",
+   "tags": [
+    "베이스 드롭",
+    "짧은",
+    "드롭",
+    "저음"
+   ]
+  },
+  "sound:bass-drop-distorsion": {
+   "name": "디스토션 베이스 드롭",
+   "tags": [
+    "베이스 드롭",
+    "디스토션",
+    "드롭",
+    "저음"
+   ]
+  },
+  "sound:bloquear": {
+   "name": "잠금",
+   "tags": [
+    "잠금",
+    "자물쇠",
+    "휴대폰",
+    "ui"
+   ]
+  },
+  "sound:bocina-payaso": {
+   "name": "광대 경적",
+   "tags": [
+    "경적",
+    "광대",
+    "빵빵",
+    "유머"
+   ]
+  },
+  "sound:bofetada": {
+   "name": "뺨 때리기",
+   "tags": [
+    "따귀",
+    "찰싹",
+    "뺨",
+    "유머"
+   ]
+  },
+  "sound:boing": {
+   "name": "띠용",
+   "tags": [
+    "띠용",
+    "스프링",
+    "튕김",
+    "유머"
+   ]
+  },
+  "sound:boing-agudo": {
+   "name": "높은 띠용",
+   "tags": [
+    "띠용",
+    "높은 음",
+    "유머",
+    "스프링"
+   ]
+  },
+  "sound:boing-grave": {
+   "name": "낮은 띠용",
+   "tags": [
+    "띠용",
+    "낮은 음",
+    "유머",
+    "스프링"
+   ]
+  },
+  "sound:bombo": {
+   "name": "킥 드럼",
+   "tags": [
+    "킥",
+    "드럼",
+    "북",
+    "비트"
+   ]
+  },
+  "sound:bonk": {
+   "name": "콩",
+   "tags": [
+    "콩",
+    "꿀밤",
+    "머리",
+    "나무"
+   ]
+  },
+  "sound:bonus": {
+   "name": "보너스",
+   "tags": [
+    "보너스",
+    "추가",
+    "게임",
+    "보상"
+   ]
+  },
+  "sound:boom-cine": {
+   "name": "시네마틱 붐",
+   "tags": [
+    "붐",
+    "임팩트",
+    "시네마틱",
+    "타격"
+   ]
+  },
+  "sound:boom-lejano": {
+   "name": "멀리서 울리는 붐",
+   "tags": [
+    "붐",
+    "먼",
+    "임팩트",
+    "울림"
+   ]
+  },
+  "sound:boom-profundo": {
+   "name": "깊은 붐",
+   "tags": [
+    "붐",
+    "깊은",
+    "저음",
+    "임팩트"
+   ]
+  },
+  "sound:braam": {
+   "name": "브람",
+   "tags": [
+    "브람",
+    "트레일러",
+    "웅장한",
+    "영화"
+   ]
+  },
+  "sound:braam-grave": {
+   "name": "묵직한 브람",
+   "tags": [
+    "브람",
+    "트레일러",
+    "저음",
+    "어두운"
+   ]
+  },
+  "sound:brillo-escena": {
+   "name": "장면 반짝임",
+   "tags": [
+    "반짝",
+    "반짝임",
+    "마법",
+    "글리터"
+   ]
+  },
+  "sound:brillo-largo": {
+   "name": "긴 반짝임",
+   "tags": [
+    "반짝",
+    "반짝임",
+    "마법",
+    "긴"
+   ]
+  },
+  "sound:brillo-oscuro": {
+   "name": "어두운 반짝임",
+   "tags": [
+    "반짝임",
+    "어두운",
+    "마법",
+    "신비"
+   ]
+  },
+  "sound:burbujas-magicas": {
+   "name": "마법 거품",
+   "tags": [
+    "거품",
+    "비눗방울",
+    "마법",
+    "키즈"
+   ]
+  },
+  "sound:caida-caricatura": {
+   "name": "만화 추락",
+   "tags": [
+    "추락",
+    "떨어짐",
+    "만화",
+    "쿵"
+   ]
+  },
+  "sound:caida-larga": {
+   "name": "긴 다운리프터",
+   "tags": [
+    "다운리프터",
+    "하강",
+    "전환",
+    "효과음"
+   ]
+  },
+  "sound:caida-objeto": {
+   "name": "물건 떨어지는 소리",
+   "tags": [
+    "떨어짐",
+    "물건",
+    "쿵",
+    "둔탁한"
+   ]
+  },
+  "sound:caida-ruido": {
+   "name": "노이즈 다운리프터",
+   "tags": [
+    "다운리프터",
+    "노이즈",
+    "하강",
+    "전환"
+   ]
+  },
+  "sound:caida-sinte": {
+   "name": "신스 하강음",
+   "tags": [
+    "신스",
+    "하강",
+    "다운리프터",
+    "전환"
+   ]
+  },
+  "sound:caja": {
+   "name": "스네어 드럼",
+   "tags": [
+    "스네어",
+    "드럼",
+    "북",
+    "비트"
+   ]
+  },
+  "sound:caja-registradora": {
+   "name": "금전등록기",
+   "tags": [
+    "금전등록기",
+    "계산대",
+    "판매",
+    "돈"
+   ]
+  },
+  "sound:camara-foto": {
+   "name": "카메라 셔터",
+   "tags": [
+    "카메라",
+    "사진",
+    "셔터",
+    "찰칵"
+   ]
+  },
+  "sound:campana-iglesia": {
+   "name": "교회 종",
+   "tags": [
+    "종",
+    "교회",
+    "종소리",
+    "결혼식"
+   ]
+  },
+  "sound:campanas-boda": {
+   "name": "웨딩 벨",
+   "tags": [
+    "결혼식",
+    "종소리",
+    "웨딩",
+    "신랑 신부"
+   ]
+  },
+  "sound:campanitas": {
+   "name": "윈드 차임",
+   "tags": [
+    "윈드 차임",
+    "풍경",
+    "바람",
+    "부드러운"
+   ]
+  },
+  "sound:campanitas-rapidas": {
+   "name": "빠른 차임",
+   "tags": [
+    "차임",
+    "빠른",
+    "반짝",
+    "풍경"
+   ]
+  },
+  "sound:captura-pantalla": {
+   "name": "스크린샷",
+   "tags": [
+    "스크린샷",
+    "캡처",
+    "화면",
+    "휴대폰"
+   ]
+  },
+  "sound:carrera-caricatura": {
+   "name": "만화 달리기",
+   "tags": [
+    "달리기",
+    "도망",
+    "만화",
+    "후다닥"
+   ]
+  },
+  "sound:chasquido": {
+   "name": "손가락 튕기기",
+   "tags": [
+    "핑거 스냅",
+    "딱",
+    "손가락",
+    "마법"
+   ]
+  },
+  "sound:chillido-doble": {
+   "name": "더블 삑삑",
+   "tags": [
+    "삑삑",
+    "장난감",
+    "더블",
+    "유머"
+   ]
+  },
+  "sound:chillido-juguete": {
+   "name": "장난감 삑",
+   "tags": [
+    "삑",
+    "장난감",
+    "강아지 장난감",
+    "유머"
+   ]
+  },
+  "sound:cinta-frenada": {
+   "name": "테이프 스톱",
+   "tags": [
+    "테이프 스톱",
+    "멈춤",
+    "정지",
+    "컷"
+   ]
+  },
+  "sound:cinta-frenada-lenta": {
+   "name": "느린 테이프 스톱",
+   "tags": [
+    "테이프 스톱",
+    "느린",
+    "멈춤",
+    "엔딩"
+   ]
+  },
+  "sound:clic": {
+   "name": "클릭",
+   "tags": [
+    "클릭",
+    "딸깍",
+    "버튼",
+    "ui"
+   ]
+  },
+  "sound:clic-boligrafo": {
+   "name": "볼펜 딸깍",
+   "tags": [
+    "딸깍",
+    "볼펜",
+    "펜",
+    "클릭"
+   ]
+  },
+  "sound:clic-raton": {
+   "name": "마우스 클릭",
+   "tags": [
+    "클릭",
+    "마우스",
+    "컴퓨터",
+    "딸깍"
+   ]
+  },
+  "sound:completado": {
+   "name": "완료",
+   "tags": [
+    "완료",
+    "끝",
+    "성공",
+    "알림"
+   ]
+  },
+  "sound:contador-puntos": {
+   "name": "점수 카운터",
+   "tags": [
+    "점수",
+    "스코어",
+    "카운터",
+    "게임"
+   ]
+  },
+  "sound:corneta-aire": {
+   "name": "에어혼",
+   "tags": [
+    "에어혼",
+    "빵",
+    "파티",
+    "dj"
+   ]
+  },
+  "sound:coro-celestial": {
+   "name": "천상의 합창",
+   "tags": [
+    "합창",
+    "천상",
+    "콰이어",
+    "천사"
+   ]
+  },
+  "sound:correcto": {
+   "name": "정답",
+   "tags": [
+    "정답",
+    "체크",
+    "성공",
+    "딩동댕"
+   ]
+  },
+  "sound:cremallera": {
+   "name": "지퍼",
+   "tags": [
+    "지퍼",
+    "지익",
+    "옷",
+    "잠그기"
+   ]
+  },
+  "sound:cristal": {
+   "name": "유리잔 땡",
+   "tags": [
+    "유리",
+    "잔",
+    "건배",
+    "땡"
+   ]
+  },
+  "sound:cuenta-palillos": {
+   "name": "스틱 카운트",
+   "tags": [
+    "카운트",
+    "1 2 3 4",
+    "드럼 스틱",
+    "스틱"
+   ]
+  },
+  "sound:dano": {
+   "name": "피격",
+   "tags": [
+    "피격",
+    "데미지",
+    "타격",
+    "게임"
+   ]
+  },
+  "sound:desaparicion": {
+   "name": "사라짐",
+   "tags": [
+    "사라짐",
+    "마법",
+    "펑",
+    "소멸"
+   ]
+  },
+  "sound:desbloquear": {
+   "name": "잠금 해제",
+   "tags": [
+    "잠금 해제",
+    "휴대폰",
+    "ui",
+    "자물쇠"
+   ]
+  },
+  "sound:deslizar-abajo": {
+   "name": "아래로 스와이프",
+   "tags": [
+    "스와이프",
+    "아래로",
+    "ui",
+    "효과음"
+   ]
+  },
+  "sound:deslizar-arriba": {
+   "name": "위로 스와이프",
+   "tags": [
+    "스와이프",
+    "위로",
+    "ui",
+    "효과음"
+   ]
+  },
+  "sound:deslizar-interfaz": {
+   "name": "UI 스와이프",
+   "tags": [
+    "스와이프",
+    "화면",
+    "휴대폰",
+    "ui"
+   ]
+  },
+  "sound:despertador": {
+   "name": "알람 시계",
+   "tags": [
+    "알람",
+    "자명종",
+    "아침",
+    "기상"
+   ]
+  },
+  "sound:destello-ding": {
+   "name": "반짝 딩",
+   "tags": [
+    "반짝",
+    "딩",
+    "빛",
+    "깨끗한"
+   ]
+  },
+  "sound:disco-rayado": {
+   "name": "레코드 긁힘",
+   "tags": [
+    "레코드 스크래치",
+    "끼익",
+    "멈춤",
+    "황당"
+   ]
+  },
+  "sound:disco-rayado-frenada": {
+   "name": "레코드 멈춤",
+   "tags": [
+    "레코드",
+    "멈춤",
+    "정지",
+    "황당"
+   ]
+  },
+  "sound:dron-metalico": {
+   "name": "금속성 드론",
+   "tags": [
+    "드론음",
+    "금속",
+    "인더스트리얼",
+    "미스터리"
+   ]
+  },
+  "sound:dron-oscuro": {
+   "name": "어두운 드론",
+   "tags": [
+    "드론음",
+    "어두운",
+    "서스펜스",
+    "공포"
+   ]
+  },
+  "sound:drop-fill": {
+   "name": "드럼 필",
+   "tags": [
+    "필인",
+    "드럼",
+    "드롭",
+    "비트"
+   ]
+  },
+  "sound:error-negativo": {
+   "name": "부정 효과음",
+   "tags": [
+    "오류",
+    "실패",
+    "아니요",
+    "땡"
+   ]
+  },
+  "sound:error-zumbido": {
+   "name": "오류 버저",
+   "tags": [
+    "오류",
+    "오답",
+    "버저",
+    "땡"
+   ]
+  },
+  "sound:explosion": {
+   "name": "폭발",
+   "tags": [
+    "폭발",
+    "폭탄",
+    "붐",
+    "액션"
+   ]
+  },
+  "sound:explosion-8bits": {
+   "name": "8비트 폭발",
+   "tags": [
+    "폭발",
+    "8비트",
+    "레트로",
+    "게임"
+   ]
+  },
+  "sound:explosion-lejana": {
+   "name": "멀리서 폭발",
+   "tags": [
+    "폭발",
+    "먼",
+    "전쟁",
+    "붐"
+   ]
+  },
+  "sound:fanfarria": {
+   "name": "팡파르",
+   "tags": [
+    "팡파르",
+    "트럼펫",
+    "발표",
+    "빠밤"
+   ]
+  },
+  "sound:fanfarria-victoria": {
+   "name": "승리의 팡파르",
+   "tags": [
+    "승리",
+    "팡파르",
+    "우승",
+    "상"
+   ]
+  },
+  "sound:game-over": {
+   "name": "게임 오버",
+   "tags": [
+    "게임 오버",
+    "끝",
+    "패배",
+    "게임"
+   ]
+  },
+  "sound:gema": {
+   "name": "보석",
+   "tags": [
+    "보석",
+    "다이아몬드",
+    "아이템",
+    "게임"
+   ]
+  },
+  "sound:glitch-corto": {
+   "name": "짧은 글리치",
+   "tags": [
+    "글리치",
+    "디지털",
+    "오류",
+    "짧은"
+   ]
+  },
+  "sound:glitch-digital": {
+   "name": "디지털 글리치",
+   "tags": [
+    "글리치",
+    "디지털",
+    "오류",
+    "노이즈"
+   ]
+  },
+  "sound:glitch-estatica": {
+   "name": "지지직 노이즈",
+   "tags": [
+    "글리치",
+    "노이즈",
+    "지지직",
+    "잡음"
+   ]
+  },
+  "sound:glitch-tartamudeo": {
+   "name": "스터터 글리치",
+   "tags": [
+    "글리치",
+    "스터터",
+    "끊김",
+    "디지털"
+   ]
+  },
+  "sound:golpe": {
+   "name": "펀치",
+   "tags": [
+    "펀치",
+    "주먹",
+    "타격",
+    "싸움"
+   ]
+  },
+  "sound:golpe-dramatico": {
+   "name": "드라마틱 스팅",
+   "tags": [
+    "드라마틱",
+    "두둥",
+    "놀람",
+    "드라마"
+   ]
+  },
+  "sound:golpe-dramatico-corto": {
+   "name": "짧은 드라마틱 스팅",
+   "tags": [
+    "드라마틱",
+    "강조",
+    "두둥",
+    "충격"
+   ]
+  },
+  "sound:golpe-fuerte": {
+   "name": "강한 펀치",
+   "tags": [
+    "펀치",
+    "강한",
+    "타격",
+    "싸움"
+   ]
+  },
+  "sound:golpe-glitch": {
+   "name": "글리치 히트",
+   "tags": [
+    "글리치",
+    "히트",
+    "디지털",
+    "임팩트"
+   ]
+  },
+  "sound:golpe-metal": {
+   "name": "금속 타격",
+   "tags": [
+    "금속",
+    "쇠",
+    "타격",
+    "임팩트"
+   ]
+  },
+  "sound:golpe-metal-agudo": {
+   "name": "맑은 금속 타격",
+   "tags": [
+    "금속",
+    "높은 음",
+    "종",
+    "임팩트"
+   ]
+  },
+  "sound:gong": {
+   "name": "징",
+   "tags": [
+    "징",
+    "공",
+    "시작",
+    "장엄한"
+   ]
+  },
+  "sound:grillos": {
+   "name": "귀뚜라미",
+   "tags": [
+    "귀뚜라미",
+    "정적",
+    "어색함",
+    "썰렁"
+   ]
+  },
+  "sound:hechizo": {
+   "name": "주문",
+   "tags": [
+    "주문",
+    "마법",
+    "판타지",
+    "마술"
+   ]
+  },
+  "sound:impacto-reverso": {
+   "name": "리버스 히트",
+   "tags": [
+    "리버스",
+    "역재생",
+    "등장",
+    "서스펜스"
+   ]
+  },
+  "sound:impacto-trailer": {
+   "name": "트레일러 히트",
+   "tags": [
+    "트레일러",
+    "임팩트",
+    "영화",
+    "웅장한"
+   ]
+  },
+  "sound:impacto-trailer-brillante": {
+   "name": "밝은 트레일러 히트",
+   "tags": [
+    "트레일러",
+    "임팩트",
+    "밝은",
+    "웅장한"
+   ]
+  },
+  "sound:impacto-trailer-oscuro": {
+   "name": "어두운 트레일러 히트",
+   "tags": [
+    "트레일러",
+    "임팩트",
+    "어두운",
+    "웅장한"
+   ]
+  },
+  "sound:inicio-juego": {
+   "name": "게임 시작",
+   "tags": [
+    "시작",
+    "스타트",
+    "게임",
+    "출발"
+   ]
+  },
+  "sound:interruptor-apagar": {
+   "name": "스위치 끄기",
+   "tags": [
+    "스위치",
+    "끄기",
+    "off",
+    "딸깍"
+   ]
+  },
+  "sound:interruptor-encender": {
+   "name": "스위치 켜기",
+   "tags": [
+    "스위치",
+    "켜기",
+    "on",
+    "딸깍"
+   ]
+  },
+  "sound:laser": {
+   "name": "레이저",
+   "tags": [
+    "레이저",
+    "발사",
+    "뿅",
+    "sf"
+   ]
+  },
+  "sound:laser-doble": {
+   "name": "더블 레이저",
+   "tags": [
+    "레이저",
+    "발사",
+    "더블",
+    "게임"
+   ]
+  },
+  "sound:latido": {
+   "name": "심장 박동",
+   "tags": [
+    "심장 박동",
+    "두근두근",
+    "심장",
+    "긴장감"
+   ]
+  },
+  "sound:latido-rapido": {
+   "name": "빠른 심장 박동",
+   "tags": [
+    "심장 박동",
+    "빠른",
+    "공포",
+    "긴장"
+   ]
+  },
+  "sound:latigazo": {
+   "name": "채찍 소리",
+   "tags": [
+    "채찍",
+    "찰싹",
+    "빠른",
+    "타격"
+   ]
+  },
+  "sound:lluvia-monedas": {
+   "name": "동전 쏟아지는 소리",
+   "tags": [
+    "동전",
+    "코인",
+    "게임",
+    "보상"
+   ]
+  },
+  "sound:logro": {
+   "name": "업적 달성",
+   "tags": [
+    "업적",
+    "성취",
+    "성공",
+    "알림"
+   ]
+  },
+  "sound:maquina-escribir": {
+   "name": "타자기",
+   "tags": [
+    "타자기",
+    "타이핑",
+    "레트로",
+    "텍스트"
+   ]
+  },
+  "sound:maraca": {
+   "name": "셰이커",
+   "tags": [
+    "셰이커",
+    "마라카스",
+    "리듬",
+    "라틴"
+   ]
+  },
+  "sound:me-gusta": {
+   "name": "좋아요",
+   "tags": [
+    "좋아요",
+    "하트",
+    "sns",
+    "알림"
+   ]
+  },
+  "sound:mensaje-enviado": {
+   "name": "메시지 전송",
+   "tags": [
+    "전송",
+    "메시지",
+    "채팅",
+    "슝"
+   ]
+  },
+  "sound:mensaje-recibido": {
+   "name": "메시지 수신",
+   "tags": [
+    "수신",
+    "메시지",
+    "채팅",
+    "알림"
+   ]
+  },
+  "sound:menu-seleccion": {
+   "name": "메뉴 선택",
+   "tags": [
+    "메뉴",
+    "선택",
+    "게임",
+    "ui"
+   ]
+  },
+  "sound:moneda": {
+   "name": "동전",
+   "tags": [
+    "동전",
+    "코인",
+    "게임",
+    "띠링"
+   ]
+  },
+  "sound:moneda-doble": {
+   "name": "더블 동전",
+   "tags": [
+    "동전",
+    "코인",
+    "더블",
+    "게임"
+   ]
+  },
+  "sound:notificacion-campanita": {
+   "name": "벨 알림",
+   "tags": [
+    "알림",
+    "벨",
+    "알림음",
+    "띵동"
+   ]
+  },
+  "sound:notificacion-cristal": {
+   "name": "유리 알림음",
+   "tags": [
+    "알림",
+    "유리",
+    "알림음",
+    "맑은"
+   ]
+  },
+  "sound:notificacion-dos-tonos": {
+   "name": "2톤 알림음",
+   "tags": [
+    "알림",
+    "2톤",
+    "알림음",
+    "띵동"
+   ]
+  },
+  "sound:notificacion-mensaje": {
+   "name": "새 메시지",
+   "tags": [
+    "알림",
+    "새 메시지",
+    "알림음",
+    "채팅"
+   ]
+  },
+  "sound:notificacion-suave": {
+   "name": "부드러운 알림음",
+   "tags": [
+    "알림",
+    "부드러운",
+    "알림음",
+    "잔잔한"
+   ]
+  },
+  "sound:palmas": {
+   "name": "손뼉",
+   "tags": [
+    "손뼉",
+    "클랩",
+    "박수",
+    "비트"
+   ]
+  },
+  "sound:pasar-pagina": {
+   "name": "책장 넘기기",
+   "tags": [
+    "책장",
+    "페이지",
+    "책",
+    "종이"
+   ]
+  },
+  "sound:platillo": {
+   "name": "크래시 심벌",
+   "tags": [
+    "심벌",
+    "크래시",
+    "강조",
+    "드럼"
+   ]
+  },
+  "sound:platillo-corto": {
+   "name": "짧은 심벌",
+   "tags": [
+    "심벌",
+    "짧은",
+    "강조",
+    "드럼"
+   ]
+  },
+  "sound:platillo-reverso": {
+   "name": "리버스 심벌",
+   "tags": [
+    "심벌",
+    "리버스",
+    "역재생",
+    "전환"
+   ]
+  },
+  "sound:platillo-reverso-largo": {
+   "name": "긴 리버스 심벌",
+   "tags": [
+    "심벌",
+    "리버스",
+    "역재생",
+    "긴"
+   ]
+  },
+  "sound:poder": {
+   "name": "파워 업",
+   "tags": [
+    "파워 업",
+    "능력",
+    "게임",
+    "에너지"
+   ]
+  },
+  "sound:polvo-hada": {
+   "name": "요정 가루",
+   "tags": [
+    "요정",
+    "가루",
+    "마법",
+    "반짝"
+   ]
+  },
+  "sound:pop": {
+   "name": "팝",
+   "tags": [
+    "팝",
+    "뿅",
+    "등장",
+    "텍스트"
+   ]
+  },
+  "sound:pop-agudo": {
+   "name": "높은 팝",
+   "tags": [
+    "팝",
+    "뿅",
+    "높은 음",
+    "등장"
+   ]
+  },
+  "sound:pop-doble": {
+   "name": "더블 팝",
+   "tags": [
+    "팝",
+    "뿅",
+    "더블",
+    "등장"
+   ]
+  },
+  "sound:pop-grave": {
+   "name": "낮은 팝",
+   "tags": [
+    "팝",
+    "뽁",
+    "낮은 음",
+    "등장"
+   ]
+  },
+  "sound:pop-suave": {
+   "name": "부드러운 팝",
+   "tags": [
+    "팝",
+    "뿅",
+    "부드러운",
+    "등장"
+   ]
+  },
+  "sound:portazo": {
+   "name": "문 쾅",
+   "tags": [
+    "문",
+    "쾅",
+    "문 닫기",
+    "타격"
+   ]
+  },
+  "sound:premio-mayor": {
+   "name": "잭팟",
+   "tags": [
+    "잭팟",
+    "대박",
+    "당첨",
+    "카지노"
+   ]
+  },
+  "sound:rafaga-viento": {
+   "name": "바람 휙",
+   "tags": [
+    "바람",
+    "휙",
+    "전환",
+    "효과음"
+   ]
+  },
+  "sound:rampa-velocidad": {
+   "name": "스피드 램프",
+   "tags": [
+    "스피드 램프",
+    "속도",
+    "가속",
+    "전환"
+   ]
+  },
+  "sound:redoble": {
+   "name": "드럼롤",
+   "tags": [
+    "드럼롤",
+    "두구두구",
+    "북",
+    "서스펜스"
+   ]
+  },
+  "sound:redoble-platillo": {
+   "name": "드럼롤과 심벌",
+   "tags": [
+    "드럼롤",
+    "심벌",
+    "발표",
+    "공개"
+   ]
+  },
+  "sound:reloj": {
+   "name": "째깍거리는 시계",
+   "tags": [
+    "시계",
+    "째깍째깍",
+    "시간",
+    "긴장감"
+   ]
+  },
+  "sound:reloj-rapido": {
+   "name": "빠른 시계",
+   "tags": [
+    "시계",
+    "빠른",
+    "급함",
+    "카운트다운"
+   ]
+  },
+  "sound:resorte": {
+   "name": "스프링",
+   "tags": [
+    "스프링",
+    "튕김",
+    "띠용",
+    "유머"
+   ]
+  },
+  "sound:revelacion": {
+   "name": "공개 스팅",
+   "tags": [
+    "공개",
+    "리빌",
+    "놀람",
+    "비포 애프터"
+   ]
+  },
+  "sound:riser-2s": {
+   "name": "라이저 2초",
+   "tags": [
+    "라이저",
+    "상승",
+    "긴장감",
+    "빌드업"
+   ]
+  },
+  "sound:riser-4s": {
+   "name": "라이저 4초",
+   "tags": [
+    "라이저",
+    "상승",
+    "긴장감",
+    "빌드업"
+   ]
+  },
+  "sound:riser-brillante": {
+   "name": "밝은 업리프터",
+   "tags": [
+    "라이저",
+    "업리프터",
+    "밝은",
+    "상승"
+   ]
+  },
+  "sound:riser-golpe": {
+   "name": "라이저 히트",
+   "tags": [
+    "라이저",
+    "히트",
+    "전환",
+    "임팩트"
+   ]
+  },
+  "sound:riser-rapido": {
+   "name": "빠른 라이저",
+   "tags": [
+    "라이저",
+    "빠른",
+    "상승",
+    "빌드업"
+   ]
+  },
+  "sound:riser-sinte-2s": {
+   "name": "신스 라이저 2초",
+   "tags": [
+    "라이저",
+    "신스",
+    "상승",
+    "빌드업"
+   ]
+  },
+  "sound:riser-sinte-4s": {
+   "name": "신스 라이저 4초",
+   "tags": [
+    "라이저",
+    "신스",
+    "상승",
+    "빌드업"
+   ]
+  },
+  "sound:riser-tension": {
+   "name": "긴장감 라이저",
+   "tags": [
+    "라이저",
+    "긴장감",
+    "서스펜스",
+    "상승"
+   ]
+  },
+  "sound:salto": {
+   "name": "점프",
+   "tags": [
+    "점프",
+    "뛰기",
+    "게임",
+    "뿅"
+   ]
+  },
+  "sound:sarten": {
+   "name": "프라이팬",
+   "tags": [
+    "프라이팬",
+    "팬",
+    "타격",
+    "유머"
+   ]
+  },
+  "sound:scratch-dj": {
+   "name": "DJ 스크래치",
+   "tags": [
+    "스크래치",
+    "dj",
+    "힙합",
+    "레코드"
+   ]
+  },
+  "sound:scratch-doble": {
+   "name": "더블 스크래치",
+   "tags": [
+    "스크래치",
+    "dj",
+    "더블",
+    "힙합"
+   ]
+  },
+  "sound:seguir": {
+   "name": "새 팔로워",
+   "tags": [
+    "팔로우",
+    "팔로워",
+    "구독",
+    "알림"
+   ]
+  },
+  "sound:silbato-bajada": {
+   "name": "하강 슬라이드 휘슬",
+   "tags": [
+    "휘슬",
+    "하강",
+    "추락",
+    "유머"
+   ]
+  },
+  "sound:silbato-subida": {
+   "name": "상승 슬라이드 휘슬",
+   "tags": [
+    "휘슬",
+    "상승",
+    "슬라이드 휘슬",
+    "유머"
+   ]
+  },
+  "sound:sirena": {
+   "name": "사이렌",
+   "tags": [
+    "사이렌",
+    "경보",
+    "경찰",
+    "비상"
+   ]
+  },
+  "sound:sub-drop": {
+   "name": "서브 드롭",
+   "tags": [
+    "서브 드롭",
+    "베이스",
+    "드롭",
+    "저음"
+   ]
+  },
+  "sound:subir-nivel": {
+   "name": "레벨 업",
+   "tags": [
+    "레벨 업",
+    "레벨",
+    "게임",
+    "성취"
+   ]
+  },
+  "sound:susto-terror": {
+   "name": "깜짝 공포",
+   "tags": [
+    "깜놀",
+    "공포",
+    "점프 스케어",
+    "무서움"
+   ]
+  },
+  "sound:swoosh-titulo": {
+   "name": "타이틀 슝",
+   "tags": [
+    "슝",
+    "휙",
+    "타이틀",
+    "전환"
+   ]
+  },
+  "sound:tambaleo": {
+   "name": "흔들흔들",
+   "tags": [
+    "흔들",
+    "어지러움",
+    "워블",
+    "유머"
+   ]
+  },
+  "sound:tambor-taiko": {
+   "name": "타이코 북",
+   "tags": [
+    "북",
+    "타이코",
+    "드럼",
+    "웅장한"
+   ]
+  },
+  "sound:tambor-taiko-doble": {
+   "name": "더블 타이코",
+   "tags": [
+    "북",
+    "타이코",
+    "더블",
+    "웅장한"
+   ]
+  },
+  "sound:teclado": {
+   "name": "키보드 타이핑",
+   "tags": [
+    "키보드",
+    "타이핑",
+    "입력",
+    "컴퓨터"
+   ]
+  },
+  "sound:teclado-mecanico": {
+   "name": "기계식 키보드",
+   "tags": [
+    "키보드",
+    "기계식",
+    "게이밍",
+    "asmr"
+   ]
+  },
+  "sound:teclado-rapido": {
+   "name": "빠른 타이핑",
+   "tags": [
+    "키보드",
+    "빠른",
+    "타이핑",
+    "해커"
+   ]
+  },
+  "sound:teletransporte": {
+   "name": "순간이동",
+   "tags": [
+    "순간이동",
+    "텔레포트",
+    "sf",
+    "사라짐"
+   ]
+  },
+  "sound:tension-subiendo": {
+   "name": "고조되는 긴장감",
+   "tags": [
+    "긴장감",
+    "서스펜스",
+    "상승",
+    "공포"
+   ]
+  },
+  "sound:toque": {
+   "name": "탭",
+   "tags": [
+    "탭",
+    "터치",
+    "화면",
+    "휴대폰"
+   ]
+  },
+  "sound:toque-doble": {
+   "name": "더블 탭",
+   "tags": [
+    "탭",
+    "더블 탭",
+    "좋아요",
+    "터치"
+   ]
+  },
+  "sound:transicion-foto": {
+   "name": "사진 전환",
+   "tags": [
+    "사진",
+    "카메라",
+    "전환",
+    "플래시"
+   ]
+  },
+  "sound:trombon-triste": {
+   "name": "슬픈 트롬본",
+   "tags": [
+    "트롬본",
+    "슬픔",
+    "실패",
+    "빠밤"
+   ]
+  },
+  "sound:trueno": {
+   "name": "천둥",
+   "tags": [
+    "천둥",
+    "폭풍",
+    "번개",
+    "날씨"
+   ]
+  },
+  "sound:varita-magica": {
+   "name": "요술봉",
+   "tags": [
+    "요술봉",
+    "마법봉",
+    "요정",
+    "마법"
+   ]
+  },
+  "sound:varita-subida": {
+   "name": "상승 요술봉",
+   "tags": [
+    "요술봉",
+    "상승",
+    "마법",
+    "등장"
+   ]
+  },
+  "sound:victoria-8bits": {
+   "name": "8비트 승리",
+   "tags": [
+    "승리",
+    "우승",
+    "8비트",
+    "게임"
+   ]
+  },
+  "sound:vida-extra": {
+   "name": "추가 생명",
+   "tags": [
+    "추가 생명",
+    "1up",
+    "게임",
+    "보너스"
+   ]
+  },
+  "sound:viento-misterio": {
+   "name": "으스스한 바람",
+   "tags": [
+    "바람",
+    "미스터리",
+    "공포",
+    "밤"
+   ]
+  },
+  "sound:vinilo": {
+   "name": "LP 잡음",
+   "tags": [
+    "lp",
+    "레코드",
+    "지직",
+    "레트로"
+   ]
+  },
+  "sound:whoosh": {
+   "name": "휙",
+   "tags": [
+    "휙",
+    "슝",
+    "우쉬",
+    "전환"
+   ]
+  },
+  "sound:whoosh-aire": {
+   "name": "가벼운 바람 휙",
+   "tags": [
+    "휙",
+    "바람",
+    "공기",
+    "전환"
+   ]
+  },
+  "sound:whoosh-boom": {
+   "name": "휙 붐",
+   "tags": [
+    "휙",
+    "붐",
+    "전환",
+    "임팩트"
+   ]
+  },
+  "sound:whoosh-corto": {
+   "name": "짧은 휙",
+   "tags": [
+    "휙",
+    "짧은",
+    "슝",
+    "전환"
+   ]
+  },
+  "sound:whoosh-derecha-izquierda": {
+   "name": "오른쪽에서 왼쪽 휙",
+   "tags": [
+    "휙",
+    "오른쪽",
+    "왼쪽",
+    "전환"
+   ]
+  },
+  "sound:whoosh-doble": {
+   "name": "더블 휙",
+   "tags": [
+    "휙",
+    "더블",
+    "슝",
+    "전환"
+   ]
+  },
+  "sound:whoosh-espada": {
+   "name": "칼 휘두르기",
+   "tags": [
+    "칼",
+    "휙",
+    "검",
+    "액션"
+   ]
+  },
+  "sound:whoosh-fuego": {
+   "name": "불꽃 휙",
+   "tags": [
+    "불",
+    "휙",
+    "화염",
+    "전환"
+   ]
+  },
+  "sound:whoosh-golpe": {
+   "name": "휙 히트",
+   "tags": [
+    "휙",
+    "히트",
+    "전환",
+    "임팩트"
+   ]
+  },
+  "sound:whoosh-grave": {
+   "name": "묵직한 휙",
+   "tags": [
+    "휙",
+    "묵직한",
+    "저음",
+    "전환"
+   ]
+  },
+  "sound:whoosh-izquierda-derecha": {
+   "name": "왼쪽에서 오른쪽 휙",
+   "tags": [
+    "휙",
+    "왼쪽",
+    "오른쪽",
+    "전환"
+   ]
+  },
+  "sound:whoosh-largo": {
+   "name": "긴 휙",
+   "tags": [
+    "휙",
+    "긴",
+    "슝",
+    "전환"
+   ]
+  },
+  "sound:whoosh-metalico": {
+   "name": "금속성 휙",
+   "tags": [
+    "휙",
+    "금속",
+    "메탈",
+    "전환"
+   ]
+  },
+  "sound:whoosh-reverso": {
+   "name": "리버스 휙",
+   "tags": [
+    "휙",
+    "리버스",
+    "역재생",
+    "전환"
+   ]
+  },
+  "sound:whoosh-tela": {
+   "name": "천 펄럭임",
+   "tags": [
+    "천",
+    "펄럭",
+    "옷",
+    "휙"
+   ]
+  },
+  "sound:zoom-entrada": {
+   "name": "줌 인",
+   "tags": [
+    "줌",
+    "줌 인",
+    "확대",
+    "전환"
+   ]
+  },
+  "sound:zoom-salida": {
+   "name": "줌 아웃",
+   "tags": [
+    "줌",
+    "줌 아웃",
+    "축소",
+    "전환"
    ]
   },
   "template:album-scrapbook": {

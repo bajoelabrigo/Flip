@@ -13,7 +13,7 @@ import argparse
 import json
 import sys
 
-from common import LANGS, PUBLICAR, VARIANTS, load_sources, load_translations, save_json, valid_item
+from common import LANGS, PUBLICAR, VARIANTS, load_sources, load_translations, save_json, valid_item, variant_name
 
 
 def main() -> None:
@@ -33,7 +33,7 @@ def main() -> None:
             if i["base"]:
                 base = tr["items"].get(i["base"])
                 if valid_item(base):
-                    out["items"][i["key"]] = {"name": f"{base['name']} ({VARIANTS[i['suffix']][lang]})",
+                    out["items"][i["key"]] = {"name": variant_name(base["name"], VARIANTS[i["suffix"]][lang], lang),
                                               "tags": list(base["tags"])}
                 else:
                     missing.append(i["base"])

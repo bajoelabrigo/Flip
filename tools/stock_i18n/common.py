@@ -37,6 +37,19 @@ VARIANTS = {
 }
 
 
+# Separator used when the base name already ends in a parenthesis: "Bokeh (warm)" + horizontal
+# -> "Bokeh (warm, horizontal)" rather than "Bokeh (warm) (horizontal)".
+LIST_SEP = {"ar": "، ", "ja": "・", "zh": "，"}
+
+
+def variant_name(base_name: str, word: str, lang: str) -> str:
+    name = base_name.rstrip()
+    for close in (")", "）"):
+        if name.endswith(close):
+            return f"{name[:-1]}{LIST_SEP.get(lang, ', ')}{word}{close}"
+    return f"{name} ({word})"
+
+
 def variant_of(item_id: str, ids: set[str]) -> tuple[str, str] | None:
     """(base id, suffix) when item_id is a variant of an existing id."""
     for suffix in VARIANTS:

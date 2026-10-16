@@ -5940,6 +5940,71 @@
     "sfondo"
    ]
   },
+  "sound:angelical": {
+   "name": "Angelico",
+   "tags": [
+    "angelo",
+    "angelico",
+    "cielo",
+    "pace",
+    "miracolo"
+   ]
+  },
+  "sound:aparicion": {
+   "name": "Apparizione",
+   "tags": [
+    "apparizione",
+    "puff",
+    "comparire",
+    "rivelazione"
+   ]
+  },
+  "sound:aplausos": {
+   "name": "Applausi",
+   "tags": [
+    "applausi",
+    "pubblico",
+    "bravo",
+    "congratulazioni"
+   ]
+  },
+  "sound:arpa-bajada": {
+   "name": "Glissando d'arpa discendente",
+   "tags": [
+    "arpa",
+    "glissando",
+    "discesa",
+    "flashback"
+   ]
+  },
+  "sound:arpa-subida": {
+   "name": "Glissando d'arpa ascendente",
+   "tags": [
+    "arpa",
+    "glissando",
+    "sogno",
+    "ricordo"
+   ]
+  },
+  "sound:aura": {
+   "name": "Aura scintillante",
+   "tags": [
+    "aura",
+    "shimmer",
+    "scintillio",
+    "morbido"
+   ]
+  },
+  "sound:ba-dum-tss": {
+   "name": "Ba dum tss",
+   "tags": [
+    "ba dum tss",
+    "rimshot",
+    "battuta",
+    "barzelletta",
+    "umorismo"
+   ]
+  },
   "sound:bass-drop": {
    "name": "Bass drop",
    "tags": [
@@ -5970,6 +6035,24 @@
     "impatto"
    ]
   },
+  "sound:bloquear": {
+   "name": "Blocco",
+   "tags": [
+    "blocco",
+    "lucchetto",
+    "telefono",
+    "lock"
+   ]
+  },
+  "sound:bocina-payaso": {
+   "name": "Trombetta da clown",
+   "tags": [
+    "trombetta",
+    "clown",
+    "pagliaccio",
+    "umorismo"
+   ]
+  },
   "sound:bofetada": {
    "name": "Schiaffo",
    "tags": [
@@ -5978,6 +6061,62 @@
     "ceffone",
     "umorismo",
     "dramma"
+   ]
+  },
+  "sound:boing": {
+   "name": "Boing",
+   "tags": [
+    "boing",
+    "molla",
+    "rimbalzo",
+    "umorismo",
+    "cartone"
+   ]
+  },
+  "sound:boing-agudo": {
+   "name": "Boing acuto",
+   "tags": [
+    "boing",
+    "acuto",
+    "molla",
+    "umorismo"
+   ]
+  },
+  "sound:boing-grave": {
+   "name": "Boing grave",
+   "tags": [
+    "boing",
+    "grave",
+    "molla",
+    "umorismo"
+   ]
+  },
+  "sound:bombo": {
+   "name": "Cassa",
+   "tags": [
+    "cassa",
+    "kick",
+    "batteria",
+    "beat"
+   ]
+  },
+  "sound:bonk": {
+   "name": "Bonk",
+   "tags": [
+    "bonk",
+    "colpo",
+    "testa",
+    "legno",
+    "umorismo"
+   ]
+  },
+  "sound:bonus": {
+   "name": "Bonus",
+   "tags": [
+    "bonus",
+    "extra",
+    "gioco",
+    "premio"
    ]
   },
   "sound:boom-cine": {
@@ -5990,6 +6129,90 @@
     "cinema"
    ]
   },
+  "sound:boom-lejano": {
+   "name": "Boom in lontananza",
+   "tags": [
+    "boom",
+    "impatto",
+    "colpo",
+    "epico",
+    "lontano"
+   ]
+  },
+  "sound:boom-profundo": {
+   "name": "Boom profondo",
+   "tags": [
+    "boom",
+    "impatto",
+    "colpo",
+    "epico",
+    "profondo"
+   ]
+  },
+  "sound:braam": {
+   "name": "Braam",
+   "tags": [
+    "braam",
+    "trailer",
+    "epico",
+    "cinema",
+    "dramma"
+   ]
+  },
+  "sound:braam-grave": {
+   "name": "Braam profondo",
+   "tags": [
+    "braam",
+    "trailer",
+    "grave",
+    "cupo"
+   ]
+  },
+  "sound:brillo-escena": {
+   "name": "Scintillio di cambio scena",
+   "tags": [
+    "scintillio",
+    "sparkle",
+    "magia",
+    "cambio scena"
+   ]
+  },
+  "sound:brillo-largo": {
+   "name": "Scintillio lungo",
+   "tags": [
+    "scintillio",
+    "sparkle",
+    "magia",
+    "lungo"
+   ]
+  },
+  "sound:brillo-oscuro": {
+   "name": "Scintillio misterioso",
+   "tags": [
+    "scintillio",
+    "misterioso",
+    "magia",
+    "oscuro"
+   ]
+  },
+  "sound:burbujas-magicas": {
+   "name": "Bolle magiche",
+   "tags": [
+    "bolle",
+    "magia",
+    "bambini",
+    "fantasia"
+   ]
+  },
+  "sound:caida-caricatura": {
+   "name": "Caduta da cartone animato",
+   "tags": [
+    "caduta",
+    "cartone animato",
+    "colpo",
+    "umorismo"
+   ]
+  },
   "sound:caida-larga": {
    "name": "Downlifter lungo",
    "tags": [
@@ -5997,6 +6220,15 @@
     "discesa",
     "transizione",
     "finale"
+   ]
+  },
+  "sound:caida-objeto": {
+   "name": "Oggetto che cade",
+   "tags": [
+    "caduta",
+    "oggetto",
+    "tonfo",
+    "colpo"
    ]
   },
   "sound:caida-ruido": {
@@ -6019,6 +6251,116 @@
     "finale"
    ]
   },
+  "sound:caja": {
+   "name": "Rullante",
+   "tags": [
+    "rullante",
+    "snare",
+    "batteria",
+    "beat"
+   ]
+  },
+  "sound:caja-registradora": {
+   "name": "Registratore di cassa",
+   "tags": [
+    "cassa",
+    "cha-ching",
+    "vendita",
+    "soldi"
+   ]
+  },
+  "sound:camara-foto": {
+   "name": "Scatto fotografico",
+   "tags": [
+    "fotocamera",
+    "foto",
+    "scatto",
+    "clic",
+    "selfie"
+   ]
+  },
+  "sound:campana-iglesia": {
+   "name": "Campana di chiesa",
+   "tags": [
+    "campana",
+    "chiesa",
+    "matrimonio",
+    "solenne"
+   ]
+  },
+  "sound:campanas-boda": {
+   "name": "Campane nuziali",
+   "tags": [
+    "matrimonio",
+    "campane",
+    "sposi",
+    "nozze"
+   ]
+  },
+  "sound:campanitas": {
+   "name": "Campanelle a vento",
+   "tags": [
+    "campanelle",
+    "scacciapensieri",
+    "vento",
+    "delicato"
+   ]
+  },
+  "sound:campanitas-rapidas": {
+   "name": "Campanelle veloci",
+   "tags": [
+    "campanelle",
+    "veloce",
+    "scintillio",
+    "magia"
+   ]
+  },
+  "sound:captura-pantalla": {
+   "name": "Screenshot",
+   "tags": [
+    "screenshot",
+    "cattura schermo",
+    "schermo",
+    "telefono"
+   ]
+  },
+  "sound:carrera-caricatura": {
+   "name": "Corsa da cartone animato",
+   "tags": [
+    "corsa",
+    "correre",
+    "cartone animato",
+    "fuga"
+   ]
+  },
+  "sound:chasquido": {
+   "name": "Schiocco di dita",
+   "tags": [
+    "schiocco",
+    "dita",
+    "snap",
+    "magia",
+    "cambio"
+   ]
+  },
+  "sound:chillido-doble": {
+   "name": "Doppio squittio",
+   "tags": [
+    "squittio",
+    "doppio",
+    "giocattolo",
+    "umorismo"
+   ]
+  },
+  "sound:chillido-juguete": {
+   "name": "Giocattolo che squittisce",
+   "tags": [
+    "squittio",
+    "giocattolo",
+    "animale",
+    "gomma"
+   ]
+  },
   "sound:cinta-frenada": {
    "name": "Tape stop",
    "tags": [
@@ -6038,6 +6380,130 @@
     "finale"
    ]
   },
+  "sound:clic": {
+   "name": "Clic",
+   "tags": [
+    "clic",
+    "click",
+    "pulsante"
+   ]
+  },
+  "sound:clic-boligrafo": {
+   "name": "Clic di penna",
+   "tags": [
+    "clic",
+    "penna",
+    "biro"
+   ]
+  },
+  "sound:clic-raton": {
+   "name": "Clic del mouse",
+   "tags": [
+    "clic",
+    "mouse",
+    "computer",
+    "tutorial"
+   ]
+  },
+  "sound:completado": {
+   "name": "Completato",
+   "tags": [
+    "completato",
+    "fatto",
+    "finito"
+   ]
+  },
+  "sound:contador-puntos": {
+   "name": "Contapunti",
+   "tags": [
+    "punti",
+    "punteggio",
+    "contatore",
+    "gioco"
+   ]
+  },
+  "sound:corneta-aire": {
+   "name": "Trombetta da stadio",
+   "tags": [
+    "air horn",
+    "trombetta",
+    "festa",
+    "dj",
+    "hype"
+   ]
+  },
+  "sound:coro-celestial": {
+   "name": "Coro celestiale",
+   "tags": [
+    "coro",
+    "celestiale",
+    "angeli",
+    "rivelazione"
+   ]
+  },
+  "sound:correcto": {
+   "name": "Risposta giusta",
+   "tags": [
+    "giusto",
+    "corretto",
+    "check",
+    "successo"
+   ]
+  },
+  "sound:cremallera": {
+   "name": "Cerniera lampo",
+   "tags": [
+    "cerniera",
+    "zip",
+    "vestiti",
+    "chiusura"
+   ]
+  },
+  "sound:cristal": {
+   "name": "Tintinnio di calice",
+   "tags": [
+    "cristallo",
+    "calice",
+    "brindisi",
+    "tintinnio"
+   ]
+  },
+  "sound:cuenta-palillos": {
+   "name": "Conteggio con le bacchette",
+   "tags": [
+    "conteggio",
+    "1 2 3 4",
+    "bacchette",
+    "inizio",
+    "batteria"
+   ]
+  },
+  "sound:dano": {
+   "name": "Danno",
+   "tags": [
+    "danno",
+    "colpo",
+    "gioco",
+    "ferito"
+   ]
+  },
+  "sound:desaparicion": {
+   "name": "Sparizione",
+   "tags": [
+    "sparire",
+    "magia",
+    "puff",
+    "svanire"
+   ]
+  },
+  "sound:desbloquear": {
+   "name": "Sblocco",
+   "tags": [
+    "sblocco",
+    "telefono",
+    "unlock"
+   ]
+  },
   "sound:deslizar-abajo": {
    "name": "Scorrimento verso il basso",
    "tags": [
@@ -6055,6 +6521,161 @@
     "su",
     "interfaccia",
     "veloce"
+   ]
+  },
+  "sound:deslizar-interfaz": {
+   "name": "Scorrimento sullo schermo",
+   "tags": [
+    "scorrere",
+    "swipe",
+    "schermo",
+    "telefono",
+    "app"
+   ]
+  },
+  "sound:despertador": {
+   "name": "Sveglia",
+   "tags": [
+    "sveglia",
+    "allarme",
+    "mattina",
+    "svegliarsi"
+   ]
+  },
+  "sound:destello-ding": {
+   "name": "Ding scintillante",
+   "tags": [
+    "ding",
+    "scintillio",
+    "pulito",
+    "nuovo"
+   ]
+  },
+  "sound:disco-rayado": {
+   "name": "Disco graffiato",
+   "tags": [
+    "disco graffiato",
+    "scratch",
+    "pausa",
+    "umorismo"
+   ]
+  },
+  "sound:disco-rayado-frenada": {
+   "name": "Disco che si ferma",
+   "tags": [
+    "disco",
+    "stop",
+    "pausa",
+    "silenzio imbarazzante"
+   ]
+  },
+  "sound:dron-metalico": {
+   "name": "Drone metallico",
+   "tags": [
+    "drone",
+    "metallo",
+    "industriale",
+    "mistero"
+   ]
+  },
+  "sound:dron-oscuro": {
+   "name": "Drone cupo",
+   "tags": [
+    "drone",
+    "cupo",
+    "suspense",
+    "horror"
+   ]
+  },
+  "sound:drop-fill": {
+   "name": "Fill di batteria",
+   "tags": [
+    "fill",
+    "batteria",
+    "drop",
+    "transizione"
+   ]
+  },
+  "sound:error-negativo": {
+   "name": "Tono negativo",
+   "tags": [
+    "errore",
+    "negativo",
+    "no",
+    "sbagliato"
+   ]
+  },
+  "sound:error-zumbido": {
+   "name": "Ronzio di errore",
+   "tags": [
+    "errore",
+    "sbagliato",
+    "buzz",
+    "ronzio"
+   ]
+  },
+  "sound:explosion": {
+   "name": "Esplosione",
+   "tags": [
+    "esplosione",
+    "bomba",
+    "boom",
+    "azione"
+   ]
+  },
+  "sound:explosion-8bits": {
+   "name": "Esplosione a 8 bit",
+   "tags": [
+    "esplosione",
+    "8 bit",
+    "retrò",
+    "videogioco"
+   ]
+  },
+  "sound:explosion-lejana": {
+   "name": "Esplosione in lontananza",
+   "tags": [
+    "esplosione",
+    "lontano",
+    "guerra",
+    "boom"
+   ]
+  },
+  "sound:fanfarria": {
+   "name": "Fanfara",
+   "tags": [
+    "fanfara",
+    "tromba",
+    "annuncio",
+    "vincitore"
+   ]
+  },
+  "sound:fanfarria-victoria": {
+   "name": "Fanfara della vittoria",
+   "tags": [
+    "vittoria",
+    "fanfara",
+    "vincitore",
+    "premio",
+    "campione"
+   ]
+  },
+  "sound:game-over": {
+   "name": "Game over",
+   "tags": [
+    "game over",
+    "fine",
+    "perdere",
+    "gioco"
+   ]
+  },
+  "sound:gema": {
+   "name": "Gemma",
+   "tags": [
+    "gemma",
+    "diamante",
+    "gioco",
+    "brillo"
    ]
   },
   "sound:glitch-corto": {
@@ -6097,6 +6718,354 @@
     "transizione"
    ]
   },
+  "sound:golpe": {
+   "name": "Pugno",
+   "tags": [
+    "pugno",
+    "colpo",
+    "rissa",
+    "azione"
+   ]
+  },
+  "sound:golpe-dramatico": {
+   "name": "Accento drammatico",
+   "tags": [
+    "drammatico",
+    "dun dun dun",
+    "sorpresa",
+    "rivelazione"
+   ]
+  },
+  "sound:golpe-dramatico-corto": {
+   "name": "Accento drammatico breve",
+   "tags": [
+    "drammatico",
+    "accento",
+    "breve",
+    "shock"
+   ]
+  },
+  "sound:golpe-fuerte": {
+   "name": "Pugno potente",
+   "tags": [
+    "pugno",
+    "colpo forte",
+    "rissa",
+    "impatto"
+   ]
+  },
+  "sound:golpe-glitch": {
+   "name": "Colpo glitch",
+   "tags": [
+    "glitch",
+    "colpo",
+    "digitale",
+    "impatto"
+   ]
+  },
+  "sound:golpe-metal": {
+   "name": "Colpo metallico",
+   "tags": [
+    "metallo",
+    "colpo",
+    "ferro",
+    "impatto"
+   ]
+  },
+  "sound:golpe-metal-agudo": {
+   "name": "Colpo metallico acuto",
+   "tags": [
+    "metallo",
+    "acuto",
+    "campana",
+    "impatto"
+   ]
+  },
+  "sound:gong": {
+   "name": "Gong",
+   "tags": [
+    "gong",
+    "orientale",
+    "inizio",
+    "solenne",
+    "meditazione"
+   ]
+  },
+  "sound:grillos": {
+   "name": "Grilli (silenzio imbarazzante)",
+   "tags": [
+    "grilli",
+    "silenzio imbarazzante",
+    "awkward",
+    "nessuno"
+   ]
+  },
+  "sound:hechizo": {
+   "name": "Incantesimo",
+   "tags": [
+    "incantesimo",
+    "magia",
+    "fantasy",
+    "spell"
+   ]
+  },
+  "sound:impacto-reverso": {
+   "name": "Impatto al contrario",
+   "tags": [
+    "al contrario",
+    "reverse",
+    "ingresso",
+    "suspense"
+   ]
+  },
+  "sound:impacto-trailer": {
+   "name": "Impatto da trailer",
+   "tags": [
+    "trailer",
+    "impatto",
+    "cinema",
+    "epico",
+    "hit"
+   ]
+  },
+  "sound:impacto-trailer-brillante": {
+   "name": "Impatto da trailer brillante",
+   "tags": [
+    "trailer",
+    "impatto",
+    "brillante",
+    "cinema",
+    "epico"
+   ]
+  },
+  "sound:impacto-trailer-oscuro": {
+   "name": "Impatto da trailer cupo",
+   "tags": [
+    "trailer",
+    "impatto",
+    "cupo",
+    "cinema",
+    "epico"
+   ]
+  },
+  "sound:inicio-juego": {
+   "name": "Inizio partita",
+   "tags": [
+    "inizio",
+    "start",
+    "gioco",
+    "partita"
+   ]
+  },
+  "sound:interruptor-apagar": {
+   "name": "Interruttore spento",
+   "tags": [
+    "interruttore",
+    "spegnere",
+    "off",
+    "clic"
+   ]
+  },
+  "sound:interruptor-encender": {
+   "name": "Interruttore acceso",
+   "tags": [
+    "interruttore",
+    "accendere",
+    "on",
+    "luce"
+   ]
+  },
+  "sound:laser": {
+   "name": "Laser",
+   "tags": [
+    "laser",
+    "sparo",
+    "pew",
+    "fantascienza",
+    "gioco"
+   ]
+  },
+  "sound:laser-doble": {
+   "name": "Doppio laser",
+   "tags": [
+    "laser",
+    "sparo",
+    "doppio",
+    "gioco"
+   ]
+  },
+  "sound:latido": {
+   "name": "Battito cardiaco",
+   "tags": [
+    "battito",
+    "cuore",
+    "tensione",
+    "suspense"
+   ]
+  },
+  "sound:latido-rapido": {
+   "name": "Battito accelerato",
+   "tags": [
+    "battito",
+    "veloce",
+    "paura",
+    "ansia"
+   ]
+  },
+  "sound:latigazo": {
+   "name": "Schiocco di frusta",
+   "tags": [
+    "frusta",
+    "schiocco",
+    "veloce",
+    "colpo"
+   ]
+  },
+  "sound:lluvia-monedas": {
+   "name": "Pioggia di monete",
+   "tags": [
+    "monete",
+    "gioco",
+    "soldi",
+    "vincita"
+   ]
+  },
+  "sound:logro": {
+   "name": "Obiettivo raggiunto",
+   "tags": [
+    "obiettivo",
+    "traguardo",
+    "successo",
+    "achievement"
+   ]
+  },
+  "sound:maquina-escribir": {
+   "name": "Macchina da scrivere",
+   "tags": [
+    "macchina da scrivere",
+    "retrò",
+    "testo",
+    "scrivere"
+   ]
+  },
+  "sound:maraca": {
+   "name": "Maracas",
+   "tags": [
+    "maracas",
+    "shaker",
+    "ritmo",
+    "latino",
+    "percussioni"
+   ]
+  },
+  "sound:me-gusta": {
+   "name": "Mi piace",
+   "tags": [
+    "like",
+    "mi piace",
+    "cuore",
+    "social"
+   ]
+  },
+  "sound:mensaje-enviado": {
+   "name": "Messaggio inviato",
+   "tags": [
+    "inviato",
+    "messaggio",
+    "chat",
+    "whoosh"
+   ]
+  },
+  "sound:mensaje-recibido": {
+   "name": "Messaggio ricevuto",
+   "tags": [
+    "ricevuto",
+    "messaggio",
+    "chat",
+    "notifica"
+   ]
+  },
+  "sound:menu-seleccion": {
+   "name": "Selezione nel menù",
+   "tags": [
+    "menù",
+    "selezione",
+    "gioco",
+    "pulsante"
+   ]
+  },
+  "sound:moneda": {
+   "name": "Moneta",
+   "tags": [
+    "moneta",
+    "gioco",
+    "soldi",
+    "coin"
+   ]
+  },
+  "sound:moneda-doble": {
+   "name": "Doppia moneta",
+   "tags": [
+    "monete",
+    "gioco",
+    "soldi",
+    "doppia"
+   ]
+  },
+  "sound:notificacion-campanita": {
+   "name": "Notifica a campanella",
+   "tags": [
+    "notifica",
+    "campanella",
+    "avviso",
+    "telefono"
+   ]
+  },
+  "sound:notificacion-cristal": {
+   "name": "Notifica cristallina",
+   "tags": [
+    "notifica",
+    "cristallo",
+    "avviso",
+    "telefono"
+   ]
+  },
+  "sound:notificacion-dos-tonos": {
+   "name": "Notifica a due toni",
+   "tags": [
+    "notifica",
+    "due toni",
+    "avviso",
+    "telefono"
+   ]
+  },
+  "sound:notificacion-mensaje": {
+   "name": "Nuovo messaggio",
+   "tags": [
+    "notifica",
+    "messaggio",
+    "avviso",
+    "chat"
+   ]
+  },
+  "sound:notificacion-suave": {
+   "name": "Notifica delicata",
+   "tags": [
+    "notifica",
+    "delicata",
+    "avviso",
+    "telefono"
+   ]
+  },
+  "sound:palmas": {
+   "name": "Battito di mani",
+   "tags": [
+    "battito di mani",
+    "clap",
+    "applauso",
+    "beat"
+   ]
+  },
   "sound:pasar-pagina": {
    "name": "Pagina che si gira",
    "tags": [
@@ -6105,6 +7074,24 @@
     "carta",
     "sfogliare",
     "transizione"
+   ]
+  },
+  "sound:platillo": {
+   "name": "Piatto crash",
+   "tags": [
+    "piatto",
+    "crash",
+    "accento",
+    "batteria"
+   ]
+  },
+  "sound:platillo-corto": {
+   "name": "Piatto breve",
+   "tags": [
+    "piatto",
+    "breve",
+    "accento",
+    "batteria"
    ]
   },
   "sound:platillo-reverso": {
@@ -6126,6 +7113,89 @@
     "lungo"
    ]
   },
+  "sound:poder": {
+   "name": "Power up",
+   "tags": [
+    "power up",
+    "potenziamento",
+    "gioco",
+    "energia"
+   ]
+  },
+  "sound:polvo-hada": {
+   "name": "Polvere di fata",
+   "tags": [
+    "fata",
+    "polvere",
+    "magia",
+    "fiaba"
+   ]
+  },
+  "sound:pop": {
+   "name": "Pop",
+   "tags": [
+    "pop",
+    "testo",
+    "comparsa",
+    "pulsante",
+    "bolla"
+   ]
+  },
+  "sound:pop-agudo": {
+   "name": "Pop acuto",
+   "tags": [
+    "pop",
+    "acuto",
+    "comparsa",
+    "bolla"
+   ]
+  },
+  "sound:pop-doble": {
+   "name": "Pop doppio",
+   "tags": [
+    "pop",
+    "doppio",
+    "comparsa",
+    "bolla"
+   ]
+  },
+  "sound:pop-grave": {
+   "name": "Pop grave",
+   "tags": [
+    "pop",
+    "grave",
+    "comparsa",
+    "bolla"
+   ]
+  },
+  "sound:pop-suave": {
+   "name": "Pop delicato",
+   "tags": [
+    "pop",
+    "delicato",
+    "comparsa",
+    "bolla"
+   ]
+  },
+  "sound:portazo": {
+   "name": "Porta sbattuta",
+   "tags": [
+    "porta",
+    "sbattere",
+    "colpo",
+    "rabbia"
+   ]
+  },
+  "sound:premio-mayor": {
+   "name": "Jackpot",
+   "tags": [
+    "jackpot",
+    "premio",
+    "vincita",
+    "casinò",
+    "estrazione"
+   ]
+  },
   "sound:rafaga-viento": {
    "name": "Folata di vento",
    "tags": [
@@ -6144,6 +7214,62 @@
     "rampa",
     "transizione",
     "edit"
+   ]
+  },
+  "sound:redoble": {
+   "name": "Rullo di tamburi",
+   "tags": [
+    "rullo",
+    "tamburo",
+    "suspense",
+    "annuncio"
+   ]
+  },
+  "sound:redoble-platillo": {
+   "name": "Rullo di tamburi con piatto",
+   "tags": [
+    "rullo",
+    "piatto",
+    "annuncio",
+    "rivelazione",
+    "vincitore"
+   ]
+  },
+  "sound:reloj": {
+   "name": "Ticchettio dell'orologio",
+   "tags": [
+    "orologio",
+    "tic tac",
+    "tempo",
+    "attesa"
+   ]
+  },
+  "sound:reloj-rapido": {
+   "name": "Orologio accelerato",
+   "tags": [
+    "orologio",
+    "veloce",
+    "fretta",
+    "conto alla rovescia"
+   ]
+  },
+  "sound:resorte": {
+   "name": "Molla",
+   "tags": [
+    "molla",
+    "rimbalzo",
+    "umorismo",
+    "boing"
+   ]
+  },
+  "sound:revelacion": {
+   "name": "Accento di rivelazione",
+   "tags": [
+    "rivelazione",
+    "reveal",
+    "sorpresa",
+    "prima e dopo",
+    "risultato"
    ]
   },
   "sound:riser-2s": {
@@ -6174,6 +7300,16 @@
     "salita",
     "brillante",
     "build up"
+   ]
+  },
+  "sound:riser-golpe": {
+   "name": "Riser con colpo",
+   "tags": [
+    "riser",
+    "colpo",
+    "transizione",
+    "impatto",
+    "edit"
    ]
   },
   "sound:riser-rapido": {
@@ -6216,6 +7352,109 @@
     "build up"
    ]
   },
+  "sound:salto": {
+   "name": "Salto",
+   "tags": [
+    "salto",
+    "jump",
+    "gioco",
+    "saltare"
+   ]
+  },
+  "sound:sarten": {
+   "name": "Colpo di padella",
+   "tags": [
+    "padella",
+    "colpo",
+    "umorismo",
+    "cucina"
+   ]
+  },
+  "sound:scratch-dj": {
+   "name": "Scratch da DJ",
+   "tags": [
+    "scratch",
+    "dj",
+    "hip hop",
+    "vinile",
+    "transizione"
+   ]
+  },
+  "sound:scratch-doble": {
+   "name": "Doppio scratch",
+   "tags": [
+    "scratch",
+    "dj",
+    "doppio",
+    "hip hop"
+   ]
+  },
+  "sound:seguir": {
+   "name": "Nuovo follower",
+   "tags": [
+    "segui",
+    "follower",
+    "iscriviti",
+    "social"
+   ]
+  },
+  "sound:silbato-bajada": {
+   "name": "Fischio discendente",
+   "tags": [
+    "fischietto",
+    "discesa",
+    "caduta",
+    "umorismo"
+   ]
+  },
+  "sound:silbato-subida": {
+   "name": "Fischio ascendente",
+   "tags": [
+    "fischietto",
+    "salita",
+    "umorismo",
+    "cartone"
+   ]
+  },
+  "sound:sirena": {
+   "name": "Sirena",
+   "tags": [
+    "sirena",
+    "allarme",
+    "polizia",
+    "emergenza"
+   ]
+  },
+  "sound:sub-drop": {
+   "name": "Sub drop",
+   "tags": [
+    "sub drop",
+    "bass drop",
+    "bassi",
+    "grave",
+    "impatto"
+   ]
+  },
+  "sound:subir-nivel": {
+   "name": "Level up",
+   "tags": [
+    "livello",
+    "level up",
+    "gioco",
+    "traguardo",
+    "8 bit"
+   ]
+  },
+  "sound:susto-terror": {
+   "name": "Jump scare",
+   "tags": [
+    "spavento",
+    "horror",
+    "jump scare",
+    "paura",
+    "halloween"
+   ]
+  },
   "sound:swoosh-titulo": {
    "name": "Swoosh per titolo",
    "tags": [
@@ -6226,6 +7465,97 @@
     "movimento"
    ]
   },
+  "sound:tambaleo": {
+   "name": "Barcollamento",
+   "tags": [
+    "barcollare",
+    "wobble",
+    "vertigini",
+    "umorismo",
+    "ubriaco"
+   ]
+  },
+  "sound:tambor-taiko": {
+   "name": "Tamburo taiko",
+   "tags": [
+    "tamburo",
+    "taiko",
+    "epico",
+    "impatto"
+   ]
+  },
+  "sound:tambor-taiko-doble": {
+   "name": "Doppio taiko",
+   "tags": [
+    "tamburo",
+    "taiko",
+    "doppio",
+    "epico"
+   ]
+  },
+  "sound:teclado": {
+   "name": "Digitazione su tastiera",
+   "tags": [
+    "tastiera",
+    "digitare",
+    "scrivere",
+    "computer"
+   ]
+  },
+  "sound:teclado-mecanico": {
+   "name": "Tastiera meccanica",
+   "tags": [
+    "tastiera",
+    "meccanica",
+    "gaming",
+    "asmr"
+   ]
+  },
+  "sound:teclado-rapido": {
+   "name": "Digitazione veloce",
+   "tags": [
+    "tastiera",
+    "veloce",
+    "hacker",
+    "digitare"
+   ]
+  },
+  "sound:teletransporte": {
+   "name": "Teletrasporto",
+   "tags": [
+    "teletrasporto",
+    "fantascienza",
+    "sparire",
+    "teleport"
+   ]
+  },
+  "sound:tension-subiendo": {
+   "name": "Tensione crescente",
+   "tags": [
+    "tensione",
+    "suspense",
+    "salita",
+    "paura"
+   ]
+  },
+  "sound:toque": {
+   "name": "Tocco",
+   "tags": [
+    "tocco",
+    "tap",
+    "schermo",
+    "telefono"
+   ]
+  },
+  "sound:toque-doble": {
+   "name": "Doppio tocco",
+   "tags": [
+    "tocco",
+    "doppio tap",
+    "like",
+    "schermo"
+   ]
+  },
   "sound:transicion-foto": {
    "name": "Transizione fotografica",
    "tags": [
@@ -6234,6 +7564,80 @@
     "scatto",
     "transizione",
     "flash"
+   ]
+  },
+  "sound:trombon-triste": {
+   "name": "Trombone triste",
+   "tags": [
+    "trombone",
+    "triste",
+    "fallimento",
+    "fail"
+   ]
+  },
+  "sound:trueno": {
+   "name": "Tuono",
+   "tags": [
+    "tuono",
+    "temporale",
+    "fulmine",
+    "pioggia"
+   ]
+  },
+  "sound:varita-magica": {
+   "name": "Bacchetta magica",
+   "tags": [
+    "bacchetta",
+    "fata",
+    "magia",
+    "incantesimo"
+   ]
+  },
+  "sound:varita-subida": {
+   "name": "Bacchetta ascendente",
+   "tags": [
+    "bacchetta",
+    "salita",
+    "magia",
+    "comparire"
+   ]
+  },
+  "sound:victoria-8bits": {
+   "name": "Vittoria a 8 bit",
+   "tags": [
+    "vittoria",
+    "vincere",
+    "gioco",
+    "fanfara",
+    "8 bit"
+   ]
+  },
+  "sound:vida-extra": {
+   "name": "Vita extra",
+   "tags": [
+    "vita extra",
+    "1up",
+    "gioco",
+    "bonus"
+   ]
+  },
+  "sound:viento-misterio": {
+   "name": "Vento inquietante",
+   "tags": [
+    "vento",
+    "mistero",
+    "horror",
+    "notte",
+    "fantasma"
+   ]
+  },
+  "sound:vinilo": {
+   "name": "Crepitio del vinile",
+   "tags": [
+    "vinile",
+    "crepitio",
+    "retrò",
+    "lofi"
    ]
   },
   "sound:whoosh": {
@@ -6253,6 +7657,16 @@
     "swoosh",
     "transizione",
     "movimento"
+   ]
+  },
+  "sound:whoosh-boom": {
+   "name": "Whoosh e boom",
+   "tags": [
+    "whoosh",
+    "boom",
+    "transizione",
+    "impatto",
+    "edit"
    ]
   },
   "sound:whoosh-corto": {
@@ -6303,6 +7717,16 @@
     "fiammata",
     "transizione",
     "movimento"
+   ]
+  },
+  "sound:whoosh-golpe": {
+   "name": "Whoosh e colpo",
+   "tags": [
+    "whoosh",
+    "colpo",
+    "transizione",
+    "impatto",
+    "edit"
    ]
   },
   "sound:whoosh-grave": {

@@ -53,6 +53,15 @@
   "template:transition": "Chuyển cảnh và phân cách"
  },
  "items": {
+  "animation:advertencia": {
+   "name": "Cảnh báo",
+   "tags": [
+    "cẩn thận",
+    "cảnh báo",
+    "chú ý",
+    "lưu ý"
+   ]
+  },
   "animation:alcancia": {
    "name": "Heo đất",
    "tags": [
@@ -167,6 +176,15 @@
     "chuyển cảnh",
     "quét",
     "đổi cảnh"
+   ]
+  },
+  "animation:bateria-carga": {
+   "name": "Pin đang sạc",
+   "tags": [
+    "pin",
+    "năng lượng",
+    "sạc",
+    "nạp lại"
    ]
   },
   "animation:bengala": {
@@ -738,6 +756,15 @@
     "đổi cảnh"
    ]
   },
+  "animation:cuenta-regresiva": {
+   "name": "Đếm ngược",
+   "tags": [
+    "đếm ngược",
+    "3 2 1",
+    "bắt đầu",
+    "chờ đợi"
+   ]
+  },
   "animation:cupcake": {
    "name": "Bánh cupcake",
    "tags": [
@@ -1278,11 +1305,12 @@
    ]
   },
   "animation:iris": {
-   "name": "Mống mắt",
+   "name": "Vòng tròn thu phóng",
    "tags": [
     "chuyển cảnh",
     "hình tròn",
     "đổi cảnh",
+    "thu phóng",
     "iris"
    ]
   },
@@ -1483,6 +1511,15 @@
     "nhắc nhở",
     "giấy nhớ",
     "việc cần làm"
+   ]
+  },
+  "animation:notas-musicales": {
+   "name": "Nốt nhạc",
+   "tags": [
+    "âm nhạc",
+    "bài hát",
+    "âm thanh",
+    "nhảy"
    ]
   },
   "animation:nube-lluvia": {
@@ -2006,6 +2043,5639 @@
     "gió nhẹ",
     "không khí",
     "lạnh"
+   ]
+  },
+  "animation:wifi": {
+   "name": "Sóng Wi-Fi",
+   "tags": [
+    "internet",
+    "kết nối",
+    "tín hiệu",
+    "online",
+    "wifi"
+   ]
+  },
+  "background:acuarela-calido": {
+   "name": "Màu nước (ấm)",
+   "tags": [
+    "màu nước",
+    "hội họa",
+    "nghệ thuật",
+    "nhẹ nhàng",
+    "ấm"
+   ]
+  },
+  "background:acuarela-frio": {
+   "name": "Màu nước (lạnh)",
+   "tags": [
+    "màu nước",
+    "hội họa",
+    "nghệ thuật",
+    "nhẹ nhàng",
+    "lạnh"
+   ]
+  },
+  "background:acuarela-oscuro": {
+   "name": "Màu nước (tối)",
+   "tags": [
+    "màu nước",
+    "hội họa",
+    "nghệ thuật",
+    "nhẹ nhàng",
+    "tối"
+   ]
+  },
+  "background:acuarela-vibrante": {
+   "name": "Màu nước (rực rỡ)",
+   "tags": [
+    "màu nước",
+    "hội họa",
+    "nghệ thuật",
+    "nhẹ nhàng",
+    "rực rỡ"
+   ]
+  },
+  "background:ajedrez-calido": {
+   "name": "Caro chuyển động (ấm)",
+   "tags": [
+    "caro",
+    "bàn cờ",
+    "retro",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:ajedrez-frio": {
+   "name": "Caro chuyển động (lạnh)",
+   "tags": [
+    "caro",
+    "bàn cờ",
+    "retro",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:ajedrez-oscuro": {
+   "name": "Caro chuyển động (tối)",
+   "tags": [
+    "caro",
+    "bàn cờ",
+    "retro",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:ajedrez-vibrante": {
+   "name": "Caro chuyển động (rực rỡ)",
+   "tags": [
+    "caro",
+    "bàn cờ",
+    "retro",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:anio-nuevo": {
+   "name": "Năm mới",
+   "tags": [
+    "năm mới",
+    "new year",
+    "nâng ly",
+    "tiệc",
+    "hình nền"
+   ]
+  },
+  "background:anio-nuevo-2": {
+   "name": "Năm mới 2",
+   "tags": [
+    "năm mới",
+    "new year",
+    "nâng ly",
+    "tiệc",
+    "hình nền"
+   ]
+  },
+  "background:atardecer-calido": {
+   "name": "Hoàng hôn (ấm)",
+   "tags": [
+    "hoàng hôn",
+    "mặt trời",
+    "mùa hè",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:atardecer-frio": {
+   "name": "Hoàng hôn (lạnh)",
+   "tags": [
+    "hoàng hôn",
+    "mặt trời",
+    "mùa hè",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:atardecer-oscuro": {
+   "name": "Hoàng hôn (tối)",
+   "tags": [
+    "hoàng hôn",
+    "mặt trời",
+    "mùa hè",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:atardecer-vibrante": {
+   "name": "Hoàng hôn (rực rỡ)",
+   "tags": [
+    "hoàng hôn",
+    "mặt trời",
+    "mùa hè",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:aurora-calido": {
+   "name": "Cực quang (ấm)",
+   "tags": [
+    "cực quang",
+    "bầu trời",
+    "ban đêm",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:aurora-frio": {
+   "name": "Cực quang (lạnh)",
+   "tags": [
+    "cực quang",
+    "bầu trời",
+    "ban đêm",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:aurora-oscuro": {
+   "name": "Cực quang (tối)",
+   "tags": [
+    "cực quang",
+    "bầu trời",
+    "ban đêm",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:aurora-vibrante": {
+   "name": "Cực quang (rực rỡ)",
+   "tags": [
+    "cực quang",
+    "bầu trời",
+    "ban đêm",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:bokeh-calido": {
+   "name": "Bokeh (ấm)",
+   "tags": [
+    "bokeh",
+    "ánh đèn",
+    "làm mờ",
+    "sang trọng",
+    "ấm"
+   ]
+  },
+  "background:bokeh-frio": {
+   "name": "Bokeh (lạnh)",
+   "tags": [
+    "bokeh",
+    "ánh đèn",
+    "làm mờ",
+    "sang trọng",
+    "lạnh"
+   ]
+  },
+  "background:bokeh-oscuro": {
+   "name": "Bokeh (tối)",
+   "tags": [
+    "bokeh",
+    "ánh đèn",
+    "làm mờ",
+    "sang trọng",
+    "tối"
+   ]
+  },
+  "background:bokeh-vibrante": {
+   "name": "Bokeh (rực rỡ)",
+   "tags": [
+    "bokeh",
+    "ánh đèn",
+    "làm mờ",
+    "sang trọng",
+    "rực rỡ"
+   ]
+  },
+  "background:burbujas-calido": {
+   "name": "Bong bóng (ấm)",
+   "tags": [
+    "bong bóng",
+    "nước",
+    "thiếu nhi",
+    "nhẹ nhàng",
+    "ấm"
+   ]
+  },
+  "background:burbujas-frio": {
+   "name": "Bong bóng (lạnh)",
+   "tags": [
+    "bong bóng",
+    "nước",
+    "thiếu nhi",
+    "nhẹ nhàng",
+    "lạnh"
+   ]
+  },
+  "background:burbujas-oscuro": {
+   "name": "Bong bóng (tối)",
+   "tags": [
+    "bong bóng",
+    "nước",
+    "thiếu nhi",
+    "nhẹ nhàng",
+    "tối"
+   ]
+  },
+  "background:burbujas-vibrante": {
+   "name": "Bong bóng (rực rỡ)",
+   "tags": [
+    "bong bóng",
+    "nước",
+    "thiếu nhi",
+    "nhẹ nhàng",
+    "rực rỡ"
+   ]
+  },
+  "background:cielo-estrellado-calido": {
+   "name": "Bầu trời sao (ấm)",
+   "tags": [
+    "ngôi sao",
+    "ban đêm",
+    "vũ trụ",
+    "bầu trời",
+    "ấm"
+   ]
+  },
+  "background:cielo-estrellado-frio": {
+   "name": "Bầu trời sao (lạnh)",
+   "tags": [
+    "ngôi sao",
+    "ban đêm",
+    "vũ trụ",
+    "bầu trời",
+    "lạnh"
+   ]
+  },
+  "background:cielo-estrellado-oscuro": {
+   "name": "Bầu trời sao (tối)",
+   "tags": [
+    "ngôi sao",
+    "ban đêm",
+    "vũ trụ",
+    "bầu trời",
+    "tối"
+   ]
+  },
+  "background:cielo-estrellado-vibrante": {
+   "name": "Bầu trời sao (rực rỡ)",
+   "tags": [
+    "ngôi sao",
+    "ban đêm",
+    "vũ trụ",
+    "bầu trời",
+    "rực rỡ"
+   ]
+  },
+  "background:circuito-calido": {
+   "name": "Bảng mạch (ấm)",
+   "tags": [
+    "bảng mạch",
+    "công nghệ",
+    "tech",
+    "kỹ thuật số",
+    "ấm"
+   ]
+  },
+  "background:circuito-frio": {
+   "name": "Bảng mạch (lạnh)",
+   "tags": [
+    "bảng mạch",
+    "công nghệ",
+    "tech",
+    "kỹ thuật số",
+    "lạnh"
+   ]
+  },
+  "background:circuito-oscuro": {
+   "name": "Bảng mạch (tối)",
+   "tags": [
+    "bảng mạch",
+    "công nghệ",
+    "tech",
+    "kỹ thuật số",
+    "tối"
+   ]
+  },
+  "background:circuito-vibrante": {
+   "name": "Bảng mạch (rực rỡ)",
+   "tags": [
+    "bảng mạch",
+    "công nghệ",
+    "tech",
+    "kỹ thuật số",
+    "rực rỡ"
+   ]
+  },
+  "background:circulos-calido": {
+   "name": "Vòng tròn đồng tâm (ấm)",
+   "tags": [
+    "vòng tròn",
+    "đồng tâm",
+    "thôi miên",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:circulos-frio": {
+   "name": "Vòng tròn đồng tâm (lạnh)",
+   "tags": [
+    "vòng tròn",
+    "đồng tâm",
+    "thôi miên",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:circulos-oscuro": {
+   "name": "Vòng tròn đồng tâm (tối)",
+   "tags": [
+    "vòng tròn",
+    "đồng tâm",
+    "thôi miên",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:circulos-vibrante": {
+   "name": "Vòng tròn đồng tâm (rực rỡ)",
+   "tags": [
+    "vòng tròn",
+    "đồng tâm",
+    "thôi miên",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:colinas-calido": {
+   "name": "Đồi thoai thoải (ấm)",
+   "tags": [
+    "đồi",
+    "phong cảnh",
+    "flat",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:colinas-frio": {
+   "name": "Đồi thoai thoải (lạnh)",
+   "tags": [
+    "đồi",
+    "phong cảnh",
+    "flat",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:colinas-oscuro": {
+   "name": "Đồi thoai thoải (tối)",
+   "tags": [
+    "đồi",
+    "phong cảnh",
+    "flat",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:colinas-vibrante": {
+   "name": "Đồi thoai thoải (rực rỡ)",
+   "tags": [
+    "đồi",
+    "phong cảnh",
+    "flat",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:confeti-calido": {
+   "name": "Pháo giấy nhẹ (ấm)",
+   "tags": [
+    "pháo giấy",
+    "tiệc",
+    "ăn mừng",
+    "sinh nhật",
+    "ấm"
+   ]
+  },
+  "background:confeti-frio": {
+   "name": "Pháo giấy nhẹ (lạnh)",
+   "tags": [
+    "pháo giấy",
+    "tiệc",
+    "ăn mừng",
+    "sinh nhật",
+    "lạnh"
+   ]
+  },
+  "background:confeti-oscuro": {
+   "name": "Pháo giấy nhẹ (tối)",
+   "tags": [
+    "pháo giấy",
+    "tiệc",
+    "ăn mừng",
+    "sinh nhật",
+    "tối"
+   ]
+  },
+  "background:confeti-vibrante": {
+   "name": "Pháo giấy nhẹ (rực rỡ)",
+   "tags": [
+    "pháo giấy",
+    "tiệc",
+    "ăn mừng",
+    "sinh nhật",
+    "rực rỡ"
+   ]
+  },
+  "background:cuadricula-retro-calido": {
+   "name": "Lưới retro (ấm)",
+   "tags": [
+    "retro",
+    "synthwave",
+    "thập niên 80",
+    "lưới",
+    "ấm"
+   ]
+  },
+  "background:cuadricula-retro-frio": {
+   "name": "Lưới retro (lạnh)",
+   "tags": [
+    "retro",
+    "synthwave",
+    "thập niên 80",
+    "lưới",
+    "lạnh"
+   ]
+  },
+  "background:cuadricula-retro-oscuro": {
+   "name": "Lưới retro (tối)",
+   "tags": [
+    "retro",
+    "synthwave",
+    "thập niên 80",
+    "lưới",
+    "tối"
+   ]
+  },
+  "background:cuadricula-retro-vibrante": {
+   "name": "Lưới retro (rực rỡ)",
+   "tags": [
+    "retro",
+    "synthwave",
+    "thập niên 80",
+    "lưới",
+    "rực rỡ"
+   ]
+  },
+  "background:cumpleanos": {
+   "name": "Sinh nhật",
+   "tags": [
+    "sinh nhật",
+    "birthday",
+    "tiệc",
+    "ăn mừng",
+    "hình nền"
+   ]
+  },
+  "background:cumpleanos-2": {
+   "name": "Sinh nhật 2",
+   "tags": [
+    "sinh nhật",
+    "birthday",
+    "tiệc",
+    "ăn mừng",
+    "hình nền"
+   ]
+  },
+  "background:degradado-diagonal-calido": {
+   "name": "Chuyển màu chéo (ấm)",
+   "tags": [
+    "chuyển màu",
+    "gradient",
+    "đường chéo",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:degradado-diagonal-frio": {
+   "name": "Chuyển màu chéo (lạnh)",
+   "tags": [
+    "chuyển màu",
+    "gradient",
+    "đường chéo",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:degradado-diagonal-oscuro": {
+   "name": "Chuyển màu chéo (tối)",
+   "tags": [
+    "chuyển màu",
+    "gradient",
+    "đường chéo",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:degradado-diagonal-vibrante": {
+   "name": "Chuyển màu chéo (rực rỡ)",
+   "tags": [
+    "chuyển màu",
+    "gradient",
+    "đường chéo",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:degradado-malla-calido": {
+   "name": "Chuyển màu lưới (ấm)",
+   "tags": [
+    "chuyển màu",
+    "mesh gradient",
+    "hiện đại",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:degradado-malla-frio": {
+   "name": "Chuyển màu lưới (lạnh)",
+   "tags": [
+    "chuyển màu",
+    "mesh gradient",
+    "hiện đại",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:degradado-malla-oscuro": {
+   "name": "Chuyển màu lưới (tối)",
+   "tags": [
+    "chuyển màu",
+    "mesh gradient",
+    "hiện đại",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:degradado-malla-vibrante": {
+   "name": "Chuyển màu lưới (rực rỡ)",
+   "tags": [
+    "chuyển màu",
+    "mesh gradient",
+    "hiện đại",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:degradado-movil-calido": {
+   "name": "Chuyển màu chuyển động (ấm)",
+   "tags": [
+    "chuyển màu",
+    "gradient",
+    "nhẹ nhàng",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:degradado-movil-frio": {
+   "name": "Chuyển màu chuyển động (lạnh)",
+   "tags": [
+    "chuyển màu",
+    "gradient",
+    "nhẹ nhàng",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:degradado-movil-oscuro": {
+   "name": "Chuyển màu chuyển động (tối)",
+   "tags": [
+    "chuyển màu",
+    "gradient",
+    "nhẹ nhàng",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:degradado-movil-vibrante": {
+   "name": "Chuyển màu chuyển động (rực rỡ)",
+   "tags": [
+    "chuyển màu",
+    "gradient",
+    "nhẹ nhàng",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:diwali": {
+   "name": "Diwali",
+   "tags": [
+    "diwali",
+    "ánh sáng",
+    "lễ hội",
+    "nến",
+    "hình nền"
+   ]
+  },
+  "background:diwali-2": {
+   "name": "Diwali 2",
+   "tags": [
+    "diwali",
+    "ánh sáng",
+    "lễ hội",
+    "nến",
+    "hình nền"
+   ]
+  },
+  "background:ecualizador-calido": {
+   "name": "Equalizer (ấm)",
+   "tags": [
+    "equalizer",
+    "âm nhạc",
+    "podcast",
+    "âm thanh",
+    "ấm"
+   ]
+  },
+  "background:ecualizador-frio": {
+   "name": "Equalizer (lạnh)",
+   "tags": [
+    "equalizer",
+    "âm nhạc",
+    "podcast",
+    "âm thanh",
+    "lạnh"
+   ]
+  },
+  "background:ecualizador-oscuro": {
+   "name": "Equalizer (tối)",
+   "tags": [
+    "equalizer",
+    "âm nhạc",
+    "podcast",
+    "âm thanh",
+    "tối"
+   ]
+  },
+  "background:ecualizador-vibrante": {
+   "name": "Equalizer (rực rỡ)",
+   "tags": [
+    "equalizer",
+    "âm nhạc",
+    "podcast",
+    "âm thanh",
+    "rực rỡ"
+   ]
+  },
+  "background:escenario-calido": {
+   "name": "Đèn sân khấu (ấm)",
+   "tags": [
+    "sân khấu",
+    "hòa nhạc",
+    "show",
+    "ánh đèn",
+    "ấm"
+   ]
+  },
+  "background:escenario-frio": {
+   "name": "Đèn sân khấu (lạnh)",
+   "tags": [
+    "sân khấu",
+    "hòa nhạc",
+    "show",
+    "ánh đèn",
+    "lạnh"
+   ]
+  },
+  "background:escenario-oscuro": {
+   "name": "Đèn sân khấu (tối)",
+   "tags": [
+    "sân khấu",
+    "hòa nhạc",
+    "show",
+    "ánh đèn",
+    "tối"
+   ]
+  },
+  "background:escenario-vibrante": {
+   "name": "Đèn sân khấu (rực rỡ)",
+   "tags": [
+    "sân khấu",
+    "hòa nhạc",
+    "show",
+    "ánh đèn",
+    "rực rỡ"
+   ]
+  },
+  "background:espiral-calido": {
+   "name": "Xoắn ốc (ấm)",
+   "tags": [
+    "xoắn ốc",
+    "thôi miên",
+    "xoáy",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:espiral-frio": {
+   "name": "Xoắn ốc (lạnh)",
+   "tags": [
+    "xoắn ốc",
+    "thôi miên",
+    "xoáy",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:espiral-oscuro": {
+   "name": "Xoắn ốc (tối)",
+   "tags": [
+    "xoắn ốc",
+    "thôi miên",
+    "xoáy",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:espiral-vibrante": {
+   "name": "Xoắn ốc (rực rỡ)",
+   "tags": [
+    "xoắn ốc",
+    "thôi miên",
+    "xoáy",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:formas-flotantes-calido": {
+   "name": "Hình khối trôi nổi (ấm)",
+   "tags": [
+    "hình khối",
+    "hình học",
+    "vui nhộn",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:formas-flotantes-frio": {
+   "name": "Hình khối trôi nổi (lạnh)",
+   "tags": [
+    "hình khối",
+    "hình học",
+    "vui nhộn",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:formas-flotantes-oscuro": {
+   "name": "Hình khối trôi nổi (tối)",
+   "tags": [
+    "hình khối",
+    "hình học",
+    "vui nhộn",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:formas-flotantes-vibrante": {
+   "name": "Hình khối trôi nổi (rực rỡ)",
+   "tags": [
+    "hình khối",
+    "hình học",
+    "vui nhộn",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:galaxia-calido": {
+   "name": "Thiên hà (ấm)",
+   "tags": [
+    "thiên hà",
+    "vũ trụ",
+    "không gian",
+    "cosmos",
+    "ấm"
+   ]
+  },
+  "background:galaxia-frio": {
+   "name": "Thiên hà (lạnh)",
+   "tags": [
+    "thiên hà",
+    "vũ trụ",
+    "không gian",
+    "cosmos",
+    "lạnh"
+   ]
+  },
+  "background:galaxia-oscuro": {
+   "name": "Thiên hà (tối)",
+   "tags": [
+    "thiên hà",
+    "vũ trụ",
+    "không gian",
+    "cosmos",
+    "tối"
+   ]
+  },
+  "background:galaxia-vibrante": {
+   "name": "Thiên hà (rực rỡ)",
+   "tags": [
+    "thiên hà",
+    "vũ trụ",
+    "không gian",
+    "cosmos",
+    "rực rỡ"
+   ]
+  },
+  "background:graduacion": {
+   "name": "Tốt nghiệp",
+   "tags": [
+    "tốt nghiệp",
+    "thành tích",
+    "khóa",
+    "ra trường",
+    "hình nền"
+   ]
+  },
+  "background:graduacion-2": {
+   "name": "Tốt nghiệp 2",
+   "tags": [
+    "tốt nghiệp",
+    "thành tích",
+    "khóa",
+    "ra trường",
+    "hình nền"
+   ]
+  },
+  "background:halloween": {
+   "name": "Halloween",
+   "tags": [
+    "halloween",
+    "kinh dị",
+    "tháng 10",
+    "bí ngô",
+    "hình nền"
+   ]
+  },
+  "background:halloween-2": {
+   "name": "Halloween 2",
+   "tags": [
+    "halloween",
+    "kinh dị",
+    "tháng 10",
+    "bí ngô",
+    "hình nền"
+   ]
+  },
+  "background:hexagonos-calido": {
+   "name": "Lục giác (ấm)",
+   "tags": [
+    "lục giác",
+    "tổ ong",
+    "công nghệ",
+    "gaming",
+    "ấm"
+   ]
+  },
+  "background:hexagonos-frio": {
+   "name": "Lục giác (lạnh)",
+   "tags": [
+    "lục giác",
+    "tổ ong",
+    "công nghệ",
+    "gaming",
+    "lạnh"
+   ]
+  },
+  "background:hexagonos-oscuro": {
+   "name": "Lục giác (tối)",
+   "tags": [
+    "lục giác",
+    "tổ ong",
+    "công nghệ",
+    "gaming",
+    "tối"
+   ]
+  },
+  "background:hexagonos-vibrante": {
+   "name": "Lục giác (rực rỡ)",
+   "tags": [
+    "lục giác",
+    "tổ ong",
+    "công nghệ",
+    "gaming",
+    "rực rỡ"
+   ]
+  },
+  "background:humo-color-calido": {
+   "name": "Khói màu (ấm)",
+   "tags": [
+    "khói",
+    "khói màu",
+    "bí ẩn",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:humo-color-frio": {
+   "name": "Khói màu (lạnh)",
+   "tags": [
+    "khói",
+    "khói màu",
+    "bí ẩn",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:humo-color-oscuro": {
+   "name": "Khói màu (tối)",
+   "tags": [
+    "khói",
+    "khói màu",
+    "bí ẩn",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:humo-color-vibrante": {
+   "name": "Khói màu (rực rỡ)",
+   "tags": [
+    "khói",
+    "khói màu",
+    "bí ẩn",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:lampara-lava-calido": {
+   "name": "Đèn dung nham (ấm)",
+   "tags": [
+    "đèn dung nham",
+    "bong bóng",
+    "retro",
+    "thập niên 70",
+    "ấm"
+   ]
+  },
+  "background:lampara-lava-frio": {
+   "name": "Đèn dung nham (lạnh)",
+   "tags": [
+    "đèn dung nham",
+    "bong bóng",
+    "retro",
+    "thập niên 70",
+    "lạnh"
+   ]
+  },
+  "background:lampara-lava-oscuro": {
+   "name": "Đèn dung nham (tối)",
+   "tags": [
+    "đèn dung nham",
+    "bong bóng",
+    "retro",
+    "thập niên 70",
+    "tối"
+   ]
+  },
+  "background:lampara-lava-vibrante": {
+   "name": "Đèn dung nham (rực rỡ)",
+   "tags": [
+    "đèn dung nham",
+    "bong bóng",
+    "retro",
+    "thập niên 70",
+    "rực rỡ"
+   ]
+  },
+  "background:liquido-calido": {
+   "name": "Chất lỏng (ấm)",
+   "tags": [
+    "chất lỏng",
+    "vân đá",
+    "ảo giác",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:liquido-frio": {
+   "name": "Chất lỏng (lạnh)",
+   "tags": [
+    "chất lỏng",
+    "vân đá",
+    "ảo giác",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:liquido-oscuro": {
+   "name": "Chất lỏng (tối)",
+   "tags": [
+    "chất lỏng",
+    "vân đá",
+    "ảo giác",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:liquido-vibrante": {
+   "name": "Chất lỏng (rực rỡ)",
+   "tags": [
+    "chất lỏng",
+    "vân đá",
+    "ảo giác",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:lluvia-luces-calido": {
+   "name": "Mưa ánh sáng (ấm)",
+   "tags": [
+    "ánh đèn",
+    "mưa ánh sáng",
+    "ban đêm",
+    "tiệc",
+    "ấm"
+   ]
+  },
+  "background:lluvia-luces-frio": {
+   "name": "Mưa ánh sáng (lạnh)",
+   "tags": [
+    "ánh đèn",
+    "mưa ánh sáng",
+    "ban đêm",
+    "tiệc",
+    "lạnh"
+   ]
+  },
+  "background:lluvia-luces-oscuro": {
+   "name": "Mưa ánh sáng (tối)",
+   "tags": [
+    "ánh đèn",
+    "mưa ánh sáng",
+    "ban đêm",
+    "tiệc",
+    "tối"
+   ]
+  },
+  "background:lluvia-luces-vibrante": {
+   "name": "Mưa ánh sáng (rực rỡ)",
+   "tags": [
+    "ánh đèn",
+    "mưa ánh sáng",
+    "ban đêm",
+    "tiệc",
+    "rực rỡ"
+   ]
+  },
+  "background:low-poly-calido": {
+   "name": "Low poly (ấm)",
+   "tags": [
+    "low poly",
+    "đa giác",
+    "pha lê",
+    "hiện đại",
+    "ấm"
+   ]
+  },
+  "background:low-poly-frio": {
+   "name": "Low poly (lạnh)",
+   "tags": [
+    "low poly",
+    "đa giác",
+    "pha lê",
+    "hiện đại",
+    "lạnh"
+   ]
+  },
+  "background:low-poly-oscuro": {
+   "name": "Low poly (tối)",
+   "tags": [
+    "low poly",
+    "đa giác",
+    "pha lê",
+    "hiện đại",
+    "tối"
+   ]
+  },
+  "background:low-poly-vibrante": {
+   "name": "Low poly (rực rỡ)",
+   "tags": [
+    "low poly",
+    "đa giác",
+    "pha lê",
+    "hiện đại",
+    "rực rỡ"
+   ]
+  },
+  "background:luces-ciudad-calido": {
+   "name": "Ánh đèn thành phố (ấm)",
+   "tags": [
+    "thành phố",
+    "ban đêm",
+    "bokeh",
+    "đô thị",
+    "ấm"
+   ]
+  },
+  "background:luces-ciudad-frio": {
+   "name": "Ánh đèn thành phố (lạnh)",
+   "tags": [
+    "thành phố",
+    "ban đêm",
+    "bokeh",
+    "đô thị",
+    "lạnh"
+   ]
+  },
+  "background:luces-ciudad-oscuro": {
+   "name": "Ánh đèn thành phố (tối)",
+   "tags": [
+    "thành phố",
+    "ban đêm",
+    "bokeh",
+    "đô thị",
+    "tối"
+   ]
+  },
+  "background:luces-ciudad-vibrante": {
+   "name": "Ánh đèn thành phố (rực rỡ)",
+   "tags": [
+    "thành phố",
+    "ban đêm",
+    "bokeh",
+    "đô thị",
+    "rực rỡ"
+   ]
+  },
+  "background:luciernagas-calido": {
+   "name": "Đom đóm (ấm)",
+   "tags": [
+    "đom đóm",
+    "ban đêm",
+    "phép thuật",
+    "khu rừng",
+    "ấm"
+   ]
+  },
+  "background:luciernagas-frio": {
+   "name": "Đom đóm (lạnh)",
+   "tags": [
+    "đom đóm",
+    "ban đêm",
+    "phép thuật",
+    "khu rừng",
+    "lạnh"
+   ]
+  },
+  "background:luciernagas-oscuro": {
+   "name": "Đom đóm (tối)",
+   "tags": [
+    "đom đóm",
+    "ban đêm",
+    "phép thuật",
+    "khu rừng",
+    "tối"
+   ]
+  },
+  "background:luciernagas-vibrante": {
+   "name": "Đom đóm (rực rỡ)",
+   "tags": [
+    "đom đóm",
+    "ban đêm",
+    "phép thuật",
+    "khu rừng",
+    "rực rỡ"
+   ]
+  },
+  "background:marmol-calido": {
+   "name": "Vân đá cẩm thạch (ấm)",
+   "tags": [
+    "đá cẩm thạch",
+    "vân đá",
+    "sang trọng",
+    "cao cấp",
+    "ấm"
+   ]
+  },
+  "background:marmol-frio": {
+   "name": "Vân đá cẩm thạch (lạnh)",
+   "tags": [
+    "đá cẩm thạch",
+    "vân đá",
+    "sang trọng",
+    "cao cấp",
+    "lạnh"
+   ]
+  },
+  "background:marmol-oscuro": {
+   "name": "Vân đá cẩm thạch (tối)",
+   "tags": [
+    "đá cẩm thạch",
+    "vân đá",
+    "sang trọng",
+    "cao cấp",
+    "tối"
+   ]
+  },
+  "background:marmol-vibrante": {
+   "name": "Vân đá cẩm thạch (rực rỡ)",
+   "tags": [
+    "đá cẩm thạch",
+    "vân đá",
+    "sang trọng",
+    "cao cấp",
+    "rực rỡ"
+   ]
+  },
+  "background:memphis-calido": {
+   "name": "Phong cách Memphis (ấm)",
+   "tags": [
+    "memphis",
+    "thập niên 80",
+    "pop",
+    "hình khối",
+    "ấm"
+   ]
+  },
+  "background:memphis-frio": {
+   "name": "Phong cách Memphis (lạnh)",
+   "tags": [
+    "memphis",
+    "thập niên 80",
+    "pop",
+    "hình khối",
+    "lạnh"
+   ]
+  },
+  "background:memphis-oscuro": {
+   "name": "Phong cách Memphis (tối)",
+   "tags": [
+    "memphis",
+    "thập niên 80",
+    "pop",
+    "hình khối",
+    "tối"
+   ]
+  },
+  "background:memphis-vibrante": {
+   "name": "Phong cách Memphis (rực rỡ)",
+   "tags": [
+    "memphis",
+    "thập niên 80",
+    "pop",
+    "hình khối",
+    "rực rỡ"
+   ]
+  },
+  "background:navidad": {
+   "name": "Giáng sinh",
+   "tags": [
+    "giáng sinh",
+    "noel",
+    "tháng 12",
+    "lễ hội",
+    "hình nền"
+   ]
+  },
+  "background:navidad-2": {
+   "name": "Giáng sinh 2",
+   "tags": [
+    "giáng sinh",
+    "noel",
+    "tháng 12",
+    "lễ hội",
+    "hình nền"
+   ]
+  },
+  "background:neon-calido": {
+   "name": "Đường neon (ấm)",
+   "tags": [
+    "neon",
+    "đường kẻ",
+    "ban đêm",
+    "cyber",
+    "ấm"
+   ]
+  },
+  "background:neon-frio": {
+   "name": "Đường neon (lạnh)",
+   "tags": [
+    "neon",
+    "đường kẻ",
+    "ban đêm",
+    "cyber",
+    "lạnh"
+   ]
+  },
+  "background:neon-oscuro": {
+   "name": "Đường neon (tối)",
+   "tags": [
+    "neon",
+    "đường kẻ",
+    "ban đêm",
+    "cyber",
+    "tối"
+   ]
+  },
+  "background:neon-vibrante": {
+   "name": "Đường neon (rực rỡ)",
+   "tags": [
+    "neon",
+    "đường kẻ",
+    "ban đêm",
+    "cyber",
+    "rực rỡ"
+   ]
+  },
+  "background:nieve-calido": {
+   "name": "Tuyết rơi (ấm)",
+   "tags": [
+    "tuyết",
+    "mùa đông",
+    "giáng sinh",
+    "lạnh giá",
+    "ấm"
+   ]
+  },
+  "background:nieve-frio": {
+   "name": "Tuyết rơi (lạnh)",
+   "tags": [
+    "tuyết",
+    "mùa đông",
+    "giáng sinh",
+    "lạnh giá",
+    "lạnh"
+   ]
+  },
+  "background:nieve-oscuro": {
+   "name": "Tuyết rơi (tối)",
+   "tags": [
+    "tuyết",
+    "mùa đông",
+    "giáng sinh",
+    "lạnh giá",
+    "tối"
+   ]
+  },
+  "background:nieve-vibrante": {
+   "name": "Tuyết rơi (rực rỡ)",
+   "tags": [
+    "tuyết",
+    "mùa đông",
+    "giáng sinh",
+    "lạnh giá",
+    "rực rỡ"
+   ]
+  },
+  "background:nubes-calido": {
+   "name": "Mây (ấm)",
+   "tags": [
+    "mây",
+    "bầu trời",
+    "mơ màng",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:nubes-frio": {
+   "name": "Mây (lạnh)",
+   "tags": [
+    "mây",
+    "bầu trời",
+    "mơ màng",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:nubes-oscuro": {
+   "name": "Mây (tối)",
+   "tags": [
+    "mây",
+    "bầu trời",
+    "mơ màng",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:nubes-vibrante": {
+   "name": "Mây (rực rỡ)",
+   "tags": [
+    "mây",
+    "bầu trời",
+    "mơ màng",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:ondas-sonido-calido": {
+   "name": "Sóng âm (ấm)",
+   "tags": [
+    "sóng âm",
+    "âm thanh",
+    "podcast",
+    "âm nhạc",
+    "ấm"
+   ]
+  },
+  "background:ondas-sonido-frio": {
+   "name": "Sóng âm (lạnh)",
+   "tags": [
+    "sóng âm",
+    "âm thanh",
+    "podcast",
+    "âm nhạc",
+    "lạnh"
+   ]
+  },
+  "background:ondas-sonido-oscuro": {
+   "name": "Sóng âm (tối)",
+   "tags": [
+    "sóng âm",
+    "âm thanh",
+    "podcast",
+    "âm nhạc",
+    "tối"
+   ]
+  },
+  "background:ondas-sonido-vibrante": {
+   "name": "Sóng âm (rực rỡ)",
+   "tags": [
+    "sóng âm",
+    "âm thanh",
+    "podcast",
+    "âm nhạc",
+    "rực rỡ"
+   ]
+  },
+  "background:ondas-suaves-calido": {
+   "name": "Sóng êm (ấm)",
+   "tags": [
+    "sóng",
+    "biển",
+    "nhẹ nhàng",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:ondas-suaves-frio": {
+   "name": "Sóng êm (lạnh)",
+   "tags": [
+    "sóng",
+    "biển",
+    "nhẹ nhàng",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:ondas-suaves-oscuro": {
+   "name": "Sóng êm (tối)",
+   "tags": [
+    "sóng",
+    "biển",
+    "nhẹ nhàng",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:ondas-suaves-vibrante": {
+   "name": "Sóng êm (rực rỡ)",
+   "tags": [
+    "sóng",
+    "biển",
+    "nhẹ nhàng",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:otono": {
+   "name": "Mùa thu",
+   "tags": [
+    "mùa thu",
+    "lá rụng",
+    "lễ tạ ơn",
+    "hình nền"
+   ]
+  },
+  "background:otono-2": {
+   "name": "Mùa thu 2",
+   "tags": [
+    "mùa thu",
+    "lá rụng",
+    "lễ tạ ơn",
+    "hình nền"
+   ]
+  },
+  "background:papel-calido": {
+   "name": "Giấy (ấm)",
+   "tags": [
+    "giấy",
+    "kết cấu",
+    "ghép ảnh",
+    "vintage",
+    "ấm"
+   ]
+  },
+  "background:papel-frio": {
+   "name": "Giấy (lạnh)",
+   "tags": [
+    "giấy",
+    "kết cấu",
+    "ghép ảnh",
+    "vintage",
+    "lạnh"
+   ]
+  },
+  "background:papel-oscuro": {
+   "name": "Giấy (tối)",
+   "tags": [
+    "giấy",
+    "kết cấu",
+    "ghép ảnh",
+    "vintage",
+    "tối"
+   ]
+  },
+  "background:papel-vibrante": {
+   "name": "Giấy (rực rỡ)",
+   "tags": [
+    "giấy",
+    "kết cấu",
+    "ghép ảnh",
+    "vintage",
+    "rực rỡ"
+   ]
+  },
+  "background:particulas-calido": {
+   "name": "Hạt bụi sáng (ấm)",
+   "tags": [
+    "hạt",
+    "bụi",
+    "nhẹ nhàng",
+    "êm dịu",
+    "ấm"
+   ]
+  },
+  "background:particulas-frio": {
+   "name": "Hạt bụi sáng (lạnh)",
+   "tags": [
+    "hạt",
+    "bụi",
+    "nhẹ nhàng",
+    "êm dịu",
+    "lạnh"
+   ]
+  },
+  "background:particulas-oscuro": {
+   "name": "Hạt bụi sáng (tối)",
+   "tags": [
+    "hạt",
+    "bụi",
+    "nhẹ nhàng",
+    "êm dịu",
+    "tối"
+   ]
+  },
+  "background:particulas-vibrante": {
+   "name": "Hạt bụi sáng (rực rỡ)",
+   "tags": [
+    "hạt",
+    "bụi",
+    "nhẹ nhàng",
+    "êm dịu",
+    "rực rỡ"
+   ]
+  },
+  "background:pizarra-calido": {
+   "name": "Bảng phấn (ấm)",
+   "tags": [
+    "bảng phấn",
+    "trường học",
+    "lớp học",
+    "giáo dục",
+    "ấm"
+   ]
+  },
+  "background:pizarra-frio": {
+   "name": "Bảng phấn (lạnh)",
+   "tags": [
+    "bảng phấn",
+    "trường học",
+    "lớp học",
+    "giáo dục",
+    "lạnh"
+   ]
+  },
+  "background:pizarra-oscuro": {
+   "name": "Bảng phấn (tối)",
+   "tags": [
+    "bảng phấn",
+    "trường học",
+    "lớp học",
+    "giáo dục",
+    "tối"
+   ]
+  },
+  "background:pizarra-vibrante": {
+   "name": "Bảng phấn (rực rỡ)",
+   "tags": [
+    "bảng phấn",
+    "trường học",
+    "lớp học",
+    "giáo dục",
+    "rực rỡ"
+   ]
+  },
+  "background:primavera": {
+   "name": "Mùa xuân",
+   "tags": [
+    "mùa xuân",
+    "hoa",
+    "ngày của mẹ",
+    "hình nền"
+   ]
+  },
+  "background:primavera-2": {
+   "name": "Mùa xuân 2",
+   "tags": [
+    "mùa xuân",
+    "hoa",
+    "ngày của mẹ",
+    "hình nền"
+   ]
+  },
+  "background:prisma-calido": {
+   "name": "Lăng kính (ấm)",
+   "tags": [
+    "lăng kính",
+    "cầu vồng",
+    "pha lê",
+    "aesthetic",
+    "ấm"
+   ]
+  },
+  "background:prisma-frio": {
+   "name": "Lăng kính (lạnh)",
+   "tags": [
+    "lăng kính",
+    "cầu vồng",
+    "pha lê",
+    "aesthetic",
+    "lạnh"
+   ]
+  },
+  "background:prisma-oscuro": {
+   "name": "Lăng kính (tối)",
+   "tags": [
+    "lăng kính",
+    "cầu vồng",
+    "pha lê",
+    "aesthetic",
+    "tối"
+   ]
+  },
+  "background:prisma-vibrante": {
+   "name": "Lăng kính (rực rỡ)",
+   "tags": [
+    "lăng kính",
+    "cầu vồng",
+    "pha lê",
+    "aesthetic",
+    "rực rỡ"
+   ]
+  },
+  "background:puntos-calido": {
+   "name": "Chấm nhấp nháy (ấm)",
+   "tags": [
+    "chấm",
+    "halftone",
+    "pop",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:puntos-frio": {
+   "name": "Chấm nhấp nháy (lạnh)",
+   "tags": [
+    "chấm",
+    "halftone",
+    "pop",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:puntos-oscuro": {
+   "name": "Chấm nhấp nháy (tối)",
+   "tags": [
+    "chấm",
+    "halftone",
+    "pop",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:puntos-vibrante": {
+   "name": "Chấm nhấp nháy (rực rỡ)",
+   "tags": [
+    "chấm",
+    "halftone",
+    "pop",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:ramadan": {
+   "name": "Ramadan và Eid",
+   "tags": [
+    "ramadan",
+    "eid",
+    "mặt trăng",
+    "ban đêm",
+    "hình nền"
+   ]
+  },
+  "background:ramadan-2": {
+   "name": "Ramadan và Eid 2",
+   "tags": [
+    "ramadan",
+    "eid",
+    "mặt trăng",
+    "ban đêm",
+    "hình nền"
+   ]
+  },
+  "background:rayas-calido": {
+   "name": "Sọc chuyển động (ấm)",
+   "tags": [
+    "sọc",
+    "đường kẻ",
+    "năng động",
+    "hình nền",
+    "ấm"
+   ]
+  },
+  "background:rayas-frio": {
+   "name": "Sọc chuyển động (lạnh)",
+   "tags": [
+    "sọc",
+    "đường kẻ",
+    "năng động",
+    "hình nền",
+    "lạnh"
+   ]
+  },
+  "background:rayas-oscuro": {
+   "name": "Sọc chuyển động (tối)",
+   "tags": [
+    "sọc",
+    "đường kẻ",
+    "năng động",
+    "hình nền",
+    "tối"
+   ]
+  },
+  "background:rayas-vibrante": {
+   "name": "Sọc chuyển động (rực rỡ)",
+   "tags": [
+    "sọc",
+    "đường kẻ",
+    "năng động",
+    "hình nền",
+    "rực rỡ"
+   ]
+  },
+  "background:rayos-luz-calido": {
+   "name": "Tia sáng (ấm)",
+   "tags": [
+    "tia sáng",
+    "ánh sáng",
+    "bầu trời",
+    "hy vọng",
+    "ấm"
+   ]
+  },
+  "background:rayos-luz-frio": {
+   "name": "Tia sáng (lạnh)",
+   "tags": [
+    "tia sáng",
+    "ánh sáng",
+    "bầu trời",
+    "hy vọng",
+    "lạnh"
+   ]
+  },
+  "background:rayos-luz-oscuro": {
+   "name": "Tia sáng (tối)",
+   "tags": [
+    "tia sáng",
+    "ánh sáng",
+    "bầu trời",
+    "hy vọng",
+    "tối"
+   ]
+  },
+  "background:rayos-luz-vibrante": {
+   "name": "Tia sáng (rực rỡ)",
+   "tags": [
+    "tia sáng",
+    "ánh sáng",
+    "bầu trời",
+    "hy vọng",
+    "rực rỡ"
+   ]
+  },
+  "background:rayos-sol-calido": {
+   "name": "Tia nắng xoay (ấm)",
+   "tags": [
+    "tia nắng",
+    "sunburst",
+    "khuyến mãi",
+    "thiếu nhi",
+    "ấm"
+   ]
+  },
+  "background:rayos-sol-frio": {
+   "name": "Tia nắng xoay (lạnh)",
+   "tags": [
+    "tia nắng",
+    "sunburst",
+    "khuyến mãi",
+    "thiếu nhi",
+    "lạnh"
+   ]
+  },
+  "background:rayos-sol-oscuro": {
+   "name": "Tia nắng xoay (tối)",
+   "tags": [
+    "tia nắng",
+    "sunburst",
+    "khuyến mãi",
+    "thiếu nhi",
+    "tối"
+   ]
+  },
+  "background:rayos-sol-vibrante": {
+   "name": "Tia nắng xoay (rực rỡ)",
+   "tags": [
+    "tia nắng",
+    "sunburst",
+    "khuyến mãi",
+    "thiếu nhi",
+    "rực rỡ"
+   ]
+  },
+  "background:san-valentin": {
+   "name": "Ngày Valentine",
+   "tags": [
+    "valentine",
+    "tình yêu",
+    "trái tim",
+    "tháng 2",
+    "hình nền"
+   ]
+  },
+  "background:san-valentin-2": {
+   "name": "Ngày Valentine 2",
+   "tags": [
+    "valentine",
+    "tình yêu",
+    "trái tim",
+    "tháng 2",
+    "hình nền"
+   ]
+  },
+  "background:tinta-calido": {
+   "name": "Mực loang trong nước (ấm)",
+   "tags": [
+    "mực",
+    "nước",
+    "nghệ thuật",
+    "chất lỏng",
+    "ấm"
+   ]
+  },
+  "background:tinta-frio": {
+   "name": "Mực loang trong nước (lạnh)",
+   "tags": [
+    "mực",
+    "nước",
+    "nghệ thuật",
+    "chất lỏng",
+    "lạnh"
+   ]
+  },
+  "background:tinta-oscuro": {
+   "name": "Mực loang trong nước (tối)",
+   "tags": [
+    "mực",
+    "nước",
+    "nghệ thuật",
+    "chất lỏng",
+    "tối"
+   ]
+  },
+  "background:tinta-vibrante": {
+   "name": "Mực loang trong nước (rực rỡ)",
+   "tags": [
+    "mực",
+    "nước",
+    "nghệ thuật",
+    "chất lỏng",
+    "rực rỡ"
+   ]
+  },
+  "background:tunel-calido": {
+   "name": "Đường hầm (ấm)",
+   "tags": [
+    "đường hầm",
+    "du hành",
+    "zoom",
+    "ảo giác",
+    "ấm"
+   ]
+  },
+  "background:tunel-frio": {
+   "name": "Đường hầm (lạnh)",
+   "tags": [
+    "đường hầm",
+    "du hành",
+    "zoom",
+    "ảo giác",
+    "lạnh"
+   ]
+  },
+  "background:tunel-oscuro": {
+   "name": "Đường hầm (tối)",
+   "tags": [
+    "đường hầm",
+    "du hành",
+    "zoom",
+    "ảo giác",
+    "tối"
+   ]
+  },
+  "background:tunel-vibrante": {
+   "name": "Đường hầm (rực rỡ)",
+   "tags": [
+    "đường hầm",
+    "du hành",
+    "zoom",
+    "ảo giác",
+    "rực rỡ"
+   ]
+  },
+  "overlay:amor-corazones": {
+   "name": "Tim bay",
+   "tags": [
+    "trái tim",
+    "tình yêu",
+    "valentine",
+    "lãng mạn"
+   ]
+  },
+  "overlay:amor-corazones-brillo": {
+   "name": "Tim lấp lánh",
+   "tags": [
+    "trái tim",
+    "lấp lánh",
+    "tình yêu",
+    "valentine"
+   ]
+  },
+  "overlay:amor-corazones-contorno": {
+   "name": "Tim viền",
+   "tags": [
+    "trái tim",
+    "viền",
+    "tình yêu",
+    "valentine"
+   ]
+  },
+  "overlay:amor-corazones-neon": {
+   "name": "Tim neon",
+   "tags": [
+    "trái tim",
+    "neon",
+    "tình yêu",
+    "valentine"
+   ]
+  },
+  "overlay:amor-corazones-rojos": {
+   "name": "Tim đỏ",
+   "tags": [
+    "trái tim",
+    "đỏ",
+    "tình yêu",
+    "valentine"
+   ]
+  },
+  "overlay:amor-explosion-corazones": {
+   "name": "Bùng nổ trái tim",
+   "tags": [
+    "trái tim",
+    "bùng nổ",
+    "tình yêu",
+    "valentine"
+   ]
+  },
+  "overlay:amor-globos-corazon": {
+   "name": "Bóng bay trái tim",
+   "tags": [
+    "bóng bay",
+    "trái tim",
+    "tình yêu",
+    "valentine"
+   ]
+  },
+  "overlay:amor-likes": {
+   "name": "Tim thả livestream",
+   "tags": [
+    "thả tim",
+    "trực tiếp",
+    "like",
+    "trái tim"
+   ]
+  },
+  "overlay:amor-lluvia-corazones": {
+   "name": "Mưa trái tim",
+   "tags": [
+    "trái tim",
+    "rơi",
+    "tình yêu",
+    "valentine"
+   ]
+  },
+  "overlay:amor-marco-corazones": {
+   "name": "Khung trái tim",
+   "tags": [
+    "khung",
+    "trái tim",
+    "tình yêu",
+    "valentine"
+   ]
+  },
+  "overlay:amor-petalos": {
+   "name": "Cánh hoa hồng",
+   "tags": [
+    "cánh hoa",
+    "hoa hồng",
+    "đám cưới",
+    "lãng mạn"
+   ]
+  },
+  "overlay:amor-petalos-blancos": {
+   "name": "Cánh hoa trắng",
+   "tags": [
+    "cánh hoa",
+    "trắng",
+    "đám cưới",
+    "tinh khôi"
+   ]
+  },
+  "overlay:amor-petalos-rosa": {
+   "name": "Cánh hoa hồng phấn",
+   "tags": [
+    "cánh hoa",
+    "hồng phấn",
+    "đám cưới",
+    "lãng mạn"
+   ]
+  },
+  "overlay:cam-bateria-baja": {
+   "name": "Pin yếu",
+   "tags": [
+    "pin",
+    "pin yếu",
+    "máy quay",
+    "màn hình máy quay"
+   ]
+  },
+  "overlay:cam-cuenta-regresiva": {
+   "name": "Đếm ngược đầu phim",
+   "tags": [
+    "đếm ngược",
+    "đầu phim",
+    "điện ảnh",
+    "3 2 1"
+   ]
+  },
+  "overlay:cam-en-vivo": {
+   "name": "Nhãn trực tiếp",
+   "tags": [
+    "live",
+    "trực tiếp",
+    "phát sóng",
+    "stream"
+   ]
+  },
+  "overlay:cam-enfoque": {
+   "name": "Khóa lấy nét",
+   "tags": [
+    "lấy nét",
+    "focus",
+    "máy ảnh",
+    "autofocus"
+   ]
+  },
+  "overlay:cam-flash": {
+   "name": "Đèn flash máy ảnh",
+   "tags": [
+    "flash",
+    "chụp ảnh",
+    "máy ảnh",
+    "chuyển cảnh"
+   ]
+  },
+  "overlay:cam-grabando-pantalla": {
+   "name": "Quay màn hình",
+   "tags": [
+    "quay màn hình",
+    "hướng dẫn",
+    "màn hình",
+    "rec"
+   ]
+  },
+  "overlay:cam-obturador": {
+   "name": "Màn trập máy ảnh",
+   "tags": [
+    "màn trập",
+    "máy ảnh",
+    "chụp ảnh",
+    "chuyển cảnh"
+   ]
+  },
+  "overlay:cam-rec": {
+   "name": "Máy quay đang ghi (REC)",
+   "tags": [
+    "rec",
+    "máy quay",
+    "đang quay",
+    "ghi hình"
+   ]
+  },
+  "overlay:cam-rec-minimal": {
+   "name": "REC tối giản",
+   "tags": [
+    "rec",
+    "đang quay",
+    "tối giản",
+    "vlog"
+   ]
+  },
+  "overlay:cam-seguridad": {
+   "name": "Camera an ninh",
+   "tags": [
+    "an ninh",
+    "cctv",
+    "camera giám sát",
+    "giám sát"
+   ]
+  },
+  "overlay:cam-vision-nocturna": {
+   "name": "Nhìn đêm",
+   "tags": [
+    "nhìn đêm",
+    "night vision",
+    "xanh lá",
+    "ban đêm"
+   ]
+  },
+  "overlay:cam-visor": {
+   "name": "Khung ngắm máy quay",
+   "tags": [
+    "khung ngắm",
+    "viewfinder",
+    "lưới",
+    "máy quay"
+   ]
+  },
+  "overlay:cel-confeti": {
+   "name": "Mưa pháo giấy",
+   "tags": [
+    "pháo giấy",
+    "tiệc",
+    "sinh nhật",
+    "ăn mừng"
+   ]
+  },
+  "overlay:cel-confeti-circulos": {
+   "name": "Pháo giấy chấm tròn",
+   "tags": [
+    "pháo giấy",
+    "chấm tròn",
+    "hình tròn",
+    "tiệc"
+   ]
+  },
+  "overlay:cel-confeti-corazones": {
+   "name": "Pháo giấy trái tim",
+   "tags": [
+    "pháo giấy",
+    "trái tim",
+    "đám cưới",
+    "tình yêu"
+   ]
+  },
+  "overlay:cel-confeti-desde-arriba": {
+   "name": "Pháo giấy từ trên xuống",
+   "tags": [
+    "pháo giấy",
+    "bùng nổ",
+    "bất ngờ",
+    "tiệc"
+   ]
+  },
+  "overlay:cel-confeti-dorado": {
+   "name": "Pháo giấy vàng",
+   "tags": [
+    "pháo giấy",
+    "vàng",
+    "năm mới",
+    "tiệc"
+   ]
+  },
+  "overlay:cel-confeti-explosion": {
+   "name": "Pháo giấy bùng nổ",
+   "tags": [
+    "pháo giấy",
+    "bùng nổ",
+    "bắn pháo",
+    "bất ngờ"
+   ]
+  },
+  "overlay:cel-confeti-grande": {
+   "name": "Pháo giấy lớn",
+   "tags": [
+    "pháo giấy",
+    "lớn",
+    "tiệc",
+    "vui vẻ"
+   ]
+  },
+  "overlay:cel-confeti-pastel": {
+   "name": "Pháo giấy pastel",
+   "tags": [
+    "pháo giấy",
+    "pastel",
+    "baby shower",
+    "em bé",
+    "sinh nhật"
+   ]
+  },
+  "overlay:cel-confeti-plata": {
+   "name": "Pháo giấy bạc",
+   "tags": [
+    "pháo giấy",
+    "bạc",
+    "đám cưới",
+    "kỷ niệm"
+   ]
+  },
+  "overlay:cel-estrellas": {
+   "name": "Sao rơi",
+   "tags": [
+    "ngôi sao",
+    "tiệc",
+    "thiếu nhi",
+    "ăn mừng"
+   ]
+  },
+  "overlay:cel-estrellas-doradas": {
+   "name": "Sao vàng",
+   "tags": [
+    "ngôi sao",
+    "vàng",
+    "giải thưởng",
+    "ăn mừng"
+   ]
+  },
+  "overlay:cel-explosion-centro": {
+   "name": "Bùng nổ giữa màn hình",
+   "tags": [
+    "pháo giấy",
+    "bùng nổ",
+    "bắn pháo",
+    "bất ngờ"
+   ]
+  },
+  "overlay:cel-explosion-dorada": {
+   "name": "Bùng nổ vàng",
+   "tags": [
+    "pháo giấy",
+    "bùng nổ",
+    "vàng",
+    "bất ngờ"
+   ]
+  },
+  "overlay:cel-explosion-estrellas": {
+   "name": "Bùng nổ ngôi sao",
+   "tags": [
+    "ngôi sao",
+    "bùng nổ",
+    "pháo giấy",
+    "bất ngờ"
+   ]
+  },
+  "overlay:cel-fuegos-artificiales": {
+   "name": "Pháo hoa",
+   "tags": [
+    "pháo hoa",
+    "năm mới",
+    "tiệc",
+    "ăn mừng"
+   ]
+  },
+  "overlay:cel-fuegos-dorados": {
+   "name": "Pháo hoa vàng",
+   "tags": [
+    "pháo hoa",
+    "vàng",
+    "năm mới",
+    "tiệc"
+   ]
+  },
+  "overlay:cel-fuegos-final": {
+   "name": "Pháo hoa màn kết",
+   "tags": [
+    "pháo hoa",
+    "màn kết",
+    "năm mới",
+    "tiệc"
+   ]
+  },
+  "overlay:cel-fuegos-lejanos": {
+   "name": "Pháo hoa phía xa",
+   "tags": [
+    "pháo hoa",
+    "phía xa",
+    "năm mới",
+    "bầu trời đêm"
+   ]
+  },
+  "overlay:cel-globos": {
+   "name": "Bóng bay",
+   "tags": [
+    "bóng bay",
+    "sinh nhật",
+    "tiệc",
+    "ăn mừng"
+   ]
+  },
+  "overlay:cel-globos-dorados": {
+   "name": "Bóng bay vàng và bạc",
+   "tags": [
+    "bóng bay",
+    "vàng",
+    "bạc",
+    "sinh nhật",
+    "tiệc"
+   ]
+  },
+  "overlay:cel-globos-pastel": {
+   "name": "Bóng bay pastel",
+   "tags": [
+    "bóng bay",
+    "pastel",
+    "sinh nhật",
+    "tiệc"
+   ]
+  },
+  "overlay:cel-lluvia-billetes": {
+   "name": "Mưa tiền giấy",
+   "tags": [
+    "tiền giấy",
+    "tiền",
+    "giàu",
+    "chiến thắng"
+   ]
+  },
+  "overlay:cel-lluvia-emojis": {
+   "name": "Mưa emoji",
+   "tags": [
+    "emoji",
+    "mặt cười",
+    "vui vẻ",
+    "hài hước"
+   ]
+  },
+  "overlay:cel-lluvia-monedas": {
+   "name": "Mưa đồng xu",
+   "tags": [
+    "đồng xu",
+    "tiền",
+    "chiến thắng",
+    "trúng thưởng"
+   ]
+  },
+  "overlay:cel-lluvia-regalos": {
+   "name": "Mưa quà tặng",
+   "tags": [
+    "quà tặng",
+    "giáng sinh",
+    "sinh nhật",
+    "giveaway"
+   ]
+  },
+  "overlay:cel-purpurina": {
+   "name": "Kim tuyến",
+   "tags": [
+    "kim tuyến",
+    "glitter",
+    "lấp lánh",
+    "vàng",
+    "tiệc"
+   ]
+  },
+  "overlay:cel-serpentinas": {
+   "name": "Dây kim tuyến",
+   "tags": [
+    "dây kim tuyến",
+    "tiệc",
+    "lễ hội",
+    "sinh nhật"
+   ]
+  },
+  "overlay:clima-arcoiris": {
+   "name": "Cầu vồng",
+   "tags": [
+    "cầu vồng",
+    "thời tiết",
+    "thiên nhiên",
+    "màu sắc"
+   ]
+  },
+  "overlay:clima-copos": {
+   "name": "Bông tuyết",
+   "tags": [
+    "bông tuyết",
+    "tuyết",
+    "mùa đông",
+    "thời tiết"
+   ]
+  },
+  "overlay:clima-dientes-de-leon": {
+   "name": "Hạt bồ công anh",
+   "tags": [
+    "bồ công anh",
+    "thiên nhiên",
+    "gió",
+    "mơ màng"
+   ]
+  },
+  "overlay:clima-gotas-cristal": {
+   "name": "Giọt mưa trên kính",
+   "tags": [
+    "giọt mưa",
+    "kính",
+    "mưa",
+    "thời tiết"
+   ]
+  },
+  "overlay:clima-hojas": {
+   "name": "Lá mùa thu",
+   "tags": [
+    "lá rơi",
+    "mùa thu",
+    "lá cây",
+    "thiên nhiên"
+   ]
+  },
+  "overlay:clima-hojas-verdes": {
+   "name": "Lá xanh",
+   "tags": [
+    "lá cây",
+    "xanh lá",
+    "thiên nhiên",
+    "mùa xuân"
+   ]
+  },
+  "overlay:clima-humo": {
+   "name": "Khói",
+   "tags": [
+    "khói",
+    "hơi nước",
+    "bí ẩn",
+    "kịch tính"
+   ]
+  },
+  "overlay:clima-humo-azul": {
+   "name": "Khói xanh",
+   "tags": [
+    "khói",
+    "xanh dương",
+    "bí ẩn",
+    "hiệu ứng"
+   ]
+  },
+  "overlay:clima-humo-colores": {
+   "name": "Khói màu",
+   "tags": [
+    "khói màu",
+    "nhiều màu",
+    "lễ hội",
+    "hiệu ứng"
+   ]
+  },
+  "overlay:clima-humo-rosa": {
+   "name": "Khói hồng",
+   "tags": [
+    "khói",
+    "hồng",
+    "tiết lộ giới tính",
+    "hiệu ứng"
+   ]
+  },
+  "overlay:clima-lluvia": {
+   "name": "Mưa",
+   "tags": [
+    "mưa",
+    "bão",
+    "buồn",
+    "u sầu"
+   ]
+  },
+  "overlay:clima-lluvia-ligera": {
+   "name": "Mưa phùn",
+   "tags": [
+    "mưa phùn",
+    "mưa nhẹ",
+    "thời tiết",
+    "thiên nhiên"
+   ]
+  },
+  "overlay:clima-nevada": {
+   "name": "Bão tuyết",
+   "tags": [
+    "tuyết",
+    "bão tuyết",
+    "mùa đông",
+    "lạnh"
+   ]
+  },
+  "overlay:clima-niebla": {
+   "name": "Sương mù",
+   "tags": [
+    "sương mù",
+    "mù sương",
+    "bí ẩn",
+    "thời tiết"
+   ]
+  },
+  "overlay:clima-niebla-baja": {
+   "name": "Sương mù sát đất",
+   "tags": [
+    "sương mù",
+    "sát đất",
+    "bí ẩn",
+    "sân khấu"
+   ]
+  },
+  "overlay:clima-nieve": {
+   "name": "Tuyết rơi nhẹ",
+   "tags": [
+    "tuyết",
+    "mùa đông",
+    "giáng sinh",
+    "nhẹ nhàng"
+   ]
+  },
+  "overlay:clima-noche-estrellada": {
+   "name": "Đêm đầy sao",
+   "tags": [
+    "đêm đầy sao",
+    "ngôi sao",
+    "bầu trời",
+    "ban đêm"
+   ]
+  },
+  "overlay:clima-petalos-flores": {
+   "name": "Cánh hoa nhiều màu",
+   "tags": [
+    "cánh hoa",
+    "nhiều màu",
+    "thiên nhiên",
+    "mùa xuân"
+   ]
+  },
+  "overlay:clima-polvo-viento": {
+   "name": "Bụi bay trong gió",
+   "tags": [
+    "bụi",
+    "gió",
+    "sa mạc",
+    "thời tiết"
+   ]
+  },
+  "overlay:clima-relampago": {
+   "name": "Tia chớp",
+   "tags": [
+    "tia chớp",
+    "sấm sét",
+    "bão",
+    "thời tiết"
+   ]
+  },
+  "overlay:clima-sakura": {
+   "name": "Hoa anh đào",
+   "tags": [
+    "hoa anh đào",
+    "sakura",
+    "mùa xuân",
+    "cánh hoa"
+   ]
+  },
+  "overlay:clima-tormenta": {
+   "name": "Giông bão",
+   "tags": [
+    "giông bão",
+    "sấm sét",
+    "mưa",
+    "thời tiết"
+   ]
+  },
+  "overlay:garabato-angel": {
+   "name": "Cánh và vòng thiên thần",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "thiên thần",
+    "vòng hào quang",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-angel-dorado": {
+   "name": "Cánh thiên thần vàng",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "thiên thần",
+    "vàng"
+   ]
+  },
+  "overlay:garabato-brillo": {
+   "name": "Nét tỏa sáng",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "tỏa sáng",
+    "lấp lánh"
+   ]
+  },
+  "overlay:garabato-caritas": {
+   "name": "Mặt cười vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "mặt cười",
+    "dễ thương"
+   ]
+  },
+  "overlay:garabato-cielo": {
+   "name": "Bầu trời vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "bầu trời",
+    "mây",
+    "ngôi sao"
+   ]
+  },
+  "overlay:garabato-circulo": {
+   "name": "Vòng tròn vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "khoanh tròn",
+    "nhấn mạnh"
+   ]
+  },
+  "overlay:garabato-circulo-rojo": {
+   "name": "Vòng tròn đỏ vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "khoanh tròn",
+    "đỏ",
+    "nhấn mạnh"
+   ]
+  },
+  "overlay:garabato-corazones": {
+   "name": "Trái tim vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "trái tim",
+    "tình yêu"
+   ]
+  },
+  "overlay:garabato-corazones-rosa": {
+   "name": "Trái tim hồng vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "trái tim",
+    "hồng"
+   ]
+  },
+  "overlay:garabato-corona": {
+   "name": "Vương miện vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "vương miện",
+    "nữ hoàng"
+   ]
+  },
+  "overlay:garabato-corona-dorada": {
+   "name": "Vương miện vàng vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "vương miện",
+    "vàng"
+   ]
+  },
+  "overlay:garabato-diablito": {
+   "name": "Tiểu quỷ vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "tiểu quỷ",
+    "tinh nghịch"
+   ]
+  },
+  "overlay:garabato-diablito-blanco": {
+   "name": "Sừng quỷ vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "sừng quỷ",
+    "tinh nghịch"
+   ]
+  },
+  "overlay:garabato-estallido": {
+   "name": "Bùng nổ vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "bùng nổ",
+    "nhấn mạnh"
+   ]
+  },
+  "overlay:garabato-estrellas": {
+   "name": "Ngôi sao vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "ngôi sao",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-estrellas-doradas": {
+   "name": "Ngôi sao vàng vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "ngôi sao",
+    "vàng"
+   ]
+  },
+  "overlay:garabato-flechas": {
+   "name": "Mũi tên vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "mũi tên",
+    "chỉ"
+   ]
+  },
+  "overlay:garabato-flechas-girando": {
+   "name": "Mũi tên xoay vòng",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "mũi tên",
+    "xoay"
+   ]
+  },
+  "overlay:garabato-flechas-neon": {
+   "name": "Mũi tên neon vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "mũi tên",
+    "neon"
+   ]
+  },
+  "overlay:garabato-flores": {
+   "name": "Hoa vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "bông hoa",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-mariposas": {
+   "name": "Bướm vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "con bướm",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-mix": {
+   "name": "Tổng hợp nét vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "tổng hợp",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-mix-negro": {
+   "name": "Tổng hợp nét vẽ tay đen",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "màu đen",
+    "tổng hợp"
+   ]
+  },
+  "overlay:garabato-mix-rosa": {
+   "name": "Tổng hợp nét vẽ tay hồng",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "hồng",
+    "tổng hợp"
+   ]
+  },
+  "overlay:garabato-musica": {
+   "name": "Nốt nhạc vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "nốt nhạc",
+    "âm nhạc"
+   ]
+  },
+  "overlay:garabato-neon-corazones": {
+   "name": "Trái tim neon vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "trái tim",
+    "neon"
+   ]
+  },
+  "overlay:garabato-rayos": {
+   "name": "Tia sét vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "tia sét",
+    "năng lượng"
+   ]
+  },
+  "overlay:garabato-signos": {
+   "name": "Ký hiệu vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "ký hiệu",
+    "dấu chấm than"
+   ]
+  },
+  "overlay:garabato-subrayado": {
+   "name": "Gạch chân vẽ tay",
+   "tags": [
+    "nét vẽ tay",
+    "doodle",
+    "gạch chân",
+    "nhấn mạnh"
+   ]
+  },
+  "overlay:glitch-bloques": {
+   "name": "Glitch khối",
+   "tags": [
+    "glitch",
+    "khối",
+    "pixel",
+    "kỹ thuật số"
+   ]
+  },
+  "overlay:glitch-codigo": {
+   "name": "Mưa mã code",
+   "tags": [
+    "mã code",
+    "nhị phân",
+    "hacker",
+    "công nghệ"
+   ]
+  },
+  "overlay:glitch-estatica": {
+   "name": "Nhiễu sóng TV",
+   "tags": [
+    "nhiễu sóng",
+    "tivi",
+    "nhiễu",
+    "static"
+   ]
+  },
+  "overlay:glitch-rgb": {
+   "name": "Glitch RGB",
+   "tags": [
+    "glitch",
+    "rgb",
+    "lỗi",
+    "kỹ thuật số",
+    "cyber"
+   ]
+  },
+  "overlay:glitch-transicion": {
+   "name": "Chuyển cảnh glitch",
+   "tags": [
+    "glitch",
+    "chuyển cảnh",
+    "lỗi",
+    "kỹ thuật số"
+   ]
+  },
+  "overlay:luz-arcoiris": {
+   "name": "Ánh sáng cầu vồng",
+   "tags": [
+    "ánh sáng",
+    "cầu vồng",
+    "lăng kính",
+    "màu sắc"
+   ]
+  },
+  "overlay:luz-barrido-calido": {
+   "name": "Quét sáng ấm",
+   "tags": [
+    "quét sáng",
+    "chuyển cảnh",
+    "ánh sáng",
+    "ấm áp"
+   ]
+  },
+  "overlay:luz-barrido-rosa": {
+   "name": "Quét sáng hồng",
+   "tags": [
+    "quét sáng",
+    "chuyển cảnh",
+    "ánh sáng",
+    "hồng"
+   ]
+  },
+  "overlay:luz-bokeh-azul": {
+   "name": "Bokeh đêm xanh",
+   "tags": [
+    "bokeh",
+    "xanh dương",
+    "ban đêm",
+    "thành phố"
+   ]
+  },
+  "overlay:luz-bokeh-blanco": {
+   "name": "Bokeh trắng",
+   "tags": [
+    "bokeh",
+    "trắng",
+    "ánh đèn",
+    "làm mờ"
+   ]
+  },
+  "overlay:luz-bokeh-cayendo": {
+   "name": "Bokeh rơi",
+   "tags": [
+    "bokeh",
+    "rơi",
+    "ánh đèn",
+    "giáng sinh"
+   ]
+  },
+  "overlay:luz-bokeh-color": {
+   "name": "Bokeh nhiều màu",
+   "tags": [
+    "bokeh",
+    "nhiều màu",
+    "tiệc",
+    "ánh đèn",
+    "ban đêm"
+   ]
+  },
+  "overlay:luz-bokeh-corazones": {
+   "name": "Bokeh trái tim",
+   "tags": [
+    "bokeh",
+    "trái tim",
+    "tình yêu",
+    "lãng mạn"
+   ]
+  },
+  "overlay:luz-bokeh-dorado": {
+   "name": "Bokeh vàng",
+   "tags": [
+    "bokeh",
+    "vàng",
+    "ánh đèn",
+    "làm mờ"
+   ]
+  },
+  "overlay:luz-bokeh-estrellas": {
+   "name": "Bokeh ngôi sao",
+   "tags": [
+    "bokeh",
+    "ngôi sao",
+    "phép thuật",
+    "giáng sinh"
+   ]
+  },
+  "overlay:luz-bokeh-rosa": {
+   "name": "Bokeh hồng",
+   "tags": [
+    "bokeh",
+    "hồng",
+    "lãng mạn",
+    "ánh đèn"
+   ]
+  },
+  "overlay:luz-destello": {
+   "name": "Lóa ống kính",
+   "tags": [
+    "lóa sáng",
+    "flare",
+    "ống kính",
+    "mặt trời"
+   ]
+  },
+  "overlay:luz-destello-azul": {
+   "name": "Lóa anamorphic xanh",
+   "tags": [
+    "lóa sáng",
+    "flare",
+    "anamorphic",
+    "xanh dương",
+    "điện ảnh"
+   ]
+  },
+  "overlay:luz-escaner": {
+   "name": "Tia quét",
+   "tags": [
+    "máy quét",
+    "laser",
+    "công nghệ",
+    "tech"
+   ]
+  },
+  "overlay:luz-flash-transicion": {
+   "name": "Chuyển cảnh chớp sáng",
+   "tags": [
+    "flash",
+    "chớp sáng",
+    "chuyển cảnh",
+    "trắng"
+   ]
+  },
+  "overlay:luz-fuga-calida": {
+   "name": "Rò sáng ấm",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "ấm áp",
+    "cam",
+    "phim"
+   ]
+  },
+  "overlay:luz-fuga-dorada": {
+   "name": "Rò sáng vàng",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "vàng",
+    "phim"
+   ]
+  },
+  "overlay:luz-fuga-esquina": {
+   "name": "Ánh sáng góc",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "góc",
+    "phim"
+   ]
+  },
+  "overlay:luz-fuga-esquina-rosa": {
+   "name": "Ánh sáng góc hồng",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "góc",
+    "hồng",
+    "phim"
+   ]
+  },
+  "overlay:luz-fuga-fria": {
+   "name": "Rò sáng lạnh",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "xanh dương",
+    "lạnh"
+   ]
+  },
+  "overlay:luz-fuga-roja": {
+   "name": "Rò sáng đỏ",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "đỏ",
+    "phim"
+   ]
+  },
+  "overlay:luz-fuga-rosa": {
+   "name": "Rò sáng hồng",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "hồng",
+    "lãng mạn"
+   ]
+  },
+  "overlay:luz-fuga-turquesa": {
+   "name": "Rò sáng xanh ngọc và cam",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "xanh ngọc",
+    "cam",
+    "phim"
+   ]
+  },
+  "overlay:luz-fuga-verde": {
+   "name": "Rò sáng xanh lá vintage",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "xanh lá",
+    "vintage"
+   ]
+  },
+  "overlay:luz-fuga-violeta": {
+   "name": "Rò sáng tím",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "tím",
+    "phim"
+   ]
+  },
+  "overlay:luz-luces-ciudad": {
+   "name": "Ánh đèn thành phố",
+   "tags": [
+    "thành phố",
+    "ánh đèn",
+    "ban đêm",
+    "bokeh"
+   ]
+  },
+  "overlay:luz-luces-navidad": {
+   "name": "Đèn Giáng sinh",
+   "tags": [
+    "giáng sinh",
+    "ánh đèn",
+    "dây đèn",
+    "bokeh"
+   ]
+  },
+  "overlay:luz-luciernagas": {
+   "name": "Đom đóm",
+   "tags": [
+    "đom đóm",
+    "phép thuật",
+    "ban đêm",
+    "khu rừng"
+   ]
+  },
+  "overlay:luz-neon-barrido": {
+   "name": "Quét neon",
+   "tags": [
+    "neon",
+    "quét sáng",
+    "chuyển cảnh",
+    "ánh sáng"
+   ]
+  },
+  "overlay:luz-prisma": {
+   "name": "Lăng kính cầu vồng",
+   "tags": [
+    "lăng kính",
+    "cầu vồng",
+    "khúc xạ",
+    "ánh sáng"
+   ]
+  },
+  "overlay:luz-rayos": {
+   "name": "Tia nắng",
+   "tags": [
+    "tia nắng",
+    "mặt trời",
+    "ánh sáng",
+    "nắng"
+   ]
+  },
+  "overlay:luz-sol": {
+   "name": "Lóa nắng",
+   "tags": [
+    "mặt trời",
+    "lóa sáng",
+    "flare",
+    "mùa hè"
+   ]
+  },
+  "overlay:marco-brillos": {
+   "name": "Khung lấp lánh",
+   "tags": [
+    "khung",
+    "viền",
+    "lấp lánh",
+    "trang trí"
+   ]
+  },
+  "overlay:marco-lineas-laterales": {
+   "name": "Vệt chuyển động",
+   "tags": [
+    "vệt chuyển động",
+    "anime",
+    "nhanh",
+    "đường kẻ"
+   ]
+  },
+  "overlay:marco-lineas-velocidad": {
+   "name": "Vệt tốc độ",
+   "tags": [
+    "vệt tốc độ",
+    "speed lines",
+    "anime",
+    "manga",
+    "truyện tranh"
+   ]
+  },
+  "overlay:marco-neon-azul": {
+   "name": "Khung neon xanh",
+   "tags": [
+    "khung",
+    "viền",
+    "neon",
+    "xanh dương"
+   ]
+  },
+  "overlay:marco-neon-rosa": {
+   "name": "Khung neon hồng",
+   "tags": [
+    "khung",
+    "viền",
+    "neon",
+    "hồng"
+   ]
+  },
+  "overlay:marco-papel-cinta": {
+   "name": "Khung giấy dán băng keo",
+   "tags": [
+    "khung",
+    "giấy",
+    "băng keo",
+    "scrapbook"
+   ]
+  },
+  "overlay:marco-papel-negro": {
+   "name": "Khung cắt giấy đen",
+   "tags": [
+    "khung",
+    "giấy",
+    "cắt giấy",
+    "màu đen"
+   ]
+  },
+  "overlay:marco-papel-recortado": {
+   "name": "Khung cắt giấy",
+   "tags": [
+    "khung",
+    "giấy",
+    "cắt giấy",
+    "thủ công"
+   ]
+  },
+  "overlay:marco-polaroid": {
+   "name": "Khung ảnh lấy liền",
+   "tags": [
+    "khung",
+    "ảnh lấy liền",
+    "viền",
+    "kỷ niệm"
+   ]
+  },
+  "overlay:marco-semitono": {
+   "name": "Chấm halftone truyện tranh",
+   "tags": [
+    "halftone",
+    "truyện tranh",
+    "pop art",
+    "chấm"
+   ]
+  },
+  "overlay:part-ascendentes": {
+   "name": "Ánh sáng bay lên",
+   "tags": [
+    "ánh sáng",
+    "bay lên",
+    "tâm linh",
+    "bình yên"
+   ]
+  },
+  "overlay:part-bengala": {
+   "name": "Que pháo sáng",
+   "tags": [
+    "pháo sáng",
+    "tia lửa",
+    "năm mới",
+    "đám cưới"
+   ]
+  },
+  "overlay:part-brasas": {
+   "name": "Tàn lửa",
+   "tags": [
+    "tàn lửa",
+    "lửa",
+    "lửa trại",
+    "ấm áp"
+   ]
+  },
+  "overlay:part-brasas-azules": {
+   "name": "Tàn lửa xanh",
+   "tags": [
+    "tàn lửa",
+    "xanh dương",
+    "phép thuật",
+    "kỳ ảo"
+   ]
+  },
+  "overlay:part-brillos": {
+   "name": "Lấp lánh",
+   "tags": [
+    "lấp lánh",
+    "tia sáng",
+    "sparkle",
+    "phép thuật"
+   ]
+  },
+  "overlay:part-brillos-azules": {
+   "name": "Lấp lánh xanh",
+   "tags": [
+    "lấp lánh",
+    "xanh dương",
+    "sparkle",
+    "băng giá"
+   ]
+  },
+  "overlay:part-brillos-dorados": {
+   "name": "Lấp lánh vàng",
+   "tags": [
+    "lấp lánh",
+    "vàng",
+    "sparkle",
+    "sang trọng"
+   ]
+  },
+  "overlay:part-brillos-rosa": {
+   "name": "Lấp lánh hồng",
+   "tags": [
+    "lấp lánh",
+    "hồng",
+    "sparkle",
+    "aesthetic"
+   ]
+  },
+  "overlay:part-burbujas": {
+   "name": "Bong bóng",
+   "tags": [
+    "bong bóng",
+    "xà phòng",
+    "nước",
+    "trẻ em"
+   ]
+  },
+  "overlay:part-burbujas-arcoiris": {
+   "name": "Bong bóng óng ánh",
+   "tags": [
+    "bong bóng",
+    "óng ánh",
+    "cầu vồng",
+    "xà phòng"
+   ]
+  },
+  "overlay:part-chispas": {
+   "name": "Tia lửa",
+   "tags": [
+    "tia lửa",
+    "lửa",
+    "pháo sáng",
+    "năng lượng"
+   ]
+  },
+  "overlay:part-chispas-azules": {
+   "name": "Tia lửa xanh",
+   "tags": [
+    "tia lửa",
+    "xanh dương",
+    "năng lượng",
+    "điện"
+   ]
+  },
+  "overlay:part-destellos-grandes": {
+   "name": "Lấp lánh lớn",
+   "tags": [
+    "lấp lánh",
+    "lớn",
+    "tỏa sáng",
+    "sản phẩm"
+   ]
+  },
+  "overlay:part-estrellas-fugaces": {
+   "name": "Sao băng",
+   "tags": [
+    "sao băng",
+    "bầu trời",
+    "ban đêm",
+    "điều ước"
+   ]
+  },
+  "overlay:part-estrellitas": {
+   "name": "Ngôi sao nhỏ",
+   "tags": [
+    "ngôi sao nhỏ",
+    "thiếu nhi",
+    "trẻ em",
+    "phép thuật"
+   ]
+  },
+  "overlay:part-explosion-chispas": {
+   "name": "Bùng nổ tia lửa",
+   "tags": [
+    "bùng nổ",
+    "tia lửa",
+    "va chạm",
+    "cú đánh"
+   ]
+  },
+  "overlay:part-lluvia-luces": {
+   "name": "Mưa ánh sáng",
+   "tags": [
+    "mưa ánh sáng",
+    "ánh đèn",
+    "tiệc",
+    "vũ trường"
+   ]
+  },
+  "overlay:part-lluvia-meteoros": {
+   "name": "Mưa sao băng",
+   "tags": [
+    "mưa sao băng",
+    "sao băng",
+    "bầu trời",
+    "ban đêm"
+   ]
+  },
+  "overlay:part-motas-luz": {
+   "name": "Bụi trong nắng",
+   "tags": [
+    "hạt bụi",
+    "bụi",
+    "ánh nắng",
+    "mặt trời"
+   ]
+  },
+  "overlay:part-nieve-brillante": {
+   "name": "Tuyết kim tuyến",
+   "tags": [
+    "tuyết",
+    "kim tuyến",
+    "mùa đông",
+    "giáng sinh"
+   ]
+  },
+  "overlay:part-orbes": {
+   "name": "Quả cầu ánh sáng",
+   "tags": [
+    "quả cầu sáng",
+    "ánh sáng",
+    "nhẹ nhàng",
+    "mơ màng"
+   ]
+  },
+  "overlay:part-polvo-dorado": {
+   "name": "Bụi vàng",
+   "tags": [
+    "bụi",
+    "vàng",
+    "kim tuyến",
+    "phép thuật"
+   ]
+  },
+  "overlay:part-polvo-magico": {
+   "name": "Vệt bụi phép thuật",
+   "tags": [
+    "phép thuật",
+    "đũa phép",
+    "bụi",
+    "lấp lánh"
+   ]
+  },
+  "overlay:part-polvo-plateado": {
+   "name": "Bụi bạc",
+   "tags": [
+    "bụi",
+    "bạc",
+    "mùa đông",
+    "lấp lánh"
+   ]
+  },
+  "overlay:part-polvo-rosa": {
+   "name": "Bụi hồng",
+   "tags": [
+    "bụi",
+    "hồng",
+    "aesthetic",
+    "lấp lánh"
+   ]
+  },
+  "overlay:part-velocidad-luz": {
+   "name": "Tốc độ ánh sáng",
+   "tags": [
+    "tốc độ",
+    "warp",
+    "không gian",
+    "ngôi sao"
+   ]
+  },
+  "overlay:pel-8mm": {
+   "name": "Phim 8 mm",
+   "tags": [
+    "8mm",
+    "super 8",
+    "phim",
+    "vintage"
+   ]
+  },
+  "overlay:pel-cine-mudo": {
+   "name": "Phim câm",
+   "tags": [
+    "phim câm",
+    "cổ xưa",
+    "nâu đỏ",
+    "điện ảnh"
+   ]
+  },
+  "overlay:pel-crt": {
+   "name": "TV đời cũ (CRT)",
+   "tags": [
+    "crt",
+    "tivi",
+    "retro",
+    "đường quét"
+   ]
+  },
+  "overlay:pel-flash-blanco": {
+   "name": "Chớp sáng phim",
+   "tags": [
+    "flash",
+    "trắng",
+    "chuyển cảnh",
+    "phim"
+   ]
+  },
+  "overlay:pel-grano": {
+   "name": "Hạt nhiễu phim",
+   "tags": [
+    "hạt nhiễu",
+    "grain",
+    "phim",
+    "nhiễu"
+   ]
+  },
+  "overlay:pel-grano-16mm": {
+   "name": "Hạt nhiễu 16 mm",
+   "tags": [
+    "hạt nhiễu",
+    "grain",
+    "16mm",
+    "phim"
+   ]
+  },
+  "overlay:pel-grano-fino": {
+   "name": "Hạt nhiễu mịn",
+   "tags": [
+    "hạt nhiễu",
+    "grain",
+    "mịn",
+    "điện ảnh"
+   ]
+  },
+  "overlay:pel-grano-fuerte": {
+   "name": "Hạt nhiễu dày",
+   "tags": [
+    "hạt nhiễu",
+    "grain",
+    "dày",
+    "nhiễu"
+   ]
+  },
+  "overlay:pel-marco-super8": {
+   "name": "Khung Super 8",
+   "tags": [
+    "super 8",
+    "8mm",
+    "khung",
+    "phim"
+   ]
+  },
+  "overlay:pel-polvo-rayas": {
+   "name": "Bụi và vết xước phim",
+   "tags": [
+    "phim",
+    "bụi",
+    "vết xước",
+    "vintage"
+   ]
+  },
+  "overlay:pel-polvo-suave": {
+   "name": "Bụi nhẹ",
+   "tags": [
+    "bụi",
+    "nhẹ",
+    "phim",
+    "vintage"
+   ]
+  },
+  "overlay:pel-quemado": {
+   "name": "Cháy phim",
+   "tags": [
+    "cháy phim",
+    "film burn",
+    "phim",
+    "chuyển cảnh"
+   ]
+  },
+  "overlay:pel-quemado-azul": {
+   "name": "Cháy phim xanh",
+   "tags": [
+    "cháy phim",
+    "film burn",
+    "xanh dương",
+    "chuyển cảnh"
+   ]
+  },
+  "overlay:pel-quemado-bordes": {
+   "name": "Cháy phim viền",
+   "tags": [
+    "cháy phim",
+    "film burn",
+    "viền",
+    "chuyển cảnh"
+   ]
+  },
+  "overlay:pel-quemado-centro": {
+   "name": "Cháy phim ở giữa",
+   "tags": [
+    "cháy phim",
+    "film burn",
+    "ở giữa",
+    "chuyển cảnh"
+   ]
+  },
+  "overlay:pel-quemado-rojo": {
+   "name": "Cháy phim đỏ",
+   "tags": [
+    "cháy phim",
+    "film burn",
+    "đỏ",
+    "chuyển cảnh"
+   ]
+  },
+  "overlay:pel-quemado-rosa": {
+   "name": "Cháy phim hồng",
+   "tags": [
+    "cháy phim",
+    "film burn",
+    "hồng",
+    "chuyển cảnh"
+   ]
+  },
+  "overlay:pel-tira-35mm": {
+   "name": "Dải phim 35 mm",
+   "tags": [
+    "35mm",
+    "dải phim",
+    "phim",
+    "khung"
+   ]
+  },
+  "overlay:pel-vhs": {
+   "name": "VHS",
+   "tags": [
+    "vhs",
+    "retro",
+    "thập niên 90",
+    "băng video"
+   ]
+  },
+  "overlay:pel-vhs-pausa": {
+   "name": "VHS tạm dừng",
+   "tags": [
+    "vhs",
+    "tạm dừng",
+    "pause",
+    "retro"
+   ]
+  },
+  "overlay:pel-vhs-rebobinar": {
+   "name": "VHS tua lại",
+   "tags": [
+    "vhs",
+    "tua lại",
+    "rewind",
+    "retro"
+   ]
+  },
+  "overlay:pel-vhs-rec": {
+   "name": "VHS đang quay",
+   "tags": [
+    "vhs",
+    "rec",
+    "đang quay",
+    "retro"
+   ]
+  },
+  "overlay:textura-grunge": {
+   "name": "Kết cấu grunge",
+   "tags": [
+    "grunge",
+    "kết cấu",
+    "texture",
+    "bụi bặm",
+    "rock"
+   ]
+  },
+  "overlay:textura-papel": {
+   "name": "Kết cấu giấy",
+   "tags": [
+    "kết cấu",
+    "giấy",
+    "texture",
+    "vintage"
+   ]
+  },
+  "sound:angelical": {
+   "name": "Âm thanh thiên thần",
+   "tags": [
+    "thiên thần",
+    "thiên đường",
+    "bình yên",
+    "phép màu"
+   ]
+  },
+  "sound:aparicion": {
+   "name": "Hiện ra bất ngờ",
+   "tags": [
+    "xuất hiện",
+    "poof",
+    "hé lộ",
+    "reveal"
+   ]
+  },
+  "sound:aplausos": {
+   "name": "Vỗ tay",
+   "tags": [
+    "vỗ tay",
+    "khán giả",
+    "hoan hô",
+    "chúc mừng"
+   ]
+  },
+  "sound:arpa-bajada": {
+   "name": "Đàn hạc lướt xuống",
+   "tags": [
+    "đàn hạc",
+    "lướt xuống",
+    "hồi tưởng",
+    "flashback"
+   ]
+  },
+  "sound:arpa-subida": {
+   "name": "Đàn hạc lướt lên",
+   "tags": [
+    "đàn hạc",
+    "lướt lên",
+    "giấc mơ",
+    "kỷ niệm"
+   ]
+  },
+  "sound:aura": {
+   "name": "Hào quang lung linh",
+   "tags": [
+    "hào quang",
+    "lung linh",
+    "nền",
+    "nhẹ nhàng"
+   ]
+  },
+  "sound:ba-dum-tss": {
+   "name": "Ba dum tss",
+   "tags": [
+    "ba dum tss",
+    "rimshot",
+    "câu đùa",
+    "hài hước"
+   ]
+  },
+  "sound:bass-drop": {
+   "name": "Bass drop",
+   "tags": [
+    "bass drop",
+    "drop",
+    "trầm",
+    "va chạm"
+   ]
+  },
+  "sound:bass-drop-corto": {
+   "name": "Bass drop ngắn",
+   "tags": [
+    "bass drop",
+    "drop",
+    "ngắn",
+    "va chạm"
+   ]
+  },
+  "sound:bass-drop-distorsion": {
+   "name": "Bass drop méo tiếng",
+   "tags": [
+    "bass drop",
+    "méo tiếng",
+    "distortion",
+    "va chạm"
+   ]
+  },
+  "sound:bloquear": {
+   "name": "Khóa máy",
+   "tags": [
+    "khóa",
+    "lock",
+    "điện thoại",
+    "ổ khóa"
+   ]
+  },
+  "sound:bocina-payaso": {
+   "name": "Còi chú hề",
+   "tags": [
+    "còi",
+    "chú hề",
+    "bóp còi",
+    "hài hước"
+   ]
+  },
+  "sound:bofetada": {
+   "name": "Cái tát",
+   "tags": [
+    "cái tát",
+    "tát",
+    "hài hước",
+    "drama"
+   ]
+  },
+  "sound:boing": {
+   "name": "Boing",
+   "tags": [
+    "boing",
+    "lò xo",
+    "nảy",
+    "hoạt hình",
+    "hài hước"
+   ]
+  },
+  "sound:boing-agudo": {
+   "name": "Boing cao",
+   "tags": [
+    "boing",
+    "cao",
+    "hài hước",
+    "nảy"
+   ]
+  },
+  "sound:boing-grave": {
+   "name": "Boing trầm",
+   "tags": [
+    "boing",
+    "trầm",
+    "hài hước",
+    "nảy"
+   ]
+  },
+  "sound:bombo": {
+   "name": "Trống kick",
+   "tags": [
+    "trống kick",
+    "kick",
+    "trống",
+    "beat"
+   ]
+  },
+  "sound:bonk": {
+   "name": "Bonk",
+   "tags": [
+    "bonk",
+    "cốc đầu",
+    "gỗ",
+    "hài hước"
+   ]
+  },
+  "sound:bonus": {
+   "name": "Thưởng thêm",
+   "tags": [
+    "bonus",
+    "thưởng",
+    "trò chơi",
+    "phần thưởng"
+   ]
+  },
+  "sound:boom-cine": {
+   "name": "Boom điện ảnh",
+   "tags": [
+    "boom",
+    "va chạm",
+    "điện ảnh",
+    "hoành tráng"
+   ]
+  },
+  "sound:boom-lejano": {
+   "name": "Boom phía xa",
+   "tags": [
+    "boom",
+    "va chạm",
+    "phía xa",
+    "hoành tráng"
+   ]
+  },
+  "sound:boom-profundo": {
+   "name": "Boom trầm",
+   "tags": [
+    "boom",
+    "va chạm",
+    "trầm",
+    "hoành tráng"
+   ]
+  },
+  "sound:braam": {
+   "name": "Braam",
+   "tags": [
+    "braam",
+    "trailer",
+    "hoành tráng",
+    "điện ảnh",
+    "kịch tính"
+   ]
+  },
+  "sound:braam-grave": {
+   "name": "Braam trầm",
+   "tags": [
+    "braam",
+    "trailer",
+    "trầm",
+    "u tối"
+   ]
+  },
+  "sound:brillo-escena": {
+   "name": "Lấp lánh cảnh",
+   "tags": [
+    "lấp lánh",
+    "phép thuật",
+    "sparkle",
+    "tỏa sáng"
+   ]
+  },
+  "sound:brillo-largo": {
+   "name": "Lấp lánh dài",
+   "tags": [
+    "lấp lánh",
+    "dài",
+    "phép thuật",
+    "sparkle"
+   ]
+  },
+  "sound:brillo-oscuro": {
+   "name": "Lấp lánh u tối",
+   "tags": [
+    "lấp lánh",
+    "u tối",
+    "phép thuật",
+    "bí ẩn"
+   ]
+  },
+  "sound:burbujas-magicas": {
+   "name": "Bong bóng phép thuật",
+   "tags": [
+    "bong bóng",
+    "phép thuật",
+    "thiếu nhi",
+    "vui"
+   ]
+  },
+  "sound:caida-caricatura": {
+   "name": "Té ngã hoạt hình",
+   "tags": [
+    "té ngã",
+    "hoạt hình",
+    "va chạm",
+    "hài hước"
+   ]
+  },
+  "sound:caida-larga": {
+   "name": "Downlifter dài",
+   "tags": [
+    "downlifter",
+    "hạ xuống",
+    "chuyển cảnh",
+    "kết thúc"
+   ]
+  },
+  "sound:caida-objeto": {
+   "name": "Đồ vật rơi",
+   "tags": [
+    "rơi",
+    "đồ vật",
+    "tiếng đập",
+    "va chạm"
+   ]
+  },
+  "sound:caida-ruido": {
+   "name": "Downlifter tiếng nhiễu",
+   "tags": [
+    "downlifter",
+    "tiếng nhiễu",
+    "hạ xuống",
+    "chuyển cảnh"
+   ]
+  },
+  "sound:caida-sinte": {
+   "name": "Synth hạ xuống",
+   "tags": [
+    "downlifter",
+    "synth",
+    "hạ xuống",
+    "chuyển cảnh"
+   ]
+  },
+  "sound:caja": {
+   "name": "Trống snare",
+   "tags": [
+    "trống snare",
+    "snare",
+    "trống",
+    "beat"
+   ]
+  },
+  "sound:caja-registradora": {
+   "name": "Máy tính tiền",
+   "tags": [
+    "máy tính tiền",
+    "ting ting",
+    "bán hàng",
+    "tiền"
+   ]
+  },
+  "sound:camara-foto": {
+   "name": "Tiếng chụp ảnh",
+   "tags": [
+    "máy ảnh",
+    "chụp ảnh",
+    "màn trập",
+    "selfie"
+   ]
+  },
+  "sound:campana-iglesia": {
+   "name": "Chuông nhà thờ",
+   "tags": [
+    "chuông",
+    "nhà thờ",
+    "đám cưới",
+    "trang nghiêm"
+   ]
+  },
+  "sound:campanas-boda": {
+   "name": "Chuông đám cưới",
+   "tags": [
+    "đám cưới",
+    "chuông",
+    "cô dâu chú rể",
+    "hôn lễ"
+   ]
+  },
+  "sound:campanitas": {
+   "name": "Chuông gió",
+   "tags": [
+    "chuông gió",
+    "gió",
+    "nhẹ nhàng",
+    "leng keng"
+   ]
+  },
+  "sound:campanitas-rapidas": {
+   "name": "Chuông gió nhanh",
+   "tags": [
+    "chuông gió",
+    "nhanh",
+    "lấp lánh",
+    "leng keng"
+   ]
+  },
+  "sound:captura-pantalla": {
+   "name": "Chụp màn hình",
+   "tags": [
+    "chụp màn hình",
+    "screenshot",
+    "màn hình",
+    "điện thoại"
+   ]
+  },
+  "sound:carrera-caricatura": {
+   "name": "Chạy kiểu hoạt hình",
+   "tags": [
+    "chạy",
+    "hoạt hình",
+    "bỏ chạy",
+    "hài hước"
+   ]
+  },
+  "sound:chasquido": {
+   "name": "Búng tay",
+   "tags": [
+    "búng tay",
+    "snap",
+    "ngón tay",
+    "biến hình"
+   ]
+  },
+  "sound:chillido-doble": {
+   "name": "Tiếng chít đôi",
+   "tags": [
+    "chít chít",
+    "đồ chơi",
+    "đôi",
+    "hài hước"
+   ]
+  },
+  "sound:chillido-juguete": {
+   "name": "Đồ chơi chít chít",
+   "tags": [
+    "chít chít",
+    "đồ chơi",
+    "thú cưng",
+    "hài hước"
+   ]
+  },
+  "sound:cinta-frenada": {
+   "name": "Tape stop",
+   "tags": [
+    "tape stop",
+    "dừng băng",
+    "cắt",
+    "dj"
+   ]
+  },
+  "sound:cinta-frenada-lenta": {
+   "name": "Tape stop chậm",
+   "tags": [
+    "tape stop",
+    "dừng băng",
+    "chậm",
+    "kết thúc"
+   ]
+  },
+  "sound:clic": {
+   "name": "Tiếng click",
+   "tags": [
+    "click",
+    "nhấp",
+    "nút"
+   ]
+  },
+  "sound:clic-boligrafo": {
+   "name": "Bấm bút bi",
+   "tags": [
+    "click",
+    "bút bi",
+    "bấm bút"
+   ]
+  },
+  "sound:clic-raton": {
+   "name": "Click chuột",
+   "tags": [
+    "click",
+    "chuột",
+    "máy tính",
+    "hướng dẫn"
+   ]
+  },
+  "sound:completado": {
+   "name": "Hoàn thành",
+   "tags": [
+    "hoàn thành",
+    "xong",
+    "done"
+   ]
+  },
+  "sound:contador-puntos": {
+   "name": "Đếm điểm",
+   "tags": [
+    "điểm",
+    "score",
+    "bộ đếm",
+    "trò chơi"
+   ]
+  },
+  "sound:corneta-aire": {
+   "name": "Còi hơi",
+   "tags": [
+    "còi hơi",
+    "air horn",
+    "tiệc",
+    "dj",
+    "hype"
+   ]
+  },
+  "sound:coro-celestial": {
+   "name": "Dàn hợp xướng thiên đường",
+   "tags": [
+    "hợp xướng",
+    "thiên đường",
+    "thiên thần",
+    "hé lộ"
+   ]
+  },
+  "sound:correcto": {
+   "name": "Chính xác",
+   "tags": [
+    "chính xác",
+    "đúng",
+    "check",
+    "thành công"
+   ]
+  },
+  "sound:cremallera": {
+   "name": "Khóa kéo",
+   "tags": [
+    "khóa kéo",
+    "dây kéo",
+    "quần áo",
+    "kéo khóa"
+   ]
+  },
+  "sound:cristal": {
+   "name": "Tiếng ly thủy tinh",
+   "tags": [
+    "thủy tinh",
+    "ly",
+    "cụng ly",
+    "ting"
+   ]
+  },
+  "sound:cuenta-palillos": {
+   "name": "Gõ dùi đếm nhịp",
+   "tags": [
+    "đếm nhịp",
+    "1 2 3 4",
+    "dùi trống",
+    "bắt đầu"
+   ]
+  },
+  "sound:dano": {
+   "name": "Bị thương",
+   "tags": [
+    "mất máu",
+    "bị đánh",
+    "trò chơi",
+    "hurt"
+   ]
+  },
+  "sound:desaparicion": {
+   "name": "Biến mất",
+   "tags": [
+    "biến mất",
+    "phép thuật",
+    "vanish",
+    "puff"
+   ]
+  },
+  "sound:desbloquear": {
+   "name": "Mở khóa",
+   "tags": [
+    "mở khóa",
+    "unlock",
+    "điện thoại"
+   ]
+  },
+  "sound:deslizar-abajo": {
+   "name": "Vuốt xuống",
+   "tags": [
+    "vuốt",
+    "swipe",
+    "xuống",
+    "giao diện"
+   ]
+  },
+  "sound:deslizar-arriba": {
+   "name": "Vuốt lên",
+   "tags": [
+    "vuốt",
+    "swipe",
+    "lên",
+    "giao diện",
+    "nhanh"
+   ]
+  },
+  "sound:deslizar-interfaz": {
+   "name": "Vuốt giao diện",
+   "tags": [
+    "vuốt",
+    "swipe",
+    "màn hình",
+    "điện thoại",
+    "ứng dụng"
+   ]
+  },
+  "sound:despertador": {
+   "name": "Đồng hồ báo thức",
+   "tags": [
+    "báo thức",
+    "chuông",
+    "buổi sáng",
+    "thức dậy"
+   ]
+  },
+  "sound:destello-ding": {
+   "name": "Ding lấp lánh",
+   "tags": [
+    "ding",
+    "lấp lánh",
+    "sạch bong",
+    "mới"
+   ]
+  },
+  "sound:disco-rayado": {
+   "name": "Đĩa nhạc rít",
+   "tags": [
+    "đĩa rít",
+    "record scratch",
+    "khựng lại",
+    "hài hước"
+   ]
+  },
+  "sound:disco-rayado-frenada": {
+   "name": "Nhạc dừng đột ngột",
+   "tags": [
+    "đĩa nhạc",
+    "dừng",
+    "khựng lại",
+    "im lặng ngượng"
+   ]
+  },
+  "sound:dron-metalico": {
+   "name": "Âm nền kim loại",
+   "tags": [
+    "drone",
+    "kim loại",
+    "công nghiệp",
+    "bí ẩn"
+   ]
+  },
+  "sound:dron-oscuro": {
+   "name": "Âm nền u tối",
+   "tags": [
+    "drone",
+    "u tối",
+    "hồi hộp",
+    "kinh dị"
+   ]
+  },
+  "sound:drop-fill": {
+   "name": "Fill trống",
+   "tags": [
+    "fill trống",
+    "trống",
+    "drop",
+    "chuyển cảnh"
+   ]
+  },
+  "sound:error-negativo": {
+   "name": "Âm báo sai",
+   "tags": [
+    "lỗi",
+    "sai",
+    "không",
+    "thất bại"
+   ]
+  },
+  "sound:error-zumbido": {
+   "name": "Tiếng bíp báo lỗi",
+   "tags": [
+    "lỗi",
+    "sai",
+    "buzz",
+    "bíp"
+   ]
+  },
+  "sound:explosion": {
+   "name": "Vụ nổ",
+   "tags": [
+    "vụ nổ",
+    "bom",
+    "boom",
+    "hành động"
+   ]
+  },
+  "sound:explosion-8bits": {
+   "name": "Vụ nổ 8-bit",
+   "tags": [
+    "vụ nổ",
+    "8-bit",
+    "retro",
+    "trò chơi"
+   ]
+  },
+  "sound:explosion-lejana": {
+   "name": "Vụ nổ phía xa",
+   "tags": [
+    "vụ nổ",
+    "phía xa",
+    "chiến tranh",
+    "boom"
+   ]
+  },
+  "sound:fanfarria": {
+   "name": "Kèn hiệu",
+   "tags": [
+    "kèn hiệu",
+    "fanfare",
+    "kèn trumpet",
+    "thông báo"
+   ]
+  },
+  "sound:fanfarria-victoria": {
+   "name": "Kèn chiến thắng",
+   "tags": [
+    "chiến thắng",
+    "kèn hiệu",
+    "người thắng",
+    "nhà vô địch"
+   ]
+  },
+  "sound:game-over": {
+   "name": "Game over",
+   "tags": [
+    "game over",
+    "kết thúc",
+    "thua",
+    "trò chơi"
+   ]
+  },
+  "sound:gema": {
+   "name": "Đá quý",
+   "tags": [
+    "đá quý",
+    "kim cương",
+    "trò chơi",
+    "lấp lánh"
+   ]
+  },
+  "sound:glitch-corto": {
+   "name": "Glitch ngắn",
+   "tags": [
+    "glitch",
+    "kỹ thuật số",
+    "lỗi",
+    "chuyển cảnh"
+   ]
+  },
+  "sound:glitch-digital": {
+   "name": "Glitch kỹ thuật số",
+   "tags": [
+    "glitch",
+    "kỹ thuật số",
+    "lỗi",
+    "chuyển cảnh"
+   ]
+  },
+  "sound:glitch-estatica": {
+   "name": "Tiếng nhiễu bùng lên",
+   "tags": [
+    "glitch",
+    "nhiễu sóng",
+    "static",
+    "chuyển cảnh"
+   ]
+  },
+  "sound:glitch-tartamudeo": {
+   "name": "Glitch giật lặp",
+   "tags": [
+    "glitch",
+    "giật lặp",
+    "stutter",
+    "chuyển cảnh"
+   ]
+  },
+  "sound:golpe": {
+   "name": "Cú đấm",
+   "tags": [
+    "cú đấm",
+    "đánh nhau",
+    "punch",
+    "hành động"
+   ]
+  },
+  "sound:golpe-dramatico": {
+   "name": "Điểm nhấn kịch tính",
+   "tags": [
+    "kịch tính",
+    "dun dun dun",
+    "bất ngờ",
+    "drama",
+    "hé lộ"
+   ]
+  },
+  "sound:golpe-dramatico-corto": {
+   "name": "Điểm nhấn kịch tính ngắn",
+   "tags": [
+    "kịch tính",
+    "điểm nhấn",
+    "drama",
+    "sốc"
+   ]
+  },
+  "sound:golpe-fuerte": {
+   "name": "Cú đấm mạnh",
+   "tags": [
+    "cú đấm",
+    "mạnh",
+    "punch",
+    "đánh nhau"
+   ]
+  },
+  "sound:golpe-glitch": {
+   "name": "Cú glitch",
+   "tags": [
+    "glitch",
+    "va chạm",
+    "kỹ thuật số",
+    "hit"
+   ]
+  },
+  "sound:golpe-metal": {
+   "name": "Tiếng gõ kim loại",
+   "tags": [
+    "kim loại",
+    "gõ",
+    "sắt",
+    "va chạm"
+   ]
+  },
+  "sound:golpe-metal-agudo": {
+   "name": "Tiếng gõ kim loại thanh",
+   "tags": [
+    "kim loại",
+    "thanh",
+    "chuông",
+    "va chạm"
+   ]
+  },
+  "sound:gong": {
+   "name": "Cồng",
+   "tags": [
+    "cồng",
+    "gong",
+    "trang nghiêm",
+    "thiền"
+   ]
+  },
+  "sound:grillos": {
+   "name": "Tiếng dế",
+   "tags": [
+    "dế",
+    "im lặng",
+    "ngượng ngùng",
+    "awkward"
+   ]
+  },
+  "sound:hechizo": {
+   "name": "Câu thần chú",
+   "tags": [
+    "thần chú",
+    "phép thuật",
+    "kỳ ảo",
+    "spell"
+   ]
+  },
+  "sound:impacto-reverso": {
+   "name": "Hit đảo ngược",
+   "tags": [
+    "đảo ngược",
+    "reverse",
+    "mở đầu",
+    "hồi hộp"
+   ]
+  },
+  "sound:impacto-trailer": {
+   "name": "Hit trailer",
+   "tags": [
+    "trailer",
+    "va chạm",
+    "điện ảnh",
+    "hoành tráng",
+    "hit"
+   ]
+  },
+  "sound:impacto-trailer-brillante": {
+   "name": "Hit trailer sáng",
+   "tags": [
+    "trailer",
+    "va chạm",
+    "điện ảnh",
+    "sáng",
+    "hit"
+   ]
+  },
+  "sound:impacto-trailer-oscuro": {
+   "name": "Hit trailer u tối",
+   "tags": [
+    "trailer",
+    "va chạm",
+    "điện ảnh",
+    "u tối",
+    "hit"
+   ]
+  },
+  "sound:inicio-juego": {
+   "name": "Bắt đầu trò chơi",
+   "tags": [
+    "bắt đầu",
+    "start",
+    "trò chơi",
+    "game"
+   ]
+  },
+  "sound:interruptor-apagar": {
+   "name": "Tắt công tắc",
+   "tags": [
+    "công tắc",
+    "tắt",
+    "off",
+    "đèn"
+   ]
+  },
+  "sound:interruptor-encender": {
+   "name": "Bật công tắc",
+   "tags": [
+    "công tắc",
+    "bật",
+    "on",
+    "đèn"
+   ]
+  },
+  "sound:laser": {
+   "name": "Tia laser",
+   "tags": [
+    "laser",
+    "bắn",
+    "pew",
+    "khoa học viễn tưởng"
+   ]
+  },
+  "sound:laser-doble": {
+   "name": "Laser đôi",
+   "tags": [
+    "laser",
+    "bắn",
+    "đôi",
+    "trò chơi"
+   ]
+  },
+  "sound:latido": {
+   "name": "Nhịp tim",
+   "tags": [
+    "nhịp tim",
+    "tim đập",
+    "căng thẳng",
+    "hồi hộp"
+   ]
+  },
+  "sound:latido-rapido": {
+   "name": "Tim đập nhanh",
+   "tags": [
+    "nhịp tim",
+    "nhanh",
+    "sợ hãi",
+    "lo lắng"
+   ]
+  },
+  "sound:latigazo": {
+   "name": "Tiếng roi quất",
+   "tags": [
+    "roi",
+    "quất",
+    "whip",
+    "nhanh"
+   ]
+  },
+  "sound:lluvia-monedas": {
+   "name": "Mưa đồng xu",
+   "tags": [
+    "đồng xu",
+    "trò chơi",
+    "tiền",
+    "game"
+   ]
+  },
+  "sound:logro": {
+   "name": "Thành tích",
+   "tags": [
+    "thành tích",
+    "thành công",
+    "mở khóa thành tích"
+   ]
+  },
+  "sound:maquina-escribir": {
+   "name": "Máy đánh chữ",
+   "tags": [
+    "máy đánh chữ",
+    "retro",
+    "chữ",
+    "gõ chữ"
+   ]
+  },
+  "sound:maraca": {
+   "name": "Lắc maraca",
+   "tags": [
+    "maraca",
+    "shaker",
+    "nhịp điệu",
+    "bộ gõ"
+   ]
+  },
+  "sound:me-gusta": {
+   "name": "Thả tim",
+   "tags": [
+    "thích",
+    "like",
+    "trái tim",
+    "mạng xã hội"
+   ]
+  },
+  "sound:mensaje-enviado": {
+   "name": "Đã gửi tin nhắn",
+   "tags": [
+    "đã gửi",
+    "tin nhắn",
+    "chat",
+    "gửi"
+   ]
+  },
+  "sound:mensaje-recibido": {
+   "name": "Nhận tin nhắn",
+   "tags": [
+    "nhận",
+    "tin nhắn",
+    "chat",
+    "thông báo"
+   ]
+  },
+  "sound:menu-seleccion": {
+   "name": "Chọn menu",
+   "tags": [
+    "menu",
+    "chọn",
+    "trò chơi",
+    "nút"
+   ]
+  },
+  "sound:moneda": {
+   "name": "Đồng xu",
+   "tags": [
+    "đồng xu",
+    "trò chơi",
+    "tiền",
+    "game"
+   ]
+  },
+  "sound:moneda-doble": {
+   "name": "Đồng xu đôi",
+   "tags": [
+    "đồng xu",
+    "đôi",
+    "trò chơi",
+    "tiền"
+   ]
+  },
+  "sound:notificacion-campanita": {
+   "name": "Thông báo chuông",
+   "tags": [
+    "thông báo",
+    "chuông",
+    "cảnh báo",
+    "điện thoại"
+   ]
+  },
+  "sound:notificacion-cristal": {
+   "name": "Thông báo trong trẻo",
+   "tags": [
+    "thông báo",
+    "trong trẻo",
+    "cảnh báo",
+    "điện thoại"
+   ]
+  },
+  "sound:notificacion-dos-tonos": {
+   "name": "Thông báo hai tông",
+   "tags": [
+    "thông báo",
+    "hai tông",
+    "cảnh báo",
+    "điện thoại"
+   ]
+  },
+  "sound:notificacion-mensaje": {
+   "name": "Tin nhắn mới",
+   "tags": [
+    "thông báo",
+    "tin nhắn mới",
+    "chat",
+    "điện thoại"
+   ]
+  },
+  "sound:notificacion-suave": {
+   "name": "Thông báo nhẹ",
+   "tags": [
+    "thông báo",
+    "nhẹ nhàng",
+    "cảnh báo",
+    "điện thoại"
+   ]
+  },
+  "sound:palmas": {
+   "name": "Tiếng vỗ tay",
+   "tags": [
+    "vỗ tay",
+    "clap",
+    "beat",
+    "nhịp"
+   ]
+  },
+  "sound:pasar-pagina": {
+   "name": "Lật trang",
+   "tags": [
+    "lật trang",
+    "sách",
+    "giấy",
+    "chuyển cảnh"
+   ]
+  },
+  "sound:platillo": {
+   "name": "Cymbal crash",
+   "tags": [
+    "cymbal",
+    "crash",
+    "chũm chọe",
+    "điểm nhấn"
+   ]
+  },
+  "sound:platillo-corto": {
+   "name": "Cymbal ngắn",
+   "tags": [
+    "cymbal",
+    "ngắn",
+    "chũm chọe",
+    "điểm nhấn"
+   ]
+  },
+  "sound:platillo-reverso": {
+   "name": "Cymbal đảo ngược",
+   "tags": [
+    "cymbal",
+    "đảo ngược",
+    "reverse",
+    "chuyển cảnh",
+    "mở đầu"
+   ]
+  },
+  "sound:platillo-reverso-largo": {
+   "name": "Cymbal đảo ngược dài",
+   "tags": [
+    "cymbal",
+    "đảo ngược",
+    "reverse",
+    "dài"
+   ]
+  },
+  "sound:poder": {
+   "name": "Tăng sức mạnh",
+   "tags": [
+    "power up",
+    "sức mạnh",
+    "trò chơi",
+    "năng lượng"
+   ]
+  },
+  "sound:polvo-hada": {
+   "name": "Bụi tiên",
+   "tags": [
+    "bụi tiên",
+    "nàng tiên",
+    "phép thuật",
+    "lấp lánh"
+   ]
+  },
+  "sound:pop": {
+   "name": "Pop",
+   "tags": [
+    "pop",
+    "chữ hiện ra",
+    "xuất hiện",
+    "bong bóng"
+   ]
+  },
+  "sound:pop-agudo": {
+   "name": "Pop cao",
+   "tags": [
+    "pop",
+    "cao",
+    "xuất hiện",
+    "bong bóng"
+   ]
+  },
+  "sound:pop-doble": {
+   "name": "Pop đôi",
+   "tags": [
+    "pop",
+    "đôi",
+    "xuất hiện",
+    "bong bóng"
+   ]
+  },
+  "sound:pop-grave": {
+   "name": "Pop trầm",
+   "tags": [
+    "pop",
+    "trầm",
+    "xuất hiện",
+    "bong bóng"
+   ]
+  },
+  "sound:pop-suave": {
+   "name": "Pop nhẹ",
+   "tags": [
+    "pop",
+    "nhẹ",
+    "xuất hiện",
+    "bong bóng"
+   ]
+  },
+  "sound:portazo": {
+   "name": "Đóng sầm cửa",
+   "tags": [
+    "cửa",
+    "đóng sầm",
+    "tức giận",
+    "va chạm"
+   ]
+  },
+  "sound:premio-mayor": {
+   "name": "Giải độc đắc",
+   "tags": [
+    "jackpot",
+    "độc đắc",
+    "trúng thưởng",
+    "bốc thăm"
+   ]
+  },
+  "sound:rafaga-viento": {
+   "name": "Cơn gió thổi",
+   "tags": [
+    "gió",
+    "whoosh",
+    "chuyển cảnh",
+    "chuyển động"
+   ]
+  },
+  "sound:rampa-velocidad": {
+   "name": "Tăng giảm tốc",
+   "tags": [
+    "speed ramp",
+    "tốc độ",
+    "chuyển cảnh",
+    "edit"
+   ]
+  },
+  "sound:redoble": {
+   "name": "Trống dồn",
+   "tags": [
+    "trống dồn",
+    "drumroll",
+    "hồi hộp",
+    "thông báo"
+   ]
+  },
+  "sound:redoble-platillo": {
+   "name": "Trống dồn kèm cymbal",
+   "tags": [
+    "trống dồn",
+    "cymbal",
+    "thông báo",
+    "hé lộ",
+    "người thắng"
+   ]
+  },
+  "sound:reloj": {
+   "name": "Đồng hồ tích tắc",
+   "tags": [
+    "đồng hồ",
+    "tích tắc",
+    "thời gian",
+    "chờ đợi"
+   ]
+  },
+  "sound:reloj-rapido": {
+   "name": "Đồng hồ tích tắc nhanh",
+   "tags": [
+    "đồng hồ",
+    "nhanh",
+    "gấp gáp",
+    "đếm ngược"
+   ]
+  },
+  "sound:resorte": {
+   "name": "Lò xo",
+   "tags": [
+    "lò xo",
+    "nảy",
+    "hài hước",
+    "bật"
+   ]
+  },
+  "sound:revelacion": {
+   "name": "Âm hé lộ",
+   "tags": [
+    "hé lộ",
+    "reveal",
+    "bất ngờ",
+    "trước sau",
+    "kết quả"
+   ]
+  },
+  "sound:riser-2s": {
+   "name": "Riser 2 giây",
+   "tags": [
+    "riser",
+    "dâng lên",
+    "căng thẳng",
+    "build up"
+   ]
+  },
+  "sound:riser-4s": {
+   "name": "Riser 4 giây",
+   "tags": [
+    "riser",
+    "dâng lên",
+    "căng thẳng",
+    "build up"
+   ]
+  },
+  "sound:riser-brillante": {
+   "name": "Uplifter trong trẻo",
+   "tags": [
+    "riser",
+    "uplifter",
+    "dâng lên",
+    "sáng"
+   ]
+  },
+  "sound:riser-golpe": {
+   "name": "Riser kèm hit",
+   "tags": [
+    "riser",
+    "hit",
+    "chuyển cảnh",
+    "va chạm",
+    "edit"
+   ]
+  },
+  "sound:riser-rapido": {
+   "name": "Riser nhanh",
+   "tags": [
+    "riser",
+    "dâng lên",
+    "nhanh",
+    "build up"
+   ]
+  },
+  "sound:riser-sinte-2s": {
+   "name": "Riser synth 2 giây",
+   "tags": [
+    "riser",
+    "synth",
+    "dâng lên",
+    "build up"
+   ]
+  },
+  "sound:riser-sinte-4s": {
+   "name": "Riser synth 4 giây",
+   "tags": [
+    "riser",
+    "synth",
+    "dâng lên",
+    "build up"
+   ]
+  },
+  "sound:riser-tension": {
+   "name": "Riser căng thẳng",
+   "tags": [
+    "riser",
+    "căng thẳng",
+    "hồi hộp",
+    "build up"
+   ]
+  },
+  "sound:salto": {
+   "name": "Nhảy",
+   "tags": [
+    "nhảy",
+    "jump",
+    "trò chơi",
+    "bật"
+   ]
+  },
+  "sound:sarten": {
+   "name": "Cái chảo",
+   "tags": [
+    "chảo",
+    "đập chảo",
+    "hài hước",
+    "nhà bếp"
+   ]
+  },
+  "sound:scratch-dj": {
+   "name": "DJ scratch",
+   "tags": [
+    "scratch",
+    "dj",
+    "hip hop",
+    "đĩa than",
+    "chuyển cảnh"
+   ]
+  },
+  "sound:scratch-doble": {
+   "name": "Scratch đôi",
+   "tags": [
+    "scratch",
+    "dj",
+    "đôi",
+    "hip hop"
+   ]
+  },
+  "sound:seguir": {
+   "name": "Người theo dõi mới",
+   "tags": [
+    "theo dõi",
+    "follow",
+    "người theo dõi",
+    "mạng xã hội"
+   ]
+  },
+  "sound:silbato-bajada": {
+   "name": "Còi trượt xuống",
+   "tags": [
+    "còi trượt",
+    "xuống",
+    "rơi",
+    "hài hước"
+   ]
+  },
+  "sound:silbato-subida": {
+   "name": "Còi trượt lên",
+   "tags": [
+    "còi trượt",
+    "lên",
+    "hài hước",
+    "hoạt hình"
+   ]
+  },
+  "sound:sirena": {
+   "name": "Còi báo động",
+   "tags": [
+    "còi hú",
+    "báo động",
+    "cảnh sát",
+    "khẩn cấp"
+   ]
+  },
+  "sound:sub-drop": {
+   "name": "Sub drop",
+   "tags": [
+    "sub drop",
+    "bass drop",
+    "trầm",
+    "va chạm"
+   ]
+  },
+  "sound:subir-nivel": {
+   "name": "Lên cấp",
+   "tags": [
+    "lên cấp",
+    "level up",
+    "trò chơi",
+    "8-bit"
+   ]
+  },
+  "sound:susto-terror": {
+   "name": "Hù dọa bất ngờ",
+   "tags": [
+    "hù dọa",
+    "kinh dị",
+    "jump scare",
+    "sợ hãi",
+    "halloween"
+   ]
+  },
+  "sound:swoosh-titulo": {
+   "name": "Swoosh tiêu đề",
+   "tags": [
+    "swoosh",
+    "whoosh",
+    "tiêu đề",
+    "chuyển cảnh"
+   ]
+  },
+  "sound:tambaleo": {
+   "name": "Lảo đảo",
+   "tags": [
+    "lảo đảo",
+    "chóng mặt",
+    "say xỉn",
+    "hài hước"
+   ]
+  },
+  "sound:tambor-taiko": {
+   "name": "Trống taiko",
+   "tags": [
+    "trống",
+    "taiko",
+    "hoành tráng",
+    "va chạm"
+   ]
+  },
+  "sound:tambor-taiko-doble": {
+   "name": "Trống taiko đôi",
+   "tags": [
+    "trống",
+    "taiko",
+    "đôi",
+    "hoành tráng"
+   ]
+  },
+  "sound:teclado": {
+   "name": "Gõ bàn phím",
+   "tags": [
+    "bàn phím",
+    "gõ phím",
+    "máy tính",
+    "chữ"
+   ]
+  },
+  "sound:teclado-mecanico": {
+   "name": "Bàn phím cơ",
+   "tags": [
+    "bàn phím cơ",
+    "gõ phím",
+    "gaming",
+    "asmr"
+   ]
+  },
+  "sound:teclado-rapido": {
+   "name": "Gõ phím nhanh",
+   "tags": [
+    "bàn phím",
+    "nhanh",
+    "hacker",
+    "gõ phím"
+   ]
+  },
+  "sound:teletransporte": {
+   "name": "Dịch chuyển tức thời",
+   "tags": [
+    "dịch chuyển",
+    "teleport",
+    "khoa học viễn tưởng",
+    "biến mất"
+   ]
+  },
+  "sound:tension-subiendo": {
+   "name": "Căng thẳng dâng cao",
+   "tags": [
+    "căng thẳng",
+    "hồi hộp",
+    "dâng lên",
+    "sợ hãi"
+   ]
+  },
+  "sound:toque": {
+   "name": "Chạm",
+   "tags": [
+    "chạm",
+    "tap",
+    "màn hình",
+    "điện thoại"
+   ]
+  },
+  "sound:toque-doble": {
+   "name": "Chạm hai lần",
+   "tags": [
+    "chạm",
+    "hai lần",
+    "double tap",
+    "thích"
+   ]
+  },
+  "sound:transicion-foto": {
+   "name": "Chuyển cảnh chụp ảnh",
+   "tags": [
+    "chụp ảnh",
+    "máy ảnh",
+    "chuyển cảnh",
+    "flash"
+   ]
+  },
+  "sound:trombon-triste": {
+   "name": "Kèn trombone buồn",
+   "tags": [
+    "trombone",
+    "buồn",
+    "thất bại",
+    "fail"
+   ]
+  },
+  "sound:trueno": {
+   "name": "Sấm",
+   "tags": [
+    "sấm",
+    "giông bão",
+    "sét",
+    "mưa"
+   ]
+  },
+  "sound:varita-magica": {
+   "name": "Đũa phép",
+   "tags": [
+    "đũa phép",
+    "nàng tiên",
+    "phép thuật",
+    "thần chú"
+   ]
+  },
+  "sound:varita-subida": {
+   "name": "Đũa phép vút lên",
+   "tags": [
+    "đũa phép",
+    "vút lên",
+    "phép thuật",
+    "xuất hiện"
+   ]
+  },
+  "sound:victoria-8bits": {
+   "name": "Chiến thắng 8-bit",
+   "tags": [
+    "chiến thắng",
+    "thắng",
+    "trò chơi",
+    "8-bit"
+   ]
+  },
+  "sound:vida-extra": {
+   "name": "Thêm mạng",
+   "tags": [
+    "thêm mạng",
+    "1up",
+    "trò chơi",
+    "bonus"
+   ]
+  },
+  "sound:viento-misterio": {
+   "name": "Gió rùng rợn",
+   "tags": [
+    "gió",
+    "bí ẩn",
+    "kinh dị",
+    "ban đêm",
+    "ma"
+   ]
+  },
+  "sound:vinilo": {
+   "name": "Tiếng rè đĩa than",
+   "tags": [
+    "đĩa than",
+    "tiếng rè",
+    "retro",
+    "lofi"
+   ]
+  },
+  "sound:whoosh": {
+   "name": "Whoosh",
+   "tags": [
+    "whoosh",
+    "swoosh",
+    "chuyển cảnh",
+    "chuyển động"
+   ]
+  },
+  "sound:whoosh-aire": {
+   "name": "Whoosh nhẹ như gió",
+   "tags": [
+    "whoosh",
+    "gió",
+    "chuyển cảnh",
+    "nhẹ"
+   ]
+  },
+  "sound:whoosh-boom": {
+   "name": "Whoosh boom",
+   "tags": [
+    "whoosh",
+    "boom",
+    "chuyển cảnh",
+    "va chạm",
+    "edit"
+   ]
+  },
+  "sound:whoosh-corto": {
+   "name": "Whoosh ngắn",
+   "tags": [
+    "whoosh",
+    "ngắn",
+    "chuyển cảnh",
+    "nhanh"
+   ]
+  },
+  "sound:whoosh-derecha-izquierda": {
+   "name": "Whoosh từ phải sang trái",
+   "tags": [
+    "whoosh",
+    "phải sang trái",
+    "chuyển cảnh",
+    "chuyển động"
+   ]
+  },
+  "sound:whoosh-doble": {
+   "name": "Whoosh đôi",
+   "tags": [
+    "whoosh",
+    "đôi",
+    "chuyển cảnh",
+    "chuyển động"
+   ]
+  },
+  "sound:whoosh-espada": {
+   "name": "Tiếng vung kiếm",
+   "tags": [
+    "kiếm",
+    "vung",
+    "whoosh",
+    "hành động"
+   ]
+  },
+  "sound:whoosh-fuego": {
+   "name": "Whoosh lửa",
+   "tags": [
+    "whoosh",
+    "lửa",
+    "chuyển cảnh",
+    "bùng cháy"
+   ]
+  },
+  "sound:whoosh-golpe": {
+   "name": "Whoosh kèm hit",
+   "tags": [
+    "whoosh",
+    "hit",
+    "chuyển cảnh",
+    "va chạm",
+    "edit"
+   ]
+  },
+  "sound:whoosh-grave": {
+   "name": "Whoosh trầm",
+   "tags": [
+    "whoosh",
+    "trầm",
+    "chuyển cảnh",
+    "mạnh"
+   ]
+  },
+  "sound:whoosh-izquierda-derecha": {
+   "name": "Whoosh từ trái sang phải",
+   "tags": [
+    "whoosh",
+    "trái sang phải",
+    "chuyển cảnh",
+    "chuyển động"
+   ]
+  },
+  "sound:whoosh-largo": {
+   "name": "Whoosh dài",
+   "tags": [
+    "whoosh",
+    "dài",
+    "chuyển cảnh",
+    "chuyển động"
+   ]
+  },
+  "sound:whoosh-metalico": {
+   "name": "Whoosh kim loại",
+   "tags": [
+    "whoosh",
+    "kim loại",
+    "chuyển cảnh",
+    "chuyển động"
+   ]
+  },
+  "sound:whoosh-reverso": {
+   "name": "Whoosh đảo ngược",
+   "tags": [
+    "whoosh",
+    "đảo ngược",
+    "reverse",
+    "chuyển cảnh"
+   ]
+  },
+  "sound:whoosh-tela": {
+   "name": "Tiếng vải phất",
+   "tags": [
+    "vải",
+    "phất",
+    "whoosh",
+    "chuyển động"
+   ]
+  },
+  "sound:zoom-entrada": {
+   "name": "Zoom vào",
+   "tags": [
+    "zoom",
+    "phóng to",
+    "zoom in",
+    "chuyển cảnh"
+   ]
+  },
+  "sound:zoom-salida": {
+   "name": "Zoom ra",
+   "tags": [
+    "zoom",
+    "thu nhỏ",
+    "zoom out",
+    "chuyển cảnh"
    ]
   },
   "template:album-scrapbook": {

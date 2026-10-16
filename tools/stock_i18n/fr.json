@@ -53,6 +53,15 @@
   "template:transition": "Transitions et séparateurs"
  },
  "items": {
+  "animation:advertencia": {
+   "name": "Avertissement",
+   "tags": [
+    "attention",
+    "alerte",
+    "danger",
+    "avertissement"
+   ]
+  },
   "animation:alcancia": {
    "name": "Tirelire",
    "tags": [
@@ -169,6 +178,15 @@
     "volet",
     "diagonale",
     "changement de scène"
+   ]
+  },
+  "animation:bateria-carga": {
+   "name": "Batterie en charge",
+   "tags": [
+    "batterie",
+    "énergie",
+    "charge",
+    "recharger"
    ]
   },
   "animation:bengala": {
@@ -742,6 +760,15 @@
     "carrés",
     "pixels",
     "changement de scène"
+   ]
+  },
+  "animation:cuenta-regresiva": {
+   "name": "Compte à rebours",
+   "tags": [
+    "compte à rebours",
+    "3 2 1",
+    "départ",
+    "attente"
    ]
   },
   "animation:cupcake": {
@@ -1500,6 +1527,15 @@
     "tâche"
    ]
   },
+  "animation:notas-musicales": {
+   "name": "Notes de musique",
+   "tags": [
+    "musique",
+    "chanson",
+    "audio",
+    "danse"
+   ]
+  },
   "animation:nube-lluvia": {
    "name": "Nuage de pluie",
    "tags": [
@@ -2026,6 +2062,5758 @@
     "brise",
     "air",
     "froid"
+   ]
+  },
+  "animation:wifi": {
+   "name": "Signal wifi",
+   "tags": [
+    "wifi",
+    "internet",
+    "connexion",
+    "signal",
+    "en ligne"
+   ]
+  },
+  "background:acuarela-calido": {
+   "name": "Aquarelle (chaud)",
+   "tags": [
+    "aquarelle",
+    "peinture",
+    "art",
+    "doux",
+    "fond"
+   ]
+  },
+  "background:acuarela-frio": {
+   "name": "Aquarelle (froid)",
+   "tags": [
+    "aquarelle",
+    "peinture",
+    "art",
+    "doux",
+    "fond"
+   ]
+  },
+  "background:acuarela-oscuro": {
+   "name": "Aquarelle (sombre)",
+   "tags": [
+    "aquarelle",
+    "peinture",
+    "art",
+    "doux",
+    "fond"
+   ]
+  },
+  "background:acuarela-vibrante": {
+   "name": "Aquarelle (vibrant)",
+   "tags": [
+    "aquarelle",
+    "peinture",
+    "art",
+    "doux",
+    "fond"
+   ]
+  },
+  "background:ajedrez-calido": {
+   "name": "Damier animé (chaud)",
+   "tags": [
+    "damier",
+    "carreaux",
+    "rétro",
+    "fond",
+    "chaud"
+   ]
+  },
+  "background:ajedrez-frio": {
+   "name": "Damier animé (froid)",
+   "tags": [
+    "damier",
+    "carreaux",
+    "rétro",
+    "fond",
+    "froid"
+   ]
+  },
+  "background:ajedrez-oscuro": {
+   "name": "Damier animé (sombre)",
+   "tags": [
+    "damier",
+    "carreaux",
+    "rétro",
+    "fond",
+    "sombre"
+   ]
+  },
+  "background:ajedrez-vibrante": {
+   "name": "Damier animé (vibrant)",
+   "tags": [
+    "damier",
+    "carreaux",
+    "rétro",
+    "fond",
+    "vibrant"
+   ]
+  },
+  "background:anio-nuevo": {
+   "name": "Nouvel An",
+   "tags": [
+    "nouvel an",
+    "toast",
+    "fête",
+    "fond"
+   ]
+  },
+  "background:anio-nuevo-2": {
+   "name": "Nouvel An 2",
+   "tags": [
+    "nouvel an",
+    "toast",
+    "fête",
+    "fond"
+   ]
+  },
+  "background:atardecer-calido": {
+   "name": "Coucher de soleil (chaud)",
+   "tags": [
+    "coucher de soleil",
+    "soleil",
+    "été",
+    "fond",
+    "chaud"
+   ]
+  },
+  "background:atardecer-frio": {
+   "name": "Coucher de soleil (froid)",
+   "tags": [
+    "coucher de soleil",
+    "soleil",
+    "été",
+    "fond",
+    "froid"
+   ]
+  },
+  "background:atardecer-oscuro": {
+   "name": "Coucher de soleil (sombre)",
+   "tags": [
+    "coucher de soleil",
+    "soleil",
+    "été",
+    "fond",
+    "sombre"
+   ]
+  },
+  "background:atardecer-vibrante": {
+   "name": "Coucher de soleil (vibrant)",
+   "tags": [
+    "coucher de soleil",
+    "soleil",
+    "été",
+    "fond",
+    "vibrant"
+   ]
+  },
+  "background:aurora-calido": {
+   "name": "Aurore boréale (chaud)",
+   "tags": [
+    "aurore boréale",
+    "ciel",
+    "nuit",
+    "fond",
+    "chaud"
+   ]
+  },
+  "background:aurora-frio": {
+   "name": "Aurore boréale (froid)",
+   "tags": [
+    "aurore boréale",
+    "ciel",
+    "nuit",
+    "fond",
+    "froid"
+   ]
+  },
+  "background:aurora-oscuro": {
+   "name": "Aurore boréale (sombre)",
+   "tags": [
+    "aurore boréale",
+    "ciel",
+    "nuit",
+    "fond",
+    "sombre"
+   ]
+  },
+  "background:aurora-vibrante": {
+   "name": "Aurore boréale (vibrant)",
+   "tags": [
+    "aurore boréale",
+    "ciel",
+    "nuit",
+    "fond",
+    "vibrant"
+   ]
+  },
+  "background:bokeh-calido": {
+   "name": "Bokeh (chaud)",
+   "tags": [
+    "bokeh",
+    "lumières",
+    "flou",
+    "élégant",
+    "fond"
+   ]
+  },
+  "background:bokeh-frio": {
+   "name": "Bokeh (froid)",
+   "tags": [
+    "bokeh",
+    "lumières",
+    "flou",
+    "élégant",
+    "fond"
+   ]
+  },
+  "background:bokeh-oscuro": {
+   "name": "Bokeh (sombre)",
+   "tags": [
+    "bokeh",
+    "lumières",
+    "flou",
+    "élégant",
+    "fond"
+   ]
+  },
+  "background:bokeh-vibrante": {
+   "name": "Bokeh (vibrant)",
+   "tags": [
+    "bokeh",
+    "lumières",
+    "flou",
+    "élégant",
+    "fond"
+   ]
+  },
+  "background:burbujas-calido": {
+   "name": "Bulles (chaud)",
+   "tags": [
+    "bulles",
+    "eau",
+    "enfants",
+    "doux",
+    "fond"
+   ]
+  },
+  "background:burbujas-frio": {
+   "name": "Bulles (froid)",
+   "tags": [
+    "bulles",
+    "eau",
+    "enfants",
+    "doux",
+    "fond"
+   ]
+  },
+  "background:burbujas-oscuro": {
+   "name": "Bulles (sombre)",
+   "tags": [
+    "bulles",
+    "eau",
+    "enfants",
+    "doux",
+    "fond"
+   ]
+  },
+  "background:burbujas-vibrante": {
+   "name": "Bulles (vibrant)",
+   "tags": [
+    "bulles",
+    "eau",
+    "enfants",
+    "doux",
+    "fond"
+   ]
+  },
+  "background:cielo-estrellado-calido": {
+   "name": "Ciel étoilé (chaud)",
+   "tags": [
+    "étoiles",
+    "nuit",
+    "espace",
+    "ciel",
+    "fond"
+   ]
+  },
+  "background:cielo-estrellado-frio": {
+   "name": "Ciel étoilé (froid)",
+   "tags": [
+    "étoiles",
+    "nuit",
+    "espace",
+    "ciel",
+    "fond"
+   ]
+  },
+  "background:cielo-estrellado-oscuro": {
+   "name": "Ciel étoilé (sombre)",
+   "tags": [
+    "étoiles",
+    "nuit",
+    "espace",
+    "ciel",
+    "fond"
+   ]
+  },
+  "background:cielo-estrellado-vibrante": {
+   "name": "Ciel étoilé (vibrant)",
+   "tags": [
+    "étoiles",
+    "nuit",
+    "espace",
+    "ciel",
+    "fond"
+   ]
+  },
+  "background:circuito-calido": {
+   "name": "Circuit imprimé (chaud)",
+   "tags": [
+    "circuit",
+    "technologie",
+    "tech",
+    "numérique",
+    "fond"
+   ]
+  },
+  "background:circuito-frio": {
+   "name": "Circuit imprimé (froid)",
+   "tags": [
+    "circuit",
+    "technologie",
+    "tech",
+    "numérique",
+    "fond"
+   ]
+  },
+  "background:circuito-oscuro": {
+   "name": "Circuit imprimé (sombre)",
+   "tags": [
+    "circuit",
+    "technologie",
+    "tech",
+    "numérique",
+    "fond"
+   ]
+  },
+  "background:circuito-vibrante": {
+   "name": "Circuit imprimé (vibrant)",
+   "tags": [
+    "circuit",
+    "technologie",
+    "tech",
+    "numérique",
+    "fond"
+   ]
+  },
+  "background:circulos-calido": {
+   "name": "Cercles concentriques (chaud)",
+   "tags": [
+    "cercles",
+    "anneaux",
+    "hypnotique",
+    "fond",
+    "chaud"
+   ]
+  },
+  "background:circulos-frio": {
+   "name": "Cercles concentriques (froid)",
+   "tags": [
+    "cercles",
+    "anneaux",
+    "hypnotique",
+    "fond",
+    "froid"
+   ]
+  },
+  "background:circulos-oscuro": {
+   "name": "Cercles concentriques (sombre)",
+   "tags": [
+    "cercles",
+    "anneaux",
+    "hypnotique",
+    "fond",
+    "sombre"
+   ]
+  },
+  "background:circulos-vibrante": {
+   "name": "Cercles concentriques (vibrant)",
+   "tags": [
+    "cercles",
+    "anneaux",
+    "hypnotique",
+    "fond",
+    "vibrant"
+   ]
+  },
+  "background:colinas-calido": {
+   "name": "Collines (chaud)",
+   "tags": [
+    "collines",
+    "paysage",
+    "flat",
+    "fond",
+    "chaud"
+   ]
+  },
+  "background:colinas-frio": {
+   "name": "Collines (froid)",
+   "tags": [
+    "collines",
+    "paysage",
+    "flat",
+    "fond",
+    "froid"
+   ]
+  },
+  "background:colinas-oscuro": {
+   "name": "Collines (sombre)",
+   "tags": [
+    "collines",
+    "paysage",
+    "flat",
+    "fond",
+    "sombre"
+   ]
+  },
+  "background:colinas-vibrante": {
+   "name": "Collines (vibrant)",
+   "tags": [
+    "collines",
+    "paysage",
+    "flat",
+    "fond",
+    "vibrant"
+   ]
+  },
+  "background:confeti-calido": {
+   "name": "Confettis doux (chaud)",
+   "tags": [
+    "confettis",
+    "fête",
+    "célébration",
+    "anniversaire",
+    "fond"
+   ]
+  },
+  "background:confeti-frio": {
+   "name": "Confettis doux (froid)",
+   "tags": [
+    "confettis",
+    "fête",
+    "célébration",
+    "anniversaire",
+    "fond"
+   ]
+  },
+  "background:confeti-oscuro": {
+   "name": "Confettis doux (sombre)",
+   "tags": [
+    "confettis",
+    "fête",
+    "célébration",
+    "anniversaire",
+    "fond"
+   ]
+  },
+  "background:confeti-vibrante": {
+   "name": "Confettis doux (vibrant)",
+   "tags": [
+    "confettis",
+    "fête",
+    "célébration",
+    "anniversaire",
+    "fond"
+   ]
+  },
+  "background:cuadricula-retro-calido": {
+   "name": "Grille rétro (chaud)",
+   "tags": [
+    "rétro",
+    "synthwave",
+    "années 80",
+    "grille",
+    "vaporwave"
+   ]
+  },
+  "background:cuadricula-retro-frio": {
+   "name": "Grille rétro (froid)",
+   "tags": [
+    "rétro",
+    "synthwave",
+    "années 80",
+    "grille",
+    "vaporwave"
+   ]
+  },
+  "background:cuadricula-retro-oscuro": {
+   "name": "Grille rétro (sombre)",
+   "tags": [
+    "rétro",
+    "synthwave",
+    "années 80",
+    "grille",
+    "vaporwave"
+   ]
+  },
+  "background:cuadricula-retro-vibrante": {
+   "name": "Grille rétro (vibrant)",
+   "tags": [
+    "rétro",
+    "synthwave",
+    "années 80",
+    "grille",
+    "vaporwave"
+   ]
+  },
+  "background:cumpleanos": {
+   "name": "Anniversaire",
+   "tags": [
+    "anniversaire",
+    "fête",
+    "célébration",
+    "fond"
+   ]
+  },
+  "background:cumpleanos-2": {
+   "name": "Anniversaire 2",
+   "tags": [
+    "anniversaire",
+    "fête",
+    "célébration",
+    "fond"
+   ]
+  },
+  "background:degradado-diagonal-calido": {
+   "name": "Dégradé diagonal (chaud)",
+   "tags": [
+    "dégradé",
+    "diagonal",
+    "arc-en-ciel",
+    "fond",
+    "chaud"
+   ]
+  },
+  "background:degradado-diagonal-frio": {
+   "name": "Dégradé diagonal (froid)",
+   "tags": [
+    "dégradé",
+    "diagonal",
+    "arc-en-ciel",
+    "fond",
+    "froid"
+   ]
+  },
+  "background:degradado-diagonal-oscuro": {
+   "name": "Dégradé diagonal (sombre)",
+   "tags": [
+    "dégradé",
+    "diagonal",
+    "arc-en-ciel",
+    "fond",
+    "sombre"
+   ]
+  },
+  "background:degradado-diagonal-vibrante": {
+   "name": "Dégradé diagonal (vibrant)",
+   "tags": [
+    "dégradé",
+    "diagonal",
+    "arc-en-ciel",
+    "fond",
+    "vibrant"
+   ]
+  },
+  "background:degradado-malla-calido": {
+   "name": "Dégradé maillé (chaud)",
+   "tags": [
+    "dégradé maillé",
+    "mesh",
+    "moderne",
+    "fond",
+    "chaud"
+   ]
+  },
+  "background:degradado-malla-frio": {
+   "name": "Dégradé maillé (froid)",
+   "tags": [
+    "dégradé maillé",
+    "mesh",
+    "moderne",
+    "fond",
+    "froid"
+   ]
+  },
+  "background:degradado-malla-oscuro": {
+   "name": "Dégradé maillé (sombre)",
+   "tags": [
+    "dégradé maillé",
+    "mesh",
+    "moderne",
+    "fond",
+    "sombre"
+   ]
+  },
+  "background:degradado-malla-vibrante": {
+   "name": "Dégradé maillé (vibrant)",
+   "tags": [
+    "dégradé maillé",
+    "mesh",
+    "moderne",
+    "fond",
+    "vibrant"
+   ]
+  },
+  "background:degradado-movil-calido": {
+   "name": "Dégradé animé (chaud)",
+   "tags": [
+    "dégradé",
+    "animé",
+    "doux",
+    "fond",
+    "chaud"
+   ]
+  },
+  "background:degradado-movil-frio": {
+   "name": "Dégradé animé (froid)",
+   "tags": [
+    "dégradé",
+    "animé",
+    "doux",
+    "fond",
+    "froid"
+   ]
+  },
+  "background:degradado-movil-oscuro": {
+   "name": "Dégradé animé (sombre)",
+   "tags": [
+    "dégradé",
+    "animé",
+    "doux",
+    "fond",
+    "sombre"
+   ]
+  },
+  "background:degradado-movil-vibrante": {
+   "name": "Dégradé animé (vibrant)",
+   "tags": [
+    "dégradé",
+    "animé",
+    "doux",
+    "fond",
+    "vibrant"
+   ]
+  },
+  "background:diwali": {
+   "name": "Diwali",
+   "tags": [
+    "diwali",
+    "lumières",
+    "festival",
+    "bougies",
+    "fond"
+   ]
+  },
+  "background:diwali-2": {
+   "name": "Diwali 2",
+   "tags": [
+    "diwali",
+    "lumières",
+    "festival",
+    "bougies",
+    "fond"
+   ]
+  },
+  "background:ecualizador-calido": {
+   "name": "Égaliseur (chaud)",
+   "tags": [
+    "égaliseur",
+    "musique",
+    "podcast",
+    "audio",
+    "dj"
+   ]
+  },
+  "background:ecualizador-frio": {
+   "name": "Égaliseur (froid)",
+   "tags": [
+    "égaliseur",
+    "musique",
+    "podcast",
+    "audio",
+    "dj"
+   ]
+  },
+  "background:ecualizador-oscuro": {
+   "name": "Égaliseur (sombre)",
+   "tags": [
+    "égaliseur",
+    "musique",
+    "podcast",
+    "audio",
+    "dj"
+   ]
+  },
+  "background:ecualizador-vibrante": {
+   "name": "Égaliseur (vibrant)",
+   "tags": [
+    "égaliseur",
+    "musique",
+    "podcast",
+    "audio",
+    "dj"
+   ]
+  },
+  "background:escenario-calido": {
+   "name": "Lumières de scène (chaud)",
+   "tags": [
+    "scène",
+    "concert",
+    "spectacle",
+    "lumières",
+    "fond"
+   ]
+  },
+  "background:escenario-frio": {
+   "name": "Lumières de scène (froid)",
+   "tags": [
+    "scène",
+    "concert",
+    "spectacle",
+    "lumières",
+    "fond"
+   ]
+  },
+  "background:escenario-oscuro": {
+   "name": "Lumières de scène (sombre)",
+   "tags": [
+    "scène",
+    "concert",
+    "spectacle",
+    "lumières",
+    "fond"
+   ]
+  },
+  "background:escenario-vibrante": {
+   "name": "Lumières de scène (vibrant)",
+   "tags": [
+    "scène",
+    "concert",
+    "spectacle",
+    "lumières",
+    "fond"
+   ]
+  },
+  "background:espiral-calido": {
+   "name": "Spirale (chaud)",
+   "tags": [
+    "spirale",
+    "hypnotique",
+    "tourbillon",
+    "fond",
+    "chaud"
+   ]
+  },
+  "background:espiral-frio": {
+   "name": "Spirale (froid)",
+   "tags": [
+    "spirale",
+    "hypnotique",
+    "tourbillon",
+    "fond",
+    "froid"
+   ]
+  },
+  "background:espiral-oscuro": {
+   "name": "Spirale (sombre)",
+   "tags": [
+    "spirale",
+    "hypnotique",
+    "tourbillon",
+    "fond",
+    "sombre"
+   ]
+  },
+  "background:espiral-vibrante": {
+   "name": "Spirale (vibrant)",
+   "tags": [
+    "spirale",
+    "hypnotique",
+    "tourbillon",
+    "fond",
+    "vibrant"
+   ]
+  },
+  "background:formas-flotantes-calido": {
+   "name": "Formes flottantes (chaud)",
+   "tags": [
+    "formes",
+    "géométrique",
+    "ludique",
+    "fond",
+    "chaud"
+   ]
+  },
+  "background:formas-flotantes-frio": {
+   "name": "Formes flottantes (froid)",
+   "tags": [
+    "formes",
+    "géométrique",
+    "ludique",
+    "fond",
+    "froid"
+   ]
+  },
+  "background:formas-flotantes-oscuro": {
+   "name": "Formes flottantes (sombre)",
+   "tags": [
+    "formes",
+    "géométrique",
+    "ludique",
+    "fond",
+    "sombre"
+   ]
+  },
+  "background:formas-flotantes-vibrante": {
+   "name": "Formes flottantes (vibrant)",
+   "tags": [
+    "formes",
+    "géométrique",
+    "ludique",
+    "fond",
+    "vibrant"
+   ]
+  },
+  "background:galaxia-calido": {
+   "name": "Galaxie (chaud)",
+   "tags": [
+    "galaxie",
+    "espace",
+    "univers",
+    "cosmos",
+    "fond"
+   ]
+  },
+  "background:galaxia-frio": {
+   "name": "Galaxie (froid)",
+   "tags": [
+    "galaxie",
+    "espace",
+    "univers",
+    "cosmos",
+    "fond"
+   ]
+  },
+  "background:galaxia-oscuro": {
+   "name": "Galaxie (sombre)",
+   "tags": [
+    "galaxie",
+    "espace",
+    "univers",
+    "cosmos",
+    "fond"
+   ]
+  },
+  "background:galaxia-vibrante": {
+   "name": "Galaxie (vibrant)",
+   "tags": [
+    "galaxie",
+    "espace",
+    "univers",
+    "cosmos",
+    "fond"
+   ]
+  },
+  "background:graduacion": {
+   "name": "Remise des diplômes",
+   "tags": [
+    "diplôme",
+    "remise des diplômes",
+    "réussite",
+    "promo",
+    "fond"
+   ]
+  },
+  "background:graduacion-2": {
+   "name": "Remise des diplômes 2",
+   "tags": [
+    "diplôme",
+    "remise des diplômes",
+    "réussite",
+    "promo",
+    "fond"
+   ]
+  },
+  "background:halloween": {
+   "name": "Halloween",
+   "tags": [
+    "halloween",
+    "horreur",
+    "octobre",
+    "citrouille",
+    "fond"
+   ]
+  },
+  "background:halloween-2": {
+   "name": "Halloween 2",
+   "tags": [
+    "halloween",
+    "horreur",
+    "octobre",
+    "citrouille",
+    "fond"
+   ]
+  },
+  "background:hexagonos-calido": {
+   "name": "Hexagones (chaud)",
+   "tags": [
+    "hexagones",
+    "nid d'abeille",
+    "technologie",
+    "gaming",
+    "fond"
+   ]
+  },
+  "background:hexagonos-frio": {
+   "name": "Hexagones (froid)",
+   "tags": [
+    "hexagones",
+    "nid d'abeille",
+    "technologie",
+    "gaming",
+    "fond"
+   ]
+  },
+  "background:hexagonos-oscuro": {
+   "name": "Hexagones (sombre)",
+   "tags": [
+    "hexagones",
+    "nid d'abeille",
+    "technologie",
+    "gaming",
+    "fond"
+   ]
+  },
+  "background:hexagonos-vibrante": {
+   "name": "Hexagones (vibrant)",
+   "tags": [
+    "hexagones",
+    "nid d'abeille",
+    "technologie",
+    "gaming",
+    "fond"
+   ]
+  },
+  "background:humo-color-calido": {
+   "name": "Fumée colorée (chaud)",
+   "tags": [
+    "fumée",
+    "couleur",
+    "mystère",
+    "fond",
+    "chaud"
+   ]
+  },
+  "background:humo-color-frio": {
+   "name": "Fumée colorée (froid)",
+   "tags": [
+    "fumée",
+    "couleur",
+    "mystère",
+    "fond",
+    "froid"
+   ]
+  },
+  "background:humo-color-oscuro": {
+   "name": "Fumée colorée (sombre)",
+   "tags": [
+    "fumée",
+    "couleur",
+    "mystère",
+    "fond",
+    "sombre"
+   ]
+  },
+  "background:humo-color-vibrante": {
+   "name": "Fumée colorée (vibrant)",
+   "tags": [
+    "fumée",
+    "couleur",
+    "mystère",
+    "fond",
+    "vibrant"
+   ]
+  },
+  "background:lampara-lava-calido": {
+   "name": "Lampe à lave (chaud)",
+   "tags": [
+    "lampe à lave",
+    "bulles",
+    "rétro",
+    "années 70",
+    "fond"
+   ]
+  },
+  "background:lampara-lava-frio": {
+   "name": "Lampe à lave (froid)",
+   "tags": [
+    "lampe à lave",
+    "bulles",
+    "rétro",
+    "années 70",
+    "fond"
+   ]
+  },
+  "background:lampara-lava-oscuro": {
+   "name": "Lampe à lave (sombre)",
+   "tags": [
+    "lampe à lave",
+    "bulles",
+    "rétro",
+    "années 70",
+    "fond"
+   ]
+  },
+  "background:lampara-lava-vibrante": {
+   "name": "Lampe à lave (vibrant)",
+   "tags": [
+    "lampe à lave",
+    "bulles",
+    "rétro",
+    "années 70",
+    "fond"
+   ]
+  },
+  "background:liquido-calido": {
+   "name": "Liquide (chaud)",
+   "tags": [
+    "liquide",
+    "fluide",
+    "marbre",
+    "psychédélique",
+    "fond"
+   ]
+  },
+  "background:liquido-frio": {
+   "name": "Liquide (froid)",
+   "tags": [
+    "liquide",
+    "fluide",
+    "marbre",
+    "psychédélique",
+    "fond"
+   ]
+  },
+  "background:liquido-oscuro": {
+   "name": "Liquide (sombre)",
+   "tags": [
+    "liquide",
+    "fluide",
+    "marbre",
+    "psychédélique",
+    "fond"
+   ]
+  },
+  "background:liquido-vibrante": {
+   "name": "Liquide (vibrant)",
+   "tags": [
+    "liquide",
+    "fluide",
+    "marbre",
+    "psychédélique",
+    "fond"
+   ]
+  },
+  "background:lluvia-luces-calido": {
+   "name": "Pluie de lumières (chaud)",
+   "tags": [
+    "lumières",
+    "pluie de lumières",
+    "nuit",
+    "fête",
+    "fond"
+   ]
+  },
+  "background:lluvia-luces-frio": {
+   "name": "Pluie de lumières (froid)",
+   "tags": [
+    "lumières",
+    "pluie de lumières",
+    "nuit",
+    "fête",
+    "fond"
+   ]
+  },
+  "background:lluvia-luces-oscuro": {
+   "name": "Pluie de lumières (sombre)",
+   "tags": [
+    "lumières",
+    "pluie de lumières",
+    "nuit",
+    "fête",
+    "fond"
+   ]
+  },
+  "background:lluvia-luces-vibrante": {
+   "name": "Pluie de lumières (vibrant)",
+   "tags": [
+    "lumières",
+    "pluie de lumières",
+    "nuit",
+    "fête",
+    "fond"
+   ]
+  },
+  "background:low-poly-calido": {
+   "name": "Low poly (chaud)",
+   "tags": [
+    "low poly",
+    "polygones",
+    "cristal",
+    "moderne",
+    "fond"
+   ]
+  },
+  "background:low-poly-frio": {
+   "name": "Low poly (froid)",
+   "tags": [
+    "low poly",
+    "polygones",
+    "cristal",
+    "moderne",
+    "fond"
+   ]
+  },
+  "background:low-poly-oscuro": {
+   "name": "Low poly (sombre)",
+   "tags": [
+    "low poly",
+    "polygones",
+    "cristal",
+    "moderne",
+    "fond"
+   ]
+  },
+  "background:low-poly-vibrante": {
+   "name": "Low poly (vibrant)",
+   "tags": [
+    "low poly",
+    "polygones",
+    "cristal",
+    "moderne",
+    "fond"
+   ]
+  },
+  "background:luces-ciudad-calido": {
+   "name": "Lumières de la ville (chaud)",
+   "tags": [
+    "ville",
+    "nuit",
+    "bokeh",
+    "urbain",
+    "fond"
+   ]
+  },
+  "background:luces-ciudad-frio": {
+   "name": "Lumières de la ville (froid)",
+   "tags": [
+    "ville",
+    "nuit",
+    "bokeh",
+    "urbain",
+    "fond"
+   ]
+  },
+  "background:luces-ciudad-oscuro": {
+   "name": "Lumières de la ville (sombre)",
+   "tags": [
+    "ville",
+    "nuit",
+    "bokeh",
+    "urbain",
+    "fond"
+   ]
+  },
+  "background:luces-ciudad-vibrante": {
+   "name": "Lumières de la ville (vibrant)",
+   "tags": [
+    "ville",
+    "nuit",
+    "bokeh",
+    "urbain",
+    "fond"
+   ]
+  },
+  "background:luciernagas-calido": {
+   "name": "Lucioles (chaud)",
+   "tags": [
+    "lucioles",
+    "nuit",
+    "magie",
+    "forêt",
+    "fond"
+   ]
+  },
+  "background:luciernagas-frio": {
+   "name": "Lucioles (froid)",
+   "tags": [
+    "lucioles",
+    "nuit",
+    "magie",
+    "forêt",
+    "fond"
+   ]
+  },
+  "background:luciernagas-oscuro": {
+   "name": "Lucioles (sombre)",
+   "tags": [
+    "lucioles",
+    "nuit",
+    "magie",
+    "forêt",
+    "fond"
+   ]
+  },
+  "background:luciernagas-vibrante": {
+   "name": "Lucioles (vibrant)",
+   "tags": [
+    "lucioles",
+    "nuit",
+    "magie",
+    "forêt",
+    "fond"
+   ]
+  },
+  "background:marmol-calido": {
+   "name": "Marbre (chaud)",
+   "tags": [
+    "marbre",
+    "élégant",
+    "luxe",
+    "texture",
+    "fond"
+   ]
+  },
+  "background:marmol-frio": {
+   "name": "Marbre (froid)",
+   "tags": [
+    "marbre",
+    "élégant",
+    "luxe",
+    "texture",
+    "fond"
+   ]
+  },
+  "background:marmol-oscuro": {
+   "name": "Marbre (sombre)",
+   "tags": [
+    "marbre",
+    "élégant",
+    "luxe",
+    "texture",
+    "fond"
+   ]
+  },
+  "background:marmol-vibrante": {
+   "name": "Marbre (vibrant)",
+   "tags": [
+    "marbre",
+    "élégant",
+    "luxe",
+    "texture",
+    "fond"
+   ]
+  },
+  "background:memphis-calido": {
+   "name": "Style Memphis (chaud)",
+   "tags": [
+    "memphis",
+    "années 80",
+    "pop",
+    "formes",
+    "fond"
+   ]
+  },
+  "background:memphis-frio": {
+   "name": "Style Memphis (froid)",
+   "tags": [
+    "memphis",
+    "années 80",
+    "pop",
+    "formes",
+    "fond"
+   ]
+  },
+  "background:memphis-oscuro": {
+   "name": "Style Memphis (sombre)",
+   "tags": [
+    "memphis",
+    "années 80",
+    "pop",
+    "formes",
+    "fond"
+   ]
+  },
+  "background:memphis-vibrante": {
+   "name": "Style Memphis (vibrant)",
+   "tags": [
+    "memphis",
+    "années 80",
+    "pop",
+    "formes",
+    "fond"
+   ]
+  },
+  "background:navidad": {
+   "name": "Noël",
+   "tags": [
+    "noël",
+    "décembre",
+    "fêtes",
+    "fond"
+   ]
+  },
+  "background:navidad-2": {
+   "name": "Noël 2",
+   "tags": [
+    "noël",
+    "décembre",
+    "fêtes",
+    "fond"
+   ]
+  },
+  "background:neon-calido": {
+   "name": "Lignes néon (chaud)",
+   "tags": [
+    "néon",
+    "lignes",
+    "nuit",
+    "cyber",
+    "fond"
+   ]
+  },
+  "background:neon-frio": {
+   "name": "Lignes néon (froid)",
+   "tags": [
+    "néon",
+    "lignes",
+    "nuit",
+    "cyber",
+    "fond"
+   ]
+  },
+  "background:neon-oscuro": {
+   "name": "Lignes néon (sombre)",
+   "tags": [
+    "néon",
+    "lignes",
+    "nuit",
+    "cyber",
+    "fond"
+   ]
+  },
+  "background:neon-vibrante": {
+   "name": "Lignes néon (vibrant)",
+   "tags": [
+    "néon",
+    "lignes",
+    "nuit",
+    "cyber",
+    "fond"
+   ]
+  },
+  "background:nieve-calido": {
+   "name": "Chute de neige (chaud)",
+   "tags": [
+    "neige",
+    "hiver",
+    "noël",
+    "froid",
+    "fond"
+   ]
+  },
+  "background:nieve-frio": {
+   "name": "Chute de neige (froid)",
+   "tags": [
+    "neige",
+    "hiver",
+    "noël",
+    "froid",
+    "fond"
+   ]
+  },
+  "background:nieve-oscuro": {
+   "name": "Chute de neige (sombre)",
+   "tags": [
+    "neige",
+    "hiver",
+    "noël",
+    "froid",
+    "fond"
+   ]
+  },
+  "background:nieve-vibrante": {
+   "name": "Chute de neige (vibrant)",
+   "tags": [
+    "neige",
+    "hiver",
+    "noël",
+    "froid",
+    "fond"
+   ]
+  },
+  "background:nubes-calido": {
+   "name": "Nuages (chaud)",
+   "tags": [
+    "nuages",
+    "ciel",
+    "rêve",
+    "fond",
+    "chaud"
+   ]
+  },
+  "background:nubes-frio": {
+   "name": "Nuages (froid)",
+   "tags": [
+    "nuages",
+    "ciel",
+    "rêve",
+    "fond",
+    "froid"
+   ]
+  },
+  "background:nubes-oscuro": {
+   "name": "Nuages (sombre)",
+   "tags": [
+    "nuages",
+    "ciel",
+    "rêve",
+    "fond",
+    "sombre"
+   ]
+  },
+  "background:nubes-vibrante": {
+   "name": "Nuages (vibrant)",
+   "tags": [
+    "nuages",
+    "ciel",
+    "rêve",
+    "fond",
+    "vibrant"
+   ]
+  },
+  "background:ondas-sonido-calido": {
+   "name": "Ondes sonores (chaud)",
+   "tags": [
+    "ondes sonores",
+    "son",
+    "podcast",
+    "musique",
+    "audio"
+   ]
+  },
+  "background:ondas-sonido-frio": {
+   "name": "Ondes sonores (froid)",
+   "tags": [
+    "ondes sonores",
+    "son",
+    "podcast",
+    "musique",
+    "audio"
+   ]
+  },
+  "background:ondas-sonido-oscuro": {
+   "name": "Ondes sonores (sombre)",
+   "tags": [
+    "ondes sonores",
+    "son",
+    "podcast",
+    "musique",
+    "audio"
+   ]
+  },
+  "background:ondas-sonido-vibrante": {
+   "name": "Ondes sonores (vibrant)",
+   "tags": [
+    "ondes sonores",
+    "son",
+    "podcast",
+    "musique",
+    "audio"
+   ]
+  },
+  "background:ondas-suaves-calido": {
+   "name": "Vagues douces (chaud)",
+   "tags": [
+    "vagues",
+    "ondes",
+    "mer",
+    "doux",
+    "fond"
+   ]
+  },
+  "background:ondas-suaves-frio": {
+   "name": "Vagues douces (froid)",
+   "tags": [
+    "vagues",
+    "ondes",
+    "mer",
+    "doux",
+    "fond"
+   ]
+  },
+  "background:ondas-suaves-oscuro": {
+   "name": "Vagues douces (sombre)",
+   "tags": [
+    "vagues",
+    "ondes",
+    "mer",
+    "doux",
+    "fond"
+   ]
+  },
+  "background:ondas-suaves-vibrante": {
+   "name": "Vagues douces (vibrant)",
+   "tags": [
+    "vagues",
+    "ondes",
+    "mer",
+    "doux",
+    "fond"
+   ]
+  },
+  "background:otono": {
+   "name": "Automne",
+   "tags": [
+    "automne",
+    "feuilles",
+    "thanksgiving",
+    "fond"
+   ]
+  },
+  "background:otono-2": {
+   "name": "Automne 2",
+   "tags": [
+    "automne",
+    "feuilles",
+    "thanksgiving",
+    "fond"
+   ]
+  },
+  "background:papel-calido": {
+   "name": "Papier (chaud)",
+   "tags": [
+    "papier",
+    "texture",
+    "collage",
+    "vintage",
+    "fond"
+   ]
+  },
+  "background:papel-frio": {
+   "name": "Papier (froid)",
+   "tags": [
+    "papier",
+    "texture",
+    "collage",
+    "vintage",
+    "fond"
+   ]
+  },
+  "background:papel-oscuro": {
+   "name": "Papier (sombre)",
+   "tags": [
+    "papier",
+    "texture",
+    "collage",
+    "vintage",
+    "fond"
+   ]
+  },
+  "background:papel-vibrante": {
+   "name": "Papier (vibrant)",
+   "tags": [
+    "papier",
+    "texture",
+    "collage",
+    "vintage",
+    "fond"
+   ]
+  },
+  "background:particulas-calido": {
+   "name": "Particules (chaud)",
+   "tags": [
+    "particules",
+    "poussière",
+    "doux",
+    "calme",
+    "fond"
+   ]
+  },
+  "background:particulas-frio": {
+   "name": "Particules (froid)",
+   "tags": [
+    "particules",
+    "poussière",
+    "doux",
+    "calme",
+    "fond"
+   ]
+  },
+  "background:particulas-oscuro": {
+   "name": "Particules (sombre)",
+   "tags": [
+    "particules",
+    "poussière",
+    "doux",
+    "calme",
+    "fond"
+   ]
+  },
+  "background:particulas-vibrante": {
+   "name": "Particules (vibrant)",
+   "tags": [
+    "particules",
+    "poussière",
+    "doux",
+    "calme",
+    "fond"
+   ]
+  },
+  "background:pizarra-calido": {
+   "name": "Tableau noir (chaud)",
+   "tags": [
+    "tableau noir",
+    "école",
+    "classe",
+    "éducation",
+    "fond"
+   ]
+  },
+  "background:pizarra-frio": {
+   "name": "Tableau noir (froid)",
+   "tags": [
+    "tableau noir",
+    "école",
+    "classe",
+    "éducation",
+    "fond"
+   ]
+  },
+  "background:pizarra-oscuro": {
+   "name": "Tableau noir (sombre)",
+   "tags": [
+    "tableau noir",
+    "école",
+    "classe",
+    "éducation",
+    "fond"
+   ]
+  },
+  "background:pizarra-vibrante": {
+   "name": "Tableau noir (vibrant)",
+   "tags": [
+    "tableau noir",
+    "école",
+    "classe",
+    "éducation",
+    "fond"
+   ]
+  },
+  "background:primavera": {
+   "name": "Printemps",
+   "tags": [
+    "printemps",
+    "fleurs",
+    "fête des mères",
+    "fond"
+   ]
+  },
+  "background:primavera-2": {
+   "name": "Printemps 2",
+   "tags": [
+    "printemps",
+    "fleurs",
+    "fête des mères",
+    "fond"
+   ]
+  },
+  "background:prisma-calido": {
+   "name": "Prisme (chaud)",
+   "tags": [
+    "prisme",
+    "arc-en-ciel",
+    "cristal",
+    "aesthetic",
+    "fond"
+   ]
+  },
+  "background:prisma-frio": {
+   "name": "Prisme (froid)",
+   "tags": [
+    "prisme",
+    "arc-en-ciel",
+    "cristal",
+    "aesthetic",
+    "fond"
+   ]
+  },
+  "background:prisma-oscuro": {
+   "name": "Prisme (sombre)",
+   "tags": [
+    "prisme",
+    "arc-en-ciel",
+    "cristal",
+    "aesthetic",
+    "fond"
+   ]
+  },
+  "background:prisma-vibrante": {
+   "name": "Prisme (vibrant)",
+   "tags": [
+    "prisme",
+    "arc-en-ciel",
+    "cristal",
+    "aesthetic",
+    "fond"
+   ]
+  },
+  "background:puntos-calido": {
+   "name": "Points pulsants (chaud)",
+   "tags": [
+    "points",
+    "trame",
+    "pop",
+    "fond",
+    "chaud"
+   ]
+  },
+  "background:puntos-frio": {
+   "name": "Points pulsants (froid)",
+   "tags": [
+    "points",
+    "trame",
+    "pop",
+    "fond",
+    "froid"
+   ]
+  },
+  "background:puntos-oscuro": {
+   "name": "Points pulsants (sombre)",
+   "tags": [
+    "points",
+    "trame",
+    "pop",
+    "fond",
+    "sombre"
+   ]
+  },
+  "background:puntos-vibrante": {
+   "name": "Points pulsants (vibrant)",
+   "tags": [
+    "points",
+    "trame",
+    "pop",
+    "fond",
+    "vibrant"
+   ]
+  },
+  "background:ramadan": {
+   "name": "Ramadan et Aïd",
+   "tags": [
+    "ramadan",
+    "aïd",
+    "lune",
+    "nuit",
+    "fond"
+   ]
+  },
+  "background:ramadan-2": {
+   "name": "Ramadan et Aïd 2",
+   "tags": [
+    "ramadan",
+    "aïd",
+    "lune",
+    "nuit",
+    "fond"
+   ]
+  },
+  "background:rayas-calido": {
+   "name": "Rayures animées (chaud)",
+   "tags": [
+    "rayures",
+    "lignes",
+    "dynamique",
+    "fond",
+    "chaud"
+   ]
+  },
+  "background:rayas-frio": {
+   "name": "Rayures animées (froid)",
+   "tags": [
+    "rayures",
+    "lignes",
+    "dynamique",
+    "fond",
+    "froid"
+   ]
+  },
+  "background:rayas-oscuro": {
+   "name": "Rayures animées (sombre)",
+   "tags": [
+    "rayures",
+    "lignes",
+    "dynamique",
+    "fond",
+    "sombre"
+   ]
+  },
+  "background:rayas-vibrante": {
+   "name": "Rayures animées (vibrant)",
+   "tags": [
+    "rayures",
+    "lignes",
+    "dynamique",
+    "fond",
+    "vibrant"
+   ]
+  },
+  "background:rayos-luz-calido": {
+   "name": "Rayons de lumière (chaud)",
+   "tags": [
+    "rayons",
+    "lumière",
+    "ciel",
+    "espoir",
+    "fond"
+   ]
+  },
+  "background:rayos-luz-frio": {
+   "name": "Rayons de lumière (froid)",
+   "tags": [
+    "rayons",
+    "lumière",
+    "ciel",
+    "espoir",
+    "fond"
+   ]
+  },
+  "background:rayos-luz-oscuro": {
+   "name": "Rayons de lumière (sombre)",
+   "tags": [
+    "rayons",
+    "lumière",
+    "ciel",
+    "espoir",
+    "fond"
+   ]
+  },
+  "background:rayos-luz-vibrante": {
+   "name": "Rayons de lumière (vibrant)",
+   "tags": [
+    "rayons",
+    "lumière",
+    "ciel",
+    "espoir",
+    "fond"
+   ]
+  },
+  "background:rayos-sol-calido": {
+   "name": "Rayons tournants (chaud)",
+   "tags": [
+    "rayons",
+    "soleil",
+    "promo",
+    "enfants",
+    "fond"
+   ]
+  },
+  "background:rayos-sol-frio": {
+   "name": "Rayons tournants (froid)",
+   "tags": [
+    "rayons",
+    "soleil",
+    "promo",
+    "enfants",
+    "fond"
+   ]
+  },
+  "background:rayos-sol-oscuro": {
+   "name": "Rayons tournants (sombre)",
+   "tags": [
+    "rayons",
+    "soleil",
+    "promo",
+    "enfants",
+    "fond"
+   ]
+  },
+  "background:rayos-sol-vibrante": {
+   "name": "Rayons tournants (vibrant)",
+   "tags": [
+    "rayons",
+    "soleil",
+    "promo",
+    "enfants",
+    "fond"
+   ]
+  },
+  "background:san-valentin": {
+   "name": "Saint-Valentin",
+   "tags": [
+    "saint-valentin",
+    "amour",
+    "cœurs",
+    "février",
+    "fond"
+   ]
+  },
+  "background:san-valentin-2": {
+   "name": "Saint-Valentin 2",
+   "tags": [
+    "saint-valentin",
+    "amour",
+    "cœurs",
+    "février",
+    "fond"
+   ]
+  },
+  "background:tinta-calido": {
+   "name": "Encre dans l'eau (chaud)",
+   "tags": [
+    "encre",
+    "eau",
+    "art",
+    "fluide",
+    "fond"
+   ]
+  },
+  "background:tinta-frio": {
+   "name": "Encre dans l'eau (froid)",
+   "tags": [
+    "encre",
+    "eau",
+    "art",
+    "fluide",
+    "fond"
+   ]
+  },
+  "background:tinta-oscuro": {
+   "name": "Encre dans l'eau (sombre)",
+   "tags": [
+    "encre",
+    "eau",
+    "art",
+    "fluide",
+    "fond"
+   ]
+  },
+  "background:tinta-vibrante": {
+   "name": "Encre dans l'eau (vibrant)",
+   "tags": [
+    "encre",
+    "eau",
+    "art",
+    "fluide",
+    "fond"
+   ]
+  },
+  "background:tunel-calido": {
+   "name": "Tunnel (chaud)",
+   "tags": [
+    "tunnel",
+    "voyage",
+    "zoom",
+    "psychédélique",
+    "fond"
+   ]
+  },
+  "background:tunel-frio": {
+   "name": "Tunnel (froid)",
+   "tags": [
+    "tunnel",
+    "voyage",
+    "zoom",
+    "psychédélique",
+    "fond"
+   ]
+  },
+  "background:tunel-oscuro": {
+   "name": "Tunnel (sombre)",
+   "tags": [
+    "tunnel",
+    "voyage",
+    "zoom",
+    "psychédélique",
+    "fond"
+   ]
+  },
+  "background:tunel-vibrante": {
+   "name": "Tunnel (vibrant)",
+   "tags": [
+    "tunnel",
+    "voyage",
+    "zoom",
+    "psychédélique",
+    "fond"
+   ]
+  },
+  "overlay:amor-corazones": {
+   "name": "Cœurs flottants",
+   "tags": [
+    "cœurs",
+    "amour",
+    "saint-valentin",
+    "couple"
+   ]
+  },
+  "overlay:amor-corazones-brillo": {
+   "name": "Cœurs scintillants",
+   "tags": [
+    "cœurs",
+    "scintillant",
+    "amour",
+    "saint-valentin"
+   ]
+  },
+  "overlay:amor-corazones-contorno": {
+   "name": "Cœurs en contour",
+   "tags": [
+    "cœurs",
+    "contour",
+    "amour",
+    "saint-valentin"
+   ]
+  },
+  "overlay:amor-corazones-neon": {
+   "name": "Cœurs néon",
+   "tags": [
+    "cœurs",
+    "néon",
+    "amour",
+    "saint-valentin"
+   ]
+  },
+  "overlay:amor-corazones-rojos": {
+   "name": "Cœurs rouges",
+   "tags": [
+    "cœurs",
+    "rouge",
+    "amour",
+    "saint-valentin"
+   ]
+  },
+  "overlay:amor-explosion-corazones": {
+   "name": "Explosion de cœurs",
+   "tags": [
+    "cœurs",
+    "explosion",
+    "amour",
+    "demande en mariage"
+   ]
+  },
+  "overlay:amor-globos-corazon": {
+   "name": "Ballons en cœur",
+   "tags": [
+    "ballons",
+    "cœur",
+    "amour",
+    "saint-valentin",
+    "anniversaire"
+   ]
+  },
+  "overlay:amor-likes": {
+   "name": "Cœurs de live",
+   "tags": [
+    "cœurs",
+    "live",
+    "j'aime",
+    "réactions",
+    "amour"
+   ]
+  },
+  "overlay:amor-lluvia-corazones": {
+   "name": "Pluie de cœurs",
+   "tags": [
+    "cœurs",
+    "pluie",
+    "amour",
+    "saint-valentin"
+   ]
+  },
+  "overlay:amor-marco-corazones": {
+   "name": "Cadre de cœurs",
+   "tags": [
+    "cœurs",
+    "cadre",
+    "amour",
+    "saint-valentin"
+   ]
+  },
+  "overlay:amor-petalos": {
+   "name": "Pétales de rose",
+   "tags": [
+    "pétales",
+    "rose",
+    "mariage",
+    "romantique"
+   ]
+  },
+  "overlay:amor-petalos-blancos": {
+   "name": "Pétales blancs",
+   "tags": [
+    "pétales",
+    "blanc",
+    "mariage",
+    "mariée"
+   ]
+  },
+  "overlay:amor-petalos-rosa": {
+   "name": "Pétales rose poudré",
+   "tags": [
+    "pétales",
+    "rose",
+    "mariage",
+    "15 ans",
+    "romantique"
+   ]
+  },
+  "overlay:cam-bateria-baja": {
+   "name": "Batterie faible",
+   "tags": [
+    "batterie",
+    "faible",
+    "caméra",
+    "vlog"
+   ]
+  },
+  "overlay:cam-cuenta-regresiva": {
+   "name": "Amorce de film",
+   "tags": [
+    "compte à rebours",
+    "cinéma",
+    "amorce",
+    "3 2 1",
+    "intro"
+   ]
+  },
+  "overlay:cam-en-vivo": {
+   "name": "Badge LIVE",
+   "tags": [
+    "live",
+    "en direct",
+    "diffusion",
+    "stream",
+    "réseaux"
+   ]
+  },
+  "overlay:cam-enfoque": {
+   "name": "Mise au point",
+   "tags": [
+    "mise au point",
+    "autofocus",
+    "caméra",
+    "photo",
+    "cadre"
+   ]
+  },
+  "overlay:cam-flash": {
+   "name": "Flash d'appareil photo",
+   "tags": [
+    "flash",
+    "photo",
+    "appareil",
+    "transition",
+    "blanc"
+   ]
+  },
+  "overlay:cam-grabando-pantalla": {
+   "name": "Enregistrement d'écran",
+   "tags": [
+    "enregistrement d'écran",
+    "tuto",
+    "écran",
+    "rec",
+    "téléphone"
+   ]
+  },
+  "overlay:cam-obturador": {
+   "name": "Obturateur",
+   "tags": [
+    "obturateur",
+    "appareil photo",
+    "photo",
+    "transition",
+    "iris"
+   ]
+  },
+  "overlay:cam-rec": {
+   "name": "Caméra en enregistrement (REC)",
+   "tags": [
+    "rec",
+    "caméra",
+    "enregistrement",
+    "viseur"
+   ]
+  },
+  "overlay:cam-rec-minimal": {
+   "name": "REC minimaliste",
+   "tags": [
+    "rec",
+    "enregistrement",
+    "minimaliste",
+    "caméra",
+    "vlog"
+   ]
+  },
+  "overlay:cam-seguridad": {
+   "name": "Caméra de surveillance",
+   "tags": [
+    "surveillance",
+    "vidéosurveillance",
+    "caméra",
+    "sécurité",
+    "blague"
+   ]
+  },
+  "overlay:cam-vision-nocturna": {
+   "name": "Vision nocturne",
+   "tags": [
+    "vision nocturne",
+    "vert",
+    "caméra",
+    "nuit",
+    "mystère"
+   ]
+  },
+  "overlay:cam-visor": {
+   "name": "Viseur de caméra",
+   "tags": [
+    "viseur",
+    "grille",
+    "caméra",
+    "photo"
+   ]
+  },
+  "overlay:cel-confeti": {
+   "name": "Pluie de confettis",
+   "tags": [
+    "confettis",
+    "fête",
+    "anniversaire",
+    "célébration"
+   ]
+  },
+  "overlay:cel-confeti-circulos": {
+   "name": "Confettis ronds",
+   "tags": [
+    "confettis",
+    "points",
+    "cercles",
+    "fête",
+    "minimaliste"
+   ]
+  },
+  "overlay:cel-confeti-corazones": {
+   "name": "Confettis en cœurs",
+   "tags": [
+    "confettis",
+    "cœurs",
+    "mariage",
+    "amour",
+    "saint-valentin"
+   ]
+  },
+  "overlay:cel-confeti-desde-arriba": {
+   "name": "Confettis tombant d'en haut",
+   "tags": [
+    "confettis",
+    "chute",
+    "surprise",
+    "fête"
+   ]
+  },
+  "overlay:cel-confeti-dorado": {
+   "name": "Confettis dorés",
+   "tags": [
+    "confettis",
+    "doré",
+    "nouvel an",
+    "élégant"
+   ]
+  },
+  "overlay:cel-confeti-explosion": {
+   "name": "Explosion de confettis",
+   "tags": [
+    "confettis",
+    "explosion",
+    "canon",
+    "surprise",
+    "fête"
+   ]
+  },
+  "overlay:cel-confeti-grande": {
+   "name": "Gros confettis",
+   "tags": [
+    "confettis",
+    "gros",
+    "fête",
+    "joyeux",
+    "célébration"
+   ]
+  },
+  "overlay:cel-confeti-pastel": {
+   "name": "Confettis pastel",
+   "tags": [
+    "confettis",
+    "pastel",
+    "baby shower",
+    "bébé",
+    "anniversaire"
+   ]
+  },
+  "overlay:cel-confeti-plata": {
+   "name": "Confettis argentés",
+   "tags": [
+    "confettis",
+    "argenté",
+    "mariage",
+    "anniversaire",
+    "élégant"
+   ]
+  },
+  "overlay:cel-estrellas": {
+   "name": "Pluie d'étoiles",
+   "tags": [
+    "étoiles",
+    "fête",
+    "enfants",
+    "célébration",
+    "magie"
+   ]
+  },
+  "overlay:cel-estrellas-doradas": {
+   "name": "Étoiles dorées",
+   "tags": [
+    "étoiles",
+    "doré",
+    "prix",
+    "réussite"
+   ]
+  },
+  "overlay:cel-explosion-centro": {
+   "name": "Explosion au centre",
+   "tags": [
+    "confettis",
+    "explosion",
+    "centre",
+    "surprise",
+    "fête"
+   ]
+  },
+  "overlay:cel-explosion-dorada": {
+   "name": "Explosion dorée",
+   "tags": [
+    "confettis",
+    "explosion",
+    "doré",
+    "surprise",
+    "fête"
+   ]
+  },
+  "overlay:cel-explosion-estrellas": {
+   "name": "Explosion d'étoiles",
+   "tags": [
+    "étoiles",
+    "explosion",
+    "confettis",
+    "surprise",
+    "fête"
+   ]
+  },
+  "overlay:cel-fuegos-artificiales": {
+   "name": "Feux d'artifice",
+   "tags": [
+    "feux d'artifice",
+    "nouvel an",
+    "fête",
+    "célébration"
+   ]
+  },
+  "overlay:cel-fuegos-dorados": {
+   "name": "Feux d'artifice dorés",
+   "tags": [
+    "feux d'artifice",
+    "doré",
+    "nouvel an",
+    "fête"
+   ]
+  },
+  "overlay:cel-fuegos-final": {
+   "name": "Bouquet final",
+   "tags": [
+    "feux d'artifice",
+    "bouquet final",
+    "nouvel an",
+    "fête"
+   ]
+  },
+  "overlay:cel-fuegos-lejanos": {
+   "name": "Feux d'artifice lointains",
+   "tags": [
+    "feux d'artifice",
+    "lointain",
+    "nouvel an",
+    "nuit"
+   ]
+  },
+  "overlay:cel-globos": {
+   "name": "Ballons",
+   "tags": [
+    "ballons",
+    "anniversaire",
+    "fête",
+    "célébration"
+   ]
+  },
+  "overlay:cel-globos-dorados": {
+   "name": "Ballons dorés et argentés",
+   "tags": [
+    "ballons",
+    "doré",
+    "argenté",
+    "anniversaire",
+    "fête"
+   ]
+  },
+  "overlay:cel-globos-pastel": {
+   "name": "Ballons pastel",
+   "tags": [
+    "ballons",
+    "pastel",
+    "anniversaire",
+    "baby shower",
+    "fête"
+   ]
+  },
+  "overlay:cel-lluvia-billetes": {
+   "name": "Pluie de billets",
+   "tags": [
+    "billets",
+    "argent",
+    "riche",
+    "gagner",
+    "business"
+   ]
+  },
+  "overlay:cel-lluvia-emojis": {
+   "name": "Pluie d'emojis",
+   "tags": [
+    "emojis",
+    "smileys",
+    "bonheur",
+    "humour",
+    "réaction"
+   ]
+  },
+  "overlay:cel-lluvia-monedas": {
+   "name": "Pluie de pièces",
+   "tags": [
+    "pièces",
+    "argent",
+    "gagner",
+    "prix"
+   ]
+  },
+  "overlay:cel-lluvia-regalos": {
+   "name": "Pluie de cadeaux",
+   "tags": [
+    "cadeaux",
+    "noël",
+    "anniversaire",
+    "concours",
+    "giveaway"
+   ]
+  },
+  "overlay:cel-purpurina": {
+   "name": "Paillettes",
+   "tags": [
+    "paillettes",
+    "glitter",
+    "brillance",
+    "doré",
+    "fête"
+   ]
+  },
+  "overlay:cel-serpentinas": {
+   "name": "Serpentins",
+   "tags": [
+    "serpentins",
+    "fête",
+    "carnaval",
+    "anniversaire"
+   ]
+  },
+  "overlay:clima-arcoiris": {
+   "name": "Arc-en-ciel",
+   "tags": [
+    "arc-en-ciel",
+    "météo",
+    "nature",
+    "couleurs"
+   ]
+  },
+  "overlay:clima-copos": {
+   "name": "Flocons de neige",
+   "tags": [
+    "flocons",
+    "neige",
+    "hiver",
+    "météo"
+   ]
+  },
+  "overlay:clima-dientes-de-leon": {
+   "name": "Graines de pissenlit",
+   "tags": [
+    "pissenlit",
+    "graines",
+    "nature",
+    "vent"
+   ]
+  },
+  "overlay:clima-gotas-cristal": {
+   "name": "Gouttes sur la vitre",
+   "tags": [
+    "gouttes",
+    "vitre",
+    "pluie",
+    "météo"
+   ]
+  },
+  "overlay:clima-hojas": {
+   "name": "Feuilles d'automne",
+   "tags": [
+    "feuilles",
+    "automne",
+    "nature",
+    "chute"
+   ]
+  },
+  "overlay:clima-hojas-verdes": {
+   "name": "Feuilles vertes",
+   "tags": [
+    "feuilles",
+    "vert",
+    "nature",
+    "printemps"
+   ]
+  },
+  "overlay:clima-humo": {
+   "name": "Fumée",
+   "tags": [
+    "fumée",
+    "vapeur",
+    "mystère",
+    "dramatique",
+    "concert"
+   ]
+  },
+  "overlay:clima-humo-azul": {
+   "name": "Fumée bleue",
+   "tags": [
+    "fumée",
+    "bleu",
+    "mystère",
+    "ambiance"
+   ]
+  },
+  "overlay:clima-humo-colores": {
+   "name": "Fumée colorée",
+   "tags": [
+    "fumée",
+    "couleurs",
+    "fumigène",
+    "fête"
+   ]
+  },
+  "overlay:clima-humo-rosa": {
+   "name": "Fumée rose",
+   "tags": [
+    "fumée",
+    "rose",
+    "fumigène",
+    "gender reveal"
+   ]
+  },
+  "overlay:clima-lluvia": {
+   "name": "Pluie",
+   "tags": [
+    "pluie",
+    "orage",
+    "triste",
+    "mélancolie"
+   ]
+  },
+  "overlay:clima-lluvia-ligera": {
+   "name": "Bruine",
+   "tags": [
+    "bruine",
+    "pluie",
+    "météo",
+    "doux"
+   ]
+  },
+  "overlay:clima-nevada": {
+   "name": "Tempête de neige",
+   "tags": [
+    "neige",
+    "tempête",
+    "blizzard",
+    "hiver"
+   ]
+  },
+  "overlay:clima-niebla": {
+   "name": "Brouillard",
+   "tags": [
+    "brouillard",
+    "brume",
+    "mystère",
+    "horreur"
+   ]
+  },
+  "overlay:clima-niebla-baja": {
+   "name": "Brouillard bas",
+   "tags": [
+    "brouillard",
+    "brume",
+    "sol",
+    "mystère"
+   ]
+  },
+  "overlay:clima-nieve": {
+   "name": "Neige douce",
+   "tags": [
+    "neige",
+    "hiver",
+    "noël",
+    "flocons"
+   ]
+  },
+  "overlay:clima-noche-estrellada": {
+   "name": "Nuit étoilée",
+   "tags": [
+    "étoiles",
+    "nuit",
+    "ciel",
+    "nature"
+   ]
+  },
+  "overlay:clima-petalos-flores": {
+   "name": "Pétales colorés",
+   "tags": [
+    "pétales",
+    "fleurs",
+    "printemps",
+    "nature"
+   ]
+  },
+  "overlay:clima-polvo-viento": {
+   "name": "Poussière au vent",
+   "tags": [
+    "poussière",
+    "sable",
+    "vent",
+    "désert"
+   ]
+  },
+  "overlay:clima-relampago": {
+   "name": "Coup de foudre",
+   "tags": [
+    "éclair",
+    "foudre",
+    "orage",
+    "météo"
+   ]
+  },
+  "overlay:clima-sakura": {
+   "name": "Fleurs de cerisier",
+   "tags": [
+    "sakura",
+    "cerisier",
+    "printemps",
+    "fleurs"
+   ]
+  },
+  "overlay:clima-tormenta": {
+   "name": "Orage",
+   "tags": [
+    "orage",
+    "tempête",
+    "pluie",
+    "éclairs"
+   ]
+  },
+  "overlay:garabato-angel": {
+   "name": "Ailes d'ange et auréole",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "ange",
+    "auréole",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-angel-dorado": {
+   "name": "Ailes d'ange dorées",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "ailes",
+    "doré",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-brillo": {
+   "name": "Traits de brillance",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "brillance",
+    "dessiné à la main"
+   ]
+  },
+  "overlay:garabato-caritas": {
+   "name": "Smileys griffonnés",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "smileys",
+    "dessiné à la main"
+   ]
+  },
+  "overlay:garabato-cielo": {
+   "name": "Ciel griffonné",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "nuages",
+    "soleil",
+    "dessiné à la main"
+   ]
+  },
+  "overlay:garabato-circulo": {
+   "name": "Cercle dessiné à la main",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "cercle",
+    "entourer"
+   ]
+  },
+  "overlay:garabato-circulo-rojo": {
+   "name": "Cercle rouge dessiné à la main",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "cercle",
+    "rouge",
+    "entourer"
+   ]
+  },
+  "overlay:garabato-corazones": {
+   "name": "Cœurs griffonnés",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "cœurs",
+    "dessiné à la main"
+   ]
+  },
+  "overlay:garabato-corazones-rosa": {
+   "name": "Cœurs roses griffonnés",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "cœurs",
+    "rose",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-corona": {
+   "name": "Couronne griffonnée",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "couronne",
+    "dessiné à la main"
+   ]
+  },
+  "overlay:garabato-corona-dorada": {
+   "name": "Couronne dorée griffonnée",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "couronne",
+    "doré"
+   ]
+  },
+  "overlay:garabato-diablito": {
+   "name": "Cornes de petit diable",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "diable",
+    "cornes"
+   ]
+  },
+  "overlay:garabato-diablito-blanco": {
+   "name": "Cornes griffonnées",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "cornes",
+    "blanc"
+   ]
+  },
+  "overlay:garabato-estallido": {
+   "name": "Explosion griffonnée",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "explosion",
+    "dessiné à la main"
+   ]
+  },
+  "overlay:garabato-estrellas": {
+   "name": "Étoiles griffonnées",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "étoiles",
+    "dessiné à la main"
+   ]
+  },
+  "overlay:garabato-estrellas-doradas": {
+   "name": "Étoiles dorées griffonnées",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "étoiles",
+    "doré"
+   ]
+  },
+  "overlay:garabato-flechas": {
+   "name": "Flèches griffonnées",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "flèches",
+    "dessiné à la main"
+   ]
+  },
+  "overlay:garabato-flechas-girando": {
+   "name": "Flèches qui tournent",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "flèches",
+    "rotation"
+   ]
+  },
+  "overlay:garabato-flechas-neon": {
+   "name": "Flèches néon griffonnées",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "flèches",
+    "néon"
+   ]
+  },
+  "overlay:garabato-flores": {
+   "name": "Fleurs griffonnées",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "fleurs",
+    "dessiné à la main"
+   ]
+  },
+  "overlay:garabato-mariposas": {
+   "name": "Papillons griffonnés",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "papillons",
+    "dessiné à la main"
+   ]
+  },
+  "overlay:garabato-mix": {
+   "name": "Mix de gribouillis",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "mix",
+    "scrapbook",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-mix-negro": {
+   "name": "Mix de gribouillis noirs",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "noir",
+    "scrapbook"
+   ]
+  },
+  "overlay:garabato-mix-rosa": {
+   "name": "Mix de gribouillis roses",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "rose",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-musica": {
+   "name": "Notes de musique griffonnées",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "notes de musique",
+    "musique"
+   ]
+  },
+  "overlay:garabato-neon-corazones": {
+   "name": "Cœurs néon griffonnés",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "cœurs",
+    "néon"
+   ]
+  },
+  "overlay:garabato-rayos": {
+   "name": "Éclairs griffonnés",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "éclairs",
+    "dessiné à la main"
+   ]
+  },
+  "overlay:garabato-signos": {
+   "name": "Signes griffonnés",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "signes",
+    "dessiné à la main"
+   ]
+  },
+  "overlay:garabato-subrayado": {
+   "name": "Soulignement à la main",
+   "tags": [
+    "gribouillis",
+    "doodle",
+    "souligner",
+    "dessiné à la main"
+   ]
+  },
+  "overlay:glitch-bloques": {
+   "name": "Glitch en blocs",
+   "tags": [
+    "glitch",
+    "blocs",
+    "pixels",
+    "numérique",
+    "datamosh"
+   ]
+  },
+  "overlay:glitch-codigo": {
+   "name": "Pluie de code",
+   "tags": [
+    "code",
+    "binaire",
+    "matrix",
+    "hacker"
+   ]
+  },
+  "overlay:glitch-estatica": {
+   "name": "Neige télé",
+   "tags": [
+    "neige",
+    "parasites",
+    "télé",
+    "bruit",
+    "signal"
+   ]
+  },
+  "overlay:glitch-rgb": {
+   "name": "Glitch RVB",
+   "tags": [
+    "glitch",
+    "rvb",
+    "rgb",
+    "erreur",
+    "numérique"
+   ]
+  },
+  "overlay:glitch-transicion": {
+   "name": "Transition glitch",
+   "tags": [
+    "glitch",
+    "transition",
+    "erreur",
+    "numérique",
+    "coupe"
+   ]
+  },
+  "overlay:luz-arcoiris": {
+   "name": "Lumière arc-en-ciel",
+   "tags": [
+    "lumière",
+    "arc-en-ciel",
+    "prisme",
+    "couleurs"
+   ]
+  },
+  "overlay:luz-barrido-calido": {
+   "name": "Balayage de lumière chaude",
+   "tags": [
+    "balayage",
+    "transition",
+    "lumière",
+    "light leak",
+    "chaud"
+   ]
+  },
+  "overlay:luz-barrido-rosa": {
+   "name": "Balayage de lumière rose",
+   "tags": [
+    "balayage",
+    "transition",
+    "lumière",
+    "light leak",
+    "rose"
+   ]
+  },
+  "overlay:luz-bokeh-azul": {
+   "name": "Bokeh bleu nocturne",
+   "tags": [
+    "bokeh",
+    "bleu",
+    "nuit",
+    "ville"
+   ]
+  },
+  "overlay:luz-bokeh-blanco": {
+   "name": "Bokeh blanc",
+   "tags": [
+    "bokeh",
+    "blanc",
+    "lumières",
+    "flou",
+    "mariage"
+   ]
+  },
+  "overlay:luz-bokeh-cayendo": {
+   "name": "Bokeh qui tombe",
+   "tags": [
+    "bokeh",
+    "chute",
+    "lumières",
+    "noël",
+    "élégant"
+   ]
+  },
+  "overlay:luz-bokeh-color": {
+   "name": "Bokeh multicolore",
+   "tags": [
+    "bokeh",
+    "couleurs",
+    "fête",
+    "lumières",
+    "nuit"
+   ]
+  },
+  "overlay:luz-bokeh-corazones": {
+   "name": "Bokeh en cœurs",
+   "tags": [
+    "bokeh",
+    "cœurs",
+    "amour",
+    "saint-valentin"
+   ]
+  },
+  "overlay:luz-bokeh-dorado": {
+   "name": "Bokeh doré",
+   "tags": [
+    "bokeh",
+    "doré",
+    "lumières",
+    "flou",
+    "noël"
+   ]
+  },
+  "overlay:luz-bokeh-estrellas": {
+   "name": "Bokeh en étoiles",
+   "tags": [
+    "bokeh",
+    "étoiles",
+    "magie",
+    "noël",
+    "fête"
+   ]
+  },
+  "overlay:luz-bokeh-rosa": {
+   "name": "Bokeh rose",
+   "tags": [
+    "bokeh",
+    "rose",
+    "romantique",
+    "lumières",
+    "15 ans"
+   ]
+  },
+  "overlay:luz-destello": {
+   "name": "Reflet d'objectif",
+   "tags": [
+    "reflet",
+    "lens flare",
+    "objectif",
+    "soleil",
+    "transition"
+   ]
+  },
+  "overlay:luz-destello-azul": {
+   "name": "Reflet anamorphique bleu",
+   "tags": [
+    "reflet",
+    "anamorphique",
+    "bleu",
+    "cinéma",
+    "science-fiction"
+   ]
+  },
+  "overlay:luz-escaner": {
+   "name": "Ligne de scanner",
+   "tags": [
+    "scanner",
+    "laser",
+    "technologie",
+    "tech",
+    "futuriste"
+   ]
+  },
+  "overlay:luz-flash-transicion": {
+   "name": "Flash de transition",
+   "tags": [
+    "flash",
+    "transition",
+    "blanc",
+    "lumière"
+   ]
+  },
+  "overlay:luz-fuga-calida": {
+   "name": "Fuite de lumière chaude",
+   "tags": [
+    "fuite de lumière",
+    "light leak",
+    "chaud",
+    "orange",
+    "vintage"
+   ]
+  },
+  "overlay:luz-fuga-dorada": {
+   "name": "Fuite de lumière dorée",
+   "tags": [
+    "fuite de lumière",
+    "light leak",
+    "pellicule",
+    "doré",
+    "golden hour"
+   ]
+  },
+  "overlay:luz-fuga-esquina": {
+   "name": "Lueur dans les coins",
+   "tags": [
+    "fuite de lumière",
+    "light leak",
+    "coins",
+    "pellicule",
+    "lueur"
+   ]
+  },
+  "overlay:luz-fuga-esquina-rosa": {
+   "name": "Lueur rose dans les coins",
+   "tags": [
+    "fuite de lumière",
+    "light leak",
+    "coins",
+    "rose",
+    "lueur"
+   ]
+  },
+  "overlay:luz-fuga-fria": {
+   "name": "Fuite de lumière froide",
+   "tags": [
+    "fuite de lumière",
+    "light leak",
+    "bleu",
+    "froid",
+    "nuit"
+   ]
+  },
+  "overlay:luz-fuga-roja": {
+   "name": "Fuite de lumière rouge",
+   "tags": [
+    "fuite de lumière",
+    "light leak",
+    "rouge",
+    "pellicule"
+   ]
+  },
+  "overlay:luz-fuga-rosa": {
+   "name": "Fuite de lumière rose",
+   "tags": [
+    "fuite de lumière",
+    "light leak",
+    "rose",
+    "romantique",
+    "rêve"
+   ]
+  },
+  "overlay:luz-fuga-turquesa": {
+   "name": "Fuite de lumière turquoise et orange",
+   "tags": [
+    "fuite de lumière",
+    "light leak",
+    "turquoise",
+    "orange",
+    "pellicule"
+   ]
+  },
+  "overlay:luz-fuga-verde": {
+   "name": "Fuite de lumière verte vintage",
+   "tags": [
+    "fuite de lumière",
+    "light leak",
+    "vert",
+    "vintage",
+    "pellicule"
+   ]
+  },
+  "overlay:luz-fuga-violeta": {
+   "name": "Fuite de lumière violette",
+   "tags": [
+    "fuite de lumière",
+    "light leak",
+    "violet",
+    "pellicule"
+   ]
+  },
+  "overlay:luz-luces-ciudad": {
+   "name": "Lumières de la ville",
+   "tags": [
+    "ville",
+    "lumières",
+    "nuit",
+    "urbain"
+   ]
+  },
+  "overlay:luz-luces-navidad": {
+   "name": "Lumières de Noël",
+   "tags": [
+    "noël",
+    "lumières",
+    "guirlande",
+    "bokeh",
+    "fêtes"
+   ]
+  },
+  "overlay:luz-luciernagas": {
+   "name": "Lucioles",
+   "tags": [
+    "lucioles",
+    "magie",
+    "nuit",
+    "forêt",
+    "lueur"
+   ]
+  },
+  "overlay:luz-neon-barrido": {
+   "name": "Balayage néon",
+   "tags": [
+    "néon",
+    "balayage",
+    "transition",
+    "lumière"
+   ]
+  },
+  "overlay:luz-prisma": {
+   "name": "Prisme arc-en-ciel",
+   "tags": [
+    "prisme",
+    "arc-en-ciel",
+    "réfraction",
+    "cristal"
+   ]
+  },
+  "overlay:luz-rayos": {
+   "name": "Rayons de soleil",
+   "tags": [
+    "rayons",
+    "soleil",
+    "lumière",
+    "céleste"
+   ]
+  },
+  "overlay:luz-sol": {
+   "name": "Soleil éclatant",
+   "tags": [
+    "soleil",
+    "reflet",
+    "lens flare",
+    "été"
+   ]
+  },
+  "overlay:marco-brillos": {
+   "name": "Cadre scintillant",
+   "tags": [
+    "cadre",
+    "bordure",
+    "scintillements",
+    "paillettes"
+   ]
+  },
+  "overlay:marco-lineas-laterales": {
+   "name": "Lignes de mouvement",
+   "tags": [
+    "lignes",
+    "mouvement",
+    "anime",
+    "rapide",
+    "vitesse"
+   ]
+  },
+  "overlay:marco-lineas-velocidad": {
+   "name": "Lignes de vitesse",
+   "tags": [
+    "lignes de vitesse",
+    "anime",
+    "manga",
+    "bd",
+    "impact"
+   ]
+  },
+  "overlay:marco-neon-azul": {
+   "name": "Cadre néon bleu",
+   "tags": [
+    "cadre",
+    "bordure",
+    "néon",
+    "bleu"
+   ]
+  },
+  "overlay:marco-neon-rosa": {
+   "name": "Cadre néon rose",
+   "tags": [
+    "cadre",
+    "bordure",
+    "néon",
+    "rose"
+   ]
+  },
+  "overlay:marco-papel-cinta": {
+   "name": "Cadre papier scotché",
+   "tags": [
+    "cadre",
+    "papier",
+    "ruban adhésif",
+    "scrapbook"
+   ]
+  },
+  "overlay:marco-papel-negro": {
+   "name": "Cadre papier découpé noir",
+   "tags": [
+    "cadre",
+    "papier",
+    "découpé",
+    "noir"
+   ]
+  },
+  "overlay:marco-papel-recortado": {
+   "name": "Cadre papier découpé",
+   "tags": [
+    "cadre",
+    "papier",
+    "découpé",
+    "collage"
+   ]
+  },
+  "overlay:marco-polaroid": {
+   "name": "Cadre photo instantanée",
+   "tags": [
+    "cadre",
+    "photo instantanée",
+    "bordure",
+    "souvenir"
+   ]
+  },
+  "overlay:marco-semitono": {
+   "name": "Trame BD",
+   "tags": [
+    "trame",
+    "demi-teinte",
+    "bd",
+    "pop art",
+    "points"
+   ]
+  },
+  "overlay:part-ascendentes": {
+   "name": "Lumières ascendantes",
+   "tags": [
+    "lumières",
+    "ascendant",
+    "spirituel",
+    "paix",
+    "calme"
+   ]
+  },
+  "overlay:part-bengala": {
+   "name": "Cierge magique",
+   "tags": [
+    "cierge magique",
+    "étincelles",
+    "nouvel an",
+    "mariage",
+    "célébration"
+   ]
+  },
+  "overlay:part-brasas": {
+   "name": "Braises",
+   "tags": [
+    "braises",
+    "feu",
+    "feu de camp",
+    "chaud"
+   ]
+  },
+  "overlay:part-brasas-azules": {
+   "name": "Braises bleues",
+   "tags": [
+    "braises",
+    "bleu",
+    "magie",
+    "fantasy",
+    "glace"
+   ]
+  },
+  "overlay:part-brillos": {
+   "name": "Scintillements",
+   "tags": [
+    "scintillements",
+    "paillettes",
+    "sparkle",
+    "magie",
+    "étoiles"
+   ]
+  },
+  "overlay:part-brillos-azules": {
+   "name": "Scintillements bleus",
+   "tags": [
+    "scintillements",
+    "bleu",
+    "sparkle",
+    "glace",
+    "hiver"
+   ]
+  },
+  "overlay:part-brillos-dorados": {
+   "name": "Scintillements dorés",
+   "tags": [
+    "scintillements",
+    "doré",
+    "sparkle",
+    "élégant",
+    "mariage"
+   ]
+  },
+  "overlay:part-brillos-rosa": {
+   "name": "Scintillements roses",
+   "tags": [
+    "scintillements",
+    "rose",
+    "sparkle",
+    "aesthetic",
+    "beauté"
+   ]
+  },
+  "overlay:part-burbujas": {
+   "name": "Bulles",
+   "tags": [
+    "bulles",
+    "savon",
+    "eau",
+    "enfants"
+   ]
+  },
+  "overlay:part-burbujas-arcoiris": {
+   "name": "Bulles irisées",
+   "tags": [
+    "bulles",
+    "irisé",
+    "arc-en-ciel",
+    "savon",
+    "aesthetic"
+   ]
+  },
+  "overlay:part-chispas": {
+   "name": "Étincelles",
+   "tags": [
+    "étincelles",
+    "feu",
+    "cierge magique",
+    "énergie"
+   ]
+  },
+  "overlay:part-chispas-azules": {
+   "name": "Étincelles bleues",
+   "tags": [
+    "étincelles",
+    "bleu",
+    "énergie",
+    "électrique"
+   ]
+  },
+  "overlay:part-destellos-grandes": {
+   "name": "Grands scintillements",
+   "tags": [
+    "scintillements",
+    "grands",
+    "sparkle",
+    "produit",
+    "propre"
+   ]
+  },
+  "overlay:part-estrellas-fugaces": {
+   "name": "Étoiles filantes",
+   "tags": [
+    "étoiles filantes",
+    "ciel",
+    "nuit",
+    "vœu",
+    "météore"
+   ]
+  },
+  "overlay:part-estrellitas": {
+   "name": "Petites étoiles",
+   "tags": [
+    "petites étoiles",
+    "enfants",
+    "magie",
+    "mignon"
+   ]
+  },
+  "overlay:part-explosion-chispas": {
+   "name": "Explosion d'étincelles",
+   "tags": [
+    "explosion",
+    "étincelles",
+    "impact",
+    "transition"
+   ]
+  },
+  "overlay:part-lluvia-luces": {
+   "name": "Pluie de lumières",
+   "tags": [
+    "pluie de lumières",
+    "lumières",
+    "fête",
+    "discothèque",
+    "nuit"
+   ]
+  },
+  "overlay:part-lluvia-meteoros": {
+   "name": "Pluie de météores",
+   "tags": [
+    "météores",
+    "étoiles filantes",
+    "ciel",
+    "nuit",
+    "espace"
+   ]
+  },
+  "overlay:part-motas-luz": {
+   "name": "Poussières dans la lumière",
+   "tags": [
+    "poussière",
+    "lumière",
+    "soleil",
+    "calme"
+   ]
+  },
+  "overlay:part-nieve-brillante": {
+   "name": "Neige pailletée",
+   "tags": [
+    "neige",
+    "paillettes",
+    "hiver",
+    "noël",
+    "magie"
+   ]
+  },
+  "overlay:part-orbes": {
+   "name": "Orbes lumineux",
+   "tags": [
+    "orbes",
+    "lumière",
+    "doux",
+    "rêveur"
+   ]
+  },
+  "overlay:part-polvo-dorado": {
+   "name": "Poussière dorée",
+   "tags": [
+    "poussière",
+    "doré",
+    "magie",
+    "élégant"
+   ]
+  },
+  "overlay:part-polvo-magico": {
+   "name": "Traînée de poussière magique",
+   "tags": [
+    "magie",
+    "baguette",
+    "poussière",
+    "traînée"
+   ]
+  },
+  "overlay:part-polvo-plateado": {
+   "name": "Poussière argentée",
+   "tags": [
+    "poussière",
+    "argenté",
+    "hiver",
+    "élégant"
+   ]
+  },
+  "overlay:part-polvo-rosa": {
+   "name": "Poussière rose",
+   "tags": [
+    "poussière",
+    "rose",
+    "aesthetic",
+    "15 ans"
+   ]
+  },
+  "overlay:part-velocidad-luz": {
+   "name": "Vitesse lumière",
+   "tags": [
+    "vitesse",
+    "hyperespace",
+    "espace",
+    "étoiles",
+    "warp"
+   ]
+  },
+  "overlay:pel-8mm": {
+   "name": "Film 8 mm",
+   "tags": [
+    "8 mm",
+    "super 8",
+    "pellicule",
+    "vintage",
+    "souvenirs"
+   ]
+  },
+  "overlay:pel-cine-mudo": {
+   "name": "Cinéma muet",
+   "tags": [
+    "cinéma muet",
+    "ancien",
+    "sépia",
+    "années 1920"
+   ]
+  },
+  "overlay:pel-crt": {
+   "name": "Vieille télé (CRT)",
+   "tags": [
+    "crt",
+    "télé",
+    "rétro",
+    "lignes de balayage"
+   ]
+  },
+  "overlay:pel-flash-blanco": {
+   "name": "Flash de pellicule",
+   "tags": [
+    "flash",
+    "blanc",
+    "transition",
+    "pellicule"
+   ]
+  },
+  "overlay:pel-grano": {
+   "name": "Grain de pellicule",
+   "tags": [
+    "grain",
+    "pellicule",
+    "film",
+    "bruit"
+   ]
+  },
+  "overlay:pel-grano-16mm": {
+   "name": "Grain 16 mm",
+   "tags": [
+    "grain",
+    "16 mm",
+    "pellicule",
+    "vintage"
+   ]
+  },
+  "overlay:pel-grano-fino": {
+   "name": "Grain fin",
+   "tags": [
+    "grain",
+    "fin",
+    "cinéma",
+    "pellicule"
+   ]
+  },
+  "overlay:pel-grano-fuerte": {
+   "name": "Grain prononcé",
+   "tags": [
+    "grain",
+    "prononcé",
+    "bruit",
+    "pellicule"
+   ]
+  },
+  "overlay:pel-marco-super8": {
+   "name": "Cadre Super 8",
+   "tags": [
+    "super 8",
+    "8 mm",
+    "cadre",
+    "pellicule"
+   ]
+  },
+  "overlay:pel-polvo-rayas": {
+   "name": "Poussières et rayures de pellicule",
+   "tags": [
+    "pellicule",
+    "poussière",
+    "rayures",
+    "vintage"
+   ]
+  },
+  "overlay:pel-polvo-suave": {
+   "name": "Poussière légère",
+   "tags": [
+    "poussière",
+    "légère",
+    "pellicule",
+    "texture"
+   ]
+  },
+  "overlay:pel-quemado": {
+   "name": "Pellicule brûlée",
+   "tags": [
+    "brûlure",
+    "film burn",
+    "pellicule",
+    "transition",
+    "flash"
+   ]
+  },
+  "overlay:pel-quemado-azul": {
+   "name": "Pellicule brûlée bleue",
+   "tags": [
+    "brûlure",
+    "film burn",
+    "bleu",
+    "transition",
+    "vintage"
+   ]
+  },
+  "overlay:pel-quemado-bordes": {
+   "name": "Brûlure sur les bords",
+   "tags": [
+    "brûlure",
+    "film burn",
+    "bords",
+    "transition",
+    "vintage"
+   ]
+  },
+  "overlay:pel-quemado-centro": {
+   "name": "Brûlure depuis le centre",
+   "tags": [
+    "brûlure",
+    "film burn",
+    "centre",
+    "transition",
+    "vintage"
+   ]
+  },
+  "overlay:pel-quemado-rojo": {
+   "name": "Pellicule brûlée rouge",
+   "tags": [
+    "brûlure",
+    "film burn",
+    "rouge",
+    "transition",
+    "vintage"
+   ]
+  },
+  "overlay:pel-quemado-rosa": {
+   "name": "Pellicule brûlée rose",
+   "tags": [
+    "brûlure",
+    "film burn",
+    "rose",
+    "transition",
+    "vintage"
+   ]
+  },
+  "overlay:pel-tira-35mm": {
+   "name": "Bande de pellicule 35 mm",
+   "tags": [
+    "35 mm",
+    "bande",
+    "pellicule",
+    "cadre"
+   ]
+  },
+  "overlay:pel-vhs": {
+   "name": "VHS",
+   "tags": [
+    "vhs",
+    "rétro",
+    "années 90",
+    "cassette",
+    "glitch"
+   ]
+  },
+  "overlay:pel-vhs-pausa": {
+   "name": "VHS en pause",
+   "tags": [
+    "vhs",
+    "pause",
+    "rétro",
+    "années 90"
+   ]
+  },
+  "overlay:pel-vhs-rebobinar": {
+   "name": "VHS en rembobinage",
+   "tags": [
+    "vhs",
+    "rembobiner",
+    "rétro",
+    "transition"
+   ]
+  },
+  "overlay:pel-vhs-rec": {
+   "name": "VHS en enregistrement",
+   "tags": [
+    "vhs",
+    "rec",
+    "enregistrement",
+    "rétro"
+   ]
+  },
+  "overlay:textura-grunge": {
+   "name": "Texture grunge",
+   "tags": [
+    "grunge",
+    "texture",
+    "sale",
+    "rock",
+    "urbain"
+   ]
+  },
+  "overlay:textura-papel": {
+   "name": "Texture papier",
+   "tags": [
+    "texture",
+    "papier",
+    "vintage",
+    "collage"
+   ]
+  },
+  "sound:angelical": {
+   "name": "Angélique",
+   "tags": [
+    "ange",
+    "angélique",
+    "ciel",
+    "paix",
+    "miracle"
+   ]
+  },
+  "sound:aparicion": {
+   "name": "Apparition",
+   "tags": [
+    "apparition",
+    "pouf",
+    "révélation",
+    "reveal"
+   ]
+  },
+  "sound:aplausos": {
+   "name": "Applaudissements",
+   "tags": [
+    "applaudissements",
+    "public",
+    "bravo",
+    "félicitations"
+   ]
+  },
+  "sound:arpa-bajada": {
+   "name": "Glissando de harpe descendant",
+   "tags": [
+    "harpe",
+    "glissando",
+    "descente",
+    "flashback"
+   ]
+  },
+  "sound:arpa-subida": {
+   "name": "Glissando de harpe ascendant",
+   "tags": [
+    "harpe",
+    "glissando",
+    "rêve",
+    "souvenir"
+   ]
+  },
+  "sound:aura": {
+   "name": "Aura scintillante",
+   "tags": [
+    "aura",
+    "scintillement",
+    "brillance",
+    "doux"
+   ]
+  },
+  "sound:ba-dum-tss": {
+   "name": "Ba dum tss",
+   "tags": [
+    "ba dum tss",
+    "rimshot",
+    "blague",
+    "humour"
+   ]
+  },
+  "sound:bass-drop": {
+   "name": "Bass drop",
+   "tags": [
+    "bass drop",
+    "drop",
+    "basse",
+    "impact",
+    "edit"
+   ]
+  },
+  "sound:bass-drop-corto": {
+   "name": "Bass drop court",
+   "tags": [
+    "bass drop",
+    "drop",
+    "basse",
+    "court",
+    "impact"
+   ]
+  },
+  "sound:bass-drop-distorsion": {
+   "name": "Bass drop distordu",
+   "tags": [
+    "bass drop",
+    "drop",
+    "basse",
+    "distorsion",
+    "impact"
+   ]
+  },
+  "sound:bloquear": {
+   "name": "Verrouillage",
+   "tags": [
+    "verrouiller",
+    "cadenas",
+    "téléphone",
+    "lock"
+   ]
+  },
+  "sound:bocina-payaso": {
+   "name": "Klaxon de clown",
+   "tags": [
+    "klaxon",
+    "clown",
+    "pouet",
+    "humour",
+    "cirque"
+   ]
+  },
+  "sound:bofetada": {
+   "name": "Gifle",
+   "tags": [
+    "gifle",
+    "claque",
+    "humour",
+    "drame"
+   ]
+  },
+  "sound:boing": {
+   "name": "Boing",
+   "tags": [
+    "boing",
+    "ressort",
+    "rebond",
+    "humour",
+    "dessin animé"
+   ]
+  },
+  "sound:boing-agudo": {
+   "name": "Boing aigu",
+   "tags": [
+    "boing",
+    "aigu",
+    "humour",
+    "rebond"
+   ]
+  },
+  "sound:boing-grave": {
+   "name": "Boing grave",
+   "tags": [
+    "boing",
+    "grave",
+    "humour",
+    "rebond"
+   ]
+  },
+  "sound:bombo": {
+   "name": "Grosse caisse",
+   "tags": [
+    "grosse caisse",
+    "kick",
+    "batterie",
+    "beat"
+   ]
+  },
+  "sound:bonk": {
+   "name": "Bonk",
+   "tags": [
+    "bonk",
+    "coup",
+    "tête",
+    "bois",
+    "humour"
+   ]
+  },
+  "sound:bonus": {
+   "name": "Bonus",
+   "tags": [
+    "bonus",
+    "extra",
+    "jeu",
+    "récompense"
+   ]
+  },
+  "sound:boom-cine": {
+   "name": "Boom cinématique",
+   "tags": [
+    "boom",
+    "impact",
+    "coup",
+    "épique",
+    "cinéma"
+   ]
+  },
+  "sound:boom-lejano": {
+   "name": "Boom lointain",
+   "tags": [
+    "boom",
+    "impact",
+    "lointain",
+    "épique",
+    "cinéma"
+   ]
+  },
+  "sound:boom-profundo": {
+   "name": "Boom profond",
+   "tags": [
+    "boom",
+    "impact",
+    "grave",
+    "épique",
+    "cinéma"
+   ]
+  },
+  "sound:braam": {
+   "name": "Braam",
+   "tags": [
+    "braam",
+    "bande-annonce",
+    "épique",
+    "cinéma",
+    "drame"
+   ]
+  },
+  "sound:braam-grave": {
+   "name": "Braam grave",
+   "tags": [
+    "braam",
+    "bande-annonce",
+    "grave",
+    "sombre"
+   ]
+  },
+  "sound:brillo-escena": {
+   "name": "Scintillement de changement de scène",
+   "tags": [
+    "scintillement",
+    "sparkle",
+    "magie",
+    "paillettes",
+    "transition"
+   ]
+  },
+  "sound:brillo-largo": {
+   "name": "Scintillement long",
+   "tags": [
+    "scintillement",
+    "sparkle",
+    "magie",
+    "long"
+   ]
+  },
+  "sound:brillo-oscuro": {
+   "name": "Scintillement mystérieux",
+   "tags": [
+    "scintillement",
+    "mystère",
+    "magie",
+    "sombre"
+   ]
+  },
+  "sound:burbujas-magicas": {
+   "name": "Bulles magiques",
+   "tags": [
+    "bulles",
+    "magie",
+    "enfants",
+    "féerique"
+   ]
+  },
+  "sound:caida-caricatura": {
+   "name": "Chute de dessin animé",
+   "tags": [
+    "chute",
+    "dessin animé",
+    "coup",
+    "humour",
+    "fail"
+   ]
+  },
+  "sound:caida-larga": {
+   "name": "Downlifter long",
+   "tags": [
+    "downlifter",
+    "descente",
+    "transition",
+    "fin",
+    "long"
+   ]
+  },
+  "sound:caida-objeto": {
+   "name": "Chute d'objet",
+   "tags": [
+    "chute",
+    "objet",
+    "coup sec",
+    "impact"
+   ]
+  },
+  "sound:caida-ruido": {
+   "name": "Downlifter de bruit",
+   "tags": [
+    "downlifter",
+    "descente",
+    "bruit",
+    "transition",
+    "fin"
+   ]
+  },
+  "sound:caida-sinte": {
+   "name": "Descente synthé",
+   "tags": [
+    "downlifter",
+    "descente",
+    "synthé",
+    "transition",
+    "fin"
+   ]
+  },
+  "sound:caja": {
+   "name": "Caisse claire",
+   "tags": [
+    "caisse claire",
+    "snare",
+    "batterie",
+    "beat"
+   ]
+  },
+  "sound:caja-registradora": {
+   "name": "Caisse enregistreuse",
+   "tags": [
+    "caisse",
+    "vente",
+    "argent",
+    "ka-ching",
+    "commerce"
+   ]
+  },
+  "sound:camara-foto": {
+   "name": "Déclencheur photo",
+   "tags": [
+    "appareil photo",
+    "photo",
+    "déclencheur",
+    "clic",
+    "selfie"
+   ]
+  },
+  "sound:campana-iglesia": {
+   "name": "Cloche d'église",
+   "tags": [
+    "cloche",
+    "église",
+    "mariage",
+    "solennel"
+   ]
+  },
+  "sound:campanas-boda": {
+   "name": "Cloches de mariage",
+   "tags": [
+    "mariage",
+    "cloches",
+    "mariés",
+    "noces"
+   ]
+  },
+  "sound:campanitas": {
+   "name": "Carillon à vent",
+   "tags": [
+    "carillon",
+    "clochettes",
+    "vent",
+    "doux"
+   ]
+  },
+  "sound:campanitas-rapidas": {
+   "name": "Carillon rapide",
+   "tags": [
+    "carillon",
+    "clochettes",
+    "rapide",
+    "éclat"
+   ]
+  },
+  "sound:captura-pantalla": {
+   "name": "Capture d'écran",
+   "tags": [
+    "capture d'écran",
+    "screenshot",
+    "écran",
+    "téléphone"
+   ]
+  },
+  "sound:carrera-caricatura": {
+   "name": "Course de dessin animé",
+   "tags": [
+    "course",
+    "courir",
+    "dessin animé",
+    "fuite",
+    "humour"
+   ]
+  },
+  "sound:chasquido": {
+   "name": "Claquement de doigts",
+   "tags": [
+    "claquement de doigts",
+    "snap",
+    "doigts",
+    "magie",
+    "changement"
+   ]
+  },
+  "sound:chillido-doble": {
+   "name": "Double couinement",
+   "tags": [
+    "couinement",
+    "double",
+    "jouet",
+    "humour"
+   ]
+  },
+  "sound:chillido-juguete": {
+   "name": "Jouet qui couine",
+   "tags": [
+    "couinement",
+    "jouet",
+    "animal",
+    "humour"
+   ]
+  },
+  "sound:cinta-frenada": {
+   "name": "Arrêt de bande",
+   "tags": [
+    "tape stop",
+    "arrêt",
+    "ralentir",
+    "coupure",
+    "dj"
+   ]
+  },
+  "sound:cinta-frenada-lenta": {
+   "name": "Arrêt de bande lent",
+   "tags": [
+    "tape stop",
+    "arrêt",
+    "lent",
+    "fin"
+   ]
+  },
+  "sound:clic": {
+   "name": "Clic",
+   "tags": [
+    "clic",
+    "bouton",
+    "click"
+   ]
+  },
+  "sound:clic-boligrafo": {
+   "name": "Clic de stylo",
+   "tags": [
+    "clic",
+    "stylo",
+    "bureau"
+   ]
+  },
+  "sound:clic-raton": {
+   "name": "Clic de souris",
+   "tags": [
+    "clic",
+    "souris",
+    "ordinateur",
+    "tuto"
+   ]
+  },
+  "sound:completado": {
+   "name": "Terminé",
+   "tags": [
+    "terminé",
+    "fini",
+    "validé",
+    "done"
+   ]
+  },
+  "sound:contador-puntos": {
+   "name": "Compteur de points",
+   "tags": [
+    "points",
+    "score",
+    "compteur",
+    "jeu"
+   ]
+  },
+  "sound:corneta-aire": {
+   "name": "Corne de brume",
+   "tags": [
+    "corne",
+    "air horn",
+    "fête",
+    "dj",
+    "hype"
+   ]
+  },
+  "sound:coro-celestial": {
+   "name": "Chœur céleste",
+   "tags": [
+    "chœur",
+    "céleste",
+    "anges",
+    "révélation"
+   ]
+  },
+  "sound:correcto": {
+   "name": "Bonne réponse",
+   "tags": [
+    "correct",
+    "bonne réponse",
+    "validé",
+    "succès"
+   ]
+  },
+  "sound:cremallera": {
+   "name": "Fermeture éclair",
+   "tags": [
+    "fermeture éclair",
+    "zip",
+    "vêtement",
+    "fermer"
+   ]
+  },
+  "sound:cristal": {
+   "name": "Tintement de verre",
+   "tags": [
+    "verre",
+    "cristal",
+    "trinquer",
+    "tintement"
+   ]
+  },
+  "sound:cuenta-palillos": {
+   "name": "Décompte aux baguettes",
+   "tags": [
+    "décompte",
+    "1 2 3 4",
+    "baguettes",
+    "intro",
+    "batterie"
+   ]
+  },
+  "sound:dano": {
+   "name": "Dégâts",
+   "tags": [
+    "dégâts",
+    "blessé",
+    "coup",
+    "jeu"
+   ]
+  },
+  "sound:desaparicion": {
+   "name": "Disparition",
+   "tags": [
+    "disparaître",
+    "magie",
+    "pouf",
+    "vanish"
+   ]
+  },
+  "sound:desbloquear": {
+   "name": "Déverrouillage",
+   "tags": [
+    "déverrouiller",
+    "unlock",
+    "téléphone"
+   ]
+  },
+  "sound:deslizar-abajo": {
+   "name": "Glissement vers le bas",
+   "tags": [
+    "glisser",
+    "swipe",
+    "bas",
+    "interface"
+   ]
+  },
+  "sound:deslizar-arriba": {
+   "name": "Glissement vers le haut",
+   "tags": [
+    "glisser",
+    "swipe",
+    "haut",
+    "interface",
+    "rapide"
+   ]
+  },
+  "sound:deslizar-interfaz": {
+   "name": "Glissement d'interface",
+   "tags": [
+    "glisser",
+    "swipe",
+    "écran",
+    "téléphone",
+    "appli"
+   ]
+  },
+  "sound:despertador": {
+   "name": "Réveil",
+   "tags": [
+    "réveil",
+    "alarme",
+    "matin",
+    "se réveiller"
+   ]
+  },
+  "sound:destello-ding": {
+   "name": "Ding scintillant",
+   "tags": [
+    "ding",
+    "éclat",
+    "brillance",
+    "propre",
+    "nouveau"
+   ]
+  },
+  "sound:disco-rayado": {
+   "name": "Disque rayé",
+   "tags": [
+    "disque rayé",
+    "record scratch",
+    "pause",
+    "quoi",
+    "humour"
+   ]
+  },
+  "sound:disco-rayado-frenada": {
+   "name": "Arrêt de disque",
+   "tags": [
+    "disque",
+    "arrêt",
+    "pause",
+    "silence gênant"
+   ]
+  },
+  "sound:dron-metalico": {
+   "name": "Drone métallique",
+   "tags": [
+    "drone",
+    "métal",
+    "industriel",
+    "mystère"
+   ]
+  },
+  "sound:dron-oscuro": {
+   "name": "Drone sombre",
+   "tags": [
+    "drone",
+    "sombre",
+    "suspense",
+    "horreur",
+    "ambiance"
+   ]
+  },
+  "sound:drop-fill": {
+   "name": "Roulement de batterie",
+   "tags": [
+    "fill",
+    "batterie",
+    "drop",
+    "transition"
+   ]
+  },
+  "sound:error-negativo": {
+   "name": "Son négatif",
+   "tags": [
+    "erreur",
+    "négatif",
+    "non",
+    "échec"
+   ]
+  },
+  "sound:error-zumbido": {
+   "name": "Buzzer d'erreur",
+   "tags": [
+    "erreur",
+    "mauvaise réponse",
+    "buzzer",
+    "faux"
+   ]
+  },
+  "sound:explosion": {
+   "name": "Explosion",
+   "tags": [
+    "explosion",
+    "bombe",
+    "boom",
+    "action"
+   ]
+  },
+  "sound:explosion-8bits": {
+   "name": "Explosion 8 bits",
+   "tags": [
+    "explosion",
+    "8 bits",
+    "rétro",
+    "jeu"
+   ]
+  },
+  "sound:explosion-lejana": {
+   "name": "Explosion lointaine",
+   "tags": [
+    "explosion",
+    "lointain",
+    "guerre",
+    "boom"
+   ]
+  },
+  "sound:fanfarria": {
+   "name": "Fanfare",
+   "tags": [
+    "fanfare",
+    "trompette",
+    "annonce",
+    "gagnant"
+   ]
+  },
+  "sound:fanfarria-victoria": {
+   "name": "Fanfare de victoire",
+   "tags": [
+    "victoire",
+    "fanfare",
+    "gagnant",
+    "prix",
+    "champion"
+   ]
+  },
+  "sound:game-over": {
+   "name": "Game over",
+   "tags": [
+    "game over",
+    "fin",
+    "perdu",
+    "jeu"
+   ]
+  },
+  "sound:gema": {
+   "name": "Gemme",
+   "tags": [
+    "gemme",
+    "diamant",
+    "jeu",
+    "éclat"
+   ]
+  },
+  "sound:glitch-corto": {
+   "name": "Glitch court",
+   "tags": [
+    "glitch",
+    "numérique",
+    "erreur",
+    "bug",
+    "transition"
+   ]
+  },
+  "sound:glitch-digital": {
+   "name": "Glitch numérique",
+   "tags": [
+    "glitch",
+    "numérique",
+    "erreur",
+    "ordinateur",
+    "transition"
+   ]
+  },
+  "sound:glitch-estatica": {
+   "name": "Rafale de parasites",
+   "tags": [
+    "parasites",
+    "glitch",
+    "grésillement",
+    "erreur",
+    "transition"
+   ]
+  },
+  "sound:glitch-tartamudeo": {
+   "name": "Glitch saccadé",
+   "tags": [
+    "glitch",
+    "stutter",
+    "saccadé",
+    "numérique",
+    "transition"
+   ]
+  },
+  "sound:golpe": {
+   "name": "Coup de poing",
+   "tags": [
+    "coup",
+    "coup de poing",
+    "bagarre",
+    "action"
+   ]
+  },
+  "sound:golpe-dramatico": {
+   "name": "Accent dramatique",
+   "tags": [
+    "dramatique",
+    "dun dun dun",
+    "surprise",
+    "drame",
+    "révélation"
+   ]
+  },
+  "sound:golpe-dramatico-corto": {
+   "name": "Accent dramatique court",
+   "tags": [
+    "dramatique",
+    "accent",
+    "drame",
+    "choc"
+   ]
+  },
+  "sound:golpe-fuerte": {
+   "name": "Coup de poing puissant",
+   "tags": [
+    "coup",
+    "puissant",
+    "coup de poing",
+    "bagarre"
+   ]
+  },
+  "sound:golpe-glitch": {
+   "name": "Impact glitch",
+   "tags": [
+    "glitch",
+    "impact",
+    "numérique",
+    "coup"
+   ]
+  },
+  "sound:golpe-metal": {
+   "name": "Coup métallique",
+   "tags": [
+    "métal",
+    "coup",
+    "fer",
+    "impact"
+   ]
+  },
+  "sound:golpe-metal-agudo": {
+   "name": "Coup métallique aigu",
+   "tags": [
+    "métal",
+    "aigu",
+    "cloche",
+    "impact"
+   ]
+  },
+  "sound:gong": {
+   "name": "Gong",
+   "tags": [
+    "gong",
+    "oriental",
+    "début",
+    "solennel",
+    "méditation"
+   ]
+  },
+  "sound:grillos": {
+   "name": "Grillons (silence gênant)",
+   "tags": [
+    "grillons",
+    "silence gênant",
+    "awkward",
+    "personne",
+    "humour"
+   ]
+  },
+  "sound:hechizo": {
+   "name": "Sortilège",
+   "tags": [
+    "sortilège",
+    "sort",
+    "magie",
+    "fantasy"
+   ]
+  },
+  "sound:impacto-reverso": {
+   "name": "Impact inversé",
+   "tags": [
+    "inversé",
+    "reverse",
+    "montée",
+    "suspense"
+   ]
+  },
+  "sound:impacto-trailer": {
+   "name": "Impact de bande-annonce",
+   "tags": [
+    "bande-annonce",
+    "impact",
+    "cinéma",
+    "épique",
+    "drame"
+   ]
+  },
+  "sound:impacto-trailer-brillante": {
+   "name": "Impact de bande-annonce brillant",
+   "tags": [
+    "bande-annonce",
+    "impact",
+    "brillant",
+    "cinéma",
+    "épique"
+   ]
+  },
+  "sound:impacto-trailer-oscuro": {
+   "name": "Impact de bande-annonce sombre",
+   "tags": [
+    "bande-annonce",
+    "impact",
+    "sombre",
+    "cinéma",
+    "drame"
+   ]
+  },
+  "sound:inicio-juego": {
+   "name": "Début de partie",
+   "tags": [
+    "début",
+    "start",
+    "jeu",
+    "commencer"
+   ]
+  },
+  "sound:interruptor-apagar": {
+   "name": "Interrupteur éteint",
+   "tags": [
+    "interrupteur",
+    "éteindre",
+    "off",
+    "lumière"
+   ]
+  },
+  "sound:interruptor-encender": {
+   "name": "Interrupteur allumé",
+   "tags": [
+    "interrupteur",
+    "allumer",
+    "on",
+    "lumière"
+   ]
+  },
+  "sound:laser": {
+   "name": "Laser",
+   "tags": [
+    "laser",
+    "tir",
+    "pew",
+    "science-fiction",
+    "jeu"
+   ]
+  },
+  "sound:laser-doble": {
+   "name": "Double laser",
+   "tags": [
+    "laser",
+    "tir",
+    "double",
+    "jeu"
+   ]
+  },
+  "sound:latido": {
+   "name": "Battement de cœur",
+   "tags": [
+    "battement de cœur",
+    "cœur",
+    "tension",
+    "suspense"
+   ]
+  },
+  "sound:latido-rapido": {
+   "name": "Cœur qui s'emballe",
+   "tags": [
+    "battement de cœur",
+    "rapide",
+    "peur",
+    "stress"
+   ]
+  },
+  "sound:latigazo": {
+   "name": "Coup de fouet",
+   "tags": [
+    "fouet",
+    "claquement",
+    "rapide",
+    "whip"
+   ]
+  },
+  "sound:lluvia-monedas": {
+   "name": "Pluie de pièces",
+   "tags": [
+    "pièces",
+    "jeu",
+    "argent",
+    "8 bits"
+   ]
+  },
+  "sound:logro": {
+   "name": "Succès débloqué",
+   "tags": [
+    "succès",
+    "réussite",
+    "achievement",
+    "jeu"
+   ]
+  },
+  "sound:maquina-escribir": {
+   "name": "Machine à écrire",
+   "tags": [
+    "machine à écrire",
+    "rétro",
+    "texte",
+    "écrire"
+   ]
+  },
+  "sound:maraca": {
+   "name": "Maracas",
+   "tags": [
+    "maracas",
+    "shaker",
+    "rythme",
+    "latino",
+    "percussion"
+   ]
+  },
+  "sound:me-gusta": {
+   "name": "J'aime",
+   "tags": [
+    "like",
+    "j'aime",
+    "cœur",
+    "réseaux"
+   ]
+  },
+  "sound:mensaje-enviado": {
+   "name": "Message envoyé",
+   "tags": [
+    "envoyé",
+    "message",
+    "chat",
+    "sms"
+   ]
+  },
+  "sound:mensaje-recibido": {
+   "name": "Message reçu",
+   "tags": [
+    "reçu",
+    "message",
+    "chat",
+    "sms"
+   ]
+  },
+  "sound:menu-seleccion": {
+   "name": "Sélection de menu",
+   "tags": [
+    "menu",
+    "sélection",
+    "jeu",
+    "bouton"
+   ]
+  },
+  "sound:moneda": {
+   "name": "Pièce",
+   "tags": [
+    "pièce",
+    "jeu",
+    "argent",
+    "8 bits"
+   ]
+  },
+  "sound:moneda-doble": {
+   "name": "Deux pièces",
+   "tags": [
+    "pièces",
+    "double",
+    "jeu",
+    "8 bits"
+   ]
+  },
+  "sound:notificacion-campanita": {
+   "name": "Clochette de notification",
+   "tags": [
+    "notification",
+    "clochette",
+    "alerte",
+    "téléphone"
+   ]
+  },
+  "sound:notificacion-cristal": {
+   "name": "Alerte cristalline",
+   "tags": [
+    "notification",
+    "cristal",
+    "alerte",
+    "téléphone"
+   ]
+  },
+  "sound:notificacion-dos-tonos": {
+   "name": "Alerte deux tons",
+   "tags": [
+    "notification",
+    "deux tons",
+    "alerte",
+    "téléphone"
+   ]
+  },
+  "sound:notificacion-mensaje": {
+   "name": "Nouveau message",
+   "tags": [
+    "notification",
+    "message",
+    "alerte",
+    "téléphone"
+   ]
+  },
+  "sound:notificacion-suave": {
+   "name": "Alerte douce",
+   "tags": [
+    "notification",
+    "doux",
+    "alerte",
+    "téléphone"
+   ]
+  },
+  "sound:palmas": {
+   "name": "Clap",
+   "tags": [
+    "clap",
+    "claquement de mains",
+    "applaudir",
+    "beat"
+   ]
+  },
+  "sound:pasar-pagina": {
+   "name": "Page qu'on tourne",
+   "tags": [
+    "page",
+    "livre",
+    "papier",
+    "transition"
+   ]
+  },
+  "sound:platillo": {
+   "name": "Cymbale crash",
+   "tags": [
+    "cymbale",
+    "crash",
+    "accent",
+    "batterie"
+   ]
+  },
+  "sound:platillo-corto": {
+   "name": "Cymbale courte",
+   "tags": [
+    "cymbale",
+    "courte",
+    "accent",
+    "batterie"
+   ]
+  },
+  "sound:platillo-reverso": {
+   "name": "Cymbale inversée",
+   "tags": [
+    "cymbale",
+    "reverse",
+    "inversée",
+    "transition",
+    "montée"
+   ]
+  },
+  "sound:platillo-reverso-largo": {
+   "name": "Cymbale inversée longue",
+   "tags": [
+    "cymbale",
+    "reverse",
+    "inversée",
+    "long"
+   ]
+  },
+  "sound:poder": {
+   "name": "Power-up",
+   "tags": [
+    "power-up",
+    "pouvoir",
+    "jeu",
+    "énergie"
+   ]
+  },
+  "sound:polvo-hada": {
+   "name": "Poussière de fée",
+   "tags": [
+    "fée",
+    "poussière",
+    "magie",
+    "féerique"
+   ]
+  },
+  "sound:pop": {
+   "name": "Pop",
+   "tags": [
+    "pop",
+    "apparition",
+    "texte",
+    "bouton",
+    "bulle"
+   ]
+  },
+  "sound:pop-agudo": {
+   "name": "Pop aigu",
+   "tags": [
+    "pop",
+    "aigu",
+    "apparition",
+    "bulle"
+   ]
+  },
+  "sound:pop-doble": {
+   "name": "Double pop",
+   "tags": [
+    "pop",
+    "double",
+    "apparition",
+    "bulle"
+   ]
+  },
+  "sound:pop-grave": {
+   "name": "Pop grave",
+   "tags": [
+    "pop",
+    "grave",
+    "apparition",
+    "bulle"
+   ]
+  },
+  "sound:pop-suave": {
+   "name": "Pop doux",
+   "tags": [
+    "pop",
+    "doux",
+    "apparition",
+    "bulle"
+   ]
+  },
+  "sound:portazo": {
+   "name": "Porte qui claque",
+   "tags": [
+    "porte",
+    "claquer",
+    "coup",
+    "colère"
+   ]
+  },
+  "sound:premio-mayor": {
+   "name": "Jackpot",
+   "tags": [
+    "jackpot",
+    "gros lot",
+    "gagner",
+    "casino",
+    "tirage"
+   ]
+  },
+  "sound:rafaga-viento": {
+   "name": "Rafale de vent",
+   "tags": [
+    "vent",
+    "rafale",
+    "whoosh",
+    "transition",
+    "mouvement"
+   ]
+  },
+  "sound:rampa-velocidad": {
+   "name": "Rampe de vitesse",
+   "tags": [
+    "speed ramp",
+    "vitesse",
+    "rampe",
+    "transition",
+    "edit"
+   ]
+  },
+  "sound:redoble": {
+   "name": "Roulement de tambour",
+   "tags": [
+    "roulement de tambour",
+    "tambour",
+    "suspense",
+    "annonce"
+   ]
+  },
+  "sound:redoble-platillo": {
+   "name": "Roulement de tambour et cymbale",
+   "tags": [
+    "roulement de tambour",
+    "cymbale",
+    "annonce",
+    "révélation",
+    "gagnant"
+   ]
+  },
+  "sound:reloj": {
+   "name": "Tic-tac d'horloge",
+   "tags": [
+    "horloge",
+    "tic-tac",
+    "temps",
+    "attente"
+   ]
+  },
+  "sound:reloj-rapido": {
+   "name": "Tic-tac rapide",
+   "tags": [
+    "horloge",
+    "rapide",
+    "urgence",
+    "compte à rebours"
+   ]
+  },
+  "sound:resorte": {
+   "name": "Ressort",
+   "tags": [
+    "ressort",
+    "rebond",
+    "humour",
+    "spring"
+   ]
+  },
+  "sound:revelacion": {
+   "name": "Révélation",
+   "tags": [
+    "révélation",
+    "reveal",
+    "surprise",
+    "avant après",
+    "résultat"
+   ]
+  },
+  "sound:riser-2s": {
+   "name": "Riser 2 s",
+   "tags": [
+    "riser",
+    "montée",
+    "tension",
+    "build up",
+    "transition"
+   ]
+  },
+  "sound:riser-4s": {
+   "name": "Riser 4 s",
+   "tags": [
+    "riser",
+    "montée",
+    "tension",
+    "build up",
+    "transition"
+   ]
+  },
+  "sound:riser-brillante": {
+   "name": "Montée brillante",
+   "tags": [
+    "riser",
+    "montée",
+    "brillant",
+    "build up",
+    "transition"
+   ]
+  },
+  "sound:riser-golpe": {
+   "name": "Montée et impact",
+   "tags": [
+    "riser",
+    "impact",
+    "transition",
+    "edit",
+    "montée"
+   ]
+  },
+  "sound:riser-rapido": {
+   "name": "Riser rapide",
+   "tags": [
+    "riser",
+    "montée",
+    "rapide",
+    "tension",
+    "transition"
+   ]
+  },
+  "sound:riser-sinte-2s": {
+   "name": "Riser synthé 2 s",
+   "tags": [
+    "riser",
+    "montée",
+    "synthé",
+    "tension",
+    "transition"
+   ]
+  },
+  "sound:riser-sinte-4s": {
+   "name": "Riser synthé 4 s",
+   "tags": [
+    "riser",
+    "montée",
+    "synthé",
+    "tension",
+    "transition"
+   ]
+  },
+  "sound:riser-tension": {
+   "name": "Montée de tension",
+   "tags": [
+    "riser",
+    "montée",
+    "tension",
+    "suspense",
+    "anticipation"
+   ]
+  },
+  "sound:salto": {
+   "name": "Saut",
+   "tags": [
+    "saut",
+    "sauter",
+    "jeu",
+    "jump"
+   ]
+  },
+  "sound:sarten": {
+   "name": "Coup de poêle",
+   "tags": [
+    "poêle",
+    "coup",
+    "humour",
+    "cuisine"
+   ]
+  },
+  "sound:scratch-dj": {
+   "name": "Scratch de DJ",
+   "tags": [
+    "scratch",
+    "dj",
+    "hip-hop",
+    "vinyle",
+    "transition"
+   ]
+  },
+  "sound:scratch-doble": {
+   "name": "Double scratch",
+   "tags": [
+    "scratch",
+    "dj",
+    "double",
+    "hip-hop"
+   ]
+  },
+  "sound:seguir": {
+   "name": "Nouvel abonné",
+   "tags": [
+    "abonné",
+    "suivre",
+    "s'abonner",
+    "réseaux"
+   ]
+  },
+  "sound:silbato-bajada": {
+   "name": "Sifflet à coulisse descendant",
+   "tags": [
+    "sifflet",
+    "descente",
+    "chute",
+    "humour"
+   ]
+  },
+  "sound:silbato-subida": {
+   "name": "Sifflet à coulisse montant",
+   "tags": [
+    "sifflet",
+    "montée",
+    "humour",
+    "coulisse"
+   ]
+  },
+  "sound:sirena": {
+   "name": "Sirène",
+   "tags": [
+    "sirène",
+    "alarme",
+    "police",
+    "urgence"
+   ]
+  },
+  "sound:sub-drop": {
+   "name": "Sub drop",
+   "tags": [
+    "sub drop",
+    "bass drop",
+    "basse",
+    "impact",
+    "edit"
+   ]
+  },
+  "sound:subir-nivel": {
+   "name": "Niveau supérieur",
+   "tags": [
+    "niveau",
+    "level up",
+    "jeu",
+    "réussite",
+    "8 bits"
+   ]
+  },
+  "sound:susto-terror": {
+   "name": "Jump scare",
+   "tags": [
+    "frayeur",
+    "horreur",
+    "jump scare",
+    "peur",
+    "halloween"
+   ]
+  },
+  "sound:swoosh-titulo": {
+   "name": "Swoosh de titre",
+   "tags": [
+    "swoosh",
+    "whoosh",
+    "titre",
+    "transition",
+    "mouvement"
+   ]
+  },
+  "sound:tambaleo": {
+   "name": "Vacillement",
+   "tags": [
+    "vacillement",
+    "wobble",
+    "vertige",
+    "humour",
+    "ivre"
+   ]
+  },
+  "sound:tambor-taiko": {
+   "name": "Tambour taiko",
+   "tags": [
+    "tambour",
+    "taiko",
+    "épique",
+    "impact"
+   ]
+  },
+  "sound:tambor-taiko-doble": {
+   "name": "Double taiko",
+   "tags": [
+    "tambour",
+    "taiko",
+    "double",
+    "épique"
+   ]
+  },
+  "sound:teclado": {
+   "name": "Frappe au clavier",
+   "tags": [
+    "clavier",
+    "taper",
+    "ordinateur",
+    "texte"
+   ]
+  },
+  "sound:teclado-mecanico": {
+   "name": "Clavier mécanique",
+   "tags": [
+    "clavier",
+    "mécanique",
+    "gaming",
+    "asmr"
+   ]
+  },
+  "sound:teclado-rapido": {
+   "name": "Frappe rapide",
+   "tags": [
+    "clavier",
+    "rapide",
+    "hacker",
+    "taper"
+   ]
+  },
+  "sound:teletransporte": {
+   "name": "Téléportation",
+   "tags": [
+    "téléportation",
+    "science-fiction",
+    "disparaître",
+    "magie"
+   ]
+  },
+  "sound:tension-subiendo": {
+   "name": "Tension montante",
+   "tags": [
+    "tension",
+    "suspense",
+    "montée",
+    "peur"
+   ]
+  },
+  "sound:toque": {
+   "name": "Tapotement",
+   "tags": [
+    "tap",
+    "toucher",
+    "écran",
+    "téléphone"
+   ]
+  },
+  "sound:toque-doble": {
+   "name": "Double tap",
+   "tags": [
+    "double tap",
+    "toucher",
+    "like",
+    "écran"
+   ]
+  },
+  "sound:transicion-foto": {
+   "name": "Transition photo",
+   "tags": [
+    "photo",
+    "appareil photo",
+    "déclencheur",
+    "transition",
+    "flash"
+   ]
+  },
+  "sound:trombon-triste": {
+   "name": "Trombone triste",
+   "tags": [
+    "trombone",
+    "triste",
+    "échec",
+    "fail",
+    "humour"
+   ]
+  },
+  "sound:trueno": {
+   "name": "Tonnerre",
+   "tags": [
+    "tonnerre",
+    "orage",
+    "éclair",
+    "pluie"
+   ]
+  },
+  "sound:varita-magica": {
+   "name": "Baguette magique",
+   "tags": [
+    "baguette",
+    "magie",
+    "fée",
+    "sortilège"
+   ]
+  },
+  "sound:varita-subida": {
+   "name": "Baguette ascendante",
+   "tags": [
+    "baguette",
+    "montée",
+    "magie",
+    "apparition"
+   ]
+  },
+  "sound:victoria-8bits": {
+   "name": "Victoire 8 bits",
+   "tags": [
+    "victoire",
+    "gagner",
+    "jeu",
+    "fanfare",
+    "8 bits"
+   ]
+  },
+  "sound:vida-extra": {
+   "name": "Vie supplémentaire",
+   "tags": [
+    "vie bonus",
+    "1up",
+    "jeu",
+    "bonus"
+   ]
+  },
+  "sound:viento-misterio": {
+   "name": "Vent inquiétant",
+   "tags": [
+    "vent",
+    "mystère",
+    "horreur",
+    "nuit",
+    "fantôme"
+   ]
+  },
+  "sound:vinilo": {
+   "name": "Craquement de vinyle",
+   "tags": [
+    "vinyle",
+    "craquement",
+    "rétro",
+    "lofi",
+    "nostalgie"
+   ]
+  },
+  "sound:whoosh": {
+   "name": "Whoosh",
+   "tags": [
+    "whoosh",
+    "swoosh",
+    "transition",
+    "mouvement"
+   ]
+  },
+  "sound:whoosh-aire": {
+   "name": "Whoosh aérien",
+   "tags": [
+    "whoosh",
+    "air",
+    "souffle",
+    "transition"
+   ]
+  },
+  "sound:whoosh-boom": {
+   "name": "Whoosh et boom",
+   "tags": [
+    "whoosh",
+    "boom",
+    "transition",
+    "impact",
+    "edit"
+   ]
+  },
+  "sound:whoosh-corto": {
+   "name": "Whoosh court",
+   "tags": [
+    "whoosh",
+    "court",
+    "rapide",
+    "transition"
+   ]
+  },
+  "sound:whoosh-derecha-izquierda": {
+   "name": "Whoosh de droite à gauche",
+   "tags": [
+    "whoosh",
+    "droite gauche",
+    "panoramique",
+    "transition"
+   ]
+  },
+  "sound:whoosh-doble": {
+   "name": "Double whoosh",
+   "tags": [
+    "whoosh",
+    "double",
+    "transition",
+    "mouvement"
+   ]
+  },
+  "sound:whoosh-espada": {
+   "name": "Coup d'épée dans l'air",
+   "tags": [
+    "épée",
+    "whoosh",
+    "lame",
+    "transition"
+   ]
+  },
+  "sound:whoosh-fuego": {
+   "name": "Whoosh de feu",
+   "tags": [
+    "whoosh",
+    "feu",
+    "flamme",
+    "transition"
+   ]
+  },
+  "sound:whoosh-golpe": {
+   "name": "Whoosh et impact",
+   "tags": [
+    "whoosh",
+    "impact",
+    "transition",
+    "coup",
+    "edit"
+   ]
+  },
+  "sound:whoosh-grave": {
+   "name": "Whoosh grave",
+   "tags": [
+    "whoosh",
+    "grave",
+    "profond",
+    "transition"
+   ]
+  },
+  "sound:whoosh-izquierda-derecha": {
+   "name": "Whoosh de gauche à droite",
+   "tags": [
+    "whoosh",
+    "gauche droite",
+    "panoramique",
+    "transition"
+   ]
+  },
+  "sound:whoosh-largo": {
+   "name": "Whoosh long",
+   "tags": [
+    "whoosh",
+    "long",
+    "lent",
+    "transition"
+   ]
+  },
+  "sound:whoosh-metalico": {
+   "name": "Whoosh métallique",
+   "tags": [
+    "whoosh",
+    "métal",
+    "métallique",
+    "transition"
+   ]
+  },
+  "sound:whoosh-reverso": {
+   "name": "Whoosh inversé",
+   "tags": [
+    "whoosh",
+    "inversé",
+    "reverse",
+    "transition"
+   ]
+  },
+  "sound:whoosh-tela": {
+   "name": "Tissu qui claque",
+   "tags": [
+    "tissu",
+    "whoosh",
+    "vêtement",
+    "transition"
+   ]
+  },
+  "sound:zoom-entrada": {
+   "name": "Zoom avant",
+   "tags": [
+    "zoom",
+    "zoom avant",
+    "rapprocher",
+    "transition"
+   ]
+  },
+  "sound:zoom-salida": {
+   "name": "Zoom arrière",
+   "tags": [
+    "zoom",
+    "zoom arrière",
+    "éloigner",
+    "transition"
    ]
   },
   "template:album-scrapbook": {
