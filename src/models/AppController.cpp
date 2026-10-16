@@ -6770,6 +6770,16 @@ void AppController::selectClip(int trackIndex, int clipIndex)
     emit selectedTransitionDataChanged();
 }
 
+bool AppController::selectClipById(const QString &clipId)
+{
+    int trackIndex = -1;
+    int clipIndex = -1;
+    if (clipId.isEmpty() || !findClipById(m_project, clipId, &trackIndex, &clipIndex))
+        return false;
+    selectClip(trackIndex, clipIndex);
+    return m_selectedTrack == trackIndex && m_selectedClip == clipIndex;
+}
+
 void AppController::addToSelection(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))

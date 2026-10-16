@@ -389,11 +389,11 @@ Item {
             // Body: presets of body.reshape. Adding it starts the body analysis when the clip has none.
             readonly property var bodySections: [
                 { title: qsTr("Body"), glyph: Theme.icons.body, items: [
-                    { id: "body-slim", label: qsTr("Slim"), hint: qsTr("Slims the whole body"), effect: "body.reshape", values: { slim: 0.5 } },
-                    { id: "body-waist", label: qsTr("Waist"), hint: qsTr("Narrows the waist"), effect: "body.reshape", values: { waist: 0.6 } },
-                    { id: "body-legs", label: qsTr("Longer legs"), hint: qsTr("Lengthens the legs below the hips"), effect: "body.reshape", values: { legs: 0.5 } },
-                    { id: "body-shoulders", label: qsTr("Shoulders"), hint: qsTr("Widens the shoulders"), effect: "body.reshape", values: { shoulders: 0.5 } },
-                    { id: "body-head", label: qsTr("Smaller head"), hint: qsTr("Makes the head a little smaller"), effect: "body.reshape", values: { head: -0.4 } }
+                    { id: "body-slim", label: qsTr("Slim"), hint: qsTr("Slims the whole body"), effect: "body.reshape", values: { slim: 0.8 } },
+                    { id: "body-waist", label: qsTr("Waist"), hint: qsTr("Narrows the waist"), effect: "body.reshape", values: { waist: 0.8 } },
+                    { id: "body-legs", label: qsTr("Longer legs"), hint: qsTr("Lengthens the legs below the hips"), effect: "body.reshape", values: { legs: 0.7 } },
+                    { id: "body-shoulders", label: qsTr("Shoulders"), hint: qsTr("Widens the shoulders"), effect: "body.reshape", values: { shoulders: 0.7 } },
+                    { id: "body-head", label: qsTr("Smaller head"), hint: qsTr("Makes the head a little smaller"), effect: "body.reshape", values: { head: -0.6 } }
                 ] }
             ]
 
@@ -452,7 +452,11 @@ Item {
             function apply(effectId, values) {
                 let index = findLast(effectId)
                 if (index < 0) {
+                    // addEffect selects the adjustment that carries the stack; come back to the
+                    // clip so this page stays open for the next look.
+                    const clipId = EditorState.selectedClipData.id
                     EditorState.addEffect(EditorState.selectedTrack, EditorState.selectedClip, effectId)
+                    EditorState.selectClipById(clipId)
                     index = findLast(effectId)
                 }
                 if (index < 0 || !values)

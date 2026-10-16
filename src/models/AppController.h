@@ -757,6 +757,8 @@ public:
     bool projectLayoutChosen() const { return m_projectLayoutChosen; }
     Q_INVOKABLE void markProjectLayoutChosen();
     Q_INVOKABLE void selectClip(int trackIndex, int clipIndex);
+    // Selects a clip by id: for callers whose indices went stale because an edit inserted a track.
+    Q_INVOKABLE bool selectClipById(const QString &clipId);
     Q_INVOKABLE void addToSelection(int trackIndex, int clipIndex);
     Q_INVOKABLE void setSelection(const QVariantList &pairs);
     Q_INVOKABLE void selectAllClips();
