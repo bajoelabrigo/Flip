@@ -168,7 +168,7 @@ def m_diagonal(w, h, T, rng, p):
 
     def frame(t):
         a = TAU * t / T
-        v = (x * math.cos(a) + y * 1.78 * math.sin(a)) / 2.2 + 0.5
+        v = (x * math.cos(a) + y * (h / w) * math.sin(a)) / 2.2 + 0.5
         v = (v + t / T) % 1.0
         return ramp([p["a"], p["c"], p["b"], p["d"], p["a"]], v)
     return frame
@@ -206,7 +206,7 @@ def m_lava(w, h, T, rng, p):
     x, y = grid(w, h)
     n = 9
     cx, cy = rng.uniform(0.15, 0.85, n), rng.uniform(0, 1.2, n)
-    r = rng.uniform(0.06, 0.11, n)
+    r = rng.uniform(0.06, 0.11, n) * min(w, h) / w   # in widths: keep the blobs the same size on a wide frame
     ph = rng.uniform(0, TAU, n)
 
     def frame(t):
@@ -215,7 +215,7 @@ def m_lava(w, h, T, rng, p):
         for k in range(n):
             bx = cx[k] + 0.08 * math.sin(TAU * u + ph[k])
             by = (cy[k] + u * 1.2 * (1 if k % 2 else -1)) % 1.2 - 0.1
-            field_ += r[k] ** 2 / (((x - bx) ** 2 + ((y - by) * 1.78) ** 2) + 1e-4)
+            field_ += r[k] ** 2 / (((x - bx) ** 2 + ((y - by) * (h / w)) ** 2) + 1e-4)
         inside = fx.smooth(0.75, 0.95, field_)
         bg = vgrad(w, h, p["a"], p["c"] * 0.7)
         blob = ramp([p["b"], p["d"]], np.clip(y, 0, 1))
@@ -251,7 +251,7 @@ def m_sunset(w, h, T, rng, p):
         u = t / T
         horizon = 0.64
         sky = ramp([p["a"], p["c"], p["b"], p["d"]], np.clip(y / horizon, 0, 1))
-        d = np.sqrt((x - 0.5) ** 2 + ((y - horizon + 0.07) * 1.78) ** 2)
+        d = np.sqrt((x - 0.5) ** 2 + ((y - horizon + 0.07) * (h / w)) ** 2)
         sun = fx.smooth(0.15, 0.13, d) + np.exp(-d * 9) * 0.5
         sky = mix(sky, p["e"], np.clip(sun, 0, 1) * (y < horizon))
         n = loop_noise(tile, w, h, t, T, (10, 0), 0.7)
@@ -288,8 +288,8 @@ def m_retro_grid(w, h, T, rng, p):
     def frame(t):
         u = t / T
         sky = ramp([p["a"], p["c"], p["b"]], np.clip(y / horizon, 0, 1))
-        # a striped sun sitting on the horizon (distances in pixels: y counts 1.78 times x)
-        d = np.sqrt((x - 0.5) ** 2 + ((y - horizon + 0.02) * 1.78) ** 2)
+        # a striped sun sitting on the horizon (distances in pixels: y counts (h / w) times x)
+        d = np.sqrt((x - 0.5) ** 2 + ((y - horizon + 0.02) * (h / w)) ** 2)
         cut = (np.sin((y * 90 - u * TAU)) > 0.55) & (y > horizon - 0.16)
         sun = (fx.smooth(0.3, 0.295, d) * ~cut) * (y < horizon)
         sky = mix(sky, ramp([p["d"], p["b"]], np.clip((y - horizon + 0.3) / 0.3, 0, 1)), sun)
@@ -311,7 +311,7 @@ def m_stripes(w, h, T, rng, p):
     x, y = grid(w, h)
 
     def frame(t):
-        v = ((x + y * 1.78) * 6 - t / T * 2) % 1.0
+        v = ((x + y * (h / w)) * 6 - t / T * 2) % 1.0
         a = fx.smooth(0.45, 0.5, v) - fx.smooth(0.95, 1.0, v)
         return mix(p["a"], p["b"], a * 0.9)
     return frame
@@ -323,8 +323,8 @@ def m_dots(w, h, T, rng, p):
 
     def frame(t):
         u = t / T
-        gx, gy = (x * n) % 1.0 - 0.5, (y * n * 1.78) % 1.0 - 0.5
-        cx, cy = np.floor(x * n), np.floor(y * n * 1.78)
+        gx, gy = (x * n) % 1.0 - 0.5, (y * n * (h / w)) % 1.0 - 0.5
+        cx, cy = np.floor(x * n), np.floor(y * n * (h / w))
         r = 0.18 + 0.17 * np.sin(TAU * u + (cx + cy) * 0.35)
         dot = fx.smooth(r + 0.04, r, np.sqrt(gx ** 2 + gy ** 2))
         bg = vgrad(w, h, p["a"], p["c"] * 0.7)
@@ -334,7 +334,7 @@ def m_dots(w, h, T, rng, p):
 
 def m_rings(w, h, T, rng, p):
     x, y = grid(w, h)
-    d = np.sqrt((x - 0.5) ** 2 + ((y - 0.5) * 1.78) ** 2)
+    d = np.sqrt((x - 0.5) ** 2 + ((y - 0.5) * (h / w)) ** 2)
 
     def frame(t):
         v = (d * 5 - t / T * 2) % 1.0
@@ -344,8 +344,8 @@ def m_rings(w, h, T, rng, p):
 
 def m_sunburst(w, h, T, rng, p):
     x, y = grid(w, h)
-    ang = np.arctan2((y - 0.5) * 1.78, x - 0.5)
-    d = np.sqrt((x - 0.5) ** 2 + ((y - 0.5) * 1.78) ** 2)
+    ang = np.arctan2((y - 0.5) * (h / w), x - 0.5)
+    d = np.sqrt((x - 0.5) ** 2 + ((y - 0.5) * (h / w)) ** 2)
 
     def frame(t):
         rays = (np.sin(ang * 16 + TAU * t / T) > 0).astype(np.float32)
@@ -361,7 +361,7 @@ def m_checker(w, h, T, rng, p):
         u = t / T
         n = 8
         cx = np.floor(x * n + u * 2)
-        cy = np.floor(y * n * 1.78 + u * 2)
+        cy = np.floor(y * n * (h / w) + u * 2)
         c = ((cx + cy) % 2).astype(np.float32)
         return mix(p["a"], p["c"], c * 0.9)
     return frame
@@ -374,7 +374,7 @@ def m_hex(w, h, T, rng, p):
     def frame(t):
         u = t / T
         qx = x * s
-        qy = y * s * 1.78
+        qy = y * s * (h / w)
         # hex grid via two offset lattices
         a = np.stack([qx, qy], -1)
         r = np.array([1.0, 1.732])
@@ -392,7 +392,7 @@ def m_hex(w, h, T, rng, p):
 
 
 def m_lowpoly(w, h, T, rng, p):
-    cols, rows = 6, 10
+    cols, rows = (6, 10) if h >= w else (10, 6)
     base = np.stack(np.meshgrid(np.linspace(0, 1, cols + 1), np.linspace(0, 1, rows + 1)), -1)
     jit = rng.uniform(-0.35, 0.35, base.shape) / np.array([cols, rows])
     jit[0, :, 1] = jit[-1, :, 1] = 0   # the frame's edges stay put: no gaps at the borders
@@ -436,7 +436,7 @@ def m_floating_shapes(w, h, T, rng, p):
         for k in range(n):
             cx = xs[k] * w * 2
             cy = ((ys[k] - u * 1.1) % 1.1 - 0.05) * h * 2
-            r = sz[k] * w * 2
+            r = sz[k] * min(w, h) * 2
             a = ph[k] + TAU * u * (1 if k % 2 else -1)
             col = tuple(int(c * 255) for c in cols[k % 4]) + (230,)
             if kinds[k] == 0:
@@ -457,7 +457,7 @@ def m_floating_shapes(w, h, T, rng, p):
 
 def m_tunnel(w, h, T, rng, p):
     x, y = grid(w, h)
-    dx, dy = x - 0.5, (y - 0.5) * 1.78
+    dx, dy = x - 0.5, (y - 0.5) * (h / w)
     d = np.sqrt(dx ** 2 + dy ** 2) + 1e-3
     ang = np.arctan2(dy, dx)
 
@@ -474,7 +474,7 @@ def m_tunnel(w, h, T, rng, p):
 
 def m_spiral(w, h, T, rng, p):
     x, y = grid(w, h)
-    dx, dy = x - 0.5, (y - 0.5) * 1.78
+    dx, dy = x - 0.5, (y - 0.5) * (h / w)
     d = np.sqrt(dx ** 2 + dy ** 2)
     ang = np.arctan2(dy, dx)
 
@@ -591,7 +591,7 @@ def m_stars(w, h, T, rng, p):
 def m_bokeh_bg(w, h, T, rng, p):
     n = 40
     xs, ys = rng.uniform(0, w, n), rng.uniform(0, h, n)
-    r = rng.uniform(20, 70, n) * w / 540
+    r = rng.uniform(20, 70, n) * min(w, h) / 540
     ph = rng.uniform(0, TAU, n)
     cols = [p["b"], p["c"], p["d"], p["e"]]
 
@@ -671,7 +671,7 @@ def m_stage(w, h, T, rng, p):
 def m_city_lights(w, h, T, rng, p):
     n = 120
     xs, ys = rng.uniform(0, w, n), rng.uniform(h * 0.3, h, n)
-    r = rng.uniform(8, 30, n) * w / 540
+    r = rng.uniform(8, 30, n) * min(w, h) / 540
     ph = rng.uniform(0, TAU, n)
     cols = [H("#ffb04a"), H("#ffe08a"), p["b"], p["d"]]
 
@@ -717,7 +717,7 @@ def m_rays_bg(w, h, T, rng, p):
 
 def m_galaxy(w, h, T, rng, p):
     x, y = grid(w, h)
-    dx, dy = x - 0.5, (y - 0.5) * 1.78
+    dx, dy = x - 0.5, (y - 0.5) * (h / w)
     d = np.sqrt(dx ** 2 + dy ** 2)
     ang = np.arctan2(dy, dx)
     tile = fx.tile_noise(512, int(rng.integers(1, 9999)), falloff=1.8)
@@ -784,7 +784,7 @@ def m_soundwave(w, h, T, rng, p):
 def m_bubbles_bg(w, h, T, rng, p):
     n = 30
     xs, ys = rng.uniform(0, w, n), rng.uniform(0, h, n)
-    r = rng.uniform(10, 45, n) * w / 540
+    r = rng.uniform(10, 45, n) * min(w, h) / 540
     ph = rng.uniform(0, TAU, n)
 
     def frame(t):
@@ -801,7 +801,7 @@ def m_bubbles_bg(w, h, T, rng, p):
 def m_confetti_bg(w, h, T, rng, p):
     n = 60
     xs, ys = rng.uniform(0, w, n), rng.uniform(0, h, n)
-    sz = rng.uniform(8, 16, n) * w / 540
+    sz = rng.uniform(8, 16, n) * min(w, h) / 540
     ph = rng.uniform(0, TAU, (n, 2))
     cols = [p["b"], p["c"], p["d"], p["e"]]
 
@@ -821,7 +821,7 @@ def m_confetti_bg(w, h, T, rng, p):
 def m_light_rain_bg(w, h, T, rng, p):
     n = 50
     xs, ys = rng.uniform(0, w, n), rng.uniform(0, h, n)
-    ln = rng.uniform(60, 160, n) * w / 540
+    ln = rng.uniform(60, 160, n) * min(w, h) / 540
     laps = rng.integers(1, 3, n)
     cols = [p["b"], p["c"], p["d"]]
 
@@ -950,7 +950,7 @@ def seasonal(bg_a, bg_b, particle, colours, extra=None):
     def make(w, h, T, rng, p):
         n = 70
         xs, ys = rng.uniform(0, w, n), rng.uniform(0, h, n)
-        sz = rng.uniform(10, 24, n) * w / 540
+        sz = rng.uniform(10, 24, n) * min(w, h) / 540
         ph = rng.uniform(0, TAU, (n, 2))
         cols = [H(c) for c in colours]
         rise = particle in ("heart", "balloon_dot")
@@ -987,7 +987,8 @@ def seasonal(bg_a, bg_b, particle, colours, extra=None):
 
 def moon_lantern(out, w, h, u):
     x, y = grid(w, h)
-    moon = (np.sqrt((x - 0.72) ** 2 + ((y - 0.16) * 1.78) ** 2) < 0.14) & ~(np.sqrt((x - 0.78) ** 2 + ((y - 0.145) * 1.78) ** 2) < 0.125)
+    k = min(w, h) / w   # radii in widths, so the moon keeps its size on a wide frame
+    moon = (np.sqrt((x - 0.72) ** 2 + ((y - 0.2) * (h / w)) ** 2) < 0.14 * k) &         ~(np.sqrt((x - 0.72 - 0.06 * k) ** 2 + ((y - 0.2) * (h / w) + 0.015 * k) ** 2) < 0.125 * k)
     return mix(out, H("#ffe39a"), moon.astype(np.float32))
 
 

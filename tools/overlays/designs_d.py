@@ -280,7 +280,7 @@ def _doodle(items, color=WHITE, width=13, draw=0.9, shadow=True, glow=False, spi
     """items: (shape, x, y, size, rotation_deg, delay) in frame fractions / 1080-wide pixels.
     spin: (cx, cy) in fractions: the whole set turns around that point once per loop."""
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         ss = 2
         frames = int(T * 30)
 
@@ -455,7 +455,7 @@ def _torn_edge(w, h, s, seed, inset, kind):
 
 def _paper_frame(color=(0.98, 0.97, 0.94), inset=70, stop_motion=True, tape=False):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         grain = fx.tile_noise(256, 5, falloff=0.6)
 
         def frame(t):
@@ -493,7 +493,7 @@ design("marco-papel-negro", "Papel recortado negro", "Black cut-out frame", "mar
 @design("marco-polaroid", "Marco Polaroid", "Instant photo frame", "marcos", 3,
         tags=MARCO + ["polaroid", "instantanea", "foto", "recuerdo", "vintage", "retro"], sample="couple-04.jpg")
 def _instant(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     m, bottom = int(70 * s), int(330 * s)
     im, d = fx.draw_layer(w, h)
     d.rectangle([0, 0, w, h], fill=255)
@@ -512,7 +512,7 @@ def _instant(w, h, T, rng):
 
 def _neon_frame(col, radius=50):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         im, d = fx.draw_layer(w, h)
         m = int(60 * s)
         d.rounded_rectangle([m, m, w - m, h - m], radius=int(radius * s), outline=255, width=int(10 * s))
@@ -541,7 +541,7 @@ design("marco-neon-azul", "Marco de neón azul", "Blue neon frame", "marcos", 4,
 @design("marco-brillos", "Marco de brillos", "Sparkle frame", "marcos", 6,
         tags=MARCO + ["brillos", "sparkle", "dorado", "elegante", "boda", "quince"], sample="quince-03.jpg")
 def _sparkle_frame(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     n = 120
     per = 2 * (w + h)
     pos = rng.uniform(0, per, n)
@@ -574,7 +574,7 @@ def _sparkle_frame(w, h, T, rng):
 
 def _speed_lines(radial=True):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         frames = int(T * 30)
 
         def frame(t):
@@ -618,7 +618,7 @@ design("marco-lineas-laterales", "Líneas de movimiento", "Motion lines", "marco
 @design("marco-semitono", "Semitono de cómic", "Comic halftone", "marcos", 3,
         tags=["semitono", "halftone", "comic", "pop art", "puntos", "retro", "marco"], sample="friends-07.jpg")
 def _halftone(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     step = int(26 * s)
     vg = fx.vignette(w, h, 0.35, 1.15)
 

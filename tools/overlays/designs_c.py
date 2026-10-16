@@ -203,7 +203,7 @@ design("part-ascendentes", "Luces que suben", "Rising lights", "particulas", 10,
 
 def _twinkles(palette, n, rmin, rmax, star5=False):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         xs, ys = rng.uniform(0, w, n), rng.uniform(0, h, n)
         ph = rng.uniform(0, TAU, n)
         k = rng.integers(1, 4, n)
@@ -251,7 +251,7 @@ design("part-estrellitas", "Estrellitas", "Little stars", "particulas", 6,
 
 def _dust(palette, n=260, rmin=2, rmax=7, drift=(0, 1)):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         x0, y0 = rng.uniform(0, w, n), rng.uniform(0, h, n)
         lx = rng.integers(drift[0], drift[1] + 1, n) if drift[0] != drift[1] else np.full(n, drift[0])
         ly = rng.integers(1, 2, n)
@@ -296,7 +296,7 @@ def _bubbles(w, h, T, rng):
 
 def _bubbles_f(iridescent):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         n = 34
         x0, y0 = rng.uniform(0, w, n), rng.uniform(0, h, n)
         rad = rng.uniform(18, 75, n) * s
@@ -329,7 +329,7 @@ design("part-burbujas-arcoiris", "Burbujas tornasol", "Iridescent bubbles", "par
 
 def _meteors(k, sn, dur=0.8):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         starts = np.sort(rng.uniform(0, T, k))
         starts[0] = T * 0.5 - dur * 0.45   # one crossing at the middle: the card shows it
         p0 = np.c_[rng.uniform(0.2, 1.1, k) * w, rng.uniform(-0.05, 0.45, k) * h]
@@ -370,7 +370,7 @@ design("part-lluvia-meteoros", "Lluvia de meteoros", "Meteor shower", "particula
         tags=["magia", "magic", "varita", "wand", "polvo", "estela", "hada", "fantasia", "trail"],
         sample="baby-03.jpg")
 def _magic_trail(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     n = 220
     born = rng.uniform(0, 1, n)
     jit = rng.normal(0, 18, (n, 2)) * s
@@ -406,7 +406,7 @@ def _magic_trail(w, h, T, rng):
         tags=["velocidad", "warp", "espacio", "space", "estrellas", "hiperespacio", "intro", "zoom"],
         sample="concert-03.jpg")
 def _warp(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     n = 260
     ang = rng.uniform(0, TAU, n)
     ph = rng.uniform(0, 1, n)
@@ -430,7 +430,7 @@ def _warp(w, h, T, rng):
 @design("part-orbes", "Orbes de luz", "Light orbs", "particulas", 10, res=(270, 480),
         tags=["orbes", "orbs", "luz", "suave", "sueño", "dreamy", "aesthetic", "calma"], sample="diwali-02.jpg")
 def _orbs(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     n = 9
     cx, cy = rng.uniform(0, w, n), rng.uniform(0, h, n)
     ax, ay = rng.uniform(40, 160, n) * s, rng.uniform(60, 220, n) * s
@@ -455,7 +455,7 @@ def _orbs(w, h, T, rng):
         thumb_at=0.18, tags=["explosion", "chispas", "burst", "impacto", "golpe", "transicion", "energia"],
         sample="gym-04.jpg")
 def _spark_burst(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     n = 180
     ang = rng.uniform(0, TAU, n)
     spd = rng.uniform(600, 1800, n) * s
@@ -483,7 +483,7 @@ def _spark_burst(w, h, T, rng):
 @design("part-bengala", "Bengala", "Sparkler", "particulas", 3, res=(540, 960),
         tags=["bengala", "sparkler", "chispas", "año nuevo", "boda", "celebracion", "fiesta"], sample="newyear-01.jpg")
 def _sparkler(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     n = 160
     born = rng.uniform(0, 1, n)
     ang = rng.uniform(0, TAU, n)
@@ -513,7 +513,7 @@ def _sparkler(w, h, T, rng):
 @design("part-lluvia-luces", "Lluvia de luces", "Light rain", "particulas", 6, res=(540, 960),
         tags=["lluvia de luces", "light rain", "luces", "fiesta", "discoteca", "noche", "neon"], sample="concert-04.jpg")
 def _light_rain(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     n = 70
     x0, y0 = rng.uniform(0, w, n), rng.uniform(0, h, n)
     laps = rng.integers(1, 4, n)
@@ -570,7 +570,7 @@ design("cel-estrellas-doradas", "Estrellas doradas", "Gold stars", "celebracion"
 
 def _burst_f(palette, origin="corners", kind="confetti", n=280):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         if origin == "corners":
             side = rng.choice([-1, 1], n)
             x0 = np.where(side < 0, -20 * s, w + 20 * s)
@@ -645,7 +645,7 @@ design("amor-explosion-corazones", "Explosión de corazones", "Heart burst", "am
 
 def _fireworks_f(palette_pool, k=6, pn=80, scale=1.0):
     def make(w, h, T, rng):
-        s = w / 1080 * scale
+        s = min(w, h) / 1080 * scale
         starts = np.arange(k) * T / k + rng.uniform(0, 0.4, k)
         centers = np.c_[rng.uniform(0.2, 0.8, k) * w, rng.uniform(0.12, 0.45, k) * h]
         palettes = [palette_pool[i % len(palette_pool)] for i in rng.permutation(max(k, len(palette_pool)))[:k]]
@@ -704,8 +704,10 @@ design("cel-fuegos-lejanos", "Fuegos lejanos", "Distant fireworks", "celebracion
 
 
 def _balloons_f(palette, shape="round", n=14):
-    def make(w, h, T, rng):
-        s = w / 1080
+    def make(w, h, T, rng, n=n):
+        s = min(w, h) / 1080
+        if w > h:   # a wide frame: more balloons side by side, so some are always in view
+            n = int(n * 1.8)
         x0, y0 = rng.uniform(0.05, 0.95, n) * w, rng.uniform(0, 1, n) * h
         sz = rng.uniform(110, 190, n) * s
         cols = [palette[i] for i in rng.integers(0, len(palette), n)]
@@ -745,7 +747,7 @@ design("amor-globos-corazon", "Globos de corazón", "Heart balloons", "amor", 10
 def _rain_of(kind, n, palette, size, laps=(1, 2), spin=(1, 2)):
     """Falling multi-colour objects: coins, bills, gifts, emoji faces, streamers."""
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         x0, y0 = rng.uniform(0, w, n), rng.uniform(0, h, n)
         lp = rng.integers(laps[0], laps[1] + 1, n)
         ph = rng.uniform(0, TAU, (n, 3))
@@ -813,7 +815,7 @@ design("cel-serpentinas", "Serpentinas", "Streamers", "celebracion", 6,
 @design("cel-purpurina", "Purpurina", "Glitter", "celebracion", 6,
         tags=["purpurina", "glitter", "brillo", "dorado", "fiesta", "elegante", "belleza"], sample="quince-08.jpg")
 def _glitter(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     n = 260
     x0, y0 = rng.uniform(0, w, n), rng.uniform(0, h, n)
     laps = rng.integers(1, 3, n)
@@ -840,7 +842,7 @@ def _glitter(w, h, T, rng):
 
 def _hearts_f(palette, style="solid", n=34, size=(34, 100), rising=True, sparkle=False):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         x0, y0 = rng.uniform(0.03, 0.97, n) * w, rng.uniform(0, h, n)
         sz = rng.uniform(size[0], size[1], n) * s
         laps = rng.integers(1, 3, n)
@@ -897,7 +899,7 @@ design("amor-lluvia-corazones", "Lluvia de corazones", "Falling hearts", "amor",
 @design("amor-likes", "Corazones de transmisión", "Live likes", "amor", 6,
         tags=AMOR + ["likes", "live", "en vivo", "me gusta", "redes", "transmision", "tiktok"], sample="creator-01.jpg")
 def _likes(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     n = 40
     born = np.sort(rng.uniform(0, 1, n))
     drift = rng.uniform(-160, 60, n) * s
@@ -930,7 +932,7 @@ def _likes(w, h, T, rng):
 @design("amor-marco-corazones", "Marco de corazones", "Heart frame", "amor", 4,
         tags=AMOR + ["marco", "frame", "borde", "border"], sample="couple-02.jpg")
 def _heart_frame(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     pts = []
     step = 120 * s
     for x in np.arange(60 * s, w - 40 * s, step):

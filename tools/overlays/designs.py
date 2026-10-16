@@ -131,7 +131,7 @@ design("luz-arcoiris", "Luz arcoíris", "Rainbow light", "luces", 6, res=(270, 4
 @design("luz-destello", "Destello de lente", "Lens flare", "luces", 3, loop=False, res=(540, 960),
         tags=["destello", "flare", "lente", "lens", "sol", "transicion", "brillo"], sample="beach-02.jpg", thumb_at=0.45)
 def _flare(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     warm = fx.hex_rgb("#ffd9a0")
     ghosts = [(-0.45, 60, "#7bd3ff", 0.18), (0.35, 40, "#b8ff9a", 0.16), (0.7, 110, "#ff9ad5", 0.12),
               (1.25, 70, "#ffd27a", 0.16), (1.6, 28, "#ffffff", 0.2)]
@@ -184,7 +184,7 @@ def _rays(w, h, T, rng):
 
 def _bokeh(palette, n, rmin, rmax, opacity):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         x0 = rng.uniform(0, w, n)
         y0 = rng.uniform(0, h, n)
         laps = rng.integers(0, 2, n) * 0 + 1
@@ -219,7 +219,7 @@ design("luz-bokeh-color", "Bokeh de colores", "Colourful bokeh", "luces", 8, res
 @design("luz-luciernagas", "Luciérnagas", "Fireflies", "luces", 8, res=(540, 960),
         tags=["luciernagas", "fireflies", "magia", "noche", "bosque", "brillo"], sample="nature-04.jpg")
 def _fireflies(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     n = 55
     cx, cy = rng.uniform(0, w, n), rng.uniform(h * 0.15, h, n)
     ax, ay = rng.uniform(30, 110, n) * s, rng.uniform(30, 110, n) * s
@@ -350,7 +350,7 @@ def _vhs_text(w, h, t, s, c):
 @design("pel-vhs", "VHS", "VHS", "pelicula", 6, res=(1080, 1920),
         tags=["vhs", "retro", "90s", "cinta", "tape", "glitch", "play", "noventas"], sample="friends-08.jpg")
 def _vhs(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     scan = np.zeros((h, w), np.float32)
     scan[::4] = 0.14
     scan[1::4] = 0.07
@@ -388,7 +388,7 @@ def _vhs(w, h, T, rng):
 @design("cam-rec", "Cámara grabando (REC)", "Camera recording (REC)", "camara", 10, res=(1080, 1920),
         tags=["rec", "camara", "grabando", "camera", "recording", "visor", "vlog", "marco"], sample="creator-01.jpg")
 def _rec(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     m, L, th = int(70 * s), int(130 * s), max(int(7 * s), 2)
     frame_img = Image.new("L", (w, h), 0)
     d = ImageDraw.Draw(frame_img)
@@ -432,7 +432,7 @@ def _rec(w, h, T, rng):
 def _rising(n, palette, size, speed_laps, life_frac, glow_r, streak_len, add=True, sway=40):
     """Particles born at the bottom that rise and fade: sparks, embers."""
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         x0 = rng.uniform(0.05, 0.95, n) * w
         ph = rng.uniform(0, 1, n)
         laps = rng.integers(speed_laps[0], speed_laps[1] + 1, n)
@@ -474,7 +474,7 @@ design("part-brasas", "Brasas", "Embers", "particulas", 8, res=(540, 960),
 
 def _falling(kind, n, palette, size, laps_range, sway=60, opacity=1.0, spin=(1, 3)):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         x0, y0 = rng.uniform(0, w, n), rng.uniform(0, h, n)
         laps = rng.integers(laps_range[0], laps_range[1] + 1, n)
         sw = rng.uniform(10, sway, n) * s
@@ -539,7 +539,7 @@ design("amor-petalos", "Pétalos de rosa", "Rose petals", "amor", 8,
 
 def _snow(layers, wind=0.0):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         parts = []
         for n, rmin, rmax, laps, op in layers:
             parts.append(dict(
@@ -572,7 +572,7 @@ design("clima-nevada", "Nevada", "Snowstorm", "clima", 6, res=(540, 960),
 @design("clima-lluvia", "Lluvia", "Rain", "clima", 4,
         tags=["lluvia", "rain", "tormenta", "triste", "melancolia", "storm", "gotas"], sample="friends-10.jpg")
 def _rain(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     n = 420
     x0, y0 = rng.uniform(-0.2, 1.1, n) * w, rng.uniform(0, h, n)
     laps = rng.integers(4, 8, n)

@@ -56,53 +56,67 @@ def over(photo: Image.Image, rgba: np.ndarray, size) -> Image.Image:
     return out.convert("RGB")
 
 
-def build(d: designs.Design) -> str:
+def wide_sample(name: str) -> Path:
+    """A landscape sample of the same theme (h-<theme>-NN.jpg) when there is one."""
+    theme = name.split("-")[0]
+    found = sorted(SAMPLES.glob(f"h-{theme}-*.jpg"))
+    return found[0] if found else SAMPLES / name
+
+
+def build(d: designs.Design, wide: bool = False) -> str:
+    """wide=True renders the 16:9 version (1920 x 1080) as its own item, id + '-h'."""
     t0 = time.time()
-    folder = OUT / d.id
+    oid = d.id + ("-h" if wide else "")
+    full, thumb, prevs = ((FULL[1], FULL[0]), (THUMB[1], THUMB[0]), (PREV[1], PREV[0])) if wide else (FULL, THUMB, PREV)
+    folder = OUT / oid
     folder.mkdir(parents=True, exist_ok=True)
     rng = np.random.default_rng(sum(map(ord, d.id)) * 7919)
-    w, h = d.res
+    w, h = (d.res[1], d.res[0]) if wide else d.res
     frame = d.make(w, h, d.seconds, rng)
     n = int(round(d.seconds * FPS))
-    photo_t = cover(SAMPLES / d.sample, THUMB)
-    photo_p = cover(SAMPLES / d.sample, PREV)
+    sample = wide_sample(d.sample) if wide else SAMPLES / d.sample
+    photo_t = cover(sample, thumb)
+    photo_p = cover(sample, prevs)
 
     webm = subprocess.Popen(
         ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgba", "-s", f"{w}x{h}", "-r", str(FPS),
-         "-i", "-", "-vf", f"scale={FULL[0]}:{FULL[1]}:flags=bicubic", "-c:v", "libvpx-vp9", "-pix_fmt", "yuva420p",
+         "-i", "-", "-vf", f"scale={full[0]}:{full[1]}:flags=bicubic", "-c:v", "libvpx-vp9", "-pix_fmt", "yuva420p",
          "-crf", str(d.crf), "-b:v", "0", "-row-mt", "1", "-cpu-used", "4", "-deadline", "good", "-auto-alt-ref", "0",
-         "-an", str(folder / f"{d.id}.webm")], stdin=subprocess.PIPE)
+         "-an", str(folder / f"{oid}.webm")], stdin=subprocess.PIPE)
     prev = subprocess.Popen(
-        ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{PREV[0]}x{PREV[1]}",
+        ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{prevs[0]}x{prevs[1]}",
          "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "26", "-preset", "medium",
          "-movflags", "+faststart", "-an", str(folder / "preview.mp4")], stdin=subprocess.PIPE)
     thumb_frame = int(d.thumb_at * (n - 1))
     for i in range(n):
         rgba = frame(i / FPS).to_rgba8()
         webm.stdin.write(rgba.tobytes())
-        prev.stdin.write(np.asarray(over(photo_p, rgba, PREV)).tobytes())
+        prev.stdin.write(np.asarray(over(photo_p, rgba, prevs)).tobytes())
         if i == thumb_frame:
-            over(photo_t, rgba, THUMB).save(folder / "thumbnail.png", optimize=True)
+            over(photo_t, rgba, thumb).save(folder / "thumbnail.png", optimize=True)
     for p in (webm, prev):
         p.stdin.close()
         if p.wait() != 0:
             raise RuntimeError(f"ffmpeg failed for {d.id}")
-    meta = {"id": d.id, "names": d.names, "category": d.category, "durationSec": d.seconds, "loop": d.loop,
-            "tags": d.tags, "width": FULL[0], "height": FULL[1], "fps": FPS}
+    names = {"es": d.names["es"] + " (horizontal)", "en": d.names["en"] + " (landscape)"} if wide else d.names
+    tags = d.tags + (["horizontal", "landscape", "16:9", "youtube"] if wide else ["vertical", "9:16", "reels"])
+    meta = {"id": oid, "names": names, "category": d.category, "durationSec": d.seconds, "loop": d.loop,
+            "tags": tags, "width": full[0], "height": full[1], "fps": FPS}
     (folder / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
-    size = (folder / f"{d.id}.webm").stat().st_size
-    return f"{d.id}: {n} frames, {size / 1e6:.1f} MB, {time.time() - t0:.0f} s"
+    size = (folder / f"{oid}.webm").stat().st_size
+    return f"{oid}: {n} frames, {size / 1e6:.1f} MB, {time.time() - t0:.0f} s"
 
 
-def _run(did: str) -> str:
+def _run(job) -> str:
+    did, wide = job
     try:
-        return build(designs.DESIGNS[did])
+        return build(designs.DESIGNS[did], wide)
     except Exception as e:  # keep the others going
         return f"{did}: FAILED {e!r}"
 
 
 def contact_sheet():
-    cards = sorted(p for p in OUT.iterdir() if (p / "thumbnail.png").exists())
+    cards = sorted(p for p in OUT.iterdir() if (p / "thumbnail.png").exists() and not p.name.endswith("-h"))
     cols = 8
     tw, th = 216, 384
     rows = (len(cards) + cols - 1) // cols
@@ -121,11 +135,14 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", default="")
     ap.add_argument("--jobs", type=int, default=6)
+    ap.add_argument("--wide", choices=["no", "yes", "both"], default="no", help="also (or only) the 16:9 versions")
     args = ap.parse_args()
     ids = [i for i in args.only.split(",") if i] or list(designs.DESIGNS)
+    jobs = [(i, False) for i in ids] if args.wide in ("no", "both") else []
+    jobs += [(i, True) for i in ids] if args.wide in ("yes", "both") else []
     OUT.mkdir(parents=True, exist_ok=True)
-    with Pool(min(args.jobs, len(ids))) as pool:
-        for line in pool.imap_unordered(_run, ids):
+    with Pool(min(args.jobs, len(jobs))) as pool:
+        for line in pool.imap_unordered(_run, jobs):
             print(line, flush=True)
     contact_sheet()
     return 0
