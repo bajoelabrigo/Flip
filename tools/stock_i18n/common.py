@@ -21,6 +21,13 @@ FOLDERS = {
     "background": "fondos",
     "sound": "sonidos",
     "music": "musica",
+    # 0.14.0: the new kinds of Stock content.
+    "lut": "luts",
+    "look": "looks",
+    "text-style": "estilos-texto",
+    "text-animation": "textos-animados",
+    "transition": "transiciones",
+    "shape": "formas",
 }
 
 # The server's languages minus es/en, which live in the indexes themselves.

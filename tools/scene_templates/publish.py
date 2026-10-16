@@ -13,6 +13,7 @@ the sites: replacing index.json alone has been seen to come back, see CLAUDE.md)
 from __future__ import annotations
 
 import argparse
+import datetime
 import hashlib
 import json
 import os
@@ -48,11 +49,19 @@ def main() -> int:
     parser.add_argument("--packages", type=Path, default=ROOT / "paquetes")
     parser.add_argument("--out", type=Path, default=ROOT / "publicar")
     args = parser.parse_args()
+    # «Nuevo» and the news in Stock go by when an item first went out: keep each template's date.
+    added_at: dict[str, str] = {}
+    try:
+        old = json.loads((args.out / "index.json").read_text(encoding="utf-8")).get("templates", [])
+        added_at = {e["id"]: e["addedAt"] for e in old if e.get("addedAt")}
+    except (OSError, ValueError):
+        pass
+    today = datetime.date.today().isoformat()
     # Other Stock catalogs (animaciones, superposiciones...) share the folder: a subfolder with its own
     # index.json is one of them, keep it.
     if args.out.exists():
         for child in args.out.iterdir():
-            if child.name in ("animaciones", "superposiciones", "sonidos", "fondos", "musica", "i18n") or (child.is_dir() and (child / "index.json").exists()):
+            if child.name in ("animaciones", "superposiciones", "sonidos", "fondos", "musica", "i18n", "colecciones.json") or (child.is_dir() and (child / "index.json").exists()):
                 continue
             shutil.rmtree(child) if child.is_dir() else child.unlink()
     args.out.mkdir(parents=True, exist_ok=True)
@@ -77,6 +86,7 @@ def main() -> int:
         width, height = manifest.get("width", 1080), manifest.get("height", 1920)
         entries.append({
             "id": tid,
+            "addedAt": added_at.get(tid, today),
             "names": manifest.get("names") or {"es": manifest["displayName"], "en": manifest["displayName"]},
             "category": manifest.get("category", ""),
             "categoryNames": CATEGORY_NAMES.get(manifest.get("category", ""), {}),
