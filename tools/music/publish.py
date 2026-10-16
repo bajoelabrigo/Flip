@@ -40,6 +40,17 @@ puedes disputar el reclamo indicando que la obra es de dominio público (CC0) y 
 """
 
 
+# Songs not tagged «Instrumental» on FMA: they may have vocals or be covers. Held back until someone listens
+# to them (Jorge); take a title out of this set once it has been heard and is fine.
+HOLD = {"Kitsune", "Kodama", "Jams", "Pixel Party", "Stealing Glimpses Of Your Face", "Canon Event",
+        "God Rest Ye Merry Gentlemen ( Synth Wave )", "Joy To The World ( Synth Wave )",
+        "The First Noel ( Synth Wave )", "We Three Kings ( Synth Wave )"}
+
+
+def held(meta: dict) -> bool:
+    return meta.get("song", "") in HOLD
+
+
 def main() -> int:
     if OUT.exists():
         shutil.rmtree(OUT)
@@ -49,6 +60,9 @@ def main() -> int:
     for folder in sorted(p for p in SOURCE.iterdir() if (p / "meta.json").exists()):
         meta = json.loads((folder / "meta.json").read_text(encoding="utf-8"))
         oid = meta["id"]
+        if held(meta):
+            print(f"hold {oid}: {meta.get('song')} (to be heard first)")
+            continue
         audio = folder / f"{oid}.mp3"
         if not audio.exists() or not (folder / "thumbnail.png").exists():
             print(f"skip {oid}: missing files")
