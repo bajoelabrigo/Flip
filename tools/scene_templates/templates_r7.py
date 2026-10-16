@@ -360,7 +360,7 @@ def foto_en_foto():
     framed(t, "restaurant-03", 0.4, 7.6, Box(140, 380, 800, 1000), [(0, {"s": 0.6}, "back"), (0.5, {}, "linear"),
                                                                    (7.6, {"s": 1.04})], border=14, radius=30,
            label="Foto", reuse="p1")
-    framed(t, "restaurant-04", 1.6, 6.4, Box(560, 1150, 400, 480), [(0, {"s": 0.0}, "back"), (0.45, {})], border=10, radius=24,
+    framed(t, "h-food-02", 1.6, 6.4, Box(560, 1150, 400, 480), [(0, {"s": 0.0}, "back"), (0.45, {})], border=10, radius=24,
            rotation=keys([(0, 6)]), label="Detalle")
     label(t, t.track("text", "Texto"), "el detalle lo es todo", 2.4, 5.6, Box(60, 160, 960, 160), "DM Serif Display", 90,
           "#FFFFFF", weight=400, layers=[shadow("#000000", 0, 4, 14, 0.6), fill("#FFFFFF")],
@@ -599,7 +599,7 @@ def aniversario_bodas():
 def primera_cita():
     t = tall("r-primera-cita", "Nuestra primera cita", "Our first date", "celebration", 9.0, order=3130,
              tags=["primera cita", "pareja", "amor", "recuerdo", "aniversario"], thumb_at=5.4, background="#2D0A1E")
-    slides(t, ["restaurant-04", "couple-05", "night-02"], 0.0, 3.0, transition="blur_dissolve", tdur=0.6, kb_amount=0.07,
+    slides(t, ["h-food-02", "couple-05", "night-02"], 0.0, 3.0, transition="blur_dissolve", tdur=0.6, kb_amount=0.07,
            effects_fn=lambda i: [effect("color.basic", temperature=0.15, fade=0.1)])
     shade_full(t, 0.3, colour="#2D0A1E")
     label(t, t.track("text", "Fecha"), "14 · 02 · 2024", 0.4, 8.6, Box(60, 260, 960, 90), "Special Elite", 64, "#FFE3EA",

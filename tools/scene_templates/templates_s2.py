@@ -70,7 +70,7 @@ SPECS = [
     dict(fam="list", id="s-texto-mitos", es="Mitos y verdades", en="Myths and truths", cat="text", order=O + 17,
          tags=["mitos", "verdades", "datos", "educación"], pal=P["night"], title="Mitos del café", font="Sora",
          items=["«quita el sueño» → depende", "«deshidrata» → no tanto", "«es malo» → con medida, no"],
-         chip="icons", icons=["☕", "💧", "✓"], photo="coffee-03", thumb=5.0),
+         chip="number", photo="coffee-03", thumb=5.0),
     dict(fam="list", id="s-texto-planes", es="Planes del finde", en="Weekend plans", cat="text", order=O + 18,
          tags=["fin de semana", "planes", "ideas", "lista"], pal=P["coral"], title="Planes para el finde", font="Fredoka",
          items=["picnic en el parque", "maratón de películas", "cocinar algo nuevo", "dormir hasta tarde"],

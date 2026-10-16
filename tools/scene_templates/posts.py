@@ -16,6 +16,26 @@ from kit import (Box, appear, bg, bg_gradient, centered, circle_photo, confetti,
 S = 1080
 
 
+def _lum(c):
+    c = c.lstrip("#")[-6:]
+    ch = [int(c[i:i + 2], 16) / 255 for i in (0, 2, 4)]
+    ch = [v / 12.92 if v <= 0.03928 else ((v + 0.055) / 1.055) ** 2.4 for v in ch]
+    return 0.2126 * ch[0] + 0.7152 * ch[1] + 0.0722 * ch[2]
+
+
+def _ratio(a, b):
+    la, lb = sorted((_lum(a), _lum(b)), reverse=True)
+    return (la + 0.05) / (lb + 0.05)
+
+
+def _readable(back, *cands, need=3.0):
+    """The first candidate colour that reads on `back`; else black or white, whichever reads better."""
+    for c in cands:
+        if c and _ratio(back, c) >= need:
+            return c
+    return "#111111" if _ratio(back, "#111111") >= _ratio(back, "#FFFFFF") else "#FFFFFF"
+
+
 def _t(spec, dur_default=8.0):
     p = spec["pal"]
     return square(spec["id"], spec["es"], spec["en"], spec["cat"], spec.get("dur", dur_default), order=spec["order"],
@@ -91,9 +111,10 @@ def _badge(t, spec, box, at=0.5):
     if not spec.get("badge"):
         return
     p = spec["pal"]
-    pill(t, t.track("shape", "Insignia"), p.get("accent2", p["accent"]), at, t.duration - at, box, pop(0, 0.35))
+    back = p.get("accent2", p["accent"])
+    pill(t, t.track("shape", "Insignia"), back, at, t.duration - at, box, pop(0, 0.35))
     label(t, t.track("text", "Insignia"), spec["badge"], at, t.duration - at, box, spec.get("body", "Montserrat"),
-          int(box.h * 0.45), p.get("ink", "#FFFFFF"), weight=800, spacing=3, name="Insignia")
+          int(box.h * 0.45), _readable(back, p.get("ink"), "#FFFFFF"), weight=800, spacing=3, name="Insignia")
 
 
 def _deco(t, spec):
@@ -110,14 +131,17 @@ def _deco(t, spec):
             t.solid(t.track("shape", "Esquina"), p["accent"], 0.3, t.duration - 0.3,
                     Box(x if dx > 0 else x - 10, y if dy > 0 else y - 120, 10, 120), pop(0, 0.3))
     elif d == "sparkles":
-        dots(t, [p["accent"], "#FFFFFF", p.get("accent2", p["accent"])], 18, 0.3, t.duration - 0.3, seed=spec["order"],
-             size=(10, 26), kinds=("star",), drift=60)
+        # in the side margins, so they never sit on the text
+        for k, area in enumerate((Box(10, 40, 150, 1000), Box(920, 40, 150, 1000))):
+            dots(t, [p["accent"], "#FFFFFF", p.get("accent2", p["accent"])], 9, 0.3, t.duration - 0.3,
+                 seed=spec["order"] + k, size=(10, 26), kinds=("star",), drift=60, area=area)
     elif d == "confetti":
         confetti(t, [p["accent"], p.get("accent2", "#FFFFFF"), "#FFFFFF"], 0.6, t.duration - 0.6, seed=spec["order"],
                  lanes=3, density=0.35, size=(14, 30))
     elif d == "hearts":
-        dots(t, [p["accent"], p.get("accent2", "#FFFFFF")], 16, 0.3, t.duration - 0.3, seed=spec["order"],
-             size=(26, 56), kinds=("heart",), drift=160, alpha=0.85)
+        for k, area in enumerate((Box(10, 120, 120, 960), Box(950, 120, 120, 960))):
+            dots(t, [p["accent"], p.get("accent2", "#FFFFFF")], 7, 0.3, t.duration - 0.3, seed=spec["order"] + k,
+                 size=(26, 50), kinds=("heart",), drift=160, alpha=0.85, area=area)
     elif d == "blobs":
         rng = random.Random(spec["order"])
         for k in range(3):
@@ -139,10 +163,10 @@ def poster(spec):
     photo_bg(t, spec["photo"], s1=spec.get("zoom", 1.1), label=spec.get("plabel", "Tu foto"))
     shade = spec.get("shade", "bottom")
     if shade == "bottom":
-        shade_bottom(t, 640, 0.85, colour=p["bg"])
+        shade_bottom(t, 800, 0.92, colour=p["bg"])
         tbox, sy = Box(60, 620, 960, 260), 880
     elif shade == "top":
-        shade_top(t, 640, 0.85, colour=p["bg"])
+        shade_top(t, 800, 0.92, colour=p["bg"])
         tbox, sy = Box(60, 110, 960, 260), 380
     elif shade == "left":
         t.solid(t.track("shape", "Panel"), p["bg"], 0, t.duration, Box(0, 0, 600, 1080), slide_in(dx=-600, length=0.5),
@@ -256,7 +280,8 @@ def quote(spec):
     _title(t, spec, Box(90, 260, 900, 520), size=spec.get("size", 88), line_h=1.12,
            anim=spec.get("anim", "rise-by-word"), font=spec.get("font", "Playfair Display"), weight=spec.get("weight", 600))
     line(t, t.track("shape", "Línea"), p["accent"], 2.0, t.duration - 2.0, centered(540, 830, 160, 5), grow="c", length=0.5)
-    _sub(t, spec, "author", Box(90, 860, 900, 80), size=40, at=2.3, colour=p.get("accent2", p["fg"]), spacing=4)
+    _sub(t, spec, "author", Box(90, 860, 900, 80), size=40, at=2.3,
+         colour=_readable(p["bg"], p.get("accent2"), p["accent"], p["fg"]), spacing=4)
     _deco(t, spec)
     song(t, spec.get("mood", "calm"), spec.get("pick", 0), 0.7)
     return t
@@ -291,7 +316,8 @@ def listcard(spec):
         label(t, t.track("text", "Punto"), it, at + 0.1, t.duration - at - 0.1, Box(190, y, w - 120, 110),
               spec.get("body", "Montserrat"), 46, p["fg"], weight=700, align="left", line=1.1,
               anim_in=tanim("slide-right", duration=0.35, distance=0.12), name=f"Punto {i + 1}")
-    _sub(t, spec, "sub", Box(70, 960, 940, 70), size=36, at=3.5, align="left", colour=p.get("accent2", p["fg"]))
+    _sub(t, spec, "sub", Box(70, 960, 940, 70), size=36, at=3.5, align="left",
+         colour=_readable(p["bg"], p.get("accent2"), p["fg"]))
     _deco(t, spec)
     song(t, spec.get("mood", "upbeat"), spec.get("pick", 3), 0.7)
     return t
@@ -356,7 +382,8 @@ def testimonial(spec):
     label(t, t.track("text", "Reseña"), spec["title"], 1.6, t.duration - 1.6, Box(140, 510, 800, 280),
           spec.get("font", "Lora"), spec.get("size", 52), p.get("cardfg", "#2D2A26"), weight=500, italic=True, line=1.25,
           anim_in=tanim("rise-by-word", duration=0.35, unit="word", stagger=0.05), name="Reseña")
-    _sub(t, spec, "author", Box(140, 800, 800, 70), size=38, at=2.6, colour=p["accent"], weight=700)
+    _sub(t, spec, "author", Box(140, 800, 800, 70), size=38, at=2.6,
+         colour=_readable(p.get("card", "#FFFFFF"), p["accent"], p.get("accent2"), p.get("cardfg", "#2D2A26")), weight=700)
     _sub(t, spec, "brand", Box(80, 960, 920, 70), size=36, at=3.0, weight=700, spacing=4)
     _deco(t, spec)
     song(t, spec.get("mood", "calm"), spec.get("pick", 2), 0.65)
@@ -442,6 +469,7 @@ def beforeafter(spec):
     t = _t(spec, 7.0)
     p = spec["pal"]
     at = spec.get("at", 2.2)
+    t.thumb_at = max(t.thumb_at, at + 1.7)  # the card shows both halves and both labels
     t.photo(t.track("video", "Después"), spec["after"], 0, t.duration, t.full, kb(t.duration, 1.0, 1.05), label="Foto de después")
     host = t.track("video", "Antes")
     clip = t.photo(host, spec["before"], 0, t.duration, t.full, kb(t.duration, 1.0, 1.05), label="Foto de antes",
@@ -463,9 +491,12 @@ def beforeafter(spec):
             box = Box(40, 40, 400, 90) if i == 0 else Box(580, 40, 460, 90)
         else:
             box = Box(40, 40, 420, 90) if i == 0 else Box(40, 580, 460, 90)
-        pill(t, t.track("shape", "Etiqueta"), [p["bg"], p["accent"]][i], t0, t.duration - t0, box, pop(0, 0.3))
+        # "before" on a dark chip, "after" in the accent: both have to read over any photo
+        back = "#111111" if i == 0 else p["accent"]
+        pill(t, t.track("shape", "Etiqueta"), back, t0, t.duration - t0, box, pop(0, 0.3))
         label(t, t.track("text", "Etiqueta"), txt, t0, t.duration - t0, box, spec.get("body", "Montserrat"),
-              44 if len(txt) <= 9 else 32, "#FFFFFF", weight=800, spacing=3, name=f"Etiqueta {i + 1}")
+              44 if len(txt) <= 9 else 32, _readable(back, "#FFFFFF", p.get("ink")), weight=800, spacing=3,
+              name=f"Etiqueta {i + 1}")
     if spec.get("title"):
         label(t, t.track("text", "Título"), spec["title"], at + 1.4, t.duration - at - 1.4, Box(60, 900, 960, 120),
               spec.get("font", "Montserrat"), 60, "#FFFFFF", weight=800, box_bg=("#000000", 0.55), box_pad=18,

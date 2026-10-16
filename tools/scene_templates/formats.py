@@ -32,7 +32,7 @@ def _hook(t, spec, box, at=0.0, size=None, style=None, dur=None):
     elif style == "outline":
         layers, extra = [shadow("#000000", 0, 10, 0, 0.9), stroke(10, "#111111"), fill(p["accent"])], {}
     else:
-        layers, extra = [shadow("#000000", 0, 6, 18, 0.6), fill("#FFFFFF")], {}
+        layers, extra = [shadow("#000000", 0, 6, 24, 0.9), fill("#FFFFFF")], {}
     label(t, t.track("text", "Gancho"), spec["hook"], at, dur or (t.duration - at), box, f, sz, "#FFFFFF",
           weight=spec.get("weight", 400), line=0.98, layers=layers, anim_in=tanim("stamp", duration=0.25),
           anim_out=tanim("fade", duration=0.2) if dur else None, name="Gancho", **extra)
@@ -143,13 +143,13 @@ def ad(spec):
         pb = Box(80, 140, 860, 800)
         tb = Box(1000, 260, 860, 520)
     else:
-        pb = Box(110, 260, 860, 900)
-        tb = Box(70, 1200, 940, 380)
+        pb = Box(150, 240, 780, 840)
+        tb = Box(70, 1120, 940, 480)
     framed(t, spec["photos"][1] if len(spec["photos"]) > 1 else spec["photos"][0], 2.1, 3.9, pb,
            [(0, {"s": 0.7}, "back"), (0.4, {}, "linear"), (3.9, {"s": 1.04})], border=0, radius=40, label="Foto del producto",
            reuse=None if len(spec["photos"]) > 1 else "p1")
     label(t, t.track("text", "Mensaje"), spec["msg"], 2.3, 3.7, Box(tb.x, tb.y, tb.w, tb.h * 0.55), spec.get("font", "Anton"),
-          spec.get("msize", 110), p["fg"], weight=spec.get("weight", 400), align="left" if is_wide else "center", line=1.0,
+          spec.get("msize", 110 if len(spec["msg"]) <= 20 else 92), p["fg"], weight=spec.get("weight", 400), align="left" if is_wide else "center", line=1.0,
           anim_in=tanim("slide-up", duration=0.3, unit="word", stagger=0.08), name="Mensaje")
     if spec.get("price"):
         cx = tb.x + (180 if is_wide else tb.w / 2)
@@ -250,8 +250,9 @@ def thumb(spec):
                     rotation=keys([(0, (-1) ** i * 5)]), layers=[shadow("#000000", 0, 10, 20, 0.5), fill("#FFFFFF"), no_stroke()])
             t.photo(t.track("video", f"Foto {i + 1}"), s, 0, 3.0, box, label=f"Foto {i + 1}", rotation=keys([(0, (-1) ** i * 5)]))
     elif kind == "question":
-        _big(t, "?", Box(1150, -40, 760, 1160), font, 1000, p["accent"], rot=12, name="Pregunta")
-        t.photo(t.track("video", "Cara"), spec["face"], 0, 3.0, Box(880, 160, 700, 920), label="Tu cara (recortada)")
+        # the question mark goes over the photo, so it reads whole instead of peeking out behind it
+        t.photo(t.track("video", "Cara"), spec["face"], 0, 3.0, Box(820, 160, 700, 920), label="Tu cara (recortada)")
+        _big(t, "?", Box(1430, 40, 470, 1000), font, 760, p["accent"], rot=12, name="Pregunta")
         _big(t, spec["text"], Box(60, 200, 900, 700), font, spec.get("size", 170), "#FFFFFF", rot=-3)
     if spec.get("badge"):
         pill(t, t.track("shape", "Insignia"), p.get("accent2", "#111111"), 0, 3.0, Box(60, 60, 380, 110), pop(0, 0.3),

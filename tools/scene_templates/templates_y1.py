@@ -124,7 +124,7 @@ SPECS = [
     T(43, "mini-lista-hacks", "Trucos de casa", "Home hacks", ["trucos", "hogar", "limpieza"], "lim", kind="list",
       number="8", text="TRUCOS DE CASA", photos=["h-interior-01", "h-interior-03", "h-kids-05"]),
     T(44, "mini-lista-apps", "Herramientas", "Tools", ["herramientas", "productividad", "trabajo"], "nvy", kind="list",
-      number="6", text="HERRAMIENTAS GRATIS", photos=["h-desk-03", "h-desk-05", "h-office-01"]),
+      number="6", text="APPS GRATIS", photos=["h-desk-03", "h-desk-05", "h-office-01"]),
     # question / new (5)
     T(45, "mini-pregunta-por-que", "¿Por qué?", "Why?", ["pregunta", "explicación", "curiosidad"], "pur",
       kind="question", face="h-portrait-03", text="¿POR QUÉ NADIE HABLA DE ESTO?", size=150),
@@ -134,9 +134,9 @@ SPECS = [
       bgphoto="h-podcast-03", dim=0.35, face="h-man-04", text="EP. 25", text2="con Ana Ruiz", size=280, badge="NUEVO",
       side="left"),
     T(48, "mini-nuevo-producto", "Producto nuevo", "New product", ["nuevo", "producto", "reseña"], "pnk",
-      bgphoto="h-product-01", dim=0.15, face="h-portrait-01", text="¿FUNCIONA?", size=230, badge="NUEVO", side="left"),
+      bgphoto="h-product-01", dim=0.15, face="h-portrait-01", text="¿FUNCIONA?", size=170, badge="NUEVO", side="left"),
     T(49, "mini-directo", "Directo hoy", "Live today", ["directo", "en vivo", "stream"], "blk", bgphoto="h-gaming-05",
-      dim=0.4, face="h-man-02", text="EN VIVO", text2="HOY 20:00", size=280, badge="● LIVE", boxed=True),
+      dim=0.4, face="h-man-02", text="EN VIVO", text2="HOY 20:00", size=280, badge="● DIRECTO", boxed=True),
 ]
 
 TEMPLATES = [_maker(thumb, s, __name__) for s in SPECS]
