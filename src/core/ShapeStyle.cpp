@@ -2,9 +2,23 @@
 
 #include "Effect.h"
 
+#include "ShapePath.h"
+
 #include <QCoreApplication>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QHash>
 #include <QJsonArray>
+#include <QJsonDocument>
+#include <QLocale>
+#include <QMutex>
+#include <QRegularExpression>
+#include <QSaveFile>
+#include <QSet>
+#include <QStandardPaths>
 #include <algorithm>
+#include <optional>
 
 namespace drift {
 namespace {
@@ -46,6 +60,7 @@ constexpr KindName kKindNames[] = {
     {ShapeKind::Cross, "cross"},
     {ShapeKind::Burst, "burst"},
     {ShapeKind::Banner, "banner"},
+    {ShapeKind::Custom, "custom"},
 };
 
 ShapeStyle makeStyle(ShapeKind kind, const QColor &fill, const QColor &fillSecondary)
@@ -196,12 +211,228 @@ const QList<ShapeCatalogEntry> &shapeCatalog()
     return catalog;
 }
 
+namespace {
+
+struct UserShapes
+{
+    QMutex mutex;
+    // Live entries by catalog id, in display order.
+    QList<const ShapeCatalogEntry *> ordered;
+    QHash<QString, const ShapeCatalogEntry *> byId;
+    QList<ShapeCategory> categories;
+    bool loaded = false;
+};
+
+UserShapes &userShapes()
+{
+    static UserShapes shapes;
+    return shapes;
+}
+
+// The name in the UI language: exact tag ("pt_BR"), then the language ("pt"), then English,
+// Spanish, then anything.
+QString localizedName(const QJsonObject &names, const QString &fallback)
+{
+    const QLocale locale;
+    const QString full = locale.name();
+    const QString lang = full.section(QLatin1Char('_'), 0, 0);
+    for (const QString &key : {full, lang, QStringLiteral("en"), QStringLiteral("es")}) {
+        const QString v = names.value(key).toString().trimmed();
+        if (!v.isEmpty())
+            return v;
+    }
+    for (auto it = names.constBegin(); it != names.constEnd(); ++it) {
+        const QString v = it.value().toString().trimmed();
+        if (!v.isEmpty())
+            return v;
+    }
+    return fallback;
+}
+
+const QRegularExpression &userShapeIdPattern()
+{
+    static const QRegularExpression re(QStringLiteral("^[a-z0-9][a-z0-9._-]{0,63}$"));
+    return re;
+}
+
+// The entry a shape file describes, or nullopt with *error set.
+std::optional<ShapeCatalogEntry> parseUserShape(const QByteArray &bytes, QString *error,
+                                                QString *categoryLabel = nullptr)
+{
+    const auto fail = [&](const QString &why) {
+        if (error)
+            *error = why;
+        return std::optional<ShapeCatalogEntry>();
+    };
+    const QJsonDocument doc = QJsonDocument::fromJson(bytes);
+    if (!doc.isObject())
+        return fail(QStringLiteral("not a JSON object"));
+    const QJsonObject o = doc.object();
+    if (o.value(QStringLiteral("format")).toInt(1) != 1)
+        return fail(QStringLiteral("unknown format"));
+    const QString id = o.value(QStringLiteral("id")).toString();
+    if (!userShapeIdPattern().match(id).hasMatch())
+        return fail(QStringLiteral("bad id"));
+    const QString d = o.value(QStringLiteral("path")).toString();
+    QPainterPath parsed;
+    if (d.size() > 64 * 1024 || !parseSvgPathData(d, &parsed))
+        return fail(QStringLiteral("the outline does not parse"));
+    const QRectF box = parsed.boundingRect();
+    if (box.width() <= 0.0 || box.height() <= 0.0)
+        return fail(QStringLiteral("the outline is empty"));
+
+    ShapeCatalogEntry entry;
+    entry.id = QString::fromLatin1(kUserShapePrefix) + id;
+    entry.label = localizedName(o.value(QStringLiteral("names")).toObject(), id);
+    entry.category = QStringLiteral("user-") + o.value(QStringLiteral("category")).toString(QStringLiteral("shapes"));
+    entry.aspect = qBound(0.1, o.value(QStringLiteral("aspect")).toDouble(1.0), 10.0);
+    const QColor fill(o.value(QStringLiteral("fill")).toString(QStringLiteral("#FF6096")));
+    const QColor deep(o.value(QStringLiteral("fillDeep")).toString());
+    entry.style.kind = ShapeKind::Custom;
+    entry.style.layers = defaultShapeLayers(fill.isValid() ? fill : QColor(255, 96, 150),
+                                            deep.isValid() ? deep : QColor(), Qt::white, 0.0);
+    entry.style.customPath = d;
+    entry.style.customEvenOdd = o.value(QStringLiteral("fillRule")).toString() == QLatin1String("evenodd");
+    if (categoryLabel)
+        *categoryLabel = localizedName(o.value(QStringLiteral("categoryNames")).toObject(),
+                                       o.value(QStringLiteral("category")).toString());
+    return entry;
+}
+
+void ensureUserShapesLoaded()
+{
+    UserShapes &shapes = userShapes();
+    bool loaded = false;
+    {
+        QMutexLocker lock(&shapes.mutex);
+        loaded = shapes.loaded;
+    }
+    if (!loaded)
+        reloadUserShapes();
+}
+
+} // namespace
+
 const ShapeCatalogEntry *shapeCatalogEntry(const QString &id)
 {
     const QList<ShapeCatalogEntry> &catalog = shapeCatalog();
     const auto it = std::find_if(catalog.cbegin(), catalog.cend(),
                                  [&](const ShapeCatalogEntry &e) { return e.id == id; });
-    return it == catalog.cend() ? nullptr : &(*it);
+    if (it != catalog.cend())
+        return &(*it);
+    if (!id.startsWith(QLatin1String(kUserShapePrefix)))
+        return nullptr;
+    ensureUserShapesLoaded();
+    UserShapes &shapes = userShapes();
+    QMutexLocker lock(&shapes.mutex);
+    return shapes.byId.value(id, nullptr);
+}
+
+QString userShapesDir()
+{
+    return QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation))
+        .filePath(QStringLiteral("shapes"));
+}
+
+void reloadUserShapes()
+{
+    struct Loaded
+    {
+        ShapeCatalogEntry entry;
+        QString categoryLabel;
+    };
+    QList<Loaded> found;
+    const QDir dir(userShapesDir());
+    const QFileInfoList files = dir.entryInfoList({QStringLiteral("*.json")}, QDir::Files, QDir::Name);
+    for (const QFileInfo &info : files) {
+        QFile file(info.absoluteFilePath());
+        if (!file.open(QIODevice::ReadOnly) || file.size() > 256 * 1024)
+            continue;
+        QString label;
+        if (auto entry = parseUserShape(file.readAll(), nullptr, &label))
+            found.append({*entry, label});
+    }
+    std::stable_sort(found.begin(), found.end(), [](const Loaded &a, const Loaded &b) {
+        if (a.entry.category != b.entry.category)
+            return a.entry.category < b.entry.category;
+        return QString::localeAwareCompare(a.entry.label, b.entry.label) < 0;
+    });
+
+    UserShapes &shapes = userShapes();
+    QMutexLocker lock(&shapes.mutex);
+    // Old entries are leaked on purpose: a render thread may still hold a pointer from
+    // shapeCatalogEntry(), and a rescan only happens on start or after an install.
+    shapes.ordered.clear();
+    shapes.byId.clear();
+    shapes.categories.clear();
+    QSet<QString> seenCategories;
+    for (const Loaded &row : std::as_const(found)) {
+        const auto *entry = new ShapeCatalogEntry(row.entry);
+        shapes.ordered.append(entry);
+        shapes.byId.insert(entry->id, entry);
+        if (!seenCategories.contains(entry->category)) {
+            seenCategories.insert(entry->category);
+            shapes.categories.append({entry->category, row.categoryLabel});
+        }
+    }
+    shapes.loaded = true;
+}
+
+QList<ShapeCatalogEntry> userShapeCatalog()
+{
+    ensureUserShapesLoaded();
+    UserShapes &shapes = userShapes();
+    QMutexLocker lock(&shapes.mutex);
+    QList<ShapeCatalogEntry> out;
+    out.reserve(shapes.ordered.size());
+    for (const ShapeCatalogEntry *entry : std::as_const(shapes.ordered))
+        out.append(*entry);
+    return out;
+}
+
+QList<ShapeCategory> userShapeCategories()
+{
+    ensureUserShapesLoaded();
+    UserShapes &shapes = userShapes();
+    QMutexLocker lock(&shapes.mutex);
+    return shapes.categories;
+}
+
+QString installUserShapeFile(const QString &path, QString *error)
+{
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly) || file.size() > 256 * 1024) {
+        if (error)
+            *error = QStringLiteral("cannot read the file");
+        return {};
+    }
+    const QByteArray bytes = file.readAll();
+    const auto entry = parseUserShape(bytes, error);
+    if (!entry)
+        return {};
+    const QString id = entry->id.mid(int(qstrlen(kUserShapePrefix)));
+    QDir().mkpath(userShapesDir());
+    QSaveFile out(QDir(userShapesDir()).filePath(id + QStringLiteral(".json")));
+    if (!out.open(QIODevice::WriteOnly) || out.write(bytes) != bytes.size() || !out.commit()) {
+        if (error)
+            *error = QStringLiteral("cannot write into the shapes folder");
+        return {};
+    }
+    reloadUserShapes();
+    return entry->id;
+}
+
+bool removeUserShape(const QString &catalogId)
+{
+    if (!catalogId.startsWith(QLatin1String(kUserShapePrefix)))
+        return false;
+    const QString id = catalogId.mid(int(qstrlen(kUserShapePrefix)));
+    if (!userShapeIdPattern().match(id).hasMatch())
+        return false;
+    const bool removed = QFile::remove(QDir(userShapesDir()).filePath(id + QStringLiteral(".json")));
+    if (removed)
+        reloadUserShapes();
+    return removed;
 }
 
 QList<ShapeCategory> shapeCategories()
@@ -395,7 +626,8 @@ ShapeStyle ShapeStyle::resolvedAt(TimeUs clipTimeUs) const
 quint64 shapeStyleHash(const ShapeStyle &style)
 {
     return qHashMulti(0, static_cast<int>(style.kind), textLayersHash(style.layers), style.cornerRadius, style.points,
-                      style.innerRatio, style.headSize, style.thickness, style.tailX, style.tailSize);
+                      style.innerRatio, style.headSize, style.thickness, style.tailX, style.tailSize,
+                      style.customPath, style.customEvenOdd);
 }
 
 bool shapeTimeDrivenPaint(const ShapeStyle &style)
@@ -433,6 +665,11 @@ QJsonObject shapeStyleToJson(const ShapeStyle &s)
         {QStringLiteral("tailX"), s.tailX},
         {QStringLiteral("tailSize"), s.tailSize},
     };
+    if (s.kind == ShapeKind::Custom) {
+        o.insert(QStringLiteral("customPath"), s.customPath);
+        if (s.customEvenOdd)
+            o.insert(QStringLiteral("customEvenOdd"), true);
+    }
     QJsonObject keyframesJson;
     for (auto it = s.keyframes.constBegin(); it != s.keyframes.constEnd(); ++it) {
         if (!it->isEmpty())
@@ -506,6 +743,11 @@ ShapeStyle shapeStyleFromJson(const QJsonObject &o)
     s.thickness = o.value(QStringLiteral("thickness")).toDouble(s.thickness);
     s.tailX = o.value(QStringLiteral("tailX")).toDouble(s.tailX);
     s.tailSize = o.value(QStringLiteral("tailSize")).toDouble(s.tailSize);
+    s.customPath = o.value(QStringLiteral("customPath")).toString();
+    s.customEvenOdd = o.value(QStringLiteral("customEvenOdd")).toBool(false);
+    // A custom kind without an outline would draw nothing; a rectangle is the honest fallback.
+    if (s.kind == ShapeKind::Custom && s.customPath.isEmpty())
+        s.kind = ShapeKind::Rectangle;
     const QJsonObject keyframesJson = o.value(QStringLiteral("keyframes")).toObject();
     for (auto it = keyframesJson.constBegin(); it != keyframesJson.constEnd(); ++it) {
         const QString canonical = shapeKeyframeCanonicalKey(it.key(), s);

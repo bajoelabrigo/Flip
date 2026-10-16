@@ -25,6 +25,8 @@
 #include <QLinearGradient>
 #include <QPainter>
 #include <QPainterPath>
+#include <QPointer>
+#include <QSettings>
 #include <QStandardPaths>
 #include <QUrl>
 #include <QUuid>
@@ -138,8 +140,10 @@ QString slotPicture(const QSizeF &slot, int number, const QString &caption)
 
 void AppController::setMarketClient(MarketClient *client)
 {
-    if (m_marketClient)
-        disconnect(m_marketClient, &MarketClient::sceneTemplateReady, this, nullptr);
+    if (m_marketClient) {
+        disconnect(m_marketClient, nullptr, this, nullptr);
+        m_marketClient->setStockInstaller({});
+    }
     m_marketClient = client;
     if (!client)
         return;
@@ -148,6 +152,76 @@ void AppController::setMarketClient(MarketClient *client)
         if (use)
             insertSceneTemplate(templateId);
     });
+    // LUTs, looks, text styles and animations, transitions and shapes from Stock.
+    QPointer<AppController> self(this);
+    client->setStockInstaller([self](const QString &delivery, const QString &path, const QString &title,
+                                     const MarketClient::InstallDone &done) {
+        if (!self) {
+            done(false, QString(), QString(), QStringLiteral("the editor is gone"));
+            return;
+        }
+        self->installStockFile(delivery, path, title, done);
+    });
+    connect(client, &MarketClient::favoritesFetched, this, &AppController::mergeAccountFavorites);
+    connect(client, &MarketClient::favoritesPushed, this, [](const QDateTime &updatedAt) {
+        QSettings settings;
+        settings.setValue(QStringLiteral("assetFavoritesSync/dirty"), false);
+        if (updatedAt.isValid())
+            settings.setValue(QStringLiteral("assetFavoritesSync/at"), updatedAt);
+    });
+}
+
+void AppController::mergeAccountFavorites(const QVariantMap &server, const QDateTime &updatedAt)
+{
+    QSettings settings;
+    const QDateTime lastSync = settings.value(QStringLiteral("assetFavoritesSync/at")).toDateTime();
+    const bool dirty = settings.value(QStringLiteral("assetFavoritesSync/dirty"), false).toBool();
+    QHash<QString, QSet<QString>> fromServer;
+    for (auto it = server.cbegin(); it != server.cend(); ++it) {
+        const QStringList ids = it.value().toStringList();
+        if (!it.key().isEmpty() && !ids.isEmpty())
+            fromServer.insert(it.key(), QSet<QString>(ids.cbegin(), ids.cend()));
+    }
+
+    // Never synced from here, or changed here since: keep both sides and send the union. Synced
+    // and unchanged here: the account is newer, so it wins (a favorite removed on another
+    // computer goes here too).
+    const bool takeServer = lastSync.isValid() && !dirty && (!updatedAt.isValid() || updatedAt > lastSync);
+    const bool nothingNew = lastSync.isValid() && !dirty && updatedAt.isValid() && updatedAt <= lastSync;
+    if (nothingNew)
+        return;
+    QHash<QString, QSet<QString>> merged = takeServer ? fromServer : m_assetFavorites;
+    if (!takeServer) {
+        for (auto it = fromServer.cbegin(); it != fromServer.cend(); ++it)
+            merged[it.key()].unite(it.value());
+    }
+    const QStringList tabs = QStringList(m_assetFavorites.keyBegin(), m_assetFavorites.keyEnd())
+                             + QStringList(merged.keyBegin(), merged.keyEnd());
+    m_assetFavorites = merged;
+    for (const QString &tab : tabs)
+        saveAssetFavorites(tab);
+    emit assetFavoritesChanged();
+    if (takeServer) {
+        if (updatedAt.isValid())
+            settings.setValue(QStringLiteral("assetFavoritesSync/at"), updatedAt);
+        return;
+    }
+    settings.setValue(QStringLiteral("assetFavoritesSync/dirty"), true);
+    if (m_marketClient)
+        m_marketClient->pushFavorites(assetFavoritesMap());
+}
+
+QVariantMap AppController::assetFavoritesMap() const
+{
+    QVariantMap out;
+    for (auto it = m_assetFavorites.cbegin(); it != m_assetFavorites.cend(); ++it) {
+        if (it.key().isEmpty() || it.value().isEmpty())
+            continue;
+        QStringList ids(it.value().cbegin(), it.value().cend());
+        ids.sort();
+        out.insert(it.key(), ids);
+    }
+    return out;
 }
 
 QVariantList AppController::sceneTemplates() const

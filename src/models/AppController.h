@@ -20,6 +20,7 @@
 #include <QAtomicInt>
 #include <QColor>
 #include <QCursor>
+#include <QDateTime>
 #include <QImage>
 #include <QFuture>
 #include <QHash>
@@ -702,6 +703,11 @@ public:
                                   int trackIndex = -1);
     Q_INVOKABLE QVariantList builtinShapes() const;
     Q_INVOKABLE QVariantList builtinShapeCategories() const;
+    // Shapes installed from Stock (AppData/shapes): the same rows as builtinShapes() plus
+    // `user: true`, and the categories they use. Shown after the built-in ones in Shapes and Masks.
+    Q_INVOKABLE QVariantList userShapes() const;
+    Q_INVOKABLE QVariantList userShapeCategories() const;
+    Q_INVOKABLE bool removeUserShape(const QString &shapeId);
     // The scene camera as the preview's camera overlay needs it: {active, track, clip} plus the
     // seven values, all at the playhead. Taken once when a drag starts, so the drag solves from a
     // fixed starting point instead of accumulating its own rounding.
@@ -1276,6 +1282,17 @@ public:
     Q_INVOKABLE QVariantList lutLibrary() const;
     // Checks a .cube file and copies it into the library: {ok, path, name} or {ok:false, error}.
     Q_INVOKABLE QVariantMap importLut(const QUrl &url);
+
+    // Stock: puts a downloaded file where its kind belongs and says where on the status line.
+    // `delivery` is the catalog's: "lut" (LUT library), "effect-preset" (My presets), "text-style"
+    // (My styles), "text-animation" (text animations), "transition" (a .driftfx package into the
+    // transitions folder) or "shape" (the shapes library). `done` runs exactly once, possibly
+    // later — a package installs on a worker thread — with ok, a short phrase for the download
+    // list saying where it went, the installed file or folder, and an error.
+    using StockInstallDone = std::function<void(bool ok, const QString &where, const QString &installedPath,
+                                                const QString &error)>;
+    void installStockFile(const QString &delivery, const QString &path, const QString &title,
+                          const StockInstallDone &done);
     // {ok, name, missing, error, size, is3d} for a LUT path as a project saved it.
     Q_INVOKABLE QVariantMap lutInfo(const QString &path) const;
     // A small picture graded by the LUT (the real table applied on the CPU to a reference photo),
@@ -1808,6 +1825,7 @@ signals:
     void selectedClipDataChanged();
     // An imported LUT was added to or removed from the library.
     void lutLibraryChanged();
+    void userShapesChanged();
     void selectedTransitionDataChanged();
     void selectedTracksChanged();
     // Delete was pressed with tracks picked: the headers ask before deleting them.
@@ -1922,6 +1940,9 @@ protected:
     void loadShortcuts();
     void loadAssetFavorites();
     void saveAssetFavorites(const QString &tabId);
+    // Favorites kept with the account: what the service has, merged with or replacing these.
+    void mergeAccountFavorites(const QVariantMap &server, const QDateTime &updatedAt);
+    QVariantMap assetFavoritesMap() const;
     void applyEffectTemplateInternal(int trackIndex, int clipIndex, const EffectTemplateEntry &entry,
                                    const QString &mattePath = {},
                                    drift::TimeUs matteSrcOffsetUs = 0);

@@ -119,6 +119,18 @@ QPainterPath maskPath(const Mask &mask, int canvasWidth, int canvasHeight)
         fit.translate(-box.left(), -box.top());
         return fit.map(glyphs);
     }
+    case drift::MaskShape::Path: {
+        // A library shape: its 0..100 outline stretched onto the mask's rect.
+        QPainterPath unit;
+        if (mask.pathData.isEmpty() || !drift::parseSvgPathData(mask.pathData, &unit))
+            return {};
+        QTransform fit;
+        fit.translate(bounds.left(), bounds.top());
+        fit.scale(bounds.width() / 100.0, bounds.height() / 100.0);
+        QPainterPath mapped = fit.map(unit);
+        mapped.setFillRule(mask.pathEvenOdd ? Qt::OddEvenFill : Qt::WindingFill);
+        return mapped;
+    }
     case drift::MaskShape::Media:
         // Raster, not parametric: the coverage map is decoded per frame in FrameCompositor and
         // rides on GpuLayer::maskMedia. There is no path to rasterize.

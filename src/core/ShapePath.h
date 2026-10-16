@@ -17,6 +17,10 @@ QPainterPath shapePath(const ShapeStyle &style, const QRectF &bounds);
 // through here for their assets-panel thumbnails.
 QString painterPathToSvg(const QPainterPath &path);
 
+// Parses an SVG path "d" string (M L H V C S Q T Z, absolute or relative; no arcs) into `out`,
+// in the string's own coordinates. False, with `out` untouched, when it does not parse or is empty.
+bool parseSvgPathData(const QString &d, QPainterPath *out);
+
 // Regular n-gon inscribed in `bounds`, first vertex at the top. Shared with mask rendering.
 QPainterPath regularPolygonPath(const QRectF &bounds, int sides, double rotationDeg);
 
