@@ -60,6 +60,7 @@
           <uap:FileTypeAssociation Name="drift">
             <uap:DisplayName>Flip Studio Project</uap:DisplayName>
             <uap:SupportedFileTypes>
+              <uap:FileType>.flip</uap:FileType>
               <uap:FileType>.drift</uap:FileType>
             </uap:SupportedFileTypes>
           </uap:FileTypeAssociation>

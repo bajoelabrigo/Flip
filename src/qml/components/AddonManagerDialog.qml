@@ -190,13 +190,13 @@ ThemedDialog {
             root.kindFilter = "onnxruntime"
             root.kindFilterKinds = ["onnxruntime", "onnxruntime-ep"]
         } else if (kind === "whisper-model" || kind === "denoise-model"
-                   || kind === "sam2-model" || kind === "face-model"
+                   || kind === "sam2-model" || kind === "face-model" || kind === "body-model"
                    || kind === "object-model" || kind === "vad-model"
                    || kind === "align-model" || kind === "diarize-model"
                    || kind === "depth-model" || kind === "restore-model"
                    || kind === "tts-model") {
             root.kindFilter = "whisper-model"
-            root.kindFilterKinds = ["whisper-model", "denoise-model", "sam2-model", "face-model",
+            root.kindFilterKinds = ["whisper-model", "denoise-model", "sam2-model", "face-model", "body-model",
                                     "object-model", "vad-model", "align-model", "diarize-model",
                                     "depth-model", "restore-model", "tts-model"]
         } else if (kind === "effects" || kind === "effect-templates") {
@@ -265,7 +265,7 @@ ThemedDialog {
                     { id: "fonts", label: qsTr("Text & fonts"), kinds: ["fonts", "text-styles"] },
                     { id: "stickers", label: qsTr("Stickers"), kinds: ["stickers"] },
                     { id: "whisper-model", label: qsTr("AI tools"),
-                      kinds: ["whisper-model", "denoise-model", "sam2-model", "face-model",
+                      kinds: ["whisper-model", "denoise-model", "sam2-model", "face-model", "body-model",
                               "object-model", "vad-model", "align-model", "diarize-model",
                               "depth-model", "restore-model", "tts-model"] },
                     { id: "onnxruntime", label: qsTr("AI engine"),

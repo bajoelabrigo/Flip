@@ -46,6 +46,13 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-10-15)
 
+### 0.13.0 PUBLICADA (2026-10-16): Retoque › Cuerpo y Cabello, plantillas propias, 101 plantillas, Stock › Animaciones
+- Rama `flip/plantillas-propias` → PR a `main`, tag `v0.13.0`. Notas en `release-notes/0.13.0.md`; novedades para la
+  Store (0.12.0 + 0.13.0, 1014 caracteres) en `docs/store-listing.md`: la 0.12.0 no llegó a subirse (Jorge: «subimos
+  la versión 13 de una vez»). Extra `cuerpo.cabello` 1.0.0 publicado (paquete primero, índice después).
+- Probado con el ejecutable de la build (run 38844618103): análisis, los cinco retoques y el tinte. **Falta:** mirar
+  el panel en ventana (la pantalla estaba bloqueada y las capturas salían en blanco), que Jorge suba el MSIX y el TXT.
+
 ### 0.11.0 PUBLICADA (2026-10-15): plantillas editables, plantillas como composición, fotogramas en la pista
 - Rama `flip/plantillas-editables` → PR a `main`, tag `v0.11.0`. Notas en `release-notes/0.11.0.md`; novedades para
   la Store (0.10.0 + 0.11.0, 996 caracteres) en `docs/store-listing.md`. **Esta sí va a la Store y al TXT `version`.**
@@ -103,7 +110,40 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - **Falta:** probar en ventana con la build de la rama, aviso si faltan las tipografías, y que la política de
   privacidad diga que la cuenta guarda lo que bajas de Stock.
 
-### Para la próxima versión (pedido de Jorge, 2026-10-15)
+### 0.12.0 PUBLICADA (2026-10-15) — y Etapa 3 de plantillas en curso (rama `flip/plantillas-propias`)
+- 0.12.0: PR #17, tag `v0.12.0`, release con instalador/portable/SHA256SUMS, copia en `versiones\FlipStudio-0.12.0`,
+  novedades en la web, política de privacidad con «Tu biblioteca de Stock». MSIX: `msstore.yml` run 38808515108 →
+  `tienda\FlipStudio-Store\paquete-0.12.0`. **Falta (Jorge):** TXT `version` = 0.12.0 y subir el MSIX.
+- Etapa 3 (Jorge: «hagamos lo que sugeriste»): **MOGRT fuera**; **plantillas propias** (convertir en hueco /
+  texto editable, «Guardar como plantilla…», «Mis plantillas», borrar las propias, aviso de tipografías que faltan);
+  **Stock › Animaciones**: 65 stickers Lottie hechos por nosotros (`tools/animations`: `designs.py` + `designs2.py`,
+  `build.py` renderiza tarjetas con la app, `publish.py` los deja en `publicar/animaciones`), colores como slots
+  (`sid`), botón «LottieFiles» que abre su web (su licencia prohíbe servir su catálogo). **Servidor desplegado**
+  (tipo `animation`, `delivery: "media"`): la 0.12.0 ya las ve y las importa a Medios.
+- **Trampa Lottie:** la primera forma de una capa se dibuja **encima**: los detalles van antes que el fondo (las caras
+  salían sin ojos).
+- **Trampa curvas:** tangentes Catmull-Rom → Bézier = (siguiente − anterior) / 6, no / 2.
+
+### 101 plantillas de tendencia en Stock (2026-10-15, pedido de Jorge: «surtir la tienda»)
+- `tools/scene_templates/templates_t1.py` … `t5.py` (fechas especiales, ediciones de tendencia, negocios, vida y
+  personas, texto/intros/cierres); guía en `BRIEF.md` › «Las 100 de tendencia». Categorías nuevas `seasonal`
+  («Fechas especiales») y `business` («Negocios»), con nombre en la app (`SceneTemplateCatalog`) y en `publish.py`.
+- Renderizadas con el portable de `pruebas\FlipStudio-body`, revisadas en hojas de contacto y **desplegadas**: 133 en
+  Stock › Plantillas. Fotos de ejemplo nuevas (24 temas) bajadas con `fetch_samples.py`.
+- **Trampa:** un canal animado vale su **primera clave** antes de ella: un pico que empieza en el s 10 deja el efecto
+  al máximo los 10 s anteriores. Los ayudantes `spikes()` ponen `(0, 0, "hold")` delante.
+- Para elegir el momento de una miniatura: `scan_thumbs.py` (scratch) captura un fotograma por segundo.
+
+### Retoque › Cuerpo y Cabello (rama `flip/plantillas-propias`, 2026-10-15)
+- `engine/BodyLandmarker` (MediaPipe Pose sin detector + Selfie Multiclass), `engine/PoseTrack` (sidecar en
+  `AppData/posetracks`, `Clip::poseTrackPath`), efecto `body.reshape` (`"requires": "pose"`, uniforms `u_body*`),
+  `hair.color` en una capa de ajuste enlazada con la máscara del pelo, `BodyController` (`EditorState.body`), MCP
+  `analyze_body` / `color_hair`. Extra `cuerpo.cabello` (tipo `body-model`, app ≥ 0.13.0) preparado en flip-addons,
+  **sin publicar**. Probado con el ejecutable real (cuerpo y pelo) — falta mirar el panel en ventana.
+- **Arreglo:** `MatteWriter` redondea a pares (una foto de 867 px no abría el codificador; afectaba también a
+  «Quitar fondo» con fotos).
+
+### Lista de la 0.12.0 (pedido de Jorge, 2026-10-15) — TODO HECHO y publicado en la 0.12.0
 1. **La composición de una plantilla tiene que aparecer en Medios**, y desde ahí poder entrar a editarla o borrarla
    con Suprimir. Hoy el asset `Composite` se crea pero Jorge no lo ve en Medios.
 2. **«Quitar plantilla» (Efectos) no deshace la plantilla:** borra la capa de ajuste con la animación pero deja la
@@ -280,7 +320,7 @@ directamente la 0.9.6, y sus notas cubren las cuatro.
    `Downloads\FlipStudio\tienda\FlipStudio-Store\textos\listingData-FlipStudio-0.9.6.csv`; las capturas nuevas, en
    `FlipStudio-Store\ficha` (`Guion en Voz.jpg` es una foto suelta, no una captura de la app).
    `docs/store-listing.md` ya tiene la descripción del CSV (2026-10-13).
-2. Retoque **Cuerpo** y **Cabello** siguen sin modelo de IA.
+2. ~~Retoque Cuerpo y Cabello sin modelo~~: hecho en la 0.13.0.
 3. Otros idiomas: los nombres de catálogo (contexto `Catalog`) y lo nuevo del texto solo están en
    español.
 4. Web: voz con IA (TTS) espera al backend; las opciones del navegador usan espeak-ng (GPL).
@@ -592,7 +632,7 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 
 ## Trampas que ya nos costaron tiempo
 
-**Colores de 8 dígitos en QML son `#AARRGGBB`, no `#RRGGBBAA`.** `Theme.scrimColor` (`#00000066`) y `Theme.scrimStrong` (`#000000b3`) salen **transparentes**, heredado de Drift, y se usan en unos 38 sitios (etiquetas sobre miniaturas, velos). En la 0.11.0 solo se corrigieron las etiquetas de las tarjetas de plantillas (`Qt.rgba(0, 0, 0, 0.7)`); arreglar el tema es pendiente: revisar a ojo cada uso antes, porque oscurecerá zonas que hoy se ven claras. Igual `waveformColor` `#ffffffb3` es amarillo pálido y no blanco al 70 %.
+**Colores de 8 dígitos en QML son `#AARRGGBB`, no `#RRGGBBAA`.** `Theme.scrimColor`, `scrimStrong` y `waveformColor` venían de Drift al revés (transparentes o amarillos); corregidos en la 0.12.0 (`a8d9d`). Al escribir un color con alfa, el alfa va primero.
 
 **Restaurar el registro tras una prueba puede cerrar la sesión de Google de Jorge.** El servidor rota el token de
 refresco en cada uso y, si llega uno ya usado, cierra toda la familia (2026-10-14 22:34 UTC pasó). Si la app de

@@ -1341,6 +1341,10 @@
 <context>
     <name>AndroidEditor</name>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save Project</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1386,10 +1390,6 @@
     </message>
     <message>
         <source>Select all</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1589,6 +1589,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Couldn’t create captions: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1606,10 +1610,6 @@
     </message>
     <message>
         <source>Imported from the marketplace.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4330,6 +4330,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Body effects follow one clip&apos;s body, so they go on a clip, not on an adjustment layer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Face effects follow one clip&apos;s faces, so they go on a clip, not on an adjustment layer.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5226,6 +5230,10 @@
         <source>Add template</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Template added, but it uses fonts this computer does not have: %1. Install the Fonts packs from Extras so it looks as designed.</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
         <source>Template added: fill its %n slot(s) in the panel on the right</source>
         <translation type="unfinished">
@@ -5247,6 +5255,45 @@
     </message>
     <message>
         <source>Template text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make slot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove slot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only a composition can be saved as a template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create the template folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not copy %1 into the template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not save the template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saved in Templates › Scenes. It has no slots yet: open the composition and make photos into slots with a right click.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Saved in Templates › Scenes, with %n slot(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Template deleted</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6144,6 +6191,117 @@
     </message>
     <message>
         <source>Reset to Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BodyController</name>
+    <message>
+        <source>Body analysis already in progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear body analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This clip has no picture to analyse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Analysing the body…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clip is too short to analyse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Body analysis cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not decode frame %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Analysing frame %1 of %2…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No person found in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not write the body analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Body analysis complete — a person was visible in %1 of %2 frames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Body analysis complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>That clip no longer exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hair colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The hair colour effect is missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Finding the hair…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create a hair matte file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hair analysis cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No hair found in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hair colour applied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hair</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This clip cannot take an adjustment</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7185,7 +7343,39 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Body Reshape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slim</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Head size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Blur Amount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hair Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lighten</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -9501,6 +9691,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Flip Studio project (*.flip *.drift)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Video size and layout</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9638,10 +9832,6 @@
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flip Studio project (*.drift)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12780,6 +12970,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Save as template…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Preview and edit…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15634,6 +15828,80 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SaveTemplateDialog</name>
+    <message>
+        <source>My templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Photo reels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intros and titles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Before and after</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Products</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Celebrations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Countdowns</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Endings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n slot(s) for photos and videos, and %1 editable text(s). The rest of the composition is saved as it is.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>It has no slots yet. To leave room for other people&apos;s photos, open the composition and right-click a photo or video › Make template slot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SceneDetectController</name>
     <message>
         <source>Already looking for scenes</source>
@@ -15718,6 +15986,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Delete template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Use template</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15732,6 +16004,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SceneTemplateCatalog</name>
+    <message>
+        <source>My templates</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Photo reels</source>
         <translation type="unfinished"></translation>
@@ -15766,6 +16042,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Endings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Special dates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Business</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17908,6 +18192,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LottieFiles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opens lottiefiles.com in your browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Looking up that link…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18442,6 +18738,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Edit the template inside: move, retime or restyle any of its layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as my template…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep this version, with your changes, in Templates › Scenes</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -20234,6 +20538,26 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Select multiple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop being a template slot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make template slot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop being an editable template text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make editable template text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as template…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22370,6 +22694,98 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select a video or image clip to retouch a body.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or image clip to colour the hair.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install Body and hair retouch from Extras (it needs the AI engine) to use these.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The body in this clip is analysed: the sliders below follow it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick a look: the clip is analysed first, so the warps know where the body is.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Analyse the body again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Analyse body</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chocolate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caramel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blonde</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Platinum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pink</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lilac</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick another colour to change it. Strength and lightening are on the Hair colour row of the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick a colour: the hair is found in every frame first, which takes a moment.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove hair colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Bigger eyes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -22554,15 +22970,47 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Slim</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slims the whole body</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Narrows the waist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longer legs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lengthens the legs below the hips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shoulders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Widens the shoulders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smaller head</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makes the head a little smaller</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Body retouching (slimmer waist, longer legs and so on) needs a body-tracking model, which Flip Studio does not have yet.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hair colour and volume need a hair segmentation model, which Flip Studio does not have yet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

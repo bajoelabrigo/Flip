@@ -3,6 +3,7 @@
 #include "core/Effect.h"
 #include "core/Time.h"
 #include "engine/DepthSidecar.h"
+#include "engine/BodyLandmarker.h"
 #include "engine/FaceLandmarker.h"
 
 #include <QImage>
@@ -22,5 +23,6 @@ public:
     static QImage applyEffects(const QImage &input, const QList<drift::Effect> &effects,
                                drift::TimeUs timeUs = 0,
                                const QList<drift::FaceAnchors> &faceSlots = {},
-                               const std::shared_ptr<const drift::DepthFrame> &depth = nullptr);
+                               const std::shared_ptr<const drift::DepthFrame> &depth = nullptr,
+                               const drift::BodyPose &body = {});
 };

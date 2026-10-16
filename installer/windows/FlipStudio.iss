@@ -67,6 +67,7 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: de
 ; delete the association out from under the stable install (uninsdeletekey), and two channels
 ; fighting over which opens a .drift file helps nobody.
 [Registry]
+Root: HKCR; Subkey: ".flip"; ValueType: string; ValueName: ""; ValueData: "FlipStudio.Project"; Flags: uninsdeletevalue
 Root: HKCR; Subkey: ".drift"; ValueType: string; ValueName: ""; ValueData: "FlipStudio.Project"; Flags: uninsdeletevalue
 Root: HKCR; Subkey: "FlipStudio.Project"; ValueType: string; ValueName: ""; ValueData: "Flip Studio Project"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "FlipStudio.Project\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#MyAppExeName},0"

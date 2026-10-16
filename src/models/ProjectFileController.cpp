@@ -977,7 +977,7 @@ void ProjectFileController::packageProject(const QUrl &url)
 {
     // The bundle writer needs a real file to seek in, so on Android this stages into app storage
     // and the finished bundle is streamed into the picked document below.
-    const QString path = writeTargetPath(url, QStringLiteral("drift"));
+    const QString path = writeTargetPath(url, QStringLiteral("flip"));
     if (path.isEmpty()) {
         m_app->setLastMessage(tr("That save location isn’t valid"), QStringLiteral("error"));
         return;
@@ -1425,6 +1425,7 @@ void ProjectFileController::remapProjectPaths(const QHash<QString, QString> &rem
                 repoint(clip.mask.mediaPath);
                 repoint(clip.mask.mediaFgrPath);
                 repoint(clip.faceTrackPath);
+                repoint(clip.poseTrackPath);
                 repoint(clip.depthPath);
                 repoint(clip.legacyStabilizePath);
                 for (drift::VectorSlotValue &slot : clip.vector.slotValues) {

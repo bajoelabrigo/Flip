@@ -25,6 +25,8 @@ bool g_loaded = false;
 
 QString labelForCategory(const QString &slug)
 {
+    if (slug == QLatin1String("mine"))
+        return QCoreApplication::translate("SceneTemplateCatalog", "My templates");
     if (slug == QLatin1String("reels"))
         return QCoreApplication::translate("SceneTemplateCatalog", "Photo reels");
     if (slug == QLatin1String("intro"))
@@ -43,6 +45,10 @@ QString labelForCategory(const QString &slug)
         return QCoreApplication::translate("SceneTemplateCatalog", "Countdowns");
     if (slug == QLatin1String("outro"))
         return QCoreApplication::translate("SceneTemplateCatalog", "Endings");
+    if (slug == QLatin1String("seasonal"))
+        return QCoreApplication::translate("SceneTemplateCatalog", "Special dates");
+    if (slug == QLatin1String("business"))
+        return QCoreApplication::translate("SceneTemplateCatalog", "Business");
     if (slug.isEmpty())
         return QCoreApplication::translate("SceneTemplateCatalog", "Other");
     QString label = slug;
@@ -100,6 +106,7 @@ std::optional<SceneTemplateEntry> loadManifest(const QString &packageDir, QStrin
     entry.slotCount = qMax(0, root.value(QStringLiteral("slots")).toInt());
     entry.textCount = qMax(0, root.value(QStringLiteral("texts")).toInt());
     entry.premium = root.value(QStringLiteral("premium")).toBool(false);
+    entry.origin = root.value(QStringLiteral("origin")).toString();
     for (const QJsonValue &tag : root.value(QStringLiteral("tags")).toArray())
         entry.tags.append(tag.toString());
     entry.packageDir = packageDir;

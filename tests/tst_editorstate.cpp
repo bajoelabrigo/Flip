@@ -187,6 +187,7 @@ private slots:
     void addTrackInsertsEmptyTrackByType();
     void renameTrackAndUndo();
     void projectPersistenceRoundTrip();
+    void flipAndDriftProjectsBothOpen();
     void saveProjectAsDuplicatesProject();
     void projectJsonExportImportRoundTrip();
     void guidesTravelWithProject();
@@ -285,6 +286,8 @@ private slots:
     void linkedAdjustmentFollowsItsClip();
     void deletingAClipUnlinksRatherThanStrandsItsAdjustment();
     void cutoutLandsAsAMaskLayerOnTheClipsOwnLane();
+    void hairColorPinsItsOwnMaskedAdjustment();
+    void poseTrackTravelsWithTheClip();
     void maskRoundTripsThroughTheInspectorMap();
     void maskScalarsKeyframeThroughTheGenericApi();
     void freeformMaskPointsAreEditable();
@@ -305,6 +308,7 @@ private slots:
     void trackHeadersPickGroupAndDelete();
     void sceneTemplateInsertsAndFillsSlots();
     void sceneTemplateLayoutScalesAndCovers();
+    void userTemplateSavesFromComposition();
     void trackRowHeightsForAdjustmentsAndLanes();
     void overlappingAdjustmentsGetASecondLane();
     void multiClipMoveLeftPreservesSelectionAndRelativeSpacing();
@@ -1060,6 +1064,91 @@ void EditorStateTest::sceneTemplateLayoutScalesAndCovers()
 
     // Cover: a square picture in a tall slot keeps its middle, full height.
     QCOMPARE(drift::coverSourceFrame(QSizeF(1000, 1000), QSizeF(500, 1000)), QRectF(0.25, 0, 0.5, 1));
+}
+
+// A template of one's own: inside a composition a photo becomes a slot and a text an editable text;
+// saved, the composition becomes a package under AppData/scene-templates with the other media
+// copied in and the slot left empty; another project inserts it with that one slot; it can be deleted.
+void EditorStateTest::userTemplateSavesFromComposition()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    const auto restore = qScopeGuard([] {
+        QDir(userSceneTemplatesDir()).removeRecursively();
+        QStandardPaths::setTestModeEnabled(false);
+        reloadSceneTemplateCatalog();
+    });
+    QDir(userSceneTemplatesDir()).removeRecursively();
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+
+    AssetLibrary library;
+    AppController state(&library);
+    state.setSnapEnabled(false);
+    const auto addImage = [&](const QString &name, QColor colour) {
+        QImage image(64, 64, QImage::Format_RGB32);
+        image.fill(colour);
+        const QString path = dir.filePath(name);
+        image.save(path);
+        drift::MediaAsset asset;
+        asset.kind = drift::MediaKind::Image;
+        asset.name = name;
+        asset.path = path;
+        asset.width = 64;
+        asset.height = 64;
+        state.project()->addAsset(asset);
+        library.syncToProject();
+        return library.count() - 1;
+    };
+    const int photo = addImage(QStringLiteral("photo.png"), Qt::red);
+    const int logo = addImage(QStringLiteral("logo.png"), Qt::blue);
+    state.addClipFromAssetAt(photo, 0, 0.0);
+    state.addClipFromAssetAt(logo, 0, 5.0);
+    QCOMPARE(state.project()->tracks().at(0).clips.size(), 2);
+    state.setSelection({QVariantMap{{QStringLiteral("track"), 0}, {QStringLiteral("clip"), 0}},
+                        QVariantMap{{QStringLiteral("track"), 0}, {QStringLiteral("clip"), 1}}});
+    state.makeCompositeFromSelection();
+    const QString compositeAssetId = state.clipAssetId(0, 0);
+    QVERIFY(!compositeAssetId.isEmpty());
+
+    // Slots are marked inside the composition, and not on the main timeline.
+    QVERIFY(state.clipPlaceholderState(0, 0).isEmpty());
+    state.openCompositeClip(0, 0);
+    QVERIFY(!state.project()->activeSequenceId().isEmpty());
+    int photoTrack = -1;
+    for (int t = 0; t < state.project()->tracks().size(); ++t) {
+        if (!state.project()->tracks().at(t).clips.isEmpty())
+            photoTrack = t;
+    }
+    QVERIFY(photoTrack >= 0);
+    QCOMPARE(state.clipPlaceholderState(photoTrack, 0).value(QStringLiteral("kind")).toString(), QStringLiteral("media"));
+    QVERIFY(state.setClipPlaceholder(photoTrack, 0, true));
+    QVERIFY(state.clipPlaceholderState(photoTrack, 0).value(QStringLiteral("marked")).toBool());
+    state.openSequence(QString());
+    QCOMPARE(state.compositeTemplateSummary(compositeAssetId).value(QStringLiteral("slots")).toInt(), 1);
+
+    const QString id = state.saveCompositeAsTemplate(compositeAssetId, QStringLiteral("Mi plantilla"));
+    QVERIFY(id.startsWith(QStringLiteral("mine-mi-plantilla-")));
+    const SceneTemplateEntry *entry = sceneTemplateForId(id);
+    QVERIFY(entry);
+    QCOMPARE(entry->origin, QStringLiteral("user"));
+    QCOMPARE(entry->slotCount, 1);
+    QCOMPARE(entry->category, QStringLiteral("mine"));
+    QVERIFY(QFileInfo::exists(QDir(entry->packageDir).filePath(QStringLiteral("thumbnail.png"))));
+    // The logo travels with it; the slot's photo does not.
+    const QStringList media = QDir(QDir(entry->packageDir).filePath(QStringLiteral("media"))).entryList(QDir::Files);
+    QCOMPARE(media.size(), 1);
+    QVERIFY(media.first().endsWith(QStringLiteral("logo.png")));
+
+    AssetLibrary otherLibrary;
+    AppController other(&otherLibrary);
+    QVERIFY(!other.insertSceneTemplate(id).isEmpty());
+    const QString inserted = other.sceneTemplateAssetAt(other.selectedTrack(), other.selectedClip());
+    const QVariantList slotList = other.sceneTemplateInfo(inserted).value(QStringLiteral("slots")).toList();
+    QCOMPARE(slotList.size(), 1);
+    QVERIFY(slotList.first().toMap().value(QStringLiteral("empty")).toBool());
+
+    QVERIFY(state.deleteUserSceneTemplate(id));
+    QVERIFY(!sceneTemplateForId(id));
 }
 
 // The bug this guards: the overlay used to place a clip's outline and grips with the eye fixed at
@@ -3389,6 +3478,32 @@ void EditorStateTest::packagedProjectCarriesDerivedArtifacts()
     QVERIFY(loadedPath != mattePath);
     QVERIFY2(QFileInfo::exists(loadedPath), qPrintable(loadedPath));
     QCOMPARE(QFileInfo(loadedPath).size(), 1024);
+}
+
+// Projects are saved as .flip now (the save dialogs suggest it) and a .drift from an earlier version
+// still opens: the file is told by its contents, not its name.
+void EditorStateTest::flipAndDriftProjectsBothOpen()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    for (const QString &name : {QStringLiteral("nuevo.flip"), QStringLiteral("antiguo.drift")}) {
+        AssetLibrary library;
+        AppController state(&library);
+        state.addTextClip(name, 0.0);
+        const QString path = dir.filePath(name);
+        state.projectFile()->saveProject(QUrl::fromLocalFile(path));
+        QVERIFY2(QFileInfo::exists(path), qPrintable(path));
+        QFile file(path);
+        QVERIFY(file.open(QIODevice::ReadOnly));
+        QCOMPARE(file.read(8), QByteArray("DRIFTPRJ"));
+        file.close();
+
+        AssetLibrary otherLibrary;
+        AppController other(&otherLibrary);
+        other.projectFile()->loadProject(QUrl::fromLocalFile(path));
+        QTRY_VERIFY(!other.projectFile()->projectLoadPending());
+        QCOMPARE(other.tracks().at(0).toMap().value(QStringLiteral("type")).toString(), QStringLiteral("text"));
+    }
 }
 
 void EditorStateTest::projectPersistenceRoundTrip()
@@ -9625,6 +9740,80 @@ void EditorStateTest::linkedAdjustmentFollowsItsClip()
     // Once unlinked the stack is no longer reported as the clip's own — it is an independent
     // adjustment the user edits by selecting it.
     QCOMPARE(state.clipAt(0, 0).value(QStringLiteral("effects")).toList().size(), 0);
+}
+
+// Retouch > Hair: the colour is an effects adjustment of its own, pinned to the clip and masked by
+// the hair matte. Picking another colour only changes its shade; the clip's other effects never
+// land on it (they would then show on the hair only); removing it takes the row away.
+void EditorStateTest::hairColorPinsItsOwnMaskedAdjustment()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    appendTwoVideoClips(*state.project());
+    const drift::Clip source = state.project()->tracks().at(0).clips.at(0);
+    const int tracksBefore = state.project()->tracks().size();
+
+    state.body()->finalizeHair(source.id, QStringLiteral("/tmp/mattes/hair.mp4"), drift::secondsToUs(0.5),
+                               QStringLiteral("#3c6fd2"));
+    QCOMPARE(state.project()->tracks().size(), tracksBefore + 1);
+
+    const QVariantMap hair = state.body()->hairColor(0, 0);
+    QCOMPARE(hair.value(QStringLiteral("shade")).toString(), QStringLiteral("#3c6fd2"));
+    const int laneIndex = hair.value(QStringLiteral("trackIndex")).toInt();
+    const drift::Clip adjustment =
+        state.project()->tracks().at(laneIndex).clips.at(hair.value(QStringLiteral("clipIndex")).toInt());
+    QVERIFY(state.project()->tracks().at(laneIndex).isAdjustmentLane());
+    QCOMPARE(adjustment.adjustmentKind, drift::AdjustmentKind::VideoEffects);
+    QCOMPARE(adjustment.linkedClipId, source.id);
+    QCOMPARE(adjustment.mask.shape, drift::MaskShape::Media);
+    QCOMPARE(adjustment.mask.mediaPath, QStringLiteral("/tmp/mattes/hair.mp4"));
+    QCOMPARE(adjustment.mask.mediaSrcOffsetUs, drift::secondsToUs(0.5));
+    QCOMPARE(adjustment.mask.w, 1.0);
+    QCOMPARE(adjustment.effects.size(), 1);
+    QCOMPARE(adjustment.effects.at(0).catalogId, QStringLiteral("hair.color"));
+    // The clip itself is left alone and stays selected for the next swatch.
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).path, source.path);
+    QCOMPARE(state.selectedTrack(), 0);
+    QCOMPARE(state.selectedClip(), 0);
+
+    // Another colour: same row, new shade, no second scan.
+    state.body()->colorHair(0, 0, QStringLiteral("#E27AA8"));
+    QVERIFY(!state.body()->running());
+    QCOMPARE(state.project()->tracks().size(), tracksBefore + 1);
+    QCOMPARE(state.body()->hairColor(0, 0).value(QStringLiteral("shade")).toString(), QStringLiteral("#e27aa8"));
+
+    // An ordinary effect gets a host of its own instead of joining the masked one.
+    state.addEffect(0, 0, QStringLiteral("adjust.contrast"));
+    const drift::ClipRef host = state.effectHostRef(0, 0, drift::AdjustmentKind::VideoEffects, false);
+    QVERIFY(host.trackIndex >= 0);
+    const drift::Clip &plain = state.project()->tracks().at(host.trackIndex).clips.at(host.clipIndex);
+    QVERIFY(plain.id != adjustment.id);
+    QCOMPARE(plain.mask.shape, drift::MaskShape::None);
+    QCOMPARE(state.body()->hairColor(0, 0).value(QStringLiteral("shade")).toString(), QStringLiteral("#e27aa8"));
+
+    state.body()->removeHairColor(0, 0);
+    QVERIFY(state.body()->hairColor(0, 0).isEmpty());
+    state.undo();
+    QCOMPARE(state.body()->hairColor(0, 0).value(QStringLiteral("shade")).toString(), QStringLiteral("#e27aa8"));
+}
+
+// The body pose rides on the clip like the face track: saved with the project, dropped when the
+// clip's media is swapped for another.
+void EditorStateTest::poseTrackTravelsWithTheClip()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    appendTwoVideoClips(*state.project());
+    drift::Clip &clip = state.project()->tracks()[0].clips[0];
+    clip.poseTrackPath = QStringLiteral("/tmp/posetracks/pose-1.json");
+    clip.poseTrackSrcOffsetUs = drift::secondsToUs(1.25);
+
+    QString error;
+    const drift::Project back = drift::Project::fromJson(state.project()->toJson(), &error);
+    QVERIFY2(error.isEmpty(), qPrintable(error));
+    const drift::Clip &read = back.tracks().at(0).clips.at(0);
+    QCOMPARE(read.poseTrackPath, QStringLiteral("/tmp/posetracks/pose-1.json"));
+    QCOMPARE(read.poseTrackSrcOffsetUs, drift::secondsToUs(1.25));
 }
 
 // The cutout feature: running segmentation adds one mask layer inside the clip's own track and

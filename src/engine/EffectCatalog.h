@@ -22,6 +22,7 @@ struct EffectPresetEntry
     bool needsFace = false;                // "requires": "face" — engine injects u_face* uniforms
     bool needsDepth = false;               // "requires": "depth" — engine binds the depth map
     bool needsMask = false;                // "requires": "mask" — engine binds the clip's masks
+    bool needsPose = false;                // "requires": "pose" — engine injects u_body* uniforms
     drift::GpuEffectDefinition gpu;        // valid when isGpu && gpu.valid; packageDir also set for model3d
     int catalogOrder = 0;                  // lower sorts first in the browser catalog
     QString thumbnailPath;                 // absolute path to package thumbnail (optional)

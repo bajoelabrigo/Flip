@@ -109,7 +109,10 @@ bool MatteWriter::open(const QString &path, const QSize &size, int fpsNum, int f
     // Same temp-then-rename discipline as Exporter: a cancelled run must not leave a file that
     // looks like a usable matte.
     d->tmpPath = path + QStringLiteral(".part");
-    d->size = size;
+    // H.264 4:2:0 only takes even sizes, and a photo is often odd on one side (an 867-pixel-wide
+    // still made the encoder refuse to open). writeFrame stretches each frame to this size, and a
+    // matte is laid over the clip's whole frame anyway, so the extra pixel never shows.
+    d->size = QSize((size.width() + 1) & ~1, (size.height() + 1) & ~1);
     if (QFile::exists(d->tmpPath))
         QFile::remove(d->tmpPath);
 
@@ -130,8 +133,8 @@ bool MatteWriter::open(const QString &path, const QSize &size, int fpsNum, int f
     if (!d->ctx)
         return fail(QStringLiteral("Could not allocate the matte encoder"));
 
-    d->ctx->width = size.width();
-    d->ctx->height = size.height();
+    d->ctx->width = d->size.width();
+    d->ctx->height = d->size.height();
     d->ctx->pix_fmt = AV_PIX_FMT_YUV420P;
     d->ctx->time_base = AVRational{fpsDen, fpsNum};
     d->ctx->framerate = AVRational{fpsNum, fpsDen};
@@ -190,15 +193,15 @@ bool MatteWriter::open(const QString &path, const QSize &size, int fpsNum, int f
         return fail(QStringLiteral("Could not allocate matte frame buffers"));
 
     d->frame->format = AV_PIX_FMT_YUV420P;
-    d->frame->width = size.width();
-    d->frame->height = size.height();
+    d->frame->width = d->size.width();
+    d->frame->height = d->size.height();
     d->frame->color_range = AVCOL_RANGE_JPEG;
     if (av_frame_get_buffer(d->frame, 0) < 0)
         return fail(QStringLiteral("Could not allocate the matte frame"));
 
     if (mode == Mode::Colour) {
-        d->sws = sws_getContext(size.width(), size.height(), AV_PIX_FMT_RGB24, size.width(),
-                                size.height(), AV_PIX_FMT_YUV420P, SWS_BILINEAR, nullptr, nullptr,
+        d->sws = sws_getContext(d->size.width(), d->size.height(), AV_PIX_FMT_RGB24, d->size.width(),
+                                d->size.height(), AV_PIX_FMT_YUV420P, SWS_BILINEAR, nullptr, nullptr,
                                 nullptr);
         if (!d->sws)
             return fail(QStringLiteral("Could not create the matte colour converter"));

@@ -99,6 +99,8 @@
                 <data android:scheme="file" />
                 <data android:mimeType="*/*" />
                 <data android:host="*" />
+                <data android:pathPattern=".*\\.flip" />
+                <data android:pathPattern=".*\\..*\\.flip" />
                 <data android:pathPattern=".*\\.drift" />
                 <data android:pathPattern=".*\\..*\\.drift" />
                 <data android:pathPattern=".*\\..*\\..*\\.drift" />

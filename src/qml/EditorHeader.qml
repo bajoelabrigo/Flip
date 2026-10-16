@@ -24,8 +24,9 @@ Rectangle {
     // Disabled: external project imports (Premiere Pro, DaVinci Resolve/FCPXML, Kdenlive/Shotcut,
     // .mogrt, EDL, OTIO) need more fixing before shipping. Uncomment these entries, the open*()
     // functions below and the RecentProjectsPopup connections when the readers are stable.
+    // Projects are saved as .flip; the .drift files of earlier versions keep opening.
     readonly property var projectFilter: [
-        qsTr("Flip Studio project (*.drift)"),
+        qsTr("Flip Studio project (*.flip *.drift)"),
         qsTr("JSON document (*.json)"),
         qsTr("All Files (*)")
     ]
@@ -97,7 +98,7 @@ Rectangle {
             return !EditorState.projectFile.hasUnsavedChanges
         }
         var url = FileDialogs.saveFile(qsTr("Save Project"), root.projectFilter,
-                                       EditorState.projectFile.projectName, "drift", "",
+                                       EditorState.projectFile.projectName, "flip", "",
                                        root.projectMimeTypes)
         if (url == "")
             return false
@@ -110,7 +111,7 @@ Rectangle {
     // "copy", so accepting the picker's default cannot overwrite the original.
     function saveProjectAs() {
         var url = FileDialogs.saveFile(qsTr("Save Project As"), root.projectFilter,
-                                       qsTr("%1 copy").arg(EditorState.projectFile.projectName), "drift", "",
+                                       qsTr("%1 copy").arg(EditorState.projectFile.projectName), "flip", "",
                                        root.projectMimeTypes)
         if (url == "")
             return false
@@ -220,7 +221,7 @@ Rectangle {
     // the media. Always asks for a path: it is a different artefact from the working save.
     function packageProject() {
         var url = FileDialogs.saveFile(qsTr("Save Shareable Copy"), root.projectFilter,
-                                       EditorState.projectFile.projectName, "drift", "",
+                                       EditorState.projectFile.projectName, "flip", "",
                                        root.projectMimeTypes)
         if (url != "")
             EditorState.projectFile.packageProject(url)

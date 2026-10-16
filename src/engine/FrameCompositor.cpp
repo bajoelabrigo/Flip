@@ -7,6 +7,7 @@
 #include "EffectCatalog.h"
 #include "EffectProcessor.h"
 #include "FaceTrack.h"
+#include "PoseTrack.h"
 #include "GpuCompositor.h"
 #include "GpuEffectExecutor.h"
 #include "MaskApplier.h"
@@ -248,6 +249,26 @@ void forEachMediaMask(const drift::Project &project, drift::TimeUs timelineUs, V
                 visit(clip, laneMask.mask,
                       streamIdFor(laneMask.adjustmentId));
             }
+            // An effects adjustment on a lane can carry a media mask of its own (the hair colour
+            // of Retouch › Hair is one): it limits where its effects land, and its media is read
+            // in the host clip's frame under the adjustment's id, as laneAdjustmentChain does.
+            for (const int laneIndex : drift::adjustmentLaneIndexes(project, t)) {
+                const drift::Track &lane = tracks.at(laneIndex);
+                if (lane.hidden)
+                    continue;
+                for (const drift::Clip &adjustment : lane.clips) {
+                    if (adjustment.adjustmentKind != drift::AdjustmentKind::VideoEffects)
+                        continue;
+                    if (!adjustment.containsTime(timelineUs) || adjustment.disabled)
+                        continue;
+                    if (!adjustment.linkedClipId.isEmpty() && adjustment.linkedClipId != clip.id)
+                        continue;
+                    for (const drift::Mask &mask : adjustment.maskStack()) {
+                        if (mask.contributes() && mask.isMedia())
+                            visit(clip, mask, streamIdFor(adjustment.id));
+                    }
+                }
+            }
         }
     }
 }
@@ -443,6 +464,32 @@ QList<drift::FaceAnchors> faceSlotsForClip(const drift::Clip &clip,
     if (!track)
         return {};
     return track->sampleAll(clip.timelineToSourceUs(timelineUs) - clip.faceTrackSrcOffsetUs);
+}
+
+bool chainNeedsPose(const QList<drift::Effect> &effects)
+{
+    for (const drift::Effect &effect : effects) {
+        if (!effect.enabled)
+            continue;
+        const EffectPresetEntry *def =
+            effect.catalogId.isEmpty() ? nullptr : effectDefForId(effect.catalogId);
+        if (def && def->needsPose)
+            return true;
+    }
+    return false;
+}
+
+// This frame's body pose for a clip, invalid when nothing in the chain wants it or the clip has
+// not been analysed. Shared by the CPU and GPU paths, like faceSlotsForClip.
+drift::BodyPose bodyPoseForClip(const drift::Clip &clip, const QList<drift::Effect> &effects,
+                                drift::TimeUs timelineUs)
+{
+    if (clip.poseTrackPath.isEmpty() || !chainNeedsPose(effects))
+        return {};
+    const auto track = drift::loadPoseTrackCached(clip.poseTrackPath);
+    if (!track)
+        return {};
+    return track->sample(clip.timelineToSourceUs(timelineUs) - clip.poseTrackSrcOffsetUs);
 }
 
 bool chainNeedsDepth(const QList<drift::Effect> &effects)
@@ -828,7 +875,8 @@ QImage imageForClip(const drift::Clip &clip, const QList<drift::Mask> &laneMasks
         // compositor thread, and preview and export read the same numbers.
         image = EffectProcessor::applyEffects(image, otherEffects, clipTimeUs,
                                               faceSlotsForClip(clip, otherEffects, timelineUs),
-                                              depthFrameForClip(clip, otherEffects, timelineUs));
+                                              depthFrameForClip(clip, otherEffects, timelineUs),
+                                              bodyPoseForClip(clip, otherEffects, timelineUs));
     }
     if (!drift::masksAreInert(laneMasks))
         image = drift::applyMask(image, laneMasks, image.width(), image.height());
@@ -1395,6 +1443,7 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
     // The clip's masks limit where its effects land, instead of cutting it.
     layer.masksLimitEffects = clip.masksLimitEffects && !layer.effects.isEmpty();
     layer.faceSlots = faceSlotsForClip(clip, layer.effects, timelineUs);
+    layer.body = bodyPoseForClip(clip, layer.effects, timelineUs);
     layer.depth = depthFrameForClip(clip, layer.effects, timelineUs);
     layer.valid = true;
     return layer;
@@ -1436,6 +1485,7 @@ void appendTextEditDecor(GpuScene &scene, const GpuItem &textItem, const drift::
     layer.maskMedia.clear();
     layer.fgr = {};
     layer.faceSlots.clear();
+    layer.body = {};
     layer.depth.reset();
     layer.depthOcclude = false;
     layer.emitDepthCanvas = false;

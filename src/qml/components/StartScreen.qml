@@ -586,7 +586,7 @@ Rectangle {
                             spacing: 1
                             Text {
                                 width: parent.width
-                                text: (card.modelData.name || "").replace(/\.drift$/i, "")
+                                text: (card.modelData.name || "").replace(/\.(flip|drift)$/i, "")
                                       + (card.exists ? "" : qsTr(" (missing)"))
                                 color: Theme.foreground
                                 font.family: Theme.fontFamily

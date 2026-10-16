@@ -179,6 +179,13 @@ def frase_del_dia() -> Template:
 import templates_reels  # noqa: E402
 import templates_text_collage  # noqa: E402
 import templates_rest  # noqa: E402
+import templates_t1  # noqa: E402
+import templates_t2  # noqa: E402
+import templates_t3  # noqa: E402
+import templates_t4  # noqa: E402
+import templates_t5  # noqa: E402
 
 TEMPLATES = ([photo_dump_ritmo, feliz_cumple, collage_2x2, frase_del_dia] + templates_reels.TEMPLATES
-             + templates_text_collage.TEMPLATES + templates_rest.TEMPLATES)
+             + templates_text_collage.TEMPLATES + templates_rest.TEMPLATES
+             + templates_t1.TEMPLATES + templates_t2.TEMPLATES + templates_t3.TEMPLATES
+             + templates_t4.TEMPLATES + templates_t5.TEMPLATES)

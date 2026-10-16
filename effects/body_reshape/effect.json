@@ -1,0 +1,28 @@
+{
+  "id": "body.reshape",
+  "version": "1.0.0",
+  "displayName": "Body Reshape",
+  "category": "beauty",
+  "description": "Slims the body and the waist, lengthens the legs and resizes the shoulders and the head, following the body found by Analyse body.",
+  "order": 720,
+  "requires": "pose",
+  "parameters": [
+    { "identifier": "slim", "displayName": "Slim", "type": "float", "minValue": -1, "maxValue": 1, "defaultValue": 0 },
+    { "identifier": "waist", "displayName": "Waist", "type": "float", "minValue": 0, "maxValue": 1, "defaultValue": 0 },
+    { "identifier": "legs", "displayName": "Longer legs", "type": "float", "minValue": 0, "maxValue": 1, "defaultValue": 0 },
+    { "identifier": "shoulders", "displayName": "Shoulders", "type": "float", "minValue": -1, "maxValue": 1, "defaultValue": 0 },
+    { "identifier": "head", "displayName": "Head size", "type": "float", "minValue": -1, "maxValue": 1, "defaultValue": 0 }
+  ],
+  "backend": "gpu",
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [{ "type": "source_texture" }],
+        "output": { "type": "canvas" }
+      }
+    ]
+  }
+}

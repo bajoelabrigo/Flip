@@ -30,6 +30,8 @@ CATEGORY_NAMES = {
     "beforeafter": {"es": "Antes y después", "en": "Before and after"},
     "product": {"es": "Productos", "en": "Products"},
     "celebration": {"es": "Celebraciones", "en": "Celebrations"},
+    "seasonal": {"es": "Fechas especiales", "en": "Special dates"},
+    "business": {"es": "Negocios", "en": "Business"},
     "countdown": {"es": "Cuentas regresivas", "en": "Countdowns"},
     "outro": {"es": "Cierres", "en": "Endings"},
 }
@@ -40,9 +42,13 @@ def main() -> int:
     parser.add_argument("--packages", type=Path, default=ROOT / "paquetes")
     parser.add_argument("--out", type=Path, default=ROOT / "publicar")
     args = parser.parse_args()
+    # The animations (tools/animations/publish.py) share the folder: keep them.
     if args.out.exists():
-        shutil.rmtree(args.out)
-    args.out.mkdir(parents=True)
+        for child in args.out.iterdir():
+            if child.name == "animaciones":
+                continue
+            shutil.rmtree(child) if child.is_dir() else child.unlink()
+    args.out.mkdir(parents=True, exist_ok=True)
     entries = []
     for pkg in sorted(p for p in args.packages.iterdir() if (p / "template.json").exists()):
         manifest = json.loads((pkg / "template.json").read_text(encoding="utf-8"))

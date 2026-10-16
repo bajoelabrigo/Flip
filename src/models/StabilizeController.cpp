@@ -339,6 +339,8 @@ void StabilizeController::run(int trackIndex, int clipIndex)
                         }
                         outClip.faceTrackPath.clear();
                         outClip.faceTrackSrcOffsetUs = 0;
+                        outClip.poseTrackPath.clear();
+                        outClip.poseTrackSrcOffsetUs = 0;
                         outClip.depthPath.clear();
                         // Can drop lanes, which moves track indexes.
                         drift::clearLinkedMasks(m_app->m_project, foundTrack2, foundClip2, true);
@@ -534,6 +536,8 @@ void StabilizeController::run(int trackIndex, int clipIndex)
                     // Landmarks, depth and media mattes were made from the shaky pixels.
                     outClip.faceTrackPath.clear();
                     outClip.faceTrackSrcOffsetUs = 0;
+                    outClip.poseTrackPath.clear();
+                    outClip.poseTrackSrcOffsetUs = 0;
                     outClip.depthPath.clear();
 
                     drift::restoreStabilizeRestPose(outClip);

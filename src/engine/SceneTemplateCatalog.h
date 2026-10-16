@@ -31,6 +31,8 @@ struct SceneTemplateEntry
     int slotCount = 0;
     int textCount = 0;
     bool premium = false;
+    // "user" for one saved from a composition in this app ("My templates"); empty for ours.
+    QString origin;
     QStringList tags;
     QString packageDir;
     QString projectPath;

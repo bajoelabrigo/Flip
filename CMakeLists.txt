@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.12.0 LANGUAGES CXX C)
+project(Drift VERSION 0.13.0 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -747,6 +747,10 @@ add_library(driftengine STATIC
     src/engine/FaceLandmarker.cpp
     src/engine/FaceTrack.h
     src/engine/FaceTrack.cpp
+    src/engine/BodyLandmarker.h
+    src/engine/BodyLandmarker.cpp
+    src/engine/PoseTrack.h
+    src/engine/PoseTrack.cpp
     src/engine/FaceModelTransform.h
     src/engine/FaceModelTransform.cpp
     src/engine/ModelAnimation.h
@@ -961,6 +965,8 @@ qt_add_executable(drift
     src/models/RestoreController.cpp
     src/models/FaceTrackingController.h
     src/models/FaceTrackingController.cpp
+    src/models/BodyController.h
+    src/models/BodyController.cpp
     src/models/StabilizeController.h
     src/models/StabilizeController.cpp
     src/models/MediaBinController.h
@@ -1388,6 +1394,7 @@ qt_add_qml_module(drift
         src/qml/components/EffectTemplateBrowser.qml
         src/qml/components/SceneTemplateBrowser.qml
         src/qml/components/TemplatesTab.qml
+        src/qml/components/SaveTemplateDialog.qml
         src/qml/components/properties/TemplateFillPanel.qml
         src/qml/components/ThemedSlider.qml
         src/qml/components/ThemedTextField.qml

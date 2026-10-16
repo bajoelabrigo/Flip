@@ -1037,6 +1037,22 @@
         { "clear_face_track", "ai", "Remove face track",
           "Delete the stored face track from a clip, undoing detect_faces.",
           objectSchema(clipRefProps()), false, true },
+        { "analyze_body", "ai", "Track the body for body.reshape",
+          "Run the body-model addon over a video or image clip and store its body pose, which the "
+          "body.reshape effect follows (slim, waist, longer legs, shoulders, head size). Adding "
+          "body.reshape starts this on its own. inspect({clips:true,detail:true}) reports "
+          "hasPoseTrack. Async; read inspect's notice for the result. Cancel with cancel_body.",
+          objectSchema(clipRefProps()) },
+        { "color_hair", "ai", "Dye the hair in a clip",
+          "Find the hair in every frame (body-model addon) and pin a \"Hair colour\" adjustment to "
+          "the clip, masked by it, with hair.color at `shade` (\"#rrggbb\"). On a clip that already "
+          "has one, only the shade changes. Async the first time; read inspect's notice.",
+          objectSchema(mergeProps(
+              clipRefProps(),
+              {{QStringLiteral("shade"), stringProp(QStringLiteral("Hair colour, \"#rrggbb\""))}})) },
+        { "cancel_body", "ai", "Cancel body or hair analysis",
+          "Cancel an in-flight analyze_body or color_hair. Returns ok even when nothing was running.",
+          objectSchema({}) },
         { "estimate_depth", "ai", "Estimate depth for the depth effects",
           "Estimate a video or image clip's depth with the depth-model addon (Video Depth Anything), "
           "which the depth effects read: depth.relight (3D lights), depth.focus (depth of field), "

@@ -231,7 +231,7 @@ bool isMogrtFile(const QString &filePath)
     const QString ext = QFileInfo(filePath).suffix().toLower();
     if (ext == QLatin1String("mogrt"))
         return true;
-    if (ext == QLatin1String("drp") || ext == QLatin1String("drift") || ext == QLatin1String("zip"))
+    if (ext == QLatin1String("drp") || ext == QLatin1String("drift") || ext == QLatin1String("flip") || ext == QLatin1String("zip"))
         return false;
 
     QFile file(filePath);

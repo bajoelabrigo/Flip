@@ -326,7 +326,10 @@ Item {
             property bool canPasteEffects: false
             property bool canPasteAttributes: false
             property bool canMergeTrackSubtitles: false
+            // Inside a composition: a photo or video can be a template slot, a text an editable text.
+            property var placeholder: ({})
             onAboutToShow: {
+                placeholder = EditorState.clipPlaceholderState(clipItem.trackIndex, clipItem.clipIndex)
                 canPasteEffects = EditorState.clipboardHasEffects()
                 canPasteAttributes = EditorState.canPasteAttributes()
                 canMergeTrackSubtitles = clipItem.trackType === "subtitle"
@@ -364,6 +367,30 @@ Item {
                 icon.name: Theme.icons.check
                 visible: panel.multiSelectActive === false
                 onTriggered: panel.multiSelectActive = true
+            }
+            ThemedMenuItem {
+                visible: clipContextMenu.placeholder.kind === "media"
+                text: clipContextMenu.placeholder.marked ? qsTr("Stop being a template slot")
+                                                         : qsTr("Make template slot")
+                icon.name: Theme.icons.image
+                onTriggered: EditorState.setClipPlaceholder(clipItem.trackIndex, clipItem.clipIndex,
+                                                            !clipContextMenu.placeholder.marked)
+            }
+            ThemedMenuItem {
+                visible: clipContextMenu.placeholder.kind === "text"
+                text: clipContextMenu.placeholder.marked ? qsTr("Stop being an editable template text")
+                                                         : qsTr("Make editable template text")
+                icon.name: Theme.icons.type
+                onTriggered: EditorState.setClipPlaceholder(clipItem.trackIndex, clipItem.clipIndex,
+                                                            !clipContextMenu.placeholder.marked)
+            }
+            ThemedMenuSeparator { visible: !!clipContextMenu.placeholder.kind }
+            ThemedMenuItem {
+                // A composition, and everything in it, becomes a template of one's own.
+                text: qsTr("Save as template…")
+                icon.name: Theme.icons.layers
+                visible: clipItem.clipData.kind === "composite"
+                onTriggered: EditorState.requestSaveTemplate(EditorState.clipAssetId(clipItem.trackIndex, clipItem.clipIndex))
             }
             ThemedMenuItem {
                 text: qsTr("Open composite")

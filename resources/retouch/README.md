@@ -11,3 +11,8 @@ and on Wikimedia Commons (File:Smiling_woman_pink_shirt_(cropped).jpg) under **C
 To regenerate: run the calls from `tools/e2e` against a build with the face extras staged,
 `capture` each look full-size, and crop the face. The values used are stronger than the presets
 so the change reads at thumbnail size.
+
+Body tiles (`body-*.jpg`): "Smiling brunette posing outdoors on street" by Fabian Rubilar on Pexels
+(https://www.pexels.com/photo/15060605/, Pexels License: free to use and modify), with each
+body.reshape look applied by Flip Studio itself after Analyse body (stronger than the presets),
+cropped from head to thighs and scaled to 160 px.

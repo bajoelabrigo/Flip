@@ -21,6 +21,7 @@
 #include "engine/AudioOnsets.h"
 #include "engine/CtcAligner.h"
 #include "engine/DeepFilterDenoiser.h"
+#include "engine/BodyLandmarker.h"
 #include "engine/FaceLandmarker.h"
 #include "engine/FaceTrack.h"
 #include "engine/LocalTranscription.h"
@@ -2334,6 +2335,8 @@ QJsonObject McpController::aiCapabilities() const
          "people cutout — no prompt, soft alpha, decontaminated foreground"},
         {"face-model", drift::FaceLandmarker::modelPresent(),
          "face tracking and the face warp effects"},
+        {"body-model", drift::BodyLandmarker::modelPresent(),
+         "body pose for body.reshape and the hair matte for Retouch > Hair colour"},
         {"denoise-model", drift::DeepFilterDenoiser::modelPresent(),
          "background noise removal from audio"},
         {"object-model", m_app->objectDetectionAvailable(),

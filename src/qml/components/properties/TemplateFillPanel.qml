@@ -257,5 +257,14 @@ Item {
             tooltip: qsTr("Edit the template inside: move, retime or restyle any of its layers")
             onClicked: EditorState.openCompositeAsset(root.assetId)
         }
+
+        ThemedButton {
+            width: parent.width
+            variant: "ghost"
+            glyph: Theme.icons.download
+            text: qsTr("Save as my template…")
+            tooltip: qsTr("Keep this version, with your changes, in Templates › Scenes")
+            onClicked: EditorState.requestSaveTemplate(root.assetId)
+        }
     }
 }

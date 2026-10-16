@@ -6,6 +6,7 @@
 #include "EffectCatalog.h"
 #include "FaceModelTransform.h"
 #include "FaceTrack.h"
+#include "PoseTrack.h"
 #include "GlFaceSwapRenderer.h"
 #include "GlEditorOverlay.h"
 #include "GlModelRenderer.h"
@@ -710,6 +711,8 @@ GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
         QMap<QString, QVariant> params = resolvedEffectParameters(effect, *def);
         if (def->needsFace)
             drift::applyFaceUniforms(&params, layer.faceSlots);
+        if (def->needsPose)
+            drift::applyPoseUniforms(&params, layer.body);
 
         if (def->gpu.needsMask && !clipMaskTried) {
             clipMaskTried = true;
