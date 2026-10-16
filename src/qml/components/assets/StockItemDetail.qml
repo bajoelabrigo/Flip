@@ -99,7 +99,16 @@ Rectangle {
                 Image {
                     anchors.fill: parent
                     visible: root.isImage || player.playbackState !== MediaPlayer.PlayingState
-                    source: root.isImage ? (root.item.preview_url || root.item.thumb_url || "") : (root.item.thumb_url || "")
+                    // A landscape item with a plain wide frame shows that one: the 9:16 storyboard
+                    // card would sit letterboxed in the box above.
+                    source: {
+                        if (root.isImage)
+                            return root.item.preview_url || root.item.thumb_url || ""
+                        const w = Number(root.item.width || 0), h = Number(root.item.height || 0)
+                        if (w > h && root.item.thumb_wide_url)
+                            return root.item.thumb_wide_url
+                        return root.item.thumb_url || ""
+                    }
                     fillMode: Image.PreserveAspectFit
                     asynchronous: true
                     sourceSize.height: Math.ceil(260 * Screen.devicePixelRatio)

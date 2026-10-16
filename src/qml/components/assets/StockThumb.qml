@@ -26,6 +26,13 @@ Rectangle {
     readonly property string kind: item.media_kind || item.type || ""
     readonly property bool isVideo: kind === "video" || kind === "greenscreen"
     readonly property bool isAudio: kind === "audio" || kind === "music" || kind === "sound"
+    // A card wider than it is tall (a 16:9 template, a landscape overlay): use the plain wide
+    // frame and loop when the item has them, not the 9:16 storyboard card cropped to a band.
+    readonly property bool wide: width > height + 1
+    readonly property string thumbSource: wide ? (item.thumb_wide_url || item.thumb_url || "")
+                                              : (item.thumb_url || "")
+    readonly property string previewSource: wide ? (item.preview_wide_url || item.preview_url || "")
+                                                : (item.preview_url || "")
 
     radius: Theme.radiusSm
     color: Theme.panelAccent
@@ -65,7 +72,7 @@ Rectangle {
     Image {
         id: thumb
         anchors.fill: parent
-        source: root.item.thumb_url || ""
+        source: root.thumbSource
         fillMode: Image.PreserveAspectCrop
         asynchronous: true
         cache: true
@@ -78,7 +85,7 @@ Rectangle {
     // One player at a time: only the hovered tile creates one.
     Loader {
         anchors.fill: parent
-        active: root.isVideo && hover.hovered && !root.busy && !!root.item.preview_url && !root.compact
+        active: root.isVideo && hover.hovered && !root.busy && !!root.previewSource && !root.compact
         sourceComponent: Item {
             VideoOutput {
                 id: out
@@ -86,7 +93,7 @@ Rectangle {
                 fillMode: VideoOutput.PreserveAspectCrop
             }
             MediaPlayer {
-                source: root.item.preview_url
+                source: root.previewSource
                 videoOutput: out
                 loops: MediaPlayer.Infinite
                 Component.onCompleted: play()

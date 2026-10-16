@@ -19,6 +19,46 @@
   "background:fechas": "Fêtes et occasions",
   "background:geometricos": "Géométriques",
   "background:texturas": "Textures",
+  "look:arte": "Art et duotone",
+  "look:bn": "Noir et blanc",
+  "look:boda": "Mariages",
+  "look:cine": "Cinéma",
+  "look:comida": "Cuisine",
+  "look:moody": "Ténébreux",
+  "look:naturaleza": "Nature",
+  "look:noche": "Nuit",
+  "look:pastel": "Pastel",
+  "look:pelicula": "Film analogique",
+  "look:retrato": "Portrait",
+  "look:sueno": "Rêve et éclat",
+  "look:urbano": "Urbain",
+  "look:verano": "Été",
+  "look:vibrante": "Vif et anime",
+  "look:vintage": "Vintage et rétro",
+  "lut:byn": "Noir et blanc",
+  "lut:cine": "Cinéma",
+  "lut:comida": "Cuisine",
+  "lut:estaciones": "Saisons",
+  "lut:estetico": "Esthétique et ténébreux",
+  "lut:noche": "Nuit et ville",
+  "lut:pastel": "Pastel et anime",
+  "lut:pelicula": "Film analogique",
+  "lut:retrato": "Portrait et peau",
+  "lut:verano": "Été et voyage",
+  "lut:vintage": "Vintage et rétro",
+  "music:alegre": "Joyeuse",
+  "music:corporativo": "Entreprise et affaires",
+  "music:divertido": "Drôle et comédie",
+  "music:energetico": "Énergique et sport",
+  "music:epico": "Épique et cinéma",
+  "music:fechas": "Noël et fêtes",
+  "music:fiesta": "Fête et danse",
+  "music:infantil": "Enfants",
+  "music:mundo": "Musique du monde",
+  "music:romantico": "Romantique",
+  "music:suspenso": "Mystère et suspense",
+  "music:tranquilo": "Calme, lofi et étude",
+  "music:triste": "Triste et émouvant",
   "overlay:amor": "Amour",
   "overlay:camara": "Caméra et écran",
   "overlay:celebracion": "Fête",
@@ -29,6 +69,22 @@
   "overlay:marcos": "Cadres et textures",
   "overlay:particulas": "Particules et paillettes",
   "overlay:pelicula": "Pellicule et rétro",
+  "shape:arrows": "Flèches",
+  "shape:badges": "Badges",
+  "shape:bubbles": "Bulles",
+  "shape:clouds": "Nuages",
+  "shape:frames": "Cadres",
+  "shape:geometric": "Géométriques",
+  "shape:hearts": "Cœurs",
+  "shape:labels": "Étiquettes et rubans",
+  "shape:nature": "Nature",
+  "shape:paper": "Papier déchiré",
+  "shape:seals": "Sceaux et tampons",
+  "shape:shields": "Boucliers",
+  "shape:splash": "Taches et éclaboussures",
+  "shape:stars": "Étoiles",
+  "shape:symbols": "Symboles",
+  "shape:waves": "Vagues",
   "sound:comedia": "Comédie",
   "sound:impactos": "Impacts",
   "sound:interfaz": "Interface et alertes",
@@ -37,6 +93,7 @@
   "sound:ritmo": "Beats et musique",
   "sound:suspenso": "Suspense et drame",
   "sound:transiciones": "Transitions",
+  "template:ad6": "Pubs de 6 s",
   "template:beforeafter": "Avant / après",
   "template:business": "Business",
   "template:celebration": "Fêtes",
@@ -49,8 +106,45 @@
   "template:reels": "Reels photo",
   "template:seasonal": "Fêtes et occasions",
   "template:slideshow": "Diaporamas photo",
+  "template:story15": "Stories de 15 s",
   "template:text": "Texte",
-  "template:transition": "Transitions et séparateurs"
+  "template:thumbnail": "Miniatures vidéo",
+  "template:transition": "Transitions et séparateurs",
+  "text-animation:brillo": "Éclat et couleur",
+  "text-animation:caer": "Chute et montée",
+  "text-animation:desenfoque": "Flou et fondu",
+  "text-animation:deslizar": "Glissement et balayage",
+  "text-animation:giro": "Rotation et 3D",
+  "text-animation:glitch": "Glitch et numérique",
+  "text-animation:golpe": "Échelle et impact",
+  "text-animation:karaoke": "Karaoké mot à mot",
+  "text-animation:maquina": "Machine à écrire",
+  "text-animation:neon": "Néon et lumières",
+  "text-animation:onda": "Vagues et flottement",
+  "text-animation:rebote": "Rebond et rythme",
+  "text-style:3d": "3D et relief",
+  "text-style:citas": "Citations",
+  "text-style:elegante": "Élégant et mariages",
+  "text-style:fechas": "Dates spéciales",
+  "text-style:gaming": "Gaming et sport",
+  "text-style:infantil": "Enfants et amusant",
+  "text-style:llamadas": "Appels à l'action",
+  "text-style:neon": "Néon",
+  "text-style:precios": "Prix et promos",
+  "text-style:retro": "Rétro et Y2K",
+  "text-style:subtitulos": "Sous-titres viraux",
+  "text-style:tercios": "Bandeaux inférieurs",
+  "text-style:terror": "Horreur et Halloween",
+  "text-style:titulos": "Titres",
+  "transition:3d": "3D et papier",
+  "transition:barridos": "Balayages",
+  "transition:divertidas": "Amusantes",
+  "transition:formas": "Formes",
+  "transition:glitch": "Glitch",
+  "transition:liquido": "Encre et liquide",
+  "transition:luz": "Lumière et film",
+  "transition:movimiento": "Mouvement",
+  "transition:zoom": "Zoom et impact"
  },
  "items": {
   "animation:advertencia": {
@@ -7816,6 +7910,506 @@
     "transition"
    ]
   },
+  "template:ad-h-auto": {
+   "name": "Pub lavage auto",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "lavage",
+    "voiture"
+   ]
+  },
+  "template:ad-h-black": {
+   "name": "Pub grande vente",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "soldes",
+    "réductions"
+   ]
+  },
+  "template:ad-h-boda": {
+   "name": "Pub événements",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "mariages",
+    "événements"
+   ]
+  },
+  "template:ad-h-cafe": {
+   "name": "Pub café (16:9)",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "café",
+    "brasserie"
+   ]
+  },
+  "template:ad-h-cocina": {
+   "name": "Pub cours de cuisine",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "cuisine",
+    "cours"
+   ]
+  },
+  "template:ad-h-comunidad": {
+   "name": "Pub communauté",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "communauté",
+    "réunion"
+   ]
+  },
+  "template:ad-h-curso": {
+   "name": "Pub formation (16:9)",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "formation",
+    "en ligne"
+   ]
+  },
+  "template:ad-h-deporte": {
+   "name": "Pub école de sport",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "football",
+    "enfants"
+   ]
+  },
+  "template:ad-h-escuela": {
+   "name": "Pub inscriptions",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "école",
+    "inscription"
+   ]
+  },
+  "template:ad-h-evento": {
+   "name": "Pub foire",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "foire",
+    "événement"
+   ]
+  },
+  "template:ad-h-farmacia": {
+   "name": "Pub pharmacie",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "pharmacie",
+    "santé"
+   ]
+  },
+  "template:ad-h-fotografia": {
+   "name": "Pub photographe",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "photographie",
+    "séance"
+   ]
+  },
+  "template:ad-h-gaming": {
+   "name": "Pub streaming",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "stream",
+    "gaming"
+   ]
+  },
+  "template:ad-h-gym": {
+   "name": "Pub gym (16:9)",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "gym",
+    "fitness"
+   ]
+  },
+  "template:ad-h-hotel": {
+   "name": "Pub hôtel",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "hôtel",
+    "voyage"
+   ]
+  },
+  "template:ad-h-inmobiliaria": {
+   "name": "Pub immobilier (16:9)",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "maison",
+    "vente"
+   ]
+  },
+  "template:ad-h-limpieza": {
+   "name": "Pub nettoyage",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "nettoyage",
+    "maison"
+   ]
+  },
+  "template:ad-h-mascotas": {
+   "name": "Pub animalerie",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "animaux",
+    "boutique"
+   ]
+  },
+  "template:ad-h-moda": {
+   "name": "Pub mode (16:9)",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "mode",
+    "soldes"
+   ]
+  },
+  "template:ad-h-navidad": {
+   "name": "Pub Noël",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "noël",
+    "cadeaux"
+   ]
+  },
+  "template:ad-h-podcast": {
+   "name": "Pub podcast",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "podcast",
+    "épisode"
+   ]
+  },
+  "template:ad-h-restaurante": {
+   "name": "Pub restaurant",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "restaurant",
+    "dîner"
+   ]
+  },
+  "template:ad-h-tecnologia": {
+   "name": "Pub high-tech",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "technologie",
+    "réparation"
+   ]
+  },
+  "template:ad-h-tienda": {
+   "name": "Pub supermarché",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "supermarché",
+    "promos"
+   ]
+  },
+  "template:ad-h-viajes": {
+   "name": "Pub voyage (16:9)",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "voyage",
+    "agence"
+   ]
+  },
+  "template:ad-v-app": {
+   "name": "Pub appli",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "application",
+    "téléchargement"
+   ]
+  },
+  "template:ad-v-cafe": {
+   "name": "Pub café",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "café",
+    "brasserie"
+   ]
+  },
+  "template:ad-v-comida-sana": {
+   "name": "Pub cuisine saine",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "sain",
+    "livraison"
+   ]
+  },
+  "template:ad-v-curso": {
+   "name": "Pub formation",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "formation",
+    "éducation"
+   ]
+  },
+  "template:ad-v-envio": {
+   "name": "Pub livraison offerte",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "livraison",
+    "boutique"
+   ]
+  },
+  "template:ad-v-evento": {
+   "name": "Pub événement",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "événement",
+    "billets"
+   ]
+  },
+  "template:ad-v-ferreteria": {
+   "name": "Pub quincaillerie",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "quincaillerie",
+    "outils"
+   ]
+  },
+  "template:ad-v-floreria": {
+   "name": "Pub fleuriste",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "fleurs",
+    "cadeau"
+   ]
+  },
+  "template:ad-v-gym": {
+   "name": "Pub gym",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "gym",
+    "fitness"
+   ]
+  },
+  "template:ad-v-helados": {
+   "name": "Pub glaces",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "glace",
+    "été"
+   ]
+  },
+  "template:ad-v-inmobiliaria": {
+   "name": "Pub immobilier",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "maison",
+    "vente"
+   ]
+  },
+  "template:ad-v-lanzamiento": {
+   "name": "Pub lancement",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "lancement",
+    "produit"
+   ]
+  },
+  "template:ad-v-moda": {
+   "name": "Pub mode",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "mode",
+    "vêtements"
+   ]
+  },
+  "template:ad-v-mudanzas": {
+   "name": "Pub déménagement",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "déménagement",
+    "transport"
+   ]
+  },
+  "template:ad-v-musica": {
+   "name": "Pub cours de musique",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "musique",
+    "cours"
+   ]
+  },
+  "template:ad-v-ong": {
+   "name": "Pub solidaire",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "association",
+    "don"
+   ]
+  },
+  "template:ad-v-panaderia": {
+   "name": "Pub boulangerie",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "boulangerie",
+    "pain"
+   ]
+  },
+  "template:ad-v-pizza": {
+   "name": "Pub pizza",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "pizza",
+    "livraison"
+   ]
+  },
+  "template:ad-v-salon": {
+   "name": "Pub salon",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "salon",
+    "beauté"
+   ]
+  },
+  "template:ad-v-skincare": {
+   "name": "Pub cosmétique",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "cosmétique",
+    "peau"
+   ]
+  },
+  "template:ad-v-spa": {
+   "name": "Pub spa",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "spa",
+    "massage"
+   ]
+  },
+  "template:ad-v-taller": {
+   "name": "Pub garage",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "garage",
+    "auto"
+   ]
+  },
+  "template:ad-v-tienda": {
+   "name": "Pub boutique",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "boutique",
+    "promos"
+   ]
+  },
+  "template:ad-v-veterinaria": {
+   "name": "Pub vétérinaire",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "vétérinaire",
+    "animaux"
+   ]
+  },
+  "template:ad-v-viajes": {
+   "name": "Pub voyage",
+   "tags": [
+    "pub",
+    "6 secondes",
+    "publicité",
+    "voyage",
+    "agence"
+   ]
+  },
   "template:album-scrapbook": {
    "name": "Album scrapbook",
    "tags": [
@@ -12962,6 +13556,1808 @@
     "révélation"
    ]
   },
+  "template:s-accion-gracias": {
+   "name": "Thanksgiving",
+   "tags": [
+    "thanksgiving",
+    "gratitude",
+    "automne",
+    "famille"
+   ]
+  },
+  "template:s-amigas-carrusel": {
+   "name": "Carrousel d'amies",
+   "tags": [
+    "amies",
+    "carrousel",
+    "amitié",
+    "photos"
+   ]
+  },
+  "template:s-anio-nuevo-brindis": {
+   "name": "Toast du Nouvel An",
+   "tags": [
+    "nouvel an",
+    "toast",
+    "amis",
+    "fête"
+   ]
+  },
+  "template:s-anio-nuevo-lunar": {
+   "name": "Nouvel An lunaire",
+   "tags": [
+    "nouvel an lunaire",
+    "lanternes",
+    "rouge",
+    "doré"
+   ]
+  },
+  "template:s-anio-nuevo-numero": {
+   "name": "Nouvel An",
+   "tags": [
+    "nouvel an",
+    "fête",
+    "minuit",
+    "vœux"
+   ]
+  },
+  "template:s-aniversario": {
+   "name": "Anniversaire de couple",
+   "tags": [
+    "anniversaire",
+    "couple",
+    "amour",
+    "années"
+   ]
+  },
+  "template:s-aniversario-frase": {
+   "name": "Citation anniversaire",
+   "tags": [
+    "anniversaire",
+    "citation",
+    "amour",
+    "couple"
+   ]
+  },
+  "template:s-aniversario-negocio": {
+   "name": "Anniversaire du commerce",
+   "tags": [
+    "anniversaire",
+    "commerce",
+    "années",
+    "merci"
+   ]
+  },
+  "template:s-antes-despues-local": {
+   "name": "Relooking du local",
+   "tags": [
+    "avant après",
+    "rénovation",
+    "local",
+    "commerce"
+   ]
+  },
+  "template:s-ba-auto": {
+   "name": "Avant/après lavage",
+   "tags": [
+    "avant après",
+    "voiture",
+    "lavage",
+    "garage"
+   ]
+  },
+  "template:s-ba-cocina": {
+   "name": "Avant/après recette",
+   "tags": [
+    "avant après",
+    "recette",
+    "cuisine",
+    "plat"
+   ]
+  },
+  "template:s-ba-cuarto": {
+   "name": "Avant/après chambre",
+   "tags": [
+    "avant après",
+    "chambre",
+    "déco",
+    "maison"
+   ]
+  },
+  "template:s-ba-dibujo": {
+   "name": "Avant/après dessin",
+   "tags": [
+    "avant après",
+    "art",
+    "dessin",
+    "processus"
+   ]
+  },
+  "template:s-ba-gym": {
+   "name": "Avant/après fitness",
+   "tags": [
+    "avant après",
+    "gym",
+    "progrès",
+    "défi"
+   ]
+  },
+  "template:s-ba-jardin": {
+   "name": "Avant/après jardin",
+   "tags": [
+    "avant après",
+    "jardin",
+    "plantes",
+    "vert"
+   ]
+  },
+  "template:s-ba-local": {
+   "name": "Avant/après façade",
+   "tags": [
+    "avant après",
+    "façade",
+    "local",
+    "rénovation"
+   ]
+  },
+  "template:s-ba-maquillaje": {
+   "name": "Avant/après maquillage",
+   "tags": [
+    "avant après",
+    "maquillage",
+    "beauté",
+    "look"
+   ]
+  },
+  "template:s-ba-mascota": {
+   "name": "Avant/après animal",
+   "tags": [
+    "avant après",
+    "animal",
+    "toilettage",
+    "chien"
+   ]
+  },
+  "template:s-ba-peinado": {
+   "name": "Avant/après coiffure",
+   "tags": [
+    "avant après",
+    "coiffure",
+    "salon",
+    "look"
+   ]
+  },
+  "template:s-baby-shower": {
+   "name": "Baby shower",
+   "tags": [
+    "baby shower",
+    "bébé",
+    "invitation",
+    "grossesse"
+   ]
+  },
+  "template:s-bautizo": {
+   "name": "Baptême",
+   "tags": [
+    "baptême",
+    "bébé",
+    "famille",
+    "foi"
+   ]
+  },
+  "template:s-boda-invitacion": {
+   "name": "Invitation de mariage",
+   "tags": [
+    "mariage",
+    "invitation",
+    "fiancés",
+    "date"
+   ]
+  },
+  "template:s-boda-recuerdos": {
+   "name": "Souvenirs de mariage",
+   "tags": [
+    "mariage",
+    "carrousel",
+    "souvenirs",
+    "photos"
+   ]
+  },
+  "template:s-buenas-noches": {
+   "name": "Bonne nuit",
+   "tags": [
+    "bonne nuit",
+    "soir",
+    "repos",
+    "citation"
+   ]
+  },
+  "template:s-buenos-dias": {
+   "name": "Bonjour",
+   "tags": [
+    "bonjour",
+    "matin",
+    "café",
+    "citation"
+   ]
+  },
+  "template:s-cafe-del-dia": {
+   "name": "Café du jour",
+   "tags": [
+    "café",
+    "boisson",
+    "prix",
+    "petit-déjeuner"
+   ]
+  },
+  "template:s-campeones": {
+   "name": "Champions",
+   "tags": [
+    "champions",
+    "sport",
+    "victoire",
+    "équipe"
+   ]
+  },
+  "template:s-carrusel-antes-de-comprar": {
+   "name": "Avant d'acheter",
+   "tags": [
+    "carrousel",
+    "conseils",
+    "achats",
+    "produit"
+   ]
+  },
+  "template:s-carrusel-antes-despues": {
+   "name": "Carrousel avant/après",
+   "tags": [
+    "avant après",
+    "carrousel",
+    "changement",
+    "progrès"
+   ]
+  },
+  "template:s-carrusel-arte": {
+   "name": "Processus créatif",
+   "tags": [
+    "art",
+    "processus",
+    "création",
+    "carrousel"
+   ]
+  },
+  "template:s-carrusel-bebe": {
+   "name": "Bébé en carrousel",
+   "tags": [
+    "bébé",
+    "carrousel",
+    "mois",
+    "famille"
+   ]
+  },
+  "template:s-carrusel-boda": {
+   "name": "Carrousel de mariage",
+   "tags": [
+    "mariage",
+    "carrousel",
+    "fiancés",
+    "souvenirs"
+   ]
+  },
+  "template:s-carrusel-casa": {
+   "name": "Visite de maison",
+   "tags": [
+    "maison",
+    "visite",
+    "immobilier",
+    "carrousel"
+   ]
+  },
+  "template:s-carrusel-catalogo": {
+   "name": "Carrousel catalogue",
+   "tags": [
+    "carrousel",
+    "catalogue",
+    "produits",
+    "glisser"
+   ]
+  },
+  "template:s-carrusel-ciudad": {
+   "name": "Ville de nuit",
+   "tags": [
+    "ville",
+    "nuit",
+    "lumières",
+    "carrousel"
+   ]
+  },
+  "template:s-carrusel-comida": {
+   "name": "Ce que j'ai mangé",
+   "tags": [
+    "repas",
+    "carrousel",
+    "journée",
+    "cuisine"
+   ]
+  },
+  "template:s-carrusel-concierto": {
+   "name": "Soirée concert",
+   "tags": [
+    "concert",
+    "musique",
+    "carrousel",
+    "festival"
+   ]
+  },
+  "template:s-carrusel-consejos": {
+   "name": "Carrousel de conseils",
+   "tags": [
+    "conseils",
+    "carrousel",
+    "astuces",
+    "éducatif"
+   ]
+  },
+  "template:s-carrusel-dump": {
+   "name": "Carrousel photo dump",
+   "tags": [
+    "photo dump",
+    "carrousel",
+    "photos",
+    "amis"
+   ]
+  },
+  "template:s-carrusel-familia": {
+   "name": "Famille en carrousel",
+   "tags": [
+    "famille",
+    "carrousel",
+    "souvenirs",
+    "dimanche"
+   ]
+  },
+  "template:s-carrusel-flores": {
+   "name": "Carrousel floral",
+   "tags": [
+    "fleurs",
+    "carrousel",
+    "printemps",
+    "bouquets"
+   ]
+  },
+  "template:s-carrusel-gym": {
+   "name": "Carrousel de sport",
+   "tags": [
+    "gym",
+    "routine",
+    "exercices",
+    "carrousel"
+   ]
+  },
+  "template:s-carrusel-mascota": {
+   "name": "Mon animal en carrousel",
+   "tags": [
+    "animal",
+    "chien",
+    "carrousel",
+    "mignon"
+   ]
+  },
+  "template:s-carrusel-naturaleza": {
+   "name": "Carrousel paysages",
+   "tags": [
+    "nature",
+    "paysages",
+    "carrousel",
+    "montagne"
+   ]
+  },
+  "template:s-carrusel-negocio": {
+   "name": "Découvrir le commerce",
+   "tags": [
+    "commerce",
+    "carrousel",
+    "équipe",
+    "local"
+   ]
+  },
+  "template:s-carrusel-outfits": {
+   "name": "Carrousel de tenues",
+   "tags": [
+    "tenues",
+    "mode",
+    "carrousel",
+    "semaine"
+   ]
+  },
+  "template:s-carrusel-producto-uso": {
+   "name": "Comment l'utiliser",
+   "tags": [
+    "produit",
+    "mode d'emploi",
+    "étapes",
+    "carrousel"
+   ]
+  },
+  "template:s-carrusel-receta": {
+   "name": "Carrousel recette",
+   "tags": [
+    "recette",
+    "carrousel",
+    "étapes",
+    "cuisine"
+   ]
+  },
+  "template:s-carrusel-viaje": {
+   "name": "Carrousel de voyage",
+   "tags": [
+    "carrousel",
+    "voyage",
+    "photos",
+    "vacances"
+   ]
+  },
+  "template:s-casa-nueva": {
+   "name": "Nouvelle maison",
+   "tags": [
+    "maison",
+    "déménagement",
+    "foyer",
+    "réussite"
+   ]
+  },
+  "template:s-compromiso": {
+   "name": "Nous sommes fiancés",
+   "tags": [
+    "fiançailles",
+    "demande",
+    "bague",
+    "mariage"
+   ]
+  },
+  "template:s-cumple-collage": {
+   "name": "Collage anniversaire",
+   "tags": [
+    "anniversaire",
+    "collage",
+    "photos",
+    "fête"
+   ]
+  },
+  "template:s-cumple-edad": {
+   "name": "Âge géant",
+   "tags": [
+    "anniversaire",
+    "âge",
+    "chiffre",
+    "fête"
+   ]
+  },
+  "template:s-cumple-foto": {
+   "name": "Joyeux anniversaire",
+   "tags": [
+    "anniversaire",
+    "félicitations",
+    "fête",
+    "photo"
+   ]
+  },
+  "template:s-cumple-frase": {
+   "name": "Citation d'anniversaire",
+   "tags": [
+    "anniversaire",
+    "citation",
+    "félicitations",
+    "amour"
+   ]
+  },
+  "template:s-cumple-recuerdos": {
+   "name": "Souvenirs d'anniversaire",
+   "tags": [
+    "anniversaire",
+    "souvenirs",
+    "polaroid",
+    "amis"
+   ]
+  },
+  "template:s-cupon-amigo": {
+   "name": "Bon pour un ami",
+   "tags": [
+    "bon",
+    "parrainage",
+    "réduction",
+    "amis"
+   ]
+  },
+  "template:s-delivery-abierto": {
+   "name": "Livraison ouverte",
+   "tags": [
+    "livraison",
+    "repas",
+    "commandes",
+    "domicile"
+   ]
+  },
+  "template:s-despedida": {
+   "name": "Bonne continuation",
+   "tags": [
+    "départ",
+    "au revoir",
+    "amis",
+    "souvenirs"
+   ]
+  },
+  "template:s-dia-en-fotos": {
+   "name": "Ma journée en photos",
+   "tags": [
+    "journée",
+    "photos",
+    "routine",
+    "polaroid"
+   ]
+  },
+  "template:s-dia-madre": {
+   "name": "Fête des mères",
+   "tags": [
+    "fête des mères",
+    "maman",
+    "fleurs",
+    "amour"
+   ]
+  },
+  "template:s-dia-maestro": {
+   "name": "Fête des professeurs",
+   "tags": [
+    "professeurs",
+    "merci",
+    "école",
+    "enseignant"
+   ]
+  },
+  "template:s-dia-mujer": {
+   "name": "Journée des femmes",
+   "tags": [
+    "journée des femmes",
+    "8 mars",
+    "égalité",
+    "femmes"
+   ]
+  },
+  "template:s-dia-padre": {
+   "name": "Fête des pères",
+   "tags": [
+    "fête des pères",
+    "papa",
+    "héros",
+    "famille"
+   ]
+  },
+  "template:s-dia-tierra": {
+   "name": "Jour de la Terre",
+   "tags": [
+    "jour de la terre",
+    "planète",
+    "écologie",
+    "vert"
+   ]
+  },
+  "template:s-diwali": {
+   "name": "Joyeux Diwali",
+   "tags": [
+    "diwali",
+    "lumières",
+    "lampes",
+    "festival"
+   ]
+  },
+  "template:s-eid": {
+   "name": "Aïd Moubarak",
+   "tags": [
+    "aïd",
+    "fête",
+    "famille",
+    "bénédictions"
+   ]
+  },
+  "template:s-envio-gratis": {
+   "name": "Livraison gratuite",
+   "tags": [
+    "livraison",
+    "offerte",
+    "boutique",
+    "achats"
+   ]
+  },
+  "template:s-evento-baby-shower": {
+   "name": "Invitation baby shower",
+   "tags": [
+    "baby shower",
+    "invitation",
+    "bébé",
+    "fête"
+   ]
+  },
+  "template:s-evento-bautizo": {
+   "name": "Invitation baptême",
+   "tags": [
+    "baptême",
+    "invitation",
+    "bébé",
+    "famille"
+   ]
+  },
+  "template:s-evento-boda": {
+   "name": "Réservez la date",
+   "tags": [
+    "mariage",
+    "date",
+    "invitation",
+    "fiancés"
+   ]
+  },
+  "template:s-evento-carrera": {
+   "name": "Course solidaire",
+   "tags": [
+    "course",
+    "solidaire",
+    "sport",
+    "événement"
+   ]
+  },
+  "template:s-evento-cine": {
+   "name": "Soirée cinéma",
+   "tags": [
+    "cinéma",
+    "film",
+    "soirée",
+    "événement"
+   ]
+  },
+  "template:s-evento-clase": {
+   "name": "Cours ouvert",
+   "tags": [
+    "cours",
+    "gratuit",
+    "événement",
+    "gym"
+   ]
+  },
+  "template:s-evento-concierto": {
+   "name": "Concert",
+   "tags": [
+    "concert",
+    "musique",
+    "événement",
+    "billets"
+   ]
+  },
+  "template:s-evento-cumple": {
+   "name": "Invitation anniversaire",
+   "tags": [
+    "anniversaire",
+    "invitation",
+    "fête",
+    "enfants"
+   ]
+  },
+  "template:s-evento-degustacion": {
+   "name": "Dégustation",
+   "tags": [
+    "dégustation",
+    "événement",
+    "cuisine",
+    "invitation"
+   ]
+  },
+  "template:s-evento-expo": {
+   "name": "Exposition",
+   "tags": [
+    "exposition",
+    "art",
+    "galerie",
+    "événement"
+   ]
+  },
+  "template:s-evento-feria": {
+   "name": "Foire",
+   "tags": [
+    "foire",
+    "créateurs",
+    "événement",
+    "marché"
+   ]
+  },
+  "template:s-evento-fiesta": {
+   "name": "Fête",
+   "tags": [
+    "fête",
+    "invitation",
+    "nuit",
+    "musique"
+   ]
+  },
+  "template:s-evento-graduacion": {
+   "name": "Remise des diplômes",
+   "tags": [
+    "diplôme",
+    "cérémonie",
+    "invitation",
+    "promotion"
+   ]
+  },
+  "template:s-evento-lanzamiento": {
+   "name": "Lancement",
+   "tags": [
+    "lancement",
+    "événement",
+    "produit",
+    "présentation"
+   ]
+  },
+  "template:s-evento-mercado": {
+   "name": "Marché aux puces",
+   "tags": [
+    "marché",
+    "occasion",
+    "brocante",
+    "dimanche"
+   ]
+  },
+  "template:s-evento-reunion": {
+   "name": "Réunion de quartier",
+   "tags": [
+    "réunion",
+    "quartier",
+    "voisins",
+    "événement"
+   ]
+  },
+  "template:s-evento-taller": {
+   "name": "Atelier",
+   "tags": [
+    "atelier",
+    "cours",
+    "événement",
+    "inscription"
+   ]
+  },
+  "template:s-evento-webinar": {
+   "name": "Webinaire",
+   "tags": [
+    "webinaire",
+    "conférence",
+    "en ligne",
+    "événement"
+   ]
+  },
+  "template:s-familia-polaroids": {
+   "name": "Famille en polaroids",
+   "tags": [
+    "famille",
+    "polaroid",
+    "souvenirs",
+    "dimanche"
+   ]
+  },
+  "template:s-frase-a-mano": {
+   "name": "Citation manuscrite",
+   "tags": [
+    "citation",
+    "manuscrite",
+    "carnet",
+    "notes"
+   ]
+  },
+  "template:s-frase-amistad": {
+   "name": "Citation d'amitié",
+   "tags": [
+    "citation",
+    "amitié",
+    "amis",
+    "tendresse"
+   ]
+  },
+  "template:s-frase-calma": {
+   "name": "Citation calme",
+   "tags": [
+    "citation",
+    "calme",
+    "réflexion",
+    "minimal"
+   ]
+  },
+  "template:s-frase-cocina": {
+   "name": "Citation cuisine",
+   "tags": [
+    "citation",
+    "cuisine",
+    "repas",
+    "maison"
+   ]
+  },
+  "template:s-frase-dorada": {
+   "name": "Citation dorée",
+   "tags": [
+    "citation",
+    "élégant",
+    "doré",
+    "luxe"
+   ]
+  },
+  "template:s-frase-fe": {
+   "name": "Citation d'espoir",
+   "tags": [
+    "citation",
+    "espoir",
+    "foi",
+    "réflexion"
+   ]
+  },
+  "template:s-frase-foto": {
+   "name": "Citation sur photo",
+   "tags": [
+    "citation",
+    "photo",
+    "voyage",
+    "inspiration"
+   ]
+  },
+  "template:s-frase-maquina": {
+   "name": "Citation machine à écrire",
+   "tags": [
+    "citation",
+    "dactylo",
+    "vintage",
+    "écriture"
+   ]
+  },
+  "template:s-frase-negocio": {
+   "name": "Citation entrepreneur",
+   "tags": [
+    "citation",
+    "entreprendre",
+    "commerce",
+    "motivation"
+   ]
+  },
+  "template:s-frase-negrita": {
+   "name": "Citation en gras",
+   "tags": [
+    "citation",
+    "motivation",
+    "gras",
+    "sport"
+   ]
+  },
+  "template:s-frase-neon": {
+   "name": "Citation néon",
+   "tags": [
+    "citation",
+    "néon",
+    "nuit",
+    "esthétique"
+   ]
+  },
+  "template:s-frase-noche": {
+   "name": "Citation de nuit",
+   "tags": [
+    "citation",
+    "nuit",
+    "motivation",
+    "étoiles"
+   ]
+  },
+  "template:s-frase-pastel": {
+   "name": "Citation pastel",
+   "tags": [
+    "citation",
+    "pastel",
+    "amour de soi",
+    "esthétique"
+   ]
+  },
+  "template:s-frase-verde": {
+   "name": "Citation nature",
+   "tags": [
+    "citation",
+    "nature",
+    "plantes",
+    "calme"
+   ]
+  },
+  "template:s-frase-viernes": {
+   "name": "Citation du vendredi",
+   "tags": [
+    "vendredi",
+    "week-end",
+    "humour",
+    "citation"
+   ]
+  },
+  "template:s-gracias-por": {
+   "name": "Je suis reconnaissant",
+   "tags": [
+    "gratitude",
+    "thanksgiving",
+    "liste",
+    "réflexion"
+   ]
+  },
+  "template:s-graduacion": {
+   "name": "J'ai mon diplôme",
+   "tags": [
+    "diplôme",
+    "réussite",
+    "université",
+    "félicitations"
+   ]
+  },
+  "template:s-graduacion-collage": {
+   "name": "Collage de diplôme",
+   "tags": [
+    "diplôme",
+    "collage",
+    "amis",
+    "promotion"
+   ]
+  },
+  "template:s-gran-venta": {
+   "name": "Grande vente",
+   "tags": [
+    "vente",
+    "soldes",
+    "réduction",
+    "boutique"
+   ]
+  },
+  "template:s-grid-menu": {
+   "name": "Grille de plats",
+   "tags": [
+    "menu",
+    "plats",
+    "restaurant",
+    "cuisine"
+   ]
+  },
+  "template:s-grid-productos": {
+   "name": "Grille produits",
+   "tags": [
+    "produits",
+    "catalogue",
+    "grille",
+    "boutique"
+   ]
+  },
+  "template:s-grid-semana": {
+   "name": "Ma semaine",
+   "tags": [
+    "semaine",
+    "collage",
+    "photos",
+    "dump"
+   ]
+  },
+  "template:s-grid-tienda": {
+   "name": "Boutique en trois photos",
+   "tags": [
+    "boutique",
+    "local",
+    "photos",
+    "commerce"
+   ]
+  },
+  "template:s-grid-tres-fotos": {
+   "name": "Trois photos",
+   "tags": [
+    "trois photos",
+    "bandes",
+    "collage",
+    "esthétique"
+   ]
+  },
+  "template:s-grid-viaje": {
+   "name": "Voyage en grille",
+   "tags": [
+    "voyage",
+    "grille",
+    "collage",
+    "vacances"
+   ]
+  },
+  "template:s-halloween": {
+   "name": "Halloween",
+   "tags": [
+    "halloween",
+    "citrouilles",
+    "horreur",
+    "octobre"
+   ]
+  },
+  "template:s-hanukkah": {
+   "name": "Joyeux Hanoucca",
+   "tags": [
+    "hanoucca",
+    "bougies",
+    "lumières",
+    "famille"
+   ]
+  },
+  "template:s-helado-2x1": {
+   "name": "Glaces 2 pour 1",
+   "tags": [
+    "glace",
+    "promo",
+    "été",
+    "offre"
+   ]
+  },
+  "template:s-holi": {
+   "name": "Joyeux Holi",
+   "tags": [
+    "holi",
+    "couleurs",
+    "festival",
+    "printemps"
+   ]
+  },
+  "template:s-horario-especial": {
+   "name": "Horaires spéciaux",
+   "tags": [
+    "horaires",
+    "férié",
+    "avis",
+    "commerce"
+   ]
+  },
+  "template:s-invierno": {
+   "name": "Hiver cosy",
+   "tags": [
+    "hiver",
+    "neige",
+    "froid",
+    "cocooning"
+   ]
+  },
+  "template:s-jubilacion": {
+   "name": "Bonne retraite",
+   "tags": [
+    "retraite",
+    "merci",
+    "nouvelle vie",
+    "famille"
+   ]
+  },
+  "template:s-lectura": {
+   "name": "Lecture du moment",
+   "tags": [
+    "livre",
+    "lecture",
+    "recommandation",
+    "esthétique"
+   ]
+  },
+  "template:s-liquidacion": {
+   "name": "Liquidation",
+   "tags": [
+    "liquidation",
+    "soldes",
+    "prix",
+    "promo"
+   ]
+  },
+  "template:s-lista-horario": {
+   "name": "Horaires d'ouverture",
+   "tags": [
+    "horaires",
+    "ouverture",
+    "commerce",
+    "jours"
+   ]
+  },
+  "template:s-lista-incluye": {
+   "name": "Ce qui est inclus",
+   "tags": [
+    "inclus",
+    "pack",
+    "produit",
+    "kit"
+   ]
+  },
+  "template:s-lista-pasos-pedido": {
+   "name": "Comment commander",
+   "tags": [
+    "commander",
+    "étapes",
+    "commande",
+    "boutique"
+   ]
+  },
+  "template:s-lista-por-que": {
+   "name": "Pourquoi nous choisir",
+   "tags": [
+    "arguments",
+    "avantages",
+    "commerce",
+    "confiance"
+   ]
+  },
+  "template:s-lista-servicios": {
+   "name": "Nos services",
+   "tags": [
+    "services",
+    "liste",
+    "commerce",
+    "salon"
+   ]
+  },
+  "template:s-logro-personal": {
+   "name": "Je l'ai fait",
+   "tags": [
+    "réussite",
+    "objectif",
+    "marathon",
+    "fierté"
+   ]
+  },
+  "template:s-mascota-polaroids": {
+   "name": "Animal en polaroids",
+   "tags": [
+    "animal",
+    "polaroid",
+    "chien",
+    "mignon"
+   ]
+  },
+  "template:s-menu-bebidas": {
+   "name": "Carte des boissons",
+   "tags": [
+    "boissons",
+    "jus",
+    "carte",
+    "bar"
+   ]
+  },
+  "template:s-menu-cafe": {
+   "name": "Carte des cafés",
+   "tags": [
+    "café",
+    "carte",
+    "brasserie",
+    "prix"
+   ]
+  },
+  "template:s-menu-desayunos": {
+   "name": "Petits-déjeuners",
+   "tags": [
+    "petit-déjeuner",
+    "carte",
+    "café",
+    "matin"
+   ]
+  },
+  "template:s-menu-panaderia": {
+   "name": "Liste des pains",
+   "tags": [
+    "boulangerie",
+    "pain",
+    "prix",
+    "liste"
+   ]
+  },
+  "template:s-menu-pizza": {
+   "name": "Carte des pizzas",
+   "tags": [
+    "pizza",
+    "carte",
+    "restaurant",
+    "dîner"
+   ]
+  },
+  "template:s-menu-planes-gym": {
+   "name": "Formules de gym",
+   "tags": [
+    "gym",
+    "formules",
+    "prix",
+    "abonnement"
+   ]
+  },
+  "template:s-menu-postres": {
+   "name": "Carte des desserts",
+   "tags": [
+    "desserts",
+    "carte",
+    "pâtisserie",
+    "sucré"
+   ]
+  },
+  "template:s-menu-precios-salon": {
+   "name": "Tarifs du salon",
+   "tags": [
+    "tarifs",
+    "salon",
+    "beauté",
+    "services"
+   ]
+  },
+  "template:s-menu-saludable": {
+   "name": "Menu santé",
+   "tags": [
+    "santé",
+    "salades",
+    "menu",
+    "équilibré"
+   ]
+  },
+  "template:s-menu-semanal": {
+   "name": "Menu de la semaine",
+   "tags": [
+    "menu",
+    "restaurant",
+    "déjeuner",
+    "prix"
+   ]
+  },
+  "template:s-meta-semana": {
+   "name": "Objectif de la semaine",
+   "tags": [
+    "objectif",
+    "semaine",
+    "but",
+    "motivation"
+   ]
+  },
+  "template:s-moda-nueva": {
+   "name": "Nouvelle mode",
+   "tags": [
+    "mode",
+    "vêtements",
+    "collection",
+    "prix"
+   ]
+  },
+  "template:s-nacimiento": {
+   "name": "Bienvenue bébé",
+   "tags": [
+    "naissance",
+    "bébé",
+    "bienvenue",
+    "famille"
+   ]
+  },
+  "template:s-navidad-deseo": {
+   "name": "Vœu de Noël",
+   "tags": [
+    "noël",
+    "vœu",
+    "citation",
+    "paix"
+   ]
+  },
+  "template:s-navidad-foto": {
+   "name": "Joyeux Noël photo",
+   "tags": [
+    "noël",
+    "famille",
+    "décembre",
+    "photo"
+   ]
+  },
+  "template:s-navidad-polaroids": {
+   "name": "Noël en polaroids",
+   "tags": [
+    "noël",
+    "polaroid",
+    "souvenirs",
+    "famille"
+   ]
+  },
+  "template:s-nuevo-local": {
+   "name": "Nouveau local",
+   "tags": [
+    "local",
+    "inauguration",
+    "boutique",
+    "adresse"
+   ]
+  },
+  "template:s-nuevo-trabajo": {
+   "name": "Nouveau poste",
+   "tags": [
+    "emploi",
+    "poste",
+    "réussite",
+    "félicitations"
+   ]
+  },
+  "template:s-numero-anios": {
+   "name": "Ans d'expérience",
+   "tags": [
+    "anniversaire",
+    "années",
+    "commerce",
+    "expérience"
+   ]
+  },
+  "template:s-numero-clientes": {
+   "name": "Merci 1000 clients",
+   "tags": [
+    "clients",
+    "merci",
+    "réussite",
+    "commerce"
+   ]
+  },
+  "template:s-numero-descuento": {
+   "name": "Réduction géante",
+   "tags": [
+    "réduction",
+    "pourcentage",
+    "soldes",
+    "promo"
+   ]
+  },
+  "template:s-numero-envio": {
+   "name": "Livraison 24 h",
+   "tags": [
+    "livraison",
+    "envoi",
+    "rapide",
+    "boutique"
+   ]
+  },
+  "template:s-numero-precio": {
+   "name": "Prix unique",
+   "tags": [
+    "prix",
+    "unique",
+    "offre",
+    "boutique"
+   ]
+  },
+  "template:s-oferta-burbuja": {
+   "name": "Étiquette prix",
+   "tags": [
+    "offre",
+    "prix",
+    "produit",
+    "boutique",
+    "réduction"
+   ]
+  },
+  "template:s-ootd": {
+   "name": "Tenue du jour",
+   "tags": [
+    "tenue",
+    "mode",
+    "style",
+    "ootd"
+   ]
+  },
+  "template:s-pascua": {
+   "name": "Joyeuses Pâques",
+   "tags": [
+    "pâques",
+    "œufs",
+    "printemps",
+    "famille"
+   ]
+  },
+  "template:s-postre-precio": {
+   "name": "Dessert du jour",
+   "tags": [
+    "dessert",
+    "gâteau",
+    "sucré",
+    "pâtisserie"
+   ]
+  },
+  "template:s-precio-circulo": {
+   "name": "Prix en cercle",
+   "tags": [
+    "prix",
+    "produit",
+    "nouveau",
+    "boutique"
+   ]
+  },
+  "template:s-precio-inclinado": {
+   "name": "Produit incliné",
+   "tags": [
+    "produit",
+    "prix",
+    "artisanat",
+    "cadeau"
+   ]
+  },
+  "template:s-precio-noche": {
+   "name": "Prix néon",
+   "tags": [
+    "prix",
+    "néon",
+    "produit",
+    "technologie",
+    "nuit"
+   ]
+  },
+  "template:s-preventa": {
+   "name": "Prévente",
+   "tags": [
+    "prévente",
+    "lancement",
+    "réservation",
+    "produit"
+   ]
+  },
+  "template:s-ramadan": {
+   "name": "Ramadan Kareem",
+   "tags": [
+    "ramadan",
+    "lune",
+    "paix",
+    "famille"
+   ]
+  },
+  "template:s-ramo-precio": {
+   "name": "Bouquet de fleurs",
+   "tags": [
+    "fleurs",
+    "bouquet",
+    "cadeau",
+    "fleuriste"
+   ]
+  },
+  "template:s-reapertura": {
+   "name": "Réouverture",
+   "tags": [
+    "réouverture",
+    "retour",
+    "commerce",
+    "annonce"
+   ]
+  },
+  "template:s-reencuentro": {
+   "name": "Retrouvailles",
+   "tags": [
+    "retrouvailles",
+    "amis",
+    "promo",
+    "nostalgie"
+   ]
+  },
+  "template:s-regreso-clases": {
+   "name": "Rentrée scolaire",
+   "tags": [
+    "rentrée",
+    "école",
+    "fournitures",
+    "enfants"
+   ]
+  },
+  "template:s-resena-cliente": {
+   "name": "Avis client",
+   "tags": [
+    "avis",
+    "témoignage",
+    "client",
+    "étoiles"
+   ]
+  },
+  "template:s-resena-restaurante": {
+   "name": "Avis restaurant",
+   "tags": [
+    "avis",
+    "restaurant",
+    "cuisine",
+    "critique"
+   ]
+  },
+  "template:s-resena-salon": {
+   "name": "Avis salon",
+   "tags": [
+    "avis",
+    "salon",
+    "beauté",
+    "cliente"
+   ]
+  },
+  "template:s-san-valentin": {
+   "name": "Saint-Valentin",
+   "tags": [
+    "saint-valentin",
+    "amour",
+    "couple",
+    "février"
+   ]
+  },
+  "template:s-san-valentin-fotos": {
+   "name": "Nous deux",
+   "tags": [
+    "saint-valentin",
+    "couple",
+    "photos",
+    "amour"
+   ]
+  },
+  "template:s-sorteo": {
+   "name": "Concours",
+   "tags": [
+    "concours",
+    "cadeau",
+    "tirage",
+    "abonnés"
+   ]
+  },
+  "template:s-split-cafe": {
+   "name": "Café en deux",
+   "tags": [
+    "café",
+    "brasserie",
+    "petit-déjeuner",
+    "commerce"
+   ]
+  },
+  "template:s-split-floreria": {
+   "name": "Fleuriste",
+   "tags": [
+    "fleurs",
+    "fleuriste",
+    "bouquets",
+    "événements"
+   ]
+  },
+  "template:s-split-moda": {
+   "name": "Mode en deux",
+   "tags": [
+    "mode",
+    "tenue",
+    "collection",
+    "vêtements"
+   ]
+  },
+  "template:s-split-panaderia": {
+   "name": "Boulangerie",
+   "tags": [
+    "boulangerie",
+    "pain",
+    "frais",
+    "petit-déjeuner"
+   ]
+  },
+  "template:s-split-producto": {
+   "name": "Produit en deux",
+   "tags": [
+    "produit",
+    "atouts",
+    "boutique",
+    "lancement"
+   ]
+  },
+  "template:s-split-spa": {
+   "name": "Spa en deux",
+   "tags": [
+    "spa",
+    "massage",
+    "détente",
+    "bien-être"
+   ]
+  },
+  "template:s-split-taller": {
+   "name": "Garage auto",
+   "tags": [
+    "garage",
+    "mécanicien",
+    "voiture",
+    "entretien"
+   ]
+  },
+  "template:s-split-veterinaria": {
+   "name": "Clinique vétérinaire",
+   "tags": [
+    "vétérinaire",
+    "animaux",
+    "vaccins",
+    "santé"
+   ]
+  },
+  "template:s-testimonio-belleza": {
+   "name": "Témoignage ongles",
+   "tags": [
+    "témoignage",
+    "ongles",
+    "beauté",
+    "salon"
+   ]
+  },
+  "template:s-testimonio-cafe": {
+   "name": "Témoignage café",
+   "tags": [
+    "témoignage",
+    "café",
+    "client",
+    "avis"
+   ]
+  },
+  "template:s-testimonio-clases": {
+   "name": "Témoignage de cours",
+   "tags": [
+    "témoignage",
+    "musique",
+    "cours",
+    "élève"
+   ]
+  },
+  "template:s-testimonio-curso": {
+   "name": "Témoignage formation",
+   "tags": [
+    "témoignage",
+    "formation",
+    "élève",
+    "avis"
+   ]
+  },
+  "template:s-testimonio-gym": {
+   "name": "Témoignage gym",
+   "tags": [
+    "témoignage",
+    "gym",
+    "fitness",
+    "avis"
+   ]
+  },
+  "template:s-testimonio-inmobiliaria": {
+   "name": "Témoignage immobilier",
+   "tags": [
+    "témoignage",
+    "maison",
+    "immobilier",
+    "famille"
+   ]
+  },
+  "template:s-testimonio-mudanza": {
+   "name": "Témoignage déménagement",
+   "tags": [
+    "témoignage",
+    "déménagement",
+    "service",
+    "client"
+   ]
+  },
+  "template:s-testimonio-noche": {
+   "name": "Témoignage élégant",
+   "tags": [
+    "témoignage",
+    "élégant",
+    "événement",
+    "mariage"
+   ]
+  },
+  "template:s-testimonio-tienda": {
+   "name": "Témoignage boutique",
+   "tags": [
+    "témoignage",
+    "boutique",
+    "achat",
+    "client"
+   ]
+  },
+  "template:s-testimonio-veterinaria": {
+   "name": "Témoignage vétérinaire",
+   "tags": [
+    "témoignage",
+    "vétérinaire",
+    "animal",
+    "merci"
+   ]
+  },
+  "template:s-texto-3-tips": {
+   "name": "3 conseils",
+   "tags": [
+    "conseils",
+    "astuces",
+    "liste",
+    "apprendre"
+   ]
+  },
+  "template:s-texto-aviso": {
+   "name": "Avis important",
+   "tags": [
+    "avis",
+    "important",
+    "annonce",
+    "communiqué"
+   ]
+  },
+  "template:s-texto-checklist": {
+   "name": "Liste à cocher",
+   "tags": [
+    "checklist",
+    "liste",
+    "organisation",
+    "voyage"
+   ]
+  },
+  "template:s-texto-cuenta": {
+   "name": "Jours restants",
+   "tags": [
+    "jours",
+    "compte",
+    "événement",
+    "attente"
+   ]
+  },
+  "template:s-texto-dato": {
+   "name": "Chiffre clé",
+   "tags": [
+    "chiffre",
+    "info",
+    "curiosité",
+    "statistique"
+   ]
+  },
+  "template:s-texto-este-o-este": {
+   "name": "Ceci ou cela",
+   "tags": [
+    "choix",
+    "sondage",
+    "jeu",
+    "vote"
+   ]
+  },
+  "template:s-texto-gracias": {
+   "name": "Merci de nous suivre",
+   "tags": [
+    "merci",
+    "abonnés",
+    "communauté",
+    "cap"
+   ]
+  },
+  "template:s-texto-mitos": {
+   "name": "Mythes et vérités",
+   "tags": [
+    "mythes",
+    "vérités",
+    "infos",
+    "éducation"
+   ]
+  },
+  "template:s-texto-planes": {
+   "name": "Plans du week-end",
+   "tags": [
+    "week-end",
+    "plans",
+    "idées",
+    "liste"
+   ]
+  },
+  "template:s-texto-pregunta": {
+   "name": "Question du jour",
+   "tags": [
+    "question",
+    "commentaires",
+    "communauté",
+    "interaction"
+   ]
+  },
+  "template:s-ultimas-unidades": {
+   "name": "Dernières unités",
+   "tags": [
+    "stock",
+    "urgent",
+    "offre",
+    "dernières"
+   ]
+  },
+  "template:s-verano": {
+   "name": "Bonjour l'été",
+   "tags": [
+    "été",
+    "plage",
+    "soleil",
+    "vacances"
+   ]
+  },
   "template:salon-de-belleza-servicios": {
    "name": "Salon de beauté",
    "tags": [
@@ -12989,6 +15385,457 @@
     "cinématique",
     "cinéma",
     "coucher de soleil"
+   ]
+  },
+  "template:st-3-cosas": {
+   "name": "3 choses que…",
+   "tags": [
+    "story",
+    "liste",
+    "conseils",
+    "astuces"
+   ]
+  },
+  "template:st-abuelos": {
+   "name": "Chez les grands-parents",
+   "tags": [
+    "story",
+    "grands-parents",
+    "famille",
+    "dimanche"
+   ]
+  },
+  "template:st-amigas": {
+   "name": "Avec mes amies",
+   "tags": [
+    "story",
+    "amies",
+    "amitié",
+    "sortie"
+   ]
+  },
+  "template:st-anio-nuevo": {
+   "name": "Rétro de l'année",
+   "tags": [
+    "story",
+    "nouvel an",
+    "rétrospective",
+    "souvenirs"
+   ]
+  },
+  "template:st-antes-de-viajar": {
+   "name": "Avant de voyager",
+   "tags": [
+    "story",
+    "voyage",
+    "conseils",
+    "checklist"
+   ]
+  },
+  "template:st-boda": {
+   "name": "Mariage d'amis",
+   "tags": [
+    "story",
+    "mariage",
+    "événement",
+    "fête"
+   ]
+  },
+  "template:st-cafe-perfecto": {
+   "name": "Le café parfait",
+   "tags": [
+    "story",
+    "café",
+    "barista",
+    "recette"
+   ]
+  },
+  "template:st-ciudad": {
+   "name": "Ma ville",
+   "tags": [
+    "story",
+    "ville",
+    "balade",
+    "urbain"
+   ]
+  },
+  "template:st-cocina-casa": {
+   "name": "Dîner à la maison",
+   "tags": [
+    "story",
+    "dîner",
+    "maison",
+    "cuisine"
+   ]
+  },
+  "template:st-concierto": {
+   "name": "Soirée concert",
+   "tags": [
+    "story",
+    "concert",
+    "musique",
+    "nuit"
+   ]
+  },
+  "template:st-cumple": {
+   "name": "C'est mon anniversaire",
+   "tags": [
+    "story",
+    "anniversaire",
+    "fête",
+    "célébration"
+   ]
+  },
+  "template:st-dato-curioso": {
+   "name": "Le saviez-vous",
+   "tags": [
+    "story",
+    "info",
+    "curiosité",
+    "science"
+   ]
+  },
+  "template:st-detras-camaras": {
+   "name": "Coulisses",
+   "tags": [
+    "story",
+    "coulisses",
+    "créateur",
+    "processus"
+   ]
+  },
+  "template:st-encuesta": {
+   "name": "Lequel choisir",
+   "tags": [
+    "story",
+    "sondage",
+    "choix",
+    "vote"
+   ]
+  },
+  "template:st-entreno": {
+   "name": "Entraînement du jour",
+   "tags": [
+    "story",
+    "gym",
+    "entraînement",
+    "routine"
+   ]
+  },
+  "template:st-errores": {
+   "name": "Mes erreurs",
+   "tags": [
+    "story",
+    "erreurs",
+    "apprentissage",
+    "conseils"
+   ]
+  },
+  "template:st-espera-al-final": {
+   "name": "Attends la fin",
+   "tags": [
+    "story",
+    "15 secondes",
+    "suspense",
+    "surprise",
+    "fin"
+   ]
+  },
+  "template:st-estudiar": {
+   "name": "Étudier avec moi",
+   "tags": [
+    "story",
+    "étude",
+    "productivité",
+    "école"
+   ]
+  },
+  "template:st-flores": {
+   "name": "Composition florale",
+   "tags": [
+    "story",
+    "fleurs",
+    "fleuriste",
+    "processus"
+   ]
+  },
+  "template:st-glow-up": {
+   "name": "Ma transformation",
+   "tags": [
+    "story",
+    "transformation",
+    "avant après",
+    "changement"
+   ]
+  },
+  "template:st-gracias": {
+   "name": "Merci de me suivre",
+   "tags": [
+    "story",
+    "merci",
+    "abonnés",
+    "communauté"
+   ]
+  },
+  "template:st-graduacion": {
+   "name": "J'ai mon diplôme",
+   "tags": [
+    "story",
+    "diplôme",
+    "réussite",
+    "université"
+   ]
+  },
+  "template:st-gym-nuevo": {
+   "name": "Premier jour de gym",
+   "tags": [
+    "story",
+    "gym",
+    "premier jour",
+    "motivation"
+   ]
+  },
+  "template:st-halloween": {
+   "name": "Costume d'Halloween",
+   "tags": [
+    "story",
+    "halloween",
+    "costume",
+    "maquillage"
+   ]
+  },
+  "template:st-jardin": {
+   "name": "Mon jardin",
+   "tags": [
+    "story",
+    "jardin",
+    "plantes",
+    "vert"
+   ]
+  },
+  "template:st-lugar-secreto": {
+   "name": "Lieu secret",
+   "tags": [
+    "story",
+    "voyage",
+    "lieu",
+    "découverte"
+   ]
+  },
+  "template:st-mama": {
+   "name": "Pour maman",
+   "tags": [
+    "story",
+    "maman",
+    "amour",
+    "famille"
+   ]
+  },
+  "template:st-mascota": {
+   "name": "Journée avec mon chien",
+   "tags": [
+    "story",
+    "animal",
+    "chien",
+    "journée"
+   ]
+  },
+  "template:st-mi-semana": {
+   "name": "Ma semaine",
+   "tags": [
+    "story",
+    "semaine",
+    "dump",
+    "photos"
+   ]
+  },
+  "template:st-mudanza": {
+   "name": "On a déménagé",
+   "tags": [
+    "story",
+    "déménagement",
+    "maison",
+    "foyer"
+   ]
+  },
+  "template:st-navidad": {
+   "name": "Noël à la maison",
+   "tags": [
+    "story",
+    "noël",
+    "famille",
+    "décembre"
+   ]
+  },
+  "template:st-negocio-local": {
+   "name": "Mon commerce",
+   "tags": [
+    "story",
+    "commerce",
+    "entreprise",
+    "local"
+   ]
+  },
+  "template:st-nueva-carta": {
+   "name": "Nouvelle carte",
+   "tags": [
+    "story",
+    "restaurant",
+    "carte",
+    "plats"
+   ]
+  },
+  "template:st-nuevo-producto": {
+   "name": "Nouveau produit",
+   "tags": [
+    "story",
+    "lancement",
+    "produit",
+    "nouveauté"
+   ]
+  },
+  "template:st-oferta-hoy": {
+   "name": "Offre du jour",
+   "tags": [
+    "story",
+    "offre",
+    "boutique",
+    "urgent"
+   ]
+  },
+  "template:st-ootd": {
+   "name": "Ma tenue du jour",
+   "tags": [
+    "story",
+    "tenue",
+    "mode",
+    "ootd"
+   ]
+  },
+  "template:st-pov": {
+   "name": "Point de vue",
+   "tags": [
+    "story",
+    "pov",
+    "humour",
+    "situation"
+   ]
+  },
+  "template:st-pregunta": {
+   "name": "Demandez-moi",
+   "tags": [
+    "story",
+    "questions",
+    "communauté",
+    "interaction"
+   ]
+  },
+  "template:st-promo-servicio": {
+   "name": "Promo de service",
+   "tags": [
+    "story",
+    "service",
+    "promo",
+    "salon"
+   ]
+  },
+  "template:st-receta-rapida": {
+   "name": "Recette en 15 s",
+   "tags": [
+    "story",
+    "recette",
+    "cuisine",
+    "rapide"
+   ]
+  },
+  "template:st-reto-30": {
+   "name": "Défi 30 jours",
+   "tags": [
+    "story",
+    "défi",
+    "30 jours",
+    "habitudes"
+   ]
+  },
+  "template:st-skincare": {
+   "name": "Ma routine peau",
+   "tags": [
+    "story",
+    "skincare",
+    "routine",
+    "beauté"
+   ]
+  },
+  "template:st-sorteo": {
+   "name": "Concours",
+   "tags": [
+    "story",
+    "concours",
+    "abonnés",
+    "cadeau"
+   ]
+  },
+  "template:st-taller": {
+   "name": "Révision auto",
+   "tags": [
+    "story",
+    "garage",
+    "voiture",
+    "mécanicien"
+   ]
+  },
+  "template:st-tienda-nueva": {
+   "name": "On a ouvert",
+   "tags": [
+    "story",
+    "ouverture",
+    "boutique",
+    "commerce"
+   ]
+  },
+  "template:st-tutorial": {
+   "name": "Tuto rapide",
+   "tags": [
+    "story",
+    "tuto",
+    "étapes",
+    "apprendre"
+   ]
+  },
+  "template:st-un-dia-conmigo": {
+   "name": "Une journée avec moi",
+   "tags": [
+    "story",
+    "routine",
+    "journée",
+    "vlog"
+   ]
+  },
+  "template:st-unboxing": {
+   "name": "Unboxing",
+   "tags": [
+    "story",
+    "unboxing",
+    "colis",
+    "achats"
+   ]
+  },
+  "template:st-vacaciones": {
+   "name": "Vacances",
+   "tags": [
+    "story",
+    "vacances",
+    "plage",
+    "été"
+   ]
+  },
+  "template:st-viernes": {
+   "name": "Enfin vendredi",
+   "tags": [
+    "story",
+    "vendredi",
+    "week-end",
+    "humour"
    ]
   },
   "template:storytime-les-cuento": {

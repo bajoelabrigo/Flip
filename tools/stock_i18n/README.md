@@ -15,7 +15,9 @@ ya están en los `index.json`; aquí viven los otros 13: `ar bn fr it ja ko pl p
 `work/` no se commitea. La carpeta `publicar` se puede cambiar con `FLIP_STOCK_PUBLICAR`.
 
 Tipos y carpetas: `template` (raíz), `animation` (`animaciones`), `overlay` (`superposiciones`),
-`background` (`fondos`), `sound` (`sonidos`), `music` (`musica`, si existe).
+`background` (`fondos`), `sound` (`sonidos`), `music` (`musica`), `lut` (`luts`), `look` (`looks`),
+`text-style` (`estilos-texto`), `text-animation` (`textos-animados`), `transition` (`transiciones`) y
+`shape` (`formas`).
 
 **Variantes:** un id que termina en `-h` y cuyo id base existe es la versión horizontal: su nombre es
 el nombre traducido del base + « (horizontal)» en ese idioma y sus etiquetas son las del base. No se
