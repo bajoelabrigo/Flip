@@ -4422,6 +4422,78 @@
         <translation type="unfinished">ট্রান্সফর্ম রিসেট</translation>
     </message>
     <message>
+        <source>Could not install “%1”: %2</source>
+        <translation type="unfinished">“%1” ইনস্টল করা যায়নি: %2</translation>
+    </message>
+    <message>
+        <source>the file is missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT installed: %1 (Adjust › LUT)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Adjust › LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>it is not an effect preset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Look installed: %1 (My presets)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In My presets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>it is not a text style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (Text › My styles)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Text › My styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Text › Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape installed: %1 (Shapes, and Masks)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>packages cannot be installed here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transition installed: %1 (Transitions)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Transitions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>this kind of item needs a newer Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Depth effects read one clip&apos;s depth, so they go on a clip, not on an adjustment layer.</source>
         <translation type="unfinished">গভীরতার ইফেক্টগুলি একটি ক্লিপের গভীরতা পড়তে পারে, তাই তারা একটি ক্লিপে যায়, একটি সমন্বয় স্তরে নয়.</translation>
     </message>
@@ -9679,6 +9751,10 @@
         <source>Save project</source>
         <translation type="unfinished">প্রকল্প সংরক্ষণ করুন</translation>
     </message>
+    <message>
+        <source>Free templates, music, stickers, photos and videos</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
         <source>Downloads — %n running</source>
         <translation>
@@ -9705,10 +9781,6 @@
     <message>
         <source>Stock</source>
         <translation type="unfinished">স্টক</translation>
-    </message>
-    <message>
-        <source>Free photos and videos from Pexels and Pixabay</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Settings</source>
@@ -12362,6 +12434,22 @@
         <translation type="unfinished">বাতিল করা হয়েছে</translation>
     </message>
     <message>
+        <source>%1 new: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in to ask for a template.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tell us a little more about what you need.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thanks! Others can vote for your idea now.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not connect the marketplace account.</source>
         <translation type="unfinished">মার্কেটপ্লেস অ্যাকাউন্ট সংযোগ করা যায়নি.</translation>
     </message>
@@ -12386,6 +12474,10 @@
         <translation type="unfinished">ইমপোর্ট করা হচ্ছে…</translation>
     </message>
     <message>
+        <source>This kind of item cannot be installed here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not install that template.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12400,6 +12492,18 @@
     <message>
         <source>In the media bin</source>
         <translation type="unfinished">মিডিয়া বিনে</translation>
+    </message>
+    <message>
+        <source>Could not install that item.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not install that item: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installed</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Marketplace account connected.</source>
@@ -12509,6 +12613,10 @@
     <message>
         <source>Search sound effects</source>
         <translation type="unfinished">অনুসন্ধান শব্দ ইফেক্ট</translation>
+    </message>
+    <message>
+        <source>Search all of Stock</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Search, or paste a link</source>
@@ -12673,6 +12781,10 @@
     </message>
     <message>
         <source>Linear gradient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Library shape</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17043,6 +17155,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">আকৃতি অদলবদল করলে এর অবস্থান, আকার, শৈলী এবং ইফেক্ট বজায় থাকে.</translation>
     </message>
     <message>
+        <source>Library shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Layers</source>
         <translation type="unfinished">স্তর</translation>
     </message>
@@ -17299,6 +17415,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add to favorites</source>
         <translation type="unfinished">ফেভারিটে যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Remove from my shapes</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -18181,6 +18301,14 @@ If playback stutters, try another.</source>
 <context>
     <name>StockBrowser</name>
     <message>
+        <source>Used once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Used %1 times</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save downloads to</source>
         <translation type="unfinished">এতে ডাউনলোড সংরক্ষণ করুন</translation>
     </message>
@@ -18210,6 +18338,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Get from this link</source>
         <translation type="unfinished">এই লিঙ্ক থেকে পান</translation>
+    </message>
+    <message>
+        <source>Missing a template? Ask for it, or vote for other people’s ideas.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ask for a template</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
@@ -18273,6 +18409,37 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>StockHome</name>
+    <message>
+        <source>Search all of Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Templates, music, sounds, stickers, LUTs, text styles, shapes and more. Type above and press Enter.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished">রিফ্রেশ করুন</translation>
+    </message>
+    <message>
+        <source>Can’t find it? Ask for it and vote for other people’s ideas.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ask for a template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Used once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Used %1 times</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>StockItemDetail</name>
     <message>
         <source>Back to results</source>
@@ -18281,6 +18448,14 @@ If playback stutters, try another.</source>
     <message>
         <source>By %1</source>
         <translation type="unfinished">%1 দ্বারা</translation>
+    </message>
+    <message>
+        <source>Used once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Used %1 times</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <source>%n coin(s)</source>
@@ -18296,6 +18471,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Use template</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install</source>
+        <translation type="unfinished">ইনস্টল করুন</translation>
     </message>
     <message>
         <source>Download again</source>
@@ -18320,6 +18503,73 @@ If playback stutters, try another.</source>
     <message>
         <source>Change</source>
         <translation type="unfinished">পরিবর্তন</translation>
+    </message>
+</context>
+<context>
+    <name>StockRequestsDialog</name>
+    <message>
+        <source>Ask for a template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">বন্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Template</source>
+        <translation type="unfinished">টেমপ্লেট</translation>
+    </message>
+    <message>
+        <source>Something else</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tell us what you would like to find in Stock. The most voted ideas are made first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For example: a birthday template for my mom with 5 photos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sending…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Most voted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No ideas yet. Be the first!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove your vote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vote for this idea</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done — it’s in Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your idea</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

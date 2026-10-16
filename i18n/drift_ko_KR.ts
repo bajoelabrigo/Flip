@@ -4314,6 +4314,78 @@
         <translation>변환이 초기화됨</translation>
     </message>
     <message>
+        <source>Could not install “%1”: %2</source>
+        <translation type="unfinished">“%1”을(를) 설치할 수 없습니다: %2</translation>
+    </message>
+    <message>
+        <source>the file is missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT installed: %1 (Adjust › LUT)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Adjust › LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>it is not an effect preset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Look installed: %1 (My presets)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In My presets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>it is not a text style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (Text › My styles)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Text › My styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Text › Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape installed: %1 (Shapes, and Masks)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>packages cannot be installed here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transition installed: %1 (Transitions)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Transitions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>this kind of item needs a newer Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Depth effects read one clip&apos;s depth, so they go on a clip, not on an adjustment layer.</source>
         <translation>깊이 효과는 한 클립의 깊이 데이터를 읽으므로 보정 레이어가 아닌 클립에 적용합니다.</translation>
     </message>
@@ -9642,6 +9714,10 @@
         <source>Save project</source>
         <translation>프로젝트 저장</translation>
     </message>
+    <message>
+        <source>Free templates, music, stickers, photos and videos</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
         <source>Downloads — %n running</source>
         <translation>
@@ -9667,10 +9743,6 @@
     <message>
         <source>Stock</source>
         <translation>스톡</translation>
-    </message>
-    <message>
-        <source>Free photos and videos from Pexels and Pixabay</source>
-        <translation>Pexels 및 Pixabay의 무료 사진과 동영상</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -12325,6 +12397,22 @@
         <translation>취소됨</translation>
     </message>
     <message>
+        <source>%1 new: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in to ask for a template.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tell us a little more about what you need.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thanks! Others can vote for your idea now.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not connect the marketplace account.</source>
         <translation>마켓플레이스 계정에 연결할 수 없습니다.</translation>
     </message>
@@ -12349,6 +12437,10 @@
         <translation>가져오는 중…</translation>
     </message>
     <message>
+        <source>This kind of item cannot be installed here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not install that template.</source>
         <translation>해당 템플릿을 설치할 수 없습니다.</translation>
     </message>
@@ -12363,6 +12455,18 @@
     <message>
         <source>In the media bin</source>
         <translation>미디어 라이브러리에 있음</translation>
+    </message>
+    <message>
+        <source>Could not install that item.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not install that item: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installed</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Marketplace account connected.</source>
@@ -12472,6 +12576,10 @@
     <message>
         <source>Search sound effects</source>
         <translation>효과음 검색</translation>
+    </message>
+    <message>
+        <source>Search all of Stock</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Search, or paste a link</source>
@@ -12637,6 +12745,10 @@
     <message>
         <source>Linear gradient</source>
         <translation>선형 그라디언트</translation>
+    </message>
+    <message>
+        <source>Library shape</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TEXT</source>
@@ -16983,6 +17095,10 @@ If playback stutters, try another.</source>
         <translation>도형을 바꿔도 위치, 크기, 스타일 및 효과는 유지됩니다.</translation>
     </message>
     <message>
+        <source>Library shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Layers</source>
         <translation>레이어</translation>
     </message>
@@ -17239,6 +17355,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add to favorites</source>
         <translation>즐겨찾기에 추가</translation>
+    </message>
+    <message>
+        <source>Remove from my shapes</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -18120,6 +18240,14 @@ If playback stutters, try another.</source>
 <context>
     <name>StockBrowser</name>
     <message>
+        <source>Used once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Used %1 times</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save downloads to</source>
         <translation>다운로드 저장 위치</translation>
     </message>
@@ -18148,6 +18276,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Get from this link</source>
         <translation>이 링크에서 가져오기</translation>
+    </message>
+    <message>
+        <source>Missing a template? Ask for it, or vote for other people’s ideas.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ask for a template</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
@@ -18211,6 +18347,37 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>StockHome</name>
+    <message>
+        <source>Search all of Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Templates, music, sounds, stickers, LUTs, text styles, shapes and more. Type above and press Enter.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished">새로 고침</translation>
+    </message>
+    <message>
+        <source>Can’t find it? Ask for it and vote for other people’s ideas.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ask for a template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Used once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Used %1 times</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>StockItemDetail</name>
     <message>
         <source>Back to results</source>
@@ -18219,6 +18386,14 @@ If playback stutters, try another.</source>
     <message>
         <source>By %1</source>
         <translation>%1 제공</translation>
+    </message>
+    <message>
+        <source>Used once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Used %1 times</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <source>%n coin(s)</source>
@@ -18233,6 +18408,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Use template</source>
         <translation>템플릿 사용</translation>
+    </message>
+    <message>
+        <source>Install again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install</source>
+        <translation type="unfinished">설치</translation>
     </message>
     <message>
         <source>Download again</source>
@@ -18257,6 +18440,73 @@ If playback stutters, try another.</source>
     <message>
         <source>Change</source>
         <translation>변경</translation>
+    </message>
+</context>
+<context>
+    <name>StockRequestsDialog</name>
+    <message>
+        <source>Ask for a template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">닫기</translation>
+    </message>
+    <message>
+        <source>Template</source>
+        <translation type="unfinished">템플릿</translation>
+    </message>
+    <message>
+        <source>Something else</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tell us what you would like to find in Stock. The most voted ideas are made first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For example: a birthday template for my mom with 5 photos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sending…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Most voted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No ideas yet. Be the first!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove your vote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vote for this idea</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done — it’s in Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your idea</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

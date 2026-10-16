@@ -4322,6 +4322,78 @@
         <translation>Transformación restablecida</translation>
     </message>
     <message>
+        <source>Could not install “%1”: %2</source>
+        <translation>No se pudo instalar «%1»: %2</translation>
+    </message>
+    <message>
+        <source>the file is missing</source>
+        <translation>falta el archivo</translation>
+    </message>
+    <message>
+        <source>LUT installed: %1 (Adjust › LUT)</source>
+        <translation>LUT instalado: %1 (Ajustar › LUT)</translation>
+    </message>
+    <message>
+        <source>In Adjust › LUT</source>
+        <translation>En Ajustar › LUT</translation>
+    </message>
+    <message>
+        <source>it is not an effect preset</source>
+        <translation>no es un ajuste de efectos</translation>
+    </message>
+    <message>
+        <source>Look installed: %1 (My presets)</source>
+        <translation>Look instalado: %1 (Mis ajustes predeterminados)</translation>
+    </message>
+    <message>
+        <source>In My presets</source>
+        <translation>En Mis ajustes predeterminados</translation>
+    </message>
+    <message>
+        <source>it is not a text style</source>
+        <translation>no es un estilo de texto</translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (Text › My styles)</source>
+        <translation>Estilo de texto instalado: %1 (Texto › Mis estilos)</translation>
+    </message>
+    <message>
+        <source>In Text › My styles</source>
+        <translation>En Texto › Mis estilos</translation>
+    </message>
+    <message>
+        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
+        <translation>Animación de texto instalada: %1 (Texto › Animación › Importados)</translation>
+    </message>
+    <message>
+        <source>In Text › Animation</source>
+        <translation>En Texto › Animación</translation>
+    </message>
+    <message>
+        <source>Shape installed: %1 (Shapes, and Masks)</source>
+        <translation>Forma instalada: %1 (Formas, y también en Máscaras)</translation>
+    </message>
+    <message>
+        <source>In Shapes</source>
+        <translation>En Formas</translation>
+    </message>
+    <message>
+        <source>packages cannot be installed here</source>
+        <translation>aquí no se pueden instalar paquetes</translation>
+    </message>
+    <message>
+        <source>Transition installed: %1 (Transitions)</source>
+        <translation>Transición instalada: %1 (Transiciones)</translation>
+    </message>
+    <message>
+        <source>In Transitions</source>
+        <translation>En Transiciones</translation>
+    </message>
+    <message>
+        <source>this kind of item needs a newer Flip Studio</source>
+        <translation>este tipo de elemento necesita una versión más nueva de Flip Studio</translation>
+    </message>
+    <message>
         <source>Depth effects read one clip&apos;s depth, so they go on a clip, not on an adjustment layer.</source>
         <translation>Los efectos de profundidad leen la profundidad de un clip, por lo que van en un clip, no en una capa de ajuste.</translation>
     </message>
@@ -9675,6 +9747,10 @@
         <source>Save project</source>
         <translation>Guardar proyecto</translation>
     </message>
+    <message>
+        <source>Free templates, music, stickers, photos and videos</source>
+        <translation>Plantillas, música, stickers, fotos y videos gratis</translation>
+    </message>
     <message numerus="yes">
         <source>Downloads — %n running</source>
         <translation>
@@ -9701,10 +9777,6 @@
     <message>
         <source>Stock</source>
         <translation>Stock</translation>
-    </message>
-    <message>
-        <source>Free photos and videos from Pexels and Pixabay</source>
-        <translation>Fotos y videos gratis de Pexels y Pixabay</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -12362,6 +12434,22 @@
         <translation>Cancelado</translation>
     </message>
     <message>
+        <source>%1 new: %2</source>
+        <translation>Novedades en %1: %2</translation>
+    </message>
+    <message>
+        <source>Sign in to ask for a template.</source>
+        <translation>Inicia sesión para pedir una plantilla.</translation>
+    </message>
+    <message>
+        <source>Tell us a little more about what you need.</source>
+        <translation>Cuéntanos un poco más de lo que necesitas.</translation>
+    </message>
+    <message>
+        <source>Thanks! Others can vote for your idea now.</source>
+        <translation>¡Gracias! Ahora los demás pueden votar por tu idea.</translation>
+    </message>
+    <message>
         <source>Could not connect the marketplace account.</source>
         <translation>No se pudo conectar la cuenta del mercado.</translation>
     </message>
@@ -12386,6 +12474,10 @@
         <translation>Importando…</translation>
     </message>
     <message>
+        <source>This kind of item cannot be installed here.</source>
+        <translation>Este tipo de elemento no se puede instalar aquí.</translation>
+    </message>
+    <message>
         <source>Could not install that template.</source>
         <translation>No se pudo instalar esa plantilla.</translation>
     </message>
@@ -12400,6 +12492,18 @@
     <message>
         <source>In the media bin</source>
         <translation>En la biblioteca de medios</translation>
+    </message>
+    <message>
+        <source>Could not install that item.</source>
+        <translation>No se pudo instalar ese elemento.</translation>
+    </message>
+    <message>
+        <source>Could not install that item: %1</source>
+        <translation>No se pudo instalar ese elemento: %1</translation>
+    </message>
+    <message>
+        <source>Installed</source>
+        <translation>Instalado</translation>
     </message>
     <message>
         <source>Marketplace account connected.</source>
@@ -12509,6 +12613,10 @@
     <message>
         <source>Search sound effects</source>
         <translation>Buscar efectos de sonido</translation>
+    </message>
+    <message>
+        <source>Search all of Stock</source>
+        <translation>Buscar en todo Stock</translation>
     </message>
     <message>
         <source>Search, or paste a link</source>
@@ -12674,6 +12782,10 @@
     <message>
         <source>Linear gradient</source>
         <translation>Degradado lineal</translation>
+    </message>
+    <message>
+        <source>Library shape</source>
+        <translation>Forma de la biblioteca</translation>
     </message>
     <message>
         <source>TEXT</source>
@@ -17043,6 +17155,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Cambiar la forma conserva su posición, tamaño, estilo y efectos.</translation>
     </message>
     <message>
+        <source>Library shape</source>
+        <translation>Forma de la biblioteca</translation>
+    </message>
+    <message>
         <source>Layers</source>
         <translation>Capas</translation>
     </message>
@@ -17299,6 +17415,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Add to favorites</source>
         <translation>Añadir a favoritos</translation>
+    </message>
+    <message>
+        <source>Remove from my shapes</source>
+        <translation>Quitar de mis formas</translation>
     </message>
 </context>
 <context>
@@ -18181,6 +18301,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>StockBrowser</name>
     <message>
+        <source>Used once</source>
+        <translation>Se usó una vez</translation>
+    </message>
+    <message>
+        <source>Used %1 times</source>
+        <translation>Se usó %1 veces</translation>
+    </message>
+    <message>
         <source>Save downloads to</source>
         <translation>Guardar descargas en</translation>
     </message>
@@ -18210,6 +18338,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Get from this link</source>
         <translation>Obtener desde este enlace</translation>
+    </message>
+    <message>
+        <source>Missing a template? Ask for it, or vote for other people’s ideas.</source>
+        <translation>¿Te falta una plantilla? Pídela o vota por las ideas de los demás.</translation>
+    </message>
+    <message>
+        <source>Ask for a template</source>
+        <translation>Pide una plantilla</translation>
     </message>
     <message>
         <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
@@ -18273,6 +18409,37 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>StockHome</name>
+    <message>
+        <source>Search all of Stock</source>
+        <translation>Buscar en todo Stock</translation>
+    </message>
+    <message>
+        <source>Templates, music, sounds, stickers, LUTs, text styles, shapes and more. Type above and press Enter.</source>
+        <translation>Plantillas, música, sonidos, stickers, LUTs, estilos de texto, formas y más. Escribe arriba y pulsa Intro.</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation>Actualizar</translation>
+    </message>
+    <message>
+        <source>Can’t find it? Ask for it and vote for other people’s ideas.</source>
+        <translation>¿No lo encuentras? Pídelo y vota por las ideas de los demás.</translation>
+    </message>
+    <message>
+        <source>Ask for a template</source>
+        <translation>Pide una plantilla</translation>
+    </message>
+    <message>
+        <source>Used once</source>
+        <translation>Se usó una vez</translation>
+    </message>
+    <message>
+        <source>Used %1 times</source>
+        <translation>Se usó %1 veces</translation>
+    </message>
+</context>
+<context>
     <name>StockItemDetail</name>
     <message>
         <source>Back to results</source>
@@ -18281,6 +18448,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>By %1</source>
         <translation>De %1</translation>
+    </message>
+    <message>
+        <source>Used once</source>
+        <translation>Se usó una vez</translation>
+    </message>
+    <message>
+        <source>Used %1 times</source>
+        <translation>Se usó %1 veces</translation>
     </message>
     <message numerus="yes">
         <source>%n coin(s)</source>
@@ -18296,6 +18471,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Use template</source>
         <translation>Usar plantilla</translation>
+    </message>
+    <message>
+        <source>Install again</source>
+        <translation>Instalar de nuevo</translation>
+    </message>
+    <message>
+        <source>Install</source>
+        <translation>Instalar</translation>
     </message>
     <message>
         <source>Download again</source>
@@ -18320,6 +18503,73 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Change</source>
         <translation>Cambiar</translation>
+    </message>
+</context>
+<context>
+    <name>StockRequestsDialog</name>
+    <message>
+        <source>Ask for a template</source>
+        <translation>Pide una plantilla</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Cerrar</translation>
+    </message>
+    <message>
+        <source>Template</source>
+        <translation>Plantilla</translation>
+    </message>
+    <message>
+        <source>Something else</source>
+        <translation>Otra cosa</translation>
+    </message>
+    <message>
+        <source>Tell us what you would like to find in Stock. The most voted ideas are made first.</source>
+        <translation>Cuéntanos qué te gustaría encontrar en Stock. Las ideas más votadas se hacen primero.</translation>
+    </message>
+    <message>
+        <source>For example: a birthday template for my mom with 5 photos</source>
+        <translation>Por ejemplo: una plantilla de cumpleaños para mi mamá con 5 fotos</translation>
+    </message>
+    <message>
+        <source>Sending…</source>
+        <translation>Enviando…</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Enviar</translation>
+    </message>
+    <message>
+        <source>Most voted</source>
+        <translation>Más votadas</translation>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation>Más nuevas</translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation>Cargando…</translation>
+    </message>
+    <message>
+        <source>No ideas yet. Be the first!</source>
+        <translation>Todavía no hay ideas. ¡Sé el primero!</translation>
+    </message>
+    <message>
+        <source>Remove your vote</source>
+        <translation>Quitar tu voto</translation>
+    </message>
+    <message>
+        <source>Vote for this idea</source>
+        <translation>Votar por esta idea</translation>
+    </message>
+    <message>
+        <source>Done — it’s in Stock</source>
+        <translation>Hecho: ya está en Stock</translation>
+    </message>
+    <message>
+        <source>Your idea</source>
+        <translation>Tu idea</translation>
     </message>
 </context>
 <context>
