@@ -233,16 +233,16 @@ def main() -> int:
     if HERE in args.exe.resolve().parents or Path.cwd() in args.exe.resolve().parents and ".e2e-app" in str(args.exe):
         raise SystemExit("the app must live outside the repo, or it cannot write files")
     only = {s for s in args.only.split(",") if s}
-    # "mod:templates_h1" picks a whole batch.
+    # "mod:templates_h1" picks a whole batch; plain ids add single templates.
     modules = {s[4:] for s in only if s.startswith("mod:")}
-    makers = templates.TEMPLATES
-    if modules:
-        makers = [m for m in makers if m.__module__ in modules]
-        only -= {f"mod:{m}" for m in modules}
+    only -= {f"mod:{m}" for m in modules}
     jobs = []
-    for make in makers:
+    for make in templates.TEMPLATES:
+        if modules or only:
+            if make.__module__ not in modules and not only:
+                continue
         t = make()
-        if only and t.id not in only:
+        if (modules or only) and make.__module__ not in modules and t.id not in only:
             continue
         render_path = build_package(t, args.out, args.work, args.samples, args.music)
         print(f"built {t.id}: {len(t.slots)} slots, {t.texts} texts, {t.duration:g} s", flush=True)

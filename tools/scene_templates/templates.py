@@ -191,6 +191,7 @@ import templates_h4  # noqa: E402
 import templates_r6  # noqa: E402
 import templates_r7  # noqa: E402
 import templates_r8  # noqa: E402
+import templates_r9  # noqa: E402
 
 TEMPLATES = ([photo_dump_ritmo, feliz_cumple, collage_2x2, frase_del_dia] + templates_reels.TEMPLATES
              + templates_text_collage.TEMPLATES + templates_rest.TEMPLATES
@@ -199,4 +200,4 @@ TEMPLATES = ([photo_dump_ritmo, feliz_cumple, collage_2x2, frase_del_dia] + temp
              + templates_h1.TEMPLATES + templates_h2.TEMPLATES + templates_h3.TEMPLATES
              + templates_h4.TEMPLATES
              + templates_r6.TEMPLATES + templates_r7.TEMPLATES
-             + templates_r8.TEMPLATES)
+             + templates_r8.TEMPLATES + templates_r9.TEMPLATES)
