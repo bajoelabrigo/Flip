@@ -35,13 +35,20 @@ CARD = (768, 432)
 
 # Brand-carrying sample photos (CLAUDE.md) on top of the template kit's list.
 NO = {"product-01", "product-02", "product-03", "product-04", "gym-03", "fashion-05", "fashion-06", "family-06",
-      "barber-04", "bakery-01", "sport-01", "sport-02", "nails-01", "skate-02", "skate-03"} | set(BLOCKED)
+      "barber-04", "bakery-01", "sport-01", "sport-02", "nails-01", "skate-02", "skate-03", "city-03", "city-04"} | set(BLOCKED)
+
+
+def brightness(path: Path) -> float:
+    with Image.open(path) as im:
+        return float(np.asarray(im.convert("L").resize((64, 36)), np.float32).mean() / 255)
 
 
 def sample_for(theme: str, lid: str) -> Path:
+    """A mid-bright photo of the theme: on a very dark one the look does not show on the card."""
     pool = [p for p in sorted(SAMPLES.glob(f"h-{theme}-*.jpg")) if p.stem not in NO]
-    pool = pool or [p for p in sorted(SAMPLES.glob(f"{theme}-*.jpg")) if p.stem not in NO and not p.stem.startswith("car")]
-    pool = pool or [SAMPLES / "h-nature-01.jpg"]
+    pool += [p for p in sorted(SAMPLES.glob(f"{theme}-*.jpg")) if p.stem not in NO and not p.stem.startswith(("car", "cusco", "muertos"))]
+    good = [p for p in pool if 0.3 <= brightness(p) <= 0.72]
+    pool = good or pool or [SAMPLES / "h-nature-01.jpg"]
     return pool[zlib.crc32(lid.encode()) % len(pool)]
 
 
