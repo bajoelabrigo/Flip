@@ -1,0 +1,7350 @@
+{
+ "categories": {
+  "animation:celebracion": "Selebrasyon",
+  "animation:clima": "Panahon",
+  "animation:comida": "Pagkain at inumin",
+  "animation:deportes": "Sports",
+  "animation:emociones": "Emosyon",
+  "animation:fechas": "Espesyal na araw",
+  "animation:flechas": "Mga arrow",
+  "animation:formas": "Mga hugis",
+  "animation:iconos": "Mga icon",
+  "animation:llamadas": "Callout at frame",
+  "animation:negocios": "Negosyo",
+  "animation:redes": "Social media",
+  "animation:resaltar": "Highlight",
+  "animation:transiciones": "Transition",
+  "background:ambiente": "Ilaw at ambiance",
+  "background:degradados": "Gradient at liquid",
+  "background:fechas": "Espesyal na araw",
+  "background:geometricos": "Geometric",
+  "background:texturas": "Texture",
+  "overlay:amor": "Pag-ibig",
+  "overlay:camara": "Camera at screen",
+  "overlay:celebracion": "Selebrasyon",
+  "overlay:clima": "Panahon at kalikasan",
+  "overlay:garabatos": "Doodle",
+  "overlay:glitch": "Glitch",
+  "overlay:luces": "Light leak at flare",
+  "overlay:marcos": "Frame at texture",
+  "overlay:particulas": "Particle at kislap",
+  "overlay:pelicula": "Film at retro",
+  "sound:comedia": "Komedya",
+  "sound:impactos": "Impact",
+  "sound:interfaz": "Button at alerto",
+  "sound:juegos": "Barya at laro",
+  "sound:magia": "Mahika at kislap",
+  "sound:ritmo": "Beat at musika",
+  "sound:suspenso": "Suspense at drama",
+  "sound:transiciones": "Transition",
+  "template:beforeafter": "Before at after",
+  "template:business": "Negosyo",
+  "template:celebration": "Mga selebrasyon",
+  "template:collage": "Collage",
+  "template:countdown": "Countdown",
+  "template:intro": "Intro at title",
+  "template:lowerthird": "Lower third",
+  "template:outro": "Pangwakas",
+  "template:product": "Mga produkto",
+  "template:reels": "Photo reels",
+  "template:seasonal": "Espesyal na petsa",
+  "template:slideshow": "Photo slideshow",
+  "template:text": "Teksto",
+  "template:transition": "Transition at separator"
+ },
+ "items": {
+  "animation:alcancia": {
+   "name": "Alkansiya",
+   "tags": [
+    "ipon",
+    "pera",
+    "alkansiya",
+    "finance",
+    "layunin"
+   ]
+  },
+  "animation:anillos-boda": {
+   "name": "Wedding rings",
+   "tags": [
+    "kasal",
+    "singsing",
+    "engagement",
+    "anibersaryo"
+   ]
+  },
+  "animation:anillos-puntos": {
+   "name": "Bilog ng tuldok",
+   "tags": [
+    "bilog",
+    "dots",
+    "background",
+    "ikot",
+    "pattern"
+   ]
+  },
+  "animation:arbol-navidad": {
+   "name": "Christmas tree",
+   "tags": [
+    "pasko",
+    "christmas tree",
+    "disyembre",
+    "holiday"
+   ]
+  },
+  "animation:arcoiris": {
+   "name": "Bahaghari",
+   "tags": [
+    "bahaghari",
+    "rainbow",
+    "ulan",
+    "pag-asa",
+    "kulay"
+   ]
+  },
+  "animation:asterisco": {
+   "name": "Asterisk",
+   "tags": [
+    "asterisk",
+    "hugis",
+    "bituin",
+    "retro",
+    "emphasis"
+   ]
+  },
+  "animation:avion-papel": {
+   "name": "Eroplanong papel",
+   "tags": [
+    "ipadala",
+    "mensahe",
+    "share",
+    "biyahe",
+    "paper plane"
+   ]
+  },
+  "animation:balon-futbol": {
+   "name": "Bola ng football",
+   "tags": [
+    "football",
+    "goal",
+    "sports",
+    "laro"
+   ]
+  },
+  "animation:baloncesto": {
+   "name": "Basketball",
+   "tags": [
+    "basketball",
+    "basketbol",
+    "sports",
+    "court"
+   ]
+  },
+  "animation:bandera": {
+   "name": "Wumawagayway na bandila",
+   "tags": [
+    "bandila",
+    "layunin",
+    "tagumpay",
+    "simula"
+   ]
+  },
+  "animation:bandera-meta": {
+   "name": "Finish flag",
+   "tags": [
+    "finish line",
+    "karera",
+    "panalo",
+    "katapusan"
+   ]
+  },
+  "animation:banderines": {
+   "name": "Banderitas",
+   "tags": [
+    "banderitas",
+    "bunting",
+    "party",
+    "dekorasyon",
+    "fiesta"
+   ]
+  },
+  "animation:barrido-diagonal": {
+   "name": "Diagonal wipe",
+   "tags": [
+    "transition",
+    "wipe",
+    "scene change",
+    "diagonal"
+   ]
+  },
+  "animation:bengala": {
+   "name": "Sparkler",
+   "tags": [
+    "sparkler",
+    "lusis",
+    "bagong taon",
+    "kasal",
+    "party"
+   ]
+  },
+  "animation:birrete": {
+   "name": "Graduation cap",
+   "tags": [
+    "graduation",
+    "graduate",
+    "tagumpay",
+    "pag-aaral",
+    "toga"
+   ]
+  },
+  "animation:bocadillo": {
+   "name": "Speech bubble",
+   "tags": [
+    "dialogue",
+    "salita",
+    "teksto",
+    "komiks"
+   ]
+  },
+  "animation:bocadillo-grito": {
+   "name": "Shout bubble",
+   "tags": [
+    "sigaw",
+    "wow",
+    "komiks",
+    "exclamation"
+   ]
+  },
+  "animation:bola-disco": {
+   "name": "Disco ball",
+   "tags": [
+    "disco ball",
+    "party",
+    "sayaw",
+    "gabi",
+    "disco"
+   ]
+  },
+  "animation:bolsa-compras": {
+   "name": "Shopping bag",
+   "tags": [
+    "shopping",
+    "tindahan",
+    "order",
+    "bag"
+   ]
+  },
+  "animation:bombilla-idea": {
+   "name": "Idea!",
+   "tags": [
+    "ideya",
+    "creativity",
+    "tips",
+    "bumbilya"
+   ]
+  },
+  "animation:boton-play": {
+   "name": "Play button",
+   "tags": [
+    "video",
+    "play",
+    "panoorin",
+    "button"
+   ]
+  },
+  "animation:boton-seguir": {
+   "name": "Follow button",
+   "tags": [
+    "follow",
+    "subscribe",
+    "social media",
+    "call to action"
+   ]
+  },
+  "animation:brillo-y2k": {
+   "name": "Y2K na kislap",
+   "tags": [
+    "kislap",
+    "y2k",
+    "aesthetic",
+    "bituin",
+    "sparkle"
+   ]
+  },
+  "animation:burbujas": {
+   "name": "Bula",
+   "tags": [
+    "bula",
+    "bubbles",
+    "tubig",
+    "sabon",
+    "background"
+   ]
+  },
+  "animation:cafe-humeante": {
+   "name": "Mainit na kape",
+   "tags": [
+    "kape",
+    "umaga",
+    "almusal",
+    "inumin"
+   ]
+  },
+  "animation:caja-envio": {
+   "name": "Delivery box",
+   "tags": [
+    "delivery",
+    "shipping",
+    "order",
+    "parcel"
+   ]
+  },
+  "animation:calabaza": {
+   "name": "Jack-o'-lantern",
+   "tags": [
+    "halloween",
+    "kalabasa",
+    "oktubre",
+    "katatakutan"
+   ]
+  },
+  "animation:calendario": {
+   "name": "Kalendaryo",
+   "tags": [
+    "petsa",
+    "event",
+    "agenda",
+    "paalala"
+   ]
+  },
+  "animation:camara-foto": {
+   "name": "Camera",
+   "tags": [
+    "litrato",
+    "camera",
+    "selfie",
+    "alaala"
+   ]
+  },
+  "animation:campana": {
+   "name": "Notification bell",
+   "tags": [
+    "subscribe",
+    "notification",
+    "bell",
+    "youtube"
+   ]
+  },
+  "animation:campanas-navidad": {
+   "name": "Jingle bells",
+   "tags": [
+    "pasko",
+    "kampana",
+    "holiday",
+    "kasal"
+   ]
+  },
+  "animation:candado": {
+   "name": "Kandado",
+   "tags": [
+    "secure",
+    "private",
+    "unlock",
+    "password",
+    "kandado"
+   ]
+  },
+  "animation:cara-angel": {
+   "name": "Anghel",
+   "tags": [
+    "anghel",
+    "inosente",
+    "mabait",
+    "emoji"
+   ]
+  },
+  "animation:cara-beso": {
+   "name": "Halik",
+   "tags": [
+    "halik",
+    "kiss",
+    "pag-ibig",
+    "mwah",
+    "emoji"
+   ]
+  },
+  "animation:cara-derretida": {
+   "name": "Natutunaw na mukha",
+   "tags": [
+    "init",
+    "hiya",
+    "natutunaw",
+    "emoji"
+   ]
+  },
+  "animation:cara-diablillo": {
+   "name": "Pilyong demonyo",
+   "tags": [
+    "pilyo",
+    "makulit",
+    "biro",
+    "emoji",
+    "devil"
+   ]
+  },
+  "animation:cara-dormida": {
+   "name": "Tulog",
+   "tags": [
+    "antok",
+    "tulog",
+    "pagod",
+    "zzz"
+   ]
+  },
+  "animation:cara-enamorada": {
+   "name": "In love",
+   "tags": [
+    "in love",
+    "pag-ibig",
+    "gustong-gusto",
+    "emoji"
+   ]
+  },
+  "animation:cara-enojada": {
+   "name": "Galit",
+   "tags": [
+    "galit",
+    "inis",
+    "angry",
+    "emoji"
+   ]
+  },
+  "animation:cara-estrellas": {
+   "name": "Star-struck",
+   "tags": [
+    "wow",
+    "grabe",
+    "fan",
+    "emoji",
+    "humanga"
+   ]
+  },
+  "animation:cara-fiesta": {
+   "name": "Party face",
+   "tags": [
+    "party",
+    "kaarawan",
+    "selebrasyon",
+    "emoji"
+   ]
+  },
+  "animation:cara-guino": {
+   "name": "Kumikindat",
+   "tags": [
+    "kindat",
+    "wink",
+    "biro",
+    "emoji"
+   ]
+  },
+  "animation:cara-lentes": {
+   "name": "Cool na mukha",
+   "tags": [
+    "cool",
+    "astig",
+    "shades",
+    "emoji"
+   ]
+  },
+  "animation:cara-llorando": {
+   "name": "Umiiyak",
+   "tags": [
+    "malungkot",
+    "iyak",
+    "sad",
+    "emoji"
+   ]
+  },
+  "animation:cara-nerviosa": {
+   "name": "Kinakabahan",
+   "tags": [
+    "kaba",
+    "oops",
+    "awkward",
+    "emoji"
+   ]
+  },
+  "animation:cara-pensando": {
+   "name": "Nag-iisip",
+   "tags": [
+    "isip",
+    "duda",
+    "tanong",
+    "emoji",
+    "hmm"
+   ]
+  },
+  "animation:cara-risa": {
+   "name": "Tumatawang mukha",
+   "tags": [
+    "tawa",
+    "haha",
+    "nakakatawa",
+    "emoji"
+   ]
+  },
+  "animation:cara-sorpresa": {
+   "name": "Gulat na mukha",
+   "tags": [
+    "wow",
+    "gulat",
+    "omg",
+    "emoji"
+   ]
+  },
+  "animation:cargando": {
+   "name": "Loading",
+   "tags": [
+    "loading",
+    "hintay",
+    "malapit na",
+    "naglo-load"
+   ]
+  },
+  "animation:carrito": {
+   "name": "Cart",
+   "tags": [
+    "bumili",
+    "cart",
+    "tindahan",
+    "shopping"
+   ]
+  },
+  "animation:carta-amor": {
+   "name": "Liham ng pag-ibig",
+   "tags": [
+    "valentine's",
+    "liham",
+    "pag-ibig",
+    "mensahe"
+   ]
+  },
+  "animation:chat-corazon": {
+   "name": "Mensaheng may pagmamahal",
+   "tags": [
+    "mensahe",
+    "pag-ibig",
+    "chat",
+    "dm",
+    "puso"
+   ]
+  },
+  "animation:chincheta": {
+   "name": "Push pin",
+   "tags": [
+    "push pin",
+    "thumbtack",
+    "mahalaga",
+    "note",
+    "paalala"
+   ]
+  },
+  "animation:cinta": {
+   "name": "Ribbon banner",
+   "tags": [
+    "title",
+    "banner",
+    "bago",
+    "ribbon"
+   ]
+  },
+  "animation:cinta-adhesiva": {
+   "name": "Washi tape",
+   "tags": [
+    "frame",
+    "litrato",
+    "scrapbook",
+    "collage",
+    "tape"
+   ]
+  },
+  "animation:circulo-flecha": {
+   "name": "Bilog at arrow",
+   "tags": [
+    "highlight",
+    "ituro",
+    "dito",
+    "doodle"
+   ]
+  },
+  "animation:circulo-marcador": {
+   "name": "Hand-drawn na bilog",
+   "tags": [
+    "bilog",
+    "highlight",
+    "markahan",
+    "ituro"
+   ]
+  },
+  "animation:circulos-barrido": {
+   "name": "Circle wipe",
+   "tags": [
+    "transition",
+    "bilog",
+    "wipe",
+    "scene change"
+   ]
+  },
+  "animation:cohete": {
+   "name": "Rocket",
+   "tags": [
+    "launch",
+    "lipad",
+    "startup",
+    "mabilis"
+   ]
+  },
+  "animation:comentar": {
+   "name": "Comment",
+   "tags": [
+    "comment",
+    "komento",
+    "chat",
+    "social media",
+    "mensahe"
+   ]
+  },
+  "animation:compartir": {
+   "name": "Share",
+   "tags": [
+    "share",
+    "ipadala",
+    "social media",
+    "ibahagi"
+   ]
+  },
+  "animation:confeti": {
+   "name": "Pagsabog ng confetti",
+   "tags": [
+    "confetti",
+    "party",
+    "kaarawan",
+    "selebrasyon"
+   ]
+  },
+  "animation:cono-fiesta": {
+   "name": "Party popper",
+   "tags": [
+    "party popper",
+    "confetti",
+    "party",
+    "sorpresa",
+    "kaarawan"
+   ]
+  },
+  "animation:conversacion": {
+   "name": "Chat",
+   "tags": [
+    "chat",
+    "usapan",
+    "mensahe",
+    "dialogue"
+   ]
+  },
+  "animation:copas-brindis": {
+   "name": "Cheers",
+   "tags": [
+    "cheers",
+    "toast",
+    "bagong taon",
+    "kasal",
+    "selebrasyon"
+   ]
+  },
+  "animation:copo-nieve": {
+   "name": "Snowflake",
+   "tags": [
+    "niyebe",
+    "winter",
+    "malamig",
+    "pasko"
+   ]
+  },
+  "animation:corazon-a-mano": {
+   "name": "Hand-drawn na puso",
+   "tags": [
+    "puso",
+    "pag-ibig",
+    "paborito",
+    "doodle",
+    "highlight"
+   ]
+  },
+  "animation:corazon-flechado": {
+   "name": "Puso at palaso",
+   "tags": [
+    "valentine's",
+    "pag-ibig",
+    "cupid",
+    "magkasintahan"
+   ]
+  },
+  "animation:corazon-roto": {
+   "name": "Wasak na puso",
+   "tags": [
+    "heartbreak",
+    "broken heart",
+    "malungkot",
+    "hiwalayan",
+    "puso"
+   ]
+  },
+  "animation:corazones": {
+   "name": "Lumulutang na puso",
+   "tags": [
+    "puso",
+    "pag-ibig",
+    "magkasintahan",
+    "like"
+   ]
+  },
+  "animation:corchetes": {
+   "name": "Focus brackets",
+   "tags": [
+    "brackets",
+    "highlight",
+    "focus",
+    "frame",
+    "teksto"
+   ]
+  },
+  "animation:corona": {
+   "name": "Korona",
+   "tags": [
+    "korona",
+    "crown",
+    "hari",
+    "reyna",
+    "panalo"
+   ]
+  },
+  "animation:correo": {
+   "name": "Bagong mail",
+   "tags": [
+    "mail",
+    "mensahe",
+    "email",
+    "contact"
+   ]
+  },
+  "animation:corte-dividido": {
+   "name": "Split slide",
+   "tags": [
+    "transition",
+    "slide",
+    "split",
+    "scene change"
+   ]
+  },
+  "animation:cronometro": {
+   "name": "Stopwatch",
+   "tags": [
+    "oras",
+    "takbuhan",
+    "record",
+    "mabilis"
+   ]
+  },
+  "animation:cuadros-zoom": {
+   "name": "Square grid",
+   "tags": [
+    "transition",
+    "kuwadrado",
+    "pixel",
+    "scene change"
+   ]
+  },
+  "animation:cupcake": {
+   "name": "Cupcake",
+   "tags": [
+    "cupcake",
+    "dessert",
+    "kaarawan",
+    "matamis"
+   ]
+  },
+  "animation:cursor-clic": {
+   "name": "Click",
+   "tags": [
+    "click",
+    "tap",
+    "button",
+    "cursor",
+    "link"
+   ]
+  },
+  "animation:descargar": {
+   "name": "Download",
+   "tags": [
+    "download",
+    "i-save",
+    "file",
+    "i-download"
+   ]
+  },
+  "animation:desliza-arriba": {
+   "name": "Swipe up",
+   "tags": [
+    "swipe up",
+    "pataas",
+    "stories",
+    "link"
+   ]
+  },
+  "animation:destellos": {
+   "name": "Kislap",
+   "tags": [
+    "kislap",
+    "sparkle",
+    "bituin",
+    "mahika"
+   ]
+  },
+  "animation:diana": {
+   "name": "Bullseye",
+   "tags": [
+    "target",
+    "layunin",
+    "tama",
+    "strategy"
+   ]
+  },
+  "animation:diya": {
+   "name": "Diya lamp",
+   "tags": [
+    "diwali",
+    "ilaw",
+    "lampara",
+    "festival"
+   ]
+  },
+  "animation:dona": {
+   "name": "Donut",
+   "tags": [
+    "donut",
+    "dessert",
+    "matamis",
+    "almusal"
+   ]
+  },
+  "animation:en-vivo": {
+   "name": "Live",
+   "tags": [
+    "live",
+    "live stream",
+    "broadcast",
+    "online"
+   ]
+  },
+  "animation:enfasis": {
+   "name": "Emphasis lines",
+   "tags": [
+    "emphasis",
+    "gulat",
+    "wow",
+    "pansin"
+   ]
+  },
+  "animation:engranajes": {
+   "name": "Gears",
+   "tags": [
+    "settings",
+    "proseso",
+    "trabaho",
+    "gears"
+   ]
+  },
+  "animation:enlace": {
+   "name": "Link",
+   "tags": [
+    "link",
+    "bio",
+    "website",
+    "url"
+   ]
+  },
+  "animation:equis": {
+   "name": "Ekis",
+   "tags": [
+    "ekis",
+    "mali",
+    "hindi",
+    "error"
+   ]
+  },
+  "animation:escribiendo": {
+   "name": "Nagta-type…",
+   "tags": [
+    "chat",
+    "mensahe",
+    "typing",
+    "hintay"
+   ]
+  },
+  "animation:esfera-navidad": {
+   "name": "Christmas ball",
+   "tags": [
+    "pasko",
+    "palamuti",
+    "dekorasyon",
+    "disyembre",
+    "ornament"
+   ]
+  },
+  "animation:espiral-garabato": {
+   "name": "Hand-drawn na spiral",
+   "tags": [
+    "spiral",
+    "doodle",
+    "hilo",
+    "hypnosis"
+   ]
+  },
+  "animation:estallido-comic": {
+   "name": "Comic burst",
+   "tags": [
+    "pow",
+    "wow",
+    "sale",
+    "komiks",
+    "comic"
+   ]
+  },
+  "animation:estrella-a-mano": {
+   "name": "Hand-drawn na bituin",
+   "tags": [
+    "bituin",
+    "paborito",
+    "mahalaga",
+    "doodle"
+   ]
+  },
+  "animation:estrella-fugaz": {
+   "name": "Shooting star",
+   "tags": [
+    "shooting star",
+    "bulalakaw",
+    "wish",
+    "mahika",
+    "gabi"
+   ]
+  },
+  "animation:estrella-giro": {
+   "name": "Umiikot na bituin",
+   "tags": [
+    "transition",
+    "bituin",
+    "ikot",
+    "scene change"
+   ]
+  },
+  "animation:estrellas-pop": {
+   "name": "Pop na bituin",
+   "tags": [
+    "bituin",
+    "star",
+    "tagumpay",
+    "award"
+   ]
+  },
+  "animation:estrellas-valoracion": {
+   "name": "5-star rating",
+   "tags": [
+    "review",
+    "rating",
+    "customer",
+    "bituin"
+   ]
+  },
+  "animation:etiqueta-precio": {
+   "name": "Price tag",
+   "tags": [
+    "presyo",
+    "price tag",
+    "sale",
+    "benta",
+    "tindahan"
+   ]
+  },
+  "animation:exclamaciones": {
+   "name": "Pansin!",
+   "tags": [
+    "pansin",
+    "mahalaga",
+    "alerto",
+    "exclamation"
+   ]
+  },
+  "animation:fantasma": {
+   "name": "Multo",
+   "tags": [
+    "halloween",
+    "multo",
+    "boo",
+    "katatakutan"
+   ]
+  },
+  "animation:farol-rojo": {
+   "name": "Pulang parol",
+   "tags": [
+    "lunar new year",
+    "parol",
+    "lantern",
+    "festival",
+    "asia"
+   ]
+  },
+  "animation:flecha-abajo": {
+   "name": "Tumatalbog na arrow",
+   "tags": [
+    "arrow",
+    "pababa",
+    "tingnan dito",
+    "link"
+   ]
+  },
+  "animation:flecha-bucle": {
+   "name": "Loop na arrow",
+   "tags": [
+    "arrow",
+    "loop",
+    "ituro",
+    "doodle",
+    "tingnan"
+   ]
+  },
+  "animation:flecha-circular": {
+   "name": "Pabilog na arrow",
+   "tags": [
+    "ulitin",
+    "refresh",
+    "before after",
+    "arrow"
+   ]
+  },
+  "animation:flecha-curva": {
+   "name": "Hand-drawn na arrow",
+   "tags": [
+    "arrow",
+    "ituro",
+    "tingnan",
+    "doodle"
+   ]
+  },
+  "animation:flecha-doble": {
+   "name": "Dobleng arrow",
+   "tags": [
+    "arrow",
+    "sukat",
+    "paghahambing",
+    "lapad"
+   ]
+  },
+  "animation:flecha-gruesa": {
+   "name": "Makapal na arrow",
+   "tags": [
+    "arrow",
+    "susunod",
+    "tara",
+    "pakanan"
+   ]
+  },
+  "animation:flecha-ondulada": {
+   "name": "Wavy na arrow",
+   "tags": [
+    "pababa",
+    "tingnan",
+    "arrow",
+    "doodle"
+   ]
+  },
+  "animation:flecha-punteada": {
+   "name": "Dotted na arrow",
+   "tags": [
+    "daan",
+    "ruta",
+    "ituro",
+    "arrow",
+    "dotted"
+   ]
+  },
+  "animation:flecha-u": {
+   "name": "U-turn na arrow",
+   "tags": [
+    "bumalik",
+    "u-turn",
+    "ikot",
+    "arrow"
+   ]
+  },
+  "animation:flecha-zigzag": {
+   "name": "Zigzag na arrow",
+   "tags": [
+    "arrow",
+    "zigzag",
+    "ituro",
+    "doodle"
+   ]
+  },
+  "animation:flechas-centro": {
+   "name": "Mga arrow sa gitna",
+   "tags": [
+    "focus",
+    "gitna",
+    "tingnan dito",
+    "pansin"
+   ]
+  },
+  "animation:flechas-derecha": {
+   "name": "Hanay ng chevron",
+   "tags": [
+    "chevron",
+    "susunod",
+    "swipe",
+    "pakanan"
+   ]
+  },
+  "animation:flor-crece": {
+   "name": "Tumutubong bulaklak",
+   "tags": [
+    "spring",
+    "kalikasan",
+    "bulaklak",
+    "paglaki"
+   ]
+  },
+  "animation:foco-luz": {
+   "name": "Spotlight",
+   "tags": [
+    "spotlight",
+    "entablado",
+    "bida",
+    "presentation"
+   ]
+  },
+  "animation:formas-memphis": {
+   "name": "Lumulutang na hugis",
+   "tags": [
+    "geometric",
+    "memphis",
+    "background",
+    "retro",
+    "hugis"
+   ]
+  },
+  "animation:franjas-diagonales": {
+   "name": "Diagonal stripes",
+   "tags": [
+    "transition",
+    "stripes",
+    "guhit",
+    "scene change"
+   ]
+  },
+  "animation:fuego": {
+   "name": "Apoy",
+   "tags": [
+    "apoy",
+    "fire",
+    "trending",
+    "hot",
+    "emoji"
+   ]
+  },
+  "animation:fuegos-artificiales": {
+   "name": "Paputok",
+   "tags": [
+    "paputok",
+    "fireworks",
+    "bagong taon",
+    "party",
+    "selebrasyon"
+   ]
+  },
+  "animation:garabato-infinito": {
+   "name": "Infinity loop",
+   "tags": [
+    "infinity",
+    "loop",
+    "habambuhay",
+    "doodle"
+   ]
+  },
+  "animation:globo-info": {
+   "name": "Tooltip",
+   "tags": [
+    "impormasyon",
+    "detalye",
+    "presyo",
+    "label"
+   ]
+  },
+  "animation:globos": {
+   "name": "Lobo",
+   "tags": [
+    "lobo",
+    "balloons",
+    "kaarawan",
+    "party",
+    "baby shower"
+   ]
+  },
+  "animation:gorro-fiesta": {
+   "name": "Party hat",
+   "tags": [
+    "party hat",
+    "sumbrero",
+    "party",
+    "kaarawan"
+   ]
+  },
+  "animation:gorro-santa": {
+   "name": "Santa hat",
+   "tags": [
+    "pasko",
+    "santa hat",
+    "santa",
+    "disyembre"
+   ]
+  },
+  "animation:gota": {
+   "name": "Patak",
+   "tags": [
+    "tubig",
+    "patak",
+    "liquid",
+    "presko"
+   ]
+  },
+  "animation:grafico-barras": {
+   "name": "Bar chart",
+   "tags": [
+    "paglago",
+    "benta",
+    "resulta",
+    "statistic",
+    "chart"
+   ]
+  },
+  "animation:grafico-linea": {
+   "name": "Trending pataas",
+   "tags": [
+    "paglago",
+    "tagumpay",
+    "pagtaas",
+    "statistic"
+   ]
+  },
+  "animation:grafico-torta": {
+   "name": "Pie chart",
+   "tags": [
+    "statistic",
+    "porsyento",
+    "datos",
+    "presentation"
+   ]
+  },
+  "animation:guardar": {
+   "name": "Save",
+   "tags": [
+    "save",
+    "bookmark",
+    "i-save",
+    "social media"
+   ]
+  },
+  "animation:guirnalda-luces": {
+   "name": "String lights",
+   "tags": [
+    "string lights",
+    "ilaw",
+    "pasko",
+    "party",
+    "dekorasyon"
+   ]
+  },
+  "animation:hamburguesa": {
+   "name": "Burger",
+   "tags": [
+    "burger",
+    "fast food",
+    "tanghalian",
+    "delivery"
+   ]
+  },
+  "animation:hashtag": {
+   "name": "Hashtag",
+   "tags": [
+    "hashtag",
+    "trending",
+    "tag",
+    "social media"
+   ]
+  },
+  "animation:helado": {
+   "name": "Ice cream",
+   "tags": [
+    "ice cream",
+    "sorbetes",
+    "summer",
+    "dessert",
+    "matamis"
+   ]
+  },
+  "animation:hojas": {
+   "name": "Nalalaglag na dahon",
+   "tags": [
+    "autumn",
+    "kalikasan",
+    "dahon",
+    "taglagas"
+   ]
+  },
+  "animation:huevo-pascua": {
+   "name": "Easter egg",
+   "tags": [
+    "easter",
+    "spring",
+    "itlog",
+    "abril"
+   ]
+  },
+  "animation:iris": {
+   "name": "Iris",
+   "tags": [
+    "transition",
+    "bilog",
+    "iris",
+    "scene change"
+   ]
+  },
+  "animation:llamada-linea": {
+   "name": "Callout na may linya",
+   "tags": [
+    "ituro",
+    "detalye",
+    "produkto",
+    "label"
+   ]
+  },
+  "animation:lluvia-dinero": {
+   "name": "Ulan ng pera",
+   "tags": [
+    "pera",
+    "kita",
+    "yaman",
+    "bayad"
+   ]
+  },
+  "animation:luna-estrellas": {
+   "name": "Buwan at bituin",
+   "tags": [
+    "gabi",
+    "tulog",
+    "buwan",
+    "good night"
+   ]
+  },
+  "animation:luna-farol": {
+   "name": "Buwan at parol",
+   "tags": [
+    "ramadan",
+    "eid",
+    "buwan",
+    "parol",
+    "crescent"
+   ]
+  },
+  "animation:lupa": {
+   "name": "Magnifier",
+   "tags": [
+    "magnifier",
+    "hanapin",
+    "zoom",
+    "detalye",
+    "review"
+   ]
+  },
+  "animation:mancha": {
+   "name": "Organic blob",
+   "tags": [
+    "blob",
+    "background",
+    "hugis",
+    "liquid"
+   ]
+  },
+  "animation:mancha-liquida": {
+   "name": "Liquid blob wipe",
+   "tags": [
+    "transition",
+    "liquid",
+    "blob",
+    "scene change"
+   ]
+  },
+  "animation:mano-senala": {
+   "name": "Kamay na nakaturo",
+   "tags": [
+    "ituro",
+    "dito",
+    "tingnan",
+    "kamay"
+   ]
+  },
+  "animation:marco-circular": {
+   "name": "Bilog na frame",
+   "tags": [
+    "profile",
+    "litrato",
+    "frame",
+    "avatar"
+   ]
+  },
+  "animation:marco-esquinas": {
+   "name": "Focus corners",
+   "tags": [
+    "frame",
+    "focus",
+    "camera",
+    "sulok"
+   ]
+  },
+  "animation:marco-polaroid": {
+   "name": "Instant photo frame",
+   "tags": [
+    "litrato",
+    "frame",
+    "alaala",
+    "instant photo"
+   ]
+  },
+  "animation:margarita-retro": {
+   "name": "Retro na daisy",
+   "tags": [
+    "bulaklak",
+    "daisy",
+    "retro",
+    "groovy",
+    "y2k"
+   ]
+  },
+  "animation:me-gusta": {
+   "name": "Like",
+   "tags": [
+    "like",
+    "puso",
+    "social media",
+    "heart"
+   ]
+  },
+  "animation:medalla": {
+   "name": "Medalya",
+   "tags": [
+    "medalya",
+    "medal",
+    "panalo",
+    "award",
+    "first place"
+   ]
+  },
+  "animation:megafono": {
+   "name": "Megaphone",
+   "tags": [
+    "anunsyo",
+    "balita",
+    "pansin",
+    "promo"
+   ]
+  },
+  "animation:microfono": {
+   "name": "Mikropono",
+   "tags": [
+    "podcast",
+    "record",
+    "boses",
+    "kanta",
+    "mic"
+   ]
+  },
+  "animation:mira-enfoque": {
+   "name": "Target reticle",
+   "tags": [
+    "target",
+    "focus",
+    "detalye",
+    "zoom",
+    "reticle"
+   ]
+  },
+  "animation:moneda": {
+   "name": "Umiikot na barya",
+   "tags": [
+    "pera",
+    "barya",
+    "bayad",
+    "ipon"
+   ]
+  },
+  "animation:morph-estrella": {
+   "name": "Nagbabagong bituin",
+   "tags": [
+    "hugis",
+    "bituin",
+    "bulaklak",
+    "morph"
+   ]
+  },
+  "animation:murcielago": {
+   "name": "Paniki",
+   "tags": [
+    "halloween",
+    "gabi",
+    "paniki",
+    "katatakutan"
+   ]
+  },
+  "animation:nieve": {
+   "name": "Niyebe",
+   "tags": [
+    "pasko",
+    "niyebe",
+    "winter",
+    "malamig"
+   ]
+  },
+  "animation:nota-adhesiva": {
+   "name": "Sticky note",
+   "tags": [
+    "note",
+    "paalala",
+    "tala",
+    "gawain"
+   ]
+  },
+  "animation:nube-lluvia": {
+   "name": "Ulap na may ulan",
+   "tags": [
+    "ulan",
+    "panahon",
+    "ulap",
+    "tag-ulan"
+   ]
+  },
+  "animation:nube-pensamiento": {
+   "name": "Thought bubble",
+   "tags": [
+    "isip",
+    "ideya",
+    "teksto",
+    "bubble"
+   ]
+  },
+  "animation:nueva-notificacion": {
+   "name": "Bagong notification",
+   "tags": [
+    "notification",
+    "abiso",
+    "mensahe",
+    "app"
+   ]
+  },
+  "animation:ojo-mira": {
+   "name": "Nakatinging mata",
+   "tags": [
+    "mata",
+    "tingnan",
+    "pansin",
+    "detalye"
+   ]
+  },
+  "animation:olas": {
+   "name": "Alon",
+   "tags": [
+    "alon",
+    "dagat",
+    "beach",
+    "tubig",
+    "summer"
+   ]
+  },
+  "animation:onda-liquida": {
+   "name": "Liquid wave",
+   "tags": [
+    "transition",
+    "liquid",
+    "alon",
+    "scene change"
+   ]
+  },
+  "animation:ondas": {
+   "name": "Pulse rings",
+   "tags": [
+    "pulse",
+    "radar",
+    "lokasyon",
+    "live"
+   ]
+  },
+  "animation:palomita": {
+   "name": "Check mark",
+   "tags": [
+    "check",
+    "tama",
+    "tapos na",
+    "ok"
+   ]
+  },
+  "animation:palomitas": {
+   "name": "Popcorn",
+   "tags": [
+    "sine",
+    "pelikula",
+    "popcorn",
+    "movie marathon"
+   ]
+  },
+  "animation:paraguas": {
+   "name": "Payong",
+   "tags": [
+    "ulan",
+    "payong",
+    "tag-ulan",
+    "panahon"
+   ]
+  },
+  "animation:pastel-velas": {
+   "name": "Birthday cake",
+   "tags": [
+    "cake",
+    "kandila",
+    "kaarawan",
+    "party"
+   ]
+  },
+  "animation:perfecto": {
+   "name": "Perpekto!",
+   "tags": [
+    "perfect",
+    "100",
+    "aprubado",
+    "perpekto"
+   ]
+  },
+  "animation:pergamino": {
+   "name": "Scroll banner",
+   "tags": [
+    "title",
+    "banner",
+    "medieval",
+    "anunsyo",
+    "scroll"
+   ]
+  },
+  "animation:persiana": {
+   "name": "Blinds",
+   "tags": [
+    "transition",
+    "blinds",
+    "bars",
+    "scene change"
+   ]
+  },
+  "animation:pesas": {
+   "name": "Dumbbell",
+   "tags": [
+    "gym",
+    "lakas",
+    "ehersisyo",
+    "workout"
+   ]
+  },
+  "animation:petalos-cerezo": {
+   "name": "Cherry blossom petals",
+   "tags": [
+    "spring",
+    "sakura",
+    "bulaklak",
+    "romantic"
+   ]
+  },
+  "animation:pizza": {
+   "name": "Slice ng pizza",
+   "tags": [
+    "pizza",
+    "pagkain",
+    "pizza night",
+    "delivery"
+   ]
+  },
+  "animation:podio": {
+   "name": "Podium",
+   "tags": [
+    "panalo",
+    "first place",
+    "paligsahan",
+    "award"
+   ]
+  },
+  "animation:porcentaje-oferta": {
+   "name": "Percent off",
+   "tags": [
+    "discount",
+    "sale",
+    "bawas",
+    "promo",
+    "porsyento"
+   ]
+  },
+  "animation:pulso-cardiaco": {
+   "name": "Tibok ng puso",
+   "tags": [
+    "kalusugan",
+    "puso",
+    "ehersisyo",
+    "cardio"
+   ]
+  },
+  "animation:puntos-onda": {
+   "name": "Alon ng tuldok",
+   "tags": [
+    "tuldok",
+    "dots",
+    "background",
+    "pattern",
+    "alon"
+   ]
+  },
+  "animation:rayos-fondo": {
+   "name": "Umiikot na sinag",
+   "tags": [
+    "sinag",
+    "background",
+    "sale",
+    "retro",
+    "produkto"
+   ]
+  },
+  "animation:reacciones-vivo": {
+   "name": "Live reactions",
+   "tags": [
+    "reactions",
+    "live",
+    "like",
+    "puso"
+   ]
+  },
+  "animation:recuadro-a-mano": {
+   "name": "Hand-drawn na kahon",
+   "tags": [
+    "kahon",
+    "highlight",
+    "frame",
+    "doodle",
+    "ituro"
+   ]
+  },
+  "animation:refresco": {
+   "name": "Soft drink na may straw",
+   "tags": [
+    "inumin",
+    "soft drink",
+    "summer",
+    "party"
+   ]
+  },
+  "animation:regalo-sorpresa": {
+   "name": "Sorpresang regalo",
+   "tags": [
+    "regalo",
+    "sorpresa",
+    "kaarawan",
+    "pasko",
+    "gift"
+   ]
+  },
+  "animation:reloj": {
+   "name": "Orasan",
+   "tags": [
+    "oras",
+    "orasan",
+    "schedule",
+    "on time"
+   ]
+  },
+  "animation:reloj-arena": {
+   "name": "Hourglass",
+   "tags": [
+    "hintay",
+    "oras",
+    "loading",
+    "pasensya"
+   ]
+  },
+  "animation:reloj-medianoche": {
+   "name": "Hatinggabi na countdown",
+   "tags": [
+    "bagong taon",
+    "hatinggabi",
+    "countdown",
+    "party"
+   ]
+  },
+  "animation:republicar": {
+   "name": "Repost",
+   "tags": [
+    "repost",
+    "share",
+    "ulitin",
+    "social media"
+   ]
+  },
+  "animation:resaltador": {
+   "name": "Highlighter",
+   "tags": [
+    "highlighter",
+    "highlight",
+    "teksto",
+    "pag-aaral"
+   ]
+  },
+  "animation:salpicadura": {
+   "name": "Splash",
+   "tags": [
+    "splash",
+    "pintura",
+    "hugis",
+    "patak"
+   ]
+  },
+  "animation:sandia": {
+   "name": "Pakwan",
+   "tags": [
+    "pakwan",
+    "prutas",
+    "summer",
+    "presko"
+   ]
+  },
+  "animation:scroll-abajo": {
+   "name": "Scroll down",
+   "tags": [
+    "scroll",
+    "pababa",
+    "swipe",
+    "marami pa"
+   ]
+  },
+  "animation:seguir-persona": {
+   "name": "Bagong follower",
+   "tags": [
+    "follow",
+    "follower",
+    "add friend",
+    "kaibigan"
+   ]
+  },
+  "animation:sello-oferta": {
+   "name": "Sale badge",
+   "tags": [
+    "sale",
+    "discount",
+    "benta",
+    "promo"
+   ]
+  },
+  "animation:sello-ondulado": {
+   "name": "Wavy na badge",
+   "tags": [
+    "badge",
+    "bago",
+    "sale",
+    "retro"
+   ]
+  },
+  "animation:serpentinas": {
+   "name": "Streamers",
+   "tags": [
+    "streamers",
+    "party",
+    "kaarawan",
+    "selebrasyon"
+   ]
+  },
+  "animation:silbato": {
+   "name": "Pito",
+   "tags": [
+    "referee",
+    "coach",
+    "sports",
+    "foul",
+    "pito"
+   ]
+  },
+  "animation:sol": {
+   "name": "Umiikot na araw",
+   "tags": [
+    "araw",
+    "sun",
+    "summer",
+    "beach"
+   ]
+  },
+  "animation:sol-nube": {
+   "name": "Araw sa ulap",
+   "tags": [
+    "araw",
+    "maulap",
+    "panahon",
+    "magandang araw"
+   ]
+  },
+  "animation:subrayado": {
+   "name": "Hand-drawn na underline",
+   "tags": [
+    "underline",
+    "highlight",
+    "teksto",
+    "salungguhit"
+   ]
+  },
+  "animation:subrayado-ondulado": {
+   "name": "Wavy na underline",
+   "tags": [
+    "underline",
+    "wavy",
+    "highlight",
+    "doodle"
+   ]
+  },
+  "animation:tachado-garabato": {
+   "name": "Scribble out",
+   "tags": [
+    "guhitan",
+    "mali",
+    "hindi",
+    "doodle",
+    "scribble"
+   ]
+  },
+  "animation:tarjeta-aviso": {
+   "name": "Notification card",
+   "tags": [
+    "abiso",
+    "notification",
+    "mensahe",
+    "banner"
+   ]
+  },
+  "animation:tarjeta-pago": {
+   "name": "Payment card",
+   "tags": [
+    "bayad",
+    "card",
+    "bili",
+    "tindahan"
+   ]
+  },
+  "animation:tazon-fideos": {
+   "name": "Mangkok ng noodles",
+   "tags": [
+    "noodles",
+    "ramen",
+    "sabaw",
+    "hapunan",
+    "pansit"
+   ]
+  },
+  "animation:telefono": {
+   "name": "Tawag",
+   "tags": [
+    "tawag",
+    "contact",
+    "telepono",
+    "order"
+   ]
+  },
+  "animation:tercio-inferior": {
+   "name": "Lower third",
+   "tags": [
+    "pangalan",
+    "title",
+    "interview",
+    "presentation"
+   ]
+  },
+  "animation:termometro-calor": {
+   "name": "Sobrang init",
+   "tags": [
+    "init",
+    "summer",
+    "temperatura",
+    "araw"
+   ]
+  },
+  "animation:tienda": {
+   "name": "Tindahan",
+   "tags": [
+    "tindahan",
+    "negosyo",
+    "bukas",
+    "shop"
+   ]
+  },
+  "animation:toca-aqui": {
+   "name": "I-tap dito",
+   "tags": [
+    "tap",
+    "click",
+    "link",
+    "button"
+   ]
+  },
+  "animation:tormenta": {
+   "name": "Bagyo",
+   "tags": [
+    "bagyo",
+    "kidlat",
+    "ulan",
+    "panahon"
+   ]
+  },
+  "animation:trofeo": {
+   "name": "Tropeo",
+   "tags": [
+    "tropeo",
+    "trophy",
+    "panalo",
+    "award",
+    "paligsahan"
+   ]
+  },
+  "animation:ubicacion": {
+   "name": "Location pin",
+   "tags": [
+    "lokasyon",
+    "mapa",
+    "address",
+    "bisitahin kami"
+   ]
+  },
+  "animation:varita-magica": {
+   "name": "Magic wand",
+   "tags": [
+    "magic wand",
+    "mahika",
+    "wish",
+    "sorpresa",
+    "kislap"
+   ]
+  },
+  "animation:verificado": {
+   "name": "Verified",
+   "tags": [
+    "verified",
+    "official",
+    "aprubado",
+    "badge"
+   ]
+  },
+  "animation:viento": {
+   "name": "Hangin",
+   "tags": [
+    "hangin",
+    "simoy",
+    "malamig",
+    "wind"
+   ]
+  },
+  "template:album-scrapbook": {
+   "name": "Scrapbook na album",
+   "tags": [
+    "album",
+    "scrapbook",
+    "alaala",
+    "magkasintahan"
+   ]
+  },
+  "template:anio-nuevo-cuenta-regresiva": {
+   "name": "Bagong Taon na countdown",
+   "tags": [
+    "bagong taon",
+    "countdown",
+    "2027",
+    "paputok",
+    "party"
+   ]
+  },
+  "template:aniversario-pareja": {
+   "name": "Anibersaryo ng magkasintahan",
+   "tags": [
+    "anibersaryo",
+    "magkasintahan",
+    "pag-ibig",
+    "couple",
+    "taon na magkasama"
+   ]
+  },
+  "template:antes-despues-deslizador": {
+   "name": "Before at after",
+   "tags": [
+    "before after",
+    "dati",
+    "ngayon",
+    "paghahambing",
+    "pagbabago"
+   ]
+  },
+  "template:anuncio-embarazo": {
+   "name": "Pregnancy announcement",
+   "tags": [
+    "buntis",
+    "baby",
+    "anunsyo",
+    "pamilya",
+    "magiging tatlo"
+   ]
+  },
+  "template:apertura-pelicula": {
+   "name": "Pambungad ng pelikula",
+   "tags": [
+    "pelikula",
+    "sine",
+    "pamilya",
+    "title"
+   ]
+  },
+  "template:baby-shower": {
+   "name": "Baby shower",
+   "tags": [
+    "baby shower",
+    "baby",
+    "imbitasyon",
+    "party",
+    "buntis"
+   ]
+  },
+  "template:barberia-antes-despues": {
+   "name": "Barberya: before at after",
+   "tags": [
+    "barberya",
+    "gupit",
+    "balbas",
+    "before after",
+    "fade"
+   ]
+  },
+  "template:black-friday-ofertas": {
+   "name": "Black Friday deals",
+   "tags": [
+    "black friday",
+    "sale",
+    "discount",
+    "tindahan",
+    "nobyembre"
+   ]
+  },
+  "template:black-friday-ultimas-horas": {
+   "name": "Black Friday: huling oras",
+   "tags": [
+    "black friday",
+    "huling oras",
+    "sale",
+    "fashion",
+    "luxury"
+   ]
+  },
+  "template:blanco-y-negro-a-color": {
+   "name": "Black and white hanggang may kulay",
+   "tags": [
+    "black and white",
+    "kulay",
+    "magkasintahan",
+    "reveal",
+    "pag-ibig"
+   ]
+  },
+  "template:boda-save-the-date": {
+   "name": "Save the date sa kasal",
+   "tags": [
+    "kasal",
+    "save the date",
+    "imbitasyon",
+    "wedding",
+    "ikakasal"
+   ]
+  },
+  "template:cafe-nuevo-en-la-carta": {
+   "name": "Bago sa menu",
+   "tags": [
+    "café",
+    "kape",
+    "bago",
+    "menu",
+    "inumin"
+   ]
+  },
+  "template:camara-lenta-con-letra": {
+   "name": "Slow motion na may lyrics",
+   "tags": [
+    "slow motion",
+    "lyrics",
+    "kanta",
+    "magkasintahan",
+    "cinematic"
+   ]
+  },
+  "template:cancion-criolla": {
+   "name": "Gabi ng live music",
+   "tags": [
+    "live music",
+    "konsiyerto",
+    "harana",
+    "gabi",
+    "vintage"
+   ]
+  },
+  "template:catrina-dia-de-muertos": {
+   "name": "Skull makeup",
+   "tags": [
+    "catrina",
+    "día de muertos",
+    "makeup",
+    "bungo",
+    "bulaklak"
+   ]
+  },
+  "template:checklist-que-se-marca": {
+   "name": "Checklist na nachecheck-an",
+   "tags": [
+    "checklist",
+    "listahan",
+    "to do",
+    "biyahe",
+    "organisado"
+   ]
+  },
+  "template:cierre-negocio": {
+   "name": "Pangwakas ng negosyo",
+   "tags": [
+    "negosyo",
+    "contact",
+    "outro",
+    "delivery"
+   ]
+  },
+  "template:cierre-parte-2": {
+   "name": "Part 2 sa profile ko",
+   "tags": [
+    "part 2",
+    "itutuloy",
+    "outro",
+    "profile",
+    "follow"
+   ]
+  },
+  "template:cierre-siguenos": {
+   "name": "Pangwakas: i-follow kami",
+   "tags": [
+    "outro",
+    "follow",
+    "social media",
+    "subscribe"
+   ]
+  },
+  "template:cita-minimalista": {
+   "name": "Minimal na quote",
+   "tags": [
+    "quote",
+    "kasabihan",
+    "minimal",
+    "elegante",
+    "pagninilay"
+   ]
+  },
+  "template:clip-de-podcast": {
+   "name": "Podcast clip",
+   "tags": [
+    "podcast",
+    "subtitle",
+    "interview",
+    "clip",
+    "usapan"
+   ]
+  },
+  "template:collage-2x2": {
+   "name": "Collage 2×2",
+   "tags": [
+    "collage",
+    "grid",
+    "weekend",
+    "litrato"
+   ]
+  },
+  "template:concierto-festival": {
+   "name": "Gabi ng konsiyerto",
+   "tags": [
+    "konsiyerto",
+    "festival",
+    "musika",
+    "party",
+    "live"
+   ]
+  },
+  "template:cosas-que-no-sabias": {
+   "name": "Mga bagay na hindi mo alam",
+   "tags": [
+    "fun facts",
+    "alam mo ba",
+    "trivia",
+    "educational"
+   ]
+  },
+  "template:cuenta-3-2-1": {
+   "name": "Countdown 3-2-1",
+   "tags": [
+    "countdown",
+    "launch",
+    "sorpresa",
+    "3-2-1"
+   ]
+  },
+  "template:cuenta-regresiva-10": {
+   "name": "10 segundong countdown",
+   "tags": [
+    "countdown",
+    "10 segundo",
+    "launch",
+    "premiere",
+    "party"
+   ]
+  },
+  "template:cumple-sorpresa": {
+   "name": "Surprise party",
+   "tags": [
+    "sorpresa",
+    "kaarawan",
+    "party",
+    "barkada",
+    "selebrasyon"
+   ]
+  },
+  "template:cupon-de-descuento": {
+   "name": "Discount coupon",
+   "tags": [
+    "coupon",
+    "discount",
+    "code",
+    "sale",
+    "regalo"
+   ]
+  },
+  "template:cyber-monday": {
+   "name": "Cyber Monday",
+   "tags": [
+    "cyber monday",
+    "sale",
+    "online shop",
+    "discount",
+    "free shipping"
+   ]
+  },
+  "template:delivery-pide-por-whatsapp": {
+   "name": "Delivery: umorder sa chat",
+   "tags": [
+    "delivery",
+    "chat",
+    "mensahe",
+    "order",
+    "pagkain"
+   ]
+  },
+  "template:dia-de-la-amistad": {
+   "name": "Araw ng pagkakaibigan",
+   "tags": [
+    "pagkakaibigan",
+    "valentine's",
+    "barkada",
+    "pebrero 14",
+    "photobooth"
+   ]
+  },
+  "template:dia-de-playa": {
+   "name": "Beach mode",
+   "tags": [
+    "beach",
+    "dagat",
+    "summer",
+    "bakasyon",
+    "paglubog ng araw"
+   ]
+  },
+  "template:dia-del-padre": {
+   "name": "Maligayang Araw ng mga Ama",
+   "tags": [
+    "father's day",
+    "tatay",
+    "papa",
+    "pamilya",
+    "hunyo"
+   ]
+  },
+  "template:diario-de-comida": {
+   "name": "Kinain ko ngayong araw",
+   "tags": [
+    "pagkain",
+    "what i eat",
+    "food diary",
+    "food",
+    "recipe"
+   ]
+  },
+  "template:domingo-en-familia": {
+   "name": "Linggo kasama ang pamilya",
+   "tags": [
+    "pamilya",
+    "linggo",
+    "lolo't lola",
+    "tahanan",
+    "alaala"
+   ]
+  },
+  "template:duotono-pop": {
+   "name": "Pop duotone",
+   "tags": [
+    "duotone",
+    "pop art",
+    "kulay",
+    "portrait",
+    "trend"
+   ]
+  },
+  "template:edicion-callejera": {
+   "name": "Street edit",
+   "tags": [
+    "skate",
+    "kalye",
+    "urban",
+    "crew",
+    "lungsod"
+   ]
+  },
+  "template:encuesta-cual-prefieres": {
+   "name": "Alin ang mas gusto mo?",
+   "tags": [
+    "poll",
+    "alin ang gusto mo",
+    "this or that",
+    "mag-comment",
+    "engagement"
+   ]
+  },
+  "template:entrevista-con-rotulo": {
+   "name": "Interview na may lower third",
+   "tags": [
+    "interview",
+    "lower third",
+    "pangalan",
+    "testimonial",
+    "balita"
+   ]
+  },
+  "template:espejo-caleidoscopio": {
+   "name": "Salamin na kaleidoscope",
+   "tags": [
+    "mirror",
+    "kaleidoscope",
+    "effect",
+    "psychedelic",
+    "trend"
+   ]
+  },
+  "template:estamos-contratando": {
+   "name": "Hiring kami!",
+   "tags": [
+    "hiring",
+    "trabaho",
+    "bakante",
+    "job opening",
+    "aplikante"
+   ]
+  },
+  "template:este-o-este": {
+   "name": "Ito o ito?",
+   "tags": [
+    "this or that",
+    "pumili",
+    "poll",
+    "magkasintahan",
+    "masaya"
+   ]
+  },
+  "template:estrobo-y-temblor": {
+   "name": "Strobe at shake",
+   "tags": [
+    "strobe",
+    "shake",
+    "beat",
+    "party",
+    "enerhiya"
+   ]
+  },
+  "template:estudia-conmigo": {
+   "name": "Study with me",
+   "tags": [
+    "study with me",
+    "pag-aaral",
+    "pomodoro",
+    "kolehiyo",
+    "productivity"
+   ]
+  },
+  "template:evento-taller-entrada": {
+   "name": "Event o workshop",
+   "tags": [
+    "event",
+    "workshop",
+    "kurso",
+    "petsa",
+    "registration"
+   ]
+  },
+  "template:faltan-dias": {
+   "name": "X araw na lang",
+   "tags": [
+    "countdown",
+    "araw na lang",
+    "event",
+    "launch"
+   ]
+  },
+  "template:feliz-cumple": {
+   "name": "Maligayang Kaarawan",
+   "tags": [
+    "kaarawan",
+    "birthday",
+    "party",
+    "pamilya"
+   ]
+  },
+  "template:feliz-navidad-luces": {
+   "name": "Maligayang Pasko na may ilaw",
+   "tags": [
+    "pasko",
+    "christmas lights",
+    "pagbati",
+    "card",
+    "disyembre"
+   ]
+  },
+  "template:fiestas-patrias-peru": {
+   "name": "Araw ng Kalayaan",
+   "tags": [
+    "araw ng kalayaan",
+    "pambansang araw",
+    "bandila",
+    "independence day",
+    "pagmamalaki"
+   ]
+  },
+  "template:frase-del-dia": {
+   "name": "Quote ng araw",
+   "tags": [
+    "quote",
+    "motivation",
+    "kasabihan",
+    "inspirasyon"
+   ]
+  },
+  "template:gancho-espera-al-final": {
+   "name": "Hintayin ang dulo",
+   "tags": [
+    "hook",
+    "wait for the end",
+    "suspense",
+    "tiktok",
+    "viral"
+   ]
+  },
+  "template:gimnasio-matricula-gratis": {
+   "name": "Gym: promo ng buwan",
+   "tags": [
+    "gym",
+    "membership",
+    "promo",
+    "fitness"
+   ]
+  },
+  "template:glitch-neon": {
+   "name": "Neon glitch",
+   "tags": [
+    "glitch",
+    "neon",
+    "party",
+    "gabi",
+    "konsiyerto"
+   ]
+  },
+  "template:gran-inauguracion": {
+   "name": "Grand opening",
+   "tags": [
+    "grand opening",
+    "pagbubukas",
+    "bagong tindahan",
+    "bukas na",
+    "event"
+   ]
+  },
+  "template:grwm-arreglate-conmigo": {
+   "name": "GRWM: get ready with me",
+   "tags": [
+    "grwm",
+    "makeup",
+    "get ready",
+    "beauty",
+    "routine"
+   ]
+  },
+  "template:h-cele-15-16": {
+   "name": "Ika-15 o Sweet 16",
+   "tags": [
+    "15 taon",
+    "sweet 16",
+    "debut",
+    "party",
+    "prinsesa"
+   ]
+  },
+  "template:h-cele-aniversario": {
+   "name": "Maligayang anibersaryo",
+   "tags": [
+    "anibersaryo",
+    "magkasintahan",
+    "pag-ibig",
+    "taon na magkasama",
+    "puso"
+   ]
+  },
+  "template:h-cele-baby-shower": {
+   "name": "Baby shower",
+   "tags": [
+    "baby shower",
+    "baby",
+    "imbitasyon",
+    "buntis",
+    "party"
+   ]
+  },
+  "template:h-cele-bautizo": {
+   "name": "Binyag",
+   "tags": [
+    "binyag",
+    "baby",
+    "simbahan",
+    "pamilya",
+    "selebrasyon"
+   ]
+  },
+  "template:h-cele-bienvenida-bebe": {
+   "name": "Welcome, baby",
+   "tags": [
+    "kapanganakan",
+    "baby",
+    "welcome",
+    "newborn",
+    "pamilya"
+   ]
+  },
+  "template:h-cele-boda-invitacion": {
+   "name": "Imbitasyon sa kasal",
+   "tags": [
+    "kasal",
+    "imbitasyon",
+    "save the date",
+    "wedding",
+    "elegante"
+   ]
+  },
+  "template:h-cele-compromiso": {
+   "name": "Engaged na kami",
+   "tags": [
+    "engagement",
+    "proposal",
+    "singsing",
+    "magkasintahan",
+    "kasal"
+   ]
+  },
+  "template:h-cele-cumple": {
+   "name": "Maligayang Kaarawan",
+   "tags": [
+    "kaarawan",
+    "birthday",
+    "lobo",
+    "confetti",
+    "pagbati"
+   ]
+  },
+  "template:h-cele-despedida": {
+   "name": "Pamamaalam",
+   "tags": [
+    "despedida",
+    "farewell",
+    "paalam",
+    "barkada",
+    "mami-miss ka namin"
+   ]
+  },
+  "template:h-cele-fiesta-invitacion": {
+   "name": "Imbitasyon sa party",
+   "tags": [
+    "party",
+    "imbitasyon",
+    "event",
+    "gabi",
+    "handaan"
+   ]
+  },
+  "template:h-cele-graduacion": {
+   "name": "Graduation",
+   "tags": [
+    "graduation",
+    "toga",
+    "tagumpay",
+    "kolehiyo",
+    "paaralan"
+   ]
+  },
+  "template:h-cele-jubilacion": {
+   "name": "Maligayang pagreretiro",
+   "tags": [
+    "retirement",
+    "pagreretiro",
+    "karera",
+    "salamat",
+    "pagpupugay"
+   ]
+  },
+  "template:h-cele-logro": {
+   "name": "Nagawa natin!",
+   "tags": [
+    "tagumpay",
+    "layunin",
+    "tropeo",
+    "success",
+    "selebrasyon"
+   ]
+  },
+  "template:h-cele-premios": {
+   "name": "Awards night",
+   "tags": [
+    "awards",
+    "panalo",
+    "parangal",
+    "gala",
+    "tropeo"
+   ]
+  },
+  "template:h-cele-reunion": {
+   "name": "Family reunion",
+   "tags": [
+    "reunion",
+    "pamilya",
+    "imbitasyon",
+    "salu-salo",
+    "tanghalian"
+   ]
+  },
+  "template:h-cierre-gracias": {
+   "name": "Salamat sa panonood",
+   "tags": [
+    "salamat",
+    "katapusan",
+    "social media",
+    "outro",
+    "paalam"
+   ]
+  },
+  "template:h-cierre-like": {
+   "name": "I-like mo na",
+   "tags": [
+    "like",
+    "thumbs up",
+    "outro",
+    "engagement"
+   ]
+  },
+  "template:h-cierre-proximo": {
+   "name": "Sa susunod na video",
+   "tags": [
+    "susunod na video",
+    "teaser",
+    "outro",
+    "next",
+    "episode"
+   ]
+  },
+  "template:h-cierre-redes": {
+   "name": "I-follow ako",
+   "tags": [
+    "social media",
+    "follow",
+    "username",
+    "outro",
+    "contact"
+   ]
+  },
+  "template:h-cierre-suscribete-campana": {
+   "name": "Mag-subscribe at i-ring ang bell",
+   "tags": [
+    "subscribe",
+    "bell",
+    "button",
+    "youtube",
+    "outro"
+   ]
+  },
+  "template:h-cuenta-10-neon": {
+   "name": "Neon na countdown 10",
+   "tags": [
+    "countdown",
+    "neon",
+    "10 segundo",
+    "simula",
+    "event"
+   ]
+  },
+  "template:h-cuenta-5-cine": {
+   "name": "Lumang film countdown",
+   "tags": [
+    "countdown",
+    "sine",
+    "pelikula",
+    "vintage",
+    "film leader"
+   ]
+  },
+  "template:h-cuenta-anio-nuevo": {
+   "name": "Bagong Taon na countdown",
+   "tags": [
+    "bagong taon",
+    "countdown",
+    "paputok",
+    "party",
+    "hatinggabi"
+   ]
+  },
+  "template:h-cuenta-deportes": {
+   "name": "Countdown sa laban",
+   "tags": [
+    "laban",
+    "football",
+    "countdown",
+    "sports",
+    "scoreboard"
+   ]
+  },
+  "template:h-cuenta-dias-evento": {
+   "name": "Ilang araw na lang",
+   "tags": [
+    "araw na lang",
+    "event",
+    "countdown",
+    "kasal",
+    "biyahe"
+   ]
+  },
+  "template:h-cuenta-directo": {
+   "name": "Magsisimula na",
+   "tags": [
+    "live",
+    "stream",
+    "starting soon",
+    "countdown"
+   ]
+  },
+  "template:h-cuenta-lanzamiento": {
+   "name": "Countdown sa launch",
+   "tags": [
+    "launch",
+    "produkto",
+    "3 2 1",
+    "countdown",
+    "available na"
+   ]
+  },
+  "template:h-cuenta-minimal": {
+   "name": "Minimal na countdown",
+   "tags": [
+    "countdown",
+    "minimal",
+    "malinis",
+    "presentation",
+    "simula"
+   ]
+  },
+  "template:h-fecha-accion-gracias": {
+   "name": "Thanksgiving",
+   "tags": [
+    "thanksgiving",
+    "pasasalamat",
+    "autumn",
+    "pamilya"
+   ]
+  },
+  "template:h-fecha-anio-nuevo": {
+   "name": "Manigong Bagong Taon",
+   "tags": [
+    "bagong taon",
+    "new year",
+    "paputok",
+    "toast",
+    "enero"
+   ]
+  },
+  "template:h-fecha-anio-nuevo-lunar": {
+   "name": "Lunar New Year",
+   "tags": [
+    "lunar new year",
+    "chinese new year",
+    "parol",
+    "pula",
+    "ginto"
+   ]
+  },
+  "template:h-fecha-dia-madre": {
+   "name": "Araw ng mga Ina",
+   "tags": [
+    "mother's day",
+    "nanay",
+    "bulaklak",
+    "pagmamahal",
+    "pamilya"
+   ]
+  },
+  "template:h-fecha-dia-maestro": {
+   "name": "Araw ng mga Guro",
+   "tags": [
+    "teachers' day",
+    "guro",
+    "titser",
+    "salamat",
+    "paaralan"
+   ]
+  },
+  "template:h-fecha-dia-mujer": {
+   "name": "Araw ng Kababaihan",
+   "tags": [
+    "women's day",
+    "marso 8",
+    "kababaihan",
+    "pagkakapantay",
+    "inspirasyon"
+   ]
+  },
+  "template:h-fecha-dia-padre": {
+   "name": "Araw ng mga Ama",
+   "tags": [
+    "father's day",
+    "tatay",
+    "pamilya",
+    "bayani",
+    "hunyo"
+   ]
+  },
+  "template:h-fecha-dia-tierra": {
+   "name": "Araw ng Daigdig",
+   "tags": [
+    "earth day",
+    "planeta",
+    "kalikasan",
+    "kapaligiran",
+    "green"
+   ]
+  },
+  "template:h-fecha-diwali": {
+   "name": "Maligayang Diwali",
+   "tags": [
+    "diwali",
+    "festival of lights",
+    "lampara",
+    "diya",
+    "selebrasyon"
+   ]
+  },
+  "template:h-fecha-eid": {
+   "name": "Eid Mubarak",
+   "tags": [
+    "eid",
+    "eid mubarak",
+    "pagdiriwang",
+    "pamilya",
+    "selebrasyon"
+   ]
+  },
+  "template:h-fecha-halloween": {
+   "name": "Halloween",
+   "tags": [
+    "halloween",
+    "katatakutan",
+    "kalabasa",
+    "costume",
+    "oktubre"
+   ]
+  },
+  "template:h-fecha-invierno": {
+   "name": "Winter",
+   "tags": [
+    "winter",
+    "taglamig",
+    "niyebe",
+    "malamig",
+    "cozy"
+   ]
+  },
+  "template:h-fecha-navidad": {
+   "name": "Maligayang Pasko",
+   "tags": [
+    "pasko",
+    "christmas",
+    "niyebe",
+    "pamilya",
+    "disyembre"
+   ]
+  },
+  "template:h-fecha-otono": {
+   "name": "Hello autumn",
+   "tags": [
+    "autumn",
+    "taglagas",
+    "dahon",
+    "cozy",
+    "kape"
+   ]
+  },
+  "template:h-fecha-pascua": {
+   "name": "Easter",
+   "tags": [
+    "easter",
+    "pasko ng pagkabuhay",
+    "itlog",
+    "spring",
+    "kuneho"
+   ]
+  },
+  "template:h-fecha-primavera": {
+   "name": "Spring",
+   "tags": [
+    "spring",
+    "tagsibol",
+    "bulaklak",
+    "makulay",
+    "kalikasan"
+   ]
+  },
+  "template:h-fecha-ramadan": {
+   "name": "Ramadan Kareem",
+   "tags": [
+    "ramadan",
+    "ramadan kareem",
+    "buwan",
+    "parol",
+    "iftar"
+   ]
+  },
+  "template:h-fecha-regreso-clases": {
+   "name": "Balik-eskwela",
+   "tags": [
+    "balik-eskwela",
+    "back to school",
+    "paaralan",
+    "school supplies",
+    "estudyante"
+   ]
+  },
+  "template:h-fecha-san-valentin": {
+   "name": "Araw ng mga Puso",
+   "tags": [
+    "valentine's",
+    "pag-ibig",
+    "pebrero 14",
+    "magkasintahan",
+    "puso"
+   ]
+  },
+  "template:h-fecha-verano": {
+   "name": "Summer na!",
+   "tags": [
+    "summer",
+    "tag-init",
+    "beach",
+    "araw",
+    "bakasyon"
+   ]
+  },
+  "template:h-final-1-video": {
+   "name": "End screen: 1 video",
+   "tags": [
+    "end screen",
+    "youtube",
+    "susunod na video",
+    "subscribe"
+   ]
+  },
+  "template:h-final-2-videos": {
+   "name": "End screen: 2 video",
+   "tags": [
+    "end screen",
+    "youtube",
+    "suggested videos",
+    "subscribe"
+   ]
+  },
+  "template:h-final-cocina": {
+   "name": "End screen ng luto",
+   "tags": [
+    "luto",
+    "recipe",
+    "end screen",
+    "susunod na recipe",
+    "pagkain"
+   ]
+  },
+  "template:h-final-colorida": {
+   "name": "Makulay na end screen",
+   "tags": [
+    "end screen",
+    "makulay",
+    "masaya",
+    "youtube",
+    "pambata"
+   ]
+  },
+  "template:h-final-curso": {
+   "name": "End screen ng kurso",
+   "tags": [
+    "kurso",
+    "aralin",
+    "edukasyon",
+    "end screen",
+    "tutorial"
+   ]
+  },
+  "template:h-final-familia": {
+   "name": "Pangwakas ng pamilya",
+   "tags": [
+    "pamilya",
+    "salamat",
+    "outro",
+    "alaala",
+    "litrato"
+   ]
+  },
+  "template:h-final-gaming": {
+   "name": "Gaming na end screen",
+   "tags": [
+    "end screen",
+    "gaming",
+    "gamer",
+    "youtube",
+    "stream"
+   ]
+  },
+  "template:h-final-minimal": {
+   "name": "Minimal na end screen",
+   "tags": [
+    "end screen",
+    "minimal",
+    "malinis",
+    "youtube",
+    "elegante"
+   ]
+  },
+  "template:h-final-negocio": {
+   "name": "End screen ng negosyo",
+   "tags": [
+    "negosyo",
+    "contact",
+    "address",
+    "website",
+    "outro"
+   ]
+  },
+  "template:h-final-noticias": {
+   "name": "End screen ng balita",
+   "tags": [
+    "balita",
+    "news",
+    "end screen",
+    "headline"
+   ]
+  },
+  "template:h-final-oscura": {
+   "name": "Madilim na end screen",
+   "tags": [
+    "end screen",
+    "neon",
+    "dark",
+    "youtube",
+    "gaming"
+   ]
+  },
+  "template:h-final-papel": {
+   "name": "Paper na end screen",
+   "tags": [
+    "papel",
+    "craft",
+    "end screen",
+    "tape",
+    "creative"
+   ]
+  },
+  "template:h-final-podcast": {
+   "name": "End screen ng podcast",
+   "tags": [
+    "podcast",
+    "susunod na episode",
+    "end screen",
+    "audio"
+   ]
+  },
+  "template:h-final-retro": {
+   "name": "Retro TV na end screen",
+   "tags": [
+    "retro",
+    "telebisyon",
+    "vintage",
+    "end screen",
+    "80s"
+   ]
+  },
+  "template:h-final-viajes": {
+   "name": "End screen ng biyahe",
+   "tags": [
+    "biyahe",
+    "destinasyon",
+    "end screen",
+    "mapa",
+    "adventure"
+   ]
+  },
+  "template:h-intro-barras-diagonales": {
+   "name": "Intro na diagonal bars",
+   "tags": [
+    "intro",
+    "youtube",
+    "channel",
+    "logo",
+    "bars"
+   ]
+  },
+  "template:h-intro-boda": {
+   "name": "Intro ng kasal",
+   "tags": [
+    "kasal",
+    "wedding",
+    "ikakasal",
+    "intro",
+    "romantic"
+   ]
+  },
+  "template:h-intro-cinematica-oscura": {
+   "name": "Cinematic na intro",
+   "tags": [
+    "cinematic",
+    "pelikula",
+    "intro",
+    "dramatic",
+    "trailer"
+   ]
+  },
+  "template:h-intro-cocina": {
+   "name": "Intro ng cooking channel",
+   "tags": [
+    "luto",
+    "recipe",
+    "pagkain",
+    "intro",
+    "chef"
+   ]
+  },
+  "template:h-intro-colorida-formas": {
+   "name": "Intro na makukulay na hugis",
+   "tags": [
+    "makulay",
+    "hugis",
+    "masaya",
+    "intro",
+    "shapes"
+   ]
+  },
+  "template:h-intro-corporativa": {
+   "name": "Corporate na pambungad",
+   "tags": [
+    "corporate",
+    "kompanya",
+    "negosyo",
+    "presentation",
+    "propesyonal"
+   ]
+  },
+  "template:h-intro-deportes": {
+   "name": "Sports na intro",
+   "tags": [
+    "sports",
+    "football",
+    "athletics",
+    "intro",
+    "team"
+   ]
+  },
+  "template:h-intro-documental": {
+   "name": "Pambungad ng dokumentaryo",
+   "tags": [
+    "dokumentaryo",
+    "kasaysayan",
+    "seryoso",
+    "intro",
+    "kalikasan"
+   ]
+  },
+  "template:h-intro-elegante-oro": {
+   "name": "Elegante na gold intro",
+   "tags": [
+    "elegante",
+    "gold",
+    "ginto",
+    "luxury",
+    "brand"
+   ]
+  },
+  "template:h-intro-fitness": {
+   "name": "Fitness na intro",
+   "tags": [
+    "fitness",
+    "gym",
+    "workout",
+    "intro",
+    "motivation"
+   ]
+  },
+  "template:h-intro-gaming-neon": {
+   "name": "Neon gaming intro",
+   "tags": [
+    "gaming",
+    "gamer",
+    "neon",
+    "intro",
+    "stream"
+   ]
+  },
+  "template:h-intro-glitch": {
+   "name": "Glitch na intro",
+   "tags": [
+    "glitch",
+    "digital",
+    "intro",
+    "gaming",
+    "rgb"
+   ]
+  },
+  "template:h-intro-logo-destello": {
+   "name": "Logo reveal na may flare",
+   "tags": [
+    "logo",
+    "reveal",
+    "flare",
+    "intro",
+    "brand"
+   ]
+  },
+  "template:h-intro-minimal-linea": {
+   "name": "Minimal na line intro",
+   "tags": [
+    "minimal",
+    "malinis",
+    "intro",
+    "elegante",
+    "puti"
+   ]
+  },
+  "template:h-intro-musica": {
+   "name": "Intro ng music channel",
+   "tags": [
+    "musika",
+    "artist",
+    "single",
+    "intro",
+    "equalizer"
+   ]
+  },
+  "template:h-intro-ninos": {
+   "name": "Pambatang intro",
+   "tags": [
+    "bata",
+    "pambata",
+    "makulay",
+    "intro",
+    "educational"
+   ]
+  },
+  "template:h-intro-noticias": {
+   "name": "Pambungad ng balita",
+   "tags": [
+    "balita",
+    "news",
+    "newscast",
+    "intro",
+    "breaking news"
+   ]
+  },
+  "template:h-intro-papel": {
+   "name": "Paper cut na intro",
+   "tags": [
+    "papel",
+    "paper cut",
+    "craft",
+    "intro",
+    "pambata"
+   ]
+  },
+  "template:h-intro-podcast-ondas": {
+   "name": "Podcast intro na may wave",
+   "tags": [
+    "podcast",
+    "audio",
+    "interview",
+    "intro",
+    "sound wave"
+   ]
+  },
+  "template:h-intro-pop-comic": {
+   "name": "Comic pop na intro",
+   "tags": [
+    "comic",
+    "komiks",
+    "pop art",
+    "masaya",
+    "intro"
+   ]
+  },
+  "template:h-intro-retro-80s": {
+   "name": "Retro 80s na intro",
+   "tags": [
+    "retro",
+    "80s",
+    "synthwave",
+    "neon",
+    "intro"
+   ]
+  },
+  "template:h-intro-split": {
+   "name": "Split screen na intro",
+   "tags": [
+    "split screen",
+    "hati",
+    "litrato",
+    "intro",
+    "moderno"
+   ]
+  },
+  "template:h-intro-suscriptores": {
+   "name": "Intro na may subscriber counter",
+   "tags": [
+    "subscriber",
+    "counter",
+    "selebrasyon",
+    "intro",
+    "youtube"
+   ]
+  },
+  "template:h-intro-tech": {
+   "name": "Tech na intro",
+   "tags": [
+    "teknolohiya",
+    "tech",
+    "digital",
+    "intro",
+    "review"
+   ]
+  },
+  "template:h-intro-texto-gigante": {
+   "name": "Intro na higanteng teksto",
+   "tags": [
+    "teksto",
+    "typography",
+    "intro",
+    "impact",
+    "malaking letra"
+   ]
+  },
+  "template:h-intro-tinta": {
+   "name": "Ink reveal na intro",
+   "tags": [
+    "tinta",
+    "ink",
+    "artistic",
+    "intro",
+    "watercolor"
+   ]
+  },
+  "template:h-intro-tiza": {
+   "name": "Chalkboard na intro",
+   "tags": [
+    "edukasyon",
+    "pisara",
+    "klase",
+    "chalk",
+    "guro"
+   ]
+  },
+  "template:h-intro-viajes-mapa": {
+   "name": "Travel intro na may mapa",
+   "tags": [
+    "biyahe",
+    "mapa",
+    "ruta",
+    "intro",
+    "adventure"
+   ]
+  },
+  "template:h-intro-vlog-polaroid": {
+   "name": "Vlog intro na may instant photo",
+   "tags": [
+    "vlog",
+    "instant photo",
+    "intro",
+    "litrato",
+    "aesthetic"
+   ]
+  },
+  "template:h-intro-zoom-fotos": {
+   "name": "Intro na photo zoom",
+   "tags": [
+    "zoom",
+    "litrato",
+    "intro",
+    "dynamic",
+    "collage"
+   ]
+  },
+  "template:h-neg-academia": {
+   "name": "Academy at kurso",
+   "tags": [
+    "academy",
+    "kurso",
+    "klase",
+    "workshop",
+    "enrollment"
+   ]
+  },
+  "template:h-neg-agenda-evento": {
+   "name": "Programa ng event",
+   "tags": [
+    "programa",
+    "agenda",
+    "event",
+    "schedule",
+    "conference"
+   ]
+  },
+  "template:h-neg-cafeteria": {
+   "name": "Coffee shop",
+   "tags": [
+    "coffee shop",
+    "kape",
+    "special ngayon",
+    "almusal",
+    "barista"
+   ]
+  },
+  "template:h-neg-cifras": {
+   "name": "Ang taon sa numero",
+   "tags": [
+    "resulta",
+    "numero",
+    "report",
+    "paglago",
+    "chart"
+   ]
+  },
+  "template:h-neg-comunidad": {
+   "name": "Pulong ng komunidad",
+   "tags": [
+    "komunidad",
+    "pulong",
+    "simbahan",
+    "grupo",
+    "anunsyo"
+   ]
+  },
+  "template:h-neg-contacto": {
+   "name": "Kontakin kami",
+   "tags": [
+    "contact",
+    "address",
+    "oras",
+    "telepono",
+    "negosyo"
+   ]
+  },
+  "template:h-neg-contratando": {
+   "name": "Hiring kami",
+   "tags": [
+    "hiring",
+    "trabaho",
+    "bakante",
+    "job opening",
+    "sumali"
+   ]
+  },
+  "template:h-neg-escuela": {
+   "name": "Paaralan: bukas ang enrollment",
+   "tags": [
+    "paaralan",
+    "enrollment",
+    "registration",
+    "eskwela",
+    "edukasyon"
+   ]
+  },
+  "template:h-neg-ferreteria": {
+   "name": "Hardware store",
+   "tags": [
+    "hardware",
+    "kagamitan",
+    "construction",
+    "discount",
+    "bahay"
+   ]
+  },
+  "template:h-neg-gimnasio": {
+   "name": "Gym: mga plan",
+   "tags": [
+    "gym",
+    "plan",
+    "presyo",
+    "fitness",
+    "membership"
+   ]
+  },
+  "template:h-neg-inmobiliaria": {
+   "name": "Property for sale",
+   "tags": [
+    "real estate",
+    "for sale",
+    "bahay",
+    "condo",
+    "property"
+   ]
+  },
+  "template:h-neg-lanzamiento": {
+   "name": "Product launch",
+   "tags": [
+    "launch",
+    "bago",
+    "produkto",
+    "presentation",
+    "new"
+   ]
+  },
+  "template:h-neg-mudanzas": {
+   "name": "Lipat-bahay at transport",
+   "tags": [
+    "lipat-bahay",
+    "moving",
+    "transport",
+    "truck",
+    "serbisyo"
+   ]
+  },
+  "template:h-neg-presentacion": {
+   "name": "Presentasyon ng kompanya",
+   "tags": [
+    "kompanya",
+    "presentation",
+    "corporate",
+    "misyon",
+    "numero"
+   ]
+  },
+  "template:h-neg-rebajas": {
+   "name": "Big sale",
+   "tags": [
+    "sale",
+    "discount",
+    "clearance",
+    "mura",
+    "promo"
+   ]
+  },
+  "template:h-neg-restaurante-menu": {
+   "name": "Menu ng restawran",
+   "tags": [
+    "restawran",
+    "menu",
+    "ulam",
+    "presyo",
+    "pagkain"
+   ]
+  },
+  "template:h-neg-supermercado": {
+   "name": "Supermarket deals",
+   "tags": [
+    "supermarket",
+    "sale",
+    "presyo",
+    "prutas",
+    "discount"
+   ]
+  },
+  "template:h-neg-testimonio": {
+   "name": "Testimonial",
+   "tags": [
+    "testimonial",
+    "review",
+    "customer",
+    "opinyon",
+    "bituin"
+   ]
+  },
+  "template:h-neg-tienda-barrio": {
+   "name": "Sari-sari store",
+   "tags": [
+    "sari-sari store",
+    "tindahan",
+    "kapitbahay",
+    "grocery",
+    "sale"
+   ]
+  },
+  "template:h-neg-webinar": {
+   "name": "Webinar",
+   "tags": [
+    "webinar",
+    "online talk",
+    "event",
+    "registration",
+    "speaker"
+   ]
+  },
+  "template:h-presenta-amistad": {
+   "name": "Magkaibigan habambuhay",
+   "tags": [
+    "barkada",
+    "pagkakaibigan",
+    "doodle",
+    "litrato",
+    "saya"
+   ]
+  },
+  "template:h-presenta-anio": {
+   "name": "Ang aming taon",
+   "tags": [
+    "taon",
+    "recap",
+    "12 buwan",
+    "buod",
+    "litrato"
+   ]
+  },
+  "template:h-presenta-antes-despues": {
+   "name": "Before at after",
+   "tags": [
+    "before after",
+    "paghahambing",
+    "slider",
+    "transformation",
+    "renovation"
+   ]
+  },
+  "template:h-presenta-bebe": {
+   "name": "Paglaki ni baby buwan-buwan",
+   "tags": [
+    "baby",
+    "monthly",
+    "paglaki",
+    "pamilya",
+    "unang taon"
+   ]
+  },
+  "template:h-presenta-boda": {
+   "name": "Ang aming kasal",
+   "tags": [
+    "kasal",
+    "ikakasal",
+    "slideshow",
+    "elegante",
+    "wedding"
+   ]
+  },
+  "template:h-presenta-cinematica": {
+   "name": "Cinematic na slideshow",
+   "tags": [
+    "cinematic",
+    "pelikula",
+    "black bars",
+    "biyahe",
+    "epic"
+   ]
+  },
+  "template:h-presenta-circulos": {
+   "name": "Litrato sa mga bilog",
+   "tags": [
+    "bilog",
+    "litrato",
+    "makulay",
+    "masaya",
+    "slideshow"
+   ]
+  },
+  "template:h-presenta-collage-libre": {
+   "name": "Free collage",
+   "tags": [
+    "collage",
+    "litrato",
+    "board",
+    "barkada",
+    "alaala"
+   ]
+  },
+  "template:h-presenta-comida": {
+   "name": "Menu sa litrato",
+   "tags": [
+    "menu",
+    "pagkain",
+    "restawran",
+    "ulam",
+    "putahe"
+   ]
+  },
+  "template:h-presenta-deportes": {
+   "name": "Sports season",
+   "tags": [
+    "sports",
+    "season",
+    "resulta",
+    "team",
+    "football"
+   ]
+  },
+  "template:h-presenta-equipo": {
+   "name": "Kilalanin ang team",
+   "tags": [
+    "team",
+    "tao",
+    "kompanya",
+    "kami",
+    "staff"
+   ]
+  },
+  "template:h-presenta-escuela": {
+   "name": "School year",
+   "tags": [
+    "paaralan",
+    "school year",
+    "eskwela",
+    "notebook",
+    "klase"
+   ]
+  },
+  "template:h-presenta-evento": {
+   "name": "Event recap",
+   "tags": [
+    "event",
+    "recap",
+    "aftermovie",
+    "conference",
+    "party"
+   ]
+  },
+  "template:h-presenta-glitch": {
+   "name": "Glitch slideshow",
+   "tags": [
+    "glitch",
+    "mabilis",
+    "beat",
+    "litrato",
+    "urban"
+   ]
+  },
+  "template:h-presenta-graduacion": {
+   "name": "Batch ng mga graduate",
+   "tags": [
+    "graduation",
+    "batch",
+    "pagtatapos",
+    "paaralan",
+    "kolehiyo"
+   ]
+  },
+  "template:h-presenta-homenaje": {
+   "name": "Sa mahal na alaala",
+   "tags": [
+    "pagpupugay",
+    "in memory",
+    "pamamaalam",
+    "alaala",
+    "kandila"
+   ]
+  },
+  "template:h-presenta-inmueble": {
+   "name": "Property tour",
+   "tags": [
+    "real estate",
+    "bahay",
+    "benta",
+    "paupahan",
+    "property"
+   ]
+  },
+  "template:h-presenta-mascota": {
+   "name": "Ang alaga ko",
+   "tags": [
+    "alaga",
+    "aso",
+    "pusa",
+    "paw print",
+    "litrato"
+   ]
+  },
+  "template:h-presenta-mosaico": {
+   "name": "Photo mosaic",
+   "tags": [
+    "mosaic",
+    "grid",
+    "collage",
+    "litrato"
+   ]
+  },
+  "template:h-presenta-paralaje": {
+   "name": "Parallax slideshow",
+   "tags": [
+    "parallax",
+    "3d",
+    "galaw",
+    "litrato",
+    "biyahe"
+   ]
+  },
+  "template:h-presenta-pelicula": {
+   "name": "Film strip slideshow",
+   "tags": [
+    "film",
+    "film strip",
+    "35 mm",
+    "litrato",
+    "vintage"
+   ]
+  },
+  "template:h-presenta-polaroid": {
+   "name": "Instant photo sa kahoy",
+   "tags": [
+    "instant photo",
+    "litrato",
+    "slideshow",
+    "kahoy",
+    "vintage"
+   ]
+  },
+  "template:h-presenta-portafolio": {
+   "name": "Portfolio",
+   "tags": [
+    "portfolio",
+    "mga gawa",
+    "design",
+    "photography",
+    "proyekto"
+   ]
+  },
+  "template:h-presenta-producto": {
+   "name": "Katalogo ng produkto",
+   "tags": [
+    "katalogo",
+    "produkto",
+    "tindahan",
+    "presyo",
+    "benta"
+   ]
+  },
+  "template:h-presenta-recuerdos": {
+   "name": "Slideshow ng alaala",
+   "tags": [
+    "alaala",
+    "slideshow",
+    "litrato",
+    "pamilya",
+    "nostalgia"
+   ]
+  },
+  "template:h-presenta-revista": {
+   "name": "Pahina ng magasin",
+   "tags": [
+    "magasin",
+    "editorial",
+    "fashion",
+    "pahina",
+    "slideshow"
+   ]
+  },
+  "template:h-presenta-split": {
+   "name": "Split screen slideshow",
+   "tags": [
+    "split screen",
+    "dalawang litrato",
+    "paghahambing",
+    "slideshow"
+   ]
+  },
+  "template:h-presenta-tinta": {
+   "name": "Ink slideshow",
+   "tags": [
+    "tinta",
+    "artistic",
+    "slideshow",
+    "litrato",
+    "elegante"
+   ]
+  },
+  "template:h-presenta-viaje": {
+   "name": "Travel diary",
+   "tags": [
+    "biyahe",
+    "diary",
+    "stamp",
+    "litrato",
+    "bakasyon"
+   ]
+  },
+  "template:h-presenta-vintage": {
+   "name": "Lumang album",
+   "tags": [
+    "vintage",
+    "luma",
+    "sepia",
+    "album",
+    "alaala"
+   ]
+  },
+  "template:h-tercio-a-mano": {
+   "name": "Handwritten na lower third",
+   "tags": [
+    "lower third",
+    "sulat-kamay",
+    "calligraphy",
+    "pangalan",
+    "caption"
+   ]
+  },
+  "template:h-tercio-boda": {
+   "name": "Lower third ng kasal",
+   "tags": [
+    "lower third",
+    "kasal",
+    "ikakasal",
+    "pangalan",
+    "wedding"
+   ]
+  },
+  "template:h-tercio-caja-color": {
+   "name": "Lower third na may kahon",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "kahon",
+    "kulay",
+    "caption"
+   ]
+  },
+  "template:h-tercio-chat": {
+   "name": "Featured na comment",
+   "tags": [
+    "lower third",
+    "comment",
+    "chat",
+    "featured",
+    "caption"
+   ]
+  },
+  "template:h-tercio-cita": {
+   "name": "Quote sa screen",
+   "tags": [
+    "lower third",
+    "quote",
+    "kasabihan",
+    "caption",
+    "teksto"
+   ]
+  },
+  "template:h-tercio-corporativo": {
+   "name": "Corporate na lower third",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "corporate",
+    "kompanya",
+    "caption"
+   ]
+  },
+  "template:h-tercio-deportes": {
+   "name": "Sports na lower third",
+   "tags": [
+    "lower third",
+    "sports",
+    "manlalaro",
+    "player",
+    "pangalan"
+   ]
+  },
+  "template:h-tercio-diagonal": {
+   "name": "Diagonal na lower third",
+   "tags": [
+    "lower third",
+    "diagonal",
+    "dynamic",
+    "pangalan",
+    "caption"
+   ]
+  },
+  "template:h-tercio-doble": {
+   "name": "Lower third ng dalawang tao",
+   "tags": [
+    "lower third",
+    "dalawang tao",
+    "interview",
+    "pangalan",
+    "caption"
+   ]
+  },
+  "template:h-tercio-duotono": {
+   "name": "Duotone na lower third",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "duotone",
+    "moderno",
+    "caption"
+   ]
+  },
+  "template:h-tercio-elegante": {
+   "name": "Elegante na lower third",
+   "tags": [
+    "lower third",
+    "elegante",
+    "gold",
+    "pangalan",
+    "caption"
+   ]
+  },
+  "template:h-tercio-entrevista": {
+   "name": "Interview",
+   "tags": [
+    "lower third",
+    "interview",
+    "pangalan",
+    "tanong",
+    "caption"
+   ]
+  },
+  "template:h-tercio-fecha": {
+   "name": "Petsa at oras",
+   "tags": [
+    "lower third",
+    "petsa",
+    "oras",
+    "event",
+    "caption"
+   ]
+  },
+  "template:h-tercio-gaming": {
+   "name": "Gaming na lower third",
+   "tags": [
+    "lower third",
+    "gaming",
+    "gamer",
+    "pangalan",
+    "stream"
+   ]
+  },
+  "template:h-tercio-glass": {
+   "name": "Glass na lower third",
+   "tags": [
+    "lower third",
+    "glass",
+    "salamin",
+    "translucent",
+    "pangalan"
+   ]
+  },
+  "template:h-tercio-minimal-linea": {
+   "name": "Minimal na lower third",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "caption",
+    "minimal",
+    "malinis"
+   ]
+  },
+  "template:h-tercio-noticias": {
+   "name": "Lower third ng balita",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "balita",
+    "live",
+    "news"
+   ]
+  },
+  "template:h-tercio-podcast": {
+   "name": "Lower third ng podcast",
+   "tags": [
+    "lower third",
+    "podcast",
+    "episode",
+    "pangalan",
+    "caption"
+   ]
+  },
+  "template:h-tercio-precio": {
+   "name": "Presyo sa screen",
+   "tags": [
+    "lower third",
+    "presyo",
+    "produkto",
+    "price tag",
+    "benta"
+   ]
+  },
+  "template:h-tercio-redes": {
+   "name": "Lower third ng social handle",
+   "tags": [
+    "lower third",
+    "social media",
+    "username",
+    "handle",
+    "pangalan"
+   ]
+  },
+  "template:h-tercio-redondeado": {
+   "name": "Lower third na may litrato",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "litrato",
+    "pill",
+    "caption"
+   ]
+  },
+  "template:h-tercio-retro": {
+   "name": "Retro na lower third",
+   "tags": [
+    "lower third",
+    "retro",
+    "70s",
+    "pangalan",
+    "vintage"
+   ]
+  },
+  "template:h-tercio-suscribete": {
+   "name": "Subscribe button sa sulok",
+   "tags": [
+    "lower third",
+    "subscribe",
+    "button",
+    "youtube",
+    "sulok"
+   ]
+  },
+  "template:h-tercio-tutorial-paso": {
+   "name": "Hakbang ng tutorial",
+   "tags": [
+    "lower third",
+    "tutorial",
+    "hakbang",
+    "step",
+    "caption"
+   ]
+  },
+  "template:h-tercio-ubicacion": {
+   "name": "Lokasyon",
+   "tags": [
+    "lower third",
+    "lokasyon",
+    "lugar",
+    "location",
+    "caption"
+   ]
+  },
+  "template:h-texto-advertencia": {
+   "name": "Babala",
+   "tags": [
+    "babala",
+    "warning",
+    "paalala",
+    "mahalaga",
+    "ingat"
+   ]
+  },
+  "template:h-texto-agenda": {
+   "name": "Agenda ng video",
+   "tags": [
+    "agenda",
+    "nilalaman",
+    "paksa",
+    "kabanata",
+    "index"
+   ]
+  },
+  "template:h-texto-capitulo": {
+   "name": "Chapter card",
+   "tags": [
+    "kabanata",
+    "chapter",
+    "title",
+    "dokumentaryo",
+    "youtube"
+   ]
+  },
+  "template:h-texto-cinetico": {
+   "name": "Kinetic typography",
+   "tags": [
+    "kinetic text",
+    "typography",
+    "motivation",
+    "beat",
+    "salita"
+   ]
+  },
+  "template:h-texto-cita-serif": {
+   "name": "Elegante na quote",
+   "tags": [
+    "quote",
+    "kasabihan",
+    "inspirasyon",
+    "pagninilay",
+    "motivation"
+   ]
+  },
+  "template:h-texto-comparacion": {
+   "name": "Paghahambing",
+   "tags": [
+    "paghahambing",
+    "versus",
+    "a o b",
+    "alin ang mas maganda",
+    "review"
+   ]
+  },
+  "template:h-texto-creditos": {
+   "name": "End credits",
+   "tags": [
+    "credits",
+    "katapusan",
+    "pasasalamat",
+    "pelikula",
+    "team"
+   ]
+  },
+  "template:h-texto-dato-curioso": {
+   "name": "Fun fact",
+   "tags": [
+    "fun fact",
+    "alam mo ba",
+    "edukasyon",
+    "trivia",
+    "agham"
+   ]
+  },
+  "template:h-texto-estadistica": {
+   "name": "Malaking statistic",
+   "tags": [
+    "statistic",
+    "numero",
+    "porsyento",
+    "datos",
+    "infographic"
+   ]
+  },
+  "template:h-texto-frase-neon": {
+   "name": "Neon sign",
+   "tags": [
+    "neon",
+    "karatula",
+    "quote",
+    "gabi",
+    "aesthetic"
+   ]
+  },
+  "template:h-texto-lecciones": {
+   "name": "Matututunan mo",
+   "tags": [
+    "kurso",
+    "aralin",
+    "lesson",
+    "edukasyon",
+    "tutorial"
+   ]
+  },
+  "template:h-texto-linea-tiempo": {
+   "name": "Timeline",
+   "tags": [
+    "timeline",
+    "kasaysayan",
+    "taon",
+    "journey",
+    "anibersaryo"
+   ]
+  },
+  "template:h-texto-lista-5": {
+   "name": "Top 5 na listahan",
+   "tags": [
+    "listahan",
+    "top 5",
+    "tips",
+    "buod",
+    "points"
+   ]
+  },
+  "template:h-texto-maquina": {
+   "name": "Typewriter",
+   "tags": [
+    "typewriter",
+    "makinilya",
+    "liham",
+    "vintage",
+    "teksto"
+   ]
+  },
+  "template:h-texto-marcador": {
+   "name": "Final score",
+   "tags": [
+    "score",
+    "resulta",
+    "laban",
+    "sports",
+    "final"
+   ]
+  },
+  "template:h-texto-portada-video": {
+   "name": "Thumbnail ng video",
+   "tags": [
+    "thumbnail",
+    "cover",
+    "youtube",
+    "clickbait"
+   ]
+  },
+  "template:h-texto-pregunta": {
+   "name": "Tanong sa audience",
+   "tags": [
+    "tanong",
+    "comment",
+    "engagement",
+    "komunidad",
+    "opinyon"
+   ]
+  },
+  "template:h-texto-receta-ingredientes": {
+   "name": "Mga sangkap ng recipe",
+   "tags": [
+    "recipe",
+    "sangkap",
+    "luto",
+    "pagkain",
+    "listahan"
+   ]
+  },
+  "template:h-texto-titular-revista": {
+   "name": "Headline ng magasin",
+   "tags": [
+    "magasin",
+    "cover",
+    "editorial",
+    "fashion",
+    "headline"
+   ]
+  },
+  "template:h-texto-titulo-grande": {
+   "name": "Malaking title",
+   "tags": [
+    "title",
+    "pamagat",
+    "cover",
+    "malaki",
+    "impact"
+   ]
+  },
+  "template:h-trans-barrido-color": {
+   "name": "Color sweep",
+   "tags": [
+    "transition",
+    "sweep",
+    "kulay",
+    "wipe",
+    "dynamic"
+   ]
+  },
+  "template:h-trans-capitulo-numero": {
+   "name": "Numero ng kabanata",
+   "tags": [
+    "kabanata",
+    "chapter",
+    "transition",
+    "numero",
+    "dokumentaryo"
+   ]
+  },
+  "template:h-trans-circulo": {
+   "name": "Bilog na separator",
+   "tags": [
+    "transition",
+    "bilog",
+    "kabanata",
+    "separator",
+    "title"
+   ]
+  },
+  "template:h-trans-diagonal": {
+   "name": "Diagonal wipe",
+   "tags": [
+    "transition",
+    "diagonal",
+    "wipe",
+    "moderno",
+    "panel"
+   ]
+  },
+  "template:h-trans-formas": {
+   "name": "Shape fill",
+   "tags": [
+    "transition",
+    "hugis",
+    "bilog",
+    "kulay",
+    "masaya"
+   ]
+  },
+  "template:h-trans-glitch-corto": {
+   "name": "Glitch hit",
+   "tags": [
+    "transition",
+    "glitch",
+    "mabilis",
+    "gaming",
+    "digital"
+   ]
+  },
+  "template:h-trans-mientras-tanto": {
+   "name": "Samantala…",
+   "tags": [
+    "samantala",
+    "meanwhile",
+    "katatawanan",
+    "comic",
+    "meme"
+   ]
+  },
+  "template:h-trans-papel": {
+   "name": "Punit na papel",
+   "tags": [
+    "transition",
+    "papel",
+    "punit",
+    "collage",
+    "creative"
+   ]
+  },
+  "template:h-trans-pelicula": {
+   "name": "Film burn",
+   "tags": [
+    "transition",
+    "film burn",
+    "pelikula",
+    "vintage",
+    "mainit"
+   ]
+  },
+  "template:h-trans-persiana": {
+   "name": "Blinds",
+   "tags": [
+    "transition",
+    "blinds",
+    "guhit",
+    "wipe",
+    "elegante"
+   ]
+  },
+  "template:h-trans-tinta": {
+   "name": "Ink wipe",
+   "tags": [
+    "transition",
+    "tinta",
+    "ink",
+    "artistic",
+    "malambot"
+   ]
+  },
+  "template:h-trans-zoom-golpe": {
+   "name": "Zoom punch",
+   "tags": [
+    "transition",
+    "zoom",
+    "punch",
+    "mabilis",
+    "enerhiya"
+   ]
+  },
+  "template:halloween-photo-dump": {
+   "name": "Halloween photo dump",
+   "tags": [
+    "halloween",
+    "photo dump",
+    "costume",
+    "katatakutan",
+    "oktubre"
+   ]
+  },
+  "template:halloween-revelacion-disfraz": {
+   "name": "Costume reveal",
+   "tags": [
+    "halloween",
+    "costume",
+    "transformation",
+    "before after",
+    "gulat"
+   ]
+  },
+  "template:halloween-truco-o-trato": {
+   "name": "Trick or treat na party",
+   "tags": [
+    "halloween",
+    "party",
+    "imbitasyon",
+    "bata",
+    "costume"
+   ]
+  },
+  "template:horario-de-atencion": {
+   "name": "Oras ng operasyon",
+   "tags": [
+    "oras",
+    "bukas",
+    "store hours",
+    "tindahan",
+    "impormasyon"
+   ]
+  },
+  "template:hype-glitch": {
+   "name": "Hype na may glitch",
+   "tags": [
+    "hype",
+    "glitch",
+    "enerhiya",
+    "gym",
+    "party"
+   ]
+  },
+  "template:intro-de-canal": {
+   "name": "Intro ng channel",
+   "tags": [
+    "intro",
+    "channel",
+    "youtube",
+    "logo"
+   ]
+  },
+  "template:intro-de-podcast": {
+   "name": "Intro ng podcast",
+   "tags": [
+    "podcast",
+    "intro",
+    "episode",
+    "audio",
+    "programa"
+   ]
+  },
+  "template:intro-de-vlog": {
+   "name": "Intro ng vlog",
+   "tags": [
+    "vlog",
+    "intro",
+    "araw kasama ko",
+    "routine",
+    "aesthetic"
+   ]
+  },
+  "template:jugadas-destacadas": {
+   "name": "Sports highlights",
+   "tags": [
+    "sports",
+    "football",
+    "highlights",
+    "goal",
+    "laro"
+   ]
+  },
+  "template:lanzamiento-ya-disponible": {
+   "name": "Launch: available na",
+   "tags": [
+    "launch",
+    "produkto",
+    "bago",
+    "online shop",
+    "premiere"
+   ]
+  },
+  "template:letra-al-ritmo": {
+   "name": "Lyrics sa beat",
+   "tags": [
+    "lyrics",
+    "kanta",
+    "beat",
+    "party",
+    "salita"
+   ]
+  },
+  "template:me-gradue": {
+   "name": "Graduate na ako!",
+   "tags": [
+    "graduation",
+    "pagtatapos",
+    "tagumpay",
+    "kolehiyo"
+   ]
+  },
+  "template:mejores-amigas": {
+   "name": "Best friends",
+   "tags": [
+    "best friends",
+    "besties",
+    "pagkakaibigan",
+    "bff",
+    "barkada"
+   ]
+  },
+  "template:meme-texto-arriba-abajo": {
+   "name": "Classic na meme",
+   "tags": [
+    "meme",
+    "katatawanan",
+    "nakakatawa",
+    "relatable",
+    "teksto"
+   ]
+  },
+  "template:menu-del-dia-pizarra": {
+   "name": "Menu ng araw sa chalkboard",
+   "tags": [
+    "menu",
+    "restawran",
+    "tanghalian",
+    "pagkain",
+    "presyo"
+   ]
+  },
+  "template:menu-navideno": {
+   "name": "Pamaskong menu",
+   "tags": [
+    "pasko",
+    "menu",
+    "noche buena",
+    "restawran",
+    "handaan"
+   ]
+  },
+  "template:mi-2026-en-fotos": {
+   "name": "Ang 2026 ko sa litrato",
+   "tags": [
+    "bagong taon",
+    "recap",
+    "2026",
+    "alaala",
+    "litrato"
+   ]
+  },
+  "template:mi-glow-up": {
+   "name": "Ang glow up ko",
+   "tags": [
+    "glow up",
+    "before after",
+    "makeup",
+    "pagbabago",
+    "beauty"
+   ]
+  },
+  "template:mi-mascota": {
+   "name": "Ang alaga ko",
+   "tags": [
+    "alaga",
+    "aso",
+    "pusa",
+    "pet",
+    "best friend"
+   ]
+  },
+  "template:mis-mejores-fotos": {
+   "name": "Pinakamagagandang litrato ko",
+   "tags": [
+    "slideshow",
+    "best photos",
+    "carousel",
+    "alaala",
+    "pastel"
+   ]
+  },
+  "template:mis-xv": {
+   "name": "Aking ika-15 kaarawan",
+   "tags": [
+    "15 taon",
+    "quinceañera",
+    "kaarawan",
+    "debut",
+    "party"
+   ]
+  },
+  "template:mochilero-por-peru": {
+   "name": "Backpacking na ruta",
+   "tags": [
+    "biyahe",
+    "backpacking",
+    "ruta",
+    "adventure",
+    "bundok"
+   ]
+  },
+  "template:moodboard-aesthetic": {
+   "name": "Aesthetic na moodboard",
+   "tags": [
+    "moodboard",
+    "aesthetic",
+    "autumn",
+    "inspirasyon",
+    "collage"
+   ]
+  },
+  "template:muertos-ofrenda": {
+   "name": "Altar: sa mahal naming alaala",
+   "tags": [
+    "undas",
+    "todos los santos",
+    "altar",
+    "alaala",
+    "pamilya"
+   ]
+  },
+  "template:navidad-en-familia": {
+   "name": "Pasko kasama ang pamilya",
+   "tags": [
+    "pasko",
+    "pamilya",
+    "disyembre",
+    "noche buena",
+    "christmas"
+   ]
+  },
+  "template:navidad-regalo-sorpresa": {
+   "name": "Sorpresang regalo",
+   "tags": [
+    "regalo",
+    "sorpresa",
+    "pasko",
+    "unboxing",
+    "kaarawan"
+   ]
+  },
+  "template:nosotros-vs-otros": {
+   "name": "Kami vs. iba",
+   "tags": [
+    "paghahambing",
+    "kami",
+    "kalidad",
+    "bakit kami",
+    "vs"
+   ]
+  },
+  "template:nuestra-historia": {
+   "name": "Ang ating kuwento",
+   "tags": [
+    "magkasintahan",
+    "anibersaryo",
+    "pag-ibig",
+    "valentine's"
+   ]
+  },
+  "template:nueva-coleccion-ropa": {
+   "name": "Bagong koleksiyon",
+   "tags": [
+    "new collection",
+    "damit",
+    "fashion",
+    "boutique",
+    "season"
+   ]
+  },
+  "template:octubre-en-fotos": {
+   "name": "Oktubre sa litrato",
+   "tags": [
+    "oktubre",
+    "recap",
+    "buwan",
+    "autumn"
+   ]
+  },
+  "template:oferta-flash": {
+   "name": "Flash sale",
+   "tags": [
+    "sale",
+    "discount",
+    "benta",
+    "promo"
+   ]
+  },
+  "template:ootd-outfit": {
+   "name": "OOTD: outfit ng araw",
+   "tags": [
+    "outfit",
+    "ootd",
+    "fashion",
+    "look",
+    "style"
+   ]
+  },
+  "template:opinion-impopular": {
+   "name": "Unpopular opinion",
+   "tags": [
+    "unpopular opinion",
+    "debate",
+    "kontrobersyal",
+    "mag-comment",
+    "hot take"
+   ]
+  },
+  "template:pantalla-final-2-videos": {
+   "name": "End screen: 2 video",
+   "tags": [
+    "end screen",
+    "recommended videos",
+    "outro",
+    "subscribe",
+    "shorts"
+   ]
+  },
+  "template:pantalla-triple": {
+   "name": "Triple split screen",
+   "tags": [
+    "split screen",
+    "tatlo",
+    "lungsod",
+    "collage",
+    "kalye"
+   ]
+  },
+  "template:para-mama": {
+   "name": "Para kay Nanay",
+   "tags": [
+    "nanay",
+    "mama",
+    "mother's day",
+    "pamilya",
+    "pagmamahal"
+   ]
+  },
+  "template:photo-dump-cinematico": {
+   "name": "Cinematic na photo dump",
+   "tags": [
+    "photo dump",
+    "cinematic",
+    "litrato",
+    "aesthetic",
+    "alaala"
+   ]
+  },
+  "template:photo-dump-ritmo": {
+   "name": "Photo dump sa beat",
+   "tags": [
+    "photo dump",
+    "litrato",
+    "beat",
+    "barkada"
+   ]
+  },
+  "template:polaroids": {
+   "name": "Instant photo sa mesa",
+   "tags": [
+    "instant photo",
+    "litrato",
+    "alaala",
+    "summer"
+   ]
+  },
+  "template:portada-de-tutorial": {
+   "name": "Cover ng tutorial",
+   "tags": [
+    "tutorial",
+    "step by step",
+    "paano gawin",
+    "cover",
+    "matuto"
+   ]
+  },
+  "template:portada-revista": {
+   "name": "Cover ng magasin",
+   "tags": [
+    "magasin",
+    "cover",
+    "fashion",
+    "glam"
+   ]
+  },
+  "template:pov-chat-mensajes": {
+   "name": "POV sa chat",
+   "tags": [
+    "pov",
+    "chat",
+    "mensahe",
+    "katatawanan",
+    "ex"
+   ]
+  },
+  "template:pov-cinematografico": {
+   "name": "Cinematic na POV",
+   "tags": [
+    "pov",
+    "pelikula",
+    "bida",
+    "aesthetic",
+    "subtitle"
+   ]
+  },
+  "template:pov-texto": {
+   "name": "POV na may teksto",
+   "tags": [
+    "pov",
+    "meme",
+    "tiktok",
+    "teksto"
+   ]
+  },
+  "template:preguntas-frecuentes": {
+   "name": "Mga madalas itanong",
+   "tags": [
+    "faq",
+    "tanong",
+    "customer service",
+    "shipping"
+   ]
+  },
+  "template:primer-anio-bebe": {
+   "name": "Unang taon ni baby, buwan-buwan",
+   "tags": [
+    "baby",
+    "unang taon",
+    "monthly",
+    "kaarawan",
+    "pamilya"
+   ]
+  },
+  "template:producto-estrella": {
+   "name": "Bidang produkto",
+   "tags": [
+    "produkto",
+    "tindahan",
+    "negosyo",
+    "benta"
+   ]
+  },
+  "template:progreso-gym": {
+   "name": "Linggo ng training",
+   "tags": [
+    "gym",
+    "workout",
+    "fitness",
+    "progreso",
+    "routine"
+   ]
+  },
+  "template:propositos-2027": {
+   "name": "Mga resolusyon ko sa 2027",
+   "tags": [
+    "bagong taon",
+    "resolution",
+    "layunin",
+    "2027",
+    "notebook"
+   ]
+  },
+  "template:r-abuelos": {
+   "name": "Salamat, Lolo at Lola",
+   "tags": [
+    "lolo",
+    "lola",
+    "pamilya",
+    "salamat",
+    "grandparents"
+   ]
+  },
+  "template:r-academia-idiomas": {
+   "name": "Language school",
+   "tags": [
+    "wika",
+    "english",
+    "klase",
+    "academy",
+    "kurso"
+   ]
+  },
+  "template:r-accion-gracias": {
+   "name": "Thanksgiving",
+   "tags": [
+    "thanksgiving",
+    "pasasalamat",
+    "pamilya",
+    "hapag",
+    "salu-salo"
+   ]
+  },
+  "template:r-agenda-citas": {
+   "name": "Mag-book ng appointment",
+   "tags": [
+    "appointment",
+    "booking",
+    "schedule",
+    "reserba",
+    "salon"
+   ]
+  },
+  "template:r-agotado-vuelta": {
+   "name": "Sold out → balik na!",
+   "tags": [
+    "sold out",
+    "back in stock",
+    "restock",
+    "stock",
+    "produkto"
+   ]
+  },
+  "template:r-album-stickers": {
+   "name": "Album na may sticker",
+   "tags": [
+    "album",
+    "sticker",
+    "scrapbook",
+    "cute",
+    "diary"
+   ]
+  },
+  "template:r-anio-nuevo-elegante": {
+   "name": "Elegante na Bagong Taon",
+   "tags": [
+    "bagong taon",
+    "elegante",
+    "gold",
+    "toast",
+    "party"
+   ]
+  },
+  "template:r-anio-nuevo-lunar": {
+   "name": "Lunar New Year",
+   "tags": [
+    "lunar new year",
+    "chinese new year",
+    "parol",
+    "pula",
+    "kasaganaan"
+   ]
+  },
+  "template:r-aniversario-bodas": {
+   "name": "Anibersaryo ng kasal",
+   "tags": [
+    "anibersaryo",
+    "kasal",
+    "mag-asawa",
+    "taon",
+    "wedding anniversary"
+   ]
+  },
+  "template:r-antes-ahora": {
+   "name": "Noon at ngayon",
+   "tags": [
+    "noon at ngayon",
+    "pagbabago",
+    "paghahambing",
+    "lugar",
+    "panahon"
+   ]
+  },
+  "template:r-atardecer-cine": {
+   "name": "Cinematic na paglubog ng araw",
+   "tags": [
+    "paglubog ng araw",
+    "sunset",
+    "cinematic",
+    "quote",
+    "golden"
+   ]
+  },
+  "template:r-ba-auto": {
+   "name": "Before at after: kotse",
+   "tags": [
+    "kotse",
+    "sasakyan",
+    "car wash",
+    "talyer",
+    "before after"
+   ]
+  },
+  "template:r-ba-casa": {
+   "name": "Before at after: bahay ko",
+   "tags": [
+    "bahay",
+    "renovation",
+    "before after",
+    "dekorasyon",
+    "tahanan"
+   ]
+  },
+  "template:r-ba-cocina": {
+   "name": "Before at after: recipe",
+   "tags": [
+    "recipe",
+    "luto",
+    "sangkap",
+    "ulam",
+    "before after"
+   ]
+  },
+  "template:r-ba-cortina": {
+   "name": "Before at after: kurtina",
+   "tags": [
+    "before after",
+    "kurtina",
+    "transformation",
+    "pagbabago"
+   ]
+  },
+  "template:r-ba-dia-1-100": {
+   "name": "Day 1 / Day 100",
+   "tags": [
+    "day 1",
+    "day 100",
+    "progreso",
+    "challenge",
+    "transformation"
+   ]
+  },
+  "template:r-ba-dibujo": {
+   "name": "Mula sketch hanggang may kulay",
+   "tags": [
+    "drawing",
+    "art",
+    "sketch",
+    "painting",
+    "proseso"
+   ]
+  },
+  "template:r-ba-jardin": {
+   "name": "Before at after: hardin",
+   "tags": [
+    "hardin",
+    "halaman",
+    "before after",
+    "garden",
+    "green"
+   ]
+  },
+  "template:r-ba-maquillaje": {
+   "name": "Before at after: makeup",
+   "tags": [
+    "makeup",
+    "before after",
+    "beauty",
+    "look",
+    "ganda"
+   ]
+  },
+  "template:r-ba-mascota": {
+   "name": "Mula tuta hanggang laki",
+   "tags": [
+    "alaga",
+    "tuta",
+    "aso",
+    "paglaki",
+    "before after"
+   ]
+  },
+  "template:r-ba-peinado": {
+   "name": "Before at after: buhok",
+   "tags": [
+    "buhok",
+    "hairstyle",
+    "salon",
+    "before after",
+    "gupit"
+   ]
+  },
+  "template:r-bautizo": {
+   "name": "Binyag",
+   "tags": [
+    "binyag",
+    "baby",
+    "simbahan",
+    "pamilya",
+    "pananampalataya"
+   ]
+  },
+  "template:r-beneficios": {
+   "name": "Listahan ng benepisyo",
+   "tags": [
+    "benepisyo",
+    "advantages",
+    "produkto",
+    "listahan",
+    "bakit"
+   ]
+  },
+  "template:r-bienvenida-casa": {
+   "name": "Welcome home",
+   "tags": [
+    "welcome home",
+    "pag-uwi",
+    "bahay",
+    "pamilya",
+    "sorpresa"
+   ]
+  },
+  "template:r-bienvenidos-canal": {
+   "name": "Welcome sa channel ko",
+   "tags": [
+    "welcome",
+    "channel",
+    "intro",
+    "creator",
+    "subscribe"
+   ]
+  },
+  "template:r-boda-primer-baile": {
+   "name": "Kasal: first dance",
+   "tags": [
+    "kasal",
+    "first dance",
+    "sayaw",
+    "ikakasal",
+    "party"
+   ]
+  },
+  "template:r-boda-votos": {
+   "name": "Kasal: ang mga vow",
+   "tags": [
+    "kasal",
+    "vows",
+    "pangako",
+    "ikakasal",
+    "seremonya"
+   ]
+  },
+  "template:r-cafeteria-latte": {
+   "name": "Café: latte art",
+   "tags": [
+    "café",
+    "kape",
+    "latte",
+    "barista",
+    "almusal"
+   ]
+  },
+  "template:r-camara-desechable": {
+   "name": "Disposable camera",
+   "tags": [
+    "disposable camera",
+    "flash",
+    "party",
+    "kasal",
+    "film"
+   ]
+  },
+  "template:r-cambio-ropa": {
+   "name": "Outfit change sa beat",
+   "tags": [
+    "outfit",
+    "palit damit",
+    "fashion",
+    "transition",
+    "ootd"
+   ]
+  },
+  "template:r-carrusel": {
+   "name": "Gumagalaw na carousel",
+   "tags": [
+    "carousel",
+    "swipe",
+    "litrato",
+    "gallery",
+    "instagram"
+   ]
+  },
+  "template:r-casa-nueva": {
+   "name": "Bagong bahay",
+   "tags": [
+    "bagong bahay",
+    "lipat-bahay",
+    "tahanan",
+    "susi",
+    "tagumpay"
+   ]
+  },
+  "template:r-casa-venta": {
+   "name": "Bahay for sale",
+   "tags": [
+    "real estate",
+    "for sale",
+    "bahay",
+    "property",
+    "tour"
+   ]
+  },
+  "template:r-ciudad-neon": {
+   "name": "Neon na lungsod",
+   "tags": [
+    "lungsod",
+    "gabi",
+    "neon",
+    "cyberpunk",
+    "urban"
+   ]
+  },
+  "template:r-collage-2-mas-1": {
+   "name": "Collage 2 + 1",
+   "tags": [
+    "collage",
+    "litrato",
+    "grid",
+    "moderno",
+    "aesthetic"
+   ]
+  },
+  "template:r-collage-3-vertical": {
+   "name": "Collage na 3 strip",
+   "tags": [
+    "collage",
+    "tatlong litrato",
+    "strip",
+    "vertical",
+    "minimal"
+   ]
+  },
+  "template:r-collage-circulos": {
+   "name": "Bilog na collage",
+   "tags": [
+    "bilog",
+    "collage",
+    "circle",
+    "makulay",
+    "litrato"
+   ]
+  },
+  "template:r-collage-respira": {
+   "name": "Humihingang collage",
+   "tags": [
+    "collage",
+    "litrato",
+    "malambot",
+    "aesthetic",
+    "galaw"
+   ]
+  },
+  "template:r-colores-disponibles": {
+   "name": "Available na kulay",
+   "tags": [
+    "kulay",
+    "variant",
+    "produkto",
+    "fashion",
+    "tindahan"
+   ]
+  },
+  "template:r-combo": {
+   "name": "Bundle ng produkto",
+   "tags": [
+    "bundle",
+    "combo",
+    "pack",
+    "sale",
+    "special price"
+   ]
+  },
+  "template:r-comenta": {
+   "name": "Mag-comment sa ibaba",
+   "tags": [
+    "outro",
+    "comment",
+    "komento",
+    "opinyon"
+   ]
+  },
+  "template:r-comparar-tamanos": {
+   "name": "Paghahambing ng size",
+   "tags": [
+    "size",
+    "sukat",
+    "paghahambing",
+    "produkto",
+    "pumili"
+   ]
+  },
+  "template:r-compartelo": {
+   "name": "I-share sa iba",
+   "tags": [
+    "outro",
+    "share",
+    "i-tag",
+    "barkada"
+   ]
+  },
+  "template:r-comunidad-reunion": {
+   "name": "Lingguhang pulong ng komunidad",
+   "tags": [
+    "komunidad",
+    "pulong",
+    "simbahan",
+    "grupo",
+    "imbitasyon"
+   ]
+  },
+  "template:r-consejo-finanzas": {
+   "name": "Money tip",
+   "tags": [
+    "pera",
+    "finance",
+    "ipon",
+    "tips",
+    "budget"
+   ]
+  },
+  "template:r-contador-fotos": {
+   "name": "Photo counter",
+   "tags": [
+    "counter",
+    "litrato",
+    "beat",
+    "mabilis",
+    "photo dump"
+   ]
+  },
+  "template:r-core-memory": {
+   "name": "Core memories",
+   "tags": [
+    "alaala",
+    "core memory",
+    "kinang",
+    "nostalgia",
+    "bola"
+   ]
+  },
+  "template:r-cosas-felices": {
+   "name": "Mga bagay na nagpapasaya sa akin",
+   "tags": [
+    "happy things",
+    "pasasalamat",
+    "maliliit na bagay",
+    "aesthetic",
+    "listahan"
+   ]
+  },
+  "template:r-cuadros-4-3": {
+   "name": "4:3 na frame",
+   "tags": [
+    "4:3",
+    "sine",
+    "frame",
+    "minimal",
+    "photography"
+   ]
+  },
+  "template:r-cuenta-5-seg": {
+   "name": "5 segundong countdown",
+   "tags": [
+    "countdown",
+    "5 segundo",
+    "simula",
+    "challenge",
+    "timer"
+   ]
+  },
+  "template:r-cuenta-boda": {
+   "name": "Countdown sa kasal",
+   "tags": [
+    "kasal",
+    "araw na lang",
+    "countdown",
+    "ikakasal",
+    "save the date"
+   ]
+  },
+  "template:r-cuenta-cumple": {
+   "name": "Countdown sa kaarawan ko",
+   "tags": [
+    "kaarawan",
+    "araw na lang",
+    "countdown",
+    "party",
+    "excited"
+   ]
+  },
+  "template:r-cuenta-revelar": {
+   "name": "Countdown bago ang reveal",
+   "tags": [
+    "reveal",
+    "sorpresa",
+    "countdown",
+    "anunsyo"
+   ]
+  },
+  "template:r-cuenta-vacaciones": {
+   "name": "Countdown sa bakasyon",
+   "tags": [
+    "bakasyon",
+    "biyahe",
+    "araw na lang",
+    "countdown",
+    "maleta"
+   ]
+  },
+  "template:r-cumple-adulto": {
+   "name": "Elegante na kaarawan",
+   "tags": [
+    "kaarawan",
+    "elegante",
+    "gold",
+    "40",
+    "50"
+   ]
+  },
+  "template:r-cumple-infantil": {
+   "name": "Kaarawan ng bata",
+   "tags": [
+    "kaarawan",
+    "bata",
+    "pambata",
+    "party",
+    "lobo"
+   ]
+  },
+  "template:r-cumple-mama": {
+   "name": "Kaarawan ni Nanay",
+   "tags": [
+    "kaarawan",
+    "nanay",
+    "mama",
+    "bulaklak",
+    "pamilya"
+   ]
+  },
+  "template:r-cumple-ritmo": {
+   "name": "Kaarawan sa beat",
+   "tags": [
+    "kaarawan",
+    "beat",
+    "party",
+    "letra",
+    "happy birthday"
+   ]
+  },
+  "template:r-despedida-soltera": {
+   "name": "Bachelorette party",
+   "tags": [
+    "bachelorette",
+    "barkada",
+    "party",
+    "bride",
+    "ikakasal"
+   ]
+  },
+  "template:r-detalle-lupa": {
+   "name": "Detalye sa magnifier",
+   "tags": [
+    "detalye",
+    "magnifier",
+    "kalidad",
+    "produkto",
+    "finish"
+   ]
+  },
+  "template:r-detras-camaras": {
+   "name": "Behind the scenes",
+   "tags": [
+    "behind the scenes",
+    "bts",
+    "shooting",
+    "proseso",
+    "creator"
+   ]
+  },
+  "template:r-dia-abuelos": {
+   "name": "Araw ng mga Lolo at Lola",
+   "tags": [
+    "grandparents' day",
+    "lola",
+    "lolo",
+    "pamilya",
+    "pagmamahal"
+   ]
+  },
+  "template:r-dia-madre-floral": {
+   "name": "Floral na Araw ng mga Ina",
+   "tags": [
+    "mother's day",
+    "nanay",
+    "bulaklak",
+    "pagmamahal",
+    "salamat"
+   ]
+  },
+  "template:r-dia-maestro": {
+   "name": "Araw ng mga Guro",
+   "tags": [
+    "teachers' day",
+    "guro",
+    "paaralan",
+    "salamat",
+    "titser"
+   ]
+  },
+  "template:r-dia-mujer": {
+   "name": "Araw ng Kababaihan",
+   "tags": [
+    "women's day",
+    "marso 8",
+    "kababaihan",
+    "lakas",
+    "inspirasyon"
+   ]
+  },
+  "template:r-dia-nino": {
+   "name": "Araw ng mga Bata",
+   "tags": [
+    "children's day",
+    "bata",
+    "pagkabata",
+    "laro",
+    "saya"
+   ]
+  },
+  "template:r-dia-padre-deportivo": {
+   "name": "Sporty na Araw ng mga Ama",
+   "tags": [
+    "father's day",
+    "tatay",
+    "sports",
+    "basketball",
+    "kampeon"
+   ]
+  },
+  "template:r-dia-perfecto": {
+   "name": "Ang perpektong araw ko",
+   "tags": [
+    "perfect day",
+    "routine",
+    "oras",
+    "vlog",
+    "day in my life"
+   ]
+  },
+  "template:r-dia-tierra": {
+   "name": "Araw ng Daigdig",
+   "tags": [
+    "earth day",
+    "planeta",
+    "ekolohiya",
+    "green",
+    "kalikasan"
+   ]
+  },
+  "template:r-dia-x-de": {
+   "name": "Day X ng…",
+   "tags": [
+    "araw",
+    "challenge",
+    "diary",
+    "progreso",
+    "serye"
+   ]
+  },
+  "template:r-diario-cinta": {
+   "name": "Diary na may tape",
+   "tags": [
+    "diary",
+    "tape",
+    "journal",
+    "notes",
+    "scrapbook"
+   ]
+  },
+  "template:r-diwali": {
+   "name": "Maligayang Diwali",
+   "tags": [
+    "diwali",
+    "ilaw",
+    "diya",
+    "festival",
+    "selebrasyon"
+   ]
+  },
+  "template:r-dump-fecha": {
+   "name": "Photo dump na may petsa",
+   "tags": [
+    "photo dump",
+    "petsa",
+    "digicam",
+    "2000s",
+    "alaala"
+   ]
+  },
+  "template:r-dump-finde": {
+   "name": "Weekend dump",
+   "tags": [
+    "weekend",
+    "photo dump",
+    "grid",
+    "barkada",
+    "linggo"
+   ]
+  },
+  "template:r-dump-viaje-mapa": {
+   "name": "Travel dump na may mapa",
+   "tags": [
+    "biyahe",
+    "mapa",
+    "ruta",
+    "photo dump",
+    "bakasyon"
+   ]
+  },
+  "template:r-eid": {
+   "name": "Eid Mubarak",
+   "tags": [
+    "eid",
+    "eid mubarak",
+    "pagdiriwang",
+    "pamilya",
+    "biyaya"
+   ]
+  },
+  "template:r-en-otra-vida": {
+   "name": "Sa ibang buhay",
+   "tags": [
+    "sa ibang buhay",
+    "in another life",
+    "trend",
+    "quote",
+    "aesthetic"
+   ]
+  },
+  "template:r-en-vivo-ahora": {
+   "name": "Live na ngayon",
+   "tags": [
+    "live",
+    "live stream",
+    "broadcast",
+    "anunsyo",
+    "online"
+   ]
+  },
+  "template:r-envio-gratis": {
+   "name": "Online shop: free shipping",
+   "tags": [
+    "free shipping",
+    "online shop",
+    "shopping",
+    "sale",
+    "delivery"
+   ]
+  },
+  "template:r-escuela-musica": {
+   "name": "Music school",
+   "tags": [
+    "musika",
+    "klase",
+    "gitara",
+    "piano",
+    "paaralan"
+   ]
+  },
+  "template:r-esta-soy-yo": {
+   "name": "Ito ako",
+   "tags": [
+    "ito ako",
+    "pakilala",
+    "about me",
+    "kilalanin ako"
+   ]
+  },
+  "template:r-expectativa-realidad": {
+   "name": "Expectation vs. reality",
+   "tags": [
+    "expectation",
+    "reality",
+    "meme",
+    "katatawanan",
+    "paghahambing"
+   ]
+  },
+  "template:r-farmacia-consejo": {
+   "name": "Botika: health tip",
+   "tags": [
+    "botika",
+    "pharmacy",
+    "kalusugan",
+    "tips",
+    "wellness"
+   ]
+  },
+  "template:r-ferreteria": {
+   "name": "Hardware store",
+   "tags": [
+    "hardware",
+    "kagamitan",
+    "construction",
+    "bahay",
+    "sale"
+   ]
+  },
+  "template:r-fiesta-fin-anio": {
+   "name": "Year-end party",
+   "tags": [
+    "year-end",
+    "party",
+    "kompanya",
+    "barkada",
+    "toast"
+   ]
+  },
+  "template:r-fin-curso": {
+   "name": "Katapusan ng school year",
+   "tags": [
+    "end of school year",
+    "bakasyon",
+    "paaralan",
+    "huling araw",
+    "summer"
+   ]
+  },
+  "template:r-flash-camara": {
+   "name": "Paparazzi flash",
+   "tags": [
+    "flash",
+    "paparazzi",
+    "sikat",
+    "red carpet",
+    "fashion"
+   ]
+  },
+  "template:r-floristeria": {
+   "name": "Flower shop",
+   "tags": [
+    "bulaklak",
+    "flower shop",
+    "bouquet",
+    "regalo",
+    "arrangement"
+   ]
+  },
+  "template:r-foto-en-foto": {
+   "name": "Picture in picture",
+   "tags": [
+    "picture in picture",
+    "pip",
+    "detalye",
+    "zoom",
+    "collage"
+   ]
+  },
+  "template:r-foto-rompe": {
+   "name": "Nababasag na litrato",
+   "tags": [
+    "basag",
+    "salamin",
+    "transition",
+    "impact",
+    "edit"
+   ]
+  },
+  "template:r-fotografo": {
+   "name": "Photographer",
+   "tags": [
+    "photographer",
+    "photoshoot",
+    "portrait",
+    "studio",
+    "booking"
+   ]
+  },
+  "template:r-fotomaton": {
+   "name": "Photobooth strip",
+   "tags": [
+    "photobooth",
+    "strip",
+    "barkada",
+    "magkasintahan",
+    "litrato"
+   ]
+  },
+  "template:r-frase-comunidad": {
+   "name": "Mensahe ng araw ng komunidad",
+   "tags": [
+    "quote of the day",
+    "komunidad",
+    "pagninilay",
+    "pananampalataya",
+    "pag-asa"
+   ]
+  },
+  "template:r-frase-pelicula": {
+   "name": "Linya sa pelikula",
+   "tags": [
+    "linya",
+    "pelikula",
+    "sine",
+    "subtitle",
+    "eksena"
+   ]
+  },
+  "template:r-frase-subrayada": {
+   "name": "Quote na may underline",
+   "tags": [
+    "quote",
+    "underline",
+    "motivation",
+    "kasabihan",
+    "pagninilay"
+   ]
+  },
+  "template:r-giro-camara": {
+   "name": "Camera spin",
+   "tags": [
+    "spin",
+    "ikot",
+    "transition",
+    "biyahe",
+    "enerhiya"
+   ]
+  },
+  "template:r-gracias-1k": {
+   "name": "Salamat sa 1k",
+   "tags": [
+    "outro",
+    "salamat",
+    "1000 followers",
+    "milestone",
+    "selebrasyon"
+   ]
+  },
+  "template:r-gracias-por-tanto": {
+   "name": "Salamat sa lahat",
+   "tags": [
+    "salamat",
+    "pasasalamat",
+    "nanay",
+    "pagkakaibigan",
+    "mensahe"
+   ]
+  },
+  "template:r-graduacion-kinder": {
+   "name": "Graduation sa kinder",
+   "tags": [
+    "graduation",
+    "kinder",
+    "preschool",
+    "bata",
+    "proud"
+   ]
+  },
+  "template:r-graduacion-universidad": {
+   "name": "Graduation sa kolehiyo",
+   "tags": [
+    "graduation",
+    "kolehiyo",
+    "diploma",
+    "tagumpay",
+    "unibersidad"
+   ]
+  },
+  "template:r-grano-analogico": {
+   "name": "Analog film",
+   "tags": [
+    "analog",
+    "film",
+    "35 mm",
+    "grain",
+    "vintage"
+   ]
+  },
+  "template:r-guardalo": {
+   "name": "I-save para mamaya",
+   "tags": [
+    "outro",
+    "save",
+    "i-save",
+    "favorites"
+   ]
+  },
+  "template:r-hanukkah": {
+   "name": "Maligayang Hanukkah",
+   "tags": [
+    "hanukkah",
+    "kandila",
+    "ilaw",
+    "pamilya",
+    "menorah"
+   ]
+  },
+  "template:r-hecho-a-mano": {
+   "name": "Handmade shop",
+   "tags": [
+    "handmade",
+    "gawang-kamay",
+    "negosyo",
+    "tindahan",
+    "regalo"
+   ]
+  },
+  "template:r-heladeria": {
+   "name": "Ice cream shop",
+   "tags": [
+    "ice cream",
+    "sorbetes",
+    "summer",
+    "flavors",
+    "dessert"
+   ]
+  },
+  "template:r-hilo-post": {
+   "name": "Thread ng post",
+   "tags": [
+    "thread",
+    "post",
+    "opinyon",
+    "teksto",
+    "social media"
+   ]
+  },
+  "template:r-hola-soy": {
+   "name": "Hi, ako si…",
+   "tags": [
+    "pakilala",
+    "hi ako si",
+    "creator",
+    "intro",
+    "new follower"
+   ]
+  },
+  "template:r-holi": {
+   "name": "Maligayang Holi",
+   "tags": [
+    "holi",
+    "kulay",
+    "festival",
+    "color powder",
+    "spring"
+   ]
+  },
+  "template:r-intro-serie": {
+   "name": "Intro ng serye",
+   "tags": [
+    "serye",
+    "season",
+    "episode",
+    "intro",
+    "series"
+   ]
+  },
+  "template:r-invierno": {
+   "name": "Winter",
+   "tags": [
+    "winter",
+    "niyebe",
+    "malamig",
+    "barkada",
+    "taglamig"
+   ]
+  },
+  "template:r-jubilacion": {
+   "name": "Retirado na ako!",
+   "tags": [
+    "retirement",
+    "pagreretiro",
+    "trabaho",
+    "bagong yugto",
+    "selebrasyon"
+   ]
+  },
+  "template:r-lavanderia": {
+   "name": "Laundry shop",
+   "tags": [
+    "laundry",
+    "labada",
+    "damit",
+    "serbisyo",
+    "delivery"
+   ]
+  },
+  "template:r-letra-sube": {
+   "name": "Pataas na lyrics",
+   "tags": [
+    "lyrics",
+    "kanta",
+    "karaoke",
+    "musika",
+    "scrolling"
+   ]
+  },
+  "template:r-link-perfil": {
+   "name": "Link sa bio",
+   "tags": [
+    "outro",
+    "link",
+    "profile",
+    "bio",
+    "shopping"
+   ]
+  },
+  "template:r-lista-pendientes": {
+   "name": "To-do list",
+   "tags": [
+    "to do",
+    "listahan",
+    "gagawin",
+    "organisado",
+    "productivity"
+   ]
+  },
+  "template:r-lo-que-no-se-vio": {
+   "name": "Bloopers",
+   "tags": [
+    "bloopers",
+    "mali",
+    "outtakes",
+    "katatawanan",
+    "bts"
+   ]
+  },
+  "template:r-logro-deportivo": {
+   "name": "Mga kampeon!",
+   "tags": [
+    "kampeon",
+    "sports",
+    "tropeo",
+    "panalo",
+    "team"
+   ]
+  },
+  "template:r-luces-fiesta": {
+   "name": "Party lights",
+   "tags": [
+    "party",
+    "ilaw",
+    "gabi",
+    "disco",
+    "barkada"
+   ]
+  },
+  "template:r-lugar-feliz": {
+   "name": "Ang happy place ko",
+   "tags": [
+    "happy place",
+    "kalikasan",
+    "kapayapaan",
+    "biyahe",
+    "aesthetic"
+   ]
+  },
+  "template:r-main-characters": {
+   "name": "Mga bida",
+   "tags": [
+    "barkada",
+    "main character",
+    "bida",
+    "pelikula",
+    "credits"
+   ]
+  },
+  "template:r-marco-camara": {
+   "name": "Camera frame",
+   "tags": [
+    "camera",
+    "frame",
+    "litrato",
+    "viewfinder",
+    "photography"
+   ]
+  },
+  "template:r-mas-vendido": {
+   "name": "Best seller",
+   "tags": [
+    "best seller",
+    "pinakamabenta",
+    "paborito",
+    "produkto",
+    "top"
+   ]
+  },
+  "template:r-mito-verdad": {
+   "name": "Myth o totoo?",
+   "tags": [
+    "myth",
+    "totoo",
+    "fact",
+    "trivia",
+    "tanong"
+   ]
+  },
+  "template:r-modo-bestia": {
+   "name": "Beast mode",
+   "tags": [
+    "gym",
+    "beast mode",
+    "workout",
+    "motivation",
+    "fitness"
+   ]
+  },
+  "template:r-mosaico-3x3": {
+   "name": "Mosaic 3×3",
+   "tags": [
+    "mosaic",
+    "siyam na litrato",
+    "grid",
+    "instagram",
+    "3x3"
+   ]
+  },
+  "template:r-mudanzas": {
+   "name": "Lipat-bahay",
+   "tags": [
+    "lipat-bahay",
+    "moving",
+    "kahon",
+    "truck",
+    "serbisyo"
+   ]
+  },
+  "template:r-nadie-yo": {
+   "name": "Walang tao: / Ako:",
+   "tags": [
+    "meme",
+    "nobody me",
+    "katatawanan",
+    "relatable",
+    "trend"
+   ]
+  },
+  "template:r-navidad-minimal": {
+   "name": "Minimal na Pasko",
+   "tags": [
+    "pasko",
+    "minimal",
+    "christmas tree",
+    "elegante",
+    "disyembre"
+   ]
+  },
+  "template:r-nochebuena": {
+   "name": "Noche Buena sa bahay",
+   "tags": [
+    "noche buena",
+    "pasko",
+    "hapunan",
+    "pamilya",
+    "tahanan"
+   ]
+  },
+  "template:r-nos-vemos-manana": {
+   "name": "Kita-kits bukas",
+   "tags": [
+    "outro",
+    "paalam",
+    "bukas",
+    "good night",
+    "kita-kits"
+   ]
+  },
+  "template:r-nota-celular": {
+   "name": "Note sa cellphone",
+   "tags": [
+    "notes",
+    "note",
+    "cellphone",
+    "liham",
+    "mensahe"
+   ]
+  },
+  "template:r-nuevo-capitulo": {
+   "name": "Bagong kabanata",
+   "tags": [
+    "bagong kabanata",
+    "simula",
+    "pagbabago",
+    "intro",
+    "kuwento"
+   ]
+  },
+  "template:r-nuevo-empleo": {
+   "name": "Bagong trabaho",
+   "tags": [
+    "bagong trabaho",
+    "trabaho",
+    "tagumpay",
+    "unang araw",
+    "karera"
+   ]
+  },
+  "template:r-nuevo-video": {
+   "name": "Bagong video!",
+   "tags": [
+    "bagong video",
+    "premiere",
+    "anunsyo",
+    "youtube",
+    "link"
+   ]
+  },
+  "template:r-ojo-pez": {
+   "name": "90s na fisheye",
+   "tags": [
+    "fisheye",
+    "90s",
+    "skate",
+    "retro",
+    "camera"
+   ]
+  },
+  "template:r-ong-donaciones": {
+   "name": "Donation drive",
+   "tags": [
+    "donasyon",
+    "charity",
+    "tulong",
+    "bayanihan",
+    "volunteer"
+   ]
+  },
+  "template:r-otono-acogedor": {
+   "name": "Cozy na autumn",
+   "tags": [
+    "autumn",
+    "cozy",
+    "kape",
+    "dahon",
+    "taglagas"
+   ]
+  },
+  "template:r-outfit-check": {
+   "name": "Outfit check na may arrow",
+   "tags": [
+    "outfit check",
+    "fashion",
+    "arrow",
+    "detalye",
+    "style"
+   ]
+  },
+  "template:r-palabra-del-dia": {
+   "name": "Salita ng araw",
+   "tags": [
+    "word of the day",
+    "bokabularyo",
+    "wika",
+    "kahulugan",
+    "matuto"
+   ]
+  },
+  "template:r-panaderia": {
+   "name": "Bakery: bagong luto",
+   "tags": [
+    "bakery",
+    "panaderya",
+    "tinapay",
+    "bagong luto",
+    "pandesal"
+   ]
+  },
+  "template:r-pantalla-celular": {
+   "name": "Screen ng cellphone",
+   "tags": [
+    "cellphone",
+    "phone",
+    "gallery",
+    "screen",
+    "litrato"
+   ]
+  },
+  "template:r-papa-hijo": {
+   "name": "Si Tatay at ako",
+   "tags": [
+    "tatay",
+    "papa",
+    "anak",
+    "pamilya",
+    "father"
+   ]
+  },
+  "template:r-pareja-lento": {
+   "name": "Mabagal na couple montage",
+   "tags": [
+    "magkasintahan",
+    "romantic",
+    "mabagal",
+    "pelikula",
+    "pag-ibig"
+   ]
+  },
+  "template:r-pareja-ritmo": {
+   "name": "Couple montage sa beat",
+   "tags": [
+    "magkasintahan",
+    "couple",
+    "montage",
+    "beat",
+    "pag-ibig"
+   ]
+  },
+  "template:r-parte-1": {
+   "name": "Part 1",
+   "tags": [
+    "part 1",
+    "serye",
+    "kuwento",
+    "storytime",
+    "itutuloy"
+   ]
+  },
+  "template:r-pascua": {
+   "name": "Maligayang Easter",
+   "tags": [
+    "easter",
+    "pasko ng pagkabuhay",
+    "itlog",
+    "kuneho",
+    "spring"
+   ]
+  },
+  "template:r-pastel-velas": {
+   "name": "Cake at kandila",
+   "tags": [
+    "cake",
+    "kandila",
+    "kaarawan",
+    "wish",
+    "hipan"
+   ]
+  },
+  "template:r-peluqueria-mascotas": {
+   "name": "Pet grooming",
+   "tags": [
+    "pet grooming",
+    "paligo",
+    "alaga",
+    "grooming",
+    "aso"
+   ]
+  },
+  "template:r-pensamiento-dia": {
+   "name": "Kaisipan ng araw",
+   "tags": [
+    "kaisipan",
+    "pagninilay",
+    "pananampalataya",
+    "pag-asa",
+    "quote of the day"
+   ]
+  },
+  "template:r-plato-del-dia": {
+   "name": "Ulam ng araw",
+   "tags": [
+    "restawran",
+    "ulam ng araw",
+    "menu",
+    "tanghalian",
+    "pagkain"
+   ]
+  },
+  "template:r-poema-corto": {
+   "name": "Maikling tula",
+   "tags": [
+    "tula",
+    "poetry",
+    "taludtod",
+    "pag-ibig",
+    "teksto"
+   ]
+  },
+  "template:r-portada-blog": {
+   "name": "Cover ng blog",
+   "tags": [
+    "blog",
+    "cover",
+    "artikulo",
+    "pagbasa",
+    "new post"
+   ]
+  },
+  "template:r-pregunta-respuesta": {
+   "name": "Q&A",
+   "tags": [
+    "tanong",
+    "sagot",
+    "q&a",
+    "followers",
+    "ask me"
+   ]
+  },
+  "template:r-primavera": {
+   "name": "Spring",
+   "tags": [
+    "spring",
+    "tagsibol",
+    "bulaklak",
+    "makulay",
+    "kalikasan"
+   ]
+  },
+  "template:r-primera-cita": {
+   "name": "Ang unang date namin",
+   "tags": [
+    "first date",
+    "magkasintahan",
+    "pag-ibig",
+    "alaala",
+    "anibersaryo"
+   ]
+  },
+  "template:r-primera-comunion": {
+   "name": "Unang komunyon",
+   "tags": [
+    "first communion",
+    "komunyon",
+    "pananampalataya",
+    "pamilya",
+    "bata"
+   ]
+  },
+  "template:r-producto-360": {
+   "name": "Produkto sa 360°",
+   "tags": [
+    "produkto",
+    "360",
+    "ikot",
+    "detalye",
+    "tindahan"
+   ]
+  },
+  "template:r-propuesta": {
+   "name": "Nag-yes siya!",
+   "tags": [
+    "proposal",
+    "engagement",
+    "singsing",
+    "she said yes",
+    "magkasintahan"
+   ]
+  },
+  "template:r-ramadan": {
+   "name": "Ramadan Kareem",
+   "tags": [
+    "ramadan",
+    "iftar",
+    "pamilya",
+    "buwan",
+    "parol"
+   ]
+  },
+  "template:r-ranking-5-1": {
+   "name": "Ranking mula 5 hanggang 1",
+   "tags": [
+    "ranking",
+    "top 5",
+    "paborito",
+    "listahan",
+    "number 1"
+   ]
+  },
+  "template:r-reaccion-esquina": {
+   "name": "Reaction sa sulok",
+   "tags": [
+    "reaction",
+    "pip",
+    "react",
+    "sulok",
+    "komento"
+   ]
+  },
+  "template:r-receta-texto": {
+   "name": "Recipe sa teksto",
+   "tags": [
+    "recipe",
+    "hakbang",
+    "luto",
+    "madali",
+    "teksto"
+   ]
+  },
+  "template:r-recorrido-ubicacion": {
+   "name": "Pasyal sa mga lugar",
+   "tags": [
+    "tour",
+    "lokasyon",
+    "lungsod",
+    "gabay",
+    "lugar"
+   ]
+  },
+  "template:r-recortes-revista": {
+   "name": "Magazine cut-out",
+   "tags": [
+    "magasin",
+    "cut-out",
+    "collage",
+    "editorial",
+    "ginupit na letra"
+   ]
+  },
+  "template:r-recuerdo-proyector": {
+   "name": "Alaala sa projector",
+   "tags": [
+    "projector",
+    "alaala",
+    "vintage",
+    "pelikula",
+    "pamilya"
+   ]
+  },
+  "template:r-recuerdo-verano": {
+   "name": "Alaala ng summer",
+   "tags": [
+    "summer",
+    "beach",
+    "alaala",
+    "bakasyon",
+    "instant photo"
+   ]
+  },
+  "template:r-reflejo": {
+   "name": "Repleksyon sa tubig",
+   "tags": [
+    "repleksyon",
+    "salamin",
+    "tubig",
+    "simetriya",
+    "aesthetic"
+   ]
+  },
+  "template:r-regreso-clases": {
+   "name": "Balik-eskwela",
+   "tags": [
+    "balik-eskwela",
+    "paaralan",
+    "bag",
+    "school supplies",
+    "unang araw"
+   ]
+  },
+  "template:r-rejilla-bordes": {
+   "name": "Grid na makapal ang border",
+   "tags": [
+    "grid",
+    "border",
+    "brutalist",
+    "makulay",
+    "collage"
+   ]
+  },
+  "template:r-resena-estrellas": {
+   "name": "Review na may bituin",
+   "tags": [
+    "review",
+    "bituin",
+    "opinyon",
+    "customer",
+    "produkto"
+   ]
+  },
+  "template:r-reto-30-dias": {
+   "name": "30-day challenge",
+   "tags": [
+    "challenge",
+    "30 araw",
+    "habits",
+    "kalendaryo",
+    "hamon"
+   ]
+  },
+  "template:r-sacudida-3d": {
+   "name": "3D swing sa beat",
+   "tags": [
+    "3d",
+    "swing",
+    "ikot",
+    "beat",
+    "trend"
+   ]
+  },
+  "template:r-san-valentin-divertido": {
+   "name": "Masayang Valentine's",
+   "tags": [
+    "valentine's",
+    "pag-ibig",
+    "katatawanan",
+    "magkasintahan",
+    "puso"
+   ]
+  },
+  "template:r-si-te-ries": {
+   "name": "Bawal tumawa",
+   "tags": [
+    "meme",
+    "try not to laugh",
+    "katatawanan",
+    "challenge",
+    "nakakatawa"
+   ]
+  },
+  "template:r-signos": {
+   "name": "Zodiac signs",
+   "tags": [
+    "zodiac",
+    "horoscope",
+    "astrology",
+    "bituin",
+    "signs"
+   ]
+  },
+  "template:r-siguenos-mas": {
+   "name": "I-follow para sa iba pa",
+   "tags": [
+    "outro",
+    "follow",
+    "i-follow",
+    "more content"
+   ]
+  },
+  "template:r-slowmo-destello": {
+   "name": "Slow motion na may flare",
+   "tags": [
+    "slow motion",
+    "flare",
+    "araw",
+    "cinematic",
+    "liwanag"
+   ]
+  },
+  "template:r-spa": {
+   "name": "Spa at relaxation",
+   "tags": [
+    "spa",
+    "masahe",
+    "relax",
+    "wellness",
+    "beauty"
+   ]
+  },
+  "template:r-split-ritmo": {
+   "name": "Split screen sa beat",
+   "tags": [
+    "split screen",
+    "beat",
+    "dalawang litrato",
+    "edit",
+    "dynamic"
+   ]
+  },
+  "template:r-super-ofertas": {
+   "name": "Supermarket: mga deal",
+   "tags": [
+    "supermarket",
+    "sale",
+    "presyo",
+    "discount",
+    "prutas"
+   ]
+  },
+  "template:r-tablero-corcho": {
+   "name": "Cork board",
+   "tags": [
+    "cork board",
+    "board",
+    "litrato",
+    "thumbtack",
+    "alaala"
+   ]
+  },
+  "template:r-taller-mecanico": {
+   "name": "Talyer ng mekaniko",
+   "tags": [
+    "talyer",
+    "mekaniko",
+    "kotse",
+    "check-up",
+    "serbisyo"
+   ]
+  },
+  "template:r-tarjetas-apiladas": {
+   "name": "Nakapatong na card",
+   "tags": [
+    "card",
+    "patong",
+    "swipe",
+    "litrato",
+    "stack"
+   ]
+  },
+  "template:r-tienda-barrio": {
+   "name": "Sari-sari store",
+   "tags": [
+    "sari-sari store",
+    "tindahan",
+    "kapitbahay",
+    "sale",
+    "grocery"
+   ]
+  },
+  "template:r-tierno-stickers": {
+   "name": "Cute na may sticker",
+   "tags": [
+    "cute",
+    "sticker",
+    "kawaii",
+    "alaga",
+    "nakakatuwa"
+   ]
+  },
+  "template:r-traduccion": {
+   "name": "Paano ito sabihin?",
+   "tags": [
+    "pagsasalin",
+    "wika",
+    "english",
+    "matuto",
+    "parirala"
+   ]
+  },
+  "template:r-tres-errores": {
+   "name": "3 pagkakamaling ginagawa mo",
+   "tags": [
+    "pagkakamali",
+    "tips",
+    "payo",
+    "matuto",
+    "iwasan"
+   ]
+  },
+  "template:r-trivia": {
+   "name": "Multiple-choice trivia",
+   "tags": [
+    "trivia",
+    "quiz",
+    "tanong",
+    "laro",
+    "sagot"
+   ]
+  },
+  "template:r-unboxing": {
+   "name": "Unboxing",
+   "tags": [
+    "unboxing",
+    "pagbubukas",
+    "order",
+    "produkto",
+    "haul"
+   ]
+  },
+  "template:r-velocity-duro": {
+   "name": "Hard velocity",
+   "tags": [
+    "velocity",
+    "speed ramp",
+    "hard",
+    "shake",
+    "edit"
+   ]
+  },
+  "template:r-velocity-suave": {
+   "name": "Smooth na velocity",
+   "tags": [
+    "velocity",
+    "speed ramp",
+    "smooth",
+    "trend",
+    "edit"
+   ]
+  },
+  "template:r-verano": {
+   "name": "Hello summer",
+   "tags": [
+    "summer",
+    "beach",
+    "swimming pool",
+    "araw",
+    "bakasyon"
+   ]
+  },
+  "template:r-veterinaria": {
+   "name": "Vet clinic",
+   "tags": [
+    "beterinaryo",
+    "vet",
+    "alaga",
+    "aso",
+    "pusa"
+   ]
+  },
+  "template:r-vt-horario": {
+   "name": "Vertical na oras ng operasyon",
+   "tags": [
+    "lower third",
+    "vertical",
+    "oras",
+    "store hours",
+    "negosyo"
+   ]
+  },
+  "template:r-vt-nombre": {
+   "name": "Vertical na name tag",
+   "tags": [
+    "lower third",
+    "name tag",
+    "vertical",
+    "pangalan",
+    "interview"
+   ]
+  },
+  "template:r-vt-precio": {
+   "name": "Vertical na price tag",
+   "tags": [
+    "lower third",
+    "vertical",
+    "presyo",
+    "price tag",
+    "produkto"
+   ]
+  },
+  "template:r-vt-ubicacion": {
+   "name": "Vertical na lokasyon",
+   "tags": [
+    "lower third",
+    "vertical",
+    "lokasyon",
+    "biyahe",
+    "lugar"
+   ]
+  },
+  "template:r-vt-usuario": {
+   "name": "Vertical na @handle",
+   "tags": [
+    "lower third",
+    "vertical",
+    "username",
+    "handle",
+    "social media"
+   ]
+  },
+  "template:r-yo-vs-yo": {
+   "name": "Ako noon vs. ako ngayon",
+   "tags": [
+    "ako noon",
+    "noon at ngayon",
+    "pagkabata",
+    "paglaki",
+    "paghahambing"
+   ]
+  },
+  "template:r-zoom-golpe": {
+   "name": "Punch zoom",
+   "tags": [
+    "zoom",
+    "punch",
+    "beat",
+    "minimal",
+    "edit"
+   ]
+  },
+  "template:recap-del-anio": {
+   "name": "Ang taon ko sa 12 buwan",
+   "tags": [
+    "recap",
+    "taon",
+    "buod",
+    "buwan",
+    "2026"
+   ]
+  },
+  "template:receta-rapida": {
+   "name": "Recipe sa 15 segundo",
+   "tags": [
+    "recipe",
+    "luto",
+    "pagkain",
+    "salad"
+   ]
+  },
+  "template:red-flags-green-flags": {
+   "name": "Red flags at green flags",
+   "tags": [
+    "red flags",
+    "green flags",
+    "relasyon",
+    "dating",
+    "katatawanan"
+   ]
+  },
+  "template:remodelacion": {
+   "name": "Before at after ng kuwarto",
+   "tags": [
+    "renovation",
+    "bahay",
+    "real estate",
+    "dekorasyon"
+   ]
+  },
+  "template:resenas-lo-que-dicen": {
+   "name": "Sabi ng aming mga customer",
+   "tags": [
+    "review",
+    "opinyon",
+    "customer",
+    "5 bituin",
+    "rating"
+   ]
+  },
+  "template:resumen-de-boda": {
+   "name": "Wedding recap",
+   "tags": [
+    "kasal",
+    "wedding",
+    "recap",
+    "cinematic",
+    "ikakasal"
+   ]
+  },
+  "template:revelacion-de-genero": {
+   "name": "Gender reveal: lalaki o babae?",
+   "tags": [
+    "gender reveal",
+    "lalaki o babae",
+    "baby",
+    "buntis"
+   ]
+  },
+  "template:salon-de-belleza-servicios": {
+   "name": "Beauty salon",
+   "tags": [
+    "salon",
+    "beauty",
+    "parlor",
+    "serbisyo",
+    "appointment"
+   ]
+  },
+  "template:san-valentin-carta": {
+   "name": "Liham ng pag-ibig",
+   "tags": [
+    "valentine's",
+    "pag-ibig",
+    "magkasintahan",
+    "pebrero 14",
+    "liham"
+   ]
+  },
+  "template:slowmo-cinematico": {
+   "name": "Cinematic na slow motion",
+   "tags": [
+    "slow motion",
+    "cinematic",
+    "mabagal",
+    "paglubog ng araw"
+   ]
+  },
+  "template:storytime-les-cuento": {
+   "name": "Storytime: kuwento ko 'to",
+   "tags": [
+    "storytime",
+    "kuwento",
+    "chika",
+    "tiktok"
+   ]
+  },
+  "template:testimonio-cliente-estrellas": {
+   "name": "Testimonya ng customer",
+   "tags": [
+    "testimonial",
+    "customer",
+    "review",
+    "bituin",
+    "tiwala"
+   ]
+  },
+  "template:texto-cinetico": {
+   "name": "Kinetic na teksto",
+   "tags": [
+    "teksto",
+    "kinetic",
+    "motivation",
+    "quote",
+    "impact"
+   ]
+  },
+  "template:tira-pelicula": {
+   "name": "Film strip",
+   "tags": [
+    "film",
+    "analog",
+    "rolyo",
+    "retro"
+   ]
+  },
+  "template:top-5-mas-vendidos": {
+   "name": "Top 5 best seller",
+   "tags": [
+    "top 5",
+    "best seller",
+    "ranking",
+    "tindahan",
+    "damit"
+   ]
+  },
+  "template:tour-inmobiliario": {
+   "name": "House tour",
+   "tags": [
+    "real estate",
+    "bahay",
+    "benta",
+    "condo",
+    "tour"
+   ]
+  },
+  "template:transformacion-gym": {
+   "name": "Gym transformation",
+   "tags": [
+    "gym",
+    "fitness",
+    "transformation",
+    "before after"
+   ]
+  },
+  "template:transiciones-al-ritmo": {
+   "name": "Transition sa beat",
+   "tags": [
+    "transition",
+    "beat",
+    "barkada",
+    "weekend",
+    "trend"
+   ]
+  },
+  "template:tres-consejos": {
+   "name": "3 tips para sa…",
+   "tags": [
+    "tips",
+    "payo",
+    "listahan",
+    "pag-aaral",
+    "educational"
+   ]
+  },
+  "template:tutorial-en-3-pasos": {
+   "name": "Tutorial sa 3 hakbang",
+   "tags": [
+    "tutorial",
+    "hakbang",
+    "paano gawin",
+    "tips",
+    "beauty"
+   ]
+  },
+  "template:ultimo-momento-noticia": {
+   "name": "Breaking news",
+   "tags": [
+    "balita",
+    "breaking news",
+    "anunsyo",
+    "live",
+    "bago"
+   ]
+  },
+  "template:un-dia-en-mi-vida": {
+   "name": "Isang araw sa buhay ko",
+   "tags": [
+    "day in my life",
+    "routine",
+    "vlog",
+    "kuwento"
+   ]
+  },
+  "template:unas-nail-art": {
+   "name": "Kuko at nail art",
+   "tags": [
+    "kuko",
+    "manicure",
+    "nail art",
+    "beauty",
+    "acrylic"
+   ]
+  },
+  "template:velocity-al-ritmo": {
+   "name": "Velocity sa beat",
+   "tags": [
+    "velocity",
+    "bilis",
+    "beat",
+    "fashion",
+    "trend"
+   ]
+  },
+  "template:vhs-de-los-2000": {
+   "name": "VHS ng 2000s",
+   "tags": [
+    "vhs",
+    "retro",
+    "2000s",
+    "nostalgia",
+    "camera"
+   ]
+  },
+  "template:vlog-de-viaje": {
+   "name": "Mini travel vlog",
+   "tags": [
+    "biyahe",
+    "vlog",
+    "travel",
+    "pasyal"
+   ]
+  },
+  "template:y2k-brillitos": {
+   "name": "Y2K na kislap",
+   "tags": [
+    "y2k",
+    "kislap",
+    "pink",
+    "aesthetic"
+   ]
+  },
+  "template:zoom-3d-parallax": {
+   "name": "3D zoom",
+   "tags": [
+    "3d zoom",
+    "parallax",
+    "biyahe",
+    "ken burns",
+    "trend"
+   ]
+  }
+ }
+}

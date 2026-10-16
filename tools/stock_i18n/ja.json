@@ -1,0 +1,8477 @@
+{
+ "categories": {
+  "animation:celebracion": "お祝い",
+  "animation:clima": "天気",
+  "animation:comida": "食べ物・飲み物",
+  "animation:deportes": "スポーツ",
+  "animation:emociones": "感情",
+  "animation:fechas": "記念日・イベント",
+  "animation:flechas": "矢印",
+  "animation:formas": "図形",
+  "animation:iconos": "アイコン",
+  "animation:llamadas": "吹き出し・フレーム",
+  "animation:negocios": "ビジネス",
+  "animation:redes": "SNS",
+  "animation:resaltar": "強調",
+  "animation:transiciones": "トランジション",
+  "background:ambiente": "光・雰囲気",
+  "background:degradados": "グラデーション・リキッド",
+  "background:fechas": "記念日・イベント",
+  "background:geometricos": "幾何学",
+  "background:texturas": "テクスチャ",
+  "overlay:amor": "ラブ",
+  "overlay:camara": "カメラ・画面",
+  "overlay:celebracion": "お祝い",
+  "overlay:clima": "天気・自然",
+  "overlay:garabatos": "落書き",
+  "overlay:glitch": "グリッチ",
+  "overlay:luces": "光漏れ・フレア",
+  "overlay:marcos": "フレーム・テクスチャ",
+  "overlay:particulas": "パーティクル・キラキラ",
+  "overlay:pelicula": "フィルム・レトロ",
+  "sound:comedia": "コメディ",
+  "sound:impactos": "インパクト",
+  "sound:interfaz": "UI・通知音",
+  "sound:juegos": "コイン・ゲーム",
+  "sound:magia": "魔法・キラキラ",
+  "sound:ritmo": "ビート・音楽",
+  "sound:suspenso": "サスペンス・ドラマ",
+  "sound:transiciones": "トランジション",
+  "template:beforeafter": "ビフォーアフター",
+  "template:business": "ビジネス",
+  "template:celebration": "お祝い",
+  "template:collage": "コラージュ",
+  "template:countdown": "カウントダウン",
+  "template:intro": "オープニング・タイトル",
+  "template:lowerthird": "テロップ",
+  "template:outro": "エンディング",
+  "template:product": "商品紹介",
+  "template:reels": "写真リール",
+  "template:seasonal": "記念日・イベント",
+  "template:slideshow": "フォトスライドショー",
+  "template:text": "テキスト",
+  "template:transition": "トランジション・区切り"
+ },
+ "items": {
+  "animation:advertencia": {
+   "name": "警告",
+   "tags": [
+    "注意",
+    "警告",
+    "アラート",
+    "お知らせ"
+   ]
+  },
+  "animation:alcancia": {
+   "name": "貯金箱",
+   "tags": [
+    "貯金",
+    "お金",
+    "家計",
+    "目標"
+   ]
+  },
+  "animation:anillos-boda": {
+   "name": "結婚指輪",
+   "tags": [
+    "結婚式",
+    "結婚",
+    "婚約",
+    "記念日"
+   ]
+  },
+  "animation:anillos-puntos": {
+   "name": "ドットのリング",
+   "tags": [
+    "円",
+    "背景",
+    "回転",
+    "パターン"
+   ]
+  },
+  "animation:arbol-navidad": {
+   "name": "クリスマスツリー",
+   "tags": [
+    "クリスマス",
+    "ツリー",
+    "12月",
+    "ホリデー"
+   ]
+  },
+  "animation:arcoiris": {
+   "name": "虹",
+   "tags": [
+    "虹",
+    "雨",
+    "希望",
+    "カラフル"
+   ]
+  },
+  "animation:asterisco": {
+   "name": "アスタリスク",
+   "tags": [
+    "図形",
+    "星",
+    "レトロ",
+    "強調"
+   ]
+  },
+  "animation:avion-papel": {
+   "name": "紙飛行機",
+   "tags": [
+    "送信",
+    "メッセージ",
+    "シェア",
+    "旅行"
+   ]
+  },
+  "animation:balon-futbol": {
+   "name": "サッカーボール",
+   "tags": [
+    "サッカー",
+    "ゴール",
+    "スポーツ",
+    "試合"
+   ]
+  },
+  "animation:baloncesto": {
+   "name": "バスケットボール",
+   "tags": [
+    "バスケ",
+    "バスケットボール",
+    "スポーツ",
+    "コート"
+   ]
+  },
+  "animation:bandera": {
+   "name": "はためく旗",
+   "tags": [
+    "旗",
+    "ゴール",
+    "達成",
+    "スタート"
+   ]
+  },
+  "animation:bandera-meta": {
+   "name": "チェッカーフラッグ",
+   "tags": [
+    "ゴール",
+    "レース",
+    "勝者",
+    "フィニッシュ"
+   ]
+  },
+  "animation:banderines": {
+   "name": "ガーランド旗",
+   "tags": [
+    "ガーランド",
+    "パーティー",
+    "飾り",
+    "誕生日",
+    "オープン"
+   ]
+  },
+  "animation:barrido-diagonal": {
+   "name": "斜めワイプ",
+   "tags": [
+    "トランジション",
+    "ワイプ",
+    "場面転換"
+   ]
+  },
+  "animation:bateria-carga": {
+   "name": "充電中のバッテリー",
+   "tags": [
+    "バッテリー",
+    "エネルギー",
+    "充電",
+    "チャージ"
+   ]
+  },
+  "animation:bengala": {
+   "name": "手持ち花火",
+   "tags": [
+    "手持ち花火",
+    "新年",
+    "パーティー",
+    "結婚式",
+    "火花"
+   ]
+  },
+  "animation:birrete": {
+   "name": "卒業帽",
+   "tags": [
+    "卒業",
+    "卒業生",
+    "達成",
+    "勉強"
+   ]
+  },
+  "animation:bocadillo": {
+   "name": "吹き出し",
+   "tags": [
+    "吹き出し",
+    "会話",
+    "セリフ",
+    "コミック"
+   ]
+  },
+  "animation:bocadillo-grito": {
+   "name": "叫びの吹き出し",
+   "tags": [
+    "叫び",
+    "ワオ",
+    "コミック",
+    "びっくり"
+   ]
+  },
+  "animation:bola-disco": {
+   "name": "ミラーボール",
+   "tags": [
+    "ミラーボール",
+    "パーティー",
+    "ダンス",
+    "夜",
+    "ディスコ"
+   ]
+  },
+  "animation:bolsa-compras": {
+   "name": "ショッピングバッグ",
+   "tags": [
+    "買い物",
+    "ショップ",
+    "注文"
+   ]
+  },
+  "animation:bombilla-idea": {
+   "name": "ひらめき電球",
+   "tags": [
+    "アイデア",
+    "ひらめき",
+    "創造力",
+    "コツ"
+   ]
+  },
+  "animation:boton-play": {
+   "name": "再生ボタン",
+   "tags": [
+    "動画",
+    "再生",
+    "見て",
+    "プレイ"
+   ]
+  },
+  "animation:boton-seguir": {
+   "name": "フォローボタン",
+   "tags": [
+    "フォロー",
+    "登録",
+    "sns",
+    "ボタン"
+   ]
+  },
+  "animation:brillo-y2k": {
+   "name": "Y2Kのきらめき",
+   "tags": [
+    "キラキラ",
+    "y2k",
+    "エモい",
+    "星"
+   ]
+  },
+  "animation:burbujas": {
+   "name": "泡",
+   "tags": [
+    "泡",
+    "水",
+    "シャボン玉",
+    "背景"
+   ]
+  },
+  "animation:cafe-humeante": {
+   "name": "湯気の立つコーヒー",
+   "tags": [
+    "コーヒー",
+    "朝",
+    "朝食",
+    "ドリンク"
+   ]
+  },
+  "animation:caja-envio": {
+   "name": "配送ボックス",
+   "tags": [
+    "配送",
+    "デリバリー",
+    "注文",
+    "荷物"
+   ]
+  },
+  "animation:calabaza": {
+   "name": "ジャック・オー・ランタン",
+   "tags": [
+    "ハロウィン",
+    "かぼちゃ",
+    "10月",
+    "こわい"
+   ]
+  },
+  "animation:calendario": {
+   "name": "カレンダー",
+   "tags": [
+    "日付",
+    "イベント",
+    "予定",
+    "リマインダー"
+   ]
+  },
+  "animation:camara-foto": {
+   "name": "カメラ",
+   "tags": [
+    "写真",
+    "カメラ",
+    "自撮り",
+    "思い出"
+   ]
+  },
+  "animation:campana": {
+   "name": "通知ベル",
+   "tags": [
+    "チャンネル登録",
+    "通知",
+    "ベル",
+    "youtube"
+   ]
+  },
+  "animation:campanas-navidad": {
+   "name": "ジングルベル",
+   "tags": [
+    "クリスマス",
+    "ベル",
+    "ホリデー",
+    "結婚式"
+   ]
+  },
+  "animation:candado": {
+   "name": "南京錠",
+   "tags": [
+    "安全",
+    "プライベート",
+    "ロック解除",
+    "パスワード"
+   ]
+  },
+  "animation:cara-angel": {
+   "name": "天使の顔",
+   "tags": [
+    "天使",
+    "無邪気",
+    "いい子",
+    "絵文字"
+   ]
+  },
+  "animation:cara-beso": {
+   "name": "キス",
+   "tags": [
+    "キス",
+    "恋愛",
+    "ちゅっ",
+    "絵文字"
+   ]
+  },
+  "animation:cara-derretida": {
+   "name": "とける顔",
+   "tags": [
+    "暑い",
+    "恥ずかしい",
+    "とける",
+    "絵文字"
+   ]
+  },
+  "animation:cara-diablillo": {
+   "name": "小悪魔の顔",
+   "tags": [
+    "いたずら",
+    "小悪魔",
+    "冗談",
+    "絵文字"
+   ]
+  },
+  "animation:cara-dormida": {
+   "name": "寝顔",
+   "tags": [
+    "眠い",
+    "寝る",
+    "疲れた",
+    "zzz"
+   ]
+  },
+  "animation:cara-enamorada": {
+   "name": "ハートの目",
+   "tags": [
+    "恋愛",
+    "大好き",
+    "ハート",
+    "絵文字"
+   ]
+  },
+  "animation:cara-enojada": {
+   "name": "怒り顔",
+   "tags": [
+    "怒り",
+    "激怒",
+    "イライラ",
+    "絵文字"
+   ]
+  },
+  "animation:cara-estrellas": {
+   "name": "星の目",
+   "tags": [
+    "ワオ",
+    "すごい",
+    "ファン",
+    "絵文字"
+   ]
+  },
+  "animation:cara-fiesta": {
+   "name": "パーティー顔",
+   "tags": [
+    "パーティー",
+    "誕生日",
+    "お祝い",
+    "絵文字"
+   ]
+  },
+  "animation:cara-guino": {
+   "name": "ウインク",
+   "tags": [
+    "ウインク",
+    "いたずら",
+    "冗談",
+    "絵文字"
+   ]
+  },
+  "animation:cara-lentes": {
+   "name": "サングラス顔",
+   "tags": [
+    "クール",
+    "かっこいい",
+    "サングラス",
+    "絵文字"
+   ]
+  },
+  "animation:cara-llorando": {
+   "name": "泣き顔",
+   "tags": [
+    "悲しい",
+    "泣く",
+    "つらい",
+    "絵文字"
+   ]
+  },
+  "animation:cara-nerviosa": {
+   "name": "焦り顔",
+   "tags": [
+    "緊張",
+    "しまった",
+    "気まずい",
+    "絵文字"
+   ]
+  },
+  "animation:cara-pensando": {
+   "name": "考え中",
+   "tags": [
+    "考える",
+    "疑問",
+    "質問",
+    "絵文字"
+   ]
+  },
+  "animation:cara-risa": {
+   "name": "笑い顔",
+   "tags": [
+    "笑い",
+    "爆笑",
+    "おもしろ",
+    "絵文字"
+   ]
+  },
+  "animation:cara-sorpresa": {
+   "name": "驚き顔",
+   "tags": [
+    "ワオ",
+    "驚き",
+    "びっくり",
+    "絵文字"
+   ]
+  },
+  "animation:cargando": {
+   "name": "読み込み中",
+   "tags": [
+    "待機",
+    "読み込み",
+    "ローディング",
+    "まもなく"
+   ]
+  },
+  "animation:carrito": {
+   "name": "カート",
+   "tags": [
+    "購入",
+    "ショップ",
+    "カート"
+   ]
+  },
+  "animation:carta-amor": {
+   "name": "ラブレター",
+   "tags": [
+    "バレンタイン",
+    "手紙",
+    "恋愛",
+    "メッセージ"
+   ]
+  },
+  "animation:chat-corazon": {
+   "name": "愛のメッセージ",
+   "tags": [
+    "メッセージ",
+    "恋愛",
+    "チャット",
+    "dm"
+   ]
+  },
+  "animation:chincheta": {
+   "name": "画びょう",
+   "tags": [
+    "画びょう",
+    "固定",
+    "重要",
+    "メモ",
+    "リマインダー"
+   ]
+  },
+  "animation:cinta": {
+   "name": "リボンバナー",
+   "tags": [
+    "タイトル",
+    "バナー",
+    "リボン",
+    "新着"
+   ]
+  },
+  "animation:cinta-adhesiva": {
+   "name": "マスキングテープ",
+   "tags": [
+    "フレーム",
+    "写真",
+    "スクラップブック",
+    "コラージュ"
+   ]
+  },
+  "animation:circulo-flecha": {
+   "name": "丸と矢印",
+   "tags": [
+    "強調",
+    "指し示す",
+    "ここ",
+    "落書き"
+   ]
+  },
+  "animation:circulo-marcador": {
+   "name": "手描きの丸",
+   "tags": [
+    "強調",
+    "丸",
+    "マーク",
+    "指し示す"
+   ]
+  },
+  "animation:circulos-barrido": {
+   "name": "円形ワイプ",
+   "tags": [
+    "トランジション",
+    "円",
+    "場面転換"
+   ]
+  },
+  "animation:cohete": {
+   "name": "ロケット",
+   "tags": [
+    "発射",
+    "ローンチ",
+    "スタートアップ",
+    "速い"
+   ]
+  },
+  "animation:comentar": {
+   "name": "コメント",
+   "tags": [
+    "コメント",
+    "チャット",
+    "sns",
+    "メッセージ"
+   ]
+  },
+  "animation:compartir": {
+   "name": "シェア",
+   "tags": [
+    "シェア",
+    "送信",
+    "sns",
+    "共有"
+   ]
+  },
+  "animation:confeti": {
+   "name": "紙吹雪",
+   "tags": [
+    "パーティー",
+    "誕生日",
+    "お祝い",
+    "紙吹雪"
+   ]
+  },
+  "animation:cono-fiesta": {
+   "name": "クラッカー",
+   "tags": [
+    "クラッカー",
+    "パーティー",
+    "誕生日",
+    "サプライズ",
+    "お祝い"
+   ]
+  },
+  "animation:conversacion": {
+   "name": "チャット",
+   "tags": [
+    "チャット",
+    "会話",
+    "メッセージ",
+    "吹き出し"
+   ]
+  },
+  "animation:copas-brindis": {
+   "name": "乾杯",
+   "tags": [
+    "乾杯",
+    "新年",
+    "結婚式",
+    "お祝い"
+   ]
+  },
+  "animation:copo-nieve": {
+   "name": "雪の結晶",
+   "tags": [
+    "雪",
+    "冬",
+    "寒い",
+    "クリスマス"
+   ]
+  },
+  "animation:corazon-a-mano": {
+   "name": "手描きのハート",
+   "tags": [
+    "ハート",
+    "お気に入り",
+    "落書き",
+    "強調"
+   ]
+  },
+  "animation:corazon-flechado": {
+   "name": "矢の刺さったハート",
+   "tags": [
+    "バレンタイン",
+    "恋愛",
+    "キューピッド",
+    "カップル"
+   ]
+  },
+  "animation:corazon-roto": {
+   "name": "ブロークンハート",
+   "tags": [
+    "失恋",
+    "悲しい",
+    "別れ",
+    "ハート"
+   ]
+  },
+  "animation:corazones": {
+   "name": "浮かぶハート",
+   "tags": [
+    "恋愛",
+    "ハート",
+    "カップル",
+    "いいね"
+   ]
+  },
+  "animation:corchetes": {
+   "name": "フォーカスかっこ",
+   "tags": [
+    "強調",
+    "フォーカス",
+    "枠",
+    "テキスト"
+   ]
+  },
+  "animation:corona": {
+   "name": "王冠",
+   "tags": [
+    "王冠",
+    "王様",
+    "女王",
+    "優勝",
+    "プレミアム"
+   ]
+  },
+  "animation:correo": {
+   "name": "新着メール",
+   "tags": [
+    "メール",
+    "メッセージ",
+    "email",
+    "連絡先"
+   ]
+  },
+  "animation:corte-dividido": {
+   "name": "分割スライド",
+   "tags": [
+    "トランジション",
+    "スライド",
+    "場面転換"
+   ]
+  },
+  "animation:cronometro": {
+   "name": "ストップウォッチ",
+   "tags": [
+    "時間",
+    "レース",
+    "記録",
+    "速い"
+   ]
+  },
+  "animation:cuadros-zoom": {
+   "name": "四角グリッド",
+   "tags": [
+    "トランジション",
+    "四角",
+    "ピクセル",
+    "場面転換"
+   ]
+  },
+  "animation:cuenta-regresiva": {
+   "name": "カウントダウン",
+   "tags": [
+    "カウントダウン",
+    "3 2 1",
+    "スタート",
+    "待機"
+   ]
+  },
+  "animation:cupcake": {
+   "name": "カップケーキ",
+   "tags": [
+    "カップケーキ",
+    "デザート",
+    "誕生日",
+    "スイーツ"
+   ]
+  },
+  "animation:cursor-clic": {
+   "name": "クリック",
+   "tags": [
+    "クリック",
+    "タップ",
+    "ボタン",
+    "カーソル"
+   ]
+  },
+  "animation:descargar": {
+   "name": "ダウンロード",
+   "tags": [
+    "ダウンロード",
+    "保存",
+    "ファイル"
+   ]
+  },
+  "animation:desliza-arriba": {
+   "name": "上にスワイプ",
+   "tags": [
+    "スワイプ",
+    "上",
+    "ストーリーズ",
+    "リンク"
+   ]
+  },
+  "animation:destellos": {
+   "name": "キラキラ",
+   "tags": [
+    "キラキラ",
+    "星",
+    "魔法",
+    "輝き"
+   ]
+  },
+  "animation:diana": {
+   "name": "的の中心",
+   "tags": [
+    "目標",
+    "ゴール",
+    "命中",
+    "戦略"
+   ]
+  },
+  "animation:diya": {
+   "name": "ディヤランプ",
+   "tags": [
+    "ディワリ",
+    "光",
+    "ランプ",
+    "祭り"
+   ]
+  },
+  "animation:dona": {
+   "name": "ドーナツ",
+   "tags": [
+    "ドーナツ",
+    "デザート",
+    "スイーツ",
+    "朝食"
+   ]
+  },
+  "animation:en-vivo": {
+   "name": "ライブ",
+   "tags": [
+    "ライブ",
+    "生配信",
+    "配信",
+    "live"
+   ]
+  },
+  "animation:enfasis": {
+   "name": "強調線",
+   "tags": [
+    "驚き",
+    "ワオ",
+    "注目",
+    "強調"
+   ]
+  },
+  "animation:engranajes": {
+   "name": "歯車",
+   "tags": [
+    "設定",
+    "プロセス",
+    "作業",
+    "歯車"
+   ]
+  },
+  "animation:enlace": {
+   "name": "リンク",
+   "tags": [
+    "リンク",
+    "プロフィール",
+    "ウェブ",
+    "url"
+   ]
+  },
+  "animation:equis": {
+   "name": "バツ印",
+   "tags": [
+    "バツ",
+    "エラー",
+    "ダメ",
+    "不正解"
+   ]
+  },
+  "animation:escribiendo": {
+   "name": "入力中…",
+   "tags": [
+    "チャット",
+    "メッセージ",
+    "入力中",
+    "待機"
+   ]
+  },
+  "animation:esfera-navidad": {
+   "name": "クリスマスオーナメント",
+   "tags": [
+    "クリスマス",
+    "オーナメント",
+    "飾り",
+    "12月"
+   ]
+  },
+  "animation:espiral-garabato": {
+   "name": "手描きのぐるぐる",
+   "tags": [
+    "落書き",
+    "ぐるぐる",
+    "めまい",
+    "催眠",
+    "らせん"
+   ]
+  },
+  "animation:estallido-comic": {
+   "name": "コミックの爆発",
+   "tags": [
+    "ドカン",
+    "ワオ",
+    "セール",
+    "コミック"
+   ]
+  },
+  "animation:estrella-a-mano": {
+   "name": "手描きの星",
+   "tags": [
+    "星",
+    "お気に入り",
+    "重要",
+    "落書き"
+   ]
+  },
+  "animation:estrella-fugaz": {
+   "name": "流れ星",
+   "tags": [
+    "流れ星",
+    "願い",
+    "魔法",
+    "夜",
+    "星"
+   ]
+  },
+  "animation:estrella-giro": {
+   "name": "回転する星",
+   "tags": [
+    "トランジション",
+    "星",
+    "場面転換"
+   ]
+  },
+  "animation:estrellas-pop": {
+   "name": "ポップな星",
+   "tags": [
+    "星",
+    "達成",
+    "賞",
+    "ポップ"
+   ]
+  },
+  "animation:estrellas-valoracion": {
+   "name": "星5つの評価",
+   "tags": [
+    "レビュー",
+    "評価",
+    "お客様",
+    "星"
+   ]
+  },
+  "animation:etiqueta-precio": {
+   "name": "値札",
+   "tags": [
+    "価格",
+    "セール",
+    "販売",
+    "ショップ"
+   ]
+  },
+  "animation:exclamaciones": {
+   "name": "びっくりマーク",
+   "tags": [
+    "注意",
+    "重要",
+    "アラート",
+    "注目"
+   ]
+  },
+  "animation:fantasma": {
+   "name": "おばけ",
+   "tags": [
+    "ハロウィン",
+    "おばけ",
+    "ばあ",
+    "こわい"
+   ]
+  },
+  "animation:farol-rojo": {
+   "name": "赤いランタン",
+   "tags": [
+    "旧正月",
+    "ランタン",
+    "祭り",
+    "アジア"
+   ]
+  },
+  "animation:flecha-abajo": {
+   "name": "跳ねる矢印",
+   "tags": [
+    "矢印",
+    "下",
+    "ここを見て",
+    "リンク"
+   ]
+  },
+  "animation:flecha-bucle": {
+   "name": "ループ矢印",
+   "tags": [
+    "矢印",
+    "指し示す",
+    "落書き",
+    "ループ"
+   ]
+  },
+  "animation:flecha-circular": {
+   "name": "円形の矢印",
+   "tags": [
+    "リピート",
+    "更新",
+    "ビフォーアフター",
+    "矢印"
+   ]
+  },
+  "animation:flecha-curva": {
+   "name": "手描きの矢印",
+   "tags": [
+    "矢印",
+    "指し示す",
+    "見て",
+    "手描き"
+   ]
+  },
+  "animation:flecha-doble": {
+   "name": "両方向の矢印",
+   "tags": [
+    "矢印",
+    "サイズ",
+    "比較",
+    "幅"
+   ]
+  },
+  "animation:flecha-gruesa": {
+   "name": "太い矢印",
+   "tags": [
+    "矢印",
+    "次へ",
+    "進む",
+    "右"
+   ]
+  },
+  "animation:flecha-ondulada": {
+   "name": "波打つ矢印",
+   "tags": [
+    "下",
+    "見て",
+    "矢印",
+    "落書き"
+   ]
+  },
+  "animation:flecha-punteada": {
+   "name": "点線の矢印",
+   "tags": [
+    "道順",
+    "ルート",
+    "指し示す",
+    "点線"
+   ]
+  },
+  "animation:flecha-u": {
+   "name": "Uターン矢印",
+   "tags": [
+    "戻る",
+    "uターン",
+    "回転",
+    "矢印"
+   ]
+  },
+  "animation:flecha-zigzag": {
+   "name": "ジグザグ矢印",
+   "tags": [
+    "矢印",
+    "指し示す",
+    "落書き",
+    "ジグザグ"
+   ]
+  },
+  "animation:flechas-centro": {
+   "name": "中央を指す矢印",
+   "tags": [
+    "フォーカス",
+    "中央",
+    "ここを見て",
+    "注目"
+   ]
+  },
+  "animation:flechas-derecha": {
+   "name": "並んだ矢印",
+   "tags": [
+    "次へ",
+    "スワイプ",
+    "右",
+    "矢印"
+   ]
+  },
+  "animation:flor-crece": {
+   "name": "育つ花",
+   "tags": [
+    "春",
+    "自然",
+    "花",
+    "成長"
+   ]
+  },
+  "animation:foco-luz": {
+   "name": "スポットライト",
+   "tags": [
+    "スポットライト",
+    "ステージ",
+    "主役",
+    "プレゼン"
+   ]
+  },
+  "animation:formas-memphis": {
+   "name": "浮かぶ図形",
+   "tags": [
+    "幾何学",
+    "メンフィス",
+    "背景",
+    "レトロ"
+   ]
+  },
+  "animation:franjas-diagonales": {
+   "name": "斜めストライプ",
+   "tags": [
+    "トランジション",
+    "ストライプ",
+    "場面転換"
+   ]
+  },
+  "animation:fuego": {
+   "name": "炎",
+   "tags": [
+    "炎",
+    "トレンド",
+    "アツい",
+    "絵文字"
+   ]
+  },
+  "animation:fuegos-artificiales": {
+   "name": "花火",
+   "tags": [
+    "花火",
+    "新年",
+    "パーティー",
+    "お祝い"
+   ]
+  },
+  "animation:garabato-infinito": {
+   "name": "無限ループ",
+   "tags": [
+    "無限",
+    "ループ",
+    "ずっと",
+    "落書き"
+   ]
+  },
+  "animation:globo-info": {
+   "name": "ツールチップ",
+   "tags": [
+    "情報",
+    "ディテール",
+    "価格",
+    "ラベル"
+   ]
+  },
+  "animation:globos": {
+   "name": "風船",
+   "tags": [
+    "風船",
+    "誕生日",
+    "パーティー",
+    "ベビーシャワー"
+   ]
+  },
+  "animation:gorro-fiesta": {
+   "name": "パーティー帽子",
+   "tags": [
+    "パーティー",
+    "帽子",
+    "誕生日",
+    "お祝い"
+   ]
+  },
+  "animation:gorro-santa": {
+   "name": "サンタ帽",
+   "tags": [
+    "クリスマス",
+    "帽子",
+    "サンタ",
+    "12月"
+   ]
+  },
+  "animation:gota": {
+   "name": "しずく",
+   "tags": [
+    "水",
+    "しずく",
+    "リキッド",
+    "さわやか"
+   ]
+  },
+  "animation:grafico-barras": {
+   "name": "棒グラフ",
+   "tags": [
+    "成長",
+    "売上",
+    "実績",
+    "統計"
+   ]
+  },
+  "animation:grafico-linea": {
+   "name": "右肩上がり",
+   "tags": [
+    "成長",
+    "成功",
+    "上昇",
+    "統計"
+   ]
+  },
+  "animation:grafico-torta": {
+   "name": "円グラフ",
+   "tags": [
+    "統計",
+    "パーセント",
+    "データ",
+    "プレゼン"
+   ]
+  },
+  "animation:guardar": {
+   "name": "保存",
+   "tags": [
+    "保存",
+    "ブックマーク",
+    "sns"
+   ]
+  },
+  "animation:guirnalda-luces": {
+   "name": "ストリングライト",
+   "tags": [
+    "ライト",
+    "クリスマス",
+    "パーティー",
+    "飾り"
+   ]
+  },
+  "animation:hamburguesa": {
+   "name": "ハンバーガー",
+   "tags": [
+    "ハンバーガー",
+    "ファストフード",
+    "ランチ",
+    "デリバリー"
+   ]
+  },
+  "animation:hashtag": {
+   "name": "ハッシュタグ",
+   "tags": [
+    "ハッシュタグ",
+    "トレンド",
+    "タグ",
+    "sns"
+   ]
+  },
+  "animation:helado": {
+   "name": "アイスクリーム",
+   "tags": [
+    "アイス",
+    "夏",
+    "デザート",
+    "スイーツ"
+   ]
+  },
+  "animation:hojas": {
+   "name": "舞い落ちる葉",
+   "tags": [
+    "秋",
+    "自然",
+    "落ち葉",
+    "紅葉"
+   ]
+  },
+  "animation:huevo-pascua": {
+   "name": "イースターエッグ",
+   "tags": [
+    "イースター",
+    "春",
+    "卵",
+    "4月"
+   ]
+  },
+  "animation:iris": {
+   "name": "アイリス",
+   "tags": [
+    "トランジション",
+    "円",
+    "場面転換"
+   ]
+  },
+  "animation:llamada-linea": {
+   "name": "引き出し線",
+   "tags": [
+    "指し示す",
+    "ディテール",
+    "商品",
+    "ラベル"
+   ]
+  },
+  "animation:lluvia-dinero": {
+   "name": "お札の雨",
+   "tags": [
+    "お金",
+    "利益",
+    "お金持ち",
+    "支払い"
+   ]
+  },
+  "animation:luna-estrellas": {
+   "name": "月と星",
+   "tags": [
+    "夜",
+    "寝る",
+    "月",
+    "おやすみ"
+   ]
+  },
+  "animation:luna-farol": {
+   "name": "三日月とランタン",
+   "tags": [
+    "ラマダン",
+    "イード",
+    "月",
+    "ランタン"
+   ]
+  },
+  "animation:lupa": {
+   "name": "虫めがね",
+   "tags": [
+    "検索",
+    "ズーム",
+    "ディテール",
+    "レビュー"
+   ]
+  },
+  "animation:mancha": {
+   "name": "有機的なブロブ",
+   "tags": [
+    "背景",
+    "図形",
+    "リキッド",
+    "ブロブ"
+   ]
+  },
+  "animation:mancha-liquida": {
+   "name": "リキッドブロブワイプ",
+   "tags": [
+    "トランジション",
+    "リキッド",
+    "場面転換"
+   ]
+  },
+  "animation:mano-senala": {
+   "name": "指さす手",
+   "tags": [
+    "指さし",
+    "ここ",
+    "見て",
+    "手"
+   ]
+  },
+  "animation:marco-circular": {
+   "name": "丸いフレーム",
+   "tags": [
+    "プロフィール",
+    "写真",
+    "フレーム",
+    "アイコン"
+   ]
+  },
+  "animation:marco-esquinas": {
+   "name": "フォーカスコーナー",
+   "tags": [
+    "フレーム",
+    "フォーカス",
+    "カメラ",
+    "枠"
+   ]
+  },
+  "animation:marco-polaroid": {
+   "name": "インスタント写真フレーム",
+   "tags": [
+    "写真",
+    "フレーム",
+    "思い出",
+    "インスタント写真"
+   ]
+  },
+  "animation:margarita-retro": {
+   "name": "レトロなデイジー",
+   "tags": [
+    "花",
+    "レトロ",
+    "グルービー",
+    "y2k"
+   ]
+  },
+  "animation:me-gusta": {
+   "name": "いいね",
+   "tags": [
+    "いいね",
+    "ハート",
+    "sns",
+    "ライク"
+   ]
+  },
+  "animation:medalla": {
+   "name": "メダル",
+   "tags": [
+    "メダル",
+    "優勝",
+    "賞",
+    "達成",
+    "1位"
+   ]
+  },
+  "animation:megafono": {
+   "name": "メガホン",
+   "tags": [
+    "お知らせ",
+    "ニュース",
+    "注目",
+    "プロモ"
+   ]
+  },
+  "animation:microfono": {
+   "name": "マイク",
+   "tags": [
+    "ポッドキャスト",
+    "録音",
+    "声",
+    "歌"
+   ]
+  },
+  "animation:mira-enfoque": {
+   "name": "照準マーク",
+   "tags": [
+    "照準",
+    "ターゲット",
+    "ディテール",
+    "ズーム"
+   ]
+  },
+  "animation:moneda": {
+   "name": "回るコイン",
+   "tags": [
+    "お金",
+    "コイン",
+    "支払い",
+    "節約"
+   ]
+  },
+  "animation:morph-estrella": {
+   "name": "変形する星",
+   "tags": [
+    "図形",
+    "星",
+    "花",
+    "モーフィング"
+   ]
+  },
+  "animation:murcielago": {
+   "name": "コウモリ",
+   "tags": [
+    "ハロウィン",
+    "夜",
+    "コウモリ",
+    "こわい"
+   ]
+  },
+  "animation:nieve": {
+   "name": "雪",
+   "tags": [
+    "クリスマス",
+    "雪",
+    "冬",
+    "寒い"
+   ]
+  },
+  "animation:nota-adhesiva": {
+   "name": "付せん",
+   "tags": [
+    "付せん",
+    "メモ",
+    "リマインダー",
+    "タスク"
+   ]
+  },
+  "animation:notas-musicales": {
+   "name": "音符",
+   "tags": [
+    "音楽",
+    "曲",
+    "音声",
+    "ダンス"
+   ]
+  },
+  "animation:nube-lluvia": {
+   "name": "雨雲",
+   "tags": [
+    "雨",
+    "天気",
+    "冬",
+    "雲"
+   ]
+  },
+  "animation:nube-pensamiento": {
+   "name": "考え中の吹き出し",
+   "tags": [
+    "考える",
+    "アイデア",
+    "吹き出し",
+    "テキスト"
+   ]
+  },
+  "animation:nueva-notificacion": {
+   "name": "新着通知",
+   "tags": [
+    "通知",
+    "お知らせ",
+    "メッセージ",
+    "アプリ"
+   ]
+  },
+  "animation:ojo-mira": {
+   "name": "見つめる目",
+   "tags": [
+    "目",
+    "見て",
+    "注目",
+    "ディテール"
+   ]
+  },
+  "animation:olas": {
+   "name": "波",
+   "tags": [
+    "海",
+    "ビーチ",
+    "水",
+    "夏"
+   ]
+  },
+  "animation:onda-liquida": {
+   "name": "リキッドウェーブ",
+   "tags": [
+    "トランジション",
+    "リキッド",
+    "波",
+    "場面転換"
+   ]
+  },
+  "animation:ondas": {
+   "name": "広がる波紋",
+   "tags": [
+    "パルス",
+    "レーダー",
+    "位置情報",
+    "ライブ"
+   ]
+  },
+  "animation:palomita": {
+   "name": "チェックマーク",
+   "tags": [
+    "チェック",
+    "完了",
+    "正解",
+    "ok"
+   ]
+  },
+  "animation:palomitas": {
+   "name": "ポップコーン",
+   "tags": [
+    "映画",
+    "ポップコーン",
+    "映画館",
+    "一気見"
+   ]
+  },
+  "animation:paraguas": {
+   "name": "傘",
+   "tags": [
+    "雨",
+    "秋",
+    "傘",
+    "天気"
+   ]
+  },
+  "animation:pastel-velas": {
+   "name": "バースデーケーキ",
+   "tags": [
+    "誕生日",
+    "ケーキ",
+    "ろうそく",
+    "パーティー"
+   ]
+  },
+  "animation:perfecto": {
+   "name": "パーフェクト！",
+   "tags": [
+    "パーフェクト",
+    "100点",
+    "合格",
+    "最高"
+   ]
+  },
+  "animation:pergamino": {
+   "name": "巻物バナー",
+   "tags": [
+    "タイトル",
+    "バナー",
+    "中世",
+    "お知らせ"
+   ]
+  },
+  "animation:persiana": {
+   "name": "ブラインド",
+   "tags": [
+    "トランジション",
+    "バー",
+    "場面転換"
+   ]
+  },
+  "animation:pesas": {
+   "name": "ダンベル",
+   "tags": [
+    "ジム",
+    "筋力",
+    "運動",
+    "トレーニング"
+   ]
+  },
+  "animation:petalos-cerezo": {
+   "name": "桜の花びら",
+   "tags": [
+    "春",
+    "桜",
+    "花",
+    "ロマンチック"
+   ]
+  },
+  "animation:pizza": {
+   "name": "ピザ",
+   "tags": [
+    "ピザ",
+    "食べ物",
+    "ピザナイト",
+    "デリバリー"
+   ]
+  },
+  "animation:podio": {
+   "name": "表彰台",
+   "tags": [
+    "勝者",
+    "1位",
+    "大会",
+    "賞"
+   ]
+  },
+  "animation:porcentaje-oferta": {
+   "name": "パーセントオフ",
+   "tags": [
+    "割引",
+    "セール",
+    "値下げ",
+    "プロモ"
+   ]
+  },
+  "animation:pulso-cardiaco": {
+   "name": "心拍",
+   "tags": [
+    "健康",
+    "心臓",
+    "運動",
+    "有酸素"
+   ]
+  },
+  "animation:puntos-onda": {
+   "name": "ドットの波紋",
+   "tags": [
+    "ドット",
+    "背景",
+    "波",
+    "パターン"
+   ]
+  },
+  "animation:rayos-fondo": {
+   "name": "回転する放射線",
+   "tags": [
+    "背景",
+    "セール",
+    "レトロ",
+    "商品",
+    "集中線"
+   ]
+  },
+  "animation:reacciones-vivo": {
+   "name": "ライブのリアクション",
+   "tags": [
+    "リアクション",
+    "ライブ",
+    "いいね",
+    "ハート"
+   ]
+  },
+  "animation:recuadro-a-mano": {
+   "name": "手描きの四角",
+   "tags": [
+    "強調",
+    "枠",
+    "落書き",
+    "指し示す"
+   ]
+  },
+  "animation:refresco": {
+   "name": "ストロー付きドリンク",
+   "tags": [
+    "ドリンク",
+    "ジュース",
+    "夏",
+    "パーティー"
+   ]
+  },
+  "animation:regalo-sorpresa": {
+   "name": "びっくりプレゼント",
+   "tags": [
+    "プレゼント",
+    "サプライズ",
+    "誕生日",
+    "クリスマス"
+   ]
+  },
+  "animation:reloj": {
+   "name": "時計",
+   "tags": [
+    "時刻",
+    "時間",
+    "スケジュール",
+    "時間厳守"
+   ]
+  },
+  "animation:reloj-arena": {
+   "name": "砂時計",
+   "tags": [
+    "待機",
+    "時間",
+    "読み込み",
+    "忍耐"
+   ]
+  },
+  "animation:reloj-medianoche": {
+   "name": "真夜中のカウントダウン",
+   "tags": [
+    "新年",
+    "真夜中",
+    "カウントダウン",
+    "パーティー"
+   ]
+  },
+  "animation:republicar": {
+   "name": "リポスト",
+   "tags": [
+    "シェア",
+    "リポスト",
+    "再投稿",
+    "sns"
+   ]
+  },
+  "animation:resaltador": {
+   "name": "蛍光ペン",
+   "tags": [
+    "蛍光ペン",
+    "強調",
+    "テキスト",
+    "勉強"
+   ]
+  },
+  "animation:salpicadura": {
+   "name": "スプラッシュ",
+   "tags": [
+    "ペンキ",
+    "しぶき",
+    "図形",
+    "しずく"
+   ]
+  },
+  "animation:sandia": {
+   "name": "スイカ",
+   "tags": [
+    "スイカ",
+    "果物",
+    "夏",
+    "さわやか"
+   ]
+  },
+  "animation:scroll-abajo": {
+   "name": "下にスクロール",
+   "tags": [
+    "スワイプ",
+    "下",
+    "スクロール",
+    "もっと見る"
+   ]
+  },
+  "animation:seguir-persona": {
+   "name": "新しいフォロワー",
+   "tags": [
+    "フォロー",
+    "フォロワー",
+    "追加",
+    "友達"
+   ]
+  },
+  "animation:sello-oferta": {
+   "name": "セールバッジ",
+   "tags": [
+    "セール",
+    "割引",
+    "販売",
+    "プロモ"
+   ]
+  },
+  "animation:sello-ondulado": {
+   "name": "波形のバッジ",
+   "tags": [
+    "バッジ",
+    "新着",
+    "セール",
+    "レトロ"
+   ]
+  },
+  "animation:serpentinas": {
+   "name": "紙テープ",
+   "tags": [
+    "紙テープ",
+    "パーティー",
+    "誕生日",
+    "お祝い"
+   ]
+  },
+  "animation:silbato": {
+   "name": "ホイッスル",
+   "tags": [
+    "審判",
+    "コーチ",
+    "スポーツ",
+    "反則"
+   ]
+  },
+  "animation:sol": {
+   "name": "回る太陽",
+   "tags": [
+    "夏",
+    "太陽",
+    "ビーチ",
+    "晴れ"
+   ]
+  },
+  "animation:sol-nube": {
+   "name": "晴れ時々くもり",
+   "tags": [
+    "太陽",
+    "くもり",
+    "天気",
+    "いい日"
+   ]
+  },
+  "animation:subrayado": {
+   "name": "手描きの下線",
+   "tags": [
+    "下線",
+    "強調",
+    "テキスト",
+    "手描き"
+   ]
+  },
+  "animation:subrayado-ondulado": {
+   "name": "波線の下線",
+   "tags": [
+    "下線",
+    "強調",
+    "波線",
+    "落書き"
+   ]
+  },
+  "animation:tachado-garabato": {
+   "name": "ぐしゃぐしゃ消し",
+   "tags": [
+    "取り消し線",
+    "エラー",
+    "ダメ",
+    "落書き"
+   ]
+  },
+  "animation:tarjeta-aviso": {
+   "name": "通知カード",
+   "tags": [
+    "お知らせ",
+    "通知",
+    "メッセージ",
+    "バナー"
+   ]
+  },
+  "animation:tarjeta-pago": {
+   "name": "カード決済",
+   "tags": [
+    "支払い",
+    "カード",
+    "購入",
+    "ショップ"
+   ]
+  },
+  "animation:tazon-fideos": {
+   "name": "麺どんぶり",
+   "tags": [
+    "麺",
+    "ラーメン",
+    "スープ",
+    "夕食"
+   ]
+  },
+  "animation:telefono": {
+   "name": "電話",
+   "tags": [
+    "電話",
+    "連絡先",
+    "お問い合わせ",
+    "注文"
+   ]
+  },
+  "animation:tercio-inferior": {
+   "name": "名前テロップ",
+   "tags": [
+    "名前",
+    "タイトル",
+    "インタビュー",
+    "テロップ"
+   ]
+  },
+  "animation:termometro-calor": {
+   "name": "猛暑",
+   "tags": [
+    "暑い",
+    "夏",
+    "気温",
+    "太陽"
+   ]
+  },
+  "animation:tienda": {
+   "name": "お店",
+   "tags": [
+    "お店",
+    "ビジネス",
+    "営業中",
+    "店舗"
+   ]
+  },
+  "animation:toca-aqui": {
+   "name": "ここをタップ",
+   "tags": [
+    "タップ",
+    "クリック",
+    "リンク",
+    "ボタン"
+   ]
+  },
+  "animation:tormenta": {
+   "name": "雷雨",
+   "tags": [
+    "嵐",
+    "雷",
+    "雨",
+    "天気"
+   ]
+  },
+  "animation:trofeo": {
+   "name": "トロフィー",
+   "tags": [
+    "トロフィー",
+    "達成",
+    "優勝",
+    "賞",
+    "コンテスト"
+   ]
+  },
+  "animation:ubicacion": {
+   "name": "位置ピン",
+   "tags": [
+    "位置情報",
+    "地図",
+    "住所",
+    "来店"
+   ]
+  },
+  "animation:varita-magica": {
+   "name": "魔法の杖",
+   "tags": [
+    "魔法",
+    "願い",
+    "サプライズ",
+    "キラキラ"
+   ]
+  },
+  "animation:verificado": {
+   "name": "認証済み",
+   "tags": [
+    "認証",
+    "公式",
+    "承認",
+    "バッジ"
+   ]
+  },
+  "animation:viento": {
+   "name": "風",
+   "tags": [
+    "風",
+    "そよ風",
+    "空気",
+    "寒い"
+   ]
+  },
+  "animation:wifi": {
+   "name": "Wi-Fiの電波",
+   "tags": [
+    "インターネット",
+    "接続",
+    "電波",
+    "wifi"
+   ]
+  },
+  "overlay:amor-corazones": {
+   "name": "浮かぶハート",
+   "tags": [
+    "ハート",
+    "恋愛",
+    "ラブ",
+    "バレンタイン"
+   ]
+  },
+  "overlay:amor-corazones-brillo": {
+   "name": "キラキラのハート",
+   "tags": [
+    "ハート",
+    "キラキラ",
+    "恋愛",
+    "バレンタイン"
+   ]
+  },
+  "overlay:amor-corazones-contorno": {
+   "name": "線画のハート",
+   "tags": [
+    "ハート",
+    "アウトライン",
+    "恋愛",
+    "バレンタイン"
+   ]
+  },
+  "overlay:amor-corazones-neon": {
+   "name": "ネオンのハート",
+   "tags": [
+    "ハート",
+    "ネオン",
+    "恋愛",
+    "バレンタイン"
+   ]
+  },
+  "overlay:amor-corazones-rojos": {
+   "name": "赤いハート",
+   "tags": [
+    "ハート",
+    "赤",
+    "恋愛",
+    "バレンタイン"
+   ]
+  },
+  "overlay:amor-explosion-corazones": {
+   "name": "はじけるハート",
+   "tags": [
+    "ハート",
+    "爆発",
+    "恋愛",
+    "ラブ"
+   ]
+  },
+  "overlay:amor-globos-corazon": {
+   "name": "ハートの風船",
+   "tags": [
+    "風船",
+    "ハート",
+    "恋愛",
+    "バレンタイン"
+   ]
+  },
+  "overlay:amor-likes": {
+   "name": "ライブのいいねハート",
+   "tags": [
+    "ハート",
+    "いいね",
+    "ライブ",
+    "配信"
+   ]
+  },
+  "overlay:amor-lluvia-corazones": {
+   "name": "ハートの雨",
+   "tags": [
+    "ハート",
+    "降る",
+    "恋愛",
+    "バレンタイン"
+   ]
+  },
+  "overlay:amor-marco-corazones": {
+   "name": "ハートのフレーム",
+   "tags": [
+    "ハート",
+    "フレーム",
+    "恋愛",
+    "バレンタイン"
+   ]
+  },
+  "overlay:amor-petalos": {
+   "name": "バラの花びら",
+   "tags": [
+    "花びら",
+    "バラ",
+    "結婚式",
+    "ロマンチック"
+   ]
+  },
+  "overlay:amor-petalos-blancos": {
+   "name": "白い花びら",
+   "tags": [
+    "花びら",
+    "白",
+    "結婚式",
+    "ウェディング"
+   ]
+  },
+  "overlay:amor-petalos-rosa": {
+   "name": "淡いピンクの花びら",
+   "tags": [
+    "花びら",
+    "ピンク",
+    "結婚式",
+    "かわいい"
+   ]
+  },
+  "overlay:cel-confeti": {
+   "name": "紙吹雪の雨",
+   "tags": [
+    "紙吹雪",
+    "パーティー",
+    "誕生日",
+    "お祝い"
+   ]
+  },
+  "overlay:cel-confeti-circulos": {
+   "name": "ドットの紙吹雪",
+   "tags": [
+    "紙吹雪",
+    "ドット",
+    "丸",
+    "パーティー"
+   ]
+  },
+  "overlay:cel-confeti-corazones": {
+   "name": "ハートの紙吹雪",
+   "tags": [
+    "紙吹雪",
+    "ハート",
+    "結婚式",
+    "恋愛"
+   ]
+  },
+  "overlay:cel-confeti-desde-arriba": {
+   "name": "上から降る紙吹雪",
+   "tags": [
+    "紙吹雪",
+    "クラッカー",
+    "サプライズ",
+    "上から"
+   ]
+  },
+  "overlay:cel-confeti-dorado": {
+   "name": "金色の紙吹雪",
+   "tags": [
+    "紙吹雪",
+    "ゴールド",
+    "新年",
+    "パーティー"
+   ]
+  },
+  "overlay:cel-confeti-explosion": {
+   "name": "はじける紙吹雪",
+   "tags": [
+    "紙吹雪",
+    "爆発",
+    "クラッカー",
+    "サプライズ"
+   ]
+  },
+  "overlay:cel-confeti-grande": {
+   "name": "大きな紙吹雪",
+   "tags": [
+    "紙吹雪",
+    "大きい",
+    "パーティー",
+    "明るい"
+   ]
+  },
+  "overlay:cel-confeti-pastel": {
+   "name": "パステルの紙吹雪",
+   "tags": [
+    "紙吹雪",
+    "パステル",
+    "ベビーシャワー",
+    "誕生日"
+   ]
+  },
+  "overlay:cel-confeti-plata": {
+   "name": "銀色の紙吹雪",
+   "tags": [
+    "紙吹雪",
+    "シルバー",
+    "結婚式",
+    "記念日"
+   ]
+  },
+  "overlay:cel-estrellas": {
+   "name": "降り注ぐ星",
+   "tags": [
+    "星",
+    "パーティー",
+    "キッズ",
+    "お祝い"
+   ]
+  },
+  "overlay:cel-estrellas-doradas": {
+   "name": "金色の星",
+   "tags": [
+    "星",
+    "ゴールド",
+    "賞",
+    "お祝い"
+   ]
+  },
+  "overlay:cel-explosion-centro": {
+   "name": "中央からの爆発",
+   "tags": [
+    "紙吹雪",
+    "爆発",
+    "クラッカー",
+    "サプライズ"
+   ]
+  },
+  "overlay:cel-explosion-dorada": {
+   "name": "金色の爆発",
+   "tags": [
+    "紙吹雪",
+    "爆発",
+    "ゴールド",
+    "サプライズ"
+   ]
+  },
+  "overlay:cel-explosion-estrellas": {
+   "name": "星の爆発",
+   "tags": [
+    "星",
+    "爆発",
+    "クラッカー",
+    "サプライズ"
+   ]
+  },
+  "overlay:cel-fuegos-artificiales": {
+   "name": "打ち上げ花火",
+   "tags": [
+    "花火",
+    "新年",
+    "パーティー",
+    "お祝い"
+   ]
+  },
+  "overlay:cel-fuegos-dorados": {
+   "name": "金色の花火",
+   "tags": [
+    "花火",
+    "ゴールド",
+    "新年",
+    "パーティー"
+   ]
+  },
+  "overlay:cel-fuegos-final": {
+   "name": "花火のフィナーレ",
+   "tags": [
+    "花火",
+    "フィナーレ",
+    "新年",
+    "パーティー"
+   ]
+  },
+  "overlay:cel-fuegos-lejanos": {
+   "name": "遠くの花火",
+   "tags": [
+    "花火",
+    "遠景",
+    "新年",
+    "夜"
+   ]
+  },
+  "overlay:cel-globos": {
+   "name": "風船",
+   "tags": [
+    "風船",
+    "誕生日",
+    "パーティー",
+    "お祝い"
+   ]
+  },
+  "overlay:cel-globos-dorados": {
+   "name": "金と銀の風船",
+   "tags": [
+    "風船",
+    "ゴールド",
+    "シルバー",
+    "誕生日",
+    "パーティー"
+   ]
+  },
+  "overlay:cel-globos-pastel": {
+   "name": "パステルの風船",
+   "tags": [
+    "風船",
+    "パステル",
+    "誕生日",
+    "パーティー"
+   ]
+  },
+  "overlay:cel-lluvia-billetes": {
+   "name": "お札の雨",
+   "tags": [
+    "お札",
+    "お金",
+    "お金持ち",
+    "当選"
+   ]
+  },
+  "overlay:cel-lluvia-emojis": {
+   "name": "絵文字の雨",
+   "tags": [
+    "絵文字",
+    "顔文字",
+    "ハッピー",
+    "おもしろ"
+   ]
+  },
+  "overlay:cel-lluvia-monedas": {
+   "name": "コインの雨",
+   "tags": [
+    "コイン",
+    "お金",
+    "当選",
+    "ゲーム"
+   ]
+  },
+  "overlay:cel-lluvia-regalos": {
+   "name": "プレゼントの雨",
+   "tags": [
+    "プレゼント",
+    "クリスマス",
+    "誕生日",
+    "プレゼント企画"
+   ]
+  },
+  "overlay:cel-purpurina": {
+   "name": "グリッター",
+   "tags": [
+    "グリッター",
+    "ラメ",
+    "キラキラ",
+    "ゴールド",
+    "パーティー"
+   ]
+  },
+  "overlay:cel-serpentinas": {
+   "name": "紙テープ",
+   "tags": [
+    "紙テープ",
+    "パーティー",
+    "カーニバル",
+    "誕生日"
+   ]
+  },
+  "overlay:clima-arcoiris": {
+   "name": "虹",
+   "tags": [
+    "虹",
+    "天気",
+    "自然",
+    "カラフル"
+   ]
+  },
+  "overlay:clima-copos": {
+   "name": "雪の結晶",
+   "tags": [
+    "雪の結晶",
+    "雪",
+    "冬",
+    "天気"
+   ]
+  },
+  "overlay:clima-dientes-de-leon": {
+   "name": "タンポポの綿毛",
+   "tags": [
+    "タンポポ",
+    "綿毛",
+    "自然",
+    "春"
+   ]
+  },
+  "overlay:clima-gotas-cristal": {
+   "name": "ガラスに雨粒",
+   "tags": [
+    "雨粒",
+    "ガラス",
+    "雨",
+    "窓"
+   ]
+  },
+  "overlay:clima-hojas": {
+   "name": "秋の落ち葉",
+   "tags": [
+    "落ち葉",
+    "秋",
+    "紅葉",
+    "自然"
+   ]
+  },
+  "overlay:clima-hojas-verdes": {
+   "name": "緑の葉",
+   "tags": [
+    "葉",
+    "緑",
+    "自然",
+    "春"
+   ]
+  },
+  "overlay:clima-humo": {
+   "name": "煙",
+   "tags": [
+    "煙",
+    "スモーク",
+    "湯気",
+    "ミステリー",
+    "ドラマチック"
+   ]
+  },
+  "overlay:clima-humo-azul": {
+   "name": "青い煙",
+   "tags": [
+    "煙",
+    "スモーク",
+    "青",
+    "ミステリー"
+   ]
+  },
+  "overlay:clima-humo-colores": {
+   "name": "カラースモーク",
+   "tags": [
+    "煙",
+    "スモーク",
+    "カラフル",
+    "フェス"
+   ]
+  },
+  "overlay:clima-humo-rosa": {
+   "name": "ピンクの煙",
+   "tags": [
+    "煙",
+    "スモーク",
+    "ピンク",
+    "ジェンダーリビール"
+   ]
+  },
+  "overlay:clima-lluvia": {
+   "name": "雨",
+   "tags": [
+    "雨",
+    "嵐",
+    "悲しい",
+    "メランコリー"
+   ]
+  },
+  "overlay:clima-lluvia-ligera": {
+   "name": "霧雨",
+   "tags": [
+    "霧雨",
+    "小雨",
+    "雨",
+    "天気"
+   ]
+  },
+  "overlay:clima-nevada": {
+   "name": "吹雪",
+   "tags": [
+    "雪",
+    "吹雪",
+    "嵐",
+    "冬"
+   ]
+  },
+  "overlay:clima-niebla": {
+   "name": "霧",
+   "tags": [
+    "霧",
+    "もや",
+    "ミステリー",
+    "天気"
+   ]
+  },
+  "overlay:clima-niebla-baja": {
+   "name": "低く立ちこめる霧",
+   "tags": [
+    "霧",
+    "低い霧",
+    "スモーク",
+    "ステージ"
+   ]
+  },
+  "overlay:clima-nieve": {
+   "name": "やさしい雪",
+   "tags": [
+    "雪",
+    "冬",
+    "クリスマス",
+    "天気"
+   ]
+  },
+  "overlay:clima-noche-estrellada": {
+   "name": "星空",
+   "tags": [
+    "星空",
+    "夜",
+    "星",
+    "空"
+   ]
+  },
+  "overlay:clima-petalos-flores": {
+   "name": "カラフルな花びら",
+   "tags": [
+    "花びら",
+    "カラフル",
+    "花",
+    "春"
+   ]
+  },
+  "overlay:garabato-angel": {
+   "name": "天使の羽と輪",
+   "tags": [
+    "落書き",
+    "手描き",
+    "天使",
+    "羽",
+    "エモい"
+   ]
+  },
+  "overlay:garabato-angel-dorado": {
+   "name": "金色の天使の羽",
+   "tags": [
+    "落書き",
+    "手描き",
+    "天使",
+    "ゴールド"
+   ]
+  },
+  "overlay:garabato-brillo": {
+   "name": "キラッと線",
+   "tags": [
+    "落書き",
+    "手描き",
+    "キラキラ",
+    "輝き"
+   ]
+  },
+  "overlay:garabato-caritas": {
+   "name": "手描きのスマイル",
+   "tags": [
+    "落書き",
+    "手描き",
+    "スマイル",
+    "顔"
+   ]
+  },
+  "overlay:garabato-cielo": {
+   "name": "手描きの雲と太陽",
+   "tags": [
+    "落書き",
+    "手描き",
+    "雲",
+    "太陽",
+    "空"
+   ]
+  },
+  "overlay:garabato-circulo": {
+   "name": "手描きの丸囲み",
+   "tags": [
+    "落書き",
+    "手描き",
+    "丸",
+    "強調"
+   ]
+  },
+  "overlay:garabato-circulo-rojo": {
+   "name": "赤い手描きの丸囲み",
+   "tags": [
+    "落書き",
+    "手描き",
+    "丸",
+    "赤",
+    "強調"
+   ]
+  },
+  "overlay:garabato-corazones": {
+   "name": "落書きのハート",
+   "tags": [
+    "落書き",
+    "手描き",
+    "ハート",
+    "エモい"
+   ]
+  },
+  "overlay:garabato-corazones-rosa": {
+   "name": "ピンクの落書きハート",
+   "tags": [
+    "落書き",
+    "手描き",
+    "ハート",
+    "ピンク"
+   ]
+  },
+  "overlay:garabato-corona": {
+   "name": "落書きの王冠",
+   "tags": [
+    "落書き",
+    "手描き",
+    "王冠",
+    "クイーン"
+   ]
+  },
+  "overlay:garabato-corona-dorada": {
+   "name": "金色の落書き王冠",
+   "tags": [
+    "落書き",
+    "手描き",
+    "王冠",
+    "ゴールド"
+   ]
+  },
+  "overlay:garabato-diablito": {
+   "name": "小悪魔のツノ",
+   "tags": [
+    "落書き",
+    "手描き",
+    "小悪魔",
+    "ツノ"
+   ]
+  },
+  "overlay:garabato-diablito-blanco": {
+   "name": "手描きのツノ",
+   "tags": [
+    "落書き",
+    "手描き",
+    "ツノ",
+    "白"
+   ]
+  },
+  "overlay:garabato-estallido": {
+   "name": "手描きの爆発",
+   "tags": [
+    "落書き",
+    "手描き",
+    "爆発",
+    "強調"
+   ]
+  },
+  "overlay:garabato-estrellas": {
+   "name": "落書きの星",
+   "tags": [
+    "落書き",
+    "手描き",
+    "星",
+    "エモい"
+   ]
+  },
+  "overlay:garabato-estrellas-doradas": {
+   "name": "金色の落書き星",
+   "tags": [
+    "落書き",
+    "手描き",
+    "星",
+    "ゴールド"
+   ]
+  },
+  "overlay:garabato-flechas": {
+   "name": "手描きの矢印",
+   "tags": [
+    "落書き",
+    "手描き",
+    "矢印",
+    "指し示す"
+   ]
+  },
+  "overlay:garabato-flechas-girando": {
+   "name": "回る矢印",
+   "tags": [
+    "落書き",
+    "手描き",
+    "矢印",
+    "回転"
+   ]
+  },
+  "overlay:garabato-flechas-neon": {
+   "name": "ネオンの落書き矢印",
+   "tags": [
+    "落書き",
+    "手描き",
+    "矢印",
+    "ネオン"
+   ]
+  },
+  "overlay:garabato-flores": {
+   "name": "手描きの花",
+   "tags": [
+    "落書き",
+    "手描き",
+    "花",
+    "エモい"
+   ]
+  },
+  "overlay:garabato-mariposas": {
+   "name": "手描きの蝶",
+   "tags": [
+    "落書き",
+    "手描き",
+    "蝶",
+    "エモい"
+   ]
+  },
+  "overlay:garabato-mix": {
+   "name": "落書きミックス",
+   "tags": [
+    "落書き",
+    "手描き",
+    "ミックス",
+    "エモい"
+   ]
+  },
+  "overlay:garabato-mix-negro": {
+   "name": "黒の落書きミックス",
+   "tags": [
+    "落書き",
+    "手描き",
+    "黒",
+    "ミックス"
+   ]
+  },
+  "overlay:garabato-mix-rosa": {
+   "name": "ピンクの落書きミックス",
+   "tags": [
+    "落書き",
+    "手描き",
+    "ピンク",
+    "ミックス"
+   ]
+  },
+  "overlay:garabato-musica": {
+   "name": "手描きの音符",
+   "tags": [
+    "落書き",
+    "手描き",
+    "音符",
+    "音楽"
+   ]
+  },
+  "overlay:garabato-neon-corazones": {
+   "name": "ネオンの手描きハート",
+   "tags": [
+    "落書き",
+    "手描き",
+    "ハート",
+    "ネオン"
+   ]
+  },
+  "overlay:garabato-rayos": {
+   "name": "手描きの稲妻",
+   "tags": [
+    "落書き",
+    "手描き",
+    "稲妻",
+    "雷"
+   ]
+  },
+  "overlay:garabato-signos": {
+   "name": "手描きの記号",
+   "tags": [
+    "落書き",
+    "手描き",
+    "記号",
+    "マーク"
+   ]
+  },
+  "overlay:garabato-subrayado": {
+   "name": "手描きの下線",
+   "tags": [
+    "落書き",
+    "手描き",
+    "下線",
+    "強調"
+   ]
+  },
+  "overlay:luz-arcoiris": {
+   "name": "虹色の光",
+   "tags": [
+    "光",
+    "虹",
+    "プリズム",
+    "カラフル"
+   ]
+  },
+  "overlay:luz-barrido-calido": {
+   "name": "暖色の光のスイープ",
+   "tags": [
+    "スイープ",
+    "トランジション",
+    "光",
+    "暖色"
+   ]
+  },
+  "overlay:luz-barrido-rosa": {
+   "name": "ピンクの光のスイープ",
+   "tags": [
+    "スイープ",
+    "トランジション",
+    "光",
+    "ピンク"
+   ]
+  },
+  "overlay:luz-bokeh-azul": {
+   "name": "夜の青いボケ",
+   "tags": [
+    "ボケ",
+    "青",
+    "夜",
+    "街"
+   ]
+  },
+  "overlay:luz-bokeh-blanco": {
+   "name": "白いボケ",
+   "tags": [
+    "ボケ",
+    "白",
+    "ライト",
+    "ぼかし"
+   ]
+  },
+  "overlay:luz-bokeh-cayendo": {
+   "name": "降るボケ",
+   "tags": [
+    "ボケ",
+    "降る",
+    "ライト",
+    "クリスマス"
+   ]
+  },
+  "overlay:luz-bokeh-color": {
+   "name": "カラフルなボケ",
+   "tags": [
+    "ボケ",
+    "カラフル",
+    "パーティー",
+    "夜"
+   ]
+  },
+  "overlay:luz-bokeh-corazones": {
+   "name": "ハートのボケ",
+   "tags": [
+    "ボケ",
+    "ハート",
+    "恋愛",
+    "ラブ"
+   ]
+  },
+  "overlay:luz-bokeh-dorado": {
+   "name": "金色のボケ",
+   "tags": [
+    "ボケ",
+    "ゴールド",
+    "ライト",
+    "ぼかし"
+   ]
+  },
+  "overlay:luz-bokeh-estrellas": {
+   "name": "星のボケ",
+   "tags": [
+    "ボケ",
+    "星",
+    "魔法",
+    "クリスマス"
+   ]
+  },
+  "overlay:luz-bokeh-rosa": {
+   "name": "ピンクのボケ",
+   "tags": [
+    "ボケ",
+    "ピンク",
+    "ロマンチック",
+    "かわいい"
+   ]
+  },
+  "overlay:luz-destello": {
+   "name": "レンズフレア",
+   "tags": [
+    "フレア",
+    "レンズ",
+    "太陽",
+    "光"
+   ]
+  },
+  "overlay:luz-destello-azul": {
+   "name": "青いアナモルフィックフレア",
+   "tags": [
+    "フレア",
+    "アナモルフィック",
+    "青",
+    "映画"
+   ]
+  },
+  "overlay:luz-escaner": {
+   "name": "スキャナーライン",
+   "tags": [
+    "スキャナー",
+    "レーザー",
+    "テクノロジー",
+    "テック"
+   ]
+  },
+  "overlay:luz-flash-transicion": {
+   "name": "フラッシュトランジション",
+   "tags": [
+    "フラッシュ",
+    "トランジション",
+    "白",
+    "光"
+   ]
+  },
+  "overlay:luz-fuga-calida": {
+   "name": "暖色の光漏れ",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "暖色",
+    "オレンジ",
+    "フィルム"
+   ]
+  },
+  "overlay:luz-fuga-dorada": {
+   "name": "金色の光漏れ",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "フィルム",
+    "ゴールド"
+   ]
+  },
+  "overlay:luz-fuga-esquina": {
+   "name": "コーナーグロー",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "フィルム",
+    "隅"
+   ]
+  },
+  "overlay:luz-fuga-esquina-rosa": {
+   "name": "ピンクのコーナーグロー",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "ピンク",
+    "隅"
+   ]
+  },
+  "overlay:luz-fuga-fria": {
+   "name": "寒色の光漏れ",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "青",
+    "寒色"
+   ]
+  },
+  "overlay:luz-fuga-roja": {
+   "name": "赤い光漏れ",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "フィルム",
+    "赤"
+   ]
+  },
+  "overlay:luz-fuga-rosa": {
+   "name": "ピンクの光漏れ",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "ピンク",
+    "ロマンチック"
+   ]
+  },
+  "overlay:luz-fuga-turquesa": {
+   "name": "ティール＆オレンジの光漏れ",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "ティール",
+    "オレンジ",
+    "フィルム"
+   ]
+  },
+  "overlay:luz-fuga-verde": {
+   "name": "ビンテージな緑の光漏れ",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "ビンテージ",
+    "緑"
+   ]
+  },
+  "overlay:luz-fuga-violeta": {
+   "name": "紫の光漏れ",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "フィルム",
+    "紫"
+   ]
+  },
+  "overlay:luz-luces-ciudad": {
+   "name": "街の灯り",
+   "tags": [
+    "街",
+    "夜景",
+    "ライト",
+    "夜"
+   ]
+  },
+  "overlay:luz-luces-navidad": {
+   "name": "クリスマスライト",
+   "tags": [
+    "クリスマス",
+    "イルミネーション",
+    "ライト",
+    "ボケ"
+   ]
+  },
+  "overlay:luz-luciernagas": {
+   "name": "ホタル",
+   "tags": [
+    "ホタル",
+    "魔法",
+    "夜",
+    "森"
+   ]
+  },
+  "overlay:luz-neon-barrido": {
+   "name": "ネオンスイープ",
+   "tags": [
+    "ネオン",
+    "スイープ",
+    "トランジション",
+    "光"
+   ]
+  },
+  "overlay:luz-prisma": {
+   "name": "虹色プリズム",
+   "tags": [
+    "プリズム",
+    "虹",
+    "屈折",
+    "光"
+   ]
+  },
+  "overlay:luz-rayos": {
+   "name": "太陽光線",
+   "tags": [
+    "光線",
+    "太陽",
+    "日差し",
+    "光"
+   ]
+  },
+  "overlay:luz-sol": {
+   "name": "太陽のフレア",
+   "tags": [
+    "太陽",
+    "フレア",
+    "夏",
+    "日差し"
+   ]
+  },
+  "overlay:part-ascendentes": {
+   "name": "昇る光",
+   "tags": [
+    "光",
+    "上昇",
+    "スピリチュアル",
+    "穏やか"
+   ]
+  },
+  "overlay:part-bengala": {
+   "name": "手持ち花火の火花",
+   "tags": [
+    "手持ち花火",
+    "火花",
+    "新年",
+    "結婚式"
+   ]
+  },
+  "overlay:part-brasas": {
+   "name": "火の粉",
+   "tags": [
+    "火の粉",
+    "炎",
+    "焚き火",
+    "暖かい"
+   ]
+  },
+  "overlay:part-brasas-azules": {
+   "name": "青い火の粉",
+   "tags": [
+    "火の粉",
+    "青",
+    "魔法",
+    "ファンタジー"
+   ]
+  },
+  "overlay:part-brillos": {
+   "name": "きらめき",
+   "tags": [
+    "キラキラ",
+    "きらめき",
+    "輝き",
+    "魔法"
+   ]
+  },
+  "overlay:part-brillos-azules": {
+   "name": "青いきらめき",
+   "tags": [
+    "キラキラ",
+    "青",
+    "輝き",
+    "氷"
+   ]
+  },
+  "overlay:part-brillos-dorados": {
+   "name": "金色のきらめき",
+   "tags": [
+    "キラキラ",
+    "ゴールド",
+    "輝き",
+    "エレガント"
+   ]
+  },
+  "overlay:part-brillos-rosa": {
+   "name": "ピンクのきらめき",
+   "tags": [
+    "キラキラ",
+    "ピンク",
+    "輝き",
+    "エモい"
+   ]
+  },
+  "overlay:part-burbujas": {
+   "name": "シャボン玉",
+   "tags": [
+    "シャボン玉",
+    "泡",
+    "水",
+    "子ども"
+   ]
+  },
+  "overlay:part-burbujas-arcoiris": {
+   "name": "虹色のシャボン玉",
+   "tags": [
+    "シャボン玉",
+    "虹色",
+    "泡",
+    "玉虫色"
+   ]
+  },
+  "overlay:part-chispas": {
+   "name": "火花",
+   "tags": [
+    "火花",
+    "炎",
+    "スパーク",
+    "エネルギー"
+   ]
+  },
+  "overlay:part-chispas-azules": {
+   "name": "青い火花",
+   "tags": [
+    "火花",
+    "青",
+    "スパーク",
+    "エネルギー"
+   ]
+  },
+  "overlay:part-destellos-grandes": {
+   "name": "大きなキラキラ",
+   "tags": [
+    "キラキラ",
+    "大きい",
+    "輝き",
+    "商品"
+   ]
+  },
+  "overlay:part-estrellas-fugaces": {
+   "name": "流れ星",
+   "tags": [
+    "流れ星",
+    "空",
+    "夜",
+    "願い"
+   ]
+  },
+  "overlay:part-estrellitas": {
+   "name": "小さな星",
+   "tags": [
+    "星",
+    "キッズ",
+    "子ども",
+    "魔法"
+   ]
+  },
+  "overlay:part-explosion-chispas": {
+   "name": "火花の爆発",
+   "tags": [
+    "爆発",
+    "火花",
+    "インパクト",
+    "衝撃"
+   ]
+  },
+  "overlay:part-lluvia-luces": {
+   "name": "光の雨",
+   "tags": [
+    "光の雨",
+    "ライト",
+    "パーティー",
+    "クラブ"
+   ]
+  },
+  "overlay:part-lluvia-meteoros": {
+   "name": "流星群",
+   "tags": [
+    "流星群",
+    "流れ星",
+    "空",
+    "夜"
+   ]
+  },
+  "overlay:part-motas-luz": {
+   "name": "光に舞うほこり",
+   "tags": [
+    "ほこり",
+    "光",
+    "粒子",
+    "日差し"
+   ]
+  },
+  "overlay:part-nieve-brillante": {
+   "name": "キラキラの雪",
+   "tags": [
+    "雪",
+    "キラキラ",
+    "グリッター",
+    "冬",
+    "クリスマス"
+   ]
+  },
+  "overlay:part-orbes": {
+   "name": "光のオーブ",
+   "tags": [
+    "オーブ",
+    "光",
+    "やわらか",
+    "夢"
+   ]
+  },
+  "overlay:part-polvo-dorado": {
+   "name": "金粉",
+   "tags": [
+    "金粉",
+    "ゴールド",
+    "粉",
+    "魔法"
+   ]
+  },
+  "overlay:part-polvo-magico": {
+   "name": "魔法の粉",
+   "tags": [
+    "魔法",
+    "杖",
+    "粉",
+    "キラキラ"
+   ]
+  },
+  "overlay:part-polvo-plateado": {
+   "name": "銀粉",
+   "tags": [
+    "銀粉",
+    "シルバー",
+    "粉",
+    "冬"
+   ]
+  },
+  "overlay:part-polvo-rosa": {
+   "name": "ピンクの粉",
+   "tags": [
+    "粉",
+    "ピンク",
+    "キラキラ",
+    "エモい"
+   ]
+  },
+  "overlay:part-velocidad-luz": {
+   "name": "ワープスピード",
+   "tags": [
+    "スピード",
+    "ワープ",
+    "宇宙",
+    "星"
+   ]
+  },
+  "template:album-scrapbook": {
+   "name": "スクラップブック・アルバム",
+   "tags": [
+    "アルバム",
+    "スクラップブック",
+    "思い出",
+    "カップル"
+   ]
+  },
+  "template:anio-nuevo-cuenta-regresiva": {
+   "name": "新年カウントダウン",
+   "tags": [
+    "新年",
+    "カウントダウン",
+    "2027",
+    "花火",
+    "パーティー"
+   ]
+  },
+  "template:aniversario-pareja": {
+   "name": "カップルの記念日",
+   "tags": [
+    "記念日",
+    "カップル",
+    "恋愛",
+    "交際"
+   ]
+  },
+  "template:antes-despues-deslizador": {
+   "name": "ビフォーアフター",
+   "tags": [
+    "ビフォーアフター",
+    "比較",
+    "変化",
+    "スライダー"
+   ]
+  },
+  "template:anuncio-embarazo": {
+   "name": "妊娠報告",
+   "tags": [
+    "妊娠",
+    "赤ちゃん",
+    "報告",
+    "家族"
+   ]
+  },
+  "template:apertura-pelicula": {
+   "name": "映画のオープニング",
+   "tags": [
+    "映画",
+    "シネマ",
+    "家族",
+    "タイトル"
+   ]
+  },
+  "template:baby-shower": {
+   "name": "ベビーシャワー",
+   "tags": [
+    "ベビーシャワー",
+    "赤ちゃん",
+    "招待状",
+    "パーティー",
+    "妊娠"
+   ]
+  },
+  "template:barberia-antes-despues": {
+   "name": "理髪店のビフォーアフター",
+   "tags": [
+    "理髪店",
+    "バーバー",
+    "カット",
+    "ひげ",
+    "フェード"
+   ]
+  },
+  "template:black-friday-ofertas": {
+   "name": "ブラックフライデーセール",
+   "tags": [
+    "ブラックフライデー",
+    "セール",
+    "割引",
+    "ショップ",
+    "11月"
+   ]
+  },
+  "template:black-friday-ultimas-horas": {
+   "name": "ブラックフライデー：残りわずか",
+   "tags": [
+    "ブラックフライデー",
+    "残りわずか",
+    "セール",
+    "ファッション"
+   ]
+  },
+  "template:blanco-y-negro-a-color": {
+   "name": "モノクロからカラーへ",
+   "tags": [
+    "モノクロ",
+    "カラー",
+    "カップル",
+    "お披露目",
+    "恋愛"
+   ]
+  },
+  "template:boda-save-the-date": {
+   "name": "結婚式のセーブ・ザ・デート",
+   "tags": [
+    "結婚式",
+    "セーブザデート",
+    "招待状",
+    "ウェディング",
+    "新郎新婦"
+   ]
+  },
+  "template:cafe-nuevo-en-la-carta": {
+   "name": "新メニュー登場",
+   "tags": [
+    "カフェ",
+    "コーヒー",
+    "新メニュー",
+    "ドリンク"
+   ]
+  },
+  "template:camara-lenta-con-letra": {
+   "name": "歌詞付きスローモーション",
+   "tags": [
+    "スローモーション",
+    "歌詞",
+    "曲",
+    "カップル",
+    "シネマティック"
+   ]
+  },
+  "template:cancion-criolla": {
+   "name": "ライブ音楽の夜",
+   "tags": [
+    "ライブ",
+    "コンサート",
+    "音楽",
+    "夜",
+    "ビンテージ"
+   ]
+  },
+  "template:catrina-dia-de-muertos": {
+   "name": "スカルメイク",
+   "tags": [
+    "スカル",
+    "死者の日",
+    "メイク",
+    "メキシコ",
+    "花"
+   ]
+  },
+  "template:checklist-que-se-marca": {
+   "name": "チェックが入るリスト",
+   "tags": [
+    "チェックリスト",
+    "リスト",
+    "やること",
+    "旅行",
+    "整理"
+   ]
+  },
+  "template:cierre-negocio": {
+   "name": "ビジネス用エンディング",
+   "tags": [
+    "ビジネス",
+    "連絡先",
+    "起業",
+    "デリバリー"
+   ]
+  },
+  "template:cierre-parte-2": {
+   "name": "続きはプロフィールで",
+   "tags": [
+    "パート2",
+    "続く",
+    "エンディング",
+    "プロフィール"
+   ]
+  },
+  "template:cierre-siguenos": {
+   "name": "エンディング：フォローしてね",
+   "tags": [
+    "エンディング",
+    "フォロー",
+    "sns",
+    "チャンネル登録"
+   ]
+  },
+  "template:cita-minimalista": {
+   "name": "ミニマルな名言",
+   "tags": [
+    "名言",
+    "言葉",
+    "ミニマル",
+    "エレガント"
+   ]
+  },
+  "template:clip-de-podcast": {
+   "name": "ポッドキャストのクリップ",
+   "tags": [
+    "ポッドキャスト",
+    "字幕",
+    "インタビュー",
+    "切り抜き",
+    "対談"
+   ]
+  },
+  "template:collage-2x2": {
+   "name": "2×2コラージュ",
+   "tags": [
+    "コラージュ",
+    "グリッド",
+    "週末",
+    "写真"
+   ]
+  },
+  "template:concierto-festival": {
+   "name": "コンサートの夜",
+   "tags": [
+    "コンサート",
+    "フェス",
+    "音楽",
+    "ライブ"
+   ]
+  },
+  "template:cosas-que-no-sabias": {
+   "name": "知らなかった豆知識",
+   "tags": [
+    "豆知識",
+    "雑学",
+    "トリビア",
+    "教育"
+   ]
+  },
+  "template:cuenta-3-2-1": {
+   "name": "3・2・1カウントダウン",
+   "tags": [
+    "カウントダウン",
+    "発表",
+    "サプライズ",
+    "3-2-1"
+   ]
+  },
+  "template:cuenta-regresiva-10": {
+   "name": "10秒カウントダウン",
+   "tags": [
+    "カウントダウン",
+    "10秒",
+    "発表",
+    "公開",
+    "パーティー"
+   ]
+  },
+  "template:cumple-sorpresa": {
+   "name": "サプライズ誕生日パーティー",
+   "tags": [
+    "サプライズ",
+    "誕生日",
+    "パーティー",
+    "友達",
+    "お祝い"
+   ]
+  },
+  "template:cupon-de-descuento": {
+   "name": "割引クーポン",
+   "tags": [
+    "クーポン",
+    "割引",
+    "コード",
+    "セール",
+    "プレゼント"
+   ]
+  },
+  "template:cyber-monday": {
+   "name": "サイバーマンデー",
+   "tags": [
+    "サイバーマンデー",
+    "セール",
+    "ネットショップ",
+    "送料無料"
+   ]
+  },
+  "template:delivery-pide-por-whatsapp": {
+   "name": "デリバリー：メッセージで注文",
+   "tags": [
+    "デリバリー",
+    "チャット",
+    "注文",
+    "フード",
+    "宅配"
+   ]
+  },
+  "template:dia-de-la-amistad": {
+   "name": "友情の日",
+   "tags": [
+    "友情",
+    "友達",
+    "親友",
+    "フォトブース"
+   ]
+  },
+  "template:dia-de-playa": {
+   "name": "ビーチモード",
+   "tags": [
+    "ビーチ",
+    "夏",
+    "休暇",
+    "海",
+    "夕日"
+   ]
+  },
+  "template:dia-del-padre": {
+   "name": "父の日おめでとう",
+   "tags": [
+    "父の日",
+    "お父さん",
+    "家族",
+    "6月",
+    "ヒーロー"
+   ]
+  },
+  "template:diario-de-comida": {
+   "name": "今日食べたもの",
+   "tags": [
+    "食べ物",
+    "今日のごはん",
+    "食事記録",
+    "レシピ"
+   ]
+  },
+  "template:domingo-en-familia": {
+   "name": "家族の日曜日",
+   "tags": [
+    "家族",
+    "日曜日",
+    "祖父母",
+    "家",
+    "思い出"
+   ]
+  },
+  "template:duotono-pop": {
+   "name": "ポップなデュオトーン",
+   "tags": [
+    "デュオトーン",
+    "ポップアート",
+    "カラー",
+    "ポートレート"
+   ]
+  },
+  "template:edicion-callejera": {
+   "name": "ストリート編集",
+   "tags": [
+    "スケボー",
+    "ストリート",
+    "アーバン",
+    "街"
+   ]
+  },
+  "template:encuesta-cual-prefieres": {
+   "name": "どっちが好き？",
+   "tags": [
+    "アンケート",
+    "どっち派",
+    "コメント",
+    "交流"
+   ]
+  },
+  "template:entrevista-con-rotulo": {
+   "name": "インタビュー用テロップ",
+   "tags": [
+    "インタビュー",
+    "テロップ",
+    "名前",
+    "ニュース"
+   ]
+  },
+  "template:espejo-caleidoscopio": {
+   "name": "ミラー万華鏡",
+   "tags": [
+    "ミラー",
+    "万華鏡",
+    "エフェクト",
+    "サイケデリック"
+   ]
+  },
+  "template:estamos-contratando": {
+   "name": "スタッフ募集中！",
+   "tags": [
+    "求人",
+    "仕事",
+    "募集",
+    "採用"
+   ]
+  },
+  "template:este-o-este": {
+   "name": "どっちがいい？",
+   "tags": [
+    "どっち",
+    "選択",
+    "アンケート",
+    "カップル",
+    "おもしろ"
+   ]
+  },
+  "template:estrobo-y-temblor": {
+   "name": "ストロボ＆シェイク",
+   "tags": [
+    "ストロボ",
+    "シェイク",
+    "ビート",
+    "パーティー",
+    "エネルギー"
+   ]
+  },
+  "template:estudia-conmigo": {
+   "name": "一緒に勉強しよう",
+   "tags": [
+    "勉強",
+    "スタディウィズミー",
+    "ポモドーロ",
+    "大学",
+    "集中"
+   ]
+  },
+  "template:evento-taller-entrada": {
+   "name": "イベント・ワークショップ",
+   "tags": [
+    "イベント",
+    "ワークショップ",
+    "講座",
+    "日程",
+    "申し込み"
+   ]
+  },
+  "template:faltan-dias": {
+   "name": "あとX日",
+   "tags": [
+    "カウントダウン",
+    "あと何日",
+    "イベント",
+    "発表"
+   ]
+  },
+  "template:feliz-cumple": {
+   "name": "お誕生日おめでとう",
+   "tags": [
+    "誕生日",
+    "パーティー",
+    "家族",
+    "お祝い"
+   ]
+  },
+  "template:feliz-navidad-luces": {
+   "name": "メリークリスマス・ライト",
+   "tags": [
+    "クリスマス",
+    "イルミネーション",
+    "あいさつ",
+    "カード"
+   ]
+  },
+  "template:fiestas-patrias-peru": {
+   "name": "建国記念日",
+   "tags": [
+    "建国記念日",
+    "独立記念日",
+    "国旗",
+    "誇り"
+   ]
+  },
+  "template:frase-del-dia": {
+   "name": "今日のひとこと",
+   "tags": [
+    "名言",
+    "モチベーション",
+    "言葉",
+    "格言"
+   ]
+  },
+  "template:gancho-espera-al-final": {
+   "name": "最後まで見てね",
+   "tags": [
+    "フック",
+    "最後まで",
+    "サスペンス",
+    "tiktok",
+    "バズ"
+   ]
+  },
+  "template:gimnasio-matricula-gratis": {
+   "name": "ジム：今月のキャンペーン",
+   "tags": [
+    "ジム",
+    "会員",
+    "キャンペーン",
+    "フィットネス"
+   ]
+  },
+  "template:glitch-neon": {
+   "name": "ネオングリッチ",
+   "tags": [
+    "グリッチ",
+    "ネオン",
+    "パーティー",
+    "夜",
+    "ライブ"
+   ]
+  },
+  "template:gran-inauguracion": {
+   "name": "グランドオープン",
+   "tags": [
+    "オープン",
+    "開店",
+    "新店舗",
+    "イベント"
+   ]
+  },
+  "template:grwm-arreglate-conmigo": {
+   "name": "GRWM：一緒に準備しよう",
+   "tags": [
+    "grwm",
+    "メイク",
+    "身支度",
+    "美容",
+    "ルーティン"
+   ]
+  },
+  "template:h-cele-15-16": {
+   "name": "スウィート16",
+   "tags": [
+    "15歳",
+    "16歳",
+    "スウィート16",
+    "パーティー",
+    "プリンセス"
+   ]
+  },
+  "template:h-cele-aniversario": {
+   "name": "記念日おめでとう",
+   "tags": [
+    "記念日",
+    "カップル",
+    "恋愛",
+    "ハート"
+   ]
+  },
+  "template:h-cele-baby-shower": {
+   "name": "ベビーシャワーの招待状",
+   "tags": [
+    "ベビーシャワー",
+    "赤ちゃん",
+    "招待状",
+    "妊娠",
+    "パーティー"
+   ]
+  },
+  "template:h-cele-bautizo": {
+   "name": "洗礼式",
+   "tags": [
+    "洗礼",
+    "赤ちゃん",
+    "教会",
+    "家族",
+    "お祝い"
+   ]
+  },
+  "template:h-cele-bienvenida-bebe": {
+   "name": "赤ちゃん誕生",
+   "tags": [
+    "出産",
+    "赤ちゃん",
+    "誕生",
+    "新生児",
+    "家族"
+   ]
+  },
+  "template:h-cele-boda-invitacion": {
+   "name": "結婚式の招待状",
+   "tags": [
+    "結婚式",
+    "招待状",
+    "セーブザデート",
+    "エレガント"
+   ]
+  },
+  "template:h-cele-compromiso": {
+   "name": "婚約しました",
+   "tags": [
+    "婚約",
+    "プロポーズ",
+    "指輪",
+    "カップル",
+    "結婚"
+   ]
+  },
+  "template:h-cele-cumple": {
+   "name": "ハッピーバースデー",
+   "tags": [
+    "誕生日",
+    "パーティー",
+    "風船",
+    "紙吹雪",
+    "お祝い"
+   ]
+  },
+  "template:h-cele-despedida": {
+   "name": "送別",
+   "tags": [
+    "送別",
+    "お別れ",
+    "さようなら",
+    "友達",
+    "寂しくなる"
+   ]
+  },
+  "template:h-cele-fiesta-invitacion": {
+   "name": "パーティーの招待状",
+   "tags": [
+    "パーティー",
+    "招待状",
+    "イベント",
+    "夜"
+   ]
+  },
+  "template:h-cele-graduacion": {
+   "name": "卒業おめでとう",
+   "tags": [
+    "卒業",
+    "角帽",
+    "達成",
+    "大学",
+    "学校"
+   ]
+  },
+  "template:h-cele-jubilacion": {
+   "name": "定年退職おめでとう",
+   "tags": [
+    "退職",
+    "定年",
+    "キャリア",
+    "感謝"
+   ]
+  },
+  "template:h-cele-logro": {
+   "name": "やったね！",
+   "tags": [
+    "達成",
+    "目標",
+    "トロフィー",
+    "成功",
+    "お祝い"
+   ]
+  },
+  "template:h-cele-premios": {
+   "name": "授賞式",
+   "tags": [
+    "授賞式",
+    "受賞者",
+    "表彰",
+    "ガラ",
+    "トロフィー"
+   ]
+  },
+  "template:h-cele-reunion": {
+   "name": "家族の集まり",
+   "tags": [
+    "家族",
+    "集まり",
+    "招待状",
+    "食事会"
+   ]
+  },
+  "template:h-cierre-gracias": {
+   "name": "ご視聴ありがとうございました",
+   "tags": [
+    "ありがとう",
+    "エンディング",
+    "sns",
+    "締め"
+   ]
+  },
+  "template:h-cierre-like": {
+   "name": "高評価お願いします",
+   "tags": [
+    "高評価",
+    "いいね",
+    "グッド",
+    "エンディング"
+   ]
+  },
+  "template:h-cierre-proximo": {
+   "name": "次回の動画で",
+   "tags": [
+    "次回",
+    "予告",
+    "エンディング",
+    "エピソード"
+   ]
+  },
+  "template:h-cierre-redes": {
+   "name": "SNSでフォローしてね",
+   "tags": [
+    "sns",
+    "フォロー",
+    "アカウント",
+    "エンディング",
+    "連絡先"
+   ]
+  },
+  "template:h-cierre-suscribete-campana": {
+   "name": "チャンネル登録と通知ベル",
+   "tags": [
+    "チャンネル登録",
+    "通知",
+    "ベル",
+    "youtube",
+    "エンディング"
+   ]
+  },
+  "template:h-cuenta-10-neon": {
+   "name": "ネオンの10秒カウント",
+   "tags": [
+    "カウントダウン",
+    "ネオン",
+    "10秒",
+    "イベント"
+   ]
+  },
+  "template:h-cuenta-5-cine": {
+   "name": "昔の映画風カウントダウン",
+   "tags": [
+    "カウントダウン",
+    "映画",
+    "フィルム",
+    "ビンテージ"
+   ]
+  },
+  "template:h-cuenta-anio-nuevo": {
+   "name": "年越しカウントダウン",
+   "tags": [
+    "新年",
+    "カウントダウン",
+    "花火",
+    "真夜中"
+   ]
+  },
+  "template:h-cuenta-deportes": {
+   "name": "試合開始カウントダウン",
+   "tags": [
+    "試合",
+    "サッカー",
+    "カウントダウン",
+    "スポーツ",
+    "スコア"
+   ]
+  },
+  "template:h-cuenta-dias-evento": {
+   "name": "イベントまであと何日",
+   "tags": [
+    "あと何日",
+    "イベント",
+    "カウントダウン",
+    "結婚式",
+    "旅行"
+   ]
+  },
+  "template:h-cuenta-directo": {
+   "name": "まもなく開始",
+   "tags": [
+    "ライブ",
+    "配信",
+    "まもなく開始",
+    "カウントダウン"
+   ]
+  },
+  "template:h-cuenta-lanzamiento": {
+   "name": "新発売カウントダウン",
+   "tags": [
+    "発売",
+    "商品",
+    "3 2 1",
+    "カウントダウン"
+   ]
+  },
+  "template:h-cuenta-minimal": {
+   "name": "ミニマルなカウントダウン",
+   "tags": [
+    "カウントダウン",
+    "ミニマル",
+    "シンプル",
+    "プレゼン"
+   ]
+  },
+  "template:h-fecha-accion-gracias": {
+   "name": "感謝祭",
+   "tags": [
+    "感謝祭",
+    "サンクスギビング",
+    "秋",
+    "家族",
+    "感謝"
+   ]
+  },
+  "template:h-fecha-anio-nuevo": {
+   "name": "あけましておめでとう",
+   "tags": [
+    "新年",
+    "正月",
+    "花火",
+    "乾杯",
+    "1月"
+   ]
+  },
+  "template:h-fecha-anio-nuevo-lunar": {
+   "name": "旧正月",
+   "tags": [
+    "旧正月",
+    "春節",
+    "ランタン",
+    "赤",
+    "金"
+   ]
+  },
+  "template:h-fecha-dia-madre": {
+   "name": "母の日",
+   "tags": [
+    "母の日",
+    "お母さん",
+    "花",
+    "感謝",
+    "家族"
+   ]
+  },
+  "template:h-fecha-dia-maestro": {
+   "name": "教師の日",
+   "tags": [
+    "教師の日",
+    "先生",
+    "感謝",
+    "学校"
+   ]
+  },
+  "template:h-fecha-dia-mujer": {
+   "name": "国際女性デー",
+   "tags": [
+    "女性デー",
+    "3月8日",
+    "女性",
+    "平等"
+   ]
+  },
+  "template:h-fecha-dia-padre": {
+   "name": "父の日",
+   "tags": [
+    "父の日",
+    "お父さん",
+    "家族",
+    "ヒーロー",
+    "6月"
+   ]
+  },
+  "template:h-fecha-dia-tierra": {
+   "name": "アースデイ",
+   "tags": [
+    "アースデイ",
+    "地球",
+    "環境",
+    "緑",
+    "自然"
+   ]
+  },
+  "template:h-fecha-diwali": {
+   "name": "ハッピー・ディワリ",
+   "tags": [
+    "ディワリ",
+    "光の祭り",
+    "ランプ",
+    "お祝い"
+   ]
+  },
+  "template:h-fecha-eid": {
+   "name": "イード・ムバラク",
+   "tags": [
+    "イード",
+    "祝祭",
+    "家族",
+    "お祝い"
+   ]
+  },
+  "template:h-fecha-halloween": {
+   "name": "ハロウィン",
+   "tags": [
+    "ハロウィン",
+    "ホラー",
+    "かぼちゃ",
+    "仮装",
+    "10月"
+   ]
+  },
+  "template:h-fecha-invierno": {
+   "name": "冬",
+   "tags": [
+    "冬",
+    "雪",
+    "寒い",
+    "季節"
+   ]
+  },
+  "template:h-fecha-navidad": {
+   "name": "メリークリスマス",
+   "tags": [
+    "クリスマス",
+    "雪",
+    "家族",
+    "12月"
+   ]
+  },
+  "template:h-fecha-otono": {
+   "name": "こんにちは秋",
+   "tags": [
+    "秋",
+    "紅葉",
+    "落ち葉",
+    "季節",
+    "コーヒー"
+   ]
+  },
+  "template:h-fecha-pascua": {
+   "name": "イースター",
+   "tags": [
+    "イースター",
+    "卵",
+    "春",
+    "うさぎ"
+   ]
+  },
+  "template:h-fecha-primavera": {
+   "name": "春",
+   "tags": [
+    "春",
+    "花",
+    "季節",
+    "カラフル",
+    "自然"
+   ]
+  },
+  "template:h-fecha-ramadan": {
+   "name": "ラマダン・カリーム",
+   "tags": [
+    "ラマダン",
+    "三日月",
+    "ランタン",
+    "イフタール"
+   ]
+  },
+  "template:h-fecha-regreso-clases": {
+   "name": "新学期",
+   "tags": [
+    "新学期",
+    "学校",
+    "文房具",
+    "生徒"
+   ]
+  },
+  "template:h-fecha-san-valentin": {
+   "name": "バレンタインデー",
+   "tags": [
+    "バレンタイン",
+    "恋愛",
+    "2月14日",
+    "カップル",
+    "ハート"
+   ]
+  },
+  "template:h-fecha-verano": {
+   "name": "夏が来た",
+   "tags": [
+    "夏",
+    "ビーチ",
+    "太陽",
+    "休暇",
+    "暑い"
+   ]
+  },
+  "template:h-final-1-video": {
+   "name": "終了画面：動画1本",
+   "tags": [
+    "終了画面",
+    "エンドスクリーン",
+    "youtube",
+    "次の動画"
+   ]
+  },
+  "template:h-final-2-videos": {
+   "name": "終了画面：動画2本",
+   "tags": [
+    "終了画面",
+    "エンドスクリーン",
+    "youtube",
+    "おすすめ動画",
+    "チャンネル登録"
+   ]
+  },
+  "template:h-final-cocina": {
+   "name": "料理動画のエンディング",
+   "tags": [
+    "料理",
+    "レシピ",
+    "終了画面",
+    "次のレシピ"
+   ]
+  },
+  "template:h-final-colorida": {
+   "name": "カラフルな終了画面",
+   "tags": [
+    "終了画面",
+    "カラフル",
+    "楽しい",
+    "youtube",
+    "キッズ"
+   ]
+  },
+  "template:h-final-curso": {
+   "name": "講座のエンディング",
+   "tags": [
+    "講座",
+    "レッスン",
+    "教育",
+    "終了画面",
+    "チュートリアル"
+   ]
+  },
+  "template:h-final-familia": {
+   "name": "家族動画のエンディング",
+   "tags": [
+    "家族",
+    "ありがとう",
+    "エンディング",
+    "思い出",
+    "写真"
+   ]
+  },
+  "template:h-final-gaming": {
+   "name": "ゲーム実況の終了画面",
+   "tags": [
+    "終了画面",
+    "ゲーム",
+    "ゲーマー",
+    "配信"
+   ]
+  },
+  "template:h-final-minimal": {
+   "name": "ミニマルな終了画面",
+   "tags": [
+    "終了画面",
+    "ミニマル",
+    "シンプル",
+    "エレガント"
+   ]
+  },
+  "template:h-final-negocio": {
+   "name": "ビジネスの終了画面",
+   "tags": [
+    "ビジネス",
+    "連絡先",
+    "住所",
+    "ウェブ"
+   ]
+  },
+  "template:h-final-noticias": {
+   "name": "ニュースのエンディング",
+   "tags": [
+    "ニュース",
+    "報道",
+    "終了画面",
+    "見出し"
+   ]
+  },
+  "template:h-final-oscura": {
+   "name": "ダークな終了画面",
+   "tags": [
+    "終了画面",
+    "ネオン",
+    "ダーク",
+    "youtube",
+    "ゲーム"
+   ]
+  },
+  "template:h-final-papel": {
+   "name": "紙素材の終了画面",
+   "tags": [
+    "紙",
+    "ハンドメイド",
+    "終了画面",
+    "テープ"
+   ]
+  },
+  "template:h-final-podcast": {
+   "name": "ポッドキャストのエンディング",
+   "tags": [
+    "ポッドキャスト",
+    "次回",
+    "終了画面",
+    "音声"
+   ]
+  },
+  "template:h-final-retro": {
+   "name": "レトロTVの終了画面",
+   "tags": [
+    "レトロ",
+    "テレビ",
+    "ビンテージ",
+    "終了画面",
+    "80年代"
+   ]
+  },
+  "template:h-final-viajes": {
+   "name": "旅行動画のエンディング",
+   "tags": [
+    "旅行",
+    "旅先",
+    "終了画面",
+    "地図",
+    "冒険"
+   ]
+  },
+  "template:h-intro-barras-diagonales": {
+   "name": "斜めバーのオープニング",
+   "tags": [
+    "オープニング",
+    "youtube",
+    "チャンネル",
+    "ロゴ",
+    "バー"
+   ]
+  },
+  "template:h-intro-boda": {
+   "name": "ウェディングのオープニング",
+   "tags": [
+    "結婚式",
+    "ウェディング",
+    "新郎新婦",
+    "ロマンチック"
+   ]
+  },
+  "template:h-intro-cinematica-oscura": {
+   "name": "シネマティックオープニング",
+   "tags": [
+    "映画",
+    "シネマティック",
+    "オープニング",
+    "ドラマチック",
+    "予告編"
+   ]
+  },
+  "template:h-intro-cocina": {
+   "name": "料理チャンネルのオープニング",
+   "tags": [
+    "料理",
+    "レシピ",
+    "食べ物",
+    "シェフ",
+    "チャンネル"
+   ]
+  },
+  "template:h-intro-colorida-formas": {
+   "name": "カラフルな図形のオープニング",
+   "tags": [
+    "カラフル",
+    "図形",
+    "楽しい",
+    "オープニング"
+   ]
+  },
+  "template:h-intro-corporativa": {
+   "name": "企業向けオープニング",
+   "tags": [
+    "企業",
+    "会社",
+    "ビジネス",
+    "プレゼン",
+    "ロゴ"
+   ]
+  },
+  "template:h-intro-deportes": {
+   "name": "スポーツのオープニング",
+   "tags": [
+    "スポーツ",
+    "サッカー",
+    "陸上",
+    "オープニング",
+    "チーム"
+   ]
+  },
+  "template:h-intro-documental": {
+   "name": "ドキュメンタリーのオープニング",
+   "tags": [
+    "ドキュメンタリー",
+    "歴史",
+    "自然",
+    "映画",
+    "オープニング"
+   ]
+  },
+  "template:h-intro-elegante-oro": {
+   "name": "エレガントなゴールドのオープニング",
+   "tags": [
+    "エレガント",
+    "ゴールド",
+    "高級",
+    "ブランド"
+   ]
+  },
+  "template:h-intro-fitness": {
+   "name": "フィットネスのオープニング",
+   "tags": [
+    "フィットネス",
+    "ジム",
+    "トレーニング",
+    "モチベーション"
+   ]
+  },
+  "template:h-intro-gaming-neon": {
+   "name": "ネオンのゲーム実況オープニング",
+   "tags": [
+    "ゲーム",
+    "ゲーマー",
+    "ネオン",
+    "配信",
+    "オープニング"
+   ]
+  },
+  "template:h-intro-glitch": {
+   "name": "グリッチオープニング",
+   "tags": [
+    "グリッチ",
+    "デジタル",
+    "オープニング",
+    "ゲーム",
+    "rgb"
+   ]
+  },
+  "template:h-intro-logo-destello": {
+   "name": "フレアで登場するロゴ",
+   "tags": [
+    "ロゴ",
+    "登場",
+    "フレア",
+    "オープニング",
+    "ブランド"
+   ]
+  },
+  "template:h-intro-minimal-linea": {
+   "name": "ミニマルなラインのオープニング",
+   "tags": [
+    "ミニマル",
+    "シンプル",
+    "オープニング",
+    "エレガント",
+    "白"
+   ]
+  },
+  "template:h-intro-musica": {
+   "name": "音楽チャンネルのオープニング",
+   "tags": [
+    "音楽",
+    "アーティスト",
+    "シングル",
+    "イコライザー"
+   ]
+  },
+  "template:h-intro-ninos": {
+   "name": "キッズ向けオープニング",
+   "tags": [
+    "子ども",
+    "キッズ",
+    "カラフル",
+    "知育"
+   ]
+  },
+  "template:h-intro-noticias": {
+   "name": "ニュース番組のオープニング",
+   "tags": [
+    "ニュース",
+    "報道",
+    "オープニング",
+    "速報"
+   ]
+  },
+  "template:h-intro-papel": {
+   "name": "切り絵のオープニング",
+   "tags": [
+    "紙",
+    "切り絵",
+    "ハンドメイド",
+    "子ども"
+   ]
+  },
+  "template:h-intro-podcast-ondas": {
+   "name": "音声波形のポッドキャストオープニング",
+   "tags": [
+    "ポッドキャスト",
+    "音声",
+    "波形",
+    "インタビュー",
+    "番組"
+   ]
+  },
+  "template:h-intro-pop-comic": {
+   "name": "ポップなコミック風オープニング",
+   "tags": [
+    "コミック",
+    "ポップアート",
+    "漫画",
+    "楽しい"
+   ]
+  },
+  "template:h-intro-retro-80s": {
+   "name": "レトロ80年代オープニング",
+   "tags": [
+    "レトロ",
+    "80年代",
+    "シンセウェーブ",
+    "ネオン",
+    "オープニング"
+   ]
+  },
+  "template:h-intro-split": {
+   "name": "分割画面のオープニング",
+   "tags": [
+    "分割画面",
+    "スプリット",
+    "写真",
+    "モダン"
+   ]
+  },
+  "template:h-intro-suscriptores": {
+   "name": "登録者カウンターのオープニング",
+   "tags": [
+    "登録者",
+    "カウンター",
+    "お祝い",
+    "youtube"
+   ]
+  },
+  "template:h-intro-tech": {
+   "name": "テック系オープニング",
+   "tags": [
+    "テクノロジー",
+    "テック",
+    "デジタル",
+    "レビュー",
+    "未来"
+   ]
+  },
+  "template:h-intro-texto-gigante": {
+   "name": "巨大テキストのオープニング",
+   "tags": [
+    "テキスト",
+    "タイポグラフィ",
+    "インパクト",
+    "文字に写真"
+   ]
+  },
+  "template:h-intro-tinta": {
+   "name": "インクで現れるオープニング",
+   "tags": [
+    "インク",
+    "アート",
+    "オープニング",
+    "水彩",
+    "にじみ"
+   ]
+  },
+  "template:h-intro-tiza": {
+   "name": "黒板のオープニング",
+   "tags": [
+    "教育",
+    "黒板",
+    "授業",
+    "チョーク",
+    "先生"
+   ]
+  },
+  "template:h-intro-viajes-mapa": {
+   "name": "地図の旅行オープニング",
+   "tags": [
+    "旅行",
+    "地図",
+    "ルート",
+    "冒険",
+    "オープニング"
+   ]
+  },
+  "template:h-intro-vlog-polaroid": {
+   "name": "インスタント写真のVlogオープニング",
+   "tags": [
+    "vlog",
+    "インスタント写真",
+    "オープニング",
+    "写真",
+    "日記"
+   ]
+  },
+  "template:h-intro-zoom-fotos": {
+   "name": "写真ズームのオープニング",
+   "tags": [
+    "ズーム",
+    "写真",
+    "ダイナミック",
+    "コラージュ"
+   ]
+  },
+  "template:h-neg-academia": {
+   "name": "スクール・講座",
+   "tags": [
+    "スクール",
+    "講座",
+    "レッスン",
+    "ワークショップ",
+    "申し込み"
+   ]
+  },
+  "template:h-neg-agenda-evento": {
+   "name": "イベントのプログラム",
+   "tags": [
+    "プログラム",
+    "スケジュール",
+    "イベント",
+    "時間割",
+    "カンファレンス"
+   ]
+  },
+  "template:h-neg-cafeteria": {
+   "name": "カフェ",
+   "tags": [
+    "カフェ",
+    "コーヒー",
+    "本日のおすすめ",
+    "朝食",
+    "バリスタ"
+   ]
+  },
+  "template:h-neg-cifras": {
+   "name": "数字で見る1年",
+   "tags": [
+    "実績",
+    "数字",
+    "レポート",
+    "成長",
+    "グラフ"
+   ]
+  },
+  "template:h-neg-comunidad": {
+   "name": "地域の集会",
+   "tags": [
+    "地域",
+    "集会",
+    "教会",
+    "グループ",
+    "お知らせ"
+   ]
+  },
+  "template:h-neg-contacto": {
+   "name": "お問い合わせ",
+   "tags": [
+    "お問い合わせ",
+    "住所",
+    "営業時間",
+    "電話",
+    "ビジネス"
+   ]
+  },
+  "template:h-neg-contratando": {
+   "name": "求人募集",
+   "tags": [
+    "求人",
+    "仕事",
+    "採用",
+    "募集",
+    "仲間"
+   ]
+  },
+  "template:h-neg-escuela": {
+   "name": "学校：入学受付中",
+   "tags": [
+    "学校",
+    "入学",
+    "申し込み",
+    "教育"
+   ]
+  },
+  "template:h-neg-ferreteria": {
+   "name": "ホームセンター",
+   "tags": [
+    "ホームセンター",
+    "工具",
+    "建築",
+    "割引",
+    "住まい"
+   ]
+  },
+  "template:h-neg-gimnasio": {
+   "name": "ジムの料金プラン",
+   "tags": [
+    "ジム",
+    "料金プラン",
+    "価格",
+    "フィットネス",
+    "会員"
+   ]
+  },
+  "template:h-neg-inmobiliaria": {
+   "name": "物件販売中",
+   "tags": [
+    "不動産",
+    "販売",
+    "家",
+    "マンション",
+    "物件"
+   ]
+  },
+  "template:h-neg-lanzamiento": {
+   "name": "商品発表",
+   "tags": [
+    "発表",
+    "新商品",
+    "商品",
+    "新作"
+   ]
+  },
+  "template:h-neg-mudanzas": {
+   "name": "引っ越し・運送",
+   "tags": [
+    "引っ越し",
+    "運送",
+    "トラック",
+    "サービス"
+   ]
+  },
+  "template:h-neg-presentacion": {
+   "name": "会社紹介",
+   "tags": [
+    "会社",
+    "プレゼン",
+    "企業",
+    "ミッション",
+    "数字"
+   ]
+  },
+  "template:h-neg-rebajas": {
+   "name": "ビッグセール",
+   "tags": [
+    "セール",
+    "割引",
+    "在庫一掃",
+    "特価"
+   ]
+  },
+  "template:h-neg-restaurante-menu": {
+   "name": "レストランのメニュー",
+   "tags": [
+    "レストラン",
+    "メニュー",
+    "料理",
+    "価格"
+   ]
+  },
+  "template:h-neg-supermercado": {
+   "name": "スーパーの特売",
+   "tags": [
+    "スーパー",
+    "特売",
+    "価格",
+    "果物",
+    "割引"
+   ]
+  },
+  "template:h-neg-testimonio": {
+   "name": "お客様の声カード",
+   "tags": [
+    "お客様の声",
+    "レビュー",
+    "お客様",
+    "評価",
+    "星"
+   ]
+  },
+  "template:h-neg-tienda-barrio": {
+   "name": "街の小さなお店",
+   "tags": [
+    "お店",
+    "地元",
+    "セール",
+    "食料品"
+   ]
+  },
+  "template:h-neg-webinar": {
+   "name": "ウェビナー",
+   "tags": [
+    "ウェビナー",
+    "オンラインセミナー",
+    "イベント",
+    "登録",
+    "講師"
+   ]
+  },
+  "template:h-presenta-amistad": {
+   "name": "ずっと友達",
+   "tags": [
+    "友達",
+    "友情",
+    "落書き",
+    "写真",
+    "楽しい"
+   ]
+  },
+  "template:h-presenta-anio": {
+   "name": "私たちの1年",
+   "tags": [
+    "1年",
+    "振り返り",
+    "12か月",
+    "写真"
+   ]
+  },
+  "template:h-presenta-antes-despues": {
+   "name": "ビフォーアフターのスライダー",
+   "tags": [
+    "ビフォーアフター",
+    "比較",
+    "スライダー",
+    "変身",
+    "リフォーム"
+   ]
+  },
+  "template:h-presenta-bebe": {
+   "name": "月ごとに育つ赤ちゃん",
+   "tags": [
+    "赤ちゃん",
+    "月齢",
+    "成長",
+    "家族",
+    "1歳"
+   ]
+  },
+  "template:h-presenta-boda": {
+   "name": "私たちの結婚式",
+   "tags": [
+    "結婚式",
+    "新郎新婦",
+    "スライドショー",
+    "エレガント"
+   ]
+  },
+  "template:h-presenta-cinematica": {
+   "name": "シネマティックなスライドショー",
+   "tags": [
+    "シネマティック",
+    "映画",
+    "黒帯",
+    "旅行",
+    "壮大"
+   ]
+  },
+  "template:h-presenta-circulos": {
+   "name": "円形フォト",
+   "tags": [
+    "円",
+    "写真",
+    "カラフル",
+    "明るい",
+    "スライドショー"
+   ]
+  },
+  "template:h-presenta-collage-libre": {
+   "name": "フリーコラージュ",
+   "tags": [
+    "コラージュ",
+    "写真",
+    "ボード",
+    "友達",
+    "思い出"
+   ]
+  },
+  "template:h-presenta-comida": {
+   "name": "写真で見るメニュー",
+   "tags": [
+    "メニュー",
+    "料理",
+    "レストラン",
+    "お皿"
+   ]
+  },
+  "template:h-presenta-deportes": {
+   "name": "スポーツシーズン",
+   "tags": [
+    "スポーツ",
+    "シーズン",
+    "結果",
+    "チーム",
+    "サッカー"
+   ]
+  },
+  "template:h-presenta-equipo": {
+   "name": "チーム紹介",
+   "tags": [
+    "チーム",
+    "メンバー",
+    "会社",
+    "スタッフ"
+   ]
+  },
+  "template:h-presenta-escuela": {
+   "name": "学校の1年",
+   "tags": [
+    "学校",
+    "学年",
+    "ノート",
+    "授業"
+   ]
+  },
+  "template:h-presenta-evento": {
+   "name": "イベントのダイジェスト",
+   "tags": [
+    "イベント",
+    "ダイジェスト",
+    "アフタームービー",
+    "カンファレンス",
+    "パーティー"
+   ]
+  },
+  "template:h-presenta-glitch": {
+   "name": "グリッチのスライドショー",
+   "tags": [
+    "グリッチ",
+    "速い",
+    "ビート",
+    "写真",
+    "アーバン"
+   ]
+  },
+  "template:h-presenta-graduacion": {
+   "name": "卒業生の思い出",
+   "tags": [
+    "卒業",
+    "同期",
+    "学校",
+    "大学"
+   ]
+  },
+  "template:h-presenta-homenaje": {
+   "name": "追悼",
+   "tags": [
+    "追悼",
+    "メモリアル",
+    "お別れ",
+    "思い出",
+    "キャンドル"
+   ]
+  },
+  "template:h-presenta-inmueble": {
+   "name": "物件紹介ツアー",
+   "tags": [
+    "不動産",
+    "家",
+    "売買",
+    "賃貸",
+    "物件"
+   ]
+  },
+  "template:h-presenta-mascota": {
+   "name": "うちの子アルバム",
+   "tags": [
+    "ペット",
+    "犬",
+    "猫",
+    "肉球",
+    "写真"
+   ]
+  },
+  "template:h-presenta-mosaico": {
+   "name": "フォトモザイク",
+   "tags": [
+    "モザイク",
+    "グリッド",
+    "コラージュ",
+    "写真"
+   ]
+  },
+  "template:h-presenta-paralaje": {
+   "name": "パララックスのスライドショー",
+   "tags": [
+    "パララックス",
+    "3d",
+    "動き",
+    "写真",
+    "旅行"
+   ]
+  },
+  "template:h-presenta-pelicula": {
+   "name": "フィルムストリップのスライドショー",
+   "tags": [
+    "フィルム",
+    "35mm",
+    "写真",
+    "ビンテージ"
+   ]
+  },
+  "template:h-presenta-polaroid": {
+   "name": "木の上のインスタント写真",
+   "tags": [
+    "インスタント写真",
+    "写真",
+    "スライドショー",
+    "木目",
+    "ビンテージ"
+   ]
+  },
+  "template:h-presenta-portafolio": {
+   "name": "ポートフォリオ",
+   "tags": [
+    "ポートフォリオ",
+    "作品",
+    "デザイン",
+    "写真",
+    "プロジェクト"
+   ]
+  },
+  "template:h-presenta-producto": {
+   "name": "商品カタログ",
+   "tags": [
+    "カタログ",
+    "商品",
+    "ショップ",
+    "価格",
+    "販売"
+   ]
+  },
+  "template:h-presenta-recuerdos": {
+   "name": "思い出のスライドショー",
+   "tags": [
+    "思い出",
+    "スライドショー",
+    "写真",
+    "家族",
+    "ノスタルジー"
+   ]
+  },
+  "template:h-presenta-revista": {
+   "name": "雑誌のページ",
+   "tags": [
+    "雑誌",
+    "エディトリアル",
+    "ファッション",
+    "ページ"
+   ]
+  },
+  "template:h-presenta-split": {
+   "name": "分割画面のスライドショー",
+   "tags": [
+    "分割画面",
+    "スプリット",
+    "2枚の写真",
+    "比較"
+   ]
+  },
+  "template:h-presenta-tinta": {
+   "name": "インクのスライドショー",
+   "tags": [
+    "インク",
+    "アート",
+    "スライドショー",
+    "写真",
+    "エレガント"
+   ]
+  },
+  "template:h-presenta-viaje": {
+   "name": "旅の日記",
+   "tags": [
+    "旅行",
+    "日記",
+    "スタンプ",
+    "写真",
+    "休暇"
+   ]
+  },
+  "template:h-presenta-vintage": {
+   "name": "昔のアルバム",
+   "tags": [
+    "ビンテージ",
+    "昔",
+    "セピア",
+    "アルバム",
+    "思い出"
+   ]
+  },
+  "template:h-tercio-a-mano": {
+   "name": "手書き風テロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "手書き",
+    "カリグラフィー"
+   ]
+  },
+  "template:h-tercio-boda": {
+   "name": "ウェディングのテロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "結婚式",
+    "新郎新婦"
+   ]
+  },
+  "template:h-tercio-caja-color": {
+   "name": "ボックス型テロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "ボックス",
+    "カラー"
+   ]
+  },
+  "template:h-tercio-chat": {
+   "name": "注目のコメント",
+   "tags": [
+    "テロップ",
+    "コメント",
+    "チャット",
+    "名前"
+   ]
+  },
+  "template:h-tercio-cita": {
+   "name": "画面上の引用",
+   "tags": [
+    "テロップ",
+    "引用",
+    "名言",
+    "言葉"
+   ]
+  },
+  "template:h-tercio-corporativo": {
+   "name": "企業向けテロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "企業",
+    "会社"
+   ]
+  },
+  "template:h-tercio-deportes": {
+   "name": "スポーツのテロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "スポーツ",
+    "選手"
+   ]
+  },
+  "template:h-tercio-diagonal": {
+   "name": "斜めのテロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "斜め",
+    "ダイナミック"
+   ]
+  },
+  "template:h-tercio-doble": {
+   "name": "2人用テロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "2人",
+    "インタビュー"
+   ]
+  },
+  "template:h-tercio-duotono": {
+   "name": "デュオトーンのテロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "デュオトーン",
+    "モダン"
+   ]
+  },
+  "template:h-tercio-elegante": {
+   "name": "エレガントなテロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "エレガント",
+    "ゴールド"
+   ]
+  },
+  "template:h-tercio-entrevista": {
+   "name": "インタビューのテロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "インタビュー",
+    "質問"
+   ]
+  },
+  "template:h-tercio-fecha": {
+   "name": "日付と時刻",
+   "tags": [
+    "テロップ",
+    "日付",
+    "時刻",
+    "イベント"
+   ]
+  },
+  "template:h-tercio-gaming": {
+   "name": "ゲーム実況のテロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "ゲーム",
+    "ゲーマー"
+   ]
+  },
+  "template:h-tercio-glass": {
+   "name": "ガラス風テロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "ガラス",
+    "半透明"
+   ]
+  },
+  "template:h-tercio-minimal-linea": {
+   "name": "ミニマルなテロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "ミニマル",
+    "シンプル"
+   ]
+  },
+  "template:h-tercio-noticias": {
+   "name": "ニュースのテロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "ニュース",
+    "ライブ"
+   ]
+  },
+  "template:h-tercio-podcast": {
+   "name": "ポッドキャストのテロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "ポッドキャスト",
+    "エピソード"
+   ]
+  },
+  "template:h-tercio-precio": {
+   "name": "画面上の価格表示",
+   "tags": [
+    "テロップ",
+    "価格",
+    "商品",
+    "値段"
+   ]
+  },
+  "template:h-tercio-redes": {
+   "name": "SNSアカウントのテロップ",
+   "tags": [
+    "テロップ",
+    "sns",
+    "アカウント",
+    "ユーザー名"
+   ]
+  },
+  "template:h-tercio-redondeado": {
+   "name": "写真付き丸型テロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "写真",
+    "ピル型"
+   ]
+  },
+  "template:h-tercio-retro": {
+   "name": "レトロなテロップ",
+   "tags": [
+    "テロップ",
+    "名前",
+    "レトロ",
+    "70年代"
+   ]
+  },
+  "template:h-tercio-suscribete": {
+   "name": "隅のチャンネル登録ボタン",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "テロップ",
+    "youtube"
+   ]
+  },
+  "template:h-tercio-tutorial-paso": {
+   "name": "チュートリアルの手順",
+   "tags": [
+    "テロップ",
+    "チュートリアル",
+    "ステップ",
+    "手順"
+   ]
+  },
+  "template:h-tercio-ubicacion": {
+   "name": "場所のテロップ",
+   "tags": [
+    "テロップ",
+    "場所",
+    "位置情報",
+    "地名"
+   ]
+  },
+  "template:h-texto-advertencia": {
+   "name": "注意",
+   "tags": [
+    "注意",
+    "警告",
+    "重要",
+    "お知らせ"
+   ]
+  },
+  "template:h-texto-agenda": {
+   "name": "動画の目次",
+   "tags": [
+    "目次",
+    "内容",
+    "トピック",
+    "チャプター"
+   ]
+  },
+  "template:h-texto-capitulo": {
+   "name": "チャプターカード",
+   "tags": [
+    "チャプター",
+    "タイトル",
+    "ドキュメンタリー",
+    "youtube",
+    "セクション"
+   ]
+  },
+  "template:h-texto-cinetico": {
+   "name": "キネティックタイポグラフィ",
+   "tags": [
+    "キネティック",
+    "タイポグラフィ",
+    "モチベーション",
+    "リズム"
+   ]
+  },
+  "template:h-texto-cita-serif": {
+   "name": "エレガントな名言",
+   "tags": [
+    "名言",
+    "言葉",
+    "インスピレーション",
+    "モチベーション"
+   ]
+  },
+  "template:h-texto-comparacion": {
+   "name": "比較",
+   "tags": [
+    "比較",
+    "vs",
+    "どっちがいい",
+    "レビュー"
+   ]
+  },
+  "template:h-texto-creditos": {
+   "name": "エンドクレジット",
+   "tags": [
+    "クレジット",
+    "エンディング",
+    "謝辞",
+    "映画",
+    "スタッフ"
+   ]
+  },
+  "template:h-texto-dato-curioso": {
+   "name": "豆知識",
+   "tags": [
+    "豆知識",
+    "知ってた",
+    "教育",
+    "雑学",
+    "科学"
+   ]
+  },
+  "template:h-texto-estadistica": {
+   "name": "大きな統計数字",
+   "tags": [
+    "統計",
+    "数字",
+    "パーセント",
+    "データ",
+    "インフォグラフィック"
+   ]
+  },
+  "template:h-texto-frase-neon": {
+   "name": "ネオンサイン",
+   "tags": [
+    "ネオン",
+    "看板",
+    "言葉",
+    "夜",
+    "エモい"
+   ]
+  },
+  "template:h-texto-lecciones": {
+   "name": "この動画で学べること",
+   "tags": [
+    "講座",
+    "学べる",
+    "レッスン",
+    "教育",
+    "チュートリアル"
+   ]
+  },
+  "template:h-texto-linea-tiempo": {
+   "name": "タイムライン",
+   "tags": [
+    "タイムライン",
+    "歴史",
+    "年表",
+    "歩み",
+    "記念日"
+   ]
+  },
+  "template:h-texto-lista-5": {
+   "name": "トップ5リスト",
+   "tags": [
+    "リスト",
+    "トップ5",
+    "コツ",
+    "まとめ"
+   ]
+  },
+  "template:h-texto-maquina": {
+   "name": "タイプライター",
+   "tags": [
+    "タイプライター",
+    "手紙",
+    "ビンテージ",
+    "物語",
+    "テキスト"
+   ]
+  },
+  "template:h-texto-marcador": {
+   "name": "最終スコア",
+   "tags": [
+    "スコア",
+    "結果",
+    "試合",
+    "スポーツ"
+   ]
+  },
+  "template:h-texto-portada-video": {
+   "name": "動画のサムネイル",
+   "tags": [
+    "サムネイル",
+    "表紙",
+    "youtube",
+    "クリック"
+   ]
+  },
+  "template:h-texto-pregunta": {
+   "name": "視聴者への質問",
+   "tags": [
+    "質問",
+    "コメント",
+    "交流",
+    "コミュニティ",
+    "意見"
+   ]
+  },
+  "template:h-texto-receta-ingredientes": {
+   "name": "レシピの材料",
+   "tags": [
+    "レシピ",
+    "材料",
+    "料理",
+    "食べ物",
+    "リスト"
+   ]
+  },
+  "template:h-texto-titular-revista": {
+   "name": "雑誌の見出し",
+   "tags": [
+    "雑誌",
+    "表紙",
+    "エディトリアル",
+    "ファッション",
+    "見出し"
+   ]
+  },
+  "template:h-texto-titulo-grande": {
+   "name": "大きなタイトル",
+   "tags": [
+    "タイトル",
+    "表紙",
+    "大きい",
+    "インパクト"
+   ]
+  },
+  "template:h-trans-barrido-color": {
+   "name": "カラーワイプ",
+   "tags": [
+    "トランジション",
+    "ワイプ",
+    "カラフル",
+    "ダイナミック"
+   ]
+  },
+  "template:h-trans-capitulo-numero": {
+   "name": "チャプター番号",
+   "tags": [
+    "チャプター",
+    "トランジション",
+    "番号",
+    "区切り",
+    "ドキュメンタリー"
+   ]
+  },
+  "template:h-trans-circulo": {
+   "name": "円の区切り",
+   "tags": [
+    "トランジション",
+    "円",
+    "チャプター",
+    "区切り"
+   ]
+  },
+  "template:h-trans-diagonal": {
+   "name": "斜めワイプ",
+   "tags": [
+    "トランジション",
+    "斜め",
+    "ワイプ",
+    "モダン"
+   ]
+  },
+  "template:h-trans-formas": {
+   "name": "図形で塗りつぶし",
+   "tags": [
+    "トランジション",
+    "図形",
+    "円",
+    "カラフル"
+   ]
+  },
+  "template:h-trans-glitch-corto": {
+   "name": "グリッチヒット",
+   "tags": [
+    "トランジション",
+    "グリッチ",
+    "速い",
+    "ゲーム",
+    "デジタル"
+   ]
+  },
+  "template:h-trans-mientras-tanto": {
+   "name": "「その頃…」",
+   "tags": [
+    "その頃",
+    "ユーモア",
+    "コミック",
+    "トランジション",
+    "ミーム"
+   ]
+  },
+  "template:h-trans-papel": {
+   "name": "破れる紙",
+   "tags": [
+    "トランジション",
+    "紙",
+    "破れ",
+    "コラージュ"
+   ]
+  },
+  "template:h-trans-pelicula": {
+   "name": "フィルムバーン",
+   "tags": [
+    "トランジション",
+    "フィルム",
+    "焼け",
+    "ビンテージ"
+   ]
+  },
+  "template:h-trans-persiana": {
+   "name": "ブラインド",
+   "tags": [
+    "トランジション",
+    "ブラインド",
+    "ストライプ",
+    "エレガント"
+   ]
+  },
+  "template:h-trans-tinta": {
+   "name": "インクワイプ",
+   "tags": [
+    "トランジション",
+    "インク",
+    "アート",
+    "にじみ"
+   ]
+  },
+  "template:h-trans-zoom-golpe": {
+   "name": "ズームパンチ",
+   "tags": [
+    "トランジション",
+    "ズーム",
+    "パンチ",
+    "速い",
+    "エネルギー"
+   ]
+  },
+  "template:halloween-photo-dump": {
+   "name": "ハロウィンのフォトダンプ",
+   "tags": [
+    "ハロウィン",
+    "フォトダンプ",
+    "仮装",
+    "ホラー",
+    "10月"
+   ]
+  },
+  "template:halloween-revelacion-disfraz": {
+   "name": "仮装のお披露目",
+   "tags": [
+    "ハロウィン",
+    "仮装",
+    "変身",
+    "ビフォーアフター"
+   ]
+  },
+  "template:halloween-truco-o-trato": {
+   "name": "トリック・オア・トリート招待状",
+   "tags": [
+    "ハロウィン",
+    "パーティー",
+    "招待状",
+    "子ども",
+    "仮装"
+   ]
+  },
+  "template:horario-de-atencion": {
+   "name": "営業時間",
+   "tags": [
+    "営業時間",
+    "営業中",
+    "お店",
+    "お知らせ"
+   ]
+  },
+  "template:hype-glitch": {
+   "name": "グリッチで盛り上げ",
+   "tags": [
+    "グリッチ",
+    "ハイプ",
+    "エネルギー",
+    "ジム",
+    "パーティー"
+   ]
+  },
+  "template:intro-de-canal": {
+   "name": "チャンネルのオープニング",
+   "tags": [
+    "オープニング",
+    "チャンネル",
+    "youtube",
+    "ロゴ"
+   ]
+  },
+  "template:intro-de-podcast": {
+   "name": "ポッドキャストのオープニング",
+   "tags": [
+    "ポッドキャスト",
+    "オープニング",
+    "エピソード",
+    "番組"
+   ]
+  },
+  "template:intro-de-vlog": {
+   "name": "Vlogのオープニング",
+   "tags": [
+    "vlog",
+    "オープニング",
+    "日常",
+    "ルーティン",
+    "エモい"
+   ]
+  },
+  "template:jugadas-destacadas": {
+   "name": "スポーツのハイライト",
+   "tags": [
+    "スポーツ",
+    "サッカー",
+    "ハイライト",
+    "ゴール",
+    "試合"
+   ]
+  },
+  "template:lanzamiento-ya-disponible": {
+   "name": "新発売：好評発売中",
+   "tags": [
+    "新発売",
+    "商品",
+    "新作",
+    "ネットショップ"
+   ]
+  },
+  "template:letra-al-ritmo": {
+   "name": "ビートに合わせた歌詞",
+   "tags": [
+    "歌詞",
+    "曲",
+    "ビート",
+    "パーティー",
+    "文字"
+   ]
+  },
+  "template:me-gradue": {
+   "name": "卒業しました！",
+   "tags": [
+    "卒業",
+    "卒業式",
+    "達成",
+    "大学"
+   ]
+  },
+  "template:mejores-amigas": {
+   "name": "親友",
+   "tags": [
+    "親友",
+    "友達",
+    "ずっ友",
+    "友情",
+    "bff"
+   ]
+  },
+  "template:meme-texto-arriba-abajo": {
+   "name": "定番ミーム",
+   "tags": [
+    "ミーム",
+    "ユーモア",
+    "上下テキスト",
+    "おもしろ",
+    "あるある"
+   ]
+  },
+  "template:menu-del-dia-pizarra": {
+   "name": "黒板の日替わりメニュー",
+   "tags": [
+    "メニュー",
+    "レストラン",
+    "ランチ",
+    "黒板",
+    "価格"
+   ]
+  },
+  "template:menu-navideno": {
+   "name": "クリスマスメニュー",
+   "tags": [
+    "クリスマス",
+    "メニュー",
+    "ディナー",
+    "レストラン"
+   ]
+  },
+  "template:mi-2026-en-fotos": {
+   "name": "写真で振り返る2026年",
+   "tags": [
+    "新年",
+    "振り返り",
+    "2026",
+    "思い出",
+    "写真"
+   ]
+  },
+  "template:mi-glow-up": {
+   "name": "私のグロウアップ",
+   "tags": [
+    "グロウアップ",
+    "ビフォーアフター",
+    "メイク",
+    "美容"
+   ]
+  },
+  "template:mi-mascota": {
+   "name": "うちのペット",
+   "tags": [
+    "ペット",
+    "犬",
+    "猫",
+    "親友"
+   ]
+  },
+  "template:mis-mejores-fotos": {
+   "name": "ベストショット集",
+   "tags": [
+    "スライドショー",
+    "ベストショット",
+    "カルーセル",
+    "思い出",
+    "パステル"
+   ]
+  },
+  "template:mis-xv": {
+   "name": "15歳の誕生日",
+   "tags": [
+    "15歳",
+    "誕生日",
+    "パーティー",
+    "お祝い"
+   ]
+  },
+  "template:mochilero-por-peru": {
+   "name": "バックパッカーの旅",
+   "tags": [
+    "旅行",
+    "バックパッカー",
+    "ルート",
+    "冒険",
+    "山"
+   ]
+  },
+  "template:moodboard-aesthetic": {
+   "name": "おしゃれムードボード",
+   "tags": [
+    "ムードボード",
+    "エモい",
+    "秋",
+    "インスピレーション",
+    "コラージュ"
+   ]
+  },
+  "template:muertos-ofrenda": {
+   "name": "祭壇：大切な人をしのんで",
+   "tags": [
+    "死者の日",
+    "祭壇",
+    "追悼",
+    "家族"
+   ]
+  },
+  "template:navidad-en-familia": {
+   "name": "家族で過ごすクリスマス",
+   "tags": [
+    "クリスマス",
+    "家族",
+    "12月",
+    "イブ"
+   ]
+  },
+  "template:navidad-regalo-sorpresa": {
+   "name": "サプライズプレゼント",
+   "tags": [
+    "プレゼント",
+    "サプライズ",
+    "クリスマス",
+    "開封"
+   ]
+  },
+  "template:nosotros-vs-otros": {
+   "name": "当店 vs 他店",
+   "tags": [
+    "比較",
+    "品質",
+    "選ばれる理由",
+    "vs"
+   ]
+  },
+  "template:nuestra-historia": {
+   "name": "ふたりの物語",
+   "tags": [
+    "カップル",
+    "記念日",
+    "恋愛",
+    "バレンタイン"
+   ]
+  },
+  "template:nueva-coleccion-ropa": {
+   "name": "新コレクション",
+   "tags": [
+    "新コレクション",
+    "服",
+    "ファッション",
+    "ブティック",
+    "シーズン"
+   ]
+  },
+  "template:octubre-en-fotos": {
+   "name": "写真で振り返る10月",
+   "tags": [
+    "10月",
+    "振り返り",
+    "秋",
+    "まとめ"
+   ]
+  },
+  "template:oferta-flash": {
+   "name": "タイムセール",
+   "tags": [
+    "セール",
+    "割引",
+    "販売",
+    "プロモ"
+   ]
+  },
+  "template:ootd-outfit": {
+   "name": "OOTD：今日のコーデ",
+   "tags": [
+    "コーデ",
+    "ootd",
+    "ファッション",
+    "スタイル"
+   ]
+  },
+  "template:opinion-impopular": {
+   "name": "少数派の意見",
+   "tags": [
+    "少数派",
+    "議論",
+    "賛否両論",
+    "コメント",
+    "本音"
+   ]
+  },
+  "template:pantalla-final-2-videos": {
+   "name": "終了画面：おすすめ動画2本",
+   "tags": [
+    "終了画面",
+    "おすすめ動画",
+    "エンディング",
+    "チャンネル登録",
+    "ショート"
+   ]
+  },
+  "template:pantalla-triple": {
+   "name": "3分割画面",
+   "tags": [
+    "分割画面",
+    "3分割",
+    "街",
+    "コラージュ"
+   ]
+  },
+  "template:para-mama": {
+   "name": "お母さんへ",
+   "tags": [
+    "お母さん",
+    "母の日",
+    "家族",
+    "愛"
+   ]
+  },
+  "template:photo-dump-cinematico": {
+   "name": "シネマティック・フォトダンプ",
+   "tags": [
+    "フォトダンプ",
+    "映画風",
+    "写真",
+    "エモい",
+    "思い出"
+   ]
+  },
+  "template:photo-dump-ritmo": {
+   "name": "ビートに合わせたフォトダンプ",
+   "tags": [
+    "フォトダンプ",
+    "ビート",
+    "写真",
+    "友達"
+   ]
+  },
+  "template:polaroids": {
+   "name": "テーブルの上のインスタント写真",
+   "tags": [
+    "インスタント写真",
+    "写真",
+    "思い出",
+    "夏"
+   ]
+  },
+  "template:portada-de-tutorial": {
+   "name": "チュートリアルの表紙",
+   "tags": [
+    "チュートリアル",
+    "手順",
+    "やり方",
+    "表紙",
+    "学ぶ"
+   ]
+  },
+  "template:portada-revista": {
+   "name": "雑誌の表紙",
+   "tags": [
+    "雑誌",
+    "表紙",
+    "ファッション",
+    "グラマー"
+   ]
+  },
+  "template:pov-chat-mensajes": {
+   "name": "POVチャット",
+   "tags": [
+    "pov",
+    "チャット",
+    "メッセージ",
+    "ユーモア",
+    "元カレ"
+   ]
+  },
+  "template:pov-cinematografico": {
+   "name": "映画風POV",
+   "tags": [
+    "pov",
+    "映画",
+    "主人公",
+    "エモい",
+    "字幕"
+   ]
+  },
+  "template:pov-texto": {
+   "name": "POVテキスト",
+   "tags": [
+    "pov",
+    "ミーム",
+    "tiktok",
+    "テキスト"
+   ]
+  },
+  "template:preguntas-frecuentes": {
+   "name": "よくある質問",
+   "tags": [
+    "質問",
+    "faq",
+    "疑問",
+    "カスタマーサポート",
+    "配送"
+   ]
+  },
+  "template:primer-anio-bebe": {
+   "name": "赤ちゃんの1年：月ごとの成長",
+   "tags": [
+    "赤ちゃん",
+    "1歳",
+    "月齢",
+    "成長記録",
+    "家族"
+   ]
+  },
+  "template:producto-estrella": {
+   "name": "イチオシ商品",
+   "tags": [
+    "商品",
+    "ショップ",
+    "起業",
+    "販売"
+   ]
+  },
+  "template:progreso-gym": {
+   "name": "トレーニングの1週間",
+   "tags": [
+    "ジム",
+    "トレーニング",
+    "フィットネス",
+    "成長",
+    "ルーティン"
+   ]
+  },
+  "template:propositos-2027": {
+   "name": "2027年の抱負",
+   "tags": [
+    "新年",
+    "抱負",
+    "目標",
+    "2027",
+    "ノート"
+   ]
+  },
+  "template:r-abuelos": {
+   "name": "ありがとう、おじいちゃんおばあちゃん",
+   "tags": [
+    "祖父母",
+    "おばあちゃん",
+    "おじいちゃん",
+    "家族",
+    "感謝"
+   ]
+  },
+  "template:r-academia-idiomas": {
+   "name": "語学スクール",
+   "tags": [
+    "語学",
+    "英語",
+    "レッスン",
+    "スクール",
+    "講座"
+   ]
+  },
+  "template:r-accion-gracias": {
+   "name": "感謝祭の食卓",
+   "tags": [
+    "感謝祭",
+    "サンクスギビング",
+    "家族",
+    "食卓",
+    "感謝"
+   ]
+  },
+  "template:r-agenda-citas": {
+   "name": "ご予約はこちら",
+   "tags": [
+    "予約",
+    "スケジュール",
+    "受付",
+    "サロン"
+   ]
+  },
+  "template:r-agotado-vuelta": {
+   "name": "売り切れ→再入荷！",
+   "tags": [
+    "売り切れ",
+    "再入荷",
+    "在庫",
+    "商品"
+   ]
+  },
+  "template:r-album-stickers": {
+   "name": "ステッカーアルバム",
+   "tags": [
+    "アルバム",
+    "ステッカー",
+    "スクラップブック",
+    "かわいい",
+    "日記"
+   ]
+  },
+  "template:r-anio-nuevo-elegante": {
+   "name": "エレガントな新年",
+   "tags": [
+    "新年",
+    "エレガント",
+    "ゴールド",
+    "乾杯",
+    "パーティー"
+   ]
+  },
+  "template:r-anio-nuevo-lunar": {
+   "name": "旧正月の思い出",
+   "tags": [
+    "旧正月",
+    "春節",
+    "ランタン",
+    "赤",
+    "繁栄"
+   ]
+  },
+  "template:r-aniversario-bodas": {
+   "name": "結婚記念日",
+   "tags": [
+    "結婚記念日",
+    "夫婦",
+    "カップル",
+    "記念日"
+   ]
+  },
+  "template:r-antes-ahora": {
+   "name": "昔と今",
+   "tags": [
+    "昔と今",
+    "変化",
+    "比較",
+    "場所",
+    "時間"
+   ]
+  },
+  "template:r-atardecer-cine": {
+   "name": "シネマティックな夕日",
+   "tags": [
+    "夕日",
+    "サンセット",
+    "シネマティック",
+    "言葉",
+    "ゴールド"
+   ]
+  },
+  "template:r-ba-auto": {
+   "name": "車のビフォーアフター",
+   "tags": [
+    "車",
+    "洗車",
+    "整備",
+    "ビフォーアフター"
+   ]
+  },
+  "template:r-ba-casa": {
+   "name": "家のビフォーアフター",
+   "tags": [
+    "家",
+    "リフォーム",
+    "ビフォーアフター",
+    "インテリア",
+    "住まい"
+   ]
+  },
+  "template:r-ba-cocina": {
+   "name": "レシピのビフォーアフター",
+   "tags": [
+    "レシピ",
+    "料理",
+    "材料",
+    "完成",
+    "ビフォーアフター"
+   ]
+  },
+  "template:r-ba-cortina": {
+   "name": "カーテン式ビフォーアフター",
+   "tags": [
+    "ビフォーアフター",
+    "カーテン",
+    "変身",
+    "変化"
+   ]
+  },
+  "template:r-ba-dia-1-100": {
+   "name": "1日目／100日目",
+   "tags": [
+    "1日目",
+    "100日目",
+    "成長",
+    "チャレンジ",
+    "変身"
+   ]
+  },
+  "template:r-ba-dibujo": {
+   "name": "下描きから色塗りへ",
+   "tags": [
+    "絵",
+    "アート",
+    "下描き",
+    "ペイント",
+    "制作過程"
+   ]
+  },
+  "template:r-ba-jardin": {
+   "name": "庭のビフォーアフター",
+   "tags": [
+    "庭",
+    "植物",
+    "ビフォーアフター",
+    "家庭菜園",
+    "緑"
+   ]
+  },
+  "template:r-ba-maquillaje": {
+   "name": "メイクのビフォーアフター",
+   "tags": [
+    "メイク",
+    "ビフォーアフター",
+    "美容",
+    "ルック"
+   ]
+  },
+  "template:r-ba-mascota": {
+   "name": "子犬から大人へ",
+   "tags": [
+    "ペット",
+    "子犬",
+    "犬",
+    "成長",
+    "ビフォーアフター"
+   ]
+  },
+  "template:r-ba-peinado": {
+   "name": "ヘアのビフォーアフター",
+   "tags": [
+    "ヘアスタイル",
+    "髪",
+    "サロン",
+    "ビフォーアフター",
+    "カット"
+   ]
+  },
+  "template:r-bautizo": {
+   "name": "洗礼式の思い出",
+   "tags": [
+    "洗礼",
+    "赤ちゃん",
+    "教会",
+    "家族",
+    "信仰"
+   ]
+  },
+  "template:r-beneficios": {
+   "name": "メリット一覧",
+   "tags": [
+    "メリット",
+    "特長",
+    "商品",
+    "リスト",
+    "理由"
+   ]
+  },
+  "template:r-bienvenida-casa": {
+   "name": "おかえりなさい",
+   "tags": [
+    "おかえり",
+    "帰宅",
+    "家",
+    "家族",
+    "サプライズ"
+   ]
+  },
+  "template:r-bienvenidos-canal": {
+   "name": "チャンネルへようこそ",
+   "tags": [
+    "ようこそ",
+    "チャンネル",
+    "オープニング",
+    "クリエイター",
+    "チャンネル登録"
+   ]
+  },
+  "template:r-boda-primer-baile": {
+   "name": "結婚式：ファーストダンス",
+   "tags": [
+    "結婚式",
+    "ファーストダンス",
+    "ワルツ",
+    "新郎新婦",
+    "披露宴"
+   ]
+  },
+  "template:r-boda-votos": {
+   "name": "結婚式：誓いの言葉",
+   "tags": [
+    "結婚式",
+    "誓い",
+    "新郎新婦",
+    "挙式"
+   ]
+  },
+  "template:r-cafeteria-latte": {
+   "name": "ラテアートのカフェ",
+   "tags": [
+    "カフェ",
+    "コーヒー",
+    "ラテ",
+    "バリスタ",
+    "朝食"
+   ]
+  },
+  "template:r-camara-desechable": {
+   "name": "使い捨てカメラ",
+   "tags": [
+    "使い捨てカメラ",
+    "フラッシュ",
+    "パーティー",
+    "結婚式",
+    "フィルム"
+   ]
+  },
+  "template:r-cambio-ropa": {
+   "name": "ビートで着替え",
+   "tags": [
+    "コーデ",
+    "着替え",
+    "ファッション",
+    "トランジション",
+    "ootd"
+   ]
+  },
+  "template:r-carrusel": {
+   "name": "スライドするカルーセル",
+   "tags": [
+    "カルーセル",
+    "スワイプ",
+    "写真",
+    "ギャラリー",
+    "インスタ"
+   ]
+  },
+  "template:r-casa-nueva": {
+   "name": "新居",
+   "tags": [
+    "新居",
+    "引っ越し",
+    "家",
+    "鍵",
+    "マイホーム"
+   ]
+  },
+  "template:r-casa-venta": {
+   "name": "売り家",
+   "tags": [
+    "不動産",
+    "売り家",
+    "家",
+    "物件",
+    "ツアー"
+   ]
+  },
+  "template:r-ciudad-neon": {
+   "name": "ネオンの街",
+   "tags": [
+    "街",
+    "夜",
+    "ネオン",
+    "サイバーパンク",
+    "アーバン"
+   ]
+  },
+  "template:r-collage-2-mas-1": {
+   "name": "2＋1コラージュ",
+   "tags": [
+    "コラージュ",
+    "写真",
+    "グリッド",
+    "モダン",
+    "エモい"
+   ]
+  },
+  "template:r-collage-3-vertical": {
+   "name": "3列のコラージュ",
+   "tags": [
+    "コラージュ",
+    "3枚",
+    "ストライプ",
+    "縦",
+    "ミニマル"
+   ]
+  },
+  "template:r-collage-circulos": {
+   "name": "円形コラージュ",
+   "tags": [
+    "円",
+    "コラージュ",
+    "丸",
+    "カラフル",
+    "写真"
+   ]
+  },
+  "template:r-collage-respira": {
+   "name": "呼吸するコラージュ",
+   "tags": [
+    "コラージュ",
+    "写真",
+    "ゆったり",
+    "やさしい",
+    "エモい"
+   ]
+  },
+  "template:r-colores-disponibles": {
+   "name": "カラーバリエーション",
+   "tags": [
+    "カラー",
+    "バリエーション",
+    "商品",
+    "ファッション",
+    "ショップ"
+   ]
+  },
+  "template:r-combo": {
+   "name": "セット商品",
+   "tags": [
+    "セット",
+    "パック",
+    "お得",
+    "ギフト",
+    "特別価格"
+   ]
+  },
+  "template:r-comenta": {
+   "name": "コメントで教えてね",
+   "tags": [
+    "エンディング",
+    "コメント",
+    "意見",
+    "交流"
+   ]
+  },
+  "template:r-comparar-tamanos": {
+   "name": "サイズ比較",
+   "tags": [
+    "サイズ",
+    "寸法",
+    "比較",
+    "商品",
+    "選ぶ"
+   ]
+  },
+  "template:r-compartelo": {
+   "name": "誰かにシェアしよう",
+   "tags": [
+    "エンディング",
+    "シェア",
+    "タグ付け",
+    "友達"
+   ]
+  },
+  "template:r-comunidad-reunion": {
+   "name": "毎週の地域集会",
+   "tags": [
+    "地域",
+    "集会",
+    "教会",
+    "グループ",
+    "招待"
+   ]
+  },
+  "template:r-consejo-finanzas": {
+   "name": "お金のヒント",
+   "tags": [
+    "お金",
+    "節約",
+    "家計",
+    "アドバイス",
+    "予算"
+   ]
+  },
+  "template:r-contador-fotos": {
+   "name": "カウンター付きフォト",
+   "tags": [
+    "カウンター",
+    "写真",
+    "ビート",
+    "速い",
+    "フォトダンプ"
+   ]
+  },
+  "template:r-core-memory": {
+   "name": "輝く大切な思い出",
+   "tags": [
+    "思い出",
+    "コアメモリー",
+    "キラキラ",
+    "ノスタルジー"
+   ]
+  },
+  "template:r-cosas-felices": {
+   "name": "私を幸せにするもの",
+   "tags": [
+    "幸せ",
+    "感謝",
+    "小さなこと",
+    "エモい",
+    "リスト"
+   ]
+  },
+  "template:r-cuadros-4-3": {
+   "name": "4:3フレーム",
+   "tags": [
+    "4:3",
+    "映画",
+    "フレーム",
+    "ミニマル",
+    "写真"
+   ]
+  },
+  "template:r-cuenta-5-seg": {
+   "name": "5秒カウントダウン",
+   "tags": [
+    "カウントダウン",
+    "5秒",
+    "スタート",
+    "チャレンジ",
+    "タイマー"
+   ]
+  },
+  "template:r-cuenta-boda": {
+   "name": "結婚式まであと何日",
+   "tags": [
+    "結婚式",
+    "あと何日",
+    "カウントダウン",
+    "新郎新婦",
+    "セーブザデート"
+   ]
+  },
+  "template:r-cuenta-cumple": {
+   "name": "誕生日まであと何日",
+   "tags": [
+    "誕生日",
+    "あと何日",
+    "カウントダウン",
+    "パーティー",
+    "ワクワク"
+   ]
+  },
+  "template:r-cuenta-revelar": {
+   "name": "カウントダウンで発表",
+   "tags": [
+    "発表",
+    "サプライズ",
+    "カウントダウン",
+    "お知らせ"
+   ]
+  },
+  "template:r-cuenta-vacaciones": {
+   "name": "休暇まであと何日",
+   "tags": [
+    "休暇",
+    "旅行",
+    "あと何日",
+    "カウントダウン",
+    "スーツケース"
+   ]
+  },
+  "template:r-cumple-adulto": {
+   "name": "エレガントな誕生日",
+   "tags": [
+    "誕生日",
+    "エレガント",
+    "ゴールド",
+    "40歳",
+    "50歳"
+   ]
+  },
+  "template:r-cumple-infantil": {
+   "name": "子どもの誕生日",
+   "tags": [
+    "誕生日",
+    "子ども",
+    "キッズ",
+    "パーティー",
+    "風船"
+   ]
+  },
+  "template:r-cumple-mama": {
+   "name": "お母さんの誕生日",
+   "tags": [
+    "誕生日",
+    "お母さん",
+    "母",
+    "花",
+    "家族"
+   ]
+  },
+  "template:r-cumple-ritmo": {
+   "name": "ビートに合わせた誕生日",
+   "tags": [
+    "誕生日",
+    "ビート",
+    "パーティー",
+    "文字",
+    "ハッピーバースデー"
+   ]
+  },
+  "template:r-despedida-soltera": {
+   "name": "バチェロレッテパーティー",
+   "tags": [
+    "独身最後",
+    "女子会",
+    "パーティー",
+    "花嫁"
+   ]
+  },
+  "template:r-detalle-lupa": {
+   "name": "虫めがねでディテール",
+   "tags": [
+    "ディテール",
+    "虫めがね",
+    "品質",
+    "商品",
+    "仕上げ"
+   ]
+  },
+  "template:r-detras-camaras": {
+   "name": "舞台裏",
+   "tags": [
+    "舞台裏",
+    "メイキング",
+    "撮影",
+    "制作過程",
+    "クリエイター"
+   ]
+  },
+  "template:r-dia-abuelos": {
+   "name": "敬老の日",
+   "tags": [
+    "敬老の日",
+    "おばあちゃん",
+    "おじいちゃん",
+    "家族",
+    "愛情"
+   ]
+  },
+  "template:r-dia-madre-floral": {
+   "name": "花いっぱいの母の日",
+   "tags": [
+    "母の日",
+    "お母さん",
+    "花",
+    "感謝"
+   ]
+  },
+  "template:r-dia-maestro": {
+   "name": "先生ありがとう",
+   "tags": [
+    "教師の日",
+    "先生",
+    "学校",
+    "感謝"
+   ]
+  },
+  "template:r-dia-mujer": {
+   "name": "女性デーのメッセージ",
+   "tags": [
+    "女性デー",
+    "3月8日",
+    "女性",
+    "強さ",
+    "インスピレーション"
+   ]
+  },
+  "template:r-dia-nino": {
+   "name": "こどもの日",
+   "tags": [
+    "こどもの日",
+    "子ども",
+    "子ども時代",
+    "遊び",
+    "笑顔"
+   ]
+  },
+  "template:r-dia-padre-deportivo": {
+   "name": "スポーツ好きパパの父の日",
+   "tags": [
+    "父の日",
+    "お父さん",
+    "スポーツ",
+    "サッカー",
+    "チャンピオン"
+   ]
+  },
+  "template:r-dia-perfecto": {
+   "name": "私の完璧な1日",
+   "tags": [
+    "完璧な1日",
+    "ルーティン",
+    "時間",
+    "vlog",
+    "日常"
+   ]
+  },
+  "template:r-dia-tierra": {
+   "name": "アースデイの写真",
+   "tags": [
+    "アースデイ",
+    "地球",
+    "エコ",
+    "緑",
+    "自然"
+   ]
+  },
+  "template:r-dia-x-de": {
+   "name": "〇〇のX日目",
+   "tags": [
+    "日目",
+    "チャレンジ",
+    "日記",
+    "成長",
+    "シリーズ"
+   ]
+  },
+  "template:r-diario-cinta": {
+   "name": "テープ貼りの日記",
+   "tags": [
+    "日記",
+    "マスキングテープ",
+    "手帳",
+    "メモ",
+    "スクラップブック"
+   ]
+  },
+  "template:r-diwali": {
+   "name": "ディワリの光",
+   "tags": [
+    "ディワリ",
+    "光",
+    "ランプ",
+    "祭り",
+    "お祝い"
+   ]
+  },
+  "template:r-dump-fecha": {
+   "name": "日付入りフォトダンプ",
+   "tags": [
+    "フォトダンプ",
+    "日付",
+    "デジカメ",
+    "2000年代",
+    "思い出"
+   ]
+  },
+  "template:r-dump-finde": {
+   "name": "週末のフォトダンプ",
+   "tags": [
+    "週末",
+    "フォトダンプ",
+    "グリッド",
+    "友達",
+    "日曜日"
+   ]
+  },
+  "template:r-dump-viaje-mapa": {
+   "name": "地図付き旅行フォトダンプ",
+   "tags": [
+    "旅行",
+    "地図",
+    "ルート",
+    "フォトダンプ",
+    "休暇"
+   ]
+  },
+  "template:r-eid": {
+   "name": "イードのお祝い写真",
+   "tags": [
+    "イード",
+    "祝祭",
+    "家族",
+    "祝福"
+   ]
+  },
+  "template:r-en-otra-vida": {
+   "name": "別の人生では",
+   "tags": [
+    "別の人生",
+    "夢見がち",
+    "トレンド",
+    "言葉",
+    "エモい"
+   ]
+  },
+  "template:r-en-vivo-ahora": {
+   "name": "ライブ配信中",
+   "tags": [
+    "ライブ",
+    "生配信",
+    "配信中",
+    "お知らせ"
+   ]
+  },
+  "template:r-envio-gratis": {
+   "name": "ネットショップ：送料無料",
+   "tags": [
+    "送料無料",
+    "ネットショップ",
+    "買い物",
+    "セール",
+    "配送"
+   ]
+  },
+  "template:r-escuela-musica": {
+   "name": "音楽教室",
+   "tags": [
+    "音楽",
+    "レッスン",
+    "ギター",
+    "ピアノ",
+    "教室"
+   ]
+  },
+  "template:r-esta-soy-yo": {
+   "name": "これが私",
+   "tags": [
+    "自己紹介",
+    "私について",
+    "プロフィール",
+    "知ってね"
+   ]
+  },
+  "template:r-expectativa-realidad": {
+   "name": "理想と現実",
+   "tags": [
+    "理想",
+    "現実",
+    "ミーム",
+    "ユーモア",
+    "比較"
+   ]
+  },
+  "template:r-farmacia-consejo": {
+   "name": "薬局：健康アドバイス",
+   "tags": [
+    "薬局",
+    "健康",
+    "アドバイス",
+    "ウェルネス",
+    "予防"
+   ]
+  },
+  "template:r-ferreteria": {
+   "name": "ホームセンターのセール",
+   "tags": [
+    "ホームセンター",
+    "工具",
+    "建築",
+    "住まい",
+    "セール"
+   ]
+  },
+  "template:r-fiesta-fin-anio": {
+   "name": "忘年会",
+   "tags": [
+    "忘年会",
+    "年末",
+    "パーティー",
+    "会社",
+    "乾杯"
+   ]
+  },
+  "template:r-fin-curso": {
+   "name": "学期の終わり",
+   "tags": [
+    "終業式",
+    "休み",
+    "学校",
+    "最終日",
+    "夏"
+   ]
+  },
+  "template:r-flash-camara": {
+   "name": "パパラッチのフラッシュ",
+   "tags": [
+    "フラッシュ",
+    "パパラッチ",
+    "セレブ",
+    "レッドカーペット",
+    "ファッション"
+   ]
+  },
+  "template:r-floristeria": {
+   "name": "お花屋さん",
+   "tags": [
+    "花",
+    "花屋",
+    "花束",
+    "ギフト",
+    "アレンジメント"
+   ]
+  },
+  "template:r-foto-en-foto": {
+   "name": "ピクチャー・イン・ピクチャー",
+   "tags": [
+    "ピクチャーインピクチャー",
+    "pip",
+    "ディテール",
+    "ズーム",
+    "コラージュ"
+   ]
+  },
+  "template:r-foto-rompe": {
+   "name": "砕ける写真",
+   "tags": [
+    "割れる",
+    "ガラス",
+    "トランジション",
+    "インパクト",
+    "編集"
+   ]
+  },
+  "template:r-fotografo": {
+   "name": "フォトグラファー",
+   "tags": [
+    "写真家",
+    "撮影",
+    "ポートレート",
+    "スタジオ",
+    "予約"
+   ]
+  },
+  "template:r-fotomaton": {
+   "name": "フォトブースのストリップ",
+   "tags": [
+    "フォトブース",
+    "プリクラ",
+    "ストリップ",
+    "友達",
+    "カップル"
+   ]
+  },
+  "template:r-frase-comunidad": {
+   "name": "コミュニティの今日の言葉",
+   "tags": [
+    "今日の言葉",
+    "コミュニティ",
+    "思索",
+    "信仰",
+    "希望"
+   ]
+  },
+  "template:r-frase-pelicula": {
+   "name": "映画のセリフ",
+   "tags": [
+    "セリフ",
+    "映画",
+    "シネマ",
+    "字幕",
+    "シーン"
+   ]
+  },
+  "template:r-frase-subrayada": {
+   "name": "下線付きの名言",
+   "tags": [
+    "名言",
+    "下線",
+    "モチベーション",
+    "言葉"
+   ]
+  },
+  "template:r-giro-camara": {
+   "name": "カメラスピン",
+   "tags": [
+    "回転",
+    "トランジション",
+    "スピン",
+    "旅行",
+    "エネルギー"
+   ]
+  },
+  "template:r-gracias-1k": {
+   "name": "1000人ありがとう",
+   "tags": [
+    "ありがとう",
+    "1000人",
+    "フォロワー",
+    "達成",
+    "お祝い"
+   ]
+  },
+  "template:r-gracias-por-tanto": {
+   "name": "いつもありがとう",
+   "tags": [
+    "ありがとう",
+    "感謝",
+    "お母さん",
+    "友情",
+    "メッセージ"
+   ]
+  },
+  "template:r-graduacion-kinder": {
+   "name": "幼稚園の卒園",
+   "tags": [
+    "卒園",
+    "幼稚園",
+    "保育園",
+    "子ども",
+    "誇り"
+   ]
+  },
+  "template:r-graduacion-universidad": {
+   "name": "大学の卒業",
+   "tags": [
+    "卒業",
+    "大学",
+    "学位",
+    "達成"
+   ]
+  },
+  "template:r-grano-analogico": {
+   "name": "アナログフィルム",
+   "tags": [
+    "アナログ",
+    "フィルム",
+    "35mm",
+    "粒子",
+    "ビンテージ"
+   ]
+  },
+  "template:r-guardalo": {
+   "name": "保存してあとで見てね",
+   "tags": [
+    "エンディング",
+    "保存",
+    "あとで見る",
+    "お気に入り"
+   ]
+  },
+  "template:r-hanukkah": {
+   "name": "ハッピー・ハヌカ",
+   "tags": [
+    "ハヌカ",
+    "ろうそく",
+    "光",
+    "家族"
+   ]
+  },
+  "template:r-hecho-a-mano": {
+   "name": "ハンドメイドショップ",
+   "tags": [
+    "ハンドメイド",
+    "手作り",
+    "起業",
+    "ショップ",
+    "ギフト"
+   ]
+  },
+  "template:r-heladeria": {
+   "name": "アイスクリーム屋",
+   "tags": [
+    "アイス",
+    "アイスクリーム",
+    "夏",
+    "フレーバー",
+    "デザート"
+   ]
+  },
+  "template:r-hilo-post": {
+   "name": "投稿スレッド",
+   "tags": [
+    "スレッド",
+    "投稿",
+    "ポスト",
+    "意見",
+    "テキスト"
+   ]
+  },
+  "template:r-hola-soy": {
+   "name": "こんにちは、〇〇です",
+   "tags": [
+    "自己紹介",
+    "こんにちは",
+    "クリエイター",
+    "オープニング",
+    "新規フォロワー"
+   ]
+  },
+  "template:r-holi": {
+   "name": "ハッピー・ホーリー",
+   "tags": [
+    "ホーリー",
+    "色",
+    "祭り",
+    "色粉",
+    "春"
+   ]
+  },
+  "template:r-intro-serie": {
+   "name": "シリーズのオープニング",
+   "tags": [
+    "シリーズ",
+    "シーズン",
+    "エピソード",
+    "オープニング",
+    "ドラマ風"
+   ]
+  },
+  "template:r-invierno": {
+   "name": "冬の思い出",
+   "tags": [
+    "冬",
+    "雪",
+    "寒い",
+    "友達",
+    "季節"
+   ]
+  },
+  "template:r-jubilacion": {
+   "name": "退職しました！",
+   "tags": [
+    "退職",
+    "定年",
+    "仕事",
+    "新たな門出",
+    "お祝い"
+   ]
+  },
+  "template:r-lavanderia": {
+   "name": "クリーニング店",
+   "tags": [
+    "クリーニング",
+    "ランドリー",
+    "洗濯",
+    "サービス",
+    "配達"
+   ]
+  },
+  "template:r-letra-sube": {
+   "name": "流れる歌詞",
+   "tags": [
+    "歌詞",
+    "曲",
+    "カラオケ",
+    "音楽"
+   ]
+  },
+  "template:r-link-perfil": {
+   "name": "リンクはプロフィールから",
+   "tags": [
+    "エンディング",
+    "リンク",
+    "プロフィール",
+    "購入"
+   ]
+  },
+  "template:r-lista-pendientes": {
+   "name": "ToDoリスト",
+   "tags": [
+    "やること",
+    "todo",
+    "リスト",
+    "整理",
+    "生産性"
+   ]
+  },
+  "template:r-lo-que-no-se-vio": {
+   "name": "NG集",
+   "tags": [
+    "ng集",
+    "失敗",
+    "ユーモア",
+    "舞台裏"
+   ]
+  },
+  "template:r-logro-deportivo": {
+   "name": "優勝！",
+   "tags": [
+    "優勝",
+    "スポーツ",
+    "トロフィー",
+    "勝利",
+    "チーム"
+   ]
+  },
+  "template:r-luces-fiesta": {
+   "name": "パーティーライト",
+   "tags": [
+    "パーティー",
+    "ライト",
+    "夜",
+    "ディスコ",
+    "友達"
+   ]
+  },
+  "template:r-lugar-feliz": {
+   "name": "私の幸せな場所",
+   "tags": [
+    "幸せな場所",
+    "自然",
+    "癒し",
+    "旅行",
+    "エモい"
+   ]
+  },
+  "template:r-main-characters": {
+   "name": "主人公たち",
+   "tags": [
+    "友達",
+    "主人公",
+    "映画",
+    "クレジット",
+    "メインキャラ"
+   ]
+  },
+  "template:r-marco-camara": {
+   "name": "カメラのフレーム",
+   "tags": [
+    "カメラ",
+    "フレーム",
+    "写真",
+    "ファインダー"
+   ]
+  },
+  "template:r-mas-vendido": {
+   "name": "売れ筋No.1",
+   "tags": [
+    "売れ筋",
+    "ベストセラー",
+    "人気",
+    "商品",
+    "トップ"
+   ]
+  },
+  "template:r-mito-verdad": {
+   "name": "ウソ？ホント？",
+   "tags": [
+    "神話",
+    "真実",
+    "豆知識",
+    "雑学",
+    "質問"
+   ]
+  },
+  "template:r-modo-bestia": {
+   "name": "ビーストモード",
+   "tags": [
+    "ジム",
+    "ビーストモード",
+    "トレーニング",
+    "モチベーション",
+    "筋トレ"
+   ]
+  },
+  "template:r-mosaico-3x3": {
+   "name": "3×3モザイク",
+   "tags": [
+    "モザイク",
+    "9枚",
+    "グリッド",
+    "インスタ"
+   ]
+  },
+  "template:r-mudanzas": {
+   "name": "引っ越しサービス",
+   "tags": [
+    "引っ越し",
+    "運送",
+    "段ボール",
+    "サービス"
+   ]
+  },
+  "template:r-nadie-yo": {
+   "name": "「誰も：／私：」",
+   "tags": [
+    "ミーム",
+    "誰も私",
+    "ユーモア",
+    "あるある",
+    "トレンド"
+   ]
+  },
+  "template:r-navidad-minimal": {
+   "name": "ミニマルなクリスマス",
+   "tags": [
+    "クリスマス",
+    "ミニマル",
+    "ツリー",
+    "エレガント",
+    "12月"
+   ]
+  },
+  "template:r-nochebuena": {
+   "name": "おうちでクリスマスイブ",
+   "tags": [
+    "クリスマスイブ",
+    "クリスマス",
+    "ディナー",
+    "家族",
+    "おうち"
+   ]
+  },
+  "template:r-nos-vemos-manana": {
+   "name": "また明日",
+   "tags": [
+    "エンディング",
+    "また明日",
+    "おやすみ",
+    "バイバイ"
+   ]
+  },
+  "template:r-nota-celular": {
+   "name": "スマホのメモ",
+   "tags": [
+    "メモ",
+    "スマホ",
+    "手紙",
+    "メッセージ"
+   ]
+  },
+  "template:r-nuevo-capitulo": {
+   "name": "新たな章",
+   "tags": [
+    "新章",
+    "始まり",
+    "変化",
+    "オープニング",
+    "物語"
+   ]
+  },
+  "template:r-nuevo-empleo": {
+   "name": "新しい仕事",
+   "tags": [
+    "新しい仕事",
+    "就職",
+    "達成",
+    "初日",
+    "キャリア"
+   ]
+  },
+  "template:r-nuevo-video": {
+   "name": "新着動画！",
+   "tags": [
+    "新着動画",
+    "公開",
+    "お知らせ",
+    "youtube",
+    "リンク"
+   ]
+  },
+  "template:r-ojo-pez": {
+   "name": "90年代の魚眼レンズ",
+   "tags": [
+    "魚眼",
+    "90年代",
+    "スケボー",
+    "レトロ",
+    "カメラ"
+   ]
+  },
+  "template:r-ong-donaciones": {
+   "name": "募金キャンペーン",
+   "tags": [
+    "寄付",
+    "募金",
+    "支援",
+    "チャリティー",
+    "ボランティア"
+   ]
+  },
+  "template:r-otono-acogedor": {
+   "name": "ほっこり秋",
+   "tags": [
+    "秋",
+    "ほっこり",
+    "コーヒー",
+    "落ち葉",
+    "居心地"
+   ]
+  },
+  "template:r-outfit-check": {
+   "name": "矢印付きコーデチェック",
+   "tags": [
+    "コーデ",
+    "ファッション",
+    "矢印",
+    "ディテール",
+    "スタイル"
+   ]
+  },
+  "template:r-palabra-del-dia": {
+   "name": "今日の単語",
+   "tags": [
+    "今日の単語",
+    "語彙",
+    "言語",
+    "意味",
+    "学ぶ"
+   ]
+  },
+  "template:r-panaderia": {
+   "name": "パン屋：焼きたて",
+   "tags": [
+    "パン屋",
+    "パン",
+    "焼きたて",
+    "ケーキ屋",
+    "朝食"
+   ]
+  },
+  "template:r-pantalla-celular": {
+   "name": "スマホ画面",
+   "tags": [
+    "スマホ",
+    "携帯",
+    "ギャラリー",
+    "画面",
+    "写真"
+   ]
+  },
+  "template:r-papa-hijo": {
+   "name": "パパと私",
+   "tags": [
+    "パパ",
+    "お父さん",
+    "息子",
+    "娘",
+    "家族"
+   ]
+  },
+  "template:r-pareja-lento": {
+   "name": "スローなカップル動画",
+   "tags": [
+    "カップル",
+    "ロマンチック",
+    "スロー",
+    "映画風",
+    "恋愛"
+   ]
+  },
+  "template:r-pareja-ritmo": {
+   "name": "ビートに合わせたカップル動画",
+   "tags": [
+    "カップル",
+    "恋人",
+    "モンタージュ",
+    "ビート",
+    "恋愛"
+   ]
+  },
+  "template:r-parte-1": {
+   "name": "パート1",
+   "tags": [
+    "パート1",
+    "シリーズ",
+    "物語",
+    "ストーリータイム",
+    "続く"
+   ]
+  },
+  "template:r-pascua": {
+   "name": "ハッピーイースター",
+   "tags": [
+    "イースター",
+    "卵",
+    "うさぎ",
+    "春"
+   ]
+  },
+  "template:r-pastel-velas": {
+   "name": "ケーキとろうそく",
+   "tags": [
+    "ケーキ",
+    "ろうそく",
+    "誕生日",
+    "願い事"
+   ]
+  },
+  "template:r-peluqueria-mascotas": {
+   "name": "ペットトリミング",
+   "tags": [
+    "トリミング",
+    "シャンプー",
+    "ペット",
+    "犬",
+    "グルーミング"
+   ]
+  },
+  "template:r-pensamiento-dia": {
+   "name": "今日の想い",
+   "tags": [
+    "想い",
+    "思索",
+    "信仰",
+    "希望",
+    "今日の言葉"
+   ]
+  },
+  "template:r-plato-del-dia": {
+   "name": "本日の一皿",
+   "tags": [
+    "レストラン",
+    "日替わり",
+    "メニュー",
+    "ランチ",
+    "料理"
+   ]
+  },
+  "template:r-poema-corto": {
+   "name": "短い詩",
+   "tags": [
+    "詩",
+    "ポエム",
+    "恋愛",
+    "テキスト"
+   ]
+  },
+  "template:r-portada-blog": {
+   "name": "ブログの表紙",
+   "tags": [
+    "ブログ",
+    "表紙",
+    "記事",
+    "読み物",
+    "新着"
+   ]
+  },
+  "template:r-pregunta-respuesta": {
+   "name": "Q&A",
+   "tags": [
+    "質問",
+    "回答",
+    "q&a",
+    "フォロワー",
+    "疑問"
+   ]
+  },
+  "template:r-primavera": {
+   "name": "春の訪れ",
+   "tags": [
+    "春",
+    "花",
+    "カラフル",
+    "季節",
+    "自然"
+   ]
+  },
+  "template:r-primera-cita": {
+   "name": "初デート",
+   "tags": [
+    "初デート",
+    "カップル",
+    "恋愛",
+    "思い出",
+    "記念日"
+   ]
+  },
+  "template:r-primera-comunion": {
+   "name": "初聖体",
+   "tags": [
+    "初聖体",
+    "信仰",
+    "家族",
+    "子ども",
+    "お祝い"
+   ]
+  },
+  "template:r-producto-360": {
+   "name": "商品の360°ビュー",
+   "tags": [
+    "商品",
+    "360度",
+    "回転",
+    "ディテール",
+    "ショップ"
+   ]
+  },
+  "template:r-propuesta": {
+   "name": "プロポーズ成功！",
+   "tags": [
+    "プロポーズ",
+    "婚約",
+    "指輪",
+    "イエス",
+    "カップル"
+   ]
+  },
+  "template:r-ramadan": {
+   "name": "ラマダンの家族写真",
+   "tags": [
+    "ラマダン",
+    "イフタール",
+    "家族",
+    "三日月",
+    "ランタン"
+   ]
+  },
+  "template:r-ranking-5-1": {
+   "name": "5位から1位までのランキング",
+   "tags": [
+    "ランキング",
+    "トップ5",
+    "お気に入り",
+    "リスト",
+    "1位"
+   ]
+  },
+  "template:r-reaccion-esquina": {
+   "name": "隅にリアクション",
+   "tags": [
+    "リアクション",
+    "ワイプ",
+    "pip",
+    "コメント"
+   ]
+  },
+  "template:r-receta-texto": {
+   "name": "テキストレシピ",
+   "tags": [
+    "レシピ",
+    "手順",
+    "料理",
+    "簡単",
+    "テキスト"
+   ]
+  },
+  "template:r-recorrido-ubicacion": {
+   "name": "場所めぐりツアー",
+   "tags": [
+    "ツアー",
+    "位置情報",
+    "街",
+    "ガイド",
+    "スポット"
+   ]
+  },
+  "template:r-recortes-revista": {
+   "name": "雑誌の切り抜き",
+   "tags": [
+    "雑誌",
+    "切り抜き",
+    "コラージュ",
+    "エディトリアル",
+    "切り文字"
+   ]
+  },
+  "template:r-recuerdo-proyector": {
+   "name": "映写機の思い出",
+   "tags": [
+    "映写機",
+    "思い出",
+    "ビンテージ",
+    "フィルム",
+    "家族"
+   ]
+  },
+  "template:r-recuerdo-verano": {
+   "name": "夏の思い出",
+   "tags": [
+    "夏",
+    "ビーチ",
+    "思い出",
+    "休暇",
+    "インスタント写真"
+   ]
+  },
+  "template:r-reflejo": {
+   "name": "水面の反射",
+   "tags": [
+    "反射",
+    "ミラー",
+    "水",
+    "シンメトリー",
+    "エモい"
+   ]
+  },
+  "template:r-regreso-clases": {
+   "name": "新学期の初日",
+   "tags": [
+    "新学期",
+    "学校",
+    "リュック",
+    "文房具",
+    "初日"
+   ]
+  },
+  "template:r-rejilla-bordes": {
+   "name": "太枠グリッド",
+   "tags": [
+    "グリッド",
+    "太枠",
+    "ブルータリズム",
+    "カラフル",
+    "コラージュ"
+   ]
+  },
+  "template:r-resena-estrellas": {
+   "name": "星付きレビュー",
+   "tags": [
+    "レビュー",
+    "星",
+    "口コミ",
+    "お客様",
+    "商品"
+   ]
+  },
+  "template:r-reto-30-dias": {
+   "name": "30日チャレンジ",
+   "tags": [
+    "チャレンジ",
+    "30日",
+    "習慣",
+    "カレンダー"
+   ]
+  },
+  "template:r-sacudida-3d": {
+   "name": "ビートに合わせた3Dスイング",
+   "tags": [
+    "3d",
+    "回転",
+    "ビート",
+    "カード",
+    "トレンド"
+   ]
+  },
+  "template:r-san-valentin-divertido": {
+   "name": "おもしろバレンタイン",
+   "tags": [
+    "バレンタイン",
+    "恋愛",
+    "ユーモア",
+    "カップル",
+    "ハート"
+   ]
+  },
+  "template:r-si-te-ries": {
+   "name": "笑ったら負け",
+   "tags": [
+    "ミーム",
+    "笑ったら負け",
+    "ユーモア",
+    "チャレンジ",
+    "おもしろ"
+   ]
+  },
+  "template:r-signos": {
+   "name": "星座",
+   "tags": [
+    "星座",
+    "12星座",
+    "星占い",
+    "占星術"
+   ]
+  },
+  "template:r-siguenos-mas": {
+   "name": "フォローして続きを見てね",
+   "tags": [
+    "エンディング",
+    "フォロー",
+    "もっと見る",
+    "コンテンツ"
+   ]
+  },
+  "template:r-slowmo-destello": {
+   "name": "フレア付きスローモーション",
+   "tags": [
+    "スローモーション",
+    "フレア",
+    "太陽",
+    "シネマティック"
+   ]
+  },
+  "template:r-spa": {
+   "name": "スパ＆リラクゼーション",
+   "tags": [
+    "スパ",
+    "マッサージ",
+    "リラックス",
+    "ウェルネス",
+    "美容"
+   ]
+  },
+  "template:r-split-ritmo": {
+   "name": "ビートに合わせた分割画面",
+   "tags": [
+    "分割画面",
+    "ビート",
+    "2枚の写真",
+    "編集",
+    "ダイナミック"
+   ]
+  },
+  "template:r-super-ofertas": {
+   "name": "スーパーのお買い得情報",
+   "tags": [
+    "スーパー",
+    "特売",
+    "価格",
+    "割引",
+    "果物"
+   ]
+  },
+  "template:r-tablero-corcho": {
+   "name": "コルクボード",
+   "tags": [
+    "コルクボード",
+    "ボード",
+    "写真",
+    "画びょう",
+    "思い出"
+   ]
+  },
+  "template:r-taller-mecanico": {
+   "name": "自動車整備工場",
+   "tags": [
+    "整備工場",
+    "整備士",
+    "車",
+    "点検",
+    "サービス"
+   ]
+  },
+  "template:r-tarjetas-apiladas": {
+   "name": "重ねたカード",
+   "tags": [
+    "カード",
+    "重ね",
+    "スワイプ",
+    "写真"
+   ]
+  },
+  "template:r-tienda-barrio": {
+   "name": "街のお店のお知らせ",
+   "tags": [
+    "お店",
+    "地元",
+    "セール",
+    "ご近所",
+    "食料品"
+   ]
+  },
+  "template:r-tierno-stickers": {
+   "name": "ステッカーでかわいく",
+   "tags": [
+    "かわいい",
+    "ステッカー",
+    "キュート",
+    "ペット"
+   ]
+  },
+  "template:r-traduccion": {
+   "name": "なんて言う？",
+   "tags": [
+    "翻訳",
+    "語学",
+    "英語",
+    "学ぶ",
+    "フレーズ"
+   ]
+  },
+  "template:r-tres-errores": {
+   "name": "やりがちな3つの間違い",
+   "tags": [
+    "間違い",
+    "アドバイス",
+    "コツ",
+    "学ぶ",
+    "避ける"
+   ]
+  },
+  "template:r-trivia": {
+   "name": "選択式クイズ",
+   "tags": [
+    "クイズ",
+    "雑学",
+    "質問",
+    "ゲーム",
+    "答え"
+   ]
+  },
+  "template:r-unboxing": {
+   "name": "開封動画",
+   "tags": [
+    "開封",
+    "アンボクシング",
+    "注文品",
+    "商品",
+    "買い物"
+   ]
+  },
+  "template:r-velocity-duro": {
+   "name": "激しいベロシティ",
+   "tags": [
+    "ベロシティ",
+    "速度変化",
+    "激しい",
+    "シェイク",
+    "編集"
+   ]
+  },
+  "template:r-velocity-suave": {
+   "name": "なめらかベロシティ",
+   "tags": [
+    "ベロシティ",
+    "速度変化",
+    "なめらか",
+    "トレンド"
+   ]
+  },
+  "template:r-verano": {
+   "name": "こんにちは夏",
+   "tags": [
+    "夏",
+    "ビーチ",
+    "プール",
+    "太陽",
+    "休暇"
+   ]
+  },
+  "template:r-veterinaria": {
+   "name": "動物病院",
+   "tags": [
+    "動物病院",
+    "ペット",
+    "犬",
+    "猫",
+    "健康"
+   ]
+  },
+  "template:r-vt-horario": {
+   "name": "縦型の営業時間",
+   "tags": [
+    "テロップ",
+    "縦型",
+    "営業時間",
+    "お店"
+   ]
+  },
+  "template:r-vt-nombre": {
+   "name": "縦型の名前テロップ",
+   "tags": [
+    "テロップ",
+    "縦型",
+    "名前",
+    "インタビュー"
+   ]
+  },
+  "template:r-vt-precio": {
+   "name": "縦型の値札",
+   "tags": [
+    "テロップ",
+    "縦型",
+    "価格",
+    "商品"
+   ]
+  },
+  "template:r-vt-ubicacion": {
+   "name": "縦型の場所テロップ",
+   "tags": [
+    "テロップ",
+    "縦型",
+    "場所",
+    "旅行"
+   ]
+  },
+  "template:r-vt-usuario": {
+   "name": "縦型の@アカウント",
+   "tags": [
+    "テロップ",
+    "縦型",
+    "アカウント",
+    "sns"
+   ]
+  },
+  "template:r-yo-vs-yo": {
+   "name": "昔の私 vs 今の私",
+   "tags": [
+    "昔と今",
+    "子ども時代",
+    "成長",
+    "比較"
+   ]
+  },
+  "template:r-zoom-golpe": {
+   "name": "パンチズーム",
+   "tags": [
+    "ズーム",
+    "パンチ",
+    "ビート",
+    "ミニマル",
+    "編集"
+   ]
+  },
+  "template:recap-del-anio": {
+   "name": "12か月で振り返る私の1年",
+   "tags": [
+    "振り返り",
+    "1年",
+    "まとめ",
+    "12か月"
+   ]
+  },
+  "template:receta-rapida": {
+   "name": "15秒レシピ",
+   "tags": [
+    "レシピ",
+    "料理",
+    "食べ物",
+    "サラダ"
+   ]
+  },
+  "template:red-flags-green-flags": {
+   "name": "レッドフラッグ・グリーンフラッグ",
+   "tags": [
+    "レッドフラッグ",
+    "グリーンフラッグ",
+    "恋愛",
+    "デート",
+    "ユーモア"
+   ]
+  },
+  "template:remodelacion": {
+   "name": "お部屋のビフォーアフター",
+   "tags": [
+    "リフォーム",
+    "家",
+    "不動産",
+    "インテリア"
+   ]
+  },
+  "template:resenas-lo-que-dicen": {
+   "name": "お客様からの評価",
+   "tags": [
+    "レビュー",
+    "口コミ",
+    "お客様",
+    "星5",
+    "評価"
+   ]
+  },
+  "template:resumen-de-boda": {
+   "name": "結婚式のダイジェスト",
+   "tags": [
+    "結婚式",
+    "ウェディング",
+    "ダイジェスト",
+    "シネマティック"
+   ]
+  },
+  "template:revelacion-de-genero": {
+   "name": "ジェンダーリビール：男の子？女の子？",
+   "tags": [
+    "ジェンダーリビール",
+    "性別発表",
+    "赤ちゃん",
+    "妊娠"
+   ]
+  },
+  "template:salon-de-belleza-servicios": {
+   "name": "美容サロン",
+   "tags": [
+    "サロン",
+    "美容",
+    "ヘアサロン",
+    "メニュー",
+    "予約"
+   ]
+  },
+  "template:san-valentin-carta": {
+   "name": "ラブレター",
+   "tags": [
+    "バレンタイン",
+    "恋愛",
+    "カップル",
+    "2月14日",
+    "手紙"
+   ]
+  },
+  "template:slowmo-cinematico": {
+   "name": "シネマティック・スローモーション",
+   "tags": [
+    "シネマティック",
+    "スロー",
+    "映画風",
+    "夕日"
+   ]
+  },
+  "template:storytime-les-cuento": {
+   "name": "ストーリータイム",
+   "tags": [
+    "ストーリータイム",
+    "体験談",
+    "エピソード",
+    "tiktok"
+   ]
+  },
+  "template:testimonio-cliente-estrellas": {
+   "name": "お客様の声",
+   "tags": [
+    "お客様の声",
+    "口コミ",
+    "レビュー",
+    "星",
+    "信頼"
+   ]
+  },
+  "template:texto-cinetico": {
+   "name": "キネティックテキスト",
+   "tags": [
+    "テキスト",
+    "モチベーション",
+    "言葉",
+    "インパクト"
+   ]
+  },
+  "template:tira-pelicula": {
+   "name": "フィルムストリップ",
+   "tags": [
+    "フィルム",
+    "アナログ",
+    "レトロ",
+    "写真"
+   ]
+  },
+  "template:top-5-mas-vendidos": {
+   "name": "売れ筋トップ5",
+   "tags": [
+    "トップ5",
+    "売れ筋",
+    "ランキング",
+    "ショップ",
+    "服"
+   ]
+  },
+  "template:tour-inmobiliario": {
+   "name": "物件ツアー",
+   "tags": [
+    "不動産",
+    "家",
+    "物件",
+    "マンション"
+   ]
+  },
+  "template:transformacion-gym": {
+   "name": "ジムでの変身",
+   "tags": [
+    "ジム",
+    "フィットネス",
+    "変身",
+    "ビフォーアフター"
+   ]
+  },
+  "template:transiciones-al-ritmo": {
+   "name": "ビート同期トランジション",
+   "tags": [
+    "トランジション",
+    "ビート",
+    "友達",
+    "週末",
+    "トレンド"
+   ]
+  },
+  "template:tres-consejos": {
+   "name": "〇〇のための3つのコツ",
+   "tags": [
+    "コツ",
+    "ヒント",
+    "リスト",
+    "勉強",
+    "教育"
+   ]
+  },
+  "template:tutorial-en-3-pasos": {
+   "name": "3ステップのチュートリアル",
+   "tags": [
+    "チュートリアル",
+    "ステップ",
+    "やり方",
+    "コツ",
+    "美容"
+   ]
+  },
+  "template:ultimo-momento-noticia": {
+   "name": "速報",
+   "tags": [
+    "ニュース",
+    "速報",
+    "お知らせ",
+    "ライブ"
+   ]
+  },
+  "template:un-dia-en-mi-vida": {
+   "name": "私の1日",
+   "tags": [
+    "私の1日",
+    "ルーティン",
+    "vlog",
+    "日常"
+   ]
+  },
+  "template:unas-nail-art": {
+   "name": "ネイル＆ネイルアート",
+   "tags": [
+    "ネイル",
+    "マニキュア",
+    "ネイルアート",
+    "美容"
+   ]
+  },
+  "template:velocity-al-ritmo": {
+   "name": "ビートに合わせたベロシティ",
+   "tags": [
+    "ベロシティ",
+    "スピード",
+    "ビート",
+    "ファッション",
+    "トレンド"
+   ]
+  },
+  "template:vhs-de-los-2000": {
+   "name": "2000年代のVHS",
+   "tags": [
+    "vhs",
+    "レトロ",
+    "2000年代",
+    "ノスタルジー",
+    "ビデオカメラ"
+   ]
+  },
+  "template:vlog-de-viaje": {
+   "name": "ミニ旅行Vlog",
+   "tags": [
+    "旅行",
+    "vlog",
+    "観光",
+    "旅"
+   ]
+  },
+  "template:y2k-brillitos": {
+   "name": "Y2Kキラキラ",
+   "tags": [
+    "y2k",
+    "キラキラ",
+    "ピンク",
+    "エモい"
+   ]
+  },
+  "template:zoom-3d-parallax": {
+   "name": "3Dズーム",
+   "tags": [
+    "3dズーム",
+    "パララックス",
+    "旅行",
+    "トレンド"
+   ]
+  }
+ }
+}

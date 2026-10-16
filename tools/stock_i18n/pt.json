@@ -1,0 +1,8950 @@
+{
+ "categories": {
+  "animation:celebracion": "Comemoração",
+  "animation:clima": "Clima",
+  "animation:comida": "Comidas e bebidas",
+  "animation:deportes": "Esportes",
+  "animation:emociones": "Emoções",
+  "animation:fechas": "Datas especiais",
+  "animation:flechas": "Setas",
+  "animation:formas": "Formas",
+  "animation:iconos": "Ícones",
+  "animation:llamadas": "Balões e molduras",
+  "animation:negocios": "Negócios",
+  "animation:redes": "Redes sociais",
+  "animation:resaltar": "Destaques",
+  "animation:transiciones": "Transições",
+  "background:ambiente": "Luzes e atmosfera",
+  "background:degradados": "Degradês e líquidos",
+  "background:fechas": "Datas especiais",
+  "background:geometricos": "Geométricos",
+  "background:texturas": "Texturas",
+  "overlay:amor": "Amor",
+  "overlay:camara": "Câmera e tela",
+  "overlay:celebracion": "Comemoração",
+  "overlay:clima": "Clima e natureza",
+  "overlay:garabatos": "Rabiscos",
+  "overlay:glitch": "Glitch",
+  "overlay:luces": "Vazamentos de luz e reflexos",
+  "overlay:marcos": "Molduras e texturas",
+  "overlay:particulas": "Partículas e brilhos",
+  "overlay:pelicula": "Filme e retrô",
+  "sound:comedia": "Comédia",
+  "sound:impactos": "Impactos",
+  "sound:interfaz": "Botões e alertas",
+  "sound:juegos": "Moedas e jogos",
+  "sound:magia": "Magia e brilhos",
+  "sound:ritmo": "Batidas e música",
+  "sound:suspenso": "Suspense e drama",
+  "sound:transiciones": "Transições",
+  "template:beforeafter": "Antes e depois",
+  "template:business": "Negócios",
+  "template:celebration": "Comemorações",
+  "template:collage": "Colagens",
+  "template:countdown": "Contagens regressivas",
+  "template:intro": "Intros e títulos",
+  "template:lowerthird": "Terços inferiores",
+  "template:outro": "Encerramentos",
+  "template:product": "Produtos",
+  "template:reels": "Reels de fotos",
+  "template:seasonal": "Datas especiais",
+  "template:slideshow": "Apresentações de fotos",
+  "template:text": "Texto",
+  "template:transition": "Transições e separadores"
+ },
+ "items": {
+  "animation:advertencia": {
+   "name": "Alerta",
+   "tags": [
+    "cuidado",
+    "alerta",
+    "atenção",
+    "aviso"
+   ]
+  },
+  "animation:alcancia": {
+   "name": "Cofrinho",
+   "tags": [
+    "economia",
+    "dinheiro",
+    "finanças",
+    "meta",
+    "cofrinho"
+   ]
+  },
+  "animation:anillos-boda": {
+   "name": "Alianças de casamento",
+   "tags": [
+    "casamento",
+    "alianças",
+    "noivado",
+    "aniversário"
+   ]
+  },
+  "animation:anillos-puntos": {
+   "name": "Anéis de pontos",
+   "tags": [
+    "círculo",
+    "pontos",
+    "fundo",
+    "girar",
+    "padrão"
+   ]
+  },
+  "animation:arbol-navidad": {
+   "name": "Árvore de Natal",
+   "tags": [
+    "natal",
+    "árvore",
+    "dezembro",
+    "festas"
+   ]
+  },
+  "animation:arcoiris": {
+   "name": "Arco-íris",
+   "tags": [
+    "arco-íris",
+    "chuva",
+    "esperança",
+    "cores"
+   ]
+  },
+  "animation:asterisco": {
+   "name": "Asterisco",
+   "tags": [
+    "asterisco",
+    "forma",
+    "estrela",
+    "retrô",
+    "ênfase"
+   ]
+  },
+  "animation:avion-papel": {
+   "name": "Avião de papel",
+   "tags": [
+    "enviar",
+    "mensagem",
+    "compartilhar",
+    "viagem"
+   ]
+  },
+  "animation:balon-futbol": {
+   "name": "Bola de futebol",
+   "tags": [
+    "futebol",
+    "gol",
+    "esporte",
+    "partida"
+   ]
+  },
+  "animation:baloncesto": {
+   "name": "Bola de basquete",
+   "tags": [
+    "basquete",
+    "esporte",
+    "quadra",
+    "bola"
+   ]
+  },
+  "animation:bandera": {
+   "name": "Bandeira tremulando",
+   "tags": [
+    "bandeira",
+    "meta",
+    "conquista",
+    "início"
+   ]
+  },
+  "animation:bandera-meta": {
+   "name": "Bandeira de chegada",
+   "tags": [
+    "chegada",
+    "corrida",
+    "vencedor",
+    "final"
+   ]
+  },
+  "animation:banderines": {
+   "name": "Bandeirinhas",
+   "tags": [
+    "bandeirinhas",
+    "festa",
+    "decoração",
+    "aniversário",
+    "inauguração"
+   ]
+  },
+  "animation:barrido-diagonal": {
+   "name": "Varredura diagonal",
+   "tags": [
+    "transição",
+    "varredura",
+    "troca de cena"
+   ]
+  },
+  "animation:bateria-carga": {
+   "name": "Bateria carregando",
+   "tags": [
+    "bateria",
+    "energia",
+    "carga",
+    "recarregar"
+   ]
+  },
+  "animation:bengala": {
+   "name": "Vela estrelinha",
+   "tags": [
+    "estrelinha",
+    "ano-novo",
+    "festa",
+    "casamento",
+    "faíscas"
+   ]
+  },
+  "animation:birrete": {
+   "name": "Capelo de formatura",
+   "tags": [
+    "formatura",
+    "formando",
+    "conquista",
+    "estudos"
+   ]
+  },
+  "animation:bocadillo": {
+   "name": "Balão de fala",
+   "tags": [
+    "balão",
+    "diálogo",
+    "fala",
+    "texto",
+    "quadrinhos"
+   ]
+  },
+  "animation:bocadillo-grito": {
+   "name": "Balão de grito",
+   "tags": [
+    "grito",
+    "uau",
+    "quadrinhos",
+    "exclamação"
+   ]
+  },
+  "animation:bola-disco": {
+   "name": "Globo de discoteca",
+   "tags": [
+    "globo espelhado",
+    "festa",
+    "dança",
+    "noite",
+    "disco"
+   ]
+  },
+  "animation:bolsa-compras": {
+   "name": "Sacola de compras",
+   "tags": [
+    "compras",
+    "sacola",
+    "loja",
+    "pedido"
+   ]
+  },
+  "animation:bombilla-idea": {
+   "name": "Ideia!",
+   "tags": [
+    "ideia",
+    "lâmpada",
+    "criatividade",
+    "dica"
+   ]
+  },
+  "animation:boton-play": {
+   "name": "Botão de play",
+   "tags": [
+    "vídeo",
+    "play",
+    "assistir",
+    "botão"
+   ]
+  },
+  "animation:boton-seguir": {
+   "name": "Botão Seguir",
+   "tags": [
+    "seguir",
+    "inscrever-se",
+    "redes",
+    "chamada para ação"
+   ]
+  },
+  "animation:brillo-y2k": {
+   "name": "Brilho Y2K",
+   "tags": [
+    "brilho",
+    "y2k",
+    "estética",
+    "estrela"
+   ]
+  },
+  "animation:burbujas": {
+   "name": "Bolhas",
+   "tags": [
+    "bolhas",
+    "água",
+    "sabão",
+    "fundo"
+   ]
+  },
+  "animation:cafe-humeante": {
+   "name": "Café quentinho",
+   "tags": [
+    "café",
+    "manhã",
+    "café da manhã",
+    "bebida"
+   ]
+  },
+  "animation:caja-envio": {
+   "name": "Entrega",
+   "tags": [
+    "entrega",
+    "delivery",
+    "pedido",
+    "pacote"
+   ]
+  },
+  "animation:calabaza": {
+   "name": "Abóbora de Halloween",
+   "tags": [
+    "halloween",
+    "abóbora",
+    "outubro",
+    "medo"
+   ]
+  },
+  "animation:calendario": {
+   "name": "Calendário",
+   "tags": [
+    "data",
+    "evento",
+    "agenda",
+    "lembrete"
+   ]
+  },
+  "animation:camara-foto": {
+   "name": "Câmera fotográfica",
+   "tags": [
+    "foto",
+    "câmera",
+    "selfie",
+    "lembrança"
+   ]
+  },
+  "animation:campana": {
+   "name": "Sininho de notificações",
+   "tags": [
+    "inscreva-se",
+    "notificação",
+    "sininho",
+    "youtube"
+   ]
+  },
+  "animation:campanas-navidad": {
+   "name": "Sinos",
+   "tags": [
+    "natal",
+    "sinos",
+    "festas",
+    "casamento"
+   ]
+  },
+  "animation:candado": {
+   "name": "Cadeado",
+   "tags": [
+    "seguro",
+    "privado",
+    "desbloquear",
+    "senha"
+   ]
+  },
+  "animation:cara-angel": {
+   "name": "Anjinho",
+   "tags": [
+    "anjo",
+    "inocente",
+    "bonzinho",
+    "emoji"
+   ]
+  },
+  "animation:cara-beso": {
+   "name": "Beijo",
+   "tags": [
+    "beijo",
+    "amor",
+    "smack",
+    "emoji"
+   ]
+  },
+  "animation:cara-derretida": {
+   "name": "Derretendo",
+   "tags": [
+    "calor",
+    "vergonha",
+    "derreter",
+    "emoji"
+   ]
+  },
+  "animation:cara-diablillo": {
+   "name": "Diabinho",
+   "tags": [
+    "travesso",
+    "malvado",
+    "brincadeira",
+    "emoji"
+   ]
+  },
+  "animation:cara-dormida": {
+   "name": "Dormindo",
+   "tags": [
+    "sono",
+    "dormir",
+    "cansado",
+    "zzz"
+   ]
+  },
+  "animation:cara-enamorada": {
+   "name": "Apaixonada",
+   "tags": [
+    "amor",
+    "apaixonada",
+    "adoro",
+    "emoji"
+   ]
+  },
+  "animation:cara-enojada": {
+   "name": "Bravo",
+   "tags": [
+    "raiva",
+    "bravo",
+    "irritado",
+    "emoji"
+   ]
+  },
+  "animation:cara-estrellas": {
+   "name": "Deslumbrado",
+   "tags": [
+    "uau",
+    "incrível",
+    "fã",
+    "emoji"
+   ]
+  },
+  "animation:cara-fiesta": {
+   "name": "Carinha de festa",
+   "tags": [
+    "festa",
+    "aniversário",
+    "comemorar",
+    "emoji"
+   ]
+  },
+  "animation:cara-guino": {
+   "name": "Piscadinha",
+   "tags": [
+    "piscadinha",
+    "flerte",
+    "brincadeira",
+    "emoji"
+   ]
+  },
+  "animation:cara-lentes": {
+   "name": "De óculos escuros",
+   "tags": [
+    "cool",
+    "estiloso",
+    "óculos",
+    "emoji"
+   ]
+  },
+  "animation:cara-llorando": {
+   "name": "Chorando",
+   "tags": [
+    "triste",
+    "chorar",
+    "pena",
+    "emoji"
+   ]
+  },
+  "animation:cara-nerviosa": {
+   "name": "Nervoso",
+   "tags": [
+    "nervoso",
+    "ops",
+    "constrangido",
+    "emoji"
+   ]
+  },
+  "animation:cara-pensando": {
+   "name": "Pensando",
+   "tags": [
+    "pensar",
+    "dúvida",
+    "pergunta",
+    "emoji"
+   ]
+  },
+  "animation:cara-risa": {
+   "name": "Risada",
+   "tags": [
+    "risada",
+    "kkkk",
+    "engraçado",
+    "emoji"
+   ]
+  },
+  "animation:cara-sorpresa": {
+   "name": "Surpresa",
+   "tags": [
+    "uau",
+    "surpresa",
+    "omg",
+    "emoji"
+   ]
+  },
+  "animation:cargando": {
+   "name": "Carregando",
+   "tags": [
+    "carregando",
+    "espera",
+    "loading",
+    "em breve"
+   ]
+  },
+  "animation:carrito": {
+   "name": "Carrinho",
+   "tags": [
+    "comprar",
+    "loja",
+    "carrinho",
+    "compras"
+   ]
+  },
+  "animation:carta-amor": {
+   "name": "Carta de amor",
+   "tags": [
+    "dia dos namorados",
+    "carta",
+    "amor",
+    "mensagem"
+   ]
+  },
+  "animation:chat-corazon": {
+   "name": "Mensagem com amor",
+   "tags": [
+    "mensagem",
+    "amor",
+    "chat",
+    "dm"
+   ]
+  },
+  "animation:chincheta": {
+   "name": "Tachinha",
+   "tags": [
+    "tachinha",
+    "fixar",
+    "importante",
+    "nota",
+    "lembrete"
+   ]
+  },
+  "animation:cinta": {
+   "name": "Faixa",
+   "tags": [
+    "título",
+    "banner",
+    "faixa",
+    "novo"
+   ]
+  },
+  "animation:cinta-adhesiva": {
+   "name": "Fita washi",
+   "tags": [
+    "fita",
+    "moldura",
+    "foto",
+    "scrapbook",
+    "colagem"
+   ]
+  },
+  "animation:circulo-flecha": {
+   "name": "Círculo com seta",
+   "tags": [
+    "círculo",
+    "seta",
+    "destacar",
+    "aqui",
+    "rabisco"
+   ]
+  },
+  "animation:circulo-marcador": {
+   "name": "Círculo à mão",
+   "tags": [
+    "círculo",
+    "destacar",
+    "marcar",
+    "apontar"
+   ]
+  },
+  "animation:circulos-barrido": {
+   "name": "Varredura de círculos",
+   "tags": [
+    "transição",
+    "círculos",
+    "troca de cena"
+   ]
+  },
+  "animation:cohete": {
+   "name": "Foguete",
+   "tags": [
+    "lançamento",
+    "decolagem",
+    "startup",
+    "rápido"
+   ]
+  },
+  "animation:comentar": {
+   "name": "Comentar",
+   "tags": [
+    "comentário",
+    "chat",
+    "redes",
+    "mensagem"
+   ]
+  },
+  "animation:compartir": {
+   "name": "Compartilhar",
+   "tags": [
+    "compartilhar",
+    "enviar",
+    "redes"
+   ]
+  },
+  "animation:confeti": {
+   "name": "Chuva de confete",
+   "tags": [
+    "confete",
+    "festa",
+    "aniversário",
+    "comemorar"
+   ]
+  },
+  "animation:cono-fiesta": {
+   "name": "Lança-confete",
+   "tags": [
+    "lança-confete",
+    "festa",
+    "aniversário",
+    "surpresa",
+    "comemorar"
+   ]
+  },
+  "animation:conversacion": {
+   "name": "Conversa",
+   "tags": [
+    "chat",
+    "diálogo",
+    "mensagens",
+    "conversa"
+   ]
+  },
+  "animation:copas-brindis": {
+   "name": "Brinde",
+   "tags": [
+    "brinde",
+    "taças",
+    "ano-novo",
+    "casamento",
+    "comemorar"
+   ]
+  },
+  "animation:copo-nieve": {
+   "name": "Floco de neve",
+   "tags": [
+    "neve",
+    "inverno",
+    "frio",
+    "natal"
+   ]
+  },
+  "animation:corazon-a-mano": {
+   "name": "Coração à mão",
+   "tags": [
+    "amor",
+    "coração",
+    "favorito",
+    "rabisco",
+    "destacar"
+   ]
+  },
+  "animation:corazon-flechado": {
+   "name": "Coração flechado",
+   "tags": [
+    "dia dos namorados",
+    "amor",
+    "cupido",
+    "casal"
+   ]
+  },
+  "animation:corazon-roto": {
+   "name": "Coração partido",
+   "tags": [
+    "desamor",
+    "triste",
+    "término",
+    "coração"
+   ]
+  },
+  "animation:corazones": {
+   "name": "Corações subindo",
+   "tags": [
+    "amor",
+    "coração",
+    "casal",
+    "curtir"
+   ]
+  },
+  "animation:corchetes": {
+   "name": "Colchetes de foco",
+   "tags": [
+    "colchetes",
+    "destacar",
+    "foco",
+    "moldura",
+    "texto"
+   ]
+  },
+  "animation:corona": {
+   "name": "Coroa",
+   "tags": [
+    "coroa",
+    "rei",
+    "rainha",
+    "vencedor",
+    "premium"
+   ]
+  },
+  "animation:correo": {
+   "name": "Novo e-mail",
+   "tags": [
+    "e-mail",
+    "mensagem",
+    "correio",
+    "contato"
+   ]
+  },
+  "animation:corte-dividido": {
+   "name": "Corte dividido",
+   "tags": [
+    "transição",
+    "deslizar",
+    "dividido",
+    "troca de cena"
+   ]
+  },
+  "animation:cronometro": {
+   "name": "Cronômetro",
+   "tags": [
+    "tempo",
+    "corrida",
+    "recorde",
+    "rápido"
+   ]
+  },
+  "animation:cuadros-zoom": {
+   "name": "Quadradinhos",
+   "tags": [
+    "transição",
+    "quadrados",
+    "pixels",
+    "troca de cena"
+   ]
+  },
+  "animation:cuenta-regresiva": {
+   "name": "Contagem regressiva",
+   "tags": [
+    "contagem regressiva",
+    "3 2 1",
+    "começa",
+    "espera"
+   ]
+  },
+  "animation:cupcake": {
+   "name": "Cupcake",
+   "tags": [
+    "cupcake",
+    "sobremesa",
+    "aniversário",
+    "doce"
+   ]
+  },
+  "animation:cursor-clic": {
+   "name": "Clique",
+   "tags": [
+    "clique",
+    "cursor",
+    "toque",
+    "botão",
+    "link"
+   ]
+  },
+  "animation:descargar": {
+   "name": "Baixar",
+   "tags": [
+    "baixar",
+    "download",
+    "salvar",
+    "arquivo"
+   ]
+  },
+  "animation:desliza-arriba": {
+   "name": "Deslize para cima",
+   "tags": [
+    "deslize",
+    "para cima",
+    "stories",
+    "link"
+   ]
+  },
+  "animation:destellos": {
+   "name": "Brilhos",
+   "tags": [
+    "brilho",
+    "estrelas",
+    "magia",
+    "cintilar"
+   ]
+  },
+  "animation:diana": {
+   "name": "Alvo",
+   "tags": [
+    "alvo",
+    "objetivo",
+    "meta",
+    "acerto",
+    "estratégia"
+   ]
+  },
+  "animation:diya": {
+   "name": "Lamparina diya",
+   "tags": [
+    "diwali",
+    "luz",
+    "lamparina",
+    "festival"
+   ]
+  },
+  "animation:dona": {
+   "name": "Donut",
+   "tags": [
+    "donut",
+    "rosquinha",
+    "sobremesa",
+    "doce"
+   ]
+  },
+  "animation:en-vivo": {
+   "name": "Ao vivo",
+   "tags": [
+    "ao vivo",
+    "live",
+    "transmissão",
+    "direto"
+   ]
+  },
+  "animation:enfasis": {
+   "name": "Risquinhos de ênfase",
+   "tags": [
+    "ênfase",
+    "surpresa",
+    "uau",
+    "atenção"
+   ]
+  },
+  "animation:engranajes": {
+   "name": "Engrenagens",
+   "tags": [
+    "configurações",
+    "processo",
+    "trabalho",
+    "ajustes"
+   ]
+  },
+  "animation:enlace": {
+   "name": "Link",
+   "tags": [
+    "link",
+    "bio",
+    "site",
+    "endereço"
+   ]
+  },
+  "animation:equis": {
+   "name": "Xis",
+   "tags": [
+    "xis",
+    "erro",
+    "não",
+    "incorreto"
+   ]
+  },
+  "animation:escribiendo": {
+   "name": "Digitando…",
+   "tags": [
+    "digitando",
+    "chat",
+    "mensagem",
+    "espera"
+   ]
+  },
+  "animation:esfera-navidad": {
+   "name": "Bola de Natal",
+   "tags": [
+    "natal",
+    "enfeite",
+    "decoração",
+    "dezembro"
+   ]
+  },
+  "animation:espiral-garabato": {
+   "name": "Espiral à mão",
+   "tags": [
+    "espiral",
+    "rabisco",
+    "tontura",
+    "hipnose",
+    "doodle"
+   ]
+  },
+  "animation:estallido-comic": {
+   "name": "Explosão de quadrinhos",
+   "tags": [
+    "pow",
+    "uau",
+    "oferta",
+    "quadrinhos",
+    "explosão"
+   ]
+  },
+  "animation:estrella-a-mano": {
+   "name": "Estrela à mão",
+   "tags": [
+    "estrela",
+    "favorito",
+    "importante",
+    "rabisco"
+   ]
+  },
+  "animation:estrella-fugaz": {
+   "name": "Estrela cadente",
+   "tags": [
+    "estrela cadente",
+    "desejo",
+    "magia",
+    "noite"
+   ]
+  },
+  "animation:estrella-giro": {
+   "name": "Estrela giratória",
+   "tags": [
+    "transição",
+    "estrela",
+    "giro",
+    "troca de cena"
+   ]
+  },
+  "animation:estrellas-pop": {
+   "name": "Estrelas pop",
+   "tags": [
+    "estrela",
+    "conquista",
+    "prêmio",
+    "pop"
+   ]
+  },
+  "animation:estrellas-valoracion": {
+   "name": "Avaliação 5 estrelas",
+   "tags": [
+    "avaliação",
+    "review",
+    "cliente",
+    "estrelas"
+   ]
+  },
+  "animation:etiqueta-precio": {
+   "name": "Etiqueta de preço",
+   "tags": [
+    "preço",
+    "oferta",
+    "venda",
+    "loja"
+   ]
+  },
+  "animation:exclamaciones": {
+   "name": "Atenção!",
+   "tags": [
+    "exclamação",
+    "atenção",
+    "importante",
+    "alerta"
+   ]
+  },
+  "animation:fantasma": {
+   "name": "Fantasma",
+   "tags": [
+    "halloween",
+    "fantasma",
+    "bu",
+    "medo"
+   ]
+  },
+  "animation:farol-rojo": {
+   "name": "Lanterna vermelha",
+   "tags": [
+    "ano-novo lunar",
+    "lanterna",
+    "festival",
+    "ásia"
+   ]
+  },
+  "animation:flecha-abajo": {
+   "name": "Seta que pula",
+   "tags": [
+    "seta",
+    "para baixo",
+    "olhe aqui",
+    "link"
+   ]
+  },
+  "animation:flecha-bucle": {
+   "name": "Seta com laço",
+   "tags": [
+    "seta",
+    "apontar",
+    "rabisco",
+    "olhe"
+   ]
+  },
+  "animation:flecha-circular": {
+   "name": "Seta circular",
+   "tags": [
+    "seta",
+    "repetir",
+    "atualizar",
+    "antes e depois"
+   ]
+  },
+  "animation:flecha-curva": {
+   "name": "Seta à mão",
+   "tags": [
+    "seta",
+    "apontar",
+    "olhe",
+    "rabisco"
+   ]
+  },
+  "animation:flecha-doble": {
+   "name": "Seta dupla",
+   "tags": [
+    "seta dupla",
+    "medida",
+    "comparar",
+    "largura"
+   ]
+  },
+  "animation:flecha-gruesa": {
+   "name": "Seta grossa",
+   "tags": [
+    "seta",
+    "próximo",
+    "ir",
+    "direita"
+   ]
+  },
+  "animation:flecha-ondulada": {
+   "name": "Seta ondulada",
+   "tags": [
+    "seta",
+    "para baixo",
+    "olhe",
+    "rabisco"
+   ]
+  },
+  "animation:flecha-punteada": {
+   "name": "Seta pontilhada",
+   "tags": [
+    "seta",
+    "pontilhada",
+    "caminho",
+    "rota",
+    "apontar"
+   ]
+  },
+  "animation:flecha-u": {
+   "name": "Seta em U",
+   "tags": [
+    "seta",
+    "voltar",
+    "retornar",
+    "girar"
+   ]
+  },
+  "animation:flecha-zigzag": {
+   "name": "Seta em zigue-zague",
+   "tags": [
+    "seta",
+    "zigue-zague",
+    "apontar",
+    "rabisco"
+   ]
+  },
+  "animation:flechas-centro": {
+   "name": "Setas para o centro",
+   "tags": [
+    "setas",
+    "foco",
+    "centro",
+    "olhe aqui",
+    "atenção"
+   ]
+  },
+  "animation:flechas-derecha": {
+   "name": "Setas em fila",
+   "tags": [
+    "setas",
+    "próximo",
+    "deslize",
+    "direita"
+   ]
+  },
+  "animation:flor-crece": {
+   "name": "Flor crescendo",
+   "tags": [
+    "primavera",
+    "natureza",
+    "flor",
+    "crescer"
+   ]
+  },
+  "animation:foco-luz": {
+   "name": "Holofote",
+   "tags": [
+    "holofote",
+    "palco",
+    "protagonista",
+    "apresentação"
+   ]
+  },
+  "animation:formas-memphis": {
+   "name": "Formas flutuantes",
+   "tags": [
+    "geometria",
+    "memphis",
+    "fundo",
+    "retrô",
+    "formas"
+   ]
+  },
+  "animation:franjas-diagonales": {
+   "name": "Faixas diagonais",
+   "tags": [
+    "transição",
+    "faixas",
+    "troca de cena"
+   ]
+  },
+  "animation:fuego": {
+   "name": "Fogo",
+   "tags": [
+    "fogo",
+    "tendência",
+    "hot",
+    "emoji"
+   ]
+  },
+  "animation:fuegos-artificiales": {
+   "name": "Fogos de artifício",
+   "tags": [
+    "fogos",
+    "ano-novo",
+    "festa",
+    "comemorar"
+   ]
+  },
+  "animation:garabato-infinito": {
+   "name": "Infinito",
+   "tags": [
+    "infinito",
+    "loop",
+    "para sempre",
+    "rabisco"
+   ]
+  },
+  "animation:globo-info": {
+   "name": "Balão informativo",
+   "tags": [
+    "informação",
+    "detalhe",
+    "preço",
+    "etiqueta"
+   ]
+  },
+  "animation:globos": {
+   "name": "Balões",
+   "tags": [
+    "balões",
+    "aniversário",
+    "festa",
+    "chá de bebê"
+   ]
+  },
+  "animation:gorro-fiesta": {
+   "name": "Chapéu de festa",
+   "tags": [
+    "chapéu",
+    "festa",
+    "aniversário",
+    "comemorar"
+   ]
+  },
+  "animation:gorro-santa": {
+   "name": "Gorro de Papai Noel",
+   "tags": [
+    "natal",
+    "gorro",
+    "papai noel",
+    "dezembro"
+   ]
+  },
+  "animation:gota": {
+   "name": "Gota",
+   "tags": [
+    "água",
+    "gota",
+    "líquido",
+    "fresco"
+   ]
+  },
+  "animation:grafico-barras": {
+   "name": "Gráfico de barras",
+   "tags": [
+    "crescimento",
+    "vendas",
+    "resultados",
+    "estatística"
+   ]
+  },
+  "animation:grafico-linea": {
+   "name": "Tendência de alta",
+   "tags": [
+    "crescimento",
+    "sucesso",
+    "alta",
+    "estatística"
+   ]
+  },
+  "animation:grafico-torta": {
+   "name": "Gráfico de pizza",
+   "tags": [
+    "estatística",
+    "porcentagem",
+    "dados",
+    "apresentação"
+   ]
+  },
+  "animation:guardar": {
+   "name": "Salvar",
+   "tags": [
+    "salvar",
+    "favorito",
+    "marcador",
+    "redes"
+   ]
+  },
+  "animation:guirnalda-luces": {
+   "name": "Varal de luzes",
+   "tags": [
+    "luzes",
+    "pisca-pisca",
+    "natal",
+    "festa",
+    "decoração"
+   ]
+  },
+  "animation:hamburguesa": {
+   "name": "Hambúrguer",
+   "tags": [
+    "hambúrguer",
+    "fast food",
+    "almoço",
+    "delivery"
+   ]
+  },
+  "animation:hashtag": {
+   "name": "Hashtag",
+   "tags": [
+    "hashtag",
+    "tendência",
+    "tag",
+    "redes"
+   ]
+  },
+  "animation:helado": {
+   "name": "Sorvete",
+   "tags": [
+    "sorvete",
+    "verão",
+    "sobremesa",
+    "doce"
+   ]
+  },
+  "animation:hojas": {
+   "name": "Folhas caindo",
+   "tags": [
+    "outono",
+    "natureza",
+    "folhas"
+   ]
+  },
+  "animation:huevo-pascua": {
+   "name": "Ovo de Páscoa",
+   "tags": [
+    "páscoa",
+    "primavera",
+    "ovo",
+    "abril"
+   ]
+  },
+  "animation:iris": {
+   "name": "Íris",
+   "tags": [
+    "transição",
+    "círculo",
+    "íris",
+    "troca de cena"
+   ]
+  },
+  "animation:llamada-linea": {
+   "name": "Indicador com linha",
+   "tags": [
+    "apontar",
+    "detalhe",
+    "produto",
+    "etiqueta"
+   ]
+  },
+  "animation:lluvia-dinero": {
+   "name": "Chuva de dinheiro",
+   "tags": [
+    "dinheiro",
+    "lucro",
+    "rico",
+    "notas"
+   ]
+  },
+  "animation:luna-estrellas": {
+   "name": "Lua e estrelas",
+   "tags": [
+    "noite",
+    "dormir",
+    "lua",
+    "boa noite"
+   ]
+  },
+  "animation:luna-farol": {
+   "name": "Lua e lanterna",
+   "tags": [
+    "ramadã",
+    "eid",
+    "lua",
+    "lanterna"
+   ]
+  },
+  "animation:lupa": {
+   "name": "Lupa",
+   "tags": [
+    "lupa",
+    "buscar",
+    "zoom",
+    "detalhe",
+    "review"
+   ]
+  },
+  "animation:mancha": {
+   "name": "Mancha orgânica",
+   "tags": [
+    "mancha",
+    "fundo",
+    "forma",
+    "líquido",
+    "blob"
+   ]
+  },
+  "animation:mancha-liquida": {
+   "name": "Mancha líquida",
+   "tags": [
+    "transição",
+    "líquido",
+    "mancha",
+    "troca de cena"
+   ]
+  },
+  "animation:mano-senala": {
+   "name": "Mão apontando",
+   "tags": [
+    "mão",
+    "apontar",
+    "aqui",
+    "olhe"
+   ]
+  },
+  "animation:marco-circular": {
+   "name": "Moldura circular",
+   "tags": [
+    "perfil",
+    "foto",
+    "moldura",
+    "avatar"
+   ]
+  },
+  "animation:marco-esquinas": {
+   "name": "Cantos de foco",
+   "tags": [
+    "moldura",
+    "foco",
+    "câmera",
+    "cantos"
+   ]
+  },
+  "animation:marco-polaroid": {
+   "name": "Moldura de foto instantânea",
+   "tags": [
+    "foto",
+    "moldura",
+    "lembrança",
+    "foto instantânea"
+   ]
+  },
+  "animation:margarita-retro": {
+   "name": "Margarida retrô",
+   "tags": [
+    "flor",
+    "margarida",
+    "retrô",
+    "groovy",
+    "y2k"
+   ]
+  },
+  "animation:me-gusta": {
+   "name": "Curtir",
+   "tags": [
+    "curtir",
+    "like",
+    "coração",
+    "redes"
+   ]
+  },
+  "animation:medalla": {
+   "name": "Medalha",
+   "tags": [
+    "medalha",
+    "vencedor",
+    "prêmio",
+    "conquista",
+    "primeiro lugar"
+   ]
+  },
+  "animation:megafono": {
+   "name": "Megafone",
+   "tags": [
+    "anúncio",
+    "notícia",
+    "atenção",
+    "promoção"
+   ]
+  },
+  "animation:microfono": {
+   "name": "Microfone",
+   "tags": [
+    "podcast",
+    "gravar",
+    "voz",
+    "música",
+    "microfone"
+   ]
+  },
+  "animation:mira-enfoque": {
+   "name": "Mira de foco",
+   "tags": [
+    "mira",
+    "foco",
+    "alvo",
+    "detalhe",
+    "zoom"
+   ]
+  },
+  "animation:moneda": {
+   "name": "Moeda girando",
+   "tags": [
+    "dinheiro",
+    "moeda",
+    "pagamento",
+    "economia"
+   ]
+  },
+  "animation:morph-estrella": {
+   "name": "Estrela que se transforma",
+   "tags": [
+    "forma",
+    "estrela",
+    "flor",
+    "transformar",
+    "morph"
+   ]
+  },
+  "animation:murcielago": {
+   "name": "Morcego",
+   "tags": [
+    "halloween",
+    "noite",
+    "morcego",
+    "medo"
+   ]
+  },
+  "animation:nieve": {
+   "name": "Neve",
+   "tags": [
+    "natal",
+    "neve",
+    "inverno",
+    "frio"
+   ]
+  },
+  "animation:nota-adhesiva": {
+   "name": "Post-it",
+   "tags": [
+    "bilhete",
+    "lembrete",
+    "anotação",
+    "tarefa"
+   ]
+  },
+  "animation:notas-musicales": {
+   "name": "Notas musicais",
+   "tags": [
+    "música",
+    "canção",
+    "áudio",
+    "dança"
+   ]
+  },
+  "animation:nube-lluvia": {
+   "name": "Nuvem com chuva",
+   "tags": [
+    "chuva",
+    "nuvem",
+    "clima",
+    "inverno"
+   ]
+  },
+  "animation:nube-pensamiento": {
+   "name": "Balão de pensamento",
+   "tags": [
+    "pensar",
+    "ideia",
+    "texto",
+    "balão"
+   ]
+  },
+  "animation:nueva-notificacion": {
+   "name": "Nova notificação",
+   "tags": [
+    "notificação",
+    "aviso",
+    "mensagem",
+    "app"
+   ]
+  },
+  "animation:ojo-mira": {
+   "name": "Olho que olha",
+   "tags": [
+    "olho",
+    "olhar",
+    "atenção",
+    "detalhe"
+   ]
+  },
+  "animation:olas": {
+   "name": "Ondas do mar",
+   "tags": [
+    "mar",
+    "praia",
+    "água",
+    "verão",
+    "ondas"
+   ]
+  },
+  "animation:onda-liquida": {
+   "name": "Onda líquida",
+   "tags": [
+    "transição",
+    "líquido",
+    "onda",
+    "troca de cena"
+   ]
+  },
+  "animation:ondas": {
+   "name": "Ondas de pulso",
+   "tags": [
+    "pulso",
+    "radar",
+    "localização",
+    "ao vivo"
+   ]
+  },
+  "animation:palomita": {
+   "name": "Visto",
+   "tags": [
+    "visto",
+    "pronto",
+    "correto",
+    "feito",
+    "check"
+   ]
+  },
+  "animation:palomitas": {
+   "name": "Pipoca",
+   "tags": [
+    "cinema",
+    "filme",
+    "pipoca",
+    "maratona"
+   ]
+  },
+  "animation:paraguas": {
+   "name": "Guarda-chuva",
+   "tags": [
+    "chuva",
+    "outono",
+    "proteção",
+    "clima"
+   ]
+  },
+  "animation:pastel-velas": {
+   "name": "Bolo com velas",
+   "tags": [
+    "aniversário",
+    "bolo",
+    "velas",
+    "festa"
+   ]
+  },
+  "animation:perfecto": {
+   "name": "Perfeito!",
+   "tags": [
+    "perfeito",
+    "100",
+    "aprovado",
+    "nota máxima"
+   ]
+  },
+  "animation:pergamino": {
+   "name": "Pergaminho",
+   "tags": [
+    "título",
+    "banner",
+    "medieval",
+    "aviso"
+   ]
+  },
+  "animation:persiana": {
+   "name": "Persiana",
+   "tags": [
+    "transição",
+    "barras",
+    "persiana",
+    "troca de cena"
+   ]
+  },
+  "animation:pesas": {
+   "name": "Halter",
+   "tags": [
+    "academia",
+    "força",
+    "exercício",
+    "treino"
+   ]
+  },
+  "animation:petalos-cerezo": {
+   "name": "Pétalas de cerejeira",
+   "tags": [
+    "primavera",
+    "sakura",
+    "flores",
+    "romântico"
+   ]
+  },
+  "animation:pizza": {
+   "name": "Fatia de pizza",
+   "tags": [
+    "pizza",
+    "comida",
+    "noite da pizza",
+    "delivery"
+   ]
+  },
+  "animation:podio": {
+   "name": "Pódio",
+   "tags": [
+    "vencedor",
+    "primeiro lugar",
+    "competição",
+    "prêmio"
+   ]
+  },
+  "animation:porcentaje-oferta": {
+   "name": "Desconto",
+   "tags": [
+    "desconto",
+    "oferta",
+    "porcentagem",
+    "promoção"
+   ]
+  },
+  "animation:pulso-cardiaco": {
+   "name": "Batimento cardíaco",
+   "tags": [
+    "saúde",
+    "coração",
+    "exercício",
+    "cardio"
+   ]
+  },
+  "animation:puntos-onda": {
+   "name": "Pontos em onda",
+   "tags": [
+    "pontos",
+    "fundo",
+    "onda",
+    "padrão"
+   ]
+  },
+  "animation:rayos-fondo": {
+   "name": "Raios giratórios",
+   "tags": [
+    "raios",
+    "fundo",
+    "oferta",
+    "retrô",
+    "produto"
+   ]
+  },
+  "animation:reacciones-vivo": {
+   "name": "Reações ao vivo",
+   "tags": [
+    "reações",
+    "ao vivo",
+    "curtidas",
+    "corações"
+   ]
+  },
+  "animation:recuadro-a-mano": {
+   "name": "Quadrado à mão",
+   "tags": [
+    "destacar",
+    "moldura",
+    "rabisco",
+    "apontar"
+   ]
+  },
+  "animation:refresco": {
+   "name": "Bebida com canudo",
+   "tags": [
+    "bebida",
+    "refrigerante",
+    "verão",
+    "festa"
+   ]
+  },
+  "animation:regalo-sorpresa": {
+   "name": "Presente surpresa",
+   "tags": [
+    "presente",
+    "surpresa",
+    "aniversário",
+    "natal"
+   ]
+  },
+  "animation:reloj": {
+   "name": "Relógio",
+   "tags": [
+    "hora",
+    "tempo",
+    "horário",
+    "pontual"
+   ]
+  },
+  "animation:reloj-arena": {
+   "name": "Ampulheta",
+   "tags": [
+    "espera",
+    "tempo",
+    "carregando",
+    "paciência"
+   ]
+  },
+  "animation:reloj-medianoche": {
+   "name": "Meia-noite",
+   "tags": [
+    "ano-novo",
+    "meia-noite",
+    "contagem regressiva",
+    "festa"
+   ]
+  },
+  "animation:republicar": {
+   "name": "Repostar",
+   "tags": [
+    "repostar",
+    "compartilhar",
+    "repetir",
+    "redes"
+   ]
+  },
+  "animation:resaltador": {
+   "name": "Marca-texto",
+   "tags": [
+    "marca-texto",
+    "destacar",
+    "texto",
+    "estudar"
+   ]
+  },
+  "animation:salpicadura": {
+   "name": "Respingo",
+   "tags": [
+    "respingo",
+    "tinta",
+    "forma",
+    "gota"
+   ]
+  },
+  "animation:sandia": {
+   "name": "Melancia",
+   "tags": [
+    "melancia",
+    "fruta",
+    "verão",
+    "fresco"
+   ]
+  },
+  "animation:scroll-abajo": {
+   "name": "Deslize para baixo",
+   "tags": [
+    "deslize",
+    "para baixo",
+    "rolar",
+    "mais"
+   ]
+  },
+  "animation:seguir-persona": {
+   "name": "Novo seguidor",
+   "tags": [
+    "seguir",
+    "seguidor",
+    "adicionar",
+    "amigo"
+   ]
+  },
+  "animation:sello-oferta": {
+   "name": "Selo de oferta",
+   "tags": [
+    "oferta",
+    "desconto",
+    "venda",
+    "promoção"
+   ]
+  },
+  "animation:sello-ondulado": {
+   "name": "Selo ondulado",
+   "tags": [
+    "selo",
+    "novo",
+    "oferta",
+    "retrô"
+   ]
+  },
+  "animation:serpentinas": {
+   "name": "Serpentinas",
+   "tags": [
+    "serpentina",
+    "festa",
+    "aniversário",
+    "comemorar"
+   ]
+  },
+  "animation:silbato": {
+   "name": "Apito",
+   "tags": [
+    "juiz",
+    "treinador",
+    "esporte",
+    "falta"
+   ]
+  },
+  "animation:sol": {
+   "name": "Sol girando",
+   "tags": [
+    "sol",
+    "verão",
+    "praia",
+    "calor"
+   ]
+  },
+  "animation:sol-nube": {
+   "name": "Sol entre nuvens",
+   "tags": [
+    "sol",
+    "nublado",
+    "clima",
+    "bom dia"
+   ]
+  },
+  "animation:subrayado": {
+   "name": "Sublinhado à mão",
+   "tags": [
+    "sublinhar",
+    "destacar",
+    "texto",
+    "rabisco"
+   ]
+  },
+  "animation:subrayado-ondulado": {
+   "name": "Sublinhado ondulado",
+   "tags": [
+    "sublinhar",
+    "destacar",
+    "texto",
+    "rabisco"
+   ]
+  },
+  "animation:tachado-garabato": {
+   "name": "Riscado à mão",
+   "tags": [
+    "riscar",
+    "erro",
+    "não",
+    "rabisco"
+   ]
+  },
+  "animation:tarjeta-aviso": {
+   "name": "Cartão de aviso",
+   "tags": [
+    "aviso",
+    "notificação",
+    "mensagem",
+    "banner"
+   ]
+  },
+  "animation:tarjeta-pago": {
+   "name": "Cartão de pagamento",
+   "tags": [
+    "pagamento",
+    "cartão",
+    "compra",
+    "loja"
+   ]
+  },
+  "animation:tazon-fideos": {
+   "name": "Tigela de macarrão",
+   "tags": [
+    "macarrão",
+    "lámen",
+    "sopa",
+    "jantar"
+   ]
+  },
+  "animation:telefono": {
+   "name": "Ligação",
+   "tags": [
+    "ligar",
+    "contato",
+    "telefone",
+    "pedidos"
+   ]
+  },
+  "animation:tercio-inferior": {
+   "name": "Barra de nome",
+   "tags": [
+    "nome",
+    "título",
+    "entrevista",
+    "terço inferior"
+   ]
+  },
+  "animation:termometro-calor": {
+   "name": "Muito calor",
+   "tags": [
+    "calor",
+    "verão",
+    "temperatura",
+    "sol"
+   ]
+  },
+  "animation:tienda": {
+   "name": "Loja",
+   "tags": [
+    "loja",
+    "negócio",
+    "aberto",
+    "comércio"
+   ]
+  },
+  "animation:toca-aqui": {
+   "name": "Toque aqui",
+   "tags": [
+    "toque",
+    "clique",
+    "link",
+    "botão"
+   ]
+  },
+  "animation:tormenta": {
+   "name": "Tempestade",
+   "tags": [
+    "tempestade",
+    "raio",
+    "chuva",
+    "clima"
+   ]
+  },
+  "animation:trofeo": {
+   "name": "Troféu",
+   "tags": [
+    "troféu",
+    "conquista",
+    "vencedor",
+    "prêmio",
+    "concurso"
+   ]
+  },
+  "animation:ubicacion": {
+   "name": "Localização",
+   "tags": [
+    "localização",
+    "mapa",
+    "endereço",
+    "visite-nos"
+   ]
+  },
+  "animation:varita-magica": {
+   "name": "Varinha mágica",
+   "tags": [
+    "varinha",
+    "magia",
+    "desejo",
+    "surpresa",
+    "brilho"
+   ]
+  },
+  "animation:verificado": {
+   "name": "Verificado",
+   "tags": [
+    "verificado",
+    "oficial",
+    "aprovado",
+    "selo"
+   ]
+  },
+  "animation:viento": {
+   "name": "Vento",
+   "tags": [
+    "vento",
+    "brisa",
+    "ar",
+    "frio"
+   ]
+  },
+  "animation:wifi": {
+   "name": "Sinal de wi-fi",
+   "tags": [
+    "internet",
+    "conexão",
+    "sinal",
+    "online",
+    "wi-fi"
+   ]
+  },
+  "overlay:amor-corazones": {
+   "name": "Corações flutuando",
+   "tags": [
+    "corações",
+    "amor",
+    "dia dos namorados",
+    "casal",
+    "romântico"
+   ]
+  },
+  "overlay:amor-corazones-brillo": {
+   "name": "Corações com brilho",
+   "tags": [
+    "corações",
+    "brilho",
+    "glitter",
+    "amor",
+    "romântico",
+    "15 anos"
+   ]
+  },
+  "overlay:amor-corazones-contorno": {
+   "name": "Corações de contorno",
+   "tags": [
+    "corações",
+    "contorno",
+    "minimalista",
+    "branco",
+    "amor"
+   ]
+  },
+  "overlay:amor-corazones-neon": {
+   "name": "Corações neon",
+   "tags": [
+    "corações",
+    "neon",
+    "luzes",
+    "noite",
+    "amor",
+    "aesthetic"
+   ]
+  },
+  "overlay:amor-corazones-rojos": {
+   "name": "Corações vermelhos",
+   "tags": [
+    "corações",
+    "vermelho",
+    "amor",
+    "dia dos namorados",
+    "romântico"
+   ]
+  },
+  "overlay:amor-explosion-corazones": {
+   "name": "Explosão de corações",
+   "tags": [
+    "corações",
+    "explosão",
+    "amor",
+    "pedido",
+    "casamento",
+    "surpresa"
+   ]
+  },
+  "overlay:amor-globos-corazon": {
+   "name": "Balões de coração",
+   "tags": [
+    "balões",
+    "coração",
+    "amor",
+    "dia dos namorados",
+    "aniversário",
+    "pedido"
+   ]
+  },
+  "overlay:amor-likes": {
+   "name": "Curtidas de live",
+   "tags": [
+    "corações",
+    "curtidas",
+    "live",
+    "ao vivo",
+    "redes",
+    "transmissão"
+   ]
+  },
+  "overlay:amor-lluvia-corazones": {
+   "name": "Chuva de corações",
+   "tags": [
+    "corações",
+    "chuva",
+    "caindo",
+    "amor",
+    "romântico"
+   ]
+  },
+  "overlay:amor-marco-corazones": {
+   "name": "Moldura de corações",
+   "tags": [
+    "corações",
+    "moldura",
+    "borda",
+    "amor",
+    "romântico"
+   ]
+  },
+  "overlay:amor-petalos": {
+   "name": "Pétalas de rosa",
+   "tags": [
+    "pétalas",
+    "rosa",
+    "casamento",
+    "amor",
+    "romântico",
+    "flores"
+   ]
+  },
+  "overlay:amor-petalos-blancos": {
+   "name": "Pétalas brancas",
+   "tags": [
+    "pétalas",
+    "brancas",
+    "casamento",
+    "noiva",
+    "elegante",
+    "flores"
+   ]
+  },
+  "overlay:amor-petalos-rosa": {
+   "name": "Pétalas rosa-claro",
+   "tags": [
+    "pétalas",
+    "rosa",
+    "casamento",
+    "15 anos",
+    "romântico",
+    "flores"
+   ]
+  },
+  "overlay:cel-confeti": {
+   "name": "Chuva de confete",
+   "tags": [
+    "confete",
+    "festa",
+    "aniversário",
+    "comemoração",
+    "casamento"
+   ]
+  },
+  "overlay:cel-confeti-circulos": {
+   "name": "Confete de bolinhas",
+   "tags": [
+    "confete",
+    "bolinhas",
+    "círculos",
+    "festa",
+    "minimalista"
+   ]
+  },
+  "overlay:cel-confeti-corazones": {
+   "name": "Confete de corações",
+   "tags": [
+    "confete",
+    "corações",
+    "casamento",
+    "amor",
+    "dia dos namorados"
+   ]
+  },
+  "overlay:cel-confeti-desde-arriba": {
+   "name": "Confete caindo do alto",
+   "tags": [
+    "confete",
+    "explosão",
+    "surpresa",
+    "festa",
+    "transição",
+    "do alto"
+   ]
+  },
+  "overlay:cel-confeti-dorado": {
+   "name": "Confete dourado",
+   "tags": [
+    "confete",
+    "dourado",
+    "ano-novo",
+    "elegante",
+    "comemoração"
+   ]
+  },
+  "overlay:cel-confeti-explosion": {
+   "name": "Explosão de confete",
+   "tags": [
+    "confete",
+    "explosão",
+    "lança-confete",
+    "surpresa",
+    "festa",
+    "aniversário"
+   ]
+  },
+  "overlay:cel-confeti-grande": {
+   "name": "Confete grande",
+   "tags": [
+    "confete",
+    "grande",
+    "festa",
+    "alegre",
+    "comemoração"
+   ]
+  },
+  "overlay:cel-confeti-pastel": {
+   "name": "Confete pastel",
+   "tags": [
+    "confete",
+    "pastel",
+    "chá de bebê",
+    "bebê",
+    "aniversário",
+    "suave"
+   ]
+  },
+  "overlay:cel-confeti-plata": {
+   "name": "Confete prateado",
+   "tags": [
+    "confete",
+    "prateado",
+    "casamento",
+    "aniversário",
+    "elegante"
+   ]
+  },
+  "overlay:cel-estrellas": {
+   "name": "Chuva de estrelas",
+   "tags": [
+    "estrelas",
+    "festa",
+    "infantil",
+    "comemoração",
+    "magia"
+   ]
+  },
+  "overlay:cel-estrellas-doradas": {
+   "name": "Estrelas douradas",
+   "tags": [
+    "estrelas",
+    "douradas",
+    "prêmio",
+    "conquista",
+    "formatura"
+   ]
+  },
+  "overlay:cel-explosion-centro": {
+   "name": "Explosão no centro",
+   "tags": [
+    "confete",
+    "explosão",
+    "centro",
+    "revelação",
+    "surpresa",
+    "transição"
+   ]
+  },
+  "overlay:cel-explosion-dorada": {
+   "name": "Explosão dourada",
+   "tags": [
+    "confete",
+    "explosão",
+    "dourado",
+    "ano-novo",
+    "formatura",
+    "festa"
+   ]
+  },
+  "overlay:cel-explosion-estrellas": {
+   "name": "Explosão de estrelas",
+   "tags": [
+    "confete",
+    "explosão",
+    "estrelas",
+    "prêmio",
+    "conquista",
+    "festa"
+   ]
+  },
+  "overlay:cel-fuegos-artificiales": {
+   "name": "Fogos de artifício",
+   "tags": [
+    "fogos de artifício",
+    "ano-novo",
+    "réveillon",
+    "festa",
+    "noite"
+   ]
+  },
+  "overlay:cel-fuegos-dorados": {
+   "name": "Fogos de artifício dourados",
+   "tags": [
+    "fogos de artifício",
+    "dourado",
+    "ano-novo",
+    "elegante",
+    "noite"
+   ]
+  },
+  "overlay:cel-fuegos-final": {
+   "name": "Grande final de fogos",
+   "tags": [
+    "fogos de artifício",
+    "grand finale",
+    "ano-novo",
+    "réveillon",
+    "festa"
+   ]
+  },
+  "overlay:cel-fuegos-lejanos": {
+   "name": "Fogos ao longe",
+   "tags": [
+    "fogos de artifício",
+    "distantes",
+    "cidade",
+    "ano-novo",
+    "noite"
+   ]
+  },
+  "overlay:cel-globos": {
+   "name": "Balões",
+   "tags": [
+    "balões",
+    "aniversário",
+    "festa",
+    "comemoração",
+    "infantil"
+   ]
+  },
+  "overlay:cel-globos-dorados": {
+   "name": "Balões dourados e prateados",
+   "tags": [
+    "balões",
+    "dourado",
+    "prateado",
+    "elegante",
+    "aniversário",
+    "festa"
+   ]
+  },
+  "overlay:cel-globos-pastel": {
+   "name": "Balões pastel",
+   "tags": [
+    "balões",
+    "pastel",
+    "chá de bebê",
+    "bebê",
+    "aniversário"
+   ]
+  },
+  "overlay:cel-lluvia-billetes": {
+   "name": "Chuva de notas",
+   "tags": [
+    "dinheiro",
+    "notas",
+    "rico",
+    "ganhar",
+    "vendas",
+    "sucesso"
+   ]
+  },
+  "overlay:cel-lluvia-emojis": {
+   "name": "Chuva de emojis",
+   "tags": [
+    "emojis",
+    "carinhas",
+    "humor",
+    "divertido",
+    "reação",
+    "risada"
+   ]
+  },
+  "overlay:cel-lluvia-monedas": {
+   "name": "Chuva de moedas",
+   "tags": [
+    "moedas",
+    "dinheiro",
+    "ganhar",
+    "prêmio",
+    "negócio",
+    "ofertas"
+   ]
+  },
+  "overlay:cel-lluvia-regalos": {
+   "name": "Chuva de presentes",
+   "tags": [
+    "presentes",
+    "natal",
+    "aniversário",
+    "sorteio",
+    "prêmio"
+   ]
+  },
+  "overlay:cel-purpurina": {
+   "name": "Glitter",
+   "tags": [
+    "glitter",
+    "purpurina",
+    "brilho",
+    "dourado",
+    "festa",
+    "beleza"
+   ]
+  },
+  "overlay:cel-serpentinas": {
+   "name": "Serpentinas",
+   "tags": [
+    "serpentinas",
+    "festa",
+    "carnaval",
+    "aniversário",
+    "comemoração"
+   ]
+  },
+  "overlay:clima-arcoiris": {
+   "name": "Arco-íris",
+   "tags": [
+    "arco-íris",
+    "chuva",
+    "esperança",
+    "orgulho",
+    "cores",
+    "céu"
+   ]
+  },
+  "overlay:clima-copos": {
+   "name": "Flocos de neve",
+   "tags": [
+    "flocos",
+    "neve",
+    "inverno",
+    "natal",
+    "frio"
+   ]
+  },
+  "overlay:clima-dientes-de-leon": {
+   "name": "Dentes-de-leão",
+   "tags": [
+    "dente-de-leão",
+    "desejo",
+    "calma",
+    "primavera",
+    "suave",
+    "natureza"
+   ]
+  },
+  "overlay:clima-gotas-cristal": {
+   "name": "Gotas no vidro",
+   "tags": [
+    "gotas",
+    "vidro",
+    "janela",
+    "chuva",
+    "melancolia",
+    "triste"
+   ]
+  },
+  "overlay:clima-hojas": {
+   "name": "Folhas de outono",
+   "tags": [
+    "folhas",
+    "outono",
+    "natureza",
+    "ação de graças"
+   ]
+  },
+  "overlay:clima-hojas-verdes": {
+   "name": "Folhas verdes",
+   "tags": [
+    "folhas",
+    "verdes",
+    "primavera",
+    "verão",
+    "floresta",
+    "eco"
+   ]
+  },
+  "overlay:clima-humo": {
+   "name": "Fumaça",
+   "tags": [
+    "fumaça",
+    "vapor",
+    "mistério",
+    "dramático",
+    "show"
+   ]
+  },
+  "overlay:clima-humo-azul": {
+   "name": "Fumaça azul",
+   "tags": [
+    "fumaça",
+    "bomba de fumaça",
+    "azul",
+    "chá revelação",
+    "menino",
+    "bebê"
+   ]
+  },
+  "overlay:clima-humo-colores": {
+   "name": "Fumaça colorida",
+   "tags": [
+    "fumaça",
+    "bomba de fumaça",
+    "colorida",
+    "holi",
+    "festival",
+    "festa"
+   ]
+  },
+  "overlay:clima-humo-rosa": {
+   "name": "Fumaça rosa",
+   "tags": [
+    "fumaça",
+    "bomba de fumaça",
+    "rosa",
+    "chá revelação",
+    "menina",
+    "bebê"
+   ]
+  },
+  "overlay:clima-lluvia": {
+   "name": "Chuva",
+   "tags": [
+    "chuva",
+    "tempestade",
+    "triste",
+    "melancolia",
+    "gotas"
+   ]
+  },
+  "overlay:clima-lluvia-ligera": {
+   "name": "Garoa",
+   "tags": [
+    "garoa",
+    "chuvisco",
+    "chuva",
+    "calma",
+    "nostalgia"
+   ]
+  },
+  "overlay:clima-nevada": {
+   "name": "Nevasca",
+   "tags": [
+    "neve",
+    "nevasca",
+    "tempestade",
+    "inverno",
+    "natal"
+   ]
+  },
+  "overlay:clima-niebla": {
+   "name": "Neblina",
+   "tags": [
+    "neblina",
+    "névoa",
+    "bruma",
+    "mistério",
+    "terror",
+    "halloween"
+   ]
+  },
+  "overlay:clima-niebla-baja": {
+   "name": "Neblina baixa",
+   "tags": [
+    "neblina",
+    "névoa",
+    "chão",
+    "mistério",
+    "palco",
+    "sonho"
+   ]
+  },
+  "overlay:clima-nieve": {
+   "name": "Neve suave",
+   "tags": [
+    "neve",
+    "inverno",
+    "natal",
+    "frio",
+    "suave"
+   ]
+  },
+  "overlay:clima-noche-estrellada": {
+   "name": "Noite estrelada",
+   "tags": [
+    "estrelas",
+    "noite",
+    "céu",
+    "magia",
+    "lua",
+    "dormir"
+   ]
+  },
+  "overlay:clima-petalos-flores": {
+   "name": "Pétalas coloridas",
+   "tags": [
+    "pétalas",
+    "flores",
+    "primavera",
+    "cores",
+    "dia das mães"
+   ]
+  },
+  "overlay:garabato-angel": {
+   "name": "Asas de anjo e auréola",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "anjo",
+    "asas",
+    "auréola",
+    "fofo"
+   ]
+  },
+  "overlay:garabato-angel-dorado": {
+   "name": "Asas douradas",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "anjo",
+    "asas",
+    "dourado",
+    "auréola"
+   ]
+  },
+  "overlay:garabato-brillo": {
+   "name": "Linhas de brilho",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "brilho",
+    "destacar",
+    "novo",
+    "uau"
+   ]
+  },
+  "overlay:garabato-caritas": {
+   "name": "Carinhas à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "carinhas",
+    "sorriso",
+    "feliz"
+   ]
+  },
+  "overlay:garabato-cielo": {
+   "name": "Nuvens e sol à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "nuvens",
+    "sol",
+    "céu",
+    "verão"
+   ]
+  },
+  "overlay:garabato-circulo": {
+   "name": "Círculo à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "círculo",
+    "destacar",
+    "apontar",
+    "olha isso"
+   ]
+  },
+  "overlay:garabato-circulo-rojo": {
+   "name": "Círculo vermelho à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "círculo",
+    "vermelho",
+    "destacar",
+    "apontar"
+   ]
+  },
+  "overlay:garabato-corazones": {
+   "name": "Rabiscos de corações",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "corações",
+    "amor",
+    "à mão"
+   ]
+  },
+  "overlay:garabato-corazones-rosa": {
+   "name": "Corações rosa à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "corações",
+    "rosa",
+    "amor"
+   ]
+  },
+  "overlay:garabato-corona": {
+   "name": "Coroa à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "coroa",
+    "rei",
+    "rainha"
+   ]
+  },
+  "overlay:garabato-corona-dorada": {
+   "name": "Coroa dourada à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "coroa",
+    "dourada",
+    "rainha",
+    "aniversário"
+   ]
+  },
+  "overlay:garabato-diablito": {
+   "name": "Chifrinhos de diabinho",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "diabinho",
+    "chifres",
+    "travesso",
+    "halloween"
+   ]
+  },
+  "overlay:garabato-diablito-blanco": {
+   "name": "Chifres à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "chifres",
+    "travesso",
+    "humor"
+   ]
+  },
+  "overlay:garabato-estallido": {
+   "name": "Explosão à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "explosão",
+    "raios",
+    "surpresa",
+    "impacto"
+   ]
+  },
+  "overlay:garabato-estrellas": {
+   "name": "Rabiscos de estrelas",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "estrelas",
+    "brilhos",
+    "à mão"
+   ]
+  },
+  "overlay:garabato-estrellas-doradas": {
+   "name": "Estrelas douradas à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "estrelas",
+    "dourado",
+    "à mão"
+   ]
+  },
+  "overlay:garabato-flechas": {
+   "name": "Setas à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "setas",
+    "apontar",
+    "olhe"
+   ]
+  },
+  "overlay:garabato-flechas-girando": {
+   "name": "Setas girando",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "setas",
+    "girando",
+    "atenção",
+    "apontar"
+   ]
+  },
+  "overlay:garabato-flechas-neon": {
+   "name": "Setas neon",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "setas",
+    "neon",
+    "amarelo",
+    "apontar"
+   ]
+  },
+  "overlay:garabato-flores": {
+   "name": "Flores à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "flores",
+    "primavera",
+    "dia das mães"
+   ]
+  },
+  "overlay:garabato-mariposas": {
+   "name": "Borboletas à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "borboletas",
+    "primavera",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-mix": {
+   "name": "Rabiscos variados",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "mix",
+    "variados",
+    "scrapbook",
+    "diário"
+   ]
+  },
+  "overlay:garabato-mix-negro": {
+   "name": "Rabiscos pretos",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "preto",
+    "mix",
+    "minimalista"
+   ]
+  },
+  "overlay:garabato-mix-rosa": {
+   "name": "Rabiscos rosa",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "rosa",
+    "mix",
+    "kawaii"
+   ]
+  },
+  "overlay:garabato-musica": {
+   "name": "Notas musicais à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "música",
+    "notas",
+    "cantar",
+    "dança"
+   ]
+  },
+  "overlay:garabato-neon-corazones": {
+   "name": "Corações neon à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "neon",
+    "corações",
+    "noite",
+    "aesthetic"
+   ]
+  },
+  "overlay:garabato-rayos": {
+   "name": "Raios à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "raios",
+    "energia",
+    "força",
+    "academia"
+   ]
+  },
+  "overlay:garabato-signos": {
+   "name": "Sinais à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "interrogação",
+    "surpresa",
+    "dúvida",
+    "humor"
+   ]
+  },
+  "overlay:garabato-subrayado": {
+   "name": "Sublinhado à mão",
+   "tags": [
+    "rabiscos",
+    "doodle",
+    "sublinhado",
+    "destacar",
+    "texto"
+   ]
+  },
+  "overlay:luz-arcoiris": {
+   "name": "Luz arco-íris",
+   "tags": [
+    "luz",
+    "arco-íris",
+    "prisma",
+    "cores"
+   ]
+  },
+  "overlay:luz-barrido-calido": {
+   "name": "Varredura de luz quente",
+   "tags": [
+    "varredura",
+    "transição",
+    "luz",
+    "vazamento de luz",
+    "quente"
+   ]
+  },
+  "overlay:luz-barrido-rosa": {
+   "name": "Varredura de luz rosa",
+   "tags": [
+    "varredura",
+    "transição",
+    "luz",
+    "vazamento de luz",
+    "rosa"
+   ]
+  },
+  "overlay:luz-bokeh-azul": {
+   "name": "Bokeh azul noturno",
+   "tags": [
+    "bokeh",
+    "azul",
+    "noite",
+    "cidade",
+    "luzes"
+   ]
+  },
+  "overlay:luz-bokeh-blanco": {
+   "name": "Bokeh branco",
+   "tags": [
+    "bokeh",
+    "branco",
+    "luzes",
+    "desfoque",
+    "casamento",
+    "elegante"
+   ]
+  },
+  "overlay:luz-bokeh-cayendo": {
+   "name": "Bokeh caindo",
+   "tags": [
+    "bokeh",
+    "caindo",
+    "luzes",
+    "natal",
+    "elegante"
+   ]
+  },
+  "overlay:luz-bokeh-color": {
+   "name": "Bokeh colorido",
+   "tags": [
+    "bokeh",
+    "colorido",
+    "festa",
+    "luzes",
+    "noite"
+   ]
+  },
+  "overlay:luz-bokeh-corazones": {
+   "name": "Bokeh de corações",
+   "tags": [
+    "bokeh",
+    "corações",
+    "amor",
+    "dia dos namorados",
+    "romântico"
+   ]
+  },
+  "overlay:luz-bokeh-dorado": {
+   "name": "Bokeh dourado",
+   "tags": [
+    "bokeh",
+    "dourado",
+    "luzes",
+    "desfoque",
+    "natal",
+    "elegante"
+   ]
+  },
+  "overlay:luz-bokeh-estrellas": {
+   "name": "Bokeh de estrelas",
+   "tags": [
+    "bokeh",
+    "estrelas",
+    "magia",
+    "natal",
+    "festa"
+   ]
+  },
+  "overlay:luz-bokeh-rosa": {
+   "name": "Bokeh rosa",
+   "tags": [
+    "bokeh",
+    "rosa",
+    "romântico",
+    "15 anos",
+    "luzes"
+   ]
+  },
+  "overlay:luz-destello": {
+   "name": "Reflexo de lente",
+   "tags": [
+    "reflexo",
+    "lens flare",
+    "lente",
+    "sol",
+    "transição",
+    "brilho"
+   ]
+  },
+  "overlay:luz-destello-azul": {
+   "name": "Reflexo anamórfico azul",
+   "tags": [
+    "reflexo",
+    "lens flare",
+    "anamórfico",
+    "azul",
+    "cinema",
+    "ficção científica"
+   ]
+  },
+  "overlay:luz-escaner": {
+   "name": "Linha de scanner",
+   "tags": [
+    "scanner",
+    "laser",
+    "tecnologia",
+    "futurista",
+    "linha"
+   ]
+  },
+  "overlay:luz-flash-transicion": {
+   "name": "Flash de transição",
+   "tags": [
+    "flash",
+    "transição",
+    "branco",
+    "luz",
+    "clarão"
+   ]
+  },
+  "overlay:luz-fuga-calida": {
+   "name": "Vazamento de luz quente",
+   "tags": [
+    "vazamento de luz",
+    "light leak",
+    "quente",
+    "laranja",
+    "filme",
+    "vintage"
+   ]
+  },
+  "overlay:luz-fuga-dorada": {
+   "name": "Vazamento de luz dourada",
+   "tags": [
+    "vazamento de luz",
+    "light leak",
+    "filme",
+    "dourado",
+    "golden hour",
+    "pôr do sol"
+   ]
+  },
+  "overlay:luz-fuga-esquina": {
+   "name": "Luz nos cantos",
+   "tags": [
+    "vazamento de luz",
+    "light leak",
+    "filme",
+    "cantos",
+    "quente"
+   ]
+  },
+  "overlay:luz-fuga-esquina-rosa": {
+   "name": "Luz rosa nos cantos",
+   "tags": [
+    "vazamento de luz",
+    "light leak",
+    "filme",
+    "cantos",
+    "rosa"
+   ]
+  },
+  "overlay:luz-fuga-fria": {
+   "name": "Vazamento de luz fria",
+   "tags": [
+    "vazamento de luz",
+    "light leak",
+    "azul",
+    "frio",
+    "noite"
+   ]
+  },
+  "overlay:luz-fuga-roja": {
+   "name": "Vazamento de luz vermelha",
+   "tags": [
+    "vazamento de luz",
+    "light leak",
+    "filme",
+    "vermelho",
+    "dramático"
+   ]
+  },
+  "overlay:luz-fuga-rosa": {
+   "name": "Vazamento de luz rosa",
+   "tags": [
+    "vazamento de luz",
+    "light leak",
+    "rosa",
+    "romântico",
+    "sonho"
+   ]
+  },
+  "overlay:luz-fuga-turquesa": {
+   "name": "Vazamento de luz turquesa e laranja",
+   "tags": [
+    "vazamento de luz",
+    "light leak",
+    "filme",
+    "turquesa",
+    "teal",
+    "cinema"
+   ]
+  },
+  "overlay:luz-fuga-verde": {
+   "name": "Vazamento de luz verde vintage",
+   "tags": [
+    "vazamento de luz",
+    "light leak",
+    "filme",
+    "verde",
+    "vintage",
+    "retrô"
+   ]
+  },
+  "overlay:luz-fuga-violeta": {
+   "name": "Vazamento de luz violeta",
+   "tags": [
+    "vazamento de luz",
+    "light leak",
+    "filme",
+    "violeta",
+    "roxo",
+    "sonho"
+   ]
+  },
+  "overlay:luz-luces-ciudad": {
+   "name": "Luzes da cidade",
+   "tags": [
+    "cidade",
+    "luzes",
+    "noite",
+    "urbano",
+    "bokeh"
+   ]
+  },
+  "overlay:luz-luces-navidad": {
+   "name": "Luzes de Natal",
+   "tags": [
+    "natal",
+    "luzes",
+    "pisca-pisca",
+    "bokeh",
+    "festas",
+    "dezembro"
+   ]
+  },
+  "overlay:luz-luciernagas": {
+   "name": "Vaga-lumes",
+   "tags": [
+    "vaga-lumes",
+    "magia",
+    "noite",
+    "floresta",
+    "brilho"
+   ]
+  },
+  "overlay:luz-neon-barrido": {
+   "name": "Varredura neon",
+   "tags": [
+    "neon",
+    "varredura",
+    "transição",
+    "luz",
+    "moderno"
+   ]
+  },
+  "overlay:luz-prisma": {
+   "name": "Prisma arco-íris",
+   "tags": [
+    "prisma",
+    "arco-íris",
+    "refração",
+    "cristal",
+    "aesthetic"
+   ]
+  },
+  "overlay:luz-rayos": {
+   "name": "Raios de sol",
+   "tags": [
+    "raios",
+    "sol",
+    "luz",
+    "divino",
+    "pôr do sol"
+   ]
+  },
+  "overlay:luz-sol": {
+   "name": "Sol com reflexos",
+   "tags": [
+    "sol",
+    "reflexo",
+    "lens flare",
+    "verão",
+    "praia"
+   ]
+  },
+  "overlay:part-ascendentes": {
+   "name": "Luzes subindo",
+   "tags": [
+    "luzes",
+    "subindo",
+    "espiritual",
+    "paz",
+    "calma",
+    "homenagem"
+   ]
+  },
+  "overlay:part-bengala": {
+   "name": "Vela estrelinha",
+   "tags": [
+    "estrelinha",
+    "faíscas",
+    "ano-novo",
+    "casamento",
+    "comemoração",
+    "festa"
+   ]
+  },
+  "overlay:part-brasas": {
+   "name": "Brasas",
+   "tags": [
+    "brasas",
+    "fogo",
+    "fogueira",
+    "quente",
+    "fagulhas"
+   ]
+  },
+  "overlay:part-brasas-azules": {
+   "name": "Brasas azuis",
+   "tags": [
+    "brasas",
+    "azuis",
+    "magia",
+    "fantasia",
+    "gelo"
+   ]
+  },
+  "overlay:part-brillos": {
+   "name": "Cintilações",
+   "tags": [
+    "brilhos",
+    "cintilar",
+    "magia",
+    "estrelas",
+    "glitter",
+    "beleza"
+   ]
+  },
+  "overlay:part-brillos-azules": {
+   "name": "Cintilações azuis",
+   "tags": [
+    "brilhos",
+    "azuis",
+    "gelo",
+    "inverno",
+    "magia"
+   ]
+  },
+  "overlay:part-brillos-dorados": {
+   "name": "Cintilações douradas",
+   "tags": [
+    "brilhos",
+    "dourados",
+    "elegante",
+    "casamento",
+    "luxo"
+   ]
+  },
+  "overlay:part-brillos-rosa": {
+   "name": "Cintilações rosa",
+   "tags": [
+    "brilhos",
+    "rosa",
+    "aesthetic",
+    "beleza",
+    "kawaii"
+   ]
+  },
+  "overlay:part-burbujas": {
+   "name": "Bolhas",
+   "tags": [
+    "bolhas",
+    "sabão",
+    "água",
+    "crianças",
+    "infantil"
+   ]
+  },
+  "overlay:part-burbujas-arcoiris": {
+   "name": "Bolhas furta-cor",
+   "tags": [
+    "bolhas",
+    "furta-cor",
+    "iridescente",
+    "arco-íris",
+    "sabão",
+    "aesthetic"
+   ]
+  },
+  "overlay:part-chispas": {
+   "name": "Faíscas",
+   "tags": [
+    "faíscas",
+    "fogo",
+    "estrelinha",
+    "energia"
+   ]
+  },
+  "overlay:part-chispas-azules": {
+   "name": "Faíscas azuis",
+   "tags": [
+    "faíscas",
+    "azuis",
+    "energia",
+    "elétrico",
+    "magia"
+   ]
+  },
+  "overlay:part-destellos-grandes": {
+   "name": "Brilhos grandes",
+   "tags": [
+    "brilhos",
+    "grandes",
+    "brilho",
+    "produto",
+    "limpo",
+    "novo"
+   ]
+  },
+  "overlay:part-estrellas-fugaces": {
+   "name": "Estrelas cadentes",
+   "tags": [
+    "estrelas cadentes",
+    "céu",
+    "noite",
+    "desejo",
+    "meteoro",
+    "magia"
+   ]
+  },
+  "overlay:part-estrellitas": {
+   "name": "Estrelinhas",
+   "tags": [
+    "estrelinhas",
+    "infantil",
+    "magia",
+    "fofo",
+    "kawaii"
+   ]
+  },
+  "overlay:part-explosion-chispas": {
+   "name": "Explosão de faíscas",
+   "tags": [
+    "explosão",
+    "faíscas",
+    "impacto",
+    "batida",
+    "transição",
+    "energia"
+   ]
+  },
+  "overlay:part-lluvia-luces": {
+   "name": "Chuva de luzes",
+   "tags": [
+    "chuva de luzes",
+    "luzes",
+    "festa",
+    "balada",
+    "noite",
+    "neon"
+   ]
+  },
+  "overlay:part-lluvia-meteoros": {
+   "name": "Chuva de meteoros",
+   "tags": [
+    "meteoros",
+    "estrelas cadentes",
+    "céu",
+    "noite",
+    "espaço"
+   ]
+  },
+  "overlay:part-motas-luz": {
+   "name": "Partículas de poeira na luz",
+   "tags": [
+    "poeira",
+    "luz",
+    "sol",
+    "calma",
+    "nostalgia",
+    "lar"
+   ]
+  },
+  "overlay:part-nieve-brillante": {
+   "name": "Neve brilhante",
+   "tags": [
+    "neve",
+    "brilhante",
+    "glitter",
+    "inverno",
+    "natal",
+    "magia"
+   ]
+  },
+  "overlay:part-orbes": {
+   "name": "Orbes de luz",
+   "tags": [
+    "orbes",
+    "luz",
+    "suave",
+    "sonho",
+    "dreamy",
+    "calma"
+   ]
+  },
+  "overlay:part-polvo-dorado": {
+   "name": "Pó dourado",
+   "tags": [
+    "pó",
+    "dourado",
+    "magia",
+    "elegante",
+    "casamento",
+    "partículas"
+   ]
+  },
+  "overlay:part-polvo-magico": {
+   "name": "Rastro de pó mágico",
+   "tags": [
+    "magia",
+    "varinha",
+    "pó",
+    "rastro",
+    "fada",
+    "fantasia"
+   ]
+  },
+  "overlay:part-polvo-plateado": {
+   "name": "Pó prateado",
+   "tags": [
+    "pó",
+    "prateado",
+    "inverno",
+    "elegante",
+    "magia"
+   ]
+  },
+  "overlay:part-polvo-rosa": {
+   "name": "Pó rosa",
+   "tags": [
+    "pó",
+    "rosa",
+    "aesthetic",
+    "15 anos",
+    "magia"
+   ]
+  },
+  "overlay:part-velocidad-luz": {
+   "name": "Velocidade da luz",
+   "tags": [
+    "velocidade",
+    "warp",
+    "espaço",
+    "estrelas",
+    "hiperespaço",
+    "zoom"
+   ]
+  },
+  "template:album-scrapbook": {
+   "name": "Álbum scrapbook",
+   "tags": [
+    "álbum",
+    "scrapbook",
+    "lembranças",
+    "casal"
+   ]
+  },
+  "template:anio-nuevo-cuenta-regresiva": {
+   "name": "Contagem regressiva de Ano-Novo",
+   "tags": [
+    "ano-novo",
+    "contagem regressiva",
+    "2027",
+    "fogos de artifício",
+    "festa"
+   ]
+  },
+  "template:aniversario-pareja": {
+   "name": "Aniversário de casal",
+   "tags": [
+    "aniversário de namoro",
+    "casal",
+    "amor",
+    "namorados",
+    "anos juntos"
+   ]
+  },
+  "template:antes-despues-deslizador": {
+   "name": "Antes e depois",
+   "tags": [
+    "antes",
+    "depois",
+    "comparar",
+    "mudança"
+   ]
+  },
+  "template:anuncio-embarazo": {
+   "name": "Anúncio de gravidez",
+   "tags": [
+    "gravidez",
+    "bebê",
+    "anúncio",
+    "família",
+    "seremos três"
+   ]
+  },
+  "template:apertura-pelicula": {
+   "name": "Abertura de filme",
+   "tags": [
+    "filme",
+    "cinema",
+    "família",
+    "título"
+   ]
+  },
+  "template:baby-shower": {
+   "name": "Chá de bebê",
+   "tags": [
+    "chá de bebê",
+    "baby shower",
+    "bebê",
+    "convite",
+    "gravidez"
+   ]
+  },
+  "template:barberia-antes-despues": {
+   "name": "Barbearia: antes e depois",
+   "tags": [
+    "barbearia",
+    "corte",
+    "barba",
+    "antes e depois",
+    "degradê"
+   ]
+  },
+  "template:black-friday-ofertas": {
+   "name": "Black Friday: ofertas",
+   "tags": [
+    "black friday",
+    "ofertas",
+    "desconto",
+    "loja",
+    "novembro"
+   ]
+  },
+  "template:black-friday-ultimas-horas": {
+   "name": "Black Friday: últimas horas",
+   "tags": [
+    "black friday",
+    "últimas horas",
+    "oferta",
+    "moda",
+    "luxo"
+   ]
+  },
+  "template:blanco-y-negro-a-color": {
+   "name": "Do preto e branco à cor",
+   "tags": [
+    "preto e branco",
+    "cor",
+    "casal",
+    "revelação",
+    "amor"
+   ]
+  },
+  "template:boda-save-the-date": {
+   "name": "Casamento: save the date",
+   "tags": [
+    "casamento",
+    "save the date",
+    "convite",
+    "noivos",
+    "matrimônio"
+   ]
+  },
+  "template:cafe-nuevo-en-la-carta": {
+   "name": "Novidade no cardápio",
+   "tags": [
+    "cafeteria",
+    "café",
+    "novidade",
+    "cardápio",
+    "bebida"
+   ]
+  },
+  "template:camara-lenta-con-letra": {
+   "name": "Câmera lenta com letra",
+   "tags": [
+    "câmera lenta",
+    "letra",
+    "música",
+    "casal",
+    "cinematográfico"
+   ]
+  },
+  "template:cancion-criolla": {
+   "name": "Noite de música ao vivo",
+   "tags": [
+    "música ao vivo",
+    "show",
+    "valsa",
+    "noite",
+    "vintage"
+   ]
+  },
+  "template:catrina-dia-de-muertos": {
+   "name": "Maquiagem de caveira",
+   "tags": [
+    "catrina",
+    "dia dos mortos",
+    "maquiagem",
+    "méxico",
+    "flores"
+   ]
+  },
+  "template:checklist-que-se-marca": {
+   "name": "Checklist que se marca",
+   "tags": [
+    "checklist",
+    "lista",
+    "tarefas",
+    "viagem",
+    "organização"
+   ]
+  },
+  "template:cierre-negocio": {
+   "name": "Encerramento de negócio",
+   "tags": [
+    "negócio",
+    "contato",
+    "empreendedorismo",
+    "delivery"
+   ]
+  },
+  "template:cierre-parte-2": {
+   "name": "Parte 2 no meu perfil",
+   "tags": [
+    "parte 2",
+    "continua",
+    "encerramento",
+    "perfil",
+    "seguir"
+   ]
+  },
+  "template:cierre-siguenos": {
+   "name": "Encerramento: siga a gente",
+   "tags": [
+    "encerramento",
+    "seguir",
+    "redes",
+    "inscreva-se"
+   ]
+  },
+  "template:cita-minimalista": {
+   "name": "Citação minimalista",
+   "tags": [
+    "citação",
+    "frase",
+    "minimalista",
+    "elegante",
+    "reflexão"
+   ]
+  },
+  "template:clip-de-podcast": {
+   "name": "Corte de podcast",
+   "tags": [
+    "podcast",
+    "legendas",
+    "entrevista",
+    "corte",
+    "conversa"
+   ]
+  },
+  "template:collage-2x2": {
+   "name": "Colagem 2×2",
+   "tags": [
+    "colagem",
+    "grade",
+    "fim de semana",
+    "fotos"
+   ]
+  },
+  "template:concierto-festival": {
+   "name": "Noite de show",
+   "tags": [
+    "show",
+    "festival",
+    "música",
+    "festa",
+    "ao vivo"
+   ]
+  },
+  "template:cosas-que-no-sabias": {
+   "name": "Coisas que você não sabia",
+   "tags": [
+    "curiosidades",
+    "você sabia",
+    "fatos",
+    "educativo",
+    "trivia"
+   ]
+  },
+  "template:cuenta-3-2-1": {
+   "name": "Contagem regressiva 3-2-1",
+   "tags": [
+    "contagem regressiva",
+    "lançamento",
+    "surpresa"
+   ]
+  },
+  "template:cuenta-regresiva-10": {
+   "name": "Contagem regressiva de 10 s",
+   "tags": [
+    "contagem regressiva",
+    "10 segundos",
+    "lançamento",
+    "estreia",
+    "festa"
+   ]
+  },
+  "template:cumple-sorpresa": {
+   "name": "Aniversário surpresa",
+   "tags": [
+    "surpresa",
+    "aniversário",
+    "festa",
+    "amigos",
+    "comemoração"
+   ]
+  },
+  "template:cupon-de-descuento": {
+   "name": "Cupom de desconto",
+   "tags": [
+    "cupom",
+    "desconto",
+    "código",
+    "oferta",
+    "presente"
+   ]
+  },
+  "template:cyber-monday": {
+   "name": "Cyber Monday",
+   "tags": [
+    "cyber monday",
+    "ofertas",
+    "loja online",
+    "desconto",
+    "frete grátis"
+   ]
+  },
+  "template:delivery-pide-por-whatsapp": {
+   "name": "Delivery: peça por mensagem",
+   "tags": [
+    "delivery",
+    "chat",
+    "mensagens",
+    "pedidos",
+    "comida",
+    "entrega"
+   ]
+  },
+  "template:dia-de-la-amistad": {
+   "name": "Dia da amizade",
+   "tags": [
+    "amizade",
+    "amigas",
+    "melhores amigos",
+    "cabine de fotos"
+   ]
+  },
+  "template:dia-de-playa": {
+   "name": "Modo praia",
+   "tags": [
+    "praia",
+    "verão",
+    "férias",
+    "mar",
+    "pôr do sol"
+   ]
+  },
+  "template:dia-del-padre": {
+   "name": "Feliz Dia dos Pais",
+   "tags": [
+    "dia dos pais",
+    "pai",
+    "família",
+    "herói"
+   ]
+  },
+  "template:diario-de-comida": {
+   "name": "O que comi hoje",
+   "tags": [
+    "comida",
+    "o que comi hoje",
+    "diário",
+    "food",
+    "receitas"
+   ]
+  },
+  "template:domingo-en-familia": {
+   "name": "Domingo em família",
+   "tags": [
+    "família",
+    "domingo",
+    "avós",
+    "lar",
+    "lembranças"
+   ]
+  },
+  "template:duotono-pop": {
+   "name": "Duotone pop",
+   "tags": [
+    "duotone",
+    "pop art",
+    "cor",
+    "retrato",
+    "tendência"
+   ]
+  },
+  "template:edicion-callejera": {
+   "name": "Edição urbana",
+   "tags": [
+    "skate",
+    "rua",
+    "urbano",
+    "galera",
+    "cidade"
+   ]
+  },
+  "template:encuesta-cual-prefieres": {
+   "name": "Qual você prefere?",
+   "tags": [
+    "enquete",
+    "qual você prefere",
+    "isso ou aquilo",
+    "comente",
+    "interação"
+   ]
+  },
+  "template:entrevista-con-rotulo": {
+   "name": "Entrevista com legenda de nome",
+   "tags": [
+    "entrevista",
+    "legenda",
+    "nome",
+    "depoimento",
+    "notícias"
+   ]
+  },
+  "template:espejo-caleidoscopio": {
+   "name": "Espelho caleidoscópio",
+   "tags": [
+    "espelho",
+    "caleidoscópio",
+    "efeito",
+    "psicodélico",
+    "tendência"
+   ]
+  },
+  "template:estamos-contratando": {
+   "name": "Estamos contratando!",
+   "tags": [
+    "emprego",
+    "trabalho",
+    "contratando",
+    "vaga",
+    "seleção"
+   ]
+  },
+  "template:este-o-este": {
+   "name": "Este ou este?",
+   "tags": [
+    "isso ou aquilo",
+    "escolha",
+    "enquete",
+    "casal",
+    "divertido"
+   ]
+  },
+  "template:estrobo-y-temblor": {
+   "name": "Estrobo e tremor",
+   "tags": [
+    "estrobo",
+    "tremor",
+    "ritmo",
+    "festa",
+    "energia"
+   ]
+  },
+  "template:estudia-conmigo": {
+   "name": "Estude comigo",
+   "tags": [
+    "estude comigo",
+    "estudar",
+    "pomodoro",
+    "faculdade",
+    "produtividade"
+   ]
+  },
+  "template:evento-taller-entrada": {
+   "name": "Evento ou workshop",
+   "tags": [
+    "evento",
+    "workshop",
+    "curso",
+    "data",
+    "inscrições"
+   ]
+  },
+  "template:faltan-dias": {
+   "name": "Faltam X dias",
+   "tags": [
+    "contagem regressiva",
+    "faltam",
+    "evento",
+    "lançamento"
+   ]
+  },
+  "template:feliz-cumple": {
+   "name": "Feliz aniversário",
+   "tags": [
+    "aniversário",
+    "festa",
+    "família",
+    "parabéns"
+   ]
+  },
+  "template:feliz-navidad-luces": {
+   "name": "Feliz Natal com luzes",
+   "tags": [
+    "natal",
+    "luzes",
+    "mensagem",
+    "cartão",
+    "dezembro"
+   ]
+  },
+  "template:fiestas-patrias-peru": {
+   "name": "Dia da pátria",
+   "tags": [
+    "feriado nacional",
+    "independência",
+    "bandeira",
+    "orgulho",
+    "pátria"
+   ]
+  },
+  "template:frase-del-dia": {
+   "name": "Frase do dia",
+   "tags": [
+    "frase",
+    "motivação",
+    "citação"
+   ]
+  },
+  "template:gancho-espera-al-final": {
+   "name": "Espera até o final",
+   "tags": [
+    "gancho",
+    "espera até o final",
+    "suspense",
+    "tiktok",
+    "viral"
+   ]
+  },
+  "template:gimnasio-matricula-gratis": {
+   "name": "Academia: promoção do mês",
+   "tags": [
+    "academia",
+    "matrícula",
+    "promoção",
+    "fitness",
+    "plano"
+   ]
+  },
+  "template:glitch-neon": {
+   "name": "Glitch neon",
+   "tags": [
+    "glitch",
+    "neon",
+    "festa",
+    "noite",
+    "show"
+   ]
+  },
+  "template:gran-inauguracion": {
+   "name": "Grande inauguração",
+   "tags": [
+    "inauguração",
+    "abertura",
+    "loja nova",
+    "evento",
+    "chegamos"
+   ]
+  },
+  "template:grwm-arreglate-conmigo": {
+   "name": "GRWM: se arrume comigo",
+   "tags": [
+    "grwm",
+    "maquiagem",
+    "arrume-se comigo",
+    "beleza",
+    "rotina"
+   ]
+  },
+  "template:h-cele-15-16": {
+   "name": "15 anos • Sweet 16",
+   "tags": [
+    "15 anos",
+    "sweet 16",
+    "debutante",
+    "festa",
+    "princesa"
+   ]
+  },
+  "template:h-cele-aniversario": {
+   "name": "Feliz aniversário de casal",
+   "tags": [
+    "aniversário de casamento",
+    "casal",
+    "amor",
+    "anos juntos",
+    "corações"
+   ]
+  },
+  "template:h-cele-baby-shower": {
+   "name": "Chá de bebê",
+   "tags": [
+    "chá de bebê",
+    "baby shower",
+    "bebê",
+    "convite",
+    "gravidez"
+   ]
+  },
+  "template:h-cele-bautizo": {
+   "name": "Batizado",
+   "tags": [
+    "batizado",
+    "bebê",
+    "igreja",
+    "família",
+    "comemoração"
+   ]
+  },
+  "template:h-cele-bienvenida-bebe": {
+   "name": "Bem-vindo, bebê",
+   "tags": [
+    "nascimento",
+    "bebê",
+    "boas-vindas",
+    "recém-nascido",
+    "família"
+   ]
+  },
+  "template:h-cele-boda-invitacion": {
+   "name": "Convite de casamento",
+   "tags": [
+    "casamento",
+    "convite",
+    "save the date",
+    "noivos",
+    "elegante"
+   ]
+  },
+  "template:h-cele-compromiso": {
+   "name": "Ficamos noivos",
+   "tags": [
+    "noivado",
+    "pedido",
+    "anel",
+    "casal",
+    "casamento"
+   ]
+  },
+  "template:h-cele-cumple": {
+   "name": "Feliz aniversário",
+   "tags": [
+    "aniversário",
+    "festa",
+    "balões",
+    "confete",
+    "parabéns"
+   ]
+  },
+  "template:h-cele-despedida": {
+   "name": "Despedida",
+   "tags": [
+    "despedida",
+    "boa viagem",
+    "adeus",
+    "amigos",
+    "saudades"
+   ]
+  },
+  "template:h-cele-fiesta-invitacion": {
+   "name": "Convite para festa",
+   "tags": [
+    "festa",
+    "convite",
+    "party",
+    "evento",
+    "noite"
+   ]
+  },
+  "template:h-cele-graduacion": {
+   "name": "Formatura",
+   "tags": [
+    "formatura",
+    "capelo",
+    "conquista",
+    "faculdade",
+    "escola"
+   ]
+  },
+  "template:h-cele-jubilacion": {
+   "name": "Feliz aposentadoria",
+   "tags": [
+    "aposentadoria",
+    "carreira",
+    "obrigado",
+    "homenagem",
+    "nova fase"
+   ]
+  },
+  "template:h-cele-logro": {
+   "name": "Conseguimos!",
+   "tags": [
+    "conquista",
+    "meta",
+    "troféu",
+    "sucesso",
+    "comemoração",
+    "equipe"
+   ]
+  },
+  "template:h-cele-premios": {
+   "name": "Premiação",
+   "tags": [
+    "prêmios",
+    "vencedor",
+    "reconhecimento",
+    "gala",
+    "troféu"
+   ]
+  },
+  "template:h-cele-reunion": {
+   "name": "Reunião de família",
+   "tags": [
+    "reunião de família",
+    "família",
+    "convite",
+    "encontro",
+    "almoço"
+   ]
+  },
+  "template:h-cierre-gracias": {
+   "name": "Obrigado por assistir",
+   "tags": [
+    "obrigado",
+    "final",
+    "redes",
+    "encerramento",
+    "despedida"
+   ]
+  },
+  "template:h-cierre-like": {
+   "name": "Deixe seu like",
+   "tags": [
+    "like",
+    "curtir",
+    "joinha",
+    "encerramento",
+    "interação"
+   ]
+  },
+  "template:h-cierre-proximo": {
+   "name": "No próximo vídeo",
+   "tags": [
+    "próximo vídeo",
+    "prévia",
+    "encerramento",
+    "episódio",
+    "em breve"
+   ]
+  },
+  "template:h-cierre-redes": {
+   "name": "Me siga nas redes",
+   "tags": [
+    "redes sociais",
+    "me siga",
+    "usuário",
+    "encerramento",
+    "contato"
+   ]
+  },
+  "template:h-cierre-suscribete-campana": {
+   "name": "Inscreva-se e ative o sininho",
+   "tags": [
+    "inscreva-se",
+    "sininho",
+    "botão",
+    "youtube",
+    "encerramento"
+   ]
+  },
+  "template:h-cuenta-10-neon": {
+   "name": "Contagem de 10 neon",
+   "tags": [
+    "contagem regressiva",
+    "neon",
+    "10 segundos",
+    "início",
+    "evento"
+   ]
+  },
+  "template:h-cuenta-5-cine": {
+   "name": "Contagem de cinema antigo",
+   "tags": [
+    "contagem regressiva",
+    "cinema",
+    "filme",
+    "vintage",
+    "líder"
+   ]
+  },
+  "template:h-cuenta-anio-nuevo": {
+   "name": "Contagem de Ano-Novo",
+   "tags": [
+    "ano-novo",
+    "contagem regressiva",
+    "fogos de artifício",
+    "festa",
+    "meia-noite"
+   ]
+  },
+  "template:h-cuenta-deportes": {
+   "name": "Contagem para a partida",
+   "tags": [
+    "partida",
+    "futebol",
+    "contagem regressiva",
+    "esportes",
+    "placar"
+   ]
+  },
+  "template:h-cuenta-dias-evento": {
+   "name": "Faltam X dias",
+   "tags": [
+    "faltam dias",
+    "evento",
+    "contagem regressiva",
+    "casamento",
+    "viagem",
+    "calendário"
+   ]
+  },
+  "template:h-cuenta-directo": {
+   "name": "Começamos em breve",
+   "tags": [
+    "ao vivo",
+    "live",
+    "stream",
+    "começa em breve",
+    "contagem regressiva"
+   ]
+  },
+  "template:h-cuenta-lanzamiento": {
+   "name": "Contagem para lançamento",
+   "tags": [
+    "lançamento",
+    "produto",
+    "3 2 1",
+    "contagem regressiva",
+    "já disponível"
+   ]
+  },
+  "template:h-cuenta-minimal": {
+   "name": "Contagem minimalista",
+   "tags": [
+    "contagem regressiva",
+    "minimalista",
+    "limpo",
+    "apresentação",
+    "início"
+   ]
+  },
+  "template:h-fecha-accion-gracias": {
+   "name": "Ação de Graças",
+   "tags": [
+    "ação de graças",
+    "thanksgiving",
+    "outono",
+    "família",
+    "gratidão"
+   ]
+  },
+  "template:h-fecha-anio-nuevo": {
+   "name": "Feliz Ano-Novo",
+   "tags": [
+    "ano-novo",
+    "réveillon",
+    "fogos de artifício",
+    "brinde",
+    "janeiro"
+   ]
+  },
+  "template:h-fecha-anio-nuevo-lunar": {
+   "name": "Ano-Novo Lunar",
+   "tags": [
+    "ano-novo lunar",
+    "ano-novo chinês",
+    "lanternas",
+    "vermelho",
+    "dourado"
+   ]
+  },
+  "template:h-fecha-dia-madre": {
+   "name": "Dia das Mães",
+   "tags": [
+    "dia das mães",
+    "mãe",
+    "flores",
+    "amor",
+    "família"
+   ]
+  },
+  "template:h-fecha-dia-maestro": {
+   "name": "Dia do Professor",
+   "tags": [
+    "dia do professor",
+    "professor",
+    "docente",
+    "obrigado",
+    "escola"
+   ]
+  },
+  "template:h-fecha-dia-mujer": {
+   "name": "Dia da Mulher",
+   "tags": [
+    "dia da mulher",
+    "8 de março",
+    "mulheres",
+    "igualdade",
+    "inspiração"
+   ]
+  },
+  "template:h-fecha-dia-padre": {
+   "name": "Dia dos Pais",
+   "tags": [
+    "dia dos pais",
+    "pai",
+    "família",
+    "herói",
+    "papai"
+   ]
+  },
+  "template:h-fecha-dia-tierra": {
+   "name": "Dia da Terra",
+   "tags": [
+    "dia da terra",
+    "planeta",
+    "meio ambiente",
+    "verde",
+    "natureza"
+   ]
+  },
+  "template:h-fecha-diwali": {
+   "name": "Feliz Diwali",
+   "tags": [
+    "diwali",
+    "festival das luzes",
+    "lamparinas",
+    "diya",
+    "comemoração"
+   ]
+  },
+  "template:h-fecha-eid": {
+   "name": "Eid Mubarak",
+   "tags": [
+    "eid",
+    "eid mubarak",
+    "festa",
+    "família",
+    "comemoração"
+   ]
+  },
+  "template:h-fecha-halloween": {
+   "name": "Halloween",
+   "tags": [
+    "halloween",
+    "terror",
+    "abóboras",
+    "fantasias",
+    "outubro"
+   ]
+  },
+  "template:h-fecha-invierno": {
+   "name": "Inverno",
+   "tags": [
+    "inverno",
+    "neve",
+    "frio",
+    "estação",
+    "aconchegante"
+   ]
+  },
+  "template:h-fecha-navidad": {
+   "name": "Feliz Natal",
+   "tags": [
+    "natal",
+    "christmas",
+    "neve",
+    "família",
+    "dezembro"
+   ]
+  },
+  "template:h-fecha-otono": {
+   "name": "Olá, outono",
+   "tags": [
+    "outono",
+    "folhas",
+    "aconchegante",
+    "estação",
+    "café"
+   ]
+  },
+  "template:h-fecha-pascua": {
+   "name": "Páscoa",
+   "tags": [
+    "páscoa",
+    "ovos",
+    "primavera",
+    "coelho",
+    "chocolate"
+   ]
+  },
+  "template:h-fecha-primavera": {
+   "name": "Primavera",
+   "tags": [
+    "primavera",
+    "flores",
+    "estação",
+    "cores",
+    "natureza"
+   ]
+  },
+  "template:h-fecha-ramadan": {
+   "name": "Ramadan Kareem",
+   "tags": [
+    "ramadã",
+    "ramadan kareem",
+    "lua crescente",
+    "lanternas",
+    "iftar"
+   ]
+  },
+  "template:h-fecha-regreso-clases": {
+   "name": "Volta às aulas",
+   "tags": [
+    "volta às aulas",
+    "escola",
+    "material escolar",
+    "estudantes",
+    "colégio"
+   ]
+  },
+  "template:h-fecha-san-valentin": {
+   "name": "Dia dos Namorados",
+   "tags": [
+    "dia dos namorados",
+    "amor",
+    "valentine",
+    "casal",
+    "corações"
+   ]
+  },
+  "template:h-fecha-verano": {
+   "name": "Chegou o verão",
+   "tags": [
+    "verão",
+    "praia",
+    "sol",
+    "férias",
+    "calor"
+   ]
+  },
+  "template:h-final-1-video": {
+   "name": "Tela final: 1 vídeo",
+   "tags": [
+    "tela final",
+    "end screen",
+    "youtube",
+    "próximo vídeo",
+    "inscreva-se"
+   ]
+  },
+  "template:h-final-2-videos": {
+   "name": "Tela final: 2 vídeos",
+   "tags": [
+    "tela final",
+    "end screen",
+    "youtube",
+    "vídeos sugeridos",
+    "inscreva-se"
+   ]
+  },
+  "template:h-final-cocina": {
+   "name": "Encerramento de culinária",
+   "tags": [
+    "culinária",
+    "receita",
+    "tela final",
+    "próxima receita",
+    "comida"
+   ]
+  },
+  "template:h-final-colorida": {
+   "name": "Tela final colorida",
+   "tags": [
+    "tela final",
+    "cores",
+    "divertida",
+    "youtube",
+    "infantil"
+   ]
+  },
+  "template:h-final-curso": {
+   "name": "Encerramento de curso",
+   "tags": [
+    "curso",
+    "aula",
+    "educação",
+    "tela final",
+    "tutorial"
+   ]
+  },
+  "template:h-final-familia": {
+   "name": "Encerramento em família",
+   "tags": [
+    "família",
+    "obrigado",
+    "encerramento",
+    "lembranças",
+    "fotos"
+   ]
+  },
+  "template:h-final-gaming": {
+   "name": "Tela final gamer",
+   "tags": [
+    "tela final",
+    "gaming",
+    "gamer",
+    "youtube",
+    "stream"
+   ]
+  },
+  "template:h-final-minimal": {
+   "name": "Tela final minimalista",
+   "tags": [
+    "tela final",
+    "minimalista",
+    "limpa",
+    "youtube",
+    "elegante"
+   ]
+  },
+  "template:h-final-negocio": {
+   "name": "Encerramento de negócio",
+   "tags": [
+    "negócio",
+    "contato",
+    "endereço",
+    "site",
+    "encerramento"
+   ]
+  },
+  "template:h-final-noticias": {
+   "name": "Encerramento de jornal",
+   "tags": [
+    "notícias",
+    "mais notícias",
+    "tela final",
+    "jornalismo",
+    "manchetes"
+   ]
+  },
+  "template:h-final-oscura": {
+   "name": "Tela final escura",
+   "tags": [
+    "tela final",
+    "neon",
+    "escura",
+    "youtube",
+    "gaming"
+   ]
+  },
+  "template:h-final-papel": {
+   "name": "Encerramento de papel",
+   "tags": [
+    "papel",
+    "artesanato",
+    "tela final",
+    "fita",
+    "criativo"
+   ]
+  },
+  "template:h-final-podcast": {
+   "name": "Encerramento de podcast",
+   "tags": [
+    "podcast",
+    "próximo episódio",
+    "tela final",
+    "plataformas",
+    "áudio"
+   ]
+  },
+  "template:h-final-retro": {
+   "name": "Encerramento de TV retrô",
+   "tags": [
+    "retrô",
+    "televisão",
+    "vintage",
+    "tela final",
+    "anos 80"
+   ]
+  },
+  "template:h-final-viajes": {
+   "name": "Encerramento de viagem",
+   "tags": [
+    "viagens",
+    "destino",
+    "tela final",
+    "mapa",
+    "aventura"
+   ]
+  },
+  "template:h-intro-barras-diagonales": {
+   "name": "Intro de barras diagonais",
+   "tags": [
+    "intro",
+    "youtube",
+    "canal",
+    "logo",
+    "barras",
+    "dinâmica"
+   ]
+  },
+  "template:h-intro-boda": {
+   "name": "Intro de casamento",
+   "tags": [
+    "casamento",
+    "noivos",
+    "intro",
+    "romântico",
+    "elegante"
+   ]
+  },
+  "template:h-intro-cinematica-oscura": {
+   "name": "Intro cinematográfica",
+   "tags": [
+    "cinema",
+    "cinematográfico",
+    "filme",
+    "intro",
+    "dramático",
+    "trailer"
+   ]
+  },
+  "template:h-intro-cocina": {
+   "name": "Intro de canal de culinária",
+   "tags": [
+    "culinária",
+    "receitas",
+    "comida",
+    "intro",
+    "chef",
+    "canal"
+   ]
+  },
+  "template:h-intro-colorida-formas": {
+   "name": "Intro de formas coloridas",
+   "tags": [
+    "cores",
+    "formas",
+    "divertido",
+    "intro",
+    "geométrico"
+   ]
+  },
+  "template:h-intro-corporativa": {
+   "name": "Abertura corporativa",
+   "tags": [
+    "corporativo",
+    "empresa",
+    "negócio",
+    "apresentação",
+    "logo",
+    "profissional"
+   ]
+  },
+  "template:h-intro-deportes": {
+   "name": "Intro esportiva",
+   "tags": [
+    "esportes",
+    "futebol",
+    "atletismo",
+    "intro",
+    "energia",
+    "time"
+   ]
+  },
+  "template:h-intro-documental": {
+   "name": "Abertura de documentário",
+   "tags": [
+    "documentário",
+    "história",
+    "sério",
+    "intro",
+    "cinema",
+    "natureza"
+   ]
+  },
+  "template:h-intro-elegante-oro": {
+   "name": "Intro elegante dourada",
+   "tags": [
+    "elegante",
+    "dourado",
+    "luxo",
+    "intro",
+    "premium"
+   ]
+  },
+  "template:h-intro-fitness": {
+   "name": "Intro fitness",
+   "tags": [
+    "fitness",
+    "academia",
+    "treino",
+    "intro",
+    "motivação"
+   ]
+  },
+  "template:h-intro-gaming-neon": {
+   "name": "Intro gamer neon",
+   "tags": [
+    "gaming",
+    "gamer",
+    "neon",
+    "intro",
+    "live",
+    "videogames"
+   ]
+  },
+  "template:h-intro-glitch": {
+   "name": "Intro glitch",
+   "tags": [
+    "glitch",
+    "digital",
+    "intro",
+    "gaming",
+    "tecnologia",
+    "rgb"
+   ]
+  },
+  "template:h-intro-logo-destello": {
+   "name": "Logo com brilho",
+   "tags": [
+    "logo",
+    "revelação",
+    "brilho",
+    "intro",
+    "elegante",
+    "marca"
+   ]
+  },
+  "template:h-intro-minimal-linea": {
+   "name": "Intro minimalista",
+   "tags": [
+    "minimalista",
+    "limpo",
+    "intro",
+    "elegante",
+    "branco"
+   ]
+  },
+  "template:h-intro-musica": {
+   "name": "Intro de canal de música",
+   "tags": [
+    "música",
+    "artista",
+    "single",
+    "intro",
+    "equalizador",
+    "banda"
+   ]
+  },
+  "template:h-intro-ninos": {
+   "name": "Intro infantil",
+   "tags": [
+    "crianças",
+    "infantil",
+    "cores",
+    "intro",
+    "educativo"
+   ]
+  },
+  "template:h-intro-noticias": {
+   "name": "Abertura de telejornal",
+   "tags": [
+    "notícias",
+    "telejornal",
+    "jornalismo",
+    "intro",
+    "última hora"
+   ]
+  },
+  "template:h-intro-papel": {
+   "name": "Intro de papel recortado",
+   "tags": [
+    "papel",
+    "recortes",
+    "artesanato",
+    "intro",
+    "infantil"
+   ]
+  },
+  "template:h-intro-podcast-ondas": {
+   "name": "Intro de podcast com ondas",
+   "tags": [
+    "podcast",
+    "áudio",
+    "entrevista",
+    "intro",
+    "ondas",
+    "programa"
+   ]
+  },
+  "template:h-intro-pop-comic": {
+   "name": "Intro estilo quadrinhos",
+   "tags": [
+    "quadrinhos",
+    "pop art",
+    "divertido",
+    "intro",
+    "gibi"
+   ]
+  },
+  "template:h-intro-retro-80s": {
+   "name": "Intro retrô anos 80",
+   "tags": [
+    "retrô",
+    "anos 80",
+    "synthwave",
+    "neon",
+    "intro",
+    "oitentista"
+   ]
+  },
+  "template:h-intro-split": {
+   "name": "Intro de tela dividida",
+   "tags": [
+    "tela dividida",
+    "split",
+    "fotos",
+    "intro",
+    "moderno"
+   ]
+  },
+  "template:h-intro-suscriptores": {
+   "name": "Intro com contador de inscritos",
+   "tags": [
+    "inscritos",
+    "contador",
+    "comemoração",
+    "intro",
+    "youtube",
+    "marco"
+   ]
+  },
+  "template:h-intro-tech": {
+   "name": "Intro de tecnologia",
+   "tags": [
+    "tecnologia",
+    "tech",
+    "digital",
+    "intro",
+    "reviews",
+    "futuro"
+   ]
+  },
+  "template:h-intro-texto-gigante": {
+   "name": "Intro de texto gigante",
+   "tags": [
+    "texto",
+    "tipografia",
+    "intro",
+    "impacto",
+    "foto nas letras"
+   ]
+  },
+  "template:h-intro-tinta": {
+   "name": "Intro de tinta",
+   "tags": [
+    "tinta",
+    "artístico",
+    "intro",
+    "aquarela",
+    "manchas"
+   ]
+  },
+  "template:h-intro-tiza": {
+   "name": "Intro de quadro-negro",
+   "tags": [
+    "educação",
+    "quadro-negro",
+    "aulas",
+    "giz",
+    "professor"
+   ]
+  },
+  "template:h-intro-viajes-mapa": {
+   "name": "Intro de viagem com mapa",
+   "tags": [
+    "viagens",
+    "mapa",
+    "rota",
+    "intro",
+    "aventura",
+    "mochilão"
+   ]
+  },
+  "template:h-intro-vlog-polaroid": {
+   "name": "Intro de vlog com fotos instantâneas",
+   "tags": [
+    "vlog",
+    "foto instantânea",
+    "intro",
+    "fotos",
+    "aesthetic",
+    "diário"
+   ]
+  },
+  "template:h-intro-zoom-fotos": {
+   "name": "Intro com zoom de fotos",
+   "tags": [
+    "zoom",
+    "fotos",
+    "intro",
+    "dinâmico",
+    "viagem"
+   ]
+  },
+  "template:h-neg-academia": {
+   "name": "Escola de cursos",
+   "tags": [
+    "cursos",
+    "aulas",
+    "workshop",
+    "inscrições",
+    "formação"
+   ]
+  },
+  "template:h-neg-agenda-evento": {
+   "name": "Programação do evento",
+   "tags": [
+    "programação",
+    "agenda",
+    "evento",
+    "horário",
+    "conferência"
+   ]
+  },
+  "template:h-neg-cafeteria": {
+   "name": "Cafeteria",
+   "tags": [
+    "cafeteria",
+    "café",
+    "especial do dia",
+    "café da manhã",
+    "barista"
+   ]
+  },
+  "template:h-neg-cifras": {
+   "name": "Resultados do ano",
+   "tags": [
+    "resultados",
+    "números",
+    "relatório",
+    "crescimento",
+    "gráfico"
+   ]
+  },
+  "template:h-neg-comunidad": {
+   "name": "Comunidade: reunião",
+   "tags": [
+    "comunidade",
+    "reunião",
+    "igreja",
+    "grupo",
+    "aviso",
+    "frase do dia"
+   ]
+  },
+  "template:h-neg-contacto": {
+   "name": "Fale conosco",
+   "tags": [
+    "contato",
+    "endereço",
+    "horário",
+    "telefone",
+    "negócio"
+   ]
+  },
+  "template:h-neg-contratando": {
+   "name": "Estamos contratando",
+   "tags": [
+    "emprego",
+    "trabalho",
+    "vagas",
+    "contratando",
+    "junte-se a nós"
+   ]
+  },
+  "template:h-neg-escuela": {
+   "name": "Escola: matrículas abertas",
+   "tags": [
+    "escola",
+    "matrículas",
+    "inscrições",
+    "colégio",
+    "educação"
+   ]
+  },
+  "template:h-neg-ferreteria": {
+   "name": "Loja de ferragens",
+   "tags": [
+    "ferragens",
+    "ferramentas",
+    "construção",
+    "desconto",
+    "casa"
+   ]
+  },
+  "template:h-neg-gimnasio": {
+   "name": "Academia: planos",
+   "tags": [
+    "academia",
+    "planos",
+    "preços",
+    "fitness",
+    "mensalidade"
+   ]
+  },
+  "template:h-neg-inmobiliaria": {
+   "name": "Imóvel à venda",
+   "tags": [
+    "imobiliária",
+    "venda",
+    "casa",
+    "apartamento",
+    "imóvel"
+   ]
+  },
+  "template:h-neg-lanzamiento": {
+   "name": "Lançamento de produto",
+   "tags": [
+    "lançamento",
+    "novo",
+    "produto",
+    "apresentação",
+    "novidade"
+   ]
+  },
+  "template:h-neg-mudanzas": {
+   "name": "Mudanças e fretes",
+   "tags": [
+    "mudanças",
+    "transporte",
+    "fretes",
+    "caminhão",
+    "serviço"
+   ]
+  },
+  "template:h-neg-presentacion": {
+   "name": "Apresentação da empresa",
+   "tags": [
+    "empresa",
+    "apresentação",
+    "corporativo",
+    "missão",
+    "números"
+   ]
+  },
+  "template:h-neg-rebajas": {
+   "name": "Liquidação",
+   "tags": [
+    "liquidação",
+    "descontos",
+    "sale",
+    "promoção",
+    "ofertas"
+   ]
+  },
+  "template:h-neg-restaurante-menu": {
+   "name": "Cardápio de restaurante",
+   "tags": [
+    "restaurante",
+    "cardápio",
+    "menu",
+    "pratos",
+    "preços"
+   ]
+  },
+  "template:h-neg-supermercado": {
+   "name": "Ofertas do supermercado",
+   "tags": [
+    "supermercado",
+    "ofertas",
+    "preços",
+    "frutas",
+    "descontos"
+   ]
+  },
+  "template:h-neg-testimonio": {
+   "name": "Depoimento",
+   "tags": [
+    "depoimento",
+    "avaliação",
+    "cliente",
+    "opinião",
+    "estrelas"
+   ]
+  },
+  "template:h-neg-tienda-barrio": {
+   "name": "Mercadinho do bairro",
+   "tags": [
+    "loja",
+    "bairro",
+    "ofertas",
+    "mercearia",
+    "vizinhos"
+   ]
+  },
+  "template:h-neg-webinar": {
+   "name": "Webinar",
+   "tags": [
+    "webinar",
+    "palestra online",
+    "evento",
+    "inscrição",
+    "palestrante"
+   ]
+  },
+  "template:h-presenta-amistad": {
+   "name": "Amigos para sempre",
+   "tags": [
+    "amigos",
+    "amizade",
+    "rabiscos",
+    "fotos",
+    "diversão"
+   ]
+  },
+  "template:h-presenta-anio": {
+   "name": "Nosso ano",
+   "tags": [
+    "ano",
+    "resumo",
+    "12 meses",
+    "retrospectiva",
+    "fotos",
+    "ano-novo"
+   ]
+  },
+  "template:h-presenta-antes-despues": {
+   "name": "Antes e depois",
+   "tags": [
+    "antes e depois",
+    "comparação",
+    "deslizante",
+    "transformação",
+    "reforma"
+   ]
+  },
+  "template:h-presenta-bebe": {
+   "name": "Meu bebê cresce",
+   "tags": [
+    "bebê",
+    "mês a mês",
+    "crescimento",
+    "família",
+    "primeiro ano"
+   ]
+  },
+  "template:h-presenta-boda": {
+   "name": "Nosso casamento",
+   "tags": [
+    "casamento",
+    "noivos",
+    "apresentação",
+    "elegante",
+    "fotos"
+   ]
+  },
+  "template:h-presenta-cinematica": {
+   "name": "Apresentação cinematográfica",
+   "tags": [
+    "cinematográfico",
+    "filme",
+    "barras",
+    "viagem",
+    "épico"
+   ]
+  },
+  "template:h-presenta-circulos": {
+   "name": "Fotos em círculos",
+   "tags": [
+    "círculos",
+    "fotos",
+    "cores",
+    "alegre",
+    "apresentação"
+   ]
+  },
+  "template:h-presenta-collage-libre": {
+   "name": "Colagem livre",
+   "tags": [
+    "colagem",
+    "fotos",
+    "mural",
+    "amigos",
+    "lembranças"
+   ]
+  },
+  "template:h-presenta-comida": {
+   "name": "Cardápio em fotos",
+   "tags": [
+    "cardápio",
+    "comida",
+    "restaurante",
+    "pratos",
+    "menu"
+   ]
+  },
+  "template:h-presenta-deportes": {
+   "name": "Temporada esportiva",
+   "tags": [
+    "esportes",
+    "temporada",
+    "resultados",
+    "time",
+    "futebol"
+   ]
+  },
+  "template:h-presenta-equipo": {
+   "name": "Nossa equipe",
+   "tags": [
+    "equipe",
+    "pessoas",
+    "empresa",
+    "quem somos",
+    "time"
+   ]
+  },
+  "template:h-presenta-escuela": {
+   "name": "Ano letivo",
+   "tags": [
+    "escola",
+    "colégio",
+    "ano letivo",
+    "caderno",
+    "aulas",
+    "crianças"
+   ]
+  },
+  "template:h-presenta-evento": {
+   "name": "Resumo do evento",
+   "tags": [
+    "evento",
+    "resumo",
+    "aftermovie",
+    "conferência",
+    "festa"
+   ]
+  },
+  "template:h-presenta-glitch": {
+   "name": "Apresentação glitch",
+   "tags": [
+    "glitch",
+    "rápida",
+    "ritmo",
+    "fotos",
+    "urbano"
+   ]
+  },
+  "template:h-presenta-graduacion": {
+   "name": "Turma de formandos",
+   "tags": [
+    "formatura",
+    "turma",
+    "formandos",
+    "escola",
+    "faculdade"
+   ]
+  },
+  "template:h-presenta-homenaje": {
+   "name": "Em memória",
+   "tags": [
+    "homenagem",
+    "em memória",
+    "despedida",
+    "lembrança",
+    "velas"
+   ]
+  },
+  "template:h-presenta-inmueble": {
+   "name": "Tour pelo imóvel",
+   "tags": [
+    "imobiliária",
+    "casa",
+    "venda",
+    "aluguel",
+    "imóvel",
+    "tour"
+   ]
+  },
+  "template:h-presenta-mascota": {
+   "name": "Meu pet",
+   "tags": [
+    "pet",
+    "cachorro",
+    "gato",
+    "patinhas",
+    "fotos",
+    "fofo"
+   ]
+  },
+  "template:h-presenta-mosaico": {
+   "name": "Mosaico de fotos",
+   "tags": [
+    "mosaico",
+    "grade",
+    "colagem",
+    "fotos",
+    "grid"
+   ]
+  },
+  "template:h-presenta-paralaje": {
+   "name": "Parallax",
+   "tags": [
+    "parallax",
+    "3d",
+    "movimento",
+    "fotos",
+    "viagem",
+    "cinematográfico"
+   ]
+  },
+  "template:h-presenta-pelicula": {
+   "name": "Apresentação em tira de filme",
+   "tags": [
+    "filme",
+    "tira",
+    "35 mm",
+    "fotos",
+    "vintage",
+    "cinema"
+   ]
+  },
+  "template:h-presenta-polaroid": {
+   "name": "Fotos instantâneas na madeira",
+   "tags": [
+    "foto instantânea",
+    "fotos",
+    "apresentação",
+    "madeira",
+    "vintage",
+    "álbum"
+   ]
+  },
+  "template:h-presenta-portafolio": {
+   "name": "Portfólio",
+   "tags": [
+    "portfólio",
+    "trabalhos",
+    "design",
+    "fotografia",
+    "projetos",
+    "criativo"
+   ]
+  },
+  "template:h-presenta-producto": {
+   "name": "Catálogo de produtos",
+   "tags": [
+    "catálogo",
+    "produtos",
+    "loja",
+    "preços",
+    "vendas",
+    "coleção"
+   ]
+  },
+  "template:h-presenta-recuerdos": {
+   "name": "Lembranças",
+   "tags": [
+    "lembranças",
+    "apresentação",
+    "fotos",
+    "família",
+    "nostalgia"
+   ]
+  },
+  "template:h-presenta-revista": {
+   "name": "Páginas de revista",
+   "tags": [
+    "revista",
+    "editorial",
+    "moda",
+    "páginas",
+    "apresentação"
+   ]
+  },
+  "template:h-presenta-split": {
+   "name": "Apresentação em tela dividida",
+   "tags": [
+    "tela dividida",
+    "split",
+    "duas fotos",
+    "comparação",
+    "apresentação"
+   ]
+  },
+  "template:h-presenta-tinta": {
+   "name": "Apresentação de tinta",
+   "tags": [
+    "tinta",
+    "artístico",
+    "apresentação",
+    "fotos",
+    "elegante"
+   ]
+  },
+  "template:h-presenta-viaje": {
+   "name": "Diário de viagem",
+   "tags": [
+    "viagem",
+    "diário",
+    "carimbos",
+    "fotos",
+    "férias",
+    "passaporte"
+   ]
+  },
+  "template:h-presenta-vintage": {
+   "name": "Álbum antigo",
+   "tags": [
+    "vintage",
+    "antigo",
+    "sépia",
+    "álbum",
+    "lembranças",
+    "avós"
+   ]
+  },
+  "template:h-tercio-a-mano": {
+   "name": "Terço inferior escrito à mão",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "nome",
+    "à mão",
+    "caligrafia",
+    "vlog"
+   ]
+  },
+  "template:h-tercio-boda": {
+   "name": "Legenda de casamento",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "casamento",
+    "noivos",
+    "data"
+   ]
+  },
+  "template:h-tercio-caja-color": {
+   "name": "Terço inferior em caixa",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "nome",
+    "caixa",
+    "cor"
+   ]
+  },
+  "template:h-tercio-chat": {
+   "name": "Comentário em destaque",
+   "tags": [
+    "terço inferior",
+    "comentário",
+    "chat",
+    "pergunta",
+    "seguidores"
+   ]
+  },
+  "template:h-tercio-cita": {
+   "name": "Citação na tela",
+   "tags": [
+    "terço inferior",
+    "citação",
+    "frase",
+    "depoimento",
+    "legenda"
+   ]
+  },
+  "template:h-tercio-corporativo": {
+   "name": "Legenda corporativa",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "nome",
+    "corporativo",
+    "empresa",
+    "logo"
+   ]
+  },
+  "template:h-tercio-deportes": {
+   "name": "Terço inferior esportivo",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "nome",
+    "esportes",
+    "jogador",
+    "futebol"
+   ]
+  },
+  "template:h-tercio-diagonal": {
+   "name": "Terço inferior diagonal",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "nome",
+    "diagonal",
+    "dinâmico",
+    "urbano"
+   ]
+  },
+  "template:h-tercio-doble": {
+   "name": "Duas pessoas",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "duas pessoas",
+    "entrevista",
+    "debate",
+    "convidados"
+   ]
+  },
+  "template:h-tercio-duotono": {
+   "name": "Terço inferior duotone",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "nome",
+    "duotone",
+    "moderno"
+   ]
+  },
+  "template:h-tercio-elegante": {
+   "name": "Terço inferior elegante",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "nome",
+    "elegante",
+    "dourado",
+    "casamento"
+   ]
+  },
+  "template:h-tercio-entrevista": {
+   "name": "Entrevista",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "nome",
+    "entrevista",
+    "convidado"
+   ]
+  },
+  "template:h-tercio-fecha": {
+   "name": "Data e hora",
+   "tags": [
+    "terço inferior",
+    "data",
+    "evento",
+    "hora",
+    "local"
+   ]
+  },
+  "template:h-tercio-gaming": {
+   "name": "Terço inferior gamer",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "nome",
+    "gaming",
+    "gamer",
+    "neon"
+   ]
+  },
+  "template:h-tercio-glass": {
+   "name": "Terço inferior de vidro",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "nome",
+    "vidro",
+    "translúcido",
+    "moderno"
+   ]
+  },
+  "template:h-tercio-minimal-linea": {
+   "name": "Terço inferior minimalista",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "nome",
+    "minimalista",
+    "limpo"
+   ]
+  },
+  "template:h-tercio-noticias": {
+   "name": "Legenda de telejornal",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "notícias",
+    "ao vivo",
+    "manchete"
+   ]
+  },
+  "template:h-tercio-podcast": {
+   "name": "Terço inferior de podcast",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "nome",
+    "podcast",
+    "episódio",
+    "convidado"
+   ]
+  },
+  "template:h-tercio-precio": {
+   "name": "Preço na tela",
+   "tags": [
+    "terço inferior",
+    "preço",
+    "produto",
+    "oferta",
+    "loja"
+   ]
+  },
+  "template:h-tercio-redes": {
+   "name": "Terço inferior de redes sociais",
+   "tags": [
+    "terço inferior",
+    "redes sociais",
+    "usuário",
+    "me siga",
+    "nome"
+   ]
+  },
+  "template:h-tercio-redondeado": {
+   "name": "Terço inferior com foto",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "nome",
+    "foto",
+    "perfil"
+   ]
+  },
+  "template:h-tercio-retro": {
+   "name": "Terço inferior retrô",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "nome",
+    "retrô",
+    "anos 70",
+    "vintage"
+   ]
+  },
+  "template:h-tercio-suscribete": {
+   "name": "Botão inscreva-se no canto",
+   "tags": [
+    "terço inferior",
+    "inscreva-se",
+    "botão",
+    "sininho",
+    "youtube"
+   ]
+  },
+  "template:h-tercio-tutorial-paso": {
+   "name": "Passo de tutorial",
+   "tags": [
+    "terço inferior",
+    "tutorial",
+    "passo",
+    "instruções",
+    "educação"
+   ]
+  },
+  "template:h-tercio-ubicacion": {
+   "name": "Localização",
+   "tags": [
+    "terço inferior",
+    "localização",
+    "lugar",
+    "viagem",
+    "cidade"
+   ]
+  },
+  "template:h-texto-advertencia": {
+   "name": "Aviso",
+   "tags": [
+    "aviso",
+    "atenção",
+    "alerta",
+    "importante",
+    "cuidado"
+   ]
+  },
+  "template:h-texto-agenda": {
+   "name": "Roteiro do vídeo",
+   "tags": [
+    "roteiro",
+    "conteúdo",
+    "temas",
+    "capítulos",
+    "índice"
+   ]
+  },
+  "template:h-texto-capitulo": {
+   "name": "Cartela de capítulo",
+   "tags": [
+    "capítulo",
+    "título",
+    "documentário",
+    "youtube",
+    "seção"
+   ]
+  },
+  "template:h-texto-cinetico": {
+   "name": "Tipografia cinética",
+   "tags": [
+    "texto cinético",
+    "tipografia",
+    "motivação",
+    "ritmo",
+    "palavras"
+   ]
+  },
+  "template:h-texto-cita-serif": {
+   "name": "Citação elegante",
+   "tags": [
+    "citação",
+    "frase",
+    "inspiração",
+    "reflexão",
+    "motivação"
+   ]
+  },
+  "template:h-texto-comparacion": {
+   "name": "Comparação",
+   "tags": [
+    "comparação",
+    "versus",
+    "a ou b",
+    "qual é melhor",
+    "review"
+   ]
+  },
+  "template:h-texto-creditos": {
+   "name": "Créditos finais",
+   "tags": [
+    "créditos",
+    "final",
+    "agradecimentos",
+    "filme",
+    "equipe"
+   ]
+  },
+  "template:h-texto-dato-curioso": {
+   "name": "Curiosidade",
+   "tags": [
+    "curiosidade",
+    "você sabia",
+    "educação",
+    "fatos",
+    "ciência"
+   ]
+  },
+  "template:h-texto-estadistica": {
+   "name": "Estatística",
+   "tags": [
+    "estatística",
+    "número",
+    "porcentagem",
+    "dados",
+    "infográfico"
+   ]
+  },
+  "template:h-texto-frase-neon": {
+   "name": "Letreiro neon",
+   "tags": [
+    "neon",
+    "letreiro",
+    "frase",
+    "noite",
+    "aesthetic"
+   ]
+  },
+  "template:h-texto-lecciones": {
+   "name": "O que você vai aprender",
+   "tags": [
+    "curso",
+    "aprender",
+    "aulas",
+    "educação",
+    "tutorial"
+   ]
+  },
+  "template:h-texto-linea-tiempo": {
+   "name": "Linha do tempo",
+   "tags": [
+    "linha do tempo",
+    "história",
+    "anos",
+    "trajetória",
+    "aniversário"
+   ]
+  },
+  "template:h-texto-lista-5": {
+   "name": "Lista de 5",
+   "tags": [
+    "lista",
+    "top 5",
+    "dicas",
+    "tópicos",
+    "resumo"
+   ]
+  },
+  "template:h-texto-maquina": {
+   "name": "Máquina de escrever",
+   "tags": [
+    "máquina de escrever",
+    "carta",
+    "vintage",
+    "história",
+    "texto"
+   ]
+  },
+  "template:h-texto-marcador": {
+   "name": "Placar final",
+   "tags": [
+    "placar",
+    "resultado",
+    "partida",
+    "esportes",
+    "final"
+   ]
+  },
+  "template:h-texto-portada-video": {
+   "name": "Capa de vídeo",
+   "tags": [
+    "miniatura",
+    "capa",
+    "thumbnail",
+    "youtube",
+    "clickbait"
+   ]
+  },
+  "template:h-texto-pregunta": {
+   "name": "Pergunta ao público",
+   "tags": [
+    "pergunta",
+    "comentários",
+    "interação",
+    "comunidade",
+    "opinião"
+   ]
+  },
+  "template:h-texto-receta-ingredientes": {
+   "name": "Ingredientes",
+   "tags": [
+    "receita",
+    "ingredientes",
+    "culinária",
+    "comida",
+    "lista"
+   ]
+  },
+  "template:h-texto-titular-revista": {
+   "name": "Manchete de revista",
+   "tags": [
+    "revista",
+    "capa",
+    "editorial",
+    "moda",
+    "manchetes"
+   ]
+  },
+  "template:h-texto-titulo-grande": {
+   "name": "Título grande",
+   "tags": [
+    "título",
+    "capa",
+    "grande",
+    "impacto",
+    "youtube"
+   ]
+  },
+  "template:h-trans-barrido-color": {
+   "name": "Varredura de cor",
+   "tags": [
+    "transição",
+    "varredura",
+    "cores",
+    "cortina",
+    "dinâmica"
+   ]
+  },
+  "template:h-trans-capitulo-numero": {
+   "name": "Número de capítulo",
+   "tags": [
+    "capítulo",
+    "transição",
+    "número",
+    "separador",
+    "documentário"
+   ]
+  },
+  "template:h-trans-circulo": {
+   "name": "Separador de círculo",
+   "tags": [
+    "transição",
+    "círculo",
+    "capítulo",
+    "separador",
+    "título"
+   ]
+  },
+  "template:h-trans-diagonal": {
+   "name": "Cortina diagonal",
+   "tags": [
+    "transição",
+    "diagonal",
+    "cortina",
+    "moderna",
+    "painéis"
+   ]
+  },
+  "template:h-trans-formas": {
+   "name": "Formas que preenchem",
+   "tags": [
+    "transição",
+    "formas",
+    "círculos",
+    "cores",
+    "divertida"
+   ]
+  },
+  "template:h-trans-glitch-corto": {
+   "name": "Golpe glitch",
+   "tags": [
+    "transição",
+    "glitch",
+    "rápida",
+    "gaming",
+    "digital"
+   ]
+  },
+  "template:h-trans-mientras-tanto": {
+   "name": "Enquanto isso…",
+   "tags": [
+    "enquanto isso",
+    "humor",
+    "quadrinhos",
+    "transição",
+    "meme"
+   ]
+  },
+  "template:h-trans-papel": {
+   "name": "Papel rasgando",
+   "tags": [
+    "transição",
+    "papel",
+    "rasgado",
+    "colagem",
+    "criativa"
+   ]
+  },
+  "template:h-trans-pelicula": {
+   "name": "Filme queimado",
+   "tags": [
+    "transição",
+    "filme",
+    "queimado",
+    "vintage",
+    "quente"
+   ]
+  },
+  "template:h-trans-persiana": {
+   "name": "Persiana",
+   "tags": [
+    "transição",
+    "persiana",
+    "faixas",
+    "cortina",
+    "elegante"
+   ]
+  },
+  "template:h-trans-tinta": {
+   "name": "Cortina de tinta",
+   "tags": [
+    "transição",
+    "tinta",
+    "artística",
+    "manchas",
+    "suave"
+   ]
+  },
+  "template:h-trans-zoom-golpe": {
+   "name": "Zoom com impacto",
+   "tags": [
+    "transição",
+    "zoom",
+    "impacto",
+    "rápida",
+    "energia"
+   ]
+  },
+  "template:halloween-photo-dump": {
+   "name": "Photo dump de Halloween",
+   "tags": [
+    "halloween",
+    "photo dump",
+    "fantasias",
+    "terror",
+    "outubro"
+   ]
+  },
+  "template:halloween-revelacion-disfraz": {
+   "name": "Revelação da fantasia",
+   "tags": [
+    "halloween",
+    "fantasia",
+    "transformação",
+    "antes e depois",
+    "susto"
+   ]
+  },
+  "template:halloween-truco-o-trato": {
+   "name": "Doces ou travessuras! Convite",
+   "tags": [
+    "halloween",
+    "festa",
+    "convite",
+    "crianças",
+    "fantasias"
+   ]
+  },
+  "template:horario-de-atencion": {
+   "name": "Horário de atendimento",
+   "tags": [
+    "horário",
+    "atendimento",
+    "aberto",
+    "loja",
+    "informação"
+   ]
+  },
+  "template:hype-glitch": {
+   "name": "Hype com glitch",
+   "tags": [
+    "hype",
+    "glitch",
+    "energia",
+    "academia",
+    "festa"
+   ]
+  },
+  "template:intro-de-canal": {
+   "name": "Intro de canal",
+   "tags": [
+    "intro",
+    "canal",
+    "youtube",
+    "logo"
+   ]
+  },
+  "template:intro-de-podcast": {
+   "name": "Intro de podcast",
+   "tags": [
+    "podcast",
+    "intro",
+    "episódio",
+    "áudio",
+    "programa"
+   ]
+  },
+  "template:intro-de-vlog": {
+   "name": "Intro de vlog",
+   "tags": [
+    "vlog",
+    "intro",
+    "dia comigo",
+    "rotina",
+    "aesthetic"
+   ]
+  },
+  "template:jugadas-destacadas": {
+   "name": "Melhores jogadas",
+   "tags": [
+    "esporte",
+    "futebol",
+    "highlights",
+    "gol",
+    "partida"
+   ]
+  },
+  "template:lanzamiento-ya-disponible": {
+   "name": "Lançamento: já disponível",
+   "tags": [
+    "lançamento",
+    "produto",
+    "novidade",
+    "loja online",
+    "estreia"
+   ]
+  },
+  "template:letra-al-ritmo": {
+   "name": "Letra no ritmo",
+   "tags": [
+    "letra",
+    "música",
+    "ritmo",
+    "festa",
+    "palavras"
+   ]
+  },
+  "template:me-gradue": {
+   "name": "Me formei!",
+   "tags": [
+    "formatura",
+    "conquista",
+    "faculdade",
+    "turma"
+   ]
+  },
+  "template:mejores-amigas": {
+   "name": "Melhores amigas",
+   "tags": [
+    "amigas",
+    "melhores amigas",
+    "besties",
+    "amizade",
+    "bff"
+   ]
+  },
+  "template:meme-texto-arriba-abajo": {
+   "name": "Meme clássico",
+   "tags": [
+    "meme",
+    "humor",
+    "texto em cima e embaixo",
+    "engraçado",
+    "relatable"
+   ]
+  },
+  "template:menu-del-dia-pizarra": {
+   "name": "Cardápio do dia na lousa",
+   "tags": [
+    "cardápio",
+    "restaurante",
+    "almoço",
+    "comida",
+    "preço"
+   ]
+  },
+  "template:menu-navideno": {
+   "name": "Cardápio de Natal",
+   "tags": [
+    "natal",
+    "cardápio",
+    "ceia",
+    "restaurante",
+    "jantar"
+   ]
+  },
+  "template:mi-2026-en-fotos": {
+   "name": "Meu 2026 em fotos",
+   "tags": [
+    "ano-novo",
+    "retrospectiva",
+    "2026",
+    "lembranças",
+    "fotos"
+   ]
+  },
+  "template:mi-glow-up": {
+   "name": "Meu glow up",
+   "tags": [
+    "glow up",
+    "antes e depois",
+    "maquiagem",
+    "mudança",
+    "beleza"
+   ]
+  },
+  "template:mi-mascota": {
+   "name": "Meu pet",
+   "tags": [
+    "pet",
+    "cachorro",
+    "gato",
+    "bichinho",
+    "melhor amigo"
+   ]
+  },
+  "template:mis-mejores-fotos": {
+   "name": "Minhas melhores fotos",
+   "tags": [
+    "slideshow",
+    "melhores fotos",
+    "carrossel",
+    "lembranças",
+    "pastel"
+   ]
+  },
+  "template:mis-xv": {
+   "name": "Meus 15 anos",
+   "tags": [
+    "15 anos",
+    "debutante",
+    "festa",
+    "aniversário"
+   ]
+  },
+  "template:mochilero-por-peru": {
+   "name": "Rota de mochilão",
+   "tags": [
+    "viagem",
+    "mochilão",
+    "rota",
+    "aventura",
+    "montanha"
+   ]
+  },
+  "template:moodboard-aesthetic": {
+   "name": "Moodboard aesthetic",
+   "tags": [
+    "moodboard",
+    "aesthetic",
+    "outono",
+    "inspiração",
+    "colagem"
+   ]
+  },
+  "template:muertos-ofrenda": {
+   "name": "Altar: sempre em nossa memória",
+   "tags": [
+    "dia dos mortos",
+    "finados",
+    "altar",
+    "lembrança",
+    "família"
+   ]
+  },
+  "template:navidad-en-familia": {
+   "name": "Natal em família",
+   "tags": [
+    "natal",
+    "família",
+    "dezembro",
+    "ceia",
+    "festas"
+   ]
+  },
+  "template:navidad-regalo-sorpresa": {
+   "name": "Presente surpresa",
+   "tags": [
+    "presente",
+    "surpresa",
+    "natal",
+    "unboxing",
+    "aniversário"
+   ]
+  },
+  "template:nosotros-vs-otros": {
+   "name": "Nós vs. os outros",
+   "tags": [
+    "comparação",
+    "nós",
+    "qualidade",
+    "por que escolher",
+    "vs"
+   ]
+  },
+  "template:nuestra-historia": {
+   "name": "Nossa história",
+   "tags": [
+    "casal",
+    "aniversário de namoro",
+    "amor",
+    "dia dos namorados"
+   ]
+  },
+  "template:nueva-coleccion-ropa": {
+   "name": "Nova coleção",
+   "tags": [
+    "nova coleção",
+    "roupas",
+    "moda",
+    "boutique",
+    "temporada"
+   ]
+  },
+  "template:octubre-en-fotos": {
+   "name": "Outubro em fotos",
+   "tags": [
+    "outubro",
+    "resumo",
+    "mês",
+    "outono",
+    "retrospectiva"
+   ]
+  },
+  "template:oferta-flash": {
+   "name": "Oferta relâmpago",
+   "tags": [
+    "oferta",
+    "desconto",
+    "venda",
+    "promoção"
+   ]
+  },
+  "template:ootd-outfit": {
+   "name": "OOTD: look do dia",
+   "tags": [
+    "look",
+    "ootd",
+    "moda",
+    "outfit",
+    "estilo"
+   ]
+  },
+  "template:opinion-impopular": {
+   "name": "Opinião impopular",
+   "tags": [
+    "opinião impopular",
+    "debate",
+    "polêmica",
+    "comente",
+    "hot take"
+   ]
+  },
+  "template:pantalla-final-2-videos": {
+   "name": "Tela final: 2 vídeos",
+   "tags": [
+    "tela final",
+    "vídeos recomendados",
+    "encerramento",
+    "inscreva-se",
+    "youtube shorts"
+   ]
+  },
+  "template:pantalla-triple": {
+   "name": "Tela tripla",
+   "tags": [
+    "tela dividida",
+    "três",
+    "cidade",
+    "colagem",
+    "rua"
+   ]
+  },
+  "template:para-mama": {
+   "name": "Para a mamãe",
+   "tags": [
+    "mãe",
+    "dia das mães",
+    "família",
+    "amor"
+   ]
+  },
+  "template:photo-dump-cinematico": {
+   "name": "Photo dump cinematográfico",
+   "tags": [
+    "photo dump",
+    "cinema",
+    "fotos",
+    "aesthetic",
+    "lembranças"
+   ]
+  },
+  "template:photo-dump-ritmo": {
+   "name": "Photo dump no ritmo",
+   "tags": [
+    "fotos",
+    "ritmo",
+    "photo dump",
+    "amigos"
+   ]
+  },
+  "template:polaroids": {
+   "name": "Fotos instantâneas na mesa",
+   "tags": [
+    "foto instantânea",
+    "fotos",
+    "lembranças",
+    "verão"
+   ]
+  },
+  "template:portada-de-tutorial": {
+   "name": "Capa de tutorial",
+   "tags": [
+    "tutorial",
+    "passo a passo",
+    "como fazer",
+    "capa",
+    "aprenda"
+   ]
+  },
+  "template:portada-revista": {
+   "name": "Capa de revista",
+   "tags": [
+    "revista",
+    "capa",
+    "moda",
+    "glamour"
+   ]
+  },
+  "template:pov-chat-mensajes": {
+   "name": "POV em mensagens",
+   "tags": [
+    "pov",
+    "chat",
+    "mensagens",
+    "humor",
+    "ex"
+   ]
+  },
+  "template:pov-cinematografico": {
+   "name": "POV de filme",
+   "tags": [
+    "pov",
+    "cinema",
+    "protagonista",
+    "aesthetic",
+    "legendas"
+   ]
+  },
+  "template:pov-texto": {
+   "name": "POV com texto",
+   "tags": [
+    "pov",
+    "meme",
+    "tiktok",
+    "texto"
+   ]
+  },
+  "template:preguntas-frecuentes": {
+   "name": "Perguntas frequentes",
+   "tags": [
+    "perguntas",
+    "faq",
+    "dúvidas",
+    "atendimento",
+    "envios"
+   ]
+  },
+  "template:primer-anio-bebe": {
+   "name": "Primeiro aninho: mês a mês",
+   "tags": [
+    "bebê",
+    "primeiro ano",
+    "mesversário",
+    "aniversário",
+    "família"
+   ]
+  },
+  "template:producto-estrella": {
+   "name": "Produto estrela",
+   "tags": [
+    "produto",
+    "loja",
+    "empreendedorismo",
+    "venda"
+   ]
+  },
+  "template:progreso-gym": {
+   "name": "Semana de treino",
+   "tags": [
+    "academia",
+    "treino",
+    "fitness",
+    "progresso",
+    "rotina"
+   ]
+  },
+  "template:propositos-2027": {
+   "name": "Minhas metas para 2027",
+   "tags": [
+    "ano-novo",
+    "metas",
+    "resoluções",
+    "2027",
+    "caderno"
+   ]
+  },
+  "template:r-abuelos": {
+   "name": "Obrigado, vovós",
+   "tags": [
+    "avós",
+    "vovó",
+    "vovô",
+    "família",
+    "obrigado",
+    "lembranças"
+   ]
+  },
+  "template:r-academia-idiomas": {
+   "name": "Escola de idiomas",
+   "tags": [
+    "idiomas",
+    "inglês",
+    "aulas",
+    "escola",
+    "cursos"
+   ]
+  },
+  "template:r-accion-gracias": {
+   "name": "Ação de Graças",
+   "tags": [
+    "ação de graças",
+    "thanksgiving",
+    "família",
+    "mesa",
+    "gratidão"
+   ]
+  },
+  "template:r-agenda-citas": {
+   "name": "Agende seu horário",
+   "tags": [
+    "agendamento",
+    "reservas",
+    "agenda",
+    "horários",
+    "salão"
+   ]
+  },
+  "template:r-agotado-vuelta": {
+   "name": "Esgotado → voltou!",
+   "tags": [
+    "esgotado",
+    "voltou",
+    "reposição",
+    "estoque",
+    "produto"
+   ]
+  },
+  "template:r-album-stickers": {
+   "name": "Álbum com figurinhas",
+   "tags": [
+    "álbum",
+    "figurinhas",
+    "scrapbook",
+    "fofo",
+    "diário"
+   ]
+  },
+  "template:r-anio-nuevo-elegante": {
+   "name": "Ano-Novo elegante",
+   "tags": [
+    "ano-novo",
+    "elegante",
+    "dourado",
+    "brinde",
+    "festa"
+   ]
+  },
+  "template:r-anio-nuevo-lunar": {
+   "name": "Ano-Novo Lunar",
+   "tags": [
+    "ano-novo lunar",
+    "ano-novo chinês",
+    "lanternas",
+    "vermelho",
+    "prosperidade"
+   ]
+  },
+  "template:r-aniversario-bodas": {
+   "name": "Bodas de casamento",
+   "tags": [
+    "bodas",
+    "aniversário de casamento",
+    "casal",
+    "anos",
+    "matrimônio"
+   ]
+  },
+  "template:r-antes-ahora": {
+   "name": "Antes e agora",
+   "tags": [
+    "antes e agora",
+    "mudança",
+    "comparação",
+    "lugar",
+    "tempo"
+   ]
+  },
+  "template:r-atardecer-cine": {
+   "name": "Pôr do sol cinematográfico",
+   "tags": [
+    "pôr do sol",
+    "sunset",
+    "cinematográfico",
+    "frase",
+    "dourado"
+   ]
+  },
+  "template:r-ba-auto": {
+   "name": "Antes e depois: carro",
+   "tags": [
+    "carro",
+    "lavagem",
+    "oficina",
+    "antes e depois",
+    "automóvel"
+   ]
+  },
+  "template:r-ba-casa": {
+   "name": "Antes e depois: minha casa",
+   "tags": [
+    "casa",
+    "reforma",
+    "antes e depois",
+    "decoração",
+    "lar"
+   ]
+  },
+  "template:r-ba-cocina": {
+   "name": "Antes e depois: receita",
+   "tags": [
+    "receita",
+    "culinária",
+    "ingredientes",
+    "prato",
+    "antes e depois"
+   ]
+  },
+  "template:r-ba-cortina": {
+   "name": "Antes e depois: cortina",
+   "tags": [
+    "antes e depois",
+    "cortina",
+    "transformação",
+    "mudança"
+   ]
+  },
+  "template:r-ba-dia-1-100": {
+   "name": "Dia 1 / Dia 100",
+   "tags": [
+    "dia 1",
+    "dia 100",
+    "progresso",
+    "desafio",
+    "transformação"
+   ]
+  },
+  "template:r-ba-dibujo": {
+   "name": "Do esboço à cor",
+   "tags": [
+    "desenho",
+    "arte",
+    "esboço",
+    "pintura",
+    "processo"
+   ]
+  },
+  "template:r-ba-jardin": {
+   "name": "Antes e depois: jardim",
+   "tags": [
+    "jardim",
+    "plantas",
+    "antes e depois",
+    "horta",
+    "verde"
+   ]
+  },
+  "template:r-ba-maquillaje": {
+   "name": "Antes e depois: maquiagem",
+   "tags": [
+    "maquiagem",
+    "antes e depois",
+    "beleza",
+    "look",
+    "makeup"
+   ]
+  },
+  "template:r-ba-mascota": {
+   "name": "De filhote a adulto",
+   "tags": [
+    "pet",
+    "filhote",
+    "cachorro",
+    "crescer",
+    "antes e depois"
+   ]
+  },
+  "template:r-ba-peinado": {
+   "name": "Antes e depois: cabelo",
+   "tags": [
+    "penteado",
+    "cabelo",
+    "salão",
+    "antes e depois",
+    "corte"
+   ]
+  },
+  "template:r-bautizo": {
+   "name": "Batizado",
+   "tags": [
+    "batizado",
+    "bebê",
+    "igreja",
+    "família",
+    "fé"
+   ]
+  },
+  "template:r-beneficios": {
+   "name": "Lista de benefícios",
+   "tags": [
+    "benefícios",
+    "vantagens",
+    "produto",
+    "lista",
+    "por quê"
+   ]
+  },
+  "template:r-bienvenida-casa": {
+   "name": "Bem-vindo de volta",
+   "tags": [
+    "boas-vindas",
+    "volta",
+    "casa",
+    "família",
+    "surpresa"
+   ]
+  },
+  "template:r-bienvenidos-canal": {
+   "name": "Bem-vindos ao meu canal",
+   "tags": [
+    "bem-vindos",
+    "canal",
+    "intro",
+    "criador",
+    "inscreva-se"
+   ]
+  },
+  "template:r-boda-primer-baile": {
+   "name": "Casamento: primeira dança",
+   "tags": [
+    "casamento",
+    "primeira dança",
+    "valsa",
+    "noivos",
+    "festa"
+   ]
+  },
+  "template:r-boda-votos": {
+   "name": "Casamento: os votos",
+   "tags": [
+    "casamento",
+    "votos",
+    "promessas",
+    "noivos",
+    "cerimônia"
+   ]
+  },
+  "template:r-cafeteria-latte": {
+   "name": "Cafeteria: latte art",
+   "tags": [
+    "cafeteria",
+    "café",
+    "latte",
+    "barista",
+    "café da manhã"
+   ]
+  },
+  "template:r-camara-desechable": {
+   "name": "Câmera descartável",
+   "tags": [
+    "câmera descartável",
+    "flash",
+    "festa",
+    "casamento",
+    "filme",
+    "retrô"
+   ]
+  },
+  "template:r-cambio-ropa": {
+   "name": "Troca de look na batida",
+   "tags": [
+    "look",
+    "troca de roupa",
+    "moda",
+    "transição",
+    "ootd"
+   ]
+  },
+  "template:r-carrusel": {
+   "name": "Carrossel deslizante",
+   "tags": [
+    "carrossel",
+    "deslizar",
+    "fotos",
+    "galeria",
+    "feed"
+   ]
+  },
+  "template:r-casa-nueva": {
+   "name": "Casa nova",
+   "tags": [
+    "casa nova",
+    "mudança",
+    "lar",
+    "chaves",
+    "conquista"
+   ]
+  },
+  "template:r-casa-venta": {
+   "name": "Vende-se casa",
+   "tags": [
+    "imobiliária",
+    "vende-se",
+    "casa",
+    "imóvel",
+    "tour"
+   ]
+  },
+  "template:r-ciudad-neon": {
+   "name": "Cidade neon",
+   "tags": [
+    "cidade",
+    "noite",
+    "neon",
+    "cyberpunk",
+    "urbano",
+    "luzes"
+   ]
+  },
+  "template:r-collage-2-mas-1": {
+   "name": "Colagem 2 + 1",
+   "tags": [
+    "colagem",
+    "fotos",
+    "grade",
+    "moderno",
+    "aesthetic"
+   ]
+  },
+  "template:r-collage-3-vertical": {
+   "name": "Colagem de 3 faixas",
+   "tags": [
+    "colagem",
+    "três fotos",
+    "faixas",
+    "vertical",
+    "minimalista"
+   ]
+  },
+  "template:r-collage-circulos": {
+   "name": "Colagem de círculos",
+   "tags": [
+    "círculos",
+    "colagem",
+    "redondo",
+    "cores",
+    "fotos"
+   ]
+  },
+  "template:r-collage-respira": {
+   "name": "Colagem que respira",
+   "tags": [
+    "colagem",
+    "fotos",
+    "respira",
+    "suave",
+    "aesthetic"
+   ]
+  },
+  "template:r-colores-disponibles": {
+   "name": "Cores disponíveis",
+   "tags": [
+    "cores",
+    "variações",
+    "produto",
+    "moda",
+    "loja"
+   ]
+  },
+  "template:r-combo": {
+   "name": "Combo de produtos",
+   "tags": [
+    "combo",
+    "kit",
+    "oferta",
+    "presente",
+    "preço especial"
+   ]
+  },
+  "template:r-comenta": {
+   "name": "Comente sua resposta",
+   "tags": [
+    "encerramento",
+    "comente",
+    "comentários",
+    "opinião"
+   ]
+  },
+  "template:r-comparar-tamanos": {
+   "name": "Comparação de tamanhos",
+   "tags": [
+    "tamanhos",
+    "medidas",
+    "comparação",
+    "produto",
+    "escolha"
+   ]
+  },
+  "template:r-compartelo": {
+   "name": "Compartilhe com alguém",
+   "tags": [
+    "encerramento",
+    "compartilhar",
+    "marque",
+    "amigos"
+   ]
+  },
+  "template:r-comunidad-reunion": {
+   "name": "Comunidade: reunião semanal",
+   "tags": [
+    "comunidade",
+    "reunião",
+    "igreja",
+    "grupo",
+    "convite"
+   ]
+  },
+  "template:r-consejo-finanzas": {
+   "name": "Dica de dinheiro",
+   "tags": [
+    "finanças",
+    "dinheiro",
+    "economia",
+    "dica",
+    "orçamento"
+   ]
+  },
+  "template:r-contador-fotos": {
+   "name": "Foto a foto com contador",
+   "tags": [
+    "contador",
+    "fotos",
+    "ritmo",
+    "rápido",
+    "photo dump"
+   ]
+  },
+  "template:r-core-memory": {
+   "name": "Memórias que brilham",
+   "tags": [
+    "lembranças",
+    "core memory",
+    "brilho",
+    "nostalgia",
+    "esferas",
+    "tendência"
+   ]
+  },
+  "template:r-cosas-felices": {
+   "name": "Coisas que me fazem feliz",
+   "tags": [
+    "coisas felizes",
+    "gratidão",
+    "pequenas coisas",
+    "aesthetic",
+    "lista"
+   ]
+  },
+  "template:r-cuadros-4-3": {
+   "name": "Quadros 4:3",
+   "tags": [
+    "4:3",
+    "cinema",
+    "quadro",
+    "minimalista",
+    "fotografia",
+    "aesthetic"
+   ]
+  },
+  "template:r-cuenta-5-seg": {
+   "name": "Contagem de 5 segundos",
+   "tags": [
+    "contagem regressiva",
+    "5 segundos",
+    "início",
+    "desafio",
+    "timer"
+   ]
+  },
+  "template:r-cuenta-boda": {
+   "name": "Contagem para o casamento",
+   "tags": [
+    "casamento",
+    "faltam dias",
+    "contagem regressiva",
+    "noivos",
+    "save the date"
+   ]
+  },
+  "template:r-cuenta-cumple": {
+   "name": "Contagem para meu aniversário",
+   "tags": [
+    "aniversário",
+    "faltam dias",
+    "contagem regressiva",
+    "festa",
+    "ansiedade"
+   ]
+  },
+  "template:r-cuenta-revelar": {
+   "name": "Contagem para revelar",
+   "tags": [
+    "revelação",
+    "surpresa",
+    "contagem regressiva",
+    "anúncio",
+    "reveal"
+   ]
+  },
+  "template:r-cuenta-vacaciones": {
+   "name": "Contagem para as férias",
+   "tags": [
+    "férias",
+    "viagem",
+    "faltam dias",
+    "contagem regressiva",
+    "mala"
+   ]
+  },
+  "template:r-cumple-adulto": {
+   "name": "Aniversário elegante",
+   "tags": [
+    "aniversário",
+    "elegante",
+    "dourado",
+    "40 anos",
+    "50 anos",
+    "festa"
+   ]
+  },
+  "template:r-cumple-infantil": {
+   "name": "Aniversário infantil",
+   "tags": [
+    "aniversário",
+    "crianças",
+    "infantil",
+    "festa",
+    "balões"
+   ]
+  },
+  "template:r-cumple-mama": {
+   "name": "Aniversário da mamãe",
+   "tags": [
+    "aniversário",
+    "mamãe",
+    "mãe",
+    "flores",
+    "família"
+   ]
+  },
+  "template:r-cumple-ritmo": {
+   "name": "Aniversário no ritmo",
+   "tags": [
+    "aniversário",
+    "ritmo",
+    "festa",
+    "letras",
+    "parabéns"
+   ]
+  },
+  "template:r-despedida-soltera": {
+   "name": "Despedida de solteira",
+   "tags": [
+    "despedida de solteira",
+    "amigas",
+    "festa",
+    "noiva",
+    "bride"
+   ]
+  },
+  "template:r-detalle-lupa": {
+   "name": "Detalhe com lupa",
+   "tags": [
+    "detalhe",
+    "lupa",
+    "qualidade",
+    "produto",
+    "acabamento"
+   ]
+  },
+  "template:r-detras-camaras": {
+   "name": "Bastidores",
+   "tags": [
+    "bastidores",
+    "bts",
+    "gravação",
+    "processo",
+    "criador"
+   ]
+  },
+  "template:r-dia-abuelos": {
+   "name": "Dia dos Avós",
+   "tags": [
+    "dia dos avós",
+    "vovó",
+    "vovô",
+    "família",
+    "carinho"
+   ]
+  },
+  "template:r-dia-madre-floral": {
+   "name": "Dia das Mães floral",
+   "tags": [
+    "dia das mães",
+    "mãe",
+    "flores",
+    "amor",
+    "obrigado"
+   ]
+  },
+  "template:r-dia-maestro": {
+   "name": "Dia do Professor",
+   "tags": [
+    "dia do professor",
+    "professora",
+    "escola",
+    "obrigado",
+    "docente"
+   ]
+  },
+  "template:r-dia-mujer": {
+   "name": "Dia da Mulher",
+   "tags": [
+    "dia da mulher",
+    "8 de março",
+    "mulheres",
+    "força",
+    "inspiração"
+   ]
+  },
+  "template:r-dia-nino": {
+   "name": "Dia das Crianças",
+   "tags": [
+    "dia das crianças",
+    "crianças",
+    "infância",
+    "brincadeiras",
+    "alegria"
+   ]
+  },
+  "template:r-dia-padre-deportivo": {
+   "name": "Dia dos Pais esportivo",
+   "tags": [
+    "dia dos pais",
+    "pai",
+    "esporte",
+    "futebol",
+    "campeão"
+   ]
+  },
+  "template:r-dia-perfecto": {
+   "name": "Meu dia perfeito",
+   "tags": [
+    "dia perfeito",
+    "rotina",
+    "horários",
+    "vlog",
+    "um dia na minha vida"
+   ]
+  },
+  "template:r-dia-tierra": {
+   "name": "Dia da Terra",
+   "tags": [
+    "dia da terra",
+    "planeta",
+    "ecologia",
+    "verde",
+    "natureza"
+   ]
+  },
+  "template:r-dia-x-de": {
+   "name": "Dia X de…",
+   "tags": [
+    "dia",
+    "desafio",
+    "diário",
+    "progresso",
+    "série"
+   ]
+  },
+  "template:r-diario-cinta": {
+   "name": "Diário com fita adesiva",
+   "tags": [
+    "diário",
+    "fita adesiva",
+    "journal",
+    "anotações",
+    "scrapbook"
+   ]
+  },
+  "template:r-diwali": {
+   "name": "Feliz Diwali",
+   "tags": [
+    "diwali",
+    "luzes",
+    "diya",
+    "festival",
+    "comemoração"
+   ]
+  },
+  "template:r-dump-fecha": {
+   "name": "Dump com data de câmera",
+   "tags": [
+    "photo dump",
+    "data",
+    "câmera digital",
+    "anos 2000",
+    "lembranças"
+   ]
+  },
+  "template:r-dump-finde": {
+   "name": "Dump de fim de semana",
+   "tags": [
+    "fim de semana",
+    "photo dump",
+    "grade",
+    "amigos",
+    "domingo"
+   ]
+  },
+  "template:r-dump-viaje-mapa": {
+   "name": "Dump de viagem com mapa",
+   "tags": [
+    "viagem",
+    "mapa",
+    "rota",
+    "photo dump",
+    "férias"
+   ]
+  },
+  "template:r-eid": {
+   "name": "Eid Mubarak",
+   "tags": [
+    "eid",
+    "eid mubarak",
+    "festa",
+    "família",
+    "bênçãos"
+   ]
+  },
+  "template:r-en-otra-vida": {
+   "name": "Em outra vida",
+   "tags": [
+    "em outra vida",
+    "sonhador",
+    "tendência",
+    "frase",
+    "aesthetic"
+   ]
+  },
+  "template:r-en-vivo-ahora": {
+   "name": "Ao vivo agora",
+   "tags": [
+    "ao vivo",
+    "live",
+    "transmissão",
+    "aviso",
+    "agora"
+   ]
+  },
+  "template:r-envio-gratis": {
+   "name": "Loja online: frete grátis",
+   "tags": [
+    "frete grátis",
+    "loja online",
+    "compras",
+    "oferta",
+    "entrega"
+   ]
+  },
+  "template:r-escuela-musica": {
+   "name": "Escola de música",
+   "tags": [
+    "música",
+    "aulas",
+    "violão",
+    "piano",
+    "escola"
+   ]
+  },
+  "template:r-esta-soy-yo": {
+   "name": "Esta sou eu",
+   "tags": [
+    "esta sou eu",
+    "apresentação",
+    "sobre mim",
+    "curiosidades",
+    "me conheça"
+   ]
+  },
+  "template:r-expectativa-realidad": {
+   "name": "Expectativa vs. realidade",
+   "tags": [
+    "expectativa",
+    "realidade",
+    "meme",
+    "humor",
+    "comparação"
+   ]
+  },
+  "template:r-farmacia-consejo": {
+   "name": "Farmácia: dica de saúde",
+   "tags": [
+    "farmácia",
+    "saúde",
+    "dica",
+    "bem-estar",
+    "prevenção"
+   ]
+  },
+  "template:r-ferreteria": {
+   "name": "Loja de ferragens",
+   "tags": [
+    "ferragens",
+    "ferramentas",
+    "construção",
+    "casa",
+    "oferta"
+   ]
+  },
+  "template:r-fiesta-fin-anio": {
+   "name": "Festa de fim de ano",
+   "tags": [
+    "fim de ano",
+    "festa",
+    "confraternização",
+    "amigos",
+    "brinde"
+   ]
+  },
+  "template:r-fin-curso": {
+   "name": "Fim do ano letivo",
+   "tags": [
+    "fim das aulas",
+    "férias",
+    "escola",
+    "último dia",
+    "verão"
+   ]
+  },
+  "template:r-flash-camara": {
+   "name": "Flashes de paparazzi",
+   "tags": [
+    "flash",
+    "paparazzi",
+    "famosa",
+    "tapete vermelho",
+    "moda",
+    "tendência"
+   ]
+  },
+  "template:r-floristeria": {
+   "name": "Floricultura",
+   "tags": [
+    "flores",
+    "floricultura",
+    "buquês",
+    "presentes",
+    "arranjos"
+   ]
+  },
+  "template:r-foto-en-foto": {
+   "name": "Foto dentro da foto",
+   "tags": [
+    "foto na foto",
+    "pip",
+    "detalhe",
+    "zoom",
+    "colagem"
+   ]
+  },
+  "template:r-foto-rompe": {
+   "name": "Foto que se quebra",
+   "tags": [
+    "quebrar",
+    "vidro",
+    "transição",
+    "impacto",
+    "edit"
+   ]
+  },
+  "template:r-fotografo": {
+   "name": "Fotógrafo",
+   "tags": [
+    "fotógrafo",
+    "ensaio fotográfico",
+    "retratos",
+    "estúdio",
+    "agendamento"
+   ]
+  },
+  "template:r-fotomaton": {
+   "name": "Tira de cabine de fotos",
+   "tags": [
+    "cabine de fotos",
+    "tira",
+    "photobooth",
+    "amigos",
+    "casal"
+   ]
+  },
+  "template:r-frase-comunidad": {
+   "name": "Frase do dia da comunidade",
+   "tags": [
+    "frase do dia",
+    "comunidade",
+    "reflexão",
+    "fé",
+    "esperança"
+   ]
+  },
+  "template:r-frase-pelicula": {
+   "name": "Frase de filme",
+   "tags": [
+    "frase",
+    "filme",
+    "cinema",
+    "legenda",
+    "cena"
+   ]
+  },
+  "template:r-frase-subrayada": {
+   "name": "Frase sublinhada",
+   "tags": [
+    "frase",
+    "sublinhado",
+    "motivação",
+    "citação",
+    "reflexão"
+   ]
+  },
+  "template:r-giro-camara": {
+   "name": "Giro de câmera",
+   "tags": [
+    "giro",
+    "transição",
+    "spin",
+    "viagem",
+    "energia"
+   ]
+  },
+  "template:r-gracias-1k": {
+   "name": "Obrigado pelos 1.000",
+   "tags": [
+    "encerramento",
+    "obrigado",
+    "1000 seguidores",
+    "marco",
+    "comemoração"
+   ]
+  },
+  "template:r-gracias-por-tanto": {
+   "name": "Obrigado por tudo",
+   "tags": [
+    "obrigado",
+    "gratidão",
+    "mãe",
+    "amizade",
+    "mensagem"
+   ]
+  },
+  "template:r-graduacion-kinder": {
+   "name": "Formatura do jardim de infância",
+   "tags": [
+    "formatura",
+    "jardim de infância",
+    "educação infantil",
+    "crianças",
+    "orgulho"
+   ]
+  },
+  "template:r-graduacion-universidad": {
+   "name": "Formatura da faculdade",
+   "tags": [
+    "formatura",
+    "faculdade",
+    "diploma",
+    "conquista",
+    "carreira"
+   ]
+  },
+  "template:r-grano-analogico": {
+   "name": "Filme analógico",
+   "tags": [
+    "analógico",
+    "filme",
+    "35 mm",
+    "granulado",
+    "vintage",
+    "aesthetic"
+   ]
+  },
+  "template:r-guardalo": {
+   "name": "Salve para depois",
+   "tags": [
+    "encerramento",
+    "salvar",
+    "salve",
+    "favoritos"
+   ]
+  },
+  "template:r-hanukkah": {
+   "name": "Feliz Hanukkah",
+   "tags": [
+    "hanukkah",
+    "chanucá",
+    "velas",
+    "luzes",
+    "família"
+   ]
+  },
+  "template:r-hecho-a-mano": {
+   "name": "Loja de artesanato",
+   "tags": [
+    "feito à mão",
+    "artesanato",
+    "empreendedorismo",
+    "loja",
+    "presentes"
+   ]
+  },
+  "template:r-heladeria": {
+   "name": "Sorveteria",
+   "tags": [
+    "sorvete",
+    "sorveteria",
+    "verão",
+    "sabores",
+    "sobremesa"
+   ]
+  },
+  "template:r-hilo-post": {
+   "name": "Thread de publicações",
+   "tags": [
+    "thread",
+    "publicação",
+    "post",
+    "opinião",
+    "texto"
+   ]
+  },
+  "template:r-hola-soy": {
+   "name": "Oi, eu sou…",
+   "tags": [
+    "apresentação",
+    "oi eu sou",
+    "criador",
+    "intro",
+    "novo seguidor"
+   ]
+  },
+  "template:r-holi": {
+   "name": "Feliz Holi",
+   "tags": [
+    "holi",
+    "cores",
+    "festival",
+    "pó colorido",
+    "primavera"
+   ]
+  },
+  "template:r-intro-serie": {
+   "name": "Abertura de série",
+   "tags": [
+    "série",
+    "temporada",
+    "episódio",
+    "intro",
+    "estilo série"
+   ]
+  },
+  "template:r-invierno": {
+   "name": "Inverno",
+   "tags": [
+    "inverno",
+    "neve",
+    "frio",
+    "amigos",
+    "estação"
+   ]
+  },
+  "template:r-jubilacion": {
+   "name": "Me aposentei!",
+   "tags": [
+    "aposentadoria",
+    "trabalho",
+    "nova fase",
+    "comemoração",
+    "carreira"
+   ]
+  },
+  "template:r-lavanderia": {
+   "name": "Lavanderia",
+   "tags": [
+    "lavanderia",
+    "roupas",
+    "limpeza",
+    "serviço",
+    "delivery"
+   ]
+  },
+  "template:r-letra-sube": {
+   "name": "Letra que sobe",
+   "tags": [
+    "letra",
+    "música",
+    "karaokê",
+    "lyrics",
+    "canção"
+   ]
+  },
+  "template:r-link-perfil": {
+   "name": "Link na bio",
+   "tags": [
+    "encerramento",
+    "link",
+    "perfil",
+    "bio",
+    "compras"
+   ]
+  },
+  "template:r-lista-pendientes": {
+   "name": "Lista de tarefas",
+   "tags": [
+    "tarefas",
+    "to do",
+    "lista",
+    "organização",
+    "produtividade"
+   ]
+  },
+  "template:r-lo-que-no-se-vio": {
+   "name": "Erros de gravação",
+   "tags": [
+    "bloopers",
+    "erros",
+    "erros de gravação",
+    "humor",
+    "bastidores"
+   ]
+  },
+  "template:r-logro-deportivo": {
+   "name": "Campeões!",
+   "tags": [
+    "campeões",
+    "esporte",
+    "troféu",
+    "vitória",
+    "time"
+   ]
+  },
+  "template:r-luces-fiesta": {
+   "name": "Luzes de festa",
+   "tags": [
+    "festa",
+    "luzes",
+    "noite",
+    "balada",
+    "amigos",
+    "dança"
+   ]
+  },
+  "template:r-lugar-feliz": {
+   "name": "Meu lugar feliz",
+   "tags": [
+    "lugar feliz",
+    "natureza",
+    "paz",
+    "viagem",
+    "aesthetic"
+   ]
+  },
+  "template:r-main-characters": {
+   "name": "Protagonistas",
+   "tags": [
+    "amigas",
+    "protagonistas",
+    "filme",
+    "créditos",
+    "main character"
+   ]
+  },
+  "template:r-marco-camara": {
+   "name": "Moldura de câmera",
+   "tags": [
+    "câmera",
+    "moldura",
+    "foto",
+    "visor",
+    "fotografia"
+   ]
+  },
+  "template:r-mas-vendido": {
+   "name": "O mais vendido",
+   "tags": [
+    "mais vendido",
+    "best seller",
+    "favorito",
+    "produto",
+    "top"
+   ]
+  },
+  "template:r-mito-verdad": {
+   "name": "Mito ou verdade?",
+   "tags": [
+    "mito",
+    "verdade",
+    "fato",
+    "curiosidade",
+    "pergunta"
+   ]
+  },
+  "template:r-modo-bestia": {
+   "name": "Modo monstro",
+   "tags": [
+    "academia",
+    "modo monstro",
+    "treino",
+    "motivação",
+    "fitness"
+   ]
+  },
+  "template:r-mosaico-3x3": {
+   "name": "Mosaico 3×3",
+   "tags": [
+    "mosaico",
+    "nove fotos",
+    "grade",
+    "grid",
+    "feed"
+   ]
+  },
+  "template:r-mudanzas": {
+   "name": "Mudanças",
+   "tags": [
+    "mudanças",
+    "transporte",
+    "caixas",
+    "fretes",
+    "serviço"
+   ]
+  },
+  "template:r-nadie-yo": {
+   "name": "«Ninguém: / Eu:»",
+   "tags": [
+    "meme",
+    "ninguém eu",
+    "humor",
+    "relatable",
+    "tendência"
+   ]
+  },
+  "template:r-navidad-minimal": {
+   "name": "Natal minimalista",
+   "tags": [
+    "natal",
+    "minimalista",
+    "árvore",
+    "elegante",
+    "dezembro"
+   ]
+  },
+  "template:r-nochebuena": {
+   "name": "Véspera de Natal em casa",
+   "tags": [
+    "véspera de natal",
+    "natal",
+    "ceia",
+    "família",
+    "lar"
+   ]
+  },
+  "template:r-nos-vemos-manana": {
+   "name": "Até amanhã",
+   "tags": [
+    "encerramento",
+    "despedida",
+    "amanhã",
+    "boa noite"
+   ]
+  },
+  "template:r-nota-celular": {
+   "name": "Nota do celular",
+   "tags": [
+    "notas",
+    "bloco de notas",
+    "celular",
+    "carta",
+    "mensagem"
+   ]
+  },
+  "template:r-nuevo-capitulo": {
+   "name": "Novo capítulo",
+   "tags": [
+    "novo capítulo",
+    "começo",
+    "mudança",
+    "intro",
+    "história"
+   ]
+  },
+  "template:r-nuevo-empleo": {
+   "name": "Emprego novo",
+   "tags": [
+    "trabalho novo",
+    "emprego",
+    "conquista",
+    "primeiro dia",
+    "carreira"
+   ]
+  },
+  "template:r-nuevo-video": {
+   "name": "Vídeo novo!",
+   "tags": [
+    "vídeo novo",
+    "estreia",
+    "aviso",
+    "youtube",
+    "link"
+   ]
+  },
+  "template:r-ojo-pez": {
+   "name": "Olho de peixe anos 90",
+   "tags": [
+    "olho de peixe",
+    "anos 90",
+    "skate",
+    "retrô",
+    "câmera"
+   ]
+  },
+  "template:r-ong-donaciones": {
+   "name": "Campanha de doações",
+   "tags": [
+    "doações",
+    "ong",
+    "ajuda",
+    "solidariedade",
+    "voluntários"
+   ]
+  },
+  "template:r-otono-acogedor": {
+   "name": "Outono aconchegante",
+   "tags": [
+    "outono",
+    "aconchegante",
+    "café",
+    "folhas",
+    "cozy"
+   ]
+  },
+  "template:r-outfit-check": {
+   "name": "Outfit check com setas",
+   "tags": [
+    "look",
+    "moda",
+    "setas",
+    "detalhes",
+    "estilo"
+   ]
+  },
+  "template:r-palabra-del-dia": {
+   "name": "Palavra do dia",
+   "tags": [
+    "palavra do dia",
+    "vocabulário",
+    "idioma",
+    "significado",
+    "aprenda"
+   ]
+  },
+  "template:r-panaderia": {
+   "name": "Padaria: saindo do forno",
+   "tags": [
+    "padaria",
+    "pão",
+    "saindo do forno",
+    "confeitaria",
+    "café da manhã"
+   ]
+  },
+  "template:r-pantalla-celular": {
+   "name": "Tela de celular",
+   "tags": [
+    "celular",
+    "telefone",
+    "galeria",
+    "tela",
+    "fotos"
+   ]
+  },
+  "template:r-papa-hijo": {
+   "name": "Papai e eu",
+   "tags": [
+    "pai",
+    "papai",
+    "filho",
+    "filha",
+    "família",
+    "herói"
+   ]
+  },
+  "template:r-pareja-lento": {
+   "name": "Montagem de casal lenta",
+   "tags": [
+    "casal",
+    "romântico",
+    "lento",
+    "filme",
+    "amor",
+    "lembranças"
+   ]
+  },
+  "template:r-pareja-ritmo": {
+   "name": "Montagem de casal no ritmo",
+   "tags": [
+    "casal",
+    "namorados",
+    "montagem",
+    "ritmo",
+    "amor",
+    "tendência"
+   ]
+  },
+  "template:r-parte-1": {
+   "name": "Parte 1",
+   "tags": [
+    "parte 1",
+    "série",
+    "história",
+    "storytime",
+    "continua"
+   ]
+  },
+  "template:r-pascua": {
+   "name": "Feliz Páscoa",
+   "tags": [
+    "páscoa",
+    "ovos",
+    "coelho",
+    "primavera",
+    "chocolate"
+   ]
+  },
+  "template:r-pastel-velas": {
+   "name": "Bolo e velas",
+   "tags": [
+    "bolo",
+    "velas",
+    "aniversário",
+    "desejo",
+    "assoprar"
+   ]
+  },
+  "template:r-peluqueria-mascotas": {
+   "name": "Banho e tosa",
+   "tags": [
+    "banho e tosa",
+    "pet shop",
+    "pets",
+    "grooming",
+    "cachorros"
+   ]
+  },
+  "template:r-pensamiento-dia": {
+   "name": "Pensamento do dia",
+   "tags": [
+    "pensamento",
+    "reflexão",
+    "fé",
+    "esperança",
+    "frase do dia"
+   ]
+  },
+  "template:r-plato-del-dia": {
+   "name": "Prato do dia",
+   "tags": [
+    "restaurante",
+    "prato do dia",
+    "cardápio",
+    "almoço",
+    "comida"
+   ]
+  },
+  "template:r-poema-corto": {
+   "name": "Poema curto",
+   "tags": [
+    "poema",
+    "poesia",
+    "versos",
+    "amor",
+    "texto"
+   ]
+  },
+  "template:r-portada-blog": {
+   "name": "Capa de blog",
+   "tags": [
+    "blog",
+    "capa",
+    "artigo",
+    "leitura",
+    "novo post"
+   ]
+  },
+  "template:r-pregunta-respuesta": {
+   "name": "Perguntas e respostas",
+   "tags": [
+    "perguntas",
+    "respostas",
+    "q&a",
+    "seguidores",
+    "dúvidas"
+   ]
+  },
+  "template:r-primavera": {
+   "name": "Primavera",
+   "tags": [
+    "primavera",
+    "flores",
+    "cores",
+    "estação",
+    "natureza"
+   ]
+  },
+  "template:r-primera-cita": {
+   "name": "Nosso primeiro encontro",
+   "tags": [
+    "primeiro encontro",
+    "casal",
+    "amor",
+    "lembrança",
+    "aniversário de namoro"
+   ]
+  },
+  "template:r-primera-comunion": {
+   "name": "Primeira comunhão",
+   "tags": [
+    "primeira comunhão",
+    "fé",
+    "família",
+    "crianças",
+    "comemoração"
+   ]
+  },
+  "template:r-producto-360": {
+   "name": "Produto em 360°",
+   "tags": [
+    "produto",
+    "360",
+    "giro",
+    "detalhe",
+    "loja"
+   ]
+  },
+  "template:r-propuesta": {
+   "name": "Ela disse sim!",
+   "tags": [
+    "pedido",
+    "noivado",
+    "anel",
+    "disse sim",
+    "casal"
+   ]
+  },
+  "template:r-ramadan": {
+   "name": "Ramadan Kareem",
+   "tags": [
+    "ramadã",
+    "iftar",
+    "família",
+    "lua crescente",
+    "lanternas"
+   ]
+  },
+  "template:r-ranking-5-1": {
+   "name": "Ranking do 5 ao 1",
+   "tags": [
+    "ranking",
+    "top 5",
+    "favoritos",
+    "lista",
+    "número 1"
+   ]
+  },
+  "template:r-reaccion-esquina": {
+   "name": "Reação no canto",
+   "tags": [
+    "reação",
+    "pip",
+    "react",
+    "canto",
+    "comentário"
+   ]
+  },
+  "template:r-receta-texto": {
+   "name": "Receita em texto",
+   "tags": [
+    "receita",
+    "passos",
+    "culinária",
+    "fácil",
+    "texto"
+   ]
+  },
+  "template:r-recorrido-ubicacion": {
+   "name": "Roteiro com localizações",
+   "tags": [
+    "roteiro",
+    "localização",
+    "cidade",
+    "guia",
+    "lugares",
+    "turismo"
+   ]
+  },
+  "template:r-recortes-revista": {
+   "name": "Recortes de revista",
+   "tags": [
+    "revista",
+    "recortes",
+    "colagem",
+    "editorial",
+    "letras recortadas"
+   ]
+  },
+  "template:r-recuerdo-proyector": {
+   "name": "Lembrança no projetor",
+   "tags": [
+    "projetor",
+    "lembranças",
+    "vintage",
+    "filme",
+    "família",
+    "nostalgia"
+   ]
+  },
+  "template:r-recuerdo-verano": {
+   "name": "Lembrança de verão",
+   "tags": [
+    "verão",
+    "praia",
+    "lembranças",
+    "férias",
+    "foto instantânea",
+    "sol"
+   ]
+  },
+  "template:r-reflejo": {
+   "name": "Reflexo na água",
+   "tags": [
+    "reflexo",
+    "espelho",
+    "água",
+    "simetria",
+    "aesthetic"
+   ]
+  },
+  "template:r-regreso-clases": {
+   "name": "Volta às aulas",
+   "tags": [
+    "volta às aulas",
+    "escola",
+    "mochila",
+    "material escolar",
+    "primeiro dia"
+   ]
+  },
+  "template:r-rejilla-bordes": {
+   "name": "Grade de bordas grossas",
+   "tags": [
+    "grade",
+    "bordas",
+    "brutalista",
+    "cores",
+    "colagem"
+   ]
+  },
+  "template:r-resena-estrellas": {
+   "name": "Avaliação com estrelas",
+   "tags": [
+    "avaliação",
+    "estrelas",
+    "opinião",
+    "cliente",
+    "produto"
+   ]
+  },
+  "template:r-reto-30-dias": {
+   "name": "Desafio de 30 dias",
+   "tags": [
+    "desafio",
+    "30 dias",
+    "hábitos",
+    "challenge",
+    "calendário"
+   ]
+  },
+  "template:r-sacudida-3d": {
+   "name": "Giro 3D no ritmo",
+   "tags": [
+    "3d",
+    "giro",
+    "ritmo",
+    "cartão",
+    "tendência"
+   ]
+  },
+  "template:r-san-valentin-divertido": {
+   "name": "Dia dos Namorados divertido",
+   "tags": [
+    "dia dos namorados",
+    "amor",
+    "humor",
+    "casal",
+    "corações"
+   ]
+  },
+  "template:r-si-te-ries": {
+   "name": "Se rir, perdeu",
+   "tags": [
+    "meme",
+    "se rir perdeu",
+    "humor",
+    "desafio",
+    "engraçado"
+   ]
+  },
+  "template:r-signos": {
+   "name": "Signos do zodíaco",
+   "tags": [
+    "signos",
+    "zodíaco",
+    "horóscopo",
+    "astrologia",
+    "estrelas"
+   ]
+  },
+  "template:r-siguenos-mas": {
+   "name": "Me siga para mais",
+   "tags": [
+    "encerramento",
+    "me siga",
+    "seguir",
+    "mais conteúdo"
+   ]
+  },
+  "template:r-slowmo-destello": {
+   "name": "Câmera lenta com brilho",
+   "tags": [
+    "câmera lenta",
+    "slow motion",
+    "brilho",
+    "sol",
+    "cinematográfico"
+   ]
+  },
+  "template:r-spa": {
+   "name": "Spa e relaxamento",
+   "tags": [
+    "spa",
+    "massagem",
+    "relaxamento",
+    "bem-estar",
+    "beleza"
+   ]
+  },
+  "template:r-split-ritmo": {
+   "name": "Tela dividida no ritmo",
+   "tags": [
+    "tela dividida",
+    "ritmo",
+    "duas fotos",
+    "edit",
+    "dinâmico"
+   ]
+  },
+  "template:r-super-ofertas": {
+   "name": "Supermercado: ofertas",
+   "tags": [
+    "supermercado",
+    "ofertas",
+    "preços",
+    "descontos",
+    "frutas"
+   ]
+  },
+  "template:r-tablero-corcho": {
+   "name": "Mural de cortiça",
+   "tags": [
+    "cortiça",
+    "mural",
+    "fotos",
+    "tachinhas",
+    "lembranças"
+   ]
+  },
+  "template:r-taller-mecanico": {
+   "name": "Oficina mecânica",
+   "tags": [
+    "oficina",
+    "mecânico",
+    "carros",
+    "revisão",
+    "serviço"
+   ]
+  },
+  "template:r-tarjetas-apiladas": {
+   "name": "Cartões empilhados",
+   "tags": [
+    "cartões",
+    "pilha",
+    "deslizar",
+    "fotos",
+    "swipe"
+   ]
+  },
+  "template:r-tienda-barrio": {
+   "name": "Mercadinho do bairro",
+   "tags": [
+    "loja",
+    "bairro",
+    "ofertas",
+    "vizinhos",
+    "mercearia"
+   ]
+  },
+  "template:r-tierno-stickers": {
+   "name": "Fofo com figurinhas",
+   "tags": [
+    "fofo",
+    "figurinhas",
+    "cute",
+    "kawaii",
+    "pet",
+    "bebê"
+   ]
+  },
+  "template:r-traduccion": {
+   "name": "Como se diz?",
+   "tags": [
+    "tradução",
+    "idiomas",
+    "inglês",
+    "aprender",
+    "frases"
+   ]
+  },
+  "template:r-tres-errores": {
+   "name": "3 erros que você comete",
+   "tags": [
+    "erros",
+    "dicas",
+    "conselhos",
+    "aprenda",
+    "evite"
+   ]
+  },
+  "template:r-trivia": {
+   "name": "Quiz de múltipla escolha",
+   "tags": [
+    "quiz",
+    "trivia",
+    "pergunta",
+    "jogo",
+    "respostas"
+   ]
+  },
+  "template:r-unboxing": {
+   "name": "Unboxing",
+   "tags": [
+    "unboxing",
+    "abrindo",
+    "pedido",
+    "produto",
+    "compras"
+   ]
+  },
+  "template:r-velocity-duro": {
+   "name": "Velocity intenso",
+   "tags": [
+    "velocity",
+    "rampa",
+    "intenso",
+    "tremor",
+    "edit",
+    "tendência"
+   ]
+  },
+  "template:r-velocity-suave": {
+   "name": "Velocity suave",
+   "tags": [
+    "velocity",
+    "rampa de velocidade",
+    "suave",
+    "tendência",
+    "edit"
+   ]
+  },
+  "template:r-verano": {
+   "name": "Olá, verão",
+   "tags": [
+    "verão",
+    "praia",
+    "piscina",
+    "sol",
+    "férias"
+   ]
+  },
+  "template:r-veterinaria": {
+   "name": "Clínica veterinária",
+   "tags": [
+    "veterinário",
+    "pets",
+    "cachorros",
+    "gatos",
+    "saúde animal"
+   ]
+  },
+  "template:r-vt-horario": {
+   "name": "Horário de atendimento vertical",
+   "tags": [
+    "terço inferior",
+    "vertical",
+    "horário",
+    "negócio",
+    "atendimento"
+   ]
+  },
+  "template:r-vt-nombre": {
+   "name": "Legenda de nome vertical",
+   "tags": [
+    "terço inferior",
+    "legenda",
+    "vertical",
+    "nome",
+    "entrevista"
+   ]
+  },
+  "template:r-vt-precio": {
+   "name": "Preço vertical",
+   "tags": [
+    "terço inferior",
+    "vertical",
+    "preço",
+    "produto",
+    "loja"
+   ]
+  },
+  "template:r-vt-ubicacion": {
+   "name": "Localização vertical",
+   "tags": [
+    "terço inferior",
+    "vertical",
+    "localização",
+    "viagem",
+    "lugar"
+   ]
+  },
+  "template:r-vt-usuario": {
+   "name": "@usuário vertical",
+   "tags": [
+    "terço inferior",
+    "vertical",
+    "usuário",
+    "redes",
+    "me siga"
+   ]
+  },
+  "template:r-yo-vs-yo": {
+   "name": "Eu criança vs. eu hoje",
+   "tags": [
+    "eu vs eu",
+    "antes e agora",
+    "infância",
+    "crescer",
+    "comparação"
+   ]
+  },
+  "template:r-zoom-golpe": {
+   "name": "Zoom de impacto",
+   "tags": [
+    "zoom",
+    "impacto",
+    "ritmo",
+    "minimalista",
+    "edit"
+   ]
+  },
+  "template:recap-del-anio": {
+   "name": "Meu ano em 12 meses",
+   "tags": [
+    "retrospectiva",
+    "ano",
+    "resumo",
+    "meses",
+    "2026"
+   ]
+  },
+  "template:receta-rapida": {
+   "name": "Receita em 15 segundos",
+   "tags": [
+    "receita",
+    "cozinha",
+    "comida",
+    "salada"
+   ]
+  },
+  "template:red-flags-green-flags": {
+   "name": "Red flags e green flags",
+   "tags": [
+    "red flags",
+    "green flags",
+    "relacionamentos",
+    "encontros",
+    "humor"
+   ]
+  },
+  "template:remodelacion": {
+   "name": "Antes e depois do ambiente",
+   "tags": [
+    "reforma",
+    "casa",
+    "imobiliária",
+    "decoração"
+   ]
+  },
+  "template:resenas-lo-que-dicen": {
+   "name": "O que nossos clientes dizem",
+   "tags": [
+    "avaliações",
+    "opiniões",
+    "clientes",
+    "5 estrelas",
+    "nota"
+   ]
+  },
+  "template:resumen-de-boda": {
+   "name": "Resumo do casamento",
+   "tags": [
+    "casamento",
+    "noivos",
+    "resumo",
+    "cinematográfico",
+    "festa"
+   ]
+  },
+  "template:revelacion-de-genero": {
+   "name": "Chá revelação: menino ou menina?",
+   "tags": [
+    "chá revelação",
+    "menino ou menina",
+    "bebê",
+    "gravidez",
+    "baby"
+   ]
+  },
+  "template:salon-de-belleza-servicios": {
+   "name": "Salão de beleza",
+   "tags": [
+    "salão",
+    "beleza",
+    "cabeleireiro",
+    "serviços",
+    "agendamento"
+   ]
+  },
+  "template:san-valentin-carta": {
+   "name": "Carta de amor",
+   "tags": [
+    "dia dos namorados",
+    "amor",
+    "casal",
+    "carta",
+    "romântico"
+   ]
+  },
+  "template:slowmo-cinematico": {
+   "name": "Câmera lenta cinematográfica",
+   "tags": [
+    "cinema",
+    "cinematográfico",
+    "câmera lenta",
+    "pôr do sol"
+   ]
+  },
+  "template:storytime-les-cuento": {
+   "name": "Storytime: vou contar",
+   "tags": [
+    "storytime",
+    "história",
+    "causo",
+    "vou contar",
+    "tiktok"
+   ]
+  },
+  "template:testimonio-cliente-estrellas": {
+   "name": "Depoimento de cliente",
+   "tags": [
+    "depoimento",
+    "cliente",
+    "avaliação",
+    "estrelas",
+    "confiança"
+   ]
+  },
+  "template:texto-cinetico": {
+   "name": "Texto cinético",
+   "tags": [
+    "texto",
+    "motivação",
+    "frase",
+    "impacto"
+   ]
+  },
+  "template:tira-pelicula": {
+   "name": "Tira de filme",
+   "tags": [
+    "filme",
+    "analógico",
+    "rolo",
+    "retrô"
+   ]
+  },
+  "template:top-5-mas-vendidos": {
+   "name": "Top 5 mais vendidos",
+   "tags": [
+    "top 5",
+    "mais vendidos",
+    "ranking",
+    "loja",
+    "roupas"
+   ]
+  },
+  "template:tour-inmobiliario": {
+   "name": "Tour pelo imóvel",
+   "tags": [
+    "imobiliária",
+    "casa",
+    "venda",
+    "apartamento"
+   ]
+  },
+  "template:transformacion-gym": {
+   "name": "Transformação na academia",
+   "tags": [
+    "academia",
+    "fitness",
+    "transformação",
+    "antes e depois"
+   ]
+  },
+  "template:transiciones-al-ritmo": {
+   "name": "Transições no ritmo",
+   "tags": [
+    "transições",
+    "ritmo",
+    "amigos",
+    "fim de semana",
+    "tendência"
+   ]
+  },
+  "template:tres-consejos": {
+   "name": "3 dicas para…",
+   "tags": [
+    "dicas",
+    "conselhos",
+    "lista",
+    "estudar",
+    "educativo"
+   ]
+  },
+  "template:tutorial-en-3-pasos": {
+   "name": "Tutorial em 3 passos",
+   "tags": [
+    "tutorial",
+    "passo a passo",
+    "como fazer",
+    "dicas",
+    "beleza"
+   ]
+  },
+  "template:ultimo-momento-noticia": {
+   "name": "Última hora",
+   "tags": [
+    "notícia",
+    "última hora",
+    "anúncio",
+    "ao vivo",
+    "novidade"
+   ]
+  },
+  "template:un-dia-en-mi-vida": {
+   "name": "Um dia na minha vida",
+   "tags": [
+    "um dia na minha vida",
+    "rotina",
+    "vlog",
+    "day in my life",
+    "stories"
+   ]
+  },
+  "template:unas-nail-art": {
+   "name": "Unhas e nail art",
+   "tags": [
+    "unhas",
+    "manicure",
+    "nail art",
+    "beleza",
+    "unhas de gel"
+   ]
+  },
+  "template:velocity-al-ritmo": {
+   "name": "Velocity no ritmo",
+   "tags": [
+    "velocity",
+    "velocidade",
+    "ritmo",
+    "moda",
+    "tendência"
+   ]
+  },
+  "template:vhs-de-los-2000": {
+   "name": "VHS anos 2000",
+   "tags": [
+    "vhs",
+    "retrô",
+    "anos 2000",
+    "nostalgia",
+    "câmera"
+   ]
+  },
+  "template:vlog-de-viaje": {
+   "name": "Minivlog de viagem",
+   "tags": [
+    "viagem",
+    "vlog",
+    "turismo",
+    "férias"
+   ]
+  },
+  "template:y2k-brillitos": {
+   "name": "Brilhinhos Y2K",
+   "tags": [
+    "y2k",
+    "brilhos",
+    "rosa",
+    "aesthetic"
+   ]
+  },
+  "template:zoom-3d-parallax": {
+   "name": "Zoom 3D",
+   "tags": [
+    "zoom 3d",
+    "parallax",
+    "viagem",
+    "ken burns",
+    "tendência"
+   ]
+  }
+ }
+}

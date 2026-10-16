@@ -1,0 +1,7296 @@
+{
+ "categories": {
+  "animation:celebracion": "Ăn mừng",
+  "animation:clima": "Thời tiết",
+  "animation:comida": "Đồ ăn và thức uống",
+  "animation:deportes": "Thể thao",
+  "animation:emociones": "Cảm xúc",
+  "animation:fechas": "Ngày đặc biệt",
+  "animation:flechas": "Mũi tên",
+  "animation:formas": "Hình khối",
+  "animation:iconos": "Biểu tượng",
+  "animation:llamadas": "Chú thích và khung",
+  "animation:negocios": "Kinh doanh",
+  "animation:redes": "Mạng xã hội",
+  "animation:resaltar": "Nhấn mạnh",
+  "animation:transiciones": "Chuyển cảnh",
+  "background:ambiente": "Ánh sáng và không khí",
+  "background:degradados": "Chuyển màu và chất lỏng",
+  "background:fechas": "Ngày đặc biệt",
+  "background:geometricos": "Hình học",
+  "background:texturas": "Kết cấu",
+  "overlay:amor": "Tình yêu",
+  "overlay:camara": "Máy quay và màn hình",
+  "overlay:celebracion": "Ăn mừng",
+  "overlay:clima": "Thời tiết và thiên nhiên",
+  "overlay:garabatos": "Nét vẽ tay",
+  "overlay:glitch": "Glitch",
+  "overlay:luces": "Lóa sáng và ánh sáng",
+  "overlay:marcos": "Khung và kết cấu",
+  "overlay:particulas": "Hạt và lấp lánh",
+  "overlay:pelicula": "Phim và retro",
+  "sound:comedia": "Hài hước",
+  "sound:impactos": "Va chạm",
+  "sound:interfaz": "Giao diện và thông báo",
+  "sound:juegos": "Xu và trò chơi",
+  "sound:magia": "Phép thuật và lấp lánh",
+  "sound:ritmo": "Nhịp và âm nhạc",
+  "sound:suspenso": "Hồi hộp và kịch tính",
+  "sound:transiciones": "Chuyển cảnh",
+  "template:beforeafter": "Trước và sau",
+  "template:business": "Kinh doanh",
+  "template:celebration": "Lễ kỷ niệm",
+  "template:collage": "Ghép ảnh",
+  "template:countdown": "Đếm ngược",
+  "template:intro": "Intro và tiêu đề",
+  "template:lowerthird": "Chú thích cuối màn hình",
+  "template:outro": "Kết thúc",
+  "template:product": "Sản phẩm",
+  "template:reels": "Reels ảnh",
+  "template:seasonal": "Ngày lễ đặc biệt",
+  "template:slideshow": "Trình chiếu ảnh",
+  "template:text": "Văn bản",
+  "template:transition": "Chuyển cảnh và phân cách"
+ },
+ "items": {
+  "animation:alcancia": {
+   "name": "Heo đất",
+   "tags": [
+    "tiết kiệm",
+    "tiền",
+    "tài chính",
+    "mục tiêu"
+   ]
+  },
+  "animation:anillos-boda": {
+   "name": "Nhẫn cưới",
+   "tags": [
+    "đám cưới",
+    "hôn nhân",
+    "đính hôn",
+    "kỷ niệm"
+   ]
+  },
+  "animation:anillos-puntos": {
+   "name": "Vòng chấm",
+   "tags": [
+    "vòng tròn",
+    "hình nền",
+    "xoay",
+    "họa tiết"
+   ]
+  },
+  "animation:arbol-navidad": {
+   "name": "Cây thông Noel",
+   "tags": [
+    "giáng sinh",
+    "cây thông",
+    "tháng 12",
+    "lễ hội"
+   ]
+  },
+  "animation:arcoiris": {
+   "name": "Cầu vồng",
+   "tags": [
+    "cầu vồng",
+    "mưa",
+    "hy vọng",
+    "màu sắc"
+   ]
+  },
+  "animation:asterisco": {
+   "name": "Dấu hoa thị",
+   "tags": [
+    "hoa thị",
+    "ngôi sao",
+    "retro",
+    "nhấn mạnh"
+   ]
+  },
+  "animation:avion-papel": {
+   "name": "Máy bay giấy",
+   "tags": [
+    "gửi",
+    "tin nhắn",
+    "chia sẻ",
+    "du lịch"
+   ]
+  },
+  "animation:balon-futbol": {
+   "name": "Quả bóng đá",
+   "tags": [
+    "bóng đá",
+    "bàn thắng",
+    "thể thao",
+    "trận đấu"
+   ]
+  },
+  "animation:baloncesto": {
+   "name": "Bóng rổ",
+   "tags": [
+    "bóng rổ",
+    "thể thao",
+    "sân bóng"
+   ]
+  },
+  "animation:bandera": {
+   "name": "Lá cờ tung bay",
+   "tags": [
+    "lá cờ",
+    "đích đến",
+    "thành tích",
+    "khởi đầu"
+   ]
+  },
+  "animation:bandera-meta": {
+   "name": "Cờ về đích",
+   "tags": [
+    "về đích",
+    "cuộc đua",
+    "chiến thắng",
+    "kết thúc"
+   ]
+  },
+  "animation:banderines": {
+   "name": "Dây cờ trang trí",
+   "tags": [
+    "dây cờ",
+    "tiệc",
+    "trang trí",
+    "sinh nhật",
+    "khai trương"
+   ]
+  },
+  "animation:barrido-diagonal": {
+   "name": "Quét chéo",
+   "tags": [
+    "chuyển cảnh",
+    "quét",
+    "đổi cảnh"
+   ]
+  },
+  "animation:bengala": {
+   "name": "Que pháo sáng",
+   "tags": [
+    "pháo sáng",
+    "năm mới",
+    "tiệc",
+    "đám cưới",
+    "tia lửa"
+   ]
+  },
+  "animation:birrete": {
+   "name": "Mũ tốt nghiệp",
+   "tags": [
+    "tốt nghiệp",
+    "mũ cử nhân",
+    "thành tích",
+    "học tập"
+   ]
+  },
+  "animation:bocadillo": {
+   "name": "Bong bóng thoại",
+   "tags": [
+    "hội thoại",
+    "lời nói",
+    "chữ",
+    "truyện tranh"
+   ]
+  },
+  "animation:bocadillo-grito": {
+   "name": "Bong bóng hét",
+   "tags": [
+    "hét",
+    "wow",
+    "truyện tranh",
+    "cảm thán"
+   ]
+  },
+  "animation:bola-disco": {
+   "name": "Quả cầu disco",
+   "tags": [
+    "disco",
+    "tiệc",
+    "nhảy",
+    "ban đêm"
+   ]
+  },
+  "animation:bolsa-compras": {
+   "name": "Túi mua sắm",
+   "tags": [
+    "mua sắm",
+    "cửa hàng",
+    "đơn hàng",
+    "túi"
+   ]
+  },
+  "animation:bombilla-idea": {
+   "name": "Bóng đèn ý tưởng",
+   "tags": [
+    "ý tưởng",
+    "sáng tạo",
+    "lời khuyên",
+    "mẹo"
+   ]
+  },
+  "animation:boton-play": {
+   "name": "Nút phát",
+   "tags": [
+    "video",
+    "phát",
+    "play",
+    "xem"
+   ]
+  },
+  "animation:boton-seguir": {
+   "name": "Nút theo dõi",
+   "tags": [
+    "theo dõi",
+    "đăng ký",
+    "mạng xã hội",
+    "kêu gọi hành động"
+   ]
+  },
+  "animation:brillo-y2k": {
+   "name": "Lấp lánh Y2K",
+   "tags": [
+    "lấp lánh",
+    "y2k",
+    "aesthetic",
+    "ngôi sao"
+   ]
+  },
+  "animation:burbujas": {
+   "name": "Bong bóng",
+   "tags": [
+    "bong bóng",
+    "nước",
+    "xà phòng",
+    "hình nền"
+   ]
+  },
+  "animation:cafe-humeante": {
+   "name": "Cà phê nóng",
+   "tags": [
+    "cà phê",
+    "buổi sáng",
+    "bữa sáng",
+    "đồ uống"
+   ]
+  },
+  "animation:caja-envio": {
+   "name": "Hộp giao hàng",
+   "tags": [
+    "giao hàng",
+    "ship",
+    "đơn hàng",
+    "bưu kiện"
+   ]
+  },
+  "animation:calabaza": {
+   "name": "Đèn bí ngô",
+   "tags": [
+    "halloween",
+    "bí ngô",
+    "tháng 10",
+    "đáng sợ"
+   ]
+  },
+  "animation:calendario": {
+   "name": "Lịch",
+   "tags": [
+    "ngày",
+    "sự kiện",
+    "lịch trình",
+    "nhắc nhở"
+   ]
+  },
+  "animation:camara-foto": {
+   "name": "Máy ảnh",
+   "tags": [
+    "ảnh",
+    "máy ảnh",
+    "selfie",
+    "kỷ niệm"
+   ]
+  },
+  "animation:campana": {
+   "name": "Chuông thông báo",
+   "tags": [
+    "đăng ký",
+    "thông báo",
+    "chuông",
+    "youtube"
+   ]
+  },
+  "animation:campanas-navidad": {
+   "name": "Chuông Giáng sinh",
+   "tags": [
+    "giáng sinh",
+    "chuông",
+    "lễ hội",
+    "đám cưới"
+   ]
+  },
+  "animation:candado": {
+   "name": "Ổ khóa",
+   "tags": [
+    "an toàn",
+    "riêng tư",
+    "mở khóa",
+    "mật khẩu"
+   ]
+  },
+  "animation:cara-angel": {
+   "name": "Mặt thiên thần",
+   "tags": [
+    "thiên thần",
+    "ngây thơ",
+    "ngoan",
+    "emoji"
+   ]
+  },
+  "animation:cara-beso": {
+   "name": "Nụ hôn",
+   "tags": [
+    "nụ hôn",
+    "tình yêu",
+    "moah",
+    "emoji"
+   ]
+  },
+  "animation:cara-derretida": {
+   "name": "Mặt tan chảy",
+   "tags": [
+    "nóng",
+    "xấu hổ",
+    "tan chảy",
+    "emoji"
+   ]
+  },
+  "animation:cara-diablillo": {
+   "name": "Mặt tiểu quỷ",
+   "tags": [
+    "tinh nghịch",
+    "quỷ",
+    "đùa",
+    "emoji"
+   ]
+  },
+  "animation:cara-dormida": {
+   "name": "Mặt ngủ gật",
+   "tags": [
+    "buồn ngủ",
+    "ngủ",
+    "mệt",
+    "zzz"
+   ]
+  },
+  "animation:cara-enamorada": {
+   "name": "Mặt yêu thích",
+   "tags": [
+    "tình yêu",
+    "mê quá",
+    "say đắm",
+    "emoji"
+   ]
+  },
+  "animation:cara-enojada": {
+   "name": "Mặt giận dữ",
+   "tags": [
+    "giận",
+    "tức giận",
+    "bực mình",
+    "emoji"
+   ]
+  },
+  "animation:cara-estrellas": {
+   "name": "Mắt ngôi sao",
+   "tags": [
+    "wow",
+    "tuyệt vời",
+    "fan",
+    "emoji"
+   ]
+  },
+  "animation:cara-fiesta": {
+   "name": "Mặt dự tiệc",
+   "tags": [
+    "tiệc",
+    "sinh nhật",
+    "ăn mừng",
+    "emoji"
+   ]
+  },
+  "animation:cara-guino": {
+   "name": "Mặt nháy mắt",
+   "tags": [
+    "nháy mắt",
+    "tán tỉnh",
+    "đùa",
+    "emoji"
+   ]
+  },
+  "animation:cara-lentes": {
+   "name": "Mặt đeo kính ngầu",
+   "tags": [
+    "ngầu",
+    "cool",
+    "kính râm",
+    "emoji"
+   ]
+  },
+  "animation:cara-llorando": {
+   "name": "Mặt khóc",
+   "tags": [
+    "buồn",
+    "khóc",
+    "tiếc",
+    "emoji"
+   ]
+  },
+  "animation:cara-nerviosa": {
+   "name": "Mặt lo lắng",
+   "tags": [
+    "lo lắng",
+    "ối",
+    "ngại ngùng",
+    "emoji"
+   ]
+  },
+  "animation:cara-pensando": {
+   "name": "Mặt suy nghĩ",
+   "tags": [
+    "suy nghĩ",
+    "băn khoăn",
+    "câu hỏi",
+    "emoji"
+   ]
+  },
+  "animation:cara-risa": {
+   "name": "Mặt cười lớn",
+   "tags": [
+    "cười",
+    "haha",
+    "buồn cười",
+    "emoji"
+   ]
+  },
+  "animation:cara-sorpresa": {
+   "name": "Mặt ngạc nhiên",
+   "tags": [
+    "wow",
+    "ngạc nhiên",
+    "omg",
+    "emoji"
+   ]
+  },
+  "animation:cargando": {
+   "name": "Đang tải",
+   "tags": [
+    "đang tải",
+    "chờ",
+    "sắp có",
+    "loading"
+   ]
+  },
+  "animation:carrito": {
+   "name": "Giỏ hàng",
+   "tags": [
+    "mua",
+    "cửa hàng",
+    "giỏ hàng",
+    "mua sắm"
+   ]
+  },
+  "animation:carta-amor": {
+   "name": "Thư tình",
+   "tags": [
+    "valentine",
+    "lá thư",
+    "tình yêu",
+    "lời nhắn"
+   ]
+  },
+  "animation:chat-corazon": {
+   "name": "Tin nhắn yêu thương",
+   "tags": [
+    "tin nhắn",
+    "tình yêu",
+    "chat",
+    "dm"
+   ]
+  },
+  "animation:chincheta": {
+   "name": "Đinh ghim",
+   "tags": [
+    "đinh ghim",
+    "ghim",
+    "quan trọng",
+    "ghi chú",
+    "nhắc nhở"
+   ]
+  },
+  "animation:cinta": {
+   "name": "Băng rôn ruy băng",
+   "tags": [
+    "tiêu đề",
+    "banner",
+    "mới",
+    "ruy băng"
+   ]
+  },
+  "animation:cinta-adhesiva": {
+   "name": "Băng keo washi",
+   "tags": [
+    "khung",
+    "ảnh",
+    "scrapbook",
+    "ghép ảnh"
+   ]
+  },
+  "animation:circulo-flecha": {
+   "name": "Vòng tròn và mũi tên",
+   "tags": [
+    "khoanh tròn",
+    "chỉ",
+    "ở đây",
+    "vẽ tay"
+   ]
+  },
+  "animation:circulo-marcador": {
+   "name": "Vòng tròn vẽ tay",
+   "tags": [
+    "khoanh tròn",
+    "nhấn mạnh",
+    "đánh dấu",
+    "chỉ"
+   ]
+  },
+  "animation:circulos-barrido": {
+   "name": "Quét hình tròn",
+   "tags": [
+    "chuyển cảnh",
+    "hình tròn",
+    "đổi cảnh"
+   ]
+  },
+  "animation:cohete": {
+   "name": "Tên lửa",
+   "tags": [
+    "ra mắt",
+    "cất cánh",
+    "startup",
+    "nhanh"
+   ]
+  },
+  "animation:comentar": {
+   "name": "Bình luận",
+   "tags": [
+    "bình luận",
+    "chat",
+    "mạng xã hội",
+    "tin nhắn"
+   ]
+  },
+  "animation:compartir": {
+   "name": "Chia sẻ",
+   "tags": [
+    "chia sẻ",
+    "gửi",
+    "mạng xã hội"
+   ]
+  },
+  "animation:confeti": {
+   "name": "Pháo giấy bung",
+   "tags": [
+    "pháo giấy",
+    "tiệc",
+    "sinh nhật",
+    "ăn mừng"
+   ]
+  },
+  "animation:cono-fiesta": {
+   "name": "Pháo giấy cầm tay",
+   "tags": [
+    "pháo giấy",
+    "tiệc",
+    "sinh nhật",
+    "bất ngờ",
+    "ăn mừng"
+   ]
+  },
+  "animation:conversacion": {
+   "name": "Trò chuyện",
+   "tags": [
+    "chat",
+    "hội thoại",
+    "tin nhắn",
+    "trò chuyện"
+   ]
+  },
+  "animation:copas-brindis": {
+   "name": "Nâng ly",
+   "tags": [
+    "nâng ly",
+    "năm mới",
+    "đám cưới",
+    "ăn mừng"
+   ]
+  },
+  "animation:copo-nieve": {
+   "name": "Bông tuyết",
+   "tags": [
+    "tuyết",
+    "mùa đông",
+    "lạnh",
+    "giáng sinh"
+   ]
+  },
+  "animation:corazon-a-mano": {
+   "name": "Trái tim vẽ tay",
+   "tags": [
+    "trái tim",
+    "tình yêu",
+    "yêu thích",
+    "vẽ tay"
+   ]
+  },
+  "animation:corazon-flechado": {
+   "name": "Trái tim và mũi tên",
+   "tags": [
+    "valentine",
+    "tình yêu",
+    "thần tình yêu",
+    "cặp đôi"
+   ]
+  },
+  "animation:corazon-roto": {
+   "name": "Trái tim tan vỡ",
+   "tags": [
+    "thất tình",
+    "buồn",
+    "chia tay",
+    "trái tim"
+   ]
+  },
+  "animation:corazones": {
+   "name": "Tim bay",
+   "tags": [
+    "tình yêu",
+    "trái tim",
+    "cặp đôi",
+    "thích"
+   ]
+  },
+  "animation:corchetes": {
+   "name": "Ngoặc tiêu điểm",
+   "tags": [
+    "ngoặc",
+    "nhấn mạnh",
+    "tiêu điểm",
+    "khung",
+    "chữ"
+   ]
+  },
+  "animation:corona": {
+   "name": "Vương miện",
+   "tags": [
+    "vương miện",
+    "vua",
+    "nữ hoàng",
+    "chiến thắng",
+    "premium"
+   ]
+  },
+  "animation:correo": {
+   "name": "Thư mới",
+   "tags": [
+    "thư",
+    "tin nhắn",
+    "email",
+    "liên hệ"
+   ]
+  },
+  "animation:corte-dividido": {
+   "name": "Trượt tách đôi",
+   "tags": [
+    "chuyển cảnh",
+    "trượt",
+    "đổi cảnh"
+   ]
+  },
+  "animation:cronometro": {
+   "name": "Đồng hồ bấm giờ",
+   "tags": [
+    "thời gian",
+    "cuộc đua",
+    "kỷ lục",
+    "nhanh"
+   ]
+  },
+  "animation:cuadros-zoom": {
+   "name": "Lưới ô vuông",
+   "tags": [
+    "chuyển cảnh",
+    "ô vuông",
+    "pixel",
+    "đổi cảnh"
+   ]
+  },
+  "animation:cupcake": {
+   "name": "Bánh cupcake",
+   "tags": [
+    "cupcake",
+    "tráng miệng",
+    "sinh nhật",
+    "ngọt"
+   ]
+  },
+  "animation:cursor-clic": {
+   "name": "Nhấp chuột",
+   "tags": [
+    "nhấp",
+    "chạm",
+    "nút",
+    "link",
+    "con trỏ"
+   ]
+  },
+  "animation:descargar": {
+   "name": "Tải xuống",
+   "tags": [
+    "tải xuống",
+    "lưu",
+    "download",
+    "tệp"
+   ]
+  },
+  "animation:desliza-arriba": {
+   "name": "Vuốt lên",
+   "tags": [
+    "vuốt lên",
+    "tin",
+    "story",
+    "link"
+   ]
+  },
+  "animation:destellos": {
+   "name": "Lấp lánh",
+   "tags": [
+    "lấp lánh",
+    "ngôi sao",
+    "phép thuật",
+    "sáng"
+   ]
+  },
+  "animation:diana": {
+   "name": "Hồng tâm",
+   "tags": [
+    "mục tiêu",
+    "đích",
+    "trúng đích",
+    "chiến lược"
+   ]
+  },
+  "animation:diya": {
+   "name": "Đèn dầu diya",
+   "tags": [
+    "diwali",
+    "ánh sáng",
+    "đèn dầu",
+    "lễ hội"
+   ]
+  },
+  "animation:dona": {
+   "name": "Bánh donut",
+   "tags": [
+    "donut",
+    "tráng miệng",
+    "ngọt",
+    "bữa sáng"
+   ]
+  },
+  "animation:en-vivo": {
+   "name": "Trực tiếp",
+   "tags": [
+    "trực tiếp",
+    "live",
+    "phát sóng",
+    "livestream"
+   ]
+  },
+  "animation:enfasis": {
+   "name": "Nét nhấn mạnh",
+   "tags": [
+    "nhấn mạnh",
+    "ngạc nhiên",
+    "wow",
+    "chú ý"
+   ]
+  },
+  "animation:engranajes": {
+   "name": "Bánh răng",
+   "tags": [
+    "cài đặt",
+    "quy trình",
+    "công việc",
+    "cấu hình"
+   ]
+  },
+  "animation:enlace": {
+   "name": "Liên kết",
+   "tags": [
+    "liên kết",
+    "link",
+    "bio",
+    "website"
+   ]
+  },
+  "animation:equis": {
+   "name": "Dấu X",
+   "tags": [
+    "dấu x",
+    "lỗi",
+    "không",
+    "sai"
+   ]
+  },
+  "animation:escribiendo": {
+   "name": "Dấu chấm đang nhập",
+   "tags": [
+    "chat",
+    "tin nhắn",
+    "đang nhập",
+    "chờ"
+   ]
+  },
+  "animation:esfera-navidad": {
+   "name": "Quả châu Giáng sinh",
+   "tags": [
+    "giáng sinh",
+    "quả châu",
+    "trang trí",
+    "tháng 12"
+   ]
+  },
+  "animation:espiral-garabato": {
+   "name": "Xoắn ốc vẽ tay",
+   "tags": [
+    "xoắn ốc",
+    "chóng mặt",
+    "thôi miên",
+    "doodle"
+   ]
+  },
+  "animation:estallido-comic": {
+   "name": "Bùng nổ truyện tranh",
+   "tags": [
+    "pow",
+    "wow",
+    "ưu đãi",
+    "truyện tranh"
+   ]
+  },
+  "animation:estrella-a-mano": {
+   "name": "Ngôi sao vẽ tay",
+   "tags": [
+    "ngôi sao",
+    "yêu thích",
+    "quan trọng",
+    "vẽ tay"
+   ]
+  },
+  "animation:estrella-fugaz": {
+   "name": "Sao băng",
+   "tags": [
+    "sao băng",
+    "điều ước",
+    "phép thuật",
+    "ban đêm"
+   ]
+  },
+  "animation:estrella-giro": {
+   "name": "Ngôi sao xoay",
+   "tags": [
+    "chuyển cảnh",
+    "ngôi sao",
+    "đổi cảnh"
+   ]
+  },
+  "animation:estrellas-pop": {
+   "name": "Ngôi sao bật nảy",
+   "tags": [
+    "ngôi sao",
+    "thành tích",
+    "giải thưởng",
+    "pop"
+   ]
+  },
+  "animation:estrellas-valoracion": {
+   "name": "Đánh giá 5 sao",
+   "tags": [
+    "đánh giá",
+    "xếp hạng",
+    "khách hàng",
+    "5 sao"
+   ]
+  },
+  "animation:etiqueta-precio": {
+   "name": "Nhãn giá",
+   "tags": [
+    "giá",
+    "ưu đãi",
+    "bán hàng",
+    "cửa hàng"
+   ]
+  },
+  "animation:exclamaciones": {
+   "name": "Dấu chấm than",
+   "tags": [
+    "chấm than",
+    "chú ý",
+    "quan trọng",
+    "cảnh báo"
+   ]
+  },
+  "animation:fantasma": {
+   "name": "Con ma",
+   "tags": [
+    "halloween",
+    "con ma",
+    "boo",
+    "đáng sợ"
+   ]
+  },
+  "animation:farol-rojo": {
+   "name": "Đèn lồng đỏ",
+   "tags": [
+    "tết",
+    "đèn lồng",
+    "lễ hội",
+    "năm mới âm lịch"
+   ]
+  },
+  "animation:flecha-abajo": {
+   "name": "Mũi tên nhún nhảy",
+   "tags": [
+    "mũi tên",
+    "xuống dưới",
+    "nhìn đây",
+    "link"
+   ]
+  },
+  "animation:flecha-bucle": {
+   "name": "Mũi tên vòng xoắn",
+   "tags": [
+    "mũi tên",
+    "chỉ",
+    "vẽ tay",
+    "nhìn"
+   ]
+  },
+  "animation:flecha-circular": {
+   "name": "Mũi tên vòng tròn",
+   "tags": [
+    "lặp lại",
+    "làm mới",
+    "trước sau",
+    "mũi tên"
+   ]
+  },
+  "animation:flecha-curva": {
+   "name": "Mũi tên vẽ tay",
+   "tags": [
+    "mũi tên",
+    "chỉ",
+    "nhìn",
+    "vẽ tay"
+   ]
+  },
+  "animation:flecha-doble": {
+   "name": "Mũi tên hai chiều",
+   "tags": [
+    "mũi tên",
+    "đo",
+    "so sánh",
+    "chiều rộng"
+   ]
+  },
+  "animation:flecha-gruesa": {
+   "name": "Mũi tên đậm",
+   "tags": [
+    "mũi tên",
+    "tiếp theo",
+    "đi",
+    "sang phải"
+   ]
+  },
+  "animation:flecha-ondulada": {
+   "name": "Mũi tên lượn sóng",
+   "tags": [
+    "xuống dưới",
+    "nhìn",
+    "mũi tên",
+    "vẽ tay"
+   ]
+  },
+  "animation:flecha-punteada": {
+   "name": "Mũi tên chấm",
+   "tags": [
+    "đường đi",
+    "lộ trình",
+    "chỉ",
+    "mũi tên"
+   ]
+  },
+  "animation:flecha-u": {
+   "name": "Mũi tên quay đầu",
+   "tags": [
+    "quay lại",
+    "trở về",
+    "quay đầu",
+    "mũi tên"
+   ]
+  },
+  "animation:flecha-zigzag": {
+   "name": "Mũi tên zigzag",
+   "tags": [
+    "mũi tên",
+    "zigzag",
+    "chỉ",
+    "vẽ tay"
+   ]
+  },
+  "animation:flechas-centro": {
+   "name": "Mũi tên hướng vào giữa",
+   "tags": [
+    "tiêu điểm",
+    "trung tâm",
+    "nhìn đây",
+    "chú ý"
+   ]
+  },
+  "animation:flechas-derecha": {
+   "name": "Dãy mũi tên",
+   "tags": [
+    "tiếp theo",
+    "vuốt",
+    "sang phải",
+    "mũi tên"
+   ]
+  },
+  "animation:flor-crece": {
+   "name": "Hoa nở",
+   "tags": [
+    "mùa xuân",
+    "thiên nhiên",
+    "bông hoa",
+    "lớn lên"
+   ]
+  },
+  "animation:foco-luz": {
+   "name": "Đèn sân khấu",
+   "tags": [
+    "đèn rọi",
+    "sân khấu",
+    "nhân vật chính",
+    "giới thiệu"
+   ]
+  },
+  "animation:formas-memphis": {
+   "name": "Hình khối trôi nổi",
+   "tags": [
+    "hình học",
+    "memphis",
+    "hình nền",
+    "retro"
+   ]
+  },
+  "animation:franjas-diagonales": {
+   "name": "Sọc chéo",
+   "tags": [
+    "chuyển cảnh",
+    "sọc",
+    "đổi cảnh"
+   ]
+  },
+  "animation:fuego": {
+   "name": "Ngọn lửa",
+   "tags": [
+    "lửa",
+    "xu hướng",
+    "hot",
+    "emoji"
+   ]
+  },
+  "animation:fuegos-artificiales": {
+   "name": "Pháo hoa",
+   "tags": [
+    "pháo hoa",
+    "năm mới",
+    "tiệc",
+    "ăn mừng"
+   ]
+  },
+  "animation:garabato-infinito": {
+   "name": "Vòng vô cực",
+   "tags": [
+    "vô cực",
+    "vòng lặp",
+    "mãi mãi",
+    "vẽ tay"
+   ]
+  },
+  "animation:globo-info": {
+   "name": "Chú giải thông tin",
+   "tags": [
+    "thông tin",
+    "chi tiết",
+    "giá",
+    "nhãn"
+   ]
+  },
+  "animation:globos": {
+   "name": "Bóng bay",
+   "tags": [
+    "bóng bay",
+    "sinh nhật",
+    "tiệc",
+    "baby shower"
+   ]
+  },
+  "animation:gorro-fiesta": {
+   "name": "Mũ dự tiệc",
+   "tags": [
+    "mũ tiệc",
+    "tiệc",
+    "sinh nhật",
+    "ăn mừng"
+   ]
+  },
+  "animation:gorro-santa": {
+   "name": "Mũ ông già Noel",
+   "tags": [
+    "giáng sinh",
+    "mũ",
+    "ông già noel",
+    "tháng 12"
+   ]
+  },
+  "animation:gota": {
+   "name": "Giọt nước",
+   "tags": [
+    "nước",
+    "giọt",
+    "chất lỏng",
+    "mát mẻ"
+   ]
+  },
+  "animation:grafico-barras": {
+   "name": "Biểu đồ cột",
+   "tags": [
+    "tăng trưởng",
+    "doanh số",
+    "kết quả",
+    "thống kê"
+   ]
+  },
+  "animation:grafico-linea": {
+   "name": "Biểu đồ đi lên",
+   "tags": [
+    "tăng trưởng",
+    "thành công",
+    "đi lên",
+    "thống kê"
+   ]
+  },
+  "animation:grafico-torta": {
+   "name": "Biểu đồ tròn",
+   "tags": [
+    "thống kê",
+    "phần trăm",
+    "dữ liệu",
+    "thuyết trình"
+   ]
+  },
+  "animation:guardar": {
+   "name": "Lưu",
+   "tags": [
+    "lưu",
+    "đánh dấu",
+    "mạng xã hội",
+    "bookmark"
+   ]
+  },
+  "animation:guirnalda-luces": {
+   "name": "Dây đèn",
+   "tags": [
+    "dây đèn",
+    "giáng sinh",
+    "tiệc",
+    "trang trí"
+   ]
+  },
+  "animation:hamburguesa": {
+   "name": "Bánh hamburger",
+   "tags": [
+    "hamburger",
+    "đồ ăn nhanh",
+    "bữa trưa",
+    "giao hàng"
+   ]
+  },
+  "animation:hashtag": {
+   "name": "Hashtag",
+   "tags": [
+    "hashtag",
+    "xu hướng",
+    "thẻ",
+    "mạng xã hội"
+   ]
+  },
+  "animation:helado": {
+   "name": "Kem",
+   "tags": [
+    "kem",
+    "mùa hè",
+    "tráng miệng",
+    "ngọt"
+   ]
+  },
+  "animation:hojas": {
+   "name": "Lá rơi",
+   "tags": [
+    "mùa thu",
+    "thiên nhiên",
+    "lá cây",
+    "lá rơi"
+   ]
+  },
+  "animation:huevo-pascua": {
+   "name": "Trứng Phục sinh",
+   "tags": [
+    "phục sinh",
+    "mùa xuân",
+    "quả trứng",
+    "tháng 4"
+   ]
+  },
+  "animation:iris": {
+   "name": "Mống mắt",
+   "tags": [
+    "chuyển cảnh",
+    "hình tròn",
+    "đổi cảnh",
+    "iris"
+   ]
+  },
+  "animation:llamada-linea": {
+   "name": "Chú thích đường kẻ",
+   "tags": [
+    "chỉ",
+    "chi tiết",
+    "sản phẩm",
+    "nhãn"
+   ]
+  },
+  "animation:lluvia-dinero": {
+   "name": "Mưa tiền",
+   "tags": [
+    "tiền",
+    "lợi nhuận",
+    "giàu",
+    "thanh toán"
+   ]
+  },
+  "animation:luna-estrellas": {
+   "name": "Trăng và sao",
+   "tags": [
+    "ban đêm",
+    "ngủ",
+    "mặt trăng",
+    "chúc ngủ ngon"
+   ]
+  },
+  "animation:luna-farol": {
+   "name": "Trăng khuyết và đèn lồng",
+   "tags": [
+    "ramadan",
+    "eid",
+    "mặt trăng",
+    "đèn lồng"
+   ]
+  },
+  "animation:lupa": {
+   "name": "Kính lúp",
+   "tags": [
+    "kính lúp",
+    "tìm kiếm",
+    "phóng to",
+    "chi tiết",
+    "review"
+   ]
+  },
+  "animation:mancha": {
+   "name": "Khối hữu cơ",
+   "tags": [
+    "hình nền",
+    "hình khối",
+    "chất lỏng",
+    "blob"
+   ]
+  },
+  "animation:mancha-liquida": {
+   "name": "Quét khối chất lỏng",
+   "tags": [
+    "chuyển cảnh",
+    "chất lỏng",
+    "đổi cảnh"
+   ]
+  },
+  "animation:mano-senala": {
+   "name": "Bàn tay chỉ",
+   "tags": [
+    "chỉ tay",
+    "ở đây",
+    "nhìn",
+    "bàn tay"
+   ]
+  },
+  "animation:marco-circular": {
+   "name": "Khung tròn",
+   "tags": [
+    "hồ sơ",
+    "ảnh",
+    "khung",
+    "avatar"
+   ]
+  },
+  "animation:marco-esquinas": {
+   "name": "Góc lấy nét",
+   "tags": [
+    "khung",
+    "lấy nét",
+    "máy ảnh",
+    "góc"
+   ]
+  },
+  "animation:marco-polaroid": {
+   "name": "Khung ảnh lấy liền",
+   "tags": [
+    "ảnh",
+    "khung",
+    "kỷ niệm",
+    "ảnh lấy liền"
+   ]
+  },
+  "animation:margarita-retro": {
+   "name": "Hoa cúc retro",
+   "tags": [
+    "hoa cúc",
+    "retro",
+    "groovy",
+    "y2k"
+   ]
+  },
+  "animation:me-gusta": {
+   "name": "Thích",
+   "tags": [
+    "thích",
+    "like",
+    "trái tim",
+    "mạng xã hội"
+   ]
+  },
+  "animation:medalla": {
+   "name": "Huy chương",
+   "tags": [
+    "huy chương",
+    "chiến thắng",
+    "giải thưởng",
+    "hạng nhất"
+   ]
+  },
+  "animation:megafono": {
+   "name": "Loa phóng thanh",
+   "tags": [
+    "thông báo",
+    "tin tức",
+    "chú ý",
+    "khuyến mãi"
+   ]
+  },
+  "animation:microfono": {
+   "name": "Micro",
+   "tags": [
+    "podcast",
+    "ghi âm",
+    "giọng nói",
+    "bài hát"
+   ]
+  },
+  "animation:mira-enfoque": {
+   "name": "Tâm ngắm",
+   "tags": [
+    "tâm ngắm",
+    "mục tiêu",
+    "lấy nét",
+    "chi tiết",
+    "zoom"
+   ]
+  },
+  "animation:moneda": {
+   "name": "Đồng xu xoay",
+   "tags": [
+    "tiền",
+    "đồng xu",
+    "thanh toán",
+    "tiết kiệm"
+   ]
+  },
+  "animation:morph-estrella": {
+   "name": "Biến hình khối",
+   "tags": [
+    "hình khối",
+    "ngôi sao",
+    "bông hoa",
+    "biến hình"
+   ]
+  },
+  "animation:murcielago": {
+   "name": "Con dơi",
+   "tags": [
+    "halloween",
+    "ban đêm",
+    "con dơi",
+    "đáng sợ"
+   ]
+  },
+  "animation:nieve": {
+   "name": "Tuyết rơi",
+   "tags": [
+    "giáng sinh",
+    "tuyết",
+    "mùa đông",
+    "lạnh"
+   ]
+  },
+  "animation:nota-adhesiva": {
+   "name": "Giấy nhớ",
+   "tags": [
+    "ghi chú",
+    "nhắc nhở",
+    "giấy nhớ",
+    "việc cần làm"
+   ]
+  },
+  "animation:nube-lluvia": {
+   "name": "Mây mưa",
+   "tags": [
+    "mưa",
+    "thời tiết",
+    "mùa đông",
+    "mây"
+   ]
+  },
+  "animation:nube-pensamiento": {
+   "name": "Bong bóng suy nghĩ",
+   "tags": [
+    "suy nghĩ",
+    "ý tưởng",
+    "chữ"
+   ]
+  },
+  "animation:nueva-notificacion": {
+   "name": "Thông báo mới",
+   "tags": [
+    "thông báo",
+    "cảnh báo",
+    "tin nhắn",
+    "ứng dụng"
+   ]
+  },
+  "animation:ojo-mira": {
+   "name": "Con mắt nhìn",
+   "tags": [
+    "con mắt",
+    "nhìn",
+    "chú ý",
+    "chi tiết"
+   ]
+  },
+  "animation:olas": {
+   "name": "Sóng biển",
+   "tags": [
+    "biển",
+    "bãi biển",
+    "nước",
+    "mùa hè"
+   ]
+  },
+  "animation:onda-liquida": {
+   "name": "Sóng chất lỏng",
+   "tags": [
+    "chuyển cảnh",
+    "chất lỏng",
+    "sóng",
+    "đổi cảnh"
+   ]
+  },
+  "animation:ondas": {
+   "name": "Vòng sóng lan tỏa",
+   "tags": [
+    "nhịp đập",
+    "radar",
+    "vị trí",
+    "trực tiếp"
+   ]
+  },
+  "animation:palomita": {
+   "name": "Dấu tích",
+   "tags": [
+    "dấu tích",
+    "xong",
+    "đúng",
+    "check"
+   ]
+  },
+  "animation:palomitas": {
+   "name": "Bỏng ngô",
+   "tags": [
+    "rạp phim",
+    "phim",
+    "bỏng ngô",
+    "cày phim"
+   ]
+  },
+  "animation:paraguas": {
+   "name": "Chiếc ô",
+   "tags": [
+    "mưa",
+    "mùa thu",
+    "che chắn",
+    "thời tiết"
+   ]
+  },
+  "animation:pastel-velas": {
+   "name": "Bánh sinh nhật",
+   "tags": [
+    "sinh nhật",
+    "bánh kem",
+    "nến",
+    "tiệc"
+   ]
+  },
+  "animation:perfecto": {
+   "name": "Hoàn hảo",
+   "tags": [
+    "hoàn hảo",
+    "100",
+    "điểm 10",
+    "tuyệt"
+   ]
+  },
+  "animation:pergamino": {
+   "name": "Băng rôn cuộn giấy",
+   "tags": [
+    "tiêu đề",
+    "banner",
+    "trung cổ",
+    "thông báo"
+   ]
+  },
+  "animation:persiana": {
+   "name": "Rèm sáo",
+   "tags": [
+    "chuyển cảnh",
+    "thanh ngang",
+    "đổi cảnh"
+   ]
+  },
+  "animation:pesas": {
+   "name": "Tạ tay",
+   "tags": [
+    "phòng gym",
+    "sức mạnh",
+    "tập thể dục",
+    "tập luyện"
+   ]
+  },
+  "animation:petalos-cerezo": {
+   "name": "Cánh hoa anh đào",
+   "tags": [
+    "mùa xuân",
+    "hoa anh đào",
+    "sakura",
+    "lãng mạn"
+   ]
+  },
+  "animation:pizza": {
+   "name": "Miếng pizza",
+   "tags": [
+    "pizza",
+    "đồ ăn",
+    "tối pizza",
+    "giao hàng"
+   ]
+  },
+  "animation:podio": {
+   "name": "Bục trao giải",
+   "tags": [
+    "chiến thắng",
+    "hạng nhất",
+    "cuộc thi",
+    "giải thưởng"
+   ]
+  },
+  "animation:porcentaje-oferta": {
+   "name": "Giảm phần trăm",
+   "tags": [
+    "giảm giá",
+    "ưu đãi",
+    "phần trăm",
+    "khuyến mãi"
+   ]
+  },
+  "animation:pulso-cardiaco": {
+   "name": "Nhịp tim",
+   "tags": [
+    "sức khỏe",
+    "tim",
+    "tập thể dục",
+    "cardio"
+   ]
+  },
+  "animation:puntos-onda": {
+   "name": "Chấm gợn sóng",
+   "tags": [
+    "chấm",
+    "hình nền",
+    "gợn sóng",
+    "họa tiết"
+   ]
+  },
+  "animation:rayos-fondo": {
+   "name": "Tia sáng xoay",
+   "tags": [
+    "hình nền",
+    "tia sáng",
+    "ưu đãi",
+    "retro",
+    "sản phẩm"
+   ]
+  },
+  "animation:reacciones-vivo": {
+   "name": "Cảm xúc trực tiếp",
+   "tags": [
+    "cảm xúc",
+    "trực tiếp",
+    "thích",
+    "trái tim"
+   ]
+  },
+  "animation:recuadro-a-mano": {
+   "name": "Khung vẽ tay",
+   "tags": [
+    "khung",
+    "nhấn mạnh",
+    "vẽ tay",
+    "chỉ"
+   ]
+  },
+  "animation:refresco": {
+   "name": "Ly nước ngọt",
+   "tags": [
+    "đồ uống",
+    "nước ngọt",
+    "mùa hè",
+    "tiệc"
+   ]
+  },
+  "animation:regalo-sorpresa": {
+   "name": "Quà bất ngờ",
+   "tags": [
+    "quà tặng",
+    "bất ngờ",
+    "sinh nhật",
+    "giáng sinh"
+   ]
+  },
+  "animation:reloj": {
+   "name": "Đồng hồ",
+   "tags": [
+    "giờ",
+    "thời gian",
+    "lịch",
+    "đúng giờ"
+   ]
+  },
+  "animation:reloj-arena": {
+   "name": "Đồng hồ cát",
+   "tags": [
+    "chờ đợi",
+    "thời gian",
+    "đang tải",
+    "kiên nhẫn"
+   ]
+  },
+  "animation:reloj-medianoche": {
+   "name": "Đếm ngược nửa đêm",
+   "tags": [
+    "năm mới",
+    "nửa đêm",
+    "đếm ngược",
+    "giao thừa"
+   ]
+  },
+  "animation:republicar": {
+   "name": "Đăng lại",
+   "tags": [
+    "chia sẻ",
+    "đăng lại",
+    "repost",
+    "mạng xã hội"
+   ]
+  },
+  "animation:resaltador": {
+   "name": "Bút dạ quang",
+   "tags": [
+    "bút dạ quang",
+    "tô sáng",
+    "chữ",
+    "học tập"
+   ]
+  },
+  "animation:salpicadura": {
+   "name": "Vệt bắn tung tóe",
+   "tags": [
+    "sơn",
+    "vệt bắn",
+    "giọt",
+    "hình khối"
+   ]
+  },
+  "animation:sandia": {
+   "name": "Dưa hấu",
+   "tags": [
+    "dưa hấu",
+    "trái cây",
+    "mùa hè",
+    "mát mẻ"
+   ]
+  },
+  "animation:scroll-abajo": {
+   "name": "Cuộn xuống",
+   "tags": [
+    "cuộn xuống",
+    "vuốt",
+    "scroll",
+    "xem thêm"
+   ]
+  },
+  "animation:seguir-persona": {
+   "name": "Người theo dõi mới",
+   "tags": [
+    "theo dõi",
+    "người theo dõi",
+    "thêm bạn",
+    "bạn bè"
+   ]
+  },
+  "animation:sello-oferta": {
+   "name": "Huy hiệu sale",
+   "tags": [
+    "sale",
+    "giảm giá",
+    "bán hàng",
+    "khuyến mãi"
+   ]
+  },
+  "animation:sello-ondulado": {
+   "name": "Huy hiệu lượn sóng",
+   "tags": [
+    "huy hiệu",
+    "mới",
+    "ưu đãi",
+    "retro"
+   ]
+  },
+  "animation:serpentinas": {
+   "name": "Dây kim tuyến",
+   "tags": [
+    "dây kim tuyến",
+    "tiệc",
+    "sinh nhật",
+    "ăn mừng"
+   ]
+  },
+  "animation:silbato": {
+   "name": "Còi",
+   "tags": [
+    "trọng tài",
+    "huấn luyện viên",
+    "thể thao",
+    "phạm lỗi"
+   ]
+  },
+  "animation:sol": {
+   "name": "Mặt trời xoay",
+   "tags": [
+    "mặt trời",
+    "mùa hè",
+    "nắng",
+    "biển"
+   ]
+  },
+  "animation:sol-nube": {
+   "name": "Nắng và mây",
+   "tags": [
+    "mặt trời",
+    "nhiều mây",
+    "thời tiết",
+    "ngày đẹp"
+   ]
+  },
+  "animation:subrayado": {
+   "name": "Gạch chân vẽ tay",
+   "tags": [
+    "gạch chân",
+    "nhấn mạnh",
+    "chữ",
+    "vẽ tay"
+   ]
+  },
+  "animation:subrayado-ondulado": {
+   "name": "Gạch chân lượn sóng",
+   "tags": [
+    "gạch chân",
+    "lượn sóng",
+    "nhấn mạnh",
+    "nét vẽ tay"
+   ]
+  },
+  "animation:tachado-garabato": {
+   "name": "Gạch xóa nguệch ngoạc",
+   "tags": [
+    "gạch xóa",
+    "lỗi",
+    "không",
+    "nguệch ngoạc"
+   ]
+  },
+  "animation:tarjeta-aviso": {
+   "name": "Thẻ thông báo",
+   "tags": [
+    "thông báo",
+    "cảnh báo",
+    "tin nhắn",
+    "banner"
+   ]
+  },
+  "animation:tarjeta-pago": {
+   "name": "Thẻ thanh toán",
+   "tags": [
+    "thanh toán",
+    "thẻ",
+    "mua hàng",
+    "cửa hàng"
+   ]
+  },
+  "animation:tazon-fideos": {
+   "name": "Tô mì",
+   "tags": [
+    "mì",
+    "ramen",
+    "súp",
+    "bữa tối"
+   ]
+  },
+  "animation:telefono": {
+   "name": "Cuộc gọi",
+   "tags": [
+    "gọi điện",
+    "liên hệ",
+    "nhắn tin",
+    "đặt hàng"
+   ]
+  },
+  "animation:tercio-inferior": {
+   "name": "Chú thích dưới",
+   "tags": [
+    "tên",
+    "tiêu đề",
+    "phỏng vấn",
+    "lower third"
+   ]
+  },
+  "animation:termometro-calor": {
+   "name": "Nắng nóng",
+   "tags": [
+    "nóng",
+    "mùa hè",
+    "nhiệt độ",
+    "mặt trời"
+   ]
+  },
+  "animation:tienda": {
+   "name": "Cửa hàng",
+   "tags": [
+    "cửa hàng",
+    "kinh doanh",
+    "mở cửa",
+    "tiệm"
+   ]
+  },
+  "animation:toca-aqui": {
+   "name": "Chạm vào đây",
+   "tags": [
+    "chạm",
+    "bấm",
+    "link",
+    "nút"
+   ]
+  },
+  "animation:tormenta": {
+   "name": "Giông bão",
+   "tags": [
+    "bão",
+    "sấm sét",
+    "mưa",
+    "thời tiết"
+   ]
+  },
+  "animation:trofeo": {
+   "name": "Cúp",
+   "tags": [
+    "cúp",
+    "thành tích",
+    "chiến thắng",
+    "giải thưởng",
+    "cuộc thi"
+   ]
+  },
+  "animation:ubicacion": {
+   "name": "Ghim vị trí",
+   "tags": [
+    "vị trí",
+    "bản đồ",
+    "địa chỉ",
+    "ghé thăm"
+   ]
+  },
+  "animation:varita-magica": {
+   "name": "Đũa phép",
+   "tags": [
+    "đũa phép",
+    "phép thuật",
+    "điều ước",
+    "bất ngờ",
+    "lấp lánh"
+   ]
+  },
+  "animation:verificado": {
+   "name": "Đã xác minh",
+   "tags": [
+    "xác minh",
+    "chính thức",
+    "tích xanh",
+    "huy hiệu"
+   ]
+  },
+  "animation:viento": {
+   "name": "Gió",
+   "tags": [
+    "gió",
+    "gió nhẹ",
+    "không khí",
+    "lạnh"
+   ]
+  },
+  "template:album-scrapbook": {
+   "name": "Album scrapbook",
+   "tags": [
+    "album",
+    "scrapbook",
+    "kỷ niệm",
+    "cặp đôi"
+   ]
+  },
+  "template:anio-nuevo-cuenta-regresiva": {
+   "name": "Đếm ngược năm mới",
+   "tags": [
+    "năm mới",
+    "đếm ngược",
+    "2027",
+    "pháo hoa",
+    "tiệc"
+   ]
+  },
+  "template:aniversario-pareja": {
+   "name": "Kỷ niệm ngày yêu",
+   "tags": [
+    "kỷ niệm",
+    "cặp đôi",
+    "tình yêu",
+    "người yêu",
+    "bên nhau"
+   ]
+  },
+  "template:antes-despues-deslizador": {
+   "name": "Trước và sau",
+   "tags": [
+    "trước sau",
+    "so sánh",
+    "thay đổi",
+    "thanh trượt"
+   ]
+  },
+  "template:anuncio-embarazo": {
+   "name": "Báo tin có em bé",
+   "tags": [
+    "mang thai",
+    "em bé",
+    "báo tin",
+    "gia đình"
+   ]
+  },
+  "template:apertura-pelicula": {
+   "name": "Mở đầu phim",
+   "tags": [
+    "phim",
+    "điện ảnh",
+    "gia đình",
+    "tiêu đề"
+   ]
+  },
+  "template:baby-shower": {
+   "name": "Baby shower",
+   "tags": [
+    "baby shower",
+    "em bé",
+    "thiệp mời",
+    "tiệc",
+    "mang thai"
+   ]
+  },
+  "template:barberia-antes-despues": {
+   "name": "Barber: trước và sau",
+   "tags": [
+    "barber",
+    "cắt tóc",
+    "râu",
+    "trước sau",
+    "fade"
+   ]
+  },
+  "template:black-friday-ofertas": {
+   "name": "Ưu đãi Black Friday",
+   "tags": [
+    "black friday",
+    "ưu đãi",
+    "giảm giá",
+    "cửa hàng",
+    "tháng 11"
+   ]
+  },
+  "template:black-friday-ultimas-horas": {
+   "name": "Black Friday: giờ chót",
+   "tags": [
+    "black friday",
+    "giờ chót",
+    "ưu đãi",
+    "thời trang",
+    "cao cấp"
+   ]
+  },
+  "template:blanco-y-negro-a-color": {
+   "name": "Từ đen trắng sang màu",
+   "tags": [
+    "đen trắng",
+    "màu sắc",
+    "cặp đôi",
+    "hé lộ",
+    "tình yêu"
+   ]
+  },
+  "template:boda-save-the-date": {
+   "name": "Save the date đám cưới",
+   "tags": [
+    "đám cưới",
+    "save the date",
+    "thiệp mời",
+    "cô dâu chú rể"
+   ]
+  },
+  "template:cafe-nuevo-en-la-carta": {
+   "name": "Món mới trong thực đơn",
+   "tags": [
+    "quán cà phê",
+    "cà phê",
+    "món mới",
+    "thực đơn",
+    "đồ uống"
+   ]
+  },
+  "template:camara-lenta-con-letra": {
+   "name": "Quay chậm kèm lời bài hát",
+   "tags": [
+    "quay chậm",
+    "lời bài hát",
+    "bài hát",
+    "cặp đôi",
+    "điện ảnh"
+   ]
+  },
+  "template:cancion-criolla": {
+   "name": "Đêm nhạc sống",
+   "tags": [
+    "nhạc sống",
+    "hòa nhạc",
+    "đêm nhạc",
+    "vintage"
+   ]
+  },
+  "template:catrina-dia-de-muertos": {
+   "name": "Trang điểm đầu lâu",
+   "tags": [
+    "trang điểm",
+    "đầu lâu",
+    "hóa trang",
+    "hoa",
+    "halloween"
+   ]
+  },
+  "template:checklist-que-se-marca": {
+   "name": "Checklist tự đánh dấu",
+   "tags": [
+    "checklist",
+    "danh sách",
+    "việc cần làm",
+    "du lịch",
+    "sắp xếp"
+   ]
+  },
+  "template:cierre-negocio": {
+   "name": "Kết thúc cho doanh nghiệp",
+   "tags": [
+    "doanh nghiệp",
+    "liên hệ",
+    "kinh doanh",
+    "giao hàng"
+   ]
+  },
+  "template:cierre-parte-2": {
+   "name": "Phần 2 trên trang cá nhân",
+   "tags": [
+    "phần 2",
+    "còn tiếp",
+    "kết thúc",
+    "trang cá nhân",
+    "theo dõi"
+   ]
+  },
+  "template:cierre-siguenos": {
+   "name": "Kết thúc: theo dõi chúng tôi",
+   "tags": [
+    "kết thúc",
+    "theo dõi",
+    "mạng xã hội",
+    "đăng ký"
+   ]
+  },
+  "template:cita-minimalista": {
+   "name": "Trích dẫn tối giản",
+   "tags": [
+    "trích dẫn",
+    "câu nói",
+    "tối giản",
+    "thanh lịch",
+    "suy ngẫm"
+   ]
+  },
+  "template:clip-de-podcast": {
+   "name": "Clip podcast",
+   "tags": [
+    "podcast",
+    "phụ đề",
+    "phỏng vấn",
+    "clip",
+    "trò chuyện"
+   ]
+  },
+  "template:collage-2x2": {
+   "name": "Ghép ảnh 2×2",
+   "tags": [
+    "ghép ảnh",
+    "collage",
+    "lưới",
+    "cuối tuần"
+   ]
+  },
+  "template:concierto-festival": {
+   "name": "Đêm hòa nhạc",
+   "tags": [
+    "hòa nhạc",
+    "lễ hội âm nhạc",
+    "âm nhạc",
+    "tiệc",
+    "nhạc sống"
+   ]
+  },
+  "template:cosas-que-no-sabias": {
+   "name": "Những điều bạn chưa biết",
+   "tags": [
+    "sự thật thú vị",
+    "bạn có biết",
+    "kiến thức",
+    "giáo dục",
+    "đố vui"
+   ]
+  },
+  "template:cuenta-3-2-1": {
+   "name": "Đếm ngược 3-2-1",
+   "tags": [
+    "đếm ngược",
+    "ra mắt",
+    "bất ngờ",
+    "3 2 1"
+   ]
+  },
+  "template:cuenta-regresiva-10": {
+   "name": "Đếm ngược 10 giây",
+   "tags": [
+    "đếm ngược",
+    "10 giây",
+    "ra mắt",
+    "công chiếu",
+    "tiệc"
+   ]
+  },
+  "template:cumple-sorpresa": {
+   "name": "Tiệc sinh nhật bất ngờ",
+   "tags": [
+    "bất ngờ",
+    "sinh nhật",
+    "tiệc",
+    "bạn bè",
+    "ăn mừng"
+   ]
+  },
+  "template:cupon-de-descuento": {
+   "name": "Phiếu giảm giá",
+   "tags": [
+    "voucher",
+    "giảm giá",
+    "mã giảm giá",
+    "ưu đãi",
+    "quà tặng"
+   ]
+  },
+  "template:cyber-monday": {
+   "name": "Cyber Monday",
+   "tags": [
+    "cyber monday",
+    "ưu đãi",
+    "mua sắm online",
+    "giảm giá",
+    "miễn phí ship"
+   ]
+  },
+  "template:delivery-pide-por-whatsapp": {
+   "name": "Giao hàng: đặt qua tin nhắn",
+   "tags": [
+    "giao hàng",
+    "nhắn tin",
+    "đặt hàng",
+    "đồ ăn",
+    "chat"
+   ]
+  },
+  "template:dia-de-la-amistad": {
+   "name": "Ngày tình bạn",
+   "tags": [
+    "tình bạn",
+    "bạn thân",
+    "valentine",
+    "14 tháng 2",
+    "photobooth"
+   ]
+  },
+  "template:dia-de-playa": {
+   "name": "Chế độ đi biển",
+   "tags": [
+    "biển",
+    "mùa hè",
+    "kỳ nghỉ",
+    "bãi biển",
+    "hoàng hôn"
+   ]
+  },
+  "template:dia-del-padre": {
+   "name": "Chúc mừng Ngày của Cha",
+   "tags": [
+    "ngày của cha",
+    "bố",
+    "gia đình",
+    "tháng 6",
+    "người hùng"
+   ]
+  },
+  "template:diario-de-comida": {
+   "name": "Hôm nay tôi ăn gì",
+   "tags": [
+    "đồ ăn",
+    "hôm nay ăn gì",
+    "nhật ký",
+    "food",
+    "công thức"
+   ]
+  },
+  "template:domingo-en-familia": {
+   "name": "Chủ nhật bên gia đình",
+   "tags": [
+    "gia đình",
+    "chủ nhật",
+    "ông bà",
+    "tổ ấm",
+    "kỷ niệm"
+   ]
+  },
+  "template:duotono-pop": {
+   "name": "Hai tông màu pop",
+   "tags": [
+    "duotone",
+    "pop art",
+    "màu sắc",
+    "chân dung",
+    "xu hướng"
+   ]
+  },
+  "template:edicion-callejera": {
+   "name": "Edit đường phố",
+   "tags": [
+    "skate",
+    "đường phố",
+    "urban",
+    "nhóm bạn",
+    "thành phố"
+   ]
+  },
+  "template:encuesta-cual-prefieres": {
+   "name": "Bạn thích cái nào hơn?",
+   "tags": [
+    "bình chọn",
+    "bạn chọn gì",
+    "cái này hay cái kia",
+    "bình luận",
+    "tương tác"
+   ]
+  },
+  "template:entrevista-con-rotulo": {
+   "name": "Phỏng vấn kèm tên dưới màn hình",
+   "tags": [
+    "phỏng vấn",
+    "lower third",
+    "tên",
+    "chia sẻ",
+    "tin tức"
+   ]
+  },
+  "template:espejo-caleidoscopio": {
+   "name": "Gương vạn hoa",
+   "tags": [
+    "gương",
+    "vạn hoa",
+    "hiệu ứng",
+    "ảo giác",
+    "xu hướng"
+   ]
+  },
+  "template:estamos-contratando": {
+   "name": "Chúng tôi đang tuyển dụng!",
+   "tags": [
+    "tuyển dụng",
+    "việc làm",
+    "vị trí",
+    "tuyển người"
+   ]
+  },
+  "template:este-o-este": {
+   "name": "Chọn cái này hay cái kia",
+   "tags": [
+    "chọn một",
+    "bình chọn",
+    "cặp đôi",
+    "vui nhộn"
+   ]
+  },
+  "template:estrobo-y-temblor": {
+   "name": "Nháy sáng và rung",
+   "tags": [
+    "nháy sáng",
+    "rung",
+    "theo nhịp",
+    "tiệc",
+    "năng lượng"
+   ]
+  },
+  "template:estudia-conmigo": {
+   "name": "Học cùng tôi",
+   "tags": [
+    "học cùng tôi",
+    "học tập",
+    "pomodoro",
+    "đại học",
+    "năng suất"
+   ]
+  },
+  "template:evento-taller-entrada": {
+   "name": "Sự kiện hoặc workshop",
+   "tags": [
+    "sự kiện",
+    "workshop",
+    "khóa học",
+    "ngày",
+    "đăng ký"
+   ]
+  },
+  "template:faltan-dias": {
+   "name": "Còn X ngày nữa",
+   "tags": [
+    "đếm ngược",
+    "còn mấy ngày",
+    "sự kiện",
+    "ra mắt"
+   ]
+  },
+  "template:feliz-cumple": {
+   "name": "Chúc mừng sinh nhật",
+   "tags": [
+    "sinh nhật",
+    "tiệc",
+    "gia đình",
+    "chúc mừng"
+   ]
+  },
+  "template:feliz-navidad-luces": {
+   "name": "Đèn Giáng sinh vui vẻ",
+   "tags": [
+    "giáng sinh",
+    "đèn",
+    "lời chúc",
+    "thiệp",
+    "tháng 12"
+   ]
+  },
+  "template:fiestas-patrias-peru": {
+   "name": "Ngày Quốc khánh",
+   "tags": [
+    "quốc khánh",
+    "độc lập",
+    "lá cờ",
+    "tự hào",
+    "ngày lễ"
+   ]
+  },
+  "template:frase-del-dia": {
+   "name": "Câu nói hôm nay",
+   "tags": [
+    "câu nói",
+    "trích dẫn",
+    "động lực",
+    "quote"
+   ]
+  },
+  "template:gancho-espera-al-final": {
+   "name": "Đợi đến cuối",
+   "tags": [
+    "hook",
+    "đợi đến cuối",
+    "hồi hộp",
+    "tiktok",
+    "viral"
+   ]
+  },
+  "template:gimnasio-matricula-gratis": {
+   "name": "Phòng gym: ưu đãi tháng",
+   "tags": [
+    "phòng gym",
+    "gym",
+    "hội viên",
+    "khuyến mãi",
+    "fitness"
+   ]
+  },
+  "template:glitch-neon": {
+   "name": "Glitch neon",
+   "tags": [
+    "glitch",
+    "neon",
+    "tiệc",
+    "đêm",
+    "hòa nhạc"
+   ]
+  },
+  "template:gran-inauguracion": {
+   "name": "Khai trương",
+   "tags": [
+    "khai trương",
+    "mở cửa",
+    "cửa hàng mới",
+    "sự kiện"
+   ]
+  },
+  "template:grwm-arreglate-conmigo": {
+   "name": "GRWM: chuẩn bị cùng tôi",
+   "tags": [
+    "grwm",
+    "trang điểm",
+    "chuẩn bị",
+    "làm đẹp",
+    "thói quen"
+   ]
+  },
+  "template:h-cele-15-16": {
+   "name": "Sinh nhật tuổi 16 ngọt ngào",
+   "tags": [
+    "sweet 16",
+    "tuổi 15",
+    "sinh nhật",
+    "tiệc",
+    "công chúa"
+   ]
+  },
+  "template:h-cele-aniversario": {
+   "name": "Chúc mừng kỷ niệm",
+   "tags": [
+    "kỷ niệm",
+    "cặp đôi",
+    "tình yêu",
+    "bên nhau",
+    "trái tim"
+   ]
+  },
+  "template:h-cele-baby-shower": {
+   "name": "Baby shower",
+   "tags": [
+    "baby shower",
+    "em bé",
+    "thiệp mời",
+    "mang thai",
+    "tiệc"
+   ]
+  },
+  "template:h-cele-bautizo": {
+   "name": "Lễ rửa tội",
+   "tags": [
+    "rửa tội",
+    "em bé",
+    "nhà thờ",
+    "gia đình",
+    "lễ"
+   ]
+  },
+  "template:h-cele-bienvenida-bebe": {
+   "name": "Chào đón em bé",
+   "tags": [
+    "chào đời",
+    "em bé",
+    "chào đón",
+    "sơ sinh",
+    "gia đình"
+   ]
+  },
+  "template:h-cele-boda-invitacion": {
+   "name": "Thiệp mời cưới",
+   "tags": [
+    "đám cưới",
+    "thiệp mời",
+    "save the date",
+    "hôn lễ",
+    "thanh lịch"
+   ]
+  },
+  "template:h-cele-compromiso": {
+   "name": "Chúng mình đính hôn rồi",
+   "tags": [
+    "đính hôn",
+    "cầu hôn",
+    "nhẫn",
+    "cặp đôi",
+    "đám cưới"
+   ]
+  },
+  "template:h-cele-cumple": {
+   "name": "Chúc mừng sinh nhật",
+   "tags": [
+    "sinh nhật",
+    "tiệc",
+    "bóng bay",
+    "pháo giấy",
+    "lời chúc"
+   ]
+  },
+  "template:h-cele-despedida": {
+   "name": "Chia tay",
+   "tags": [
+    "chia tay",
+    "lên đường bình an",
+    "tạm biệt",
+    "bạn bè",
+    "nhớ bạn"
+   ]
+  },
+  "template:h-cele-fiesta-invitacion": {
+   "name": "Thiệp mời dự tiệc",
+   "tags": [
+    "tiệc",
+    "thiệp mời",
+    "party",
+    "sự kiện",
+    "buổi tối"
+   ]
+  },
+  "template:h-cele-graduacion": {
+   "name": "Tốt nghiệp",
+   "tags": [
+    "tốt nghiệp",
+    "mũ cử nhân",
+    "thành tích",
+    "đại học",
+    "trường học"
+   ]
+  },
+  "template:h-cele-jubilacion": {
+   "name": "Chúc mừng nghỉ hưu",
+   "tags": [
+    "nghỉ hưu",
+    "về hưu",
+    "sự nghiệp",
+    "cảm ơn",
+    "tri ân"
+   ]
+  },
+  "template:h-cele-logro": {
+   "name": "Chúng ta làm được rồi!",
+   "tags": [
+    "thành tích",
+    "mục tiêu",
+    "cúp",
+    "thành công",
+    "ăn mừng"
+   ]
+  },
+  "template:h-cele-premios": {
+   "name": "Lễ trao giải",
+   "tags": [
+    "giải thưởng",
+    "người chiến thắng",
+    "vinh danh",
+    "gala",
+    "cúp"
+   ]
+  },
+  "template:h-cele-reunion": {
+   "name": "Họp mặt gia đình",
+   "tags": [
+    "họp mặt",
+    "gia đình",
+    "lời mời",
+    "sum họp",
+    "bữa trưa"
+   ]
+  },
+  "template:h-cierre-gracias": {
+   "name": "Cảm ơn đã xem",
+   "tags": [
+    "cảm ơn",
+    "kết thúc",
+    "mạng xã hội",
+    "tạm biệt",
+    "outro"
+   ]
+  },
+  "template:h-cierre-like": {
+   "name": "Bấm thích",
+   "tags": [
+    "like",
+    "thích",
+    "ngón tay cái",
+    "kết thúc",
+    "tương tác"
+   ]
+  },
+  "template:h-cierre-proximo": {
+   "name": "Hẹn gặp ở video sau",
+   "tags": [
+    "video sau",
+    "hé lộ",
+    "kết thúc",
+    "tập tiếp theo"
+   ]
+  },
+  "template:h-cierre-redes": {
+   "name": "Theo dõi tôi",
+   "tags": [
+    "mạng xã hội",
+    "theo dõi",
+    "tên tài khoản",
+    "kết thúc",
+    "liên hệ"
+   ]
+  },
+  "template:h-cierre-suscribete-campana": {
+   "name": "Đăng ký và bấm chuông",
+   "tags": [
+    "đăng ký",
+    "chuông",
+    "nút",
+    "youtube",
+    "kết thúc"
+   ]
+  },
+  "template:h-cuenta-10-neon": {
+   "name": "Đếm ngược 10 neon",
+   "tags": [
+    "đếm ngược",
+    "neon",
+    "10 giây",
+    "bắt đầu",
+    "sự kiện"
+   ]
+  },
+  "template:h-cuenta-5-cine": {
+   "name": "Đếm ngược phim cũ",
+   "tags": [
+    "đếm ngược",
+    "điện ảnh",
+    "phim",
+    "vintage",
+    "film leader"
+   ]
+  },
+  "template:h-cuenta-anio-nuevo": {
+   "name": "Đếm ngược năm mới",
+   "tags": [
+    "năm mới",
+    "đếm ngược",
+    "pháo hoa",
+    "tiệc",
+    "giao thừa"
+   ]
+  },
+  "template:h-cuenta-deportes": {
+   "name": "Đếm ngược trận đấu",
+   "tags": [
+    "trận đấu",
+    "bóng đá",
+    "đếm ngược",
+    "thể thao",
+    "tỉ số"
+   ]
+  },
+  "template:h-cuenta-dias-evento": {
+   "name": "Còn bao nhiêu ngày",
+   "tags": [
+    "còn mấy ngày",
+    "sự kiện",
+    "đếm ngược",
+    "đám cưới",
+    "chuyến đi"
+   ]
+  },
+  "template:h-cuenta-directo": {
+   "name": "Sắp bắt đầu",
+   "tags": [
+    "livestream",
+    "trực tiếp",
+    "stream",
+    "sắp bắt đầu",
+    "đếm ngược"
+   ]
+  },
+  "template:h-cuenta-lanzamiento": {
+   "name": "Đếm ngược ra mắt",
+   "tags": [
+    "ra mắt",
+    "sản phẩm",
+    "3 2 1",
+    "đếm ngược",
+    "đã có hàng"
+   ]
+  },
+  "template:h-cuenta-minimal": {
+   "name": "Đếm ngược tối giản",
+   "tags": [
+    "đếm ngược",
+    "tối giản",
+    "gọn gàng",
+    "thuyết trình",
+    "bắt đầu"
+   ]
+  },
+  "template:h-fecha-accion-gracias": {
+   "name": "Lễ Tạ ơn",
+   "tags": [
+    "lễ tạ ơn",
+    "thanksgiving",
+    "mùa thu",
+    "gia đình",
+    "biết ơn"
+   ]
+  },
+  "template:h-fecha-anio-nuevo": {
+   "name": "Chúc mừng năm mới",
+   "tags": [
+    "năm mới",
+    "new year",
+    "pháo hoa",
+    "nâng ly",
+    "tháng 1"
+   ]
+  },
+  "template:h-fecha-anio-nuevo-lunar": {
+   "name": "Tết Nguyên đán",
+   "tags": [
+    "tết",
+    "năm mới âm lịch",
+    "đèn lồng",
+    "đỏ",
+    "vàng"
+   ]
+  },
+  "template:h-fecha-dia-madre": {
+   "name": "Ngày của Mẹ",
+   "tags": [
+    "ngày của mẹ",
+    "mẹ",
+    "hoa",
+    "yêu thương",
+    "gia đình"
+   ]
+  },
+  "template:h-fecha-dia-maestro": {
+   "name": "Ngày Nhà giáo",
+   "tags": [
+    "ngày nhà giáo",
+    "thầy cô",
+    "giáo viên",
+    "tri ân",
+    "trường học"
+   ]
+  },
+  "template:h-fecha-dia-mujer": {
+   "name": "Ngày Quốc tế Phụ nữ",
+   "tags": [
+    "ngày phụ nữ",
+    "8 tháng 3",
+    "phụ nữ",
+    "bình đẳng",
+    "cảm hứng"
+   ]
+  },
+  "template:h-fecha-dia-padre": {
+   "name": "Ngày của Cha",
+   "tags": [
+    "ngày của cha",
+    "bố",
+    "gia đình",
+    "người hùng",
+    "tháng 6"
+   ]
+  },
+  "template:h-fecha-dia-tierra": {
+   "name": "Ngày Trái Đất",
+   "tags": [
+    "ngày trái đất",
+    "hành tinh",
+    "môi trường",
+    "xanh",
+    "thiên nhiên"
+   ]
+  },
+  "template:h-fecha-diwali": {
+   "name": "Chúc mừng Diwali",
+   "tags": [
+    "diwali",
+    "lễ hội ánh sáng",
+    "đèn dầu",
+    "diya",
+    "ăn mừng"
+   ]
+  },
+  "template:h-fecha-eid": {
+   "name": "Eid Mubarak",
+   "tags": [
+    "eid",
+    "eid mubarak",
+    "lễ hội",
+    "gia đình",
+    "ăn mừng"
+   ]
+  },
+  "template:h-fecha-halloween": {
+   "name": "Halloween",
+   "tags": [
+    "halloween",
+    "kinh dị",
+    "bí ngô",
+    "hóa trang",
+    "tháng 10"
+   ]
+  },
+  "template:h-fecha-invierno": {
+   "name": "Mùa đông",
+   "tags": [
+    "mùa đông",
+    "tuyết",
+    "lạnh",
+    "mùa",
+    "ấm cúng"
+   ]
+  },
+  "template:h-fecha-navidad": {
+   "name": "Giáng sinh vui vẻ",
+   "tags": [
+    "giáng sinh",
+    "noel",
+    "tuyết",
+    "gia đình",
+    "tháng 12"
+   ]
+  },
+  "template:h-fecha-otono": {
+   "name": "Xin chào mùa thu",
+   "tags": [
+    "mùa thu",
+    "lá rụng",
+    "ấm cúng",
+    "mùa",
+    "cà phê"
+   ]
+  },
+  "template:h-fecha-pascua": {
+   "name": "Lễ Phục sinh",
+   "tags": [
+    "phục sinh",
+    "easter",
+    "trứng",
+    "mùa xuân",
+    "thỏ"
+   ]
+  },
+  "template:h-fecha-primavera": {
+   "name": "Mùa xuân",
+   "tags": [
+    "mùa xuân",
+    "hoa",
+    "mùa",
+    "màu sắc",
+    "thiên nhiên"
+   ]
+  },
+  "template:h-fecha-ramadan": {
+   "name": "Ramadan Kareem",
+   "tags": [
+    "ramadan",
+    "ramadan kareem",
+    "trăng lưỡi liềm",
+    "đèn lồng",
+    "iftar"
+   ]
+  },
+  "template:h-fecha-regreso-clases": {
+   "name": "Trở lại trường",
+   "tags": [
+    "tựu trường",
+    "trường học",
+    "đồ dùng học tập",
+    "học sinh",
+    "năm học mới"
+   ]
+  },
+  "template:h-fecha-san-valentin": {
+   "name": "Ngày Valentine",
+   "tags": [
+    "valentine",
+    "tình yêu",
+    "14 tháng 2",
+    "cặp đôi",
+    "trái tim"
+   ]
+  },
+  "template:h-fecha-verano": {
+   "name": "Mùa hè đến rồi",
+   "tags": [
+    "mùa hè",
+    "biển",
+    "nắng",
+    "kỳ nghỉ",
+    "nóng"
+   ]
+  },
+  "template:h-final-1-video": {
+   "name": "Màn hình kết: 1 video",
+   "tags": [
+    "màn hình kết",
+    "end screen",
+    "youtube",
+    "video tiếp theo",
+    "đăng ký"
+   ]
+  },
+  "template:h-final-2-videos": {
+   "name": "Màn hình kết: 2 video",
+   "tags": [
+    "màn hình kết",
+    "end screen",
+    "youtube",
+    "video đề xuất",
+    "đăng ký"
+   ]
+  },
+  "template:h-final-cocina": {
+   "name": "Màn hình kết nấu ăn",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "màn hình kết",
+    "món tiếp theo",
+    "món ăn"
+   ]
+  },
+  "template:h-final-colorida": {
+   "name": "Màn hình kết nhiều màu",
+   "tags": [
+    "màn hình kết",
+    "nhiều màu",
+    "vui nhộn",
+    "youtube",
+    "thiếu nhi"
+   ]
+  },
+  "template:h-final-curso": {
+   "name": "Màn hình kết khóa học",
+   "tags": [
+    "khóa học",
+    "bài học",
+    "giáo dục",
+    "màn hình kết",
+    "hướng dẫn"
+   ]
+  },
+  "template:h-final-familia": {
+   "name": "Kết thúc gia đình",
+   "tags": [
+    "gia đình",
+    "cảm ơn",
+    "kết thúc",
+    "kỷ niệm",
+    "ảnh"
+   ]
+  },
+  "template:h-final-gaming": {
+   "name": "Màn hình kết gaming",
+   "tags": [
+    "màn hình kết",
+    "gaming",
+    "game thủ",
+    "youtube",
+    "stream"
+   ]
+  },
+  "template:h-final-minimal": {
+   "name": "Màn hình kết tối giản",
+   "tags": [
+    "màn hình kết",
+    "tối giản",
+    "gọn gàng",
+    "youtube",
+    "thanh lịch"
+   ]
+  },
+  "template:h-final-negocio": {
+   "name": "Màn hình kết doanh nghiệp",
+   "tags": [
+    "doanh nghiệp",
+    "liên hệ",
+    "địa chỉ",
+    "website",
+    "kết thúc"
+   ]
+  },
+  "template:h-final-noticias": {
+   "name": "Màn hình kết bản tin",
+   "tags": [
+    "tin tức",
+    "thêm tin",
+    "màn hình kết",
+    "bản tin",
+    "tiêu đề"
+   ]
+  },
+  "template:h-final-oscura": {
+   "name": "Màn hình kết tông tối",
+   "tags": [
+    "màn hình kết",
+    "neon",
+    "tông tối",
+    "youtube",
+    "gaming"
+   ]
+  },
+  "template:h-final-papel": {
+   "name": "Màn hình kết giấy",
+   "tags": [
+    "giấy",
+    "thủ công",
+    "màn hình kết",
+    "băng dính",
+    "sáng tạo"
+   ]
+  },
+  "template:h-final-podcast": {
+   "name": "Màn hình kết podcast",
+   "tags": [
+    "podcast",
+    "tập sau",
+    "màn hình kết",
+    "nền tảng",
+    "âm thanh"
+   ]
+  },
+  "template:h-final-retro": {
+   "name": "Màn hình kết TV retro",
+   "tags": [
+    "retro",
+    "tivi",
+    "vintage",
+    "màn hình kết",
+    "thập niên 80"
+   ]
+  },
+  "template:h-final-viajes": {
+   "name": "Màn hình kết du lịch",
+   "tags": [
+    "du lịch",
+    "điểm đến",
+    "màn hình kết",
+    "bản đồ",
+    "phiêu lưu"
+   ]
+  },
+  "template:h-intro-barras-diagonales": {
+   "name": "Intro thanh chéo",
+   "tags": [
+    "intro",
+    "youtube",
+    "kênh",
+    "logo",
+    "thanh chéo"
+   ]
+  },
+  "template:h-intro-boda": {
+   "name": "Intro đám cưới",
+   "tags": [
+    "đám cưới",
+    "cô dâu chú rể",
+    "hôn lễ",
+    "intro",
+    "lãng mạn"
+   ]
+  },
+  "template:h-intro-cinematica-oscura": {
+   "name": "Mở đầu điện ảnh",
+   "tags": [
+    "điện ảnh",
+    "cinematic",
+    "phim",
+    "intro",
+    "kịch tính"
+   ]
+  },
+  "template:h-intro-cocina": {
+   "name": "Intro kênh nấu ăn",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "món ăn",
+    "intro",
+    "đầu bếp"
+   ]
+  },
+  "template:h-intro-colorida-formas": {
+   "name": "Intro hình khối nhiều màu",
+   "tags": [
+    "nhiều màu",
+    "hình khối",
+    "vui nhộn",
+    "intro",
+    "tươi sáng"
+   ]
+  },
+  "template:h-intro-corporativa": {
+   "name": "Mở đầu doanh nghiệp",
+   "tags": [
+    "doanh nghiệp",
+    "công ty",
+    "kinh doanh",
+    "thuyết trình",
+    "logo"
+   ]
+  },
+  "template:h-intro-deportes": {
+   "name": "Intro thể thao",
+   "tags": [
+    "thể thao",
+    "bóng đá",
+    "điền kinh",
+    "intro",
+    "năng lượng"
+   ]
+  },
+  "template:h-intro-documental": {
+   "name": "Mở đầu phim tài liệu",
+   "tags": [
+    "tài liệu",
+    "lịch sử",
+    "nghiêm túc",
+    "intro",
+    "điện ảnh"
+   ]
+  },
+  "template:h-intro-elegante-oro": {
+   "name": "Intro vàng sang trọng",
+   "tags": [
+    "sang trọng",
+    "vàng",
+    "cao cấp",
+    "intro",
+    "thương hiệu"
+   ]
+  },
+  "template:h-intro-fitness": {
+   "name": "Intro fitness",
+   "tags": [
+    "fitness",
+    "gym",
+    "tập luyện",
+    "intro",
+    "động lực"
+   ]
+  },
+  "template:h-intro-gaming-neon": {
+   "name": "Intro gaming neon",
+   "tags": [
+    "gaming",
+    "game thủ",
+    "neon",
+    "intro",
+    "stream"
+   ]
+  },
+  "template:h-intro-glitch": {
+   "name": "Intro glitch",
+   "tags": [
+    "glitch",
+    "kỹ thuật số",
+    "intro",
+    "gaming",
+    "công nghệ"
+   ]
+  },
+  "template:h-intro-logo-destello": {
+   "name": "Hé lộ logo lóe sáng",
+   "tags": [
+    "logo",
+    "hé lộ",
+    "lóe sáng",
+    "intro",
+    "sang trọng"
+   ]
+  },
+  "template:h-intro-minimal-linea": {
+   "name": "Intro đường kẻ tối giản",
+   "tags": [
+    "tối giản",
+    "gọn gàng",
+    "intro",
+    "thanh lịch",
+    "trắng"
+   ]
+  },
+  "template:h-intro-musica": {
+   "name": "Intro kênh âm nhạc",
+   "tags": [
+    "âm nhạc",
+    "nghệ sĩ",
+    "single",
+    "intro",
+    "equalizer"
+   ]
+  },
+  "template:h-intro-ninos": {
+   "name": "Intro thiếu nhi",
+   "tags": [
+    "trẻ em",
+    "thiếu nhi",
+    "nhiều màu",
+    "intro",
+    "giáo dục"
+   ]
+  },
+  "template:h-intro-noticias": {
+   "name": "Mở đầu bản tin",
+   "tags": [
+    "tin tức",
+    "bản tin",
+    "thời sự",
+    "intro",
+    "báo chí"
+   ]
+  },
+  "template:h-intro-papel": {
+   "name": "Intro giấy cắt",
+   "tags": [
+    "giấy",
+    "cắt giấy",
+    "thủ công",
+    "intro",
+    "trẻ em"
+   ]
+  },
+  "template:h-intro-podcast-ondas": {
+   "name": "Intro podcast sóng âm",
+   "tags": [
+    "podcast",
+    "âm thanh",
+    "phỏng vấn",
+    "intro",
+    "sóng âm"
+   ]
+  },
+  "template:h-intro-pop-comic": {
+   "name": "Intro truyện tranh pop",
+   "tags": [
+    "truyện tranh",
+    "pop art",
+    "vui nhộn",
+    "intro",
+    "comic"
+   ]
+  },
+  "template:h-intro-retro-80s": {
+   "name": "Intro retro thập niên 80",
+   "tags": [
+    "retro",
+    "thập niên 80",
+    "synthwave",
+    "neon",
+    "intro"
+   ]
+  },
+  "template:h-intro-split": {
+   "name": "Intro chia màn hình",
+   "tags": [
+    "chia màn hình",
+    "split",
+    "ảnh",
+    "intro",
+    "hiện đại"
+   ]
+  },
+  "template:h-intro-suscriptores": {
+   "name": "Intro đếm người đăng ký",
+   "tags": [
+    "người đăng ký",
+    "bộ đếm",
+    "ăn mừng",
+    "intro",
+    "youtube"
+   ]
+  },
+  "template:h-intro-tech": {
+   "name": "Intro công nghệ",
+   "tags": [
+    "công nghệ",
+    "tech",
+    "kỹ thuật số",
+    "intro",
+    "review"
+   ]
+  },
+  "template:h-intro-texto-gigante": {
+   "name": "Intro chữ khổng lồ",
+   "tags": [
+    "chữ",
+    "typography",
+    "intro",
+    "ấn tượng",
+    "ảnh trong chữ"
+   ]
+  },
+  "template:h-intro-tinta": {
+   "name": "Intro hé lộ bằng mực",
+   "tags": [
+    "mực",
+    "nghệ thuật",
+    "intro",
+    "màu nước",
+    "vệt loang"
+   ]
+  },
+  "template:h-intro-tiza": {
+   "name": "Intro bảng phấn",
+   "tags": [
+    "giáo dục",
+    "bảng phấn",
+    "lớp học",
+    "phấn",
+    "giáo viên"
+   ]
+  },
+  "template:h-intro-viajes-mapa": {
+   "name": "Intro du lịch bản đồ",
+   "tags": [
+    "du lịch",
+    "bản đồ",
+    "lộ trình",
+    "intro",
+    "phiêu lưu"
+   ]
+  },
+  "template:h-intro-vlog-polaroid": {
+   "name": "Intro vlog ảnh lấy liền",
+   "tags": [
+    "vlog",
+    "ảnh lấy liền",
+    "intro",
+    "ảnh",
+    "aesthetic"
+   ]
+  },
+  "template:h-intro-zoom-fotos": {
+   "name": "Intro zoom ảnh",
+   "tags": [
+    "zoom",
+    "ảnh",
+    "intro",
+    "năng động",
+    "ghép ảnh"
+   ]
+  },
+  "template:h-neg-academia": {
+   "name": "Khóa học trung tâm",
+   "tags": [
+    "trung tâm",
+    "khóa học",
+    "lớp học",
+    "workshop",
+    "đăng ký"
+   ]
+  },
+  "template:h-neg-agenda-evento": {
+   "name": "Lịch trình sự kiện",
+   "tags": [
+    "chương trình",
+    "lịch trình",
+    "sự kiện",
+    "giờ",
+    "hội nghị"
+   ]
+  },
+  "template:h-neg-cafeteria": {
+   "name": "Quán cà phê",
+   "tags": [
+    "quán cà phê",
+    "cà phê",
+    "món đặc biệt",
+    "bữa sáng",
+    "barista"
+   ]
+  },
+  "template:h-neg-cifras": {
+   "name": "Một năm qua những con số",
+   "tags": [
+    "kết quả",
+    "con số",
+    "báo cáo",
+    "tăng trưởng",
+    "biểu đồ"
+   ]
+  },
+  "template:h-neg-comunidad": {
+   "name": "Họp cộng đồng",
+   "tags": [
+    "cộng đồng",
+    "cuộc họp",
+    "nhà thờ",
+    "nhóm",
+    "thông báo"
+   ]
+  },
+  "template:h-neg-contacto": {
+   "name": "Liên hệ với chúng tôi",
+   "tags": [
+    "liên hệ",
+    "địa chỉ",
+    "giờ mở cửa",
+    "điện thoại",
+    "doanh nghiệp"
+   ]
+  },
+  "template:h-neg-contratando": {
+   "name": "Chúng tôi đang tuyển dụng",
+   "tags": [
+    "tuyển dụng",
+    "việc làm",
+    "vị trí",
+    "tuyển người",
+    "gia nhập"
+   ]
+  },
+  "template:h-neg-escuela": {
+   "name": "Tuyển sinh",
+   "tags": [
+    "trường học",
+    "tuyển sinh",
+    "ghi danh",
+    "nhập học",
+    "giáo dục"
+   ]
+  },
+  "template:h-neg-ferreteria": {
+   "name": "Cửa hàng vật liệu",
+   "tags": [
+    "vật liệu",
+    "dụng cụ",
+    "xây dựng",
+    "giảm giá",
+    "nhà cửa"
+   ]
+  },
+  "template:h-neg-gimnasio": {
+   "name": "Gói tập gym",
+   "tags": [
+    "phòng gym",
+    "gói tập",
+    "giá",
+    "fitness",
+    "hội viên"
+   ]
+  },
+  "template:h-neg-inmobiliaria": {
+   "name": "Nhà đất cần bán",
+   "tags": [
+    "bất động sản",
+    "bán",
+    "nhà",
+    "căn hộ",
+    "nhà đất"
+   ]
+  },
+  "template:h-neg-lanzamiento": {
+   "name": "Ra mắt sản phẩm",
+   "tags": [
+    "ra mắt",
+    "mới",
+    "sản phẩm",
+    "giới thiệu",
+    "hàng mới"
+   ]
+  },
+  "template:h-neg-mudanzas": {
+   "name": "Chuyển nhà và vận tải",
+   "tags": [
+    "chuyển nhà",
+    "vận tải",
+    "chở hàng",
+    "xe tải",
+    "dịch vụ"
+   ]
+  },
+  "template:h-neg-presentacion": {
+   "name": "Giới thiệu công ty",
+   "tags": [
+    "công ty",
+    "giới thiệu",
+    "doanh nghiệp",
+    "sứ mệnh",
+    "con số"
+   ]
+  },
+  "template:h-neg-rebajas": {
+   "name": "Đại hạ giá",
+   "tags": [
+    "giảm giá",
+    "sale",
+    "xả hàng",
+    "ưu đãi",
+    "khuyến mãi"
+   ]
+  },
+  "template:h-neg-restaurante-menu": {
+   "name": "Thực đơn nhà hàng",
+   "tags": [
+    "nhà hàng",
+    "thực đơn",
+    "menu",
+    "món ăn",
+    "giá"
+   ]
+  },
+  "template:h-neg-supermercado": {
+   "name": "Ưu đãi siêu thị",
+   "tags": [
+    "siêu thị",
+    "ưu đãi",
+    "giá",
+    "trái cây",
+    "giảm giá"
+   ]
+  },
+  "template:h-neg-testimonio": {
+   "name": "Cảm nhận khách hàng",
+   "tags": [
+    "cảm nhận",
+    "review",
+    "khách hàng",
+    "đánh giá",
+    "sao"
+   ]
+  },
+  "template:h-neg-tienda-barrio": {
+   "name": "Tiệm tạp hóa",
+   "tags": [
+    "tạp hóa",
+    "cửa hàng",
+    "khu phố",
+    "ưu đãi",
+    "hàng xóm"
+   ]
+  },
+  "template:h-neg-webinar": {
+   "name": "Webinar",
+   "tags": [
+    "webinar",
+    "hội thảo online",
+    "sự kiện",
+    "đăng ký",
+    "diễn giả"
+   ]
+  },
+  "template:h-presenta-amistad": {
+   "name": "Bạn bè mãi mãi",
+   "tags": [
+    "bạn bè",
+    "tình bạn",
+    "nét vẽ tay",
+    "ảnh",
+    "vui vẻ"
+   ]
+  },
+  "template:h-presenta-anio": {
+   "name": "Năm của chúng mình",
+   "tags": [
+    "năm",
+    "tổng kết",
+    "12 tháng",
+    "recap",
+    "ảnh"
+   ]
+  },
+  "template:h-presenta-antes-despues": {
+   "name": "Trước và sau",
+   "tags": [
+    "trước sau",
+    "so sánh",
+    "thanh trượt",
+    "lột xác",
+    "cải tạo"
+   ]
+  },
+  "template:h-presenta-bebe": {
+   "name": "Bé lớn từng tháng",
+   "tags": [
+    "em bé",
+    "từng tháng",
+    "lớn lên",
+    "gia đình",
+    "năm đầu đời"
+   ]
+  },
+  "template:h-presenta-boda": {
+   "name": "Đám cưới của chúng mình",
+   "tags": [
+    "đám cưới",
+    "cô dâu chú rể",
+    "trình chiếu",
+    "thanh lịch",
+    "hôn lễ"
+   ]
+  },
+  "template:h-presenta-cinematica": {
+   "name": "Trình chiếu điện ảnh",
+   "tags": [
+    "điện ảnh",
+    "phim",
+    "viền đen",
+    "du lịch",
+    "hoành tráng"
+   ]
+  },
+  "template:h-presenta-circulos": {
+   "name": "Ảnh trong vòng tròn",
+   "tags": [
+    "vòng tròn",
+    "ảnh",
+    "màu sắc",
+    "vui tươi",
+    "trình chiếu"
+   ]
+  },
+  "template:h-presenta-collage-libre": {
+   "name": "Ghép ảnh tự do",
+   "tags": [
+    "ghép ảnh",
+    "ảnh",
+    "bảng ghim",
+    "bạn bè",
+    "kỷ niệm"
+   ]
+  },
+  "template:h-presenta-comida": {
+   "name": "Trình chiếu thực đơn",
+   "tags": [
+    "thực đơn",
+    "món ăn",
+    "nhà hàng",
+    "đĩa ăn",
+    "menu"
+   ]
+  },
+  "template:h-presenta-deportes": {
+   "name": "Mùa giải thể thao",
+   "tags": [
+    "thể thao",
+    "mùa giải",
+    "kết quả",
+    "đội",
+    "bóng đá"
+   ]
+  },
+  "template:h-presenta-equipo": {
+   "name": "Gặp gỡ đội ngũ",
+   "tags": [
+    "đội ngũ",
+    "con người",
+    "công ty",
+    "về chúng tôi",
+    "nhân viên"
+   ]
+  },
+  "template:h-presenta-escuela": {
+   "name": "Năm học",
+   "tags": [
+    "trường học",
+    "năm học",
+    "lớp học",
+    "vở",
+    "học sinh"
+   ]
+  },
+  "template:h-presenta-evento": {
+   "name": "Tóm tắt sự kiện",
+   "tags": [
+    "sự kiện",
+    "tóm tắt",
+    "aftermovie",
+    "hội nghị",
+    "tiệc"
+   ]
+  },
+  "template:h-presenta-glitch": {
+   "name": "Trình chiếu glitch",
+   "tags": [
+    "glitch",
+    "nhanh",
+    "theo nhịp",
+    "ảnh",
+    "đường phố"
+   ]
+  },
+  "template:h-presenta-graduacion": {
+   "name": "Lớp tốt nghiệp",
+   "tags": [
+    "tốt nghiệp",
+    "khóa",
+    "niên khóa",
+    "trường học",
+    "đại học"
+   ]
+  },
+  "template:h-presenta-homenaje": {
+   "name": "Mãi nhớ thương",
+   "tags": [
+    "tưởng niệm",
+    "tưởng nhớ",
+    "tiễn biệt",
+    "kỷ niệm",
+    "nến"
+   ]
+  },
+  "template:h-presenta-inmueble": {
+   "name": "Tham quan bất động sản",
+   "tags": [
+    "bất động sản",
+    "nhà",
+    "bán",
+    "cho thuê",
+    "căn hộ"
+   ]
+  },
+  "template:h-presenta-mascota": {
+   "name": "Thú cưng của tôi",
+   "tags": [
+    "thú cưng",
+    "chó",
+    "mèo",
+    "dấu chân",
+    "ảnh"
+   ]
+  },
+  "template:h-presenta-mosaico": {
+   "name": "Ảnh khảm",
+   "tags": [
+    "khảm",
+    "lưới",
+    "ghép ảnh",
+    "ảnh",
+    "grid"
+   ]
+  },
+  "template:h-presenta-paralaje": {
+   "name": "Trình chiếu parallax",
+   "tags": [
+    "parallax",
+    "3d",
+    "chuyển động",
+    "ảnh",
+    "du lịch"
+   ]
+  },
+  "template:h-presenta-pelicula": {
+   "name": "Trình chiếu dải phim",
+   "tags": [
+    "phim",
+    "dải phim",
+    "35 mm",
+    "ảnh",
+    "vintage"
+   ]
+  },
+  "template:h-presenta-polaroid": {
+   "name": "Ảnh lấy liền trên gỗ",
+   "tags": [
+    "ảnh lấy liền",
+    "ảnh",
+    "trình chiếu",
+    "gỗ",
+    "vintage"
+   ]
+  },
+  "template:h-presenta-portafolio": {
+   "name": "Portfolio",
+   "tags": [
+    "portfolio",
+    "tác phẩm",
+    "thiết kế",
+    "nhiếp ảnh",
+    "dự án"
+   ]
+  },
+  "template:h-presenta-producto": {
+   "name": "Danh mục sản phẩm",
+   "tags": [
+    "danh mục",
+    "sản phẩm",
+    "cửa hàng",
+    "giá",
+    "bán hàng"
+   ]
+  },
+  "template:h-presenta-recuerdos": {
+   "name": "Trình chiếu kỷ niệm",
+   "tags": [
+    "kỷ niệm",
+    "trình chiếu",
+    "ảnh",
+    "gia đình",
+    "hoài niệm"
+   ]
+  },
+  "template:h-presenta-revista": {
+   "name": "Trang tạp chí",
+   "tags": [
+    "tạp chí",
+    "editorial",
+    "thời trang",
+    "trang",
+    "trình chiếu"
+   ]
+  },
+  "template:h-presenta-split": {
+   "name": "Trình chiếu chia màn hình",
+   "tags": [
+    "chia màn hình",
+    "split",
+    "hai ảnh",
+    "so sánh",
+    "trình chiếu"
+   ]
+  },
+  "template:h-presenta-tinta": {
+   "name": "Trình chiếu hiệu ứng mực",
+   "tags": [
+    "mực",
+    "nghệ thuật",
+    "trình chiếu",
+    "ảnh",
+    "thanh lịch"
+   ]
+  },
+  "template:h-presenta-viaje": {
+   "name": "Nhật ký du lịch",
+   "tags": [
+    "du lịch",
+    "nhật ký",
+    "con dấu",
+    "ảnh",
+    "kỳ nghỉ"
+   ]
+  },
+  "template:h-presenta-vintage": {
+   "name": "Album vintage",
+   "tags": [
+    "vintage",
+    "cổ điển",
+    "nâu đỏ",
+    "album",
+    "kỷ niệm"
+   ]
+  },
+  "template:h-tercio-a-mano": {
+   "name": "Chú thích dưới viết tay",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "viết tay",
+    "thư pháp"
+   ]
+  },
+  "template:h-tercio-boda": {
+   "name": "Chú thích dưới đám cưới",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "đám cưới",
+    "cô dâu chú rể"
+   ]
+  },
+  "template:h-tercio-caja-color": {
+   "name": "Chú thích dưới dạng hộp",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "hộp",
+    "màu sắc"
+   ]
+  },
+  "template:h-tercio-chat": {
+   "name": "Bình luận nổi bật",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "bình luận",
+    "chat"
+   ]
+  },
+  "template:h-tercio-cita": {
+   "name": "Trích dẫn trên màn hình",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "trích dẫn",
+    "câu nói"
+   ]
+  },
+  "template:h-tercio-corporativo": {
+   "name": "Chú thích dưới doanh nghiệp",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "doanh nghiệp",
+    "công ty"
+   ]
+  },
+  "template:h-tercio-deportes": {
+   "name": "Chú thích dưới thể thao",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "thể thao",
+    "cầu thủ"
+   ]
+  },
+  "template:h-tercio-diagonal": {
+   "name": "Chú thích dưới chéo",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "đường chéo",
+    "năng động"
+   ]
+  },
+  "template:h-tercio-doble": {
+   "name": "Chú thích dưới hai người",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "hai người",
+    "phỏng vấn"
+   ]
+  },
+  "template:h-tercio-duotono": {
+   "name": "Chú thích dưới hai tông",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "hai tông",
+    "hiện đại"
+   ]
+  },
+  "template:h-tercio-elegante": {
+   "name": "Chú thích dưới thanh lịch",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "thanh lịch",
+    "vàng"
+   ]
+  },
+  "template:h-tercio-entrevista": {
+   "name": "Chú thích dưới phỏng vấn",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "phỏng vấn",
+    "câu hỏi"
+   ]
+  },
+  "template:h-tercio-fecha": {
+   "name": "Ngày và giờ",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "ngày",
+    "giờ",
+    "sự kiện"
+   ]
+  },
+  "template:h-tercio-gaming": {
+   "name": "Chú thích dưới gaming",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "gaming",
+    "game thủ"
+   ]
+  },
+  "template:h-tercio-glass": {
+   "name": "Chú thích dưới kính mờ",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "kính",
+    "trong suốt"
+   ]
+  },
+  "template:h-tercio-minimal-linea": {
+   "name": "Chú thích dưới tối giản",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "tối giản",
+    "gọn gàng"
+   ]
+  },
+  "template:h-tercio-noticias": {
+   "name": "Chú thích dưới bản tin",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "tin tức",
+    "trực tiếp"
+   ]
+  },
+  "template:h-tercio-podcast": {
+   "name": "Chú thích dưới podcast",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "podcast",
+    "tập"
+   ]
+  },
+  "template:h-tercio-precio": {
+   "name": "Giá trên màn hình",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "giá",
+    "sản phẩm"
+   ]
+  },
+  "template:h-tercio-redes": {
+   "name": "Chú thích dưới tên tài khoản",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "mạng xã hội",
+    "tên tài khoản",
+    "người dùng"
+   ]
+  },
+  "template:h-tercio-redondeado": {
+   "name": "Chú thích dưới bo tròn có ảnh",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "ảnh",
+    "bo tròn"
+   ]
+  },
+  "template:h-tercio-retro": {
+   "name": "Chú thích dưới retro",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "tên",
+    "retro",
+    "thập niên 70"
+   ]
+  },
+  "template:h-tercio-suscribete": {
+   "name": "Nút đăng ký ở góc",
+   "tags": [
+    "lower third",
+    "đăng ký",
+    "nút",
+    "subscribe",
+    "góc màn hình"
+   ]
+  },
+  "template:h-tercio-tutorial-paso": {
+   "name": "Bước hướng dẫn",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "hướng dẫn",
+    "bước",
+    "tutorial"
+   ]
+  },
+  "template:h-tercio-ubicacion": {
+   "name": "Chú thích dưới địa điểm",
+   "tags": [
+    "lower third",
+    "chú thích dưới",
+    "địa điểm",
+    "vị trí",
+    "nơi chốn"
+   ]
+  },
+  "template:h-texto-advertencia": {
+   "name": "Cảnh báo",
+   "tags": [
+    "cảnh báo",
+    "chú ý",
+    "lưu ý",
+    "quan trọng",
+    "thận trọng"
+   ]
+  },
+  "template:h-texto-agenda": {
+   "name": "Nội dung video",
+   "tags": [
+    "nội dung",
+    "chủ đề",
+    "chương",
+    "mục lục",
+    "agenda"
+   ]
+  },
+  "template:h-texto-capitulo": {
+   "name": "Thẻ chương",
+   "tags": [
+    "chương",
+    "tiêu đề",
+    "tài liệu",
+    "youtube",
+    "phần"
+   ]
+  },
+  "template:h-texto-cinetico": {
+   "name": "Typography chuyển động",
+   "tags": [
+    "chữ động",
+    "typography",
+    "động lực",
+    "theo nhịp",
+    "từ ngữ"
+   ]
+  },
+  "template:h-texto-cita-serif": {
+   "name": "Trích dẫn thanh lịch",
+   "tags": [
+    "trích dẫn",
+    "câu nói",
+    "cảm hứng",
+    "suy ngẫm",
+    "động lực"
+   ]
+  },
+  "template:h-texto-comparacion": {
+   "name": "So sánh",
+   "tags": [
+    "so sánh",
+    "versus",
+    "a hay b",
+    "cái nào tốt hơn",
+    "review"
+   ]
+  },
+  "template:h-texto-creditos": {
+   "name": "Danh đề cuối phim",
+   "tags": [
+    "danh đề",
+    "kết thúc",
+    "lời cảm ơn",
+    "phim",
+    "ê-kíp"
+   ]
+  },
+  "template:h-texto-dato-curioso": {
+   "name": "Sự thật thú vị",
+   "tags": [
+    "sự thật thú vị",
+    "bạn có biết",
+    "giáo dục",
+    "kiến thức",
+    "khoa học"
+   ]
+  },
+  "template:h-texto-estadistica": {
+   "name": "Con số thống kê lớn",
+   "tags": [
+    "thống kê",
+    "con số",
+    "phần trăm",
+    "dữ liệu",
+    "infographic"
+   ]
+  },
+  "template:h-texto-frase-neon": {
+   "name": "Biển chữ neon",
+   "tags": [
+    "neon",
+    "biển hiệu",
+    "câu nói",
+    "ban đêm",
+    "aesthetic"
+   ]
+  },
+  "template:h-texto-lecciones": {
+   "name": "Bạn sẽ học được gì",
+   "tags": [
+    "khóa học",
+    "bài học",
+    "giáo dục",
+    "hướng dẫn",
+    "học"
+   ]
+  },
+  "template:h-texto-linea-tiempo": {
+   "name": "Dòng thời gian",
+   "tags": [
+    "dòng thời gian",
+    "lịch sử",
+    "các năm",
+    "hành trình",
+    "kỷ niệm"
+   ]
+  },
+  "template:h-texto-lista-5": {
+   "name": "Danh sách top 5",
+   "tags": [
+    "danh sách",
+    "top 5",
+    "mẹo",
+    "ý chính",
+    "tóm tắt"
+   ]
+  },
+  "template:h-texto-maquina": {
+   "name": "Máy đánh chữ",
+   "tags": [
+    "máy đánh chữ",
+    "lá thư",
+    "vintage",
+    "câu chuyện",
+    "chữ"
+   ]
+  },
+  "template:h-texto-marcador": {
+   "name": "Tỉ số chung cuộc",
+   "tags": [
+    "tỉ số",
+    "kết quả",
+    "trận đấu",
+    "thể thao",
+    "chung cuộc"
+   ]
+  },
+  "template:h-texto-portada-video": {
+   "name": "Ảnh thumbnail video",
+   "tags": [
+    "thumbnail",
+    "ảnh bìa",
+    "youtube",
+    "clickbait",
+    "ảnh đại diện"
+   ]
+  },
+  "template:h-texto-pregunta": {
+   "name": "Hỏi khán giả",
+   "tags": [
+    "câu hỏi",
+    "bình luận",
+    "tương tác",
+    "cộng đồng",
+    "ý kiến"
+   ]
+  },
+  "template:h-texto-receta-ingredientes": {
+   "name": "Nguyên liệu công thức",
+   "tags": [
+    "công thức",
+    "nguyên liệu",
+    "nấu ăn",
+    "món ăn",
+    "danh sách"
+   ]
+  },
+  "template:h-texto-titular-revista": {
+   "name": "Tít tạp chí",
+   "tags": [
+    "tạp chí",
+    "ảnh bìa",
+    "editorial",
+    "thời trang",
+    "tiêu đề"
+   ]
+  },
+  "template:h-texto-titulo-grande": {
+   "name": "Tiêu đề lớn",
+   "tags": [
+    "tiêu đề",
+    "ảnh bìa",
+    "chữ lớn",
+    "ấn tượng",
+    "youtube"
+   ]
+  },
+  "template:h-trans-barrido-color": {
+   "name": "Quét màu",
+   "tags": [
+    "chuyển cảnh",
+    "quét",
+    "màu sắc",
+    "wipe",
+    "năng động"
+   ]
+  },
+  "template:h-trans-capitulo-numero": {
+   "name": "Số chương",
+   "tags": [
+    "chương",
+    "chuyển cảnh",
+    "số",
+    "phân cách",
+    "tài liệu"
+   ]
+  },
+  "template:h-trans-circulo": {
+   "name": "Phân cách hình tròn",
+   "tags": [
+    "chuyển cảnh",
+    "hình tròn",
+    "chương",
+    "phân cách",
+    "tiêu đề"
+   ]
+  },
+  "template:h-trans-diagonal": {
+   "name": "Quét chéo",
+   "tags": [
+    "chuyển cảnh",
+    "đường chéo",
+    "wipe",
+    "hiện đại",
+    "tấm"
+   ]
+  },
+  "template:h-trans-formas": {
+   "name": "Lấp đầy hình khối",
+   "tags": [
+    "chuyển cảnh",
+    "hình khối",
+    "hình tròn",
+    "màu sắc",
+    "vui nhộn"
+   ]
+  },
+  "template:h-trans-glitch-corto": {
+   "name": "Cú glitch",
+   "tags": [
+    "chuyển cảnh",
+    "glitch",
+    "nhanh",
+    "gaming",
+    "kỹ thuật số"
+   ]
+  },
+  "template:h-trans-mientras-tanto": {
+   "name": "Trong khi đó…",
+   "tags": [
+    "trong khi đó",
+    "hài hước",
+    "truyện tranh",
+    "chuyển cảnh",
+    "meme"
+   ]
+  },
+  "template:h-trans-papel": {
+   "name": "Giấy xé",
+   "tags": [
+    "chuyển cảnh",
+    "giấy",
+    "xé giấy",
+    "ghép ảnh",
+    "sáng tạo"
+   ]
+  },
+  "template:h-trans-pelicula": {
+   "name": "Cháy phim",
+   "tags": [
+    "chuyển cảnh",
+    "phim",
+    "cháy phim",
+    "vintage",
+    "ấm áp"
+   ]
+  },
+  "template:h-trans-persiana": {
+   "name": "Rèm sáo",
+   "tags": [
+    "chuyển cảnh",
+    "rèm sáo",
+    "sọc",
+    "wipe",
+    "thanh lịch"
+   ]
+  },
+  "template:h-trans-tinta": {
+   "name": "Lau mực",
+   "tags": [
+    "chuyển cảnh",
+    "mực",
+    "nghệ thuật",
+    "vệt loang",
+    "mượt"
+   ]
+  },
+  "template:h-trans-zoom-golpe": {
+   "name": "Zoom giật",
+   "tags": [
+    "chuyển cảnh",
+    "zoom",
+    "cú đấm",
+    "nhanh",
+    "năng lượng"
+   ]
+  },
+  "template:halloween-photo-dump": {
+   "name": "Photo dump Halloween",
+   "tags": [
+    "halloween",
+    "photo dump",
+    "hóa trang",
+    "kinh dị",
+    "tháng 10"
+   ]
+  },
+  "template:halloween-revelacion-disfraz": {
+   "name": "Hé lộ trang phục hóa trang",
+   "tags": [
+    "halloween",
+    "hóa trang",
+    "biến hình",
+    "trước sau",
+    "hù dọa"
+   ]
+  },
+  "template:halloween-truco-o-trato": {
+   "name": "Tiệc Trick or treat",
+   "tags": [
+    "halloween",
+    "tiệc",
+    "lời mời",
+    "trẻ em",
+    "hóa trang"
+   ]
+  },
+  "template:horario-de-atencion": {
+   "name": "Giờ mở cửa",
+   "tags": [
+    "giờ mở cửa",
+    "giờ làm việc",
+    "mở cửa",
+    "cửa hàng",
+    "thông tin"
+   ]
+  },
+  "template:hype-glitch": {
+   "name": "Hype glitch",
+   "tags": [
+    "hype",
+    "glitch",
+    "năng lượng",
+    "gym",
+    "tiệc"
+   ]
+  },
+  "template:intro-de-canal": {
+   "name": "Intro kênh",
+   "tags": [
+    "intro",
+    "kênh",
+    "youtube",
+    "logo"
+   ]
+  },
+  "template:intro-de-podcast": {
+   "name": "Intro podcast",
+   "tags": [
+    "podcast",
+    "intro",
+    "tập",
+    "âm thanh",
+    "chương trình"
+   ]
+  },
+  "template:intro-de-vlog": {
+   "name": "Intro vlog",
+   "tags": [
+    "vlog",
+    "intro",
+    "một ngày cùng tôi",
+    "thói quen",
+    "aesthetic"
+   ]
+  },
+  "template:jugadas-destacadas": {
+   "name": "Pha bóng nổi bật",
+   "tags": [
+    "thể thao",
+    "bóng đá",
+    "highlight",
+    "bàn thắng",
+    "trận đấu"
+   ]
+  },
+  "template:lanzamiento-ya-disponible": {
+   "name": "Ra mắt: đã có hàng",
+   "tags": [
+    "ra mắt",
+    "sản phẩm",
+    "mới",
+    "cửa hàng online",
+    "mở bán"
+   ]
+  },
+  "template:letra-al-ritmo": {
+   "name": "Lời bài hát theo nhịp",
+   "tags": [
+    "lời bài hát",
+    "bài hát",
+    "theo nhịp",
+    "tiệc",
+    "chữ"
+   ]
+  },
+  "template:me-gradue": {
+   "name": "Tôi tốt nghiệp rồi!",
+   "tags": [
+    "tốt nghiệp",
+    "ra trường",
+    "thành tích",
+    "đại học"
+   ]
+  },
+  "template:mejores-amigas": {
+   "name": "Bạn thân",
+   "tags": [
+    "bạn thân",
+    "chị em",
+    "besties",
+    "tình bạn",
+    "bff"
+   ]
+  },
+  "template:meme-texto-arriba-abajo": {
+   "name": "Meme kinh điển",
+   "tags": [
+    "meme",
+    "hài hước",
+    "chữ trên dưới",
+    "vui",
+    "đồng cảm"
+   ]
+  },
+  "template:menu-del-dia-pizarra": {
+   "name": "Thực đơn hôm nay trên bảng phấn",
+   "tags": [
+    "thực đơn",
+    "nhà hàng",
+    "bữa trưa",
+    "món ăn",
+    "giá"
+   ]
+  },
+  "template:menu-navideno": {
+   "name": "Thực đơn Giáng sinh",
+   "tags": [
+    "giáng sinh",
+    "thực đơn",
+    "bữa tối",
+    "nhà hàng",
+    "đêm noel"
+   ]
+  },
+  "template:mi-2026-en-fotos": {
+   "name": "Năm 2026 của tôi qua ảnh",
+   "tags": [
+    "năm mới",
+    "tổng kết",
+    "2026",
+    "kỷ niệm",
+    "ảnh"
+   ]
+  },
+  "template:mi-glow-up": {
+   "name": "Màn glow up của tôi",
+   "tags": [
+    "glow up",
+    "trước sau",
+    "trang điểm",
+    "thay đổi",
+    "làm đẹp"
+   ]
+  },
+  "template:mi-mascota": {
+   "name": "Thú cưng của tôi",
+   "tags": [
+    "thú cưng",
+    "chó",
+    "cún",
+    "mèo",
+    "bạn thân"
+   ]
+  },
+  "template:mis-mejores-fotos": {
+   "name": "Những bức ảnh đẹp nhất",
+   "tags": [
+    "slideshow",
+    "ảnh đẹp",
+    "băng chuyền",
+    "kỷ niệm",
+    "pastel"
+   ]
+  },
+  "template:mis-xv": {
+   "name": "Sinh nhật tuổi 15",
+   "tags": [
+    "tuổi 15",
+    "sinh nhật",
+    "tiệc",
+    "trưởng thành"
+   ]
+  },
+  "template:mochilero-por-peru": {
+   "name": "Hành trình phượt",
+   "tags": [
+    "du lịch",
+    "phượt",
+    "lộ trình",
+    "phiêu lưu",
+    "núi"
+   ]
+  },
+  "template:moodboard-aesthetic": {
+   "name": "Moodboard aesthetic",
+   "tags": [
+    "moodboard",
+    "aesthetic",
+    "mùa thu",
+    "cảm hứng",
+    "ghép ảnh"
+   ]
+  },
+  "template:muertos-ofrenda": {
+   "name": "Bàn thờ: mãi nhớ thương",
+   "tags": [
+    "tưởng nhớ",
+    "bàn thờ",
+    "người thân",
+    "kỷ niệm",
+    "gia đình"
+   ]
+  },
+  "template:navidad-en-familia": {
+   "name": "Giáng sinh bên gia đình",
+   "tags": [
+    "giáng sinh",
+    "gia đình",
+    "tháng 12",
+    "đêm noel",
+    "lễ hội"
+   ]
+  },
+  "template:navidad-regalo-sorpresa": {
+   "name": "Quà bất ngờ",
+   "tags": [
+    "quà tặng",
+    "bất ngờ",
+    "giáng sinh",
+    "unboxing",
+    "sinh nhật"
+   ]
+  },
+  "template:nosotros-vs-otros": {
+   "name": "Chúng tôi và nơi khác",
+   "tags": [
+    "so sánh",
+    "chất lượng",
+    "vì sao chọn",
+    "vs"
+   ]
+  },
+  "template:nuestra-historia": {
+   "name": "Chuyện của chúng mình",
+   "tags": [
+    "cặp đôi",
+    "kỷ niệm",
+    "tình yêu",
+    "valentine"
+   ]
+  },
+  "template:nueva-coleccion-ropa": {
+   "name": "Bộ sưu tập mới",
+   "tags": [
+    "bộ sưu tập",
+    "quần áo",
+    "thời trang",
+    "boutique",
+    "mùa mới"
+   ]
+  },
+  "template:octubre-en-fotos": {
+   "name": "Tháng 10 qua ảnh",
+   "tags": [
+    "tháng 10",
+    "tổng kết",
+    "tháng",
+    "mùa thu",
+    "recap"
+   ]
+  },
+  "template:oferta-flash": {
+   "name": "Flash sale",
+   "tags": [
+    "flash sale",
+    "giảm giá",
+    "khuyến mãi",
+    "bán hàng"
+   ]
+  },
+  "template:ootd-outfit": {
+   "name": "OOTD: outfit hôm nay",
+   "tags": [
+    "outfit",
+    "ootd",
+    "thời trang",
+    "phối đồ",
+    "phong cách"
+   ]
+  },
+  "template:opinion-impopular": {
+   "name": "Quan điểm trái chiều",
+   "tags": [
+    "quan điểm",
+    "tranh luận",
+    "gây tranh cãi",
+    "bình luận",
+    "hot take"
+   ]
+  },
+  "template:pantalla-final-2-videos": {
+   "name": "Màn hình kết: 2 video",
+   "tags": [
+    "màn hình kết",
+    "video đề xuất",
+    "kết thúc",
+    "đăng ký",
+    "shorts"
+   ]
+  },
+  "template:pantalla-triple": {
+   "name": "Chia ba màn hình",
+   "tags": [
+    "chia màn hình",
+    "ba khung",
+    "thành phố",
+    "ghép ảnh",
+    "đường phố"
+   ]
+  },
+  "template:para-mama": {
+   "name": "Gửi mẹ",
+   "tags": [
+    "mẹ",
+    "ngày của mẹ",
+    "gia đình",
+    "yêu thương"
+   ]
+  },
+  "template:photo-dump-cinematico": {
+   "name": "Photo dump điện ảnh",
+   "tags": [
+    "photo dump",
+    "điện ảnh",
+    "ảnh",
+    "aesthetic",
+    "kỷ niệm"
+   ]
+  },
+  "template:photo-dump-ritmo": {
+   "name": "Photo dump theo nhịp",
+   "tags": [
+    "photo dump",
+    "ảnh",
+    "theo nhịp",
+    "bạn bè"
+   ]
+  },
+  "template:polaroids": {
+   "name": "Ảnh lấy liền trên bàn",
+   "tags": [
+    "ảnh lấy liền",
+    "ảnh",
+    "kỷ niệm",
+    "mùa hè"
+   ]
+  },
+  "template:portada-de-tutorial": {
+   "name": "Ảnh bìa hướng dẫn",
+   "tags": [
+    "hướng dẫn",
+    "từng bước",
+    "cách làm",
+    "ảnh bìa",
+    "học"
+   ]
+  },
+  "template:portada-revista": {
+   "name": "Bìa tạp chí",
+   "tags": [
+    "tạp chí",
+    "bìa",
+    "thời trang",
+    "sang chảnh"
+   ]
+  },
+  "template:pov-chat-mensajes": {
+   "name": "POV tin nhắn",
+   "tags": [
+    "pov",
+    "chat",
+    "tin nhắn",
+    "hài hước",
+    "người yêu cũ"
+   ]
+  },
+  "template:pov-cinematografico": {
+   "name": "POV điện ảnh",
+   "tags": [
+    "pov",
+    "điện ảnh",
+    "nhân vật chính",
+    "aesthetic",
+    "phụ đề"
+   ]
+  },
+  "template:pov-texto": {
+   "name": "POV kèm chữ",
+   "tags": [
+    "pov",
+    "meme",
+    "tiktok",
+    "chữ"
+   ]
+  },
+  "template:preguntas-frecuentes": {
+   "name": "Câu hỏi thường gặp",
+   "tags": [
+    "câu hỏi",
+    "faq",
+    "thắc mắc",
+    "chăm sóc khách hàng",
+    "giao hàng"
+   ]
+  },
+  "template:primer-anio-bebe": {
+   "name": "Năm đầu đời của bé qua từng tháng",
+   "tags": [
+    "em bé",
+    "năm đầu đời",
+    "từng tháng",
+    "thôi nôi",
+    "gia đình"
+   ]
+  },
+  "template:producto-estrella": {
+   "name": "Sản phẩm nổi bật",
+   "tags": [
+    "sản phẩm",
+    "cửa hàng",
+    "kinh doanh",
+    "bán hàng"
+   ]
+  },
+  "template:progreso-gym": {
+   "name": "Tuần tập luyện",
+   "tags": [
+    "gym",
+    "tập luyện",
+    "fitness",
+    "tiến bộ",
+    "lịch tập"
+   ]
+  },
+  "template:propositos-2027": {
+   "name": "Mục tiêu năm 2027",
+   "tags": [
+    "năm mới",
+    "mục tiêu",
+    "dự định",
+    "2027",
+    "sổ tay"
+   ]
+  },
+  "template:r-abuelos": {
+   "name": "Cảm ơn ông bà",
+   "tags": [
+    "ông bà",
+    "bà",
+    "ông",
+    "gia đình",
+    "cảm ơn"
+   ]
+  },
+  "template:r-academia-idiomas": {
+   "name": "Trung tâm ngoại ngữ",
+   "tags": [
+    "ngoại ngữ",
+    "tiếng anh",
+    "lớp học",
+    "trung tâm",
+    "khóa học"
+   ]
+  },
+  "template:r-accion-gracias": {
+   "name": "Lễ Tạ ơn",
+   "tags": [
+    "lễ tạ ơn",
+    "thanksgiving",
+    "gia đình",
+    "bàn ăn",
+    "biết ơn"
+   ]
+  },
+  "template:r-agenda-citas": {
+   "name": "Đặt lịch hẹn",
+   "tags": [
+    "lịch hẹn",
+    "đặt chỗ",
+    "lịch",
+    "đặt lịch",
+    "salon"
+   ]
+  },
+  "template:r-agotado-vuelta": {
+   "name": "Đã có hàng trở lại",
+   "tags": [
+    "hết hàng",
+    "có hàng lại",
+    "nhập hàng",
+    "tồn kho",
+    "sản phẩm"
+   ]
+  },
+  "template:r-album-stickers": {
+   "name": "Album sticker",
+   "tags": [
+    "album",
+    "sticker",
+    "scrapbook",
+    "dễ thương",
+    "nhật ký"
+   ]
+  },
+  "template:r-anio-nuevo-elegante": {
+   "name": "Năm mới sang trọng",
+   "tags": [
+    "năm mới",
+    "sang trọng",
+    "vàng",
+    "nâng ly",
+    "tiệc"
+   ]
+  },
+  "template:r-anio-nuevo-lunar": {
+   "name": "Tết Nguyên đán",
+   "tags": [
+    "tết",
+    "năm mới âm lịch",
+    "đèn lồng",
+    "đỏ",
+    "thịnh vượng"
+   ]
+  },
+  "template:r-aniversario-bodas": {
+   "name": "Kỷ niệm ngày cưới",
+   "tags": [
+    "kỷ niệm ngày cưới",
+    "cặp đôi",
+    "năm tháng",
+    "hôn nhân",
+    "vợ chồng"
+   ]
+  },
+  "template:r-antes-ahora": {
+   "name": "Ngày ấy và bây giờ",
+   "tags": [
+    "ngày ấy bây giờ",
+    "thay đổi",
+    "so sánh",
+    "địa điểm",
+    "thời gian"
+   ]
+  },
+  "template:r-atardecer-cine": {
+   "name": "Hoàng hôn điện ảnh",
+   "tags": [
+    "hoàng hôn",
+    "sunset",
+    "điện ảnh",
+    "câu nói",
+    "vàng"
+   ]
+  },
+  "template:r-ba-auto": {
+   "name": "Xe hơi trước/sau",
+   "tags": [
+    "xe hơi",
+    "ô tô",
+    "rửa xe",
+    "garage",
+    "trước sau"
+   ]
+  },
+  "template:r-ba-casa": {
+   "name": "Nhà cửa lột xác",
+   "tags": [
+    "nhà cửa",
+    "cải tạo",
+    "trước sau",
+    "trang trí",
+    "tổ ấm"
+   ]
+  },
+  "template:r-ba-cocina": {
+   "name": "Công thức trước/sau",
+   "tags": [
+    "công thức",
+    "nấu ăn",
+    "nguyên liệu",
+    "món ăn",
+    "trước sau"
+   ]
+  },
+  "template:r-ba-cortina": {
+   "name": "Rèm trước/sau",
+   "tags": [
+    "trước sau",
+    "rèm",
+    "lột xác",
+    "thay đổi"
+   ]
+  },
+  "template:r-ba-dia-1-100": {
+   "name": "Ngày 1 / Ngày 100",
+   "tags": [
+    "ngày 1",
+    "ngày 100",
+    "tiến bộ",
+    "thử thách",
+    "lột xác"
+   ]
+  },
+  "template:r-ba-dibujo": {
+   "name": "Từ phác thảo đến tô màu",
+   "tags": [
+    "vẽ",
+    "nghệ thuật",
+    "phác thảo",
+    "tô màu",
+    "quá trình"
+   ]
+  },
+  "template:r-ba-jardin": {
+   "name": "Khu vườn trước/sau",
+   "tags": [
+    "khu vườn",
+    "cây cối",
+    "trước sau",
+    "vườn rau",
+    "xanh"
+   ]
+  },
+  "template:r-ba-maquillaje": {
+   "name": "Trang điểm trước/sau",
+   "tags": [
+    "trang điểm",
+    "trước sau",
+    "làm đẹp",
+    "layout",
+    "makeup"
+   ]
+  },
+  "template:r-ba-mascota": {
+   "name": "Từ cún con đến trưởng thành",
+   "tags": [
+    "thú cưng",
+    "cún con",
+    "chó",
+    "lớn lên",
+    "trước sau"
+   ]
+  },
+  "template:r-ba-peinado": {
+   "name": "Kiểu tóc trước/sau",
+   "tags": [
+    "kiểu tóc",
+    "tóc",
+    "salon",
+    "trước sau",
+    "cắt tóc"
+   ]
+  },
+  "template:r-bautizo": {
+   "name": "Lễ rửa tội",
+   "tags": [
+    "rửa tội",
+    "em bé",
+    "nhà thờ",
+    "gia đình",
+    "đức tin"
+   ]
+  },
+  "template:r-beneficios": {
+   "name": "Danh sách lợi ích",
+   "tags": [
+    "lợi ích",
+    "ưu điểm",
+    "sản phẩm",
+    "danh sách",
+    "vì sao"
+   ]
+  },
+  "template:r-bienvenida-casa": {
+   "name": "Chào mừng về nhà",
+   "tags": [
+    "chào mừng",
+    "trở về",
+    "nhà",
+    "gia đình",
+    "bất ngờ"
+   ]
+  },
+  "template:r-bienvenidos-canal": {
+   "name": "Chào mừng đến kênh của tôi",
+   "tags": [
+    "chào mừng",
+    "kênh",
+    "intro",
+    "nhà sáng tạo",
+    "đăng ký"
+   ]
+  },
+  "template:r-boda-primer-baile": {
+   "name": "Điệu nhảy đầu tiên",
+   "tags": [
+    "đám cưới",
+    "điệu nhảy đầu tiên",
+    "valse",
+    "cô dâu chú rể",
+    "tiệc cưới"
+   ]
+  },
+  "template:r-boda-votos": {
+   "name": "Lời thề nguyện",
+   "tags": [
+    "đám cưới",
+    "lời thề",
+    "hứa hẹn",
+    "cô dâu chú rể",
+    "hôn lễ"
+   ]
+  },
+  "template:r-cafeteria-latte": {
+   "name": "Quán cà phê latte art",
+   "tags": [
+    "quán cà phê",
+    "cà phê",
+    "latte",
+    "barista",
+    "bữa sáng"
+   ]
+  },
+  "template:r-camara-desechable": {
+   "name": "Máy ảnh dùng một lần",
+   "tags": [
+    "máy ảnh dùng một lần",
+    "flash",
+    "tiệc",
+    "đám cưới",
+    "cuộn phim"
+   ]
+  },
+  "template:r-cambio-ropa": {
+   "name": "Đổi outfit theo nhịp",
+   "tags": [
+    "outfit",
+    "thay đồ",
+    "thời trang",
+    "chuyển cảnh",
+    "ootd"
+   ]
+  },
+  "template:r-carrusel": {
+   "name": "Băng chuyền trượt",
+   "tags": [
+    "băng chuyền",
+    "trượt",
+    "ảnh",
+    "thư viện",
+    "carousel"
+   ]
+  },
+  "template:r-casa-nueva": {
+   "name": "Nhà mới",
+   "tags": [
+    "nhà mới",
+    "chuyển nhà",
+    "tổ ấm",
+    "chìa khóa",
+    "tân gia"
+   ]
+  },
+  "template:r-casa-venta": {
+   "name": "Bán nhà",
+   "tags": [
+    "bất động sản",
+    "cần bán",
+    "nhà",
+    "nhà đất",
+    "tham quan"
+   ]
+  },
+  "template:r-ciudad-neon": {
+   "name": "Thành phố neon",
+   "tags": [
+    "thành phố",
+    "ban đêm",
+    "neon",
+    "cyberpunk",
+    "đô thị"
+   ]
+  },
+  "template:r-collage-2-mas-1": {
+   "name": "Ghép ảnh hai cộng một",
+   "tags": [
+    "ghép ảnh",
+    "ảnh",
+    "lưới",
+    "hiện đại",
+    "aesthetic"
+   ]
+  },
+  "template:r-collage-3-vertical": {
+   "name": "Ghép ảnh ba dải",
+   "tags": [
+    "ghép ảnh",
+    "ba ảnh",
+    "dải",
+    "dọc",
+    "tối giản"
+   ]
+  },
+  "template:r-collage-circulos": {
+   "name": "Ghép ảnh hình tròn",
+   "tags": [
+    "hình tròn",
+    "ghép ảnh",
+    "tròn",
+    "màu sắc",
+    "ảnh"
+   ]
+  },
+  "template:r-collage-respira": {
+   "name": "Ghép ảnh nhịp thở",
+   "tags": [
+    "ghép ảnh",
+    "ảnh",
+    "nhịp thở",
+    "nhẹ nhàng",
+    "aesthetic"
+   ]
+  },
+  "template:r-colores-disponibles": {
+   "name": "Các màu hiện có",
+   "tags": [
+    "màu sắc",
+    "phân loại",
+    "sản phẩm",
+    "thời trang",
+    "cửa hàng"
+   ]
+  },
+  "template:r-combo": {
+   "name": "Combo sản phẩm",
+   "tags": [
+    "combo",
+    "trọn gói",
+    "ưu đãi",
+    "quà tặng",
+    "giá đặc biệt"
+   ]
+  },
+  "template:r-comenta": {
+   "name": "Bình luận bên dưới",
+   "tags": [
+    "kết thúc",
+    "bình luận",
+    "ý kiến",
+    "tương tác"
+   ]
+  },
+  "template:r-comparar-tamanos": {
+   "name": "So sánh kích thước",
+   "tags": [
+    "kích thước",
+    "số đo",
+    "so sánh",
+    "sản phẩm",
+    "lựa chọn"
+   ]
+  },
+  "template:r-compartelo": {
+   "name": "Chia sẻ với ai đó",
+   "tags": [
+    "kết thúc",
+    "chia sẻ",
+    "gắn thẻ",
+    "bạn bè"
+   ]
+  },
+  "template:r-comunidad-reunion": {
+   "name": "Họp cộng đồng",
+   "tags": [
+    "cộng đồng",
+    "cuộc họp",
+    "nhà thờ",
+    "nhóm",
+    "lời mời"
+   ]
+  },
+  "template:r-consejo-finanzas": {
+   "name": "Mẹo tài chính",
+   "tags": [
+    "tài chính",
+    "tiền",
+    "tiết kiệm",
+    "lời khuyên",
+    "ngân sách"
+   ]
+  },
+  "template:r-contador-fotos": {
+   "name": "Bộ đếm ảnh",
+   "tags": [
+    "bộ đếm",
+    "ảnh",
+    "theo nhịp",
+    "nhanh",
+    "photo dump"
+   ]
+  },
+  "template:r-core-memory": {
+   "name": "Ký ức cốt lõi",
+   "tags": [
+    "kỷ niệm",
+    "core memory",
+    "phát sáng",
+    "hoài niệm",
+    "quả cầu"
+   ]
+  },
+  "template:r-cosas-felices": {
+   "name": "Những điều làm tôi vui",
+   "tags": [
+    "điều hạnh phúc",
+    "biết ơn",
+    "điều nhỏ bé",
+    "aesthetic",
+    "danh sách"
+   ]
+  },
+  "template:r-cuadros-4-3": {
+   "name": "Khung hình 4:3",
+   "tags": [
+    "4:3",
+    "điện ảnh",
+    "khung hình",
+    "tối giản",
+    "nhiếp ảnh"
+   ]
+  },
+  "template:r-cuenta-5-seg": {
+   "name": "Đếm ngược 5 giây",
+   "tags": [
+    "đếm ngược",
+    "5 giây",
+    "bắt đầu",
+    "thử thách",
+    "hẹn giờ"
+   ]
+  },
+  "template:r-cuenta-boda": {
+   "name": "Đếm ngược đám cưới",
+   "tags": [
+    "đám cưới",
+    "còn mấy ngày",
+    "đếm ngược",
+    "cô dâu chú rể",
+    "save the date"
+   ]
+  },
+  "template:r-cuenta-cumple": {
+   "name": "Đếm ngược sinh nhật",
+   "tags": [
+    "sinh nhật",
+    "còn mấy ngày",
+    "đếm ngược",
+    "tiệc",
+    "háo hức"
+   ]
+  },
+  "template:r-cuenta-revelar": {
+   "name": "Đếm ngược hé lộ",
+   "tags": [
+    "hé lộ",
+    "bất ngờ",
+    "đếm ngược",
+    "thông báo",
+    "reveal"
+   ]
+  },
+  "template:r-cuenta-vacaciones": {
+   "name": "Đếm ngược kỳ nghỉ",
+   "tags": [
+    "kỳ nghỉ",
+    "du lịch",
+    "còn mấy ngày",
+    "đếm ngược",
+    "vali"
+   ]
+  },
+  "template:r-cumple-adulto": {
+   "name": "Sinh nhật sang trọng",
+   "tags": [
+    "sinh nhật",
+    "sang trọng",
+    "vàng",
+    "tuổi 40",
+    "tuổi 50"
+   ]
+  },
+  "template:r-cumple-infantil": {
+   "name": "Sinh nhật bé",
+   "tags": [
+    "sinh nhật",
+    "trẻ em",
+    "thiếu nhi",
+    "tiệc",
+    "bóng bay"
+   ]
+  },
+  "template:r-cumple-mama": {
+   "name": "Sinh nhật mẹ",
+   "tags": [
+    "sinh nhật",
+    "mẹ",
+    "hoa",
+    "gia đình",
+    "yêu thương"
+   ]
+  },
+  "template:r-cumple-ritmo": {
+   "name": "Sinh nhật theo nhịp",
+   "tags": [
+    "sinh nhật",
+    "theo nhịp",
+    "tiệc",
+    "chữ",
+    "happy birthday"
+   ]
+  },
+  "template:r-despedida-soltera": {
+   "name": "Tiệc chia tay độc thân",
+   "tags": [
+    "tiệc độc thân",
+    "bạn thân",
+    "tiệc",
+    "cô dâu",
+    "bride"
+   ]
+  },
+  "template:r-detalle-lupa": {
+   "name": "Chi tiết qua kính lúp",
+   "tags": [
+    "chi tiết",
+    "kính lúp",
+    "chất lượng",
+    "sản phẩm",
+    "hoàn thiện"
+   ]
+  },
+  "template:r-detras-camaras": {
+   "name": "Hậu trường",
+   "tags": [
+    "hậu trường",
+    "bts",
+    "quay phim",
+    "quá trình",
+    "nhà sáng tạo"
+   ]
+  },
+  "template:r-dia-abuelos": {
+   "name": "Ngày Ông bà",
+   "tags": [
+    "ngày ông bà",
+    "bà",
+    "ông",
+    "gia đình",
+    "yêu thương"
+   ]
+  },
+  "template:r-dia-madre-floral": {
+   "name": "Ngày của Mẹ hoa lá",
+   "tags": [
+    "ngày của mẹ",
+    "mẹ",
+    "hoa",
+    "yêu thương",
+    "cảm ơn"
+   ]
+  },
+  "template:r-dia-maestro": {
+   "name": "Ngày Nhà giáo",
+   "tags": [
+    "ngày nhà giáo",
+    "cô giáo",
+    "trường học",
+    "tri ân",
+    "thầy cô"
+   ]
+  },
+  "template:r-dia-mujer": {
+   "name": "Ngày Quốc tế Phụ nữ",
+   "tags": [
+    "ngày phụ nữ",
+    "8 tháng 3",
+    "phụ nữ",
+    "mạnh mẽ",
+    "cảm hứng"
+   ]
+  },
+  "template:r-dia-nino": {
+   "name": "Ngày Thiếu nhi",
+   "tags": [
+    "ngày thiếu nhi",
+    "trẻ em",
+    "tuổi thơ",
+    "trò chơi",
+    "niềm vui"
+   ]
+  },
+  "template:r-dia-padre-deportivo": {
+   "name": "Ngày của Cha thể thao",
+   "tags": [
+    "ngày của cha",
+    "bố",
+    "thể thao",
+    "bóng đá",
+    "nhà vô địch"
+   ]
+  },
+  "template:r-dia-perfecto": {
+   "name": "Một ngày hoàn hảo",
+   "tags": [
+    "ngày hoàn hảo",
+    "thói quen",
+    "giờ",
+    "vlog",
+    "một ngày của tôi"
+   ]
+  },
+  "template:r-dia-tierra": {
+   "name": "Ngày Trái Đất",
+   "tags": [
+    "ngày trái đất",
+    "hành tinh",
+    "sinh thái",
+    "xanh",
+    "thiên nhiên"
+   ]
+  },
+  "template:r-dia-x-de": {
+   "name": "Ngày thứ X của…",
+   "tags": [
+    "ngày thứ",
+    "thử thách",
+    "nhật ký",
+    "tiến bộ",
+    "series"
+   ]
+  },
+  "template:r-diario-cinta": {
+   "name": "Nhật ký dán băng keo",
+   "tags": [
+    "nhật ký",
+    "băng keo",
+    "journal",
+    "ghi chú",
+    "scrapbook"
+   ]
+  },
+  "template:r-diwali": {
+   "name": "Chúc mừng Diwali",
+   "tags": [
+    "diwali",
+    "ánh sáng",
+    "diya",
+    "lễ hội",
+    "ăn mừng"
+   ]
+  },
+  "template:r-dump-fecha": {
+   "name": "Photo dump có ngày tháng",
+   "tags": [
+    "photo dump",
+    "ngày tháng",
+    "máy ảnh số",
+    "thập niên 2000",
+    "kỷ niệm"
+   ]
+  },
+  "template:r-dump-finde": {
+   "name": "Photo dump cuối tuần",
+   "tags": [
+    "cuối tuần",
+    "photo dump",
+    "lưới",
+    "bạn bè",
+    "chủ nhật"
+   ]
+  },
+  "template:r-dump-viaje-mapa": {
+   "name": "Photo dump du lịch kèm bản đồ",
+   "tags": [
+    "du lịch",
+    "bản đồ",
+    "lộ trình",
+    "photo dump",
+    "kỳ nghỉ"
+   ]
+  },
+  "template:r-eid": {
+   "name": "Eid Mubarak",
+   "tags": [
+    "eid",
+    "eid mubarak",
+    "lễ hội",
+    "gia đình",
+    "phước lành"
+   ]
+  },
+  "template:r-en-otra-vida": {
+   "name": "Ở một kiếp khác",
+   "tags": [
+    "kiếp khác",
+    "mơ mộng",
+    "xu hướng",
+    "câu nói",
+    "aesthetic"
+   ]
+  },
+  "template:r-en-vivo-ahora": {
+   "name": "Đang phát trực tiếp",
+   "tags": [
+    "trực tiếp",
+    "live",
+    "livestream",
+    "phát sóng",
+    "thông báo"
+   ]
+  },
+  "template:r-envio-gratis": {
+   "name": "Miễn phí vận chuyển",
+   "tags": [
+    "miễn phí ship",
+    "cửa hàng online",
+    "mua sắm",
+    "ưu đãi",
+    "giao hàng"
+   ]
+  },
+  "template:r-escuela-musica": {
+   "name": "Trường âm nhạc",
+   "tags": [
+    "âm nhạc",
+    "lớp học",
+    "guitar",
+    "piano",
+    "trường"
+   ]
+  },
+  "template:r-esta-soy-yo": {
+   "name": "Đây là tôi",
+   "tags": [
+    "giới thiệu",
+    "về tôi",
+    "làm quen",
+    "thông tin",
+    "bản thân"
+   ]
+  },
+  "template:r-expectativa-realidad": {
+   "name": "Kỳ vọng và thực tế",
+   "tags": [
+    "kỳ vọng",
+    "thực tế",
+    "meme",
+    "hài hước",
+    "so sánh"
+   ]
+  },
+  "template:r-farmacia-consejo": {
+   "name": "Lời khuyên nhà thuốc",
+   "tags": [
+    "nhà thuốc",
+    "sức khỏe",
+    "lời khuyên",
+    "chăm sóc",
+    "phòng bệnh"
+   ]
+  },
+  "template:r-ferreteria": {
+   "name": "Cửa hàng vật liệu",
+   "tags": [
+    "vật liệu",
+    "dụng cụ",
+    "xây dựng",
+    "nhà cửa",
+    "ưu đãi"
+   ]
+  },
+  "template:r-fiesta-fin-anio": {
+   "name": "Tiệc cuối năm",
+   "tags": [
+    "cuối năm",
+    "tiệc",
+    "công ty",
+    "bạn bè",
+    "nâng ly"
+   ]
+  },
+  "template:r-fin-curso": {
+   "name": "Kết thúc năm học",
+   "tags": [
+    "cuối năm học",
+    "nghỉ hè",
+    "trường học",
+    "ngày cuối",
+    "mùa hè"
+   ]
+  },
+  "template:r-flash-camara": {
+   "name": "Đèn flash paparazzi",
+   "tags": [
+    "flash",
+    "paparazzi",
+    "người nổi tiếng",
+    "thảm đỏ",
+    "thời trang"
+   ]
+  },
+  "template:r-floristeria": {
+   "name": "Tiệm hoa",
+   "tags": [
+    "hoa",
+    "tiệm hoa",
+    "bó hoa",
+    "quà tặng",
+    "cắm hoa"
+   ]
+  },
+  "template:r-foto-en-foto": {
+   "name": "Ảnh trong ảnh",
+   "tags": [
+    "ảnh trong ảnh",
+    "pip",
+    "chi tiết",
+    "zoom",
+    "ghép ảnh"
+   ]
+  },
+  "template:r-foto-rompe": {
+   "name": "Ảnh vỡ vụn",
+   "tags": [
+    "vỡ",
+    "kính vỡ",
+    "chuyển cảnh",
+    "ấn tượng",
+    "edit"
+   ]
+  },
+  "template:r-fotografo": {
+   "name": "Nhiếp ảnh gia",
+   "tags": [
+    "nhiếp ảnh gia",
+    "chụp ảnh",
+    "chân dung",
+    "studio",
+    "đặt lịch"
+   ]
+  },
+  "template:r-fotomaton": {
+   "name": "Dải ảnh photobooth",
+   "tags": [
+    "photobooth",
+    "dải ảnh",
+    "chụp ảnh lấy liền",
+    "bạn bè",
+    "cặp đôi"
+   ]
+  },
+  "template:r-frase-comunidad": {
+   "name": "Suy ngẫm hôm nay",
+   "tags": [
+    "câu nói hôm nay",
+    "cộng đồng",
+    "suy ngẫm",
+    "đức tin",
+    "hy vọng"
+   ]
+  },
+  "template:r-frase-pelicula": {
+   "name": "Câu thoại phim",
+   "tags": [
+    "câu thoại",
+    "phim",
+    "điện ảnh",
+    "phụ đề",
+    "cảnh phim"
+   ]
+  },
+  "template:r-frase-subrayada": {
+   "name": "Câu nói gạch chân",
+   "tags": [
+    "câu nói",
+    "gạch chân",
+    "động lực",
+    "trích dẫn",
+    "suy ngẫm"
+   ]
+  },
+  "template:r-giro-camara": {
+   "name": "Xoay camera",
+   "tags": [
+    "xoay",
+    "chuyển cảnh",
+    "spin",
+    "du lịch",
+    "năng lượng"
+   ]
+  },
+  "template:r-gracias-1k": {
+   "name": "Cảm ơn 1K người theo dõi",
+   "tags": [
+    "kết thúc",
+    "cảm ơn",
+    "1000 người theo dõi",
+    "cột mốc",
+    "ăn mừng"
+   ]
+  },
+  "template:r-gracias-por-tanto": {
+   "name": "Cảm ơn vì tất cả",
+   "tags": [
+    "cảm ơn",
+    "biết ơn",
+    "mẹ",
+    "tình bạn",
+    "lời nhắn"
+   ]
+  },
+  "template:r-graduacion-kinder": {
+   "name": "Tốt nghiệp mẫu giáo",
+   "tags": [
+    "tốt nghiệp",
+    "mẫu giáo",
+    "mầm non",
+    "trẻ em",
+    "tự hào"
+   ]
+  },
+  "template:r-graduacion-universidad": {
+   "name": "Tốt nghiệp đại học",
+   "tags": [
+    "tốt nghiệp",
+    "đại học",
+    "bằng cấp",
+    "thành tích",
+    "ra trường"
+   ]
+  },
+  "template:r-grano-analogico": {
+   "name": "Phim analog",
+   "tags": [
+    "analog",
+    "phim",
+    "35 mm",
+    "hạt nhiễu",
+    "vintage"
+   ]
+  },
+  "template:r-guardalo": {
+   "name": "Lưu lại xem sau",
+   "tags": [
+    "kết thúc",
+    "lưu",
+    "lưu lại",
+    "yêu thích"
+   ]
+  },
+  "template:r-hanukkah": {
+   "name": "Chúc mừng Hanukkah",
+   "tags": [
+    "hanukkah",
+    "nến",
+    "ánh sáng",
+    "gia đình",
+    "lễ hội"
+   ]
+  },
+  "template:r-hecho-a-mano": {
+   "name": "Cửa hàng đồ handmade",
+   "tags": [
+    "handmade",
+    "thủ công",
+    "kinh doanh",
+    "cửa hàng",
+    "quà tặng"
+   ]
+  },
+  "template:r-heladeria": {
+   "name": "Tiệm kem",
+   "tags": [
+    "kem",
+    "tiệm kem",
+    "mùa hè",
+    "hương vị",
+    "tráng miệng"
+   ]
+  },
+  "template:r-hilo-post": {
+   "name": "Chuỗi bài đăng",
+   "tags": [
+    "chuỗi bài",
+    "bài đăng",
+    "post",
+    "ý kiến",
+    "chữ"
+   ]
+  },
+  "template:r-hola-soy": {
+   "name": "Xin chào, tôi là…",
+   "tags": [
+    "giới thiệu",
+    "xin chào",
+    "nhà sáng tạo",
+    "intro",
+    "người theo dõi mới"
+   ]
+  },
+  "template:r-holi": {
+   "name": "Chúc mừng Holi",
+   "tags": [
+    "holi",
+    "màu sắc",
+    "lễ hội",
+    "bột màu",
+    "mùa xuân"
+   ]
+  },
+  "template:r-intro-serie": {
+   "name": "Mở đầu series",
+   "tags": [
+    "series",
+    "mùa",
+    "tập",
+    "intro",
+    "phim bộ"
+   ]
+  },
+  "template:r-invierno": {
+   "name": "Mùa đông",
+   "tags": [
+    "mùa đông",
+    "tuyết",
+    "lạnh",
+    "bạn bè",
+    "mùa"
+   ]
+  },
+  "template:r-jubilacion": {
+   "name": "Tôi nghỉ hưu rồi!",
+   "tags": [
+    "nghỉ hưu",
+    "về hưu",
+    "công việc",
+    "chặng mới",
+    "ăn mừng"
+   ]
+  },
+  "template:r-lavanderia": {
+   "name": "Tiệm giặt ủi",
+   "tags": [
+    "giặt ủi",
+    "quần áo",
+    "vệ sinh",
+    "dịch vụ",
+    "giao nhận"
+   ]
+  },
+  "template:r-letra-sube": {
+   "name": "Lời bài hát chạy lên",
+   "tags": [
+    "lời bài hát",
+    "bài hát",
+    "karaoke",
+    "lyrics",
+    "âm nhạc"
+   ]
+  },
+  "template:r-link-perfil": {
+   "name": "Link ở bio",
+   "tags": [
+    "kết thúc",
+    "link",
+    "trang cá nhân",
+    "bio",
+    "mua sắm"
+   ]
+  },
+  "template:r-lista-pendientes": {
+   "name": "Danh sách việc cần làm",
+   "tags": [
+    "việc cần làm",
+    "to do",
+    "danh sách",
+    "sắp xếp",
+    "năng suất"
+   ]
+  },
+  "template:r-lo-que-no-se-vio": {
+   "name": "Cảnh hậu trường lỗi",
+   "tags": [
+    "blooper",
+    "cảnh lỗi",
+    "quay hỏng",
+    "hài hước",
+    "hậu trường"
+   ]
+  },
+  "template:r-logro-deportivo": {
+   "name": "Vô địch!",
+   "tags": [
+    "vô địch",
+    "thể thao",
+    "cúp",
+    "chiến thắng",
+    "đội"
+   ]
+  },
+  "template:r-luces-fiesta": {
+   "name": "Đèn tiệc",
+   "tags": [
+    "tiệc",
+    "đèn",
+    "ban đêm",
+    "disco",
+    "bạn bè"
+   ]
+  },
+  "template:r-lugar-feliz": {
+   "name": "Nơi bình yên của tôi",
+   "tags": [
+    "nơi bình yên",
+    "thiên nhiên",
+    "yên bình",
+    "du lịch",
+    "aesthetic"
+   ]
+  },
+  "template:r-main-characters": {
+   "name": "Nhân vật chính",
+   "tags": [
+    "bạn thân",
+    "nhân vật chính",
+    "phim",
+    "danh đề",
+    "main character"
+   ]
+  },
+  "template:r-marco-camara": {
+   "name": "Khung máy ảnh",
+   "tags": [
+    "máy ảnh",
+    "khung",
+    "ảnh",
+    "kính ngắm",
+    "nhiếp ảnh"
+   ]
+  },
+  "template:r-mas-vendido": {
+   "name": "Bán chạy nhất",
+   "tags": [
+    "bán chạy",
+    "best seller",
+    "yêu thích",
+    "sản phẩm",
+    "top"
+   ]
+  },
+  "template:r-mito-verdad": {
+   "name": "Lầm tưởng hay sự thật?",
+   "tags": [
+    "lầm tưởng",
+    "sự thật",
+    "kiến thức",
+    "thú vị",
+    "câu hỏi"
+   ]
+  },
+  "template:r-modo-bestia": {
+   "name": "Chế độ quái thú",
+   "tags": [
+    "gym",
+    "beast mode",
+    "tập luyện",
+    "động lực",
+    "fitness"
+   ]
+  },
+  "template:r-mosaico-3x3": {
+   "name": "Lưới ảnh 3x3",
+   "tags": [
+    "lưới 3x3",
+    "chín ảnh",
+    "lưới",
+    "grid",
+    "khảm"
+   ]
+  },
+  "template:r-mudanzas": {
+   "name": "Dịch vụ chuyển nhà",
+   "tags": [
+    "chuyển nhà",
+    "vận tải",
+    "thùng carton",
+    "chở hàng",
+    "dịch vụ"
+   ]
+  },
+  "template:r-nadie-yo": {
+   "name": "Không ai cả: / Tôi:",
+   "tags": [
+    "meme",
+    "không ai cả",
+    "hài hước",
+    "đồng cảm",
+    "xu hướng"
+   ]
+  },
+  "template:r-navidad-minimal": {
+   "name": "Giáng sinh tối giản",
+   "tags": [
+    "giáng sinh",
+    "tối giản",
+    "cây thông",
+    "thanh lịch",
+    "tháng 12"
+   ]
+  },
+  "template:r-nochebuena": {
+   "name": "Đêm Giáng sinh ở nhà",
+   "tags": [
+    "đêm giáng sinh",
+    "giáng sinh",
+    "bữa tối",
+    "gia đình",
+    "tổ ấm"
+   ]
+  },
+  "template:r-nos-vemos-manana": {
+   "name": "Hẹn gặp ngày mai",
+   "tags": [
+    "kết thúc",
+    "tạm biệt",
+    "ngày mai",
+    "chúc ngủ ngon"
+   ]
+  },
+  "template:r-nota-celular": {
+   "name": "Ghi chú điện thoại",
+   "tags": [
+    "ghi chú",
+    "note",
+    "điện thoại",
+    "lá thư",
+    "lời nhắn"
+   ]
+  },
+  "template:r-nuevo-capitulo": {
+   "name": "Chương mới",
+   "tags": [
+    "chương mới",
+    "khởi đầu",
+    "thay đổi",
+    "intro",
+    "câu chuyện"
+   ]
+  },
+  "template:r-nuevo-empleo": {
+   "name": "Công việc mới",
+   "tags": [
+    "việc mới",
+    "công việc",
+    "thành tích",
+    "ngày đầu tiên",
+    "sự nghiệp"
+   ]
+  },
+  "template:r-nuevo-video": {
+   "name": "Video mới!",
+   "tags": [
+    "video mới",
+    "công chiếu",
+    "thông báo",
+    "youtube",
+    "link"
+   ]
+  },
+  "template:r-ojo-pez": {
+   "name": "Mắt cá thập niên 90",
+   "tags": [
+    "mắt cá",
+    "fisheye",
+    "thập niên 90",
+    "skate",
+    "retro"
+   ]
+  },
+  "template:r-ong-donaciones": {
+   "name": "Kêu gọi quyên góp",
+   "tags": [
+    "quyên góp",
+    "từ thiện",
+    "giúp đỡ",
+    "tương trợ",
+    "tình nguyện"
+   ]
+  },
+  "template:r-otono-acogedor": {
+   "name": "Mùa thu ấm cúng",
+   "tags": [
+    "mùa thu",
+    "ấm cúng",
+    "cà phê",
+    "lá rụng",
+    "cozy"
+   ]
+  },
+  "template:r-outfit-check": {
+   "name": "Outfit check kèm mũi tên",
+   "tags": [
+    "outfit",
+    "thời trang",
+    "mũi tên",
+    "chi tiết",
+    "phong cách"
+   ]
+  },
+  "template:r-palabra-del-dia": {
+   "name": "Từ vựng hôm nay",
+   "tags": [
+    "từ vựng",
+    "từ của ngày",
+    "ngôn ngữ",
+    "ý nghĩa",
+    "học"
+   ]
+  },
+  "template:r-panaderia": {
+   "name": "Tiệm bánh",
+   "tags": [
+    "tiệm bánh",
+    "bánh mì",
+    "mới ra lò",
+    "bánh ngọt",
+    "bữa sáng"
+   ]
+  },
+  "template:r-pantalla-celular": {
+   "name": "Màn hình điện thoại",
+   "tags": [
+    "điện thoại",
+    "di động",
+    "thư viện ảnh",
+    "màn hình",
+    "ảnh"
+   ]
+  },
+  "template:r-papa-hijo": {
+   "name": "Bố và con",
+   "tags": [
+    "bố",
+    "cha",
+    "con trai",
+    "con gái",
+    "gia đình"
+   ]
+  },
+  "template:r-pareja-lento": {
+   "name": "Cặp đôi chậm rãi",
+   "tags": [
+    "cặp đôi",
+    "lãng mạn",
+    "chậm",
+    "phim",
+    "tình yêu"
+   ]
+  },
+  "template:r-pareja-ritmo": {
+   "name": "Cặp đôi theo nhịp",
+   "tags": [
+    "cặp đôi",
+    "người yêu",
+    "dựng clip",
+    "theo nhịp",
+    "tình yêu"
+   ]
+  },
+  "template:r-parte-1": {
+   "name": "Phần 1",
+   "tags": [
+    "phần 1",
+    "series",
+    "câu chuyện",
+    "storytime",
+    "còn tiếp"
+   ]
+  },
+  "template:r-pascua": {
+   "name": "Chúc mừng Phục sinh",
+   "tags": [
+    "phục sinh",
+    "easter",
+    "trứng",
+    "thỏ",
+    "mùa xuân"
+   ]
+  },
+  "template:r-pastel-velas": {
+   "name": "Bánh kem và nến",
+   "tags": [
+    "bánh kem",
+    "nến",
+    "sinh nhật",
+    "điều ước",
+    "thổi nến"
+   ]
+  },
+  "template:r-peluqueria-mascotas": {
+   "name": "Spa thú cưng",
+   "tags": [
+    "spa thú cưng",
+    "tắm",
+    "thú cưng",
+    "grooming",
+    "chó"
+   ]
+  },
+  "template:r-pensamiento-dia": {
+   "name": "Suy nghĩ hôm nay",
+   "tags": [
+    "suy nghĩ",
+    "suy ngẫm",
+    "đức tin",
+    "hy vọng",
+    "câu nói hôm nay"
+   ]
+  },
+  "template:r-plato-del-dia": {
+   "name": "Món ăn hôm nay",
+   "tags": [
+    "nhà hàng",
+    "món hôm nay",
+    "thực đơn",
+    "bữa trưa",
+    "món ăn"
+   ]
+  },
+  "template:r-poema-corto": {
+   "name": "Bài thơ ngắn",
+   "tags": [
+    "thơ",
+    "thi ca",
+    "câu thơ",
+    "tình yêu",
+    "chữ"
+   ]
+  },
+  "template:r-portada-blog": {
+   "name": "Ảnh bìa blog",
+   "tags": [
+    "blog",
+    "ảnh bìa",
+    "bài viết",
+    "đọc",
+    "bài mới"
+   ]
+  },
+  "template:r-pregunta-respuesta": {
+   "name": "Hỏi & đáp",
+   "tags": [
+    "câu hỏi",
+    "trả lời",
+    "q&a",
+    "người theo dõi",
+    "thắc mắc"
+   ]
+  },
+  "template:r-primavera": {
+   "name": "Mùa xuân",
+   "tags": [
+    "mùa xuân",
+    "hoa",
+    "màu sắc",
+    "mùa",
+    "thiên nhiên"
+   ]
+  },
+  "template:r-primera-cita": {
+   "name": "Buổi hẹn đầu tiên",
+   "tags": [
+    "hẹn hò đầu tiên",
+    "cặp đôi",
+    "tình yêu",
+    "kỷ niệm",
+    "ngày yêu"
+   ]
+  },
+  "template:r-primera-comunion": {
+   "name": "Lễ rước lễ lần đầu",
+   "tags": [
+    "rước lễ lần đầu",
+    "đức tin",
+    "gia đình",
+    "trẻ em",
+    "lễ"
+   ]
+  },
+  "template:r-producto-360": {
+   "name": "Sản phẩm 360 độ",
+   "tags": [
+    "sản phẩm",
+    "360",
+    "xoay",
+    "chi tiết",
+    "cửa hàng"
+   ]
+  },
+  "template:r-propuesta": {
+   "name": "Cô ấy đã đồng ý!",
+   "tags": [
+    "cầu hôn",
+    "đính hôn",
+    "nhẫn",
+    "đồng ý",
+    "cặp đôi"
+   ]
+  },
+  "template:r-ramadan": {
+   "name": "Ramadan Kareem",
+   "tags": [
+    "ramadan",
+    "iftar",
+    "gia đình",
+    "trăng lưỡi liềm",
+    "đèn lồng"
+   ]
+  },
+  "template:r-ranking-5-1": {
+   "name": "Xếp hạng từ 5 đến 1",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "yêu thích",
+    "danh sách",
+    "số 1"
+   ]
+  },
+  "template:r-reaccion-esquina": {
+   "name": "Reaction ở góc màn hình",
+   "tags": [
+    "reaction",
+    "phản ứng",
+    "pip",
+    "góc màn hình",
+    "bình luận"
+   ]
+  },
+  "template:r-receta-texto": {
+   "name": "Công thức dạng chữ",
+   "tags": [
+    "công thức",
+    "các bước",
+    "nấu ăn",
+    "dễ làm",
+    "chữ"
+   ]
+  },
+  "template:r-recorrido-ubicacion": {
+   "name": "Hành trình qua các địa điểm",
+   "tags": [
+    "hành trình",
+    "địa điểm",
+    "thành phố",
+    "hướng dẫn",
+    "check-in"
+   ]
+  },
+  "template:r-recortes-revista": {
+   "name": "Cắt dán tạp chí",
+   "tags": [
+    "tạp chí",
+    "cắt dán",
+    "ghép ảnh",
+    "editorial",
+    "chữ cắt"
+   ]
+  },
+  "template:r-recuerdo-proyector": {
+   "name": "Ký ức máy chiếu",
+   "tags": [
+    "máy chiếu",
+    "kỷ niệm",
+    "vintage",
+    "phim",
+    "gia đình"
+   ]
+  },
+  "template:r-recuerdo-verano": {
+   "name": "Kỷ niệm mùa hè",
+   "tags": [
+    "mùa hè",
+    "biển",
+    "kỷ niệm",
+    "kỳ nghỉ",
+    "ảnh lấy liền"
+   ]
+  },
+  "template:r-reflejo": {
+   "name": "Phản chiếu mặt nước",
+   "tags": [
+    "phản chiếu",
+    "gương",
+    "mặt nước",
+    "đối xứng",
+    "aesthetic"
+   ]
+  },
+  "template:r-regreso-clases": {
+   "name": "Trở lại trường",
+   "tags": [
+    "tựu trường",
+    "trường học",
+    "ba lô",
+    "đồ dùng học tập",
+    "ngày đầu tiên"
+   ]
+  },
+  "template:r-rejilla-bordes": {
+   "name": "Lưới viền đậm",
+   "tags": [
+    "lưới",
+    "viền",
+    "brutalist",
+    "màu sắc",
+    "ghép ảnh"
+   ]
+  },
+  "template:r-resena-estrellas": {
+   "name": "Đánh giá sao",
+   "tags": [
+    "đánh giá",
+    "sao",
+    "nhận xét",
+    "khách hàng",
+    "sản phẩm"
+   ]
+  },
+  "template:r-reto-30-dias": {
+   "name": "Thử thách 30 ngày",
+   "tags": [
+    "thử thách",
+    "30 ngày",
+    "thói quen",
+    "challenge",
+    "lịch"
+   ]
+  },
+  "template:r-sacudida-3d": {
+   "name": "Lắc 3D theo nhịp",
+   "tags": [
+    "3d",
+    "xoay",
+    "theo nhịp",
+    "thẻ",
+    "xu hướng"
+   ]
+  },
+  "template:r-san-valentin-divertido": {
+   "name": "Valentine vui nhộn",
+   "tags": [
+    "valentine",
+    "tình yêu",
+    "hài hước",
+    "cặp đôi",
+    "trái tim"
+   ]
+  },
+  "template:r-si-te-ries": {
+   "name": "Cấm cười",
+   "tags": [
+    "meme",
+    "cười là thua",
+    "hài hước",
+    "thử thách",
+    "vui nhộn"
+   ]
+  },
+  "template:r-signos": {
+   "name": "Cung hoàng đạo",
+   "tags": [
+    "cung hoàng đạo",
+    "hoàng đạo",
+    "tử vi",
+    "chiêm tinh",
+    "ngôi sao"
+   ]
+  },
+  "template:r-siguenos-mas": {
+   "name": "Theo dõi để xem thêm",
+   "tags": [
+    "kết thúc",
+    "theo dõi",
+    "follow",
+    "thêm nội dung"
+   ]
+  },
+  "template:r-slowmo-destello": {
+   "name": "Quay chậm lóa sáng",
+   "tags": [
+    "quay chậm",
+    "slow motion",
+    "lóa sáng",
+    "nắng",
+    "điện ảnh"
+   ]
+  },
+  "template:r-spa": {
+   "name": "Spa",
+   "tags": [
+    "spa",
+    "massage",
+    "thư giãn",
+    "chăm sóc",
+    "làm đẹp"
+   ]
+  },
+  "template:r-split-ritmo": {
+   "name": "Chia màn hình theo nhịp",
+   "tags": [
+    "chia màn hình",
+    "theo nhịp",
+    "hai ảnh",
+    "edit",
+    "năng động"
+   ]
+  },
+  "template:r-super-ofertas": {
+   "name": "Ưu đãi siêu thị",
+   "tags": [
+    "siêu thị",
+    "ưu đãi",
+    "giá",
+    "giảm giá",
+    "trái cây"
+   ]
+  },
+  "template:r-tablero-corcho": {
+   "name": "Bảng ghim gỗ bần",
+   "tags": [
+    "bảng ghim",
+    "gỗ bần",
+    "ảnh",
+    "đinh ghim",
+    "kỷ niệm"
+   ]
+  },
+  "template:r-taller-mecanico": {
+   "name": "Gara sửa xe",
+   "tags": [
+    "gara",
+    "thợ máy",
+    "ô tô",
+    "bảo dưỡng",
+    "dịch vụ"
+   ]
+  },
+  "template:r-tarjetas-apiladas": {
+   "name": "Thẻ xếp chồng",
+   "tags": [
+    "thẻ",
+    "xếp chồng",
+    "vuốt",
+    "ảnh",
+    "swipe"
+   ]
+  },
+  "template:r-tienda-barrio": {
+   "name": "Tiệm tạp hóa",
+   "tags": [
+    "tạp hóa",
+    "cửa hàng",
+    "khu phố",
+    "ưu đãi",
+    "hàng xóm"
+   ]
+  },
+  "template:r-tierno-stickers": {
+   "name": "Dễ thương với sticker",
+   "tags": [
+    "dễ thương",
+    "sticker",
+    "cute",
+    "kawaii",
+    "thú cưng"
+   ]
+  },
+  "template:r-traduccion": {
+   "name": "Nói thế nào nhỉ?",
+   "tags": [
+    "dịch",
+    "ngoại ngữ",
+    "tiếng anh",
+    "học",
+    "mẫu câu"
+   ]
+  },
+  "template:r-tres-errores": {
+   "name": "3 lỗi bạn hay mắc",
+   "tags": [
+    "lỗi sai",
+    "lời khuyên",
+    "mẹo",
+    "học hỏi",
+    "tránh"
+   ]
+  },
+  "template:r-trivia": {
+   "name": "Đố vui trắc nghiệm",
+   "tags": [
+    "đố vui",
+    "quiz",
+    "câu hỏi",
+    "trò chơi",
+    "đáp án"
+   ]
+  },
+  "template:r-unboxing": {
+   "name": "Unboxing",
+   "tags": [
+    "unboxing",
+    "mở hộp",
+    "đơn hàng",
+    "sản phẩm",
+    "mua sắm"
+   ]
+  },
+  "template:r-velocity-duro": {
+   "name": "Velocity mạnh",
+   "tags": [
+    "velocity",
+    "tăng giảm tốc",
+    "mạnh",
+    "rung",
+    "edit"
+   ]
+  },
+  "template:r-velocity-suave": {
+   "name": "Velocity mượt",
+   "tags": [
+    "velocity",
+    "tăng giảm tốc",
+    "mượt",
+    "xu hướng",
+    "edit"
+   ]
+  },
+  "template:r-verano": {
+   "name": "Xin chào mùa hè",
+   "tags": [
+    "mùa hè",
+    "biển",
+    "hồ bơi",
+    "nắng",
+    "kỳ nghỉ"
+   ]
+  },
+  "template:r-veterinaria": {
+   "name": "Phòng khám thú y",
+   "tags": [
+    "thú y",
+    "thú cưng",
+    "chó",
+    "mèo",
+    "sức khỏe"
+   ]
+  },
+  "template:r-vt-horario": {
+   "name": "Giờ mở cửa cho video dọc",
+   "tags": [
+    "chú thích dưới",
+    "video dọc",
+    "giờ mở cửa",
+    "cửa hàng",
+    "lower third"
+   ]
+  },
+  "template:r-vt-nombre": {
+   "name": "Thẻ tên cho video dọc",
+   "tags": [
+    "chú thích dưới",
+    "lower third",
+    "video dọc",
+    "tên",
+    "phỏng vấn"
+   ]
+  },
+  "template:r-vt-precio": {
+   "name": "Nhãn giá cho video dọc",
+   "tags": [
+    "chú thích dưới",
+    "video dọc",
+    "giá",
+    "sản phẩm",
+    "lower third"
+   ]
+  },
+  "template:r-vt-ubicacion": {
+   "name": "Địa điểm cho video dọc",
+   "tags": [
+    "chú thích dưới",
+    "video dọc",
+    "địa điểm",
+    "du lịch",
+    "lower third"
+   ]
+  },
+  "template:r-vt-usuario": {
+   "name": "@tên tài khoản cho video dọc",
+   "tags": [
+    "chú thích dưới",
+    "video dọc",
+    "tên tài khoản",
+    "mạng xã hội",
+    "lower third"
+   ]
+  },
+  "template:r-yo-vs-yo": {
+   "name": "Tôi ngày ấy và bây giờ",
+   "tags": [
+    "ngày ấy bây giờ",
+    "tuổi thơ",
+    "lớn lên",
+    "so sánh",
+    "trước sau"
+   ]
+  },
+  "template:r-zoom-golpe": {
+   "name": "Zoom giật theo nhịp",
+   "tags": [
+    "zoom",
+    "giật",
+    "theo nhịp",
+    "tối giản",
+    "edit"
+   ]
+  },
+  "template:recap-del-anio": {
+   "name": "Năm của tôi qua 12 tháng",
+   "tags": [
+    "tổng kết",
+    "năm",
+    "12 tháng",
+    "recap",
+    "2026"
+   ]
+  },
+  "template:receta-rapida": {
+   "name": "Công thức 15 giây",
+   "tags": [
+    "công thức",
+    "nấu ăn",
+    "món ăn",
+    "salad"
+   ]
+  },
+  "template:red-flags-green-flags": {
+   "name": "Red flag và green flag",
+   "tags": [
+    "red flag",
+    "green flag",
+    "mối quan hệ",
+    "hẹn hò",
+    "hài hước"
+   ]
+  },
+  "template:remodelacion": {
+   "name": "Cải tạo căn phòng",
+   "tags": [
+    "cải tạo",
+    "nhà cửa",
+    "bất động sản",
+    "trang trí",
+    "trước sau"
+   ]
+  },
+  "template:resenas-lo-que-dicen": {
+   "name": "Khách hàng nói gì về chúng tôi",
+   "tags": [
+    "đánh giá",
+    "nhận xét",
+    "khách hàng",
+    "5 sao",
+    "review"
+   ]
+  },
+  "template:resumen-de-boda": {
+   "name": "Tóm tắt đám cưới",
+   "tags": [
+    "đám cưới",
+    "tiệc cưới",
+    "highlight",
+    "điện ảnh",
+    "cô dâu chú rể"
+   ]
+  },
+  "template:revelacion-de-genero": {
+   "name": "Tiết lộ giới tính em bé",
+   "tags": [
+    "tiết lộ giới tính",
+    "trai hay gái",
+    "em bé",
+    "mang thai",
+    "gender reveal"
+   ]
+  },
+  "template:salon-de-belleza-servicios": {
+   "name": "Salon làm đẹp",
+   "tags": [
+    "salon",
+    "làm đẹp",
+    "làm tóc",
+    "dịch vụ",
+    "đặt lịch"
+   ]
+  },
+  "template:san-valentin-carta": {
+   "name": "Thư tình",
+   "tags": [
+    "valentine",
+    "tình yêu",
+    "cặp đôi",
+    "14 tháng 2",
+    "lá thư"
+   ]
+  },
+  "template:slowmo-cinematico": {
+   "name": "Quay chậm điện ảnh",
+   "tags": [
+    "quay chậm",
+    "điện ảnh",
+    "cinematic",
+    "hoàng hôn"
+   ]
+  },
+  "template:storytime-les-cuento": {
+   "name": "Storytime: kể bạn nghe",
+   "tags": [
+    "storytime",
+    "câu chuyện",
+    "kể chuyện",
+    "giai thoại",
+    "tiktok"
+   ]
+  },
+  "template:testimonio-cliente-estrellas": {
+   "name": "Cảm nhận khách hàng",
+   "tags": [
+    "cảm nhận",
+    "khách hàng",
+    "đánh giá",
+    "sao",
+    "uy tín"
+   ]
+  },
+  "template:texto-cinetico": {
+   "name": "Chữ chuyển động",
+   "tags": [
+    "chữ động",
+    "kinetic",
+    "động lực",
+    "câu nói"
+   ]
+  },
+  "template:tira-pelicula": {
+   "name": "Dải phim",
+   "tags": [
+    "dải phim",
+    "film",
+    "analog",
+    "retro"
+   ]
+  },
+  "template:top-5-mas-vendidos": {
+   "name": "Top 5 bán chạy nhất",
+   "tags": [
+    "top 5",
+    "bán chạy",
+    "xếp hạng",
+    "cửa hàng",
+    "quần áo"
+   ]
+  },
+  "template:tour-inmobiliario": {
+   "name": "Tham quan bất động sản",
+   "tags": [
+    "bất động sản",
+    "nhà",
+    "căn hộ",
+    "bán nhà"
+   ]
+  },
+  "template:transformacion-gym": {
+   "name": "Lột xác tập gym",
+   "tags": [
+    "gym",
+    "fitness",
+    "lột xác",
+    "trước sau"
+   ]
+  },
+  "template:transiciones-al-ritmo": {
+   "name": "Chuyển cảnh theo nhịp",
+   "tags": [
+    "chuyển cảnh",
+    "theo nhịp",
+    "bạn bè",
+    "cuối tuần",
+    "xu hướng"
+   ]
+  },
+  "template:tres-consejos": {
+   "name": "3 mẹo để…",
+   "tags": [
+    "mẹo",
+    "tips",
+    "danh sách",
+    "học tập",
+    "giáo dục"
+   ]
+  },
+  "template:tutorial-en-3-pasos": {
+   "name": "Hướng dẫn 3 bước",
+   "tags": [
+    "hướng dẫn",
+    "các bước",
+    "cách làm",
+    "mẹo",
+    "làm đẹp"
+   ]
+  },
+  "template:ultimo-momento-noticia": {
+   "name": "Tin nóng",
+   "tags": [
+    "tin tức",
+    "tin nóng",
+    "thông báo",
+    "trực tiếp",
+    "mới nhất"
+   ]
+  },
+  "template:un-dia-en-mi-vida": {
+   "name": "Một ngày của tôi",
+   "tags": [
+    "một ngày",
+    "thói quen",
+    "vlog",
+    "day in my life",
+    "cuộc sống"
+   ]
+  },
+  "template:unas-nail-art": {
+   "name": "Móng và nail art",
+   "tags": [
+    "móng",
+    "làm nail",
+    "nail art",
+    "làm đẹp",
+    "móng úp"
+   ]
+  },
+  "template:velocity-al-ritmo": {
+   "name": "Velocity theo nhịp",
+   "tags": [
+    "velocity",
+    "tốc độ",
+    "theo nhịp",
+    "thời trang",
+    "xu hướng"
+   ]
+  },
+  "template:vhs-de-los-2000": {
+   "name": "VHS thập niên 2000",
+   "tags": [
+    "vhs",
+    "retro",
+    "2000",
+    "hoài niệm",
+    "máy quay"
+   ]
+  },
+  "template:vlog-de-viaje": {
+   "name": "Vlog du lịch mini",
+   "tags": [
+    "du lịch",
+    "vlog",
+    "chuyến đi",
+    "khám phá"
+   ]
+  },
+  "template:y2k-brillitos": {
+   "name": "Y2K lấp lánh",
+   "tags": [
+    "y2k",
+    "lấp lánh",
+    "hồng",
+    "aesthetic"
+   ]
+  },
+  "template:zoom-3d-parallax": {
+   "name": "Zoom 3D",
+   "tags": [
+    "zoom 3d",
+    "parallax",
+    "du lịch",
+    "ken burns",
+    "xu hướng"
+   ]
+  }
+ }
+}

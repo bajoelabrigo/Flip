@@ -1,0 +1,8675 @@
+{
+ "categories": {
+  "animation:celebracion": "축하",
+  "animation:clima": "날씨",
+  "animation:comida": "음식과 음료",
+  "animation:deportes": "스포츠",
+  "animation:emociones": "감정",
+  "animation:fechas": "기념일",
+  "animation:flechas": "화살표",
+  "animation:formas": "도형",
+  "animation:iconos": "아이콘",
+  "animation:llamadas": "말풍선과 프레임",
+  "animation:negocios": "비즈니스",
+  "animation:redes": "SNS",
+  "animation:resaltar": "강조",
+  "animation:transiciones": "전환",
+  "background:ambiente": "조명과 분위기",
+  "background:degradados": "그라데이션과 리퀴드",
+  "background:fechas": "기념일",
+  "background:geometricos": "기하학",
+  "background:texturas": "텍스처",
+  "overlay:amor": "사랑",
+  "overlay:camara": "카메라와 화면",
+  "overlay:celebracion": "축하",
+  "overlay:clima": "날씨와 자연",
+  "overlay:garabatos": "낙서",
+  "overlay:glitch": "글리치",
+  "overlay:luces": "빛샘과 플레어",
+  "overlay:marcos": "프레임과 텍스처",
+  "overlay:particulas": "파티클과 반짝이",
+  "overlay:pelicula": "필름과 레트로",
+  "sound:comedia": "코미디",
+  "sound:impactos": "임팩트",
+  "sound:interfaz": "UI와 알림",
+  "sound:juegos": "코인과 게임",
+  "sound:magia": "마법과 반짝임",
+  "sound:ritmo": "비트와 음악",
+  "sound:suspenso": "서스펜스와 드라마",
+  "sound:transiciones": "전환",
+  "template:beforeafter": "비포 애프터",
+  "template:business": "비즈니스",
+  "template:celebration": "축하",
+  "template:collage": "콜라주",
+  "template:countdown": "카운트다운",
+  "template:intro": "인트로와 타이틀",
+  "template:lowerthird": "하단 자막",
+  "template:outro": "엔딩",
+  "template:product": "상품",
+  "template:reels": "포토 릴스",
+  "template:seasonal": "기념일",
+  "template:slideshow": "사진 슬라이드쇼",
+  "template:text": "텍스트",
+  "template:transition": "전환과 구분 화면"
+ },
+ "items": {
+  "animation:advertencia": {
+   "name": "경고",
+   "tags": [
+    "주의",
+    "경고",
+    "알림",
+    "안내"
+   ]
+  },
+  "animation:alcancia": {
+   "name": "돼지 저금통",
+   "tags": [
+    "저축",
+    "돈",
+    "재테크",
+    "목표"
+   ]
+  },
+  "animation:anillos-boda": {
+   "name": "결혼반지",
+   "tags": [
+    "결혼식",
+    "결혼",
+    "약혼",
+    "기념일"
+   ]
+  },
+  "animation:anillos-puntos": {
+   "name": "점 링",
+   "tags": [
+    "원",
+    "배경",
+    "회전",
+    "패턴"
+   ]
+  },
+  "animation:arbol-navidad": {
+   "name": "크리스마스트리",
+   "tags": [
+    "크리스마스",
+    "트리",
+    "12월",
+    "연말"
+   ]
+  },
+  "animation:arcoiris": {
+   "name": "무지개",
+   "tags": [
+    "무지개",
+    "비",
+    "희망",
+    "컬러"
+   ]
+  },
+  "animation:asterisco": {
+   "name": "별표",
+   "tags": [
+    "별표",
+    "도형",
+    "레트로",
+    "강조"
+   ]
+  },
+  "animation:avion-papel": {
+   "name": "종이비행기",
+   "tags": [
+    "보내기",
+    "메시지",
+    "공유",
+    "여행"
+   ]
+  },
+  "animation:balon-futbol": {
+   "name": "축구공",
+   "tags": [
+    "축구",
+    "골",
+    "스포츠",
+    "경기"
+   ]
+  },
+  "animation:baloncesto": {
+   "name": "농구공",
+   "tags": [
+    "농구",
+    "스포츠",
+    "코트",
+    "공"
+   ]
+  },
+  "animation:bandera": {
+   "name": "펄럭이는 깃발",
+   "tags": [
+    "깃발",
+    "목표",
+    "성취",
+    "시작"
+   ]
+  },
+  "animation:bandera-meta": {
+   "name": "체커 깃발",
+   "tags": [
+    "결승선",
+    "레이스",
+    "우승",
+    "골인"
+   ]
+  },
+  "animation:banderines": {
+   "name": "가랜드 깃발",
+   "tags": [
+    "가랜드",
+    "깃발",
+    "파티",
+    "장식",
+    "오픈"
+   ]
+  },
+  "animation:barrido-diagonal": {
+   "name": "대각선 와이프",
+   "tags": [
+    "전환",
+    "와이프",
+    "장면 전환"
+   ]
+  },
+  "animation:bateria-carga": {
+   "name": "충전 중인 배터리",
+   "tags": [
+    "배터리",
+    "에너지",
+    "충전",
+    "재충전"
+   ]
+  },
+  "animation:bengala": {
+   "name": "스파클러",
+   "tags": [
+    "스파클러",
+    "불꽃",
+    "새해",
+    "파티",
+    "결혼식"
+   ]
+  },
+  "animation:birrete": {
+   "name": "학사모",
+   "tags": [
+    "졸업",
+    "졸업생",
+    "성취",
+    "공부"
+   ]
+  },
+  "animation:bocadillo": {
+   "name": "말풍선",
+   "tags": [
+    "대화",
+    "말하기",
+    "텍스트",
+    "만화"
+   ]
+  },
+  "animation:bocadillo-grito": {
+   "name": "외치는 말풍선",
+   "tags": [
+    "외침",
+    "와우",
+    "만화",
+    "느낌표"
+   ]
+  },
+  "animation:bola-disco": {
+   "name": "미러볼",
+   "tags": [
+    "미러볼",
+    "파티",
+    "댄스",
+    "밤",
+    "디스코"
+   ]
+  },
+  "animation:bolsa-compras": {
+   "name": "쇼핑백",
+   "tags": [
+    "쇼핑",
+    "쇼핑몰",
+    "주문",
+    "쇼핑백"
+   ]
+  },
+  "animation:bombilla-idea": {
+   "name": "아이디어 전구",
+   "tags": [
+    "아이디어",
+    "창의력",
+    "조언",
+    "팁"
+   ]
+  },
+  "animation:boton-play": {
+   "name": "재생 버튼",
+   "tags": [
+    "영상",
+    "재생",
+    "플레이",
+    "보기"
+   ]
+  },
+  "animation:boton-seguir": {
+   "name": "팔로우 버튼",
+   "tags": [
+    "팔로우",
+    "구독",
+    "sns",
+    "행동 유도"
+   ]
+  },
+  "animation:brillo-y2k": {
+   "name": "Y2K 반짝이",
+   "tags": [
+    "반짝이",
+    "y2k",
+    "감성",
+    "별"
+   ]
+  },
+  "animation:burbujas": {
+   "name": "비눗방울",
+   "tags": [
+    "거품",
+    "비눗방울",
+    "물",
+    "배경"
+   ]
+  },
+  "animation:cafe-humeante": {
+   "name": "따뜻한 커피",
+   "tags": [
+    "커피",
+    "아침",
+    "모닝",
+    "음료"
+   ]
+  },
+  "animation:caja-envio": {
+   "name": "택배 상자",
+   "tags": [
+    "배송",
+    "배달",
+    "주문",
+    "택배"
+   ]
+  },
+  "animation:calabaza": {
+   "name": "호박 등불",
+   "tags": [
+    "핼러윈",
+    "호박",
+    "10월",
+    "공포"
+   ]
+  },
+  "animation:calendario": {
+   "name": "달력",
+   "tags": [
+    "날짜",
+    "이벤트",
+    "일정",
+    "리마인더"
+   ]
+  },
+  "animation:camara-foto": {
+   "name": "사진기",
+   "tags": [
+    "사진",
+    "카메라",
+    "셀카",
+    "추억"
+   ]
+  },
+  "animation:campana": {
+   "name": "알림 벨",
+   "tags": [
+    "구독",
+    "알림",
+    "벨",
+    "유튜브"
+   ]
+  },
+  "animation:campanas-navidad": {
+   "name": "징글벨",
+   "tags": [
+    "크리스마스",
+    "종",
+    "연말",
+    "결혼식"
+   ]
+  },
+  "animation:candado": {
+   "name": "자물쇠",
+   "tags": [
+    "보안",
+    "비공개",
+    "잠금 해제",
+    "비밀번호"
+   ]
+  },
+  "animation:cara-angel": {
+   "name": "천사 얼굴",
+   "tags": [
+    "천사",
+    "순수",
+    "착한",
+    "이모지"
+   ]
+  },
+  "animation:cara-beso": {
+   "name": "뽀뽀",
+   "tags": [
+    "뽀뽀",
+    "사랑",
+    "쪽",
+    "이모지"
+   ]
+  },
+  "animation:cara-derretida": {
+   "name": "녹는 얼굴",
+   "tags": [
+    "더위",
+    "민망",
+    "녹아내림",
+    "이모지"
+   ]
+  },
+  "animation:cara-diablillo": {
+   "name": "악마 얼굴",
+   "tags": [
+    "장난꾸러기",
+    "악당",
+    "장난",
+    "이모지"
+   ]
+  },
+  "animation:cara-dormida": {
+   "name": "자는 얼굴",
+   "tags": [
+    "졸림",
+    "잠",
+    "피곤",
+    "zzz"
+   ]
+  },
+  "animation:cara-enamorada": {
+   "name": "반한 얼굴",
+   "tags": [
+    "사랑",
+    "너무 좋아",
+    "하트 눈",
+    "이모지"
+   ]
+  },
+  "animation:cara-enojada": {
+   "name": "화난 얼굴",
+   "tags": [
+    "화남",
+    "분노",
+    "짜증",
+    "이모지"
+   ]
+  },
+  "animation:cara-estrellas": {
+   "name": "별 눈 얼굴",
+   "tags": [
+    "와우",
+    "대박",
+    "팬",
+    "이모지"
+   ]
+  },
+  "animation:cara-fiesta": {
+   "name": "파티 얼굴",
+   "tags": [
+    "파티",
+    "생일",
+    "축하",
+    "이모지"
+   ]
+  },
+  "animation:cara-guino": {
+   "name": "윙크하는 얼굴",
+   "tags": [
+    "윙크",
+    "애교",
+    "농담",
+    "이모지"
+   ]
+  },
+  "animation:cara-lentes": {
+   "name": "선글라스 얼굴",
+   "tags": [
+    "쿨",
+    "멋짐",
+    "선글라스",
+    "이모지"
+   ]
+  },
+  "animation:cara-llorando": {
+   "name": "우는 얼굴",
+   "tags": [
+    "슬픔",
+    "울음",
+    "속상",
+    "이모지"
+   ]
+  },
+  "animation:cara-nerviosa": {
+   "name": "긴장한 얼굴",
+   "tags": [
+    "긴장",
+    "앗",
+    "어색",
+    "이모지"
+   ]
+  },
+  "animation:cara-pensando": {
+   "name": "생각하는 얼굴",
+   "tags": [
+    "생각",
+    "고민",
+    "질문",
+    "이모지"
+   ]
+  },
+  "animation:cara-risa": {
+   "name": "웃는 얼굴",
+   "tags": [
+    "웃음",
+    "ㅋㅋ",
+    "웃긴",
+    "이모지"
+   ]
+  },
+  "animation:cara-sorpresa": {
+   "name": "놀란 얼굴",
+   "tags": [
+    "와우",
+    "놀람",
+    "헐",
+    "이모지"
+   ]
+  },
+  "animation:cargando": {
+   "name": "로딩 중",
+   "tags": [
+    "로딩",
+    "대기",
+    "곧",
+    "로딩 중"
+   ]
+  },
+  "animation:carrito": {
+   "name": "장바구니",
+   "tags": [
+    "구매",
+    "쇼핑몰",
+    "장바구니",
+    "카트"
+   ]
+  },
+  "animation:carta-amor": {
+   "name": "러브레터",
+   "tags": [
+    "발렌타인데이",
+    "편지",
+    "사랑",
+    "메시지"
+   ]
+  },
+  "animation:chat-corazon": {
+   "name": "사랑의 메시지",
+   "tags": [
+    "메시지",
+    "사랑",
+    "채팅",
+    "dm"
+   ]
+  },
+  "animation:chincheta": {
+   "name": "압정",
+   "tags": [
+    "압정",
+    "고정",
+    "중요",
+    "메모",
+    "리마인더"
+   ]
+  },
+  "animation:cinta": {
+   "name": "리본 배너",
+   "tags": [
+    "타이틀",
+    "배너",
+    "신상",
+    "리본"
+   ]
+  },
+  "animation:cinta-adhesiva": {
+   "name": "마스킹 테이프",
+   "tags": [
+    "프레임",
+    "사진",
+    "스크랩북",
+    "콜라주"
+   ]
+  },
+  "animation:circulo-flecha": {
+   "name": "동그라미와 화살표",
+   "tags": [
+    "강조",
+    "가리키기",
+    "여기",
+    "낙서"
+   ]
+  },
+  "animation:circulo-marcador": {
+   "name": "손그림 동그라미",
+   "tags": [
+    "강조",
+    "동그라미",
+    "표시",
+    "가리키기"
+   ]
+  },
+  "animation:circulos-barrido": {
+   "name": "원형 와이프",
+   "tags": [
+    "전환",
+    "원",
+    "장면 전환"
+   ]
+  },
+  "animation:cohete": {
+   "name": "로켓",
+   "tags": [
+    "출시",
+    "발사",
+    "스타트업",
+    "빠른"
+   ]
+  },
+  "animation:comentar": {
+   "name": "댓글",
+   "tags": [
+    "댓글",
+    "채팅",
+    "sns",
+    "메시지"
+   ]
+  },
+  "animation:compartir": {
+   "name": "공유",
+   "tags": [
+    "공유",
+    "보내기",
+    "sns"
+   ]
+  },
+  "animation:confeti": {
+   "name": "꽃가루 팡",
+   "tags": [
+    "꽃가루",
+    "파티",
+    "생일",
+    "축하"
+   ]
+  },
+  "animation:cono-fiesta": {
+   "name": "파티 폭죽",
+   "tags": [
+    "폭죽",
+    "파티",
+    "생일",
+    "서프라이즈",
+    "축하"
+   ]
+  },
+  "animation:conversacion": {
+   "name": "채팅",
+   "tags": [
+    "채팅",
+    "대화",
+    "메시지",
+    "말풍선"
+   ]
+  },
+  "animation:copas-brindis": {
+   "name": "건배",
+   "tags": [
+    "건배",
+    "새해",
+    "결혼식",
+    "축하"
+   ]
+  },
+  "animation:copo-nieve": {
+   "name": "눈송이",
+   "tags": [
+    "눈",
+    "겨울",
+    "추위",
+    "크리스마스"
+   ]
+  },
+  "animation:corazon-a-mano": {
+   "name": "손그림 하트",
+   "tags": [
+    "하트",
+    "사랑",
+    "즐겨찾기",
+    "낙서"
+   ]
+  },
+  "animation:corazon-flechado": {
+   "name": "화살 맞은 하트",
+   "tags": [
+    "발렌타인데이",
+    "사랑",
+    "큐피드",
+    "커플"
+   ]
+  },
+  "animation:corazon-roto": {
+   "name": "깨진 하트",
+   "tags": [
+    "실연",
+    "슬픔",
+    "이별",
+    "하트"
+   ]
+  },
+  "animation:corazones": {
+   "name": "떠오르는 하트",
+   "tags": [
+    "사랑",
+    "하트",
+    "커플",
+    "좋아요"
+   ]
+  },
+  "animation:corchetes": {
+   "name": "포커스 괄호",
+   "tags": [
+    "괄호",
+    "강조",
+    "포커스",
+    "텍스트"
+   ]
+  },
+  "animation:corona": {
+   "name": "왕관",
+   "tags": [
+    "왕관",
+    "왕",
+    "여왕",
+    "우승",
+    "프리미엄"
+   ]
+  },
+  "animation:correo": {
+   "name": "새 메일",
+   "tags": [
+    "메일",
+    "메시지",
+    "이메일",
+    "연락처"
+   ]
+  },
+  "animation:corte-dividido": {
+   "name": "분할 슬라이드",
+   "tags": [
+    "전환",
+    "슬라이드",
+    "장면 전환"
+   ]
+  },
+  "animation:cronometro": {
+   "name": "스톱워치",
+   "tags": [
+    "시간",
+    "레이스",
+    "기록",
+    "빠른"
+   ]
+  },
+  "animation:cuadros-zoom": {
+   "name": "사각 그리드",
+   "tags": [
+    "전환",
+    "사각형",
+    "픽셀",
+    "장면 전환"
+   ]
+  },
+  "animation:cuenta-regresiva": {
+   "name": "카운트다운",
+   "tags": [
+    "카운트다운",
+    "3 2 1",
+    "시작",
+    "대기"
+   ]
+  },
+  "animation:cupcake": {
+   "name": "컵케이크",
+   "tags": [
+    "컵케이크",
+    "디저트",
+    "생일",
+    "달콤"
+   ]
+  },
+  "animation:cursor-clic": {
+   "name": "클릭",
+   "tags": [
+    "클릭",
+    "탭",
+    "버튼",
+    "커서",
+    "링크"
+   ]
+  },
+  "animation:descargar": {
+   "name": "다운로드",
+   "tags": [
+    "다운로드",
+    "저장",
+    "받기",
+    "파일"
+   ]
+  },
+  "animation:desliza-arriba": {
+   "name": "위로 스와이프",
+   "tags": [
+    "스와이프",
+    "위로",
+    "스토리",
+    "링크"
+   ]
+  },
+  "animation:destellos": {
+   "name": "반짝반짝",
+   "tags": [
+    "반짝이",
+    "별",
+    "마법",
+    "빛"
+   ]
+  },
+  "animation:diana": {
+   "name": "과녁",
+   "tags": [
+    "목표",
+    "타깃",
+    "적중",
+    "전략"
+   ]
+  },
+  "animation:diya": {
+   "name": "디야 등불",
+   "tags": [
+    "디왈리",
+    "빛",
+    "등불",
+    "축제"
+   ]
+  },
+  "animation:dona": {
+   "name": "도넛",
+   "tags": [
+    "도넛",
+    "디저트",
+    "달콤",
+    "아침"
+   ]
+  },
+  "animation:en-vivo": {
+   "name": "라이브",
+   "tags": [
+    "라이브",
+    "생방송",
+    "방송",
+    "live"
+   ]
+  },
+  "animation:enfasis": {
+   "name": "강조 선",
+   "tags": [
+    "강조",
+    "놀람",
+    "와우",
+    "주목"
+   ]
+  },
+  "animation:engranajes": {
+   "name": "톱니바퀴",
+   "tags": [
+    "설정",
+    "과정",
+    "작업",
+    "환경설정"
+   ]
+  },
+  "animation:enlace": {
+   "name": "링크",
+   "tags": [
+    "링크",
+    "바이오",
+    "웹",
+    "주소"
+   ]
+  },
+  "animation:equis": {
+   "name": "엑스 표시",
+   "tags": [
+    "엑스",
+    "오류",
+    "아니요",
+    "오답"
+   ]
+  },
+  "animation:escribiendo": {
+   "name": "입력 중 점",
+   "tags": [
+    "채팅",
+    "메시지",
+    "입력 중",
+    "대기"
+   ]
+  },
+  "animation:esfera-navidad": {
+   "name": "크리스마스 오너먼트",
+   "tags": [
+    "크리스마스",
+    "오너먼트",
+    "장식",
+    "12월"
+   ]
+  },
+  "animation:espiral-garabato": {
+   "name": "손그림 소용돌이",
+   "tags": [
+    "소용돌이",
+    "낙서",
+    "어지러움",
+    "최면",
+    "두들"
+   ]
+  },
+  "animation:estallido-comic": {
+   "name": "만화 폭발",
+   "tags": [
+    "펑",
+    "와우",
+    "특가",
+    "만화"
+   ]
+  },
+  "animation:estrella-a-mano": {
+   "name": "손그림 별",
+   "tags": [
+    "별",
+    "즐겨찾기",
+    "중요",
+    "낙서"
+   ]
+  },
+  "animation:estrella-fugaz": {
+   "name": "별똥별",
+   "tags": [
+    "별똥별",
+    "소원",
+    "마법",
+    "밤",
+    "별"
+   ]
+  },
+  "animation:estrella-giro": {
+   "name": "회전하는 별",
+   "tags": [
+    "전환",
+    "별",
+    "장면 전환"
+   ]
+  },
+  "animation:estrellas-pop": {
+   "name": "톡톡 튀는 별",
+   "tags": [
+    "별",
+    "성취",
+    "상",
+    "팝"
+   ]
+  },
+  "animation:estrellas-valoracion": {
+   "name": "별점 5개",
+   "tags": [
+    "리뷰",
+    "평점",
+    "고객",
+    "별점"
+   ]
+  },
+  "animation:etiqueta-precio": {
+   "name": "가격표",
+   "tags": [
+    "가격",
+    "특가",
+    "판매",
+    "쇼핑몰"
+   ]
+  },
+  "animation:exclamaciones": {
+   "name": "느낌표",
+   "tags": [
+    "느낌표",
+    "주목",
+    "중요",
+    "알림"
+   ]
+  },
+  "animation:fantasma": {
+   "name": "유령",
+   "tags": [
+    "핼러윈",
+    "유령",
+    "부",
+    "공포"
+   ]
+  },
+  "animation:farol-rojo": {
+   "name": "빨간 등불",
+   "tags": [
+    "설날",
+    "등불",
+    "축제",
+    "아시아"
+   ]
+  },
+  "animation:flecha-abajo": {
+   "name": "통통 튀는 화살표",
+   "tags": [
+    "화살표",
+    "아래",
+    "여기 보세요",
+    "링크"
+   ]
+  },
+  "animation:flecha-bucle": {
+   "name": "고리 화살표",
+   "tags": [
+    "화살표",
+    "고리",
+    "가리키기",
+    "낙서"
+   ]
+  },
+  "animation:flecha-circular": {
+   "name": "원형 화살표",
+   "tags": [
+    "반복",
+    "새로고침",
+    "비포 애프터",
+    "화살표"
+   ]
+  },
+  "animation:flecha-curva": {
+   "name": "손그림 화살표",
+   "tags": [
+    "화살표",
+    "가리키기",
+    "보기",
+    "손그림"
+   ]
+  },
+  "animation:flecha-doble": {
+   "name": "양방향 화살표",
+   "tags": [
+    "화살표",
+    "치수",
+    "비교",
+    "너비"
+   ]
+  },
+  "animation:flecha-gruesa": {
+   "name": "굵은 화살표",
+   "tags": [
+    "화살표",
+    "다음",
+    "이동",
+    "오른쪽"
+   ]
+  },
+  "animation:flecha-ondulada": {
+   "name": "물결 화살표",
+   "tags": [
+    "아래",
+    "보기",
+    "화살표",
+    "낙서"
+   ]
+  },
+  "animation:flecha-punteada": {
+   "name": "점선 화살표",
+   "tags": [
+    "경로",
+    "루트",
+    "가리키기",
+    "화살표"
+   ]
+  },
+  "animation:flecha-u": {
+   "name": "유턴 화살표",
+   "tags": [
+    "되돌아가기",
+    "유턴",
+    "회전",
+    "화살표"
+   ]
+  },
+  "animation:flecha-zigzag": {
+   "name": "지그재그 화살표",
+   "tags": [
+    "화살표",
+    "지그재그",
+    "가리키기",
+    "낙서"
+   ]
+  },
+  "animation:flechas-centro": {
+   "name": "가운데로 모이는 화살표",
+   "tags": [
+    "포커스",
+    "가운데",
+    "여기 보세요",
+    "주목"
+   ]
+  },
+  "animation:flechas-derecha": {
+   "name": "갈매기 화살표 줄",
+   "tags": [
+    "다음",
+    "넘기기",
+    "오른쪽",
+    "화살표"
+   ]
+  },
+  "animation:flor-crece": {
+   "name": "자라나는 꽃",
+   "tags": [
+    "봄",
+    "자연",
+    "꽃",
+    "성장"
+   ]
+  },
+  "animation:foco-luz": {
+   "name": "스포트라이트",
+   "tags": [
+    "스포트라이트",
+    "무대",
+    "주인공",
+    "발표"
+   ]
+  },
+  "animation:formas-memphis": {
+   "name": "떠다니는 도형",
+   "tags": [
+    "기하학",
+    "멤피스",
+    "배경",
+    "레트로"
+   ]
+  },
+  "animation:franjas-diagonales": {
+   "name": "대각선 줄무늬",
+   "tags": [
+    "전환",
+    "줄무늬",
+    "장면 전환"
+   ]
+  },
+  "animation:fuego": {
+   "name": "불꽃",
+   "tags": [
+    "불",
+    "트렌드",
+    "핫",
+    "이모지"
+   ]
+  },
+  "animation:fuegos-artificiales": {
+   "name": "불꽃놀이",
+   "tags": [
+    "불꽃놀이",
+    "새해",
+    "파티",
+    "축하"
+   ]
+  },
+  "animation:garabato-infinito": {
+   "name": "무한대 루프",
+   "tags": [
+    "무한대",
+    "루프",
+    "영원히",
+    "낙서"
+   ]
+  },
+  "animation:globo-info": {
+   "name": "툴팁",
+   "tags": [
+    "정보",
+    "디테일",
+    "가격",
+    "라벨"
+   ]
+  },
+  "animation:globos": {
+   "name": "풍선",
+   "tags": [
+    "풍선",
+    "생일",
+    "파티",
+    "베이비 샤워"
+   ]
+  },
+  "animation:gorro-fiesta": {
+   "name": "파티 모자",
+   "tags": [
+    "파티 모자",
+    "파티",
+    "생일",
+    "축하"
+   ]
+  },
+  "animation:gorro-santa": {
+   "name": "산타 모자",
+   "tags": [
+    "크리스마스",
+    "모자",
+    "산타",
+    "12월"
+   ]
+  },
+  "animation:gota": {
+   "name": "물방울",
+   "tags": [
+    "물",
+    "물방울",
+    "리퀴드",
+    "시원한"
+   ]
+  },
+  "animation:grafico-barras": {
+   "name": "막대 그래프",
+   "tags": [
+    "성장",
+    "매출",
+    "결과",
+    "통계"
+   ]
+  },
+  "animation:grafico-linea": {
+   "name": "상승 그래프",
+   "tags": [
+    "성장",
+    "성공",
+    "상승",
+    "통계"
+   ]
+  },
+  "animation:grafico-torta": {
+   "name": "원형 그래프",
+   "tags": [
+    "통계",
+    "퍼센트",
+    "데이터",
+    "프레젠테이션"
+   ]
+  },
+  "animation:guardar": {
+   "name": "저장",
+   "tags": [
+    "저장",
+    "북마크",
+    "sns"
+   ]
+  },
+  "animation:guirnalda-luces": {
+   "name": "전구 가랜드",
+   "tags": [
+    "전구",
+    "조명",
+    "크리스마스",
+    "파티",
+    "장식"
+   ]
+  },
+  "animation:hamburguesa": {
+   "name": "햄버거",
+   "tags": [
+    "햄버거",
+    "패스트푸드",
+    "점심",
+    "배달"
+   ]
+  },
+  "animation:hashtag": {
+   "name": "해시태그",
+   "tags": [
+    "해시태그",
+    "트렌드",
+    "태그",
+    "sns"
+   ]
+  },
+  "animation:helado": {
+   "name": "아이스크림",
+   "tags": [
+    "아이스크림",
+    "여름",
+    "디저트",
+    "달콤"
+   ]
+  },
+  "animation:hojas": {
+   "name": "떨어지는 낙엽",
+   "tags": [
+    "가을",
+    "자연",
+    "낙엽",
+    "잎"
+   ]
+  },
+  "animation:huevo-pascua": {
+   "name": "부활절 달걀",
+   "tags": [
+    "부활절",
+    "봄",
+    "달걀",
+    "4월"
+   ]
+  },
+  "animation:iris": {
+   "name": "아이리스",
+   "tags": [
+    "전환",
+    "원형",
+    "장면 전환"
+   ]
+  },
+  "animation:llamada-linea": {
+   "name": "라인 콜아웃",
+   "tags": [
+    "가리키기",
+    "디테일",
+    "상품",
+    "라벨"
+   ]
+  },
+  "animation:lluvia-dinero": {
+   "name": "돈벼락",
+   "tags": [
+    "돈",
+    "수익",
+    "부자",
+    "결제"
+   ]
+  },
+  "animation:luna-estrellas": {
+   "name": "달과 별",
+   "tags": [
+    "밤",
+    "잠",
+    "달",
+    "굿나잇"
+   ]
+  },
+  "animation:luna-farol": {
+   "name": "초승달과 등불",
+   "tags": [
+    "라마단",
+    "이드",
+    "달",
+    "등불"
+   ]
+  },
+  "animation:lupa": {
+   "name": "돋보기",
+   "tags": [
+    "돋보기",
+    "검색",
+    "줌",
+    "디테일",
+    "리뷰"
+   ]
+  },
+  "animation:mancha": {
+   "name": "유기적 블롭",
+   "tags": [
+    "블롭",
+    "배경",
+    "도형",
+    "리퀴드"
+   ]
+  },
+  "animation:mancha-liquida": {
+   "name": "리퀴드 블롭 와이프",
+   "tags": [
+    "전환",
+    "리퀴드",
+    "장면 전환"
+   ]
+  },
+  "animation:mano-senala": {
+   "name": "가리키는 손",
+   "tags": [
+    "가리키기",
+    "여기",
+    "보기",
+    "손"
+   ]
+  },
+  "animation:marco-circular": {
+   "name": "원형 프레임",
+   "tags": [
+    "프로필",
+    "사진",
+    "프레임",
+    "아바타"
+   ]
+  },
+  "animation:marco-esquinas": {
+   "name": "포커스 모서리",
+   "tags": [
+    "프레임",
+    "포커스",
+    "카메라",
+    "모서리"
+   ]
+  },
+  "animation:marco-polaroid": {
+   "name": "즉석 사진 프레임",
+   "tags": [
+    "사진",
+    "프레임",
+    "추억",
+    "즉석 사진"
+   ]
+  },
+  "animation:margarita-retro": {
+   "name": "레트로 데이지",
+   "tags": [
+    "꽃",
+    "데이지",
+    "레트로",
+    "y2k"
+   ]
+  },
+  "animation:me-gusta": {
+   "name": "좋아요",
+   "tags": [
+    "좋아요",
+    "하트",
+    "sns",
+    "엄지"
+   ]
+  },
+  "animation:medalla": {
+   "name": "메달",
+   "tags": [
+    "메달",
+    "우승",
+    "상",
+    "성취",
+    "1등"
+   ]
+  },
+  "animation:megafono": {
+   "name": "메가폰",
+   "tags": [
+    "공지",
+    "소식",
+    "주목",
+    "프로모션"
+   ]
+  },
+  "animation:microfono": {
+   "name": "마이크",
+   "tags": [
+    "팟캐스트",
+    "녹음",
+    "목소리",
+    "노래"
+   ]
+  },
+  "animation:mira-enfoque": {
+   "name": "조준선",
+   "tags": [
+    "조준",
+    "포커스",
+    "타깃",
+    "디테일",
+    "줌"
+   ]
+  },
+  "animation:moneda": {
+   "name": "회전하는 동전",
+   "tags": [
+    "돈",
+    "동전",
+    "결제",
+    "저축"
+   ]
+  },
+  "animation:morph-estrella": {
+   "name": "도형 모핑",
+   "tags": [
+    "도형",
+    "별",
+    "꽃",
+    "변형"
+   ]
+  },
+  "animation:murcielago": {
+   "name": "박쥐",
+   "tags": [
+    "핼러윈",
+    "밤",
+    "박쥐",
+    "공포"
+   ]
+  },
+  "animation:nieve": {
+   "name": "눈",
+   "tags": [
+    "크리스마스",
+    "눈",
+    "겨울",
+    "추위"
+   ]
+  },
+  "animation:nota-adhesiva": {
+   "name": "포스트잇 메모",
+   "tags": [
+    "메모",
+    "리마인더",
+    "노트",
+    "할 일"
+   ]
+  },
+  "animation:notas-musicales": {
+   "name": "음표",
+   "tags": [
+    "음악",
+    "노래",
+    "오디오",
+    "댄스"
+   ]
+  },
+  "animation:nube-lluvia": {
+   "name": "비구름",
+   "tags": [
+    "비",
+    "날씨",
+    "겨울",
+    "구름"
+   ]
+  },
+  "animation:nube-pensamiento": {
+   "name": "생각 풍선",
+   "tags": [
+    "생각",
+    "아이디어",
+    "텍스트",
+    "말풍선"
+   ]
+  },
+  "animation:nueva-notificacion": {
+   "name": "새 알림",
+   "tags": [
+    "알림",
+    "공지",
+    "메시지",
+    "앱"
+   ]
+  },
+  "animation:ojo-mira": {
+   "name": "쳐다보는 눈",
+   "tags": [
+    "눈",
+    "보기",
+    "주목",
+    "디테일"
+   ]
+  },
+  "animation:olas": {
+   "name": "파도",
+   "tags": [
+    "바다",
+    "해변",
+    "물",
+    "여름"
+   ]
+  },
+  "animation:onda-liquida": {
+   "name": "리퀴드 웨이브",
+   "tags": [
+    "전환",
+    "리퀴드",
+    "물결",
+    "장면 전환"
+   ]
+  },
+  "animation:ondas": {
+   "name": "퍼지는 파동",
+   "tags": [
+    "파동",
+    "레이더",
+    "위치",
+    "라이브"
+   ]
+  },
+  "animation:palomita": {
+   "name": "체크 표시",
+   "tags": [
+    "체크",
+    "완료",
+    "정답",
+    "확인"
+   ]
+  },
+  "animation:palomitas": {
+   "name": "팝콘",
+   "tags": [
+    "영화관",
+    "영화",
+    "팝콘",
+    "정주행"
+   ]
+  },
+  "animation:paraguas": {
+   "name": "우산",
+   "tags": [
+    "비",
+    "가을",
+    "보호",
+    "날씨"
+   ]
+  },
+  "animation:pastel-velas": {
+   "name": "생일 케이크",
+   "tags": [
+    "생일",
+    "케이크",
+    "촛불",
+    "파티"
+   ]
+  },
+  "animation:perfecto": {
+   "name": "완벽해",
+   "tags": [
+    "완벽",
+    "100점",
+    "승인",
+    "이모지"
+   ]
+  },
+  "animation:pergamino": {
+   "name": "두루마리 배너",
+   "tags": [
+    "타이틀",
+    "배너",
+    "중세",
+    "공지"
+   ]
+  },
+  "animation:persiana": {
+   "name": "블라인드",
+   "tags": [
+    "전환",
+    "막대",
+    "장면 전환"
+   ]
+  },
+  "animation:pesas": {
+   "name": "덤벨",
+   "tags": [
+    "헬스장",
+    "근력",
+    "운동",
+    "트레이닝"
+   ]
+  },
+  "animation:petalos-cerezo": {
+   "name": "벚꽃잎",
+   "tags": [
+    "봄",
+    "벚꽃",
+    "꽃",
+    "로맨틱"
+   ]
+  },
+  "animation:pizza": {
+   "name": "피자 조각",
+   "tags": [
+    "피자",
+    "음식",
+    "피자 파티",
+    "배달"
+   ]
+  },
+  "animation:podio": {
+   "name": "시상대",
+   "tags": [
+    "우승",
+    "1등",
+    "대회",
+    "상"
+   ]
+  },
+  "animation:porcentaje-oferta": {
+   "name": "퍼센트 할인",
+   "tags": [
+    "할인",
+    "특가",
+    "세일",
+    "프로모션"
+   ]
+  },
+  "animation:pulso-cardiaco": {
+   "name": "심장 박동",
+   "tags": [
+    "건강",
+    "심장",
+    "운동",
+    "유산소"
+   ]
+  },
+  "animation:puntos-onda": {
+   "name": "점 물결",
+   "tags": [
+    "점",
+    "배경",
+    "물결",
+    "패턴"
+   ]
+  },
+  "animation:rayos-fondo": {
+   "name": "회전하는 광선",
+   "tags": [
+    "광선",
+    "배경",
+    "특가",
+    "레트로",
+    "상품"
+   ]
+  },
+  "animation:reacciones-vivo": {
+   "name": "실시간 반응",
+   "tags": [
+    "반응",
+    "라이브",
+    "좋아요",
+    "하트"
+   ]
+  },
+  "animation:recuadro-a-mano": {
+   "name": "손그림 네모",
+   "tags": [
+    "강조",
+    "네모",
+    "낙서",
+    "가리키기"
+   ]
+  },
+  "animation:refresco": {
+   "name": "탄산음료 컵",
+   "tags": [
+    "음료",
+    "탄산음료",
+    "여름",
+    "파티"
+   ]
+  },
+  "animation:regalo-sorpresa": {
+   "name": "깜짝 선물",
+   "tags": [
+    "선물",
+    "서프라이즈",
+    "생일",
+    "크리스마스"
+   ]
+  },
+  "animation:reloj": {
+   "name": "시계",
+   "tags": [
+    "시간",
+    "시각",
+    "일정",
+    "정시"
+   ]
+  },
+  "animation:reloj-arena": {
+   "name": "모래시계",
+   "tags": [
+    "대기",
+    "시간",
+    "로딩",
+    "인내"
+   ]
+  },
+  "animation:reloj-medianoche": {
+   "name": "자정 카운트다운",
+   "tags": [
+    "새해",
+    "자정",
+    "카운트다운",
+    "파티"
+   ]
+  },
+  "animation:republicar": {
+   "name": "리포스트",
+   "tags": [
+    "공유",
+    "리포스트",
+    "반복",
+    "sns"
+   ]
+  },
+  "animation:resaltador": {
+   "name": "형광펜",
+   "tags": [
+    "형광펜",
+    "강조",
+    "텍스트",
+    "공부"
+   ]
+  },
+  "animation:salpicadura": {
+   "name": "물감 튀김",
+   "tags": [
+    "물감",
+    "튀김",
+    "도형",
+    "물방울"
+   ]
+  },
+  "animation:sandia": {
+   "name": "수박",
+   "tags": [
+    "수박",
+    "과일",
+    "여름",
+    "시원한"
+   ]
+  },
+  "animation:scroll-abajo": {
+   "name": "아래로 스크롤",
+   "tags": [
+    "스크롤",
+    "아래로",
+    "넘기기",
+    "더 보기"
+   ]
+  },
+  "animation:seguir-persona": {
+   "name": "새 팔로워",
+   "tags": [
+    "팔로우",
+    "팔로워",
+    "추가",
+    "친구"
+   ]
+  },
+  "animation:sello-oferta": {
+   "name": "세일 배지",
+   "tags": [
+    "세일",
+    "할인",
+    "판매",
+    "프로모션"
+   ]
+  },
+  "animation:sello-ondulado": {
+   "name": "물결 배지",
+   "tags": [
+    "배지",
+    "신상",
+    "특가",
+    "레트로"
+   ]
+  },
+  "animation:serpentinas": {
+   "name": "색종이 테이프",
+   "tags": [
+    "색종이 테이프",
+    "파티",
+    "생일",
+    "축하"
+   ]
+  },
+  "animation:silbato": {
+   "name": "호루라기",
+   "tags": [
+    "심판",
+    "코치",
+    "스포츠",
+    "반칙"
+   ]
+  },
+  "animation:sol": {
+   "name": "회전하는 태양",
+   "tags": [
+    "태양",
+    "여름",
+    "햇살",
+    "해변"
+   ]
+  },
+  "animation:sol-nube": {
+   "name": "해와 구름",
+   "tags": [
+    "해",
+    "흐림",
+    "날씨",
+    "좋은 하루"
+   ]
+  },
+  "animation:subrayado": {
+   "name": "손그림 밑줄",
+   "tags": [
+    "밑줄",
+    "강조",
+    "텍스트",
+    "손그림"
+   ]
+  },
+  "animation:subrayado-ondulado": {
+   "name": "물결 밑줄",
+   "tags": [
+    "밑줄",
+    "물결",
+    "강조",
+    "낙서"
+   ]
+  },
+  "animation:tachado-garabato": {
+   "name": "낙서로 지우기",
+   "tags": [
+    "지우기",
+    "줄 긋기",
+    "오류",
+    "낙서"
+   ]
+  },
+  "animation:tarjeta-aviso": {
+   "name": "알림 카드",
+   "tags": [
+    "안내",
+    "알림",
+    "메시지",
+    "배너"
+   ]
+  },
+  "animation:tarjeta-pago": {
+   "name": "결제 카드",
+   "tags": [
+    "결제",
+    "카드",
+    "구매",
+    "쇼핑몰"
+   ]
+  },
+  "animation:tazon-fideos": {
+   "name": "국수 그릇",
+   "tags": [
+    "국수",
+    "라멘",
+    "수프",
+    "저녁"
+   ]
+  },
+  "animation:telefono": {
+   "name": "전화",
+   "tags": [
+    "전화",
+    "연락처",
+    "문의",
+    "주문"
+   ]
+  },
+  "animation:tercio-inferior": {
+   "name": "하단 자막",
+   "tags": [
+    "이름",
+    "타이틀",
+    "인터뷰",
+    "소개"
+   ]
+  },
+  "animation:termometro-calor": {
+   "name": "더위",
+   "tags": [
+    "더위",
+    "여름",
+    "온도",
+    "해"
+   ]
+  },
+  "animation:tienda": {
+   "name": "가게",
+   "tags": [
+    "가게",
+    "비즈니스",
+    "영업 중",
+    "매장"
+   ]
+  },
+  "animation:toca-aqui": {
+   "name": "여기를 탭하세요",
+   "tags": [
+    "탭",
+    "클릭",
+    "링크",
+    "버튼"
+   ]
+  },
+  "animation:tormenta": {
+   "name": "뇌우",
+   "tags": [
+    "폭풍",
+    "번개",
+    "비",
+    "날씨"
+   ]
+  },
+  "animation:trofeo": {
+   "name": "트로피",
+   "tags": [
+    "트로피",
+    "성취",
+    "우승",
+    "상",
+    "대회"
+   ]
+  },
+  "animation:ubicacion": {
+   "name": "위치 핀",
+   "tags": [
+    "위치",
+    "지도",
+    "주소",
+    "방문"
+   ]
+  },
+  "animation:varita-magica": {
+   "name": "요술봉",
+   "tags": [
+    "요술봉",
+    "마법",
+    "소원",
+    "서프라이즈",
+    "반짝이"
+   ]
+  },
+  "animation:verificado": {
+   "name": "인증 배지",
+   "tags": [
+    "인증",
+    "공식",
+    "승인",
+    "배지"
+   ]
+  },
+  "animation:viento": {
+   "name": "바람",
+   "tags": [
+    "바람",
+    "산들바람",
+    "공기",
+    "추위"
+   ]
+  },
+  "animation:wifi": {
+   "name": "와이파이 신호",
+   "tags": [
+    "인터넷",
+    "연결",
+    "신호",
+    "와이파이"
+   ]
+  },
+  "overlay:amor-corazones": {
+   "name": "떠오르는 하트",
+   "tags": [
+    "하트",
+    "사랑",
+    "발렌타인데이",
+    "로맨틱"
+   ]
+  },
+  "overlay:amor-corazones-brillo": {
+   "name": "반짝이는 하트",
+   "tags": [
+    "하트",
+    "반짝이",
+    "사랑",
+    "발렌타인데이"
+   ]
+  },
+  "overlay:amor-corazones-contorno": {
+   "name": "라인 하트",
+   "tags": [
+    "하트",
+    "라인",
+    "사랑",
+    "발렌타인데이"
+   ]
+  },
+  "overlay:amor-corazones-neon": {
+   "name": "네온 하트",
+   "tags": [
+    "하트",
+    "네온",
+    "사랑",
+    "발렌타인데이"
+   ]
+  },
+  "overlay:amor-corazones-rojos": {
+   "name": "빨간 하트",
+   "tags": [
+    "하트",
+    "빨강",
+    "사랑",
+    "발렌타인데이"
+   ]
+  },
+  "overlay:amor-explosion-corazones": {
+   "name": "하트 폭발",
+   "tags": [
+    "하트",
+    "폭발",
+    "사랑",
+    "서프라이즈"
+   ]
+  },
+  "overlay:amor-globos-corazon": {
+   "name": "하트 풍선",
+   "tags": [
+    "풍선",
+    "하트",
+    "사랑",
+    "발렌타인데이"
+   ]
+  },
+  "overlay:amor-likes": {
+   "name": "라이브 좋아요",
+   "tags": [
+    "좋아요",
+    "하트",
+    "라이브",
+    "sns"
+   ]
+  },
+  "overlay:amor-lluvia-corazones": {
+   "name": "떨어지는 하트",
+   "tags": [
+    "하트",
+    "하트 비",
+    "사랑",
+    "발렌타인데이"
+   ]
+  },
+  "overlay:amor-marco-corazones": {
+   "name": "하트 프레임",
+   "tags": [
+    "하트",
+    "프레임",
+    "사랑",
+    "발렌타인데이"
+   ]
+  },
+  "overlay:amor-petalos": {
+   "name": "장미 꽃잎",
+   "tags": [
+    "꽃잎",
+    "장미",
+    "결혼식",
+    "로맨틱"
+   ]
+  },
+  "overlay:amor-petalos-blancos": {
+   "name": "하얀 꽃잎",
+   "tags": [
+    "꽃잎",
+    "화이트",
+    "결혼식",
+    "웨딩"
+   ]
+  },
+  "overlay:amor-petalos-rosa": {
+   "name": "연핑크 꽃잎",
+   "tags": [
+    "꽃잎",
+    "핑크",
+    "결혼식",
+    "로맨틱"
+   ]
+  },
+  "overlay:cel-confeti": {
+   "name": "꽃가루 비",
+   "tags": [
+    "꽃가루",
+    "컨페티",
+    "파티",
+    "생일",
+    "축하"
+   ]
+  },
+  "overlay:cel-confeti-circulos": {
+   "name": "도트 꽃가루",
+   "tags": [
+    "꽃가루",
+    "도트",
+    "원형",
+    "파티"
+   ]
+  },
+  "overlay:cel-confeti-corazones": {
+   "name": "하트 꽃가루",
+   "tags": [
+    "꽃가루",
+    "하트",
+    "결혼식",
+    "사랑"
+   ]
+  },
+  "overlay:cel-confeti-desde-arriba": {
+   "name": "위에서 쏟아지는 꽃가루",
+   "tags": [
+    "꽃가루",
+    "폭발",
+    "축포",
+    "서프라이즈"
+   ]
+  },
+  "overlay:cel-confeti-dorado": {
+   "name": "골드 꽃가루",
+   "tags": [
+    "꽃가루",
+    "골드",
+    "새해",
+    "파티"
+   ]
+  },
+  "overlay:cel-confeti-explosion": {
+   "name": "꽃가루 팡",
+   "tags": [
+    "꽃가루",
+    "폭발",
+    "축포",
+    "서프라이즈"
+   ]
+  },
+  "overlay:cel-confeti-grande": {
+   "name": "큰 꽃가루",
+   "tags": [
+    "꽃가루",
+    "큰",
+    "파티",
+    "신나는"
+   ]
+  },
+  "overlay:cel-confeti-pastel": {
+   "name": "파스텔 꽃가루",
+   "tags": [
+    "꽃가루",
+    "파스텔",
+    "베이비 샤워",
+    "아기",
+    "생일"
+   ]
+  },
+  "overlay:cel-confeti-plata": {
+   "name": "실버 꽃가루",
+   "tags": [
+    "꽃가루",
+    "실버",
+    "결혼식",
+    "기념일"
+   ]
+  },
+  "overlay:cel-estrellas": {
+   "name": "떨어지는 별",
+   "tags": [
+    "별",
+    "파티",
+    "아이들",
+    "축하"
+   ]
+  },
+  "overlay:cel-estrellas-doradas": {
+   "name": "골드 별",
+   "tags": [
+    "별",
+    "골드",
+    "상",
+    "축하"
+   ]
+  },
+  "overlay:cel-explosion-centro": {
+   "name": "중앙 폭발",
+   "tags": [
+    "꽃가루",
+    "폭발",
+    "축포",
+    "서프라이즈",
+    "중앙"
+   ]
+  },
+  "overlay:cel-explosion-dorada": {
+   "name": "골드 폭발",
+   "tags": [
+    "꽃가루",
+    "폭발",
+    "골드",
+    "축포"
+   ]
+  },
+  "overlay:cel-explosion-estrellas": {
+   "name": "별 폭발",
+   "tags": [
+    "별",
+    "폭발",
+    "축포",
+    "서프라이즈"
+   ]
+  },
+  "overlay:cel-fuegos-artificiales": {
+   "name": "불꽃놀이",
+   "tags": [
+    "불꽃놀이",
+    "새해",
+    "파티",
+    "축하"
+   ]
+  },
+  "overlay:cel-fuegos-dorados": {
+   "name": "골드 불꽃놀이",
+   "tags": [
+    "불꽃놀이",
+    "골드",
+    "새해",
+    "파티"
+   ]
+  },
+  "overlay:cel-fuegos-final": {
+   "name": "불꽃놀이 피날레",
+   "tags": [
+    "불꽃놀이",
+    "피날레",
+    "새해",
+    "파티"
+   ]
+  },
+  "overlay:cel-fuegos-lejanos": {
+   "name": "멀리서 터지는 불꽃",
+   "tags": [
+    "불꽃놀이",
+    "먼",
+    "새해",
+    "밤"
+   ]
+  },
+  "overlay:cel-globos": {
+   "name": "풍선",
+   "tags": [
+    "풍선",
+    "생일",
+    "파티",
+    "축하"
+   ]
+  },
+  "overlay:cel-globos-dorados": {
+   "name": "골드 실버 풍선",
+   "tags": [
+    "풍선",
+    "골드",
+    "실버",
+    "생일",
+    "파티"
+   ]
+  },
+  "overlay:cel-globos-pastel": {
+   "name": "파스텔 풍선",
+   "tags": [
+    "풍선",
+    "파스텔",
+    "생일",
+    "파티"
+   ]
+  },
+  "overlay:cel-lluvia-billetes": {
+   "name": "지폐 비",
+   "tags": [
+    "지폐",
+    "돈",
+    "부자",
+    "돈벼락"
+   ]
+  },
+  "overlay:cel-lluvia-emojis": {
+   "name": "이모지 비",
+   "tags": [
+    "이모지",
+    "웃는 얼굴",
+    "행복",
+    "유머",
+    "재미"
+   ]
+  },
+  "overlay:cel-lluvia-monedas": {
+   "name": "동전 비",
+   "tags": [
+    "동전",
+    "코인",
+    "돈",
+    "당첨"
+   ]
+  },
+  "overlay:cel-lluvia-regalos": {
+   "name": "선물 비",
+   "tags": [
+    "선물",
+    "크리스마스",
+    "생일",
+    "경품"
+   ]
+  },
+  "overlay:cel-purpurina": {
+   "name": "글리터",
+   "tags": [
+    "글리터",
+    "반짝이",
+    "골드",
+    "파티"
+   ]
+  },
+  "overlay:cel-serpentinas": {
+   "name": "색종이 테이프",
+   "tags": [
+    "색종이 테이프",
+    "파티",
+    "카니발",
+    "생일"
+   ]
+  },
+  "overlay:clima-arcoiris": {
+   "name": "무지개",
+   "tags": [
+    "무지개",
+    "날씨",
+    "자연",
+    "컬러"
+   ]
+  },
+  "overlay:clima-copos": {
+   "name": "눈송이",
+   "tags": [
+    "눈송이",
+    "눈",
+    "겨울",
+    "날씨"
+   ]
+  },
+  "overlay:clima-dientes-de-leon": {
+   "name": "민들레 홀씨",
+   "tags": [
+    "민들레",
+    "홀씨",
+    "자연",
+    "바람"
+   ]
+  },
+  "overlay:clima-gotas-cristal": {
+   "name": "유리창 빗방울",
+   "tags": [
+    "빗방울",
+    "유리창",
+    "비",
+    "감성"
+   ]
+  },
+  "overlay:clima-hojas": {
+   "name": "가을 낙엽",
+   "tags": [
+    "낙엽",
+    "가을",
+    "단풍",
+    "자연"
+   ]
+  },
+  "overlay:clima-hojas-verdes": {
+   "name": "초록 잎",
+   "tags": [
+    "잎",
+    "초록",
+    "자연",
+    "봄"
+   ]
+  },
+  "overlay:clima-humo": {
+   "name": "연기",
+   "tags": [
+    "연기",
+    "수증기",
+    "미스터리",
+    "드라마틱"
+   ]
+  },
+  "overlay:clima-humo-azul": {
+   "name": "블루 연기",
+   "tags": [
+    "연기",
+    "블루",
+    "미스터리",
+    "분위기"
+   ]
+  },
+  "overlay:clima-humo-colores": {
+   "name": "컬러 연기",
+   "tags": [
+    "연기",
+    "컬러",
+    "컬러 스모크",
+    "파티"
+   ]
+  },
+  "overlay:clima-humo-rosa": {
+   "name": "핑크 연기",
+   "tags": [
+    "연기",
+    "핑크",
+    "젠더 리빌",
+    "분위기"
+   ]
+  },
+  "overlay:clima-lluvia": {
+   "name": "비",
+   "tags": [
+    "비",
+    "폭풍",
+    "슬픔",
+    "우울"
+   ]
+  },
+  "overlay:clima-lluvia-ligera": {
+   "name": "이슬비",
+   "tags": [
+    "이슬비",
+    "비",
+    "날씨",
+    "잔잔한"
+   ]
+  },
+  "overlay:clima-nevada": {
+   "name": "눈보라",
+   "tags": [
+    "눈",
+    "눈보라",
+    "폭설",
+    "겨울"
+   ]
+  },
+  "overlay:clima-niebla": {
+   "name": "안개",
+   "tags": [
+    "안개",
+    "연무",
+    "미스터리",
+    "분위기"
+   ]
+  },
+  "overlay:clima-niebla-baja": {
+   "name": "낮게 깔린 안개",
+   "tags": [
+    "안개",
+    "바닥 안개",
+    "무대",
+    "분위기"
+   ]
+  },
+  "overlay:clima-nieve": {
+   "name": "부드러운 눈",
+   "tags": [
+    "눈",
+    "겨울",
+    "크리스마스",
+    "함박눈"
+   ]
+  },
+  "overlay:clima-noche-estrellada": {
+   "name": "별이 빛나는 밤",
+   "tags": [
+    "별",
+    "밤하늘",
+    "밤",
+    "자연"
+   ]
+  },
+  "overlay:clima-petalos-flores": {
+   "name": "컬러풀 꽃잎",
+   "tags": [
+    "꽃잎",
+    "꽃",
+    "컬러",
+    "봄"
+   ]
+  },
+  "overlay:garabato-angel": {
+   "name": "천사 날개와 링",
+   "tags": [
+    "낙서",
+    "두들",
+    "천사",
+    "날개",
+    "감성"
+   ]
+  },
+  "overlay:garabato-angel-dorado": {
+   "name": "골드 천사 날개",
+   "tags": [
+    "낙서",
+    "두들",
+    "천사",
+    "날개",
+    "골드"
+   ]
+  },
+  "overlay:garabato-brillo": {
+   "name": "반짝 라인",
+   "tags": [
+    "낙서",
+    "두들",
+    "반짝",
+    "손그림"
+   ]
+  },
+  "overlay:garabato-caritas": {
+   "name": "낙서 스마일",
+   "tags": [
+    "낙서",
+    "두들",
+    "스마일",
+    "얼굴",
+    "손그림"
+   ]
+  },
+  "overlay:garabato-cielo": {
+   "name": "낙서 하늘",
+   "tags": [
+    "낙서",
+    "두들",
+    "하늘",
+    "구름",
+    "손그림"
+   ]
+  },
+  "overlay:garabato-circulo": {
+   "name": "손그림 동그라미",
+   "tags": [
+    "낙서",
+    "두들",
+    "동그라미",
+    "강조"
+   ]
+  },
+  "overlay:garabato-circulo-rojo": {
+   "name": "빨간 손그림 동그라미",
+   "tags": [
+    "낙서",
+    "두들",
+    "동그라미",
+    "빨강",
+    "강조"
+   ]
+  },
+  "overlay:garabato-corazones": {
+   "name": "낙서 하트",
+   "tags": [
+    "낙서",
+    "두들",
+    "하트",
+    "손그림"
+   ]
+  },
+  "overlay:garabato-corazones-rosa": {
+   "name": "핑크 낙서 하트",
+   "tags": [
+    "낙서",
+    "두들",
+    "하트",
+    "핑크"
+   ]
+  },
+  "overlay:garabato-corona": {
+   "name": "낙서 왕관",
+   "tags": [
+    "낙서",
+    "두들",
+    "왕관",
+    "손그림"
+   ]
+  },
+  "overlay:garabato-corona-dorada": {
+   "name": "골드 낙서 왕관",
+   "tags": [
+    "낙서",
+    "두들",
+    "왕관",
+    "골드"
+   ]
+  },
+  "overlay:garabato-diablito": {
+   "name": "꼬마 악마",
+   "tags": [
+    "낙서",
+    "두들",
+    "악마",
+    "장난"
+   ]
+  },
+  "overlay:garabato-diablito-blanco": {
+   "name": "낙서 악마 뿔",
+   "tags": [
+    "낙서",
+    "두들",
+    "악마 뿔",
+    "화이트"
+   ]
+  },
+  "overlay:garabato-estallido": {
+   "name": "낙서 폭발",
+   "tags": [
+    "낙서",
+    "두들",
+    "폭발",
+    "강조"
+   ]
+  },
+  "overlay:garabato-estrellas": {
+   "name": "낙서 별",
+   "tags": [
+    "낙서",
+    "두들",
+    "별",
+    "손그림"
+   ]
+  },
+  "overlay:garabato-estrellas-doradas": {
+   "name": "골드 낙서 별",
+   "tags": [
+    "낙서",
+    "두들",
+    "별",
+    "골드"
+   ]
+  },
+  "overlay:garabato-flechas": {
+   "name": "낙서 화살표",
+   "tags": [
+    "낙서",
+    "두들",
+    "화살표",
+    "손그림"
+   ]
+  },
+  "overlay:garabato-flechas-girando": {
+   "name": "회전하는 화살표",
+   "tags": [
+    "낙서",
+    "두들",
+    "화살표",
+    "회전"
+   ]
+  },
+  "overlay:garabato-flechas-neon": {
+   "name": "네온 낙서 화살표",
+   "tags": [
+    "낙서",
+    "두들",
+    "화살표",
+    "네온"
+   ]
+  },
+  "overlay:garabato-flores": {
+   "name": "낙서 꽃",
+   "tags": [
+    "낙서",
+    "두들",
+    "꽃",
+    "손그림"
+   ]
+  },
+  "overlay:garabato-mariposas": {
+   "name": "낙서 나비",
+   "tags": [
+    "낙서",
+    "두들",
+    "나비",
+    "손그림"
+   ]
+  },
+  "overlay:garabato-mix": {
+   "name": "낙서 믹스",
+   "tags": [
+    "낙서",
+    "두들",
+    "믹스",
+    "손그림",
+    "감성"
+   ]
+  },
+  "overlay:garabato-mix-negro": {
+   "name": "블랙 낙서 믹스",
+   "tags": [
+    "낙서",
+    "두들",
+    "믹스",
+    "블랙"
+   ]
+  },
+  "overlay:garabato-mix-rosa": {
+   "name": "핑크 낙서 믹스",
+   "tags": [
+    "낙서",
+    "두들",
+    "믹스",
+    "핑크"
+   ]
+  },
+  "overlay:garabato-musica": {
+   "name": "낙서 음표",
+   "tags": [
+    "낙서",
+    "두들",
+    "음표",
+    "음악"
+   ]
+  },
+  "overlay:garabato-neon-corazones": {
+   "name": "네온 낙서 하트",
+   "tags": [
+    "낙서",
+    "두들",
+    "하트",
+    "네온"
+   ]
+  },
+  "overlay:garabato-rayos": {
+   "name": "낙서 번개",
+   "tags": [
+    "낙서",
+    "두들",
+    "번개",
+    "에너지"
+   ]
+  },
+  "overlay:garabato-signos": {
+   "name": "낙서 기호",
+   "tags": [
+    "낙서",
+    "두들",
+    "기호",
+    "느낌표"
+   ]
+  },
+  "overlay:garabato-subrayado": {
+   "name": "손그림 밑줄",
+   "tags": [
+    "낙서",
+    "두들",
+    "밑줄",
+    "강조"
+   ]
+  },
+  "overlay:luz-arcoiris": {
+   "name": "무지개 빛",
+   "tags": [
+    "빛",
+    "무지개",
+    "프리즘",
+    "컬러"
+   ]
+  },
+  "overlay:luz-barrido-calido": {
+   "name": "따뜻한 빛 스윕",
+   "tags": [
+    "스윕",
+    "전환",
+    "빛",
+    "따뜻한"
+   ]
+  },
+  "overlay:luz-barrido-rosa": {
+   "name": "핑크 빛 스윕",
+   "tags": [
+    "스윕",
+    "전환",
+    "빛",
+    "핑크"
+   ]
+  },
+  "overlay:luz-bokeh-azul": {
+   "name": "블루 밤 보케",
+   "tags": [
+    "보케",
+    "블루",
+    "밤",
+    "도시"
+   ]
+  },
+  "overlay:luz-bokeh-blanco": {
+   "name": "화이트 보케",
+   "tags": [
+    "보케",
+    "화이트",
+    "빛망울",
+    "블러"
+   ]
+  },
+  "overlay:luz-bokeh-cayendo": {
+   "name": "떨어지는 보케",
+   "tags": [
+    "보케",
+    "떨어지는",
+    "빛망울",
+    "크리스마스"
+   ]
+  },
+  "overlay:luz-bokeh-color": {
+   "name": "컬러풀 보케",
+   "tags": [
+    "보케",
+    "컬러",
+    "파티",
+    "빛망울",
+    "밤"
+   ]
+  },
+  "overlay:luz-bokeh-corazones": {
+   "name": "하트 보케",
+   "tags": [
+    "보케",
+    "하트",
+    "사랑",
+    "로맨틱"
+   ]
+  },
+  "overlay:luz-bokeh-dorado": {
+   "name": "골드 보케",
+   "tags": [
+    "보케",
+    "골드",
+    "빛망울",
+    "블러"
+   ]
+  },
+  "overlay:luz-bokeh-estrellas": {
+   "name": "별 보케",
+   "tags": [
+    "보케",
+    "별",
+    "마법",
+    "크리스마스"
+   ]
+  },
+  "overlay:luz-bokeh-rosa": {
+   "name": "핑크 보케",
+   "tags": [
+    "보케",
+    "핑크",
+    "로맨틱",
+    "빛망울"
+   ]
+  },
+  "overlay:luz-destello": {
+   "name": "렌즈 플레어",
+   "tags": [
+    "플레어",
+    "렌즈 플레어",
+    "렌즈",
+    "햇빛"
+   ]
+  },
+  "overlay:luz-destello-azul": {
+   "name": "블루 아나모픽 플레어",
+   "tags": [
+    "플레어",
+    "아나모픽",
+    "블루",
+    "시네마틱"
+   ]
+  },
+  "overlay:luz-escaner": {
+   "name": "스캐너 라인",
+   "tags": [
+    "스캐너",
+    "레이저",
+    "기술",
+    "테크"
+   ]
+  },
+  "overlay:luz-flash-transicion": {
+   "name": "플래시 전환",
+   "tags": [
+    "플래시",
+    "섬광",
+    "전환",
+    "화이트"
+   ]
+  },
+  "overlay:luz-fuga-calida": {
+   "name": "따뜻한 빛샘",
+   "tags": [
+    "빛샘",
+    "라이트 릭",
+    "따뜻한",
+    "오렌지",
+    "필름"
+   ]
+  },
+  "overlay:luz-fuga-dorada": {
+   "name": "골드 빛샘",
+   "tags": [
+    "빛샘",
+    "라이트 릭",
+    "골드",
+    "필름"
+   ]
+  },
+  "overlay:luz-fuga-esquina": {
+   "name": "모서리 글로우",
+   "tags": [
+    "빛샘",
+    "라이트 릭",
+    "모서리",
+    "필름"
+   ]
+  },
+  "overlay:luz-fuga-esquina-rosa": {
+   "name": "핑크 모서리 글로우",
+   "tags": [
+    "빛샘",
+    "라이트 릭",
+    "모서리",
+    "핑크"
+   ]
+  },
+  "overlay:luz-fuga-fria": {
+   "name": "차가운 빛샘",
+   "tags": [
+    "빛샘",
+    "라이트 릭",
+    "블루",
+    "차가운"
+   ]
+  },
+  "overlay:luz-fuga-roja": {
+   "name": "레드 빛샘",
+   "tags": [
+    "빛샘",
+    "라이트 릭",
+    "레드",
+    "필름"
+   ]
+  },
+  "overlay:luz-fuga-rosa": {
+   "name": "핑크 빛샘",
+   "tags": [
+    "빛샘",
+    "라이트 릭",
+    "핑크",
+    "로맨틱"
+   ]
+  },
+  "overlay:luz-fuga-turquesa": {
+   "name": "틸 앤 오렌지 빛샘",
+   "tags": [
+    "빛샘",
+    "라이트 릭",
+    "청록",
+    "오렌지",
+    "필름"
+   ]
+  },
+  "overlay:luz-fuga-verde": {
+   "name": "빈티지 그린 빛샘",
+   "tags": [
+    "빛샘",
+    "라이트 릭",
+    "그린",
+    "빈티지"
+   ]
+  },
+  "overlay:luz-fuga-violeta": {
+   "name": "퍼플 빛샘",
+   "tags": [
+    "빛샘",
+    "라이트 릭",
+    "퍼플",
+    "보라"
+   ]
+  },
+  "overlay:luz-luces-ciudad": {
+   "name": "도시의 불빛",
+   "tags": [
+    "도시",
+    "불빛",
+    "밤",
+    "야경"
+   ]
+  },
+  "overlay:luz-luces-navidad": {
+   "name": "크리스마스 조명",
+   "tags": [
+    "크리스마스",
+    "조명",
+    "전구",
+    "보케"
+   ]
+  },
+  "overlay:luz-luciernagas": {
+   "name": "반딧불이",
+   "tags": [
+    "반딧불이",
+    "마법",
+    "밤",
+    "숲"
+   ]
+  },
+  "overlay:luz-neon-barrido": {
+   "name": "네온 스윕",
+   "tags": [
+    "네온",
+    "스윕",
+    "전환",
+    "빛"
+   ]
+  },
+  "overlay:luz-prisma": {
+   "name": "무지개 프리즘",
+   "tags": [
+    "프리즘",
+    "무지개",
+    "굴절",
+    "빛"
+   ]
+  },
+  "overlay:luz-rayos": {
+   "name": "햇살 광선",
+   "tags": [
+    "광선",
+    "햇살",
+    "햇빛",
+    "빛"
+   ]
+  },
+  "overlay:luz-sol": {
+   "name": "썬 플레어",
+   "tags": [
+    "햇빛",
+    "플레어",
+    "여름",
+    "태양"
+   ]
+  },
+  "overlay:part-ascendentes": {
+   "name": "떠오르는 빛",
+   "tags": [
+    "빛",
+    "떠오르는",
+    "영적인",
+    "평화"
+   ]
+  },
+  "overlay:part-bengala": {
+   "name": "스파클러",
+   "tags": [
+    "스파클러",
+    "불꽃",
+    "새해",
+    "결혼식"
+   ]
+  },
+  "overlay:part-brasas": {
+   "name": "불씨",
+   "tags": [
+    "불씨",
+    "불",
+    "모닥불",
+    "따뜻한"
+   ]
+  },
+  "overlay:part-brasas-azules": {
+   "name": "블루 불씨",
+   "tags": [
+    "불씨",
+    "블루",
+    "마법",
+    "판타지"
+   ]
+  },
+  "overlay:part-brillos": {
+   "name": "반짝임",
+   "tags": [
+    "반짝이",
+    "반짝임",
+    "스파클",
+    "마법"
+   ]
+  },
+  "overlay:part-brillos-azules": {
+   "name": "블루 반짝임",
+   "tags": [
+    "반짝이",
+    "블루",
+    "스파클",
+    "얼음"
+   ]
+  },
+  "overlay:part-brillos-dorados": {
+   "name": "골드 반짝임",
+   "tags": [
+    "반짝이",
+    "골드",
+    "스파클",
+    "우아한"
+   ]
+  },
+  "overlay:part-brillos-rosa": {
+   "name": "핑크 반짝임",
+   "tags": [
+    "반짝이",
+    "핑크",
+    "스파클",
+    "감성"
+   ]
+  },
+  "overlay:part-burbujas": {
+   "name": "비눗방울",
+   "tags": [
+    "비눗방울",
+    "거품",
+    "물",
+    "아이들"
+   ]
+  },
+  "overlay:part-burbujas-arcoiris": {
+   "name": "무지갯빛 비눗방울",
+   "tags": [
+    "비눗방울",
+    "무지갯빛",
+    "홀로그램",
+    "무지개"
+   ]
+  },
+  "overlay:part-chispas": {
+   "name": "불꽃 스파크",
+   "tags": [
+    "스파크",
+    "불꽃",
+    "불",
+    "에너지"
+   ]
+  },
+  "overlay:part-chispas-azules": {
+   "name": "블루 스파크",
+   "tags": [
+    "스파크",
+    "블루",
+    "불꽃",
+    "에너지"
+   ]
+  },
+  "overlay:part-destellos-grandes": {
+   "name": "큰 반짝임",
+   "tags": [
+    "반짝임",
+    "큰",
+    "스파클",
+    "상품"
+   ]
+  },
+  "overlay:part-estrellas-fugaces": {
+   "name": "별똥별",
+   "tags": [
+    "별똥별",
+    "하늘",
+    "밤",
+    "소원"
+   ]
+  },
+  "overlay:part-estrellitas": {
+   "name": "작은 별",
+   "tags": [
+    "작은 별",
+    "별",
+    "아이들",
+    "마법"
+   ]
+  },
+  "overlay:part-explosion-chispas": {
+   "name": "스파크 폭발",
+   "tags": [
+    "폭발",
+    "스파크",
+    "임팩트",
+    "타격"
+   ]
+  },
+  "overlay:part-lluvia-luces": {
+   "name": "빛의 비",
+   "tags": [
+    "빛의 비",
+    "조명",
+    "파티",
+    "클럽"
+   ]
+  },
+  "overlay:part-lluvia-meteoros": {
+   "name": "유성우",
+   "tags": [
+    "유성우",
+    "별똥별",
+    "하늘",
+    "밤"
+   ]
+  },
+  "overlay:part-motas-luz": {
+   "name": "햇살 속 먼지",
+   "tags": [
+    "먼지",
+    "햇살",
+    "빛",
+    "입자"
+   ]
+  },
+  "overlay:part-nieve-brillante": {
+   "name": "반짝이 눈",
+   "tags": [
+    "눈",
+    "반짝이",
+    "겨울",
+    "크리스마스"
+   ]
+  },
+  "overlay:part-orbes": {
+   "name": "빛 구슬",
+   "tags": [
+    "오브",
+    "빛",
+    "부드러운",
+    "꿈"
+   ]
+  },
+  "overlay:part-polvo-dorado": {
+   "name": "골드 가루",
+   "tags": [
+    "가루",
+    "골드",
+    "반짝이",
+    "마법"
+   ]
+  },
+  "overlay:part-polvo-magico": {
+   "name": "마법 가루 궤적",
+   "tags": [
+    "마법",
+    "요술봉",
+    "가루",
+    "반짝이"
+   ]
+  },
+  "overlay:part-polvo-plateado": {
+   "name": "실버 가루",
+   "tags": [
+    "가루",
+    "실버",
+    "반짝이",
+    "겨울"
+   ]
+  },
+  "overlay:part-polvo-rosa": {
+   "name": "핑크 가루",
+   "tags": [
+    "가루",
+    "핑크",
+    "반짝이",
+    "감성"
+   ]
+  },
+  "overlay:part-velocidad-luz": {
+   "name": "광속 워프",
+   "tags": [
+    "속도",
+    "워프",
+    "우주",
+    "별"
+   ]
+  },
+  "template:album-scrapbook": {
+   "name": "스크랩북 앨범",
+   "tags": [
+    "앨범",
+    "스크랩북",
+    "추억",
+    "커플"
+   ]
+  },
+  "template:anio-nuevo-cuenta-regresiva": {
+   "name": "새해 카운트다운",
+   "tags": [
+    "새해",
+    "카운트다운",
+    "2027",
+    "불꽃놀이",
+    "파티"
+   ]
+  },
+  "template:aniversario-pareja": {
+   "name": "커플 기념일",
+   "tags": [
+    "기념일",
+    "커플",
+    "사랑",
+    "연인",
+    "함께한 시간"
+   ]
+  },
+  "template:antes-despues-deslizador": {
+   "name": "비포 애프터",
+   "tags": [
+    "비포 애프터",
+    "전후 비교",
+    "비교",
+    "변화"
+   ]
+  },
+  "template:anuncio-embarazo": {
+   "name": "임신 발표",
+   "tags": [
+    "임신",
+    "아기",
+    "발표",
+    "가족",
+    "세 식구"
+   ]
+  },
+  "template:apertura-pelicula": {
+   "name": "영화 오프닝",
+   "tags": [
+    "영화",
+    "시네마",
+    "가족",
+    "타이틀"
+   ]
+  },
+  "template:baby-shower": {
+   "name": "베이비 샤워",
+   "tags": [
+    "베이비 샤워",
+    "아기",
+    "초대장",
+    "파티",
+    "임신"
+   ]
+  },
+  "template:barberia-antes-despues": {
+   "name": "바버숍 비포 애프터",
+   "tags": [
+    "바버숍",
+    "커트",
+    "수염",
+    "비포 애프터",
+    "페이드"
+   ]
+  },
+  "template:black-friday-ofertas": {
+   "name": "블랙 프라이데이 특가",
+   "tags": [
+    "블랙 프라이데이",
+    "특가",
+    "할인",
+    "쇼핑몰",
+    "11월"
+   ]
+  },
+  "template:black-friday-ultimas-horas": {
+   "name": "블랙 프라이데이: 마감 임박",
+   "tags": [
+    "블랙 프라이데이",
+    "마감 임박",
+    "세일",
+    "패션",
+    "럭셔리"
+   ]
+  },
+  "template:blanco-y-negro-a-color": {
+   "name": "흑백에서 컬러로",
+   "tags": [
+    "흑백",
+    "컬러",
+    "커플",
+    "공개",
+    "사랑"
+   ]
+  },
+  "template:boda-save-the-date": {
+   "name": "결혼식 세이브 더 데이트",
+   "tags": [
+    "결혼식",
+    "세이브 더 데이트",
+    "청첩장",
+    "웨딩",
+    "신랑 신부"
+   ]
+  },
+  "template:cafe-nuevo-en-la-carta": {
+   "name": "신메뉴 출시",
+   "tags": [
+    "카페",
+    "커피",
+    "신메뉴",
+    "메뉴판",
+    "음료"
+   ]
+  },
+  "template:camara-lenta-con-letra": {
+   "name": "가사가 있는 슬로 모션",
+   "tags": [
+    "슬로 모션",
+    "가사",
+    "노래",
+    "커플",
+    "시네마틱"
+   ]
+  },
+  "template:cancion-criolla": {
+   "name": "라이브 음악의 밤",
+   "tags": [
+    "라이브 음악",
+    "콘서트",
+    "왈츠",
+    "밤",
+    "빈티지"
+   ]
+  },
+  "template:catrina-dia-de-muertos": {
+   "name": "해골 메이크업",
+   "tags": [
+    "해골 메이크업",
+    "망자의 날",
+    "메이크업",
+    "멕시코",
+    "꽃"
+   ]
+  },
+  "template:checklist-que-se-marca": {
+   "name": "체크되는 체크리스트",
+   "tags": [
+    "체크리스트",
+    "리스트",
+    "할 일",
+    "여행",
+    "정리"
+   ]
+  },
+  "template:cierre-negocio": {
+   "name": "비즈니스 엔딩",
+   "tags": [
+    "비즈니스",
+    "연락처",
+    "창업",
+    "배달"
+   ]
+  },
+  "template:cierre-parte-2": {
+   "name": "2편은 프로필에서",
+   "tags": [
+    "2편",
+    "다음 편",
+    "엔딩",
+    "프로필",
+    "팔로우"
+   ]
+  },
+  "template:cierre-siguenos": {
+   "name": "엔딩: 팔로우해 주세요",
+   "tags": [
+    "엔딩",
+    "팔로우",
+    "sns",
+    "구독"
+   ]
+  },
+  "template:cita-minimalista": {
+   "name": "미니멀 명언",
+   "tags": [
+    "명언",
+    "글귀",
+    "미니멀",
+    "우아한",
+    "성찰"
+   ]
+  },
+  "template:clip-de-podcast": {
+   "name": "팟캐스트 클립",
+   "tags": [
+    "팟캐스트",
+    "자막",
+    "인터뷰",
+    "클립",
+    "대화"
+   ]
+  },
+  "template:collage-2x2": {
+   "name": "2×2 콜라주",
+   "tags": [
+    "콜라주",
+    "그리드",
+    "주말",
+    "사진"
+   ]
+  },
+  "template:concierto-festival": {
+   "name": "콘서트의 밤",
+   "tags": [
+    "콘서트",
+    "페스티벌",
+    "음악",
+    "파티",
+    "라이브"
+   ]
+  },
+  "template:cosas-que-no-sabias": {
+   "name": "몰랐던 사실들",
+   "tags": [
+    "흥미로운 사실",
+    "알고 계셨나요",
+    "상식",
+    "교육",
+    "퀴즈"
+   ]
+  },
+  "template:cuenta-3-2-1": {
+   "name": "3-2-1 카운트다운",
+   "tags": [
+    "카운트다운",
+    "출시",
+    "서프라이즈",
+    "321"
+   ]
+  },
+  "template:cuenta-regresiva-10": {
+   "name": "10초 카운트다운",
+   "tags": [
+    "카운트다운",
+    "10초",
+    "출시",
+    "개봉",
+    "파티"
+   ]
+  },
+  "template:cumple-sorpresa": {
+   "name": "서프라이즈 파티",
+   "tags": [
+    "서프라이즈",
+    "생일",
+    "파티",
+    "친구",
+    "축하"
+   ]
+  },
+  "template:cupon-de-descuento": {
+   "name": "할인 쿠폰",
+   "tags": [
+    "쿠폰",
+    "할인",
+    "코드",
+    "특가",
+    "선물"
+   ]
+  },
+  "template:cyber-monday": {
+   "name": "사이버 먼데이",
+   "tags": [
+    "사이버 먼데이",
+    "특가",
+    "온라인 쇼핑몰",
+    "할인",
+    "무료 배송"
+   ]
+  },
+  "template:delivery-pide-por-whatsapp": {
+   "name": "배달: 채팅으로 주문",
+   "tags": [
+    "배달",
+    "채팅",
+    "메시지",
+    "주문",
+    "음식"
+   ]
+  },
+  "template:dia-de-la-amistad": {
+   "name": "우정의 날",
+   "tags": [
+    "우정",
+    "발렌타인데이",
+    "친구",
+    "2월 14일",
+    "포토부스"
+   ]
+  },
+  "template:dia-de-playa": {
+   "name": "바다 모드",
+   "tags": [
+    "바다",
+    "여름",
+    "휴가",
+    "해변",
+    "노을"
+   ]
+  },
+  "template:dia-del-padre": {
+   "name": "아버지의 날 축하해요",
+   "tags": [
+    "아버지의 날",
+    "아빠",
+    "가족",
+    "6월",
+    "영웅"
+   ]
+  },
+  "template:diario-de-comida": {
+   "name": "오늘 먹은 것",
+   "tags": [
+    "음식",
+    "식단 일기",
+    "먹방",
+    "푸드",
+    "레시피"
+   ]
+  },
+  "template:domingo-en-familia": {
+   "name": "가족과 함께하는 일요일",
+   "tags": [
+    "가족",
+    "일요일",
+    "조부모",
+    "집",
+    "추억"
+   ]
+  },
+  "template:duotono-pop": {
+   "name": "팝 듀오톤",
+   "tags": [
+    "듀오톤",
+    "팝아트",
+    "컬러",
+    "인물",
+    "트렌드"
+   ]
+  },
+  "template:edicion-callejera": {
+   "name": "스트리트 편집",
+   "tags": [
+    "스케이트",
+    "거리",
+    "어반",
+    "크루",
+    "도시"
+   ]
+  },
+  "template:encuesta-cual-prefieres": {
+   "name": "어느 쪽이 더 좋아요?",
+   "tags": [
+    "투표",
+    "선택",
+    "밸런스 게임",
+    "댓글",
+    "소통"
+   ]
+  },
+  "template:entrevista-con-rotulo": {
+   "name": "인터뷰 하단 자막",
+   "tags": [
+    "인터뷰",
+    "하단 자막",
+    "이름",
+    "증언",
+    "뉴스"
+   ]
+  },
+  "template:espejo-caleidoscopio": {
+   "name": "거울 만화경",
+   "tags": [
+    "거울",
+    "만화경",
+    "효과",
+    "사이키델릭",
+    "트렌드"
+   ]
+  },
+  "template:estamos-contratando": {
+   "name": "채용 중!",
+   "tags": [
+    "채용",
+    "일자리",
+    "구인",
+    "모집",
+    "공고"
+   ]
+  },
+  "template:este-o-este": {
+   "name": "이거 vs 저거",
+   "tags": [
+    "밸런스 게임",
+    "선택",
+    "투표",
+    "커플",
+    "재미"
+   ]
+  },
+  "template:estrobo-y-temblor": {
+   "name": "스트로브와 흔들림",
+   "tags": [
+    "스트로브",
+    "흔들림",
+    "비트",
+    "파티",
+    "에너지"
+   ]
+  },
+  "template:estudia-conmigo": {
+   "name": "스터디 윗 미",
+   "tags": [
+    "스터디 윗 미",
+    "공부",
+    "뽀모도로",
+    "대학교",
+    "생산성"
+   ]
+  },
+  "template:evento-taller-entrada": {
+   "name": "이벤트 또는 워크숍",
+   "tags": [
+    "이벤트",
+    "워크숍",
+    "강좌",
+    "날짜",
+    "신청"
+   ]
+  },
+  "template:faltan-dias": {
+   "name": "D-데이 카운트",
+   "tags": [
+    "카운트다운",
+    "디데이",
+    "이벤트",
+    "출시"
+   ]
+  },
+  "template:feliz-cumple": {
+   "name": "생일 축하해",
+   "tags": [
+    "생일",
+    "파티",
+    "가족",
+    "축하"
+   ]
+  },
+  "template:feliz-navidad-luces": {
+   "name": "메리 크리스마스 조명",
+   "tags": [
+    "크리스마스",
+    "조명",
+    "인사",
+    "카드",
+    "12월"
+   ]
+  },
+  "template:fiestas-patrias-peru": {
+   "name": "국경일",
+   "tags": [
+    "국경일",
+    "독립기념일",
+    "국기",
+    "자부심",
+    "축제"
+   ]
+  },
+  "template:frase-del-dia": {
+   "name": "오늘의 명언",
+   "tags": [
+    "명언",
+    "동기부여",
+    "인용구",
+    "글귀"
+   ]
+  },
+  "template:gancho-espera-al-final": {
+   "name": "끝까지 보세요",
+   "tags": [
+    "후킹",
+    "끝까지",
+    "긴장감",
+    "틱톡",
+    "바이럴"
+   ]
+  },
+  "template:gimnasio-matricula-gratis": {
+   "name": "헬스장: 이달의 프로모션",
+   "tags": [
+    "헬스장",
+    "헬스",
+    "회원권",
+    "프로모션",
+    "피트니스"
+   ]
+  },
+  "template:glitch-neon": {
+   "name": "네온 글리치",
+   "tags": [
+    "글리치",
+    "네온",
+    "파티",
+    "밤",
+    "콘서트"
+   ]
+  },
+  "template:gran-inauguracion": {
+   "name": "그랜드 오픈",
+   "tags": [
+    "오픈",
+    "개업",
+    "신규 매장",
+    "개점",
+    "이벤트"
+   ]
+  },
+  "template:grwm-arreglate-conmigo": {
+   "name": "GRWM: 같이 준비해요",
+   "tags": [
+    "grwm",
+    "메이크업",
+    "겟레디윗미",
+    "뷰티",
+    "루틴"
+   ]
+  },
+  "template:h-cele-15-16": {
+   "name": "스위트 식스틴",
+   "tags": [
+    "15살",
+    "스위트 16",
+    "성인식",
+    "파티",
+    "공주"
+   ]
+  },
+  "template:h-cele-aniversario": {
+   "name": "기념일 축하해",
+   "tags": [
+    "기념일",
+    "커플",
+    "사랑",
+    "함께한 시간",
+    "하트"
+   ]
+  },
+  "template:h-cele-baby-shower": {
+   "name": "베이비 샤워",
+   "tags": [
+    "베이비 샤워",
+    "아기",
+    "초대장",
+    "임신",
+    "파티"
+   ]
+  },
+  "template:h-cele-bautizo": {
+   "name": "세례식",
+   "tags": [
+    "세례",
+    "아기",
+    "교회",
+    "가족",
+    "축하"
+   ]
+  },
+  "template:h-cele-bienvenida-bebe": {
+   "name": "아기의 탄생을 환영해요",
+   "tags": [
+    "출산",
+    "아기",
+    "환영",
+    "신생아",
+    "가족"
+   ]
+  },
+  "template:h-cele-boda-invitacion": {
+   "name": "청첩장",
+   "tags": [
+    "결혼식",
+    "청첩장",
+    "세이브 더 데이트",
+    "웨딩",
+    "우아한"
+   ]
+  },
+  "template:h-cele-compromiso": {
+   "name": "우리 약혼했어요",
+   "tags": [
+    "약혼",
+    "프러포즈",
+    "반지",
+    "커플",
+    "결혼"
+   ]
+  },
+  "template:h-cele-cumple": {
+   "name": "생일 축하해",
+   "tags": [
+    "생일",
+    "파티",
+    "풍선",
+    "꽃가루",
+    "축하"
+   ]
+  },
+  "template:h-cele-despedida": {
+   "name": "작별 인사",
+   "tags": [
+    "송별",
+    "잘 다녀와",
+    "안녕",
+    "친구",
+    "보고 싶을 거야"
+   ]
+  },
+  "template:h-cele-fiesta-invitacion": {
+   "name": "파티 초대장",
+   "tags": [
+    "파티",
+    "초대장",
+    "이벤트",
+    "밤",
+    "모임"
+   ]
+  },
+  "template:h-cele-graduacion": {
+   "name": "졸업",
+   "tags": [
+    "졸업",
+    "학사모",
+    "성취",
+    "대학교",
+    "학교"
+   ]
+  },
+  "template:h-cele-jubilacion": {
+   "name": "은퇴를 축하합니다",
+   "tags": [
+    "은퇴",
+    "정년",
+    "커리어",
+    "감사",
+    "헌정"
+   ]
+  },
+  "template:h-cele-logro": {
+   "name": "우리가 해냈어요!",
+   "tags": [
+    "성취",
+    "목표",
+    "트로피",
+    "성공",
+    "축하"
+   ]
+  },
+  "template:h-cele-premios": {
+   "name": "시상식",
+   "tags": [
+    "시상식",
+    "수상자",
+    "표창",
+    "갈라",
+    "트로피"
+   ]
+  },
+  "template:h-cele-reunion": {
+   "name": "가족 모임",
+   "tags": [
+    "가족 모임",
+    "가족",
+    "초대장",
+    "만남",
+    "점심"
+   ]
+  },
+  "template:h-cierre-gracias": {
+   "name": "시청해 주셔서 감사합니다",
+   "tags": [
+    "감사",
+    "엔딩",
+    "sns",
+    "마무리",
+    "작별"
+   ]
+  },
+  "template:h-cierre-like": {
+   "name": "좋아요 눌러주세요",
+   "tags": [
+    "좋아요",
+    "엄지",
+    "엔딩",
+    "소통",
+    "하트"
+   ]
+  },
+  "template:h-cierre-proximo": {
+   "name": "다음 영상에서",
+   "tags": [
+    "다음 영상",
+    "예고",
+    "엔딩",
+    "다음 편",
+    "에피소드"
+   ]
+  },
+  "template:h-cierre-redes": {
+   "name": "팔로우해 주세요",
+   "tags": [
+    "sns",
+    "팔로우",
+    "아이디",
+    "엔딩",
+    "연락처"
+   ]
+  },
+  "template:h-cierre-suscribete-campana": {
+   "name": "구독과 알림 설정",
+   "tags": [
+    "구독",
+    "알림",
+    "버튼",
+    "유튜브",
+    "엔딩"
+   ]
+  },
+  "template:h-cuenta-10-neon": {
+   "name": "네온 10초 카운트다운",
+   "tags": [
+    "카운트다운",
+    "네온",
+    "10초",
+    "시작",
+    "이벤트"
+   ]
+  },
+  "template:h-cuenta-5-cine": {
+   "name": "옛날 필름 카운트다운",
+   "tags": [
+    "카운트다운",
+    "영화",
+    "필름",
+    "빈티지",
+    "필름 리더"
+   ]
+  },
+  "template:h-cuenta-anio-nuevo": {
+   "name": "새해 카운트다운",
+   "tags": [
+    "새해",
+    "카운트다운",
+    "불꽃놀이",
+    "파티",
+    "자정"
+   ]
+  },
+  "template:h-cuenta-deportes": {
+   "name": "경기 카운트다운",
+   "tags": [
+    "경기",
+    "축구",
+    "카운트다운",
+    "스포츠",
+    "스코어보드"
+   ]
+  },
+  "template:h-cuenta-dias-evento": {
+   "name": "D-데이",
+   "tags": [
+    "디데이",
+    "이벤트",
+    "카운트다운",
+    "결혼식",
+    "여행"
+   ]
+  },
+  "template:h-cuenta-directo": {
+   "name": "곧 시작합니다",
+   "tags": [
+    "라이브",
+    "생방송",
+    "스트리밍",
+    "곧 시작",
+    "카운트다운"
+   ]
+  },
+  "template:h-cuenta-lanzamiento": {
+   "name": "출시 카운트다운",
+   "tags": [
+    "출시",
+    "상품",
+    "3 2 1",
+    "카운트다운",
+    "지금 구매 가능"
+   ]
+  },
+  "template:h-cuenta-minimal": {
+   "name": "미니멀 카운트다운",
+   "tags": [
+    "카운트다운",
+    "미니멀",
+    "깔끔",
+    "프레젠테이션",
+    "시작"
+   ]
+  },
+  "template:h-fecha-accion-gracias": {
+   "name": "추수감사절",
+   "tags": [
+    "추수감사절",
+    "땡스기빙",
+    "가을",
+    "가족",
+    "감사"
+   ]
+  },
+  "template:h-fecha-anio-nuevo": {
+   "name": "새해 복 많이 받으세요",
+   "tags": [
+    "새해",
+    "신년",
+    "불꽃놀이",
+    "건배",
+    "1월"
+   ]
+  },
+  "template:h-fecha-anio-nuevo-lunar": {
+   "name": "설날",
+   "tags": [
+    "설날",
+    "음력 설",
+    "등불",
+    "빨강",
+    "골드"
+   ]
+  },
+  "template:h-fecha-dia-madre": {
+   "name": "어머니의 날",
+   "tags": [
+    "어머니의 날",
+    "엄마",
+    "꽃",
+    "사랑",
+    "가족"
+   ]
+  },
+  "template:h-fecha-dia-maestro": {
+   "name": "스승의 날",
+   "tags": [
+    "스승의 날",
+    "선생님",
+    "교사",
+    "감사",
+    "학교"
+   ]
+  },
+  "template:h-fecha-dia-mujer": {
+   "name": "세계 여성의 날",
+   "tags": [
+    "여성의 날",
+    "3월 8일",
+    "여성",
+    "평등",
+    "영감"
+   ]
+  },
+  "template:h-fecha-dia-padre": {
+   "name": "아버지의 날",
+   "tags": [
+    "아버지의 날",
+    "아빠",
+    "가족",
+    "영웅",
+    "6월"
+   ]
+  },
+  "template:h-fecha-dia-tierra": {
+   "name": "지구의 날",
+   "tags": [
+    "지구의 날",
+    "지구",
+    "환경",
+    "그린",
+    "자연"
+   ]
+  },
+  "template:h-fecha-diwali": {
+   "name": "해피 디왈리",
+   "tags": [
+    "디왈리",
+    "빛의 축제",
+    "등불",
+    "디야",
+    "축하"
+   ]
+  },
+  "template:h-fecha-eid": {
+   "name": "이드 무바라크",
+   "tags": [
+    "이드",
+    "이드 무바라크",
+    "축제",
+    "가족",
+    "축하"
+   ]
+  },
+  "template:h-fecha-halloween": {
+   "name": "핼러윈",
+   "tags": [
+    "핼러윈",
+    "공포",
+    "호박",
+    "코스튬",
+    "10월"
+   ]
+  },
+  "template:h-fecha-invierno": {
+   "name": "겨울",
+   "tags": [
+    "겨울",
+    "눈",
+    "추위",
+    "계절",
+    "아늑한"
+   ]
+  },
+  "template:h-fecha-navidad": {
+   "name": "메리 크리스마스",
+   "tags": [
+    "크리스마스",
+    "성탄절",
+    "눈",
+    "가족",
+    "12월"
+   ]
+  },
+  "template:h-fecha-otono": {
+   "name": "안녕, 가을",
+   "tags": [
+    "가을",
+    "낙엽",
+    "아늑한",
+    "계절",
+    "커피"
+   ]
+  },
+  "template:h-fecha-pascua": {
+   "name": "부활절",
+   "tags": [
+    "부활절",
+    "달걀",
+    "봄",
+    "토끼",
+    "이스터"
+   ]
+  },
+  "template:h-fecha-primavera": {
+   "name": "봄",
+   "tags": [
+    "봄",
+    "꽃",
+    "계절",
+    "컬러",
+    "자연"
+   ]
+  },
+  "template:h-fecha-ramadan": {
+   "name": "라마단 카림",
+   "tags": [
+    "라마단",
+    "라마단 카림",
+    "초승달",
+    "등불",
+    "이프타르"
+   ]
+  },
+  "template:h-fecha-regreso-clases": {
+   "name": "개학",
+   "tags": [
+    "개학",
+    "학교",
+    "학용품",
+    "학생",
+    "새 학기"
+   ]
+  },
+  "template:h-fecha-san-valentin": {
+   "name": "발렌타인데이",
+   "tags": [
+    "발렌타인데이",
+    "사랑",
+    "2월 14일",
+    "커플",
+    "하트"
+   ]
+  },
+  "template:h-fecha-verano": {
+   "name": "여름이 왔어요",
+   "tags": [
+    "여름",
+    "해변",
+    "햇살",
+    "휴가",
+    "더위"
+   ]
+  },
+  "template:h-final-1-video": {
+   "name": "엔드 스크린: 영상 1개",
+   "tags": [
+    "엔드 스크린",
+    "유튜브",
+    "다음 영상",
+    "구독",
+    "엔딩"
+   ]
+  },
+  "template:h-final-2-videos": {
+   "name": "엔드 스크린: 영상 2개",
+   "tags": [
+    "엔드 스크린",
+    "유튜브",
+    "추천 영상",
+    "구독",
+    "엔딩"
+   ]
+  },
+  "template:h-final-cocina": {
+   "name": "요리 엔드 스크린",
+   "tags": [
+    "요리",
+    "레시피",
+    "엔드 스크린",
+    "다음 레시피",
+    "음식"
+   ]
+  },
+  "template:h-final-colorida": {
+   "name": "컬러풀 엔드 스크린",
+   "tags": [
+    "엔드 스크린",
+    "컬러",
+    "재미",
+    "유튜브",
+    "키즈"
+   ]
+  },
+  "template:h-final-curso": {
+   "name": "강의 엔드 스크린",
+   "tags": [
+    "강의",
+    "레슨",
+    "교육",
+    "엔드 스크린",
+    "튜토리얼"
+   ]
+  },
+  "template:h-final-familia": {
+   "name": "가족 엔딩",
+   "tags": [
+    "가족",
+    "감사",
+    "엔딩",
+    "추억",
+    "사진"
+   ]
+  },
+  "template:h-final-gaming": {
+   "name": "게이밍 엔드 스크린",
+   "tags": [
+    "엔드 스크린",
+    "게이밍",
+    "게이머",
+    "유튜브",
+    "스트리밍"
+   ]
+  },
+  "template:h-final-minimal": {
+   "name": "미니멀 엔드 스크린",
+   "tags": [
+    "엔드 스크린",
+    "미니멀",
+    "깔끔",
+    "유튜브",
+    "우아한"
+   ]
+  },
+  "template:h-final-negocio": {
+   "name": "비즈니스 엔드 스크린",
+   "tags": [
+    "비즈니스",
+    "연락처",
+    "주소",
+    "웹사이트",
+    "엔딩"
+   ]
+  },
+  "template:h-final-noticias": {
+   "name": "뉴스 엔드 스크린",
+   "tags": [
+    "뉴스",
+    "더 많은 뉴스",
+    "엔드 스크린",
+    "보도",
+    "헤드라인"
+   ]
+  },
+  "template:h-final-oscura": {
+   "name": "다크 엔드 스크린",
+   "tags": [
+    "엔드 스크린",
+    "네온",
+    "다크",
+    "유튜브",
+    "게이밍"
+   ]
+  },
+  "template:h-final-papel": {
+   "name": "페이퍼 엔드 스크린",
+   "tags": [
+    "종이",
+    "공예",
+    "엔드 스크린",
+    "테이프",
+    "창의적"
+   ]
+  },
+  "template:h-final-podcast": {
+   "name": "팟캐스트 엔드 스크린",
+   "tags": [
+    "팟캐스트",
+    "다음 에피소드",
+    "엔드 스크린",
+    "플랫폼",
+    "오디오"
+   ]
+  },
+  "template:h-final-retro": {
+   "name": "레트로 TV 엔드 스크린",
+   "tags": [
+    "레트로",
+    "tv",
+    "빈티지",
+    "엔드 스크린",
+    "80년대"
+   ]
+  },
+  "template:h-final-viajes": {
+   "name": "여행 엔드 스크린",
+   "tags": [
+    "여행",
+    "여행지",
+    "엔드 스크린",
+    "지도",
+    "모험"
+   ]
+  },
+  "template:h-intro-barras-diagonales": {
+   "name": "대각선 바 인트로",
+   "tags": [
+    "인트로",
+    "유튜브",
+    "채널",
+    "로고",
+    "바"
+   ]
+  },
+  "template:h-intro-boda": {
+   "name": "웨딩 인트로",
+   "tags": [
+    "결혼식",
+    "신랑 신부",
+    "웨딩",
+    "인트로",
+    "로맨틱"
+   ]
+  },
+  "template:h-intro-cinematica-oscura": {
+   "name": "시네마틱 오프닝",
+   "tags": [
+    "영화",
+    "시네마틱",
+    "무비",
+    "인트로",
+    "드라마틱"
+   ]
+  },
+  "template:h-intro-cocina": {
+   "name": "요리 채널 인트로",
+   "tags": [
+    "요리",
+    "레시피",
+    "음식",
+    "인트로",
+    "셰프"
+   ]
+  },
+  "template:h-intro-colorida-formas": {
+   "name": "컬러풀 도형 인트로",
+   "tags": [
+    "컬러",
+    "도형",
+    "재미",
+    "인트로",
+    "발랄"
+   ]
+  },
+  "template:h-intro-corporativa": {
+   "name": "기업 오프닝",
+   "tags": [
+    "기업",
+    "회사",
+    "비즈니스",
+    "프레젠테이션",
+    "로고"
+   ]
+  },
+  "template:h-intro-deportes": {
+   "name": "스포츠 인트로",
+   "tags": [
+    "스포츠",
+    "축구",
+    "육상",
+    "인트로",
+    "에너지"
+   ]
+  },
+  "template:h-intro-documental": {
+   "name": "다큐멘터리 오프닝",
+   "tags": [
+    "다큐멘터리",
+    "역사",
+    "진지한",
+    "인트로",
+    "영화"
+   ]
+  },
+  "template:h-intro-elegante-oro": {
+   "name": "우아한 골드 인트로",
+   "tags": [
+    "우아한",
+    "골드",
+    "럭셔리",
+    "인트로",
+    "브랜드"
+   ]
+  },
+  "template:h-intro-fitness": {
+   "name": "피트니스 인트로",
+   "tags": [
+    "피트니스",
+    "헬스",
+    "운동",
+    "인트로",
+    "동기부여"
+   ]
+  },
+  "template:h-intro-gaming-neon": {
+   "name": "네온 게이밍 인트로",
+   "tags": [
+    "게이밍",
+    "게이머",
+    "네온",
+    "인트로",
+    "스트리밍"
+   ]
+  },
+  "template:h-intro-glitch": {
+   "name": "글리치 인트로",
+   "tags": [
+    "글리치",
+    "디지털",
+    "인트로",
+    "게임",
+    "테크"
+   ]
+  },
+  "template:h-intro-logo-destello": {
+   "name": "로고 플레어 공개",
+   "tags": [
+    "로고",
+    "공개",
+    "플레어",
+    "인트로",
+    "우아한"
+   ]
+  },
+  "template:h-intro-minimal-linea": {
+   "name": "미니멀 라인 인트로",
+   "tags": [
+    "미니멀",
+    "깔끔",
+    "인트로",
+    "우아한",
+    "화이트"
+   ]
+  },
+  "template:h-intro-musica": {
+   "name": "음악 채널 인트로",
+   "tags": [
+    "음악",
+    "아티스트",
+    "싱글",
+    "인트로",
+    "이퀄라이저"
+   ]
+  },
+  "template:h-intro-ninos": {
+   "name": "키즈 인트로",
+   "tags": [
+    "아이들",
+    "키즈",
+    "컬러",
+    "인트로",
+    "교육"
+   ]
+  },
+  "template:h-intro-noticias": {
+   "name": "뉴스 오프닝",
+   "tags": [
+    "뉴스",
+    "뉴스 프로그램",
+    "보도",
+    "인트로",
+    "저널리즘"
+   ]
+  },
+  "template:h-intro-papel": {
+   "name": "페이퍼 컷 인트로",
+   "tags": [
+    "종이",
+    "페이퍼 컷",
+    "공예",
+    "인트로",
+    "아이들"
+   ]
+  },
+  "template:h-intro-podcast-ondas": {
+   "name": "팟캐스트 파형 인트로",
+   "tags": [
+    "팟캐스트",
+    "오디오",
+    "인터뷰",
+    "인트로",
+    "파형"
+   ]
+  },
+  "template:h-intro-pop-comic": {
+   "name": "팝 코믹 인트로",
+   "tags": [
+    "만화",
+    "팝아트",
+    "재미",
+    "인트로",
+    "코믹"
+   ]
+  },
+  "template:h-intro-retro-80s": {
+   "name": "레트로 80년대 인트로",
+   "tags": [
+    "레트로",
+    "80년대",
+    "신스웨이브",
+    "네온",
+    "인트로"
+   ]
+  },
+  "template:h-intro-split": {
+   "name": "분할 화면 인트로",
+   "tags": [
+    "분할 화면",
+    "스플릿",
+    "사진",
+    "인트로",
+    "모던"
+   ]
+  },
+  "template:h-intro-suscriptores": {
+   "name": "구독자 카운터 인트로",
+   "tags": [
+    "구독자",
+    "카운터",
+    "축하",
+    "인트로",
+    "유튜브"
+   ]
+  },
+  "template:h-intro-tech": {
+   "name": "테크 인트로",
+   "tags": [
+    "기술",
+    "테크",
+    "디지털",
+    "인트로",
+    "리뷰"
+   ]
+  },
+  "template:h-intro-texto-gigante": {
+   "name": "대형 텍스트 인트로",
+   "tags": [
+    "텍스트",
+    "타이포그래피",
+    "인트로",
+    "임팩트",
+    "글자 속 사진"
+   ]
+  },
+  "template:h-intro-tinta": {
+   "name": "잉크 공개 인트로",
+   "tags": [
+    "잉크",
+    "예술",
+    "인트로",
+    "수채화",
+    "얼룩"
+   ]
+  },
+  "template:h-intro-tiza": {
+   "name": "칠판 인트로",
+   "tags": [
+    "교육",
+    "칠판",
+    "수업",
+    "분필",
+    "선생님"
+   ]
+  },
+  "template:h-intro-viajes-mapa": {
+   "name": "여행 지도 인트로",
+   "tags": [
+    "여행",
+    "지도",
+    "루트",
+    "인트로",
+    "모험"
+   ]
+  },
+  "template:h-intro-vlog-polaroid": {
+   "name": "즉석 사진 브이로그 인트로",
+   "tags": [
+    "브이로그",
+    "즉석 사진",
+    "인트로",
+    "사진",
+    "감성"
+   ]
+  },
+  "template:h-intro-zoom-fotos": {
+   "name": "사진 줌 인트로",
+   "tags": [
+    "줌",
+    "사진",
+    "인트로",
+    "다이내믹",
+    "콜라주"
+   ]
+  },
+  "template:h-neg-academia": {
+   "name": "학원 강좌",
+   "tags": [
+    "학원",
+    "강좌",
+    "수업",
+    "워크숍",
+    "수강 신청"
+   ]
+  },
+  "template:h-neg-agenda-evento": {
+   "name": "이벤트 일정",
+   "tags": [
+    "프로그램",
+    "일정",
+    "이벤트",
+    "시간표",
+    "컨퍼런스"
+   ]
+  },
+  "template:h-neg-cafeteria": {
+   "name": "커피숍",
+   "tags": [
+    "카페",
+    "커피",
+    "오늘의 메뉴",
+    "아침",
+    "바리스타"
+   ]
+  },
+  "template:h-neg-cifras": {
+   "name": "숫자로 보는 한 해",
+   "tags": [
+    "성과",
+    "수치",
+    "보고서",
+    "성장",
+    "그래프"
+   ]
+  },
+  "template:h-neg-comunidad": {
+   "name": "커뮤니티 모임",
+   "tags": [
+    "커뮤니티",
+    "모임",
+    "교회",
+    "그룹",
+    "공지"
+   ]
+  },
+  "template:h-neg-contacto": {
+   "name": "문의하기",
+   "tags": [
+    "연락처",
+    "주소",
+    "영업시간",
+    "전화",
+    "비즈니스"
+   ]
+  },
+  "template:h-neg-contratando": {
+   "name": "채용 중",
+   "tags": [
+    "채용",
+    "일자리",
+    "구인",
+    "모집",
+    "함께해요"
+   ]
+  },
+  "template:h-neg-escuela": {
+   "name": "학교 신입생 모집",
+   "tags": [
+    "학교",
+    "입학",
+    "등록",
+    "모집",
+    "교육"
+   ]
+  },
+  "template:h-neg-ferreteria": {
+   "name": "철물점",
+   "tags": [
+    "철물점",
+    "공구",
+    "건축",
+    "할인",
+    "집"
+   ]
+  },
+  "template:h-neg-gimnasio": {
+   "name": "헬스장 요금제",
+   "tags": [
+    "헬스장",
+    "요금제",
+    "가격",
+    "피트니스",
+    "회원권"
+   ]
+  },
+  "template:h-neg-inmobiliaria": {
+   "name": "매물 판매",
+   "tags": [
+    "부동산",
+    "매매",
+    "집",
+    "아파트",
+    "매물"
+   ]
+  },
+  "template:h-neg-lanzamiento": {
+   "name": "신제품 출시",
+   "tags": [
+    "출시",
+    "신제품",
+    "상품",
+    "발표",
+    "새 소식"
+   ]
+  },
+  "template:h-neg-mudanzas": {
+   "name": "이사와 운송",
+   "tags": [
+    "이사",
+    "운송",
+    "용달",
+    "트럭",
+    "서비스"
+   ]
+  },
+  "template:h-neg-presentacion": {
+   "name": "회사 소개",
+   "tags": [
+    "회사",
+    "소개",
+    "기업",
+    "미션",
+    "수치"
+   ]
+  },
+  "template:h-neg-rebajas": {
+   "name": "빅 세일",
+   "tags": [
+    "세일",
+    "할인",
+    "sale",
+    "재고 정리",
+    "특가"
+   ]
+  },
+  "template:h-neg-restaurante-menu": {
+   "name": "레스토랑 메뉴",
+   "tags": [
+    "레스토랑",
+    "메뉴",
+    "메뉴판",
+    "요리",
+    "가격"
+   ]
+  },
+  "template:h-neg-supermercado": {
+   "name": "마트 특가",
+   "tags": [
+    "마트",
+    "특가",
+    "가격",
+    "과일",
+    "할인"
+   ]
+  },
+  "template:h-neg-testimonio": {
+   "name": "고객 후기",
+   "tags": [
+    "후기",
+    "리뷰",
+    "고객",
+    "의견",
+    "별점"
+   ]
+  },
+  "template:h-neg-tienda-barrio": {
+   "name": "동네 가게",
+   "tags": [
+    "가게",
+    "동네",
+    "특가",
+    "식료품",
+    "이웃"
+   ]
+  },
+  "template:h-neg-webinar": {
+   "name": "웨비나",
+   "tags": [
+    "웨비나",
+    "온라인 세미나",
+    "이벤트",
+    "등록",
+    "연사"
+   ]
+  },
+  "template:h-presenta-amistad": {
+   "name": "영원한 친구",
+   "tags": [
+    "친구",
+    "우정",
+    "낙서",
+    "사진",
+    "재미"
+   ]
+  },
+  "template:h-presenta-anio": {
+   "name": "우리의 한 해",
+   "tags": [
+    "한 해",
+    "연말 결산",
+    "12개월",
+    "리캡",
+    "사진"
+   ]
+  },
+  "template:h-presenta-antes-despues": {
+   "name": "비포 애프터",
+   "tags": [
+    "비포 애프터",
+    "비교",
+    "슬라이더",
+    "변신",
+    "리모델링"
+   ]
+  },
+  "template:h-presenta-bebe": {
+   "name": "아기의 월별 성장",
+   "tags": [
+    "아기",
+    "월별",
+    "성장",
+    "가족",
+    "첫해"
+   ]
+  },
+  "template:h-presenta-boda": {
+   "name": "우리의 결혼식",
+   "tags": [
+    "결혼식",
+    "신랑 신부",
+    "슬라이드쇼",
+    "우아한",
+    "웨딩"
+   ]
+  },
+  "template:h-presenta-cinematica": {
+   "name": "시네마틱 슬라이드쇼",
+   "tags": [
+    "시네마틱",
+    "영화",
+    "레터박스",
+    "여행",
+    "웅장한"
+   ]
+  },
+  "template:h-presenta-circulos": {
+   "name": "원형 사진",
+   "tags": [
+    "원형",
+    "사진",
+    "컬러",
+    "발랄",
+    "슬라이드쇼"
+   ]
+  },
+  "template:h-presenta-collage-libre": {
+   "name": "자유 콜라주",
+   "tags": [
+    "콜라주",
+    "사진",
+    "보드",
+    "친구",
+    "추억"
+   ]
+  },
+  "template:h-presenta-comida": {
+   "name": "메뉴 슬라이드쇼",
+   "tags": [
+    "메뉴",
+    "음식",
+    "레스토랑",
+    "요리",
+    "메뉴판"
+   ]
+  },
+  "template:h-presenta-deportes": {
+   "name": "스포츠 시즌",
+   "tags": [
+    "스포츠",
+    "시즌",
+    "결과",
+    "팀",
+    "축구"
+   ]
+  },
+  "template:h-presenta-equipo": {
+   "name": "팀 소개",
+   "tags": [
+    "팀",
+    "사람들",
+    "회사",
+    "우리",
+    "직원"
+   ]
+  },
+  "template:h-presenta-escuela": {
+   "name": "학교 생활 1년",
+   "tags": [
+    "학교",
+    "학년",
+    "학교생활",
+    "노트",
+    "수업"
+   ]
+  },
+  "template:h-presenta-evento": {
+   "name": "이벤트 하이라이트",
+   "tags": [
+    "이벤트",
+    "하이라이트",
+    "애프터 무비",
+    "컨퍼런스",
+    "파티"
+   ]
+  },
+  "template:h-presenta-glitch": {
+   "name": "글리치 슬라이드쇼",
+   "tags": [
+    "글리치",
+    "빠른",
+    "비트",
+    "사진",
+    "어반"
+   ]
+  },
+  "template:h-presenta-graduacion": {
+   "name": "졸업생",
+   "tags": [
+    "졸업",
+    "동기",
+    "졸업반",
+    "학교",
+    "대학교"
+   ]
+  },
+  "template:h-presenta-homenaje": {
+   "name": "그리운 당신을 기억하며",
+   "tags": [
+    "추모",
+    "기억",
+    "작별",
+    "추억",
+    "촛불"
+   ]
+  },
+  "template:h-presenta-inmueble": {
+   "name": "매물 투어",
+   "tags": [
+    "부동산",
+    "집",
+    "매매",
+    "임대",
+    "매물"
+   ]
+  },
+  "template:h-presenta-mascota": {
+   "name": "나의 반려동물",
+   "tags": [
+    "반려동물",
+    "강아지",
+    "고양이",
+    "발자국",
+    "사진"
+   ]
+  },
+  "template:h-presenta-mosaico": {
+   "name": "사진 모자이크",
+   "tags": [
+    "모자이크",
+    "그리드",
+    "콜라주",
+    "사진",
+    "격자"
+   ]
+  },
+  "template:h-presenta-paralaje": {
+   "name": "패럴랙스 슬라이드쇼",
+   "tags": [
+    "패럴랙스",
+    "3d",
+    "모션",
+    "사진",
+    "여행"
+   ]
+  },
+  "template:h-presenta-pelicula": {
+   "name": "필름 스트립 슬라이드쇼",
+   "tags": [
+    "필름",
+    "스트립",
+    "35mm",
+    "사진",
+    "빈티지"
+   ]
+  },
+  "template:h-presenta-polaroid": {
+   "name": "나무 위 즉석 사진",
+   "tags": [
+    "즉석 사진",
+    "사진",
+    "슬라이드쇼",
+    "나무",
+    "빈티지"
+   ]
+  },
+  "template:h-presenta-portafolio": {
+   "name": "포트폴리오",
+   "tags": [
+    "포트폴리오",
+    "작업물",
+    "디자인",
+    "사진",
+    "프로젝트"
+   ]
+  },
+  "template:h-presenta-producto": {
+   "name": "상품 카탈로그",
+   "tags": [
+    "카탈로그",
+    "상품",
+    "쇼핑몰",
+    "가격",
+    "판매"
+   ]
+  },
+  "template:h-presenta-recuerdos": {
+   "name": "추억 슬라이드쇼",
+   "tags": [
+    "추억",
+    "슬라이드쇼",
+    "사진",
+    "가족",
+    "향수"
+   ]
+  },
+  "template:h-presenta-revista": {
+   "name": "잡지 페이지",
+   "tags": [
+    "잡지",
+    "에디토리얼",
+    "패션",
+    "페이지",
+    "슬라이드쇼"
+   ]
+  },
+  "template:h-presenta-split": {
+   "name": "분할 화면 슬라이드쇼",
+   "tags": [
+    "분할 화면",
+    "스플릿",
+    "사진 2장",
+    "비교",
+    "슬라이드쇼"
+   ]
+  },
+  "template:h-presenta-tinta": {
+   "name": "잉크 슬라이드쇼",
+   "tags": [
+    "잉크",
+    "예술",
+    "슬라이드쇼",
+    "사진",
+    "우아한"
+   ]
+  },
+  "template:h-presenta-viaje": {
+   "name": "여행 일기",
+   "tags": [
+    "여행",
+    "일기",
+    "스탬프",
+    "사진",
+    "휴가"
+   ]
+  },
+  "template:h-presenta-vintage": {
+   "name": "빈티지 앨범",
+   "tags": [
+    "빈티지",
+    "옛날",
+    "세피아",
+    "앨범",
+    "추억"
+   ]
+  },
+  "template:h-tercio-a-mano": {
+   "name": "손글씨 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "손글씨",
+    "캘리그라피"
+   ]
+  },
+  "template:h-tercio-boda": {
+   "name": "웨딩 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "결혼식",
+    "신랑 신부"
+   ]
+  },
+  "template:h-tercio-caja-color": {
+   "name": "박스형 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "박스",
+    "컬러"
+   ]
+  },
+  "template:h-tercio-chat": {
+   "name": "추천 댓글",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "댓글",
+    "채팅",
+    "추천"
+   ]
+  },
+  "template:h-tercio-cita": {
+   "name": "화면 인용구",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "인용구",
+    "글귀",
+    "명언"
+   ]
+  },
+  "template:h-tercio-corporativo": {
+   "name": "기업 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "기업",
+    "회사"
+   ]
+  },
+  "template:h-tercio-deportes": {
+   "name": "스포츠 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "스포츠",
+    "선수"
+   ]
+  },
+  "template:h-tercio-diagonal": {
+   "name": "대각선 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "대각선",
+    "다이내믹"
+   ]
+  },
+  "template:h-tercio-doble": {
+   "name": "2인 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "2인",
+    "인터뷰"
+   ]
+  },
+  "template:h-tercio-duotono": {
+   "name": "듀오톤 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "듀오톤",
+    "모던"
+   ]
+  },
+  "template:h-tercio-elegante": {
+   "name": "우아한 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "우아한",
+    "골드"
+   ]
+  },
+  "template:h-tercio-entrevista": {
+   "name": "인터뷰 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "인터뷰",
+    "질문"
+   ]
+  },
+  "template:h-tercio-fecha": {
+   "name": "날짜와 시간",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "날짜",
+    "시간",
+    "이벤트"
+   ]
+  },
+  "template:h-tercio-gaming": {
+   "name": "게이밍 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "게이밍",
+    "게이머"
+   ]
+  },
+  "template:h-tercio-glass": {
+   "name": "글래스 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "유리",
+    "반투명"
+   ]
+  },
+  "template:h-tercio-minimal-linea": {
+   "name": "미니멀 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "미니멀",
+    "깔끔"
+   ]
+  },
+  "template:h-tercio-noticias": {
+   "name": "뉴스 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "뉴스",
+    "생방송"
+   ]
+  },
+  "template:h-tercio-podcast": {
+   "name": "팟캐스트 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "팟캐스트",
+    "에피소드"
+   ]
+  },
+  "template:h-tercio-precio": {
+   "name": "화면 가격 표시",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "가격",
+    "상품",
+    "판매"
+   ]
+  },
+  "template:h-tercio-redes": {
+   "name": "SNS 계정 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "sns",
+    "아이디"
+   ]
+  },
+  "template:h-tercio-redondeado": {
+   "name": "사진이 있는 둥근 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "사진",
+    "알약형"
+   ]
+  },
+  "template:h-tercio-retro": {
+   "name": "레트로 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "레트로",
+    "70년대"
+   ]
+  },
+  "template:h-tercio-suscribete": {
+   "name": "모서리 구독 버튼",
+   "tags": [
+    "하단 자막",
+    "구독",
+    "버튼",
+    "유튜브",
+    "구독 버튼"
+   ]
+  },
+  "template:h-tercio-tutorial-paso": {
+   "name": "튜토리얼 단계",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "튜토리얼",
+    "단계",
+    "설명"
+   ]
+  },
+  "template:h-tercio-ubicacion": {
+   "name": "위치 하단 자막",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "이름",
+    "위치",
+    "장소"
+   ]
+  },
+  "template:h-texto-advertencia": {
+   "name": "경고",
+   "tags": [
+    "알림",
+    "주의",
+    "경고",
+    "중요",
+    "조심"
+   ]
+  },
+  "template:h-texto-agenda": {
+   "name": "영상 목차",
+   "tags": [
+    "목차",
+    "콘텐츠",
+    "주제",
+    "챕터",
+    "순서"
+   ]
+  },
+  "template:h-texto-capitulo": {
+   "name": "챕터 카드",
+   "tags": [
+    "챕터",
+    "타이틀",
+    "다큐멘터리",
+    "유튜브",
+    "섹션"
+   ]
+  },
+  "template:h-texto-cinetico": {
+   "name": "키네틱 타이포그래피",
+   "tags": [
+    "키네틱 텍스트",
+    "타이포그래피",
+    "동기부여",
+    "리듬",
+    "단어"
+   ]
+  },
+  "template:h-texto-cita-serif": {
+   "name": "우아한 명언",
+   "tags": [
+    "명언",
+    "글귀",
+    "영감",
+    "성찰",
+    "동기부여"
+   ]
+  },
+  "template:h-texto-comparacion": {
+   "name": "비교",
+   "tags": [
+    "비교",
+    "vs",
+    "a 또는 b",
+    "뭐가 더 좋을까",
+    "리뷰"
+   ]
+  },
+  "template:h-texto-creditos": {
+   "name": "엔딩 크레딧",
+   "tags": [
+    "크레딧",
+    "엔딩",
+    "감사",
+    "영화",
+    "제작진"
+   ]
+  },
+  "template:h-texto-dato-curioso": {
+   "name": "흥미로운 사실",
+   "tags": [
+    "흥미로운 사실",
+    "알고 계셨나요",
+    "교육",
+    "상식",
+    "과학"
+   ]
+  },
+  "template:h-texto-estadistica": {
+   "name": "큰 통계 수치",
+   "tags": [
+    "통계",
+    "수치",
+    "퍼센트",
+    "데이터",
+    "인포그래픽"
+   ]
+  },
+  "template:h-texto-frase-neon": {
+   "name": "네온사인",
+   "tags": [
+    "네온",
+    "간판",
+    "글귀",
+    "밤",
+    "감성"
+   ]
+  },
+  "template:h-texto-lecciones": {
+   "name": "이번에 배울 내용",
+   "tags": [
+    "강의",
+    "배울 내용",
+    "레슨",
+    "교육",
+    "튜토리얼"
+   ]
+  },
+  "template:h-texto-linea-tiempo": {
+   "name": "타임라인",
+   "tags": [
+    "타임라인",
+    "역사",
+    "연도",
+    "발자취",
+    "기념일"
+   ]
+  },
+  "template:h-texto-lista-5": {
+   "name": "TOP 5 리스트",
+   "tags": [
+    "리스트",
+    "top 5",
+    "팁",
+    "포인트",
+    "요약"
+   ]
+  },
+  "template:h-texto-maquina": {
+   "name": "타자기",
+   "tags": [
+    "타자기",
+    "편지",
+    "빈티지",
+    "이야기",
+    "텍스트"
+   ]
+  },
+  "template:h-texto-marcador": {
+   "name": "최종 스코어",
+   "tags": [
+    "스코어",
+    "결과",
+    "경기",
+    "스포츠",
+    "결승"
+   ]
+  },
+  "template:h-texto-portada-video": {
+   "name": "영상 썸네일",
+   "tags": [
+    "썸네일",
+    "표지",
+    "유튜브",
+    "클릭 유도",
+    "커버"
+   ]
+  },
+  "template:h-texto-pregunta": {
+   "name": "시청자에게 질문",
+   "tags": [
+    "질문",
+    "댓글",
+    "소통",
+    "커뮤니티",
+    "의견"
+   ]
+  },
+  "template:h-texto-receta-ingredientes": {
+   "name": "레시피 재료",
+   "tags": [
+    "레시피",
+    "재료",
+    "요리",
+    "음식",
+    "리스트"
+   ]
+  },
+  "template:h-texto-titular-revista": {
+   "name": "잡지 헤드라인",
+   "tags": [
+    "잡지",
+    "표지",
+    "에디토리얼",
+    "패션",
+    "헤드라인"
+   ]
+  },
+  "template:h-texto-titulo-grande": {
+   "name": "큰 타이틀",
+   "tags": [
+    "타이틀",
+    "표지",
+    "큰 글씨",
+    "임팩트",
+    "유튜브"
+   ]
+  },
+  "template:h-trans-barrido-color": {
+   "name": "컬러 스윕",
+   "tags": [
+    "전환",
+    "스윕",
+    "컬러",
+    "와이프",
+    "다이내믹"
+   ]
+  },
+  "template:h-trans-capitulo-numero": {
+   "name": "챕터 번호",
+   "tags": [
+    "챕터",
+    "전환",
+    "번호",
+    "구분",
+    "다큐멘터리"
+   ]
+  },
+  "template:h-trans-circulo": {
+   "name": "원형 구분 화면",
+   "tags": [
+    "전환",
+    "원형",
+    "챕터",
+    "구분",
+    "타이틀"
+   ]
+  },
+  "template:h-trans-diagonal": {
+   "name": "대각선 와이프",
+   "tags": [
+    "전환",
+    "대각선",
+    "와이프",
+    "모던",
+    "패널"
+   ]
+  },
+  "template:h-trans-formas": {
+   "name": "도형 채우기",
+   "tags": [
+    "전환",
+    "도형",
+    "원",
+    "컬러",
+    "재미"
+   ]
+  },
+  "template:h-trans-glitch-corto": {
+   "name": "글리치 히트",
+   "tags": [
+    "전환",
+    "글리치",
+    "빠른",
+    "게임",
+    "디지털"
+   ]
+  },
+  "template:h-trans-mientras-tanto": {
+   "name": "한편 그 시각…",
+   "tags": [
+    "한편",
+    "유머",
+    "만화",
+    "전환",
+    "밈"
+   ]
+  },
+  "template:h-trans-papel": {
+   "name": "찢어진 종이",
+   "tags": [
+    "전환",
+    "종이",
+    "찢어진",
+    "콜라주",
+    "창의적"
+   ]
+  },
+  "template:h-trans-pelicula": {
+   "name": "필름 번",
+   "tags": [
+    "전환",
+    "필름",
+    "필름 번",
+    "빈티지",
+    "따뜻한"
+   ]
+  },
+  "template:h-trans-persiana": {
+   "name": "블라인드",
+   "tags": [
+    "전환",
+    "블라인드",
+    "줄무늬",
+    "와이프",
+    "우아한"
+   ]
+  },
+  "template:h-trans-tinta": {
+   "name": "잉크 와이프",
+   "tags": [
+    "전환",
+    "잉크",
+    "예술",
+    "얼룩",
+    "부드러운"
+   ]
+  },
+  "template:h-trans-zoom-golpe": {
+   "name": "줌 펀치",
+   "tags": [
+    "전환",
+    "줌",
+    "펀치",
+    "빠른",
+    "에너지"
+   ]
+  },
+  "template:halloween-photo-dump": {
+   "name": "핼러윈 포토 덤프",
+   "tags": [
+    "핼러윈",
+    "포토 덤프",
+    "코스튬",
+    "공포",
+    "10월"
+   ]
+  },
+  "template:halloween-revelacion-disfraz": {
+   "name": "코스튬 공개",
+   "tags": [
+    "핼러윈",
+    "코스튬",
+    "변신",
+    "비포 애프터",
+    "깜짝"
+   ]
+  },
+  "template:halloween-truco-o-trato": {
+   "name": "트릭 오어 트릿 파티",
+   "tags": [
+    "핼러윈",
+    "파티",
+    "초대장",
+    "아이들",
+    "코스튬"
+   ]
+  },
+  "template:horario-de-atencion": {
+   "name": "영업시간",
+   "tags": [
+    "영업시간",
+    "운영",
+    "오픈",
+    "매장",
+    "안내"
+   ]
+  },
+  "template:hype-glitch": {
+   "name": "글리치 하이프",
+   "tags": [
+    "하이프",
+    "글리치",
+    "에너지",
+    "헬스",
+    "파티"
+   ]
+  },
+  "template:intro-de-canal": {
+   "name": "채널 인트로",
+   "tags": [
+    "인트로",
+    "채널",
+    "유튜브",
+    "로고"
+   ]
+  },
+  "template:intro-de-podcast": {
+   "name": "팟캐스트 인트로",
+   "tags": [
+    "팟캐스트",
+    "인트로",
+    "에피소드",
+    "오디오",
+    "프로그램"
+   ]
+  },
+  "template:intro-de-vlog": {
+   "name": "브이로그 인트로",
+   "tags": [
+    "브이로그",
+    "인트로",
+    "나와 함께하는 하루",
+    "루틴",
+    "감성"
+   ]
+  },
+  "template:jugadas-destacadas": {
+   "name": "스포츠 하이라이트",
+   "tags": [
+    "스포츠",
+    "축구",
+    "하이라이트",
+    "골",
+    "경기"
+   ]
+  },
+  "template:lanzamiento-ya-disponible": {
+   "name": "출시: 지금 구매 가능",
+   "tags": [
+    "출시",
+    "상품",
+    "신상품",
+    "온라인 쇼핑몰",
+    "런칭"
+   ]
+  },
+  "template:letra-al-ritmo": {
+   "name": "비트에 맞춘 가사",
+   "tags": [
+    "가사",
+    "노래",
+    "비트",
+    "파티",
+    "단어"
+   ]
+  },
+  "template:me-gradue": {
+   "name": "나 졸업했어요!",
+   "tags": [
+    "졸업",
+    "졸업식",
+    "성취",
+    "대학교"
+   ]
+  },
+  "template:mejores-amigas": {
+   "name": "베스트 프렌드",
+   "tags": [
+    "친구",
+    "절친",
+    "베프",
+    "우정",
+    "bff"
+   ]
+  },
+  "template:meme-texto-arriba-abajo": {
+   "name": "클래식 밈",
+   "tags": [
+    "밈",
+    "유머",
+    "위아래 텍스트",
+    "웃긴",
+    "공감"
+   ]
+  },
+  "template:menu-del-dia-pizarra": {
+   "name": "칠판 오늘의 메뉴",
+   "tags": [
+    "메뉴",
+    "레스토랑",
+    "점심",
+    "음식",
+    "가격"
+   ]
+  },
+  "template:menu-navideno": {
+   "name": "크리스마스 메뉴",
+   "tags": [
+    "크리스마스",
+    "메뉴",
+    "디너",
+    "레스토랑",
+    "크리스마스이브"
+   ]
+  },
+  "template:mi-2026-en-fotos": {
+   "name": "사진으로 보는 나의 2026",
+   "tags": [
+    "새해",
+    "연말 결산",
+    "2026",
+    "추억",
+    "사진"
+   ]
+  },
+  "template:mi-glow-up": {
+   "name": "나의 글로우업",
+   "tags": [
+    "글로우업",
+    "비포 애프터",
+    "메이크업",
+    "변화",
+    "뷰티"
+   ]
+  },
+  "template:mi-mascota": {
+   "name": "나의 반려동물",
+   "tags": [
+    "반려동물",
+    "강아지",
+    "고양이",
+    "댕댕이",
+    "가족"
+   ]
+  },
+  "template:mis-mejores-fotos": {
+   "name": "나의 베스트 사진",
+   "tags": [
+    "슬라이드쇼",
+    "베스트 사진",
+    "캐러셀",
+    "추억",
+    "파스텔"
+   ]
+  },
+  "template:mis-xv": {
+   "name": "나의 열다섯 살 생일",
+   "tags": [
+    "15살",
+    "성인식",
+    "생일",
+    "파티"
+   ]
+  },
+  "template:mochilero-por-peru": {
+   "name": "배낭여행 루트",
+   "tags": [
+    "여행",
+    "배낭여행",
+    "루트",
+    "모험",
+    "산"
+   ]
+  },
+  "template:moodboard-aesthetic": {
+   "name": "감성 무드보드",
+   "tags": [
+    "무드보드",
+    "감성",
+    "가을",
+    "영감",
+    "콜라주"
+   ]
+  },
+  "template:muertos-ofrenda": {
+   "name": "추모 제단: 그리운 당신께",
+   "tags": [
+    "망자의 날",
+    "추모",
+    "제단",
+    "기억",
+    "가족"
+   ]
+  },
+  "template:navidad-en-familia": {
+   "name": "가족과 함께하는 크리스마스",
+   "tags": [
+    "크리스마스",
+    "가족",
+    "12월",
+    "크리스마스이브",
+    "연말"
+   ]
+  },
+  "template:navidad-regalo-sorpresa": {
+   "name": "깜짝 선물",
+   "tags": [
+    "선물",
+    "서프라이즈",
+    "크리스마스",
+    "언박싱",
+    "생일"
+   ]
+  },
+  "template:nosotros-vs-otros": {
+   "name": "우리 vs 다른 곳",
+   "tags": [
+    "비교",
+    "우리",
+    "품질",
+    "선택 이유",
+    "vs"
+   ]
+  },
+  "template:nuestra-historia": {
+   "name": "우리의 이야기",
+   "tags": [
+    "커플",
+    "기념일",
+    "사랑",
+    "발렌타인데이"
+   ]
+  },
+  "template:nueva-coleccion-ropa": {
+   "name": "신상 컬렉션",
+   "tags": [
+    "신상",
+    "의류",
+    "패션",
+    "부티크",
+    "시즌"
+   ]
+  },
+  "template:octubre-en-fotos": {
+   "name": "사진으로 보는 10월",
+   "tags": [
+    "10월",
+    "월간 결산",
+    "한 달",
+    "가을",
+    "리캡"
+   ]
+  },
+  "template:oferta-flash": {
+   "name": "반짝 세일",
+   "tags": [
+    "세일",
+    "할인",
+    "판매",
+    "프로모션"
+   ]
+  },
+  "template:ootd-outfit": {
+   "name": "OOTD: 오늘의 코디",
+   "tags": [
+    "코디",
+    "ootd",
+    "패션",
+    "룩",
+    "스타일"
+   ]
+  },
+  "template:opinion-impopular": {
+   "name": "비인기 의견",
+   "tags": [
+    "비인기 의견",
+    "토론",
+    "논란",
+    "댓글",
+    "핫테이크"
+   ]
+  },
+  "template:pantalla-final-2-videos": {
+   "name": "엔드 스크린: 영상 2개",
+   "tags": [
+    "엔드 스크린",
+    "추천 영상",
+    "엔딩",
+    "구독",
+    "쇼츠"
+   ]
+  },
+  "template:pantalla-triple": {
+   "name": "3분할 화면",
+   "tags": [
+    "분할 화면",
+    "3분할",
+    "도시",
+    "콜라주",
+    "거리"
+   ]
+  },
+  "template:para-mama": {
+   "name": "엄마에게",
+   "tags": [
+    "엄마",
+    "어머니의 날",
+    "가족",
+    "사랑"
+   ]
+  },
+  "template:photo-dump-cinematico": {
+   "name": "시네마틱 포토 덤프",
+   "tags": [
+    "포토 덤프",
+    "시네마틱",
+    "사진",
+    "감성",
+    "추억"
+   ]
+  },
+  "template:photo-dump-ritmo": {
+   "name": "비트에 맞춘 포토 덤프",
+   "tags": [
+    "포토 덤프",
+    "사진",
+    "비트",
+    "친구",
+    "리듬"
+   ]
+  },
+  "template:polaroids": {
+   "name": "테이블 위 즉석 사진",
+   "tags": [
+    "즉석 사진",
+    "사진",
+    "추억",
+    "여름"
+   ]
+  },
+  "template:portada-de-tutorial": {
+   "name": "튜토리얼 표지",
+   "tags": [
+    "튜토리얼",
+    "단계별",
+    "하는 법",
+    "표지",
+    "배우기"
+   ]
+  },
+  "template:portada-revista": {
+   "name": "잡지 표지",
+   "tags": [
+    "잡지",
+    "표지",
+    "패션",
+    "화보"
+   ]
+  },
+  "template:pov-chat-mensajes": {
+   "name": "POV 채팅",
+   "tags": [
+    "pov",
+    "채팅",
+    "메시지",
+    "유머",
+    "전 애인"
+   ]
+  },
+  "template:pov-cinematografico": {
+   "name": "시네마틱 POV",
+   "tags": [
+    "pov",
+    "영화",
+    "주인공",
+    "감성",
+    "자막"
+   ]
+  },
+  "template:pov-texto": {
+   "name": "POV 텍스트",
+   "tags": [
+    "pov",
+    "밈",
+    "틱톡",
+    "텍스트"
+   ]
+  },
+  "template:preguntas-frecuentes": {
+   "name": "자주 묻는 질문",
+   "tags": [
+    "질문",
+    "faq",
+    "문의",
+    "고객 서비스",
+    "배송"
+   ]
+  },
+  "template:primer-anio-bebe": {
+   "name": "아기의 첫해, 한 달 한 달",
+   "tags": [
+    "아기",
+    "첫돌",
+    "월별 성장",
+    "생일",
+    "가족"
+   ]
+  },
+  "template:producto-estrella": {
+   "name": "대표 상품",
+   "tags": [
+    "상품",
+    "쇼핑몰",
+    "창업",
+    "판매"
+   ]
+  },
+  "template:progreso-gym": {
+   "name": "운동 일주일",
+   "tags": [
+    "헬스",
+    "운동",
+    "피트니스",
+    "진행 상황",
+    "루틴"
+   ]
+  },
+  "template:propositos-2027": {
+   "name": "나의 2027 새해 다짐",
+   "tags": [
+    "새해",
+    "새해 다짐",
+    "목표",
+    "2027",
+    "노트"
+   ]
+  },
+  "template:r-abuelos": {
+   "name": "고마워요, 할머니 할아버지",
+   "tags": [
+    "조부모",
+    "할머니",
+    "할아버지",
+    "가족",
+    "감사"
+   ]
+  },
+  "template:r-academia-idiomas": {
+   "name": "어학원",
+   "tags": [
+    "외국어",
+    "영어",
+    "수업",
+    "학원",
+    "강좌"
+   ]
+  },
+  "template:r-accion-gracias": {
+   "name": "추수감사절",
+   "tags": [
+    "추수감사절",
+    "땡스기빙",
+    "가족",
+    "식탁",
+    "감사"
+   ]
+  },
+  "template:r-agenda-citas": {
+   "name": "예약하기",
+   "tags": [
+    "예약",
+    "예약하기",
+    "일정",
+    "시간",
+    "살롱"
+   ]
+  },
+  "template:r-agotado-vuelta": {
+   "name": "재입고",
+   "tags": [
+    "품절",
+    "재입고",
+    "입고",
+    "재고",
+    "상품"
+   ]
+  },
+  "template:r-album-stickers": {
+   "name": "스티커 앨범",
+   "tags": [
+    "앨범",
+    "스티커",
+    "스크랩북",
+    "귀여운",
+    "다이어리"
+   ]
+  },
+  "template:r-anio-nuevo-elegante": {
+   "name": "우아한 새해",
+   "tags": [
+    "새해",
+    "우아한",
+    "골드",
+    "건배",
+    "파티"
+   ]
+  },
+  "template:r-anio-nuevo-lunar": {
+   "name": "설날",
+   "tags": [
+    "설날",
+    "음력 설",
+    "등불",
+    "빨강",
+    "번영"
+   ]
+  },
+  "template:r-aniversario-bodas": {
+   "name": "결혼기념일",
+   "tags": [
+    "결혼기념일",
+    "웨딩",
+    "부부",
+    "햇수",
+    "결혼"
+   ]
+  },
+  "template:r-antes-ahora": {
+   "name": "그때와 지금",
+   "tags": [
+    "그때와 지금",
+    "변화",
+    "비교",
+    "장소",
+    "시간"
+   ]
+  },
+  "template:r-atardecer-cine": {
+   "name": "시네마틱 노을",
+   "tags": [
+    "노을",
+    "선셋",
+    "시네마틱",
+    "글귀",
+    "골드"
+   ]
+  },
+  "template:r-ba-auto": {
+   "name": "자동차 비포 애프터",
+   "tags": [
+    "자동차",
+    "차",
+    "세차",
+    "정비소",
+    "비포 애프터"
+   ]
+  },
+  "template:r-ba-casa": {
+   "name": "집 꾸미기 비포 애프터",
+   "tags": [
+    "집",
+    "리모델링",
+    "비포 애프터",
+    "인테리어",
+    "홈"
+   ]
+  },
+  "template:r-ba-cocina": {
+   "name": "레시피 비포 애프터",
+   "tags": [
+    "레시피",
+    "요리",
+    "재료",
+    "완성 요리",
+    "비포 애프터"
+   ]
+  },
+  "template:r-ba-cortina": {
+   "name": "커튼 비포 애프터",
+   "tags": [
+    "비포 애프터",
+    "커튼",
+    "변신",
+    "변화"
+   ]
+  },
+  "template:r-ba-dia-1-100": {
+   "name": "1일차 / 100일차",
+   "tags": [
+    "1일차",
+    "100일차",
+    "진행 상황",
+    "챌린지",
+    "변신"
+   ]
+  },
+  "template:r-ba-dibujo": {
+   "name": "스케치에서 채색까지",
+   "tags": [
+    "그림",
+    "아트",
+    "스케치",
+    "채색",
+    "과정"
+   ]
+  },
+  "template:r-ba-jardin": {
+   "name": "정원 비포 애프터",
+   "tags": [
+    "정원",
+    "식물",
+    "비포 애프터",
+    "텃밭",
+    "그린"
+   ]
+  },
+  "template:r-ba-maquillaje": {
+   "name": "메이크업 비포 애프터",
+   "tags": [
+    "메이크업",
+    "비포 애프터",
+    "뷰티",
+    "룩",
+    "화장"
+   ]
+  },
+  "template:r-ba-mascota": {
+   "name": "아기 강아지에서 어른까지",
+   "tags": [
+    "반려동물",
+    "아기 강아지",
+    "강아지",
+    "성장",
+    "비포 애프터"
+   ]
+  },
+  "template:r-ba-peinado": {
+   "name": "헤어 비포 애프터",
+   "tags": [
+    "헤어스타일",
+    "머리",
+    "미용실",
+    "비포 애프터",
+    "커트"
+   ]
+  },
+  "template:r-bautizo": {
+   "name": "세례식",
+   "tags": [
+    "세례",
+    "아기",
+    "교회",
+    "가족",
+    "신앙"
+   ]
+  },
+  "template:r-beneficios": {
+   "name": "장점 리스트",
+   "tags": [
+    "장점",
+    "혜택",
+    "상품",
+    "리스트",
+    "이유"
+   ]
+  },
+  "template:r-bienvenida-casa": {
+   "name": "집에 온 걸 환영해",
+   "tags": [
+    "환영",
+    "귀가",
+    "집",
+    "가족",
+    "서프라이즈"
+   ]
+  },
+  "template:r-bienvenidos-canal": {
+   "name": "제 채널에 오신 걸 환영해요",
+   "tags": [
+    "환영",
+    "채널",
+    "인트로",
+    "크리에이터",
+    "구독"
+   ]
+  },
+  "template:r-boda-primer-baile": {
+   "name": "첫 번째 춤",
+   "tags": [
+    "결혼식",
+    "첫 춤",
+    "왈츠",
+    "신랑 신부",
+    "파티"
+   ]
+  },
+  "template:r-boda-votos": {
+   "name": "결혼 서약",
+   "tags": [
+    "결혼식",
+    "서약",
+    "약속",
+    "신랑 신부",
+    "예식"
+   ]
+  },
+  "template:r-cafeteria-latte": {
+   "name": "라테 아트 카페",
+   "tags": [
+    "카페",
+    "커피",
+    "라테",
+    "바리스타",
+    "아침"
+   ]
+  },
+  "template:r-camara-desechable": {
+   "name": "일회용 카메라",
+   "tags": [
+    "일회용 카메라",
+    "플래시",
+    "파티",
+    "결혼식",
+    "필름"
+   ]
+  },
+  "template:r-cambio-ropa": {
+   "name": "비트에 맞춘 옷 갈아입기",
+   "tags": [
+    "코디",
+    "옷 갈아입기",
+    "패션",
+    "전환",
+    "ootd"
+   ]
+  },
+  "template:r-carrusel": {
+   "name": "슬라이드 캐러셀",
+   "tags": [
+    "캐러셀",
+    "넘기기",
+    "사진",
+    "갤러리",
+    "인스타"
+   ]
+  },
+  "template:r-casa-nueva": {
+   "name": "새집",
+   "tags": [
+    "새집",
+    "이사",
+    "집",
+    "열쇠",
+    "내 집 마련"
+   ]
+  },
+  "template:r-casa-venta": {
+   "name": "집 매매",
+   "tags": [
+    "부동산",
+    "매매",
+    "집",
+    "매물",
+    "투어"
+   ]
+  },
+  "template:r-ciudad-neon": {
+   "name": "네온 시티",
+   "tags": [
+    "도시",
+    "밤",
+    "네온",
+    "사이버펑크",
+    "어반"
+   ]
+  },
+  "template:r-collage-2-mas-1": {
+   "name": "2+1 콜라주",
+   "tags": [
+    "콜라주",
+    "사진",
+    "그리드",
+    "모던",
+    "감성"
+   ]
+  },
+  "template:r-collage-3-vertical": {
+   "name": "3단 세로 콜라주",
+   "tags": [
+    "콜라주",
+    "사진 3장",
+    "띠",
+    "세로",
+    "미니멀"
+   ]
+  },
+  "template:r-collage-circulos": {
+   "name": "원형 콜라주",
+   "tags": [
+    "원형",
+    "콜라주",
+    "동그라미",
+    "컬러",
+    "사진"
+   ]
+  },
+  "template:r-collage-respira": {
+   "name": "숨 쉬는 콜라주",
+   "tags": [
+    "콜라주",
+    "사진",
+    "호흡",
+    "부드러운",
+    "감성"
+   ]
+  },
+  "template:r-colores-disponibles": {
+   "name": "구매 가능한 색상",
+   "tags": [
+    "색상",
+    "옵션",
+    "상품",
+    "패션",
+    "쇼핑몰"
+   ]
+  },
+  "template:r-combo": {
+   "name": "상품 세트",
+   "tags": [
+    "세트",
+    "패키지",
+    "특가",
+    "선물",
+    "특별 가격"
+   ]
+  },
+  "template:r-comenta": {
+   "name": "댓글 남겨 주세요",
+   "tags": [
+    "엔딩",
+    "댓글",
+    "의견",
+    "소통"
+   ]
+  },
+  "template:r-comparar-tamanos": {
+   "name": "사이즈 비교",
+   "tags": [
+    "사이즈",
+    "치수",
+    "비교",
+    "상품",
+    "선택"
+   ]
+  },
+  "template:r-compartelo": {
+   "name": "친구에게 공유하세요",
+   "tags": [
+    "엔딩",
+    "공유",
+    "태그",
+    "친구"
+   ]
+  },
+  "template:r-comunidad-reunion": {
+   "name": "커뮤니티 모임",
+   "tags": [
+    "커뮤니티",
+    "모임",
+    "교회",
+    "그룹",
+    "초대"
+   ]
+  },
+  "template:r-consejo-finanzas": {
+   "name": "돈 관리 팁",
+   "tags": [
+    "재테크",
+    "돈",
+    "저축",
+    "팁",
+    "예산"
+   ]
+  },
+  "template:r-contador-fotos": {
+   "name": "사진 카운터",
+   "tags": [
+    "카운터",
+    "사진",
+    "비트",
+    "빠른",
+    "포토 덤프"
+   ]
+  },
+  "template:r-core-memory": {
+   "name": "소중한 기억",
+   "tags": [
+    "추억",
+    "코어 메모리",
+    "반짝임",
+    "향수",
+    "구슬"
+   ]
+  },
+  "template:r-cosas-felices": {
+   "name": "나를 행복하게 하는 것들",
+   "tags": [
+    "행복",
+    "감사",
+    "소확행",
+    "감성",
+    "리스트"
+   ]
+  },
+  "template:r-cuadros-4-3": {
+   "name": "4:3 프레임",
+   "tags": [
+    "4:3",
+    "영화",
+    "프레임",
+    "미니멀",
+    "사진"
+   ]
+  },
+  "template:r-cuenta-5-seg": {
+   "name": "5초 카운트다운",
+   "tags": [
+    "카운트다운",
+    "5초",
+    "시작",
+    "챌린지",
+    "타이머"
+   ]
+  },
+  "template:r-cuenta-boda": {
+   "name": "결혼식 카운트다운",
+   "tags": [
+    "결혼식",
+    "디데이",
+    "카운트다운",
+    "신랑 신부",
+    "세이브 더 데이트"
+   ]
+  },
+  "template:r-cuenta-cumple": {
+   "name": "생일 카운트다운",
+   "tags": [
+    "생일",
+    "디데이",
+    "카운트다운",
+    "파티",
+    "설렘"
+   ]
+  },
+  "template:r-cuenta-revelar": {
+   "name": "카운트다운 공개",
+   "tags": [
+    "공개",
+    "서프라이즈",
+    "카운트다운",
+    "발표",
+    "리빌"
+   ]
+  },
+  "template:r-cuenta-vacaciones": {
+   "name": "휴가 카운트다운",
+   "tags": [
+    "휴가",
+    "여행",
+    "디데이",
+    "카운트다운",
+    "캐리어"
+   ]
+  },
+  "template:r-cumple-adulto": {
+   "name": "우아한 생일",
+   "tags": [
+    "생일",
+    "우아한",
+    "골드",
+    "40",
+    "50"
+   ]
+  },
+  "template:r-cumple-infantil": {
+   "name": "아이 생일",
+   "tags": [
+    "생일",
+    "아이들",
+    "키즈",
+    "파티",
+    "풍선"
+   ]
+  },
+  "template:r-cumple-mama": {
+   "name": "엄마 생일",
+   "tags": [
+    "생일",
+    "엄마",
+    "어머니",
+    "꽃",
+    "가족"
+   ]
+  },
+  "template:r-cumple-ritmo": {
+   "name": "비트에 맞춘 생일",
+   "tags": [
+    "생일",
+    "비트",
+    "파티",
+    "글자",
+    "생일 축하"
+   ]
+  },
+  "template:r-despedida-soltera": {
+   "name": "브라이덜 샤워",
+   "tags": [
+    "브라이덜 샤워",
+    "친구",
+    "파티",
+    "신부",
+    "처녀 파티"
+   ]
+  },
+  "template:r-detalle-lupa": {
+   "name": "돋보기 디테일",
+   "tags": [
+    "디테일",
+    "돋보기",
+    "품질",
+    "상품",
+    "마감"
+   ]
+  },
+  "template:r-detras-camaras": {
+   "name": "비하인드 스토리",
+   "tags": [
+    "비하인드",
+    "bts",
+    "촬영",
+    "과정",
+    "크리에이터"
+   ]
+  },
+  "template:r-dia-abuelos": {
+   "name": "조부모의 날",
+   "tags": [
+    "조부모의 날",
+    "할머니",
+    "할아버지",
+    "가족",
+    "사랑"
+   ]
+  },
+  "template:r-dia-madre-floral": {
+   "name": "꽃으로 꾸민 어머니의 날",
+   "tags": [
+    "어머니의 날",
+    "엄마",
+    "꽃",
+    "사랑",
+    "감사"
+   ]
+  },
+  "template:r-dia-maestro": {
+   "name": "스승의 날",
+   "tags": [
+    "스승의 날",
+    "선생님",
+    "학교",
+    "감사",
+    "교사"
+   ]
+  },
+  "template:r-dia-mujer": {
+   "name": "세계 여성의 날",
+   "tags": [
+    "여성의 날",
+    "3월 8일",
+    "여성",
+    "힘",
+    "영감"
+   ]
+  },
+  "template:r-dia-nino": {
+   "name": "어린이날",
+   "tags": [
+    "어린이날",
+    "아이들",
+    "어린 시절",
+    "놀이",
+    "기쁨"
+   ]
+  },
+  "template:r-dia-padre-deportivo": {
+   "name": "스포티한 아버지의 날",
+   "tags": [
+    "아버지의 날",
+    "아빠",
+    "스포츠",
+    "축구",
+    "챔피언"
+   ]
+  },
+  "template:r-dia-perfecto": {
+   "name": "나의 완벽한 하루",
+   "tags": [
+    "완벽한 하루",
+    "루틴",
+    "시간",
+    "브이로그",
+    "일상"
+   ]
+  },
+  "template:r-dia-tierra": {
+   "name": "지구의 날",
+   "tags": [
+    "지구의 날",
+    "지구",
+    "생태",
+    "그린",
+    "자연"
+   ]
+  },
+  "template:r-dia-x-de": {
+   "name": "…의 X일차",
+   "tags": [
+    "일차",
+    "챌린지",
+    "일기",
+    "진행 상황",
+    "시리즈"
+   ]
+  },
+  "template:r-diario-cinta": {
+   "name": "테이프 다이어리",
+   "tags": [
+    "다이어리",
+    "마스킹 테이프",
+    "저널",
+    "메모",
+    "다꾸"
+   ]
+  },
+  "template:r-diwali": {
+   "name": "해피 디왈리",
+   "tags": [
+    "디왈리",
+    "빛",
+    "디야",
+    "축제",
+    "축하"
+   ]
+  },
+  "template:r-dump-fecha": {
+   "name": "날짜 찍힌 포토 덤프",
+   "tags": [
+    "포토 덤프",
+    "날짜",
+    "디카",
+    "2000년대",
+    "추억"
+   ]
+  },
+  "template:r-dump-finde": {
+   "name": "주말 포토 덤프",
+   "tags": [
+    "주말",
+    "포토 덤프",
+    "그리드",
+    "친구",
+    "일요일"
+   ]
+  },
+  "template:r-dump-viaje-mapa": {
+   "name": "지도가 있는 여행 덤프",
+   "tags": [
+    "여행",
+    "지도",
+    "루트",
+    "포토 덤프",
+    "휴가"
+   ]
+  },
+  "template:r-eid": {
+   "name": "이드 무바라크",
+   "tags": [
+    "이드",
+    "이드 무바라크",
+    "축제",
+    "가족",
+    "축복"
+   ]
+  },
+  "template:r-en-otra-vida": {
+   "name": "다른 삶에서는",
+   "tags": [
+    "다른 삶",
+    "몽상",
+    "트렌드",
+    "글귀",
+    "감성"
+   ]
+  },
+  "template:r-en-vivo-ahora": {
+   "name": "지금 라이브 중",
+   "tags": [
+    "라이브",
+    "생방송",
+    "방송 중",
+    "스트리밍",
+    "알림"
+   ]
+  },
+  "template:r-envio-gratis": {
+   "name": "무료 배송",
+   "tags": [
+    "무료 배송",
+    "온라인 쇼핑몰",
+    "쇼핑",
+    "특가",
+    "배달"
+   ]
+  },
+  "template:r-escuela-musica": {
+   "name": "음악 학원",
+   "tags": [
+    "음악",
+    "레슨",
+    "기타",
+    "피아노",
+    "학원"
+   ]
+  },
+  "template:r-esta-soy-yo": {
+   "name": "이게 바로 나",
+   "tags": [
+    "자기소개",
+    "나에 대해",
+    "tmi",
+    "프로필",
+    "알아가기"
+   ]
+  },
+  "template:r-expectativa-realidad": {
+   "name": "기대 vs 현실",
+   "tags": [
+    "기대",
+    "현실",
+    "밈",
+    "유머",
+    "비교"
+   ]
+  },
+  "template:r-farmacia-consejo": {
+   "name": "약국 건강 팁",
+   "tags": [
+    "약국",
+    "건강",
+    "팁",
+    "웰빙",
+    "예방"
+   ]
+  },
+  "template:r-ferreteria": {
+   "name": "철물점",
+   "tags": [
+    "철물점",
+    "공구",
+    "건축",
+    "집",
+    "특가"
+   ]
+  },
+  "template:r-fiesta-fin-anio": {
+   "name": "송년회",
+   "tags": [
+    "송년회",
+    "연말 파티",
+    "회사",
+    "친구",
+    "건배"
+   ]
+  },
+  "template:r-fin-curso": {
+   "name": "종업식",
+   "tags": [
+    "종업식",
+    "방학",
+    "학교",
+    "마지막 날",
+    "여름"
+   ]
+  },
+  "template:r-flash-camara": {
+   "name": "파파라치 플래시",
+   "tags": [
+    "플래시",
+    "파파라치",
+    "셀럽",
+    "레드 카펫",
+    "패션"
+   ]
+  },
+  "template:r-floristeria": {
+   "name": "꽃집",
+   "tags": [
+    "꽃",
+    "꽃집",
+    "꽃다발",
+    "선물",
+    "플라워"
+   ]
+  },
+  "template:r-foto-en-foto": {
+   "name": "화면 속 화면",
+   "tags": [
+    "pip",
+    "화면 속 화면",
+    "디테일",
+    "줌",
+    "콜라주"
+   ]
+  },
+  "template:r-foto-rompe": {
+   "name": "깨지는 사진",
+   "tags": [
+    "깨짐",
+    "유리",
+    "전환",
+    "임팩트",
+    "편집"
+   ]
+  },
+  "template:r-fotografo": {
+   "name": "사진작가",
+   "tags": [
+    "사진작가",
+    "촬영",
+    "인물 사진",
+    "스튜디오",
+    "예약"
+   ]
+  },
+  "template:r-fotomaton": {
+   "name": "포토부스 스트립",
+   "tags": [
+    "포토부스",
+    "인생네컷",
+    "네컷",
+    "친구",
+    "커플"
+   ]
+  },
+  "template:r-frase-comunidad": {
+   "name": "커뮤니티 오늘의 한마디",
+   "tags": [
+    "오늘의 한마디",
+    "커뮤니티",
+    "묵상",
+    "신앙",
+    "희망"
+   ]
+  },
+  "template:r-frase-pelicula": {
+   "name": "영화 명대사",
+   "tags": [
+    "명대사",
+    "영화",
+    "시네마",
+    "자막",
+    "장면"
+   ]
+  },
+  "template:r-frase-subrayada": {
+   "name": "밑줄 친 명언",
+   "tags": [
+    "명언",
+    "밑줄",
+    "동기부여",
+    "글귀",
+    "성찰"
+   ]
+  },
+  "template:r-giro-camara": {
+   "name": "카메라 스핀",
+   "tags": [
+    "회전",
+    "전환",
+    "스핀",
+    "여행",
+    "에너지"
+   ]
+  },
+  "template:r-gracias-1k": {
+   "name": "1천 명 감사해요",
+   "tags": [
+    "엔딩",
+    "감사",
+    "팔로워 1000명",
+    "기념",
+    "축하"
+   ]
+  },
+  "template:r-gracias-por-tanto": {
+   "name": "모든 것에 감사해요",
+   "tags": [
+    "감사",
+    "고마움",
+    "엄마",
+    "우정",
+    "메시지"
+   ]
+  },
+  "template:r-graduacion-kinder": {
+   "name": "유치원 졸업",
+   "tags": [
+    "졸업",
+    "유치원",
+    "어린이집",
+    "아이들",
+    "자랑"
+   ]
+  },
+  "template:r-graduacion-universidad": {
+   "name": "대학교 졸업",
+   "tags": [
+    "졸업",
+    "대학교",
+    "학위",
+    "성취",
+    "전공"
+   ]
+  },
+  "template:r-grano-analogico": {
+   "name": "아날로그 필름",
+   "tags": [
+    "아날로그",
+    "필름",
+    "35mm",
+    "그레인",
+    "빈티지"
+   ]
+  },
+  "template:r-guardalo": {
+   "name": "저장해 두세요",
+   "tags": [
+    "엔딩",
+    "저장",
+    "북마크",
+    "즐겨찾기"
+   ]
+  },
+  "template:r-hanukkah": {
+   "name": "해피 하누카",
+   "tags": [
+    "하누카",
+    "촛불",
+    "빛",
+    "가족",
+    "축제"
+   ]
+  },
+  "template:r-hecho-a-mano": {
+   "name": "핸드메이드 숍",
+   "tags": [
+    "핸드메이드",
+    "공예",
+    "창업",
+    "숍",
+    "선물"
+   ]
+  },
+  "template:r-heladeria": {
+   "name": "아이스크림 가게",
+   "tags": [
+    "아이스크림",
+    "아이스크림 가게",
+    "여름",
+    "맛",
+    "디저트"
+   ]
+  },
+  "template:r-hilo-post": {
+   "name": "게시글 스레드",
+   "tags": [
+    "스레드",
+    "게시글",
+    "포스트",
+    "의견",
+    "텍스트"
+   ]
+  },
+  "template:r-hola-soy": {
+   "name": "안녕하세요, 저는…",
+   "tags": [
+    "자기소개",
+    "안녕하세요",
+    "크리에이터",
+    "인트로",
+    "새 팔로워"
+   ]
+  },
+  "template:r-holi": {
+   "name": "해피 홀리",
+   "tags": [
+    "홀리",
+    "컬러",
+    "축제",
+    "색 가루",
+    "봄"
+   ]
+  },
+  "template:r-intro-serie": {
+   "name": "시리즈 오프닝",
+   "tags": [
+    "시리즈",
+    "시즌",
+    "에피소드",
+    "인트로",
+    "드라마 스타일"
+   ]
+  },
+  "template:r-invierno": {
+   "name": "겨울",
+   "tags": [
+    "겨울",
+    "눈",
+    "추위",
+    "친구",
+    "계절"
+   ]
+  },
+  "template:r-jubilacion": {
+   "name": "은퇴했어요!",
+   "tags": [
+    "은퇴",
+    "정년",
+    "직장",
+    "새 출발",
+    "축하"
+   ]
+  },
+  "template:r-lavanderia": {
+   "name": "세탁소",
+   "tags": [
+    "세탁소",
+    "빨래",
+    "세탁",
+    "서비스",
+    "배달"
+   ]
+  },
+  "template:r-letra-sube": {
+   "name": "올라가는 가사",
+   "tags": [
+    "가사",
+    "노래",
+    "노래방",
+    "리릭",
+    "음악"
+   ]
+  },
+  "template:r-link-perfil": {
+   "name": "프로필 링크 클릭",
+   "tags": [
+    "엔딩",
+    "링크",
+    "프로필",
+    "바이오",
+    "쇼핑"
+   ]
+  },
+  "template:r-lista-pendientes": {
+   "name": "할 일 목록",
+   "tags": [
+    "할 일",
+    "투두",
+    "리스트",
+    "정리",
+    "생산성"
+   ]
+  },
+  "template:r-lo-que-no-se-vio": {
+   "name": "NG 모음",
+   "tags": [
+    "ng 모음",
+    "실수",
+    "블루퍼",
+    "유머",
+    "비하인드"
+   ]
+  },
+  "template:r-logro-deportivo": {
+   "name": "우승이다!",
+   "tags": [
+    "우승",
+    "스포츠",
+    "트로피",
+    "승리",
+    "팀"
+   ]
+  },
+  "template:r-luces-fiesta": {
+   "name": "파티 조명",
+   "tags": [
+    "파티",
+    "조명",
+    "밤",
+    "디스코",
+    "친구"
+   ]
+  },
+  "template:r-lugar-feliz": {
+   "name": "나의 행복한 장소",
+   "tags": [
+    "행복한 장소",
+    "자연",
+    "평화",
+    "여행",
+    "감성"
+   ]
+  },
+  "template:r-main-characters": {
+   "name": "우리가 주인공",
+   "tags": [
+    "친구",
+    "주인공",
+    "영화",
+    "크레딧",
+    "메인 캐릭터"
+   ]
+  },
+  "template:r-marco-camara": {
+   "name": "카메라 프레임",
+   "tags": [
+    "카메라",
+    "프레임",
+    "사진",
+    "뷰파인더",
+    "촬영"
+   ]
+  },
+  "template:r-mas-vendido": {
+   "name": "베스트셀러",
+   "tags": [
+    "베스트셀러",
+    "인기 상품",
+    "인기",
+    "상품",
+    "top"
+   ]
+  },
+  "template:r-mito-verdad": {
+   "name": "속설일까, 사실일까?",
+   "tags": [
+    "속설",
+    "사실",
+    "정보",
+    "호기심",
+    "질문"
+   ]
+  },
+  "template:r-modo-bestia": {
+   "name": "비스트 모드",
+   "tags": [
+    "헬스",
+    "비스트 모드",
+    "운동",
+    "동기부여",
+    "피트니스"
+   ]
+  },
+  "template:r-mosaico-3x3": {
+   "name": "3x3 모자이크",
+   "tags": [
+    "모자이크",
+    "사진 9장",
+    "그리드",
+    "격자",
+    "인스타"
+   ]
+  },
+  "template:r-mudanzas": {
+   "name": "이삿짐 센터",
+   "tags": [
+    "이사",
+    "운송",
+    "박스",
+    "용달",
+    "서비스"
+   ]
+  },
+  "template:r-nadie-yo": {
+   "name": "아무도 안 물어봄: / 나:",
+   "tags": [
+    "밈",
+    "아무도 나",
+    "유머",
+    "공감",
+    "트렌드"
+   ]
+  },
+  "template:r-navidad-minimal": {
+   "name": "미니멀 크리스마스",
+   "tags": [
+    "크리스마스",
+    "미니멀",
+    "트리",
+    "우아한",
+    "12월"
+   ]
+  },
+  "template:r-nochebuena": {
+   "name": "집에서 보내는 크리스마스이브",
+   "tags": [
+    "크리스마스이브",
+    "크리스마스",
+    "디너",
+    "가족",
+    "집"
+   ]
+  },
+  "template:r-nos-vemos-manana": {
+   "name": "내일 또 만나요",
+   "tags": [
+    "엔딩",
+    "작별",
+    "내일",
+    "굿나잇"
+   ]
+  },
+  "template:r-nota-celular": {
+   "name": "휴대폰 메모",
+   "tags": [
+    "메모",
+    "노트",
+    "휴대폰",
+    "편지",
+    "메시지"
+   ]
+  },
+  "template:r-nuevo-capitulo": {
+   "name": "새로운 챕터",
+   "tags": [
+    "새로운 챕터",
+    "시작",
+    "변화",
+    "인트로",
+    "이야기"
+   ]
+  },
+  "template:r-nuevo-empleo": {
+   "name": "새 직장",
+   "tags": [
+    "새 직장",
+    "취업",
+    "성취",
+    "첫 출근",
+    "커리어"
+   ]
+  },
+  "template:r-nuevo-video": {
+   "name": "새 영상!",
+   "tags": [
+    "새 영상",
+    "업로드",
+    "알림",
+    "유튜브",
+    "링크"
+   ]
+  },
+  "template:r-ojo-pez": {
+   "name": "90년대 어안 렌즈",
+   "tags": [
+    "어안 렌즈",
+    "90년대",
+    "스케이트",
+    "레트로",
+    "카메라"
+   ]
+  },
+  "template:r-ong-donaciones": {
+   "name": "기부 캠페인",
+   "tags": [
+    "기부",
+    "비영리",
+    "도움",
+    "나눔",
+    "봉사자"
+   ]
+  },
+  "template:r-otono-acogedor": {
+   "name": "아늑한 가을",
+   "tags": [
+    "가을",
+    "아늑한",
+    "커피",
+    "낙엽",
+    "코지"
+   ]
+  },
+  "template:r-outfit-check": {
+   "name": "화살표 코디 체크",
+   "tags": [
+    "코디",
+    "패션",
+    "화살표",
+    "디테일",
+    "스타일"
+   ]
+  },
+  "template:r-palabra-del-dia": {
+   "name": "오늘의 단어",
+   "tags": [
+    "오늘의 단어",
+    "어휘",
+    "언어",
+    "뜻",
+    "배우기"
+   ]
+  },
+  "template:r-panaderia": {
+   "name": "베이커리",
+   "tags": [
+    "베이커리",
+    "빵",
+    "갓 구운",
+    "제과점",
+    "아침"
+   ]
+  },
+  "template:r-pantalla-celular": {
+   "name": "휴대폰 화면",
+   "tags": [
+    "휴대폰",
+    "스마트폰",
+    "갤러리",
+    "화면",
+    "사진"
+   ]
+  },
+  "template:r-papa-hijo": {
+   "name": "아빠와 나",
+   "tags": [
+    "아빠",
+    "아버지",
+    "아들",
+    "딸",
+    "가족"
+   ]
+  },
+  "template:r-pareja-lento": {
+   "name": "느린 커플 몽타주",
+   "tags": [
+    "커플",
+    "로맨틱",
+    "슬로",
+    "영화",
+    "사랑"
+   ]
+  },
+  "template:r-pareja-ritmo": {
+   "name": "비트에 맞춘 커플 몽타주",
+   "tags": [
+    "커플",
+    "연인",
+    "몽타주",
+    "비트",
+    "사랑"
+   ]
+  },
+  "template:r-parte-1": {
+   "name": "1편",
+   "tags": [
+    "1편",
+    "시리즈",
+    "이야기",
+    "썰",
+    "다음 편에 계속"
+   ]
+  },
+  "template:r-pascua": {
+   "name": "해피 이스터",
+   "tags": [
+    "부활절",
+    "이스터",
+    "달걀",
+    "토끼",
+    "봄"
+   ]
+  },
+  "template:r-pastel-velas": {
+   "name": "케이크와 촛불",
+   "tags": [
+    "케이크",
+    "촛불",
+    "생일",
+    "소원",
+    "촛불 끄기"
+   ]
+  },
+  "template:r-peluqueria-mascotas": {
+   "name": "반려동물 미용",
+   "tags": [
+    "애견 미용",
+    "목욕",
+    "반려동물",
+    "그루밍",
+    "강아지"
+   ]
+  },
+  "template:r-pensamiento-dia": {
+   "name": "오늘의 생각",
+   "tags": [
+    "생각",
+    "성찰",
+    "신앙",
+    "희망",
+    "오늘의 한마디"
+   ]
+  },
+  "template:r-plato-del-dia": {
+   "name": "오늘의 요리",
+   "tags": [
+    "레스토랑",
+    "오늘의 요리",
+    "메뉴",
+    "점심",
+    "음식"
+   ]
+  },
+  "template:r-poema-corto": {
+   "name": "짧은 시",
+   "tags": [
+    "시",
+    "시구",
+    "구절",
+    "사랑",
+    "텍스트"
+   ]
+  },
+  "template:r-portada-blog": {
+   "name": "블로그 표지",
+   "tags": [
+    "블로그",
+    "표지",
+    "글",
+    "읽을거리",
+    "새 글"
+   ]
+  },
+  "template:r-pregunta-respuesta": {
+   "name": "Q&A",
+   "tags": [
+    "질문",
+    "답변",
+    "q&a",
+    "팔로워",
+    "궁금증"
+   ]
+  },
+  "template:r-primavera": {
+   "name": "봄",
+   "tags": [
+    "봄",
+    "꽃",
+    "컬러",
+    "계절",
+    "자연"
+   ]
+  },
+  "template:r-primera-cita": {
+   "name": "우리의 첫 데이트",
+   "tags": [
+    "첫 데이트",
+    "커플",
+    "사랑",
+    "추억",
+    "기념일"
+   ]
+  },
+  "template:r-primera-comunion": {
+   "name": "첫영성체",
+   "tags": [
+    "첫영성체",
+    "신앙",
+    "가족",
+    "아이들",
+    "축하"
+   ]
+  },
+  "template:r-producto-360": {
+   "name": "상품 360도",
+   "tags": [
+    "상품",
+    "360",
+    "회전",
+    "디테일",
+    "쇼핑몰"
+   ]
+  },
+  "template:r-propuesta": {
+   "name": "그녀가 승낙했어요!",
+   "tags": [
+    "프러포즈",
+    "약혼",
+    "반지",
+    "승낙",
+    "커플"
+   ]
+  },
+  "template:r-ramadan": {
+   "name": "라마단 카림",
+   "tags": [
+    "라마단",
+    "이프타르",
+    "가족",
+    "초승달",
+    "등불"
+   ]
+  },
+  "template:r-ranking-5-1": {
+   "name": "5위부터 1위까지",
+   "tags": [
+    "랭킹",
+    "top 5",
+    "최애",
+    "리스트",
+    "1위"
+   ]
+  },
+  "template:r-reaccion-esquina": {
+   "name": "모서리 리액션",
+   "tags": [
+    "리액션",
+    "pip",
+    "반응",
+    "모서리",
+    "코멘트"
+   ]
+  },
+  "template:r-receta-texto": {
+   "name": "텍스트 레시피",
+   "tags": [
+    "레시피",
+    "단계",
+    "요리",
+    "간단",
+    "텍스트"
+   ]
+  },
+  "template:r-recorrido-ubicacion": {
+   "name": "장소 투어",
+   "tags": [
+    "투어",
+    "위치",
+    "도시",
+    "가이드",
+    "장소"
+   ]
+  },
+  "template:r-recortes-revista": {
+   "name": "잡지 오려붙이기",
+   "tags": [
+    "잡지",
+    "오려붙이기",
+    "콜라주",
+    "에디토리얼",
+    "오린 글자"
+   ]
+  },
+  "template:r-recuerdo-proyector": {
+   "name": "영사기 속 추억",
+   "tags": [
+    "영사기",
+    "추억",
+    "빈티지",
+    "필름",
+    "가족"
+   ]
+  },
+  "template:r-recuerdo-verano": {
+   "name": "여름의 추억",
+   "tags": [
+    "여름",
+    "바다",
+    "추억",
+    "휴가",
+    "즉석 사진"
+   ]
+  },
+  "template:r-reflejo": {
+   "name": "물 반사",
+   "tags": [
+    "반사",
+    "거울",
+    "물",
+    "대칭",
+    "감성"
+   ]
+  },
+  "template:r-regreso-clases": {
+   "name": "개학",
+   "tags": [
+    "개학",
+    "학교",
+    "책가방",
+    "학용품",
+    "첫날"
+   ]
+  },
+  "template:r-rejilla-bordes": {
+   "name": "굵은 테두리 그리드",
+   "tags": [
+    "그리드",
+    "테두리",
+    "브루탈리즘",
+    "컬러",
+    "콜라주"
+   ]
+  },
+  "template:r-resena-estrellas": {
+   "name": "별점 리뷰",
+   "tags": [
+    "리뷰",
+    "별점",
+    "후기",
+    "고객",
+    "상품"
+   ]
+  },
+  "template:r-reto-30-dias": {
+   "name": "30일 챌린지",
+   "tags": [
+    "챌린지",
+    "30일",
+    "습관",
+    "도전",
+    "달력"
+   ]
+  },
+  "template:r-sacudida-3d": {
+   "name": "비트에 맞춘 3D 스윙",
+   "tags": [
+    "3d",
+    "회전",
+    "비트",
+    "카드",
+    "트렌드"
+   ]
+  },
+  "template:r-san-valentin-divertido": {
+   "name": "유쾌한 발렌타인데이",
+   "tags": [
+    "발렌타인데이",
+    "사랑",
+    "유머",
+    "커플",
+    "하트"
+   ]
+  },
+  "template:r-si-te-ries": {
+   "name": "웃으면 지는 거야",
+   "tags": [
+    "밈",
+    "웃참 챌린지",
+    "유머",
+    "챌린지",
+    "재미"
+   ]
+  },
+  "template:r-signos": {
+   "name": "별자리",
+   "tags": [
+    "별자리",
+    "황도 12궁",
+    "운세",
+    "점성술",
+    "별"
+   ]
+  },
+  "template:r-siguenos-mas": {
+   "name": "더 보려면 팔로우",
+   "tags": [
+    "엔딩",
+    "팔로우",
+    "구독",
+    "더 많은 콘텐츠"
+   ]
+  },
+  "template:r-slowmo-destello": {
+   "name": "플레어 슬로 모션",
+   "tags": [
+    "슬로 모션",
+    "플레어",
+    "햇살",
+    "시네마틱",
+    "빛"
+   ]
+  },
+  "template:r-spa": {
+   "name": "스파",
+   "tags": [
+    "스파",
+    "마사지",
+    "휴식",
+    "웰빙",
+    "뷰티"
+   ]
+  },
+  "template:r-split-ritmo": {
+   "name": "비트 분할 화면",
+   "tags": [
+    "분할 화면",
+    "비트",
+    "사진 2장",
+    "편집",
+    "다이내믹"
+   ]
+  },
+  "template:r-super-ofertas": {
+   "name": "마트 특가",
+   "tags": [
+    "마트",
+    "특가",
+    "가격",
+    "할인",
+    "과일"
+   ]
+  },
+  "template:r-tablero-corcho": {
+   "name": "코르크 보드",
+   "tags": [
+    "코르크",
+    "보드",
+    "사진",
+    "압정",
+    "추억"
+   ]
+  },
+  "template:r-taller-mecanico": {
+   "name": "자동차 정비소",
+   "tags": [
+    "정비소",
+    "정비사",
+    "자동차",
+    "점검",
+    "서비스"
+   ]
+  },
+  "template:r-tarjetas-apiladas": {
+   "name": "쌓인 카드",
+   "tags": [
+    "카드",
+    "스택",
+    "넘기기",
+    "사진",
+    "스와이프"
+   ]
+  },
+  "template:r-tienda-barrio": {
+   "name": "동네 가게",
+   "tags": [
+    "가게",
+    "동네",
+    "특가",
+    "이웃",
+    "식료품"
+   ]
+  },
+  "template:r-tierno-stickers": {
+   "name": "스티커로 귀엽게",
+   "tags": [
+    "귀여운",
+    "스티커",
+    "큐트",
+    "카와이",
+    "반려동물"
+   ]
+  },
+  "template:r-traduccion": {
+   "name": "이건 어떻게 말할까?",
+   "tags": [
+    "번역",
+    "외국어",
+    "영어",
+    "배우기",
+    "표현"
+   ]
+  },
+  "template:r-tres-errores": {
+   "name": "흔히 하는 실수 3가지",
+   "tags": [
+    "실수",
+    "팁",
+    "꿀팁",
+    "배우기",
+    "피하기"
+   ]
+  },
+  "template:r-trivia": {
+   "name": "객관식 퀴즈",
+   "tags": [
+    "퀴즈",
+    "상식",
+    "질문",
+    "게임",
+    "정답"
+   ]
+  },
+  "template:r-unboxing": {
+   "name": "언박싱",
+   "tags": [
+    "언박싱",
+    "개봉",
+    "주문",
+    "상품",
+    "쇼핑"
+   ]
+  },
+  "template:r-velocity-duro": {
+   "name": "강렬한 벨로시티",
+   "tags": [
+    "벨로시티",
+    "속도 램프",
+    "강렬한",
+    "흔들림",
+    "편집"
+   ]
+  },
+  "template:r-velocity-suave": {
+   "name": "부드러운 벨로시티",
+   "tags": [
+    "벨로시티",
+    "속도 램프",
+    "부드러운",
+    "트렌드",
+    "편집"
+   ]
+  },
+  "template:r-verano": {
+   "name": "안녕, 여름",
+   "tags": [
+    "여름",
+    "해변",
+    "수영장",
+    "햇살",
+    "휴가"
+   ]
+  },
+  "template:r-veterinaria": {
+   "name": "동물병원",
+   "tags": [
+    "동물병원",
+    "반려동물",
+    "강아지",
+    "고양이",
+    "동물 건강"
+   ]
+  },
+  "template:r-vt-horario": {
+   "name": "세로형 영업시간",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "세로형",
+    "영업시간",
+    "비즈니스"
+   ]
+  },
+  "template:r-vt-nombre": {
+   "name": "세로형 이름표",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "세로형",
+    "이름",
+    "인터뷰"
+   ]
+  },
+  "template:r-vt-precio": {
+   "name": "세로형 가격표",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "세로형",
+    "가격",
+    "상품"
+   ]
+  },
+  "template:r-vt-ubicacion": {
+   "name": "세로형 위치",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "세로형",
+    "위치",
+    "여행"
+   ]
+  },
+  "template:r-vt-usuario": {
+   "name": "세로형 @아이디",
+   "tags": [
+    "하단 자막",
+    "자막 바",
+    "세로형",
+    "아이디",
+    "sns"
+   ]
+  },
+  "template:r-yo-vs-yo": {
+   "name": "그때의 나 vs 지금의 나",
+   "tags": [
+    "나 vs 나",
+    "그때와 지금",
+    "어린 시절",
+    "성장",
+    "비교"
+   ]
+  },
+  "template:r-zoom-golpe": {
+   "name": "펀치 줌",
+   "tags": [
+    "줌",
+    "펀치",
+    "비트",
+    "미니멀",
+    "편집"
+   ]
+  },
+  "template:recap-del-anio": {
+   "name": "12개월로 보는 나의 한 해",
+   "tags": [
+    "연말 결산",
+    "한 해",
+    "요약",
+    "월별",
+    "2026"
+   ]
+  },
+  "template:receta-rapida": {
+   "name": "15초 레시피",
+   "tags": [
+    "레시피",
+    "요리",
+    "음식",
+    "샐러드"
+   ]
+  },
+  "template:red-flags-green-flags": {
+   "name": "레드 플래그, 그린 플래그",
+   "tags": [
+    "레드 플래그",
+    "그린 플래그",
+    "연애",
+    "데이트",
+    "유머"
+   ]
+  },
+  "template:remodelacion": {
+   "name": "방 리모델링",
+   "tags": [
+    "리모델링",
+    "집",
+    "부동산",
+    "인테리어"
+   ]
+  },
+  "template:resenas-lo-que-dicen": {
+   "name": "고객들의 한마디",
+   "tags": [
+    "리뷰",
+    "후기",
+    "고객",
+    "별 5개",
+    "평점"
+   ]
+  },
+  "template:resumen-de-boda": {
+   "name": "웨딩 하이라이트",
+   "tags": [
+    "결혼식",
+    "웨딩",
+    "하이라이트",
+    "시네마틱",
+    "신랑 신부"
+   ]
+  },
+  "template:revelacion-de-genero": {
+   "name": "성별 공개",
+   "tags": [
+    "성별 공개",
+    "아들 딸",
+    "아기",
+    "임신",
+    "젠더 리빌"
+   ]
+  },
+  "template:salon-de-belleza-servicios": {
+   "name": "뷰티 살롱",
+   "tags": [
+    "살롱",
+    "뷰티",
+    "미용실",
+    "서비스",
+    "예약"
+   ]
+  },
+  "template:san-valentin-carta": {
+   "name": "러브레터",
+   "tags": [
+    "발렌타인데이",
+    "사랑",
+    "커플",
+    "2월 14일",
+    "편지"
+   ]
+  },
+  "template:slowmo-cinematico": {
+   "name": "시네마틱 슬로 모션",
+   "tags": [
+    "시네마틱",
+    "영화",
+    "슬로 모션",
+    "노을"
+   ]
+  },
+  "template:storytime-les-cuento": {
+   "name": "썰 풀기",
+   "tags": [
+    "스토리타임",
+    "썰",
+    "에피소드",
+    "이야기",
+    "틱톡"
+   ]
+  },
+  "template:testimonio-cliente-estrellas": {
+   "name": "고객 후기",
+   "tags": [
+    "후기",
+    "고객",
+    "리뷰",
+    "별점",
+    "신뢰"
+   ]
+  },
+  "template:texto-cinetico": {
+   "name": "키네틱 텍스트",
+   "tags": [
+    "텍스트",
+    "동기부여",
+    "글귀",
+    "임팩트"
+   ]
+  },
+  "template:tira-pelicula": {
+   "name": "필름 스트립",
+   "tags": [
+    "필름",
+    "아날로그",
+    "필름 롤",
+    "레트로"
+   ]
+  },
+  "template:top-5-mas-vendidos": {
+   "name": "베스트셀러 TOP 5",
+   "tags": [
+    "top 5",
+    "베스트셀러",
+    "랭킹",
+    "쇼핑몰",
+    "의류"
+   ]
+  },
+  "template:tour-inmobiliario": {
+   "name": "매물 투어",
+   "tags": [
+    "부동산",
+    "집",
+    "매매",
+    "아파트"
+   ]
+  },
+  "template:transformacion-gym": {
+   "name": "헬스 변신",
+   "tags": [
+    "헬스",
+    "피트니스",
+    "변신",
+    "비포 애프터"
+   ]
+  },
+  "template:transiciones-al-ritmo": {
+   "name": "비트 싱크 전환",
+   "tags": [
+    "전환",
+    "비트",
+    "친구",
+    "주말",
+    "트렌드"
+   ]
+  },
+  "template:tres-consejos": {
+   "name": "…를 위한 3가지 팁",
+   "tags": [
+    "팁",
+    "꿀팁",
+    "리스트",
+    "공부",
+    "교육"
+   ]
+  },
+  "template:tutorial-en-3-pasos": {
+   "name": "3단계 튜토리얼",
+   "tags": [
+    "튜토리얼",
+    "단계",
+    "하는 법",
+    "팁",
+    "뷰티"
+   ]
+  },
+  "template:ultimo-momento-noticia": {
+   "name": "속보",
+   "tags": [
+    "뉴스",
+    "속보",
+    "발표",
+    "생방송",
+    "소식"
+   ]
+  },
+  "template:un-dia-en-mi-vida": {
+   "name": "나의 하루",
+   "tags": [
+    "나의 하루",
+    "일상",
+    "브이로그",
+    "루틴",
+    "스토리"
+   ]
+  },
+  "template:unas-nail-art": {
+   "name": "네일과 네일아트",
+   "tags": [
+    "네일",
+    "매니큐어",
+    "네일아트",
+    "뷰티",
+    "아크릴"
+   ]
+  },
+  "template:velocity-al-ritmo": {
+   "name": "비트에 맞춘 벨로시티",
+   "tags": [
+    "벨로시티",
+    "속도",
+    "비트",
+    "패션",
+    "트렌드"
+   ]
+  },
+  "template:vhs-de-los-2000": {
+   "name": "2000년대 VHS",
+   "tags": [
+    "vhs",
+    "레트로",
+    "2000년대",
+    "향수",
+    "캠코더"
+   ]
+  },
+  "template:vlog-de-viaje": {
+   "name": "미니 여행 브이로그",
+   "tags": [
+    "여행",
+    "브이로그",
+    "관광",
+    "여행 기록"
+   ]
+  },
+  "template:y2k-brillitos": {
+   "name": "Y2K 반짝이",
+   "tags": [
+    "y2k",
+    "반짝이",
+    "핑크",
+    "감성"
+   ]
+  },
+  "template:zoom-3d-parallax": {
+   "name": "3D 줌",
+   "tags": [
+    "3d 줌",
+    "패럴랙스",
+    "여행",
+    "켄 번즈",
+    "트렌드"
+   ]
+  }
+ }
+}

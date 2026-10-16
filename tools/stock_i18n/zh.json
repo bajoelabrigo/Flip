@@ -1,0 +1,8640 @@
+{
+ "categories": {
+  "animation:celebracion": "庆祝",
+  "animation:clima": "天气",
+  "animation:comida": "美食饮品",
+  "animation:deportes": "运动",
+  "animation:emociones": "情绪",
+  "animation:fechas": "节日",
+  "animation:flechas": "箭头",
+  "animation:formas": "形状",
+  "animation:iconos": "图标",
+  "animation:llamadas": "标注与边框",
+  "animation:negocios": "商务",
+  "animation:redes": "社交媒体",
+  "animation:resaltar": "强调",
+  "animation:transiciones": "转场",
+  "background:ambiente": "光影氛围",
+  "background:degradados": "渐变与流体",
+  "background:fechas": "节日",
+  "background:geometricos": "几何",
+  "background:texturas": "纹理",
+  "overlay:amor": "爱心",
+  "overlay:camara": "相机与屏幕",
+  "overlay:celebracion": "庆祝",
+  "overlay:clima": "天气与自然",
+  "overlay:garabatos": "涂鸦",
+  "overlay:glitch": "故障",
+  "overlay:luces": "漏光与光晕",
+  "overlay:marcos": "边框与纹理",
+  "overlay:particulas": "粒子与闪光",
+  "overlay:pelicula": "胶片与复古",
+  "sound:comedia": "搞笑",
+  "sound:impactos": "冲击",
+  "sound:interfaz": "按键与提示",
+  "sound:juegos": "金币与游戏",
+  "sound:magia": "魔法与闪光",
+  "sound:ritmo": "节奏与音乐",
+  "sound:suspenso": "悬疑与戏剧",
+  "sound:transiciones": "转场",
+  "template:beforeafter": "前后对比",
+  "template:business": "商家",
+  "template:celebration": "庆祝",
+  "template:collage": "拼图",
+  "template:countdown": "倒计时",
+  "template:intro": "片头与标题",
+  "template:lowerthird": "字幕条",
+  "template:outro": "片尾",
+  "template:product": "产品",
+  "template:reels": "照片短视频",
+  "template:seasonal": "节日",
+  "template:slideshow": "照片幻灯片",
+  "template:text": "文字",
+  "template:transition": "转场与分隔"
+ },
+ "items": {
+  "animation:advertencia": {
+   "name": "警告",
+   "tags": [
+    "小心",
+    "警告",
+    "注意",
+    "提示"
+   ]
+  },
+  "animation:alcancia": {
+   "name": "存钱罐",
+   "tags": [
+    "存钱",
+    "钱",
+    "理财",
+    "目标"
+   ]
+  },
+  "animation:anillos-boda": {
+   "name": "婚戒",
+   "tags": [
+    "婚礼",
+    "结婚",
+    "订婚",
+    "纪念日"
+   ]
+  },
+  "animation:anillos-puntos": {
+   "name": "圆点光环",
+   "tags": [
+    "圆形",
+    "背景",
+    "旋转",
+    "图案"
+   ]
+  },
+  "animation:arbol-navidad": {
+   "name": "圣诞树",
+   "tags": [
+    "圣诞",
+    "圣诞树",
+    "十二月",
+    "节日"
+   ]
+  },
+  "animation:arcoiris": {
+   "name": "彩虹",
+   "tags": [
+    "彩虹",
+    "雨后",
+    "希望",
+    "多彩"
+   ]
+  },
+  "animation:asterisco": {
+   "name": "星号",
+   "tags": [
+    "形状",
+    "星号",
+    "复古",
+    "强调"
+   ]
+  },
+  "animation:avion-papel": {
+   "name": "纸飞机",
+   "tags": [
+    "发送",
+    "消息",
+    "分享",
+    "旅行"
+   ]
+  },
+  "animation:balon-futbol": {
+   "name": "足球",
+   "tags": [
+    "足球",
+    "进球",
+    "运动",
+    "比赛"
+   ]
+  },
+  "animation:baloncesto": {
+   "name": "篮球",
+   "tags": [
+    "篮球",
+    "运动",
+    "球场",
+    "投篮"
+   ]
+  },
+  "animation:bandera": {
+   "name": "飘扬旗帜",
+   "tags": [
+    "旗帜",
+    "终点",
+    "成就",
+    "开始"
+   ]
+  },
+  "animation:bandera-meta": {
+   "name": "终点旗",
+   "tags": [
+    "终点",
+    "赛跑",
+    "冠军",
+    "比赛"
+   ]
+  },
+  "animation:banderines": {
+   "name": "三角彩旗",
+   "tags": [
+    "彩旗",
+    "派对",
+    "装饰",
+    "生日",
+    "开业"
+   ]
+  },
+  "animation:barrido-diagonal": {
+   "name": "斜向扫屏",
+   "tags": [
+    "转场",
+    "扫屏",
+    "切换场景",
+    "斜向"
+   ]
+  },
+  "animation:bateria-carga": {
+   "name": "电池充电",
+   "tags": [
+    "电池",
+    "能量",
+    "充电",
+    "电量"
+   ]
+  },
+  "animation:bengala": {
+   "name": "手持烟花棒",
+   "tags": [
+    "烟花棒",
+    "新年",
+    "婚礼",
+    "火花"
+   ]
+  },
+  "animation:birrete": {
+   "name": "学士帽",
+   "tags": [
+    "毕业",
+    "毕业生",
+    "成就",
+    "学业"
+   ]
+  },
+  "animation:bocadillo": {
+   "name": "对话气泡",
+   "tags": [
+    "对话",
+    "说话",
+    "文字",
+    "漫画"
+   ]
+  },
+  "animation:bocadillo-grito": {
+   "name": "喊叫气泡",
+   "tags": [
+    "喊叫",
+    "哇",
+    "漫画",
+    "感叹"
+   ]
+  },
+  "animation:bola-disco": {
+   "name": "迪斯科球",
+   "tags": [
+    "派对",
+    "跳舞",
+    "夜晚",
+    "迪斯科"
+   ]
+  },
+  "animation:bolsa-compras": {
+   "name": "购物袋",
+   "tags": [
+    "购物",
+    "店铺",
+    "订单",
+    "袋子"
+   ]
+  },
+  "animation:bombilla-idea": {
+   "name": "灵感灯泡",
+   "tags": [
+    "灵感",
+    "创意",
+    "建议",
+    "技巧"
+   ]
+  },
+  "animation:boton-play": {
+   "name": "播放按钮",
+   "tags": [
+    "视频",
+    "播放",
+    "观看",
+    "按钮"
+   ]
+  },
+  "animation:boton-seguir": {
+   "name": "关注按钮",
+   "tags": [
+    "关注",
+    "订阅",
+    "社交",
+    "按钮"
+   ]
+  },
+  "animation:brillo-y2k": {
+   "name": "Y2K星芒",
+   "tags": [
+    "星芒",
+    "y2k",
+    "闪光",
+    "审美"
+   ]
+  },
+  "animation:burbujas": {
+   "name": "泡泡",
+   "tags": [
+    "泡泡",
+    "水",
+    "肥皂泡",
+    "背景"
+   ]
+  },
+  "animation:cafe-humeante": {
+   "name": "热咖啡",
+   "tags": [
+    "咖啡",
+    "早晨",
+    "早餐",
+    "饮品"
+   ]
+  },
+  "animation:caja-envio": {
+   "name": "快递箱",
+   "tags": [
+    "快递",
+    "配送",
+    "订单",
+    "包裹"
+   ]
+  },
+  "animation:calabaza": {
+   "name": "南瓜灯",
+   "tags": [
+    "万圣节",
+    "南瓜",
+    "十月",
+    "恐怖"
+   ]
+  },
+  "animation:calendario": {
+   "name": "日历",
+   "tags": [
+    "日期",
+    "活动",
+    "日程",
+    "提醒"
+   ]
+  },
+  "animation:camara-foto": {
+   "name": "相机",
+   "tags": [
+    "照片",
+    "相机",
+    "自拍",
+    "回忆"
+   ]
+  },
+  "animation:campana": {
+   "name": "通知铃铛",
+   "tags": [
+    "订阅",
+    "通知",
+    "铃铛",
+    "提醒"
+   ]
+  },
+  "animation:campanas-navidad": {
+   "name": "圣诞铃铛",
+   "tags": [
+    "圣诞",
+    "铃铛",
+    "节日",
+    "婚礼"
+   ]
+  },
+  "animation:candado": {
+   "name": "锁",
+   "tags": [
+    "安全",
+    "隐私",
+    "解锁",
+    "密码"
+   ]
+  },
+  "animation:cara-angel": {
+   "name": "小天使",
+   "tags": [
+    "天使",
+    "无辜",
+    "乖",
+    "表情"
+   ]
+  },
+  "animation:cara-beso": {
+   "name": "飞吻",
+   "tags": [
+    "亲亲",
+    "爱",
+    "么么哒",
+    "表情"
+   ]
+  },
+  "animation:cara-derretida": {
+   "name": "融化脸",
+   "tags": [
+    "热",
+    "害羞",
+    "融化",
+    "表情"
+   ]
+  },
+  "animation:cara-diablillo": {
+   "name": "小恶魔",
+   "tags": [
+    "调皮",
+    "坏笑",
+    "恶作剧",
+    "表情"
+   ]
+  },
+  "animation:cara-dormida": {
+   "name": "睡觉脸",
+   "tags": [
+    "困",
+    "睡觉",
+    "累",
+    "zzz"
+   ]
+  },
+  "animation:cara-enamorada": {
+   "name": "花痴脸",
+   "tags": [
+    "爱心眼",
+    "喜欢",
+    "爱",
+    "表情"
+   ]
+  },
+  "animation:cara-enojada": {
+   "name": "生气脸",
+   "tags": [
+    "生气",
+    "愤怒",
+    "烦",
+    "表情"
+   ]
+  },
+  "animation:cara-estrellas": {
+   "name": "星星眼",
+   "tags": [
+    "哇",
+    "厉害",
+    "粉丝",
+    "表情"
+   ]
+  },
+  "animation:cara-fiesta": {
+   "name": "派对脸",
+   "tags": [
+    "派对",
+    "生日",
+    "庆祝",
+    "表情"
+   ]
+  },
+  "animation:cara-guino": {
+   "name": "眨眼脸",
+   "tags": [
+    "眨眼",
+    "调皮",
+    "玩笑",
+    "表情"
+   ]
+  },
+  "animation:cara-lentes": {
+   "name": "墨镜酷脸",
+   "tags": [
+    "酷",
+    "帅",
+    "墨镜",
+    "表情"
+   ]
+  },
+  "animation:cara-llorando": {
+   "name": "大哭脸",
+   "tags": [
+    "难过",
+    "哭",
+    "伤心",
+    "表情"
+   ]
+  },
+  "animation:cara-nerviosa": {
+   "name": "紧张脸",
+   "tags": [
+    "紧张",
+    "尴尬",
+    "糟糕",
+    "表情"
+   ]
+  },
+  "animation:cara-pensando": {
+   "name": "思考脸",
+   "tags": [
+    "思考",
+    "疑问",
+    "问题",
+    "表情"
+   ]
+  },
+  "animation:cara-risa": {
+   "name": "大笑脸",
+   "tags": [
+    "大笑",
+    "哈哈",
+    "搞笑",
+    "表情"
+   ]
+  },
+  "animation:cara-sorpresa": {
+   "name": "惊讶脸",
+   "tags": [
+    "哇",
+    "惊讶",
+    "天哪",
+    "表情"
+   ]
+  },
+  "animation:cargando": {
+   "name": "加载中",
+   "tags": [
+    "加载",
+    "等待",
+    "即将",
+    "进度"
+   ]
+  },
+  "animation:carrito": {
+   "name": "购物车",
+   "tags": [
+    "购买",
+    "店铺",
+    "购物车",
+    "下单"
+   ]
+  },
+  "animation:carta-amor": {
+   "name": "爱心情书",
+   "tags": [
+    "情人节",
+    "情书",
+    "爱情",
+    "信"
+   ]
+  },
+  "animation:chat-corazon": {
+   "name": "爱心消息",
+   "tags": [
+    "消息",
+    "爱情",
+    "聊天",
+    "私信"
+   ]
+  },
+  "animation:chincheta": {
+   "name": "图钉",
+   "tags": [
+    "图钉",
+    "置顶",
+    "重要",
+    "便签",
+    "提醒"
+   ]
+  },
+  "animation:cinta": {
+   "name": "丝带横幅",
+   "tags": [
+    "标题",
+    "横幅",
+    "新品",
+    "丝带"
+   ]
+  },
+  "animation:cinta-adhesiva": {
+   "name": "和纸胶带",
+   "tags": [
+    "胶带",
+    "照片",
+    "手账",
+    "拼贴"
+   ]
+  },
+  "animation:circulo-flecha": {
+   "name": "圆圈加箭头",
+   "tags": [
+    "强调",
+    "指向",
+    "这里",
+    "涂鸦"
+   ]
+  },
+  "animation:circulo-marcador": {
+   "name": "手绘圆圈",
+   "tags": [
+    "圈出",
+    "标记",
+    "强调",
+    "手绘"
+   ]
+  },
+  "animation:circulos-barrido": {
+   "name": "圆形扫屏",
+   "tags": [
+    "转场",
+    "圆形",
+    "切换场景",
+    "扫屏"
+   ]
+  },
+  "animation:cohete": {
+   "name": "火箭",
+   "tags": [
+    "发布",
+    "起飞",
+    "创业",
+    "快速"
+   ]
+  },
+  "animation:comentar": {
+   "name": "评论",
+   "tags": [
+    "评论",
+    "聊天",
+    "社交",
+    "消息"
+   ]
+  },
+  "animation:compartir": {
+   "name": "分享",
+   "tags": [
+    "分享",
+    "发送",
+    "社交",
+    "转发"
+   ]
+  },
+  "animation:confeti": {
+   "name": "彩纸雨",
+   "tags": [
+    "彩纸",
+    "派对",
+    "生日",
+    "庆祝"
+   ]
+  },
+  "animation:cono-fiesta": {
+   "name": "礼花筒",
+   "tags": [
+    "礼花",
+    "派对",
+    "生日",
+    "惊喜"
+   ]
+  },
+  "animation:conversacion": {
+   "name": "聊天对话",
+   "tags": [
+    "聊天",
+    "对话",
+    "消息",
+    "交流"
+   ]
+  },
+  "animation:copas-brindis": {
+   "name": "干杯",
+   "tags": [
+    "干杯",
+    "新年",
+    "婚礼",
+    "庆祝"
+   ]
+  },
+  "animation:copo-nieve": {
+   "name": "雪花",
+   "tags": [
+    "雪花",
+    "冬天",
+    "寒冷",
+    "圣诞"
+   ]
+  },
+  "animation:corazon-a-mano": {
+   "name": "手绘爱心",
+   "tags": [
+    "爱心",
+    "喜欢",
+    "涂鸦",
+    "强调"
+   ]
+  },
+  "animation:corazon-flechado": {
+   "name": "丘比特之箭",
+   "tags": [
+    "情人节",
+    "爱情",
+    "丘比特",
+    "情侣"
+   ]
+  },
+  "animation:corazon-roto": {
+   "name": "心碎",
+   "tags": [
+    "失恋",
+    "难过",
+    "分手",
+    "心碎"
+   ]
+  },
+  "animation:corazones": {
+   "name": "飘升爱心",
+   "tags": [
+    "爱心",
+    "爱情",
+    "情侣",
+    "点赞"
+   ]
+  },
+  "animation:corchetes": {
+   "name": "对焦括号",
+   "tags": [
+    "括号",
+    "强调",
+    "对焦",
+    "边框"
+   ]
+  },
+  "animation:corona": {
+   "name": "皇冠",
+   "tags": [
+    "皇冠",
+    "国王",
+    "女王",
+    "获胜",
+    "高级"
+   ]
+  },
+  "animation:correo": {
+   "name": "新邮件",
+   "tags": [
+    "邮件",
+    "消息",
+    "电子邮件",
+    "联系"
+   ]
+  },
+  "animation:corte-dividido": {
+   "name": "分割滑动",
+   "tags": [
+    "转场",
+    "滑动",
+    "切换场景",
+    "分割"
+   ]
+  },
+  "animation:cronometro": {
+   "name": "秒表",
+   "tags": [
+    "计时",
+    "赛跑",
+    "纪录",
+    "快速"
+   ]
+  },
+  "animation:cuadros-zoom": {
+   "name": "方格转场",
+   "tags": [
+    "转场",
+    "方格",
+    "像素",
+    "切换场景"
+   ]
+  },
+  "animation:cuenta-regresiva": {
+   "name": "倒计时",
+   "tags": [
+    "倒计时",
+    "321",
+    "开始",
+    "等待"
+   ]
+  },
+  "animation:cupcake": {
+   "name": "纸杯蛋糕",
+   "tags": [
+    "纸杯蛋糕",
+    "甜品",
+    "生日",
+    "甜"
+   ]
+  },
+  "animation:cursor-clic": {
+   "name": "鼠标点击",
+   "tags": [
+    "点击",
+    "光标",
+    "按钮",
+    "链接"
+   ]
+  },
+  "animation:descargar": {
+   "name": "下载",
+   "tags": [
+    "下载",
+    "保存",
+    "文件",
+    "获取"
+   ]
+  },
+  "animation:desliza-arriba": {
+   "name": "上滑",
+   "tags": [
+    "上滑",
+    "向上",
+    "快拍",
+    "链接"
+   ]
+  },
+  "animation:destellos": {
+   "name": "闪光",
+   "tags": [
+    "闪光",
+    "星星",
+    "魔法",
+    "亮晶晶"
+   ]
+  },
+  "animation:diana": {
+   "name": "靶心",
+   "tags": [
+    "目标",
+    "命中",
+    "策略",
+    "精准"
+   ]
+  },
+  "animation:diya": {
+   "name": "排灯节油灯",
+   "tags": [
+    "排灯节",
+    "灯",
+    "油灯",
+    "节日"
+   ]
+  },
+  "animation:dona": {
+   "name": "甜甜圈",
+   "tags": [
+    "甜甜圈",
+    "甜品",
+    "甜",
+    "早餐"
+   ]
+  },
+  "animation:en-vivo": {
+   "name": "直播中",
+   "tags": [
+    "直播",
+    "实时",
+    "live",
+    "直播中"
+   ]
+  },
+  "animation:enfasis": {
+   "name": "强调线",
+   "tags": [
+    "强调",
+    "惊讶",
+    "哇",
+    "注意"
+   ]
+  },
+  "animation:engranajes": {
+   "name": "齿轮",
+   "tags": [
+    "设置",
+    "流程",
+    "工作",
+    "配置"
+   ]
+  },
+  "animation:enlace": {
+   "name": "链接",
+   "tags": [
+    "链接",
+    "简介",
+    "网站",
+    "网址"
+   ]
+  },
+  "animation:equis": {
+   "name": "叉号",
+   "tags": [
+    "叉号",
+    "错误",
+    "不对",
+    "否"
+   ]
+  },
+  "animation:escribiendo": {
+   "name": "正在输入…",
+   "tags": [
+    "聊天",
+    "消息",
+    "输入中",
+    "等待"
+   ]
+  },
+  "animation:esfera-navidad": {
+   "name": "圣诞彩球",
+   "tags": [
+    "圣诞",
+    "装饰",
+    "彩球",
+    "十二月"
+   ]
+  },
+  "animation:espiral-garabato": {
+   "name": "手绘螺旋",
+   "tags": [
+    "螺旋",
+    "涂鸦",
+    "晕",
+    "催眠"
+   ]
+  },
+  "animation:estallido-comic": {
+   "name": "漫画爆炸框",
+   "tags": [
+    "爆炸",
+    "哇",
+    "促销",
+    "漫画"
+   ]
+  },
+  "animation:estrella-a-mano": {
+   "name": "手绘星星",
+   "tags": [
+    "星星",
+    "收藏",
+    "重要",
+    "涂鸦"
+   ]
+  },
+  "animation:estrella-fugaz": {
+   "name": "流星",
+   "tags": [
+    "流星",
+    "许愿",
+    "魔法",
+    "夜晚"
+   ]
+  },
+  "animation:estrella-giro": {
+   "name": "旋转星星转场",
+   "tags": [
+    "转场",
+    "星星",
+    "旋转",
+    "切换场景"
+   ]
+  },
+  "animation:estrellas-pop": {
+   "name": "弹出星星",
+   "tags": [
+    "星星",
+    "成就",
+    "奖励",
+    "弹出"
+   ]
+  },
+  "animation:estrellas-valoracion": {
+   "name": "五星评分",
+   "tags": [
+    "评价",
+    "评分",
+    "客户",
+    "星级"
+   ]
+  },
+  "animation:etiqueta-precio": {
+   "name": "价格标签",
+   "tags": [
+    "价格",
+    "优惠",
+    "销售",
+    "店铺"
+   ]
+  },
+  "animation:exclamaciones": {
+   "name": "感叹号",
+   "tags": [
+    "注意",
+    "重要",
+    "警告",
+    "感叹号"
+   ]
+  },
+  "animation:fantasma": {
+   "name": "幽灵",
+   "tags": [
+    "万圣节",
+    "幽灵",
+    "吓",
+    "恐怖"
+   ]
+  },
+  "animation:farol-rojo": {
+   "name": "红灯笼",
+   "tags": [
+    "春节",
+    "灯笼",
+    "节日",
+    "新年"
+   ]
+  },
+  "animation:flecha-abajo": {
+   "name": "跳动箭头",
+   "tags": [
+    "箭头",
+    "向下",
+    "看这里",
+    "链接"
+   ]
+  },
+  "animation:flecha-bucle": {
+   "name": "绕圈箭头",
+   "tags": [
+    "箭头",
+    "指向",
+    "涂鸦",
+    "看这里"
+   ]
+  },
+  "animation:flecha-circular": {
+   "name": "环形箭头",
+   "tags": [
+    "重复",
+    "刷新",
+    "循环",
+    "前后对比"
+   ]
+  },
+  "animation:flecha-curva": {
+   "name": "手绘箭头",
+   "tags": [
+    "箭头",
+    "指向",
+    "看这里",
+    "手绘"
+   ]
+  },
+  "animation:flecha-doble": {
+   "name": "双向箭头",
+   "tags": [
+    "箭头",
+    "尺寸",
+    "对比",
+    "宽度"
+   ]
+  },
+  "animation:flecha-gruesa": {
+   "name": "粗箭头",
+   "tags": [
+    "箭头",
+    "下一步",
+    "前进",
+    "向右"
+   ]
+  },
+  "animation:flecha-ondulada": {
+   "name": "波浪箭头",
+   "tags": [
+    "向下",
+    "看这里",
+    "箭头",
+    "涂鸦"
+   ]
+  },
+  "animation:flecha-punteada": {
+   "name": "虚线箭头",
+   "tags": [
+    "路线",
+    "路径",
+    "指向",
+    "箭头"
+   ]
+  },
+  "animation:flecha-u": {
+   "name": "掉头箭头",
+   "tags": [
+    "返回",
+    "掉头",
+    "转弯",
+    "箭头"
+   ]
+  },
+  "animation:flecha-zigzag": {
+   "name": "之字形箭头",
+   "tags": [
+    "箭头",
+    "指向",
+    "涂鸦",
+    "折线"
+   ]
+  },
+  "animation:flechas-centro": {
+   "name": "向中心箭头",
+   "tags": [
+    "聚焦",
+    "中心",
+    "看这里",
+    "注意"
+   ]
+  },
+  "animation:flechas-derecha": {
+   "name": "连续箭头",
+   "tags": [
+    "下一个",
+    "滑动",
+    "向右",
+    "箭头"
+   ]
+  },
+  "animation:flor-crece": {
+   "name": "花朵生长",
+   "tags": [
+    "春天",
+    "自然",
+    "花朵",
+    "生长"
+   ]
+  },
+  "animation:foco-luz": {
+   "name": "聚光灯",
+   "tags": [
+    "聚光灯",
+    "舞台",
+    "主角",
+    "展示"
+   ]
+  },
+  "animation:formas-memphis": {
+   "name": "漂浮几何图形",
+   "tags": [
+    "几何",
+    "孟菲斯",
+    "背景",
+    "复古"
+   ]
+  },
+  "animation:franjas-diagonales": {
+   "name": "斜条纹转场",
+   "tags": [
+    "转场",
+    "条纹",
+    "切换场景",
+    "斜向"
+   ]
+  },
+  "animation:fuego": {
+   "name": "火焰",
+   "tags": [
+    "火",
+    "热门",
+    "火爆",
+    "表情"
+   ]
+  },
+  "animation:fuegos-artificiales": {
+   "name": "烟花",
+   "tags": [
+    "烟花",
+    "新年",
+    "派对",
+    "庆祝"
+   ]
+  },
+  "animation:garabato-infinito": {
+   "name": "无限符号",
+   "tags": [
+    "无限",
+    "循环",
+    "永远",
+    "涂鸦"
+   ]
+  },
+  "animation:globo-info": {
+   "name": "信息提示框",
+   "tags": [
+    "信息",
+    "细节",
+    "价格",
+    "标签"
+   ]
+  },
+  "animation:globos": {
+   "name": "气球",
+   "tags": [
+    "气球",
+    "生日",
+    "派对",
+    "迎婴派对"
+   ]
+  },
+  "animation:gorro-fiesta": {
+   "name": "派对帽",
+   "tags": [
+    "派对",
+    "生日",
+    "帽子",
+    "庆祝"
+   ]
+  },
+  "animation:gorro-santa": {
+   "name": "圣诞帽",
+   "tags": [
+    "圣诞",
+    "帽子",
+    "圣诞老人",
+    "十二月"
+   ]
+  },
+  "animation:gota": {
+   "name": "水滴",
+   "tags": [
+    "水",
+    "水滴",
+    "液体",
+    "清新"
+   ]
+  },
+  "animation:grafico-barras": {
+   "name": "柱状图",
+   "tags": [
+    "增长",
+    "销量",
+    "成果",
+    "统计"
+   ]
+  },
+  "animation:grafico-linea": {
+   "name": "上升趋势",
+   "tags": [
+    "增长",
+    "成功",
+    "上涨",
+    "统计"
+   ]
+  },
+  "animation:grafico-torta": {
+   "name": "饼图",
+   "tags": [
+    "统计",
+    "百分比",
+    "数据",
+    "演示"
+   ]
+  },
+  "animation:guardar": {
+   "name": "收藏",
+   "tags": [
+    "收藏",
+    "书签",
+    "保存",
+    "社交"
+   ]
+  },
+  "animation:guirnalda-luces": {
+   "name": "串灯",
+   "tags": [
+    "串灯",
+    "灯光",
+    "圣诞",
+    "装饰"
+   ]
+  },
+  "animation:hamburguesa": {
+   "name": "汉堡",
+   "tags": [
+    "汉堡",
+    "快餐",
+    "午餐",
+    "外卖"
+   ]
+  },
+  "animation:hashtag": {
+   "name": "话题标签",
+   "tags": [
+    "话题",
+    "热门",
+    "标签",
+    "井号"
+   ]
+  },
+  "animation:helado": {
+   "name": "冰淇淋",
+   "tags": [
+    "冰淇淋",
+    "夏天",
+    "甜品",
+    "甜"
+   ]
+  },
+  "animation:hojas": {
+   "name": "飘落的树叶",
+   "tags": [
+    "秋天",
+    "自然",
+    "树叶",
+    "落叶"
+   ]
+  },
+  "animation:huevo-pascua": {
+   "name": "复活节彩蛋",
+   "tags": [
+    "复活节",
+    "春天",
+    "彩蛋",
+    "四月"
+   ]
+  },
+  "animation:iris": {
+   "name": "圆形开合",
+   "tags": [
+    "转场",
+    "圆形",
+    "切换场景",
+    "光圈"
+   ]
+  },
+  "animation:llamada-linea": {
+   "name": "引线标注",
+   "tags": [
+    "指示",
+    "细节",
+    "产品",
+    "标签"
+   ]
+  },
+  "animation:lluvia-dinero": {
+   "name": "钞票雨",
+   "tags": [
+    "钱",
+    "收入",
+    "发财",
+    "钞票"
+   ]
+  },
+  "animation:luna-estrellas": {
+   "name": "月亮和星星",
+   "tags": [
+    "夜晚",
+    "睡觉",
+    "月亮",
+    "晚安"
+   ]
+  },
+  "animation:luna-farol": {
+   "name": "新月与灯笼",
+   "tags": [
+    "斋月",
+    "开斋节",
+    "月亮",
+    "灯笼"
+   ]
+  },
+  "animation:lupa": {
+   "name": "放大镜",
+   "tags": [
+    "放大镜",
+    "搜索",
+    "放大",
+    "细节"
+   ]
+  },
+  "animation:mancha": {
+   "name": "流体色块",
+   "tags": [
+    "背景",
+    "形状",
+    "流体",
+    "色块"
+   ]
+  },
+  "animation:mancha-liquida": {
+   "name": "液体色块转场",
+   "tags": [
+    "转场",
+    "液体",
+    "切换场景",
+    "色块"
+   ]
+  },
+  "animation:mano-senala": {
+   "name": "手指指向",
+   "tags": [
+    "指向",
+    "这里",
+    "看",
+    "手势"
+   ]
+  },
+  "animation:marco-circular": {
+   "name": "圆形相框",
+   "tags": [
+    "头像",
+    "照片",
+    "相框",
+    "圆形"
+   ]
+  },
+  "animation:marco-esquinas": {
+   "name": "对焦角框",
+   "tags": [
+    "边框",
+    "对焦",
+    "相机",
+    "取景"
+   ]
+  },
+  "animation:marco-polaroid": {
+   "name": "拍立得相框",
+   "tags": [
+    "照片",
+    "相框",
+    "回忆",
+    "拍立得"
+   ]
+  },
+  "animation:margarita-retro": {
+   "name": "复古雏菊",
+   "tags": [
+    "花朵",
+    "复古",
+    "雏菊",
+    "y2k"
+   ]
+  },
+  "animation:me-gusta": {
+   "name": "点赞",
+   "tags": [
+    "点赞",
+    "喜欢",
+    "爱心",
+    "社交"
+   ]
+  },
+  "animation:medalla": {
+   "name": "奖牌",
+   "tags": [
+    "奖牌",
+    "获胜",
+    "奖励",
+    "第一名"
+   ]
+  },
+  "animation:megafono": {
+   "name": "喇叭",
+   "tags": [
+    "公告",
+    "新闻",
+    "注意",
+    "促销"
+   ]
+  },
+  "animation:microfono": {
+   "name": "麦克风",
+   "tags": [
+    "播客",
+    "录音",
+    "声音",
+    "唱歌"
+   ]
+  },
+  "animation:mira-enfoque": {
+   "name": "瞄准框",
+   "tags": [
+    "瞄准",
+    "对焦",
+    "目标",
+    "细节"
+   ]
+  },
+  "animation:moneda": {
+   "name": "旋转金币",
+   "tags": [
+    "钱",
+    "金币",
+    "支付",
+    "存钱"
+   ]
+  },
+  "animation:morph-estrella": {
+   "name": "星星变形",
+   "tags": [
+    "形状",
+    "星星",
+    "花朵",
+    "变形"
+   ]
+  },
+  "animation:murcielago": {
+   "name": "蝙蝠",
+   "tags": [
+    "万圣节",
+    "夜晚",
+    "蝙蝠",
+    "恐怖"
+   ]
+  },
+  "animation:nieve": {
+   "name": "下雪",
+   "tags": [
+    "圣诞",
+    "雪",
+    "冬天",
+    "寒冷"
+   ]
+  },
+  "animation:nota-adhesiva": {
+   "name": "便利贴",
+   "tags": [
+    "便签",
+    "提醒",
+    "笔记",
+    "任务"
+   ]
+  },
+  "animation:notas-musicales": {
+   "name": "音符",
+   "tags": [
+    "音乐",
+    "歌曲",
+    "音频",
+    "跳舞"
+   ]
+  },
+  "animation:nube-lluvia": {
+   "name": "下雨的云",
+   "tags": [
+    "下雨",
+    "天气",
+    "冬天",
+    "云"
+   ]
+  },
+  "animation:nube-pensamiento": {
+   "name": "思考气泡",
+   "tags": [
+    "思考",
+    "想法",
+    "文字",
+    "气泡"
+   ]
+  },
+  "animation:nueva-notificacion": {
+   "name": "新通知",
+   "tags": [
+    "通知",
+    "提醒",
+    "消息",
+    "应用"
+   ]
+  },
+  "animation:ojo-mira": {
+   "name": "眨眼观察",
+   "tags": [
+    "眼睛",
+    "看",
+    "注意",
+    "细节"
+   ]
+  },
+  "animation:olas": {
+   "name": "海浪",
+   "tags": [
+    "大海",
+    "海滩",
+    "水",
+    "夏天"
+   ]
+  },
+  "animation:onda-liquida": {
+   "name": "液体波浪",
+   "tags": [
+    "转场",
+    "液体",
+    "波浪",
+    "切换场景"
+   ]
+  },
+  "animation:ondas": {
+   "name": "脉冲波纹",
+   "tags": [
+    "脉冲",
+    "雷达",
+    "定位",
+    "直播"
+   ]
+  },
+  "animation:palomita": {
+   "name": "对勾",
+   "tags": [
+    "对勾",
+    "正确",
+    "完成",
+    "打勾"
+   ]
+  },
+  "animation:palomitas": {
+   "name": "爆米花",
+   "tags": [
+    "电影",
+    "爆米花",
+    "追剧",
+    "观影"
+   ]
+  },
+  "animation:paraguas": {
+   "name": "雨伞",
+   "tags": [
+    "下雨",
+    "秋天",
+    "雨伞",
+    "天气"
+   ]
+  },
+  "animation:pastel-velas": {
+   "name": "生日蛋糕",
+   "tags": [
+    "生日",
+    "蛋糕",
+    "蜡烛",
+    "派对"
+   ]
+  },
+  "animation:perfecto": {
+   "name": "完美！",
+   "tags": [
+    "完美",
+    "100分",
+    "通过",
+    "满分"
+   ]
+  },
+  "animation:pergamino": {
+   "name": "卷轴横幅",
+   "tags": [
+    "标题",
+    "横幅",
+    "中世纪",
+    "公告"
+   ]
+  },
+  "animation:persiana": {
+   "name": "百叶窗转场",
+   "tags": [
+    "转场",
+    "条纹",
+    "切换场景",
+    "百叶窗"
+   ]
+  },
+  "animation:pesas": {
+   "name": "哑铃",
+   "tags": [
+    "健身房",
+    "力量",
+    "锻炼",
+    "训练"
+   ]
+  },
+  "animation:petalos-cerezo": {
+   "name": "樱花花瓣",
+   "tags": [
+    "春天",
+    "樱花",
+    "花瓣",
+    "浪漫"
+   ]
+  },
+  "animation:pizza": {
+   "name": "披萨",
+   "tags": [
+    "披萨",
+    "美食",
+    "外卖",
+    "夜宵"
+   ]
+  },
+  "animation:podio": {
+   "name": "领奖台",
+   "tags": [
+    "冠军",
+    "第一名",
+    "比赛",
+    "奖项"
+   ]
+  },
+  "animation:porcentaje-oferta": {
+   "name": "百分比折扣",
+   "tags": [
+    "折扣",
+    "优惠",
+    "降价",
+    "促销"
+   ]
+  },
+  "animation:pulso-cardiaco": {
+   "name": "心跳",
+   "tags": [
+    "健康",
+    "心跳",
+    "运动",
+    "有氧"
+   ]
+  },
+  "animation:puntos-onda": {
+   "name": "波点涟漪",
+   "tags": [
+    "波点",
+    "背景",
+    "波纹",
+    "图案"
+   ]
+  },
+  "animation:rayos-fondo": {
+   "name": "旋转光芒",
+   "tags": [
+    "背景",
+    "光芒",
+    "促销",
+    "复古",
+    "产品"
+   ]
+  },
+  "animation:reacciones-vivo": {
+   "name": "直播互动",
+   "tags": [
+    "互动",
+    "直播",
+    "点赞",
+    "爱心"
+   ]
+  },
+  "animation:recuadro-a-mano": {
+   "name": "手绘方框",
+   "tags": [
+    "方框",
+    "强调",
+    "涂鸦",
+    "标记"
+   ]
+  },
+  "animation:refresco": {
+   "name": "吸管饮料",
+   "tags": [
+    "饮料",
+    "汽水",
+    "夏天",
+    "派对"
+   ]
+  },
+  "animation:regalo-sorpresa": {
+   "name": "惊喜礼盒",
+   "tags": [
+    "礼物",
+    "惊喜",
+    "生日",
+    "圣诞"
+   ]
+  },
+  "animation:reloj": {
+   "name": "时钟",
+   "tags": [
+    "时间",
+    "钟表",
+    "时刻表",
+    "准时"
+   ]
+  },
+  "animation:reloj-arena": {
+   "name": "沙漏",
+   "tags": [
+    "等待",
+    "时间",
+    "加载",
+    "耐心"
+   ]
+  },
+  "animation:reloj-medianoche": {
+   "name": "午夜倒计时",
+   "tags": [
+    "新年",
+    "午夜",
+    "倒计时",
+    "跨年"
+   ]
+  },
+  "animation:republicar": {
+   "name": "转发",
+   "tags": [
+    "转发",
+    "分享",
+    "重发",
+    "社交"
+   ]
+  },
+  "animation:resaltador": {
+   "name": "荧光笔",
+   "tags": [
+    "荧光笔",
+    "强调",
+    "文字",
+    "学习"
+   ]
+  },
+  "animation:salpicadura": {
+   "name": "飞溅",
+   "tags": [
+    "颜料",
+    "飞溅",
+    "水滴",
+    "形状"
+   ]
+  },
+  "animation:sandia": {
+   "name": "西瓜",
+   "tags": [
+    "西瓜",
+    "水果",
+    "夏天",
+    "清凉"
+   ]
+  },
+  "animation:scroll-abajo": {
+   "name": "向下滑动",
+   "tags": [
+    "下滑",
+    "向下",
+    "滚动",
+    "更多"
+   ]
+  },
+  "animation:seguir-persona": {
+   "name": "新粉丝",
+   "tags": [
+    "关注",
+    "粉丝",
+    "添加",
+    "好友"
+   ]
+  },
+  "animation:sello-oferta": {
+   "name": "促销徽章",
+   "tags": [
+    "优惠",
+    "折扣",
+    "促销",
+    "特价"
+   ]
+  },
+  "animation:sello-ondulado": {
+   "name": "波浪徽章",
+   "tags": [
+    "徽章",
+    "新品",
+    "优惠",
+    "复古"
+   ]
+  },
+  "animation:serpentinas": {
+   "name": "彩带",
+   "tags": [
+    "彩带",
+    "派对",
+    "生日",
+    "庆祝"
+   ]
+  },
+  "animation:silbato": {
+   "name": "口哨",
+   "tags": [
+    "裁判",
+    "教练",
+    "运动",
+    "犯规"
+   ]
+  },
+  "animation:sol": {
+   "name": "旋转太阳",
+   "tags": [
+    "太阳",
+    "夏天",
+    "海滩",
+    "阳光"
+   ]
+  },
+  "animation:sol-nube": {
+   "name": "晴转多云",
+   "tags": [
+    "太阳",
+    "多云",
+    "天气",
+    "好天气"
+   ]
+  },
+  "animation:subrayado": {
+   "name": "手绘下划线",
+   "tags": [
+    "下划线",
+    "强调",
+    "文字",
+    "手绘"
+   ]
+  },
+  "animation:subrayado-ondulado": {
+   "name": "波浪下划线",
+   "tags": [
+    "下划线",
+    "波浪",
+    "强调",
+    "涂鸦"
+   ]
+  },
+  "animation:tachado-garabato": {
+   "name": "手绘涂抹划掉",
+   "tags": [
+    "划掉",
+    "错误",
+    "涂鸦",
+    "否"
+   ]
+  },
+  "animation:tarjeta-aviso": {
+   "name": "通知卡片",
+   "tags": [
+    "提示",
+    "通知",
+    "消息",
+    "横幅"
+   ]
+  },
+  "animation:tarjeta-pago": {
+   "name": "银行卡",
+   "tags": [
+    "支付",
+    "银行卡",
+    "购买",
+    "店铺"
+   ]
+  },
+  "animation:tazon-fideos": {
+   "name": "一碗面",
+   "tags": [
+    "面条",
+    "拉面",
+    "汤",
+    "晚餐"
+   ]
+  },
+  "animation:telefono": {
+   "name": "电话",
+   "tags": [
+    "打电话",
+    "联系",
+    "咨询",
+    "订购"
+   ]
+  },
+  "animation:tercio-inferior": {
+   "name": "人名条",
+   "tags": [
+    "姓名",
+    "标题",
+    "采访",
+    "介绍"
+   ]
+  },
+  "animation:termometro-calor": {
+   "name": "好热",
+   "tags": [
+    "炎热",
+    "夏天",
+    "温度",
+    "太阳"
+   ]
+  },
+  "animation:tienda": {
+   "name": "店铺",
+   "tags": [
+    "店铺",
+    "商家",
+    "营业中",
+    "门店"
+   ]
+  },
+  "animation:toca-aqui": {
+   "name": "点这里",
+   "tags": [
+    "点击",
+    "点这里",
+    "链接",
+    "按钮"
+   ]
+  },
+  "animation:tormenta": {
+   "name": "雷雨",
+   "tags": [
+    "暴风雨",
+    "闪电",
+    "下雨",
+    "天气"
+   ]
+  },
+  "animation:trofeo": {
+   "name": "奖杯",
+   "tags": [
+    "奖杯",
+    "成就",
+    "获胜",
+    "比赛"
+   ]
+  },
+  "animation:ubicacion": {
+   "name": "定位图标",
+   "tags": [
+    "定位",
+    "地图",
+    "地址",
+    "欢迎光临"
+   ]
+  },
+  "animation:varita-magica": {
+   "name": "魔法棒",
+   "tags": [
+    "魔法",
+    "许愿",
+    "惊喜",
+    "闪光"
+   ]
+  },
+  "animation:verificado": {
+   "name": "认证标志",
+   "tags": [
+    "认证",
+    "官方",
+    "通过",
+    "徽章"
+   ]
+  },
+  "animation:viento": {
+   "name": "风",
+   "tags": [
+    "风",
+    "微风",
+    "空气",
+    "寒冷"
+   ]
+  },
+  "animation:wifi": {
+   "name": "Wi-Fi信号",
+   "tags": [
+    "网络",
+    "连接",
+    "信号",
+    "在线",
+    "wifi"
+   ]
+  },
+  "overlay:amor-corazones": {
+   "name": "漂浮爱心",
+   "tags": [
+    "爱心",
+    "爱情",
+    "情人节",
+    "浪漫"
+   ]
+  },
+  "overlay:amor-corazones-brillo": {
+   "name": "闪光爱心",
+   "tags": [
+    "爱心",
+    "闪光",
+    "爱情",
+    "情人节"
+   ]
+  },
+  "overlay:amor-corazones-contorno": {
+   "name": "线条爱心",
+   "tags": [
+    "爱心",
+    "线条",
+    "爱情",
+    "情人节"
+   ]
+  },
+  "overlay:amor-corazones-neon": {
+   "name": "霓虹爱心",
+   "tags": [
+    "爱心",
+    "霓虹",
+    "爱情",
+    "情人节"
+   ]
+  },
+  "overlay:amor-corazones-rojos": {
+   "name": "红色爱心",
+   "tags": [
+    "爱心",
+    "红色",
+    "爱情",
+    "情人节"
+   ]
+  },
+  "overlay:amor-explosion-corazones": {
+   "name": "爱心爆发",
+   "tags": [
+    "爱心",
+    "爆炸",
+    "爱情",
+    "求婚"
+   ]
+  },
+  "overlay:amor-globos-corazon": {
+   "name": "爱心气球",
+   "tags": [
+    "气球",
+    "爱心",
+    "爱情",
+    "情人节",
+    "纪念日"
+   ]
+  },
+  "overlay:amor-likes": {
+   "name": "直播点赞爱心",
+   "tags": [
+    "爱心",
+    "点赞",
+    "直播",
+    "互动"
+   ]
+  },
+  "overlay:amor-lluvia-corazones": {
+   "name": "爱心雨",
+   "tags": [
+    "爱心",
+    "落下",
+    "爱情",
+    "情人节"
+   ]
+  },
+  "overlay:amor-marco-corazones": {
+   "name": "爱心边框",
+   "tags": [
+    "爱心",
+    "边框",
+    "爱情",
+    "情人节"
+   ]
+  },
+  "overlay:amor-petalos": {
+   "name": "玫瑰花瓣",
+   "tags": [
+    "花瓣",
+    "玫瑰",
+    "婚礼",
+    "浪漫"
+   ]
+  },
+  "overlay:amor-petalos-blancos": {
+   "name": "白色花瓣",
+   "tags": [
+    "花瓣",
+    "白色",
+    "婚礼",
+    "新娘"
+   ]
+  },
+  "overlay:amor-petalos-rosa": {
+   "name": "浅粉花瓣",
+   "tags": [
+    "花瓣",
+    "粉色",
+    "婚礼",
+    "浪漫"
+   ]
+  },
+  "overlay:cel-confeti": {
+   "name": "彩纸雨",
+   "tags": [
+    "彩纸",
+    "派对",
+    "生日",
+    "庆祝"
+   ]
+  },
+  "overlay:cel-confeti-circulos": {
+   "name": "圆点彩纸",
+   "tags": [
+    "彩纸",
+    "圆点",
+    "派对",
+    "极简"
+   ]
+  },
+  "overlay:cel-confeti-corazones": {
+   "name": "爱心彩纸",
+   "tags": [
+    "彩纸",
+    "爱心",
+    "婚礼",
+    "爱情",
+    "情人节"
+   ]
+  },
+  "overlay:cel-confeti-desde-arriba": {
+   "name": "从天而降的彩纸",
+   "tags": [
+    "彩纸",
+    "落下",
+    "惊喜",
+    "派对"
+   ]
+  },
+  "overlay:cel-confeti-dorado": {
+   "name": "金色彩纸",
+   "tags": [
+    "彩纸",
+    "金色",
+    "新年",
+    "优雅"
+   ]
+  },
+  "overlay:cel-confeti-explosion": {
+   "name": "彩纸爆发",
+   "tags": [
+    "彩纸",
+    "爆炸",
+    "礼花",
+    "惊喜",
+    "派对"
+   ]
+  },
+  "overlay:cel-confeti-grande": {
+   "name": "大片彩纸",
+   "tags": [
+    "彩纸",
+    "大",
+    "派对",
+    "欢乐"
+   ]
+  },
+  "overlay:cel-confeti-pastel": {
+   "name": "马卡龙彩纸",
+   "tags": [
+    "彩纸",
+    "马卡龙",
+    "迎婴派对",
+    "宝宝",
+    "生日"
+   ]
+  },
+  "overlay:cel-confeti-plata": {
+   "name": "银色彩纸",
+   "tags": [
+    "彩纸",
+    "银色",
+    "婚礼",
+    "纪念日",
+    "优雅"
+   ]
+  },
+  "overlay:cel-estrellas": {
+   "name": "星星雨",
+   "tags": [
+    "星星",
+    "派对",
+    "儿童",
+    "庆祝",
+    "魔法"
+   ]
+  },
+  "overlay:cel-estrellas-doradas": {
+   "name": "金色星星",
+   "tags": [
+    "星星",
+    "金色",
+    "奖励",
+    "成就"
+   ]
+  },
+  "overlay:cel-explosion-centro": {
+   "name": "中心彩纸爆发",
+   "tags": [
+    "彩纸",
+    "爆炸",
+    "中心",
+    "惊喜",
+    "派对"
+   ]
+  },
+  "overlay:cel-explosion-dorada": {
+   "name": "金色爆发",
+   "tags": [
+    "彩纸",
+    "爆炸",
+    "金色",
+    "惊喜",
+    "派对"
+   ]
+  },
+  "overlay:cel-explosion-estrellas": {
+   "name": "星星爆发",
+   "tags": [
+    "星星",
+    "爆炸",
+    "礼花",
+    "惊喜",
+    "派对"
+   ]
+  },
+  "overlay:cel-fuegos-artificiales": {
+   "name": "烟花绽放",
+   "tags": [
+    "烟花",
+    "新年",
+    "派对",
+    "庆祝"
+   ]
+  },
+  "overlay:cel-fuegos-dorados": {
+   "name": "金色烟花",
+   "tags": [
+    "烟花",
+    "金色",
+    "新年",
+    "庆祝"
+   ]
+  },
+  "overlay:cel-fuegos-final": {
+   "name": "烟花压轴",
+   "tags": [
+    "烟花",
+    "压轴",
+    "新年",
+    "庆祝"
+   ]
+  },
+  "overlay:cel-fuegos-lejanos": {
+   "name": "远处烟花",
+   "tags": [
+    "烟花",
+    "远景",
+    "新年",
+    "夜晚"
+   ]
+  },
+  "overlay:cel-globos": {
+   "name": "飘升气球",
+   "tags": [
+    "气球",
+    "生日",
+    "派对",
+    "庆祝"
+   ]
+  },
+  "overlay:cel-globos-dorados": {
+   "name": "金银气球",
+   "tags": [
+    "气球",
+    "金色",
+    "银色",
+    "生日",
+    "派对"
+   ]
+  },
+  "overlay:cel-globos-pastel": {
+   "name": "马卡龙气球",
+   "tags": [
+    "气球",
+    "马卡龙",
+    "生日",
+    "派对"
+   ]
+  },
+  "overlay:cel-lluvia-billetes": {
+   "name": "钞票雨",
+   "tags": [
+    "钞票",
+    "钱",
+    "发财",
+    "赚钱",
+    "生意"
+   ]
+  },
+  "overlay:cel-lluvia-emojis": {
+   "name": "表情雨",
+   "tags": [
+    "表情",
+    "笑脸",
+    "开心",
+    "搞笑",
+    "反应"
+   ]
+  },
+  "overlay:cel-lluvia-monedas": {
+   "name": "金币雨",
+   "tags": [
+    "金币",
+    "钱",
+    "赢",
+    "奖励"
+   ]
+  },
+  "overlay:cel-lluvia-regalos": {
+   "name": "礼物雨",
+   "tags": [
+    "礼物",
+    "圣诞",
+    "生日",
+    "抽奖"
+   ]
+  },
+  "overlay:cel-purpurina": {
+   "name": "亮片",
+   "tags": [
+    "亮片",
+    "闪光",
+    "金色",
+    "派对",
+    "优雅"
+   ]
+  },
+  "overlay:cel-serpentinas": {
+   "name": "飘舞彩带",
+   "tags": [
+    "彩带",
+    "派对",
+    "狂欢节",
+    "生日"
+   ]
+  },
+  "overlay:clima-arcoiris": {
+   "name": "彩虹叠加",
+   "tags": [
+    "彩虹",
+    "天气",
+    "自然",
+    "多彩"
+   ]
+  },
+  "overlay:clima-copos": {
+   "name": "雪花飘落",
+   "tags": [
+    "雪花",
+    "冬天",
+    "天气",
+    "雪"
+   ]
+  },
+  "overlay:clima-dientes-de-leon": {
+   "name": "蒲公英种子",
+   "tags": [
+    "蒲公英",
+    "种子",
+    "自然",
+    "飘"
+   ]
+  },
+  "overlay:clima-gotas-cristal": {
+   "name": "玻璃雨滴",
+   "tags": [
+    "雨滴",
+    "玻璃",
+    "下雨",
+    "天气"
+   ]
+  },
+  "overlay:clima-hojas": {
+   "name": "秋叶",
+   "tags": [
+    "树叶",
+    "秋天",
+    "落叶",
+    "自然"
+   ]
+  },
+  "overlay:clima-hojas-verdes": {
+   "name": "绿叶",
+   "tags": [
+    "树叶",
+    "绿色",
+    "自然",
+    "春天"
+   ]
+  },
+  "overlay:clima-humo": {
+   "name": "烟雾",
+   "tags": [
+    "烟雾",
+    "蒸汽",
+    "神秘",
+    "戏剧",
+    "演唱会"
+   ]
+  },
+  "overlay:clima-humo-azul": {
+   "name": "蓝色烟雾",
+   "tags": [
+    "烟雾",
+    "蓝色",
+    "神秘",
+    "氛围"
+   ]
+  },
+  "overlay:clima-humo-colores": {
+   "name": "彩色烟雾",
+   "tags": [
+    "烟雾",
+    "彩色",
+    "彩烟",
+    "氛围"
+   ]
+  },
+  "overlay:clima-humo-rosa": {
+   "name": "粉色烟雾",
+   "tags": [
+    "烟雾",
+    "粉色",
+    "梦幻",
+    "氛围"
+   ]
+  },
+  "overlay:clima-lluvia": {
+   "name": "下雨",
+   "tags": [
+    "下雨",
+    "暴风雨",
+    "伤感",
+    "忧郁"
+   ]
+  },
+  "overlay:clima-lluvia-ligera": {
+   "name": "毛毛雨",
+   "tags": [
+    "小雨",
+    "毛毛雨",
+    "下雨",
+    "天气"
+   ]
+  },
+  "overlay:clima-nevada": {
+   "name": "暴风雪",
+   "tags": [
+    "雪",
+    "暴风雪",
+    "冬天",
+    "大雪"
+   ]
+  },
+  "overlay:clima-niebla": {
+   "name": "雾",
+   "tags": [
+    "雾",
+    "薄雾",
+    "神秘",
+    "恐怖"
+   ]
+  },
+  "overlay:clima-niebla-baja": {
+   "name": "低空雾气",
+   "tags": [
+    "雾",
+    "地面雾",
+    "氛围",
+    "神秘"
+   ]
+  },
+  "overlay:clima-nieve": {
+   "name": "轻柔飘雪",
+   "tags": [
+    "雪",
+    "冬天",
+    "圣诞",
+    "飘雪"
+   ]
+  },
+  "overlay:clima-noche-estrellada": {
+   "name": "星空夜",
+   "tags": [
+    "星空",
+    "夜晚",
+    "星星",
+    "自然"
+   ]
+  },
+  "overlay:clima-petalos-flores": {
+   "name": "彩色花瓣",
+   "tags": [
+    "花瓣",
+    "鲜花",
+    "多彩",
+    "春天"
+   ]
+  },
+  "overlay:garabato-angel": {
+   "name": "天使翅膀和光环",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "天使",
+    "翅膀",
+    "光环"
+   ]
+  },
+  "overlay:garabato-angel-dorado": {
+   "name": "金色天使翅膀",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "天使",
+    "翅膀",
+    "金色"
+   ]
+  },
+  "overlay:garabato-brillo": {
+   "name": "闪光线条",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "闪光",
+    "线条",
+    "氛围感"
+   ]
+  },
+  "overlay:garabato-caritas": {
+   "name": "手绘笑脸",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "笑脸",
+    "可爱"
+   ]
+  },
+  "overlay:garabato-cielo": {
+   "name": "手绘云朵太阳",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "云朵",
+    "太阳",
+    "天空"
+   ]
+  },
+  "overlay:garabato-circulo": {
+   "name": "手绘圈",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "圆圈",
+    "强调"
+   ]
+  },
+  "overlay:garabato-circulo-rojo": {
+   "name": "红色手绘圈",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "圆圈",
+    "红色",
+    "强调"
+   ]
+  },
+  "overlay:garabato-corazones": {
+   "name": "涂鸦爱心",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "爱心",
+    "手账"
+   ]
+  },
+  "overlay:garabato-corazones-rosa": {
+   "name": "粉色涂鸦爱心",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "爱心",
+    "粉色"
+   ]
+  },
+  "overlay:garabato-corona": {
+   "name": "手绘皇冠",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "皇冠",
+    "可爱"
+   ]
+  },
+  "overlay:garabato-corona-dorada": {
+   "name": "金色手绘皇冠",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "皇冠",
+    "金色"
+   ]
+  },
+  "overlay:garabato-diablito": {
+   "name": "小恶魔角",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "恶魔角",
+    "调皮"
+   ]
+  },
+  "overlay:garabato-diablito-blanco": {
+   "name": "白色手绘犄角",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "犄角",
+    "白色"
+   ]
+  },
+  "overlay:garabato-estallido": {
+   "name": "手绘爆炸",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "爆炸",
+    "强调"
+   ]
+  },
+  "overlay:garabato-estrellas": {
+   "name": "涂鸦星星",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "星星",
+    "手账"
+   ]
+  },
+  "overlay:garabato-estrellas-doradas": {
+   "name": "金色涂鸦星星",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "星星",
+    "金色"
+   ]
+  },
+  "overlay:garabato-flechas": {
+   "name": "手绘箭头",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "箭头",
+    "指向"
+   ]
+  },
+  "overlay:garabato-flechas-girando": {
+   "name": "旋转箭头",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "箭头",
+    "旋转"
+   ]
+  },
+  "overlay:garabato-flechas-neon": {
+   "name": "霓虹涂鸦箭头",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "箭头",
+    "霓虹"
+   ]
+  },
+  "overlay:garabato-flores": {
+   "name": "手绘花朵",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "花朵",
+    "手账"
+   ]
+  },
+  "overlay:garabato-mariposas": {
+   "name": "手绘蝴蝶",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "蝴蝶",
+    "氛围感"
+   ]
+  },
+  "overlay:garabato-mix": {
+   "name": "涂鸦合集",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "合集",
+    "手账"
+   ]
+  },
+  "overlay:garabato-mix-negro": {
+   "name": "黑色涂鸦合集",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "黑色",
+    "合集"
+   ]
+  },
+  "overlay:garabato-mix-rosa": {
+   "name": "粉色涂鸦合集",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "粉色",
+    "合集"
+   ]
+  },
+  "overlay:garabato-musica": {
+   "name": "手绘音符",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "音符",
+    "音乐"
+   ]
+  },
+  "overlay:garabato-neon-corazones": {
+   "name": "霓虹手绘爱心",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "爱心",
+    "霓虹"
+   ]
+  },
+  "overlay:garabato-rayos": {
+   "name": "手绘闪电",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "闪电",
+    "能量"
+   ]
+  },
+  "overlay:garabato-signos": {
+   "name": "手绘符号",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "符号",
+    "标记"
+   ]
+  },
+  "overlay:garabato-subrayado": {
+   "name": "手绘下划线",
+   "tags": [
+    "涂鸦",
+    "手绘",
+    "下划线",
+    "强调"
+   ]
+  },
+  "overlay:luz-arcoiris": {
+   "name": "彩虹光",
+   "tags": [
+    "光效",
+    "彩虹",
+    "棱镜",
+    "多彩"
+   ]
+  },
+  "overlay:luz-barrido-calido": {
+   "name": "暖色扫光",
+   "tags": [
+    "扫光",
+    "转场",
+    "光效",
+    "漏光",
+    "暖色"
+   ]
+  },
+  "overlay:luz-barrido-rosa": {
+   "name": "粉色扫光",
+   "tags": [
+    "扫光",
+    "转场",
+    "光效",
+    "漏光",
+    "粉色"
+   ]
+  },
+  "overlay:luz-bokeh-azul": {
+   "name": "蓝色夜景光斑",
+   "tags": [
+    "光斑",
+    "蓝色",
+    "夜晚",
+    "城市",
+    "虚化"
+   ]
+  },
+  "overlay:luz-bokeh-blanco": {
+   "name": "白色光斑",
+   "tags": [
+    "光斑",
+    "白色",
+    "灯光",
+    "虚化",
+    "婚礼"
+   ]
+  },
+  "overlay:luz-bokeh-cayendo": {
+   "name": "飘落光斑",
+   "tags": [
+    "光斑",
+    "飘落",
+    "灯光",
+    "圣诞",
+    "优雅"
+   ]
+  },
+  "overlay:luz-bokeh-color": {
+   "name": "彩色光斑",
+   "tags": [
+    "光斑",
+    "彩色",
+    "派对",
+    "灯光",
+    "夜晚"
+   ]
+  },
+  "overlay:luz-bokeh-corazones": {
+   "name": "爱心光斑",
+   "tags": [
+    "光斑",
+    "爱心",
+    "爱情",
+    "情人节"
+   ]
+  },
+  "overlay:luz-bokeh-dorado": {
+   "name": "金色光斑",
+   "tags": [
+    "光斑",
+    "金色",
+    "灯光",
+    "虚化",
+    "圣诞"
+   ]
+  },
+  "overlay:luz-bokeh-estrellas": {
+   "name": "星星光斑",
+   "tags": [
+    "光斑",
+    "星星",
+    "魔法",
+    "圣诞",
+    "派对"
+   ]
+  },
+  "overlay:luz-bokeh-rosa": {
+   "name": "粉色光斑",
+   "tags": [
+    "光斑",
+    "粉色",
+    "浪漫",
+    "灯光"
+   ]
+  },
+  "overlay:luz-destello": {
+   "name": "镜头光晕",
+   "tags": [
+    "光晕",
+    "镜头",
+    "太阳",
+    "转场",
+    "光效"
+   ]
+  },
+  "overlay:luz-destello-azul": {
+   "name": "蓝色变形宽银幕光晕",
+   "tags": [
+    "光晕",
+    "变形镜头",
+    "蓝色",
+    "电影",
+    "科幻"
+   ]
+  },
+  "overlay:luz-escaner": {
+   "name": "扫描线",
+   "tags": [
+    "扫描",
+    "激光",
+    "科技",
+    "未来感"
+   ]
+  },
+  "overlay:luz-flash-transicion": {
+   "name": "闪白转场",
+   "tags": [
+    "闪白",
+    "闪光",
+    "转场",
+    "白色",
+    "光效"
+   ]
+  },
+  "overlay:luz-fuga-calida": {
+   "name": "暖色漏光",
+   "tags": [
+    "漏光",
+    "暖色",
+    "橙色",
+    "胶片",
+    "复古"
+   ]
+  },
+  "overlay:luz-fuga-dorada": {
+   "name": "金色漏光",
+   "tags": [
+    "漏光",
+    "胶片",
+    "金色",
+    "黄金时刻"
+   ]
+  },
+  "overlay:luz-fuga-esquina": {
+   "name": "角落光晕",
+   "tags": [
+    "漏光",
+    "胶片",
+    "角落",
+    "光晕"
+   ]
+  },
+  "overlay:luz-fuga-esquina-rosa": {
+   "name": "粉色角落光晕",
+   "tags": [
+    "漏光",
+    "胶片",
+    "角落",
+    "粉色"
+   ]
+  },
+  "overlay:luz-fuga-fria": {
+   "name": "冷色漏光",
+   "tags": [
+    "漏光",
+    "蓝色",
+    "冷色",
+    "夜晚"
+   ]
+  },
+  "overlay:luz-fuga-roja": {
+   "name": "红色漏光",
+   "tags": [
+    "漏光",
+    "胶片",
+    "红色",
+    "光效"
+   ]
+  },
+  "overlay:luz-fuga-rosa": {
+   "name": "粉色漏光",
+   "tags": [
+    "漏光",
+    "粉色",
+    "浪漫",
+    "梦幻"
+   ]
+  },
+  "overlay:luz-fuga-turquesa": {
+   "name": "青橙漏光",
+   "tags": [
+    "漏光",
+    "胶片",
+    "青色",
+    "橙色",
+    "青橙"
+   ]
+  },
+  "overlay:luz-fuga-verde": {
+   "name": "复古绿色漏光",
+   "tags": [
+    "漏光",
+    "胶片",
+    "绿色",
+    "复古"
+   ]
+  },
+  "overlay:luz-fuga-violeta": {
+   "name": "紫色漏光",
+   "tags": [
+    "漏光",
+    "胶片",
+    "紫色",
+    "光效"
+   ]
+  },
+  "overlay:luz-luces-ciudad": {
+   "name": "城市灯光",
+   "tags": [
+    "城市",
+    "灯光",
+    "夜晚",
+    "都市"
+   ]
+  },
+  "overlay:luz-luces-navidad": {
+   "name": "圣诞灯光",
+   "tags": [
+    "圣诞",
+    "灯光",
+    "光斑",
+    "节日"
+   ]
+  },
+  "overlay:luz-luciernagas": {
+   "name": "萤火虫",
+   "tags": [
+    "萤火虫",
+    "魔法",
+    "夜晚",
+    "森林",
+    "闪光"
+   ]
+  },
+  "overlay:luz-neon-barrido": {
+   "name": "霓虹扫光",
+   "tags": [
+    "霓虹",
+    "扫光",
+    "转场",
+    "光效"
+   ]
+  },
+  "overlay:luz-prisma": {
+   "name": "彩虹棱镜",
+   "tags": [
+    "棱镜",
+    "彩虹",
+    "折射",
+    "水晶"
+   ]
+  },
+  "overlay:luz-rayos": {
+   "name": "阳光光束",
+   "tags": [
+    "光束",
+    "阳光",
+    "丁达尔",
+    "光线"
+   ]
+  },
+  "overlay:luz-sol": {
+   "name": "太阳光晕",
+   "tags": [
+    "太阳",
+    "光晕",
+    "夏天",
+    "阳光"
+   ]
+  },
+  "overlay:part-ascendentes": {
+   "name": "上升光点",
+   "tags": [
+    "光点",
+    "上升",
+    "灵性",
+    "宁静",
+    "平静"
+   ]
+  },
+  "overlay:part-bengala": {
+   "name": "烟花棒火花",
+   "tags": [
+    "烟花棒",
+    "火花",
+    "新年",
+    "婚礼",
+    "庆祝"
+   ]
+  },
+  "overlay:part-brasas": {
+   "name": "火星余烬",
+   "tags": [
+    "火星",
+    "余烬",
+    "火焰",
+    "篝火",
+    "暖色"
+   ]
+  },
+  "overlay:part-brasas-azules": {
+   "name": "蓝色火星",
+   "tags": [
+    "火星",
+    "蓝色",
+    "魔法",
+    "奇幻",
+    "冰"
+   ]
+  },
+  "overlay:part-brillos": {
+   "name": "闪烁星光",
+   "tags": [
+    "闪光",
+    "星光",
+    "魔法",
+    "星星",
+    "亮晶晶"
+   ]
+  },
+  "overlay:part-brillos-azules": {
+   "name": "蓝色星光",
+   "tags": [
+    "闪光",
+    "蓝色",
+    "冰",
+    "冬天"
+   ]
+  },
+  "overlay:part-brillos-dorados": {
+   "name": "金色星光",
+   "tags": [
+    "闪光",
+    "金色",
+    "优雅",
+    "婚礼"
+   ]
+  },
+  "overlay:part-brillos-rosa": {
+   "name": "粉色星光",
+   "tags": [
+    "闪光",
+    "粉色",
+    "氛围感",
+    "美妆"
+   ]
+  },
+  "overlay:part-burbujas": {
+   "name": "泡泡粒子",
+   "tags": [
+    "泡泡",
+    "肥皂泡",
+    "水",
+    "儿童"
+   ]
+  },
+  "overlay:part-burbujas-arcoiris": {
+   "name": "幻彩泡泡",
+   "tags": [
+    "泡泡",
+    "幻彩",
+    "彩虹",
+    "氛围感"
+   ]
+  },
+  "overlay:part-chispas": {
+   "name": "火花",
+   "tags": [
+    "火花",
+    "火焰",
+    "烟花棒",
+    "能量"
+   ]
+  },
+  "overlay:part-chispas-azules": {
+   "name": "蓝色火花",
+   "tags": [
+    "火花",
+    "蓝色",
+    "能量",
+    "电流"
+   ]
+  },
+  "overlay:part-destellos-grandes": {
+   "name": "大星芒",
+   "tags": [
+    "星芒",
+    "闪光",
+    "产品",
+    "干净"
+   ]
+  },
+  "overlay:part-estrellas-fugaces": {
+   "name": "流星划过",
+   "tags": [
+    "流星",
+    "天空",
+    "夜晚",
+    "许愿"
+   ]
+  },
+  "overlay:part-estrellitas": {
+   "name": "小星星",
+   "tags": [
+    "小星星",
+    "儿童",
+    "魔法",
+    "可爱"
+   ]
+  },
+  "overlay:part-explosion-chispas": {
+   "name": "火花爆发",
+   "tags": [
+    "爆炸",
+    "火花",
+    "冲击",
+    "转场"
+   ]
+  },
+  "overlay:part-lluvia-luces": {
+   "name": "光雨",
+   "tags": [
+    "光雨",
+    "灯光",
+    "派对",
+    "夜店",
+    "夜晚"
+   ]
+  },
+  "overlay:part-lluvia-meteoros": {
+   "name": "流星雨",
+   "tags": [
+    "流星雨",
+    "流星",
+    "天空",
+    "夜晚",
+    "太空"
+   ]
+  },
+  "overlay:part-motas-luz": {
+   "name": "阳光微尘",
+   "tags": [
+    "微尘",
+    "灰尘",
+    "阳光",
+    "宁静"
+   ]
+  },
+  "overlay:part-nieve-brillante": {
+   "name": "闪光雪花",
+   "tags": [
+    "雪",
+    "闪光",
+    "冬天",
+    "圣诞",
+    "魔法"
+   ]
+  },
+  "overlay:part-orbes": {
+   "name": "光球",
+   "tags": [
+    "光球",
+    "光",
+    "柔和",
+    "梦幻"
+   ]
+  },
+  "overlay:part-polvo-dorado": {
+   "name": "金粉",
+   "tags": [
+    "金粉",
+    "金色",
+    "魔法",
+    "优雅"
+   ]
+  },
+  "overlay:part-polvo-magico": {
+   "name": "魔法粉尘拖尾",
+   "tags": [
+    "魔法",
+    "魔法棒",
+    "粉尘",
+    "拖尾"
+   ]
+  },
+  "overlay:part-polvo-plateado": {
+   "name": "银粉",
+   "tags": [
+    "银粉",
+    "银色",
+    "冬天",
+    "优雅"
+   ]
+  },
+  "overlay:part-polvo-rosa": {
+   "name": "粉色闪粉",
+   "tags": [
+    "闪粉",
+    "粉色",
+    "氛围感",
+    "少女"
+   ]
+  },
+  "overlay:part-velocidad-luz": {
+   "name": "光速穿越",
+   "tags": [
+    "光速",
+    "穿越",
+    "太空",
+    "星星",
+    "超空间"
+   ]
+  },
+  "template:album-scrapbook": {
+   "name": "手账相册",
+   "tags": [
+    "相册",
+    "手账",
+    "回忆",
+    "情侣"
+   ]
+  },
+  "template:anio-nuevo-cuenta-regresiva": {
+   "name": "新年倒计时",
+   "tags": [
+    "新年",
+    "倒计时",
+    "2027",
+    "烟花",
+    "跨年"
+   ]
+  },
+  "template:aniversario-pareja": {
+   "name": "情侣纪念日",
+   "tags": [
+    "纪念日",
+    "情侣",
+    "爱情",
+    "在一起"
+   ]
+  },
+  "template:antes-despues-deslizador": {
+   "name": "前后对比滑块",
+   "tags": [
+    "前后对比",
+    "对比",
+    "变化",
+    "滑块"
+   ]
+  },
+  "template:anuncio-embarazo": {
+   "name": "怀孕官宣",
+   "tags": [
+    "怀孕",
+    "宝宝",
+    "官宣",
+    "家人",
+    "三口之家"
+   ]
+  },
+  "template:apertura-pelicula": {
+   "name": "电影开场",
+   "tags": [
+    "电影",
+    "开场",
+    "家庭",
+    "标题"
+   ]
+  },
+  "template:baby-shower": {
+   "name": "迎婴派对",
+   "tags": [
+    "迎婴派对",
+    "宝宝",
+    "邀请",
+    "派对",
+    "怀孕"
+   ]
+  },
+  "template:barberia-antes-despues": {
+   "name": "理发店前后对比",
+   "tags": [
+    "理发店",
+    "发型",
+    "胡子",
+    "前后对比",
+    "渐变"
+   ]
+  },
+  "template:black-friday-ofertas": {
+   "name": "黑五特惠",
+   "tags": [
+    "黑五",
+    "特惠",
+    "折扣",
+    "店铺",
+    "十一月"
+   ]
+  },
+  "template:black-friday-ultimas-horas": {
+   "name": "黑五：最后几小时",
+   "tags": [
+    "黑五",
+    "最后几小时",
+    "优惠",
+    "时尚",
+    "奢华"
+   ]
+  },
+  "template:blanco-y-negro-a-color": {
+   "name": "黑白变彩色",
+   "tags": [
+    "黑白",
+    "彩色",
+    "情侣",
+    "揭晓",
+    "爱情"
+   ]
+  },
+  "template:boda-save-the-date": {
+   "name": "婚礼预告",
+   "tags": [
+    "婚礼",
+    "save the date",
+    "邀请",
+    "结婚",
+    "新人"
+   ]
+  },
+  "template:cafe-nuevo-en-la-carta": {
+   "name": "菜单新品",
+   "tags": [
+    "咖啡店",
+    "咖啡",
+    "新品",
+    "菜单",
+    "饮品"
+   ]
+  },
+  "template:camara-lenta-con-letra": {
+   "name": "慢动作配歌词",
+   "tags": [
+    "慢动作",
+    "歌词",
+    "歌曲",
+    "情侣",
+    "电影感"
+   ]
+  },
+  "template:cancion-criolla": {
+   "name": "现场音乐之夜",
+   "tags": [
+    "现场音乐",
+    "音乐会",
+    "华尔兹",
+    "夜晚",
+    "复古"
+   ]
+  },
+  "template:catrina-dia-de-muertos": {
+   "name": "骷髅妆",
+   "tags": [
+    "骷髅妆",
+    "亡灵节",
+    "化妆",
+    "墨西哥",
+    "花朵"
+   ]
+  },
+  "template:checklist-que-se-marca": {
+   "name": "打勾清单",
+   "tags": [
+    "清单",
+    "待办",
+    "打勾",
+    "旅行",
+    "整理"
+   ]
+  },
+  "template:cierre-negocio": {
+   "name": "商家片尾",
+   "tags": [
+    "商家",
+    "联系方式",
+    "创业",
+    "外卖"
+   ]
+  },
+  "template:cierre-parte-2": {
+   "name": "第2集在我主页",
+   "tags": [
+    "第二集",
+    "未完待续",
+    "片尾",
+    "主页",
+    "关注"
+   ]
+  },
+  "template:cierre-siguenos": {
+   "name": "片尾：关注我们",
+   "tags": [
+    "片尾",
+    "关注",
+    "社交",
+    "订阅"
+   ]
+  },
+  "template:cita-minimalista": {
+   "name": "极简语录",
+   "tags": [
+    "语录",
+    "金句",
+    "极简",
+    "优雅",
+    "感悟"
+   ]
+  },
+  "template:clip-de-podcast": {
+   "name": "播客片段",
+   "tags": [
+    "播客",
+    "字幕",
+    "访谈",
+    "片段",
+    "对话"
+   ]
+  },
+  "template:collage-2x2": {
+   "name": "2×2拼图",
+   "tags": [
+    "拼图",
+    "宫格",
+    "周末",
+    "拼贴"
+   ]
+  },
+  "template:concierto-festival": {
+   "name": "演唱会之夜",
+   "tags": [
+    "演唱会",
+    "音乐节",
+    "音乐",
+    "派对",
+    "现场"
+   ]
+  },
+  "template:cosas-que-no-sabias": {
+   "name": "你不知道的事",
+   "tags": [
+    "冷知识",
+    "你知道吗",
+    "趣闻",
+    "科普",
+    "问答"
+   ]
+  },
+  "template:cuenta-3-2-1": {
+   "name": "3-2-1倒计时",
+   "tags": [
+    "倒计时",
+    "发布",
+    "惊喜",
+    "321"
+   ]
+  },
+  "template:cuenta-regresiva-10": {
+   "name": "10秒倒计时",
+   "tags": [
+    "倒计时",
+    "10秒",
+    "发布",
+    "首映",
+    "派对"
+   ]
+  },
+  "template:cumple-sorpresa": {
+   "name": "生日惊喜派对",
+   "tags": [
+    "惊喜",
+    "生日",
+    "派对",
+    "朋友",
+    "庆祝"
+   ]
+  },
+  "template:cupon-de-descuento": {
+   "name": "优惠券",
+   "tags": [
+    "优惠券",
+    "折扣",
+    "优惠码",
+    "优惠",
+    "礼物"
+   ]
+  },
+  "template:cyber-monday": {
+   "name": "网络星期一",
+   "tags": [
+    "网络星期一",
+    "优惠",
+    "网店",
+    "折扣",
+    "包邮"
+   ]
+  },
+  "template:delivery-pide-por-whatsapp": {
+   "name": "外卖：发消息下单",
+   "tags": [
+    "外卖",
+    "聊天",
+    "消息",
+    "订单",
+    "送餐",
+    "上门"
+   ]
+  },
+  "template:dia-de-la-amistad": {
+   "name": "友谊日",
+   "tags": [
+    "友谊",
+    "闺蜜",
+    "情人节",
+    "朋友",
+    "大头贴"
+   ]
+  },
+  "template:dia-de-playa": {
+   "name": "海滩模式",
+   "tags": [
+    "海滩",
+    "夏天",
+    "度假",
+    "大海",
+    "日落"
+   ]
+  },
+  "template:dia-del-padre": {
+   "name": "父亲节快乐",
+   "tags": [
+    "父亲节",
+    "爸爸",
+    "家人",
+    "六月",
+    "英雄"
+   ]
+  },
+  "template:diario-de-comida": {
+   "name": "我今天吃了什么",
+   "tags": [
+    "美食",
+    "今天吃什么",
+    "日记",
+    "食谱"
+   ]
+  },
+  "template:domingo-en-familia": {
+   "name": "家庭周日",
+   "tags": [
+    "家人",
+    "周日",
+    "爷爷奶奶",
+    "家",
+    "回忆"
+   ]
+  },
+  "template:duotono-pop": {
+   "name": "波普双色调",
+   "tags": [
+    "双色调",
+    "波普",
+    "色彩",
+    "人像",
+    "热门"
+   ]
+  },
+  "template:edicion-callejera": {
+   "name": "街头剪辑",
+   "tags": [
+    "滑板",
+    "街头",
+    "城市",
+    "潮流",
+    "团队"
+   ]
+  },
+  "template:encuesta-cual-prefieres": {
+   "name": "你更喜欢哪个？",
+   "tags": [
+    "投票",
+    "二选一",
+    "选择",
+    "评论",
+    "互动"
+   ]
+  },
+  "template:entrevista-con-rotulo": {
+   "name": "采访字幕条",
+   "tags": [
+    "采访",
+    "字幕条",
+    "姓名",
+    "证言",
+    "新闻"
+   ]
+  },
+  "template:espejo-caleidoscopio": {
+   "name": "镜像万花筒",
+   "tags": [
+    "镜像",
+    "万花筒",
+    "特效",
+    "迷幻",
+    "热门"
+   ]
+  },
+  "template:estamos-contratando": {
+   "name": "我们在招聘！",
+   "tags": [
+    "招聘",
+    "工作",
+    "职位",
+    "求职",
+    "招募"
+   ]
+  },
+  "template:este-o-este": {
+   "name": "二选一",
+   "tags": [
+    "二选一",
+    "选择",
+    "投票",
+    "情侣",
+    "有趣"
+   ]
+  },
+  "template:estrobo-y-temblor": {
+   "name": "频闪抖动",
+   "tags": [
+    "频闪",
+    "抖动",
+    "卡点",
+    "派对",
+    "能量"
+   ]
+  },
+  "template:estudia-conmigo": {
+   "name": "和我一起学习",
+   "tags": [
+    "一起学习",
+    "学习",
+    "番茄钟",
+    "大学",
+    "效率"
+   ]
+  },
+  "template:evento-taller-entrada": {
+   "name": "活动或工作坊",
+   "tags": [
+    "活动",
+    "工作坊",
+    "课程",
+    "日期",
+    "报名"
+   ]
+  },
+  "template:faltan-dias": {
+   "name": "还有X天",
+   "tags": [
+    "倒计时",
+    "天数",
+    "活动",
+    "发布"
+   ]
+  },
+  "template:feliz-cumple": {
+   "name": "生日快乐",
+   "tags": [
+    "生日",
+    "派对",
+    "家人",
+    "祝福"
+   ]
+  },
+  "template:feliz-navidad-luces": {
+   "name": "圣诞快乐彩灯",
+   "tags": [
+    "圣诞",
+    "彩灯",
+    "祝福",
+    "贺卡",
+    "十二月"
+   ]
+  },
+  "template:fiestas-patrias-peru": {
+   "name": "国庆日",
+   "tags": [
+    "国庆",
+    "独立日",
+    "国旗",
+    "自豪",
+    "节日"
+   ]
+  },
+  "template:frase-del-dia": {
+   "name": "每日一句",
+   "tags": [
+    "语录",
+    "励志",
+    "金句",
+    "文字"
+   ]
+  },
+  "template:gancho-espera-al-final": {
+   "name": "看到最后",
+   "tags": [
+    "钩子",
+    "看到最后",
+    "悬念",
+    "抖音",
+    "爆款"
+   ]
+  },
+  "template:gimnasio-matricula-gratis": {
+   "name": "健身房：本月优惠",
+   "tags": [
+    "健身房",
+    "会员",
+    "促销",
+    "健身"
+   ]
+  },
+  "template:glitch-neon": {
+   "name": "霓虹故障",
+   "tags": [
+    "故障",
+    "霓虹",
+    "派对",
+    "夜晚",
+    "演唱会"
+   ]
+  },
+  "template:gran-inauguracion": {
+   "name": "盛大开业",
+   "tags": [
+    "开业",
+    "新店",
+    "开张",
+    "活动"
+   ]
+  },
+  "template:grwm-arreglate-conmigo": {
+   "name": "GRWM：跟我一起准备",
+   "tags": [
+    "grwm",
+    "化妆",
+    "出门准备",
+    "美妆",
+    "日常"
+   ]
+  },
+  "template:h-cele-15-16": {
+   "name": "15岁·16岁甜蜜生日",
+   "tags": [
+    "15岁",
+    "16岁",
+    "成年礼",
+    "派对",
+    "公主"
+   ]
+  },
+  "template:h-cele-aniversario": {
+   "name": "纪念日快乐",
+   "tags": [
+    "纪念日",
+    "情侣",
+    "爱情",
+    "在一起",
+    "爱心"
+   ]
+  },
+  "template:h-cele-baby-shower": {
+   "name": "迎婴派对邀请",
+   "tags": [
+    "迎婴派对",
+    "宝宝",
+    "邀请",
+    "怀孕",
+    "派对"
+   ]
+  },
+  "template:h-cele-bautizo": {
+   "name": "洗礼",
+   "tags": [
+    "洗礼",
+    "宝宝",
+    "教堂",
+    "家人",
+    "庆祝"
+   ]
+  },
+  "template:h-cele-bienvenida-bebe": {
+   "name": "欢迎宝宝",
+   "tags": [
+    "出生",
+    "宝宝",
+    "欢迎",
+    "新生儿",
+    "家人"
+   ]
+  },
+  "template:h-cele-boda-invitacion": {
+   "name": "婚礼请柬",
+   "tags": [
+    "婚礼",
+    "请柬",
+    "邀请",
+    "结婚",
+    "优雅"
+   ]
+  },
+  "template:h-cele-compromiso": {
+   "name": "我们订婚了",
+   "tags": [
+    "订婚",
+    "求婚",
+    "戒指",
+    "情侣",
+    "婚礼"
+   ]
+  },
+  "template:h-cele-cumple": {
+   "name": "生日快乐派对",
+   "tags": [
+    "生日",
+    "派对",
+    "气球",
+    "彩纸",
+    "祝福"
+   ]
+  },
+  "template:h-cele-despedida": {
+   "name": "送别",
+   "tags": [
+    "送别",
+    "一路顺风",
+    "再见",
+    "朋友",
+    "想念"
+   ]
+  },
+  "template:h-cele-fiesta-invitacion": {
+   "name": "派对邀请",
+   "tags": [
+    "派对",
+    "邀请",
+    "活动",
+    "夜晚"
+   ]
+  },
+  "template:h-cele-graduacion": {
+   "name": "毕业典礼",
+   "tags": [
+    "毕业",
+    "学士帽",
+    "成就",
+    "大学",
+    "学校"
+   ]
+  },
+  "template:h-cele-jubilacion": {
+   "name": "退休快乐",
+   "tags": [
+    "退休",
+    "职业生涯",
+    "感谢",
+    "致敬"
+   ]
+  },
+  "template:h-cele-logro": {
+   "name": "我们做到了！",
+   "tags": [
+    "成就",
+    "目标",
+    "奖杯",
+    "成功",
+    "团队"
+   ]
+  },
+  "template:h-cele-premios": {
+   "name": "颁奖典礼",
+   "tags": [
+    "颁奖",
+    "获奖者",
+    "表彰",
+    "晚会",
+    "奖杯"
+   ]
+  },
+  "template:h-cele-reunion": {
+   "name": "家庭聚会",
+   "tags": [
+    "家庭聚会",
+    "家人",
+    "邀请",
+    "团聚",
+    "午餐"
+   ]
+  },
+  "template:h-cierre-gracias": {
+   "name": "感谢观看",
+   "tags": [
+    "感谢",
+    "结尾",
+    "社交",
+    "片尾",
+    "告别"
+   ]
+  },
+  "template:h-cierre-like": {
+   "name": "点个赞",
+   "tags": [
+    "点赞",
+    "喜欢",
+    "大拇指",
+    "片尾",
+    "互动"
+   ]
+  },
+  "template:h-cierre-proximo": {
+   "name": "下期视频见",
+   "tags": [
+    "下期",
+    "预告",
+    "片尾",
+    "下一集"
+   ]
+  },
+  "template:h-cierre-redes": {
+   "name": "关注我",
+   "tags": [
+    "社交媒体",
+    "关注我",
+    "账号",
+    "片尾",
+    "联系"
+   ]
+  },
+  "template:h-cierre-suscribete-campana": {
+   "name": "订阅并开启铃铛",
+   "tags": [
+    "订阅",
+    "铃铛",
+    "按钮",
+    "片尾"
+   ]
+  },
+  "template:h-cuenta-10-neon": {
+   "name": "霓虹10秒倒计时",
+   "tags": [
+    "倒计时",
+    "霓虹",
+    "10秒",
+    "开始",
+    "活动"
+   ]
+  },
+  "template:h-cuenta-5-cine": {
+   "name": "老电影倒计时",
+   "tags": [
+    "倒计时",
+    "电影",
+    "胶片",
+    "复古",
+    "片头"
+   ]
+  },
+  "template:h-cuenta-anio-nuevo": {
+   "name": "跨年倒计时",
+   "tags": [
+    "新年",
+    "倒计时",
+    "烟花",
+    "派对",
+    "零点"
+   ]
+  },
+  "template:h-cuenta-deportes": {
+   "name": "比赛倒计时",
+   "tags": [
+    "比赛",
+    "足球",
+    "倒计时",
+    "体育",
+    "比分"
+   ]
+  },
+  "template:h-cuenta-dias-evento": {
+   "name": "还剩X天",
+   "tags": [
+    "天数",
+    "活动",
+    "倒计时",
+    "婚礼",
+    "旅行",
+    "日历"
+   ]
+  },
+  "template:h-cuenta-directo": {
+   "name": "直播即将开始",
+   "tags": [
+    "直播",
+    "即将开始",
+    "开播",
+    "倒计时"
+   ]
+  },
+  "template:h-cuenta-lanzamiento": {
+   "name": "发布倒计时",
+   "tags": [
+    "发布",
+    "产品",
+    "321",
+    "倒计时",
+    "上市"
+   ]
+  },
+  "template:h-cuenta-minimal": {
+   "name": "极简倒计时",
+   "tags": [
+    "倒计时",
+    "极简",
+    "简洁",
+    "演示",
+    "开始"
+   ]
+  },
+  "template:h-fecha-accion-gracias": {
+   "name": "感恩节",
+   "tags": [
+    "感恩节",
+    "秋天",
+    "家人",
+    "感恩"
+   ]
+  },
+  "template:h-fecha-anio-nuevo": {
+   "name": "新年快乐",
+   "tags": [
+    "新年",
+    "烟花",
+    "干杯",
+    "一月",
+    "跨年"
+   ]
+  },
+  "template:h-fecha-anio-nuevo-lunar": {
+   "name": "农历新年",
+   "tags": [
+    "春节",
+    "农历新年",
+    "灯笼",
+    "红色",
+    "金色"
+   ]
+  },
+  "template:h-fecha-dia-madre": {
+   "name": "母亲节",
+   "tags": [
+    "母亲节",
+    "妈妈",
+    "鲜花",
+    "爱",
+    "家人"
+   ]
+  },
+  "template:h-fecha-dia-maestro": {
+   "name": "教师节",
+   "tags": [
+    "教师节",
+    "老师",
+    "感谢",
+    "学校"
+   ]
+  },
+  "template:h-fecha-dia-mujer": {
+   "name": "妇女节",
+   "tags": [
+    "妇女节",
+    "3月8日",
+    "女性",
+    "平等",
+    "励志"
+   ]
+  },
+  "template:h-fecha-dia-padre": {
+   "name": "父亲节",
+   "tags": [
+    "父亲节",
+    "爸爸",
+    "家人",
+    "英雄",
+    "六月"
+   ]
+  },
+  "template:h-fecha-dia-tierra": {
+   "name": "世界地球日",
+   "tags": [
+    "地球日",
+    "地球",
+    "环保",
+    "绿色",
+    "自然"
+   ]
+  },
+  "template:h-fecha-diwali": {
+   "name": "排灯节快乐",
+   "tags": [
+    "排灯节",
+    "灯节",
+    "油灯",
+    "庆祝"
+   ]
+  },
+  "template:h-fecha-eid": {
+   "name": "开斋节快乐",
+   "tags": [
+    "开斋节",
+    "节日",
+    "家人",
+    "庆祝"
+   ]
+  },
+  "template:h-fecha-halloween": {
+   "name": "万圣节",
+   "tags": [
+    "万圣节",
+    "恐怖",
+    "南瓜",
+    "变装",
+    "十月"
+   ]
+  },
+  "template:h-fecha-invierno": {
+   "name": "冬天",
+   "tags": [
+    "冬天",
+    "雪",
+    "寒冷",
+    "季节",
+    "温馨"
+   ]
+  },
+  "template:h-fecha-navidad": {
+   "name": "圣诞快乐",
+   "tags": [
+    "圣诞",
+    "雪",
+    "家人",
+    "十二月",
+    "节日"
+   ]
+  },
+  "template:h-fecha-otono": {
+   "name": "你好秋天",
+   "tags": [
+    "秋天",
+    "落叶",
+    "温馨",
+    "季节",
+    "咖啡"
+   ]
+  },
+  "template:h-fecha-pascua": {
+   "name": "复活节",
+   "tags": [
+    "复活节",
+    "彩蛋",
+    "春天",
+    "兔子"
+   ]
+  },
+  "template:h-fecha-primavera": {
+   "name": "春天",
+   "tags": [
+    "春天",
+    "鲜花",
+    "季节",
+    "多彩",
+    "自然"
+   ]
+  },
+  "template:h-fecha-ramadan": {
+   "name": "斋月吉庆",
+   "tags": [
+    "斋月",
+    "新月",
+    "灯笼",
+    "开斋饭"
+   ]
+  },
+  "template:h-fecha-regreso-clases": {
+   "name": "开学季",
+   "tags": [
+    "开学",
+    "学校",
+    "文具",
+    "学生"
+   ]
+  },
+  "template:h-fecha-san-valentin": {
+   "name": "情人节",
+   "tags": [
+    "情人节",
+    "爱情",
+    "2月14日",
+    "情侣",
+    "爱心"
+   ]
+  },
+  "template:h-fecha-verano": {
+   "name": "夏天来了",
+   "tags": [
+    "夏天",
+    "海滩",
+    "阳光",
+    "度假",
+    "炎热"
+   ]
+  },
+  "template:h-final-1-video": {
+   "name": "结束画面：1个视频",
+   "tags": [
+    "结束画面",
+    "片尾页",
+    "下个视频",
+    "订阅"
+   ]
+  },
+  "template:h-final-2-videos": {
+   "name": "结束画面：2个视频",
+   "tags": [
+    "结束画面",
+    "片尾页",
+    "推荐视频",
+    "订阅"
+   ]
+  },
+  "template:h-final-cocina": {
+   "name": "美食片尾",
+   "tags": [
+    "美食",
+    "食谱",
+    "结束画面",
+    "下期食谱"
+   ]
+  },
+  "template:h-final-colorida": {
+   "name": "彩色结束画面",
+   "tags": [
+    "结束画面",
+    "彩色",
+    "有趣",
+    "儿童"
+   ]
+  },
+  "template:h-final-curso": {
+   "name": "课程片尾",
+   "tags": [
+    "课程",
+    "课时",
+    "教育",
+    "结束画面",
+    "教程"
+   ]
+  },
+  "template:h-final-familia": {
+   "name": "家庭片尾",
+   "tags": [
+    "家人",
+    "感谢",
+    "片尾",
+    "回忆",
+    "照片"
+   ]
+  },
+  "template:h-final-gaming": {
+   "name": "游戏结束画面",
+   "tags": [
+    "结束画面",
+    "游戏",
+    "玩家",
+    "直播"
+   ]
+  },
+  "template:h-final-minimal": {
+   "name": "极简结束画面",
+   "tags": [
+    "结束画面",
+    "极简",
+    "简洁",
+    "优雅"
+   ]
+  },
+  "template:h-final-negocio": {
+   "name": "商家结束画面",
+   "tags": [
+    "商家",
+    "联系方式",
+    "地址",
+    "网站",
+    "片尾"
+   ]
+  },
+  "template:h-final-noticias": {
+   "name": "新闻片尾",
+   "tags": [
+    "新闻",
+    "更多新闻",
+    "结束画面",
+    "资讯",
+    "标题"
+   ]
+  },
+  "template:h-final-oscura": {
+   "name": "暗色结束画面",
+   "tags": [
+    "结束画面",
+    "霓虹",
+    "暗色",
+    "游戏"
+   ]
+  },
+  "template:h-final-papel": {
+   "name": "纸艺片尾",
+   "tags": [
+    "纸艺",
+    "手工",
+    "结束画面",
+    "胶带",
+    "创意"
+   ]
+  },
+  "template:h-final-podcast": {
+   "name": "播客片尾",
+   "tags": [
+    "播客",
+    "下一期",
+    "结束画面",
+    "平台",
+    "音频"
+   ]
+  },
+  "template:h-final-retro": {
+   "name": "复古电视片尾",
+   "tags": [
+    "复古",
+    "电视",
+    "怀旧",
+    "结束画面",
+    "80年代"
+   ]
+  },
+  "template:h-final-viajes": {
+   "name": "旅行片尾",
+   "tags": [
+    "旅行",
+    "目的地",
+    "结束画面",
+    "地图",
+    "冒险"
+   ]
+  },
+  "template:h-intro-barras-diagonales": {
+   "name": "斜条片头",
+   "tags": [
+    "片头",
+    "频道",
+    "logo",
+    "条纹",
+    "动感"
+   ]
+  },
+  "template:h-intro-boda": {
+   "name": "婚礼片头",
+   "tags": [
+    "婚礼",
+    "新人",
+    "结婚",
+    "片头",
+    "浪漫"
+   ]
+  },
+  "template:h-intro-cinematica-oscura": {
+   "name": "电影感开场",
+   "tags": [
+    "电影",
+    "电影感",
+    "片头",
+    "戏剧",
+    "预告片"
+   ]
+  },
+  "template:h-intro-cocina": {
+   "name": "美食频道片头",
+   "tags": [
+    "美食",
+    "食谱",
+    "做饭",
+    "片头",
+    "厨师",
+    "频道"
+   ]
+  },
+  "template:h-intro-colorida-formas": {
+   "name": "彩色图形片头",
+   "tags": [
+    "彩色",
+    "图形",
+    "有趣",
+    "片头",
+    "几何"
+   ]
+  },
+  "template:h-intro-corporativa": {
+   "name": "企业开场",
+   "tags": [
+    "企业",
+    "公司",
+    "商务",
+    "宣传",
+    "logo",
+    "专业"
+   ]
+  },
+  "template:h-intro-deportes": {
+   "name": "体育片头",
+   "tags": [
+    "体育",
+    "足球",
+    "田径",
+    "片头",
+    "能量",
+    "球队"
+   ]
+  },
+  "template:h-intro-documental": {
+   "name": "纪录片开场",
+   "tags": [
+    "纪录片",
+    "历史",
+    "严肃",
+    "片头",
+    "自然"
+   ]
+  },
+  "template:h-intro-elegante-oro": {
+   "name": "优雅金色片头",
+   "tags": [
+    "优雅",
+    "金色",
+    "奢华",
+    "片头",
+    "高级"
+   ]
+  },
+  "template:h-intro-fitness": {
+   "name": "健身片头",
+   "tags": [
+    "健身",
+    "训练",
+    "片头",
+    "励志",
+    "运动"
+   ]
+  },
+  "template:h-intro-gaming-neon": {
+   "name": "霓虹游戏片头",
+   "tags": [
+    "游戏",
+    "玩家",
+    "霓虹",
+    "片头",
+    "直播"
+   ]
+  },
+  "template:h-intro-glitch": {
+   "name": "故障片头",
+   "tags": [
+    "故障",
+    "数码",
+    "片头",
+    "游戏",
+    "科技",
+    "rgb"
+   ]
+  },
+  "template:h-intro-logo-destello": {
+   "name": "logo光效揭晓",
+   "tags": [
+    "logo",
+    "揭晓",
+    "光效",
+    "片头",
+    "优雅",
+    "品牌"
+   ]
+  },
+  "template:h-intro-minimal-linea": {
+   "name": "极简线条片头",
+   "tags": [
+    "极简",
+    "简洁",
+    "片头",
+    "优雅",
+    "白色"
+   ]
+  },
+  "template:h-intro-musica": {
+   "name": "音乐频道片头",
+   "tags": [
+    "音乐",
+    "歌手",
+    "单曲",
+    "片头",
+    "均衡器"
+   ]
+  },
+  "template:h-intro-ninos": {
+   "name": "儿童片头",
+   "tags": [
+    "儿童",
+    "童趣",
+    "彩色",
+    "片头",
+    "早教"
+   ]
+  },
+  "template:h-intro-noticias": {
+   "name": "新闻节目开场",
+   "tags": [
+    "新闻",
+    "新闻节目",
+    "资讯",
+    "片头",
+    "突发"
+   ]
+  },
+  "template:h-intro-papel": {
+   "name": "剪纸片头",
+   "tags": [
+    "剪纸",
+    "纸艺",
+    "手工",
+    "片头",
+    "儿童"
+   ]
+  },
+  "template:h-intro-podcast-ondas": {
+   "name": "声波播客片头",
+   "tags": [
+    "播客",
+    "音频",
+    "访谈",
+    "片头",
+    "声波"
+   ]
+  },
+  "template:h-intro-pop-comic": {
+   "name": "波普漫画片头",
+   "tags": [
+    "漫画",
+    "波普",
+    "有趣",
+    "片头",
+    "彩色"
+   ]
+  },
+  "template:h-intro-retro-80s": {
+   "name": "80年代复古片头",
+   "tags": [
+    "复古",
+    "80年代",
+    "合成波",
+    "霓虹",
+    "片头"
+   ]
+  },
+  "template:h-intro-split": {
+   "name": "分屏片头",
+   "tags": [
+    "分屏",
+    "照片",
+    "片头",
+    "现代",
+    "条纹"
+   ]
+  },
+  "template:h-intro-suscriptores": {
+   "name": "粉丝计数片头",
+   "tags": [
+    "粉丝",
+    "计数器",
+    "庆祝",
+    "片头",
+    "里程碑"
+   ]
+  },
+  "template:h-intro-tech": {
+   "name": "科技片头",
+   "tags": [
+    "科技",
+    "数码",
+    "片头",
+    "测评",
+    "未来"
+   ]
+  },
+  "template:h-intro-texto-gigante": {
+   "name": "巨型文字片头",
+   "tags": [
+    "文字",
+    "字体",
+    "片头",
+    "冲击",
+    "粗体"
+   ]
+  },
+  "template:h-intro-tinta": {
+   "name": "水墨晕染片头",
+   "tags": [
+    "水墨",
+    "艺术",
+    "片头",
+    "水彩",
+    "晕染"
+   ]
+  },
+  "template:h-intro-tiza": {
+   "name": "黑板粉笔片头",
+   "tags": [
+    "教育",
+    "黑板",
+    "课程",
+    "粉笔",
+    "老师"
+   ]
+  },
+  "template:h-intro-viajes-mapa": {
+   "name": "旅行地图片头",
+   "tags": [
+    "旅行",
+    "地图",
+    "路线",
+    "片头",
+    "冒险"
+   ]
+  },
+  "template:h-intro-vlog-polaroid": {
+   "name": "拍立得vlog片头",
+   "tags": [
+    "vlog",
+    "拍立得",
+    "片头",
+    "照片",
+    "氛围感"
+   ]
+  },
+  "template:h-intro-zoom-fotos": {
+   "name": "照片缩放片头",
+   "tags": [
+    "缩放",
+    "照片",
+    "片头",
+    "动感",
+    "旅行"
+   ]
+  },
+  "template:h-neg-academia": {
+   "name": "培训课程",
+   "tags": [
+    "培训",
+    "课程",
+    "课堂",
+    "工作坊",
+    "报名"
+   ]
+  },
+  "template:h-neg-agenda-evento": {
+   "name": "活动日程",
+   "tags": [
+    "日程",
+    "议程",
+    "活动",
+    "时间表",
+    "会议"
+   ]
+  },
+  "template:h-neg-cafeteria": {
+   "name": "咖啡店",
+   "tags": [
+    "咖啡店",
+    "咖啡",
+    "今日特饮",
+    "早餐",
+    "咖啡师"
+   ]
+  },
+  "template:h-neg-cifras": {
+   "name": "年度数据",
+   "tags": [
+    "成果",
+    "数据",
+    "报告",
+    "增长",
+    "图表"
+   ]
+  },
+  "template:h-neg-comunidad": {
+   "name": "社区聚会",
+   "tags": [
+    "社区",
+    "聚会",
+    "教会",
+    "团体",
+    "通知"
+   ]
+  },
+  "template:h-neg-contacto": {
+   "name": "联系我们",
+   "tags": [
+    "联系",
+    "地址",
+    "营业时间",
+    "电话",
+    "商家"
+   ]
+  },
+  "template:h-neg-contratando": {
+   "name": "招聘中",
+   "tags": [
+    "招聘",
+    "工作",
+    "职位",
+    "加入我们"
+   ]
+  },
+  "template:h-neg-escuela": {
+   "name": "学校招生",
+   "tags": [
+    "学校",
+    "招生",
+    "报名",
+    "教育"
+   ]
+  },
+  "template:h-neg-ferreteria": {
+   "name": "五金店",
+   "tags": [
+    "五金店",
+    "工具",
+    "建材",
+    "折扣",
+    "家居"
+   ]
+  },
+  "template:h-neg-gimnasio": {
+   "name": "健身房套餐",
+   "tags": [
+    "健身房",
+    "套餐",
+    "价格",
+    "健身",
+    "会员"
+   ]
+  },
+  "template:h-neg-inmobiliaria": {
+   "name": "房产出售",
+   "tags": [
+    "房产",
+    "出售",
+    "房子",
+    "公寓",
+    "楼盘"
+   ]
+  },
+  "template:h-neg-lanzamiento": {
+   "name": "产品发布",
+   "tags": [
+    "发布",
+    "新品",
+    "产品",
+    "上新"
+   ]
+  },
+  "template:h-neg-mudanzas": {
+   "name": "搬家运输",
+   "tags": [
+    "搬家",
+    "运输",
+    "货运",
+    "卡车",
+    "服务"
+   ]
+  },
+  "template:h-neg-presentacion": {
+   "name": "企业介绍",
+   "tags": [
+    "企业",
+    "介绍",
+    "公司",
+    "使命",
+    "数据"
+   ]
+  },
+  "template:h-neg-rebajas": {
+   "name": "大促销",
+   "tags": [
+    "促销",
+    "折扣",
+    "清仓",
+    "优惠",
+    "大甩卖"
+   ]
+  },
+  "template:h-neg-restaurante-menu": {
+   "name": "餐厅菜单",
+   "tags": [
+    "餐厅",
+    "菜单",
+    "菜品",
+    "价格"
+   ]
+  },
+  "template:h-neg-supermercado": {
+   "name": "超市特惠",
+   "tags": [
+    "超市",
+    "特惠",
+    "价格",
+    "水果",
+    "折扣"
+   ]
+  },
+  "template:h-neg-testimonio": {
+   "name": "客户证言",
+   "tags": [
+    "证言",
+    "评价",
+    "客户",
+    "口碑",
+    "星级"
+   ]
+  },
+  "template:h-neg-tienda-barrio": {
+   "name": "社区小店",
+   "tags": [
+    "小店",
+    "社区",
+    "优惠",
+    "杂货",
+    "邻居"
+   ]
+  },
+  "template:h-neg-webinar": {
+   "name": "线上讲座",
+   "tags": [
+    "讲座",
+    "网络研讨会",
+    "活动",
+    "报名",
+    "讲师"
+   ]
+  },
+  "template:h-presenta-amistad": {
+   "name": "永远的朋友",
+   "tags": [
+    "朋友",
+    "友谊",
+    "涂鸦",
+    "照片",
+    "欢乐"
+   ]
+  },
+  "template:h-presenta-anio": {
+   "name": "我们的一年",
+   "tags": [
+    "一年",
+    "总结",
+    "12个月",
+    "回顾",
+    "照片",
+    "新年"
+   ]
+  },
+  "template:h-presenta-antes-despues": {
+   "name": "前后对比幻灯片",
+   "tags": [
+    "前后对比",
+    "对比",
+    "滑块",
+    "蜕变",
+    "改造"
+   ]
+  },
+  "template:h-presenta-bebe": {
+   "name": "宝宝成长记",
+   "tags": [
+    "宝宝",
+    "逐月",
+    "成长",
+    "家人",
+    "第一年"
+   ]
+  },
+  "template:h-presenta-boda": {
+   "name": "我们的婚礼",
+   "tags": [
+    "婚礼",
+    "新人",
+    "幻灯片",
+    "优雅",
+    "结婚",
+    "照片"
+   ]
+  },
+  "template:h-presenta-cinematica": {
+   "name": "电影感幻灯片",
+   "tags": [
+    "电影感",
+    "电影",
+    "黑边",
+    "旅行",
+    "史诗"
+   ]
+  },
+  "template:h-presenta-circulos": {
+   "name": "圆形照片",
+   "tags": [
+    "圆形",
+    "照片",
+    "彩色",
+    "欢快",
+    "幻灯片"
+   ]
+  },
+  "template:h-presenta-collage-libre": {
+   "name": "自由拼贴",
+   "tags": [
+    "拼贴",
+    "照片",
+    "看板",
+    "朋友",
+    "回忆"
+   ]
+  },
+  "template:h-presenta-comida": {
+   "name": "照片菜单",
+   "tags": [
+    "菜单",
+    "美食",
+    "餐厅",
+    "菜品"
+   ]
+  },
+  "template:h-presenta-deportes": {
+   "name": "体育赛季",
+   "tags": [
+    "体育",
+    "赛季",
+    "成绩",
+    "球队",
+    "足球"
+   ]
+  },
+  "template:h-presenta-equipo": {
+   "name": "认识我们的团队",
+   "tags": [
+    "团队",
+    "成员",
+    "公司",
+    "关于我们",
+    "员工"
+   ]
+  },
+  "template:h-presenta-escuela": {
+   "name": "学年回顾",
+   "tags": [
+    "学校",
+    "学年",
+    "笔记本",
+    "课堂",
+    "孩子"
+   ]
+  },
+  "template:h-presenta-evento": {
+   "name": "活动回顾",
+   "tags": [
+    "活动",
+    "回顾",
+    "花絮",
+    "会议",
+    "派对"
+   ]
+  },
+  "template:h-presenta-glitch": {
+   "name": "故障幻灯片",
+   "tags": [
+    "故障",
+    "快速",
+    "节奏",
+    "照片",
+    "街头"
+   ]
+  },
+  "template:h-presenta-graduacion": {
+   "name": "毕业班",
+   "tags": [
+    "毕业",
+    "同学",
+    "毕业季",
+    "学校",
+    "大学"
+   ]
+  },
+  "template:h-presenta-homenaje": {
+   "name": "深切缅怀",
+   "tags": [
+    "缅怀",
+    "纪念",
+    "告别",
+    "回忆",
+    "蜡烛"
+   ]
+  },
+  "template:h-presenta-inmueble": {
+   "name": "房源展示",
+   "tags": [
+    "房产",
+    "房子",
+    "出售",
+    "出租",
+    "看房"
+   ]
+  },
+  "template:h-presenta-mascota": {
+   "name": "我的萌宠",
+   "tags": [
+    "宠物",
+    "狗狗",
+    "猫咪",
+    "爪印",
+    "照片",
+    "可爱"
+   ]
+  },
+  "template:h-presenta-mosaico": {
+   "name": "照片马赛克",
+   "tags": [
+    "马赛克",
+    "宫格",
+    "拼图",
+    "照片"
+   ]
+  },
+  "template:h-presenta-paralaje": {
+   "name": "视差幻灯片",
+   "tags": [
+    "视差",
+    "3d",
+    "运动",
+    "照片",
+    "旅行",
+    "电影感"
+   ]
+  },
+  "template:h-presenta-pelicula": {
+   "name": "胶片条幻灯片",
+   "tags": [
+    "胶片",
+    "35毫米",
+    "照片",
+    "复古",
+    "电影"
+   ]
+  },
+  "template:h-presenta-polaroid": {
+   "name": "木桌上的拍立得",
+   "tags": [
+    "拍立得",
+    "照片",
+    "幻灯片",
+    "木纹",
+    "复古",
+    "相册"
+   ]
+  },
+  "template:h-presenta-portafolio": {
+   "name": "作品集",
+   "tags": [
+    "作品集",
+    "作品",
+    "设计",
+    "摄影",
+    "项目",
+    "创意"
+   ]
+  },
+  "template:h-presenta-producto": {
+   "name": "产品目录",
+   "tags": [
+    "目录",
+    "产品",
+    "店铺",
+    "价格",
+    "销售",
+    "系列"
+   ]
+  },
+  "template:h-presenta-recuerdos": {
+   "name": "回忆幻灯片",
+   "tags": [
+    "回忆",
+    "幻灯片",
+    "照片",
+    "家人",
+    "怀旧"
+   ]
+  },
+  "template:h-presenta-revista": {
+   "name": "杂志内页",
+   "tags": [
+    "杂志",
+    "排版",
+    "时尚",
+    "内页",
+    "幻灯片"
+   ]
+  },
+  "template:h-presenta-split": {
+   "name": "分屏幻灯片",
+   "tags": [
+    "分屏",
+    "双图",
+    "对比",
+    "幻灯片"
+   ]
+  },
+  "template:h-presenta-tinta": {
+   "name": "水墨幻灯片",
+   "tags": [
+    "水墨",
+    "艺术",
+    "幻灯片",
+    "照片",
+    "优雅"
+   ]
+  },
+  "template:h-presenta-viaje": {
+   "name": "旅行日记",
+   "tags": [
+    "旅行",
+    "日记",
+    "印章",
+    "照片",
+    "度假",
+    "护照"
+   ]
+  },
+  "template:h-presenta-vintage": {
+   "name": "老相册",
+   "tags": [
+    "复古",
+    "老照片",
+    "怀旧",
+    "相册",
+    "回忆",
+    "爷爷奶奶"
+   ]
+  },
+  "template:h-tercio-a-mano": {
+   "name": "手写人名条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "手写",
+    "书法",
+    "温馨"
+   ]
+  },
+  "template:h-tercio-boda": {
+   "name": "婚礼人名条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "婚礼",
+    "新人",
+    "日期"
+   ]
+  },
+  "template:h-tercio-caja-color": {
+   "name": "色块人名条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "姓名",
+    "色块",
+    "彩色"
+   ]
+  },
+  "template:h-tercio-chat": {
+   "name": "精选评论",
+   "tags": [
+    "评论",
+    "聊天",
+    "提问",
+    "字幕条"
+   ]
+  },
+  "template:h-tercio-cita": {
+   "name": "屏幕引用",
+   "tags": [
+    "字幕条",
+    "引用",
+    "金句",
+    "证言"
+   ]
+  },
+  "template:h-tercio-corporativo": {
+   "name": "企业人名条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "姓名",
+    "企业",
+    "logo"
+   ]
+  },
+  "template:h-tercio-deportes": {
+   "name": "体育人名条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "体育",
+    "球员",
+    "足球"
+   ]
+  },
+  "template:h-tercio-diagonal": {
+   "name": "斜向人名条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "斜向",
+    "动感",
+    "街头"
+   ]
+  },
+  "template:h-tercio-doble": {
+   "name": "双人人名条",
+   "tags": [
+    "人名条",
+    "姓名",
+    "双人",
+    "采访",
+    "辩论"
+   ]
+  },
+  "template:h-tercio-duotono": {
+   "name": "双色人名条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "姓名",
+    "双色调",
+    "现代"
+   ]
+  },
+  "template:h-tercio-elegante": {
+   "name": "优雅人名条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "优雅",
+    "金色",
+    "衬线"
+   ]
+  },
+  "template:h-tercio-entrevista": {
+   "name": "采访人名条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "采访",
+    "提问",
+    "嘉宾"
+   ]
+  },
+  "template:h-tercio-fecha": {
+   "name": "日期和时间",
+   "tags": [
+    "字幕条",
+    "日期",
+    "活动",
+    "时间"
+   ]
+  },
+  "template:h-tercio-gaming": {
+   "name": "游戏人名条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "游戏",
+    "玩家",
+    "霓虹"
+   ]
+  },
+  "template:h-tercio-glass": {
+   "name": "玻璃质感人名条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "玻璃",
+    "半透明",
+    "现代"
+   ]
+  },
+  "template:h-tercio-minimal-linea": {
+   "name": "极简人名条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "姓名",
+    "极简",
+    "简洁"
+   ]
+  },
+  "template:h-tercio-noticias": {
+   "name": "新闻字幕条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "新闻",
+    "直播",
+    "标题"
+   ]
+  },
+  "template:h-tercio-podcast": {
+   "name": "播客人名条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "播客",
+    "节目",
+    "嘉宾"
+   ]
+  },
+  "template:h-tercio-precio": {
+   "name": "屏幕价格标签",
+   "tags": [
+    "字幕条",
+    "价格",
+    "产品",
+    "优惠"
+   ]
+  },
+  "template:h-tercio-redes": {
+   "name": "社交账号条",
+   "tags": [
+    "人名条",
+    "社交媒体",
+    "账号",
+    "关注我",
+    "用户名"
+   ]
+  },
+  "template:h-tercio-redondeado": {
+   "name": "圆角头像人名条",
+   "tags": [
+    "人名条",
+    "姓名",
+    "头像",
+    "圆角",
+    "个人资料"
+   ]
+  },
+  "template:h-tercio-retro": {
+   "name": "复古人名条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "复古",
+    "70年代",
+    "怀旧"
+   ]
+  },
+  "template:h-tercio-suscribete": {
+   "name": "角落订阅按钮",
+   "tags": [
+    "订阅",
+    "按钮",
+    "铃铛",
+    "关注",
+    "角标"
+   ]
+  },
+  "template:h-tercio-tutorial-paso": {
+   "name": "教程步骤条",
+   "tags": [
+    "字幕条",
+    "教程",
+    "步骤",
+    "说明"
+   ]
+  },
+  "template:h-tercio-ubicacion": {
+   "name": "地点标注",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "地点",
+    "定位",
+    "旅行"
+   ]
+  },
+  "template:h-texto-advertencia": {
+   "name": "警告提示",
+   "tags": [
+    "提示",
+    "注意",
+    "警告",
+    "重要",
+    "小心"
+   ]
+  },
+  "template:h-texto-agenda": {
+   "name": "视频目录",
+   "tags": [
+    "目录",
+    "内容",
+    "话题",
+    "章节",
+    "大纲"
+   ]
+  },
+  "template:h-texto-capitulo": {
+   "name": "章节卡",
+   "tags": [
+    "章节",
+    "标题",
+    "纪录片",
+    "分段"
+   ]
+  },
+  "template:h-texto-cinetico": {
+   "name": "动态字体排版",
+   "tags": [
+    "动态文字",
+    "字体",
+    "励志",
+    "节奏",
+    "文字"
+   ]
+  },
+  "template:h-texto-cita-serif": {
+   "name": "优雅语录",
+   "tags": [
+    "语录",
+    "金句",
+    "灵感",
+    "感悟",
+    "励志"
+   ]
+  },
+  "template:h-texto-comparacion": {
+   "name": "对比",
+   "tags": [
+    "对比",
+    "vs",
+    "二选一",
+    "哪个好",
+    "测评"
+   ]
+  },
+  "template:h-texto-creditos": {
+   "name": "片尾字幕",
+   "tags": [
+    "字幕",
+    "片尾",
+    "致谢",
+    "电影",
+    "团队"
+   ]
+  },
+  "template:h-texto-dato-curioso": {
+   "name": "冷知识",
+   "tags": [
+    "冷知识",
+    "你知道吗",
+    "科普",
+    "趣闻",
+    "科学"
+   ]
+  },
+  "template:h-texto-estadistica": {
+   "name": "大号数据",
+   "tags": [
+    "数据",
+    "数字",
+    "百分比",
+    "统计",
+    "信息图"
+   ]
+  },
+  "template:h-texto-frase-neon": {
+   "name": "霓虹招牌",
+   "tags": [
+    "霓虹",
+    "招牌",
+    "金句",
+    "夜晚",
+    "氛围感"
+   ]
+  },
+  "template:h-texto-lecciones": {
+   "name": "你将学到",
+   "tags": [
+    "课程",
+    "学习",
+    "课时",
+    "教育",
+    "教程"
+   ]
+  },
+  "template:h-texto-linea-tiempo": {
+   "name": "时间轴",
+   "tags": [
+    "时间轴",
+    "历史",
+    "年份",
+    "历程",
+    "纪念"
+   ]
+  },
+  "template:h-texto-lista-5": {
+   "name": "TOP5清单",
+   "tags": [
+    "清单",
+    "top5",
+    "建议",
+    "要点",
+    "总结"
+   ]
+  },
+  "template:h-texto-maquina": {
+   "name": "打字机",
+   "tags": [
+    "打字机",
+    "信件",
+    "复古",
+    "故事",
+    "文字"
+   ]
+  },
+  "template:h-texto-marcador": {
+   "name": "最终比分",
+   "tags": [
+    "比分",
+    "结果",
+    "比赛",
+    "体育",
+    "决赛"
+   ]
+  },
+  "template:h-texto-portada-video": {
+   "name": "视频封面",
+   "tags": [
+    "封面",
+    "缩略图",
+    "视频封面",
+    "吸睛"
+   ]
+  },
+  "template:h-texto-pregunta": {
+   "name": "向观众提问",
+   "tags": [
+    "提问",
+    "评论",
+    "互动",
+    "社区",
+    "观点"
+   ]
+  },
+  "template:h-texto-receta-ingredientes": {
+   "name": "食谱配料",
+   "tags": [
+    "食谱",
+    "配料",
+    "做饭",
+    "美食",
+    "清单"
+   ]
+  },
+  "template:h-texto-titular-revista": {
+   "name": "杂志大标题",
+   "tags": [
+    "杂志",
+    "封面",
+    "排版",
+    "时尚",
+    "标题"
+   ]
+  },
+  "template:h-texto-titulo-grande": {
+   "name": "大标题",
+   "tags": [
+    "标题",
+    "封面",
+    "大字",
+    "冲击"
+   ]
+  },
+  "template:h-trans-barrido-color": {
+   "name": "彩色扫屏",
+   "tags": [
+    "转场",
+    "扫屏",
+    "彩色",
+    "擦除",
+    "动感"
+   ]
+  },
+  "template:h-trans-capitulo-numero": {
+   "name": "章节编号",
+   "tags": [
+    "章节",
+    "转场",
+    "编号",
+    "分隔",
+    "纪录片"
+   ]
+  },
+  "template:h-trans-circulo": {
+   "name": "圆形分隔",
+   "tags": [
+    "转场",
+    "圆形",
+    "章节",
+    "分隔",
+    "标题"
+   ]
+  },
+  "template:h-trans-diagonal": {
+   "name": "斜向擦除",
+   "tags": [
+    "转场",
+    "斜向",
+    "擦除",
+    "现代",
+    "面板"
+   ]
+  },
+  "template:h-trans-formas": {
+   "name": "图形填充",
+   "tags": [
+    "转场",
+    "图形",
+    "圆形",
+    "彩色",
+    "有趣"
+   ]
+  },
+  "template:h-trans-glitch-corto": {
+   "name": "故障闪切",
+   "tags": [
+    "转场",
+    "故障",
+    "快速",
+    "游戏",
+    "数码"
+   ]
+  },
+  "template:h-trans-mientras-tanto": {
+   "name": "与此同时…",
+   "tags": [
+    "与此同时",
+    "搞笑",
+    "漫画",
+    "转场",
+    "梗"
+   ]
+  },
+  "template:h-trans-papel": {
+   "name": "撕纸",
+   "tags": [
+    "转场",
+    "纸张",
+    "撕纸",
+    "拼贴",
+    "创意"
+   ]
+  },
+  "template:h-trans-pelicula": {
+   "name": "胶片灼烧",
+   "tags": [
+    "转场",
+    "胶片",
+    "灼烧",
+    "复古",
+    "暖色"
+   ]
+  },
+  "template:h-trans-persiana": {
+   "name": "百叶窗",
+   "tags": [
+    "转场",
+    "百叶窗",
+    "条纹",
+    "擦除",
+    "优雅"
+   ]
+  },
+  "template:h-trans-tinta": {
+   "name": "水墨擦除",
+   "tags": [
+    "转场",
+    "水墨",
+    "艺术",
+    "晕染",
+    "柔和"
+   ]
+  },
+  "template:h-trans-zoom-golpe": {
+   "name": "冲击缩放",
+   "tags": [
+    "转场",
+    "缩放",
+    "冲击",
+    "快速",
+    "能量"
+   ]
+  },
+  "template:halloween-photo-dump": {
+   "name": "万圣节照片合集",
+   "tags": [
+    "万圣节",
+    "照片合集",
+    "变装",
+    "恐怖",
+    "十月"
+   ]
+  },
+  "template:halloween-revelacion-disfraz": {
+   "name": "变装揭晓",
+   "tags": [
+    "万圣节",
+    "变装",
+    "变身",
+    "前后对比",
+    "惊吓"
+   ]
+  },
+  "template:halloween-truco-o-trato": {
+   "name": "不给糖就捣蛋派对邀请",
+   "tags": [
+    "万圣节",
+    "派对",
+    "邀请",
+    "儿童",
+    "变装"
+   ]
+  },
+  "template:horario-de-atencion": {
+   "name": "营业时间",
+   "tags": [
+    "营业时间",
+    "营业",
+    "门店",
+    "信息"
+   ]
+  },
+  "template:hype-glitch": {
+   "name": "燃系故障风",
+   "tags": [
+    "燃",
+    "故障",
+    "能量",
+    "健身",
+    "派对"
+   ]
+  },
+  "template:intro-de-canal": {
+   "name": "频道片头",
+   "tags": [
+    "片头",
+    "频道",
+    "logo",
+    "开场"
+   ]
+  },
+  "template:intro-de-podcast": {
+   "name": "播客片头",
+   "tags": [
+    "播客",
+    "片头",
+    "节目",
+    "音频"
+   ]
+  },
+  "template:intro-de-vlog": {
+   "name": "vlog片头",
+   "tags": [
+    "vlog",
+    "片头",
+    "日常",
+    "氛围感"
+   ]
+  },
+  "template:jugadas-destacadas": {
+   "name": "体育高光时刻",
+   "tags": [
+    "体育",
+    "足球",
+    "高光",
+    "进球",
+    "比赛"
+   ]
+  },
+  "template:lanzamiento-ya-disponible": {
+   "name": "新品上市：现已开售",
+   "tags": [
+    "新品",
+    "发布",
+    "产品",
+    "网店",
+    "上市"
+   ]
+  },
+  "template:letra-al-ritmo": {
+   "name": "卡点歌词",
+   "tags": [
+    "歌词",
+    "歌曲",
+    "卡点",
+    "派对",
+    "文字"
+   ]
+  },
+  "template:me-gradue": {
+   "name": "我毕业啦！",
+   "tags": [
+    "毕业",
+    "毕业季",
+    "成就",
+    "大学"
+   ]
+  },
+  "template:mejores-amigas": {
+   "name": "最好的闺蜜",
+   "tags": [
+    "闺蜜",
+    "好朋友",
+    "友谊",
+    "bff"
+   ]
+  },
+  "template:meme-texto-arriba-abajo": {
+   "name": "经典表情包",
+   "tags": [
+    "表情包",
+    "梗",
+    "搞笑",
+    "上下文字",
+    "共鸣"
+   ]
+  },
+  "template:menu-del-dia-pizarra": {
+   "name": "黑板今日菜单",
+   "tags": [
+    "菜单",
+    "餐厅",
+    "午餐",
+    "美食",
+    "价格"
+   ]
+  },
+  "template:menu-navideno": {
+   "name": "圣诞菜单",
+   "tags": [
+    "圣诞",
+    "菜单",
+    "晚餐",
+    "餐厅",
+    "平安夜"
+   ]
+  },
+  "template:mi-2026-en-fotos": {
+   "name": "照片里的我的2026",
+   "tags": [
+    "新年",
+    "年度总结",
+    "2026",
+    "回忆",
+    "照片"
+   ]
+  },
+  "template:mi-glow-up": {
+   "name": "我的变美记",
+   "tags": [
+    "变美",
+    "前后对比",
+    "化妆",
+    "蜕变",
+    "美妆"
+   ]
+  },
+  "template:mi-mascota": {
+   "name": "我的宠物",
+   "tags": [
+    "宠物",
+    "狗狗",
+    "猫咪",
+    "萌宠",
+    "毛孩子"
+   ]
+  },
+  "template:mis-mejores-fotos": {
+   "name": "我的最佳照片",
+   "tags": [
+    "幻灯片",
+    "照片",
+    "轮播",
+    "回忆",
+    "马卡龙"
+   ]
+  },
+  "template:mis-xv": {
+   "name": "我的15岁生日",
+   "tags": [
+    "15岁",
+    "成年礼",
+    "生日",
+    "派对"
+   ]
+  },
+  "template:mochilero-por-peru": {
+   "name": "背包旅行路线",
+   "tags": [
+    "旅行",
+    "背包客",
+    "路线",
+    "冒险",
+    "山"
+   ]
+  },
+  "template:moodboard-aesthetic": {
+   "name": "氛围感情绪板",
+   "tags": [
+    "情绪板",
+    "氛围感",
+    "秋天",
+    "灵感",
+    "拼贴"
+   ]
+  },
+  "template:muertos-ofrenda": {
+   "name": "祭坛：深切怀念",
+   "tags": [
+    "亡灵节",
+    "缅怀",
+    "祭坛",
+    "纪念",
+    "家人"
+   ]
+  },
+  "template:navidad-en-familia": {
+   "name": "家人团聚过圣诞",
+   "tags": [
+    "圣诞",
+    "家人",
+    "十二月",
+    "平安夜",
+    "节日"
+   ]
+  },
+  "template:navidad-regalo-sorpresa": {
+   "name": "惊喜礼物",
+   "tags": [
+    "礼物",
+    "惊喜",
+    "圣诞",
+    "开箱",
+    "生日"
+   ]
+  },
+  "template:nosotros-vs-otros": {
+   "name": "我们vs别家",
+   "tags": [
+    "对比",
+    "品质",
+    "为什么选我们",
+    "vs"
+   ]
+  },
+  "template:nuestra-historia": {
+   "name": "我们的故事",
+   "tags": [
+    "情侣",
+    "纪念日",
+    "爱情",
+    "情人节"
+   ]
+  },
+  "template:nueva-coleccion-ropa": {
+   "name": "新品系列",
+   "tags": [
+    "新品",
+    "服装",
+    "时尚",
+    "精品店",
+    "当季"
+   ]
+  },
+  "template:octubre-en-fotos": {
+   "name": "照片里的十月",
+   "tags": [
+    "十月",
+    "月度回顾",
+    "秋天",
+    "总结"
+   ]
+  },
+  "template:oferta-flash": {
+   "name": "限时秒杀",
+   "tags": [
+    "优惠",
+    "折扣",
+    "促销",
+    "秒杀"
+   ]
+  },
+  "template:ootd-outfit": {
+   "name": "OOTD：今日穿搭",
+   "tags": [
+    "穿搭",
+    "ootd",
+    "时尚",
+    "造型",
+    "风格"
+   ]
+  },
+  "template:opinion-impopular": {
+   "name": "冷门观点",
+   "tags": [
+    "冷门观点",
+    "辩论",
+    "争议",
+    "评论",
+    "犀利"
+   ]
+  },
+  "template:pantalla-final-2-videos": {
+   "name": "片尾页：2个视频",
+   "tags": [
+    "片尾页",
+    "推荐视频",
+    "片尾",
+    "订阅",
+    "短视频"
+   ]
+  },
+  "template:pantalla-triple": {
+   "name": "三分屏",
+   "tags": [
+    "分屏",
+    "三屏",
+    "城市",
+    "拼图",
+    "街头"
+   ]
+  },
+  "template:para-mama": {
+   "name": "献给妈妈",
+   "tags": [
+    "妈妈",
+    "母亲节",
+    "家人",
+    "爱"
+   ]
+  },
+  "template:photo-dump-cinematico": {
+   "name": "电影感照片合集",
+   "tags": [
+    "照片合集",
+    "电影感",
+    "照片",
+    "氛围感",
+    "回忆"
+   ]
+  },
+  "template:photo-dump-ritmo": {
+   "name": "卡点照片合集",
+   "tags": [
+    "照片",
+    "卡点",
+    "合集",
+    "朋友",
+    "photo dump"
+   ]
+  },
+  "template:polaroids": {
+   "name": "桌上的拍立得",
+   "tags": [
+    "拍立得",
+    "照片",
+    "回忆",
+    "夏天"
+   ]
+  },
+  "template:portada-de-tutorial": {
+   "name": "教程封面",
+   "tags": [
+    "教程",
+    "分步",
+    "怎么做",
+    "封面",
+    "学习"
+   ]
+  },
+  "template:portada-revista": {
+   "name": "杂志封面",
+   "tags": [
+    "杂志",
+    "封面",
+    "时尚",
+    "魅力"
+   ]
+  },
+  "template:pov-chat-mensajes": {
+   "name": "POV聊天记录",
+   "tags": [
+    "pov",
+    "聊天",
+    "消息",
+    "搞笑",
+    "前任"
+   ]
+  },
+  "template:pov-cinematografico": {
+   "name": "电影感POV",
+   "tags": [
+    "pov",
+    "电影",
+    "主角",
+    "氛围感",
+    "字幕"
+   ]
+  },
+  "template:pov-texto": {
+   "name": "POV文字",
+   "tags": [
+    "pov",
+    "梗",
+    "抖音",
+    "文字"
+   ]
+  },
+  "template:preguntas-frecuentes": {
+   "name": "常见问题",
+   "tags": [
+    "问题",
+    "faq",
+    "答疑",
+    "客服",
+    "配送"
+   ]
+  },
+  "template:primer-anio-bebe": {
+   "name": "宝宝第一年：逐月记录",
+   "tags": [
+    "宝宝",
+    "第一年",
+    "逐月",
+    "周岁",
+    "家人"
+   ]
+  },
+  "template:producto-estrella": {
+   "name": "明星产品",
+   "tags": [
+    "产品",
+    "店铺",
+    "创业",
+    "带货"
+   ]
+  },
+  "template:progreso-gym": {
+   "name": "训练周记",
+   "tags": [
+    "健身",
+    "训练",
+    "进度",
+    "打卡",
+    "日常"
+   ]
+  },
+  "template:propositos-2027": {
+   "name": "我的2027新年愿望",
+   "tags": [
+    "新年",
+    "愿望",
+    "目标",
+    "2027",
+    "笔记本"
+   ]
+  },
+  "template:r-abuelos": {
+   "name": "谢谢爷爷奶奶",
+   "tags": [
+    "爷爷奶奶",
+    "外婆",
+    "家人",
+    "感谢",
+    "回忆"
+   ]
+  },
+  "template:r-academia-idiomas": {
+   "name": "语言培训",
+   "tags": [
+    "语言",
+    "英语",
+    "课程",
+    "培训",
+    "学习"
+   ]
+  },
+  "template:r-accion-gracias": {
+   "name": "感恩节聚餐",
+   "tags": [
+    "感恩节",
+    "家人",
+    "餐桌",
+    "感恩"
+   ]
+  },
+  "template:r-agenda-citas": {
+   "name": "预约服务",
+   "tags": [
+    "预约",
+    "预订",
+    "日程",
+    "排号",
+    "美发"
+   ]
+  },
+  "template:r-agotado-vuelta": {
+   "name": "售罄→补货啦！",
+   "tags": [
+    "售罄",
+    "补货",
+    "回归",
+    "库存",
+    "产品"
+   ]
+  },
+  "template:r-album-stickers": {
+   "name": "贴纸相册",
+   "tags": [
+    "相册",
+    "贴纸",
+    "手账",
+    "可爱",
+    "日记"
+   ]
+  },
+  "template:r-anio-nuevo-elegante": {
+   "name": "优雅新年",
+   "tags": [
+    "新年",
+    "优雅",
+    "金色",
+    "干杯",
+    "派对"
+   ]
+  },
+  "template:r-anio-nuevo-lunar": {
+   "name": "春节快乐",
+   "tags": [
+    "春节",
+    "农历新年",
+    "灯笼",
+    "红色",
+    "兴旺"
+   ]
+  },
+  "template:r-aniversario-bodas": {
+   "name": "结婚纪念日",
+   "tags": [
+    "纪念日",
+    "结婚",
+    "夫妻",
+    "周年",
+    "婚姻"
+   ]
+  },
+  "template:r-antes-ahora": {
+   "name": "从前与现在",
+   "tags": [
+    "从前现在",
+    "变化",
+    "对比",
+    "地点",
+    "时光"
+   ]
+  },
+  "template:r-atardecer-cine": {
+   "name": "电影感日落",
+   "tags": [
+    "日落",
+    "黄昏",
+    "电影感",
+    "文案",
+    "金色"
+   ]
+  },
+  "template:r-ba-auto": {
+   "name": "前后对比：汽车",
+   "tags": [
+    "汽车",
+    "洗车",
+    "修车",
+    "前后对比"
+   ]
+  },
+  "template:r-ba-casa": {
+   "name": "前后对比：我的家",
+   "tags": [
+    "家",
+    "改造",
+    "前后对比",
+    "装修",
+    "家居"
+   ]
+  },
+  "template:r-ba-cocina": {
+   "name": "前后对比：食谱",
+   "tags": [
+    "食谱",
+    "做饭",
+    "食材",
+    "菜品",
+    "前后对比"
+   ]
+  },
+  "template:r-ba-cortina": {
+   "name": "前后对比：拉幕",
+   "tags": [
+    "前后对比",
+    "拉幕",
+    "蜕变",
+    "变化"
+   ]
+  },
+  "template:r-ba-dia-1-100": {
+   "name": "第1天/第100天",
+   "tags": [
+    "第1天",
+    "第100天",
+    "进步",
+    "挑战",
+    "蜕变"
+   ]
+  },
+  "template:r-ba-dibujo": {
+   "name": "从草图到上色",
+   "tags": [
+    "绘画",
+    "艺术",
+    "草图",
+    "上色",
+    "过程"
+   ]
+  },
+  "template:r-ba-jardin": {
+   "name": "前后对比：花园",
+   "tags": [
+    "花园",
+    "植物",
+    "前后对比",
+    "菜园",
+    "绿色"
+   ]
+  },
+  "template:r-ba-maquillaje": {
+   "name": "妆前妆后",
+   "tags": [
+    "化妆",
+    "妆前妆后",
+    "美妆",
+    "妆容"
+   ]
+  },
+  "template:r-ba-mascota": {
+   "name": "从幼崽到长大",
+   "tags": [
+    "宠物",
+    "幼崽",
+    "狗狗",
+    "成长",
+    "前后对比"
+   ]
+  },
+  "template:r-ba-peinado": {
+   "name": "前后对比：发型",
+   "tags": [
+    "发型",
+    "头发",
+    "美发",
+    "前后对比",
+    "剪发"
+   ]
+  },
+  "template:r-bautizo": {
+   "name": "宝宝洗礼",
+   "tags": [
+    "洗礼",
+    "宝宝",
+    "教堂",
+    "家人",
+    "信仰"
+   ]
+  },
+  "template:r-beneficios": {
+   "name": "卖点清单",
+   "tags": [
+    "卖点",
+    "优势",
+    "产品",
+    "清单",
+    "为什么"
+   ]
+  },
+  "template:r-bienvenida-casa": {
+   "name": "欢迎回家",
+   "tags": [
+    "欢迎",
+    "回家",
+    "家人",
+    "惊喜"
+   ]
+  },
+  "template:r-bienvenidos-canal": {
+   "name": "欢迎来到我的频道",
+   "tags": [
+    "欢迎",
+    "频道",
+    "片头",
+    "创作者",
+    "订阅"
+   ]
+  },
+  "template:r-boda-primer-baile": {
+   "name": "婚礼第一支舞",
+   "tags": [
+    "婚礼",
+    "第一支舞",
+    "华尔兹",
+    "新人",
+    "派对"
+   ]
+  },
+  "template:r-boda-votos": {
+   "name": "婚礼誓言",
+   "tags": [
+    "婚礼",
+    "誓言",
+    "承诺",
+    "新人",
+    "仪式"
+   ]
+  },
+  "template:r-cafeteria-latte": {
+   "name": "咖啡拉花",
+   "tags": [
+    "咖啡店",
+    "咖啡",
+    "拿铁",
+    "拉花",
+    "咖啡师"
+   ]
+  },
+  "template:r-camara-desechable": {
+   "name": "一次性相机",
+   "tags": [
+    "一次性相机",
+    "闪光灯",
+    "派对",
+    "婚礼",
+    "复古"
+   ]
+  },
+  "template:r-cambio-ropa": {
+   "name": "卡点换装",
+   "tags": [
+    "换装",
+    "穿搭",
+    "时尚",
+    "转场",
+    "ootd"
+   ]
+  },
+  "template:r-carrusel": {
+   "name": "滑动轮播",
+   "tags": [
+    "轮播",
+    "滑动",
+    "照片",
+    "相册"
+   ]
+  },
+  "template:r-casa-nueva": {
+   "name": "新家",
+   "tags": [
+    "新家",
+    "搬家",
+    "乔迁",
+    "钥匙",
+    "成就"
+   ]
+  },
+  "template:r-casa-venta": {
+   "name": "房屋出售",
+   "tags": [
+    "房产",
+    "出售",
+    "房子",
+    "楼盘",
+    "看房"
+   ]
+  },
+  "template:r-ciudad-neon": {
+   "name": "霓虹城市",
+   "tags": [
+    "城市",
+    "夜晚",
+    "霓虹",
+    "赛博朋克",
+    "灯光"
+   ]
+  },
+  "template:r-collage-2-mas-1": {
+   "name": "2+1拼图",
+   "tags": [
+    "拼图",
+    "照片",
+    "宫格",
+    "现代",
+    "氛围感"
+   ]
+  },
+  "template:r-collage-3-vertical": {
+   "name": "三竖条拼图",
+   "tags": [
+    "拼图",
+    "三图",
+    "竖条",
+    "竖屏",
+    "极简"
+   ]
+  },
+  "template:r-collage-circulos": {
+   "name": "圆形拼图",
+   "tags": [
+    "圆形",
+    "拼图",
+    "多彩",
+    "照片"
+   ]
+  },
+  "template:r-collage-respira": {
+   "name": "呼吸感拼图",
+   "tags": [
+    "拼图",
+    "照片",
+    "呼吸",
+    "柔和",
+    "氛围感"
+   ]
+  },
+  "template:r-colores-disponibles": {
+   "name": "可选颜色",
+   "tags": [
+    "颜色",
+    "款式",
+    "产品",
+    "时尚",
+    "店铺"
+   ]
+  },
+  "template:r-combo": {
+   "name": "产品套装",
+   "tags": [
+    "套装",
+    "组合",
+    "优惠",
+    "礼物",
+    "特价"
+   ]
+  },
+  "template:r-comenta": {
+   "name": "评论区告诉我",
+   "tags": [
+    "片尾",
+    "评论",
+    "留言",
+    "观点"
+   ]
+  },
+  "template:r-comparar-tamanos": {
+   "name": "尺寸对比",
+   "tags": [
+    "尺寸",
+    "尺码",
+    "对比",
+    "产品",
+    "选择"
+   ]
+  },
+  "template:r-compartelo": {
+   "name": "分享给TA",
+   "tags": [
+    "片尾",
+    "分享",
+    "艾特",
+    "朋友"
+   ]
+  },
+  "template:r-comunidad-reunion": {
+   "name": "社区每周聚会",
+   "tags": [
+    "社区",
+    "聚会",
+    "教会",
+    "团体",
+    "邀请"
+   ]
+  },
+  "template:r-consejo-finanzas": {
+   "name": "理财小贴士",
+   "tags": [
+    "理财",
+    "金钱",
+    "存钱",
+    "建议",
+    "预算"
+   ]
+  },
+  "template:r-contador-fotos": {
+   "name": "照片计数",
+   "tags": [
+    "计数",
+    "照片",
+    "卡点",
+    "快速",
+    "照片合集"
+   ]
+  },
+  "template:r-core-memory": {
+   "name": "闪光的珍贵回忆",
+   "tags": [
+    "回忆",
+    "珍贵回忆",
+    "闪光",
+    "怀旧",
+    "光球"
+   ]
+  },
+  "template:r-cosas-felices": {
+   "name": "让我开心的小事",
+   "tags": [
+    "开心",
+    "感恩",
+    "小确幸",
+    "氛围感",
+    "清单"
+   ]
+  },
+  "template:r-cuadros-4-3": {
+   "name": "4:3画幅",
+   "tags": [
+    "4:3",
+    "电影",
+    "画幅",
+    "极简",
+    "摄影"
+   ]
+  },
+  "template:r-cuenta-5-seg": {
+   "name": "5秒倒计时",
+   "tags": [
+    "倒计时",
+    "5秒",
+    "开始",
+    "挑战",
+    "计时器"
+   ]
+  },
+  "template:r-cuenta-boda": {
+   "name": "婚礼倒计时",
+   "tags": [
+    "婚礼",
+    "还有几天",
+    "倒计时",
+    "新人"
+   ]
+  },
+  "template:r-cuenta-cumple": {
+   "name": "生日倒计时",
+   "tags": [
+    "生日",
+    "还有几天",
+    "倒计时",
+    "派对",
+    "期待"
+   ]
+  },
+  "template:r-cuenta-revelar": {
+   "name": "倒计时揭晓",
+   "tags": [
+    "揭晓",
+    "惊喜",
+    "倒计时",
+    "公布"
+   ]
+  },
+  "template:r-cuenta-vacaciones": {
+   "name": "假期倒计时",
+   "tags": [
+    "假期",
+    "旅行",
+    "还有几天",
+    "倒计时",
+    "行李箱"
+   ]
+  },
+  "template:r-cumple-adulto": {
+   "name": "优雅生日",
+   "tags": [
+    "生日",
+    "优雅",
+    "金色",
+    "40岁",
+    "50岁"
+   ]
+  },
+  "template:r-cumple-infantil": {
+   "name": "儿童生日",
+   "tags": [
+    "生日",
+    "儿童",
+    "派对",
+    "气球"
+   ]
+  },
+  "template:r-cumple-mama": {
+   "name": "妈妈的生日",
+   "tags": [
+    "生日",
+    "妈妈",
+    "母亲",
+    "鲜花",
+    "家人"
+   ]
+  },
+  "template:r-cumple-ritmo": {
+   "name": "卡点生日",
+   "tags": [
+    "生日",
+    "卡点",
+    "派对",
+    "文字",
+    "生日快乐"
+   ]
+  },
+  "template:r-despedida-soltera": {
+   "name": "单身派对",
+   "tags": [
+    "单身派对",
+    "闺蜜",
+    "派对",
+    "新娘"
+   ]
+  },
+  "template:r-detalle-lupa": {
+   "name": "放大镜看细节",
+   "tags": [
+    "细节",
+    "放大镜",
+    "品质",
+    "产品",
+    "做工"
+   ]
+  },
+  "template:r-detras-camaras": {
+   "name": "幕后花絮",
+   "tags": [
+    "幕后",
+    "花絮",
+    "拍摄",
+    "过程",
+    "创作者"
+   ]
+  },
+  "template:r-dia-abuelos": {
+   "name": "祖父母节",
+   "tags": [
+    "祖父母节",
+    "奶奶",
+    "爷爷",
+    "家人",
+    "亲情"
+   ]
+  },
+  "template:r-dia-madre-floral": {
+   "name": "花漾母亲节",
+   "tags": [
+    "母亲节",
+    "妈妈",
+    "鲜花",
+    "爱",
+    "感谢"
+   ]
+  },
+  "template:r-dia-maestro": {
+   "name": "老师节日快乐",
+   "tags": [
+    "教师节",
+    "老师",
+    "学校",
+    "感谢"
+   ]
+  },
+  "template:r-dia-mujer": {
+   "name": "三八妇女节",
+   "tags": [
+    "妇女节",
+    "3月8日",
+    "女性",
+    "力量",
+    "励志"
+   ]
+  },
+  "template:r-dia-nino": {
+   "name": "儿童节",
+   "tags": [
+    "儿童节",
+    "孩子",
+    "童年",
+    "游戏",
+    "快乐"
+   ]
+  },
+  "template:r-dia-padre-deportivo": {
+   "name": "运动风父亲节",
+   "tags": [
+    "父亲节",
+    "爸爸",
+    "运动",
+    "足球",
+    "冠军"
+   ]
+  },
+  "template:r-dia-perfecto": {
+   "name": "我完美的一天",
+   "tags": [
+    "完美一天",
+    "日常",
+    "时间",
+    "vlog",
+    "我的一天"
+   ]
+  },
+  "template:r-dia-tierra": {
+   "name": "地球日",
+   "tags": [
+    "地球日",
+    "地球",
+    "生态",
+    "绿色",
+    "自然"
+   ]
+  },
+  "template:r-dia-x-de": {
+   "name": "第X天…",
+   "tags": [
+    "天数",
+    "挑战",
+    "打卡",
+    "进度",
+    "系列"
+   ]
+  },
+  "template:r-diario-cinta": {
+   "name": "胶带手账",
+   "tags": [
+    "手账",
+    "胶带",
+    "日记",
+    "笔记",
+    "剪贴簿"
+   ]
+  },
+  "template:r-diwali": {
+   "name": "排灯节祝福",
+   "tags": [
+    "排灯节",
+    "灯光",
+    "油灯",
+    "节日",
+    "庆祝"
+   ]
+  },
+  "template:r-dump-fecha": {
+   "name": "带日期的照片合集",
+   "tags": [
+    "照片合集",
+    "日期",
+    "数码相机",
+    "千禧",
+    "回忆"
+   ]
+  },
+  "template:r-dump-finde": {
+   "name": "周末照片合集",
+   "tags": [
+    "周末",
+    "照片合集",
+    "宫格",
+    "朋友",
+    "周日"
+   ]
+  },
+  "template:r-dump-viaje-mapa": {
+   "name": "带地图的旅行合集",
+   "tags": [
+    "旅行",
+    "地图",
+    "路线",
+    "照片合集",
+    "度假"
+   ]
+  },
+  "template:r-eid": {
+   "name": "开斋节祝福",
+   "tags": [
+    "开斋节",
+    "节日",
+    "家人",
+    "祝福"
+   ]
+  },
+  "template:r-en-otra-vida": {
+   "name": "在另一种人生里",
+   "tags": [
+    "另一种人生",
+    "梦想",
+    "热门",
+    "文案",
+    "氛围感"
+   ]
+  },
+  "template:r-en-vivo-ahora": {
+   "name": "正在直播",
+   "tags": [
+    "直播",
+    "live",
+    "直播中",
+    "通知"
+   ]
+  },
+  "template:r-envio-gratis": {
+   "name": "网店：包邮",
+   "tags": [
+    "包邮",
+    "网店",
+    "购物",
+    "优惠",
+    "配送"
+   ]
+  },
+  "template:r-escuela-musica": {
+   "name": "音乐学校",
+   "tags": [
+    "音乐",
+    "课程",
+    "吉他",
+    "钢琴",
+    "学校"
+   ]
+  },
+  "template:r-esta-soy-yo": {
+   "name": "这就是我",
+   "tags": [
+    "这就是我",
+    "自我介绍",
+    "关于我",
+    "认识我"
+   ]
+  },
+  "template:r-expectativa-realidad": {
+   "name": "期待vs现实",
+   "tags": [
+    "期待",
+    "现实",
+    "梗",
+    "搞笑",
+    "对比"
+   ]
+  },
+  "template:r-farmacia-consejo": {
+   "name": "药店：健康小贴士",
+   "tags": [
+    "药店",
+    "健康",
+    "小贴士",
+    "养生",
+    "预防"
+   ]
+  },
+  "template:r-ferreteria": {
+   "name": "五金建材店",
+   "tags": [
+    "五金店",
+    "工具",
+    "建材",
+    "家居",
+    "优惠"
+   ]
+  },
+  "template:r-fiesta-fin-anio": {
+   "name": "年终派对",
+   "tags": [
+    "年终",
+    "派对",
+    "公司",
+    "年会",
+    "干杯"
+   ]
+  },
+  "template:r-fin-curso": {
+   "name": "学期结束",
+   "tags": [
+    "期末",
+    "放假",
+    "学校",
+    "最后一天",
+    "暑假"
+   ]
+  },
+  "template:r-flash-camara": {
+   "name": "狗仔闪光灯",
+   "tags": [
+    "闪光灯",
+    "狗仔",
+    "明星",
+    "红毯",
+    "时尚"
+   ]
+  },
+  "template:r-floristeria": {
+   "name": "花店",
+   "tags": [
+    "鲜花",
+    "花店",
+    "花束",
+    "礼物",
+    "花艺"
+   ]
+  },
+  "template:r-foto-en-foto": {
+   "name": "画中画照片",
+   "tags": [
+    "画中画",
+    "细节",
+    "放大",
+    "拼图"
+   ]
+  },
+  "template:r-foto-rompe": {
+   "name": "照片碎裂",
+   "tags": [
+    "碎裂",
+    "玻璃",
+    "转场",
+    "冲击"
+   ]
+  },
+  "template:r-fotografo": {
+   "name": "摄影师",
+   "tags": [
+    "摄影师",
+    "拍照",
+    "写真",
+    "工作室",
+    "预约"
+   ]
+  },
+  "template:r-fotomaton": {
+   "name": "大头贴条",
+   "tags": [
+    "大头贴",
+    "照相亭",
+    "朋友",
+    "情侣"
+   ]
+  },
+  "template:r-frase-comunidad": {
+   "name": "社区每日箴言",
+   "tags": [
+    "每日一句",
+    "社区",
+    "感悟",
+    "信仰",
+    "希望"
+   ]
+  },
+  "template:r-frase-pelicula": {
+   "name": "电影台词",
+   "tags": [
+    "台词",
+    "电影",
+    "字幕",
+    "场景",
+    "经典"
+   ]
+  },
+  "template:r-frase-subrayada": {
+   "name": "划线金句",
+   "tags": [
+    "金句",
+    "划线",
+    "励志",
+    "语录",
+    "感悟"
+   ]
+  },
+  "template:r-giro-camara": {
+   "name": "镜头旋转",
+   "tags": [
+    "旋转",
+    "转场",
+    "旅行",
+    "能量"
+   ]
+  },
+  "template:r-gracias-1k": {
+   "name": "感谢1000粉",
+   "tags": [
+    "片尾",
+    "感谢",
+    "1000粉",
+    "里程碑",
+    "庆祝"
+   ]
+  },
+  "template:r-gracias-por-tanto": {
+   "name": "感谢有你",
+   "tags": [
+    "感谢",
+    "感恩",
+    "妈妈",
+    "友谊",
+    "心意"
+   ]
+  },
+  "template:r-graduacion-kinder": {
+   "name": "幼儿园毕业",
+   "tags": [
+    "毕业",
+    "幼儿园",
+    "学前",
+    "孩子",
+    "骄傲"
+   ]
+  },
+  "template:r-graduacion-universidad": {
+   "name": "大学毕业",
+   "tags": [
+    "毕业",
+    "大学",
+    "学位",
+    "成就",
+    "专业"
+   ]
+  },
+  "template:r-grano-analogico": {
+   "name": "胶片颗粒",
+   "tags": [
+    "胶片",
+    "35毫米",
+    "颗粒",
+    "复古",
+    "氛围感"
+   ]
+  },
+  "template:r-guardalo": {
+   "name": "先收藏起来",
+   "tags": [
+    "片尾",
+    "收藏",
+    "保存",
+    "稍后看"
+   ]
+  },
+  "template:r-hanukkah": {
+   "name": "光明节快乐",
+   "tags": [
+    "光明节",
+    "蜡烛",
+    "灯光",
+    "家人"
+   ]
+  },
+  "template:r-hecho-a-mano": {
+   "name": "手作小店",
+   "tags": [
+    "手作",
+    "手工",
+    "创业",
+    "店铺",
+    "礼物"
+   ]
+  },
+  "template:r-heladeria": {
+   "name": "冰淇淋店",
+   "tags": [
+    "冰淇淋",
+    "雪糕",
+    "夏天",
+    "口味",
+    "甜品"
+   ]
+  },
+  "template:r-hilo-post": {
+   "name": "帖子串",
+   "tags": [
+    "帖子",
+    "动态",
+    "观点",
+    "文字",
+    "推文"
+   ]
+  },
+  "template:r-hola-soy": {
+   "name": "大家好，我是…",
+   "tags": [
+    "自我介绍",
+    "我是",
+    "创作者",
+    "片头",
+    "新粉丝"
+   ]
+  },
+  "template:r-holi": {
+   "name": "洒红节快乐",
+   "tags": [
+    "洒红节",
+    "色彩",
+    "节日",
+    "彩粉",
+    "春天"
+   ]
+  },
+  "template:r-intro-serie": {
+   "name": "剧集片头",
+   "tags": [
+    "剧集",
+    "季",
+    "一集",
+    "片头",
+    "追剧"
+   ]
+  },
+  "template:r-invierno": {
+   "name": "冬日时光",
+   "tags": [
+    "冬天",
+    "雪",
+    "寒冷",
+    "朋友",
+    "季节"
+   ]
+  },
+  "template:r-jubilacion": {
+   "name": "我退休啦！",
+   "tags": [
+    "退休",
+    "工作",
+    "新阶段",
+    "庆祝"
+   ]
+  },
+  "template:r-lavanderia": {
+   "name": "洗衣店",
+   "tags": [
+    "洗衣店",
+    "衣物",
+    "清洁",
+    "服务",
+    "上门"
+   ]
+  },
+  "template:r-letra-sube": {
+   "name": "滚动歌词",
+   "tags": [
+    "歌词",
+    "歌曲",
+    "卡拉ok",
+    "音乐"
+   ]
+  },
+  "template:r-link-perfil": {
+   "name": "链接在主页",
+   "tags": [
+    "片尾",
+    "链接",
+    "主页",
+    "简介",
+    "购物"
+   ]
+  },
+  "template:r-lista-pendientes": {
+   "name": "待办清单",
+   "tags": [
+    "待办",
+    "清单",
+    "整理",
+    "效率"
+   ]
+  },
+  "template:r-lo-que-no-se-vio": {
+   "name": "NG片段",
+   "tags": [
+    "ng",
+    "穿帮",
+    "花絮",
+    "搞笑",
+    "幕后"
+   ]
+  },
+  "template:r-logro-deportivo": {
+   "name": "冠军！",
+   "tags": [
+    "冠军",
+    "体育",
+    "奖杯",
+    "胜利",
+    "球队"
+   ]
+  },
+  "template:r-luces-fiesta": {
+   "name": "派对灯光",
+   "tags": [
+    "派对",
+    "灯光",
+    "夜晚",
+    "迪斯科",
+    "朋友",
+    "跳舞"
+   ]
+  },
+  "template:r-lugar-feliz": {
+   "name": "我的快乐角落",
+   "tags": [
+    "快乐",
+    "自然",
+    "宁静",
+    "旅行",
+    "氛围感"
+   ]
+  },
+  "template:r-main-characters": {
+   "name": "主角光环",
+   "tags": [
+    "闺蜜",
+    "主角",
+    "电影",
+    "片尾字幕",
+    "主角感"
+   ]
+  },
+  "template:r-marco-camara": {
+   "name": "相机取景框",
+   "tags": [
+    "相机",
+    "边框",
+    "照片",
+    "取景框",
+    "摄影"
+   ]
+  },
+  "template:r-mas-vendido": {
+   "name": "爆款热销",
+   "tags": [
+    "热销",
+    "爆款",
+    "最爱",
+    "产品",
+    "top"
+   ]
+  },
+  "template:r-mito-verdad": {
+   "name": "谣言还是真相？",
+   "tags": [
+    "谣言",
+    "真相",
+    "知识",
+    "趣闻",
+    "提问"
+   ]
+  },
+  "template:r-modo-bestia": {
+   "name": "野兽模式",
+   "tags": [
+    "健身",
+    "野兽模式",
+    "训练",
+    "励志"
+   ]
+  },
+  "template:r-mosaico-3x3": {
+   "name": "3×3九宫格",
+   "tags": [
+    "九宫格",
+    "九张图",
+    "宫格",
+    "拼图"
+   ]
+  },
+  "template:r-mudanzas": {
+   "name": "搬家服务",
+   "tags": [
+    "搬家",
+    "运输",
+    "纸箱",
+    "货运",
+    "服务"
+   ]
+  },
+  "template:r-nadie-yo": {
+   "name": "没人：/ 我：",
+   "tags": [
+    "梗",
+    "没人我",
+    "搞笑",
+    "共鸣",
+    "热门"
+   ]
+  },
+  "template:r-navidad-minimal": {
+   "name": "极简圣诞",
+   "tags": [
+    "圣诞",
+    "极简",
+    "圣诞树",
+    "优雅",
+    "十二月"
+   ]
+  },
+  "template:r-nochebuena": {
+   "name": "居家平安夜",
+   "tags": [
+    "平安夜",
+    "圣诞",
+    "晚餐",
+    "家人",
+    "家"
+   ]
+  },
+  "template:r-nos-vemos-manana": {
+   "name": "明天见",
+   "tags": [
+    "片尾",
+    "告别",
+    "明天",
+    "晚安"
+   ]
+  },
+  "template:r-nota-celular": {
+   "name": "手机备忘录",
+   "tags": [
+    "备忘录",
+    "笔记",
+    "手机",
+    "信",
+    "留言"
+   ]
+  },
+  "template:r-nuevo-capitulo": {
+   "name": "新篇章",
+   "tags": [
+    "新篇章",
+    "开始",
+    "改变",
+    "片头",
+    "故事"
+   ]
+  },
+  "template:r-nuevo-empleo": {
+   "name": "新工作",
+   "tags": [
+    "新工作",
+    "入职",
+    "成就",
+    "第一天",
+    "职业"
+   ]
+  },
+  "template:r-nuevo-video": {
+   "name": "新视频来啦！",
+   "tags": [
+    "新视频",
+    "首发",
+    "通知",
+    "更新",
+    "链接"
+   ]
+  },
+  "template:r-ojo-pez": {
+   "name": "90年代鱼眼",
+   "tags": [
+    "鱼眼",
+    "90年代",
+    "滑板",
+    "复古",
+    "镜头"
+   ]
+  },
+  "template:r-ong-donaciones": {
+   "name": "公益募捐",
+   "tags": [
+    "募捐",
+    "公益",
+    "帮助",
+    "爱心",
+    "志愿者"
+   ]
+  },
+  "template:r-otono-acogedor": {
+   "name": "温馨秋日",
+   "tags": [
+    "秋天",
+    "温馨",
+    "咖啡",
+    "落叶",
+    "治愈"
+   ]
+  },
+  "template:r-outfit-check": {
+   "name": "箭头标注穿搭",
+   "tags": [
+    "穿搭",
+    "时尚",
+    "箭头",
+    "细节",
+    "风格"
+   ]
+  },
+  "template:r-palabra-del-dia": {
+   "name": "每日一词",
+   "tags": [
+    "每日一词",
+    "词汇",
+    "语言",
+    "释义",
+    "学习"
+   ]
+  },
+  "template:r-panaderia": {
+   "name": "面包店：新鲜出炉",
+   "tags": [
+    "面包店",
+    "面包",
+    "新鲜出炉",
+    "烘焙",
+    "早餐"
+   ]
+  },
+  "template:r-pantalla-celular": {
+   "name": "手机屏幕",
+   "tags": [
+    "手机",
+    "相册",
+    "屏幕",
+    "照片"
+   ]
+  },
+  "template:r-papa-hijo": {
+   "name": "爸爸和我",
+   "tags": [
+    "爸爸",
+    "父亲",
+    "儿子",
+    "女儿",
+    "家人"
+   ]
+  },
+  "template:r-pareja-lento": {
+   "name": "情侣慢节奏混剪",
+   "tags": [
+    "情侣",
+    "浪漫",
+    "慢节奏",
+    "电影",
+    "回忆"
+   ]
+  },
+  "template:r-pareja-ritmo": {
+   "name": "情侣卡点混剪",
+   "tags": [
+    "情侣",
+    "混剪",
+    "卡点",
+    "爱情",
+    "热门"
+   ]
+  },
+  "template:r-parte-1": {
+   "name": "第1集",
+   "tags": [
+    "第一集",
+    "系列",
+    "故事",
+    "讲故事",
+    "未完待续"
+   ]
+  },
+  "template:r-pascua": {
+   "name": "复活节快乐",
+   "tags": [
+    "复活节",
+    "彩蛋",
+    "兔子",
+    "春天"
+   ]
+  },
+  "template:r-pastel-velas": {
+   "name": "蛋糕和蜡烛",
+   "tags": [
+    "蛋糕",
+    "蜡烛",
+    "生日",
+    "许愿",
+    "吹蜡烛"
+   ]
+  },
+  "template:r-peluqueria-mascotas": {
+   "name": "宠物美容",
+   "tags": [
+    "宠物美容",
+    "洗澡",
+    "宠物",
+    "狗狗"
+   ]
+  },
+  "template:r-pensamiento-dia": {
+   "name": "今日感悟",
+   "tags": [
+    "感悟",
+    "反思",
+    "信仰",
+    "希望",
+    "每日一句"
+   ]
+  },
+  "template:r-plato-del-dia": {
+   "name": "今日特色菜",
+   "tags": [
+    "餐厅",
+    "特色菜",
+    "菜单",
+    "午餐",
+    "美食"
+   ]
+  },
+  "template:r-poema-corto": {
+   "name": "短诗",
+   "tags": [
+    "诗",
+    "诗歌",
+    "诗句",
+    "爱情",
+    "文字"
+   ]
+  },
+  "template:r-portada-blog": {
+   "name": "博客封面",
+   "tags": [
+    "博客",
+    "封面",
+    "文章",
+    "阅读",
+    "新帖"
+   ]
+  },
+  "template:r-pregunta-respuesta": {
+   "name": "问答",
+   "tags": [
+    "问答",
+    "提问",
+    "回答",
+    "粉丝",
+    "答疑"
+   ]
+  },
+  "template:r-primavera": {
+   "name": "春日时光",
+   "tags": [
+    "春天",
+    "鲜花",
+    "多彩",
+    "季节",
+    "自然"
+   ]
+  },
+  "template:r-primera-cita": {
+   "name": "我们的第一次约会",
+   "tags": [
+    "第一次约会",
+    "情侣",
+    "爱情",
+    "回忆",
+    "纪念日"
+   ]
+  },
+  "template:r-primera-comunion": {
+   "name": "首次圣餐",
+   "tags": [
+    "首次圣餐",
+    "信仰",
+    "家人",
+    "儿童",
+    "庆祝"
+   ]
+  },
+  "template:r-producto-360": {
+   "name": "产品360°展示",
+   "tags": [
+    "产品",
+    "360",
+    "旋转",
+    "细节",
+    "店铺"
+   ]
+  },
+  "template:r-propuesta": {
+   "name": "她答应了！",
+   "tags": [
+    "求婚",
+    "订婚",
+    "戒指",
+    "答应了",
+    "情侣"
+   ]
+  },
+  "template:r-ramadan": {
+   "name": "斋月快乐",
+   "tags": [
+    "斋月",
+    "开斋饭",
+    "家人",
+    "新月",
+    "灯笼"
+   ]
+  },
+  "template:r-ranking-5-1": {
+   "name": "从5到1排行",
+   "tags": [
+    "排行",
+    "top5",
+    "最爱",
+    "清单",
+    "第一名"
+   ]
+  },
+  "template:r-reaccion-esquina": {
+   "name": "角落反应窗",
+   "tags": [
+    "反应",
+    "画中画",
+    "角落",
+    "解说"
+   ]
+  },
+  "template:r-receta-texto": {
+   "name": "文字食谱",
+   "tags": [
+    "食谱",
+    "步骤",
+    "做饭",
+    "简单",
+    "文字"
+   ]
+  },
+  "template:r-recorrido-ubicacion": {
+   "name": "地点打卡之旅",
+   "tags": [
+    "打卡",
+    "定位",
+    "城市",
+    "攻略",
+    "景点"
+   ]
+  },
+  "template:r-recortes-revista": {
+   "name": "杂志剪贴",
+   "tags": [
+    "杂志",
+    "剪贴",
+    "拼贴",
+    "排版",
+    "剪字"
+   ]
+  },
+  "template:r-recuerdo-proyector": {
+   "name": "投影仪回忆",
+   "tags": [
+    "投影仪",
+    "回忆",
+    "复古",
+    "电影",
+    "家人",
+    "怀旧"
+   ]
+  },
+  "template:r-recuerdo-verano": {
+   "name": "夏日回忆",
+   "tags": [
+    "夏天",
+    "海滩",
+    "回忆",
+    "度假",
+    "拍立得"
+   ]
+  },
+  "template:r-reflejo": {
+   "name": "水面倒影",
+   "tags": [
+    "倒影",
+    "镜像",
+    "水面",
+    "对称",
+    "氛围感"
+   ]
+  },
+  "template:r-regreso-clases": {
+   "name": "开学啦",
+   "tags": [
+    "开学",
+    "学校",
+    "书包",
+    "文具",
+    "第一天"
+   ]
+  },
+  "template:r-rejilla-bordes": {
+   "name": "粗边框宫格",
+   "tags": [
+    "宫格",
+    "边框",
+    "粗野风",
+    "多彩",
+    "拼图"
+   ]
+  },
+  "template:r-resena-estrellas": {
+   "name": "星级评价",
+   "tags": [
+    "评价",
+    "星级",
+    "好评",
+    "客户",
+    "产品"
+   ]
+  },
+  "template:r-reto-30-dias": {
+   "name": "30天挑战",
+   "tags": [
+    "挑战",
+    "30天",
+    "习惯",
+    "打卡",
+    "日历"
+   ]
+  },
+  "template:r-sacudida-3d": {
+   "name": "3D卡点摇摆",
+   "tags": [
+    "3d",
+    "旋转",
+    "卡点",
+    "卡片",
+    "热门"
+   ]
+  },
+  "template:r-san-valentin-divertido": {
+   "name": "趣味情人节",
+   "tags": [
+    "情人节",
+    "爱情",
+    "搞笑",
+    "情侣",
+    "爱心"
+   ]
+  },
+  "template:r-si-te-ries": {
+   "name": "忍住别笑",
+   "tags": [
+    "梗",
+    "别笑挑战",
+    "搞笑",
+    "挑战",
+    "有趣"
+   ]
+  },
+  "template:r-signos": {
+   "name": "星座",
+   "tags": [
+    "星座",
+    "十二星座",
+    "运势",
+    "占星",
+    "星星"
+   ]
+  },
+  "template:r-siguenos-mas": {
+   "name": "关注看更多",
+   "tags": [
+    "片尾",
+    "关注",
+    "更多内容",
+    "关注我"
+   ]
+  },
+  "template:r-slowmo-destello": {
+   "name": "慢动作光晕",
+   "tags": [
+    "慢动作",
+    "光晕",
+    "阳光",
+    "电影感"
+   ]
+  },
+  "template:r-spa": {
+   "name": "水疗放松",
+   "tags": [
+    "水疗",
+    "按摩",
+    "放松",
+    "养生",
+    "美容"
+   ]
+  },
+  "template:r-split-ritmo": {
+   "name": "卡点分屏",
+   "tags": [
+    "分屏",
+    "卡点",
+    "双图",
+    "动感"
+   ]
+  },
+  "template:r-super-ofertas": {
+   "name": "超市：特价",
+   "tags": [
+    "超市",
+    "特价",
+    "价格",
+    "折扣",
+    "水果"
+   ]
+  },
+  "template:r-tablero-corcho": {
+   "name": "软木板",
+   "tags": [
+    "软木板",
+    "照片墙",
+    "图钉",
+    "回忆"
+   ]
+  },
+  "template:r-taller-mecanico": {
+   "name": "汽修店",
+   "tags": [
+    "汽修",
+    "修车",
+    "汽车",
+    "保养",
+    "服务"
+   ]
+  },
+  "template:r-tarjetas-apiladas": {
+   "name": "堆叠卡片",
+   "tags": [
+    "卡片",
+    "堆叠",
+    "滑动",
+    "照片"
+   ]
+  },
+  "template:r-tienda-barrio": {
+   "name": "街角小店",
+   "tags": [
+    "小店",
+    "社区",
+    "优惠",
+    "邻居",
+    "杂货"
+   ]
+  },
+  "template:r-tierno-stickers": {
+   "name": "可爱贴纸",
+   "tags": [
+    "可爱",
+    "贴纸",
+    "萌",
+    "宠物",
+    "宝宝"
+   ]
+  },
+  "template:r-traduccion": {
+   "name": "这个怎么说？",
+   "tags": [
+    "翻译",
+    "外语",
+    "英语",
+    "学习",
+    "短句"
+   ]
+  },
+  "template:r-tres-errores": {
+   "name": "你常犯的3个错误",
+   "tags": [
+    "错误",
+    "建议",
+    "技巧",
+    "学习",
+    "避坑"
+   ]
+  },
+  "template:r-trivia": {
+   "name": "选择题问答",
+   "tags": [
+    "问答",
+    "测验",
+    "题目",
+    "游戏",
+    "答案"
+   ]
+  },
+  "template:r-unboxing": {
+   "name": "开箱",
+   "tags": [
+    "开箱",
+    "拆快递",
+    "订单",
+    "产品",
+    "购物"
+   ]
+  },
+  "template:r-velocity-duro": {
+   "name": "硬核变速",
+   "tags": [
+    "变速",
+    "曲线变速",
+    "硬核",
+    "抖动",
+    "热门"
+   ]
+  },
+  "template:r-velocity-suave": {
+   "name": "柔和变速",
+   "tags": [
+    "变速",
+    "曲线变速",
+    "柔和",
+    "热门",
+    "卡点"
+   ]
+  },
+  "template:r-verano": {
+   "name": "你好夏天",
+   "tags": [
+    "夏天",
+    "海滩",
+    "泳池",
+    "阳光",
+    "度假"
+   ]
+  },
+  "template:r-veterinaria": {
+   "name": "宠物医院",
+   "tags": [
+    "宠物医院",
+    "宠物",
+    "狗狗",
+    "猫咪",
+    "兽医"
+   ]
+  },
+  "template:r-vt-horario": {
+   "name": "竖屏营业时间",
+   "tags": [
+    "字幕条",
+    "竖屏",
+    "营业时间",
+    "商家"
+   ]
+  },
+  "template:r-vt-nombre": {
+   "name": "竖屏人名条",
+   "tags": [
+    "人名条",
+    "字幕条",
+    "竖屏",
+    "姓名",
+    "采访"
+   ]
+  },
+  "template:r-vt-precio": {
+   "name": "竖屏价格标签",
+   "tags": [
+    "字幕条",
+    "竖屏",
+    "价格",
+    "产品",
+    "店铺"
+   ]
+  },
+  "template:r-vt-ubicacion": {
+   "name": "竖屏地点",
+   "tags": [
+    "字幕条",
+    "竖屏",
+    "地点",
+    "旅行",
+    "定位"
+   ]
+  },
+  "template:r-vt-usuario": {
+   "name": "竖屏@账号",
+   "tags": [
+    "人名条",
+    "竖屏",
+    "账号",
+    "社交",
+    "关注我"
+   ]
+  },
+  "template:r-yo-vs-yo": {
+   "name": "小时候的我vs现在的我",
+   "tags": [
+    "我vs我",
+    "过去现在",
+    "童年",
+    "成长",
+    "对比"
+   ]
+  },
+  "template:r-zoom-golpe": {
+   "name": "卡点放大",
+   "tags": [
+    "放大",
+    "冲击",
+    "卡点",
+    "极简"
+   ]
+  },
+  "template:recap-del-anio": {
+   "name": "12个月的我的一年",
+   "tags": [
+    "年度回顾",
+    "一年",
+    "总结",
+    "月份",
+    "2026"
+   ]
+  },
+  "template:receta-rapida": {
+   "name": "15秒食谱",
+   "tags": [
+    "食谱",
+    "做饭",
+    "美食",
+    "沙拉"
+   ]
+  },
+  "template:red-flags-green-flags": {
+   "name": "红旗与绿旗",
+   "tags": [
+    "红旗",
+    "绿旗",
+    "恋爱",
+    "约会",
+    "搞笑"
+   ]
+  },
+  "template:remodelacion": {
+   "name": "房间改造前后",
+   "tags": [
+    "改造",
+    "装修",
+    "房产",
+    "家居"
+   ]
+  },
+  "template:resenas-lo-que-dicen": {
+   "name": "顾客怎么说",
+   "tags": [
+    "评价",
+    "口碑",
+    "顾客",
+    "五星",
+    "评分"
+   ]
+  },
+  "template:resumen-de-boda": {
+   "name": "婚礼回顾",
+   "tags": [
+    "婚礼",
+    "结婚",
+    "回顾",
+    "电影感",
+    "新人"
+   ]
+  },
+  "template:revelacion-de-genero": {
+   "name": "性别揭晓：男孩还是女孩？",
+   "tags": [
+    "性别揭晓",
+    "男孩女孩",
+    "宝宝",
+    "怀孕"
+   ]
+  },
+  "template:salon-de-belleza-servicios": {
+   "name": "美容院",
+   "tags": [
+    "美容院",
+    "美容",
+    "美发",
+    "服务",
+    "预约"
+   ]
+  },
+  "template:san-valentin-carta": {
+   "name": "情书",
+   "tags": [
+    "情人节",
+    "爱情",
+    "情侣",
+    "2月14日",
+    "信"
+   ]
+  },
+  "template:slowmo-cinematico": {
+   "name": "电影感慢动作",
+   "tags": [
+    "电影感",
+    "慢动作",
+    "慢镜头",
+    "日落"
+   ]
+  },
+  "template:storytime-les-cuento": {
+   "name": "讲故事时间",
+   "tags": [
+    "讲故事",
+    "故事",
+    "趣事",
+    "分享",
+    "抖音"
+   ]
+  },
+  "template:testimonio-cliente-estrellas": {
+   "name": "客户好评",
+   "tags": [
+    "好评",
+    "客户",
+    "评价",
+    "星级",
+    "信任"
+   ]
+  },
+  "template:texto-cinetico": {
+   "name": "动态文字",
+   "tags": [
+    "文字",
+    "励志",
+    "金句",
+    "冲击"
+   ]
+  },
+  "template:tira-pelicula": {
+   "name": "胶片条",
+   "tags": [
+    "胶片",
+    "胶卷",
+    "复古",
+    "菲林"
+   ]
+  },
+  "template:top-5-mas-vendidos": {
+   "name": "热销TOP5",
+   "tags": [
+    "top5",
+    "热销",
+    "排行榜",
+    "店铺",
+    "服装"
+   ]
+  },
+  "template:tour-inmobiliario": {
+   "name": "看房视频",
+   "tags": [
+    "房产",
+    "看房",
+    "房子",
+    "公寓"
+   ]
+  },
+  "template:transformacion-gym": {
+   "name": "健身蜕变",
+   "tags": [
+    "健身",
+    "蜕变",
+    "前后对比",
+    "减肥"
+   ]
+  },
+  "template:transiciones-al-ritmo": {
+   "name": "卡点转场",
+   "tags": [
+    "转场",
+    "卡点",
+    "朋友",
+    "周末",
+    "热门"
+   ]
+  },
+  "template:tres-consejos": {
+   "name": "3个小建议",
+   "tags": [
+    "建议",
+    "技巧",
+    "清单",
+    "学习",
+    "干货"
+   ]
+  },
+  "template:tutorial-en-3-pasos": {
+   "name": "3步教程",
+   "tags": [
+    "教程",
+    "步骤",
+    "怎么做",
+    "技巧",
+    "美妆"
+   ]
+  },
+  "template:ultimo-momento-noticia": {
+   "name": "突发新闻",
+   "tags": [
+    "新闻",
+    "突发",
+    "公告",
+    "直播",
+    "最新"
+   ]
+  },
+  "template:un-dia-en-mi-vida": {
+   "name": "我的一天",
+   "tags": [
+    "我的一天",
+    "日常",
+    "vlog",
+    "生活",
+    "记录"
+   ]
+  },
+  "template:unas-nail-art": {
+   "name": "美甲",
+   "tags": [
+    "美甲",
+    "指甲",
+    "美妆",
+    "甲片"
+   ]
+  },
+  "template:velocity-al-ritmo": {
+   "name": "卡点变速",
+   "tags": [
+    "变速",
+    "卡点",
+    "节奏",
+    "时尚",
+    "热门"
+   ]
+  },
+  "template:vhs-de-los-2000": {
+   "name": "2000年代VHS",
+   "tags": [
+    "vhs",
+    "复古",
+    "千禧",
+    "怀旧",
+    "录像带"
+   ]
+  },
+  "template:vlog-de-viaje": {
+   "name": "迷你旅行vlog",
+   "tags": [
+    "旅行",
+    "vlog",
+    "旅游",
+    "出游"
+   ]
+  },
+  "template:y2k-brillitos": {
+   "name": "Y2K闪闪",
+   "tags": [
+    "y2k",
+    "闪光",
+    "粉色",
+    "氛围感"
+   ]
+  },
+  "template:zoom-3d-parallax": {
+   "name": "3D缩放",
+   "tags": [
+    "3d",
+    "视差",
+    "旅行",
+    "缩放",
+    "热门"
+   ]
+  }
+ }
+}
