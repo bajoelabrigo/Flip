@@ -123,7 +123,7 @@ def recortes_revista():
 
 def marco_camara():
     t = tall("r-marco-camara", "Marco de cámara", "Camera frame", "collage", 8.0, order=3104,
-             tags=["cámara", "marco", "foto", "visor", "fotografía"], thumb_at=4.0, background="#1E1E1E")
+             tags=["cámara", "marco", "foto", "visor", "fotografía"], thumb_at=5.0, background="#1E1E1E")
     bg(t, "#1E1E1E")
     rrect(t, t.track("shape", "Cuerpo"), "#2E2E2E", 0, 8.0, Box(40, 340, 1000, 1240), 60,
           layers=[shadow("#000000", 0, 20, 40, 0.6), fill("#2E2E2E"), no_stroke()])
@@ -360,7 +360,7 @@ def foto_en_foto():
     framed(t, "restaurant-03", 0.4, 7.6, Box(140, 380, 800, 1000), [(0, {"s": 0.6}, "back"), (0.5, {}, "linear"),
                                                                    (7.6, {"s": 1.04})], border=14, radius=30,
            label="Foto", reuse="p1")
-    framed(t, "restaurant-05", 1.6, 6.4, Box(560, 1150, 400, 480), [(0, {"s": 0.0}, "back"), (0.45, {})], border=10, radius=24,
+    framed(t, "restaurant-04", 1.6, 6.4, Box(560, 1150, 400, 480), [(0, {"s": 0.0}, "back"), (0.45, {})], border=10, radius=24,
            rotation=keys([(0, 6)]), label="Detalle")
     label(t, t.track("text", "Texto"), "el detalle lo es todo", 2.4, 5.6, Box(60, 160, 960, 160), "DM Serif Display", 90,
           "#FFFFFF", weight=400, layers=[shadow("#000000", 0, 4, 14, 0.6), fill("#FFFFFF")],
@@ -392,8 +392,8 @@ def _before_after(t, before, after, labels=("ANTES", "DESPUÉS"), at=2.5, colour
         t0 = 0.2 if i == 0 else at + 1.2
         d = at + 0.9 - t0 if i == 0 else t.duration - t0
         pill(t, t.track("shape", "Etiqueta"), c, t0, d, Box(60, 140, 440, 110), pop(0, 0.3))
-        label(t, t.track("text", "Etiqueta"), txt, t0, d, Box(60, 140, 440, 110), "Montserrat", 54, "#FFFFFF", weight=800,
-              spacing=4, name=f"Etiqueta {i + 1}")
+        label(t, t.track("text", "Etiqueta"), txt, t0, d, Box(60, 140, 440, 110), "Montserrat", 54 if len(txt) <= 9 else 38,
+              "#FFFFFF", weight=800, spacing=4 if len(txt) <= 9 else 1, name=f"Etiqueta {i + 1}")
 
 
 def ba_cortina():
@@ -406,7 +406,7 @@ def ba_cortina():
 
 def ba_dia_1_100():
     t = tall("r-ba-dia-1-100", "Día 1 / Día 100", "Day 1 / Day 100", "beforeafter", 8.0, order=3116,
-             tags=["día 1", "día 100", "progreso", "reto", "transformación"], thumb_at=4.6, background="#000000")
+             tags=["día 1", "día 100", "progreso", "reto", "transformación"], thumb_at=5.2, background="#000000")
     _before_after(t, "gym-04", "gym-02", labels=("DÍA 1", "DÍA 100"), at=3.0, colours=("#555555", "#E10600"),
                   before_fx=[effect("color.basic", saturation=-1.0)], wipe="horizontal")
     label(t, t.track("text", "Texto"), "no te rindas", 4.4, 3.6, Box(60, 1640, 960, 160), "Anton", 130, "#FFFFFF", weight=400,
@@ -738,7 +738,7 @@ def graduacion_kinder():
 
 def graduacion_universidad():
     t = tall("r-graduacion-universidad", "Graduación universitaria", "University graduation", "celebration", 10.0,
-             order=3138, tags=["graduación", "universidad", "título", "logro", "carrera"], thumb_at=7.4, background="#0A1F44")
+             order=3138, tags=["graduación", "universidad", "título", "logro", "carrera"], thumb_at=8.6, background="#0A1F44")
     slides(t, ["graduation-03", "graduation-05", "graduation-01", "graduation-06"], 0.0, 1.8, transition=None, kb_amount=0.1)
     photo_bg(t, "graduation-02", 7.2, 2.8, s1=1.06, label="Foto principal")
     shade_bottom(t, 900, 0.8, 7.2, 2.8, colour="#0A1F44")
@@ -826,9 +826,9 @@ def casa_nueva():
 def logro_deportivo():
     t = tall("r-logro-deportivo", "¡Campeones!", "Champions!", "celebration", 8.0, order=3143,
              tags=["campeones", "deporte", "trofeo", "victoria", "equipo"], thumb_at=4.6, background="#000000")
-    slides(t, ["sport-03", "sport-04", "gym-06", "hike-03"], 0.0, 1.0, transition=None, kb_amount=0.12,
+    slides(t, ["gym-06", "gym-05", "hike-03", "gym-02"], 0.0, 1.0, transition=None, kb_amount=0.12,
            effects_fn=lambda i: [effect("color.basic", contrast=0.3)])
-    photo_bg(t, "sport-03", 4.0, 4.0, s1=1.05, label="Foto final", reuse="p1")
+    photo_bg(t, "gym-06", 4.0, 4.0, s1=1.05, label="Foto final", reuse="p1")
     shade_full(t, 0.4, 4.0, 4.0)
     label(t, t.track("text", "Trofeo"), "🏆", 4.0, 4.0, centered(540, 620, 360, 360), "Inter", 260, "#FFD23F", weight=400,
           editable=False, motion=[(0, {"s": 0.0, "dy": 300}, "back"), (0.6, {})])
@@ -846,7 +846,7 @@ def logro_deportivo():
 
 def fiesta_fin_anio():
     t = tall("r-fiesta-fin-anio", "Fiesta de fin de año", "Year-end party", "celebration", 9.0, order=3144,
-             tags=["fin de año", "fiesta", "empresa", "amigos", "brindis"], thumb_at=6.0, background="#0B0B1E")
+             tags=["fin de año", "fiesta", "empresa", "amigos", "brindis"], thumb_at=7.2, background="#0B0B1E")
     slides(t, ["newyear-01", "newyear-03", "friends-10", "newyear-05"], 0.0, 1.5, transition="crossfade", tdur=0.3,
            kb_amount=0.08)
     photo_bg(t, "newyear-02", 6.0, 3.0, s1=1.05, label="Foto final")

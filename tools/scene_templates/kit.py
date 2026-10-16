@@ -24,7 +24,7 @@ BLOCKED = {"h-desk-01", "h-community-03", "h-truck-02", "h-soccer-04", "h-produc
            "h-gaming-04", "h-tools-01", "bakery-01", "winter-02", "spring-03", "skincare-01", "music-01",
            # reviewed by the coordinator (2026-10-16): sneaker and sportswear brands, sponsors on shirts
            "product-01", "product-02", "product-03", "product-04", "gym-03", "fashion-05", "fashion-06", "family-06",
-           "barber-04", "nails-01", "skate-02", "sport-01", "sport-02", "car-01", "car-02", "car-03"}
+           "barber-04", "nails-01", "skate-02", "sport-01", "sport-02", "sport-03", "restaurant-05", "car-01", "car-02", "car-03"}
 
 MOODS = {
     "upbeat": [("city-sunshine", 8), ("funshine", 4), ("fresh-focus", 2), ("inspiration", 6), ("advertime", 3),

@@ -614,11 +614,11 @@ def tienda_barrio_v():
 
 def super_ofertas():
     t = tall("r-super-ofertas", "Supermercado: ofertas", "Supermarket deals", "business", 8.0, order=3230,
-             tags=["supermercado", "ofertas", "precios", "descuentos", "frutas"], thumb_at=4.0, background="#0B8A3E")
+             tags=["supermercado", "ofertas", "precios", "descuentos", "frutas"], thumb_at=5.2, background="#0B8A3E")
     bg(t, "#0B8A3E")
     label(t, t.track("text", "Título"), "OFERTAS\nDE LA SEMANA", 0.2, 7.8, Box(60, 100, 960, 360), "Anton", 140, "#FFFFFF",
           weight=400, line=0.95, anim_in=tanim("slide-down", duration=0.4), name="Título")
-    items = [("h-grocery-03" if False else "food-01", "Frutas frescas", "-30%"), ("restaurant-05", "Platos listos", "2x1"),
+    items = [("food-01", "Frutas frescas", "-30%"), ("food-02", "Platos listos", "2x1"),
              ("coffee-03", "Café molido", "$4,99")]
     for i, (s, name, deal) in enumerate(items):
         at = 0.8 + i * 1.8

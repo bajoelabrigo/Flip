@@ -343,8 +343,7 @@ def fecha_dia_padre():
     t = wide("h-fecha-dia-padre", "Día del Padre", "Father's Day", "seasonal", 8.0, order=2314,
              tags=["día del padre", "papá", "familia", "héroe", "junio"], thumb_at=4.4, background="#0F1C2E")
     photo_bg(t, "h-father-01", s1=1.08, label="Foto con papá")
-    t.solid(t.track("shape", "Panel"), "#0F1C2E", 0, 8.0, Box(0, 0, 820, 1080),
-            layers=[gradient([(0, "#0F1C2E", 0.95), (1, "#0F1C2E", 0.0)], angle=0), no_stroke()])
+    t.solid(t.track("shape", "Panel"), "#0F1C2E", 0, 8.0, Box(0, 0, 900, 1080), alpha=0.82)
     label(t, t.track("text", "Feliz"), "FELIZ DÍA", 0.4, 7.6, Box(120, 280, 800, 120), "Oswald", 96, "#F2AA4C", weight=700,
           spacing=12, align="left", anim_in=tanim("slide-right", duration=0.4), name="Antetítulo")
     label(t, t.track("text", "Papá"), "PAPÁ", 0.7, 7.3, Box(110, 380, 800, 300), "Anton", 300, "#FFFFFF", weight=400,
@@ -615,6 +614,7 @@ def fecha_invierno():
     t = wide("h-fecha-invierno", "Invierno", "Winter", "seasonal", 8.0, order=2327,
              tags=["invierno", "nieve", "frío", "estación", "acogedor"], thumb_at=4.2, background="#DDE7F0")
     photo_bg(t, "h-winter-02", s1=1.06, label="Foto de invierno")
+    shade_full(t, 0.35, colour="#1F3B5C")
     rng = random.Random(327)
     for lane in range(4):
         tr = t.track("shape", "Nieve")
@@ -630,7 +630,7 @@ def fecha_invierno():
           weight=600, spacing=20, layers=[shadow("#3D5A80", 0, 6, 20, 0.6), fill("#FFFFFF")],
           anim_in=tanim("blur-in", duration=1.0, blur=16), name="Título")
     label(t, t.track("text", "Sub"), "el frío se cuenta mejor en compañía", 1.6, 6.4, Box(360, 640, 1200, 90),
-          "Cormorant Garamond", 60, "#1F3B5C", weight=600, italic=True, anim_in=tanim("fade", duration=0.6), name="Subtítulo")
+          "Cormorant Garamond", 60, "#FFFFFF", weight=600, italic=True, anim_in=tanim("fade", duration=0.6), name="Subtítulo")
     song(t, "classic", 2, 0.65)
     return t
 
@@ -916,7 +916,7 @@ def neg_presentacion():
     for i, (n, l) in enumerate(stats):
         x = 1000 + i * 290
         at = 2.4 + i * 0.4
-        label(t, t.track("text", "Cifra"), n, at, 10.0 - at, Box(x, 680, 280, 130), "Montserrat", 96, "#1E66F5", weight=900,
+        label(t, t.track("text", "Cifra"), n, at, 10.0 - at, Box(x, 680, 280, 130), "Montserrat", 80, "#1E66F5", weight=900,
               align="left", anim_in=tanim("pop", duration=0.4), name=f"Cifra {i + 1}")
         label(t, t.track("text", "Unidad"), l, at + 0.1, 9.9 - at, Box(x, 810, 280, 60), "Montserrat", 38, "#4A5568",
               weight=600, align="left", anim_in=tanim("fade", duration=0.3), name=f"Unidad {i + 1}")

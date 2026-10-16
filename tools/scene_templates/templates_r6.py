@@ -228,7 +228,7 @@ def core_memory():
 
 def dump_fecha():
     t = tall("r-dump-fecha", "Dump con fecha de cámara", "Dated photo dump", "reels", 9.0, order=3009,
-             tags=["photo dump", "fecha", "cámara digital", "2000s", "recuerdos"], thumb_at=4.25, background="#000000")
+             tags=["photo dump", "fecha", "cámara digital", "2000s", "recuerdos"], thumb_at=3.4, background="#000000")
     samples = ["friends-05", "cafe-03", "friends-07", "beach-06", "night-02", "friends-11", "selfie-03", "concert-02"]
     dates = ["10 03 '26", "22 04 '26", "05 06 '26", "18 07 '26", "02 08 '26", "14 09 '26", "30 09 '26", "16 10 '26"]
     slides(t, samples, 0.0, 1.0, transition=None, kb_amount=0.04,
@@ -274,7 +274,7 @@ def dump_finde():
 
 def dump_viaje_mapa():
     t = tall("r-dump-viaje-mapa", "Dump de viaje con mapa", "Travel dump with map", "reels", 11.0, order=3011,
-             tags=["viaje", "mapa", "ruta", "photo dump", "vacaciones"], thumb_at=2.6, background="#F3E9D6")
+             tags=["viaje", "mapa", "ruta", "photo dump", "vacaciones"], thumb_at=5.5, background="#F3E9D6")
     bg_gradient(t, [(0, "#F6EEDD"), (1, "#E8D8B9")], angle=135)
     for k in range(5):
         outline(t, t.track("shape", "Mapa"), "#C9B38C", 3, 0, 3.0, centered(300 + (k % 2) * 480, 380 + k * 300, 520, 300),
@@ -833,7 +833,7 @@ def reaccion_esquina():
 
 def antes_ahora():
     t = tall("r-antes-ahora", "Antes y ahora", "Then and now", "beforeafter", 8.0, order=3036,
-             tags=["antes y ahora", "cambio", "comparación", "lugar", "tiempo"], thumb_at=4.0, background="#000000")
+             tags=["antes y ahora", "cambio", "comparación", "lugar", "tiempo"], thumb_at=3.0, background="#000000")
     t.photo(t.track("video", "Ahora"), "home-03", 0, 8.0, t.full, kb(8.0, 1.0, 1.05), label="Foto de ahora")
     host = t.track("video", "Antes")
     clip = t.photo(host, "home-01", 0, 8.0, t.full, kb(8.0, 1.0, 1.05), label="Foto de antes",
@@ -1033,7 +1033,7 @@ def cumple_ritmo():
 
 def main_characters():
     t = tall("r-main-characters", "Protagonistas", "Main characters", "reels", 10.0, order=3045,
-             tags=["amigas", "protagonistas", "película", "créditos", "main character"], thumb_at=7.6, background="#000000")
+             tags=["amigas", "protagonistas", "película", "créditos", "main character"], thumb_at=8.8, background="#000000")
     people = [("friends-03", "SOFÍA"), ("portrait-07", "VALE"), ("selfie-02", "CAMI"), ("portrait-02", "LU")]
     for i, (s, n) in enumerate(people):
         at = i * 1.8
@@ -1126,7 +1126,7 @@ def gracias_por_tanto():
 
 def recuerdo_proyector():
     t = tall("r-recuerdo-proyector", "Recuerdo en proyector", "Projector memory", "reels", 12.0, order=3049,
-             tags=["proyector", "recuerdos", "vintage", "película", "familia", "nostalgia"], thumb_at=6.0, background="#0B0906")
+             tags=["proyector", "recuerdos", "vintage", "película", "familia", "nostalgia"], thumb_at=7.0, background="#0B0906")
     bg(t, "#0B0906")
     beam = t.track("shape", "Haz")
     t.solid(beam, "#FFF4D6", 0, 12.0, centered(540, 960, 1300, 1900), kind="ellipse",

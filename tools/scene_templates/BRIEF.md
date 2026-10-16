@@ -169,4 +169,10 @@ destacadas ([Speckyboy](https://speckyboy.com/premiere-pro-templates-presets-you
   (El detalle de r7–r9 se escribe en el docstring de cada archivo al hacerlo.)
 
 ### Estado
-- 2026-10-16: lista y arnés (16:9 en `scene.py` y `build.py`). Tandas: ninguna terminada todavía.
+- 2026-10-16: las 400 escritas (h1–h4, r6–r9; 533 en total con las 133 anteriores, ids únicos). h1–h3
+  renderizadas y revisadas en hojas de contacto (arreglos de miniatura y textos aplicados); h4 y r6–r9 se
+  renderizan con `build.py --only mod:templates_h4,mod:templates_r6,...`.
+- Fotos de muestra con marcas: `kit.BLOCKED` (build.py se niega a usarlas). Las 133 anteriores todavía usan
+  algunas (`templates_rest.py`: product-01/04, fashion-05): revisarlas aparte.
+- Para elegir el momento de la miniatura: `thumb_at` evita los cortes exactos (en un cambio de clip la captura
+  puede salir sin el texto del clip que entra).

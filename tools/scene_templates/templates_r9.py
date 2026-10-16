@@ -263,7 +263,7 @@ def hilo_post():
 
 def nota_celular():
     t = tall("r-nota-celular", "Nota del celular", "Phone note", "text", 10.0, order=3311,
-             tags=["notas", "nota", "celular", "carta", "mensaje"], thumb_at=7.0, background="#FFFFFF")
+             tags=["notas", "nota", "celular", "carta", "mensaje"], thumb_at=9.4, background="#FFFFFF")
     bg(t, "#FFFFFF")
     t.solid(t.track("shape", "Barra"), "#F2F2F7", 0, 10.0, Box(0, 0, 1080, 240))
     label(t, t.track("text", "Volver"), "‹ Notas", 0, 10.0, Box(40, 130, 400, 80), "Inter", 46, "#E0A800", weight=500,
@@ -388,12 +388,12 @@ def frase_subrayada():
     t = tall("r-frase-subrayada", "Frase subrayada", "Underlined quote", "text", 8.0, order=3317,
              tags=["frase", "subrayado", "motivación", "cita", "reflexión"], thumb_at=5.4, background="#FAF7F2")
     bg(t, "#FAF7F2")
+    t.solid(t.track("shape", "Marcador"), "#FFE066", 2.2, 5.8, Box(110, 960, 720, 80), [(0, {"sx": 0.0, "dx": -360}, "out"),
+                                                                                      (0.6, {})], alpha=0.85,
+            rotation=keys([(0, -1)]))
     label(t, t.track("text", "Frase"), "No tienes que ser perfecta para empezar.", 0.3, 7.7, Box(80, 560, 920, 640),
           "DM Serif Display", 128, "#1A1A1A", weight=400, line=1.05, anim_in=tanim("rise-by-word", duration=0.4, unit="word",
           stagger=0.12), name="Frase")
-    t.solid(t.track("shape", "Marcador"), "#FFE066", 2.2, 5.8, Box(80, 1010, 640, 70), [(0, {"sx": 0.0, "dx": -320}, "out"),
-                                                                                     (0.6, {})], alpha=0.85,
-            rotation=keys([(0, -1)]))
     label(t, t.track("text", "Firma"), "@tuusuario", 2.8, 5.2, Box(80, 1300, 920, 80), "DM Sans", 44, "#6B6B6B", weight=600,
           anim_in=tanim("fade", duration=0.4), name="Firma")
     song(t, "calm", 2, 0.7)
@@ -745,7 +745,7 @@ def compartelo():
     bg_gradient(t, [(0, "#06D6A0"), (1, "#118AB2")], angle=135)
     label(t, t.track("text", "Icono"), "📤", 0.3, 4.7, centered(540, 700, 400, 400), "Inter", 260, "#FFFFFF", weight=400,
           editable=False, motion=[(0, {"s": 0.0}, "back"), (0.5, {})], anim_loop=tanim("float", amount=0.08, speed=0.8))
-    label(t, t.track("text", "Texto"), "mándaselo a\nquien necesita verlo", 0.8, 4.2, Box(60, 1020, 960, 320), "Poppins", 96,
+    label(t, t.track("text", "Texto"), "mándaselo a\nquien necesita verlo", 0.8, 4.2, Box(60, 980, 960, 420), "Poppins", 84,
           "#FFFFFF", weight=800, line=1.05, anim_in=tanim("pop", duration=0.4, unit="word", stagger=0.1), name="Texto")
     song(t, "fun", 2, 0.8)
     return t
@@ -758,7 +758,7 @@ def link_perfil():
     label(t, t.track("text", "Flecha"), "↑", 0.4, 4.6, centered(540, 360, 300, 300), "Inter", 260, "#FFFFFF", weight=900,
           editable=False, layers=[shadow("#000000", 0, 6, 16, 0.6), fill("#FFFFFF")],
           anim_loop=tanim("float", amount=0.25, speed=1.4))
-    label(t, t.track("text", "Texto"), "LINK EN MI PERFIL", 0.6, 4.4, Box(60, 1300, 960, 200), "Anton", 140, "#FFFFFF",
+    label(t, t.track("text", "Texto"), "LINK EN MI PERFIL", 0.6, 4.4, Box(60, 1300, 960, 200), "Anton", 112, "#FFFFFF",
           weight=400, spacing=6, anim_in=tanim("stamp", duration=0.3), name="Texto")
     label(t, t.track("text", "Sub"), "ahí encuentras todo lo del video", 1.2, 3.8, Box(60, 1520, 960, 90), "Montserrat", 50,
           "#FFE066", weight=700, anim_in=tanim("fade", duration=0.4), name="Subtítulo")
@@ -782,7 +782,7 @@ def comenta():
 
 def gracias_1k():
     t = _end("r-gracias-1k", "Gracias por 1.000", "Thanks for 1k", 3338, ["gracias", "1000 seguidores", "hito", "celebración"],
-             thumb_at=3.4, duration=6.0, bgc="#0B0B0B")
+             thumb_at=4.4, duration=6.0, bgc="#0B0B0B")
     bg(t, "#0B0B0B")
     nums = t.track("text", "Número")
     _count(t, nums, ["0", "120", "380", "640", "890", "990"], 0.2, 0.25, Box(60, 600, 960, 360), "Montserrat", 300, "#FFFFFF")

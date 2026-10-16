@@ -49,7 +49,7 @@ def main() -> int:
     # index.json is one of them, keep it.
     if args.out.exists():
         for child in args.out.iterdir():
-            if child.name in ("animaciones", "superposiciones") or (child.is_dir() and (child / "index.json").exists()):
+            if child.name in ("animaciones", "superposiciones", "sonidos") or (child.is_dir() and (child / "index.json").exists()):
                 continue
             shutil.rmtree(child) if child.is_dir() else child.unlink()
     args.out.mkdir(parents=True, exist_ok=True)
