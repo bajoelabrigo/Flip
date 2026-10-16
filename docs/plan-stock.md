@@ -93,4 +93,9 @@ la computadora de cada uno, así que lo que crece son los servidores de Stock, c
 - Costo estimado con un millón de descargas y todo gratis: unos 100-300 USD al mes.
 
 ## Estado
-Nada empezado todavía (2026-10-16).
+Jorge (2026-10-16): mirar las tendencias de CapCut, Instagram, Premiere, After Effects, Filmora… y hacer **al menos
+200 de cada tipo**, con calma y calidad primero.
+- **Superposiciones: 200, desplegadas** (2026-10-16): luces y destellos, partículas, celebración, amor, garabatos,
+  clima, película y retro, glitch, cámara y pantalla, marcos y texturas. `tools/overlays`.
+- **Plantillas:** 200 horizontales 16:9 y 200 reels más, en curso (rama `flip/stock-plantillas-400`).
+- Siguen: sonidos, stickers (hoy 65), LUTs y looks, textos animados, fondos, música por ánimo, tercios inferiores.

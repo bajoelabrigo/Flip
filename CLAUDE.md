@@ -52,6 +52,23 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   fechas y negocios, formatos 16:9/1:1), inicio de Stock tipo tienda, búsqueda y filtros, uso más rápido y novedades
   semanales. **Para el mundo entero:** nada de fiestas solo peruanas o latinas. Pagos, al final.
 
+### Stock › Superposiciones DESPLEGADO (2026-10-16), rama `flip/stock-superposiciones`
+- Regla de Jorge para Stock: mirar tendencias (CapCut, Instagram, Premiere, AE, Filmora…) y hacer **al menos 200 de
+  cada tipo**, calidad antes que velocidad.
+- **200 superposiciones** hechas por código (`tools/overlays`: `fx.py` = kit, `designs*.py` = diseños, `build.py` =
+  WebM VP9 con alfa 1080×1920 + miniatura y vista previa sobre una foto de muestra, `publish.py` → `publicar/
+  superposiciones`). Salida en `tienda\superposiciones\paquetes`. Servidor: tabla `PACKS` en `market.ts` (tipo
+  `overlay`, `delivery: "media"`, `media_kind: "video"`): **la 0.13.0 ya las ve y las importa a Medios**. Probado
+  en la app real (render con transparencia e importación).
+- **Trampa:** en un proyecto JSON `tracks[0]` es la pista de **arriba**.
+- **Trampa:** el ruido (grano, estática) no se comprime: un grano a pantalla completa pesaba 200 MB. Grano de 1 s
+  que cambia cada 2 cuadros y `crf` alto por diseño.
+- **Trampa:** `tools/scene_templates/publish.py` borraba todo `publicar` salvo `animaciones`; ahora también conserva
+  `superposiciones`.
+- **Fotos de muestra con marcas, no usar:** product-01…04 (Jordan, Converse), gym-03 (Adidas), fashion-05/06,
+  family-06 (Timberland), barber-04, bakery-01, car-*, sport-01/02 (patrocinadores), nails-01, skate-02/03.
+- En `git bash` el `/y` de `reg export` se convierte en ruta: usar `MSYS_NO_PATHCONV=1`.
+
 ### 0.13.0 PUBLICADA (2026-10-16): Retoque › Cuerpo y Cabello, plantillas propias, 101 plantillas, Stock › Animaciones
 - Rama `flip/plantillas-propias` → PR a `main`, tag `v0.13.0`. Notas en `release-notes/0.13.0.md`; novedades para la
   Store (0.12.0 + 0.13.0, 1014 caracteres) en `docs/store-listing.md`: la 0.12.0 no llegó a subirse (Jorge: «subimos
