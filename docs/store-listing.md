@@ -110,6 +110,27 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.13.0)**. Si la 0.12.0 ya está aprobada en la Store, este es el texto de "Novedades de esta
+versión" del MSIX de la 0.13.0 (669 de 1500 caracteres).
+
+> **Novedades de la 0.13.0**
+>
+> - Retoque de cuerpo y cabello: adelgaza, afina la cintura, alarga las piernas, ensancha los hombros y tiñe el pelo de 12 colores, en videos y fotos. El retoque sigue a la persona aunque se mueva.
+> - 101 plantillas nuevas en Stock › Plantillas (ya son 133, gratis), con categorías de fechas especiales (Halloween, Navidad, Año Nuevo, Black Friday) y para negocios.
+> - Crea tus propias plantillas: convierte fotos en huecos y textos en editables, y guárdalas en «Mis plantillas».
+> - 65 stickers animados en Stock › Animaciones, con colores que puedes cambiar.
+> - Los proyectos se guardan como .flip, y la interfaz está completa en 12 idiomas más.
+
+En inglés (634 caracteres):
+
+> **What's new in 0.13.0**
+>
+> - Body and hair retouch: slim the body and waist, lengthen the legs, widen the shoulders and dye the hair in 12 colours, in videos and photos. The retouch follows the person as they move.
+> - 101 new templates in Stock › Templates (133 in all, free), with special-date (Halloween, Christmas, New Year, Black Friday) and business categories.
+> - Make your own templates: turn photos into slots and texts into editable ones, and save them under "My templates".
+> - 65 animated stickers in Stock › Animations, with colours you can change.
+> - Projects save as .flip, and the interface is complete in 12 more languages.
+
 **Notas para la Store (0.12.0 + 0.13.0)**. La 0.12.0 no llegó a subirse: el MSIX de la 0.13.0 lleva este
 texto en "Novedades de esta versión" (1014 de 1500 caracteres). Lo de la 0.10.0 y la 0.11.0 ya está en la
 descripción. Si la 0.12.0 sí se hubiera subido, quitar los puntos de exportar, varias pistas y Stock en la cuenta.
