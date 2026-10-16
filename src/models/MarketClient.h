@@ -71,6 +71,10 @@ class MarketClient : public QObject
     // to another machine: templates as full items (they can be installed again), photos and videos
     // as {id, type, title, thumb_url}. Each has obtained_at, last_at and times.
     Q_PROPERTY(QVariantList library READ library NOTIFY libraryChanged)
+    // Stock templates for "Use with my photos" and "Change template", apart from the Stock tab's
+    // own search so neither disturbs the other (fetchTemplateSuggestions).
+    Q_PROPERTY(QVariantList templateSuggestions READ templateSuggestions NOTIFY templateSuggestionsChanged)
+    Q_PROPERTY(bool templateSuggestionsLoading READ templateSuggestionsLoading NOTIFY templateSuggestionsChanged)
 
 public:
     explicit MarketClient(QObject *parent = nullptr);
@@ -136,6 +140,13 @@ public:
     // Takes an item off the account's list (the files on this machine stay).
     Q_INVOKABLE void removeFromLibrary(const QString &itemId);
     QVariantList library() const { return m_accountLibrary; }
+    // Asks Stock for templates taking about this many photos (the server's "photos" buckets, the
+    // given one and the next) in this shape ("vertical" | "horizontal" | "square", or empty).
+    // Needs a signed-in account; results land in templateSuggestions.
+    Q_INVOKABLE void fetchTemplateSuggestions(const QString &photoBucket, const QString &nextBucket,
+                                              const QString &shape);
+    QVariantList templateSuggestions() const { return m_templateSuggestions; }
+    bool templateSuggestionsLoading() const { return m_templateSuggestionsPending > 0; }
     // The scene template id a Stock item stands for ("flip:template:<id>"), or empty.
     Q_INVOKABLE QString sceneTemplateIdForItem(const QString &itemId) const;
     Q_INVOKABLE bool sceneTemplateInstalled(const QString &itemId) const;
@@ -182,6 +193,7 @@ signals:
     // and, when `use` is set, puts it at the playhead.
     void sceneTemplateReady(const QString &templateId, bool use);
     void libraryChanged();
+    void templateSuggestionsChanged();
     void downloadHistoryChanged();
     // Raised once per job when it is first accepted, so the manager window can show itself
     // without polling activeDownloadCount.
@@ -205,6 +217,9 @@ private:
     void setSearchError(const QString &error, bool retryable = true, const QString &code = {});
     void bumpDownloads();
     QVariantList m_accountLibrary;
+    QVariantList m_templateSuggestions;
+    int m_templateSuggestionsPending = 0;
+    int m_templateSuggestionsGeneration = 0;
     // Resolve is a job now, not a synchronous reply: extraction can outlive any sane HTTP
     // timeout, so the POST only creates it and this polls until it is ready or failed.
     void pollResolve();
