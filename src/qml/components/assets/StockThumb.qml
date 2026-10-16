@@ -5,7 +5,7 @@ import ".."
 
 // One stock result as a tile: thumbnail, price and duration badges, and the download state
 // drawn over it (progress with cancel, or failure with retry). A video tile plays its preview,
-// muted, while hovered.
+// muted, while hovered; a music or sound tile plays its audio.
 Rectangle {
     id: root
 
@@ -25,6 +25,7 @@ Rectangle {
     readonly property int price: Number(item.price_coins || 0)
     readonly property string kind: item.media_kind || item.type || ""
     readonly property bool isVideo: kind === "video" || kind === "greenscreen"
+    readonly property bool isAudio: kind === "audio" || kind === "music" || kind === "sound"
 
     radius: Theme.radiusSm
     color: Theme.panelAccent
@@ -79,6 +80,38 @@ Rectangle {
                 loops: MediaPlayer.Infinite
                 Component.onCompleted: play()
             }
+        }
+    }
+
+    // Music and sounds: heard on hover (after a moment, so sweeping across a shelf is quiet).
+    Timer {
+        id: audioDelay
+        interval: 300
+        running: root.isAudio && hover.hovered && !root.busy && !!root.item.preview_url && !root.compact
+    }
+    Loader {
+        active: root.isAudio && hover.hovered && !audioDelay.running && !root.busy
+                && !!root.item.preview_url && !root.compact
+        sourceComponent: MediaPlayer {
+            source: root.item.preview_url
+            audioOutput: AudioOutput {}
+            Component.onCompleted: play()
+        }
+    }
+    Rectangle {
+        visible: root.isAudio
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        anchors.margins: Theme.spacingSm
+        width: Theme.iconSizeBase + Theme.spacingMd
+        height: width
+        radius: width / 2
+        color: Theme.scrimStrong
+        IconGlyph {
+            anchors.centerIn: parent
+            glyph: hover.hovered && !root.compact ? Theme.icons.volumeHigh : Theme.icons.music
+            iconSize: Theme.iconSizeSm
+            iconColor: Theme.onMedia
         }
     }
 

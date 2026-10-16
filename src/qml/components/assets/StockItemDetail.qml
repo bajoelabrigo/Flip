@@ -21,6 +21,11 @@ Rectangle {
     readonly property string kind: item.media_kind || item.type || ""
     readonly property bool isImage: kind === "photo" || kind === "image"
     readonly property bool isTemplate: Market.sceneTemplateIdForItem(item.id || "") !== ""
+    // A LUT, look, text style or animation, transition or shape: installed where the editor
+    // keeps it, so there is no folder to choose either.
+    readonly property bool installs: ["lut", "effect-preset", "text-style", "text-animation", "transition", "shape"]
+                                     .indexOf(Market.deliveryForItem(item)) >= 0
+    readonly property int uses: Number(item.uses || 0)
     readonly property var job: {
         void Market.downloadsRevision
         return item.id ? Market.downloadInfo(item.id) : ({})
@@ -154,6 +159,14 @@ Rectangle {
                 }
                 Text {
                     width: parent.width
+                    visible: root.uses > 0
+                    text: root.uses === 1 ? qsTr("Used once") : qsTr("Used %1 times").arg(Market.compactCount(root.uses))
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                }
+                Text {
+                    width: parent.width
                     visible: root.price > 0
                     text: qsTr("%n coin(s)", "", root.price)
                     color: Theme.panelForeground
@@ -167,9 +180,21 @@ Rectangle {
                 enabled: !root.busy && root.item.downloadable !== false
                 text: root.busy ? qsTr("Downloading…")
                                 : root.isTemplate ? qsTr("Use template")
+                                : root.installs ? (root.job.status === "done" ? qsTr("Install again") : qsTr("Install"))
                                 : (root.job.status === "done" ? qsTr("Download again") : qsTr("Download"))
                 tooltip: root.item.downloadable === false ? qsTr("You have used today’s downloads from this source") : ""
                 onClicked: root.downloadRequested()
+            }
+
+            // Where an installed item went ("In Adjust › LUT").
+            Text {
+                width: parent.width
+                visible: root.installs && root.job.status === "done" && text.length > 0
+                text: root.job.phase || ""
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+                wrapMode: Text.WordWrap
             }
 
             // Where downloads go, so it is never a surprise; asked for only the first time.
@@ -177,7 +202,7 @@ Rectangle {
                 width: parent.width
                 spacing: Theme.spacingLg
                 // A template installs into Templates; there is no folder to choose.
-                visible: FileDialogs.supportsDirectoryPicker() && !root.isTemplate
+                visible: FileDialogs.supportsDirectoryPicker() && !root.isTemplate && !root.installs
 
                 Text {
                     width: Math.min(implicitWidth, parent.width - changeFolder.width - parent.spacing)

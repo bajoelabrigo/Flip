@@ -481,9 +481,31 @@ Rectangle {
                 text: qsTr("Stock")
                 visible: Market.configured
                 active: root.stockActive
-                tooltip: qsTr("Free photos and videos from Pexels and Pixabay")
+                // What is new in Stock since it was last opened ("12 new templates").
+                readonly property bool hasNews: Market.newsCount > 0 && !root.stockActive
+                tooltip: hasNews ? Market.newsSummary
+                                 : qsTr("Free templates, music, stickers, photos and videos")
                 anchors.verticalCenter: parent.verticalCenter
                 onClicked: root.stockRequested()
+
+                Rectangle {
+                    visible: parent.hasNews
+                    anchors.right: parent.right
+                    anchors.top: parent.top
+                    height: Theme.fontSizeXs + 4
+                    width: Math.max(height, headerNews.implicitWidth + 6)
+                    radius: height / 2
+                    color: Theme.primary
+                    Text {
+                        id: headerNews
+                        anchors.centerIn: parent
+                        text: Market.newsCount > 99 ? "99+" : String(Market.newsCount)
+                        color: Theme.primaryForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs - 1
+                        font.weight: Font.DemiBold
+                    }
+                }
             }
         }
 
