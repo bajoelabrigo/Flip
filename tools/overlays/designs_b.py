@@ -52,7 +52,7 @@ design("luz-flash-transicion", "Destello de transición", "Flash transition", "l
 
 def _flare(core, streak_col, ghosts, path="sweep"):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         yy = np.arange(h, dtype=np.float32)[:, None]
         xx = np.arange(w, dtype=np.float32)[None, :]
         warm = fx.hex_rgb(core)
@@ -124,7 +124,7 @@ def _prism(w, h, T, rng):
 @design("luz-neon-barrido", "Barrido de neón", "Neon sweep", "luces", 1.4, loop=False, res=(540, 960), thumb_at=0.5,
         tags=["neon", "barrido", "sweep", "transicion", "transition", "luz", "moderno"], sample="concert-04.jpg")
 def _neon_sweep(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
     ang = math.radians(-58)
     along = xx * math.cos(ang) + yy * math.sin(ang)
@@ -147,7 +147,7 @@ def _neon_sweep(w, h, T, rng):
 @design("luz-escaner", "Línea de escáner", "Scanner line", "luces", 3, res=(540, 960),
         tags=["escaner", "scanner", "laser", "tecnologia", "tech", "futurista", "linea"], sample="office-02.jpg")
 def _scanner(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     yy = np.arange(h, dtype=np.float32)[:, None] * np.ones((1, w), np.float32)
     col = fx.hex_rgb("#39f5ff")
 
@@ -168,7 +168,7 @@ def _scanner(w, h, T, rng):
 def _shaped_bokeh(shape, palette, n, rmin, rmax, opacity, fall=False):
     """Bokeh whose discs are hearts or stars (a lens with a shaped aperture)."""
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         x0, y0 = rng.uniform(0, w, n), rng.uniform(0, h, n)
         ph = rng.uniform(0, TAU, n)
         tw = rng.integers(1, 4, n)
@@ -389,7 +389,7 @@ def _film_flash(w, h, T, rng):
 
 def _film_border(kind):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         frames = int(T * 30)
         im, d = fx.draw_layer(w, h)
         holes, hd = fx.draw_layer(w, h)
@@ -440,7 +440,7 @@ design("pel-tira-35mm", "Tira de película 35 mm", "35 mm film strip", "pelicula
 
 def _vhs(label, mode="play"):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         scan = np.zeros((h, w), np.float32)
         scan[::4] = 0.14
         scan[1::4] = 0.07
@@ -506,7 +506,7 @@ design("pel-vhs-rebobinar", "VHS rebobinando", "VHS rewind", "pelicula", 3,
 @design("pel-crt", "Televisor antiguo (CRT)", "Old TV (CRT)", "pelicula", 4,
         tags=["crt", "tv", "televisor", "retro", "scanlines", "lineas", "80s", "90s"], sample="podcast-01.jpg")
 def _crt(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     scan = np.zeros((h, w), np.float32)
     scan[::3] = 0.2
     corners = fx.vignette(w, h, 0.9, 1.02, round_=3.5)
@@ -532,7 +532,7 @@ GL = [fx.hex_rgb(c) for c in ("#ff2a6d", "#05d9e8", "#ffffff", "#d1f7ff", "#ff00
 
 def _glitch(kind, bursty=True):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         frames = int(T * 30)
         bursts = sorted(list(rng.uniform(0, T, 3)) + [T * 0.5])   # one at the middle: the card shows it
 
@@ -593,7 +593,7 @@ design("glitch-transicion", "Transición glitch", "Glitch transition", "glitch",
 @design("glitch-codigo", "Lluvia de código", "Code rain", "glitch", 6, res=(540, 960),
         tags=["codigo", "code", "binario", "binary", "matrix", "hacker", "tecnologia", "datos"], sample="office-03.jpg")
 def _code_rain(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     size = int(52 * s)
     glyphs = [fx.text_image(ch, MONO, size) for ch in "0101101<>/$#{}=+*"]
     cols = int(w / (size * 0.62))
@@ -635,7 +635,7 @@ def _shadowed(c, img, x, y, color=(1, 1, 1), s=1.0, op=0.95):
 @design("cam-rec-minimal", "REC minimalista", "Minimal REC", "camara", 4,
         tags=["rec", "grabando", "minimal", "camara", "vlog", "recording"], sample="creator-02.jpg")
 def _rec_min(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     rec = fx.text_image("REC", MONO, int(66 * s))
     dot = fx.disc(int(16 * s))
 
@@ -651,7 +651,7 @@ def _rec_min(w, h, T, rng):
 @design("cam-en-vivo", "En vivo (LIVE)", "Live badge", "camara", 6,
         tags=["live", "en vivo", "directo", "transmision", "stream", "redes", "camara"], sample="creator-03.jpg")
 def _live(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     pill, d = fx.draw_layer(int(190 * s), int(76 * s))
     d.rounded_rectangle([0, 0, pill.width - 1, pill.height - 1], radius=int(14 * s), fill=255)
     txt = fx.text_image("LIVE", MONO, int(64 * s))
@@ -677,7 +677,7 @@ def _live(w, h, T, rng):
 
 def _cam_ui(tint=None, label="", clock=False, grid=False, low_battery=False, noise=0.0, scan=0.0):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         m, L, th = int(70 * s), int(120 * s), max(int(6 * s), 2)
         ui, d = fx.draw_layer(w, h)
         for (x, y, dx, dy) in ((m, m, 1, 1), (w - m, m, -1, 1), (m, h - m, 1, -1), (w - m, h - m, -1, -1)):
@@ -760,7 +760,7 @@ design("cam-bateria-baja", "Batería baja", "Low battery", "camara", 6, res=(108
 @design("cam-enfoque", "Enfoque", "Focus lock", "camara", 1.8, loop=False, thumb_at=0.9,
         tags=["enfoque", "focus", "camara", "foto", "autofocus", "cuadro"], sample="pet-01.jpg")
 def _focus(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     th = max(int(6 * s), 2)
 
     def frame(t):
@@ -830,7 +830,7 @@ def _shutter(w, h, T, rng):
         thumb_at=0.2, tags=["cuenta regresiva", "countdown", "cine", "film leader", "3 2 1", "intro", "retro"],
         sample="concert-02.jpg")
 def _leader(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     R = 380 * s
 
     def frame(t):
@@ -856,7 +856,7 @@ def _leader(w, h, T, rng):
 @design("cam-grabando-pantalla", "Grabando pantalla", "Screen recording", "camara", 6,
         tags=["grabar pantalla", "screen recording", "tutorial", "pantalla", "rec", "celular"], sample="office-01.jpg")
 def _screen_rec(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     border, d = fx.draw_layer(w, h)
     d.rounded_rectangle([6, 6, w - 7, h - 7], radius=int(60 * s), outline=255, width=int(10 * s))
     pill, d2 = fx.draw_layer(int(260 * s), int(70 * s))

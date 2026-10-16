@@ -17,7 +17,7 @@ CLIMA = ["clima", "weather", "naturaleza", "nature"]
 
 def _rain_f(n, laps, length, op, angle=10, lightning=False):
     def make(w, h, T, rng):
-        s = w / 1080
+        s = min(w, h) / 1080
         x0, y0 = rng.uniform(-0.2, 1.1, n) * w, rng.uniform(0, h, n)
         lp = rng.integers(laps[0], laps[1] + 1, n)
         ln = rng.uniform(length[0], length[1], n) * s
@@ -66,7 +66,7 @@ def _bolt_points(rng, x0, y0, x1, y1, depth):
 @design("clima-relampago", "Relámpago", "Lightning strike", "clima", 1.5, loop=False, res=(540, 960), thumb_at=0.08,
         tags=CLIMA + ["relampago", "rayo", "lightning", "tormenta", "impacto", "poder", "transicion"], sample="man-05.jpg")
 def _strike(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     main = _bolt_points(rng, w * 0.62, -10, w * 0.38, h * 0.85, 6)
     branches = []
     for k in (12, 22, 34):
@@ -93,7 +93,7 @@ def _strike(w, h, T, rng):
 @design("clima-gotas-cristal", "Gotas en el cristal", "Raindrops on glass", "clima", 6,
         tags=CLIMA + ["gotas", "cristal", "ventana", "window", "lluvia", "melancolia", "triste"], sample="diwali-01.jpg")
 def _glass(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     n = 170
     xs, ys = rng.uniform(0, w, n), rng.uniform(0, h, n)
     r = rng.gamma(2.0, 9.0, n) * s + 5 * s
@@ -158,7 +158,7 @@ def _flake(size, qa):
 @design("clima-copos", "Copos de nieve", "Snowflakes", "clima", 8,
         tags=CLIMA + ["copos", "snowflakes", "nieve", "invierno", "navidad", "frio"], sample="christmas-05.jpg")
 def _flakes(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     n = 40
     x0, y0 = rng.uniform(0, w, n), rng.uniform(0, h, n)
     sz = rng.uniform(40, 120, n) * s
@@ -253,7 +253,7 @@ def _seed(size, qa):
 @design("clima-dientes-de-leon", "Dientes de león", "Dandelion seeds", "clima", 10,
         tags=CLIMA + ["dientes de leon", "dandelion", "deseo", "wish", "calma", "primavera", "suave"], sample="garden-03.jpg")
 def _dandelion(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     n = 26
     x0, y0 = rng.uniform(0, w, n), rng.uniform(0, h, n)
     sz = rng.uniform(50, 110, n) * s
@@ -274,7 +274,7 @@ def _dandelion(w, h, T, rng):
 @design("clima-noche-estrellada", "Noche estrellada", "Starry night", "clima", 8, res=(1080, 1920),
         tags=CLIMA + ["estrellas", "noche", "night sky", "cielo", "magia", "luna", "dormir"], sample="church-02.jpg")
 def _starry(w, h, T, rng):
-    s = w / 1080
+    s = min(w, h) / 1080
     n = 260
     xs, ys = rng.uniform(0, w, n), rng.beta(1.2, 3.0, n) * h * 0.8
     r = rng.gamma(1.6, 2.2, n) * s + 1.5 * s
