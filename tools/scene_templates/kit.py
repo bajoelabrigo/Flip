@@ -9,12 +9,12 @@ from __future__ import annotations
 import math
 import random
 
-from scene import (WIDE, Box, Template, anim, beat, centered, effect, fill, glow, gradient, keys,
+from scene import (SQUARE, WIDE, Box, Template, anim, beat, centered, effect, fill, glow, gradient, keys,
                    no_stroke, shadow, stroke, tanim, text_style)
 
-__all__ = ["WIDE", "Box", "Template", "anim", "beat", "centered", "effect", "fill", "glow", "gradient", "keys",
+__all__ = ["SQUARE", "WIDE", "Box", "Template", "anim", "beat", "centered", "effect", "fill", "glow", "gradient", "keys",
            "no_stroke", "shadow", "stroke", "tanim", "text_style", "math", "random",
-           "wide", "tall", "pill", "rrect", "pop", "kb", "spike", "blink", "hollow", "flash", "shade_bottom",
+           "wide", "tall", "square", "pill", "rrect", "pop", "kb", "spike", "blink", "hollow", "flash", "shade_bottom",
            "shade_top", "shade_full", "letterbox", "bg", "bg_gradient", "photo_bg", "framed", "circle_photo",
            "panels", "song", "fade_kf", "appear", "label", "line", "grain", "vignette", "dots", "confetti",
            "slides", "ring", "outline", "BLOCKED", "slide_in", "type_style"]
@@ -56,6 +56,10 @@ def song(t: Template, mood: str, pick: int = 0, volume: float = 0.85) -> None:
 
 def wide(id: str, es: str, en: str, category: str, duration: float, **kw) -> Template:
     return Template(id, es, en, category, duration, size=WIDE, **kw)
+
+
+def square(id: str, es: str, en: str, category: str, duration: float, **kw) -> Template:
+    return Template(id, es, en, category, duration, size=SQUARE, **kw)
 
 
 def tall(id: str, es: str, en: str, category: str, duration: float, **kw) -> Template:

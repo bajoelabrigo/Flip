@@ -16072,6 +16072,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Transiciones y separadores</translation>
     </message>
     <message>
+        <source>15-second stories</source>
+        <translation>Historias de 15 s</translation>
+    </message>
+    <message>
+        <source>6-second ads</source>
+        <translation>Anuncios de 6 s</translation>
+    </message>
+    <message>
+        <source>Video thumbnails</source>
+        <translation>Miniaturas de YouTube</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Otras</translation>
     </message>

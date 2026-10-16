@@ -131,6 +131,31 @@ def wide_card(frames: list[Image.Image]) -> Image.Image:
     return card
 
 
+def square_card(frame: Image.Image) -> Image.Image:
+    """A 1:1 template on the 9:16 grid card: the square edge to edge in the middle, over a blurred, darkened
+    copy of itself, with a «1:1» chip under it."""
+    w, h = CARD
+    bg = frame.convert("RGB").resize((h, h), Image.LANCZOS)
+    bg = bg.crop(((h - w) // 2, 0, (h - w) // 2 + w, h)).filter(ImageFilter.GaussianBlur(24))
+    bg = Image.blend(bg, Image.new("RGB", CARD, (8, 8, 12)), 0.45)
+    y = (h - w) // 2
+    bg.paste(frame.convert("RGB").resize((w, w), Image.LANCZOS), (0, y))
+    chip = ImageDraw.Draw(bg)
+    cx, cy = w // 2, y + w + 34
+    chip.rounded_rectangle([cx - 34, cy - 13, cx + 34, cy + 13], 13, fill=(255, 255, 255))
+    chip.text((cx, cy), "1:1", fill=(20, 20, 24), anchor="mm")
+    return bg
+
+
+def square_preview(source: Path, target: Path) -> None:
+    """The 640x640 export laid on a 360x640 card like the thumbnail: the square over a blurred copy."""
+    graph = ("[0:v]split[a][b];[a]scale=-2:640,crop=360:640,boxblur=20:2,eq=brightness=-0.2[bg];"
+             "[b]scale=360:360[fg];[bg][fg]overlay=0:140[p]")
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(source), "-filter_complex", graph, "-map", "[p]",
+                    "-map", "0:a?", "-c:v", "libx264", "-crf", "28", "-preset", "medium", "-pix_fmt", "yuv420p",
+                    "-c:a", "copy", "-movflags", "+faststart", str(target)], check=True)
+
+
 def wide_preview(source: Path, target: Path, duration: float) -> None:
     """The 640x360 export as a moving storyboard: three copies a third of the loop apart, stacked on the
     360x640 card like the thumbnail."""
@@ -178,8 +203,13 @@ def render_all(jobs, exe: Path, work: Path) -> None:
                 print(f"  capture failed: {shot}", flush=True)
                 continue
             wide = t.w > t.h
+            square = t.w == t.h
             with Image.open(path) as im:
-                if wide:
+                if square:
+                    sq = im.convert("RGB")
+                    sq.resize((768, 768), Image.LANCZOS).save(pkg / "thumbnail-square.png", optimize=True)
+                    square_card(sq).save(pkg / "thumbnail.png", optimize=True)
+                elif wide:
                     hero = im.convert("RGB")
                     hero.resize((768, 432), Image.LANCZOS).save(pkg / "thumbnail-wide.png", optimize=True)
                     frames = [hero]
@@ -196,10 +226,10 @@ def render_all(jobs, exe: Path, work: Path) -> None:
                     im.convert("RGB").resize((432, 768), Image.LANCZOS).save(pkg / "thumbnail.png", optimize=True)
             shutil.copy2(path, work / t.id / "frame.png")
             os.remove(path)
-            preview = pkg / ("preview-wide.mp4" if wide else "preview.mp4")
+            preview = pkg / ("preview-wide.mp4" if wide else "preview-square.mp4" if square else "preview.mp4")
             exported = payload(bridge.call("export_video", {
                 "path": str(preview), "in": 0, "out": t.duration, "video": "h264", "audio": "aac", "rate": "crf",
-                "crf": 30, "fps": 30, "height": 360 if wide else 640}, wait=900))
+                "crf": 30, "fps": 30, "height": 360 if wide else 640}, wait=900))  # a square exports 640x640
             # Older builds return as soon as the encode starts.
             deadline = time.time() + 900
             while time.time() < deadline:
@@ -211,6 +241,8 @@ def render_all(jobs, exe: Path, work: Path) -> None:
                 print(f"  export failed: {exported}", flush=True)
             elif wide:
                 wide_preview(preview, pkg / "preview.mp4", t.duration)
+            elif square:
+                square_preview(preview, pkg / "preview.mp4")
     finally:
         bridge.close()
         subprocess.run(["reg", "delete", REG_KEY, "/f"], capture_output=True)

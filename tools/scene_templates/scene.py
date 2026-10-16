@@ -190,6 +190,9 @@ FULL = Box(0, 0, W, H)
 # Horizontal templates (16:9, YouTube / Facebook): Template(..., size=WIDE).
 WIDE = (1920, 1080)
 FULL_H = Box(0, 0, 1920, 1080)
+# Square posts (Facebook / Instagram feed): Template(..., size=SQUARE).
+SQUARE = (1080, 1080)
+FULL_S = Box(0, 0, 1080, 1080)
 
 
 def centered(cx: float, cy: float, w: float, h: float) -> Box:

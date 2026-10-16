@@ -37,6 +37,9 @@ CATEGORY_NAMES = {
     "slideshow": {"es": "Presentaciones de fotos", "en": "Photo slideshows"},
     "lowerthird": {"es": "Tercios inferiores", "en": "Lower thirds"},
     "transition": {"es": "Transiciones y separadores", "en": "Transitions and separators"},
+    "story15": {"es": "Historias de 15 s", "en": "15-second stories"},
+    "ad6": {"es": "Anuncios de 6 s", "en": "6-second ads"},
+    "thumbnail": {"es": "Miniaturas de YouTube", "en": "Video thumbnails"},
 }
 
 
@@ -49,7 +52,7 @@ def main() -> int:
     # index.json is one of them, keep it.
     if args.out.exists():
         for child in args.out.iterdir():
-            if child.name in ("animaciones", "superposiciones", "sonidos", "fondos") or (child.is_dir() and (child / "index.json").exists()):
+            if child.name in ("animaciones", "superposiciones", "sonidos", "fondos", "musica", "i18n") or (child.is_dir() and (child / "index.json").exists()):
                 continue
             shutil.rmtree(child) if child.is_dir() else child.unlink()
     args.out.mkdir(parents=True, exist_ok=True)
@@ -67,7 +70,8 @@ def main() -> int:
         data = zip_path.read_bytes()
         (args.out / tid).mkdir()
         shutil.copy2(pkg / "thumbnail.png", args.out / tid / "thumbnail.png")
-        for extra in ("preview.mp4", "thumbnail-wide.png", "preview-wide.mp4"):
+        for extra in ("preview.mp4", "thumbnail-wide.png", "preview-wide.mp4", "thumbnail-square.png",
+                      "preview-square.mp4"):
             if (pkg / extra).exists():
                 shutil.copy2(pkg / extra, args.out / tid / extra)
         width, height = manifest.get("width", 1080), manifest.get("height", 1920)
@@ -80,6 +84,7 @@ def main() -> int:
             "durationSec": manifest.get("durationSec", 0),
             "slots": manifest.get("slots", 0),
             "texts": manifest.get("texts", 0),
+            "music": bool(manifest.get("music")),
             "tags": manifest.get("tags", []),
             "premium": bool(manifest.get("premium", False)),
             "thumb": f"{tid}/thumbnail.png",
@@ -90,6 +95,8 @@ def main() -> int:
             "orientation": "landscape" if width > height else "square" if width == height else "portrait",
             "thumbWide": f"{tid}/thumbnail-wide.png" if (pkg / "thumbnail-wide.png").exists() else None,
             "previewWide": f"{tid}/preview-wide.mp4" if (pkg / "preview-wide.mp4").exists() else None,
+            "thumbSquare": f"{tid}/thumbnail-square.png" if (pkg / "thumbnail-square.png").exists() else None,
+            "previewSquare": f"{tid}/preview-square.mp4" if (pkg / "preview-square.mp4").exists() else None,
             "zip": f"{tid}.zip",
             "sha256": hashlib.sha256(data).hexdigest(),
             "bytes": len(data),

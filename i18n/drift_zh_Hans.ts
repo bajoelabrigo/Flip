@@ -16013,6 +16013,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>15-second stories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>6-second ads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video thumbnails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>其他</translation>
     </message>
