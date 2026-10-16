@@ -56,6 +56,7 @@ class MarketClient;
 class JobRegistry;
 
 namespace drift {
+struct BrandKit;
 struct MediaEditSpec;
 }
 
@@ -216,6 +217,8 @@ class AppController : public QObject
     // saved with the project, cleared whenever the underlying audio could have moved.
     Q_PROPERTY(QVariantMap beatAnalysis READ beatAnalysis NOTIFY beatAnalysisChanged)
     Q_PROPERTY(bool beatAnalysisRunning READ beatAnalysisRunning NOTIFY beatAnalysisChanged)
+    // A scene template's cuts are being fitted to its music (fitTemplateCutsToBeat).
+    Q_PROPERTY(bool templateBeatFitRunning READ templateBeatFitRunning NOTIFY templateBeatFitChanged)
     // The grid and the transients are independently shown and snapped to. Both come out of
     // one analysis pass — the tempo is derived from the same onset envelope — so these
     // gate display and snapping, not the DSP.
@@ -1369,6 +1372,47 @@ public:
                                                 const QString &category = QString());
     // Only templates of one's own can be deleted.
     Q_INVOKABLE bool deleteUserSceneTemplate(const QString &templateId);
+    // Faster use (0.14.0). Use with my photos: the installed templates that fit these files best
+    // (slot count, the shape most of them have, the project's shape) as sceneTemplates() rows plus
+    // {score, shape}, and what to ask Stock for: {count, shape, stockShape, bucket, nextBucket,
+    // installed}.
+    Q_INVOKABLE QVariantMap suggestSceneTemplatesForMedia(const QList<QUrl> &urls) const;
+    // The same for replacing a template already filled (its filled slots and the project's shape),
+    // without the template itself; adds currentId.
+    Q_INVOKABLE QVariantMap suggestSceneTemplatesForSwap(const QString &compositeAssetId) const;
+    // Inserts the template and fills its slots with the files in order. Returns the clip id.
+    Q_INVOKABLE QString insertSceneTemplateWithMedia(const QString &templateId, const QList<QUrl> &urls);
+    // A Stock template: downloads it if needed, then inserts it with these files, or swaps it for
+    // the template swapAssetId when that is set.
+    Q_INVOKABLE void useStockSceneTemplate(const QString &itemId, const QString &title, const QList<QUrl> &urls,
+                                           const QString &swapAssetId = QString());
+    // Change template: puts templateId where the composition's instance is, refills its slots in
+    // order with the same pictures and the texts the user changed (by what they are for, then by
+    // position), and drops the old one. One undo step. Returns the new clip id.
+    Q_INVOKABLE QString swapSceneTemplate(const QString &compositeAssetId, const QString &templateId);
+    // The text form: {clipId: text} applied as one undo step. Returns how many changed.
+    Q_INVOKABLE int setTemplateTexts(const QVariantMap &textsByClipId);
+    // Moves the cuts between the template's photo slots to the beats of its music (or of what plays
+    // under it), with a steady 120 BPM when there is no beat. Asynchronous; one undo step.
+    Q_INVOKABLE void fitTemplateCutsToBeat(const QString &compositeAssetId);
+    bool templateBeatFitRunning() const { return m_templateBeatFitRunning; }
+    // Replaces the template's music with the file (cut to the template's length), then fits the
+    // cuts to its beat when fitCuts.
+    Q_INVOKABLE void replaceTemplateMusic(const QString &compositeAssetId, const QUrl &url, bool fitCuts);
+    // My brand: {logo (url), logoPath, colors ["#rrggbb"], font, autoApply, empty}, in QSettings
+    // (the logo is copied to AppData/brand). Business templates and those with a logo slot or
+    // brand roles take it when inserted (autoApply), any template from the Template panel.
+    Q_INVOKABLE QVariantMap brandKit() const;
+    Q_INVOKABLE bool setBrandKit(const QVariantMap &values);
+    Q_INVOKABLE bool applyBrandKitToTemplate(const QString &compositeAssetId);
+    // The window owns these dialogs (a panel that asks may be unloaded by the edit it starts):
+    // mode "photos" with the chosen files, or "swap" with the composition to replace.
+    Q_INVOKABLE void requestTemplatePicker(const QString &mode, const QString &compositeAssetId,
+                                           const QList<QUrl> &urls)
+    {
+        emit templatePickerRequested(mode, compositeAssetId, urls);
+    }
+    Q_INVOKABLE void requestBrandKitDialog() { emit brandKitDialogRequested(); }
     Q_INVOKABLE void removeEffect(int trackIndex, int clipIndex, int effectIndex);
     Q_INVOKABLE void setEffectEnabled(int trackIndex, int clipIndex, int effectIndex, bool enabled);
     Q_INVOKABLE void moveEffect(int trackIndex, int clipIndex, int fromIndex, int toIndex);
@@ -1852,6 +1896,10 @@ signals:
     void fontCatalogChanged();
     // Scene templates were installed or removed (Stock, Extras).
     void sceneTemplatesChanged();
+    void templateBeatFitChanged();
+    void brandKitChanged();
+    void templatePickerRequested(const QString &mode, const QString &compositeAssetId, const QList<QUrl> &urls);
+    void brandKitDialogRequested();
     void saveTemplateRequested(const QString &compositeAssetId, const QString &name);
     void userFontsChanged();
     void userEffectPresetsChanged();
@@ -1959,7 +2007,21 @@ protected:
     // composite clip's id (empty when nothing could be nested). `prepareInner` may add to the
     // inner tracks first (it gets them shifted to start at 0, plus the original start). No undo
     // step: the caller records one.
-    bool fillTemplateSlotWithAsset(const QString &slotClipId, const QString &mediaAssetId, bool recordUndo);
+    bool fillTemplateSlotWithAsset(const QString &slotClipId, const QString &mediaAssetId, bool recordUndo,
+                                   bool contain = false);
+    // insertSceneTemplate without its undo step and messages when !recordUndo (Change template
+    // records one for the whole swap); allowResize lets an empty project take the template's size.
+    QString placeSceneTemplate(const QString &templateId, bool recordUndo, bool allowResize);
+    static QString templateTextKindLabel(const QString &kind);
+    void applyTemplateBeatFit(const QString &compositeAssetId, const AudioBeatAnalysis &analysis,
+                              drift::TimeUs offsetUs);
+    bool setTemplateMusicAsset(const QString &compositeAssetId, const QString &musicAssetId);
+    drift::BrandKit currentBrandKit() const;
+    bool brandKitAutoApply() const;
+    static bool templateWantsBrand(const QString &category, const QStringList &tags,
+                                   const QList<drift::Track> &tracks);
+    // Puts the brand logo in these slots of a timeline (fitted whole). No undo step. Returns how many.
+    int fillLogoSlots(const QString &sequenceId, const QStringList &placeholderIds);
     static QStringList missingTemplateFonts(const QList<drift::Track> &tracks);
     QString buildCompositeFromClipIds(
         const QSet<QString> &ids, const QString &name,
@@ -2193,6 +2255,12 @@ protected:
     AssetLibrary *m_assetLibrary = nullptr;
     AddonManager *m_addonManager = nullptr;
     MarketClient *m_marketClient = nullptr;
+    // A Stock template asked for with photos or to replace another, until it is downloaded.
+    QString m_pendingTemplateId;
+    QList<QUrl> m_pendingTemplateUrls;
+    QString m_pendingTemplateSwap;
+    bool m_templateBeatFitRunning = false;
+    quint64 m_templateBeatFitGeneration = 0;
     JobRegistry *m_jobs = nullptr;
     CloudProviders *m_cloud = nullptr;
     // These trees must outlive m_playback: the compositor thread holds a bare

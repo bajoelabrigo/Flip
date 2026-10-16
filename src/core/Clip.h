@@ -107,6 +107,10 @@ struct Clip
     QString placeholderLabel;
     // The slot still shows the template's stand-in picture rather than the user's media.
     bool placeholderEmpty = false;
+    // A scene template's brand mark (My brand kit): "logo" on a media slot takes the logo;
+    // "primary"|"secondary"|"accent" on a shape or text takes that brand colour; "text" on a text
+    // takes the brand text colour; "title" on a text takes the brand font only. Saved only when set.
+    QString brandRole;
 
     // When true, AudioMixer skips this video clip's embedded audio (companion audio track plays it).
     bool suppressEmbeddedAudio = false;

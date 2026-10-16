@@ -211,10 +211,34 @@ Item {
             }
         }
 
+        // The text form: every editable text at once, named by what it is for (business name,
+        // phone, price…), applied together as one undo step.
         Column {
+            id: textForm
             width: parent.width
             spacing: Theme.spacingSm
             visible: root.texts.length > 0
+
+            property var drafts: ({})
+            property int draftCount: 0
+
+            function edit(clipId, value, original) {
+                const next = Object.assign({}, drafts)
+                if (value === original)
+                    delete next[clipId]
+                else
+                    next[clipId] = value
+                drafts = next
+                draftCount = Object.keys(next).length
+            }
+            function apply() {
+                if (draftCount === 0)
+                    return
+                const pending = drafts
+                drafts = ({})
+                draftCount = 0
+                EditorState.setTemplateTexts(pending)
+            }
 
             Text {
                 text: qsTr("Texts")
@@ -234,7 +258,7 @@ Item {
                     spacing: 2
 
                     Text {
-                        text: textRow.modelData.label || qsTr("Text")
+                        text: textRow.modelData.fieldLabel || textRow.modelData.label || qsTr("Text")
                         color: Theme.mutedForeground
                         font.family: Theme.fontFamily
                         font.pixelSize: Theme.fontSizeXs
@@ -242,10 +266,97 @@ Item {
                     ThemedTextField {
                         width: parent.width
                         text: textRow.modelData.text
-                        // On every keystroke would put one undo step per letter.
-                        onEditingFinished: EditorState.setTemplateText(textRow.modelData.clipId, text)
+                        placeholderText: textRow.modelData.original || ""
+                        onTextEdited: textForm.edit(textRow.modelData.clipId, text, textRow.modelData.text)
+                        onAccepted: textForm.apply()
                     }
                 }
+            }
+
+            ThemedButton {
+                width: parent.width
+                variant: textForm.draftCount > 0 ? "primary" : "secondary"
+                enabled: textForm.draftCount > 0
+                glyph: Theme.icons.check
+                text: textForm.draftCount > 0 ? qsTr("Apply %n text(s)", "", textForm.draftCount) : qsTr("Apply texts")
+                tooltip: qsTr("Changes every text you edited at once (one undo step)")
+                onClicked: textForm.apply()
+            }
+        }
+
+        // Music: another song, and the cuts between the photos moved to its beat.
+        Column {
+            width: parent.width
+            spacing: Theme.spacingSm
+
+            Text {
+                text: qsTr("Music")
+                color: Theme.panelForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeSm
+                font.weight: Font.DemiBold
+            }
+            Text {
+                width: parent.width
+                text: root.info.hasMusic ? (root.info.musicName || qsTr("The template's music"))
+                                         : qsTr("No music in this template")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+                elide: Text.ElideRight
+            }
+            ThemedCheckBox {
+                id: fitOnChange
+                width: parent.width
+                text: qsTr("Fit the cuts to the beat of the new song")
+                checked: true
+            }
+            ThemedButton {
+                width: parent.width
+                variant: "secondary"
+                glyph: Theme.icons.music
+                text: root.info.hasMusic ? qsTr("Change the music…") : qsTr("Add music…")
+                tooltip: qsTr("A song from your computer, cut to the template's length")
+                onClicked: {
+                    const url = FileDialogs.openFile(qsTr("Choose a song"), [AssetLibrary.mediaNameFilter()])
+                    if (url.toString().length > 0)
+                        EditorState.replaceTemplateMusic(root.assetId, url, fitOnChange.checked)
+                }
+            }
+            ThemedButton {
+                width: parent.width
+                variant: "ghost"
+                glyph: Theme.icons.audioLines
+                enabled: !EditorState.templateBeatFitRunning && root.slots.length > 1
+                text: EditorState.templateBeatFitRunning ? qsTr("Listening to the music…") : qsTr("Fit the cuts to the beat")
+                tooltip: qsTr("Moves the change from one photo to the next onto the nearest beat, keeping their order (one undo step). Without a beat, a steady 120 BPM.")
+                onClicked: EditorState.fitTemplateCutsToBeat(root.assetId)
+            }
+        }
+
+        ThemedButton {
+            width: parent.width
+            visible: root.info.inside !== true
+            variant: "secondary"
+            glyph: Theme.icons.shuffle
+            text: qsTr("Change template…")
+            tooltip: qsTr("Another template with the same photos and texts")
+            onClicked: EditorState.requestTemplatePicker("swap", root.assetId, [])
+        }
+
+        ThemedButton {
+            id: brandButton
+            width: parent.width
+            property bool hasKit: !EditorState.brandKit().empty
+            visible: hasKit
+            variant: "ghost"
+            glyph: Theme.icons.store
+            text: qsTr("Apply my brand")
+            tooltip: qsTr("Your logo, colours and font (Templates › My brand)")
+            onClicked: EditorState.applyBrandKitToTemplate(root.assetId)
+            Connections {
+                target: EditorState
+                function onBrandKitChanged() { brandButton.hasKit = !EditorState.brandKit().empty }
             }
         }
 

@@ -22,6 +22,7 @@
 #include <QNetworkRequest>
 #include <QPointer>
 #include <QSaveFile>
+#include <QSet>
 #include <QSettings>
 #include <QStandardPaths>
 #include <QTimer>
@@ -29,6 +30,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <memory>
 #include <utility>
 
 using namespace drift::market;
@@ -278,6 +280,59 @@ void MarketClient::refreshLibrary()
         m_accountLibrary = items;
         emit libraryChanged();
     });
+}
+
+void MarketClient::fetchTemplateSuggestions(const QString &photoBucket, const QString &nextBucket,
+                                            const QString &shape)
+{
+    const int generation = ++m_templateSuggestionsGeneration;
+    m_templateSuggestions.clear();
+    m_templateSuggestionsPending = 0;
+    if (!configured() || !authenticated()) {
+        emit templateSuggestionsChanged();
+        return;
+    }
+    QStringList buckets{photoBucket};
+    if (!nextBucket.isEmpty() && nextBucket != photoBucket)
+        buckets.append(nextBucket);
+    auto pages = std::make_shared<QHash<QString, QJsonArray>>();
+    for (const QString &bucket : std::as_const(buckets)) {
+        QUrl url = apiUrl(QStringLiteral("/search"));
+        QUrlQuery query;
+        query.addQueryItem(QStringLiteral("type"), QStringLiteral("template"));
+        query.addQueryItem(QStringLiteral("provider"), QStringLiteral("flip"));
+        query.addQueryItem(QStringLiteral("limit"), QStringLiteral("30"));
+        if (!bucket.isEmpty())
+            query.addQueryItem(QStringLiteral("photos"), bucket);
+        if (!shape.isEmpty())
+            query.addQueryItem(QStringLiteral("orientation"), shape);
+        url.setQuery(query);
+        ++m_templateSuggestionsPending;
+        QNetworkReply *reply = get(url);
+        connect(reply, &QNetworkReply::finished, this, [this, reply, bucket, buckets, pages, generation] {
+            reply->deleteLater();
+            if (generation != m_templateSuggestionsGeneration)
+                return;
+            if (reply->error() == QNetworkReply::NoError)
+                pages->insert(bucket, QJsonDocument::fromJson(reply->readAll()).object().value(QStringLiteral("items")).toArray());
+            if (--m_templateSuggestionsPending > 0)
+                return;
+            // The closer bucket first; one row per item.
+            QSet<QString> seen;
+            for (const QString &b : buckets) {
+                for (const QJsonValue &value : pages->value(b)) {
+                    const QVariantMap item = objectToMap(value.toObject());
+                    const QString id = item.value(QStringLiteral("id")).toString();
+                    if (id.isEmpty() || seen.contains(id))
+                        continue;
+                    seen.insert(id);
+                    m_templateSuggestions.append(item);
+                }
+            }
+            emit templateSuggestionsChanged();
+        });
+    }
+    emit templateSuggestionsChanged();
 }
 
 void MarketClient::removeFromLibrary(const QString &itemId)

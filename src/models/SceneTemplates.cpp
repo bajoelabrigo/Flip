@@ -6,7 +6,11 @@
 #include "AssetLibrary.h"
 #include "MarketClient.h"
 #include "MediaBinController.h"
+#include "McpDetail.h"
 #include "core/SceneTemplateLayout.h"
+#include "core/SceneTemplateTools.h"
+#include "engine/AudioOnsets.h"
+#include "engine/MediaProbe.h"
 #include "engine/FrameCompositor.h"
 #include "engine/GpuCompositor.h"
 #include "engine/SceneTemplateCatalog.h"
@@ -19,6 +23,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QImage>
+#include <QImageReader>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -26,10 +31,12 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QPointer>
+#include <QSet>
 #include <QSettings>
 #include <QStandardPaths>
 #include <QUrl>
 #include <QUuid>
+#include <QtConcurrent>
 
 #include <algorithm>
 #include <memory>
@@ -67,6 +74,67 @@ QSizeF slotSize(const drift::Clip &clip, int canvasW, int canvasH)
     const double w = clip.transformW.isEmpty() ? canvasW : clip.transformW.evaluateAt(0);
     const double h = clip.transformH.isEmpty() ? canvasH : clip.transformH.evaluateAt(0);
     return QSizeF(qMax(1.0, w), qMax(1.0, h));
+}
+
+// placeholderId -> the text as the template's package has it, cached by file and time.
+QHash<QString, QString> originalTemplateTexts(const QString &templateId)
+{
+    struct Cached
+    {
+        QDateTime modified;
+        QHash<QString, QString> texts;
+    };
+    static QHash<QString, Cached> cache;
+    const SceneTemplateEntry *entry = templateId.isEmpty() ? nullptr : sceneTemplateForId(templateId);
+    if (!entry)
+        return {};
+    const QDateTime modified = QFileInfo(entry->projectPath).lastModified();
+    const auto it = cache.constFind(entry->projectPath);
+    if (it != cache.constEnd() && it->modified == modified)
+        return it->texts;
+    QHash<QString, QString> texts;
+    QFile file(entry->projectPath);
+    if (file.open(QIODevice::ReadOnly)) {
+        const QJsonObject root = QJsonDocument::fromJson(file.readAll()).object();
+        for (const QJsonValue &track : root.value(QStringLiteral("tracks")).toArray()) {
+            for (const QJsonValue &value : track.toObject().value(QStringLiteral("clips")).toArray()) {
+                const QJsonObject clip = value.toObject();
+                const QString slot = clip.value(QStringLiteral("placeholderId")).toString();
+                const QString type = clip.value(QStringLiteral("type")).toString();
+                if (slot.isEmpty() || (type != QLatin1String("text") && type != QLatin1String("subtitle")))
+                    continue;
+                QString text = clip.value(QStringLiteral("textContent")).toString();
+                if (text.isEmpty())
+                    text = clip.value(QStringLiteral("name")).toString();
+                texts.insert(slot, text);
+            }
+        }
+    }
+    cache.insert(entry->projectPath, {modified, texts});
+    return texts;
+}
+
+void containInBox(drift::Clip &clip, const QSizeF &media, int canvasW, int canvasH)
+{
+    const auto single = [](const drift::KeyframeTrack<double> &track) { return track.keyframes().size() <= 1; };
+    if (media.isEmpty() || !single(clip.transformX) || !single(clip.transformY) || !single(clip.transformW)
+        || !single(clip.transformH)) {
+        return;
+    }
+    const double x = clip.transformX.isEmpty() ? 0.0 : clip.transformX.evaluateAt(0);
+    const double y = clip.transformY.isEmpty() ? 0.0 : clip.transformY.evaluateAt(0);
+    const double w = clip.transformW.isEmpty() ? canvasW : clip.transformW.evaluateAt(0);
+    const double h = clip.transformH.isEmpty() ? canvasH : clip.transformH.evaluateAt(0);
+    const double scale = qMin(w / media.width(), h / media.height());
+    const double nw = media.width() * scale;
+    const double nh = media.height() * scale;
+    const auto put = [](drift::KeyframeTrack<double> &track, double value) {
+        track.setKeyframe(track.keyframes().isEmpty() ? 0 : track.keyframes().firstKey(), value);
+    };
+    put(clip.transformX, x + (w - nw) / 2.0);
+    put(clip.transformY, y + (h - nh) / 2.0);
+    put(clip.transformW, nw);
+    put(clip.transformH, nh);
 }
 
 // The stand-in a slot shows until it is filled: dark card, a picture glyph, its number and
@@ -149,7 +217,22 @@ void AppController::setMarketClient(MarketClient *client)
         return;
     connect(client, &MarketClient::sceneTemplateReady, this, [this](const QString &templateId, bool use) {
         emit sceneTemplatesChanged();
-        if (use)
+        if (!use)
+            return;
+        // Asked for from "Use with my photos" or "Change template": it goes in with that.
+        const bool pending = m_pendingTemplateId == templateId;
+        const QList<QUrl> urls = pending ? m_pendingTemplateUrls : QList<QUrl>();
+        const QString swap = pending ? m_pendingTemplateSwap : QString();
+        if (pending) {
+            m_pendingTemplateId.clear();
+            m_pendingTemplateUrls.clear();
+            m_pendingTemplateSwap.clear();
+        }
+        if (!swap.isEmpty())
+            swapSceneTemplate(swap, templateId);
+        else if (!urls.isEmpty())
+            insertSceneTemplateWithMedia(templateId, urls);
+        else
             insertSceneTemplate(templateId);
     });
     // LUTs, looks, text styles and animations, transitions and shapes from Stock.
@@ -265,6 +348,11 @@ QString AppController::sceneTemplateCategoryLabelFor(const QString &categoryId) 
 
 QString AppController::insertSceneTemplate(const QString &templateId)
 {
+    return placeSceneTemplate(templateId, true, true);
+}
+
+QString AppController::placeSceneTemplate(const QString &templateId, bool recordUndo, bool allowResize)
+{
     const SceneTemplateEntry *entry = sceneTemplateForId(templateId);
     if (!entry) {
         setLastMessage(tr("That template is not installed"), QStringLiteral("warning"));
@@ -296,11 +384,21 @@ QString AppController::insertSceneTemplate(const QString &templateId)
     bool timelineEmpty = true;
     for (const drift::Track &track : m_project.tracks())
         timelineEmpty = timelineEmpty && track.clips.isEmpty();
-    if (timelineEmpty && (m_project.width() != content.width() || m_project.height() != content.height()))
+    if (allowResize && timelineEmpty
+        && (m_project.width() != content.width() || m_project.height() != content.height()))
         m_project.setResolution(content.width(), content.height());
 
     QList<drift::Track> tracks = content.tracks();
     drift::scaleTemplateLayout(tracks, content.width(), content.height(), m_project.width(), m_project.height());
+
+    // My brand: Business templates, and any that mark a brand role or a logo slot, take the kit's
+    // colours and font now and its logo once the slots exist.
+    QStringList logoSlots;
+    {
+        const drift::BrandKit kit = currentBrandKit();
+        if (!kit.isEmpty() && brandKitAutoApply() && templateWantsBrand(entry->category, entry->tags, tracks))
+            logoSlots = drift::applyBrandKit(tracks, kit).logoSlots;
+    }
 
     // Its media goes in a bin folder of its own, so the slot pictures and the music do not crowd
     // the user's.
@@ -478,11 +576,18 @@ QString AppController::insertSceneTemplate(const QString &templateId)
                 {QStringLiteral("kind"), kSceneTemplateKind},
                 {QStringLiteral("templateId"), entry->id},
                 {QStringLiteral("templateName"), entry->displayName},
+                {QStringLiteral("binFolderId"), folder.id},
             };
         }
     }
     if (m_assetLibrary)
         m_assetLibrary->syncToProject();
+    if (composite && !logoSlots.isEmpty()) {
+        if (const drift::MediaAsset *asset = m_project.asset(composite->assetId))
+            fillLogoSlots(asset->sequenceId, logoSlots);
+    }
+    if (!recordUndo)
+        return compositeId;
     pushProjectEdit(before, tr("Add template"));
     finishEdit(QString());
     const QStringList missingFonts = missingTemplateFonts(tracks);
@@ -552,6 +657,7 @@ QVariantMap AppController::sceneTemplateInfo(const QString &compositeAssetId) co
             };
             if (isText) {
                 map.insert(QStringLiteral("text"), clip.textContent);
+                map.insert(QStringLiteral("pixelSize"), clip.textStyle.pixelSize);
                 texts.append({clip.timelineStart, t, map});
             } else if (seenSlots.contains(clip.placeholderId)) {
                 continue; // a repeat of a slot already listed: one fill fills them all
@@ -559,6 +665,7 @@ QVariantMap AppController::sceneTemplateInfo(const QString &compositeAssetId) co
                 seenSlots.insert(clip.placeholderId);
                 const drift::MediaAsset *media_ = m_project.asset(clip.assetId);
                 map.insert(QStringLiteral("empty"), clip.placeholderEmpty);
+                map.insert(QStringLiteral("assetId"), clip.placeholderEmpty ? QString() : clip.assetId);
                 map.insert(QStringLiteral("kind"), clip.type == drift::ClipType::Video ? QStringLiteral("video")
                                                                                        : QStringLiteral("image"));
                 map.insert(QStringLiteral("mediaName"), media_ && !clip.placeholderEmpty ? media_->name : QString());
@@ -581,20 +688,69 @@ QVariantMap AppController::sceneTemplateInfo(const QString &compositeAssetId) co
         emptyCount += media.at(i).map.value(QStringLiteral("empty")).toBool() ? 1 : 0;
         mediaList.append(media.at(i).map);
     }
-    QVariantList textList;
+    // The form names each text by what it is for: the original text says it best ("+51 999…" is
+    // a phone even after the user typed theirs), else what it says now.
+    const QHash<QString, QString> originals = originalTemplateTexts(asset->generator.value(QStringLiteral("templateId")).toString());
+    int largest = 0;
     for (const Slot &slot : texts)
+        largest = qMax(largest, slot.map.value(QStringLiteral("pixelSize")).toInt());
+    QHash<QString, int> kindCount;
+    QVariantList textList;
+    for (Slot &slot : texts) {
+        const QString current = slot.map.value(QStringLiteral("text")).toString();
+        const QString slotId = slot.map.value(QStringLiteral("slotId")).toString();
+        // A template no longer installed has no sample to compare with: count its texts as the user's.
+        const bool known = originals.contains(slotId);
+        const QString original = originals.value(slotId, current);
+        const bool isLargest = largest > 0 && slot.map.value(QStringLiteral("pixelSize")).toInt() >= largest;
+        const QString kind = drift::guessTemplateTextKind(original, slot.map.value(QStringLiteral("label")).toString(),
+                                                          isLargest);
+        const int n = ++kindCount[kind];
+        slot.map.insert(QStringLiteral("kind"), kind);
+        slot.map.insert(QStringLiteral("original"), original);
+        slot.map.insert(QStringLiteral("edited"), known ? current != original : !current.isEmpty());
+        slot.map.insert(QStringLiteral("kindIndex"), n);
         textList.append(slot.map);
+    }
+    // "Title", "Title 2"…: a number only when a kind repeats.
+    for (QVariant &value : textList) {
+        QVariantMap map = value.toMap();
+        const QString kind = map.value(QStringLiteral("kind")).toString();
+        QString label = templateTextKindLabel(kind);
+        if (kindCount.value(kind) > 1)
+            label = QStringLiteral("%1 %2").arg(label).arg(map.value(QStringLiteral("kindIndex")).toInt());
+        map.insert(QStringLiteral("fieldLabel"), label);
+        value = map;
+    }
+
+    QString musicName;
+    bool hasMusic = false;
+    for (const drift::Track &track : tracks) {
+        if (track.type != drift::TrackType::Audio)
+            continue;
+        for (const drift::Clip &clip : track.clips) {
+            if (hasMusic)
+                break;
+            hasMusic = true;
+            const drift::MediaAsset *music = m_project.asset(clip.assetId);
+            musicName = music ? music->name : clip.name;
+        }
+    }
     return QVariantMap{
         {QStringLiteral("assetId"), asset->id},
+        {QStringLiteral("templateId"), asset->generator.value(QStringLiteral("templateId")).toString()},
         {QStringLiteral("name"), asset->generator.value(QStringLiteral("templateName")).toString()},
         {QStringLiteral("slots"), mediaList},
         {QStringLiteral("texts"), textList},
         {QStringLiteral("emptySlots"), emptyCount},
+        {QStringLiteral("hasMusic"), hasMusic},
+        {QStringLiteral("musicName"), musicName},
+        {QStringLiteral("inside"), m_project.activeSequenceId() == asset->sequenceId},
     };
 }
 
 bool AppController::fillTemplateSlotWithAsset(const QString &slotClipId, const QString &mediaAssetId,
-                                              bool recordUndo)
+                                              bool recordUndo, bool contain)
 {
     const drift::MediaAsset *media = m_project.asset(mediaAssetId);
     if (!media || (media->kind != drift::MediaKind::Image && media->kind != drift::MediaKind::Video)) {
@@ -647,8 +803,17 @@ bool AppController::fillTemplateSlotWithAsset(const QString &slotClipId, const Q
         QSizeF mediaSize(media->width, media->height);
         if (clip->rotationCorrection == 90 || clip->rotationCorrection == 270)
             mediaSize.transpose();
-        clip->sourceFrame = drift::coverSourceFrame(mediaSize, slotSize(*clip, m_project.width(), m_project.height()),
-                                                    media->sourceFrame);
+        if (contain) {
+            // A logo is shown whole, fitted inside the slot's box, never cut.
+            clip->sourceFrame = media->sourceFrame.isValid() ? media->sourceFrame : QRectF(0, 0, 1, 1);
+            containInBox(*clip,
+                         QSizeF(mediaSize.width() * clip->sourceFrame.width(),
+                                mediaSize.height() * clip->sourceFrame.height()),
+                         m_project.width(), m_project.height());
+        } else {
+            clip->sourceFrame = drift::coverSourceFrame(
+                mediaSize, slotSize(*clip, m_project.width(), m_project.height()), media->sourceFrame);
+        }
         clip->reverse = false;
         clip->speedCurve = {};
         clip->srcIn = 0;
@@ -1066,4 +1231,789 @@ QStringList AppController::missingTemplateFonts(const QList<drift::Track> &track
     }
     std::sort(missing.begin(), missing.end());
     return missing;
+}
+
+// --- Faster use (0.14.0): with my photos, change template, cuts to the beat, text form, brand ----
+
+namespace {
+
+// The tracks of a timeline wherever they live right now, writable. Null for an unknown id.
+QList<drift::Track> *writableSequenceTracks(drift::Project &project, const QString &sequenceId)
+{
+    if (!project.hasSequence(sequenceId))
+        return nullptr;
+    const QList<drift::Track> *target = &std::as_const(project).sequenceTracks(sequenceId);
+    QList<drift::Track> *found = nullptr;
+    project.forEachTrackList([&](QList<drift::Track> &tracks) {
+        if (&tracks == target)
+            found = &tracks;
+    });
+    return found;
+}
+
+// A picture's or a video's size as it shows (rotation applied), without importing it.
+QSize displayedSize(const QString &path)
+{
+    if (AssetLibrary::isImagePath(path)) {
+        QImageReader reader(path);
+        reader.setAutoTransform(true);
+        QSize size = reader.size();
+        if (reader.transformation() & QImageIOHandler::TransformationRotate90)
+            size.transpose();
+        return size;
+    }
+    const MediaInfo info = MediaProbe::probe(path);
+    for (const StreamInfo &stream : info.streams) {
+        if (stream.type != StreamInfo::Type::Video || stream.attachedPicture)
+            continue;
+        QSize size(stream.width, stream.height);
+        if (stream.rotationDegrees == 90 || stream.rotationDegrees == 270)
+            size.transpose();
+        return size;
+    }
+    return {};
+}
+
+QVariantList sortedSuggestions(const QVariantList &templates, int count, const QString &shape,
+                               const QString &projectShape, const QString &excludeId)
+{
+    QList<QPair<double, QVariantMap>> scored;
+    for (const QVariant &value : templates) {
+        QVariantMap t = value.toMap();
+        if (t.value(QStringLiteral("id")).toString() == excludeId)
+            continue;
+        const QString tShape = drift::shapeOfSize(t.value(QStringLiteral("width")).toInt(),
+                                                  t.value(QStringLiteral("height")).toInt());
+        const double score = drift::sceneTemplateMatchScore(t.value(QStringLiteral("slots")).toInt(), tShape, count,
+                                                            shape, projectShape);
+        if (score < 0)
+            continue;
+        t.insert(QStringLiteral("score"), score);
+        t.insert(QStringLiteral("shape"), tShape);
+        scored.append({score, t});
+    }
+    std::stable_sort(scored.begin(), scored.end(),
+                     [](const auto &a, const auto &b) { return a.first > b.first; });
+    QVariantList out;
+    for (int i = 0; i < scored.size() && i < 36; ++i)
+        out.append(scored.at(i).second);
+    return out;
+}
+
+const QLatin1String kBrandGroup("brandKit");
+
+} // namespace
+
+QString AppController::templateTextKindLabel(const QString &kind)
+{
+    if (kind == QLatin1String("business"))
+        return tr("Business name");
+    if (kind == QLatin1String("phone"))
+        return tr("Phone");
+    if (kind == QLatin1String("price"))
+        return tr("Price");
+    if (kind == QLatin1String("discount"))
+        return tr("Discount");
+    if (kind == QLatin1String("date"))
+        return tr("Date");
+    if (kind == QLatin1String("time"))
+        return tr("Hours");
+    if (kind == QLatin1String("web"))
+        return tr("Website");
+    if (kind == QLatin1String("email"))
+        return tr("Email");
+    if (kind == QLatin1String("handle"))
+        return tr("Social media user");
+    if (kind == QLatin1String("address"))
+        return tr("Address");
+    if (kind == QLatin1String("cta"))
+        return tr("Call to action");
+    if (kind == QLatin1String("title"))
+        return tr("Title");
+    if (kind == QLatin1String("subtitle"))
+        return tr("Subtitle");
+    return tr("Text");
+}
+
+// --- Use with my photos ---------------------------------------------------------------------
+
+QVariantMap AppController::suggestSceneTemplatesForMedia(const QList<QUrl> &urls) const
+{
+    int vertical = 0;
+    int horizontal = 0;
+    int square = 0;
+    int count = 0;
+    for (const QUrl &url : urls) {
+        const QString path = url.isLocalFile() ? url.toLocalFile() : url.toString();
+        if (!AssetLibrary::isImagePath(path) && !AssetLibrary::isVideoPath(path))
+            continue;
+        ++count;
+        const QSize size = displayedSize(path);
+        const QString shape = drift::shapeOfSize(size.width(), size.height());
+        vertical += shape == QLatin1String("vertical") ? 1 : 0;
+        horizontal += shape == QLatin1String("horizontal") ? 1 : 0;
+        square += shape == QLatin1String("square") ? 1 : 0;
+    }
+    bool timelineEmpty = true;
+    for (const drift::Track &track : m_project.rootTracks())
+        timelineEmpty = timelineEmpty && track.clips.isEmpty();
+    const QString projectShape = timelineEmpty ? QString() : drift::shapeOfSize(m_project.width(), m_project.height());
+    const QString shape = drift::majorityShape(vertical, horizontal, square);
+    const QString bucket = drift::photoCountBucket(count);
+    return QVariantMap{
+        {QStringLiteral("count"), count},
+        {QStringLiteral("shape"), shape},
+        // What Stock is asked for: the shape the result will have (the project's, once it has one).
+        {QStringLiteral("stockShape"), projectShape.isEmpty() ? shape : projectShape},
+        {QStringLiteral("bucket"), bucket},
+        {QStringLiteral("nextBucket"), drift::nextPhotoCountBucket(bucket)},
+        {QStringLiteral("installed"), sortedSuggestions(sceneTemplates(), count, shape, projectShape, {})},
+    };
+}
+
+QVariantMap AppController::suggestSceneTemplatesForSwap(const QString &compositeAssetId) const
+{
+    const QVariantMap info = sceneTemplateInfo(compositeAssetId);
+    if (info.isEmpty())
+        return {};
+    const QVariantList slotList = info.value(QStringLiteral("slots")).toList();
+    const int filled = int(slotList.size()) - info.value(QStringLiteral("emptySlots")).toInt();
+    const int count = filled > 0 ? filled : int(slotList.size());
+    const QString shape = drift::shapeOfSize(m_project.width(), m_project.height());
+    const QString bucket = drift::photoCountBucket(count);
+    return QVariantMap{
+        {QStringLiteral("count"), count},
+        {QStringLiteral("shape"), shape},
+        {QStringLiteral("stockShape"), shape},
+        {QStringLiteral("bucket"), bucket},
+        {QStringLiteral("nextBucket"), drift::nextPhotoCountBucket(bucket)},
+        {QStringLiteral("currentId"), info.value(QStringLiteral("templateId"))},
+        {QStringLiteral("installed"),
+         sortedSuggestions(sceneTemplates(), count, shape, shape, info.value(QStringLiteral("templateId")).toString())},
+    };
+}
+
+QString AppController::insertSceneTemplateWithMedia(const QString &templateId, const QList<QUrl> &urls)
+{
+    const QString compositeId = insertSceneTemplate(templateId);
+    if (compositeId.isEmpty() || urls.isEmpty())
+        return compositeId;
+    const drift::Clip *composite = findClipAnywhere(m_project, compositeId);
+    const QString assetId = composite ? composite->assetId : QString();
+    const int slotCount = int(sceneTemplateInfo(assetId).value(QStringLiteral("slots")).toList().size());
+    const int filled = fillTemplateSlotsFromUrls(assetId, QString(), urls);
+    int media = 0;
+    for (const QUrl &url : urls) {
+        const QString path = url.isLocalFile() ? url.toLocalFile() : url.toString();
+        media += AssetLibrary::isImagePath(path) || AssetLibrary::isVideoPath(path) ? 1 : 0;
+    }
+    if (media > filled && filled > 0) {
+        setLastMessage(tr("Template added with %n of your photos. The rest did not fit: it has %1 slot(s).", "", filled)
+                           .arg(slotCount),
+                       QStringLiteral("info"));
+    } else if (filled > 0) {
+        setLastMessage(slotCount > filled
+                           ? tr("Template added with your %n photo(s). Fill the other slots in the panel on the right.",
+                                "", filled)
+                           : tr("Template added with your %n photo(s)", "", filled),
+                       QStringLiteral("info"));
+    }
+    return compositeId;
+}
+
+void AppController::useStockSceneTemplate(const QString &itemId, const QString &title, const QList<QUrl> &urls,
+                                          const QString &swapAssetId)
+{
+    if (!m_marketClient)
+        return;
+    m_pendingTemplateId = m_marketClient->sceneTemplateIdForItem(itemId);
+    m_pendingTemplateUrls = urls;
+    m_pendingTemplateSwap = swapAssetId;
+    m_marketClient->useSceneTemplate(itemId, title);
+}
+
+// --- Change template --------------------------------------------------------------------------
+
+QString AppController::swapSceneTemplate(const QString &compositeAssetId, const QString &templateId)
+{
+    const drift::MediaAsset *oldAsset = m_project.asset(compositeAssetId);
+    if (!oldAsset || sceneGenerator(*oldAsset).isEmpty())
+        return {};
+    if (!m_project.activeSequenceId().isEmpty()) {
+        setLastMessage(tr("Templates are changed on the main timeline: close the composition first"),
+                       QStringLiteral("warning"));
+        return {};
+    }
+    if (!sceneTemplateForId(templateId)) {
+        setLastMessage(tr("That template is not installed"), QStringLiteral("warning"));
+        return {};
+    }
+    // The instance to replace: the selected one, else the first on the timeline.
+    int t = -1;
+    int c = -1;
+    if (isValidClipIndex(m_selectedTrack, m_selectedClip)
+        && m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip).assetId == compositeAssetId) {
+        t = m_selectedTrack;
+        c = m_selectedClip;
+    }
+    for (int i = 0; t < 0 && i < m_project.tracks().size(); ++i) {
+        for (int j = 0; j < m_project.tracks().at(i).clips.size(); ++j) {
+            if (m_project.tracks().at(i).clips.at(j).assetId == compositeAssetId) {
+                t = i;
+                c = j;
+                break;
+            }
+        }
+    }
+    if (t < 0) {
+        setLastMessage(tr("Put the template on the timeline first"), QStringLiteral("warning"));
+        return {};
+    }
+
+    // What the user put in: pictures by slot number, and the texts they changed.
+    const QVariantMap oldInfo = sceneTemplateInfo(compositeAssetId);
+    QStringList pictures;
+    for (const QVariant &value : oldInfo.value(QStringLiteral("slots")).toList()) {
+        const QString assetId = value.toMap().value(QStringLiteral("assetId")).toString();
+        if (!assetId.isEmpty())
+            pictures.append(assetId);
+    }
+    const QVariantList oldTexts = oldInfo.value(QStringLiteral("texts")).toList();
+    const QString oldFolderId = oldAsset->generator.value(QStringLiteral("binFolderId")).toString();
+
+    setPlaying(false);
+    const drift::Project before = m_project.detachedCopy();
+    const drift::Clip oldClip = m_project.tracks().at(t).clips.at(c);
+    const QString oldTrackId = m_project.tracks().at(t).id;
+    {
+        drift::Track &track = m_project.tracks()[t];
+        track.clips.removeAt(c);
+        for (int i = int(track.transitions.size()) - 1; i >= 0; --i) {
+            if (track.transitions.at(i).fromClipId == oldClip.id || track.transitions.at(i).toClipId == oldClip.id)
+                track.transitions.removeAt(i);
+        }
+    }
+    const drift::TimeUs playhead = m_playheadUs;
+    m_playheadUs = oldClip.timelineStart;
+    const QString newClipId = placeSceneTemplate(templateId, false, false);
+    m_playheadUs = playhead;
+    if (newClipId.isEmpty()) {
+        m_project = before;
+        if (m_assetLibrary)
+            m_assetLibrary->syncToProject();
+        return {};
+    }
+
+    // Back on the old one's track when there is room there, so the stack keeps its order.
+    int nt = -1;
+    int nc = -1;
+    drift::mcpdetail::findClipById(m_project, newClipId, &nt, &nc);
+    const int ot = m_project.trackIndexById(oldTrackId);
+    if (nt >= 0 && ot >= 0 && ot != nt) {
+        const drift::Clip placed = m_project.tracks().at(nt).clips.at(nc);
+        const drift::Track &target = m_project.tracks().at(ot);
+        bool room = target.allowsClipType(placed.type) && !target.isAdjustment();
+        for (const drift::Clip &other : target.clips)
+            room = room && (other.timelineEnd() <= placed.timelineStart || other.timelineStart >= placed.timelineEnd());
+        if (room) {
+            m_project.tracks()[nt].clips.removeAt(nc);
+            const bool emptied = m_project.tracks().at(nt).clips.isEmpty();
+            drift::Track &dest = m_project.tracks()[ot];
+            int at = 0;
+            while (at < dest.clips.size() && dest.clips.at(at).timelineStart < placed.timelineStart)
+                ++at;
+            dest.clips.insert(at, placed);
+            if (emptied)
+                m_project.tracks().removeAt(nt);
+        }
+    }
+    // Effect or mask lanes the user pinned to the old one follow the new one.
+    m_project.forEachTrackList([&](QList<drift::Track> &tracks) {
+        for (drift::Track &track : tracks) {
+            for (drift::Clip &clip : track.clips) {
+                if (clip.linkedClipId == oldClip.id)
+                    clip.linkedClipId = newClipId;
+            }
+        }
+    });
+
+    // Refill: pictures in slot order, texts by what they are for (then by position).
+    const drift::Clip *placedClip = findClipAnywhere(m_project, newClipId);
+    const QString newAssetId = placedClip ? placedClip->assetId : QString();
+    const QVariantMap newInfo = sceneTemplateInfo(newAssetId);
+    const QVariantList newSlots = newInfo.value(QStringLiteral("slots")).toList();
+    const int fills = int(qMin(pictures.size(), newSlots.size()));
+    for (int i = 0; i < fills; ++i)
+        fillTemplateSlotWithAsset(newSlots.at(i).toMap().value(QStringLiteral("clipId")).toString(), pictures.at(i),
+                                  false);
+    const QVariantList newTexts = newInfo.value(QStringLiteral("texts")).toList();
+    QSet<int> taken;
+    int carriedTexts = 0;
+    for (int i = 0; i < oldTexts.size(); ++i) {
+        const QVariantMap old = oldTexts.at(i).toMap();
+        if (!old.value(QStringLiteral("edited")).toBool())
+            continue;
+        int pick = -1;
+        for (int j = 0; j < newTexts.size() && pick < 0; ++j) {
+            if (!taken.contains(j)
+                && newTexts.at(j).toMap().value(QStringLiteral("kind")) == old.value(QStringLiteral("kind")))
+                pick = j;
+        }
+        if (pick < 0 && i < newTexts.size() && !taken.contains(i))
+            pick = i;
+        if (pick < 0)
+            continue;
+        taken.insert(pick);
+        if (drift::Clip *clip = findClipAnywhere(m_project, newTexts.at(pick).toMap().value(QStringLiteral("clipId")).toString())) {
+            clip->textContent = old.value(QStringLiteral("text")).toString();
+            ++carriedTexts;
+        }
+    }
+
+    // The old composition goes when nothing shows it any more, with the stand-ins and music of its folder.
+    bool used = false;
+    m_project.forEachTrackList([&](const QList<drift::Track> &tracks) {
+        for (const drift::Track &track : tracks) {
+            for (const drift::Clip &clip : track.clips)
+                used = used || clip.assetId == compositeAssetId;
+        }
+    });
+    if (!used) {
+        m_project.assets().remove(compositeAssetId);
+        m_project.assetOrder().removeAll(compositeAssetId);
+        pruneOrphanSequences();
+        if (!oldFolderId.isEmpty()) {
+            QSet<QString> inUse;
+            m_project.forEachTrackList([&](const QList<drift::Track> &tracks) {
+                for (const drift::Track &track : tracks) {
+                    for (const drift::Clip &clip : track.clips)
+                        inUse.insert(clip.assetId);
+                }
+            });
+            bool folderEmpty = true;
+            for (const QString &id : QStringList(m_project.assetOrder())) {
+                const drift::MediaAsset *asset = m_project.asset(id);
+                if (!asset || asset->folderId != oldFolderId)
+                    continue;
+                if (inUse.contains(id)) {
+                    folderEmpty = false;
+                    continue;
+                }
+                m_project.assets().remove(id);
+                m_project.assetOrder().removeAll(id);
+            }
+            bool hasChildren = false;
+            for (const drift::BinFolder &folder : m_project.binFolders())
+                hasChildren = hasChildren || folder.parentId == oldFolderId;
+            if (folderEmpty && !hasChildren) {
+                m_project.binFolders().remove(oldFolderId);
+                m_project.binFolderOrder().removeAll(oldFolderId);
+            }
+        }
+    }
+    if (m_assetLibrary)
+        m_assetLibrary->syncToProject();
+    pushProjectEdit(before, tr("Change template"));
+    finishEdit(QString());
+    selectClipById(newClipId);
+    emit sequenceTabsChanged();
+    const int lost = int(pictures.size()) - fills;
+    QString message = tr("Template changed: %n photo(s) carried over", "", fills);
+    if (carriedTexts > 0)
+        message += QStringLiteral(", ") + tr("%n text(s)", "", carriedTexts);
+    if (lost > 0)
+        message += QStringLiteral(". ") + tr("%n photo(s) did not fit in the new one", "", lost);
+    setLastMessage(message, lost > 0 ? QStringLiteral("warning") : QStringLiteral("info"));
+    return newClipId;
+}
+
+// --- Text form --------------------------------------------------------------------------------
+
+int AppController::setTemplateTexts(const QVariantMap &textsByClipId)
+{
+    int changes = 0;
+    for (auto it = textsByClipId.cbegin(); it != textsByClipId.cend(); ++it) {
+        const drift::Clip *clip = findClipAnywhere(m_project, it.key());
+        changes += clip && !clip->placeholderId.isEmpty() && clip->textContent != it.value().toString() ? 1 : 0;
+    }
+    if (changes == 0)
+        return 0;
+    const drift::Project before = m_project.detachedCopy();
+    for (auto it = textsByClipId.cbegin(); it != textsByClipId.cend(); ++it) {
+        drift::Clip *clip = findClipAnywhere(m_project, it.key());
+        if (clip && !clip->placeholderId.isEmpty())
+            clip->textContent = it.value().toString();
+    }
+    pushProjectEdit(before, tr("Template texts"));
+    finishEdit(QString());
+    setLastMessage(tr("%n text(s) changed", "", changes), QStringLiteral("info"));
+    return changes;
+}
+
+// --- Cuts to the beat ---------------------------------------------------------------------------
+
+void AppController::fitTemplateCutsToBeat(const QString &compositeAssetId)
+{
+    const drift::MediaAsset *asset = m_project.asset(compositeAssetId);
+    if (!asset || sceneGenerator(*asset).isEmpty() || m_templateBeatFitRunning)
+        return;
+    const QString sequenceId = asset->sequenceId;
+    bool ownMusic = false;
+    for (const drift::Track &track : m_project.sequenceTracks(sequenceId)) {
+        if (track.type == drift::TrackType::Audio && !track.muted)
+            ownMusic = ownMusic || !track.clips.isEmpty();
+    }
+    // Its own music when it has some; else whatever plays under it on the main timeline.
+    drift::Project snap;
+    drift::TimeUs startUs = 0;
+    drift::TimeUs durUs = m_project.sequenceDurationUs(sequenceId);
+    drift::TimeUs offsetUs = 0; // analysis time - offset = time inside the composition
+    if (ownMusic) {
+        snap = m_project.sequenceView(sequenceId);
+    } else {
+        const drift::Clip *instance = nullptr;
+        for (const drift::Track &track : m_project.rootTracks()) {
+            for (const drift::Clip &clip : track.clips) {
+                if (!instance && clip.assetId == compositeAssetId)
+                    instance = &clip;
+            }
+        }
+        if (!instance) {
+            setLastMessage(tr("The template has no music: change its music first"), QStringLiteral("warning"));
+            return;
+        }
+        snap = m_project.sequenceView(QString());
+        startUs = instance->timelineStart;
+        durUs = instance->timelineDuration;
+        offsetUs = instance->timelineStart - instance->srcIn;
+    }
+    if (durUs <= 0)
+        return;
+    m_templateBeatFitRunning = true;
+    emit templateBeatFitChanged();
+    setLastMessage(tr("Listening to the music to find its beat…"), QStringLiteral("info"));
+    const quint64 generation = ++m_templateBeatFitGeneration;
+    (void)QtConcurrent::run([this, snap, startUs, durUs, offsetUs, generation, compositeAssetId] {
+        const AudioBeatAnalysis analysis =
+            drift::mcpdetail::runBeatAnalysis(snap, startUs, durUs, drift::usToSeconds(startUs));
+        QMetaObject::invokeMethod(
+            this,
+            [this, analysis, offsetUs, generation, compositeAssetId] {
+                if (generation != m_templateBeatFitGeneration)
+                    return;
+                m_templateBeatFitRunning = false;
+                emit templateBeatFitChanged();
+                applyTemplateBeatFit(compositeAssetId, analysis, offsetUs);
+            },
+            Qt::QueuedConnection);
+    });
+}
+
+void AppController::applyTemplateBeatFit(const QString &compositeAssetId, const AudioBeatAnalysis &analysis,
+                                         drift::TimeUs offsetUs)
+{
+    const drift::MediaAsset *asset = m_project.asset(compositeAssetId);
+    if (!asset)
+        return;
+    const QString sequenceId = asset->sequenceId;
+    const drift::TimeUs lengthUs = m_project.sequenceDurationUs(sequenceId);
+    QList<drift::TimeUs> beats;
+    for (const double b : analysis.beats)
+        beats.append(drift::secondsToUs(b) - offsetUs);
+    if (beats.size() < 2) {
+        // No steady tempo: the strong hits will do.
+        for (const AudioOnset &onset : analysis.onsets) {
+            if (onset.strength >= 0.35f)
+                beats.append(drift::secondsToUs(onset.seconds) - offsetUs);
+        }
+        std::sort(beats.begin(), beats.end());
+    }
+    const bool steady = beats.size() < 2;
+    if (steady)
+        beats = drift::steadyBeatGrid(0, lengthUs); // silence: the 120 BPM the effect templates use
+
+    QList<drift::Track> *tracks = writableSequenceTracks(m_project, sequenceId);
+    if (!tracks)
+        return;
+    const drift::Project before = m_project.detachedCopy();
+    tracks = writableSequenceTracks(m_project, sequenceId);
+    const int moved = drift::retimeTemplateSlotsToBeats(
+        *tracks, beats, drift::secondsToUs(0.4), [this](const QString &assetId) -> drift::TimeUs {
+            const drift::MediaAsset *media = m_project.asset(assetId);
+            return media ? media->durationUs : 0;
+        });
+    if (moved == 0) {
+        setLastMessage(tr("The cuts already fall on the beat"), QStringLiteral("info"));
+        return;
+    }
+    pushProjectEdit(before, tr("Fit cuts to the beat"));
+    finishEdit(QString());
+    setLastMessage(steady ? tr("No beat found in the music: %n cut(s) now follow a steady 120 BPM beat", "", moved)
+                          : tr("%n cut(s) moved to the beat of the music", "", moved),
+                   QStringLiteral("info"));
+}
+
+void AppController::replaceTemplateMusic(const QString &compositeAssetId, const QUrl &url, bool fitCuts)
+{
+    const QString path = url.isLocalFile() ? url.toLocalFile() : url.toString();
+    if (!m_assetLibrary || !m_project.asset(compositeAssetId))
+        return;
+    if (!AssetLibrary::isAudioPath(path) && !AssetLibrary::isVideoPath(path)) {
+        setLastMessage(tr("Choose a song or an audio file"), QStringLiteral("warning"));
+        return;
+    }
+    const QStringList ids = m_assetLibrary->importLocalPaths({path});
+    if (ids.isEmpty())
+        return;
+    const QString musicId = ids.first();
+    const auto apply = [this, compositeAssetId, musicId, fitCuts] {
+        if (setTemplateMusicAsset(compositeAssetId, musicId) && fitCuts)
+            fitTemplateCutsToBeat(compositeAssetId);
+    };
+    if (!m_assetLibrary->isImportPending(musicId)) {
+        apply();
+        return;
+    }
+    auto connection = std::make_shared<QMetaObject::Connection>();
+    *connection = connect(m_assetLibrary, &AssetLibrary::assetMetadataChanged, this,
+                          [this, musicId, apply, connection](const QString &assetId) {
+                              if (assetId != musicId || m_assetLibrary->isImportPending(assetId))
+                                  return;
+                              disconnect(*connection);
+                              apply();
+                          });
+}
+
+bool AppController::setTemplateMusicAsset(const QString &compositeAssetId, const QString &musicAssetId)
+{
+    const drift::MediaAsset *asset = m_project.asset(compositeAssetId);
+    const drift::MediaAsset *music = m_project.asset(musicAssetId);
+    if (!asset || !music || music->durationUs <= 0 || !(music->kind == drift::MediaKind::Audio || music->hasAudio)) {
+        setLastMessage(tr("That file has no sound to use as music"), QStringLiteral("warning"));
+        return false;
+    }
+    const QString sequenceId = asset->sequenceId;
+    const drift::TimeUs lengthUs = m_project.sequenceDurationUs(sequenceId);
+    const drift::Project before = m_project.detachedCopy();
+    QList<drift::Track> *tracks = writableSequenceTracks(m_project, sequenceId);
+    if (!tracks || lengthUs <= 0)
+        return false;
+    music = m_project.asset(musicAssetId);
+
+    int audioTrack = -1;
+    for (int t = 0; t < tracks->size(); ++t) {
+        drift::Track &track = (*tracks)[t];
+        if (track.type != drift::TrackType::Audio)
+            continue;
+        if (audioTrack < 0)
+            audioTrack = t;
+        track.clips.clear();
+        track.transitions.clear();
+    }
+    if (audioTrack < 0) {
+        drift::Track track;
+        track.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        track.type = drift::TrackType::Audio;
+        track.name = tr("Music");
+        tracks->append(track);
+        audioTrack = int(tracks->size()) - 1;
+    }
+    drift::Clip clip;
+    clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    clip.type = drift::ClipType::Audio;
+    clip.assetId = music->id;
+    clip.path = music->path;
+    clip.name = music->name;
+    clip.timelineStart = 0;
+    clip.timelineDuration = qMin(lengthUs, music->durationUs);
+    clip.srcIn = 0;
+    clip.srcOut = clip.timelineDuration;
+    clip.fadeOutUs = qMin<drift::TimeUs>(500'000, clip.timelineDuration / 4);
+    (*tracks)[audioTrack].clips.append(clip);
+    // The music plays instead of the videos' own sound, as when a template comes with music.
+    for (drift::Track &track : *tracks) {
+        for (drift::Clip &other : track.clips) {
+            if (other.type == drift::ClipType::Video)
+                other.suppressEmbeddedAudio = true;
+        }
+    }
+    pushProjectEdit(before, tr("Template music"));
+    finishEdit(QString());
+    setLastMessage(tr("New music: %1").arg(music->name), QStringLiteral("info"));
+    return true;
+}
+
+// --- My brand ---------------------------------------------------------------------------------
+
+drift::BrandKit AppController::currentBrandKit() const
+{
+    QSettings settings;
+    settings.beginGroup(kBrandGroup);
+    drift::BrandKit kit;
+    kit.logoPath = settings.value(QStringLiteral("logo")).toString();
+    if (!kit.logoPath.isEmpty() && !QFileInfo::exists(kit.logoPath))
+        kit.logoPath.clear();
+    for (const QString &name : settings.value(QStringLiteral("colors")).toStringList()) {
+        const QColor color(name);
+        if (color.isValid())
+            kit.colors.append(color);
+    }
+    kit.fontFamily = settings.value(QStringLiteral("font")).toString();
+    return kit;
+}
+
+bool AppController::brandKitAutoApply() const
+{
+    QSettings settings;
+    return settings.value(QStringLiteral("brandKit/autoApply"), true).toBool();
+}
+
+bool AppController::templateWantsBrand(const QString &category, const QStringList &tags,
+                                       const QList<drift::Track> &tracks)
+{
+    if (category == QLatin1String("business") || tags.contains(QStringLiteral("logo"), Qt::CaseInsensitive)
+        || tags.contains(QStringLiteral("brand"), Qt::CaseInsensitive))
+        return true;
+    for (const drift::Track &track : tracks) {
+        for (const drift::Clip &clip : track.clips) {
+            if (!clip.brandRole.isEmpty() || clip.placeholderLabel.contains(QLatin1String("logo"), Qt::CaseInsensitive))
+                return true;
+        }
+    }
+    return false;
+}
+
+QVariantMap AppController::brandKit() const
+{
+    const drift::BrandKit kit = currentBrandKit();
+    QStringList colors;
+    for (const QColor &color : kit.colors)
+        colors.append(color.name(QColor::HexRgb));
+    return QVariantMap{
+        {QStringLiteral("logo"), kit.logoPath.isEmpty() ? QString() : QUrl::fromLocalFile(kit.logoPath).toString()},
+        {QStringLiteral("logoPath"), kit.logoPath},
+        {QStringLiteral("colors"), colors},
+        {QStringLiteral("font"), kit.fontFamily},
+        {QStringLiteral("autoApply"), brandKitAutoApply()},
+        {QStringLiteral("empty"), kit.isEmpty()},
+    };
+}
+
+bool AppController::setBrandKit(const QVariantMap &values)
+{
+    QSettings settings;
+    settings.beginGroup(kBrandGroup);
+    // The logo is copied in, so the kit survives the original being moved or deleted.
+    const QString logoUrl = values.value(QStringLiteral("logo")).toString();
+    QString logo = logoUrl.startsWith(QLatin1String("file:")) ? QUrl(logoUrl).toLocalFile() : logoUrl;
+    const QString dir = QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).filePath(QStringLiteral("brand"));
+    if (!logo.isEmpty() && QDir::cleanPath(QFileInfo(logo).absolutePath()) != QDir::cleanPath(dir)) {
+        if (!AssetLibrary::isImagePath(logo) || QImageReader(logo).size().isEmpty()) {
+            setLastMessage(tr("The logo has to be a picture (PNG, JPG, WebP…)"), QStringLiteral("warning"));
+            return false;
+        }
+        QDir().mkpath(dir);
+        const QString target = QDir(dir).filePath(
+            QStringLiteral("logo-%1.%2").arg(QDateTime::currentMSecsSinceEpoch()).arg(QFileInfo(logo).suffix().toLower()));
+        if (!QFile::copy(logo, target)) {
+            setLastMessage(tr("Could not copy the logo"), QStringLiteral("error"));
+            return false;
+        }
+        const QString old = settings.value(QStringLiteral("logo")).toString();
+        if (!old.isEmpty() && QDir::cleanPath(QFileInfo(old).absolutePath()) == QDir::cleanPath(dir))
+            QFile::remove(old);
+        logo = target;
+    } else if (logo.isEmpty()) {
+        const QString old = settings.value(QStringLiteral("logo")).toString();
+        if (!old.isEmpty() && QDir::cleanPath(QFileInfo(old).absolutePath()) == QDir::cleanPath(dir))
+            QFile::remove(old);
+    }
+    QStringList colors;
+    for (const QVariant &value : values.value(QStringLiteral("colors")).toList()) {
+        const QColor color(value.toString());
+        if (color.isValid() && colors.size() < 4)
+            colors.append(color.name(QColor::HexRgb));
+    }
+    settings.setValue(QStringLiteral("logo"), logo);
+    settings.setValue(QStringLiteral("colors"), colors);
+    settings.setValue(QStringLiteral("font"), values.value(QStringLiteral("font")).toString().trimmed());
+    settings.setValue(QStringLiteral("autoApply"), values.value(QStringLiteral("autoApply"), true).toBool());
+    settings.endGroup();
+    emit brandKitChanged();
+    setLastMessage(tr("My brand saved"), QStringLiteral("info"));
+    return true;
+}
+
+bool AppController::applyBrandKitToTemplate(const QString &compositeAssetId)
+{
+    const drift::MediaAsset *asset = m_project.asset(compositeAssetId);
+    const drift::BrandKit kit = currentBrandKit();
+    if (!asset || sceneGenerator(*asset).isEmpty())
+        return false;
+    if (kit.isEmpty()) {
+        setLastMessage(tr("Set up My brand first (Templates › My brand)"), QStringLiteral("warning"));
+        return false;
+    }
+    const QString sequenceId = asset->sequenceId;
+    const drift::Project before = m_project.detachedCopy();
+    QList<drift::Track> *tracks = writableSequenceTracks(m_project, sequenceId);
+    if (!tracks)
+        return false;
+    const drift::BrandApplyResult result = drift::applyBrandKit(*tracks, kit);
+    const int logos = fillLogoSlots(sequenceId, result.logoSlots);
+    if (result.recoloured + result.refonted + logos == 0) {
+        setLastMessage(tr("This template has no logo slot or brand texts to change"), QStringLiteral("info"));
+        return false;
+    }
+    if (m_assetLibrary)
+        m_assetLibrary->syncToProject();
+    pushProjectEdit(before, tr("Apply my brand"));
+    finishEdit(QString());
+    setLastMessage(tr("My brand applied"), QStringLiteral("info"));
+    return true;
+}
+
+int AppController::fillLogoSlots(const QString &sequenceId, const QStringList &placeholderIds)
+{
+    const drift::BrandKit kit = currentBrandKit();
+    if (placeholderIds.isEmpty() || kit.logoPath.isEmpty() || !m_assetLibrary)
+        return 0;
+    // One asset for the logo per project.
+    QString logoId;
+    for (const drift::MediaAsset &asset : m_project.assets()) {
+        if (asset.kind == drift::MediaKind::Image && QFileInfo(asset.path) == QFileInfo(kit.logoPath))
+            logoId = asset.id;
+    }
+    if (logoId.isEmpty()) {
+        QImageReader reader(kit.logoPath);
+        reader.setAutoTransform(true);
+        QSize size = reader.size();
+        if (reader.transformation() & QImageIOHandler::TransformationRotate90)
+            size.transpose();
+        if (size.isEmpty())
+            return 0;
+        drift::MediaAsset logo;
+        logo.kind = drift::MediaKind::Image;
+        logo.name = tr("My logo");
+        logo.path = kit.logoPath;
+        logo.thumbnailPath = kit.logoPath;
+        logo.width = size.width();
+        logo.height = size.height();
+        logoId = m_assetLibrary->addGeneratedAsset(logo);
+    }
+    if (logoId.isEmpty())
+        return 0;
+    int filled = 0;
+    for (const QString &placeholderId : placeholderIds) {
+        QString clipId;
+        for (const drift::Track &track : m_project.sequenceTracks(sequenceId)) {
+            for (const drift::Clip &clip : track.clips) {
+                if (clipId.isEmpty() && clip.placeholderId == placeholderId && !isTextKind(clip.type))
+                    clipId = clip.id;
+            }
+        }
+        if (!clipId.isEmpty() && fillTemplateSlotWithAsset(clipId, logoId, false, true))
+            ++filled;
+    }
+    return filled;
 }

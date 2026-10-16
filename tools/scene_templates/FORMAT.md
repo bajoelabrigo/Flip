@@ -92,6 +92,7 @@ Common keys (all times in **microseconds**, as JSON numbers):
 | `effects` | section 5 |
 | `sourceFrame` | crop `[x,y,w,h]` normalized, default `[0,0,1,1]` |
 | `placeholderId`, `placeholderLabel`, `placeholderEmpty` | template slot (media or text) |
+| `brandRole` | My brand mark (section 12): `logo`, `primary`, `secondary`, `accent`, `text`, `title` |
 | `disabled`, `masksLimitEffects` | written only when true |
 
 **Layout.** `x`,`y` = top-left of the clip's box, `width`,`height` = box size, all in **project pixels**
@@ -328,3 +329,38 @@ name (they go through `applyOne`).
 Traps (CLAUDE.md): the executable must live outside the repo (`Downloads\FlipStudio\pruebas\...`) or it cannot
 write files; run unsandboxed; a test run writes `recentProjects`/preferences to `HKCU\Software\Flip Studio`
 (export it before, restore after) and may leave `recovery\autosave.json`.
+
+## 12. Brand roles (My brand, 0.14.0)
+
+The app keeps a brand kit (logo, 2 to 4 colours, one font). A template takes it when it is inserted if
+its `category` is `business`, its `tags` include `logo` or `brand`, or any clip has a `brandRole` or a
+media slot whose `placeholderLabel` contains "logo"; any template takes it from "Apply my brand" in the
+Template panel. Mark clips with `brandRole` (`core/SceneTemplateTools.cpp`, `applyBrandKit`):
+
+| `brandRole` | on | takes |
+|---|---|---|
+| `logo` | a media slot (`placeholderId`) | the logo, fitted whole inside the slot's box (not cropped) |
+| `primary` | shape or text | colour 1 on its first fill layer (solid; the layer's alpha is kept) |
+| `secondary` | shape or text | colour 2 (else 1) |
+| `accent` | shape or text | colour 3 (else 2, else 1) |
+| `text` | text | colour 4; left alone when the kit has fewer than 4 colours |
+| `title` | text | only the font |
+
+Every text with any role takes the brand font. A template with no `brandRole` at all still gets the logo
+in a slot labelled "...logo..." and the font on its titles (the editable texts at least 80 % the size of
+the largest one). Give the logo slot a box with the logo's likely shape (square or wide) and label it
+"Tu logo".
+
+## 13. Faster use (0.14.0): what the app reads
+
+- **Use with my photos / Change template** rank templates by `slots` against the number of photos and by
+  the template's shape (`width`/`height`) against the shape most photos have; keep `slots` exact.
+- **Change template** refills slots in their number order (time, then bottom track first) and moves the
+  texts the user changed to the text of the same kind (phone to phone, title to title...). The kind is
+  guessed from the template's own sample text and `placeholderLabel` (`guessTemplateTextKind`): write
+  realistic samples ("+51 987 654 321", "S/ 29.90", "www.tunegocio.com") or labels ("Teléfono",
+  "Precio") so the form names each field.
+- **Fit the cuts to the beat** moves the cuts between consecutive media slots of one track (end to end,
+  or overlapping by a transition) to the music's beats, at least 0.4 s apart; the first start and the
+  last end stay. Text and shape timing is not touched, so time captions to the whole template or to
+  their own slot range loosely.

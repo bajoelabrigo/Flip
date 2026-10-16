@@ -87,6 +87,35 @@ Column {
         placeholderText: qsTr("Search templates")
     }
 
+    // The other way round: photos first, then the templates that fit them.
+    Flow {
+        id: quickRow
+        x: 12
+        width: parent.width - 24
+        topPadding: Theme.spacingSm
+        spacing: Theme.spacingSm
+
+        ThemedButton {
+            variant: "primary"
+            glyph: Theme.icons.image
+            text: qsTr("Use with my photos…")
+            tooltip: qsTr("Choose your photos and videos first: Flip suggests the templates that fit them and fills them in")
+            onClicked: {
+                const urls = FileDialogs.openFiles(qsTr("Choose photos and videos"), [AssetLibrary.mediaNameFilter()])
+                const chosen = urls.filter(u => u.toString().length > 0)
+                if (chosen.length > 0)
+                    EditorState.requestTemplatePicker("photos", "", chosen)
+            }
+        }
+        ThemedButton {
+            variant: "ghost"
+            glyph: Theme.icons.store
+            text: qsTr("My brand")
+            tooltip: qsTr("Your logo, colours and font for Business templates")
+            onClicked: EditorState.requestBrandKitDialog()
+        }
+    }
+
     Item {
         width: 1
         height: Theme.spacingSm
@@ -103,7 +132,7 @@ Column {
 
     Item {
         width: parent.width
-        height: Math.max(0, parent.height - search.height - Theme.spacingSm - categoryChips.height)
+        height: Math.max(0, parent.height - search.height - quickRow.height - Theme.spacingSm - categoryChips.height)
 
         EmptyState {
             anchors.centerIn: parent

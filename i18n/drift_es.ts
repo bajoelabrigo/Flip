@@ -5368,6 +5368,201 @@
         <source>Template deleted</source>
         <translation>Plantilla eliminada</translation>
     </message>
+    <message>
+        <source>Business name</source>
+        <translation>Nombre del negocio</translation>
+    </message>
+    <message>
+        <source>Phone</source>
+        <translation>Teléfono</translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation>Precio</translation>
+    </message>
+    <message>
+        <source>Discount</source>
+        <translation>Descuento</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Fecha</translation>
+    </message>
+    <message>
+        <source>Hours</source>
+        <translation>Horario</translation>
+    </message>
+    <message>
+        <source>Website</source>
+        <translation>Página web</translation>
+    </message>
+    <message>
+        <source>Email</source>
+        <translation>Correo</translation>
+    </message>
+    <message>
+        <source>Social media user</source>
+        <translation>Usuario en redes</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Dirección</translation>
+    </message>
+    <message>
+        <source>Call to action</source>
+        <translation>Llamada a la acción</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation>Título</translation>
+    </message>
+    <message>
+        <source>Subtitle</source>
+        <translation>Subtítulo</translation>
+    </message>
+    <message numerus="yes">
+        <source>Template added with %n of your photos. The rest did not fit: it has %1 slot(s).</source>
+        <translation>
+            <numerusform>Plantilla agregada con %n de tus fotos. Las demás no entraron: tiene %1 hueco(s).</numerusform>
+            <numerusform>Plantilla agregada con %n de tus fotos. Las demás no entraron: tiene %1 hueco(s).</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Template added with your %n photo(s). Fill the other slots in the panel on the right.</source>
+        <translation>
+            <numerusform>Plantilla agregada con tu foto. Rellena los otros huecos en el panel de la derecha.</numerusform>
+            <numerusform>Plantilla agregada con tus %n fotos. Rellena los otros huecos en el panel de la derecha.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Template added with your %n photo(s)</source>
+        <translation>
+            <numerusform>Plantilla agregada con tu foto</numerusform>
+            <numerusform>Plantilla agregada con tus %n fotos</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Templates are changed on the main timeline: close the composition first</source>
+        <translation>Las plantillas se cambian en la línea de tiempo principal: cierra primero la composición</translation>
+    </message>
+    <message>
+        <source>Put the template on the timeline first</source>
+        <translation>Pon primero la plantilla en la línea de tiempo</translation>
+    </message>
+    <message numerus="yes">
+        <source>Template changed: %n photo(s) carried over</source>
+        <translation>
+            <numerusform>Plantilla cambiada: pasó %n foto</numerusform>
+            <numerusform>Plantilla cambiada: pasaron %n fotos</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n text(s)</source>
+        <translation>
+            <numerusform>%n texto</numerusform>
+            <numerusform>%n textos</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n photo(s) did not fit in the new one</source>
+        <translation>
+            <numerusform>%n foto no entró en la nueva</numerusform>
+            <numerusform>%n fotos no entraron en la nueva</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Template texts</source>
+        <translation>Textos de la plantilla</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n text(s) changed</source>
+        <translation>
+            <numerusform>%n texto cambiado</numerusform>
+            <numerusform>%n textos cambiados</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>The template has no music: change its music first</source>
+        <translation>La plantilla no tiene música: ponle una primero</translation>
+    </message>
+    <message>
+        <source>Listening to the music to find its beat…</source>
+        <translation>Escuchando la música para encontrar su ritmo…</translation>
+    </message>
+    <message>
+        <source>The cuts already fall on the beat</source>
+        <translation>Los cortes ya caen en el ritmo</translation>
+    </message>
+    <message>
+        <source>Fit cuts to the beat</source>
+        <translation>Ajustar los cortes al ritmo</translation>
+    </message>
+    <message numerus="yes">
+        <source>No beat found in the music: %n cut(s) now follow a steady 120 BPM beat</source>
+        <translation>
+            <numerusform>No se encontró ritmo en la música: %n corte sigue ahora un ritmo fijo de 120 BPM</numerusform>
+            <numerusform>No se encontró ritmo en la música: %n cortes siguen ahora un ritmo fijo de 120 BPM</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n cut(s) moved to the beat of the music</source>
+        <translation>
+            <numerusform>%n corte movido al ritmo de la música</numerusform>
+            <numerusform>%n cortes movidos al ritmo de la música</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Choose a song or an audio file</source>
+        <translation>Elige una canción o un archivo de audio</translation>
+    </message>
+    <message>
+        <source>That file has no sound to use as music</source>
+        <translation>Ese archivo no tiene sonido para usarlo como música</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation>Música</translation>
+    </message>
+    <message>
+        <source>Template music</source>
+        <translation>Música de la plantilla</translation>
+    </message>
+    <message>
+        <source>New music: %1</source>
+        <translation>Música nueva: %1</translation>
+    </message>
+    <message>
+        <source>The logo has to be a picture (PNG, JPG, WebP…)</source>
+        <translation>El logo tiene que ser una imagen (PNG, JPG, WebP…)</translation>
+    </message>
+    <message>
+        <source>Could not copy the logo</source>
+        <translation>No se pudo copiar el logo</translation>
+    </message>
+    <message>
+        <source>My brand saved</source>
+        <translation>Mi marca guardada</translation>
+    </message>
+    <message>
+        <source>Set up My brand first (Templates › My brand)</source>
+        <translation>Configura primero Mi marca (Plantillas › Mi marca)</translation>
+    </message>
+    <message>
+        <source>This template has no logo slot or brand texts to change</source>
+        <translation>Esta plantilla no tiene hueco de logo ni textos de marca que cambiar</translation>
+    </message>
+    <message>
+        <source>Apply my brand</source>
+        <translation>Aplicar mi marca</translation>
+    </message>
+    <message>
+        <source>My brand applied</source>
+        <translation>Mi marca aplicada</translation>
+    </message>
+    <message>
+        <source>My logo</source>
+        <translation>Mi logo</translation>
+    </message>
 </context>
 <context>
     <name>AssetCategoryChips</name>
@@ -6375,6 +6570,81 @@
     <message>
         <source>This clip cannot take an adjustment</source>
         <translation>Este clip no admite una capa de ajuste</translation>
+    </message>
+</context>
+<context>
+    <name>BrandKitDialog</name>
+    <message>
+        <source>Main colour</source>
+        <translation>Color principal</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>Color secundario</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Color de acento</translation>
+    </message>
+    <message>
+        <source>Text colour</source>
+        <translation>Color del texto</translation>
+    </message>
+    <message>
+        <source>My brand</source>
+        <translation>Mi marca</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Guardar</translation>
+    </message>
+    <message>
+        <source>Your logo, colours and font. Business templates use them when you add one; any other template takes them with “Apply my brand” in its Template panel.</source>
+        <translation>Tu logo, tus colores y tu tipografía. Las plantillas de Negocios los usan al agregarlas; cualquier otra los toma con «Aplicar mi marca» en su panel Plantilla.</translation>
+    </message>
+    <message>
+        <source>Logo</source>
+        <translation>Logo</translation>
+    </message>
+    <message>
+        <source>Change logo…</source>
+        <translation>Cambiar el logo…</translation>
+    </message>
+    <message>
+        <source>Choose logo…</source>
+        <translation>Elegir el logo…</translation>
+    </message>
+    <message>
+        <source>Choose your logo</source>
+        <translation>Elige tu logo</translation>
+    </message>
+    <message>
+        <source>Pictures (*.png *.jpg *.jpeg *.webp)</source>
+        <translation>Imágenes (*.png *.jpg *.jpeg *.webp)</translation>
+    </message>
+    <message>
+        <source>Remove logo</source>
+        <translation>Quitar el logo</translation>
+    </message>
+    <message>
+        <source>Colours (2 to 4)</source>
+        <translation>Colores (de 2 a 4)</translation>
+    </message>
+    <message>
+        <source>Remove colour</source>
+        <translation>Quitar el color</translation>
+    </message>
+    <message>
+        <source>Add colour</source>
+        <translation>Agregar un color</translation>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation>Tipografía</translation>
+    </message>
+    <message>
+        <source>Use it in Business templates when I add them</source>
+        <translation>Usarla en las plantillas de Negocios al agregarlas</translation>
     </message>
 </context>
 <context>
@@ -16065,6 +16335,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Buscar plantillas</translation>
     </message>
     <message>
+        <source>Use with my photos…</source>
+        <translation>Usar con mis fotos…</translation>
+    </message>
+    <message>
+        <source>Choose your photos and videos first: Flip suggests the templates that fit them and fills them in</source>
+        <translation>Elige primero tus fotos y videos: Flip te sugiere las plantillas que les quedan y las rellena</translation>
+    </message>
+    <message>
+        <source>Choose photos and videos</source>
+        <translation>Elige fotos y videos</translation>
+    </message>
+    <message>
+        <source>My brand</source>
+        <translation>Mi marca</translation>
+    </message>
+    <message>
+        <source>Your logo, colours and font for Business templates</source>
+        <translation>Tu logo, tus colores y tu tipografía para las plantillas de Negocios</translation>
+    </message>
+    <message>
         <source>No scene templates yet</source>
         <translation>Todavía no hay plantillas de escena</translation>
     </message>
@@ -16198,6 +16488,89 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Other</source>
         <translation>Otras</translation>
+    </message>
+</context>
+<context>
+    <name>SceneTemplatePickerDialog</name>
+    <message>
+        <source>Change template</source>
+        <translation>Cambiar de plantilla</translation>
+    </message>
+    <message>
+        <source>Use with my photos</source>
+        <translation>Usar con mis fotos</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Cerrar</translation>
+    </message>
+    <message>
+        <source>vertical</source>
+        <translation>verticales</translation>
+    </message>
+    <message>
+        <source>horizontal</source>
+        <translation>horizontales</translation>
+    </message>
+    <message>
+        <source>square</source>
+        <translation>cuadradas</translation>
+    </message>
+    <message>
+        <source>%1 — from Stock: it downloads and goes in with your photos</source>
+        <translation>%1 — de Stock: se descarga y entra con tus fotos</translation>
+    </message>
+    <message numerus="yes">
+        <source>%1 — %n slot(s)</source>
+        <translation>
+            <numerusform>%1 — %n hueco</numerusform>
+            <numerusform>%1 — %n huecos</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Templates for your %n photo(s). Your photos and the texts you changed go into the one you choose, in order; one undo puts the old one back.</source>
+        <translation>
+            <numerusform>Plantillas para tu foto. Tu foto y los textos que cambiaste pasan a la que elijas; con deshacer vuelve la anterior.</numerusform>
+            <numerusform>Plantillas para tus %n fotos. Tus fotos y los textos que cambiaste pasan en orden a la que elijas; con deshacer vuelve la anterior.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n photo(s) or video(s), most of them %1. These templates fit them best; the highlighted count takes them all.</source>
+        <translation>
+            <numerusform>%n foto o video, %1. Estas plantillas son las que mejor le quedan; el número resaltado indica que entra entero.</numerusform>
+            <numerusform>%n fotos o videos, la mayoría %1. Estas plantillas son las que mejor les quedan; el número resaltado indica que entran todas.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n photo(s) or video(s). These templates fit them best; the highlighted count takes them all.</source>
+        <translation>
+            <numerusform>%n foto o video. Estas plantillas son las que mejor le quedan; el número resaltado indica que entra entero.</numerusform>
+            <numerusform>%n fotos o videos. Estas plantillas son las que mejor les quedan; el número resaltado indica que entran todas.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>In Templates</source>
+        <translation>En Plantillas</translation>
+    </message>
+    <message>
+        <source>No installed template takes photos yet.</source>
+        <translation>Todavía no tienes plantillas instaladas que lleven fotos.</translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation>De Stock</translation>
+    </message>
+    <message>
+        <source>Sign in (My account) to see the Stock templates that fit too.</source>
+        <translation>Inicia sesión (Mi cuenta) para ver también las plantillas de Stock que les quedan.</translation>
+    </message>
+    <message>
+        <source>Looking in Stock…</source>
+        <translation>Buscando en Stock…</translation>
+    </message>
+    <message>
+        <source>Nothing else in Stock for this many photos.</source>
+        <translation>No hay más en Stock para esta cantidad de fotos.</translation>
     </message>
 </context>
 <context>
@@ -18372,6 +18745,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Abre lottiefiles.com en tu navegador</translation>
     </message>
     <message>
+        <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
+        <translation>¿Ya tienes tus fotos? Elígelas y Flip te sugiere las plantillas que les quedan.</translation>
+    </message>
+    <message>
+        <source>Use with my photos…</source>
+        <translation>Usar con mis fotos…</translation>
+    </message>
+    <message>
+        <source>Choose photos and videos</source>
+        <translation>Elige fotos y videos</translation>
+    </message>
+    <message>
         <source>Looking up that link…</source>
         <translation>Consultando ese enlace…</translation>
     </message>
@@ -19013,6 +19398,81 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Text</source>
         <translation>Texto</translation>
+    </message>
+    <message numerus="yes">
+        <source>Apply %n text(s)</source>
+        <translation>
+            <numerusform>Aplicar %n texto</numerusform>
+            <numerusform>Aplicar %n textos</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Apply texts</source>
+        <translation>Aplicar los textos</translation>
+    </message>
+    <message>
+        <source>Changes every text you edited at once (one undo step)</source>
+        <translation>Cambia de una vez todos los textos que editaste (un solo deshacer)</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation>Música</translation>
+    </message>
+    <message>
+        <source>The template&apos;s music</source>
+        <translation>La música de la plantilla</translation>
+    </message>
+    <message>
+        <source>No music in this template</source>
+        <translation>Esta plantilla no tiene música</translation>
+    </message>
+    <message>
+        <source>Fit the cuts to the beat of the new song</source>
+        <translation>Ajustar los cortes al ritmo de la canción nueva</translation>
+    </message>
+    <message>
+        <source>Change the music…</source>
+        <translation>Cambiar la música…</translation>
+    </message>
+    <message>
+        <source>Add music…</source>
+        <translation>Agregar música…</translation>
+    </message>
+    <message>
+        <source>A song from your computer, cut to the template&apos;s length</source>
+        <translation>Una canción de tu computadora, recortada al largo de la plantilla</translation>
+    </message>
+    <message>
+        <source>Choose a song</source>
+        <translation>Elige una canción</translation>
+    </message>
+    <message>
+        <source>Listening to the music…</source>
+        <translation>Escuchando la música…</translation>
+    </message>
+    <message>
+        <source>Fit the cuts to the beat</source>
+        <translation>Ajustar los cortes al ritmo</translation>
+    </message>
+    <message>
+        <source>Moves the change from one photo to the next onto the nearest beat, keeping their order (one undo step). Without a beat, a steady 120 BPM.</source>
+        <translation>Lleva el cambio de una foto a la siguiente al golpe más cercano, sin cambiar el orden (un solo deshacer). Sin ritmo, usa uno fijo de 120 BPM.</translation>
+    </message>
+    <message>
+        <source>Change template…</source>
+        <translation>Cambiar de plantilla…</translation>
+    </message>
+    <message>
+        <source>Another template with the same photos and texts</source>
+        <translation>Otra plantilla con las mismas fotos y textos</translation>
+    </message>
+    <message>
+        <source>Apply my brand</source>
+        <translation>Aplicar mi marca</translation>
+    </message>
+    <message>
+        <source>Your logo, colours and font (Templates › My brand)</source>
+        <translation>Tu logo, tus colores y tu tipografía (Plantillas › Mi marca)</translation>
     </message>
     <message>
         <source>Open the composition</source>
