@@ -52,7 +52,9 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   fechas y negocios, formatos 16:9/1:1), inicio de Stock tipo tienda, búsqueda y filtros, uso más rápido y novedades
   semanales. **Para el mundo entero:** nada de fiestas solo peruanas o latinas. Pagos, al final.
 
-### Stock › Superposiciones DESPLEGADO (2026-10-16), rama `flip/stock-superposiciones`
+### Stock ampliado y DESPLEGADO (2026-10-16), rama `flip/stock-superposiciones`
+- En producción: 533 plantillas, 222 animaciones (`tools/animations`, rama de stickers unida), 200 superposiciones,
+  200 sonidos, 200 fondos. Detalle en `docs/plan-stock.md` › Estado.
 - Regla de Jorge para Stock: mirar tendencias (CapCut, Instagram, Premiere, AE, Filmora…) y hacer **al menos 200 de
   cada tipo**, calidad antes que velocidad.
 - **200 superposiciones** hechas por código (`tools/overlays`: `fx.py` = kit, `designs*.py` = diseños, `build.py` =
@@ -71,7 +73,7 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - **Sonidos (200, desplegados):** `tools/sounds` (`dsp.py` = síntesis con numpy/scipy, `designs.py`, `build.py` = WAV
   48 kHz + MP3 de vista previa + tarjeta con la onda + `informe.txt` con nivel y centroide para revisar sin oír).
   Tipo `sound` (`media_kind: "audio"`). Revisar con espectrogramas: un whoosh con centroide de 8–10 kHz es siseo.
-- **Fondos (200, en `publicar/fondos`):** `tools/backgrounds` (45 motivos × 4 paletas + 10 fechas × 2), MP4 en bucle.
+- **Fondos (200, desplegados):** `tools/backgrounds` (45 motivos × 4 paletas + 10 fechas × 2), MP4 en bucle.
   Tipo `background`. **Trampa de bucles:** lo que avanza con `% periodo` tiene que moverse un periodo entero por
   vuelta (`(y + u * (h + m)) % (h + m)`), si no salta al reiniciar; medir primer vs. último cuadro.
 - **Trampa de proporción:** en coordenadas 0–1 de un cuadro 9:16, `y` vale 1,78 veces `x` en píxeles: un círculo

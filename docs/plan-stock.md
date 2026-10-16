@@ -95,7 +95,14 @@ la computadora de cada uno, así que lo que crece son los servidores de Stock, c
 ## Estado
 Jorge (2026-10-16): mirar las tendencias de CapCut, Instagram, Premiere, After Effects, Filmora… y hacer **al menos
 200 de cada tipo**, con calma y calidad primero.
-- **Superposiciones: 200, desplegadas** (2026-10-16): luces y destellos, partículas, celebración, amor, garabatos,
-  clima, película y retro, glitch, cámara y pantalla, marcos y texturas. `tools/overlays`.
-- **Plantillas:** 200 horizontales 16:9 y 200 reels más, en curso (rama `flip/stock-plantillas-400`).
-- Siguen: sonidos, stickers (hoy 65), LUTs y looks, textos animados, fondos, música por ánimo, tercios inferiores.
+**Desplegado el 2026-10-16** (llega ya a la 0.13.0, sin versión nueva):
+- **Plantillas: 533** (133 + 200 horizontales 16:9 + 200 reels), con filtro de formato vertical/horizontal.
+- **Animaciones (stickers Lottie): 222** en 14 categorías (nuevas: fechas especiales, comida, deportes, iconos).
+- **Superposiciones: 200** (WebM con transparencia): luces, partículas, celebración, amor, garabatos, clima,
+  película, glitch, cámara, marcos y texturas.
+- **Sonidos: 200** (sintetizados): transiciones, impactos, botones, juegos, magia, comedia, suspenso, ritmo.
+- **Fondos animados: 200** en bucle: degradados, geométricos, luces, texturas y fechas especiales.
+
+Siguen (necesitan la 0.14.0 de la app): LUTs y looks en Stock, textos animados, inicio de Stock tipo tienda,
+elegir variante vertical/horizontal, tarjetas anchas para las 16:9, vista previa de audio al pasar el mouse.
+Sin app: música por ánimo (falta una fuente CC0 o música propia de calidad).
