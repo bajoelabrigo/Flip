@@ -176,3 +176,29 @@ destacadas ([Speckyboy](https://speckyboy.com/premiere-pro-templates-presets-you
   algunas (`templates_rest.py`: product-01/04, fashion-05): revisarlas aparte.
 - Para elegir el momento de la miniatura: `thumb_at` evita los cortes exactos (en un cambio de clip la captura
   puede salir sin el texto del clip que entra).
+- 2026-10-16 (tarde): las 133 viejas ya no usan fotos de `kit.BLOCKED`; textos para todo el mundo (sin soles, sin
+  lugares ni fiestas solo peruanas o latinas).
+
+## Formatos: 200 posts 1:1, 50 historias de 15 s, 50 anuncios de 6 s, 50 miniaturas (Jorge, 2026-10-16)
+
+Pedido: todo lo que no necesita versión nueva de la app. Investigación: en carruseles y posts de feed mandan las
+listas y consejos, las frases, los catálogos de producto y las promociones ([Creative Market](https://creativemarket.com/rowcreative/12609049-Minimal-Instagram-Carousel),
+[Pixelbuddha](https://pixelbuddha.net/social/6093-makeshift-carousel-quotes)); en miniaturas, una cara clara con una
+emoción, tres palabras o menos, dos o tres colores de alto contraste y nada en la esquina inferior derecha
+([vidIQ](https://vidiq.com/blog/post/youtube-custom-thumbnails-ctr/), [Unilink](https://www.unilink.us/blog/youtube-thumbnail-design-2026));
+en anuncios de 6 s, una sola imagen fuerte para abrir, 1-2 s gancho, 3-4 mensaje, 5-6 marca y llamada, y que se
+entienda sin sonido ([Think with Google](https://www.thinkwithgoogle.com/intl/en-gb/marketing-strategies/video/youtube-bumper-ads-best-practices-video-editing),
+[PMG](https://www.pmg.com/blog/6-second-video-best-practices)).
+
+- **1:1** (`Template(..., size=SQUARE)`, 1080×1080): `posts.py` tiene 13 familias (poster, split, price, quote, list,
+  event, testimonial, grid, stack, before/after, número grande, menú, carrusel), cada una con interruptores de estilo;
+  `templates_s1.py`…`s4.py` son especificaciones (ofertas y productos; frases, texto, testimonios y eventos; fechas y
+  celebraciones; carruseles, antes y después, menús y posts del día). order 4000–4399, ids `s-*`, categorías de
+  siempre. Tarjeta 9:16: el cuadrado sobre una copia desenfocada con la etiqueta «1:1» (`square_card`), más
+  `thumbnail-square.png` y `preview-square.mp4`.
+- **Historias de 15 s** (`templates_f1.py`, categoría `story15`, ids `st-*`, order 5000–5049): gancho en el primer
+  segundo, barras de progreso genéricas arriba, una foto por tramo con su texto, llamada al final.
+- **Anuncios de 6 s** (`templates_f2.py`, categoría `ad6`, ids `ad-v-*` 9:16 y `ad-h-*` 16:9, order 5100–5149).
+- **Miniaturas** (`templates_y1.py`, categoría `thumbnail`, ids `mini-*`, order 5200–5249): 3 s casi fijos, el
+  momento de la miniatura es el estado final. Sin logos ni rojo de plataformas.
+- `formats.py` tiene las familias de historias, anuncios y miniaturas.

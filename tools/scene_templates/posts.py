@@ -184,11 +184,11 @@ def split(spec):
                 label=spec.get("plabel", "Tu foto"))
     align = "left"
     _title(t, spec, Box(tb.x, tb.y, tb.w, tb.h * 0.5), align=align, size=spec.get("size", 84))
-    _sub(t, spec, "sub", Box(tb.x, tb.y + tb.h * 0.52, tb.w, tb.h * 0.25), size=38, align=align)
+    _sub(t, spec, "sub", Box(tb.x, tb.y + tb.h * 0.5, tb.w, 110), size=38, align=align)
     if spec.get("items"):
         for i, it in enumerate(spec["items"]):
             label(t, t.track("text", "Punto"), "• " + it, 1.2 + i * 0.3, t.duration - 1.2 - i * 0.3,
-                  Box(tb.x, tb.y + tb.h * 0.5 + i * 64, tb.w, 60), spec.get("body", "Montserrat"), 36, p["fg"],
+                  Box(tb.x, tb.y + tb.h * 0.5 + 120 + i * 60, tb.w, 56), spec.get("body", "Montserrat"), 36, p["fg"],
                   weight=600, align="left", anim_in=tanim("slide-right", duration=0.3, distance=0.15), name=f"Punto {i + 1}")
     _cta(t, spec, Box(tb.x, tb.y + tb.h - 90, min(tb.w, 420), 90), size=34)
     _badge(t, spec, Box(pb.x + 30, pb.y + 30, 260, 64))
@@ -305,15 +305,15 @@ def event(spec):
     _bg(t, spec)
     look = spec.get("look", "circle")
     if look == "circle":
-        circle_photo(t, spec["photo"], 0.2, t.duration - 0.2, centered(780, 330, 440, 440), pop(0, 0.5),
+        circle_photo(t, spec["photo"], 0.2, t.duration - 0.2, centered(800, 270, 400, 400), pop(0, 0.5),
                      ring_colour=p["accent"], ring_width=10, label="Foto")
     elif look == "band":
         t.photo(t.track("video", "Foto"), spec["photo"], 0, t.duration, Box(0, 0, 1080, 420), kb(t.duration, 1.0, 1.06),
                 label="Foto")
     else:
-        framed(t, spec["photo"], 0.2, t.duration - 0.2, Box(560, 80, 440, 520), pop(0, 0.5, 0.7), border=12,
+        framed(t, spec["photo"], 0.2, t.duration - 0.2, Box(600, 70, 400, 440), pop(0, 0.5, 0.7), border=12,
                rotation=keys([(0, 4)]), label="Foto")
-    cal = Box(70, 470 if look == "band" else 100, 230, 250)
+    cal = Box(70, 330 if look == "band" else 100, 230, 250)
     rrect(t, t.track("shape", "Calendario"), "#FFFFFF", 0.4, t.duration - 0.4, cal, 26, pop(0, 0.45),
           layers=[shadow("#000000", 0, 10, 20, 0.3), fill("#FFFFFF"), no_stroke()])
     t.solid(t.track("shape", "Calendario"), p["accent"], 0.4, t.duration - 0.4, Box(cal.x, cal.y, cal.w, 74), pop(0, 0.45),
@@ -324,11 +324,13 @@ def event(spec):
     label(t, t.track("text", "Día"), day, 0.5, t.duration - 0.5, Box(cal.x, cal.y + 74, cal.w, 176), "Montserrat",
           120 if len(day) <= 2 else 64,
           p.get("ink2", "#1D3557"), weight=800, motion=pop(0, 0.45), name="Día")
-    ty = cal.y + cal.h + 40
-    _title(t, spec, Box(70, ty, 940, 220), size=spec.get("size", 88), align="left", at=0.8)
+    # band: the calendar overlaps the photo's bottom edge and the title sits beside it
+    tbox = Box(330, 450, 700, 220) if look == "band" else Box(70, 560, 940, 220)
+    _title(t, spec, tbox, size=spec.get("size", 88) if look != "band" else min(spec.get("size", 88), 80), align="left",
+           at=0.8)
     for i, (ic, txt) in enumerate(spec["rows"]):
         at = 1.6 + i * 0.3
-        y = ty + 230 + i * 80
+        y = (700 if look == "band" else 790) + i * 80
         label(t, t.track("text", "Dato"), f"{ic}  {txt}", at, t.duration - at, Box(70, y, 940, 70),
               spec.get("body", "Montserrat"), 40, p["fg"], weight=600, align="left", anim_in=tanim("fade", duration=0.3),
               name=f"Dato {i + 1}")
@@ -402,8 +404,8 @@ def grid(spec):
     if spec.get("title"):
         tb = spec.get("tbox", Box(190, 450, 700, 180))
         label(t, t.track("text", "Título"), spec["title"], 0.4 + len(boxes) * spec.get("step", 0.35), t.duration - 1.5, tb,
-              spec.get("font", "DM Serif Display"), spec.get("size", 72), p["fg"], weight=spec.get("weight", 400),
-              box_bg=(p["accent"], 0.92), box_pad=24, box_radius=20, anim_in=tanim("pop", duration=0.4), name="Título")
+              spec.get("font", "DM Serif Display"), spec.get("size", 72), p.get("ink", "#FFFFFF"),
+              weight=spec.get("weight", 400), box_bg=(p["accent"], 0.92), box_pad=24, box_radius=20, anim_in=tanim("pop", duration=0.4), name="Título")
     _deco(t, spec)
     song(t, spec.get("mood", "upbeat"), spec.get("pick", 5), 0.75)
     return t
@@ -553,8 +555,8 @@ def carousel(spec):
     caps = spec.get("caps") or []
     for i, c in enumerate(caps):
         label(t, t.track("text", "Pie"), c, i * each + 0.3, each - 0.5, Box(80, 860, 920, 120), spec.get("font", "DM Serif Display"),
-              spec.get("size", 72), p["fg"], weight=spec.get("weight", 400),
-              layers=[shadow("#000000", 0, 4, 14, 0.6), fill(p["fg"])], anim_in=tanim("slide-up", duration=0.35),
+              spec.get("size", 72), "#FFFFFF", weight=spec.get("weight", 400),
+              layers=[shadow("#000000", 0, 4, 16, 0.75), fill("#FFFFFF")], anim_in=tanim("slide-up", duration=0.35),
               anim_out=tanim("fade", duration=0.25), name=f"Pie {i + 1}")
     _deco(t, spec)
     song(t, spec.get("mood", "calm"), spec.get("pick", 2), 0.75)
