@@ -30,15 +30,15 @@ def producto_estrella() -> Template:
     hero = [(0, {"s": 0.9}, "out"), (3.0, {"s": 1.06})]
     t.solid(cards, "#FFF4E6", 0, 3.0, centered(540, 900, 860, 1100), hero, radius=40, kind="rounded-rectangle",
             layers=[shadow("#7a2200", 0, 24, 50, 0.45), fill("#FFF4E6"), no_stroke()], rotation=keys([(0, -3)]))
-    t.photo(photos, "product-01", 0, 3.0, hero_box, hero, label="Producto", rotation=keys([(0, -3)]))
-    t.photo(photos, "product-04", 3.0, 1.5, FULL, [(0, {"s": 1.15}, "snap"), (0.25, {"s": 1.02}, "linear"), (1.5, {"s": 1.0})],
+    t.photo(photos, "skincare-03", 0, 3.0, hero_box, hero, label="Producto", rotation=keys([(0, -3)]))
+    t.photo(photos, "skincare-02", 3.0, 1.5, FULL, [(0, {"s": 1.15}, "snap"), (0.25, {"s": 1.02}, "linear"), (1.5, {"s": 1.0})],
             label="Detalle 1")
-    t.photo(photos, "fashion-05", 4.5, 1.5, FULL, [(0, {"s": 1.15}, "snap"), (0.25, {"s": 1.02}, "linear"), (1.5, {"s": 1.0})],
+    t.photo(photos, "outfit-04", 4.5, 1.5, FULL, [(0, {"s": 1.15}, "snap"), (0.25, {"s": 1.02}, "linear"), (1.5, {"s": 1.0})],
             label="Detalle 2")
     t.solid(cards, "#FFF4E6", 6.0, 2.0, centered(540, 900, 860, 1100), [(0, {"s": 0.8}, "back"), (0.4, {})], radius=40,
             kind="rounded-rectangle", layers=[shadow("#7a2200", 0, 24, 50, 0.45), fill("#FFF4E6"), no_stroke()],
             rotation=keys([(0, 3)]))
-    t.photo(photos, "product-01", 6.0, 2.0, hero_box, [(0, {"s": 0.8}, "back"), (0.4, {})], reuse="p1",
+    t.photo(photos, "skincare-03", 6.0, 2.0, hero_box, [(0, {"s": 0.8}, "back"), (0.4, {})], reuse="p1",
             rotation=keys([(0, 3)]))
     badge = t.track("shape", "Insignia")
     t.solid(badge, "#FFD23F", 0.5, 2.5, centered(860, 380, 260, 260), pop(), kind="burst", points=14, innerRatio=0.82,
@@ -73,7 +73,7 @@ def oferta_flash() -> Template:
     photos = t.track("video", "Fotos")
     box = centered(540, 980, 860, 980)
     for i in range(12):
-        t.photo(photos, ["product-04", "product-01"][i % 2], i * beat(1), beat(1), box,
+        t.photo(photos, ["skincare-02", "skincare-03"][i % 2], i * beat(1), beat(1), box,
                 [(0, {"s": 1.08}, "snap"), (0.15, {})], reuse=None if i < 2 else f"p{i % 2 + 1}",
                 label=f"Producto {i % 2 + 1}")
     for y, rot, direction in ((170, -6, 1), (1760, 5, -1)):

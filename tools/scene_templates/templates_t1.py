@@ -571,7 +571,7 @@ def regalo_sorpresa() -> Template:
     gift = [(0, {"s": 0.15, "dy": 180}, "back"), (0.55, {}, "linear"), (2.7, {"s": 1.04})]
     t.solid(cards, "#FFFFFF", 2.7, 2.7, card_box, gift, radius=30, kind="rounded-rectangle",
             layers=[shadow("#3D0000", 0, 20, 40, 0.45), fill("#FFFFFF"), no_stroke()], rotation=rot(-3))
-    t.photo(photos, "product-04", 2.7, 2.7, photo_box, gift, label="Tu regalo", rotation=rot(-3))
+    t.photo(photos, "box-02", 2.7, 2.7, photo_box, gift, label="Tu regalo", rotation=rot(-3))
     react = [(0, {"dx": 1100}, "out"), (0.45, {}, "linear"), (2.6, {"s": 1.04})]
     t.solid(cards, "#FFFFFF", 5.4, 2.6, card_box, react, radius=30, kind="rounded-rectangle",
             layers=[shadow("#3D0000", 0, 20, 40, 0.45), fill("#FFFFFF"), no_stroke()], rotation=rot(3))
@@ -835,7 +835,7 @@ def black_friday_ofertas() -> Template:
     red = "#FF1E1E"
     frames = t.track("shape", "Marco")
     photos = t.track("video", "Productos")
-    samples = ["shopping-03", "product-04", "outfit-04", "shopping-04"]
+    samples = ["shopping-03", "shopping-02", "outfit-04", "shopping-04"]
     frame_box, photo_box = centered(540, 980, 840, 1080), centered(540, 980, 800, 1040)
     for i in range(14):
         start = 0.5 + i * beat(1)
@@ -949,7 +949,7 @@ def cyber_monday() -> Template:
             kind="rounded-rectangle", layers=[glow(cyan, 40, 0.8), stroke(6, cyan), fill("#0A0A14")])
     screen = t.track("video", "Pantalla")
     clips = []
-    for i, (sample, start, end) in enumerate([("product-04", 0.2, 2.6), ("outfit-02", 2.6, 4.6),
+    for i, (sample, start, end) in enumerate([("shopping-01", 0.2, 2.6), ("outfit-02", 2.6, 4.6),
                                               ("shopping-03", 4.6, 8.0)]):
         motion = phone if i == 0 else None
         clips.append(t.photo(screen, sample, start, end - start, centered(540, 1060, 556, 1076), motion,

@@ -717,8 +717,8 @@ def intro_suscriptores():
              tags=["suscriptores", "contador", "celebración", "intro", "youtube", "hito"], thumb_at=4.6,
              background="#0F0F0F")
     bg_gradient(t, [(0, "#1C1C1C"), (1, "#0A0A0A")], angle=90)
-    confetti(t, ["#FF0033", "#FFFFFF", "#FFD23F", "#3EC1FF"], 3.4, 2.6, seed=27, lanes=3, density=0.25)
-    circle_photo(t, "h-portrait-04", 0.2, 5.8, centered(960, 300, 300, 300), pop(0, 0.5), ring_colour="#FF0033",
+    confetti(t, ["#FF8C42", "#FFFFFF", "#FFD23F", "#3EC1FF"], 3.4, 2.6, seed=27, lanes=3, density=0.25)
+    circle_photo(t, "h-portrait-04", 0.2, 5.8, centered(960, 300, 300, 300), pop(0, 0.5), ring_colour="#FF8C42",
                  ring_width=10, label="Tu foto de perfil")
     values = ["0", "1.204", "8.930", "24.511", "51.876", "78.032", "93.448", "99.999"]
     nums = t.track("text", "Contador")
@@ -729,7 +729,7 @@ def intro_suscriptores():
           "Montserrat", 190, "#FFFFFF", weight=900, anim_in=tanim("pop", duration=0.4),
           anim_loop=tanim("pulse", amount=3, speed=1.2), name="Número final")
     label(t, t.track("text", "Sub"), "¡GRACIAS POR SER PARTE!", 3.6, 2.4, Box(460, 720, 1000, 80), "Montserrat", 50,
-          "#FF0033", weight=800, spacing=6, anim_in=tanim("rise", duration=0.4), name="Mensaje")
+          "#FF8C42", weight=800, spacing=6, anim_in=tanim("rise", duration=0.4), name="Mensaje")
     label(t, t.track("text", "Campana"), "🔔", 3.4, 2.6, centered(1390, 330, 160, 160), "Inter", 110, "#FFD23F",
           weight=400, editable=False, rotation=keys([(0, -20, "smooth"), (0.15, 20, "smooth"), (0.3, -15, "smooth"),
                                                      (0.45, 10, "smooth"), (0.6, 0)]), motion=pop(0, 0.4))

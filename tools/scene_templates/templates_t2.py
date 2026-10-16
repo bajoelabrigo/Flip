@@ -481,7 +481,7 @@ def pantalla_triple() -> Template:
     t.solid(t.track("shape", "Fondo"), "#000000")
     gap = 12
     h = (1920 - 2 * gap) / 3
-    rounds = [["skate-01", "city-02", "fashion-03"], ["man-05", "cusco-04", "skate-02"]]
+    rounds = [["skate-01", "city-02", "fashion-03"], ["man-05", "cusco-04", "skate-03"]]
     for r, samples in enumerate(rounds):
         for i, sample in enumerate(samples):
             side = -1 if (i + r) % 2 == 0 else 1
@@ -780,7 +780,7 @@ def edicion_callejera() -> Template:
     t = Template("edicion-callejera", "Edición callejera", "Street edit", "reels", 9.0,
                  order=1190, tags=["skate", "calle", "urbano", "crew", "ciudad"], thumb_at=3.3)
     photos = t.track("video", "Tomas")
-    samples = ["skate-01", "man-05", "city-02", "skate-02", "fashion-03", "cusco-04"]
+    samples = ["skate-01", "man-05", "city-02", "skate-03", "fashion-03", "cusco-04"]
     clips = []
     for i, sample in enumerate(samples):
         side = 60 if i % 2 else -60

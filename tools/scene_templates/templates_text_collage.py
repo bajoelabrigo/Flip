@@ -70,7 +70,7 @@ def tira_pelicula() -> Template:
         t.text(holes, column, 0, 7.0, Box(x, 960 - pitch / 2 - 120, 48, 6 * pitch + 240),
                text_style("Inter", 34, [fill("#F2E8D8", 0.85)], weight=400, line=2.0, valign="top"),
                strip_motion, editable=False, opacity=fade_out)
-    samples = ["friends-06", "beach-03", "couple-03", "friends-09", "travel-07", "family-06"]
+    samples = ["friends-06", "beach-03", "couple-03", "friends-09", "travel-07", "family-05"]
     for i, sample in enumerate(samples):
         frames = t.track("video", f"Cuadro {i + 1}")
         box = centered(540, 960 + i * pitch, frame_w, frame_h)

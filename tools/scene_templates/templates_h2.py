@@ -151,10 +151,10 @@ def tercio_redes():
     pill(t, t.track("shape", "Píldora"), "#111111", IN, OUT - IN, Box(120, 840, 640, 110),
          [(0, {"s": 0.0}, "back"), (0.45, {}, "hold"), (OUT - IN - 0.3, {}, "in"), (OUT - IN, {"s": 0.0})],
          layers=[shadow("#000000", 0, 8, 20, 0.35), fill("#111111", 0.9), no_stroke()])
-    t.solid(t.track("shape", "Icono"), "#FF3CAC", IN + 0.15, OUT - IN - 0.15, centered(185, 895, 80, 80),
-            pop(0, 0.4), kind="rounded-rectangle", radius=22,
-            layers=[gradient([(0, "#FFC371"), (0.5, "#FF3CAC"), (1, "#784BA0")], angle=45), no_stroke()])
-    ring(t, t.track("shape", "Icono"), "#FFFFFF", 6, IN + 0.2, OUT - IN - 0.2, centered(185, 895, 40, 40), pop(0, 0.4))
+    t.solid(t.track("shape", "Icono"), "#FF8C42", IN + 0.15, OUT - IN - 0.15, centered(185, 895, 80, 80),
+            pop(0, 0.4), kind="ellipse")
+    label(t, t.track("text", "Icono"), "@", IN + 0.15, OUT - IN - 0.15, centered(185, 893, 80, 80), "Poppins", 50,
+          "#FFFFFF", weight=800, editable=False, motion=pop(0, 0.4))
     label(t, t.track("text", "Usuario"), "@lauraviaja", IN + 0.3, OUT - IN - 0.3, Box(245, 840, 500, 110), "Poppins", 52,
           "#FFFFFF", weight=700, align="left", anim_in=tanim("typewriter", duration=0.6, unit="character"),
           anim_out=tanim("fade", duration=0.2), name="Usuario")
@@ -398,12 +398,12 @@ def tercio_suscribete():
     circle_photo(t, "h-portrait-04", IN + 0.1, OUT - IN - 0.1, centered(1250, 920, 90, 90), pop(0, 0.4),
                  label="Foto del canal")
     btn = t.track("shape", "Botón")
-    pill(t, btn, "#E10600", IN + 0.2, 2.0, Box(1320, 880, 330, 80), pop(0, 0.35))
+    pill(t, btn, "#6C63FF", IN + 0.2, 2.0, Box(1320, 880, 330, 80), pop(0, 0.35))
     pill(t, btn, "#9E9E9E", IN + 2.2, OUT - IN - 2.2, Box(1320, 880, 330, 80), [(0, {"s": 0.9}, "back"), (0.25, {})])
     txt = t.track("text", "Botón")
-    label(t, txt, "SUSCRIBIRSE", IN + 0.2, 2.0, Box(1320, 880, 330, 80), "Roboto", 36, "#FFFFFF", weight=700,
+    label(t, txt, "SUSCRIBIRSE", IN + 0.2, 2.0, Box(1320, 880, 330, 80), "Poppins", 34, "#FFFFFF", weight=700,
           name="Botón")
-    label(t, txt, "SUSCRITO ✓", IN + 2.2, OUT - IN - 2.2, Box(1320, 880, 330, 80), "Roboto", 36, "#FFFFFF", weight=700,
+    label(t, txt, "SUSCRITO ✓", IN + 2.2, OUT - IN - 2.2, Box(1320, 880, 330, 80), "Poppins", 34, "#FFFFFF", weight=700,
           name="Botón pulsado")
     label(t, t.track("text", "Campana"), "🔔", IN + 0.4, OUT - IN - 0.4, centered(1730, 920, 100, 100), "Inter", 60,
           "#111111", weight=400, editable=False, motion=pop(0, 0.4),
@@ -901,12 +901,12 @@ def cierre_gracias():
     label(t, t.track("text", "Gracias"), "¡Gracias por ver!", 0.3, 6.7, Box(160, 250, 1600, 240), "Pacifico", 170,
           "#FFFFFF", weight=400, layers=[shadow("#000000", 0, 6, 18, 0.5), fill("#FFFFFF")],
           anim_in=tanim("pop", duration=0.5, unit="word", stagger=0.15, ease="back"), name="Gracias")
-    handles = [("▶", "Tu Canal", "#FF0033"), ("◎", "@tucanal", "#C13584"), ("♪", "@tucanal", "#111111")]
+    handles = [("▶", "Tu Canal", "#FF8C42"), ("@", "@tucanal", "#6C63FF"), ("♪", "@tucanal", "#2A9D8F")]
     for i, (g, h, c) in enumerate(handles):
         x = 420 + i * 540
         at = 1.4 + i * 0.25
-        rrect(t, t.track("shape", "Icono"), c, at, 7.0 - at, centered(x - 150, 680, 90, 90), 24, pop(0, 0.4),
-              layers=[shadow("#000000", 0, 6, 14, 0.4), fill(c), stroke(3, "#FFFFFF")])
+        t.solid(t.track("shape", "Icono"), c, at, 7.0 - at, centered(x - 150, 680, 90, 90), pop(0, 0.4), kind="ellipse",
+                layers=[shadow("#000000", 0, 6, 14, 0.4), fill(c), stroke(3, "#FFFFFF")])
         label(t, t.track("text", "Icono"), g, at, 7.0 - at, centered(x - 150, 680, 90, 90), "Inter", 50, "#FFFFFF",
               weight=700, editable=False, motion=pop(0, 0.4))
         label(t, t.track("text", "Red"), h, at + 0.1, 6.9 - at, Box(x - 90, 640, 400, 80), "Montserrat", 44, "#FFFFFF",
@@ -920,12 +920,12 @@ def cierre_suscribete_campana():
              order=2146, tags=["suscríbete", "campana", "botón", "youtube", "cierre"], thumb_at=1.95, background="#0F0F0F")
     bg_gradient(t, [(0, "#202020"), (1, "#0A0A0A")], angle=90)
     btn = t.track("shape", "Botón")
-    pill(t, btn, "#FF0033", 0.3, 2.4, centered(820, 540, 760, 180), pop(0, 0.45))
+    pill(t, btn, "#FF8C42", 0.3, 2.4, centered(820, 540, 760, 180), pop(0, 0.45))
     pill(t, btn, "#3A3A3A", 2.7, 3.3, centered(820, 540, 760, 180), [(0, {"s": 0.92}, "back"), (0.3, {})])
     txt = t.track("text", "Botón")
-    label(t, txt, "SUSCRÍBETE", 0.35, 2.35, centered(820, 540, 760, 180), "Roboto", 92, "#FFFFFF", weight=900,
+    label(t, txt, "SUSCRÍBETE", 0.35, 2.35, centered(820, 540, 760, 180), "Poppins", 88, "#FFFFFF", weight=800,
           spacing=4, name="Botón")
-    label(t, txt, "SUSCRITO ✓", 2.7, 3.3, centered(820, 540, 760, 180), "Roboto", 92, "#BBBBBB", weight=900, spacing=4,
+    label(t, txt, "SUSCRITO ✓", 2.7, 3.3, centered(820, 540, 760, 180), "Poppins", 88, "#BBBBBB", weight=800, spacing=4,
           name="Botón pulsado")
     label(t, t.track("text", "Cursor"), "➤", 1.2, 1.8, centered(920, 640, 120, 120), "Inter", 96, "#FFFFFF", weight=400,
           editable=False, layers=[stroke(5, "#000000"), fill("#FFFFFF")],
@@ -944,8 +944,8 @@ def cierre_suscribete_campana():
 
 def cierre_like():
     t = wide("h-cierre-like", "Dale like", "Hit like", "outro", 5.0, order=2147,
-             tags=["like", "me gusta", "pulgar", "cierre", "interacción"], thumb_at=2.6, background="#1565C0")
-    bg_gradient(t, [(0, "#1E88E5"), (1, "#0D47A1")], angle=135)
+             tags=["like", "me gusta", "pulgar", "cierre", "interacción"], thumb_at=2.6, background="#FF5E62")
+    bg_gradient(t, [(0, "#FF9966"), (1, "#FF4E7A")], angle=135)
     ring(t, t.track("shape", "Onda"), "#FFFFFF", 8, 1.0, 1.2, centered(960, 450, 400, 400), [(0, {"s": 0.6}, "out"),
                                                                                            (1.2, {"s": 2.2})],
          opacity=keys([(0, 0.8), (1.2, 0.0)]))
@@ -954,7 +954,7 @@ def cierre_like():
                                   (1.1, {})], rotation=keys([(0, -20, "back"), (0.5, 0)]))
     label(t, t.track("text", "Texto"), "¡Dale like si te gustó!", 1.2, 3.8, Box(160, 720, 1600, 160), "Poppins", 104,
           "#FFFFFF", weight=800, anim_in=tanim("rise", duration=0.4, unit="word", stagger=0.1), name="Texto")
-    dots(t, ["#FFFFFF", "#90CAF9", "#FFD23F"], 22, 1.0, 4.0, seed=47, size=(14, 34), kinds=("heart", "star", "ellipse"),
+    dots(t, ["#FFFFFF", "#FFE0B2", "#FFD23F"], 22, 1.0, 4.0, seed=47, size=(14, 34), kinds=("heart", "star", "ellipse"),
          area=Box(500, 200, 920, 500), drift=160)
     song(t, "fun", 0, 0.7)
     return t
@@ -969,11 +969,11 @@ def cierre_redes():
     label(t, t.track("text", "Título"), "Sígueme en redes", 0.8, 5.2, Box(260, 480, 1400, 140), "DM Serif Display", 104,
           "#111111", weight=400, anim_in=tanim("fade-up-char", duration=0.4, unit="character", stagger=0.02),
           name="Título")
-    nets = [("▶", "#FF0033"), ("◎", "#C13584"), ("♪", "#111111"), ("f", "#1877F2")]
+    nets = [("▶", "#FF8C42"), ("@", "#6C63FF"), ("♪", "#2A9D8F"), ("✉", "#E76F51")]
     for i, (g, c) in enumerate(nets):
         x = 660 + i * 200
         at = 1.4 + i * 0.15
-        rrect(t, t.track("shape", "Icono"), c, at, 6.0 - at, centered(x, 720, 130, 130), 34, pop(0, 0.4))
+        t.solid(t.track("shape", "Icono"), c, at, 6.0 - at, centered(x, 720, 130, 130), pop(0, 0.4), kind="ellipse")
         label(t, t.track("text", "Icono"), g, at, 6.0 - at, centered(x, 720, 130, 130), "Inter", 70, "#FFFFFF",
               weight=800, editable=False, motion=pop(0, 0.4))
     label(t, t.track("text", "Usuario"), "@tuusuario", 2.2, 3.8, Box(560, 830, 800, 90), "Montserrat", 56, "#111111",

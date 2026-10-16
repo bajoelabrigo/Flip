@@ -667,9 +667,9 @@ def nuevo_video():
              tags=["nuevo video", "estreno", "aviso", "youtube", "link"], thumb_at=2.6, background="#111111")
     photo_bg(t, "creator-04", s1=1.08, label="Miniatura del video")
     shade_full(t, 0.35)
-    t.solid(t.track("shape", "Botón"), "#FF0033", 0.4, 4.6, centered(540, 880, 300, 210), pop(0, 0.4), radius=60,
-            kind="rounded-rectangle")
-    t.solid(t.track("shape", "Botón"), "#FFFFFF", 0.5, 4.5, centered(555, 880, 80, 96), pop(0, 0.4), kind="triangle",
+    t.solid(t.track("shape", "Botón"), "#FFFFFF", 0.4, 4.6, centered(540, 880, 240, 240), pop(0, 0.4), kind="ellipse",
+            layers=[shadow("#000000", 0, 10, 24, 0.4), fill("#FFFFFF"), no_stroke()])
+    t.solid(t.track("shape", "Botón"), "#FF8C42", 0.5, 4.5, centered(555, 880, 80, 96), pop(0, 0.4), kind="triangle",
             rotation=keys([(0, 90)]))
     label(t, t.track("text", "Título"), "¡NUEVO VIDEO!", 0.8, 4.2, Box(60, 1080, 960, 200), "Anton", 150, "#FFFFFF", weight=400,
           spacing=6, layers=[shadow("#000000", 0, 6, 16, 0.6), fill("#FFFFFF")], anim_in=tanim("stamp", duration=0.3),
@@ -936,9 +936,9 @@ def vt_usuario():
     t = _vlt("r-vt-usuario", "@usuario vertical", "Vertical @handle", "selfie-03", 3346, ["usuario", "redes", "sígueme"])
     pill(t, t.track("shape", "Píldora"), "#FFFFFF", 0.5, 4.7, Box(140, 1520, 800, 140), [(0, {"s": 0.0}, "back"), (0.45, {}, "hold"),
                                                                                       (4.4, {}, "in"), (4.7, {"s": 0.0})])
-    t.solid(t.track("shape", "Icono"), "#FF3CAC", 0.6, 4.4, centered(230, 1590, 100, 100), pop(0, 0.35), radius=30,
-            kind="rounded-rectangle", layers=[gradient([(0, "#FFC371"), (0.5, "#FF3CAC"), (1, "#784BA0")], angle=45), no_stroke()])
-    ring(t, t.track("shape", "Icono"), "#FFFFFF", 7, 0.65, 4.35, centered(230, 1590, 50, 50), pop(0, 0.35))
+    t.solid(t.track("shape", "Icono"), "#FF8C42", 0.6, 4.4, centered(230, 1590, 100, 100), pop(0, 0.35), kind="ellipse")
+    label(t, t.track("text", "Icono"), "@", 0.6, 4.4, centered(230, 1588, 100, 100), "Poppins", 60, "#FFFFFF", weight=800,
+          editable=False, motion=pop(0, 0.35))
     label(t, t.track("text", "Usuario"), "@camiviaja", 0.7, 4.0, Box(300, 1520, 620, 140), "Poppins", 66, "#111111", weight=800,
           align="left", anim_in=tanim("typewriter", duration=0.6, unit="character"), name="Usuario")
     song(t, "upbeat", 4, 0.6)
