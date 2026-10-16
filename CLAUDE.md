@@ -60,11 +60,10 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   Retoque se aplican en C++ (`applyRetouchLook`); antes `addEffect` movía la selección, el panel de Video se
   descargaba a mitad del clic y los valores no llegaban. El tag `v0.13.0` se movió a `f6481` (el primero, `7c81c`,
   nunca llegó a release: falló la prueba de estabilizar por el aviso de OpenGL 3.0 del runner, ya tolerada).
-- **Retomar (Jorge apagó la PC con las builds en curso, 2026-10-16):** release run 38864046035 y MSIX run
-  38864080404. Comprobar que el release salió; bajar el MSIX a `tienda\FlipStudio-Store\paquete-0.13.0` (el de
-  `descartado-no-subir` es del tag viejo); copia en `versiones\FlipStudio-0.13.0`; en `flipstudio-web` ya están
-  sin commitear `addons/index.json` (con `cuerpo.cabello`, paquete ya subido) y las novedades 0.13.0: commit y
-  `deploy/deploy.sh`. Luego Jorge: TXT `version` = 0.13.0 y subir el MSIX con las notas «0.12.0 + 0.13.0».
+- **Publicada (2026-10-16):** release `v0.13.0` (run 38864046035), copia en `versiones\FlipStudio-0.13.0`, MSIX en
+  `tienda\FlipStudio-Store\paquete-0.13.0\FlipStudio-0.13.0.0-x64.msix` (run 38864080404; el de
+  `descartado-no-subir` es del tag viejo), extra `cuerpo.cabello` en el índice y novedades en la web.
+  **Falta (Jorge):** TXT `version` = 0.13.0 y subir el MSIX con las notas «0.12.0 + 0.13.0».
 
 ### 0.11.0 PUBLICADA (2026-10-15): plantillas editables, plantillas como composición, fotogramas en la pista
 - Rama `flip/plantillas-editables` → PR a `main`, tag `v0.11.0`. Notas en `release-notes/0.11.0.md`; novedades para
