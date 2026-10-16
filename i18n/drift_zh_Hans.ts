@@ -16001,6 +16001,18 @@ If playback stutters, try another.</source>
         <translation>商业</translation>
     </message>
     <message>
+        <source>Photo slideshows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower thirds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transitions and separators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>其他</translation>
     </message>

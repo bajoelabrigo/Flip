@@ -16119,6 +16119,18 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Biznes</translation>
     </message>
     <message>
+        <source>Photo slideshows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower thirds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transitions and separators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Inne</translation>
     </message>

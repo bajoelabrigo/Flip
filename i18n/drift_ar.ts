@@ -16296,6 +16296,18 @@ If playback stutters, try another.</source>
         <translation>أعمال</translation>
     </message>
     <message>
+        <source>Photo slideshows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower thirds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transitions and separators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>أخرى</translation>
     </message>

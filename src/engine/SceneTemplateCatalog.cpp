@@ -49,6 +49,12 @@ QString labelForCategory(const QString &slug)
         return QCoreApplication::translate("SceneTemplateCatalog", "Special dates");
     if (slug == QLatin1String("business"))
         return QCoreApplication::translate("SceneTemplateCatalog", "Business");
+    if (slug == QLatin1String("slideshow"))
+        return QCoreApplication::translate("SceneTemplateCatalog", "Photo slideshows");
+    if (slug == QLatin1String("lowerthird"))
+        return QCoreApplication::translate("SceneTemplateCatalog", "Lower thirds");
+    if (slug == QLatin1String("transition"))
+        return QCoreApplication::translate("SceneTemplateCatalog", "Transitions and separators");
     if (slug.isEmpty())
         return QCoreApplication::translate("SceneTemplateCatalog", "Other");
     QString label = slug;

@@ -88,3 +88,85 @@ Reglas comunes, además de las de arriba (miniaturas, licencias):
   variaciones de la misma. Entre 5 y 15 s; huecos (fotos) y textos editables con etiqueta clara.
 - Validar con `build.py --no-render --only <ids>` (paquetes sin abrir la app). El render de miniaturas y
   previas lo hace una sola sesión de la app al final.
+
+## Las 400 nuevas: 200 horizontales 16:9 y 200 reels (pedido de Jorge, 2026-10-16)
+
+> «Ayer trabajamos reels, pero no videos normales: crea 200 de esos también y 200 reels más.» Regla de Jorge:
+> mirar las tendencias de CapCut, Instagram, Premiere, After Effects, Filmora… y hacer esos diseños, con calma,
+> calidad antes que velocidad. Versiones propias: nunca archivos, nombres ni marcas de otros.
+
+**Investigación (octubre 2026).** CapCut: lo más usado siguen siendo cámara lenta + velocity, montajes de pareja,
+memes, cortes al ritmo, «photo dump» y plantillas mínimas de un clip
+([Hooked, 25-09-2026](https://www.hooked.so/capcut-templates/trending),
+[CapCut](https://www.capcut.com/help/latest-capcut-editing-trends)); de temporada, Halloween, otoño y Acción de
+Gracias ([CapCut octubre](https://www.capcut.com/template/calendar/october)). Para YouTube (Premiere, After Effects,
+Filmora, Envato, Motion Array, Clipchamp): intros y aperturas, revelación de logo, tercios inferiores (packs de
+100, duotono y sans gruesa), «suscríbete» con campana, pantallas finales con 2 videos y redes, tarjetas de
+capítulo, presentaciones con tinta, polaroids y glitch, looks VHS y película, intros de gaming y jugadas
+destacadas ([Speckyboy](https://speckyboy.com/premiere-pro-templates-presets-youtube-videos/),
+[presentaciones](https://speckyboy.com/?p=161802), [Clipchamp](https://clipchamp.com/es/youtube-templates/),
+[Filmora gaming](https://filmora.wondershare.com/templates/gaming-video-templates.html)).
+
+**Reglas** (además de las de arriba):
+- **Para el mundo entero:** nada solo peruano o latino; fechas internacionales; textos de ejemplo cortos y neutros.
+- Horizontales: `Template(..., size=WIDE)`, 1920×1080, cajas en píxeles de 1920×1080 (`FULL_H`, `t.full`). Su
+  tarjeta en la grilla 9:16 la arma `build.py` (`wide_card`: el cuadro 16:9 sobre una copia desenfocada, con la
+  etiqueta «16:9»), y guarda también `thumbnail-wide.png` y `preview-wide.mp4` para cuando la app tenga tarjetas
+  anchas. Fotos horizontales de ejemplo: temas `h-*` de `fetch_samples.py`.
+- Categorías nuevas: `slideshow` (Presentaciones de fotos), `lowerthird` (Tercios inferiores), `transition`
+  (Transiciones y separadores). El resto, las de siempre. `order`: horizontales 2000–2999, reels 3000–3999.
+
+### Horizontales 16:9 (200)
+
+- **h1 · intros (30), transiciones (12), cuentas (8)** — `templates_h1.py`, order 2000–2099.
+  Intros: barras diagonales, logo con destello, cinematográfica oscura, tinta, glitch, vlog con polaroids,
+  minimal de línea, gaming neón, podcast con ondas, noticiero, deportiva, cocina, tecnología, viajes con ruta,
+  corporativa, retro 80s, documental, boda, formas de colores, zoom de fotos, texto gigante, pantalla dividida,
+  pizarra, elegante dorada, cómic, papel recortado, contador de suscriptores, música con ecualizador, fitness,
+  infantil. Transiciones: barrido de color, círculo con título, persiana, golpe glitch, tinta, número de
+  capítulo, diagonal, zoom con golpe, papel rasgado, formas que llenan, quemado de película, «mientras tanto…».
+  Cuentas: 10 neón, cine antiguo, «empezamos pronto», Año Nuevo, lanzamiento 3-2-1, faltan X días, minimal,
+  partido.
+- **h2 · tercios inferiores (25), texto (20), cierres (5)** — `templates_h2.py`, order 2100–2199.
+  Tercios: línea minimal, caja de color, duotono, píldora con foto, noticias con cinta, corporativo, redes,
+  ubicación, entrevista, gaming, elegante dorado, a mano, cristal, podcast, deportivo, paso de tutorial, cita,
+  precio, fecha y lugar, suscríbete en esquina, comentario destacado, dos personas, diagonal, retro 70s, boda.
+  Texto: capítulo, título grande, cita serif, lista de 5, dato curioso, estadística, comparación, pregunta al
+  público, cinético, máquina de escribir, titular de revista, aviso, agenda, «lo que aprenderás», línea de tiempo,
+  ingredientes, marcador, portada de video, créditos, frase neón. Cierres: gracias por ver, suscríbete y campana,
+  dale like, sígueme en redes, en el próximo video.
+- **h3 · cierres (15), presentaciones (30), celebraciones (5)** — `templates_h3.py`, order 2200–2299.
+  Pantallas finales: 2 videos, 1 video, oscura, colorida, gaming, minimal, podcast, cocina, viajes, negocio,
+  curso, familiar, papel, TV retro, noticias. Presentaciones: recuerdos, polaroids, tinta, glitch, tira de
+  película, mosaico, paralaje, diario de viaje, boda, bebé mes a mes, nuestro año, generación, recorrido de
+  propiedad, portafolio, catálogo, equipo, resumen de evento, álbum antiguo, revista, collage libre, pantalla
+  dividida, círculos, cinemática, mascota, amigos, en memoria, antes y después, temporada deportiva, menú,
+  año escolar. Celebraciones: cumpleaños, aniversario, jubilación, compromiso, bautizo.
+- **h4 · celebraciones (10), fechas (20), negocios (20)** — `templates_h4.py`, order 2300–2399.
+  Celebraciones: baby shower, graduación, invitación de boda, 15 / sweet 16, reunión familiar, logro, bienvenida
+  al bebé, despedida, premios, invitación a fiesta. Fechas: Navidad, Año Nuevo, San Valentín, Madre, Padre,
+  Halloween, Pascua, Año Nuevo Lunar, Ramadán, Eid, Diwali, Acción de Gracias, regreso a clases, Día de la Mujer,
+  Día del Maestro, verano, otoño, invierno, primavera, Día de la Tierra. Negocios: menú de restaurante, cafetería,
+  tienda de barrio, supermercado, ferretería, escuela (matrículas), academia, propiedad en venta, comunidad
+  (reunión), mudanzas, presentación de empresa, contratando, testimonio, lanzamiento, rebajas, webinar, programa
+  del evento, cifras del año, contacto, gimnasio.
+
+### Reels 9:16 (200 más)
+
+- **r6 · ediciones de tendencia (50)** — `templates_r6.py`, order 3000–3099. Velocity suave y duro, cámara lenta
+  con destello, montaje de pareja al ritmo y lento, glow up con flash, modo bestia, recuerdo de verano, «core
+  memory», dump del mes con fecha, dump de fin de semana, dump de viaje con mapa, día perfecto, zoom de golpe,
+  sacudida 3D, giro de cámara, cambio de ropa al golpe, outfit check con flechas, ojo de pez, grano analógico,
+  cámara desechable, cuadros 4:3, foto a foto con contador, «en otra vida», «yo vs. yo», «esta soy yo»,
+  pantalla dividida al ritmo, triple espejo, reflejo, foto que se rompe, estrobo, karaoke, «si te ríes pierdes»,
+  «nadie: / yo:», expectativa vs. realidad, reacción en esquina, antes y ahora, ciudad neón, atardecer
+  cinemático, mi lugar feliz, recorrido con ubicación, detrás de cámaras, lo que no se vio, tierno con stickers,
+  cumple al ritmo, «main characters», papá e hijo, abuelos, gracias por tanto, recuerdo en blanco y negro.
+- **r7 · collages (15), antes y después (10), celebraciones (20), intros (5)** — `templates_r7.py`, 3100–3199.
+- **r8 · fechas internacionales (25), negocios (25)** — `templates_r8.py`, 3200–3299.
+- **r9 · productos (10), texto (20), intros (3), cierres (7), cuentas (5), tercios (5)** — `templates_r9.py`,
+  3300–3399.
+  (El detalle de r7–r9 se escribe en el docstring de cada archivo al hacerlo.)
+
+### Estado
+- 2026-10-16: lista y arnés (16:9 en `scene.py` y `build.py`). Tandas: ninguna terminada todavía.

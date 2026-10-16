@@ -16060,6 +16060,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Negocios</translation>
     </message>
     <message>
+        <source>Photo slideshows</source>
+        <translation>Presentaciones de fotos</translation>
+    </message>
+    <message>
+        <source>Lower thirds</source>
+        <translation>Tercios inferiores</translation>
+    </message>
+    <message>
+        <source>Transitions and separators</source>
+        <translation>Transiciones y separadores</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Otras</translation>
     </message>

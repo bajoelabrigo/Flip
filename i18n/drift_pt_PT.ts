@@ -16060,6 +16060,18 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Negócios</translation>
     </message>
     <message>
+        <source>Photo slideshows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower thirds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transitions and separators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Outros</translation>
     </message>
