@@ -925,10 +925,33 @@ ApplicationWindow {
         }
     }
 
+    LazyLoader {
+        id: templatePickerDialogLoader
+        sourceComponent: Component {
+            SceneTemplatePickerDialog { }
+        }
+    }
+
+    LazyLoader {
+        id: brandKitDialogLoader
+        sourceComponent: Component {
+            BrandKitDialog { }
+        }
+    }
+
     Connections {
         target: EditorState
         function onSaveTemplateRequested(assetId, name) {
             saveTemplateDialogLoader.ensure().openFor(assetId, name)
+        }
+        function onTemplatePickerRequested(mode, assetId, urls) {
+            if (mode === "swap")
+                templatePickerDialogLoader.ensure().openForSwap(assetId)
+            else
+                templatePickerDialogLoader.ensure().openForMedia(urls)
+        }
+        function onBrandKitDialogRequested() {
+            brandKitDialogLoader.ensure().openKit()
         }
     }
 

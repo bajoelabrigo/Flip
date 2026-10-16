@@ -1397,6 +1397,8 @@ qt_add_qml_module(drift
         src/qml/components/SceneTemplateBrowser.qml
         src/qml/components/TemplatesTab.qml
         src/qml/components/SaveTemplateDialog.qml
+        src/qml/components/SceneTemplatePickerDialog.qml
+        src/qml/components/BrandKitDialog.qml
         src/qml/components/properties/TemplateFillPanel.qml
         src/qml/components/ThemedSlider.qml
         src/qml/components/ThemedTextField.qml

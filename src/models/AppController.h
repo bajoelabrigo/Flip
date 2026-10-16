@@ -1388,6 +1388,14 @@ public:
     Q_INVOKABLE QVariantMap brandKit() const;
     Q_INVOKABLE bool setBrandKit(const QVariantMap &values);
     Q_INVOKABLE bool applyBrandKitToTemplate(const QString &compositeAssetId);
+    // The window owns these dialogs (a panel that asks may be unloaded by the edit it starts):
+    // mode "photos" with the chosen files, or "swap" with the composition to replace.
+    Q_INVOKABLE void requestTemplatePicker(const QString &mode, const QString &compositeAssetId,
+                                           const QList<QUrl> &urls)
+    {
+        emit templatePickerRequested(mode, compositeAssetId, urls);
+    }
+    Q_INVOKABLE void requestBrandKitDialog() { emit brandKitDialogRequested(); }
     Q_INVOKABLE void removeEffect(int trackIndex, int clipIndex, int effectIndex);
     Q_INVOKABLE void setEffectEnabled(int trackIndex, int clipIndex, int effectIndex, bool enabled);
     Q_INVOKABLE void moveEffect(int trackIndex, int clipIndex, int fromIndex, int toIndex);
@@ -1872,6 +1880,8 @@ signals:
     void sceneTemplatesChanged();
     void templateBeatFitChanged();
     void brandKitChanged();
+    void templatePickerRequested(const QString &mode, const QString &compositeAssetId, const QList<QUrl> &urls);
+    void brandKitDialogRequested();
     void saveTemplateRequested(const QString &compositeAssetId, const QString &name);
     void userFontsChanged();
     void userEffectPresetsChanged();
