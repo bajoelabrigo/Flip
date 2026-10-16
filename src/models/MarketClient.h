@@ -1,5 +1,6 @@
 #pragma once
 
+#include <QDateTime>
 #include <QHash>
 #include <QObject>
 #include <QPointer>
@@ -71,8 +72,31 @@ class MarketClient : public QObject
     // to another machine: templates as full items (they can be installed again), photos and videos
     // as {id, type, title, thumb_url}. Each has obtained_at, last_at and times.
     Q_PROPERTY(QVariantList library READ library NOTIFY libraryChanged)
+    // Stock's home: what the "All" type shows while nothing is searched. Shelves
+    // {id, kind (season | trending | new | collection | popular), title, items[]}, items of any
+    // type, each with its own `type` and `delivery`.
+    Q_PROPERTY(QVariantList home READ home NOTIFY homeChanged)
+    Q_PROPERTY(bool homeLoading READ homeLoading NOTIFY homeChanged)
+    // What Stock added since the person last opened it: a count for the badge on the Stock tab
+    // and a line for its tooltip ("12 templates · 3 sounds").
+    Q_PROPERTY(int newsCount READ newsCount NOTIFY newsChanged)
+    Q_PROPERTY(QString newsSummary READ newsSummary NOTIFY newsChanged)
+    Q_PROPERTY(QVariantList news READ news NOTIFY newsChanged)
+    // «Ask for a template»: {id, text, type, type_label, votes, voted, mine, status, created_at}.
+    Q_PROPERTY(QVariantList requests READ requests NOTIFY requestsChanged)
+    Q_PROPERTY(bool requestsLoading READ requestsLoading NOTIFY requestsChanged)
 
 public:
+    // Installs a Stock download whose delivery is not "media" or "scene-template" (a LUT, a look,
+    // a text style or animation, a transition, a shape). The editor provides it; `done` must run
+    // exactly once: ok, a short phrase saying where it went, the installed path, an error.
+    using InstallDone = std::function<void(bool ok, const QString &where, const QString &installedPath,
+                                           const QString &error)>;
+    using StockInstaller = std::function<void(const QString &delivery, const QString &path,
+                                              const QString &title, const InstallDone &done)>;
+    void setStockInstaller(StockInstaller installer) { m_installer = std::move(installer); }
+    // The deliveries the installer handles.
+    static bool isInstalledDelivery(const QString &delivery);
     explicit MarketClient(QObject *parent = nullptr);
     ~MarketClient() override;
 
@@ -136,6 +160,32 @@ public:
     // Takes an item off the account's list (the files on this machine stay).
     Q_INVOKABLE void removeFromLibrary(const QString &itemId);
     QVariantList library() const { return m_accountLibrary; }
+
+    QVariantList home() const { return m_home; }
+    bool homeLoading() const { return m_homeLoading; }
+    Q_INVOKABLE void refreshHome();
+    int newsCount() const { return m_newsCount; }
+    QString newsSummary() const { return m_newsSummary; }
+    QVariantList news() const { return m_news; }
+    // Asks the service what is new since the Stock tab was last opened.
+    Q_INVOKABLE void checkNews();
+    // The Stock tab was opened: the badge goes and the next check counts from now.
+    Q_INVOKABLE void markNewsSeen();
+    QVariantList requests() const { return m_requests; }
+    bool requestsLoading() const { return m_requestsLoading; }
+    Q_INVOKABLE void refreshRequests(const QString &sort = QStringLiteral("top"));
+    // Answers on requestSubmitted.
+    Q_INVOKABLE void submitRequest(const QString &text, const QString &type);
+    Q_INVOKABLE void voteRequest(const QString &requestId);
+    // "1,2 k" for 1234 in Spanish, "1.2K"-style in English: the uses count on a card.
+    Q_INVOKABLE QString compactCount(qint64 n) const;
+    // How an item is delivered: its own `delivery`, its type's, or "media".
+    Q_INVOKABLE QString deliveryForItem(const QVariantMap &item) const;
+
+    // Favorites kept with the account (GET/PUT /v1/me/favorites). Fetching answers on
+    // favoritesFetched; a push is debounced and answers on favoritesPushed.
+    void fetchFavorites();
+    void pushFavorites(const QVariantMap &favorites);
     // The scene template id a Stock item stands for ("flip:template:<id>"), or empty.
     Q_INVOKABLE QString sceneTemplateIdForItem(const QString &itemId) const;
     Q_INVOKABLE bool sceneTemplateInstalled(const QString &itemId) const;
@@ -182,6 +232,12 @@ signals:
     // and, when `use` is set, puts it at the playhead.
     void sceneTemplateReady(const QString &templateId, bool use);
     void libraryChanged();
+    void homeChanged();
+    void newsChanged();
+    void requestsChanged();
+    void requestSubmitted(bool ok, const QString &message);
+    void favoritesFetched(const QVariantMap &favorites, const QDateTime &updatedAt);
+    void favoritesPushed(const QDateTime &updatedAt);
     void downloadHistoryChanged();
     // Raised once per job when it is first accepted, so the manager window can show itself
     // without polling activeDownloadCount.
@@ -234,6 +290,11 @@ private:
     void finishJobFile(Job *job, const QJsonObject &file, const QString &attribution);
     void failJob(const QString &itemId, const QString &code, const QString &message);
     void importReadyFile(const QString &itemId, const QString &path, const QString &displayName);
+    void finishInstalledJob(const QString &itemId, const QString &path, const QString &displayName,
+                            bool ok, const QString &where, const QString &installedPath, const QString &error);
+    // /v1/me/... next to the market base (…/v1/market).
+    QUrl accountUrl(const QString &path) const;
+    QNetworkReply *sendJson(const QByteArray &verb, const QUrl &url, const QByteArray &body);
 
     void loadStoredAuth();
     void storeAuth();
@@ -255,6 +316,22 @@ private:
     static QString parseProblem(const QByteArray &body, int httpStatus, QString *codeOut,
                                 QString *reasonOut = nullptr, bool *retryableOut = nullptr,
                                 int networkError = 0);
+
+    StockInstaller m_installer;
+    QVariantList m_home;
+    bool m_homeLoading = false;
+    // Items seen on the home shelves, so downloads started there find their item.
+    QHash<QString, QVariantMap> m_homeItems;
+    int m_newsCount = 0;
+    QString m_newsSummary;
+    QVariantList m_news;
+    QString m_newsCheckedAt;
+    QVariantList m_requests;
+    bool m_requestsLoading = false;
+    QString m_requestsSort = QStringLiteral("top");
+    QTimer *m_favoritesTimer = nullptr;
+    QVariantMap m_pendingFavorites;
+    bool m_favoritesRetried = false;
 
     AssetLibrary *m_library = nullptr;
     QPointer<AccountController> m_account;

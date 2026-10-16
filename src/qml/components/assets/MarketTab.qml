@@ -122,6 +122,7 @@ Item {
                              ? qsTr("Search assets")
                              : root.section === "sfx"
                                ? qsTr("Search sound effects")
+                               : Market.activeTypeId === "all" ? qsTr("Search all of Stock")
                                : (Market.canResolve ? qsTr("Search, or paste a link") : qsTr("Search"))
             onSubmitted: {
                 if (root.stockSection && Market.consented)

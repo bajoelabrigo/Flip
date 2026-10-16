@@ -52,8 +52,9 @@ def main() -> int:
     # «Nuevo» and the news in Stock go by when an item first went out: keep each template's date.
     added_at: dict[str, str] = {}
     try:
-        old = json.loads((args.out / "index.json").read_text(encoding="utf-8")).get("templates", [])
-        added_at = {e["id"]: e["addedAt"] for e in old if e.get("addedAt")}
+        for old in json.loads((args.out / "index.json").read_text(encoding="utf-8")).get("templates", []):
+            if old.get("addedAt"):
+                added_at[old["id"]] = old["addedAt"]
     except (OSError, ValueError):
         pass
     today = datetime.date.today().isoformat()

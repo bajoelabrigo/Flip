@@ -14,8 +14,16 @@ Item {
     signal added()
 
     readonly property string favoritesId: "__favorites__"
-    readonly property var categories: EditorState.builtinShapeCategories()
-    readonly property var allShapes: EditorState.builtinShapes()
+    // Shapes installed from Stock come after the built-in ones, in their own categories.
+    property int userShapesTick: 0
+    readonly property var categories: {
+        void root.userShapesTick
+        return EditorState.builtinShapeCategories().concat(EditorState.userShapeCategories())
+    }
+    readonly property var allShapes: {
+        void root.userShapesTick
+        return EditorState.builtinShapes().concat(EditorState.userShapes())
+    }
     property string activeCategory: categories.length > 0 ? categories[0].id : ""
     property alias searchText: search.text
     readonly property string query: search.text.trim().toLowerCase()
@@ -25,6 +33,9 @@ Item {
         target: EditorState
         function onAssetFavoritesChanged() {
             root.favoritesTick++
+        }
+        function onUserShapesChanged() {
+            root.userShapesTick++
         }
     }
 
@@ -212,6 +223,13 @@ Item {
                                 text: cardMenu.favorited ? qsTr("Remove from favorites") : qsTr("Add to favorites")
                                 icon.name: Theme.icons.star
                                 onTriggered: EditorState.toggleAssetFavorite("shapes", shapeCard.modelData.id)
+                            }
+                            ThemedMenuItem {
+                                visible: shapeCard.modelData.user === true
+                                height: visible ? implicitHeight : 0
+                                text: qsTr("Remove from my shapes")
+                                icon.name: Theme.icons.trash
+                                onTriggered: EditorState.removeUserShape(shapeCard.modelData.id)
                             }
                         }
 

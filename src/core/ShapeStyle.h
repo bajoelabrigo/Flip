@@ -46,6 +46,9 @@ enum class ShapeKind {
     Cross,
     Burst,
     Banner,
+    // A shape from the person's library (Stock › Shapes): its outline is ShapeStyle::customPath,
+    // carried in the project so it renders on a machine that never installed the shape.
+    Custom,
 };
 
 QString shapeKindToString(ShapeKind kind);
@@ -73,6 +76,10 @@ struct ShapeStyle
     double thickness = 0.4;    // arrows / chevron / cross: shaft, fraction of height
     double tailX = 0.25;       // bubbles: tail anchor along the bottom edge, 0..1
     double tailSize = 0.2;     // bubbles: tail extent, fraction of height
+    // Custom only: an SVG path ("M L C Q Z", absolute) on a 0..100 x 0..100 box the outline spans
+    // edge to edge, stretched onto the layout rect like every other kind; and its fill rule.
+    QString customPath;
+    bool customEvenOdd = false;
 
     // Keyed by shapeKeyframeProperties() names ("cornerRadius", "layer.<id>.<field>", …); times
     // are relative to the clip start.
@@ -123,8 +130,30 @@ struct ShapeCategory
     QString label;
 };
 
+// The built-in shapes. User shapes (below) are not in this list.
 const QList<ShapeCatalogEntry> &shapeCatalog();
+// A built-in or user shape by id. A user entry stays valid for the life of the process, even after
+// a rescan replaces it, so the pointer may be held across calls.
 const ShapeCatalogEntry *shapeCatalogEntry(const QString &id);
 QList<ShapeCategory> shapeCategories();
+
+// --- User shapes (Stock › Shapes) ---------------------------------------------------------------
+// One JSON file per shape in userShapesDir():
+//   {"format": 1, "id": "heart-classic", "names": {"es": "…", "en": "…"}, "category": "hearts",
+//    "categoryNames": {"es": "Corazones", …}, "aspect": 1.0, "path": "M … Z",
+//    "fillRule": "nonzero" | "evenodd", "fill": "#RRGGBB", "fillDeep": "#RRGGBB", "tags": […]}
+// Their catalog ids are kUserShapePrefix + id, so they can never collide with a built-in.
+inline constexpr char kUserShapePrefix[] = "user-shape:";
+QString userShapesDir();
+// Rescans userShapesDir(). Cheap; called on start and after an install.
+void reloadUserShapes();
+// The installed user shapes, ordered by category then name, labels in the UI language.
+QList<ShapeCatalogEntry> userShapeCatalog();
+// The categories the installed user shapes use, in first-seen order, labels in the UI language.
+QList<ShapeCategory> userShapeCategories();
+// Checks a shape file and copies it into userShapesDir() (replacing one with the same id). Returns
+// the catalog id, or empty with *error set.
+QString installUserShapeFile(const QString &path, QString *error = nullptr);
+bool removeUserShape(const QString &catalogId);
 
 } // namespace drift

@@ -220,7 +220,10 @@ Item {
             // writing to the wrong object.
             visible: root.showShapeCombo && !root.isMedia && !root.isMediaClip
             width: parent.width
+            // A library shape (Stock › Shapes) is listed only while it is the one applied: it is
+            // picked from the Masks tab, which knows which outline it means.
             model: ["none", "rectangle", "ellipse", "star", "heart", "bars", "freeform", "text", "gradient"]
+                   .concat(root.maskShape === "path" ? ["path"] : [])
             // Human labels — the raw ids were shown to the user.
             readonly property var labels: ({
                 "none": qsTr("None"),
@@ -231,7 +234,8 @@ Item {
                 "bars": qsTr("Bars"),
                 "freeform": qsTr("Freeform"),
                 "text": qsTr("Text"),
-                "gradient": qsTr("Linear gradient")
+                "gradient": qsTr("Linear gradient"),
+                "path": (root.clipData.mask && root.clipData.mask.name) || qsTr("Library shape")
             })
             displayText: labels[model[currentIndex]] || model[currentIndex]
             currentIndex: Math.max(0, model.indexOf((root.clipData.mask && root.clipData.mask.shape) || "none"))
@@ -405,7 +409,8 @@ Item {
                 width: parent.width
                 visible: !root.isMedia
                          && !root.isMediaClip
-                         && modelData.shapes.indexOf(root.maskShape) >= 0
+                         // A library shape fills its rect like the heart does.
+                         && modelData.shapes.indexOf(root.maskShape === "path" ? "heart" : root.maskShape) >= 0
                 // `def` is what an unkeyed row shows, so it carries the mask's own value (as the
                 // effect rows do); the fixed default made a resized mask read 0.600.
                 propDef: {

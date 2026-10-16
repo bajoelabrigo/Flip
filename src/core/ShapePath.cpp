@@ -1,8 +1,11 @@
 #include "ShapePath.h"
 
+#include <QHash>
 #include <QPointF>
+#include <QTransform>
 #include <QtMath>
 
+#include <cmath>
 #include <initializer_list>
 
 namespace drift {
@@ -175,6 +178,185 @@ QPainterPath heartPath(const QRectF &bounds)
     return path;
 }
 
+namespace {
+
+// A user shape's outline on its 0..100 box, parsed once per thread and string (the compositor asks
+// for it every frame).
+QPainterPath customUnitPath(const QString &d, bool evenOdd)
+{
+    thread_local QHash<QString, QPainterPath> cache;
+    auto it = cache.constFind(d);
+    if (it == cache.constEnd()) {
+        if (cache.size() > 256)
+            cache.clear();
+        QPainterPath parsed;
+        if (!parseSvgPathData(d, &parsed))
+            parsed = QPainterPath();
+        it = cache.insert(d, parsed);
+    }
+    QPainterPath path = it.value();
+    path.setFillRule(evenOdd ? Qt::OddEvenFill : Qt::WindingFill);
+    return path;
+}
+
+} // namespace
+
+bool parseSvgPathData(const QString &d, QPainterPath *out)
+{
+    if (!out)
+        return false;
+    QPainterPath path;
+    const QChar *c = d.constData();
+    const QChar *end = c + d.size();
+    const auto skipSeparators = [&] {
+        while (c < end && (c->isSpace() || *c == QLatin1Char(',')))
+            ++c;
+    };
+    const auto readNumber = [&](double *value) -> bool {
+        skipSeparators();
+        const QChar *start = c;
+        if (c < end && (*c == QLatin1Char('-') || *c == QLatin1Char('+')))
+            ++c;
+        bool digits = false;
+        while (c < end && c->isDigit()) {
+            ++c;
+            digits = true;
+        }
+        if (c < end && *c == QLatin1Char('.')) {
+            ++c;
+            while (c < end && c->isDigit()) {
+                ++c;
+                digits = true;
+            }
+        }
+        if (digits && c < end && (*c == QLatin1Char('e') || *c == QLatin1Char('E'))) {
+            const QChar *mark = c;
+            ++c;
+            if (c < end && (*c == QLatin1Char('-') || *c == QLatin1Char('+')))
+                ++c;
+            if (c < end && c->isDigit()) {
+                while (c < end && c->isDigit())
+                    ++c;
+            } else {
+                c = mark;
+            }
+        }
+        if (!digits) {
+            c = start;
+            return false;
+        }
+        bool ok = false;
+        *value = QStringView(start, c - start).toDouble(&ok);
+        return ok && std::isfinite(*value);
+    };
+
+    QPointF current;
+    QPointF subpathStart;
+    QPointF lastControl; // reflected by S / T
+    QChar lastCommand;
+    QChar command;
+    int segments = 0;
+    while (true) {
+        skipSeparators();
+        if (c >= end)
+            break;
+        if (c->isLetter()) {
+            command = *c++;
+        } else if (command.isNull()) {
+            return false;
+        }
+        // After M, further pairs are implicit L (or l).
+        const bool relative = command.isLower();
+        const QChar op = command.toUpper();
+        const QPointF origin = relative ? current : QPointF();
+        if (op == QLatin1Char('Z')) {
+            path.closeSubpath();
+            current = subpathStart;
+            lastCommand = op;
+            command = QChar();
+            continue;
+        }
+        double v[6];
+        const auto read = [&](int n) {
+            for (int i = 0; i < n; ++i) {
+                if (!readNumber(&v[i]))
+                    return false;
+            }
+            return true;
+        };
+        if (op == QLatin1Char('M')) {
+            if (!read(2))
+                return false;
+            current = origin + QPointF(v[0], v[1]);
+            subpathStart = current;
+            path.moveTo(current);
+            command = relative ? QLatin1Char('l') : QLatin1Char('L');
+        } else if (op == QLatin1Char('L')) {
+            if (!read(2))
+                return false;
+            current = origin + QPointF(v[0], v[1]);
+            path.lineTo(current);
+        } else if (op == QLatin1Char('H')) {
+            if (!read(1))
+                return false;
+            current.setX(relative ? current.x() + v[0] : v[0]);
+            path.lineTo(current);
+        } else if (op == QLatin1Char('V')) {
+            if (!read(1))
+                return false;
+            current.setY(relative ? current.y() + v[0] : v[0]);
+            path.lineTo(current);
+        } else if (op == QLatin1Char('C') || op == QLatin1Char('S')) {
+            QPointF c1;
+            int base = 0;
+            if (op == QLatin1Char('C')) {
+                if (!read(6))
+                    return false;
+                c1 = origin + QPointF(v[0], v[1]);
+                base = 2;
+            } else {
+                if (!read(4))
+                    return false;
+                c1 = (lastCommand == QLatin1Char('C') || lastCommand == QLatin1Char('S'))
+                         ? current * 2.0 - lastControl
+                         : current;
+            }
+            const QPointF c2 = origin + QPointF(v[base], v[base + 1]);
+            const QPointF to = origin + QPointF(v[base + 2], v[base + 3]);
+            path.cubicTo(c1, c2, to);
+            lastControl = c2;
+            current = to;
+        } else if (op == QLatin1Char('Q') || op == QLatin1Char('T')) {
+            QPointF q;
+            QPointF to;
+            if (op == QLatin1Char('Q')) {
+                if (!read(4))
+                    return false;
+                q = origin + QPointF(v[0], v[1]);
+                to = origin + QPointF(v[2], v[3]);
+            } else {
+                if (!read(2))
+                    return false;
+                q = (lastCommand == QLatin1Char('Q') || lastCommand == QLatin1Char('T'))
+                        ? current * 2.0 - lastControl
+                        : current;
+                to = origin + QPointF(v[0], v[1]);
+            }
+            path.quadTo(q, to);
+            lastControl = q;
+            current = to;
+        } else {
+            return false; // arcs and anything else are not supported
+        }
+        lastCommand = op;
+        ++segments;
+    }
+    if (segments == 0 || path.isEmpty())
+        return false;
+    *out = path;
+    return true;
+}
+
 QPainterPath shapePath(const ShapeStyle &style, const QRectF &bounds)
 {
     if (bounds.width() <= 0.0 || bounds.height() <= 0.0)
@@ -282,6 +464,17 @@ QPainterPath shapePath(const ShapeStyle &style, const QRectF &bounds)
         const double notch = qBound(0.02, style.headSize * 0.3, 0.4);
         return polygonPath(g, {{0.0, 0.0}, {1.0, 0.0}, {1.0 - notch, 0.5}, {1.0, 1.0}, {0.0, 1.0},
                                {notch, 0.5}});
+    }
+    case ShapeKind::Custom: {
+        const QPainterPath unit = customUnitPath(style.customPath, style.customEvenOdd);
+        if (unit.isEmpty())
+            break;
+        QTransform fit;
+        fit.translate(bounds.left(), bounds.top());
+        fit.scale(bounds.width() / 100.0, bounds.height() / 100.0);
+        QPainterPath mapped = fit.map(unit);
+        mapped.setFillRule(unit.fillRule());
+        return mapped;
     }
     }
 

@@ -19,7 +19,9 @@ namespace drift {
 // LinearGradient is a ramp, not an outline: full coverage on one side of a line through (x, y),
 // fading to none across a band h deep (a fraction of the frame's height), turned by rotation
 // (0: covers the top, fades downwards). w is not used. Saved as "gradient".
-enum class MaskShape { None, Rectangle, Ellipse, Star, Heart, Bars, Freeform, Media, Text, LinearGradient };
+// Path is a shape from the person's library (Stock › Shapes): pathData is its SVG outline on a
+// 0..100 box, stretched onto the mask's rect like Star and Heart. Saved as "path".
+enum class MaskShape { None, Rectangle, Ellipse, Star, Heart, Bars, Freeform, Media, Text, LinearGradient, Path };
 
 QString maskShapeToString(MaskShape shape);
 MaskShape maskShapeFromString(const QString &shape);
@@ -78,6 +80,9 @@ struct Mask
     bool smooth = false;
     // Text only: the words whose shape is the mask.
     QString text;
+    // Path only: the outline ("M L C Q Z" on a 0..100 box) and its fill rule.
+    QString pathData;
+    bool pathEvenOdd = false;
 
     // Media only: an image or video whose pixels are the coverage map.
     QString mediaPath;

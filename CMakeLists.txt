@@ -1354,6 +1354,8 @@ qt_add_qml_module(drift
         src/qml/components/assets/SfxBrowser.qml
         src/qml/components/assets/StockThumb.qml
         src/qml/components/assets/StockItemDetail.qml
+        src/qml/components/assets/StockHome.qml
+        src/qml/components/assets/StockRequestsDialog.qml
         src/qml/components/assets/BinBreadcrumb.qml
         src/qml/components/assets/AssetCategoryChips.qml
         src/qml/components/assets/CategoryScrollOn.qml

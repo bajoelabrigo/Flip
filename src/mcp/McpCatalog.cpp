@@ -112,7 +112,7 @@ QJsonObject maskSchema()
                   {QStringLiteral("none"), QStringLiteral("rectangle"), QStringLiteral("ellipse"),
                    QStringLiteral("star"), QStringLiteral("heart"), QStringLiteral("bars"),
                    QStringLiteral("freeform"), QStringLiteral("text"), QStringLiteral("media"),
-                   QStringLiteral("matte"), QStringLiteral("gradient")})},
+                   QStringLiteral("matte"), QStringLiteral("gradient"), QStringLiteral("path")})},
         {QStringLiteral("x"), numberProp(QStringLiteral("Center x, fraction of canvas (default 0.5)"), 0, 1)},
         {QStringLiteral("y"), numberProp(QStringLiteral("Center y, fraction of canvas (default 0.5)"), 0, 1)},
         {QStringLiteral("w"), numberProp(QStringLiteral("Width, fraction of canvas (default 0.6)"), 0, 1)},
@@ -139,6 +139,8 @@ QJsonObject maskSchema()
         {QStringLiteral("mediaLoop"), boolProp(QStringLiteral("matte/media only: loop a matte shorter than the clip"))},
         {QStringLiteral("smooth"), boolProp(QStringLiteral("freeform only: a smooth curve through the points (the Pen mask)"))},
         {QStringLiteral("text"), stringProp(QStringLiteral("text only: the words whose outline is the mask"))},
+        {QStringLiteral("pathData"), stringProp(QStringLiteral("path only: the outline as an SVG path (M L C Q Z) on a 0..100 box, stretched onto the mask's rect"))},
+        {QStringLiteral("pathEvenOdd"), boolProp(QStringLiteral("path only: even-odd fill, so inner loops are holes (default false: nonzero)"))},
     });
     s.insert(QStringLiteral("description"),
              QStringLiteral("The whole mask; every omitted key reverts to its default and omitting shape turns the mask off"));

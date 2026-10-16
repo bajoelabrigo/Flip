@@ -23,6 +23,8 @@ QString maskShapeToString(MaskShape shape)
         return QStringLiteral("text");
     case MaskShape::LinearGradient:
         return QStringLiteral("gradient");
+    case MaskShape::Path:
+        return QStringLiteral("path");
     case MaskShape::None:
         break;
     }
@@ -47,6 +49,8 @@ MaskShape maskShapeFromString(const QString &shape)
         return MaskShape::Text;
     if (shape == QStringLiteral("gradient"))
         return MaskShape::LinearGradient;
+    if (shape == QStringLiteral("path"))
+        return MaskShape::Path;
     // "matte" is what Media was called before v5.
     if (shape == QStringLiteral("media") || shape == QStringLiteral("matte"))
         return MaskShape::Media;

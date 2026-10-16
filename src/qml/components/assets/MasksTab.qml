@@ -38,7 +38,16 @@ Item {
                                                && clipKind !== "audio" && clipKind !== "text"
                                                && clipKind !== "subtitle"
 
-    readonly property var masks: EditorState.maskCatalog()
+    // Shapes installed from Stock mask with their own outline, after the built-in masks.
+    property int userShapesTick: 0
+    readonly property var masks: {
+        void root.userShapesTick
+        return EditorState.maskCatalog()
+    }
+    Connections {
+        target: EditorState
+        function onUserShapesChanged() { root.userShapesTick++ }
+    }
 
     function applyMask(maskId) {
         if (!root.hasVisualSelection)

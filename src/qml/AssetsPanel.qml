@@ -716,6 +716,8 @@ PanelFrame {
     ]
     property int activeTab: 0
     readonly property string currentTabId: tabsModel.get(activeTab).tabId
+    // Opening Stock is seeing what is new there: the badge on its tab goes.
+    onCurrentTabIdChanged: if (currentTabId === "market" && Market.configured) Market.markNewsSeen()
 
     // Per-tab view state that outlives the tab being unloaded, keyed by tabId. Plain
     // storage: tabs read it once on creation and write each change back.
@@ -867,12 +869,38 @@ PanelFrame {
                         spacing: 0
 
                         IconButton {
+                            id: railButton
                             anchors.horizontalCenter: parent.horizontalCenter
                             glyph: root.tabIcons[model.icon]
                             variant: "ghost"
-                            tooltip: tabLabels[model.tabId]
+                            // Stock says what is new in it since it was last opened.
+                            readonly property bool hasNews: model.tabId === "market" && Market.configured
+                                                            && Market.newsCount > 0 && root.activeTab !== index
+                            tooltip: hasNews ? tabLabels[model.tabId] + " — " + Market.newsSummary
+                                             : tabLabels[model.tabId]
                             active: root.activeTab === index
                             onClicked: root.activeTab = index
+
+                            Rectangle {
+                                visible: railButton.hasNews
+                                anchors.right: parent.right
+                                anchors.top: parent.top
+                                anchors.rightMargin: -2
+                                anchors.topMargin: -2
+                                height: Theme.fontSizeXs + 4
+                                width: Math.max(height, newsLabel.implicitWidth + 6)
+                                radius: height / 2
+                                color: Theme.primary
+                                Text {
+                                    id: newsLabel
+                                    anchors.centerIn: parent
+                                    text: Market.newsCount > 99 ? "99+" : String(Market.newsCount)
+                                    color: Theme.primaryForeground
+                                    font.family: Theme.fontFamily
+                                    font.pixelSize: Theme.fontSizeXs - 1
+                                    font.weight: Font.DemiBold
+                                }
+                            }
 
                             Accessible.role: Accessible.PageTab
                             Accessible.name: tabLabels[model.tabId]

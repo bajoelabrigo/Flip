@@ -105,7 +105,7 @@ ThemedDialog {
                 add(st.label, { source: EditorState.imageUrl(st.thumbnail || st.path), fit: true })
             break
         case "shapes":
-            for (const sh of EditorState.builtinShapes().filter(sh => isFav(sh.id)))
+            for (const sh of EditorState.builtinShapes().concat(EditorState.userShapes()).filter(sh => isFav(sh.id)))
                 add(sh.label, { source: "image://shape/" + sh.id, fit: true })
             break
         case "textStyles":

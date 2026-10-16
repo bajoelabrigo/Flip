@@ -36,7 +36,44 @@ Item {
     readonly property bool templates: mediaKind === "template"
     // Stock › Animaciones: our own Lottie stickers, square cards.
     readonly property bool animations: mediaKind === "animation"
-    readonly property real tileAspect: templates ? 16 / 9 : (animations ? 1 : 9 / 16)
+    // Stock › All: every kind of our own at once. With nothing searched it shows the home
+    // shelves instead of a grid.
+    readonly property bool allTypes: Market.activeTypeId === "all"
+    readonly property bool showHome: allTypes && query.trim().length === 0 && submittedQuery.trim().length === 0
+    // The tile height over its width for one item, from its own size: 9:16 stories, 16:9
+    // overlays, square stickers and sounds.
+    function aspectOf(item) {
+        const kind = item.media_kind || item.type || ""
+        if (kind === "audio" || kind === "music" || kind === "sound")
+            return 1
+        const w = Number(item.width || 0), h = Number(item.height || 0)
+        if (w > 0 && h > 0)
+            return Math.max(0.5, Math.min(2, h / w))
+        if (item.orientation === "vertical") return 16 / 9
+        if (item.orientation === "horizontal") return 9 / 16
+        if (item.orientation === "square") return 1
+        return templates ? 16 / 9 : (animations ? 1 : 9 / 16)
+    }
+    // The grid's cell: the shape every result shares, or, when they differ (All, a template
+    // search across formats), a box each card is fitted into at its own shape.
+    readonly property real tileAspect: {
+        const items = Market.items
+        if (items.length === 0)
+            return templates ? 16 / 9 : (animations ? 1 : 9 / 16)
+        let lo = 99, hi = 0
+        for (let i = 0; i < items.length; ++i) {
+            const a = aspectOf(items[i])
+            lo = Math.min(lo, a)
+            hi = Math.max(hi, a)
+        }
+        return Math.abs(hi - lo) < 0.01 ? hi : Math.min(hi, 16 / 9)
+    }
+    function usesText(n) {
+        n = Number(n || 0)
+        if (n <= 0)
+            return ""
+        return n === 1 ? qsTr("Used once") : qsTr("Used %1 times").arg(Market.compactCount(n))
+    }
     readonly property bool queryIsLink: Market.canResolve && /^(https?:\/\/|www\.)\S+$/i.test(query)
     readonly property var linkSource: {
         const q = query.toLowerCase()
@@ -51,6 +88,13 @@ Item {
     function runSearch() {
         if (!Market.configured || !Market.activeTypeId || !Market.activeProviderId || !Market.canSearch)
             return
+        // All, with nothing typed: the home shelves, not a grid of everything.
+        if (allTypes && query.trim().length === 0) {
+            submittedQuery = ""
+            if (Market.home.length === 0 && !Market.homeLoading)
+                Market.refreshHome()
+            return
+        }
         lastRequestWasResolve = false
         submittedQuery = query
         Market.search(query, filterValues)
@@ -105,6 +149,13 @@ Item {
         }
         const title = item.title || ""
         const kind = item.media_kind || item.type || ""
+        // A LUT, look, text style or animation, transition or shape installs where the editor
+        // keeps it: no folder to ask for.
+        const delivery = Market.deliveryForItem(item)
+        if (["lut", "effect-preset", "text-style", "text-animation", "transition", "shape"].indexOf(delivery) >= 0) {
+            Market.download(item.id, "", "", title, kind)
+            return
+        }
         if (!FileDialogs.supportsDirectoryPicker()) {
             Market.download(item.id, "", "", title, kind)
             return
@@ -136,6 +187,16 @@ Item {
             searchDebounce.restart()
     }
 
+    // Clearing the field on All goes back to the home shelves.
+    onQueryChanged: {
+        if (allTypes && query.trim().length === 0)
+            submittedQuery = ""
+    }
+
+    StockRequestsDialog {
+        id: requestsDialog
+    }
+
     Connections {
         target: Market
         function onActiveProviderIdChanged() {
@@ -148,6 +209,7 @@ Item {
         function onActiveTypeIdChanged() {
             root.detailShown = false
             audioPlayer.stop()
+            audioPlayer.hoverStarted = false
         }
         function onCatalogChanged() {
             if (root.visible && Market.canSearch && Market.items.length === 0 && !Market.searching)
@@ -171,7 +233,26 @@ Item {
     MediaPlayer {
         id: audioPlayer
         property string itemId: ""
+        // Started by hovering a row rather than by its play button: leaving the row stops it.
+        property bool hoverStarted: false
         audioOutput: AudioOutput {}
+    }
+
+    // Hovering an audio row plays its preview after a moment, like a video tile does.
+    Timer {
+        id: hoverPreview
+        property var item: null
+        interval: 350
+        onTriggered: {
+            if (!item || !item.preview_url || root.compact)
+                return
+            if (audioPlayer.itemId === item.id && audioPlayer.playbackState === MediaPlayer.PlayingState)
+                return
+            audioPlayer.itemId = item.id
+            audioPlayer.source = item.preview_url
+            audioPlayer.hoverStarted = true
+            audioPlayer.play()
+        }
     }
 
     Column {
@@ -362,6 +443,31 @@ Item {
             TapHandler { onTapped: root.runResolve() }
         }
 
+        // «Ask for a template»: on the templates tab, for what the search did not find.
+        Row {
+            visible: root.templates
+            x: root.sidePadding
+            width: parent.width - root.sidePadding * 2
+            spacing: Theme.spacingMd
+
+            Text {
+                width: parent.width - askButton.width - parent.spacing
+                anchors.verticalCenter: askButton.verticalCenter
+                text: qsTr("Missing a template? Ask for it, or vote for other people’s ideas.")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+                wrapMode: Text.WordWrap
+            }
+            ThemedButton {
+                id: askButton
+                variant: "secondary"
+                glyph: Theme.icons.plus
+                text: qsTr("Ask for a template")
+                onClicked: requestsDialog.openFor(Market.activeTypeId)
+            }
+        }
+
         // LottieFiles has no API we may search for the user, but its free animations can be used:
         // the user downloads one there and drops the file here.
         Row {
@@ -399,6 +505,14 @@ Item {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
 
+        StockHome {
+            anchors.fill: parent
+            visible: root.showHome
+            compact: root.compact
+            onOpenRequested: (item) => root.openDetail(item)
+            onAskRequested: requestsDialog.openFor("template")
+        }
+
         EmptyState {
             anchors.centerIn: parent
             width: parent.width
@@ -412,7 +526,7 @@ Item {
         Grid {
             anchors.fill: parent
             anchors.leftMargin: root.sidePadding
-            visible: Market.searching && Market.items.length === 0 && !root.lastRequestWasResolve
+            visible: Market.searching && Market.items.length === 0 && !root.lastRequestWasResolve && !root.showHome
             columns: Math.max(1, Math.floor((width + Theme.assetCardGap) / (Theme.assetCardWidth + Theme.assetCardGap)))
             spacing: Theme.assetCardGap
             Repeater {
@@ -428,7 +542,7 @@ Item {
         EmptyState {
             anchors.centerIn: parent
             width: parent.width
-            visible: !Market.searching && Market.searchError.length > 0 && Market.items.length === 0
+            visible: !Market.searching && Market.searchError.length > 0 && Market.items.length === 0 && !root.showHome
             glyph: Theme.icons.error
             compact: true
             title: root.lastRequestWasResolve ? qsTr("Couldn’t open that link") : qsTr("Search failed")
@@ -441,7 +555,7 @@ Item {
             anchors.centerIn: parent
             width: parent.width
             visible: !Market.searching && Market.searchError.length === 0 && Market.items.length === 0
-                     && !root.queryIsLink
+                     && !root.queryIsLink && !root.showHome
             glyph: Market.canSearch ? Theme.icons.search : Theme.icons.linkTwo
             compact: true
             title: root.submittedQuery.length > 0
@@ -460,9 +574,9 @@ Item {
             anchors.fill: parent
             anchors.leftMargin: root.sidePadding
             anchors.rightMargin: root.sidePadding - Theme.assetCardGap
-            visible: Market.items.length > 0 && root.mediaKind !== "audio" && root.mediaKind !== "image"
+            visible: Market.items.length > 0 && root.mediaKind !== "audio" && root.mediaKind !== "image" && !root.showHome
             cellWidth: Math.floor(width / columnCount)
-            cellHeight: tileWidth * root.tileAspect + Theme.fontSizeXs * 2.6 + Theme.assetCardGap
+            cellHeight: tileWidth * root.tileAspect + Theme.fontSizeXs * 4 + Theme.assetCardGap
             cacheBuffer: Math.max(0, Math.round(height))
             clip: true
             model: visible ? Market.items : []
@@ -478,15 +592,26 @@ Item {
                 width: grid.tileWidth
                 spacing: Theme.spacingXs
 
-                StockThumb {
+                // The cell's box, with the card at the item's own shape, bottom-aligned so the
+                // titles of a row line up.
+                Item {
                     width: parent.width
                     height: width * root.tileAspect
-                    item: modelData
-                    compact: root.compact
-                    current: grid.activeFocus && index === grid.currentIndex
-                    onOpenRequested: {
-                        grid.currentIndex = index
-                        root.openDetail(modelData)
+
+                    StockThumb {
+                        readonly property real own: root.aspectOf(modelData)
+                        readonly property real fit: Math.min(1, root.tileAspect / own)
+                        width: Math.round(parent.width * fit)
+                        height: Math.round(width * own)
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.bottom: parent.bottom
+                        item: modelData
+                        compact: root.compact
+                        current: grid.activeFocus && index === grid.currentIndex
+                        onOpenRequested: {
+                            grid.currentIndex = index
+                            root.openDetail(modelData)
+                        }
                     }
                 }
                 Text {
@@ -496,8 +621,16 @@ Item {
                     font.family: Theme.fontFamily
                     font.pixelSize: Theme.fontSizeXs
                     elide: Text.ElideRight
-                    maximumLineCount: 2
-                    wrapMode: Text.WordWrap
+                    maximumLineCount: 1
+                }
+                Text {
+                    width: parent.width
+                    visible: text.length > 0
+                    text: root.usesText(modelData.uses)
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                    elide: Text.ElideRight
                 }
             }
         }
@@ -536,7 +669,7 @@ Item {
             anchors.fill: parent
             anchors.leftMargin: root.sidePadding
             anchors.rightMargin: root.sidePadding
-            visible: Market.items.length > 0 && root.mediaKind === "image"
+            visible: Market.items.length > 0 && root.mediaKind === "image" && !root.showHome
             model: rows
             spacing: gap
             clip: true
@@ -570,7 +703,7 @@ Item {
             anchors.fill: parent
             anchors.leftMargin: root.sidePadding
             anchors.rightMargin: root.sidePadding
-            visible: Market.items.length > 0 && root.mediaKind === "audio"
+            visible: Market.items.length > 0 && root.mediaKind === "audio" && !root.showHome
             model: visible ? Market.items : []
             clip: true
             ScrollBar.vertical: AppScrollBar { }
@@ -590,7 +723,23 @@ Item {
                 radius: Theme.radiusSm
                 color: rowHover.hovered ? Theme.popoverHover : "transparent"
 
-                HoverHandler { id: rowHover; cursorShape: Qt.PointingHandCursor }
+                HoverHandler {
+                    id: rowHover
+                    cursorShape: Qt.PointingHandCursor
+                    onHoveredChanged: {
+                        if (hovered) {
+                            hoverPreview.item = audioRow.modelData
+                            hoverPreview.restart()
+                            return
+                        }
+                        if (hoverPreview.item && hoverPreview.item.id === audioRow.modelData.id)
+                            hoverPreview.stop()
+                        if (audioPlayer.hoverStarted && audioPlayer.itemId === audioRow.modelData.id) {
+                            audioPlayer.stop()
+                            audioPlayer.hoverStarted = false
+                        }
+                    }
+                }
                 TapHandler { onTapped: root.openDetail(audioRow.modelData) }
 
                 IconButton {
@@ -601,10 +750,14 @@ Item {
                     enabled: !!audioRow.modelData.preview_url
                     tooltip: audioRow.isPlaying ? qsTr("Pause") : qsTr("Play preview")
                     onClicked: {
-                        if (audioRow.isPlaying) {
+                        if (audioRow.isPlaying && !audioPlayer.hoverStarted) {
                             audioPlayer.pause()
                             return
                         }
+                        // A click keeps playing what hovering started.
+                        audioPlayer.hoverStarted = false
+                        if (audioRow.isPlaying)
+                            return
                         if (audioPlayer.itemId !== audioRow.modelData.id) {
                             audioPlayer.itemId = audioRow.modelData.id
                             audioPlayer.source = audioRow.modelData.preview_url
@@ -631,7 +784,16 @@ Item {
                     Text {
                         width: parent.width
                         visible: text.length > 0
-                        text: audioRow.modelData.creator ? (audioRow.modelData.creator.name || "") : ""
+                        text: {
+                            const parts = []
+                            const by = audioRow.modelData.creator ? (audioRow.modelData.creator.name || "") : ""
+                            if (by.length > 0)
+                                parts.push(by)
+                            const uses = root.usesText(audioRow.modelData.uses)
+                            if (uses.length > 0)
+                                parts.push(uses)
+                            return parts.join(" · ")
+                        }
                         color: Theme.mutedForeground
                         font.family: Theme.fontFamily
                         font.pixelSize: Theme.fontSizeXs
