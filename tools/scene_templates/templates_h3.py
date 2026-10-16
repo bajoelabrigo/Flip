@@ -384,7 +384,7 @@ def presenta_polaroid():
 
 def presenta_tinta():
     t = wide("h-presenta-tinta", "Presentación de tinta", "Ink slideshow", "slideshow", 14.0, order=2217,
-             tags=["tinta", "artístico", "presentación", "fotos", "elegante"], thumb_at=6.6, background="#FFFFFF")
+             tags=["tinta", "artístico", "presentación", "fotos", "elegante"], thumb_at=7.3, background="#FFFFFF")
     bg(t, "#FFFFFF")
     samples = ["h-spring-03", "h-nature-05", "h-couple-03", "h-autumn-01", "h-winter-03"]
     clips = slides(t, samples, 0.0, 2.8, transition="ink_bleed", tdur=1.0, kb_amount=0.06)
@@ -558,7 +558,7 @@ def presenta_bebe():
 
 def presenta_anio():
     t = wide("h-presenta-anio", "Nuestro año", "Our year", "slideshow", 15.0, order=2225,
-             tags=["año", "resumen", "12 meses", "recap", "fotos", "año nuevo"], thumb_at=6.6, background="#0E0E10")
+             tags=["año", "resumen", "12 meses", "recap", "fotos", "año nuevo"], thumb_at=1.0, background="#0E0E10")
     months = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"]
     samples = ["h-winter-02", "h-couple-02", "h-spring-01", "h-easter-03", "h-spring-03", "h-summer-01", "h-beach-02",
                "h-travel-05", "h-school-02", "h-autumn-02", "h-thanksgiving-02", "h-christmas-03"]
@@ -610,7 +610,7 @@ def presenta_inmueble():
     label(t, t.track("text", "Precio"), "$320.000", 0.8, 15.2, Box(120, 720, 760, 110), "Montserrat", 86, "#C9A227",
           weight=800, align="left", anim_in=tanim("fade", duration=0.4), name="Precio")
     label(t, t.track("text", "Datos"), "🛏 3 dormitorios   🛁 2 baños   📐 140 m²", 1.0, 15.0, Box(120, 830, 760, 70),
-          "Montserrat", 38, "#FFFFFF", weight=500, align="left", anim_in=tanim("fade", duration=0.4), name="Datos")
+          "Montserrat", 32, "#FFFFFF", weight=500, align="left", anim_in=tanim("fade", duration=0.4), name="Datos")
     label(t, t.track("text", "Zona"), "Barrio Los Álamos · Entrega inmediata", 1.2, 14.8, Box(120, 905, 760, 60),
           "Montserrat", 32, "#BFD0E6", weight=400, align="left", anim_in=tanim("fade", duration=0.4), name="Zona")
     pill(t, t.track("shape", "Insignia"), "#C9A227", 0.3, 15.7, Box(80, 80, 330, 80), pop(0, 0.4))
@@ -647,7 +647,7 @@ def presenta_portafolio():
 
 def presenta_producto():
     t = wide("h-presenta-producto", "Catálogo de productos", "Product catalogue", "slideshow", 14.0, order=2229,
-             tags=["catálogo", "productos", "tienda", "precios", "ventas", "colección"], thumb_at=4.0,
+             tags=["catálogo", "productos", "tienda", "precios", "ventas", "colección"], thumb_at=1.6,
              background="#F2EDE7")
     bg(t, "#F2EDE7")
     items = [("h-product-01", "Jarrón Lino", "$35"), ("h-product-03", "Set Arena", "$58"),
@@ -692,7 +692,7 @@ def presenta_equipo():
 
 def presenta_evento():
     t = wide("h-presenta-evento", "Resumen del evento", "Event recap", "slideshow", 10.0, order=2231,
-             tags=["evento", "resumen", "aftermovie", "conferencia", "fiesta"], thumb_at=8.6, background="#000000")
+             tags=["evento", "resumen", "aftermovie", "conferencia", "fiesta"], thumb_at=9.7, background="#000000")
     samples = ["h-concert-04", "h-community-01", "h-concert-02", "h-office-01", "h-concert-03", "h-community-02",
                "h-concert-01", "h-office-06", "h-community-04", "h-concert-04", "h-office-03", "h-concert-02",
                "h-community-01", "h-office-05", "h-concert-03", "h-community-02"]
@@ -749,7 +749,7 @@ def presenta_revista():
             t.transition(v, prev, clip, "push_left", 0.5)
         prev = clip
         t.solid(t.track("shape", "Página"), "#FFFFFF", at, 3.0, Box(1100, 0, 820, 1080), opacity=keys([(0, 1.0)]))
-        label(t, t.track("text", "Palabra"), word, at + 0.3, 2.6, Box(1150, 140, 720, 260), "Bodoni Moda", 170, c, weight=700,
+        label(t, t.track("text", "Palabra"), word, at + 0.3, 2.6, Box(1150, 140, 720, 260), "Bodoni Moda", 128, c, weight=700,
               align="left", anim_in=tanim("slide-up", duration=0.4), anim_out=tanim("fade", duration=0.3),
               name=f"Título {i + 1}")
         label(t, t.track("text", "Texto"), "Ideas, lugares y personas que inspiran esta temporada.", at + 0.5, 2.4,

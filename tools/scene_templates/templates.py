@@ -187,9 +187,16 @@ import templates_t5  # noqa: E402
 import templates_h1  # noqa: E402
 import templates_h2  # noqa: E402
 import templates_h3  # noqa: E402
+import templates_h4  # noqa: E402
+import templates_r6  # noqa: E402
+import templates_r7  # noqa: E402
+import templates_r8  # noqa: E402
 
 TEMPLATES = ([photo_dump_ritmo, feliz_cumple, collage_2x2, frase_del_dia] + templates_reels.TEMPLATES
              + templates_text_collage.TEMPLATES + templates_rest.TEMPLATES
              + templates_t1.TEMPLATES + templates_t2.TEMPLATES + templates_t3.TEMPLATES
              + templates_t4.TEMPLATES + templates_t5.TEMPLATES
-             + templates_h1.TEMPLATES + templates_h2.TEMPLATES + templates_h3.TEMPLATES)
+             + templates_h1.TEMPLATES + templates_h2.TEMPLATES + templates_h3.TEMPLATES
+             + templates_h4.TEMPLATES
+             + templates_r6.TEMPLATES + templates_r7.TEMPLATES
+             + templates_r8.TEMPLATES)

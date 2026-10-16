@@ -31,6 +31,7 @@ sys.path.insert(0, str(HERE.parent / "e2e"))
 
 from PIL import Image, ImageDraw, ImageFilter  # noqa: E402
 
+import kit  # noqa: E402
 import templates  # noqa: E402
 from mcp_e2e import Bridge, reply_text  # noqa: E402
 
@@ -84,6 +85,9 @@ def build_package(t, out: Path, work: Path, samples: Path, music_dir: Path) -> P
     (pkg / "media").mkdir(parents=True)
     if t.music:
         cut_music(music_dir, t.music[0], t.music[1], t.duration, pkg / "media" / "music.m4a")
+    blocked = sorted({c["_sample"] for track in t.tracks for c in track.clips if c.get("_sample") in kit.BLOCKED})
+    if blocked:
+        raise SystemExit(f"{t.id}: sample photos with brands or logos: {', '.join(blocked)}")
     size = photo_size_from(samples, HERE / "media")
     for clip in (c for track in t.tracks for c in track.clips):
         if "_media" in clip:

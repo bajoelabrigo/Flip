@@ -504,7 +504,7 @@ def tercio_boda():
 
 def texto_capitulo():
     t = wide("h-texto-capitulo", "Tarjeta de capítulo", "Chapter card", "text", 5.0, order=2125,
-             tags=["capítulo", "título", "documental", "youtube", "sección"], thumb_at=3.0, background="#0F0F12")
+             tags=["capítulo", "título", "documental", "youtube", "sección"], thumb_at=3.6, background="#0F0F12")
     photo_bg(t, "h-nature-06", s1=1.08, label="Fondo")
     shade_full(t, 0.55, colour="#0F0F12")
     label(t, t.track("text", "Número"), "03", 0.2, 4.6, Box(120, 180, 900, 600), "Bebas Neue", 620, "#FFFFFF", weight=400,
@@ -803,7 +803,7 @@ def texto_receta_ingredientes():
     bg(t, "#FFF6E9")
     t.photo(t.track("video", "Plato"), "h-food-03", 0, 8.0, Box(980, 0, 940, 1080), kb(8.0, 1.0, 1.08),
             label="Foto del plato")
-    label(t, t.track("text", "Receta"), "Ensalada mediterránea", 0.2, 7.8, Box(110, 90, 860, 200), "Lobster", 92, "#C2410C",
+    label(t, t.track("text", "Receta"), "Ensalada mediterránea", 0.2, 7.8, Box(110, 90, 840, 200), "Lobster", 76, "#C2410C",
           weight=400, align="left", anim_in=tanim("fade", duration=0.5), name="Receta")
     label(t, t.track("text", "Sub"), "INGREDIENTES · 4 PORCIONES", 0.5, 7.5, Box(114, 280, 860, 60), "Montserrat", 32,
           "#7C2D12", weight=700, spacing=6, align="left", anim_in=tanim("fade", duration=0.5), name="Porciones")
@@ -917,7 +917,7 @@ def cierre_gracias():
 
 def cierre_suscribete_campana():
     t = wide("h-cierre-suscribete-campana", "Suscríbete y activa la campana", "Subscribe and ring the bell", "outro", 6.0,
-             order=2146, tags=["suscríbete", "campana", "botón", "youtube", "cierre"], thumb_at=3.6, background="#0F0F0F")
+             order=2146, tags=["suscríbete", "campana", "botón", "youtube", "cierre"], thumb_at=1.95, background="#0F0F0F")
     bg_gradient(t, [(0, "#202020"), (1, "#0A0A0A")], angle=90)
     btn = t.track("shape", "Botón")
     pill(t, btn, "#FF0033", 0.3, 2.4, centered(820, 540, 760, 180), pop(0, 0.45))
@@ -949,7 +949,7 @@ def cierre_like():
     ring(t, t.track("shape", "Onda"), "#FFFFFF", 8, 1.0, 1.2, centered(960, 450, 400, 400), [(0, {"s": 0.6}, "out"),
                                                                                            (1.2, {"s": 2.2})],
          opacity=keys([(0, 0.8), (1.2, 0.0)]))
-    label(t, t.track("text", "Pulgar"), "👍", 0.3, 4.7, centered(960, 450, 420, 420), "Inter", 300, "#FFFFFF", weight=400,
+    label(t, t.track("text", "Pulgar"), "👍", 0.3, 4.7, centered(960, 430, 560, 560), "Inter", 420, "#FFFFFF", weight=400,
           editable=False, motion=[(0, {"s": 0.0}, "back"), (0.5, {}, "hold"), (0.7, {}), (0.8, {"s": 1.18}, "back"),
                                   (1.1, {})], rotation=keys([(0, -20, "back"), (0.5, 0)]))
     label(t, t.track("text", "Texto"), "¡Dale like si te gustó!", 1.2, 3.8, Box(160, 720, 1600, 160), "Poppins", 104,
