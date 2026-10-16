@@ -80,6 +80,7 @@ def main() -> int:
             "durationSec": manifest.get("durationSec", 0),
             "slots": manifest.get("slots", 0),
             "texts": manifest.get("texts", 0),
+            "music": bool(manifest.get("music")),
             "tags": manifest.get("tags", []),
             "premium": bool(manifest.get("premium", False)),
             "thumb": f"{tid}/thumbnail.png",
