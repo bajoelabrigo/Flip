@@ -1291,6 +1291,11 @@ public:
     Q_INVOKABLE QVariantList effectTemplateCatalog() const;
     Q_INVOKABLE QVariantList effectTemplateCategories() const;
     Q_INVOKABLE void addEffect(int trackIndex, int clipIndex, const QString &effectId);
+    // Retouch tiles: sets `values` on the clip's last effectId, adding it first when there is none,
+    // and leaves the clip selected (addEffect moves the selection to the adjustment it creates,
+    // which unloads the Video tab that asked).
+    Q_INVOKABLE void applyRetouchLook(int trackIndex, int clipIndex, const QString &effectId,
+                                      const QVariantMap &values);
     // The selected clip, or the top picture clip under the playhead.
     Q_INVOKABLE void applyEffectTemplateToCurrentClip(const QString &templateId);
     Q_INVOKABLE void applyEffectTemplate(int trackIndex, int clipIndex, const QString &templateId);

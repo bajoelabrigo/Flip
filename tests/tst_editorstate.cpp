@@ -9797,6 +9797,34 @@ void EditorStateTest::hairColorPinsItsOwnMaskedAdjustment()
     QCOMPARE(state.selectedTrack(), 0);
     QCOMPARE(state.selectedClip(), 0);
     QVERIFY(!state.selectClipById(QStringLiteral("no-such-clip")));
+
+    // A Retouch tile: the look lands on the clip's stack with its values, the clip stays selected,
+    // and a second tile reuses the same effect rather than stacking another.
+    state.applyRetouchLook(0, 0, QStringLiteral("body.reshape"), {{QStringLiteral("slim"), 0.8}});
+    QCOMPARE(state.selectedTrack(), 0);
+    QCOMPARE(state.selectedClip(), 0);
+    const auto bodyLooks = [&state]() {
+        int count = 0;
+        for (const QVariant &e : state.selectedClipEffects()) {
+            if (e.toMap().value(QStringLiteral("catalogId")).toString() == QStringLiteral("body.reshape"))
+                ++count;
+        }
+        return count;
+    };
+    QCOMPARE(bodyLooks(), 1);
+    state.applyRetouchLook(0, 0, QStringLiteral("body.reshape"), {{QStringLiteral("waist"), 0.8}});
+    QCOMPARE(bodyLooks(), 1);
+    const drift::Clip *bodyHost = state.effectHostClip(0, 0, drift::AdjustmentKind::VideoEffects);
+    QVERIFY(bodyHost);
+    bool found = false;
+    for (const drift::Effect &e : bodyHost->effects) {
+        if (e.catalogId == QStringLiteral("body.reshape")) {
+            QCOMPARE(e.parameters.value(QStringLiteral("slim")).toDouble(), 0.8);
+            QCOMPARE(e.parameters.value(QStringLiteral("waist")).toDouble(), 0.8);
+            found = true;
+        }
+    }
+    QVERIFY(found);
     QCOMPARE(state.body()->hairColor(0, 0).value(QStringLiteral("shade")).toString(), QStringLiteral("#e27aa8"));
 
     state.body()->removeHairColor(0, 0);

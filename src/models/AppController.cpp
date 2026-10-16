@@ -17707,6 +17707,38 @@ void AppController::addEffect(int trackIndex, int clipIndex, const QString &effe
         m_faces->detect(faceTrack, faceClip);
 }
 
+void AppController::applyRetouchLook(int trackIndex, int clipIndex, const QString &effectId,
+                                     const QVariantMap &values)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const QString clipId = m_project.tracks().at(trackIndex).clips.at(clipIndex).id;
+    const auto lastIndex = [&](int track, int clip) {
+        const drift::Clip *host = effectHostClip(track, clip, drift::AdjustmentKind::VideoEffects);
+        if (!host)
+            return -1;
+        for (int i = host->effects.size() - 1; i >= 0; --i) {
+            if (host->effects.at(i).catalogId == effectId)
+                return i;
+        }
+        return -1;
+    };
+
+    int index = lastIndex(trackIndex, clipIndex);
+    if (index < 0) {
+        addEffect(trackIndex, clipIndex, effectId);
+        // Adding mints a lane, so the clip's indices may have moved.
+        if (!findClipById(m_project, clipId, &trackIndex, &clipIndex))
+            return;
+        index = lastIndex(trackIndex, clipIndex);
+    }
+    selectClip(trackIndex, clipIndex);
+    if (index < 0)
+        return;
+    for (auto it = values.constBegin(); it != values.constEnd(); ++it)
+        setEffectParam(trackIndex, clipIndex, index, it.key(), it.value().toDouble());
+}
+
 namespace {
 
 drift::Effect effectFromCatalogEntry(const EffectPresetEntry &def,
