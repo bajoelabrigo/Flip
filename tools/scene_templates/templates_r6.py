@@ -1049,8 +1049,8 @@ def main_characters():
               editable=False)
     photo_bg(t, "friends-09", 7.2, 2.8, s1=1.05, label="Foto del grupo", effects=[effect("cinematic_grade", strength=0.6)])
     letterbox(t, 1.0)
-    label(t, t.track("text", "Título"), "PROTAGONISTAS", 7.4, 2.6, Box(60, 820, 960, 160), "Cinzel", 100, "#F4EDE4",
-          weight=700, spacing=12, anim_in=tanim("blur-in", duration=0.8), name="Título")
+    label(t, t.track("text", "Título"), "PROTAGONISTAS", 7.4, 2.6, Box(60, 820, 960, 160), "Cinzel", 78, "#F4EDE4",
+          weight=700, spacing=4, anim_in=tanim("blur-in", duration=0.8), name="Título")
     label(t, t.track("text", "Sub"), "una película de nosotras", 7.8, 2.2, Box(60, 990, 960, 80), "Cormorant Garamond", 56,
           "#D9D0BF", weight=500, italic=True, anim_in=tanim("fade", duration=0.6), name="Subtítulo")
     grain(t, 0.18)
