@@ -834,7 +834,7 @@ def mudanzas_v():
     t = tall("r-mudanzas", "Mudanzas", "Removals", "business", 8.0, order=3241,
              tags=["mudanzas", "transporte", "cajas", "fletes", "servicio"], thumb_at=4.6, background="#FF7B00")
     bg(t, "#FF7B00")
-    t.photo(t.track("video", "Foto"), "box-01", 0.2, 7.8, Box(100, 220, 880, 900), [(0, {"dx": 1100}, "out"), (0.6, {})],
+    t.photo(t.track("video", "Foto"), "box-02", 0.2, 7.8, Box(100, 220, 880, 900), [(0, {"dx": 1100}, "out"), (0.6, {})],
             label="Foto del servicio")
     label(t, t.track("text", "Camión"), "🚚", 0.6, 7.4, centered(240, 1240, 300, 240), "Inter", 200, "#FFFFFF", weight=400,
           editable=False, motion=[(0, {"dx": -700}, "out"), (1.0, {})], anim_loop=tanim("jitter", amount=1, angle=1, speed=10))
@@ -958,7 +958,7 @@ def envio_gratis():
     t = tall("r-envio-gratis", "Tienda en línea: envío gratis", "Free shipping", "business", 7.0, order=3248,
              tags=["envío gratis", "tienda en línea", "compras", "oferta", "delivery"], thumb_at=3.6, background="#4F46E5")
     bg_gradient(t, [(0, "#6366F1"), (1, "#3730A3")], angle=135)
-    t.photo(t.track("video", "Producto"), "box-03", 0.2, 6.8, Box(140, 260, 800, 800), [(0, {"s": 0.6}, "back"), (0.5, {}, "linear"),
+    t.photo(t.track("video", "Producto"), "box-02", 0.2, 6.8, Box(140, 260, 800, 800), [(0, {"s": 0.6}, "back"), (0.5, {}, "linear"),
                                                                                       (6.8, {"s": 1.04})], label="Foto del pedido")
     label(t, t.track("text", "Camión"), "🚚💨", 1.0, 6.0, centered(540, 1160, 600, 220), "Inter", 160, "#FFFFFF", weight=400,
           editable=False, motion=[(0, {"dx": -1100}, "out"), (0.6, {})])

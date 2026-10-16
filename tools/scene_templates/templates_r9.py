@@ -35,7 +35,7 @@ def unboxing():
     t = tall("r-unboxing", "Unboxing", "Unboxing", "product", 9.0, order=3300,
              tags=["unboxing", "abriendo", "pedido", "producto", "compras"], thumb_at=6.0, background="#F2EDE7")
     bg(t, "#F2EDE7")
-    slides(t, ["box-02", "box-03", "skincare-03"], 0.0, 2.5, Box(80, 300, 920, 1200), transition="zoom_in", tdur=0.3,
+    slides(t, ["box-02", "shopping-04", "skincare-03"], 0.0, 2.5, Box(80, 300, 920, 1200), transition="zoom_in", tdur=0.3,
            kb_amount=0.06)
     photo_bg(t, "skincare-02", 7.5, 1.5, s1=1.04, label="Producto final")
     label(t, t.track("text", "Título"), "UNBOXING", 0.2, 7.2, Box(60, 120, 960, 150), "Archivo Black", 120, "#2D2A26",
@@ -343,7 +343,7 @@ def mito_verdad():
 def ranking_5_1():
     t = tall("r-ranking-5-1", "Ranking del 5 al 1", "Ranking 5 to 1", "text", 11.0, order=3315,
              tags=["ranking", "top 5", "favoritos", "lista", "número 1"], thumb_at=9.5, background="#0F0F0F")
-    samples = ["food-03", "food-01", "restaurant-02", "restaurant-04", "food-02"]
+    samples = ["food-03", "food-01", "restaurant-02", "h-food-02", "food-02"]
     names = ["empanadas", "tacos", "ramen", "pasta", "pizza"]
     for i, (s, n) in enumerate(zip(samples, names)):
         at = i * 2.2

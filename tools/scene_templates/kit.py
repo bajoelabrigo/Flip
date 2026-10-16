@@ -9,12 +9,12 @@ from __future__ import annotations
 import math
 import random
 
-from scene import (WIDE, Box, Template, anim, beat, centered, effect, fill, glow, gradient, keys,
+from scene import (SQUARE, WIDE, Box, Template, anim, beat, centered, effect, fill, glow, gradient, keys,
                    no_stroke, shadow, stroke, tanim, text_style)
 
-__all__ = ["WIDE", "Box", "Template", "anim", "beat", "centered", "effect", "fill", "glow", "gradient", "keys",
+__all__ = ["SQUARE", "WIDE", "Box", "Template", "anim", "beat", "centered", "effect", "fill", "glow", "gradient", "keys",
            "no_stroke", "shadow", "stroke", "tanim", "text_style", "math", "random",
-           "wide", "tall", "pill", "rrect", "pop", "kb", "spike", "blink", "hollow", "flash", "shade_bottom",
+           "wide", "tall", "square", "pill", "rrect", "pop", "kb", "spike", "blink", "hollow", "flash", "shade_bottom",
            "shade_top", "shade_full", "letterbox", "bg", "bg_gradient", "photo_bg", "framed", "circle_photo",
            "panels", "song", "fade_kf", "appear", "label", "line", "grain", "vignette", "dots", "confetti",
            "slides", "ring", "outline", "BLOCKED", "slide_in", "type_style"]
@@ -24,7 +24,7 @@ BLOCKED = {"h-desk-01", "h-community-03", "h-truck-02", "h-soccer-04", "h-produc
            "h-gaming-04", "h-tools-01", "bakery-01", "winter-02", "spring-03", "skincare-01", "music-01",
            # reviewed by the coordinator (2026-10-16): sneaker and sportswear brands, sponsors on shirts
            "product-01", "product-02", "product-03", "product-04", "gym-03", "fashion-05", "fashion-06", "family-06",
-           "barber-04", "nails-01", "skate-02", "sport-01", "sport-02", "sport-03", "restaurant-05", "car-01", "car-02", "car-03"}
+           "barber-04", "nails-01", "skate-02", "sport-01", "sport-02", "sport-03", "restaurant-05", "restaurant-04", "box-01", "box-03", "car-01", "car-02", "car-03"}
 
 MOODS = {
     "upbeat": [("city-sunshine", 8), ("funshine", 4), ("fresh-focus", 2), ("inspiration", 6), ("advertime", 3),
@@ -56,6 +56,10 @@ def song(t: Template, mood: str, pick: int = 0, volume: float = 0.85) -> None:
 
 def wide(id: str, es: str, en: str, category: str, duration: float, **kw) -> Template:
     return Template(id, es, en, category, duration, size=WIDE, **kw)
+
+
+def square(id: str, es: str, en: str, category: str, duration: float, **kw) -> Template:
+    return Template(id, es, en, category, duration, size=SQUARE, **kw)
 
 
 def tall(id: str, es: str, en: str, category: str, duration: float, **kw) -> Template:
