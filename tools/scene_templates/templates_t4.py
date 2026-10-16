@@ -136,7 +136,7 @@ def boda_save_the_date() -> Template:
     t.text(words, "14 · 02 · 2027", 2.2, 7.8, Box(270, 1520, 540, 90),
            text_style("Cinzel", 56, [fill("#7C8C6C")], weight=500, spacing=8,
                       anim_in=tanim("wipe", duration=0.9)), label="Fecha")
-    t.text(words, "Hacienda Los Olivos · Lima", 3.0, 7.0, Box(40, 1630, 1000, 80),
+    t.text(words, "Hacienda Los Olivos", 3.0, 7.0, Box(40, 1630, 1000, 80),
            text_style("Cormorant Garamond", 50, [fill("#5B6650")], weight=600,
                       anim_in=tanim("fade", duration=0.8)), label="Lugar")
     t.text(words, "invitación formal a continuación", 3.6, 6.4, Box(40, 1720, 1000, 70),
@@ -339,7 +339,7 @@ def baby_shower() -> Template:
     info = t.track("text", "Datos")
     t.text(info, "Sábado 20 de marzo · 4 p. m.", 2.8, 7.2, Box(120, 1440, 840, 100),
            text_style("Baloo 2", 54, [fill("#4F7C6F")], weight=700, anim_in=tanim("fade", duration=0.5)), label="Fecha")
-    t.text(info, "Casa de los abuelos, Arequipa", 3.1, 6.9, Box(120, 1550, 840, 90),
+    t.text(info, "Casa de los abuelos", 3.1, 6.9, Box(120, 1550, 840, 90),
            text_style("Baloo 2", 44, [fill("#E58FA0")], weight=600, anim_in=tanim("fade", duration=0.5)), label="Lugar")
     t.text(info, "¡te esperamos!", 3.4, 6.6, Box(120, 1640, 840, 80),
            text_style("Baloo 2", 40, [fill("#8AA79E")], weight=500, anim_in=tanim("fade", duration=0.5)), label="Nota")
@@ -552,10 +552,10 @@ def dia_de_playa() -> Template:
 
 def mochilero_por_peru() -> Template:
     """Backpacking route: a day per stop, the route bar fills and the pin hops from dot to dot."""
-    t = Template("mochilero-por-peru", "Mochilero por Perú", "Backpacking Peru", "reels", 15.0,
-                 order=1309, tags=["viaje", "mochilero", "perú", "cusco", "ruta", "aventura"], thumb_at=4.0)
-    stops = [("travel-07", "Cusco"), ("travel-01", "Salkantay"), ("travel-02", "Vinicunca"),
-             ("travel-06", "Valle Sagrado"), ("travel-09", "Titicaca"), ("travel-10", "Pisac")]
+    t = Template("mochilero-por-peru", "Ruta mochilera", "Backpacking route", "reels", 15.0,
+                 order=1309, tags=["viaje", "mochilero", "ruta", "aventura", "montaña"], thumb_at=4.0)
+    stops = [("travel-07", "La ciudad"), ("travel-01", "El sendero"), ("travel-02", "La cumbre"),
+             ("travel-06", "El valle"), ("travel-09", "El lago"), ("travel-10", "El regreso")]
     each = 2.5
     photos = t.track("video", "Paradas")
     clips = []
@@ -599,7 +599,7 @@ def mochilero_por_peru() -> Template:
                text_style("Big Shoulders Display", 90, [shadow("#000000", 0, 4, 16, 0.6), fill("#FFFFFF")],
                           weight=700, align="left", case="upper", spacing=4,
                           anim_in=tanim("wipe", duration=0.45, angle=0)), label=f"Lugar {i + 1}")
-    t.text(t.track("text", "Título"), "mochileando por Perú", 0.2, 14.8, Box(110, 1600, 860, 110),
+    t.text(t.track("text", "Título"), "mochileando por el mundo", 0.2, 14.8, Box(110, 1600, 860, 110),
            text_style("Kalam", 64, [shadow("#000000", 0, 3, 10, 0.6), fill("#FFFFFF")], weight=700, align="left",
                       anim_in=tanim("typewriter", duration=1.0, unit="character")), label="Título")
     t.song("one-step-closer", 0.0, 0.85)
@@ -807,7 +807,7 @@ def diario_de_comida() -> Template:
                  background="#FFFDF6")
     t.solid(t.track("shape", "Papel"), "#FFFDF6")
     t.solid(t.track("shape", "Margen"), "#F28B82", 0, 10.0, Box(96, 0, 4, 1920), alpha=0.8)
-    meals = [("coffee-03", "desayuno", "8:00 · capuchino"), ("food-01", "almuerzo", "1:00 · ceviche"),
+    meals = [("coffee-03", "desayuno", "8:00 · capuchino"), ("food-01", "almuerzo", "1:00 · ensalada"),
              ("coffee-01", "lonche", "5:00 · cafecito"), ("food-03", "cena", "8:30 · tiradito")]
     for i, (sample, meal, note) in enumerate(meals):
         start = 0.6 + i * 1.8
@@ -1011,7 +1011,7 @@ def concierto_festival() -> Template:
     t.text(t.track("text", "Pulsera"), "VIP · 2027", 1.0, 7.0, centered(540, 1560, 640, 130),
            text_style("Bungee", 66, [fill("#00F5D4")], weight=400, spacing=6),
            [(0, {"dx": 1200}, "out"), (0.5, {})], label="Pulsera", rotation=keys([(0, -6)]))
-    t.text(words, "Lima · sábado", 1.4, 6.6, Box(40, 1720, 1000, 90),
+    t.text(words, "Centro · sábado", 1.4, 6.6, Box(40, 1720, 1000, 90),
            text_style("Bungee", 54, [glow("#7B2FF7", 20, 0.9), fill("#FFFFFF")], weight=400, spacing=4,
                       anim_in=tanim("fade", duration=0.4)), label="Lugar")
     t.song("beat-one", 0.0, 0.9)

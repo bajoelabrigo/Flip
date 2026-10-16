@@ -143,7 +143,7 @@ def vlog_de_viaje() -> Template:
     t.solid(labels, "#D96C3F", 0.3, 2.6, Box(96, 1338, 30, 30), [(0, {"s": 0.0}, "back"), (0.4, {})],
             kind="ellipse")
     words = t.track("text", "Textos")
-    t.text(words, "Cusco, Perú", 0.2, 2.8, Box(80, 1360, 940, 180),
+    t.text(words, "Mi lugar favorito", 0.2, 2.8, Box(80, 1360, 940, 180),
            text_style("DM Serif Display", 128, [shadow("#000000", 0, 6, 24, 0.55), fill("#FFFFFF")], weight=400,
                       align="left", anim_in=tanim("rise", duration=0.6, unit="character", stagger=0.04),
                       anim_out=tanim("fade", duration=0.3)), label="Lugar")

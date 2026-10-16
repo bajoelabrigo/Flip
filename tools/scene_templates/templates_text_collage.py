@@ -98,7 +98,7 @@ def polaroids() -> Template:
             layers=[gradient([(0, "#F3EBDD"), (1, "#E2D3BC")], angle=120), no_stroke()])
     spots = [(330, 560, -7), (760, 700, 6), (360, 1160, 5), (740, 1340, -8), (540, 940, 2)]
     samples = ["beach-02", "friends-11", "city-01", "travel-07", "friends-01"]
-    captions = ["verano ☀", "con ellas", "Lima", "2026", "♡"]
+    captions = ["verano ☀", "con ellas", "la ciudad", "2026", "♡"]
     final = 0.9
     for i, ((x, y, tilt), sample, caption) in enumerate(zip(spots, samples, captions)):
         start = 0.4 + i * beat(2)

@@ -346,7 +346,7 @@ def zoom_3d() -> Template:
     back = t.track("video", "Fondo")
     cards = t.track("shape", "Sombra")
     front = t.track("video", "Primer plano")
-    samples = [("city-04", "Lima"), ("cusco-01", "Cusco"), ("travel-09", "Puno")]
+    samples = [("city-04", "La ciudad"), ("cusco-01", "La calle"), ("travel-09", "El lago")]
     backs, fronts = [], []
     card = centered(540, 900, 860, 1320)
     for i, (sample, _) in enumerate(samples):
