@@ -67,7 +67,9 @@ def ending_decays(a: dsp.Analysis) -> bool:
 
 
 def choose(a: dsp.Analysis, L: float, *, avoid: list[tuple[float, float]] = (), prefer_intro: float | None = None,
-           tail_range=(1.6, 4.2), min_start: float | None = None) -> Cut:
+           tail_range=None, min_start: float | None = None) -> Cut:
+    if tail_range is None:  # longer cuts get longer, gentler fades
+        tail_range = (2.2 if L <= 15 else 2.8 if L <= 30 else 3.4, 6.0)
     D = a.downbeats
     if len(D) < 4:
         raise ValueError("no bars found")
@@ -91,8 +93,8 @@ def choose(a: dsp.Analysis, L: float, *, avoid: list[tuple[float, float]] = (), 
         if s_idx is not None and s_idx < len(acc):
             sc += 0.25 * acc[s_idx]
         if bars:
-            sc += 0.6 * (bars % 4 == 0) + 0.3 * (bars % 8 == 0) - 0.6 * (bars % 2 == 1)
-        sc -= 0.9 * abs(total - L)
+            sc += 0.7 * (bars % 4 == 0) + 0.3 * (bars % 8 == 0) - 1.3 * (bars % 2 == 1)
+        sc -= 0.6 * abs(total - L)
         for o0, o1 in avoid:                  # another cut of the same song already uses this part
             ov = max(0.0, min(t1, o1) - max(t0, o0))
             sc -= 0.6 * ov / L

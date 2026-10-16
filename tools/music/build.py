@@ -38,7 +38,7 @@ OUT = ROOT / "paquetes"
 CARD = 384
 TARGET_LUFS = -14.0
 CEILING_DB = -1.5        # sample peak after the limiter (2x oversampled); the MP3 then stays under -1 dBTP
-MAX_LIMIT_DB = 4.0       # never squash more than this to reach the target
+MAX_LIMIT_DB = 6.0       # never squash more than this to reach the target
 FONT = "C:/Windows/Fonts/segoeuib.ttf"
 
 
@@ -107,6 +107,16 @@ def level(y: np.ndarray) -> tuple[np.ndarray, float, float]:
     return z, gain, gr
 
 
+def encode(y: np.ndarray, folder: Path, oid: str):
+    with tempfile.TemporaryDirectory() as tmp:
+        wav = Path(tmp) / "cut.wav"
+        write_wav(wav, y)
+        for name, rate in ((f"{oid}.mp3", "192k"), ("preview.mp3", "128k")):
+            subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(wav), "-c:a", "libmp3lame", "-b:a", rate,
+                            "-map_metadata", "-1", "-id3v2_version", "0", "-write_xing", "1", str(folder / name)],
+                           check=True)
+
+
 def quiet_stretch(y: np.ndarray, until: int) -> float:
     """Longest run (s) under -45 dBFS before sample `until` (the fade-out is not counted)."""
     k = dsp.SR // 20
@@ -138,15 +148,14 @@ def build(item: catalog.Item, x: np.ndarray, avoid: list) -> tuple[dict, tuple[f
     y, gain, gr = level(y)
     folder = OUT / item.id
     folder.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory() as tmp:
-        wav = Path(tmp) / "cut.wav"
-        write_wav(wav, y)
-        for name, rate in ((f"{item.id}.mp3", "192k"), ("preview.mp3", "128k")):
-            subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(wav), "-c:a", "libmp3lame", "-b:a", rate,
-                            "-map_metadata", "-1", "-id3v2_version", "0", "-write_xing", "1", str(folder / name)],
-                           check=True)
-    z = dsp.decode(folder / f"{item.id}.mp3")
-    final_lufs, tp = dsp.lufs(z), dsp.true_peak_db(z)
+    for _ in range(3):
+        encode(y, folder, item.id)
+        z = dsp.decode(folder / f"{item.id}.mp3")
+        final_lufs, tp = dsp.lufs(z), dsp.true_peak_db(z)
+        if tp <= -1.0:
+            break
+        # MP3 overshoot: take the excess off and encode again
+        y = (y * 10 ** ((-1.15 - tp) / 20)).astype(np.float32)
     seconds = len(y) / dsp.SR
     card(y, item.category, seconds, folder / "thumbnail.png")
     fade_at = int((c.fade_from - c.start) * dsp.SR)

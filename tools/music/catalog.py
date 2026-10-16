@@ -240,7 +240,6 @@ unsorted/Winter | triste | 60 | invierno, winter, piano
 classical/Icicles Melting | triste | 60 | piano, invierno, deshielo, delicada
 unsorted/The Story | triste | 30 | historia, story, reflexion
 unsorted/Consecrated Ground | triste | 30 | homenaje, memorial, solemne
-romantic/Amazing Grace | triste | 60 | himno, hymn, homenaje, memorial, iglesia
 fma:public-domain-lofi/Canon Event | triste | 30 | lofi, reflexion, nostalgia
 fma:public-domain-lofi/Forgotten Keep Sakes | triste | 30 | lofi, recuerdos, memories
 fma:lo-fi-and-chill/All The Way Sad | triste | 30 | lofi, triste, sad
@@ -280,7 +279,6 @@ comedy/Baltic Levity | divertido | 30 | ligera, humor, acordeon
 comedy/Barroom Ballet | divertido | 30 | piano de bar, saloon, western
 comedy/Dance of the Tuba Plum Fairy | divertido | 15 | tuba, torpe, clumsy
 comedy/Monsters in Hotel | divertido | 30 | monstruos, monsters, caricatura
-unsorted/Opener Comedy | divertido | 15 | intro, comedia, sitcom
 unsorted/Silly Intro | divertido | 15 | intro, tonta, silly
 unsorted/Le Baguette | divertido | 30 | francesa, french, paris, acordeon
 unsorted/Foam Rubber | divertido | 30 | goma, rebote, bouncy
@@ -351,7 +349,6 @@ fma:waves-of-nostalgia-2/Night Life | fiesta | 30 | synthwave, retro, anos 80, n
 fma:waves-of-nostalgia-2/We used To Dance | fiesta | 30 | synthwave, retro, anos 80, baile
 fma:power-pop/Back In The 80s | fiesta | 30 | synth pop, anos 80, retro
 fma:power-pop/Retro Synths | fiesta | 30 | synth pop, retro, anos 80
-fma:power-pop/Mutant Club | fiesta | 30 | synth, club, retro
 fma:power-pop/Funky Pop | fiesta | 30 | funk, pop, groove
 # ---------------- Navidad y fechas
 unsorted/Deck the Halls | fechas | 30,60 | navidad, christmas, villancico, carol | name=Deck the Halls
