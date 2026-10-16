@@ -187,6 +187,9 @@ class Box:
 
 
 FULL = Box(0, 0, W, H)
+# Horizontal templates (16:9, YouTube / Facebook): Template(..., size=WIDE).
+WIDE = (1920, 1080)
+FULL_H = Box(0, 0, 1920, 1080)
 
 
 def centered(cx: float, cy: float, w: float, h: float) -> Box:
@@ -248,8 +251,10 @@ class Track:
 class Template:
     def __init__(self, id: str, es: str, en: str, category: str, duration: float, *, order: int = 0,
                  tags: list[str] | None = None, thumb_at: float | None = None, premium: bool = False,
-                 background: str = "#000000"):
+                 background: str = "#000000", size: tuple[int, int] = (W, H)):
         self.id = id
+        self.w, self.h = size
+        self.full = Box(0, 0, self.w, self.h)
         self.names = {"es": es, "en": en}
         self.category = category
         self.duration = duration
@@ -276,19 +281,21 @@ class Template:
         clip.update(extra)
         return clip
 
-    def solid(self, track: Track, color: str, t0: float = 0.0, dur: float | None = None, box: Box = FULL,
+    def solid(self, track: Track, color: str, t0: float = 0.0, dur: float | None = None, box: Box | None = None,
               motion=None, radius: float = 0, kind: str = "rectangle", alpha: float = 1.0, layers=None, **extra) -> dict:
         dur = self.duration - t0 if dur is None else dur
+        box = self.full if box is None else box
         style = shape_style(kind, layers or [fill(color, alpha), no_stroke()], radius)
         clip = self._clip("shape", t0, dur, shapeStyle=style, **layout(box, motion))
         clip.update(extra)
         track.clips.append(clip)
         return clip
 
-    def photo(self, track: Track, sample: str, t0: float, dur: float, box: Box = FULL, motion=None, *,
+    def photo(self, track: Track, sample: str, t0: float, dur: float, box: Box | None = None, motion=None, *,
               label: str | None = None, slot: bool = True, reuse: str | None = None, **extra) -> dict:
         """A photo slot (or, slot=False, a fixed picture from the package's media). reuse="p2" shows slot
         p2's picture again: one fill fills every clip of that slot."""
+        box = self.full if box is None else box
         clip = self._clip("image", t0, dur, **layout(box, motion))
         if reuse:
             first = next(s for s in self.slots if s.id == reuse)
@@ -396,13 +403,13 @@ class Template:
                 "id": new_id("c"), "type": "audio", "assetId": asset_id, "path": path,
                 "timelineStartUs": 0, "timelineDurationUs": us(self.duration), "srcInUs": 0,
                 "srcOutUs": us(self.duration), "volume": volume, "fadeOutUs": us(min(1.0, self.duration / 4))}]})
-        return {"version": 14, "projectName": self.names["es"], "width": W, "height": H, "fps": 30,
+        return {"version": 14, "projectName": self.names["es"], "width": self.w, "height": self.h, "fps": 30,
                 "sampleRate": 48000, "background": {"kind": "color", "color": argb(self.background)},
                 "assets": assets, "tracks": tracks}
 
     def manifest(self) -> dict:
         return {"id": self.id, "displayName": self.names["en"], "names": self.names, "category": self.category,
-                "order": self.order, "width": W, "height": H, "durationSec": self.duration,
+                "order": self.order, "width": self.w, "height": self.h, "durationSec": self.duration,
                 "slots": len(self.slots), "texts": self.texts, "premium": self.premium, "tags": self.tags,
                 "music": self.music[0] if self.music else None}
 

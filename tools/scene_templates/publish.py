@@ -34,6 +34,9 @@ CATEGORY_NAMES = {
     "business": {"es": "Negocios", "en": "Business"},
     "countdown": {"es": "Cuentas regresivas", "en": "Countdowns"},
     "outro": {"es": "Cierres", "en": "Endings"},
+    "slideshow": {"es": "Presentaciones de fotos", "en": "Photo slideshows"},
+    "lowerthird": {"es": "Tercios inferiores", "en": "Lower thirds"},
+    "transition": {"es": "Transiciones y separadores", "en": "Transitions and separators"},
 }
 
 
@@ -42,10 +45,11 @@ def main() -> int:
     parser.add_argument("--packages", type=Path, default=ROOT / "paquetes")
     parser.add_argument("--out", type=Path, default=ROOT / "publicar")
     args = parser.parse_args()
-    # The animations, overlays and sounds (tools/animations, tools/overlays, tools/sounds) share the folder: keep them.
+    # Other Stock catalogs (animaciones, superposiciones...) share the folder: a subfolder with its own
+    # index.json is one of them, keep it.
     if args.out.exists():
         for child in args.out.iterdir():
-            if child.name in ("animaciones", "superposiciones", "sonidos", "fondos"):
+            if child.name in ("animaciones", "superposiciones", "sonidos", "fondos") or (child.is_dir() and (child / "index.json").exists()):
                 continue
             shutil.rmtree(child) if child.is_dir() else child.unlink()
     args.out.mkdir(parents=True, exist_ok=True)
@@ -63,8 +67,10 @@ def main() -> int:
         data = zip_path.read_bytes()
         (args.out / tid).mkdir()
         shutil.copy2(pkg / "thumbnail.png", args.out / tid / "thumbnail.png")
-        if (pkg / "preview.mp4").exists():
-            shutil.copy2(pkg / "preview.mp4", args.out / tid / "preview.mp4")
+        for extra in ("preview.mp4", "thumbnail-wide.png", "preview-wide.mp4"):
+            if (pkg / extra).exists():
+                shutil.copy2(pkg / extra, args.out / tid / extra)
+        width, height = manifest.get("width", 1080), manifest.get("height", 1920)
         entries.append({
             "id": tid,
             "names": manifest.get("names") or {"es": manifest["displayName"], "en": manifest["displayName"]},
@@ -78,6 +84,12 @@ def main() -> int:
             "premium": bool(manifest.get("premium", False)),
             "thumb": f"{tid}/thumbnail.png",
             "preview": f"{tid}/preview.mp4" if (pkg / "preview.mp4").exists() else None,
+            # 16:9 templates: the card above is a storyboard; these are the plain wide frame and loop.
+            "width": width,
+            "height": height,
+            "orientation": "landscape" if width > height else "square" if width == height else "portrait",
+            "thumbWide": f"{tid}/thumbnail-wide.png" if (pkg / "thumbnail-wide.png").exists() else None,
+            "previewWide": f"{tid}/preview-wide.mp4" if (pkg / "preview-wide.mp4").exists() else None,
             "zip": f"{tid}.zip",
             "sha256": hashlib.sha256(data).hexdigest(),
             "bytes": len(data),

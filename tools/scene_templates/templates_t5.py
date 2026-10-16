@@ -630,7 +630,7 @@ def pantalla_final_videos() -> Template:
     t.text(title, "¿Quieres más?", 0.2, 7.8, Box(40, 150, 1000, 160),
            text_style("Outfit", 104, [fill("#FFFFFF")], weight=800, anim_in=tanim("rise", duration=0.5)),
            label="Título")
-    cards = [("travel-07", "Mi viaje a Cusco", 420), ("food-03", "Ceviche en 5 minutos", 960)]
+    cards = [("travel-07", "Mi viaje a la montaña", 420), ("food-03", "Ensalada en 5 minutos", 960)]
     for i, (sample, caption, y) in enumerate(cards):
         at = 0.6 + i * 0.35
         dur = t.duration - at
@@ -790,7 +790,7 @@ def cosas_que_no_sabias() -> Template:
            label="Título")
     facts = [("pet-05", "#FF006E", "Los perros pueden entender más de 150 palabras."),
              ("coffee-03", "#3A86FF", "El café es la semilla de una fruta roja."),
-             ("food-03", "#8338EC", "El ceviche es Patrimonio Cultural de la Nación del Perú.")]
+             ("food-03", "#8338EC", "La miel no se echa a perder: hay miel comestible de miles de años.")]
     for i, (sample, colour, fact) in enumerate(facts):
         at = 2.1 + i * 3.3
         dur = 3.3 if i < 2 else t.duration - at

@@ -277,7 +277,7 @@ PICADO = ["#E6007E", "#FF8C00", "#FFC300", "#00B3A4", "#7B2CBF", "#43AA8B", "#FF
 
 def dia_de_muertos_ofrenda() -> Template:
     """An altar: papel picado that sways, a marigold-lit frame where the faces we remember cross-fade, candles."""
-    t = Template("muertos-ofrenda", "Ofrenda: los recordamos", "Altar: in loving memory", "seasonal", 15.0,
+    t = Template("muertos-ofrenda", "Altar: los recordamos", "Altar: in loving memory", "seasonal", 15.0,
                  order=1010, tags=["día de muertos", "todos los santos", "ofrenda", "recuerdo", "familia"],
                  thumb_at=4.2, background="#1B0B2E")
     t.solid(t.track("shape", "Fondo"), "#1B0B2E",
@@ -290,7 +290,7 @@ def dia_de_muertos_ofrenda() -> Template:
     rng = random.Random(2)
     particles(t, "Pétalos", 2, 1.0, 15.0, rng, ["#FF8C00", "#FFB703", "#FB8500"], size=(14, 26), dy=2100,
               life=(6.0, 8.0), every=(0.5, 1.1), sway=160, spin=200, alpha=0.85)
-    t.text(t.track("text", "Encabezado"), "Día de Muertos", 0.4, 14.6, Box(40, 262, 1000, 130),
+    t.text(t.track("text", "Encabezado"), "Siempre con nosotros", 0.4, 14.6, Box(40, 262, 1000, 130),
            text_style("Cinzel Decorative", 84, [shadow("#000000", 0, 4, 14, 0.5),
                                                 gradient([(0, "#FFD27F"), (1, "#FF8C00")], angle=90)],
                       weight=700, anim_in=tanim("fade", duration=1.0)), label="Encabezado")
@@ -342,7 +342,7 @@ def dia_de_muertos_ofrenda() -> Template:
 
 def catrina() -> Template:
     """Catrina portraits in a big round window with spinning dotted rings and paper flowers, a pulse per beat."""
-    t = Template("catrina-dia-de-muertos", "Catrina", "Catrina", "seasonal", 8.0, order=1011,
+    t = Template("catrina-dia-de-muertos", "Maquillaje de calavera", "Skull make-up", "seasonal", 8.0, order=1011,
                  tags=["catrina", "día de muertos", "maquillaje", "méxico", "flores"], thumb_at=2.6,
                  background="#6A0DAD")
     t.solid(t.track("shape", "Fondo"), "#E6007E",
@@ -369,10 +369,10 @@ def catrina() -> Template:
               geometry={"points": 8, "innerRatio": 0.6})
         t.solid(t.track("shape", f"Centro {k + 1}"), "#3A0CA3", at + 0.1, 7.9 - at, centered(x, y, 62, 62),
                 pop(0, 0.4), kind="ellipse")
-    t.text(t.track("text", "Título"), "CATRINA", 0.5, 7.5, Box(0, 1330, 1080, 300),
-           text_style("Abril Fatface", 220, [shadow("#3A0CA3", 0, 12, 0, 1.0), fill("#FFF1E6")], weight=400,
+    t.text(t.track("text", "Título"), "CALAVERA", 0.5, 7.5, Box(0, 1330, 1080, 300),
+           text_style("Abril Fatface", 170, [shadow("#3A0CA3", 0, 12, 0, 1.0), fill("#FFF1E6")], weight=400,
                       spacing=6, anim_in=tanim("stamp", duration=0.4)), label="Título")
-    t.text(t.track("text", "Subtítulo"), "Día de Muertos", 1.0, 7.0, Box(0, 1600, 1080, 200),
+    t.text(t.track("text", "Subtítulo"), "noche de disfraces", 1.0, 7.0, Box(0, 1600, 1080, 200),
            text_style("Sacramento", 130, [shadow("#3A0CA3", 0, 4, 10, 0.6), fill("#FFB703")], weight=400,
                       anim_in=tanim("fade-up-char", duration=0.6, unit="character", stagger=0.04)), label="Subtítulo")
     t.adjust([effect("zoom_pulse", animated={"punch": spikes([beat(2 * k) for k in range(8)], 0.35, 0.25)}),
@@ -386,8 +386,8 @@ def catrina() -> Template:
 
 def cancion_criolla() -> Template:
     """A vintage poster: cream paper, red double border, an oval sepia slideshow and a waltz."""
-    t = Template("cancion-criolla", "Día de la Canción Criolla", "Peruvian Creole Song Day", "seasonal", 12.0,
-                 order=1020, tags=["canción criolla", "perú", "jarana", "vals", "31 de octubre"], thumb_at=7.2,
+    t = Template("cancion-criolla", "Noche de música en vivo", "Live music night", "seasonal", 12.0,
+                 order=1020, tags=["música en vivo", "concierto", "vals", "noche", "vintage"], thumb_at=7.2,
                  background="#F3E6CC")
     t.solid(t.track("shape", "Papel"), "#F3E6CC",
             layers=[gradient([(0, "#F7ECD6"), (1, "#E6CDA0")], angle=90), no_stroke()])
@@ -396,10 +396,10 @@ def cancion_criolla() -> Template:
     for k, (x, y) in enumerate([(70, 70), (1010, 70), (70, 1850), (1010, 1850)]):
         t.solid(t.track("shape", f"Esquina {k + 1}"), "#8C1C13", 0.3 + 0.1 * k, 11.7 - 0.1 * k,
                 centered(x, y, 56, 56), pop(0, 0.4), kind="diamond")
-    t.text(t.track("text", "Fecha"), "31 de octubre", 0.3, 11.7, Box(80, 96, 920, 120),
+    t.text(t.track("text", "Fecha"), "este sábado", 0.3, 11.7, Box(80, 96, 920, 120),
            text_style("Cookie", 92, [fill("#8C1C13")], weight=400, anim_in=tanim("fade", duration=0.8)),
            label="Fecha")
-    t.text(t.track("text", "Título"), "Día de la Canción Criolla", 0.6, 11.4, Box(90, 205, 900, 290),
+    t.text(t.track("text", "Título"), "Noche de música en vivo", 0.6, 11.4, Box(90, 205, 900, 290),
            text_style("Yeseva One", 104, [shadow("#8C1C13", 3, 3, 0, 0.35), fill("#3E2723")], weight=400, line=1.0,
                       accent={"rule": "lastWord", "colorEnabled": True, "color": argb("#B71C1C")},
                       anim_in=tanim("rise-by-word", duration=0.5, unit="word", stagger=0.15)), label="Título")
@@ -421,13 +421,13 @@ def cancion_criolla() -> Template:
         t.transition(photos, a, b, "crossfade", 0.8)
     for clip in clips:
         t.mask(photos, clip, "ellipse")
-    t.text(t.track("text", "Frase"), "¡Que viva la música criolla!", 1.6, 10.4, Box(70, 1440, 940, 160),
+    t.text(t.track("text", "Frase"), "¡Que viva la música!", 1.6, 10.4, Box(70, 1440, 940, 160),
            text_style("Cookie", 96, [fill("#8C1C13")], weight=400,
                       anim_in=tanim("fade-up-char", duration=0.6, unit="character", stagger=0.03)), label="Frase")
-    t.text(t.track("text", "Géneros"), "Jarana · Vals · Marinera", 2.2, 9.8, Box(70, 1610, 940, 70),
+    t.text(t.track("text", "Géneros"), "Vals · Bolero · Jazz", 2.2, 9.8, Box(70, 1610, 940, 70),
            text_style("Yeseva One", 46, [fill("#3E2723")], weight=400, spacing=6,
                       anim_in=tanim("fade", duration=0.8)), label="Géneros")
-    t.text(t.track("text", "Evento"), "Peña criolla esta noche", 2.8, 9.2, Box(70, 1700, 940, 80),
+    t.text(t.track("text", "Evento"), "Música en vivo esta noche", 2.8, 9.2, Box(70, 1700, 940, 80),
            text_style("Yeseva One", 40, [fill("#F7ECD6")], weight=400, spacing=3, box=("#8C1C13", 1.0),
                       box_pad=14, box_radius=6, anim_in=tanim("pop", duration=0.4)), label="Evento")
     t.adjust([effect("super8_film", intensity=0.45, grain=0.4, scratches=0.25, weave=0.2, flicker=0.15),
@@ -571,7 +571,7 @@ def regalo_sorpresa() -> Template:
     gift = [(0, {"s": 0.15, "dy": 180}, "back"), (0.55, {}, "linear"), (2.7, {"s": 1.04})]
     t.solid(cards, "#FFFFFF", 2.7, 2.7, card_box, gift, radius=30, kind="rounded-rectangle",
             layers=[shadow("#3D0000", 0, 20, 40, 0.45), fill("#FFFFFF"), no_stroke()], rotation=rot(-3))
-    t.photo(photos, "product-04", 2.7, 2.7, photo_box, gift, label="Tu regalo", rotation=rot(-3))
+    t.photo(photos, "box-02", 2.7, 2.7, photo_box, gift, label="Tu regalo", rotation=rot(-3))
     react = [(0, {"dx": 1100}, "out"), (0.45, {}, "linear"), (2.6, {"s": 1.04})]
     t.solid(cards, "#FFFFFF", 5.4, 2.6, card_box, react, radius=30, kind="rounded-rectangle",
             layers=[shadow("#3D0000", 0, 20, 40, 0.45), fill("#FFFFFF"), no_stroke()], rotation=rot(3))
@@ -626,7 +626,7 @@ def menu_navideno() -> Template:
                       anim_in=tanim("fade", duration=0.6)), label="Fecha")
     t.solid(t.track("shape", "Divisor"), "#B08D57", 1.1, 10.9, Box(440, 462, 200, 4), [(0, {"sx": 0.02}, "out"),
                                                                                       (0.6, {})])
-    courses = [("ENTRADA", "Ceviche de la casa", "food-01"), ("FONDO", "Pasta rellena con albahaca", "restaurant-01"),
+    courses = [("ENTRADA", "Ensalada de la casa", "food-01"), ("FONDO", "Pasta rellena con albahaca", "restaurant-01"),
                ("POSTRE", "Chocolate caliente y bombones", "coffee-01")]
     for i, (course, dish, sample) in enumerate(courses):
         y0 = 520 + i * 380
@@ -791,7 +791,7 @@ def propositos_anio_nuevo() -> Template:
                       anim_in=tanim("typewriter", duration=0.8, unit="character")), label="Título")
     t.solid(t.track("shape", "Estrella"), "#FFC300", 0.9, 9.1, centered(985, 150, 90, 90), pop(0, 0.4), kind="star",
             rotation=keys([(0, 0), (9.1, 40)]))
-    items = ["Viajar a Cusco", "Ahorrar cada mes", "Ir al gym", "Leer 12 libros"]
+    items = ["Viajar a otro país", "Ahorrar cada mes", "Ir al gym", "Leer 12 libros"]
     for i, item in enumerate(items):
         y = 480 + i * 150
         at = 1.3 + i * 1.0
@@ -835,7 +835,7 @@ def black_friday_ofertas() -> Template:
     red = "#FF1E1E"
     frames = t.track("shape", "Marco")
     photos = t.track("video", "Productos")
-    samples = ["shopping-03", "product-04", "outfit-04", "shopping-04"]
+    samples = ["shopping-03", "shopping-02", "outfit-04", "shopping-04"]
     frame_box, photo_box = centered(540, 980, 840, 1080), centered(540, 980, 800, 1040)
     for i in range(14):
         start = 0.5 + i * beat(1)
@@ -949,7 +949,7 @@ def cyber_monday() -> Template:
             kind="rounded-rectangle", layers=[glow(cyan, 40, 0.8), stroke(6, cyan), fill("#0A0A14")])
     screen = t.track("video", "Pantalla")
     clips = []
-    for i, (sample, start, end) in enumerate([("product-04", 0.2, 2.6), ("outfit-02", 2.6, 4.6),
+    for i, (sample, start, end) in enumerate([("shopping-01", 0.2, 2.6), ("outfit-02", 2.6, 4.6),
                                               ("shopping-03", 4.6, 8.0)]):
         motion = phone if i == 0 else None
         clips.append(t.photo(screen, sample, start, end - start, centered(540, 1060, 556, 1076), motion,
@@ -1138,8 +1138,8 @@ def dia_del_padre() -> Template:
 
 def fiestas_patrias() -> Template:
     """The red bands of the Peruvian flag slide in around a framed slideshow; «¡Viva el Perú!» and confetti."""
-    t = Template("fiestas-patrias-peru", "Fiestas Patrias", "Peru's National Holidays", "seasonal", 10.0,
-                 order=1080, tags=["fiestas patrias", "perú", "28 de julio", "bandera", "orgullo"], thumb_at=6.2,
+    t = Template("fiestas-patrias-peru", "Día de la patria", "National Day", "seasonal", 10.0,
+                 order=1080, tags=["fiestas patrias", "día nacional", "independencia", "bandera", "orgullo"], thumb_at=6.2,
                  background="#FFFFFF")
     red, dark = "#D91023", "#9B0A16"
     t.solid(t.track("shape", "Fondo"), "#FFFFFF")
@@ -1152,7 +1152,7 @@ def fiestas_patrias() -> Template:
             layers=[shadow("#3D0006", 0, 18, 40, 0.4), stroke(6, dark), fill("#FFFFFF")])
     photos = t.track("video", "Fotos")
     clips = []
-    for i, sample in enumerate(["city-03", "cusco-02", "travel-10", "family-04"]):
+    for i, sample in enumerate(["city-03", "city-02", "friends-01", "family-04"]):
         start = 0.8 + i * 2.3
         motion = (pop(0, 0.5) + [(2.3, {"s": 1.05})]) if i == 0 else [(0, {"s": 1.0}, "linear"), (2.3, {"s": 1.06})]
         clips.append(t.photo(photos, sample, start, 2.3, centered(540, 1000, 620, 860), motion, label=f"Foto {i + 1}"))
@@ -1160,17 +1160,17 @@ def fiestas_patrias() -> Template:
         t.transition(photos, a, b, "glass_wipe", 0.5)
     t.solid(t.track("shape", "Cinta"), dark, 0.5, 9.5, Box(60, 180, 960, 230), pop(0, 0.45), radius=20,
             kind="rounded-rectangle", layers=[shadow("#3D0006", 0, 12, 24, 0.4), fill(dark), no_stroke()])
-    t.text(t.track("text", "Título"), "¡Felices Fiestas Patrias!", 0.7, 9.3, Box(80, 180, 920, 230),
+    t.text(t.track("text", "Título"), "¡Feliz día de la patria!", 0.7, 9.3, Box(80, 180, 920, 230),
            text_style("Cinzel", 70, [fill("#FFFFFF")], weight=900, line=1.05, anim_in=tanim("rise", duration=0.5)),
            label="Título")
     rng = random.Random(28)
     particles(t, "Confeti", 2, 1.2, 10.0, rng, [red, "#FFFFFF", "#FFD166"], kinds=("rectangle", "ellipse"),
               size=(16, 30), dy=2100, life=(3.5, 5.0), every=(0.3, 0.6), sway=120, spin=360)
-    t.text(t.track("text", "Frase"), "¡Viva el Perú!", 1.4, 8.6, Box(40, 1465, 1000, 230),
+    t.text(t.track("text", "Frase"), "¡Viva mi país!", 1.4, 8.6, Box(40, 1465, 1000, 230),
            text_style("Kaushan Script", 150, [shadow("#3D0006", 0, 8, 14, 0.5), stroke(10, "#FFFFFF"), fill(red)],
                       weight=400, anim_in=tanim("pop", duration=0.5, unit="word", stagger=0.15, ease="back"),
                       anim_loop=tanim("pulse", amount=4, speed=1.0)), label="Frase")
-    t.text(t.track("text", "Fecha"), "28 DE JULIO", 2.0, 8.0, Box(290, 1720, 500, 90),
+    t.text(t.track("text", "Fecha"), "DÍA NACIONAL", 2.0, 8.0, Box(290, 1720, 500, 90),
            text_style("Cinzel", 52, [fill("#FFFFFF")], weight=700, spacing=6, box=(dark, 1.0), box_pad=14,
                       box_radius=10, anim_in=tanim("fade", duration=0.5)), label="Fecha")
     t.adjust([effect("light_leak", intensity=0.25, hue=0.03, speed=0.5), effect("color.basic", vibrance=0.15)],

@@ -119,7 +119,7 @@ def menu_del_dia() -> Template:
     t.text(T(t, "Negocio"), "Restaurante Doña Rosa", 0.6, 9.4, Box(40, 300, 1000, 90),
            text_style("Kalam", 56, [fill("#F2C14E")], weight=700, anim_in=tanim("fade", duration=0.5)),
            label="Nombre del negocio")
-    items = [("Entrada", "Papa a la huancaína"), ("Segundo", "Lomo saltado"), ("Bebida", "Chicha morada")]
+    items = [("Entrada", "Sopa de verduras"), ("Segundo", "Pollo al horno"), ("Bebida", "Limonada")]
     for i, (kind, dish) in enumerate(items):
         y = 1110 + i * 160
         start = 1.2 + i * 0.4
@@ -133,10 +133,10 @@ def menu_del_dia() -> Template:
                label=kind)
     t.solid(S(t, "Precio"), "#F2C14E", 2.6, 7.4, centered(860, 1735, 260, 260), pop(0, 0.5), kind="ellipse",
             layers=[shadow("#000000", 0, 10, 24, 0.4), fill("#F2C14E"), no_stroke()], rotation=keys([(0, -8)]))
-    t.text(T(t, "Precio"), "S/ 15.00", 2.7, 7.3, centered(860, 1735, 260, 260),
+    t.text(T(t, "Precio"), "$15.00", 2.7, 7.3, centered(860, 1735, 260, 260),
            text_style("Amatic SC", 100, [fill("#162720")], weight=700, line=0.9,
                       anim_in=tanim("stamp", duration=0.35)), label="Precio", rotation=keys([(0, -8)]))
-    t.text(T(t, "Teléfono"), "Pide al 999 999 999", 3.0, 7.0, Box(60, 1690, 620, 90),
+    t.text(T(t, "Teléfono"), "Pide al 000 123 456", 3.0, 7.0, Box(60, 1690, 620, 90),
            text_style("Kalam", 52, [fill("#F5F1E6")], weight=700, align="left",
                       anim_in=tanim("slide-up", duration=0.4)), label="Teléfono")
     t.adjust([effect("stylize.film_grain", amount=0.2, grainSize=2.0), effect("stylize.vignette", amount=0.5)],
@@ -168,7 +168,7 @@ def cafe_nuevo_carta() -> Template:
            text_style("Quicksand", 44, [fill("#F3E6D3")], weight=700, spacing=6), label="Etiqueta")
     t.solid(S(t, "Precio"), "#C8763B", 1.4, 6.6, centered(880, 1290, 240, 240), pop(0, 0.5), kind="ellipse",
             layers=[shadow("#4B2E1F", 0, 10, 24, 0.35), fill("#C8763B"), no_stroke()])
-    t.text(T(t, "Precio"), "S/ 12.90", 1.5, 6.5, centered(880, 1290, 240, 240),
+    t.text(T(t, "Precio"), "$12.90", 1.5, 6.5, centered(880, 1290, 240, 240),
            text_style("Prata", 60, [fill("#FFFFFF")], weight=400, anim_in=tanim("pop", duration=0.4)), label="Precio")
     t.text(T(t, "Nombre"), "Latte de canela", 1.0, 7.0, Box(60, 1400, 960, 150),
            text_style("Prata", 112, [fill("#4B2E1F")], weight=400,
@@ -209,7 +209,7 @@ def salon_belleza() -> Template:
     t.text(T(t, "Nombre"), "Salón Valentina", 0.4, 11.6, Box(40, 90, 1000, 220),
            text_style("Parisienne", 118, [shadow("#FFFFFF", 0, 0, 14, 0.9), fill("#8C3B4A")], weight=400,
                       anim_in=tanim("blur-in", duration=1.0, blur=18)), label="Nombre del negocio")
-    services = [("Corte y cepillado", "S/ 35"), ("Tinte completo", "S/ 90"), ("Peinado de fiesta", "S/ 50")]
+    services = [("Corte y cepillado", "$35"), ("Tinte completo", "$90"), ("Peinado de fiesta", "$50")]
     for i, (name, price) in enumerate(services):
         y = 1350 + i * 105
         start = 1.0 + i * 0.35
@@ -223,7 +223,7 @@ def salon_belleza() -> Template:
         t.solid(S(t, "Línea"), "#8C3B4A", start, 12 - start, Box(110, y + 92, 860, 2),
                 [(0, {"sx": 0.0, "dx": -430}, "out"), (0.6, {})], alpha=0.25)
     pill(t, S(t, "Botón"), "#8C3B4A", 2.4, 9.6, centered(540, 1790, 860, 104), pop())
-    t.text(T(t, "Reservas"), "Reserva tu cita · 999 999 999", 2.5, 9.5, centered(540, 1790, 860, 104),
+    t.text(T(t, "Reservas"), "Reserva tu cita · 000 123 456", 2.5, 9.5, centered(540, 1790, 860, 104),
            text_style("Josefin Sans", 44, [fill("#FBEAE6")], weight=700), label="Reservas")
     t.adjust([effect("bling_sparkle", intensity=0.4, density=0.3, threshold=0.8, colorize=0.3)], name="Brillos")
     t.song("and-just-like-that", 0.0, 0.85)
@@ -257,7 +257,7 @@ def unas_manicure() -> Template:
     t.solid(S(t, "Sello"), "#D63384", 1.6, 6.4, centered(300, 1330, 300, 300), pop(0, 0.5), kind="burst",
             layers=[shadow("#5B2A86", 0, 8, 18, 0.35), fill("#D63384"), no_stroke()],
             rotation=keys([(0, -40, "out"), (0.6, -10)]))
-    t.text(T(t, "Precio"), "desde\nS/ 45", 1.7, 6.3, centered(300, 1330, 300, 300),
+    t.text(T(t, "Precio"), "desde\n$45", 1.7, 6.3, centered(300, 1330, 300, 300),
            text_style("Baloo 2", 66, [fill("#FFFFFF")], weight=800, line=0.9, anim_in=tanim("pop", duration=0.4)),
            label="Precio", rotation=keys([(0, -10)]))
     t.text(T(t, "Servicios"), "Acrílicas · Gel · Nail art", 2.0, 6.0, Box(40, 1560, 1000, 90),
@@ -307,10 +307,10 @@ def barberia_antes_despues() -> Template:
     t.text(T(t, "Nombre"), "Barbería El Clásico", 3.6, 4.4, Box(40, 1520, 1000, 160),
            text_style("Staatliches", 124, [shadow("#000000", 0, 6, 16, 0.6), fill("#E6C46A")], weight=400, spacing=2,
                       anim_in=tanim("wipe", duration=0.5, angle=0)), label="Nombre del negocio")
-    t.text(T(t, "Precio"), "Corte + barba  S/ 30", 4.0, 4.0, Box(40, 1680, 1000, 80),
+    t.text(T(t, "Precio"), "Corte + barba  $30", 4.0, 4.0, Box(40, 1680, 1000, 80),
            text_style("Barlow", 56, [fill("#FFFFFF")], weight=600, spacing=2, anim_in=tanim("fade", duration=0.4)),
            label="Precio")
-    t.text(T(t, "Dirección"), "Jr. Junín 245 · 999 999 999", 4.4, 3.6, Box(40, 1770, 1000, 70),
+    t.text(T(t, "Dirección"), "Calle Principal 245 · 000 123 456", 4.4, 3.6, Box(40, 1770, 1000, 70),
            text_style("Barlow", 42, [fill("#BBBBBB")], weight=500, anim_in=tanim("fade", duration=0.4)),
            label="Dirección y teléfono")
     t.adjust([effect("beat_shake", animated={"amount": spikes([3.4, 5.6], 0.8, 0.35)}, rotation=0.3),
@@ -348,14 +348,14 @@ def gimnasio_promo() -> Template:
     t.text(T(t, "Oferta"), "MATRÍCULA GRATIS", 4.1, 3.9, Box(-100, 1080, 1280, 150),
            text_style("Teko", 120, [fill("#000000")], weight=700, spacing=4), [(0, {"dx": -1300}, "out"), (0.4, {})],
            label="Oferta", rotation=keys([(0, -6)]))
-    t.text(T(t, "Precio"), "S/ 79 al mes", 4.4, 3.6, Box(40, 380, 1000, 330),
+    t.text(T(t, "Precio"), "$79 al mes", 4.4, 3.6, Box(40, 380, 1000, 330),
            text_style("Teko", 180, [shadow("#000000", 0, 10, 24, 0.7), fill("#FFFFFF")], weight=700, line=0.9,
                       accent={"rule": "firstWord", "colorEnabled": True, "color": "#ffc6ff00"},
                       anim_in=tanim("stamp", duration=0.35)), label="Precio")
     t.text(T(t, "Vigencia"), "Solo este mes", 4.8, 3.2, Box(40, 260, 1000, 100),
            text_style("Barlow Condensed", 64, [fill("#C6FF00")], weight=700, spacing=10, case="upper",
                       anim_in=tanim("fade", duration=0.4)), label="Vigencia")
-    t.text(T(t, "Negocio"), "Gym Power · Av. Perú 456", 5.0, 3.0, Box(40, 1660, 1000, 90),
+    t.text(T(t, "Negocio"), "Gym Power · Av. Central 456", 5.0, 3.0, Box(40, 1660, 1000, 90),
            text_style("Barlow Condensed", 60, [shadow("#000000", 0, 4, 12, 0.7), fill("#FFFFFF")], weight=700,
                       anim_in=tanim("slide-up", duration=0.4)), label="Nombre y dirección")
     beats = [beat(k) for k in range(8)] + [4.0]
@@ -389,20 +389,20 @@ def lanzamiento_producto() -> Template:
          strength=0.5)
     photos = t.track("video", "Fotos")
     box = centered(540, 860, 780, 960)
-    t.photo(photos, "product-04", 2.5, 3.0, box, hero, label="Producto", rotation=spin)
+    t.photo(photos, "skincare-02", 2.5, 3.0, box, hero, label="Producto", rotation=spin)
     t.photo(photos, "shopping-03", 5.5, 1.5, FULL, [(0, {"s": 1.15}, "snap"), (0.25, {"s": 1.03}, "linear"),
                                                      (1.5, {"s": 1.0})], label="En uso")
-    t.photo(photos, "product-04", 7.0, 3.0, box, end, reuse="p1", rotation=keys([(0, 3)]))
+    t.photo(photos, "skincare-02", 7.0, 3.0, box, end, reuse="p1", rotation=keys([(0, 3)]))
     t.solid(S(t, "Destello"), "#FFFFFF", 2.5, 0.35, FULL, opacity=keys([(0, 1.0, "out"), (0.35, 0.0)]))
     t.text(T(t, "Ya"), "YA DISPONIBLE", 2.7, 7.3, Box(40, 140, 1000, 160),
            text_style("Exo 2", 112, [glow("#3A5BFF", 24, 0.8), gradient([(0, "#FFFFFF"), (1, "#8FA5FF")], angle=90)],
                       weight=900, spacing=4, anim_in=tanim("glitch-in", duration=0.4)), label="Anuncio")
-    t.text(T(t, "Producto"), "Zapatilla Nube", 3.2, 6.8, Box(40, 1420, 1000, 130),
+    t.text(T(t, "Producto"), "Sérum Nube", 3.2, 6.8, Box(40, 1420, 1000, 130),
            text_style("Exo 2", 96, [fill("#FFFFFF")], weight=700, anim_in=tanim("rise", duration=0.5)),
            label="Producto")
     pill(t, S(t, "Precio"), "#3A5BFF", 7.2, 2.8, centered(540, 1630, 520, 130), pop(),
          layers=[glow("#3A5BFF", 30, 0.8), fill("#3A5BFF"), no_stroke()])
-    t.text(T(t, "Precio"), "S/ 189.90", 7.3, 2.7, centered(540, 1630, 520, 130),
+    t.text(T(t, "Precio"), "$189.90", 7.3, 2.7, centered(540, 1630, 520, 130),
            text_style("Exo 2", 76, [fill("#FFFFFF")], weight=800), label="Precio")
     t.text(T(t, "Dónde"), "Solo en nuestra tienda online", 7.6, 2.4, Box(40, 1730, 1000, 80),
            text_style("Inter", 44, [fill("#AAB4E8")], weight=500, anim_in=tanim("fade", duration=0.5)),
@@ -481,10 +481,10 @@ def estamos_contratando() -> Template:
                text_style("Archivo", 54, [fill("#003566")], weight=600, align="left",
                           anim_in=tanim("slide-left", duration=0.4)), label=f"Requisito {i + 1}")
     t.solid(S(t, "Pie"), "#003566", 3.4, 6.6, Box(0, 1560, 1080, 360), slide_in(dy=360, length=0.5))
-    t.text(T(t, "Cómo postular"), "Envía tu CV por WhatsApp", 3.6, 6.4, Box(40, 1600, 1000, 80),
+    t.text(T(t, "Cómo postular"), "Envía tu CV por mensaje", 3.6, 6.4, Box(40, 1600, 1000, 80),
            text_style("Archivo", 52, [fill("#FFD60A")], weight=700, anim_in=tanim("fade", duration=0.4)),
            label="Cómo postular")
-    t.text(T(t, "Teléfono"), "999 999 999", 3.8, 6.2, Box(40, 1690, 1000, 140),
+    t.text(T(t, "Teléfono"), "000 123 456", 3.8, 6.2, Box(40, 1690, 1000, 140),
            text_style("Archivo Black", 110, [fill("#FFFFFF")], weight=400, anim_in=tanim("stamp", duration=0.35),
                       anim_loop=tanim("pulse", amount=3, speed=1.0)), label="Teléfono")
     t.song("from-page-to-practice", 0.0, 0.85)
@@ -523,18 +523,18 @@ def evento_taller() -> Template:
         t.text(T(t, label), content, 0.9, 9.1, Box(110, y, 270, size + 20),
                text_style("Outfit", size, [fill("#264653" if label != "Fecha" else "#E76F51")], weight=weight,
                           line=1.0), enter, label=label)
-    t.text(T(t, "Nombre del evento"), "Taller de cocina peruana", 1.1, 8.9, Box(420, 930, 560, 280),
+    t.text(T(t, "Nombre del evento"), "Taller de cocina casera", 1.1, 8.9, Box(420, 930, 560, 280),
            text_style("Outfit", 72, [fill("#FFFFFF")], weight=800, align="left", valign="middle", line=1.0,
                       anim_in=tanim("rise-by-word", duration=0.4, unit="word", stagger=0.1)), label="Nombre del evento")
-    details = [("4:00 p.m. · 3 horas", "Hora"), ("Av. Larco 123, Miraflores", "Dirección"),
-               ("Cupos limitados · S/ 60", "Precio")]
+    details = [("4:00 p.m. · 3 horas", "Hora"), ("Calle Mayor 123", "Dirección"),
+               ("Cupos limitados · $60", "Precio")]
     for i, (content, label) in enumerate(details):
         t.text(T(t, label), content, 1.6 + i * 0.25, 8.4 - i * 0.25, Box(120, 1300 + i * 100, 860, 90),
                text_style("Outfit", 52, [fill("#FFFFFF")], weight=500, align="left",
                           anim_in=tanim("slide-left", duration=0.4)), label=label)
     pill(t, S(t, "Botón"), "#F4E9D8", 2.4, 7.6, centered(540, 1770, 820, 112),
          [(0, {"s": 0.0}, "back"), (0.4, {}, "smooth"), (0.9, {"s": 1.04}, "smooth"), (1.4, {})])
-    t.text(T(t, "Inscripciones"), "Inscríbete: 999 999 999", 2.5, 7.5, centered(540, 1770, 820, 112),
+    t.text(T(t, "Inscripciones"), "Inscríbete: 000 123 456", 2.5, 7.5, centered(540, 1770, 820, 112),
            text_style("Outfit", 54, [fill("#264653")], weight=800), label="Inscripciones")
     t.song("inspiration", 0.0, 0.85)
     return t
@@ -574,10 +574,10 @@ def cupon_descuento() -> Template:
     t.text(T(t, "Vigencia"), "Válido hasta el 31/10", 1.5, 4.5, centered(540, 1165, 760, 70),
            text_style("Rubik", 42, [fill("#FFFFFF")], weight=500, anim_in=tanim("fade", duration=0.4)),
            label="Vigencia", rotation=tilt)
-    t.text(T(t, "Uso"), "Úsalo en tienda o por WhatsApp", 2.0, 4.0, Box(40, 1340, 1000, 80),
+    t.text(T(t, "Uso"), "Úsalo en tienda o en línea", 2.0, 4.0, Box(40, 1340, 1000, 80),
            text_style("Rubik", 48, [fill("#FFFFFF")], weight=600, anim_in=tanim("rise", duration=0.4)),
            label="Cómo usarlo")
-    t.text(T(t, "Negocio"), "Tienda Mía · 999 999 999", 2.3, 3.7, Box(40, 1700, 1000, 80),
+    t.text(T(t, "Negocio"), "Tienda Mía · 000 123 456", 2.3, 3.7, Box(40, 1700, 1000, 80),
            text_style("Rubik", 44, [fill("#FFE066")], weight=700, anim_in=tanim("fade", duration=0.4)),
            label="Nombre y contacto")
     t.adjust([effect("strobe_flash", animated={"flash": spikes([0.8], 0.6, 0.2)}, tint=0.1)], name="Destello")
@@ -620,7 +620,7 @@ def horario_atencion() -> Template:
     t.text(T(t, "Negocio"), "Panadería San José", 2.6, 5.4, Box(40, 1500, 1000, 100),
            text_style("Manrope", 64, [fill("#52796F")], weight=800, anim_in=tanim("fade", duration=0.5)),
            label="Nombre del negocio")
-    t.text(T(t, "Dirección"), "Av. Los Olivos 321 · 999 999 999", 2.8, 5.2, Box(40, 1600, 1000, 80),
+    t.text(T(t, "Dirección"), "Av. Los Olivos 321 · 000 123 456", 2.8, 5.2, Box(40, 1600, 1000, 80),
            text_style("Manrope", 44, [fill("#2F3E46")], weight=500, anim_in=tanim("fade", duration=0.5)),
            label="Dirección y teléfono")
     pill(t, S(t, "Botón"), "#2F3E46", 3.2, 4.8, centered(540, 1770, 560, 110), pop())
@@ -630,30 +630,30 @@ def horario_atencion() -> Template:
     return t
 
 
-# --- 13. Delivery por WhatsApp ------------------------------------------------------------------
+# --- 13. Delivery por mensaje (chat genérico, sin marca) ------------------------------------------------------------------
 
 
 def delivery_whatsapp() -> Template:
-    t = Template("delivery-pide-por-whatsapp", "Delivery: pide por WhatsApp", "Delivery: order by chat", "business",
-                 8.0, order=1212, tags=["delivery", "whatsapp", "pedidos", "comida", "a domicilio"], thumb_at=5.6)
-    t.solid(S(t, "Fondo"), "#25D366", layers=[gradient([(0, "#2BD873"), (1, "#0E7C6B")], angle=90), no_stroke()])
-    t.text(T(t, "Título"), "Pide por WhatsApp", 0.1, 7.9, Box(40, 60, 1000, 160),
-           text_style("Nunito", 100, [shadow("#075E54", 0, 6, 0, 0.8), fill("#FFFFFF")], weight=900,
+    t = Template("delivery-pide-por-whatsapp", "Delivery: pide por mensaje", "Delivery: order by chat", "business",
+                 8.0, order=1212, tags=["delivery", "chat", "mensajes", "pedidos", "comida", "a domicilio"], thumb_at=5.6)
+    t.solid(S(t, "Fondo"), "#FF8C42", layers=[gradient([(0, "#FFA45B"), (1, "#E85D04")], angle=90), no_stroke()])
+    t.text(T(t, "Título"), "Pide por mensaje", 0.1, 7.9, Box(40, 60, 1000, 160),
+           text_style("Nunito", 100, [shadow("#9A3412", 0, 6, 0, 0.8), fill("#FFFFFF")], weight=900,
                       anim_in=tanim("drop", duration=0.5)), label="Título")
     phone = [(0, {"dy": 1500}, "out"), (0.6, {})]
     t.solid(S(t, "Teléfono"), "#111B21", 0.2, 7.8, centered(540, 900, 760, 1300), phone, radius=70,
             kind="rounded-rectangle", layers=[shadow("#000000", 0, 24, 50, 0.45), fill("#111B21"), no_stroke()])
-    t.solid(S(t, "Pantalla"), "#ECE5DD", 0.2, 7.8, Box(182, 272, 716, 1256), phone, radius=52,
+    t.solid(S(t, "Pantalla"), "#F4F1FB", 0.2, 7.8, Box(182, 272, 716, 1256), phone, radius=52,
             kind="rounded-rectangle")
-    t.solid(S(t, "Cabecera"), "#075E54", 0.2, 7.8, Box(182, 272, 716, 110), phone, radius=0)
+    t.solid(S(t, "Cabecera"), "#3D348B", 0.2, 7.8, Box(182, 272, 716, 110), phone, radius=0)
     t.text(T(t, "Contacto"), "Sabor Casero", 0.2, 7.8, Box(220, 272, 640, 110),
            text_style("Nunito", 44, [fill("#FFFFFF")], weight=800, align="left"), phone, label="Nombre del negocio")
     bubble = lambda colour: [shadow("#000000", 0, 3, 6, 0.15), fill(colour), no_stroke()]  # noqa: E731
     chat = lambda: text_style("Nunito", 40, [fill("#111B21")], weight=600, align="left", line=1.15)  # noqa: E731
     msgs = [(1.0, Box(212, 410, 520, 110), "#FFFFFF", "Hola, ¿hacen delivery?", "Mensaje del cliente 1", -1),
-            (2.0, Box(388, 545, 480, 150), "#DCF8C6", "¡Sí! Te lo llevamos en 30 minutos", "Respuesta 1", 1),
+            (2.0, Box(388, 545, 480, 150), "#E0DBFF", "¡Sí! Te lo llevamos en 30 minutos", "Respuesta 1", 1),
             (4.0, Box(212, 1250, 520, 110), "#FFFFFF", "¡Quiero 2, por favor!", "Mensaje del cliente 2", -1),
-            (5.0, Box(468, 1385, 400, 110), "#DCF8C6", "¡Va en camino!", "Respuesta 2", 1)]
+            (5.0, Box(468, 1385, 400, 110), "#E0DBFF", "¡Va en camino!", "Respuesta 2", 1)]
     for at, box, colour, content, label, side in msgs:
         motion = [(0, {"s": 0.02, "dx": side * box.w / 2, "dy": box.h / 2}, "back"), (0.35, {})]
         t.solid(S(t, label), colour, at, 8 - at, box, motion, radius=28, kind="rounded-rectangle",
@@ -661,18 +661,18 @@ def delivery_whatsapp() -> Template:
         t.text(T(t, label), content, at + 0.1, 7.9 - at, Box(box.x + 28, box.y, box.w - 56, box.h), chat(),
                label=label)
     photo_box = Box(448, 720, 420, 500)
-    t.solid(S(t, "Burbuja foto"), "#DCF8C6", 2.8, 5.2, Box(432, 704, 452, 532), pop(0, 0.4), radius=28,
-            kind="rounded-rectangle", layers=bubble("#DCF8C6"))
+    t.solid(S(t, "Burbuja foto"), "#E0DBFF", 2.8, 5.2, Box(432, 704, 452, 532), pop(0, 0.4), radius=28,
+            kind="rounded-rectangle", layers=bubble("#E0DBFF"))
     snaps = t.track("video", "Fotos")
     a = t.photo(snaps, "food-01", 2.8, 2.6, photo_box, pop(0, 0.4), label="Plato 1")
     b = t.photo(snaps, "restaurant-02", 5.4, 2.6, photo_box, [(0, {"s": 1.0}, "linear"), (2.6, {"s": 1.05})],
                 label="Plato 2")
     t.transition(snaps, a, b, "slide_left", 0.4)
-    t.text(T(t, "Número"), "999 999 999", 5.6, 2.4, Box(40, 1590, 1000, 150),
-           text_style("Nunito", 116, [shadow("#075E54", 0, 6, 0, 0.8), fill("#FFFFFF")], weight=900,
+    t.text(T(t, "Número"), "000 123 456", 5.6, 2.4, Box(40, 1590, 1000, 150),
+           text_style("Nunito", 116, [shadow("#9A3412", 0, 6, 0, 0.8), fill("#FFFFFF")], weight=900,
                       anim_in=tanim("stamp", duration=0.35), anim_loop=tanim("pulse", amount=3, speed=1.2)),
-           label="WhatsApp")
-    t.text(T(t, "Zona"), "Delivery gratis en Surco", 5.9, 2.1, Box(40, 1750, 1000, 80),
+           label="Número")
+    t.text(T(t, "Zona"), "Delivery gratis en tu zona", 5.9, 2.1, Box(40, 1750, 1000, 80),
            text_style("Nunito", 50, [fill("#FFFFFF")], weight=700, anim_in=tanim("fade", duration=0.4)),
            label="Zona de reparto")
     t.song("llama-in-pajama", 0.0, 0.85)
@@ -693,9 +693,9 @@ def top5_vendidos() -> Template:
     t.text(T(t, "Título"), "Lo más vendido del mes", 0.3, 1.2, Box(60, 1060, 960, 120),
            text_style("Figtree", 70, [fill("#FFFFFF")], weight=800, anim_in=tanim("rise", duration=0.4)),
            label="Título")
-    items = [("outfit-04", "Casaca jean", "S/ 129.90"), ("shopping-03", "Bolso de tela", "S/ 39.90"),
-             ("fashion-05", "Casaca varsity", "S/ 149.90"), ("outfit-03", "Conjunto de lino", "S/ 99.90"),
-             ("outfit-01", "Top floral", "S/ 49.90")]
+    items = [("outfit-04", "Casaca jean", "$129.90"), ("shopping-03", "Bolso de tela", "$39.90"),
+             ("portrait-08", "Casaca varsity", "$149.90"), ("outfit-03", "Conjunto de lino", "$99.90"),
+             ("outfit-01", "Top floral", "$49.90")]
     cards, photos, numbers, names, prices = (S(t, "Tarjetas"), t.track("video", "Productos"), T(t, "Puestos"),
                                              T(t, "Nombres"), T(t, "Precios"))
     for i, (sample, name, price) in enumerate(items):
@@ -805,7 +805,7 @@ def nosotros_vs_otros() -> Template:
            text_style("Kanit", 96, [fill("#FFFFFF")], weight=900,
                       keyframes={"pixelSize": keys([(0, 220, "snap"), (0.2, 96)])}), editable=False)
     pairs = [("Demora 1 hora", "Llega en 30 min"), ("Porciones chicas", "Porción generosa"),
-             ("Precio alto", "Desde S/ 18")]
+             ("Precio alto", "Desde $18")]
     for i, (them, us_) in enumerate(pairs):
         y = 1300 + i * 140
         start = 1.4 + i * 0.9
@@ -840,9 +840,9 @@ def preguntas_frecuentes() -> Template:
     t.text(T(t, "Título"), "Preguntas frecuentes", 0.3, 11.7, Box(60, 170, 960, 300),
            text_style("Urbanist", 120, [fill("#FFFFFF")], weight=900, align="left", line=0.95,
                       anim_in=tanim("rise-by-word", duration=0.5, unit="word", stagger=0.15)), label="Título")
-    faqs = [("¿Hacen envíos a provincia?", "Sí, enviamos a todo el Perú. Llega en 2 a 4 días hábiles."),
+    faqs = [("¿Hacen envíos a todo el país?", "Sí, enviamos a todo el país. Llega en 2 a 4 días hábiles."),
             ("¿Cómo puedo pagar?", "Transferencia, billetera digital o efectivo contra entrega."),
-            ("¿Tienen tienda física?", "Sí, en Av. Arequipa 456, Lince. De lunes a sábado.")]
+            ("¿Tienen tienda física?", "Sí, en Av. Central 456. De lunes a sábado.")]
     qs, qtext, ans, atext, count = S(t, "Pregunta"), T(t, "Pregunta"), S(t, "Respuesta"), T(t, "Respuesta"), T(t, "N")
     for i, (q, a) in enumerate(faqs):
         start = 0.8 + i * 3.4
@@ -867,7 +867,7 @@ def preguntas_frecuentes() -> Template:
         t.text(count, f"{i + 1}/{len(faqs)}", start, dur, Box(60, 1420, 960, 80),
                text_style("Urbanist", 48, [fill("#A78BFA")], weight=800), editable=False)
     pill(t, S(t, "Botón"), "#111827", 1.2, 10.8, centered(540, 1720, 920, 130), pop())
-    t.text(T(t, "Contacto"), "¿Más dudas? 999 999 999", 1.3, 10.7, centered(540, 1720, 920, 130),
+    t.text(T(t, "Contacto"), "¿Más dudas? 000 123 456", 1.3, 10.7, centered(540, 1720, 920, 130),
            text_style("Urbanist", 56, [fill("#FFFFFF")], weight=800), label="Contacto")
     t.song("i-guess-what-i-m-trying-to-say", 0.0, 0.8)
     return t
@@ -910,7 +910,7 @@ def gran_inauguracion() -> Template:
     t.text(T(t, "Fecha"), "Sábado 1 de noviembre · 10 a.m.", 2.4, 7.6, Box(70, 1300, 940, 120),
            text_style("Montserrat", 50, [fill("#FFFFFF")], weight=800, box=("#D62828", 1.0), box_pad=22,
                       box_radius=60, anim_in=tanim("slide-up", duration=0.4)), label="Fecha y hora")
-    t.text(T(t, "Dirección"), "Jr. Unión 789, Trujillo", 2.8, 7.2, Box(40, 1460, 1000, 90),
+    t.text(T(t, "Dirección"), "Calle Unión 789, Centro", 2.8, 7.2, Box(40, 1460, 1000, 90),
            text_style("Montserrat", 52, [shadow("#000000", 0, 4, 12, 0.7), fill("#FFFFFF")], weight=700,
                       anim_in=tanim("fade", duration=0.4)), label="Dirección")
     t.text(T(t, "Promo"), "¡Regalos para los primeros 50!", 3.2, 6.8, Box(40, 1590, 1000, 110),
@@ -947,7 +947,7 @@ def nueva_coleccion() -> Template:
                 label=f"Look {i + 1}")
     big = t.track("video", "Principal")
     box = Box(20, 240, 1040, 1160)
-    a = t.photo(big, "fashion-05", 4.2, 3.2, box, [(0, {"s": 1.1}, "linear"), (3.2, {"s": 1.0})],
+    a = t.photo(big, "fashion-02", 4.2, 3.2, box, [(0, {"s": 1.1}, "linear"), (3.2, {"s": 1.0})],
                 label="Foto principal")
     b = t.photo(big, "outfit-01", 7.4, 2.6, box, [(0, {"s": 1.0}, "linear"), (2.6, {"s": 1.06})], label="Look 5")
     t.transition(big, a, b, "crossfade", 0.5)
