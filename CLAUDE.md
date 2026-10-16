@@ -46,6 +46,12 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-10-15)
 
+### Plan de Stock (Jorge, 2026-10-16): lo siguiente
+- Stock es **pieza central** de la app. El plan completo, acordado con Jorge, está en `docs/plan-stock.md`:
+  contenido nuevo (textos animados, overlays, marcos, fondos, sonidos, música, LUTs, stickers, tercios inferiores,
+  fechas y negocios, formatos 16:9/1:1), inicio de Stock tipo tienda, búsqueda y filtros, uso más rápido y novedades
+  semanales. **Para el mundo entero:** nada de fiestas solo peruanas o latinas. Pagos, al final.
+
 ### 0.13.0 PUBLICADA (2026-10-16): Retoque › Cuerpo y Cabello, plantillas propias, 101 plantillas, Stock › Animaciones
 - Rama `flip/plantillas-propias` → PR a `main`, tag `v0.13.0`. Notas en `release-notes/0.13.0.md`; novedades para la
   Store (0.12.0 + 0.13.0, 1014 caracteres) en `docs/store-listing.md`: la 0.12.0 no llegó a subirse (Jorge: «subimos
