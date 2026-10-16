@@ -5317,6 +5317,210 @@
         <source>Template deleted</source>
         <translation>Шаблон удалён</translation>
     </message>
+    <message>
+        <source>Business name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Phone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Discount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Website</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Email</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Social media user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Call to action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Template added with %n of your photos. The rest did not fit: it has %1 slot(s).</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Template added with your %n photo(s). Fill the other slots in the panel on the right.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Template added with your %n photo(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Templates are changed on the main timeline: close the composition first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Put the template on the timeline first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Template changed: %n photo(s) carried over</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n text(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n photo(s) did not fit in the new one</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Template texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n text(s) changed</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>The template has no music: change its music first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the music to find its beat…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The cuts already fall on the beat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit cuts to the beat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>No beat found in the music: %n cut(s) now follow a steady 120 BPM beat</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n cut(s) moved to the beat of the music</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Choose a song or an audio file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>That file has no sound to use as music</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="unfinished">Музыка</translation>
+    </message>
+    <message>
+        <source>Template music</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New music: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The logo has to be a picture (PNG, JPG, WebP…)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not copy the logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My brand saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set up My brand first (Templates › My brand)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This template has no logo slot or brand texts to change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply my brand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My brand applied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My logo</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AssetCategoryChips</name>
@@ -6331,6 +6535,81 @@
     <message>
         <source>This clip cannot take an adjustment</source>
         <translation>К этому клипу нельзя применить коррекцию</translation>
+    </message>
+</context>
+<context>
+    <name>BrandKitDialog</name>
+    <message>
+        <source>Main colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My brand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Сохранить</translation>
+    </message>
+    <message>
+        <source>Your logo, colours and font. Business templates use them when you add one; any other template takes them with “Apply my brand” in its Template panel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change logo…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose logo…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose your logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pictures (*.png *.jpg *.jpeg *.webp)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colours (2 to 4)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation type="unfinished">Шрифт</translation>
+    </message>
+    <message>
+        <source>Use it in Business templates when I add them</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -16012,6 +16291,26 @@ If playback stutters, try another.</source>
         <translation>Поиск шаблонов</translation>
     </message>
     <message>
+        <source>Use with my photos…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose your photos and videos first: Flip suggests the templates that fit them and fills them in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose photos and videos</source>
+        <translation type="unfinished">Выбрать фото и видео</translation>
+    </message>
+    <message>
+        <source>My brand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your logo, colours and font for Business templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No scene templates yet</source>
         <translation>Шаблонов сцен пока нет</translation>
     </message>
@@ -16133,6 +16432,93 @@ If playback stutters, try another.</source>
     <message>
         <source>Other</source>
         <translation>Другое</translation>
+    </message>
+</context>
+<context>
+    <name>SceneTemplatePickerDialog</name>
+    <message>
+        <source>Change template</source>
+        <translation type="unfinished">Изменить шаблон</translation>
+    </message>
+    <message>
+        <source>Use with my photos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Закрыть</translation>
+    </message>
+    <message>
+        <source>vertical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>horizontal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>square</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — from Stock: it downloads and goes in with your photos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%1 — %n slot(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Templates for your %n photo(s). Your photos and the texts you changed go into the one you choose, in order; one undo puts the old one back.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n photo(s) or video(s), most of them %1. These templates fit them best; the highlighted count takes them all.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n photo(s) or video(s). These templates fit them best; the highlighted count takes them all.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>In Templates</source>
+        <translation type="unfinished">В «Шаблонах»</translation>
+    </message>
+    <message>
+        <source>No installed template takes photos yet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in (My account) to see the Stock templates that fit too.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Looking in Stock…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing else in Stock for this many photos.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -18284,6 +18670,18 @@ If playback stutters, try another.</source>
         <translation>Открывает lottiefiles.com в браузере</translation>
     </message>
     <message>
+        <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use with my photos…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose photos and videos</source>
+        <translation type="unfinished">Выбрать фото и видео</translation>
+    </message>
+    <message>
         <source>Looking up that link…</source>
         <translation>Поиск по ссылке…</translation>
     </message>
@@ -18814,6 +19212,82 @@ If playback stutters, try another.</source>
     <message>
         <source>Text</source>
         <translation>Текст</translation>
+    </message>
+    <message numerus="yes">
+        <source>Apply %n text(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Apply texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changes every text you edited at once (one undo step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="unfinished">Музыка</translation>
+    </message>
+    <message>
+        <source>The template&apos;s music</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No music in this template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit the cuts to the beat of the new song</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change the music…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add music…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A song from your computer, cut to the template&apos;s length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose a song</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the music…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit the cuts to the beat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moves the change from one photo to the next onto the nearest beat, keeping their order (one undo step). Without a beat, a steady 120 BPM.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change template…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Another template with the same photos and texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply my brand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your logo, colours and font (Templates › My brand)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open the composition</source>
