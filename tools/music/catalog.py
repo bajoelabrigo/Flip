@@ -114,9 +114,9 @@ def tempo_tags(bpm: float) -> list[str]:
 SONGS = """
 # ---------------- Alegre
 upbeat/Advertime | alegre | 30,15 | pop, ukelele, ukulele, anuncio, commercial
-upbeat/And Just Like That | alegre | 30 | pop, vlog, guitarra, guitar
-upbeat/City Sunshine | alegre | 30,60 | pop, ciudad, city, verano, summer
-upbeat/Funshine | alegre | 30 | pop, sol, sunshine, verano, summer
+upbeat/And Just Like That | alegre | 30,15 | pop, vlog, guitarra, guitar
+upbeat/City Sunshine | alegre | 30,60,15 | pop, ciudad, city, verano, summer
+upbeat/Funshine | alegre | 30,15 | pop, sol, sunshine, verano, summer
 upbeat/Happy Whistling Ukulele | alegre | 30,15 | ukelele, ukulele, silbido, whistle, acustica, acoustic
 upbeat/Ukulele Song | alegre | 30 | ukelele, ukulele, acustica, acoustic
 upbeat/Pickled Pink | alegre | 30 | pop, divertida, fun
@@ -135,9 +135,9 @@ fma:public-domain-lofi/Summer Break | alegre | 30 | lofi, lo-fi, verano, summer,
 epic/Hit n Smash | energetico | 30,15 | rock, accion, trailer, golpes
 scoring/Action Strike | energetico | 30,15 | accion, action, persecucion, chase
 scoring/City Run | energetico | 15 | correr, running, ciudad, city
-unsorted/Uberpunch | energetico | 30 | rock, golpe, punch, pelea, fight
-misc/Gotta Keep On Movin | energetico | 30 | rock, movimiento, viaje
-comedy/Rush | energetico | 30 | rapida, prisa, rush, carrera, race
+unsorted/Uberpunch | energetico | 30,15 | rock, golpe, punch, pelea, fight
+misc/Gotta Keep On Movin | energetico | 30,15 | rock, movimiento, viaje
+comedy/Rush | energetico | 30,15 | rapida, prisa, rush, carrera, race
 scoring/Funky Energy Loop | energetico | 30 | funk, groove, loop
 epic/Battle Ready | energetico | 30 | batalla, battle, tambores, drums
 unsorted/Beat Thee | energetico | 30 | electronica, electronic, beat
@@ -150,17 +150,15 @@ epic/Release the Hybrids | energetico | 30 | electronica, industrial, accion
 fma:phonk-aura-farming/Phonk ish | energetico | 30,15 | phonk, drift, gimnasio, gym, trap
 fma:phonk-aura-farming/Phonk Remix | energetico | 30 | phonk, drift, gimnasio, gym, trap
 fma:phonk-aura-farming/Pantheon | energetico | 30 | phonk, drift, trap, aura
-fma:phonk-aura-farming/ONLY HUMAN | energetico | 30 | phonk, trap, hip hop, aura
-fma:phonk-aura-farming/Re Adusjtment | energetico | 30 | phonk, trap | name=Re Adjustment
 fma:rock-montage/Punk | energetico | 30 | punk, rock, guitarra electrica, skate
 fma:rock-montage/Grunge | energetico | 30 | grunge, rock, guitarra electrica
 fma:rock-montage/Jams | energetico | 30 | rock, jam, guitarra electrica
 fma:gamer-beats/Hard Mode | energetico | 30 | gamer, videojuego, video game, beat
 fma:gamer-beats/Final Level | energetico | 30 | gamer, videojuego, video game, beat
 # ---------------- Épica y cine
-epic/Adventure | epico | 60 | aventura, adventure, orquesta
-epic/Heroic Adventure | epico | 30,60 | heroe, hero, aventura, adventure
-epic/Epic Blockbuster 2 | epico | 30,60 | taquillera, blockbuster, trailer
+epic/Adventure | epico | 60,15 | aventura, adventure, orquesta
+epic/Heroic Adventure | epico | 30,60,15 | heroe, hero, aventura, adventure
+epic/Epic Blockbuster 2 | epico | 30,60,15 | taquillera, blockbuster, trailer
 epic/Emotional Blockbuster 2 | epico | 60 | emotiva, emotional, trailer
 epic/Honor Bound | epico | 30 | honor, batalla, battle
 epic/New Hero in Town | epico | 30 | heroe, hero, superheroe
@@ -179,9 +177,9 @@ unsorted/Overture | epico | 30 | obertura, overture, orquesta
 epic/Lonely Mountain | epico | 60 | montana, mountain, aventura, viaje
 unsorted/Journey of Hope | epico | 60 | esperanza, hope, viaje, journey
 # ---------------- Tranquila, lofi y estudio
-chill/Adding the Sun | tranquilo | 60 | chill, sol, manana, morning
-chill/I Guess What I'm Trying to Say | tranquilo | 30 | chill, beat, hip hop
-chill/Downtown Boogie | tranquilo | 30 | groove, funk, ciudad
+chill/Adding the Sun | tranquilo | 60,15 | chill, sol, manana, morning
+chill/I Guess What I'm Trying to Say | tranquilo | 30,15 | chill, beat, hip hop
+chill/Downtown Boogie | tranquilo | 30,15 | groove, funk, ciudad
 chill/Study and Relax | tranquilo | 60 | estudio, study, lofi
 chill/Kalimba Relaxation Music | tranquilo | 60 | kalimba, meditacion, meditation, spa, yoga
 chill/Wisdom in the Sun | tranquilo | 60 | ambiental, ambient, meditacion, yoga
@@ -214,9 +212,9 @@ fma:spring-at-last-lofi-tape/Spring At Last | tranquilo | 30 | lofi, primavera, 
 fma:busted-guitar-lofi-edit/Keeping Cool | tranquilo | 30 | lofi, guitarra, guitar
 fma:ocean-memory-lo-fi-chill/Ocean Memory | tranquilo | 60 | lofi, mar, ocean, playa
 # ---------------- Romántica
-romantic/Lovely Piano Song | romantico | 60,30 | piano, boda, wedding
-romantic/Romantic Inspiration | romantico | 30 | piano, inspiradora
-romantic/Night in Venice | romantico | 60 | venecia, venice, italia, noche, cena
+romantic/Lovely Piano Song | romantico | 60,30,15 | piano, boda, wedding
+romantic/Romantic Inspiration | romantico | 30,15 | piano, inspiradora
+romantic/Night in Venice | romantico | 60,15 | venecia, venice, italia, noche, cena
 romantic/Shining Stars | romantico | 30 | estrellas, stars, noche
 romantic/Nostalgic Piano | romantico | 60 | piano, nostalgia, recuerdos
 romantic/Champ de tournesol | romantico | 30 | francesa, french, girasoles, campo
@@ -229,9 +227,9 @@ misc/A Waltz For Naseem | romantico | 30 | vals, waltz, piano | meter=3
 fma:lo-fi-and-chill/Puppy Love | romantico | 30 | lofi, amor, love, pareja
 fma:we-drove-all-night/Stealing Glimpses Of Your Face | romantico | 30 | synthwave, retro, amor, noche
 # ---------------- Triste y emotiva
-epic/Go On Without Me | triste | 60 | despedida, goodbye, orquesta, cine
-scoring/After the End | triste | 60 | final, perdida, loss, cine
-scoring/Dreams of Vain | triste | 30 | suenos, piano, reflexion
+epic/Go On Without Me | triste | 60,15 | despedida, goodbye, orquesta, cine
+scoring/After the End | triste | 60,15 | final, perdida, loss, cine
+scoring/Dreams of Vain | triste | 30,15 | suenos, piano, reflexion
 scoring/Final Step | triste | 30 | final, despedida, reflexion
 romantic/Isolation Waltz | triste | 30 | vals, waltz, soledad, loneliness | meter=3
 unsorted/Burt's Requiem | triste | 60 | requiem, homenaje, tribute, memorial
@@ -247,9 +245,9 @@ fma:winter-lofi/Winter Blues | triste | 30 | lofi, invierno, winter
 fma:sad-beats/Chills | triste | 30 | lofi, beat, sad beats
 fma:public-domain-lofi/Never Sleeping | triste | 30 | lofi, noche, insomnio, dark
 # ---------------- Misterio y suspenso
-horror/Horror Suspense | suspenso | 30 | terror, horror, tension
-horror/Mysterious Lights | suspenso | 60 | luces, ovni, ufo, ambiental
-horror/Hidden Truth | suspenso | 30 | verdad oculta, investigacion, documental
+horror/Horror Suspense | suspenso | 30,15 | terror, horror, tension
+horror/Mysterious Lights | suspenso | 60,15 | luces, ovni, ufo, ambiental
+horror/Hidden Truth | suspenso | 30,15 | verdad oculta, investigacion, documental
 horror/Asking Questions | suspenso | 30 | preguntas, investigacion, crimen, true crime
 horror/Cursed Intro | suspenso | 15 | maldicion, intro, terror
 horror/Footsteps in the Attic | suspenso | 30 | pasos, atico, terror
@@ -269,9 +267,9 @@ fma:beats-from-the-crypt/Tension In The Air | suspenso | 30 | tension, beat, osc
 fma:stranger-than-fiction-halloween-sci-fi/Somethings Out There | suspenso | 30 | ciencia ficcion, sci-fi, alien, espacio
 # ---------------- Divertida y comedia
 comedy/Silly Boy | divertido | 30,15 | tonta, silly, caricatura
-comedy/Going Bananas | divertido | 30 | locura, bananas, caricatura
-comedy/Wakka Wakka | divertido | 30 | caricatura, cartoon, travesura
-comedy/Fancy Family | divertido | 30 | elegante, familia, ironica
+comedy/Going Bananas | divertido | 30,15 | locura, bananas, caricatura
+comedy/Wakka Wakka | divertido | 30,15 | caricatura, cartoon, travesura
+comedy/Fancy Family | divertido | 30,15 | elegante, familia, ironica
 comedy/Busybody | divertido | 15 | chismoso, travesura, pizzicato
 comedy/Managing Mischief | divertido | 30 | travesura, mischief, pizzicato
 comedy/Comic Game Loop - Mischief | divertido | 30 | travesura, videojuego, loop | name=Comic Mischief
@@ -293,9 +291,9 @@ country/Jethro on the Run | divertido | 30 | banjo, country, persecucion
 comedy/Creepy Comedy | divertido | 30 | terror gracioso, spooky, caricatura
 comedy/Barnville | divertido | 30 | granja, farm, country
 # ---------------- Corporativa y negocios
-upbeat/Inspiration | corporativo | 30,60 | inspiradora, inspiring, motivacion, presentacion
-upbeat/Fresh Focus | corporativo | 30 | tecnologia, tech, startup, enfoque
-upbeat/From Page to Practice | corporativo | 30 | educacion, tutorial, curso
+upbeat/Inspiration | corporativo | 30,60,15 | inspiradora, inspiring, motivacion, presentacion
+upbeat/Fresh Focus | corporativo | 30,15 | tecnologia, tech, startup, enfoque
+upbeat/From Page to Practice | corporativo | 30,15 | educacion, tutorial, curso
 upbeat/Motions | corporativo | 30 | tecnologia, tech, movimiento
 upbeat/Screen Saver | corporativo | 30 | tecnologia, tech, app, producto
 upbeat/Limit 70 | corporativo | 60 | carretera, viaje, publicidad, auto
@@ -310,11 +308,11 @@ misc/Bleu | corporativo | 30 | elegante, minimal, moda, fashion
 upbeat/Still Pickin | corporativo | 60 | guitarra, acustica, campo, agro
 unsorted/Rural Industry | corporativo | 30 | industria, campo, produccion
 # ---------------- Infantil
-comedy/Llama in Pajama | infantil | 30 | llama, pijama, caricatura, cuento
-comedy/My Giant Bunny Friend | infantil | 30 | conejo, bunny, amigo, cuento
+comedy/Llama in Pajama | infantil | 30,15 | llama, pijama, caricatura, cuento
+comedy/My Giant Bunny Friend | infantil | 30,15 | conejo, bunny, amigo, cuento
 misc/Improved Ice Cream Truck | infantil | 15 | heladero, helado, ice cream
 fantasy/Magical Transition | infantil | 15 | magia, magic, transicion, hada
-fantasy/Painting Room | infantil | 30 | pintar, painting, arte, manualidades
+fantasy/Painting Room | infantil | 30,15 | pintar, painting, arte, manualidades
 fantasy/Brewing Potions | infantil | 30 | pociones, magia, brujo, wizard
 scoring/Magic in the Garden | infantil | 30 | jardin, garden, magia, hadas
 world/Forest Frolic Loop | infantil | 15 | bosque, forest, juego
@@ -332,9 +330,9 @@ fma:tiny-plastic-video-games-for-long-anxious-space-travel/Pixel Party | infanti
 fma:gamer-beats/Coins | infantil | 15 | monedas, coins, videojuego, gamer
 # ---------------- Fiesta y baile
 chill/Blippy Trance | fiesta | 15,30 | electronica, trance, edm
-electronic/Beat One | fiesta | 30 | electronica, beat, hip hop
-electronic/Backbeat | fiesta | 30 | electronica, beat, breakbeat
-jazz/Funkeriffic | fiesta | 30 | funk, groove, disco
+electronic/Beat One | fiesta | 30,15 | electronica, beat, hip hop
+electronic/Backbeat | fiesta | 30,15 | electronica, beat, breakbeat
+jazz/Funkeriffic | fiesta | 30,15 | funk, groove, disco
 world/Shenzhen Nightlife | fiesta | 30 | noche, club, electronica, asia
 electronic/Goodnightmare | fiesta | 30 | electronica, techno, club
 electronic/Bit Bit Loop | fiesta | 15 | electronica, 8 bits, loop
@@ -351,10 +349,10 @@ fma:power-pop/Back In The 80s | fiesta | 30 | synth pop, anos 80, retro
 fma:power-pop/Retro Synths | fiesta | 30 | synth pop, retro, anos 80
 fma:power-pop/Funky Pop | fiesta | 30 | funk, pop, groove
 # ---------------- Navidad y fechas
-unsorted/Deck the Halls | fechas | 30,60 | navidad, christmas, villancico, carol | name=Deck the Halls
+unsorted/Deck the Halls | fechas | 30,60,15 | navidad, christmas, villancico, carol | name=Deck the Halls
 unsorted/We Wish You a Merry Christmas | fechas | 30,15 | navidad, christmas, villancico, carol
-comedy/Krampus's Workshop | fechas | 30 | navidad, christmas, taller, juguetes
-comedy/Holiday Weasel | fechas | 30 | navidad, christmas, fiestas, holidays
+comedy/Krampus's Workshop | fechas | 30,15 | navidad, christmas, taller, juguetes
+comedy/Holiday Weasel | fechas | 30,15 | navidad, christmas, fiestas, holidays
 fma:a-lo-fi-christmas-special/Silent Night | fechas | 30,60 | navidad, christmas, noche de paz, villancico, lofi | name=Silent Night (Lo-Fi)
 fma:a-lo-fi-christmas-special/Oh Holy Night | fechas | 60 | navidad, christmas, villancico, lofi | name=O Holy Night (Lo-Fi)
 fma:a-lo-fi-christmas-special/Angels We Have Heard On High | fechas | 30 | navidad, christmas, angeles, villancico, lofi | name=Angels We Have Heard on High (Lo-Fi)
@@ -377,9 +375,9 @@ fma:horseless-headman-halloween-beats/Haunted Houses | fechas | 30 | halloween, 
 fma:beats-from-the-crypt/Dance Of The Dead | fechas | 30 | halloween, muertos, baile, beat
 # ---------------- Del mundo
 world/Bollywood Groove | mundo | 30,15 | india, bollywood, sitar, tabla
-world/Breaking Bollywood | mundo | 30 | india, bollywood, tabla
-world/Bavarian Seascape | mundo | 30 | europa, alemania, bavaria, acordeon
-world/Coy Koi | mundo | 30 | japon, japan, asia, koto
+world/Breaking Bollywood | mundo | 30,15 | india, bollywood, tabla
+world/Bavarian Seascape | mundo | 30,15 | europa, alemania, bavaria, acordeon
+world/Coy Koi | mundo | 30,15 | japon, japan, asia, koto
 world/Cumbish | mundo | 30 | cumbia, latina, tropical
 world/Del Rio Bravo | mundo | 30 | mexico, western, guitarra, desierto
 world/Desert Conflict | mundo | 30 | medio oriente, middle east, desierto, arabe

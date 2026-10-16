@@ -157,7 +157,7 @@ def build(item: catalog.Item, x: np.ndarray, avoid: list) -> tuple[dict, tuple[f
         # MP3 overshoot: take the excess off and encode again
         y = (y * 10 ** ((-1.15 - tp) / 20)).astype(np.float32)
     seconds = len(y) / dsp.SR
-    card(y, item.category, seconds, folder / "thumbnail.png")
+    card(y, item.category, item.length, folder / "thumbnail.png")  # the nominal length, as in the name
     fade_at = int((c.fade_from - c.start) * dsp.SR)
     meta = {
         "id": item.id, "names": item.names, "category": item.category,
