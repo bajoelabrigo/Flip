@@ -389,6 +389,37 @@ Item {
                 onClicked: Qt.openUrlExternally("https://lottiefiles.com/free-animations")
             }
         }
+
+        // Templates the other way round: the photos first, then the templates that fit them.
+        Row {
+            visible: root.templates
+            x: root.sidePadding
+            width: parent.width - root.sidePadding * 2
+            spacing: Theme.spacingMd
+            topPadding: Theme.spacingSm
+
+            Text {
+                width: parent.width - withPhotosButton.width - parent.spacing
+                anchors.verticalCenter: withPhotosButton.verticalCenter
+                text: qsTr("Have your photos already? Choose them and Flip suggests the templates that fit.")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+                wrapMode: Text.WordWrap
+            }
+            ThemedButton {
+                id: withPhotosButton
+                variant: "secondary"
+                glyph: Theme.icons.image
+                text: qsTr("Use with my photos…")
+                onClicked: {
+                    const urls = FileDialogs.openFiles(qsTr("Choose photos and videos"), [AssetLibrary.mediaNameFilter()])
+                    const chosen = urls.filter(u => u.toString().length > 0)
+                    if (chosen.length > 0)
+                        EditorState.requestTemplatePicker("photos", "", chosen)
+                }
+            }
+        }
     }
 
     Item {
