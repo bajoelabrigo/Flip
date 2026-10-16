@@ -214,7 +214,7 @@ def m_lava(w, h, T, rng, p):
         field_ = np.zeros((h, w), np.float32)
         for k in range(n):
             bx = cx[k] + 0.08 * math.sin(TAU * u + ph[k])
-            by = (cy[k] + u * (1 if k % 2 else -1)) % 1.2 - 0.1
+            by = (cy[k] + u * 1.2 * (1 if k % 2 else -1)) % 1.2 - 0.1
             field_ += r[k] ** 2 / (((x - bx) ** 2 + ((y - by) * 1.78) ** 2) + 1e-4)
         inside = fx.smooth(0.75, 0.95, field_)
         bg = vgrad(w, h, p["a"], p["c"] * 0.7)
@@ -435,7 +435,7 @@ def m_floating_shapes(w, h, T, rng, p):
         d = ImageDraw.Draw(layer)
         for k in range(n):
             cx = xs[k] * w * 2
-            cy = ((ys[k] - u) % 1.1 - 0.05) * h * 2
+            cy = ((ys[k] - u * 1.1) % 1.1 - 0.05) * h * 2
             r = sz[k] * w * 2
             a = ph[k] + TAU * u * (1 if k % 2 else -1)
             col = tuple(int(c * 255) for c in cols[k % 4]) + (230,)
@@ -600,7 +600,7 @@ def m_bokeh_bg(w, h, T, rng, p):
         out = vgrad(w, h, p["a"], p["a"] * 0.6 + p["c"] * 0.3)
         c = fx.Canvas(w, h)
         for i in range(n):
-            y = (ys[i] - u * h) % (h + 160) - 80
+            y = (ys[i] - u * (h + 160)) % (h + 160) - 80
             c.splat(fx.bokeh(int(r[i])), xs[i] + 20 * math.sin(TAU * u + ph[i]), y, cols[i % 4],
                     0.35 + 0.25 * math.sin(TAU * u * 2 + ph[i]), add=True)
         return np.clip(from_canvas(out, c), 0, 1)
@@ -680,7 +680,7 @@ def m_city_lights(w, h, T, rng, p):
         out = vgrad(w, h, p["a"] * 0.5, p["a"])
         c = fx.Canvas(w, h)
         for i in range(n):
-            x = (xs[i] + u * w * (1 if i % 3 else -1)) % (w + 60) - 30
+            x = (xs[i] + u * (w + 60) * (1 if i % 3 else -1)) % (w + 60) - 30
             c.splat(fx.bokeh(int(r[i])), x, ys[i], cols[i % 4], 0.3 + 0.2 * math.sin(TAU * 2 * u + ph[i]), add=True)
         return np.clip(from_canvas(out, c), 0, 1)
     return frame
@@ -697,7 +697,7 @@ def m_snow_bg(w, h, T, rng, p):
         out = vgrad(w, h, p["a"], p["c"] * 0.7)
         c = fx.Canvas(w, h)
         for i in range(n):
-            y = (ys[i] + u * h * (1 + (r[i] > 4))) % (h + 20) - 10
+            y = (ys[i] + u * (h + 20) * (1 + (r[i] > 4))) % (h + 20) - 10
             c.splat(fx.glow(int(r[i] * 1.8)), xs[i] + 12 * math.sin(TAU * u * 2 + ph[i]), y, (1, 1, 1), 0.85)
         return np.clip(from_canvas(out, c), 0, 1)
     return frame
