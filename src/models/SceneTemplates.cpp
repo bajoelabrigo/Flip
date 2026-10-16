@@ -625,14 +625,17 @@ QVariantMap AppController::sceneTemplateInfo(const QString &compositeAssetId) co
     QVariantList textList;
     for (Slot &slot : texts) {
         const QString current = slot.map.value(QStringLiteral("text")).toString();
-        const QString original = originals.value(slot.map.value(QStringLiteral("slotId")).toString(), current);
+        const QString slotId = slot.map.value(QStringLiteral("slotId")).toString();
+        // A template no longer installed has no sample to compare with: count its texts as the user's.
+        const bool known = originals.contains(slotId);
+        const QString original = originals.value(slotId, current);
         const bool isLargest = largest > 0 && slot.map.value(QStringLiteral("pixelSize")).toInt() >= largest;
         const QString kind = drift::guessTemplateTextKind(original, slot.map.value(QStringLiteral("label")).toString(),
                                                           isLargest);
         const int n = ++kindCount[kind];
         slot.map.insert(QStringLiteral("kind"), kind);
         slot.map.insert(QStringLiteral("original"), original);
-        slot.map.insert(QStringLiteral("edited"), current != original);
+        slot.map.insert(QStringLiteral("edited"), known ? current != original : !current.isEmpty());
         slot.map.insert(QStringLiteral("kindIndex"), n);
         textList.append(slot.map);
     }
