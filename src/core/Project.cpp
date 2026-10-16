@@ -353,6 +353,8 @@ QJsonObject clipToJson(const Clip &clip)
         if (clip.placeholderEmpty)
             json.insert(QStringLiteral("placeholderEmpty"), true);
     }
+    if (!clip.brandRole.isEmpty())
+        json.insert(QStringLiteral("brandRole"), clip.brandRole);
     return json;
 }
 
@@ -411,6 +413,7 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.placeholderId = object.value(QStringLiteral("placeholderId")).toString();
     clip.placeholderLabel = object.value(QStringLiteral("placeholderLabel")).toString();
     clip.placeholderEmpty = object.value(QStringLiteral("placeholderEmpty")).toBool(false);
+    clip.brandRole = object.value(QStringLiteral("brandRole")).toString();
     clip.name = object.value(QStringLiteral("name")).toString();
     clip.textContent = object.value(QStringLiteral("textContent")).toString();
     clip.textStyle = textStyleFromJson(object.value(QStringLiteral("textStyle")).toObject());

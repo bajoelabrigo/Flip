@@ -536,6 +536,8 @@ add_library(driftcore STATIC
     src/core/TimelineOps.cpp
     src/core/SceneTemplateLayout.h
     src/core/SceneTemplateLayout.cpp
+    src/core/SceneTemplateTools.h
+    src/core/SceneTemplateTools.cpp
     src/core/CutOps.h
     src/core/CutOps.cpp
     src/core/commands/ProjectCommands.h
