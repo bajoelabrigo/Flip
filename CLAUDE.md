@@ -63,7 +63,7 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - **Publicada (2026-10-16):** release `v0.13.0` (run 38864046035), copia en `versiones\FlipStudio-0.13.0`, MSIX en
   `tienda\FlipStudio-Store\paquete-0.13.0\FlipStudio-0.13.0.0-x64.msix` (run 38864080404; el de
   `descartado-no-subir` es del tag viejo), extra `cuerpo.cabello` en el índice y novedades en la web.
-  **Falta (Jorge):** TXT `version` = 0.13.0 y subir el MSIX con las notas «0.12.0 + 0.13.0».
+  **Jorge subió el MSIX a Partner Center (2026-10-16)**, con las notas «0.12.0 + 0.13.0». Falta que la certifiquen.
 
 ### 0.11.0 PUBLICADA (2026-10-15): plantillas editables, plantillas como composición, fotogramas en la pista
 - Rama `flip/plantillas-editables` → PR a `main`, tag `v0.11.0`. Notas en `release-notes/0.11.0.md`; novedades para
