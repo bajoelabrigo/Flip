@@ -70,7 +70,7 @@ def build(d: designs.Design) -> str:
     webm = subprocess.Popen(
         ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgba", "-s", f"{w}x{h}", "-r", str(FPS),
          "-i", "-", "-vf", f"scale={FULL[0]}:{FULL[1]}:flags=bicubic", "-c:v", "libvpx-vp9", "-pix_fmt", "yuva420p",
-         "-crf", "34", "-b:v", "0", "-row-mt", "1", "-cpu-used", "4", "-deadline", "good", "-auto-alt-ref", "0",
+         "-crf", str(d.crf), "-b:v", "0", "-row-mt", "1", "-cpu-used", "4", "-deadline", "good", "-auto-alt-ref", "0",
          "-an", str(folder / f"{d.id}.webm")], stdin=subprocess.PIPE)
     prev = subprocess.Popen(
         ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{PREV[0]}x{PREV[1]}",

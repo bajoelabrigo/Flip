@@ -414,7 +414,7 @@ doodle("garabato-diablito", "Cuernos de diablito", "Little devil",
        sample="halloween-01.jpg")
 doodle("garabato-diablito-blanco", "Cuernos a mano", "Doodle horns",
        [("horn_l", 0.36, 0.12, 200, 0, 0.0), ("horn_r", 0.64, 0.12, 200, 0, 0.15), ("tail", 0.8, 0.78, 260, -20, 0.4)],
-       tags=["cuernos", "horns", "travieso", "humor"], sample="pet-02.jpg")
+       tags=["cuernos", "horns", "travieso", "humor"], sample="halloween-04.jpg")
 doodle("garabato-neon-corazones", "Corazones de neón a mano", "Neon doodle hearts", HEARTS, color=fx.hex_rgb("#ff2fb3"),
        glow=True, tags=["neon", "corazones", "noche", "aesthetic"], sample="concert-01.jpg")
 
@@ -611,7 +611,7 @@ design("marco-lineas-velocidad", "Líneas de velocidad", "Speed lines", "marcos"
        tags=["lineas de velocidad", "speed lines", "anime", "manga", "comic", "impacto", "dramatico", "zoom"],
        sample="man-03.jpg")(_speed_lines(True))
 design("marco-lineas-laterales", "Líneas de movimiento", "Motion lines", "marcos", 2,
-       tags=["lineas", "movimiento", "motion lines", "anime", "rapido", "velocidad", "comic"], sample="skate-01.jpg")(
+       tags=["lineas", "movimiento", "motion lines", "anime", "rapido", "velocidad", "comic"], sample="man-01.jpg")(
     _speed_lines(False))
 
 
@@ -657,7 +657,7 @@ def _paper_tex(w, h, T, rng):
 
 
 @design("textura-grunge", "Textura grunge", "Grunge texture", "marcos", 2,
-        tags=["grunge", "textura", "texture", "sucio", "rock", "urbano", "rayado"], sample="skate-03.jpg")
+        tags=["grunge", "textura", "texture", "sucio", "rock", "urbano", "rayado"], sample="man-02.jpg")
 def _grunge(w, h, T, rng):
     stains = fx.tile_noise(512, 31, falloff=1.4)
     vg = fx.vignette(w, h, 0.4, 1.2)

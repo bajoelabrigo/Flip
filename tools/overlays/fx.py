@@ -273,8 +273,8 @@ def sample_tile(tile: np.ndarray, w: int, h: int, ox: float, oy: float, scale: f
     n = tile.shape[0]
     xs = (np.arange(w) * scale + ox) % n
     ys = (np.arange(h) * scale + oy) % n
-    x0 = np.floor(xs).astype(int)
-    y0 = np.floor(ys).astype(int)
+    x0 = np.floor(xs).astype(int) % n   # a float modulo can land exactly on n
+    y0 = np.floor(ys).astype(int) % n
     fx = (xs - x0)[None, :]
     fy = (ys - y0)[:, None]
     x1 = (x0 + 1) % n

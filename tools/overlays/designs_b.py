@@ -238,7 +238,7 @@ def _grain(amount, warm=False):
         frames = int(T * 30)
 
         def frame(t):
-            i = int(round(t * 30)) % frames
+            i = (int(round(t * 30)) % frames) // 2   # grain changes every other frame: half the weight
             c = Canvas(w, h)
             _grain_layer(c, np.random.default_rng(7000 + i), amount, warm)
             return c
@@ -246,12 +246,12 @@ def _grain(amount, warm=False):
     return make
 
 
-design("pel-grano-fino", "Grano fino", "Fine grain", "pelicula", 2, res=(1080, 1920),
+design("pel-grano-fino", "Grano fino", "Fine grain", "pelicula", 1, res=(540, 960), crf=44,
        tags=["grano", "grain", "fino", "fine", "cine", "pelicula", "textura"], sample="portrait-06.jpg")(_grain(0.07))
-design("pel-grano-16mm", "Grano de 16 mm", "16 mm grain", "pelicula", 2, res=(360, 640),
+design("pel-grano-16mm", "Grano de 16 mm", "16 mm grain", "pelicula", 1, res=(360, 640), crf=44,
        tags=["grano", "grain", "16mm", "pelicula", "film", "vintage", "analogico"], sample="family-04.jpg")(
     _grain(0.13, warm=True))
-design("pel-grano-fuerte", "Grano fuerte", "Heavy grain", "pelicula", 2, res=(540, 960),
+design("pel-grano-fuerte", "Grano fuerte", "Heavy grain", "pelicula", 1, res=(540, 960), crf=44,
        tags=["grano", "grain", "fuerte", "heavy", "ruido", "noise", "grunge"], sample="man-02.jpg")(_grain(0.2))
 
 
@@ -299,7 +299,7 @@ def _old_film(sepia, flicker, vig, scratches, dust_amount, grain_amount, gate=Fa
             c.image(dk, 0, 0, (0.05, 0.04, 0.03), 0.85)
             c.image(im, 0, 0, (1, 0.98, 0.92), 0.8)
             if grain_amount:
-                _grain_layer(c, r, grain_amount, warm=True)
+                _grain_layer(c, np.random.default_rng(3500 + i // 2), grain_amount * 0.7, warm=True)
             if gate:
                 c = _shift(c, int(r.normal(0, 2.0 * sc)))
             return c
@@ -317,10 +317,10 @@ def _shift(c: Canvas, dy: int) -> Canvas:
 design("pel-polvo-suave", "Polvo suave", "Light dust", "pelicula", 4, res=(1080, 1920),
        tags=["polvo", "dust", "suave", "pelicula", "film", "textura"], sample="couple-08.jpg")(
     _old_film(0, 0.0, 0, 2, 0.5, 0))
-design("pel-8mm", "Película de 8 mm", "8 mm film", "pelicula", 4, res=(540, 960),
+design("pel-8mm", "Película de 8 mm", "8 mm film", "pelicula", 4, res=(540, 960), crf=42,
        tags=["8mm", "super 8", "pelicula", "film", "vintage", "recuerdos", "familia", "home video"], sample="family-01.jpg")(
     _old_film(0.12, 0.06, 0.55, 3, 1.0, 0.12, gate=True))
-design("pel-cine-mudo", "Cine mudo", "Silent movie", "pelicula", 4, res=(540, 960),
+design("pel-cine-mudo", "Cine mudo", "Silent movie", "pelicula", 4, res=(540, 960), crf=42,
        tags=["cine mudo", "silent film", "antiguo", "old", "sepia", "1920", "blanco y negro", "vintage"],
        sample="man-05.jpg")(
     _old_film(0.32, 0.12, 0.85, 6, 1.6, 0.16, gate=True))
@@ -467,7 +467,9 @@ def _vhs(label, mode="play"):
                 y0, y1 = max(band_y - band_h, 0), min(band_y, h)
                 if y1 > y0:
                     a = np.zeros((h, w), np.float32)
-                    a[y0:y1] = (r.uniform(0, 1, (y1 - y0, w)) > 0.5) * 0.6 * np.linspace(0.2, 1, y1 - y0)[:, None]
+                    hb, wb = (y1 - y0 + 3) // 4, (w + 3) // 4   # 4 px blocks: tape noise, and it compresses
+                    blocks = np.kron(r.uniform(0, 1, (hb, wb)), np.ones((4, 4)))[:y1 - y0, :w]
+                    a[y0:y1] = (blocks > (0.7 if mode == "rew" else 0.5)) * 0.6 * np.linspace(0.2, 1, y1 - y0)[:, None]
                     c.fill((1, 1, 1), a)
             for _ in range(r.integers(0, 4 if mode == "rew" else 3)):
                 y = int(r.uniform(0, h))
@@ -743,10 +745,10 @@ def _cam_ui(tint=None, label="", clock=False, grid=False, low_battery=False, noi
 
 design("cam-vision-nocturna", "Visión nocturna", "Night vision", "camara", 6, res=(1080, 1920),
        tags=["vision nocturna", "night vision", "verde", "camara", "noche", "misterio", "terror"], sample="halloween-02.jpg")(
-    _cam_ui(tint=("#1aff5a", 0.32), label="NIGHT", noise=0.1, scan=0.12))
+    _cam_ui(tint=("#1aff5a", 0.32), label="NIGHT", scan=0.14))
 design("cam-seguridad", "Cámara de seguridad", "Security camera", "camara", 8, res=(1080, 1920),
        tags=["seguridad", "cctv", "security", "camara", "vigilancia", "broma", "prank"], sample="office-04.jpg")(
-    _cam_ui(tint=("#8090a0", 0.18), label="CAM 01", clock=True, noise=0.06, scan=0.1))
+    _cam_ui(tint=("#8090a0", 0.18), label="CAM 01", clock=True, scan=0.12))
 design("cam-visor", "Visor de cámara", "Camera viewfinder", "camara", 6, res=(1080, 1920),
        tags=["visor", "viewfinder", "cuadricula", "grid", "camara", "foto", "fotografo"], sample="portrait-08.jpg")(
     _cam_ui(grid=True))
@@ -793,7 +795,7 @@ def _photo_flash(w, h, T, rng):
     return frame
 
 
-@design("cam-obturador", "Obturador", "Camera shutter", "camara", 0.9, loop=False, thumb_at=0.3,
+@design("cam-obturador", "Obturador", "Camera shutter", "camara", 0.9, loop=False, thumb_at=0.12,
         tags=["obturador", "shutter", "camara", "foto", "transicion", "iris", "click"], sample="travel-02.jpg")
 def _shutter(w, h, T, rng):
     blades = 7
@@ -847,7 +849,6 @@ def _leader(w, h, T, rng):
         if num >= 1:
             n = fx.text_image(str(num), "Anton-Regular.ttf", int(460 * s))
             c.image(n, cx - n.width // 2, cy - n.height // 2, (0.05, 0.05, 0.05), 0.95)
-        _grain_layer(c, np.random.default_rng(int(t * 30)), 0.08)
         return c
     return frame
 

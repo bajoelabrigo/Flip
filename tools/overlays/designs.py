@@ -29,15 +29,17 @@ class Design:
     tags: list = field(default_factory=list)
     sample: str = "portrait-01.jpg"
     thumb_at: float = 0.5   # fraction of the duration used for the card
+    crf: int = 34           # VP9 quality; grain and noise get a higher number or they weigh tens of MB
 
 
 DESIGNS: dict[str, Design] = {}
 
 
 def design(id, es, en, category, seconds, *, loop=True, res=(1080, 1920), tags=(), sample="portrait-01.jpg",
-           thumb_at=0.5):
+           thumb_at=0.5, crf=34):
     def deco(fn):
-        DESIGNS[id] = Design(id, {"es": es, "en": en}, category, seconds, fn, loop, res, list(tags), sample, thumb_at)
+        DESIGNS[id] = Design(id, {"es": es, "en": en}, category, seconds, fn, loop, res, list(tags), sample, thumb_at,
+                             crf)
         return fn
     return deco
 
@@ -285,14 +287,14 @@ def _dust(w, h, T, rng):
     return frame
 
 
-@design("pel-grano", "Grano de película", "Film grain", "pelicula", 2, res=(540, 960),
+@design("pel-grano", "Grano de película", "Film grain", "pelicula", 1, res=(540, 960), crf=44,
         tags=["grano", "grain", "pelicula", "film", "ruido", "noise", "cine", "analogico"], sample="portrait-05.jpg")
 def _grain(w, h, T, rng):
     fps = 30
     frames = int(T * fps)
 
     def frame(t):
-        i = int(round(t * fps)) % frames
+        i = (int(round(t * fps)) % frames) // 2   # grain changes every other frame: half the weight
         n = np.random.default_rng(5000 + i).standard_normal((h, w)).astype(np.float32)
         c = Canvas(w, h)
         light = np.clip(n, 0, None) * 0.11
