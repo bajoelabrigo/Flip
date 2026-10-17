@@ -202,3 +202,14 @@ entienda sin sonido ([Think with Google](https://www.thinkwithgoogle.com/intl/en
 - **Miniaturas** (`templates_y1.py`, categoría `thumbnail`, ids `mini-*`, order 5200–5249): 3 s casi fijos, el
   momento de la miniatura es el estado final. Sin logos ni rojo de plataformas.
 - `formats.py` tiene las familias de historias, anuncios y miniaturas.
+
+## Trampas encontradas en la 0.15.0
+- Un `glow` sobre una forma de solo contorno (`hollow_ring`, marcos) rellena todo el interior y tapa la foto: para
+  marcos y anillos de neón, un trazo ancho semitransparente en vez de `glow`.
+- El `typewriter` por caracteres escribe unas 1,7 veces más lento de lo que dan `duration` y `stagger`: dejar margen
+  en textos largos o la miniatura sale cortada.
+- Con Bebas Neue, una caja casi del alto de la letra corta las tildes de las mayúsculas (Í, Ú, Á).
+- `"#00000000"` en `t.solid` pinta negro opaco: `argb()` ignora el alfa del color.
+- Monoton no tiene «¿» y la fuente de reserva pinta «✓» en negro: probar los signos en la fuente elegida.
+- Las máscaras se miden sobre el marco de su clip: para una ventana fija sobre texto que se mueve (odómetros),
+  tapas del color del fondo, no máscaras.
