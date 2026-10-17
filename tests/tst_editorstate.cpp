@@ -308,6 +308,7 @@ private slots:
     void trackHeadersPickGroupAndDelete();
     void sceneTemplateInsertsAndFillsSlots();
     void sceneTemplateLayoutScalesAndCovers();
+    void sceneTemplateSwapKeepsTheFill();
     void userTemplateSavesFromComposition();
     void trackRowHeightsForAdjustmentsAndLanes();
     void overlappingAdjustmentsGetASecondLane();
@@ -1033,6 +1034,140 @@ void EditorStateTest::sceneTemplateInsertsAndFillsSlots()
     const QString titleClipId = texts.first().toMap().value(QStringLiteral("clipId")).toString();
     QVERIFY(state.setTemplateText(titleClipId, QStringLiteral("Feliz dia")));
     QCOMPARE(clipIn(titleClipId)->textContent, QStringLiteral("Feliz dia"));
+}
+
+// Change template: the pictures go into the new template's slots in order, the text the user
+// changed lands on the text that is for the same thing (the title), the old composition leaves
+// Media, and one undo brings it all back. The text form changes several texts in one step.
+void EditorStateTest::sceneTemplateSwapKeepsTheFill()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    const auto restore = qScopeGuard([] {
+        QStandardPaths::setTestModeEnabled(false);
+        reloadSceneTemplateCatalog();
+    });
+    QTemporaryDir root;
+    QVERIFY(root.isValid());
+    const auto writePackage = [&](const QString &id, int slotCount, const QList<QPair<QString, int>> &texts) {
+        const QString dir = QDir(root.path()).filePath(id);
+        QVERIFY(QDir().mkpath(dir));
+        drift::Project content;
+        content.setResolution(1080, 1920);
+        content.tracks().clear();
+        drift::Track photos{.type = drift::TrackType::Video};
+        for (int i = 0; i < slotCount; ++i) {
+            drift::Clip slot;
+            slot.id = QStringLiteral("s%1").arg(i);
+            slot.type = drift::ClipType::Image;
+            slot.placeholderId = QStringLiteral("p%1").arg(i);
+            slot.timelineStart = drift::secondsToUs(1.0 * i);
+            slot.timelineDuration = drift::secondsToUs(1.0);
+            slot.srcOut = slot.timelineDuration;
+            photos.clips.append(slot);
+        }
+        drift::Track words{.type = drift::TrackType::Text};
+        for (int i = 0; i < texts.size(); ++i) {
+            drift::Clip text;
+            text.id = QStringLiteral("t%1").arg(i);
+            text.type = drift::ClipType::Text;
+            text.placeholderId = QStringLiteral("t%1").arg(i);
+            text.textContent = texts.at(i).first;
+            text.textStyle.pixelSize = texts.at(i).second;
+            text.timelineStart = drift::secondsToUs(0.1 * i);
+            text.timelineDuration = drift::secondsToUs(1.0 * slotCount);
+            words.clips.append(text);
+        }
+        content.tracks() = {words, photos};
+        content.ensureTrackIds();
+        QFile project(QDir(dir).filePath(QStringLiteral("project.json")));
+        QVERIFY(project.open(QIODevice::WriteOnly));
+        project.write(QJsonDocument(content.toJson(false)).toJson());
+        QFile manifest(QDir(dir).filePath(QStringLiteral("template.json")));
+        QVERIFY(manifest.open(QIODevice::WriteOnly));
+        manifest.write(QJsonDocument(QJsonObject{{QStringLiteral("id"), id},
+                                                 {QStringLiteral("displayName"), id},
+                                                 {QStringLiteral("category"), QStringLiteral("reels")},
+                                                 {QStringLiteral("width"), 1080},
+                                                 {QStringLiteral("height"), 1920},
+                                                 {QStringLiteral("durationSec"), 1.0 * slotCount},
+                                                 {QStringLiteral("slots"), slotCount},
+                                                 {QStringLiteral("texts"), int(texts.size())}})
+                           .toJson());
+    };
+    writePackage(QStringLiteral("two"), 2, {{QStringLiteral("Hola"), 90}});
+    writePackage(QStringLiteral("three"), 3,
+                 {{QStringLiteral("+51 999 888 777"), 40}, {QStringLiteral("Verano"), 120}});
+    reloadSceneTemplateCatalog({root.path()});
+
+    AssetLibrary library;
+    AppController state(&library);
+    QVERIFY(!state.insertSceneTemplate(QStringLiteral("two")).isEmpty());
+    const QString oldAsset = state.sceneTemplateAssetAt(state.selectedTrack(), state.selectedClip());
+    QVERIFY(!oldAsset.isEmpty());
+
+    QStringList photoIds;
+    for (int i = 0; i < 2; ++i) {
+        const QString path = QDir(root.path()).filePath(QStringLiteral("photo%1.png").arg(i));
+        QImage image(600, 1000, QImage::Format_RGB32);
+        image.fill(i == 0 ? Qt::red : Qt::blue);
+        QVERIFY(image.save(path));
+        drift::MediaAsset photo;
+        photo.kind = drift::MediaKind::Image;
+        photo.name = QFileInfo(path).fileName();
+        photo.path = path;
+        photo.width = 600;
+        photo.height = 1000;
+        photoIds.append(state.project()->addAsset(photo));
+    }
+    library.syncToProject();
+    QVariantMap info = state.sceneTemplateInfo(oldAsset);
+    const QVariantList oldSlots = info.value(QStringLiteral("slots")).toList();
+    QCOMPARE(oldSlots.size(), 2);
+    QVERIFY(state.fillTemplateSlot(oldSlots.at(0).toMap().value(QStringLiteral("clipId")).toString(), photoIds.at(0)));
+    QVERIFY(state.fillTemplateSlot(oldSlots.at(1).toMap().value(QStringLiteral("clipId")).toString(), photoIds.at(1)));
+    const QVariantList oldTexts = info.value(QStringLiteral("texts")).toList();
+    QCOMPARE(oldTexts.first().toMap().value(QStringLiteral("kind")).toString(), QStringLiteral("title"));
+    QCOMPARE(state.setTemplateTexts({{oldTexts.first().toMap().value(QStringLiteral("clipId")).toString(),
+                                      QStringLiteral("Mi viaje")}}),
+             1);
+    QVERIFY(state.sceneTemplateInfo(oldAsset).value(QStringLiteral("texts")).toList().first().toMap()
+                .value(QStringLiteral("edited")).toBool());
+
+    // The suggestions for a swap leave the current template out.
+    const QVariantList swapChoices =
+        state.suggestSceneTemplatesForSwap(oldAsset).value(QStringLiteral("installed")).toList();
+    QCOMPARE(swapChoices.size(), 1);
+    QCOMPARE(swapChoices.first().toMap().value(QStringLiteral("id")).toString(), QStringLiteral("three"));
+
+    const QString newClip = state.swapSceneTemplate(oldAsset, QStringLiteral("three"));
+    QVERIFY(!newClip.isEmpty());
+    QVERIFY(!state.project()->asset(oldAsset));
+    const QString newAsset = state.sceneTemplateAssetAt(state.selectedTrack(), state.selectedClip());
+    QVERIFY(!newAsset.isEmpty());
+    info = state.sceneTemplateInfo(newAsset);
+    const QVariantList slotList = info.value(QStringLiteral("slots")).toList();
+    QCOMPARE(slotList.size(), 3);
+    QCOMPARE(slotList.at(0).toMap().value(QStringLiteral("assetId")).toString(), photoIds.at(0));
+    QCOMPARE(slotList.at(1).toMap().value(QStringLiteral("assetId")).toString(), photoIds.at(1));
+    QVERIFY(slotList.at(2).toMap().value(QStringLiteral("empty")).toBool());
+    // The phone keeps its sample; the title takes "Mi viaje".
+    for (const QVariant &value : info.value(QStringLiteral("texts")).toList()) {
+        const QVariantMap text = value.toMap();
+        if (text.value(QStringLiteral("kind")).toString() == QLatin1String("phone"))
+            QCOMPARE(text.value(QStringLiteral("text")).toString(), QStringLiteral("+51 999 888 777"));
+        else
+            QCOMPARE(text.value(QStringLiteral("text")).toString(), QStringLiteral("Mi viaje"));
+    }
+    // Only the one template on the main timeline.
+    int composites = 0;
+    for (const drift::Track &track : state.project()->tracks())
+        composites += int(track.clips.size());
+    QCOMPARE(composites, 1);
+
+    state.undo();
+    QVERIFY(state.project()->asset(oldAsset));
+    QVERIFY(!state.project()->asset(newAsset));
+    QCOMPARE(state.sceneTemplateInfo(oldAsset).value(QStringLiteral("emptySlots")).toInt(), 0);
 }
 
 void EditorStateTest::sceneTemplateLayoutScalesAndCovers()

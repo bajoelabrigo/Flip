@@ -184,8 +184,30 @@ import templates_t2  # noqa: E402
 import templates_t3  # noqa: E402
 import templates_t4  # noqa: E402
 import templates_t5  # noqa: E402
+import templates_h1  # noqa: E402
+import templates_h2  # noqa: E402
+import templates_h3  # noqa: E402
+import templates_h4  # noqa: E402
+import templates_r6  # noqa: E402
+import templates_r7  # noqa: E402
+import templates_r8  # noqa: E402
+import templates_r9  # noqa: E402
+import templates_s1  # noqa: E402
+import templates_s2  # noqa: E402
+import templates_s3  # noqa: E402
+import templates_s4  # noqa: E402
+import templates_f1  # noqa: E402
+import templates_f2  # noqa: E402
+import templates_y1  # noqa: E402
 
 TEMPLATES = ([photo_dump_ritmo, feliz_cumple, collage_2x2, frase_del_dia] + templates_reels.TEMPLATES
              + templates_text_collage.TEMPLATES + templates_rest.TEMPLATES
              + templates_t1.TEMPLATES + templates_t2.TEMPLATES + templates_t3.TEMPLATES
-             + templates_t4.TEMPLATES + templates_t5.TEMPLATES)
+             + templates_t4.TEMPLATES + templates_t5.TEMPLATES
+             + templates_h1.TEMPLATES + templates_h2.TEMPLATES + templates_h3.TEMPLATES
+             + templates_h4.TEMPLATES
+             + templates_r6.TEMPLATES + templates_r7.TEMPLATES
+             + templates_r8.TEMPLATES + templates_r9.TEMPLATES
+             + templates_s1.TEMPLATES + templates_s2.TEMPLATES
+             + templates_s3.TEMPLATES + templates_s4.TEMPLATES
+             + templates_f1.TEMPLATES + templates_f2.TEMPLATES + templates_y1.TEMPLATES)

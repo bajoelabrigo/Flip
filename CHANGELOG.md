@@ -3,6 +3,61 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.14.0 — Stock completo: tipos nuevos, inicio tipo tienda y uso más rápido
+
+- **Tipos nuevos de Stock con instalación propia:** `MarketClient::isInstalledDelivery` y
+  `AppController::installStockFile` instalan `lut` (`importLut` → `AppData/luts`), `effect-preset`
+  (`EffectStackStore::importFromFile` → Mis efectos), `text-style` y `text-animation`
+  (`TextPresetStore::importFromFile` → Mis estilos), `shape` (biblioteca de formas de usuario, `ShapeStyle`
+  y `ShapePath`, también como máscara) y `transition` (`AddonManager::inspectUserPackage` +`installUserPackage`).
+  El servidor los sirve con `delivery` por elemento (`PACKS` en `flipstudio-api/src/market.ts`).
+- **Inicio tipo tienda:** `GET /v1/market/home` y `StockHome.qml` (estantes «Tendencias de la semana», «Nuevo»,
+  «Para esta fecha» —`services/seasons.ts`—, colecciones desde `colecciones.json` y «Más usadas»);
+  `MarketClient::home` / `refreshHome`.
+- **Búsqueda en todo Stock a la vez** (`type=all`, `delivery: "mixed"`, `services/synonyms.ts`),
+  **novedades** (`GET /v1/market/news`, `newsCount` / `newsSummary` y `markNewsSeen`),
+  **pedidos** (`/v1/market/requests` con votos, `StockRequestsDialog.qml`) y
+  **favoritos en la cuenta** (`GET|PUT /v1/me/favorites`, `fetchFavorites` / `pushFavorites`).
+- **Tarjetas con la forma de cada elemento:** `StockBrowser.qml` (`aspectOf` / `tileAspect`) y
+  `StockThumb.qml`, que usa `thumb_wide_url` / `preview_wide_url` cuando la tarjeta es apaisada (el servidor los
+  sirve desde `thumbWide` / `previewWide` del índice). Vista previa de audio al pasar el mouse y contador de usos
+  (`compactCount`).
+- **Uso más rápido de las plantillas:** `fetchTemplateSuggestions` («Usar con mis fotos…», por cantidad de fotos y
+  orientación), cambio de plantilla conservando el relleno (`SceneTemplates` vuelve a llenar por número de hueco),
+  cortes al ritmo de la música (`analyzeBeats`, con 120 BPM fijos si no hay golpes), formulario de textos de la
+  plantilla (`TemplateFillPanel.qml`) y **Mi marca** (logo, colores y tipografía, `brandRole` en las plantillas de
+  Negocios).
+- **Categorías nuevas de plantillas** en `SceneTemplateCatalog.cpp` (`slideshow`, `lowerthird`, `transition`,
+  `story15`, `ad6`, `thumbnail`) y filtros de plantillas en el servidor (formato, duración, cuántas fotos pide, con
+  o sin música).
+- **Contenido:** 883 plantillas, 222 stickers, 200 superposiciones verticales y 200 horizontales, 200 sonidos,
+  200 fondos y 200 horizontales, 328 cortes de música, 200 LUTs, 209 looks, 200 estilos y 200 textos animados,
+  200 transiciones y 200 formas, con sus nombres en los 15 idiomas de la app (`tools/stock_i18n`).
+- **Arreglo:** `publish.py` de las plantillas conserva `colecciones.json` y el `addedAt` de cada plantilla.
+
+## 0.13.0 — Retoque de cuerpo y cabello, plantillas propias y Stock › Animaciones
+
+- **Retoque › Cuerpo y Cabello:** `engine/BodyLandmarker` (MediaPipe Pose sin detector + Selfie Multiclass),
+  `engine/PoseTrack` (sidecar en `AppData/posetracks`, `Clip::poseTrackPath`), efecto `body.reshape`
+  (`"requires": "pose"`) y `hair.color` en una capa de ajuste con la máscara del pelo (`BodyController`).
+- **Plantillas propias:** convertir en hueco / texto editable, «Guardar como plantilla…», «Mis plantillas»
+  (borrar las propias) y aviso de tipografías que faltan.
+- **Stock › Animaciones:** 65 stickers Lottie propios con colores como slots (`sid`) y botón a LottieFiles.
+- Las tarjetas de Retoque se aplican en C++ (`applyRetouchLook`): `addEffect` movía la selección y el panel de
+  Video se descargaba a mitad del clic.
+- **Arreglo:** `MatteWriter` redondea a pares (una foto de 867 px no abría el codificador; afectaba a «Quitar fondo»).
+
+## 0.12.0 — Varias pistas, 2K/4K/8K, plantillas en Medios y Stock › Plantillas
+
+- **Varias pistas desde su cabecera:** Mayús (rango) y Ctrl (sueltas), borrar y agrupar (`selectTrackHeader`,
+  `removeSelectedTracks`, `groupSelectedTracks`).
+- **Exportar 2K, 4K y 8K:** presets por el **lado corto**, el compositor dibuja al tamaño final (`kMaxExportScale`)
+  y el diálogo cambia a H.265 cuando H.264 no llega.
+- **Plantillas de escena:** composición en el cabezal, huecos (`placeholderId`, `fillTemplateSlot*`), panel
+  «Plantilla» y Plantillas › Escenas; el asset `Composite` sale en Medios y «Quitar plantilla» devuelve el clip.
+- **Stock › Plantillas** servido por `api.getflipstudio.com` (`delivery: "scene-template"`, biblioteca por cuenta).
+- Tema y tarjetas: `Theme.scrimColor` y `scrimStrong` con el alfa en su sitio (`#AARRGGBB`).
+
 ## 0.11.0 — Plantillas editables, plantillas como composición y fotogramas en la pista
 
 - **Plantillas de efectos editables:** `drift::EffectTemplateTag` en cada efecto de una plantilla (se guarda; copiar o guardar como preajuste lo quita). Efectos › Plantilla: Intensidad, Caída, Ritmo (`setEffectTemplateShape` / `setEffectTemplateRhythm`, que analiza la música si hace falta) y «Quitar plantilla» (`removeEffectTemplate`). `refreshTemplateSpans` rehace los golpes al cortar, recortar, estirar o mover la capa.

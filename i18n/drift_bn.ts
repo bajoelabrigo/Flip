@@ -4422,6 +4422,78 @@
         <translation type="unfinished">ট্রান্সফর্ম রিসেট</translation>
     </message>
     <message>
+        <source>Could not install “%1”: %2</source>
+        <translation type="unfinished">“%1” ইনস্টল করা যায়নি: %2</translation>
+    </message>
+    <message>
+        <source>the file is missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUT installed: %1 (Adjust › LUT)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Adjust › LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>it is not an effect preset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Look installed: %1 (My presets)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In My presets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>it is not a text style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (Text › My styles)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Text › My styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Text › Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape installed: %1 (Shapes, and Masks)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>packages cannot be installed here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transition installed: %1 (Transitions)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Transitions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>this kind of item needs a newer Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Depth effects read one clip&apos;s depth, so they go on a clip, not on an adjustment layer.</source>
         <translation type="unfinished">গভীরতার ইফেক্টগুলি একটি ক্লিপের গভীরতা পড়তে পারে, তাই তারা একটি ক্লিপে যায়, একটি সমন্বয় স্তরে নয়.</translation>
     </message>
@@ -5294,6 +5366,201 @@
     </message>
     <message>
         <source>Template deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Business name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Phone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Discount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Website</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Email</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Social media user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Call to action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished">শিরোনাম</translation>
+    </message>
+    <message>
+        <source>Subtitle</source>
+        <translation type="unfinished">সাবটাইটেল</translation>
+    </message>
+    <message numerus="yes">
+        <source>Template added with %n of your photos. The rest did not fit: it has %1 slot(s).</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Template added with your %n photo(s). Fill the other slots in the panel on the right.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Template added with your %n photo(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Templates are changed on the main timeline: close the composition first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Put the template on the timeline first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Template changed: %n photo(s) carried over</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n text(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n photo(s) did not fit in the new one</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Template texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n text(s) changed</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>The template has no music: change its music first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the music to find its beat…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The cuts already fall on the beat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit cuts to the beat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>No beat found in the music: %n cut(s) now follow a steady 120 BPM beat</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n cut(s) moved to the beat of the music</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Choose a song or an audio file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>That file has no sound to use as music</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Template music</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New music: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The logo has to be a picture (PNG, JPG, WebP…)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not copy the logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My brand saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set up My brand first (Templates › My brand)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This template has no logo slot or brand texts to change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply my brand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My brand applied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My logo</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6302,6 +6569,81 @@
     </message>
     <message>
         <source>This clip cannot take an adjustment</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BrandKitDialog</name>
+    <message>
+        <source>Main colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My brand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">সংরক্ষণ করুন</translation>
+    </message>
+    <message>
+        <source>Your logo, colours and font. Business templates use them when you add one; any other template takes them with “Apply my brand” in its Template panel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change logo…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose logo…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose your logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pictures (*.png *.jpg *.jpeg *.webp)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colours (2 to 4)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation type="unfinished">ফন্ট</translation>
+    </message>
+    <message>
+        <source>Use it in Business templates when I add them</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -9679,6 +10021,10 @@
         <source>Save project</source>
         <translation type="unfinished">প্রকল্প সংরক্ষণ করুন</translation>
     </message>
+    <message>
+        <source>Free templates, music, stickers, photos and videos</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
         <source>Downloads — %n running</source>
         <translation>
@@ -9705,10 +10051,6 @@
     <message>
         <source>Stock</source>
         <translation type="unfinished">স্টক</translation>
-    </message>
-    <message>
-        <source>Free photos and videos from Pexels and Pixabay</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Settings</source>
@@ -12362,6 +12704,22 @@
         <translation type="unfinished">বাতিল করা হয়েছে</translation>
     </message>
     <message>
+        <source>%1 new: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in to ask for a template.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tell us a little more about what you need.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thanks! Others can vote for your idea now.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not connect the marketplace account.</source>
         <translation type="unfinished">মার্কেটপ্লেস অ্যাকাউন্ট সংযোগ করা যায়নি.</translation>
     </message>
@@ -12386,6 +12744,10 @@
         <translation type="unfinished">ইমপোর্ট করা হচ্ছে…</translation>
     </message>
     <message>
+        <source>This kind of item cannot be installed here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not install that template.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12400,6 +12762,18 @@
     <message>
         <source>In the media bin</source>
         <translation type="unfinished">মিডিয়া বিনে</translation>
+    </message>
+    <message>
+        <source>Could not install that item.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not install that item: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installed</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Marketplace account connected.</source>
@@ -12509,6 +12883,10 @@
     <message>
         <source>Search sound effects</source>
         <translation type="unfinished">অনুসন্ধান শব্দ ইফেক্ট</translation>
+    </message>
+    <message>
+        <source>Search all of Stock</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Search, or paste a link</source>
@@ -12673,6 +13051,10 @@
     </message>
     <message>
         <source>Linear gradient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Library shape</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15953,6 +16335,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished">অনুসন্ধান টেমপ্লেট</translation>
     </message>
     <message>
+        <source>Use with my photos…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose your photos and videos first: Flip suggests the templates that fit them and fills them in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose photos and videos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My brand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your logo, colours and font for Business templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No scene templates yet</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16060,8 +16462,115 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Photo slideshows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower thirds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transitions and separators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>15-second stories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>6-second ads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video thumbnails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation type="unfinished">অন্যান্য</translation>
+    </message>
+</context>
+<context>
+    <name>SceneTemplatePickerDialog</name>
+    <message>
+        <source>Change template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use with my photos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">বন্ধ করুন</translation>
+    </message>
+    <message>
+        <source>vertical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>horizontal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>square</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — from Stock: it downloads and goes in with your photos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%1 — %n slot(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Templates for your %n photo(s). Your photos and the texts you changed go into the one you choose, in order; one undo puts the old one back.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n photo(s) or video(s), most of them %1. These templates fit them best; the highlighted count takes them all.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n photo(s) or video(s). These templates fit them best; the highlighted count takes them all.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>In Templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No installed template takes photos yet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in (My account) to see the Stock templates that fit too.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Looking in Stock…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing else in Stock for this many photos.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -17031,6 +17540,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">আকৃতি অদলবদল করলে এর অবস্থান, আকার, শৈলী এবং ইফেক্ট বজায় থাকে.</translation>
     </message>
     <message>
+        <source>Library shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Layers</source>
         <translation type="unfinished">স্তর</translation>
     </message>
@@ -17287,6 +17800,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add to favorites</source>
         <translation type="unfinished">ফেভারিটে যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Remove from my shapes</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -18169,6 +18686,14 @@ If playback stutters, try another.</source>
 <context>
     <name>StockBrowser</name>
     <message>
+        <source>Used once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Used %1 times</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save downloads to</source>
         <translation type="unfinished">এতে ডাউনলোড সংরক্ষণ করুন</translation>
     </message>
@@ -18200,6 +18725,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished">এই লিঙ্ক থেকে পান</translation>
     </message>
     <message>
+        <source>Missing a template? Ask for it, or vote for other people’s ideas.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ask for a template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18209,6 +18742,18 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opens lottiefiles.com in your browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use with my photos…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose photos and videos</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -18261,6 +18806,37 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>StockHome</name>
+    <message>
+        <source>Search all of Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Templates, music, sounds, stickers, LUTs, text styles, shapes and more. Type above and press Enter.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished">রিফ্রেশ করুন</translation>
+    </message>
+    <message>
+        <source>Can’t find it? Ask for it and vote for other people’s ideas.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ask for a template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Used once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Used %1 times</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>StockItemDetail</name>
     <message>
         <source>Back to results</source>
@@ -18269,6 +18845,14 @@ If playback stutters, try another.</source>
     <message>
         <source>By %1</source>
         <translation type="unfinished">%1 দ্বারা</translation>
+    </message>
+    <message>
+        <source>Used once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Used %1 times</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <source>%n coin(s)</source>
@@ -18284,6 +18868,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Use template</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install</source>
+        <translation type="unfinished">ইনস্টল করুন</translation>
     </message>
     <message>
         <source>Download again</source>
@@ -18308,6 +18900,73 @@ If playback stutters, try another.</source>
     <message>
         <source>Change</source>
         <translation type="unfinished">পরিবর্তন</translation>
+    </message>
+</context>
+<context>
+    <name>StockRequestsDialog</name>
+    <message>
+        <source>Ask for a template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">বন্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Template</source>
+        <translation type="unfinished">টেমপ্লেট</translation>
+    </message>
+    <message>
+        <source>Something else</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tell us what you would like to find in Stock. The most voted ideas are made first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For example: a birthday template for my mom with 5 photos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sending…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Most voted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No ideas yet. Be the first!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove your vote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vote for this idea</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done — it’s in Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your idea</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -18739,6 +19398,81 @@ If playback stutters, try another.</source>
     <message>
         <source>Text</source>
         <translation type="unfinished">টেক্সট</translation>
+    </message>
+    <message numerus="yes">
+        <source>Apply %n text(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Apply texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changes every text you edited at once (one undo step)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The template&apos;s music</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No music in this template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit the cuts to the beat of the new song</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change the music…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add music…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A song from your computer, cut to the template&apos;s length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose a song</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the music…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit the cuts to the beat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moves the change from one photo to the next onto the nearest beat, keeping their order (one undo step). Without a beat, a steady 120 BPM.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change template…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Another template with the same photos and texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply my brand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your logo, colours and font (Templates › My brand)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open the composition</source>

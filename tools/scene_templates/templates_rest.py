@@ -30,15 +30,15 @@ def producto_estrella() -> Template:
     hero = [(0, {"s": 0.9}, "out"), (3.0, {"s": 1.06})]
     t.solid(cards, "#FFF4E6", 0, 3.0, centered(540, 900, 860, 1100), hero, radius=40, kind="rounded-rectangle",
             layers=[shadow("#7a2200", 0, 24, 50, 0.45), fill("#FFF4E6"), no_stroke()], rotation=keys([(0, -3)]))
-    t.photo(photos, "product-01", 0, 3.0, hero_box, hero, label="Producto", rotation=keys([(0, -3)]))
-    t.photo(photos, "product-04", 3.0, 1.5, FULL, [(0, {"s": 1.15}, "snap"), (0.25, {"s": 1.02}, "linear"), (1.5, {"s": 1.0})],
+    t.photo(photos, "skincare-03", 0, 3.0, hero_box, hero, label="Producto", rotation=keys([(0, -3)]))
+    t.photo(photos, "skincare-02", 3.0, 1.5, FULL, [(0, {"s": 1.15}, "snap"), (0.25, {"s": 1.02}, "linear"), (1.5, {"s": 1.0})],
             label="Detalle 1")
-    t.photo(photos, "fashion-05", 4.5, 1.5, FULL, [(0, {"s": 1.15}, "snap"), (0.25, {"s": 1.02}, "linear"), (1.5, {"s": 1.0})],
+    t.photo(photos, "outfit-04", 4.5, 1.5, FULL, [(0, {"s": 1.15}, "snap"), (0.25, {"s": 1.02}, "linear"), (1.5, {"s": 1.0})],
             label="Detalle 2")
     t.solid(cards, "#FFF4E6", 6.0, 2.0, centered(540, 900, 860, 1100), [(0, {"s": 0.8}, "back"), (0.4, {})], radius=40,
             kind="rounded-rectangle", layers=[shadow("#7a2200", 0, 24, 50, 0.45), fill("#FFF4E6"), no_stroke()],
             rotation=keys([(0, 3)]))
-    t.photo(photos, "product-01", 6.0, 2.0, hero_box, [(0, {"s": 0.8}, "back"), (0.4, {})], reuse="p1",
+    t.photo(photos, "skincare-03", 6.0, 2.0, hero_box, [(0, {"s": 0.8}, "back"), (0.4, {})], reuse="p1",
             rotation=keys([(0, 3)]))
     badge = t.track("shape", "Insignia")
     t.solid(badge, "#FFD23F", 0.5, 2.5, centered(860, 380, 260, 260), pop(), kind="burst", points=14, innerRatio=0.82,
@@ -57,7 +57,7 @@ def producto_estrella() -> Template:
     t.text(words, "Polo oversize", 0.2, 2.8, Box(40, 120, 1000, 200),
            text_style("Bebas Neue", 150, [shadow("#7a2200", 0, 8, 0, 0.6), fill("#FFFFFF")], weight=400,
                       anim_in=tanim("slide-down", duration=0.5, unit="character", stagger=0.03)), label="Producto")
-    t.text(words, "S/ 59.90", 6.4, 1.6, centered(780, 1450, 420, 170),
+    t.text(words, "$59.90", 6.4, 1.6, centered(780, 1450, 420, 170),
            text_style("Bebas Neue", 120, [fill("#FFD23F")], weight=400, anim_in=tanim("stamp", duration=0.35)),
            label="Precio", rotation=keys([(0, -6)]))
     t.text(words, "Pide por DM", 6.7, 1.3, centered(540, 1720, 560, 120),
@@ -73,7 +73,7 @@ def oferta_flash() -> Template:
     photos = t.track("video", "Fotos")
     box = centered(540, 980, 860, 980)
     for i in range(12):
-        t.photo(photos, ["product-04", "product-01"][i % 2], i * beat(1), beat(1), box,
+        t.photo(photos, ["skincare-02", "skincare-03"][i % 2], i * beat(1), beat(1), box,
                 [(0, {"s": 1.08}, "snap"), (0.15, {})], reuse=None if i < 2 else f"p{i % 2 + 1}",
                 label=f"Producto {i % 2 + 1}")
     for y, rot, direction in ((170, -6, 1), (1760, 5, -1)):
@@ -105,7 +105,7 @@ def oferta_flash() -> Template:
 
 def receta_rapida() -> Template:
     t = Template("receta-rapida", "Receta en 15 segundos", "15-second recipe", "product", 15.0,
-                 order=620, tags=["receta", "cocina", "comida", "ceviche"], thumb_at=1.4, background="#FFF8EE")
+                 order=620, tags=["receta", "cocina", "comida", "ensalada"], thumb_at=1.4, background="#FFF8EE")
     t.solid(t.track("shape", "Fondo"), "#FFF8EE")
     cards = t.track("shape", "Tarjeta")
     photos = t.track("video", "Fotos")
@@ -122,7 +122,7 @@ def receta_rapida() -> Template:
     t.photo(photos, "food-01", 12.0, 3.0, FULL, [(0, {"s": 1.0}, "linear"), (3.0, {"s": 1.1})], reuse="p1")
     badges = t.track("shape", "Número")
     words = t.track("text", "Textos")
-    titles = ["Ingredientes", "Paso 1: corta el pescado", "Paso 2: el limón", "Paso 3: sirve"]
+    titles = ["Ingredientes", "Paso 1: corta las verduras", "Paso 2: el aliño", "Paso 3: sirve"]
     for i, title in enumerate(titles):
         start = 2.0 + i * 2.5
         t.solid(badges, "#2F6B3B", start + 0.3, 2.2, centered(150, 280, 130, 130), pop(), kind="ellipse")
@@ -132,7 +132,7 @@ def receta_rapida() -> Template:
                text_style("DM Serif Display", 66, [fill("#2F6B3B")], weight=400, align="left",
                           anim_in=tanim("rise", duration=0.4)), label=title.split(":")[0])
     hook = t.track("text", "Gancho")
-    t.text(hook, "Ceviche fácil", 0.1, 1.9, Box(40, 1300, 1000, 400),
+    t.text(hook, "Ensalada fácil", 0.1, 1.9, Box(40, 1300, 1000, 400),
            text_style("DM Serif Display", 170, [shadow("#000000", 0, 8, 30, 0.6), fill("#FFFFFF")], weight=400,
                       line=0.95, anim_in=tanim("rise-by-word", duration=0.5, unit="word", stagger=0.15)),
            label="Título")
@@ -164,7 +164,7 @@ def tour_inmobiliario() -> Template:
     words = t.track("text", "Datos")
     t.text(words, "EN VENTA", 0.5, 14.5, Box(30, 150, 380, 110),
            text_style("Montserrat", 58, [fill("#1F3A5F")], weight=800, spacing=4), label="Etiqueta")
-    t.text(words, "Miraflores, Lima", 0.8, 14.2, Box(60, 1580, 960, 110),
+    t.text(words, "Barrio Centro", 0.8, 14.2, Box(60, 1580, 960, 110),
            text_style("Playfair Display", 72, [fill("#FFFFFF")], weight=700, align="left",
                       anim_in=tanim("slide-up", duration=0.5)), label="Lugar")
     details = t.track("text", "Detalles")
@@ -198,7 +198,7 @@ def framed_slideshow(t: Template, samples: list[str], start: float, each: float,
 
 
 def mis_xv() -> Template:
-    t = Template("mis-xv", "Mis XV años", "My quinceañera", "celebration", 15.0,
+    t = Template("mis-xv", "Mis 15 años", "My 15th birthday", "celebration", 15.0,
                  order=210, tags=["xv", "quinceañera", "15 años", "fiesta"], thumb_at=4.0)
     t.solid(t.track("shape", "Fondo"), "#0B6E4F",
             layers=[gradient([(0, "#0E8A63"), (1, "#053D2B")], angle=90), no_stroke()])
@@ -213,7 +213,7 @@ def mis_xv() -> Template:
         t.mask(photos, clip, "ellipse", feather=6)
     words = t.track("text", "Títulos")
     goldtext = [shadow("#02251a", 0, 6, 10, 0.6), gradient([(0, "#F7E39C"), (0.5, "#D4AF37"), (1, "#A8841F")], angle=90)]
-    t.text(words, "Mis XV", 0.3, 14.7, Box(40, 110, 1000, 300),
+    t.text(words, "Mis 15", 0.3, 14.7, Box(40, 110, 1000, 300),
            text_style("Great Vibes", 230, goldtext, weight=400, anim_in=tanim("blur-in", duration=1.2, blur=20),
                       anim_loop=tanim("breathe", amount=0.15, speed=0.4)), label="Título")
     t.text(words, "Valentina", 1.0, 14.0, Box(40, 1590, 1000, 140),
@@ -454,7 +454,7 @@ def cierre_negocio() -> Template:
     t.text(words, "Tu Negocio", 0.7, 5.3, Box(40, 860, 1000, 170),
            text_style("Montserrat", 112, [fill("#FFFFFF")], weight=900, anim_in=tanim("rise", duration=0.5)),
            label="Nombre")
-    rows = [("Delivery a domicilio", "Servicio"), ("999 999 999", "Teléfono"), ("@tunegocio", "Redes")]
+    rows = [("Delivery a domicilio", "Servicio"), ("000 123 456", "Teléfono"), ("@tunegocio", "Redes")]
     dots = t.track("shape", "Puntos")
     for i, (content, label) in enumerate(rows):
         y = 1160 + i * 150

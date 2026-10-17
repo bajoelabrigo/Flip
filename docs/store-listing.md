@@ -110,6 +110,31 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.14.0)**. Lo nuevo desde la 0.13.0 (que ya está aprobada). Texto de "Novedades de esta
+versión" del MSIX de la 0.14.0 (1.069 de 1500 caracteres).
+
+> **Novedades de la 0.14.0**
+>
+> - Stock ahora es una tienda: pantalla de inicio con estantes (tendencias, nuevo, para esta fecha, más usadas y colecciones), búsqueda en todo el catálogo a la vez y tarjetas con la forma real de cada recurso.
+> - Tipos nuevos, gratis y con instalación automática: 200 LUTs, 209 looks de color, 200 estilos de texto, 200 textos animados, 200 transiciones, 200 formas y 328 músicas por ánimo (de 15, 30 y 60 segundos).
+> - 350 plantillas nuevas (883 en total): publicaciones 1:1, historias de 15 s, anuncios de 6 s, miniaturas de YouTube, tercios inferiores, presentaciones de fotos y separadores.
+> - «Usar con mis fotos»: eliges tus fotos y la app propone plantillas y las rellena en orden. «Cambiar plantilla» conserva lo que ya pusiste, y «Al ritmo de la música» reacomoda los cortes a los golpes.
+> - «Mi marca» guarda tu logo, tus colores y tu tipografía, y las plantillas de Negocios los aplican solas.
+> - Favoritos que siguen tu cuenta, aviso de novedades en Stock y «Pide una plantilla».
+> - Todo el catálogo de Stock en los 15 idiomas de la app.
+
+En inglés (999 caracteres):
+
+> **What's new in 0.14.0**
+>
+> - Stock is a store now: a home screen with shelves (trending, new, for this date, most used and collections), a search across the whole catalogue at once, and cards in each item's real shape.
+> - New kinds, free and installed for you: 200 LUTs, 209 colour looks, 200 text styles, 200 animated texts, 200 transitions, 200 shapes and 328 music cuts by mood (15, 30 and 60 seconds).
+> - 350 new templates (883 in all): 1:1 posts, 15-second stories, 6-second ads, YouTube thumbnails, lower thirds, photo slideshows and separators.
+> - "Use with my photos": pick your photos and the app suggests templates and fills them in order. "Change template" keeps what you already filled in, and "to the beat of the music" moves the cuts onto the beats.
+> - "My brand" saves your logo, colours and font; Business templates apply them on their own.
+> - Favourites that follow your account, a what's-new notice in Stock and "Ask for a template".
+> - The whole Stock catalogue in the app's 15 languages.
+
 **Notas para la Store (0.13.0)**. Si la 0.12.0 ya está aprobada en la Store, este es el texto de "Novedades de esta
 versión" del MSIX de la 0.13.0 (669 de 1500 caracteres).
 

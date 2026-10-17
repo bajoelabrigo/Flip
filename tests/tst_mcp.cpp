@@ -44,6 +44,12 @@
 #include "TestZip.h"
 #include "models/AssetLibrary.h"
 #include "models/MarketClient.h"
+#include "core/EffectStackStore.h"
+#include "core/ShapePath.h"
+#include "core/ShapeStyle.h"
+#include "core/TextAnimationPreset.h"
+#include "core/TextPresetStore.h"
+#include "engine/MaskApplier.h"
 
 #include <cmath>
 #include <cstdio>
@@ -132,6 +138,8 @@ private slots:
     void marketOpsGateOnConsent();
     void marketSearchAndDownloadImportsAsset();
     void marketTypeSwitchDropsTheOldSearch();
+    void stockInstallsEachDeliveryKind();
+    void userShapesDrawAndMask();
     void sceneOpsAcceptClipRef();
     void addEffectReportsHost();
     void graphicsAtTheSameTimeStackOnTheirOwnLanes();
@@ -6330,6 +6338,295 @@ void McpTest::marketTypeSwitchDropsTheOldSearch()
     for (const QVariant &item : client.items())
         QVERIFY2(item.toMap().value(QStringLiteral("type")).toString() == QLatin1String("video"),
                  qPrintable(item.toMap().value(QStringLiteral("id")).toString()));
+}
+
+namespace {
+
+// Stock with the kinds 0.14 installs in place: a catalog, downloads that are ready at once,
+// and the files they point at.
+class FakeShop : public QObject
+{
+public:
+    QTcpServer server;
+    QHash<QString, QByteArray> files; // item id -> bytes
+    QHash<QString, QString> names;    // item id -> file name
+    QString base() const { return QStringLiteral("http://127.0.0.1:%1").arg(server.serverPort()); }
+
+    bool start()
+    {
+        if (!server.listen(QHostAddress::LocalHost))
+            return false;
+        connect(&server, &QTcpServer::newConnection, this, [this] {
+            while (QTcpSocket *sock = server.nextPendingConnection()) {
+                connect(sock, &QTcpSocket::readyRead, this, [this, sock] { handle(sock); });
+                connect(sock, &QTcpSocket::disconnected, sock, &QObject::deleteLater);
+            }
+        });
+        return true;
+    }
+
+    static void reply(QTcpSocket *sock, const QByteArray &body, const QByteArray &type = "application/json",
+                      const QByteArray &status = "200 OK")
+    {
+        sock->write("HTTP/1.1 " + status + "\r\nContent-Type: " + type + "\r\nContent-Length: "
+                    + QByteArray::number(body.size()) + "\r\nConnection: close\r\n\r\n" + body);
+        sock->flush();
+        sock->disconnectFromHost();
+    }
+
+    void handle(QTcpSocket *sock)
+    {
+        const QByteArray buf = sock->property("buf").toByteArray() + sock->readAll();
+        const int headerEnd = buf.indexOf("\r\n\r\n");
+        if (headerEnd < 0) {
+            sock->setProperty("buf", buf);
+            return;
+        }
+        int length = 0;
+        for (const QByteArray &line : buf.left(headerEnd).split('\n')) {
+            if (line.toLower().startsWith("content-length:"))
+                length = line.mid(15).trimmed().toInt();
+        }
+        if (buf.size() < headerEnd + 4 + length) {
+            sock->setProperty("buf", buf);
+            return;
+        }
+        const QByteArray body = buf.mid(headerEnd + 4, length);
+        const QUrl url = QUrl::fromEncoded(buf.left(buf.indexOf('\n')).trimmed().split(' ').value(1));
+        const QString path = url.path();
+        if (path == QLatin1String("/api/v1/catalog")) {
+            const auto type = [](const char *id, const char *delivery) {
+                return QJsonObject{{QStringLiteral("id"), QLatin1String(id)}, {QStringLiteral("label"), QLatin1String(id)},
+                                   {QStringLiteral("delivery"), QLatin1String(delivery)},
+                                   {QStringLiteral("media_kind"), QLatin1String(id)},
+                                   {QStringLiteral("providers"), QJsonArray{QJsonObject{
+                                        {QStringLiteral("id"), QStringLiteral("flip")}, {QStringLiteral("label"), QStringLiteral("Flip")},
+                                        {QStringLiteral("capabilities"), QJsonArray{QStringLiteral("search")}}}}}};
+            };
+            const QJsonArray types{type("all", "mixed"), type("lut", "lut"), type("look", "effect-preset"),
+                                   type("text-style", "text-style"), type("text-animation", "text-animation"),
+                                   type("transition", "transition"), type("shape", "shape"),
+                                   // A kind this build does not know is left out, not shown broken.
+                                   type("hologram", "hologram")};
+            reply(sock, QJsonDocument(QJsonObject{{QStringLiteral("types"), types}}).toJson(QJsonDocument::Compact));
+            return;
+        }
+        if (path == QLatin1String("/api/v1/downloads")) {
+            const QString id = QJsonDocument::fromJson(body).object().value(QStringLiteral("item_id")).toString();
+            if (!files.contains(id)) {
+                reply(sock, R"({"code":"not_found","detail":"no such item"})", "application/problem+json", "404 Not Found");
+                return;
+            }
+            const QJsonObject job{{QStringLiteral("id"), QStringLiteral("job-") + id}, {QStringLiteral("status"), QStringLiteral("ready")},
+                                  {QStringLiteral("progress"), 1},
+                                  {QStringLiteral("file"), QJsonObject{
+                                       {QStringLiteral("url"), base() + QStringLiteral("/files/") + QString::fromLatin1(QUrl::toPercentEncoding(id))},
+                                       {QStringLiteral("filename"), names.value(id)},
+                                       {QStringLiteral("mime"), QStringLiteral("application/octet-stream")},
+                                       {QStringLiteral("sha256"), QString::fromLatin1(QCryptographicHash::hash(files.value(id), QCryptographicHash::Sha256).toHex())}}}};
+            reply(sock, QJsonDocument(job).toJson(QJsonDocument::Compact), "application/json", "201 Created");
+            return;
+        }
+        if (path.startsWith(QLatin1String("/files/"))) {
+            reply(sock, files.value(QUrl::fromPercentEncoding(path.mid(7).toUtf8())), "application/octet-stream");
+            return;
+        }
+        reply(sock, R"({"code":"not_found"})", "application/problem+json", "404 Not Found");
+    }
+};
+
+const char kTestShape[] = R"({"format": 1, "id": "heart-test", "names": {"es": "Corazón de prueba", "en": "Test heart"},
+  "category": "hearts", "categoryNames": {"es": "Corazones", "en": "Hearts"}, "aspect": 1.2,
+  "path": "M 50 100 C 20 80 0 55 0 30 C 0 10 15 0 30 0 C 40 0 47 6 50 15 C 53 6 60 0 70 0 C 85 0 100 10 100 30 C 100 55 80 80 50 100 Z",
+  "fillRule": "nonzero", "fill": "#FF4F7B", "fillDeep": "#C21858", "tags": ["love"]})";
+
+} // namespace
+
+// Each kind Stock 0.14 delivers lands where the editor keeps it — the LUT library, My presets,
+// My styles, text animations, the shapes library — and a kind that cannot be put in place fails
+// its job instead of landing in the media bin.
+void McpTest::stockInstallsEachDeliveryKind()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    FakeShop fake;
+    QVERIFY(fake.start());
+    qputenv("DRIFT_MARKET_API_URL", (fake.base() + QStringLiteral("/api/v1")).toUtf8());
+    const auto unset = qScopeGuard([] { qunsetenv("DRIFT_MARKET_API_URL"); });
+
+    // The files, made the way the app itself writes them.
+    QByteArray cube = "TITLE \"Teal\"\nLUT_3D_SIZE 2\n";
+    for (int b = 0; b < 2; ++b)
+        for (int g = 0; g < 2; ++g)
+            for (int r = 0; r < 2; ++r)
+                cube += QByteArray::number(r * 0.9) + ' ' + QByteArray::number(g) + ' ' + QByteArray::number(b * 0.8) + '\n';
+    fake.files.insert(QStringLiteral("flip:lut:teal-test"), cube);
+    fake.names.insert(QStringLiteral("flip:lut:teal-test"), QStringLiteral("teal-test.cube"));
+
+    drift::EffectStackPreset look;
+    look.label = QStringLiteral("Stock warm look");
+    drift::Effect effect;
+    effect.name = QStringLiteral("Color");
+    effect.catalogId = QStringLiteral("color.basic");
+    effect.parameters.insert(QStringLiteral("temperature"), 0.3);
+    look.effects.append(effect);
+    fake.files.insert(QStringLiteral("flip:look:warm-test"),
+                      QJsonDocument(drift::effectStackToJson(look)).toJson(QJsonDocument::Compact));
+    fake.names.insert(QStringLiteral("flip:look:warm-test"), QStringLiteral("warm-test.json"));
+
+    QTemporaryDir scratch;
+    QVERIFY(scratch.isValid());
+    drift::TextPresetStore &textStore = drift::TextPresetStore::instance();
+    const QString styleId = textStore.add(QStringLiteral("Stock neon caption"), drift::TextStyle(), QStringLiteral("Hello"));
+    QVERIFY(!styleId.isEmpty());
+    const QString styleFile = scratch.filePath(QStringLiteral("style.json"));
+    QVERIFY(textStore.exportToFile(styleId, styleFile));
+    QVERIFY(textStore.remove(styleId));
+    QFile styleIn(styleFile);
+    QVERIFY(styleIn.open(QIODevice::ReadOnly));
+    fake.files.insert(QStringLiteral("flip:text-style:neon-test"), styleIn.readAll());
+    fake.names.insert(QStringLiteral("flip:text-style:neon-test"), QStringLiteral("neon-test.json"));
+
+    const QList<drift::TextAnimationPreset> animations = drift::TextAnimationPresetCatalog::instance().presets();
+    QVERIFY(!animations.isEmpty());
+    fake.files.insert(QStringLiteral("flip:text-animation:pop-test"),
+                      QJsonDocument(animations.first().toJson()).toJson(QJsonDocument::Compact));
+    fake.names.insert(QStringLiteral("flip:text-animation:pop-test"), QStringLiteral("pop-test.json"));
+
+    fake.files.insert(QStringLiteral("flip:shape:heart-test"), QByteArray(kTestShape));
+    fake.names.insert(QStringLiteral("flip:shape:heart-test"), QStringLiteral("heart-test.json"));
+    fake.files.insert(QStringLiteral("flip:transition:wipe-test"), QByteArrayLiteral("not a package"));
+    fake.names.insert(QStringLiteral("flip:transition:wipe-test"), QStringLiteral("wipe-test.driftfx"));
+
+    AssetLibrary library;
+    AppController state(&library);
+    MarketClient client;
+    client.setAssetLibrary(&library);
+    client.acceptTerms();
+    state.setMarketClient(&client);
+    const auto forget = qScopeGuard([] { QSettings().remove(QStringLiteral("market/consented")); });
+
+    client.refreshCatalog();
+    QTRY_COMPARE(client.types().size(), 7);
+    for (const QVariant &type : client.types())
+        QVERIFY(type.toMap().value(QStringLiteral("id")).toString() != QLatin1String("hologram"));
+
+    const int animationsBefore = animations.size();
+    const int stylesBefore = int(textStore.presets().size());
+    const int looksBefore = int(drift::EffectStackStore::instance().presets().size());
+    const int binBefore = library.count();
+
+    const auto fetch = [&](const QString &id, const QString &title) {
+        client.download(id, QString(), QUrl(), title, QString());
+    };
+    fetch(QStringLiteral("flip:lut:teal-test"), QStringLiteral("Teal and orange"));
+    fetch(QStringLiteral("flip:look:warm-test"), QStringLiteral("Warm look"));
+    fetch(QStringLiteral("flip:text-style:neon-test"), QStringLiteral("Neon caption"));
+    QTRY_COMPARE_WITH_TIMEOUT(client.downloadInfo(QStringLiteral("flip:lut:teal-test")).value(QStringLiteral("status")).toString(), QStringLiteral("done"), 10000);
+    QTRY_COMPARE_WITH_TIMEOUT(client.downloadInfo(QStringLiteral("flip:look:warm-test")).value(QStringLiteral("status")).toString(), QStringLiteral("done"), 10000);
+    QTRY_COMPARE_WITH_TIMEOUT(client.downloadInfo(QStringLiteral("flip:text-style:neon-test")).value(QStringLiteral("status")).toString(), QStringLiteral("done"), 10000);
+    fetch(QStringLiteral("flip:text-animation:pop-test"), QStringLiteral("Pop"));
+    fetch(QStringLiteral("flip:shape:heart-test"), QStringLiteral("Test heart"));
+    fetch(QStringLiteral("flip:transition:wipe-test"), QStringLiteral("Wipe"));
+    QTRY_COMPARE_WITH_TIMEOUT(client.downloadInfo(QStringLiteral("flip:text-animation:pop-test")).value(QStringLiteral("status")).toString(), QStringLiteral("done"), 10000);
+    QTRY_COMPARE_WITH_TIMEOUT(client.downloadInfo(QStringLiteral("flip:shape:heart-test")).value(QStringLiteral("status")).toString(), QStringLiteral("done"), 10000);
+    // No add-on manager in this test, and the file is not a package either way.
+    QTRY_COMPARE_WITH_TIMEOUT(client.downloadInfo(QStringLiteral("flip:transition:wipe-test")).value(QStringLiteral("status")).toString(), QStringLiteral("failed"), 10000);
+
+    bool lutListed = false;
+    for (const QVariant &row : state.lutLibrary())
+        lutListed = lutListed || row.toMap().value(QStringLiteral("name")).toString() == QLatin1String("Teal and orange");
+    QVERIFY2(lutListed, "the LUT is in the library under its title");
+    QCOMPARE(int(drift::EffectStackStore::instance().presets().size()), looksBefore + 1);
+    QCOMPARE(int(textStore.presets().size()), stylesBefore + 1);
+    QCOMPARE(int(drift::TextAnimationPresetCatalog::instance().presets().size()), animationsBefore + 1);
+    const drift::ShapeCatalogEntry *shape = drift::shapeCatalogEntry(QStringLiteral("user-shape:heart-test"));
+    QVERIFY(shape);
+    QCOMPARE(shape->style.kind, drift::ShapeKind::Custom);
+    // Nothing of these went into the media bin.
+    QCOMPARE(library.count(), binBefore);
+    QVERIFY(!client.downloadInfo(QStringLiteral("flip:lut:teal-test")).value(QStringLiteral("phase")).toString().isEmpty());
+
+    // The uses count on a card.
+    QCOMPARE(client.compactCount(950), QLocale().toString(950));
+    QVERIFY(client.compactCount(1234).endsWith(QStringLiteral(" k")));
+    QVERIFY(client.compactCount(2500000).endsWith(QStringLiteral(" M")));
+    QCOMPARE(client.deliveryForItem({{QStringLiteral("type"), QStringLiteral("lut")}}), QStringLiteral("lut"));
+    QCOMPARE(client.deliveryForItem({{QStringLiteral("type"), QStringLiteral("template")}}), QStringLiteral("scene-template"));
+    QCOMPARE(client.deliveryForItem({{QStringLiteral("type"), QStringLiteral("video")},
+                                     {QStringLiteral("delivery"), QStringLiteral("media")}}), QStringLiteral("media"));
+}
+
+// A shape from the library draws its own outline at any size, survives a project round trip
+// with its outline inside, and masks a clip with the same outline.
+void McpTest::userShapesDrawAndMask()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    QTemporaryDir scratch;
+    QVERIFY(scratch.isValid());
+    const QString file = scratch.filePath(QStringLiteral("heart-test.json"));
+    {
+        QFile out(file);
+        QVERIFY(out.open(QIODevice::WriteOnly));
+        out.write(kTestShape);
+    }
+    QString error;
+    QCOMPARE(drift::installUserShapeFile(file, &error), QStringLiteral("user-shape:heart-test"));
+    QVERIFY2(error.isEmpty(), qPrintable(error));
+
+    // A broken outline is refused rather than installed as nothing.
+    const QString broken = scratch.filePath(QStringLiteral("broken.json"));
+    {
+        QFile out(broken);
+        QVERIFY(out.open(QIODevice::WriteOnly));
+        out.write(R"({"format": 1, "id": "broken", "path": "M 0 0 A 5 5 0 0 1 10 10 Z"})");
+    }
+    QVERIFY(drift::installUserShapeFile(broken, &error).isEmpty());
+    QVERIFY(!error.isEmpty());
+
+    QPainterPath parsed;
+    QVERIFY(drift::parseSvgPathData(QStringLiteral("M10,10 l 20 0 v20 h-20 z m 40 0 Q 60 0 70 10 T 90 10 L 90 30 Z"), &parsed));
+    QCOMPARE(parsed.boundingRect().left(), 10.0);
+    QVERIFY(!drift::parseSvgPathData(QStringLiteral("10 10 L 5 5"), &parsed));
+
+    const drift::ShapeCatalogEntry *entry = drift::shapeCatalogEntry(QStringLiteral("user-shape:heart-test"));
+    QVERIFY(entry);
+    QCOMPARE(entry->aspect, 1.2);
+    const QPainterPath drawn = drift::shapePath(entry->style, QRectF(0, 0, 240, 200));
+    QVERIFY(!drawn.isEmpty());
+    QVERIFY(qAbs(drawn.boundingRect().width() - 240.0) < 1.0);
+    QVERIFY(qAbs(drawn.boundingRect().height() - 200.0) < 1.0);
+    QVERIFY(drawn.contains(QPointF(120, 100)));
+    QVERIFY(!drawn.contains(QPointF(2, 190)));
+
+    // The outline rides in the project, so it draws where the shape was never installed.
+    const drift::ShapeStyle back = drift::shapeStyleFromJson(drift::shapeStyleToJson(entry->style));
+    QCOMPARE(back.kind, drift::ShapeKind::Custom);
+    QCOMPARE(back.customPath, entry->style.customPath);
+
+    AssetLibrary library;
+    AppController state(&library);
+    bool listed = false;
+    for (const QVariant &row : state.userShapes())
+        listed = listed || row.toMap().value(QStringLiteral("id")).toString() == QLatin1String("user-shape:heart-test");
+    QVERIFY(listed);
+    bool masked = false;
+    for (const QVariant &row : state.maskCatalog())
+        masked = masked || row.toMap().value(QStringLiteral("id")).toString() == QLatin1String("user-shape:heart-test");
+    QVERIFY(masked);
+    QVERIFY(!state.maskShapeSvgPath(QStringLiteral("user-shape:heart-test")).isEmpty());
+
+    drift::Mask mask;
+    mask.shape = drift::MaskShape::Path;
+    mask.pathData = entry->style.customPath;
+    mask.w = 0.5;
+    mask.h = 0.5;
+    const QPainterPath coverage = drift::maskPath(mask, 400, 400);
+    QVERIFY(coverage.contains(QPointF(200, 200)));
+    QVERIFY(!coverage.contains(QPointF(20, 20)));
+    QCOMPARE(drift::maskShapeFromString(drift::maskShapeToString(drift::MaskShape::Path)), drift::MaskShape::Path);
+
+    QVERIFY(state.removeUserShape(QStringLiteral("user-shape:heart-test")));
+    QVERIFY(!drift::shapeCatalogEntry(QStringLiteral("user-shape:heart-test")));
 }
 
 QTEST_MAIN(McpTest)

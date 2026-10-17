@@ -2427,6 +2427,8 @@ QVariantMap maskToMap(const drift::Mask &m, drift::TimeUs timelineStart)
         {QStringLiteral("points"), points},
         {QStringLiteral("smooth"), m.smooth},
         {QStringLiteral("text"), m.text},
+        {QStringLiteral("pathData"), m.pathData},
+        {QStringLiteral("pathEvenOdd"), m.pathEvenOdd},
         {QStringLiteral("mediaPath"), m.mediaPath},
         {QStringLiteral("mediaFgrPath"), m.mediaFgrPath},
         {QStringLiteral("mediaSrcOffsetUs"), qint64(m.mediaSrcOffsetUs)},
@@ -2463,6 +2465,8 @@ drift::Mask maskFromMap(const QVariantMap &m)
     mask.name = m.value(QStringLiteral("name"), mask.name).toString();
     mask.smooth = m.value(QStringLiteral("smooth"), mask.smooth).toBool();
     mask.text = m.value(QStringLiteral("text"), mask.text).toString();
+    mask.pathData = m.value(QStringLiteral("pathData")).toString();
+    mask.pathEvenOdd = m.value(QStringLiteral("pathEvenOdd"), false).toBool();
     mask.mediaPath = m.value(QStringLiteral("mediaPath"), mask.mediaPath).toString();
     mask.mediaFgrPath = m.value(QStringLiteral("mediaFgrPath"), mask.mediaFgrPath).toString();
     mask.mediaSrcOffsetUs =
@@ -9739,6 +9743,42 @@ QVariantList AppController::builtinShapes() const
     return out;
 }
 
+QVariantList AppController::userShapes() const
+{
+    QVariantList out;
+    for (const drift::ShapeCatalogEntry &entry : drift::userShapeCatalog()) {
+        out.append(QVariantMap{
+            {QStringLiteral("id"), entry.id},
+            {QStringLiteral("label"), entry.label},
+            {QStringLiteral("category"), entry.category},
+            {QStringLiteral("kind"), drift::shapeKindToString(entry.style.kind)},
+            {QStringLiteral("aspect"), entry.aspect},
+            {QStringLiteral("user"), true},
+        });
+    }
+    return out;
+}
+
+QVariantList AppController::userShapeCategories() const
+{
+    QVariantList out;
+    for (const drift::ShapeCategory &category : drift::userShapeCategories()) {
+        out.append(QVariantMap{
+            {QStringLiteral("id"), category.id},
+            {QStringLiteral("label"), category.label},
+        });
+    }
+    return out;
+}
+
+bool AppController::removeUserShape(const QString &shapeId)
+{
+    if (!drift::removeUserShape(shapeId))
+        return false;
+    emit userShapesChanged();
+    return true;
+}
+
 QVariantList AppController::builtinShapeCategories() const
 {
     QVariantList out;
@@ -15301,8 +15341,14 @@ void AppController::setShapeStyle(int trackIndex, int clipIndex, const QVariantM
         // The inspector addresses shapes by catalog id, so "circle" resolves to Ellipse here.
         const QString id = m.value(QStringLiteral("kind")).toString();
         s.kind = drift::shapeKindFromString(id);
-        if (const drift::ShapeCatalogEntry *entry = drift::shapeCatalogEntry(id))
+        if (const drift::ShapeCatalogEntry *entry = drift::shapeCatalogEntry(id)) {
             clip.name = entry->label;
+            // A library shape carries its outline into the project.
+            s.customPath = entry->style.customPath;
+            s.customEvenOdd = entry->style.customEvenOdd;
+        }
+        if (s.kind == drift::ShapeKind::Custom && s.customPath.isEmpty())
+            s.kind = drift::ShapeKind::Rectangle;
     }
     applyShapeStylePatch(s, m);
 
@@ -15911,6 +15957,19 @@ drift::Mask AppController::maskFromCatalogId(const QString &shape) const
         seedFreeformMask(mask);
         return mask;
     }
+    // A shape from the library (Stock › Shapes) masks with its own outline.
+    if (shape.startsWith(QLatin1String(drift::kUserShapePrefix))) {
+        if (const drift::ShapeCatalogEntry *entry = drift::shapeCatalogEntry(shape)) {
+            mask.shape = drift::MaskShape::Path;
+            mask.pathData = entry->style.customPath;
+            mask.pathEvenOdd = entry->style.customEvenOdd;
+            mask.name = entry->label;
+            // The shape's own aspect, in a frame-relative rect that starts at 60% of the height.
+            mask.h = 0.6;
+            mask.w = qBound(0.1, 0.6 * entry->aspect, 1.0);
+        }
+        return mask;
+    }
     mask.shape = drift::maskShapeFromString(shape);
     if (mask.shape == drift::MaskShape::Text) {
         mask.text = tr("TEXT");
@@ -15945,6 +16004,12 @@ QVariantList AppController::maskCatalog() const
     for (const auto &entry : entries) {
         out.append(QVariantMap{{QStringLiteral("id"), entry.first},
                                {QStringLiteral("label"), entry.second}});
+    }
+    // Shapes from the library (Stock › Shapes) mask with their own outline.
+    for (const drift::ShapeCatalogEntry &entry : drift::userShapeCatalog()) {
+        out.append(QVariantMap{{QStringLiteral("id"), entry.id},
+                               {QStringLiteral("label"), entry.label},
+                               {QStringLiteral("user"), true}});
     }
     return out;
 }
@@ -17464,6 +17529,132 @@ QVariantMap AppController::importLut(const QUrl &url)
             {QStringLiteral("path"), target},
             {QStringLiteral("name"), QFileInfo(target).completeBaseName()},
             {QStringLiteral("title"), lut.title}};
+}
+
+void AppController::installStockFile(const QString &delivery, const QString &path, const QString &title,
+                                     const StockInstallDone &done)
+{
+    const QString name = title.trimmed().isEmpty() ? QFileInfo(path).completeBaseName() : title.trimmed();
+    const auto fail = [&](const QString &error) {
+        setLastMessage(tr("Could not install “%1”: %2").arg(name, error), QStringLiteral("error"));
+        done(false, QString(), QString(), error);
+    };
+    if (!QFileInfo::exists(path)) {
+        fail(tr("the file is missing"));
+        return;
+    }
+
+    if (delivery == QLatin1String("lut")) {
+        // The library names a LUT after its file, and the download is named after the item id:
+        // copy it under the title first so "Adjust › LUT" lists it by name.
+        QString source = path;
+        QString named;
+        QString safe;
+        for (const QChar ch : name) {
+            if (ch.unicode() < 32 || QStringLiteral("<>:\"/\\|?*").contains(ch))
+                continue;
+            safe.append(ch);
+        }
+        safe = safe.trimmed().left(80);
+        while (safe.endsWith(QLatin1Char('.')))
+            safe.chop(1);
+        if (!safe.isEmpty()) {
+            named = QDir(QFileInfo(path).absolutePath()).filePath(safe + QStringLiteral(".cube"));
+            if (named != path) {
+                QFile::remove(named);
+                if (QFile::copy(path, named))
+                    source = named;
+                else
+                    named.clear();
+            } else {
+                named.clear();
+            }
+        }
+        const QVariantMap result = importLut(QUrl::fromLocalFile(source));
+        if (!named.isEmpty())
+            QFile::remove(named);
+        if (!result.value(QStringLiteral("ok")).toBool()) {
+            fail(result.value(QStringLiteral("error")).toString());
+            return;
+        }
+        const QString lutName = result.value(QStringLiteral("name")).toString();
+        setLastMessage(tr("LUT installed: %1 (Adjust › LUT)").arg(lutName), QStringLiteral("success"));
+        done(true, tr("In Adjust › LUT"), result.value(QStringLiteral("path")).toString(), QString());
+        return;
+    }
+    if (delivery == QLatin1String("effect-preset")) {
+        const QString id = drift::EffectStackStore::instance().importFromFile(path);
+        if (id.isEmpty()) {
+            fail(tr("it is not an effect preset"));
+            return;
+        }
+        emit userEffectPresetsChanged();
+        setLastMessage(tr("Look installed: %1 (My presets)").arg(name), QStringLiteral("success"));
+        done(true, tr("In My presets"), QString(), QString());
+        return;
+    }
+    if (delivery == QLatin1String("text-style")) {
+        const QString id = drift::TextPresetStore::instance().importFromFile(path);
+        if (id.isEmpty()) {
+            fail(tr("it is not a text style"));
+            return;
+        }
+        emit userTextPresetsChanged();
+        setLastMessage(tr("Text style installed: %1 (Text › My styles)").arg(name), QStringLiteral("success"));
+        done(true, tr("In Text › My styles"), QString(), QString());
+        return;
+    }
+    if (delivery == QLatin1String("text-animation")) {
+        const QVariantMap result = importTextAnimationPreset(QUrl::fromLocalFile(path));
+        if (!result.value(QStringLiteral("ok")).toBool()) {
+            fail(result.value(QStringLiteral("error")).toString());
+            return;
+        }
+        setLastMessage(tr("Text animation installed: %1 (Text › Animation › Imported)").arg(name),
+                       QStringLiteral("success"));
+        done(true, tr("In Text › Animation"), QString(), QString());
+        return;
+    }
+    if (delivery == QLatin1String("shape")) {
+        QString error;
+        const QString shapeId = drift::installUserShapeFile(path, &error);
+        if (shapeId.isEmpty()) {
+            fail(error);
+            return;
+        }
+        emit userShapesChanged();
+        setLastMessage(tr("Shape installed: %1 (Shapes, and Masks)").arg(name), QStringLiteral("success"));
+        done(true, tr("In Shapes"), QDir(drift::userShapesDir()).filePath(
+                                        shapeId.mid(int(qstrlen(drift::kUserShapePrefix))) + QStringLiteral(".json")),
+             QString());
+        return;
+    }
+    if (delivery == QLatin1String("transition")) {
+        if (!m_addonManager) {
+            fail(tr("packages cannot be installed here"));
+            return;
+        }
+        const QVariantMap info = m_addonManager->inspectUserPackage(QUrl::fromLocalFile(path));
+        if (info.contains(QStringLiteral("error"))) {
+            fail(info.value(QStringLiteral("error")).toString());
+            return;
+        }
+        auto connection = std::make_shared<QMetaObject::Connection>();
+        *connection = connect(m_addonManager, &AddonManager::userPackageInstalled, this,
+                              [this, connection, done, name](const QString &, const QString &error) {
+            disconnect(*connection);
+            if (!error.isEmpty()) {
+                setLastMessage(tr("Could not install “%1”: %2").arg(name, error), QStringLiteral("error"));
+                done(false, QString(), QString(), error);
+                return;
+            }
+            setLastMessage(tr("Transition installed: %1 (Transitions)").arg(name), QStringLiteral("success"));
+            done(true, tr("In Transitions"), QString(), QString());
+        });
+        m_addonManager->installUserPackage();
+        return;
+    }
+    fail(tr("this kind of item needs a newer Flip Studio"));
 }
 
 QVariantMap AppController::lutInfo(const QString &path) const
@@ -22857,6 +23048,10 @@ void AppController::toggleAssetFavorite(const QString &tabId, const QString &ite
         m_assetFavorites.remove(tabId);
     saveAssetFavorites(tabId);
     emit assetFavoritesChanged();
+    // Kept with the account too, so another computer signed in to it sees the same stars.
+    QSettings().setValue(QStringLiteral("assetFavoritesSync/dirty"), true);
+    if (m_marketClient)
+        m_marketClient->pushFavorites(assetFavoritesMap());
 }
 
 void AppController::triggerAction(const QString &actionId)

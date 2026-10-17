@@ -70,6 +70,11 @@ QJsonObject maskToJson(const Mask &m)
         json.insert(QStringLiteral("expand"), m.expand);
     if (!qFuzzyCompare(m.opacity, 1.0))
         json.insert(QStringLiteral("opacity"), m.opacity);
+    if (!m.pathData.isEmpty()) {
+        json.insert(QStringLiteral("pathData"), m.pathData);
+        if (m.pathEvenOdd)
+            json.insert(QStringLiteral("pathEvenOdd"), true);
+    }
     return json;
 }
 
@@ -94,6 +99,8 @@ Mask maskFromJson(const QJsonObject &o)
     m.name = o.value(QStringLiteral("name")).toString(m.name);
     m.smooth = o.value(QStringLiteral("smooth")).toBool(m.smooth);
     m.text = o.value(QStringLiteral("text")).toString(m.text);
+    m.pathData = o.value(QStringLiteral("pathData")).toString();
+    m.pathEvenOdd = o.value(QStringLiteral("pathEvenOdd")).toBool(false);
     // Media was called "matte" before v5 and only ever backed a segmentation cutout, so the old
     // keys map straight across.
     m.mediaPath = o.value(QStringLiteral("mediaPath"))
@@ -353,6 +360,8 @@ QJsonObject clipToJson(const Clip &clip)
         if (clip.placeholderEmpty)
             json.insert(QStringLiteral("placeholderEmpty"), true);
     }
+    if (!clip.brandRole.isEmpty())
+        json.insert(QStringLiteral("brandRole"), clip.brandRole);
     return json;
 }
 
@@ -411,6 +420,7 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.placeholderId = object.value(QStringLiteral("placeholderId")).toString();
     clip.placeholderLabel = object.value(QStringLiteral("placeholderLabel")).toString();
     clip.placeholderEmpty = object.value(QStringLiteral("placeholderEmpty")).toBool(false);
+    clip.brandRole = object.value(QStringLiteral("brandRole")).toString();
     clip.name = object.value(QStringLiteral("name")).toString();
     clip.textContent = object.value(QStringLiteral("textContent")).toString();
     clip.textStyle = textStyleFromJson(object.value(QStringLiteral("textStyle")).toObject());

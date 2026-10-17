@@ -22,6 +22,7 @@
 #include <QNetworkRequest>
 #include <QPointer>
 #include <QSaveFile>
+#include <QSet>
 #include <QSettings>
 #include <QStandardPaths>
 #include <QTimer>
@@ -29,6 +30,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <memory>
 #include <utility>
 
 using namespace drift::market;
@@ -128,7 +130,18 @@ struct MarketClient::Job
     bool cancelled = false;
     // A Stock template downloaded through "Use": once installed it goes on the timeline.
     bool useWhenReady = false;
+    // How the finished file is delivered: "media" (the bin), "scene-template", or one of the
+    // kinds the installer puts in place (isInstalledDelivery).
+    QString delivery;
 };
+
+bool MarketClient::isInstalledDelivery(const QString &delivery)
+{
+    static const QStringList kinds{QStringLiteral("lut"), QStringLiteral("effect-preset"),
+                                   QStringLiteral("text-style"), QStringLiteral("text-animation"),
+                                   QStringLiteral("transition"), QStringLiteral("shape")};
+    return kinds.contains(delivery);
+}
 
 bool MarketClient::jobIsRunning(const Job &job)
 {
@@ -162,6 +175,35 @@ MarketClient::MarketClient(QObject *parent)
 
     m_consented = QSettings().value(settingsKey("consented"), false).toBool();
     m_lastDownloadDir = QSettings().value(settingsKey("lastDownloadDir")).toUrl();
+
+    // Favorites go up a moment after the last change, so a burst of stars is one request.
+    m_favoritesTimer = new QTimer(this);
+    m_favoritesTimer->setSingleShot(true);
+    m_favoritesTimer->setInterval(1500);
+    connect(m_favoritesTimer, &QTimer::timeout, this, [this] {
+        if (!configured() || !authenticated())
+            return;
+        QJsonObject body{{QStringLiteral("favorites"), QJsonObject::fromVariantMap(m_pendingFavorites)}};
+        QNetworkReply *reply = sendJson("PUT", accountUrl(QStringLiteral("/favorites")),
+                                        QJsonDocument(body).toJson(QJsonDocument::Compact));
+        connect(reply, &QNetworkReply::finished, this, [this, reply] {
+            reply->deleteLater();
+            const int status = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+            if (status == 401 && m_account && !m_favoritesRetried) {
+                m_favoritesRetried = true;
+                m_account->refresh([this](bool ok) {
+                    if (ok)
+                        m_favoritesTimer->start();
+                });
+                return;
+            }
+            m_favoritesRetried = false;
+            if (reply->error() != QNetworkReply::NoError)
+                return; // tried again with the next change
+            const QJsonObject root = QJsonDocument::fromJson(reply->readAll()).object();
+            emit favoritesPushed(QDateTime::fromString(root.value(QStringLiteral("updatedAt")).toString(), Qt::ISODate));
+        });
+    });
 
     loadStoredAuth();
     if (configured()) {
@@ -204,12 +246,16 @@ void MarketClient::setAccount(AccountController *account)
             emit itemsChanged();
         } else {
             refreshLibrary();
+            fetchFavorites();
             if (m_consented)
                 refreshCatalog();
         }
     });
-    if (account->signedIn())
+    if (account->signedIn()) {
         QTimer::singleShot(0, this, &MarketClient::refreshLibrary);
+        QTimer::singleShot(0, this, &MarketClient::fetchFavorites);
+    }
+    QTimer::singleShot(0, this, &MarketClient::checkNews);
 }
 
 void MarketClient::refreshLibrary()
@@ -234,6 +280,59 @@ void MarketClient::refreshLibrary()
         m_accountLibrary = items;
         emit libraryChanged();
     });
+}
+
+void MarketClient::fetchTemplateSuggestions(const QString &photoBucket, const QString &nextBucket,
+                                            const QString &shape)
+{
+    const int generation = ++m_templateSuggestionsGeneration;
+    m_templateSuggestions.clear();
+    m_templateSuggestionsPending = 0;
+    if (!configured() || !authenticated()) {
+        emit templateSuggestionsChanged();
+        return;
+    }
+    QStringList buckets{photoBucket};
+    if (!nextBucket.isEmpty() && nextBucket != photoBucket)
+        buckets.append(nextBucket);
+    auto pages = std::make_shared<QHash<QString, QJsonArray>>();
+    for (const QString &bucket : std::as_const(buckets)) {
+        QUrl url = apiUrl(QStringLiteral("/search"));
+        QUrlQuery query;
+        query.addQueryItem(QStringLiteral("type"), QStringLiteral("template"));
+        query.addQueryItem(QStringLiteral("provider"), QStringLiteral("flip"));
+        query.addQueryItem(QStringLiteral("limit"), QStringLiteral("30"));
+        if (!bucket.isEmpty())
+            query.addQueryItem(QStringLiteral("photos"), bucket);
+        if (!shape.isEmpty())
+            query.addQueryItem(QStringLiteral("orientation"), shape);
+        url.setQuery(query);
+        ++m_templateSuggestionsPending;
+        QNetworkReply *reply = get(url);
+        connect(reply, &QNetworkReply::finished, this, [this, reply, bucket, buckets, pages, generation] {
+            reply->deleteLater();
+            if (generation != m_templateSuggestionsGeneration)
+                return;
+            if (reply->error() == QNetworkReply::NoError)
+                pages->insert(bucket, QJsonDocument::fromJson(reply->readAll()).object().value(QStringLiteral("items")).toArray());
+            if (--m_templateSuggestionsPending > 0)
+                return;
+            // The closer bucket first; one row per item.
+            QSet<QString> seen;
+            for (const QString &b : buckets) {
+                for (const QJsonValue &value : pages->value(b)) {
+                    const QVariantMap item = objectToMap(value.toObject());
+                    const QString id = item.value(QStringLiteral("id")).toString();
+                    if (id.isEmpty() || seen.contains(id))
+                        continue;
+                    seen.insert(id);
+                    m_templateSuggestions.append(item);
+                }
+            }
+            emit templateSuggestionsChanged();
+        });
+    }
+    emit templateSuggestionsChanged();
 }
 
 void MarketClient::removeFromLibrary(const QString &itemId)
@@ -667,6 +766,25 @@ void MarketClient::download(const QString &itemId, const QString &variantId,
     job->itemId = itemId;
     job->title = title;
     job->mediaKind = mediaKind;
+    {
+        QVariantMap item = itemById(itemId);
+        if (item.isEmpty()) {
+            // An item from the account's library, which the grid may not be showing.
+            for (const QVariant &row : std::as_const(m_accountLibrary)) {
+                if (row.toMap().value(QStringLiteral("id")).toString() == itemId) {
+                    item = row.toMap();
+                    break;
+                }
+            }
+        }
+        if (item.isEmpty()) {
+            // "flip:<type>:<id>": the type is in the id.
+            const QStringList parts = itemId.split(QLatin1Char(':'));
+            if (parts.size() == 3 && parts.first() == QLatin1String("flip"))
+                item.insert(QStringLiteral("type"), parts.at(1));
+        }
+        job->delivery = deliveryForItem(item);
+    }
     job->variantId = variantId;
     // Anything that is not a local folder falls back to the app data area rather than
     // being pasted into a filesystem path it is not.
@@ -886,8 +1004,278 @@ QVariantMap MarketClient::itemById(const QString &itemId) const
 {
     const int at = m_itemIndex.value(itemId, -1);
     if (at < 0 || at >= m_items.size())
-        return {};
+        return m_homeItems.value(itemId);
     return m_items.at(at).toMap();
+}
+
+QString MarketClient::deliveryForItem(const QVariantMap &item) const
+{
+    const QString own = item.value(QStringLiteral("delivery")).toString();
+    if (!own.isEmpty())
+        return own;
+    const QString type = item.value(QStringLiteral("type")).toString();
+    if (type == QLatin1String("template"))
+        return QStringLiteral("scene-template");
+    for (const QVariant &row : m_types) {
+        const QVariantMap map = row.toMap();
+        if (map.value(QStringLiteral("id")).toString() == type) {
+            const QString delivery = map.value(QStringLiteral("delivery")).toString();
+            return delivery.isEmpty() || delivery == QLatin1String("mixed") ? QStringLiteral("media") : delivery;
+        }
+    }
+    return QStringLiteral("media");
+}
+
+QString MarketClient::compactCount(qint64 n) const
+{
+    const QLocale locale;
+    if (n < 1000)
+        return locale.toString(n);
+    const bool millions = n >= 1000000;
+    const double value = double(n) / (millions ? 1000000.0 : 1000.0);
+    // One decimal below 10 ("1,2 k"), none above ("12 k"); never a trailing ",0".
+    QString number = locale.toString(value, 'f', value < 10.0 ? 1 : 0);
+    const QString zero = QString(locale.decimalPoint()) + locale.zeroDigit();
+    if (number.endsWith(zero))
+        number.chop(zero.size());
+    return number + (millions ? QStringLiteral(" M") : QStringLiteral(" k"));
+}
+
+QUrl MarketClient::accountUrl(const QString &path) const
+{
+    QString base = apiBase();
+    while (base.endsWith(QLatin1Char('/')))
+        base.chop(1);
+    if (base.endsWith(QLatin1String("/market")))
+        base.chop(int(qstrlen("/market")));
+    return QUrl(base + QStringLiteral("/me") + path);
+}
+
+QNetworkReply *MarketClient::sendJson(const QByteArray &verb, const QUrl &url, const QByteArray &body)
+{
+    QNetworkRequest request(url);
+    request.setRawHeader("Accept", "application/json");
+    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+    request.setRawHeader("Accept-Language", QLocale().bcp47Name().toUtf8());
+    request.setTransferTimeout(kApiTimeoutMs);
+    sign(&request, verb, body);
+    if (verb == "POST")
+        return m_network->post(request, body);
+    if (verb == "PUT")
+        return m_network->put(request, body);
+    return m_network->sendCustomRequest(request, verb, body);
+}
+
+void MarketClient::refreshHome()
+{
+    if (!configured() || !authenticated() || m_homeLoading)
+        return;
+    m_homeLoading = true;
+    emit homeChanged();
+    QNetworkReply *reply = get(apiUrl(QStringLiteral("/home")));
+    connect(reply, &QNetworkReply::finished, this, [this, reply] {
+        reply->deleteLater();
+        m_homeLoading = false;
+        if (reply->error() != QNetworkReply::NoError) {
+            QString code;
+            parseProblem(reply->readAll(), reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt(),
+                         &code, nullptr, nullptr, int(reply->error()));
+            emit homeChanged();
+            retryAfterAuth(code, [this] { refreshHome(); });
+            return; // the home is a convenience: keep what was shown
+        }
+        QVariantList shelves;
+        const QJsonArray rows = QJsonDocument::fromJson(reply->readAll()).object().value(QStringLiteral("shelves")).toArray();
+        for (const QJsonValue &value : rows) {
+            QVariantMap shelf = objectToMap(value.toObject());
+            const QVariantList items = shelf.value(QStringLiteral("items")).toList();
+            if (items.isEmpty())
+                continue;
+            for (const QVariant &item : items) {
+                const QVariantMap map = item.toMap();
+                const QString id = map.value(QStringLiteral("id")).toString();
+                if (!id.isEmpty())
+                    m_homeItems.insert(id, map);
+            }
+            shelves.append(shelf);
+        }
+        m_home = shelves;
+        emit homeChanged();
+    });
+}
+
+void MarketClient::checkNews()
+{
+    if (!configured() || !m_consented)
+        return;
+    QSettings settings;
+    QString since = settings.value(settingsKey("newsSeenAt")).toString();
+    if (since.isEmpty()) {
+        // First run: what came out this past week is news to this person too.
+        since = QDateTime::currentDateTimeUtc().addDays(-7).toString(Qt::ISODate);
+        settings.setValue(settingsKey("newsSeenAt"), since);
+    }
+    QUrl url = apiUrl(QStringLiteral("/news"));
+    QUrlQuery query;
+    query.addQueryItem(QStringLiteral("since"), since);
+    url.setQuery(query);
+    QNetworkReply *reply = get(url);
+    connect(reply, &QNetworkReply::finished, this, [this, reply] {
+        reply->deleteLater();
+        if (reply->error() != QNetworkReply::NoError)
+            return;
+        const QJsonObject root = QJsonDocument::fromJson(reply->readAll()).object();
+        m_newsCheckedAt = root.value(QStringLiteral("now")).toString();
+        QVariantList types;
+        QStringList parts;
+        int total = 0;
+        for (const QJsonValue &value : root.value(QStringLiteral("types")).toArray()) {
+            const QJsonObject row = value.toObject();
+            const int count = row.value(QStringLiteral("count")).toInt();
+            if (count <= 0)
+                continue;
+            total += count;
+            types.append(objectToMap(row));
+            parts.append(tr("%1 new: %2").arg(row.value(QStringLiteral("label")).toString()).arg(count));
+        }
+        m_news = types;
+        m_newsCount = total;
+        m_newsSummary = parts.join(QStringLiteral(" · "));
+        emit newsChanged();
+    });
+}
+
+void MarketClient::markNewsSeen()
+{
+    const QString now = m_newsCheckedAt.isEmpty() ? QDateTime::currentDateTimeUtc().toString(Qt::ISODate)
+                                                  : m_newsCheckedAt;
+    QSettings().setValue(settingsKey("newsSeenAt"), now);
+    if (m_newsCount == 0 && m_news.isEmpty())
+        return;
+    m_newsCount = 0;
+    m_news.clear();
+    m_newsSummary.clear();
+    emit newsChanged();
+}
+
+void MarketClient::refreshRequests(const QString &sort)
+{
+    if (!configured() || !authenticated())
+        return;
+    m_requestsSort = sort == QLatin1String("new") ? QStringLiteral("new") : QStringLiteral("top");
+    m_requestsLoading = true;
+    emit requestsChanged();
+    QUrl url = apiUrl(QStringLiteral("/requests"));
+    QUrlQuery query;
+    query.addQueryItem(QStringLiteral("sort"), m_requestsSort);
+    url.setQuery(query);
+    QNetworkReply *reply = get(url);
+    connect(reply, &QNetworkReply::finished, this, [this, reply] {
+        reply->deleteLater();
+        m_requestsLoading = false;
+        if (reply->error() != QNetworkReply::NoError) {
+            QString code;
+            parseProblem(reply->readAll(), reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt(),
+                         &code, nullptr, nullptr, int(reply->error()));
+            emit requestsChanged();
+            retryAfterAuth(code, [this] { refreshRequests(m_requestsSort); });
+            return;
+        }
+        QVariantList rows;
+        for (const QJsonValue &value : QJsonDocument::fromJson(reply->readAll()).object().value(QStringLiteral("requests")).toArray())
+            rows.append(objectToMap(value.toObject()));
+        m_requests = rows;
+        emit requestsChanged();
+    });
+}
+
+void MarketClient::submitRequest(const QString &text, const QString &type)
+{
+    const QString trimmed = text.simplified();
+    if (!configured() || !authenticated()) {
+        emit requestSubmitted(false, tr("Sign in to ask for a template."));
+        return;
+    }
+    if (trimmed.size() < 3) {
+        emit requestSubmitted(false, tr("Tell us a little more about what you need."));
+        return;
+    }
+    const QJsonObject body{{QStringLiteral("text"), trimmed.left(300)},
+                           {QStringLiteral("type"), type.isEmpty() ? QStringLiteral("template") : type}};
+    QNetworkReply *reply = post(apiUrl(QStringLiteral("/requests")), QJsonDocument(body).toJson(QJsonDocument::Compact));
+    connect(reply, &QNetworkReply::finished, this, [this, reply] {
+        reply->deleteLater();
+        if (reply->error() != QNetworkReply::NoError) {
+            QString code;
+            const QString message =
+                parseProblem(reply->readAll(), reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt(),
+                             &code, nullptr, nullptr, int(reply->error()));
+            emit requestSubmitted(false, message);
+            return;
+        }
+        emit requestSubmitted(true, tr("Thanks! Others can vote for your idea now."));
+        refreshRequests(QStringLiteral("new"));
+    });
+}
+
+void MarketClient::voteRequest(const QString &requestId)
+{
+    if (!configured() || !authenticated() || requestId.isEmpty())
+        return;
+    // Shown at once; the reply puts the real count in.
+    for (QVariant &row : m_requests) {
+        QVariantMap map = row.toMap();
+        if (map.value(QStringLiteral("id")).toString() != requestId)
+            continue;
+        const bool voted = !map.value(QStringLiteral("voted")).toBool();
+        map.insert(QStringLiteral("voted"), voted);
+        map.insert(QStringLiteral("votes"), qMax(0, map.value(QStringLiteral("votes")).toInt() + (voted ? 1 : -1)));
+        row = map;
+    }
+    emit requestsChanged();
+    QNetworkReply *reply = post(apiUrl(QStringLiteral("/requests/")
+                                       + QString::fromLatin1(QUrl::toPercentEncoding(requestId)) + QStringLiteral("/vote")),
+                                QByteArrayLiteral("{}"));
+    connect(reply, &QNetworkReply::finished, this, [this, reply] {
+        reply->deleteLater();
+        if (reply->error() != QNetworkReply::NoError) {
+            refreshRequests(m_requestsSort);
+            return;
+        }
+        const QJsonObject root = QJsonDocument::fromJson(reply->readAll()).object();
+        const QString id = root.value(QStringLiteral("id")).toString();
+        for (QVariant &row : m_requests) {
+            QVariantMap map = row.toMap();
+            if (map.value(QStringLiteral("id")).toString() != id)
+                continue;
+            map.insert(QStringLiteral("votes"), root.value(QStringLiteral("votes")).toInt());
+            map.insert(QStringLiteral("voted"), root.value(QStringLiteral("voted")).toBool());
+            row = map;
+        }
+        emit requestsChanged();
+    });
+}
+
+void MarketClient::fetchFavorites()
+{
+    if (!configured() || !authenticated())
+        return;
+    QNetworkReply *reply = get(accountUrl(QStringLiteral("/favorites")));
+    connect(reply, &QNetworkReply::finished, this, [this, reply] {
+        reply->deleteLater();
+        if (reply->error() != QNetworkReply::NoError)
+            return; // local favorites keep working; the next sign-in or change tries again
+        const QJsonObject root = QJsonDocument::fromJson(reply->readAll()).object();
+        emit favoritesFetched(root.value(QStringLiteral("favorites")).toObject().toVariantMap(),
+                              QDateTime::fromString(root.value(QStringLiteral("updatedAt")).toString(), Qt::ISODate));
+    });
+}
+
+void MarketClient::pushFavorites(const QVariantMap &favorites)
+{
+    m_pendingFavorites = favorites;
+    if (configured() && authenticated())
+        m_favoritesTimer->start();
 }
 
 bool MarketClient::handleIncomingUrl(const QUrl &url)
@@ -1054,9 +1442,12 @@ void MarketClient::applyCatalog(const QJsonArray &types)
     for (const QJsonValue &value : types) {
         QVariantMap type = objectToMap(value.toObject());
         const QString delivery = type.value(QStringLiteral("delivery")).toString();
-        // Scene templates arrive as packages that install into the Templates tab.
+        // Scene templates arrive as packages that install into the Templates tab; LUTs, looks,
+        // text styles and animations, transitions and shapes are put in place by the editor;
+        // "mixed" is the "All" type, whose items each carry their own delivery.
         if (!delivery.isEmpty() && delivery != QLatin1String("media")
-            && delivery != QLatin1String("scene-template"))
+            && delivery != QLatin1String("scene-template") && delivery != QLatin1String("mixed")
+            && !isInstalledDelivery(delivery))
             continue;
         filtered.append(type);
     }
@@ -1551,6 +1942,23 @@ void MarketClient::importReadyFile(const QString &itemId, const QString &path,
         job->progress = 1;
         bumpDownloads();
     }
+    // LUTs, looks, text styles and animations, transitions and shapes go where the editor keeps
+    // them, not into the media bin.
+    if (job && isInstalledDelivery(job->delivery)) {
+        if (!m_installer) {
+            failJob(itemId, QStringLiteral("download_failed"), tr("This kind of item cannot be installed here."));
+            pumpDownloadQueue();
+            return;
+        }
+        QPointer<MarketClient> self(this);
+        m_installer(job->delivery, path, job->title.isEmpty() ? displayName : job->title,
+                    [self, itemId, path, displayName](bool ok, const QString &where, const QString &installedPath,
+                                                      const QString &error) {
+                        if (self)
+                            self->finishInstalledJob(itemId, path, displayName, ok, where, installedPath, error);
+                    });
+        return;
+    }
     // A template package installs into the Templates tab instead of the media bin.
     if (!sceneTemplateIdForItem(itemId).isEmpty()) {
         QString error;
@@ -1605,6 +2013,37 @@ void MarketClient::importReadyFile(const QString &itemId, const QString &path,
     bumpDownloads();
     rememberDownload(itemId, path, displayName);
     // A finished job frees a slot for whatever is waiting behind it.
+    pumpDownloadQueue();
+    emit downloadImported(itemId, displayName);
+    refreshLibrary();
+}
+
+void MarketClient::finishInstalledJob(const QString &itemId, const QString &path, const QString &displayName,
+                                      bool ok, const QString &where, const QString &installedPath,
+                                      const QString &error)
+{
+    if (!ok) {
+        failJob(itemId, QStringLiteral("download_failed"),
+                error.isEmpty() ? tr("Could not install that item.") : tr("Could not install that item: %1").arg(error));
+        pumpDownloadQueue();
+        return;
+    }
+    // Installed by copying it into place; the download itself is not needed any more.
+    if (!installedPath.isEmpty() && QFileInfo(installedPath).absoluteFilePath() != QFileInfo(path).absoluteFilePath())
+        QFile::remove(path);
+    const QString kept = installedPath.isEmpty() ? path : installedPath;
+    if (const auto job = m_jobs.value(itemId)) {
+        job->status = QStringLiteral("done");
+        job->phase = where.isEmpty() ? tr("Installed") : where;
+        job->progress = 1;
+        job->filePath = kept;
+        job->finishedAt = QDateTime::currentDateTime();
+        job->speedBytesPerSec = 0;
+        if (job->title.isEmpty())
+            job->title = displayName;
+    }
+    bumpDownloads();
+    rememberDownload(itemId, kept, displayName);
     pumpDownloadQueue();
     emit downloadImported(itemId, displayName);
     refreshLibrary();

@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.13.0 LANGUAGES CXX C)
+project(Drift VERSION 0.14.0 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -536,6 +536,8 @@ add_library(driftcore STATIC
     src/core/TimelineOps.cpp
     src/core/SceneTemplateLayout.h
     src/core/SceneTemplateLayout.cpp
+    src/core/SceneTemplateTools.h
+    src/core/SceneTemplateTools.cpp
     src/core/CutOps.h
     src/core/CutOps.cpp
     src/core/commands/ProjectCommands.h
@@ -1354,6 +1356,8 @@ qt_add_qml_module(drift
         src/qml/components/assets/SfxBrowser.qml
         src/qml/components/assets/StockThumb.qml
         src/qml/components/assets/StockItemDetail.qml
+        src/qml/components/assets/StockHome.qml
+        src/qml/components/assets/StockRequestsDialog.qml
         src/qml/components/assets/BinBreadcrumb.qml
         src/qml/components/assets/AssetCategoryChips.qml
         src/qml/components/assets/CategoryScrollOn.qml
@@ -1395,6 +1399,8 @@ qt_add_qml_module(drift
         src/qml/components/SceneTemplateBrowser.qml
         src/qml/components/TemplatesTab.qml
         src/qml/components/SaveTemplateDialog.qml
+        src/qml/components/SceneTemplatePickerDialog.qml
+        src/qml/components/BrandKitDialog.qml
         src/qml/components/properties/TemplateFillPanel.qml
         src/qml/components/ThemedSlider.qml
         src/qml/components/ThemedTextField.qml

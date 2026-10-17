@@ -14,6 +14,7 @@
 #include "core/ClipAnimation.h"
 #include "core/Keyframe.h"
 #include "core/Project.h"
+#include "core/SceneTemplateTools.h"
 #include "core/Stabilize.h"
 #include "core/ShapePath.h"
 #include "core/SrtIO.h"
@@ -49,6 +50,10 @@ class CoreTest : public QObject
 
 private slots:
     void timeConversion();
+    void sceneTemplateSuggestionsScoreCountAndShape();
+    void sceneTemplateCutsSnapToBeats();
+    void sceneTemplateTextFieldsAreGuessed();
+    void sceneTemplateBrandKitFollowsRolesAndFallsBack();
     void cubeLutReadsTheFormatAndRefusesBrokenFiles();
     void cubeLutLooksUpTrilinearlyAndMixesByIntensity();
     void cubeLutIsFoundByNameAfterTheProjectMoves();
@@ -6492,6 +6497,159 @@ void CoreTest::cubeLutIsFoundByNameAfterTheProjectMoves()
     QString error;
     QVERIFY(!drift::CubeLut::load(QDir(library.path()).filePath(QStringLiteral("nada.cube")), &error).isValid());
     QVERIFY(!error.isEmpty());
+}
+
+// Scene templates, faster use (0.14.0): suggestions by photo count and shape, the cuts moved to
+// the beat with their order and a minimum length, and the fields of a template's texts.
+void CoreTest::sceneTemplateSuggestionsScoreCountAndShape()
+{
+    QCOMPARE(drift::shapeOfSize(1080, 1920), QStringLiteral("vertical"));
+    QCOMPARE(drift::shapeOfSize(1920, 1080), QStringLiteral("horizontal"));
+    QCOMPARE(drift::shapeOfSize(1000, 1040), QStringLiteral("square"));
+    QCOMPARE(drift::majorityShape(2, 3, 0), QStringLiteral("horizontal"));
+    QCOMPARE(drift::majorityShape(2, 2, 1), QStringLiteral("vertical"));
+    QCOMPARE(drift::photoCountBucket(5), QStringLiteral("4-6"));
+    QCOMPARE(drift::nextPhotoCountBucket(QStringLiteral("4-6")), QStringLiteral("7+"));
+    QVERIFY(drift::nextPhotoCountBucket(QStringLiteral("7+")).isEmpty());
+
+    const QString v = QStringLiteral("vertical");
+    const QString h = QStringLiteral("horizontal");
+    // Same count beats one more slot, which beats one fewer; the shape of the photos counts too.
+    QVERIFY(drift::sceneTemplateMatchScore(4, v, 4, v, {}) > drift::sceneTemplateMatchScore(5, v, 4, v, {}));
+    QVERIFY(drift::sceneTemplateMatchScore(5, v, 4, v, {}) > drift::sceneTemplateMatchScore(3, v, 4, v, {}));
+    QVERIFY(drift::sceneTemplateMatchScore(4, v, 4, v, {}) > drift::sceneTemplateMatchScore(4, h, 4, v, {}));
+    // A project that has a shape already prefers templates of that shape.
+    QVERIFY(drift::sceneTemplateMatchScore(4, h, 4, v, h) > drift::sceneTemplateMatchScore(4, v, 4, v, h));
+    QVERIFY(drift::sceneTemplateMatchScore(0, v, 4, v, {}) < 0);
+}
+
+void CoreTest::sceneTemplateCutsSnapToBeats()
+{
+    using drift::TimeUs;
+    const auto s = [](double seconds) { return drift::secondsToUs(seconds); };
+    // Cuts at 1.1 and 2.2 s, beats every 0.5 s: 1.0 and 2.0.
+    QCOMPARE(drift::snapCutsToBeats({s(1.1), s(2.2)}, drift::steadyBeatGrid(0, s(4)), 0, s(4), s(0.4)),
+             (QList<TimeUs>{s(1.0), s(2.0)}));
+    // Two cuts near one beat do not land on it together: the second takes the next allowed one.
+    QCOMPARE(drift::snapCutsToBeats({s(1.0), s(1.1)}, {s(1.0), s(2.0), s(3.0)}, 0, s(4), s(0.4)),
+             (QList<TimeUs>{s(1.0), s(2.0)}));
+    // No beat in the window: the cut stays.
+    QCOMPARE(drift::snapCutsToBeats({s(1.7)}, {s(0.1)}, 0, s(4), s(0.4)), (QList<TimeUs>{s(1.7)}));
+
+    // Three photo slots end to end, plus a mask lane pinned to the second.
+    drift::Track photos;
+    photos.type = drift::TrackType::Video;
+    const auto slot = [&](const QString &id, double start, double length) {
+        drift::Clip clip;
+        clip.id = id;
+        clip.type = drift::ClipType::Image;
+        clip.placeholderId = id;
+        clip.timelineStart = s(start);
+        clip.timelineDuration = s(length);
+        clip.srcIn = 0;
+        clip.srcOut = clip.timelineDuration;
+        return clip;
+    };
+    photos.clips = {slot(QStringLiteral("a"), 0.0, 1.3), slot(QStringLiteral("b"), 1.3, 1.3),
+                    slot(QStringLiteral("c"), 2.6, 1.4)};
+    drift::Track lane;
+    lane.type = drift::TrackType::Adjustment;
+    drift::Clip mask;
+    mask.id = QStringLiteral("m");
+    mask.type = drift::ClipType::Adjustment;
+    mask.linkedClipId = QStringLiteral("b");
+    mask.timelineStart = s(1.3);
+    mask.timelineDuration = s(1.3);
+    mask.srcOut = mask.timelineDuration;
+    lane.clips = {mask};
+    QList<drift::Track> tracks{photos, lane};
+
+    QCOMPARE(drift::retimeTemplateSlotsToBeats(tracks, drift::steadyBeatGrid(0, s(4)), s(0.4)), 2);
+    const QList<drift::Clip> &out = tracks.at(0).clips;
+    QCOMPARE(out.at(0).timelineStart, s(0.0));
+    QCOMPARE(out.at(0).timelineDuration, s(1.5));
+    QCOMPARE(out.at(1).timelineStart, s(1.5));
+    QCOMPARE(out.at(1).timelineDuration, s(1.0));
+    QCOMPARE(out.at(1).srcOut, s(1.0));
+    QCOMPARE(out.at(2).timelineStart, s(2.5));
+    QCOMPARE(out.at(2).timelineEnd(), s(4.0)); // the end of the template stays
+    QCOMPARE(tracks.at(1).clips.at(0).timelineStart, s(1.5));
+    QCOMPARE(tracks.at(1).clips.at(0).timelineDuration, s(1.0));
+    // Already on the beat: nothing moves.
+    QCOMPARE(drift::retimeTemplateSlotsToBeats(tracks, drift::steadyBeatGrid(0, s(4)), s(0.4)), 0);
+}
+
+void CoreTest::sceneTemplateTextFieldsAreGuessed()
+{
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("+51 987 654 321")), QStringLiteral("phone"));
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("S/ 29.90")), QStringLiteral("price"));
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("$19.99")), QStringLiteral("price"));
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("50% OFF")), QStringLiteral("discount"));
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("www.mitienda.pe")), QStringLiteral("web"));
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("hola@mitienda.com")), QStringLiteral("email"));
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("@mitienda")), QStringLiteral("handle"));
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("24 de diciembre")), QStringLiteral("date"));
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("Abierto 9:00 - 18:00")), QStringLiteral("time"));
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("TU NEGOCIO")), QStringLiteral("business"));
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("Av. Larco 123, Miraflores")), QStringLiteral("address"));
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("Pide ya")), QStringLiteral("cta"));
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("Verano"), {}, true), QStringLiteral("title"));
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("Verano")), QStringLiteral("subtitle"));
+    // The author's label wins when it says more than the text.
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("Aurora"), QStringLiteral("Nombre del negocio")),
+             QStringLiteral("business"));
+    QCOMPARE(drift::guessTemplateTextKind(QStringLiteral("999"), QString::fromUtf8("Tel\xc3\xa9" "fono")),
+             QStringLiteral("phone"));
+}
+
+void CoreTest::sceneTemplateBrandKitFollowsRolesAndFallsBack()
+{
+    drift::BrandKit kit;
+    kit.logoPath = QStringLiteral("logo.png");
+    kit.colors = {QColor(Qt::red), QColor(Qt::green)};
+    kit.fontFamily = QStringLiteral("Brand Sans");
+    QCOMPARE(kit.colorFor(QStringLiteral("accent")), QColor(Qt::green));
+    QVERIFY(!kit.colorFor(QStringLiteral("text")).isValid());
+
+    // Marked: the shape takes the primary colour, the title the font, the logo slot the logo.
+    drift::Clip shape;
+    shape.type = drift::ClipType::Shape;
+    shape.brandRole = QStringLiteral("primary");
+    drift::Clip title;
+    title.type = drift::ClipType::Text;
+    title.brandRole = QStringLiteral("title");
+    drift::Clip logo;
+    logo.type = drift::ClipType::Image;
+    logo.placeholderId = QStringLiteral("p-logo");
+    logo.brandRole = QStringLiteral("logo");
+    QList<drift::Track> marked{drift::Track{.type = drift::TrackType::Shape, .clips = {shape, title, logo}}};
+    drift::BrandApplyResult r = drift::applyBrandKit(marked, kit);
+    QCOMPARE(r.logoSlots, QStringList{QStringLiteral("p-logo")});
+    QCOMPARE(r.recoloured, 1);
+    QCOMPARE(drift::firstTextLayerOfKind(marked.at(0).clips.at(0).shapeStyle.layers, drift::TextLayerKind::Fill)
+                 ->paint.color.rgb(),
+             QColor(Qt::red).rgb());
+    QCOMPARE(marked.at(0).clips.at(1).textStyle.fontFamily, QStringLiteral("Brand Sans"));
+
+    // Unmarked: the logo goes in a slot labelled so, the font on the largest editable text only.
+    drift::Clip big;
+    big.type = drift::ClipType::Text;
+    big.placeholderId = QStringLiteral("t1");
+    big.textStyle.pixelSize = 120;
+    drift::Clip small = big;
+    small.placeholderId = QStringLiteral("t2");
+    small.textStyle.pixelSize = 40;
+    drift::Clip logoSlot;
+    logoSlot.type = drift::ClipType::Image;
+    logoSlot.placeholderId = QStringLiteral("p9");
+    logoSlot.placeholderLabel = QStringLiteral("Tu logo");
+    QList<drift::Track> plain{drift::Track{.type = drift::TrackType::Text, .clips = {big, small}},
+                              drift::Track{.type = drift::TrackType::Video, .clips = {logoSlot}}};
+    r = drift::applyBrandKit(plain, kit);
+    QCOMPARE(r.logoSlots, QStringList{QStringLiteral("p9")});
+    QCOMPARE(r.refonted, 1);
+    QCOMPARE(plain.at(0).clips.at(0).textStyle.fontFamily, QStringLiteral("Brand Sans"));
+    QVERIFY(plain.at(0).clips.at(1).textStyle.fontFamily != QStringLiteral("Brand Sans"));
 }
 
 QTEST_MAIN(CoreTest)

@@ -5,7 +5,7 @@ import ".."
 
 // One stock result as a tile: thumbnail, price and duration badges, and the download state
 // drawn over it (progress with cancel, or failure with retry). A video tile plays its preview,
-// muted, while hovered.
+// muted, while hovered; a music or sound tile plays its audio.
 Rectangle {
     id: root
 
@@ -25,6 +25,14 @@ Rectangle {
     readonly property int price: Number(item.price_coins || 0)
     readonly property string kind: item.media_kind || item.type || ""
     readonly property bool isVideo: kind === "video" || kind === "greenscreen"
+    readonly property bool isAudio: kind === "audio" || kind === "music" || kind === "sound"
+    // A card wider than it is tall (a 16:9 template, a landscape overlay): use the plain wide
+    // frame and loop when the item has them, not the 9:16 storyboard card cropped to a band.
+    readonly property bool wide: width > height + 1
+    readonly property string thumbSource: wide ? (item.thumb_wide_url || item.thumb_url || "")
+                                              : (item.thumb_url || "")
+    readonly property string previewSource: wide ? (item.preview_wide_url || item.preview_url || "")
+                                                : (item.preview_url || "")
 
     radius: Theme.radiusSm
     color: Theme.panelAccent
@@ -40,9 +48,20 @@ Rectangle {
         return Math.floor(s / 60) + ":" + (s % 60 < 10 ? "0" : "") + (s % 60)
     }
 
+    // Music and sounds play once the pointer has rested a moment, so sweeping across a shelf
+    // stays quiet.
+    property bool audioArmed: false
+
     HoverHandler {
         id: hover
         cursorShape: Qt.PointingHandCursor
+        onHoveredChanged: {
+            root.audioArmed = false
+            if (hovered && root.isAudio)
+                audioDelay.restart()
+            else
+                audioDelay.stop()
+        }
     }
 
     SkeletonBox {
@@ -53,7 +72,7 @@ Rectangle {
     Image {
         id: thumb
         anchors.fill: parent
-        source: root.item.thumb_url || ""
+        source: root.thumbSource
         fillMode: Image.PreserveAspectCrop
         asynchronous: true
         cache: true
@@ -66,7 +85,7 @@ Rectangle {
     // One player at a time: only the hovered tile creates one.
     Loader {
         anchors.fill: parent
-        active: root.isVideo && hover.hovered && !root.busy && !!root.item.preview_url && !root.compact
+        active: root.isVideo && hover.hovered && !root.busy && !!root.previewSource && !root.compact
         sourceComponent: Item {
             VideoOutput {
                 id: out
@@ -74,11 +93,42 @@ Rectangle {
                 fillMode: VideoOutput.PreserveAspectCrop
             }
             MediaPlayer {
-                source: root.item.preview_url
+                source: root.previewSource
                 videoOutput: out
                 loops: MediaPlayer.Infinite
                 Component.onCompleted: play()
             }
+        }
+    }
+
+    Timer {
+        id: audioDelay
+        interval: 300
+        onTriggered: root.audioArmed = true
+    }
+    Loader {
+        active: root.isAudio && root.audioArmed && hover.hovered && !root.busy
+                && !!root.item.preview_url && !root.compact
+        sourceComponent: MediaPlayer {
+            source: root.item.preview_url
+            audioOutput: AudioOutput {}
+            Component.onCompleted: play()
+        }
+    }
+    Rectangle {
+        visible: root.isAudio
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        anchors.margins: Theme.spacingSm
+        width: Theme.iconSizeBase + Theme.spacingMd
+        height: width
+        radius: width / 2
+        color: Theme.scrimStrong
+        IconGlyph {
+            anchors.centerIn: parent
+            glyph: hover.hovered && !root.compact ? Theme.icons.volumeHigh : Theme.icons.music
+            iconSize: Theme.iconSizeSm
+            iconColor: Theme.onMedia
         }
     }
 
