@@ -623,7 +623,7 @@ def _fog(rising: bool):
 
 
 design("clima-niebla", "Niebla", "Fog", "clima", 10, res=(270, 480),
-       tags=["niebla", "fog", "bruma", "mist", "misterio", "terror", "halloween"], sample="nature-03.jpg")(_fog(False))
+       tags=["niebla", "fog", "bruma", "mist", "misterio", "terror"], sample="nature-03.jpg")(_fog(False))
 design("clima-humo", "Humo", "Smoke", "clima", 10, res=(270, 480),
        tags=["humo", "smoke", "vapor", "misterio", "dramatico", "concierto"], sample="concert-03.jpg")(_fog(True))
 design("clima-hojas", "Hojas de otoño", "Autumn leaves", "clima", 8,

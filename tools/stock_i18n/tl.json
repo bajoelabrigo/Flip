@@ -134,7 +134,7 @@
   "text-style:retro": "Retro at Y2K",
   "text-style:subtitulos": "Viral na subtitle",
   "text-style:tercios": "Lower third",
-  "text-style:terror": "Katakot at Halloween",
+  "text-style:terror": "Katakot at misteryo",
   "text-style:titulos": "Pamagat",
   "transition:3d": "3D at papel",
   "transition:barridos": "Wipe",
@@ -408,15 +408,6 @@
     "shipping",
     "order",
     "parcel"
-   ]
-  },
-  "animation:calabaza": {
-   "name": "Kalabasang may ilaw",
-   "tags": [
-    "halloween",
-    "kalabasa",
-    "oktubre",
-    "katatakutan"
    ]
   },
   "animation:calendario": {
@@ -1105,15 +1096,6 @@
     "exclamation"
    ]
   },
-  "animation:fantasma": {
-   "name": "Multo",
-   "tags": [
-    "halloween",
-    "multo",
-    "boo",
-    "katatakutan"
-   ]
-  },
   "animation:farol-rojo": {
    "name": "Pulang parol",
    "tags": [
@@ -1623,15 +1605,6 @@
     "bituin",
     "bulaklak",
     "morph"
-   ]
-  },
-  "animation:murcielago": {
-   "name": "Paniki",
-   "tags": [
-    "halloween",
-    "gabi",
-    "paniki",
-    "katatakutan"
    ]
   },
   "animation:nieve": {
@@ -3057,26 +3030,6 @@
     "tagumpay",
     "batch",
     "background"
-   ]
-  },
-  "background:halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "nakakatakot",
-    "kalabasa",
-    "multo",
-    "undas"
-   ]
-  },
-  "background:halloween-2": {
-   "name": "Halloween 2",
-   "tags": [
-    "halloween",
-    "nakakatakot",
-    "kalabasa",
-    "multo",
-    "undas"
    ]
   },
   "background:hexagonos-calido": {
@@ -4897,17 +4850,6 @@
     "kayumanggi",
     "moody",
     "mainit",
-    "preset",
-    "kulay"
-   ]
-  },
-  "look:moody-halloween": {
-   "name": "Nakakatakot na gabi",
-   "tags": [
-    "halloween",
-    "gabi",
-    "nakakatakot",
-    "madilim",
     "preset",
     "kulay"
    ]
@@ -6876,7 +6818,6 @@
     "sine",
     "katakutan",
     "takot",
-    "halloween",
     "kulay",
     "lut"
    ]
@@ -7207,17 +7148,6 @@
     "moody",
     "abo",
     "urbano",
-    "kulay",
-    "lut"
-   ]
-  },
-  "lut:est-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "panahon",
-    "halloween",
-    "orange",
-    "takot",
     "kulay",
     "lut"
    ]
@@ -9509,12 +9439,10 @@
   "music:dance-of-the-dead-30s": {
    "name": "Sayaw ng Patay 30 s",
    "tags": [
-    "halloween",
     "multo",
     "sayaw",
     "beat",
-    "takot",
-    "reel"
+    "takot"
    ]
   },
   "music:dance-of-the-tuba-plum-fairy-15s": {
@@ -9930,12 +9858,10 @@
   "music:fright-night-twist-30s": {
    "name": "Nakakatakot na Twist 30 s",
    "tags": [
-    "halloween",
     "twist",
     "takot",
     "pista",
-    "sayaw",
-    "reel"
+    "sayaw"
    ]
   },
   "music:frogs-legs-rag-30s": {
@@ -10034,12 +9960,10 @@
   "music:ghost-town-30s": {
    "name": "Bayang Multo 30 s",
    "tags": [
-    "halloween",
     "multo",
     "takot",
     "misteryo",
-    "gabi",
-    "reel"
+    "gabi"
    ]
   },
   "music:go-on-without-me-15s": {
@@ -10166,12 +10090,10 @@
   "music:haunted-houses-30s": {
    "name": "Multong Bahay 30 s",
    "tags": [
-    "halloween",
     "multo",
     "takot",
     "beat",
-    "gabi",
-    "reel"
+    "gabi"
    ]
   },
   "music:hear-what-they-say-30s": {
@@ -10914,7 +10836,6 @@
   "music:night-in-the-castle-30s": {
    "name": "Gabi sa Kastilyo 30 s",
    "tags": [
-    "halloween",
     "kastilyo",
     "bampira",
     "takot",
@@ -12010,23 +11931,19 @@
   "music:witch-waltz-30s": {
    "name": "Waltz ng Mangkukulam 30 s",
    "tags": [
-    "halloween",
     "mangkukulam",
     "waltz",
     "takot",
-    "gabi",
-    "reel"
+    "gabi"
    ]
   },
   "music:wizard-circus-30s": {
    "name": "Sirkus ng Salamangkero 30 s",
    "tags": [
-    "halloween",
     "sirkus",
     "mahika",
     "takot",
-    "mabilis",
-    "reel"
+    "mabilis"
    ]
   },
   "overlay:amor-corazones": {
@@ -17336,8 +17253,7 @@
     "gulat",
     "katatakutan",
     "jump scare",
-    "takot",
-    "halloween"
+    "takot"
    ]
   },
   "sound:swoosh-titulo": {
@@ -19107,16 +19023,6 @@
     "selebrasyon"
    ]
   },
-  "template:h-fecha-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "nakakatakot",
-    "kalabasa",
-    "costume",
-    "undas"
-   ]
-  },
   "template:h-fecha-invierno": {
    "name": "Taglamig",
    "tags": [
@@ -20718,36 +20624,6 @@
     "punch",
     "mabilis",
     "enerhiya"
-   ]
-  },
-  "template:halloween-photo-dump": {
-   "name": "Photo dump ng Halloween",
-   "tags": [
-    "halloween",
-    "photo dump",
-    "costume",
-    "katatakutan",
-    "oktubre"
-   ]
-  },
-  "template:halloween-revelacion-disfraz": {
-   "name": "Pagbubunyag ng costume",
-   "tags": [
-    "halloween",
-    "costume",
-    "transformation",
-    "before after",
-    "gulat"
-   ]
-  },
-  "template:halloween-truco-o-trato": {
-   "name": "Trick or treat na party",
-   "tags": [
-    "halloween",
-    "party",
-    "imbitasyon",
-    "bata",
-    "costume"
    ]
   },
   "template:horario-de-atencion": {
@@ -24769,15 +24645,6 @@
     "bakasyon"
    ]
   },
-  "template:s-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "kalabasa",
-    "katakot",
-    "oktubre"
-   ]
-  },
   "template:s-hanukkah": {
    "name": "Maligayang Hanukkah",
    "tags": [
@@ -25820,16 +25687,6 @@
     "gym",
     "unang araw",
     "motibasyon"
-   ]
-  },
-  "template:st-halloween": {
-   "name": "Kostiyum sa Halloween",
-   "tags": [
-    "story",
-    "15 segundo",
-    "halloween",
-    "kostiyum",
-    "makeup"
    ]
   },
   "template:st-jardin": {
@@ -29132,18 +28989,7 @@
     "takot",
     "berde",
     "malagkit",
-    "halimaw",
-    "halloween"
-   ]
-  },
-  "text-style:mie-calabaza": {
-   "name": "Kalabasa",
-   "tags": [
-    "takot",
-    "kalabasa",
-    "halloween",
-    "dilaw",
-    "gabi"
+    "halimaw"
    ]
   },
   "text-style:mie-expediente": {
@@ -29192,8 +29038,7 @@
     "takot",
     "dugo",
     "pula",
-    "pelikula",
-    "halloween"
+    "pelikula"
    ]
   },
   "text-style:mie-susurro": {

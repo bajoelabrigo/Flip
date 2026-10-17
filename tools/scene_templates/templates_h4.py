@@ -355,29 +355,6 @@ def fecha_dia_padre():
     return t
 
 
-def fecha_halloween():
-    t = wide("h-fecha-halloween", "Halloween", "Halloween", "seasonal", 8.0, order=2315,
-             tags=["halloween", "terror", "calabazas", "disfraces", "octubre"], thumb_at=4.0, background="#0B0710")
-    photo_bg(t, "h-halloween-03", s1=1.08, label="Foto de fondo")
-    shade_full(t, 0.5, colour="#0B0710")
-    t.solid(t.track("shape", "Luna"), "#FFF1C1", 0, 8.0, centered(1600, 220, 260, 260), kind="ellipse",
-            layers=[glow("#FFE8A0", 50, 0.8), fill("#FFF1C1"), no_stroke()])
-    rng = random.Random(315)
-    for k in range(6):
-        label(t, t.track("text", "Murciélago"), "🦇", rng.uniform(0, 2), 6.0, centered(-100, rng.uniform(150, 500), 120, 120),
-              "Inter", rng.choice([60, 80, 100]), "#000000", weight=400, editable=False,
-              motion=[(0, {}, "linear"), (6.0, {"dx": 2200, "dy": rng.uniform(-150, 150)})],
-              anim_loop=tanim("jitter", amount=3, angle=6, speed=6))
-    label(t, t.track("text", "Título"), "Feliz Halloween", 0.6, 7.4, Box(160, 340, 1600, 260), "Creepster", 200, "#FF7518",
-          weight=400, layers=[glow("#FF7518", 24, 0.8), shadow("#000000", 0, 8, 0, 1.0), fill("#FF7518")],
-          anim_in=tanim("flicker-in", duration=0.8), anim_loop=tanim("jitter", amount=1, angle=1, speed=8), name="Título")
-    label(t, t.track("text", "Sub"), "¿truco o trato?", 1.4, 6.6, Box(360, 640, 1200, 110), "Creepster", 84, "#B6F35B",
-          weight=400, anim_in=tanim("fade", duration=0.6), name="Subtítulo")
-    vignette(t, 0.8)
-    song(t, "suspense", 3, 0.75)
-    return t
-
-
 def fecha_pascua():
     t = wide("h-fecha-pascua", "Pascua", "Easter", "seasonal", 8.0, order=2316,
              tags=["pascua", "easter", "huevos", "primavera", "conejo"], thumb_at=4.2, background="#F3FBEF")
@@ -1122,7 +1099,7 @@ def neg_gimnasio():
 
 TEMPLATES = [cele_baby_shower, cele_graduacion, cele_boda_invitacion, cele_15_16, cele_reunion, cele_logro,
              cele_bienvenida_bebe, cele_despedida, cele_premios, cele_fiesta_invitacion,
-             fecha_navidad, fecha_anio_nuevo, fecha_san_valentin, fecha_dia_madre, fecha_dia_padre, fecha_halloween,
+             fecha_navidad, fecha_anio_nuevo, fecha_san_valentin, fecha_dia_madre, fecha_dia_padre,
              fecha_pascua, fecha_anio_nuevo_lunar, fecha_ramadan, fecha_eid, fecha_diwali, fecha_accion_gracias,
              fecha_regreso_clases, fecha_dia_mujer, fecha_dia_maestro, fecha_verano, fecha_otono, fecha_invierno,
              fecha_primavera, fecha_dia_tierra,

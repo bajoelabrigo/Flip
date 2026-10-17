@@ -827,7 +827,7 @@ def dramatic_note(m, sec):
 sound("susto-terror", "Susto", "Jump scare", S,
       lambda: d.place([(d.reverb(d.stereo(sum(d.osc(d.midi(m) * (1 + 0.01 * np.sin(TAU * 7 * d.t_axis(1.5))), 1.5, "saw")
                                               for m in (72, 73, 78, 79)) * d.perc(d.samples(1.5), 0.005, 1.5) * 0.25, 0.6), 0.35, 2.0), 0, 1),
-                       (boom(1.5, seed="st"), 0, 0.6)]), ["susto", "terror", "jump scare", "miedo", "halloween"])
+                       (boom(1.5, seed="st"), 0, 0.6)]), ["susto", "terror", "jump scare", "miedo"])
 sound("revelacion", "Revelación", "Reveal sting", S,
       lambda: d.place([(riser_synth(1.2, 220, 660), 0, 0.6), (chime_seq([72, 79, 84, 88], 0.05, 1.6), 1.15, 0.9), (boom(2.0, seed="rv2"), 1.15, 0.5)]),
       ["revelacion", "reveal", "sorpresa", "antes y despues", "resultado"])

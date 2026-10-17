@@ -134,7 +134,7 @@
   "text-style:retro": "Retro và Y2K",
   "text-style:subtitulos": "Phụ đề viral",
   "text-style:tercios": "Chữ dưới màn hình",
-  "text-style:terror": "Kinh dị và Halloween",
+  "text-style:terror": "Kinh dị và bí ẩn",
   "text-style:titulos": "Tiêu đề",
   "transition:3d": "3D và giấy",
   "transition:barridos": "Quét màn hình",
@@ -397,15 +397,6 @@
     "ship",
     "đơn hàng",
     "bưu kiện"
-   ]
-  },
-  "animation:calabaza": {
-   "name": "Đèn bí ngô",
-   "tags": [
-    "halloween",
-    "bí ngô",
-    "tháng 10",
-    "đáng sợ"
    ]
   },
   "animation:calendario": {
@@ -1075,15 +1066,6 @@
     "cảnh báo"
    ]
   },
-  "animation:fantasma": {
-   "name": "Con ma",
-   "tags": [
-    "halloween",
-    "con ma",
-    "boo",
-    "đáng sợ"
-   ]
-  },
   "animation:farol-rojo": {
    "name": "Đèn lồng đỏ",
    "tags": [
@@ -1578,15 +1560,6 @@
     "ngôi sao",
     "bông hoa",
     "biến hình"
-   ]
-  },
-  "animation:murcielago": {
-   "name": "Con dơi",
-   "tags": [
-    "halloween",
-    "ban đêm",
-    "con dơi",
-    "đáng sợ"
    ]
   },
   "animation:nieve": {
@@ -3026,26 +2999,6 @@
     "thành tích",
     "khóa",
     "ra trường",
-    "hình nền"
-   ]
-  },
-  "background:halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "kinh dị",
-    "tháng 10",
-    "bí ngô",
-    "hình nền"
-   ]
-  },
-  "background:halloween-2": {
-   "name": "Halloween 2",
-   "tags": [
-    "halloween",
-    "kinh dị",
-    "tháng 10",
-    "bí ngô",
     "hình nền"
    ]
   },
@@ -4824,17 +4777,6 @@
     "đậm",
     "ấm",
     "trầm",
-    "chỉnh màu"
-   ]
-  },
-  "look:moody-halloween": {
-   "name": "Đêm ma quái",
-   "tags": [
-    "ma quái",
-    "halloween",
-    "đêm",
-    "tím",
-    "tối",
     "chỉnh màu"
    ]
   },
@@ -6702,7 +6644,6 @@
    "tags": [
     "điện ảnh",
     "sợ",
-    "halloween",
     "tối",
     "lut"
    ]
@@ -7004,16 +6945,6 @@
     "xám",
     "đô thị",
     "lạnh",
-    "lut"
-   ]
-  },
-  "lut:est-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "mùa",
-    "halloween",
-    "cam",
-    "kinh dị",
     "lut"
    ]
   },
@@ -9207,7 +9138,6 @@
   "music:dance-of-the-dead-30s": {
    "name": "Vũ Điệu Tử Thần · 30 giây",
    "tags": [
-    "halloween",
     "ma",
     "nhảy",
     "kinh dị",
@@ -9647,7 +9577,6 @@
   "music:fright-night-twist-30s": {
    "name": "Đêm Kinh Hoàng · 30 giây",
    "tags": [
-    "halloween",
     "ma",
     "kinh dị",
     "đêm",
@@ -9753,7 +9682,6 @@
   "music:ghost-town-30s": {
    "name": "Thị Trấn Ma · 30 giây",
    "tags": [
-    "halloween",
     "ma",
     "kinh dị",
     "nhanh",
@@ -9894,7 +9822,6 @@
   "music:haunted-houses-30s": {
    "name": "Nhà Ma · 30 giây",
    "tags": [
-    "halloween",
     "ma",
     "kinh dị",
     "đêm",
@@ -10700,7 +10627,6 @@
   "music:night-in-the-castle-30s": {
    "name": "Đêm Trong Lâu Đài · 30 giây",
    "tags": [
-    "halloween",
     "ma",
     "lâu đài",
     "chậm",
@@ -11850,7 +11776,6 @@
   "music:witch-waltz-30s": {
    "name": "Vũ Điệu Phù Thủy · 30 giây",
    "tags": [
-    "halloween",
     "phù thủy",
     "waltz",
     "kinh dị",
@@ -11860,7 +11785,6 @@
   "music:wizard-circus-30s": {
    "name": "Xiếc Pháp Thuật · 30 giây",
    "tags": [
-    "halloween",
     "xiếc",
     "ma thuật",
     "vui",
@@ -17028,8 +16952,7 @@
     "hù dọa",
     "kinh dị",
     "jump scare",
-    "sợ hãi",
-    "halloween"
+    "sợ hãi"
    ]
   },
   "sound:swoosh-titulo": {
@@ -17968,8 +17891,7 @@
     "trang điểm",
     "đầu lâu",
     "hóa trang",
-    "hoa",
-    "halloween"
+    "hoa"
    ]
   },
   "template:checklist-que-se-marca": {
@@ -18739,16 +18661,6 @@
     "lễ hội",
     "gia đình",
     "ăn mừng"
-   ]
-  },
-  "template:h-fecha-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "kinh dị",
-    "bí ngô",
-    "hóa trang",
-    "tháng 10"
    ]
   },
   "template:h-fecha-invierno": {
@@ -20356,36 +20268,6 @@
     "cú đấm",
     "nhanh",
     "năng lượng"
-   ]
-  },
-  "template:halloween-photo-dump": {
-   "name": "Photo dump Halloween",
-   "tags": [
-    "halloween",
-    "photo dump",
-    "hóa trang",
-    "kinh dị",
-    "tháng 10"
-   ]
-  },
-  "template:halloween-revelacion-disfraz": {
-   "name": "Hé lộ trang phục hóa trang",
-   "tags": [
-    "halloween",
-    "hóa trang",
-    "biến hình",
-    "trước sau",
-    "hù dọa"
-   ]
-  },
-  "template:halloween-truco-o-trato": {
-   "name": "Tiệc Trick or treat",
-   "tags": [
-    "halloween",
-    "tiệc",
-    "lời mời",
-    "trẻ em",
-    "hóa trang"
    ]
   },
   "template:horario-de-atencion": {
@@ -24407,15 +24289,6 @@
     "kỳ nghỉ"
    ]
   },
-  "template:s-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "bí ngô",
-    "kinh dị",
-    "tháng mười"
-   ]
-  },
   "template:s-hanukkah": {
    "name": "Lễ Hanukkah",
    "tags": [
@@ -25458,16 +25331,6 @@
     "stories",
     "phòng gym",
     "khởi đầu"
-   ]
-  },
-  "template:st-halloween": {
-   "name": "Hóa trang Halloween",
-   "tags": [
-    "tin",
-    "15 giây",
-    "stories",
-    "halloween",
-    "hóa trang"
    ]
   },
   "template:st-jardin": {
@@ -28415,27 +28278,15 @@
    "name": "Chất nhờn",
    "tags": [
     "kinh dị",
-    "halloween",
     "sợ",
     "nhờn",
     "xanh"
-   ]
-  },
-  "text-style:mie-calabaza": {
-   "name": "Bí ngô",
-   "tags": [
-    "kinh dị",
-    "halloween",
-    "sợ",
-    "bí ngô",
-    "cam"
    ]
   },
   "text-style:mie-expediente": {
    "name": "Hồ sơ mật",
    "tags": [
     "kinh dị",
-    "halloween",
     "bí ẩn",
     "hồ sơ",
     "vụ án"
@@ -28445,7 +28296,6 @@
    "name": "Con ma",
    "tags": [
     "kinh dị",
-    "halloween",
     "sợ",
     "ma",
     "hồn"
@@ -28455,7 +28305,6 @@
    "name": "Sương mù",
    "tags": [
     "kinh dị",
-    "halloween",
     "sợ",
     "sương mù",
     "rừng",
@@ -28466,7 +28315,6 @@
    "name": "Nguy hiểm",
    "tags": [
     "kinh dị",
-    "halloween",
     "sợ",
     "nguy hiểm",
     "cảnh báo"
@@ -28476,7 +28324,6 @@
    "name": "Đỏ máu",
    "tags": [
     "kinh dị",
-    "halloween",
     "sợ",
     "máu",
     "đỏ",
@@ -28487,7 +28334,6 @@
    "name": "Thì thầm",
    "tags": [
     "kinh dị",
-    "halloween",
     "sợ",
     "thì thầm",
     "bí ẩn",

@@ -65,7 +65,7 @@ celebraciones cada 2–4 golpes.
 Investigación (CapCut explore, TikTok, octubre 2026): lo más usado son las ediciones **cámara lenta + canción**,
 **velocity / cambios de velocidad**, **cortes al ritmo**, **photo dump cinemático**, **resúmenes del mes**
 («octubre en fotos»), **antes y después / glow-up**, **POV y ganchos de texto**, **3D zoom / Ken Burns**, y las
-de temporada (Halloween, Día de Muertos, Navidad, Año Nuevo, Black Friday). Público latinoamericano, en español.
+de temporada (Día de Muertos, Navidad, Año Nuevo, Black Friday). Público latinoamericano, en español.
 
 Cinco tandas de 20, cada una en su archivo (`templates_t1.py` … `templates_t5.py`, cada uno con su `TEMPLATES`):
 
@@ -98,8 +98,8 @@ Reglas comunes, además de las de arriba (miniaturas, licencias):
 **Investigación (octubre 2026).** CapCut: lo más usado siguen siendo cámara lenta + velocity, montajes de pareja,
 memes, cortes al ritmo, «photo dump» y plantillas mínimas de un clip
 ([Hooked, 25-09-2026](https://www.hooked.so/capcut-templates/trending),
-[CapCut](https://www.capcut.com/help/latest-capcut-editing-trends)); de temporada, Halloween, otoño y Acción de
-Gracias ([CapCut octubre](https://www.capcut.com/template/calendar/october)). Para YouTube (Premiere, After Effects,
+[CapCut](https://www.capcut.com/help/latest-capcut-editing-trends)); de temporada, otoño y Acción de
+Gracias ([CapCut octubre](https://www.capcut.com/template/calendar/october)); **Halloween no** (Jorge no lo quiere). Para YouTube (Premiere, After Effects,
 Filmora, Envato, Motion Array, Clipchamp): intros y aperturas, revelación de logo, tercios inferiores (packs de
 100, duotono y sans gruesa), «suscríbete» con campana, pantallas finales con 2 videos y redes, tarjetas de
 capítulo, presentaciones con tinta, polaroids y glitch, looks VHS y película, intros de gaming y jugadas
@@ -145,7 +145,7 @@ destacadas ([Speckyboy](https://speckyboy.com/premiere-pro-templates-presets-you
 - **h4 · celebraciones (10), fechas (20), negocios (20)** — `templates_h4.py`, order 2300–2399.
   Celebraciones: baby shower, graduación, invitación de boda, 15 / sweet 16, reunión familiar, logro, bienvenida
   al bebé, despedida, premios, invitación a fiesta. Fechas: Navidad, Año Nuevo, San Valentín, Madre, Padre,
-  Halloween, Pascua, Año Nuevo Lunar, Ramadán, Eid, Diwali, Acción de Gracias, regreso a clases, Día de la Mujer,
+  Pascua, Año Nuevo Lunar, Ramadán, Eid, Diwali, Acción de Gracias, regreso a clases, Día de la Mujer,
   Día del Maestro, verano, otoño, invierno, primavera, Día de la Tierra. Negocios: menú de restaurante, cafetería,
   tienda de barrio, supermercado, ferretería, escuela (matrículas), academia, propiedad en venta, comunidad
   (reunión), mudanzas, presentación de empresa, contratando, testimonio, lanzamiento, rebajas, webinar, programa

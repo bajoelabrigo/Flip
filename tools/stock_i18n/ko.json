@@ -134,7 +134,7 @@
   "text-style:retro": "레트로·Y2K",
   "text-style:subtitulos": "자막",
   "text-style:tercios": "하단 자막",
-  "text-style:terror": "공포·할로윈",
+  "text-style:terror": "공포·미스터리",
   "text-style:titulos": "타이틀",
   "transition:3d": "3D·종이",
   "transition:barridos": "와이프",
@@ -399,15 +399,6 @@
     "배달",
     "주문",
     "택배"
-   ]
-  },
-  "animation:calabaza": {
-   "name": "호박 등불",
-   "tags": [
-    "핼러윈",
-    "호박",
-    "10월",
-    "공포"
    ]
   },
   "animation:calendario": {
@@ -1078,15 +1069,6 @@
     "알림"
    ]
   },
-  "animation:fantasma": {
-   "name": "유령",
-   "tags": [
-    "핼러윈",
-    "유령",
-    "부",
-    "공포"
-   ]
-  },
   "animation:farol-rojo": {
    "name": "빨간 등불",
    "tags": [
@@ -1580,15 +1562,6 @@
     "별",
     "꽃",
     "변형"
-   ]
-  },
-  "animation:murcielago": {
-   "name": "박쥐",
-   "tags": [
-    "핼러윈",
-    "밤",
-    "박쥐",
-    "공포"
    ]
   },
   "animation:nieve": {
@@ -3052,26 +3025,6 @@
     "성취",
     "졸업식",
     "학사모",
-    "배경"
-   ]
-  },
-  "background:halloween": {
-   "name": "핼러윈",
-   "tags": [
-    "핼러윈",
-    "공포",
-    "10월",
-    "호박",
-    "배경"
-   ]
-  },
-  "background:halloween-2": {
-   "name": "핼러윈 2",
-   "tags": [
-    "핼러윈",
-    "공포",
-    "10월",
-    "호박",
     "배경"
    ]
   },
@@ -4912,17 +4865,6 @@
     "무디",
     "초콜릿",
     "브라운",
-    "색감",
-    "보정",
-    "프리셋"
-   ]
-  },
-  "look:moody-halloween": {
-   "name": "으스스한 밤",
-   "tags": [
-    "무디",
-    "밤",
-    "공포",
     "색감",
     "보정",
     "프리셋"
@@ -6849,7 +6791,6 @@
     "시네마틱",
     "영화",
     "무서운",
-    "핼러윈",
     "색보정"
    ]
   },
@@ -7151,16 +7092,6 @@
     "인스타",
     "회색",
     "도시"
-   ]
-  },
-  "lut:est-halloween": {
-   "name": "핼러윈",
-   "tags": [
-    "계절",
-    "핼러윈",
-    "주황",
-    "공포",
-    "색보정"
    ]
   },
   "lut:est-invierno": {
@@ -9299,11 +9230,10 @@
   "music:dance-of-the-dead-30s": {
    "name": "망자의 춤",
    "tags": [
-    "핼러윈",
     "공포",
     "댄스",
     "비트",
-    "명절"
+    "긴장"
    ]
   },
   "music:dance-of-the-tuba-plum-fairy-15s": {
@@ -9708,11 +9638,10 @@
   "music:fright-night-twist-30s": {
    "name": "으스스한 밤",
    "tags": [
-    "핼러윈",
     "공포",
     "트위스트",
     "파티",
-    "명절"
+    "긴장"
    ]
   },
   "music:frogs-legs-rag-30s": {
@@ -9809,11 +9738,10 @@
   "music:ghost-town-30s": {
    "name": "고스트 타운",
    "tags": [
-    "핼러윈",
     "유령",
     "공포",
     "빠른곡",
-    "명절"
+    "긴장"
    ]
   },
   "music:go-on-without-me-15s": {
@@ -9940,11 +9868,10 @@
   "music:haunted-houses-30s": {
    "name": "유령의 집",
    "tags": [
-    "핼러윈",
     "공포",
     "비트",
     "으스스한",
-    "명절"
+    "긴장"
    ]
   },
   "music:hear-what-they-say-30s": {
@@ -10677,11 +10604,10 @@
   "music:night-in-the-castle-30s": {
    "name": "성의 밤",
    "tags": [
-    "핼러윈",
     "성",
     "뱀파이어",
     "공포",
-    "명절"
+    "긴장"
    ]
   },
   "music:night-in-venice-15s": {
@@ -11746,21 +11672,19 @@
   "music:witch-waltz-30s": {
    "name": "마녀의 왈츠",
    "tags": [
-    "핼러윈",
     "마녀",
     "왈츠",
     "공포",
-    "명절"
+    "긴장"
    ]
   },
   "music:wizard-circus-30s": {
    "name": "마법사 서커스",
    "tags": [
-    "핼러윈",
     "서커스",
     "마법",
     "공포",
-    "명절"
+    "긴장"
    ]
   },
   "overlay:amor-corazones": {
@@ -18567,16 +18491,6 @@
     "축하"
    ]
   },
-  "template:h-fecha-halloween": {
-   "name": "핼러윈",
-   "tags": [
-    "핼러윈",
-    "공포",
-    "호박",
-    "코스튬",
-    "10월"
-   ]
-  },
   "template:h-fecha-invierno": {
    "name": "겨울",
    "tags": [
@@ -20185,36 +20099,6 @@
     "펀치",
     "빠른",
     "에너지"
-   ]
-  },
-  "template:halloween-photo-dump": {
-   "name": "핼러윈 포토 덤프",
-   "tags": [
-    "핼러윈",
-    "포토 덤프",
-    "코스튬",
-    "공포",
-    "10월"
-   ]
-  },
-  "template:halloween-revelacion-disfraz": {
-   "name": "코스튬 공개",
-   "tags": [
-    "핼러윈",
-    "코스튬",
-    "변신",
-    "비포 애프터",
-    "깜짝"
-   ]
-  },
-  "template:halloween-truco-o-trato": {
-   "name": "트릭 오어 트릿 파티",
-   "tags": [
-    "핼러윈",
-    "파티",
-    "초대장",
-    "아이들",
-    "코스튬"
    ]
   },
   "template:horario-de-atencion": {
@@ -24238,15 +24122,6 @@
     "휴가"
    ]
   },
-  "template:s-halloween": {
-   "name": "할로윈",
-   "tags": [
-    "할로윈",
-    "호박",
-    "공포",
-    "10월"
-   ]
-  },
   "template:s-hanukkah": {
    "name": "하누카",
    "tags": [
@@ -25266,15 +25141,6 @@
     "15초",
     "헬스",
     "첫날"
-   ]
-  },
-  "template:st-halloween": {
-   "name": "할로윈 코스튬",
-   "tags": [
-    "스토리",
-    "15초",
-    "할로윈",
-    "코스튬"
    ]
   },
   "template:st-jardin": {
@@ -28202,27 +28068,15 @@
    "name": "초록 슬라임",
    "tags": [
     "공포",
-    "할로윈",
     "무서움",
     "슬라임",
     "초록"
-   ]
-  },
-  "text-style:mie-calabaza": {
-   "name": "호박",
-   "tags": [
-    "공포",
-    "할로윈",
-    "무서움",
-    "호박",
-    "주황"
    ]
   },
   "text-style:mie-expediente": {
    "name": "기밀 파일",
    "tags": [
     "공포",
-    "할로윈",
     "무서움",
     "미스터리",
     "사건",
@@ -28233,7 +28087,6 @@
    "name": "유령",
    "tags": [
     "공포",
-    "할로윈",
     "무서움",
     "유령",
     "귀신"
@@ -28243,7 +28096,6 @@
    "name": "안개",
    "tags": [
     "공포",
-    "할로윈",
     "무서움",
     "안개",
     "숲",
@@ -28254,7 +28106,6 @@
    "name": "경고",
    "tags": [
     "공포",
-    "할로윈",
     "무서움",
     "위험",
     "경고",
@@ -28265,7 +28116,6 @@
    "name": "핏빛",
    "tags": [
     "공포",
-    "할로윈",
     "무서움",
     "피",
     "빨강",
@@ -28276,7 +28126,6 @@
    "name": "속삭임",
    "tags": [
     "공포",
-    "할로윈",
     "무서움",
     "속삭임",
     "미스터리",

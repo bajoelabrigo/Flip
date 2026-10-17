@@ -134,7 +134,7 @@
   "text-style:retro": "复古千禧",
   "text-style:subtitulos": "爆款字幕",
   "text-style:tercios": "角标字幕",
-  "text-style:terror": "恐怖万圣",
+  "text-style:terror": "恐怖悬疑",
   "text-style:titulos": "标题",
   "transition:3d": "3D 翻页",
   "transition:barridos": "擦除",
@@ -398,15 +398,6 @@
     "配送",
     "订单",
     "包裹"
-   ]
-  },
-  "animation:calabaza": {
-   "name": "南瓜灯",
-   "tags": [
-    "万圣节",
-    "南瓜",
-    "十月",
-    "恐怖"
    ]
   },
   "animation:calendario": {
@@ -1077,15 +1068,6 @@
     "感叹号"
    ]
   },
-  "animation:fantasma": {
-   "name": "幽灵",
-   "tags": [
-    "万圣节",
-    "幽灵",
-    "吓",
-    "恐怖"
-   ]
-  },
   "animation:farol-rojo": {
    "name": "红灯笼",
    "tags": [
@@ -1579,15 +1561,6 @@
     "星星",
     "花朵",
     "变形"
-   ]
-  },
-  "animation:murcielago": {
-   "name": "蝙蝠",
-   "tags": [
-    "万圣节",
-    "夜晚",
-    "蝙蝠",
-    "恐怖"
    ]
   },
   "animation:nieve": {
@@ -3019,24 +2992,6 @@
     "毕业",
     "成就",
     "毕业季",
-    "背景"
-   ]
-  },
-  "background:halloween": {
-   "name": "万圣节背景",
-   "tags": [
-    "万圣节",
-    "恐怖",
-    "南瓜",
-    "背景"
-   ]
-  },
-  "background:halloween-2": {
-   "name": "万圣节背景2",
-   "tags": [
-    "万圣节",
-    "恐怖",
-    "南瓜",
     "背景"
    ]
   },
@@ -4787,16 +4742,6 @@
     "棕色",
     "温暖",
     "暗调",
-    "滤镜"
-   ]
-  },
-  "look:moody-halloween": {
-   "name": "惊悚之夜",
-   "tags": [
-    "惊悚",
-    "夜晚",
-    "绿色",
-    "恐怖",
     "滤镜"
    ]
   },
@@ -6888,16 +6833,6 @@
     "美学",
     "灰色",
     "都市"
-   ]
-  },
-  "lut:est-halloween": {
-   "name": "万圣惊魂",
-   "tags": [
-    "调色",
-    "滤镜",
-    "季节",
-    "万圣节",
-    "诡异"
    ]
   },
   "lut:est-invierno": {
@@ -9090,7 +9025,6 @@
   "music:dance-of-the-dead-30s": {
    "name": "亡灵之舞 30秒",
    "tags": [
-    "万圣节",
     "亡灵",
     "舞曲",
     "诡异",
@@ -9530,7 +9464,6 @@
   "music:fright-night-twist-30s": {
    "name": "惊魂之夜 30秒",
    "tags": [
-    "万圣节",
     "惊悚",
     "摇摆",
     "诡异",
@@ -9636,7 +9569,6 @@
   "music:ghost-town-30s": {
    "name": "幽灵小镇 30秒",
    "tags": [
-    "万圣节",
     "幽灵",
     "诡异",
     "夜晚",
@@ -9777,7 +9709,6 @@
   "music:haunted-houses-30s": {
    "name": "鬼屋惊魂 30秒",
    "tags": [
-    "万圣节",
     "鬼屋",
     "诡异",
     "节奏",
@@ -10583,7 +10514,6 @@
   "music:night-in-the-castle-30s": {
    "name": "古堡之夜 30秒",
    "tags": [
-    "万圣节",
     "古堡",
     "吸血鬼",
     "诡异",
@@ -11733,7 +11663,6 @@
   "music:witch-waltz-30s": {
    "name": "女巫圆舞曲 30秒",
    "tags": [
-    "万圣节",
     "女巫",
     "华尔兹",
     "诡异",
@@ -11743,7 +11672,6 @@
   "music:wizard-circus-30s": {
    "name": "巫师马戏团 30秒",
    "tags": [
-    "万圣节",
     "魔法",
     "马戏",
     "奇幻",
@@ -18925,16 +18853,6 @@
     "庆祝"
    ]
   },
-  "template:h-fecha-halloween": {
-   "name": "万圣节",
-   "tags": [
-    "万圣节",
-    "恐怖",
-    "南瓜",
-    "变装",
-    "十月"
-   ]
-  },
   "template:h-fecha-invierno": {
    "name": "冬天",
    "tags": [
@@ -20532,36 +20450,6 @@
     "冲击",
     "快速",
     "能量"
-   ]
-  },
-  "template:halloween-photo-dump": {
-   "name": "万圣节照片合集",
-   "tags": [
-    "万圣节",
-    "照片合集",
-    "变装",
-    "恐怖",
-    "十月"
-   ]
-  },
-  "template:halloween-revelacion-disfraz": {
-   "name": "变装揭晓",
-   "tags": [
-    "万圣节",
-    "变装",
-    "变身",
-    "前后对比",
-    "惊吓"
-   ]
-  },
-  "template:halloween-truco-o-trato": {
-   "name": "不给糖就捣蛋派对邀请",
-   "tags": [
-    "万圣节",
-    "派对",
-    "邀请",
-    "儿童",
-    "变装"
    ]
   },
   "template:horario-de-atencion": {
@@ -24596,15 +24484,6 @@
     "假期"
    ]
   },
-  "template:s-halloween": {
-   "name": "万圣节",
-   "tags": [
-    "万圣节",
-    "南瓜",
-    "恐怖",
-    "十月"
-   ]
-  },
   "template:s-hanukkah": {
    "name": "光明节",
    "tags": [
@@ -25651,16 +25530,6 @@
     "短视频",
     "健身",
     "开始"
-   ]
-  },
-  "template:st-halloween": {
-   "name": "万圣节装扮",
-   "tags": [
-    "故事",
-    "15秒",
-    "短视频",
-    "万圣节",
-    "变装"
    ]
   },
   "template:st-jardin": {
@@ -28960,19 +28829,8 @@
    "name": "绿色黏液",
    "tags": [
     "恐怖",
-    "万圣节",
     "黏液",
     "绿色",
-    "惊悚"
-   ]
-  },
-  "text-style:mie-calabaza": {
-   "name": "南瓜",
-   "tags": [
-    "恐怖",
-    "万圣节",
-    "南瓜",
-    "橙色",
     "惊悚"
    ]
   },
@@ -28990,7 +28848,6 @@
    "name": "幽灵",
    "tags": [
     "恐怖",
-    "万圣节",
     "幽灵",
     "鬼魂",
     "惊悚"
@@ -29020,7 +28877,6 @@
    "name": "血红",
    "tags": [
     "恐怖",
-    "万圣节",
     "血",
     "红色",
     "惊悚"

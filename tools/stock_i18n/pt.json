@@ -134,7 +134,7 @@
   "text-style:retro": "Retrô e Y2K",
   "text-style:subtitulos": "Legendas virais",
   "text-style:tercios": "Terços inferiores",
-  "text-style:terror": "Terror e Halloween",
+  "text-style:terror": "Terror e mistério",
   "text-style:titulos": "Títulos",
   "transition:3d": "3D e papel",
   "transition:barridos": "Varreduras",
@@ -403,15 +403,6 @@
     "delivery",
     "pedido",
     "pacote"
-   ]
-  },
-  "animation:calabaza": {
-   "name": "Abóbora de Halloween",
-   "tags": [
-    "halloween",
-    "abóbora",
-    "outubro",
-    "medo"
    ]
   },
   "animation:calendario": {
@@ -1090,15 +1081,6 @@
     "alerta"
    ]
   },
-  "animation:fantasma": {
-   "name": "Fantasma",
-   "tags": [
-    "halloween",
-    "fantasma",
-    "bu",
-    "medo"
-   ]
-  },
   "animation:farol-rojo": {
    "name": "Lanterna vermelha",
    "tags": [
@@ -1601,15 +1583,6 @@
     "flor",
     "transformar",
     "morph"
-   ]
-  },
-  "animation:murcielago": {
-   "name": "Morcego",
-   "tags": [
-    "halloween",
-    "noite",
-    "morcego",
-    "medo"
    ]
   },
   "animation:nieve": {
@@ -3091,26 +3064,6 @@
     "formatura",
     "conquista",
     "formandos",
-    "fundo"
-   ]
-  },
-  "background:halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "terror",
-    "outubro",
-    "abóbora",
-    "fundo"
-   ]
-  },
-  "background:halloween-2": {
-   "name": "Halloween 2",
-   "tags": [
-    "halloween",
-    "terror",
-    "outubro",
-    "abóbora",
     "fundo"
    ]
   },
@@ -4918,16 +4871,6 @@
     "marrom"
    ]
   },
-  "look:moody-halloween": {
-   "name": "Noite de terror",
-   "tags": [
-    "assustador",
-    "escuro",
-    "filtro",
-    "halloween",
-    "noite"
-   ]
-  },
   "look:moody-invierno": {
    "name": "Inverno sombrio",
    "tags": [
@@ -6652,7 +6595,6 @@
     "cinema",
     "terror",
     "medo",
-    "halloween",
     "cor",
     "lut"
    ]
@@ -6983,17 +6925,6 @@
     "cinza",
     "urbano",
     "minimal",
-    "cor",
-    "lut"
-   ]
-  },
-  "lut:est-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "estacoes",
-    "halloween",
-    "laranja",
-    "terror",
     "cor",
     "lut"
    ]
@@ -9344,12 +9275,10 @@
   "music:dance-of-the-dead-30s": {
    "name": "Dança dos Mortos 30 s",
    "tags": [
-    "halloween",
     "terror",
     "danca",
     "batida",
-    "fantasmas",
-    "reel"
+    "fantasmas"
    ]
   },
   "music:dance-of-the-tuba-plum-fairy-15s": {
@@ -9795,12 +9724,10 @@
   "music:fright-night-twist-30s": {
    "name": "Twist Assustador 30 s",
    "tags": [
-    "halloween",
     "twist",
     "sombrio",
     "festa",
-    "danca",
-    "reel"
+    "danca"
    ]
   },
   "music:frogs-legs-rag-30s": {
@@ -9905,12 +9832,10 @@
   "music:ghost-town-30s": {
    "name": "Cidade Fantasma 30 s",
    "tags": [
-    "halloween",
     "fantasmas",
     "sombrio",
     "terror",
-    "noite",
-    "reel"
+    "noite"
    ]
   },
   "music:go-on-without-me-15s": {
@@ -10048,12 +9973,10 @@
   "music:haunted-houses-30s": {
    "name": "Casas Assombradas 30 s",
    "tags": [
-    "halloween",
     "assombrada",
     "terror",
     "batida",
-    "noite",
-    "reel"
+    "noite"
    ]
   },
   "music:hear-what-they-say-30s": {
@@ -10862,7 +10785,6 @@
   "music:night-in-the-castle-30s": {
    "name": "Noite no Castelo 30 s",
    "tags": [
-    "halloween",
     "castelo",
     "vampiro",
     "sombrio",
@@ -12039,23 +11961,19 @@
   "music:witch-waltz-30s": {
    "name": "Valsa da Bruxa 30 s",
    "tags": [
-    "halloween",
     "bruxa",
     "valsa",
     "sombrio",
-    "noite",
-    "reel"
+    "noite"
    ]
   },
   "music:wizard-circus-30s": {
    "name": "Circo do Mago 30 s",
    "tags": [
-    "halloween",
     "circo",
     "magia",
     "sombrio",
-    "rapida",
-    "reel"
+    "rapida"
    ]
   },
   "overlay:amor-corazones": {
@@ -12747,8 +12665,7 @@
     "névoa",
     "bruma",
     "mistério",
-    "terror",
-    "halloween"
+    "terror"
    ]
   },
   "overlay:clima-niebla-baja": {
@@ -12959,8 +12876,7 @@
     "doodle",
     "diabinho",
     "chifres",
-    "travesso",
-    "halloween"
+    "travesso"
    ]
   },
   "overlay:garabato-diablito-blanco": {
@@ -17511,8 +17427,7 @@
     "susto",
     "terror",
     "jump scare",
-    "medo",
-    "halloween"
+    "medo"
    ]
   },
   "sound:swoosh-titulo": {
@@ -19243,16 +19158,6 @@
     "comemoração"
    ]
   },
-  "template:h-fecha-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "terror",
-    "abóboras",
-    "fantasias",
-    "outubro"
-   ]
-  },
   "template:h-fecha-invierno": {
    "name": "Inverno",
    "tags": [
@@ -20899,36 +20804,6 @@
     "impacto",
     "rápida",
     "energia"
-   ]
-  },
-  "template:halloween-photo-dump": {
-   "name": "Photo dump de Halloween",
-   "tags": [
-    "halloween",
-    "photo dump",
-    "fantasias",
-    "terror",
-    "outubro"
-   ]
-  },
-  "template:halloween-revelacion-disfraz": {
-   "name": "Revelação da fantasia",
-   "tags": [
-    "halloween",
-    "fantasia",
-    "transformação",
-    "antes e depois",
-    "susto"
-   ]
-  },
-  "template:halloween-truco-o-trato": {
-   "name": "Doces ou travessuras! Convite",
-   "tags": [
-    "halloween",
-    "festa",
-    "convite",
-    "crianças",
-    "fantasias"
    ]
   },
   "template:horario-de-atencion": {
@@ -25032,15 +24907,6 @@
     "férias"
    ]
   },
-  "template:s-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "abóboras",
-    "terror",
-    "outubro"
-   ]
-  },
   "template:s-hanukkah": {
    "name": "Feliz Hanucá",
    "tags": [
@@ -26085,16 +25951,6 @@
     "academia",
     "primeiro",
     "motivação",
-    "stories",
-    "segundos"
-   ]
-  },
-  "template:st-halloween": {
-   "name": "Fantasia de Halloween",
-   "tags": [
-    "halloween",
-    "fantasia",
-    "maquiagem",
     "stories",
     "segundos"
    ]
@@ -29049,28 +28905,16 @@
    "name": "Gosma verde",
    "tags": [
     "terror",
-    "halloween",
     "medo",
     "gosma",
     "verde",
     "slime"
    ]
   },
-  "text-style:mie-calabaza": {
-   "name": "Abóbora",
-   "tags": [
-    "terror",
-    "halloween",
-    "medo",
-    "abóbora",
-    "laranja"
-   ]
-  },
   "text-style:mie-expediente": {
    "name": "Arquivo secreto",
    "tags": [
     "terror",
-    "halloween",
     "medo",
     "mistério",
     "caso",
@@ -29081,7 +28925,6 @@
    "name": "Fantasma",
    "tags": [
     "terror",
-    "halloween",
     "medo",
     "fantasma",
     "assombração"
@@ -29091,7 +28934,6 @@
    "name": "Neblina",
    "tags": [
     "terror",
-    "halloween",
     "medo",
     "neblina",
     "floresta",
@@ -29102,7 +28944,6 @@
    "name": "Perigo",
    "tags": [
     "terror",
-    "halloween",
     "medo",
     "perigo",
     "aviso",
@@ -29113,7 +28954,6 @@
    "name": "Vermelho sangue",
    "tags": [
     "terror",
-    "halloween",
     "medo",
     "sangue",
     "vermelho",
@@ -29124,7 +28964,6 @@
    "name": "Sussurro",
    "tags": [
     "terror",
-    "halloween",
     "medo",
     "sussurro",
     "mistério",

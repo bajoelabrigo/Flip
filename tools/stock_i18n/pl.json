@@ -134,7 +134,7 @@
   "text-style:retro": "Retro i Y2K",
   "text-style:subtitulos": "Viralowe napisy",
   "text-style:tercios": "Dolne trzecie",
-  "text-style:terror": "Horror i Halloween",
+  "text-style:terror": "Horror i tajemnica",
   "text-style:titulos": "Tytuły",
   "transition:3d": "3D i papier",
   "transition:barridos": "Przecieranie",
@@ -399,15 +399,6 @@
     "dostawa",
     "zamówienie",
     "paczka"
-   ]
-  },
-  "animation:calabaza": {
-   "name": "Dynia z lampionem",
-   "tags": [
-    "halloween",
-    "dynia",
-    "październik",
-    "strach"
    ]
   },
   "animation:calendario": {
@@ -1076,15 +1067,6 @@
     "wykrzyknik"
    ]
   },
-  "animation:fantasma": {
-   "name": "Duch",
-   "tags": [
-    "halloween",
-    "duch",
-    "boo",
-    "strach"
-   ]
-  },
   "animation:farol-rojo": {
    "name": "Czerwony lampion",
    "tags": [
@@ -1579,15 +1561,6 @@
     "kwiat",
     "przemiana",
     "morph"
-   ]
-  },
-  "animation:murcielago": {
-   "name": "Nietoperz",
-   "tags": [
-    "halloween",
-    "noc",
-    "nietoperz",
-    "strach"
    ]
   },
   "animation:nieve": {
@@ -3072,26 +3045,6 @@
     "ukończenie szkoły",
     "sukces",
     "rocznik",
-    "tło"
-   ]
-  },
-  "background:halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "horror",
-    "październik",
-    "dynia",
-    "tło"
-   ]
-  },
-  "background:halloween-2": {
-   "name": "Halloween 2",
-   "tags": [
-    "halloween",
-    "horror",
-    "październik",
-    "dynia",
     "tło"
    ]
   },
@@ -4951,16 +4904,6 @@
     "ciepły",
     "słodki",
     "nastrojowy"
-   ]
-  },
-  "look:moody-halloween": {
-   "name": "Upiorna noc",
-   "tags": [
-    "halloween",
-    "upiorny",
-    "noc",
-    "strach",
-    "ciemny"
    ]
   },
   "look:moody-invierno": {
@@ -7123,17 +7066,6 @@
     "nastrój",
     "szary",
     "miejski",
-    "lut",
-    "filtr"
-   ]
-  },
-  "lut:est-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "pory roku",
-    "halloween",
-    "pomarańcz",
-    "straszny",
     "lut",
     "filtr"
    ]
@@ -9425,12 +9357,10 @@
   "music:dance-of-the-dead-30s": {
    "name": "Taniec umarłych · 30 s",
    "tags": [
-    "halloween",
-    "święta",
     "straszny",
     "taniec",
-    "okazja",
-    "reel"
+    "reel",
+    "muzyka"
    ]
   },
   "music:dance-of-the-tuba-plum-fairy-15s": {
@@ -9846,11 +9776,9 @@
   "music:fright-night-twist-30s": {
    "name": "Fright Night Twist · 30 s",
    "tags": [
-    "halloween",
     "straszny",
     "twist",
     "taniec",
-    "okazja",
     "reel"
    ]
   },
@@ -9950,11 +9878,9 @@
   "music:ghost-town-30s": {
    "name": "Miasto duchów · 30 s",
    "tags": [
-    "halloween",
     "duchy",
     "straszny",
     "mroczny",
-    "okazja",
     "reel"
    ]
   },
@@ -10082,11 +10008,9 @@
   "music:haunted-houses-30s": {
    "name": "Nawiedzone domy · 30 s",
    "tags": [
-    "halloween",
     "straszny",
     "duchy",
     "noc",
-    "okazja",
     "reel"
    ]
   },
@@ -10830,7 +10754,6 @@
   "music:night-in-the-castle-30s": {
    "name": "Noc w zamku · 30 s",
    "tags": [
-    "halloween",
     "zamek",
     "wampir",
     "straszny",
@@ -11927,22 +11850,18 @@
   "music:witch-waltz-30s": {
    "name": "Walc czarownicy · 30 s",
    "tags": [
-    "halloween",
     "wiedźma",
     "walc",
     "straszny",
-    "okazja",
     "reel"
    ]
   },
   "music:wizard-circus-30s": {
    "name": "Cyrk czarodzieja · 30 s",
    "tags": [
-    "halloween",
     "cyrk",
     "magia",
     "straszny",
-    "okazja",
     "reel"
    ]
   },
@@ -12639,8 +12558,7 @@
     "mgła",
     "opary",
     "tajemnica",
-    "horror",
-    "halloween"
+    "horror"
    ]
   },
   "overlay:clima-niebla-baja": {
@@ -12850,8 +12768,7 @@
     "doodle",
     "diabełek",
     "różki",
-    "psotny",
-    "halloween"
+    "psotny"
    ]
   },
   "overlay:garabato-diablito-blanco": {
@@ -17421,8 +17338,7 @@
     "straszak",
     "horror",
     "jump scare",
-    "strach",
-    "halloween"
+    "strach"
    ]
   },
   "sound:swoosh-titulo": {
@@ -19210,16 +19126,6 @@
     "świętowanie"
    ]
   },
-  "template:h-fecha-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "horror",
-    "dynie",
-    "przebrania",
-    "październik"
-   ]
-  },
   "template:h-fecha-invierno": {
    "name": "Zima",
    "tags": [
@@ -20881,36 +20787,6 @@
     "uderzenie",
     "szybkie",
     "energia"
-   ]
-  },
-  "template:halloween-photo-dump": {
-   "name": "Photo dump na Halloween",
-   "tags": [
-    "halloween",
-    "photo dump",
-    "przebrania",
-    "horror",
-    "październik"
-   ]
-  },
-  "template:halloween-revelacion-disfraz": {
-   "name": "Odsłonięcie przebrania",
-   "tags": [
-    "halloween",
-    "przebranie",
-    "przemiana",
-    "przed i po",
-    "straszny"
-   ]
-  },
-  "template:halloween-truco-o-trato": {
-   "name": "Cukierek albo psikus: zaproszenie",
-   "tags": [
-    "halloween",
-    "impreza",
-    "zaproszenie",
-    "dzieci",
-    "przebrania"
    ]
   },
   "template:horario-de-atencion": {
@@ -25001,15 +24877,6 @@
     "wakacje"
    ]
   },
-  "template:s-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "dynia",
-    "horror",
-    "październik"
-   ]
-  },
   "template:s-hanukkah": {
    "name": "Chanuka",
    "tags": [
@@ -26075,17 +25942,6 @@
     "siłownia",
     "pierwszy dzień",
     "motywacja"
-   ]
-  },
-  "template:st-halloween": {
-   "name": "Kostium na Halloween",
-   "tags": [
-    "relacja",
-    "15 sekund",
-    "stories",
-    "halloween",
-    "kostium",
-    "makijaż"
    ]
   },
   "template:st-jardin": {
@@ -29229,27 +29085,15 @@
    "name": "Zielony szlam",
    "tags": [
     "horror",
-    "halloween",
     "strach",
     "szlam",
     "zielony"
-   ]
-  },
-  "text-style:mie-calabaza": {
-   "name": "Dynia",
-   "tags": [
-    "horror",
-    "halloween",
-    "dynia",
-    "pomarańczowy",
-    "straszny"
    ]
   },
   "text-style:mie-expediente": {
    "name": "Akta sprawy",
    "tags": [
     "horror",
-    "halloween",
     "tajemnica",
     "sprawa",
     "kryminał"
@@ -29259,7 +29103,6 @@
    "name": "Duch",
    "tags": [
     "horror",
-    "halloween",
     "duch",
     "zjawisko",
     "straszny"
@@ -29269,7 +29112,6 @@
    "name": "Mgła",
    "tags": [
     "horror",
-    "halloween",
     "mgła",
     "las",
     "napięcie"
@@ -29279,7 +29121,6 @@
    "name": "Niebezpieczeństwo",
    "tags": [
     "horror",
-    "halloween",
     "ostrzeżenie",
     "zagrożenie",
     "uwaga"
@@ -29289,7 +29130,6 @@
    "name": "Krwista czerwień",
    "tags": [
     "horror",
-    "halloween",
     "krew",
     "czerwony",
     "strach"
@@ -29299,7 +29139,6 @@
    "name": "Szept",
    "tags": [
     "horror",
-    "halloween",
     "szept",
     "tajemnica",
     "duch"

@@ -67,7 +67,7 @@ STYLE_CATEGORIES = {
     "elegante": {"es": "Elegante y bodas", "en": "Elegant and weddings"},
     "infantil": {"es": "Infantil y divertido", "en": "Kids and fun"},
     "gaming": {"es": "Gaming y deportes", "en": "Gaming and sports"},
-    "terror": {"es": "Terror y Halloween", "en": "Horror and Halloween"},
+    "terror": {"es": "Terror y misterio", "en": "Horror and mystery"},
     "fechas": {"es": "Fechas especiales", "en": "Special days"},
 }
 ANIM_CATEGORIES = {

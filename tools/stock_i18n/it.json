@@ -134,7 +134,7 @@
   "text-style:retro": "Retrò e Y2K",
   "text-style:subtitulos": "Sottotitoli virali",
   "text-style:tercios": "Terzi inferiori",
-  "text-style:terror": "Horror e Halloween",
+  "text-style:terror": "Horror e mistero",
   "text-style:titulos": "Titoli",
   "transition:3d": "3D e carta",
   "transition:barridos": "Tendine",
@@ -398,15 +398,6 @@
     "consegna",
     "ordine",
     "pacco"
-   ]
-  },
-  "animation:calabaza": {
-   "name": "Zucca di Halloween",
-   "tags": [
-    "halloween",
-    "zucca",
-    "ottobre",
-    "paura"
    ]
   },
   "animation:calendario": {
@@ -1074,15 +1065,6 @@
     "esclamativo"
    ]
   },
-  "animation:fantasma": {
-   "name": "Fantasma",
-   "tags": [
-    "halloween",
-    "fantasma",
-    "bu",
-    "paura"
-   ]
-  },
   "animation:farol-rojo": {
    "name": "Lanterna rossa",
    "tags": [
@@ -1573,15 +1555,6 @@
     "stella",
     "fiore",
     "trasformare"
-   ]
-  },
-  "animation:murcielago": {
-   "name": "Pipistrello",
-   "tags": [
-    "halloween",
-    "notte",
-    "pipistrello",
-    "paura"
    ]
   },
   "animation:nieve": {
@@ -2993,26 +2966,6 @@
     "diploma",
     "traguardo",
     "festa",
-    "sfondo"
-   ]
-  },
-  "background:halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "horror",
-    "ottobre",
-    "zucca",
-    "sfondo"
-   ]
-  },
-  "background:halloween-2": {
-   "name": "Halloween 2",
-   "tags": [
-    "halloween",
-    "horror",
-    "ottobre",
-    "zucca",
     "sfondo"
    ]
   },
@@ -4820,17 +4773,6 @@
     "marrone",
     "caldo",
     "scuro",
-    "moody",
-    "filtro"
-   ]
-  },
-  "look:moody-halloween": {
-   "name": "Notte di paura",
-   "tags": [
-    "halloween",
-    "paura",
-    "scuro",
-    "notte",
     "moody",
     "filtro"
    ]
@@ -6799,7 +6741,6 @@
     "cinema",
     "horror",
     "paura",
-    "halloween",
     "film",
     "filtro"
    ]
@@ -7131,17 +7072,6 @@
     "urbano",
     "minimal",
     "freddo",
-    "filtro"
-   ]
-  },
-  "lut:est-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "stagioni",
-    "halloween",
-    "arancio",
-    "zucca",
-    "autunno",
     "filtro"
    ]
   },
@@ -9491,11 +9421,9 @@
   "music:dance-of-the-dead-30s": {
    "name": "Danza dei morti · 30 s",
    "tags": [
-    "halloween",
     "morti",
     "danza",
     "oscura",
-    "festa",
     "ritmo"
    ]
   },
@@ -9942,10 +9870,8 @@
   "music:fright-night-twist-30s": {
    "name": "Notte del terrore · 30 s",
    "tags": [
-    "halloween",
     "brividi",
     "twist",
-    "festa",
     "oscura",
     "ritmo"
    ]
@@ -10052,7 +9978,6 @@
   "music:ghost-town-30s": {
    "name": "Città fantasma · 30 s",
    "tags": [
-    "halloween",
     "fantasmi",
     "spaventoso",
     "oscura",
@@ -10195,7 +10120,6 @@
   "music:haunted-houses-30s": {
    "name": "Case infestate · 30 s",
    "tags": [
-    "halloween",
     "case",
     "fantasmi",
     "oscura",
@@ -11009,7 +10933,6 @@
   "music:night-in-the-castle-30s": {
    "name": "Notte al castello · 30 s",
    "tags": [
-    "halloween",
     "castello",
     "vampiro",
     "oscura",
@@ -12186,7 +12109,6 @@
   "music:witch-waltz-30s": {
    "name": "Valzer della strega · 30 s",
    "tags": [
-    "halloween",
     "strega",
     "valzer",
     "oscura",
@@ -12197,7 +12119,6 @@
   "music:wizard-circus-30s": {
    "name": "Circo magico · 30 s",
    "tags": [
-    "halloween",
     "circo",
     "magia",
     "spaventoso",
@@ -17539,8 +17460,7 @@
     "spavento",
     "horror",
     "jump scare",
-    "paura",
-    "halloween"
+    "paura"
    ]
   },
   "sound:swoosh-titulo": {
@@ -19371,16 +19291,6 @@
     "celebrazione"
    ]
   },
-  "template:h-fecha-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "horror",
-    "zucche",
-    "costumi",
-    "ottobre"
-   ]
-  },
   "template:h-fecha-invierno": {
    "name": "Inverno",
    "tags": [
@@ -20989,36 +20899,6 @@
     "colpo",
     "veloce",
     "energia"
-   ]
-  },
-  "template:halloween-photo-dump": {
-   "name": "Photo dump di Halloween",
-   "tags": [
-    "halloween",
-    "photo dump",
-    "costumi",
-    "horror",
-    "ottobre"
-   ]
-  },
-  "template:halloween-revelacion-disfraz": {
-   "name": "Svelo il costume",
-   "tags": [
-    "halloween",
-    "costume",
-    "trasformazione",
-    "prima e dopo",
-    "spavento"
-   ]
-  },
-  "template:halloween-truco-o-trato": {
-   "name": "Dolcetto o scherzetto! Invito",
-   "tags": [
-    "halloween",
-    "festa",
-    "invito",
-    "bambini",
-    "costumi"
    ]
   },
   "template:horario-de-atencion": {
@@ -25312,17 +25192,6 @@
     "griglia"
    ]
   },
-  "template:s-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "ricorrenza",
-    "festività",
-    "auguri",
-    "famiglia",
-    "halloween",
-    "zucche"
-   ]
-  },
   "template:s-hanukkah": {
    "name": "Buona Hanukkah",
    "tags": [
@@ -26560,17 +26429,6 @@
     "social",
     "palestra",
     "motivazione"
-   ]
-  },
-  "template:st-halloween": {
-   "name": "Costume di Halloween",
-   "tags": [
-    "storia",
-    "15s",
-    "verticale",
-    "social",
-    "halloween",
-    "costume"
    ]
   },
   "template:st-jardin": {
@@ -29574,27 +29432,15 @@
    "name": "Melma verde",
    "tags": [
     "horror",
-    "halloween",
     "paura",
     "melma",
     "verde"
-   ]
-  },
-  "text-style:mie-calabaza": {
-   "name": "Zucca",
-   "tags": [
-    "horror",
-    "halloween",
-    "paura",
-    "zucca",
-    "arancione"
    ]
   },
   "text-style:mie-expediente": {
    "name": "Fascicolo segreto",
    "tags": [
     "horror",
-    "halloween",
     "paura",
     "mistero",
     "caso",
@@ -29605,7 +29451,6 @@
    "name": "Fantasma",
    "tags": [
     "horror",
-    "halloween",
     "paura",
     "fantasma",
     "spettro"
@@ -29615,7 +29460,6 @@
    "name": "Nebbia",
    "tags": [
     "horror",
-    "halloween",
     "paura",
     "nebbia",
     "bosco",
@@ -29626,7 +29470,6 @@
    "name": "Pericolo",
    "tags": [
     "horror",
-    "halloween",
     "paura",
     "pericolo",
     "avviso"
@@ -29636,7 +29479,6 @@
    "name": "Rosso sangue",
    "tags": [
     "horror",
-    "halloween",
     "paura",
     "sangue",
     "rosso",
@@ -29647,7 +29489,6 @@
    "name": "Sussurro",
    "tags": [
     "horror",
-    "halloween",
     "paura",
     "sussurro",
     "mistero",

@@ -134,7 +134,7 @@
   "text-style:retro": "Rétro et Y2K",
   "text-style:subtitulos": "Sous-titres viraux",
   "text-style:tercios": "Bandeaux inférieurs",
-  "text-style:terror": "Horreur et Halloween",
+  "text-style:terror": "Horreur et mystère",
   "text-style:titulos": "Titres",
   "transition:3d": "3D et papier",
   "transition:barridos": "Balayages",
@@ -400,15 +400,6 @@
     "colis",
     "commande",
     "envoi"
-   ]
-  },
-  "animation:calabaza": {
-   "name": "Citrouille d'Halloween",
-   "tags": [
-    "halloween",
-    "citrouille",
-    "octobre",
-    "peur"
    ]
   },
   "animation:calendario": {
@@ -1084,15 +1075,6 @@
     "exclamation"
    ]
   },
-  "animation:fantasma": {
-   "name": "Fantôme",
-   "tags": [
-    "halloween",
-    "fantôme",
-    "bouh",
-    "peur"
-   ]
-  },
   "animation:farol-rojo": {
    "name": "Lanterne rouge",
    "tags": [
@@ -1592,15 +1574,6 @@
     "étoile",
     "fleur",
     "morphing"
-   ]
-  },
-  "animation:murcielago": {
-   "name": "Chauve-souris",
-   "tags": [
-    "halloween",
-    "nuit",
-    "chauve-souris",
-    "peur"
    ]
   },
   "animation:nieve": {
@@ -3041,26 +3014,6 @@
     "remise des diplômes",
     "réussite",
     "promo",
-    "fond"
-   ]
-  },
-  "background:halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "horreur",
-    "octobre",
-    "citrouille",
-    "fond"
-   ]
-  },
-  "background:halloween-2": {
-   "name": "Halloween 2",
-   "tags": [
-    "halloween",
-    "horreur",
-    "octobre",
-    "citrouille",
     "fond"
    ]
   },
@@ -4831,16 +4784,6 @@
     "brun",
     "chaud",
     "sombre",
-    "filtre"
-   ]
-  },
-  "look:moody-halloween": {
-   "name": "Nuit inquiétante",
-   "tags": [
-    "halloween",
-    "nuit",
-    "sombre",
-    "vert",
     "filtre"
    ]
   },
@@ -6672,7 +6615,6 @@
     "cinéma",
     "horreur",
     "peur",
-    "halloween",
     "film",
     "sombre"
    ]
@@ -7005,17 +6947,6 @@
     "ville",
     "minimal",
     "ambiance"
-   ]
-  },
-  "lut:est-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "saisons",
-    "halloween",
-    "orange",
-    "citrouille",
-    "automne",
-    "sombre"
    ]
   },
   "lut:est-invierno": {
@@ -9364,11 +9295,9 @@
   "music:dance-of-the-dead-30s": {
    "name": "Dance Of The Dead · 30 s",
    "tags": [
-    "halloween",
     "mort",
     "danse",
     "effrayant",
-    "saisonnier",
     "beat"
    ]
   },
@@ -9815,11 +9744,9 @@
   "music:fright-night-twist-30s": {
    "name": "Fright Night Twist · 30 s",
    "tags": [
-    "halloween",
     "effrayant",
     "danse",
     "twist",
-    "saisonnier",
     "fête"
    ]
   },
@@ -9925,11 +9852,9 @@
   "music:ghost-town-30s": {
    "name": "Ghost Town · 30 s",
    "tags": [
-    "halloween",
     "fantômes",
     "effrayant",
     "ville",
-    "saisonnier",
     "rythmé"
    ]
   },
@@ -10068,11 +9993,9 @@
   "music:haunted-houses-30s": {
    "name": "Haunted Houses · 30 s",
    "tags": [
-    "halloween",
     "maison hantée",
     "effrayant",
     "beat",
-    "saisonnier",
     "mystère"
    ]
   },
@@ -10882,12 +10805,10 @@
   "music:night-in-the-castle-30s": {
    "name": "Night in the Castle · 30 s",
    "tags": [
-    "halloween",
     "château",
     "vampire",
     "effrayant",
-    "nuit",
-    "saisonnier"
+    "nuit"
    ]
   },
   "music:night-in-venice-15s": {
@@ -12059,22 +11980,18 @@
   "music:witch-waltz-30s": {
    "name": "Witch Waltz · 30 s",
    "tags": [
-    "halloween",
     "sorcière",
     "valse",
     "effrayant",
-    "saisonnier",
     "mystère"
    ]
   },
   "music:wizard-circus-30s": {
    "name": "Wizard Circus · 30 s",
    "tags": [
-    "halloween",
     "cirque",
     "magie",
     "effrayant",
-    "saisonnier",
     "rythmé"
    ]
   },
@@ -17456,8 +17373,7 @@
     "frayeur",
     "horreur",
     "jump scare",
-    "peur",
-    "halloween"
+    "peur"
    ]
   },
   "sound:swoosh-titulo": {
@@ -19234,16 +19150,6 @@
     "célébration"
    ]
   },
-  "template:h-fecha-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "horreur",
-    "citrouilles",
-    "déguisements",
-    "octobre"
-   ]
-  },
   "template:h-fecha-invierno": {
    "name": "Hiver",
    "tags": [
@@ -20887,36 +20793,6 @@
     "impact",
     "rapide",
     "énergie"
-   ]
-  },
-  "template:halloween-photo-dump": {
-   "name": "Photo dump d'Halloween",
-   "tags": [
-    "halloween",
-    "photo dump",
-    "déguisements",
-    "horreur",
-    "octobre"
-   ]
-  },
-  "template:halloween-revelacion-disfraz": {
-   "name": "Révélation du déguisement",
-   "tags": [
-    "halloween",
-    "déguisement",
-    "transformation",
-    "avant après",
-    "frisson"
-   ]
-  },
-  "template:halloween-truco-o-trato": {
-   "name": "Soirée « Un bonbon ou un sort »",
-   "tags": [
-    "halloween",
-    "soirée",
-    "invitation",
-    "enfants",
-    "déguisements"
    ]
   },
   "template:horario-de-atencion": {
@@ -25006,15 +24882,6 @@
     "vacances"
    ]
   },
-  "template:s-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "citrouilles",
-    "horreur",
-    "octobre"
-   ]
-  },
   "template:s-hanukkah": {
    "name": "Joyeux Hanoucca",
    "tags": [
@@ -26035,15 +25902,6 @@
     "gym",
     "premier jour",
     "motivation"
-   ]
-  },
-  "template:st-halloween": {
-   "name": "Costume d'Halloween",
-   "tags": [
-    "story",
-    "halloween",
-    "costume",
-    "maquillage"
    ]
   },
   "template:st-jardin": {
@@ -29320,19 +29178,8 @@
    "name": "Bave verte",
    "tags": [
     "horreur",
-    "halloween",
     "slime",
     "vert",
-    "peur"
-   ]
-  },
-  "text-style:mie-calabaza": {
-   "name": "Citrouille",
-   "tags": [
-    "horreur",
-    "citrouille",
-    "halloween",
-    "orange",
     "peur"
    ]
   },
@@ -29351,7 +29198,6 @@
    "tags": [
     "horreur",
     "fantôme",
-    "halloween",
     "esprit",
     "peur"
    ]
@@ -29382,7 +29228,6 @@
     "horreur",
     "sang",
     "rouge",
-    "halloween",
     "peur"
    ]
   },
