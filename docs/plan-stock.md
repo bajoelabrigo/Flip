@@ -154,6 +154,18 @@ en títulos, etiquetas ni sinónimos (MrBeast es marca registrada): el estilo, c
    patrón es el de `TextAssetsTab.qml` (`scale` 1.02 al pasar, 0.97 al presionar, `Behavior` con
    `Theme.durationFast`). Revisar `StockThumb`, `StockHome`, `SceneTemplateBrowser` y cada pestaña de recursos.
 
+**Estado de A (2026-10-17): hecho, sin desplegar.**
+- App (`6bfff`): pestañas Todos/Videos/Fotos; los tipos propios en chips bajo «Todos» (`MarketTab.qml`, primero
+  «Inicio» = estantes); `CategoryScrollOn` en `StockBrowser.qml` (solo sin búsqueda y sin más páginas). Animación al
+  pasar el mouse en Stock, Plantillas, Máscaras, Stickers, Transiciones, Subtítulos, LUT, looks de texto, voces,
+  accesorios de cara, formas de máscara y favoritos de la cuenta. «Inicio» traducido en los 17 catálogos.
+- Halloween fuera (`6e6e3`): 16 elementos borrados de `publicar` (6 plantillas, 4 fondos, 3 stickers, el look, el
+  LUT y el estilo «Calabaza»; los archivos quedan en `tienda\plantillas\quitado-halloween`), el kit, y de los
+  generadores. Lo genérico se queda sin la etiqueta: la música de miedo pasa a «Misterio y suspenso» y los estilos
+  «Terror y Halloween» a «Terror y misterio» (sirven para el estilo true crime). i18n: 3.626 elementos, `--strict`
+  sin faltantes, `publicar\i18n` regenerado. Servidor: rama `stock-0.15` (`a4a75`, 30 pruebas) sin la temporada.
+- **Falta:** desplegar `publicar` (con `deploy/plantillas.ps1`) y el servidor junto con el contenido nuevo.
+
 ### B. 300 plantillas al estilo de youtubers famosos
 Repartidas entre los 16 estilos (unas 18–20 por estilo), en vertical y 16:9 donde tenga sentido:
 1. **Reto extremo:** contador de dinero gigante, «$1 vs $1.000.000», «Último en salir gana», «Día 1 / Día 100»,
