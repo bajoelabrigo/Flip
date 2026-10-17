@@ -16494,6 +16494,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Contadores</translation>
     </message>
     <message>
+        <source>YouTuber style</source>
+        <translation>Estilo youtuber</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Otras</translation>
     </message>

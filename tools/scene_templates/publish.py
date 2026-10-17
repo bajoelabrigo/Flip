@@ -42,6 +42,7 @@ CATEGORY_NAMES = {
     "ad6": {"es": "Anuncios de 6 s", "en": "6-second ads"},
     "thumbnail": {"es": "Miniaturas de YouTube", "en": "Video thumbnails"},
     "counter": {"es": "Contadores", "en": "Counters"},
+    "youtuber": {"es": "Estilo youtuber", "en": "YouTuber style"},
 }
 
 
