@@ -46,8 +46,31 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-10-17)
 
-### 0.14.0 en curso (2026-10-17), rama `flip/v0.14.0` — Stock completo
-Lo de Stock que **no necesitaba versión nueva ya está desplegado** (2026-10-16/17):
+### 0.14.0 PUBLICADA (2026-10-17) — Stock completo: tienda, tipos nuevos y uso más rápido
+- Rama `flip/v0.14.0` → **PR #20** → `main`; **tag `v0.14.0`**. Notas en `release-notes/0.14.0.md`, CHANGELOG (con
+  0.12.0 y 0.13.0 recuperados) y notas de la Store en `docs/store-listing.md` (1.069/1.500 caracteres, es y en).
+- **Release `v0.14.0` publicado (2026-10-17 01:38 UTC, run 38986650585)**: instalador, portable y `SHA256SUMS`;
+  copia en `versiones\FlipStudio-0.14.0`. **MSIX** en
+  `tienda\FlipStudio-Store\paquete-0.14.0\FlipStudio-0.14.0.0-x64.msix` (run 38986680013). Novedades de la web
+  desplegadas (`flipstudio-web` commit `2a296`).
+- **Falta (Jorge):** cambiar el TXT `version` del DNS a 0.14.0 y subir el MSIX a Partner Center con las notas de la
+  Store.
+- **Probado antes de publicar:** dos ensayos de `build.yml` en verde (runs 38975643991 y 38982166721: compilación +
+  16 suites + instalador y portable); la pantalla de inicio de Stock en ventana con estantes, la insignia de
+  novedades («99+») y «Pide una plantilla»; y de punta a punta por MCP contra el editor abierto con un elemento de
+  cada tipo nuevo (LUT → Ajustar › LUT, look → Mis efectos, estilo y texto animado → Texto, transición →
+  Transiciones, forma → Formas, música → Medios, plantilla → Plantillas). Lista en
+  `tools/e2e/calls_stock014.jsonl`.
+- **Arreglo posterior (PR #21):** el mensaje al instalar un look decía «Mis ajustes predeterminados»; en español
+  ahora dice **Mis efectos**, que es el panel real. También entraron `tools/e2e/shot.ps1` y `click.ps1` (capturan y
+  clican la ventana por mensajes, sin tocar el mouse).
+- **Trampa nueva:** **`--headless` no tiene sesión de cuenta.** `AccountController` carga la sesión guardada en el
+  editor con ventana, así que con `--headless` toda llamada `market_*` responde `authenticated:false` y el servidor
+  contesta 401. Las pruebas de Stock van con `mcp_e2e.py --window` o `--attach <pid>` a un editor abierto, con
+  `mcp/startOnLaunch = true` (y la cuenta rotada se exporta **después** de la prueba, como avisa la trampa de abajo).
+
+### Stock ampliado y DESPLEGADO (2026-10-16/17), contenido y servidor
+Lo de Stock que **no necesitaba versión nueva quedó desplegado** antes de la 0.14.0:
 - **Contenido en `api.getflipstudio.com/plantillas/`** (4,87 GB, subido con `deploy/plantillas.ps1`, que cambia la
   carpeta entera): **883 plantillas** (533 + **350 de formatos nuevos**: publicaciones 1:1, historias de 15 s,
   anuncios de 6 s, miniaturas de YouTube), **328 cortes de música** (ánimos, 15/30/60 s; 9 pistas FMA en espera de
@@ -84,11 +107,6 @@ Lo de Stock que **no necesitaba versión nueva ya está desplegado** (2026-10-16
   - **El fallo del CI de `flip/v0.14.0-stock` era real y ya estaba arreglado en la punta de la rama** (run
     38967194866 probó `d6c24fa`, antes de `3334f`): `McpTest::setMaskRoundTripsFreeformPoints` fallaba porque el
     esquema de `set_mask` aún no conocía `pathData`/`pathEvenOdd` y el validador los marcaba como `ignored`.
-- **Falta (para cerrar la 0.14.0):** el build de Windows en verde (`build.yml` sobre `flip/v0.14.0`), probar en
-  ventana con el portable (`mcp_e2e.py --window` y `calls_stock014.jsonl` en `tools/e2e/`), PR a `main`, tag
-  `v0.14.0` (release), MSIX con `msstore.yml`, y desplegar las novedades de la web (`flipstudio-web/novedades.html`
-  ya tiene la sección 0.14.0, **sin desplegar**).
-
 ### Plan de Stock (Jorge, 2026-10-16)
 - Stock es **pieza central** de la app. El plan completo, acordado con Jorge, está en `docs/plan-stock.md`:
   contenido nuevo (textos animados, overlays, marcos, fondos, sonidos, música, LUTs, stickers, tercios inferiores,
@@ -96,40 +114,6 @@ Lo de Stock que **no necesitaba versión nueva ya está desplegado** (2026-10-16
   semanales. **Para el mundo entero:** nada de fiestas solo peruanas o latinas. Pagos, al final.
 - Orden de Jorge (2026-10-16): primero todo lo de Stock que no necesita versión nueva (servidor y contenido); al
   final la 0.14.0 con todo lo que sí, y al terminar: **compilar una vez, probar en ventana y publicar todo**.
-
-### Stock ampliado y DESPLEGADO (2026-10-16), rama `flip/stock-superposiciones`
-- En producción: 533 plantillas, 222 animaciones (`tools/animations`, rama de stickers unida), 200 superposiciones,
-  200 sonidos, 200 fondos. Detalle en `docs/plan-stock.md` › Estado.
-- Regla de Jorge para Stock: mirar tendencias (CapCut, Instagram, Premiere, AE, Filmora…) y hacer **al menos 200 de
-  cada tipo**, calidad antes que velocidad.
-- **200 superposiciones** hechas por código (`tools/overlays`: `fx.py` = kit, `designs*.py` = diseños, `build.py` =
-  WebM VP9 con alfa 1080×1920 + miniatura y vista previa sobre una foto de muestra, `publish.py` → `publicar/
-  superposiciones`). Salida en `tienda\superposiciones\paquetes`. Servidor: tabla `PACKS` en `market.ts` (tipo
-  `overlay`, `delivery: "media"`, `media_kind: "video"`): **la 0.13.0 ya las ve y las importa a Medios**. Probado
-  en la app real (render con transparencia e importación).
-- **Trampa:** en un proyecto JSON `tracks[0]` es la pista de **arriba**.
-- **Trampa:** el ruido (grano, estática) no se comprime: un grano a pantalla completa pesaba 200 MB. Grano de 1 s
-  que cambia cada 2 cuadros y `crf` alto por diseño.
-- **Trampa:** `tools/scene_templates/publish.py` borraba todo `publicar` salvo `animaciones`; ahora también conserva
-  `superposiciones`.
-- **Fotos de muestra con marcas, no usar:** product-01…04 (Jordan, Converse), gym-03 (Adidas), fashion-05/06,
-  family-06 (Timberland), barber-04, bakery-01, car-*, sport-01/02 (patrocinadores), nails-01, skate-02/03.
-- En `git bash` el `/y` de `reg export` se convierte en ruta: usar `MSYS_NO_PATHCONV=1`.
-- **Sonidos (200, desplegados):** `tools/sounds` (`dsp.py` = síntesis con numpy/scipy, `designs.py`, `build.py` = WAV
-  48 kHz + MP3 de vista previa + tarjeta con la onda + `informe.txt` con nivel y centroide para revisar sin oír).
-  Tipo `sound` (`media_kind: "audio"`). Revisar con espectrogramas: un whoosh con centroide de 8–10 kHz es siseo.
-- **Fondos (200, desplegados):** `tools/backgrounds` (45 motivos × 4 paletas + 10 fechas × 2), MP4 en bucle.
-  Tipo `background`. **Trampa de bucles:** lo que avanza con `% periodo` tiene que moverse un periodo entero por
-  vuelta (`(y + u * (h + m)) % (h + m)`), si no salta al reiniciar; medir primer vs. último cuadro.
-- **Trampa de proporción:** en coordenadas 0–1 de un cuadro 9:16, `y` vale 1,78 veces `x` en píxeles: un círculo
-  necesita `(y - cy) * 1.78`, no `* 0.56` (salen soles en forma de bala).
-- **Plantillas: 533 desplegadas** (133 + 200 horizontales 16:9 + 200 reels), unidas desde `flip/stock-plantillas-400`.
-  Servidor: `width`/`height` del índice y filtro «Formato» (vertical/horizontal). Las 16:9 llevan una tarjeta 9:16
-  tipo guion gráfico porque la grilla de la app recorta a 9:16; `thumbWide`/`previewWide` quedan para la 0.14.0.
-  Se quitaron fotos con marcas, iconos que imitaban logos (YouTube, Facebook, WhatsApp) y textos solo peruanos.
-  **App (sin compilar):** 3 categorías nuevas en `SceneTemplateCatalog.cpp` (`slideshow`, `lowerthird`, `transition`).
-- **Para la 0.14.0:** LUT en Stock (hoy Medios no importa `.cube`), elegir variante (vertical/horizontal), tarjetas
-  anchas, vista previa de audio al pasar el mouse, inicio de Stock tipo tienda.
 
 ### 0.13.0 PUBLICADA (2026-10-16): Retoque › Cuerpo y Cabello, plantillas propias, 101 plantillas, Stock › Animaciones
 - Rama `flip/plantillas-propias` → PR a `main`, tag `v0.13.0`. Notas en `release-notes/0.13.0.md`; novedades para la
