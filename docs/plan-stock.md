@@ -127,3 +127,71 @@ cuenta, «Usar con mis fotos», «Cambiar plantilla», cortes al ritmo, formular
 - Ideas del plan que no entraron: caché de búsquedas de Pexels/Pixabay y CDN para lo pesado (a las 10.000 descargas,
   punto 5 del plan).
 
+
+---
+
+## 0.15.0: más Stock (Jorge, 2026-10-16, para empezar el 2026-10-17)
+Rama `flip/v0.15.0` (sale de `main` en `0f015`). Jorge: «vamos a hacer todo eso». **Nada de nombres de youtubers**
+en títulos, etiquetas ni sinónimos (MrBeast es marca registrada): el estilo, con nombres propios («Reto extremo»).
+
+### A. Cambios en la app y en el contenido que ya está
+1. **Menú de Stock:** arriba solo **Todos, Videos y Fotos** (en `MarketTab.qml`; SFX si está disponible). El resto
+   de los tipos (Plantillas, Animaciones, Superposiciones, Fondos, Música, Sonidos, LUTs, Looks, Estilos de texto,
+   Textos animados, Transiciones, Formas) va **abajo en botones (chips)**, como en Texto (`TextAssetsTab.qml`), con
+   `CategoryScrollOn`: al llegar al final de un tipo, la rueda abre el siguiente. En Stock hay paginación
+   (`Market.hasMore` / `loadMore` en `atYEnd`): el paso al siguiente tipo solo cuando ya no hay más páginas y no se
+   está buscando. Idea de diseño: los chips cuelgan de «Todos» (primer chip «Inicio» = los estantes); Videos y Fotos
+   son Pexels/Pixabay.
+2. **Quitar todo Halloween** (Jorge no lo quiere). Ya ubicado (2026-10-16): el kit `kit-halloween` de
+   `tienda\plantillas\publicar\colecciones.json`, la fecha `halloween` de `flipstudio-api/src/services/seasons.ts`
+   (línea ~147), y elementos en los índices de `publicar`: plantillas (`index.json`, p. ej. `halloween-photo-dump`,
+   `halloween-revelacion-disfraz`, `halloween-truco-o-trato`, `h-fecha-halloween`), fondos, estilos de texto,
+   música, LUTs, looks, stickers y superposiciones (contar por id/título/etiquetas, no por la palabra suelta). Quitar
+   también de los generadores (`tools/*/designs*.py`, `templates_*.py`, `music/catalog.py`, `BRIEF.md`) para que no
+   vuelva al regenerar, y de `tools/stock_i18n`. **Día de Muertos no es Halloween**: se queda. Subir con
+   `deploy/plantillas.ps1` (swap de la carpeta entera, 4,6 GB).
+3. **Animación al pasar el mouse en todas las tarjetas** (Stock, plantillas, efectos y el resto de pestañas): el
+   patrón es el de `TextAssetsTab.qml` (`scale` 1.02 al pasar, 0.97 al presionar, `Behavior` con
+   `Theme.durationFast`). Revisar `StockThumb`, `StockHome`, `SceneTemplateBrowser` y cada pestaña de recursos.
+
+### B. 300 plantillas al estilo de youtubers famosos
+Repartidas entre los 16 estilos (unas 18–20 por estilo), en vertical y 16:9 donde tenga sentido:
+1. **Reto extremo:** contador de dinero gigante, «$1 vs $1.000.000», «Último en salir gana», «Día 1 / Día 100»,
+   temporizador en pantalla, textos enormes con borde grueso.
+2. **Miniaturas que se hacen clic:** cara sorprendida, flecha roja, círculo, texto de 3 palabras, fondo saturado
+   (16:9).
+3. **Subtítulos que saltan palabra por palabra:** palabra resaltada en color, emoji y zoom al golpe.
+4. **Vlog de ciudad:** títulos sobre la calle, timelapse, mapa con la ruta.
+5. **Explicador:** resaltador sobre el texto, recortes de periódico, mapa con zoom, datos que aparecen.
+6. **Reseña de tecnología:** unboxing limpio, ficha técnica, comparación lado a lado.
+7. **Gaming y streamer:** marco para la cámara de la cara, alerta de suscriptor, «GG», marcador, momentos destacados.
+8. **Reacción:** video en grande y la cara en una esquina, con zoom en las reacciones.
+9. **Top 10 / ranking:** cuenta regresiva con números grandes y la revelación del primero.
+10. **Podcast en video:** dos cámaras con nombres, cortes cortos, onda de audio.
+11. **Entrevista en la calle:** micrófono, pregunta arriba, respuestas.
+12. **Misterio / true crime:** expediente, fotos con chinches e hilo rojo, máquina de escribir.
+13. **«Un día en mi vida» y «Arréglate conmigo»:** hora en pantalla, lista de pasos.
+14. **Cocina:** ingredientes que aparecen, pasos numerados, plato final.
+15. **Fitness:** contador de repeticiones, temporizador por serie, antes y después.
+16. **Intros de canal (5 s) y pantallas finales de YouTube (20 s)** con huecos para «el siguiente video» y
+    «suscríbete».
+
+### C. Otro contenido para Stock
+- **Sonidos de youtuber** propios: whoosh, ding, boom, redoble, «error».
+- **Superposiciones de youtuber:** botones de suscribirse y campana, flechas, círculos, «Me gusta», emojis 3D.
+- **Marcos para la cámara de la cara** (gaming y podcast).
+- **Contadores animados** de dinero, seguidores y días.
+- **Transiciones de youtuber:** paneo rápido, zoom de golpe, glitch, cambio de escena con sonido.
+- **Tercios inferiores con tus redes:** @usuario con el logo de cada red.
+
+### D. Kits nuevos (Jorge: «esa sección me gusta»)
+Cada kit junta plantillas, música, sonidos, stickers, superposiciones y fondos del mismo tema y sale en el inicio de
+Stock (`colecciones.json`; los de fecha con `from`/`to`).
+- **Por tipo de creador:** YouTuber principiante, Reto extremo, Podcast, Gaming, Cocina, Fitness, Viajes, Tecnología.
+- **Para negocios:** Negocio local, Lanzamiento de producto, Inmobiliaria, Clases y cursos.
+- **Por fecha, para todo el mundo:** San Valentín, Día de la Madre, Día del Padre, Graduación, Verano, Vuelta a
+  clases, Año Nuevo, Bodas, Cumpleaños.
+
+### Orden sugerido
+A (app y limpieza) → C y B (contenido, con hojas de contacto para revisar) → D (kits, cuando exista el contenido) →
+i18n de todo lo nuevo en los 13 idiomas → desplegar contenido → compilar una vez, probar en ventana y publicar.
