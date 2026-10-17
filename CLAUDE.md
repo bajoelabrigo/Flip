@@ -53,8 +53,8 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   copia en `versiones\FlipStudio-0.14.0`. **MSIX** en
   `tienda\FlipStudio-Store\paquete-0.14.0\FlipStudio-0.14.0.0-x64.msix` (run 38986680013). Novedades de la web
   desplegadas (`flipstudio-web` commit `2a296`).
-- **Falta (Jorge):** cambiar el TXT `version` del DNS a 0.14.0 y subir el MSIX a Partner Center con las notas de la
-  Store.
+- **Jorge (2026-10-16):** TXT `version` = 0.14.0 (comprobado en DNS) y MSIX subido a Partner Center con las notas de
+  la Store. Falta que la certifiquen.
 - **Probado antes de publicar:** dos ensayos de `build.yml` en verde (runs 38975643991 y 38982166721: compilación +
   16 suites + instalador y portable); la pantalla de inicio de Stock en ventana con estantes, la insignia de
   novedades («99+») y «Pide una plantilla»; y de punta a punta por MCP contra el editor abierto con un elemento de
