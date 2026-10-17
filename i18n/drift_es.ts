@@ -4343,11 +4343,11 @@
     </message>
     <message>
         <source>Look installed: %1 (My presets)</source>
-        <translation>Look instalado: %1 (Mis ajustes predeterminados)</translation>
+        <translation>Look instalado: %1 (Mis efectos)</translation>
     </message>
     <message>
         <source>In My presets</source>
-        <translation>En Mis ajustes predeterminados</translation>
+        <translation>En Mis efectos</translation>
     </message>
     <message>
         <source>it is not a text style</source>
