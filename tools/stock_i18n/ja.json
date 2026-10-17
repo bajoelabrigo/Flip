@@ -61,6 +61,7 @@
   "music:triste": "切ないと感動",
   "overlay:amor": "ラブ",
   "overlay:camara": "カメラ・画面",
+  "overlay:camara-cara": "顔出しカメラ枠",
   "overlay:celebracion": "お祝い",
   "overlay:clima": "天気・自然",
   "overlay:garabatos": "落書き",
@@ -69,6 +70,7 @@
   "overlay:marcos": "フレーム・テクスチャ",
   "overlay:particulas": "パーティクル・キラキラ",
   "overlay:pelicula": "フィルム・レトロ",
+  "overlay:youtuber": "YouTuber",
   "shape:arrows": "矢印",
   "shape:badges": "バッジ",
   "shape:bubbles": "吹き出し",
@@ -93,12 +95,14 @@
   "sound:ritmo": "ビート・音楽",
   "sound:suspenso": "サスペンス・ドラマ",
   "sound:transiciones": "トランジション",
+  "sound:youtuber": "YouTuber",
   "template:ad6": "6秒の広告",
   "template:beforeafter": "ビフォーアフター",
   "template:business": "ビジネス",
   "template:celebration": "お祝い",
   "template:collage": "コラージュ",
   "template:countdown": "カウントダウン",
+  "template:counter": "カウンター",
   "template:intro": "オープニング・タイトル",
   "template:lowerthird": "テロップ",
   "template:outro": "エンディング",
@@ -144,6 +148,7 @@
   "transition:liquido": "インクと液体",
   "transition:luz": "光とフィルム",
   "transition:movimiento": "モーション",
+  "transition:youtuber": "YouTuber風",
   "transition:zoom": "ズームとパンチ"
  },
  "items": {
@@ -12785,6 +12790,246 @@
     "天気"
    ]
   },
+  "overlay:facecam-burbuja": {
+   "name": "吹き出しカメラ枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "吹き出し",
+    "コミック",
+    "配信"
+   ]
+  },
+  "overlay:facecam-circulo-blanco": {
+   "name": "白い円のカメラ枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "円",
+    "白",
+    "シンプル"
+   ]
+  },
+  "overlay:facecam-circulo-degradado": {
+   "name": "グラデーションリング枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "円",
+    "グラデーション",
+    "おしゃれ"
+   ]
+  },
+  "overlay:facecam-circulo-dorado": {
+   "name": "ゴールドリング枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "円",
+    "ゴールド",
+    "エレガント"
+   ]
+  },
+  "overlay:facecam-circulo-neon": {
+   "name": "ネオン円のカメラ枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "円",
+    "ネオン",
+    "ゲーム実況"
+   ]
+  },
+  "overlay:facecam-circulo-ondas": {
+   "name": "話すと波打つカメラ枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "円",
+    "音声",
+    "ポッドキャスト"
+   ]
+  },
+  "overlay:facecam-comic": {
+   "name": "ポップコミック枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "コミック",
+    "ポップアート",
+    "黄色"
+   ]
+  },
+  "overlay:facecam-cuadrado": {
+   "name": "角丸スクエア枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "四角",
+    "シンプル",
+    "ポッドキャスト"
+   ]
+  },
+  "overlay:facecam-cyber": {
+   "name": "サイバーHUD枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "サイバー",
+    "hud",
+    "近未来"
+   ]
+  },
+  "overlay:facecam-en-vivo-es": {
+   "name": "ライブ円形枠(スペイン語)",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "ライブ",
+    "生配信",
+    "スペイン語"
+   ]
+  },
+  "overlay:facecam-esquinas": {
+   "name": "コーナーブラケット枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "コーナー",
+    "hud",
+    "シンプル"
+   ]
+  },
+  "overlay:facecam-estudio": {
+   "name": "ポッドキャストスタジオ枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "ポッドキャスト",
+    "マイク",
+    "スタジオ"
+   ]
+  },
+  "overlay:facecam-gamer-neon": {
+   "name": "ネオンゲーマー枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "ゲーマー",
+    "ネオン",
+    "ゲーム実況"
+   ]
+  },
+  "overlay:facecam-gamer-rgb": {
+   "name": "RGBゲーマー枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "ゲーマー",
+    "rgb",
+    "虹色"
+   ]
+  },
+  "overlay:facecam-glitch": {
+   "name": "グリッチ枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "グリッチ",
+    "ゲーム実況",
+    "配信"
+   ]
+  },
+  "overlay:facecam-hexagono-neon": {
+   "name": "ネオン六角形枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "六角形",
+    "ネオン",
+    "ゲーマー"
+   ]
+  },
+  "overlay:facecam-hexagono-tech": {
+   "name": "テック六角形枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "六角形",
+    "テック",
+    "近未来"
+   ]
+  },
+  "overlay:facecam-live-en": {
+   "name": "ライブ円形枠(英語)",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "ライブ",
+    "生配信",
+    "英語"
+   ]
+  },
+  "overlay:facecam-madera": {
+   "name": "木製カメラ枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "木目",
+    "ナチュラル",
+    "配信"
+   ]
+  },
+  "overlay:facecam-minimal": {
+   "name": "ミニマルカメラ枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "シンプル",
+    "ミニマル",
+    "配信"
+   ]
+  },
+  "overlay:facecam-pastel": {
+   "name": "パステルハート枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "パステル",
+    "ハート",
+    "かわいい"
+   ]
+  },
+  "overlay:facecam-placa-nombre": {
+   "name": "名前プレート付き枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "名前",
+    "プレート",
+    "配信"
+   ]
+  },
+  "overlay:facecam-rayos": {
+   "name": "稲妻カメラ枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "稲妻",
+    "電気",
+    "ゲーマー"
+   ]
+  },
+  "overlay:facecam-tv-retro": {
+   "name": "レトロテレビ枠",
+   "tags": [
+    "カメラ枠",
+    "ワイプ",
+    "レトロ",
+    "テレビ",
+    "ヴィンテージ"
+   ]
+  },
   "overlay:garabato-angel": {
    "name": "天使の羽と輪",
    "tags": [
@@ -13925,6 +14170,406 @@
     "紙",
     "ペーパー",
     "ビンテージ"
+   ]
+  },
+  "overlay:yt-barra-reproduccion": {
+   "name": "動画の再生バー",
+   "tags": [
+    "youtuber",
+    "再生バー",
+    "プレーヤー",
+    "動画",
+    "縦型"
+   ]
+  },
+  "overlay:yt-campana": {
+   "name": "通知ベル",
+   "tags": [
+    "youtuber",
+    "ベル",
+    "通知",
+    "チャンネル登録",
+    "縦型"
+   ]
+  },
+  "overlay:yt-check-verde": {
+   "name": "緑のチェックマーク",
+   "tags": [
+    "youtuber",
+    "チェック",
+    "正解",
+    "ok",
+    "緑"
+   ]
+  },
+  "overlay:yt-circulo-flecha": {
+   "name": "赤い丸と矢印",
+   "tags": [
+    "youtuber",
+    "丸",
+    "矢印",
+    "赤",
+    "注目"
+   ]
+  },
+  "overlay:yt-circulo-neon": {
+   "name": "ネオンの丸",
+   "tags": [
+    "youtuber",
+    "丸",
+    "ネオン",
+    "注目",
+    "強調"
+   ]
+  },
+  "overlay:yt-comentario-pop": {
+   "name": "ポップするコメント",
+   "tags": [
+    "youtuber",
+    "コメント",
+    "ポップ",
+    "sns",
+    "縦型"
+   ]
+  },
+  "overlay:yt-compartir-pop": {
+   "name": "ポップする共有ボタン",
+   "tags": [
+    "youtuber",
+    "共有",
+    "シェア",
+    "ボタン",
+    "縦型"
+   ]
+  },
+  "overlay:yt-contador-likes": {
+   "name": "いいねカウンター",
+   "tags": [
+    "youtuber",
+    "いいね",
+    "カウンター",
+    "ハート",
+    "縦型"
+   ]
+  },
+  "overlay:yt-contador-seguidores": {
+   "name": "フォロワーカウンター",
+   "tags": [
+    "youtuber",
+    "フォロワー",
+    "カウンター",
+    "sns",
+    "縦型"
+   ]
+  },
+  "overlay:yt-contador-vistas": {
+   "name": "再生回数カウンター",
+   "tags": [
+    "youtuber",
+    "再生回数",
+    "カウンター",
+    "動画",
+    "縦型"
+   ]
+  },
+  "overlay:yt-cursor-clic": {
+   "name": "クリックするカーソル",
+   "tags": [
+    "youtuber",
+    "カーソル",
+    "クリック",
+    "マウス",
+    "縦型"
+   ]
+  },
+  "overlay:yt-emoji-100": {
+   "name": "3D 100点絵文字",
+   "tags": [
+    "youtuber",
+    "絵文字",
+    "100",
+    "3d",
+    "リアクション"
+   ]
+  },
+  "overlay:yt-emoji-calavera": {
+   "name": "3D ドクロ絵文字",
+   "tags": [
+    "youtuber",
+    "絵文字",
+    "ドクロ",
+    "3d",
+    "リアクション"
+   ]
+  },
+  "overlay:yt-emoji-enamorado": {
+   "name": "3D ハート目絵文字",
+   "tags": [
+    "youtuber",
+    "絵文字",
+    "ハート",
+    "3d",
+    "大好き"
+   ]
+  },
+  "overlay:yt-emoji-fuego": {
+   "name": "3D 炎の絵文字",
+   "tags": [
+    "youtuber",
+    "絵文字",
+    "炎",
+    "3d",
+    "アツい"
+   ]
+  },
+  "overlay:yt-emoji-llorando": {
+   "name": "3D 泣き顔絵文字",
+   "tags": [
+    "youtuber",
+    "絵文字",
+    "泣き",
+    "3d",
+    "リアクション"
+   ]
+  },
+  "overlay:yt-emoji-risa": {
+   "name": "3D 大笑い絵文字",
+   "tags": [
+    "youtuber",
+    "絵文字",
+    "笑い",
+    "3d",
+    "爆笑"
+   ]
+  },
+  "overlay:yt-emoji-sorpresa": {
+   "name": "3D びっくり絵文字",
+   "tags": [
+    "youtuber",
+    "絵文字",
+    "驚き",
+    "3d",
+    "リアクション"
+   ]
+  },
+  "overlay:yt-flecha-neon": {
+   "name": "ネオン矢印",
+   "tags": [
+    "youtuber",
+    "矢印",
+    "ネオン",
+    "注目",
+    "強調"
+   ]
+  },
+  "overlay:yt-flecha-roja": {
+   "name": "指し示す赤い矢印",
+   "tags": [
+    "youtuber",
+    "矢印",
+    "赤",
+    "注目",
+    "ポイント"
+   ]
+  },
+  "overlay:yt-flechas-amarillas": {
+   "name": "両側の黄色い矢印",
+   "tags": [
+    "youtuber",
+    "矢印",
+    "黄色",
+    "注目",
+    "強調"
+   ]
+  },
+  "overlay:yt-iconos-fila": {
+   "name": "いいね・コメント・共有",
+   "tags": [
+    "youtuber",
+    "いいね",
+    "コメント",
+    "共有",
+    "アイコン"
+   ]
+  },
+  "overlay:yt-iconos-lateral": {
+   "name": "ショート動画のサイドボタン",
+   "tags": [
+    "youtuber",
+    "ショート動画",
+    "ボタン",
+    "アイコン",
+    "縦型"
+   ]
+  },
+  "overlay:yt-like-pop": {
+   "name": "ポップするいいね",
+   "tags": [
+    "youtuber",
+    "いいね",
+    "ポップ",
+    "グッド",
+    "縦型"
+   ]
+  },
+  "overlay:yt-mano-clic": {
+   "name": "タップする手",
+   "tags": [
+    "youtuber",
+    "手",
+    "タップ",
+    "クリック",
+    "縦型"
+   ]
+  },
+  "overlay:yt-meta-suscriptores": {
+   "name": "目標達成バー",
+   "tags": [
+    "youtuber",
+    "目標",
+    "達成",
+    "登録者",
+    "バー"
+   ]
+  },
+  "overlay:yt-new-video-en": {
+   "name": "新着動画ステッカー(英語)",
+   "tags": [
+    "youtuber",
+    "新着動画",
+    "ステッカー",
+    "英語",
+    "縦型"
+   ]
+  },
+  "overlay:yt-notificacion": {
+   "name": "新着動画の通知",
+   "tags": [
+    "youtuber",
+    "通知",
+    "新着動画",
+    "ベル",
+    "縦型"
+   ]
+  },
+  "overlay:yt-notificacion-oscura": {
+   "name": "ダーク通知",
+   "tags": [
+    "youtuber",
+    "通知",
+    "ダーク",
+    "新着動画",
+    "縦型"
+   ]
+  },
+  "overlay:yt-nuevo-video-es": {
+   "name": "新着動画ステッカー(スペイン語)",
+   "tags": [
+    "youtuber",
+    "新着動画",
+    "ステッカー",
+    "スペイン語",
+    "縦型"
+   ]
+  },
+  "overlay:yt-resaltador": {
+   "name": "黄色の蛍光ペン",
+   "tags": [
+    "youtuber",
+    "蛍光ペン",
+    "マーカー",
+    "黄色",
+    "強調"
+   ]
+  },
+  "overlay:yt-subscribe-card-en": {
+   "name": "カード型登録ボタン(英語)",
+   "tags": [
+    "youtuber",
+    "チャンネル登録",
+    "ボタン",
+    "カード",
+    "英語"
+   ]
+  },
+  "overlay:yt-subscribe-classic-en": {
+   "name": "定番の登録ボタン(英語)",
+   "tags": [
+    "youtuber",
+    "チャンネル登録",
+    "ボタン",
+    "定番",
+    "英語"
+   ]
+  },
+  "overlay:yt-subscribe-neon-en": {
+   "name": "ネオン登録ボタン(英語)",
+   "tags": [
+    "youtuber",
+    "チャンネル登録",
+    "ボタン",
+    "ネオン",
+    "英語"
+   ]
+  },
+  "overlay:yt-subscribe-white-en": {
+   "name": "白い登録ボタン(英語)",
+   "tags": [
+    "youtuber",
+    "チャンネル登録",
+    "ボタン",
+    "白",
+    "英語"
+   ]
+  },
+  "overlay:yt-suscribete-clasico-es": {
+   "name": "定番の登録ボタン(スペイン語)",
+   "tags": [
+    "youtuber",
+    "チャンネル登録",
+    "ボタン",
+    "定番",
+    "スペイン語"
+   ]
+  },
+  "overlay:yt-suscribete-neon-es": {
+   "name": "ネオン登録ボタン(スペイン語)",
+   "tags": [
+    "youtuber",
+    "チャンネル登録",
+    "ボタン",
+    "ネオン",
+    "スペイン語"
+   ]
+  },
+  "overlay:yt-suscribete-pildora-es": {
+   "name": "白い登録ボタン(スペイン語)",
+   "tags": [
+    "youtuber",
+    "チャンネル登録",
+    "ボタン",
+    "白",
+    "スペイン語"
+   ]
+  },
+  "overlay:yt-suscribete-tarjeta-es": {
+   "name": "カード型登録ボタン(スペイン語)",
+   "tags": [
+    "youtuber",
+    "チャンネル登録",
+    "ボタン",
+    "カード",
+    "スペイン語"
+   ]
+  },
+  "overlay:yt-x-roja": {
+   "name": "赤いバツ印",
+   "tags": [
+    "youtuber",
+    "バツ",
+    "不正解",
+    "ng",
+    "赤"
    ]
   },
   "shape:arch": {
@@ -15925,6 +16570,15 @@
     "模様"
    ]
   },
+  "sound:acento-tension": {
+   "name": "緊張のアクセント",
+   "tags": [
+    "効果音",
+    "緊張",
+    "サスペンス",
+    "youtuber"
+   ]
+  },
   "sound:angelical": {
    "name": "天使の音",
    "tags": [
@@ -15932,6 +16586,15 @@
     "天国",
     "癒し",
     "奇跡"
+   ]
+  },
+  "sound:aparecer-rebote": {
+   "name": "ポヨンと登場",
+   "tags": [
+    "効果音",
+    "登場",
+    "バウンス",
+    "ポップ"
    ]
   },
   "sound:aparicion": {
@@ -15970,6 +16633,15 @@
     "回想"
    ]
   },
+  "sound:asombro": {
+   "name": "驚きのシンセ",
+   "tags": [
+    "効果音",
+    "驚き",
+    "シンセ",
+    "ワオ"
+   ]
+  },
   "sound:aura": {
    "name": "きらめくオーラ",
    "tags": [
@@ -15986,6 +16658,42 @@
     "ドラム",
     "ジョーク",
     "ユーモア"
+   ]
+  },
+  "sound:barra-carga": {
+   "name": "読み込み完了",
+   "tags": [
+    "効果音",
+    "ローディング",
+    "完了",
+    "ui"
+   ]
+  },
+  "sound:barrido-camara": {
+   "name": "ウィップパン",
+   "tags": [
+    "効果音",
+    "シュッ",
+    "トランジション",
+    "スワイプ"
+   ]
+  },
+  "sound:barrido-camara-doble": {
+   "name": "ダブルウィップパン",
+   "tags": [
+    "効果音",
+    "シュッ",
+    "トランジション",
+    "2回"
+   ]
+  },
+  "sound:barrido-golpe": {
+   "name": "ウィップパン+ヒット",
+   "tags": [
+    "効果音",
+    "シュッ",
+    "ヒット",
+    "トランジション"
    ]
   },
   "sound:bass-drop": {
@@ -16095,6 +16803,15 @@
     "賞品"
    ]
   },
+  "sound:boom-808": {
+   "name": "808ブーム(お披露目)",
+   "tags": [
+    "効果音",
+    "808",
+    "低音",
+    "お披露目"
+   ]
+  },
   "sound:boom-cine": {
    "name": "シネマティックなブーン",
    "tags": [
@@ -16167,6 +16884,15 @@
     "魔法",
     "ミステリアス",
     "ダーク"
+   ]
+  },
+  "sound:burbuja-plop": {
+   "name": "泡のポコッ",
+   "tags": [
+    "効果音",
+    "泡",
+    "ポップ",
+    "かわいい"
    ]
   },
   "sound:burbujas-magicas": {
@@ -16313,6 +17039,15 @@
     "切り替え"
    ]
   },
+  "sound:check-tilde": {
+   "name": "チェックマーク",
+   "tags": [
+    "効果音",
+    "チェック",
+    "完了",
+    "ui"
+   ]
+  },
   "sound:chillido-doble": {
    "name": "ダブルのキュッキュッ",
    "tags": [
@@ -16329,6 +17064,15 @@
     "おもちゃ",
     "ペット",
     "ユーモア"
+   ]
+  },
+  "sound:cierre-video": {
+   "name": "エンディングの締め",
+   "tags": [
+    "効果音",
+    "エンディング",
+    "締め",
+    "アウトロ"
    ]
   },
   "sound:cinta-frenada": {
@@ -16420,6 +17164,24 @@
     "チェック"
    ]
   },
+  "sound:corte-glitch": {
+   "name": "グリッチカット",
+   "tags": [
+    "効果音",
+    "グリッチ",
+    "ノイズ",
+    "カット"
+   ]
+  },
+  "sound:corte-seco": {
+   "name": "ジャンプカット",
+   "tags": [
+    "効果音",
+    "カット",
+    "ジャンプカット",
+    "テンポ"
+   ]
+  },
   "sound:cremallera": {
    "name": "ファスナー",
    "tags": [
@@ -16445,6 +17207,24 @@
     "1 2 3 4",
     "スティック",
     "スタート"
+   ]
+  },
+  "sound:cuenta-regresiva": {
+   "name": "3・2・1カウントダウン",
+   "tags": [
+    "効果音",
+    "カウントダウン",
+    "3 2 1",
+    "スタート"
+   ]
+  },
+  "sound:cuenta-regresiva-rapida": {
+   "name": "速いカウントダウン",
+   "tags": [
+    "効果音",
+    "カウントダウン",
+    "速い",
+    "タイマー"
    ]
   },
   "sound:dano": {
@@ -16519,6 +17299,15 @@
     "新品"
    ]
   },
+  "sound:ding-idea": {
+   "name": "ひらめきのチーン",
+   "tags": [
+    "効果音",
+    "ひらめき",
+    "アイデア",
+    "チーン"
+   ]
+  },
   "sound:disco-rayado": {
    "name": "レコードスクラッチ",
    "tags": [
@@ -16563,6 +17352,15 @@
     "ドラム",
     "ドロップ",
     "トランジション"
+   ]
+  },
+  "sound:error-doble": {
+   "name": "ダブルエラー音",
+   "tags": [
+    "効果音",
+    "エラー",
+    "ブブー",
+    "失敗"
    ]
   },
   "sound:error-negativo": {
@@ -16626,6 +17424,15 @@
     "ファンファーレ",
     "勝者",
     "優勝"
+   ]
+  },
+  "sound:foto-flash": {
+   "name": "フラッシュ撮影",
+   "tags": [
+    "効果音",
+    "カメラ",
+    "シャッター",
+    "フラッシュ"
    ]
   },
   "sound:game-over": {
@@ -16709,6 +17516,15 @@
     "アクセント",
     "ドラマ",
     "衝撃"
+   ]
+  },
+  "sound:golpe-eco": {
+   "name": "エコー付きスラム",
+   "tags": [
+    "効果音",
+    "ヒット",
+    "エコー",
+    "迫力"
    ]
   },
   "sound:golpe-fuerte": {
@@ -16835,6 +17651,15 @@
     "ライト"
    ]
   },
+  "sound:intro-golpe": {
+   "name": "イントロのヒット",
+   "tags": [
+    "効果音",
+    "イントロ",
+    "ヒット",
+    "オープニング"
+   ]
+  },
   "sound:laser": {
    "name": "レーザー",
    "tags": [
@@ -16917,6 +17742,15 @@
     "パーカッション"
    ]
   },
+  "sound:marcador": {
+   "name": "マーカーで線を引く",
+   "tags": [
+    "効果音",
+    "マーカー",
+    "書く",
+    "強調"
+   ]
+  },
   "sound:me-gusta": {
    "name": "いいね",
    "tags": [
@@ -16969,6 +17803,15 @@
     "ゲーム",
     "お金",
     "ダブル"
+   ]
+  },
+  "sound:monedas-mano": {
+   "name": "コインのジャラジャラ",
+   "tags": [
+    "効果音",
+    "コイン",
+    "お金",
+    "チャリン"
    ]
   },
   "sound:notificacion-campanita": {
@@ -17032,6 +17875,15 @@
     "本",
     "紙",
     "トランジション"
+   ]
+  },
+  "sound:pensando": {
+   "name": "考え中…",
+   "tags": [
+    "効果音",
+    "考え中",
+    "ハテナ",
+    "コミカル"
    ]
   },
   "sound:platillo": {
@@ -17151,6 +18003,15 @@
     "抽選"
    ]
   },
+  "sound:rafaga-fotos": {
+   "name": "連写シャッター",
+   "tags": [
+    "効果音",
+    "カメラ",
+    "連写",
+    "シャッター"
+   ]
+  },
   "sound:rafaga-viento": {
    "name": "突風",
    "tags": [
@@ -17169,12 +18030,39 @@
     "編集"
    ]
   },
+  "sound:rebobinar": {
+   "name": "巻き戻し",
+   "tags": [
+    "効果音",
+    "巻き戻し",
+    "テープ",
+    "リワインド"
+   ]
+  },
   "sound:redoble": {
    "name": "ドラムロール",
    "tags": [
     "ドラムロール",
     "ドラム",
     "サスペンス",
+    "発表"
+   ]
+  },
+  "sound:redoble-corto": {
+   "name": "短いドラムロール",
+   "tags": [
+    "効果音",
+    "ドラムロール",
+    "発表",
+    "短い"
+   ]
+  },
+  "sound:redoble-largo": {
+   "name": "長いドラムロールとシンバル",
+   "tags": [
+    "効果音",
+    "ドラムロール",
+    "シンバル",
     "発表"
    ]
   },
@@ -17213,6 +18101,24 @@
     "ビヨン",
     "跳ねる",
     "ユーモア"
+   ]
+  },
+  "sound:respuesta-correcta": {
+   "name": "正解",
+   "tags": [
+    "効果音",
+    "正解",
+    "ピンポン",
+    "クイズ"
+   ]
+  },
+  "sound:respuesta-incorrecta": {
+   "name": "不正解ブザー",
+   "tags": [
+    "効果音",
+    "不正解",
+    "ブザー",
+    "クイズ"
    ]
   },
   "sound:revelacion": {
@@ -17369,6 +18275,24 @@
     "緊急"
    ]
   },
+  "sound:sorpresa": {
+   "name": "サプライズ",
+   "tags": [
+    "効果音",
+    "驚き",
+    "サプライズ",
+    "リアクション"
+   ]
+  },
+  "sound:sticker": {
+   "name": "ステッカーをペタッ",
+   "tags": [
+    "効果音",
+    "ステッカー",
+    "貼る",
+    "ポップ"
+   ]
+  },
   "sound:sub-drop": {
    "name": "サブドロップ",
    "tags": [
@@ -17378,6 +18302,15 @@
     "インパクト"
    ]
   },
+  "sound:subida-corta-golpe": {
+   "name": "短いライザー+ヒット",
+   "tags": [
+    "効果音",
+    "ライザー",
+    "ヒット",
+    "盛り上げ"
+   ]
+  },
   "sound:subir-nivel": {
    "name": "レベルアップ",
    "tags": [
@@ -17385,6 +18318,24 @@
     "ゲーム",
     "達成",
     "8ビット"
+   ]
+  },
+  "sound:subir-nivel-moderno": {
+   "name": "モダンなレベルアップ",
+   "tags": [
+    "効果音",
+    "レベルアップ",
+    "ゲーム",
+    "達成"
+   ]
+  },
+  "sound:suscribir-campana": {
+   "name": "登録クリックとベル",
+   "tags": [
+    "効果音",
+    "チャンネル登録",
+    "クリック",
+    "ベル"
    ]
   },
   "sound:susto-terror": {
@@ -17434,6 +18385,15 @@
     "壮大"
    ]
   },
+  "sound:tartamudeo-ritmico": {
+   "name": "ビートリピート・スタッター",
+   "tags": [
+    "効果音",
+    "スタッター",
+    "リピート",
+    "ビート"
+   ]
+  },
   "sound:teclado": {
    "name": "キーボードのタイピング",
    "tags": [
@@ -17477,6 +18437,51 @@
     "サスペンス",
     "上昇",
     "恐怖"
+   ]
+  },
+  "sound:texto-dialogo": {
+   "name": "会話テキストのピコピコ",
+   "tags": [
+    "効果音",
+    "テキスト",
+    "会話",
+    "ゲーム風"
+   ]
+  },
+  "sound:texto-tecleo": {
+   "name": "文字入力のカチカチ",
+   "tags": [
+    "効果音",
+    "タイピング",
+    "テキスト",
+    "キーボード"
+   ]
+  },
+  "sound:timbre-mostrador": {
+   "name": "呼び鈴",
+   "tags": [
+    "効果音",
+    "ベル",
+    "チーン",
+    "受付"
+   ]
+  },
+  "sound:titulo-desliza": {
+   "name": "タイトルのスライドイン",
+   "tags": [
+    "効果音",
+    "タイトル",
+    "スライド",
+    "シュッ"
+   ]
+  },
+  "sound:titulo-golpe": {
+   "name": "タイトルのドーン",
+   "tags": [
+    "効果音",
+    "タイトル",
+    "ヒット",
+    "インパクト"
    ]
   },
   "sound:toque": {
@@ -17539,6 +18544,15 @@
     "上昇",
     "魔法",
     "登場"
+   ]
+  },
+  "sound:venta-hecha": {
+   "name": "売れた!",
+   "tags": [
+    "効果音",
+    "レジ",
+    "売上",
+    "チャリン"
    ]
   },
   "sound:victoria-8bits": {
@@ -17713,6 +18727,24 @@
     "バサッ",
     "風切り音",
     "トランジション"
+   ]
+  },
+  "sound:womp-womp": {
+   "name": "残念なトロンボーン",
+   "tags": [
+    "効果音",
+    "失敗",
+    "残念",
+    "コミカル"
+   ]
+  },
+  "sound:zoom-dramatico": {
+   "name": "ドラマチックズーム",
+   "tags": [
+    "効果音",
+    "ズーム",
+    "ドラマチック",
+    "強調"
    ]
   },
   "sound:zoom-entrada": {
@@ -18461,6 +19493,206 @@
     "フェス",
     "音楽",
     "ライブ"
+   ]
+  },
+  "template:cont-ahorro-meta": {
+   "name": "貯金目標",
+   "tags": [
+    "貯金",
+    "お金",
+    "目標",
+    "家計",
+    "達成"
+   ]
+  },
+  "template:cont-anillo-meta": {
+   "name": "進捗リング",
+   "tags": [
+    "カウンター",
+    "進捗",
+    "パーセント",
+    "目標",
+    "達成"
+   ]
+  },
+  "template:cont-barra-carga": {
+   "name": "ローディングバー",
+   "tags": [
+    "カウンター",
+    "ローディング",
+    "読み込み",
+    "進捗",
+    "イントロ"
+   ]
+  },
+  "template:cont-dias-100": {
+   "name": "1日目から100日目",
+   "tags": [
+    "カウンター",
+    "100日",
+    "チャレンジ",
+    "継続",
+    "記録"
+   ]
+  },
+  "template:cont-dias-juntos": {
+   "name": "付き合って何日",
+   "tags": [
+    "カップル",
+    "記念日",
+    "恋愛",
+    "日数",
+    "ロマンチック"
+   ]
+  },
+  "template:cont-dinero-millon": {
+   "name": "お金カウンター",
+   "tags": [
+    "カウンター",
+    "お金",
+    "100万",
+    "売上",
+    "目標"
+   ]
+  },
+  "template:cont-edad-cumple": {
+   "name": "誕生日の年齢カウント",
+   "tags": [
+    "誕生日",
+    "年齢",
+    "パーティー",
+    "お祝い",
+    "カウンター"
+   ]
+  },
+  "template:cont-libros-anio": {
+   "name": "今年読んだ本",
+   "tags": [
+    "読書",
+    "本",
+    "1年",
+    "読書チャレンジ",
+    "カウンター"
+   ]
+  },
+  "template:cont-maraton-km": {
+   "name": "走った距離",
+   "tags": [
+    "マラソン",
+    "ランニング",
+    "キロ",
+    "スポーツ",
+    "カウンター"
+   ]
+  },
+  "template:cont-marcador": {
+   "name": "試合のスコアボード",
+   "tags": [
+    "スコア",
+    "サッカー",
+    "試合",
+    "ゴール",
+    "スポーツ"
+   ]
+  },
+  "template:cont-me-gusta": {
+   "name": "いいねカウンター",
+   "tags": [
+    "カウンター",
+    "いいね",
+    "ハート",
+    "投稿",
+    "バズ"
+   ]
+  },
+  "template:cont-odometro-km": {
+   "name": "走行距離メーター",
+   "tags": [
+    "カウンター",
+    "距離",
+    "キロ",
+    "ドライブ",
+    "旅行"
+   ]
+  },
+  "template:cont-odometro-visitas": {
+   "name": "アクセスカウンター",
+   "tags": [
+    "カウンター",
+    "アクセス",
+    "ウェブ",
+    "統計",
+    "ビジネス"
+   ]
+  },
+  "template:cont-pasos": {
+   "name": "歩数カウンター",
+   "tags": [
+    "歩数",
+    "ウォーキング",
+    "健康",
+    "フィットネス",
+    "目標"
+   ]
+  },
+  "template:cont-precio-baja": {
+   "name": "値下げカウント",
+   "tags": [
+    "価格",
+    "セール",
+    "割引",
+    "ショップ",
+    "プロモーション"
+   ]
+  },
+  "template:cont-seguidores-100k": {
+   "name": "フォロワー10万人",
+   "tags": [
+    "カウンター",
+    "フォロワー",
+    "10万",
+    "達成",
+    "感謝"
+   ]
+  },
+  "template:cont-suscriptores-millon": {
+   "name": "登録者100万人",
+   "tags": [
+    "カウンター",
+    "登録者",
+    "100万",
+    "チャンネル",
+    "お祝い"
+   ]
+  },
+  "template:cont-temporizador": {
+   "name": "画面タイマー",
+   "tags": [
+    "タイマー",
+    "ストップウォッチ",
+    "カウントダウン",
+    "分",
+    "チャレンジ"
+   ]
+  },
+  "template:cont-ventas-semestre": {
+   "name": "半期の売上",
+   "tags": [
+    "売上",
+    "グラフ",
+    "ビジネス",
+    "成長",
+    "実績"
+   ]
+  },
+  "template:cont-vistas-millon": {
+   "name": "再生回数100万回",
+   "tags": [
+    "再生回数",
+    "100万",
+    "バズ",
+    "動画",
+    "ネオン"
    ]
   },
   "template:cosas-que-no-sabias": {
@@ -23619,6 +24851,246 @@
     "恋愛",
     "デート",
     "ユーモア"
+   ]
+  },
+  "template:redes-h-facebook-cristal": {
+   "name": "Facebook ガラス",
+   "tags": [
+    "sns",
+    "facebook",
+    "ユーザー名",
+    "ガラス",
+    "テロップ"
+   ]
+  },
+  "template:redes-h-instagram-minimal": {
+   "name": "Instagram ミニマル",
+   "tags": [
+    "sns",
+    "instagram",
+    "ユーザー名",
+    "フォロー",
+    "テロップ"
+   ]
+  },
+  "template:redes-h-instagram-sticker": {
+   "name": "Instagram ステッカー",
+   "tags": [
+    "sns",
+    "instagram",
+    "ユーザー名",
+    "ステッカー",
+    "テロップ"
+   ]
+  },
+  "template:redes-h-threads-minimal": {
+   "name": "Threads ミニマル",
+   "tags": [
+    "sns",
+    "threads",
+    "ユーザー名",
+    "シンプル",
+    "テロップ"
+   ]
+  },
+  "template:redes-h-tiktok-neon": {
+   "name": "TikTok ネオン",
+   "tags": [
+    "sns",
+    "tiktok",
+    "ユーザー名",
+    "ネオン",
+    "テロップ"
+   ]
+  },
+  "template:redes-h-tiktok-sticker": {
+   "name": "TikTok ステッカー",
+   "tags": [
+    "sns",
+    "tiktok",
+    "ユーザー名",
+    "ステッカー",
+    "テロップ"
+   ]
+  },
+  "template:redes-h-todas-fila": {
+   "name": "どこでも見つけてね",
+   "tags": [
+    "sns",
+    "まとめ",
+    "アイコン",
+    "フォロー",
+    "テロップ"
+   ]
+  },
+  "template:redes-h-todas-neon": {
+   "name": "全SNSまとめ ネオン",
+   "tags": [
+    "sns",
+    "まとめ",
+    "ユーザー名",
+    "ネオン",
+    "フォロー"
+   ]
+  },
+  "template:redes-h-twitch-neon": {
+   "name": "Twitch ネオン",
+   "tags": [
+    "sns",
+    "twitch",
+    "配信",
+    "ネオン",
+    "テロップ"
+   ]
+  },
+  "template:redes-h-x-cristal": {
+   "name": "X ガラス",
+   "tags": [
+    "sns",
+    "x",
+    "ユーザー名",
+    "ガラス",
+    "テロップ"
+   ]
+  },
+  "template:redes-h-youtube-minimal": {
+   "name": "YouTube ミニマル",
+   "tags": [
+    "sns",
+    "youtube",
+    "チャンネル",
+    "シンプル",
+    "テロップ"
+   ]
+  },
+  "template:redes-h-youtube-sticker": {
+   "name": "YouTube ステッカー",
+   "tags": [
+    "sns",
+    "youtube",
+    "ユーザー名",
+    "ステッカー",
+    "テロップ"
+   ]
+  },
+  "template:redes-v-facebook-minimal": {
+   "name": "Facebook ミニマル",
+   "tags": [
+    "sns",
+    "facebook",
+    "ユーザー名",
+    "シンプル",
+    "縦型"
+   ]
+  },
+  "template:redes-v-instagram-cristal": {
+   "name": "Instagram ガラス",
+   "tags": [
+    "sns",
+    "instagram",
+    "ユーザー名",
+    "ガラス",
+    "縦型"
+   ]
+  },
+  "template:redes-v-instagram-neon": {
+   "name": "Instagram ネオン",
+   "tags": [
+    "sns",
+    "instagram",
+    "ユーザー名",
+    "ネオン",
+    "縦型"
+   ]
+  },
+  "template:redes-v-threads-cristal": {
+   "name": "Threads ガラス",
+   "tags": [
+    "sns",
+    "threads",
+    "ユーザー名",
+    "ガラス",
+    "縦型"
+   ]
+  },
+  "template:redes-v-tiktok-minimal": {
+   "name": "TikTok ミニマル",
+   "tags": [
+    "sns",
+    "tiktok",
+    "ユーザー名",
+    "シンプル",
+    "縦型"
+   ]
+  },
+  "template:redes-v-tiktok-sticker": {
+   "name": "TikTok ステッカー(縦)",
+   "tags": [
+    "sns",
+    "tiktok",
+    "ユーザー名",
+    "ステッカー",
+    "縦型"
+   ]
+  },
+  "template:redes-v-todas-cristal": {
+   "name": "全SNSまとめ ガラス",
+   "tags": [
+    "sns",
+    "まとめ",
+    "ユーザー名",
+    "ガラス",
+    "フォロー"
+   ]
+  },
+  "template:redes-v-todas-iconos": {
+   "name": "全SNS共通ユーザー名",
+   "tags": [
+    "sns",
+    "アイコン",
+    "ユーザー名",
+    "フォロー",
+    "縦型"
+   ]
+  },
+  "template:redes-v-todas-sticker": {
+   "name": "SNSステッカーまとめ",
+   "tags": [
+    "sns",
+    "まとめ",
+    "ステッカー",
+    "フォロー",
+    "縦型"
+   ]
+  },
+  "template:redes-v-twitch-neon": {
+   "name": "Twitch ネオン(縦)",
+   "tags": [
+    "sns",
+    "twitch",
+    "配信",
+    "ネオン",
+    "縦型"
+   ]
+  },
+  "template:redes-v-x-sticker": {
+   "name": "X ステッカー",
+   "tags": [
+    "sns",
+    "x",
+    "ユーザー名",
+    "ステッカー",
+    "縦型"
+   ]
+  },
+  "template:redes-v-youtube-minimal": {
+   "name": "YouTube ミニマル(縦)",
+   "tags": [
+    "sns",
+    "youtube",
+    "チャンネル",
+    "シンプル",
+    "縦型"
    ]
   },
   "template:remodelacion": {
@@ -29916,6 +31388,24 @@
     "トランジション"
    ]
   },
+  "transition:alejar-revelar": {
+   "name": "ズームアウトで見せる",
+   "tags": [
+    "トランジション",
+    "ズームアウト",
+    "リビール",
+    "youtuber"
+   ]
+  },
+  "transition:alejar-revelar-lado": {
+   "name": "ズームアウトして投げる",
+   "tags": [
+    "トランジション",
+    "ズームアウト",
+    "スライド",
+    "youtuber"
+   ]
+  },
   "transition:anillos": {
    "name": "リングワイプ",
    "tags": [
@@ -30101,6 +31591,16 @@
     "愛",
     "ロマンチック",
     "トランジション"
+   ]
+  },
+  "transition:corte-estrobo": {
+   "name": "ストロボカット",
+   "tags": [
+    "トランジション",
+    "ストロボ",
+    "フラッシュ",
+    "カット",
+    "youtuber"
    ]
   },
   "transition:cristal-cae": {
@@ -30322,6 +31822,36 @@
     "トランジション"
    ]
   },
+  "transition:deslizamiento-rgb": {
+   "name": "RGBスライド",
+   "tags": [
+    "トランジション",
+    "rgb",
+    "スライド",
+    "グリッチ",
+    "youtuber"
+   ]
+  },
+  "transition:deslizar-arriba": {
+   "name": "上にスワイプ",
+   "tags": [
+    "トランジション",
+    "スワイプ",
+    "上",
+    "縦型",
+    "youtuber"
+   ]
+  },
+  "transition:deslizar-historia": {
+   "name": "ストーリースワイプ",
+   "tags": [
+    "トランジション",
+    "スワイプ",
+    "ストーリー",
+    "縦型",
+    "youtuber"
+   ]
+  },
   "transition:destello-azul": {
    "name": "青フラッシュ",
    "tags": [
@@ -30452,6 +31982,16 @@
     "トランジション"
    ]
   },
+  "transition:entrada-pop": {
+   "name": "ゼリーポップ",
+   "tags": [
+    "トランジション",
+    "ポップ",
+    "バウンス",
+    "ゼリー",
+    "youtuber"
+   ]
+  },
   "transition:espejismo": {
    "name": "陽炎",
    "tags": [
@@ -30510,6 +32050,16 @@
     "テレビ",
     "信号",
     "トランジション"
+   ]
+  },
+  "transition:estela-derecha": {
+   "name": "残像スワイプ",
+   "tags": [
+    "トランジション",
+    "スワイプ",
+    "残像",
+    "モーションブラー",
+    "youtuber"
    ]
   },
   "transition:estirar-horizontal": {
@@ -30610,6 +32160,16 @@
     "形",
     "春",
     "トランジション"
+   ]
+  },
+  "transition:foto-congelada": {
+   "name": "フリーズフレーム",
+   "tags": [
+    "トランジション",
+    "静止",
+    "フリーズ",
+    "写真",
+    "youtuber"
    ]
   },
   "transition:franja-amarilla": {
@@ -30752,6 +32312,16 @@
     "トランジション"
    ]
   },
+  "transition:fundido-brillo-luz": {
+   "name": "光漏れルマフェード",
+   "tags": [
+    "トランジション",
+    "フェード",
+    "光漏れ",
+    "ライト",
+    "youtuber"
+   ]
+  },
   "transition:fusion-color": {
    "name": "カラーモーフ",
    "tags": [
@@ -30790,6 +32360,15 @@
     "二回",
     "ズーム",
     "トランジション"
+   ]
+  },
+  "transition:giro-esquina": {
+   "name": "コーナースイング",
+   "tags": [
+    "トランジション",
+    "回転",
+    "コーナー",
+    "youtuber"
    ]
   },
   "transition:giro-horario": {
@@ -30881,6 +32460,35 @@
     "トランジション"
    ]
   },
+  "transition:impacto-onda": {
+   "name": "衝撃波インパクト",
+   "tags": [
+    "トランジション",
+    "衝撃波",
+    "インパクト",
+    "youtuber"
+   ]
+  },
+  "transition:latigazo-giro-derecha": {
+   "name": "ウィップロール(右)",
+   "tags": [
+    "トランジション",
+    "ウィップ",
+    "回転",
+    "右",
+    "youtuber"
+   ]
+  },
+  "transition:latigazo-giro-izquierda": {
+   "name": "ウィップロール(左)",
+   "tags": [
+    "トランジション",
+    "ウィップ",
+    "回転",
+    "左",
+    "youtuber"
+   ]
+  },
   "transition:lluvia-corazones": {
    "name": "ハートの雨",
    "tags": [
@@ -30929,6 +32537,16 @@
     "中央",
     "タイル",
     "トランジション"
+   ]
+  },
+  "transition:muro-pantallas": {
+   "name": "ビデオウォール",
+   "tags": [
+    "トランジション",
+    "ビデオウォール",
+    "画面",
+    "グリッド",
+    "youtuber"
    ]
   },
   "transition:negativo": {
@@ -31070,6 +32688,26 @@
     "トランジション"
    ]
   },
+  "transition:paneo-diagonal-abajo": {
+   "name": "斜めウィップ(下)",
+   "tags": [
+    "トランジション",
+    "ウィップ",
+    "斜め",
+    "下",
+    "youtuber"
+   ]
+  },
+  "transition:paneo-diagonal-arriba": {
+   "name": "斜めウィップ(上)",
+   "tags": [
+    "トランジション",
+    "ウィップ",
+    "斜め",
+    "上",
+    "youtuber"
+   ]
+  },
   "transition:paneo-izquierda": {
    "name": "左ウィップパン",
    "tags": [
@@ -31078,6 +32716,15 @@
     "高速",
     "ブラー",
     "トランジション"
+   ]
+  },
+  "transition:pantalla-dividida": {
+   "name": "分割画面",
+   "tags": [
+    "トランジション",
+    "分割",
+    "画面",
+    "youtuber"
    ]
   },
   "transition:papel-rasgado": {
@@ -31098,6 +32745,16 @@
     "破る",
     "裂く",
     "トランジション"
+   ]
+  },
+  "transition:parpadeo": {
+   "name": "まばたき",
+   "tags": [
+    "トランジション",
+    "まばたき",
+    "黒",
+    "目",
+    "youtuber"
    ]
   },
   "transition:pasar-pagina": {
@@ -31250,6 +32907,16 @@
     "トランジション"
    ]
   },
+  "transition:pixelado-rapido": {
+   "name": "ピクセルスナップ",
+   "tags": [
+    "トランジション",
+    "ピクセル",
+    "モザイク",
+    "速い",
+    "youtuber"
+   ]
+  },
   "transition:pixeles-arrastrados": {
    "name": "ピクセルドラッグ",
    "tags": [
@@ -31346,6 +33013,16 @@
     "開く",
     "分割",
     "トランジション"
+   ]
+  },
+  "transition:pulso-bajo": {
+   "name": "ベースパルス",
+   "tags": [
+    "トランジション",
+    "ベース",
+    "パルス",
+    "ビート",
+    "youtuber"
    ]
   },
   "transition:puntos": {
@@ -31872,6 +33549,26 @@
     "パンチ",
     "振動",
     "トランジション"
+   ]
+  },
+  "transition:zoom-saltos": {
+   "name": "段階ズームイン",
+   "tags": [
+    "トランジション",
+    "ズーム",
+    "ズームイン",
+    "段階",
+    "youtuber"
+   ]
+  },
+  "transition:zoom-saltos-atras": {
+   "name": "段階ズームアウト",
+   "tags": [
+    "トランジション",
+    "ズーム",
+    "ズームアウト",
+    "段階",
+    "youtuber"
    ]
   }
  }

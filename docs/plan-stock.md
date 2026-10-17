@@ -196,6 +196,16 @@ Repartidas entre los 16 estilos (unas 18–20 por estilo), en vertical y 16:9 do
 - **Transiciones de youtuber:** paneo rápido, zoom de golpe, glitch, cambio de escena con sonido.
 - **Tercios inferiores con tus redes:** @usuario con el logo de cada red.
 
+**Estado de C (2026-10-17): hecho y publicado en `publicar`, sin desplegar** (`e3193`). 43 sonidos «Youtuber»
+(`tools/sounds`), 40 superposiciones «Youtuber» ×2 (vertical y `-h`) y 24 «Marcos para la cámara» con su propio
+tamaño (1080×1080 / 1280×720, hueco transparente; `tools/overlays/designs_f.py`, `designs_g.py`, `kit.py`), 23
+transiciones «Youtuber» (`fam_youtuber.py`, cada una dice qué sonido le va), 20 «Contadores» (categoría nueva
+`counter` también en `SceneTemplateCatalog.cpp`; cuentan con cortes rápidos, el número final es editable) y 24
+tercios inferiores de redes (`templates_c1.py`, `templates_c2.py`). Fuera `yt-boton-play` (era el logo de YouTube como
+adorno; en `tienda\superposiciones\descartado`). i18n: 3.840 elementos y 150 categorías, `--strict` sin faltantes.
+Límite: si el usuario cambia el número final de un contador, el conteo sigue con los valores de ejemplo (haría
+falta una animación de contador en el motor).
+
 ### D. Kits nuevos (Jorge: «esa sección me gusta»)
 Cada kit junta plantillas, música, sonidos, stickers, superposiciones y fondos del mismo tema y sale en el inicio de
 Stock (`colecciones.json`; los de fecha con `from`/`to`).

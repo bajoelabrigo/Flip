@@ -61,6 +61,7 @@
   "music:triste": "Malungkot at emosyonal",
   "overlay:amor": "Pag-ibig",
   "overlay:camara": "Camera at screen",
+  "overlay:camara-cara": "Frame para sa camera ng mukha",
   "overlay:celebracion": "Selebrasyon",
   "overlay:clima": "Panahon at kalikasan",
   "overlay:garabatos": "Doodle",
@@ -69,6 +70,7 @@
   "overlay:marcos": "Frame at texture",
   "overlay:particulas": "Particle at kislap",
   "overlay:pelicula": "Film at retro",
+  "overlay:youtuber": "YouTuber",
   "shape:arrows": "Palaso",
   "shape:badges": "Badge",
   "shape:bubbles": "Speech bubble",
@@ -93,12 +95,14 @@
   "sound:ritmo": "Beat at musika",
   "sound:suspenso": "Suspense at drama",
   "sound:transiciones": "Transition",
+  "sound:youtuber": "YouTuber",
   "template:ad6": "6-segundong ad",
   "template:beforeafter": "Before at after",
   "template:business": "Negosyo",
   "template:celebration": "Mga selebrasyon",
   "template:collage": "Collage",
   "template:countdown": "Countdown",
+  "template:counter": "Mga pambilang",
   "template:intro": "Intro at title",
   "template:lowerthird": "Lower third",
   "template:outro": "Pangwakas",
@@ -144,6 +148,7 @@
   "transition:liquido": "Tinta at likido",
   "transition:luz": "Ilaw at pelikula",
   "transition:movimiento": "Galaw",
+  "transition:youtuber": "YouTuber",
   "transition:zoom": "Zoom at hampas"
  },
  "items": {
@@ -12657,6 +12662,270 @@
     "panahon"
    ]
   },
+  "overlay:facecam-burbuja": {
+   "name": "Speech bubble",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "bubble",
+    "komiks",
+    "streamer"
+   ]
+  },
+  "overlay:facecam-circulo-blanco": {
+   "name": "Puting bilog",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "bilog",
+    "puti",
+    "podcast"
+   ]
+  },
+  "overlay:facecam-circulo-degradado": {
+   "name": "Bilog na gradient",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "bilog",
+    "gradient",
+    "aesthetic"
+   ]
+  },
+  "overlay:facecam-circulo-dorado": {
+   "name": "Gintong bilog",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "bilog",
+    "ginto",
+    "elegante"
+   ]
+  },
+  "overlay:facecam-circulo-neon": {
+   "name": "Neon na bilog",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "bilog",
+    "neon",
+    "gaming"
+   ]
+  },
+  "overlay:facecam-circulo-ondas": {
+   "name": "Bilog na nagsasalita",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "alon",
+    "boses",
+    "podcast"
+   ]
+  },
+  "overlay:facecam-comic": {
+   "name": "Pop na komiks",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "komiks",
+    "pop art",
+    "dilaw"
+   ]
+  },
+  "overlay:facecam-cuadrado": {
+   "name": "Pabilog na parisukat",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "parisukat",
+    "simple",
+    "podcast"
+   ]
+  },
+  "overlay:facecam-cyber": {
+   "name": "Cyber HUD",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "cyber",
+    "hud",
+    "futuristiko"
+   ]
+  },
+  "overlay:facecam-en-vivo-es": {
+   "name": "En vivo na may bilog (Espanyol)",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "live",
+    "stream",
+    "espanyol"
+   ]
+  },
+  "overlay:facecam-esquinas": {
+   "name": "Mga sulok",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "sulok",
+    "viewfinder",
+    "simple"
+   ]
+  },
+  "overlay:facecam-estudio": {
+   "name": "Studio ng podcast",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "podcast",
+    "studio",
+    "mikropono"
+   ]
+  },
+  "overlay:facecam-gamer-neon": {
+   "name": "Gamer na neon",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "gamer",
+    "neon",
+    "twitch"
+   ]
+  },
+  "overlay:facecam-gamer-rgb": {
+   "name": "Gamer na RGB",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "gamer",
+    "rgb",
+    "bahaghari"
+   ]
+  },
+  "overlay:facecam-glitch": {
+   "name": "Glitch",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "glitch",
+    "digital",
+    "gamer"
+   ]
+  },
+  "overlay:facecam-hexagono-neon": {
+   "name": "Neon na heksagon",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "heksagon",
+    "neon",
+    "gamer"
+   ]
+  },
+  "overlay:facecam-hexagono-tech": {
+   "name": "Teknolohikal na heksagon",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "heksagon",
+    "hud",
+    "sci-fi"
+   ]
+  },
+  "overlay:facecam-live-en": {
+   "name": "Live na may bilog (Ingles)",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "live",
+    "stream",
+    "ingles"
+   ]
+  },
+  "overlay:facecam-madera": {
+   "name": "Frame na kahoy",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "kahoy",
+    "rustiko",
+    "podcast"
+   ]
+  },
+  "overlay:facecam-minimal": {
+   "name": "Simpleng frame",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "simple",
+    "malinis",
+    "puti"
+   ]
+  },
+  "overlay:facecam-pastel": {
+   "name": "Pastel na may mga puso",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "pastel",
+    "puso",
+    "cute"
+   ]
+  },
+  "overlay:facecam-placa-nombre": {
+   "name": "May plaka para sa pangalan",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "pangalan",
+    "lower third",
+    "panayam"
+   ]
+  },
+  "overlay:facecam-rayos": {
+   "name": "Mga kidlat",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "kidlat",
+    "enerhiya",
+    "gamer"
+   ]
+  },
+  "overlay:facecam-tv-retro": {
+   "name": "Retro na telebisyon",
+   "tags": [
+    "camera",
+    "facecam",
+    "frame",
+    "telebisyon",
+    "retro",
+    "vintage"
+   ]
+  },
   "overlay:garabato-angel": {
    "name": "Pakpak at halo ng anghel",
    "tags": [
@@ -13859,6 +14128,434 @@
     "papel",
     "paper",
     "vintage"
+   ]
+  },
+  "overlay:yt-barra-reproduccion": {
+   "name": "Bar ng video player",
+   "tags": [
+    "youtuber",
+    "player",
+    "progreso",
+    "video",
+    "pause",
+    "patayo"
+   ]
+  },
+  "overlay:yt-campana": {
+   "name": "Kampanilya ng abiso",
+   "tags": [
+    "youtuber",
+    "kampanilya",
+    "abiso",
+    "notification",
+    "patayo"
+   ]
+  },
+  "overlay:yt-check-verde": {
+   "name": "Berdeng tsek",
+   "tags": [
+    "youtuber",
+    "tsek",
+    "tama",
+    "ok",
+    "aprobado",
+    "berde"
+   ]
+  },
+  "overlay:yt-circulo-flecha": {
+   "name": "Pulang bilog at palaso",
+   "tags": [
+    "youtuber",
+    "bilog",
+    "palaso",
+    "pula",
+    "thumbnail",
+    "tingnan ito"
+   ]
+  },
+  "overlay:yt-circulo-neon": {
+   "name": "Neon na bilog",
+   "tags": [
+    "youtuber",
+    "bilog",
+    "neon",
+    "highlight",
+    "gamer",
+    "tingnan ito"
+   ]
+  },
+  "overlay:yt-comentario-pop": {
+   "name": "Lumilitaw na komento",
+   "tags": [
+    "youtuber",
+    "komento",
+    "chat",
+    "mensahe",
+    "patayo"
+   ]
+  },
+  "overlay:yt-compartir-pop": {
+   "name": "Lumilitaw na i-share",
+   "tags": [
+    "youtuber",
+    "i-share",
+    "ibahagi",
+    "ipadala",
+    "patayo"
+   ]
+  },
+  "overlay:yt-contador-likes": {
+   "name": "Pambilang ng likes",
+   "tags": [
+    "youtuber",
+    "pambilang",
+    "likes",
+    "viral",
+    "hinlalaki"
+   ]
+  },
+  "overlay:yt-contador-seguidores": {
+   "name": "Pambilang ng tagasunod",
+   "tags": [
+    "youtuber",
+    "pambilang",
+    "tagasunod",
+    "subscriber",
+    "paglago"
+   ]
+  },
+  "overlay:yt-contador-vistas": {
+   "name": "Pambilang ng views",
+   "tags": [
+    "youtuber",
+    "pambilang",
+    "views",
+    "viral",
+    "mata"
+   ]
+  },
+  "overlay:yt-cursor-clic": {
+   "name": "Cursor na nagki-click",
+   "tags": [
+    "youtuber",
+    "cursor",
+    "click",
+    "mouse",
+    "tutorial"
+   ]
+  },
+  "overlay:yt-emoji-100": {
+   "name": "3D na emoji 100",
+   "tags": [
+    "emoji",
+    "reaksiyon",
+    "3d",
+    "100",
+    "perpekto",
+    "tagumpay"
+   ]
+  },
+  "overlay:yt-emoji-calavera": {
+   "name": "3D na emoji bungo",
+   "tags": [
+    "emoji",
+    "reaksiyon",
+    "3d",
+    "bungo",
+    "patay sa tawa",
+    "nakakatawa"
+   ]
+  },
+  "overlay:yt-emoji-enamorado": {
+   "name": "3D na emoji na inlove",
+   "tags": [
+    "emoji",
+    "reaksiyon",
+    "3d",
+    "inlove",
+    "pag-ibig",
+    "puso"
+   ]
+  },
+  "overlay:yt-emoji-fuego": {
+   "name": "3D na emoji ng apoy",
+   "tags": [
+    "emoji",
+    "reaksiyon",
+    "3d",
+    "apoy",
+    "mainit",
+    "trending"
+   ]
+  },
+  "overlay:yt-emoji-llorando": {
+   "name": "3D na emoji na umiiyak",
+   "tags": [
+    "emoji",
+    "reaksiyon",
+    "3d",
+    "iyak",
+    "malungkot",
+    "luha"
+   ]
+  },
+  "overlay:yt-emoji-risa": {
+   "name": "3D na emoji na naiiyak sa tawa",
+   "tags": [
+    "emoji",
+    "reaksiyon",
+    "3d",
+    "tawa",
+    "haha",
+    "nakakatawa"
+   ]
+  },
+  "overlay:yt-emoji-sorpresa": {
+   "name": "3D na emoji na gulat",
+   "tags": [
+    "emoji",
+    "reaksiyon",
+    "3d",
+    "gulat",
+    "wow",
+    "pagkamangha"
+   ]
+  },
+  "overlay:yt-flecha-neon": {
+   "name": "Neon na palaso",
+   "tags": [
+    "youtuber",
+    "palaso",
+    "neon",
+    "kinang",
+    "gamer",
+    "ituro"
+   ]
+  },
+  "overlay:yt-flecha-roja": {
+   "name": "Pulang palasong nakaturo",
+   "tags": [
+    "youtuber",
+    "palaso",
+    "pula",
+    "ituro",
+    "tingnan dito",
+    "thumbnail"
+   ]
+  },
+  "overlay:yt-flechas-amarillas": {
+   "name": "Dilaw na palaso sa gilid",
+   "tags": [
+    "youtuber",
+    "palaso",
+    "dilaw",
+    "ituro",
+    "gitna",
+    "pansin"
+   ]
+  },
+  "overlay:yt-iconos-fila": {
+   "name": "Like, komento at share",
+   "tags": [
+    "youtuber",
+    "like",
+    "komento",
+    "i-share",
+    "icon",
+    "kampanilya"
+   ]
+  },
+  "overlay:yt-iconos-lateral": {
+   "name": "Mga button sa gilid ng maikling video",
+   "tags": [
+    "shorts",
+    "reels",
+    "like",
+    "komento",
+    "i-share",
+    "button"
+   ]
+  },
+  "overlay:yt-like-pop": {
+   "name": "Lumilitaw na like",
+   "tags": [
+    "youtuber",
+    "like",
+    "gusto",
+    "thumbs up",
+    "patayo"
+   ]
+  },
+  "overlay:yt-mano-clic": {
+   "name": "Kamay na pumipindot",
+   "tags": [
+    "youtuber",
+    "kamay",
+    "pindot",
+    "tap",
+    "ituro",
+    "tutorial"
+   ]
+  },
+  "overlay:yt-meta-suscriptores": {
+   "name": "Bar ng naabot na layunin",
+   "tags": [
+    "youtuber",
+    "layunin",
+    "progreso",
+    "bar",
+    "subscriber",
+    "tagumpay"
+   ]
+  },
+  "overlay:yt-new-video-en": {
+   "name": "New video (Ingles)",
+   "tags": [
+    "youtuber",
+    "bagong video",
+    "premiere",
+    "sticker",
+    "ingles"
+   ]
+  },
+  "overlay:yt-notificacion": {
+   "name": "Abiso ng bagong video",
+   "tags": [
+    "youtuber",
+    "abiso",
+    "banner",
+    "bagong video",
+    "kampanilya"
+   ]
+  },
+  "overlay:yt-notificacion-oscura": {
+   "name": "Madilim na abiso",
+   "tags": [
+    "youtuber",
+    "abiso",
+    "madilim",
+    "banner",
+    "bagong video"
+   ]
+  },
+  "overlay:yt-nuevo-video-es": {
+   "name": "¡Nuevo video! (Espanyol)",
+   "tags": [
+    "youtuber",
+    "bagong video",
+    "premiere",
+    "sticker",
+    "espanyol"
+   ]
+  },
+  "overlay:yt-resaltador": {
+   "name": "Dilaw na highlighter",
+   "tags": [
+    "youtuber",
+    "highlighter",
+    "salungguhit",
+    "teksto",
+    "dilaw",
+    "markahan"
+   ]
+  },
+  "overlay:yt-subscribe-card-en": {
+   "name": "Subscribe button na may card (Ingles)",
+   "tags": [
+    "youtuber",
+    "subscribe",
+    "button",
+    "kampanilya",
+    "cursor",
+    "ingles"
+   ]
+  },
+  "overlay:yt-subscribe-classic-en": {
+   "name": "Klasikong Subscribe button (Ingles)",
+   "tags": [
+    "youtuber",
+    "subscribe",
+    "button",
+    "kampanilya",
+    "cursor",
+    "ingles"
+   ]
+  },
+  "overlay:yt-subscribe-neon-en": {
+   "name": "Neon na Subscribe button (Ingles)",
+   "tags": [
+    "youtuber",
+    "subscribe",
+    "button",
+    "neon",
+    "cursor",
+    "ingles"
+   ]
+  },
+  "overlay:yt-subscribe-white-en": {
+   "name": "Puting Subscribe button (Ingles)",
+   "tags": [
+    "youtuber",
+    "subscribe",
+    "button",
+    "puti",
+    "cursor",
+    "ingles"
+   ]
+  },
+  "overlay:yt-suscribete-clasico-es": {
+   "name": "Klasikong Suscríbete button (Espanyol)",
+   "tags": [
+    "youtuber",
+    "subscribe",
+    "button",
+    "kampanilya",
+    "cursor",
+    "espanyol"
+   ]
+  },
+  "overlay:yt-suscribete-neon-es": {
+   "name": "Neon na Suscríbete button (Espanyol)",
+   "tags": [
+    "youtuber",
+    "subscribe",
+    "button",
+    "neon",
+    "cursor",
+    "espanyol"
+   ]
+  },
+  "overlay:yt-suscribete-pildora-es": {
+   "name": "Puting Suscríbete button (Espanyol)",
+   "tags": [
+    "youtuber",
+    "subscribe",
+    "button",
+    "puti",
+    "cursor",
+    "espanyol"
+   ]
+  },
+  "overlay:yt-suscribete-tarjeta-es": {
+   "name": "Suscríbete button na may card (Espanyol)",
+   "tags": [
+    "youtuber",
+    "subscribe",
+    "button",
+    "kampanilya",
+    "cursor",
+    "espanyol"
+   ]
+  },
+  "overlay:yt-x-roja": {
+   "name": "Pulang ekis",
+   "tags": [
+    "youtuber",
+    "ekis",
+    "mali",
+    "error",
+    "hindi",
+    "pula"
    ]
   },
   "shape:arch": {
@@ -15748,6 +16445,16 @@
     "disenyo"
    ]
   },
+  "sound:acento-tension": {
+   "name": "Tunog ng tensiyon",
+   "tags": [
+    "tensiyon",
+    "suspense",
+    "drama",
+    "biglang pagbabago",
+    "youtuber"
+   ]
+  },
   "sound:angelical": {
    "name": "Pang-anghel",
    "tags": [
@@ -15756,6 +16463,16 @@
     "langit",
     "kapayapaan",
     "himala"
+   ]
+  },
+  "sound:aparecer-rebote": {
+   "name": "Paglitaw na tumatalbog",
+   "tags": [
+    "pop",
+    "paglitaw",
+    "talbog",
+    "teksto",
+    "youtuber"
    ]
   },
   "sound:aparicion": {
@@ -15796,6 +16513,16 @@
     "alaala"
    ]
   },
+  "sound:asombro": {
+   "name": "Synth na pagkamangha",
+   "tags": [
+    "wow",
+    "pagkamangha",
+    "kamangha-mangha",
+    "gulat",
+    "youtuber"
+   ]
+  },
   "sound:aura": {
    "name": "Kumikinang na aura",
    "tags": [
@@ -15813,6 +16540,47 @@
     "joke",
     "biro",
     "katatawanan"
+   ]
+  },
+  "sound:barra-carga": {
+   "name": "Tapos na ang loading",
+   "tags": [
+    "loading",
+    "progreso",
+    "tapos na",
+    "download",
+    "youtuber"
+   ]
+  },
+  "sound:barrido-camara": {
+   "name": "Mabilis na paling ng camera",
+   "tags": [
+    "whip pan",
+    "paling",
+    "camera",
+    "transisyon",
+    "youtuber"
+   ]
+  },
+  "sound:barrido-camara-doble": {
+   "name": "Dobleng paling ng camera",
+   "tags": [
+    "whip pan",
+    "paling",
+    "camera",
+    "transisyon",
+    "doble",
+    "youtuber"
+   ]
+  },
+  "sound:barrido-golpe": {
+   "name": "Paling na may hampas",
+   "tags": [
+    "whip pan",
+    "paling",
+    "transisyon",
+    "hampas",
+    "youtuber"
    ]
   },
   "sound:bass-drop": {
@@ -15923,6 +16691,16 @@
     "premyo"
    ]
   },
+  "sound:boom-808": {
+   "name": "808 boom sa pagbubunyag",
+   "tags": [
+    "808",
+    "boom",
+    "pagbubunyag",
+    "bass",
+    "youtuber"
+   ]
+  },
   "sound:boom-cine": {
    "name": "Boom na pampelikula",
    "tags": [
@@ -15997,6 +16775,17 @@
     "misteryo",
     "mahika",
     "dark"
+   ]
+  },
+  "sound:burbuja-plop": {
+   "name": "Bula",
+   "tags": [
+    "bula",
+    "plop",
+    "teksto",
+    "paglitaw",
+    "tubig",
+    "youtuber"
    ]
   },
   "sound:burbujas-magicas": {
@@ -16147,6 +16936,16 @@
     "transition"
    ]
   },
+  "sound:check-tilde": {
+   "name": "Tsek sa listahan",
+   "tags": [
+    "tsek",
+    "listahan",
+    "tapos",
+    "gawain",
+    "youtuber"
+   ]
+  },
   "sound:chillido-doble": {
    "name": "Dobleng squeak",
    "tags": [
@@ -16163,6 +16962,16 @@
     "laruan",
     "toy",
     "alaga"
+   ]
+  },
+  "sound:cierre-video": {
+   "name": "Pangwakas ng video",
+   "tags": [
+    "outro",
+    "pagtatapos",
+    "wakas",
+    "paalam",
+    "youtuber"
    ]
   },
   "sound:cinta-frenada": {
@@ -16256,6 +17065,27 @@
     "success"
    ]
   },
+  "sound:corte-glitch": {
+   "name": "Glitch na putol",
+   "tags": [
+    "glitch",
+    "putol",
+    "cut",
+    "digital",
+    "transisyon",
+    "youtuber"
+   ]
+  },
+  "sound:corte-seco": {
+   "name": "Biglang putol",
+   "tags": [
+    "jump cut",
+    "putol",
+    "talon",
+    "vlog",
+    "youtuber"
+   ]
+  },
   "sound:cremallera": {
    "name": "Siper",
    "tags": [
@@ -16282,6 +17112,27 @@
     "1 2 3 4",
     "drumsticks",
     "simula"
+   ]
+  },
+  "sound:cuenta-regresiva": {
+   "name": "Countdown 3, 2, 1",
+   "tags": [
+    "countdown",
+    "pagbilang pababa",
+    "3 2 1",
+    "beep",
+    "simula",
+    "youtuber"
+   ]
+  },
+  "sound:cuenta-regresiva-rapida": {
+   "name": "Mabilis na countdown",
+   "tags": [
+    "countdown",
+    "mabilis",
+    "beep",
+    "simula",
+    "youtuber"
    ]
   },
   "sound:dano": {
@@ -16356,6 +17207,16 @@
     "bago"
    ]
   },
+  "sound:ding-idea": {
+   "name": "Ding ng ideya",
+   "tags": [
+    "ideya",
+    "ding",
+    "bumbilya",
+    "payo",
+    "youtuber"
+   ]
+  },
   "sound:disco-rayado": {
    "name": "Gasgas ng plaka",
    "tags": [
@@ -16399,6 +17260,16 @@
     "drums",
     "drop",
     "transition"
+   ]
+  },
+  "sound:error-doble": {
+   "name": "Dobleng error",
+   "tags": [
+    "error",
+    "mali",
+    "beep",
+    "pagkakamali",
+    "youtuber"
    ]
   },
   "sound:error-negativo": {
@@ -16464,6 +17335,17 @@
     "victory",
     "premyo",
     "kampeon"
+   ]
+  },
+  "sound:foto-flash": {
+   "name": "Litratong may flash",
+   "tags": [
+    "camera",
+    "flash",
+    "litrato",
+    "shutter",
+    "paparazzi",
+    "youtuber"
    ]
   },
   "sound:game-over": {
@@ -16548,6 +17430,17 @@
     "sting",
     "drama",
     "shock"
+   ]
+  },
+  "sound:golpe-eco": {
+   "name": "Hampas na may alingawngaw",
+   "tags": [
+    "hampas",
+    "alingawngaw",
+    "echo",
+    "impact",
+    "drama",
+    "youtuber"
    ]
   },
   "sound:golpe-fuerte": {
@@ -16680,6 +17573,16 @@
     "ilaw"
    ]
   },
+  "sound:intro-golpe": {
+   "name": "Hampas sa intro",
+   "tags": [
+    "intro",
+    "simula",
+    "hampas",
+    "pambungad",
+    "youtuber"
+   ]
+  },
   "sound:laser": {
    "name": "Putok ng laser",
    "tags": [
@@ -16766,6 +17669,16 @@
     "percussion"
    ]
   },
+  "sound:marcador": {
+   "name": "Pagsalungguhit ng marker",
+   "tags": [
+    "marker",
+    "salungguhit",
+    "highlight",
+    "teksto",
+    "youtuber"
+   ]
+  },
   "sound:me-gusta": {
    "name": "Pindot ng like",
    "tags": [
@@ -16821,6 +17734,16 @@
     "doble",
     "laro",
     "pera"
+   ]
+  },
+  "sound:monedas-mano": {
+   "name": "Barya sa kamay",
+   "tags": [
+    "barya",
+    "pera",
+    "kalansing",
+    "sukli",
+    "youtuber"
    ]
   },
   "sound:notificacion-campanita": {
@@ -16885,6 +17808,17 @@
     "libro",
     "papel",
     "transition"
+   ]
+  },
+  "sound:pensando": {
+   "name": "Nag-iisip…",
+   "tags": [
+    "nag-iisip",
+    "pagdududa",
+    "marimba",
+    "paghihintay",
+    "quiz",
+    "youtuber"
    ]
   },
   "sound:platillo": {
@@ -17006,6 +17940,17 @@
     "raffle"
    ]
   },
+  "sound:rafaga-fotos": {
+   "name": "Sunod-sunod na kuha",
+   "tags": [
+    "camera",
+    "litrato",
+    "burst",
+    "shutter",
+    "photoshoot",
+    "youtuber"
+   ]
+  },
   "sound:rafaga-viento": {
    "name": "Bugso ng hangin",
    "tags": [
@@ -17024,6 +17969,17 @@
     "edit"
    ]
   },
+  "sound:rebobinar": {
+   "name": "I-rewind",
+   "tags": [
+    "rewind",
+    "pabalik",
+    "ulitin",
+    "vhs",
+    "replay",
+    "youtuber"
+   ]
+  },
   "sound:redoble": {
    "name": "Rolyo ng tambol",
    "tags": [
@@ -17031,6 +17987,28 @@
     "tambol",
     "suspense",
     "anunsyo"
+   ]
+  },
+  "sound:redoble-corto": {
+   "name": "Maikling drumroll",
+   "tags": [
+    "drumroll",
+    "tambol",
+    "maikli",
+    "anunsiyo",
+    "suspense",
+    "youtuber"
+   ]
+  },
+  "sound:redoble-largo": {
+   "name": "Mahabang drumroll na may pompyang",
+   "tags": [
+    "drumroll",
+    "tambol",
+    "pompyang",
+    "panalo",
+    "pagbubunyag",
+    "youtuber"
    ]
   },
   "sound:redoble-platillo": {
@@ -17069,6 +18047,27 @@
     "talbog",
     "boing",
     "katatawanan"
+   ]
+  },
+  "sound:respuesta-correcta": {
+   "name": "Tamang sagot",
+   "tags": [
+    "tama",
+    "sagot",
+    "quiz",
+    "trivia",
+    "youtuber"
+   ]
+  },
+  "sound:respuesta-incorrecta": {
+   "name": "Maling sagot",
+   "tags": [
+    "mali",
+    "sagot",
+    "buzzer",
+    "quiz",
+    "trivia",
+    "youtuber"
    ]
   },
   "sound:revelacion": {
@@ -17228,6 +18227,28 @@
     "siren"
    ]
   },
+  "sound:sorpresa": {
+   "name": "Sorpresa",
+   "tags": [
+    "sorpresa",
+    "gulat",
+    "ta-da",
+    "wow",
+    "paglitaw",
+    "youtuber"
+   ]
+  },
+  "sound:sticker": {
+   "name": "Idinidikit na sticker",
+   "tags": [
+    "sticker",
+    "idikit",
+    "sampal",
+    "emoji",
+    "paglitaw",
+    "youtuber"
+   ]
+  },
   "sound:sub-drop": {
    "name": "Malalim na bagsak ng bass",
    "tags": [
@@ -17238,6 +18259,17 @@
     "impact"
    ]
   },
+  "sound:subida-corta-golpe": {
+   "name": "Maikling pag-akyat at hampas",
+   "tags": [
+    "riser",
+    "pag-akyat",
+    "hampas",
+    "drop",
+    "transisyon",
+    "youtuber"
+   ]
+  },
   "sound:subir-nivel": {
    "name": "Pag-level up",
    "tags": [
@@ -17245,6 +18277,26 @@
     "laro",
     "tagumpay",
     "8-bit"
+   ]
+  },
+  "sound:subir-nivel-moderno": {
+   "name": "Modernong level up",
+   "tags": [
+    "level up",
+    "pag-akyat ng antas",
+    "tagumpay",
+    "upgrade",
+    "youtuber"
+   ]
+  },
+  "sound:suscribir-campana": {
+   "name": "Click ng subscribe at kampanilya",
+   "tags": [
+    "subscribe",
+    "kampanilya",
+    "click",
+    "abiso",
+    "youtuber"
    ]
   },
   "sound:susto-terror": {
@@ -17294,6 +18346,17 @@
     "epic"
    ]
   },
+  "sound:tartamudeo-ritmico": {
+   "name": "Paulit-ulit na utal sa ritmo",
+   "tags": [
+    "stutter",
+    "utal",
+    "pag-uulit",
+    "ritmo",
+    "glitch",
+    "youtuber"
+   ]
+  },
   "sound:teclado": {
    "name": "Pag-type sa keyboard",
    "tags": [
@@ -17337,6 +18400,57 @@
     "suspense",
     "pataas",
     "takot"
+   ]
+  },
+  "sound:texto-dialogo": {
+   "name": "Mga titik na may beep",
+   "tags": [
+    "teksto",
+    "diyalogo",
+    "beep",
+    "titik",
+    "retro",
+    "youtuber"
+   ]
+  },
+  "sound:texto-tecleo": {
+   "name": "Pag-type ng teksto",
+   "tags": [
+    "teksto",
+    "pag-type",
+    "titik",
+    "subtitle",
+    "youtuber"
+   ]
+  },
+  "sound:timbre-mostrador": {
+   "name": "Kampanilya sa counter",
+   "tags": [
+    "kampanilya",
+    "ding",
+    "pansin",
+    "counter",
+    "youtuber"
+   ]
+  },
+  "sound:titulo-desliza": {
+   "name": "Pamagat na dumudulas",
+   "tags": [
+    "pamagat",
+    "dulas",
+    "slide",
+    "teksto",
+    "youtuber"
+   ]
+  },
+  "sound:titulo-golpe": {
+   "name": "Pamagat na may hampas",
+   "tags": [
+    "pamagat",
+    "hampas",
+    "teksto",
+    "intro",
+    "youtuber"
    ]
   },
   "sound:toque": {
@@ -17401,6 +18515,17 @@
     "pataas",
     "mahika",
     "lumitaw"
+   ]
+  },
+  "sound:venta-hecha": {
+   "name": "May benta na",
+   "tags": [
+    "benta",
+    "pera",
+    "negosyo",
+    "kita",
+    "kaha",
+    "youtuber"
    ]
   },
   "sound:victoria-8bits": {
@@ -17577,6 +18702,28 @@
     "cloth",
     "whoosh",
     "galaw"
+   ]
+  },
+  "sound:womp-womp": {
+   "name": "Womp womp (palpak)",
+   "tags": [
+    "palpak",
+    "fail",
+    "malungkot",
+    "talo",
+    "katatawanan",
+    "youtuber"
+   ]
+  },
+  "sound:zoom-dramatico": {
+   "name": "Madramang zoom",
+   "tags": [
+    "zoom",
+    "drama",
+    "reaksiyon",
+    "gulat",
+    "paglapit",
+    "youtuber"
    ]
   },
   "sound:zoom-entrada": {
@@ -18330,6 +19477,206 @@
     "musika",
     "party",
     "live"
+   ]
+  },
+  "template:cont-ahorro-meta": {
+   "name": "Layunin sa ipon",
+   "tags": [
+    "pambilang",
+    "ipon",
+    "pera",
+    "layunin",
+    "alkansya"
+   ]
+  },
+  "template:cont-anillo-meta": {
+   "name": "Singsing ng progreso",
+   "tags": [
+    "pambilang",
+    "porsiyento",
+    "progreso",
+    "layunin",
+    "tagumpay"
+   ]
+  },
+  "template:cont-barra-carga": {
+   "name": "Loading bar",
+   "tags": [
+    "pambilang",
+    "porsiyento",
+    "naglo-load",
+    "pag-unlad",
+    "intro"
+   ]
+  },
+  "template:cont-dias-100": {
+   "name": "Mula araw 1 hanggang araw 100",
+   "tags": [
+    "pambilang",
+    "araw",
+    "hamon",
+    "100 araw",
+    "pag-unlad"
+   ]
+  },
+  "template:cont-dias-juntos": {
+   "name": "Mga araw na magkasama",
+   "tags": [
+    "pambilang",
+    "magkasintahan",
+    "anibersaryo",
+    "pag-ibig",
+    "romantiko"
+   ]
+  },
+  "template:cont-dinero-millon": {
+   "name": "Pambilang ng pera",
+   "tags": [
+    "pambilang",
+    "pera",
+    "milyon",
+    "benta",
+    "kita"
+   ]
+  },
+  "template:cont-edad-cumple": {
+   "name": "Kaarawan: bilang ng taon",
+   "tags": [
+    "pambilang",
+    "kaarawan",
+    "edad",
+    "handaan",
+    "pagdiriwang"
+   ]
+  },
+  "template:cont-libros-anio": {
+   "name": "Mga libro ngayong taon",
+   "tags": [
+    "pambilang",
+    "libro",
+    "pagbabasa",
+    "taon",
+    "booktok"
+   ]
+  },
+  "template:cont-maraton-km": {
+   "name": "Kilometrong natakbo",
+   "tags": [
+    "pambilang",
+    "marathon",
+    "pagtakbo",
+    "kilometro",
+    "sports"
+   ]
+  },
+  "template:cont-marcador": {
+   "name": "Iskor ng laban",
+   "tags": [
+    "pambilang",
+    "iskor",
+    "football",
+    "laban",
+    "sports"
+   ]
+  },
+  "template:cont-me-gusta": {
+   "name": "Pambilang ng likes",
+   "tags": [
+    "pambilang",
+    "likes",
+    "puso",
+    "post",
+    "viral"
+   ]
+  },
+  "template:cont-odometro-km": {
+   "name": "Odometro ng kilometro",
+   "tags": [
+    "pambilang",
+    "kilometro",
+    "biyahe",
+    "ruta",
+    "kotse"
+   ]
+  },
+  "template:cont-odometro-visitas": {
+   "name": "Pambilang ng bisita",
+   "tags": [
+    "pambilang",
+    "bisita",
+    "website",
+    "trapiko",
+    "estadistika"
+   ]
+  },
+  "template:cont-pasos": {
+   "name": "Pambilang ng hakbang",
+   "tags": [
+    "pambilang",
+    "hakbang",
+    "paglalakad",
+    "kalusugan",
+    "fitness"
+   ]
+  },
+  "template:cont-precio-baja": {
+   "name": "Bumababang presyo",
+   "tags": [
+    "pambilang",
+    "presyo",
+    "sale",
+    "diskwento",
+    "tindahan"
+   ]
+  },
+  "template:cont-seguidores-100k": {
+   "name": "100 libong tagasunod",
+   "tags": [
+    "pambilang",
+    "tagasunod",
+    "followers",
+    "100k",
+    "salamat"
+   ]
+  },
+  "template:cont-suscriptores-millon": {
+   "name": "Isang milyong subscriber",
+   "tags": [
+    "pambilang",
+    "subscriber",
+    "milyon",
+    "channel",
+    "pagdiriwang"
+   ]
+  },
+  "template:cont-temporizador": {
+   "name": "Timer sa screen",
+   "tags": [
+    "pambilang",
+    "timer",
+    "orasan",
+    "countdown",
+    "hamon"
+   ]
+  },
+  "template:cont-ventas-semestre": {
+   "name": "Benta sa kalahating taon",
+   "tags": [
+    "pambilang",
+    "benta",
+    "graph",
+    "negosyo",
+    "paglago"
+   ]
+  },
+  "template:cont-vistas-millon": {
+   "name": "Isang milyong views",
+   "tags": [
+    "pambilang",
+    "views",
+    "milyon",
+    "viral",
+    "neon"
    ]
   },
   "template:cosas-que-no-sabias": {
@@ -23596,6 +24943,270 @@
     "relasyon",
     "dating",
     "katatawanan"
+   ]
+  },
+  "template:redes-h-facebook-cristal": {
+   "name": "Facebook na salamin",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "facebook",
+    "salamin",
+    "pahiga"
+   ]
+  },
+  "template:redes-h-instagram-minimal": {
+   "name": "Instagram na simple",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "instagram",
+    "simple",
+    "pahiga"
+   ]
+  },
+  "template:redes-h-instagram-sticker": {
+   "name": "Instagram na sticker",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "instagram",
+    "sticker",
+    "pahiga"
+   ]
+  },
+  "template:redes-h-threads-minimal": {
+   "name": "Threads na simple",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "threads",
+    "simple",
+    "pahiga"
+   ]
+  },
+  "template:redes-h-tiktok-neon": {
+   "name": "TikTok na neon",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "tiktok",
+    "neon",
+    "pahiga"
+   ]
+  },
+  "template:redes-h-tiktok-sticker": {
+   "name": "TikTok na sticker",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "tiktok",
+    "sticker",
+    "pahiga"
+   ]
+  },
+  "template:redes-h-todas-fila": {
+   "name": "Hanapin ako kahit saan",
+   "tags": [
+    "social media",
+    "i-follow ako",
+    "lahat ng socials",
+    "parehong username",
+    "simple",
+    "pahiga"
+   ]
+  },
+  "template:redes-h-todas-neon": {
+   "name": "Lahat ng socials ko sa neon",
+   "tags": [
+    "social media",
+    "i-follow ako",
+    "lahat ng socials",
+    "neon",
+    "streaming",
+    "pahiga"
+   ]
+  },
+  "template:redes-h-twitch-neon": {
+   "name": "Twitch na neon",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "twitch",
+    "neon",
+    "pahiga"
+   ]
+  },
+  "template:redes-h-x-cristal": {
+   "name": "X na salamin",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "x",
+    "salamin",
+    "pahiga"
+   ]
+  },
+  "template:redes-h-youtube-minimal": {
+   "name": "YouTube na simple",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "youtube",
+    "simple",
+    "pahiga"
+   ]
+  },
+  "template:redes-h-youtube-sticker": {
+   "name": "YouTube na sticker",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "youtube",
+    "sticker",
+    "pahiga"
+   ]
+  },
+  "template:redes-v-facebook-minimal": {
+   "name": "Facebook na simple",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "facebook",
+    "simple",
+    "patayo"
+   ]
+  },
+  "template:redes-v-instagram-cristal": {
+   "name": "Instagram na salamin",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "instagram",
+    "salamin",
+    "patayo"
+   ]
+  },
+  "template:redes-v-instagram-neon": {
+   "name": "Instagram na neon",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "instagram",
+    "neon",
+    "patayo"
+   ]
+  },
+  "template:redes-v-threads-cristal": {
+   "name": "Threads na salamin",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "threads",
+    "salamin",
+    "patayo"
+   ]
+  },
+  "template:redes-v-tiktok-minimal": {
+   "name": "TikTok na simple",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "tiktok",
+    "simple",
+    "patayo"
+   ]
+  },
+  "template:redes-v-tiktok-sticker": {
+   "name": "TikTok na sticker",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "tiktok",
+    "sticker",
+    "patayo"
+   ]
+  },
+  "template:redes-v-todas-cristal": {
+   "name": "Lahat ng socials ko sa salamin",
+   "tags": [
+    "social media",
+    "i-follow ako",
+    "lahat ng socials",
+    "listahan",
+    "salamin",
+    "patayo"
+   ]
+  },
+  "template:redes-v-todas-iconos": {
+   "name": "Iisang username saanman",
+   "tags": [
+    "social media",
+    "i-follow ako",
+    "lahat ng socials",
+    "icon",
+    "parehong username",
+    "patayo"
+   ]
+  },
+  "template:redes-v-todas-sticker": {
+   "name": "Mga socials ko bilang sticker",
+   "tags": [
+    "social media",
+    "i-follow ako",
+    "lahat ng socials",
+    "sticker",
+    "makulay",
+    "patayo"
+   ]
+  },
+  "template:redes-v-twitch-neon": {
+   "name": "Twitch na neon",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "twitch",
+    "neon",
+    "patayo"
+   ]
+  },
+  "template:redes-v-x-sticker": {
+   "name": "X na sticker",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "x",
+    "sticker",
+    "patayo"
+   ]
+  },
+  "template:redes-v-youtube-minimal": {
+   "name": "YouTube na simple",
+   "tags": [
+    "social media",
+    "username",
+    "i-follow ako",
+    "youtube",
+    "simple",
+    "patayo"
    ]
   },
   "template:remodelacion": {
@@ -30179,6 +31790,28 @@
     "transisyon"
    ]
   },
+  "transition:alejar-revelar": {
+   "name": "Ilayo at ibunyag",
+   "tags": [
+    "paglayo",
+    "pagbubunyag",
+    "card",
+    "reveal",
+    "transisyon",
+    "youtuber"
+   ]
+  },
+  "transition:alejar-revelar-lado": {
+   "name": "Ilayo at ihagis sa gilid",
+   "tags": [
+    "paglayo",
+    "hagis",
+    "pagbubunyag",
+    "card",
+    "transisyon",
+    "youtuber"
+   ]
+  },
   "transition:anillos": {
    "name": "Singsing",
    "tags": [
@@ -30367,6 +32000,17 @@
     "pag-ibig",
     "romantiko",
     "transisyon"
+   ]
+  },
+  "transition:corte-estrobo": {
+   "name": "Kislap na putol",
+   "tags": [
+    "strobe",
+    "kislap",
+    "kurap",
+    "beat",
+    "transisyon",
+    "youtuber"
    ]
   },
   "transition:cristal-cae": {
@@ -30589,6 +32233,39 @@
     "transisyon"
    ]
   },
+  "transition:deslizamiento-rgb": {
+   "name": "RGB na pagdulas",
+   "tags": [
+    "dulas",
+    "glitch",
+    "rgb",
+    "slide",
+    "transisyon",
+    "youtuber"
+   ]
+  },
+  "transition:deslizar-arriba": {
+   "name": "Swipe pataas",
+   "tags": [
+    "swipe up",
+    "pataas",
+    "feed",
+    "cellphone",
+    "transisyon",
+    "youtuber"
+   ]
+  },
+  "transition:deslizar-historia": {
+   "name": "Swipe ng story",
+   "tags": [
+    "swipe",
+    "story",
+    "cellphone",
+    "dulas",
+    "transisyon",
+    "youtuber"
+   ]
+  },
   "transition:destello-azul": {
    "name": "Asul na Kislap",
    "tags": [
@@ -30719,6 +32396,17 @@
     "transisyon"
    ]
   },
+  "transition:entrada-pop": {
+   "name": "Pop na pasok",
+   "tags": [
+    "pop",
+    "talbog",
+    "jelly",
+    "elastiko",
+    "transisyon",
+    "youtuber"
+   ]
+  },
   "transition:espejismo": {
    "name": "Alon ng Init",
    "tags": [
@@ -30777,6 +32465,17 @@
     "ruido",
     "senyas",
     "transisyon"
+   ]
+  },
+  "transition:estela-derecha": {
+   "name": "Walis na may bakas",
+   "tags": [
+    "walis",
+    "bakas",
+    "smear",
+    "swipe",
+    "transisyon",
+    "youtuber"
    ]
   },
   "transition:estirar-horizontal": {
@@ -30877,6 +32576,17 @@
     "bukas",
     "tagsibol",
     "transisyon"
+   ]
+  },
+  "transition:foto-congelada": {
+   "name": "Nakahintong eksena",
+   "tags": [
+    "freeze frame",
+    "litrato",
+    "camera",
+    "hinto",
+    "transisyon",
+    "youtuber"
    ]
   },
   "transition:franja-amarilla": {
@@ -31019,6 +32729,17 @@
     "transisyon"
    ]
   },
+  "transition:fundido-brillo-luz": {
+   "name": "Fade ng liwanag na may light leak",
+   "tags": [
+    "fade",
+    "liwanag",
+    "light leak",
+    "mainit",
+    "transisyon",
+    "youtuber"
+   ]
+  },
   "transition:fusion-color": {
    "name": "Pagsasanib Kulay",
    "tags": [
@@ -31057,6 +32778,17 @@
     "pihit",
     "zoom",
     "transisyon"
+   ]
+  },
+  "transition:giro-esquina": {
+   "name": "Ikot mula sa sulok",
+   "tags": [
+    "sulok",
+    "ikot",
+    "pinto",
+    "swing",
+    "transisyon",
+    "youtuber"
    ]
   },
   "transition:giro-horario": {
@@ -31149,6 +32881,39 @@
     "transisyon"
    ]
   },
+  "transition:impacto-onda": {
+   "name": "Hampas na may shockwave",
+   "tags": [
+    "hampas",
+    "shockwave",
+    "alon",
+    "flash",
+    "transisyon",
+    "youtuber"
+   ]
+  },
+  "transition:latigazo-giro-derecha": {
+   "name": "Mabilis na ikot pakanan",
+   "tags": [
+    "ikot",
+    "pakanan",
+    "whip",
+    "whoosh",
+    "transisyon",
+    "youtuber"
+   ]
+  },
+  "transition:latigazo-giro-izquierda": {
+   "name": "Mabilis na ikot pakaliwa",
+   "tags": [
+    "ikot",
+    "pakaliwa",
+    "whip",
+    "whoosh",
+    "transisyon",
+    "youtuber"
+   ]
+  },
   "transition:lluvia-corazones": {
    "name": "Ulan ng Puso",
    "tags": [
@@ -31197,6 +32962,17 @@
     "kuwadro",
     "pixel",
     "transisyon"
+   ]
+  },
+  "transition:muro-pantallas": {
+   "name": "Pader ng mga screen",
+   "tags": [
+    "pader",
+    "screen",
+    "mosaic",
+    "grid",
+    "transisyon",
+    "youtuber"
    ]
   },
   "transition:negativo": {
@@ -31339,6 +33115,28 @@
     "transisyon"
    ]
   },
+  "transition:paneo-diagonal-abajo": {
+   "name": "Pahilis na paling pababa",
+   "tags": [
+    "pahilis",
+    "paling",
+    "pababa",
+    "whip pan",
+    "transisyon",
+    "youtuber"
+   ]
+  },
+  "transition:paneo-diagonal-arriba": {
+   "name": "Pahilis na paling pataas",
+   "tags": [
+    "pahilis",
+    "paling",
+    "pataas",
+    "whip pan",
+    "transisyon",
+    "youtuber"
+   ]
+  },
   "transition:paneo-izquierda": {
    "name": "Mabilis Paneo Kaliwa",
    "tags": [
@@ -31347,6 +33145,17 @@
     "mabilis",
     "malabo",
     "transisyon"
+   ]
+  },
+  "transition:pantalla-dividida": {
+   "name": "Hating screen",
+   "tags": [
+    "hating screen",
+    "kalahati",
+    "split screen",
+    "whoosh",
+    "transisyon",
+    "youtuber"
    ]
   },
   "transition:papel-rasgado": {
@@ -31367,6 +33176,17 @@
     "patayo",
     "luha",
     "transisyon"
+   ]
+  },
+  "transition:parpadeo": {
+   "name": "Kurap",
+   "tags": [
+    "kurap",
+    "mata",
+    "pikit",
+    "blink",
+    "transisyon",
+    "youtuber"
    ]
   },
   "transition:pasar-pagina": {
@@ -31519,6 +33339,17 @@
     "transisyon"
    ]
   },
+  "transition:pixelado-rapido": {
+   "name": "Mabilis na pixel",
+   "tags": [
+    "pixel",
+    "pixelate",
+    "8 bit",
+    "retro",
+    "transisyon",
+    "youtuber"
+   ]
+  },
   "transition:pixeles-arrastrados": {
    "name": "Paghatak ng Pixels",
    "tags": [
@@ -31616,6 +33447,17 @@
     "patayo",
     "bukas",
     "hati",
+    "transisyon"
+   ]
+  },
+  "transition:pulso-bajo": {
+   "name": "Pintig ng bass",
+   "tags": [
+    "808",
+    "bass",
+    "drop",
+    "pintig",
+    "ritmo",
     "transisyon"
    ]
   },
@@ -32149,6 +33991,28 @@
     "yanig",
     "bigla",
     "transisyon"
+   ]
+  },
+  "transition:zoom-saltos": {
+   "name": "Zoom na patalon-talon",
+   "tags": [
+    "zoom",
+    "talon",
+    "hampas",
+    "jump cut",
+    "transisyon",
+    "youtuber"
+   ]
+  },
+  "transition:zoom-saltos-atras": {
+   "name": "Zoom na patalon-talon paatras",
+   "tags": [
+    "zoom",
+    "paglayo",
+    "talon",
+    "jump cut",
+    "transisyon",
+    "youtuber"
    ]
   }
  }

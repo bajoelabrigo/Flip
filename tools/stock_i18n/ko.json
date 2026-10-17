@@ -61,6 +61,7 @@
   "music:triste": "감성·슬픔",
   "overlay:amor": "사랑",
   "overlay:camara": "카메라와 화면",
+  "overlay:camara-cara": "페이스캠 프레임",
   "overlay:celebracion": "축하",
   "overlay:clima": "날씨와 자연",
   "overlay:garabatos": "낙서",
@@ -69,6 +70,7 @@
   "overlay:marcos": "프레임과 텍스처",
   "overlay:particulas": "파티클과 반짝이",
   "overlay:pelicula": "필름과 레트로",
+  "overlay:youtuber": "유튜버",
   "shape:arrows": "화살표",
   "shape:badges": "배지",
   "shape:bubbles": "말풍선",
@@ -93,12 +95,14 @@
   "sound:ritmo": "비트와 음악",
   "sound:suspenso": "서스펜스와 드라마",
   "sound:transiciones": "전환",
+  "sound:youtuber": "유튜버",
   "template:ad6": "6초 광고",
   "template:beforeafter": "비포 애프터",
   "template:business": "비즈니스",
   "template:celebration": "축하",
   "template:collage": "콜라주",
   "template:countdown": "카운트다운",
+  "template:counter": "카운터",
   "template:intro": "인트로와 타이틀",
   "template:lowerthird": "하단 자막",
   "template:outro": "엔딩",
@@ -144,6 +148,7 @@
   "transition:liquido": "잉크·액체",
   "transition:luz": "빛·필름",
   "transition:movimiento": "모션",
+  "transition:youtuber": "유튜버",
   "transition:zoom": "줌·강조"
  },
  "items": {
@@ -12362,6 +12367,246 @@
     "날씨"
    ]
   },
+  "overlay:facecam-burbuja": {
+   "name": "말풍선 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "프레임",
+    "말풍선",
+    "코믹"
+   ]
+  },
+  "overlay:facecam-circulo-blanco": {
+   "name": "화이트 원형 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "프레임",
+    "원형",
+    "심플"
+   ]
+  },
+  "overlay:facecam-circulo-degradado": {
+   "name": "그라데이션 링 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "프레임",
+    "그라데이션",
+    "감성"
+   ]
+  },
+  "overlay:facecam-circulo-dorado": {
+   "name": "골드 링 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "프레임",
+    "골드",
+    "고급"
+   ]
+  },
+  "overlay:facecam-circulo-neon": {
+   "name": "네온 원형 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "프레임",
+    "네온",
+    "게임"
+   ]
+  },
+  "overlay:facecam-circulo-ondas": {
+   "name": "말하면 울리는 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "프레임",
+    "음성",
+    "팟캐스트"
+   ]
+  },
+  "overlay:facecam-comic": {
+   "name": "팝 코믹 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "프레임",
+    "코믹",
+    "팝아트"
+   ]
+  },
+  "overlay:facecam-cuadrado": {
+   "name": "둥근 사각 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "프레임",
+    "사각형",
+    "심플"
+   ]
+  },
+  "overlay:facecam-cyber": {
+   "name": "사이버 HUD 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "프레임",
+    "사이버",
+    "hud"
+   ]
+  },
+  "overlay:facecam-en-vivo-es": {
+   "name": "라이브 원형 캠 프레임 (스페인어)",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "라이브",
+    "생방송",
+    "스페인어"
+   ]
+  },
+  "overlay:facecam-esquinas": {
+   "name": "코너 브래킷 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "프레임",
+    "코너",
+    "hud"
+   ]
+  },
+  "overlay:facecam-estudio": {
+   "name": "팟캐스트 스튜디오 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "팟캐스트",
+    "마이크",
+    "스튜디오"
+   ]
+  },
+  "overlay:facecam-gamer-neon": {
+   "name": "네온 게이머 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "게이머",
+    "네온",
+    "방송"
+   ]
+  },
+  "overlay:facecam-gamer-rgb": {
+   "name": "RGB 게이머 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "게이머",
+    "rgb",
+    "무지개"
+   ]
+  },
+  "overlay:facecam-glitch": {
+   "name": "글리치 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "프레임",
+    "글리치",
+    "게임"
+   ]
+  },
+  "overlay:facecam-hexagono-neon": {
+   "name": "네온 육각형 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "육각형",
+    "네온",
+    "게이머"
+   ]
+  },
+  "overlay:facecam-hexagono-tech": {
+   "name": "테크 육각형 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "육각형",
+    "테크",
+    "미래"
+   ]
+  },
+  "overlay:facecam-live-en": {
+   "name": "라이브 원형 캠 프레임 (영어)",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "라이브",
+    "생방송",
+    "영어"
+   ]
+  },
+  "overlay:facecam-madera": {
+   "name": "우드 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "프레임",
+    "나무",
+    "내추럴"
+   ]
+  },
+  "overlay:facecam-minimal": {
+   "name": "미니멀 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "프레임",
+    "미니멀",
+    "심플"
+   ]
+  },
+  "overlay:facecam-pastel": {
+   "name": "파스텔 하트 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "파스텔",
+    "하트",
+    "귀여운"
+   ]
+  },
+  "overlay:facecam-placa-nombre": {
+   "name": "이름표 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "프레임",
+    "이름표",
+    "방송"
+   ]
+  },
+  "overlay:facecam-rayos": {
+   "name": "번개 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "번개",
+    "전기",
+    "게이머"
+   ]
+  },
+  "overlay:facecam-tv-retro": {
+   "name": "레트로 TV 캠 프레임",
+   "tags": [
+    "페이스캠",
+    "웹캠",
+    "레트로",
+    "tv",
+    "빈티지"
+   ]
+  },
   "overlay:garabato-angel": {
    "name": "천사 날개와 링",
    "tags": [
@@ -13507,6 +13752,406 @@
     "종이",
     "질감",
     "빈티지"
+   ]
+  },
+  "overlay:yt-barra-reproduccion": {
+   "name": "영상 재생 바",
+   "tags": [
+    "유튜버",
+    "재생 바",
+    "플레이어",
+    "영상",
+    "세로"
+   ]
+  },
+  "overlay:yt-campana": {
+   "name": "알림 벨",
+   "tags": [
+    "유튜버",
+    "알림",
+    "벨",
+    "구독",
+    "세로"
+   ]
+  },
+  "overlay:yt-check-verde": {
+   "name": "초록 체크 표시",
+   "tags": [
+    "유튜버",
+    "체크",
+    "정답",
+    "ok",
+    "초록"
+   ]
+  },
+  "overlay:yt-circulo-flecha": {
+   "name": "빨간 원과 화살표",
+   "tags": [
+    "유튜버",
+    "원",
+    "화살표",
+    "빨강",
+    "강조"
+   ]
+  },
+  "overlay:yt-circulo-neon": {
+   "name": "네온 원",
+   "tags": [
+    "유튜버",
+    "원",
+    "네온",
+    "강조",
+    "주목"
+   ]
+  },
+  "overlay:yt-comentario-pop": {
+   "name": "팝업 댓글",
+   "tags": [
+    "유튜버",
+    "댓글",
+    "팝업",
+    "sns",
+    "세로"
+   ]
+  },
+  "overlay:yt-compartir-pop": {
+   "name": "팝업 공유 버튼",
+   "tags": [
+    "유튜버",
+    "공유",
+    "버튼",
+    "팝업",
+    "세로"
+   ]
+  },
+  "overlay:yt-contador-likes": {
+   "name": "좋아요 카운터",
+   "tags": [
+    "유튜버",
+    "좋아요",
+    "카운터",
+    "하트",
+    "세로"
+   ]
+  },
+  "overlay:yt-contador-seguidores": {
+   "name": "팔로워 카운터",
+   "tags": [
+    "유튜버",
+    "팔로워",
+    "카운터",
+    "sns",
+    "세로"
+   ]
+  },
+  "overlay:yt-contador-vistas": {
+   "name": "조회수 카운터",
+   "tags": [
+    "유튜버",
+    "조회수",
+    "카운터",
+    "영상",
+    "세로"
+   ]
+  },
+  "overlay:yt-cursor-clic": {
+   "name": "클릭하는 커서",
+   "tags": [
+    "유튜버",
+    "커서",
+    "클릭",
+    "마우스",
+    "세로"
+   ]
+  },
+  "overlay:yt-emoji-100": {
+   "name": "3D 100점 이모지",
+   "tags": [
+    "유튜버",
+    "이모지",
+    "100",
+    "3d",
+    "리액션"
+   ]
+  },
+  "overlay:yt-emoji-calavera": {
+   "name": "3D 해골 이모지",
+   "tags": [
+    "유튜버",
+    "이모지",
+    "해골",
+    "3d",
+    "리액션"
+   ]
+  },
+  "overlay:yt-emoji-enamorado": {
+   "name": "3D 하트 눈 이모지",
+   "tags": [
+    "유튜버",
+    "이모지",
+    "하트",
+    "3d",
+    "사랑"
+   ]
+  },
+  "overlay:yt-emoji-fuego": {
+   "name": "3D 불꽃 이모지",
+   "tags": [
+    "유튜버",
+    "이모지",
+    "불꽃",
+    "3d",
+    "핫"
+   ]
+  },
+  "overlay:yt-emoji-llorando": {
+   "name": "3D 우는 이모지",
+   "tags": [
+    "유튜버",
+    "이모지",
+    "눈물",
+    "3d",
+    "리액션"
+   ]
+  },
+  "overlay:yt-emoji-risa": {
+   "name": "3D 웃음 눈물 이모지",
+   "tags": [
+    "유튜버",
+    "이모지",
+    "웃음",
+    "3d",
+    "빵터짐"
+   ]
+  },
+  "overlay:yt-emoji-sorpresa": {
+   "name": "3D 깜짝 이모지",
+   "tags": [
+    "유튜버",
+    "이모지",
+    "놀람",
+    "3d",
+    "리액션"
+   ]
+  },
+  "overlay:yt-flecha-neon": {
+   "name": "네온 화살표",
+   "tags": [
+    "유튜버",
+    "화살표",
+    "네온",
+    "강조",
+    "주목"
+   ]
+  },
+  "overlay:yt-flecha-roja": {
+   "name": "가리키는 빨간 화살표",
+   "tags": [
+    "유튜버",
+    "화살표",
+    "빨강",
+    "강조",
+    "포인트"
+   ]
+  },
+  "overlay:yt-flechas-amarillas": {
+   "name": "양옆 노란 화살표",
+   "tags": [
+    "유튜버",
+    "화살표",
+    "노랑",
+    "강조",
+    "주목"
+   ]
+  },
+  "overlay:yt-iconos-fila": {
+   "name": "좋아요·댓글·공유",
+   "tags": [
+    "유튜버",
+    "좋아요",
+    "댓글",
+    "공유",
+    "아이콘"
+   ]
+  },
+  "overlay:yt-iconos-lateral": {
+   "name": "숏폼 사이드 버튼",
+   "tags": [
+    "유튜버",
+    "숏폼",
+    "버튼",
+    "아이콘",
+    "세로"
+   ]
+  },
+  "overlay:yt-like-pop": {
+   "name": "팝업 좋아요",
+   "tags": [
+    "유튜버",
+    "좋아요",
+    "팝업",
+    "엄지",
+    "세로"
+   ]
+  },
+  "overlay:yt-mano-clic": {
+   "name": "탭하는 손",
+   "tags": [
+    "유튜버",
+    "손",
+    "탭",
+    "클릭",
+    "세로"
+   ]
+  },
+  "overlay:yt-meta-suscriptores": {
+   "name": "목표 달성 바",
+   "tags": [
+    "유튜버",
+    "목표",
+    "달성",
+    "구독자",
+    "바"
+   ]
+  },
+  "overlay:yt-new-video-en": {
+   "name": "새 영상 스티커 (영어)",
+   "tags": [
+    "유튜버",
+    "새 영상",
+    "스티커",
+    "영어",
+    "세로"
+   ]
+  },
+  "overlay:yt-notificacion": {
+   "name": "새 영상 알림",
+   "tags": [
+    "유튜버",
+    "알림",
+    "새 영상",
+    "벨",
+    "세로"
+   ]
+  },
+  "overlay:yt-notificacion-oscura": {
+   "name": "다크 알림",
+   "tags": [
+    "유튜버",
+    "알림",
+    "다크",
+    "새 영상",
+    "세로"
+   ]
+  },
+  "overlay:yt-nuevo-video-es": {
+   "name": "새 영상 스티커 (스페인어)",
+   "tags": [
+    "유튜버",
+    "새 영상",
+    "스티커",
+    "스페인어",
+    "세로"
+   ]
+  },
+  "overlay:yt-resaltador": {
+   "name": "노란 형광펜",
+   "tags": [
+    "유튜버",
+    "형광펜",
+    "마커",
+    "노랑",
+    "강조"
+   ]
+  },
+  "overlay:yt-subscribe-card-en": {
+   "name": "카드형 구독 버튼 (영어)",
+   "tags": [
+    "유튜버",
+    "구독",
+    "버튼",
+    "카드",
+    "영어"
+   ]
+  },
+  "overlay:yt-subscribe-classic-en": {
+   "name": "클래식 구독 버튼 (영어)",
+   "tags": [
+    "유튜버",
+    "구독",
+    "버튼",
+    "클래식",
+    "영어"
+   ]
+  },
+  "overlay:yt-subscribe-neon-en": {
+   "name": "네온 구독 버튼 (영어)",
+   "tags": [
+    "유튜버",
+    "구독",
+    "버튼",
+    "네온",
+    "영어"
+   ]
+  },
+  "overlay:yt-subscribe-white-en": {
+   "name": "화이트 구독 버튼 (영어)",
+   "tags": [
+    "유튜버",
+    "구독",
+    "버튼",
+    "화이트",
+    "영어"
+   ]
+  },
+  "overlay:yt-suscribete-clasico-es": {
+   "name": "클래식 구독 버튼 (스페인어)",
+   "tags": [
+    "유튜버",
+    "구독",
+    "버튼",
+    "클래식",
+    "스페인어"
+   ]
+  },
+  "overlay:yt-suscribete-neon-es": {
+   "name": "네온 구독 버튼 (스페인어)",
+   "tags": [
+    "유튜버",
+    "구독",
+    "버튼",
+    "네온",
+    "스페인어"
+   ]
+  },
+  "overlay:yt-suscribete-pildora-es": {
+   "name": "화이트 구독 버튼 (스페인어)",
+   "tags": [
+    "유튜버",
+    "구독",
+    "버튼",
+    "화이트",
+    "스페인어"
+   ]
+  },
+  "overlay:yt-suscribete-tarjeta-es": {
+   "name": "카드형 구독 버튼 (스페인어)",
+   "tags": [
+    "유튜버",
+    "구독",
+    "버튼",
+    "카드",
+    "스페인어"
+   ]
+  },
+  "overlay:yt-x-roja": {
+   "name": "빨간 X 표시",
+   "tags": [
+    "유튜버",
+    "엑스",
+    "오답",
+    "ng",
+    "빨강"
    ]
   },
   "shape:arch": {
@@ -15311,6 +15956,15 @@
     "선"
    ]
   },
+  "sound:acento-tension": {
+   "name": "긴장감 포인트",
+   "tags": [
+    "효과음",
+    "긴장",
+    "서스펜스",
+    "유튜버"
+   ]
+  },
   "sound:angelical": {
    "name": "천상의 소리",
    "tags": [
@@ -15318,6 +15972,15 @@
     "천상",
     "하늘",
     "평화"
+   ]
+  },
+  "sound:aparecer-rebote": {
+   "name": "통통 튀며 등장",
+   "tags": [
+    "효과음",
+    "등장",
+    "바운스",
+    "팝"
    ]
   },
   "sound:aparicion": {
@@ -15356,6 +16019,15 @@
     "꿈"
    ]
   },
+  "sound:asombro": {
+   "name": "와우 신스",
+   "tags": [
+    "효과음",
+    "놀람",
+    "신스",
+    "와우"
+   ]
+  },
   "sound:aura": {
    "name": "반짝이는 오라",
    "tags": [
@@ -15372,6 +16044,42 @@
     "림샷",
     "개그",
     "농담"
+   ]
+  },
+  "sound:barra-carga": {
+   "name": "로딩 완료",
+   "tags": [
+    "효과음",
+    "로딩",
+    "완료",
+    "ui"
+   ]
+  },
+  "sound:barrido-camara": {
+   "name": "휙 패닝",
+   "tags": [
+    "효과음",
+    "휙",
+    "전환",
+    "스와이프"
+   ]
+  },
+  "sound:barrido-camara-doble": {
+   "name": "더블 휙 패닝",
+   "tags": [
+    "효과음",
+    "휙",
+    "전환",
+    "더블"
+   ]
+  },
+  "sound:barrido-golpe": {
+   "name": "휙 패닝 + 히트",
+   "tags": [
+    "효과음",
+    "휙",
+    "히트",
+    "전환"
    ]
   },
   "sound:bass-drop": {
@@ -15482,6 +16190,15 @@
     "보상"
    ]
   },
+  "sound:boom-808": {
+   "name": "808 공개 붐",
+   "tags": [
+    "효과음",
+    "808",
+    "베이스",
+    "공개"
+   ]
+  },
   "sound:boom-cine": {
    "name": "시네마틱 붐",
    "tags": [
@@ -15552,6 +16269,15 @@
     "어두운",
     "마법",
     "신비"
+   ]
+  },
+  "sound:burbuja-plop": {
+   "name": "뽁 버블",
+   "tags": [
+    "효과음",
+    "버블",
+    "팝",
+    "귀여운"
    ]
   },
   "sound:burbujas-magicas": {
@@ -15698,6 +16424,15 @@
     "마법"
    ]
   },
+  "sound:check-tilde": {
+   "name": "체크 표시",
+   "tags": [
+    "효과음",
+    "체크",
+    "완료",
+    "ui"
+   ]
+  },
   "sound:chillido-doble": {
    "name": "더블 삑삑",
    "tags": [
@@ -15714,6 +16449,15 @@
     "장난감",
     "강아지 장난감",
     "유머"
+   ]
+  },
+  "sound:cierre-video": {
+   "name": "아웃트로 마무리",
+   "tags": [
+    "효과음",
+    "아웃트로",
+    "마무리",
+    "엔딩"
    ]
   },
   "sound:cinta-frenada": {
@@ -15806,6 +16550,24 @@
     "딩동댕"
    ]
   },
+  "sound:corte-glitch": {
+   "name": "글리치 컷",
+   "tags": [
+    "효과음",
+    "글리치",
+    "노이즈",
+    "컷"
+   ]
+  },
+  "sound:corte-seco": {
+   "name": "점프 컷",
+   "tags": [
+    "효과음",
+    "컷",
+    "점프 컷",
+    "템포"
+   ]
+  },
   "sound:cremallera": {
    "name": "지퍼",
    "tags": [
@@ -15831,6 +16593,24 @@
     "1 2 3 4",
     "드럼 스틱",
     "스틱"
+   ]
+  },
+  "sound:cuenta-regresiva": {
+   "name": "3·2·1 카운트다운",
+   "tags": [
+    "효과음",
+    "카운트다운",
+    "3 2 1",
+    "시작"
+   ]
+  },
+  "sound:cuenta-regresiva-rapida": {
+   "name": "빠른 카운트다운",
+   "tags": [
+    "효과음",
+    "카운트다운",
+    "빠른",
+    "타이머"
    ]
   },
   "sound:dano": {
@@ -15905,6 +16685,15 @@
     "깨끗한"
    ]
   },
+  "sound:ding-idea": {
+   "name": "아이디어 딩",
+   "tags": [
+    "효과음",
+    "아이디어",
+    "딩",
+    "번뜩"
+   ]
+  },
   "sound:disco-rayado": {
    "name": "레코드 긁힘",
    "tags": [
@@ -15948,6 +16737,15 @@
     "드럼",
     "드롭",
     "비트"
+   ]
+  },
+  "sound:error-doble": {
+   "name": "더블 에러음",
+   "tags": [
+    "효과음",
+    "에러",
+    "삐빅",
+    "실패"
    ]
   },
   "sound:error-negativo": {
@@ -16011,6 +16809,15 @@
     "팡파르",
     "우승",
     "상"
+   ]
+  },
+  "sound:foto-flash": {
+   "name": "플래시 촬영",
+   "tags": [
+    "효과음",
+    "카메라",
+    "셔터",
+    "플래시"
    ]
   },
   "sound:game-over": {
@@ -16092,6 +16899,15 @@
     "강조",
     "두둥",
     "충격"
+   ]
+  },
+  "sound:golpe-eco": {
+   "name": "에코 슬램",
+   "tags": [
+    "효과음",
+    "히트",
+    "에코",
+    "임팩트"
    ]
   },
   "sound:golpe-fuerte": {
@@ -16220,6 +17036,15 @@
     "딸깍"
    ]
   },
+  "sound:intro-golpe": {
+   "name": "인트로 히트",
+   "tags": [
+    "효과음",
+    "인트로",
+    "히트",
+    "오프닝"
+   ]
+  },
   "sound:laser": {
    "name": "레이저",
    "tags": [
@@ -16301,6 +17126,15 @@
     "라틴"
    ]
   },
+  "sound:marcador": {
+   "name": "마커로 밑줄 긋기",
+   "tags": [
+    "효과음",
+    "마커",
+    "필기",
+    "강조"
+   ]
+  },
   "sound:me-gusta": {
    "name": "좋아요",
    "tags": [
@@ -16353,6 +17187,15 @@
     "코인",
     "더블",
     "게임"
+   ]
+  },
+  "sound:monedas-mano": {
+   "name": "짤랑짤랑 동전",
+   "tags": [
+    "효과음",
+    "동전",
+    "돈",
+    "짤랑"
    ]
   },
   "sound:notificacion-campanita": {
@@ -16416,6 +17259,15 @@
     "페이지",
     "책",
     "종이"
+   ]
+  },
+  "sound:pensando": {
+   "name": "생각 중…",
+   "tags": [
+    "효과음",
+    "생각",
+    "물음표",
+    "코믹"
    ]
   },
   "sound:platillo": {
@@ -16535,6 +17387,15 @@
     "카지노"
    ]
   },
+  "sound:rafaga-fotos": {
+   "name": "연사 셔터",
+   "tags": [
+    "효과음",
+    "카메라",
+    "연사",
+    "셔터"
+   ]
+  },
   "sound:rafaga-viento": {
    "name": "바람 휙",
    "tags": [
@@ -16553,6 +17414,15 @@
     "전환"
    ]
   },
+  "sound:rebobinar": {
+   "name": "되감기",
+   "tags": [
+    "효과음",
+    "되감기",
+    "테이프",
+    "리와인드"
+   ]
+  },
   "sound:redoble": {
    "name": "드럼롤",
    "tags": [
@@ -16560,6 +17430,24 @@
     "두구두구",
     "북",
     "서스펜스"
+   ]
+  },
+  "sound:redoble-corto": {
+   "name": "짧은 드럼롤",
+   "tags": [
+    "효과음",
+    "드럼롤",
+    "발표",
+    "짧은"
+   ]
+  },
+  "sound:redoble-largo": {
+   "name": "긴 드럼롤과 심벌",
+   "tags": [
+    "효과음",
+    "드럼롤",
+    "심벌",
+    "발표"
    ]
   },
   "sound:redoble-platillo": {
@@ -16596,6 +17484,24 @@
     "튕김",
     "띠용",
     "유머"
+   ]
+  },
+  "sound:respuesta-correcta": {
+   "name": "정답",
+   "tags": [
+    "효과음",
+    "정답",
+    "딩동댕",
+    "퀴즈"
+   ]
+  },
+  "sound:respuesta-incorrecta": {
+   "name": "오답 버저",
+   "tags": [
+    "효과음",
+    "오답",
+    "버저",
+    "퀴즈"
    ]
   },
   "sound:revelacion": {
@@ -16751,6 +17657,24 @@
     "비상"
    ]
   },
+  "sound:sorpresa": {
+   "name": "서프라이즈",
+   "tags": [
+    "효과음",
+    "놀람",
+    "서프라이즈",
+    "리액션"
+   ]
+  },
+  "sound:sticker": {
+   "name": "스티커 착",
+   "tags": [
+    "효과음",
+    "스티커",
+    "붙이기",
+    "팝"
+   ]
+  },
   "sound:sub-drop": {
    "name": "서브 드롭",
    "tags": [
@@ -16760,6 +17684,15 @@
     "저음"
    ]
   },
+  "sound:subida-corta-golpe": {
+   "name": "짧은 라이저 + 히트",
+   "tags": [
+    "효과음",
+    "라이저",
+    "히트",
+    "빌드업"
+   ]
+  },
   "sound:subir-nivel": {
    "name": "레벨 업",
    "tags": [
@@ -16767,6 +17700,24 @@
     "레벨",
     "게임",
     "성취"
+   ]
+  },
+  "sound:subir-nivel-moderno": {
+   "name": "모던 레벨 업",
+   "tags": [
+    "효과음",
+    "레벨 업",
+    "게임",
+    "달성"
+   ]
+  },
+  "sound:suscribir-campana": {
+   "name": "구독 클릭과 알림 벨",
+   "tags": [
+    "효과음",
+    "구독",
+    "클릭",
+    "벨"
    ]
   },
   "sound:susto-terror": {
@@ -16814,6 +17765,15 @@
     "웅장한"
    ]
   },
+  "sound:tartamudeo-ritmico": {
+   "name": "비트 리피트 스터터",
+   "tags": [
+    "효과음",
+    "스터터",
+    "리피트",
+    "비트"
+   ]
+  },
   "sound:teclado": {
    "name": "키보드 타이핑",
    "tags": [
@@ -16857,6 +17817,51 @@
     "서스펜스",
     "상승",
     "공포"
+   ]
+  },
+  "sound:texto-dialogo": {
+   "name": "대화창 삐빅 소리",
+   "tags": [
+    "효과음",
+    "텍스트",
+    "대화",
+    "게임풍"
+   ]
+  },
+  "sound:texto-tecleo": {
+   "name": "텍스트 타자 소리",
+   "tags": [
+    "효과음",
+    "타자",
+    "텍스트",
+    "키보드"
+   ]
+  },
+  "sound:timbre-mostrador": {
+   "name": "카운터 호출 벨",
+   "tags": [
+    "효과음",
+    "벨",
+    "띵",
+    "카운터"
+   ]
+  },
+  "sound:titulo-desliza": {
+   "name": "타이틀 슬라이드 인",
+   "tags": [
+    "효과음",
+    "타이틀",
+    "슬라이드",
+    "휙"
+   ]
+  },
+  "sound:titulo-golpe": {
+   "name": "타이틀 쾅",
+   "tags": [
+    "효과음",
+    "타이틀",
+    "히트",
+    "임팩트"
    ]
   },
   "sound:toque": {
@@ -16920,6 +17925,15 @@
     "상승",
     "마법",
     "등장"
+   ]
+  },
+  "sound:venta-hecha": {
+   "name": "판매 완료",
+   "tags": [
+    "효과음",
+    "계산대",
+    "매출",
+    "짤랑"
    ]
   },
   "sound:victoria-8bits": {
@@ -17091,6 +18105,24 @@
     "펄럭",
     "옷",
     "휙"
+   ]
+  },
+  "sound:womp-womp": {
+   "name": "와와와 실패음",
+   "tags": [
+    "효과음",
+    "실패",
+    "아쉬움",
+    "코믹"
+   ]
+  },
+  "sound:zoom-dramatico": {
+   "name": "드라마틱 줌",
+   "tags": [
+    "효과음",
+    "줌",
+    "드라마틱",
+    "강조"
    ]
   },
   "sound:zoom-entrada": {
@@ -17793,6 +18825,206 @@
     "음악",
     "파티",
     "라이브"
+   ]
+  },
+  "template:cont-ahorro-meta": {
+   "name": "저축 목표",
+   "tags": [
+    "저축",
+    "돈",
+    "목표",
+    "재테크",
+    "달성"
+   ]
+  },
+  "template:cont-anillo-meta": {
+   "name": "진행률 링",
+   "tags": [
+    "카운터",
+    "진행률",
+    "퍼센트",
+    "목표",
+    "달성"
+   ]
+  },
+  "template:cont-barra-carga": {
+   "name": "로딩 바",
+   "tags": [
+    "카운터",
+    "로딩",
+    "진행률",
+    "퍼센트",
+    "인트로"
+   ]
+  },
+  "template:cont-dias-100": {
+   "name": "1일 차부터 100일 차까지",
+   "tags": [
+    "카운터",
+    "100일",
+    "챌린지",
+    "꾸준함",
+    "기록"
+   ]
+  },
+  "template:cont-dias-juntos": {
+   "name": "우리가 함께한 날",
+   "tags": [
+    "커플",
+    "기념일",
+    "사랑",
+    "디데이",
+    "로맨틱"
+   ]
+  },
+  "template:cont-dinero-millon": {
+   "name": "돈 카운터",
+   "tags": [
+    "카운터",
+    "돈",
+    "백만",
+    "매출",
+    "목표"
+   ]
+  },
+  "template:cont-edad-cumple": {
+   "name": "생일 나이 카운터",
+   "tags": [
+    "생일",
+    "나이",
+    "파티",
+    "축하",
+    "카운터"
+   ]
+  },
+  "template:cont-libros-anio": {
+   "name": "올해 읽은 책",
+   "tags": [
+    "독서",
+    "책",
+    "올해",
+    "독서 챌린지",
+    "카운터"
+   ]
+  },
+  "template:cont-maraton-km": {
+   "name": "달린 거리",
+   "tags": [
+    "마라톤",
+    "러닝",
+    "킬로미터",
+    "스포츠",
+    "카운터"
+   ]
+  },
+  "template:cont-marcador": {
+   "name": "경기 스코어보드",
+   "tags": [
+    "스코어",
+    "축구",
+    "경기",
+    "골",
+    "스포츠"
+   ]
+  },
+  "template:cont-me-gusta": {
+   "name": "좋아요 카운터",
+   "tags": [
+    "카운터",
+    "좋아요",
+    "하트",
+    "게시물",
+    "바이럴"
+   ]
+  },
+  "template:cont-odometro-km": {
+   "name": "주행 거리계",
+   "tags": [
+    "카운터",
+    "거리",
+    "킬로미터",
+    "드라이브",
+    "여행"
+   ]
+  },
+  "template:cont-odometro-visitas": {
+   "name": "방문자 카운터",
+   "tags": [
+    "카운터",
+    "방문자",
+    "웹사이트",
+    "통계",
+    "비즈니스"
+   ]
+  },
+  "template:cont-pasos": {
+   "name": "걸음 수 카운터",
+   "tags": [
+    "걸음 수",
+    "걷기",
+    "건강",
+    "피트니스",
+    "목표"
+   ]
+  },
+  "template:cont-precio-baja": {
+   "name": "가격 인하 카운터",
+   "tags": [
+    "가격",
+    "세일",
+    "할인",
+    "쇼핑몰",
+    "프로모션"
+   ]
+  },
+  "template:cont-seguidores-100k": {
+   "name": "팔로워 10만 명",
+   "tags": [
+    "카운터",
+    "팔로워",
+    "10만",
+    "달성",
+    "감사"
+   ]
+  },
+  "template:cont-suscriptores-millon": {
+   "name": "구독자 100만 명",
+   "tags": [
+    "카운터",
+    "구독자",
+    "100만",
+    "채널",
+    "축하"
+   ]
+  },
+  "template:cont-temporizador": {
+   "name": "화면 타이머",
+   "tags": [
+    "타이머",
+    "스톱워치",
+    "카운트다운",
+    "분",
+    "챌린지"
+   ]
+  },
+  "template:cont-ventas-semestre": {
+   "name": "반기 매출",
+   "tags": [
+    "매출",
+    "그래프",
+    "비즈니스",
+    "성장",
+    "실적"
+   ]
+  },
+  "template:cont-vistas-millon": {
+   "name": "조회수 100만 회",
+   "tags": [
+    "조회수",
+    "100만",
+    "바이럴",
+    "영상",
+    "네온"
    ]
   },
   "template:cosas-que-no-sabias": {
@@ -23073,6 +24305,246 @@
     "연애",
     "데이트",
     "유머"
+   ]
+  },
+  "template:redes-h-facebook-cristal": {
+   "name": "Facebook 글래스",
+   "tags": [
+    "sns",
+    "facebook",
+    "아이디",
+    "글래스",
+    "하단 자막"
+   ]
+  },
+  "template:redes-h-instagram-minimal": {
+   "name": "Instagram 미니멀",
+   "tags": [
+    "sns",
+    "instagram",
+    "아이디",
+    "팔로우",
+    "하단 자막"
+   ]
+  },
+  "template:redes-h-instagram-sticker": {
+   "name": "Instagram 스티커",
+   "tags": [
+    "sns",
+    "instagram",
+    "아이디",
+    "스티커",
+    "하단 자막"
+   ]
+  },
+  "template:redes-h-threads-minimal": {
+   "name": "Threads 미니멀",
+   "tags": [
+    "sns",
+    "threads",
+    "아이디",
+    "심플",
+    "하단 자막"
+   ]
+  },
+  "template:redes-h-tiktok-neon": {
+   "name": "TikTok 네온",
+   "tags": [
+    "sns",
+    "tiktok",
+    "아이디",
+    "네온",
+    "하단 자막"
+   ]
+  },
+  "template:redes-h-tiktok-sticker": {
+   "name": "TikTok 스티커",
+   "tags": [
+    "sns",
+    "tiktok",
+    "아이디",
+    "스티커",
+    "하단 자막"
+   ]
+  },
+  "template:redes-h-todas-fila": {
+   "name": "어디서든 찾아 주세요",
+   "tags": [
+    "sns",
+    "모음",
+    "아이콘",
+    "팔로우",
+    "하단 자막"
+   ]
+  },
+  "template:redes-h-todas-neon": {
+   "name": "내 SNS 모음 네온",
+   "tags": [
+    "sns",
+    "모음",
+    "아이디",
+    "네온",
+    "팔로우"
+   ]
+  },
+  "template:redes-h-twitch-neon": {
+   "name": "Twitch 네온",
+   "tags": [
+    "sns",
+    "twitch",
+    "방송",
+    "네온",
+    "하단 자막"
+   ]
+  },
+  "template:redes-h-x-cristal": {
+   "name": "X 글래스",
+   "tags": [
+    "sns",
+    "x",
+    "아이디",
+    "글래스",
+    "하단 자막"
+   ]
+  },
+  "template:redes-h-youtube-minimal": {
+   "name": "YouTube 미니멀",
+   "tags": [
+    "sns",
+    "youtube",
+    "채널",
+    "심플",
+    "하단 자막"
+   ]
+  },
+  "template:redes-h-youtube-sticker": {
+   "name": "YouTube 스티커",
+   "tags": [
+    "sns",
+    "youtube",
+    "아이디",
+    "스티커",
+    "하단 자막"
+   ]
+  },
+  "template:redes-v-facebook-minimal": {
+   "name": "Facebook 미니멀",
+   "tags": [
+    "sns",
+    "facebook",
+    "아이디",
+    "심플",
+    "세로"
+   ]
+  },
+  "template:redes-v-instagram-cristal": {
+   "name": "Instagram 글래스",
+   "tags": [
+    "sns",
+    "instagram",
+    "아이디",
+    "글래스",
+    "세로"
+   ]
+  },
+  "template:redes-v-instagram-neon": {
+   "name": "Instagram 네온",
+   "tags": [
+    "sns",
+    "instagram",
+    "아이디",
+    "네온",
+    "세로"
+   ]
+  },
+  "template:redes-v-threads-cristal": {
+   "name": "Threads 글래스",
+   "tags": [
+    "sns",
+    "threads",
+    "아이디",
+    "글래스",
+    "세로"
+   ]
+  },
+  "template:redes-v-tiktok-minimal": {
+   "name": "TikTok 미니멀",
+   "tags": [
+    "sns",
+    "tiktok",
+    "아이디",
+    "심플",
+    "세로"
+   ]
+  },
+  "template:redes-v-tiktok-sticker": {
+   "name": "TikTok 스티커 (세로)",
+   "tags": [
+    "sns",
+    "tiktok",
+    "아이디",
+    "스티커",
+    "세로"
+   ]
+  },
+  "template:redes-v-todas-cristal": {
+   "name": "내 SNS 모음 글래스",
+   "tags": [
+    "sns",
+    "모음",
+    "아이디",
+    "글래스",
+    "팔로우"
+   ]
+  },
+  "template:redes-v-todas-iconos": {
+   "name": "모든 SNS 같은 아이디",
+   "tags": [
+    "sns",
+    "아이콘",
+    "아이디",
+    "팔로우",
+    "세로"
+   ]
+  },
+  "template:redes-v-todas-sticker": {
+   "name": "내 SNS 스티커",
+   "tags": [
+    "sns",
+    "모음",
+    "스티커",
+    "팔로우",
+    "세로"
+   ]
+  },
+  "template:redes-v-twitch-neon": {
+   "name": "Twitch 네온 (세로)",
+   "tags": [
+    "sns",
+    "twitch",
+    "방송",
+    "네온",
+    "세로"
+   ]
+  },
+  "template:redes-v-x-sticker": {
+   "name": "X 스티커",
+   "tags": [
+    "sns",
+    "x",
+    "아이디",
+    "스티커",
+    "세로"
+   ]
+  },
+  "template:redes-v-youtube-minimal": {
+   "name": "YouTube 미니멀 (세로)",
+   "tags": [
+    "sns",
+    "youtube",
+    "채널",
+    "심플",
+    "세로"
    ]
   },
   "template:remodelacion": {
@@ -29230,6 +30702,24 @@
     "전환"
    ]
   },
+  "transition:alejar-revelar": {
+   "name": "줌 아웃 공개",
+   "tags": [
+    "전환",
+    "줌 아웃",
+    "공개",
+    "유튜버"
+   ]
+  },
+  "transition:alejar-revelar-lado": {
+   "name": "줌 아웃 던지기",
+   "tags": [
+    "전환",
+    "줌 아웃",
+    "슬라이드",
+    "유튜버"
+   ]
+  },
   "transition:anillos": {
    "name": "링",
    "tags": [
@@ -29404,6 +30894,16 @@
     "분홍",
     "사랑",
     "전환"
+   ]
+  },
+  "transition:corte-estrobo": {
+   "name": "스트로브 컷",
+   "tags": [
+    "전환",
+    "스트로브",
+    "플래시",
+    "컷",
+    "유튜버"
    ]
   },
   "transition:cristal-cae": {
@@ -29615,6 +31115,36 @@
     "전환"
    ]
   },
+  "transition:deslizamiento-rgb": {
+   "name": "RGB 슬라이드",
+   "tags": [
+    "전환",
+    "rgb",
+    "슬라이드",
+    "글리치",
+    "유튜버"
+   ]
+  },
+  "transition:deslizar-arriba": {
+   "name": "위로 스와이프",
+   "tags": [
+    "전환",
+    "스와이프",
+    "위",
+    "세로",
+    "유튜버"
+   ]
+  },
+  "transition:deslizar-historia": {
+   "name": "스토리 스와이프",
+   "tags": [
+    "전환",
+    "스와이프",
+    "스토리",
+    "세로",
+    "유튜버"
+   ]
+  },
   "transition:destello-azul": {
    "name": "차가운 플래시",
    "tags": [
@@ -29744,6 +31274,16 @@
     "전환"
    ]
   },
+  "transition:entrada-pop": {
+   "name": "젤리 팝",
+   "tags": [
+    "전환",
+    "팝",
+    "바운스",
+    "젤리",
+    "유튜버"
+   ]
+  },
   "transition:espejismo": {
    "name": "아지랑이",
    "tags": [
@@ -29797,6 +31337,16 @@
     "정전기",
     "tv",
     "전환"
+   ]
+  },
+  "transition:estela-derecha": {
+   "name": "잔상 스와이프",
+   "tags": [
+    "전환",
+    "스와이프",
+    "잔상",
+    "모션 블러",
+    "유튜버"
    ]
   },
   "transition:estirar-horizontal": {
@@ -29892,6 +31442,16 @@
     "도형",
     "봄",
     "전환"
+   ]
+  },
+  "transition:foto-congelada": {
+   "name": "프리즈 프레임",
+   "tags": [
+    "전환",
+    "정지",
+    "프리즈",
+    "사진",
+    "유튜버"
    ]
   },
   "transition:franja-amarilla": {
@@ -30028,6 +31588,16 @@
     "전환"
    ]
   },
+  "transition:fundido-brillo-luz": {
+   "name": "빛 번짐 루마 페이드",
+   "tags": [
+    "전환",
+    "페이드",
+    "빛 번짐",
+    "라이트",
+    "유튜버"
+   ]
+  },
   "transition:fusion-color": {
    "name": "색상 모프",
    "tags": [
@@ -30066,6 +31636,15 @@
     "두바퀴",
     "줌",
     "전환"
+   ]
+  },
+  "transition:giro-esquina": {
+   "name": "코너 스윙",
+   "tags": [
+    "전환",
+    "회전",
+    "코너",
+    "유튜버"
    ]
   },
   "transition:giro-horario": {
@@ -30157,6 +31736,35 @@
     "전환"
    ]
   },
+  "transition:impacto-onda": {
+   "name": "충격파 임팩트",
+   "tags": [
+    "전환",
+    "충격파",
+    "임팩트",
+    "유튜버"
+   ]
+  },
+  "transition:latigazo-giro-derecha": {
+   "name": "휙 롤 (오른쪽)",
+   "tags": [
+    "전환",
+    "휙",
+    "회전",
+    "오른쪽",
+    "유튜버"
+   ]
+  },
+  "transition:latigazo-giro-izquierda": {
+   "name": "휙 롤 (왼쪽)",
+   "tags": [
+    "전환",
+    "휙",
+    "회전",
+    "왼쪽",
+    "유튜버"
+   ]
+  },
   "transition:lluvia-corazones": {
    "name": "하트 비",
    "tags": [
@@ -30204,6 +31812,16 @@
     "중앙",
     "격자",
     "전환"
+   ]
+  },
+  "transition:muro-pantallas": {
+   "name": "비디오 월",
+   "tags": [
+    "전환",
+    "비디오 월",
+    "화면",
+    "그리드",
+    "유튜버"
    ]
   },
   "transition:negativo": {
@@ -30340,6 +31958,26 @@
     "전환"
    ]
   },
+  "transition:paneo-diagonal-abajo": {
+   "name": "대각선 휙 (아래)",
+   "tags": [
+    "전환",
+    "휙",
+    "대각선",
+    "아래",
+    "유튜버"
+   ]
+  },
+  "transition:paneo-diagonal-arriba": {
+   "name": "대각선 휙 (위)",
+   "tags": [
+    "전환",
+    "휙",
+    "대각선",
+    "위",
+    "유튜버"
+   ]
+  },
   "transition:paneo-izquierda": {
    "name": "왼쪽 휩팬",
    "tags": [
@@ -30348,6 +31986,15 @@
     "빠른",
     "모션블러",
     "전환"
+   ]
+  },
+  "transition:pantalla-dividida": {
+   "name": "화면 분할",
+   "tags": [
+    "전환",
+    "분할",
+    "화면",
+    "유튜버"
    ]
   },
   "transition:papel-rasgado": {
@@ -30366,6 +32013,16 @@
     "찢기",
     "세로",
     "전환"
+   ]
+  },
+  "transition:parpadeo": {
+   "name": "눈 깜빡임",
+   "tags": [
+    "전환",
+    "깜빡임",
+    "블랙",
+    "눈",
+    "유튜버"
    ]
   },
   "transition:pasar-pagina": {
@@ -30515,6 +32172,16 @@
     "전환"
    ]
   },
+  "transition:pixelado-rapido": {
+   "name": "픽셀 스냅",
+   "tags": [
+    "전환",
+    "픽셀",
+    "모자이크",
+    "빠른",
+    "유튜버"
+   ]
+  },
   "transition:pixeles-arrastrados": {
    "name": "픽셀 드래그",
    "tags": [
@@ -30607,6 +32274,16 @@
     "열기",
     "분할",
     "전환"
+   ]
+  },
+  "transition:pulso-bajo": {
+   "name": "베이스 펄스",
+   "tags": [
+    "전환",
+    "베이스",
+    "펄스",
+    "비트",
+    "유튜버"
    ]
   },
   "transition:puntos": {
@@ -31114,6 +32791,26 @@
     "펀치",
     "진동",
     "전환"
+   ]
+  },
+  "transition:zoom-saltos": {
+   "name": "단계별 줌 인",
+   "tags": [
+    "전환",
+    "줌",
+    "줌 인",
+    "단계",
+    "유튜버"
+   ]
+  },
+  "transition:zoom-saltos-atras": {
+   "name": "단계별 줌 아웃",
+   "tags": [
+    "전환",
+    "줌",
+    "줌 아웃",
+    "단계",
+    "유튜버"
    ]
   }
  }

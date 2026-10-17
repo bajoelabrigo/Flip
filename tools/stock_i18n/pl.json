@@ -61,6 +61,7 @@
   "music:triste": "Smutna i emocjonalna",
   "overlay:amor": "Miłość",
   "overlay:camara": "Kamera i ekran",
+  "overlay:camara-cara": "Ramki do kamerki",
   "overlay:celebracion": "Świętowanie",
   "overlay:clima": "Pogoda i natura",
   "overlay:garabatos": "Bazgroły",
@@ -69,6 +70,7 @@
   "overlay:marcos": "Ramki i tekstury",
   "overlay:particulas": "Cząsteczki i błyski",
   "overlay:pelicula": "Film i retro",
+  "overlay:youtuber": "YouTuber",
   "shape:arrows": "Strzałki",
   "shape:badges": "Odznaki",
   "shape:bubbles": "Dymki",
@@ -93,12 +95,14 @@
   "sound:ritmo": "Rytmy i muzyka",
   "sound:suspenso": "Napięcie i dramat",
   "sound:transiciones": "Przejścia",
+  "sound:youtuber": "YouTuber",
   "template:ad6": "Reklamy 6 s",
   "template:beforeafter": "Przed i po",
   "template:business": "Biznes",
   "template:celebration": "Uroczystości",
   "template:collage": "Kolaże",
   "template:countdown": "Odliczania",
+  "template:counter": "Liczniki",
   "template:intro": "Intra i tytuły",
   "template:lowerthird": "Belki dolne",
   "template:outro": "Zakończenia",
@@ -144,6 +148,7 @@
   "transition:liquido": "Tusz i ciecz",
   "transition:luz": "Światło i film",
   "transition:movimiento": "Ruch",
+  "transition:youtuber": "YouTuber",
   "transition:zoom": "Zoom i uderzenie"
  },
  "items": {
@@ -12644,6 +12649,270 @@
     "pogoda"
    ]
   },
+  "overlay:facecam-burbuja": {
+   "name": "Dymek rozmowy",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "dymek",
+    "komiks",
+    "streamer"
+   ]
+  },
+  "overlay:facecam-circulo-blanco": {
+   "name": "Białe kółko",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "kółko",
+    "biały",
+    "podcast"
+   ]
+  },
+  "overlay:facecam-circulo-degradado": {
+   "name": "Kółko z gradientem",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "kółko",
+    "gradient",
+    "aesthetic"
+   ]
+  },
+  "overlay:facecam-circulo-dorado": {
+   "name": "Złote kółko",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "kółko",
+    "złoty",
+    "elegancki"
+   ]
+  },
+  "overlay:facecam-circulo-neon": {
+   "name": "Neonowe kółko",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "kółko",
+    "neon",
+    "gaming"
+   ]
+  },
+  "overlay:facecam-circulo-ondas": {
+   "name": "Mówiące kółko",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "fale",
+    "głos",
+    "podcast"
+   ]
+  },
+  "overlay:facecam-comic": {
+   "name": "Komiks pop",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "komiks",
+    "pop art",
+    "żółty"
+   ]
+  },
+  "overlay:facecam-cuadrado": {
+   "name": "Zaokrąglony kwadrat",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "kwadrat",
+    "minimalizm",
+    "podcast"
+   ]
+  },
+  "overlay:facecam-cyber": {
+   "name": "Cyber HUD",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "cyber",
+    "hud",
+    "futurystyczny"
+   ]
+  },
+  "overlay:facecam-en-vivo-es": {
+   "name": "En vivo z kółkiem (hiszpański)",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "na żywo",
+    "transmisja",
+    "hiszpański"
+   ]
+  },
+  "overlay:facecam-esquinas": {
+   "name": "Narożniki",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "narożniki",
+    "celownik",
+    "minimalizm"
+   ]
+  },
+  "overlay:facecam-estudio": {
+   "name": "Studio podcastowe",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "podcast",
+    "studio",
+    "mikrofon"
+   ]
+  },
+  "overlay:facecam-gamer-neon": {
+   "name": "Gamer neon",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "gamer",
+    "neon",
+    "twitch"
+   ]
+  },
+  "overlay:facecam-gamer-rgb": {
+   "name": "Gamer RGB",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "gamer",
+    "rgb",
+    "tęcza"
+   ]
+  },
+  "overlay:facecam-glitch": {
+   "name": "Glitch",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "glitch",
+    "cyfrowy",
+    "gamer"
+   ]
+  },
+  "overlay:facecam-hexagono-neon": {
+   "name": "Neonowy sześciokąt",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "sześciokąt",
+    "neon",
+    "gamer"
+   ]
+  },
+  "overlay:facecam-hexagono-tech": {
+   "name": "Technologiczny sześciokąt",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "sześciokąt",
+    "hud",
+    "sci-fi"
+   ]
+  },
+  "overlay:facecam-live-en": {
+   "name": "Live z kółkiem (angielski)",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "na żywo",
+    "live",
+    "angielski"
+   ]
+  },
+  "overlay:facecam-madera": {
+   "name": "Drewniana ramka",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "drewno",
+    "rustykalny",
+    "podcast"
+   ]
+  },
+  "overlay:facecam-minimal": {
+   "name": "Minimalistyczna",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "minimalizm",
+    "prosty",
+    "biały"
+   ]
+  },
+  "overlay:facecam-pastel": {
+   "name": "Pastelowa z serduszkami",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "pastelowy",
+    "serduszka",
+    "kawaii"
+   ]
+  },
+  "overlay:facecam-placa-nombre": {
+   "name": "Z tabliczką na imię",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "imię",
+    "belka",
+    "wywiad"
+   ]
+  },
+  "overlay:facecam-rayos": {
+   "name": "Pioruny",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "pioruny",
+    "energia",
+    "gamer"
+   ]
+  },
+  "overlay:facecam-tv-retro": {
+   "name": "Telewizor retro",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "telewizor",
+    "retro",
+    "vintage"
+   ]
+  },
   "overlay:garabato-angel": {
    "name": "Anielskie skrzydła i aureola",
    "tags": [
@@ -13964,6 +14233,435 @@
     "vintage",
     "kolaż",
     "rękodzieło"
+   ]
+  },
+  "overlay:yt-barra-reproduccion": {
+   "name": "Pasek odtwarzacza",
+   "tags": [
+    "youtuber",
+    "odtwarzacz",
+    "pasek postępu",
+    "wideo",
+    "pauza",
+    "pionowy"
+   ]
+  },
+  "overlay:yt-campana": {
+   "name": "Dzwonek powiadomień",
+   "tags": [
+    "youtuber",
+    "dzwonek",
+    "powiadomienia",
+    "subskrypcja",
+    "pionowy"
+   ]
+  },
+  "overlay:yt-check-verde": {
+   "name": "Zielony ptaszek",
+   "tags": [
+    "youtuber",
+    "ptaszek",
+    "dobrze",
+    "ok",
+    "zatwierdzone",
+    "zielony"
+   ]
+  },
+  "overlay:yt-circulo-flecha": {
+   "name": "Czerwone kółko i strzałka",
+   "tags": [
+    "youtuber",
+    "kółko",
+    "strzałka",
+    "czerwony",
+    "miniatura",
+    "zobacz to"
+   ]
+  },
+  "overlay:yt-circulo-neon": {
+   "name": "Neonowe kółko",
+   "tags": [
+    "youtuber",
+    "kółko",
+    "neon",
+    "zaznaczenie",
+    "gamer",
+    "zobacz to"
+   ]
+  },
+  "overlay:yt-comentario-pop": {
+   "name": "Wyskakujący komentarz",
+   "tags": [
+    "youtuber",
+    "komentarz",
+    "czat",
+    "wiadomość",
+    "pionowy"
+   ]
+  },
+  "overlay:yt-compartir-pop": {
+   "name": "Wyskakujące udostępnianie",
+   "tags": [
+    "youtuber",
+    "udostępnij",
+    "wyślij",
+    "share",
+    "pionowy"
+   ]
+  },
+  "overlay:yt-contador-likes": {
+   "name": "Licznik polubień",
+   "tags": [
+    "youtuber",
+    "licznik",
+    "polubienia",
+    "lajki",
+    "viral",
+    "kciuk"
+   ]
+  },
+  "overlay:yt-contador-seguidores": {
+   "name": "Licznik obserwujących",
+   "tags": [
+    "youtuber",
+    "licznik",
+    "obserwujący",
+    "subskrybenci",
+    "wzrost"
+   ]
+  },
+  "overlay:yt-contador-vistas": {
+   "name": "Licznik wyświetleń",
+   "tags": [
+    "youtuber",
+    "licznik",
+    "wyświetlenia",
+    "viral",
+    "oko"
+   ]
+  },
+  "overlay:yt-cursor-clic": {
+   "name": "Klikający kursor",
+   "tags": [
+    "youtuber",
+    "kursor",
+    "kliknięcie",
+    "mysz",
+    "poradnik"
+   ]
+  },
+  "overlay:yt-emoji-100": {
+   "name": "Emoji 100 w 3D",
+   "tags": [
+    "emoji",
+    "reakcja",
+    "3d",
+    "100",
+    "perfekcyjnie",
+    "sukces"
+   ]
+  },
+  "overlay:yt-emoji-calavera": {
+   "name": "Emoji czaszka w 3D",
+   "tags": [
+    "emoji",
+    "reakcja",
+    "3d",
+    "czaszka",
+    "umieram ze śmiechu",
+    "śmieszne"
+   ]
+  },
+  "overlay:yt-emoji-enamorado": {
+   "name": "Zakochane emoji w 3D",
+   "tags": [
+    "emoji",
+    "reakcja",
+    "3d",
+    "zakochany",
+    "miłość",
+    "serca"
+   ]
+  },
+  "overlay:yt-emoji-fuego": {
+   "name": "Emoji ognia w 3D",
+   "tags": [
+    "emoji",
+    "reakcja",
+    "3d",
+    "ogień",
+    "gorące",
+    "trend"
+   ]
+  },
+  "overlay:yt-emoji-llorando": {
+   "name": "Płaczące emoji w 3D",
+   "tags": [
+    "emoji",
+    "reakcja",
+    "3d",
+    "płacz",
+    "smutny",
+    "łzy"
+   ]
+  },
+  "overlay:yt-emoji-risa": {
+   "name": "Emoji płacz ze śmiechu w 3D",
+   "tags": [
+    "emoji",
+    "reakcja",
+    "3d",
+    "śmiech",
+    "haha",
+    "śmieszne"
+   ]
+  },
+  "overlay:yt-emoji-sorpresa": {
+   "name": "Zszokowane emoji w 3D",
+   "tags": [
+    "emoji",
+    "reakcja",
+    "3d",
+    "zaskoczenie",
+    "wow",
+    "szok"
+   ]
+  },
+  "overlay:yt-flecha-neon": {
+   "name": "Neonowa strzałka",
+   "tags": [
+    "youtuber",
+    "strzałka",
+    "neon",
+    "blask",
+    "gamer",
+    "wskazać"
+   ]
+  },
+  "overlay:yt-flecha-roja": {
+   "name": "Czerwona strzałka wskazująca",
+   "tags": [
+    "youtuber",
+    "strzałka",
+    "czerwony",
+    "wskazać",
+    "patrz tutaj",
+    "miniatura"
+   ]
+  },
+  "overlay:yt-flechas-amarillas": {
+   "name": "Żółte strzałki po bokach",
+   "tags": [
+    "youtuber",
+    "strzałki",
+    "żółty",
+    "wskazać",
+    "środek",
+    "uwaga"
+   ]
+  },
+  "overlay:yt-iconos-fila": {
+   "name": "Polub, skomentuj i udostępnij",
+   "tags": [
+    "youtuber",
+    "polub",
+    "komentarz",
+    "udostępnij",
+    "ikony",
+    "wezwanie do działania"
+   ]
+  },
+  "overlay:yt-iconos-lateral": {
+   "name": "Boczne przyciski krótkiego wideo",
+   "tags": [
+    "shorts",
+    "reels",
+    "polub",
+    "komentarz",
+    "udostępnij",
+    "przyciski"
+   ]
+  },
+  "overlay:yt-like-pop": {
+   "name": "Wyskakujące polubienie",
+   "tags": [
+    "youtuber",
+    "polub",
+    "lajk",
+    "kciuk w górę",
+    "pionowy"
+   ]
+  },
+  "overlay:yt-mano-clic": {
+   "name": "Stukająca dłoń",
+   "tags": [
+    "youtuber",
+    "dłoń",
+    "stuknięcie",
+    "kliknięcie",
+    "wskazać",
+    "poradnik"
+   ]
+  },
+  "overlay:yt-meta-suscriptores": {
+   "name": "Pasek osiągniętego celu",
+   "tags": [
+    "youtuber",
+    "cel",
+    "postęp",
+    "pasek",
+    "subskrybenci",
+    "osiągnięcie"
+   ]
+  },
+  "overlay:yt-new-video-en": {
+   "name": "New video (angielski)",
+   "tags": [
+    "youtuber",
+    "nowy film",
+    "premiera",
+    "naklejka",
+    "angielski"
+   ]
+  },
+  "overlay:yt-notificacion": {
+   "name": "Powiadomienie o nowym filmie",
+   "tags": [
+    "youtuber",
+    "powiadomienie",
+    "baner",
+    "nowy film",
+    "dzwonek"
+   ]
+  },
+  "overlay:yt-notificacion-oscura": {
+   "name": "Ciemne powiadomienie",
+   "tags": [
+    "youtuber",
+    "powiadomienie",
+    "ciemny",
+    "baner",
+    "nowy film"
+   ]
+  },
+  "overlay:yt-nuevo-video-es": {
+   "name": "¡Nuevo video! (hiszpański)",
+   "tags": [
+    "youtuber",
+    "nowy film",
+    "premiera",
+    "naklejka",
+    "hiszpański"
+   ]
+  },
+  "overlay:yt-resaltador": {
+   "name": "Żółty zakreślacz",
+   "tags": [
+    "youtuber",
+    "zakreślacz",
+    "podkreślenie",
+    "tekst",
+    "żółty",
+    "wyróżnienie"
+   ]
+  },
+  "overlay:yt-subscribe-card-en": {
+   "name": "Przycisk Subscribe z kartą (angielski)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "dzwonek",
+    "kursor",
+    "angielski"
+   ]
+  },
+  "overlay:yt-subscribe-classic-en": {
+   "name": "Klasyczny przycisk Subscribe (angielski)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "dzwonek",
+    "kursor",
+    "angielski"
+   ]
+  },
+  "overlay:yt-subscribe-neon-en": {
+   "name": "Neonowy przycisk Subscribe (angielski)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "neon",
+    "kursor",
+    "angielski"
+   ]
+  },
+  "overlay:yt-subscribe-white-en": {
+   "name": "Biały przycisk Subscribe (angielski)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "biały",
+    "kursor",
+    "angielski"
+   ]
+  },
+  "overlay:yt-suscribete-clasico-es": {
+   "name": "Klasyczny przycisk Suscríbete (hiszpański)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "dzwonek",
+    "kursor",
+    "hiszpański"
+   ]
+  },
+  "overlay:yt-suscribete-neon-es": {
+   "name": "Neonowy przycisk Suscríbete (hiszpański)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "neon",
+    "kursor",
+    "hiszpański"
+   ]
+  },
+  "overlay:yt-suscribete-pildora-es": {
+   "name": "Biały przycisk Suscríbete (hiszpański)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "biały",
+    "kursor",
+    "hiszpański"
+   ]
+  },
+  "overlay:yt-suscribete-tarjeta-es": {
+   "name": "Przycisk Suscríbete z kartą (hiszpański)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "dzwonek",
+    "kursor",
+    "hiszpański"
+   ]
+  },
+  "overlay:yt-x-roja": {
+   "name": "Czerwony krzyżyk",
+   "tags": [
+    "youtuber",
+    "krzyżyk",
+    "błąd",
+    "źle",
+    "nie",
+    "czerwony"
    ]
   },
   "shape:arch": {
@@ -15795,6 +16493,16 @@
     "linia"
    ]
   },
+  "sound:acento-tension": {
+   "name": "Akcent napięcia",
+   "tags": [
+    "napięcie",
+    "suspens",
+    "dramat",
+    "zwrot akcji",
+    "youtuber"
+   ]
+  },
   "sound:angelical": {
    "name": "Anielski dźwięk",
    "tags": [
@@ -15803,6 +16511,16 @@
     "niebo",
     "spokój",
     "cud"
+   ]
+  },
+  "sound:aparecer-rebote": {
+   "name": "Wyskok z odbiciem",
+   "tags": [
+    "pop",
+    "pojawienie",
+    "odbicie",
+    "tekst",
+    "youtuber"
    ]
   },
   "sound:aparicion": {
@@ -15842,6 +16560,16 @@
     "wspomnienie"
    ]
   },
+  "sound:asombro": {
+   "name": "Syntezatorowe wow",
+   "tags": [
+    "wow",
+    "zdumienie",
+    "niesamowite",
+    "zaskoczenie",
+    "youtuber"
+   ]
+  },
   "sound:aura": {
    "name": "Mieniąca się aura",
    "tags": [
@@ -15860,6 +16588,46 @@
     "żart",
     "suchar",
     "humor"
+   ]
+  },
+  "sound:barra-carga": {
+   "name": "Pełny pasek ładowania",
+   "tags": [
+    "ładowanie",
+    "postęp",
+    "gotowe",
+    "pobieranie",
+    "youtuber"
+   ]
+  },
+  "sound:barrido-camara": {
+   "name": "Szybka panorama",
+   "tags": [
+    "whip pan",
+    "szybka panorama",
+    "przejście",
+    "montaż",
+    "youtuber"
+   ]
+  },
+  "sound:barrido-camara-doble": {
+   "name": "Podwójna szybka panorama",
+   "tags": [
+    "whip pan",
+    "szybka panorama",
+    "przejście",
+    "podwójny",
+    "youtuber"
+   ]
+  },
+  "sound:barrido-golpe": {
+   "name": "Szybka panorama z uderzeniem",
+   "tags": [
+    "whip pan",
+    "szybka panorama",
+    "przejście",
+    "uderzenie",
+    "youtuber"
    ]
   },
   "sound:bass-drop": {
@@ -15977,6 +16745,16 @@
     "nagroda"
    ]
   },
+  "sound:boom-808": {
+   "name": "Boom 808 na odsłonięcie",
+   "tags": [
+    "808",
+    "boom",
+    "odsłonięcie",
+    "bas",
+    "youtuber"
+   ]
+  },
   "sound:boom-cine": {
    "name": "Filmowy boom",
    "tags": [
@@ -16054,6 +16832,17 @@
     "tajemnica",
     "mroczny",
     "migotanie"
+   ]
+  },
+  "sound:burbuja-plop": {
+   "name": "Bańka",
+   "tags": [
+    "bańka",
+    "plop",
+    "tekst",
+    "pojawienie",
+    "woda",
+    "youtuber"
    ]
   },
   "sound:burbujas-magicas": {
@@ -16207,6 +16996,16 @@
     "zmiana"
    ]
   },
+  "sound:check-tilde": {
+   "name": "Odhaczenie",
+   "tags": [
+    "ptaszek",
+    "lista",
+    "zrobione",
+    "zadanie",
+    "youtuber"
+   ]
+  },
   "sound:chillido-doble": {
    "name": "Podwójny pisk",
    "tags": [
@@ -16223,6 +17022,17 @@
     "zabawka",
     "zwierzak",
     "humor"
+   ]
+  },
+  "sound:cierre-video": {
+   "name": "Zakończenie filmu",
+   "tags": [
+    "outro",
+    "zakończenie",
+    "koniec",
+    "pożegnanie",
+    "akord",
+    "youtuber"
    ]
   },
   "sound:cinta-frenada": {
@@ -16315,6 +17125,26 @@
     "sukces"
    ]
   },
+  "sound:corte-glitch": {
+   "name": "Cięcie glitch",
+   "tags": [
+    "glitch",
+    "cięcie",
+    "cyfrowy",
+    "przejście",
+    "youtuber"
+   ]
+  },
+  "sound:corte-seco": {
+   "name": "Ostre cięcie",
+   "tags": [
+    "jump cut",
+    "cięcie",
+    "skok",
+    "vlog",
+    "youtuber"
+   ]
+  },
   "sound:cremallera": {
    "name": "Zamek błyskawiczny",
    "tags": [
@@ -16341,6 +17171,26 @@
     "pałeczki",
     "start",
     "count in"
+   ]
+  },
+  "sound:cuenta-regresiva": {
+   "name": "Odliczanie 3, 2, 1",
+   "tags": [
+    "odliczanie",
+    "3 2 1",
+    "pik",
+    "start",
+    "youtuber"
+   ]
+  },
+  "sound:cuenta-regresiva-rapida": {
+   "name": "Szybkie odliczanie",
+   "tags": [
+    "odliczanie",
+    "szybkie",
+    "pik",
+    "start",
+    "youtuber"
    ]
   },
   "sound:dano": {
@@ -16417,6 +17267,16 @@
     "nowość"
    ]
   },
+  "sound:ding-idea": {
+   "name": "Ding pomysłu",
+   "tags": [
+    "pomysł",
+    "ding",
+    "żarówka",
+    "porada",
+    "youtuber"
+   ]
+  },
   "sound:disco-rayado": {
    "name": "Zgrzyt płyty",
    "tags": [
@@ -16465,6 +17325,16 @@
     "fill",
     "drop",
     "bębny"
+   ]
+  },
+  "sound:error-doble": {
+   "name": "Podwójny błąd",
+   "tags": [
+    "błąd",
+    "nie",
+    "pik",
+    "pomyłka",
+    "youtuber"
    ]
   },
   "sound:error-negativo": {
@@ -16530,6 +17400,17 @@
     "zwycięzca",
     "nagroda",
     "mistrz"
+   ]
+  },
+  "sound:foto-flash": {
+   "name": "Zdjęcie z fleszem",
+   "tags": [
+    "aparat",
+    "flesz",
+    "zdjęcie",
+    "migawka",
+    "paparazzi",
+    "youtuber"
    ]
   },
   "sound:game-over": {
@@ -16618,6 +17499,16 @@
     "akcent",
     "dramat",
     "szok"
+   ]
+  },
+  "sound:golpe-eco": {
+   "name": "Uderzenie z echem",
+   "tags": [
+    "uderzenie",
+    "echo",
+    "impakt",
+    "dramat",
+    "youtuber"
    ]
   },
   "sound:golpe-fuerte": {
@@ -16751,6 +17642,17 @@
     "światło"
    ]
   },
+  "sound:intro-golpe": {
+   "name": "Uderzenie na intro",
+   "tags": [
+    "intro",
+    "początek",
+    "uderzenie",
+    "otwarcie",
+    "akord",
+    "youtuber"
+   ]
+  },
   "sound:laser": {
    "name": "Laser",
    "tags": [
@@ -16834,6 +17736,16 @@
     "perkusja"
    ]
   },
+  "sound:marcador": {
+   "name": "Podkreślanie markerem",
+   "tags": [
+    "marker",
+    "podkreślenie",
+    "zakreślacz",
+    "tekst",
+    "youtuber"
+   ]
+  },
   "sound:me-gusta": {
    "name": "Polubienie",
    "tags": [
@@ -16887,6 +17799,16 @@
     "pieniądze",
     "8-bit",
     "podwójny"
+   ]
+  },
+  "sound:monedas-mano": {
+   "name": "Monety w dłoni",
+   "tags": [
+    "monety",
+    "pieniądze",
+    "drobne",
+    "brzęk",
+    "youtuber"
    ]
   },
   "sound:notificacion-campanita": {
@@ -16956,6 +17878,17 @@
     "papier",
     "przejście",
     "kartkowanie"
+   ]
+  },
+  "sound:pensando": {
+   "name": "Myślę…",
+   "tags": [
+    "myślenie",
+    "wątpliwość",
+    "marimba",
+    "czekanie",
+    "quiz",
+    "youtuber"
    ]
   },
   "sound:platillo": {
@@ -17082,6 +18015,17 @@
     "losowanie"
    ]
   },
+  "sound:rafaga-fotos": {
+   "name": "Seria zdjęć",
+   "tags": [
+    "aparat",
+    "zdjęcie",
+    "seria",
+    "migawka",
+    "sesja",
+    "youtuber"
+   ]
+  },
   "sound:rafaga-viento": {
    "name": "Podmuch wiatru",
    "tags": [
@@ -17102,6 +18046,16 @@
     "edit"
    ]
   },
+  "sound:rebobinar": {
+   "name": "Przewijanie",
+   "tags": [
+    "przewijanie",
+    "rewind",
+    "powtórka",
+    "vhs",
+    "youtuber"
+   ]
+  },
   "sound:redoble": {
    "name": "Tremolo na werblu",
    "tags": [
@@ -17110,6 +18064,27 @@
     "bęben",
     "napięcie",
     "ogłoszenie"
+   ]
+  },
+  "sound:redoble-corto": {
+   "name": "Krótkie werble",
+   "tags": [
+    "werble",
+    "krótkie",
+    "ogłoszenie",
+    "suspens",
+    "youtuber"
+   ]
+  },
+  "sound:redoble-largo": {
+   "name": "Długie werble z talerzem",
+   "tags": [
+    "werble",
+    "długie",
+    "talerz",
+    "zwycięzca",
+    "odsłonięcie",
+    "youtuber"
    ]
   },
   "sound:redoble-platillo": {
@@ -17147,6 +18122,27 @@
     "odbicie",
     "humor",
     "kreskówka"
+   ]
+  },
+  "sound:respuesta-correcta": {
+   "name": "Dobra odpowiedź",
+   "tags": [
+    "dobrze",
+    "odpowiedź",
+    "quiz",
+    "teleturniej",
+    "youtuber"
+   ]
+  },
+  "sound:respuesta-incorrecta": {
+   "name": "Zła odpowiedź",
+   "tags": [
+    "błąd",
+    "źle",
+    "brzęczyk",
+    "quiz",
+    "teleturniej",
+    "youtuber"
    ]
   },
   "sound:revelacion": {
@@ -17312,6 +18308,26 @@
     "alarmowy"
    ]
   },
+  "sound:sorpresa": {
+   "name": "Niespodzianka",
+   "tags": [
+    "niespodzianka",
+    "ta-da",
+    "wow",
+    "pojawienie",
+    "youtuber"
+   ]
+  },
+  "sound:sticker": {
+   "name": "Przyklejana naklejka",
+   "tags": [
+    "naklejka",
+    "przyklejenie",
+    "emoji",
+    "pojawienie",
+    "youtuber"
+   ]
+  },
   "sound:sub-drop": {
    "name": "Sub drop",
    "tags": [
@@ -17322,6 +18338,17 @@
     "edit"
    ]
   },
+  "sound:subida-corta-golpe": {
+   "name": "Krótkie narastanie i uderzenie",
+   "tags": [
+    "riser",
+    "narastanie",
+    "uderzenie",
+    "drop",
+    "przejście",
+    "youtuber"
+   ]
+  },
   "sound:subir-nivel": {
    "name": "Awans na wyższy poziom",
    "tags": [
@@ -17330,6 +18357,26 @@
     "gra",
     "osiągnięcie",
     "8-bit"
+   ]
+  },
+  "sound:subir-nivel-moderno": {
+   "name": "Nowoczesny level up",
+   "tags": [
+    "level up",
+    "nowy poziom",
+    "osiągnięcie",
+    "ulepszenie",
+    "youtuber"
+   ]
+  },
+  "sound:suscribir-campana": {
+   "name": "Kliknięcie subskrypcji i dzwonek",
+   "tags": [
+    "subskrypcja",
+    "dzwonek",
+    "kliknięcie",
+    "powiadomienia",
+    "youtuber"
    ]
   },
   "sound:susto-terror": {
@@ -17378,6 +18425,17 @@
     "epicki"
    ]
   },
+  "sound:tartamudeo-ritmico": {
+   "name": "Rytmiczne jąkanie",
+   "tags": [
+    "stutter",
+    "powtórzenie",
+    "rytm",
+    "narastanie",
+    "glitch",
+    "youtuber"
+   ]
+  },
   "sound:teclado": {
    "name": "Pisanie na klawiaturze",
    "tags": [
@@ -17421,6 +18479,57 @@
     "suspens",
     "narastanie",
     "strach"
+   ]
+  },
+  "sound:texto-dialogo": {
+   "name": "Litery z piknięciem",
+   "tags": [
+    "tekst",
+    "dialog",
+    "piknięcia",
+    "litery",
+    "retro",
+    "youtuber"
+   ]
+  },
+  "sound:texto-tecleo": {
+   "name": "Pisanie tekstu",
+   "tags": [
+    "tekst",
+    "pisanie",
+    "klawiatura",
+    "napisy",
+    "youtuber"
+   ]
+  },
+  "sound:timbre-mostrador": {
+   "name": "Dzwonek na ladzie",
+   "tags": [
+    "dzwonek",
+    "ding",
+    "uwaga",
+    "lada",
+    "youtuber"
+   ]
+  },
+  "sound:titulo-desliza": {
+   "name": "Wsuwający się tytuł",
+   "tags": [
+    "tytuł",
+    "wsuwanie",
+    "tekst",
+    "podtytuł",
+    "youtuber"
+   ]
+  },
+  "sound:titulo-golpe": {
+   "name": "Tytuł z uderzeniem",
+   "tags": [
+    "tytuł",
+    "uderzenie",
+    "tekst",
+    "intro",
+    "youtuber"
    ]
   },
   "sound:toque": {
@@ -17486,6 +18595,17 @@
     "narastanie",
     "magia",
     "pojawienie"
+   ]
+  },
+  "sound:venta-hecha": {
+   "name": "Sprzedane",
+   "tags": [
+    "sprzedaż",
+    "pieniądze",
+    "biznes",
+    "zysk",
+    "kasa",
+    "youtuber"
    ]
   },
   "sound:victoria-8bits": {
@@ -17675,6 +18795,28 @@
     "ubranie",
     "łopot",
     "przejście"
+   ]
+  },
+  "sound:womp-womp": {
+   "name": "Womp womp (porażka)",
+   "tags": [
+    "porażka",
+    "womp",
+    "smutny",
+    "przegrana",
+    "humor",
+    "youtuber"
+   ]
+  },
+  "sound:zoom-dramatico": {
+   "name": "Dramatyczny zoom",
+   "tags": [
+    "zoom",
+    "dramat",
+    "reakcja",
+    "szok",
+    "przybliżenie",
+    "youtuber"
    ]
   },
   "sound:zoom-entrada": {
@@ -18427,6 +19569,207 @@
     "muzyka",
     "impreza",
     "na żywo"
+   ]
+  },
+  "template:cont-ahorro-meta": {
+   "name": "Cel oszczędnościowy",
+   "tags": [
+    "licznik",
+    "oszczędności",
+    "pieniądze",
+    "cel",
+    "finanse"
+   ]
+  },
+  "template:cont-anillo-meta": {
+   "name": "Pierścień postępu",
+   "tags": [
+    "licznik",
+    "procent",
+    "postęp",
+    "cel",
+    "osiągnięcie"
+   ]
+  },
+  "template:cont-barra-carga": {
+   "name": "Pasek ładowania",
+   "tags": [
+    "licznik",
+    "procent",
+    "ładowanie",
+    "postęp",
+    "intro"
+   ]
+  },
+  "template:cont-dias-100": {
+   "name": "Od dnia 1 do dnia 100",
+   "tags": [
+    "licznik",
+    "dni",
+    "wyzwanie",
+    "100 dni",
+    "postęp"
+   ]
+  },
+  "template:cont-dias-juntos": {
+   "name": "Dni razem",
+   "tags": [
+    "licznik",
+    "para",
+    "rocznica",
+    "miłość",
+    "romantyczne"
+   ]
+  },
+  "template:cont-dinero-millon": {
+   "name": "Licznik pieniędzy",
+   "tags": [
+    "licznik",
+    "pieniądze",
+    "milion",
+    "sprzedaż",
+    "zysk"
+   ]
+  },
+  "template:cont-edad-cumple": {
+   "name": "Urodziny: licznik lat",
+   "tags": [
+    "licznik",
+    "urodziny",
+    "wiek",
+    "impreza",
+    "świętowanie"
+   ]
+  },
+  "template:cont-libros-anio": {
+   "name": "Książki w tym roku",
+   "tags": [
+    "licznik",
+    "książki",
+    "czytanie",
+    "wyzwanie czytelnicze",
+    "booktok"
+   ]
+  },
+  "template:cont-maraton-km": {
+   "name": "Przebiegnięte kilometry",
+   "tags": [
+    "licznik",
+    "maraton",
+    "bieganie",
+    "kilometry",
+    "sport"
+   ]
+  },
+  "template:cont-marcador": {
+   "name": "Wynik meczu",
+   "tags": [
+    "licznik",
+    "wynik",
+    "piłka nożna",
+    "mecz",
+    "gole",
+    "sport"
+   ]
+  },
+  "template:cont-me-gusta": {
+   "name": "Licznik polubień",
+   "tags": [
+    "licznik",
+    "polubienia",
+    "lajki",
+    "serce",
+    "viral"
+   ]
+  },
+  "template:cont-odometro-km": {
+   "name": "Licznik kilometrów",
+   "tags": [
+    "licznik",
+    "kilometry",
+    "podróż",
+    "trasa",
+    "samochód"
+   ]
+  },
+  "template:cont-odometro-visitas": {
+   "name": "Licznik odwiedzin",
+   "tags": [
+    "licznik",
+    "odwiedziny",
+    "strona",
+    "ruch",
+    "statystyki"
+   ]
+  },
+  "template:cont-pasos": {
+   "name": "Licznik kroków",
+   "tags": [
+    "licznik",
+    "kroki",
+    "spacer",
+    "zdrowie",
+    "fitness"
+   ]
+  },
+  "template:cont-precio-baja": {
+   "name": "Spadająca cena",
+   "tags": [
+    "licznik",
+    "cena",
+    "promocja",
+    "rabat",
+    "wyprzedaż"
+   ]
+  },
+  "template:cont-seguidores-100k": {
+   "name": "100 tys. obserwujących",
+   "tags": [
+    "licznik",
+    "obserwujący",
+    "100k",
+    "kamień milowy",
+    "dziękuję"
+   ]
+  },
+  "template:cont-suscriptores-millon": {
+   "name": "Milion subskrybentów",
+   "tags": [
+    "licznik",
+    "subskrybenci",
+    "milion",
+    "kanał",
+    "świętowanie"
+   ]
+  },
+  "template:cont-temporizador": {
+   "name": "Minutnik na ekranie",
+   "tags": [
+    "licznik",
+    "minutnik",
+    "stoper",
+    "odliczanie",
+    "wyzwanie"
+   ]
+  },
+  "template:cont-ventas-semestre": {
+   "name": "Sprzedaż za półrocze",
+   "tags": [
+    "licznik",
+    "sprzedaż",
+    "wykres",
+    "biznes",
+    "wzrost"
+   ]
+  },
+  "template:cont-vistas-millon": {
+   "name": "Milion wyświetleń",
+   "tags": [
+    "licznik",
+    "wyświetlenia",
+    "milion",
+    "viral",
+    "neon"
    ]
   },
   "template:cosas-que-no-sabias": {
@@ -23827,6 +25170,270 @@
     "związki",
     "randki",
     "humor"
+   ]
+  },
+  "template:redes-h-facebook-cristal": {
+   "name": "Facebook szklany",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "facebook",
+    "szkło",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-instagram-minimal": {
+   "name": "Instagram minimalistyczny",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "instagram",
+    "minimalizm",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-instagram-sticker": {
+   "name": "Instagram naklejka",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "instagram",
+    "naklejka",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-threads-minimal": {
+   "name": "Threads minimalistyczny",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "threads",
+    "minimalizm",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-tiktok-neon": {
+   "name": "TikTok neonowy",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "tiktok",
+    "neon",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-tiktok-sticker": {
+   "name": "TikTok naklejka",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "tiktok",
+    "naklejka",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-todas-fila": {
+   "name": "Znajdź mnie wszędzie",
+   "tags": [
+    "social media",
+    "obserwuj mnie",
+    "wszystkie profile",
+    "ta sama nazwa",
+    "minimalizm",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-todas-neon": {
+   "name": "Wszystkie moje profile w neonie",
+   "tags": [
+    "social media",
+    "obserwuj mnie",
+    "wszystkie profile",
+    "neon",
+    "streaming",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-twitch-neon": {
+   "name": "Twitch neonowy",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "twitch",
+    "neon",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-x-cristal": {
+   "name": "X szklany",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "x",
+    "szkło",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-youtube-minimal": {
+   "name": "YouTube minimalistyczny",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "youtube",
+    "minimalizm",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-youtube-sticker": {
+   "name": "YouTube naklejka",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "youtube",
+    "naklejka",
+    "poziomy"
+   ]
+  },
+  "template:redes-v-facebook-minimal": {
+   "name": "Facebook minimalistyczny",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "facebook",
+    "minimalizm",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-instagram-cristal": {
+   "name": "Instagram szklany",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "instagram",
+    "szkło",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-instagram-neon": {
+   "name": "Instagram neonowy",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "instagram",
+    "neon",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-threads-cristal": {
+   "name": "Threads szklany",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "threads",
+    "szkło",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-tiktok-minimal": {
+   "name": "TikTok minimalistyczny",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "tiktok",
+    "minimalizm",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-tiktok-sticker": {
+   "name": "TikTok naklejka",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "tiktok",
+    "naklejka",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-todas-cristal": {
+   "name": "Wszystkie moje profile w szkle",
+   "tags": [
+    "social media",
+    "obserwuj mnie",
+    "wszystkie profile",
+    "lista",
+    "szkło",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-todas-iconos": {
+   "name": "Ta sama nazwa wszędzie",
+   "tags": [
+    "social media",
+    "obserwuj mnie",
+    "wszystkie profile",
+    "ikony",
+    "ta sama nazwa",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-todas-sticker": {
+   "name": "Moje profile jako naklejki",
+   "tags": [
+    "social media",
+    "obserwuj mnie",
+    "wszystkie profile",
+    "naklejka",
+    "kolorowe",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-twitch-neon": {
+   "name": "Twitch neonowy",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "twitch",
+    "neon",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-x-sticker": {
+   "name": "X naklejka",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "x",
+    "naklejka",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-youtube-minimal": {
+   "name": "YouTube minimalistyczny",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "youtube",
+    "minimalizm",
+    "pionowy"
    ]
   },
   "template:remodelacion": {
@@ -30234,6 +31841,27 @@
     "przejście"
    ]
   },
+  "transition:alejar-revelar": {
+   "name": "Oddal i odsłoń",
+   "tags": [
+    "oddalenie",
+    "odsłonięcie",
+    "karta",
+    "przejście",
+    "youtuber"
+   ]
+  },
+  "transition:alejar-revelar-lado": {
+   "name": "Oddal i rzuć w bok",
+   "tags": [
+    "oddalenie",
+    "rzut",
+    "odsłonięcie",
+    "karta",
+    "przejście",
+    "youtuber"
+   ]
+  },
   "transition:anillos": {
    "name": "Pierścienie",
    "tags": [
@@ -30422,6 +32050,17 @@
     "miłość",
     "romantyczny",
     "przejście"
+   ]
+  },
+  "transition:corte-estrobo": {
+   "name": "Cięcie stroboskopowe",
+   "tags": [
+    "stroboskop",
+    "migotanie",
+    "beat",
+    "werble",
+    "przejście",
+    "youtuber"
    ]
   },
   "transition:cristal-cae": {
@@ -30644,6 +32283,38 @@
     "przejście"
    ]
   },
+  "transition:deslizamiento-rgb": {
+   "name": "Przesunięcie RGB",
+   "tags": [
+    "przesunięcie",
+    "glitch",
+    "rgb",
+    "przejście",
+    "youtuber"
+   ]
+  },
+  "transition:deslizar-arriba": {
+   "name": "Przesunięcie w górę",
+   "tags": [
+    "przesunięcie",
+    "w górę",
+    "feed",
+    "telefon",
+    "przejście",
+    "youtuber"
+   ]
+  },
+  "transition:deslizar-historia": {
+   "name": "Przesunięcie relacji",
+   "tags": [
+    "przesunięcie",
+    "relacja",
+    "telefon",
+    "story",
+    "przejście",
+    "youtuber"
+   ]
+  },
   "transition:destello-azul": {
    "name": "Chłodny błysk",
    "tags": [
@@ -30774,6 +32445,17 @@
     "przejście"
    ]
   },
+  "transition:entrada-pop": {
+   "name": "Wejście pop",
+   "tags": [
+    "pop",
+    "odbicie",
+    "galaretka",
+    "elastyczny",
+    "przejście",
+    "youtuber"
+   ]
+  },
   "transition:espejismo": {
    "name": "Fala upału",
    "tags": [
@@ -30832,6 +32514,16 @@
     "zakłócenie",
     "statyka",
     "przejście"
+   ]
+  },
+  "transition:estela-derecha": {
+   "name": "Przesunięcie ze smugą",
+   "tags": [
+    "smuga",
+    "przesunięcie",
+    "rozmycie",
+    "przejście",
+    "youtuber"
    ]
   },
   "transition:estirar-horizontal": {
@@ -30932,6 +32624,17 @@
     "kształt",
     "odsłona",
     "przejście"
+   ]
+  },
+  "transition:foto-congelada": {
+   "name": "Stopklatka",
+   "tags": [
+    "stopklatka",
+    "zdjęcie",
+    "aparat",
+    "zamrożenie",
+    "przejście",
+    "youtuber"
    ]
   },
   "transition:franja-amarilla": {
@@ -31074,6 +32777,17 @@
     "przejście"
    ]
   },
+  "transition:fundido-brillo-luz": {
+   "name": "Przenikanie jasności z rozbłyskiem",
+   "tags": [
+    "przenikanie",
+    "jasność",
+    "rozbłysk światła",
+    "ciepły",
+    "przejście",
+    "youtuber"
+   ]
+  },
   "transition:fusion-color": {
    "name": "Przejście kolorem",
    "tags": [
@@ -31112,6 +32826,16 @@
     "podwójny",
     "wir",
     "przejście"
+   ]
+  },
+  "transition:giro-esquina": {
+   "name": "Obrót od narożnika",
+   "tags": [
+    "narożnik",
+    "obrót",
+    "drzwi",
+    "przejście",
+    "youtuber"
    ]
   },
   "transition:giro-horario": {
@@ -31204,6 +32928,37 @@
     "przejście"
    ]
   },
+  "transition:impacto-onda": {
+   "name": "Uderzenie z falą",
+   "tags": [
+    "uderzenie",
+    "fala uderzeniowa",
+    "błysk",
+    "boom",
+    "przejście",
+    "youtuber"
+   ]
+  },
+  "transition:latigazo-giro-derecha": {
+   "name": "Szybki obrót w prawo",
+   "tags": [
+    "obrót",
+    "przejście",
+    "whip",
+    "świst",
+    "youtuber"
+   ]
+  },
+  "transition:latigazo-giro-izquierda": {
+   "name": "Szybki obrót w lewo",
+   "tags": [
+    "obrót",
+    "przejście",
+    "whip",
+    "świst",
+    "youtuber"
+   ]
+  },
   "transition:lluvia-corazones": {
    "name": "Deszcz serc",
    "tags": [
@@ -31252,6 +33007,17 @@
     "piksele",
     "kafelki",
     "przejście"
+   ]
+  },
+  "transition:muro-pantallas": {
+   "name": "Ściana ekranów",
+   "tags": [
+    "ściana",
+    "ekrany",
+    "mozaika",
+    "siatka",
+    "przejście",
+    "youtuber"
    ]
   },
   "transition:negativo": {
@@ -31394,6 +33160,26 @@
     "przejście"
    ]
   },
+  "transition:paneo-diagonal-abajo": {
+   "name": "Ukośna panorama w dół",
+   "tags": [
+    "ukośny",
+    "panorama",
+    "przejście",
+    "whip pan",
+    "youtuber"
+   ]
+  },
+  "transition:paneo-diagonal-arriba": {
+   "name": "Ukośna panorama w górę",
+   "tags": [
+    "ukośny",
+    "panorama",
+    "przejście",
+    "whip pan",
+    "youtuber"
+   ]
+  },
   "transition:paneo-izquierda": {
    "name": "Panorama w lewo",
    "tags": [
@@ -31402,6 +33188,16 @@
     "rozmycie",
     "szybki",
     "przejście"
+   ]
+  },
+  "transition:pantalla-dividida": {
+   "name": "Podzielony ekran",
+   "tags": [
+    "podzielony ekran",
+    "połowa",
+    "split screen",
+    "przejście",
+    "youtuber"
    ]
   },
   "transition:papel-rasgado": {
@@ -31422,6 +33218,16 @@
     "pionowe",
     "kartka",
     "przejście"
+   ]
+  },
+  "transition:parpadeo": {
+   "name": "Mrugnięcie",
+   "tags": [
+    "mrugnięcie",
+    "oko",
+    "zamknięcie",
+    "przejście",
+    "youtuber"
    ]
   },
   "transition:pasar-pagina": {
@@ -31574,6 +33380,17 @@
     "przejście"
    ]
   },
+  "transition:pixelado-rapido": {
+   "name": "Szybka pikselizacja",
+   "tags": [
+    "piksele",
+    "pikselizacja",
+    "8 bitów",
+    "retro",
+    "przejście",
+    "youtuber"
+   ]
+  },
   "transition:pixeles-arrastrados": {
    "name": "Pikselowe rozciąganie",
    "tags": [
@@ -31671,6 +33488,17 @@
     "pionowe",
     "otwieranie",
     "podział",
+    "przejście"
+   ]
+  },
+  "transition:pulso-bajo": {
+   "name": "Puls basu",
+   "tags": [
+    "808",
+    "bas",
+    "drop",
+    "puls",
+    "rytm",
     "przejście"
    ]
   },
@@ -32202,6 +34030,28 @@
     "wstrząs",
     "energia",
     "przejście"
+   ]
+  },
+  "transition:zoom-saltos": {
+   "name": "Skokowy zoom",
+   "tags": [
+    "zoom",
+    "skoki",
+    "uderzenie",
+    "jump cut",
+    "przejście",
+    "youtuber"
+   ]
+  },
+  "transition:zoom-saltos-atras": {
+   "name": "Skokowy zoom do tyłu",
+   "tags": [
+    "zoom",
+    "oddalenie",
+    "skoki",
+    "jump cut",
+    "przejście",
+    "youtuber"
    ]
   }
  }
