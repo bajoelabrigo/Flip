@@ -16490,6 +16490,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Miniaturas de YouTube</translation>
     </message>
     <message>
+        <source>Counters</source>
+        <translation>Contadores</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Otras</translation>
     </message>

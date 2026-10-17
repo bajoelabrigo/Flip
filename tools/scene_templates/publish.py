@@ -41,6 +41,7 @@ CATEGORY_NAMES = {
     "story15": {"es": "Historias de 15 s", "en": "15-second stories"},
     "ad6": {"es": "Anuncios de 6 s", "en": "6-second ads"},
     "thumbnail": {"es": "Miniaturas de YouTube", "en": "Video thumbnails"},
+    "counter": {"es": "Contadores", "en": "Counters"},
 }
 
 

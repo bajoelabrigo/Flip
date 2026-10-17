@@ -41,6 +41,7 @@ COLORS = {
     "comedia": ("#ff8c42", "#ffd23f"),
     "suspenso": ("#1b1f3a", "#5a1f6b"),
     "ritmo": ("#2fa84f", "#0b6c4f"),
+    "youtuber": ("#ff2e4d", "#2b1055"),
 }
 
 
@@ -96,7 +97,7 @@ def stats(x: np.ndarray) -> dict:
 def build(sid: str) -> str:
     s = designs.SOUNDS[sid]
     try:
-        x = dsp.finish(s.make())
+        x = dsp.finish(s.make(), s.peak)
     except Exception as e:  # keep going
         return f"{sid}: FAILED {e!r}"
     folder = OUT / sid
@@ -125,8 +126,12 @@ def main() -> int:
         for line in pool.imap_unordered(build, ids):
             print(line, flush=True)
             lines.append(line)
-    if not args.only:
-        (OUT.parent / "informe.txt").write_text("\n".join(sorted(lines)), encoding="utf-8")
+    report = OUT.parent / "informe.txt"
+    if args.only and report.exists():   # keep the other sounds' lines, replace the rebuilt ones
+        rebuilt = {line.split("\t")[0].split(":")[0] for line in lines}
+        lines += [line for line in report.read_text(encoding="utf-8").splitlines()
+                  if line and line.split("\t")[0].split(":")[0] not in rebuilt]
+    report.write_text("\n".join(sorted(lines)), encoding="utf-8")
     return 0
 
 

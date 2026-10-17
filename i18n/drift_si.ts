@@ -16490,6 +16490,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Counters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation type="unfinished">වෙනත්</translation>
     </message>

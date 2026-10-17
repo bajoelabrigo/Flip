@@ -53,6 +53,7 @@ def main() -> int:
             "thumb": f"{v.id}/thumbnail.png", "preview": f"{v.id}/preview.mp4",
             "zip": pkg.name, "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data),
             "delivery": "transition", "package": meta["package"], "minAppVersion": "0.14.0",
+            **({"description": meta["description"]} if "description" in meta else {}),
         })
     entries.sort(key=lambda e: (e["order"], e["id"]))
     (DEST / "index.json").write_text(json.dumps({"templates": entries}, ensure_ascii=False, indent=1), encoding="utf-8")

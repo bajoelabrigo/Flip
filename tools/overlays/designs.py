@@ -30,16 +30,24 @@ class Design:
     sample: str = "portrait-01.jpg"
     thumb_at: float = 0.5   # fraction of the duration used for the card
     crf: int = 34           # VP9 quality; grain and noise get a higher number or they weigh tens of MB
+    # A design with its own canvas (face-cam frames: 1080 x 1080, 1280 x 720...) instead of the full 9:16 frame.
+    # It has no 16:9 twin; `hole(w, h)` returns the coverage of its transparent window, which the card fills with
+    # the sample photo (a person) over a blurred `backdrop` photo.
+    size: tuple | None = None
+    hole: object = None
+    backdrop: str | None = None
 
 
 DESIGNS: dict[str, Design] = {}
 
 
 def design(id, es, en, category, seconds, *, loop=True, res=(1080, 1920), tags=(), sample="portrait-01.jpg",
-           thumb_at=0.5, crf=34):
+           thumb_at=0.5, crf=34, size=None, hole=None, backdrop=None):
+    """`size` (w, h) gives the design its own canvas; `res` then defaults to it."""
     def deco(fn):
-        DESIGNS[id] = Design(id, {"es": es, "en": en}, category, seconds, fn, loop, res, list(tags), sample, thumb_at,
-                             crf)
+        r = size if size and res == (1080, 1920) else res
+        DESIGNS[id] = Design(id, {"es": es, "en": en}, category, seconds, fn, loop, r, list(tags), sample, thumb_at,
+                             crf, size, hole, backdrop)
         return fn
     return deco
 
@@ -641,3 +649,5 @@ import designs_b  # noqa: E402,F401  (more families register themselves on impor
 import designs_c  # noqa: E402,F401
 import designs_d  # noqa: E402,F401
 import designs_e  # noqa: E402,F401
+import designs_f  # noqa: E402,F401  (youtuber)
+import designs_g  # noqa: E402,F401  (camara-cara: face-cam frames with their own canvas)

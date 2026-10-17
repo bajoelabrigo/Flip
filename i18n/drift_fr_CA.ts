@@ -16493,6 +16493,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Counters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Autres</translation>
     </message>

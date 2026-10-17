@@ -16490,6 +16490,10 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Counters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Outros</translation>
     </message>

@@ -3,10 +3,13 @@
     py tools/overlays/build.py [--only id,id] [--jobs 6]
 
 <out>/<id>/<id>.webm       1080 x 1920, VP9 with alpha, 30 fps (what Stock downloads)
-<out>/<id>/meta.json       names, category, tags, duration, loop
+<out>/<id>/meta.json       names, category, tags, duration, loop, width, height
 <out>/<id>/thumbnail.png   432 x 768 card: the overlay over a sample photo
 <out>/<id>/preview.mp4     360 x 640 hover preview over the same photo
-<out>/../catalogo.png      contact sheet of every card
+<out>/../catalogo.png      contact sheet of every card (plus catalogo-<category>.png for what --only built)
+
+A design with its own `size` (face-cam frames) is encoded at that size, has no 16:9 twin, and its card
+and preview (long side 768 / 640) show the sample photo inside the frame's hole over a blurred backdrop.
 
 The sample photos (Pexels, see CREDITS.json in muestras) only appear in cards and previews: the
 overlay itself is transparent and ours.
@@ -56,6 +59,39 @@ def over(photo: Image.Image, rgba: np.ndarray, size) -> Image.Image:
     return out.convert("RGB")
 
 
+def card_sizes(size):
+    """Card and preview sizes for a design with its own canvas: long side 768 / 640, even numbers."""
+    w, h = size
+
+    def fit(long):
+        k = long / max(w, h)
+        return (max(2, int(round(w * k / 2)) * 2), max(2, int(round(h * k / 2)) * 2))
+    return fit(768), fit(640)
+
+
+def hole_photo(d: designs.Design, size) -> Image.Image:
+    """Card background for a frame: a blurred, darkened backdrop with the sample person filling the hole."""
+    from PIL import ImageFilter
+    w, h = size
+    back = cover(SAMPLES / (d.backdrop or "h-gaming-01.jpg"), size).filter(ImageFilter.GaussianBlur(max(w, h) / 90))
+    back = Image.eval(back, lambda v: int(v * 0.62))
+    hole = np.asarray(d.hole(*d.size), np.float32)
+    hole = np.asarray(Image.fromarray((np.clip(hole, 0, 1) * 255).astype(np.uint8)).resize(size, Image.LANCZOS)
+                      .filter(ImageFilter.MaxFilter(5)), np.float32) / 255
+    ys, xs = np.nonzero(hole > 0.02)
+    x0, x1, y0, y1 = xs.min(), xs.max() + 1, ys.min(), ys.max() + 1
+    face = Image.open(SAMPLES / d.sample).convert("RGB")
+    bw, bh = int(x1 - x0), int(y1 - y0)
+    k = max(bw / face.width, bh / face.height)
+    face = face.resize((max(bw, round(face.width * k)), max(bh, round(face.height * k))), Image.LANCZOS)
+    fx0 = (face.width - bw) // 2
+    fy0 = int((face.height - bh) * 0.3)          # faces sit in the upper part of portraits
+    layer = Image.new("RGB", size)
+    layer.paste(face.crop((fx0, fy0, fx0 + bw, fy0 + bh)), (int(x0), int(y0)))
+    out = np.asarray(back, np.float32) * (1 - hole[..., None]) + np.asarray(layer, np.float32) * hole[..., None]
+    return Image.fromarray(np.clip(out + 0.5, 0, 255).astype(np.uint8))
+
+
 def wide_sample(name: str) -> Path:
     """A landscape sample of the same theme (h-<theme>-NN.jpg) when there is one."""
     theme = name.split("-")[0]
@@ -68,15 +104,21 @@ def build(d: designs.Design, wide: bool = False) -> str:
     t0 = time.time()
     oid = d.id + ("-h" if wide else "")
     full, thumb, prevs = ((FULL[1], FULL[0]), (THUMB[1], THUMB[0]), (PREV[1], PREV[0])) if wide else (FULL, THUMB, PREV)
+    if d.size:
+        full = d.size
+        thumb, prevs = card_sizes(d.size)
     folder = OUT / oid
     folder.mkdir(parents=True, exist_ok=True)
     rng = np.random.default_rng(sum(map(ord, d.id)) * 7919)
     w, h = (d.res[1], d.res[0]) if wide else d.res
     frame = d.make(w, h, d.seconds, rng)
     n = int(round(d.seconds * FPS))
-    sample = wide_sample(d.sample) if wide else SAMPLES / d.sample
-    photo_t = cover(sample, thumb)
-    photo_p = cover(sample, prevs)
+    if d.hole:
+        photo_t, photo_p = hole_photo(d, thumb), hole_photo(d, prevs)
+    else:
+        sample = wide_sample(d.sample) if wide else SAMPLES / d.sample
+        photo_t = cover(sample, thumb)
+        photo_p = cover(sample, prevs)
 
     webm = subprocess.Popen(
         ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgba", "-s", f"{w}x{h}", "-r", str(FPS),
@@ -100,6 +142,8 @@ def build(d: designs.Design, wide: bool = False) -> str:
             raise RuntimeError(f"ffmpeg failed for {d.id}")
     names = {"es": d.names["es"] + " (horizontal)", "en": d.names["en"] + " (landscape)"} if wide else d.names
     tags = d.tags + (["horizontal", "landscape", "16:9", "youtube"] if wide else ["vertical", "9:16", "reels"])
+    if d.size:
+        tags = list(d.tags)
     meta = {"id": oid, "names": names, "category": d.category, "durationSec": d.seconds, "loop": d.loop,
             "tags": tags, "width": full[0], "height": full[1], "fps": FPS}
     (folder / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -115,20 +159,34 @@ def _run(job) -> str:
         return f"{did}: FAILED {e!r}"
 
 
-def contact_sheet():
-    cards = sorted(p for p in OUT.iterdir() if (p / "thumbnail.png").exists() and not p.name.endswith("-h"))
-    cols = 8
+def contact_sheet(cards=None, name="catalogo.png", cols=8):
+    """Every card (without the -h twins) fitted into 216 x 384 tiles, keeping its shape."""
+    if cards is None:
+        cards = sorted(p for p in OUT.iterdir() if (p / "thumbnail.png").exists() and not p.name.endswith("-h"))
+    if not cards:
+        return
     tw, th = 216, 384
     rows = (len(cards) + cols - 1) // cols
     sheet = Image.new("RGB", (cols * tw, rows * (th + 22)), (24, 24, 28))
     from PIL import ImageDraw
     dr = ImageDraw.Draw(sheet)
     for i, p in enumerate(cards):
-        im = Image.open(p / "thumbnail.png").resize((tw, th))
+        im = Image.open(p / "thumbnail.png")
+        im.thumbnail((tw - 4, th), Image.LANCZOS)
         x, y = (i % cols) * tw, (i // cols) * (th + 22)
-        sheet.paste(im, (x, y))
+        sheet.paste(im, (x + (tw - im.width) // 2, y + (th - im.height) // 2))
         dr.text((x + 4, y + th + 4), p.name, fill=(220, 220, 220))
-    sheet.save(OUT.parent / "catalogo.png")
+    sheet.save(OUT.parent / name)
+
+
+def category_sheets(ids):
+    """catalogo-<category>.png with the cards of the ids just built, vertical first and then their -h twins."""
+    by_cat: dict[str, list[str]] = {}
+    for i in ids:
+        by_cat.setdefault(designs.DESIGNS[i].category, []).append(i)
+    for cat, group in by_cat.items():
+        cards = [OUT / i for i in group] + [OUT / (i + "-h") for i in group]
+        contact_sheet([p for p in cards if (p / "thumbnail.png").exists()], f"catalogo-{cat}.png")
 
 
 def main() -> int:
@@ -136,15 +194,23 @@ def main() -> int:
     ap.add_argument("--only", default="")
     ap.add_argument("--jobs", type=int, default=6)
     ap.add_argument("--wide", choices=["no", "yes", "both"], default="no", help="also (or only) the 16:9 versions")
+    ap.add_argument("--category", default="", help="build every design of these categories (comma separated)")
     args = ap.parse_args()
-    ids = [i for i in args.only.split(",") if i] or list(designs.DESIGNS)
+    ids = [i for i in args.only.split(",") if i]
+    cats = [c for c in args.category.split(",") if c]
+    ids += [i for i, d in designs.DESIGNS.items() if d.category in cats and i not in ids]
+    only = bool(ids)
+    ids = ids or list(designs.DESIGNS)
     jobs = [(i, False) for i in ids] if args.wide in ("no", "both") else []
-    jobs += [(i, True) for i in ids] if args.wide in ("yes", "both") else []
+    # designs with their own canvas have no 16:9 twin
+    jobs += [(i, True) for i in ids if not designs.DESIGNS[i].size] if args.wide in ("yes", "both") else []
     OUT.mkdir(parents=True, exist_ok=True)
     with Pool(min(args.jobs, len(jobs))) as pool:
         for line in pool.imap_unordered(_run, jobs):
             print(line, flush=True)
     contact_sheet()
+    if only:
+        category_sheets(ids)
     return 0
 
 
