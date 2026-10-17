@@ -59,6 +59,30 @@ C:\Users\bajoe\Downloads\FlipStudio\codigo\flip-addons\work\tts\.venv\Scripts\py
 Lighter check: loads the five graphs, prints their input/output signatures, and runs the vision
 encoder once. Good for confirming a model directory is complete and correctly shaped.
 
+## Driving the real window
+
+`mcp_e2e.py --window` shows the editor and attaches to it; `--keep` leaves it open and
+`--attach <pid>` drives it afterwards. Two helpers do the same by hand, without moving the real
+mouse (they post window messages, like the harness does):
+
+```powershell
+# a picture of the app's window (PrintWindow: only that window, never the desktop)
+.\tools\e2e\shot.ps1 -TargetPid 1234 -OutFile "$env:TEMP\shot.png"
+# a click at a coordinate of that picture (frame included)
+.\tools\e2e\click.ps1 -TargetPid 1234 -X 975 -Y 120
+```
+
+- **`--headless` has no account session.** `AccountController` loads the stored session in the
+  windowed editor, so every `market_*` op comes back `authenticated:false` and the service answers
+  401 (`Inicia sesión con Google…`) when the harness runs headless. Stock tests need `--window` (or
+  `--attach` to an open editor).
+- **`mcp/startOnLaunch` = true is what lets an agent attach.** Turn it on with a copy of the registry
+  and put the copy back afterwards (CLAUDE.md); if the app used the account, export
+  `HKCU\Software\Flip Studio\Flip Studio\account` *after* the run and import it back last, or the
+  rotated refresh token is lost.
+- `calls_stock014.jsonl` installs one item of each kind Stock serves (LUT, look, text style, text
+  animation, transition, shape, music, template) and can be run against an attached editor.
+
 ## Notes
 
 - A reply is the MCP envelope, not the answer: the payload is JSON text inside
