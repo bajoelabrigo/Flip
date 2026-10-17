@@ -12869,6 +12869,10 @@
         <translation>Materiali stock</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>Inizio</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>Marketplace non disponibile</translation>
     </message>

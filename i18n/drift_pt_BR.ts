@@ -12869,6 +12869,10 @@
         <translation>Estoque</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>Início</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>Mercado indisponível</translation>
     </message>

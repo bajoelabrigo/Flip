@@ -12869,6 +12869,10 @@
         <translation>Stock</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>Inicio</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>Marketplace no disponible</translation>
     </message>

@@ -204,6 +204,12 @@ Column {
                 required property var modelData
                 width: grid.cardWidth
                 spacing: 4
+                // Lift under the pointer and on grab, like the other asset cards.
+                opacity: dragSource.active ? 0.85 : 1
+                scale: dragSource.active ? 1.04 : dragSource.pressed ? 0.97 : (cardHover.hovered ? 1.02 : 1.0)
+                Behavior on scale {
+                    NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
+                }
 
                 Rectangle {
                     width: grid.cardWidth

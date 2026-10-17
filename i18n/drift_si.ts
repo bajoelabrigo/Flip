@@ -12869,6 +12869,10 @@
         <translation>ස්ටොක්</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>මුල් පිටුව</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>Marketplace ලබාගත නොහැක</translation>
     </message>
@@ -18577,7 +18581,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">මුල් පිටුව</translation>
     </message>
     <message>
         <source>Extras</source>

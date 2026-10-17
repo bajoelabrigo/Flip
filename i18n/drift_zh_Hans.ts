@@ -12823,6 +12823,10 @@
         <translation>素材库</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>首页</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>素材市场不可用</translation>
     </message>

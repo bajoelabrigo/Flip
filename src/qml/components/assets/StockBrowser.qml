@@ -21,6 +21,11 @@ Item {
     property string submittedQuery: ""
     property var detailItem: ({})
     property bool detailShown: false
+    // Our own kinds as [{id, label}], in the chips' order: past the end of one, the wheel opens
+    // the next (CategoryScrollOn).
+    property var categories: []
+
+    signal categoryActivated(string categoryId)
 
     readonly property real sidePadding: compact ? Theme.androidPagePadding : Theme.pagePadding
     readonly property int activeFilterCount: Object.keys(filterValues).length
@@ -536,7 +541,22 @@ Item {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
 
+        // Only once a kind has no more pages to load, and not over search results.
+        CategoryScrollOn {
+            anchors.fill: parent
+            flickable: root.showHome ? home.flickable
+                       : root.mediaKind === "audio" ? audioList
+                       : root.mediaKind === "image" ? justified : grid
+            categories: root.categories
+            activeCategory: Market.activeTypeId
+            active: root.categories.length > 0 && !root.detailShown
+                    && root.query.trim().length === 0 && root.submittedQuery.trim().length === 0
+                    && (root.showHome || (!Market.hasMore && !Market.searching))
+            onCategoryActivated: (categoryId) => root.categoryActivated(categoryId)
+        }
+
         StockHome {
+            id: home
             anchors.fill: parent
             visible: root.showHome
             compact: root.compact

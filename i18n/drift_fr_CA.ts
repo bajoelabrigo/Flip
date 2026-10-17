@@ -12872,6 +12872,10 @@
         <translation>Banque de médias</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>Accueil</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>Marché indisponible</translation>
     </message>

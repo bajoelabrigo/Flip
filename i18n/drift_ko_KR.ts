@@ -12823,6 +12823,10 @@
         <translation>스톡</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>홈</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>마켓플레이스를 사용할 수 없음</translation>
     </message>

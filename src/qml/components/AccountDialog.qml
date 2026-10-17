@@ -489,6 +489,10 @@ ThemedDialog {
                                     iconColor: Theme.mutedForeground
                                 }
 
+                                scale: tileHover.hovered ? 1.02 : 1.0
+                                Behavior on scale {
+                                    NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
+                                }
                                 HoverHandler { id: tileHover; cursorShape: Qt.PointingHandCursor }
                                 TapHandler {
                                     onTapped: if (favFlick.group.tab) root.assetsTabRequested(favFlick.group.tab)

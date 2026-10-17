@@ -12823,6 +12823,10 @@
         <translation>Kho</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>Trang chủ</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>Cửa hàng không khả dụng</translation>
     </message>

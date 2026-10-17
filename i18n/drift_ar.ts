@@ -13053,6 +13053,10 @@
         <translation>محتوى جاهز</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>الرئيسية</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>المتجر غير متوفر</translation>
     </message>

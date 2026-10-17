@@ -12823,6 +12823,10 @@
         <translation>ストック</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>ホーム</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>マーケットプレイスを利用できません</translation>
     </message>

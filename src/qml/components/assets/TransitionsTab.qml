@@ -179,7 +179,7 @@ Item {
                     spacing: 4
                     // Lift on grab — matches the media and effect cards.
                     opacity: transitionDrag.active ? 0.85 : 1
-                    scale: transitionDrag.active ? 1.04 : 1.0
+                    scale: transitionDrag.active ? 1.04 : (transitionHover.hovered ? 1.02 : 1.0)
 
                     GridView.onPooled: transitionCard.scrub = 0.45
 

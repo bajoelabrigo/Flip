@@ -12869,6 +12869,10 @@
         <translation>Material de archivo</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>Inicio</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>Mercado no disponible</translation>
     </message>

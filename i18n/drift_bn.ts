@@ -12869,6 +12869,10 @@
         <translation type="unfinished">স্টক</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>হোম</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation type="unfinished">মার্কেটপ্লেস অনুপলব্ধ।</translation>
     </message>
@@ -18563,7 +18567,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">হোম</translation>
     </message>
     <message>
         <source>Extras</source>

@@ -12915,6 +12915,10 @@
         <translation>Стоковые материалы</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>Главная</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>Маркет недоступен</translation>
     </message>
