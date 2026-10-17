@@ -46,6 +46,24 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-10-17)
 
+### 0.15.0 EN CURSO (2026-10-17) — Stock para creadores (rama `flip/v0.15.0`, plan en `docs/plan-stock.md`)
+- **Hecho y con commit, sin compilar ni desplegar:**
+  - A: menú de Stock con chips bajo «Todos» (`MarketTab.qml`, `CategoryScrollOn` en `StockBrowser.qml`), hover en
+    todas las tarjetas, **Halloween fuera** (índices, generadores, kit, temporada del servidor; lo borrado está en
+    `tienda\plantillas\quitado-halloween`; Día de Muertos se queda).
+  - C: 43 sonidos, 40 superposiciones ×2 y 24 marcos para la cámara (tamaño propio), 23 transiciones, 20 contadores
+    (categoría `counter`) y 24 tercios de redes; publicados en `publicar` y traducidos.
+  - B: 300 plantillas de estilo youtuber en `templates_y2`…`y7` (categoría `youtuber`; miniaturas en `thumbnail`,
+    intros y finales en `intro`/`outro`), hechas por 6 agentes en paralelo con `renderlock.py`.
+  - D: 29 kits en `tools/stock_kits/kits.py` (fuente de `colecciones.json`, valida y trae nombres en 15 idiomas).
+  - Versión 0.15.0 en `CMakeLists.txt`, `release-notes/0.15.0.md`, CHANGELOG y notas de la Store (811/1500).
+- **Servidor:** rama `stock-0.15` de `flipstudio-api` (`a4a75`, sin Halloween), sin desplegar.
+- **Falta:** cerrar B (pasar las fotos con marca de los módulos `templates_y*` a `kit.BLOCKED` y re-renderizar lo que
+  las use, también plantillas viejas como las de `h-fitness-01/02`; publicar; traducir), desplegar `publicar` y el
+  servidor, compilar una vez, probar en ventana y publicar. Decisiones abiertas de Jorge: kits de fecha solo con
+  calendario del hemisferio norte; animación de contador en el motor (los contadores cuentan con cortes y saltan al
+  número editado).
+
 ### 0.14.0 PUBLICADA (2026-10-17) — Stock completo: tienda, tipos nuevos y uso más rápido
 - Rama `flip/v0.14.0` → **PR #20** → `main`; **tag `v0.14.0`**. Notas en `release-notes/0.14.0.md`, CHANGELOG (con
   0.12.0 y 0.13.0 recuperados) y notas de la Store en `docs/store-listing.md` (1.069/1.500 caracteres, es y en).
@@ -706,6 +724,18 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 ---
 
 ## Trampas que ya nos costaron tiempo
+
+**Python en Windows escribe CRLF.** `open(p, "w")` traduce `\n` a `\r\n`: un script que reescribe un `.qml` o `.py`
+lo deja entero como cambiado. Usar `newline=""` (o `sed -i`), y pedirlo a los agentes. (Este `CLAUDE.md`, en cambio,
+está en CRLF en la copia de trabajo: respetar el fin de línea del archivo.)
+
+**Varias tandas de plantillas en paralelo:** el render usa una sola app y el registro compartido; `build.py` toma
+`renderlock.exclusive()` (un candado entre procesos) y `fetch_samples.py --themes <json>` baja fotos por tanda con el
+mismo candado. Registrar los módulos de cada tanda antes de lanzar a los agentes (si no, todos editan
+`templates.py`), y no tocar `kit.py` mientras rendericen.
+
+**Fotos de Pexels con marcas:** casi todas las de gimnasio, deporte y aparatos traen logos (Nike, Puma, Under Armour,
+Apple, Samsung…). Revisarlas a tamaño completo, no en la hoja de contacto.
 
 **Colores de 8 dígitos en QML son `#AARRGGBB`, no `#RRGGBBAA`.** `Theme.scrimColor`, `scrimStrong` y `waveformColor` venían de Drift al revés (transparentes o amarillos); corregidos en la 0.12.0 (`a8d9d`). Al escribir un color con alfa, el alfa va primero.
 
