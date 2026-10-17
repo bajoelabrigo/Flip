@@ -214,6 +214,14 @@ Stock (`colecciones.json`; los de fecha con `from`/`to`).
 - **Por fecha, para todo el mundo:** San Valentín, Día de la Madre, Día del Padre, Graduación, Verano, Vuelta a
   clases, Año Nuevo, Bodas, Cumpleaños.
 
+**Estado de D (2026-10-17): hecho, sin desplegar.** Los kits viven ahora en el repo: `tools/stock_kits/kits.py`
+(fuente de `publicar/colecciones.json`, valida que cada elemento exista, nombres en los 15 idiomas). 29 kits y 389
+elementos: los 8 de antes (sin Halloween, traducidos y con lo nuevo) + 21 nuevos. Por fecha: Año Nuevo (12-20 a
+01-07), graduación, Día del Padre, verano y vuelta a clases. Para creadores: empezar en YouTube, identidad del canal,
+retos, rankings, podcast, reacciones y entrevistas, gaming, cocina, fitness, tecnología, vlog, explicativos y misterio.
+Para negocios: lanzamiento, inmobiliaria, clases y cursos. Las fechas siguen el calendario del hemisferio norte
+(un solo rango por kit).
+
 ### Orden sugerido
 A (app y limpieza) → C y B (contenido, con hojas de contacto para revisar) → D (kits, cuando exista el contenido) →
 i18n de todo lo nuevo en los 13 idiomas → desplegar contenido → compilar una vez, probar en ventana y publicar.
