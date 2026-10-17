@@ -3,6 +3,26 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.15.0 — Stock para creadores: plantillas de estilo youtuber, kits y menú con chips
+
+- **Menú de Stock:** `MarketTab.qml` deja arriba solo Todos, Videos y Fotos (`primaryIds`); los tipos propios van en
+  chips bajo Todos, con «Inicio» (los estantes) primero. `StockBrowser.qml` usa `CategoryScrollOn` sobre la vista
+  activa (o `StockHome.flickable`) y pasa al siguiente tipo solo sin búsqueda y sin más páginas (`Market.hasMore`).
+  Un servidor sin el tipo `all` conserva todas las pestañas.
+- **Animación al pasar el mouse** (`scale` 1.02, 0.97 al presionar, `Theme.durationFast`) en `StockThumb`,
+  `SceneTemplateBrowser`, `SceneTemplatePickerDialog`, Máscaras, Stickers, Transiciones, Subtítulos, `LutPage`,
+  `TextLookPicker`, `VoiceChanger`, `FacePropPicker`, `MaskShapeTiles` y los favoritos de `AccountDialog`.
+- **Categorías de plantillas** `counter` («Contadores») y `youtuber` («Estilo youtuber») en
+  `SceneTemplateCatalog.cpp`.
+- **Contenido:** 300 plantillas de estilo youtuber (`tools/scene_templates/templates_y2`…`y7`), 20 contadores y 24
+  tercios de redes (`templates_c1`, `templates_c2`), 43 sonidos, 40 superposiciones ×2 y 24 marcos para la cámara con
+  su propio tamaño (`tools/overlays/designs_f.py`, `designs_g.py`), 23 transiciones (`fam_youtuber.py`) y 29 kits
+  (`tools/stock_kits/kits.py`, fuente de `colecciones.json`, con nombres en 15 idiomas).
+- **Sin Halloween:** fuera de los índices, los generadores, `colecciones.json` y la temporada del servidor; la música
+  y los estilos de terror pasan a misterio y suspenso.
+- **Herramientas:** `tools/scene_templates/renderlock.py` (un render con la app a la vez entre procesos) y
+  `fetch_samples.py --themes` (fotos de muestra por tanda).
+
 ## 0.14.0 — Stock completo: tipos nuevos, inicio tipo tienda y uso más rápido
 
 - **Tipos nuevos de Stock con instalación propia:** `MarketClient::isInstalledDelivery` y
