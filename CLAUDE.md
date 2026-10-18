@@ -53,6 +53,11 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   congelar y mover con cerrar huecos como CapCut, traducciones de 11 idiomas. Notas en `release-notes/0.17.0.md` y
   `docs/store-listing.md`. Probado en ventana (lista en el plan); el hover y mover con cerrar huecos los prueba Jorge.
 - Extras subidos primero al release `packages` y después el índice a la web, con las novedades.
+- **Publicada:** PR #24 → `main`, tag `v0.17.0`, release (run 39144814597) con instalador, portable y `SHA256SUMS`;
+  copia en `versiones\FlipStudio-0.17.0` (hashes comprobados). MSIX (run 39144852574) en
+  `tienda\FlipStudio-Store\paquete-0.17.0\FlipStudio-0.17.0.0-x64.msix`.
+- **Falta (Jorge):** TXT `version` = 0.17.0, subir el MSIX con las notas de `docs/store-listing.md`, escuchar las pistas
+  de `tienda\musica\por-escuchar` y probar el hover, mover con cerrar huecos y quitar imperfecciones.
 - **Trampa nueva:** `mcp_e2e.py --attach` se conecta al editor que tenga el puente MCP abierto, que puede ser el de
   Jorge. Con dos editores abiertos, solo clics y capturas por pid.
 - Ese archivo dice qué está hecho, qué falta, dónde va cada cosa y cómo seguir, para continuar con cualquier

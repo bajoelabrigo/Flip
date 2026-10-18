@@ -14,6 +14,8 @@ inventa. Todo lo que lee Jorge va en español; el código sigue el estilo del ar
 Leyenda: ✅ hecho en la rama · 🟡 empezado · ⬜ por hacer.
 
 ## Estado al cerrar (2026-10-18)
+**PUBLICADA:** PR #24, tag `v0.17.0`, release run 39144814597, MSIX run 39144852574 (`tienda\FlipStudio-Store\paquete-0.17.0`),
+copia en `versiones\FlipStudio-0.17.0`. Falta lo de Jorge: TXT `version` y Partner Center.
 **La 0.17.0 se publica con todo lo de abajo menos la voz del editor web** (queda para después, ver el punto 7).
 - Compilación final en verde: `build.yml` run 39139995650 sobre `f92a4` (compilación + pruebas + instalador y
   portable). Portable en `pruebas\FlipStudio-0.17.0-prueba`.
