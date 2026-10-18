@@ -55,8 +55,9 @@ Leyenda: ✅ hecho en la rama · 🟡 empezado · ⬜ por hacer.
 - ⬜ Probar en ventana con un clip a 0,25×.
 
 ## 5. Foto de la tarjeta «Imperfecciones»
-- ⬜ `resources/retouch/skin-blemish.jpg` es copia de skin-smooth: rehacerla con la app (ver
-  `resources/retouch/README.md`) con el efecto `face_blemish`.
+- ✅ Rehecha con la app 0.18 sin ventana (`detect_faces` + `face_blemish` con Manchas 1,0 y Arrugas 0,9) sobre la foto
+  CC0 original de Wikimedia a tamaño completo, recortada como las demás (mismo encuadre que `original.jpg`).
+  De paso queda **probado el efecto sobre una cara real**: empareja pecas y manchas sin borrar rasgos.
 
 ## 6. Voz con IA en el editor web (`flipstudio-app`) — ✅ DESPLEGADA (2026-10-18)
 - Pestaña **Voz** (`src/components/VoicePanel.tsx`): texto, idioma (español, inglés, portugués, francés, italiano),
