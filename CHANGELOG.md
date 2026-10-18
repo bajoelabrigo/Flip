@@ -22,6 +22,8 @@ registro heredado de Drift.
   corre lo que sigue en sus pistas (con el audio vinculado). Prueba `deleteRipplesFollowers`.
 - **Panel de propiedades sin saltos de página con la rueda** (se quitó el «Sigue bajando para ver…»).
 - **Actualizaciones**: se buscan en cada arranque y cada 6 horas (`UpdateChecker::scheduleStartup`).
+- **Tarjetas de LUT** (Filtros y Ajustar › LUT) con `TapHandler`/`HoverHandler`: el `MouseArea` no recibía el clic
+  en la prueba en ventana. Los menús leen `undoAvailable`/`redoAvailable` (`canUndo` no existe).
 
 ## 0.15.0 — Stock para creadores: plantillas de estilo youtuber, kits y menú con chips
 
