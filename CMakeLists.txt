@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.17.0 LANGUAGES CXX C)
+project(Drift VERSION 0.18.0 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -1197,6 +1197,16 @@ qt_add_resources(drift "flip_retouch_thumbs"
     PREFIX "/retouch"
     BASE resources/retouch
     FILES ${FLIP_RETOUCH_THUMBS}
+)
+
+# The photos the effect and LUT cards are drawn on, for the hover's before/after (0.18,
+# tools/effects/before_bases.py): map.json says which effect uses which.
+file(GLOB FLIP_EFFECT_BASES RELATIVE "${CMAKE_SOURCE_DIR}" CONFIGURE_DEPENDS
+     "resources/effectbases/*.jpg" "resources/effectbases/*.json")
+qt_add_resources(drift "flip_effect_bases"
+    PREFIX "/effectbases"
+    BASE resources/effectbases
+    FILES ${FLIP_EFFECT_BASES}
 )
 
 # Fixed input for the playback diagnostics benchmark, so numbers from two different bug

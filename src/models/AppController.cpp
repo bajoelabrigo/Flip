@@ -17788,6 +17788,51 @@ QVariantMap AppController::lutInfo(const QString &path) const
             {QStringLiteral("is3d"), lut.is3d}};
 }
 
+namespace {
+
+// The photos the LUT cards are drawn on (CC0, resources/effectbases): each look picks one by its file
+// name, so a row of cards is not the same face over and over (Jorge, 0.18).
+QString lutReferencePhoto(const QString &lutPath)
+{
+    static const QStringList photos{
+        QStringLiteral("portrait.jpg"), QStringLiteral("sunset.jpg"), QStringLiteral("city-night.jpg"),
+        QStringLiteral("tulips.jpg"), QStringLiteral("vintage-car.jpg"), QStringLiteral("beauty.jpg"),
+        QStringLiteral("landscape.jpg"), QStringLiteral("stag.jpg"), QStringLiteral("macaw.jpg"),
+        QStringLiteral("cyclist.jpg"), QStringLiteral("mountains.jpg"), QStringLiteral("face-warp.jpg"),
+        QStringLiteral("aerial.jpg"),
+    };
+    // FNV-1a over the name: the same look keeps its photo from one run to the next.
+    quint32 h = 2166136261u;
+    for (const QChar c : QFileInfo(lutPath).completeBaseName().toLower())
+        h = (h ^ c.unicode()) * 16777619u;
+    return QStringLiteral(":/effectbases/") + photos.at(int(h % quint32(photos.size())));
+}
+
+// effect id -> the photo its thumbnail was drawn from (tools/effects/before_bases.py).
+const QHash<QString, QString> &effectBeforePhotos()
+{
+    static const QHash<QString, QString> map = [] {
+        QHash<QString, QString> out;
+        QFile file(QStringLiteral(":/effectbases/map.json"));
+        if (file.open(QIODevice::ReadOnly)) {
+            const QJsonObject o = QJsonDocument::fromJson(file.readAll()).object();
+            for (auto it = o.begin(); it != o.end(); ++it)
+                out.insert(it.key(), QStringLiteral("qrc:/effectbases/") + it.value().toString());
+        }
+        return out;
+    }();
+    return map;
+}
+
+} // namespace
+
+QUrl AppController::lutReference(const QString &path) const
+{
+    const QString resolved = drift::CubeLut::resolve(path);
+    const QString photo = lutReferencePhoto(resolved.isEmpty() ? path : resolved);
+    return QFileInfo::exists(photo) ? QUrl(QStringLiteral("qrc") + photo) : QUrl(QStringLiteral("qrc:/retouch/original.jpg"));
+}
+
 QUrl AppController::lutThumbnail(const QString &path) const
 {
     const QString resolved = drift::CubeLut::resolve(path);
@@ -17799,14 +17844,17 @@ QUrl AppController::lutThumbnail(const QString &path) const
     const QByteArray bytes = file.readAll();
     const QString key = QString::fromLatin1(QCryptographicHash::hash(bytes, QCryptographicHash::Sha1).toHex().left(16));
     const QDir cache(QDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation)).filePath(QStringLiteral("lut-thumbs")));
-    const QString out = cache.filePath(key + QStringLiteral(".jpg"));
+    QString photo = lutReferencePhoto(resolved);
+    if (!QFileInfo::exists(photo))
+        photo = QStringLiteral(":/retouch/original.jpg");
+    const QString out = cache.filePath(key + QLatin1Char('-') + QFileInfo(photo).completeBaseName() + QStringLiteral(".jpg"));
     if (QFileInfo::exists(out))
         return QUrl::fromLocalFile(out);
     const drift::CubeLut lut = drift::CubeLut::parse(bytes);
     if (!lut.isValid())
         return {};
-    // The retouch reference portrait (CC0): skin, hair and a background, so a look reads at a glance.
-    QImage reference(QStringLiteral(":/retouch/original.jpg"));
+    // A varied CC0 photo per look (lutReferencePhoto), so a look reads at a glance and the row is not one face.
+    QImage reference(photo);
     if (reference.isNull())
         return {};
     reference = reference.scaled(160, 160, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
@@ -17851,6 +17899,8 @@ QVariantList AppController::effectCatalog() const
             {QStringLiteral("categoryLabel"), effectCategoryLabel(def.meta.category)},
             {QStringLiteral("compositorOnly"), def.meta.compositorOnly},
             {QStringLiteral("thumbnailPath"), def.thumbnailPath},
+            // The photo the thumbnail was drawn on, for the card's before/after under the pointer.
+            {QStringLiteral("beforeImage"), effectBeforePhotos().value(def.meta.id)},
             {QStringLiteral("user"), isUserPackageDir(def.gpu.packageDir, QStringLiteral("effects"))},
             {QStringLiteral("params"), params},
         });
@@ -22916,6 +22966,171 @@ void AppController::addAiTransitionAfter(int trackIndex, int clipIndex)
                 finishEdit(tr("AI transition"));
                 selectClip(trackIndex, clipIndex + 1);
                 setLastMessage(tr("AI transition added"));
+            },
+            Qt::QueuedConnection);
+    });
+}
+
+// A video clip that plays slower than its source somewhere: a constant speed under 1, or a ramp.
+bool AppController::canSmoothSlowMotion(int trackIndex, int clipIndex) const
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    const drift::Clip &clip = std::as_const(m_project).tracks().at(trackIndex).clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Video || !clip.sequenceId.isEmpty())
+        return false;
+    return clip.hasSpeedCurve() || clip.effectiveSpeed() < 0.99;
+}
+
+// Smooth slow motion with RIFE, as CapCut's "Smooth slow-mo": every frame of the slowed clip is
+// rendered at the project's rate from the two source frames around the moment it shows, the
+// in-between ones drawn by the model, and the clip then plays that render at normal speed (its
+// place, length, effects and keyframes untouched). Embedded audio is separated first so the
+// sound keeps its slowed timing on a clip of its own.
+void AppController::smoothSlowMotion(int trackIndex, int clipIndex)
+{
+    if (!m_assetLibrary || !isValidClipIndex(trackIndex, clipIndex))
+        return;
+    if (!canSmoothSlowMotion(trackIndex, clipIndex)) {
+        setLastMessage(tr("Slow a video clip down first (Speed under 1×)"), QStringLiteral("warning"));
+        return;
+    }
+    if (!drift::FrameInterpolator::modelPresent()) {
+        setLastMessage(tr("Smooth slow motion needs the AI transitions extra: install it from Extras › AI tools"),
+                       QStringLiteral("warning"));
+        return;
+    }
+    constexpr drift::TimeUs kMaxUs = 3 * 60 * drift::kUsPerSecond;
+    {
+        const drift::Clip &clip = std::as_const(m_project).tracks().at(trackIndex).clips.at(clipIndex);
+        if (clip.timelineDuration > kMaxUs) {
+            setLastMessage(tr("Smooth slow motion works on clips up to 3 minutes long: split this one first"),
+                           QStringLiteral("warning"));
+            return;
+        }
+        if (clipHasEmbeddedAudio(m_project, m_assetLibrary, clip)) {
+            selectClip(trackIndex, clipIndex);
+            separateAudioFromSelection();
+        }
+    }
+
+    const drift::Clip clip = std::as_const(m_project).tracks().at(trackIndex).clips.at(clipIndex);
+    const drift::MediaAsset *asset = m_project.asset(clip.assetId);
+    const double sourceFps = asset && asset->fps > 1.0 ? asset->fps : 30.0;
+    const int fps = qMax(1, m_project.fps());
+    const QString outPath = drift::newEditedMediaPath(m_project.id(), QStringLiteral("video"));
+    const QString name = tr("%1 (smooth slow motion)").arg(clip.name);
+
+    setPlaying(false);
+    setLastMessage(tr("Making smooth slow motion…"));
+    (void)QtConcurrent::run([this, clip, sourceFps, fps, outPath, name]() {
+        constexpr quint64 kStreamId = 0xA1'7A'05'00'00'00'00'02ull;
+        QString error;
+        std::shared_ptr<drift::FrameInterpolator> model = drift::FrameInterpolator::load(&error);
+        bool ok = !!model;
+        // Source frames by index, the last few kept: consecutive output frames share them.
+        QHash<qint64, QImage> cache;
+        const auto sourceFrame = [&](qint64 index) {
+            const auto it = cache.constFind(index);
+            if (it != cache.cend())
+                return *it;
+            const drift::TimeUs us = drift::TimeUs((double(index) + 0.5) * drift::kUsPerSecond / sourceFps);
+            const QImage image = ClipReaderPool::instance().readVideoFrame(
+                clip.path, kStreamId, qBound(clip.srcIn, us, qMax(clip.srcIn, clip.srcOut - 1)), 1920, 1920,
+                clip.rotationCorrection);
+            if (cache.size() > 6)
+                cache.clear();
+            cache.insert(index, image);
+            return image;
+        };
+        const int frames = qMax(1, int((clip.timelineDuration * fps + drift::kUsPerSecond / 2) / drift::kUsPerSecond));
+        QSize size;
+        drift::MatteWriter writer;
+        int lastShown = -1;
+        for (int k = 0; ok && k < frames; ++k) {
+            const drift::TimeUs at = clip.timelineStart + drift::TimeUs(double(k) * drift::kUsPerSecond / fps);
+            const double position = double(clip.timelineToSourceUs(at)) * sourceFps / drift::kUsPerSecond - 0.5;
+            const qint64 index = qint64(std::floor(position));
+            const double t = position - double(index);
+            const QImage a = sourceFrame(qMax<qint64>(0, index));
+            QImage frame;
+            if (t < 0.08 || t > 0.92) {
+                frame = t > 0.92 ? sourceFrame(index + 1) : a;
+            } else {
+                const QImage b = sourceFrame(index + 1);
+                frame = (a.isNull() || b.isNull()) ? a : model->interpolate(a, b, float(t), &error);
+            }
+            if (frame.isNull()) {
+                ok = false;
+                if (error.isEmpty())
+                    error = tr("Couldn’t read the clip’s frames");
+                break;
+            }
+            if (k == 0) {
+                size = frame.size();
+                ok = writer.open(outPath, size, fps, 1, &error, drift::MatteWriter::Mode::Colour);
+            } else if (frame.size() != size) {
+                frame = frame.scaled(size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+            }
+            if (ok)
+                ok = writer.writeFrame(frame, &error);
+            const int shown = (k + 1) * 100 / frames;
+            if (shown / 5 != lastShown / 5) {
+                lastShown = shown;
+                QMetaObject::invokeMethod(this, [this, shown]() {
+                    setLastMessage(tr("Making smooth slow motion… %1 %").arg(shown));
+                }, Qt::QueuedConnection);
+            }
+        }
+        if (ok)
+            ok = writer.finish(&error);
+        else
+            writer.abort();
+        const QString thumb =
+            ok ? MediaThumbnail::generate(outPath, drift::mediaKindToString(drift::MediaKind::Video)) : QString();
+        const MediaInfo info = ok ? MediaProbe::probe(outPath) : MediaInfo{};
+
+        QMetaObject::invokeMethod(
+            this,
+            [this, ok, error, outPath, thumb, info, clipId = clip.id, name]() {
+                int trackIndex = -1;
+                int clipIndex = -1;
+                for (int t = 0; ok && t < m_project.tracks().size() && trackIndex < 0; ++t) {
+                    const drift::Track &tr0 = std::as_const(m_project).tracks().at(t);
+                    for (int c = 0; c < tr0.clips.size(); ++c) {
+                        if (tr0.clips.at(c).id == clipId) {
+                            trackIndex = t;
+                            clipIndex = c;
+                            break;
+                        }
+                    }
+                }
+                if (!ok || trackIndex < 0) {
+                    QFile::remove(outPath);
+                    if (!ok)
+                        setLastMessage(error.isEmpty() ? tr("Couldn’t make smooth slow motion") : error,
+                                       QStringLiteral("error"));
+                    return;
+                }
+                const drift::Project before = m_project.detachedCopy();
+                const QString assetId = insertRenderedVideoAsset(outPath, name, QString(), info);
+                const drift::MediaAsset *asset = m_project.asset(assetId);
+                drift::Clip &target = m_project.tracks()[trackIndex].clips[clipIndex];
+                target.assetId = assetId;
+                target.path = outPath;
+                target.thumbnailPath = thumb;
+                target.filmstripPath = thumb;
+                target.speed = 1.0;
+                target.speedCurve.clear();
+                target.reverse = false;
+                target.srcIn = 0;
+                target.srcOut = asset && asset->durationUs > 0 ? qMin(asset->durationUs, target.timelineDuration)
+                                                             : target.timelineDuration;
+                target.timelineDuration = target.srcOut;
+                pushProjectEdit(before, tr("Smooth slow motion"));
+                finishEdit(tr("Smooth slow motion"));
+                selectClip(trackIndex, clipIndex);
+                setLastMessage(tr("Smooth slow motion ready"));
             },
             Qt::QueuedConnection);
     });

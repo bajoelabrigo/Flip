@@ -4953,6 +4953,46 @@
         <translation>AI 전환이 추가됨</translation>
     </message>
     <message>
+        <source>Slow a video clip down first (Speed under 1×)</source>
+        <translation>먼저 동영상 클립을 느리게 하세요(속도 1× 미만)</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion needs the AI transitions extra: install it from Extras › AI tools</source>
+        <translation>부드러운 슬로 모션에는 AI 전환 확장 기능이 필요합니다: 확장 기능 › AI 도구에서 설치하세요</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion works on clips up to 3 minutes long: split this one first</source>
+        <translation>부드러운 슬로 모션은 3분 이하의 클립에서 작동합니다: 먼저 이 클립을 분할하세요</translation>
+    </message>
+    <message>
+        <source>%1 (smooth slow motion)</source>
+        <translation>%1 (부드러운 슬로 모션)</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion…</source>
+        <translation>부드러운 슬로 모션 만드는 중…</translation>
+    </message>
+    <message>
+        <source>Couldn’t read the clip’s frames</source>
+        <translation>클립의 프레임을 읽을 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion… %1 %</source>
+        <translation>부드러운 슬로 모션 만드는 중… %1 %</translation>
+    </message>
+    <message>
+        <source>Couldn’t make smooth slow motion</source>
+        <translation>부드러운 슬로 모션을 만들 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>부드러운 슬로 모션</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion ready</source>
+        <translation>부드러운 슬로 모션 완료</translation>
+    </message>
+    <message>
         <source>Write the text or describe the style you want</source>
         <translation>텍스트를 입력하거나 원하는 스타일을 설명하세요</translation>
     </message>
@@ -18735,6 +18775,14 @@ If playback stutters, try another.</source>
     <message>
         <source> (reversed)</source>
         <translation> (반전됨)</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>부드러운 슬로 모션</translation>
+    </message>
+    <message>
+        <source>Draws the in-between frames a slowed clip is missing, so it moves smoothly instead of stuttering. Uses the AI transitions extra.</source>
+        <translation>느리게 만든 클립에 빠진 중간 프레임을 그려 끊기지 않고 부드럽게 움직이게 합니다. AI 전환 확장 기능을 사용합니다.</translation>
     </message>
     <message>
         <source>Reverse</source>

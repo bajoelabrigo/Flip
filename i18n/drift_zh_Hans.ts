@@ -4953,6 +4953,46 @@
         <translation>已添加 AI 转场</translation>
     </message>
     <message>
+        <source>Slow a video clip down first (Speed under 1×)</source>
+        <translation>请先放慢视频片段（速度低于 1×）</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion needs the AI transitions extra: install it from Extras › AI tools</source>
+        <translation>平滑慢动作需要 AI 转场扩展：请在“扩展 › AI 工具”中安装</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion works on clips up to 3 minutes long: split this one first</source>
+        <translation>平滑慢动作适用于 3 分钟以内的片段：请先拆分此片段</translation>
+    </message>
+    <message>
+        <source>%1 (smooth slow motion)</source>
+        <translation>%1（平滑慢动作）</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion…</source>
+        <translation>正在生成平滑慢动作…</translation>
+    </message>
+    <message>
+        <source>Couldn’t read the clip’s frames</source>
+        <translation>无法读取片段的帧</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion… %1 %</source>
+        <translation>正在生成平滑慢动作… %1 %</translation>
+    </message>
+    <message>
+        <source>Couldn’t make smooth slow motion</source>
+        <translation>无法生成平滑慢动作</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>平滑慢动作</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion ready</source>
+        <translation>平滑慢动作已完成</translation>
+    </message>
+    <message>
         <source>Write the text or describe the style you want</source>
         <translation>输入文字，或描述你想要的样式</translation>
     </message>
@@ -18736,6 +18776,14 @@ If playback stutters, try another.</source>
     <message>
         <source> (reversed)</source>
         <translation>（倒放）</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>平滑慢动作</translation>
+    </message>
+    <message>
+        <source>Draws the in-between frames a slowed clip is missing, so it moves smoothly instead of stuttering. Uses the AI transitions extra.</source>
+        <translation>为放慢的片段补画缺少的中间帧，让画面流畅而不卡顿。使用 AI 转场扩展。</translation>
     </message>
     <message>
         <source>Reverse</source>

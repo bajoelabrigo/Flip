@@ -4965,6 +4965,46 @@
         <translation>Transição com IA adicionada</translation>
     </message>
     <message>
+        <source>Slow a video clip down first (Speed under 1×)</source>
+        <translation>Primeiro deixe o clipe de vídeo mais lento (velocidade abaixo de 1×)</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion needs the AI transitions extra: install it from Extras › AI tools</source>
+        <translation>A câmera lenta suave precisa do extra de transições com IA: instale em Extras › Ferramentas de IA</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion works on clips up to 3 minutes long: split this one first</source>
+        <translation>A câmera lenta suave funciona em clipes de até 3 minutos: divida este primeiro</translation>
+    </message>
+    <message>
+        <source>%1 (smooth slow motion)</source>
+        <translation>%1 (câmera lenta suave)</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion…</source>
+        <translation>Criando a câmera lenta suave…</translation>
+    </message>
+    <message>
+        <source>Couldn’t read the clip’s frames</source>
+        <translation>Não foi possível ler os quadros do clipe</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion… %1 %</source>
+        <translation>Criando a câmera lenta suave… %1 %</translation>
+    </message>
+    <message>
+        <source>Couldn’t make smooth slow motion</source>
+        <translation>Não foi possível criar a câmera lenta suave</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>Câmera lenta suave</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion ready</source>
+        <translation>Câmera lenta suave pronta</translation>
+    </message>
+    <message>
         <source>Write the text or describe the style you want</source>
         <translation>Escreva o texto ou descreva o estilo que você quer</translation>
     </message>
@@ -18808,6 +18848,14 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source> (reversed)</source>
         <translation> (invertido)</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>Câmera lenta suave</translation>
+    </message>
+    <message>
+        <source>Draws the in-between frames a slowed clip is missing, so it moves smoothly instead of stuttering. Uses the AI transitions extra.</source>
+        <translation>Desenha os quadros intermediários que faltam num clipe lento, para ele se mover suave em vez de travar. Usa o extra de transições com IA.</translation>
     </message>
     <message>
         <source>Reverse</source>

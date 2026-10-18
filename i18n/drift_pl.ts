@@ -4977,6 +4977,46 @@
         <translation>Dodano przejście AI</translation>
     </message>
     <message>
+        <source>Slow a video clip down first (Speed under 1×)</source>
+        <translation>Najpierw spowolnij klip wideo (prędkość poniżej 1×)</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion needs the AI transitions extra: install it from Extras › AI tools</source>
+        <translation>Płynne zwolnienie wymaga dodatku przejść AI: zainstaluj go w Dodatki › Narzędzia AI</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion works on clips up to 3 minutes long: split this one first</source>
+        <translation>Płynne zwolnienie działa na klipach do 3 minut: najpierw podziel ten klip</translation>
+    </message>
+    <message>
+        <source>%1 (smooth slow motion)</source>
+        <translation>%1 (płynne zwolnienie)</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion…</source>
+        <translation>Tworzenie płynnego zwolnienia…</translation>
+    </message>
+    <message>
+        <source>Couldn’t read the clip’s frames</source>
+        <translation>Nie udało się odczytać klatek klipu</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion… %1 %</source>
+        <translation>Tworzenie płynnego zwolnienia… %1 %</translation>
+    </message>
+    <message>
+        <source>Couldn’t make smooth slow motion</source>
+        <translation>Nie udało się utworzyć płynnego zwolnienia</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>Płynne zwolnienie</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion ready</source>
+        <translation>Płynne zwolnienie gotowe</translation>
+    </message>
+    <message>
         <source>Write the text or describe the style you want</source>
         <translation>Wpisz tekst lub opisz styl, jaki chcesz</translation>
     </message>
@@ -18880,6 +18920,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source> (reversed)</source>
         <translation> (odwrócone)</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>Płynne zwolnienie</translation>
+    </message>
+    <message>
+        <source>Draws the in-between frames a slowed clip is missing, so it moves smoothly instead of stuttering. Uses the AI transitions extra.</source>
+        <translation>Rysuje brakujące klatki pośrednie spowolnionego klipu, aby poruszał się płynnie, a nie skokowo. Korzysta z dodatku przejść AI.</translation>
     </message>
     <message>
         <source>Reverse</source>

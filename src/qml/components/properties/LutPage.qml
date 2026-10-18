@@ -260,7 +260,7 @@ Column {
                             y: 3
                             width: parent.width - 6
                             height: width
-                            beforeSource: "qrc:/retouch/original.jpg"
+                            beforeSource: EditorState.lutReference(tile.modelData.path)
                             afterSource: EditorState.lutThumbnail(tile.modelData.path)
                             playing: tileHover.hovered
                         }

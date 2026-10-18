@@ -1,0 +1,70 @@
+# Plan de la 0.18.0 (pedido de Jorge, 2026-10-18)
+
+Este archivo es para **seguir el trabajo con cualquier asistente** (Claude, DeepSeek u otro). Antes de nada, leer
+`CLAUDE.md` (mapa del proyecto, rutina de publicación y trampas). Rama: **`flip/v0.18.0`** (sale de `main` con la
+0.17.0 publicada). Regla de Jorge: si CapCut o Filmora ya resolvieron cómo se comporta algo, se copia. Todo lo que
+lee Jorge va en español; el código sigue el estilo del archivo (inglés).
+
+Pedido: «Comienza con lo que falta» (el seguimiento de la 0.17) + «en los efectos, plantillas, transiciones y LUT
+pon fotos variadas para que no quede todo igual» + «Haz todo lo pendiente».
+
+Leyenda: ✅ hecho en la rama · 🟡 empezado · ⬜ por hacer.
+
+## 1. Contadores de Stock con el contador del motor
+- ✅ Motor: `TextStyle.counterSeconds` (cuánto dura el conteo desde el inicio del clip; 0 = el 85 % de la 0.17) y
+  relleno con ceros («05:00», «007»): `drift::counterTextAt(text, from, progress, land)`; pruebas en
+  `CoreTest::counterTextCountsInTheTextsFormat`. Se guarda en el proyecto solo si es > 0.
+- ✅ Plantillas (`tools/scene_templates/templates_c1.py`): `count_fn` hace **un solo texto editable** con
+  `counter/counterFrom/counterSeconds` y un pequeño «salto» de tamaño al llegar (`landing_pop`). 15 plantillas
+  pasan al motor; **barra de carga y marcador** siguen con cortes (`cuts=True`: su ritmo no es una curva suave), y
+  el temporizador y los dos odómetros no cambian. Las barras y el anillo que acompañan al número usan la misma curva
+  (cúbica) que el motor.
+- ⬜ Renderizar miniaturas y previas de las 15 con un portable de la 0.18 (la 0.17 no conoce `counterSeconds`:
+  aterrizaría tarde) — `tools/scene_templates/build.py --only cont-…` — revisar en hoja de contacto y **publicar al
+  salir la 0.18** (`publish_delta.py` + `apply_delta.sh`). Una app 0.15/0.16 muestra el número final quieto.
+
+## 2. Fotos variadas en las miniaturas (Jorge, 2026-10-18)
+- Hoy: Transiciones de la app = todas el mismo camino con trigo; Plantillas de efectos = todas el loro; los efectos
+  de color = todos el mismo lago; LUTs de Filtros = todas la misma mujer. Stock (LUTs y transiciones) ya era variado.
+- Fotos: las 16 CC0 de `flip-addons/work/drift-addons/assets/thumbs` (`CREDITS.md`).
+- ✅ Reparto en `tools/effects/thumb_bases.json` (efectos por id, plantillas por id, pares para transiciones).
+- ✅ `tools/effects/vary_thumbs.py --tools <carpeta>` redibuja con `effectthumbs`, `templatethumbs` y
+  `transitionthumbs` (las tres aceptan `--only` y la foto). `package.yml` sube las tres como artefacto
+  **`windows-thumb-tools`**: copiarlas dentro de un portable descomprimido (necesitan sus DLL).
+- ✅ LUTs: `AppController::lutThumbnail` elige una de 13 fotos por el nombre del LUT (`lutReferencePhoto`, FNV) y
+  `lutReference(path)` da esa foto para el «antes» (Filtros y Ajustar › LUT).
+- ⬜ Correr `vary_thumbs.py` con el artefacto de la compilación, revisar hoja de contacto, luego
+  `py tools/effects/before_bases.py <fotos>` (actualiza `resources/effectbases`), commit y compilación final.
+
+## 3. Antes y después en Efectos
+- ✅ `tools/effects/before_bases.py` escribe `resources/effectbases/<foto>.jpg` (256 px, recorte cuadrado como
+  `squareCrop`) y `map.json` (efecto → foto), comprobando que la miniatura se parezca a su foto (si no, la deja
+  fuera; `KEEP` = revisadas a ojo). Recurso `:/effectbases` en `CMakeLists.txt`.
+- ✅ `effectCatalog()` trae `beforeImage`; `EffectBrowser.qml` usa `BeforeAfterImage` al pasar el mouse.
+- Fuera a propósito: `color.lut` (miniatura de otra foto), `face_mesh_3d`, `face_props` (dibujos), película
+  granulada (solo grano), intercambio de cara.
+
+## 4. Cámara lenta suave con IA (RIFE)
+- ✅ `AppController::canSmoothSlowMotion` / `smoothSlowMotion`: cada fotograma del clip lento (velocidad < 1 o
+  curva) se dibuja al fps del proyecto desde los dos fotogramas de origen que lo rodean (RIFE en medio; si cae
+  casi en uno, se usa ese), se escribe con `MatteWriter` en modo color y el clip pasa a leer ese render a 1×
+  (mismo lugar, duración, efectos). El audio incrustado se separa antes (`separateAudioFromSelection`) para que
+  conserve su tiempo. Máximo 3 minutos. Botón «Cámara lenta suave» + marca IA en Velocidad
+  (`SpeedFadeInspector.qml`). Usa el extra `transiciones.ia`.
+- ⬜ Probar en ventana con un clip a 0,25×.
+
+## 5. Foto de la tarjeta «Imperfecciones»
+- ⬜ `resources/retouch/skin-blemish.jpg` es copia de skin-smooth: rehacerla con la app (ver
+  `resources/retouch/README.md`) con el efecto `face_blemish`.
+
+## 6. Voz con IA en el editor web (`flipstudio-app`)
+- ⬜ Kokoro-82M (Apache-2.0) en el navegador con transformers.js 4.3 + fonemas con espeak-ng WASM (GPL-3, compatible
+  con la AGPL del editor web); modelo q8 (~90 MB) en `/modelos/` del VPS como Whisper; voces `ef_dora`/`em_alex`.
+
+## Traducciones
+- ✅ Las 12 frases nuevas (cámara lenta suave) en es y los 11 idiomas completos; `lupdate` estable.
+
+## Al cerrar la versión
+Versión 0.18.0 en `CMakeLists.txt`, `release-notes/0.18.0.md`, CHANGELOG, notas de la Store en
+`docs/store-listing.md`, compilación, prueba en ventana, PR, tag, release, MSIX, copia en `versiones`, novedades en
+la web, contadores a Stock y `CLAUDE.md`. Lo de Jorge: TXT `version` y Partner Center.

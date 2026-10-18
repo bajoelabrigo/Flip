@@ -126,6 +126,30 @@ Item {
             font.pixelSize: Theme.fontSizeSm
         }
 
+        // Smooth slow motion (0.18): the AI draws the frames a slowed clip lacks, as CapCut's
+        // "Smooth slow-mo". Needs the AI transitions extra; the badge's "?" says it runs offline.
+        Row {
+            width: parent.width
+            spacing: Theme.spacingLg
+            visible: {
+                void root.clipDataRevision
+                return root.clipKind === "video"
+                       && EditorState.canSmoothSlowMotion(EditorState.selectedTrack, EditorState.selectedClip)
+            }
+
+            ThemedButton {
+                id: smoothSlowButton
+                text: qsTr("Smooth slow motion")
+                variant: "secondary"
+                onClicked: EditorState.smoothSlowMotion(EditorState.selectedTrack, EditorState.selectedClip)
+            }
+
+            AiBadge {
+                anchors.verticalCenter: parent.verticalCenter
+                info: qsTr("Draws the in-between frames a slowed clip is missing, so it moves smoothly instead of stuttering. Uses the AI transitions extra.")
+            }
+        }
+
         ThemedChip {
             visible: !root.nestedSource
             text: qsTr("Reverse")

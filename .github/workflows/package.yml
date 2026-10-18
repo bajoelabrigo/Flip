@@ -733,6 +733,18 @@ jobs:
           name: windows-portable
           path: dist/portable/*.zip
 
+      # The card renderers (tools/effects/vary_thumbs.py): they run beside an unpacked portable,
+      # which has the DLLs they need. Not part of any release.
+      - name: Upload thumbnail tools
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-thumb-tools
+          retention-days: 7
+          path: |
+            build/Release/effectthumbs.exe
+            build/Release/templatethumbs.exe
+            build/Release/transitionthumbs.exe
+
   macos:
     name: macOS disk image
     # Apple Silicon only: Homebrew bottles are single-architecture.

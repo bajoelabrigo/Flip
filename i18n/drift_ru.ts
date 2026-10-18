@@ -4977,6 +4977,46 @@
         <translation>ИИ-переход добавлен</translation>
     </message>
     <message>
+        <source>Slow a video clip down first (Speed under 1×)</source>
+        <translation>Сначала замедлите видеоклип (скорость ниже 1×)</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion needs the AI transitions extra: install it from Extras › AI tools</source>
+        <translation>Для плавного замедления нужно дополнение «Переходы с ИИ»: установите его в «Дополнения › Инструменты ИИ»</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion works on clips up to 3 minutes long: split this one first</source>
+        <translation>Плавное замедление работает с клипами до 3 минут: сначала разделите этот</translation>
+    </message>
+    <message>
+        <source>%1 (smooth slow motion)</source>
+        <translation>%1 (плавное замедление)</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion…</source>
+        <translation>Создание плавного замедления…</translation>
+    </message>
+    <message>
+        <source>Couldn’t read the clip’s frames</source>
+        <translation>Не удалось прочитать кадры клипа</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion… %1 %</source>
+        <translation>Создание плавного замедления… %1 %</translation>
+    </message>
+    <message>
+        <source>Couldn’t make smooth slow motion</source>
+        <translation>Не удалось создать плавное замедление</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>Плавное замедление</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion ready</source>
+        <translation>Плавное замедление готово</translation>
+    </message>
+    <message>
         <source>Write the text or describe the style you want</source>
         <translation>Напишите текст или опишите нужный стиль</translation>
     </message>
@@ -18880,6 +18920,14 @@ If playback stutters, try another.</source>
     <message>
         <source> (reversed)</source>
         <translation> (обращён)</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>Плавное замедление</translation>
+    </message>
+    <message>
+        <source>Draws the in-between frames a slowed clip is missing, so it moves smoothly instead of stuttering. Uses the AI transitions extra.</source>
+        <translation>Дорисовывает промежуточные кадры, которых не хватает замедленному клипу, чтобы он двигался плавно, без рывков. Использует дополнение «Переходы с ИИ».</translation>
     </message>
     <message>
         <source>Reverse</source>

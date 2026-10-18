@@ -227,7 +227,7 @@ Item {
                         BeforeAfterImage {
                             anchors.fill: parent
                             anchors.margins: 3
-                            beforeSource: "qrc:/retouch/original.jpg"
+                            beforeSource: EditorState.lutReference(tile.modelData.path)
                             afterSource: EditorState.lutThumbnail(tile.modelData.path)
                             playing: tileHover.hovered
                         }

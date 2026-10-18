@@ -1301,6 +1301,8 @@ public:
     // A small picture graded by the LUT (the real table applied on the CPU to a reference photo),
     // as a file URL, cached by the LUT file's contents. Empty when the LUT cannot be read.
     Q_INVOKABLE QUrl lutThumbnail(const QString &path) const;
+    // The photo lutThumbnail draws that look on, without the look: the "before" of its card.
+    Q_INVOKABLE QUrl lutReference(const QString &path) const;
     // Deletes an imported LUT from the library (never a factory one). Projects that used it keep
     // their saved path and report it missing.
     Q_INVOKABLE bool removeImportedLut(const QString &path);
@@ -1641,6 +1643,10 @@ public:
     // AI transition (RIFE) from this clip into the one right after it; see AiTransition notes in the .cpp.
     Q_INVOKABLE bool aiTransitionAvailable() const;
     Q_INVOKABLE void addAiTransitionAfter(int trackIndex, int clipIndex);
+    // Smooth slow motion (0.18): a slowed video clip played back from in-between frames the AI
+    // transition's model (RIFE) draws, instead of each source frame held twice or more.
+    Q_INVOKABLE bool canSmoothSlowMotion(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void smoothSlowMotion(int trackIndex, int clipIndex);
     // AI text: picks the closest text style to `idea` (TextEmbedder) and adds `text` with it.
     Q_INVOKABLE bool aiTextAvailable() const;
     Q_INVOKABLE void addAiText(const QString &text, const QString &idea);
