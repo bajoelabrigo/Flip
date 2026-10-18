@@ -15,7 +15,7 @@ cp -al "$LIVE" "$NEW"
 echo "== 2. descomprimir el delta encima (unlink-first)"
 mkdir -p /tmp/plantillas015-delta
 tar -xf /tmp/plantillas015-delta.tar -C /tmp/plantillas015-delta
-tar -xf /tmp/plantillas015-delta.tar -C "$NEW" --unlink-first --overwrite
+tar -xf /tmp/plantillas015-delta.tar -C "$NEW" --unlink-first
 
 echo "== 3. borrar lo que ya no está"
 if [ -s /tmp/remove-list.txt ]; then
