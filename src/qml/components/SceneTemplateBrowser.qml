@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls.Basic
 import QtQuick.Window
+import QtMultimedia
 import Drift
 import "assets"
 
@@ -231,6 +232,27 @@ Column {
                         sourceSize: Qt.size(Math.ceil(grid.cardWidth * Screen.devicePixelRatio),
                                             Math.ceil(grid.cardHeight * Screen.devicePixelRatio))
                         smooth: true
+                    }
+
+                    // Its preview plays, muted, while the pointer rests on the card (as Stock does):
+                    // one player at a time, only on the hovered card.
+                    Loader {
+                        anchors.fill: parent
+                        anchors.margins: 1
+                        active: cardHover.hovered && !dragSource.active && !!card.modelData.preview
+                        sourceComponent: Item {
+                            VideoOutput {
+                                id: previewOut
+                                anchors.fill: parent
+                                fillMode: VideoOutput.PreserveAspectCrop
+                            }
+                            MediaPlayer {
+                                source: card.modelData.preview
+                                videoOutput: previewOut
+                                loops: MediaPlayer.Infinite
+                                Component.onCompleted: play()
+                            }
+                        }
                     }
 
                     ThemedToolTip {
