@@ -759,6 +759,8 @@ PanelFrame {
     readonly property var currentCategory: categoryOfTab(currentTabId)
     readonly property var sideTabs: currentCategory ? currentCategory.tabs : [currentTabId]
     readonly property bool showSideList: !root.sheetMode && root.sideTabs.length > 1
+    // The whole category row, for the window's default panel width (Main.qml).
+    readonly property real categoryRowWidth: categoryRow.width
     readonly property real sideListWidth: showSideList ? 138 : 0
 
     // Coming back to a category opens the tab last used in it (Audio → Sound effects).

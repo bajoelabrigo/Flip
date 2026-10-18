@@ -32,7 +32,7 @@ Menu {
 
     background: Rectangle {
         radius: Theme.radiusSm
-        color: Theme.panelBackground
+        color: Theme.menuBackground
         border.width: Theme.borderWidth
         border.color: Theme.panelBorder
     }

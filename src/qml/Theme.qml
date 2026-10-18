@@ -166,7 +166,11 @@ QtObject {
         panelMuted: "#383838",
         panelSecondaryBg: "#26200a",
         panelSecondaryBorder: "#4a3d00",
-        panelSecondaryForeground: "#ffcf4a"
+        panelSecondaryForeground: "#ffcf4a",
+        menuBackground: "#1a1a1a",
+        homeBackground: "#0d0d0d",
+        homeCard: "#1a1a1a",
+        homeActive: "#262626"
     })
     readonly property var _light: ({
         appBackground: "#ffffff",
@@ -184,11 +188,26 @@ QtObject {
         panelMuted: "#d4d4d4",
         panelSecondaryBg: "#fff6da",
         panelSecondaryBorder: "#ffe7a3",
-        panelSecondaryForeground: "#9a6f00"
+        panelSecondaryForeground: "#9a6f00",
+        menuBackground: "#f9fafb",
+        homeBackground: "#ffffff",
+        homeCard: "#f5f5f5",
+        homeActive: "#ededed"
     })
     // --- Colour themes: an accent plus a tint of the dark surfaces ------------------------
-    // Light mode keeps its neutral surfaces and takes only the accent. "amber" is the original.
+    // Light mode keeps its neutral surfaces and takes only the accent. "teal" is the default since
+    // 0.17 (Jorge, 2026-10-18): Filmora's dark greys, measured on its screenshots, and its turquoise;
+    // "amber" was the original.
     readonly property var colorThemes: [
+        { id: "teal", label: qsTr("Turquoise"), primary: "#2EE6C5", primaryForeground: "#03201b",
+          lightOnPanel: "#0d7f6c", gradient: ["#25ecd5", "#2cb0f0", "#3b6cf6"],
+          secondaryDark: ["#13302b", "#1f5a50", "#55e5c5"], secondaryLight: ["#e2faf5", "#b2efe3", "#0d7f6c"],
+          dark: ({ appBackground: "#111416", foreground: "#e8eaeb", border: "#272b2e", accent: "#202427",
+                   accentForeground: "#f2f4f5", mutedForeground: "#8b949a", popoverHover: "#2a2e32",
+                   panelBackground: "#181c1f", panelForeground: "#c3cad0", panelBorder: "#272b2e",
+                   panelAccent: "#25292d", panelAccentForeground: "#f2f4f5", panelMuted: "#31363b",
+                   menuBackground: "#202427", homeBackground: "#0a0d0f", homeCard: "#131517",
+                   homeActive: "#25292d" }) },
         { id: "amber", label: qsTr("Amber"), primary: "#F8B81C", primaryForeground: "#221900",
           lightOnPanel: "#8a6300", gradient: ["#ffcf4a", "#f59e0b", "#fbbf24"],
           secondaryDark: ["#26200a", "#4a3d00", "#ffcf4a"], secondaryLight: ["#fff6da", "#ffe7a3", "#9a6f00"],
@@ -263,6 +282,12 @@ QtObject {
     readonly property color panelAccent: _palette.panelAccent
     readonly property color panelAccentForeground: _palette.panelAccentForeground
     readonly property color panelMuted: _palette.panelMuted
+    // Drop-down menus and the home screen (Filmora draws its menus a step lighter than the panels,
+    // and its home screen darker).
+    readonly property color menuBackground: _palette.menuBackground
+    readonly property color homeBackground: _palette.homeBackground
+    readonly property color homeCard: _palette.homeCard
+    readonly property color homeActive: _palette.homeActive
     // Slider groove — lighter than panelMuted in dark mode so the track reads at rest.
     readonly property color sliderTrack: darkMode ? "#505050" : panelMuted
     // Scrollbar track + handle (timeline horizontal bar, panel flickables).

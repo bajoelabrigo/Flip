@@ -172,7 +172,7 @@ Row {
             }
             ThemedMenuItem {
                 text: qsTr("Quit")
-                onTriggered: root.win.close()
+                onTriggered: root.win.quitApp()
             }
         }
     }

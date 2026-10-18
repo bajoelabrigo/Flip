@@ -156,7 +156,7 @@ PreferencesController::PreferencesController(QObject *parent)
     const QVariant storedDarkMode = settings.value(QStringLiteral("ui/darkMode"));
     m_darkModeOverridden = storedDarkMode.isValid();
     m_darkModePreferred = storedDarkMode.toBool();
-    m_colorTheme = settings.value(QStringLiteral("ui/colorTheme"), QStringLiteral("amber")).toString();
+    m_colorTheme = settings.value(QStringLiteral("ui/colorTheme"), QStringLiteral("teal")).toString();
     // Likewise unset means the workspace still follows the canvas orientation.
     const QVariant storedWorkspace = settings.value(QStringLiteral("ui/workspaceLayout"));
     m_workspaceLayoutOverridden = storedWorkspace.isValid();
@@ -180,7 +180,7 @@ void PreferencesController::setDarkModePreference(bool enabled)
 
 void PreferencesController::setColorTheme(const QString &theme)
 {
-    const QString id = theme.isEmpty() ? QStringLiteral("amber") : theme;
+    const QString id = theme.isEmpty() ? QStringLiteral("teal") : theme;
     if (id == m_colorTheme)
         return;
     m_colorTheme = id;

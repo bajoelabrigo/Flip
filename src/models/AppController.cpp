@@ -7033,11 +7033,62 @@ void AppController::moveClip(int trackIndex, int clipIndex, double newStart)
             }
         }
     }
-    for (const QPair<int, int> &pair : targets) {
-        if (!isValidClipIndex(pair.first, pair.second))
-            continue;
-        const drift::Clip &clip = m_project.tracks().at(pair.first).clips.at(pair.second);
-        syncLinkedPartnersFrom(m_project, clip, movedIds);
+    // CapCut's main track with its magnet on: with "Close gaps" on, a clip dragged along its track
+    // goes in where it lands and the track closes up behind it, instead of leaving a hole where it
+    // was. Order is by each clip's middle (the dragged one lands before a clip whose middle it has
+    // not passed); the track starts where its first clip started before the drag. Only for a drag
+    // on one track (its linked audio may ride along on another); the list order is kept, only the
+    // starts change, so indices and the selection stay valid.
+    bool closedUp = false;
+    if (m_rippleEnabled && !m_allowClipOverlap && autoFade.first.isEmpty() && clampedDelta != 0) {
+        const drift::Track &probe = std::as_const(m_project).tracks().at(trackIndex);
+        QSet<QString> partnerIds;
+        for (const QPair<int, int> &pair : targets) {
+            if (pair.first == trackIndex && isValidClipIndex(pair.first, pair.second)) {
+                for (const drift::ClipRef &ref :
+                     drift::linkedPartners(m_project, probe.clips.at(pair.second)))
+                    partnerIds.insert(m_project.tracks().at(ref.trackIndex).clips.at(ref.clipIndex).id);
+            }
+        }
+        bool oneTrack = probe.type == drift::TrackType::Video;
+        for (const QPair<int, int> &pair : targets) {
+            if (pair.first != trackIndex && isValidClipIndex(pair.first, pair.second)
+                && !partnerIds.contains(m_project.tracks().at(pair.first).clips.at(pair.second).id))
+                oneTrack = false;
+        }
+        if (oneTrack && probe.clips.size() > 1) {
+            drift::TimeUs base = -1;
+            for (const drift::Clip &clip : before.tracks().at(trackIndex).clips)
+                base = base < 0 ? clip.timelineStart : qMin(base, clip.timelineStart);
+            QList<int> order;
+            for (int i = 0; i < probe.clips.size(); ++i)
+                order.append(i);
+            std::stable_sort(order.begin(), order.end(), [&probe](int a, int b) {
+                const drift::Clip &ca = probe.clips.at(a);
+                const drift::Clip &cb = probe.clips.at(b);
+                return ca.timelineStart + ca.timelineDuration / 2 < cb.timelineStart + cb.timelineDuration / 2;
+            });
+            drift::Track &track = m_project.tracks()[trackIndex];
+            drift::TimeUs at = qMax<drift::TimeUs>(0, base);
+            for (const int i : std::as_const(order)) {
+                track.clips[i].timelineStart = at;
+                at += track.clips.at(i).timelineDuration;
+            }
+            QSet<QString> laidOut;
+            for (const drift::Clip &clip : std::as_const(track.clips))
+                laidOut.insert(clip.id);
+            for (const drift::Clip &clip : std::as_const(m_project).tracks().at(trackIndex).clips)
+                syncLinkedPartnersFrom(m_project, clip, laidOut);
+            closedUp = true;
+        }
+    }
+    if (!closedUp) {
+        for (const QPair<int, int> &pair : targets) {
+            if (!isValidClipIndex(pair.first, pair.second))
+                continue;
+            const drift::Clip &clip = m_project.tracks().at(pair.first).clips.at(pair.second);
+            syncLinkedPartnersFrom(m_project, clip, movedIds);
+        }
     }
     if (!autoFade.first.isEmpty()) {
         addAutoCrossfade(trackIndex, autoFade.first, autoFade.second);
@@ -22513,12 +22564,46 @@ QString AppController::newFreezeFramePath(const QString &projectId)
                                   .arg(QUuid::createUuid().toString(QUuid::WithoutBraces)));
 }
 
+// CapCut's freeze frame: the clip under the playhead is cut there, a still of that clip (its own
+// picture, with its effects and transform, not the overlays above it) goes in on the same track for
+// 3 seconds, and the rest of the clip and everything after it on its tracks (its linked
+// audio included) moves right by that much. The selected video clip if the playhead is on it,
+// otherwise the bottom (main) video track's clip under the playhead.
 void AppController::freezeFrameAtPlayhead()
 {
     if (!m_assetLibrary)
         return;
 
-    if (activeVideoClipAtPlayhead().isEmpty()) {
+
+    const drift::TimeUs playheadUs = m_playheadUs;
+
+    int targetTrack = -1;
+    int targetClip = -1;
+    if (isValidClipIndex(m_selectedTrack, m_selectedClip)) {
+        const drift::Track &track = std::as_const(m_project).tracks().at(m_selectedTrack);
+        const drift::Clip &clip = track.clips.at(m_selectedClip);
+        if (track.type == drift::TrackType::Video && !track.hidden && clip.containsTime(playheadUs)
+            && (clip.type == drift::ClipType::Video || clip.type == drift::ClipType::Image)) {
+            targetTrack = m_selectedTrack;
+            targetClip = m_selectedClip;
+        }
+    }
+    if (targetTrack < 0) {
+        for (int t = 0; t < m_project.tracks().size(); ++t) {
+            const drift::Track &track = std::as_const(m_project).tracks().at(t);
+            if (track.type != drift::TrackType::Video || track.hidden)
+                continue;
+            for (int c = 0; c < track.clips.size(); ++c) {
+                const drift::Clip &clip = track.clips.at(c);
+                if (clip.containsTime(playheadUs)
+                    && (clip.type == drift::ClipType::Video || clip.type == drift::ClipType::Image)) {
+                    targetTrack = t;
+                    targetClip = c;
+                }
+            }
+        }
+    }
+    if (targetTrack < 0) {
         setLastMessage(tr("No video at the current time"), QStringLiteral("warning"));
         return;
     }
@@ -22534,17 +22619,24 @@ void AppController::freezeFrameAtPlayhead()
     setPlaying(false);
 
     setLastMessage(tr("Capturing freeze frame…"));
-    const drift::TimeUs playheadUs = m_playheadUs;
+    const QString clipId = std::as_const(m_project).tracks().at(targetTrack).clips.at(targetClip).id;
     // The worker composites off the GUI thread while editing continues, so it gets a detached
-    // copy rather than a pointer into the live project.
-    const auto snapshot = std::make_shared<const drift::Project>(m_project.detachedCopy());
+    // copy, and only the frozen clip in it: the still is that clip's picture, not the whole frame.
+    auto still = std::make_shared<drift::Project>(m_project.detachedCopy());
+    for (int t = 0; t < still->tracks().size(); ++t) {
+        drift::Track &track = still->tracks()[t];
+        track.transitions.clear();
+        for (int c = track.clips.size() - 1; c >= 0; --c) {
+            if (track.clips.at(c).id != clipId)
+                track.clips.removeAt(c);
+        }
+    }
+    const std::shared_ptr<const drift::Project> snapshot = still;
 
-    (void)QtConcurrent::run([this, snapshot, playheadUs, outPath]() {
+    (void)QtConcurrent::run([this, snapshot, playheadUs, outPath, clipId]() {
         FrameCompositor compositor;
         compositor.setProject(snapshot.get());
 
-        // Full canvas scale: this is the finished frame — every track, effect, transition and
-        // overlay — not a preview of one clip's source.
         const QImage frame = compositor.compositeAt(playheadUs);
         const bool ok = !frame.isNull() && frame.save(outPath, "PNG");
         const QString thumb =
@@ -22554,10 +22646,30 @@ void AppController::freezeFrameAtPlayhead()
 
         QMetaObject::invokeMethod(
             this,
-            [this, ok, outPath, thumb, size, playheadUs]() {
+            [this, ok, outPath, thumb, size, playheadUs, clipId]() {
+                constexpr drift::TimeUs kFreezeUs = 3 * drift::kUsPerSecond;
                 if (!ok) {
                     setLastMessage(tr("Couldn’t capture a still frame"),
                                    QStringLiteral("error"));
+                    return;
+                }
+
+                // Edits may have run while the frame was captured: find the clip again by id.
+                int trackIndex = -1;
+                int clipIndex = -1;
+                for (int t = 0; t < m_project.tracks().size() && trackIndex < 0; ++t) {
+                    const drift::Track &track = std::as_const(m_project).tracks().at(t);
+                    for (int c = 0; c < track.clips.size(); ++c) {
+                        if (track.clips.at(c).id == clipId) {
+                            trackIndex = t;
+                            clipIndex = c;
+                            break;
+                        }
+                    }
+                }
+                if (trackIndex < 0
+                    || !std::as_const(m_project).tracks().at(trackIndex).clips.at(clipIndex).containsTime(playheadUs)) {
+                    setLastMessage(tr("Couldn’t capture a still frame"), QStringLiteral("error"));
                     return;
                 }
 
@@ -22575,14 +22687,29 @@ void AppController::freezeFrameAtPlayhead()
                 asset.hasAudioKnown = true;
                 const QString assetId = m_assetLibrary->addGeneratedAsset(asset);
 
-                // Inserted at the top: track 0 composites in front, so a freeze frame on a freshly
-                // appended track would sit behind the video it was captured from and show nothing.
-                const int trackIndex = drift::ensureTrackForClipType(m_project, drift::ClipType::Image, true);
+                // Cut at the playhead (unless it sits on the clip's first frame), with the linked
+                // partners, as the Split tool does.
+                QSet<int> tracks{trackIndex};
+                {
+                    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+                    for (const drift::ClipRef &ref : drift::linkedPartners(m_project, clip))
+                        tracks.insert(ref.trackIndex);
+                    if (playheadUs > clip.timelineStart) {
+                        const drift::TimeUs offset = playheadUs - clip.timelineStart;
+                        drift::Clip tail;
+                        if (drift::splitClipAtOffset(clip, tail, offset)) {
+                            tail.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+                            const QString tailLinkId = drift::assignSplitLinkIds(clip, tail);
+                            const QString headId = clip.id;
+                            splitLinkedPartnerAt(m_project, clip, playheadUs, tailLinkId);
+                            m_project.tracks()[trackIndex].clips.insert(clipIndex + 1, tail);
+                            splitLinkedAdjustmentsAt(m_project, trackIndex, headId, tail.id, offset);
+                        }
+                    }
+                }
 
-                drift::Track &track = m_project.tracks()[trackIndex];
-                const drift::TimeUs start = drift::resolveClipStart(m_project, track, -1, playheadUs,
-                                                                    drift::kImageClipDurationUs, m_snapEnabled,
-                                                                    playheadUs);
+                // Everything from the cut on, on the clip's tracks, makes room for the still.
+                rippleTracksFrom(m_project, tracks, playheadUs, kFreezeUs, {});
 
                 drift::Clip freezeClip;
                 freezeClip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
@@ -22592,18 +22719,22 @@ void AppController::freezeFrameAtPlayhead()
                 freezeClip.path = outPath;
                 freezeClip.thumbnailPath = thumb;
                 freezeClip.filmstripPath = thumb;
-                freezeClip.timelineStart = start;
-                freezeClip.timelineDuration = drift::kImageClipDurationUs;
+                freezeClip.timelineStart = playheadUs;
+                freezeClip.timelineDuration = kFreezeUs;
                 freezeClip.srcIn = 0;
-                freezeClip.srcOut = drift::kImageClipDurationUs;
+                freezeClip.srcOut = kFreezeUs;
                 fitClipLayoutToCanvas(freezeClip, size.width(), size.height(), m_project.width(),
                                       m_project.height());
 
-                track.clips.append(freezeClip);
-                const int newClipIndex = track.clips.size() - 1;
+                drift::Track &track = m_project.tracks()[trackIndex];
+                int insertAt = 0;
+                while (insertAt < track.clips.size() && track.clips.at(insertAt).timelineStart < playheadUs)
+                    ++insertAt;
+                track.clips.insert(insertAt, freezeClip);
+
                 pushProjectEdit(before, tr("Freeze frame added"));
                 finishEdit(tr("Freeze frame added"));
-                selectClip(trackIndex, newClipIndex);
+                selectClip(trackIndex, insertAt);
             },
             Qt::QueuedConnection);
     });
