@@ -57,9 +57,20 @@ Leyenda: ✅ hecho en la rama · 🟡 empezado · ⬜ por hacer.
 - ⬜ `resources/retouch/skin-blemish.jpg` es copia de skin-smooth: rehacerla con la app (ver
   `resources/retouch/README.md`) con el efecto `face_blemish`.
 
-## 6. Voz con IA en el editor web (`flipstudio-app`)
-- ⬜ Kokoro-82M (Apache-2.0) en el navegador con transformers.js 4.3 + fonemas con espeak-ng WASM (GPL-3, compatible
-  con la AGPL del editor web); modelo q8 (~90 MB) en `/modelos/` del VPS como Whisper; voces `ef_dora`/`em_alex`.
+## 6. Voz con IA en el editor web (`flipstudio-app`) — ✅ DESPLEGADA (2026-10-18)
+- Pestaña **Voz** (`src/components/VoicePanel.tsx`): texto, idioma (español, inglés, portugués, francés, italiano),
+  voz, velocidad → «Crear voz» → WAV en Medios y en la línea de tiempo en el cursor.
+- `src/voice/worker.ts`: Kokoro-82M q8 (`StyleTextToSpeech2Model` de transformers.js 4.3, como kokoro-js) +
+  fonemas de **eSpeak NG de Echogarden** (`@echogarden/espeak-ng-emscripten` 0.3.5, GPL-3: la librería `phonemizer`
+  de kokoro-js solo trae inglés). `src/voice/kokoro.ts`: cortes por frase, fonemas (para idiomas que no son inglés,
+  el mapa E2M de misaki: tʃ→ʧ, eɪ→A…; **no** cambiar r→ɹ ni x→k), estilo por longitud y WAV.
+- Archivos en el VPS: `/var/www/flipstudio-models/modelos/kokoro-82m/` (config, tokenizer, `onnx/model_quantized.onnx`,
+  9 voces en `voices/`) y `/modelos/espeak-ng/espeak-ng.data` (24 MB). Copia local en `tienda\modelos-web`.
+- Comprobado: `scripts/voice-check.ts` en Node + Whisper small transcribe igual (es, en, pt); en Chrome local y en
+  **getflipstudio.com/editor** (3,5 s de voz en la línea de tiempo).
+- **Trampa:** esa build de eSpeak **ignora `locateFile`** para su `.data` y la pide junto al script (en el sitio,
+  una página HTML de 1,5 KB → fonemas vacíos → audio de 0,3 s). El worker redirige ese `fetch` a `/modelos/espeak-ng/`.
+- **Trampa:** un worker cuya carga falló a medias no vuelve a cargar: ante un error el panel lo descarta.
 
 ## Traducciones
 - ✅ Las 12 frases nuevas (cámara lenta suave) en es y los 11 idiomas completos; `lupdate` estable.
