@@ -42,6 +42,23 @@ PanelFrame {
     // state lives here rather than in the backend, so Main.qml dispatches them
     // alongside Escape, which exits the tool without clearing the selection.
 
+    // [top, height + gap] of every track's row, [] for one without a row: a dragged clip settles
+    // into these whole rows, as on CapCut (TimelineTrackItem::applyDrag).
+    function rowSpans() {
+        const spans = []
+        var cursor = 0
+        for (var i = 0; i < tracks.length; i++) {
+            if (!trackOccupiesARow(i)) {
+                spans.push([])
+                continue
+            }
+            const th = trackHeight(i)
+            spans.push([cursor, th + Theme.trackGap])
+            cursor += th + Theme.trackGap
+        }
+        return spans
+    }
+
     // Y offset of a track row within the track column (excludes ruler/bookmark).
     function trackOffsetY(index) {
         var cursor = 0
@@ -148,6 +165,7 @@ PanelFrame {
         touchMode: false
         multiSelectActive: root.multiSelectActive === true
         totalTracksHeight: root.totalTracksHeightCached
+        rowSpans: (root.tracks, root.totalTracksHeightCached, root.rowSpans())
         moveFollowActive: root.moveFollowActive
         moveLeaderTrack: root.moveLeaderTrack
         moveLeaderClip: root.moveLeaderClip

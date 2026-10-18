@@ -27,7 +27,8 @@ SKIP = {"face_swap", "behind_subject"}
 # The LUT cards' photos (AppController::lutThumbnail picks one per look): always written.
 LUT_PHOTOS = ["landscape.jpg", "sunset.jpg", "city-night.jpg", "portrait.jpg", "tulips.jpg", "vintage-car.jpg",
               "stag.jpg", "macaw.jpg", "cyclist.jpg", "mountains.jpg", "face-warp.jpg", "beauty.jpg", "aerial.jpg"]
-KEEP = {"builtin.effects.gaussian_blur", "stylize.blur", "kaleidoscope", "stylize.pixelate", "strobe_flash"}
+KEEP = {"builtin.effects.gaussian_blur", "stylize.blur", "kaleidoscope", "stylize.pixelate", "strobe_flash",
+        "scanline_glitch", "spin_blur", "stylize.bloom", "stylize.ripple", "zoom_pulse"}
 
 
 def square(path: Path) -> Image.Image:

@@ -33,8 +33,9 @@ Leyenda: ✅ hecho en la rama · 🟡 empezado · ⬜ por hacer.
   **`windows-thumb-tools`**: copiarlas dentro de un portable descomprimido (necesitan sus DLL).
 - ✅ LUTs: `AppController::lutThumbnail` elige una de 13 fotos por el nombre del LUT (`lutReferencePhoto`, FNV) y
   `lutReference(path)` da esa foto para el «antes» (Filtros y Ajustar › LUT).
-- ⬜ Correr `vary_thumbs.py` con el artefacto de la compilación, revisar hoja de contacto, luego
-  `py tools/effects/before_bases.py <fotos>` (actualiza `resources/effectbases`), commit y compilación final.
+- ✅ Corrido con el artefacto de la compilación 39170043199: 33 efectos, 23 plantillas de efectos y 39 transiciones
+  redibujadas y revisadas en hoja de contacto (Curvas se quedó con la suya: salía gris; Tormenta de flashes y Chasquido
+  pasaron a fotos oscuras). `before_bases.py`: 71 efectos con antes y después.
 
 ## 3. Antes y después en Efectos
 - ✅ `tools/effects/before_bases.py` escribe `resources/effectbases/<foto>.jpg` (256 px, recorte cuadrado como
@@ -71,6 +72,20 @@ Leyenda: ✅ hecho en la rama · 🟡 empezado · ⬜ por hacer.
 - **Trampa:** esa build de eSpeak **ignora `locateFile`** para su `.data` y la pide junto al script (en el sitio,
   una página HTML de 1,5 KB → fonemas vacíos → audio de 0,3 s). El worker redirige ese `fetch` a `/modelos/espeak-ng/`.
 - **Trampa:** un worker cuya carga falló a medias no vuelve a cargar: ante un error el panel lo descarta.
+
+## 7. Arrastre «tipo tetris» en la línea de tiempo (Jorge, 2026-10-18)
+- Pedido: al arrastrar un clip hacia adelante o atrás no debe subir ni bajar; solo cambia de pista cuando se lleva
+  claramente arriba o abajo, como en CapCut y Filmora.
+- ✅ `TimelineTrackItem::applyDrag`: el clip encaja en filas enteras (`TimelineViewState.rowSpans`, que arma
+  `TimelinePanel.rowSpans()`); cambia de fila solo cuando su centro entra en otra. Por encima de la primera o debajo
+  de la última sigue libre (pista nueva). Las capas de ajuste siguen libres (sus carriles van dentro de una fila).
+- ⬜ Probarlo en ventana.
+
+## 8. Arreglo: el contador no contaba en la vista previa ni al exportar
+- Encontrado al renderizar las plantillas: la 0.17 solo aplicaba el contador en `makeTextPainter(clip, …)`, pero la
+  vista previa y la exportación dibujan por `FrameCompositor::fillTextLayer`. ✅ Ahora lo aplica ahí (el texto que se
+  está editando queda como se escribió). Las 15 plantillas de contador hay que **volver a renderizarlas** con la
+  compilación que trae este arreglo.
 
 ## Traducciones
 - ✅ Las 12 frases nuevas (cámara lenta suave) en es y los 11 idiomas completos; `lupdate` estable.
