@@ -20,6 +20,7 @@
 #include "core/SrtIO.h"
 #include "core/SubtitleCue.h"
 #include "core/Transcript.h"
+#include "core/TextStyle.h"
 #include "core/commands/ProjectCommands.h"
 #include "core/LottieTextImport.h"
 #include "core/TextAnimationPreset.h"
@@ -50,6 +51,7 @@ class CoreTest : public QObject
 
 private slots:
     void timeConversion();
+    void counterTextCountsInTheTextsFormat();
     void sceneTemplateSuggestionsScoreCountAndShape();
     void sceneTemplateCutsSnapToBeats();
     void sceneTemplateTextFieldsAreGuessed();
@@ -204,6 +206,21 @@ private slots:
     void applyMulticamSwitchRejectsEdges();
     void sliceClipToTimelineRangeKeepsSourceInSync();
 };
+
+// The animated counter (0.17) counts the first number in the text from `from` to itself, in the
+// text's own format, and lands at 85 % of the clip.
+void CoreTest::counterTextCountsInTheTextsFormat()
+{
+    QCOMPARE(drift::counterTextAt(QStringLiteral("$1.000.000"), 0, 1.0), QStringLiteral("$1.000.000"));
+    QCOMPARE(drift::counterTextAt(QStringLiteral("$1.000.000"), 0, 0.0), QStringLiteral("$0"));
+    QCOMPARE(drift::counterTextAt(QStringLiteral("12,500 seguidores"), 0, 0.9), QStringLiteral("12,500 seguidores"));
+    QCOMPARE(drift::counterTextAt(QStringLiteral("Día 100"), 1, 0.0), QStringLiteral("Día 1"));
+    QCOMPARE(drift::counterTextAt(QStringLiteral("4,5 estrellas"), 0, 1.0), QStringLiteral("4,5 estrellas"));
+    QCOMPARE(drift::counterTextAt(QStringLiteral("Sin números"), 0, 0.5), QStringLiteral("Sin números"));
+    // Half way through the count it has passed half the number (ease out).
+    const QString mid = drift::counterTextAt(QStringLiteral("1000"), 0, 0.425);
+    QVERIFY(mid.toInt() > 500 && mid.toInt() < 1000);
+}
 
 void CoreTest::timeConversion()
 {

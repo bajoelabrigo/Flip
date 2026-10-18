@@ -156,6 +156,7 @@ private slots:
     void splitRightKeepsLinkedAudioInSync();
     void edgeTrimRipplesFollowers();
     void deleteRipplesFollowers();
+    void moveWithRippleClosesTheTrack();
     void snapRadiusFollowsZoom();
     void splitLeftRightKeepOuterFades();
     void audioTrackTakesTransitions();
@@ -11640,6 +11641,34 @@ void EditorStateTest::deleteRipplesFollowers()
     state.deleteSelectedClip();
     for (int t = 0; t < 2; ++t)
         QCOMPARE(state.project()->tracks().at(t).clips.at(0).timelineStart, drift::secondsToUs(4.0));
+}
+
+// CapCut's magnet: with "Close gaps" on, a clip dragged past the next one goes in after it and the
+// video track closes up; its linked audio follows (Jorge, 2026-10-18).
+void EditorStateTest::moveWithRippleClosesTheTrack()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    appendLinkedVideoAudioPair(*state.project());
+    appendFollowerPair(*state.project());
+    state.setRippleEnabled(true);
+
+    // Video 0-4 dragged to 3.5: its middle (5.5) passes the follower's (5), so the follower goes
+    // first at 0-2 and the video after it at 2-6.
+    state.moveClip(0, 0, 3.5);
+    const drift::Project &p = *state.project();
+    QCOMPARE(p.tracks().at(0).clips.at(1).timelineStart, 0);
+    QCOMPARE(p.tracks().at(0).clips.at(0).timelineStart, drift::secondsToUs(2.0));
+    for (const drift::Clip &clip : p.tracks().at(1).clips) {
+        if (clip.id == QStringLiteral("clip-audio"))
+            QCOMPARE(clip.timelineStart, drift::secondsToUs(2.0));
+        if (clip.id == QStringLiteral("follow-audio"))
+            QCOMPARE(clip.timelineStart, 0);
+    }
+
+    state.undo();
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).timelineStart, 0);
+    QCOMPARE(state.project()->tracks().at(0).clips.at(1).timelineStart, drift::secondsToUs(4.0));
 }
 
 // #249: a fixed 150 ms pull was under a pixel when zoomed out, so snapping looked switched off.

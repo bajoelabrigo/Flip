@@ -1638,6 +1638,12 @@ public:
     Q_INVOKABLE void clearWorkArea();
     Q_INVOKABLE void toggleLoopWorkArea();
     Q_INVOKABLE void freezeFrameAtPlayhead();
+    // AI transition (RIFE) from this clip into the one right after it; see AiTransition notes in the .cpp.
+    Q_INVOKABLE bool aiTransitionAvailable() const;
+    Q_INVOKABLE void addAiTransitionAfter(int trackIndex, int clipIndex);
+    // AI text: picks the closest text style to `idea` (TextEmbedder) and adds `text` with it.
+    Q_INVOKABLE bool aiTextAvailable() const;
+    Q_INVOKABLE void addAiText(const QString &text, const QString &idea);
     Q_INVOKABLE void copySelection();
     Q_INVOKABLE void cutSelection();
     Q_INVOKABLE void pasteAtPlayhead();

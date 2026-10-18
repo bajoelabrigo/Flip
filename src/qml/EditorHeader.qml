@@ -710,39 +710,22 @@ Rectangle {
                         onTriggered: Theme.setDarkMode(true)
                     }
 
-                    // The accent colour, in light and in dark.
+                    // The accent colour, in light and in dark. Built from Theme.colorThemes, so a
+                    // new theme (turquoise, 0.17) shows up without renumbering entries here.
                     ThemedContextMenu {
+                        id: colourMenu
                         title: qsTr("Colour")
 
-                        ThemedMenuItem {
-                            text: Theme.colorThemes[0].label
-                            icon.name: Theme.colorThemeDef.id === "amber" ? Theme.icons.check : ""
-                            onTriggered: Theme.setColorTheme("amber")
-                        }
-                        ThemedMenuItem {
-                            text: Theme.colorThemes[1].label
-                            icon.name: Theme.colorThemeDef.id === "midnight" ? Theme.icons.check : ""
-                            onTriggered: Theme.setColorTheme("midnight")
-                        }
-                        ThemedMenuItem {
-                            text: Theme.colorThemes[2].label
-                            icon.name: Theme.colorThemeDef.id === "graphite" ? Theme.icons.check : ""
-                            onTriggered: Theme.setColorTheme("graphite")
-                        }
-                        ThemedMenuItem {
-                            text: Theme.colorThemes[3].label
-                            icon.name: Theme.colorThemeDef.id === "violet" ? Theme.icons.check : ""
-                            onTriggered: Theme.setColorTheme("violet")
-                        }
-                        ThemedMenuItem {
-                            text: Theme.colorThemes[4].label
-                            icon.name: Theme.colorThemeDef.id === "rose" ? Theme.icons.check : ""
-                            onTriggered: Theme.setColorTheme("rose")
-                        }
-                        ThemedMenuItem {
-                            text: Theme.colorThemes[5].label
-                            icon.name: Theme.colorThemeDef.id === "forest" ? Theme.icons.check : ""
-                            onTriggered: Theme.setColorTheme("forest")
+                        Instantiator {
+                            model: Theme.colorThemes
+                            delegate: ThemedMenuItem {
+                                required property var modelData
+                                text: modelData.label
+                                icon.name: Theme.colorThemeDef.id === modelData.id ? Theme.icons.check : ""
+                                onTriggered: Theme.setColorTheme(modelData.id)
+                            }
+                            onObjectAdded: (index, object) => colourMenu.insertItem(index, object)
+                            onObjectRemoved: (index, object) => colourMenu.removeItem(object)
                         }
                     }
 

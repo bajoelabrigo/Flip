@@ -194,11 +194,11 @@ ThemedDialog {
                    || kind === "object-model" || kind === "vad-model"
                    || kind === "align-model" || kind === "diarize-model"
                    || kind === "depth-model" || kind === "restore-model"
-                   || kind === "tts-model") {
+                   || kind === "tts-model" || kind === "interp-model" || kind === "text-embed-model") {
             root.kindFilter = "whisper-model"
             root.kindFilterKinds = ["whisper-model", "denoise-model", "sam2-model", "face-model", "body-model",
                                     "object-model", "vad-model", "align-model", "diarize-model",
-                                    "depth-model", "restore-model", "tts-model"]
+                                    "depth-model", "restore-model", "tts-model", "interp-model", "text-embed-model"]
         } else if (kind === "effects" || kind === "effect-templates") {
             root.kindFilter = "effects"
             root.kindFilterKinds = ["effects"]
@@ -267,7 +267,7 @@ ThemedDialog {
                     { id: "whisper-model", label: qsTr("AI tools"),
                       kinds: ["whisper-model", "denoise-model", "sam2-model", "face-model", "body-model",
                               "object-model", "vad-model", "align-model", "diarize-model",
-                              "depth-model", "restore-model", "tts-model"] },
+                              "depth-model", "restore-model", "tts-model", "interp-model", "text-embed-model"] },
                     { id: "onnxruntime", label: qsTr("AI engine"),
                       kinds: ["onnxruntime", "onnxruntime-ep"] },
                     { id: "custom", label: qsTr("Custom"), kinds: [] }

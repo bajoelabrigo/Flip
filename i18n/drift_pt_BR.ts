@@ -249,7 +249,7 @@
     </message>
     <message>
         <source>Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tudo é grátis. Você pode continuar sem conta e editar normalmente; para exportar e usar o Stock, vamos pedir que você faça login.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -1098,6 +1098,17 @@
     <message>
         <source>Close</source>
         <translation>Fechar</translation>
+    </message>
+</context>
+<context>
+    <name>AiBadge</name>
+    <message>
+        <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
+        <translation>Funciona com IA no seu computador, sem internet: seu vídeo não sai do seu computador.</translation>
+    </message>
+    <message>
+        <source>AI</source>
+        <translation>IA</translation>
     </message>
 </context>
 <context>
@@ -4323,75 +4334,75 @@
     </message>
     <message>
         <source>Could not install “%1”: %2</source>
-        <translation type="unfinished">Não foi possível instalar “%1”: %2</translation>
+        <translation>Não foi possível instalar “%1”: %2</translation>
     </message>
     <message>
         <source>the file is missing</source>
-        <translation type="unfinished"></translation>
+        <translation>o arquivo está faltando</translation>
     </message>
     <message>
         <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT instalado: %1 (Ajustar › LUT)</translation>
     </message>
     <message>
         <source>In Adjust › LUT</source>
-        <translation type="unfinished"></translation>
+        <translation>Em Ajustar › LUT</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
-        <translation type="unfinished"></translation>
+        <translation>não é uma predefinição de efeitos</translation>
     </message>
     <message>
         <source>Look installed: %1 (My presets)</source>
-        <translation type="unfinished"></translation>
+        <translation>Look instalado: %1 (Meus efeitos)</translation>
     </message>
     <message>
         <source>In My presets</source>
-        <translation type="unfinished"></translation>
+        <translation>Em Meus efeitos</translation>
     </message>
     <message>
         <source>it is not a text style</source>
-        <translation type="unfinished"></translation>
+        <translation>não é um estilo de texto</translation>
     </message>
     <message>
         <source>Text style installed: %1 (Text › My styles)</source>
-        <translation type="unfinished"></translation>
+        <translation>Estilo de texto instalado: %1 (Texto › Meus estilos)</translation>
     </message>
     <message>
         <source>In Text › My styles</source>
-        <translation type="unfinished"></translation>
+        <translation>Em Texto › Meus estilos</translation>
     </message>
     <message>
         <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation type="unfinished"></translation>
+        <translation>Animação de texto instalada: %1 (Texto › Animação › Importados)</translation>
     </message>
     <message>
         <source>In Text › Animation</source>
-        <translation type="unfinished"></translation>
+        <translation>Em Texto › Animação</translation>
     </message>
     <message>
         <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation type="unfinished"></translation>
+        <translation>Forma instalada: %1 (Formas, e também em Máscaras)</translation>
     </message>
     <message>
         <source>In Shapes</source>
-        <translation type="unfinished"></translation>
+        <translation>Em Formas</translation>
     </message>
     <message>
         <source>packages cannot be installed here</source>
-        <translation type="unfinished"></translation>
+        <translation>não é possível instalar pacotes aqui</translation>
     </message>
     <message>
         <source>Transition installed: %1 (Transitions)</source>
-        <translation type="unfinished"></translation>
+        <translation>Transição instalada: %1 (Transições)</translation>
     </message>
     <message>
         <source>In Transitions</source>
-        <translation type="unfinished"></translation>
+        <translation>Em Transições</translation>
     </message>
     <message>
         <source>this kind of item needs a newer Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>este tipo de item precisa de uma versão mais recente do Flip Studio</translation>
     </message>
     <message>
         <source>Depth effects read one clip&apos;s depth, so they go on a clip, not on an adjustment layer.</source>
@@ -4922,6 +4933,62 @@
         <translation>Quadro congelado adicionado</translation>
     </message>
     <message>
+        <source>Select a video or photo clip with another one right after it</source>
+        <translation>Selecione um clipe de vídeo ou foto que tenha outro logo depois</translation>
+    </message>
+    <message>
+        <source>There is no clip right after this one to blend into</source>
+        <translation>Não há nenhum clipe logo depois deste para fazer a fusão</translation>
+    </message>
+    <message>
+        <source>AI transitions need their extra: install it from Extras › AI tools</source>
+        <translation>As transições com IA precisam do seu extra: instale-o em Extras › Ferramentas de IA</translation>
+    </message>
+    <message>
+        <source>AI transition</source>
+        <translation>Transição com IA</translation>
+    </message>
+    <message>
+        <source>Making the AI transition…</source>
+        <translation>Criando a transição com IA…</translation>
+    </message>
+    <message>
+        <source>Couldn’t read the frames at the cut</source>
+        <translation>Não foi possível ler os quadros do corte</translation>
+    </message>
+    <message>
+        <source>Couldn’t make the AI transition</source>
+        <translation>Não foi possível criar a transição com IA</translation>
+    </message>
+    <message>
+        <source>AI transition added</source>
+        <translation>Transição com IA adicionada</translation>
+    </message>
+    <message>
+        <source>Write the text or describe the style you want</source>
+        <translation>Escreva o texto ou descreva o estilo que você quer</translation>
+    </message>
+    <message>
+        <source>AI text needs its extra: install it from Extras › AI tools</source>
+        <translation>O texto com IA precisa do seu extra: instale-o em Extras › Ferramentas de IA</translation>
+    </message>
+    <message>
+        <source>There are no text styles to choose from</source>
+        <translation>Não há estilos de texto para escolher</translation>
+    </message>
+    <message>
+        <source>Choosing a style with AI…</source>
+        <translation>Escolhendo um estilo com IA…</translation>
+    </message>
+    <message>
+        <source>Couldn’t choose a style</source>
+        <translation>Não foi possível escolher um estilo</translation>
+    </message>
+    <message>
+        <source>AI text added</source>
+        <translation>Texto com IA adicionado</translation>
+    </message>
+    <message>
         <source>Paste</source>
         <translation>Colar</translation>
     </message>
@@ -5370,505 +5437,509 @@
     </message>
     <message>
         <source>Business name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome da empresa</translation>
     </message>
     <message>
         <source>Phone</source>
-        <translation type="unfinished"></translation>
+        <translation>Telefone</translation>
     </message>
     <message>
         <source>Price</source>
-        <translation type="unfinished"></translation>
+        <translation>Preço</translation>
     </message>
     <message>
         <source>Discount</source>
-        <translation type="unfinished"></translation>
+        <translation>Desconto</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Data</translation>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="unfinished"></translation>
+        <translation>Horário</translation>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished"></translation>
+        <translation>Site</translation>
     </message>
     <message>
         <source>Email</source>
-        <translation type="unfinished"></translation>
+        <translation>E-mail</translation>
     </message>
     <message>
         <source>Social media user</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuário nas redes sociais</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Endereço</translation>
     </message>
     <message>
         <source>Call to action</source>
-        <translation type="unfinished"></translation>
+        <translation>Chamada para ação</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished">Título</translation>
+        <translation>Título</translation>
     </message>
     <message>
         <source>Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>Subtítulo</translation>
     </message>
     <message numerus="yes">
         <source>Template added with %n of your photos. The rest did not fit: it has %1 slot(s).</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Modelo adicionado com %n das suas fotos. As demais não couberam: ele tem %1 espaço(s).</numerusform>
+            <numerusform>Modelo adicionado com %n das suas fotos. As demais não couberam: ele tem %1 espaço(s).</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s). Fill the other slots in the panel on the right.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Modelo adicionado com %n foto. Preencha os outros espaços no painel à direita.</numerusform>
+            <numerusform>Modelo adicionado com suas %n fotos. Preencha os outros espaços no painel à direita.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Modelo adicionado com %n foto</numerusform>
+            <numerusform>Modelo adicionado com suas %n fotos</numerusform>
         </translation>
     </message>
     <message>
         <source>Templates are changed on the main timeline: close the composition first</source>
-        <translation type="unfinished"></translation>
+        <translation>Os modelos são trocados na linha do tempo principal: feche a composição primeiro</translation>
     </message>
     <message>
         <source>Put the template on the timeline first</source>
-        <translation type="unfinished"></translation>
+        <translation>Coloque o modelo na linha do tempo primeiro</translation>
     </message>
     <message numerus="yes">
         <source>Template changed: %n photo(s) carried over</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Modelo trocado: %n foto mantida</numerusform>
+            <numerusform>Modelo trocado: %n fotos mantidas</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n texto</numerusform>
+            <numerusform>%n textos</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) did not fit in the new one</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n foto não coube no novo</numerusform>
+            <numerusform>%n fotos não couberam no novo</numerusform>
         </translation>
     </message>
     <message>
         <source>Template texts</source>
-        <translation type="unfinished"></translation>
+        <translation>Textos do modelo</translation>
     </message>
     <message numerus="yes">
         <source>%n text(s) changed</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n texto alterado</numerusform>
+            <numerusform>%n textos alterados</numerusform>
         </translation>
     </message>
     <message>
         <source>The template has no music: change its music first</source>
-        <translation type="unfinished"></translation>
+        <translation>O modelo não tem música: adicione uma primeiro</translation>
     </message>
     <message>
         <source>Listening to the music to find its beat…</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvindo a música para encontrar o ritmo…</translation>
     </message>
     <message>
         <source>The cuts already fall on the beat</source>
-        <translation type="unfinished"></translation>
+        <translation>Os cortes já caem no ritmo</translation>
     </message>
     <message>
         <source>Fit cuts to the beat</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustar os cortes ao ritmo</translation>
     </message>
     <message numerus="yes">
         <source>No beat found in the music: %n cut(s) now follow a steady 120 BPM beat</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Nenhuma batida encontrada na música: %n corte agora segue uma batida fixa de 120 BPM</numerusform>
+            <numerusform>Nenhuma batida encontrada na música: %n cortes agora seguem uma batida fixa de 120 BPM</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n cut(s) moved to the beat of the music</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n corte movido para a batida da música</numerusform>
+            <numerusform>%n cortes movidos para a batida da música</numerusform>
         </translation>
     </message>
     <message>
         <source>Choose a song or an audio file</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolha uma música ou um arquivo de áudio</translation>
     </message>
     <message>
         <source>That file has no sound to use as music</source>
-        <translation type="unfinished"></translation>
+        <translation>Esse arquivo não tem som para usar como música</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished">Música</translation>
+        <translation>Música</translation>
     </message>
     <message>
         <source>Template music</source>
-        <translation type="unfinished"></translation>
+        <translation>Música do modelo</translation>
     </message>
     <message>
         <source>New music: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Música nova: %1</translation>
     </message>
     <message>
         <source>The logo has to be a picture (PNG, JPG, WebP…)</source>
-        <translation type="unfinished"></translation>
+        <translation>O logo tem que ser uma imagem (PNG, JPG, WebP…)</translation>
     </message>
     <message>
         <source>Could not copy the logo</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível copiar o logo</translation>
     </message>
     <message>
         <source>My brand saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Minha marca salva</translation>
     </message>
     <message>
         <source>Set up My brand first (Templates › My brand)</source>
-        <translation type="unfinished"></translation>
+        <translation>Configure primeiro Minha marca (Modelos › Minha marca)</translation>
     </message>
     <message>
         <source>This template has no logo slot or brand texts to change</source>
-        <translation type="unfinished"></translation>
+        <translation>Este modelo não tem espaço para logo nem textos de marca para trocar</translation>
     </message>
     <message>
         <source>Apply my brand</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplicar minha marca</translation>
     </message>
     <message>
         <source>My brand applied</source>
-        <translation type="unfinished"></translation>
+        <translation>Minha marca aplicada</translation>
     </message>
     <message>
         <source>My logo</source>
-        <translation type="unfinished"></translation>
+        <translation>Meu logo</translation>
     </message>
 </context>
 <context>
     <name>AppMenuBar</name>
     <message>
         <source>File</source>
-        <translation type="unfinished">Arquivo</translation>
+        <translation>Arquivo</translation>
     </message>
     <message>
         <source>New Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Novo projeto</translation>
     </message>
     <message>
         <source>Open Project…</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir projeto…</translation>
     </message>
     <message>
         <source>Open Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir recentes</translation>
     </message>
     <message>
         <source>Import Media…</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar mídia…</translation>
     </message>
     <message>
         <source>Save Project</source>
-        <translation type="unfinished">Salvar projeto</translation>
+        <translation>Salvar projeto</translation>
     </message>
     <message>
         <source>Save Project As…</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvar projeto como…</translation>
     </message>
     <message>
         <source>Save Shareable Copy…</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvar cópia para compartilhar…</translation>
     </message>
     <message>
         <source>Export Video…</source>
-        <translation type="unfinished"></translation>
+        <translation>Exportar vídeo…</translation>
     </message>
     <message>
         <source>Video Size and Layout…</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamanho e formato do vídeo…</translation>
     </message>
     <message>
         <source>Project Properties…</source>
-        <translation type="unfinished"></translation>
+        <translation>Propriedades do projeto…</translation>
     </message>
     <message>
         <source>Preferences…</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferências…</translation>
     </message>
     <message>
         <source>Keyboard Shortcuts</source>
-        <translation type="unfinished">Atalhos de teclado</translation>
+        <translation>Atalhos de teclado</translation>
     </message>
     <message>
         <source>Back to Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Voltar para a tela inicial</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Sair</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">Editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished">Desfazer</translation>
+        <translation>Desfazer</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished">Refazer</translation>
+        <translation>Refazer</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished">Cortar</translation>
+        <translation>Cortar</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Copiar</translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished">Colar</translation>
+        <translation>Colar</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished">Duplicar</translation>
+        <translation>Duplicar</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Excluir</translation>
+        <translation>Excluir</translation>
     </message>
     <message>
         <source>Copy Effects</source>
-        <translation type="unfinished">Copiar efeitos</translation>
+        <translation>Copiar efeitos</translation>
     </message>
     <message>
         <source>Paste Effects</source>
-        <translation type="unfinished">Colar efeitos</translation>
+        <translation>Colar efeitos</translation>
     </message>
     <message>
         <source>Paste Attributes…</source>
-        <translation type="unfinished">Colar atributos…</translation>
+        <translation>Colar atributos…</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished">Selecionar tudo</translation>
+        <translation>Selecionar tudo</translation>
     </message>
     <message>
         <source>Deselect All</source>
-        <translation type="unfinished"></translation>
+        <translation>Desmarcar tudo</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>Ferramentas</translation>
     </message>
     <message>
         <source>Split</source>
-        <translation type="unfinished">Dividir</translation>
+        <translation>Dividir</translation>
     </message>
     <message>
         <source>Merge Clips</source>
-        <translation type="unfinished"></translation>
+        <translation>Unir clipes</translation>
     </message>
     <message>
         <source>Separate Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Separar áudio</translation>
     </message>
     <message>
         <source>Link Clips</source>
-        <translation type="unfinished"></translation>
+        <translation>Vincular clipes</translation>
     </message>
     <message>
         <source>Unlink Clips</source>
-        <translation type="unfinished"></translation>
+        <translation>Desvincular clipes</translation>
     </message>
     <message>
         <source>Group (Compound Clip)</source>
-        <translation type="unfinished"></translation>
+        <translation>Agrupar (clipe composto)</translation>
     </message>
     <message>
         <source>Ungroup</source>
-        <translation type="unfinished">Desagrupar</translation>
+        <translation>Desagrupar</translation>
     </message>
     <message>
         <source>Save as Template…</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvar como modelo…</translation>
+    </message>
+    <message>
+        <source>AI Transition to the Next Clip</source>
+        <translation>Transição com IA para o próximo clipe</translation>
     </message>
     <message>
         <source>Transform Together</source>
-        <translation type="unfinished"></translation>
+        <translation>Transformar juntos</translation>
     </message>
     <message>
         <source>Auto Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Legendas automáticas</translation>
     </message>
     <message>
         <source>Text to Speech</source>
-        <translation type="unfinished"></translation>
+        <translation>Texto para fala</translation>
     </message>
     <message>
         <source>Scene Detection</source>
-        <translation type="unfinished"></translation>
+        <translation>Detecção de cenas</translation>
     </message>
     <message>
         <source>Multicam</source>
-        <translation type="unfinished">Multicâmera</translation>
+        <translation>Multicâmera</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir</translation>
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished">Reproduzir / Pausar</translation>
+        <translation>Reproduzir / Pausar</translation>
     </message>
     <message>
         <source>Go to Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Ir para o início</translation>
     </message>
     <message>
         <source>Previous Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Quadro anterior</translation>
     </message>
     <message>
         <source>Next Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Próximo quadro</translation>
     </message>
     <message>
         <source>Loop Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>Reprodução em loop</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Marcadores</translation>
     </message>
     <message>
         <source>Add or Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar ou remover marcador</translation>
     </message>
     <message>
         <source>Next Bookmark</source>
-        <translation type="unfinished">Próximo marcador</translation>
+        <translation>Próximo marcador</translation>
     </message>
     <message>
         <source>Previous Bookmark</source>
-        <translation type="unfinished">Marcador anterior</translation>
+        <translation>Marcador anterior</translation>
     </message>
     <message>
         <source>Zoom In</source>
-        <translation type="unfinished">Aproximar</translation>
+        <translation>Aumentar zoom</translation>
     </message>
     <message>
         <source>Zoom Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Diminuir zoom</translation>
     </message>
     <message>
         <source>Fullscreen Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Visualização em tela cheia</translation>
     </message>
     <message>
         <source>Guides</source>
-        <translation type="unfinished">Guias</translation>
+        <translation>Guias</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished">Espaço de trabalho</translation>
+        <translation>Espaço de trabalho</translation>
     </message>
     <message>
         <source>Auto (follow canvas)</source>
-        <translation type="unfinished">Automático (segue a tela)</translation>
+        <translation>Automático (seguir a tela)</translation>
     </message>
     <message>
         <source>Landscape</source>
-        <translation type="unfinished">Paisagem</translation>
+        <translation>Horizontal</translation>
     </message>
     <message>
         <source>Portrait</source>
-        <translation type="unfinished">Retrato</translation>
+        <translation>Vertical</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished">Tema</translation>
+        <translation>Tema</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Claro</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">Escuro</translation>
+        <translation>Escuro</translation>
     </message>
     <message>
         <source>Language…</source>
-        <translation type="unfinished">Idioma…</translation>
+        <translation>Idioma…</translation>
     </message>
     <message>
         <source>Switch to Mobile Layout…</source>
-        <translation type="unfinished">Mudar para o layout de celular…</translation>
+        <translation>Mudar para o layout móvel…</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Avançado</translation>
+        <translation>Avançado</translation>
     </message>
     <message>
         <source>Extras…</source>
-        <translation type="unfinished">Extras…</translation>
+        <translation>Extras…</translation>
     </message>
     <message>
         <source>Agent Access…</source>
-        <translation type="unfinished"></translation>
+        <translation>Acesso de agente…</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished">Downloads</translation>
+        <translation>Downloads</translation>
     </message>
     <message>
         <source>Debug Info…</source>
-        <translation type="unfinished">Informações de depuração…</translation>
+        <translation>Informações de depuração…</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajuda</translation>
     </message>
     <message>
         <source>What&apos;s New</source>
-        <translation type="unfinished"></translation>
+        <translation>Novidades</translation>
     </message>
     <message>
         <source>Flip Studio Website</source>
-        <translation type="unfinished"></translation>
+        <translation>Site do Flip Studio</translation>
     </message>
     <message>
         <source>Check for Updates…</source>
-        <translation type="unfinished">Procurar atualizações…</translation>
+        <translation>Verificar atualizações…</translation>
     </message>
     <message>
         <source>My Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Minha conta</translation>
     </message>
     <message>
         <source>About Flip Studio</source>
-        <translation type="unfinished">Sobre o Flip Studio</translation>
+        <translation>Sobre o Flip Studio</translation>
     </message>
 </context>
 <context>
@@ -6075,6 +6146,18 @@
         <translation>Coletar mídia para pasta</translation>
     </message>
     <message>
+        <source>Writes the subtitles from what is said in the video, word by word.</source>
+        <translation>Escreve as legendas a partir do que é dito no vídeo, palavra por palavra.</translation>
+    </message>
+    <message>
+        <source>Turns your text into a natural-sounding voice.</source>
+        <translation>Transforma seu texto em uma voz natural.</translation>
+    </message>
+    <message>
+        <source>Finds where each shot starts and what is in it.</source>
+        <translation>Encontra onde cada tomada começa e o que há nela.</translation>
+    </message>
+    <message>
         <source>Text</source>
         <translation>Texto</translation>
     </message>
@@ -6108,16 +6191,16 @@
     </message>
     <message>
         <source>My templates</source>
-        <translation type="unfinished">Meus modelos</translation>
+        <translation>Meus modelos</translation>
     </message>
     <message>
         <source>Effect templates</source>
-        <translation type="unfinished">Modelos de efeito</translation>
+        <translation>Modelos de efeitos</translation>
     </message>
     <message>
         <source>Stickers</source>
         <comment>category row</comment>
-        <translation type="unfinished"></translation>
+        <translation>Stickers</translation>
     </message>
     <message>
         <source>Templates</source>
@@ -6137,11 +6220,11 @@
     </message>
     <message>
         <source>LUTs</source>
-        <translation type="unfinished"></translation>
+        <translation>LUTs</translation>
     </message>
     <message>
         <source>Color effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Efeitos de cor</translation>
     </message>
     <message>
         <source>Shortcuts</source>
@@ -6149,15 +6232,15 @@
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">Áudio</translation>
+        <translation>Áudio</translation>
     </message>
     <message>
         <source>Titles</source>
-        <translation type="unfinished"></translation>
+        <translation>Títulos</translation>
     </message>
     <message>
         <source>Filters</source>
-        <translation type="unfinished">Filtros</translation>
+        <translation>Filtros</translation>
     </message>
     <message>
         <source>Drop to import</source>
@@ -6916,75 +6999,75 @@
     <name>BrandKitDialog</name>
     <message>
         <source>Main colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor principal</translation>
     </message>
     <message>
         <source>Second colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor secundária</translation>
     </message>
     <message>
         <source>Accent</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor de destaque</translation>
     </message>
     <message>
         <source>Text colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor do texto</translation>
     </message>
     <message>
         <source>My brand</source>
-        <translation type="unfinished"></translation>
+        <translation>Minha marca</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Salvar</translation>
+        <translation>Salvar</translation>
     </message>
     <message>
         <source>Your logo, colours and font. Business templates use them when you add one; any other template takes them with “Apply my brand” in its Template panel.</source>
-        <translation type="unfinished"></translation>
+        <translation>Seu logo, suas cores e sua fonte. Os modelos de Negócios os usam quando você os adiciona; qualquer outro modelo os recebe com “Aplicar minha marca” no painel Modelo.</translation>
     </message>
     <message>
         <source>Logo</source>
-        <translation type="unfinished"></translation>
+        <translation>Logo</translation>
     </message>
     <message>
         <source>Change logo…</source>
-        <translation type="unfinished"></translation>
+        <translation>Trocar o logo…</translation>
     </message>
     <message>
         <source>Choose logo…</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolher o logo…</translation>
     </message>
     <message>
         <source>Choose your logo</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolha seu logo</translation>
     </message>
     <message>
         <source>Pictures (*.png *.jpg *.jpeg *.webp)</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagens (*.png *.jpg *.jpeg *.webp)</translation>
     </message>
     <message>
         <source>Remove logo</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover o logo</translation>
     </message>
     <message>
         <source>Colours (2 to 4)</source>
-        <translation type="unfinished"></translation>
+        <translation>Cores (de 2 a 4)</translation>
     </message>
     <message>
         <source>Remove colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover a cor</translation>
     </message>
     <message>
         <source>Add colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar uma cor</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished">Fonte</translation>
+        <translation>Fonte</translation>
     </message>
     <message>
         <source>Use it in Business templates when I add them</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar nos modelos de Negócios quando eu os adicionar</translation>
     </message>
 </context>
 <context>
@@ -8047,6 +8130,18 @@
     <message>
         <source>Head size</source>
         <translation>Tamanho da cabeça</translation>
+    </message>
+    <message>
+        <source>Blemish Removal</source>
+        <translation>Remover imperfeições</translation>
+    </message>
+    <message>
+        <source>Spots</source>
+        <translation>Manchas</translation>
+    </message>
+    <message>
+        <source>Wrinkles</source>
+        <translation>Rugas</translation>
     </message>
     <message>
         <source>Blur Amount</source>
@@ -10359,7 +10454,7 @@
     </message>
     <message>
         <source>Free templates, music, stickers, photos and videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Modelos, músicas, stickers, fotos e vídeos grátis</translation>
     </message>
     <message numerus="yes">
         <source>Downloads — %n running</source>
@@ -11427,6 +11522,17 @@
     </message>
 </context>
 <context>
+    <name>Exporter</name>
+    <message>
+        <source>Same as project · %1×%2</source>
+        <translation>Igual ao projeto · %1×%2</translation>
+    </message>
+    <message>
+        <source>Same as project (%1 fps)</source>
+        <translation>Igual ao projeto (%1 fps)</translation>
+    </message>
+</context>
+<context>
     <name>FacePropImport</name>
     <message>
         <source>%1 is not a binary glTF model</source>
@@ -11757,63 +11863,63 @@
     <name>FiltersTab</name>
     <message>
         <source>Looks</source>
-        <translation type="unfinished">Visuais</translation>
+        <translation>Looks</translation>
     </message>
     <message>
         <source>Imported</source>
-        <translation type="unfinished"></translation>
+        <translation>Importados</translation>
     </message>
     <message>
         <source>Select a video or photo clip first.</source>
-        <translation type="unfinished"></translation>
+        <translation>Primeiro selecione um clipe de vídeo ou uma foto.</translation>
     </message>
     <message>
         <source>Import LUT</source>
-        <translation type="unfinished">Importar LUT</translation>
+        <translation>Importar LUT</translation>
     </message>
     <message>
         <source>LUT (*.cube)</source>
-        <translation type="unfinished">LUT (*.cube)</translation>
+        <translation>LUT (*.cube)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished">Todos os arquivos (*)</translation>
+        <translation>Todos os arquivos (*)</translation>
     </message>
     <message>
         <source>This file is not a LUT that can be used.</source>
-        <translation type="unfinished">Este arquivo não é uma LUT utilizável.</translation>
+        <translation>Este arquivo não é um LUT que possa ser usado.</translation>
     </message>
     <message>
         <source>Search filters</source>
-        <translation type="unfinished"></translation>
+        <translation>Pesquisar filtros</translation>
     </message>
     <message>
         <source>Click a filter to put it on the selected clip. Its strength is in Adjust › LUT.</source>
-        <translation type="unfinished"></translation>
+        <translation>Clique em um filtro para aplicá-lo ao clipe selecionado. A intensidade fica em Ajustar › LUT.</translation>
     </message>
     <message>
         <source>Select a video or photo clip, then click a filter.</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecione um clipe de vídeo ou uma foto e clique em um filtro.</translation>
     </message>
     <message>
         <source>Import LUT…</source>
-        <translation type="unfinished">Importar LUT…</translation>
+        <translation>Importar LUT…</translation>
     </message>
     <message>
         <source>No filters match “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nenhum filtro corresponde a “%1”.</translation>
     </message>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
-        <translation type="unfinished"></translation>
+        <translation>Você ainda não tem LUTs importados. Importe um arquivo .cube ou obtenha LUTs no Stock.</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
-        <translation type="unfinished">Nada nesta categoria.</translation>
+        <translation>Não há nada nesta categoria.</translation>
     </message>
     <message>
         <source>Delete from my LUTs</source>
-        <translation type="unfinished">Excluir das minhas LUTs</translation>
+        <translation>Excluir dos meus LUTs</translation>
     </message>
 </context>
 <context>
@@ -13108,19 +13214,19 @@
     </message>
     <message>
         <source>%1 new: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Novidades em %1: %2</translation>
     </message>
     <message>
         <source>Sign in to ask for a template.</source>
-        <translation type="unfinished"></translation>
+        <translation>Faça login para pedir um modelo.</translation>
     </message>
     <message>
         <source>Tell us a little more about what you need.</source>
-        <translation type="unfinished"></translation>
+        <translation>Conte um pouco mais sobre o que você precisa.</translation>
     </message>
     <message>
         <source>Thanks! Others can vote for your idea now.</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrigado! Agora os outros podem votar na sua ideia.</translation>
     </message>
     <message>
         <source>Could not connect the marketplace account.</source>
@@ -13148,7 +13254,7 @@
     </message>
     <message>
         <source>This kind of item cannot be installed here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Este tipo de item não pode ser instalado aqui.</translation>
     </message>
     <message>
         <source>Could not install that template.</source>
@@ -13168,15 +13274,15 @@
     </message>
     <message>
         <source>Could not install that item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível instalar esse item.</translation>
     </message>
     <message>
         <source>Could not install that item: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível instalar esse item: %1</translation>
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished"></translation>
+        <translation>Instalado</translation>
     </message>
     <message>
         <source>Marketplace account connected.</source>
@@ -13293,7 +13399,7 @@
     </message>
     <message>
         <source>Search all of Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>Pesquisar em todo o Stock</translation>
     </message>
     <message>
         <source>Search, or paste a link</source>
@@ -13309,11 +13415,11 @@
     </message>
     <message>
         <source>Everything in Stock is free</source>
-        <translation type="unfinished"></translation>
+        <translation>Tudo no Stock é grátis</translation>
     </message>
     <message>
         <source>Templates, music, stickers, photos and videos at no cost. You only need to sign in with your Google account to see them and download them into your project.</source>
-        <translation type="unfinished"></translation>
+        <translation>Modelos, músicas, stickers, fotos e vídeos sem custo. Você só precisa fazer login com sua conta do Google para vê-los e baixá-los para o seu projeto.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -13462,7 +13568,7 @@
     </message>
     <message>
         <source>Library shape</source>
-        <translation type="unfinished"></translation>
+        <translation>Forma da biblioteca</translation>
     </message>
     <message>
         <source>TEXT</source>
@@ -16739,23 +16845,23 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message>
         <source>Use with my photos…</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar com minhas fotos…</translation>
     </message>
     <message>
         <source>Choose your photos and videos first: Flip suggests the templates that fit them and fills them in</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolha primeiro suas fotos e vídeos: o Flip sugere os modelos que combinam com eles e os preenche</translation>
     </message>
     <message>
         <source>Choose photos and videos</source>
-        <translation type="unfinished">Escolher fotos e vídeos</translation>
+        <translation>Escolher fotos e vídeos</translation>
     </message>
     <message>
         <source>My brand</source>
-        <translation type="unfinished"></translation>
+        <translation>Minha marca</translation>
     </message>
     <message>
         <source>Your logo, colours and font for Business templates</source>
-        <translation type="unfinished"></translation>
+        <translation>Seu logo, suas cores e sua fonte para os modelos de Negócios</translation>
     </message>
     <message>
         <source>No scene templates yet</source>
@@ -16866,35 +16972,35 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message>
         <source>Photo slideshows</source>
-        <translation type="unfinished"></translation>
+        <translation>Apresentações de fotos</translation>
     </message>
     <message>
         <source>Lower thirds</source>
-        <translation type="unfinished"></translation>
+        <translation>Terços inferiores</translation>
     </message>
     <message>
         <source>Transitions and separators</source>
-        <translation type="unfinished"></translation>
+        <translation>Transições e separadores</translation>
     </message>
     <message>
         <source>15-second stories</source>
-        <translation type="unfinished"></translation>
+        <translation>Stories de 15 s</translation>
     </message>
     <message>
         <source>6-second ads</source>
-        <translation type="unfinished"></translation>
+        <translation>Anúncios de 6 s</translation>
     </message>
     <message>
         <source>Video thumbnails</source>
-        <translation type="unfinished"></translation>
+        <translation>Miniaturas do YouTube</translation>
     </message>
     <message>
         <source>Counters</source>
-        <translation type="unfinished"></translation>
+        <translation>Contadores</translation>
     </message>
     <message>
         <source>YouTuber style</source>
-        <translation type="unfinished"></translation>
+        <translation>Estilo youtuber</translation>
     </message>
     <message>
         <source>Other</source>
@@ -16905,83 +17011,83 @@ Se a reprodução travar, tente outra opção.</translation>
     <name>SceneTemplatePickerDialog</name>
     <message>
         <source>Change template</source>
-        <translation type="unfinished">Mudar modelo</translation>
+        <translation>Trocar de modelo</translation>
     </message>
     <message>
         <source>Use with my photos</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar com minhas fotos</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Fechar</translation>
+        <translation>Fechar</translation>
     </message>
     <message>
         <source>vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>verticais</translation>
     </message>
     <message>
         <source>horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>horizontais</translation>
     </message>
     <message>
         <source>square</source>
-        <translation type="unfinished"></translation>
+        <translation>quadrados</translation>
     </message>
     <message>
         <source>%1 — from Stock: it downloads and goes in with your photos</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 — do Stock: é baixado e entra com suas fotos</translation>
     </message>
     <message numerus="yes">
         <source>%1 — %n slot(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%1 — %n espaço</numerusform>
+            <numerusform>%1 — %n espaços</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Templates for your %n photo(s). Your photos and the texts you changed go into the one you choose, in order; one undo puts the old one back.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Modelos para %n foto. Sua foto e os textos que você alterou vão para o que você escolher; desfazer uma vez traz o anterior de volta.</numerusform>
+            <numerusform>Modelos para suas %n fotos. Suas fotos e os textos que você alterou vão, em ordem, para o que você escolher; desfazer uma vez traz o anterior de volta.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s), most of them %1. These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n foto ou vídeo, %1. Estes modelos são os que melhor combinam; o número destacado indica que cabe inteiro.</numerusform>
+            <numerusform>%n fotos ou vídeos, a maioria %1. Estes modelos são os que melhor combinam; o número destacado indica que cabem todos.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s). These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n foto ou vídeo. Estes modelos são os que melhor combinam; o número destacado indica que cabe inteiro.</numerusform>
+            <numerusform>%n fotos ou vídeos. Estes modelos são os que melhor combinam; o número destacado indica que cabem todos.</numerusform>
         </translation>
     </message>
     <message>
         <source>In Templates</source>
-        <translation type="unfinished">Em Modelos</translation>
+        <translation>Em Modelos</translation>
     </message>
     <message>
         <source>No installed template takes photos yet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Você ainda não tem modelos instalados que usem fotos.</translation>
     </message>
     <message>
         <source>From Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>Do Stock</translation>
     </message>
     <message>
         <source>Sign in (My account) to see the Stock templates that fit too.</source>
-        <translation type="unfinished"></translation>
+        <translation>Faça login (Minha conta) para ver também os modelos do Stock que combinam.</translation>
     </message>
     <message>
         <source>Looking in Stock…</source>
-        <translation type="unfinished"></translation>
+        <translation>Procurando no Stock…</translation>
     </message>
     <message>
         <source>Nothing else in Stock for this many photos.</source>
-        <translation type="unfinished"></translation>
+        <translation>Não há mais nada no Stock para esta quantidade de fotos.</translation>
     </message>
 </context>
 <context>
@@ -17612,7 +17718,7 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message>
         <source>Everything is free. Sign in with Google to export your videos and to use Stock: templates, music, photos and videos.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tudo é grátis. Faça login com o Google para exportar seus vídeos e usar o Stock: modelos, músicas, fotos e vídeos.</translation>
     </message>
     <message>
         <source>Flip Studio %1</source>
@@ -17952,7 +18058,7 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message>
         <source>Library shape</source>
-        <translation type="unfinished"></translation>
+        <translation>Forma da biblioteca</translation>
     </message>
     <message>
         <source>Layers</source>
@@ -18214,7 +18320,7 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message>
         <source>Remove from my shapes</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover das minhas formas</translation>
     </message>
 </context>
 <context>
@@ -18318,35 +18424,35 @@ Se a reprodução travar, tente outra opção.</translation>
     <name>SignInRequiredDialog</name>
     <message>
         <source>Sign in to export</source>
-        <translation type="unfinished"></translation>
+        <translation>Faça login para exportar</translation>
     </message>
     <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
-        <translation type="unfinished"></translation>
+        <translation>O Flip Studio é grátis: exportar, o Stock e todos os modelos não custam nada.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
-        <translation type="unfinished"></translation>
+        <translation>Para exportar seu vídeo, você só precisa fazer login com sua conta do Google. Leva um momento, é feito uma única vez e seu projeto fica exatamente como está.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished">Aguardando o navegador…</translation>
+        <translation>Aguardando o navegador…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
-        <translation type="unfinished">Entrar com o Google</translation>
+        <translation>Fazer login com o Google</translation>
     </message>
     <message>
         <source>Choose your account in the browser window that opened, then come back here.</source>
-        <translation type="unfinished">Escolha sua conta na janela do navegador que abriu e depois volte aqui.</translation>
+        <translation>Escolha sua conta na janela do navegador que foi aberta e depois volte aqui.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Not now</source>
-        <translation type="unfinished">Agora não</translation>
+        <translation>Agora não</translation>
     </message>
 </context>
 <context>
@@ -18974,32 +19080,72 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Legendas automáticas</translation>
     </message>
     <message>
-        <source>Subtitles from the voice, offline</source>
-        <translation>Legendas a partir da voz, sem internet</translation>
+        <source>Text to speech</source>
+        <translation>Texto para fala</translation>
     </message>
     <message>
-        <source>Text templates</source>
-        <translation>Modelos de texto</translation>
+        <source>Templates</source>
+        <translation>Modelos</translation>
     </message>
     <message>
-        <source>Titles, verses, lower thirds</source>
-        <translation>Títulos, versículos, terços inferiores</translation>
+        <source>Filters</source>
+        <translation>Filtros</translation>
+    </message>
+    <message>
+        <source>Stock</source>
+        <translation>Stock</translation>
+    </message>
+    <message>
+        <source>New in Stock</source>
+        <translation>Novo no Stock</translation>
+    </message>
+    <message>
+        <source>300 YouTuber-style templates</source>
+        <translation>300 modelos no estilo youtuber</translation>
+    </message>
+    <message>
+        <source>Challenges, top 10s, podcasts, intros and end screens, free in Stock</source>
+        <translation>Desafios, top 10, podcasts, intros e telas finais, grátis no Stock</translation>
+    </message>
+    <message>
+        <source>LUTs and colour effects, one click on the clip</source>
+        <translation>LUTs e efeitos de cor, com um clique no clipe</translation>
+    </message>
+    <message>
+        <source>Subtitles from the voice, on your computer, without internet</source>
+        <translation>Legendas a partir da voz, no seu computador, sem internet</translation>
+    </message>
+    <message>
+        <source>Click to sign in</source>
+        <translation>Clique para fazer login</translation>
+    </message>
+    <message>
+        <source>Everything is free</source>
+        <translation>Tudo é grátis</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Abrir projeto</translation>
+    </message>
+    <message>
+        <source>Local projects</source>
+        <translation>Projetos locais</translation>
+    </message>
+    <message>
+        <source>Show as a grid</source>
+        <translation>Ver como grade</translation>
+    </message>
+    <message>
+        <source>Show as a list</source>
+        <translation>Ver como lista</translation>
     </message>
     <message>
         <source>Stickers</source>
         <translation>Figurinhas</translation>
     </message>
     <message>
-        <source>3D and animated emojis</source>
-        <translation>Emojis 3D e animados</translation>
-    </message>
-    <message>
         <source>Vertical video</source>
         <translation>Vídeo vertical</translation>
-    </message>
-    <message>
-        <source>For TikTok, Reels and Shorts</source>
-        <translation>Para TikTok, Reels e Shorts</translation>
     </message>
     <message>
         <source>Today, %1</source>
@@ -19014,18 +19160,6 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Minha conta</translation>
     </message>
     <message>
-        <source>Sign in</source>
-        <translation>Entrar</translation>
-    </message>
-    <message>
-        <source>With Google, optional</source>
-        <translation>Com o Google, opcional</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>Início</translation>
-    </message>
-    <message>
         <source>Extras</source>
         <translation>Extras</translation>
     </message>
@@ -19038,24 +19172,12 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Editar on-line</translation>
     </message>
     <message>
-        <source>Flip Studio in your browser, at getflipstudio.com/editor</source>
-        <translation>Flip Studio no seu navegador, em getflipstudio.com/editor</translation>
-    </message>
-    <message>
         <source>Create project</source>
         <translation>Criar projeto</translation>
     </message>
     <message>
-        <source>Projects</source>
-        <translation>Projetos</translation>
-    </message>
-    <message>
         <source>Search projects</source>
         <translation>Buscar projetos</translation>
-    </message>
-    <message>
-        <source>Open project…</source>
-        <translation>Abrir projeto…</translation>
     </message>
     <message>
         <source>Your projects will show up here once you save them.</source>
@@ -19133,11 +19255,11 @@ Se a reprodução travar, tente outra opção.</translation>
     <name>StockBrowser</name>
     <message>
         <source>Used once</source>
-        <translation type="unfinished"></translation>
+        <translation>Usado uma vez</translation>
     </message>
     <message>
         <source>Used %1 times</source>
-        <translation type="unfinished"></translation>
+        <translation>Usado %1 vezes</translation>
     </message>
     <message>
         <source>Save downloads to</source>
@@ -19172,11 +19294,11 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message>
         <source>Missing a template? Ask for it, or vote for other people’s ideas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Falta um modelo? Peça ou vote nas ideias dos outros.</translation>
     </message>
     <message>
         <source>Ask for a template</source>
-        <translation type="unfinished"></translation>
+        <translation>Pedir um modelo</translation>
     </message>
     <message>
         <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
@@ -19192,15 +19314,15 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message>
         <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Já tem suas fotos? Escolha-as e o Flip sugere os modelos que combinam.</translation>
     </message>
     <message>
         <source>Use with my photos…</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar com minhas fotos…</translation>
     </message>
     <message>
         <source>Choose photos and videos</source>
-        <translation type="unfinished">Escolher fotos e vídeos</translation>
+        <translation>Escolher fotos e vídeos</translation>
     </message>
     <message>
         <source>Looking up that link…</source>
@@ -19255,31 +19377,31 @@ Se a reprodução travar, tente outra opção.</translation>
     <name>StockHome</name>
     <message>
         <source>Search all of Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>Pesquisar em todo o Stock</translation>
     </message>
     <message>
         <source>Templates, music, sounds, stickers, LUTs, text styles, shapes and more. Type above and press Enter.</source>
-        <translation type="unfinished"></translation>
+        <translation>Modelos, músicas, sons, stickers, LUTs, estilos de texto, formas e muito mais. Digite acima e pressione Enter.</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Atualizar</translation>
+        <translation>Atualizar</translation>
     </message>
     <message>
         <source>Can’t find it? Ask for it and vote for other people’s ideas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Não encontrou? Peça e vote nas ideias dos outros.</translation>
     </message>
     <message>
         <source>Ask for a template</source>
-        <translation type="unfinished"></translation>
+        <translation>Pedir um modelo</translation>
     </message>
     <message>
         <source>Used once</source>
-        <translation type="unfinished"></translation>
+        <translation>Usado uma vez</translation>
     </message>
     <message>
         <source>Used %1 times</source>
-        <translation type="unfinished"></translation>
+        <translation>Usado %1 vezes</translation>
     </message>
 </context>
 <context>
@@ -19294,11 +19416,11 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message>
         <source>Used once</source>
-        <translation type="unfinished"></translation>
+        <translation>Usado uma vez</translation>
     </message>
     <message>
         <source>Used %1 times</source>
-        <translation type="unfinished"></translation>
+        <translation>Usado %1 vezes</translation>
     </message>
     <message numerus="yes">
         <source>%n coin(s)</source>
@@ -19317,11 +19439,11 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message>
         <source>Install again</source>
-        <translation type="unfinished"></translation>
+        <translation>Instalar novamente</translation>
     </message>
     <message>
         <source>Install</source>
-        <translation type="unfinished">Instalar</translation>
+        <translation>Instalar</translation>
     </message>
     <message>
         <source>Download again</source>
@@ -19352,67 +19474,67 @@ Se a reprodução travar, tente outra opção.</translation>
     <name>StockRequestsDialog</name>
     <message>
         <source>Ask for a template</source>
-        <translation type="unfinished"></translation>
+        <translation>Pedir um modelo</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Fechar</translation>
+        <translation>Fechar</translation>
     </message>
     <message>
         <source>Template</source>
-        <translation type="unfinished">Modelo</translation>
+        <translation>Modelo</translation>
     </message>
     <message>
         <source>Something else</source>
-        <translation type="unfinished"></translation>
+        <translation>Outra coisa</translation>
     </message>
     <message>
         <source>Tell us what you would like to find in Stock. The most voted ideas are made first.</source>
-        <translation type="unfinished"></translation>
+        <translation>Conte para nós o que você gostaria de encontrar no Stock. As ideias mais votadas são feitas primeiro.</translation>
     </message>
     <message>
         <source>For example: a birthday template for my mom with 5 photos</source>
-        <translation type="unfinished"></translation>
+        <translation>Por exemplo: um modelo de aniversário para minha mãe com 5 fotos</translation>
     </message>
     <message>
         <source>Sending…</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviando…</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviar</translation>
     </message>
     <message>
         <source>Most voted</source>
-        <translation type="unfinished"></translation>
+        <translation>Mais votadas</translation>
     </message>
     <message>
         <source>Newest</source>
-        <translation type="unfinished"></translation>
+        <translation>Mais recentes</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation type="unfinished"></translation>
+        <translation>Carregando…</translation>
     </message>
     <message>
         <source>No ideas yet. Be the first!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ainda não há ideias. Seja o primeiro!</translation>
     </message>
     <message>
         <source>Remove your vote</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover seu voto</translation>
     </message>
     <message>
         <source>Vote for this idea</source>
-        <translation type="unfinished"></translation>
+        <translation>Votar nesta ideia</translation>
     </message>
     <message>
         <source>Done — it’s in Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>Feito: já está no Stock</translation>
     </message>
     <message>
         <source>Your idea</source>
-        <translation type="unfinished"></translation>
+        <translation>Sua ideia</translation>
     </message>
 </context>
 <context>
@@ -19847,78 +19969,78 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message numerus="yes">
         <source>Apply %n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Aplicar %n texto</numerusform>
+            <numerusform>Aplicar %n textos</numerusform>
         </translation>
     </message>
     <message>
         <source>Apply texts</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplicar os textos</translation>
     </message>
     <message>
         <source>Changes every text you edited at once (one undo step)</source>
-        <translation type="unfinished"></translation>
+        <translation>Muda de uma vez todos os textos que você editou (um único desfazer)</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished">Música</translation>
+        <translation>Música</translation>
     </message>
     <message>
         <source>The template&apos;s music</source>
-        <translation type="unfinished"></translation>
+        <translation>A música do modelo</translation>
     </message>
     <message>
         <source>No music in this template</source>
-        <translation type="unfinished"></translation>
+        <translation>Este modelo não tem música</translation>
     </message>
     <message>
         <source>Fit the cuts to the beat of the new song</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustar os cortes ao ritmo da música nova</translation>
     </message>
     <message>
         <source>Change the music…</source>
-        <translation type="unfinished"></translation>
+        <translation>Trocar a música…</translation>
     </message>
     <message>
         <source>Add music…</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar música…</translation>
     </message>
     <message>
         <source>A song from your computer, cut to the template&apos;s length</source>
-        <translation type="unfinished"></translation>
+        <translation>Uma música do seu computador, cortada na duração do modelo</translation>
     </message>
     <message>
         <source>Choose a song</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolha uma música</translation>
     </message>
     <message>
         <source>Listening to the music…</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvindo a música…</translation>
     </message>
     <message>
         <source>Fit the cuts to the beat</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustar os cortes ao ritmo</translation>
     </message>
     <message>
         <source>Moves the change from one photo to the next onto the nearest beat, keeping their order (one undo step). Without a beat, a steady 120 BPM.</source>
-        <translation type="unfinished"></translation>
+        <translation>Leva a troca de uma foto para a seguinte até a batida mais próxima, sem mudar a ordem (um único desfazer). Sem ritmo, usa um fixo de 120 BPM.</translation>
     </message>
     <message>
         <source>Change template…</source>
-        <translation type="unfinished"></translation>
+        <translation>Trocar de modelo…</translation>
     </message>
     <message>
         <source>Another template with the same photos and texts</source>
-        <translation type="unfinished"></translation>
+        <translation>Outro modelo com as mesmas fotos e textos</translation>
     </message>
     <message>
         <source>Apply my brand</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplicar minha marca</translation>
     </message>
     <message>
         <source>Your logo, colours and font (Templates › My brand)</source>
-        <translation type="unfinished"></translation>
+        <translation>Seu logo, suas cores e sua fonte (Modelos › Minha marca)</translation>
     </message>
     <message>
         <source>Open the composition</source>
@@ -20008,6 +20130,26 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Favorites</source>
         <translation>Favoritos</translation>
+    </message>
+    <message>
+        <source>AI text</source>
+        <translation>Texto com IA</translation>
+    </message>
+    <message>
+        <source>Describe the style in your own words (horror title, neon sale, wedding…) and the AI picks the closest of your text styles.</source>
+        <translation>Descreva o estilo com suas palavras (título de terror, promoção em neon, casamento…) e a IA escolhe o estilo de texto mais parecido.</translation>
+    </message>
+    <message>
+        <source>Your text (optional)</source>
+        <translation>Seu texto (opcional)</translation>
+    </message>
+    <message>
+        <source>The style, in your words: horror title, neon sale…</source>
+        <translation>O estilo, com suas palavras: título de terror, promoção em neon…</translation>
+    </message>
+    <message>
+        <source>Create with AI</source>
+        <translation>Criar com IA</translation>
     </message>
     <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
@@ -20478,6 +20620,18 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Title Case</source>
         <translation>Primeira Letra Maiúscula</translation>
+    </message>
+    <message>
+        <source>Counter</source>
+        <translation>Contador</translation>
+    </message>
+    <message>
+        <source>The number in the text counts up over the clip, as in a counter: $1.000.000, 10K, day 100…</source>
+        <translation>O número do texto vai contando ao longo do clipe, como um contador: $1.000.000, 10K, dia 100…</translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation>de</translation>
     </message>
     <message>
         <source>Edit in Advanced</source>
@@ -21641,6 +21795,10 @@ Se a reprodução travar, tente outra opção.</translation>
 <context>
     <name>Theme</name>
     <message>
+        <source>Turquoise</source>
+        <translation>Turquesa</translation>
+    </message>
+    <message>
         <source>Amber</source>
         <translation>Âmbar</translation>
     </message>
@@ -21719,6 +21877,10 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Group</source>
         <translation>Agrupar</translation>
+    </message>
+    <message>
+        <source>AI transition to the next clip</source>
+        <translation>Transição com IA para o próximo clipe</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -22165,6 +22327,10 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Select to the right</source>
         <translation>Selecionar para a direita</translation>
+    </message>
+    <message>
+        <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
+        <translation>Funciona com IA no seu computador, sem internet: seu vídeo não sai do seu computador.</translation>
     </message>
     <message>
         <source>Pointer tools</source>
@@ -23246,6 +23412,18 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Instale uma transição ou efeito personalizados a partir de um arquivo .driftfx criado no Drift Forge</translation>
     </message>
     <message>
+        <source>AI transition</source>
+        <translation>Transição com IA</translation>
+    </message>
+    <message>
+        <source>Select a clip: the AI draws the pictures between its last frame and the first frame of the next clip, and puts them in between.</source>
+        <translation>Selecione um clipe: a IA desenha as imagens entre o último quadro dele e o primeiro quadro do próximo clipe, e as coloca no meio.</translation>
+    </message>
+    <message>
+        <source>Select the first of the two clips on the timeline.</source>
+        <translation>Selecione na linha do tempo o primeiro dos dois clipes.</translation>
+    </message>
+    <message>
         <source>My Transitions</source>
         <translation>Minhas transições</translation>
     </message>
@@ -23814,12 +23992,20 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Remover fundo</translation>
     </message>
     <message>
+        <source>Cuts out the person or the subject from the background, frame by frame.</source>
+        <translation>Recorta a pessoa ou o objeto do fundo, quadro a quadro.</translation>
+    </message>
+    <message>
         <source>Mask</source>
         <translation>Máscara</translation>
     </message>
     <message>
         <source>Retouch</source>
         <translation>Retoque</translation>
+    </message>
+    <message>
+        <source>Finds the face, the body and the hair to retouch them.</source>
+        <translation>Encontra o rosto, o corpo e o cabelo para retocá-los.</translation>
     </message>
     <message>
         <source>Automatic removal</source>
@@ -23876,6 +24062,14 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>All files (*)</source>
         <translation>Todos os arquivos (*)</translation>
+    </message>
+    <message>
+        <source>Blemishes</source>
+        <translation>Imperfeições</translation>
+    </message>
+    <message>
+        <source>Evens out spots, pimples and fine wrinkles</source>
+        <translation>Uniformiza manchas, espinhas e rugas finas</translation>
     </message>
     <message>
         <source>Slim or widen what the mesh follows</source>

@@ -172,7 +172,7 @@ Row {
             }
             ThemedMenuItem {
                 text: qsTr("Quit")
-                onTriggered: root.win.close()
+                onTriggered: root.win.quitApp()
             }
         }
     }
@@ -323,6 +323,16 @@ Row {
                 enabled: root.editing && toolsMenu.compositeSelected
                 onTriggered: EditorState.requestSaveTemplate(EditorState.clipAssetId(EditorState.selectedTrack,
                                                                                      EditorState.selectedClip))
+            }
+            ThemedMenuItem {
+                text: qsTr("AI Transition to the Next Clip")
+                enabled: root.editing && EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
+                onTriggered: {
+                    if (EditorState.aiTransitionAvailable())
+                        EditorState.addAiTransitionAfter(EditorState.selectedTrack, EditorState.selectedClip)
+                    else
+                        root.win.openAddonManager("interp-model")
+                }
             }
             ThemedMenuItem {
                 text: qsTr("Transform Together")

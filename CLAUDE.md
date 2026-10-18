@@ -46,6 +46,19 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-10-18)
 
+### 0.17.0 PUBLICADA (2026-10-18) — IA en tu computadora, inicio como Filmora, CapCut — **detalle en `docs/plan-0.17.md`**
+- Transición con IA (RIFE, extra `transiciones.ia`), texto con IA (MiniLM, extra `texto.ia`), quitar imperfecciones
+  (`effects/face_blemish`), marca «IA» con «?», tema turquesa predeterminado e inicio como Filmora, la X vuelve al
+  inicio, fila de categorías completa, hover en plantillas/Stock y antes/después de los LUT, contadores animados,
+  congelar y mover con cerrar huecos como CapCut, traducciones de 11 idiomas. Notas en `release-notes/0.17.0.md` y
+  `docs/store-listing.md`. Probado en ventana (lista en el plan); el hover y mover con cerrar huecos los prueba Jorge.
+- Extras subidos primero al release `packages` y después el índice a la web, con las novedades.
+- **Trampa nueva:** `mcp_e2e.py --attach` se conecta al editor que tenga el puente MCP abierto, que puede ser el de
+  Jorge. Con dos editores abiertos, solo clics y capturas por pid.
+- Ese archivo dice qué está hecho, qué falta, dónde va cada cosa y cómo seguir, para continuar con cualquier
+  asistente (Jorge, 2026-10-18: «anota todo por si se me acaba la suscripción»). **Siempre así:** cada versión
+  lleva su `docs/plan-<versión>.md` al día y el trabajo a medias se sube a la rama a menudo.
+
 ### 0.16.0 PUBLICADA (2026-10-18) — Menú como en Filmora y CapCut
 - Rama `flip/v0.16.0` → **PR #23** → `main`; **tag `v0.16.0`**. Release (run 39108213510) con instalador, portable y
   `SHA256SUMS`; copia en `versiones\FlipStudio-0.16.0` (hashes comprobados). Novedades de la web desplegadas

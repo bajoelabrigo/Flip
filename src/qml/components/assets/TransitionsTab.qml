@@ -74,6 +74,53 @@ Item {
             }
         }
 
+        // AI transition (RIFE): the selected clip blends into the one after it.
+        Rectangle {
+            id: aiTransitionCard
+            x: Theme.pagePadding
+            width: parent.width - Theme.pagePadding * 2
+            height: 40
+            radius: Theme.radiusSm
+            color: aiCardHover.hovered ? Theme.panelAccent : Theme.panelSecondaryBg
+            border.width: Theme.borderWidth
+            border.color: Theme.panelSecondaryBorder
+            Row {
+                anchors.left: parent.left
+                anchors.leftMargin: Theme.spacingLg
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: Theme.spacingMd
+                IconGlyph {
+                    anchors.verticalCenter: parent.verticalCenter
+                    glyph: Theme.icons.sparkles
+                    iconSize: Theme.iconSizeMd
+                    iconColor: Theme.primary
+                }
+                Text {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: qsTr("AI transition")
+                    color: Theme.foreground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeSm
+                    font.weight: Font.Medium
+                }
+                AiBadge {
+                    anchors.verticalCenter: parent.verticalCenter
+                    info: qsTr("Select a clip: the AI draws the pictures between its last frame and the first frame of the next clip, and puts them in between.")
+                }
+            }
+            HoverHandler { id: aiCardHover; cursorShape: Qt.PointingHandCursor }
+            TapHandler {
+                onTapped: {
+                    if (!EditorState.aiTransitionAvailable())
+                        root.Window.window.openAddonManager("interp-model")
+                    else if (EditorState.selectedTrack < 0 || EditorState.selectedClip < 0)
+                        Toasts.info(qsTr("Select the first of the two clips on the timeline."))
+                    else
+                        EditorState.addAiTransitionAfter(EditorState.selectedTrack, EditorState.selectedClip)
+                }
+            }
+        }
+
         Item { width: 1; height: Theme.spacingSm }
 
         AssetCategoryChips {
@@ -90,7 +137,7 @@ Item {
         Item {
             width: parent.width
             height: Math.max(0, parent.height - transitionSearch.height
-                             - Theme.spacingSm - transitionCategoryChips.height)
+                             - Theme.spacingSm - transitionCategoryChips.height - aiTransitionCard.height)
 
             // A category whose filter matches nothing used to leave a
             // blank scroll area with no explanation.

@@ -1101,6 +1101,17 @@
     </message>
 </context>
 <context>
+    <name>AiBadge</name>
+    <message>
+        <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
+        <translation>Funciona con IA en tu computadora, sin internet: tu video no sale de tu equipo.</translation>
+    </message>
+    <message>
+        <source>AI</source>
+        <translation>IA</translation>
+    </message>
+</context>
+<context>
     <name>AndroidAddMenu</name>
     <message>
         <source>Add to timeline</source>
@@ -4922,6 +4933,62 @@
         <translation>Fotograma congelado añadido</translation>
     </message>
     <message>
+        <source>Select a video or photo clip with another one right after it</source>
+        <translation>Selecciona un clip de video o foto que tenga otro justo después</translation>
+    </message>
+    <message>
+        <source>There is no clip right after this one to blend into</source>
+        <translation>No hay un clip justo después de este para unirlo</translation>
+    </message>
+    <message>
+        <source>AI transitions need their extra: install it from Extras › AI tools</source>
+        <translation>Las transiciones con IA necesitan su extra: instálalo desde Extras › Herramientas de IA</translation>
+    </message>
+    <message>
+        <source>AI transition</source>
+        <translation>Transición con IA</translation>
+    </message>
+    <message>
+        <source>Making the AI transition…</source>
+        <translation>Creando la transición con IA…</translation>
+    </message>
+    <message>
+        <source>Couldn’t read the frames at the cut</source>
+        <translation>No se pudieron leer los fotogramas del corte</translation>
+    </message>
+    <message>
+        <source>Couldn’t make the AI transition</source>
+        <translation>No se pudo crear la transición con IA</translation>
+    </message>
+    <message>
+        <source>AI transition added</source>
+        <translation>Transición con IA añadida</translation>
+    </message>
+    <message>
+        <source>Write the text or describe the style you want</source>
+        <translation>Escribe el texto o describe el estilo que quieres</translation>
+    </message>
+    <message>
+        <source>AI text needs its extra: install it from Extras › AI tools</source>
+        <translation>El texto con IA necesita su extra: instálalo desde Extras › Herramientas de IA</translation>
+    </message>
+    <message>
+        <source>There are no text styles to choose from</source>
+        <translation>No hay estilos de texto para elegir</translation>
+    </message>
+    <message>
+        <source>Choosing a style with AI…</source>
+        <translation>Eligiendo un estilo con IA…</translation>
+    </message>
+    <message>
+        <source>Couldn’t choose a style</source>
+        <translation>No se pudo elegir un estilo</translation>
+    </message>
+    <message>
+        <source>AI text added</source>
+        <translation>Texto con IA añadido</translation>
+    </message>
+    <message>
         <source>Paste</source>
         <translation>Pegar</translation>
     </message>
@@ -5715,6 +5782,10 @@
         <translation>Guardar como plantilla…</translation>
     </message>
     <message>
+        <source>AI Transition to the Next Clip</source>
+        <translation>Transición con IA al siguiente clip</translation>
+    </message>
+    <message>
         <source>Transform Together</source>
         <translation>Transformar juntos</translation>
     </message>
@@ -6073,6 +6144,18 @@
     <message>
         <source>Collect Media to Folder</source>
         <translation>Recopilar medios en una carpeta</translation>
+    </message>
+    <message>
+        <source>Writes the subtitles from what is said in the video, word by word.</source>
+        <translation>Escribe los subtítulos a partir de lo que se dice en el video, palabra por palabra.</translation>
+    </message>
+    <message>
+        <source>Turns your text into a natural-sounding voice.</source>
+        <translation>Convierte tu texto en una voz natural.</translation>
+    </message>
+    <message>
+        <source>Finds where each shot starts and what is in it.</source>
+        <translation>Encuentra dónde empieza cada toma y qué hay en ella.</translation>
     </message>
     <message>
         <source>Text</source>
@@ -8047,6 +8130,18 @@
     <message>
         <source>Head size</source>
         <translation>Tamaño de la cabeza</translation>
+    </message>
+    <message>
+        <source>Blemish Removal</source>
+        <translation>Quitar imperfecciones</translation>
+    </message>
+    <message>
+        <source>Spots</source>
+        <translation>Manchas</translation>
+    </message>
+    <message>
+        <source>Wrinkles</source>
+        <translation>Arrugas</translation>
     </message>
     <message>
         <source>Blur Amount</source>
@@ -11424,6 +11519,17 @@
     <message>
         <source>Share</source>
         <translation>Compartir</translation>
+    </message>
+</context>
+<context>
+    <name>Exporter</name>
+    <message>
+        <source>Same as project · %1×%2</source>
+        <translation>Igual que el proyecto · %1×%2</translation>
+    </message>
+    <message>
+        <source>Same as project (%1 fps)</source>
+        <translation>Igual que el proyecto (%1 fps)</translation>
     </message>
 </context>
 <context>
@@ -18974,32 +19080,72 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Subtítulos automáticos</translation>
     </message>
     <message>
-        <source>Subtitles from the voice, offline</source>
-        <translation>Subtítulos desde la voz, sin internet</translation>
+        <source>Text to speech</source>
+        <translation>Texto a voz</translation>
     </message>
     <message>
-        <source>Text templates</source>
-        <translation>Plantillas de texto</translation>
+        <source>Templates</source>
+        <translation>Plantillas</translation>
     </message>
     <message>
-        <source>Titles, verses, lower thirds</source>
-        <translation>Títulos, versículos, rótulos</translation>
+        <source>Filters</source>
+        <translation>Filtros</translation>
+    </message>
+    <message>
+        <source>Stock</source>
+        <translation>Stock</translation>
+    </message>
+    <message>
+        <source>New in Stock</source>
+        <translation>Nuevo en Stock</translation>
+    </message>
+    <message>
+        <source>300 YouTuber-style templates</source>
+        <translation>300 plantillas de estilo youtuber</translation>
+    </message>
+    <message>
+        <source>Challenges, top 10s, podcasts, intros and end screens, free in Stock</source>
+        <translation>Retos, top 10, podcast, intros y pantallas finales, gratis en Stock</translation>
+    </message>
+    <message>
+        <source>LUTs and colour effects, one click on the clip</source>
+        <translation>LUTs y efectos de color, con un clic sobre el clip</translation>
+    </message>
+    <message>
+        <source>Subtitles from the voice, on your computer, without internet</source>
+        <translation>Subtítulos desde la voz, en tu computadora, sin internet</translation>
+    </message>
+    <message>
+        <source>Click to sign in</source>
+        <translation>Haz clic para iniciar sesión</translation>
+    </message>
+    <message>
+        <source>Everything is free</source>
+        <translation>Todo es gratis</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Abrir proyecto</translation>
+    </message>
+    <message>
+        <source>Local projects</source>
+        <translation>Proyectos locales</translation>
+    </message>
+    <message>
+        <source>Show as a grid</source>
+        <translation>Ver como cuadrícula</translation>
+    </message>
+    <message>
+        <source>Show as a list</source>
+        <translation>Ver como lista</translation>
     </message>
     <message>
         <source>Stickers</source>
         <translation>Stickers</translation>
     </message>
     <message>
-        <source>3D and animated emojis</source>
-        <translation>Emojis 3D y animados</translation>
-    </message>
-    <message>
         <source>Vertical video</source>
         <translation>Video vertical</translation>
-    </message>
-    <message>
-        <source>For TikTok, Reels and Shorts</source>
-        <translation>Para TikTok, Reels y Shorts</translation>
     </message>
     <message>
         <source>Today, %1</source>
@@ -19014,18 +19160,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Mi cuenta</translation>
     </message>
     <message>
-        <source>Sign in</source>
-        <translation>Iniciar sesión</translation>
-    </message>
-    <message>
-        <source>With Google, optional</source>
-        <translation>Con Google, opcional</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>Inicio</translation>
-    </message>
-    <message>
         <source>Extras</source>
         <translation>Extras</translation>
     </message>
@@ -19038,24 +19172,12 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Editar en línea</translation>
     </message>
     <message>
-        <source>Flip Studio in your browser, at getflipstudio.com/editor</source>
-        <translation>Flip Studio en tu navegador, en getflipstudio.com/editor</translation>
-    </message>
-    <message>
         <source>Create project</source>
         <translation>Crear proyecto</translation>
     </message>
     <message>
-        <source>Projects</source>
-        <translation>Proyectos</translation>
-    </message>
-    <message>
         <source>Search projects</source>
         <translation>Buscar proyectos</translation>
-    </message>
-    <message>
-        <source>Open project…</source>
-        <translation>Abrir proyecto…</translation>
     </message>
     <message>
         <source>Your projects will show up here once you save them.</source>
@@ -20010,6 +20132,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Favoritos</translation>
     </message>
     <message>
+        <source>AI text</source>
+        <translation>Texto con IA</translation>
+    </message>
+    <message>
+        <source>Describe the style in your own words (horror title, neon sale, wedding…) and the AI picks the closest of your text styles.</source>
+        <translation>Describe el estilo con tus palabras (título de terror, oferta en neón, boda…) y la IA elige el estilo de texto que más se parece.</translation>
+    </message>
+    <message>
+        <source>Your text (optional)</source>
+        <translation>Tu texto (opcional)</translation>
+    </message>
+    <message>
+        <source>The style, in your words: horror title, neon sale…</source>
+        <translation>El estilo, con tus palabras: título de terror, oferta en neón…</translation>
+    </message>
+    <message>
+        <source>Create with AI</source>
+        <translation>Crear con IA</translation>
+    </message>
+    <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation>%1 — haz clic para agregarlo en el cabezal o arrástralo a la línea de tiempo. Haz doble clic en la vista previa para editarlo.</translation>
     </message>
@@ -20478,6 +20620,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Title Case</source>
         <translation>Tipo Título</translation>
+    </message>
+    <message>
+        <source>Counter</source>
+        <translation>Contador</translation>
+    </message>
+    <message>
+        <source>The number in the text counts up over the clip, as in a counter: $1.000.000, 10K, day 100…</source>
+        <translation>El número del texto va contando a lo largo del clip, como un contador: $1.000.000, 10K, día 100…</translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation>desde</translation>
     </message>
     <message>
         <source>Edit in Advanced</source>
@@ -21641,6 +21795,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>Theme</name>
     <message>
+        <source>Turquoise</source>
+        <translation>Turquesa</translation>
+    </message>
+    <message>
         <source>Amber</source>
         <translation>Ámbar</translation>
     </message>
@@ -21719,6 +21877,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Group</source>
         <translation>Agrupar</translation>
+    </message>
+    <message>
+        <source>AI transition to the next clip</source>
+        <translation>Transición con IA al siguiente clip</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -22165,6 +22327,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Select to the right</source>
         <translation>Seleccionar hacia la derecha</translation>
+    </message>
+    <message>
+        <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
+        <translation>Funciona con IA en tu computadora, sin internet: tu video no sale de tu equipo.</translation>
     </message>
     <message>
         <source>Pointer tools</source>
@@ -23246,6 +23412,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Instala una transición o un efecto propios desde un archivo .driftfx creado en Drift Forge</translation>
     </message>
     <message>
+        <source>AI transition</source>
+        <translation>Transición con IA</translation>
+    </message>
+    <message>
+        <source>Select a clip: the AI draws the pictures between its last frame and the first frame of the next clip, and puts them in between.</source>
+        <translation>Selecciona un clip: la IA dibuja las imágenes entre su último fotograma y el primero del siguiente clip, y las pone en medio.</translation>
+    </message>
+    <message>
+        <source>Select the first of the two clips on the timeline.</source>
+        <translation>Selecciona en la línea de tiempo el primero de los dos clips.</translation>
+    </message>
+    <message>
         <source>My Transitions</source>
         <translation>Mis transiciones</translation>
     </message>
@@ -23814,12 +23992,20 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Eliminar fondo</translation>
     </message>
     <message>
+        <source>Cuts out the person or the subject from the background, frame by frame.</source>
+        <translation>Recorta a la persona o al sujeto del fondo, fotograma a fotograma.</translation>
+    </message>
+    <message>
         <source>Mask</source>
         <translation>Máscara</translation>
     </message>
     <message>
         <source>Retouch</source>
         <translation>Retoque</translation>
+    </message>
+    <message>
+        <source>Finds the face, the body and the hair to retouch them.</source>
+        <translation>Encuentra el rostro, el cuerpo y el cabello para retocarlos.</translation>
     </message>
     <message>
         <source>Automatic removal</source>
@@ -23876,6 +24062,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>All files (*)</source>
         <translation>Todos los archivos (*)</translation>
+    </message>
+    <message>
+        <source>Blemishes</source>
+        <translation>Imperfecciones</translation>
+    </message>
+    <message>
+        <source>Evens out spots, pimples and fine wrinkles</source>
+        <translation>Empareja manchas, granitos y arrugas finas</translation>
     </message>
     <message>
         <source>Slim or widen what the mesh follows</source>

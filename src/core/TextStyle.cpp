@@ -12,6 +12,9 @@
 #include <QCoreApplication>
 #include <QJsonArray>
 
+#include <algorithm>
+#include <cmath>
+
 namespace drift {
 
 QString textAlignToString(TextAlign align)
@@ -1182,6 +1185,10 @@ QJsonObject textStyleToJson(const TextStyle &s)
     // The CapCut-style controls are written only once used, so older projects stay byte-identical.
     if (s.textCase != QLatin1String("none"))
         json.insert(QStringLiteral("textCase"), s.textCase);
+    if (s.counter) {
+        json.insert(QStringLiteral("counter"), true);
+        json.insert(QStringLiteral("counterFrom"), s.counterFrom);
+    }
     if (s.boxStyle != QLatin1String("block"))
         json.insert(QStringLiteral("boxStyle"), s.boxStyle);
     if (s.boxShape != QLatin1String("rect"))
@@ -1292,6 +1299,8 @@ TextStyle textStyleFromJson(const QJsonObject &o)
     s.boxPadding = o.value(QStringLiteral("boxPadding")).toDouble(s.boxPadding);
     s.boxRadius = o.value(QStringLiteral("boxRadius")).toDouble(s.boxRadius);
     s.textCase = o.value(QStringLiteral("textCase")).toString(s.textCase);
+    s.counter = o.value(QStringLiteral("counter")).toBool(s.counter);
+    s.counterFrom = o.value(QStringLiteral("counterFrom")).toDouble(s.counterFrom);
     s.boxStyle = o.value(QStringLiteral("boxStyle")).toString(s.boxStyle);
     s.boxShape = o.value(QStringLiteral("boxShape")).toString(s.boxShape);
     s.boxPaddingX = o.value(QStringLiteral("boxPaddingX")).toDouble(s.boxPaddingX);
@@ -1339,6 +1348,69 @@ TextStyle textStyleFromJson(const QJsonObject &o)
     return s;
 }
 
+
+QString counterTextAt(const QString &text, double from, double progress)
+{
+    static const QRegularExpression number(QStringLiteral("[0-9][0-9.,]*[0-9]|[0-9]"));
+    const QRegularExpressionMatch m = number.match(text);
+    if (!m.hasMatch())
+        return text;
+    const QString token = m.captured(0);
+
+    // Which mark is the decimal point: the last of two kinds; a lone kind is thousands when every
+    // group after it has three digits ("1.000.000", "12,500"), decimals otherwise ("3,5", "0.75").
+    QChar decimal;
+    QChar thousands;
+    const int lastDot = token.lastIndexOf(QLatin1Char('.'));
+    const int lastComma = token.lastIndexOf(QLatin1Char(','));
+    if (lastDot >= 0 && lastComma >= 0) {
+        decimal = lastDot > lastComma ? QLatin1Char('.') : QLatin1Char(',');
+        thousands = lastDot > lastComma ? QLatin1Char(',') : QLatin1Char('.');
+    } else if (lastDot >= 0 || lastComma >= 0) {
+        const QChar mark = lastDot >= 0 ? QLatin1Char('.') : QLatin1Char(',');
+        const QStringList groups = token.split(mark);
+        bool grouped = groups.size() > 1;
+        for (int i = 1; i < groups.size(); ++i)
+            grouped = grouped && groups.at(i).size() == 3;
+        if (grouped)
+            thousands = mark;
+        else
+            decimal = mark;
+    }
+    QString plain = token;
+    if (!thousands.isNull())
+        plain.remove(thousands);
+    int decimals = 0;
+    if (!decimal.isNull()) {
+        decimals = int(plain.size() - plain.indexOf(decimal) - 1);
+        plain.replace(decimal, QLatin1Char('.'));
+    }
+    bool ok = false;
+    const double target = plain.toDouble(&ok);
+    if (!ok)
+        return text;
+
+    // Ease out, landing at 85 % of the clip so the final number holds on screen.
+    const double p = std::clamp(progress / 0.85, 0.0, 1.0);
+    const double eased = 1.0 - std::pow(1.0 - p, 3.0);
+    const double value = from + (target - from) * eased;
+
+    QString digits = QString::number(std::abs(value), 'f', decimals);
+    QString whole = decimals > 0 ? digits.left(digits.indexOf(QLatin1Char('.'))) : digits;
+    const QString fraction = decimals > 0 ? digits.mid(digits.indexOf(QLatin1Char('.')) + 1) : QString();
+    if (!thousands.isNull()) {
+        for (int i = int(whole.size()) - 3; i > 0; i -= 3)
+            whole.insert(i, thousands);
+    }
+    QString shown = whole;
+    if (decimals > 0)
+        shown += (decimal.isNull() ? QLatin1Char('.') : decimal) + fraction;
+    if (value < 0)
+        shown.prepend(QLatin1Char('-'));
+    QString out = text;
+    out.replace(m.capturedStart(0), m.capturedLength(0), shown);
+    return out;
+}
 
 QString applyTextCase(const QString &text, const QString &textCase)
 {

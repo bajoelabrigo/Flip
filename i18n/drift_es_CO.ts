@@ -1101,6 +1101,17 @@
     </message>
 </context>
 <context>
+    <name>AiBadge</name>
+    <message>
+        <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AndroidAddMenu</name>
     <message>
         <source>Add to timeline</source>
@@ -4930,6 +4941,62 @@
         <translation>Fotograma congelado añadido</translation>
     </message>
     <message>
+        <source>Select a video or photo clip with another one right after it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is no clip right after this one to blend into</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI transitions need their extra: install it from Extras › AI tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Making the AI transition…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t read the frames at the cut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t make the AI transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI transition added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write the text or describe the style you want</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI text needs its extra: install it from Extras › AI tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There are no text styles to choose from</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choosing a style with AI…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t choose a style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI text added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Paste</source>
         <translation>Pegar</translation>
     </message>
@@ -5715,6 +5782,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>AI Transition to the Next Clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Transform Together</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6073,6 +6144,18 @@
     <message>
         <source>Collect Media to Folder</source>
         <translation>Recopilar medios en una carpeta</translation>
+    </message>
+    <message>
+        <source>Writes the subtitles from what is said in the video, word by word.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turns your text into a natural-sounding voice.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Finds where each shot starts and what is in it.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text</source>
@@ -8047,6 +8130,18 @@
     <message>
         <source>Head size</source>
         <translation>Tamaño de la cabeza</translation>
+    </message>
+    <message>
+        <source>Blemish Removal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wrinkles</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Blur Amount</source>
@@ -11424,6 +11519,17 @@
     <message>
         <source>Share</source>
         <translation>Compartir</translation>
+    </message>
+</context>
+<context>
+    <name>Exporter</name>
+    <message>
+        <source>Same as project · %1×%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Same as project (%1 fps)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -18974,32 +19080,72 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Subtítulos automáticos</translation>
     </message>
     <message>
-        <source>Subtitles from the voice, offline</source>
-        <translation>Subtítulos desde la voz, sin internet</translation>
+        <source>Text to speech</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text templates</source>
-        <translation>Plantillas de texto</translation>
+        <source>Templates</source>
+        <translation type="unfinished">Plantillas</translation>
     </message>
     <message>
-        <source>Titles, verses, lower thirds</source>
-        <translation>Títulos, versículos, rótulos</translation>
+        <source>Filters</source>
+        <translation type="unfinished">Filtros</translation>
+    </message>
+    <message>
+        <source>Stock</source>
+        <translation type="unfinished">Stock</translation>
+    </message>
+    <message>
+        <source>New in Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>300 YouTuber-style templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Challenges, top 10s, podcasts, intros and end screens, free in Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUTs and colour effects, one click on the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles from the voice, on your computer, without internet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click to sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Everything is free</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation type="unfinished">Abrir proyecto</translation>
+    </message>
+    <message>
+        <source>Local projects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show as a grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show as a list</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stickers</source>
         <translation>Stickers</translation>
     </message>
     <message>
-        <source>3D and animated emojis</source>
-        <translation>Emojis 3D y animados</translation>
-    </message>
-    <message>
         <source>Vertical video</source>
         <translation>Video vertical</translation>
-    </message>
-    <message>
-        <source>For TikTok, Reels and Shorts</source>
-        <translation>Para TikTok, Reels y Shorts</translation>
     </message>
     <message>
         <source>Today, %1</source>
@@ -19014,18 +19160,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Mi cuenta</translation>
     </message>
     <message>
-        <source>Sign in</source>
-        <translation>Iniciar sesión</translation>
-    </message>
-    <message>
-        <source>With Google, optional</source>
-        <translation>Con Google, opcional</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>Inicio</translation>
-    </message>
-    <message>
         <source>Extras</source>
         <translation>Extras</translation>
     </message>
@@ -19038,24 +19172,12 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Editar en línea</translation>
     </message>
     <message>
-        <source>Flip Studio in your browser, at getflipstudio.com/editor</source>
-        <translation>Flip Studio en tu navegador, en getflipstudio.com/editor</translation>
-    </message>
-    <message>
         <source>Create project</source>
         <translation>Crear proyecto</translation>
     </message>
     <message>
-        <source>Projects</source>
-        <translation>Proyectos</translation>
-    </message>
-    <message>
         <source>Search projects</source>
         <translation>Buscar proyectos</translation>
-    </message>
-    <message>
-        <source>Open project…</source>
-        <translation>Abrir proyecto…</translation>
     </message>
     <message>
         <source>Your projects will show up here once you save them.</source>
@@ -20010,6 +20132,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Favoritos</translation>
     </message>
     <message>
+        <source>AI text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Describe the style in your own words (horror title, neon sale, wedding…) and the AI picks the closest of your text styles.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your text (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The style, in your words: horror title, neon sale…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create with AI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation>%1 — haz clic para agregarlo en el cabezal o arrástralo a la línea de tiempo. Haz doble clic en la vista previa para editarlo.</translation>
     </message>
@@ -20438,6 +20580,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Title Case</source>
         <translation>Tipo Título</translation>
+    </message>
+    <message>
+        <source>Counter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The number in the text counts up over the clip, as in a counter: $1.000.000, 10K, day 100…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit in Advanced</source>
@@ -21641,6 +21795,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>Theme</name>
     <message>
+        <source>Turquoise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Amber</source>
         <translation>Ámbar</translation>
     </message>
@@ -21719,6 +21877,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Group</source>
         <translation>Agrupar</translation>
+    </message>
+    <message>
+        <source>AI transition to the next clip</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Properties</source>
@@ -22165,6 +22327,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Select to the right</source>
         <translation>Seleccionar hacia la derecha</translation>
+    </message>
+    <message>
+        <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pointer tools</source>
@@ -23246,6 +23412,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Instala una transición o un efecto propios desde un archivo .driftfx creado en Drift Forge</translation>
     </message>
     <message>
+        <source>AI transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip: the AI draws the pictures between its last frame and the first frame of the next clip, and puts them in between.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the first of the two clips on the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>My Transitions</source>
         <translation>Mis transiciones</translation>
     </message>
@@ -23814,12 +23992,20 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Eliminar fondo</translation>
     </message>
     <message>
+        <source>Cuts out the person or the subject from the background, frame by frame.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Mask</source>
         <translation>Máscara</translation>
     </message>
     <message>
         <source>Retouch</source>
         <translation>Retoque</translation>
+    </message>
+    <message>
+        <source>Finds the face, the body and the hair to retouch them.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Automatic removal</source>
@@ -23876,6 +24062,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>All files (*)</source>
         <translation>Todos los archivos (*)</translation>
+    </message>
+    <message>
+        <source>Blemishes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Evens out spots, pimples and fine wrinkles</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Slim or widen what the mesh follows</source>

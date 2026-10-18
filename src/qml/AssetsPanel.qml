@@ -617,6 +617,14 @@ PanelFrame {
         return tabLabels[tabId] || ""
     }
 
+    // Tabs whose feature runs an AI model on this computer: the sidebar marks them "AI" with a "?"
+    // that says what it does (AiBadge, Filmora's mark).
+    readonly property var aiInfo: ({
+        "subtitles": qsTr("Writes the subtitles from what is said in the video, word by word."),
+        "speech": qsTr("Turns your text into a natural-sounding voice."),
+        "scenes": qsTr("Finds where each shot starts and what is in it.")
+    })
+
     function kindsForTab(tabId) {
         if (tabId === "media") return ["video", "image", "audio", "vector", "model3d", "pdf", "composite"]
         return []
@@ -759,7 +767,9 @@ PanelFrame {
     readonly property var currentCategory: categoryOfTab(currentTabId)
     readonly property var sideTabs: currentCategory ? currentCategory.tabs : [currentTabId]
     readonly property bool showSideList: !root.sheetMode && root.sideTabs.length > 1
-    readonly property real sideListWidth: showSideList ? 138 : 0
+    // The whole category row, for the window's default panel width (Main.qml).
+    readonly property real categoryRowWidth: categoryRow.width
+    readonly property real sideListWidth: showSideList ? 152 : 0
 
     // Coming back to a category opens the tab last used in it (Audio → Sound effects).
     property var lastTabInCategory: ({})
@@ -1088,12 +1098,20 @@ PanelFrame {
                             Text {
                                 anchors.verticalCenter: parent.verticalCenter
                                 width: sideButton.width - Theme.spacingMd * 3 - Theme.iconSizeSm
+                                       - (sideAi.visible ? sideAi.width + Theme.spacingSm : 0)
                                 elide: Text.ElideRight
                                 text: root.tabLabel(sideButton.modelData)
                                 color: sideButton.current ? Theme.foreground : Theme.mutedForeground
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.fontSizeSm
                                 font.weight: sideButton.current ? Font.Medium : Font.Normal
+                            }
+
+                            AiBadge {
+                                id: sideAi
+                                anchors.verticalCenter: parent.verticalCenter
+                                visible: !!root.aiInfo[sideButton.modelData]
+                                info: root.aiInfo[sideButton.modelData] || ""
                             }
                         }
 

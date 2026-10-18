@@ -34,6 +34,8 @@ def env_with_models(stage):
     env["DRIFT_DEPTH_MODEL_DIR"] = os.path.join(stage, "profundidad", "models", "depth")
     env["DRIFT_RESTORE_MODEL_DIR"] = os.path.join(stage, "mejorar.video", "models", "restore")
     env["DRIFT_DENOISE_MODEL_DIR"] = os.path.join(stage, "ruido.voz", "models", "deepfilternet3")
+    env["DRIFT_INTERP_MODEL_DIR"] = os.path.join(stage, "transiciones.ia", "models", "interp", "rife")
+    env["DRIFT_TEXTEMBED_MODEL_DIR"] = os.path.join(stage, "texto.ia", "models", "textembed", "minilm")
     # Test runs must not count as installs in the statistics of api.getflipstudio.com.
     env.setdefault("FLIP_NO_STATS", "1")
     return env
@@ -311,6 +313,21 @@ def _window_lparam(pid, x, y):
     return hwnd, lparam
 
 
+def type_text(pid, text):
+    """Types `text` into whatever has focus in the app's window, as WM_CHAR messages (click the field
+    first). No real keyboard, like click()."""
+    import ctypes
+
+    user32 = ctypes.windll.user32
+    hwnd, _ = _window_lparam(pid, 0, 0)
+    if not hwnd:
+        return "no window"
+    for ch in text:
+        user32.PostMessageW(hwnd, 0x0102, ord(ch), 1)  # WM_CHAR
+        time.sleep(0.02)
+    return f"typed {len(text)} characters"
+
+
 def drag(pid, x, y, x2, y2, steps=12):
     """A left-button drag from (x, y) to (x2, y2), posted like click()."""
     import ctypes
@@ -414,6 +431,10 @@ def main():
             if tool == "click":
                 print(f"[{index}] {click(gui.pid if gui else bridge.proc.pid, args['x'], args['y'], args.get('button', 'left'))}")
                 time.sleep(float(call.get("sleep", 1.0)))
+                continue
+            if tool == "type":
+                print(f"[{index}] {type_text(gui.pid if gui else bridge.proc.pid, args['text'])}")
+                time.sleep(float(call.get("sleep", 0.5)))
                 continue
             if tool == "drag":
                 print(f"[{index}] {drag(gui.pid if gui else bridge.proc.pid, args['x'], args['y'], args['x2'], args['y2'])}")

@@ -33,6 +33,9 @@ Rectangle {
                                               : (item.thumb_url || "")
     readonly property string previewSource: wide ? (item.preview_wide_url || item.preview_url || "")
                                                 : (item.preview_url || "")
+    // Anything with a moving preview plays it under the pointer, not only stock footage: templates,
+    // overlays, transitions, animated texts and stickers ship a preview.mp4 too (Jorge, 2026-10-18).
+    readonly property bool hasMotion: !isAudio && /\.(mp4|webm|mov)(\?|$)/i.test(previewSource)
 
     radius: Theme.radiusSm
     color: Theme.panelAccent
@@ -90,7 +93,8 @@ Rectangle {
     // One player at a time: only the hovered tile creates one.
     Loader {
         anchors.fill: parent
-        active: root.isVideo && hover.hovered && !root.busy && !!root.previewSource && !root.compact
+        active: (root.isVideo || root.hasMotion) && hover.hovered && !root.busy && !!root.previewSource
+                && !root.compact
         sourceComponent: Item {
             VideoOutput {
                 id: out

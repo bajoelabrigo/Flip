@@ -60,6 +60,8 @@
 #include "engine/OrtRuntime.h"
 #include "engine/MaskApplier.h"
 #include "engine/MatteWriter.h"
+#include "engine/FrameInterpolator.h"
+#include "engine/TextEmbedder.h"
 #include "engine/MediaEditor.h"
 #include "engine/AudioOnsets.h"
 #include "engine/LoudnessMeter.h"
@@ -107,6 +109,8 @@
 #include <QFileInfo>
 #include <QMimeDatabase>
 #include <QMutex>
+#include <QHash>
+#include <QMutexLocker>
 #include <QGuiApplication>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -1870,6 +1874,8 @@ QVariantMap textStyleToMap(const drift::TextStyle &s, drift::TimeUs timelineStar
         {QStringLiteral("boxBorderColor"), s.boxBorderColor.name(QColor::HexArgb)},
         {QStringLiteral("boxBorderWidth"), s.boxBorderWidth},
         {QStringLiteral("textCase"), s.textCase},
+        {QStringLiteral("counter"), s.counter},
+        {QStringLiteral("counterFrom"), s.counterFrom},
         {QStringLiteral("wordHighlight"), textHighlightToMap(s.wordHighlight)},
         {QStringLiteral("underlineEnabled"), s.underlineEnabled},
         {QStringLiteral("underlineColor"), s.underlineColor.name(QColor::HexArgb)},
@@ -7033,11 +7039,62 @@ void AppController::moveClip(int trackIndex, int clipIndex, double newStart)
             }
         }
     }
-    for (const QPair<int, int> &pair : targets) {
-        if (!isValidClipIndex(pair.first, pair.second))
-            continue;
-        const drift::Clip &clip = m_project.tracks().at(pair.first).clips.at(pair.second);
-        syncLinkedPartnersFrom(m_project, clip, movedIds);
+    // CapCut's main track with its magnet on: with "Close gaps" on, a clip dragged along its track
+    // goes in where it lands and the track closes up behind it, instead of leaving a hole where it
+    // was. Order is by each clip's middle (the dragged one lands before a clip whose middle it has
+    // not passed); the track starts where its first clip started before the drag. Only for a drag
+    // on one track (its linked audio may ride along on another); the list order is kept, only the
+    // starts change, so indices and the selection stay valid.
+    bool closedUp = false;
+    if (m_rippleEnabled && !m_allowClipOverlap && autoFade.first.isEmpty() && clampedDelta != 0) {
+        const drift::Track &probe = std::as_const(m_project).tracks().at(trackIndex);
+        QSet<QString> partnerIds;
+        for (const QPair<int, int> &pair : targets) {
+            if (pair.first == trackIndex && isValidClipIndex(pair.first, pair.second)) {
+                for (const drift::ClipRef &ref :
+                     drift::linkedPartners(m_project, probe.clips.at(pair.second)))
+                    partnerIds.insert(m_project.tracks().at(ref.trackIndex).clips.at(ref.clipIndex).id);
+            }
+        }
+        bool oneTrack = probe.type == drift::TrackType::Video;
+        for (const QPair<int, int> &pair : targets) {
+            if (pair.first != trackIndex && isValidClipIndex(pair.first, pair.second)
+                && !partnerIds.contains(m_project.tracks().at(pair.first).clips.at(pair.second).id))
+                oneTrack = false;
+        }
+        if (oneTrack && probe.clips.size() > 1) {
+            drift::TimeUs base = -1;
+            for (const drift::Clip &clip : before.tracks().at(trackIndex).clips)
+                base = base < 0 ? clip.timelineStart : qMin(base, clip.timelineStart);
+            QList<int> order;
+            for (int i = 0; i < probe.clips.size(); ++i)
+                order.append(i);
+            std::stable_sort(order.begin(), order.end(), [&probe](int a, int b) {
+                const drift::Clip &ca = probe.clips.at(a);
+                const drift::Clip &cb = probe.clips.at(b);
+                return ca.timelineStart + ca.timelineDuration / 2 < cb.timelineStart + cb.timelineDuration / 2;
+            });
+            drift::Track &track = m_project.tracks()[trackIndex];
+            drift::TimeUs at = qMax<drift::TimeUs>(0, base);
+            for (const int i : std::as_const(order)) {
+                track.clips[i].timelineStart = at;
+                at += track.clips.at(i).timelineDuration;
+            }
+            QSet<QString> laidOut;
+            for (const drift::Clip &clip : std::as_const(track.clips))
+                laidOut.insert(clip.id);
+            for (const drift::Clip &clip : std::as_const(m_project).tracks().at(trackIndex).clips)
+                syncLinkedPartnersFrom(m_project, clip, laidOut);
+            closedUp = true;
+        }
+    }
+    if (!closedUp) {
+        for (const QPair<int, int> &pair : targets) {
+            if (!isValidClipIndex(pair.first, pair.second))
+                continue;
+            const drift::Clip &clip = m_project.tracks().at(pair.first).clips.at(pair.second);
+            syncLinkedPartnersFrom(m_project, clip, movedIds);
+        }
     }
     if (!autoFade.first.isEmpty()) {
         addAutoCrossfade(trackIndex, autoFade.first, autoFade.second);
@@ -12485,6 +12542,10 @@ void AppController::applyTextStylePatch(drift::TextStyle &s, const QVariantMap &
         s.textCase = (textCase == QLatin1String("upper") || textCase == QLatin1String("lower")
                       || textCase == QLatin1String("title")) ? textCase : QStringLiteral("none");
     }
+    if (m.contains(QStringLiteral("counter")))
+        s.counter = m.value(QStringLiteral("counter")).toBool();
+    if (m.contains(QStringLiteral("counterFrom")))
+        s.counterFrom = m.value(QStringLiteral("counterFrom")).toDouble();
     if (m.contains(QStringLiteral("underlineEnabled")))
         s.underlineEnabled = m.value(QStringLiteral("underlineEnabled")).toBool();
     if (m.contains(QStringLiteral("underlineColor")))
@@ -22513,12 +22574,46 @@ QString AppController::newFreezeFramePath(const QString &projectId)
                                   .arg(QUuid::createUuid().toString(QUuid::WithoutBraces)));
 }
 
+// CapCut's freeze frame: the clip under the playhead is cut there, a still of that clip (its own
+// picture, with its effects and transform, not the overlays above it) goes in on the same track for
+// 3 seconds, and the rest of the clip and everything after it on its tracks (its linked
+// audio included) moves right by that much. The selected video clip if the playhead is on it,
+// otherwise the bottom (main) video track's clip under the playhead.
 void AppController::freezeFrameAtPlayhead()
 {
     if (!m_assetLibrary)
         return;
 
-    if (activeVideoClipAtPlayhead().isEmpty()) {
+
+    const drift::TimeUs playheadUs = m_playheadUs;
+
+    int targetTrack = -1;
+    int targetClip = -1;
+    if (isValidClipIndex(m_selectedTrack, m_selectedClip)) {
+        const drift::Track &track = std::as_const(m_project).tracks().at(m_selectedTrack);
+        const drift::Clip &clip = track.clips.at(m_selectedClip);
+        if (track.type == drift::TrackType::Video && !track.hidden && clip.containsTime(playheadUs)
+            && (clip.type == drift::ClipType::Video || clip.type == drift::ClipType::Image)) {
+            targetTrack = m_selectedTrack;
+            targetClip = m_selectedClip;
+        }
+    }
+    if (targetTrack < 0) {
+        for (int t = 0; t < m_project.tracks().size(); ++t) {
+            const drift::Track &track = std::as_const(m_project).tracks().at(t);
+            if (track.type != drift::TrackType::Video || track.hidden)
+                continue;
+            for (int c = 0; c < track.clips.size(); ++c) {
+                const drift::Clip &clip = track.clips.at(c);
+                if (clip.containsTime(playheadUs)
+                    && (clip.type == drift::ClipType::Video || clip.type == drift::ClipType::Image)) {
+                    targetTrack = t;
+                    targetClip = c;
+                }
+            }
+        }
+    }
+    if (targetTrack < 0) {
         setLastMessage(tr("No video at the current time"), QStringLiteral("warning"));
         return;
     }
@@ -22534,17 +22629,24 @@ void AppController::freezeFrameAtPlayhead()
     setPlaying(false);
 
     setLastMessage(tr("Capturing freeze frame…"));
-    const drift::TimeUs playheadUs = m_playheadUs;
+    const QString clipId = std::as_const(m_project).tracks().at(targetTrack).clips.at(targetClip).id;
     // The worker composites off the GUI thread while editing continues, so it gets a detached
-    // copy rather than a pointer into the live project.
-    const auto snapshot = std::make_shared<const drift::Project>(m_project.detachedCopy());
+    // copy, and only the frozen clip in it: the still is that clip's picture, not the whole frame.
+    auto still = std::make_shared<drift::Project>(m_project.detachedCopy());
+    for (int t = 0; t < still->tracks().size(); ++t) {
+        drift::Track &track = still->tracks()[t];
+        track.transitions.clear();
+        for (int c = track.clips.size() - 1; c >= 0; --c) {
+            if (track.clips.at(c).id != clipId)
+                track.clips.removeAt(c);
+        }
+    }
+    const std::shared_ptr<const drift::Project> snapshot = still;
 
-    (void)QtConcurrent::run([this, snapshot, playheadUs, outPath]() {
+    (void)QtConcurrent::run([this, snapshot, playheadUs, outPath, clipId]() {
         FrameCompositor compositor;
         compositor.setProject(snapshot.get());
 
-        // Full canvas scale: this is the finished frame — every track, effect, transition and
-        // overlay — not a preview of one clip's source.
         const QImage frame = compositor.compositeAt(playheadUs);
         const bool ok = !frame.isNull() && frame.save(outPath, "PNG");
         const QString thumb =
@@ -22554,10 +22656,30 @@ void AppController::freezeFrameAtPlayhead()
 
         QMetaObject::invokeMethod(
             this,
-            [this, ok, outPath, thumb, size, playheadUs]() {
+            [this, ok, outPath, thumb, size, playheadUs, clipId]() {
+                constexpr drift::TimeUs kFreezeUs = 3 * drift::kUsPerSecond;
                 if (!ok) {
                     setLastMessage(tr("Couldn’t capture a still frame"),
                                    QStringLiteral("error"));
+                    return;
+                }
+
+                // Edits may have run while the frame was captured: find the clip again by id.
+                int trackIndex = -1;
+                int clipIndex = -1;
+                for (int t = 0; t < m_project.tracks().size() && trackIndex < 0; ++t) {
+                    const drift::Track &track = std::as_const(m_project).tracks().at(t);
+                    for (int c = 0; c < track.clips.size(); ++c) {
+                        if (track.clips.at(c).id == clipId) {
+                            trackIndex = t;
+                            clipIndex = c;
+                            break;
+                        }
+                    }
+                }
+                if (trackIndex < 0
+                    || !std::as_const(m_project).tracks().at(trackIndex).clips.at(clipIndex).containsTime(playheadUs)) {
+                    setLastMessage(tr("Couldn’t capture a still frame"), QStringLiteral("error"));
                     return;
                 }
 
@@ -22575,14 +22697,29 @@ void AppController::freezeFrameAtPlayhead()
                 asset.hasAudioKnown = true;
                 const QString assetId = m_assetLibrary->addGeneratedAsset(asset);
 
-                // Inserted at the top: track 0 composites in front, so a freeze frame on a freshly
-                // appended track would sit behind the video it was captured from and show nothing.
-                const int trackIndex = drift::ensureTrackForClipType(m_project, drift::ClipType::Image, true);
+                // Cut at the playhead (unless it sits on the clip's first frame), with the linked
+                // partners, as the Split tool does.
+                QSet<int> tracks{trackIndex};
+                {
+                    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+                    for (const drift::ClipRef &ref : drift::linkedPartners(m_project, clip))
+                        tracks.insert(ref.trackIndex);
+                    if (playheadUs > clip.timelineStart) {
+                        const drift::TimeUs offset = playheadUs - clip.timelineStart;
+                        drift::Clip tail;
+                        if (drift::splitClipAtOffset(clip, tail, offset)) {
+                            tail.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+                            const QString tailLinkId = drift::assignSplitLinkIds(clip, tail);
+                            const QString headId = clip.id;
+                            splitLinkedPartnerAt(m_project, clip, playheadUs, tailLinkId);
+                            m_project.tracks()[trackIndex].clips.insert(clipIndex + 1, tail);
+                            splitLinkedAdjustmentsAt(m_project, trackIndex, headId, tail.id, offset);
+                        }
+                    }
+                }
 
-                drift::Track &track = m_project.tracks()[trackIndex];
-                const drift::TimeUs start = drift::resolveClipStart(m_project, track, -1, playheadUs,
-                                                                    drift::kImageClipDurationUs, m_snapEnabled,
-                                                                    playheadUs);
+                // Everything from the cut on, on the clip's tracks, makes room for the still.
+                rippleTracksFrom(m_project, tracks, playheadUs, kFreezeUs, {});
 
                 drift::Clip freezeClip;
                 freezeClip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
@@ -22592,18 +22729,322 @@ void AppController::freezeFrameAtPlayhead()
                 freezeClip.path = outPath;
                 freezeClip.thumbnailPath = thumb;
                 freezeClip.filmstripPath = thumb;
-                freezeClip.timelineStart = start;
-                freezeClip.timelineDuration = drift::kImageClipDurationUs;
+                freezeClip.timelineStart = playheadUs;
+                freezeClip.timelineDuration = kFreezeUs;
                 freezeClip.srcIn = 0;
-                freezeClip.srcOut = drift::kImageClipDurationUs;
+                freezeClip.srcOut = kFreezeUs;
                 fitClipLayoutToCanvas(freezeClip, size.width(), size.height(), m_project.width(),
                                       m_project.height());
 
-                track.clips.append(freezeClip);
-                const int newClipIndex = track.clips.size() - 1;
+                drift::Track &track = m_project.tracks()[trackIndex];
+                int insertAt = 0;
+                while (insertAt < track.clips.size() && track.clips.at(insertAt).timelineStart < playheadUs)
+                    ++insertAt;
+                track.clips.insert(insertAt, freezeClip);
+
                 pushProjectEdit(before, tr("Freeze frame added"));
                 finishEdit(tr("Freeze frame added"));
-                selectClip(trackIndex, newClipIndex);
+                selectClip(trackIndex, insertAt);
+            },
+            Qt::QueuedConnection);
+    });
+}
+
+bool AppController::aiTransitionAvailable() const
+{
+    return drift::FrameInterpolator::modelPresent();
+}
+
+// AI transition (RIFE): from the last frame the clip shows into the first frame of the clip right
+// after it on the same track, kAiTransitionUs of in-between pictures made by the model, inserted
+// between the two as a clip of its own. The rest of the track (and the clip's linked audio) moves
+// right to make room, as the freeze frame does.
+void AppController::addAiTransitionAfter(int trackIndex, int clipIndex)
+{
+    if (!m_assetLibrary || !isValidClipIndex(trackIndex, clipIndex))
+        return;
+    constexpr drift::TimeUs kAiTransitionUs = drift::kUsPerSecond;
+    const drift::Track &track = std::as_const(m_project).tracks().at(trackIndex);
+    const drift::Clip &a = track.clips.at(clipIndex);
+    const auto isPicture = [](const drift::Clip &c) {
+        return c.type == drift::ClipType::Video || c.type == drift::ClipType::Image;
+    };
+    if (track.type != drift::TrackType::Video || !isPicture(a)) {
+        setLastMessage(tr("Select a video or photo clip with another one right after it"),
+                       QStringLiteral("warning"));
+        return;
+    }
+    // The next clip: the one starting where this one ends (within two frames).
+    const drift::TimeUs tolerance = 2 * drift::kUsPerSecond / qMax(1, m_project.fps());
+    int nextIndex = -1;
+    for (int i = 0; i < track.clips.size(); ++i) {
+        const drift::Clip &c = track.clips.at(i);
+        if (i == clipIndex || !isPicture(c))
+            continue;
+        if (qAbs(c.timelineStart - a.timelineEnd()) <= tolerance
+            && (nextIndex < 0 || c.timelineStart < track.clips.at(nextIndex).timelineStart))
+            nextIndex = i;
+    }
+    if (nextIndex < 0) {
+        setLastMessage(tr("There is no clip right after this one to blend into"), QStringLiteral("warning"));
+        return;
+    }
+    if (!drift::FrameInterpolator::modelPresent()) {
+        setLastMessage(tr("AI transitions need their extra: install it from Extras › AI tools"),
+                       QStringLiteral("warning"));
+        return;
+    }
+
+    const drift::Clip &b = track.clips.at(nextIndex);
+    // The frame each clip shows at the cut: the last of the first, the first of the second.
+    const drift::TimeUs nearEnd = qMax<drift::TimeUs>(0, 40'000);
+    struct Shot { QString path; drift::TimeUs us = 0; int rotation = 0; bool image = false; };
+    const Shot from{a.path, a.reverse ? a.srcIn : qMax(a.srcIn, a.srcOut - nearEnd), a.rotationCorrection,
+                    a.type == drift::ClipType::Image};
+    const Shot to{b.path, b.reverse ? qMax(b.srcIn, b.srcOut - nearEnd) : b.srcIn, b.rotationCorrection,
+                  b.type == drift::ClipType::Image};
+    const QString clipId = a.id;
+    const QString outPath = drift::newEditedMediaPath(m_project.id(), QStringLiteral("video"));
+    const int fps = qMax(1, m_project.fps());
+    const QString name = tr("AI transition");
+
+    setPlaying(false);
+    setLastMessage(tr("Making the AI transition…"));
+    (void)QtConcurrent::run([this, from, to, clipId, outPath, fps, name, kAiTransitionUs]() {
+        constexpr quint64 kStreamId = 0xA1'7A'05'00'00'00'00'01ull;
+        const auto grab = [](const Shot &shot) {
+            if (shot.image)
+                return QImage(shot.path);
+            return ClipReaderPool::instance().readVideoFrame(shot.path, kStreamId, shot.us, 3840, 3840,
+                                                             shot.rotation);
+        };
+        const QImage first = grab(from);
+        const QImage last = grab(to);
+        QString error;
+        bool ok = !first.isNull() && !last.isNull();
+        if (!ok)
+            error = tr("Couldn’t read the frames at the cut");
+        std::shared_ptr<drift::FrameInterpolator> model;
+        if (ok) {
+            model = drift::FrameInterpolator::load(&error);
+            ok = !!model;
+        }
+        const int frames = int((kAiTransitionUs * fps + drift::kUsPerSecond / 2) / drift::kUsPerSecond);
+        QSize size;
+        drift::MatteWriter writer;
+        for (int i = 0; ok && i < frames; ++i) {
+            const float t = float(i + 1) / float(frames + 1);
+            const QImage frame = model->interpolate(first, last, t, &error);
+            if (frame.isNull()) {
+                ok = false;
+                break;
+            }
+            if (i == 0) {
+                size = frame.size();
+                ok = writer.open(outPath, size, fps, 1, &error, drift::MatteWriter::Mode::Colour);
+            }
+            if (ok)
+                ok = writer.writeFrame(frame, &error);
+        }
+        if (ok)
+            ok = writer.finish(&error);
+        else
+            writer.abort();
+        const QString thumb =
+            ok ? MediaThumbnail::generate(outPath, drift::mediaKindToString(drift::MediaKind::Video)) : QString();
+        const MediaInfo info = ok ? MediaProbe::probe(outPath) : MediaInfo{};
+
+        QMetaObject::invokeMethod(
+            this,
+            [this, ok, error, outPath, thumb, info, clipId, name, kAiTransitionUs]() {
+                if (!ok) {
+                    QFile::remove(outPath);
+                    setLastMessage(error.isEmpty() ? tr("Couldn’t make the AI transition") : error,
+                                   QStringLiteral("error"));
+                    return;
+                }
+                int trackIndex = -1;
+                int clipIndex = -1;
+                for (int t = 0; t < m_project.tracks().size() && trackIndex < 0; ++t) {
+                    const drift::Track &tr0 = std::as_const(m_project).tracks().at(t);
+                    for (int c = 0; c < tr0.clips.size(); ++c) {
+                        if (tr0.clips.at(c).id == clipId) {
+                            trackIndex = t;
+                            clipIndex = c;
+                            break;
+                        }
+                    }
+                }
+                if (trackIndex < 0) {
+                    QFile::remove(outPath);
+                    return;
+                }
+                const drift::Project before = m_project.detachedCopy();
+                const QString assetId = insertRenderedVideoAsset(outPath, name, QString(), info);
+                const drift::Clip &a = std::as_const(m_project).tracks().at(trackIndex).clips.at(clipIndex);
+                const drift::TimeUs atUs = a.timelineEnd();
+                QSet<int> tracks{trackIndex};
+                for (const drift::ClipRef &ref : drift::linkedPartners(m_project, a))
+                    tracks.insert(ref.trackIndex);
+                rippleTracksFrom(m_project, tracks, atUs, kAiTransitionUs, {});
+
+                const drift::MediaAsset *asset = m_project.asset(assetId);
+                drift::Clip clip;
+                clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+                clip.assetId = assetId;
+                clip.type = drift::ClipType::Video;
+                clip.name = name;
+                clip.path = outPath;
+                clip.thumbnailPath = thumb;
+                clip.filmstripPath = thumb;
+                clip.timelineStart = atUs;
+                clip.timelineDuration = kAiTransitionUs;
+                clip.srcIn = 0;
+                clip.srcOut = asset && asset->durationUs > 0 ? qMin(asset->durationUs, kAiTransitionUs)
+                                                             : kAiTransitionUs;
+                clip.timelineDuration = clip.srcOut;
+                fitClipLayoutToCanvas(clip, asset ? asset->width : m_project.width(),
+                                      asset ? asset->height : m_project.height(), m_project.width(),
+                                      m_project.height());
+                drift::Track &target = m_project.tracks()[trackIndex];
+                target.clips.insert(clipIndex + 1, clip);
+
+                pushProjectEdit(before, tr("AI transition"));
+                finishEdit(tr("AI transition"));
+                selectClip(trackIndex, clipIndex + 1);
+                setLastMessage(tr("AI transition added"));
+            },
+            Qt::QueuedConnection);
+    });
+}
+
+bool AppController::aiTextAvailable() const
+{
+    return drift::TextEmbedder::modelPresent();
+}
+
+// The simple "AI text": the idea someone typed ("horror title", "gran oferta neón") picks the
+// closest of the text styles the app has (built in, from Extras, Stock and their own), by the
+// multilingual sentence model, and a text clip with that style goes in at the playhead with their
+// words (the style's sample text when they wrote none). Style embeddings are computed once a run
+// and kept per id + description.
+void AppController::addAiText(const QString &text, const QString &idea)
+{
+    const QString wanted = idea.trimmed().isEmpty() ? text.trimmed() : idea.trimmed();
+    if (wanted.isEmpty()) {
+        setLastMessage(tr("Write the text or describe the style you want"), QStringLiteral("warning"));
+        return;
+    }
+    if (!drift::TextEmbedder::modelPresent()) {
+        setLastMessage(tr("AI text needs its extra: install it from Extras › AI tools"), QStringLiteral("warning"));
+        return;
+    }
+    // What each built-in style feels like, in English and Spanish, so an idea such as "horror title"
+    // or "cita bíblica" lands on Glitch or Quote rather than on the word Title (measured on the
+    // 35 presets: 10 of 10 sensible picks with these, 7 with the labels alone).
+    static const QHash<QString, QString> kStyleHints{
+        {QStringLiteral("plain"), QStringLiteral("simple, minimal, clean, sobrio, minimalista")},
+        {QStringLiteral("bold"), QStringLiteral("bold, strong statement, negrita, fuerte")},
+        {QStringLiteral("title"), QStringLiteral("main title, heading, título principal, encabezado")},
+        {QStringLiteral("subtitle"), QStringLiteral("subtitle, secondary line, subtítulo")},
+        {QStringLiteral("lower-third"), QStringLiteral("lower third, name and role, interview, rótulo, nombre y cargo, entrevista")},
+        {QStringLiteral("caption"), QStringLiteral("caption, small description, leyenda, descripción")},
+        {QStringLiteral("quote"), QStringLiteral("quote, phrase, bible verse, saying, cita, frase, versículo, reflexión")},
+        {QStringLiteral("impact"), QStringLiteral("impact, loud, meme, shocking, impacto, viral")},
+        {QStringLiteral("pop"), QStringLiteral("pop, colourful, fun, youthful, divertido, colorido")},
+        {QStringLiteral("neon"), QStringLiteral("neon, night, party, club, sale, neón, fiesta, noche, oferta")},
+        {QStringLiteral("handwritten"), QStringLiteral("handwritten, wedding, love, romantic, elegant signature, boda, amor, romántico, a mano")},
+        {QStringLiteral("hormozi"), QStringLiteral("viral captions, tiktok, reels, bold subtitles, podcast clips, subtítulos virales")},
+        {QStringLiteral("one-word-color"), QStringLiteral("highlighted word, emphasis, viral subtitles, palabra destacada")},
+        {QStringLiteral("word-background"), QStringLiteral("word boxes, subtitles, captions, cajas por palabra")},
+        {QStringLiteral("sentence-background"), QStringLiteral("sentence box, readable subtitles, frase con fondo")},
+        {QStringLiteral("karaoke-pop"), QStringLiteral("karaoke, song lyrics, music, letras de canción")},
+        {QStringLiteral("karaoke-highlight"), QStringLiteral("karaoke, lyrics highlight, sing along, letra resaltada")},
+        {QStringLiteral("mirage"), QStringLiteral("dreamy, mirage, soft, aesthetic, sueño, suave")},
+        {QStringLiteral("underline"), QStringLiteral("underline, notes, tutorial, explainer, subrayado, explicación")},
+        {QStringLiteral("bulky"), QStringLiteral("chunky, heavy, sports, gym, fitness, deporte, gimnasio, fuerte")},
+        {QStringLiteral("word-outline"), QStringLiteral("outline, stroke, gaming, contorno")},
+        {QStringLiteral("gold-luxe"), QStringLiteral("gold, luxury, premium, elegant, price, awards, oro, lujo, precio, premio, elegante")},
+        {QStringLiteral("chrome"), QStringLiteral("chrome, metallic, tech, futuristic, cromo, metálico, tecnología")},
+        {QStringLiteral("retro-3d"), QStringLiteral("retro, 80s, 90s, vintage, nostalgia, 3d, ochentas")},
+        {QStringLiteral("glitch"), QStringLiteral("glitch, digital, hacker, horror, terror, creepy, error, miedo")},
+        {QStringLiteral("comic"), QStringLiteral("comic, cartoon, kids, birthday, funny, cómic, niños, cumpleaños, gracioso")},
+        {QStringLiteral("fire"), QStringLiteral("fire, action, intense, hot, danger, horror, fuego, acción, peligro, terror")},
+        {QStringLiteral("ice"), QStringLiteral("ice, cold, winter, frozen, hielo, frío, invierno")},
+        {QStringLiteral("candy"), QStringLiteral("candy, sweet, cute, pastel, baby, dulce, tierno, bebé")},
+        {QStringLiteral("sticker"), QStringLiteral("sticker, cute label, fun tag, etiqueta")},
+        {QStringLiteral("rainbow"), QStringLiteral("rainbow, pride, celebration, joyful, arcoíris, alegría, celebración")},
+        {QStringLiteral("cinematic"), QStringLiteral("cinematic, epic, movie trailer, intro, dramatic, cine, épico, tráiler, película")},
+        {QStringLiteral("holo-shimmer"), QStringLiteral("holographic, shimmer, sparkle, magic, brillo, mágico")},
+        {QStringLiteral("sketch"), QStringLiteral("sketch, drawing, school, notebook, boceto, dibujo, escuela")},
+        {QStringLiteral("editorial"), QStringLiteral("editorial, magazine, fashion, serious news, revista, moda, noticias")},
+    };
+    struct Candidate { QString id; QString description; QString sample; };
+    QList<Candidate> candidates;
+    const auto collect = [&candidates](const QVariantList &rows) {
+        for (const QVariant &v : rows) {
+            const QVariantMap m = v.toMap();
+            const QString id = m.value(QStringLiteral("id")).toString();
+            if (id.isEmpty())
+                continue;
+            QStringList parts{m.value(QStringLiteral("label")).toString(), kStyleHints.value(id),
+                              m.value(QStringLiteral("category")).toString()};
+            parts.removeAll(QString());
+            candidates.append({id, parts.join(QStringLiteral(" — ")), m.value(QStringLiteral("sampleText")).toString()});
+        }
+    };
+    collect(textPresets());
+    collect(addonTextPresets());
+    collect(userTextPresets());
+    if (candidates.isEmpty()) {
+        setLastMessage(tr("There are no text styles to choose from"), QStringLiteral("warning"));
+        return;
+    }
+
+    setLastMessage(tr("Choosing a style with AI…"));
+    const double atSeconds = drift::usToSeconds(m_playheadUs);
+    (void)QtConcurrent::run([this, candidates, wanted, text, atSeconds]() {
+        static QMutex cacheMutex;
+        static QHash<QString, std::vector<float>> cache;
+        QString error;
+        const std::shared_ptr<drift::TextEmbedder> model = drift::TextEmbedder::load(&error);
+        QString bestId;
+        QString bestSample;
+        float bestScore = -2.0f;
+        if (model) {
+            const std::vector<float> query = model->embed(wanted, &error);
+            for (const Candidate &c : candidates) {
+                if (query.empty())
+                    break;
+                const QString key = c.id + QLatin1Char('\n') + c.description;
+                std::vector<float> vec;
+                {
+                    QMutexLocker lock(&cacheMutex);
+                    vec = cache.value(key);
+                }
+                if (vec.empty()) {
+                    vec = model->embed(c.description, &error);
+                    QMutexLocker lock(&cacheMutex);
+                    cache.insert(key, vec);
+                }
+                const float score = drift::TextEmbedder::cosine(query, vec);
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestId = c.id;
+                    bestSample = c.sample;
+                }
+            }
+        }
+        QMetaObject::invokeMethod(
+            this,
+            [this, bestId, bestSample, text, atSeconds, error]() {
+                if (bestId.isEmpty()) {
+                    setLastMessage(error.isEmpty() ? tr("Couldn’t choose a style") : error, QStringLiteral("error"));
+                    return;
+                }
+                const QString words = text.trimmed().isEmpty() ? bestSample : text.trimmed();
+                addTextClip(words, atSeconds, bestId);
+                setLastMessage(tr("AI text added"));
             },
             Qt::QueuedConnection);
     });

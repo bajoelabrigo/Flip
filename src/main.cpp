@@ -40,6 +40,7 @@
 // QApplication (not QGuiApplication) is required so QFileDialog can use the
 // native platform file picker, which routes through xdg-desktop-portal.
 #include <QApplication>
+#include <QSessionManager>
 #include <QCoreApplication>
 #include <QEvent>
 #include <QFileOpenEvent>
@@ -820,6 +821,18 @@ int main(int argc, char *argv[])
         if (auto *window = qobject_cast<QQuickWindow *>(host))
             new FirstFrameWatchdog(window);
     }
+#endif
+
+#if !defined(Q_OS_ANDROID) && QT_CONFIG(sessionmanager)
+    // Windows logging off or shutting down: the editor window's X normally goes back to the home
+    // screen (Main.qml onClosing), which would hold the session up. Marked as a real quit instead,
+    // so it closes as before (asking about unsaved changes).
+    QObject::connect(&app, &QGuiApplication::commitDataRequest, &app, [&engine](QSessionManager &) {
+        if (engine.rootObjects().isEmpty())
+            return;
+        if (QObject *host = engine.rootObjects().constFirst()->property("host").value<QObject *>())
+            host->setProperty("quitRequested", true);
+    });
 #endif
 
     return app.exec();

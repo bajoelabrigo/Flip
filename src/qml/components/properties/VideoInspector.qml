@@ -27,9 +27,11 @@ Item {
 
     readonly property var pages: [
         { id: "basico", label: qsTr("Basic") },
-        { id: "fondo", label: qsTr("Remove background") },
+        { id: "fondo", label: qsTr("Remove background"),
+          ai: qsTr("Cuts out the person or the subject from the background, frame by frame.") },
         { id: "mascara", label: qsTr("Mask") },
-        { id: "retoque", label: qsTr("Retouch") }
+        { id: "retoque", label: qsTr("Retouch"),
+          ai: qsTr("Finds the face, the body and the hair to retouch them.") }
     ]
 
     readonly property int pageIndex: Math.max(0, pages.findIndex(p => p.id === root.page))
@@ -137,6 +139,16 @@ Item {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: root.page = modelData.id
+                        }
+
+                        AiBadge {
+                            visible: !!modelData.ai
+                            compact: true
+                            info: modelData.ai || ""
+                            anchors.right: parent.right
+                            anchors.top: parent.top
+                            anchors.rightMargin: 3
+                            anchors.topMargin: 1
                         }
                     }
                 }
@@ -367,6 +379,7 @@ Item {
                 ] },
                 { title: qsTr("Skin"), glyph: Theme.icons.skin, items: [
                     { id: "skin-smooth", label: qsTr("Smooth"), hint: qsTr("Evens out the skin"), values: { smoothing: 0.7 } },
+                    { id: "skin-blemish", label: qsTr("Blemishes"), hint: qsTr("Evens out spots, pimples and fine wrinkles"), effect: "face_blemish" },
                     { id: "skin-whiten", label: qsTr("Whiten"), hint: qsTr("Brightens the skin"), values: { whitening: 0.5 } },
                     { id: "skin-tone", label: qsTr("Skin tone"), hint: qsTr("Warms the skin towards the tone colour"), values: { skinTone: 0.5 } },
                     { id: "skin-sharpen", label: qsTr("Sharpen"), hint: qsTr("Brings back detail after smoothing"), values: { sharpen: 0.5 } }

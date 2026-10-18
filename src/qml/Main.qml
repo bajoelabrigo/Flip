@@ -407,6 +407,17 @@ ApplicationWindow {
         // Before any of the branches below, so a quit that is cancelled at the
         // unsaved prompt still records where the window was.
         window.persistLayout()
+        // CapCut and Filmora: the window's X in the editor goes back to the home screen; on the home
+        // screen (or File › Quit) it quits. Windows and Linux only — macOS quits with Cmd+Q, which
+        // arrives here too.
+        if (!window.forceClose && !window.quitRequested && !window.showStartScreen
+                && (Qt.platform.os === "windows" || Qt.platform.os === "linux")) {
+            close.accepted = false
+            if (window.previewFullscreen)
+                window.togglePreviewFullscreen()
+            window.requestCloseProject()
+            return
+        }
         if (window.forceClose || !EditorState.projectFile.hasUnsavedChanges)
             return
         close.accepted = false
@@ -580,7 +591,8 @@ ApplicationWindow {
         if (outerSplit.height > 0 && innerSplit.height > 0)
             window.panelFractions[prefix + "editorRow"] = innerSplit.height / outerSplit.height
         if (innerSplit.width > 0) {
-            window.panelFractions[prefix + "assets"] = assetsPanel.width / innerSplit.width
+            // "assetsWide" since 0.17: the narrower widths saved before the category row are not reused.
+            window.panelFractions[prefix + "assetsWide"] = assetsPanel.width / innerSplit.width
             window.panelFractions[prefix + "properties"] = propertiesPanel.width / innerSplit.width
         }
         // Landscape hands the preview the slack in its row (fillWidth), so it has no
@@ -597,7 +609,7 @@ ApplicationWindow {
         const editorRow = LayoutMemory.panelFraction(prefix + "editorRow", 0)
         if (editorRow > 0 && outerSplit.height > 0)
             innerSplit.SplitView.preferredHeight = outerSplit.height * editorRow
-        const assets = LayoutMemory.panelFraction(prefix + "assets", 0)
+        const assets = LayoutMemory.panelFraction(prefix + "assetsWide", 0)
         if (assets > 0 && innerSplit.width > 0)
             assetsPanel.SplitView.preferredWidth = innerSplit.width * assets
         const properties = LayoutMemory.panelFraction(prefix + "properties", 0)
@@ -1337,6 +1349,16 @@ ApplicationWindow {
     // Header's "Close project". Confirms like every action above, then discards the
     // document the same way New Project does — just landing on the start screen
     // afterwards instead of an empty one.
+    // File › Quit: out of the app even from the editor (the window's X goes back home first).
+    property bool quitRequested: false
+
+    function quitApp() {
+        window.quitRequested = true
+        window.close()
+        // A quit cancelled at the unsaved prompt leaves the next X going home again.
+        Qt.callLater(() => { window.quitRequested = false })
+    }
+
     function requestCloseProject() {
         if (window.rejectIfProjectOpenPending())
             return
@@ -2021,8 +2043,12 @@ ApplicationWindow {
                             // everything left over, so an unchanged quarter here left
                             // the library at a third of the inspector's width. Half
                             // splits the row evenly between the two instead.
-                            SplitView.preferredWidth: Math.max(0, innerSplit.width
-                                                               * (window.portraitWorkspace ? 0.5 : 0.25))
+                            // At least as wide as the category row (Media … Templates), so it opens
+                            // whole; narrower is the user's choice, by dragging (the row then scrolls).
+                            SplitView.preferredWidth: Math.max(0, Math.max(innerSplit.width
+                                                                           * (window.portraitWorkspace ? 0.5 : 0.25),
+                                                                           Math.min(assetsPanel.categoryRowWidth + 2,
+                                                                                    innerSplit.width * 0.45)))
                             // Cap mins to available width so 200+320+240 never exceeds a
                             // zero/partial first layout pass (Qt asserts max < min).
                             SplitView.minimumWidth: Math.min(200, Math.max(0, innerSplit.width * 0.2))

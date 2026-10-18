@@ -250,7 +250,7 @@
     </message>
     <message>
         <source>Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.</source>
-        <translation type="unfinished"></translation>
+        <translation>Всё бесплатно. Можно продолжить без аккаунта и редактировать как обычно; для экспорта и Stock мы попросим вас войти.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -1099,6 +1099,17 @@
     <message>
         <source>Close</source>
         <translation>Закрыть</translation>
+    </message>
+</context>
+<context>
+    <name>AiBadge</name>
+    <message>
+        <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
+        <translation>Работает с ИИ на вашем компьютере, без интернета: ваше видео никуда не уходит.</translation>
+    </message>
+    <message>
+        <source>AI</source>
+        <translation>ИИ</translation>
     </message>
 </context>
 <context>
@@ -4331,75 +4342,75 @@
     </message>
     <message>
         <source>Could not install “%1”: %2</source>
-        <translation type="unfinished">Не удалось установить «%1»: %2</translation>
+        <translation>Не удалось установить «%1»: %2</translation>
     </message>
     <message>
         <source>the file is missing</source>
-        <translation type="unfinished"></translation>
+        <translation>файл отсутствует</translation>
     </message>
     <message>
         <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT установлен: %1 (Настройка › LUT)</translation>
     </message>
     <message>
         <source>In Adjust › LUT</source>
-        <translation type="unfinished"></translation>
+        <translation>В разделе Настройка › LUT</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
-        <translation type="unfinished"></translation>
+        <translation>это не набор эффектов</translation>
     </message>
     <message>
         <source>Look installed: %1 (My presets)</source>
-        <translation type="unfinished"></translation>
+        <translation>Образ установлен: %1 (Мои эффекты)</translation>
     </message>
     <message>
         <source>In My presets</source>
-        <translation type="unfinished"></translation>
+        <translation>В разделе Мои эффекты</translation>
     </message>
     <message>
         <source>it is not a text style</source>
-        <translation type="unfinished"></translation>
+        <translation>это не стиль текста</translation>
     </message>
     <message>
         <source>Text style installed: %1 (Text › My styles)</source>
-        <translation type="unfinished"></translation>
+        <translation>Стиль текста установлен: %1 (Текст › Мои стили)</translation>
     </message>
     <message>
         <source>In Text › My styles</source>
-        <translation type="unfinished"></translation>
+        <translation>В разделе Текст › Мои стили</translation>
     </message>
     <message>
         <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation type="unfinished"></translation>
+        <translation>Анимация текста установлена: %1 (Текст › Анимация › Импортированные)</translation>
     </message>
     <message>
         <source>In Text › Animation</source>
-        <translation type="unfinished"></translation>
+        <translation>В разделе Текст › Анимация</translation>
     </message>
     <message>
         <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation type="unfinished"></translation>
+        <translation>Фигура установлена: %1 (Фигуры, а также Маски)</translation>
     </message>
     <message>
         <source>In Shapes</source>
-        <translation type="unfinished"></translation>
+        <translation>В разделе Фигуры</translation>
     </message>
     <message>
         <source>packages cannot be installed here</source>
-        <translation type="unfinished"></translation>
+        <translation>здесь нельзя устанавливать пакеты</translation>
     </message>
     <message>
         <source>Transition installed: %1 (Transitions)</source>
-        <translation type="unfinished"></translation>
+        <translation>Переход установлен: %1 (Переходы)</translation>
     </message>
     <message>
         <source>In Transitions</source>
-        <translation type="unfinished"></translation>
+        <translation>В разделе Переходы</translation>
     </message>
     <message>
         <source>this kind of item needs a newer Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>для этого типа элемента нужна более новая версия Flip Studio</translation>
     </message>
     <message>
         <source>Depth effects read one clip&apos;s depth, so they go on a clip, not on an adjustment layer.</source>
@@ -4934,6 +4945,62 @@
         <translation>Стоп-кадр добавлен</translation>
     </message>
     <message>
+        <source>Select a video or photo clip with another one right after it</source>
+        <translation>Выберите видеоклип или фото, сразу за которым идёт другой клип</translation>
+    </message>
+    <message>
+        <source>There is no clip right after this one to blend into</source>
+        <translation>Сразу после этого клипа нет другого, с которым его можно соединить</translation>
+    </message>
+    <message>
+        <source>AI transitions need their extra: install it from Extras › AI tools</source>
+        <translation>Для ИИ-переходов нужно дополнение: установите его в разделе Дополнения › Инструменты ИИ</translation>
+    </message>
+    <message>
+        <source>AI transition</source>
+        <translation>ИИ-переход</translation>
+    </message>
+    <message>
+        <source>Making the AI transition…</source>
+        <translation>Создаём ИИ-переход…</translation>
+    </message>
+    <message>
+        <source>Couldn’t read the frames at the cut</source>
+        <translation>Не удалось прочитать кадры на стыке</translation>
+    </message>
+    <message>
+        <source>Couldn’t make the AI transition</source>
+        <translation>Не удалось создать ИИ-переход</translation>
+    </message>
+    <message>
+        <source>AI transition added</source>
+        <translation>ИИ-переход добавлен</translation>
+    </message>
+    <message>
+        <source>Write the text or describe the style you want</source>
+        <translation>Напишите текст или опишите нужный стиль</translation>
+    </message>
+    <message>
+        <source>AI text needs its extra: install it from Extras › AI tools</source>
+        <translation>Для ИИ-текста нужно дополнение: установите его в разделе Дополнения › Инструменты ИИ</translation>
+    </message>
+    <message>
+        <source>There are no text styles to choose from</source>
+        <translation>Нет стилей текста для выбора</translation>
+    </message>
+    <message>
+        <source>Choosing a style with AI…</source>
+        <translation>Подбираем стиль с помощью ИИ…</translation>
+    </message>
+    <message>
+        <source>Couldn’t choose a style</source>
+        <translation>Не удалось подобрать стиль</translation>
+    </message>
+    <message>
+        <source>AI text added</source>
+        <translation>ИИ-текст добавлен</translation>
+    </message>
+    <message>
         <source>Paste</source>
         <translation>Вставить</translation>
     </message>
@@ -5391,514 +5458,518 @@
     </message>
     <message>
         <source>Business name</source>
-        <translation type="unfinished"></translation>
+        <translation>Название компании</translation>
     </message>
     <message>
         <source>Phone</source>
-        <translation type="unfinished"></translation>
+        <translation>Телефон</translation>
     </message>
     <message>
         <source>Price</source>
-        <translation type="unfinished"></translation>
+        <translation>Цена</translation>
     </message>
     <message>
         <source>Discount</source>
-        <translation type="unfinished"></translation>
+        <translation>Скидка</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Дата</translation>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="unfinished"></translation>
+        <translation>Часы работы</translation>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished"></translation>
+        <translation>Сайт</translation>
     </message>
     <message>
         <source>Email</source>
-        <translation type="unfinished"></translation>
+        <translation>Эл. почта</translation>
     </message>
     <message>
         <source>Social media user</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя в соцсетях</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрес</translation>
     </message>
     <message>
         <source>Call to action</source>
-        <translation type="unfinished"></translation>
+        <translation>Призыв к действию</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Заголовок</translation>
     </message>
     <message>
         <source>Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>Подзаголовок</translation>
     </message>
     <message numerus="yes">
         <source>Template added with %n of your photos. The rest did not fit: it has %1 slot(s).</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Шаблон добавлен с %n из ваших фото. Остальные не поместились: мест в шаблоне — %1.</numerusform>
+            <numerusform>Шаблон добавлен с %n из ваших фото. Остальные не поместились: мест в шаблоне — %1.</numerusform>
+            <numerusform>Шаблон добавлен с %n из ваших фото. Остальные не поместились: мест в шаблоне — %1.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s). Fill the other slots in the panel on the right.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Шаблон добавлен с %n фото. Заполните остальные места на панели справа.</numerusform>
+            <numerusform>Шаблон добавлен с %n фото. Заполните остальные места на панели справа.</numerusform>
+            <numerusform>Шаблон добавлен с %n фото. Заполните остальные места на панели справа.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Шаблон добавлен с %n фото</numerusform>
+            <numerusform>Шаблон добавлен с %n фото</numerusform>
+            <numerusform>Шаблон добавлен с %n фото</numerusform>
         </translation>
     </message>
     <message>
         <source>Templates are changed on the main timeline: close the composition first</source>
-        <translation type="unfinished"></translation>
+        <translation>Шаблоны меняются на основной временной шкале: сначала закройте композицию</translation>
     </message>
     <message>
         <source>Put the template on the timeline first</source>
-        <translation type="unfinished"></translation>
+        <translation>Сначала поместите шаблон на временную шкалу</translation>
     </message>
     <message numerus="yes">
         <source>Template changed: %n photo(s) carried over</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Шаблон изменён: перенесено фото — %n</numerusform>
+            <numerusform>Шаблон изменён: перенесено фото — %n</numerusform>
+            <numerusform>Шаблон изменён: перенесено фото — %n</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n текст</numerusform>
+            <numerusform>%n текста</numerusform>
+            <numerusform>%n текстов</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) did not fit in the new one</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n фото не поместилось в новый</numerusform>
+            <numerusform>%n фото не поместились в новый</numerusform>
+            <numerusform>%n фото не поместились в новый</numerusform>
         </translation>
     </message>
     <message>
         <source>Template texts</source>
-        <translation type="unfinished"></translation>
+        <translation>Тексты шаблона</translation>
     </message>
     <message numerus="yes">
         <source>%n text(s) changed</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Изменён %n текст</numerusform>
+            <numerusform>Изменено %n текста</numerusform>
+            <numerusform>Изменено %n текстов</numerusform>
         </translation>
     </message>
     <message>
         <source>The template has no music: change its music first</source>
-        <translation type="unfinished"></translation>
+        <translation>В шаблоне нет музыки: сначала добавьте её</translation>
     </message>
     <message>
         <source>Listening to the music to find its beat…</source>
-        <translation type="unfinished"></translation>
+        <translation>Слушаем музыку, чтобы найти ритм…</translation>
     </message>
     <message>
         <source>The cuts already fall on the beat</source>
-        <translation type="unfinished"></translation>
+        <translation>Склейки уже попадают в ритм</translation>
     </message>
     <message>
         <source>Fit cuts to the beat</source>
-        <translation type="unfinished"></translation>
+        <translation>Подогнать склейки под ритм</translation>
     </message>
     <message numerus="yes">
         <source>No beat found in the music: %n cut(s) now follow a steady 120 BPM beat</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>В музыке не найден ритм: %n склейка теперь идёт в постоянном ритме 120 BPM</numerusform>
+            <numerusform>В музыке не найден ритм: %n склейки теперь идут в постоянном ритме 120 BPM</numerusform>
+            <numerusform>В музыке не найден ритм: %n склеек теперь идут в постоянном ритме 120 BPM</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n cut(s) moved to the beat of the music</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>В ритм музыки перенесена %n склейка</numerusform>
+            <numerusform>В ритм музыки перенесены %n склейки</numerusform>
+            <numerusform>В ритм музыки перенесено %n склеек</numerusform>
         </translation>
     </message>
     <message>
         <source>Choose a song or an audio file</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите песню или аудиофайл</translation>
     </message>
     <message>
         <source>That file has no sound to use as music</source>
-        <translation type="unfinished"></translation>
+        <translation>В этом файле нет звука, который можно использовать как музыку</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished">Музыка</translation>
+        <translation>Музыка</translation>
     </message>
     <message>
         <source>Template music</source>
-        <translation type="unfinished"></translation>
+        <translation>Музыка шаблона</translation>
     </message>
     <message>
         <source>New music: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Новая музыка: %1</translation>
     </message>
     <message>
         <source>The logo has to be a picture (PNG, JPG, WebP…)</source>
-        <translation type="unfinished"></translation>
+        <translation>Логотип должен быть изображением (PNG, JPG, WebP…)</translation>
     </message>
     <message>
         <source>Could not copy the logo</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось скопировать логотип</translation>
     </message>
     <message>
         <source>My brand saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Мой бренд сохранён</translation>
     </message>
     <message>
         <source>Set up My brand first (Templates › My brand)</source>
-        <translation type="unfinished"></translation>
+        <translation>Сначала настройте Мой бренд (Шаблоны › Мой бренд)</translation>
     </message>
     <message>
         <source>This template has no logo slot or brand texts to change</source>
-        <translation type="unfinished"></translation>
+        <translation>В этом шаблоне нет места для логотипа и текстов бренда</translation>
     </message>
     <message>
         <source>Apply my brand</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить мой бренд</translation>
     </message>
     <message>
         <source>My brand applied</source>
-        <translation type="unfinished"></translation>
+        <translation>Мой бренд применён</translation>
     </message>
     <message>
         <source>My logo</source>
-        <translation type="unfinished"></translation>
+        <translation>Мой логотип</translation>
     </message>
 </context>
 <context>
     <name>AppMenuBar</name>
     <message>
         <source>File</source>
-        <translation type="unfinished">Файл</translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <source>New Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Новый проект</translation>
     </message>
     <message>
         <source>Open Project…</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть проект…</translation>
     </message>
     <message>
         <source>Open Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть недавние</translation>
     </message>
     <message>
         <source>Import Media…</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт медиафайлов…</translation>
     </message>
     <message>
         <source>Save Project</source>
-        <translation type="unfinished">Сохранить проект</translation>
+        <translation>Сохранить проект</translation>
     </message>
     <message>
         <source>Save Project As…</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить проект как…</translation>
     </message>
     <message>
         <source>Save Shareable Copy…</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить копию для отправки…</translation>
     </message>
     <message>
         <source>Export Video…</source>
-        <translation type="unfinished"></translation>
+        <translation>Экспорт видео…</translation>
     </message>
     <message>
         <source>Video Size and Layout…</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер и формат видео…</translation>
     </message>
     <message>
         <source>Project Properties…</source>
-        <translation type="unfinished"></translation>
+        <translation>Свойства проекта…</translation>
     </message>
     <message>
         <source>Preferences…</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметры…</translation>
     </message>
     <message>
         <source>Keyboard Shortcuts</source>
-        <translation type="unfinished">Сочетания клавиш</translation>
+        <translation>Сочетания клавиш</translation>
     </message>
     <message>
         <source>Back to Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Вернуться на начальный экран</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Выход</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">Редактировать</translation>
+        <translation>Правка</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished">Отменить</translation>
+        <translation>Отменить</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished">Повторить</translation>
+        <translation>Повторить</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished">Вырезать</translation>
+        <translation>Вырезать</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Копировать</translation>
+        <translation>Копировать</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished">Вставить</translation>
+        <translation>Вставить</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished">Дублировать</translation>
+        <translation>Дублировать</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Удалить</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <source>Copy Effects</source>
-        <translation type="unfinished">Копировать эффекты</translation>
+        <translation>Копировать эффекты</translation>
     </message>
     <message>
         <source>Paste Effects</source>
-        <translation type="unfinished">Вставить эффекты</translation>
+        <translation>Вставить эффекты</translation>
     </message>
     <message>
         <source>Paste Attributes…</source>
-        <translation type="unfinished">Вставить атрибуты…</translation>
+        <translation>Вставить атрибуты…</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished">Выбрать всё</translation>
+        <translation>Выделить всё</translation>
     </message>
     <message>
         <source>Deselect All</source>
-        <translation type="unfinished"></translation>
+        <translation>Снять выделение</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>Инструменты</translation>
     </message>
     <message>
         <source>Split</source>
-        <translation type="unfinished"></translation>
+        <translation>Разделить</translation>
     </message>
     <message>
         <source>Merge Clips</source>
-        <translation type="unfinished"></translation>
+        <translation>Объединить клипы</translation>
     </message>
     <message>
         <source>Separate Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Отделить аудио</translation>
     </message>
     <message>
         <source>Link Clips</source>
-        <translation type="unfinished"></translation>
+        <translation>Связать клипы</translation>
     </message>
     <message>
         <source>Unlink Clips</source>
-        <translation type="unfinished"></translation>
+        <translation>Отвязать клипы</translation>
     </message>
     <message>
         <source>Group (Compound Clip)</source>
-        <translation type="unfinished"></translation>
+        <translation>Сгруппировать (составной клип)</translation>
     </message>
     <message>
         <source>Ungroup</source>
-        <translation type="unfinished">Разгруппировать</translation>
+        <translation>Разгруппировать</translation>
     </message>
     <message>
         <source>Save as Template…</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить как шаблон…</translation>
+    </message>
+    <message>
+        <source>AI Transition to the Next Clip</source>
+        <translation>ИИ-переход к следующему клипу</translation>
     </message>
     <message>
         <source>Transform Together</source>
-        <translation type="unfinished"></translation>
+        <translation>Трансформировать вместе</translation>
     </message>
     <message>
         <source>Auto Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>Автосубтитры</translation>
     </message>
     <message>
         <source>Text to Speech</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст в речь</translation>
     </message>
     <message>
         <source>Scene Detection</source>
-        <translation type="unfinished"></translation>
+        <translation>Определение сцен</translation>
     </message>
     <message>
         <source>Multicam</source>
-        <translation type="unfinished">Мультикам</translation>
+        <translation>Мультикамера</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Вид</translation>
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished">Воспроизвести / пауза</translation>
+        <translation>Воспроизвести / Пауза</translation>
     </message>
     <message>
         <source>Go to Start</source>
-        <translation type="unfinished"></translation>
+        <translation>В начало</translation>
     </message>
     <message>
         <source>Previous Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Предыдущий кадр</translation>
     </message>
     <message>
         <source>Next Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Следующий кадр</translation>
     </message>
     <message>
         <source>Loop Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>Воспроизведение по кругу</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Закладки</translation>
     </message>
     <message>
         <source>Add or Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить или убрать закладку</translation>
     </message>
     <message>
         <source>Next Bookmark</source>
-        <translation type="unfinished">Следующая закладка</translation>
+        <translation>Следующая закладка</translation>
     </message>
     <message>
         <source>Previous Bookmark</source>
-        <translation type="unfinished">Предыдущая закладка</translation>
+        <translation>Предыдущая закладка</translation>
     </message>
     <message>
         <source>Zoom In</source>
-        <translation type="unfinished">Приближение</translation>
+        <translation>Увеличить</translation>
     </message>
     <message>
         <source>Zoom Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Уменьшить</translation>
     </message>
     <message>
         <source>Fullscreen Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Просмотр во весь экран</translation>
     </message>
     <message>
         <source>Guides</source>
-        <translation type="unfinished">Направляющие</translation>
+        <translation>Направляющие</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished">Рабочее пространство</translation>
+        <translation>Рабочая область</translation>
     </message>
     <message>
         <source>Auto (follow canvas)</source>
-        <translation type="unfinished">Авто (по холсту)</translation>
+        <translation>Авто (по холсту)</translation>
     </message>
     <message>
         <source>Landscape</source>
-        <translation type="unfinished">Горизонтальная</translation>
+        <translation>Горизонтальная</translation>
     </message>
     <message>
         <source>Portrait</source>
-        <translation type="unfinished">Вертикальная</translation>
+        <translation>Вертикальная</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished">Тема</translation>
+        <translation>Тема</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Светлая</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">Тёмная</translation>
+        <translation>Тёмная</translation>
     </message>
     <message>
         <source>Language…</source>
-        <translation type="unfinished">Язык…</translation>
+        <translation>Язык…</translation>
     </message>
     <message>
         <source>Switch to Mobile Layout…</source>
-        <translation type="unfinished">Переключиться на мобильный интерфейс…</translation>
+        <translation>Перейти на мобильный макет…</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Дополнительно</translation>
+        <translation>Дополнительно</translation>
     </message>
     <message>
         <source>Extras…</source>
-        <translation type="unfinished">Дополнения…</translation>
+        <translation>Дополнения…</translation>
     </message>
     <message>
         <source>Agent Access…</source>
-        <translation type="unfinished"></translation>
+        <translation>Доступ для агента…</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished">Загрузки</translation>
+        <translation>Загрузки</translation>
     </message>
     <message>
         <source>Debug Info…</source>
-        <translation type="unfinished">Отладочная информация…</translation>
+        <translation>Отладочная информация…</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Справка</translation>
     </message>
     <message>
         <source>What&apos;s New</source>
-        <translation type="unfinished"></translation>
+        <translation>Что нового</translation>
     </message>
     <message>
         <source>Flip Studio Website</source>
-        <translation type="unfinished"></translation>
+        <translation>Сайт Flip Studio</translation>
     </message>
     <message>
         <source>Check for Updates…</source>
-        <translation type="unfinished">Проверить обновления…</translation>
+        <translation>Проверить обновления…</translation>
     </message>
     <message>
         <source>My Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Мой аккаунт</translation>
     </message>
     <message>
         <source>About Flip Studio</source>
-        <translation type="unfinished">О Flip Studio</translation>
+        <translation>О программе Flip Studio</translation>
     </message>
 </context>
 <context>
@@ -6109,6 +6180,18 @@
         <translation>Собрать медиафайлы в папку</translation>
     </message>
     <message>
+        <source>Writes the subtitles from what is said in the video, word by word.</source>
+        <translation>Создаёт субтитры по тому, что говорят в видео, слово за словом.</translation>
+    </message>
+    <message>
+        <source>Turns your text into a natural-sounding voice.</source>
+        <translation>Превращает ваш текст в естественно звучащий голос.</translation>
+    </message>
+    <message>
+        <source>Finds where each shot starts and what is in it.</source>
+        <translation>Находит, где начинается каждый план и что в нём.</translation>
+    </message>
+    <message>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
@@ -6142,16 +6225,16 @@
     </message>
     <message>
         <source>My templates</source>
-        <translation type="unfinished">Мои шаблоны</translation>
+        <translation>Мои шаблоны</translation>
     </message>
     <message>
         <source>Effect templates</source>
-        <translation type="unfinished">Шаблоны эффектов</translation>
+        <translation>Шаблоны эффектов</translation>
     </message>
     <message>
         <source>Stickers</source>
         <comment>category row</comment>
-        <translation type="unfinished">Стикеры</translation>
+        <translation>Стикеры</translation>
     </message>
     <message>
         <source>Templates</source>
@@ -6171,11 +6254,11 @@
     </message>
     <message>
         <source>LUTs</source>
-        <translation type="unfinished"></translation>
+        <translation>LUTs</translation>
     </message>
     <message>
         <source>Color effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Цветовые эффекты</translation>
     </message>
     <message>
         <source>Shortcuts</source>
@@ -6183,15 +6266,15 @@
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">Аудио</translation>
+        <translation>Аудио</translation>
     </message>
     <message>
         <source>Titles</source>
-        <translation type="unfinished"></translation>
+        <translation>Титры</translation>
     </message>
     <message>
         <source>Filters</source>
-        <translation type="unfinished">Фильтры</translation>
+        <translation>Фильтры</translation>
     </message>
     <message>
         <source>Drop to import</source>
@@ -6953,75 +7036,75 @@
     <name>BrandKitDialog</name>
     <message>
         <source>Main colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Основной цвет</translation>
     </message>
     <message>
         <source>Second colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Дополнительный цвет</translation>
     </message>
     <message>
         <source>Accent</source>
-        <translation type="unfinished"></translation>
+        <translation>Акцентный цвет</translation>
     </message>
     <message>
         <source>Text colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Цвет текста</translation>
     </message>
     <message>
         <source>My brand</source>
-        <translation type="unfinished"></translation>
+        <translation>Мой бренд</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Сохранить</translation>
+        <translation>Сохранить</translation>
     </message>
     <message>
         <source>Your logo, colours and font. Business templates use them when you add one; any other template takes them with “Apply my brand” in its Template panel.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваш логотип, цвета и шрифт. Шаблоны из раздела «Бизнес» используют их при добавлении; любой другой шаблон получает их через «Применить мой бренд» на своей панели «Шаблон».</translation>
     </message>
     <message>
         <source>Logo</source>
-        <translation type="unfinished"></translation>
+        <translation>Логотип</translation>
     </message>
     <message>
         <source>Change logo…</source>
-        <translation type="unfinished"></translation>
+        <translation>Сменить логотип…</translation>
     </message>
     <message>
         <source>Choose logo…</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать логотип…</translation>
     </message>
     <message>
         <source>Choose your logo</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите свой логотип</translation>
     </message>
     <message>
         <source>Pictures (*.png *.jpg *.jpeg *.webp)</source>
-        <translation type="unfinished"></translation>
+        <translation>Изображения (*.png *.jpg *.jpeg *.webp)</translation>
     </message>
     <message>
         <source>Remove logo</source>
-        <translation type="unfinished"></translation>
+        <translation>Убрать логотип</translation>
     </message>
     <message>
         <source>Colours (2 to 4)</source>
-        <translation type="unfinished"></translation>
+        <translation>Цвета (от 2 до 4)</translation>
     </message>
     <message>
         <source>Remove colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Убрать цвет</translation>
     </message>
     <message>
         <source>Add colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить цвет</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished">Шрифт</translation>
+        <translation>Шрифт</translation>
     </message>
     <message>
         <source>Use it in Business templates when I add them</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать в шаблонах «Бизнес» при добавлении</translation>
     </message>
 </context>
 <context>
@@ -8084,6 +8167,18 @@
     <message>
         <source>Head size</source>
         <translation>Размер головы</translation>
+    </message>
+    <message>
+        <source>Blemish Removal</source>
+        <translation>Удаление недостатков кожи</translation>
+    </message>
+    <message>
+        <source>Spots</source>
+        <translation>Пятна</translation>
+    </message>
+    <message>
+        <source>Wrinkles</source>
+        <translation>Морщины</translation>
     </message>
     <message>
         <source>Blur Amount</source>
@@ -10401,7 +10496,7 @@
     </message>
     <message>
         <source>Free templates, music, stickers, photos and videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Бесплатные шаблоны, музыка, стикеры, фото и видео</translation>
     </message>
     <message numerus="yes">
         <source>Downloads — %n running</source>
@@ -11472,6 +11567,17 @@
     </message>
 </context>
 <context>
+    <name>Exporter</name>
+    <message>
+        <source>Same as project · %1×%2</source>
+        <translation>Как в проекте · %1×%2</translation>
+    </message>
+    <message>
+        <source>Same as project (%1 fps)</source>
+        <translation>Как в проекте (%1 кадр/с)</translation>
+    </message>
+</context>
+<context>
     <name>FacePropImport</name>
     <message>
         <source>%1 is not a binary glTF model</source>
@@ -11802,63 +11908,63 @@
     <name>FiltersTab</name>
     <message>
         <source>Looks</source>
-        <translation type="unfinished">Стили</translation>
+        <translation>Образы</translation>
     </message>
     <message>
         <source>Imported</source>
-        <translation type="unfinished"></translation>
+        <translation>Импортированные</translation>
     </message>
     <message>
         <source>Select a video or photo clip first.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сначала выберите видеоклип или фото.</translation>
     </message>
     <message>
         <source>Import LUT</source>
-        <translation type="unfinished">Импортировать LUT</translation>
+        <translation>Импорт LUT</translation>
     </message>
     <message>
         <source>LUT (*.cube)</source>
-        <translation type="unfinished">LUT (*.cube)</translation>
+        <translation>LUT (*.cube)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished">Все файлы (*)</translation>
+        <translation>Все файлы (*)</translation>
     </message>
     <message>
         <source>This file is not a LUT that can be used.</source>
-        <translation type="unfinished">Этот файл не является пригодным LUT.</translation>
+        <translation>Этот файл не является пригодным LUT.</translation>
     </message>
     <message>
         <source>Search filters</source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск фильтров</translation>
     </message>
     <message>
         <source>Click a filter to put it on the selected clip. Its strength is in Adjust › LUT.</source>
-        <translation type="unfinished"></translation>
+        <translation>Нажмите на фильтр, чтобы применить его к выбранному клипу. Его силу можно изменить в разделе Настройка › LUT.</translation>
     </message>
     <message>
         <source>Select a video or photo clip, then click a filter.</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите видеоклип или фото, затем нажмите на фильтр.</translation>
     </message>
     <message>
         <source>Import LUT…</source>
-        <translation type="unfinished">Импортировать LUT…</translation>
+        <translation>Импорт LUT…</translation>
     </message>
     <message>
         <source>No filters match “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет фильтров по запросу «%1».</translation>
     </message>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
-        <translation type="unfinished"></translation>
+        <translation>Импортированных LUT пока нет. Импортируйте файл .cube или найдите LUT в Stock.</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
-        <translation type="unfinished">В этой категории ничего нет.</translation>
+        <translation>В этой категории ничего нет.</translation>
     </message>
     <message>
         <source>Delete from my LUTs</source>
-        <translation type="unfinished">Удалить из моих LUT</translation>
+        <translation>Удалить из моих LUT</translation>
     </message>
 </context>
 <context>
@@ -13154,19 +13260,19 @@
     </message>
     <message>
         <source>%1 new: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Новое в %1: %2</translation>
     </message>
     <message>
         <source>Sign in to ask for a template.</source>
-        <translation type="unfinished"></translation>
+        <translation>Войдите, чтобы попросить шаблон.</translation>
     </message>
     <message>
         <source>Tell us a little more about what you need.</source>
-        <translation type="unfinished"></translation>
+        <translation>Расскажите чуть подробнее, что вам нужно.</translation>
     </message>
     <message>
         <source>Thanks! Others can vote for your idea now.</source>
-        <translation type="unfinished"></translation>
+        <translation>Спасибо! Теперь другие могут голосовать за вашу идею.</translation>
     </message>
     <message>
         <source>Could not connect the marketplace account.</source>
@@ -13194,7 +13300,7 @@
     </message>
     <message>
         <source>This kind of item cannot be installed here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Элемент такого типа нельзя установить здесь.</translation>
     </message>
     <message>
         <source>Could not install that template.</source>
@@ -13214,15 +13320,15 @@
     </message>
     <message>
         <source>Could not install that item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось установить этот элемент.</translation>
     </message>
     <message>
         <source>Could not install that item: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось установить этот элемент: %1</translation>
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished"></translation>
+        <translation>Установлено</translation>
     </message>
     <message>
         <source>Marketplace account connected.</source>
@@ -13339,7 +13445,7 @@
     </message>
     <message>
         <source>Search all of Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>Искать по всему Stock</translation>
     </message>
     <message>
         <source>Search, or paste a link</source>
@@ -13355,11 +13461,11 @@
     </message>
     <message>
         <source>Everything in Stock is free</source>
-        <translation type="unfinished"></translation>
+        <translation>В Stock всё бесплатно</translation>
     </message>
     <message>
         <source>Templates, music, stickers, photos and videos at no cost. You only need to sign in with your Google account to see them and download them into your project.</source>
-        <translation type="unfinished"></translation>
+        <translation>Шаблоны, музыка, стикеры, фото и видео без оплаты. Нужно только войти через аккаунт Google, чтобы видеть их и скачивать в свой проект.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -13508,7 +13614,7 @@
     </message>
     <message>
         <source>Library shape</source>
-        <translation type="unfinished"></translation>
+        <translation>Фигура из библиотеки</translation>
     </message>
     <message>
         <source>TEXT</source>
@@ -16807,23 +16913,23 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Use with my photos…</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать с моими фото…</translation>
     </message>
     <message>
         <source>Choose your photos and videos first: Flip suggests the templates that fit them and fills them in</source>
-        <translation type="unfinished"></translation>
+        <translation>Сначала выберите свои фото и видео: Flip предложит подходящие шаблоны и заполнит их</translation>
     </message>
     <message>
         <source>Choose photos and videos</source>
-        <translation type="unfinished">Выбрать фото и видео</translation>
+        <translation>Выбрать фото и видео</translation>
     </message>
     <message>
         <source>My brand</source>
-        <translation type="unfinished"></translation>
+        <translation>Мой бренд</translation>
     </message>
     <message>
         <source>Your logo, colours and font for Business templates</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваш логотип, цвета и шрифт для шаблонов «Бизнес»</translation>
     </message>
     <message>
         <source>No scene templates yet</source>
@@ -16934,35 +17040,35 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Photo slideshows</source>
-        <translation type="unfinished"></translation>
+        <translation>Слайд-шоу из фото</translation>
     </message>
     <message>
         <source>Lower thirds</source>
-        <translation type="unfinished"></translation>
+        <translation>Нижние титры</translation>
     </message>
     <message>
         <source>Transitions and separators</source>
-        <translation type="unfinished"></translation>
+        <translation>Переходы и разделители</translation>
     </message>
     <message>
         <source>15-second stories</source>
-        <translation type="unfinished"></translation>
+        <translation>Истории на 15 с</translation>
     </message>
     <message>
         <source>6-second ads</source>
-        <translation type="unfinished"></translation>
+        <translation>Реклама на 6 с</translation>
     </message>
     <message>
         <source>Video thumbnails</source>
-        <translation type="unfinished"></translation>
+        <translation>Обложки для YouTube</translation>
     </message>
     <message>
         <source>Counters</source>
-        <translation type="unfinished"></translation>
+        <translation>Счётчики</translation>
     </message>
     <message>
         <source>YouTuber style</source>
-        <translation type="unfinished"></translation>
+        <translation>В стиле ютубера</translation>
     </message>
     <message>
         <source>Other</source>
@@ -16973,87 +17079,87 @@ If playback stutters, try another.</source>
     <name>SceneTemplatePickerDialog</name>
     <message>
         <source>Change template</source>
-        <translation type="unfinished">Изменить шаблон</translation>
+        <translation>Сменить шаблон</translation>
     </message>
     <message>
         <source>Use with my photos</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать с моими фото</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Закрыть</translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <source>vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>вертикальные</translation>
     </message>
     <message>
         <source>horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>горизонтальные</translation>
     </message>
     <message>
         <source>square</source>
-        <translation type="unfinished"></translation>
+        <translation>квадратные</translation>
     </message>
     <message>
         <source>%1 — from Stock: it downloads and goes in with your photos</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 — из Stock: скачается и встанет с вашими фото</translation>
     </message>
     <message numerus="yes">
         <source>%1 — %n slot(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%1 — %n место</numerusform>
+            <numerusform>%1 — %n места</numerusform>
+            <numerusform>%1 — %n мест</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Templates for your %n photo(s). Your photos and the texts you changed go into the one you choose, in order; one undo puts the old one back.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Шаблоны для ваших фото (%n). Фото и изменённые вами тексты по порядку перейдут в выбранный шаблон; одна отмена вернёт прежний.</numerusform>
+            <numerusform>Шаблоны для ваших фото (%n). Фото и изменённые вами тексты по порядку перейдут в выбранный шаблон; одна отмена вернёт прежний.</numerusform>
+            <numerusform>Шаблоны для ваших фото (%n). Фото и изменённые вами тексты по порядку перейдут в выбранный шаблон; одна отмена вернёт прежний.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s), most of them %1. These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n фото или видео, %1. Эти шаблоны подходят лучше всего; выделенное число означает, что поместится целиком.</numerusform>
+            <numerusform>%n фото или видео, в основном %1. Эти шаблоны подходят лучше всего; выделенное число означает, что поместятся все.</numerusform>
+            <numerusform>%n фото или видео, в основном %1. Эти шаблоны подходят лучше всего; выделенное число означает, что поместятся все.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s). These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n фото или видео. Эти шаблоны подходят лучше всего; выделенное число означает, что поместится целиком.</numerusform>
+            <numerusform>%n фото или видео. Эти шаблоны подходят лучше всего; выделенное число означает, что поместятся все.</numerusform>
+            <numerusform>%n фото или видео. Эти шаблоны подходят лучше всего; выделенное число означает, что поместятся все.</numerusform>
         </translation>
     </message>
     <message>
         <source>In Templates</source>
-        <translation type="unfinished">В «Шаблонах»</translation>
+        <translation>В разделе Шаблоны</translation>
     </message>
     <message>
         <source>No installed template takes photos yet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пока нет установленных шаблонов для фото.</translation>
     </message>
     <message>
         <source>From Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>Из Stock</translation>
     </message>
     <message>
         <source>Sign in (My account) to see the Stock templates that fit too.</source>
-        <translation type="unfinished"></translation>
+        <translation>Войдите (Мой аккаунт), чтобы увидеть и подходящие шаблоны из Stock.</translation>
     </message>
     <message>
         <source>Looking in Stock…</source>
-        <translation type="unfinished"></translation>
+        <translation>Ищем в Stock…</translation>
     </message>
     <message>
         <source>Nothing else in Stock for this many photos.</source>
-        <translation type="unfinished"></translation>
+        <translation>В Stock больше ничего нет для такого количества фото.</translation>
     </message>
 </context>
 <context>
@@ -17684,7 +17790,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Everything is free. Sign in with Google to export your videos and to use Stock: templates, music, photos and videos.</source>
-        <translation type="unfinished"></translation>
+        <translation>Всё бесплатно. Войдите через Google, чтобы экспортировать видео и пользоваться Stock: шаблонами, музыкой, фото и видео.</translation>
     </message>
     <message>
         <source>Flip Studio %1</source>
@@ -18024,7 +18130,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Library shape</source>
-        <translation type="unfinished"></translation>
+        <translation>Фигура из библиотеки</translation>
     </message>
     <message>
         <source>Layers</source>
@@ -18286,7 +18392,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove from my shapes</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить из моих фигур</translation>
     </message>
 </context>
 <context>
@@ -18390,35 +18496,35 @@ If playback stutters, try another.</source>
     <name>SignInRequiredDialog</name>
     <message>
         <source>Sign in to export</source>
-        <translation type="unfinished"></translation>
+        <translation>Войдите, чтобы экспортировать</translation>
     </message>
     <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio бесплатен: экспорт, Stock и все шаблоны ничего не стоят.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
-        <translation type="unfinished"></translation>
+        <translation>Чтобы экспортировать видео, нужно только войти через аккаунт Google. Это займёт минуту, делается один раз, и ваш проект останется как есть.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished">Ожидание браузера…</translation>
+        <translation>Ожидание браузера…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
-        <translation type="unfinished">Войти через Google</translation>
+        <translation>Войти через Google</translation>
     </message>
     <message>
         <source>Choose your account in the browser window that opened, then come back here.</source>
-        <translation type="unfinished">Выберите аккаунт в открывшемся окне браузера, затем вернитесь сюда.</translation>
+        <translation>Выберите аккаунт в открывшемся окне браузера и вернитесь сюда.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Отмена</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Not now</source>
-        <translation type="unfinished">Не сейчас</translation>
+        <translation>Не сейчас</translation>
     </message>
 </context>
 <context>
@@ -19046,32 +19152,72 @@ If playback stutters, try another.</source>
         <translation>Автосубтитры</translation>
     </message>
     <message>
-        <source>Subtitles from the voice, offline</source>
-        <translation>Субтитры по голосу, без интернета</translation>
+        <source>Text to speech</source>
+        <translation>Текст в речь</translation>
     </message>
     <message>
-        <source>Text templates</source>
-        <translation>Текстовые шаблоны</translation>
+        <source>Templates</source>
+        <translation>Шаблоны</translation>
     </message>
     <message>
-        <source>Titles, verses, lower thirds</source>
-        <translation>Заголовки, стихи, плашки</translation>
+        <source>Filters</source>
+        <translation>Фильтры</translation>
+    </message>
+    <message>
+        <source>Stock</source>
+        <translation>Stock</translation>
+    </message>
+    <message>
+        <source>New in Stock</source>
+        <translation>Новое в Stock</translation>
+    </message>
+    <message>
+        <source>300 YouTuber-style templates</source>
+        <translation>300 шаблонов в стиле ютуберов</translation>
+    </message>
+    <message>
+        <source>Challenges, top 10s, podcasts, intros and end screens, free in Stock</source>
+        <translation>Челленджи, топ-10, подкасты, интро и конечные заставки — бесплатно в Stock</translation>
+    </message>
+    <message>
+        <source>LUTs and colour effects, one click on the clip</source>
+        <translation>LUT и цветовые эффекты одним кликом по клипу</translation>
+    </message>
+    <message>
+        <source>Subtitles from the voice, on your computer, without internet</source>
+        <translation>Субтитры по голосу, на вашем компьютере, без интернета</translation>
+    </message>
+    <message>
+        <source>Click to sign in</source>
+        <translation>Нажмите, чтобы войти</translation>
+    </message>
+    <message>
+        <source>Everything is free</source>
+        <translation>Всё бесплатно</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Открыть проект</translation>
+    </message>
+    <message>
+        <source>Local projects</source>
+        <translation>Локальные проекты</translation>
+    </message>
+    <message>
+        <source>Show as a grid</source>
+        <translation>Показать сеткой</translation>
+    </message>
+    <message>
+        <source>Show as a list</source>
+        <translation>Показать списком</translation>
     </message>
     <message>
         <source>Stickers</source>
         <translation>Стикеры</translation>
     </message>
     <message>
-        <source>3D and animated emojis</source>
-        <translation>3D- и анимированные эмодзи</translation>
-    </message>
-    <message>
         <source>Vertical video</source>
         <translation>Вертикальное видео</translation>
-    </message>
-    <message>
-        <source>For TikTok, Reels and Shorts</source>
-        <translation>Для TikTok, Reels и Shorts</translation>
     </message>
     <message>
         <source>Today, %1</source>
@@ -19086,18 +19232,6 @@ If playback stutters, try another.</source>
         <translation>Мой аккаунт</translation>
     </message>
     <message>
-        <source>Sign in</source>
-        <translation>Войти</translation>
-    </message>
-    <message>
-        <source>With Google, optional</source>
-        <translation>Через Google, по желанию</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>Главная</translation>
-    </message>
-    <message>
         <source>Extras</source>
         <translation>Дополнения</translation>
     </message>
@@ -19110,24 +19244,12 @@ If playback stutters, try another.</source>
         <translation>Редактировать онлайн</translation>
     </message>
     <message>
-        <source>Flip Studio in your browser, at getflipstudio.com/editor</source>
-        <translation>Flip Studio в браузере: getflipstudio.com/editor</translation>
-    </message>
-    <message>
         <source>Create project</source>
         <translation>Создать проект</translation>
     </message>
     <message>
-        <source>Projects</source>
-        <translation>Проекты</translation>
-    </message>
-    <message>
         <source>Search projects</source>
         <translation>Поиск проектов</translation>
-    </message>
-    <message>
-        <source>Open project…</source>
-        <translation>Открыть проект…</translation>
     </message>
     <message>
         <source>Your projects will show up here once you save them.</source>
@@ -19205,11 +19327,11 @@ If playback stutters, try another.</source>
     <name>StockBrowser</name>
     <message>
         <source>Used once</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовано один раз</translation>
     </message>
     <message>
         <source>Used %1 times</source>
-        <translation type="unfinished"></translation>
+        <translation>Использований: %1</translation>
     </message>
     <message>
         <source>Save downloads to</source>
@@ -19245,11 +19367,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Missing a template? Ask for it, or vote for other people’s ideas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не хватает шаблона? Попросите его или голосуйте за идеи других.</translation>
     </message>
     <message>
         <source>Ask for a template</source>
-        <translation type="unfinished"></translation>
+        <translation>Попросить шаблон</translation>
     </message>
     <message>
         <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
@@ -19265,15 +19387,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Фото уже готовы? Выберите их, и Flip предложит подходящие шаблоны.</translation>
     </message>
     <message>
         <source>Use with my photos…</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать с моими фото…</translation>
     </message>
     <message>
         <source>Choose photos and videos</source>
-        <translation type="unfinished">Выбрать фото и видео</translation>
+        <translation>Выбрать фото и видео</translation>
     </message>
     <message>
         <source>Looking up that link…</source>
@@ -19328,31 +19450,31 @@ If playback stutters, try another.</source>
     <name>StockHome</name>
     <message>
         <source>Search all of Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>Искать по всему Stock</translation>
     </message>
     <message>
         <source>Templates, music, sounds, stickers, LUTs, text styles, shapes and more. Type above and press Enter.</source>
-        <translation type="unfinished"></translation>
+        <translation>Шаблоны, музыка, звуки, стикеры, LUT, стили текста, фигуры и многое другое. Введите запрос выше и нажмите Enter.</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Обновить</translation>
+        <translation>Обновить</translation>
     </message>
     <message>
         <source>Can’t find it? Ask for it and vote for other people’s ideas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не нашли? Попросите и голосуйте за идеи других.</translation>
     </message>
     <message>
         <source>Ask for a template</source>
-        <translation type="unfinished"></translation>
+        <translation>Попросить шаблон</translation>
     </message>
     <message>
         <source>Used once</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовано один раз</translation>
     </message>
     <message>
         <source>Used %1 times</source>
-        <translation type="unfinished"></translation>
+        <translation>Использований: %1</translation>
     </message>
 </context>
 <context>
@@ -19367,11 +19489,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Used once</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовано один раз</translation>
     </message>
     <message>
         <source>Used %1 times</source>
-        <translation type="unfinished"></translation>
+        <translation>Использований: %1</translation>
     </message>
     <message numerus="yes">
         <source>%n coin(s)</source>
@@ -19391,11 +19513,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Install again</source>
-        <translation type="unfinished"></translation>
+        <translation>Установить снова</translation>
     </message>
     <message>
         <source>Install</source>
-        <translation type="unfinished">Установить</translation>
+        <translation>Установить</translation>
     </message>
     <message>
         <source>Download again</source>
@@ -19426,67 +19548,67 @@ If playback stutters, try another.</source>
     <name>StockRequestsDialog</name>
     <message>
         <source>Ask for a template</source>
-        <translation type="unfinished"></translation>
+        <translation>Попросить шаблон</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Закрыть</translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <source>Template</source>
-        <translation type="unfinished">Шаблон</translation>
+        <translation>Шаблон</translation>
     </message>
     <message>
         <source>Something else</source>
-        <translation type="unfinished"></translation>
+        <translation>Другое</translation>
     </message>
     <message>
         <source>Tell us what you would like to find in Stock. The most voted ideas are made first.</source>
-        <translation type="unfinished"></translation>
+        <translation>Расскажите, что вы хотели бы найти в Stock. Идеи с наибольшим числом голосов делаются первыми.</translation>
     </message>
     <message>
         <source>For example: a birthday template for my mom with 5 photos</source>
-        <translation type="unfinished"></translation>
+        <translation>Например: шаблон ко дню рождения мамы на 5 фото</translation>
     </message>
     <message>
         <source>Sending…</source>
-        <translation type="unfinished"></translation>
+        <translation>Отправка…</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation type="unfinished"></translation>
+        <translation>Отправить</translation>
     </message>
     <message>
         <source>Most voted</source>
-        <translation type="unfinished"></translation>
+        <translation>Популярные</translation>
     </message>
     <message>
         <source>Newest</source>
-        <translation type="unfinished"></translation>
+        <translation>Новые</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузка…</translation>
     </message>
     <message>
         <source>No ideas yet. Be the first!</source>
-        <translation type="unfinished"></translation>
+        <translation>Идей пока нет. Будьте первым!</translation>
     </message>
     <message>
         <source>Remove your vote</source>
-        <translation type="unfinished"></translation>
+        <translation>Отменить голос</translation>
     </message>
     <message>
         <source>Vote for this idea</source>
-        <translation type="unfinished"></translation>
+        <translation>Голосовать за эту идею</translation>
     </message>
     <message>
         <source>Done — it’s in Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>Готово — уже в Stock</translation>
     </message>
     <message>
         <source>Your idea</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваша идея</translation>
     </message>
 </context>
 <context>
@@ -19923,79 +20045,79 @@ If playback stutters, try another.</source>
     </message>
     <message numerus="yes">
         <source>Apply %n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Применить %n текст</numerusform>
+            <numerusform>Применить %n текста</numerusform>
+            <numerusform>Применить %n текстов</numerusform>
         </translation>
     </message>
     <message>
         <source>Apply texts</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить тексты</translation>
     </message>
     <message>
         <source>Changes every text you edited at once (one undo step)</source>
-        <translation type="unfinished"></translation>
+        <translation>Меняет сразу все отредактированные тексты (одна отмена)</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished">Музыка</translation>
+        <translation>Музыка</translation>
     </message>
     <message>
         <source>The template&apos;s music</source>
-        <translation type="unfinished"></translation>
+        <translation>Музыка шаблона</translation>
     </message>
     <message>
         <source>No music in this template</source>
-        <translation type="unfinished"></translation>
+        <translation>В этом шаблоне нет музыки</translation>
     </message>
     <message>
         <source>Fit the cuts to the beat of the new song</source>
-        <translation type="unfinished"></translation>
+        <translation>Подогнать склейки под ритм новой песни</translation>
     </message>
     <message>
         <source>Change the music…</source>
-        <translation type="unfinished"></translation>
+        <translation>Сменить музыку…</translation>
     </message>
     <message>
         <source>Add music…</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить музыку…</translation>
     </message>
     <message>
         <source>A song from your computer, cut to the template&apos;s length</source>
-        <translation type="unfinished"></translation>
+        <translation>Песня с вашего компьютера, обрезанная по длине шаблона</translation>
     </message>
     <message>
         <source>Choose a song</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите песню</translation>
     </message>
     <message>
         <source>Listening to the music…</source>
-        <translation type="unfinished"></translation>
+        <translation>Слушаем музыку…</translation>
     </message>
     <message>
         <source>Fit the cuts to the beat</source>
-        <translation type="unfinished"></translation>
+        <translation>Подогнать склейки под ритм</translation>
     </message>
     <message>
         <source>Moves the change from one photo to the next onto the nearest beat, keeping their order (one undo step). Without a beat, a steady 120 BPM.</source>
-        <translation type="unfinished"></translation>
+        <translation>Переносит смену одного фото на другое на ближайший удар, сохраняя порядок (одна отмена). Без ритма — постоянные 120 BPM.</translation>
     </message>
     <message>
         <source>Change template…</source>
-        <translation type="unfinished"></translation>
+        <translation>Сменить шаблон…</translation>
     </message>
     <message>
         <source>Another template with the same photos and texts</source>
-        <translation type="unfinished"></translation>
+        <translation>Другой шаблон с теми же фото и текстами</translation>
     </message>
     <message>
         <source>Apply my brand</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить мой бренд</translation>
     </message>
     <message>
         <source>Your logo, colours and font (Templates › My brand)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваш логотип, цвета и шрифт (Шаблоны › Мой бренд)</translation>
     </message>
     <message>
         <source>Open the composition</source>
@@ -20085,6 +20207,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Favorites</source>
         <translation>Избранное</translation>
+    </message>
+    <message>
+        <source>AI text</source>
+        <translation>ИИ-текст</translation>
+    </message>
+    <message>
+        <source>Describe the style in your own words (horror title, neon sale, wedding…) and the AI picks the closest of your text styles.</source>
+        <translation>Опишите стиль своими словами (заголовок ужастика, неоновая распродажа, свадьба…), и ИИ выберет самый похожий из ваших стилей текста.</translation>
+    </message>
+    <message>
+        <source>Your text (optional)</source>
+        <translation>Ваш текст (необязательно)</translation>
+    </message>
+    <message>
+        <source>The style, in your words: horror title, neon sale…</source>
+        <translation>Стиль своими словами: заголовок ужастика, неоновая распродажа…</translation>
+    </message>
+    <message>
+        <source>Create with AI</source>
+        <translation>Создать с ИИ</translation>
     </message>
     <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
@@ -20555,6 +20697,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Title Case</source>
         <translation>Как В Заголовке</translation>
+    </message>
+    <message>
+        <source>Counter</source>
+        <translation>Счётчик</translation>
+    </message>
+    <message>
+        <source>The number in the text counts up over the clip, as in a counter: $1.000.000, 10K, day 100…</source>
+        <translation>Число в тексте растёт на протяжении клипа, как счётчик: $1.000.000, 10K, день 100…</translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation>от</translation>
     </message>
     <message>
         <source>Edit in Advanced</source>
@@ -21718,6 +21872,10 @@ If playback stutters, try another.</source>
 <context>
     <name>Theme</name>
     <message>
+        <source>Turquoise</source>
+        <translation>Бирюзовый</translation>
+    </message>
+    <message>
         <source>Amber</source>
         <translation>Янтарь</translation>
     </message>
@@ -21796,6 +21954,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Group</source>
         <translation>Сгруппировать</translation>
+    </message>
+    <message>
+        <source>AI transition to the next clip</source>
+        <translation>ИИ-переход к следующему клипу</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -22242,6 +22404,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Select to the right</source>
         <translation>Выделить справа</translation>
+    </message>
+    <message>
+        <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
+        <translation>Работает с ИИ на вашем компьютере, без интернета: ваше видео никуда не уходит.</translation>
     </message>
     <message>
         <source>Pointer tools</source>
@@ -23332,6 +23498,18 @@ If playback stutters, try another.</source>
         <translation>Установите собственный переход или эффект из файла .driftfx, созданного в Drift Forge</translation>
     </message>
     <message>
+        <source>AI transition</source>
+        <translation>ИИ-переход</translation>
+    </message>
+    <message>
+        <source>Select a clip: the AI draws the pictures between its last frame and the first frame of the next clip, and puts them in between.</source>
+        <translation>Выберите клип: ИИ нарисует кадры между его последним кадром и первым кадром следующего клипа и вставит их между ними.</translation>
+    </message>
+    <message>
+        <source>Select the first of the two clips on the timeline.</source>
+        <translation>Выберите на временной шкале первый из двух клипов.</translation>
+    </message>
+    <message>
         <source>My Transitions</source>
         <translation>Мои переходы</translation>
     </message>
@@ -23902,12 +24080,20 @@ If playback stutters, try another.</source>
         <translation>Удалить фон</translation>
     </message>
     <message>
+        <source>Cuts out the person or the subject from the background, frame by frame.</source>
+        <translation>Вырезает человека или объект из фона, кадр за кадром.</translation>
+    </message>
+    <message>
         <source>Mask</source>
         <translation>Маска</translation>
     </message>
     <message>
         <source>Retouch</source>
         <translation>Ретушь</translation>
+    </message>
+    <message>
+        <source>Finds the face, the body and the hair to retouch them.</source>
+        <translation>Находит лицо, тело и волосы для ретуши.</translation>
     </message>
     <message>
         <source>Automatic removal</source>
@@ -23964,6 +24150,14 @@ If playback stutters, try another.</source>
     <message>
         <source>All files (*)</source>
         <translation>Все файлы (*)</translation>
+    </message>
+    <message>
+        <source>Blemishes</source>
+        <translation>Недостатки кожи</translation>
+    </message>
+    <message>
+        <source>Evens out spots, pimples and fine wrinkles</source>
+        <translation>Выравнивает пятна, прыщики и мелкие морщины</translation>
     </message>
     <message>
         <source>Slim or widen what the mesh follows</source>

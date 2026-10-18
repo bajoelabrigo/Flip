@@ -110,6 +110,37 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.17.0)**. Lo nuevo desde la 0.16.0. Texto de "Novedades de esta versión" del MSIX de la
+0.17.0 (828 de 1500 caracteres).
+
+> **Novedades de la 0.17.0**
+>
+> - Transición con IA: une dos clips dibujando las imágenes que faltan entre ellos.
+> - Texto con IA: describe la idea con tus palabras y la IA elige el estilo de texto.
+> - Quitar imperfecciones: manchas, granitos y arrugas finas, sin borrar los rasgos.
+> - Marca «IA» con «?» en todo lo que usa IA; todo funciona en tu computadora, sin internet.
+> - Pantalla de inicio como Filmora y modo oscuro turquesa, más descansado para la vista.
+> - Cerrar el editor vuelve al inicio; el panel izquierdo abre con todas las categorías.
+> - Plantillas y Stock se animan al pasar el mouse; los filtros muestran el antes y el después.
+> - Contadores animados en los textos ($1.000.000, 10K, día 100).
+> - Congelar fotograma y mover clips con «Cerrar huecos» funcionan como en CapCut.
+> - Lo nuevo, traducido a los idiomas de la app.
+
+En inglés (761 caracteres):
+
+> **What's new in 0.17.0**
+>
+> - AI transition: joins two clips by drawing the frames between them.
+> - AI text: describe the idea in your own words and the AI picks the text style.
+> - Blemish removal: spots, pimples and fine wrinkles, keeping the features.
+> - An "AI" mark with a "?" on everything that uses AI; it all runs on your computer, offline.
+> - A Filmora-like home screen and a turquoise dark mode, easier on the eyes.
+> - Closing the editor goes back home; the left panel opens with every category in view.
+> - Templates and Stock animate on hover; filters show the before and after.
+> - Animated counters in texts ($1,000,000, 10K, day 100).
+> - Freeze frame and moving clips with "Close gaps" work as in CapCut.
+> - Everything new, translated into the app's languages.
+
 **Notas para la Store (0.16.0)**. Lo nuevo desde la 0.15.0. Texto de "Novedades de esta versión" del MSIX de la
 0.16.0 (712 de 1500 caracteres).
 

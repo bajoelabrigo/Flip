@@ -81,7 +81,7 @@ Item {
     Item {
         id: toolbar
         width: parent.width
-        height: Theme.pagePadding + chips.height
+        height: Theme.pagePadding + chips.height + Theme.spacingMd + aiText.height
 
         // Wraps: with template packs installed there is a chip per category.
         Flow {
@@ -143,6 +143,95 @@ Item {
             variant: "ghost"
             tooltip: qsTr("Import a text style…")
             onClicked: root.importStyle()
+        }
+
+        // AI text: write the words and the idea; the closest style is chosen on this computer.
+        Rectangle {
+            id: aiText
+            property bool open: false
+            x: Theme.pagePadding
+            y: chips.y + chips.height + Theme.spacingMd
+            width: parent.width - Theme.pagePadding * 2
+            height: aiColumn.implicitHeight + Theme.spacingMd * 2
+            radius: Theme.radiusSm
+            color: Theme.panelSecondaryBg
+            border.width: Theme.borderWidth
+            border.color: Theme.panelSecondaryBorder
+
+            Column {
+                id: aiColumn
+                x: Theme.spacingLg
+                y: Theme.spacingMd
+                width: parent.width - Theme.spacingLg * 2
+                spacing: Theme.spacingMd
+
+                Item {
+                    width: parent.width
+                    height: 22
+                    Row {
+                        anchors.verticalCenter: parent.verticalCenter
+                        spacing: Theme.spacingMd
+                        IconGlyph {
+                            anchors.verticalCenter: parent.verticalCenter
+                            glyph: Theme.icons.sparkles
+                            iconSize: Theme.iconSizeMd
+                            iconColor: Theme.primary
+                        }
+                        Text {
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("AI text")
+                            color: Theme.foreground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                            font.weight: Font.Medium
+                        }
+                        AiBadge {
+                            anchors.verticalCenter: parent.verticalCenter
+                            info: qsTr("Describe the style in your own words (horror title, neon sale, wedding…) and the AI picks the closest of your text styles.")
+                        }
+                    }
+                    IconGlyph {
+                        anchors.right: parent.right
+                        anchors.verticalCenter: parent.verticalCenter
+                        glyph: aiText.open ? Theme.icons.chevronUp : Theme.icons.chevronDown
+                        iconSize: 14
+                        iconColor: Theme.mutedForeground
+                    }
+                    TapHandler { onTapped: aiText.open = !aiText.open }
+                    HoverHandler { cursorShape: Qt.PointingHandCursor }
+                }
+
+                ThemedTextField {
+                    id: aiWords
+                    visible: aiText.open
+                    width: parent.width
+                    placeholderText: qsTr("Your text (optional)")
+                }
+                ThemedTextField {
+                    id: aiIdea
+                    visible: aiText.open
+                    width: parent.width
+                    placeholderText: qsTr("The style, in your words: horror title, neon sale…")
+                    onAccepted: aiCreate.clicked()
+                }
+                ThemedButton {
+                    id: aiCreate
+                    visible: aiText.open
+                    width: parent.width
+                    variant: "primary"
+                    glyph: Theme.icons.sparkles
+                    text: qsTr("Create with AI")
+                    enabled: aiWords.text.trim().length > 0 || aiIdea.text.trim().length > 0
+                    onClicked: {
+                        if (!EditorState.aiTextAvailable()) {
+                            root.Window.window.openAddonManager("text-embed-model")
+                            return
+                        }
+                        EditorState.addAiText(aiWords.text, aiIdea.text)
+                        root.added()
+                    }
+                }
+            }
         }
     }
 

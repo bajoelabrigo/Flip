@@ -253,15 +253,16 @@ Column {
                             NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
                         }
 
-                        Image {
+                        // Under the pointer: the reference photo without the look, wiping to it.
+                        BeforeAfterImage {
                             id: thumb
                             x: 3
                             y: 3
                             width: parent.width - 6
                             height: width
-                            fillMode: Image.PreserveAspectCrop
-                            asynchronous: true
-                            source: EditorState.lutThumbnail(tile.modelData.path)
+                            beforeSource: "qrc:/retouch/original.jpg"
+                            afterSource: EditorState.lutThumbnail(tile.modelData.path)
+                            playing: tileHover.hovered
                         }
                         Text {
                             id: tileName
