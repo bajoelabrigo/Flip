@@ -155,6 +155,7 @@ private slots:
     void splitLeftKeepsLinkedAudioInSync();
     void splitRightKeepsLinkedAudioInSync();
     void edgeTrimRipplesFollowers();
+    void deleteRipplesFollowers();
     void snapRadiusFollowsZoom();
     void splitLeftRightKeepOuterFades();
     void audioTrackTakesTransitions();
@@ -11613,6 +11614,32 @@ void EditorStateTest::edgeTrimRipplesFollowers()
         QCOMPARE(plain.project()->tracks().at(t).clips.at(0).timelineStart, drift::secondsToUs(1.0));
         QCOMPARE(plain.project()->tracks().at(t).clips.at(1).timelineStart, drift::secondsToUs(4.0));
     }
+}
+
+// Deleting a split piece with "Close gaps when trimming" on used to leave the hole (Jorge, 2026-10-18).
+void EditorStateTest::deleteRipplesFollowers()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    appendLinkedVideoAudioPair(*state.project());
+    appendFollowerPair(*state.project());
+    state.setRippleEnabled(true);
+
+    // The video and its linked audio go together, and both tracks close up once.
+    state.selectClip(0, 0);
+    state.deleteSelectedClip();
+    for (int t = 0; t < 2; ++t) {
+        QCOMPARE(state.project()->tracks().at(t).clips.size(), 1);
+        QCOMPARE(state.project()->tracks().at(t).clips.at(0).timelineStart, 0);
+    }
+
+    // Without ripple the followers stay where they were.
+    state.undo();
+    state.setRippleEnabled(false);
+    state.selectClip(0, 0);
+    state.deleteSelectedClip();
+    for (int t = 0; t < 2; ++t)
+        QCOMPARE(state.project()->tracks().at(t).clips.at(0).timelineStart, drift::secondsToUs(4.0));
 }
 
 // #249: a fixed 150 ms pull was under a pixel when zoomed out, so snapping looked switched off.
