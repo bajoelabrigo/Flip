@@ -34,6 +34,8 @@ def env_with_models(stage):
     env["DRIFT_DEPTH_MODEL_DIR"] = os.path.join(stage, "profundidad", "models", "depth")
     env["DRIFT_RESTORE_MODEL_DIR"] = os.path.join(stage, "mejorar.video", "models", "restore")
     env["DRIFT_DENOISE_MODEL_DIR"] = os.path.join(stage, "ruido.voz", "models", "deepfilternet3")
+    env["DRIFT_INTERP_MODEL_DIR"] = os.path.join(stage, "transiciones.ia", "models", "interp", "rife")
+    env["DRIFT_TEXTEMBED_MODEL_DIR"] = os.path.join(stage, "texto.ia", "models", "textembed", "minilm")
     # Test runs must not count as installs in the statistics of api.getflipstudio.com.
     env.setdefault("FLIP_NO_STATS", "1")
     return env
