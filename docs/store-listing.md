@@ -110,6 +110,31 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.18.0)**. Lo nuevo desde la 0.17.0. Texto de "Novedades de esta versión" del MSIX de la
+0.18.0 (641 de 1500 caracteres; en inglés, 587).
+
+> **Novedades de la 0.18.0**
+>
+> - Cámara lenta suave con IA: la IA dibuja las imágenes que le faltan a un clip lento, para que se mueva fluido.
+> - Efectos con antes y después al pasar el mouse, como los filtros.
+> - Arrastrar clips como en CapCut: hacia los lados no saltan de pista, y encajan al subir o bajar.
+> - Tarjetas con fotos variadas en efectos, plantillas de efectos, transiciones y filtros.
+> - Los contadores de Stock cuentan solos: cambias el número final y el conteo lo sigue.
+> - El contador de los textos ya cuenta en la vista previa y al exportar, y respeta los ceros («05:00»).
+> - Todo lo de IA funciona en tu computadora, sin internet.
+
+En inglés:
+
+> **What's new in 0.18.0**
+>
+> - AI smooth slow motion: the AI draws the frames a slowed clip is missing, so it moves smoothly.
+> - Effects show the before and after on hover, like filters.
+> - Dragging clips works as in CapCut: sideways they keep their track, and snap into place going up or down.
+> - Varied photos on the effect, effect template, transition and filter cards.
+> - Stock counters count on their own: change the final number and the count follows.
+> - Text counters now count in the preview and the export, and keep their zeros ("05:00").
+> - Everything AI runs on your computer, offline.
+
 **Notas para la Store (0.17.0)**. Lo nuevo desde la 0.16.0. Texto de "Novedades de esta versión" del MSIX de la
 0.17.0 (828 de 1500 caracteres).
 

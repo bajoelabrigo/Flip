@@ -1147,7 +1147,18 @@ QRectF fillTextLayer(GpuLayer &layer, const drift::TextStyle &plainStyle, const 
     const drift::ResolvedTextAnimation anim = drift::resolveTextAnimation(style.animation);
     drift::skia::TextPaintRequest request;
     request.style = style;
-    request.set = textFragments(style, text, layoutRect, renderScale, activeWordIndex);
+    // An animated counter shows its number at this instant of the clip (the text being edited
+    // stays as typed). Preview and export draw through here, not through makeTextPainter(clip, …).
+    QString shown = text;
+    if (style.counter && !atRest && windowDurationUs > 0) {
+        const double land = style.counterSeconds > 0.0
+                                ? std::min(1.0, double(drift::secondsToUs(style.counterSeconds)) / double(windowDurationUs))
+                                : 0.85;
+        const double progress =
+            double(qBound<drift::TimeUs>(0, timelineUs - windowStartUs, windowDurationUs)) / double(windowDurationUs);
+        shown = drift::counterTextAt(text, style.counterFrom, progress, land);
+    }
+    request.set = textFragments(style, shown, layoutRect, renderScale, activeWordIndex);
     if (!request.set || request.set->frags.isEmpty())
         return {};
     // The inline editor shows the text as it will rest: the default frame is the identity, with

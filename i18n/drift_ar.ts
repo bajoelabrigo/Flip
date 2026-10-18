@@ -5001,6 +5001,46 @@
         <translation>تمت إضافة الانتقال بالذكاء الاصطناعي</translation>
     </message>
     <message>
+        <source>Slow a video clip down first (Speed under 1×)</source>
+        <translation>أبطئ مقطع الفيديو أولًا (سرعة أقل من 1×)</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion needs the AI transitions extra: install it from Extras › AI tools</source>
+        <translation>تحتاج الحركة البطيئة السلسة إلى إضافة الانتقالات بالذكاء الاصطناعي: ثبّتها من الإضافات › أدوات الذكاء الاصطناعي</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion works on clips up to 3 minutes long: split this one first</source>
+        <translation>تعمل الحركة البطيئة السلسة على مقاطع حتى 3 دقائق: قسّم هذا المقطع أولًا</translation>
+    </message>
+    <message>
+        <source>%1 (smooth slow motion)</source>
+        <translation>%1 (حركة بطيئة سلسة)</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion…</source>
+        <translation>جارٍ إنشاء الحركة البطيئة السلسة…</translation>
+    </message>
+    <message>
+        <source>Couldn’t read the clip’s frames</source>
+        <translation>تعذّرت قراءة إطارات المقطع</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion… %1 %</source>
+        <translation>جارٍ إنشاء الحركة البطيئة السلسة… %1 %</translation>
+    </message>
+    <message>
+        <source>Couldn’t make smooth slow motion</source>
+        <translation>تعذّر إنشاء الحركة البطيئة السلسة</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>حركة بطيئة سلسة</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion ready</source>
+        <translation>الحركة البطيئة السلسة جاهزة</translation>
+    </message>
+    <message>
         <source>Write the text or describe the style you want</source>
         <translation>اكتب النص أو صف النمط الذي تريده</translation>
     </message>
@@ -19096,6 +19136,14 @@ If playback stutters, try another.</source>
     <message>
         <source> (reversed)</source>
         <translation> (معكوس)</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>حركة بطيئة سلسة</translation>
+    </message>
+    <message>
+        <source>Draws the in-between frames a slowed clip is missing, so it moves smoothly instead of stuttering. Uses the AI transitions extra.</source>
+        <translation>يرسم الإطارات الوسيطة التي تنقص المقطع المُبطّأ ليتحرك بسلاسة بدل التقطّع. يستخدم إضافة الانتقالات بالذكاء الاصطناعي.</translation>
     </message>
     <message>
         <source>Reverse</source>

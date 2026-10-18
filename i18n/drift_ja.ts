@@ -4953,6 +4953,46 @@
         <translation>AI トランジションを追加しました</translation>
     </message>
     <message>
+        <source>Slow a video clip down first (Speed under 1×)</source>
+        <translation>まず動画クリップを遅くしてください（速度 1× 未満）</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion needs the AI transitions extra: install it from Extras › AI tools</source>
+        <translation>なめらかスローには AI トランジションの拡張機能が必要です：拡張機能 › AI ツール からインストールしてください</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion works on clips up to 3 minutes long: split this one first</source>
+        <translation>なめらかスローは 3 分までのクリップで使えます：先にこのクリップを分割してください</translation>
+    </message>
+    <message>
+        <source>%1 (smooth slow motion)</source>
+        <translation>%1（なめらかスロー）</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion…</source>
+        <translation>なめらかスローを作成中…</translation>
+    </message>
+    <message>
+        <source>Couldn’t read the clip’s frames</source>
+        <translation>クリップのフレームを読み込めませんでした</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion… %1 %</source>
+        <translation>なめらかスローを作成中… %1 %</translation>
+    </message>
+    <message>
+        <source>Couldn’t make smooth slow motion</source>
+        <translation>なめらかスローを作成できませんでした</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>なめらかスロー</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion ready</source>
+        <translation>なめらかスローができました</translation>
+    </message>
+    <message>
         <source>Write the text or describe the style you want</source>
         <translation>テキストを入力するか、希望のスタイルを説明してください</translation>
     </message>
@@ -18736,6 +18776,14 @@ If playback stutters, try another.</source>
     <message>
         <source> (reversed)</source>
         <translation> (リバース)</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>なめらかスロー</translation>
+    </message>
+    <message>
+        <source>Draws the in-between frames a slowed clip is missing, so it moves smoothly instead of stuttering. Uses the AI transitions extra.</source>
+        <translation>スローにしたクリップに足りない中間フレームを描き、カクつかずになめらかに動くようにします。AI トランジションの拡張機能を使います。</translation>
     </message>
     <message>
         <source>Reverse</source>

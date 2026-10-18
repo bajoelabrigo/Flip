@@ -244,6 +244,7 @@ Column {
                     }
 
                     readonly property string thumb: presetCard.modelData.thumbnailPath || ""
+                    readonly property bool hasBefore: thumb.length > 0 && (presetCard.modelData.beforeImage || "").length > 0
 
                     Drag.active: presetDrag.active
                     Drag.dragType: Drag.Automatic
@@ -286,13 +287,23 @@ Column {
 
                         Image {
                             anchors.fill: parent
-                            visible: presetCard.thumb.length > 0
-                            source: presetCard.thumb.length > 0
+                            visible: presetCard.thumb.length > 0 && !presetCard.hasBefore
+                            source: presetCard.thumb.length > 0 && !presetCard.hasBefore
                                     ? EditorState.imageUrl(presetCard.thumb) : ""
                             fillMode: Image.PreserveAspectCrop
                             asynchronous: true
                             sourceSize: Qt.size(Math.ceil(presetGrid.cardSize * Screen.devicePixelRatio), Math.ceil(presetGrid.cardSize * Screen.devicePixelRatio))
                             smooth: true
+                        }
+
+                        // Under the pointer: the photo the thumbnail was drawn on, wiping to the
+                        // effect, as Filters does with the looks (0.18).
+                        BeforeAfterImage {
+                            anchors.fill: parent
+                            visible: presetCard.hasBefore
+                            beforeSource: presetCard.hasBefore ? presetCard.modelData.beforeImage : ""
+                            afterSource: presetCard.hasBefore ? EditorState.imageUrl(presetCard.thumb) : ""
+                            playing: cardHover.hovered && !presetDrag.active
                         }
 
                         // Fallback when no thumbnail is present yet.

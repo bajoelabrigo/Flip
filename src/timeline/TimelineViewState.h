@@ -5,6 +5,7 @@
 #include <QSet>
 #include <QString>
 #include <QStringList>
+#include <QVariantList>
 #include <QVariantMap>
 
 // Per-panel state every track's clip renderer reads: the viewport, the zoom, the theme, and the
@@ -23,6 +24,9 @@ class TimelineViewState : public QObject
     Q_PROPERTY(bool touchMode READ touchMode WRITE setTouchMode NOTIFY viewChanged)
     Q_PROPERTY(bool multiSelectActive MEMBER m_multiSelectActive NOTIFY gestureChanged)
     Q_PROPERTY(double totalTracksHeight MEMBER m_totalTracksHeight NOTIFY gestureChanged)
+    // Per track index, [top, height + gap] of its row in the track column, or an empty entry for a
+    // track that has no row of its own: where a moved clip may settle (TimelineTrackItem::applyDrag).
+    Q_PROPERTY(QVariantList rowSpans MEMBER m_rowSpans NOTIFY gestureChanged)
 
     Q_PROPERTY(bool moveFollowActive MEMBER m_moveFollowActive NOTIFY gestureChanged)
     Q_PROPERTY(int moveLeaderTrack MEMBER m_moveLeaderTrack NOTIFY gestureChanged)
@@ -118,6 +122,7 @@ public:
 
     bool multiSelectActive() const { return m_multiSelectActive; }
     double totalTracksHeight() const { return m_totalTracksHeight; }
+    const QVariantList &rowSpans() const { return m_rowSpans; }
     bool moveFollowActive() const { return m_moveFollowActive; }
     int moveLeaderTrack() const { return m_moveLeaderTrack; }
     int moveLeaderClip() const { return m_moveLeaderClip; }
@@ -158,6 +163,7 @@ private:
     bool m_touchMode = false;
     bool m_multiSelectActive = false;
     double m_totalTracksHeight = 0.0;
+    QVariantList m_rowSpans;
     bool m_moveFollowActive = false;
     int m_moveLeaderTrack = -1;
     int m_moveLeaderClip = -1;

@@ -1481,7 +1481,31 @@ void TimelineTrackItem::applyDrag(const QPointF &scenePos)
     const TimelineViewState::Style &s = m_viewState->styleValues();
     const QPointF delta = pos - m_drag.pressItemPos;
     m_drag.rect.moveLeft(std::max(m_drag.minX, m_drag.pressRect.left() + delta.x()));
-    m_drag.rect.moveTop(std::clamp(m_drag.pressRect.top() + delta.y(), m_drag.minY, m_drag.maxY));
+    double top = std::clamp(m_drag.pressRect.top() + delta.y(), m_drag.minY, m_drag.maxY);
+    // Tetris-like, as on CapCut and Filmora (Jorge, 0.18): dragged sideways a clip keeps its row;
+    // it goes up or down only once its middle is in another row, and then sits exactly in that
+    // row. Above the first row or below the last it still floats, for "new track here".
+    // Adjustment clips keep floating: their lanes are strips inside a row.
+    const QVariantList &spans = m_viewState->rowSpans();
+    const TimelineClipsModel::Row &dragged = m_clips->rows().at(m_drag.clipIndex);
+    if (dragged.kind != QLatin1String("adjustment") && m_trackIndex >= 0 && m_trackIndex < spans.size()) {
+        const QVariantList own = spans.at(m_trackIndex).toList();
+        if (own.size() == 2) {
+            const double ownTop = own.at(0).toDouble();
+            const double middle = ownTop + top + m_drag.rect.height() / 2.0;
+            for (const QVariant &entry : spans) {
+                const QVariantList span = entry.toList();
+                if (span.size() != 2)
+                    continue;
+                const double rowTop = span.at(0).toDouble();
+                if (middle >= rowTop && middle < rowTop + span.at(1).toDouble()) {
+                    top = m_drag.pressRect.top() + (rowTop - ownTop);
+                    break;
+                }
+            }
+        }
+    }
+    m_drag.rect.moveTop(top);
 
     const double originX = m_clips->rows().at(m_drag.clipIndex).start * m_viewState->pxPerSecond()
                            + s.ringWidth;

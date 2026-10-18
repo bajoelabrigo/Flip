@@ -1021,8 +1021,11 @@ TextPainterResult makeTextPainter(const Clip &clip, const QString &text, const Q
     request.style = clip.textStyle.isAnimated() ? clip.textStyle.resolvedAt(t) : clip.textStyle;
     const ResolvedTextAnimation anim = resolveTextAnimation(request.style.animation);
     // An animated counter shows its number at this point of the clip.
+    const double land = request.style.counterSeconds > 0.0
+                            ? std::min(1.0, secondsToUs(request.style.counterSeconds) / double(window))
+                            : 0.85;
     const QString shown = request.style.counter
-                              ? drift::counterTextAt(text, request.style.counterFrom, double(t) / double(window))
+                              ? drift::counterTextAt(text, request.style.counterFrom, double(t) / double(window), land)
                               : text;
     request.set = text::fragmentsFor(shown, request.style, layoutRect.width(), layoutRect.height(), renderScale,
                                      activeWordIndex, text::splitFor(anim.resolved, request.style));

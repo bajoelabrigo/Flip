@@ -1188,6 +1188,8 @@ QJsonObject textStyleToJson(const TextStyle &s)
     if (s.counter) {
         json.insert(QStringLiteral("counter"), true);
         json.insert(QStringLiteral("counterFrom"), s.counterFrom);
+        if (s.counterSeconds > 0.0)
+            json.insert(QStringLiteral("counterSeconds"), s.counterSeconds);
     }
     if (s.boxStyle != QLatin1String("block"))
         json.insert(QStringLiteral("boxStyle"), s.boxStyle);
@@ -1301,6 +1303,7 @@ TextStyle textStyleFromJson(const QJsonObject &o)
     s.textCase = o.value(QStringLiteral("textCase")).toString(s.textCase);
     s.counter = o.value(QStringLiteral("counter")).toBool(s.counter);
     s.counterFrom = o.value(QStringLiteral("counterFrom")).toDouble(s.counterFrom);
+    s.counterSeconds = std::max(0.0, o.value(QStringLiteral("counterSeconds")).toDouble(s.counterSeconds));
     s.boxStyle = o.value(QStringLiteral("boxStyle")).toString(s.boxStyle);
     s.boxShape = o.value(QStringLiteral("boxShape")).toString(s.boxShape);
     s.boxPaddingX = o.value(QStringLiteral("boxPaddingX")).toDouble(s.boxPaddingX);
@@ -1349,7 +1352,7 @@ TextStyle textStyleFromJson(const QJsonObject &o)
 }
 
 
-QString counterTextAt(const QString &text, double from, double progress)
+QString counterTextAt(const QString &text, double from, double progress, double land)
 {
     static const QRegularExpression number(QStringLiteral("[0-9][0-9.,]*[0-9]|[0-9]"));
     const QRegularExpressionMatch m = number.match(text);
@@ -1390,14 +1393,18 @@ QString counterTextAt(const QString &text, double from, double progress)
     if (!ok)
         return text;
 
-    // Ease out, landing at 85 % of the clip so the final number holds on screen.
-    const double p = std::clamp(progress / 0.85, 0.0, 1.0);
+    // Ease out, landing at `land` of the clip (85 % by default) so the final number holds on screen.
+    const double p = std::clamp(progress / std::clamp(land, 0.01, 1.0), 0.0, 1.0);
     const double eased = 1.0 - std::pow(1.0 - p, 3.0);
     const double value = from + (target - from) * eased;
 
     QString digits = QString::number(std::abs(value), 'f', decimals);
     QString whole = decimals > 0 ? digits.left(digits.indexOf(QLatin1Char('.'))) : digits;
     const QString fraction = decimals > 0 ? digits.mid(digits.indexOf(QLatin1Char('.')) + 1) : QString();
+    // "05:00", "007": a whole part written with leading zeros keeps its width while counting.
+    const int wholeWidth = int((decimal.isNull() ? plain : plain.left(plain.indexOf(QLatin1Char('.')))).size());
+    if (plain.startsWith(QLatin1Char('0')) && wholeWidth > 1 && whole.size() < wholeWidth)
+        whole = whole.rightJustified(wholeWidth, QLatin1Char('0'));
     if (!thousands.isNull()) {
         for (int i = int(whole.size()) - 3; i > 0; i -= 3)
             whole.insert(i, thousands);

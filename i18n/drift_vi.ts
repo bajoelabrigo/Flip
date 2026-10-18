@@ -4961,6 +4961,46 @@
         <translation>Đã thêm chuyển cảnh AI</translation>
     </message>
     <message>
+        <source>Slow a video clip down first (Speed under 1×)</source>
+        <translation>Hãy làm chậm một clip video trước (tốc độ dưới 1×)</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion needs the AI transitions extra: install it from Extras › AI tools</source>
+        <translation>Quay chậm mượt cần tiện ích chuyển cảnh AI: cài đặt trong Tiện ích › Công cụ AI</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion works on clips up to 3 minutes long: split this one first</source>
+        <translation>Quay chậm mượt dùng cho clip dài tối đa 3 phút: hãy tách clip này trước</translation>
+    </message>
+    <message>
+        <source>%1 (smooth slow motion)</source>
+        <translation>%1 (quay chậm mượt)</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion…</source>
+        <translation>Đang tạo quay chậm mượt…</translation>
+    </message>
+    <message>
+        <source>Couldn’t read the clip’s frames</source>
+        <translation>Không đọc được khung hình của clip</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion… %1 %</source>
+        <translation>Đang tạo quay chậm mượt… %1 %</translation>
+    </message>
+    <message>
+        <source>Couldn’t make smooth slow motion</source>
+        <translation>Không tạo được quay chậm mượt</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>Quay chậm mượt</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion ready</source>
+        <translation>Quay chậm mượt đã sẵn sàng</translation>
+    </message>
+    <message>
         <source>Write the text or describe the style you want</source>
         <translation>Nhập văn bản hoặc mô tả phong cách bạn muốn</translation>
     </message>
@@ -18736,6 +18776,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source> (reversed)</source>
         <translation> (đã đảo ngược)</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>Quay chậm mượt</translation>
+    </message>
+    <message>
+        <source>Draws the in-between frames a slowed clip is missing, so it moves smoothly instead of stuttering. Uses the AI transitions extra.</source>
+        <translation>Vẽ các khung hình trung gian mà clip quay chậm còn thiếu, để chuyển động mượt thay vì giật. Dùng tiện ích chuyển cảnh AI.</translation>
     </message>
     <message>
         <source>Reverse</source>

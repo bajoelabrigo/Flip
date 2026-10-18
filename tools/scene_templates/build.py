@@ -246,8 +246,16 @@ def render_all(jobs, exe: Path, work: Path) -> None:
                 square_preview(preview, pkg / "preview.mp4")
     finally:
         bridge.close()
+        # The Google session as it is now: an editor open meanwhile may have rotated its token, and
+        # putting back the older one would sign the account out (CLAUDE.md).
+        account = backup.with_name(backup.stem + "-account.reg")
+        kept = subprocess.run(["reg", "export", REG_KEY + r"\Flip Studio\account", str(account), "/y"],
+                              capture_output=True).returncode == 0
         subprocess.run(["reg", "delete", REG_KEY, "/f"], capture_output=True)
         subprocess.run(["reg", "import", str(backup)], check=True, capture_output=True)
+        if kept:
+            subprocess.run(["reg", "import", str(account)], capture_output=True)
+        account.unlink(missing_ok=True)
         backup.unlink(missing_ok=True)
         if autosave.exists() and not had_autosave:
             autosave.unlink()

@@ -4965,6 +4965,46 @@
         <translation>Transizione con IA aggiunta</translation>
     </message>
     <message>
+        <source>Slow a video clip down first (Speed under 1×)</source>
+        <translation>Prima rallenta una clip video (velocità sotto 1×)</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion needs the AI transitions extra: install it from Extras › AI tools</source>
+        <translation>Lo slow motion fluido richiede l’extra delle transizioni IA: installalo da Extra › Strumenti IA</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion works on clips up to 3 minutes long: split this one first</source>
+        <translation>Lo slow motion fluido funziona su clip fino a 3 minuti: prima dividi questa</translation>
+    </message>
+    <message>
+        <source>%1 (smooth slow motion)</source>
+        <translation>%1 (slow motion fluido)</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion…</source>
+        <translation>Creazione dello slow motion fluido…</translation>
+    </message>
+    <message>
+        <source>Couldn’t read the clip’s frames</source>
+        <translation>Impossibile leggere i fotogrammi della clip</translation>
+    </message>
+    <message>
+        <source>Making smooth slow motion… %1 %</source>
+        <translation>Creazione dello slow motion fluido… %1 %</translation>
+    </message>
+    <message>
+        <source>Couldn’t make smooth slow motion</source>
+        <translation>Impossibile creare lo slow motion fluido</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>Slow motion fluido</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion ready</source>
+        <translation>Slow motion fluido pronto</translation>
+    </message>
+    <message>
         <source>Write the text or describe the style you want</source>
         <translation>Scrivi il testo o descrivi lo stile che desideri</translation>
     </message>
@@ -18808,6 +18848,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source> (reversed)</source>
         <translation> (inversa)</translation>
+    </message>
+    <message>
+        <source>Smooth slow motion</source>
+        <translation>Slow motion fluido</translation>
+    </message>
+    <message>
+        <source>Draws the in-between frames a slowed clip is missing, so it moves smoothly instead of stuttering. Uses the AI transitions extra.</source>
+        <translation>Disegna i fotogrammi intermedi che mancano a una clip rallentata, così si muove fluida invece che a scatti. Usa l’extra delle transizioni IA.</translation>
     </message>
     <message>
         <source>Reverse</source>

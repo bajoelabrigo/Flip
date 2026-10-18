@@ -3,6 +3,26 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.18.0 — Cámara lenta suave con IA, fotos variadas y contadores que cuentan solos
+
+- **Cámara lenta suave** (`AppController::smoothSlowMotion`): cada fotograma del clip lento se dibuja al fps del
+  proyecto desde los dos fotogramas de origen que lo rodean, con RIFE en medio (`FrameInterpolator`), y el clip pasa
+  a leer ese render a 1×; el audio incrustado se separa antes. Botón con marca IA en `SpeedFadeInspector.qml`.
+- **Antes y después en Efectos** (`EffectBrowser.qml` + `BeforeAfterImage`): `effectCatalog()` trae `beforeImage`
+  desde `resources/effectbases/map.json` (`tools/effects/before_bases.py`, que comprueba que cada miniatura se parezca
+  a su foto).
+- **Fotos variadas** en las miniaturas: `tools/effects/thumb_bases.json` + `vary_thumbs.py` (con `effectthumbs`,
+  `templatethumbs` y `transitionthumbs`, que `package.yml` sube como artefacto `windows-thumb-tools`); las LUTs eligen
+  una de 13 fotos CC0 por su nombre (`lutReferencePhoto`, `lutReference`).
+- **Contador:** `TextStyle.counterSeconds` y relleno con ceros en `counterTextAt`; las plantillas de contador de Stock
+  usan un solo texto con el contador del motor (`templates_c1.count_fn`).
+- **Arrastre «tipo tetris»** (`TimelineTrackItem::applyDrag` + `TimelineViewState.rowSpans`): un clip movido encaja
+  en filas enteras y cambia de pista solo cuando su centro entra en otra.
+- **Arreglo:** el contador animado no contaba en la vista previa ni al exportar (`FrameCompositor::fillTextLayer`).
+- Foto real de la tarjeta «Imperfecciones»; `build.py` de plantillas conserva la sesión de Google al restaurar el
+  registro.
+- **Editor web:** pestaña Voz con Kokoro-82M y eSpeak NG en el navegador (`flipstudio-app/src/voice`).
+
 ## 0.17.0 — IA local, inicio como Filmora y comportamiento de CapCut
 
 - **Transición con IA** (`engine/FrameInterpolator`, RIFE 4.25 MIT en ONNX, extra `transiciones.ia`, tipo
