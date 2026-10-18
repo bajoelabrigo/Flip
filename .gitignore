@@ -94,3 +94,4 @@ tools/stock_i18n/work/
 # Lists produced by publish_delta.py for the upload of the delta to the VPS.
 upload-list.txt
 remove-list.txt
+work/
