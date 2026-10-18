@@ -90,3 +90,7 @@ __pycache__/
 # contact sheets. The audits themselves live in kit.py (BLOCKED) once they are applied.
 tools/scene_templates/work/
 tools/stock_i18n/work/
+
+# Lists produced by publish_delta.py for the upload of the delta to the VPS.
+upload-list.txt
+remove-list.txt
