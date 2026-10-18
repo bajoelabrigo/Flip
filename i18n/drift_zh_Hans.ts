@@ -1100,6 +1100,17 @@
     </message>
 </context>
 <context>
+    <name>AiBadge</name>
+    <message>
+        <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AndroidAddMenu</name>
     <message>
         <source>Add to timeline</source>
@@ -4910,6 +4921,62 @@
         <translation>已添加定格帧</translation>
     </message>
     <message>
+        <source>Select a video or photo clip with another one right after it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is no clip right after this one to blend into</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI transitions need their extra: install it from Extras › AI tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Making the AI transition…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t read the frames at the cut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t make the AI transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI transition added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write the text or describe the style you want</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI text needs its extra: install it from Extras › AI tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There are no text styles to choose from</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choosing a style with AI…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t choose a style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI text added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Paste</source>
         <translation>粘贴</translation>
     </message>
@@ -5685,6 +5752,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>AI Transition to the Next Clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Transform Together</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6039,6 +6110,18 @@
     <message>
         <source>Collect Media to Folder</source>
         <translation>将媒体收集到文件夹</translation>
+    </message>
+    <message>
+        <source>Writes the subtitles from what is said in the video, word by word.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turns your text into a natural-sounding voice.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Finds where each shot starts and what is in it.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text</source>
@@ -8010,6 +8093,18 @@
     <message>
         <source>Head size</source>
         <translation>头部大小</translation>
+    </message>
+    <message>
+        <source>Blemish Removal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wrinkles</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Blur Amount</source>
@@ -18901,32 +18996,72 @@ If playback stutters, try another.</source>
         <translation>自动字幕</translation>
     </message>
     <message>
-        <source>Subtitles from the voice, offline</source>
-        <translation>从语音生成字幕，无需联网</translation>
+        <source>Text to speech</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text templates</source>
-        <translation>文字模板</translation>
+        <source>Templates</source>
+        <translation type="unfinished">模板</translation>
     </message>
     <message>
-        <source>Titles, verses, lower thirds</source>
-        <translation>标题、经文、下方字幕条</translation>
+        <source>Filters</source>
+        <translation type="unfinished">筛选</translation>
+    </message>
+    <message>
+        <source>Stock</source>
+        <translation type="unfinished">素材库</translation>
+    </message>
+    <message>
+        <source>New in Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>300 YouTuber-style templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Challenges, top 10s, podcasts, intros and end screens, free in Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUTs and colour effects, one click on the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles from the voice, on your computer, without internet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click to sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Everything is free</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation type="unfinished">打开项目</translation>
+    </message>
+    <message>
+        <source>Local projects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show as a grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show as a list</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stickers</source>
         <translation>贴纸</translation>
     </message>
     <message>
-        <source>3D and animated emojis</source>
-        <translation>3D 和动态表情</translation>
-    </message>
-    <message>
         <source>Vertical video</source>
         <translation>竖屏视频</translation>
-    </message>
-    <message>
-        <source>For TikTok, Reels and Shorts</source>
-        <translation>适用于 TikTok、Reels 和 Shorts</translation>
     </message>
     <message>
         <source>Today, %1</source>
@@ -18941,18 +19076,6 @@ If playback stutters, try another.</source>
         <translation>我的账户</translation>
     </message>
     <message>
-        <source>Sign in</source>
-        <translation>登录</translation>
-    </message>
-    <message>
-        <source>With Google, optional</source>
-        <translation>使用 Google，可选</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>首页</translation>
-    </message>
-    <message>
         <source>Extras</source>
         <translation>扩展</translation>
     </message>
@@ -18965,24 +19088,12 @@ If playback stutters, try another.</source>
         <translation>在线编辑</translation>
     </message>
     <message>
-        <source>Flip Studio in your browser, at getflipstudio.com/editor</source>
-        <translation>在浏览器中使用 Flip Studio：getflipstudio.com/editor</translation>
-    </message>
-    <message>
         <source>Create project</source>
         <translation>创建项目</translation>
     </message>
     <message>
-        <source>Projects</source>
-        <translation>项目</translation>
-    </message>
-    <message>
         <source>Search projects</source>
         <translation>搜索项目</translation>
-    </message>
-    <message>
-        <source>Open project…</source>
-        <translation>打开项目…</translation>
     </message>
     <message>
         <source>Your projects will show up here once you save them.</source>
@@ -19932,6 +20043,26 @@ If playback stutters, try another.</source>
         <translation>收藏</translation>
     </message>
     <message>
+        <source>AI text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Describe the style in your own words (horror title, neon sale, wedding…) and the AI picks the closest of your text styles.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your text (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The style, in your words: horror title, neon sale…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create with AI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation>%1 — 点击在播放头处添加，或拖到时间线。在预览中双击即可编辑。</translation>
     </message>
@@ -20400,6 +20531,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Title Case</source>
         <translation>首字母大写</translation>
+    </message>
+    <message>
+        <source>Counter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The number in the text counts up over the clip, as in a counter: $1.000.000, 10K, day 100…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit in Advanced</source>
@@ -21563,6 +21706,10 @@ If playback stutters, try another.</source>
 <context>
     <name>Theme</name>
     <message>
+        <source>Turquoise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Amber</source>
         <translation>琥珀</translation>
     </message>
@@ -21641,6 +21788,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Group</source>
         <translation>编组</translation>
+    </message>
+    <message>
+        <source>AI transition to the next clip</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Properties</source>
@@ -22087,6 +22238,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Select to the right</source>
         <translation>向右选择</translation>
+    </message>
+    <message>
+        <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pointer tools</source>
@@ -23159,6 +23314,18 @@ If playback stutters, try another.</source>
         <translation>从 Drift Forge 制作的 .driftfx 文件安装自定义转场或特效</translation>
     </message>
     <message>
+        <source>AI transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip: the AI draws the pictures between its last frame and the first frame of the next clip, and puts them in between.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the first of the two clips on the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>My Transitions</source>
         <translation>我的转场</translation>
     </message>
@@ -23725,12 +23892,20 @@ If playback stutters, try another.</source>
         <translation>抠像</translation>
     </message>
     <message>
+        <source>Cuts out the person or the subject from the background, frame by frame.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Mask</source>
         <translation>蒙版</translation>
     </message>
     <message>
         <source>Retouch</source>
         <translation>美颜</translation>
+    </message>
+    <message>
+        <source>Finds the face, the body and the hair to retouch them.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Automatic removal</source>
@@ -23787,6 +23962,14 @@ If playback stutters, try another.</source>
     <message>
         <source>All files (*)</source>
         <translation>所有文件 (*)</translation>
+    </message>
+    <message>
+        <source>Blemishes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Evens out spots, pimples and fine wrinkles</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Slim or widen what the mesh follows</source>

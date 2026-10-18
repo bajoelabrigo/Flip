@@ -1100,6 +1100,17 @@
     </message>
 </context>
 <context>
+    <name>AiBadge</name>
+    <message>
+        <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AndroidAddMenu</name>
     <message>
         <source>Add to timeline</source>
@@ -4910,6 +4921,62 @@
         <translation>정지 프레임이 추가됨</translation>
     </message>
     <message>
+        <source>Select a video or photo clip with another one right after it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is no clip right after this one to blend into</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI transitions need their extra: install it from Extras › AI tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Making the AI transition…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t read the frames at the cut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t make the AI transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI transition added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write the text or describe the style you want</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI text needs its extra: install it from Extras › AI tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There are no text styles to choose from</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choosing a style with AI…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t choose a style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI text added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Paste</source>
         <translation>붙여넣기</translation>
     </message>
@@ -5685,6 +5752,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>AI Transition to the Next Clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Transform Together</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6039,6 +6110,18 @@
     <message>
         <source>Collect Media to Folder</source>
         <translation>미디어를 폴더로 모으기</translation>
+    </message>
+    <message>
+        <source>Writes the subtitles from what is said in the video, word by word.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turns your text into a natural-sounding voice.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Finds where each shot starts and what is in it.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text</source>
@@ -8010,6 +8093,18 @@
     <message>
         <source>Head size</source>
         <translation>머리 크기</translation>
+    </message>
+    <message>
+        <source>Blemish Removal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wrinkles</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Blur Amount</source>
@@ -18900,32 +18995,72 @@ If playback stutters, try another.</source>
         <translation>자동 자막</translation>
     </message>
     <message>
-        <source>Subtitles from the voice, offline</source>
-        <translation>음성으로 자막 생성, 오프라인</translation>
+        <source>Text to speech</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text templates</source>
-        <translation>텍스트 템플릿</translation>
+        <source>Templates</source>
+        <translation type="unfinished">템플릿</translation>
     </message>
     <message>
-        <source>Titles, verses, lower thirds</source>
-        <translation>타이틀, 성경 구절, 하단 자막</translation>
+        <source>Filters</source>
+        <translation type="unfinished">필터</translation>
+    </message>
+    <message>
+        <source>Stock</source>
+        <translation type="unfinished">스톡</translation>
+    </message>
+    <message>
+        <source>New in Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>300 YouTuber-style templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Challenges, top 10s, podcasts, intros and end screens, free in Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUTs and colour effects, one click on the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles from the voice, on your computer, without internet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click to sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Everything is free</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation type="unfinished">프로젝트 열기</translation>
+    </message>
+    <message>
+        <source>Local projects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show as a grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show as a list</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stickers</source>
         <translation>스티커</translation>
     </message>
     <message>
-        <source>3D and animated emojis</source>
-        <translation>3D 및 애니메이션 이모지</translation>
-    </message>
-    <message>
         <source>Vertical video</source>
         <translation>세로 동영상</translation>
-    </message>
-    <message>
-        <source>For TikTok, Reels and Shorts</source>
-        <translation>TikTok, Reels, Shorts용</translation>
     </message>
     <message>
         <source>Today, %1</source>
@@ -18940,18 +19075,6 @@ If playback stutters, try another.</source>
         <translation>내 계정</translation>
     </message>
     <message>
-        <source>Sign in</source>
-        <translation>로그인</translation>
-    </message>
-    <message>
-        <source>With Google, optional</source>
-        <translation>Google 계정, 선택 사항</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>홈</translation>
-    </message>
-    <message>
         <source>Extras</source>
         <translation>추가 기능</translation>
     </message>
@@ -18964,24 +19087,12 @@ If playback stutters, try another.</source>
         <translation>온라인으로 편집</translation>
     </message>
     <message>
-        <source>Flip Studio in your browser, at getflipstudio.com/editor</source>
-        <translation>브라우저에서 쓰는 Flip Studio, getflipstudio.com/editor</translation>
-    </message>
-    <message>
         <source>Create project</source>
         <translation>프로젝트 만들기</translation>
     </message>
     <message>
-        <source>Projects</source>
-        <translation>프로젝트</translation>
-    </message>
-    <message>
         <source>Search projects</source>
         <translation>프로젝트 검색</translation>
-    </message>
-    <message>
-        <source>Open project…</source>
-        <translation>프로젝트 열기…</translation>
     </message>
     <message>
         <source>Your projects will show up here once you save them.</source>
@@ -19931,6 +20042,26 @@ If playback stutters, try another.</source>
         <translation>즐겨찾기</translation>
     </message>
     <message>
+        <source>AI text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Describe the style in your own words (horror title, neon sale, wedding…) and the AI picks the closest of your text styles.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your text (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The style, in your words: horror title, neon sale…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create with AI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation>%1 — 클릭하면 재생 헤드 위치에 추가되고, 타임라인으로 끌어다 놓을 수도 있습니다. 미리 보기에서 두 번 클릭하면 편집합니다.</translation>
     </message>
@@ -20399,6 +20530,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Title Case</source>
         <translation>단어 첫 글자 대문자</translation>
+    </message>
+    <message>
+        <source>Counter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The number in the text counts up over the clip, as in a counter: $1.000.000, 10K, day 100…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit in Advanced</source>
@@ -21562,6 +21705,10 @@ If playback stutters, try another.</source>
 <context>
     <name>Theme</name>
     <message>
+        <source>Turquoise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Amber</source>
         <translation>앰버</translation>
     </message>
@@ -21640,6 +21787,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Group</source>
         <translation>그룹화</translation>
+    </message>
+    <message>
+        <source>AI transition to the next clip</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Properties</source>
@@ -22086,6 +22237,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Select to the right</source>
         <translation>오른쪽으로 선택</translation>
+    </message>
+    <message>
+        <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pointer tools</source>
@@ -23158,6 +23313,18 @@ If playback stutters, try another.</source>
         <translation>Drift Forge에서 만든 .driftfx 파일로 사용자 지정 전환 또는 효과 설치</translation>
     </message>
     <message>
+        <source>AI transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip: the AI draws the pictures between its last frame and the first frame of the next clip, and puts them in between.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the first of the two clips on the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>My Transitions</source>
         <translation>내 전환</translation>
     </message>
@@ -23724,12 +23891,20 @@ If playback stutters, try another.</source>
         <translation>배경 제거</translation>
     </message>
     <message>
+        <source>Cuts out the person or the subject from the background, frame by frame.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Mask</source>
         <translation>마스크</translation>
     </message>
     <message>
         <source>Retouch</source>
         <translation>리터치</translation>
+    </message>
+    <message>
+        <source>Finds the face, the body and the hair to retouch them.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Automatic removal</source>
@@ -23786,6 +23961,14 @@ If playback stutters, try another.</source>
     <message>
         <source>All files (*)</source>
         <translation>모든 파일 (*)</translation>
+    </message>
+    <message>
+        <source>Blemishes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Evens out spots, pimples and fine wrinkles</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Slim or widen what the mesh follows</source>

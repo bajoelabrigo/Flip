@@ -1100,6 +1100,17 @@
     </message>
 </context>
 <context>
+    <name>AiBadge</name>
+    <message>
+        <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AndroidAddMenu</name>
     <message>
         <source>Add to timeline</source>
@@ -4910,6 +4921,62 @@
         <translation>フリーズフレームを追加しました</translation>
     </message>
     <message>
+        <source>Select a video or photo clip with another one right after it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is no clip right after this one to blend into</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI transitions need their extra: install it from Extras › AI tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Making the AI transition…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t read the frames at the cut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t make the AI transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI transition added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write the text or describe the style you want</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI text needs its extra: install it from Extras › AI tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There are no text styles to choose from</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choosing a style with AI…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t choose a style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI text added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Paste</source>
         <translation>貼り付け</translation>
     </message>
@@ -5685,6 +5752,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>AI Transition to the Next Clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Transform Together</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6039,6 +6110,18 @@
     <message>
         <source>Collect Media to Folder</source>
         <translation>フォルダーにメディアを収集</translation>
+    </message>
+    <message>
+        <source>Writes the subtitles from what is said in the video, word by word.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turns your text into a natural-sounding voice.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Finds where each shot starts and what is in it.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text</source>
@@ -8010,6 +8093,18 @@
     <message>
         <source>Head size</source>
         <translation>頭の大きさ</translation>
+    </message>
+    <message>
+        <source>Blemish Removal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wrinkles</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Blur Amount</source>
@@ -18902,32 +18997,72 @@ If playback stutters, try another.</source>
         <translation>自動字幕</translation>
     </message>
     <message>
-        <source>Subtitles from the voice, offline</source>
-        <translation>音声から字幕を作成（オフライン）</translation>
+        <source>Text to speech</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text templates</source>
-        <translation>テキストテンプレート</translation>
+        <source>Templates</source>
+        <translation type="unfinished">テンプレート</translation>
     </message>
     <message>
-        <source>Titles, verses, lower thirds</source>
-        <translation>タイトル、聖句、テロップ</translation>
+        <source>Filters</source>
+        <translation type="unfinished">フィルター</translation>
+    </message>
+    <message>
+        <source>Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New in Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>300 YouTuber-style templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Challenges, top 10s, podcasts, intros and end screens, free in Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUTs and colour effects, one click on the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles from the voice, on your computer, without internet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click to sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Everything is free</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation type="unfinished">プロジェクトを開く</translation>
+    </message>
+    <message>
+        <source>Local projects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show as a grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show as a list</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stickers</source>
         <translation>ステッカー</translation>
     </message>
     <message>
-        <source>3D and animated emojis</source>
-        <translation>3D 絵文字とアニメーション絵文字</translation>
-    </message>
-    <message>
         <source>Vertical video</source>
         <translation>縦型動画</translation>
-    </message>
-    <message>
-        <source>For TikTok, Reels and Shorts</source>
-        <translation>TikTok、Reels、Shorts 向け</translation>
     </message>
     <message>
         <source>Today, %1</source>
@@ -18942,18 +19077,6 @@ If playback stutters, try another.</source>
         <translation>マイアカウント</translation>
     </message>
     <message>
-        <source>Sign in</source>
-        <translation>サインイン</translation>
-    </message>
-    <message>
-        <source>With Google, optional</source>
-        <translation>Google で（任意）</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>ホーム</translation>
-    </message>
-    <message>
         <source>Extras</source>
         <translation>エクストラ</translation>
     </message>
@@ -18966,24 +19089,12 @@ If playback stutters, try another.</source>
         <translation>オンラインで編集</translation>
     </message>
     <message>
-        <source>Flip Studio in your browser, at getflipstudio.com/editor</source>
-        <translation>ブラウザーで使える Flip Studio（getflipstudio.com/editor）</translation>
-    </message>
-    <message>
         <source>Create project</source>
         <translation>プロジェクトを作成</translation>
     </message>
     <message>
-        <source>Projects</source>
-        <translation>プロジェクト</translation>
-    </message>
-    <message>
         <source>Search projects</source>
         <translation>プロジェクトを検索</translation>
-    </message>
-    <message>
-        <source>Open project…</source>
-        <translation>プロジェクトを開く…</translation>
     </message>
     <message>
         <source>Your projects will show up here once you save them.</source>
@@ -19933,6 +20044,26 @@ If playback stutters, try another.</source>
         <translation>お気に入り</translation>
     </message>
     <message>
+        <source>AI text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Describe the style in your own words (horror title, neon sale, wedding…) and the AI picks the closest of your text styles.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your text (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The style, in your words: horror title, neon sale…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create with AI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
         <translation>%1 — クリックで再生ヘッド位置に追加、またはタイムラインにドラッグ。プレビュー上でダブルクリックすると編集できます。</translation>
     </message>
@@ -20401,6 +20532,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Title Case</source>
         <translation>先頭を大文字</translation>
+    </message>
+    <message>
+        <source>Counter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The number in the text counts up over the clip, as in a counter: $1.000.000, 10K, day 100…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit in Advanced</source>
@@ -21564,6 +21707,10 @@ If playback stutters, try another.</source>
 <context>
     <name>Theme</name>
     <message>
+        <source>Turquoise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Amber</source>
         <translation>アンバー</translation>
     </message>
@@ -21642,6 +21789,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Group</source>
         <translation>グループ化</translation>
+    </message>
+    <message>
+        <source>AI transition to the next clip</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Properties</source>
@@ -22088,6 +22239,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Select to the right</source>
         <translation>右側を選択</translation>
+    </message>
+    <message>
+        <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pointer tools</source>
@@ -23160,6 +23315,18 @@ If playback stutters, try another.</source>
         <translation>Drift Forge で作成した .driftfx ファイルから、カスタムトランジションまたはエフェクトをインストールします</translation>
     </message>
     <message>
+        <source>AI transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip: the AI draws the pictures between its last frame and the first frame of the next clip, and puts them in between.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the first of the two clips on the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>My Transitions</source>
         <translation>マイトランジション</translation>
     </message>
@@ -23726,12 +23893,20 @@ If playback stutters, try another.</source>
         <translation>背景を削除</translation>
     </message>
     <message>
+        <source>Cuts out the person or the subject from the background, frame by frame.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Mask</source>
         <translation>マスク</translation>
     </message>
     <message>
         <source>Retouch</source>
         <translation>レタッチ</translation>
+    </message>
+    <message>
+        <source>Finds the face, the body and the hair to retouch them.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Automatic removal</source>
@@ -23788,6 +23963,14 @@ If playback stutters, try another.</source>
     <message>
         <source>All files (*)</source>
         <translation>すべてのファイル (*)</translation>
+    </message>
+    <message>
+        <source>Blemishes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Evens out spots, pimples and fine wrinkles</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Slim or widen what the mesh follows</source>
