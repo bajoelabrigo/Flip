@@ -1001,7 +1001,7 @@ TextPainterResult makeTextPainter(const TextPaintRequest &request)
     std::shared_ptr<const BlockGeometry> geometry = geometryFor(*request.set);
     const Bend bend = bendFor(request.set->frags, style, scale);
 
-    const bool cacheable = request.frame.isStatic && !style.isAnimated() && !timeDrivenPaint(style);
+    const bool cacheable = request.frame.isStatic && !style.isAnimated() && !timeDrivenPaint(style) && !style.counter;
     const quint64 key = cacheable ? qHashMulti(request.set->key, text::styleHash(style), imageW, imageH,
                                                qRound(scale * 1000.0), request.frame.poseHash)
                                   : 0;
@@ -1020,7 +1020,11 @@ TextPainterResult makeTextPainter(const Clip &clip, const QString &text, const Q
     TextPaintRequest request;
     request.style = clip.textStyle.isAnimated() ? clip.textStyle.resolvedAt(t) : clip.textStyle;
     const ResolvedTextAnimation anim = resolveTextAnimation(request.style.animation);
-    request.set = text::fragmentsFor(text, request.style, layoutRect.width(), layoutRect.height(), renderScale,
+    // An animated counter shows its number at this point of the clip.
+    const QString shown = request.style.counter
+                              ? drift::counterTextAt(text, request.style.counterFrom, double(t) / double(window))
+                              : text;
+    request.set = text::fragmentsFor(shown, request.style, layoutRect.width(), layoutRect.height(), renderScale,
                                      activeWordIndex, text::splitFor(anim.resolved, request.style));
     if (!request.set || request.set->frags.isEmpty())
         return {};

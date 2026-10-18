@@ -1027,6 +1027,47 @@ Item {
                     }
                 }
 
+                // Animated counter: the number in the text counts up over the clip.
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+
+                    Text {
+                        width: 74
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Counter")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+                    ThemedSwitch {
+                        anchors.verticalCenter: parent.verticalCenter
+                        checked: !!root.textStyle.counter
+                        tooltip: qsTr("The number in the text counts up over the clip, as in a counter: $1.000.000, 10K, day 100…")
+                        onToggled: root.setTextStyleKey("counter", checked)
+                    }
+                    Text {
+                        visible: !!root.textStyle.counter
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("from")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+                    ThemedTextField {
+                        visible: !!root.textStyle.counter
+                        width: 90
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: String(root.textStyle.counterFrom || 0)
+                        inputMethodHints: Qt.ImhFormattedNumbersOnly
+                        onEditingFinished: {
+                            const v = Number(text.replace(",", "."))
+                            if (!isNaN(v))
+                                root.setTextStyleKey("counterFrom", v)
+                        }
+                    }
+                }
+
                 Row {
                     width: parent.width
                     spacing: Theme.spacingSm

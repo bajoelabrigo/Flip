@@ -106,6 +106,11 @@ struct TextStyle
     // "none", "upper", "lower" or "title": applied when the text is laid out, so the typed words
     // are kept and switching back restores them.
     QString textCase = QStringLiteral("none");
+    // Animated counter (0.17): the first number in the text counts up (or down) from counterFrom to
+    // itself over the clip, easing out and landing at 85 % of its length ("$1.000.000", "10K",
+    // "100 días"). Separators and decimals keep the text's own format.
+    bool counter = false;
+    double counterFrom = 0.0;
 
     bool boxEnabled = false; // filled background behind the whole block
     QColor boxColor = QColor(0, 0, 0, 128);
@@ -159,6 +164,9 @@ struct TextStyle
 
 // `text` in the style's case ("upper", "lower", "title"; anything else leaves it as typed).
 QString applyTextCase(const QString &text, const QString &textCase);
+// The animated counter's text at `progress` (0..1 of the clip): the first number in `text` replaced
+// by its value counting from `from`, in the text's own format. `text` unchanged if it has none.
+QString counterTextAt(const QString &text, double from, double progress);
 // The background shapes a text box can take besides "rect", in gallery order.
 QStringList textBubbleShapes();
 

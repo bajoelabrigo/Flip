@@ -93,7 +93,7 @@ Investigado y probado en la PC de Jorge (RTX 5060) el 2026-10-18; ver también l
 - ⬜ **Traducciones:** lo nuevo de la 0.16 y la 0.17 (menús, categorías, Filtros, avisos de inicio de sesión) solo está
   en español; los otros idiomas lo ven en inglés. Traducir con `lupdate` + los `.ts` de cada idioma (se puede repartir
   entre agentes por idioma, como en `tools/stock_i18n`). También «Same as project» en Exportar sale en inglés.
-- ⬜ **Contadores animados** en el motor (hoy las plantillas de contador van con cortes).
+- 🟡 **Contadores animados: hecho en la rama.** `TextStyle.counter`/`counterFrom` (se guardan en el proyecto solo si se usan), `drift::counterTextAt` (primer número del texto, mismo formato de separadores y decimales, curva de salida suave, llega al 85 % del clip; prueba `CoreTest::counterTextCountsInTheTextsFormat`), aplicado en `SkiaTextPainter::makeTextPainter`; interruptor «Contador» y «desde» en Texto › Básico. Falta: ver en ventana y, después, rehacer las 20 plantillas de contador de Stock para que usen esto en vez de cortes.
 - ⬜ **Las 9 pistas de música FMA** en espera: preparar una lista para que Jorge las escuche y decida.
 - ⬜ **Texto como forma de máscara** (Video › Máscara).
 - ⬜ **Quitar imperfecciones** (manchas y arrugas) en Retoque.

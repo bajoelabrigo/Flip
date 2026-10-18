@@ -1874,6 +1874,8 @@ QVariantMap textStyleToMap(const drift::TextStyle &s, drift::TimeUs timelineStar
         {QStringLiteral("boxBorderColor"), s.boxBorderColor.name(QColor::HexArgb)},
         {QStringLiteral("boxBorderWidth"), s.boxBorderWidth},
         {QStringLiteral("textCase"), s.textCase},
+        {QStringLiteral("counter"), s.counter},
+        {QStringLiteral("counterFrom"), s.counterFrom},
         {QStringLiteral("wordHighlight"), textHighlightToMap(s.wordHighlight)},
         {QStringLiteral("underlineEnabled"), s.underlineEnabled},
         {QStringLiteral("underlineColor"), s.underlineColor.name(QColor::HexArgb)},
@@ -12540,6 +12542,10 @@ void AppController::applyTextStylePatch(drift::TextStyle &s, const QVariantMap &
         s.textCase = (textCase == QLatin1String("upper") || textCase == QLatin1String("lower")
                       || textCase == QLatin1String("title")) ? textCase : QStringLiteral("none");
     }
+    if (m.contains(QStringLiteral("counter")))
+        s.counter = m.value(QStringLiteral("counter")).toBool();
+    if (m.contains(QStringLiteral("counterFrom")))
+        s.counterFrom = m.value(QStringLiteral("counterFrom")).toDouble();
     if (m.contains(QStringLiteral("underlineEnabled")))
         s.underlineEnabled = m.value(QStringLiteral("underlineEnabled")).toBool();
     if (m.contains(QStringLiteral("underlineColor")))
