@@ -15901,10 +15901,6 @@ If playback stutters, try another.</source>
         <translation>ප්‍රයෝගය පෙරසැකසුමක් ලෙස සුරකින්න</translation>
     </message>
     <message>
-        <source>Keep scrolling for %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>My look</source>
         <translation>මගේ විලාසය</translation>
     </message>

@@ -15835,10 +15835,6 @@ If playback stutters, try another.</source>
         <translation>エフェクトをプリセットとして保存</translation>
     </message>
     <message>
-        <source>Keep scrolling for %1</source>
-        <translation>スクロールを続けて %1 を表示</translation>
-    </message>
-    <message>
         <source>My look</source>
         <translation>マイスタイル</translation>
     </message>

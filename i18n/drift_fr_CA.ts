@@ -15904,10 +15904,6 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Enregister l&apos;effet comme préréglage</translation>
     </message>
     <message>
-        <source>Keep scrolling for %1</source>
-        <translation>Continuez de défiler pour voir %1</translation>
-    </message>
-    <message>
         <source>My look</source>
         <translation>Mon style</translation>
     </message>

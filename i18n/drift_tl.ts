@@ -15895,10 +15895,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Keep scrolling for %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>My look</source>
         <translation type="unfinished"></translation>
     </message>

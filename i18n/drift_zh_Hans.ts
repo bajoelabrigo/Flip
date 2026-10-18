@@ -15835,10 +15835,6 @@ If playback stutters, try another.</source>
         <translation>将效果保存为预设</translation>
     </message>
     <message>
-        <source>Keep scrolling for %1</source>
-        <translation>继续向下滚动查看%1</translation>
-    </message>
-    <message>
         <source>My look</source>
         <translation>我的风格</translation>
     </message>

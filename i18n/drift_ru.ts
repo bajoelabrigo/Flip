@@ -15967,10 +15967,6 @@ If playback stutters, try another.</source>
         <translation>Сохранить эффект как пресет</translation>
     </message>
     <message>
-        <source>Keep scrolling for %1</source>
-        <translation>Прокрутите дальше, чтобы увидеть: %1</translation>
-    </message>
-    <message>
         <source>My look</source>
         <translation>Мой образ</translation>
     </message>

@@ -15835,10 +15835,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Lưu hiệu ứng làm preset</translation>
     </message>
     <message>
-        <source>Keep scrolling for %1</source>
-        <translation>Cuộn tiếp để xem %1</translation>
-    </message>
-    <message>
         <source>My look</source>
         <translation>Phong cách của tôi</translation>
     </message>

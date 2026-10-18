@@ -15901,10 +15901,6 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Guardar efeito como predefinição</translation>
     </message>
     <message>
-        <source>Keep scrolling for %1</source>
-        <translation>Continue a deslocar para ver %1</translation>
-    </message>
-    <message>
         <source>My look</source>
         <translation>Meu visual</translation>
     </message>

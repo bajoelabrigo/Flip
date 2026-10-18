@@ -15901,10 +15901,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Guardar efecto como ajuste predeterminado</translation>
     </message>
     <message>
-        <source>Keep scrolling for %1</source>
-        <translation>Sigue bajando para ver %1</translation>
-    </message>
-    <message>
         <source>My look</source>
         <translation>Mi aspecto</translation>
     </message>

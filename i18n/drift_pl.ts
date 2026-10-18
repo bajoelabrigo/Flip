@@ -15967,10 +15967,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Zapisz efekt jako preset</translation>
     </message>
     <message>
-        <source>Keep scrolling for %1</source>
-        <translation>Przewijaj dalej, aby zobaczyć %1</translation>
-    </message>
-    <message>
         <source>My look</source>
         <translation>Mój wygląd</translation>
     </message>

@@ -15835,10 +15835,6 @@ If playback stutters, try another.</source>
         <translation>효과를 프리셋으로 저장</translation>
     </message>
     <message>
-        <source>Keep scrolling for %1</source>
-        <translation>계속 스크롤하면 %1</translation>
-    </message>
-    <message>
         <source>My look</source>
         <translation>내 룩</translation>
     </message>

@@ -16165,10 +16165,6 @@ If playback stutters, try another.</source>
         <translation>حفظ التأثير كإعداد مسبق</translation>
     </message>
     <message>
-        <source>Keep scrolling for %1</source>
-        <translation>تابع التمرير لرؤية %1</translation>
-    </message>
-    <message>
         <source>My look</source>
         <translation>مظهري</translation>
     </message>

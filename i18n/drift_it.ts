@@ -15901,10 +15901,6 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Salva effetto come predefinito</translation>
     </message>
     <message>
-        <source>Keep scrolling for %1</source>
-        <translation>Continua a scorrere per %1</translation>
-    </message>
-    <message>
         <source>My look</source>
         <translation>Il mio stile</translation>
     </message>

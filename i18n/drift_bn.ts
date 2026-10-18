@@ -15901,10 +15901,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished">প্রিসেট হিসাবে ইফেক্ট সংরক্ষণ করুন</translation>
     </message>
     <message>
-        <source>Keep scrolling for %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>My look</source>
         <translation>আমার স্টাইল</translation>
     </message>
