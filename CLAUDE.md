@@ -46,7 +46,7 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-10-18)
 
-### 0.18.0 EN CURSO (rama `flip/v0.18.0`) — **plan y estado en `docs/plan-0.18.md`**
+### 0.18.0 (rama `flip/v0.18.0`) — **plan y estado en `docs/plan-0.18.md`**
 - Contadores de Stock con el contador del motor (`counterSeconds`), fotos variadas en las miniaturas de Efectos,
   Plantillas de efectos, Transiciones y LUTs, antes y después en Efectos, cámara lenta suave con RIFE, foto de
   «Imperfecciones» y voz con IA del editor web.

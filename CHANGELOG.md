@@ -16,6 +16,11 @@ registro heredado de Drift.
   una de 13 fotos CC0 por su nombre (`lutReferencePhoto`, `lutReference`).
 - **Contador:** `TextStyle.counterSeconds` y relleno con ceros en `counterTextAt`; las plantillas de contador de Stock
   usan un solo texto con el contador del motor (`templates_c1.count_fn`).
+- **Arrastre «tipo tetris»** (`TimelineTrackItem::applyDrag` + `TimelineViewState.rowSpans`): un clip movido encaja
+  en filas enteras y cambia de pista solo cuando su centro entra en otra.
+- **Arreglo:** el contador animado no contaba en la vista previa ni al exportar (`FrameCompositor::fillTextLayer`).
+- Foto real de la tarjeta «Imperfecciones»; `build.py` de plantillas conserva la sesión de Google al restaurar el
+  registro.
 - **Editor web:** pestaña Voz con Kokoro-82M y eSpeak NG en el navegador (`flipstudio-app/src/voice`).
 
 ## 0.17.0 — IA local, inicio como Filmora y comportamiento de CapCut

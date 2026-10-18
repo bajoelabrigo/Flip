@@ -19,9 +19,9 @@ Leyenda: ✅ hecho en la rama · 🟡 empezado · ⬜ por hacer.
   pasan al motor; **barra de carga y marcador** siguen con cortes (`cuts=True`: su ritmo no es una curva suave), y
   el temporizador y los dos odómetros no cambian. Las barras y el anillo que acompañan al número usan la misma curva
   (cúbica) que el motor.
-- ⬜ Renderizar miniaturas y previas de las 15 con un portable de la 0.18 (la 0.17 no conoce `counterSeconds`:
-  aterrizaría tarde) — `tools/scene_templates/build.py --only cont-…` — revisar en hoja de contacto y **publicar al
-  salir la 0.18** (`publish_delta.py` + `apply_delta.sh`). Una app 0.15/0.16 muestra el número final quieto.
+- ✅ Renderizadas con la compilación 39176891034 (la que trae el arreglo del punto 8) y revisadas: a 1,6 s el número
+  va a mitad de camino y las barras y el anillo lo acompañan. `publish.py` + `publish_delta.py`: 15 elementos, 75
+  archivos, 35 MB, nada que borrar. Se suben al publicar la 0.18. Una app 0.15/0.16 muestra el número final quieto.
 
 ## 2. Fotos variadas en las miniaturas (Jorge, 2026-10-18)
 - Hoy: Transiciones de la app = todas el mismo camino con trigo; Plantillas de efectos = todas el loro; los efectos
@@ -52,7 +52,9 @@ Leyenda: ✅ hecho en la rama · 🟡 empezado · ⬜ por hacer.
   (mismo lugar, duración, efectos). El audio incrustado se separa antes (`separateAudioFromSelection`) para que
   conserve su tiempo. Máximo 3 minutos. Botón «Cámara lenta suave» + marca IA en Velocidad
   (`SpeedFadeInspector.qml`). Usa el extra `transiciones.ia`.
-- ⬜ Probar en ventana con un clip a 0,25×.
+- ✅ Probado en ventana con la compilación 39176891034: clip de 6 s a 0,5× → el audio pasa a su pista, render de
+  363 fotogramas (unos 7 min en el procesador) y el clip lo usa. Entre fotogramas el cambio es parejo (≈5–8), mientras
+  que sin la IA se repite cada fotograma (0, luego un salto de ≈10).
 
 ## 5. Foto de la tarjeta «Imperfecciones»
 - ✅ Rehecha con la app 0.18 sin ventana (`detect_faces` + `face_blemish` con Manchas 1,0 y Arrugas 0,9) sobre la foto
@@ -80,7 +82,7 @@ Leyenda: ✅ hecho en la rama · 🟡 empezado · ⬜ por hacer.
 - ✅ `TimelineTrackItem::applyDrag`: el clip encaja en filas enteras (`TimelineViewState.rowSpans`, que arma
   `TimelinePanel.rowSpans()`); cambia de fila solo cuando su centro entra en otra. Por encima de la primera o debajo
   de la última sigue libre (pista nueva). Las capas de ajuste siguen libres (sus carriles van dentro de una fila).
-- ⬜ Probarlo en ventana.
+- ⬜ Probarlo en ventana: **lo prueba Jorge** (el arrastre con mensajes simulados no mueve clips).
 
 ## 8. Arreglo: el contador no contaba en la vista previa ni al exportar
 - Encontrado al renderizar las plantillas: la 0.17 solo aplicaba el contador en `makeTextPainter(clip, …)`, pero la
