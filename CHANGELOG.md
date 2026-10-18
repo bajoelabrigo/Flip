@@ -3,6 +3,28 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.17.0 — IA local, inicio como Filmora y comportamiento de CapCut
+
+- **Transición con IA** (`engine/FrameInterpolator`, RIFE 4.25 MIT en ONNX, extra `transiciones.ia`, tipo
+  `interp-model`): `AppController::addAiTransitionAfter` escribe 1 s de fotogramas intermedios con `MatteWriter`
+  (modo color) y los inserta entre los dos clips, corriendo el resto.
+- **Texto con IA** (`engine/TextEmbedder`, paraphrase-multilingual-MiniLM-L12-v2 int8, extra `texto.ia`, tipo
+  `text-embed-model`; tokenizador Unigram propio, igual al de Hugging Face en las pruebas): `addAiText` elige el estilo
+  más cercano con descripciones de ambiente (`kStyleHints`).
+- **Quitar imperfecciones** (`effects/face_blemish`) y tarjeta en Retoque › Piel.
+- **Marca «IA»** (`components/AiBadge.qml`) en la barra lateral, las páginas del panel de Video y la barra de la línea
+  de tiempo.
+- **Inicio como Filmora** (`StartScreen.qml`) y **tema turquesa** predeterminado (`Theme.qml`, `menuBackground`,
+  `home*`); el submenú Color se arma desde `Theme.colorThemes`.
+- **La X del editor vuelve al inicio** (`Main.qml onClosing`, `quitApp`; el apagado de Windows sigue cerrando:
+  `main.cpp commitDataRequest`). Panel de recursos con la fila de categorías completa (clave nueva `assetsWide`).
+- **Vistas previas al pasar el mouse** (`StockThumb.hasMotion`, `SceneTemplateBrowser`) y antes/después en los LUT
+  (`BeforeAfterImage.qml`).
+- **Contador animado** (`TextStyle.counter`, `counterTextAt`, prueba `counterTextCountsInTheTextsFormat`).
+- **Como CapCut:** congelar fotograma en la misma pista corriendo el resto; mover con «Cerrar huecos» cierra la pista
+  de video (prueba `moveWithRippleClosesTheTrack`).
+- **Traducciones** de lo nuevo de la 0.16 y la 0.17 en 11 idiomas (`tools/i18n/ui_todo.py`).
+
 ## 0.16.0 — Menú como en Filmora y CapCut
 
 - **Menú arriba** (`AppMenuBar.qml`, Windows y Linux; macOS sigue con su menú nativo): Archivo, Editar,
