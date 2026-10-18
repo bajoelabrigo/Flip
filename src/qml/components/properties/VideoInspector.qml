@@ -379,6 +379,7 @@ Item {
                 ] },
                 { title: qsTr("Skin"), glyph: Theme.icons.skin, items: [
                     { id: "skin-smooth", label: qsTr("Smooth"), hint: qsTr("Evens out the skin"), values: { smoothing: 0.7 } },
+                    { id: "skin-blemish", label: qsTr("Blemishes"), hint: qsTr("Evens out spots, pimples and fine wrinkles"), effect: "face_blemish" },
                     { id: "skin-whiten", label: qsTr("Whiten"), hint: qsTr("Brightens the skin"), values: { whitening: 0.5 } },
                     { id: "skin-tone", label: qsTr("Skin tone"), hint: qsTr("Warms the skin towards the tone colour"), values: { skinTone: 0.5 } },
                     { id: "skin-sharpen", label: qsTr("Sharpen"), hint: qsTr("Brings back detail after smoothing"), values: { sharpen: 0.5 } }

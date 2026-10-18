@@ -95,8 +95,8 @@ Investigado y probado en la PC de Jorge (RTX 5060) el 2026-10-18; ver también l
   entre agentes por idioma, como en `tools/stock_i18n`). También «Same as project» en Exportar sale en inglés.
 - 🟡 **Contadores animados: hecho en la rama.** `TextStyle.counter`/`counterFrom` (se guardan en el proyecto solo si se usan), `drift::counterTextAt` (primer número del texto, mismo formato de separadores y decimales, curva de salida suave, llega al 85 % del clip; prueba `CoreTest::counterTextCountsInTheTextsFormat`), aplicado en `SkiaTextPainter::makeTextPainter`; interruptor «Contador» y «desde» en Texto › Básico. Falta: ver en ventana y, después, rehacer las 20 plantillas de contador de Stock para que usen esto en vez de cortes.
 - ⬜ **Las 9 pistas de música FMA** en espera: preparar una lista para que Jorge las escuche y decida.
-- ⬜ **Texto como forma de máscara** (Video › Máscara).
-- ⬜ **Quitar imperfecciones** (manchas y arrugas) en Retoque.
+- ✅ **Texto como forma de máscara:** ya existía (`MaskShape::Text`, Video › Máscara › Texto con su campo). Era una nota vieja.
+- 🟡 **Quitar imperfecciones: hecho en la rama.** Efecto nuevo `effects/face_blemish` (requiere cara: media amplia de la piel en dos pasadas y `blemish.frag`, que lleva hacia la piel de alrededor lo que es más oscuro o más rojo; parámetros Manchas y Arrugas) y tarjeta «Imperfecciones» en Retoque › Piel. **La foto de la tarjeta (`resources/retouch/skin-blemish.jpg`) es provisional (copia de skin-smooth)**: regenerarla con la app (ver `resources/retouch/README.md`). Falta ver el resultado en ventana con una cara.
 - ⬜ **Voz con IA en el editor web** (`flipstudio-app`), que espera al servidor.
 - Hecho y fuera de la lista: exportar en 4K y 8K (**probado por Jorge, funciona**).
 - Siempre al final del proyecto: pagos y tienda de cada usuario. Hasta entonces, todo gratis.
