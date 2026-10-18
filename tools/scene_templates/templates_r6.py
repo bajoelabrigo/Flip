@@ -29,7 +29,7 @@ def _ramp(d: float) -> list:
 def velocity_suave():
     t = tall("r-velocity-suave", "Velocity suave", "Smooth velocity", "reels", 9.0, order=3000,
              tags=["velocity", "rampa de velocidad", "suave", "tendencia", "capcut"], thumb_at=4.4)
-    samples = ["fashion-02", "outfit-03", "outfit-04", "portrait-07", "fashion-04", "selfie-02"]
+    samples = ["fashion-02", "y5-outfit-01", "outfit-04", "portrait-07", "fashion-04", "selfie-02"]
     slides(t, samples, 0.0, 1.5, transition=None, motion_fn=lambda i, d: _ramp(d),
            effects_fn=lambda i: [effect("color.basic", contrast=0.15, saturation=0.1, fade=0.06)])
     t.adjust([effect("zoom_pulse", animated={"punch": spike([0.7 + 1.5 * k for k in range(6)], 0.45, 0.35)}, blur=0.7),
@@ -47,7 +47,7 @@ def velocity_suave():
 def velocity_duro():
     t = tall("r-velocity-duro", "Velocity duro", "Hard velocity", "reels", 8.0, order=3001,
              tags=["velocity", "rampa", "duro", "temblor", "edit", "tendencia"], thumb_at=3.6, background="#000000")
-    samples = ["night-01", "skate-01", "night-03", "city-04", "skate-03", "night-04", "concert-03", "night-02"]
+    samples = ["night-01", "skate-01", "night-03", "city-04", "beach-01", "night-04", "concert-03", "night-02"]
     slides(t, samples, 0.0, 1.0, transition=None, motion_fn=lambda i, d: _ramp(d),
            effects_fn=lambda i: [effect("color.basic", contrast=0.4, saturation=-0.25)])
     hits = [0.5 + k for k in range(8)]
@@ -66,7 +66,7 @@ def velocity_duro():
 def slowmo_destello():
     t = tall("r-slowmo-destello", "Cámara lenta con destello", "Slow motion flare", "reels", 10.0, order=3002,
              tags=["cámara lenta", "slow motion", "destello", "sol", "cinemático"], thumb_at=5.2)
-    slides(t, ["sunset-01", "summer-04", "beach-05"], 0.0, 3.3, transition="blur_dissolve", tdur=0.8, kb_amount=0.07,
+    slides(t, ["sunset-01", "summer-04", "beach-01"], 0.0, 3.3, transition="blur_dissolve", tdur=0.8, kb_amount=0.07,
            effects_fn=lambda i: [effect("color.basic", temperature=0.25, highlights=-0.2, fade=0.08)])
     for k, at in enumerate((1.4, 4.6, 7.8)):
         t.solid(t.track("shape", "Destello"), "#FFE8C2", at, 1.6, centered(540, 700, 2400, 26),
@@ -135,11 +135,11 @@ def pareja_lento():
 def flash_camara():
     t = tall("r-flash-camara", "Flashes de paparazzi", "Paparazzi flashes", "reels", 8.0, order=3005,
              tags=["flash", "paparazzi", "famosa", "alfombra roja", "moda", "tendencia"], thumb_at=3.9, background="#000000")
-    samples = ["fashion-01", "portrait-08", "portrait-02", "fashion-03", "outfit-01", "portrait-06"]
+    samples = ["fashion-02", "portrait-08", "portrait-02", "fashion-03", "outfit-04", "portrait-06"]
     slides(t, samples, 0.0, 1.0, transition=None, kb_amount=0.06, motion_fn=lambda i, d: [(0, {"s": 1.08}, "out"),
                                                                                         (0.3, {"s": 1.0}, "linear"),
                                                                                         (d, {"s": 1.03})])
-    photo_bg(t, "fashion-01", 6.0, 2.0, s1=1.05, label="Foto final", reuse="p1")
+    photo_bg(t, "fashion-02", 6.0, 2.0, s1=1.05, label="Foto final", reuse="p1")
     rng = random.Random(3005)
     fl = t.track("shape", "Flashes")
     times = sorted(rng.uniform(0.1, 7.6) for _ in range(22))
@@ -163,7 +163,7 @@ def flash_camara():
 def modo_bestia():
     t = tall("r-modo-bestia", "Modo bestia", "Beast mode", "reels", 8.0, order=3006,
              tags=["gym", "modo bestia", "entrenamiento", "motivación", "fitness"], thumb_at=4.25, background="#000000")
-    samples = ["gym-01", "dance-02", "gym-05", "gym-02", "gym-06", "gym-04", "sport-04", "gym-01"]
+    samples = ["gym-01", "dance-02", "y2-h-gym-01", "y2b-h-gym-01", "y2-h-gym-06", "y2-h-gym-07", "h-sport-01", "beach-01"]
     slides(t, samples[:7], 0.0, 1.0, transition=None, kb_amount=0.12,
            effects_fn=lambda i: [effect("color.basic", saturation=-1.0, contrast=0.45)])
     photo_bg(t, "gym-01", 7.0, 1.0, s1=1.1, label="Foto final", reuse="p1",
@@ -185,7 +185,7 @@ def recuerdo_verano():
     t = tall("r-recuerdo-verano", "Recuerdo de verano", "Summer memory", "reels", 10.0, order=3007,
              tags=["verano", "playa", "recuerdos", "vacaciones", "polaroid", "sol"], thumb_at=6.0, background="#FFE8C7")
     bg_gradient(t, [(0, "#FFD7A8"), (1, "#FFF3E0")], angle=90)
-    samples = ["summer-01", "beach-02", "summer-03", "beach-04", "summer-02"]
+    samples = ["summer-01", "beach-01", "summer-03", "h-beach-01", "summer-02"]
     for i, s in enumerate(samples):
         at = 0.2 + i * 1.8
         r = (-1) ** i * (4 + i)
@@ -209,7 +209,7 @@ def core_memory():
     bg_gradient(t, [(0, "#1A1240"), (1, "#05040F")], angle=90)
     dots(t, ["#FFFFFF", "#B9A6FF"], 40, 0, 10.0, seed=3008, size=(4, 10), drift=30)
     orbs = [(300, 560, 360, "#FFD166"), (780, 820, 400, "#7BDFF2"), (360, 1180, 380, "#F7AEF8"), (760, 1480, 340, "#B2F7EF")]
-    samples = ["friends-04", "family-03", "mother-05", "friends-10"]
+    samples = ["friends-01", "family-03", "mother-05", "friends-10"]
     for i, ((x, y, s, c), smp) in enumerate(zip(orbs, samples)):
         at = 0.4 + i * 1.3
         mo = [(0, {"s": 0.0}, "back"), (0.7, {}, "smooth"), (4.0, {"dy": -30}, "smooth"), (10.0 - at, {"dy": 20})]
@@ -229,7 +229,7 @@ def core_memory():
 def dump_fecha():
     t = tall("r-dump-fecha", "Dump con fecha de cámara", "Dated photo dump", "reels", 9.0, order=3009,
              tags=["photo dump", "fecha", "cámara digital", "2000s", "recuerdos"], thumb_at=3.4, background="#000000")
-    samples = ["friends-05", "cafe-03", "friends-07", "beach-06", "night-02", "friends-11", "selfie-03", "concert-02"]
+    samples = ["friends-12", "cafe-01", "y4c-friends-05", "beach-01", "night-02", "friends-11", "selfie-03", "concert-02"]
     dates = ["10 03 '26", "22 04 '26", "05 06 '26", "18 07 '26", "02 08 '26", "14 09 '26", "30 09 '26", "16 10 '26"]
     slides(t, samples, 0.0, 1.0, transition=None, kb_amount=0.04,
            effects_fn=lambda i: [effect("color.basic", contrast=0.2, saturation=0.15), effect("bloom_glow", threshold=0.8,
@@ -254,7 +254,7 @@ def dump_finde():
     bg(t, "#F4EFE6")
     g = 16
     cw, ch = (1080 - 3 * g) / 2, (1500 - 4 * g) / 3
-    samples = ["friends-06", "coffee-02", "beach-01", "friends-09", "food-02", "sunset-02"]
+    samples = ["y4c-friends-06", "coffee-01", "beach-01", "friends-09", "food-02", "sunset-02"]
     for i, s in enumerate(samples):
         r, c = divmod(i, 2)
         box = Box(g + c * (cw + g), 300 + g + r * (ch + g), cw, ch)
@@ -288,8 +288,8 @@ def dump_viaje_mapa():
                 kind="ellipse")
     label(t, t.track("text", "Título"), "14 días · 4 ciudades", 0.3, 2.7, Box(60, 120, 960, 220), "DM Serif Display", 100,
           "#1F2A44", weight=400, anim_in=tanim("rise-by-word", duration=0.4, unit="word", stagger=0.1), name="Título")
-    slides(t, ["travel-01", "travel-04", "hike-01", "travel-08", "city-02", "travel-06",
-               "beach-03", "travel-09"], 3.0, 1.0, transition="slide_up", tdur=0.25, kb_amount=0.06)
+    slides(t, ["travel-01", "travel-04", "hike-01", "travel-08", "city-01", "travel-06",
+               "beach-01", "travel-09"], 3.0, 1.0, transition="slide_up", tdur=0.25, kb_amount=0.06)
     labels = ["Montaña", "Pueblo", "Sendero", "Mirador", "Ciudad", "Mercado", "Costa", "Regreso"]
     tags_ = t.track("text", "Lugar")
     for i, l in enumerate(labels):
@@ -328,7 +328,7 @@ def zoom_golpe():
     t = tall("r-zoom-golpe", "Zoom de golpe", "Punch zoom", "reels", 8.0, order=3013,
              tags=["zoom", "golpe", "ritmo", "minimal", "edit"], thumb_at=3.1, background="#FFFFFF")
     bg(t, "#FFFFFF")
-    samples = ["portrait-01", "man-02", "selfie-01", "portrait-04", "man-06", "selfie-04", "portrait-06", "friends-02"]
+    samples = ["portrait-01", "man-02", "selfie-01", "portrait-04", "man-06", "selfie-04", "portrait-06", "friends-01"]
     for i, s in enumerate(samples):
         at = i * 1.0
         t.photo(t.track("video", "Fotos") if i == 0 else ph, s, at, 1.0, Box(90, 260, 900, 1300),
@@ -349,7 +349,7 @@ def sacudida_3d():
     t = tall("r-sacudida-3d", "Giro 3D al ritmo", "3D swing on the beat", "reels", 8.0, order=3014,
              tags=["3d", "giro", "ritmo", "tarjeta", "tendencia"], thumb_at=2.75, background="#1B1B2F")
     bg_gradient(t, [(0, "#2E2E5C"), (1, "#121226")], angle=90)
-    samples = ["outfit-02", "fashion-03", "outfit-04", "portrait-06"]
+    samples = ["y5-outfit-01", "fashion-03", "outfit-04", "portrait-06"]
     for i, s in enumerate(samples):
         at = i * 2.0
         box = centered(540, 900, 820, 1180)
@@ -391,9 +391,9 @@ def giro_camara():
 def cambio_ropa():
     t = tall("r-cambio-ropa", "Cambio de outfit al golpe", "Outfit change on the beat", "reels", 7.0, order=3016,
              tags=["outfit", "cambio de ropa", "moda", "transición", "ootd"], thumb_at=3.75, background="#EDE7E3")
-    samples = ["outfit-01", "outfit-02", "outfit-03", "outfit-04", "fashion-01", "fashion-02"]
+    samples = ["y5-outfit-01", "y5-outfit-02", "y5-outfit-03", "outfit-04", "fashion-03", "fashion-02"]
     slides(t, samples, 0.5, 1.0, transition=None, kb_amount=0.0)
-    t.photo(t.track("video", "Inicio"), "outfit-01", 0, 0.5, t.full, label="Foto 1", reuse="p1")
+    t.photo(t.track("video", "Inicio"), "outfit-04", 0, 0.5, t.full, label="Foto 1", reuse="p1")
     count = t.track("text", "Contador")
     for i in range(6):
         label(t, count, f"{i + 1}/6", 0.5 + i, 1.0, Box(760, 120, 260, 110), "DM Sans", 72, "#FFFFFF", weight=800,
@@ -414,7 +414,7 @@ def cambio_ropa():
 def outfit_check():
     t = tall("r-outfit-check", "Outfit check con flechas", "Outfit check with arrows", "reels", 8.0, order=3017,
              tags=["outfit", "moda", "flechas", "detalles", "estilo"], thumb_at=5.5, background="#F5F0EB")
-    photo_bg(t, "outfit-03", s1=1.05, label="Foto del outfit")
+    photo_bg(t, "outfit-04", s1=1.05, label="Foto del outfit")
     # Each note: a dot on the garment, a line out to a pill label on the left or right edge.
     notes = [("camisa · segunda mano", 640, 700, 1.0, -1), ("jean recto", 440, 1150, 2.0, 1),
              ("botas de lluvia", 640, 1600, 3.0, -1)]
@@ -443,7 +443,7 @@ def ojo_pez():
              tags=["ojo de pez", "90s", "skate", "retro", "cámara"], thumb_at=3.4, background="#000000")
     bg(t, "#000000")
     host = t.track("video", "Fotos")
-    samples = ["skate-01", "skate-03", "friends-08", "friends-04", "night-01", "friends-12"]
+    samples = ["skate-01", "beach-01", "friends-08", "friends-01", "night-01", "friends-12"]
     for i, s in enumerate(samples):
         at = i * (8.0 / 6)
         d = 8.0 / 6
@@ -547,7 +547,7 @@ def cuadros_4_3():
 def contador_fotos():
     t = tall("r-contador-fotos", "Foto a foto con contador", "Photo counter", "reels", 6.0, order=3022,
              tags=["contador", "fotos", "ritmo", "rápido", "photo dump"], thumb_at=2.8, background="#111111")
-    samples = ["friends-01", "beach-01", "food-01", "pet-01", "city-02", "concert-01", "friends-04", "nature-01",
+    samples = ["friends-03", "beach-01", "food-01", "pet-01", "city-01", "concert-01", "friends-01", "nature-01",
                "selfie-02", "travel-03", "cafe-01", "sunset-04"]
     slides(t, samples, 0.0, B, transition=None, kb_amount=0.06)
     c = t.track("text", "Contador")
@@ -648,7 +648,7 @@ def collage_respira():
     bg(t, "#EFE9E1")
     cells = [Box(40, 160, 640, 760), Box(700, 160, 340, 360), Box(700, 540, 340, 380), Box(40, 940, 340, 420),
              Box(400, 940, 640, 420), Box(40, 1380, 1000, 380)]
-    samples = ["flowers-02", "coffee-02", "reading-01", "garden-02", "spring-02", "sunset-02"]
+    samples = ["flowers-02", "coffee-01", "reading-01", "garden-02", "spring-02", "sunset-02"]
     for i, (box, s) in enumerate(zip(cells, samples)):
         at = 0.2 + i * 0.25
         breathe = [(0, {"s": 0.0}, "out"), (0.5, {}, "smooth")]
@@ -715,7 +715,7 @@ def foto_rompe():
 def luces_fiesta():
     t = tall("r-luces-fiesta", "Luces de fiesta", "Party lights", "reels", 8.0, order=3030,
              tags=["fiesta", "luces", "noche", "disco", "amigos", "baile"], thumb_at=3.6, background="#0A0014")
-    samples = ["concert-02", "friends-10", "newyear-03", "dance-01", "concert-04", "friends-07", "newyear-05", "friends-12"]
+    samples = ["concert-02", "friends-10", "newyear-03", "dance-01", "concert-04", "y4c-party-06", "newyear-05", "friends-12"]
     slides(t, samples, 0.0, 1.0, transition=None, kb_amount=0.06)
     rng = random.Random(3030)
     for k in range(16):
@@ -737,7 +737,7 @@ def luces_fiesta():
 def letra_sube():
     t = tall("r-letra-sube", "Letra que sube", "Scrolling lyrics", "text", 12.0, order=3031,
              tags=["letra", "canción", "karaoke", "lyrics", "música"], thumb_at=6.2, background="#2B1B3D")
-    photo_bg(t, "music-03", s1=1.08, label="Foto de fondo", effects=[effect("builtin.effects.gaussian_blur", u_blurRadius=18),
+    photo_bg(t, "beach-01", s1=1.08, label="Foto de fondo", effects=[effect("builtin.effects.gaussian_blur", u_blurRadius=18),
                                                                        effect("color.basic", exposure=-0.4)])
     lines = ["y cuando todo calla", "te escucho en la radio", "bailando en la cocina", "como si fuera ayer",
              "no quiero despertar"]
@@ -798,7 +798,7 @@ def nadie_yo():
 def expectativa_realidad():
     t = tall("r-expectativa-realidad", "Expectativa vs. realidad", "Expectation vs reality", "beforeafter", 8.0,
              order=3034, tags=["expectativa", "realidad", "meme", "humor", "comparación"], thumb_at=5.0, background="#111111")
-    for i, (s, txt, y, c) in enumerate([("cake-03", "EXPECTATIVA", 0, "#06D6A0"), ("cake-02", "REALIDAD", 965, "#EF476F")]):
+    for i, (s, txt, y, c) in enumerate([("cake-01", "EXPECTATIVA", 0, "#06D6A0"), ("cake-02", "REALIDAD", 965, "#EF476F")]):
         at = 0.2 if i == 0 else 2.5
         t.photo(t.track("video", f"Foto {i + 1}"), s, at, 8.0 - at, Box(0, y, 1080, 955), kb(8.0 - at, 1.0, 1.05),
                 label=f"Foto {i + 1}")
@@ -911,7 +911,7 @@ def lugar_feliz():
 def recorrido_ubicacion():
     t = tall("r-recorrido-ubicacion", "Recorrido con ubicaciones", "Places tour", "reels", 10.0, order=3040,
              tags=["recorrido", "ubicación", "ciudad", "guía", "lugares", "turismo"], thumb_at=4.6)
-    places = [("city-02", "Mirador del puerto", "1"), ("restaurant-02", "Mercado central", "2"), ("coffee-04", "Café de la esquina", "3"),
+    places = [("city-01", "Mirador del puerto", "1"), ("restaurant-02", "Mercado central", "2"), ("coffee-04", "Café de la esquina", "3"),
               ("night-01", "Calle de los murales", "4"), ("sunset-01", "Playa al atardecer", "5")]
     for i, (s, name, n) in enumerate(places):
         at = i * 2.0
@@ -938,7 +938,7 @@ def recorrido_ubicacion():
 def detras_camaras():
     t = tall("r-detras-camaras", "Detrás de cámaras", "Behind the scenes", "reels", 9.0, order=3041,
              tags=["detrás de cámaras", "bts", "grabación", "proceso", "creador"], thumb_at=4.5, background="#111111")
-    slides(t, ["creator-02", "podcast-01", "creator-04", "office-02"], 0.0, 2.25, transition=None, kb_amount=0.06,
+    slides(t, ["creator-02", "podcast-02", "creator-04", "office-02"], 0.0, 2.25, transition=None, kb_amount=0.06,
            effects_fn=lambda i: [effect("color.basic", saturation=-0.2, contrast=0.1)])
     m = 60
     frame = t.track("shape", "Visor")
@@ -969,7 +969,7 @@ def lo_que_no_se_vio():
                 Box(130 + k * 137, 560, 137, 90), pop(0, 0.4))
     label(t, t.track("text", "Toma"), "TOMA 27", 0.2, 1.5, centered(540, 960, 760, 200), "Special Elite", 140, "#FFFFFF",
           weight=400, editable=False, anim_in=tanim("fade", duration=0.2))
-    samples = ["friends-06", "selfie-04", "pet-03", "friends-11", "cooking-04", "family-04"]
+    samples = ["y4c-friends-05", "selfie-04", "pet-03", "friends-11", "cooking-04", "family-04"]
     slides(t, samples, 1.6, (8.0 - 1.6) / 6, transition=None, kb_amount=0.1,
            effects_fn=lambda i: [effect("color.basic", contrast=0.15)])
     label(t, t.track("text", "Título"), "lo que no se vio 🙈", 1.7, 6.3, Box(60, 160, 960, 160), "DM Sans", 84, "#FFFFFF",
@@ -1006,7 +1006,7 @@ def tierno_stickers():
 def cumple_ritmo():
     t = tall("r-cumple-ritmo", "Cumple al ritmo", "Birthday on the beat", "celebration", 8.0, order=3044,
              tags=["cumpleaños", "ritmo", "fiesta", "letras", "happy birthday"], thumb_at=5.75, background="#1B1B1B")
-    samples = ["birthday-02", "cake-01", "birthday-04", "friends-01", "birthday-08", "cake-03", "birthday-05", "birthday-07"]
+    samples = ["birthday-02", "cake-01", "birthday-04", "friends-01", "birthday-08", "cake-02", "birthday-05", "birthday-07"]
     slides(t, samples, 0.0, 1.0, transition=None, kb_amount=0.08)
     word = "FELIZ CUMPLE"
     colours = ["#FF5A5F", "#FFD23F", "#3EC1FF", "#7BF06A", "#FF8C42", "#B26BFF"]
@@ -1108,7 +1108,7 @@ def gracias_por_tanto():
     t = tall("r-gracias-por-tanto", "Gracias por tanto", "Thank you for everything", "reels", 10.0, order=3048,
              tags=["gracias", "agradecimiento", "mamá", "amistad", "mensaje"], thumb_at=6.5, background="#FFF8F0")
     bg(t, "#FFF8F0")
-    spots = [("mother-04", Box(90, 140, 560, 700), -5), ("friends-02", Box(450, 560, 540, 680), 6),
+    spots = [("mother-04", Box(90, 140, 560, 700), -5), ("friends-01", Box(450, 560, 540, 680), 6),
              ("family-05", Box(110, 1040, 560, 640), -3)]
     for i, (s, box, r) in enumerate(spots):
         framed(t, s, 0.3 + i * 0.8, 9.7 - i * 0.8, box, [(0, {"s": 1.3}, "out"), (0.45, {})], border=14,

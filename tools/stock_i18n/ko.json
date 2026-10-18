@@ -114,6 +114,7 @@
   "template:text": "텍스트",
   "template:thumbnail": "썸네일",
   "template:transition": "전환과 구분 화면",
+  "template:youtuber": "유튜버 스타일",
   "text-animation:brillo": "반짝임·컬러",
   "text-animation:caer": "낙하·상승",
   "text-animation:desenfoque": "블러·페이드",
@@ -27011,6 +27012,3021 @@
     "반짝이",
     "핑크",
     "감성"
+   ]
+  },
+  "template:yt-calle-a-que-te-dedicas": {
+   "name": "무슨 일 하세요",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "직업",
+    "질문",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-adivina-edad": {
+   "name": "나이 맞히기",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "나이",
+    "추측",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-consejo": {
+   "name": "20살의 나에게",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "조언",
+    "인생",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-documental-h": {
+   "name": "다큐 인터뷰",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "다큐",
+    "가로",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-mic-grande": {
+   "name": "큰 마이크 인터뷰",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "마이크",
+    "클로즈업",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-noticiero-h": {
+   "name": "뉴스 스타일 인터뷰",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "뉴스",
+    "가로",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-parejas-h": {
+   "name": "커플 길거리 질문",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "커플",
+    "가로",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-precio": {
+   "name": "가격 맞히기",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "가격",
+    "추측",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-pregunta-del-dia": {
+   "name": "오늘의 질문",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "질문",
+    "시리즈",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-primera-cita": {
+   "name": "첫 데이트 누가 내나",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "연애",
+    "데이트",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-que-opinas": {
+   "name": "어떻게 생각해",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "의견",
+    "질문",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-ranking": {
+   "name": "결과 있는 설문",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "설문",
+    "결과",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-rapido": {
+   "name": "한 단어로 표현",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "한단어",
+    "빠른질문",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-termina-cancion": {
+   "name": "노래 이어 부르기",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "노래",
+    "퀴즈",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-trivia": {
+   "name": "길거리 상식 퀴즈",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "퀴즈",
+    "상식",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-tv-retro-h": {
+   "name": "레트로 TV 인터뷰",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "레트로",
+    "가로",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-verdadero-falso": {
+   "name": "사실일까 거짓일까",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "퀴즈",
+    "상식",
+    "유튜버"
+   ]
+  },
+  "template:yt-calle-vs": {
+   "name": "이거 아니면 저거",
+   "tags": [
+    "길거리",
+    "인터뷰",
+    "선택",
+    "투표",
+    "유튜버"
+   ]
+  },
+  "template:yt-coc-cenital": {
+   "name": "위에서 본 세 접시",
+   "tags": [
+    "요리",
+    "레시피",
+    "탑뷰",
+    "아이디어",
+    "음식"
+   ]
+  },
+  "template:yt-coc-cierre": {
+   "name": "맛있게 드세요",
+   "tags": [
+    "요리",
+    "레시피",
+    "엔드화면",
+    "마무리",
+    "유튜버"
+   ]
+  },
+  "template:yt-coc-crudo-listo": {
+   "name": "날것에서 완성까지",
+   "tags": [
+    "요리",
+    "레시피",
+    "전후",
+    "완성",
+    "유튜버"
+   ]
+  },
+  "template:yt-coc-ingredientes-flotan": {
+   "name": "필요한 재료",
+   "tags": [
+    "요리",
+    "레시피",
+    "재료",
+    "준비",
+    "유튜버"
+   ]
+  },
+  "template:yt-coc-ingredientes-lista": {
+   "name": "재료 체크리스트",
+   "tags": [
+    "요리",
+    "레시피",
+    "재료",
+    "목록",
+    "유튜버"
+   ]
+  },
+  "template:yt-coc-intro-canal": {
+   "name": "요리 채널 인트로",
+   "tags": [
+    "요리",
+    "레시피",
+    "인트로",
+    "채널",
+    "유튜버"
+   ]
+  },
+  "template:yt-coc-menu-semana": {
+   "name": "주간 식단표",
+   "tags": [
+    "요리",
+    "레시피",
+    "식단",
+    "주간",
+    "계획"
+   ]
+  },
+  "template:yt-coc-nutricion": {
+   "name": "영양 정보",
+   "tags": [
+    "요리",
+    "레시피",
+    "영양",
+    "칼로리",
+    "식단"
+   ]
+  },
+  "template:yt-coc-pasos": {
+   "name": "단계별 레시피",
+   "tags": [
+    "요리",
+    "레시피",
+    "단계",
+    "튜토리얼",
+    "유튜버"
+   ]
+  },
+  "template:yt-coc-pasos-wide": {
+   "name": "영상과 카드 단계",
+   "tags": [
+    "요리",
+    "레시피",
+    "단계",
+    "가로",
+    "유튜버"
+   ]
+  },
+  "template:yt-coc-pizarra": {
+   "name": "칠판 오늘 요리",
+   "tags": [
+    "요리",
+    "레시피",
+    "칠판",
+    "메뉴",
+    "유튜버"
+   ]
+  },
+  "template:yt-coc-plato-final": {
+   "name": "완성 요리 공개",
+   "tags": [
+    "요리",
+    "레시피",
+    "완성",
+    "공개",
+    "유튜버"
+   ]
+  },
+  "template:yt-coc-postre": {
+   "name": "노오븐 디저트",
+   "tags": [
+    "요리",
+    "레시피",
+    "디저트",
+    "달콤",
+    "간단"
+   ]
+  },
+  "template:yt-coc-receta-60s": {
+   "name": "60초 레시피",
+   "tags": [
+    "요리",
+    "레시피",
+    "빠른",
+    "60초",
+    "숏폼"
+   ]
+  },
+  "template:yt-coc-receta-card": {
+   "name": "레시피 카드",
+   "tags": [
+    "요리",
+    "레시피",
+    "카드",
+    "인분",
+    "시간"
+   ]
+  },
+  "template:yt-coc-receta-vertical": {
+   "name": "세로 레시피 카드",
+   "tags": [
+    "요리",
+    "레시피",
+    "카드",
+    "건강",
+    "저장"
+   ]
+  },
+  "template:yt-coc-reto-3": {
+   "name": "재료 3개 챌린지",
+   "tags": [
+    "요리",
+    "레시피",
+    "챌린지",
+    "재료",
+    "쉬움"
+   ]
+  },
+  "template:yt-coc-temporizador": {
+   "name": "오븐 타이머",
+   "tags": [
+    "요리",
+    "타이머",
+    "오븐",
+    "시간",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-0630": {
+   "name": "화면 속 시간",
+   "tags": [
+    "일상",
+    "시간",
+    "루틴",
+    "하루",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-alarma": {
+   "name": "알람이 울려",
+   "tags": [
+    "일상",
+    "알람",
+    "아침",
+    "기상",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-antes-despues": {
+   "name": "준비 전후 비교",
+   "tags": [
+    "일상",
+    "전후",
+    "변화",
+    "메이크업",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-checklist": {
+   "name": "아침 루틴 체크",
+   "tags": [
+    "일상",
+    "체크리스트",
+    "아침",
+    "루틴",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-cozy": {
+   "name": "느린 일요일",
+   "tags": [
+    "일상",
+    "감성",
+    "집",
+    "주말",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-diario": {
+   "name": "하루 일기",
+   "tags": [
+    "일상",
+    "일기",
+    "노트",
+    "기록",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-energia": {
+   "name": "하루 에너지",
+   "tags": [
+    "일상",
+    "에너지",
+    "기분",
+    "배터리",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-estudio": {
+   "name": "같이 공부하는 하루",
+   "tags": [
+    "일상",
+    "공부",
+    "스터디",
+    "계획",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-fin-semana": {
+   "name": "스크랩북 주말",
+   "tags": [
+    "일상",
+    "주말",
+    "스크랩북",
+    "폴라로이드",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-grwm-espejo": {
+   "name": "거울 앞 준비",
+   "tags": [
+    "일상",
+    "거울",
+    "메이크업",
+    "준비",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-grwm-lista": {
+   "name": "오늘 쓰는 것들",
+   "tags": [
+    "일상",
+    "리스트",
+    "메이크업",
+    "스킨케어",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-grwm-pasos": {
+   "name": "준비 과정 단계",
+   "tags": [
+    "일상",
+    "메이크업",
+    "단계",
+    "준비",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-linea-rutina": {
+   "name": "내 루틴 타임라인",
+   "tags": [
+    "일상",
+    "타임라인",
+    "루틴",
+    "하루",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-noche": {
+   "name": "밤 루틴",
+   "tags": [
+    "일상",
+    "밤",
+    "루틴",
+    "스킨케어",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-numeros": {
+   "name": "숫자로 본 하루",
+   "tags": [
+    "일상",
+    "숫자",
+    "통계",
+    "요약",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-outfit": {
+   "name": "오늘의 코디",
+   "tags": [
+    "일상",
+    "코디",
+    "패션",
+    "스타일",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-reloj": {
+   "name": "내 하루 시계",
+   "tags": [
+    "일상",
+    "시계",
+    "시간",
+    "루틴",
+    "유튜버"
+   ]
+  },
+  "template:yt-dia-rutina-split": {
+   "name": "미니멀 루틴",
+   "tags": [
+    "일상",
+    "미니멀",
+    "루틴",
+    "분할화면",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-barras": {
+   "name": "막대 그래프",
+   "tags": [
+    "설명",
+    "그래프",
+    "막대",
+    "데이터",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-capitulos": {
+   "name": "이 영상의 목차",
+   "tags": [
+    "설명",
+    "챕터",
+    "목차",
+    "구성",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-comparar": {
+   "name": "항목별 비교",
+   "tags": [
+    "설명",
+    "비교",
+    "대조",
+    "표",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-datos": {
+   "name": "떠오르는 사실",
+   "tags": [
+    "설명",
+    "정보",
+    "숫자",
+    "과학",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-dona": {
+   "name": "비율 도넛 차트",
+   "tags": [
+    "설명",
+    "비율",
+    "그래프",
+    "데이터",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-fuente": {
+   "name": "과학이 말하는 것",
+   "tags": [
+    "설명",
+    "과학",
+    "연구",
+    "출처",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-glosario": {
+   "name": "오늘의 단어",
+   "tags": [
+    "설명",
+    "단어",
+    "사전",
+    "정의",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-linea-tiempo": {
+   "name": "역사 타임라인",
+   "tags": [
+    "설명",
+    "역사",
+    "타임라인",
+    "연표",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-lupa": {
+   "name": "디테일 확대",
+   "tags": [
+    "설명",
+    "돋보기",
+    "디테일",
+    "줌",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-mapa-zoom": {
+   "name": "지도 줌 어디일까",
+   "tags": [
+    "설명",
+    "지도",
+    "줌",
+    "지리",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-mito": {
+   "name": "속설 혹은 사실",
+   "tags": [
+    "설명",
+    "속설",
+    "사실",
+    "상식",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-opina": {
+   "name": "당신 생각은",
+   "tags": [
+    "설명",
+    "투표",
+    "의견",
+    "댓글",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-pizarra": {
+   "name": "분필 칠판",
+   "tags": [
+    "설명",
+    "칠판",
+    "강의",
+    "공식",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-por-que": {
+   "name": "왜 그럴까",
+   "tags": [
+    "설명",
+    "질문",
+    "타이틀",
+    "상식",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-proceso": {
+   "name": "작동 원리 단계",
+   "tags": [
+    "설명",
+    "과정",
+    "다이어그램",
+    "단계",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-puntos": {
+   "name": "번호 매긴 목록",
+   "tags": [
+    "설명",
+    "리스트",
+    "번호",
+    "팁",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-recortes": {
+   "name": "신문 스크랩",
+   "tags": [
+    "설명",
+    "신문",
+    "뉴스",
+    "다큐",
+    "유튜버"
+   ]
+  },
+  "template:yt-expl-resaltador": {
+   "name": "형광펜 강조",
+   "tags": [
+    "설명",
+    "형광펜",
+    "텍스트",
+    "강조",
+    "유튜버"
+   ]
+  },
+  "template:yt-final-belleza": {
+   "name": "로즈골드 엔드 화면",
+   "tags": [
+    "엔드화면",
+    "유튜버",
+    "구독",
+    "다음영상",
+    "뷰티"
+   ]
+  },
+  "template:yt-final-columnas": {
+   "name": "두 칸 엔드 화면",
+   "tags": [
+    "엔드화면",
+    "유튜버",
+    "구독",
+    "다음영상",
+    "두영상"
+   ]
+  },
+  "template:yt-final-comic": {
+   "name": "코믹 엔드 화면",
+   "tags": [
+    "엔드화면",
+    "유튜버",
+    "구독",
+    "다음영상",
+    "코미디"
+   ]
+  },
+  "template:yt-final-hud": {
+   "name": "게이머 HUD 엔드 화면",
+   "tags": [
+    "엔드화면",
+    "유튜버",
+    "구독",
+    "다음영상",
+    "게임"
+   ]
+  },
+  "template:yt-final-liquido": {
+   "name": "액체 유리 엔드 화면",
+   "tags": [
+    "엔드화면",
+    "유튜버",
+    "구독",
+    "다음영상",
+    "그라데이션"
+   ]
+  },
+  "template:yt-final-minimal-uno": {
+   "name": "미니멀 엔드 화면",
+   "tags": [
+    "엔드화면",
+    "유튜버",
+    "구독",
+    "영상한개",
+    "미니멀"
+   ]
+  },
+  "template:yt-final-neon": {
+   "name": "네온 엔드 화면",
+   "tags": [
+    "엔드화면",
+    "유튜버",
+    "구독",
+    "다음영상",
+    "네온"
+   ]
+  },
+  "template:yt-final-pizarra": {
+   "name": "칠판 엔드 화면",
+   "tags": [
+    "엔드화면",
+    "유튜버",
+    "구독",
+    "다음영상",
+    "교육"
+   ]
+  },
+  "template:yt-final-postal": {
+   "name": "엽서 엔드 화면",
+   "tags": [
+    "엔드화면",
+    "유튜버",
+    "구독",
+    "다음영상",
+    "브이로그"
+   ]
+  },
+  "template:yt-final-setentas": {
+   "name": "70년대 엔드 화면",
+   "tags": [
+    "엔드화면",
+    "유튜버",
+    "구독",
+    "다음영상",
+    "레트로"
+   ]
+  },
+  "template:yt-final-short-acciones": {
+   "name": "좋아요와 저장",
+   "tags": [
+    "쇼츠",
+    "세로",
+    "좋아요",
+    "저장",
+    "공유"
+   ]
+  },
+  "template:yt-final-short-perfil": {
+   "name": "프로필에 더 많은 영상",
+   "tags": [
+    "쇼츠",
+    "세로",
+    "프로필",
+    "더보기",
+    "엔드화면"
+   ]
+  },
+  "template:yt-final-short-sigueme": {
+   "name": "팔로우 유도 마무리",
+   "tags": [
+    "쇼츠",
+    "세로",
+    "팔로우",
+    "마무리",
+    "엔드화면"
+   ]
+  },
+  "template:yt-final-tech": {
+   "name": "테크 엔드 화면",
+   "tags": [
+    "엔드화면",
+    "유튜버",
+    "구독",
+    "다음영상",
+    "기술"
+   ]
+  },
+  "template:yt-final-vinilo": {
+   "name": "음악 엔드 화면",
+   "tags": [
+    "엔드화면",
+    "유튜버",
+    "구독",
+    "다음영상",
+    "음악"
+   ]
+  },
+  "template:yt-fit-antes-despues-kilos": {
+   "name": "몸무게 전후 비교",
+   "tags": [
+    "운동",
+    "전후",
+    "체중",
+    "변화",
+    "피트니스"
+   ]
+  },
+  "template:yt-fit-calentamiento": {
+   "name": "5단계 준비 운동",
+   "tags": [
+    "운동",
+    "준비운동",
+    "스트레칭",
+    "단계",
+    "피트니스"
+   ]
+  },
+  "template:yt-fit-calorias": {
+   "name": "소모 칼로리",
+   "tags": [
+    "운동",
+    "칼로리",
+    "유산소",
+    "통계",
+    "피트니스"
+   ]
+  },
+  "template:yt-fit-carrera-km": {
+   "name": "내 러닝 기록",
+   "tags": [
+    "운동",
+    "러닝",
+    "거리",
+    "기록",
+    "피트니스"
+   ]
+  },
+  "template:yt-fit-contador-reps": {
+   "name": "반복 횟수 카운터",
+   "tags": [
+    "운동",
+    "반복",
+    "횟수",
+    "피트니스",
+    "헬스"
+   ]
+  },
+  "template:yt-fit-descanso": {
+   "name": "세트 간 휴식",
+   "tags": [
+    "운동",
+    "휴식",
+    "타이머",
+    "세트",
+    "피트니스"
+   ]
+  },
+  "template:yt-fit-ejercicio-del-dia": {
+   "name": "오늘의 운동",
+   "tags": [
+    "운동",
+    "오늘",
+    "자세",
+    "팁",
+    "피트니스"
+   ]
+  },
+  "template:yt-fit-hiit-neon": {
+   "name": "네온 인터벌",
+   "tags": [
+    "운동",
+    "인터벌",
+    "유산소",
+    "네온",
+    "피트니스"
+   ]
+  },
+  "template:yt-fit-macros": {
+   "name": "식단 매크로",
+   "tags": [
+    "운동",
+    "영양",
+    "단백질",
+    "식단",
+    "피트니스"
+   ]
+  },
+  "template:yt-fit-plan-semanal": {
+   "name": "주간 운동 계획",
+   "tags": [
+    "운동",
+    "계획",
+    "주간",
+    "루틴",
+    "피트니스"
+   ]
+  },
+  "template:yt-fit-record-personal": {
+   "name": "신기록 달성",
+   "tags": [
+    "운동",
+    "기록",
+    "역도",
+    "성취",
+    "피트니스"
+   ]
+  },
+  "template:yt-fit-reto-30-dias": {
+   "name": "30일 챌린지",
+   "tags": [
+    "운동",
+    "30일",
+    "챌린지",
+    "달력",
+    "피트니스"
+   ]
+  },
+  "template:yt-fit-rutina-4-pasos": {
+   "name": "4단계 루틴",
+   "tags": [
+    "운동",
+    "루틴",
+    "단계",
+    "홈트",
+    "피트니스"
+   ]
+  },
+  "template:yt-fit-rutina-en-casa": {
+   "name": "홈트 루틴",
+   "tags": [
+    "운동",
+    "홈트",
+    "기구없이",
+    "루틴",
+    "피트니스"
+   ]
+  },
+  "template:yt-fit-serie-hud": {
+   "name": "세트 타이머",
+   "tags": [
+    "운동",
+    "세트",
+    "타이머",
+    "헬스",
+    "피트니스"
+   ]
+  },
+  "template:yt-fit-sin-excusas": {
+   "name": "변명은 없다",
+   "tags": [
+    "운동",
+    "동기부여",
+    "의지",
+    "피트니스",
+    "에너지"
+   ]
+  },
+  "template:yt-fit-tabata": {
+   "name": "타바타 타이머",
+   "tags": [
+    "운동",
+    "타바타",
+    "타이머",
+    "인터벌",
+    "피트니스"
+   ]
+  },
+  "template:yt-fit-transformacion": {
+   "name": "나의 변화 기록",
+   "tags": [
+    "운동",
+    "변화",
+    "전후",
+    "체중",
+    "피트니스"
+   ]
+  },
+  "template:yt-game-alerta-sub": {
+   "name": "새 구독자 알림",
+   "tags": [
+    "게임",
+    "스트리머",
+    "알림",
+    "구독자",
+    "라이브"
+   ]
+  },
+  "template:yt-game-alerta-vertical": {
+   "name": "세로 방송 알림",
+   "tags": [
+    "게임",
+    "스트리머",
+    "알림",
+    "세로",
+    "라이브"
+   ]
+  },
+  "template:yt-game-clip-viral": {
+   "name": "세로 게임 클립",
+   "tags": [
+    "게임",
+    "클립",
+    "세로",
+    "숏폼",
+    "바이럴"
+   ]
+  },
+  "template:yt-game-derrota": {
+   "name": "패배 화면",
+   "tags": [
+    "게임",
+    "스트리머",
+    "패배",
+    "복수",
+    "다음판"
+   ]
+  },
+  "template:yt-game-empezamos": {
+   "name": "곧 시작합니다",
+   "tags": [
+    "게임",
+    "스트리머",
+    "대기화면",
+    "라이브",
+    "시작"
+   ]
+  },
+  "template:yt-game-facecam-vertical": {
+   "name": "얼굴캠 게임 숏폼",
+   "tags": [
+    "게임",
+    "숏폼",
+    "세로",
+    "얼굴캠",
+    "리액션"
+   ]
+  },
+  "template:yt-game-fin-stream": {
+   "name": "방송 종료",
+   "tags": [
+    "게임",
+    "스트리머",
+    "방송종료",
+    "엔드화면",
+    "감사"
+   ]
+  },
+  "template:yt-game-gg": {
+   "name": "좋은 경기 마무리",
+   "tags": [
+    "게임",
+    "스트리머",
+    "마무리",
+    "경기",
+    "라이브"
+   ]
+  },
+  "template:yt-game-highlights": {
+   "name": "베스트 플레이 모음",
+   "tags": [
+    "게임",
+    "스트리머",
+    "하이라이트",
+    "명장면",
+    "모음"
+   ]
+  },
+  "template:yt-game-intro-pixel": {
+   "name": "8비트 레트로 인트로",
+   "tags": [
+    "게임",
+    "레트로",
+    "픽셀",
+    "인트로",
+    "아케이드"
+   ]
+  },
+  "template:yt-game-killfeed": {
+   "name": "연속 처치 기록",
+   "tags": [
+    "게임",
+    "스트리머",
+    "처치",
+    "연속",
+    "플레이"
+   ]
+  },
+  "template:yt-game-marcador": {
+   "name": "팀 점수판",
+   "tags": [
+    "게임",
+    "스트리머",
+    "점수판",
+    "팀",
+    "경쟁"
+   ]
+  },
+  "template:yt-game-mvp": {
+   "name": "최우수 플레이어",
+   "tags": [
+    "게임",
+    "스트리머",
+    "플레이어",
+    "통계",
+    "활약"
+   ]
+  },
+  "template:yt-game-nivel": {
+   "name": "레벨 업",
+   "tags": [
+    "게임",
+    "레벨",
+    "성취",
+    "경험치",
+    "스트리머"
+   ]
+  },
+  "template:yt-game-overlay-neon": {
+   "name": "네온 방송 오버레이",
+   "tags": [
+    "게임",
+    "스트리머",
+    "오버레이",
+    "얼굴캠",
+    "라이브"
+   ]
+  },
+  "template:yt-game-torneo": {
+   "name": "주간 토너먼트",
+   "tags": [
+    "게임",
+    "토너먼트",
+    "대진표",
+    "경쟁",
+    "이벤트"
+   ]
+  },
+  "template:yt-game-victoria": {
+   "name": "승리 화면",
+   "tags": [
+    "게임",
+    "스트리머",
+    "승리",
+    "우승",
+    "통계"
+   ]
+  },
+  "template:yt-game-vuelvo": {
+   "name": "잠시 자리 비움",
+   "tags": [
+    "게임",
+    "스트리머",
+    "일시정지",
+    "라이브",
+    "복귀"
+   ]
+  },
+  "template:yt-intro-3d": {
+   "name": "3D 카드 인트로",
+   "tags": [
+    "인트로",
+    "유튜버",
+    "채널",
+    "로고",
+    "입체",
+    "시네마틱"
+   ]
+  },
+  "template:yt-intro-a-mano": {
+   "name": "손그림 인트로",
+   "tags": [
+    "인트로",
+    "유튜버",
+    "채널",
+    "로고",
+    "손그림",
+    "공예"
+   ]
+  },
+  "template:yt-intro-belleza": {
+   "name": "부드러운 뷰티 인트로",
+   "tags": [
+    "인트로",
+    "유튜버",
+    "채널",
+    "로고",
+    "뷰티",
+    "메이크업"
+   ]
+  },
+  "template:yt-intro-comedia": {
+   "name": "코미디 인트로",
+   "tags": [
+    "인트로",
+    "유튜버",
+    "채널",
+    "로고",
+    "코미디",
+    "웃음"
+   ]
+  },
+  "template:yt-intro-educacion": {
+   "name": "노트 수업 인트로",
+   "tags": [
+    "인트로",
+    "유튜버",
+    "채널",
+    "로고",
+    "교육",
+    "노트"
+   ]
+  },
+  "template:yt-intro-gaming": {
+   "name": "폭발적인 게이머 인트로",
+   "tags": [
+    "인트로",
+    "유튜버",
+    "채널",
+    "로고",
+    "게임",
+    "네온"
+   ]
+  },
+  "template:yt-intro-glitch": {
+   "name": "끊긴 신호 인트로",
+   "tags": [
+    "인트로",
+    "유튜버",
+    "채널",
+    "로고",
+    "글리치",
+    "레트로"
+   ]
+  },
+  "template:yt-intro-liquido": {
+   "name": "액체 도형 인트로",
+   "tags": [
+    "인트로",
+    "유튜버",
+    "채널",
+    "로고",
+    "액체",
+    "모던"
+   ]
+  },
+  "template:yt-intro-minimal": {
+   "name": "미니멀 점 인트로",
+   "tags": [
+    "인트로",
+    "유튜버",
+    "채널",
+    "로고",
+    "미니멀",
+    "브랜드"
+   ]
+  },
+  "template:yt-intro-musica": {
+   "name": "바이닐 음악 인트로",
+   "tags": [
+    "인트로",
+    "유튜버",
+    "채널",
+    "로고",
+    "음악",
+    "바이닐"
+   ]
+  },
+  "template:yt-intro-neon": {
+   "name": "네온 사인 인트로",
+   "tags": [
+    "인트로",
+    "유튜버",
+    "채널",
+    "로고",
+    "네온",
+    "밤"
+   ]
+  },
+  "template:yt-intro-papel": {
+   "name": "레이어 종이 인트로",
+   "tags": [
+    "인트로",
+    "유튜버",
+    "채널",
+    "로고",
+    "종이",
+    "색감"
+   ]
+  },
+  "template:yt-intro-retro": {
+   "name": "70년대 레트로 인트로",
+   "tags": [
+    "인트로",
+    "유튜버",
+    "채널",
+    "로고",
+    "레트로",
+    "빈티지"
+   ]
+  },
+  "template:yt-intro-tech": {
+   "name": "회로 테크 인트로",
+   "tags": [
+    "인트로",
+    "유튜버",
+    "채널",
+    "로고",
+    "기술",
+    "가젯"
+   ]
+  },
+  "template:yt-intro-vlog": {
+   "name": "브이로그 사진 인트로",
+   "tags": [
+    "인트로",
+    "유튜버",
+    "채널",
+    "로고",
+    "브이로그",
+    "여행"
+   ]
+  },
+  "template:yt-mini-alerta": {
+   "name": "절대 사지 마",
+   "tags": [
+    "썸네일",
+    "경고",
+    "주의",
+    "실수",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-bien-mal": {
+   "name": "맞음과 틀림",
+   "tags": [
+    "썸네일",
+    "정답",
+    "오답",
+    "실수",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-caja-misterio": {
+   "name": "미스터리 상자",
+   "tags": [
+    "썸네일",
+    "상자",
+    "언박싱",
+    "반전",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-cara-a-cara": {
+   "name": "얼굴 맞대결",
+   "tags": [
+    "썸네일",
+    "대결",
+    "맞대결",
+    "리액션",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-celular": {
+   "name": "내 화면 보기",
+   "tags": [
+    "썸네일",
+    "휴대폰",
+    "화면",
+    "앱",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-comic": {
+   "name": "코믹 말풍선",
+   "tags": [
+    "썸네일",
+    "만화",
+    "말풍선",
+    "재미",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-cronometro": {
+   "name": "60초 안에",
+   "tags": [
+    "썸네일",
+    "타이머",
+    "60초",
+    "속도",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-cuatro-caras": {
+   "name": "네 얼굴 리액션",
+   "tags": [
+    "썸네일",
+    "네명",
+    "리액션",
+    "반응",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-diagonal": {
+   "name": "대각선 전후 비교",
+   "tags": [
+    "썸네일",
+    "전후",
+    "변화",
+    "대각선",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-flecha-circulo": {
+   "name": "화살표와 원",
+   "tags": [
+    "썸네일",
+    "화살표",
+    "원",
+    "클릭유도",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-grafica": {
+   "name": "상승 그래프",
+   "tags": [
+    "썸네일",
+    "그래프",
+    "성장",
+    "돈",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-lupa": {
+   "name": "돋보기로 확대",
+   "tags": [
+    "썸네일",
+    "돋보기",
+    "디테일",
+    "줌",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-numero-uno": {
+   "name": "1위 배지",
+   "tags": [
+    "썸네일",
+    "1위",
+    "배지",
+    "최고",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-precio-tachado": {
+   "name": "취소선 가격",
+   "tags": [
+    "썸네일",
+    "가격",
+    "할인",
+    "세일",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-revelacion": {
+   "name": "숨겨진 공개",
+   "tags": [
+    "썸네일",
+    "공개",
+    "비밀",
+    "검열",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-sticker": {
+   "name": "거대한 얼굴",
+   "tags": [
+    "썸네일",
+    "얼굴",
+    "스티커",
+    "리액션",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-tier-list": {
+   "name": "티어 리스트",
+   "tags": [
+    "썸네일",
+    "티어",
+    "랭킹",
+    "등급",
+    "유튜버"
+   ]
+  },
+  "template:yt-mini-tres-niveles": {
+   "name": "세 가지 등급",
+   "tags": [
+    "썸네일",
+    "등급",
+    "비교",
+    "가격",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-camara": {
+   "name": "보안 카메라",
+   "tags": [
+    "미스터리",
+    "보안카메라",
+    "녹화",
+    "단서",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-censurado": {
+   "name": "검열된 문서",
+   "tags": [
+    "미스터리",
+    "검열",
+    "문서",
+    "비밀",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-evidencia": {
+   "name": "증거 정리",
+   "tags": [
+    "미스터리",
+    "증거",
+    "단서",
+    "표시",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-expediente": {
+   "name": "사건 파일",
+   "tags": [
+    "미스터리",
+    "사건",
+    "파일",
+    "다큐",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-linea-tiempo": {
+   "name": "사건 타임라인",
+   "tags": [
+    "미스터리",
+    "타임라인",
+    "사건",
+    "연표",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-linea-vertical": {
+   "name": "세로 연표",
+   "tags": [
+    "미스터리",
+    "연표",
+    "세로",
+    "숏폼",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-mapa": {
+   "name": "사건 지도",
+   "tags": [
+    "미스터리",
+    "지도",
+    "위치",
+    "경로",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-maquina": {
+   "name": "타자기 오프닝",
+   "tags": [
+    "미스터리",
+    "타자기",
+    "내레이션",
+    "인트로",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-perfil": {
+   "name": "핵심 인물 프로필",
+   "tags": [
+    "미스터리",
+    "프로필",
+    "인물",
+    "자료",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-periodico": {
+   "name": "신문 스크랩",
+   "tags": [
+    "미스터리",
+    "신문",
+    "기사",
+    "헤드라인",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-podcast": {
+   "name": "미스터리 팟캐스트 인트로",
+   "tags": [
+    "미스터리",
+    "팟캐스트",
+    "인트로",
+    "에피소드",
+    "진행자"
+   ]
+  },
+  "template:yt-mist-se-busca": {
+   "name": "수배 전단",
+   "tags": [
+    "미스터리",
+    "수배",
+    "실종",
+    "전단",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-sin-resolver": {
+   "name": "미제 사건",
+   "tags": [
+    "미스터리",
+    "미제사건",
+    "인트로",
+    "다큐",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-sin-resolver-vertical": {
+   "name": "미제 사건 세로",
+   "tags": [
+    "미스터리",
+    "미제사건",
+    "세로",
+    "숏폼",
+    "1부"
+   ]
+  },
+  "template:yt-mist-tablero": {
+   "name": "실타래 단서 보드",
+   "tags": [
+    "미스터리",
+    "단서",
+    "보드",
+    "수사",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-tablero-vertical": {
+   "name": "세로 단서 보드",
+   "tags": [
+    "미스터리",
+    "단서",
+    "세로",
+    "숏폼",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-teorias": {
+   "name": "세 가지 가설",
+   "tags": [
+    "미스터리",
+    "가설",
+    "추리",
+    "숏폼",
+    "유튜버"
+   ]
+  },
+  "template:yt-mist-testigo": {
+   "name": "목격자 진술",
+   "tags": [
+    "미스터리",
+    "목격자",
+    "진술",
+    "인용",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-al-aire": {
+   "name": "라디오 스타일",
+   "tags": [
+    "팟캐스트",
+    "라디오",
+    "방송중",
+    "레트로",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-apertura": {
+   "name": "에피소드 오프닝",
+   "tags": [
+    "팟캐스트",
+    "오프닝",
+    "티저",
+    "인트로",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-audiograma": {
+   "name": "오디오그램",
+   "tags": [
+    "팟캐스트",
+    "파형",
+    "오디오",
+    "클립",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-cita": {
+   "name": "인용 클립",
+   "tags": [
+    "팟캐스트",
+    "인용",
+    "문장",
+    "세로",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-clip-subtitulos": {
+   "name": "큰 자막 클립",
+   "tags": [
+    "팟캐스트",
+    "자막",
+    "클립",
+    "세로",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-clip-vertical": {
+   "name": "두 카메라 세로 클립",
+   "tags": [
+    "팟캐스트",
+    "클립",
+    "세로",
+    "자막",
+    "숏폼"
+   ]
+  },
+  "template:yt-pod-cortes": {
+   "name": "컷 편집 팟캐스트",
+   "tags": [
+    "팟캐스트",
+    "컷",
+    "대화",
+    "멀티캠",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-debate": {
+   "name": "찬반 토론",
+   "tags": [
+    "팟캐스트",
+    "토론",
+    "찬성",
+    "반대",
+    "의견"
+   ]
+  },
+  "template:yt-pod-dos-camaras": {
+   "name": "두 대의 카메라",
+   "tags": [
+    "팟캐스트",
+    "카메라",
+    "인터뷰",
+    "이름",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-en-vivo": {
+   "name": "라이브 팟캐스트",
+   "tags": [
+    "팟캐스트",
+    "라이브",
+    "채팅",
+    "생방송",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-invitado": {
+   "name": "게스트 소개",
+   "tags": [
+    "팟캐스트",
+    "게스트",
+    "소개",
+    "인터뷰",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-mejores-momentos": {
+   "name": "하이라이트 모음",
+   "tags": [
+    "팟캐스트",
+    "하이라이트",
+    "요약",
+    "클립",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-panel-tres": {
+   "name": "3인 패널",
+   "tags": [
+    "팟캐스트",
+    "패널",
+    "토론",
+    "세사람",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-pausa": {
+   "name": "곧 돌아옵니다",
+   "tags": [
+    "팟캐스트",
+    "휴식",
+    "잠깐",
+    "컷",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-pregunta": {
+   "name": "오늘의 질문",
+   "tags": [
+    "팟캐스트",
+    "질문",
+    "토론",
+    "주제",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-proximo": {
+   "name": "다음 에피소드",
+   "tags": [
+    "팟캐스트",
+    "다음편",
+    "구독",
+    "엔드화면",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-temas": {
+   "name": "에피소드 주제",
+   "tags": [
+    "팟캐스트",
+    "주제",
+    "목차",
+    "시간",
+    "유튜버"
+   ]
+  },
+  "template:yt-pod-titulo-episodio": {
+   "name": "에피소드 제목",
+   "tags": [
+    "팟캐스트",
+    "제목",
+    "에피소드",
+    "커버",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-arriba-abajo": {
+   "name": "위아래 리액션",
+   "tags": [
+    "리액션",
+    "분할화면",
+    "위아래",
+    "반응",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-cine-h": {
+   "name": "같이 보기 리액션",
+   "tags": [
+    "리액션",
+    "영화",
+    "같이보기",
+    "가로",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-comentarios": {
+   "name": "댓글 읽기",
+   "tags": [
+    "리액션",
+    "댓글",
+    "소통",
+    "반응",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-comida": {
+   "name": "먹어 볼래",
+   "tags": [
+    "리액션",
+    "음식",
+    "투표",
+    "반응",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-dividida-h": {
+   "name": "나란히 리액션",
+   "tags": [
+    "리액션",
+    "분할화면",
+    "가로",
+    "반응",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-dueto": {
+   "name": "리액션 듀엣",
+   "tags": [
+    "리액션",
+    "듀엣",
+    "합방",
+    "반응",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-espera": {
+   "name": "기다려 리액션",
+   "tags": [
+    "리액션",
+    "기다림",
+    "카운트다운",
+    "반응",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-esquina-h": {
+   "name": "모서리 얼굴캠 리액션",
+   "tags": [
+    "리액션",
+    "얼굴캠",
+    "모서리",
+    "가로",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-esquinas": {
+   "name": "모서리 점프 캠",
+   "tags": [
+    "리액션",
+    "모서리",
+    "역동",
+    "캠",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-musica": {
+   "name": "첫 감상 리액션",
+   "tags": [
+    "리액션",
+    "음악",
+    "노래",
+    "감상",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-nota-h": {
+   "name": "점수 리액션",
+   "tags": [
+    "리액션",
+    "점수",
+    "평가",
+    "가로",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-pareja-h": {
+   "name": "커플 리액션",
+   "tags": [
+    "리액션",
+    "커플",
+    "듀오",
+    "가로",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-real-falso-h": {
+   "name": "진짜일까 가짜일까",
+   "tags": [
+    "리액션",
+    "진위",
+    "퀴즈",
+    "가로",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-repeticion": {
+   "name": "슬로모 리플레이",
+   "tags": [
+    "리액션",
+    "리플레이",
+    "슬로우",
+    "반복",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-sus-videos": {
+   "name": "구독자 영상 리액션",
+   "tags": [
+    "리액션",
+    "구독자",
+    "영상",
+    "반응",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-tarjeta": {
+   "name": "떠 있는 리액션",
+   "tags": [
+    "리액션",
+    "코멘터리",
+    "카드",
+    "반응",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-ventana-h": {
+   "name": "창문 리액션",
+   "tags": [
+    "리액션",
+    "창",
+    "가로",
+    "반응",
+    "유튜버"
+   ]
+  },
+  "template:yt-reac-zoom-cara": {
+   "name": "얼굴 줌 리액션",
+   "tags": [
+    "리액션",
+    "줌",
+    "얼굴",
+    "반응",
+    "유튜버"
+   ]
+  },
+  "template:yt-reto-1-vs-100": {
+   "name": "1 대 100",
+   "tags": [
+    "대결",
+    "1대100",
+    "경쟁",
+    "챌린지",
+    "유튜버"
+   ]
+  },
+  "template:yt-reto-1-vs-millon": {
+   "name": "1달러 vs 100만 달러",
+   "tags": [
+    "챌린지",
+    "돈",
+    "비교",
+    "유튜버",
+    "부자"
+   ]
+  },
+  "template:yt-reto-10-dolares-7-dias": {
+   "name": "10달러로 7일 살기",
+   "tags": [
+    "절약",
+    "예산",
+    "7일",
+    "생활",
+    "유튜버"
+   ]
+  },
+  "template:yt-reto-100-personas": {
+   "name": "100명 중 1명",
+   "tags": [
+    "경쟁",
+    "우승",
+    "100명",
+    "챌린지",
+    "유튜버"
+   ]
+  },
+  "template:yt-reto-24-horas": {
+   "name": "24시간 도전",
+   "tags": [
+    "챌린지",
+    "타이머",
+    "하루",
+    "시계",
+    "유튜버"
+   ]
+  },
+  "template:yt-reto-aguanta-60-minutos": {
+   "name": "버티면 우승",
+   "tags": [
+    "타이머",
+    "버티기",
+    "60분",
+    "챌린지",
+    "유튜버"
+   ]
+  },
+  "template:yt-reto-barato-vs-caro": {
+   "name": "1달러 vs 1만 달러",
+   "tags": [
+    "챌린지",
+    "가격",
+    "비교",
+    "돈",
+    "유튜버"
+   ]
+  },
+  "template:yt-reto-caja-misteriosa": {
+   "name": "상자 하나 고르기",
+   "tags": [
+    "미스터리",
+    "상자",
+    "언박싱",
+    "상금",
+    "챌린지"
+   ]
+  },
+  "template:yt-reto-dia-1-dia-100": {
+   "name": "1일차 vs 100일차",
+   "tags": [
+    "챌린지",
+    "성장",
+    "기록",
+    "100일",
+    "유튜버"
+   ]
+  },
+  "template:yt-reto-eliminados": {
+   "name": "한 명만 남는다",
+   "tags": [
+    "생존",
+    "탈락",
+    "우승",
+    "경쟁",
+    "챌린지"
+   ]
+  },
+  "template:yt-reto-ganador": {
+   "name": "우승자는 누구",
+   "tags": [
+    "우승자",
+    "공개",
+    "상금",
+    "챌린지",
+    "유튜버"
+   ]
+  },
+  "template:yt-reto-gasta-1000": {
+   "name": "1분에 1000달러 쓰기",
+   "tags": [
+    "쇼핑",
+    "돈",
+    "타이머",
+    "챌린지",
+    "유튜버"
+   ]
+  },
+  "template:yt-reto-intro-hype": {
+   "name": "폭발적인 챌린지 인트로",
+   "tags": [
+    "인트로",
+    "챌린지",
+    "에너지",
+    "리듬",
+    "유튜버"
+   ]
+  },
+  "template:yt-reto-marcador": {
+   "name": "챌린지 스코어보드",
+   "tags": [
+    "점수판",
+    "팀",
+    "경쟁",
+    "챌린지",
+    "유튜버"
+   ]
+  },
+  "template:yt-reto-no-te-muevas": {
+   "name": "10초 동안 움직이지 마",
+   "tags": [
+    "타이머",
+    "카운트다운",
+    "10초",
+    "챌린지",
+    "유튜버"
+   ]
+  },
+  "template:yt-reto-premio-gigante": {
+   "name": "거대한 상금",
+   "tags": [
+    "상금",
+    "돈",
+    "카운터",
+    "챌린지",
+    "유튜버"
+   ]
+  },
+  "template:yt-reto-sobrevivi-7-dias": {
+   "name": "7일간 생존",
+   "tags": [
+    "생존",
+    "모험",
+    "7일",
+    "챌린지",
+    "유튜버"
+   ]
+  },
+  "template:yt-reto-ultimo-en-salir": {
+   "name": "끝까지 남기 대결",
+   "tags": [
+    "챌린지",
+    "생존",
+    "우승",
+    "상금",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-amarillo": {
+   "name": "노란 팝 자막",
+   "tags": [
+    "자막",
+    "한단어",
+    "노랑",
+    "강조",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-burbuja": {
+   "name": "말풍선 자막",
+   "tags": [
+    "자막",
+    "말풍선",
+    "채팅",
+    "한단어",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-caja-blanca": {
+   "name": "흰 박스 자막",
+   "tags": [
+    "자막",
+    "박스",
+    "흰색",
+    "한단어",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-caja-verde": {
+   "name": "초록 강조 자막",
+   "tags": [
+    "자막",
+    "강조",
+    "초록",
+    "한단어",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-comic-h": {
+   "name": "코믹 자막",
+   "tags": [
+    "자막",
+    "만화",
+    "가로",
+    "브이로그",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-emoji": {
+   "name": "이모지 자막",
+   "tags": [
+    "자막",
+    "이모지",
+    "재미",
+    "한단어",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-gancho": {
+   "name": "훅과 자막",
+   "tags": [
+    "자막",
+    "훅",
+    "도입",
+    "한단어",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-gradiente": {
+   "name": "그라데이션 자막",
+   "tags": [
+    "자막",
+    "그라데이션",
+    "아이디어",
+    "한단어",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-marcador": {
+   "name": "손글씨 자막",
+   "tags": [
+    "자막",
+    "손글씨",
+    "스토리",
+    "한단어",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-neon": {
+   "name": "네온 자막",
+   "tags": [
+    "자막",
+    "네온",
+    "밤",
+    "한단어",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-pantalla-dividida": {
+   "name": "분할 화면 자막",
+   "tags": [
+    "자막",
+    "분할화면",
+    "한단어",
+    "쇼츠",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-pasos": {
+   "name": "단계별 자막",
+   "tags": [
+    "자막",
+    "튜토리얼",
+    "단계",
+    "설명",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-podcast-h": {
+   "name": "팟캐스트 자막",
+   "tags": [
+    "자막",
+    "팟캐스트",
+    "가로",
+    "한단어",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-retro": {
+   "name": "레트로 자막",
+   "tags": [
+    "자막",
+    "레트로",
+    "복고",
+    "노스탤지어",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-rojo": {
+   "name": "빨간 키워드 자막",
+   "tags": [
+    "자막",
+    "키워드",
+    "빨강",
+    "비즈니스",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-storytime": {
+   "name": "시네마틱 스토리 자막",
+   "tags": [
+    "자막",
+    "스토리",
+    "영화",
+    "사연",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-tutorial-h": {
+   "name": "튜토리얼 자막",
+   "tags": [
+    "자막",
+    "튜토리얼",
+    "가로",
+    "설명",
+    "유튜버"
+   ]
+  },
+  "template:yt-sub-una-palabra": {
+   "name": "한 단어씩 자막",
+   "tags": [
+    "자막",
+    "한단어",
+    "키네틱",
+    "짧은영상",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-bateria": {
+   "name": "배터리 테스트",
+   "tags": [
+    "테크",
+    "배터리",
+    "사용시간",
+    "테스트",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-benchmark": {
+   "name": "성능 테스트",
+   "tags": [
+    "테크",
+    "성능",
+    "속도",
+    "테스트",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-capitulos": {
+   "name": "리뷰 챕터",
+   "tags": [
+    "테크",
+    "챕터",
+    "목차",
+    "리뷰",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-comparacion": {
+   "name": "나란히 비교",
+   "tags": [
+    "테크",
+    "비교",
+    "대결",
+    "리뷰",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-comparacion-vertical": {
+   "name": "무엇을 살까",
+   "tags": [
+    "테크",
+    "비교",
+    "선택",
+    "세로",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-etiqueta-precio": {
+   "name": "가격표",
+   "tags": [
+    "테크",
+    "가격",
+    "출시",
+    "할인",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-ficha-tecnica": {
+   "name": "스펙 정리",
+   "tags": [
+    "테크",
+    "스펙",
+    "사양",
+    "리뷰",
+    "휴대폰"
+   ]
+  },
+  "template:yt-tec-primeras-impresiones": {
+   "name": "첫인상 리뷰",
+   "tags": [
+    "테크",
+    "첫인상",
+    "리뷰",
+    "언박싱",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-pros-contras": {
+   "name": "장단점 정리",
+   "tags": [
+    "테크",
+    "장점",
+    "단점",
+    "리뷰",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-prueba-camara": {
+   "name": "카메라 테스트",
+   "tags": [
+    "테크",
+    "카메라",
+    "사진",
+    "야간",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-puntaje": {
+   "name": "최종 점수",
+   "tags": [
+    "테크",
+    "점수",
+    "평점",
+    "리뷰",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-setup": {
+   "name": "내 데스크 셋업",
+   "tags": [
+    "테크",
+    "책상",
+    "장비",
+    "투어",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-top-3": {
+   "name": "올해의 가젯 3",
+   "tags": [
+    "테크",
+    "톱3",
+    "가젯",
+    "랭킹",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-tres-cosas": {
+   "name": "몰랐던 3가지",
+   "tags": [
+    "테크",
+    "정보",
+    "꿀팁",
+    "기능",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-unboxing": {
+   "name": "깔끔한 언박싱",
+   "tags": [
+    "테크",
+    "언박싱",
+    "리뷰",
+    "미니멀",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-unboxing-vertical": {
+   "name": "4단계 언박싱",
+   "tags": [
+    "테크",
+    "언박싱",
+    "단계",
+    "세로",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-vale-la-pena": {
+   "name": "살 만한가",
+   "tags": [
+    "테크",
+    "가성비",
+    "가격",
+    "후기",
+    "유튜버"
+   ]
+  },
+  "template:yt-tec-veredicto": {
+   "name": "최종 결론",
+   "tags": [
+    "테크",
+    "결론",
+    "추천",
+    "리뷰",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-10-intro": {
+   "name": "톱10 인트로",
+   "tags": [
+    "랭킹",
+    "톱10",
+    "인트로",
+    "카운트다운",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-10-lista": {
+   "name": "리스트로 보는 톱10",
+   "tags": [
+    "랭킹",
+    "톱10",
+    "리스트",
+    "카운트다운",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-10-rapido": {
+   "name": "빠른 톱10",
+   "tags": [
+    "랭킹",
+    "톱10",
+    "리스트",
+    "카운트다운",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-10-tabla": {
+   "name": "순위표",
+   "tags": [
+    "랭킹",
+    "톱10",
+    "점수",
+    "표",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-3-medallas": {
+   "name": "메달 톱3",
+   "tags": [
+    "랭킹",
+    "톱3",
+    "메달",
+    "금메달",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-3-podio": {
+   "name": "톱3 시상대",
+   "tags": [
+    "랭킹",
+    "톱3",
+    "시상대",
+    "우승자",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-3-revelacion": {
+   "name": "1위 공개",
+   "tags": [
+    "랭킹",
+    "톱3",
+    "공개",
+    "1위",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-5-cine": {
+   "name": "시네마틱 톱5",
+   "tags": [
+    "랭킹",
+    "톱5",
+    "영화",
+    "여행",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-5-comida": {
+   "name": "톱5 음식",
+   "tags": [
+    "랭킹",
+    "톱5",
+    "음식",
+    "평점",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-5-cuaderno": {
+   "name": "노트 톱5",
+   "tags": [
+    "랭킹",
+    "톱5",
+    "노트",
+    "폴라로이드",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-5-datos-curiosos": {
+   "name": "놀라운 사실 다섯",
+   "tags": [
+    "랭킹",
+    "상식",
+    "정보",
+    "톱5",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-5-lugares": {
+   "name": "톱5 여행지",
+   "tags": [
+    "랭킹",
+    "톱5",
+    "여행",
+    "장소",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-5-neon": {
+   "name": "네온 톱5",
+   "tags": [
+    "랭킹",
+    "톱5",
+    "네온",
+    "게임",
+    "밤"
+   ]
+  },
+  "template:yt-top-5-pantalla-dividida": {
+   "name": "분할 화면 톱5",
+   "tags": [
+    "랭킹",
+    "톱5",
+    "분할화면",
+    "색감",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-5-peor-a-mejor": {
+   "name": "최악에서 최고로",
+   "tags": [
+    "랭킹",
+    "평점",
+    "리뷰",
+    "순위",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-5-ranking-rellenar": {
+   "name": "직접 채우는 랭킹",
+   "tags": [
+    "랭킹",
+    "순위",
+    "선택",
+    "빈칸",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-5-retro": {
+   "name": "레트로 톱5",
+   "tags": [
+    "랭킹",
+    "톱5",
+    "레트로",
+    "복고",
+    "유튜버"
+   ]
+  },
+  "template:yt-top-5-tarjetas": {
+   "name": "톱5 카드",
+   "tags": [
+    "랭킹",
+    "톱5",
+    "카드",
+    "즐겨찾기",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-barrios": {
+   "name": "하루 세 동네",
+   "tags": [
+    "브이로그",
+    "동네",
+    "분할화면",
+    "여행",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-billete": {
+   "name": "여행 티켓",
+   "tags": [
+    "브이로그",
+    "티켓",
+    "여행",
+    "교통",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-cinematico": {
+   "name": "시네마틱 도시 인트로",
+   "tags": [
+    "브이로그",
+    "시네마틱",
+    "도시",
+    "인트로",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-clima": {
+   "name": "날씨와 시간",
+   "tags": [
+    "브이로그",
+    "날씨",
+    "시간",
+    "위젯",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-dia-1": {
+   "name": "첫날 챕터",
+   "tags": [
+    "브이로그",
+    "챕터",
+    "여행",
+    "첫날",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-gastos": {
+   "name": "하루 지출",
+   "tags": [
+    "브이로그",
+    "지출",
+    "예산",
+    "가격",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-hora-lugar": {
+   "name": "시간과 장소",
+   "tags": [
+    "브이로그",
+    "시간",
+    "장소",
+    "여행",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-llegando": {
+   "name": "도시에 도착",
+   "tags": [
+    "브이로그",
+    "도착",
+    "이동",
+    "거리",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-mapa-zoom": {
+   "name": "지도 줌 여기가 여기",
+   "tags": [
+    "브이로그",
+    "지도",
+    "줌",
+    "위치",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-metro": {
+   "name": "지하철 노선",
+   "tags": [
+    "브이로그",
+    "지하철",
+    "교통",
+    "역",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-noche": {
+   "name": "밤의 도시",
+   "tags": [
+    "브이로그",
+    "밤",
+    "네온",
+    "도시",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-postal": {
+   "name": "여기서 보냅니다",
+   "tags": [
+    "브이로그",
+    "엽서",
+    "여행",
+    "레트로",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-resumen": {
+   "name": "여행 요약",
+   "tags": [
+    "브이로그",
+    "요약",
+    "콜라주",
+    "사진",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-ruta-mapa": {
+   "name": "오늘의 경로 지도",
+   "tags": [
+    "브이로그",
+    "지도",
+    "경로",
+    "여행",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-stats-viaje": {
+   "name": "숫자로 본 여행",
+   "tags": [
+    "브이로그",
+    "통계",
+    "숫자",
+    "요약",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-timelapse": {
+   "name": "도시 타임랩스",
+   "tags": [
+    "브이로그",
+    "타임랩스",
+    "도시",
+    "시계",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-titulo-calle": {
+   "name": "거리 타이틀",
+   "tags": [
+    "브이로그",
+    "도시",
+    "제목",
+    "타이틀",
+    "유튜버"
+   ]
+  },
+  "template:yt-vlog-top3": {
+   "name": "꼭 갈 곳 셋",
+   "tags": [
+    "브이로그",
+    "톱3",
+    "장소",
+    "가이드",
+    "유튜버"
    ]
   },
   "template:zoom-3d-parallax": {

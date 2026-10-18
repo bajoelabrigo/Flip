@@ -258,7 +258,7 @@ def cancion_criolla() -> Template:
     t.solid(t.track("shape", "Marco"), "#8C1C13", 0.8, 11.2, oval, [(0, {"s": 0.9}, "out"), (0.8, {})],
             kind="ellipse", layers=ring("#8C1C13", 12))
     photos = t.track("video", "Fotos")
-    samples = ["friends-02", "city-03", "family-01", "portrait-03"]
+    samples = ["friends-01", "city-03", "family-01", "portrait-03"]
     clips = []
     for i, sample in enumerate(samples):
         start = 0.8 + i * 2.8
@@ -293,7 +293,7 @@ def navidad_en_familia() -> Template:
     t = Template("navidad-en-familia", "Navidad en familia", "Christmas with family", "seasonal", 15.0,
                  order=1030, tags=["navidad", "familia", "diciembre", "nochebuena", "fiestas"], thumb_at=2.2)
     photos = t.track("video", "Fotos")
-    samples = ["christmas-05", "christmas-04", "christmas-02", "christmas-01", "family-05"]
+    samples = ["christmas-05", "christmas-04", "christmas-02", "christmas-03", "family-05"]
     clips = []
     for i, sample in enumerate(samples):
         drift = 40 if i % 2 else -40
@@ -589,7 +589,7 @@ def mi_anio_en_fotos() -> Template:
            text_style("Prata", 84, [fill(champagne)], weight=400, anim_in=tanim("fade-up-char", duration=0.5,
                                                                                 unit="character", stagger=0.03),
                       anim_out=tanim("fade", duration=0.3)), label="Título")
-    samples = ["friends-01", "travel-07", "beach-04", "birthday-01", "couple-07", "graduation-03", "family-05",
+    samples = ["friends-01", "travel-07", "beach-01", "birthday-01", "couple-07", "graduation-03", "family-05",
                "concert-02", "selfie-02"]
     cell_w, cell_h, gap = 320, 500, 20
     for i, sample in enumerate(samples):
@@ -728,7 +728,7 @@ def black_friday_ultimas_horas() -> Template:
                  thumb_at=5.2, background="#0A0A0A")
     photos = t.track("video", "Fotos")
     clips = []
-    for i, sample in enumerate(["shopping-01", "shopping-02", "outfit-03"]):
+    for i, sample in enumerate(["shopping-01", "shopping-02", "outfit-04"]):
         start = i * 3.4
         dur = 10.0 - start if i == 2 else 3.4
         clips.append(t.photo(photos, sample, start, dur, FULL, [(0, {"s": 1.02}, "linear"), (dur, {"s": 1.12})],
@@ -798,7 +798,7 @@ def cyber_monday() -> Template:
             kind="rounded-rectangle", layers=[glow(cyan, 40, 0.8), stroke(6, cyan), fill("#0A0A14")])
     screen = t.track("video", "Pantalla")
     clips = []
-    for i, (sample, start, end) in enumerate([("shopping-01", 0.2, 2.6), ("outfit-02", 2.6, 4.6),
+    for i, (sample, start, end) in enumerate([("shopping-01", 0.2, 2.6), ("outfit-04", 2.6, 4.6),
                                               ("shopping-03", 4.6, 8.0)]):
         motion = phone if i == 0 else None
         clips.append(t.photo(screen, sample, start, end - start, centered(540, 1060, 556, 1076), motion,
@@ -905,7 +905,7 @@ def dia_de_la_amistad() -> Template:
     t.solid(t.track("shape", "Tira"), "#FFFFFF", 0, 9.0, strip, enter, radius=16, kind="rounded-rectangle",
             layers=[shadow("#A4133C", 0, 18, 40, 0.35), fill("#FFFFFF"), no_stroke()])
     flashes = t.track("shape", "Flash")
-    for i, sample in enumerate(["friends-09", "friends-11", "friends-03", "friends-05"]):
+    for i, sample in enumerate(["friends-09", "friends-11", "friends-03", "friends-12"]):
         cell = centered(540, strip.y + 30 + 170 + i * 360, 500, 340)
         at = 0.9 + i * 1.0
         t.photo(t.track("video", f"Foto {i + 1}"), sample, at, 9.0 - at, cell,
@@ -1001,7 +1001,7 @@ def fiestas_patrias() -> Template:
             layers=[shadow("#3D0006", 0, 18, 40, 0.4), stroke(6, dark), fill("#FFFFFF")])
     photos = t.track("video", "Fotos")
     clips = []
-    for i, sample in enumerate(["city-03", "city-02", "friends-01", "family-04"]):
+    for i, sample in enumerate(["city-03", "city-01", "friends-01", "family-04"]):
         start = 0.8 + i * 2.3
         motion = (pop(0, 0.5) + [(2.3, {"s": 1.05})]) if i == 0 else [(0, {"s": 1.0}, "linear"), (2.3, {"s": 1.06})]
         clips.append(t.photo(photos, sample, start, 2.3, centered(540, 1000, 620, 860), motion, label=f"Foto {i + 1}"))

@@ -24,7 +24,41 @@ BLOCKED = {"h-desk-01", "h-community-03", "h-truck-02", "h-soccer-04", "h-produc
            "h-gaming-04", "h-tools-01", "bakery-01", "winter-02", "spring-03", "skincare-01", "music-01",
            # reviewed by the coordinator (2026-10-16): sneaker and sportswear brands, sponsors on shirts
            "product-01", "product-02", "product-03", "product-04", "gym-03", "fashion-05", "fashion-06", "family-06",
-           "barber-04", "nails-01", "skate-02", "sport-01", "sport-02", "sport-03", "restaurant-05", "restaurant-04", "box-01", "box-03", "car-01", "car-02", "car-03"}
+           "barber-04", "nails-01", "skate-02", "sport-01", "sport-02", "sport-03", "restaurant-05", "restaurant-04", "box-01", "box-03", "car-01", "car-02", "car-03",
+           # 0.15.0 batches (2026-10-17): Yeezy sneakers, gym machine and shirt logos, a surf-brand print
+           "h-fitness-01", "h-fitness-02", "h-fitness-04", "h-fitness-05", "friends-05", "friends-06", "friends-07",
+           "y4-habla-01", "y4-viral-02", "y4b-h-dog-02", "y4b-h-dog-03", "y4b-h-dog-04", "y4b-h-dance-02",
+           "friends-04", "y4c-friends-02", "y4c-friends-03", "y4c-friends-04", "y4c-friends-07", "y4c-friends-08",
+           "y4c-party-03", "y4c-h-gym-01", "y4c-h-gym-02", "y4c-h-gym-06", "y4c-talk-01", "y4c-talk-04", "y2b-h-gym-03",
+           "y2b-h-gym-02", "y4-viral-01",
+           # y2: Nike, Puma, Under Armour, logos on dumbbells, mats and gym signs
+           "y2-gym-02", "y2-gym-03", "y2-gym-04", "y2-gym-05", "y2-gym-06", "y2-gym-07", "y2-gym-08", "y2-work-03",
+           "y2-work-04", "y2-work-06", "y2-run-03", "y2-run-04", "y2-dish-03", "y2-fun-02", "y2-fun-05", "y2-h-gym-02",
+           "y2-h-gym-03", "y2-h-gym-04", "y2-h-gym-08", "y2-h-fun-02", "y2-h-fun-03", "y2-h-fun-04", "y2b-gym-01",
+           "y2b-gym-02", "y2b-gym-03", "y2b-gym-05", "y2b-fit-04", "y2b-fit-05", "y2b-fit-06", "y2b-h-gym-05", "y2b-h-fun-05",
+           # y3: phones, gadgets and cameras with their maker's logo
+           "y3-phone-01", "y3-phone-03", "y3-phone-04", "y3-phone-05", "y3-phone-08", "y3-gadget-01", "y3-gadget-02",
+           "y3-gadget-04", "y3-gadget-05", "y3-gadget-06", "y3-cam-01", "y3-cam-03", "y3-cam-04", "y3-unbox-03",
+           "y3-tablet-03",
+           # y4: TV channel logos on microphones, Sennheiser, Fujifilm, shop signs, skate brands, three-stripe sneakers
+           "y4-entrevista-01", "y4-entrevista-02", "y4-entrevista-04", "y4-entrevista-05", "y4-calle-05", "y4-calle-08",
+           "y4-habla-02", "y4-habla-03", "y4-habla-04", "y4-viral-h-01", "y4-viral-h-02", "y4-viral-h-03", "y4-viral-h-04",
+           "y4-viral-04", "y4-mic-h-01", "y4-mic-h-02", "y4-mic-h-03",
+           # y5 / y6: signs, logos on clothes, race cars and gaming gear
+           "y5-night-02", "y5-night-03", "y5-street-03", "y5-street-05", "y5-street-06", "y5-outfit-08", "y5-cozy-01",
+           "y5-cozy-02", "y5-sci-04", "y5-h-street-02", "y5-h-street-07", "y6-oldphoto-02", "y6-h-dish-03",
+           "y6-h-race-01", "y6-h-race-02", "y6-h-race-03", "y6-h-race-04", "y6-h-gamer-01", "y6-h-gamer-02", "y6-h-gamer-03",
+           "y6-h-gamer-04", "y6-h-gamer-05", "y6-h-gamer-06",
+
+           # brand audit of the old sample photos (2026-10-17): logos, signs, gear and film IP
+           "barber-03", "cafe-03", "cake-03", "christmas-01", "city-02", "coffee-02", "fashion-01",
+           "graduation-02", "gym-05", "gym-06", "h-cafe-02", "h-community-01", "h-desk-03", "h-desk-04",
+           "h-elderly-01", "h-father-01", "h-gaming-02", "h-gaming-05", "h-graduation-04", "h-grocery-04",
+           "h-newyear-02", "h-pet-01", "h-product-04", "h-shop-02", "h-shop-04", "h-soccer-02", "h-sport-05",
+           "h-thanksgiving-02", "h-tools-03", "h-travel-01", "h-travel-04", "h-travel-06", "h-travel-08",
+           "kids-01", "makeup-03", "music-02", "music-03", "outfit-02", "podcast-01", "puppy-02", "school-02",
+           "skate-03", "sport-04", "y2-h-fun-01", "y2-h-gym-05", "y2b-gym-04"}
+
 
 MOODS = {
     "upbeat": [("city-sunshine", 8), ("funshine", 4), ("fresh-focus", 2), ("inspiration", 6), ("advertime", 3),

@@ -96,7 +96,7 @@ def intro_tinta():
     rng = random.Random(4)
     # Ink blots spread over the paper, then the photo blooms out from under them as they draw back.
     host = t.track("video", "Foto")
-    clip = t.photo(host, "h-travel-06", 0, 6.0, t.full, kb(6.0, 1.06, 1.0), label="Tu foto")
+    clip = t.photo(host, "h-travel-02", 0, 6.0, t.full, kb(6.0, 1.06, 1.0), label="Tu foto")
     t.mask(host, clip, "ellipse", feather=160,
            keyframes={"w": keys([(0, 0.0, "hold"), (0.9, 0.0, "out"), (2.6, 1.15)]),
                       "h": keys([(0, 0.0, "hold"), (0.9, 0.0, "out"), (2.6, 1.3)])})
@@ -153,7 +153,7 @@ def intro_vlog_polaroid():
              order=2005, tags=["vlog", "polaroid", "intro", "fotos", "aesthetic", "diario"], thumb_at=4.4,
              background="#E9DCC9")
     bg_gradient(t, [(0, "#EFE4D2"), (1, "#DCC8AE")], angle=120)
-    spots = [("h-travel-04", centered(520, 520, 520, 520), -9, 0.3), ("h-beach-02", centered(980, 470, 520, 520), 4, 0.9),
+    spots = [("h-travel-02", centered(520, 520, 520, 520), -9, 0.3), ("h-beach-02", centered(980, 470, 520, 520), 4, 0.9),
              ("h-cafe-04", centered(1430, 540, 520, 520), 10, 1.5)]
     for i, (s, box, ang, at) in enumerate(spots):
         framed(t, s, at, 7.0 - at, box, [(0, {"s": 1.35, "dy": -80}, "out"), (0.45, {}, "linear"), (7.0 - at, {"s": 1.03})],
@@ -294,7 +294,7 @@ def intro_noticias():
 def intro_deportes():
     t = wide("h-intro-deportes", "Intro deportiva", "Sports intro", "intro", 6.0, order=2010,
              tags=["deportes", "fútbol", "atletismo", "intro", "energía", "equipo"], thumb_at=4.3, background="#000000")
-    shots = ["h-sport-01", "h-soccer-02", "h-sport-04", "h-soccer-03", "h-sport-05", "h-fitness-03"]
+    shots = ["h-sport-01", "h-soccer-01", "h-sport-04", "h-soccer-03", "h-sport-02", "beach-01"]
     slides(t, shots, 0.0, 0.5, transition=None, kb_amount=0.12,
            effects_fn=lambda i: [effect("color.basic", contrast=0.35, saturation=-0.1)])
     photo_bg(t, "h-sport-02", 3.0, 3.0, s1=1.1, label="Foto principal")
@@ -400,7 +400,7 @@ def intro_viajes_mapa():
         motion.append((i * 0.09, {"dx": pts[i][0] - 960, "dy": pts[i][1] - 540}, "linear"))
     label(t, plane, "✈", 0.4, 6.6, centered(960, 540, 90, 90), "Inter", 64, "#1F2A44", weight=700, editable=False,
           motion=[(0, motion[0][1])] + motion[1:])
-    circle_photo(t, "h-travel-08", 2.6, 4.4, centered(1600, 360, 380, 380), pop(0, 0.5), ring_colour="#FFFFFF",
+    circle_photo(t, "h-travel-02", 2.6, 4.4, centered(1600, 360, 380, 380), pop(0, 0.5), ring_colour="#FFFFFF",
                  ring_width=12, label="Foto del destino")
     pin = t.track("shape", "Pin")
     t.solid(pin, "#D9480F", 2.5, 4.5, centered(1520, 610, 60, 60), pop(0, 0.4), kind="ellipse")
@@ -545,7 +545,7 @@ def intro_colorida_formas():
 def intro_zoom_fotos():
     t = wide("h-intro-zoom-fotos", "Intro con zoom de fotos", "Photo zoom intro", "intro", 6.0, order=2019,
              tags=["zoom", "fotos", "intro", "dinámico", "collage", "viaje"], thumb_at=4.6, background="#111111")
-    samples = ["h-city-04", "h-travel-06", "h-beach-01", "h-nature-05", "h-travel-03"]
+    samples = ["h-city-04", "h-travel-02", "h-beach-01", "h-nature-05", "h-travel-03"]
     for i, s in enumerate(samples):
         at = i * 0.7
         d = 6.0 - at
@@ -780,9 +780,9 @@ def intro_musica():
 def intro_fitness():
     t = wide("h-intro-fitness", "Intro fitness", "Fitness intro", "intro", 5.0, order=2028,
              tags=["fitness", "gym", "entrenamiento", "intro", "motivación", "deporte"], thumb_at=3.6, background="#000000")
-    slides(t, ["h-fitness-03", "h-fitness-01", "h-fitness-02", "h-fitness-05"], 0.0, 0.5, transition=None,
+    slides(t, ["beach-01", "y2-h-gym-01", "y2-h-gym-07", "y2-h-gym-06"], 0.0, 0.5, transition=None,
            kb_amount=0.15, effects_fn=lambda i: [effect("color.basic", saturation=-0.8, contrast=0.4)])
-    photo_bg(t, "h-fitness-03", 2.0, 3.0, s1=1.08, label="Foto principal", reuse="p1",
+    photo_bg(t, "beach-01", 2.0, 3.0, s1=1.08, label="Foto principal", reuse="p1",
              effects=[effect("color.basic", saturation=-0.6, contrast=0.4)])
     t.solid(t.track("shape", "Franja"), "#E10600", 2.0, 3.0, Box(-200, 0, 900, 1080),
             [(0, {"dx": -1100}, "out"), (0.35, {})], rotation=keys([(0, 10)]), alpha=0.92)
@@ -874,7 +874,7 @@ def trans_persiana():
 def trans_glitch_corto():
     t = wide("h-trans-glitch-corto", "Golpe glitch", "Glitch hit", "transition", 2.0, order=2033,
              tags=["transición", "glitch", "rápida", "gaming", "digital"], thumb_at=1.0)
-    _ab(t, "h-gaming-02", "h-gaming-05", 1.0)
+    _ab(t, "h-gaming-01", "h-gaming-03", 1.0)
     for i, (y, h) in enumerate([(180, 60), (420, 120), (700, 40), (860, 90)]):
         t.solid(t.track("shape", "Bloque"), ["#08F7FE", "#FF2E63", "#FFFFFF", "#08F7FE"][i], 0.85 + i * 0.03, 0.18,
                 Box(0, y, 1920, h), [(0, {"dx": -300}), (0.09, {"dx": 260}), (0.18, {"dx": -80})], alpha=0.7)
@@ -901,7 +901,7 @@ def trans_tinta():
 def trans_capitulo_numero():
     t = wide("h-trans-capitulo-numero", "Número de capítulo", "Chapter number", "transition", 4.0, order=2035,
              tags=["capítulo", "transición", "número", "separador", "documental"], thumb_at=2.0)
-    _ab(t, "h-desk-02", "h-desk-03", 2.0)
+    _ab(t, "h-desk-02", "h-desk-05", 2.0)
     p = t.track("shape", "Panel")
     t.solid(p, "#111111", 0.8, 2.4, t.full, [(0, {"dx": -1920}, "inout"), (0.5, {}, "hold"), (1.9, {}, "inout"),
                                               (2.4, {"dx": 1920})])
@@ -918,7 +918,7 @@ def trans_capitulo_numero():
 def trans_diagonal():
     t = wide("h-trans-diagonal", "Cortinilla diagonal", "Diagonal wipe", "transition", 3.0, order=2036,
              tags=["transición", "diagonal", "cortinilla", "moderna", "paneles"], thumb_at=1.12)
-    _ab(t, "h-travel-01", "h-travel-07", 1.5)
+    _ab(t, "h-travel-02", "h-travel-07", 1.5)
     for i, (sx, c) in enumerate([(-1, "#0F172A"), (1, "#F97316")]):
         box = centered(960 + sx * 700, 540, 2000, 2400)
         t.solid(t.track("shape", "Panel"), c, 0.95, 1.1, box,
@@ -1110,7 +1110,7 @@ def cuenta_lanzamiento():
     spot = t.track("shape", "Foco")
     t.solid(spot, "#FFFFFF", 2.6, 3.4, centered(960, 520, 1300, 1300), pop(0, 0.6, 0.3), kind="ellipse",
             layers=[gradient([(0, "#FFFFFF", 0.35), (1, "#FFFFFF", 0.0)], angle=0), no_stroke()])
-    t.photo(t.track("video", "Producto"), "h-product-04", 2.6, 3.4, centered(960, 470, 820, 520),
+    t.photo(t.track("video", "Producto"), "h-product-01", 2.6, 3.4, centered(960, 470, 820, 520),
             [(0, {"s": 0.6}, "back"), (0.5, {}, "linear"), (3.4, {"s": 1.05})], label="Foto del producto")
     label(t, t.track("text", "Texto"), "YA DISPONIBLE", 3.0, 3.0, Box(260, 780, 1400, 150), "Montserrat", 110,
           "#FFFFFF", weight=900, spacing=10, anim_in=tanim("rise", duration=0.4, unit="character", stagger=0.03),

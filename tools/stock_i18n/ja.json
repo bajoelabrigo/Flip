@@ -114,6 +114,7 @@
   "template:text": "テキスト",
   "template:thumbnail": "動画サムネイル",
   "template:transition": "トランジション・区切り",
+  "template:youtuber": "ユーチューバー風",
   "text-animation:brillo": "輝きと色",
   "text-animation:caer": "落下と上昇",
   "text-animation:desenfoque": "ぼかしとフェード",
@@ -27615,6 +27616,3006 @@
     "キラキラ",
     "ピンク",
     "エモい"
+   ]
+  },
+  "template:yt-calle-a-que-te-dedicas": {
+   "name": "仕事は何ですか",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "仕事",
+    "職業",
+    "質問"
+   ]
+  },
+  "template:yt-calle-adivina-edad": {
+   "name": "私の年齢は？",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "年齢",
+    "当てる",
+    "挑戦"
+   ]
+  },
+  "template:yt-calle-consejo": {
+   "name": "20歳の自分へ",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "助言",
+    "人生",
+    "質問"
+   ]
+  },
+  "template:yt-calle-documental-h": {
+   "name": "ドキュメント街頭取材",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "ドキュメンタリー",
+    "16:9",
+    "記録"
+   ]
+  },
+  "template:yt-calle-mic-grande": {
+   "name": "大きなマイクで取材",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "マイク",
+    "主観",
+    "街"
+   ]
+  },
+  "template:yt-calle-noticiero-h": {
+   "name": "ニュース風街頭取材",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "ニュース",
+    "16:9",
+    "報道"
+   ]
+  },
+  "template:yt-calle-parejas-h": {
+   "name": "カップル街頭質問",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "カップル",
+    "16:9",
+    "質問"
+   ]
+  },
+  "template:yt-calle-precio": {
+   "name": "値段を当てて",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "価格",
+    "当てる",
+    "質問"
+   ]
+  },
+  "template:yt-calle-pregunta-del-dia": {
+   "name": "今日の一問",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "質問",
+    "シリーズ",
+    "街"
+   ]
+  },
+  "template:yt-calle-primera-cita": {
+   "name": "初デートは誰が払う？",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "デート",
+    "恋愛",
+    "質問"
+   ]
+  },
+  "template:yt-calle-que-opinas": {
+   "name": "どう思う？",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "意見",
+    "街",
+    "質問"
+   ]
+  },
+  "template:yt-calle-ranking": {
+   "name": "結果つき街頭アンケート",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "アンケート",
+    "結果",
+    "集計"
+   ]
+  },
+  "template:yt-calle-rapido": {
+   "name": "一言で自分を表すと",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "一言",
+    "自分",
+    "質問"
+   ]
+  },
+  "template:yt-calle-termina-cancion": {
+   "name": "歌詞の続きを歌って",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "歌",
+    "カラオケ",
+    "挑戦"
+   ]
+  },
+  "template:yt-calle-trivia": {
+   "name": "街頭クイズ",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "クイズ",
+    "雑学",
+    "街"
+   ]
+  },
+  "template:yt-calle-tv-retro-h": {
+   "name": "レトロテレビ街頭取材",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "レトロ",
+    "テレビ",
+    "16:9"
+   ]
+  },
+  "template:yt-calle-verdadero-falso": {
+   "name": "本当かウソか",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "クイズ",
+    "真偽",
+    "質問"
+   ]
+  },
+  "template:yt-calle-vs": {
+   "name": "街で二択アンケート",
+   "tags": [
+    "街頭インタビュー",
+    "インタビュー",
+    "二択",
+    "アンケート",
+    "比較"
+   ]
+  },
+  "template:yt-coc-cenital": {
+   "name": "真上から3皿",
+   "tags": [
+    "料理",
+    "レシピ",
+    "真上",
+    "アイデア",
+    "献立"
+   ]
+  },
+  "template:yt-coc-cierre": {
+   "name": "召し上がれの締め",
+   "tags": [
+    "料理",
+    "レシピ",
+    "締め",
+    "エンドカード",
+    "ごちそうさま"
+   ]
+  },
+  "template:yt-coc-crudo-listo": {
+   "name": "生から完成まで",
+   "tags": [
+    "料理",
+    "レシピ",
+    "ビフォーアフター",
+    "完成",
+    "変化"
+   ]
+  },
+  "template:yt-coc-ingredientes-flotan": {
+   "name": "必要なもの",
+   "tags": [
+    "料理",
+    "レシピ",
+    "材料",
+    "準備",
+    "そろえる"
+   ]
+  },
+  "template:yt-coc-ingredientes-lista": {
+   "name": "材料チェックリスト",
+   "tags": [
+    "料理",
+    "レシピ",
+    "材料",
+    "リスト",
+    "準備"
+   ]
+  },
+  "template:yt-coc-intro-canal": {
+   "name": "料理チャンネルの導入",
+   "tags": [
+    "料理",
+    "レシピ",
+    "導入",
+    "チャンネル",
+    "挨拶"
+   ]
+  },
+  "template:yt-coc-menu-semana": {
+   "name": "一週間の献立",
+   "tags": [
+    "料理",
+    "レシピ",
+    "献立",
+    "一週間",
+    "計画"
+   ]
+  },
+  "template:yt-coc-nutricion": {
+   "name": "栄養成分表示",
+   "tags": [
+    "料理",
+    "レシピ",
+    "栄養",
+    "カロリー",
+    "マクロ"
+   ]
+  },
+  "template:yt-coc-pasos": {
+   "name": "手順つきレシピ",
+   "tags": [
+    "料理",
+    "レシピ",
+    "手順",
+    "作り方",
+    "解説"
+   ]
+  },
+  "template:yt-coc-pasos-wide": {
+   "name": "動画とカードで手順",
+   "tags": [
+    "料理",
+    "レシピ",
+    "手順",
+    "横型",
+    "解説"
+   ]
+  },
+  "template:yt-coc-pizarra": {
+   "name": "黒板で今日の料理",
+   "tags": [
+    "料理",
+    "レシピ",
+    "黒板",
+    "今日",
+    "献立"
+   ]
+  },
+  "template:yt-coc-plato-final": {
+   "name": "完成品の発表",
+   "tags": [
+    "料理",
+    "レシピ",
+    "完成",
+    "結果",
+    "発表"
+   ]
+  },
+  "template:yt-coc-postre": {
+   "name": "焼かないスイーツ",
+   "tags": [
+    "料理",
+    "レシピ",
+    "スイーツ",
+    "簡単",
+    "お菓子"
+   ]
+  },
+  "template:yt-coc-receta-60s": {
+   "name": "60秒レシピ",
+   "tags": [
+    "料理",
+    "レシピ",
+    "60秒",
+    "時短",
+    "ショート"
+   ]
+  },
+  "template:yt-coc-receta-card": {
+   "name": "レシピカード",
+   "tags": [
+    "料理",
+    "レシピ",
+    "カード",
+    "分量",
+    "時間"
+   ]
+  },
+  "template:yt-coc-receta-vertical": {
+   "name": "縦型レシピカード",
+   "tags": [
+    "料理",
+    "レシピ",
+    "カード",
+    "保存",
+    "健康"
+   ]
+  },
+  "template:yt-coc-reto-3": {
+   "name": "材料3つの挑戦",
+   "tags": [
+    "料理",
+    "レシピ",
+    "挑戦",
+    "材料",
+    "簡単"
+   ]
+  },
+  "template:yt-coc-temporizador": {
+   "name": "オーブンのタイマー",
+   "tags": [
+    "料理",
+    "レシピ",
+    "タイマー",
+    "オーブン",
+    "時間"
+   ]
+  },
+  "template:yt-dia-0630": {
+   "name": "画面の時計",
+   "tags": [
+    "一日",
+    "ルーティン",
+    "時間",
+    "時計",
+    "日常"
+   ]
+  },
+  "template:yt-dia-alarma": {
+   "name": "目覚ましが鳴る",
+   "tags": [
+    "一日",
+    "目覚まし",
+    "朝",
+    "起床",
+    "生活"
+   ]
+  },
+  "template:yt-dia-antes-despues": {
+   "name": "支度のビフォーアフター",
+   "tags": [
+    "身支度",
+    "ビフォーアフター",
+    "変化",
+    "メイク",
+    "一緒"
+   ]
+  },
+  "template:yt-dia-checklist": {
+   "name": "朝のルーティン表",
+   "tags": [
+    "一日",
+    "ルーティン",
+    "朝",
+    "チェック",
+    "習慣"
+   ]
+  },
+  "template:yt-dia-cozy": {
+   "name": "ゆっくり日曜日",
+   "tags": [
+    "一日",
+    "のんびり",
+    "日曜",
+    "おうち",
+    "癒し"
+   ]
+  },
+  "template:yt-dia-diario": {
+   "name": "一日の日記",
+   "tags": [
+    "一日",
+    "日記",
+    "ノート",
+    "記録",
+    "手書き"
+   ]
+  },
+  "template:yt-dia-energia": {
+   "name": "一日のやる気の波",
+   "tags": [
+    "一日",
+    "元気",
+    "気分",
+    "電池",
+    "波"
+   ]
+  },
+  "template:yt-dia-estudio": {
+   "name": "一緒に勉強する日",
+   "tags": [
+    "一日",
+    "勉強",
+    "集中",
+    "予定",
+    "生産性"
+   ]
+  },
+  "template:yt-dia-fin-semana": {
+   "name": "土曜の切り抜き帳",
+   "tags": [
+    "一日",
+    "週末",
+    "土曜",
+    "スクラップ",
+    "写真"
+   ]
+  },
+  "template:yt-dia-grwm-espejo": {
+   "name": "鏡の前で支度",
+   "tags": [
+    "身支度",
+    "鏡",
+    "メイク",
+    "朝",
+    "一緒"
+   ]
+  },
+  "template:yt-dia-grwm-lista": {
+   "name": "今日使うもの",
+   "tags": [
+    "身支度",
+    "リスト",
+    "メイク",
+    "スキンケア",
+    "今日"
+   ]
+  },
+  "template:yt-dia-grwm-pasos": {
+   "name": "支度の手順",
+   "tags": [
+    "身支度",
+    "メイク",
+    "手順",
+    "朝",
+    "一緒"
+   ]
+  },
+  "template:yt-dia-linea-rutina": {
+   "name": "ルーティンの流れ",
+   "tags": [
+    "一日",
+    "ルーティン",
+    "時系列",
+    "生活",
+    "記録"
+   ]
+  },
+  "template:yt-dia-noche": {
+   "name": "夜のルーティン",
+   "tags": [
+    "一日",
+    "夜",
+    "ルーティン",
+    "スキンケア",
+    "生活"
+   ]
+  },
+  "template:yt-dia-numeros": {
+   "name": "一日を数字で",
+   "tags": [
+    "一日",
+    "数字",
+    "統計",
+    "まとめ",
+    "生活"
+   ]
+  },
+  "template:yt-dia-outfit": {
+   "name": "今日のコーデ",
+   "tags": [
+    "身支度",
+    "コーデ",
+    "服",
+    "おしゃれ",
+    "今日"
+   ]
+  },
+  "template:yt-dia-reloj": {
+   "name": "一日の時計",
+   "tags": [
+    "一日",
+    "時計",
+    "時間",
+    "ルーティン",
+    "生活"
+   ]
+  },
+  "template:yt-dia-rutina-split": {
+   "name": "シンプルなルーティン",
+   "tags": [
+    "一日",
+    "シンプル",
+    "ルーティン",
+    "分割画面",
+    "生活"
+   ]
+  },
+  "template:yt-expl-barras": {
+   "name": "棒グラフ",
+   "tags": [
+    "解説",
+    "グラフ",
+    "棒",
+    "データ",
+    "比較"
+   ]
+  },
+  "template:yt-expl-capitulos": {
+   "name": "この動画の内容",
+   "tags": [
+    "解説",
+    "章",
+    "目次",
+    "構成",
+    "内容"
+   ]
+  },
+  "template:yt-expl-comparar": {
+   "name": "AとBの比較",
+   "tags": [
+    "解説",
+    "比較",
+    "表",
+    "違い",
+    "2つ"
+   ]
+  },
+  "template:yt-expl-datos": {
+   "name": "数字が浮かぶ",
+   "tags": [
+    "解説",
+    "数字",
+    "データ",
+    "科学",
+    "情報"
+   ]
+  },
+  "template:yt-expl-dona": {
+   "name": "割合グラフ",
+   "tags": [
+    "解説",
+    "割合",
+    "パーセント",
+    "グラフ",
+    "データ"
+   ]
+  },
+  "template:yt-expl-fuente": {
+   "name": "研究が示すこと",
+   "tags": [
+    "解説",
+    "科学",
+    "研究",
+    "根拠",
+    "論文"
+   ]
+  },
+  "template:yt-expl-glosario": {
+   "name": "今日の用語",
+   "tags": [
+    "解説",
+    "用語",
+    "意味",
+    "辞典",
+    "言葉"
+   ]
+  },
+  "template:yt-expl-linea-tiempo": {
+   "name": "歴史の年表",
+   "tags": [
+    "解説",
+    "歴史",
+    "年表",
+    "時系列",
+    "資料"
+   ]
+  },
+  "template:yt-expl-lupa": {
+   "name": "虫めがねで拡大",
+   "tags": [
+    "解説",
+    "虫めがね",
+    "詳細",
+    "ズーム",
+    "発見"
+   ]
+  },
+  "template:yt-expl-mapa-zoom": {
+   "name": "ここはどこ？",
+   "tags": [
+    "解説",
+    "地図",
+    "ズーム",
+    "地理",
+    "場所"
+   ]
+  },
+  "template:yt-expl-mito": {
+   "name": "迷信か事実か",
+   "tags": [
+    "解説",
+    "迷信",
+    "事実",
+    "検証",
+    "豆知識"
+   ]
+  },
+  "template:yt-expl-opina": {
+   "name": "あなたはどう思う？",
+   "tags": [
+    "解説",
+    "アンケート",
+    "意見",
+    "コメント",
+    "締め"
+   ]
+  },
+  "template:yt-expl-pizarra": {
+   "name": "黒板とチョーク",
+   "tags": [
+    "解説",
+    "黒板",
+    "授業",
+    "式",
+    "手書き"
+   ]
+  },
+  "template:yt-expl-por-que": {
+   "name": "なぜ…？",
+   "tags": [
+    "解説",
+    "質問",
+    "タイトル",
+    "疑問",
+    "導入"
+   ]
+  },
+  "template:yt-expl-proceso": {
+   "name": "仕組みを順番に",
+   "tags": [
+    "解説",
+    "仕組み",
+    "手順",
+    "図解",
+    "流れ"
+   ]
+  },
+  "template:yt-expl-puntos": {
+   "name": "番号つきポイント",
+   "tags": [
+    "解説",
+    "箇条書き",
+    "ポイント",
+    "コツ",
+    "リスト"
+   ]
+  },
+  "template:yt-expl-recortes": {
+   "name": "新聞の切り抜き",
+   "tags": [
+    "解説",
+    "新聞",
+    "ニュース",
+    "記録",
+    "資料"
+   ]
+  },
+  "template:yt-expl-resaltador": {
+   "name": "マーカーで強調",
+   "tags": [
+    "解説",
+    "マーカー",
+    "強調",
+    "文字",
+    "勉強"
+   ]
+  },
+  "template:yt-final-belleza": {
+   "name": "ピンクと金の締め",
+   "tags": [
+    "エンドカード",
+    "チャンネル登録",
+    "次の動画",
+    "美容",
+    "ピンク"
+   ]
+  },
+  "template:yt-final-columnas": {
+   "name": "2列のエンドカード",
+   "tags": [
+    "エンドカード",
+    "チャンネル登録",
+    "次の動画",
+    "2本",
+    "締め"
+   ]
+  },
+  "template:yt-final-comic": {
+   "name": "マンガ風の締め",
+   "tags": [
+    "エンドカード",
+    "チャンネル登録",
+    "次の動画",
+    "お笑い",
+    "マンガ"
+   ]
+  },
+  "template:yt-final-hud": {
+   "name": "ゲーム風の締め",
+   "tags": [
+    "エンドカード",
+    "チャンネル登録",
+    "次の動画",
+    "ゲーム",
+    "配信"
+   ]
+  },
+  "template:yt-final-liquido": {
+   "name": "液体ガラスの締め",
+   "tags": [
+    "エンドカード",
+    "チャンネル登録",
+    "次の動画",
+    "液体",
+    "ガラス"
+   ]
+  },
+  "template:yt-final-minimal-uno": {
+   "name": "シンプルな締め",
+   "tags": [
+    "エンドカード",
+    "チャンネル登録",
+    "次の動画",
+    "シンプル",
+    "白"
+   ]
+  },
+  "template:yt-final-neon": {
+   "name": "ネオンの締め",
+   "tags": [
+    "エンドカード",
+    "チャンネル登録",
+    "次の動画",
+    "ネオン",
+    "夜"
+   ]
+  },
+  "template:yt-final-pizarra": {
+   "name": "黒板の締め",
+   "tags": [
+    "エンドカード",
+    "チャンネル登録",
+    "次の動画",
+    "教育",
+    "黒板"
+   ]
+  },
+  "template:yt-final-postal": {
+   "name": "はがき風の締め",
+   "tags": [
+    "エンドカード",
+    "チャンネル登録",
+    "次の動画",
+    "旅",
+    "はがき"
+   ]
+  },
+  "template:yt-final-setentas": {
+   "name": "70年代の締め",
+   "tags": [
+    "エンドカード",
+    "チャンネル登録",
+    "次の動画",
+    "レトロ",
+    "70年代"
+   ]
+  },
+  "template:yt-final-short-acciones": {
+   "name": "いいねして保存",
+   "tags": [
+    "フォロー",
+    "ショート",
+    "いいね",
+    "保存",
+    "共有"
+   ]
+  },
+  "template:yt-final-short-perfil": {
+   "name": "プロフィールで続き",
+   "tags": [
+    "フォロー",
+    "ショート",
+    "縦型",
+    "プロフィール",
+    "動画"
+   ]
+  },
+  "template:yt-final-short-sigueme": {
+   "name": "フォローしてね",
+   "tags": [
+    "フォロー",
+    "ショート",
+    "縦型",
+    "締め",
+    "登録"
+   ]
+  },
+  "template:yt-final-tech": {
+   "name": "テック系の締め",
+   "tags": [
+    "エンドカード",
+    "チャンネル登録",
+    "次の動画",
+    "技術",
+    "ガジェット"
+   ]
+  },
+  "template:yt-final-vinilo": {
+   "name": "音楽の締め",
+   "tags": [
+    "エンドカード",
+    "チャンネル登録",
+    "次の動画",
+    "音楽",
+    "レコード"
+   ]
+  },
+  "template:yt-fit-antes-despues-kilos": {
+   "name": "体重ビフォーアフター",
+   "tags": [
+    "筋トレ",
+    "変化",
+    "体重",
+    "ダイエット",
+    "比較"
+   ]
+  },
+  "template:yt-fit-calentamiento": {
+   "name": "5ステップ準備運動",
+   "tags": [
+    "筋トレ",
+    "準備運動",
+    "ストレッチ",
+    "手順",
+    "運動"
+   ]
+  },
+  "template:yt-fit-calorias": {
+   "name": "消費カロリー",
+   "tags": [
+    "筋トレ",
+    "カロリー",
+    "有酸素",
+    "数値",
+    "記録"
+   ]
+  },
+  "template:yt-fit-carrera-km": {
+   "name": "走った距離",
+   "tags": [
+    "ランニング",
+    "距離",
+    "キロ",
+    "運動",
+    "記録"
+   ]
+  },
+  "template:yt-fit-contador-reps": {
+   "name": "レップ数カウンター",
+   "tags": [
+    "筋トレ",
+    "回数",
+    "ジム",
+    "運動",
+    "記録"
+   ]
+  },
+  "template:yt-fit-descanso": {
+   "name": "セット間の休憩",
+   "tags": [
+    "筋トレ",
+    "休憩",
+    "タイマー",
+    "セット",
+    "次へ"
+   ]
+  },
+  "template:yt-fit-ejercicio-del-dia": {
+   "name": "今日のエクササイズ",
+   "tags": [
+    "筋トレ",
+    "今日",
+    "コツ",
+    "フォーム",
+    "運動"
+   ]
+  },
+  "template:yt-fit-hiit-neon": {
+   "name": "高強度インターバル",
+   "tags": [
+    "筋トレ",
+    "高強度",
+    "有酸素",
+    "ネオン",
+    "運動"
+   ]
+  },
+  "template:yt-fit-macros": {
+   "name": "PFCバランス",
+   "tags": [
+    "栄養",
+    "マクロ",
+    "タンパク質",
+    "食事",
+    "ダイエット"
+   ]
+  },
+  "template:yt-fit-plan-semanal": {
+   "name": "週間トレーニング計画",
+   "tags": [
+    "筋トレ",
+    "計画",
+    "一週間",
+    "メニュー",
+    "継続"
+   ]
+  },
+  "template:yt-fit-record-personal": {
+   "name": "自己ベスト更新",
+   "tags": [
+    "筋トレ",
+    "記録",
+    "自己ベスト",
+    "重量",
+    "達成"
+   ]
+  },
+  "template:yt-fit-reto-30-dias": {
+   "name": "30日チャレンジ",
+   "tags": [
+    "筋トレ",
+    "30日",
+    "挑戦",
+    "カレンダー",
+    "継続"
+   ]
+  },
+  "template:yt-fit-rutina-4-pasos": {
+   "name": "4ステップ筋トレ",
+   "tags": [
+    "筋トレ",
+    "手順",
+    "自宅",
+    "運動",
+    "メニュー"
+   ]
+  },
+  "template:yt-fit-rutina-en-casa": {
+   "name": "自宅トレーニング",
+   "tags": [
+    "筋トレ",
+    "自宅",
+    "運動",
+    "器具なし",
+    "メニュー"
+   ]
+  },
+  "template:yt-fit-serie-hud": {
+   "name": "セット用タイマー",
+   "tags": [
+    "筋トレ",
+    "セット",
+    "タイマー",
+    "ジム",
+    "ベンチプレス"
+   ]
+  },
+  "template:yt-fit-sin-excusas": {
+   "name": "言い訳なし",
+   "tags": [
+    "筋トレ",
+    "やる気",
+    "モチベーション",
+    "挑戦",
+    "決意"
+   ]
+  },
+  "template:yt-fit-tabata": {
+   "name": "タバタ式タイマー",
+   "tags": [
+    "筋トレ",
+    "タバタ",
+    "タイマー",
+    "高強度",
+    "運動"
+   ]
+  },
+  "template:yt-fit-transformacion": {
+   "name": "肉体改造の記録",
+   "tags": [
+    "筋トレ",
+    "変化",
+    "ビフォーアフター",
+    "体重",
+    "記録"
+   ]
+  },
+  "template:yt-game-alerta-sub": {
+   "name": "新規登録のお知らせ",
+   "tags": [
+    "ゲーム実況",
+    "配信",
+    "通知",
+    "登録者",
+    "お知らせ"
+   ]
+  },
+  "template:yt-game-alerta-vertical": {
+   "name": "縦型配信の通知",
+   "tags": [
+    "ゲーム実況",
+    "配信",
+    "縦型",
+    "通知",
+    "フォロワー"
+   ]
+  },
+  "template:yt-game-clip-viral": {
+   "name": "縦型プレイ動画",
+   "tags": [
+    "ゲーム実況",
+    "切り抜き",
+    "縦型",
+    "ショート",
+    "拡散"
+   ]
+  },
+  "template:yt-game-derrota": {
+   "name": "敗北の画面",
+   "tags": [
+    "ゲーム実況",
+    "敗北",
+    "負け",
+    "再戦",
+    "画面"
+   ]
+  },
+  "template:yt-game-empezamos": {
+   "name": "まもなく開始",
+   "tags": [
+    "ゲーム実況",
+    "配信",
+    "待機画面",
+    "開始",
+    "生放送"
+   ]
+  },
+  "template:yt-game-facecam-vertical": {
+   "name": "顔出しゲームショート",
+   "tags": [
+    "ゲーム実況",
+    "ショート",
+    "縦型",
+    "顔出し",
+    "反応"
+   ]
+  },
+  "template:yt-game-fin-stream": {
+   "name": "配信の締め",
+   "tags": [
+    "ゲーム実況",
+    "配信",
+    "終了",
+    "締め",
+    "感謝"
+   ]
+  },
+  "template:yt-game-gg": {
+   "name": "いい試合だった",
+   "tags": [
+    "ゲーム実況",
+    "配信",
+    "試合",
+    "終了",
+    "健闘"
+   ]
+  },
+  "template:yt-game-highlights": {
+   "name": "ベストプレイ集",
+   "tags": [
+    "ゲーム実況",
+    "名場面",
+    "プレイ",
+    "まとめ",
+    "最高"
+   ]
+  },
+  "template:yt-game-intro-pixel": {
+   "name": "8ビット風イントロ",
+   "tags": [
+    "ゲーム実況",
+    "レトロ",
+    "8ビット",
+    "ドット",
+    "導入"
+   ]
+  },
+  "template:yt-game-killfeed": {
+   "name": "連続キル表示",
+   "tags": [
+    "ゲーム実況",
+    "連続",
+    "撃破",
+    "記録",
+    "配信"
+   ]
+  },
+  "template:yt-game-marcador": {
+   "name": "チームの得点表",
+   "tags": [
+    "ゲーム実況",
+    "スコア",
+    "チーム",
+    "対戦",
+    "得点"
+   ]
+  },
+  "template:yt-game-mvp": {
+   "name": "最優秀選手カード",
+   "tags": [
+    "ゲーム実況",
+    "最優秀",
+    "選手",
+    "成績",
+    "活躍"
+   ]
+  },
+  "template:yt-game-nivel": {
+   "name": "レベルアップ",
+   "tags": [
+    "ゲーム実況",
+    "レベル",
+    "達成",
+    "成長",
+    "配信"
+   ]
+  },
+  "template:yt-game-overlay-neon": {
+   "name": "ネオン配信オーバーレイ",
+   "tags": [
+    "ゲーム実況",
+    "配信",
+    "オーバーレイ",
+    "カメラ",
+    "生放送"
+   ]
+  },
+  "template:yt-game-torneo": {
+   "name": "週間大会の組み合わせ",
+   "tags": [
+    "ゲーム実況",
+    "大会",
+    "組み合わせ",
+    "対戦",
+    "優勝"
+   ]
+  },
+  "template:yt-game-victoria": {
+   "name": "勝利の画面",
+   "tags": [
+    "ゲーム実況",
+    "勝利",
+    "優勝",
+    "成績",
+    "画面"
+   ]
+  },
+  "template:yt-game-vuelvo": {
+   "name": "すぐ戻る画面",
+   "tags": [
+    "ゲーム実況",
+    "配信",
+    "離席",
+    "一時停止",
+    "待機"
+   ]
+  },
+  "template:yt-intro-3d": {
+   "name": "立体カードの導入",
+   "tags": [
+    "導入",
+    "チャンネル",
+    "ロゴ",
+    "立体",
+    "奥行き"
+   ]
+  },
+  "template:yt-intro-a-mano": {
+   "name": "手描きの導入",
+   "tags": [
+    "導入",
+    "チャンネル",
+    "ロゴ",
+    "手描き",
+    "工作"
+   ]
+  },
+  "template:yt-intro-belleza": {
+   "name": "やわらか美容の導入",
+   "tags": [
+    "導入",
+    "チャンネル",
+    "ロゴ",
+    "美容",
+    "メイク"
+   ]
+  },
+  "template:yt-intro-comedia": {
+   "name": "お笑いの導入",
+   "tags": [
+    "導入",
+    "チャンネル",
+    "ロゴ",
+    "お笑い",
+    "ユーモア"
+   ]
+  },
+  "template:yt-intro-educacion": {
+   "name": "ノート風授業の導入",
+   "tags": [
+    "導入",
+    "チャンネル",
+    "ロゴ",
+    "教育",
+    "ノート"
+   ]
+  },
+  "template:yt-intro-gaming": {
+   "name": "派手なゲーマー導入",
+   "tags": [
+    "導入",
+    "チャンネル",
+    "ロゴ",
+    "ゲーム",
+    "ネオン"
+   ]
+  },
+  "template:yt-intro-glitch": {
+   "name": "電波障害の導入",
+   "tags": [
+    "導入",
+    "チャンネル",
+    "ロゴ",
+    "グリッチ",
+    "レトロ"
+   ]
+  },
+  "template:yt-intro-liquido": {
+   "name": "液体の形の導入",
+   "tags": [
+    "導入",
+    "チャンネル",
+    "ロゴ",
+    "液体",
+    "グラデーション"
+   ]
+  },
+  "template:yt-intro-minimal": {
+   "name": "点だけの導入",
+   "tags": [
+    "導入",
+    "チャンネル",
+    "ロゴ",
+    "シンプル",
+    "白黒"
+   ]
+  },
+  "template:yt-intro-musica": {
+   "name": "レコード風音楽導入",
+   "tags": [
+    "導入",
+    "チャンネル",
+    "ロゴ",
+    "音楽",
+    "レコード"
+   ]
+  },
+  "template:yt-intro-neon": {
+   "name": "ネオン看板の導入",
+   "tags": [
+    "導入",
+    "チャンネル",
+    "ロゴ",
+    "ネオン",
+    "夜"
+   ]
+  },
+  "template:yt-intro-papel": {
+   "name": "紙を重ねた導入",
+   "tags": [
+    "導入",
+    "チャンネル",
+    "ロゴ",
+    "紙",
+    "工作"
+   ]
+  },
+  "template:yt-intro-retro": {
+   "name": "70年代レトロ導入",
+   "tags": [
+    "導入",
+    "チャンネル",
+    "ロゴ",
+    "レトロ",
+    "70年代"
+   ]
+  },
+  "template:yt-intro-tech": {
+   "name": "回路風テック導入",
+   "tags": [
+    "導入",
+    "チャンネル",
+    "ロゴ",
+    "技術",
+    "ガジェット"
+   ]
+  },
+  "template:yt-intro-vlog": {
+   "name": "写真つなぎの導入",
+   "tags": [
+    "導入",
+    "チャンネル",
+    "ロゴ",
+    "日常",
+    "写真"
+   ]
+  },
+  "template:yt-mini-alerta": {
+   "name": "買ってはいけない",
+   "tags": [
+    "サムネイル",
+    "警告",
+    "注意",
+    "失敗",
+    "購入"
+   ]
+  },
+  "template:yt-mini-bien-mal": {
+   "name": "正しいか間違い",
+   "tags": [
+    "サムネイル",
+    "正解",
+    "間違い",
+    "比較",
+    "失敗"
+   ]
+  },
+  "template:yt-mini-caja-misterio": {
+   "name": "ミステリーボックス",
+   "tags": [
+    "サムネイル",
+    "箱",
+    "ミステリー",
+    "開封",
+    "サプライズ"
+   ]
+  },
+  "template:yt-mini-cara-a-cara": {
+   "name": "真っ向対決",
+   "tags": [
+    "サムネイル",
+    "対決",
+    "2人",
+    "挑戦",
+    "比較"
+   ]
+  },
+  "template:yt-mini-celular": {
+   "name": "画面を見て",
+   "tags": [
+    "サムネイル",
+    "スマホ",
+    "画面",
+    "アプリ",
+    "紹介"
+   ]
+  },
+  "template:yt-mini-comic": {
+   "name": "コミック吹き出し",
+   "tags": [
+    "サムネイル",
+    "マンガ",
+    "吹き出し",
+    "ユーモア",
+    "インパクト"
+   ]
+  },
+  "template:yt-mini-cronometro": {
+   "name": "60秒チャレンジ",
+   "tags": [
+    "サムネイル",
+    "タイマー",
+    "60秒",
+    "速い",
+    "挑戦"
+   ]
+  },
+  "template:yt-mini-cuatro-caras": {
+   "name": "4つの顔",
+   "tags": [
+    "サムネイル",
+    "4人",
+    "リアクション",
+    "グループ",
+    "表情"
+   ]
+  },
+  "template:yt-mini-diagonal": {
+   "name": "斜めビフォーアフター",
+   "tags": [
+    "サムネイル",
+    "ビフォーアフター",
+    "変化",
+    "斜め",
+    "比較"
+   ]
+  },
+  "template:yt-mini-flecha-circulo": {
+   "name": "矢印と丸",
+   "tags": [
+    "サムネイル",
+    "クリック",
+    "矢印",
+    "丸",
+    "気になる"
+   ]
+  },
+  "template:yt-mini-grafica": {
+   "name": "右肩上がりのグラフ",
+   "tags": [
+    "サムネイル",
+    "グラフ",
+    "成長",
+    "数字",
+    "お金"
+   ]
+  },
+  "template:yt-mini-lupa": {
+   "name": "虫めがねで詳細",
+   "tags": [
+    "サムネイル",
+    "虫めがね",
+    "詳細",
+    "秘密",
+    "ズーム"
+   ]
+  },
+  "template:yt-mini-numero-uno": {
+   "name": "ナンバーワン",
+   "tags": [
+    "サムネイル",
+    "1位",
+    "ランキング",
+    "最高",
+    "バッジ"
+   ]
+  },
+  "template:yt-mini-precio-tachado": {
+   "name": "価格に取り消し線",
+   "tags": [
+    "サムネイル",
+    "価格",
+    "セール",
+    "安い",
+    "高い"
+   ]
+  },
+  "template:yt-mini-revelacion": {
+   "name": "隠された真相",
+   "tags": [
+    "サムネイル",
+    "暴露",
+    "隠す",
+    "ミステリー",
+    "発表"
+   ]
+  },
+  "template:yt-mini-sticker": {
+   "name": "巨大な顔シール",
+   "tags": [
+    "サムネイル",
+    "顔",
+    "ステッカー",
+    "リアクション",
+    "インパクト"
+   ]
+  },
+  "template:yt-mini-tier-list": {
+   "name": "ティアリスト",
+   "tags": [
+    "サムネイル",
+    "ランキング",
+    "格付け",
+    "評価",
+    "最強"
+   ]
+  },
+  "template:yt-mini-tres-niveles": {
+   "name": "3つのレベル",
+   "tags": [
+    "サムネイル",
+    "レベル",
+    "比較",
+    "安い",
+    "高い"
+   ]
+  },
+  "template:yt-mist-camara": {
+   "name": "防犯カメラの映像",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "防犯カメラ",
+    "映像",
+    "手がかり"
+   ]
+  },
+  "template:yt-mist-censurado": {
+   "name": "黒塗りの資料",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "機密",
+    "黒塗り",
+    "秘密"
+   ]
+  },
+  "template:yt-mist-evidencia": {
+   "name": "証拠の数々",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "証拠",
+    "証言",
+    "印"
+   ]
+  },
+  "template:yt-mist-expediente": {
+   "name": "事件ファイル",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "資料",
+    "調査",
+    "秘密"
+   ]
+  },
+  "template:yt-mist-linea-tiempo": {
+   "name": "事件の時系列",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "時系列",
+    "年表",
+    "事実"
+   ]
+  },
+  "template:yt-mist-linea-vertical": {
+   "name": "縦型の年表",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "時系列",
+    "縦型",
+    "ショート"
+   ]
+  },
+  "template:yt-mist-mapa": {
+   "name": "事件の地図",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "地図",
+    "場所",
+    "移動"
+   ]
+  },
+  "template:yt-mist-maquina": {
+   "name": "タイプライターの導入",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "タイプライター",
+    "語り",
+    "導入"
+   ]
+  },
+  "template:yt-mist-perfil": {
+   "name": "重要人物の紹介",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "人物",
+    "資料",
+    "経歴"
+   ]
+  },
+  "template:yt-mist-periodico": {
+   "name": "新聞記事の切り抜き",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "新聞",
+    "記事",
+    "見出し"
+   ]
+  },
+  "template:yt-mist-podcast": {
+   "name": "ミステリー番組の導入",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "ポッドキャスト",
+    "導入",
+    "進行"
+   ]
+  },
+  "template:yt-mist-se-busca": {
+   "name": "情報提供のお願い",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "捜索",
+    "情報",
+    "ポスター"
+   ]
+  },
+  "template:yt-mist-sin-resolver": {
+   "name": "未解決事件",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "未解決",
+    "導入",
+    "記録"
+   ]
+  },
+  "template:yt-mist-sin-resolver-vertical": {
+   "name": "未解決事件の縦型",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "未解決",
+    "縦型",
+    "前編"
+   ]
+  },
+  "template:yt-mist-tablero": {
+   "name": "赤い糸の捜査ボード",
+   "tags": [
+    "ミステリー",
+    "手がかり",
+    "調査",
+    "事件",
+    "ボード"
+   ]
+  },
+  "template:yt-mist-tablero-vertical": {
+   "name": "縦型の捜査ボード",
+   "tags": [
+    "ミステリー",
+    "手がかり",
+    "縦型",
+    "捜査",
+    "ショート"
+   ]
+  },
+  "template:yt-mist-teorias": {
+   "name": "3つの説",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "仮説",
+    "推理",
+    "ショート"
+   ]
+  },
+  "template:yt-mist-testigo": {
+   "name": "目撃者の証言",
+   "tags": [
+    "ミステリー",
+    "事件",
+    "証言",
+    "目撃",
+    "引用"
+   ]
+  },
+  "template:yt-pod-al-aire": {
+   "name": "ラジオ風オンエア",
+   "tags": [
+    "ポッドキャスト",
+    "ラジオ",
+    "レトロ",
+    "放送",
+    "番組"
+   ]
+  },
+  "template:yt-pod-apertura": {
+   "name": "冒頭のつかみ",
+   "tags": [
+    "ポッドキャスト",
+    "導入",
+    "予告",
+    "ティザー",
+    "冒頭"
+   ]
+  },
+  "template:yt-pod-audiograma": {
+   "name": "オーディオグラム",
+   "tags": [
+    "ポッドキャスト",
+    "音声",
+    "波形",
+    "切り抜き",
+    "音"
+   ]
+  },
+  "template:yt-pod-cita": {
+   "name": "引用カード",
+   "tags": [
+    "ポッドキャスト",
+    "引用",
+    "言葉",
+    "切り抜き",
+    "縦型"
+   ]
+  },
+  "template:yt-pod-clip-subtitulos": {
+   "name": "大きな字幕のクリップ",
+   "tags": [
+    "ポッドキャスト",
+    "字幕",
+    "切り抜き",
+    "縦型",
+    "言葉"
+   ]
+  },
+  "template:yt-pod-clip-vertical": {
+   "name": "2カメ縦型クリップ",
+   "tags": [
+    "ポッドキャスト",
+    "切り抜き",
+    "縦型",
+    "2台",
+    "字幕"
+   ]
+  },
+  "template:yt-pod-cortes": {
+   "name": "カット入りポッドキャスト",
+   "tags": [
+    "ポッドキャスト",
+    "カット",
+    "会話",
+    "マルチカム",
+    "編集"
+   ]
+  },
+  "template:yt-pod-debate": {
+   "name": "賛成か反対か",
+   "tags": [
+    "ポッドキャスト",
+    "討論",
+    "賛成",
+    "反対",
+    "縦型"
+   ]
+  },
+  "template:yt-pod-dos-camaras": {
+   "name": "2カメラ収録",
+   "tags": [
+    "ポッドキャスト",
+    "2台",
+    "名前",
+    "インタビュー",
+    "収録"
+   ]
+  },
+  "template:yt-pod-en-vivo": {
+   "name": "生配信ポッドキャスト",
+   "tags": [
+    "ポッドキャスト",
+    "生配信",
+    "チャット",
+    "ライブ",
+    "配信"
+   ]
+  },
+  "template:yt-pod-invitado": {
+   "name": "ゲスト紹介",
+   "tags": [
+    "ポッドキャスト",
+    "ゲスト",
+    "紹介",
+    "インタビュー",
+    "導入"
+   ]
+  },
+  "template:yt-pod-mejores-momentos": {
+   "name": "名場面まとめ",
+   "tags": [
+    "ポッドキャスト",
+    "名場面",
+    "まとめ",
+    "縦型",
+    "切り抜き"
+   ]
+  },
+  "template:yt-pod-panel-tres": {
+   "name": "3人の討論",
+   "tags": [
+    "ポッドキャスト",
+    "討論",
+    "3人",
+    "パネル",
+    "議論"
+   ]
+  },
+  "template:yt-pod-pausa": {
+   "name": "すぐ戻ります",
+   "tags": [
+    "ポッドキャスト",
+    "休憩",
+    "一時停止",
+    "待機",
+    "中継"
+   ]
+  },
+  "template:yt-pod-pregunta": {
+   "name": "今日の質問",
+   "tags": [
+    "ポッドキャスト",
+    "質問",
+    "議論",
+    "テーマ",
+    "話題"
+   ]
+  },
+  "template:yt-pod-proximo": {
+   "name": "次回予告",
+   "tags": [
+    "ポッドキャスト",
+    "次回",
+    "エンドカード",
+    "登録",
+    "予告"
+   ]
+  },
+  "template:yt-pod-temas": {
+   "name": "今回のテーマ",
+   "tags": [
+    "ポッドキャスト",
+    "テーマ",
+    "目次",
+    "章",
+    "話題"
+   ]
+  },
+  "template:yt-pod-titulo-episodio": {
+   "name": "エピソードタイトル",
+   "tags": [
+    "ポッドキャスト",
+    "タイトル",
+    "エピソード",
+    "表紙",
+    "導入"
+   ]
+  },
+  "template:yt-reac-arriba-abajo": {
+   "name": "上下分割リアクション",
+   "tags": [
+    "リアクション",
+    "反応",
+    "分割画面",
+    "上下",
+    "比較"
+   ]
+  },
+  "template:yt-reac-cine-h": {
+   "name": "同時視聴リアクション",
+   "tags": [
+    "リアクション",
+    "反応",
+    "映画",
+    "同時視聴",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-comentarios": {
+   "name": "コメントに反応",
+   "tags": [
+    "リアクション",
+    "反応",
+    "コメント",
+    "返信",
+    "読む"
+   ]
+  },
+  "template:yt-reac-comida": {
+   "name": "食べてみる？",
+   "tags": [
+    "リアクション",
+    "反応",
+    "食べ物",
+    "アンケート",
+    "挑戦"
+   ]
+  },
+  "template:yt-reac-dividida-h": {
+   "name": "横並びリアクション",
+   "tags": [
+    "リアクション",
+    "反応",
+    "横並び",
+    "2画面",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-dueto": {
+   "name": "反応デュエット",
+   "tags": [
+    "リアクション",
+    "反応",
+    "デュエット",
+    "2人",
+    "ペア"
+   ]
+  },
+  "template:yt-reac-espera": {
+   "name": "期待させる反応",
+   "tags": [
+    "リアクション",
+    "反応",
+    "期待",
+    "カウントダウン",
+    "我慢"
+   ]
+  },
+  "template:yt-reac-esquina-h": {
+   "name": "隅に顔カメラ",
+   "tags": [
+    "リアクション",
+    "反応",
+    "顔出し",
+    "隅",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-esquinas": {
+   "name": "動く隅カメラ",
+   "tags": [
+    "リアクション",
+    "反応",
+    "隅",
+    "動き",
+    "カメラ"
+   ]
+  },
+  "template:yt-reac-musica": {
+   "name": "初めて聴いた反応",
+   "tags": [
+    "リアクション",
+    "反応",
+    "音楽",
+    "初聴",
+    "曲"
+   ]
+  },
+  "template:yt-reac-nota-h": {
+   "name": "採点つき反応",
+   "tags": [
+    "リアクション",
+    "反応",
+    "点数",
+    "評価",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-pareja-h": {
+   "name": "2人で反応",
+   "tags": [
+    "リアクション",
+    "反応",
+    "2人",
+    "16:9",
+    "デュオ"
+   ]
+  },
+  "template:yt-reac-real-falso-h": {
+   "name": "本物か偽物か",
+   "tags": [
+    "リアクション",
+    "反応",
+    "本物",
+    "偽物",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-repeticion": {
+   "name": "スロー再生リアクション",
+   "tags": [
+    "リアクション",
+    "反応",
+    "スロー",
+    "リプレイ",
+    "再生"
+   ]
+  },
+  "template:yt-reac-sus-videos": {
+   "name": "みんなの動画に反応",
+   "tags": [
+    "リアクション",
+    "反応",
+    "フォロワー",
+    "投稿",
+    "視聴者"
+   ]
+  },
+  "template:yt-reac-tarjeta": {
+   "name": "浮かぶカードの反応",
+   "tags": [
+    "リアクション",
+    "反応",
+    "解説",
+    "カード",
+    "コメント"
+   ]
+  },
+  "template:yt-reac-ventana-h": {
+   "name": "窓型リアクション",
+   "tags": [
+    "リアクション",
+    "反応",
+    "窓",
+    "16:9",
+    "2画面"
+   ]
+  },
+  "template:yt-reac-zoom-cara": {
+   "name": "顔ズーム反応",
+   "tags": [
+    "リアクション",
+    "反応",
+    "ズーム",
+    "顔",
+    "表情"
+   ]
+  },
+  "template:yt-reto-1-vs-100": {
+   "name": "1対100",
+   "tags": [
+    "対決",
+    "100人",
+    "挑戦",
+    "勝負",
+    "検証"
+   ]
+  },
+  "template:yt-reto-1-vs-millon": {
+   "name": "1ドル対100万ドル",
+   "tags": [
+    "検証",
+    "挑戦",
+    "お金",
+    "高額",
+    "比較"
+   ]
+  },
+  "template:yt-reto-10-dolares-7-dias": {
+   "name": "10ドルで7日間生活",
+   "tags": [
+    "節約",
+    "生活",
+    "7日間",
+    "予算",
+    "検証"
+   ]
+  },
+  "template:yt-reto-100-personas": {
+   "name": "100人の勝ち抜き",
+   "tags": [
+    "勝負",
+    "100人",
+    "優勝",
+    "対決",
+    "脱落"
+   ]
+  },
+  "template:yt-reto-24-horas": {
+   "name": "24時間過ごしてみた",
+   "tags": [
+    "24時間",
+    "挑戦",
+    "検証",
+    "一日",
+    "タイマー"
+   ]
+  },
+  "template:yt-reto-aguanta-60-minutos": {
+   "name": "60分耐えたら勝ち",
+   "tags": [
+    "我慢",
+    "60分",
+    "タイマー",
+    "挑戦",
+    "勝負"
+   ]
+  },
+  "template:yt-reto-barato-vs-caro": {
+   "name": "1ドルと1万ドル",
+   "tags": [
+    "比較",
+    "価格",
+    "お金",
+    "高い",
+    "安い"
+   ]
+  },
+  "template:yt-reto-caja-misteriosa": {
+   "name": "箱を選んで",
+   "tags": [
+    "箱",
+    "ミステリー",
+    "サプライズ",
+    "挑戦",
+    "賞品"
+   ]
+  },
+  "template:yt-reto-dia-1-dia-100": {
+   "name": "1日目と100日目",
+   "tags": [
+    "成長",
+    "比較",
+    "100日",
+    "記録",
+    "変化"
+   ]
+  },
+  "template:yt-reto-eliminados": {
+   "name": "最後の一人",
+   "tags": [
+    "勝ち残り",
+    "対決",
+    "脱落",
+    "優勝",
+    "バトル"
+   ]
+  },
+  "template:yt-reto-ganador": {
+   "name": "優勝者を発表",
+   "tags": [
+    "優勝",
+    "発表",
+    "結果",
+    "賞金",
+    "緊張"
+   ]
+  },
+  "template:yt-reto-gasta-1000": {
+   "name": "1分で1000ドル使え",
+   "tags": [
+    "買い物",
+    "1分",
+    "お金",
+    "挑戦",
+    "タイマー"
+   ]
+  },
+  "template:yt-reto-intro-hype": {
+   "name": "派手な挑戦オープニング",
+   "tags": [
+    "オープニング",
+    "挑戦",
+    "勢い",
+    "編集",
+    "テンポ"
+   ]
+  },
+  "template:yt-reto-marcador": {
+   "name": "対決スコアボード",
+   "tags": [
+    "スコア",
+    "対決",
+    "チーム",
+    "得点",
+    "試合"
+   ]
+  },
+  "template:yt-reto-no-te-muevas": {
+   "name": "10秒動いたら負け",
+   "tags": [
+    "挑戦",
+    "10秒",
+    "タイマー",
+    "我慢",
+    "ゲーム"
+   ]
+  },
+  "template:yt-reto-premio-gigante": {
+   "name": "巨大な賞品",
+   "tags": [
+    "賞金",
+    "賞品",
+    "高額",
+    "お金",
+    "カウンター"
+   ]
+  },
+  "template:yt-reto-sobrevivi-7-dias": {
+   "name": "7日間生き延びた",
+   "tags": [
+    "サバイバル",
+    "7日間",
+    "挑戦",
+    "冒険",
+    "検証"
+   ]
+  },
+  "template:yt-reto-ultimo-en-salir": {
+   "name": "最後まで残れば勝ち",
+   "tags": [
+    "挑戦",
+    "勝負",
+    "最後",
+    "賞金",
+    "我慢"
+   ]
+  },
+  "template:yt-sub-amarillo": {
+   "name": "黄色ポップ字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "黄色",
+    "ポップ",
+    "強調"
+   ]
+  },
+  "template:yt-sub-burbuja": {
+   "name": "吹き出し字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "吹き出し",
+    "チャット",
+    "会話"
+   ]
+  },
+  "template:yt-sub-caja-blanca": {
+   "name": "白い箱の字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "白",
+    "箱",
+    "視点"
+   ]
+  },
+  "template:yt-sub-caja-verde": {
+   "name": "緑ハイライト字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "ハイライト",
+    "緑",
+    "強調"
+   ]
+  },
+  "template:yt-sub-comic-h": {
+   "name": "コミック字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "マンガ",
+    "16:9",
+    "日常"
+   ]
+  },
+  "template:yt-sub-emoji": {
+   "name": "絵文字つき字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "絵文字",
+    "楽しい",
+    "かわいい"
+   ]
+  },
+  "template:yt-sub-gancho": {
+   "name": "つかみと字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "つかみ",
+    "導入",
+    "引きつけ"
+   ]
+  },
+  "template:yt-sub-gradiente": {
+   "name": "グラデーション字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "グラデーション",
+    "色",
+    "アイデア"
+   ]
+  },
+  "template:yt-sub-marcador": {
+   "name": "手書き字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "手書き",
+    "マーカー",
+    "体験談"
+   ]
+  },
+  "template:yt-sub-neon": {
+   "name": "ネオン字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "ネオン",
+    "夜",
+    "光"
+   ]
+  },
+  "template:yt-sub-pantalla-dividida": {
+   "name": "分割画面字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "分割画面",
+    "2画面",
+    "比較"
+   ]
+  },
+  "template:yt-sub-pasos": {
+   "name": "手順つき字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "手順",
+    "チュートリアル",
+    "解説"
+   ]
+  },
+  "template:yt-sub-podcast-h": {
+   "name": "ポッドキャスト字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "ポッドキャスト",
+    "16:9",
+    "横型"
+   ]
+  },
+  "template:yt-sub-retro": {
+   "name": "レトロビデオ字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "レトロ",
+    "ビデオ",
+    "懐かしい"
+   ]
+  },
+  "template:yt-sub-rojo": {
+   "name": "赤いキーワード字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "赤",
+    "キーワード",
+    "ビジネス"
+   ]
+  },
+  "template:yt-sub-storytime": {
+   "name": "映画風の語り",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "体験談",
+    "映画風",
+    "物語"
+   ]
+  },
+  "template:yt-sub-tutorial-h": {
+   "name": "チュートリアル字幕",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "チュートリアル",
+    "16:9",
+    "解説"
+   ]
+  },
+  "template:yt-sub-una-palabra": {
+   "name": "一語ずつ表示",
+   "tags": [
+    "字幕",
+    "一語ずつ",
+    "テロップ",
+    "動き",
+    "強調"
+   ]
+  },
+  "template:yt-tec-bateria": {
+   "name": "電池持ちテスト",
+   "tags": [
+    "レビュー",
+    "バッテリー",
+    "持続",
+    "テスト",
+    "時間"
+   ]
+  },
+  "template:yt-tec-benchmark": {
+   "name": "性能くらべ",
+   "tags": [
+    "レビュー",
+    "性能",
+    "速度",
+    "ベンチマーク",
+    "比較"
+   ]
+  },
+  "template:yt-tec-capitulos": {
+   "name": "レビューの章立て",
+   "tags": [
+    "レビュー",
+    "章",
+    "目次",
+    "構成",
+    "まとめ"
+   ]
+  },
+  "template:yt-tec-comparacion": {
+   "name": "並べて比較",
+   "tags": [
+    "レビュー",
+    "比較",
+    "性能",
+    "どっち",
+    "2台"
+   ]
+  },
+  "template:yt-tec-comparacion-vertical": {
+   "name": "どれを買う？",
+   "tags": [
+    "レビュー",
+    "比較",
+    "縦型",
+    "どっち",
+    "選び方"
+   ]
+  },
+  "template:yt-tec-etiqueta-precio": {
+   "name": "値札",
+   "tags": [
+    "レビュー",
+    "価格",
+    "発売",
+    "セール",
+    "新製品"
+   ]
+  },
+  "template:yt-tec-ficha-tecnica": {
+   "name": "スペック表",
+   "tags": [
+    "レビュー",
+    "スペック",
+    "性能",
+    "スマホ",
+    "比較"
+   ]
+  },
+  "template:yt-tec-primeras-impresiones": {
+   "name": "最初の感想",
+   "tags": [
+    "レビュー",
+    "感想",
+    "開封",
+    "映画風",
+    "初見"
+   ]
+  },
+  "template:yt-tec-pros-contras": {
+   "name": "良い点と悪い点",
+   "tags": [
+    "レビュー",
+    "長所",
+    "短所",
+    "評価",
+    "比較"
+   ]
+  },
+  "template:yt-tec-prueba-camara": {
+   "name": "カメラテスト",
+   "tags": [
+    "レビュー",
+    "カメラ",
+    "作例",
+    "夜景",
+    "写真"
+   ]
+  },
+  "template:yt-tec-puntaje": {
+   "name": "最終スコア",
+   "tags": [
+    "レビュー",
+    "点数",
+    "評価",
+    "採点",
+    "結果"
+   ]
+  },
+  "template:yt-tec-setup": {
+   "name": "デスク環境",
+   "tags": [
+    "レビュー",
+    "デスク",
+    "机",
+    "ガジェット",
+    "環境"
+   ]
+  },
+  "template:yt-tec-top-3": {
+   "name": "今年のガジェット3選",
+   "tags": [
+    "トップ3",
+    "ランキング",
+    "ガジェット",
+    "表彰",
+    "縦型"
+   ]
+  },
+  "template:yt-tec-tres-cosas": {
+   "name": "意外な3つの機能",
+   "tags": [
+    "情報",
+    "裏技",
+    "機能",
+    "縦型",
+    "豆知識"
+   ]
+  },
+  "template:yt-tec-unboxing": {
+   "name": "シンプル開封",
+   "tags": [
+    "開封",
+    "レビュー",
+    "ガジェット",
+    "ミニマル",
+    "箱"
+   ]
+  },
+  "template:yt-tec-unboxing-vertical": {
+   "name": "4ステップ開封",
+   "tags": [
+    "開封",
+    "手順",
+    "縦型",
+    "箱",
+    "レビュー"
+   ]
+  },
+  "template:yt-tec-vale-la-pena": {
+   "name": "買う価値はある？",
+   "tags": [
+    "レビュー",
+    "価格",
+    "感想",
+    "縦型",
+    "判断"
+   ]
+  },
+  "template:yt-tec-veredicto": {
+   "name": "最終評価",
+   "tags": [
+    "レビュー",
+    "判定",
+    "おすすめ",
+    "結論",
+    "評価"
+   ]
+  },
+  "template:yt-top-10-intro": {
+   "name": "トップ10のオープニング",
+   "tags": [
+    "ランキング",
+    "トップ10",
+    "オープニング",
+    "導入",
+    "カウントダウン"
+   ]
+  },
+  "template:yt-top-10-lista": {
+   "name": "リスト付きトップ10",
+   "tags": [
+    "ランキング",
+    "トップ10",
+    "リスト",
+    "カウントダウン",
+    "発表"
+   ]
+  },
+  "template:yt-top-10-rapido": {
+   "name": "高速トップ10",
+   "tags": [
+    "ランキング",
+    "トップ10",
+    "カウントダウン",
+    "テンポ",
+    "リスト"
+   ]
+  },
+  "template:yt-top-10-tabla": {
+   "name": "順位表",
+   "tags": [
+    "ランキング",
+    "トップ10",
+    "順位",
+    "得点",
+    "表"
+   ]
+  },
+  "template:yt-top-3-medallas": {
+   "name": "トップ3メダル",
+   "tags": [
+    "ランキング",
+    "トップ3",
+    "メダル",
+    "金",
+    "表彰"
+   ]
+  },
+  "template:yt-top-3-podio": {
+   "name": "トップ3表彰台",
+   "tags": [
+    "ランキング",
+    "トップ3",
+    "表彰台",
+    "優勝",
+    "結果"
+   ]
+  },
+  "template:yt-top-3-revelacion": {
+   "name": "1位を発表",
+   "tags": [
+    "ランキング",
+    "トップ3",
+    "1位",
+    "発表",
+    "結果"
+   ]
+  },
+  "template:yt-top-5-cine": {
+   "name": "映画風トップ5",
+   "tags": [
+    "ランキング",
+    "トップ5",
+    "映画風",
+    "旅行",
+    "上品"
+   ]
+  },
+  "template:yt-top-5-comida": {
+   "name": "グルメトップ5",
+   "tags": [
+    "ランキング",
+    "トップ5",
+    "食べ物",
+    "評価",
+    "星"
+   ]
+  },
+  "template:yt-top-5-cuaderno": {
+   "name": "ノート風トップ5",
+   "tags": [
+    "ランキング",
+    "トップ5",
+    "ノート",
+    "手書き",
+    "ポラロイド"
+   ]
+  },
+  "template:yt-top-5-datos-curiosos": {
+   "name": "雑学5選",
+   "tags": [
+    "ランキング",
+    "雑学",
+    "豆知識",
+    "トリビア",
+    "学び"
+   ]
+  },
+  "template:yt-top-5-lugares": {
+   "name": "スポットトップ5",
+   "tags": [
+    "ランキング",
+    "トップ5",
+    "旅行",
+    "観光",
+    "場所"
+   ]
+  },
+  "template:yt-top-5-neon": {
+   "name": "ネオン風トップ5",
+   "tags": [
+    "ランキング",
+    "トップ5",
+    "ネオン",
+    "ゲーム",
+    "夜"
+   ]
+  },
+  "template:yt-top-5-pantalla-dividida": {
+   "name": "分割画面トップ5",
+   "tags": [
+    "ランキング",
+    "トップ5",
+    "分割画面",
+    "カラフル",
+    "比較"
+   ]
+  },
+  "template:yt-top-5-peor-a-mejor": {
+   "name": "ワーストからベスト",
+   "tags": [
+    "ランキング",
+    "評価",
+    "レビュー",
+    "点数",
+    "比較"
+   ]
+  },
+  "template:yt-top-5-ranking-rellenar": {
+   "name": "自分で選ぶランキング",
+   "tags": [
+    "ランキング",
+    "選ぶ",
+    "予想",
+    "あてはめ",
+    "遊び"
+   ]
+  },
+  "template:yt-top-5-retro": {
+   "name": "レトロなトップ5",
+   "tags": [
+    "ランキング",
+    "トップ5",
+    "レトロ",
+    "80年代",
+    "ビデオ"
+   ]
+  },
+  "template:yt-top-5-tarjetas": {
+   "name": "トップ5カード",
+   "tags": [
+    "ランキング",
+    "トップ5",
+    "カード",
+    "お気に入り",
+    "リスト"
+   ]
+  },
+  "template:yt-vlog-barrios": {
+   "name": "1日で3つの街",
+   "tags": [
+    "街歩き",
+    "街",
+    "分割画面",
+    "旅",
+    "巡る"
+   ]
+  },
+  "template:yt-vlog-billete": {
+   "name": "旅のチケット",
+   "tags": [
+    "街歩き",
+    "チケット",
+    "旅",
+    "移動",
+    "記念"
+   ]
+  },
+  "template:yt-vlog-cinematico": {
+   "name": "映画風の街イントロ",
+   "tags": [
+    "街歩き",
+    "映画風",
+    "導入",
+    "街",
+    "旅"
+   ]
+  },
+  "template:yt-vlog-clima": {
+   "name": "天気と時間",
+   "tags": [
+    "街歩き",
+    "天気",
+    "時間",
+    "表示",
+    "旅"
+   ]
+  },
+  "template:yt-vlog-dia-1": {
+   "name": "旅の1日目",
+   "tags": [
+    "街歩き",
+    "章",
+    "旅行",
+    "出発",
+    "記録"
+   ]
+  },
+  "template:yt-vlog-gastos": {
+   "name": "1日の出費",
+   "tags": [
+    "街歩き",
+    "出費",
+    "予算",
+    "価格",
+    "旅"
+   ]
+  },
+  "template:yt-vlog-hora-lugar": {
+   "name": "時間と場所",
+   "tags": [
+    "街歩き",
+    "時間",
+    "場所",
+    "旅行",
+    "表示"
+   ]
+  },
+  "template:yt-vlog-llegando": {
+   "name": "街に到着",
+   "tags": [
+    "街歩き",
+    "到着",
+    "距離",
+    "移動",
+    "旅"
+   ]
+  },
+  "template:yt-vlog-mapa-zoom": {
+   "name": "現在地までズーム",
+   "tags": [
+    "街歩き",
+    "地図",
+    "ズーム",
+    "現在地",
+    "移動"
+   ]
+  },
+  "template:yt-vlog-metro": {
+   "name": "地下鉄で移動",
+   "tags": [
+    "街歩き",
+    "地下鉄",
+    "移動",
+    "駅",
+    "交通"
+   ]
+  },
+  "template:yt-vlog-noche": {
+   "name": "夜の街",
+   "tags": [
+    "街歩き",
+    "夜",
+    "ネオン",
+    "街",
+    "夜景"
+   ]
+  },
+  "template:yt-vlog-postal": {
+   "name": "旅先からの便り",
+   "tags": [
+    "街歩き",
+    "はがき",
+    "レトロ",
+    "旅",
+    "挨拶"
+   ]
+  },
+  "template:yt-vlog-resumen": {
+   "name": "旅のまとめ",
+   "tags": [
+    "街歩き",
+    "まとめ",
+    "写真",
+    "振り返り",
+    "旅"
+   ]
+  },
+  "template:yt-vlog-ruta-mapa": {
+   "name": "今日のルート地図",
+   "tags": [
+    "街歩き",
+    "地図",
+    "ルート",
+    "旅行",
+    "移動"
+   ]
+  },
+  "template:yt-vlog-stats-viaje": {
+   "name": "旅の数字まとめ",
+   "tags": [
+    "街歩き",
+    "数字",
+    "統計",
+    "まとめ",
+    "旅"
+   ]
+  },
+  "template:yt-vlog-timelapse": {
+   "name": "街のタイムラプス",
+   "tags": [
+    "街歩き",
+    "タイムラプス",
+    "街",
+    "時計",
+    "速い"
+   ]
+  },
+  "template:yt-vlog-titulo-calle": {
+   "name": "街角タイトル",
+   "tags": [
+    "街歩き",
+    "タイトル",
+    "都市",
+    "旅行",
+    "導入"
+   ]
+  },
+  "template:yt-vlog-top3": {
+   "name": "必見スポット3選",
+   "tags": [
+    "街歩き",
+    "トップ3",
+    "スポット",
+    "旅",
+    "案内"
    ]
   },
   "template:zoom-3d-parallax": {

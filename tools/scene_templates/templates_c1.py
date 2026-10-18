@@ -282,7 +282,7 @@ def suscriptores_millon():
 def dias_100():
     t = _t(tall, "cont-dias-100", "Del día 1 al día 100", "Day 1 to day 100", 3,
            ["días", "reto", "100 días", "progreso", "constancia", "challenge"], 8.0, thumb_at=6.2, background="#000000")
-    photo_bg(t, "gym-02", s1=1.12, label="Tu foto o video")
+    photo_bg(t, "gym-01", s1=1.12, label="Tu foto o video")
     shade_full(t, 0.25)
     shade_bottom(t, 1100, 0.85)
     label(t, t.track("text", "Reto"), "MI RETO", 0.3, 7.7, Box(60, 900, 960, 90), "Bebas Neue", 90, "#C6FF00", weight=400,

@@ -275,7 +275,7 @@ def fecha_navidad():
 def fecha_anio_nuevo():
     t = wide("h-fecha-anio-nuevo", "Feliz Año Nuevo", "Happy New Year", "seasonal", 8.0, order=2311,
              tags=["año nuevo", "new year", "fuegos artificiales", "brindis", "enero"], thumb_at=4.0, background="#050814")
-    photo_bg(t, "h-newyear-02", s1=1.08, label="Foto de fondo")
+    photo_bg(t, "h-newyear-01", s1=1.08, label="Foto de fondo")
     shade_full(t, 0.35, colour="#050814")
     rng = random.Random(311)
     for b in range(6):
@@ -342,7 +342,7 @@ def fecha_dia_madre():
 def fecha_dia_padre():
     t = wide("h-fecha-dia-padre", "Día del Padre", "Father's Day", "seasonal", 8.0, order=2314,
              tags=["día del padre", "papá", "familia", "héroe", "junio"], thumb_at=4.4, background="#0F1C2E")
-    photo_bg(t, "h-father-01", s1=1.08, label="Foto con papá")
+    photo_bg(t, "h-father-02", s1=1.08, label="Foto con papá")
     t.solid(t.track("shape", "Panel"), "#0F1C2E", 0, 8.0, Box(0, 0, 900, 1080), alpha=0.82)
     label(t, t.track("text", "Feliz"), "FELIZ DÍA", 0.4, 7.6, Box(120, 280, 800, 120), "Oswald", 96, "#F2AA4C", weight=700,
           spacing=12, align="left", anim_in=tanim("slide-right", duration=0.4), name="Antetítulo")
@@ -459,7 +459,7 @@ def fecha_diwali():
 def fecha_accion_gracias():
     t = wide("h-fecha-accion-gracias", "Acción de Gracias", "Thanksgiving", "seasonal", 8.0, order=2321,
              tags=["acción de gracias", "thanksgiving", "otoño", "familia", "gratitud"], thumb_at=4.4, background="#3A1F0F")
-    photo_bg(t, "h-thanksgiving-02", s1=1.06, label="Foto de la mesa")
+    photo_bg(t, "h-thanksgiving-01", s1=1.06, label="Foto de la mesa")
     shade_bottom(t, 600, 0.85, colour="#2B1408")
     rng = random.Random(321)
     for k in range(18):
@@ -705,7 +705,7 @@ def neg_tienda_barrio():
     scallops = t.track("shape", "Festón")
     for k in range(10):
         t.solid(scallops, "#E63946", 0, 8.0, centered(k * 192 + 48, 120, 96, 60), kind="ellipse")
-    framed(t, "h-shop-02", 0.4, 7.6, Box(1060, 220, 740, 560), pop(0, 0.5, 0.6), border=14, radius=20,
+    framed(t, "h-shop-01", 0.4, 7.6, Box(1060, 220, 740, 560), pop(0, 0.5, 0.6), border=14, radius=20,
            rotation=keys([(0, 3)]), label="Foto de la tienda")
     label(t, t.track("text", "Nombre"), "Tienda Don Pepe", 0.6, 7.4, Box(100, 200, 940, 160), "Lilita One", 110, "#1D3557",
           weight=400, align="left", anim_in=tanim("pop", duration=0.4), name="Tienda")
@@ -751,7 +751,7 @@ def neg_supermercado():
 def neg_ferreteria():
     t = wide("h-neg-ferreteria", "Ferretería", "Hardware store", "business", 8.0, order=2334,
              tags=["ferretería", "herramientas", "construcción", "descuento", "hogar"], thumb_at=4.4, background="#1B1B1B")
-    photo_bg(t, "h-tools-03", s1=1.06, label="Foto de la ferretería")
+    photo_bg(t, "h-tools-02", s1=1.06, label="Foto de la ferretería")
     shade_full(t, 0.55)
     for k in range(18):  # hazard stripe along the bottom
         t.solid(t.track("shape", "Rayas"), "#FFC300" if k % 2 == 0 else "#111111", 0, 8.0,
@@ -952,7 +952,7 @@ def neg_lanzamiento():
                 rotation=keys([(0, 14 if i == 0 else -14)]))
     t.solid(t.track("shape", "Pedestal"), "#1F1F1F", 0.4, 7.6, centered(960, 900, 900, 160), kind="ellipse",
             layers=[gradient([(0, "#3A3A3A"), (1, "#111111")], angle=90), no_stroke()])
-    t.photo(t.track("video", "Producto"), "h-product-04", 0.8, 7.2, centered(960, 560, 820, 520),
+    t.photo(t.track("video", "Producto"), "h-product-01", 0.8, 7.2, centered(960, 560, 820, 520),
             [(0, {"s": 0.7, "dy": 80}, "back"), (0.6, {}, "linear"), (7.2, {"s": 1.04})], label="Foto del producto")
     label(t, t.track("text", "Nuevo"), "NUEVO", 1.4, 6.6, Box(160, 80, 1600, 100), "Montserrat", 60, "#E9C46A", weight=800,
           spacing=40, anim_in=tanim("tracking-drift", duration=1.0), name="Antetítulo")
@@ -1073,7 +1073,7 @@ def neg_contacto():
 def neg_gimnasio():
     t = wide("h-neg-gimnasio", "Gimnasio: planes", "Gym plans", "business", 9.0, order=2349,
              tags=["gimnasio", "planes", "precios", "fitness", "membresía"], thumb_at=5.0, background="#0A0A0A")
-    photo_bg(t, "h-fitness-04", s1=1.06, label="Foto del gimnasio")
+    photo_bg(t, "y2-h-gym-01", s1=1.06, label="Foto del gimnasio")
     shade_full(t, 0.7)
     label(t, t.track("text", "Título"), "ELIGE TU PLAN", 0.3, 8.7, Box(160, 80, 1600, 150), "Anton", 130, "#FFFFFF",
           weight=400, spacing=6, anim_in=tanim("slide-down", duration=0.4), name="Título")

@@ -46,7 +46,7 @@ def final_2_videos():
                 layers=[gradient([(0, c, 0.5), (1, c, 0.0)], angle=0), no_stroke()])
     label(t, t.track("text", "Título"), "Mira esto también", 0.2, 9.8, Box(160, 80, 1600, 120), "Montserrat", 80,
           "#FFFFFF", weight=900, anim_in=tanim("fade-up-char", duration=0.4, unit="character", stagger=0.02), name="Título")
-    _video_slot(t, "h-travel-04", Box(160, 330, 720, 405), 0.5, 1)
+    _video_slot(t, "h-travel-02", Box(160, 330, 720, 405), 0.5, 1)
     _video_slot(t, "h-cooking-01", Box(1040, 330, 720, 405), 0.7, 2)
     _subscribe_circle(t, "h-portrait-02", 960, 860, 150, 1.0)
     song(t, "upbeat", 0, 0.6)
@@ -75,7 +75,7 @@ def final_oscura():
     bg(t, "#050507")
     for k in range(1, 10):
         t.solid(t.track("shape", "Rejilla"), "#1A1A2E", 0, 10.0, Box(0, k * 108, 1920, 2))
-    _video_slot(t, "h-gaming-05", Box(170, 300, 720, 405), 0.4, 1, colour="#08F7FE", border=4, glow_colour="#08F7FE")
+    _video_slot(t, "h-gaming-01", Box(170, 300, 720, 405), 0.4, 1, colour="#08F7FE", border=4, glow_colour="#08F7FE")
     _video_slot(t, "h-concert-01", Box(1030, 300, 720, 405), 0.6, 2, colour="#FF2EF7", border=4, glow_colour="#FF2EF7")
     label(t, t.track("text", "Título"), "NO TE VAYAS TODAVÍA", 0.2, 9.8, Box(160, 110, 1600, 120), "Orbitron", 70,
           "#FFFFFF", weight=900, spacing=6, layers=[glow("#08F7FE", 20, 0.8), fill("#FFFFFF")],
@@ -114,7 +114,7 @@ def final_gaming():
              tags=["pantalla final", "gaming", "gamer", "youtube", "stream"], thumb_at=3.0, background="#0E0420")
     photo_bg(t, "h-gaming-03", s1=1.06, label="Fondo", effects=[effect("builtin.effects.gaussian_blur", u_blurRadius=12)])
     shade_full(t, 0.6, colour="#0E0420")
-    for i, (s, x) in enumerate([("h-gaming-01", 170), ("h-gaming-02", 1030)]):
+    for i, (s, x) in enumerate([("h-gaming-01", 170), ("h-gaming-03", 1030)]):
         t.solid(t.track("shape", "Marco"), "#B026FF", 0.4 + i * 0.2, 9.6 - i * 0.2, Box(x - 30, 280, 780, 445),
                 pop(0, 0.45, 0.6), kind="parallelogram", layers=[glow("#B026FF", 26, 0.9), fill("#B026FF"), no_stroke()])
         t.photo(t.track("video", f"Video {i + 1}"), s, 0.5 + i * 0.2, 9.5 - i * 0.2, Box(x, 300, 720, 405),
@@ -210,7 +210,7 @@ def final_viajes():
 def final_negocio():
     t = wide("h-final-negocio", "Cierre de negocio", "Business end screen", "outro", 8.0, order=2209,
              tags=["negocio", "contacto", "dirección", "web", "cierre"], thumb_at=4.0, background="#0F172A")
-    photo_bg(t, "h-shop-02", s1=1.05, label="Foto del local", effects=[effect("builtin.effects.gaussian_blur", u_blurRadius=10)])
+    photo_bg(t, "h-shop-01", s1=1.05, label="Foto del local", effects=[effect("builtin.effects.gaussian_blur", u_blurRadius=10)])
     shade_full(t, 0.7, colour="#0F172A")
     t.photo(t.track("video", "Logo"), "logo-07", 0.3, 7.7, centered(480, 470, 380, 380), pop(0, 0.5), label="Tu logo")
     rows = [("🌐", "www.tunegocio.com"), ("📞", "+00 123 456 789"), ("📍", "Calle Principal 123"), ("🕘", "Lun a sáb · 9 a 19 h")]
@@ -344,7 +344,7 @@ def _title_card(t, text, t0, dur, font, size, colour, box=None, sub=None, sub_fo
 def presenta_recuerdos():
     t = wide("h-presenta-recuerdos", "Recuerdos", "Memories slideshow", "slideshow", 16.0, order=2215,
              tags=["recuerdos", "presentación", "fotos", "familia", "nostalgia"], thumb_at=1.6)
-    samples = ["h-family-04", "h-elderly-02", "h-father-03", "h-mother-03", "h-family-01", "h-elderly-01"]
+    samples = ["h-family-04", "h-elderly-02", "h-father-03", "h-mother-03", "h-family-01", "h-elderly-03"]
     slides(t, samples, 0.0, 2.6, transition="crossfade", tdur=0.8, kb_amount=0.09,
            effects_fn=lambda i: [effect("color.basic", fade=0.12, temperature=0.08)])
     shade_full(t, 0.25, 0.0, 3.6)
@@ -401,7 +401,7 @@ def presenta_glitch():
     t = wide("h-presenta-glitch", "Presentación glitch", "Glitch slideshow", "slideshow", 8.0, order=2218,
              tags=["glitch", "rápida", "ritmo", "fotos", "urbano", "presentación"], thumb_at=4.25, background="#000000")
     samples = ["h-city-04", "h-concert-01", "h-gaming-01", "h-city-06", "h-portrait-03", "h-concert-03", "h-man-04",
-               "h-city-02", "h-tech-01", "h-concert-02", "h-portrait-05", "h-city-05", "h-gaming-02", "h-man-03",
+               "h-city-02", "h-tech-01", "h-concert-02", "h-portrait-05", "h-city-05", "h-gaming-01", "h-man-03",
                "h-city-03", "h-concert-04"]
     slides(t, samples, 0.0, 0.5, transition=None, kb_amount=0.12,
            effects_fn=lambda i: [effect("color.basic", contrast=0.3, saturation=0.2)])
@@ -426,7 +426,7 @@ def presenta_pelicula():
     for k in range(40):
         for y in (285, 775):
             t.solid(holes, "#3A3A3A", 0, 12.0, Box(-180 + k * 110, y, 60, 22), move, radius=5, kind="rounded-rectangle")
-    samples = ["h-travel-01", "h-travel-04", "h-nature-04", "h-beach-03", "h-city-02", "h-travel-07", "h-nature-06"]
+    samples = ["h-travel-02", "h-travel-03", "h-nature-04", "h-beach-03", "h-city-02", "h-travel-07", "h-nature-06"]
     for i, s in enumerate(samples):
         t.photo(t.track("video", f"Cuadro {i + 1}"), s, 0, 12.0, Box(-150 + i * 620, 330, 580, 420), move,
                 label=f"Foto {i + 1}", effects=[effect("color.basic", fade=0.15, temperature=0.12)])
@@ -488,7 +488,7 @@ def presenta_viaje():
     t = wide("h-presenta-viaje", "Diario de viaje", "Travel diary", "slideshow", 15.0, order=2222,
              tags=["viaje", "diario", "sellos", "fotos", "vacaciones", "pasaporte"], thumb_at=4.2, background="#EFE6D2")
     bg_gradient(t, [(0, "#F4ECDB"), (1, "#E3D4B4")], angle=120)
-    places = [("h-travel-06", "Día 1 · Montañas", "#B23A48"), ("h-beach-01", "Día 2 · La costa", "#1D3557"),
+    places = [("h-travel-02", "Día 1 · Montañas", "#B23A48"), ("h-beach-01", "Día 2 · La costa", "#1D3557"),
               ("h-city-03", "Día 3 · La ciudad", "#2A9D8F"), ("h-travel-02", "Día 4 · El camino", "#E76F51"),
               ("h-nature-04", "Día 5 · El lago", "#6D597A")]
     for i, (s, cap, c) in enumerate(places):
@@ -561,7 +561,7 @@ def presenta_anio():
              tags=["año", "resumen", "12 meses", "recap", "fotos", "año nuevo"], thumb_at=1.0, background="#0E0E10")
     months = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"]
     samples = ["h-winter-02", "h-couple-02", "h-spring-01", "h-easter-03", "h-spring-03", "h-summer-01", "h-beach-02",
-               "h-travel-05", "h-school-02", "h-autumn-02", "h-thanksgiving-02", "h-christmas-03"]
+               "h-travel-05", "h-school-02", "h-autumn-02", "h-thanksgiving-01", "h-christmas-03"]
     slides(t, samples, 1.5, 1.0, transition=None, kb_amount=0.1)
     nums = t.track("text", "Mes")
     for i, m in enumerate(months):
@@ -582,7 +582,7 @@ def presenta_graduacion():
     t = wide("h-presenta-graduacion", "Generación", "Graduating class", "slideshow", 14.0, order=2226,
              tags=["graduación", "generación", "promoción", "colegio", "universidad"], thumb_at=11.6, background="#0A1F44")
     bg(t, "#0A1F44")
-    samples = ["h-graduation-01", "h-classroom-02", "h-graduation-02", "h-classroom-03", "h-graduation-04"]
+    samples = ["h-graduation-01", "h-classroom-02", "h-graduation-02", "h-classroom-03", "h-graduation-03"]
     slides(t, samples, 0.0, 2.4, Box(0, 0, 1920, 900), transition="blur_dissolve", tdur=0.6, kb_amount=0.08)
     t.solid(t.track("shape", "Banda"), "#0A1F44", 0, 14.0, Box(0, 880, 1920, 200))
     line(t, t.track("shape", "Filete"), "#D4AF37", 0.3, 13.7, Box(0, 880, 1920, 6), length=1.0)
@@ -651,7 +651,7 @@ def presenta_producto():
              background="#F2EDE7")
     bg(t, "#F2EDE7")
     items = [("h-product-01", "Jarrón Lino", "$35"), ("h-product-03", "Set Arena", "$58"),
-             ("h-product-04", "Kit Calma", "$42"), ("h-school-02", "Cuadernos Pastel", "$12")]
+             ("h-product-01", "Kit Calma", "$42"), ("h-school-02", "Cuadernos Pastel", "$12")]
     for i, (s, name, price) in enumerate(items):
         at = i * 3.5
         rrect(t, t.track("shape", "Fondo"), "#FFFFFF", at, 3.5, Box(960, 90, 860, 900), 40,
@@ -693,9 +693,9 @@ def presenta_equipo():
 def presenta_evento():
     t = wide("h-presenta-evento", "Resumen del evento", "Event recap", "slideshow", 10.0, order=2231,
              tags=["evento", "resumen", "aftermovie", "conferencia", "fiesta"], thumb_at=9.7, background="#000000")
-    samples = ["h-concert-04", "h-community-01", "h-concert-02", "h-office-01", "h-concert-03", "h-community-02",
+    samples = ["h-concert-04", "h-community-04", "h-concert-02", "h-office-01", "h-concert-03", "h-community-02",
                "h-concert-01", "h-office-06", "h-community-04", "h-concert-04", "h-office-03", "h-concert-02",
-               "h-community-01", "h-office-05", "h-concert-03", "h-community-02"]
+               "h-community-04", "h-office-05", "h-concert-03", "h-community-02"]
     slides(t, samples, 0.0, 0.5, transition=None, kb_amount=0.12)
     t.solid(t.track("shape", "Cierre"), "#000000", 8.0, 2.0, opacity=keys([(0, 0.0), (0.3, 0.85)]))
     t.photo(t.track("video", "Logo"), "logo-08", 8.2, 1.8, centered(960, 420, 360, 360), pop(0, 0.5), label="Logo del evento")
@@ -766,8 +766,8 @@ def presenta_collage_libre():
              tags=["collage", "fotos", "tablero", "amigos", "recuerdos"], thumb_at=10.5, background="#F7E1D7")
     bg_gradient(t, [(0, "#F7E1D7"), (1, "#EDAFB8")], angle=135)
     rng = random.Random(234)
-    samples = ["h-summer-02", "h-birthday-03", "h-couple-05", "h-beach-02", "h-concert-04", "h-kids-02", "h-pet-01",
-               "h-travel-04", "h-family-03", "h-summer-03"]
+    samples = ["h-summer-02", "h-birthday-03", "h-couple-05", "h-beach-02", "h-concert-04", "h-kids-02", "h-pet-02",
+               "h-travel-02", "h-family-03", "h-summer-03"]
     for i, s in enumerate(samples):
         at = 0.2 + i * 1.0
         w = rng.uniform(420, 560)
@@ -788,7 +788,7 @@ def presenta_split():
              tags=["pantalla dividida", "split", "dos fotos", "comparación", "presentación"], thumb_at=4.0,
              background="#000000")
     pairs = [("h-city-01", "h-nature-03"), ("h-couple-04", "h-beach-04"), ("h-food-04", "h-cafe-01"),
-             ("h-sport-03", "h-fitness-01")]
+             ("h-sport-03", "y2-h-gym-01")]
     for i, (a, b) in enumerate(pairs):
         at = i * 3.0
         t.photo(t.track("video", "Izquierda"), a, at, 3.0, Box(0, 0, 955, 1080),
@@ -851,7 +851,7 @@ def presenta_mascota():
         for dx, dy in ((-30, -40), (-10, -55), (12, -55), (32, -40)):
             t.solid(paw, "#F4A261", at, 12.0 - at, centered(x + dx, y + dy, 22, 26), pop(0, 0.3), kind="ellipse",
                     alpha=0.6)
-    samples = ["h-pet-04", "h-pet-01", "h-pet-02", "h-pet-03"]
+    samples = ["h-pet-04", "beach-01", "h-pet-02", "h-pet-03"]
     for i, s in enumerate(samples):
         at = i * 3.0
         framed(t, s, at, 3.0, Box(460, 90, 1000, 700), [(0, {"s": 0.85, "dy": 40}, "back"), (0.5, {}, "linear"),
@@ -943,8 +943,8 @@ def presenta_antes_despues():
 def presenta_deportes():
     t = wide("h-presenta-deportes", "Temporada deportiva", "Sports season", "slideshow", 13.0, order=2242,
              tags=["deportes", "temporada", "resultados", "equipo", "fútbol"], thumb_at=4.2, background="#0B0B0B")
-    games = [("h-soccer-02", "3 – 1", "vs. Halcones"), ("h-soccer-03", "2 – 2", "vs. Toros"),
-             ("h-sport-05", "4 – 0", "vs. Pumas"), ("h-soccer-01", "1 – 0", "FINAL")]
+    games = [("h-soccer-01", "3 – 1", "vs. Halcones"), ("h-soccer-03", "2 – 2", "vs. Toros"),
+             ("h-sport-01", "4 – 0", "vs. Pumas"), ("h-soccer-01", "1 – 0", "FINAL")]
     for i, (s, score, rival) in enumerate(games):
         at = i * 3.0
         d = 3.0 if i < 3 else 4.0
@@ -1064,7 +1064,7 @@ def cele_aniversario():
 def cele_jubilacion():
     t = wide("h-cele-jubilacion", "Feliz jubilación", "Happy retirement", "celebration", 12.0, order=2247,
              tags=["jubilación", "retiro", "carrera", "gracias", "homenaje"], thumb_at=9.8, background="#123C3A")
-    samples = ["h-office-03", "h-man-02", "h-office-05", "h-elderly-01"]
+    samples = ["h-office-03", "h-man-02", "h-office-05", "h-elderly-02"]
     slides(t, samples, 0.0, 2.2, transition="crossfade", tdur=0.6, kb_amount=0.08)
     t.solid(t.track("shape", "Cierre"), "#123C3A", 8.8, 3.2, opacity=keys([(0, 0.0, "smooth"), (0.6, 0.92)]))
     label(t, t.track("text", "Felicidades"), "¡Feliz jubilación!", 9.0, 3.0, Box(160, 300, 1600, 220), "DM Serif Display",

@@ -311,7 +311,7 @@ def tres_errores():
         t.solid(t.track("shape", "Cruz"), "#E10600", at, 10.0 - at, centered(170, y + 120, 150, 150), pop(0, 0.35), kind="ellipse")
         label(t, t.track("text", "Cruz"), "✕", at, 10.0 - at, centered(170, y + 120, 150, 150), "Inter", 90, "#FFFFFF",
               weight=900, editable=False, motion=pop(0, 0.35))
-        t.photo(t.track("video", f"Foto {i + 1}"), ["coffee-03", "coffee-02", "coffee-04"][i], at + 0.1, 9.9 - at,
+        t.photo(t.track("video", f"Foto {i + 1}"), ["coffee-03", "coffee-01", "coffee-04"][i], at + 0.1, 9.9 - at,
                 Box(280, y, 340, 240), pop(0, 0.4), label=f"Foto {i + 1}")
         label(t, t.track("text", "Error"), e, at + 0.2, 9.8 - at, Box(650, y, 400, 240), "DM Sans", 48, "#FFFFFF", weight=800,
               align="left", line=1.1, anim_in=tanim("fade", duration=0.3), name=f"Error {i + 1}")
@@ -335,7 +335,7 @@ def mito_verdad():
               weight=400, name=f"Opción {i + 1}")
     label(t, t.track("text", "Explicación"), "casi siempre giran, ¡pero no siempre!", 4.2, 4.8, Box(60, 1220, 960, 200),
           "DM Sans", 66, "#111111", weight=700, line=1.15, anim_in=tanim("fade", duration=0.4), name="Explicación")
-    t.photo(t.track("video", "Foto"), "puppy-02", 4.6, 4.4, Box(240, 1440, 600, 400), pop(0, 0.4), label="Foto")
+    t.photo(t.track("video", "Foto"), "puppy-01", 4.6, 4.4, Box(240, 1440, 600, 400), pop(0, 0.4), label="Foto")
     song(t, "fun", 2, 0.75)
     return t
 
@@ -877,7 +877,7 @@ def cuenta_cumple():
 def cuenta_vacaciones():
     t = tall("r-cuenta-vacaciones", "Cuenta para las vacaciones", "Holiday countdown", "countdown", 6.0, order=3343,
              tags=["vacaciones", "viaje", "faltan días", "cuenta regresiva", "maleta"], thumb_at=3.4, background="#00B4D8")
-    photo_bg(t, "beach-05", s1=1.08, label="Foto del destino")
+    photo_bg(t, "beach-01", s1=1.08, label="Foto del destino")
     shade_full(t, 0.2)
     rrect(t, t.track("shape", "Maleta"), "#FFFFFF", 0.3, 5.7, centered(540, 880, 640, 760), 60, pop(0, 0.5, 0.6),
           layers=[shadow("#000000", 0, 16, 30, 0.3), fill("#FFFFFF", 0.92), no_stroke()])
@@ -962,7 +962,7 @@ def vt_ubicacion():
 
 
 def vt_precio():
-    t = _vlt("r-vt-precio", "Precio vertical", "Vertical price tag", "outfit-02", 3348, ["precio", "producto", "tienda"])
+    t = _vlt("r-vt-precio", "Precio vertical", "Vertical price tag", "outfit-04", 3348, ["precio", "producto", "tienda"])
     rrect(t, t.track("shape", "Panel"), "#111111", 0.5, 4.7, Box(60, 1460, 640, 220), 30, slide_in(dx=-700, length=0.4))
     label(t, t.track("text", "Producto"), "Chaqueta de lino", 0.6, 4.6, Box(100, 1480, 580, 90), "Montserrat", 54, "#FFFFFF",
           weight=800, align="left", name="Producto")
@@ -977,7 +977,7 @@ def vt_precio():
 
 
 def vt_horario():
-    t = _vlt("r-vt-horario", "Horario de atención vertical", "Vertical opening hours", "cafe-03", 3349,
+    t = _vlt("r-vt-horario", "Horario de atención vertical", "Vertical opening hours", "cafe-01", 3349,
              ["horario", "negocio", "atención"])
     rrect(t, t.track("shape", "Panel"), "#FFFFFF", 0.5, 4.7, Box(60, 1300, 960, 440), 40, pop(0, 0.4, 0.8),
           layers=[shadow("#000000", 0, 10, 26, 0.3), fill("#FFFFFF", 0.95), no_stroke()])

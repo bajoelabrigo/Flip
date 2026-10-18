@@ -114,6 +114,7 @@
   "template:text": "Văn bản",
   "template:thumbnail": "Ảnh thu nhỏ video",
   "template:transition": "Chuyển cảnh và phân cách",
+  "template:youtuber": "Phong cách youtuber",
   "text-animation:brillo": "Tỏa sáng và màu sắc",
   "text-animation:caer": "Rơi và bay lên",
   "text-animation:desenfoque": "Mờ và tan dần",
@@ -27296,6 +27297,2725 @@
     "lấp lánh",
     "hồng",
     "aesthetic"
+   ]
+  },
+  "template:yt-calle-a-que-te-dedicas": {
+   "name": "Bạn làm nghề gì?",
+   "tags": [
+    "phỏng vấn",
+    "đường phố",
+    "nghề nghiệp",
+    "công việc"
+   ]
+  },
+  "template:yt-calle-adivina-edad": {
+   "name": "Đoán tuổi tôi",
+   "tags": [
+    "phỏng vấn",
+    "đoán tuổi",
+    "thử thách",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-consejo": {
+   "name": "Lời khuyên cho tuổi 20",
+   "tags": [
+    "phỏng vấn",
+    "lời khuyên",
+    "tuổi trẻ",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-documental-h": {
+   "name": "Phỏng vấn tài liệu",
+   "tags": [
+    "phỏng vấn",
+    "tài liệu",
+    "đường phố",
+    "16:9"
+   ]
+  },
+  "template:yt-calle-mic-grande": {
+   "name": "Phỏng vấn micro to",
+   "tags": [
+    "phỏng vấn",
+    "micro",
+    "đường phố",
+    "góc nhìn"
+   ]
+  },
+  "template:yt-calle-noticiero-h": {
+   "name": "Phỏng vấn kiểu tin tức",
+   "tags": [
+    "phỏng vấn",
+    "tin tức",
+    "đường phố",
+    "16:9"
+   ]
+  },
+  "template:yt-calle-parejas-h": {
+   "name": "Hỏi các cặp đôi",
+   "tags": [
+    "phỏng vấn",
+    "cặp đôi",
+    "đường phố",
+    "16:9"
+   ]
+  },
+  "template:yt-calle-precio": {
+   "name": "Đoán giá",
+   "tags": [
+    "phỏng vấn",
+    "đoán giá",
+    "đường phố",
+    "mua sắm"
+   ]
+  },
+  "template:yt-calle-pregunta-del-dia": {
+   "name": "Câu hỏi trong ngày",
+   "tags": [
+    "phỏng vấn",
+    "câu hỏi",
+    "chuỗi",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-primera-cita": {
+   "name": "Ai trả tiền hẹn đầu?",
+   "tags": [
+    "phỏng vấn",
+    "hẹn hò",
+    "tiền",
+    "tình yêu"
+   ]
+  },
+  "template:yt-calle-que-opinas": {
+   "name": "Bạn nghĩ sao về…?",
+   "tags": [
+    "phỏng vấn",
+    "đường phố",
+    "ý kiến",
+    "câu hỏi"
+   ]
+  },
+  "template:yt-calle-ranking": {
+   "name": "Khảo sát có kết quả",
+   "tags": [
+    "phỏng vấn",
+    "khảo sát",
+    "kết quả",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-rapido": {
+   "name": "Tả bạn một từ",
+   "tags": [
+    "phỏng vấn",
+    "một từ",
+    "nhanh",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-termina-cancion": {
+   "name": "Hát tiếp lời",
+   "tags": [
+    "phỏng vấn",
+    "bài hát",
+    "karaoke",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-trivia": {
+   "name": "Đố vui đường phố",
+   "tags": [
+    "phỏng vấn",
+    "đố vui",
+    "kiến thức",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-tv-retro-h": {
+   "name": "Phỏng vấn TV retro",
+   "tags": [
+    "phỏng vấn",
+    "retro",
+    "truyền hình",
+    "16:9"
+   ]
+  },
+  "template:yt-calle-verdadero-falso": {
+   "name": "Thật hay bịa?",
+   "tags": [
+    "phỏng vấn",
+    "đúng sai",
+    "đố vui",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-vs": {
+   "name": "Cái này hay cái kia",
+   "tags": [
+    "phỏng vấn",
+    "lựa chọn",
+    "đường phố",
+    "so sánh"
+   ]
+  },
+  "template:yt-coc-cenital": {
+   "name": "Ba đĩa từ trên cao",
+   "tags": [
+    "nấu ăn",
+    "nhìn từ trên",
+    "món ăn",
+    "ý tưởng"
+   ]
+  },
+  "template:yt-coc-cierre": {
+   "name": "Chúc ngon miệng",
+   "tags": [
+    "nấu ăn",
+    "kết thúc",
+    "màn cuối",
+    "chúc ngon"
+   ]
+  },
+  "template:yt-coc-crudo-listo": {
+   "name": "Từ sống đến chín",
+   "tags": [
+    "nấu ăn",
+    "trước sau",
+    "nguyên liệu",
+    "thành phẩm"
+   ]
+  },
+  "template:yt-coc-ingredientes-flotan": {
+   "name": "Bạn cần gì",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "nguyên liệu",
+    "chuẩn bị"
+   ]
+  },
+  "template:yt-coc-ingredientes-lista": {
+   "name": "Danh sách nguyên liệu",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "nguyên liệu",
+    "danh sách"
+   ]
+  },
+  "template:yt-coc-intro-canal": {
+   "name": "Mở đầu kênh bếp",
+   "tags": [
+    "nấu ăn",
+    "mở đầu",
+    "kênh",
+    "giới thiệu"
+   ]
+  },
+  "template:yt-coc-menu-semana": {
+   "name": "Thực đơn tuần",
+   "tags": [
+    "nấu ăn",
+    "thực đơn",
+    "tuần",
+    "lên kế hoạch"
+   ]
+  },
+  "template:yt-coc-nutricion": {
+   "name": "Thông tin dinh dưỡng",
+   "tags": [
+    "nấu ăn",
+    "dinh dưỡng",
+    "calo",
+    "macro"
+   ]
+  },
+  "template:yt-coc-pasos": {
+   "name": "Công thức từng bước",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "các bước",
+    "hướng dẫn"
+   ]
+  },
+  "template:yt-coc-pasos-wide": {
+   "name": "Bước kèm video thẻ",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "các bước",
+    "khung ngang"
+   ]
+  },
+  "template:yt-coc-pizarra": {
+   "name": "Hôm nay nấu gì",
+   "tags": [
+    "nấu ăn",
+    "bảng phấn",
+    "hôm nay",
+    "thực đơn"
+   ]
+  },
+  "template:yt-coc-plato-final": {
+   "name": "Lộ diện món cuối",
+   "tags": [
+    "nấu ăn",
+    "món cuối",
+    "kết quả",
+    "công thức"
+   ]
+  },
+  "template:yt-coc-postre": {
+   "name": "Món ngọt không nướng",
+   "tags": [
+    "nấu ăn",
+    "món ngọt",
+    "không nướng",
+    "tráng miệng"
+   ]
+  },
+  "template:yt-coc-receta-60s": {
+   "name": "Công thức 60 giây",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "nhanh",
+    "sáu mươi giây"
+   ]
+  },
+  "template:yt-coc-receta-card": {
+   "name": "Thẻ công thức",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "thẻ",
+    "khẩu phần"
+   ]
+  },
+  "template:yt-coc-receta-vertical": {
+   "name": "Thẻ công thức dọc",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "dọc",
+    "lành mạnh"
+   ]
+  },
+  "template:yt-coc-reto-3": {
+   "name": "Thử thách 3 nguyên liệu",
+   "tags": [
+    "nấu ăn",
+    "thử thách",
+    "nguyên liệu",
+    "dễ làm"
+   ]
+  },
+  "template:yt-coc-temporizador": {
+   "name": "Hẹn giờ lò nướng",
+   "tags": [
+    "nấu ăn",
+    "hẹn giờ",
+    "lò nướng",
+    "thời gian"
+   ]
+  },
+  "template:yt-dia-0630": {
+   "name": "Giờ trên màn hình",
+   "tags": [
+    "cuộc sống",
+    "giờ",
+    "thời gian",
+    "sinh hoạt"
+   ]
+  },
+  "template:yt-dia-alarma": {
+   "name": "Chuông báo thức",
+   "tags": [
+    "cuộc sống",
+    "báo thức",
+    "buổi sáng",
+    "thức dậy"
+   ]
+  },
+  "template:yt-dia-antes-despues": {
+   "name": "Chuẩn bị: trước sau",
+   "tags": [
+    "cuộc sống",
+    "trước sau",
+    "thay đổi",
+    "trang điểm"
+   ]
+  },
+  "template:yt-dia-checklist": {
+   "name": "Danh sách buổi sáng",
+   "tags": [
+    "cuộc sống",
+    "buổi sáng",
+    "danh sách",
+    "sinh hoạt"
+   ]
+  },
+  "template:yt-dia-cozy": {
+   "name": "Chủ nhật chậm (ấm áp)",
+   "tags": [
+    "cuộc sống",
+    "chủ nhật",
+    "ấm áp",
+    "thẩm mỹ"
+   ]
+  },
+  "template:yt-dia-diario": {
+   "name": "Nhật ký một ngày",
+   "tags": [
+    "cuộc sống",
+    "nhật ký",
+    "ghi chú",
+    "một ngày"
+   ]
+  },
+  "template:yt-dia-energia": {
+   "name": "Năng lượng trong ngày",
+   "tags": [
+    "cuộc sống",
+    "năng lượng",
+    "pin",
+    "tâm trạng"
+   ]
+  },
+  "template:yt-dia-estudio": {
+   "name": "Một ngày học cùng",
+   "tags": [
+    "cuộc sống",
+    "học tập",
+    "kế hoạch",
+    "năng suất"
+   ]
+  },
+  "template:yt-dia-fin-semana": {
+   "name": "Thứ bảy cùng tôi",
+   "tags": [
+    "cuộc sống",
+    "cuối tuần",
+    "thứ bảy",
+    "ảnh kỷ niệm"
+   ]
+  },
+  "template:yt-dia-grwm-espejo": {
+   "name": "Chuẩn bị trước gương",
+   "tags": [
+    "cuộc sống",
+    "gương",
+    "trang điểm",
+    "chuẩn bị"
+   ]
+  },
+  "template:yt-dia-grwm-lista": {
+   "name": "Đồ tôi dùng hôm nay",
+   "tags": [
+    "cuộc sống",
+    "danh sách",
+    "trang điểm",
+    "chăm da"
+   ]
+  },
+  "template:yt-dia-grwm-pasos": {
+   "name": "Chuẩn bị cùng tôi",
+   "tags": [
+    "cuộc sống",
+    "trang điểm",
+    "các bước",
+    "chuẩn bị"
+   ]
+  },
+  "template:yt-dia-linea-rutina": {
+   "name": "Dòng giờ sinh hoạt",
+   "tags": [
+    "cuộc sống",
+    "dòng thời gian",
+    "sinh hoạt",
+    "thói quen"
+   ]
+  },
+  "template:yt-dia-noche": {
+   "name": "Sinh hoạt buổi tối",
+   "tags": [
+    "cuộc sống",
+    "buổi tối",
+    "sinh hoạt",
+    "chăm da"
+   ]
+  },
+  "template:yt-dia-numeros": {
+   "name": "Ngày tôi bằng số",
+   "tags": [
+    "cuộc sống",
+    "số liệu",
+    "thống kê",
+    "tóm tắt"
+   ]
+  },
+  "template:yt-dia-outfit": {
+   "name": "Trang phục hôm nay",
+   "tags": [
+    "cuộc sống",
+    "trang phục",
+    "thời trang",
+    "hôm nay"
+   ]
+  },
+  "template:yt-dia-reloj": {
+   "name": "Đồng hồ ngày tôi",
+   "tags": [
+    "cuộc sống",
+    "đồng hồ",
+    "giờ",
+    "sinh hoạt"
+   ]
+  },
+  "template:yt-dia-rutina-split": {
+   "name": "Sinh hoạt tối giản",
+   "tags": [
+    "cuộc sống",
+    "tối giản",
+    "sinh hoạt",
+    "chia màn hình"
+   ]
+  },
+  "template:yt-expl-barras": {
+   "name": "Biểu đồ cột",
+   "tags": [
+    "giải thích",
+    "biểu đồ",
+    "cột",
+    "số liệu"
+   ]
+  },
+  "template:yt-expl-capitulos": {
+   "name": "Trong video này",
+   "tags": [
+    "giải thích",
+    "chương",
+    "mục lục",
+    "nội dung"
+   ]
+  },
+  "template:yt-expl-comparar": {
+   "name": "So sánh A B",
+   "tags": [
+    "giải thích",
+    "so sánh",
+    "đối đầu",
+    "bảng"
+   ]
+  },
+  "template:yt-expl-datos": {
+   "name": "Dữ kiện hiện ra",
+   "tags": [
+    "giải thích",
+    "dữ kiện",
+    "số liệu",
+    "khoa học"
+   ]
+  },
+  "template:yt-expl-dona": {
+   "name": "Vòng phần trăm",
+   "tags": [
+    "giải thích",
+    "phần trăm",
+    "biểu đồ",
+    "số liệu"
+   ]
+  },
+  "template:yt-expl-fuente": {
+   "name": "Khoa học nói gì",
+   "tags": [
+    "giải thích",
+    "khoa học",
+    "nghiên cứu",
+    "nguồn"
+   ]
+  },
+  "template:yt-expl-glosario": {
+   "name": "Từ của ngày",
+   "tags": [
+    "giải thích",
+    "từ ngữ",
+    "định nghĩa",
+    "thuật ngữ"
+   ]
+  },
+  "template:yt-expl-linea-tiempo": {
+   "name": "Dòng thời gian sử",
+   "tags": [
+    "giải thích",
+    "lịch sử",
+    "dòng thời gian",
+    "sự kiện"
+   ]
+  },
+  "template:yt-expl-lupa": {
+   "name": "Soi chi tiết",
+   "tags": [
+    "giải thích",
+    "kính lúp",
+    "chi tiết",
+    "phóng to"
+   ]
+  },
+  "template:yt-expl-mapa-zoom": {
+   "name": "Zoom bản đồ",
+   "tags": [
+    "giải thích",
+    "bản đồ",
+    "phóng to",
+    "địa lý"
+   ]
+  },
+  "template:yt-expl-mito": {
+   "name": "Huyền thoại hay thật",
+   "tags": [
+    "giải thích",
+    "huyền thoại",
+    "sự thật",
+    "kiểm chứng"
+   ]
+  },
+  "template:yt-expl-opina": {
+   "name": "Bạn nghĩ sao? (bình chọn)",
+   "tags": [
+    "giải thích",
+    "bình chọn",
+    "ý kiến",
+    "kết thúc"
+   ]
+  },
+  "template:yt-expl-pizarra": {
+   "name": "Bảng phấn",
+   "tags": [
+    "giải thích",
+    "bảng phấn",
+    "lớp học",
+    "công thức"
+   ]
+  },
+  "template:yt-expl-por-que": {
+   "name": "Tại sao…?",
+   "tags": [
+    "giải thích",
+    "câu hỏi",
+    "tiêu đề",
+    "khoa học"
+   ]
+  },
+  "template:yt-expl-proceso": {
+   "name": "Từng bước hoạt động",
+   "tags": [
+    "giải thích",
+    "các bước",
+    "quy trình",
+    "sơ đồ"
+   ]
+  },
+  "template:yt-expl-puntos": {
+   "name": "Các điểm số",
+   "tags": [
+    "giải thích",
+    "danh sách",
+    "điểm",
+    "mẹo"
+   ]
+  },
+  "template:yt-expl-recortes": {
+   "name": "Cắt báo",
+   "tags": [
+    "giải thích",
+    "báo",
+    "tin tức",
+    "tài liệu"
+   ]
+  },
+  "template:yt-expl-resaltador": {
+   "name": "Bút dạ quang",
+   "tags": [
+    "giải thích",
+    "bút dạ",
+    "chữ",
+    "nổi bật"
+   ]
+  },
+  "template:yt-final-belleza": {
+   "name": "Màn cuối hồng vàng",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "làm đẹp",
+    "hồng",
+    "vàng"
+   ]
+  },
+  "template:yt-final-columnas": {
+   "name": "Màn cuối hai cột",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "video tiếp",
+    "hai video"
+   ]
+  },
+  "template:yt-final-comic": {
+   "name": "Màn cuối truyện tranh",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "hài",
+    "truyện tranh"
+   ]
+  },
+  "template:yt-final-hud": {
+   "name": "Màn cuối HUD game",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "game",
+    "hud",
+    "video tiếp"
+   ]
+  },
+  "template:yt-final-liquido": {
+   "name": "Màn cuối kính lỏng",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "kính lỏng",
+    "chuyển màu"
+   ]
+  },
+  "template:yt-final-minimal-uno": {
+   "name": "Màn cuối tối giản",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "tối giản",
+    "một video"
+   ]
+  },
+  "template:yt-final-neon": {
+   "name": "Màn cuối neon",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "neon",
+    "ban đêm"
+   ]
+  },
+  "template:yt-final-pizarra": {
+   "name": "Màn cuối bảng phấn",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "giáo dục",
+    "bảng phấn"
+   ]
+  },
+  "template:yt-final-postal": {
+   "name": "Màn cuối bưu thiếp",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "vlog",
+    "bưu thiếp"
+   ]
+  },
+  "template:yt-final-setentas": {
+   "name": "Màn cuối retro 70s",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "retro",
+    "thập niên 70"
+   ]
+  },
+  "template:yt-final-short-acciones": {
+   "name": "Thích thì lưu lại",
+   "tags": [
+    "theo dõi",
+    "shorts",
+    "thích",
+    "lưu"
+   ]
+  },
+  "template:yt-final-short-perfil": {
+   "name": "Thêm video trên trang",
+   "tags": [
+    "theo dõi",
+    "shorts",
+    "dọc",
+    "trang cá nhân"
+   ]
+  },
+  "template:yt-final-short-sigueme": {
+   "name": "Theo dõi để xem thêm",
+   "tags": [
+    "theo dõi",
+    "shorts",
+    "dọc",
+    "kết thúc"
+   ]
+  },
+  "template:yt-final-tech": {
+   "name": "Màn cuối công nghệ",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "công nghệ",
+    "phụ kiện"
+   ]
+  },
+  "template:yt-final-vinilo": {
+   "name": "Màn cuối âm nhạc",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "âm nhạc",
+    "vinyl"
+   ]
+  },
+  "template:yt-fit-antes-despues-kilos": {
+   "name": "Trước sau với số ký",
+   "tags": [
+    "thể hình",
+    "trước sau",
+    "thay đổi",
+    "cân nặng"
+   ]
+  },
+  "template:yt-fit-calentamiento": {
+   "name": "Khởi động 5 bước",
+   "tags": [
+    "thể hình",
+    "khởi động",
+    "giãn cơ",
+    "các bước"
+   ]
+  },
+  "template:yt-fit-calorias": {
+   "name": "Calo đã đốt",
+   "tags": [
+    "thể hình",
+    "calo",
+    "cardio",
+    "thống kê"
+   ]
+  },
+  "template:yt-fit-carrera-km": {
+   "name": "Chạy bộ km",
+   "tags": [
+    "thể hình",
+    "chạy bộ",
+    "km",
+    "đường chạy"
+   ]
+  },
+  "template:yt-fit-contador-reps": {
+   "name": "Đếm số lần",
+   "tags": [
+    "thể hình",
+    "tập luyện",
+    "số lần",
+    "hiệp"
+   ]
+  },
+  "template:yt-fit-descanso": {
+   "name": "Nghỉ giữa hiệp",
+   "tags": [
+    "thể hình",
+    "nghỉ",
+    "hẹn giờ",
+    "hiệp"
+   ]
+  },
+  "template:yt-fit-ejercicio-del-dia": {
+   "name": "Bài tập hôm nay",
+   "tags": [
+    "thể hình",
+    "bài tập",
+    "mẹo",
+    "kỹ thuật"
+   ]
+  },
+  "template:yt-fit-hiit-neon": {
+   "name": "HIIT neon",
+   "tags": [
+    "thể hình",
+    "hiit",
+    "cardio",
+    "neon"
+   ]
+  },
+  "template:yt-fit-macros": {
+   "name": "Macro bữa ăn",
+   "tags": [
+    "thể hình",
+    "dinh dưỡng",
+    "macro",
+    "đạm"
+   ]
+  },
+  "template:yt-fit-plan-semanal": {
+   "name": "Lịch tập tuần",
+   "tags": [
+    "thể hình",
+    "lịch tập",
+    "tuần",
+    "bài tập"
+   ]
+  },
+  "template:yt-fit-record-personal": {
+   "name": "Kỷ lục cá nhân mới",
+   "tags": [
+    "thể hình",
+    "kỷ lục",
+    "tạ",
+    "cá nhân"
+   ]
+  },
+  "template:yt-fit-reto-30-dias": {
+   "name": "Thử thách 30 ngày",
+   "tags": [
+    "thể hình",
+    "ba mươi ngày",
+    "thử thách",
+    "lịch"
+   ]
+  },
+  "template:yt-fit-rutina-4-pasos": {
+   "name": "Bài tập 4 bước",
+   "tags": [
+    "thể hình",
+    "bài tập",
+    "các bước",
+    "tại nhà"
+   ]
+  },
+  "template:yt-fit-rutina-en-casa": {
+   "name": "Tập tại nhà",
+   "tags": [
+    "thể hình",
+    "tại nhà",
+    "bài tập",
+    "không dụng cụ"
+   ]
+  },
+  "template:yt-fit-serie-hud": {
+   "name": "Hiệp tập có giờ",
+   "tags": [
+    "thể hình",
+    "hiệp tập",
+    "hẹn giờ",
+    "gym"
+   ]
+  },
+  "template:yt-fit-sin-excusas": {
+   "name": "Không lý do",
+   "tags": [
+    "thể hình",
+    "động lực",
+    "năng lượng",
+    "quyết tâm"
+   ]
+  },
+  "template:yt-fit-tabata": {
+   "name": "Hẹn giờ tabata",
+   "tags": [
+    "thể hình",
+    "tabata",
+    "hiit",
+    "hẹn giờ"
+   ]
+  },
+  "template:yt-fit-transformacion": {
+   "name": "Sự thay đổi của tôi",
+   "tags": [
+    "thể hình",
+    "thay đổi",
+    "trước sau",
+    "cân nặng"
+   ]
+  },
+  "template:yt-game-alerta-sub": {
+   "name": "Báo đăng ký mới",
+   "tags": [
+    "game",
+    "phát trực tiếp",
+    "thông báo",
+    "người đăng ký"
+   ]
+  },
+  "template:yt-game-alerta-vertical": {
+   "name": "Live dọc có báo",
+   "tags": [
+    "game",
+    "phát trực tiếp",
+    "dọc",
+    "thông báo"
+   ]
+  },
+  "template:yt-game-clip-viral": {
+   "name": "Clip chơi game dọc",
+   "tags": [
+    "game",
+    "clip",
+    "dọc",
+    "lan truyền"
+   ]
+  },
+  "template:yt-game-derrota": {
+   "name": "Màn hình thua",
+   "tags": [
+    "game",
+    "thất bại",
+    "thua",
+    "phục thù"
+   ]
+  },
+  "template:yt-game-empezamos": {
+   "name": "Sắp bắt đầu",
+   "tags": [
+    "game",
+    "phát trực tiếp",
+    "chờ",
+    "sắp bắt đầu"
+   ]
+  },
+  "template:yt-game-facecam-vertical": {
+   "name": "Short gaming có cam",
+   "tags": [
+    "game",
+    "short",
+    "dọc",
+    "phản ứng"
+   ]
+  },
+  "template:yt-game-fin-stream": {
+   "name": "Kết thúc live",
+   "tags": [
+    "game",
+    "phát trực tiếp",
+    "kết thúc",
+    "màn cuối"
+   ]
+  },
+  "template:yt-game-gg": {
+   "name": "GG: trận hay",
+   "tags": [
+    "game",
+    "gg",
+    "kết thúc",
+    "trận đấu"
+   ]
+  },
+  "template:yt-game-highlights": {
+   "name": "Pha hay nhất",
+   "tags": [
+    "game",
+    "pha hay",
+    "nổi bật",
+    "khoảnh khắc"
+   ]
+  },
+  "template:yt-game-intro-pixel": {
+   "name": "Mở đầu 8-bit",
+   "tags": [
+    "game",
+    "retro",
+    "tám bit",
+    "pixel"
+   ]
+  },
+  "template:yt-game-killfeed": {
+   "name": "Chuỗi hạ gục",
+   "tags": [
+    "game",
+    "hạ gục",
+    "chuỗi",
+    "pha hay"
+   ]
+  },
+  "template:yt-game-marcador": {
+   "name": "Bảng điểm đội",
+   "tags": [
+    "game",
+    "bảng điểm",
+    "đội",
+    "thi đấu"
+   ]
+  },
+  "template:yt-game-mvp": {
+   "name": "Thẻ cầu thủ MVP",
+   "tags": [
+    "game",
+    "mvp",
+    "thẻ",
+    "thống kê"
+   ]
+  },
+  "template:yt-game-nivel": {
+   "name": "Lên cấp!",
+   "tags": [
+    "game",
+    "lên cấp",
+    "thành tích",
+    "kinh nghiệm"
+   ]
+  },
+  "template:yt-game-overlay-neon": {
+   "name": "Khung live neon",
+   "tags": [
+    "game",
+    "phát trực tiếp",
+    "khung",
+    "neon"
+   ]
+  },
+  "template:yt-game-torneo": {
+   "name": "Nhánh giải tuần",
+   "tags": [
+    "game",
+    "giải đấu",
+    "nhánh",
+    "thi đấu"
+   ]
+  },
+  "template:yt-game-victoria": {
+   "name": "Màn hình thắng",
+   "tags": [
+    "game",
+    "chiến thắng",
+    "người thắng",
+    "thống kê"
+   ]
+  },
+  "template:yt-game-vuelvo": {
+   "name": "Chờ chút nhé",
+   "tags": [
+    "game",
+    "phát trực tiếp",
+    "tạm dừng",
+    "quay lại"
+   ]
+  },
+  "template:yt-intro-3d": {
+   "name": "Mở đầu thẻ 3D",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "3d",
+    "điện ảnh"
+   ]
+  },
+  "template:yt-intro-a-mano": {
+   "name": "Mở đầu vẽ tay",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "vẽ tay",
+    "sáng tạo"
+   ]
+  },
+  "template:yt-intro-belleza": {
+   "name": "Mở đầu làm đẹp nhẹ",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "làm đẹp",
+    "hồng"
+   ]
+  },
+  "template:yt-intro-comedia": {
+   "name": "Mở đầu hài",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "hài",
+    "hước"
+   ]
+  },
+  "template:yt-intro-educacion": {
+   "name": "Mở đầu lớp học",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "giáo dục",
+    "sổ tay"
+   ]
+  },
+  "template:yt-intro-gaming": {
+   "name": "Mở đầu game bùng nổ",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "game",
+    "neon"
+   ]
+  },
+  "template:yt-intro-glitch": {
+   "name": "Mở đầu mất tín hiệu",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "nhiễu",
+    "retro"
+   ]
+  },
+  "template:yt-intro-liquido": {
+   "name": "Mở đầu hình lỏng",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "hình lỏng",
+    "chuyển màu"
+   ]
+  },
+  "template:yt-intro-minimal": {
+   "name": "Mở đầu chấm tối giản",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "tối giản",
+    "trắng đen"
+   ]
+  },
+  "template:yt-intro-musica": {
+   "name": "Mở đầu nhạc vinyl",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "âm nhạc",
+    "vinyl"
+   ]
+  },
+  "template:yt-intro-neon": {
+   "name": "Mở đầu biển neon",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "neon",
+    "ban đêm"
+   ]
+  },
+  "template:yt-intro-papel": {
+   "name": "Mở đầu giấy lớp",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "giấy",
+    "thủ công"
+   ]
+  },
+  "template:yt-intro-retro": {
+   "name": "Mở đầu retro 70s",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "retro",
+    "thập niên 70"
+   ]
+  },
+  "template:yt-intro-tech": {
+   "name": "Mở đầu công nghệ mạch",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "công nghệ",
+    "mạch"
+   ]
+  },
+  "template:yt-intro-vlog": {
+   "name": "Mở đầu vlog ảnh dải",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "vlog",
+    "ảnh"
+   ]
+  },
+  "template:yt-mini-alerta": {
+   "name": "Cảnh báo: đừng mua",
+   "tags": [
+    "ảnh bìa",
+    "cảnh báo",
+    "đừng mua",
+    "lỗi"
+   ]
+  },
+  "template:yt-mini-bien-mal": {
+   "name": "Đúng hay sai",
+   "tags": [
+    "ảnh bìa",
+    "đúng sai",
+    "lỗi",
+    "mẹo"
+   ]
+  },
+  "template:yt-mini-caja-misterio": {
+   "name": "Hộp bí mật",
+   "tags": [
+    "ảnh bìa",
+    "hộp",
+    "bí mật",
+    "bóc hộp"
+   ]
+  },
+  "template:yt-mini-cara-a-cara": {
+   "name": "Mặt đối mặt",
+   "tags": [
+    "ảnh bìa",
+    "đối đầu",
+    "so tài",
+    "thử thách"
+   ]
+  },
+  "template:yt-mini-celular": {
+   "name": "Xem màn hình tôi",
+   "tags": [
+    "ảnh bìa",
+    "màn hình",
+    "điện thoại",
+    "ứng dụng"
+   ]
+  },
+  "template:yt-mini-comic": {
+   "name": "Nổ truyện tranh",
+   "tags": [
+    "ảnh bìa",
+    "truyện tranh",
+    "bong bóng",
+    "hài"
+   ]
+  },
+  "template:yt-mini-cronometro": {
+   "name": "Trong 60 giây",
+   "tags": [
+    "ảnh bìa",
+    "sáu mươi giây",
+    "nhanh",
+    "đồng hồ"
+   ]
+  },
+  "template:yt-mini-cuatro-caras": {
+   "name": "Bốn gương mặt",
+   "tags": [
+    "ảnh bìa",
+    "bốn người",
+    "phản ứng",
+    "nhóm"
+   ]
+  },
+  "template:yt-mini-diagonal": {
+   "name": "Trước sau chéo",
+   "tags": [
+    "ảnh bìa",
+    "trước sau",
+    "thay đổi",
+    "đường chéo"
+   ]
+  },
+  "template:yt-mini-flecha-circulo": {
+   "name": "Mũi tên khoanh tròn",
+   "tags": [
+    "ảnh bìa",
+    "mũi tên",
+    "vòng tròn",
+    "tò mò"
+   ]
+  },
+  "template:yt-mini-grafica": {
+   "name": "Biểu đồ đi lên",
+   "tags": [
+    "ảnh bìa",
+    "biểu đồ",
+    "tăng trưởng",
+    "tiền"
+   ]
+  },
+  "template:yt-mini-lupa": {
+   "name": "Kính lúp chi tiết",
+   "tags": [
+    "ảnh bìa",
+    "kính lúp",
+    "chi tiết",
+    "bí mật"
+   ]
+  },
+  "template:yt-mini-numero-uno": {
+   "name": "Số một",
+   "tags": [
+    "ảnh bìa",
+    "số 1",
+    "xếp hạng",
+    "huy hiệu"
+   ]
+  },
+  "template:yt-mini-precio-tachado": {
+   "name": "Giá gạch bỏ",
+   "tags": [
+    "ảnh bìa",
+    "giá",
+    "giảm giá",
+    "rẻ đắt"
+   ]
+  },
+  "template:yt-mini-revelacion": {
+   "name": "Điều bị giấu",
+   "tags": [
+    "ảnh bìa",
+    "công bố",
+    "ẩn giấu",
+    "bí mật"
+   ]
+  },
+  "template:yt-mini-sticker": {
+   "name": "Mặt to dán",
+   "tags": [
+    "ảnh bìa",
+    "mặt to",
+    "hình dán",
+    "phản ứng"
+   ]
+  },
+  "template:yt-mini-tier-list": {
+   "name": "Xếp hạng bậc",
+   "tags": [
+    "ảnh bìa",
+    "xếp hạng",
+    "bậc",
+    "thang điểm"
+   ]
+  },
+  "template:yt-mini-tres-niveles": {
+   "name": "Ba cấp độ",
+   "tags": [
+    "ảnh bìa",
+    "cấp độ",
+    "so sánh",
+    "rẻ đắt"
+   ]
+  },
+  "template:yt-mist-camara": {
+   "name": "Camera an ninh",
+   "tags": [
+    "bí ẩn",
+    "camera",
+    "an ninh",
+    "manh mối"
+   ]
+  },
+  "template:yt-mist-censurado": {
+   "name": "Tài liệu bị che",
+   "tags": [
+    "bí ẩn",
+    "tài liệu",
+    "che mờ",
+    "mật"
+   ]
+  },
+  "template:yt-mist-evidencia": {
+   "name": "Bằng chứng",
+   "tags": [
+    "bí ẩn",
+    "bằng chứng",
+    "vật chứng",
+    "điều tra"
+   ]
+  },
+  "template:yt-mist-expediente": {
+   "name": "Hồ sơ vụ án",
+   "tags": [
+    "bí ẩn",
+    "hồ sơ",
+    "vụ án",
+    "mật"
+   ]
+  },
+  "template:yt-mist-linea-tiempo": {
+   "name": "Dòng thời gian vụ án",
+   "tags": [
+    "bí ẩn",
+    "vụ án",
+    "dòng thời gian",
+    "sự kiện"
+   ]
+  },
+  "template:yt-mist-linea-vertical": {
+   "name": "Dòng thời gian dọc",
+   "tags": [
+    "bí ẩn",
+    "dòng thời gian",
+    "dọc",
+    "niên biểu"
+   ]
+  },
+  "template:yt-mist-mapa": {
+   "name": "Bản đồ vụ án",
+   "tags": [
+    "bí ẩn",
+    "bản đồ",
+    "vị trí",
+    "lộ trình"
+   ]
+  },
+  "template:yt-mist-maquina": {
+   "name": "Mở đầu máy chữ",
+   "tags": [
+    "bí ẩn",
+    "máy chữ",
+    "mở đầu",
+    "kể chuyện"
+   ]
+  },
+  "template:yt-mist-perfil": {
+   "name": "Hồ sơ nhân vật chính",
+   "tags": [
+    "bí ẩn",
+    "hồ sơ",
+    "nhân vật",
+    "chân dung"
+   ]
+  },
+  "template:yt-mist-periodico": {
+   "name": "Mẩu báo cũ",
+   "tags": [
+    "bí ẩn",
+    "báo",
+    "tin tức",
+    "tiêu đề"
+   ]
+  },
+  "template:yt-mist-podcast": {
+   "name": "Mở đầu podcast bí ẩn",
+   "tags": [
+    "bí ẩn",
+    "podcast",
+    "mở đầu",
+    "dẫn chuyện"
+   ]
+  },
+  "template:yt-mist-se-busca": {
+   "name": "Tìm người mất tích",
+   "tags": [
+    "bí ẩn",
+    "mất tích",
+    "tìm người",
+    "áp phích"
+   ]
+  },
+  "template:yt-mist-sin-resolver": {
+   "name": "Vụ án chưa giải",
+   "tags": [
+    "bí ẩn",
+    "chưa giải",
+    "mở đầu",
+    "tài liệu"
+   ]
+  },
+  "template:yt-mist-sin-resolver-vertical": {
+   "name": "Chưa giải, bản dọc",
+   "tags": [
+    "bí ẩn",
+    "chưa giải",
+    "dọc",
+    "phần một"
+   ]
+  },
+  "template:yt-mist-tablero": {
+   "name": "Bảng manh mối chỉ đỏ",
+   "tags": [
+    "bí ẩn",
+    "manh mối",
+    "chỉ đỏ",
+    "điều tra"
+   ]
+  },
+  "template:yt-mist-tablero-vertical": {
+   "name": "Bảng manh mối dọc",
+   "tags": [
+    "bí ẩn",
+    "manh mối",
+    "dọc",
+    "ngắn"
+   ]
+  },
+  "template:yt-mist-teorias": {
+   "name": "Ba giả thuyết",
+   "tags": [
+    "bí ẩn",
+    "giả thuyết",
+    "lý giải",
+    "ngắn"
+   ]
+  },
+  "template:yt-mist-testigo": {
+   "name": "Lời khai nhân chứng",
+   "tags": [
+    "bí ẩn",
+    "nhân chứng",
+    "lời khai",
+    "trích dẫn"
+   ]
+  },
+  "template:yt-pod-al-aire": {
+   "name": "Lên sóng radio",
+   "tags": [
+    "podcast",
+    "radio",
+    "lên sóng",
+    "retro"
+   ]
+  },
+  "template:yt-pod-apertura": {
+   "name": "Mở đầu nhanh",
+   "tags": [
+    "podcast",
+    "mở đầu",
+    "giới thiệu",
+    "tóm tắt"
+   ]
+  },
+  "template:yt-pod-audiograma": {
+   "name": "Biểu đồ âm thanh",
+   "tags": [
+    "podcast",
+    "sóng âm",
+    "clip",
+    "âm thanh"
+   ]
+  },
+  "template:yt-pod-cita": {
+   "name": "Thẻ trích dẫn",
+   "tags": [
+    "podcast",
+    "trích dẫn",
+    "clip",
+    "câu nói"
+   ]
+  },
+  "template:yt-pod-clip-subtitulos": {
+   "name": "Clip phụ đề lớn",
+   "tags": [
+    "podcast",
+    "phụ đề",
+    "clip",
+    "dọc"
+   ]
+  },
+  "template:yt-pod-clip-vertical": {
+   "name": "Clip dọc hai máy",
+   "tags": [
+    "podcast",
+    "clip",
+    "dọc",
+    "hai máy",
+    "phụ đề"
+   ]
+  },
+  "template:yt-pod-cortes": {
+   "name": "Podcast nhiều cắt",
+   "tags": [
+    "podcast",
+    "cắt cảnh",
+    "trò chuyện",
+    "nhiều máy"
+   ]
+  },
+  "template:yt-pod-debate": {
+   "name": "Tranh luận hai phe",
+   "tags": [
+    "podcast",
+    "tranh luận",
+    "ủng hộ",
+    "phản đối"
+   ]
+  },
+  "template:yt-pod-dos-camaras": {
+   "name": "Podcast hai máy",
+   "tags": [
+    "podcast",
+    "hai máy",
+    "phỏng vấn",
+    "tên"
+   ]
+  },
+  "template:yt-pod-en-vivo": {
+   "name": "Podcast trực tiếp chat",
+   "tags": [
+    "podcast",
+    "trực tiếp",
+    "chat",
+    "tương tác"
+   ]
+  },
+  "template:yt-pod-invitado": {
+   "name": "Giới thiệu khách mời",
+   "tags": [
+    "podcast",
+    "khách mời",
+    "giới thiệu",
+    "phỏng vấn"
+   ]
+  },
+  "template:yt-pod-mejores-momentos": {
+   "name": "Khoảnh khắc hay",
+   "tags": [
+    "podcast",
+    "khoảnh khắc",
+    "tóm tắt",
+    "clip"
+   ]
+  },
+  "template:yt-pod-panel-tres": {
+   "name": "Bàn tròn ba người",
+   "tags": [
+    "podcast",
+    "bàn tròn",
+    "ba người",
+    "tranh luận"
+   ]
+  },
+  "template:yt-pod-pausa": {
+   "name": "Sẽ quay lại",
+   "tags": [
+    "podcast",
+    "tạm dừng",
+    "quay lại",
+    "nghỉ"
+   ]
+  },
+  "template:yt-pod-pregunta": {
+   "name": "Câu hỏi hôm nay",
+   "tags": [
+    "podcast",
+    "câu hỏi",
+    "tranh luận",
+    "chủ đề"
+   ]
+  },
+  "template:yt-pod-proximo": {
+   "name": "Tập tiếp theo",
+   "tags": [
+    "podcast",
+    "tập tiếp",
+    "màn cuối",
+    "đăng ký"
+   ]
+  },
+  "template:yt-pod-temas": {
+   "name": "Chủ đề tập",
+   "tags": [
+    "podcast",
+    "chủ đề",
+    "mục lục",
+    "chương"
+   ]
+  },
+  "template:yt-pod-titulo-episodio": {
+   "name": "Tiêu đề tập",
+   "tags": [
+    "podcast",
+    "tiêu đề",
+    "tập",
+    "trang bìa"
+   ]
+  },
+  "template:yt-reac-arriba-abajo": {
+   "name": "Phản ứng trên dưới",
+   "tags": [
+    "phản ứng",
+    "trên dưới",
+    "chia màn hình",
+    "hài"
+   ]
+  },
+  "template:yt-reac-cine-h": {
+   "name": "Phản ứng xem phim",
+   "tags": [
+    "phản ứng",
+    "xem phim",
+    "rạp",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-comentarios": {
+   "name": "Đọc bình luận",
+   "tags": [
+    "phản ứng",
+    "bình luận",
+    "trả lời",
+    "người xem"
+   ]
+  },
+  "template:yt-reac-comida": {
+   "name": "Bạn có thử không?",
+   "tags": [
+    "phản ứng",
+    "món ăn",
+    "bình chọn",
+    "thử"
+   ]
+  },
+  "template:yt-reac-dividida-h": {
+   "name": "Phản ứng hai bên",
+   "tags": [
+    "phản ứng",
+    "hai bên",
+    "cạnh nhau",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-dueto": {
+   "name": "Phản ứng song ca",
+   "tags": [
+    "phản ứng",
+    "song ca",
+    "đôi",
+    "hát"
+   ]
+  },
+  "template:yt-reac-espera": {
+   "name": "Phản ứng chờ xem",
+   "tags": [
+    "phản ứng",
+    "chờ đợi",
+    "đếm ngược",
+    "bất ngờ"
+   ]
+  },
+  "template:yt-reac-esquina-h": {
+   "name": "Phản ứng góc máy",
+   "tags": [
+    "phản ứng",
+    "cam góc",
+    "16:9",
+    "nhỏ gọn"
+   ]
+  },
+  "template:yt-reac-esquinas": {
+   "name": "Cam góc nhảy",
+   "tags": [
+    "phản ứng",
+    "góc máy",
+    "nhảy",
+    "năng động"
+   ]
+  },
+  "template:yt-reac-musica": {
+   "name": "Nghe lần đầu",
+   "tags": [
+    "phản ứng",
+    "âm nhạc",
+    "lần đầu",
+    "bài hát"
+   ]
+  },
+  "template:yt-reac-nota-h": {
+   "name": "Phản ứng có điểm",
+   "tags": [
+    "phản ứng",
+    "điểm số",
+    "chấm điểm",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-pareja-h": {
+   "name": "Phản ứng đôi",
+   "tags": [
+    "phản ứng",
+    "cặp đôi",
+    "16:9",
+    "hai người"
+   ]
+  },
+  "template:yt-reac-real-falso-h": {
+   "name": "Thật hay giả?",
+   "tags": [
+    "phản ứng",
+    "thật giả",
+    "thử thách",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-repeticion": {
+   "name": "Phản ứng quay chậm",
+   "tags": [
+    "phản ứng",
+    "quay chậm",
+    "xem lại",
+    "khoảnh khắc"
+   ]
+  },
+  "template:yt-reac-sus-videos": {
+   "name": "Phản ứng video bạn",
+   "tags": [
+    "phản ứng",
+    "người xem",
+    "video",
+    "cộng đồng"
+   ]
+  },
+  "template:yt-reac-tarjeta": {
+   "name": "Phản ứng thẻ nổi",
+   "tags": [
+    "phản ứng",
+    "thẻ nổi",
+    "bình luận",
+    "video"
+   ]
+  },
+  "template:yt-reac-ventana-h": {
+   "name": "Phản ứng cửa sổ",
+   "tags": [
+    "phản ứng",
+    "cửa sổ",
+    "16:9",
+    "khung"
+   ]
+  },
+  "template:yt-reac-zoom-cara": {
+   "name": "Phóng mặt phản ứng",
+   "tags": [
+    "phản ứng",
+    "phóng to",
+    "khuôn mặt",
+    "biểu cảm"
+   ]
+  },
+  "template:yt-reto-1-vs-100": {
+   "name": "1 với 100",
+   "tags": [
+    "thử thách",
+    "đối đầu",
+    "so tài",
+    "một chọi trăm"
+   ]
+  },
+  "template:yt-reto-1-vs-millon": {
+   "name": "1 đô với 1 triệu",
+   "tags": [
+    "thử thách",
+    "tiền",
+    "so sánh",
+    "đắt rẻ",
+    "triệu đô"
+   ]
+  },
+  "template:yt-reto-10-dolares-7-dias": {
+   "name": "10 đô trong 7 ngày",
+   "tags": [
+    "thử thách",
+    "tiết kiệm",
+    "ngân sách",
+    "bảy ngày"
+   ]
+  },
+  "template:yt-reto-100-personas": {
+   "name": "100 người, 1 người thắng",
+   "tags": [
+    "thử thách",
+    "trăm người",
+    "thi đấu",
+    "người thắng"
+   ]
+  },
+  "template:yt-reto-24-horas": {
+   "name": "24 giờ ở…",
+   "tags": [
+    "thử thách",
+    "24 giờ",
+    "hẹn giờ",
+    "đồng hồ"
+   ]
+  },
+  "template:yt-reto-aguanta-60-minutos": {
+   "name": "Chịu được là thắng",
+   "tags": [
+    "thử thách",
+    "hẹn giờ",
+    "trụ lại",
+    "phút"
+   ]
+  },
+  "template:yt-reto-barato-vs-caro": {
+   "name": "Ba mức giá",
+   "tags": [
+    "thử thách",
+    "so sánh",
+    "đắt rẻ",
+    "tiền"
+   ]
+  },
+  "template:yt-reto-caja-misteriosa": {
+   "name": "Chọn một hộp",
+   "tags": [
+    "thử thách",
+    "hộp bí mật",
+    "bất ngờ",
+    "giải thưởng"
+   ]
+  },
+  "template:yt-reto-dia-1-dia-100": {
+   "name": "Ngày 1 với ngày 100",
+   "tags": [
+    "thử thách",
+    "một trăm ngày",
+    "tiến bộ",
+    "kiên trì"
+   ]
+  },
+  "template:yt-reto-eliminados": {
+   "name": "Chỉ một người trụ lại",
+   "tags": [
+    "thử thách",
+    "loại dần",
+    "người thắng",
+    "thi đấu"
+   ]
+  },
+  "template:yt-reto-ganador": {
+   "name": "Và người thắng là…",
+   "tags": [
+    "thử thách",
+    "người thắng",
+    "công bố",
+    "giải thưởng"
+   ]
+  },
+  "template:yt-reto-gasta-1000": {
+   "name": "Tiêu 1.000 đô một phút",
+   "tags": [
+    "thử thách",
+    "mua sắm",
+    "tiền",
+    "hẹn giờ"
+   ]
+  },
+  "template:yt-reto-intro-hype": {
+   "name": "Mở đầu thử thách",
+   "tags": [
+    "thử thách",
+    "mở đầu",
+    "sôi động",
+    "năng lượng"
+   ]
+  },
+  "template:yt-reto-marcador": {
+   "name": "Bảng điểm thử thách",
+   "tags": [
+    "thử thách",
+    "bảng điểm",
+    "đội chơi",
+    "thi đấu"
+   ]
+  },
+  "template:yt-reto-no-te-muevas": {
+   "name": "Đứng yên 10 giây",
+   "tags": [
+    "thử thách",
+    "hẹn giờ",
+    "đếm ngược",
+    "mười giây"
+   ]
+  },
+  "template:yt-reto-premio-gigante": {
+   "name": "Giải thưởng khổng lồ",
+   "tags": [
+    "thử thách",
+    "giải thưởng",
+    "tiền",
+    "đếm số"
+   ]
+  },
+  "template:yt-reto-sobrevivi-7-dias": {
+   "name": "Sống sót 7 ngày",
+   "tags": [
+    "thử thách",
+    "sinh tồn",
+    "bảy ngày",
+    "phiêu lưu"
+   ]
+  },
+  "template:yt-reto-ultimo-en-salir": {
+   "name": "Ai ở lại cuối thắng",
+   "tags": [
+    "thử thách",
+    "ở lại cuối",
+    "giải thưởng",
+    "tranh đua"
+   ]
+  },
+  "template:yt-sub-amarillo": {
+   "name": "Phụ đề vàng nổi",
+   "tags": [
+    "phụ đề",
+    "từng từ",
+    "màu vàng",
+    "nổi bật"
+   ]
+  },
+  "template:yt-sub-burbuja": {
+   "name": "Phụ đề bong bóng",
+   "tags": [
+    "phụ đề",
+    "bong bóng",
+    "từng từ",
+    "chat"
+   ]
+  },
+  "template:yt-sub-caja-blanca": {
+   "name": "Phụ đề hộp trắng",
+   "tags": [
+    "phụ đề",
+    "hộp trắng",
+    "từng từ",
+    "góc nhìn"
+   ]
+  },
+  "template:yt-sub-caja-verde": {
+   "name": "Phụ đề bôi xanh",
+   "tags": [
+    "phụ đề",
+    "từng từ",
+    "làm nổi",
+    "màu xanh"
+   ]
+  },
+  "template:yt-sub-comic-h": {
+   "name": "Phụ đề truyện tranh",
+   "tags": [
+    "phụ đề",
+    "truyện tranh",
+    "vlog",
+    "16:9"
+   ]
+  },
+  "template:yt-sub-emoji": {
+   "name": "Phụ đề emoji",
+   "tags": [
+    "phụ đề",
+    "emoji",
+    "vui",
+    "từng từ"
+   ]
+  },
+  "template:yt-sub-gancho": {
+   "name": "Câu móc và phụ đề",
+   "tags": [
+    "phụ đề",
+    "câu móc",
+    "từng từ",
+    "giữ chân"
+   ]
+  },
+  "template:yt-sub-gradiente": {
+   "name": "Phụ đề chuyển màu",
+   "tags": [
+    "phụ đề",
+    "chuyển màu",
+    "từng từ",
+    "ý tưởng"
+   ]
+  },
+  "template:yt-sub-marcador": {
+   "name": "Phụ đề viết tay",
+   "tags": [
+    "phụ đề",
+    "viết tay",
+    "từng từ",
+    "kể chuyện"
+   ]
+  },
+  "template:yt-sub-neon": {
+   "name": "Phụ đề neon",
+   "tags": [
+    "phụ đề",
+    "từng từ",
+    "neon",
+    "ban đêm"
+   ]
+  },
+  "template:yt-sub-pantalla-dividida": {
+   "name": "Phụ đề chia màn hình",
+   "tags": [
+    "phụ đề",
+    "chia màn hình",
+    "từng từ",
+    "hai bên"
+   ]
+  },
+  "template:yt-sub-pasos": {
+   "name": "Phụ đề từng bước",
+   "tags": [
+    "phụ đề",
+    "các bước",
+    "hướng dẫn",
+    "từng từ"
+   ]
+  },
+  "template:yt-sub-podcast-h": {
+   "name": "Phụ đề podcast 16:9",
+   "tags": [
+    "phụ đề",
+    "podcast",
+    "16:9",
+    "từng từ"
+   ]
+  },
+  "template:yt-sub-retro": {
+   "name": "Phụ đề VHS retro",
+   "tags": [
+    "phụ đề",
+    "retro",
+    "vhs",
+    "hoài niệm"
+   ]
+  },
+  "template:yt-sub-rojo": {
+   "name": "Phụ đề từ khóa đỏ",
+   "tags": [
+    "phụ đề",
+    "từ khóa",
+    "màu đỏ",
+    "doanh nghiệp"
+   ]
+  },
+  "template:yt-sub-storytime": {
+   "name": "Kể chuyện điện ảnh",
+   "tags": [
+    "phụ đề",
+    "kể chuyện",
+    "điện ảnh",
+    "từng từ"
+   ]
+  },
+  "template:yt-sub-tutorial-h": {
+   "name": "Phụ đề hướng dẫn 16:9",
+   "tags": [
+    "phụ đề",
+    "hướng dẫn",
+    "16:9",
+    "từng từ"
+   ]
+  },
+  "template:yt-sub-una-palabra": {
+   "name": "Mỗi lần một từ",
+   "tags": [
+    "phụ đề",
+    "từng từ",
+    "một từ",
+    "chuyển động"
+   ]
+  },
+  "template:yt-tec-bateria": {
+   "name": "Thử pin",
+   "tags": [
+    "công nghệ",
+    "pin",
+    "thử nghiệm",
+    "thời lượng"
+   ]
+  },
+  "template:yt-tec-benchmark": {
+   "name": "Đua hiệu năng",
+   "tags": [
+    "công nghệ",
+    "hiệu năng",
+    "điểm chuẩn",
+    "tốc độ"
+   ]
+  },
+  "template:yt-tec-capitulos": {
+   "name": "Chương đánh giá",
+   "tags": [
+    "công nghệ",
+    "chương",
+    "mục lục",
+    "đánh giá"
+   ]
+  },
+  "template:yt-tec-comparacion": {
+   "name": "So sánh cạnh nhau",
+   "tags": [
+    "công nghệ",
+    "so sánh",
+    "đối đầu",
+    "đánh giá"
+   ]
+  },
+  "template:yt-tec-comparacion-vertical": {
+   "name": "Mua cái nào?",
+   "tags": [
+    "công nghệ",
+    "so sánh",
+    "chọn mua",
+    "đối đầu"
+   ]
+  },
+  "template:yt-tec-etiqueta-precio": {
+   "name": "Nhãn giá",
+   "tags": [
+    "công nghệ",
+    "giá",
+    "ra mắt",
+    "đánh giá"
+   ]
+  },
+  "template:yt-tec-ficha-tecnica": {
+   "name": "Bảng thông số",
+   "tags": [
+    "công nghệ",
+    "thông số",
+    "đánh giá",
+    "điện thoại"
+   ]
+  },
+  "template:yt-tec-primeras-impresiones": {
+   "name": "Ấn tượng đầu",
+   "tags": [
+    "công nghệ",
+    "ấn tượng đầu",
+    "đánh giá",
+    "điện ảnh"
+   ]
+  },
+  "template:yt-tec-pros-contras": {
+   "name": "Ưu nhược điểm",
+   "tags": [
+    "công nghệ",
+    "ưu nhược",
+    "đánh giá",
+    "so sánh"
+   ]
+  },
+  "template:yt-tec-prueba-camara": {
+   "name": "Thử camera",
+   "tags": [
+    "công nghệ",
+    "camera",
+    "chụp thử",
+    "ban đêm"
+   ]
+  },
+  "template:yt-tec-puntaje": {
+   "name": "Điểm cuối",
+   "tags": [
+    "công nghệ",
+    "điểm số",
+    "đánh giá",
+    "chấm"
+   ]
+  },
+  "template:yt-tec-setup": {
+   "name": "Bàn làm việc tôi",
+   "tags": [
+    "công nghệ",
+    "bàn làm việc",
+    "góc máy",
+    "đồ chơi"
+   ]
+  },
+  "template:yt-tec-top-3": {
+   "name": "Top 3 phụ kiện năm",
+   "tags": [
+    "công nghệ",
+    "top 3",
+    "xếp hạng",
+    "phụ kiện"
+   ]
+  },
+  "template:yt-tec-tres-cosas": {
+   "name": "3 điều chưa biết",
+   "tags": [
+    "công nghệ",
+    "mẹo",
+    "thủ thuật",
+    "khám phá"
+   ]
+  },
+  "template:yt-tec-unboxing": {
+   "name": "Bóc hộp gọn",
+   "tags": [
+    "công nghệ",
+    "bóc hộp",
+    "đánh giá",
+    "tối giản"
+   ]
+  },
+  "template:yt-tec-unboxing-vertical": {
+   "name": "Bóc hộp 4 bước",
+   "tags": [
+    "công nghệ",
+    "bóc hộp",
+    "các bước",
+    "đánh giá"
+   ]
+  },
+  "template:yt-tec-vale-la-pena": {
+   "name": "Có đáng tiền?",
+   "tags": [
+    "công nghệ",
+    "đáng tiền",
+    "giá",
+    "đánh giá"
+   ]
+  },
+  "template:yt-tec-veredicto": {
+   "name": "Kết luận cuối",
+   "tags": [
+    "công nghệ",
+    "kết luận",
+    "khuyên mua",
+    "đánh giá"
+   ]
+  },
+  "template:yt-top-10-intro": {
+   "name": "Mở đầu top 10",
+   "tags": [
+    "xếp hạng",
+    "top 10",
+    "mở đầu",
+    "đếm ngược"
+   ]
+  },
+  "template:yt-top-10-lista": {
+   "name": "Top 10 có danh sách",
+   "tags": [
+    "xếp hạng",
+    "top 10",
+    "danh sách",
+    "đếm ngược"
+   ]
+  },
+  "template:yt-top-10-rapido": {
+   "name": "Top 10 nhanh",
+   "tags": [
+    "xếp hạng",
+    "top 10",
+    "danh sách",
+    "đếm ngược"
+   ]
+  },
+  "template:yt-top-10-tabla": {
+   "name": "Bảng xếp hạng",
+   "tags": [
+    "xếp hạng",
+    "bảng",
+    "điểm số",
+    "top 10"
+   ]
+  },
+  "template:yt-top-3-medallas": {
+   "name": "Top 3 huy chương",
+   "tags": [
+    "xếp hạng",
+    "top 3",
+    "huy chương",
+    "vàng"
+   ]
+  },
+  "template:yt-top-3-podio": {
+   "name": "Bục top 3",
+   "tags": [
+    "xếp hạng",
+    "top 3",
+    "bục thắng",
+    "người thắng"
+   ]
+  },
+  "template:yt-top-3-revelacion": {
+   "name": "Lộ diện quán quân",
+   "tags": [
+    "xếp hạng",
+    "top 3",
+    "quán quân",
+    "công bố"
+   ]
+  },
+  "template:yt-top-5-cine": {
+   "name": "Top 5 điện ảnh",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "điện ảnh",
+    "du lịch"
+   ]
+  },
+  "template:yt-top-5-comida": {
+   "name": "Top 5 món ăn",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "món ăn",
+    "chấm điểm"
+   ]
+  },
+  "template:yt-top-5-cuaderno": {
+   "name": "Top 5 sổ tay",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "sổ tay",
+    "vẽ tay"
+   ]
+  },
+  "template:yt-top-5-datos-curiosos": {
+   "name": "5 sự thật thú vị",
+   "tags": [
+    "xếp hạng",
+    "sự thật",
+    "khám phá",
+    "học hỏi"
+   ]
+  },
+  "template:yt-top-5-lugares": {
+   "name": "Top 5 địa điểm",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "du lịch",
+    "địa điểm"
+   ]
+  },
+  "template:yt-top-5-neon": {
+   "name": "Top 5 neon",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "neon",
+    "game"
+   ]
+  },
+  "template:yt-top-5-pantalla-dividida": {
+   "name": "Top 5 chia màn hình",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "chia màn hình",
+    "màu sắc"
+   ]
+  },
+  "template:yt-top-5-peor-a-mejor": {
+   "name": "Từ tệ đến hay",
+   "tags": [
+    "xếp hạng",
+    "chấm điểm",
+    "đánh giá",
+    "so sánh"
+   ]
+  },
+  "template:yt-top-5-ranking-rellenar": {
+   "name": "Bảng xếp hạng trống",
+   "tags": [
+    "xếp hạng",
+    "điền vào",
+    "lựa chọn",
+    "trống"
+   ]
+  },
+  "template:yt-top-5-retro": {
+   "name": "Top 5 retro",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "retro",
+    "băng cũ"
+   ]
+  },
+  "template:yt-top-5-tarjetas": {
+   "name": "Top 5 dạng thẻ",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "thẻ",
+    "yêu thích"
+   ]
+  },
+  "template:yt-vlog-barrios": {
+   "name": "Ba khu phố một ngày",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "khu phố",
+    "chia màn hình"
+   ]
+  },
+  "template:yt-vlog-billete": {
+   "name": "Vé du lịch",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "vé",
+    "du lịch"
+   ]
+  },
+  "template:yt-vlog-cinematico": {
+   "name": "Mở đầu thành phố",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "điện ảnh",
+    "mở đầu"
+   ]
+  },
+  "template:yt-vlog-clima": {
+   "name": "Thời tiết và giờ",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "thời tiết",
+    "giờ"
+   ]
+  },
+  "template:yt-vlog-dia-1": {
+   "name": "Ngày 1 ở… (chương)",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "chương",
+    "du lịch"
+   ]
+  },
+  "template:yt-vlog-gastos": {
+   "name": "Chi bao nhiêu một ngày",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "chi tiêu",
+    "ngân sách"
+   ]
+  },
+  "template:yt-vlog-hora-lugar": {
+   "name": "Giờ và nơi",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "giờ",
+    "địa điểm"
+   ]
+  },
+  "template:yt-vlog-llegando": {
+   "name": "Đến thành phố",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "đến nơi",
+    "khoảng cách"
+   ]
+  },
+  "template:yt-vlog-mapa-zoom": {
+   "name": "Bạn ở đây",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "bản đồ",
+    "vị trí"
+   ]
+  },
+  "template:yt-vlog-metro": {
+   "name": "Đi tàu điện",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "tàu điện",
+    "nhà ga"
+   ]
+  },
+  "template:yt-vlog-noche": {
+   "name": "Thành phố ban đêm",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "ban đêm",
+    "neon"
+   ]
+  },
+  "template:yt-vlog-postal": {
+   "name": "Lời chào từ… (bưu thiếp)",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "bưu thiếp",
+    "retro"
+   ]
+  },
+  "template:yt-vlog-resumen": {
+   "name": "Tóm tắt chuyến đi",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "tóm tắt",
+    "ảnh"
+   ]
+  },
+  "template:yt-vlog-ruta-mapa": {
+   "name": "Bản đồ lộ trình",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "bản đồ",
+    "lộ trình"
+   ]
+  },
+  "template:yt-vlog-stats-viaje": {
+   "name": "Chuyến đi bằng số",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "thống kê",
+    "tóm tắt"
+   ]
+  },
+  "template:yt-vlog-timelapse": {
+   "name": "Timelapse thành phố",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "tua nhanh",
+    "đồng hồ"
+   ]
+  },
+  "template:yt-vlog-titulo-calle": {
+   "name": "Tiêu đề đường phố",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "tiêu đề",
+    "đường phố"
+   ]
+  },
+  "template:yt-vlog-top3": {
+   "name": "3 nơi phải đến",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "top 3",
+    "địa điểm"
    ]
   },
   "template:zoom-3d-parallax": {

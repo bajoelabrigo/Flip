@@ -114,6 +114,7 @@
   "template:text": "Teksto",
   "template:thumbnail": "Thumbnail ng video",
   "template:transition": "Transition at separator",
+  "template:youtuber": "Istilong youtuber",
   "text-animation:brillo": "Kinang at kulay",
   "text-animation:caer": "Laglag at angat",
   "text-animation:desenfoque": "Blur at fade",
@@ -27722,6 +27723,3006 @@
     "kislap",
     "pink",
     "aesthetic"
+   ]
+  },
+  "template:yt-calle-a-que-te-dedicas": {
+   "name": "Ano ang trabaho mo?",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "trabaho",
+    "propesyon",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-adivina-edad": {
+   "name": "Hulaan ang edad ko",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "hula",
+    "edad",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-consejo": {
+   "name": "Payo sa 20-anyos",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "payo",
+    "lolo",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-documental-h": {
+   "name": "Interbyung dokumentaryo",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "dokumentaryo",
+    "16:9",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-mic-grande": {
+   "name": "Mikroponong malapit",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "mikropono",
+    "pov",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-noticiero-h": {
+   "name": "Interbyung balita sa kalsada",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "balita",
+    "16:9",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-parejas-h": {
+   "name": "Tanong sa magkasintahan",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "pares",
+    "16:9",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-precio": {
+   "name": "Hulaan ang presyo",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "presyo",
+    "hula",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-pregunta-del-dia": {
+   "name": "Tanong ng araw",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "tanong",
+    "araw",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-primera-cita": {
+   "name": "Sino ang taya?",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "date",
+    "pag-ibig",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-que-opinas": {
+   "name": "Ano ang palagay mo?",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "opinyon",
+    "tanong",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-ranking": {
+   "name": "Survey sa kalsada",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "survey",
+    "resulta",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-rapido": {
+   "name": "Isang salitang paglalarawan",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "salita",
+    "mabilis",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-termina-cancion": {
+   "name": "Tapusin ang kanta",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "kanta",
+    "karaoke",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-trivia": {
+   "name": "Trivia sa kalsada",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "kaalaman",
+    "quiz",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-tv-retro-h": {
+   "name": "Retro TV sa kalsada",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "retro",
+    "tv",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-verdadero-falso": {
+   "name": "Tama o mali?",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "tama",
+    "mali",
+    "youtuber"
+   ]
+  },
+  "template:yt-calle-vs": {
+   "name": "Ito o iyon",
+   "tags": [
+    "interbyu",
+    "kalsada",
+    "pumili",
+    "duwelo",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-cenital": {
+   "name": "Tatlong plato sa taas",
+   "tags": [
+    "pagkain",
+    "luto",
+    "plato",
+    "taas",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-cierre": {
+   "name": "Pagtatapos: kain na",
+   "tags": [
+    "pagkain",
+    "luto",
+    "pagtatapos",
+    "salamat",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-crudo-listo": {
+   "name": "Hilaw hanggang luto",
+   "tags": [
+    "pagkain",
+    "luto",
+    "hilaw",
+    "tapos",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-ingredientes-flotan": {
+   "name": "Ang kailangan mo",
+   "tags": [
+    "pagkain",
+    "luto",
+    "sangkap",
+    "resipe",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-ingredientes-lista": {
+   "name": "Listahan ng sangkap",
+   "tags": [
+    "pagkain",
+    "luto",
+    "sangkap",
+    "listahan",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-intro-canal": {
+   "name": "Panimula ng cooking channel",
+   "tags": [
+    "pagkain",
+    "luto",
+    "channel",
+    "panimula",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-menu-semana": {
+   "name": "Menu ng linggo",
+   "tags": [
+    "pagkain",
+    "luto",
+    "menu",
+    "linggo",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-nutricion": {
+   "name": "Nutrisyon ng putahe",
+   "tags": [
+    "pagkain",
+    "luto",
+    "nutrisyon",
+    "calorie",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-pasos": {
+   "name": "Resipe kada hakbang",
+   "tags": [
+    "pagkain",
+    "luto",
+    "resipe",
+    "hakbang",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-pasos-wide": {
+   "name": "Hakbang, video at kard",
+   "tags": [
+    "pagkain",
+    "luto",
+    "hakbang",
+    "video",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-pizarra": {
+   "name": "Pisara: magluluto tayo",
+   "tags": [
+    "pagkain",
+    "luto",
+    "pisara",
+    "menu",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-plato-final": {
+   "name": "Ang huling putahe",
+   "tags": [
+    "pagkain",
+    "luto",
+    "putahe",
+    "resulta",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-postre": {
+   "name": "Dessert na walang hurno",
+   "tags": [
+    "pagkain",
+    "luto",
+    "dessert",
+    "matamis",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-receta-60s": {
+   "name": "60 segundong resipe",
+   "tags": [
+    "pagkain",
+    "luto",
+    "resipe",
+    "mabilis",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-receta-card": {
+   "name": "Kard ng resipe",
+   "tags": [
+    "pagkain",
+    "luto",
+    "resipe",
+    "kard",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-receta-vertical": {
+   "name": "Berdikal na kard",
+   "tags": [
+    "pagkain",
+    "luto",
+    "resipe",
+    "berdikal",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-reto-3": {
+   "name": "Hamon: 3 sangkap lang",
+   "tags": [
+    "pagkain",
+    "luto",
+    "hamon",
+    "sangkap",
+    "youtuber"
+   ]
+  },
+  "template:yt-coc-temporizador": {
+   "name": "Timer ng hurno",
+   "tags": [
+    "pagkain",
+    "luto",
+    "hurno",
+    "timer",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-0630": {
+   "name": "Oras sa screen",
+   "tags": [
+    "araw",
+    "rutin",
+    "oras",
+    "screen",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-alarma": {
+   "name": "Tumunog ang alarm",
+   "tags": [
+    "araw",
+    "alarm",
+    "umaga",
+    "gising",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-antes-despues": {
+   "name": "Paghahanda: bago at pagkatapos",
+   "tags": [
+    "araw",
+    "paghahanda",
+    "pagbabago",
+    "makeup",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-checklist": {
+   "name": "Rutin sa umaga",
+   "tags": [
+    "araw",
+    "rutin",
+    "umaga",
+    "listahan",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-cozy": {
+   "name": "Mabagal na Linggo",
+   "tags": [
+    "araw",
+    "linggo",
+    "komportable",
+    "mahinahon",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-diario": {
+   "name": "Talaarawan ng araw ko",
+   "tags": [
+    "araw",
+    "talaarawan",
+    "tala",
+    "gawain",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-energia": {
+   "name": "Enerhiya ko ngayong araw",
+   "tags": [
+    "araw",
+    "enerhiya",
+    "baterya",
+    "damdamin",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-estudio": {
+   "name": "Araw ng pag-aaral",
+   "tags": [
+    "araw",
+    "pag-aaral",
+    "agenda",
+    "produktibo",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-fin-semana": {
+   "name": "Sabado kasama ko",
+   "tags": [
+    "araw",
+    "sabado",
+    "scrapbook",
+    "larawan",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-grwm-espejo": {
+   "name": "Maghanda tayo: salamin",
+   "tags": [
+    "araw",
+    "paghahanda",
+    "salamin",
+    "makeup",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-grwm-lista": {
+   "name": "Ginagamit ko ngayon",
+   "tags": [
+    "araw",
+    "paghahanda",
+    "listahan",
+    "makeup",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-grwm-pasos": {
+   "name": "Maghanda tayo: hakbang",
+   "tags": [
+    "araw",
+    "paghahanda",
+    "makeup",
+    "hakbang",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-linea-rutina": {
+   "name": "Timeline ng rutin ko",
+   "tags": [
+    "araw",
+    "rutin",
+    "timeline",
+    "gawain",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-noche": {
+   "name": "Rutin sa gabi",
+   "tags": [
+    "araw",
+    "gabi",
+    "rutin",
+    "balat",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-numeros": {
+   "name": "Araw ko sa bilang",
+   "tags": [
+    "araw",
+    "bilang",
+    "estadistika",
+    "buod",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-outfit": {
+   "name": "Damit ng araw",
+   "tags": [
+    "araw",
+    "damit",
+    "moda",
+    "istilo",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-reloj": {
+   "name": "Orasan ng araw ko",
+   "tags": [
+    "araw",
+    "orasan",
+    "oras",
+    "rutin",
+    "youtuber"
+   ]
+  },
+  "template:yt-dia-rutina-split": {
+   "name": "Simpleng rutin, hating screen",
+   "tags": [
+    "araw",
+    "rutin",
+    "minimal",
+    "screen",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-barras": {
+   "name": "Tsart na bar",
+   "tags": [
+    "paliwanag",
+    "tsart",
+    "bar",
+    "datos",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-capitulos": {
+   "name": "Sa video na ito",
+   "tags": [
+    "paliwanag",
+    "kabanata",
+    "nilalaman",
+    "video",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-comparar": {
+   "name": "Paghahambing A at B",
+   "tags": [
+    "paliwanag",
+    "paghahambing",
+    "talahanayan",
+    "duwelo",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-datos": {
+   "name": "Lumalabas na datos",
+   "tags": [
+    "paliwanag",
+    "datos",
+    "bilang",
+    "agham",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-dona": {
+   "name": "Porsiyenteng donut",
+   "tags": [
+    "paliwanag",
+    "porsiyento",
+    "tsart",
+    "datos",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-fuente": {
+   "name": "Sabi ng agham",
+   "tags": [
+    "paliwanag",
+    "agham",
+    "pag-aaral",
+    "pinagmulan",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-glosario": {
+   "name": "Salita ng araw",
+   "tags": [
+    "paliwanag",
+    "salita",
+    "kahulugan",
+    "glosaryo",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-linea-tiempo": {
+   "name": "Timeline ng kasaysayan",
+   "tags": [
+    "paliwanag",
+    "kasaysayan",
+    "timeline",
+    "pangyayari",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-lupa": {
+   "name": "Lente sa detalye",
+   "tags": [
+    "paliwanag",
+    "lente",
+    "detalye",
+    "zoom",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-mapa-zoom": {
+   "name": "Zoom sa mapa: nasaan?",
+   "tags": [
+    "paliwanag",
+    "mapa",
+    "zoom",
+    "heograpiya",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-mito": {
+   "name": "Mito o totoo",
+   "tags": [
+    "paliwanag",
+    "mito",
+    "totoo",
+    "katotohanan",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-opina": {
+   "name": "Ano ang tingin mo?",
+   "tags": [
+    "paliwanag",
+    "survey",
+    "komento",
+    "tanong",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-pizarra": {
+   "name": "Pisara at tisa",
+   "tags": [
+    "paliwanag",
+    "pisara",
+    "klase",
+    "pormula",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-por-que": {
+   "name": "Bakit? (titulo)",
+   "tags": [
+    "paliwanag",
+    "tanong",
+    "titulo",
+    "kaalaman",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-proceso": {
+   "name": "Paano ito gumagana",
+   "tags": [
+    "paliwanag",
+    "proseso",
+    "dayagram",
+    "hakbang",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-puntos": {
+   "name": "May bilang na puntos",
+   "tags": [
+    "paliwanag",
+    "puntos",
+    "listahan",
+    "payo",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-recortes": {
+   "name": "Mga hiwa ng dyaryo",
+   "tags": [
+    "paliwanag",
+    "dyaryo",
+    "balita",
+    "dokumentaryo",
+    "youtuber"
+   ]
+  },
+  "template:yt-expl-resaltador": {
+   "name": "Highlighter sa teksto",
+   "tags": [
+    "paliwanag",
+    "teksto",
+    "marka",
+    "kulay",
+    "youtuber"
+   ]
+  },
+  "template:yt-final-belleza": {
+   "name": "Rosas at gintong pantapos",
+   "tags": [
+    "pantapos",
+    "tagasubaybay",
+    "susunod",
+    "kagandahan",
+    "youtuber"
+   ]
+  },
+  "template:yt-final-columnas": {
+   "name": "Dalawang kolumnang pantapos",
+   "tags": [
+    "pantapos",
+    "tagasubaybay",
+    "susunod",
+    "elegante",
+    "youtuber"
+   ]
+  },
+  "template:yt-final-comic": {
+   "name": "Komiks na pantapos",
+   "tags": [
+    "pantapos",
+    "tagasubaybay",
+    "susunod",
+    "komedya",
+    "youtuber"
+   ]
+  },
+  "template:yt-final-hud": {
+   "name": "HUD na pantapos",
+   "tags": [
+    "pantapos",
+    "tagasubaybay",
+    "susunod",
+    "gaming",
+    "youtuber"
+   ]
+  },
+  "template:yt-final-liquido": {
+   "name": "Likidong salaming pantapos",
+   "tags": [
+    "pantapos",
+    "tagasubaybay",
+    "susunod",
+    "likido",
+    "youtuber"
+   ]
+  },
+  "template:yt-final-minimal-uno": {
+   "name": "Minimal: isang video",
+   "tags": [
+    "pantapos",
+    "tagasubaybay",
+    "susunod",
+    "minimal",
+    "youtuber"
+   ]
+  },
+  "template:yt-final-neon": {
+   "name": "Neon na pantapos",
+   "tags": [
+    "pantapos",
+    "tagasubaybay",
+    "susunod",
+    "neon",
+    "youtuber"
+   ]
+  },
+  "template:yt-final-pizarra": {
+   "name": "Pisarang pantapos",
+   "tags": [
+    "pantapos",
+    "tagasubaybay",
+    "susunod",
+    "edukasyon",
+    "youtuber"
+   ]
+  },
+  "template:yt-final-postal": {
+   "name": "Postal na pantapos",
+   "tags": [
+    "pantapos",
+    "tagasubaybay",
+    "susunod",
+    "postal",
+    "youtuber"
+   ]
+  },
+  "template:yt-final-setentas": {
+   "name": "70s na pantapos",
+   "tags": [
+    "pantapos",
+    "tagasubaybay",
+    "susunod",
+    "retro",
+    "youtuber"
+   ]
+  },
+  "template:yt-final-short-acciones": {
+   "name": "Nagustuhan mo? I-save mo",
+   "tags": [
+    "sundan",
+    "shorts",
+    "gusto",
+    "i-save",
+    "pantapos"
+   ]
+  },
+  "template:yt-final-short-perfil": {
+   "name": "Higit pang video",
+   "tags": [
+    "sundan",
+    "shorts",
+    "profile",
+    "pantapos",
+    "youtuber"
+   ]
+  },
+  "template:yt-final-short-sigueme": {
+   "name": "Sundan mo ako (Shorts)",
+   "tags": [
+    "sundan",
+    "shorts",
+    "berdikal",
+    "pantapos",
+    "youtuber"
+   ]
+  },
+  "template:yt-final-tech": {
+   "name": "Pantapos na tech",
+   "tags": [
+    "pantapos",
+    "tagasubaybay",
+    "susunod",
+    "teknolohiya",
+    "youtuber"
+   ]
+  },
+  "template:yt-final-vinilo": {
+   "name": "Musikal na pantapos",
+   "tags": [
+    "pantapos",
+    "tagasubaybay",
+    "susunod",
+    "musika",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-antes-despues-kilos": {
+   "name": "Pagbabago sa kilo",
+   "tags": [
+    "ehersisyo",
+    "pagbabago",
+    "kilo",
+    "timbang",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-calentamiento": {
+   "name": "Pag-init na 5 hakbang",
+   "tags": [
+    "ehersisyo",
+    "pag-init",
+    "hakbang",
+    "kilos",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-calorias": {
+   "name": "Nasunog na calorie",
+   "tags": [
+    "ehersisyo",
+    "calorie",
+    "cardio",
+    "estadistika",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-carrera-km": {
+   "name": "Takbo ko sa km",
+   "tags": [
+    "ehersisyo",
+    "takbo",
+    "kilometro",
+    "karera",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-contador-reps": {
+   "name": "Bilang ng ulit",
+   "tags": [
+    "ehersisyo",
+    "ulit",
+    "set",
+    "gym",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-descanso": {
+   "name": "Pahinga ng set",
+   "tags": [
+    "ehersisyo",
+    "pahinga",
+    "timer",
+    "sunod",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-ejercicio-del-dia": {
+   "name": "Ehersisyo ngayong araw",
+   "tags": [
+    "ehersisyo",
+    "araw",
+    "payo",
+    "teknik",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-hiit-neon": {
+   "name": "Neon na HIIT",
+   "tags": [
+    "ehersisyo",
+    "hiit",
+    "cardio",
+    "neon",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-macros": {
+   "name": "Macros ng pagkain ko",
+   "tags": [
+    "ehersisyo",
+    "nutrisyon",
+    "protina",
+    "diyeta",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-plan-semanal": {
+   "name": "Lingguhang plano ng ehersisyo",
+   "tags": [
+    "ehersisyo",
+    "plano",
+    "linggo",
+    "rutin",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-record-personal": {
+   "name": "Bagong personal na rekord",
+   "tags": [
+    "ehersisyo",
+    "rekord",
+    "bigat",
+    "tagumpay",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-reto-30-dias": {
+   "name": "30 araw na hamon",
+   "tags": [
+    "ehersisyo",
+    "hamon",
+    "araw",
+    "kalendaryo",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-rutina-4-pasos": {
+   "name": "Rutin sa 4 hakbang",
+   "tags": [
+    "ehersisyo",
+    "rutin",
+    "hakbang",
+    "bahay",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-rutina-en-casa": {
+   "name": "Ehersisyo sa bahay",
+   "tags": [
+    "ehersisyo",
+    "bahay",
+    "rutin",
+    "kagamitan",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-serie-hud": {
+   "name": "Set na may timer",
+   "tags": [
+    "ehersisyo",
+    "set",
+    "timer",
+    "gym",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-sin-excusas": {
+   "name": "Walang dahilan",
+   "tags": [
+    "ehersisyo",
+    "motibasyon",
+    "lakas",
+    "disiplina",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-tabata": {
+   "name": "Tabata na timer",
+   "tags": [
+    "ehersisyo",
+    "tabata",
+    "timer",
+    "hiit",
+    "youtuber"
+   ]
+  },
+  "template:yt-fit-transformacion": {
+   "name": "Aking pagbabago",
+   "tags": [
+    "ehersisyo",
+    "pagbabago",
+    "katawan",
+    "kilo",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-alerta-sub": {
+   "name": "Alerto sa bagong tagasubaybay",
+   "tags": [
+    "laro",
+    "stream",
+    "alerto",
+    "tagasubaybay",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-alerta-vertical": {
+   "name": "Berdikal na stream",
+   "tags": [
+    "laro",
+    "stream",
+    "berdikal",
+    "tagasubaybay",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-clip-viral": {
+   "name": "Clip ng laro",
+   "tags": [
+    "laro",
+    "stream",
+    "clip",
+    "berdikal",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-derrota": {
+   "name": "Screen ng pagkatalo",
+   "tags": [
+    "laro",
+    "stream",
+    "pagkatalo",
+    "bawi",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-empezamos": {
+   "name": "Magsisimula na",
+   "tags": [
+    "laro",
+    "stream",
+    "paghihintay",
+    "simula",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-facecam-vertical": {
+   "name": "Short ng gaming",
+   "tags": [
+    "laro",
+    "stream",
+    "short",
+    "berdikal",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-fin-stream": {
+   "name": "Pagtatapos ng stream",
+   "tags": [
+    "laro",
+    "stream",
+    "tapos",
+    "salamat",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-gg": {
+   "name": "GG: magandang laban",
+   "tags": [
+    "laro",
+    "stream",
+    "laban",
+    "tapos",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-highlights": {
+   "name": "Pinakamagagandang galaw",
+   "tags": [
+    "laro",
+    "stream",
+    "galaw",
+    "sandali",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-intro-pixel": {
+   "name": "8-bit na retro",
+   "tags": [
+    "laro",
+    "stream",
+    "retro",
+    "pixel",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-killfeed": {
+   "name": "Sunod-sunod na patay",
+   "tags": [
+    "laro",
+    "stream",
+    "patay",
+    "sunod",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-marcador": {
+   "name": "Iskor ng mga koponan",
+   "tags": [
+    "laro",
+    "stream",
+    "iskor",
+    "koponan",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-mvp": {
+   "name": "MVP na manlalaro",
+   "tags": [
+    "laro",
+    "stream",
+    "manlalaro",
+    "estadistika",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-nivel": {
+   "name": "Umangat ang antas",
+   "tags": [
+    "laro",
+    "stream",
+    "antas",
+    "tagumpay",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-overlay-neon": {
+   "name": "Neon na overlay",
+   "tags": [
+    "laro",
+    "stream",
+    "overlay",
+    "kamera",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-torneo": {
+   "name": "Lingguhang torneo",
+   "tags": [
+    "laro",
+    "stream",
+    "torneo",
+    "laban",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-victoria": {
+   "name": "Screen ng tagumpay",
+   "tags": [
+    "laro",
+    "stream",
+    "tagumpay",
+    "panalo",
+    "youtuber"
+   ]
+  },
+  "template:yt-game-vuelvo": {
+   "name": "Babalik agad",
+   "tags": [
+    "laro",
+    "stream",
+    "pahinga",
+    "babalik",
+    "youtuber"
+   ]
+  },
+  "template:yt-intro-3d": {
+   "name": "3D na panimula",
+   "tags": [
+    "panimula",
+    "channel",
+    "logo",
+    "3d",
+    "youtuber"
+   ]
+  },
+  "template:yt-intro-a-mano": {
+   "name": "Iginuhit na panimula",
+   "tags": [
+    "panimula",
+    "channel",
+    "logo",
+    "ginuhit",
+    "youtuber"
+   ]
+  },
+  "template:yt-intro-belleza": {
+   "name": "Malambot na kagandahan",
+   "tags": [
+    "panimula",
+    "channel",
+    "logo",
+    "kagandahan",
+    "youtuber"
+   ]
+  },
+  "template:yt-intro-comedia": {
+   "name": "Komedyang panimula",
+   "tags": [
+    "panimula",
+    "channel",
+    "logo",
+    "komedya",
+    "youtuber"
+   ]
+  },
+  "template:yt-intro-educacion": {
+   "name": "Klase sa kwaderno",
+   "tags": [
+    "panimula",
+    "channel",
+    "logo",
+    "edukasyon",
+    "youtuber"
+   ]
+  },
+  "template:yt-intro-gaming": {
+   "name": "Pasabog na pagbubukas",
+   "tags": [
+    "panimula",
+    "channel",
+    "logo",
+    "gaming",
+    "youtuber"
+   ]
+  },
+  "template:yt-intro-glitch": {
+   "name": "Panimula ng nawalang signal",
+   "tags": [
+    "panimula",
+    "channel",
+    "logo",
+    "glitch",
+    "youtuber"
+   ]
+  },
+  "template:yt-intro-liquido": {
+   "name": "Likidong hugis",
+   "tags": [
+    "panimula",
+    "channel",
+    "logo",
+    "likido",
+    "youtuber"
+   ]
+  },
+  "template:yt-intro-minimal": {
+   "name": "Minimal na panimula",
+   "tags": [
+    "panimula",
+    "channel",
+    "logo",
+    "minimal",
+    "youtuber"
+   ]
+  },
+  "template:yt-intro-musica": {
+   "name": "Panimula ng vinyl",
+   "tags": [
+    "panimula",
+    "channel",
+    "logo",
+    "musika",
+    "youtuber"
+   ]
+  },
+  "template:yt-intro-neon": {
+   "name": "Neon na letrero",
+   "tags": [
+    "panimula",
+    "channel",
+    "logo",
+    "neon",
+    "youtuber"
+   ]
+  },
+  "template:yt-intro-papel": {
+   "name": "Papel na sapin-sapin",
+   "tags": [
+    "panimula",
+    "channel",
+    "logo",
+    "papel",
+    "youtuber"
+   ]
+  },
+  "template:yt-intro-retro": {
+   "name": "70s na retro panimula",
+   "tags": [
+    "panimula",
+    "channel",
+    "logo",
+    "retro",
+    "youtuber"
+   ]
+  },
+  "template:yt-intro-tech": {
+   "name": "Sirkitong tech",
+   "tags": [
+    "panimula",
+    "channel",
+    "logo",
+    "teknolohiya",
+    "youtuber"
+   ]
+  },
+  "template:yt-intro-vlog": {
+   "name": "Panimula ng vlog",
+   "tags": [
+    "panimula",
+    "channel",
+    "logo",
+    "vlog",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-alerta": {
+   "name": "Babala: huwag bilhin",
+   "tags": [
+    "thumbnail",
+    "babala",
+    "paalala",
+    "pagkakamali",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-bien-mal": {
+   "name": "Tama o mali",
+   "tags": [
+    "thumbnail",
+    "tama",
+    "mali",
+    "pagsusuri",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-caja-misterio": {
+   "name": "Kahon ng misteryo",
+   "tags": [
+    "thumbnail",
+    "kahon",
+    "misteryo",
+    "sorpresa",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-cara-a-cara": {
+   "name": "Mukha sa mukha",
+   "tags": [
+    "thumbnail",
+    "duwelo",
+    "labanan",
+    "mukha",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-celular": {
+   "name": "Screen ko, tingnan mo",
+   "tags": [
+    "thumbnail",
+    "cellphone",
+    "screen",
+    "app",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-comic": {
+   "name": "Pumutok na komiks",
+   "tags": [
+    "thumbnail",
+    "komiks",
+    "bubble",
+    "tawa",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-cronometro": {
+   "name": "Sa 60 segundo",
+   "tags": [
+    "thumbnail",
+    "segundo",
+    "mabilis",
+    "hamon",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-cuatro-caras": {
+   "name": "Apat na mukha",
+   "tags": [
+    "thumbnail",
+    "apat",
+    "reaksyon",
+    "grupo",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-diagonal": {
+   "name": "Bago at pagkatapos pahilis",
+   "tags": [
+    "thumbnail",
+    "bago",
+    "pagkatapos",
+    "pahilis",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-flecha-circulo": {
+   "name": "Palaso at bilog",
+   "tags": [
+    "thumbnail",
+    "palaso",
+    "bilog",
+    "atensyon",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-grafica": {
+   "name": "Tumataas na tsart",
+   "tags": [
+    "thumbnail",
+    "tsart",
+    "paglago",
+    "pera",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-lupa": {
+   "name": "Lente sa detalye",
+   "tags": [
+    "thumbnail",
+    "lente",
+    "detalye",
+    "lihim",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-numero-uno": {
+   "name": "Numero uno",
+   "tags": [
+    "thumbnail",
+    "ranggo",
+    "pinakamagaling",
+    "una",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-precio-tachado": {
+   "name": "Presyong may ekis",
+   "tags": [
+    "thumbnail",
+    "presyo",
+    "mura",
+    "diskwento",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-revelacion": {
+   "name": "Nakatagong siniwalat",
+   "tags": [
+    "thumbnail",
+    "paghahayag",
+    "lihim",
+    "misteryo",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-sticker": {
+   "name": "Higanteng mukha",
+   "tags": [
+    "thumbnail",
+    "mukha",
+    "sticker",
+    "reaksyon",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-tier-list": {
+   "name": "Ranggo ng antas",
+   "tags": [
+    "thumbnail",
+    "ranggo",
+    "antas",
+    "pagsusuri",
+    "youtuber"
+   ]
+  },
+  "template:yt-mini-tres-niveles": {
+   "name": "Tatlong antas",
+   "tags": [
+    "thumbnail",
+    "antas",
+    "paghahambing",
+    "presyo",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-camara": {
+   "name": "Kuha ng CCTV",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "cctv",
+    "kuha",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-censurado": {
+   "name": "Censored na dokumento",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "censored",
+    "lihim",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-evidencia": {
+   "name": "Ang mga ebidensya",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "ebidensya",
+    "patunay",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-expediente": {
+   "name": "Dokumento ng kaso",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "dokumento",
+    "lihim",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-linea-tiempo": {
+   "name": "Timeline ng kaso",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "timeline",
+    "pangyayari",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-linea-vertical": {
+   "name": "Berdikal na timeline",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "timeline",
+    "berdikal",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-mapa": {
+   "name": "Mapa ng kaso",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "mapa",
+    "lokasyon",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-maquina": {
+   "name": "Makinilya",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "makinilya",
+    "kwento",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-perfil": {
+   "name": "Profile ng taong susi",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "profile",
+    "tao",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-periodico": {
+   "name": "Hiwa ng dyaryo",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "dyaryo",
+    "balita",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-podcast": {
+   "name": "Panimula ng misteryong podcast",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "podcast",
+    "episode",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-se-busca": {
+   "name": "Naghahanap ng impormasyon",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "hanap",
+    "tao",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-sin-resolver": {
+   "name": "Hindi nalutas na kaso",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "tanong",
+    "dokumentaryo",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-sin-resolver-vertical": {
+   "name": "Hindi nalutas, berdikal",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "berdikal",
+    "short",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-tablero": {
+   "name": "Tabla ng pahiwatig",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "pahiwatig",
+    "sinulid",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-tablero-vertical": {
+   "name": "Berdikal na tabla",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "pahiwatig",
+    "berdikal",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-teorias": {
+   "name": "Tatlong teorya",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "teorya",
+    "haka",
+    "youtuber"
+   ]
+  },
+  "template:yt-mist-testigo": {
+   "name": "Pahayag ng saksi",
+   "tags": [
+    "misteryo",
+    "kaso",
+    "saksi",
+    "pahayag",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-al-aire": {
+   "name": "Nasa ere, istilong radyo",
+   "tags": [
+    "podcast",
+    "radyo",
+    "ere",
+    "retro",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-apertura": {
+   "name": "Pagbubukas ng episode",
+   "tags": [
+    "podcast",
+    "pagbubukas",
+    "pasilip",
+    "panimula",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-audiograma": {
+   "name": "Audiograma",
+   "tags": [
+    "podcast",
+    "audiograma",
+    "tunog",
+    "clip",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-cita": {
+   "name": "Kard ng sipi",
+   "tags": [
+    "podcast",
+    "sipi",
+    "parirala",
+    "clip",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-clip-subtitulos": {
+   "name": "Clip na malaking subtitle",
+   "tags": [
+    "podcast",
+    "subtitle",
+    "clip",
+    "berdikal",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-clip-vertical": {
+   "name": "Dalawang kamerang berdikal",
+   "tags": [
+    "podcast",
+    "clip",
+    "berdikal",
+    "subtitle",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-cortes": {
+   "name": "Podcast na may hiwa",
+   "tags": [
+    "podcast",
+    "hiwa",
+    "usapan",
+    "kamera",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-debate": {
+   "name": "Debate: pabor o tutol",
+   "tags": [
+    "podcast",
+    "debate",
+    "pabor",
+    "tutol",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-dos-camaras": {
+   "name": "Podcast na dalawang kamera",
+   "tags": [
+    "podcast",
+    "kamera",
+    "panayam",
+    "pangalan",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-en-vivo": {
+   "name": "Podcast na may chat",
+   "tags": [
+    "podcast",
+    "live",
+    "chat",
+    "stream",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-invitado": {
+   "name": "Panimula sa bisita",
+   "tags": [
+    "podcast",
+    "bisita",
+    "pakilala",
+    "panayam",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-mejores-momentos": {
+   "name": "Pinakamagagandang sandali",
+   "tags": [
+    "podcast",
+    "sandali",
+    "buod",
+    "berdikal",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-panel-tres": {
+   "name": "Tatlong panelista",
+   "tags": [
+    "podcast",
+    "panel",
+    "debate",
+    "tatlo",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-pausa": {
+   "name": "Babalik agad",
+   "tags": [
+    "podcast",
+    "pahinga",
+    "babalik",
+    "patlang",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-pregunta": {
+   "name": "Tanong ngayong araw",
+   "tags": [
+    "podcast",
+    "tanong",
+    "debate",
+    "paksa",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-proximo": {
+   "name": "Susunod na episode",
+   "tags": [
+    "podcast",
+    "susunod",
+    "episode",
+    "tagasubaybay",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-temas": {
+   "name": "Mga paksa ng episode",
+   "tags": [
+    "podcast",
+    "paksa",
+    "nilalaman",
+    "minuto",
+    "youtuber"
+   ]
+  },
+  "template:yt-pod-titulo-episodio": {
+   "name": "Pamagat ng episode",
+   "tags": [
+    "podcast",
+    "pamagat",
+    "episode",
+    "takip",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-arriba-abajo": {
+   "name": "Reaksyon: taas at baba",
+   "tags": [
+    "reaksyon",
+    "taas",
+    "baba",
+    "screen",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-cine-h": {
+   "name": "Sabayang panonood",
+   "tags": [
+    "reaksyon",
+    "panonood",
+    "sine",
+    "16:9",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-comentarios": {
+   "name": "Reaksyon sa mga komento",
+   "tags": [
+    "reaksyon",
+    "komento",
+    "tanong",
+    "sagot",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-comida": {
+   "name": "Susubukan mo ba?",
+   "tags": [
+    "reaksyon",
+    "pagkain",
+    "tanong",
+    "survey",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-dividida-h": {
+   "name": "Reaksyong magkatabi",
+   "tags": [
+    "reaksyon",
+    "tabi",
+    "screen",
+    "16:9",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-dueto": {
+   "name": "Dueto ng reaksyon",
+   "tags": [
+    "reaksyon",
+    "dueto",
+    "dalawahan",
+    "kanta",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-espera": {
+   "name": "Maghintay ka, reaksyon",
+   "tags": [
+    "reaksyon",
+    "hintay",
+    "bilang",
+    "sorpresa",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-esquina-h": {
+   "name": "Reaksyon sa sulok",
+   "tags": [
+    "reaksyon",
+    "sulok",
+    "kamera",
+    "16:9",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-esquinas": {
+   "name": "Kamerang tumatalon sa sulok",
+   "tags": [
+    "reaksyon",
+    "sulok",
+    "kamera",
+    "galaw",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-musica": {
+   "name": "Unang pakikinig",
+   "tags": [
+    "reaksyon",
+    "musika",
+    "kanta",
+    "tunog",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-nota-h": {
+   "name": "Reaksyon na may iskor",
+   "tags": [
+    "reaksyon",
+    "iskor",
+    "nota",
+    "16:9",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-pareja-h": {
+   "name": "Reaksyon ng dalawa",
+   "tags": [
+    "reaksyon",
+    "dalawa",
+    "pares",
+    "16:9",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-real-falso-h": {
+   "name": "Totoo o peke?",
+   "tags": [
+    "reaksyon",
+    "totoo",
+    "peke",
+    "16:9",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-repeticion": {
+   "name": "Mabagal na replay",
+   "tags": [
+    "reaksyon",
+    "replay",
+    "mabagal",
+    "ulit",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-sus-videos": {
+   "name": "Reaksyon sa video mo",
+   "tags": [
+    "reaksyon",
+    "video",
+    "tagasubaybay",
+    "tanong",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-tarjeta": {
+   "name": "Lumulutang na kard",
+   "tags": [
+    "reaksyon",
+    "kard",
+    "komento",
+    "usapan",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-ventana-h": {
+   "name": "Reaksyon sa bintana",
+   "tags": [
+    "reaksyon",
+    "bintana",
+    "screen",
+    "16:9",
+    "youtuber"
+   ]
+  },
+  "template:yt-reac-zoom-cara": {
+   "name": "Zoom sa mukha ko",
+   "tags": [
+    "reaksyon",
+    "zoom",
+    "mukha",
+    "kamera",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-1-vs-100": {
+   "name": "1 laban sa 100",
+   "tags": [
+    "hamon",
+    "labanan",
+    "duwelo",
+    "bilang",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-1-vs-millon": {
+   "name": "Laban sa milyon",
+   "tags": [
+    "hamon",
+    "pera",
+    "mura",
+    "mahal",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-10-dolares-7-dias": {
+   "name": "Buhay sa sampung dolyar",
+   "tags": [
+    "hamon",
+    "tipid",
+    "badyet",
+    "araw",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-100-personas": {
+   "name": "100 tao, isang panalo",
+   "tags": [
+    "hamon",
+    "labanan",
+    "panalo",
+    "tao",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-24-horas": {
+   "name": "24 oras sa loob",
+   "tags": [
+    "hamon",
+    "oras",
+    "timer",
+    "relos",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-aguanta-60-minutos": {
+   "name": "Huling 60 minuto",
+   "tags": [
+    "hamon",
+    "timer",
+    "minuto",
+    "tiyaga",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-barato-vs-caro": {
+   "name": "Mura hanggang mamahalin",
+   "tags": [
+    "hamon",
+    "paghahambing",
+    "presyo",
+    "pera",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-caja-misteriosa": {
+   "name": "Pumili ng kahon",
+   "tags": [
+    "hamon",
+    "kahon",
+    "sorpresa",
+    "premyo",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-dia-1-dia-100": {
+   "name": "Araw 1 hanggang 100",
+   "tags": [
+    "hamon",
+    "araw",
+    "progreso",
+    "pagsisikap",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-eliminados": {
+   "name": "Isa lang ang matitira",
+   "tags": [
+    "hamon",
+    "eliminasyon",
+    "panalo",
+    "labanan",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-ganador": {
+   "name": "At ang panalo ay",
+   "tags": [
+    "hamon",
+    "panalo",
+    "premyo",
+    "paghahayag",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-gasta-1000": {
+   "name": "Gumastos ng 1,000 agad",
+   "tags": [
+    "hamon",
+    "pera",
+    "pamimili",
+    "timer",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-intro-hype": {
+   "name": "Pasabog na pagbubukas",
+   "tags": [
+    "hamon",
+    "panimula",
+    "enerhiya",
+    "ritmo",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-marcador": {
+   "name": "Talaan ng iskor",
+   "tags": [
+    "hamon",
+    "iskor",
+    "koponan",
+    "labanan",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-no-te-muevas": {
+   "name": "Huwag kumilos: 10 segundo",
+   "tags": [
+    "hamon",
+    "timer",
+    "segundo",
+    "bilang",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-premio-gigante": {
+   "name": "Higanteng premyo",
+   "tags": [
+    "hamon",
+    "premyo",
+    "pera",
+    "kontador",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-sobrevivi-7-dias": {
+   "name": "Nakaligtas ng 7 araw",
+   "tags": [
+    "hamon",
+    "kaligtasan",
+    "araw",
+    "pakikipagsapalaran",
+    "youtuber"
+   ]
+  },
+  "template:yt-reto-ultimo-en-salir": {
+   "name": "Huling lalabas, panalo",
+   "tags": [
+    "hamon",
+    "premyo",
+    "huli",
+    "panalo",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-amarillo": {
+   "name": "Dilaw na subtitle",
+   "tags": [
+    "subtitle",
+    "dilaw",
+    "salita",
+    "mabilis",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-burbuja": {
+   "name": "Subtitle sa bubble",
+   "tags": [
+    "subtitle",
+    "bubble",
+    "chat",
+    "usapan",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-caja-blanca": {
+   "name": "Subtitle sa puting kahon",
+   "tags": [
+    "subtitle",
+    "puti",
+    "kahon",
+    "pov",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-caja-verde": {
+   "name": "Berde ang tina",
+   "tags": [
+    "subtitle",
+    "berde",
+    "tina",
+    "salita",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-comic-h": {
+   "name": "Subtitle ng komiks 16:9",
+   "tags": [
+    "subtitle",
+    "komiks",
+    "vlog",
+    "16:9",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-emoji": {
+   "name": "Subtitle na may emoji",
+   "tags": [
+    "subtitle",
+    "emoji",
+    "masaya",
+    "salita",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-gancho": {
+   "name": "Pang-akit at subtitle",
+   "tags": [
+    "subtitle",
+    "pang-akit",
+    "simula",
+    "salita",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-gradiente": {
+   "name": "Subtitle na gradyente",
+   "tags": [
+    "subtitle",
+    "gradyente",
+    "kulay",
+    "ideya",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-marcador": {
+   "name": "Subtitle na iginuhit",
+   "tags": [
+    "subtitle",
+    "ginuhit",
+    "kamay",
+    "kwento",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-neon": {
+   "name": "Neon na subtitle",
+   "tags": [
+    "subtitle",
+    "neon",
+    "gabi",
+    "liwanag",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-pantalla-dividida": {
+   "name": "Subtitle sa hating screen",
+   "tags": [
+    "subtitle",
+    "screen",
+    "hati",
+    "salita",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-pasos": {
+   "name": "Subtitle kada hakbang",
+   "tags": [
+    "subtitle",
+    "hakbang",
+    "tutorial",
+    "salita",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-podcast-h": {
+   "name": "Subtitle ng podcast 16:9",
+   "tags": [
+    "subtitle",
+    "podcast",
+    "16:9",
+    "salita",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-retro": {
+   "name": "Retro VHS na subtitle",
+   "tags": [
+    "subtitle",
+    "retro",
+    "vhs",
+    "nostalhiya",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-rojo": {
+   "name": "Pulang susing salita",
+   "tags": [
+    "subtitle",
+    "pula",
+    "salita",
+    "negosyo",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-storytime": {
+   "name": "Kwento sa istilong sine",
+   "tags": [
+    "subtitle",
+    "kwento",
+    "sine",
+    "salita",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-tutorial-h": {
+   "name": "Subtitle ng tutorial 16:9",
+   "tags": [
+    "subtitle",
+    "tutorial",
+    "16:9",
+    "salita",
+    "youtuber"
+   ]
+  },
+  "template:yt-sub-una-palabra": {
+   "name": "Isa-isang salita",
+   "tags": [
+    "subtitle",
+    "salita",
+    "isa-isa",
+    "galaw",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-bateria": {
+   "name": "Pagsubok ng baterya",
+   "tags": [
+    "teknolohiya",
+    "baterya",
+    "tagal",
+    "pagsubok",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-benchmark": {
+   "name": "Pagsubok ng bilis",
+   "tags": [
+    "teknolohiya",
+    "bilis",
+    "pagsubok",
+    "paghahambing",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-capitulos": {
+   "name": "Kabanata ng pagsusuri",
+   "tags": [
+    "teknolohiya",
+    "kabanata",
+    "nilalaman",
+    "pagsusuri",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-comparacion": {
+   "name": "Magkatabing paghahambing",
+   "tags": [
+    "teknolohiya",
+    "paghahambing",
+    "duwelo",
+    "pumili",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-comparacion-vertical": {
+   "name": "Alin ang bibilhin?",
+   "tags": [
+    "teknolohiya",
+    "paghahambing",
+    "bili",
+    "pumili",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-etiqueta-precio": {
+   "name": "Etiketa ng presyo",
+   "tags": [
+    "teknolohiya",
+    "presyo",
+    "lunsad",
+    "alok",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-ficha-tecnica": {
+   "name": "Talaan ng detalye",
+   "tags": [
+    "teknolohiya",
+    "detalye",
+    "espesipikasyon",
+    "cellphone",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-primeras-impresiones": {
+   "name": "Unang impresyon",
+   "tags": [
+    "teknolohiya",
+    "impresyon",
+    "pagsusuri",
+    "sine",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-pros-contras": {
+   "name": "Bentahe at kahinaan",
+   "tags": [
+    "teknolohiya",
+    "bentahe",
+    "kahinaan",
+    "pagsusuri",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-prueba-camara": {
+   "name": "Pagsubok ng kamera",
+   "tags": [
+    "teknolohiya",
+    "kamera",
+    "larawan",
+    "gabi",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-puntaje": {
+   "name": "Panghuling iskor",
+   "tags": [
+    "teknolohiya",
+    "iskor",
+    "puntos",
+    "nota",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-setup": {
+   "name": "Setup ng mesa ko",
+   "tags": [
+    "teknolohiya",
+    "mesa",
+    "kagamitan",
+    "libot",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-top-3": {
+   "name": "Top 3 ng taon",
+   "tags": [
+    "teknolohiya",
+    "ranggo",
+    "gadget",
+    "taon",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-tres-cosas": {
+   "name": "Tatlong bagay na lingid",
+   "tags": [
+    "teknolohiya",
+    "kaalaman",
+    "trick",
+    "lihim",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-unboxing": {
+   "name": "Malinis na pagbubukas",
+   "tags": [
+    "teknolohiya",
+    "pagbubukas",
+    "pagsusuri",
+    "minimal",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-unboxing-vertical": {
+   "name": "Pagbubukas sa 4 hakbang",
+   "tags": [
+    "teknolohiya",
+    "pagbubukas",
+    "hakbang",
+    "berdikal",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-vale-la-pena": {
+   "name": "Sulit ba ang presyo?",
+   "tags": [
+    "teknolohiya",
+    "sulit",
+    "presyo",
+    "opinyon",
+    "youtuber"
+   ]
+  },
+  "template:yt-tec-veredicto": {
+   "name": "Panghuling hatol",
+   "tags": [
+    "teknolohiya",
+    "hatol",
+    "rekomendasyon",
+    "bili",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-10-intro": {
+   "name": "Panimula ng top 10",
+   "tags": [
+    "ranggo",
+    "panimula",
+    "bilang",
+    "sampung",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-10-lista": {
+   "name": "Top 10 na listahan",
+   "tags": [
+    "ranggo",
+    "listahan",
+    "bilang",
+    "sampung",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-10-rapido": {
+   "name": "Mabilis na top 10",
+   "tags": [
+    "ranggo",
+    "listahan",
+    "bilang",
+    "mabilis",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-10-tabla": {
+   "name": "Talaan ng ranggo",
+   "tags": [
+    "ranggo",
+    "talahanayan",
+    "puntos",
+    "sampung",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-3-medallas": {
+   "name": "Medalyang top 3",
+   "tags": [
+    "ranggo",
+    "medalya",
+    "ginto",
+    "tatlo",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-3-podio": {
+   "name": "Podio ng top 3",
+   "tags": [
+    "ranggo",
+    "podio",
+    "panalo",
+    "tatlo",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-3-revelacion": {
+   "name": "Paghahayag ng numero uno",
+   "tags": [
+    "ranggo",
+    "paghahayag",
+    "panalo",
+    "tatlo",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-5-cine": {
+   "name": "Sinematikong top 5",
+   "tags": [
+    "ranggo",
+    "pelikula",
+    "biyahe",
+    "elegante",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-5-comida": {
+   "name": "Top 5 pagkain",
+   "tags": [
+    "ranggo",
+    "pagkain",
+    "puntos",
+    "bituin",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-5-cuaderno": {
+   "name": "Top 5 sa kwaderno",
+   "tags": [
+    "ranggo",
+    "kwaderno",
+    "ginuhit",
+    "polaroid",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-5-datos-curiosos": {
+   "name": "5 kakaibang kaalaman",
+   "tags": [
+    "ranggo",
+    "kaalaman",
+    "katotohanan",
+    "matuto",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-5-lugares": {
+   "name": "Top 5 lugar",
+   "tags": [
+    "ranggo",
+    "lugar",
+    "biyahe",
+    "destinasyon",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-5-neon": {
+   "name": "Neon na top 5",
+   "tags": [
+    "ranggo",
+    "neon",
+    "gabi",
+    "gaming",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-5-pantalla-dividida": {
+   "name": "Top 5 hating screen",
+   "tags": [
+    "ranggo",
+    "screen",
+    "kulay",
+    "hati",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-5-peor-a-mejor": {
+   "name": "Pinakamasama hanggang pinakamagaling",
+   "tags": [
+    "ranggo",
+    "pagsusuri",
+    "puntos",
+    "nota",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-5-ranking-rellenar": {
+   "name": "Ranggo na pupunan",
+   "tags": [
+    "ranggo",
+    "pumili",
+    "puno",
+    "listahan",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-5-retro": {
+   "name": "Retro na top 5",
+   "tags": [
+    "ranggo",
+    "retro",
+    "vhs",
+    "nostalhiya",
+    "youtuber"
+   ]
+  },
+  "template:yt-top-5-tarjetas": {
+   "name": "Top 5 sa kard",
+   "tags": [
+    "ranggo",
+    "kard",
+    "paborito",
+    "lima",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-barrios": {
+   "name": "Tatlong pamayanan",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "pamayanan",
+    "araw",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-billete": {
+   "name": "Tiket sa biyahe",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "tiket",
+    "biyahe",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-cinematico": {
+   "name": "Sinematikong lungsod",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "sine",
+    "panimula",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-clima": {
+   "name": "Panahon at oras",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "panahon",
+    "oras",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-dia-1": {
+   "name": "Araw 1 sa lungsod",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "kabanata",
+    "biyahe",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-gastos": {
+   "name": "Gastos ko ngayong araw",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "gastos",
+    "badyet",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-hora-lugar": {
+   "name": "Oras at lugar",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "oras",
+    "lugar",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-llegando": {
+   "name": "Pagdating sa lungsod",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "dating",
+    "gps",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-mapa-zoom": {
+   "name": "Nandito ka sa mapa",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "mapa",
+    "lokasyon",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-metro": {
+   "name": "Byahe sa metro",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "metro",
+    "sasakyan",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-noche": {
+   "name": "Lungsod sa gabi",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "gabi",
+    "neon",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-postal": {
+   "name": "Bati mula sa postal",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "postal",
+    "retro",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-resumen": {
+   "name": "Buod ng biyahe",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "buod",
+    "larawan",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-ruta-mapa": {
+   "name": "Mapa ng ruta",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "mapa",
+    "ruta",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-stats-viaje": {
+   "name": "Biyahe sa bilang",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "bilang",
+    "estadistika",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-timelapse": {
+   "name": "Timelapse ng lungsod",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "bilis",
+    "orasan",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-titulo-calle": {
+   "name": "Titulo sa kalsada",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "titulo",
+    "biyahe",
+    "youtuber"
+   ]
+  },
+  "template:yt-vlog-top3": {
+   "name": "3 lugar na sulit",
+   "tags": [
+    "vlog",
+    "lungsod",
+    "lugar",
+    "gabay",
+    "youtuber"
    ]
   },
   "template:zoom-3d-parallax": {

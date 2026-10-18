@@ -87,7 +87,7 @@ def tercio_duotono():
 
 
 def tercio_redondeado():
-    t = _lt("h-tercio-redondeado", "Tercio con foto", "Rounded lower third with photo", "h-cafe-02", 2103,
+    t = _lt("h-tercio-redondeado", "Tercio con foto", "Rounded lower third with photo", "h-cafe-01", 2103,
             ["foto", "píldora", "perfil"], shade=0)
     pill(t, t.track("shape", "Píldora"), "#FFFFFF", IN, OUT - IN, Box(110, 790, 820, 160), _inout(dy_in=260, dy_out=260),
          layers=[shadow("#000000", 0, 10, 30, 0.35), fill("#FFFFFF"), no_stroke()])
@@ -163,7 +163,7 @@ def tercio_redes():
 
 
 def tercio_ubicacion():
-    t = _lt("h-tercio-ubicacion", "Ubicación", "Location lower third", "h-travel-08", 2107,
+    t = _lt("h-tercio-ubicacion", "Ubicación", "Location lower third", "h-travel-02", 2107,
             ["ubicación", "lugar", "viaje", "ciudad"])
     pin = t.track("shape", "Pin")
     t.solid(pin, "#FF4D4D", IN, OUT - IN, centered(170, 830, 70, 70), [(0, {"dy": -300}, "back"), (0.5, {})],
@@ -203,7 +203,7 @@ def tercio_entrevista():
 
 
 def tercio_gaming():
-    t = _lt("h-tercio-gaming", "Tercio gaming", "Gaming lower third", "h-gaming-02", 2109, ["gaming", "gamer", "neón"],
+    t = _lt("h-tercio-gaming", "Tercio gaming", "Gaming lower third", "h-gaming-01", 2109, ["gaming", "gamer", "neón"],
             shade=0)
     t.solid(t.track("shape", "Marco"), "#0B0014", IN, OUT - IN, Box(110, 800, 820, 140), _inout(dx_in=-1000, dx_out=-1000),
             kind="parallelogram", layers=[glow("#B026FF", 24, 0.9), fill("#0B0014", 0.9), stroke(3, "#B026FF")])
@@ -292,7 +292,7 @@ def tercio_podcast():
 
 
 def tercio_deportes():
-    t = _lt("h-tercio-deportes", "Tercio deportivo", "Sports lower third", "h-soccer-02", 2114,
+    t = _lt("h-tercio-deportes", "Tercio deportivo", "Sports lower third", "h-soccer-01", 2114,
             ["deportes", "jugador", "fútbol", "dorsal"], shade=0)
     t.solid(t.track("shape", "Dorsal"), "#E10600", IN, OUT - IN, Box(110, 770, 190, 200), _inout(dx_in=-500, dx_out=-500),
             kind="parallelogram")
@@ -313,7 +313,7 @@ def tercio_deportes():
 
 
 def tercio_tutorial_paso():
-    t = _lt("h-tercio-tutorial-paso", "Paso de tutorial", "Tutorial step", "h-desk-03", 2115,
+    t = _lt("h-tercio-tutorial-paso", "Paso de tutorial", "Tutorial step", "h-desk-02", 2115,
             ["tutorial", "paso", "instrucciones", "educación"], shade=0)
     rrect(t, t.track("shape", "Panel"), "#FFFFFF", IN, OUT - IN, Box(110, 800, 980, 150), 75,
           _inout(dy_in=300, dy_out=300), layers=[shadow("#000000", 0, 10, 26, 0.3), fill("#FFFFFF"), no_stroke()])
@@ -335,7 +335,7 @@ def tercio_tutorial_paso():
 
 
 def tercio_cita():
-    t = _lt("h-tercio-cita", "Cita en pantalla", "On-screen quote", "h-elderly-01", 2116, ["cita", "frase", "testimonio"],
+    t = _lt("h-tercio-cita", "Cita en pantalla", "On-screen quote", "h-elderly-02", 2116, ["cita", "frase", "testimonio"],
             shade=520)
     label(t, t.track("text", "Comillas"), "“", IN, OUT - IN, Box(110, 640, 200, 220), "Playfair Display", 260, "#F2C14E",
           weight=800, align="left", editable=False, anim_in=tanim("pop", duration=0.4))
@@ -734,7 +734,7 @@ def texto_advertencia():
 def texto_agenda():
     t = wide("h-texto-agenda", "Agenda del video", "Video agenda", "text", 8.0, order=2137,
              tags=["agenda", "contenido", "temas", "capítulos", "índice"], thumb_at=6.5, background="#101820")
-    photo_bg(t, "h-desk-04", s1=1.06, label="Fondo", effects=[effect("builtin.effects.gaussian_blur", u_blurRadius=10)])
+    photo_bg(t, "h-desk-02", s1=1.06, label="Fondo", effects=[effect("builtin.effects.gaussian_blur", u_blurRadius=10)])
     shade_full(t, 0.65, colour="#101820")
     label(t, t.track("text", "Título"), "EN ESTE VIDEO", 0.2, 7.8, Box(140, 110, 1000, 110), "Barlow Condensed", 90,
           "#F2AA4C", weight=800, spacing=8, align="left", anim_in=tanim("slide-right", duration=0.4), name="Título")
@@ -879,7 +879,7 @@ def texto_creditos():
 def texto_frase_neon():
     t = wide("h-texto-frase-neon", "Frase neón", "Neon sign", "text", 6.0, order=2144,
              tags=["neón", "letrero", "frase", "noche", "aesthetic"], thumb_at=3.8, background="#120D16")
-    photo_bg(t, "h-cafe-02", s1=1.04, label="Fondo",
+    photo_bg(t, "h-cafe-01", s1=1.04, label="Fondo",
              effects=[effect("color.basic", exposure=-0.6, saturation=-0.4),
                       effect("builtin.effects.gaussian_blur", u_blurRadius=4)])
     label(t, t.track("text", "Neón"), "abierto\ntoda la noche", 0.3, 5.7, Box(260, 260, 1400, 560), "Sacramento", 180,

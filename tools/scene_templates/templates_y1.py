@@ -65,13 +65,13 @@ SPECS = [
     T(16, "mini-vs-barato-caro", "Barato vs caro", "Cheap vs expensive", ["versus", "barato", "caro", "prueba"], "org",
       kind="vs", photos=["h-food-04", "h-food-03"], text="$5 VS $50"),
     T(17, "mini-vs-cafe", "Café de casa vs cafetería", "Home vs café coffee", ["versus", "café", "comparación"], "nvy",
-      kind="vs", photos=["h-cafe-02", "h-cafe-04"], text="CASA VS CAFETERÍA", size=140),
+      kind="vs", photos=["h-cafe-01", "h-cafe-04"], text="CASA VS CAFETERÍA", size=140),
     T(18, "mini-vs-playa-montana", "Playa vs montaña", "Beach vs mountains", ["versus", "viaje", "vacaciones"], "cya",
       kind="vs", photos=["h-beach-01", "h-nature-05"], text="¿PLAYA O MONTAÑA?", size=150),
     T(19, "mini-vs-gym-casa", "Gym vs casa", "Gym vs home workout", ["versus", "gym", "ejercicio"], "lim", kind="vs",
-      photos=["h-fitness-01", "h-interior-05"], text="GYM VS CASA"),
+      photos=["y2-h-gym-01", "h-interior-05"], text="GYM VS CASA"),
     T(20, "mini-vs-perros-gatos", "¿Perros o gatos?", "Dogs or cats?", ["versus", "mascotas", "debate"], "pnk", kind="vs",
-      photos=["h-pet-01", "h-pet-04"], text="¿CUÁL ES MEJOR?"),
+      photos=["h-pet-02", "h-pet-04"], text="¿CUÁL ES MEJOR?"),
     # before / after (6)
     T(21, "mini-ba-cuarto", "Cuarto antes y después", "Room before/after", ["antes y después", "cuarto", "decoración"],
       "yel", kind="beforeafter", photos=["h-interior-02", "h-interior-04"], text="CON $100"),
@@ -82,7 +82,7 @@ SPECS = [
     T(24, "mini-ba-cocina", "Cocina antes y después", "Kitchen before/after", ["antes y después", "cocina", "hogar"],
       "org", kind="beforeafter", photos=["h-interior-02", "h-interior-05"], text="¡IRRECONOCIBLE!"),
     T(25, "mini-ba-fitness", "Mi cambio físico", "Fitness transformation", ["antes y después", "fitness", "cambio"],
-      "blk", kind="beforeafter", photos=["h-fitness-05", "h-fitness-03"], l1="DÍA 1", l2="DÍA 90", text="MI CAMBIO"),
+      "blk", kind="beforeafter", photos=["y2-h-gym-01", "beach-01"], l1="DÍA 1", l2="DÍA 90", text="MI CAMBIO"),
     T(26, "mini-ba-foto", "Edición antes y después", "Edit before/after", ["antes y después", "edición", "foto"], "pur",
       kind="beforeafter", photos=["h-nature-02", "h-nature-04"], l1="SIN EDITAR", l2="EDITADA", text="1 CLIC"),
     # numbers (8)
@@ -116,15 +116,15 @@ SPECS = [
       kind="reaction", bgphoto="h-house-02", dim=0.2, face="h-portrait-06", emoji="🤯", text="MI CASA NUEVA"),
     # lists (5)
     T(40, "mini-lista-ideas", "5 ideas", "5 ideas", ["ideas", "lista", "inspiración"], "yel", kind="list", number="5",
-      text="IDEAS DE NEGOCIO", photos=["h-shop-02", "h-cafe-05", "h-desk-02"]),
+      text="IDEAS DE NEGOCIO", photos=["h-shop-01", "h-cafe-05", "h-desk-02"]),
     T(41, "mini-lista-recetas", "3 recetas", "3 recipes", ["recetas", "cocina", "fácil"], "org", kind="list",
       number="3", text="RECETAS EN 10 MIN", photos=["h-food-02", "h-food-06", "h-cooking-03"]),
     T(42, "mini-lista-lugares", "10 lugares", "10 places", ["viaje", "lugares", "lista"], "cya", kind="list",
-      number="10", nsize=400, text="LUGARES PARA IR", photos=["h-travel-06", "h-beach-04", "h-city-06"]),
+      number="10", nsize=400, text="LUGARES PARA IR", photos=["h-travel-02", "h-beach-04", "h-city-06"]),
     T(43, "mini-lista-hacks", "Trucos de casa", "Home hacks", ["trucos", "hogar", "limpieza"], "lim", kind="list",
       number="8", text="TRUCOS DE CASA", photos=["h-interior-01", "h-interior-03", "h-kids-05"]),
     T(44, "mini-lista-apps", "Herramientas", "Tools", ["herramientas", "productividad", "trabajo"], "nvy", kind="list",
-      number="6", text="APPS GRATIS", photos=["h-desk-03", "h-desk-05", "h-office-01"]),
+      number="6", text="APPS GRATIS", photos=["h-desk-02", "h-desk-05", "h-office-01"]),
     # question / new (5)
     T(45, "mini-pregunta-por-que", "¿Por qué?", "Why?", ["pregunta", "explicación", "curiosidad"], "pur",
       kind="question", face="h-portrait-03", text="¿POR QUÉ NADIE HABLA DE ESTO?", size=150),
@@ -135,7 +135,7 @@ SPECS = [
       side="left"),
     T(48, "mini-nuevo-producto", "Producto nuevo", "New product", ["nuevo", "producto", "reseña"], "pnk",
       bgphoto="h-product-01", dim=0.15, face="h-portrait-01", text="¿FUNCIONA?", size=170, badge="NUEVO", side="left"),
-    T(49, "mini-directo", "Directo hoy", "Live today", ["directo", "en vivo", "stream"], "blk", bgphoto="h-gaming-05",
+    T(49, "mini-directo", "Directo hoy", "Live today", ["directo", "en vivo", "stream"], "blk", bgphoto="h-gaming-01",
       dim=0.4, face="h-man-02", text="EN VIVO", text2="HOY 20:00", size=280, badge="● DIRECTO", boxed=True),
 ]
 

@@ -422,11 +422,11 @@ def todas_iconos_v():
 TEMPLATES = [
     # Horizontal 16:9
     S(False, "minimal", "instagram", 0, "h-portrait-03"),
-    S(False, "neon", "tiktok", 1, "h-gaming-02", caption=True),
+    S(False, "neon", "tiktok", 1, "h-gaming-01", caption=True),
     S(False, "sticker", "youtube", 2, "h-man-05", caption=True),
     S(False, "cristal", "x", 3, "h-portrait-01"),
     S(False, "cristal", "facebook", 4, "h-man-01"),
-    S(False, "neon", "twitch", 5, "h-gaming-05", caption=True),
+    S(False, "neon", "twitch", 5, "h-gaming-01", caption=True),
     S(False, "minimal", "threads", 6, "h-portrait-02"),
     S(False, "sticker", "instagram", 7, "h-portrait-06", caption=True),
     S(False, "minimal", "youtube", 8, "h-podcast-02"),

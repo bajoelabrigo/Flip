@@ -284,7 +284,7 @@ def regreso_clases():
         t.solid(t.track("shape", "Cuadrícula"), "#D6E4F0", 0, 8.0, Box(k * 140, 0, 2, 1920))
     for k in range(14):
         t.solid(t.track("shape", "Cuadrícula"), "#D6E4F0", 0, 8.0, Box(0, k * 140, 1080, 2))
-    framed(t, "school-02", 0.3, 7.7, Box(140, 360, 800, 1000), [(0, {"s": 0.8}, "back"), (0.5, {}, "linear"), (7.7, {"s": 1.03})],
+    framed(t, "school-01", 0.3, 7.7, Box(140, 360, 800, 1000), [(0, {"s": 0.8}, "back"), (0.5, {}, "linear"), (7.7, {"s": 1.03})],
            border=16, colour="#FFFFFF", rotation=keys([(0, -3)]), label="Foto del primer día")
     for i, (g, x, y) in enumerate([("✏️", 150, 260), ("📚", 930, 330), ("🎒", 930, 1340), ("📐", 130, 1320)]):
         label(t, t.track("text", "Útil"), g, 0.6 + i * 0.2, 7.4 - i * 0.2, centered(x, y, 220, 220), "Inter", 150, "#000000",
@@ -299,7 +299,7 @@ def regreso_clases():
 def fin_curso():
     t = tall("r-fin-curso", "Fin de curso", "End of the school year", "seasonal", 9.0, order=3213,
              tags=["fin de curso", "vacaciones", "escuela", "último día", "verano"], thumb_at=6.6, background="#00B4D8")
-    slides(t, ["school-03", "kids-01", "school-01", "kids-04"], 0.0, 1.5, transition=None, kb_amount=0.1)
+    slides(t, ["school-03", "kids-02", "school-01", "kids-04"], 0.0, 1.5, transition=None, kb_amount=0.1)
     photo_bg(t, "summer-02", 6.0, 3.0, s1=1.05, label="Foto de vacaciones")
     flash(t, 6.0, 0.3)
     label(t, t.track("text", "Título"), "¡ADIÓS, ESCUELA!", 0.2, 5.8, Box(60, 160, 960, 200), "Luckiest Guy", 110, "#FFFFFF",
@@ -316,7 +316,7 @@ def fin_curso():
 def verano():
     t = tall("r-verano", "Hola verano", "Hello summer", "seasonal", 8.0, order=3214,
              tags=["verano", "playa", "piscina", "sol", "vacaciones"], thumb_at=4.0)
-    slides(t, ["summer-03", "summer-04", "icecream-01", "beach-06"], 0.0, 2.0, transition="slide_up", tdur=0.3, kb_amount=0.08,
+    slides(t, ["summer-03", "summer-04", "icecream-01", "beach-01"], 0.0, 2.0, transition="slide_up", tdur=0.3, kb_amount=0.08,
            effects_fn=lambda i: [effect("color.basic", saturation=0.25, temperature=0.1)])
     t.solid(t.track("shape", "Sol"), "#FFD60A", 0.2, 7.8, centered(880, 260, 260, 260), pop(0, 0.6), kind="ellipse",
             layers=[glow("#FFB703", 50, 0.8), fill("#FFD60A"), no_stroke()])
@@ -420,7 +420,7 @@ def navidad_minimal():
 def nochebuena():
     t = tall("r-nochebuena", "Nochebuena en casa", "Christmas Eve at home", "seasonal", 9.0, order=3220,
              tags=["nochebuena", "navidad", "cena", "familia", "hogar"], thumb_at=5.4, background="#1B0F0A")
-    slides(t, ["christmas-01", "christmas-05", "xmaslights-02", "christmas-03"], 0.0, 2.25, transition="crossfade", tdur=0.5,
+    slides(t, ["christmas-02", "christmas-05", "xmaslights-02", "christmas-03"], 0.0, 2.25, transition="crossfade", tdur=0.5,
            kb_amount=0.07, effects_fn=lambda i: [effect("color.basic", temperature=0.2)])
     for k in range(10):
         c = ["#FF4D4D", "#FFD23F", "#4CC9F0", "#7BF06A"][k % 4]
@@ -552,7 +552,7 @@ def cafeteria_latte():
 def panaderia():
     t = tall("r-panaderia", "Panadería: recién horneado", "Bakery", "business", 8.0, order=3227,
              tags=["panadería", "pan", "recién horneado", "pastelería", "desayuno"], thumb_at=4.6, background="#F6E7D0")
-    slides(t, ["bakery-02", "bakery-03", "cake-03"], 0.0, 2.7, transition="crossfade", tdur=0.4, kb_amount=0.08,
+    slides(t, ["bakery-02", "bakery-03", "cake-01"], 0.0, 2.7, transition="crossfade", tdur=0.4, kb_amount=0.08,
            effects_fn=lambda i: [effect("color.basic", temperature=0.15)])
     shade_bottom(t, 900, 0.85, colour="#3B2414")
     label(t, t.track("text", "Título"), "recién\nhorneado", 0.5, 7.5, Box(60, 1220, 960, 380), "Lobster", 150, "#FFE8C7",
@@ -639,7 +639,7 @@ def super_ofertas():
 def ferreteria_v():
     t = tall("r-ferreteria", "Ferretería", "Hardware store", "business", 8.0, order=3231,
              tags=["ferretería", "herramientas", "construcción", "hogar", "oferta"], thumb_at=4.4, background="#1B1B1B")
-    photo_bg(t, "h-tools-03", s1=1.06, label="Foto de la ferretería")
+    photo_bg(t, "h-tools-02", s1=1.06, label="Foto de la ferretería")
     shade_full(t, 0.55)
     for k in range(10):
         t.solid(t.track("shape", "Rayas"), "#FFC300" if k % 2 == 0 else "#111111", 0, 8.0, Box(-120 + k * 130, 1760, 130, 160))
@@ -868,7 +868,7 @@ def academia_idiomas():
 def escuela_musica():
     t = tall("r-escuela-musica", "Escuela de música", "Music school", "business", 9.0, order=3243,
              tags=["música", "clases", "guitarra", "piano", "escuela"], thumb_at=5.0, background="#0B0B12")
-    photo_bg(t, "music-02", s1=1.06, label="Foto")
+    photo_bg(t, "beach-01", s1=1.06, label="Foto")
     shade_bottom(t, 1000, 0.9, colour="#0B0B12")
     rng = random.Random(3243)
     for k in range(10):
