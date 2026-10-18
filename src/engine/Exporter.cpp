@@ -9,6 +9,7 @@
 #include "core/Project.h"
 #include "core/Time.h"
 
+#include <QCoreApplication>
 #include <QFile>
 #include <QHash>
 #include <QImage>
@@ -1820,7 +1821,7 @@ QVariantList Exporter::scaleOptions(int projectWidth, int projectHeight)
         scaleSize(projectWidth, projectHeight, 0, outW, outH);
         out.append(QVariantMap{
             {QStringLiteral("id"), QStringLiteral("source")},
-            {QStringLiteral("label"), QStringLiteral("Same as project · %1×%2").arg(outW).arg(outH)},
+            {QStringLiteral("label"), QCoreApplication::translate("Exporter", "Same as project · %1×%2").arg(outW).arg(outH)},
             {QStringLiteral("targetHeight"), 0},
             {QStringLiteral("width"), outW},
             {QStringLiteral("height"), outH},
@@ -1861,7 +1862,7 @@ QVariantList Exporter::frameRateOptions(int projectFps)
     // project-setup changes instead of pinning the rate at dialog time.
     out.append(QVariantMap{
         {QStringLiteral("id"), QStringLiteral("project")},
-        {QStringLiteral("label"), QStringLiteral("Same as project (%1 fps)").arg(qMax(1, projectFps))},
+        {QStringLiteral("label"), QCoreApplication::translate("Exporter", "Same as project (%1 fps)").arg(qMax(1, projectFps))},
         {QStringLiteral("fpsNum"), 0},
         {QStringLiteral("fpsDen"), 1},
     });

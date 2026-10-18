@@ -248,7 +248,7 @@
     </message>
     <message>
         <source>Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.</source>
-        <translation type="unfinished"></translation>
+        <translation>全部免费。无需账号也能照常编辑；导出和使用 Stock 时需要登录。</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -1103,11 +1103,11 @@
     <name>AiBadge</name>
     <message>
         <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
-        <translation type="unfinished"></translation>
+        <translation>在你的电脑上用 AI 运行，无需联网：你的视频不会离开电脑。</translation>
     </message>
     <message>
         <source>AI</source>
-        <translation type="unfinished"></translation>
+        <translation>AI</translation>
     </message>
 </context>
 <context>
@@ -4326,75 +4326,75 @@
     </message>
     <message>
         <source>Could not install “%1”: %2</source>
-        <translation type="unfinished">无法安装“%1”：%2</translation>
+        <translation>无法安装“%1”：%2</translation>
     </message>
     <message>
         <source>the file is missing</source>
-        <translation type="unfinished"></translation>
+        <translation>文件缺失</translation>
     </message>
     <message>
         <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation type="unfinished"></translation>
+        <translation>已安装 LUT：%1（调节 › LUT）</translation>
     </message>
     <message>
         <source>In Adjust › LUT</source>
-        <translation type="unfinished"></translation>
+        <translation>位于 调节 › LUT</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
-        <translation type="unfinished"></translation>
+        <translation>这不是效果预设</translation>
     </message>
     <message>
         <source>Look installed: %1 (My presets)</source>
-        <translation type="unfinished"></translation>
+        <translation>已安装风格：%1（我的效果）</translation>
     </message>
     <message>
         <source>In My presets</source>
-        <translation type="unfinished"></translation>
+        <translation>位于 我的效果</translation>
     </message>
     <message>
         <source>it is not a text style</source>
-        <translation type="unfinished"></translation>
+        <translation>这不是文字样式</translation>
     </message>
     <message>
         <source>Text style installed: %1 (Text › My styles)</source>
-        <translation type="unfinished"></translation>
+        <translation>已安装文字样式：%1（文字 › 我的样式）</translation>
     </message>
     <message>
         <source>In Text › My styles</source>
-        <translation type="unfinished"></translation>
+        <translation>位于 文字 › 我的样式</translation>
     </message>
     <message>
         <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation type="unfinished"></translation>
+        <translation>已安装文字动画：%1（文字 › 动画 › 已导入）</translation>
     </message>
     <message>
         <source>In Text › Animation</source>
-        <translation type="unfinished"></translation>
+        <translation>位于 文字 › 动画</translation>
     </message>
     <message>
         <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation type="unfinished"></translation>
+        <translation>已安装形状：%1（形状，也可在蒙版中使用）</translation>
     </message>
     <message>
         <source>In Shapes</source>
-        <translation type="unfinished"></translation>
+        <translation>位于 形状</translation>
     </message>
     <message>
         <source>packages cannot be installed here</source>
-        <translation type="unfinished"></translation>
+        <translation>无法在此处安装软件包</translation>
     </message>
     <message>
         <source>Transition installed: %1 (Transitions)</source>
-        <translation type="unfinished"></translation>
+        <translation>已安装转场：%1（转场）</translation>
     </message>
     <message>
         <source>In Transitions</source>
-        <translation type="unfinished"></translation>
+        <translation>位于 转场</translation>
     </message>
     <message>
         <source>this kind of item needs a newer Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>此类项目需要更新版本的 Flip Studio</translation>
     </message>
     <message>
         <source>Depth effects read one clip&apos;s depth, so they go on a clip, not on an adjustment layer.</source>
@@ -4922,59 +4922,59 @@
     </message>
     <message>
         <source>Select a video or photo clip with another one right after it</source>
-        <translation type="unfinished"></translation>
+        <translation>请选择一个后面紧跟着另一个片段的视频或照片片段</translation>
     </message>
     <message>
         <source>There is no clip right after this one to blend into</source>
-        <translation type="unfinished"></translation>
+        <translation>此片段后面没有可衔接的片段</translation>
     </message>
     <message>
         <source>AI transitions need their extra: install it from Extras › AI tools</source>
-        <translation type="unfinished"></translation>
+        <translation>AI 转场需要安装对应的扩展：请在 扩展 › AI 工具 中安装</translation>
     </message>
     <message>
         <source>AI transition</source>
-        <translation type="unfinished"></translation>
+        <translation>AI 转场</translation>
     </message>
     <message>
         <source>Making the AI transition…</source>
-        <translation type="unfinished"></translation>
+        <translation>正在生成 AI 转场…</translation>
     </message>
     <message>
         <source>Couldn’t read the frames at the cut</source>
-        <translation type="unfinished"></translation>
+        <translation>无法读取剪切点处的帧</translation>
     </message>
     <message>
         <source>Couldn’t make the AI transition</source>
-        <translation type="unfinished"></translation>
+        <translation>无法生成 AI 转场</translation>
     </message>
     <message>
         <source>AI transition added</source>
-        <translation type="unfinished"></translation>
+        <translation>已添加 AI 转场</translation>
     </message>
     <message>
         <source>Write the text or describe the style you want</source>
-        <translation type="unfinished"></translation>
+        <translation>输入文字，或描述你想要的样式</translation>
     </message>
     <message>
         <source>AI text needs its extra: install it from Extras › AI tools</source>
-        <translation type="unfinished"></translation>
+        <translation>AI 文字需要安装对应的扩展：请在 扩展 › AI 工具 中安装</translation>
     </message>
     <message>
         <source>There are no text styles to choose from</source>
-        <translation type="unfinished"></translation>
+        <translation>没有可供选择的文字样式</translation>
     </message>
     <message>
         <source>Choosing a style with AI…</source>
-        <translation type="unfinished"></translation>
+        <translation>正在用 AI 选择样式…</translation>
     </message>
     <message>
         <source>Couldn’t choose a style</source>
-        <translation type="unfinished"></translation>
+        <translation>无法选择样式</translation>
     </message>
     <message>
         <source>AI text added</source>
-        <translation type="unfinished"></translation>
+        <translation>已添加 AI 文字</translation>
     </message>
     <message>
         <source>Paste</source>
@@ -5416,55 +5416,55 @@
     </message>
     <message>
         <source>Business name</source>
-        <translation type="unfinished"></translation>
+        <translation>商家名称</translation>
     </message>
     <message>
         <source>Phone</source>
-        <translation type="unfinished"></translation>
+        <translation>电话</translation>
     </message>
     <message>
         <source>Price</source>
-        <translation type="unfinished"></translation>
+        <translation>价格</translation>
     </message>
     <message>
         <source>Discount</source>
-        <translation type="unfinished"></translation>
+        <translation>折扣</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>日期</translation>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="unfinished"></translation>
+        <translation>营业时间</translation>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished"></translation>
+        <translation>网站</translation>
     </message>
     <message>
         <source>Email</source>
-        <translation type="unfinished"></translation>
+        <translation>邮箱</translation>
     </message>
     <message>
         <source>Social media user</source>
-        <translation type="unfinished"></translation>
+        <translation>社交媒体账号</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>地址</translation>
     </message>
     <message>
         <source>Call to action</source>
-        <translation type="unfinished"></translation>
+        <translation>行动号召</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished">标题</translation>
+        <translation>标题</translation>
     </message>
     <message>
         <source>Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>副标题</translation>
     </message>
     <message numerus="yes">
         <source>Template added with %n of your photos. The rest did not fit: it has %1 slot(s).</source>
@@ -5486,11 +5486,11 @@
     </message>
     <message>
         <source>Templates are changed on the main timeline: close the composition first</source>
-        <translation type="unfinished"></translation>
+        <translation>模板需在主时间线上更改：请先关闭合成</translation>
     </message>
     <message>
         <source>Put the template on the timeline first</source>
-        <translation type="unfinished"></translation>
+        <translation>请先将模板放到时间线上</translation>
     </message>
     <message numerus="yes">
         <source>Template changed: %n photo(s) carried over</source>
@@ -5512,7 +5512,7 @@
     </message>
     <message>
         <source>Template texts</source>
-        <translation type="unfinished"></translation>
+        <translation>模板文字</translation>
     </message>
     <message numerus="yes">
         <source>%n text(s) changed</source>
@@ -5522,19 +5522,19 @@
     </message>
     <message>
         <source>The template has no music: change its music first</source>
-        <translation type="unfinished"></translation>
+        <translation>此模板没有音乐：请先添加音乐</translation>
     </message>
     <message>
         <source>Listening to the music to find its beat…</source>
-        <translation type="unfinished"></translation>
+        <translation>正在分析音乐以找出节拍…</translation>
     </message>
     <message>
         <source>The cuts already fall on the beat</source>
-        <translation type="unfinished"></translation>
+        <translation>剪辑点已经卡在节拍上了</translation>
     </message>
     <message>
         <source>Fit cuts to the beat</source>
-        <translation type="unfinished"></translation>
+        <translation>将剪辑点对齐节拍</translation>
     </message>
     <message numerus="yes">
         <source>No beat found in the music: %n cut(s) now follow a steady 120 BPM beat</source>
@@ -5550,366 +5550,366 @@
     </message>
     <message>
         <source>Choose a song or an audio file</source>
-        <translation type="unfinished"></translation>
+        <translation>选择一首歌曲或一个音频文件</translation>
     </message>
     <message>
         <source>That file has no sound to use as music</source>
-        <translation type="unfinished"></translation>
+        <translation>该文件没有可用作音乐的声音</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished">音乐</translation>
+        <translation>音乐</translation>
     </message>
     <message>
         <source>Template music</source>
-        <translation type="unfinished"></translation>
+        <translation>模板音乐</translation>
     </message>
     <message>
         <source>New music: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>新音乐：%1</translation>
     </message>
     <message>
         <source>The logo has to be a picture (PNG, JPG, WebP…)</source>
-        <translation type="unfinished"></translation>
+        <translation>徽标必须是图片（PNG、JPG、WebP…）</translation>
     </message>
     <message>
         <source>Could not copy the logo</source>
-        <translation type="unfinished"></translation>
+        <translation>无法复制徽标</translation>
     </message>
     <message>
         <source>My brand saved</source>
-        <translation type="unfinished"></translation>
+        <translation>已保存我的品牌</translation>
     </message>
     <message>
         <source>Set up My brand first (Templates › My brand)</source>
-        <translation type="unfinished"></translation>
+        <translation>请先设置我的品牌（模板 › 我的品牌）</translation>
     </message>
     <message>
         <source>This template has no logo slot or brand texts to change</source>
-        <translation type="unfinished"></translation>
+        <translation>此模板没有可更换的徽标位或品牌文字</translation>
     </message>
     <message>
         <source>Apply my brand</source>
-        <translation type="unfinished"></translation>
+        <translation>应用我的品牌</translation>
     </message>
     <message>
         <source>My brand applied</source>
-        <translation type="unfinished"></translation>
+        <translation>已应用我的品牌</translation>
     </message>
     <message>
         <source>My logo</source>
-        <translation type="unfinished"></translation>
+        <translation>我的徽标</translation>
     </message>
 </context>
 <context>
     <name>AppMenuBar</name>
     <message>
         <source>File</source>
-        <translation type="unfinished">文件</translation>
+        <translation>文件</translation>
     </message>
     <message>
         <source>New Project</source>
-        <translation type="unfinished"></translation>
+        <translation>新建项目</translation>
     </message>
     <message>
         <source>Open Project…</source>
-        <translation type="unfinished"></translation>
+        <translation>打开项目…</translation>
     </message>
     <message>
         <source>Open Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>打开最近项目</translation>
     </message>
     <message>
         <source>Import Media…</source>
-        <translation type="unfinished"></translation>
+        <translation>导入媒体…</translation>
     </message>
     <message>
         <source>Save Project</source>
-        <translation type="unfinished">保存项目</translation>
+        <translation>保存项目</translation>
     </message>
     <message>
         <source>Save Project As…</source>
-        <translation type="unfinished"></translation>
+        <translation>项目另存为…</translation>
     </message>
     <message>
         <source>Save Shareable Copy…</source>
-        <translation type="unfinished"></translation>
+        <translation>保存分享副本…</translation>
     </message>
     <message>
         <source>Export Video…</source>
-        <translation type="unfinished"></translation>
+        <translation>导出视频…</translation>
     </message>
     <message>
         <source>Video Size and Layout…</source>
-        <translation type="unfinished"></translation>
+        <translation>视频尺寸和布局…</translation>
     </message>
     <message>
         <source>Project Properties…</source>
-        <translation type="unfinished"></translation>
+        <translation>项目属性…</translation>
     </message>
     <message>
         <source>Preferences…</source>
-        <translation type="unfinished"></translation>
+        <translation>偏好设置…</translation>
     </message>
     <message>
         <source>Keyboard Shortcuts</source>
-        <translation type="unfinished">键盘快捷键</translation>
+        <translation>键盘快捷键</translation>
     </message>
     <message>
         <source>Back to Home</source>
-        <translation type="unfinished"></translation>
+        <translation>返回主页</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>退出</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">编辑</translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished">撤销</translation>
+        <translation>撤销</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished">重做</translation>
+        <translation>重做</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished">剪切</translation>
+        <translation>剪切</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">复制</translation>
+        <translation>复制</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished">粘贴</translation>
+        <translation>粘贴</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished"></translation>
+        <translation>创建副本</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <source>Copy Effects</source>
-        <translation type="unfinished">复制特效</translation>
+        <translation>复制效果</translation>
     </message>
     <message>
         <source>Paste Effects</source>
-        <translation type="unfinished">粘贴特效</translation>
+        <translation>粘贴效果</translation>
     </message>
     <message>
         <source>Paste Attributes…</source>
-        <translation type="unfinished">粘贴属性…</translation>
+        <translation>粘贴属性…</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished">全选</translation>
+        <translation>全选</translation>
     </message>
     <message>
         <source>Deselect All</source>
-        <translation type="unfinished"></translation>
+        <translation>取消全选</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>工具</translation>
     </message>
     <message>
         <source>Split</source>
-        <translation type="unfinished">分割</translation>
+        <translation>分割</translation>
     </message>
     <message>
         <source>Merge Clips</source>
-        <translation type="unfinished"></translation>
+        <translation>合并片段</translation>
     </message>
     <message>
         <source>Separate Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>分离音频</translation>
     </message>
     <message>
         <source>Link Clips</source>
-        <translation type="unfinished"></translation>
+        <translation>链接片段</translation>
     </message>
     <message>
         <source>Unlink Clips</source>
-        <translation type="unfinished"></translation>
+        <translation>取消链接片段</translation>
     </message>
     <message>
         <source>Group (Compound Clip)</source>
-        <translation type="unfinished"></translation>
+        <translation>编组（复合片段）</translation>
     </message>
     <message>
         <source>Ungroup</source>
-        <translation type="unfinished">取消编组</translation>
+        <translation>取消编组</translation>
     </message>
     <message>
         <source>Save as Template…</source>
-        <translation type="unfinished"></translation>
+        <translation>另存为模板…</translation>
     </message>
     <message>
         <source>AI Transition to the Next Clip</source>
-        <translation type="unfinished"></translation>
+        <translation>到下一个片段的 AI 转场</translation>
     </message>
     <message>
         <source>Transform Together</source>
-        <translation type="unfinished"></translation>
+        <translation>一起变换</translation>
     </message>
     <message>
         <source>Auto Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>自动字幕</translation>
     </message>
     <message>
         <source>Text to Speech</source>
-        <translation type="unfinished"></translation>
+        <translation>文本朗读</translation>
     </message>
     <message>
         <source>Scene Detection</source>
-        <translation type="unfinished"></translation>
+        <translation>场景检测</translation>
     </message>
     <message>
         <source>Multicam</source>
-        <translation type="unfinished">多机位</translation>
+        <translation>多机位</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>视图</translation>
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished">播放 / 暂停</translation>
+        <translation>播放 / 暂停</translation>
     </message>
     <message>
         <source>Go to Start</source>
-        <translation type="unfinished"></translation>
+        <translation>跳到开头</translation>
     </message>
     <message>
         <source>Previous Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>上一帧</translation>
     </message>
     <message>
         <source>Next Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>下一帧</translation>
     </message>
     <message>
         <source>Loop Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>循环播放</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>书签</translation>
     </message>
     <message>
         <source>Add or Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>添加或移除书签</translation>
     </message>
     <message>
         <source>Next Bookmark</source>
-        <translation type="unfinished">下一个书签</translation>
+        <translation>下一个书签</translation>
     </message>
     <message>
         <source>Previous Bookmark</source>
-        <translation type="unfinished">上一个书签</translation>
+        <translation>上一个书签</translation>
     </message>
     <message>
         <source>Zoom In</source>
-        <translation type="unfinished">放大</translation>
+        <translation>放大</translation>
     </message>
     <message>
         <source>Zoom Out</source>
-        <translation type="unfinished"></translation>
+        <translation>缩小</translation>
     </message>
     <message>
         <source>Fullscreen Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>全屏预览</translation>
     </message>
     <message>
         <source>Guides</source>
-        <translation type="unfinished">参考线</translation>
+        <translation>参考线</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished">工作区</translation>
+        <translation>工作区</translation>
     </message>
     <message>
         <source>Auto (follow canvas)</source>
-        <translation type="unfinished">自动（跟随画布）</translation>
+        <translation>自动（跟随画布）</translation>
     </message>
     <message>
         <source>Landscape</source>
-        <translation type="unfinished">横屏</translation>
+        <translation>横屏</translation>
     </message>
     <message>
         <source>Portrait</source>
-        <translation type="unfinished">竖屏</translation>
+        <translation>竖屏</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished">主题</translation>
+        <translation>主题</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>浅色</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">深色</translation>
+        <translation>深色</translation>
     </message>
     <message>
         <source>Language…</source>
-        <translation type="unfinished">语言…</translation>
+        <translation>语言…</translation>
     </message>
     <message>
         <source>Switch to Mobile Layout…</source>
-        <translation type="unfinished">切换到移动端布局…</translation>
+        <translation>切换到移动版布局…</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">高级</translation>
+        <translation>高级</translation>
     </message>
     <message>
         <source>Extras…</source>
-        <translation type="unfinished">扩展…</translation>
+        <translation>扩展…</translation>
     </message>
     <message>
         <source>Agent Access…</source>
-        <translation type="unfinished"></translation>
+        <translation>智能体访问…</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished">下载</translation>
+        <translation>下载</translation>
     </message>
     <message>
         <source>Debug Info…</source>
-        <translation type="unfinished">调试信息…</translation>
+        <translation>调试信息…</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>帮助</translation>
     </message>
     <message>
         <source>What&apos;s New</source>
-        <translation type="unfinished"></translation>
+        <translation>新功能</translation>
     </message>
     <message>
         <source>Flip Studio Website</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio 网站</translation>
     </message>
     <message>
         <source>Check for Updates…</source>
-        <translation type="unfinished">检查更新…</translation>
+        <translation>检查更新…</translation>
     </message>
     <message>
         <source>My Account</source>
-        <translation type="unfinished"></translation>
+        <translation>我的账号</translation>
     </message>
     <message>
         <source>About Flip Studio</source>
-        <translation type="unfinished">关于 Flip Studio</translation>
+        <translation>关于 Flip Studio</translation>
     </message>
 </context>
 <context>
@@ -6113,15 +6113,15 @@
     </message>
     <message>
         <source>Writes the subtitles from what is said in the video, word by word.</source>
-        <translation type="unfinished"></translation>
+        <translation>根据视频中的语音逐字生成字幕。</translation>
     </message>
     <message>
         <source>Turns your text into a natural-sounding voice.</source>
-        <translation type="unfinished"></translation>
+        <translation>将你的文字转换为自然的语音。</translation>
     </message>
     <message>
         <source>Finds where each shot starts and what is in it.</source>
-        <translation type="unfinished"></translation>
+        <translation>找出每个镜头的起点和内容。</translation>
     </message>
     <message>
         <source>Text</source>
@@ -6157,16 +6157,16 @@
     </message>
     <message>
         <source>My templates</source>
-        <translation type="unfinished">我的模板</translation>
+        <translation>我的模板</translation>
     </message>
     <message>
         <source>Effect templates</source>
-        <translation type="unfinished">特效模板</translation>
+        <translation>效果模板</translation>
     </message>
     <message>
         <source>Stickers</source>
         <comment>category row</comment>
-        <translation type="unfinished"></translation>
+        <translation>贴纸</translation>
     </message>
     <message>
         <source>Templates</source>
@@ -6186,11 +6186,11 @@
     </message>
     <message>
         <source>LUTs</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT</translation>
     </message>
     <message>
         <source>Color effects</source>
-        <translation type="unfinished"></translation>
+        <translation>色彩效果</translation>
     </message>
     <message>
         <source>Shortcuts</source>
@@ -6198,15 +6198,15 @@
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">音频</translation>
+        <translation>音频</translation>
     </message>
     <message>
         <source>Titles</source>
-        <translation type="unfinished"></translation>
+        <translation>标题</translation>
     </message>
     <message>
         <source>Filters</source>
-        <translation type="unfinished">筛选</translation>
+        <translation>滤镜</translation>
     </message>
     <message>
         <source>Drop to import</source>
@@ -6962,75 +6962,75 @@
     <name>BrandKitDialog</name>
     <message>
         <source>Main colour</source>
-        <translation type="unfinished"></translation>
+        <translation>主色</translation>
     </message>
     <message>
         <source>Second colour</source>
-        <translation type="unfinished"></translation>
+        <translation>辅助色</translation>
     </message>
     <message>
         <source>Accent</source>
-        <translation type="unfinished"></translation>
+        <translation>强调色</translation>
     </message>
     <message>
         <source>Text colour</source>
-        <translation type="unfinished"></translation>
+        <translation>文字颜色</translation>
     </message>
     <message>
         <source>My brand</source>
-        <translation type="unfinished"></translation>
+        <translation>我的品牌</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">保存</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <source>Your logo, colours and font. Business templates use them when you add one; any other template takes them with “Apply my brand” in its Template panel.</source>
-        <translation type="unfinished"></translation>
+        <translation>你的徽标、颜色和字体。商业模板在添加时会使用它们；其他模板可在其模板面板中点击“应用我的品牌”来使用。</translation>
     </message>
     <message>
         <source>Logo</source>
-        <translation type="unfinished"></translation>
+        <translation>徽标</translation>
     </message>
     <message>
         <source>Change logo…</source>
-        <translation type="unfinished"></translation>
+        <translation>更换徽标…</translation>
     </message>
     <message>
         <source>Choose logo…</source>
-        <translation type="unfinished"></translation>
+        <translation>选择徽标…</translation>
     </message>
     <message>
         <source>Choose your logo</source>
-        <translation type="unfinished"></translation>
+        <translation>选择你的徽标</translation>
     </message>
     <message>
         <source>Pictures (*.png *.jpg *.jpeg *.webp)</source>
-        <translation type="unfinished"></translation>
+        <translation>图片 (*.png *.jpg *.jpeg *.webp)</translation>
     </message>
     <message>
         <source>Remove logo</source>
-        <translation type="unfinished"></translation>
+        <translation>移除徽标</translation>
     </message>
     <message>
         <source>Colours (2 to 4)</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色（2 到 4 种）</translation>
     </message>
     <message>
         <source>Remove colour</source>
-        <translation type="unfinished"></translation>
+        <translation>移除颜色</translation>
     </message>
     <message>
         <source>Add colour</source>
-        <translation type="unfinished"></translation>
+        <translation>添加颜色</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished">字体</translation>
+        <translation>字体</translation>
     </message>
     <message>
         <source>Use it in Business templates when I add them</source>
-        <translation type="unfinished"></translation>
+        <translation>添加商业模板时使用</translation>
     </message>
 </context>
 <context>
@@ -8096,15 +8096,15 @@
     </message>
     <message>
         <source>Blemish Removal</source>
-        <translation type="unfinished"></translation>
+        <translation>祛除瑕疵</translation>
     </message>
     <message>
         <source>Spots</source>
-        <translation type="unfinished"></translation>
+        <translation>斑点</translation>
     </message>
     <message>
         <source>Wrinkles</source>
-        <translation type="unfinished"></translation>
+        <translation>皱纹</translation>
     </message>
     <message>
         <source>Blur Amount</source>
@@ -10412,7 +10412,7 @@
     </message>
     <message>
         <source>Free templates, music, stickers, photos and videos</source>
-        <translation type="unfinished"></translation>
+        <translation>免费模板、音乐、贴纸、照片和视频</translation>
     </message>
     <message numerus="yes">
         <source>Downloads — %n running</source>
@@ -11477,6 +11477,17 @@
     </message>
 </context>
 <context>
+    <name>Exporter</name>
+    <message>
+        <source>Same as project · %1×%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Same as project (%1 fps)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FacePropImport</name>
     <message>
         <source>%1 is not a binary glTF model</source>
@@ -11807,63 +11818,63 @@
     <name>FiltersTab</name>
     <message>
         <source>Looks</source>
-        <translation type="unfinished">风格</translation>
+        <translation>风格</translation>
     </message>
     <message>
         <source>Imported</source>
-        <translation type="unfinished">已导入</translation>
+        <translation>已导入</translation>
     </message>
     <message>
         <source>Select a video or photo clip first.</source>
-        <translation type="unfinished"></translation>
+        <translation>请先选择一个视频或照片片段。</translation>
     </message>
     <message>
         <source>Import LUT</source>
-        <translation type="unfinished">导入 LUT</translation>
+        <translation>导入 LUT</translation>
     </message>
     <message>
         <source>LUT (*.cube)</source>
-        <translation type="unfinished">LUT (*.cube)</translation>
+        <translation>LUT (*.cube)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished">所有文件 (*)</translation>
+        <translation>所有文件 (*)</translation>
     </message>
     <message>
         <source>This file is not a LUT that can be used.</source>
-        <translation type="unfinished">此文件不是可用的 LUT。</translation>
+        <translation>此文件不是可用的 LUT。</translation>
     </message>
     <message>
         <source>Search filters</source>
-        <translation type="unfinished"></translation>
+        <translation>搜索滤镜</translation>
     </message>
     <message>
         <source>Click a filter to put it on the selected clip. Its strength is in Adjust › LUT.</source>
-        <translation type="unfinished"></translation>
+        <translation>点击滤镜即可应用到所选片段。强度在 调节 › LUT 中设置。</translation>
     </message>
     <message>
         <source>Select a video or photo clip, then click a filter.</source>
-        <translation type="unfinished"></translation>
+        <translation>请选择一个视频或照片片段，然后点击滤镜。</translation>
     </message>
     <message>
         <source>Import LUT…</source>
-        <translation type="unfinished">导入 LUT…</translation>
+        <translation>导入 LUT…</translation>
     </message>
     <message>
         <source>No filters match “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>没有与“%1”匹配的滤镜。</translation>
     </message>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
-        <translation type="unfinished"></translation>
+        <translation>还没有导入的 LUT。导入 .cube 文件，或在 Stock 中获取 LUT。</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
-        <translation type="unfinished"></translation>
+        <translation>此分类中没有内容。</translation>
     </message>
     <message>
         <source>Delete from my LUTs</source>
-        <translation type="unfinished">从我的 LUT 中删除</translation>
+        <translation>从我的 LUT 中删除</translation>
     </message>
 </context>
 <context>
@@ -13157,19 +13168,19 @@
     </message>
     <message>
         <source>%1 new: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 新内容：%2</translation>
     </message>
     <message>
         <source>Sign in to ask for a template.</source>
-        <translation type="unfinished"></translation>
+        <translation>登录后即可请求模板。</translation>
     </message>
     <message>
         <source>Tell us a little more about what you need.</source>
-        <translation type="unfinished"></translation>
+        <translation>请再详细说说你需要什么。</translation>
     </message>
     <message>
         <source>Thanks! Others can vote for your idea now.</source>
-        <translation type="unfinished"></translation>
+        <translation>谢谢！其他人现在可以为你的想法投票了。</translation>
     </message>
     <message>
         <source>Could not connect the marketplace account.</source>
@@ -13197,7 +13208,7 @@
     </message>
     <message>
         <source>This kind of item cannot be installed here.</source>
-        <translation type="unfinished"></translation>
+        <translation>此类项目无法在此处安装。</translation>
     </message>
     <message>
         <source>Could not install that template.</source>
@@ -13217,15 +13228,15 @@
     </message>
     <message>
         <source>Could not install that item.</source>
-        <translation type="unfinished"></translation>
+        <translation>无法安装该项目。</translation>
     </message>
     <message>
         <source>Could not install that item: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>无法安装该项目：%1</translation>
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished"></translation>
+        <translation>已安装</translation>
     </message>
     <message>
         <source>Marketplace account connected.</source>
@@ -13342,7 +13353,7 @@
     </message>
     <message>
         <source>Search all of Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>搜索全部 Stock</translation>
     </message>
     <message>
         <source>Search, or paste a link</source>
@@ -13358,11 +13369,11 @@
     </message>
     <message>
         <source>Everything in Stock is free</source>
-        <translation type="unfinished"></translation>
+        <translation>Stock 中的一切都免费</translation>
     </message>
     <message>
         <source>Templates, music, stickers, photos and videos at no cost. You only need to sign in with your Google account to see them and download them into your project.</source>
-        <translation type="unfinished"></translation>
+        <translation>模板、音乐、贴纸、照片和视频，全部免费。只需用 Google 账号登录，即可浏览并下载到你的项目中。</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -13511,7 +13522,7 @@
     </message>
     <message>
         <source>Library shape</source>
-        <translation type="unfinished"></translation>
+        <translation>素材库形状</translation>
     </message>
     <message>
         <source>TEXT</source>
@@ -16766,23 +16777,23 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Use with my photos…</source>
-        <translation type="unfinished"></translation>
+        <translation>用我的照片…</translation>
     </message>
     <message>
         <source>Choose your photos and videos first: Flip suggests the templates that fit them and fills them in</source>
-        <translation type="unfinished"></translation>
+        <translation>先选择你的照片和视频：Flip 会推荐适合的模板并自动填充</translation>
     </message>
     <message>
         <source>Choose photos and videos</source>
-        <translation type="unfinished">选择照片和视频</translation>
+        <translation>选择照片和视频</translation>
     </message>
     <message>
         <source>My brand</source>
-        <translation type="unfinished"></translation>
+        <translation>我的品牌</translation>
     </message>
     <message>
         <source>Your logo, colours and font for Business templates</source>
-        <translation type="unfinished"></translation>
+        <translation>用于商业模板的徽标、颜色和字体</translation>
     </message>
     <message>
         <source>No scene templates yet</source>
@@ -16893,35 +16904,35 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Photo slideshows</source>
-        <translation type="unfinished"></translation>
+        <translation>照片幻灯片</translation>
     </message>
     <message>
         <source>Lower thirds</source>
-        <translation type="unfinished"></translation>
+        <translation>下方字幕条</translation>
     </message>
     <message>
         <source>Transitions and separators</source>
-        <translation type="unfinished"></translation>
+        <translation>转场和分隔</translation>
     </message>
     <message>
         <source>15-second stories</source>
-        <translation type="unfinished"></translation>
+        <translation>15 秒快拍</translation>
     </message>
     <message>
         <source>6-second ads</source>
-        <translation type="unfinished"></translation>
+        <translation>6 秒广告</translation>
     </message>
     <message>
         <source>Video thumbnails</source>
-        <translation type="unfinished"></translation>
+        <translation>视频封面</translation>
     </message>
     <message>
         <source>Counters</source>
-        <translation type="unfinished"></translation>
+        <translation>计数器</translation>
     </message>
     <message>
         <source>YouTuber style</source>
-        <translation type="unfinished"></translation>
+        <translation>YouTuber 风格</translation>
     </message>
     <message>
         <source>Other</source>
@@ -16932,31 +16943,31 @@ If playback stutters, try another.</source>
     <name>SceneTemplatePickerDialog</name>
     <message>
         <source>Change template</source>
-        <translation type="unfinished">更改模板</translation>
+        <translation>更换模板</translation>
     </message>
     <message>
         <source>Use with my photos</source>
-        <translation type="unfinished"></translation>
+        <translation>用我的照片</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">关闭</translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <source>vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>竖版</translation>
     </message>
     <message>
         <source>horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>横版</translation>
     </message>
     <message>
         <source>square</source>
-        <translation type="unfinished"></translation>
+        <translation>方形</translation>
     </message>
     <message>
         <source>%1 — from Stock: it downloads and goes in with your photos</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 — 来自 Stock：下载后会与你的照片一起放入</translation>
     </message>
     <message numerus="yes">
         <source>%1 — %n slot(s)</source>
@@ -16984,27 +16995,27 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>In Templates</source>
-        <translation type="unfinished">已在模板中</translation>
+        <translation>位于 模板</translation>
     </message>
     <message>
         <source>No installed template takes photos yet.</source>
-        <translation type="unfinished"></translation>
+        <translation>还没有已安装的可放照片的模板。</translation>
     </message>
     <message>
         <source>From Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>来自 Stock</translation>
     </message>
     <message>
         <source>Sign in (My account) to see the Stock templates that fit too.</source>
-        <translation type="unfinished"></translation>
+        <translation>登录（我的账号）后还可以看到适合的 Stock 模板。</translation>
     </message>
     <message>
         <source>Looking in Stock…</source>
-        <translation type="unfinished"></translation>
+        <translation>正在 Stock 中查找…</translation>
     </message>
     <message>
         <source>Nothing else in Stock for this many photos.</source>
-        <translation type="unfinished"></translation>
+        <translation>Stock 中没有更多适合这么多张照片的模板了。</translation>
     </message>
 </context>
 <context>
@@ -17635,7 +17646,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Everything is free. Sign in with Google to export your videos and to use Stock: templates, music, photos and videos.</source>
-        <translation type="unfinished"></translation>
+        <translation>全部免费。用 Google 登录即可导出视频并使用 Stock：模板、音乐、照片和视频。</translation>
     </message>
     <message>
         <source>Flip Studio %1</source>
@@ -17975,7 +17986,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Library shape</source>
-        <translation type="unfinished"></translation>
+        <translation>素材库形状</translation>
     </message>
     <message>
         <source>Layers</source>
@@ -18237,7 +18248,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove from my shapes</source>
-        <translation type="unfinished"></translation>
+        <translation>从我的形状中移除</translation>
     </message>
 </context>
 <context>
@@ -18341,35 +18352,35 @@ If playback stutters, try another.</source>
     <name>SignInRequiredDialog</name>
     <message>
         <source>Sign in to export</source>
-        <translation type="unfinished"></translation>
+        <translation>登录以导出</translation>
     </message>
     <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio 是免费的：导出、Stock 和所有模板都不花钱。</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
-        <translation type="unfinished"></translation>
+        <translation>要导出视频，只需用你的 Google 账号登录。只需片刻，仅需一次，你的项目会保持原样。</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished">正在等待浏览器…</translation>
+        <translation>正在等待浏览器…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
-        <translation type="unfinished">使用 Google 登录</translation>
+        <translation>使用 Google 登录</translation>
     </message>
     <message>
         <source>Choose your account in the browser window that opened, then come back here.</source>
-        <translation type="unfinished">在打开的浏览器窗口中选择你的账号，然后返回这里。</translation>
+        <translation>在打开的浏览器窗口中选择你的账号，然后回到这里。</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Not now</source>
-        <translation type="unfinished">以后再说</translation>
+        <translation>以后再说</translation>
     </message>
 </context>
 <context>
@@ -18997,63 +19008,63 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Text to speech</source>
-        <translation type="unfinished"></translation>
+        <translation>文本朗读</translation>
     </message>
     <message>
         <source>Templates</source>
-        <translation type="unfinished">模板</translation>
+        <translation>模板</translation>
     </message>
     <message>
         <source>Filters</source>
-        <translation type="unfinished">筛选</translation>
+        <translation>滤镜</translation>
     </message>
     <message>
         <source>Stock</source>
-        <translation type="unfinished">素材库</translation>
+        <translation>Stock</translation>
     </message>
     <message>
         <source>New in Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>Stock 新内容</translation>
     </message>
     <message>
         <source>300 YouTuber-style templates</source>
-        <translation type="unfinished"></translation>
+        <translation>300 个 YouTuber 风格模板</translation>
     </message>
     <message>
         <source>Challenges, top 10s, podcasts, intros and end screens, free in Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>挑战、Top 10、播客、片头和片尾画面，在 Stock 中免费获取</translation>
     </message>
     <message>
         <source>LUTs and colour effects, one click on the clip</source>
-        <translation type="unfinished"></translation>
+        <translation>LUT 和色彩效果，点一下即可用到片段上</translation>
     </message>
     <message>
         <source>Subtitles from the voice, on your computer, without internet</source>
-        <translation type="unfinished"></translation>
+        <translation>根据语音生成字幕，在你的电脑上完成，无需联网</translation>
     </message>
     <message>
         <source>Click to sign in</source>
-        <translation type="unfinished"></translation>
+        <translation>点击登录</translation>
     </message>
     <message>
         <source>Everything is free</source>
-        <translation type="unfinished"></translation>
+        <translation>全部免费</translation>
     </message>
     <message>
         <source>Open project</source>
-        <translation type="unfinished">打开项目</translation>
+        <translation>打开项目</translation>
     </message>
     <message>
         <source>Local projects</source>
-        <translation type="unfinished"></translation>
+        <translation>本地项目</translation>
     </message>
     <message>
         <source>Show as a grid</source>
-        <translation type="unfinished"></translation>
+        <translation>以网格显示</translation>
     </message>
     <message>
         <source>Show as a list</source>
-        <translation type="unfinished"></translation>
+        <translation>以列表显示</translation>
     </message>
     <message>
         <source>Stickers</source>
@@ -19171,11 +19182,11 @@ If playback stutters, try another.</source>
     <name>StockBrowser</name>
     <message>
         <source>Used once</source>
-        <translation type="unfinished"></translation>
+        <translation>使用过 1 次</translation>
     </message>
     <message>
         <source>Used %1 times</source>
-        <translation type="unfinished"></translation>
+        <translation>使用过 %1 次</translation>
     </message>
     <message>
         <source>Save downloads to</source>
@@ -19209,11 +19220,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Missing a template? Ask for it, or vote for other people’s ideas.</source>
-        <translation type="unfinished"></translation>
+        <translation>缺少模板？提出请求，或为别人的想法投票。</translation>
     </message>
     <message>
         <source>Ask for a template</source>
-        <translation type="unfinished"></translation>
+        <translation>请求模板</translation>
     </message>
     <message>
         <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
@@ -19229,15 +19240,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
-        <translation type="unfinished"></translation>
+        <translation>已经有照片了？选择它们，Flip 会推荐适合的模板。</translation>
     </message>
     <message>
         <source>Use with my photos…</source>
-        <translation type="unfinished"></translation>
+        <translation>用我的照片…</translation>
     </message>
     <message>
         <source>Choose photos and videos</source>
-        <translation type="unfinished">选择照片和视频</translation>
+        <translation>选择照片和视频</translation>
     </message>
     <message>
         <source>Looking up that link…</source>
@@ -19292,31 +19303,31 @@ If playback stutters, try another.</source>
     <name>StockHome</name>
     <message>
         <source>Search all of Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>搜索全部 Stock</translation>
     </message>
     <message>
         <source>Templates, music, sounds, stickers, LUTs, text styles, shapes and more. Type above and press Enter.</source>
-        <translation type="unfinished"></translation>
+        <translation>模板、音乐、音效、贴纸、LUT、文字样式、形状等。在上方输入并按 Enter 键。</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">刷新</translation>
+        <translation>刷新</translation>
     </message>
     <message>
         <source>Can’t find it? Ask for it and vote for other people’s ideas.</source>
-        <translation type="unfinished"></translation>
+        <translation>找不到？提出请求，并为别人的想法投票。</translation>
     </message>
     <message>
         <source>Ask for a template</source>
-        <translation type="unfinished"></translation>
+        <translation>请求模板</translation>
     </message>
     <message>
         <source>Used once</source>
-        <translation type="unfinished"></translation>
+        <translation>使用过 1 次</translation>
     </message>
     <message>
         <source>Used %1 times</source>
-        <translation type="unfinished"></translation>
+        <translation>使用过 %1 次</translation>
     </message>
 </context>
 <context>
@@ -19331,11 +19342,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Used once</source>
-        <translation type="unfinished"></translation>
+        <translation>使用过 1 次</translation>
     </message>
     <message>
         <source>Used %1 times</source>
-        <translation type="unfinished"></translation>
+        <translation>使用过 %1 次</translation>
     </message>
     <message numerus="yes">
         <source>%n coin(s)</source>
@@ -19353,11 +19364,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Install again</source>
-        <translation type="unfinished"></translation>
+        <translation>重新安装</translation>
     </message>
     <message>
         <source>Install</source>
-        <translation type="unfinished">安装</translation>
+        <translation>安装</translation>
     </message>
     <message>
         <source>Download again</source>
@@ -19388,67 +19399,67 @@ If playback stutters, try another.</source>
     <name>StockRequestsDialog</name>
     <message>
         <source>Ask for a template</source>
-        <translation type="unfinished"></translation>
+        <translation>请求模板</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">关闭</translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <source>Template</source>
-        <translation type="unfinished">模板</translation>
+        <translation>模板</translation>
     </message>
     <message>
         <source>Something else</source>
-        <translation type="unfinished"></translation>
+        <translation>其他</translation>
     </message>
     <message>
         <source>Tell us what you would like to find in Stock. The most voted ideas are made first.</source>
-        <translation type="unfinished"></translation>
+        <translation>告诉我们你希望在 Stock 中找到什么。得票最多的想法会优先制作。</translation>
     </message>
     <message>
         <source>For example: a birthday template for my mom with 5 photos</source>
-        <translation type="unfinished"></translation>
+        <translation>例如：给妈妈的生日模板，用 5 张照片</translation>
     </message>
     <message>
         <source>Sending…</source>
-        <translation type="unfinished"></translation>
+        <translation>正在发送…</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation type="unfinished"></translation>
+        <translation>发送</translation>
     </message>
     <message>
         <source>Most voted</source>
-        <translation type="unfinished"></translation>
+        <translation>得票最多</translation>
     </message>
     <message>
         <source>Newest</source>
-        <translation type="unfinished"></translation>
+        <translation>最新</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation type="unfinished"></translation>
+        <translation>正在加载…</translation>
     </message>
     <message>
         <source>No ideas yet. Be the first!</source>
-        <translation type="unfinished"></translation>
+        <translation>还没有想法。来做第一个吧！</translation>
     </message>
     <message>
         <source>Remove your vote</source>
-        <translation type="unfinished"></translation>
+        <translation>取消投票</translation>
     </message>
     <message>
         <source>Vote for this idea</source>
-        <translation type="unfinished"></translation>
+        <translation>为这个想法投票</translation>
     </message>
     <message>
         <source>Done — it’s in Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>已完成 — 已在 Stock 中</translation>
     </message>
     <message>
         <source>Your idea</source>
-        <translation type="unfinished"></translation>
+        <translation>你的想法</translation>
     </message>
 </context>
 <context>
@@ -19887,71 +19898,71 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply texts</source>
-        <translation type="unfinished"></translation>
+        <translation>应用文字</translation>
     </message>
     <message>
         <source>Changes every text you edited at once (one undo step)</source>
-        <translation type="unfinished"></translation>
+        <translation>一次性更改你编辑过的所有文字（只需撤销一次）</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished">音乐</translation>
+        <translation>音乐</translation>
     </message>
     <message>
         <source>The template&apos;s music</source>
-        <translation type="unfinished"></translation>
+        <translation>模板的音乐</translation>
     </message>
     <message>
         <source>No music in this template</source>
-        <translation type="unfinished"></translation>
+        <translation>此模板没有音乐</translation>
     </message>
     <message>
         <source>Fit the cuts to the beat of the new song</source>
-        <translation type="unfinished"></translation>
+        <translation>将剪辑点对齐新歌曲的节拍</translation>
     </message>
     <message>
         <source>Change the music…</source>
-        <translation type="unfinished"></translation>
+        <translation>更换音乐…</translation>
     </message>
     <message>
         <source>Add music…</source>
-        <translation type="unfinished"></translation>
+        <translation>添加音乐…</translation>
     </message>
     <message>
         <source>A song from your computer, cut to the template&apos;s length</source>
-        <translation type="unfinished"></translation>
+        <translation>电脑中的歌曲，按模板长度裁剪</translation>
     </message>
     <message>
         <source>Choose a song</source>
-        <translation type="unfinished"></translation>
+        <translation>选择歌曲</translation>
     </message>
     <message>
         <source>Listening to the music…</source>
-        <translation type="unfinished"></translation>
+        <translation>正在分析音乐…</translation>
     </message>
     <message>
         <source>Fit the cuts to the beat</source>
-        <translation type="unfinished"></translation>
+        <translation>将剪辑点对齐节拍</translation>
     </message>
     <message>
         <source>Moves the change from one photo to the next onto the nearest beat, keeping their order (one undo step). Without a beat, a steady 120 BPM.</source>
-        <translation type="unfinished"></translation>
+        <translation>将照片之间的切换移到最近的节拍上，顺序不变（只需撤销一次）。没有节拍时，使用固定的 120 BPM。</translation>
     </message>
     <message>
         <source>Change template…</source>
-        <translation type="unfinished"></translation>
+        <translation>更换模板…</translation>
     </message>
     <message>
         <source>Another template with the same photos and texts</source>
-        <translation type="unfinished"></translation>
+        <translation>使用相同照片和文字的另一个模板</translation>
     </message>
     <message>
         <source>Apply my brand</source>
-        <translation type="unfinished"></translation>
+        <translation>应用我的品牌</translation>
     </message>
     <message>
         <source>Your logo, colours and font (Templates › My brand)</source>
-        <translation type="unfinished"></translation>
+        <translation>你的徽标、颜色和字体（模板 › 我的品牌）</translation>
     </message>
     <message>
         <source>Open the composition</source>
@@ -20044,23 +20055,23 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>AI text</source>
-        <translation type="unfinished"></translation>
+        <translation>AI 文字</translation>
     </message>
     <message>
         <source>Describe the style in your own words (horror title, neon sale, wedding…) and the AI picks the closest of your text styles.</source>
-        <translation type="unfinished"></translation>
+        <translation>用你自己的话描述样式（恐怖片标题、霓虹促销、婚礼…），AI 会从你的文字样式中选出最接近的一个。</translation>
     </message>
     <message>
         <source>Your text (optional)</source>
-        <translation type="unfinished"></translation>
+        <translation>你的文字（可选）</translation>
     </message>
     <message>
         <source>The style, in your words: horror title, neon sale…</source>
-        <translation type="unfinished"></translation>
+        <translation>用你自己的话描述样式：恐怖片标题、霓虹促销…</translation>
     </message>
     <message>
         <source>Create with AI</source>
-        <translation type="unfinished"></translation>
+        <translation>用 AI 创建</translation>
     </message>
     <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
@@ -20534,15 +20545,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Counter</source>
-        <translation type="unfinished"></translation>
+        <translation>计数器</translation>
     </message>
     <message>
         <source>The number in the text counts up over the clip, as in a counter: $1.000.000, 10K, day 100…</source>
-        <translation type="unfinished"></translation>
+        <translation>文字中的数字会随片段播放不断累加，就像计数器：$1.000.000、10K、第 100 天…</translation>
     </message>
     <message>
         <source>from</source>
-        <translation type="unfinished"></translation>
+        <translation>起始值</translation>
     </message>
     <message>
         <source>Edit in Advanced</source>
@@ -21707,7 +21718,7 @@ If playback stutters, try another.</source>
     <name>Theme</name>
     <message>
         <source>Turquoise</source>
-        <translation type="unfinished"></translation>
+        <translation>青绿色</translation>
     </message>
     <message>
         <source>Amber</source>
@@ -21791,7 +21802,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>AI transition to the next clip</source>
-        <translation type="unfinished"></translation>
+        <translation>到下一个片段的 AI 转场</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -22241,7 +22252,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
-        <translation type="unfinished"></translation>
+        <translation>在你的电脑上用 AI 运行，无需联网：你的视频不会离开电脑。</translation>
     </message>
     <message>
         <source>Pointer tools</source>
@@ -23315,15 +23326,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>AI transition</source>
-        <translation type="unfinished"></translation>
+        <translation>AI 转场</translation>
     </message>
     <message>
         <source>Select a clip: the AI draws the pictures between its last frame and the first frame of the next clip, and puts them in between.</source>
-        <translation type="unfinished"></translation>
+        <translation>选择一个片段：AI 会绘制它的最后一帧与下一个片段第一帧之间的画面，并插入到两者之间。</translation>
     </message>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
-        <translation type="unfinished"></translation>
+        <translation>请在时间线上选择两个片段中的第一个。</translation>
     </message>
     <message>
         <source>My Transitions</source>
@@ -23893,7 +23904,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Cuts out the person or the subject from the background, frame by frame.</source>
-        <translation type="unfinished"></translation>
+        <translation>逐帧将人物或主体从背景中抠出。</translation>
     </message>
     <message>
         <source>Mask</source>
@@ -23905,7 +23916,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Finds the face, the body and the hair to retouch them.</source>
-        <translation type="unfinished"></translation>
+        <translation>找出面部、身体和头发，以便进行美化。</translation>
     </message>
     <message>
         <source>Automatic removal</source>
@@ -23965,11 +23976,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Blemishes</source>
-        <translation type="unfinished"></translation>
+        <translation>瑕疵</translation>
     </message>
     <message>
         <source>Evens out spots, pimples and fine wrinkles</source>
-        <translation type="unfinished"></translation>
+        <translation>淡化斑点、痘痘和细纹</translation>
     </message>
     <message>
         <source>Slim or widen what the mesh follows</source>

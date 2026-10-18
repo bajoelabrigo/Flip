@@ -253,7 +253,7 @@
     </message>
     <message>
         <source>Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.</source>
-        <translation type="unfinished"></translation>
+        <translation>كل شيء مجاني. يمكنك المتابعة بدون حساب والتحرير كالمعتاد؛ وسنطلب منك تسجيل الدخول للتصدير واستخدام Stock.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -1108,11 +1108,11 @@
     <name>AiBadge</name>
     <message>
         <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
-        <translation type="unfinished"></translation>
+        <translation>يعمل بالذكاء الاصطناعي على جهازك، بدون إنترنت: لا يغادر الفيديو جهازك أبدًا.</translation>
     </message>
     <message>
         <source>AI</source>
-        <translation type="unfinished"></translation>
+        <translation>ذكاء اصطناعي</translation>
     </message>
 </context>
 <context>
@@ -4262,75 +4262,75 @@
     </message>
     <message>
         <source>Could not install “%1”: %2</source>
-        <translation type="unfinished">تعذّر تثبيت «%1»: %2</translation>
+        <translation>تعذّر تثبيت «%1»: %2</translation>
     </message>
     <message>
         <source>the file is missing</source>
-        <translation type="unfinished"></translation>
+        <translation>الملف مفقود</translation>
     </message>
     <message>
         <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation type="unfinished"></translation>
+        <translation>تم تثبيت LUT: %1 (ضبط › LUT)</translation>
     </message>
     <message>
         <source>In Adjust › LUT</source>
-        <translation type="unfinished"></translation>
+        <translation>في ضبط › LUT</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
-        <translation type="unfinished"></translation>
+        <translation>ليس إعدادًا مسبقًا للتأثيرات</translation>
     </message>
     <message>
         <source>Look installed: %1 (My presets)</source>
-        <translation type="unfinished"></translation>
+        <translation>تم تثبيت المظهر: %1 (تأثيراتي)</translation>
     </message>
     <message>
         <source>In My presets</source>
-        <translation type="unfinished"></translation>
+        <translation>في تأثيراتي</translation>
     </message>
     <message>
         <source>it is not a text style</source>
-        <translation type="unfinished"></translation>
+        <translation>ليس نمط نص</translation>
     </message>
     <message>
         <source>Text style installed: %1 (Text › My styles)</source>
-        <translation type="unfinished"></translation>
+        <translation>تم تثبيت نمط النص: %1 (نص › أنماطي)</translation>
     </message>
     <message>
         <source>In Text › My styles</source>
-        <translation type="unfinished"></translation>
+        <translation>في نص › أنماطي</translation>
     </message>
     <message>
         <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation type="unfinished"></translation>
+        <translation>تم تثبيت حركة النص: %1 (نص › حركة › مستوردة)</translation>
     </message>
     <message>
         <source>In Text › Animation</source>
-        <translation type="unfinished"></translation>
+        <translation>في نص › حركة</translation>
     </message>
     <message>
         <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation type="unfinished"></translation>
+        <translation>تم تثبيت الشكل: %1 (الأشكال، وأيضًا في الأقنعة)</translation>
     </message>
     <message>
         <source>In Shapes</source>
-        <translation type="unfinished"></translation>
+        <translation>في الأشكال</translation>
     </message>
     <message>
         <source>packages cannot be installed here</source>
-        <translation type="unfinished"></translation>
+        <translation>لا يمكن تثبيت الحزم هنا</translation>
     </message>
     <message>
         <source>Transition installed: %1 (Transitions)</source>
-        <translation type="unfinished"></translation>
+        <translation>تم تثبيت الانتقال: %1 (الانتقالات)</translation>
     </message>
     <message>
         <source>In Transitions</source>
-        <translation type="unfinished"></translation>
+        <translation>في الانتقالات</translation>
     </message>
     <message>
         <source>this kind of item needs a newer Flip Studio</source>
-        <translation type="unfinished"></translation>
+        <translation>يحتاج هذا النوع من العناصر إلى إصدار أحدث من Flip Studio</translation>
     </message>
     <message>
         <source>The LUT «%1» is not where the project saved it, nor in your LUT library. Find it to use it again.</source>
@@ -4970,59 +4970,59 @@
     </message>
     <message>
         <source>Select a video or photo clip with another one right after it</source>
-        <translation type="unfinished"></translation>
+        <translation>حدّد مقطع فيديو أو صورة يليه مقطع آخر مباشرة</translation>
     </message>
     <message>
         <source>There is no clip right after this one to blend into</source>
-        <translation type="unfinished"></translation>
+        <translation>لا يوجد مقطع بعد هذا مباشرة لدمجه معه</translation>
     </message>
     <message>
         <source>AI transitions need their extra: install it from Extras › AI tools</source>
-        <translation type="unfinished"></translation>
+        <translation>تحتاج الانتقالات بالذكاء الاصطناعي إلى إضافتها: ثبّتها من الإضافات › أدوات الذكاء الاصطناعي</translation>
     </message>
     <message>
         <source>AI transition</source>
-        <translation type="unfinished"></translation>
+        <translation>انتقال بالذكاء الاصطناعي</translation>
     </message>
     <message>
         <source>Making the AI transition…</source>
-        <translation type="unfinished"></translation>
+        <translation>جارٍ إنشاء الانتقال بالذكاء الاصطناعي…</translation>
     </message>
     <message>
         <source>Couldn’t read the frames at the cut</source>
-        <translation type="unfinished"></translation>
+        <translation>تعذّرت قراءة الإطارات عند القطع</translation>
     </message>
     <message>
         <source>Couldn’t make the AI transition</source>
-        <translation type="unfinished"></translation>
+        <translation>تعذّر إنشاء الانتقال بالذكاء الاصطناعي</translation>
     </message>
     <message>
         <source>AI transition added</source>
-        <translation type="unfinished"></translation>
+        <translation>تمت إضافة الانتقال بالذكاء الاصطناعي</translation>
     </message>
     <message>
         <source>Write the text or describe the style you want</source>
-        <translation type="unfinished"></translation>
+        <translation>اكتب النص أو صف النمط الذي تريده</translation>
     </message>
     <message>
         <source>AI text needs its extra: install it from Extras › AI tools</source>
-        <translation type="unfinished"></translation>
+        <translation>يحتاج النص بالذكاء الاصطناعي إلى إضافته: ثبّتها من الإضافات › أدوات الذكاء الاصطناعي</translation>
     </message>
     <message>
         <source>There are no text styles to choose from</source>
-        <translation type="unfinished"></translation>
+        <translation>لا توجد أنماط نص للاختيار منها</translation>
     </message>
     <message>
         <source>Choosing a style with AI…</source>
-        <translation type="unfinished"></translation>
+        <translation>جارٍ اختيار نمط بالذكاء الاصطناعي…</translation>
     </message>
     <message>
         <source>Couldn’t choose a style</source>
-        <translation type="unfinished"></translation>
+        <translation>تعذّر اختيار نمط</translation>
     </message>
     <message>
         <source>AI text added</source>
-        <translation type="unfinished"></translation>
+        <translation>تمت إضافة النص بالذكاء الاصطناعي</translation>
     </message>
     <message>
         <source>Paste</source>
@@ -5521,55 +5521,55 @@
     </message>
     <message>
         <source>Business name</source>
-        <translation type="unfinished"></translation>
+        <translation>اسم النشاط التجاري</translation>
     </message>
     <message>
         <source>Phone</source>
-        <translation type="unfinished"></translation>
+        <translation>الهاتف</translation>
     </message>
     <message>
         <source>Price</source>
-        <translation type="unfinished"></translation>
+        <translation>السعر</translation>
     </message>
     <message>
         <source>Discount</source>
-        <translation type="unfinished"></translation>
+        <translation>الخصم</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>التاريخ</translation>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="unfinished"></translation>
+        <translation>ساعات العمل</translation>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished"></translation>
+        <translation>الموقع الإلكتروني</translation>
     </message>
     <message>
         <source>Email</source>
-        <translation type="unfinished"></translation>
+        <translation>البريد الإلكتروني</translation>
     </message>
     <message>
         <source>Social media user</source>
-        <translation type="unfinished"></translation>
+        <translation>اسم المستخدم على مواقع التواصل</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>العنوان</translation>
     </message>
     <message>
         <source>Call to action</source>
-        <translation type="unfinished"></translation>
+        <translation>دعوة إلى إجراء</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>العنوان الرئيسي</translation>
     </message>
     <message>
         <source>Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>العنوان الفرعي</translation>
     </message>
     <message numerus="yes">
         <source>Template added with %n of your photos. The rest did not fit: it has %1 slot(s).</source>
@@ -5606,11 +5606,11 @@
     </message>
     <message>
         <source>Templates are changed on the main timeline: close the composition first</source>
-        <translation type="unfinished"></translation>
+        <translation>تُغيَّر القوالب في المخطط الزمني الرئيسي: أغلق التركيبة أولًا</translation>
     </message>
     <message>
         <source>Put the template on the timeline first</source>
-        <translation type="unfinished"></translation>
+        <translation>ضع القالب في المخطط الزمني أولًا</translation>
     </message>
     <message numerus="yes">
         <source>Template changed: %n photo(s) carried over</source>
@@ -5647,7 +5647,7 @@
     </message>
     <message>
         <source>Template texts</source>
-        <translation type="unfinished"></translation>
+        <translation>نصوص القالب</translation>
     </message>
     <message numerus="yes">
         <source>%n text(s) changed</source>
@@ -5662,19 +5662,19 @@
     </message>
     <message>
         <source>The template has no music: change its music first</source>
-        <translation type="unfinished"></translation>
+        <translation>لا يحتوي القالب على موسيقى: أضف موسيقى أولًا</translation>
     </message>
     <message>
         <source>Listening to the music to find its beat…</source>
-        <translation type="unfinished"></translation>
+        <translation>جارٍ الاستماع إلى الموسيقى لإيجاد إيقاعها…</translation>
     </message>
     <message>
         <source>The cuts already fall on the beat</source>
-        <translation type="unfinished"></translation>
+        <translation>القطعات متوافقة مع الإيقاع بالفعل</translation>
     </message>
     <message>
         <source>Fit cuts to the beat</source>
-        <translation type="unfinished"></translation>
+        <translation>مواءمة القطعات مع الإيقاع</translation>
     </message>
     <message numerus="yes">
         <source>No beat found in the music: %n cut(s) now follow a steady 120 BPM beat</source>
@@ -5700,366 +5700,366 @@
     </message>
     <message>
         <source>Choose a song or an audio file</source>
-        <translation type="unfinished"></translation>
+        <translation>اختر أغنية أو ملفًا صوتيًا</translation>
     </message>
     <message>
         <source>That file has no sound to use as music</source>
-        <translation type="unfinished"></translation>
+        <translation>لا يحتوي هذا الملف على صوت لاستخدامه كموسيقى</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished">الموسيقى</translation>
+        <translation>الموسيقى</translation>
     </message>
     <message>
         <source>Template music</source>
-        <translation type="unfinished"></translation>
+        <translation>موسيقى القالب</translation>
     </message>
     <message>
         <source>New music: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>موسيقى جديدة: %1</translation>
     </message>
     <message>
         <source>The logo has to be a picture (PNG, JPG, WebP…)</source>
-        <translation type="unfinished"></translation>
+        <translation>يجب أن يكون الشعار صورة (PNG، JPG، WebP…)</translation>
     </message>
     <message>
         <source>Could not copy the logo</source>
-        <translation type="unfinished"></translation>
+        <translation>تعذّر نسخ الشعار</translation>
     </message>
     <message>
         <source>My brand saved</source>
-        <translation type="unfinished"></translation>
+        <translation>تم حفظ علامتي التجارية</translation>
     </message>
     <message>
         <source>Set up My brand first (Templates › My brand)</source>
-        <translation type="unfinished"></translation>
+        <translation>اضبط علامتي التجارية أولًا (القوالب › علامتي التجارية)</translation>
     </message>
     <message>
         <source>This template has no logo slot or brand texts to change</source>
-        <translation type="unfinished"></translation>
+        <translation>لا يحتوي هذا القالب على مكان للشعار أو نصوص للعلامة التجارية لتغييرها</translation>
     </message>
     <message>
         <source>Apply my brand</source>
-        <translation type="unfinished"></translation>
+        <translation>تطبيق علامتي التجارية</translation>
     </message>
     <message>
         <source>My brand applied</source>
-        <translation type="unfinished"></translation>
+        <translation>تم تطبيق علامتي التجارية</translation>
     </message>
     <message>
         <source>My logo</source>
-        <translation type="unfinished"></translation>
+        <translation>شعاري</translation>
     </message>
 </context>
 <context>
     <name>AppMenuBar</name>
     <message>
         <source>File</source>
-        <translation type="unfinished">الملف</translation>
+        <translation>ملف</translation>
     </message>
     <message>
         <source>New Project</source>
-        <translation type="unfinished"></translation>
+        <translation>مشروع جديد</translation>
     </message>
     <message>
         <source>Open Project…</source>
-        <translation type="unfinished"></translation>
+        <translation>فتح مشروع…</translation>
     </message>
     <message>
         <source>Open Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>فتح الأخيرة</translation>
     </message>
     <message>
         <source>Import Media…</source>
-        <translation type="unfinished"></translation>
+        <translation>استيراد وسائط…</translation>
     </message>
     <message>
         <source>Save Project</source>
-        <translation type="unfinished">حفظ المشروع</translation>
+        <translation>حفظ المشروع</translation>
     </message>
     <message>
         <source>Save Project As…</source>
-        <translation type="unfinished"></translation>
+        <translation>حفظ المشروع باسم…</translation>
     </message>
     <message>
         <source>Save Shareable Copy…</source>
-        <translation type="unfinished"></translation>
+        <translation>حفظ نسخة للمشاركة…</translation>
     </message>
     <message>
         <source>Export Video…</source>
-        <translation type="unfinished"></translation>
+        <translation>تصدير الفيديو…</translation>
     </message>
     <message>
         <source>Video Size and Layout…</source>
-        <translation type="unfinished"></translation>
+        <translation>حجم الفيديو وتخطيطه…</translation>
     </message>
     <message>
         <source>Project Properties…</source>
-        <translation type="unfinished"></translation>
+        <translation>خصائص المشروع…</translation>
     </message>
     <message>
         <source>Preferences…</source>
-        <translation type="unfinished"></translation>
+        <translation>التفضيلات…</translation>
     </message>
     <message>
         <source>Keyboard Shortcuts</source>
-        <translation type="unfinished">اختصارات لوحة المفاتيح</translation>
+        <translation>اختصارات لوحة المفاتيح</translation>
     </message>
     <message>
         <source>Back to Home</source>
-        <translation type="unfinished"></translation>
+        <translation>العودة إلى الشاشة الرئيسية</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>خروج</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">تعديل</translation>
+        <translation>تحرير</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished">تراجع</translation>
+        <translation>تراجع</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished">إعادة</translation>
+        <translation>إعادة</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished">قص</translation>
+        <translation>قص</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">نسخ</translation>
+        <translation>نسخ</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished">لصق</translation>
+        <translation>لصق</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished">تكرار</translation>
+        <translation>تكرار</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">حذف</translation>
+        <translation>حذف</translation>
     </message>
     <message>
         <source>Copy Effects</source>
-        <translation type="unfinished">نسخ التأثيرات</translation>
+        <translation>نسخ التأثيرات</translation>
     </message>
     <message>
         <source>Paste Effects</source>
-        <translation type="unfinished">لصق التأثيرات</translation>
+        <translation>لصق التأثيرات</translation>
     </message>
     <message>
         <source>Paste Attributes…</source>
-        <translation type="unfinished">لصق السمات…</translation>
+        <translation>لصق السمات…</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished">تحديد الكل</translation>
+        <translation>تحديد الكل</translation>
     </message>
     <message>
         <source>Deselect All</source>
-        <translation type="unfinished"></translation>
+        <translation>إلغاء تحديد الكل</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>أدوات</translation>
     </message>
     <message>
         <source>Split</source>
-        <translation type="unfinished">تقسيم</translation>
+        <translation>تقسيم</translation>
     </message>
     <message>
         <source>Merge Clips</source>
-        <translation type="unfinished"></translation>
+        <translation>دمج المقاطع</translation>
     </message>
     <message>
         <source>Separate Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>فصل الصوت</translation>
     </message>
     <message>
         <source>Link Clips</source>
-        <translation type="unfinished"></translation>
+        <translation>ربط المقاطع</translation>
     </message>
     <message>
         <source>Unlink Clips</source>
-        <translation type="unfinished"></translation>
+        <translation>إلغاء ربط المقاطع</translation>
     </message>
     <message>
         <source>Group (Compound Clip)</source>
-        <translation type="unfinished"></translation>
+        <translation>تجميع (مقطع مركّب)</translation>
     </message>
     <message>
         <source>Ungroup</source>
-        <translation type="unfinished">فك التجميع</translation>
+        <translation>فك التجميع</translation>
     </message>
     <message>
         <source>Save as Template…</source>
-        <translation type="unfinished"></translation>
+        <translation>حفظ كقالب…</translation>
     </message>
     <message>
         <source>AI Transition to the Next Clip</source>
-        <translation type="unfinished"></translation>
+        <translation>انتقال بالذكاء الاصطناعي إلى المقطع التالي</translation>
     </message>
     <message>
         <source>Transform Together</source>
-        <translation type="unfinished"></translation>
+        <translation>تحويل معًا</translation>
     </message>
     <message>
         <source>Auto Subtitles</source>
-        <translation type="unfinished"></translation>
+        <translation>ترجمة تلقائية</translation>
     </message>
     <message>
         <source>Text to Speech</source>
-        <translation type="unfinished"></translation>
+        <translation>تحويل النص إلى كلام</translation>
     </message>
     <message>
         <source>Scene Detection</source>
-        <translation type="unfinished"></translation>
+        <translation>اكتشاف المشاهد</translation>
     </message>
     <message>
         <source>Multicam</source>
-        <translation type="unfinished">كاميرات متعددة</translation>
+        <translation>تعدد الكاميرات</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>عرض</translation>
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished">تشغيل / إيقاف مؤقت</translation>
+        <translation>تشغيل / إيقاف مؤقت</translation>
     </message>
     <message>
         <source>Go to Start</source>
-        <translation type="unfinished"></translation>
+        <translation>الانتقال إلى البداية</translation>
     </message>
     <message>
         <source>Previous Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>الإطار السابق</translation>
     </message>
     <message>
         <source>Next Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>الإطار التالي</translation>
     </message>
     <message>
         <source>Loop Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>تشغيل متكرر</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>الإشارات المرجعية</translation>
     </message>
     <message>
         <source>Add or Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة إشارة مرجعية أو إزالتها</translation>
     </message>
     <message>
         <source>Next Bookmark</source>
-        <translation type="unfinished">الإشارة المرجعية التالية</translation>
+        <translation>الإشارة المرجعية التالية</translation>
     </message>
     <message>
         <source>Previous Bookmark</source>
-        <translation type="unfinished">الإشارة المرجعية السابقة</translation>
+        <translation>الإشارة المرجعية السابقة</translation>
     </message>
     <message>
         <source>Zoom In</source>
-        <translation type="unfinished">تكبير</translation>
+        <translation>تكبير</translation>
     </message>
     <message>
         <source>Zoom Out</source>
-        <translation type="unfinished"></translation>
+        <translation>تصغير</translation>
     </message>
     <message>
         <source>Fullscreen Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>معاينة بملء الشاشة</translation>
     </message>
     <message>
         <source>Guides</source>
-        <translation type="unfinished">خطوط إرشادية</translation>
+        <translation>الأدلة</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished">مساحة العمل</translation>
+        <translation>مساحة العمل</translation>
     </message>
     <message>
         <source>Auto (follow canvas)</source>
-        <translation type="unfinished">تلقائي (اتّباع اللوحة)</translation>
+        <translation>تلقائي (اتباع اللوحة)</translation>
     </message>
     <message>
         <source>Landscape</source>
-        <translation type="unfinished">أفقي</translation>
+        <translation>أفقي</translation>
     </message>
     <message>
         <source>Portrait</source>
-        <translation type="unfinished">عمودي</translation>
+        <translation>عمودي</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished">المظهر</translation>
+        <translation>السمة</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>فاتح</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">داكن</translation>
+        <translation>داكن</translation>
     </message>
     <message>
         <source>Language…</source>
-        <translation type="unfinished">اللغة…</translation>
+        <translation>اللغة…</translation>
     </message>
     <message>
         <source>Switch to Mobile Layout…</source>
-        <translation type="unfinished">التبديل إلى تخطيط الهاتف…</translation>
+        <translation>التبديل إلى تخطيط الجوال…</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">متقدم</translation>
+        <translation>متقدم</translation>
     </message>
     <message>
         <source>Extras…</source>
-        <translation type="unfinished">الإضافات…</translation>
+        <translation>الإضافات…</translation>
     </message>
     <message>
         <source>Agent Access…</source>
-        <translation type="unfinished"></translation>
+        <translation>وصول الوكيل…</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished">التنزيلات</translation>
+        <translation>التنزيلات</translation>
     </message>
     <message>
         <source>Debug Info…</source>
-        <translation type="unfinished">معلومات التصحيح…</translation>
+        <translation>معلومات التصحيح…</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>مساعدة</translation>
     </message>
     <message>
         <source>What&apos;s New</source>
-        <translation type="unfinished"></translation>
+        <translation>الجديد</translation>
     </message>
     <message>
         <source>Flip Studio Website</source>
-        <translation type="unfinished"></translation>
+        <translation>موقع Flip Studio</translation>
     </message>
     <message>
         <source>Check for Updates…</source>
-        <translation type="unfinished">البحث عن تحديثات…</translation>
+        <translation>التحقق من وجود تحديثات…</translation>
     </message>
     <message>
         <source>My Account</source>
-        <translation type="unfinished"></translation>
+        <translation>حسابي</translation>
     </message>
     <message>
         <source>About Flip Studio</source>
-        <translation type="unfinished">حول Flip Studio</translation>
+        <translation>حول Flip Studio</translation>
     </message>
 </context>
 <context>
@@ -6283,15 +6283,15 @@
     </message>
     <message>
         <source>Writes the subtitles from what is said in the video, word by word.</source>
-        <translation type="unfinished"></translation>
+        <translation>يكتب الترجمة من الكلام المنطوق في الفيديو، كلمة بكلمة.</translation>
     </message>
     <message>
         <source>Turns your text into a natural-sounding voice.</source>
-        <translation type="unfinished"></translation>
+        <translation>يحوّل نصك إلى صوت طبيعي.</translation>
     </message>
     <message>
         <source>Finds where each shot starts and what is in it.</source>
-        <translation type="unfinished"></translation>
+        <translation>يجد بداية كل لقطة وما تحتويه.</translation>
     </message>
     <message>
         <source>Text</source>
@@ -6327,16 +6327,16 @@
     </message>
     <message>
         <source>My templates</source>
-        <translation type="unfinished">قوالبي</translation>
+        <translation>قوالبي</translation>
     </message>
     <message>
         <source>Effect templates</source>
-        <translation type="unfinished">قوالب التأثيرات</translation>
+        <translation>قوالب التأثيرات</translation>
     </message>
     <message>
         <source>Stickers</source>
         <comment>category row</comment>
-        <translation type="unfinished"></translation>
+        <translation>الملصقات</translation>
     </message>
     <message>
         <source>Templates</source>
@@ -6356,11 +6356,11 @@
     </message>
     <message>
         <source>LUTs</source>
-        <translation type="unfinished"></translation>
+        <translation>LUTs</translation>
     </message>
     <message>
         <source>Color effects</source>
-        <translation type="unfinished"></translation>
+        <translation>تأثيرات الألوان</translation>
     </message>
     <message>
         <source>Shortcuts</source>
@@ -6368,15 +6368,15 @@
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>الصوت</translation>
     </message>
     <message>
         <source>Titles</source>
-        <translation type="unfinished"></translation>
+        <translation>العناوين</translation>
     </message>
     <message>
         <source>Filters</source>
-        <translation type="unfinished">الفلاتر</translation>
+        <translation>الفلاتر</translation>
     </message>
     <message>
         <source>Drop to import</source>
@@ -7147,75 +7147,75 @@
     <name>BrandKitDialog</name>
     <message>
         <source>Main colour</source>
-        <translation type="unfinished"></translation>
+        <translation>اللون الرئيسي</translation>
     </message>
     <message>
         <source>Second colour</source>
-        <translation type="unfinished"></translation>
+        <translation>اللون الثانوي</translation>
     </message>
     <message>
         <source>Accent</source>
-        <translation type="unfinished"></translation>
+        <translation>لون التمييز</translation>
     </message>
     <message>
         <source>Text colour</source>
-        <translation type="unfinished"></translation>
+        <translation>لون النص</translation>
     </message>
     <message>
         <source>My brand</source>
-        <translation type="unfinished"></translation>
+        <translation>علامتي التجارية</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">حفظ</translation>
+        <translation>حفظ</translation>
     </message>
     <message>
         <source>Your logo, colours and font. Business templates use them when you add one; any other template takes them with “Apply my brand” in its Template panel.</source>
-        <translation type="unfinished"></translation>
+        <translation>شعارك وألوانك وخطك. تستخدمها قوالب الأعمال عند إضافتها؛ ويأخذها أي قالب آخر عبر «تطبيق علامتي التجارية» في لوحة القالب الخاصة به.</translation>
     </message>
     <message>
         <source>Logo</source>
-        <translation type="unfinished"></translation>
+        <translation>الشعار</translation>
     </message>
     <message>
         <source>Change logo…</source>
-        <translation type="unfinished"></translation>
+        <translation>تغيير الشعار…</translation>
     </message>
     <message>
         <source>Choose logo…</source>
-        <translation type="unfinished"></translation>
+        <translation>اختيار الشعار…</translation>
     </message>
     <message>
         <source>Choose your logo</source>
-        <translation type="unfinished"></translation>
+        <translation>اختر شعارك</translation>
     </message>
     <message>
         <source>Pictures (*.png *.jpg *.jpeg *.webp)</source>
-        <translation type="unfinished"></translation>
+        <translation>الصور (*.png *.jpg *.jpeg *.webp)</translation>
     </message>
     <message>
         <source>Remove logo</source>
-        <translation type="unfinished"></translation>
+        <translation>إزالة الشعار</translation>
     </message>
     <message>
         <source>Colours (2 to 4)</source>
-        <translation type="unfinished"></translation>
+        <translation>الألوان (من 2 إلى 4)</translation>
     </message>
     <message>
         <source>Remove colour</source>
-        <translation type="unfinished"></translation>
+        <translation>إزالة اللون</translation>
     </message>
     <message>
         <source>Add colour</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة لون</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished">الخط</translation>
+        <translation>الخط</translation>
     </message>
     <message>
         <source>Use it in Business templates when I add them</source>
-        <translation type="unfinished"></translation>
+        <translation>استخدامه في قوالب الأعمال عند إضافتها</translation>
     </message>
 </context>
 <context>
@@ -8281,15 +8281,15 @@
     </message>
     <message>
         <source>Blemish Removal</source>
-        <translation type="unfinished"></translation>
+        <translation>إزالة العيوب</translation>
     </message>
     <message>
         <source>Spots</source>
-        <translation type="unfinished"></translation>
+        <translation>البقع</translation>
     </message>
     <message>
         <source>Wrinkles</source>
-        <translation type="unfinished"></translation>
+        <translation>التجاعيد</translation>
     </message>
     <message>
         <source>Blur Amount</source>
@@ -10622,7 +10622,7 @@
     </message>
     <message>
         <source>Free templates, music, stickers, photos and videos</source>
-        <translation type="unfinished"></translation>
+        <translation>قوالب وموسيقى وملصقات وصور ومقاطع فيديو مجانية</translation>
     </message>
     <message numerus="yes">
         <source>Downloads — %n running</source>
@@ -11702,6 +11702,17 @@
     </message>
 </context>
 <context>
+    <name>Exporter</name>
+    <message>
+        <source>Same as project · %1×%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Same as project (%1 fps)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FacePropImport</name>
     <message>
         <source>%1 is not a binary glTF model</source>
@@ -12032,63 +12043,63 @@
     <name>FiltersTab</name>
     <message>
         <source>Looks</source>
-        <translation type="unfinished">المظاهر</translation>
+        <translation>المظاهر</translation>
     </message>
     <message>
         <source>Imported</source>
-        <translation type="unfinished"></translation>
+        <translation>المستوردة</translation>
     </message>
     <message>
         <source>Select a video or photo clip first.</source>
-        <translation type="unfinished"></translation>
+        <translation>حدّد مقطع فيديو أو صورة أولًا.</translation>
     </message>
     <message>
         <source>Import LUT</source>
-        <translation type="unfinished">استيراد LUT</translation>
+        <translation>استيراد LUT</translation>
     </message>
     <message>
         <source>LUT (*.cube)</source>
-        <translation type="unfinished">LUT (*.cube)</translation>
+        <translation>LUT (*.cube)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>كل الملفات (*)</translation>
     </message>
     <message>
         <source>This file is not a LUT that can be used.</source>
-        <translation type="unfinished">هذا الملف ليس LUT قابلًا للاستخدام.</translation>
+        <translation>هذا الملف ليس LUT قابلًا للاستخدام.</translation>
     </message>
     <message>
         <source>Search filters</source>
-        <translation type="unfinished"></translation>
+        <translation>البحث في الفلاتر</translation>
     </message>
     <message>
         <source>Click a filter to put it on the selected clip. Its strength is in Adjust › LUT.</source>
-        <translation type="unfinished"></translation>
+        <translation>انقر على فلتر لتطبيقه على المقطع المحدد. تجد شدّته في ضبط › LUT.</translation>
     </message>
     <message>
         <source>Select a video or photo clip, then click a filter.</source>
-        <translation type="unfinished"></translation>
+        <translation>حدّد مقطع فيديو أو صورة، ثم انقر على فلتر.</translation>
     </message>
     <message>
         <source>Import LUT…</source>
-        <translation type="unfinished">استيراد LUT…</translation>
+        <translation>استيراد LUT…</translation>
     </message>
     <message>
         <source>No filters match “%1”.</source>
-        <translation type="unfinished"></translation>
+        <translation>لا توجد فلاتر تطابق «%1».</translation>
     </message>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
-        <translation type="unfinished"></translation>
+        <translation>لا توجد LUTs مستوردة بعد. استورد ملف ‎.cube أو احصل على LUTs من Stock.</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
-        <translation type="unfinished"></translation>
+        <translation>لا شيء في هذه الفئة.</translation>
     </message>
     <message>
         <source>Delete from my LUTs</source>
-        <translation type="unfinished">حذف من ملفات LUT الخاصة بي</translation>
+        <translation>حذف من LUTs الخاصة بي</translation>
     </message>
 </context>
 <context>
@@ -13387,19 +13398,19 @@
     </message>
     <message>
         <source>%1 new: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>جديد في %1: %2</translation>
     </message>
     <message>
         <source>Sign in to ask for a template.</source>
-        <translation type="unfinished"></translation>
+        <translation>سجّل الدخول لطلب قالب.</translation>
     </message>
     <message>
         <source>Tell us a little more about what you need.</source>
-        <translation type="unfinished"></translation>
+        <translation>أخبرنا بالمزيد عمّا تحتاجه.</translation>
     </message>
     <message>
         <source>Thanks! Others can vote for your idea now.</source>
-        <translation type="unfinished"></translation>
+        <translation>شكرًا! يمكن للآخرين الآن التصويت لفكرتك.</translation>
     </message>
     <message>
         <source>Could not connect the marketplace account.</source>
@@ -13427,7 +13438,7 @@
     </message>
     <message>
         <source>This kind of item cannot be installed here.</source>
-        <translation type="unfinished"></translation>
+        <translation>لا يمكن تثبيت هذا النوع من العناصر هنا.</translation>
     </message>
     <message>
         <source>Could not install that template.</source>
@@ -13447,15 +13458,15 @@
     </message>
     <message>
         <source>Could not install that item.</source>
-        <translation type="unfinished"></translation>
+        <translation>تعذّر تثبيت هذا العنصر.</translation>
     </message>
     <message>
         <source>Could not install that item: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>تعذّر تثبيت هذا العنصر: %1</translation>
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished"></translation>
+        <translation>مثبّت</translation>
     </message>
     <message>
         <source>Marketplace account connected.</source>
@@ -13572,7 +13583,7 @@
     </message>
     <message>
         <source>Search all of Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>البحث في Stock بالكامل</translation>
     </message>
     <message>
         <source>Search, or paste a link</source>
@@ -13588,11 +13599,11 @@
     </message>
     <message>
         <source>Everything in Stock is free</source>
-        <translation type="unfinished"></translation>
+        <translation>كل ما في Stock مجاني</translation>
     </message>
     <message>
         <source>Templates, music, stickers, photos and videos at no cost. You only need to sign in with your Google account to see them and download them into your project.</source>
-        <translation type="unfinished"></translation>
+        <translation>قوالب وموسيقى وملصقات وصور ومقاطع فيديو بلا تكلفة. كل ما تحتاجه هو تسجيل الدخول بحساب Google لرؤيتها وتنزيلها في مشروعك.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -13741,7 +13752,7 @@
     </message>
     <message>
         <source>Library shape</source>
-        <translation type="unfinished"></translation>
+        <translation>شكل من المكتبة</translation>
     </message>
     <message>
         <source>TEXT</source>
@@ -17106,23 +17117,23 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Use with my photos…</source>
-        <translation type="unfinished"></translation>
+        <translation>استخدام مع صوري…</translation>
     </message>
     <message>
         <source>Choose your photos and videos first: Flip suggests the templates that fit them and fills them in</source>
-        <translation type="unfinished"></translation>
+        <translation>اختر صورك ومقاطع الفيديو أولًا: يقترح Flip القوالب المناسبة لها ويملؤها</translation>
     </message>
     <message>
         <source>Choose photos and videos</source>
-        <translation type="unfinished">اختيار صور ومقاطع فيديو</translation>
+        <translation>اختر الصور ومقاطع الفيديو</translation>
     </message>
     <message>
         <source>My brand</source>
-        <translation type="unfinished"></translation>
+        <translation>علامتي التجارية</translation>
     </message>
     <message>
         <source>Your logo, colours and font for Business templates</source>
-        <translation type="unfinished"></translation>
+        <translation>شعارك وألوانك وخطك لقوالب الأعمال</translation>
     </message>
     <message>
         <source>No scene templates yet</source>
@@ -17233,35 +17244,35 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Photo slideshows</source>
-        <translation type="unfinished"></translation>
+        <translation>عروض الصور</translation>
     </message>
     <message>
         <source>Lower thirds</source>
-        <translation type="unfinished"></translation>
+        <translation>الأثلاث السفلية</translation>
     </message>
     <message>
         <source>Transitions and separators</source>
-        <translation type="unfinished"></translation>
+        <translation>انتقالات وفواصل</translation>
     </message>
     <message>
         <source>15-second stories</source>
-        <translation type="unfinished"></translation>
+        <translation>قصص مدتها 15 ث</translation>
     </message>
     <message>
         <source>6-second ads</source>
-        <translation type="unfinished"></translation>
+        <translation>إعلانات مدتها 6 ث</translation>
     </message>
     <message>
         <source>Video thumbnails</source>
-        <translation type="unfinished"></translation>
+        <translation>صور مصغرة للفيديو</translation>
     </message>
     <message>
         <source>Counters</source>
-        <translation type="unfinished"></translation>
+        <translation>العدّادات</translation>
     </message>
     <message>
         <source>YouTuber style</source>
-        <translation type="unfinished"></translation>
+        <translation>أسلوب اليوتيوبر</translation>
     </message>
     <message>
         <source>Other</source>
@@ -17272,31 +17283,31 @@ If playback stutters, try another.</source>
     <name>SceneTemplatePickerDialog</name>
     <message>
         <source>Change template</source>
-        <translation type="unfinished">تغيير القالب</translation>
+        <translation>تغيير القالب</translation>
     </message>
     <message>
         <source>Use with my photos</source>
-        <translation type="unfinished"></translation>
+        <translation>استخدام مع صوري</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">إغلاق</translation>
+        <translation>إغلاق</translation>
     </message>
     <message>
         <source>vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>عمودية</translation>
     </message>
     <message>
         <source>horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>أفقية</translation>
     </message>
     <message>
         <source>square</source>
-        <translation type="unfinished"></translation>
+        <translation>مربعة</translation>
     </message>
     <message>
         <source>%1 — from Stock: it downloads and goes in with your photos</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 — من Stock: يُنزَّل ويُضاف مع صورك</translation>
     </message>
     <message numerus="yes">
         <source>%1 — %n slot(s)</source>
@@ -17344,27 +17355,27 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>In Templates</source>
-        <translation type="unfinished">في القوالب</translation>
+        <translation>في القوالب</translation>
     </message>
     <message>
         <source>No installed template takes photos yet.</source>
-        <translation type="unfinished"></translation>
+        <translation>لا توجد قوالب مثبّتة تقبل الصور بعد.</translation>
     </message>
     <message>
         <source>From Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>من Stock</translation>
     </message>
     <message>
         <source>Sign in (My account) to see the Stock templates that fit too.</source>
-        <translation type="unfinished"></translation>
+        <translation>سجّل الدخول (حسابي) لترى أيضًا قوالب Stock المناسبة.</translation>
     </message>
     <message>
         <source>Looking in Stock…</source>
-        <translation type="unfinished"></translation>
+        <translation>جارٍ البحث في Stock…</translation>
     </message>
     <message>
         <source>Nothing else in Stock for this many photos.</source>
-        <translation type="unfinished"></translation>
+        <translation>لا يوجد شيء آخر في Stock لهذا العدد من الصور.</translation>
     </message>
 </context>
 <context>
@@ -17995,7 +18006,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Everything is free. Sign in with Google to export your videos and to use Stock: templates, music, photos and videos.</source>
-        <translation type="unfinished"></translation>
+        <translation>كل شيء مجاني. سجّل الدخول بحساب Google لتصدير مقاطع الفيديو واستخدام Stock: القوالب والموسيقى والصور ومقاطع الفيديو.</translation>
     </message>
     <message>
         <source>Flip Studio %1</source>
@@ -18335,7 +18346,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Library shape</source>
-        <translation type="unfinished"></translation>
+        <translation>شكل من المكتبة</translation>
     </message>
     <message>
         <source>Layers</source>
@@ -18597,7 +18608,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove from my shapes</source>
-        <translation type="unfinished"></translation>
+        <translation>إزالة من أشكالي</translation>
     </message>
 </context>
 <context>
@@ -18701,35 +18712,35 @@ If playback stutters, try another.</source>
     <name>SignInRequiredDialog</name>
     <message>
         <source>Sign in to export</source>
-        <translation type="unfinished"></translation>
+        <translation>سجّل الدخول للتصدير</translation>
     </message>
     <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Flip Studio مجاني: التصدير وStock وجميع القوالب بلا أي تكلفة.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
-        <translation type="unfinished"></translation>
+        <translation>لتصدير الفيديو، كل ما تحتاجه هو تسجيل الدخول بحساب Google. يستغرق ذلك لحظة، ويتم مرة واحدة فقط، ويبقى مشروعك كما هو.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished">في انتظار المتصفح…</translation>
+        <translation>في انتظار المتصفح…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
-        <translation type="unfinished">تسجيل الدخول باستخدام Google</translation>
+        <translation>تسجيل الدخول باستخدام Google</translation>
     </message>
     <message>
         <source>Choose your account in the browser window that opened, then come back here.</source>
-        <translation type="unfinished">اختر حسابك في نافذة المتصفح التي فُتحت، ثم عُد إلى هنا.</translation>
+        <translation>اختر حسابك في نافذة المتصفح التي فُتحت، ثم عُد إلى هنا.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">إلغاء</translation>
+        <translation>إلغاء</translation>
     </message>
     <message>
         <source>Not now</source>
-        <translation type="unfinished">ليس الآن</translation>
+        <translation>ليس الآن</translation>
     </message>
 </context>
 <context>
@@ -19358,63 +19369,63 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Text to speech</source>
-        <translation type="unfinished"></translation>
+        <translation>تحويل النص إلى كلام</translation>
     </message>
     <message>
         <source>Templates</source>
-        <translation type="unfinished"></translation>
+        <translation>القوالب</translation>
     </message>
     <message>
         <source>Filters</source>
-        <translation type="unfinished">الفلاتر</translation>
+        <translation>الفلاتر</translation>
     </message>
     <message>
         <source>Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>Stock</translation>
     </message>
     <message>
         <source>New in Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>الجديد في Stock</translation>
     </message>
     <message>
         <source>300 YouTuber-style templates</source>
-        <translation type="unfinished"></translation>
+        <translation>300 قالب بأسلوب اليوتيوبر</translation>
     </message>
     <message>
         <source>Challenges, top 10s, podcasts, intros and end screens, free in Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>تحديات وقوائم أفضل 10 وبودكاست ومقدمات وشاشات ختامية، مجانًا في Stock</translation>
     </message>
     <message>
         <source>LUTs and colour effects, one click on the clip</source>
-        <translation type="unfinished"></translation>
+        <translation>LUTs وتأثيرات الألوان، بنقرة واحدة على المقطع</translation>
     </message>
     <message>
         <source>Subtitles from the voice, on your computer, without internet</source>
-        <translation type="unfinished"></translation>
+        <translation>ترجمة من الصوت، على جهازك، بدون إنترنت</translation>
     </message>
     <message>
         <source>Click to sign in</source>
-        <translation type="unfinished"></translation>
+        <translation>انقر لتسجيل الدخول</translation>
     </message>
     <message>
         <source>Everything is free</source>
-        <translation type="unfinished"></translation>
+        <translation>كل شيء مجاني</translation>
     </message>
     <message>
         <source>Open project</source>
-        <translation type="unfinished">فتح مشروع</translation>
+        <translation>فتح مشروع</translation>
     </message>
     <message>
         <source>Local projects</source>
-        <translation type="unfinished"></translation>
+        <translation>المشاريع المحلية</translation>
     </message>
     <message>
         <source>Show as a grid</source>
-        <translation type="unfinished"></translation>
+        <translation>عرض كشبكة</translation>
     </message>
     <message>
         <source>Show as a list</source>
-        <translation type="unfinished"></translation>
+        <translation>عرض كقائمة</translation>
     </message>
     <message>
         <source>Stickers</source>
@@ -19532,11 +19543,11 @@ If playback stutters, try another.</source>
     <name>StockBrowser</name>
     <message>
         <source>Used once</source>
-        <translation type="unfinished"></translation>
+        <translation>استُخدم مرة واحدة</translation>
     </message>
     <message>
         <source>Used %1 times</source>
-        <translation type="unfinished"></translation>
+        <translation>استُخدم %1 مرة</translation>
     </message>
     <message>
         <source>Save downloads to</source>
@@ -19575,11 +19586,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Missing a template? Ask for it, or vote for other people’s ideas.</source>
-        <translation type="unfinished"></translation>
+        <translation>ينقصك قالب؟ اطلبه أو صوّت لأفكار الآخرين.</translation>
     </message>
     <message>
         <source>Ask for a template</source>
-        <translation type="unfinished"></translation>
+        <translation>اطلب قالبًا</translation>
     </message>
     <message>
         <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
@@ -19595,15 +19606,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
-        <translation type="unfinished"></translation>
+        <translation>هل لديك صورك بالفعل؟ اخترها وسيقترح Flip القوالب المناسبة.</translation>
     </message>
     <message>
         <source>Use with my photos…</source>
-        <translation type="unfinished"></translation>
+        <translation>استخدام مع صوري…</translation>
     </message>
     <message>
         <source>Choose photos and videos</source>
-        <translation type="unfinished">اختيار صور ومقاطع فيديو</translation>
+        <translation>اختر الصور ومقاطع الفيديو</translation>
     </message>
     <message>
         <source>Looking up that link…</source>
@@ -19658,31 +19669,31 @@ If playback stutters, try another.</source>
     <name>StockHome</name>
     <message>
         <source>Search all of Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>البحث في Stock بالكامل</translation>
     </message>
     <message>
         <source>Templates, music, sounds, stickers, LUTs, text styles, shapes and more. Type above and press Enter.</source>
-        <translation type="unfinished"></translation>
+        <translation>قوالب وموسيقى وأصوات وملصقات وLUTs وأنماط نص وأشكال والمزيد. اكتب في الأعلى واضغط Enter.</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">تحديث</translation>
+        <translation>تحديث</translation>
     </message>
     <message>
         <source>Can’t find it? Ask for it and vote for other people’s ideas.</source>
-        <translation type="unfinished"></translation>
+        <translation>لا تجده؟ اطلبه وصوّت لأفكار الآخرين.</translation>
     </message>
     <message>
         <source>Ask for a template</source>
-        <translation type="unfinished"></translation>
+        <translation>اطلب قالبًا</translation>
     </message>
     <message>
         <source>Used once</source>
-        <translation type="unfinished"></translation>
+        <translation>استُخدم مرة واحدة</translation>
     </message>
     <message>
         <source>Used %1 times</source>
-        <translation type="unfinished"></translation>
+        <translation>استُخدم %1 مرة</translation>
     </message>
 </context>
 <context>
@@ -19697,11 +19708,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Used once</source>
-        <translation type="unfinished"></translation>
+        <translation>استُخدم مرة واحدة</translation>
     </message>
     <message>
         <source>Used %1 times</source>
-        <translation type="unfinished"></translation>
+        <translation>استُخدم %1 مرة</translation>
     </message>
     <message numerus="yes">
         <source>%n coin(s)</source>
@@ -19724,11 +19735,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Install again</source>
-        <translation type="unfinished"></translation>
+        <translation>إعادة التثبيت</translation>
     </message>
     <message>
         <source>Install</source>
-        <translation type="unfinished">تثبيت</translation>
+        <translation>تثبيت</translation>
     </message>
     <message>
         <source>Download again</source>
@@ -19759,67 +19770,67 @@ If playback stutters, try another.</source>
     <name>StockRequestsDialog</name>
     <message>
         <source>Ask for a template</source>
-        <translation type="unfinished"></translation>
+        <translation>اطلب قالبًا</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">إغلاق</translation>
+        <translation>إغلاق</translation>
     </message>
     <message>
         <source>Template</source>
-        <translation type="unfinished">قالب</translation>
+        <translation>قالب</translation>
     </message>
     <message>
         <source>Something else</source>
-        <translation type="unfinished"></translation>
+        <translation>شيء آخر</translation>
     </message>
     <message>
         <source>Tell us what you would like to find in Stock. The most voted ideas are made first.</source>
-        <translation type="unfinished"></translation>
+        <translation>أخبرنا بما تود أن تجده في Stock. تُنفَّذ الأفكار الأكثر تصويتًا أولًا.</translation>
     </message>
     <message>
         <source>For example: a birthday template for my mom with 5 photos</source>
-        <translation type="unfinished"></translation>
+        <translation>مثال: قالب عيد ميلاد لأمي مع 5 صور</translation>
     </message>
     <message>
         <source>Sending…</source>
-        <translation type="unfinished"></translation>
+        <translation>جارٍ الإرسال…</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation type="unfinished"></translation>
+        <translation>إرسال</translation>
     </message>
     <message>
         <source>Most voted</source>
-        <translation type="unfinished"></translation>
+        <translation>الأكثر تصويتًا</translation>
     </message>
     <message>
         <source>Newest</source>
-        <translation type="unfinished"></translation>
+        <translation>الأحدث</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation type="unfinished"></translation>
+        <translation>جارٍ التحميل…</translation>
     </message>
     <message>
         <source>No ideas yet. Be the first!</source>
-        <translation type="unfinished"></translation>
+        <translation>لا توجد أفكار بعد. كن الأول!</translation>
     </message>
     <message>
         <source>Remove your vote</source>
-        <translation type="unfinished"></translation>
+        <translation>إزالة تصويتك</translation>
     </message>
     <message>
         <source>Vote for this idea</source>
-        <translation type="unfinished"></translation>
+        <translation>صوّت لهذه الفكرة</translation>
     </message>
     <message>
         <source>Done — it’s in Stock</source>
-        <translation type="unfinished"></translation>
+        <translation>تم: أصبح في Stock</translation>
     </message>
     <message>
         <source>Your idea</source>
-        <translation type="unfinished"></translation>
+        <translation>فكرتك</translation>
     </message>
 </context>
 <context>
@@ -20273,71 +20284,71 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply texts</source>
-        <translation type="unfinished"></translation>
+        <translation>تطبيق النصوص</translation>
     </message>
     <message>
         <source>Changes every text you edited at once (one undo step)</source>
-        <translation type="unfinished"></translation>
+        <translation>يغيّر كل النصوص التي حررتها دفعة واحدة (خطوة تراجع واحدة)</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished">الموسيقى</translation>
+        <translation>الموسيقى</translation>
     </message>
     <message>
         <source>The template&apos;s music</source>
-        <translation type="unfinished"></translation>
+        <translation>موسيقى القالب</translation>
     </message>
     <message>
         <source>No music in this template</source>
-        <translation type="unfinished"></translation>
+        <translation>لا يحتوي هذا القالب على موسيقى</translation>
     </message>
     <message>
         <source>Fit the cuts to the beat of the new song</source>
-        <translation type="unfinished"></translation>
+        <translation>مواءمة القطعات مع إيقاع الأغنية الجديدة</translation>
     </message>
     <message>
         <source>Change the music…</source>
-        <translation type="unfinished"></translation>
+        <translation>تغيير الموسيقى…</translation>
     </message>
     <message>
         <source>Add music…</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة موسيقى…</translation>
     </message>
     <message>
         <source>A song from your computer, cut to the template&apos;s length</source>
-        <translation type="unfinished"></translation>
+        <translation>أغنية من جهازك، مقصوصة على طول القالب</translation>
     </message>
     <message>
         <source>Choose a song</source>
-        <translation type="unfinished"></translation>
+        <translation>اختر أغنية</translation>
     </message>
     <message>
         <source>Listening to the music…</source>
-        <translation type="unfinished"></translation>
+        <translation>جارٍ الاستماع إلى الموسيقى…</translation>
     </message>
     <message>
         <source>Fit the cuts to the beat</source>
-        <translation type="unfinished"></translation>
+        <translation>مواءمة القطعات مع الإيقاع</translation>
     </message>
     <message>
         <source>Moves the change from one photo to the next onto the nearest beat, keeping their order (one undo step). Without a beat, a steady 120 BPM.</source>
-        <translation type="unfinished"></translation>
+        <translation>ينقل الانتقال من صورة إلى التالية إلى أقرب نبضة، مع الحفاظ على ترتيبها (خطوة تراجع واحدة). بدون إيقاع، يُستخدم إيقاع ثابت 120 BPM.</translation>
     </message>
     <message>
         <source>Change template…</source>
-        <translation type="unfinished"></translation>
+        <translation>تغيير القالب…</translation>
     </message>
     <message>
         <source>Another template with the same photos and texts</source>
-        <translation type="unfinished"></translation>
+        <translation>قالب آخر بالصور والنصوص نفسها</translation>
     </message>
     <message>
         <source>Apply my brand</source>
-        <translation type="unfinished"></translation>
+        <translation>تطبيق علامتي التجارية</translation>
     </message>
     <message>
         <source>Your logo, colours and font (Templates › My brand)</source>
-        <translation type="unfinished"></translation>
+        <translation>شعارك وألوانك وخطك (القوالب › علامتي التجارية)</translation>
     </message>
     <message>
         <source>Open the composition</source>
@@ -20430,23 +20441,23 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>AI text</source>
-        <translation type="unfinished"></translation>
+        <translation>نص بالذكاء الاصطناعي</translation>
     </message>
     <message>
         <source>Describe the style in your own words (horror title, neon sale, wedding…) and the AI picks the closest of your text styles.</source>
-        <translation type="unfinished"></translation>
+        <translation>صف النمط بكلماتك (عنوان رعب، تخفيضات نيون، زفاف…) وسيختار الذكاء الاصطناعي أقرب نمط نص لديك.</translation>
     </message>
     <message>
         <source>Your text (optional)</source>
-        <translation type="unfinished"></translation>
+        <translation>نصك (اختياري)</translation>
     </message>
     <message>
         <source>The style, in your words: horror title, neon sale…</source>
-        <translation type="unfinished"></translation>
+        <translation>النمط بكلماتك: عنوان رعب، تخفيضات نيون…</translation>
     </message>
     <message>
         <source>Create with AI</source>
-        <translation type="unfinished"></translation>
+        <translation>إنشاء بالذكاء الاصطناعي</translation>
     </message>
     <message>
         <source>%1 — click to add at the playhead, or drag to the timeline. Double-click it on the preview to edit.</source>
@@ -20920,15 +20931,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Counter</source>
-        <translation type="unfinished"></translation>
+        <translation>عدّاد</translation>
     </message>
     <message>
         <source>The number in the text counts up over the clip, as in a counter: $1.000.000, 10K, day 100…</source>
-        <translation type="unfinished"></translation>
+        <translation>يعدّ الرقم الموجود في النص تصاعديًا على طول المقطع، مثل العدّاد: $1.000.000، 10K، اليوم 100…</translation>
     </message>
     <message>
         <source>from</source>
-        <translation type="unfinished"></translation>
+        <translation>من</translation>
     </message>
     <message>
         <source>Edit in Advanced</source>
@@ -22093,7 +22104,7 @@ If playback stutters, try another.</source>
     <name>Theme</name>
     <message>
         <source>Turquoise</source>
-        <translation type="unfinished"></translation>
+        <translation>فيروزي</translation>
     </message>
     <message>
         <source>Amber</source>
@@ -22177,7 +22188,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>AI transition to the next clip</source>
-        <translation type="unfinished"></translation>
+        <translation>انتقال بالذكاء الاصطناعي إلى المقطع التالي</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -22627,7 +22638,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Runs with AI on your computer, without internet: your video never leaves it.</source>
-        <translation type="unfinished"></translation>
+        <translation>يعمل بالذكاء الاصطناعي على جهازك، بدون إنترنت: لا يغادر الفيديو جهازك أبدًا.</translation>
     </message>
     <message>
         <source>Pointer tools</source>
@@ -23746,15 +23757,15 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>AI transition</source>
-        <translation type="unfinished"></translation>
+        <translation>انتقال بالذكاء الاصطناعي</translation>
     </message>
     <message>
         <source>Select a clip: the AI draws the pictures between its last frame and the first frame of the next clip, and puts them in between.</source>
-        <translation type="unfinished"></translation>
+        <translation>حدّد مقطعًا: يرسم الذكاء الاصطناعي الصور بين إطاره الأخير والإطار الأول من المقطع التالي، ويضعها بينهما.</translation>
     </message>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
-        <translation type="unfinished"></translation>
+        <translation>حدّد في المخطط الزمني أول المقطعين.</translation>
     </message>
     <message>
         <source>My Transitions</source>
@@ -24334,7 +24345,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Cuts out the person or the subject from the background, frame by frame.</source>
-        <translation type="unfinished"></translation>
+        <translation>يقص الشخص أو العنصر من الخلفية، إطارًا بإطار.</translation>
     </message>
     <message>
         <source>Mask</source>
@@ -24346,7 +24357,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Finds the face, the body and the hair to retouch them.</source>
-        <translation type="unfinished"></translation>
+        <translation>يجد الوجه والجسم والشعر لتنقيحها.</translation>
     </message>
     <message>
         <source>Automatic removal</source>
@@ -24406,11 +24417,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Blemishes</source>
-        <translation type="unfinished"></translation>
+        <translation>العيوب</translation>
     </message>
     <message>
         <source>Evens out spots, pimples and fine wrinkles</source>
-        <translation type="unfinished"></translation>
+        <translation>يوحّد البقع والبثور والتجاعيد الدقيقة</translation>
     </message>
     <message>
         <source>Slim or widen what the mesh follows</source>
