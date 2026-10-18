@@ -5510,26 +5510,26 @@
     </message>
     <message numerus="yes">
         <source>Template added with %n of your photos. The rest did not fit: it has %1 slot(s).</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Шаблон добавлен с %n из ваших фото. Остальные не поместились: мест в шаблоне — %1.</numerusform>
+            <numerusform>Шаблон добавлен с %n из ваших фото. Остальные не поместились: мест в шаблоне — %1.</numerusform>
+            <numerusform>Шаблон добавлен с %n из ваших фото. Остальные не поместились: мест в шаблоне — %1.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s). Fill the other slots in the panel on the right.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Шаблон добавлен с %n фото. Заполните остальные места на панели справа.</numerusform>
+            <numerusform>Шаблон добавлен с %n фото. Заполните остальные места на панели справа.</numerusform>
+            <numerusform>Шаблон добавлен с %n фото. Заполните остальные места на панели справа.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Шаблон добавлен с %n фото</numerusform>
+            <numerusform>Шаблон добавлен с %n фото</numerusform>
+            <numerusform>Шаблон добавлен с %n фото</numerusform>
         </translation>
     </message>
     <message>
@@ -5542,26 +5542,26 @@
     </message>
     <message numerus="yes">
         <source>Template changed: %n photo(s) carried over</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Шаблон изменён: перенесено фото — %n</numerusform>
+            <numerusform>Шаблон изменён: перенесено фото — %n</numerusform>
+            <numerusform>Шаблон изменён: перенесено фото — %n</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n текст</numerusform>
+            <numerusform>%n текста</numerusform>
+            <numerusform>%n текстов</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) did not fit in the new one</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n фото не поместилось в новый</numerusform>
+            <numerusform>%n фото не поместились в новый</numerusform>
+            <numerusform>%n фото не поместились в новый</numerusform>
         </translation>
     </message>
     <message>
@@ -5570,10 +5570,10 @@
     </message>
     <message numerus="yes">
         <source>%n text(s) changed</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Изменён %n текст</numerusform>
+            <numerusform>Изменено %n текста</numerusform>
+            <numerusform>Изменено %n текстов</numerusform>
         </translation>
     </message>
     <message>
@@ -5594,18 +5594,18 @@
     </message>
     <message numerus="yes">
         <source>No beat found in the music: %n cut(s) now follow a steady 120 BPM beat</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>В музыке не найден ритм: %n склейка теперь идёт в постоянном ритме 120 BPM</numerusform>
+            <numerusform>В музыке не найден ритм: %n склейки теперь идут в постоянном ритме 120 BPM</numerusform>
+            <numerusform>В музыке не найден ритм: %n склеек теперь идут в постоянном ритме 120 BPM</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n cut(s) moved to the beat of the music</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>В ритм музыки перенесена %n склейка</numerusform>
+            <numerusform>В ритм музыки перенесены %n склейки</numerusform>
+            <numerusform>В ритм музыки перенесено %n склеек</numerusform>
         </translation>
     </message>
     <message>
@@ -11570,11 +11570,11 @@
     <name>Exporter</name>
     <message>
         <source>Same as project · %1×%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Как в проекте · %1×%2</translation>
     </message>
     <message>
         <source>Same as project (%1 fps)</source>
-        <translation type="unfinished"></translation>
+        <translation>Как в проекте (%1 кадр/с)</translation>
     </message>
 </context>
 <context>
@@ -17107,34 +17107,34 @@ If playback stutters, try another.</source>
     </message>
     <message numerus="yes">
         <source>%1 — %n slot(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%1 — %n место</numerusform>
+            <numerusform>%1 — %n места</numerusform>
+            <numerusform>%1 — %n мест</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Templates for your %n photo(s). Your photos and the texts you changed go into the one you choose, in order; one undo puts the old one back.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Шаблоны для ваших фото (%n). Фото и изменённые вами тексты по порядку перейдут в выбранный шаблон; одна отмена вернёт прежний.</numerusform>
+            <numerusform>Шаблоны для ваших фото (%n). Фото и изменённые вами тексты по порядку перейдут в выбранный шаблон; одна отмена вернёт прежний.</numerusform>
+            <numerusform>Шаблоны для ваших фото (%n). Фото и изменённые вами тексты по порядку перейдут в выбранный шаблон; одна отмена вернёт прежний.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s), most of them %1. These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n фото или видео, %1. Эти шаблоны подходят лучше всего; выделенное число означает, что поместится целиком.</numerusform>
+            <numerusform>%n фото или видео, в основном %1. Эти шаблоны подходят лучше всего; выделенное число означает, что поместятся все.</numerusform>
+            <numerusform>%n фото или видео, в основном %1. Эти шаблоны подходят лучше всего; выделенное число означает, что поместятся все.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s). These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n фото или видео. Эти шаблоны подходят лучше всего; выделенное число означает, что поместится целиком.</numerusform>
+            <numerusform>%n фото или видео. Эти шаблоны подходят лучше всего; выделенное число означает, что поместятся все.</numerusform>
+            <numerusform>%n фото или видео. Эти шаблоны подходят лучше всего; выделенное число означает, что поместятся все.</numerusform>
         </translation>
     </message>
     <message>
@@ -20045,10 +20045,10 @@ If playback stutters, try another.</source>
     </message>
     <message numerus="yes">
         <source>Apply %n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Применить %n текст</numerusform>
+            <numerusform>Применить %n текста</numerusform>
+            <numerusform>Применить %n текстов</numerusform>
         </translation>
     </message>
     <message>

@@ -5468,20 +5468,20 @@
     </message>
     <message numerus="yes">
         <source>Template added with %n of your photos. The rest did not fit: it has %1 slot(s).</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Đã thêm mẫu với %n ảnh của bạn. Số còn lại không vừa: mẫu có %1 ô.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s). Fill the other slots in the panel on the right.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Đã thêm mẫu với %n ảnh của bạn. Hãy điền các ô còn lại trong bảng bên phải.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Đã thêm mẫu với %n ảnh của bạn</numerusform>
         </translation>
     </message>
     <message>
@@ -5494,20 +5494,20 @@
     </message>
     <message numerus="yes">
         <source>Template changed: %n photo(s) carried over</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Đã đổi mẫu: giữ lại %n ảnh</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n văn bản</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) did not fit in the new one</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n ảnh không vừa với mẫu mới</numerusform>
         </translation>
     </message>
     <message>
@@ -5516,8 +5516,8 @@
     </message>
     <message numerus="yes">
         <source>%n text(s) changed</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Đã thay đổi %n văn bản</numerusform>
         </translation>
     </message>
     <message>
@@ -5538,14 +5538,14 @@
     </message>
     <message numerus="yes">
         <source>No beat found in the music: %n cut(s) now follow a steady 120 BPM beat</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Không tìm thấy nhịp trong nhạc: %n điểm cắt giờ theo nhịp cố định 120 BPM</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n cut(s) moved to the beat of the music</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Đã dời %n điểm cắt theo nhịp nhạc</numerusform>
         </translation>
     </message>
     <message>
@@ -11480,11 +11480,11 @@
     <name>Exporter</name>
     <message>
         <source>Same as project · %1×%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Giống dự án · %1×%2</translation>
     </message>
     <message>
         <source>Same as project (%1 fps)</source>
-        <translation type="unfinished"></translation>
+        <translation>Giống dự án (%1 fps)</translation>
     </message>
 </context>
 <context>
@@ -16971,26 +16971,26 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message numerus="yes">
         <source>%1 — %n slot(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%1 — %n ô</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Templates for your %n photo(s). Your photos and the texts you changed go into the one you choose, in order; one undo puts the old one back.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Mẫu cho %n ảnh của bạn. Ảnh và văn bản bạn đã sửa sẽ được chuyển theo thứ tự sang mẫu bạn chọn; hoàn tác một lần sẽ trả lại mẫu cũ.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s), most of them %1. These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n ảnh hoặc video, phần lớn là %1. Các mẫu này phù hợp nhất; số được tô sáng nghĩa là chứa được tất cả.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s). These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n ảnh hoặc video. Các mẫu này phù hợp nhất; số được tô sáng nghĩa là chứa được tất cả.</numerusform>
         </translation>
     </message>
     <message>
@@ -19893,8 +19893,8 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message numerus="yes">
         <source>Apply %n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Áp dụng %n văn bản</numerusform>
         </translation>
     </message>
     <message>

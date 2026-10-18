@@ -5468,20 +5468,20 @@
     </message>
     <message numerus="yes">
         <source>Template added with %n of your photos. The rest did not fit: it has %1 slot(s).</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n 枚の写真でテンプレートを追加しました。残りは入りませんでした（枠は %1 個です）。</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s). Fill the other slots in the panel on the right.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n 枚の写真でテンプレートを追加しました。残りの枠は右のパネルで埋めてください。</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n 枚の写真でテンプレートを追加しました</numerusform>
         </translation>
     </message>
     <message>
@@ -5494,20 +5494,20 @@
     </message>
     <message numerus="yes">
         <source>Template changed: %n photo(s) carried over</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>テンプレートを変更しました：%n 枚の写真を引き継ぎました</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>テキスト %n 件</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) did not fit in the new one</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n 枚の写真が新しいテンプレートに入りませんでした</numerusform>
         </translation>
     </message>
     <message>
@@ -5516,8 +5516,8 @@
     </message>
     <message numerus="yes">
         <source>%n text(s) changed</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n 件のテキストを変更しました</numerusform>
         </translation>
     </message>
     <message>
@@ -5538,14 +5538,14 @@
     </message>
     <message numerus="yes">
         <source>No beat found in the music: %n cut(s) now follow a steady 120 BPM beat</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>音楽にビートが見つかりません：%n 個のカットを 120 BPM の一定のビートに合わせました</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n cut(s) moved to the beat of the music</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n 個のカットを音楽のビートに合わせました</numerusform>
         </translation>
     </message>
     <message>
@@ -11480,11 +11480,11 @@
     <name>Exporter</name>
     <message>
         <source>Same as project · %1×%2</source>
-        <translation type="unfinished"></translation>
+        <translation>プロジェクトと同じ · %1×%2</translation>
     </message>
     <message>
         <source>Same as project (%1 fps)</source>
-        <translation type="unfinished"></translation>
+        <translation>プロジェクトと同じ（%1 fps）</translation>
     </message>
 </context>
 <context>
@@ -16971,26 +16971,26 @@ If playback stutters, try another.</source>
     </message>
     <message numerus="yes">
         <source>%1 — %n slot(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%1 — 枠 %n 個</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Templates for your %n photo(s). Your photos and the texts you changed go into the one you choose, in order; one undo puts the old one back.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n 枚の写真向けのテンプレート。写真と変更したテキストは、選んだテンプレートに順番に移ります。1 回元に戻すと前のテンプレートに戻ります。</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s), most of them %1. These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n 件の写真・動画（大半が %1）。これらのテンプレートが最適です。強調された数字は、すべて入ることを示します。</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s). These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n 件の写真・動画。これらのテンプレートが最適です。強調された数字は、すべて入ることを示します。</numerusform>
         </translation>
     </message>
     <message>
@@ -19893,8 +19893,8 @@ If playback stutters, try another.</source>
     </message>
     <message numerus="yes">
         <source>Apply %n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n 件のテキストを適用</numerusform>
         </translation>
     </message>
     <message>

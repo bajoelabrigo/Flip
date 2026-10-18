@@ -5468,20 +5468,20 @@
     </message>
     <message numerus="yes">
         <source>Template added with %n of your photos. The rest did not fit: it has %1 slot(s).</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>사진 %n장으로 템플릿을 추가했습니다. 나머지는 들어가지 않았습니다(슬롯 %1개).</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s). Fill the other slots in the panel on the right.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>사진 %n장으로 템플릿을 추가했습니다. 나머지 슬롯은 오른쪽 패널에서 채우세요.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>사진 %n장으로 템플릿을 추가했습니다</numerusform>
         </translation>
     </message>
     <message>
@@ -5494,20 +5494,20 @@
     </message>
     <message numerus="yes">
         <source>Template changed: %n photo(s) carried over</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>템플릿 변경됨: 사진 %n장을 옮겼습니다</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>텍스트 %n개</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) did not fit in the new one</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>사진 %n장이 새 템플릿에 들어가지 않았습니다</numerusform>
         </translation>
     </message>
     <message>
@@ -5516,8 +5516,8 @@
     </message>
     <message numerus="yes">
         <source>%n text(s) changed</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>텍스트 %n개 변경됨</numerusform>
         </translation>
     </message>
     <message>
@@ -5538,14 +5538,14 @@
     </message>
     <message numerus="yes">
         <source>No beat found in the music: %n cut(s) now follow a steady 120 BPM beat</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>음악에서 비트를 찾지 못했습니다: 이제 컷 %n개가 120 BPM 고정 비트를 따릅니다</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n cut(s) moved to the beat of the music</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>컷 %n개를 음악 비트에 맞췄습니다</numerusform>
         </translation>
     </message>
     <message>
@@ -11480,11 +11480,11 @@
     <name>Exporter</name>
     <message>
         <source>Same as project · %1×%2</source>
-        <translation type="unfinished"></translation>
+        <translation>프로젝트와 동일 · %1×%2</translation>
     </message>
     <message>
         <source>Same as project (%1 fps)</source>
-        <translation type="unfinished"></translation>
+        <translation>프로젝트와 동일 (%1fps)</translation>
     </message>
 </context>
 <context>
@@ -16970,26 +16970,26 @@ If playback stutters, try another.</source>
     </message>
     <message numerus="yes">
         <source>%1 — %n slot(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%1 — 슬롯 %n개</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Templates for your %n photo(s). Your photos and the texts you changed go into the one you choose, in order; one undo puts the old one back.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>사진 %n장용 템플릿입니다. 사진과 변경한 텍스트가 선택한 템플릿으로 순서대로 옮겨지며, 실행 취소 한 번으로 이전 템플릿이 돌아옵니다.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s), most of them %1. These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>사진/동영상 %n개, 대부분 %1. 이 템플릿이 가장 잘 맞습니다. 강조된 숫자는 모두 들어간다는 뜻입니다.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s). These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>사진/동영상 %n개. 이 템플릿이 가장 잘 맞습니다. 강조된 숫자는 모두 들어간다는 뜻입니다.</numerusform>
         </translation>
     </message>
     <message>
@@ -19891,8 +19891,8 @@ If playback stutters, try another.</source>
     </message>
     <message numerus="yes">
         <source>Apply %n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>텍스트 %n개 적용</numerusform>
         </translation>
     </message>
     <message>

@@ -5573,35 +5573,35 @@
     </message>
     <message numerus="yes">
         <source>Template added with %n of your photos. The rest did not fit: it has %1 slot(s).</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>تمت إضافة القالب مع %n من صورك. لم تتسع البقية: عدد الخانات %1.</numerusform>
+            <numerusform>تمت إضافة القالب مع %n من صورك. لم تتسع البقية: عدد الخانات %1.</numerusform>
+            <numerusform>تمت إضافة القالب مع %n من صورك. لم تتسع البقية: عدد الخانات %1.</numerusform>
+            <numerusform>تمت إضافة القالب مع %n من صورك. لم تتسع البقية: عدد الخانات %1.</numerusform>
+            <numerusform>تمت إضافة القالب مع %n من صورك. لم تتسع البقية: عدد الخانات %1.</numerusform>
+            <numerusform>تمت إضافة القالب مع %n من صورك. لم تتسع البقية: عدد الخانات %1.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s). Fill the other slots in the panel on the right.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>تمت إضافة القالب مع صورك (%n). املأ الخانات الأخرى في اللوحة اليمنى.</numerusform>
+            <numerusform>تمت إضافة القالب مع صورك (%n). املأ الخانات الأخرى في اللوحة اليمنى.</numerusform>
+            <numerusform>تمت إضافة القالب مع صورك (%n). املأ الخانات الأخرى في اللوحة اليمنى.</numerusform>
+            <numerusform>تمت إضافة القالب مع صورك (%n). املأ الخانات الأخرى في اللوحة اليمنى.</numerusform>
+            <numerusform>تمت إضافة القالب مع صورك (%n). املأ الخانات الأخرى في اللوحة اليمنى.</numerusform>
+            <numerusform>تمت إضافة القالب مع صورك (%n). املأ الخانات الأخرى في اللوحة اليمنى.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>تمت إضافة القالب مع صورك (%n)</numerusform>
+            <numerusform>تمت إضافة القالب مع صورك (%n)</numerusform>
+            <numerusform>تمت إضافة القالب مع صورك (%n)</numerusform>
+            <numerusform>تمت إضافة القالب مع صورك (%n)</numerusform>
+            <numerusform>تمت إضافة القالب مع صورك (%n)</numerusform>
+            <numerusform>تمت إضافة القالب مع صورك (%n)</numerusform>
         </translation>
     </message>
     <message>
@@ -5614,35 +5614,35 @@
     </message>
     <message numerus="yes">
         <source>Template changed: %n photo(s) carried over</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>تم تغيير القالب: عدد الصور المنقولة %n</numerusform>
+            <numerusform>تم تغيير القالب: عدد الصور المنقولة %n</numerusform>
+            <numerusform>تم تغيير القالب: عدد الصور المنقولة %n</numerusform>
+            <numerusform>تم تغيير القالب: عدد الصور المنقولة %n</numerusform>
+            <numerusform>تم تغيير القالب: عدد الصور المنقولة %n</numerusform>
+            <numerusform>تم تغيير القالب: عدد الصور المنقولة %n</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n نص</numerusform>
+            <numerusform>%n نص</numerusform>
+            <numerusform>%n نصان</numerusform>
+            <numerusform>%n نصوص</numerusform>
+            <numerusform>%n نصًا</numerusform>
+            <numerusform>%n نص</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) did not fit in the new one</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>عدد الصور التي لم تتسع في القالب الجديد: %n</numerusform>
+            <numerusform>عدد الصور التي لم تتسع في القالب الجديد: %n</numerusform>
+            <numerusform>عدد الصور التي لم تتسع في القالب الجديد: %n</numerusform>
+            <numerusform>عدد الصور التي لم تتسع في القالب الجديد: %n</numerusform>
+            <numerusform>عدد الصور التي لم تتسع في القالب الجديد: %n</numerusform>
+            <numerusform>عدد الصور التي لم تتسع في القالب الجديد: %n</numerusform>
         </translation>
     </message>
     <message>
@@ -5651,13 +5651,13 @@
     </message>
     <message numerus="yes">
         <source>%n text(s) changed</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>عدد النصوص المعدّلة: %n</numerusform>
+            <numerusform>عدد النصوص المعدّلة: %n</numerusform>
+            <numerusform>عدد النصوص المعدّلة: %n</numerusform>
+            <numerusform>عدد النصوص المعدّلة: %n</numerusform>
+            <numerusform>عدد النصوص المعدّلة: %n</numerusform>
+            <numerusform>عدد النصوص المعدّلة: %n</numerusform>
         </translation>
     </message>
     <message>
@@ -5678,24 +5678,24 @@
     </message>
     <message numerus="yes">
         <source>No beat found in the music: %n cut(s) now follow a steady 120 BPM beat</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>لم يُعثر على إيقاع في الموسيقى: عدد القطعات التي تتبع الآن إيقاعًا ثابتًا بسرعة 120 BPM هو %n</numerusform>
+            <numerusform>لم يُعثر على إيقاع في الموسيقى: عدد القطعات التي تتبع الآن إيقاعًا ثابتًا بسرعة 120 BPM هو %n</numerusform>
+            <numerusform>لم يُعثر على إيقاع في الموسيقى: عدد القطعات التي تتبع الآن إيقاعًا ثابتًا بسرعة 120 BPM هو %n</numerusform>
+            <numerusform>لم يُعثر على إيقاع في الموسيقى: عدد القطعات التي تتبع الآن إيقاعًا ثابتًا بسرعة 120 BPM هو %n</numerusform>
+            <numerusform>لم يُعثر على إيقاع في الموسيقى: عدد القطعات التي تتبع الآن إيقاعًا ثابتًا بسرعة 120 BPM هو %n</numerusform>
+            <numerusform>لم يُعثر على إيقاع في الموسيقى: عدد القطعات التي تتبع الآن إيقاعًا ثابتًا بسرعة 120 BPM هو %n</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n cut(s) moved to the beat of the music</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>عدد القطعات المنقولة إلى إيقاع الموسيقى: %n</numerusform>
+            <numerusform>عدد القطعات المنقولة إلى إيقاع الموسيقى: %n</numerusform>
+            <numerusform>عدد القطعات المنقولة إلى إيقاع الموسيقى: %n</numerusform>
+            <numerusform>عدد القطعات المنقولة إلى إيقاع الموسيقى: %n</numerusform>
+            <numerusform>عدد القطعات المنقولة إلى إيقاع الموسيقى: %n</numerusform>
+            <numerusform>عدد القطعات المنقولة إلى إيقاع الموسيقى: %n</numerusform>
         </translation>
     </message>
     <message>
@@ -11705,11 +11705,11 @@
     <name>Exporter</name>
     <message>
         <source>Same as project · %1×%2</source>
-        <translation type="unfinished"></translation>
+        <translation>مثل المشروع · %1×%2</translation>
     </message>
     <message>
         <source>Same as project (%1 fps)</source>
-        <translation type="unfinished"></translation>
+        <translation>مثل المشروع (%1 إطار/ث)</translation>
     </message>
 </context>
 <context>
@@ -17311,46 +17311,46 @@ If playback stutters, try another.</source>
     </message>
     <message numerus="yes">
         <source>%1 — %n slot(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%1 — الخانات: %n</numerusform>
+            <numerusform>%1 — الخانات: %n</numerusform>
+            <numerusform>%1 — الخانات: %n</numerusform>
+            <numerusform>%1 — الخانات: %n</numerusform>
+            <numerusform>%1 — الخانات: %n</numerusform>
+            <numerusform>%1 — الخانات: %n</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Templates for your %n photo(s). Your photos and the texts you changed go into the one you choose, in order; one undo puts the old one back.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>قوالب لصورك (%n). تنتقل صورك والنصوص التي غيّرتها بالترتيب إلى القالب الذي تختاره، وتراجع واحد يعيد القالب السابق.</numerusform>
+            <numerusform>قوالب لصورك (%n). تنتقل صورك والنصوص التي غيّرتها بالترتيب إلى القالب الذي تختاره، وتراجع واحد يعيد القالب السابق.</numerusform>
+            <numerusform>قوالب لصورك (%n). تنتقل صورك والنصوص التي غيّرتها بالترتيب إلى القالب الذي تختاره، وتراجع واحد يعيد القالب السابق.</numerusform>
+            <numerusform>قوالب لصورك (%n). تنتقل صورك والنصوص التي غيّرتها بالترتيب إلى القالب الذي تختاره، وتراجع واحد يعيد القالب السابق.</numerusform>
+            <numerusform>قوالب لصورك (%n). تنتقل صورك والنصوص التي غيّرتها بالترتيب إلى القالب الذي تختاره، وتراجع واحد يعيد القالب السابق.</numerusform>
+            <numerusform>قوالب لصورك (%n). تنتقل صورك والنصوص التي غيّرتها بالترتيب إلى القالب الذي تختاره، وتراجع واحد يعيد القالب السابق.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s), most of them %1. These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>صور أو مقاطع فيديو: %n، أغلبها %1. هذه القوالب هي الأنسب لها؛ الرقم المميّز يعني أنها تتسع لها كلها.</numerusform>
+            <numerusform>صور أو مقاطع فيديو: %n، أغلبها %1. هذه القوالب هي الأنسب لها؛ الرقم المميّز يعني أنها تتسع لها كلها.</numerusform>
+            <numerusform>صور أو مقاطع فيديو: %n، أغلبها %1. هذه القوالب هي الأنسب لها؛ الرقم المميّز يعني أنها تتسع لها كلها.</numerusform>
+            <numerusform>صور أو مقاطع فيديو: %n، أغلبها %1. هذه القوالب هي الأنسب لها؛ الرقم المميّز يعني أنها تتسع لها كلها.</numerusform>
+            <numerusform>صور أو مقاطع فيديو: %n، أغلبها %1. هذه القوالب هي الأنسب لها؛ الرقم المميّز يعني أنها تتسع لها كلها.</numerusform>
+            <numerusform>صور أو مقاطع فيديو: %n، أغلبها %1. هذه القوالب هي الأنسب لها؛ الرقم المميّز يعني أنها تتسع لها كلها.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s). These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>صور أو مقاطع فيديو: %n. هذه القوالب هي الأنسب لها؛ الرقم المميّز يعني أنها تتسع لها كلها.</numerusform>
+            <numerusform>صور أو مقاطع فيديو: %n. هذه القوالب هي الأنسب لها؛ الرقم المميّز يعني أنها تتسع لها كلها.</numerusform>
+            <numerusform>صور أو مقاطع فيديو: %n. هذه القوالب هي الأنسب لها؛ الرقم المميّز يعني أنها تتسع لها كلها.</numerusform>
+            <numerusform>صور أو مقاطع فيديو: %n. هذه القوالب هي الأنسب لها؛ الرقم المميّز يعني أنها تتسع لها كلها.</numerusform>
+            <numerusform>صور أو مقاطع فيديو: %n. هذه القوالب هي الأنسب لها؛ الرقم المميّز يعني أنها تتسع لها كلها.</numerusform>
+            <numerusform>صور أو مقاطع فيديو: %n. هذه القوالب هي الأنسب لها؛ الرقم المميّز يعني أنها تتسع لها كلها.</numerusform>
         </translation>
     </message>
     <message>
@@ -20273,13 +20273,13 @@ If playback stutters, try another.</source>
     </message>
     <message numerus="yes">
         <source>Apply %n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>تطبيق %n نص</numerusform>
+            <numerusform>تطبيق %n نص</numerusform>
+            <numerusform>تطبيق %n نصين</numerusform>
+            <numerusform>تطبيق %n نصوص</numerusform>
+            <numerusform>تطبيق %n نصًا</numerusform>
+            <numerusform>تطبيق %n نص</numerusform>
         </translation>
     </message>
     <message>

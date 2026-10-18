@@ -5510,26 +5510,26 @@
     </message>
     <message numerus="yes">
         <source>Template added with %n of your photos. The rest did not fit: it has %1 slot(s).</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Dodano szablon. Użyte zdjęcia: %n. Pozostałe się nie zmieściły — liczba miejsc: %1.</numerusform>
+            <numerusform>Dodano szablon. Użyte zdjęcia: %n. Pozostałe się nie zmieściły — liczba miejsc: %1.</numerusform>
+            <numerusform>Dodano szablon. Użyte zdjęcia: %n. Pozostałe się nie zmieściły — liczba miejsc: %1.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s). Fill the other slots in the panel on the right.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Dodano szablon z %n zdjęciem. Wypełnij pozostałe miejsca w panelu po prawej.</numerusform>
+            <numerusform>Dodano szablon z %n zdjęciami. Wypełnij pozostałe miejsca w panelu po prawej.</numerusform>
+            <numerusform>Dodano szablon z %n zdjęciami. Wypełnij pozostałe miejsca w panelu po prawej.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Template added with your %n photo(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Dodano szablon z %n zdjęciem</numerusform>
+            <numerusform>Dodano szablon z %n zdjęciami</numerusform>
+            <numerusform>Dodano szablon z %n zdjęciami</numerusform>
         </translation>
     </message>
     <message>
@@ -5542,26 +5542,26 @@
     </message>
     <message numerus="yes">
         <source>Template changed: %n photo(s) carried over</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Zmieniono szablon: przeniesiono %n zdjęcie</numerusform>
+            <numerusform>Zmieniono szablon: przeniesiono %n zdjęcia</numerusform>
+            <numerusform>Zmieniono szablon: przeniesiono %n zdjęć</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n tekst</numerusform>
+            <numerusform>%n teksty</numerusform>
+            <numerusform>%n tekstów</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) did not fit in the new one</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n zdjęcie nie zmieściło się w nowym</numerusform>
+            <numerusform>%n zdjęcia nie zmieściły się w nowym</numerusform>
+            <numerusform>%n zdjęć nie zmieściło się w nowym</numerusform>
         </translation>
     </message>
     <message>
@@ -5570,10 +5570,10 @@
     </message>
     <message numerus="yes">
         <source>%n text(s) changed</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Zmieniono %n tekst</numerusform>
+            <numerusform>Zmieniono %n teksty</numerusform>
+            <numerusform>Zmieniono %n tekstów</numerusform>
         </translation>
     </message>
     <message>
@@ -5594,18 +5594,18 @@
     </message>
     <message numerus="yes">
         <source>No beat found in the music: %n cut(s) now follow a steady 120 BPM beat</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Nie znaleziono rytmu w muzyce: %n cięcie ma teraz stały rytm 120 BPM</numerusform>
+            <numerusform>Nie znaleziono rytmu w muzyce: %n cięcia mają teraz stały rytm 120 BPM</numerusform>
+            <numerusform>Nie znaleziono rytmu w muzyce: %n cięć ma teraz stały rytm 120 BPM</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n cut(s) moved to the beat of the music</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Przesunięto %n cięcie do rytmu muzyki</numerusform>
+            <numerusform>Przesunięto %n cięcia do rytmu muzyki</numerusform>
+            <numerusform>Przesunięto %n cięć do rytmu muzyki</numerusform>
         </translation>
     </message>
     <message>
@@ -11570,11 +11570,11 @@
     <name>Exporter</name>
     <message>
         <source>Same as project · %1×%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Jak w projekcie · %1×%2</translation>
     </message>
     <message>
         <source>Same as project (%1 fps)</source>
-        <translation type="unfinished"></translation>
+        <translation>Jak w projekcie (%1 kl./s)</translation>
     </message>
 </context>
 <context>
@@ -17107,34 +17107,34 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message numerus="yes">
         <source>%1 — %n slot(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%1 — %n miejsce</numerusform>
+            <numerusform>%1 — %n miejsca</numerusform>
+            <numerusform>%1 — %n miejsc</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Templates for your %n photo(s). Your photos and the texts you changed go into the one you choose, in order; one undo puts the old one back.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Szablony dla %n zdjęcia. Zdjęcie i zmienione teksty trafią do wybranego szablonu; jedno cofnięcie przywraca poprzedni.</numerusform>
+            <numerusform>Szablony dla %n zdjęć. Zdjęcia i zmienione teksty trafią po kolei do wybranego szablonu; jedno cofnięcie przywraca poprzedni.</numerusform>
+            <numerusform>Szablony dla %n zdjęć. Zdjęcia i zmienione teksty trafią po kolei do wybranego szablonu; jedno cofnięcie przywraca poprzedni.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s), most of them %1. These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n zdjęcie lub film, %1. Te szablony pasują najlepiej; wyróżniona liczba oznacza, że zmieści się w całości.</numerusform>
+            <numerusform>%n zdjęcia lub filmy, większość %1. Te szablony pasują najlepiej; wyróżniona liczba oznacza, że zmieszczą się wszystkie.</numerusform>
+            <numerusform>%n zdjęć lub filmów, większość %1. Te szablony pasują najlepiej; wyróżniona liczba oznacza, że zmieszczą się wszystkie.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n photo(s) or video(s). These templates fit them best; the highlighted count takes them all.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n zdjęcie lub film. Te szablony pasują najlepiej; wyróżniona liczba oznacza, że zmieści się w całości.</numerusform>
+            <numerusform>%n zdjęcia lub filmy. Te szablony pasują najlepiej; wyróżniona liczba oznacza, że zmieszczą się wszystkie.</numerusform>
+            <numerusform>%n zdjęć lub filmów. Te szablony pasują najlepiej; wyróżniona liczba oznacza, że zmieszczą się wszystkie.</numerusform>
         </translation>
     </message>
     <message>
@@ -20045,10 +20045,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message numerus="yes">
         <source>Apply %n text(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Zastosuj %n tekst</numerusform>
+            <numerusform>Zastosuj %n teksty</numerusform>
+            <numerusform>Zastosuj %n tekstów</numerusform>
         </translation>
     </message>
     <message>
