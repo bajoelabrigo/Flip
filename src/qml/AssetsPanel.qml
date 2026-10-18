@@ -625,7 +625,7 @@ PanelFrame {
     function assetVisible(kind) {
         const tabId = tabsModel.get(activeTab).tabId
         if (tabId === "text" || tabId === "subtitles" || tabId === "speech" || tabId === "stickers" || tabId === "shapes"
-                || tabId === "effects" || tabId === "templates" || tabId === "adjustment"
+                || tabId === "effects" || tabId === "templates" || tabId === "effectTemplates" || tabId === "adjustment"
                 || tabId === "sounds" || tabId === "sfx" || tabId === "music" || tabId === "transitions" || tabId === "masks"
                 || tabId === "shortcuts" || tabId === "scenes" || tabId === "market"
                 || tabId === "filters" || tabId === "colorfx")
@@ -647,7 +647,9 @@ PanelFrame {
         "scenes": qsTr("Scenes"),
         "masks": qsTr("Masks"),
         "effects": qsTr("Effects"),
-        "templates": qsTr("Templates"),
+        // Scene templates: the ones downloaded from Stock and the ones saved by the person.
+        "templates": qsTr("My templates"),
+        "effectTemplates": qsTr("Effect templates"),
         "transitions": qsTr("Transitions"),
         "sounds": qsTr("Audio FX"),
         "music": qsTr("Music"),
@@ -679,6 +681,7 @@ PanelFrame {
         ListElement { tabId: "shapes"; icon: 4 }
         ListElement { tabId: "masks"; icon: 11 }
         ListElement { tabId: "templates"; icon: 6 }
+        ListElement { tabId: "effectTemplates"; icon: 18 }
         ListElement { tabId: "shortcuts"; icon: 9 }
 
         // A build without a marketplace service (Flip Studio has none yet) drops the tab rather
@@ -715,7 +718,8 @@ PanelFrame {
         Theme.icons.music,
         Theme.icons.volumeHigh,
         Theme.icons.blend,
-        Theme.icons.sliders
+        Theme.icons.sliders,
+        Theme.icons.sparkles
     ]
     property int activeTab: 0
     readonly property string currentTabId: tabsModel.get(activeTab).tabId
@@ -740,7 +744,7 @@ PanelFrame {
         { id: "effects", label: qsTr("Effects"), icon: Theme.icons.wand, tabs: ["effects"] },
         { id: "filters", label: qsTr("Filters"), icon: Theme.icons.blend, tabs: ["filters", "colorfx"] },
         { id: "stickers", label: qsTr("Stickers"), icon: Theme.icons.smile, tabs: ["stickers", "shapes", "masks"] },
-        { id: "templates", label: qsTr("Templates"), icon: Theme.icons.layers, tabs: ["templates"] }
+        { id: "templates", label: qsTr("Templates"), icon: Theme.icons.layers, tabs: ["templates", "effectTemplates"] }
     ].filter(category => category.id !== "market" || Market.configured)
 
     // The category a tab belongs to; Shortcuts (Help menu, F1) belongs to none.
@@ -1123,7 +1127,7 @@ PanelFrame {
                 // search field names the tab and carries its actions.
                 readonly property string tabId: tabsModel.get(root.activeTab).tabId
                 readonly property bool hasActions: kindsForTab(tabId).length > 0
-                readonly property bool searchBarTab: ["text", "stickers", "shapes", "effects", "templates",
+                readonly property bool searchBarTab: ["text", "stickers", "shapes", "effects", "templates", "effectTemplates",
                                                       "transitions", "sounds", "filters", "colorfx"].indexOf(tabId) >= 0
                 width: parent.width
                 height: searchBarTab || (root.sheetMode && !hasActions) ? 0 : Theme.panelHeaderHeight
@@ -1543,18 +1547,45 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     TemplatesTab {
+                        // On the desktop this tab is only the scene templates; the effect ones
+                        // are the next sidebar entry. The phone sheet keeps both behind chips.
+                        showModeChips: root.sheetMode
                         Component.onCompleted: {
                             const saved = root.tabState["templates"] || {}
-                            if (saved.mode)
+                            if (saved.mode && root.sheetMode)
                                 mode = saved.mode
                             if (saved.search)
                                 searchText = saved.search
                             if (saved.category)
                                 activeCategory = saved.category
                         }
-                        onModeChanged: root.rememberTab("templates", "mode", mode)
+                        onModeChanged: if (root.sheetMode) root.rememberTab("templates", "mode", mode)
                         onSearchTextChanged: root.rememberTab("templates", "search", searchText)
                         onActiveCategoryChanged: root.rememberTab("templates", "category", activeCategory)
+                    }
+                }
+            }
+
+            // Templates › Effect templates (music-synced effects for a clip already there).
+            Loader {
+                active: root.currentTabId === "effectTemplates"
+                visible: active
+                width: parent.width
+                height: parent.height - assetsHeader.height
+                opacity: root.tabOpacity
+                sourceComponent: Component {
+                    TemplatesTab {
+                        mode: "effects"
+                        showModeChips: false
+                        Component.onCompleted: {
+                            const saved = root.tabState["effectTemplates"] || {}
+                            if (saved.search)
+                                searchText = saved.search
+                            if (saved.category)
+                                activeCategory = saved.category
+                        }
+                        onSearchTextChanged: root.rememberTab("effectTemplates", "search", searchText)
+                        onActiveCategoryChanged: root.rememberTab("effectTemplates", "category", activeCategory)
                     }
                 }
             }

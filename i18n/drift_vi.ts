@@ -6073,6 +6073,14 @@
         <translation>Hiệu ứng</translation>
     </message>
     <message>
+        <source>My templates</source>
+        <translation type="unfinished">Mẫu của tôi</translation>
+    </message>
+    <message>
+        <source>Effect templates</source>
+        <translation type="unfinished">Mẫu hiệu ứng</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>Mẫu</translation>
     </message>

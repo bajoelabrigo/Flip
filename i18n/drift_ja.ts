@@ -6073,6 +6073,14 @@
         <translation>エフェクト</translation>
     </message>
     <message>
+        <source>My templates</source>
+        <translation type="unfinished">マイテンプレート</translation>
+    </message>
+    <message>
+        <source>Effect templates</source>
+        <translation type="unfinished">エフェクトテンプレート</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>テンプレート</translation>
     </message>

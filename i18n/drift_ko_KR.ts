@@ -6073,6 +6073,14 @@
         <translation>효과</translation>
     </message>
     <message>
+        <source>My templates</source>
+        <translation type="unfinished">내 템플릿</translation>
+    </message>
+    <message>
+        <source>Effect templates</source>
+        <translation type="unfinished">효과 템플릿</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>템플릿</translation>
     </message>

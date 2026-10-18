@@ -6114,6 +6114,14 @@
         <translation>ইফেক্ট</translation>
     </message>
     <message>
+        <source>My templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Effect templates</source>
+        <translation type="unfinished">ইফেক্ট টেমপ্লেট</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation type="unfinished">টেমপ্লেট</translation>
     </message>

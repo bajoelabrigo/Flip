@@ -6141,6 +6141,14 @@
         <translation>Efekty</translation>
     </message>
     <message>
+        <source>My templates</source>
+        <translation type="unfinished">Moje szablony</translation>
+    </message>
+    <message>
+        <source>Effect templates</source>
+        <translation type="unfinished">Szablony efektów</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>Szablony</translation>
     </message>

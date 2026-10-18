@@ -6107,6 +6107,14 @@
         <translation>ප්‍රයෝග</translation>
     </message>
     <message>
+        <source>My templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Effect templates</source>
+        <translation type="unfinished">ප්‍රයෝග ආකෘති</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>ආකෘති</translation>
     </message>

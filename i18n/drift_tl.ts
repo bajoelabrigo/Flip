@@ -6107,6 +6107,14 @@
         <translation>Epekto</translation>
     </message>
     <message>
+        <source>My templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Effect templates</source>
+        <translation type="unfinished">Mga template ng epekto</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation type="unfinished"></translation>
     </message>

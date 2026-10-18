@@ -6243,6 +6243,14 @@
         <translation>تأثيرات</translation>
     </message>
     <message>
+        <source>My templates</source>
+        <translation type="unfinished">قوالبي</translation>
+    </message>
+    <message>
+        <source>Effect templates</source>
+        <translation type="unfinished">قوالب التأثيرات</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>قوالب</translation>
     </message>

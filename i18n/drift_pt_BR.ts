@@ -6107,6 +6107,14 @@
         <translation>Efeitos</translation>
     </message>
     <message>
+        <source>My templates</source>
+        <translation type="unfinished">Meus modelos</translation>
+    </message>
+    <message>
+        <source>Effect templates</source>
+        <translation type="unfinished">Modelos de efeito</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>Modelos</translation>
     </message>

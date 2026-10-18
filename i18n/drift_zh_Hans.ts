@@ -6073,6 +6073,14 @@
         <translation>效果</translation>
     </message>
     <message>
+        <source>My templates</source>
+        <translation type="unfinished">我的模板</translation>
+    </message>
+    <message>
+        <source>Effect templates</source>
+        <translation type="unfinished">特效模板</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>模板</translation>
     </message>

@@ -6107,6 +6107,14 @@
         <translation>Efectos</translation>
     </message>
     <message>
+        <source>My templates</source>
+        <translation>Mis plantillas</translation>
+    </message>
+    <message>
+        <source>Effect templates</source>
+        <translation>Plantillas de efectos</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>Plantillas</translation>
     </message>
