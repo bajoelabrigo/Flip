@@ -90,16 +90,22 @@ Investigado y probado en la PC de Jorge (RTX 5060) el 2026-10-18; ver también l
   (`EffectBrowser.qml`, `components/assets/FiltersTab.qml`, `components/properties/LutPage.qml`).
 
 ## 7. Pendientes viejos (todos entran)
-- ⬜ **Traducciones:** lo nuevo de la 0.16 y la 0.17 (menús, categorías, Filtros, avisos de inicio de sesión) solo está
+- 🟡 **Traducciones: hecho para 11 idiomas** (ar, fr_CA, it, ja, ko_KR, pl, pt_BR, pt_PT, ru, vi, zh_Hans: 326 frases cada uno, con agentes, `tools/i18n/ui_todo.py export|apply`); faltan las 14 frases con plural (en curso) y bn, si, tl, que vienen casi vacíos desde Drift. «Same as project» ya pasa por la traducción (`Exporter.cpp`). Detalle original: **Traducciones:** lo nuevo de la 0.16 y la 0.17 (menús, categorías, Filtros, avisos de inicio de sesión) solo está
   en español; los otros idiomas lo ven en inglés. Traducir con `lupdate` + los `.ts` de cada idioma (se puede repartir
   entre agentes por idioma, como en `tools/stock_i18n`). También «Same as project» en Exportar sale en inglés.
 - 🟡 **Contadores animados: hecho en la rama.** `TextStyle.counter`/`counterFrom` (se guardan en el proyecto solo si se usan), `drift::counterTextAt` (primer número del texto, mismo formato de separadores y decimales, curva de salida suave, llega al 85 % del clip; prueba `CoreTest::counterTextCountsInTheTextsFormat`), aplicado en `SkiaTextPainter::makeTextPainter`; interruptor «Contador» y «desde» en Texto › Básico. Falta: ver en ventana y, después, rehacer las 20 plantillas de contador de Stock para que usen esto en vez de cortes.
-- ⬜ **Las 9 pistas de música FMA** en espera: preparar una lista para que Jorge las escuche y decida.
+- ✅ **Las pistas de música FMA:** copiadas para escuchar en `Downloads\FlipStudio	ienda\musica\por-escuchar` con `LEEME.md` (9 de las 10 de `HOLD` en `tools/music/publish.py`; «Canon Event» no está bajada). **Falta (Jorge):** escucharlas y decir cuáles van; esas salen de `HOLD` y se publican.
 - ✅ **Texto como forma de máscara:** ya existía (`MaskShape::Text`, Video › Máscara › Texto con su campo). Era una nota vieja.
 - 🟡 **Quitar imperfecciones: hecho en la rama.** Efecto nuevo `effects/face_blemish` (requiere cara: media amplia de la piel en dos pasadas y `blemish.frag`, que lleva hacia la piel de alrededor lo que es más oscuro o más rojo; parámetros Manchas y Arrugas) y tarjeta «Imperfecciones» en Retoque › Piel. **La foto de la tarjeta (`resources/retouch/skin-blemish.jpg`) es provisional (copia de skin-smooth)**: regenerarla con la app (ver `resources/retouch/README.md`). Falta ver el resultado en ventana con una cara.
-- ⬜ **Voz con IA en el editor web** (`flipstudio-app`), que espera al servidor.
+- ⬜ **Voz con IA en el editor web** (`flipstudio-app`): **no entra en la 0.17 de escritorio.** El editor web todavía no tiene ninguna voz. Camino propuesto: Kokoro-82M (Apache-2.0) en el navegador con transformers.js 4.3 (`StyleTextToSpeech2Model`, como kokoro-js) + fonemas con espeak-ng en WASM (GPL-3, compatible con la AGPL del editor web), modelo q8 (~90 MB) servido desde `/modelos/` del VPS como Whisper; voces en español `ef_dora`/`em_alex`. Probar en Chrome antes de desplegar.
 - Hecho y fuera de la lista: exportar en 4K y 8K (**probado por Jorge, funciona**).
 - Siempre al final del proyecto: pagos y tienda de cada usuario. Hasta entonces, todo gratis.
+
+## Seguimiento (después de la 0.17)
+- Rehacer las 20 plantillas de contador de Stock con el contador animado (`tools/scene_templates`, texto con `counter: true` en vez de cortes), renderizar con la 0.17 y volver a publicar.
+- Antes y después en las tarjetas de **Efectos**: regenerar sus miniaturas con `tools/effectthumbs.cpp` guardando también la foto base.
+- Foto de la tarjeta «Imperfecciones» (`resources/retouch/skin-blemish.jpg`) renderizada con la app.
+- Cámara lenta suave con RIFE (generar fotogramas intermedios al bajar la velocidad).
 
 ## Al cerrar la versión
 Versión 0.17.0 en `CMakeLists.txt`, `release-notes/0.17.0.md`, CHANGELOG, notas de la Store en
