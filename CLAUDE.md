@@ -82,8 +82,9 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - **Servidor `stock-0.15` DESPLEGADO** (PM2, health `{"ok":true}`): sin Halloween (temporada y sinónimo).
 - **Trampa nueva:** `scp` a un **nombre que ya existe** en `/tmp` se queda escribiendo sin que el tamaño avance (el
   archivo viejo conserva tamaño y fecha). Subir con un nombre nuevo.
-- **Falta (Jorge):** el TXT `version` del DNS a 0.15.0 y subir el MSIX a Partner Center con las notas de
-  `docs/store-listing.md` (811/1500).
+- **Jorge (2026-10-18):** TXT `version` = 0.15.0 (comprobado en DNS). `flipstudio-web` (`248aa`) y
+  `flipstudio-api` `stock-0.15` → `main` (`a4a75`) subidos a GitHub. **Falta (Jorge):** subir el MSIX a Partner
+  Center con las notas de `docs/store-listing.md` (811/1500), si no se subió ya.
 - **Aviso:** la sesión de Google de la app se cayó durante las pruebas (el servidor revoca la familia cuando llega un
   `refresh_token` ya usado, y las pruebas de ventana restauran el registro). Hay que **volver a iniciar sesión** con
   Google la primera vez que se abra la 0.15.0; no afecta a nada más.
