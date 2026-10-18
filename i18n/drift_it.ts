@@ -6115,6 +6115,11 @@
         <translation type="unfinished">Modelli di effetti</translation>
     </message>
     <message>
+        <source>Stickers</source>
+        <comment>category row</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>Modelli</translation>
     </message>

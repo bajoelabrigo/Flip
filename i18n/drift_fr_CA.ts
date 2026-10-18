@@ -6117,6 +6117,11 @@
         <translation type="unfinished">Modèles d’effets</translation>
     </message>
     <message>
+        <source>Stickers</source>
+        <comment>category row</comment>
+        <translation type="unfinished">Autocollants</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>Préréglages</translation>
     </message>

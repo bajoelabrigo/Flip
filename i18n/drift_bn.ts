@@ -6122,6 +6122,11 @@
         <translation type="unfinished">ইফেক্ট টেমপ্লেট</translation>
     </message>
     <message>
+        <source>Stickers</source>
+        <comment>category row</comment>
+        <translation type="unfinished">স্টিকার</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation type="unfinished">টেমপ্লেট</translation>
     </message>

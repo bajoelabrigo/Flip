@@ -6115,6 +6115,11 @@
         <translation type="unfinished">ප්‍රයෝග ආකෘති</translation>
     </message>
     <message>
+        <source>Stickers</source>
+        <comment>category row</comment>
+        <translation type="unfinished">ස්ටිකර්</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>ආකෘති</translation>
     </message>

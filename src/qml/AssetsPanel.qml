@@ -743,7 +743,7 @@ PanelFrame {
         { id: "transitions", label: qsTr("Transitions"), icon: Theme.icons.chevronsRight, tabs: ["transitions"] },
         { id: "effects", label: qsTr("Effects"), icon: Theme.icons.wand, tabs: ["effects"] },
         { id: "filters", label: qsTr("Filters"), icon: Theme.icons.blend, tabs: ["filters", "colorfx"] },
-        { id: "stickers", label: qsTr("Stickers"), icon: Theme.icons.smile, tabs: ["stickers", "shapes", "masks"] },
+        { id: "stickers", label: qsTr("Stickers", "category row"), icon: Theme.icons.smile, tabs: ["stickers", "shapes", "masks"] },
         { id: "templates", label: qsTr("Templates"), icon: Theme.icons.layers, tabs: ["templates", "effectTemplates"] }
     ].filter(category => category.id !== "market" || Market.configured)
 

@@ -6081,6 +6081,11 @@
         <translation type="unfinished">エフェクトテンプレート</translation>
     </message>
     <message>
+        <source>Stickers</source>
+        <comment>category row</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>テンプレート</translation>
     </message>

@@ -6115,6 +6115,11 @@
         <translation type="unfinished">Mga template ng epekto</translation>
     </message>
     <message>
+        <source>Stickers</source>
+        <comment>category row</comment>
+        <translation type="unfinished">Mga Sticker</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation type="unfinished"></translation>
     </message>

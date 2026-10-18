@@ -6081,6 +6081,11 @@
         <translation type="unfinished">Mẫu hiệu ứng</translation>
     </message>
     <message>
+        <source>Stickers</source>
+        <comment>category row</comment>
+        <translation type="unfinished">Nhãn dán</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>Mẫu</translation>
     </message>

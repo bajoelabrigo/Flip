@@ -159,13 +159,13 @@ ApplicationWindow {
                 Platform.MenuItem {
                     text: qsTr("&Undo")
                     shortcut: StandardKey.Undo
-                    enabled: !window.showStartScreen && EditorState.canUndo
+                    enabled: !window.showStartScreen && EditorState.undoAvailable
                     onTriggered: window.dispatchAction("undo")
                 }
                 Platform.MenuItem {
                     text: qsTr("&Redo")
                     shortcut: StandardKey.Redo
-                    enabled: !window.showStartScreen && EditorState.canRedo
+                    enabled: !window.showStartScreen && EditorState.redoAvailable
                     onTriggered: window.dispatchAction("redo")
                 }
                 Platform.MenuSeparator {}

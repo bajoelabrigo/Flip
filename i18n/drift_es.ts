@@ -6115,6 +6115,11 @@
         <translation>Plantillas de efectos</translation>
     </message>
     <message>
+        <source>Stickers</source>
+        <comment>category row</comment>
+        <translation>Stickers</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>Plantillas</translation>
     </message>

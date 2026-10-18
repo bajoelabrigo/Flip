@@ -6149,6 +6149,11 @@
         <translation type="unfinished">Szablony efektów</translation>
     </message>
     <message>
+        <source>Stickers</source>
+        <comment>category row</comment>
+        <translation type="unfinished">Naklejki</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>Szablony</translation>
     </message>

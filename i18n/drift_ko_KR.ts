@@ -6081,6 +6081,11 @@
         <translation type="unfinished">효과 템플릿</translation>
     </message>
     <message>
+        <source>Stickers</source>
+        <comment>category row</comment>
+        <translation type="unfinished">스티커</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>템플릿</translation>
     </message>

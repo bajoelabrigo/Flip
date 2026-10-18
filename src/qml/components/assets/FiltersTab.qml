@@ -195,6 +195,9 @@ Item {
                 cellWidth: cardSize + Theme.assetCardGap
                 cellHeight: cardSize + Theme.fontSizeCard + 14
                 boundsBehavior: Flickable.StopAtBounds
+                // With a mouse the grid scrolls by wheel only and leaves the press to the tile, as the
+                // other asset grids do; otherwise the flick took the click and no filter was applied.
+                acceptedButtons: Theme.touchUi ? Qt.LeftButton : Qt.NoButton
                 model: root.visibleLuts
                 ScrollBar.vertical: AppScrollBar {}
 

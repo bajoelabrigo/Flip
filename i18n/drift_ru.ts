@@ -6149,6 +6149,11 @@
         <translation type="unfinished">Шаблоны эффектов</translation>
     </message>
     <message>
+        <source>Stickers</source>
+        <comment>category row</comment>
+        <translation type="unfinished">Стикеры</translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>Шаблоны</translation>
     </message>

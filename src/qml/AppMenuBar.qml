@@ -189,13 +189,13 @@ Row {
             ThemedMenuItem {
                 text: qsTr("Undo")
                 shortcutText: root.keys("undo")
-                enabled: root.editing && EditorState.canUndo
+                enabled: root.editing && EditorState.undoAvailable
                 onTriggered: root.dispatch("undo")
             }
             ThemedMenuItem {
                 text: qsTr("Redo")
                 shortcutText: root.keys("redo")
-                enabled: root.editing && EditorState.canRedo
+                enabled: root.editing && EditorState.redoAvailable
                 onTriggered: root.dispatch("redo")
             }
             ThemedMenuSeparator {}

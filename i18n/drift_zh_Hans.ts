@@ -6081,6 +6081,11 @@
         <translation type="unfinished">特效模板</translation>
     </message>
     <message>
+        <source>Stickers</source>
+        <comment>category row</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>模板</translation>
     </message>
