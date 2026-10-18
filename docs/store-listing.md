@@ -18,17 +18,17 @@ Textos y respuestas para el envío en Partner Center (producto **Flip Studio**, 
 - **Requisitos del sistema:** Windows 10 versión 1809 o posterior, 64 bits. Gráficos compatibles con
   OpenGL 3.3.
 - **Declaraciones (desde la 0.10.0):** no contiene publicidad y no tiene compras dentro de la aplicación.
-  **Sí recoge datos personales, solo si la persona inicia sesión** (opcional): nombre, correo y foto de su
+  **Sí recoge datos personales, solo si la persona inicia sesión** (opcional para editar; desde la 0.16.0 hace falta para exportar y para Stock): nombre, correo y foto de su
   cuenta de Google y, desde la 0.12.0, la lista de lo que baja de Stock (su biblioteca). Además envía
   estadísticas de uso **anónimas** (número de instalación aleatorio, versión, edición de Windows), que se pueden
   apagar. Todo está en la política de privacidad, actualizada el 15 de octubre de 2026 (ya publicada).
-- **Notas para la certificación** (campo «Notes for certification»; valen igual para la 0.11.0):
+- **Notas para la certificación** (campo «Notes for certification»; **cambiadas en la 0.16.0**: exportar pide cuenta):
 
-  > Signing in is optional. On first launch the app offers "Sign in with Google" or "Continue without an
-  > account"; every editing feature works without an account. The account only unlocks the Stock tab
-  > (free photos and videos from Pexels and Pixabay). To review it, sign in with any Google account: the
-  > sign-in runs in the system browser. The app sends anonymous usage statistics (random install id,
-  > version, Windows edition), which can be turned off in Settings › Account.
+  > Since 0.16.0, exporting a video and the Stock tab require signing in with a Google account; everything
+  > stays free (no purchases, no subscriptions). Editing works without an account. To review export and
+  > Stock, sign in with any Google account: the sign-in runs in the system browser, and the export dialog
+  > opens by itself once signed in. The app sends anonymous usage statistics (random install id, version,
+  > Windows edition), which can be turned off in Settings › Account.
 
 ## Clasificación por edad (cuestionario IARC)
 
@@ -109,6 +109,33 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 **Palabras clave de búsqueda** (máximo 7):
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
+
+**Notas para la Store (0.16.0)**. Lo nuevo desde la 0.15.0. Texto de "Novedades de esta versión" del MSIX de la
+0.16.0 (712 de 1500 caracteres).
+
+> **Novedades de la 0.16.0**
+>
+> - Menú arriba, como en Filmora y CapCut: Archivo, Editar, Herramientas, Ver, Avanzado y Ayuda, con sus atajos.
+> - Categorías sobre el panel: Medios, Stock, Audio, Títulos, Transiciones, Efectos, Filtros, Stickers y Plantillas; la barra lateral muestra sus partes con nombre.
+> - Filtros nuevos: los LUTs y los efectos de color, con un clic sobre el clip.
+> - Plantillas: «Mis plantillas» (las de Stock y las tuyas) y plantillas de efectos.
+> - Todo es gratis; para exportar y usar Stock se inicia sesión con Google.
+> - «Cerrar huecos» también cierra el hueco al borrar un trozo.
+> - El panel de la derecha ya no salta de página con la rueda.
+> - La app busca actualizaciones cada vez que se abre.
+
+En inglés (674 caracteres):
+
+> **What's new in 0.16.0**
+>
+> - A menu bar like Filmora and CapCut: File, Edit, Tools, View, Advanced and Help, with their shortcuts.
+> - Categories over the panel: Media, Stock, Audio, Titles, Transitions, Effects, Filters, Stickers and Templates; the sidebar lists their parts by name.
+> - New Filters: LUTs and color effects, one click on the clip.
+> - Templates: "My templates" (from Stock and your own) and effect templates.
+> - Everything is free; exporting and Stock ask you to sign in with Google.
+> - "Close gaps" now also closes the gap when you delete a piece.
+> - The right panel no longer jumps to the next page with the wheel.
+> - The app checks for updates every time it opens.
 
 **Notas para la Store (0.15.0)**. Lo nuevo desde la 0.14.0. Texto de "Novedades de esta versión" del MSIX de la
 0.15.0 (811 de 1500 caracteres).
