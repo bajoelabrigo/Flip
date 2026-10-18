@@ -13,6 +13,25 @@ inventa. Todo lo que lee Jorge va en español; el código sigue el estilo del ar
 
 Leyenda: ✅ hecho en la rama · 🟡 empezado · ⬜ por hacer.
 
+## Estado al cerrar (2026-10-18)
+**La 0.17.0 se publica con todo lo de abajo menos la voz del editor web** (queda para después, ver el punto 7).
+- Compilación final en verde: `build.yml` run 39139995650 sobre `f92a4` (compilación + pruebas + instalador y
+  portable). Portable en `pruebas\FlipStudio-0.17.0-prueba`.
+- **Probado en ventana** (solo con clics y capturas, `mcp_e2e.py`): tema turquesa, fila de categorías completa, marcas
+  «IA» con «?», inicio como Filmora, la X del editor vuelve al inicio («Proyecto cerrado»), **transición con IA**
+  (1 s de imágenes de RIFE entre dos clips, se ven bien), **texto con IA** («Gran oferta» + «título de terror» → estilo
+  tipo Glitch) y **congelar fotograma como CapCut** (3 s en la misma pista, lo demás corrido). El contador tiene su
+  interruptor; su lógica la cubre `CoreTest::counterTextCountsInTheTextsFormat`.
+- **Sin probar en ventana (para Jorge):** el hover (plantillas, Stock y antes/después de los LUT: los mensajes
+  simulados no disparan el hover de Qt), **mover un clip con «Cerrar huecos»** (el arrastre simulado no mueve clips) y
+  quitar imperfecciones sobre una cara real.
+- Extras **`transiciones.ia` 1.0.0** y **`texto.ia` 1.0.0** subidos al release `packages` de `flipstudio-extras`
+  (comprobados: 200 y tamaño correcto) y después el índice a `flipstudio-web/addons/index.json`, desplegado con las
+  novedades 0.17.0 (`flipstudio-web` commit `Novedades 0.17.0`).
+- Trampa nueva: **`mcp_e2e.py --attach` se conecta al editor que tenga el puente abierto**, que puede ser el de Jorge y
+  no el de prueba (pasó: respondió «Untitled Project» vacío). Con dos editores abiertos, no usar llamadas MCP; solo
+  clics y capturas por pid.
+
 ## 1. Arreglos rápidos
 - ✅ **Panel izquierdo abre con la fila de categorías completa.** `Main.qml`: `SplitView.preferredWidth` del
   `AssetsPanel` = máx(25 % del ancho, `assetsPanel.categoryRowWidth`, tope 45 %). El ancho guardado se guarda ahora en
