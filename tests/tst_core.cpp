@@ -220,6 +220,12 @@ void CoreTest::counterTextCountsInTheTextsFormat()
     // Half way through the count it has passed half the number (ease out).
     const QString mid = drift::counterTextAt(QStringLiteral("1000"), 0, 0.425);
     QVERIFY(mid.toInt() > 500 && mid.toInt() < 1000);
+    // Leading zeros keep the width ("05:00" of a match clock); `land` moves the landing.
+    QCOMPARE(drift::counterTextAt(QStringLiteral("90:00"), 0, 0.0), QStringLiteral("0:00"));
+    QCOMPARE(drift::counterTextAt(QStringLiteral("00:90"), 0, 0.0), QStringLiteral("00:90"));
+    QCOMPARE(drift::counterTextAt(QStringLiteral("007"), 0, 0.0), QStringLiteral("000"));
+    QCOMPARE(drift::counterTextAt(QStringLiteral("$99"), 199, 0.5, 0.5), QStringLiteral("$99"));
+    QVERIFY(drift::counterTextAt(QStringLiteral("$99"), 199, 0.5, 0.9) != QStringLiteral("$99"));
 }
 
 void CoreTest::timeConversion()

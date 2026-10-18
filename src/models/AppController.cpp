@@ -1876,6 +1876,7 @@ QVariantMap textStyleToMap(const drift::TextStyle &s, drift::TimeUs timelineStar
         {QStringLiteral("textCase"), s.textCase},
         {QStringLiteral("counter"), s.counter},
         {QStringLiteral("counterFrom"), s.counterFrom},
+        {QStringLiteral("counterSeconds"), s.counterSeconds},
         {QStringLiteral("wordHighlight"), textHighlightToMap(s.wordHighlight)},
         {QStringLiteral("underlineEnabled"), s.underlineEnabled},
         {QStringLiteral("underlineColor"), s.underlineColor.name(QColor::HexArgb)},
@@ -12546,6 +12547,8 @@ void AppController::applyTextStylePatch(drift::TextStyle &s, const QVariantMap &
         s.counter = m.value(QStringLiteral("counter")).toBool();
     if (m.contains(QStringLiteral("counterFrom")))
         s.counterFrom = m.value(QStringLiteral("counterFrom")).toDouble();
+    if (m.contains(QStringLiteral("counterSeconds")))
+        s.counterSeconds = std::max(0.0, m.value(QStringLiteral("counterSeconds")).toDouble());
     if (m.contains(QStringLiteral("underlineEnabled")))
         s.underlineEnabled = m.value(QStringLiteral("underlineEnabled")).toBool();
     if (m.contains(QStringLiteral("underlineColor")))

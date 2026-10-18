@@ -1,16 +1,20 @@
 """Counters (2026-10-17): money, followers, days, likes, percentages, timers, scores and odometers.
 Category `counter` (es «Contadores», en "Counters"); order 5300-5399; ids `cont-*`.
 
-The engine has no counting text, so a number counts with quick successive text clips: one per value, a
-couple of frames each, the values eased (fast at first, slow near the end). The last value is one editable
-text clip, «Número final»; the ones before it are not editable (change the final number and the count still
-runs on the sample values, so keep it in the same range). Odometers roll digit strips (one multi-line text
+Since 0.18 a number counts with the engine's animated counter: one editable text clip, «Número final», whose
+style has `counter: true`, `counterFrom` (the first value) and `counterSeconds` (how long the count takes, so
+flashes and bursts land with it); it eases out (cubic) and then holds. Change the final number and the count
+follows. An older app shows the final number still (0.17: counting, landing at 85 % of the clip). Where the
+pace is not an ease-out (the loading bar's stalls, a match clock) `cuts=True` keeps the old way: quick
+successive text clips, one per value, and only the last one editable. Odometers roll digit strips (one multi-line text
 per column) under plates of the background colour that leave a window open: masks are measured on their
 host clip's box and would travel with the strip. When a strip stops, a flash hands over to the editable
 final number.
 """
 
 from __future__ import annotations
+
+import re
 
 from kit import (Box, bg, bg_gradient, centered, circle_photo, confetti, dots, effect, fill, flash, glow, gradient,
                  grain, keys, kb, label, line, no_stroke, photo_bg, pill, pop, random, rrect, shade_bottom, shade_full,
@@ -58,12 +62,32 @@ def smooth(f: float) -> float:
     return f * f * (3 - 2 * f)
 
 
+def first_number(text: str) -> float:
+    """The first number of a sample text, read as the templates write it ('1.000.000', '42,195', '0%')."""
+    m = re.search(r"[0-9][0-9.,]*[0-9]|[0-9]", text)
+    if not m:
+        return 0.0
+    return float(m.group(0).replace(".", "").replace(",", "."))
+
+
+def landing_pop(size: int, at: float) -> dict:
+    """pixelSize keys: a quick swell when the count lands at `at` (clip seconds), like the old final clip's pop."""
+    return {"pixelSize": keys([(0, size, "hold"), (at, size, "out"), (at + 0.12, size * 1.12, "inout"),
+                               (at + 0.32, size)])}
+
+
 def count_fn(t, track, fn, fmt, t0: float, length: float, final: str, box: Box, style, *, step: int = 2,
              final_style=None, end: float | None = None, name: str = "Número final", motion=None, final_motion=None,
-             **extra) -> dict:
-    """Shows fmt(fn(f)) for f going 0 -> 1 over `length` seconds from t0, a new value every `step` frames
-    (equal values merge into one clip), then `final` (the editable one) until `end`."""
+             cuts: bool = False, **extra) -> dict:
+    """Counts from fmt(fn(0)) to `final` over `length` seconds from t0 and holds it until `end`: one editable
+    text clip with the engine's counter (fn only gives the first value), or with cuts=True, fmt(fn(f)) as a new
+    clip every `step` frames (equal values merge into one clip) and then `final`, the editable one."""
     end = t.duration if end is None else end
+    if not cuts:
+        st = (final_style or style)()
+        st.update(counter=True, counterFrom=first_number(fmt(fn(0.0))), counterSeconds=round(length, 3))
+        st["keyframes"] = {**st.get("keyframes", {}), **landing_pop(st["pixelSize"], length)}
+        return t.text(track, final, t0, end - t0, box, st, final_motion or motion, label=name, **extra)
     frames = max(1, round(length * FPS))
     start_f = round(t0 * FPS)
     shown: list[tuple[int, str]] = []
@@ -298,7 +322,7 @@ def dias_100():
     # Progress bar under the number, in step with the count.
     rrect(t, t.track("shape", "Barra"), "#FFFFFF", 0.3, 7.7, Box(140, 1580, 800, 22), 11, alpha=0.25)
     t.solid(t.track("shape", "Progreso"), "#C6FF00", 0.3, 7.7, Box(140, 1580, 800, 22),
-            curve_motion(lambda f: 0.01 + 0.99 * ease_out(f, 2.4), 5.0, 800, at=0.3), radius=11, kind="rounded-rectangle")
+            curve_motion(lambda f: 0.01 + 0.99 * ease_out(f), 5.0, 800, at=0.3), radius=11, kind="rounded-rectangle")
     label(t, t.track("text", "Pie"), "y no pienso parar", 5.8, 2.2, Box(60, 1640, 960, 100), "Montserrat", 56, "#FFFFFF",
           weight=600, anim_in=tanim("rise", duration=0.5), name="Mensaje")
     flash(t, 5.6, 0.3, colour="#C6FF00", peak=0.45)
@@ -367,7 +391,7 @@ def barra_carga():
             curve_motion(lambda f: 0.045 + 0.955 * _loading(f), 3.6, track.w, at=0.0, steps=40), radius=32,
             kind="rounded-rectangle", layers=[gradient([(0, "#38BDF8"), (1, "#A78BFA")], angle=0), no_stroke()])
     count_fn(t, t.track("text", "Contador"), _loading, lambda v: f"{int(v * 100)}%", 0.5, 3.6, "100%",
-             Box(1060, 650, 600, 200), big("Orbitron", 140, "#FFFFFF", weight=800, align="right"),
+             Box(1060, 650, 600, 200), big("Orbitron", 140, "#FFFFFF", weight=800, align="right"), cuts=True,
              final_style=big("Orbitron", 140, "#C6FF00", weight=800, align="right",
                              layers=[glow("#C6FF00", 22, 0.6), fill("#C6FF00")]))
     label(t, t.track("text", "Detalle"), "preparando algo grande…", 0.6, 5.2, Box(260, 680, 800, 80), "Montserrat", 44,
@@ -385,7 +409,7 @@ def anillo_meta():
     bg_gradient(t, [(0, "#2B1F66"), (1, "#0D0B1E")], angle=90)
     box = centered(540, 900, 760, 760)
     t.solid(t.track("shape", "Pista"), "#FFFFFF", 0, 6.0, box, kind="ellipse", layers=hollow_ring("#FFFFFF", 48, 0.12))
-    fn = lambda f: smooth(f) ** 0.9  # noqa: E731
+    fn = ease_out  # the counter's own curve
     clip = t.solid(t.track("shape", "Progreso"), "#00E5A0", 0, 6.0, box, kind="ellipse",
                    layers=hollow_ring("#00E5A0", 48, trim=0.0), rotation=keys([(0, -90)]))
     clip["shapeStyle"]["keyframes"] = {"layer.stroke.trimEnd": curve_keys(fn, 3.2, at=0.5)}
@@ -469,7 +493,7 @@ def marcador():
     label(t, t.track("text", "Guion"), "-", 0.2, 8.8, Box(540, 70, 60, 110), "Oswald", 60, "#0F172A", weight=700,
           motion=move, editable=False)
     count_fn(t, t.track("text", "Minuto"), lambda f: 90 * f, lambda v: f"{int(v):02d}:00", 0.7, 6.8, "90:00",
-             Box(1080, 70, 210, 110), big("Oswald", 56, "#FFFFFF", weight=600), step=3, name="Minuto final")
+             Box(1080, 70, 210, 110), big("Oswald", 56, "#FFFFFF", weight=600), step=3, name="Minuto final", cuts=True)
     for at, who, colour in ((2.2, "¡GOOOL!", "#E11D48"), (3.9, "¡GOOOL!", "#2563EB"), (5.6, "¡GOOOL!", "#E11D48")):
         label(t, t.track("text", "Gol"), who, at, 1.3, Box(0, 640, 1920, 260), "Anton", 230, "#FFFFFF", weight=400,
               layers=[shadow("#000000", 0, 10, 30, 0.6), stroke(10, colour), fill("#FFFFFF")],
@@ -584,7 +608,7 @@ def pasos():
     shade_bottom(t, 1200, 0.9, colour="#04121F")
     box = centered(540, 1260, 560, 560)
     t.solid(t.track("shape", "Pista"), "#FFFFFF", 0.2, 6.8, box, kind="ellipse", layers=hollow_ring("#FFFFFF", 34, 0.2))
-    fn = lambda f: ease_out(f, 2.6)  # noqa: E731
+    fn = ease_out  # the counter's own curve
     clip = t.solid(t.track("shape", "Progreso"), "#FFB703", 0.2, 6.8, box, kind="ellipse",
                    layers=hollow_ring("#FFB703", 34, trim=0.0), rotation=keys([(0, -90)]))
     clip["shapeStyle"]["keyframes"] = {"layer.stroke.trimEnd": curve_keys(fn, 3.6, at=0.4)}
@@ -668,7 +692,7 @@ def ahorro_meta():
     rrect(t, t.track("shape", "Barra"), "#FFFFFF", 0.3, 6.7, Box(140, 800, 800, 44), 22,
           layers=[fill("#FFFFFF"), stroke(4, "#7A4B00", 0.3)])
     t.solid(t.track("shape", "Progreso"), "#2D6A4F", 0.3, 6.7, Box(140, 800, 800, 44),
-            curve_motion(lambda f: 0.03 + 0.97 * ease_out(f, 2.4), 3.6, 800, at=0.3), radius=22, kind="rounded-rectangle")
+            curve_motion(lambda f: 0.03 + 0.97 * ease_out(f), 3.6, 800, at=0.3), radius=22, kind="rounded-rectangle")
     label(t, t.track("text", "Meta"), "meta: $5.000", 0.6, 6.4, Box(140, 860, 800, 70), "Fredoka", 46, "#7A4B00",
           weight=500, align="right", anim_in=tanim("fade", duration=0.4), name="Meta")
     label(t, t.track("text", "Mensaje"), "¡lo logré!", 4.5, 2.5, Box(60, 1450, 960, 150), "Fredoka", 120, "#7A4B00",
