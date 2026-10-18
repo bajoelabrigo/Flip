@@ -60,6 +60,7 @@
 #include "engine/OrtRuntime.h"
 #include "engine/MaskApplier.h"
 #include "engine/MatteWriter.h"
+#include "engine/FrameInterpolator.h"
 #include "engine/MediaEditor.h"
 #include "engine/AudioOnsets.h"
 #include "engine/LoudnessMeter.h"
@@ -22735,6 +22736,174 @@ void AppController::freezeFrameAtPlayhead()
                 pushProjectEdit(before, tr("Freeze frame added"));
                 finishEdit(tr("Freeze frame added"));
                 selectClip(trackIndex, insertAt);
+            },
+            Qt::QueuedConnection);
+    });
+}
+
+bool AppController::aiTransitionAvailable() const
+{
+    return drift::FrameInterpolator::modelPresent();
+}
+
+// AI transition (RIFE): from the last frame the clip shows into the first frame of the clip right
+// after it on the same track, kAiTransitionUs of in-between pictures made by the model, inserted
+// between the two as a clip of its own. The rest of the track (and the clip's linked audio) moves
+// right to make room, as the freeze frame does.
+void AppController::addAiTransitionAfter(int trackIndex, int clipIndex)
+{
+    if (!m_assetLibrary || !isValidClipIndex(trackIndex, clipIndex))
+        return;
+    constexpr drift::TimeUs kAiTransitionUs = drift::kUsPerSecond;
+    const drift::Track &track = std::as_const(m_project).tracks().at(trackIndex);
+    const drift::Clip &a = track.clips.at(clipIndex);
+    const auto isPicture = [](const drift::Clip &c) {
+        return c.type == drift::ClipType::Video || c.type == drift::ClipType::Image;
+    };
+    if (track.type != drift::TrackType::Video || !isPicture(a)) {
+        setLastMessage(tr("Select a video or photo clip with another one right after it"),
+                       QStringLiteral("warning"));
+        return;
+    }
+    // The next clip: the one starting where this one ends (within two frames).
+    const drift::TimeUs tolerance = 2 * drift::kUsPerSecond / qMax(1, m_project.fps());
+    int nextIndex = -1;
+    for (int i = 0; i < track.clips.size(); ++i) {
+        const drift::Clip &c = track.clips.at(i);
+        if (i == clipIndex || !isPicture(c))
+            continue;
+        if (qAbs(c.timelineStart - a.timelineEnd()) <= tolerance
+            && (nextIndex < 0 || c.timelineStart < track.clips.at(nextIndex).timelineStart))
+            nextIndex = i;
+    }
+    if (nextIndex < 0) {
+        setLastMessage(tr("There is no clip right after this one to blend into"), QStringLiteral("warning"));
+        return;
+    }
+    if (!drift::FrameInterpolator::modelPresent()) {
+        setLastMessage(tr("AI transitions need their extra: install it from Extras › AI tools"),
+                       QStringLiteral("warning"));
+        return;
+    }
+
+    const drift::Clip &b = track.clips.at(nextIndex);
+    // The frame each clip shows at the cut: the last of the first, the first of the second.
+    const drift::TimeUs nearEnd = qMax<drift::TimeUs>(0, 40'000);
+    struct Shot { QString path; drift::TimeUs us = 0; int rotation = 0; bool image = false; };
+    const Shot from{a.path, a.reverse ? a.srcIn : qMax(a.srcIn, a.srcOut - nearEnd), a.rotationCorrection,
+                    a.type == drift::ClipType::Image};
+    const Shot to{b.path, b.reverse ? qMax(b.srcIn, b.srcOut - nearEnd) : b.srcIn, b.rotationCorrection,
+                  b.type == drift::ClipType::Image};
+    const QString clipId = a.id;
+    const QString outPath = drift::newEditedMediaPath(m_project.id(), QStringLiteral("video"));
+    const int fps = qMax(1, m_project.fps());
+    const QString name = tr("AI transition");
+
+    setPlaying(false);
+    setLastMessage(tr("Making the AI transition…"));
+    (void)QtConcurrent::run([this, from, to, clipId, outPath, fps, name, kAiTransitionUs]() {
+        constexpr quint64 kStreamId = 0xA1'7A'05'00'00'00'00'01ull;
+        const auto grab = [](const Shot &shot) {
+            if (shot.image)
+                return QImage(shot.path);
+            return ClipReaderPool::instance().readVideoFrame(shot.path, kStreamId, shot.us, 3840, 3840,
+                                                             shot.rotation);
+        };
+        const QImage first = grab(from);
+        const QImage last = grab(to);
+        QString error;
+        bool ok = !first.isNull() && !last.isNull();
+        if (!ok)
+            error = tr("Couldn’t read the frames at the cut");
+        std::shared_ptr<drift::FrameInterpolator> model;
+        if (ok) {
+            model = drift::FrameInterpolator::load(&error);
+            ok = !!model;
+        }
+        const int frames = int((kAiTransitionUs * fps + drift::kUsPerSecond / 2) / drift::kUsPerSecond);
+        QSize size;
+        drift::MatteWriter writer;
+        for (int i = 0; ok && i < frames; ++i) {
+            const float t = float(i + 1) / float(frames + 1);
+            const QImage frame = model->interpolate(first, last, t, &error);
+            if (frame.isNull()) {
+                ok = false;
+                break;
+            }
+            if (i == 0) {
+                size = frame.size();
+                ok = writer.open(outPath, size, fps, 1, &error, drift::MatteWriter::Mode::Colour);
+            }
+            if (ok)
+                ok = writer.writeFrame(frame, &error);
+        }
+        if (ok)
+            ok = writer.finish(&error);
+        else
+            writer.abort();
+        const QString thumb =
+            ok ? MediaThumbnail::generate(outPath, drift::mediaKindToString(drift::MediaKind::Video)) : QString();
+        const MediaInfo info = ok ? MediaProbe::probe(outPath) : MediaInfo{};
+
+        QMetaObject::invokeMethod(
+            this,
+            [this, ok, error, outPath, thumb, info, clipId, name, kAiTransitionUs]() {
+                if (!ok) {
+                    QFile::remove(outPath);
+                    setLastMessage(error.isEmpty() ? tr("Couldn’t make the AI transition") : error,
+                                   QStringLiteral("error"));
+                    return;
+                }
+                int trackIndex = -1;
+                int clipIndex = -1;
+                for (int t = 0; t < m_project.tracks().size() && trackIndex < 0; ++t) {
+                    const drift::Track &tr0 = std::as_const(m_project).tracks().at(t);
+                    for (int c = 0; c < tr0.clips.size(); ++c) {
+                        if (tr0.clips.at(c).id == clipId) {
+                            trackIndex = t;
+                            clipIndex = c;
+                            break;
+                        }
+                    }
+                }
+                if (trackIndex < 0) {
+                    QFile::remove(outPath);
+                    return;
+                }
+                const drift::Project before = m_project.detachedCopy();
+                const QString assetId = insertRenderedVideoAsset(outPath, name, QString(), info);
+                const drift::Clip &a = std::as_const(m_project).tracks().at(trackIndex).clips.at(clipIndex);
+                const drift::TimeUs atUs = a.timelineEnd();
+                QSet<int> tracks{trackIndex};
+                for (const drift::ClipRef &ref : drift::linkedPartners(m_project, a))
+                    tracks.insert(ref.trackIndex);
+                rippleTracksFrom(m_project, tracks, atUs, kAiTransitionUs, {});
+
+                const drift::MediaAsset *asset = m_project.asset(assetId);
+                drift::Clip clip;
+                clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+                clip.assetId = assetId;
+                clip.type = drift::ClipType::Video;
+                clip.name = name;
+                clip.path = outPath;
+                clip.thumbnailPath = thumb;
+                clip.filmstripPath = thumb;
+                clip.timelineStart = atUs;
+                clip.timelineDuration = kAiTransitionUs;
+                clip.srcIn = 0;
+                clip.srcOut = asset && asset->durationUs > 0 ? qMin(asset->durationUs, kAiTransitionUs)
+                                                             : kAiTransitionUs;
+                clip.timelineDuration = clip.srcOut;
+                fitClipLayoutToCanvas(clip, asset ? asset->width : m_project.width(),
+                                      asset ? asset->height : m_project.height(), m_project.width(),
+                                      m_project.height());
+                drift::Track &target = m_project.tracks()[trackIndex];
+                target.clips.insert(clipIndex + 1, clip);
+
+                pushProjectEdit(before, tr("AI transition"));
+                finishEdit(tr("AI transition"));
+                selectClip(trackIndex, clipIndex + 1);
+                setLastMessage(tr("AI transition added"));
             },
             Qt::QueuedConnection);
     });

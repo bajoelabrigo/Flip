@@ -1638,6 +1638,9 @@ public:
     Q_INVOKABLE void clearWorkArea();
     Q_INVOKABLE void toggleLoopWorkArea();
     Q_INVOKABLE void freezeFrameAtPlayhead();
+    // AI transition (RIFE) from this clip into the one right after it; see AiTransition notes in the .cpp.
+    Q_INVOKABLE bool aiTransitionAvailable() const;
+    Q_INVOKABLE void addAiTransitionAfter(int trackIndex, int clipIndex);
     Q_INVOKABLE void copySelection();
     Q_INVOKABLE void cutSelection();
     Q_INVOKABLE void pasteAtPlayhead();

@@ -66,7 +66,7 @@ Jorge eligió **idéntico a Filmora, con acento turquesa**. Capturas de referenc
 
 ## 5. Funciones nuevas de IA (solo lo factible y gratis)
 Investigado y probado en la PC de Jorge (RTX 5060) el 2026-10-18; ver también la memoria del proyecto.
-- ⬜ **Transiciones con IA y cámara lenta suave: RIFE 4.25** (código y pesos MIT). ONNX listo del proyecto vs-mlrt,
+- 🟡 **Transiciones con IA: hecho en la rama** (`engine/FrameInterpolator`, `AppController::addAiTransitionAfter`: último fotograma del clip → primero del siguiente, 1 s de imágenes de RIFE escritas con `MatteWriter` en modo color, insertadas entre los dos y lo demás corrido; menú del clic derecho, Herramientas y tarjeta «Transición con IA» en Transiciones). Extra **`transiciones.ia` 1.0.0** (tipo `interp-model`) construido en `flip-addons/dist` (receta en `modelos.py`, modelo en `flip-addons/build/src/rife/`); **subirlo al release `packages` antes de publicar el índice**. Falta: compilar, probar en ventana y la cámara lenta suave (pendiente). Detalle original: **RIFE 4.25** (código y pesos MIT). ONNX listo del proyecto vs-mlrt,
   release `external-models`: `https://github.com/AmusementClub/vs-mlrt/releases/download/external-models/rife_v4.25.7z`.
   Usar el grafo de la carpeta **`rife_v2/`**: entrada `input` fp32 `[1,7,H,W]` = fotograma A en RGB, fotograma B en RGB
   y un plano con el instante t (p. ej. 0,5), valores 0–1 en planos; salida `output` `[1,3,H,W]` RGB; ~22,7 MB; ~70 ms
@@ -84,9 +84,9 @@ Investigado y probado en la PC de Jorge (RTX 5060) el 2026-10-18; ver también l
   (Stable Audio Open), stickers (FLUX.1 schnell). ElevenLabs ya está en el código (MCP `sfx_generate`) pero es de pago.
 
 ## 6. Vistas previas al pasar el mouse
-- ⬜ Las tarjetas de **plantillas y de Stock** se animan al entrar a la pestaña, pero **no al poner el mouse encima**:
+- 🟡 Hecho (falta verlo): `StockThumb.hasMotion` reproduce el `preview.mp4` de cualquier elemento, y `SceneTemplateBrowser` reproduce `preview` al pasar el mouse. Pedido: las tarjetas de **plantillas y de Stock** se animan al entrar a la pestaña, pero **no al poner el mouse encima**:
   al pasar el mouse tienen que reproducir su vista previa animada (`StockThumb.qml`, `SceneTemplateBrowser.qml`).
-- ⬜ **Efectos y Filtros (LUT):** al pasar el mouse, un **antes y después** animado sobre la foto de muestra
+- 🟡 LUT hecho con `components/BeforeAfterImage.qml` (Filtros y Ajustar › LUT; «antes» = `qrc:/retouch/original.jpg`). **Efectos: falta**, porque sus miniaturas no guardan la foto original (hay que regenerarlas con `tools/effectthumbs.cpp` guardando también la base). Pedido: **Efectos y Filtros (LUT):** al pasar el mouse, un **antes y después** animado sobre la foto de muestra
   (`EffectBrowser.qml`, `components/assets/FiltersTab.qml`, `components/properties/LutPage.qml`).
 
 ## 7. Pendientes viejos (todos entran)

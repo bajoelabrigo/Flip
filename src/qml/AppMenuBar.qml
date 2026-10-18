@@ -325,6 +325,16 @@ Row {
                                                                                      EditorState.selectedClip))
             }
             ThemedMenuItem {
+                text: qsTr("AI Transition to the Next Clip")
+                enabled: root.editing && EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
+                onTriggered: {
+                    if (EditorState.aiTransitionAvailable())
+                        EditorState.addAiTransitionAfter(EditorState.selectedTrack, EditorState.selectedClip)
+                    else
+                        root.win.openAddonManager("interp-model")
+                }
+            }
+            ThemedMenuItem {
                 text: qsTr("Transform Together")
                 shortcutText: root.keys("transformTogether")
                 enabled: root.editing && EditorState.transformTogetherAvailable

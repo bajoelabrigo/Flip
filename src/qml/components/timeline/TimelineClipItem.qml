@@ -350,6 +350,19 @@ Item {
             }
             ThemedMenuSeparator { visible: EditorState.selection.length > 1 && EditorState.makeCompositeAvailable }
 
+            // AI transition (RIFE): blends this clip's last frame into the next clip's first.
+            ThemedMenuItem {
+                text: qsTr("AI transition to the next clip")
+                icon.name: Theme.icons.sparkles
+                visible: clipItem.clipData.kind === "video" || clipItem.clipData.kind === "image"
+                onTriggered: {
+                    if (EditorState.aiTransitionAvailable())
+                        EditorState.addAiTransitionAfter(clipItem.trackIndex, clipItem.clipIndex)
+                    else
+                        clipItem.Window.window.openAddonManager("interp-model")
+                }
+            }
+
             ThemedMenuItem {
                 text: qsTr("Properties")
                 icon.name: Theme.icons.sliders

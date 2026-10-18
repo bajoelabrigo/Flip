@@ -743,6 +743,8 @@ add_library(driftengine STATIC
     src/engine/VdaDepth.cpp
     src/engine/Restorer.h
     src/engine/Restorer.cpp
+    src/engine/FrameInterpolator.h
+    src/engine/FrameInterpolator.cpp
     src/engine/DepthSidecar.h
     src/engine/DepthSidecar.cpp
     src/engine/FaceLandmarker.h
