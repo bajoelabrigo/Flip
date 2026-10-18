@@ -96,6 +96,22 @@ la computadora de cada uno, así que lo que crece son los servidores de Stock, c
 Jorge (2026-10-16): mirar las tendencias de CapCut, Instagram, Premiere, After Effects, Filmora… y hacer **al menos
 200 de cada tipo**, con calma y calidad primero.
 
+### Desplegado el 2026-10-18 (la 0.15.0, contenido y servidor antes que la app)
+- **Plantillas: 1.221** (883 + **300 de estilo youtuber** en la categoría `youtuber` + **20 contadores** en
+  `counter` + 18 de formatos ya existentes que entran en esta tanda), con `addedAt` por elemento.
+- **Sonidos: 243** (+43 de youtuber: whoosh, boom, ding, redoble, «error», clic de suscripción con campana),
+  **superposiciones: 504** (+40 ×2 y **24 marcos para la cámara** con el centro transparente), **transiciones: 223**
+  (+23 de youtuber, cada una dice qué sonido le va).
+- **Tercios de redes: 24** («@tuusuario» con Instagram, TikTok, YouTube, X, Facebook, Twitch y Threads).
+- **Halloween fuera** (plantillas, fondos, stickers, look, LUT, estilo y su kit; la música y los estilos de terror
+  se quedan como misterio y suspenso). Lo borrado se guardó en `tienda\plantillas\quitado-halloween`.
+- **Kits: 29** (`colecciones.json`; 390 elementos, comprobado que todos existen en el índice final).
+- **i18n:** los 13 idiomas cubren **4.140 elementos y 151 categorías** (`build.py --strict` sin faltantes).
+- **Servidor (`flipstudio-api`, rama `stock-0.15`):** sin Halloween (temporada y sinónimo), desplegado en PM2.
+- **Subida del contenido:** 5,38 GB en total, pero solo se subieron **1,6 GB (2.837 archivos cambiados)** con
+  `tools/scene_templates/publish_delta.py` + `apply_delta.sh` (clon por enlaces duros, `--unlink-first` y swap de la
+  carpeta entera). Comprobado en vivo: 1.221 plantillas, zips y miniaturas idénticos byte a byte, packs al día.
+
 ### Desplegado el 2026-10-17 (contenido y servidor; la app llega con la 0.14.0)
 - **Plantillas: 883** (533 + **350 de formatos nuevos**: publicaciones 1:1, historias de 15 s, anuncios de 6 s,
   miniaturas de YouTube, tercios inferiores, presentaciones de fotos, transiciones y separadores), con filtro de
@@ -225,3 +241,11 @@ Para negocios: lanzamiento, inmobiliaria, clases y cursos. Las fechas siguen el 
 ### Orden sugerido
 A (app y limpieza) → C y B (contenido, con hojas de contacto para revisar) → D (kits, cuando exista el contenido) →
 i18n de todo lo nuevo en los 13 idiomas → desplegar contenido → compilar una vez, probar en ventana y publicar.
+
+### Cerrado con la 0.15.0 (2026-10-18)
+- A, B, C y D hechos y desplegados; auditoría de marcas de las fotos de muestra terminada (781 fotos, 46 más
+  bloqueadas y 177 cambios de foto con las tarjetas rehechas).
+- Decisiones de Jorge: los kits de fecha van **solo con calendario del hemisferio norte**; los contadores se quedan
+  **con cortes** (animar los números en el motor queda como idea para una versión próxima).
+- Lo que sigue en la lista de Stock: pagos y tiendas de los usuarios (al final del proyecto), y el `delivery` de los
+  tipos que aún no tienen instalación propia.
