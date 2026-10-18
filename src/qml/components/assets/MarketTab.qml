@@ -22,9 +22,24 @@ Item {
     readonly property real sidePadding: compact ? Theme.androidPagePadding : Theme.pagePadding
     // Until the catalog is in (no consent yet, still loading, or unreachable) the stock tabs
     // collapse into one that leads to the consent panel or the loading and error states.
-    readonly property var stockTabs: Market.authenticated && Market.consented && Market.types.length > 0
-                                     ? Market.types
-                                     : [{ id: "stock", label: qsTr("Stock") }]
+    readonly property bool catalogReady: Market.authenticated && Market.consented && Market.types.length > 0
+    // Only All, Videos and Photos stay up here; our own kinds (templates, music, LUTs…) hang
+    // under All as chips, like the Text tab's categories. A server without "all" keeps them all
+    // as tabs.
+    readonly property var primaryIds: ["all", "video", "photo"]
+    readonly property bool groupsOwnTypes: Market.types.some(t => t.id === "all")
+    readonly property var ownTypes: catalogReady && groupsOwnTypes
+                                    ? Market.types.filter(t => primaryIds.indexOf(t.id) < 0) : []
+    readonly property var stockTabs: !catalogReady
+                                     ? [{ id: "stock", label: qsTr("Stock") }]
+                                     : groupsOwnTypes ? Market.types.filter(t => primaryIds.indexOf(t.id) >= 0)
+                                                      : Market.types
+    // "Home" (All with nothing searched, the shelves) leads the chips.
+    readonly property var ownCategories: ownTypes.length === 0 ? []
+                                         : [{ id: "all", label: qsTr("Home") }]
+                                           .concat(ownTypes.map(t => ({ id: t.id, label: t.label || t.id })))
+    readonly property bool showsOwnChips: ownCategories.length > 0
+                                          && ownCategories.some(c => c.id === root.section)
 
     // Android Back, forwarded by its host.
     function handleBack() {
@@ -152,6 +167,7 @@ Item {
                     delegate: Item {
                         required property var modelData
                         readonly property bool active: root.section === modelData.id
+                                                       || (modelData.id === "all" && root.showsOwnChips)
                         width: tabLabel.implicitWidth
                         height: tabLabel.implicitHeight + Theme.spacingLg + 2
                         Accessible.role: Accessible.PageTab
@@ -188,6 +204,25 @@ Item {
             width: parent.width
             height: Theme.borderWidth
             color: Theme.panelBorder
+        }
+
+        // Our own kinds under All. Wraps, like the Text tab's chips.
+        Flow {
+            x: root.sidePadding
+            width: parent.width - root.sidePadding * 2
+            spacing: Theme.spacingSm
+            visible: root.showsOwnChips
+
+            Repeater {
+                model: root.showsOwnChips ? root.ownCategories : []
+                delegate: ThemedChip {
+                    required property var modelData
+                    text: modelData.label
+                    variant: "outline"
+                    selected: root.section === modelData.id
+                    onClicked: root.showSection(modelData.id)
+                }
+            }
         }
     }
 
@@ -306,6 +341,8 @@ Item {
                      && Market.types.length > 0
             compact: root.compact
             query: root.query
+            categories: root.ownCategories
+            onCategoryActivated: (categoryId) => root.showSection(categoryId)
         }
     }
 }

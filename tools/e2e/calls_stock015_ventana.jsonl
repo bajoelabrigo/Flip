@@ -1,0 +1,4 @@
+{"tool": "screenshot", "args": {"path": "01-inicio.png"}}
+{"tool": "click", "args": {"x": 413, "y": 55}}
+{"tool": "screenshot", "args": {"path": "02-stock.png"}}
+{"tool": "market_home", "save": "03-home.json"}

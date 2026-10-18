@@ -1,4 +1,4 @@
-"""The 200 sound effects of Stock › Sonidos. Each is a function () -> signal; build.py finishes and encodes it."""
+"""The sound effects of Stock › Sonidos (200, plus 43 for creators). Each is a function () -> signal; build.py finishes and encodes it."""
 
 from __future__ import annotations
 
@@ -18,6 +18,7 @@ class Sound:
     category: str
     make: object
     tags: list = field(default_factory=list)
+    peak: float = -1.0   # dB; sustained buzzy tones go lower so they sit with the rest
 
 
 SOUNDS: dict[str, Sound] = {}
@@ -31,11 +32,12 @@ CATEGORIES = {
     "comedia": {"es": "Comedia", "en": "Comedy"},
     "suspenso": {"es": "Suspenso y drama", "en": "Suspense and drama"},
     "ritmo": {"es": "Ritmo y música", "en": "Beats and music"},
+    "youtuber": {"es": "Youtuber", "en": "YouTuber"},
 }
 
 
-def sound(id, es, en, category, fn, tags=()):
-    SOUNDS[id] = Sound(id, {"es": es, "en": en}, category, fn, list(tags))
+def sound(id, es, en, category, fn, tags=(), peak=-1.0):
+    SOUNDS[id] = Sound(id, {"es": es, "en": en}, category, fn, list(tags), peak)
 
 
 def R(name):
@@ -827,7 +829,7 @@ def dramatic_note(m, sec):
 sound("susto-terror", "Susto", "Jump scare", S,
       lambda: d.place([(d.reverb(d.stereo(sum(d.osc(d.midi(m) * (1 + 0.01 * np.sin(TAU * 7 * d.t_axis(1.5))), 1.5, "saw")
                                               for m in (72, 73, 78, 79)) * d.perc(d.samples(1.5), 0.005, 1.5) * 0.25, 0.6), 0.35, 2.0), 0, 1),
-                       (boom(1.5, seed="st"), 0, 0.6)]), ["susto", "terror", "jump scare", "miedo", "halloween"])
+                       (boom(1.5, seed="st"), 0, 0.6)]), ["susto", "terror", "jump scare", "miedo"])
 sound("revelacion", "Revelación", "Reveal sting", S,
       lambda: d.place([(riser_synth(1.2, 220, 660), 0, 0.6), (chime_seq([72, 79, 84, 88], 0.05, 1.6), 1.15, 0.9), (boom(2.0, seed="rv2"), 1.15, 0.5)]),
       ["revelacion", "reveal", "sorpresa", "antes y despues", "resultado"])
@@ -969,3 +971,356 @@ def applause(sec=3.0, density=55, seed="ap"):
 
 
 sound("aplausos", "Aplausos", "Applause", B, lambda: applause(), ["aplausos", "applause", "publico", "bravo", "felicitaciones"])
+
+
+# ================================================================ Youtuber (43)
+# The editing vocabulary of creator videos: whip pans, title slams, quiz answers, countdowns, text ticks, stutters.
+# Each one is our own take and different from the sounds above (no meme copies, no brand or creator names).
+
+Y = "youtuber"
+
+
+def whip(sec=0.2, seed="wp", pan_from=-0.6, pan_to=0.6, body=0.5):
+    """A camera whip pan: a bright, fast air sweep across the stereo field with a little low weight under it."""
+    air = whoosh(sec, 700, 8000, 2.2, "white", peak=0.55, pan_from=pan_from, pan_to=pan_to, seed=seed, verb=0.05)
+    low = whoosh(sec * 1.2, 90, 500, 1.2, "pink", peak=0.55, seed=seed + "l", verb=0)
+    return d.place([(air, 0, 1), (low, 0, body)])
+
+
+def sub808(f=49.0, sec=1.4, seed="808"):
+    t = d.t_axis(sec)
+    n = len(t)
+    y = d.osc(f + 2 * f * np.exp(-t / 0.012), sec) * d.perc(n, 0.001, sec)
+    y = d.lowpass(d.drive(y, 2.5), 3000)
+    nz = d.highpass(d.noise(0.006, "white", R(seed)), 3000) * d.perc(d.samples(0.006), 0.0002, 0.006)
+    y[:len(nz)] += nz * 0.3
+    return d.stereo(y, 0.05)
+
+
+def roll(sec=1.0, step=0.032, seed="yr", ending="snare", rumble=0.0):
+    r = R(seed)
+    parts = []
+    t, k = 0.0, 0
+    while t < sec:
+        g = 0.22 + 0.78 * (t / sec) ** 1.6
+        parts.append((d.pan(snare(seed + str(k)) * g, 0.15 if k % 2 else -0.15), t, 0.5))
+        t += step * (1 + 0.06 * r.uniform(-1, 1))
+        k += 1
+    if rumble:
+        n = d.samples(sec)
+        u = np.linspace(0, 1, n)
+        tom_bed = (d.osc(92, sec) * 0.6 + d.lowpass(d.noise(sec, "brown", R(seed + "rb")), 200)) * u ** 2
+        parts.append((d.stereo(tom_bed, 0.3), 0, rumble))
+    if ending == "snare":
+        parts += [(d.stereo(snare(seed + "end"), 0.2), sec, 1.0), (kick(), sec, 0.9)]
+    elif ending == "crash":
+        parts += [(cymbal(2.2, seed + "cr"), sec, 0.9), (kick(), sec, 1.0), (d.stereo(snare(seed + "end"), 0.2), sec, 0.7)]
+    return d.reverb(d.place(parts), 0.18, 1.0)
+
+
+def rewind(sec=1.1, seed="rw"):
+    t = d.t_axis(sec)
+    n = len(t)
+    u = t / sec
+    jitter = 1 + 0.08 * np.sin(TAU * 31 * t) + 0.05 * np.sin(TAU * 53 * t)
+    f = (900 + 1800 * u ** 0.7) * jitter
+    tone = d.bandpass(d.osc(f, sec, "saw"), 500, 6000) * 0.3
+    nz = d.sweep_filter(d.noise(sec, "white", R(seed)), f * 1.5, 3.0)
+    gate = 0.6 + 0.4 * (np.sin(TAU * 14 * t) > 0)
+    y = (tone + nz * 0.8) * gate * d.adsr(n, 0.03, 0.1, 0.9, 0.12)
+    return d.reverb(d.stereo(y, 0.3), 0.1, 0.5)
+
+
+def coins(sec=0.7, count=9, seed="co"):
+    r = R(seed)
+    parts = []
+    times = r.uniform(0, sec * 0.7, count)
+    for k, t in enumerate(times - times.min()):   # the first coin lands right away
+        f = r.uniform(2800, 5200)
+        jig = r.uniform(0.97, 1.03, 4)
+        c = additive(f, 0.35, [(1, 1), (1.47 * jig[0], 0.6), (2.09 * jig[1], 0.5), (2.56 * jig[2], 0.35), (3.9 * jig[3], 0.2)],
+                     [14, 18, 22, 30, 40])
+        c[:d.samples(0.004)] += click(6000, 0.004, seed + str(k))
+        parts.append((d.pan(c, r.uniform(-0.6, 0.6)), t, r.uniform(0.4, 1.0)))
+    return d.reverb(d.place(parts), 0.15, 0.5, bright=10000)
+
+
+def chord_stab(notes, sec=0.5, bright=3000, seed="cs"):
+    n = d.samples(sec)
+    y = np.zeros(n)
+    for m in notes:
+        for det in (-0.004, 0.004):
+            y += d.osc(d.midi(m) * (1 + det), sec, "saw") * 0.25
+    y = d.sweep_filter(y, 300 + bright * d.perc(n, 0.001, sec * 0.7), 1.1, kind="low")
+    return d.stereo(y * d.adsr(n, 0.004, 0.08, 0.6, min(0.25, sec * 0.5)), 0.5)
+
+
+def pluck(m, sec=0.35):
+    n = d.samples(sec)
+    y = sum(d.osc(d.midi(m) * (1 + det), sec, "saw") for det in (-0.005, 0.0, 0.006)) * 0.3
+    y = d.sweep_filter(y, 500 + 5000 * d.perc(n, 0.001, 0.25), 1.0, kind="low")
+    return y * d.perc(n, 0.002, sec)
+
+
+def marimba(m, sec=0.6):
+    f = d.midi(m)
+    y = additive(f, sec, [(1, 1), (3.93, 0.25), (9.2, 0.06)], [8, 22, 45])
+    y[:d.samples(0.003)] += click(f * 4, 0.003, "mr" + str(m)) * 0.2
+    return y
+
+
+def beep(m, sec=0.15, shape="sine"):
+    n = d.samples(sec)
+    f = d.midi(m)
+    y = d.osc(f, sec, shape) + 0.3 * d.osc(f * 2, sec, "tri")
+    return y * d.adsr(n, 0.003, 0.02, 0.8, 0.03)
+
+
+def womp_note(m, sec, bend_st, vib=0.0):
+    t = d.t_axis(sec)
+    u = t / sec
+    f = d.midi(m) * 2 ** (bend_st * u ** 1.5 / 12) * (1 + vib * 0.015 * np.sin(TAU * 5.5 * t) * (u > 0.3))
+    y = d.osc(f, sec, "square") * 0.5 + d.osc(f, sec, "saw") * 0.5
+    wah = 350 + 1400 * np.sin(np.pi * u) ** 0.8 * (1 if not vib else 0.7 + 0.3 * np.cos(TAU * 3.5 * t))
+    y = d.sweep_filter(y, wah, 2.2, kind="low")
+    return y * d.adsr(len(t), 0.03, 0.08, 0.85, 0.15)
+
+
+def plop(f=500, sec=0.08):
+    t = d.t_axis(sec)
+    return d.osc(f * (1 + 2.5 * t / sec), sec) * d.perc(len(t), 0.001, sec * 0.9)
+
+
+def stroke(sec, lo=2500, hi=8000, seed="st"):
+    n = d.samples(sec)
+    return d.bandpass(d.noise(sec, "white", R(seed)), lo, hi) * d.adsr(n, 0.004, 0.01, 0.8, sec * 0.4)
+
+
+def beat_repeat():
+    parts = []
+    t = 0.0
+    for step, count, rise in ((0.25, 2, 0), (0.125, 4, 0), (0.0625, 8, 0), (0.03125, 8, 1)):
+        for k in range(count):
+            up = k * rise
+            parts.append((chord_stab([60 + up, 64 + up, 67 + up, 72 + up], min(step * 0.85, 0.2), 3500), t, 1))
+            t += step
+    parts.append((kick(), t, 0.9))
+    return d.reverb(d.place(parts), 0.12, 0.7)
+
+
+def glue(x, threshold=0.3, ratio=4.0, release=0.12):
+    """Bus compression with one envelope for both channels: a mix of hits and tails reads as one punchy sound."""
+    st = d.to_stereo(x)
+    env = np.abs(st).max(axis=1)
+    env = env / (env.max() + 1e-9)
+    coef = math.exp(-1 / (SR * release))
+    sm = np.maximum(env, d.signal.lfilter([1 - coef], [1, -coef], env))
+    gain = np.where(sm > threshold, (threshold + (sm - threshold) / ratio) / np.maximum(sm, 1e-9), 1.0)
+    return st * gain[:, None]
+
+
+def intro_hit():
+    rc = d.fade(d.to_stereo(reverse_cymbal(0.9, "yig"))[-d.samples(1.0):], 0.3, 0.0)   # the bright last second swells in
+    t = len(rc) / SR
+    return glue(d.place([(rc, 0, 1.0), (chord_stab([48, 55, 60, 64, 67], 0.9, 4000), t, 0.5), (kick(), t, 1.0),
+                         (clap("yig2"), t, 0.6), (cymbal(1.5, "yig3"), t, 0.4)]))
+
+
+def text_ticks(sec=1.2, rate=14, seed="ytt"):
+    r = R(seed)
+    parts = []
+    t = 0.0
+    while t < sec:
+        f = r.uniform(2400, 2800)
+        y = click(r.uniform(3500, 5000), 0.006, seed + str(int(t * 1000)))
+        y = np.pad(y, (0, d.samples(0.012) - len(y))) + d.osc(f, 0.012) * d.perc(d.samples(0.012), 0.0005, 0.012) * 0.5
+        parts.append((d.pan(y, r.uniform(-0.15, 0.15)), t, r.uniform(0.75, 1.0)))
+        t += 1 / rate + r.uniform(-0.008, 0.008)
+    return d.reverb(d.place(parts), 0.08, 0.3)
+
+
+def dialog_blips(sec=1.4, seed="ydb"):
+    r = R(seed)
+    scale = [72, 74, 76, 79, 81, 84]
+    parts = []
+    t, word = 0.0, 0
+    while t < sec:
+        y = d.lowpass(tone_note(d.midi(scale[r.integers(0, len(scale))]), 0.045, "square", 0.05), 4000) * 0.4
+        parts.append((d.stereo(y, 0.05), t, 1))
+        t += 0.075
+        word += 1
+        if word >= r.integers(3, 7):
+            t += 0.12
+            word = 0
+    return d.reverb(d.place(parts), 0.08, 0.4)
+
+
+WP = ["whip pan", "barrido", "camara", "transicion", "youtuber", "edit"]
+sound("barrido-camara", "Barrido de cámara", "Whip pan", Y, lambda: whip(0.2, "yw1"), WP + ["rapido"])
+sound("barrido-camara-doble", "Barrido de cámara doble", "Double whip pan", Y,
+      lambda: d.place([(whip(0.18, "yw2", -0.7, 0.7), 0, 1), (whip(0.2, "yw3", 0.7, -0.7), 0.17, 0.95)]), WP + ["doble"])
+sound("barrido-golpe", "Barrido con golpe", "Whip pan hit", Y,
+      lambda: d.reverb(d.place([(whip(0.2, "yw4", -0.5, 0.3), 0, 0.9), (punch("yw5", heavy=True), 0.13, 1.0)]), 0.1, 0.6),
+      WP + ["golpe", "hit"])
+sound("corte-seco", "Corte seco", "Jump cut", Y,
+      lambda: d.place([(d.stereo(thump(180, 80, 0.09, 0.8, 1.4, "jc"), 0.05), 0, 1),
+                       (d.stereo(d.highpass(d.noise(0.05, "white", R("jc2")), 3000) * d.perc(d.samples(0.05), 0.001, 0.05), 0.3), 0, 0.35),
+                       (d.stereo(click(2200, 0.012, "jc3", 1.0), 0.05), 0, 0.6)]),
+      ["jump cut", "corte", "salto", "cut", "youtuber", "vlog"])
+sound("boom-808", "Boom 808 de revelación", "808 reveal boom", Y, lambda: d.reverb(sub808(49, 1.5, "y808"), 0.08, 0.6),
+      ["808", "boom", "revelacion", "reveal", "grave", "bass", "youtuber"])
+sound("golpe-eco", "Golpe con eco", "Echo slam", Y,
+      lambda: d.reverb(d.delay(d.to_stereo(punch("ye", heavy=True)), 0.21, 0.45, 0.45, 5), 0.2, 1.4),
+      ["golpe", "eco", "echo", "slam", "impacto", "drama", "youtuber"])
+sound("ding-idea", "Ding de idea", "Idea ding", Y,
+      lambda: d.place([(d.reverb(d.stereo(bell(d.midi(93), 1.5, 1.2) + bell(d.midi(100), 1.5, 0.8) * 0.35, 0.3), 0.3, 1.3), 0, 1),
+                       (sparkle_cloud(0.5, 30, 6000, 12000, "yid"), 0.02, 0.35)]),
+      ["idea", "ding", "bombilla", "lightbulb", "consejo", "tip", "youtuber"])
+sound("respuesta-correcta", "Respuesta correcta", "Correct answer", Y,
+      lambda: d.place([(d.stereo(np.concatenate([tone_note(d.midi(m), 0.08, "tri", 0.12) for m in (76, 79, 84)]) * 0.6, 0.1), 0, 1),
+                       (chime_seq([88, 91, 96], 0.0, 1.1, 1.0, 0.3), 0.24, 0.6),
+                       (sparkle_cloud(0.6, 25, seed="yra"), 0.25, 0.3)]),
+      ["correcto", "correct", "respuesta", "quiz", "trivia", "bien", "youtuber"])
+sound("respuesta-incorrecta", "Respuesta incorrecta", "Wrong answer buzzer", Y,
+      lambda: d.stereo(d.drive(d.lowpass(d.osc(98, 0.8, "saw") + d.osc(104, 0.8, "saw") + 0.6 * d.osc(147, 0.8, "square"), 1800)
+                               * (1 - 0.25 * (np.sin(TAU * 25 * d.t_axis(0.8)) > 0)) * d.adsr(d.samples(0.8), 0.005, 0.05, 0.85, 0.08) * 0.35,
+                               1.8), 0.15),
+      ["error", "incorrecto", "wrong", "buzzer", "quiz", "trivia", "fallo", "youtuber"], peak=-4.0)
+sound("error-doble", "Error doble", "Double error beep", Y,
+      lambda: d.place([(d.stereo(d.lowpass(beep(50, 0.14, "square"), 2200) * 0.5, 0.05), 0, 1),
+                       (d.stereo(d.lowpass(beep(47, 0.22, "square"), 2200) * 0.5, 0.05), 0.2, 1)]),
+      ["error", "no", "wrong", "beep", "fallo", "youtuber"], peak=-7.0)
+sound("redoble-corto", "Redoble corto", "Short drumroll", Y, lambda: roll(1.0, 0.03, "yr1", "snare"),
+      ["redoble", "drumroll", "corto", "anuncio", "suspenso", "youtuber"])
+sound("redoble-largo", "Redoble largo con platillo", "Long drumroll with crash", Y, lambda: roll(4.0, 0.034, "yr2", "crash", 0.5),
+      ["redoble", "drumroll", "largo", "platillo", "ganador", "revelacion", "youtuber"])
+sound("rebobinar", "Rebobinar", "Rewind", Y, lambda: rewind(1.1, "yrw"),
+      ["rebobinar", "rewind", "atras", "repetir", "vhs", "replay", "youtuber"])
+sound("monedas-mano", "Monedas en la mano", "Coins jingle", Y, lambda: coins(0.7, 10, "ycm"),
+      ["monedas", "coins", "dinero", "money", "cambio", "youtuber"])
+sound("venta-hecha", "Venta hecha", "Sale made", Y,
+      lambda: d.place([(d.stereo(click(1800, 0.03, "yv1", 1.0), 0.1), 0, 0.8),
+                       (d.stereo(d.bandpass(d.noise(0.16, "pink", R("yv2")), 600, 4000) * d.swell(d.samples(0.16), 0.3), 0.3), 0.03, 0.5),
+                       (coins(0.45, 7, "yv3"), 0.16, 0.7), (chime_seq([91, 96], 0.07, 1.1, 1.1, 0.3), 0.2, 0.8)]),
+      ["venta", "sale", "dinero", "money", "negocio", "ganancia", "youtuber"])
+sound("suscribir-campana", "Clic de suscripción y campana", "Subscribe click and bell", Y,
+      lambda: d.place([(click(2800, 0.01, "ys1", 0.5), 0, 1), (click(3800, 0.008, "ys2", 0.3), 0.06, 0.6)]
+                      + [(d.reverb(d.stereo(bell(d.midi(88), 1.0, 0.9), 0.3), 0.3, 1.0), t, g)
+                         for t, g in ((0.18, 0.9), (0.3, 0.7), (0.42, 0.5))]),
+      ["suscribirse", "subscribe", "campana", "bell", "clic", "notificaciones", "youtuber"])
+sound("timbre-mostrador", "Timbre de mostrador", "Service bell", Y,
+      lambda: d.place([(d.reverb(d.stereo(additive(2350, 2.0, [(1, 1), (2.76, 0.5), (5.4, 0.3), (8.9, 0.15)], [2.2, 3, 5, 8])
+                                          + np.pad(click(7000, 0.004, "ytm" + str(k)), (0, d.samples(2.0) - d.samples(0.004))) * 0.5, 0.2),
+                                 0.25, 1.2), k * 0.32, 1 - 0.25 * k) for k in range(2)]),
+      ["timbre", "service bell", "ding", "atencion", "mostrador", "youtuber"])
+sound("rafaga-fotos", "Ráfaga de fotos", "Burst shutter", Y,
+      lambda: d.place([(shutter("yb" + str(k)), k * 0.085, 1) for k in range(6)]
+                      + [(d.stereo(d.bandpass(d.noise(0.55, "pink", R("ybm")), 300, 1500) * 0.08, 0.2), 0, 1)]),
+      ["camara", "foto", "rafaga", "burst", "shutter", "sesion", "youtuber"])
+sound("foto-flash", "Foto con flash", "Flash camera", Y,
+      lambda: glue(d.place([(d.stereo(d.osc(d.glide(1500, 9000, 0.7), 0.7) * np.linspace(0, 1, d.samples(0.7)) ** 1.5 * 0.12, 0.1), 0, 1),
+                       (shutter("yff"), 0.72, 1), (pop(2000, 0.05), 0.72, 0.3)]), 0.25, 5.0, 0.05),
+      ["camara", "flash", "foto", "shutter", "paparazzi", "youtuber"])
+sound("aparecer-rebote", "Aparecer con rebote", "Bouncy pop-in", Y,
+      lambda: d.place([(pop(800), 0, 0.8), (boing(500, 0.35, 0.25, 16), 0.03, 0.6)]),
+      ["pop", "aparecer", "rebote", "texto", "emoji", "boing", "youtuber"])
+sound("subida-corta-golpe", "Subida corta y golpe", "Short riser hit", Y,
+      lambda: d.place([(riser_synth(0.9, 220, 1760, seed="ysr"), 0, 0.8), (kick(), 0.88, 1.0), (clap("ysc"), 0.88, 0.7),
+                       (cymbal(1.0, "ysy"), 0.88, 0.4)]),
+      ["riser", "subida", "golpe", "drop", "hit", "transicion", "youtuber"])
+sound("acento-tension", "Acento de tensión", "Tension sting", Y,
+      lambda: d.place([(d.reverb(d.stereo(d.lowpass(sum(d.osc(d.midi(m) * (1 + 0.003 * k), 1.6, "saw") for k, m in enumerate((74, 75, 80, 81))), 4000)
+                                          * (0.7 + 0.3 * np.sin(TAU * 14 * d.t_axis(1.6))) * d.adsr(d.samples(1.6), 0.01, 0.2, 0.6, 0.6) * 0.25, 0.6),
+                                 0.35, 1.6), 0, 1),
+                       (boom(1.2, 90, 40, 0.2, seed="yat"), 0, 0.4)]),
+      ["tension", "sting", "suspenso", "drama", "que", "giro", "youtuber"])
+sound("asombro", "Asombro sintetizado", "Wow synth swell", Y,
+      lambda: d.place([(d.reverb(d.stereo(d.sweep_filter(sum(d.osc(d.midi(m) * (1 + det), 2.4, "saw") for m in (60, 64, 67, 71, 74) for det in (-0.004, 0.004)),
+                                                         600 + 4400 * np.linspace(0, 1, d.samples(2.4)) ** 1.5, 0.9, kind="low")
+                                          * d.adsr(d.samples(2.4), 1.5, 0.2, 0.9, 0.6) * 0.12, 0.7), 0.4, 2.0), 0, 1),
+                       (sparkle_cloud(1.0, 25, seed="yas"), 1.4, 0.4)]),
+      ["wow", "asombro", "increible", "swell", "sorpresa", "pad", "youtuber"])
+sound("corte-glitch", "Corte glitch", "Glitch cut", Y,
+      lambda: d.stereo(d.bitcrush(np.concatenate([d.fade(chord_stab([60, 63, 67], 0.06, 4000)[:d.samples(L), 0], 0.001, 0.003)
+                                                  for L in (0.05, 0.05, 0.035, 0.035, 0.025, 0.025, 0.018, 0.018)]), 6, 2), 0.3),
+      ["glitch", "corte", "cut", "stutter", "digital", "transicion", "youtuber"], peak=-3.5)
+sound("tartamudeo-ritmico", "Tartamudeo rítmico", "Beat-repeat stutter", Y, beat_repeat,
+      ["stutter", "tartamudeo", "repeticion", "ritmo", "build up", "glitch", "youtuber"])
+sound("womp-womp", "Womp womp (fallo)", "Womp womp fail", Y,
+      lambda: d.reverb(d.stereo(np.concatenate([womp_note(55, 0.38, -1), np.zeros(d.samples(0.08)), womp_note(52, 1.1, -4, 1.0)]) * 0.5, 0.2),
+                       0.2, 1.0),
+      ["fallo", "fail", "womp", "triste", "perder", "humor", "youtuber"])
+sound("subir-nivel-moderno", "Subir de nivel moderno", "Modern level up", Y,
+      lambda: d.place([(riser_noise(0.45, 800, 12000, "ylu"), 0, 0.4)]
+                      + [(d.pan(pluck(m), (i % 3 - 1) * 0.35), i * 0.055, 0.6) for i, m in enumerate((72, 76, 79, 83, 84, 88, 91))]
+                      + [(chime_seq([84, 88, 91, 96], 0.0, 1.2, 1.0, 0.3), 0.4, 0.5), (sparkle_cloud(0.8, 30, seed="ylu2"), 0.4, 0.35)]),
+      ["level up", "subir de nivel", "logro", "mejora", "upgrade", "youtuber"])
+sound("cuenta-regresiva", "Cuenta regresiva 3, 2, 1", "3-2-1 countdown", Y,
+      lambda: d.reverb(d.place([(d.stereo(beep(81, 0.15) * 0.6, 0.05), float(k), 1) for k in range(3)]
+                               + [(d.stereo(beep(93, 0.6) * 0.6, 0.05), 3.0, 1)]), 0.15, 0.6),
+      ["cuenta regresiva", "countdown", "3 2 1", "beep", "inicio", "youtuber"])
+sound("cuenta-regresiva-rapida", "Cuenta regresiva rápida", "Quick countdown", Y,
+      lambda: d.place([(d.stereo(d.lowpass(beep(84, 0.09, "square"), 4000) * 0.4, 0.05), k * 0.25, 1) for k in range(5)]
+                      + [(d.stereo(d.lowpass(beep(96, 0.4, "square"), 5000) * 0.4, 0.05), 1.25, 1),
+                         (whoosh(0.3, 800, 8000, 1.5, peak=0.3, seed="yqc"), 1.25, 0.6)]),
+      ["cuenta regresiva", "countdown", "rapido", "beep", "go", "youtuber"], peak=-3.5)
+sound("texto-tecleo", "Tecleo de texto", "Text typing ticks", Y, lambda: text_ticks(),
+      ["texto", "typing", "letras", "escribir", "subtitulos", "tick", "youtuber"])
+sound("texto-dialogo", "Letras con pitido", "Dialogue blips", Y, lambda: dialog_blips(),
+      ["texto", "dialogo", "blips", "hablar", "letras", "retro", "youtuber"])
+sound("titulo-golpe", "Título con golpe", "Title slam", Y,
+      lambda: d.reverb(d.place([(whoosh(0.28, 400, 7000, 1.8, peak=0.92, seed="ytg", verb=0), 0, 0.8),
+                                (d.stereo(thump(140, 48, 0.5, 1.0, 2.2, "ytg2"), 0.1), 0.25, 1.0),
+                                (d.stereo(snare("ytg3"), 0.2), 0.25, 0.4)]), 0.2, 0.9),
+      ["titulo", "title", "slam", "texto", "golpe", "intro", "youtuber"])
+sound("titulo-desliza", "Título que se desliza", "Title slide-in", Y,
+      lambda: d.place([(whoosh(0.32, 1500, 9000, 1.2, "pink", peak=0.75, pan_from=-0.5, pan_to=0.2, seed="yts", verb=0.05), 0, 1),
+                       (d.stereo(click(4500, 0.008, "yts2") * 0.6, 0.05), 0.3, 1),
+                       (d.stereo(tone_note(1760, 0.08, "sine", 0.06) * 0.3, 0.1), 0.3, 1)]),
+      ["titulo", "title", "deslizar", "slide", "texto", "subtitulo", "youtuber"])
+sound("zoom-dramatico", "Zoom dramático", "Dramatic zoom", Y,
+      lambda: d.place([(whoosh(0.32, 250, 6000, 1.6, peak=0.95, seed="yzd", verb=0), 0, 0.8),
+                       (boom(1.6, 80, 30, 0.2, seed="yzd2"), 0.3, 0.7),
+                       (d.reverb(d.stereo(d.drive(d.lowpass(sum(d.osc(d.midi(m), 1.4, "saw") for m in (43, 50, 55, 56)), 1500)
+                                                  * d.adsr(d.samples(1.4), 0.005, 0.2, 0.5, 0.6) * 0.3, 1.5), 0.5), 0.3, 1.5), 0.3, 0.8)]),
+      ["zoom", "dramatico", "drama", "reaccion", "shock", "acercar", "youtuber"])
+sound("sorpresa", "Sorpresa", "Surprise", Y,
+      lambda: d.place([(d.stereo(d.osc(d.glide(250, 1300, 0.12, "ease"), 0.12) * d.adsr(d.samples(0.12), 0.01, 0.02, 0.9, 0.02) * 0.5, 0.1), 0, 1),
+                       (d.reverb(d.place([(d.pan(pluck(m, 0.6), (i - 1) * 0.3), 0, 0.5) for i, m in enumerate((84, 88, 91))]), 0.25, 1.0), 0.1, 1),
+                       (sparkle_cloud(0.5, 25, seed="ysp"), 0.12, 0.3)]),
+      ["sorpresa", "surprise", "ta-da", "wow", "aparecer", "youtuber"])
+sound("pensando", "Pensando…", "Thinking", Y,
+      lambda: d.reverb(d.place([(d.pan(marimba(m, 0.8 if i == 8 else 0.5), 0.3 if i % 2 else -0.3), i * 0.15, 0.7)
+                                for i, m in enumerate((72, 76, 79, 83, 81, 77, 74, 71, 72))]), 0.25, 1.0),
+      ["pensando", "thinking", "duda", "marimba", "espera", "quiz", "youtuber"])
+sound("burbuja-plop", "Burbuja", "Bubble plop", Y,
+      lambda: d.reverb(d.place([(d.stereo(plop(500), 0.05), 0, 1), (d.stereo(plop(760, 0.06), 0.05), 0.07, 0.6)]), 0.12, 0.4),
+      ["burbuja", "bubble", "plop", "texto", "aparecer", "agua", "youtuber"])
+sound("sticker", "Sticker que se pega", "Sticker slap", Y,
+      lambda: d.reverb(d.place([(d.stereo(d.bandpass(d.noise(0.05, "white", R("ysk")), 600, 6000) * d.perc(d.samples(0.05), 0.0003, 0.05), 0.2), 0, 0.8),
+                                (d.stereo(thump(380, 160, 0.07, 0.8, 1.3, "ysk2"), 0.05), 0, 0.8), (pop(1400, 0.05), 0.01, 0.4)]), 0.1, 0.4),
+      ["sticker", "pegar", "slap", "emoji", "aparecer", "youtuber"])
+sound("marcador", "Marcador que subraya", "Marker swipe", Y,
+      lambda: d.pan(d.bandpass(d.noise(0.45, "white", R("ymk")), 1500, 7000) * (0.7 + 0.3 * d.lowpass(R("ymk2").random(d.samples(0.45)), 40))
+                    * d.adsr(d.samples(0.45), 0.02, 0.05, 0.85, 0.08) * 0.6
+                    + d.osc(2700 * (1 + 0.03 * np.sin(TAU * 9 * d.t_axis(0.45))), 0.45) * d.swell(d.samples(0.45), 0.5, 1.5) * 0.12,
+                    np.linspace(-0.3, 0.3, d.samples(0.45))),
+      ["marcador", "marker", "subrayar", "resaltar", "highlight", "texto", "youtuber"])
+sound("check-tilde", "Marca de lista", "Checkmark", Y,
+      lambda: d.place([(d.stereo(stroke(0.05, seed="yck1"), 0.1), 0, 0.6), (d.stereo(stroke(0.12, seed="yck2"), 0.1), 0.06, 0.7),
+                       (d.reverb(d.stereo(bell(d.midi(96), 0.7) * 0.5, 0.2), 0.25, 0.9), 0.17, 0.8)]),
+      ["check", "lista", "tilde", "hecho", "done", "tarea", "youtuber"])
+sound("barra-carga", "Barra de carga completa", "Loading bar complete", Y,
+      lambda: d.place([(d.stereo(tone_note(d.midi(m), 0.06, "tri", 0.05) * 0.5, 0.1), i * 0.07, 1)
+                       for i, m in enumerate((72, 74, 76, 77, 79, 81, 83, 84, 86, 88, 89, 91, 93, 95, 96))]
+                      + [(chime_seq([96, 100, 103], 0.06, 1.0), 1.05, 0.7)]),
+      ["carga", "loading", "progreso", "completo", "descarga", "youtuber"])
+sound("intro-golpe", "Golpe de intro", "Intro hit", Y,
+      lambda: intro_hit(),
+      ["intro", "inicio", "golpe", "hit", "apertura", "acorde", "youtuber"])
+sound("cierre-video", "Cierre de video", "Outro sting", Y,
+      lambda: glue(d.reverb(d.place([(chord_stab([53, 57, 60, 65], 0.2), 0, 0.8), (kick(), 0, 0.7),
+                                (chord_stab([55, 59, 62, 67], 0.2), 0.22, 0.8), (kick(), 0.22, 0.7),
+                                (chord_stab([48, 55, 60, 64, 72], 1.4), 0.44, 1.0), (kick(), 0.44, 1.0), (cymbal(1.8, "ycv"), 0.44, 0.45)]),
+                       0.2, 1.2)),
+      ["cierre", "outro", "final", "despedida", "fin", "acorde", "youtuber"])

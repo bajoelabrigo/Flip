@@ -12915,6 +12915,10 @@
         <translation>Stock</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>Start</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>Sklep niedostępny</translation>
     </message>
@@ -16551,6 +16555,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Video thumbnails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Counters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>YouTuber style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

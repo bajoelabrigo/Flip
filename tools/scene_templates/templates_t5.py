@@ -310,7 +310,7 @@ def encuesta_cual_prefieres() -> Template:
     t = Template("encuesta-cual-prefieres", "¿Cuál prefieres?", "Which one do you prefer?", "text", 8.0,
                  order=1424, tags=["encuesta", "cuál prefieres", "esto o aquello", "comenta", "interacción"],
                  thumb_at=5.4, background="#1B1033")
-    halves = [("beach-06", "A · Playa", "38%", 0.38, 0, -1100), ("nature-05", "B · Montaña", "62%", 0.62, 960, 1100)]
+    halves = [("beach-01", "A · Playa", "38%", 0.38, 0, -1100), ("nature-05", "B · Montaña", "62%", 0.62, 960, 1100)]
     for i, (sample, label, pct, share, y, dx) in enumerate(halves):
         photos = t.track("video", f"Opción {'AB'[i]}")
         t.photo(photos, sample, 0.1 * i, 8.0 - 0.1 * i, Box(0, y, 1080, 960),
@@ -355,7 +355,7 @@ def ultimo_momento() -> Template:
     t = Template("ultimo-momento-noticia", "Último momento", "Breaking news", "text", 8.0,
                  order=1428, tags=["noticia", "último momento", "anuncio", "en vivo", "novedad"], thumb_at=3.0)
     video = t.track("video", "Video")
-    t.photo(video, "city-02", 0, 8.0, FULL, [(0, {"s": 1.08, "dx": 30}, "linear"), (8.0, {"s": 1.18, "dx": -30})],
+    t.photo(video, "city-01", 0, 8.0, FULL, [(0, {"s": 1.08, "dx": 30}, "linear"), (8.0, {"s": 1.18, "dx": -30})],
             label="Tu video", effects=[effect("color.basic", contrast=0.15, saturation=-0.1)])
     live = t.track("shape", "En vivo")
     t.solid(live, "#D90429", 0.2, 7.8, Box(50, 120, 260, 84), [(0, {"dx": -360}, "out"), (0.4, {})], radius=8,

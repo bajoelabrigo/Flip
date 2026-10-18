@@ -12869,6 +12869,10 @@
         <translation>ස්ටොක්</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>මුල් පිටුව</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>Marketplace ලබාගත නොහැක</translation>
     </message>
@@ -16486,6 +16490,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Counters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>YouTuber style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation type="unfinished">වෙනත්</translation>
     </message>
@@ -18577,7 +18589,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">මුල් පිටුව</translation>
     </message>
     <message>
         <source>Extras</source>

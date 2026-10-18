@@ -120,8 +120,8 @@ def transiciones_al_ritmo() -> Template:
     t = Template("transiciones-al-ritmo", "Transiciones al ritmo", "Beat-synced transitions", "reels", 10.0,
                  order=1105, tags=["transiciones", "ritmo", "amigos", "finde", "tendencia"], thumb_at=1.4)
     photos = t.track("video", "Tomas")
-    samples = ["friends-03", "friends-08", "friends-09", "friends-11", "friends-12", "friends-05", "friends-04",
-               "friends-10", "beach-03", "friends-06"]
+    samples = ["friends-03", "friends-08", "friends-09", "friends-11", "friends-12", "friends-10", "friends-01",
+               "friends-10", "beach-01", "y4c-friends-06"]
     clips = []
     for i, sample in enumerate(samples):
         drift = 40 if i % 2 else -40
@@ -159,7 +159,7 @@ def camara_lenta_con_letra() -> Template:
     t = Template("camara-lenta-con-letra", "Cámara lenta con letra", "Slow motion with lyrics", "reels", 12.0,
                  order=1110, tags=["cámara lenta", "letra", "canción", "pareja", "cinemático"], thumb_at=7.6)
     photos = t.track("video", "Tomas")
-    samples = ["couple-07", "beach-06", "couple-04", "nature-04"]
+    samples = ["couple-07", "beach-01", "couple-04", "nature-04"]
     clips = []
     for i, sample in enumerate(samples):
         start = i * 3.0 - (0.5 if i else 0.0)
@@ -200,7 +200,7 @@ def photo_dump_cinematico() -> Template:
                  background="#0B0B0B")
     t.solid(t.track("shape", "Fondo"), "#0B0B0B")
     photos = t.track("video", "Fotos")
-    samples = ["friends-03", "travel-07", "beach-05", "city-04", "friends-06", "cusco-01", "couple-08", "nature-01"]
+    samples = ["friends-03", "travel-07", "beach-01", "city-04", "y4c-friends-06", "cusco-01", "couple-08", "nature-01"]
     box = centered(540, 900, 900, 1125)
     each = beat(3)
     for i, sample in enumerate(samples):
@@ -243,7 +243,7 @@ def octubre_en_fotos() -> Template:
     t.solid(t.track("shape", "Fondo"), "#E8642C",
             layers=[gradient([(0, "#F08A3C"), (1, "#C9471F")], angle=120), no_stroke()])
     cover = t.track("video", "Portada")
-    t.photo(cover, "friends-07", 0.0, 2.6, FULL, [(0, {"s": 1.0}, "linear"), (2.6, {"s": 1.1})], label="Portada",
+    t.photo(cover, "y4c-friends-06", 0.0, 2.6, FULL, [(0, {"s": 1.0}, "linear"), (2.6, {"s": 1.1})], label="Portada",
             effects=[effect("builtin.effects.gaussian_blur", u_blurRadius=8), effect("color.basic", exposure=-0.15)])
     t.solid(t.track("shape", "Velo"), "#E8642C", 0.0, 2.6, alpha=0.5)
     rng = random.Random(10)
@@ -260,8 +260,8 @@ def octubre_en_fotos() -> Template:
             start += rng.uniform(0.35, 0.8)
     frames = t.track("shape", "Marcos")
     photos = t.track("video", "Fotos")
-    samples = ["cusco-04", "friends-09", "beach-03", "portrait-04", "friends-12", "travel-09", "couple-06",
-               "selfie-02", "friends-02", "man-01"]
+    samples = ["cusco-04", "friends-09", "beach-01", "portrait-04", "friends-12", "travel-09", "couple-06",
+               "selfie-02", "friends-01", "man-01"]
     for i, sample in enumerate(samples):
         start = 2.5 + i * beat(2)
         dur = beat(2) if i < len(samples) - 1 else t.duration - start
@@ -304,7 +304,7 @@ def mis_mejores_fotos() -> Template:
                  background="#FDE2E4")
     t.solid(t.track("shape", "Fondo"), "#FDE2E4",
             layers=[gradient([(0, "#FDE2E4"), (0.5, "#F6EAF5"), (1, "#DCEBF7")], angle=150), no_stroke()])
-    samples = ["portrait-04", "friends-11", "selfie-02", "beach-03", "portrait-05", "friends-08"]
+    samples = ["portrait-04", "friends-11", "selfie-02", "beach-01", "portrait-05", "friends-08"]
     steps = [1.5 + 2.0 * k for k in range(len(samples) - 1)]
     pitch = 800
 
@@ -384,7 +384,7 @@ def vhs_de_los_2000() -> Template:
     t = Template("vhs-de-los-2000", "VHS de los 2000", "2000s VHS", "reels", 10.0,
                  order=1135, tags=["vhs", "retro", "2000", "nostalgia", "cámara"], thumb_at=1.3)
     photos = t.track("video", "Tomas")
-    samples = ["friends-10", "friends-05", "friends-01", "man-01", "couple-02"]
+    samples = ["friends-10", "friends-12", "friends-01", "man-01", "couple-02"]
     for i, sample in enumerate(samples):
         t.photo(photos, sample, i * 2.0, 2.0, FULL, [(0, {"s": 1.06, "dx": -20}, "linear"), (2.0, {"s": 1.0, "dx": 20})],
                 label=f"Toma {i + 1}")
@@ -451,7 +451,7 @@ def espejo_caleidoscopio() -> Template:
     t = Template("espejo-caleidoscopio", "Espejo caleidoscopio", "Mirror kaleidoscope", "reels", 8.0,
                  order=1145, tags=["espejo", "caleidoscopio", "efecto", "psicodélico", "tendencia"], thumb_at=6.6)
     photos = t.track("video", "Fotos")
-    samples = ["concert-02", "nature-05", "travel-02", "makeup-03"]
+    samples = ["concert-02", "nature-05", "travel-02", "makeup-01"]
     for i, sample in enumerate(samples):
         t.photo(photos, sample, i * 2.0, 2.0, FULL, [(0, {"s": 1.12}, "snap"), (0.25, {"s": 1.0}, "linear"),
                                                     (2.0, {"s": 1.1})], label=f"Foto {i + 1}")
@@ -481,7 +481,7 @@ def pantalla_triple() -> Template:
     t.solid(t.track("shape", "Fondo"), "#000000")
     gap = 12
     h = (1920 - 2 * gap) / 3
-    rounds = [["skate-01", "city-02", "fashion-03"], ["man-05", "cusco-04", "skate-03"]]
+    rounds = [["skate-01", "city-01", "fashion-03"], ["man-05", "cusco-04", "beach-01"]]
     for r, samples in enumerate(rounds):
         for i, sample in enumerate(samples):
             side = -1 if (i + r) % 2 == 0 else 1
@@ -516,7 +516,7 @@ def estrobo_y_temblor() -> Template:
                  order=1155, tags=["estrobo", "temblor", "ritmo", "fiesta", "energía"], thumb_at=3.3,
                  background="#000000")
     photos = t.track("video", "Fotos")
-    samples = ["concert-04", "friends-04", "man-03", "gym-02"]
+    samples = ["concert-04", "friends-01", "man-03", "gym-01"]
     for k in range(16):
         mono = k % 2 == 1
         fx = [effect("color.basic", saturation=-1.0, contrast=0.35)] if mono else [effect("color.basic", contrast=0.2, saturation=0.25)]
@@ -546,7 +546,7 @@ def moodboard_aesthetic() -> Template:
     t.solid(t.track("shape", "Fondo"), "#EFE7DC")
     tiles = [(60, 330, 460, 560), (60, 910, 460, 380), (60, 1310, 460, 500),
              (560, 330, 460, 380), (560, 730, 460, 560), (560, 1310, 460, 500)]
-    samples = ["travel-05", "coffee-03", "cusco-01", "portrait-02", "beach-05", "nature-01"]
+    samples = ["travel-05", "coffee-03", "cusco-01", "portrait-02", "beach-01", "nature-01"]
     order = [0, 3, 4, 1, 2, 5]
     photos = t.track("video", "Fotos")
     clips = []
@@ -610,7 +610,7 @@ def este_o_este() -> Template:
                  background="#1C1C28")
     t.solid(t.track("shape", "Fondo"), "#1C1C28")
     top_box, bottom_box = Box(0, 0, 1080, 930), Box(0, 990, 1080, 930)
-    rounds = [(("beach-05", "Playa"), ("nature-05", "Montaña"), 0), (("city-04", "Ciudad"), ("cusco-01", "Pueblo"), 1)]
+    rounds = [(("beach-01", "Playa"), ("nature-05", "Montaña"), 0), (("city-04", "Ciudad"), ("cusco-01", "Pueblo"), 1)]
     tops = t.track("video", "Opción de arriba")
     bottoms = t.track("video", "Opción de abajo")
     dims = t.track("shape", "Sombra")
@@ -663,7 +663,7 @@ def letra_al_ritmo() -> Template:
     t = Template("letra-al-ritmo", "Letra al ritmo", "Lyrics on the beat", "reels", 10.0,
                  order=1175, tags=["letra", "canción", "ritmo", "fiesta", "palabras"], thumb_at=3.6)
     photos = t.track("video", "Fotos")
-    samples = ["concert-01", "friends-10", "concert-03", "friends-04", "beach-06"]
+    samples = ["concert-01", "friends-10", "concert-03", "friends-01", "beach-01"]
     for i, sample in enumerate(samples):
         t.photo(photos, sample, i * 2.0, 2.0, FULL, [(0, {"s": 1.1}, "snap"), (0.2, {"s": 1.02}, "linear"),
                                                     (2.0, {"s": 1.08})], label=f"Foto {i + 1}",
@@ -730,7 +730,7 @@ def jugadas_destacadas() -> Template:
                  order=1185, tags=["deporte", "fútbol", "highlights", "gol", "partido"], thumb_at=6.6,
                  background="#0B1F3A")
     photos = t.track("video", "Jugadas")
-    samples = ["beach-01", "man-03", "gym-06", "beach-06", "gym-02"]
+    samples = ["beach-01", "man-03", "gym-01", "h-beach-01", "y2-h-gym-01"]
     plan = [(0.0, 2.0), (2.0, 1.5), (3.5, 2.5), (6.0, 2.0), (8.0, 2.0)]
     clips = []
     for i, (sample, (start, dur)) in enumerate(zip(samples, plan)):
@@ -780,7 +780,7 @@ def edicion_callejera() -> Template:
     t = Template("edicion-callejera", "Edición callejera", "Street edit", "reels", 9.0,
                  order=1190, tags=["skate", "calle", "urbano", "crew", "ciudad"], thumb_at=3.3)
     photos = t.track("video", "Tomas")
-    samples = ["skate-01", "man-05", "city-02", "skate-03", "fashion-03", "cusco-04"]
+    samples = ["skate-01", "man-05", "city-01", "beach-01", "fashion-03", "cusco-04"]
     clips = []
     for i, sample in enumerate(samples):
         side = 60 if i % 2 else -60

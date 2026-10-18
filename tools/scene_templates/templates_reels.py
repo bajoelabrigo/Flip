@@ -25,10 +25,10 @@ def recap_del_anio() -> Template:
     t = Template("recap-del-anio", "Mi año en 12 meses", "My year in 12 months", "reels", 15.0,
                  order=20, tags=["recap", "año", "resumen", "meses", "2026"], thumb_at=1.4, background="#0E0E10")
     photos = t.track("video", "Fotos")
-    t.photo(photos, "friends-07", 0, 2.0, FULL, [(0, {"s": 1.0}, "smooth"), (2.0, {"s": 1.12})], label="Portada",
+    t.photo(photos, "y4c-friends-06", 0, 2.0, FULL, [(0, {"s": 1.0}, "smooth"), (2.0, {"s": 1.12})], label="Portada",
             effects=[effect("color.basic", exposure=-0.25, saturation=-0.1)])
-    samples = ["beach-01", "friends-04", "travel-03", "cafe-03", "birthday-03", "beach-04", "travel-08",
-               "friends-05", "graduation-02", "nature-03", "couple-02", "family-01"]
+    samples = ["beach-01", "friends-01", "travel-03", "cafe-01", "birthday-03", "h-beach-01", "travel-08",
+               "friends-01", "graduation-01", "nature-03", "couple-02", "family-01"]
     for i, (month, sample) in enumerate(zip(MONTHS, samples)):
         start = 2.0 + i
         t.photo(photos, sample, start, 1.0, FULL, [(0, {"s": 1.08}, "snap"), (0.25, {"s": 1.0}, "linear"),
@@ -61,7 +61,7 @@ def slowmo_cinematico() -> Template:
     t = Template("slowmo-cinematico", "Cámara lenta cinemática", "Cinematic slow motion", "reels", 10.0,
                  order=30, tags=["cine", "cinemático", "lento", "atardecer"], thumb_at=2.6)
     photos = t.track("video", "Tomas")
-    a = t.photo(photos, "beach-06", 0, 4.0, FULL, [(0, {"s": 1.0}, "linear"), (4.0, {"s": 1.1, "dx": -30})])
+    a = t.photo(photos, "beach-01", 0, 4.0, FULL, [(0, {"s": 1.0}, "linear"), (4.0, {"s": 1.1, "dx": -30})])
     b = t.photo(photos, "couple-05", 4.0, 3.0, FULL, [(0, {"s": 1.12}, "out"), (3.0, {"s": 1.02})])
     c = t.photo(photos, "nature-01", 7.0, 3.0, FULL, [(0, {"s": 1.0}, "linear"), (3.0, {"s": 1.12, "dy": 40})])
     t.transition(photos, a, b, "blur_dissolve", 0.8)
@@ -90,7 +90,7 @@ def hype_glitch() -> Template:
     t = Template("hype-glitch", "Hype con glitch", "Glitch hype", "reels", 8.0,
                  order=40, tags=["hype", "glitch", "energía", "gym", "fiesta"], thumb_at=6.75)
     photos = t.track("video", "Fotos")
-    samples = ["fashion-03", "gym-02", "man-03", "fashion-04", "friends-04", "man-02", "gym-01", "man-01"]
+    samples = ["fashion-03", "gym-01", "man-03", "fashion-04", "friends-01", "man-02", "y2-h-gym-01", "man-01"]
     for i, sample in enumerate(samples):
         t.photo(photos, sample, i * 1.0, 1.0, FULL,
                 [(0, {"s": 1.22}, "snap"), (0.18, {"s": 1.04}, "linear"), (0.5, {"s": 1.16}, "snap"),

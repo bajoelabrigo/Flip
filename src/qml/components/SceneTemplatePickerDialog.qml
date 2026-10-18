@@ -95,6 +95,10 @@ ThemedDialog {
             border.color: cardHover.hovered ? Theme.primary : Theme.panelBorder
             clip: true
 
+            scale: cardHover.hovered ? 1.02 : 1.0
+            Behavior on scale {
+                NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
+            }
             HoverHandler { id: cardHover; cursorShape: Qt.PointingHandCursor }
             TapHandler { onTapped: card.picked() }
 

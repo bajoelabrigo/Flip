@@ -16,6 +16,8 @@ import sys
 import time
 import urllib.parse
 import urllib.request
+
+import renderlock
 from pathlib import Path
 
 # theme -> (query, how many, orientation)
@@ -191,13 +193,23 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--keys", required=True, type=Path)
     parser.add_argument("--out", required=True, type=Path)
+    # A batch's own themes, as {"theme": ["query", count, "portrait"|"landscape"]}: only those are fetched.
+    parser.add_argument("--themes", type=Path)
     args = parser.parse_args()
+    themes = THEMES
+    if args.themes:
+        themes = {k: tuple(v) for k, v in json.loads(args.themes.read_text(encoding="utf-8")).items()}
+    with renderlock.exclusive("downloading samples"):
+        return fetch(args, themes)
+
+
+def fetch(args, themes) -> int:
     key = read_key(args.keys, "PEXELS_API_KEY")
     args.out.mkdir(parents=True, exist_ok=True)
     credits_path = args.out / "CREDITS.json"
     credits = json.loads(credits_path.read_text(encoding="utf-8")) if credits_path.exists() else {}
 
-    for theme, (query, count, orientation) in THEMES.items():
+    for theme, (query, count, orientation) in themes.items():
         existing = sorted(args.out.glob(f"{theme}-*.jpg"))
         if len(existing) >= count:
             continue

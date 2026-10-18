@@ -121,14 +121,15 @@ def strip(preview: Path, fam, target: Path) -> None:
 
 
 def meta(fam, v) -> dict:
-    return {"id": v.id, "package": package_id(v), "names": {"es": v.es, "en": v.en}, "category": fam.category,
+    extra = {"description": v.note} if v.note else {}
+    return {**extra, "id": v.id, "package": package_id(v), "names": {"es": v.es, "en": v.en}, "category": fam.category,
             "categoryNames": CATEGORIES[fam.category], "family": fam.key, "durationSec": round(window(fam)[1] - window(fam)[0], 3),
             "tags": sorted(set(fam.tags + v.tags + ["transicion", "transition"])), "width": 768, "height": 432}
 
 
 def package_meta(v) -> dict:
     return {"id": package_id(v), "name": v.en, "version": "1.0.0", "author": "Flip Studio",
-            "description": v.es, "details": "", "license": "Flip Studio Stock", "minAppVersion": "0.13.0",
+            "description": v.es, "details": v.note.get("es", ""), "license": "Flip Studio Stock", "minAppVersion": "0.13.0",
             "generator": "flip-stock"}
 
 

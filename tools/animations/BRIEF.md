@@ -35,7 +35,7 @@ mano (subrayados, recuadros, flechas con bucle, espirales), brillos Y2K de cuatr
 asterisco, sello ondulado), iconos de redes **genéricos** (en vivo, republicar, nuevo seguidor, verificado),
 emojis propios (guiño, lentes, derritiéndose, diablillo…), precios y ofertas, gráficos, cargando/descargar,
 cuenta regresiva **sin números** (puntos que se van), bocadillos y tarjetas, clima y naturaleza, comida y
-fiestas **de todo el mundo** (Navidad, Año Nuevo, San Valentín, Halloween, Pascua, Diwali, Año Nuevo Lunar,
+fiestas **de todo el mundo** (Navidad, Año Nuevo, San Valentín, Pascua, Diwali, Año Nuevo Lunar,
 Ramadán, graduación, bodas), nada solo peruano ni latino.
 
 Categorías nuevas: `fechas` (Fechas especiales), `comida` (Comida y bebida), `deportes`, `iconos`

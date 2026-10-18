@@ -12823,6 +12823,10 @@
         <translation>ストック</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>ホーム</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>マーケットプレイスを利用できません</translation>
     </message>
@@ -16415,6 +16419,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Video thumbnails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Counters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>YouTuber style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

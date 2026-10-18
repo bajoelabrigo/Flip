@@ -248,6 +248,10 @@ Column {
                         border.width: current ? 2 : Theme.borderWidth
                         border.color: current ? Theme.primary : Theme.panelBorder
                         opacity: lutPage.host.canEdit ? 1 : 0.5
+                        scale: tileMouse.pressed ? 0.97 : (tileMouse.containsMouse ? 1.02 : 1.0)
+                        Behavior on scale {
+                            NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
+                        }
 
                         Image {
                             id: thumb
@@ -272,7 +276,9 @@ Column {
                             font.pixelSize: Theme.fontSizeXs
                         }
                         MouseArea {
+                            id: tileMouse
                             anchors.fill: parent
+                            hoverEnabled: true
                             enabled: lutPage.host.canEdit
                             acceptedButtons: Qt.LeftButton | Qt.RightButton
                             cursorShape: Qt.PointingHandCursor

@@ -61,6 +61,7 @@
   "music:triste": "Buồn và cảm xúc",
   "overlay:amor": "Tình yêu",
   "overlay:camara": "Máy quay và màn hình",
+  "overlay:camara-cara": "Khung facecam",
   "overlay:celebracion": "Ăn mừng",
   "overlay:clima": "Thời tiết và thiên nhiên",
   "overlay:garabatos": "Nét vẽ tay",
@@ -69,6 +70,7 @@
   "overlay:marcos": "Khung và kết cấu",
   "overlay:particulas": "Hạt và lấp lánh",
   "overlay:pelicula": "Phim và retro",
+  "overlay:youtuber": "YouTuber",
   "shape:arrows": "Mũi tên",
   "shape:badges": "Huy hiệu",
   "shape:bubbles": "Bong bóng hội thoại",
@@ -93,12 +95,14 @@
   "sound:ritmo": "Nhịp và âm nhạc",
   "sound:suspenso": "Hồi hộp và kịch tính",
   "sound:transiciones": "Chuyển cảnh",
+  "sound:youtuber": "YouTuber",
   "template:ad6": "Quảng cáo 6 giây",
   "template:beforeafter": "Trước và sau",
   "template:business": "Kinh doanh",
   "template:celebration": "Lễ kỷ niệm",
   "template:collage": "Ghép ảnh",
   "template:countdown": "Đếm ngược",
+  "template:counter": "Bộ đếm",
   "template:intro": "Intro và tiêu đề",
   "template:lowerthird": "Chú thích cuối màn hình",
   "template:outro": "Kết thúc",
@@ -110,6 +114,7 @@
   "template:text": "Văn bản",
   "template:thumbnail": "Ảnh thu nhỏ video",
   "template:transition": "Chuyển cảnh và phân cách",
+  "template:youtuber": "Phong cách youtuber",
   "text-animation:brillo": "Tỏa sáng và màu sắc",
   "text-animation:caer": "Rơi và bay lên",
   "text-animation:desenfoque": "Mờ và tan dần",
@@ -134,7 +139,7 @@
   "text-style:retro": "Retro và Y2K",
   "text-style:subtitulos": "Phụ đề viral",
   "text-style:tercios": "Chữ dưới màn hình",
-  "text-style:terror": "Kinh dị và Halloween",
+  "text-style:terror": "Kinh dị và bí ẩn",
   "text-style:titulos": "Tiêu đề",
   "transition:3d": "3D và giấy",
   "transition:barridos": "Quét màn hình",
@@ -144,6 +149,7 @@
   "transition:liquido": "Mực và chất lỏng",
   "transition:luz": "Ánh sáng và phim",
   "transition:movimiento": "Chuyển động",
+  "transition:youtuber": "YouTuber",
   "transition:zoom": "Zoom và nhấn"
  },
  "items": {
@@ -397,15 +403,6 @@
     "ship",
     "đơn hàng",
     "bưu kiện"
-   ]
-  },
-  "animation:calabaza": {
-   "name": "Đèn bí ngô",
-   "tags": [
-    "halloween",
-    "bí ngô",
-    "tháng 10",
-    "đáng sợ"
    ]
   },
   "animation:calendario": {
@@ -1075,15 +1072,6 @@
     "cảnh báo"
    ]
   },
-  "animation:fantasma": {
-   "name": "Con ma",
-   "tags": [
-    "halloween",
-    "con ma",
-    "boo",
-    "đáng sợ"
-   ]
-  },
   "animation:farol-rojo": {
    "name": "Đèn lồng đỏ",
    "tags": [
@@ -1578,15 +1566,6 @@
     "ngôi sao",
     "bông hoa",
     "biến hình"
-   ]
-  },
-  "animation:murcielago": {
-   "name": "Con dơi",
-   "tags": [
-    "halloween",
-    "ban đêm",
-    "con dơi",
-    "đáng sợ"
    ]
   },
   "animation:nieve": {
@@ -3026,26 +3005,6 @@
     "thành tích",
     "khóa",
     "ra trường",
-    "hình nền"
-   ]
-  },
-  "background:halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "kinh dị",
-    "tháng 10",
-    "bí ngô",
-    "hình nền"
-   ]
-  },
-  "background:halloween-2": {
-   "name": "Halloween 2",
-   "tags": [
-    "halloween",
-    "kinh dị",
-    "tháng 10",
-    "bí ngô",
     "hình nền"
    ]
   },
@@ -4824,17 +4783,6 @@
     "đậm",
     "ấm",
     "trầm",
-    "chỉnh màu"
-   ]
-  },
-  "look:moody-halloween": {
-   "name": "Đêm ma quái",
-   "tags": [
-    "ma quái",
-    "halloween",
-    "đêm",
-    "tím",
-    "tối",
     "chỉnh màu"
    ]
   },
@@ -6702,7 +6650,6 @@
    "tags": [
     "điện ảnh",
     "sợ",
-    "halloween",
     "tối",
     "lut"
    ]
@@ -7004,16 +6951,6 @@
     "xám",
     "đô thị",
     "lạnh",
-    "lut"
-   ]
-  },
-  "lut:est-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "mùa",
-    "halloween",
-    "cam",
-    "kinh dị",
     "lut"
    ]
   },
@@ -9207,7 +9144,6 @@
   "music:dance-of-the-dead-30s": {
    "name": "Vũ Điệu Tử Thần · 30 giây",
    "tags": [
-    "halloween",
     "ma",
     "nhảy",
     "kinh dị",
@@ -9647,7 +9583,6 @@
   "music:fright-night-twist-30s": {
    "name": "Đêm Kinh Hoàng · 30 giây",
    "tags": [
-    "halloween",
     "ma",
     "kinh dị",
     "đêm",
@@ -9753,7 +9688,6 @@
   "music:ghost-town-30s": {
    "name": "Thị Trấn Ma · 30 giây",
    "tags": [
-    "halloween",
     "ma",
     "kinh dị",
     "nhanh",
@@ -9894,7 +9828,6 @@
   "music:haunted-houses-30s": {
    "name": "Nhà Ma · 30 giây",
    "tags": [
-    "halloween",
     "ma",
     "kinh dị",
     "đêm",
@@ -10700,7 +10633,6 @@
   "music:night-in-the-castle-30s": {
    "name": "Đêm Trong Lâu Đài · 30 giây",
    "tags": [
-    "halloween",
     "ma",
     "lâu đài",
     "chậm",
@@ -11850,7 +11782,6 @@
   "music:witch-waltz-30s": {
    "name": "Vũ Điệu Phù Thủy · 30 giây",
    "tags": [
-    "halloween",
     "phù thủy",
     "waltz",
     "kinh dị",
@@ -11860,7 +11791,6 @@
   "music:wizard-circus-30s": {
    "name": "Xiếc Pháp Thuật · 30 giây",
    "tags": [
-    "halloween",
     "xiếc",
     "ma thuật",
     "vui",
@@ -12534,6 +12464,250 @@
     "sấm sét",
     "mưa",
     "thời tiết"
+   ]
+  },
+  "overlay:facecam-burbuja": {
+   "name": "Bong bóng hội thoại",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "bong bóng",
+    "streamer"
+   ]
+  },
+  "overlay:facecam-circulo-blanco": {
+   "name": "Vòng tròn trắng",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "vòng tròn",
+    "màu trắng"
+   ]
+  },
+  "overlay:facecam-circulo-degradado": {
+   "name": "Vòng tròn chuyển màu",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "vòng tròn",
+    "chuyển màu"
+   ]
+  },
+  "overlay:facecam-circulo-dorado": {
+   "name": "Vòng tròn vàng kim",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "vòng tròn",
+    "vàng kim"
+   ]
+  },
+  "overlay:facecam-circulo-neon": {
+   "name": "Vòng tròn neon",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "vòng tròn",
+    "neon"
+   ]
+  },
+  "overlay:facecam-circulo-ondas": {
+   "name": "Vòng tròn khi nói",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "vòng tròn",
+    "sóng âm",
+    "podcast"
+   ]
+  },
+  "overlay:facecam-comic": {
+   "name": "Truyện tranh pop",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "truyện tranh",
+    "pop art"
+   ]
+  },
+  "overlay:facecam-cuadrado": {
+   "name": "Hình vuông bo góc",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "hình vuông",
+    "bo góc"
+   ]
+  },
+  "overlay:facecam-cyber": {
+   "name": "HUD cyber",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "cyber",
+    "hud",
+    "gaming"
+   ]
+  },
+  "overlay:facecam-en-vivo-es": {
+   "name": "En vivo với vòng tròn (tiếng Tây Ban Nha)",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "phát trực tiếp",
+    "tiếng tây ban nha"
+   ]
+  },
+  "overlay:facecam-esquinas": {
+   "name": "Góc khung",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "góc",
+    "tối giản"
+   ]
+  },
+  "overlay:facecam-estudio": {
+   "name": "Phòng thu podcast",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "podcast",
+    "phòng thu"
+   ]
+  },
+  "overlay:facecam-gamer-neon": {
+   "name": "Gamer neon",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "gamer",
+    "neon",
+    "gaming"
+   ]
+  },
+  "overlay:facecam-gamer-rgb": {
+   "name": "Gamer RGB",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "gamer",
+    "rgb",
+    "gaming"
+   ]
+  },
+  "overlay:facecam-glitch": {
+   "name": "Glitch",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "glitch",
+    "streamer"
+   ]
+  },
+  "overlay:facecam-hexagono-neon": {
+   "name": "Lục giác neon",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "lục giác",
+    "neon"
+   ]
+  },
+  "overlay:facecam-hexagono-tech": {
+   "name": "Lục giác công nghệ",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "lục giác",
+    "công nghệ"
+   ]
+  },
+  "overlay:facecam-live-en": {
+   "name": "Live với vòng tròn (tiếng Anh)",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "live",
+    "tiếng anh"
+   ]
+  },
+  "overlay:facecam-madera": {
+   "name": "Khung gỗ",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "gỗ",
+    "tự nhiên"
+   ]
+  },
+  "overlay:facecam-minimal": {
+   "name": "Tối giản",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "tối giản",
+    "gọn gàng"
+   ]
+  },
+  "overlay:facecam-pastel": {
+   "name": "Pastel với trái tim",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "pastel",
+    "trái tim"
+   ]
+  },
+  "overlay:facecam-placa-nombre": {
+   "name": "Có bảng tên của bạn",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "tên",
+    "bảng tên"
+   ]
+  },
+  "overlay:facecam-rayos": {
+   "name": "Tia sét điện",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "tia sét",
+    "điện"
+   ]
+  },
+  "overlay:facecam-tv-retro": {
+   "name": "TV cổ điển",
+   "tags": [
+    "facecam",
+    "webcam",
+    "khung",
+    "tivi",
+    "retro"
    ]
   },
   "overlay:garabato-angel": {
@@ -13679,6 +13853,406 @@
     "giấy",
     "texture",
     "vintage"
+   ]
+  },
+  "overlay:yt-barra-reproduccion": {
+   "name": "Thanh phát video",
+   "tags": [
+    "youtuber",
+    "trình phát video",
+    "thanh phát",
+    "phát lại",
+    "nhà sáng tạo"
+   ]
+  },
+  "overlay:yt-campana": {
+   "name": "Chuông thông báo",
+   "tags": [
+    "youtuber",
+    "chuông",
+    "thông báo",
+    "đăng ký",
+    "nhà sáng tạo"
+   ]
+  },
+  "overlay:yt-check-verde": {
+   "name": "Dấu tích xanh",
+   "tags": [
+    "youtuber",
+    "dấu tích",
+    "đúng",
+    "xanh lá",
+    "nhà sáng tạo"
+   ]
+  },
+  "overlay:yt-circulo-flecha": {
+   "name": "Vòng tròn và mũi tên đỏ",
+   "tags": [
+    "youtuber",
+    "vòng tròn",
+    "mũi tên",
+    "màu đỏ",
+    "thumbnail"
+   ]
+  },
+  "overlay:yt-circulo-neon": {
+   "name": "Vòng tròn neon",
+   "tags": [
+    "youtuber",
+    "vòng tròn",
+    "neon",
+    "làm nổi bật",
+    "nhà sáng tạo"
+   ]
+  },
+  "overlay:yt-comentario-pop": {
+   "name": "Bình luận bật lên",
+   "tags": [
+    "youtuber",
+    "bình luận",
+    "bật lên",
+    "mạng xã hội",
+    "nhà sáng tạo"
+   ]
+  },
+  "overlay:yt-compartir-pop": {
+   "name": "Nút chia sẻ bật lên",
+   "tags": [
+    "youtuber",
+    "chia sẻ",
+    "bật lên",
+    "mạng xã hội",
+    "nhà sáng tạo"
+   ]
+  },
+  "overlay:yt-contador-likes": {
+   "name": "Bộ đếm lượt thích",
+   "tags": [
+    "youtuber",
+    "lượt thích",
+    "like",
+    "bộ đếm",
+    "nhà sáng tạo"
+   ]
+  },
+  "overlay:yt-contador-seguidores": {
+   "name": "Bộ đếm người theo dõi",
+   "tags": [
+    "youtuber",
+    "người theo dõi",
+    "người đăng ký",
+    "bộ đếm",
+    "nhà sáng tạo"
+   ]
+  },
+  "overlay:yt-contador-vistas": {
+   "name": "Bộ đếm lượt xem",
+   "tags": [
+    "youtuber",
+    "lượt xem",
+    "bộ đếm",
+    "viral",
+    "nhà sáng tạo"
+   ]
+  },
+  "overlay:yt-cursor-clic": {
+   "name": "Con trỏ đang nhấp",
+   "tags": [
+    "youtuber",
+    "con trỏ",
+    "nhấp chuột",
+    "chuột",
+    "hướng dẫn"
+   ]
+  },
+  "overlay:yt-emoji-100": {
+   "name": "Emoji 100 3D",
+   "tags": [
+    "youtuber",
+    "emoji",
+    "100",
+    "3d",
+    "biểu cảm"
+   ]
+  },
+  "overlay:yt-emoji-calavera": {
+   "name": "Emoji đầu lâu 3D",
+   "tags": [
+    "youtuber",
+    "emoji",
+    "đầu lâu",
+    "3d",
+    "biểu cảm"
+   ]
+  },
+  "overlay:yt-emoji-enamorado": {
+   "name": "Emoji mắt trái tim 3D",
+   "tags": [
+    "youtuber",
+    "emoji",
+    "yêu thích",
+    "trái tim",
+    "3d"
+   ]
+  },
+  "overlay:yt-emoji-fuego": {
+   "name": "Emoji ngọn lửa 3D",
+   "tags": [
+    "youtuber",
+    "emoji",
+    "lửa",
+    "3d",
+    "biểu cảm"
+   ]
+  },
+  "overlay:yt-emoji-llorando": {
+   "name": "Emoji khóc 3D",
+   "tags": [
+    "youtuber",
+    "emoji",
+    "khóc",
+    "buồn",
+    "3d"
+   ]
+  },
+  "overlay:yt-emoji-risa": {
+   "name": "Emoji cười ra nước mắt 3D",
+   "tags": [
+    "youtuber",
+    "emoji",
+    "cười",
+    "haha",
+    "3d"
+   ]
+  },
+  "overlay:yt-emoji-sorpresa": {
+   "name": "Emoji sốc 3D",
+   "tags": [
+    "youtuber",
+    "emoji",
+    "ngạc nhiên",
+    "sốc",
+    "3d"
+   ]
+  },
+  "overlay:yt-flecha-neon": {
+   "name": "Mũi tên neon",
+   "tags": [
+    "youtuber",
+    "mũi tên",
+    "neon",
+    "chỉ dẫn",
+    "nhà sáng tạo"
+   ]
+  },
+  "overlay:yt-flecha-roja": {
+   "name": "Mũi tên đỏ chỉ dẫn",
+   "tags": [
+    "youtuber",
+    "mũi tên",
+    "màu đỏ",
+    "chỉ dẫn",
+    "thumbnail"
+   ]
+  },
+  "overlay:yt-flechas-amarillas": {
+   "name": "Mũi tên vàng hai bên",
+   "tags": [
+    "youtuber",
+    "mũi tên",
+    "màu vàng",
+    "chỉ dẫn",
+    "nhà sáng tạo"
+   ]
+  },
+  "overlay:yt-iconos-fila": {
+   "name": "Thích, bình luận và chia sẻ",
+   "tags": [
+    "youtuber",
+    "thích",
+    "bình luận",
+    "chia sẻ",
+    "biểu tượng"
+   ]
+  },
+  "overlay:yt-iconos-lateral": {
+   "name": "Nút bên cạnh của video ngắn",
+   "tags": [
+    "youtuber",
+    "shorts",
+    "nút",
+    "video ngắn",
+    "biểu tượng"
+   ]
+  },
+  "overlay:yt-like-pop": {
+   "name": "Lượt thích bật lên",
+   "tags": [
+    "youtuber",
+    "thích",
+    "like",
+    "bật lên",
+    "ngón cái"
+   ]
+  },
+  "overlay:yt-mano-clic": {
+   "name": "Bàn tay chạm",
+   "tags": [
+    "youtuber",
+    "bàn tay",
+    "chạm",
+    "nhấp",
+    "hướng dẫn"
+   ]
+  },
+  "overlay:yt-meta-suscriptores": {
+   "name": "Thanh đạt mục tiêu",
+   "tags": [
+    "youtuber",
+    "mục tiêu",
+    "người đăng ký",
+    "thanh",
+    "tiến độ"
+   ]
+  },
+  "overlay:yt-new-video-en": {
+   "name": "New video (tiếng Anh)",
+   "tags": [
+    "youtuber",
+    "video mới",
+    "sticker",
+    "tiếng anh",
+    "nhà sáng tạo"
+   ]
+  },
+  "overlay:yt-notificacion": {
+   "name": "Thông báo video mới",
+   "tags": [
+    "youtuber",
+    "thông báo",
+    "video mới",
+    "cảnh báo",
+    "nhà sáng tạo"
+   ]
+  },
+  "overlay:yt-notificacion-oscura": {
+   "name": "Thông báo nền tối",
+   "tags": [
+    "youtuber",
+    "thông báo",
+    "nền tối",
+    "cảnh báo",
+    "nhà sáng tạo"
+   ]
+  },
+  "overlay:yt-nuevo-video-es": {
+   "name": "¡Nuevo video! (tiếng Tây Ban Nha)",
+   "tags": [
+    "youtuber",
+    "video mới",
+    "sticker",
+    "tiếng tây ban nha",
+    "nhà sáng tạo"
+   ]
+  },
+  "overlay:yt-resaltador": {
+   "name": "Bút dạ quang vàng",
+   "tags": [
+    "youtuber",
+    "bút dạ quang",
+    "màu vàng",
+    "làm nổi bật",
+    "chữ"
+   ]
+  },
+  "overlay:yt-subscribe-card-en": {
+   "name": "Nút Subscribe kèm thẻ (tiếng Anh)",
+   "tags": [
+    "youtuber",
+    "đăng ký",
+    "nút",
+    "subscribe",
+    "tiếng anh"
+   ]
+  },
+  "overlay:yt-subscribe-classic-en": {
+   "name": "Nút Subscribe cổ điển (tiếng Anh)",
+   "tags": [
+    "youtuber",
+    "đăng ký",
+    "nút",
+    "subscribe",
+    "tiếng anh"
+   ]
+  },
+  "overlay:yt-subscribe-neon-en": {
+   "name": "Nút Subscribe neon (tiếng Anh)",
+   "tags": [
+    "youtuber",
+    "đăng ký",
+    "nút",
+    "neon",
+    "tiếng anh"
+   ]
+  },
+  "overlay:yt-subscribe-white-en": {
+   "name": "Nút Subscribe trắng (tiếng Anh)",
+   "tags": [
+    "youtuber",
+    "đăng ký",
+    "nút",
+    "màu trắng",
+    "tiếng anh"
+   ]
+  },
+  "overlay:yt-suscribete-clasico-es": {
+   "name": "Nút Suscríbete cổ điển (tiếng Tây Ban Nha)",
+   "tags": [
+    "youtuber",
+    "đăng ký",
+    "nút",
+    "suscríbete",
+    "tiếng tây ban nha"
+   ]
+  },
+  "overlay:yt-suscribete-neon-es": {
+   "name": "Nút Suscríbete neon (tiếng Tây Ban Nha)",
+   "tags": [
+    "youtuber",
+    "đăng ký",
+    "nút",
+    "neon",
+    "tiếng tây ban nha"
+   ]
+  },
+  "overlay:yt-suscribete-pildora-es": {
+   "name": "Nút Suscríbete trắng (tiếng Tây Ban Nha)",
+   "tags": [
+    "youtuber",
+    "đăng ký",
+    "nút",
+    "màu trắng",
+    "tiếng tây ban nha"
+   ]
+  },
+  "overlay:yt-suscribete-tarjeta-es": {
+   "name": "Nút Suscríbete kèm thẻ (tiếng Tây Ban Nha)",
+   "tags": [
+    "youtuber",
+    "đăng ký",
+    "nút",
+    "thẻ",
+    "tiếng tây ban nha"
+   ]
+  },
+  "overlay:yt-x-roja": {
+   "name": "Dấu X đỏ",
+   "tags": [
+    "youtuber",
+    "dấu x",
+    "màu đỏ",
+    "sai",
+    "không"
    ]
   },
   "shape:arch": {
@@ -15555,6 +16129,16 @@
     "mạnh"
    ]
   },
+  "sound:acento-tension": {
+   "name": "Điểm nhấn căng thẳng",
+   "tags": [
+    "căng thẳng",
+    "hồi hộp",
+    "kịch tính",
+    "bất ngờ",
+    "youtuber"
+   ]
+  },
   "sound:angelical": {
    "name": "Âm thanh thiên thần",
    "tags": [
@@ -15562,6 +16146,16 @@
     "thiên đường",
     "bình yên",
     "phép màu"
+   ]
+  },
+  "sound:aparecer-rebote": {
+   "name": "Xuất hiện nảy lên",
+   "tags": [
+    "pop",
+    "xuất hiện",
+    "nảy",
+    "boing",
+    "youtuber"
    ]
   },
   "sound:aparicion": {
@@ -15600,6 +16194,16 @@
     "kỷ niệm"
    ]
   },
+  "sound:asombro": {
+   "name": "Synth kinh ngạc",
+   "tags": [
+    "wow",
+    "kinh ngạc",
+    "tuyệt vời",
+    "bất ngờ",
+    "youtuber"
+   ]
+  },
   "sound:aura": {
    "name": "Hào quang lung linh",
    "tags": [
@@ -15616,6 +16220,46 @@
     "rimshot",
     "câu đùa",
     "hài hước"
+   ]
+  },
+  "sound:barra-carga": {
+   "name": "Thanh tải hoàn tất",
+   "tags": [
+    "đang tải",
+    "loading",
+    "tiến độ",
+    "hoàn tất",
+    "youtuber"
+   ]
+  },
+  "sound:barrido-camara": {
+   "name": "Lia máy nhanh",
+   "tags": [
+    "whip pan",
+    "lia máy",
+    "chuyển cảnh",
+    "nhanh",
+    "youtuber"
+   ]
+  },
+  "sound:barrido-camara-doble": {
+   "name": "Lia máy nhanh kép",
+   "tags": [
+    "whip pan",
+    "lia máy",
+    "chuyển cảnh",
+    "kép",
+    "youtuber"
+   ]
+  },
+  "sound:barrido-golpe": {
+   "name": "Lia máy kèm cú đập",
+   "tags": [
+    "whip pan",
+    "lia máy",
+    "cú đập",
+    "chuyển cảnh",
+    "youtuber"
    ]
   },
   "sound:bass-drop": {
@@ -15727,6 +16371,16 @@
     "phần thưởng"
    ]
   },
+  "sound:boom-808": {
+   "name": "Boom 808 tiết lộ",
+   "tags": [
+    "808",
+    "boom",
+    "tiết lộ",
+    "bass",
+    "youtuber"
+   ]
+  },
   "sound:boom-cine": {
    "name": "Boom điện ảnh",
    "tags": [
@@ -15798,6 +16452,16 @@
     "u tối",
     "phép thuật",
     "bí ẩn"
+   ]
+  },
+  "sound:burbuja-plop": {
+   "name": "Bong bóng",
+   "tags": [
+    "bong bóng",
+    "plop",
+    "xuất hiện",
+    "nước",
+    "youtuber"
    ]
   },
   "sound:burbujas-magicas": {
@@ -15944,6 +16608,16 @@
     "biến hình"
    ]
   },
+  "sound:check-tilde": {
+   "name": "Dấu tích danh sách",
+   "tags": [
+    "dấu tích",
+    "danh sách",
+    "xong",
+    "nhiệm vụ",
+    "youtuber"
+   ]
+  },
   "sound:chillido-doble": {
    "name": "Tiếng chít đôi",
    "tags": [
@@ -15960,6 +16634,16 @@
     "đồ chơi",
     "thú cưng",
     "hài hước"
+   ]
+  },
+  "sound:cierre-video": {
+   "name": "Kết thúc video",
+   "tags": [
+    "outro",
+    "kết thúc",
+    "tạm biệt",
+    "hợp âm",
+    "youtuber"
    ]
   },
   "sound:cinta-frenada": {
@@ -16050,6 +16734,26 @@
     "thành công"
    ]
   },
+  "sound:corte-glitch": {
+   "name": "Cắt glitch",
+   "tags": [
+    "glitch",
+    "cắt",
+    "stutter",
+    "kỹ thuật số",
+    "youtuber"
+   ]
+  },
+  "sound:corte-seco": {
+   "name": "Jump cut",
+   "tags": [
+    "jump cut",
+    "cắt",
+    "nhảy cảnh",
+    "vlog",
+    "youtuber"
+   ]
+  },
   "sound:cremallera": {
    "name": "Khóa kéo",
    "tags": [
@@ -16075,6 +16779,26 @@
     "1 2 3 4",
     "dùi trống",
     "bắt đầu"
+   ]
+  },
+  "sound:cuenta-regresiva": {
+   "name": "Đếm ngược 3, 2, 1",
+   "tags": [
+    "đếm ngược",
+    "countdown",
+    "3 2 1",
+    "tiếng bíp",
+    "youtuber"
+   ]
+  },
+  "sound:cuenta-regresiva-rapida": {
+   "name": "Đếm ngược nhanh",
+   "tags": [
+    "đếm ngược",
+    "countdown",
+    "nhanh",
+    "tiếng bíp",
+    "youtuber"
    ]
   },
   "sound:dano": {
@@ -16150,6 +16874,16 @@
     "mới"
    ]
   },
+  "sound:ding-idea": {
+   "name": "Ding ý tưởng",
+   "tags": [
+    "ý tưởng",
+    "ding",
+    "bóng đèn",
+    "mẹo",
+    "youtuber"
+   ]
+  },
   "sound:disco-rayado": {
    "name": "Đĩa nhạc rít",
    "tags": [
@@ -16193,6 +16927,16 @@
     "trống",
     "drop",
     "chuyển cảnh"
+   ]
+  },
+  "sound:error-doble": {
+   "name": "Bíp lỗi kép",
+   "tags": [
+    "lỗi",
+    "sai",
+    "tiếng bíp",
+    "thất bại",
+    "youtuber"
    ]
   },
   "sound:error-negativo": {
@@ -16256,6 +17000,16 @@
     "kèn hiệu",
     "người thắng",
     "nhà vô địch"
+   ]
+  },
+  "sound:foto-flash": {
+   "name": "Chụp ảnh có đèn flash",
+   "tags": [
+    "máy ảnh",
+    "flash",
+    "ảnh",
+    "màn trập",
+    "youtuber"
    ]
   },
   "sound:game-over": {
@@ -16338,6 +17092,16 @@
     "điểm nhấn",
     "drama",
     "sốc"
+   ]
+  },
+  "sound:golpe-eco": {
+   "name": "Cú đập vang",
+   "tags": [
+    "cú đập",
+    "tiếng vang",
+    "va chạm",
+    "kịch tính",
+    "youtuber"
    ]
   },
   "sound:golpe-fuerte": {
@@ -16469,6 +17233,16 @@
     "đèn"
    ]
   },
+  "sound:intro-golpe": {
+   "name": "Cú đập mở đầu",
+   "tags": [
+    "intro",
+    "mở đầu",
+    "cú đập",
+    "hợp âm",
+    "youtuber"
+   ]
+  },
   "sound:laser": {
    "name": "Tia laser",
    "tags": [
@@ -16549,6 +17323,16 @@
     "bộ gõ"
    ]
   },
+  "sound:marcador": {
+   "name": "Bút dạ gạch chân",
+   "tags": [
+    "bút dạ",
+    "gạch chân",
+    "làm nổi bật",
+    "chữ",
+    "youtuber"
+   ]
+  },
   "sound:me-gusta": {
    "name": "Thả tim",
    "tags": [
@@ -16601,6 +17385,16 @@
     "đôi",
     "trò chơi",
     "tiền"
+   ]
+  },
+  "sound:monedas-mano": {
+   "name": "Đồng xu trong tay",
+   "tags": [
+    "đồng xu",
+    "tiền",
+    "tiền lẻ",
+    "leng keng",
+    "youtuber"
    ]
   },
   "sound:notificacion-campanita": {
@@ -16664,6 +17458,17 @@
     "sách",
     "giấy",
     "chuyển cảnh"
+   ]
+  },
+  "sound:pensando": {
+   "name": "Đang suy nghĩ…",
+   "tags": [
+    "suy nghĩ",
+    "phân vân",
+    "marimba",
+    "chờ đợi",
+    "quiz",
+    "youtuber"
    ]
   },
   "sound:platillo": {
@@ -16784,6 +17589,16 @@
     "bốc thăm"
    ]
   },
+  "sound:rafaga-fotos": {
+   "name": "Chụp ảnh liên tiếp",
+   "tags": [
+    "máy ảnh",
+    "ảnh",
+    "chụp liên tiếp",
+    "màn trập",
+    "youtuber"
+   ]
+  },
   "sound:rafaga-viento": {
    "name": "Cơn gió thổi",
    "tags": [
@@ -16802,6 +17617,16 @@
     "edit"
    ]
   },
+  "sound:rebobinar": {
+   "name": "Tua lại",
+   "tags": [
+    "tua lại",
+    "rewind",
+    "quay lại",
+    "vhs",
+    "youtuber"
+   ]
+  },
   "sound:redoble": {
    "name": "Trống dồn",
    "tags": [
@@ -16809,6 +17634,26 @@
     "drumroll",
     "hồi hộp",
     "thông báo"
+   ]
+  },
+  "sound:redoble-corto": {
+   "name": "Hồi trống ngắn",
+   "tags": [
+    "hồi trống",
+    "ngắn",
+    "thông báo",
+    "hồi hộp",
+    "youtuber"
+   ]
+  },
+  "sound:redoble-largo": {
+   "name": "Hồi trống dài kèm chũm chọe",
+   "tags": [
+    "hồi trống",
+    "chũm chọe",
+    "người thắng",
+    "tiết lộ",
+    "youtuber"
    ]
   },
   "sound:redoble-platillo": {
@@ -16846,6 +17691,26 @@
     "nảy",
     "hài hước",
     "bật"
+   ]
+  },
+  "sound:respuesta-correcta": {
+   "name": "Câu trả lời đúng",
+   "tags": [
+    "đúng",
+    "câu trả lời",
+    "quiz",
+    "đố vui",
+    "youtuber"
+   ]
+  },
+  "sound:respuesta-incorrecta": {
+   "name": "Câu trả lời sai",
+   "tags": [
+    "sai",
+    "lỗi",
+    "buzzer",
+    "quiz",
+    "youtuber"
    ]
   },
   "sound:revelacion": {
@@ -17004,6 +17869,26 @@
     "khẩn cấp"
    ]
   },
+  "sound:sorpresa": {
+   "name": "Bất ngờ",
+   "tags": [
+    "bất ngờ",
+    "ta-da",
+    "wow",
+    "xuất hiện",
+    "youtuber"
+   ]
+  },
+  "sound:sticker": {
+   "name": "Dán sticker",
+   "tags": [
+    "sticker",
+    "dán",
+    "slap",
+    "emoji",
+    "youtuber"
+   ]
+  },
   "sound:sub-drop": {
    "name": "Sub drop",
    "tags": [
@@ -17011,6 +17896,16 @@
     "bass drop",
     "trầm",
     "va chạm"
+   ]
+  },
+  "sound:subida-corta-golpe": {
+   "name": "Riser ngắn và cú đập",
+   "tags": [
+    "riser",
+    "tăng dần",
+    "cú đập",
+    "drop",
+    "youtuber"
    ]
   },
   "sound:subir-nivel": {
@@ -17022,14 +17917,33 @@
     "8-bit"
    ]
   },
+  "sound:subir-nivel-moderno": {
+   "name": "Lên cấp hiện đại",
+   "tags": [
+    "level up",
+    "lên cấp",
+    "thành tích",
+    "nâng cấp",
+    "youtuber"
+   ]
+  },
+  "sound:suscribir-campana": {
+   "name": "Nhấp đăng ký và chuông",
+   "tags": [
+    "đăng ký",
+    "chuông",
+    "nhấp",
+    "thông báo",
+    "youtuber"
+   ]
+  },
   "sound:susto-terror": {
    "name": "Hù dọa bất ngờ",
    "tags": [
     "hù dọa",
     "kinh dị",
     "jump scare",
-    "sợ hãi",
-    "halloween"
+    "sợ hãi"
    ]
   },
   "sound:swoosh-titulo": {
@@ -17066,6 +17980,17 @@
     "taiko",
     "đôi",
     "hoành tráng"
+   ]
+  },
+  "sound:tartamudeo-ritmico": {
+   "name": "Lặp nhịp stutter",
+   "tags": [
+    "stutter",
+    "lặp lại",
+    "nhịp điệu",
+    "build up",
+    "glitch",
+    "youtuber"
    ]
   },
   "sound:teclado": {
@@ -17111,6 +18036,56 @@
     "hồi hộp",
     "dâng lên",
     "sợ hãi"
+   ]
+  },
+  "sound:texto-dialogo": {
+   "name": "Chữ kêu bíp",
+   "tags": [
+    "chữ",
+    "hội thoại",
+    "tiếng bíp",
+    "retro",
+    "youtuber"
+   ]
+  },
+  "sound:texto-tecleo": {
+   "name": "Gõ chữ",
+   "tags": [
+    "chữ",
+    "gõ phím",
+    "bàn phím",
+    "phụ đề",
+    "youtuber"
+   ]
+  },
+  "sound:timbre-mostrador": {
+   "name": "Chuông quầy",
+   "tags": [
+    "chuông",
+    "quầy",
+    "ding",
+    "phục vụ",
+    "youtuber"
+   ]
+  },
+  "sound:titulo-desliza": {
+   "name": "Tiêu đề trượt vào",
+   "tags": [
+    "tiêu đề",
+    "trượt",
+    "slide",
+    "chữ",
+    "youtuber"
+   ]
+  },
+  "sound:titulo-golpe": {
+   "name": "Tiêu đề kèm cú đập",
+   "tags": [
+    "tiêu đề",
+    "cú đập",
+    "slam",
+    "intro",
+    "youtuber"
    ]
   },
   "sound:toque": {
@@ -17174,6 +18149,16 @@
     "vút lên",
     "phép thuật",
     "xuất hiện"
+   ]
+  },
+  "sound:venta-hecha": {
+   "name": "Chốt đơn",
+   "tags": [
+    "bán hàng",
+    "tiền",
+    "máy tính tiền",
+    "kinh doanh",
+    "youtuber"
    ]
   },
   "sound:victoria-8bits": {
@@ -17348,6 +18333,27 @@
     "phất",
     "whoosh",
     "chuyển động"
+   ]
+  },
+  "sound:womp-womp": {
+   "name": "Womp womp (thất bại)",
+   "tags": [
+    "thất bại",
+    "fail",
+    "womp",
+    "buồn",
+    "hài hước",
+    "youtuber"
+   ]
+  },
+  "sound:zoom-dramatico": {
+   "name": "Zoom kịch tính",
+   "tags": [
+    "zoom",
+    "kịch tính",
+    "phản ứng",
+    "sốc",
+    "youtuber"
    ]
   },
   "sound:zoom-entrada": {
@@ -17968,8 +18974,7 @@
     "trang điểm",
     "đầu lâu",
     "hóa trang",
-    "hoa",
-    "halloween"
+    "hoa"
    ]
   },
   "template:checklist-que-se-marca": {
@@ -18047,6 +19052,206 @@
     "âm nhạc",
     "tiệc",
     "nhạc sống"
+   ]
+  },
+  "template:cont-ahorro-meta": {
+   "name": "Mục tiêu tiết kiệm",
+   "tags": [
+    "bộ đếm",
+    "tiết kiệm",
+    "tiền",
+    "mục tiêu",
+    "tài chính"
+   ]
+  },
+  "template:cont-anillo-meta": {
+   "name": "Vòng tiến độ",
+   "tags": [
+    "bộ đếm",
+    "phần trăm",
+    "tiến độ",
+    "mục tiêu",
+    "vòng tròn"
+   ]
+  },
+  "template:cont-barra-carga": {
+   "name": "Thanh tải",
+   "tags": [
+    "bộ đếm",
+    "phần trăm",
+    "đang tải",
+    "tiến độ",
+    "intro"
+   ]
+  },
+  "template:cont-dias-100": {
+   "name": "Từ ngày 1 đến ngày 100",
+   "tags": [
+    "bộ đếm",
+    "ngày",
+    "thử thách",
+    "100 ngày",
+    "tiến độ"
+   ]
+  },
+  "template:cont-dias-juntos": {
+   "name": "Những ngày bên nhau",
+   "tags": [
+    "bộ đếm",
+    "cặp đôi",
+    "kỷ niệm",
+    "tình yêu",
+    "lãng mạn"
+   ]
+  },
+  "template:cont-dinero-millon": {
+   "name": "Bộ đếm tiền",
+   "tags": [
+    "bộ đếm",
+    "tiền",
+    "triệu",
+    "doanh số",
+    "mục tiêu"
+   ]
+  },
+  "template:cont-edad-cumple": {
+   "name": "Sinh nhật: đếm số tuổi",
+   "tags": [
+    "bộ đếm",
+    "sinh nhật",
+    "tuổi",
+    "tiệc",
+    "ăn mừng"
+   ]
+  },
+  "template:cont-libros-anio": {
+   "name": "Sách đã đọc trong năm",
+   "tags": [
+    "bộ đếm",
+    "sách",
+    "đọc sách",
+    "thử thách đọc",
+    "booktok"
+   ]
+  },
+  "template:cont-maraton-km": {
+   "name": "Số km đã chạy",
+   "tags": [
+    "bộ đếm",
+    "marathon",
+    "chạy bộ",
+    "ki-lô-mét",
+    "running"
+   ]
+  },
+  "template:cont-marcador": {
+   "name": "Bảng tỉ số trận đấu",
+   "tags": [
+    "bộ đếm",
+    "tỉ số",
+    "bóng đá",
+    "trận đấu",
+    "thể thao"
+   ]
+  },
+  "template:cont-me-gusta": {
+   "name": "Bộ đếm lượt thích",
+   "tags": [
+    "bộ đếm",
+    "lượt thích",
+    "like",
+    "trái tim",
+    "viral"
+   ]
+  },
+  "template:cont-odometro-km": {
+   "name": "Đồng hồ đo quãng đường",
+   "tags": [
+    "bộ đếm",
+    "ki-lô-mét",
+    "du lịch",
+    "lộ trình",
+    "road trip"
+   ]
+  },
+  "template:cont-odometro-visitas": {
+   "name": "Bộ đếm lượt truy cập",
+   "tags": [
+    "bộ đếm",
+    "lượt truy cập",
+    "web",
+    "lưu lượng",
+    "thống kê"
+   ]
+  },
+  "template:cont-pasos": {
+   "name": "Bộ đếm bước chân",
+   "tags": [
+    "bộ đếm",
+    "bước chân",
+    "đi bộ",
+    "sức khỏe",
+    "fitness"
+   ]
+  },
+  "template:cont-precio-baja": {
+   "name": "Giá giảm dần",
+   "tags": [
+    "bộ đếm",
+    "giá",
+    "ưu đãi",
+    "giảm giá",
+    "khuyến mãi"
+   ]
+  },
+  "template:cont-seguidores-100k": {
+   "name": "100 nghìn người theo dõi",
+   "tags": [
+    "bộ đếm",
+    "người theo dõi",
+    "100k",
+    "cột mốc",
+    "cảm ơn"
+   ]
+  },
+  "template:cont-suscriptores-millon": {
+   "name": "Một triệu người đăng ký",
+   "tags": [
+    "bộ đếm",
+    "người đăng ký",
+    "triệu",
+    "kênh",
+    "ăn mừng"
+   ]
+  },
+  "template:cont-temporizador": {
+   "name": "Đồng hồ trên màn hình",
+   "tags": [
+    "bộ đếm",
+    "hẹn giờ",
+    "bấm giờ",
+    "đếm ngược",
+    "thử thách"
+   ]
+  },
+  "template:cont-ventas-semestre": {
+   "name": "Doanh số nửa năm",
+   "tags": [
+    "bộ đếm",
+    "doanh số",
+    "biểu đồ",
+    "kinh doanh",
+    "tăng trưởng"
+   ]
+  },
+  "template:cont-vistas-millon": {
+   "name": "Một triệu lượt xem",
+   "tags": [
+    "bộ đếm",
+    "lượt xem",
+    "triệu",
+    "viral",
+    "neon"
    ]
   },
   "template:cosas-que-no-sabias": {
@@ -18739,16 +19944,6 @@
     "lễ hội",
     "gia đình",
     "ăn mừng"
-   ]
-  },
-  "template:h-fecha-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "kinh dị",
-    "bí ngô",
-    "hóa trang",
-    "tháng 10"
    ]
   },
   "template:h-fecha-invierno": {
@@ -20356,36 +21551,6 @@
     "cú đấm",
     "nhanh",
     "năng lượng"
-   ]
-  },
-  "template:halloween-photo-dump": {
-   "name": "Photo dump Halloween",
-   "tags": [
-    "halloween",
-    "photo dump",
-    "hóa trang",
-    "kinh dị",
-    "tháng 10"
-   ]
-  },
-  "template:halloween-revelacion-disfraz": {
-   "name": "Hé lộ trang phục hóa trang",
-   "tags": [
-    "halloween",
-    "hóa trang",
-    "biến hình",
-    "trước sau",
-    "hù dọa"
-   ]
-  },
-  "template:halloween-truco-o-trato": {
-   "name": "Tiệc Trick or treat",
-   "tags": [
-    "halloween",
-    "tiệc",
-    "lời mời",
-    "trẻ em",
-    "hóa trang"
    ]
   },
   "template:horario-de-atencion": {
@@ -23359,6 +24524,265 @@
     "hài hước"
    ]
   },
+  "template:redes-h-facebook-cristal": {
+   "name": "Facebook kính mờ",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "facebook",
+    "kính",
+    "ngang"
+   ]
+  },
+  "template:redes-h-instagram-minimal": {
+   "name": "Instagram tối giản",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "instagram",
+    "tối giản",
+    "ngang"
+   ]
+  },
+  "template:redes-h-instagram-sticker": {
+   "name": "Instagram sticker",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "instagram",
+    "sticker",
+    "ngang"
+   ]
+  },
+  "template:redes-h-threads-minimal": {
+   "name": "Threads tối giản",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "threads",
+    "tối giản",
+    "ngang"
+   ]
+  },
+  "template:redes-h-tiktok-neon": {
+   "name": "TikTok neon",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "tiktok",
+    "neon",
+    "ngang"
+   ]
+  },
+  "template:redes-h-tiktok-sticker": {
+   "name": "TikTok sticker",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "tiktok",
+    "sticker",
+    "ngang"
+   ]
+  },
+  "template:redes-h-todas-fila": {
+   "name": "Tìm tôi ở mọi nơi",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "tất cả mạng xã hội",
+    "lower third"
+   ]
+  },
+  "template:redes-h-todas-neon": {
+   "name": "Tất cả mạng xã hội kiểu neon",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "tất cả mạng xã hội",
+    "neon"
+   ]
+  },
+  "template:redes-h-twitch-neon": {
+   "name": "Twitch neon",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "twitch",
+    "neon",
+    "ngang"
+   ]
+  },
+  "template:redes-h-x-cristal": {
+   "name": "X kính mờ",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "x",
+    "kính",
+    "ngang"
+   ]
+  },
+  "template:redes-h-youtube-minimal": {
+   "name": "YouTube tối giản",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "youtube",
+    "tối giản",
+    "ngang"
+   ]
+  },
+  "template:redes-h-youtube-sticker": {
+   "name": "YouTube sticker",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "youtube",
+    "sticker",
+    "ngang"
+   ]
+  },
+  "template:redes-v-facebook-minimal": {
+   "name": "Facebook tối giản",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "facebook",
+    "tối giản",
+    "dọc"
+   ]
+  },
+  "template:redes-v-instagram-cristal": {
+   "name": "Instagram kính mờ",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "instagram",
+    "kính",
+    "dọc"
+   ]
+  },
+  "template:redes-v-instagram-neon": {
+   "name": "Instagram neon",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "instagram",
+    "neon",
+    "dọc"
+   ]
+  },
+  "template:redes-v-threads-cristal": {
+   "name": "Threads kính mờ",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "threads",
+    "kính",
+    "dọc"
+   ]
+  },
+  "template:redes-v-tiktok-minimal": {
+   "name": "TikTok tối giản",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "tiktok",
+    "tối giản",
+    "dọc"
+   ]
+  },
+  "template:redes-v-tiktok-sticker": {
+   "name": "TikTok sticker",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "tiktok",
+    "sticker",
+    "dọc"
+   ]
+  },
+  "template:redes-v-todas-cristal": {
+   "name": "Tất cả mạng xã hội kiểu kính",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "tất cả mạng xã hội",
+    "kính"
+   ]
+  },
+  "template:redes-v-todas-iconos": {
+   "name": "Cùng một tên ở mọi nơi",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "tất cả mạng xã hội",
+    "biểu tượng"
+   ]
+  },
+  "template:redes-v-todas-sticker": {
+   "name": "Mạng xã hội dạng sticker",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "tất cả mạng xã hội",
+    "sticker"
+   ]
+  },
+  "template:redes-v-twitch-neon": {
+   "name": "Twitch neon",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "twitch",
+    "neon",
+    "dọc"
+   ]
+  },
+  "template:redes-v-x-sticker": {
+   "name": "X sticker",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "x",
+    "sticker",
+    "dọc"
+   ]
+  },
+  "template:redes-v-youtube-minimal": {
+   "name": "YouTube tối giản",
+   "tags": [
+    "mạng xã hội",
+    "tên người dùng",
+    "theo dõi tôi",
+    "youtube",
+    "tối giản",
+    "dọc"
+   ]
+  },
   "template:remodelacion": {
    "name": "Cải tạo căn phòng",
    "tags": [
@@ -24407,15 +25831,6 @@
     "kỳ nghỉ"
    ]
   },
-  "template:s-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "bí ngô",
-    "kinh dị",
-    "tháng mười"
-   ]
-  },
   "template:s-hanukkah": {
    "name": "Lễ Hanukkah",
    "tags": [
@@ -25460,16 +26875,6 @@
     "khởi đầu"
    ]
   },
-  "template:st-halloween": {
-   "name": "Hóa trang Halloween",
-   "tags": [
-    "tin",
-    "15 giây",
-    "stories",
-    "halloween",
-    "hóa trang"
-   ]
-  },
   "template:st-jardin": {
    "name": "Khu vườn của tôi",
    "tags": [
@@ -25892,6 +27297,2725 @@
     "lấp lánh",
     "hồng",
     "aesthetic"
+   ]
+  },
+  "template:yt-calle-a-que-te-dedicas": {
+   "name": "Bạn làm nghề gì?",
+   "tags": [
+    "phỏng vấn",
+    "đường phố",
+    "nghề nghiệp",
+    "công việc"
+   ]
+  },
+  "template:yt-calle-adivina-edad": {
+   "name": "Đoán tuổi tôi",
+   "tags": [
+    "phỏng vấn",
+    "đoán tuổi",
+    "thử thách",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-consejo": {
+   "name": "Lời khuyên cho tuổi 20",
+   "tags": [
+    "phỏng vấn",
+    "lời khuyên",
+    "tuổi trẻ",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-documental-h": {
+   "name": "Phỏng vấn tài liệu",
+   "tags": [
+    "phỏng vấn",
+    "tài liệu",
+    "đường phố",
+    "16:9"
+   ]
+  },
+  "template:yt-calle-mic-grande": {
+   "name": "Phỏng vấn micro to",
+   "tags": [
+    "phỏng vấn",
+    "micro",
+    "đường phố",
+    "góc nhìn"
+   ]
+  },
+  "template:yt-calle-noticiero-h": {
+   "name": "Phỏng vấn kiểu tin tức",
+   "tags": [
+    "phỏng vấn",
+    "tin tức",
+    "đường phố",
+    "16:9"
+   ]
+  },
+  "template:yt-calle-parejas-h": {
+   "name": "Hỏi các cặp đôi",
+   "tags": [
+    "phỏng vấn",
+    "cặp đôi",
+    "đường phố",
+    "16:9"
+   ]
+  },
+  "template:yt-calle-precio": {
+   "name": "Đoán giá",
+   "tags": [
+    "phỏng vấn",
+    "đoán giá",
+    "đường phố",
+    "mua sắm"
+   ]
+  },
+  "template:yt-calle-pregunta-del-dia": {
+   "name": "Câu hỏi trong ngày",
+   "tags": [
+    "phỏng vấn",
+    "câu hỏi",
+    "chuỗi",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-primera-cita": {
+   "name": "Ai trả tiền hẹn đầu?",
+   "tags": [
+    "phỏng vấn",
+    "hẹn hò",
+    "tiền",
+    "tình yêu"
+   ]
+  },
+  "template:yt-calle-que-opinas": {
+   "name": "Bạn nghĩ sao về…?",
+   "tags": [
+    "phỏng vấn",
+    "đường phố",
+    "ý kiến",
+    "câu hỏi"
+   ]
+  },
+  "template:yt-calle-ranking": {
+   "name": "Khảo sát có kết quả",
+   "tags": [
+    "phỏng vấn",
+    "khảo sát",
+    "kết quả",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-rapido": {
+   "name": "Tả bạn một từ",
+   "tags": [
+    "phỏng vấn",
+    "một từ",
+    "nhanh",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-termina-cancion": {
+   "name": "Hát tiếp lời",
+   "tags": [
+    "phỏng vấn",
+    "bài hát",
+    "karaoke",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-trivia": {
+   "name": "Đố vui đường phố",
+   "tags": [
+    "phỏng vấn",
+    "đố vui",
+    "kiến thức",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-tv-retro-h": {
+   "name": "Phỏng vấn TV retro",
+   "tags": [
+    "phỏng vấn",
+    "retro",
+    "truyền hình",
+    "16:9"
+   ]
+  },
+  "template:yt-calle-verdadero-falso": {
+   "name": "Thật hay bịa?",
+   "tags": [
+    "phỏng vấn",
+    "đúng sai",
+    "đố vui",
+    "đường phố"
+   ]
+  },
+  "template:yt-calle-vs": {
+   "name": "Cái này hay cái kia",
+   "tags": [
+    "phỏng vấn",
+    "lựa chọn",
+    "đường phố",
+    "so sánh"
+   ]
+  },
+  "template:yt-coc-cenital": {
+   "name": "Ba đĩa từ trên cao",
+   "tags": [
+    "nấu ăn",
+    "nhìn từ trên",
+    "món ăn",
+    "ý tưởng"
+   ]
+  },
+  "template:yt-coc-cierre": {
+   "name": "Chúc ngon miệng",
+   "tags": [
+    "nấu ăn",
+    "kết thúc",
+    "màn cuối",
+    "chúc ngon"
+   ]
+  },
+  "template:yt-coc-crudo-listo": {
+   "name": "Từ sống đến chín",
+   "tags": [
+    "nấu ăn",
+    "trước sau",
+    "nguyên liệu",
+    "thành phẩm"
+   ]
+  },
+  "template:yt-coc-ingredientes-flotan": {
+   "name": "Bạn cần gì",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "nguyên liệu",
+    "chuẩn bị"
+   ]
+  },
+  "template:yt-coc-ingredientes-lista": {
+   "name": "Danh sách nguyên liệu",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "nguyên liệu",
+    "danh sách"
+   ]
+  },
+  "template:yt-coc-intro-canal": {
+   "name": "Mở đầu kênh bếp",
+   "tags": [
+    "nấu ăn",
+    "mở đầu",
+    "kênh",
+    "giới thiệu"
+   ]
+  },
+  "template:yt-coc-menu-semana": {
+   "name": "Thực đơn tuần",
+   "tags": [
+    "nấu ăn",
+    "thực đơn",
+    "tuần",
+    "lên kế hoạch"
+   ]
+  },
+  "template:yt-coc-nutricion": {
+   "name": "Thông tin dinh dưỡng",
+   "tags": [
+    "nấu ăn",
+    "dinh dưỡng",
+    "calo",
+    "macro"
+   ]
+  },
+  "template:yt-coc-pasos": {
+   "name": "Công thức từng bước",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "các bước",
+    "hướng dẫn"
+   ]
+  },
+  "template:yt-coc-pasos-wide": {
+   "name": "Bước kèm video thẻ",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "các bước",
+    "khung ngang"
+   ]
+  },
+  "template:yt-coc-pizarra": {
+   "name": "Hôm nay nấu gì",
+   "tags": [
+    "nấu ăn",
+    "bảng phấn",
+    "hôm nay",
+    "thực đơn"
+   ]
+  },
+  "template:yt-coc-plato-final": {
+   "name": "Lộ diện món cuối",
+   "tags": [
+    "nấu ăn",
+    "món cuối",
+    "kết quả",
+    "công thức"
+   ]
+  },
+  "template:yt-coc-postre": {
+   "name": "Món ngọt không nướng",
+   "tags": [
+    "nấu ăn",
+    "món ngọt",
+    "không nướng",
+    "tráng miệng"
+   ]
+  },
+  "template:yt-coc-receta-60s": {
+   "name": "Công thức 60 giây",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "nhanh",
+    "sáu mươi giây"
+   ]
+  },
+  "template:yt-coc-receta-card": {
+   "name": "Thẻ công thức",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "thẻ",
+    "khẩu phần"
+   ]
+  },
+  "template:yt-coc-receta-vertical": {
+   "name": "Thẻ công thức dọc",
+   "tags": [
+    "nấu ăn",
+    "công thức",
+    "dọc",
+    "lành mạnh"
+   ]
+  },
+  "template:yt-coc-reto-3": {
+   "name": "Thử thách 3 nguyên liệu",
+   "tags": [
+    "nấu ăn",
+    "thử thách",
+    "nguyên liệu",
+    "dễ làm"
+   ]
+  },
+  "template:yt-coc-temporizador": {
+   "name": "Hẹn giờ lò nướng",
+   "tags": [
+    "nấu ăn",
+    "hẹn giờ",
+    "lò nướng",
+    "thời gian"
+   ]
+  },
+  "template:yt-dia-0630": {
+   "name": "Giờ trên màn hình",
+   "tags": [
+    "cuộc sống",
+    "giờ",
+    "thời gian",
+    "sinh hoạt"
+   ]
+  },
+  "template:yt-dia-alarma": {
+   "name": "Chuông báo thức",
+   "tags": [
+    "cuộc sống",
+    "báo thức",
+    "buổi sáng",
+    "thức dậy"
+   ]
+  },
+  "template:yt-dia-antes-despues": {
+   "name": "Chuẩn bị: trước sau",
+   "tags": [
+    "cuộc sống",
+    "trước sau",
+    "thay đổi",
+    "trang điểm"
+   ]
+  },
+  "template:yt-dia-checklist": {
+   "name": "Danh sách buổi sáng",
+   "tags": [
+    "cuộc sống",
+    "buổi sáng",
+    "danh sách",
+    "sinh hoạt"
+   ]
+  },
+  "template:yt-dia-cozy": {
+   "name": "Chủ nhật chậm (ấm áp)",
+   "tags": [
+    "cuộc sống",
+    "chủ nhật",
+    "ấm áp",
+    "thẩm mỹ"
+   ]
+  },
+  "template:yt-dia-diario": {
+   "name": "Nhật ký một ngày",
+   "tags": [
+    "cuộc sống",
+    "nhật ký",
+    "ghi chú",
+    "một ngày"
+   ]
+  },
+  "template:yt-dia-energia": {
+   "name": "Năng lượng trong ngày",
+   "tags": [
+    "cuộc sống",
+    "năng lượng",
+    "pin",
+    "tâm trạng"
+   ]
+  },
+  "template:yt-dia-estudio": {
+   "name": "Một ngày học cùng",
+   "tags": [
+    "cuộc sống",
+    "học tập",
+    "kế hoạch",
+    "năng suất"
+   ]
+  },
+  "template:yt-dia-fin-semana": {
+   "name": "Thứ bảy cùng tôi",
+   "tags": [
+    "cuộc sống",
+    "cuối tuần",
+    "thứ bảy",
+    "ảnh kỷ niệm"
+   ]
+  },
+  "template:yt-dia-grwm-espejo": {
+   "name": "Chuẩn bị trước gương",
+   "tags": [
+    "cuộc sống",
+    "gương",
+    "trang điểm",
+    "chuẩn bị"
+   ]
+  },
+  "template:yt-dia-grwm-lista": {
+   "name": "Đồ tôi dùng hôm nay",
+   "tags": [
+    "cuộc sống",
+    "danh sách",
+    "trang điểm",
+    "chăm da"
+   ]
+  },
+  "template:yt-dia-grwm-pasos": {
+   "name": "Chuẩn bị cùng tôi",
+   "tags": [
+    "cuộc sống",
+    "trang điểm",
+    "các bước",
+    "chuẩn bị"
+   ]
+  },
+  "template:yt-dia-linea-rutina": {
+   "name": "Dòng giờ sinh hoạt",
+   "tags": [
+    "cuộc sống",
+    "dòng thời gian",
+    "sinh hoạt",
+    "thói quen"
+   ]
+  },
+  "template:yt-dia-noche": {
+   "name": "Sinh hoạt buổi tối",
+   "tags": [
+    "cuộc sống",
+    "buổi tối",
+    "sinh hoạt",
+    "chăm da"
+   ]
+  },
+  "template:yt-dia-numeros": {
+   "name": "Ngày tôi bằng số",
+   "tags": [
+    "cuộc sống",
+    "số liệu",
+    "thống kê",
+    "tóm tắt"
+   ]
+  },
+  "template:yt-dia-outfit": {
+   "name": "Trang phục hôm nay",
+   "tags": [
+    "cuộc sống",
+    "trang phục",
+    "thời trang",
+    "hôm nay"
+   ]
+  },
+  "template:yt-dia-reloj": {
+   "name": "Đồng hồ ngày tôi",
+   "tags": [
+    "cuộc sống",
+    "đồng hồ",
+    "giờ",
+    "sinh hoạt"
+   ]
+  },
+  "template:yt-dia-rutina-split": {
+   "name": "Sinh hoạt tối giản",
+   "tags": [
+    "cuộc sống",
+    "tối giản",
+    "sinh hoạt",
+    "chia màn hình"
+   ]
+  },
+  "template:yt-expl-barras": {
+   "name": "Biểu đồ cột",
+   "tags": [
+    "giải thích",
+    "biểu đồ",
+    "cột",
+    "số liệu"
+   ]
+  },
+  "template:yt-expl-capitulos": {
+   "name": "Trong video này",
+   "tags": [
+    "giải thích",
+    "chương",
+    "mục lục",
+    "nội dung"
+   ]
+  },
+  "template:yt-expl-comparar": {
+   "name": "So sánh A B",
+   "tags": [
+    "giải thích",
+    "so sánh",
+    "đối đầu",
+    "bảng"
+   ]
+  },
+  "template:yt-expl-datos": {
+   "name": "Dữ kiện hiện ra",
+   "tags": [
+    "giải thích",
+    "dữ kiện",
+    "số liệu",
+    "khoa học"
+   ]
+  },
+  "template:yt-expl-dona": {
+   "name": "Vòng phần trăm",
+   "tags": [
+    "giải thích",
+    "phần trăm",
+    "biểu đồ",
+    "số liệu"
+   ]
+  },
+  "template:yt-expl-fuente": {
+   "name": "Khoa học nói gì",
+   "tags": [
+    "giải thích",
+    "khoa học",
+    "nghiên cứu",
+    "nguồn"
+   ]
+  },
+  "template:yt-expl-glosario": {
+   "name": "Từ của ngày",
+   "tags": [
+    "giải thích",
+    "từ ngữ",
+    "định nghĩa",
+    "thuật ngữ"
+   ]
+  },
+  "template:yt-expl-linea-tiempo": {
+   "name": "Dòng thời gian sử",
+   "tags": [
+    "giải thích",
+    "lịch sử",
+    "dòng thời gian",
+    "sự kiện"
+   ]
+  },
+  "template:yt-expl-lupa": {
+   "name": "Soi chi tiết",
+   "tags": [
+    "giải thích",
+    "kính lúp",
+    "chi tiết",
+    "phóng to"
+   ]
+  },
+  "template:yt-expl-mapa-zoom": {
+   "name": "Zoom bản đồ",
+   "tags": [
+    "giải thích",
+    "bản đồ",
+    "phóng to",
+    "địa lý"
+   ]
+  },
+  "template:yt-expl-mito": {
+   "name": "Huyền thoại hay thật",
+   "tags": [
+    "giải thích",
+    "huyền thoại",
+    "sự thật",
+    "kiểm chứng"
+   ]
+  },
+  "template:yt-expl-opina": {
+   "name": "Bạn nghĩ sao? (bình chọn)",
+   "tags": [
+    "giải thích",
+    "bình chọn",
+    "ý kiến",
+    "kết thúc"
+   ]
+  },
+  "template:yt-expl-pizarra": {
+   "name": "Bảng phấn",
+   "tags": [
+    "giải thích",
+    "bảng phấn",
+    "lớp học",
+    "công thức"
+   ]
+  },
+  "template:yt-expl-por-que": {
+   "name": "Tại sao…?",
+   "tags": [
+    "giải thích",
+    "câu hỏi",
+    "tiêu đề",
+    "khoa học"
+   ]
+  },
+  "template:yt-expl-proceso": {
+   "name": "Từng bước hoạt động",
+   "tags": [
+    "giải thích",
+    "các bước",
+    "quy trình",
+    "sơ đồ"
+   ]
+  },
+  "template:yt-expl-puntos": {
+   "name": "Các điểm số",
+   "tags": [
+    "giải thích",
+    "danh sách",
+    "điểm",
+    "mẹo"
+   ]
+  },
+  "template:yt-expl-recortes": {
+   "name": "Cắt báo",
+   "tags": [
+    "giải thích",
+    "báo",
+    "tin tức",
+    "tài liệu"
+   ]
+  },
+  "template:yt-expl-resaltador": {
+   "name": "Bút dạ quang",
+   "tags": [
+    "giải thích",
+    "bút dạ",
+    "chữ",
+    "nổi bật"
+   ]
+  },
+  "template:yt-final-belleza": {
+   "name": "Màn cuối hồng vàng",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "làm đẹp",
+    "hồng",
+    "vàng"
+   ]
+  },
+  "template:yt-final-columnas": {
+   "name": "Màn cuối hai cột",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "video tiếp",
+    "hai video"
+   ]
+  },
+  "template:yt-final-comic": {
+   "name": "Màn cuối truyện tranh",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "hài",
+    "truyện tranh"
+   ]
+  },
+  "template:yt-final-hud": {
+   "name": "Màn cuối HUD game",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "game",
+    "hud",
+    "video tiếp"
+   ]
+  },
+  "template:yt-final-liquido": {
+   "name": "Màn cuối kính lỏng",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "kính lỏng",
+    "chuyển màu"
+   ]
+  },
+  "template:yt-final-minimal-uno": {
+   "name": "Màn cuối tối giản",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "tối giản",
+    "một video"
+   ]
+  },
+  "template:yt-final-neon": {
+   "name": "Màn cuối neon",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "neon",
+    "ban đêm"
+   ]
+  },
+  "template:yt-final-pizarra": {
+   "name": "Màn cuối bảng phấn",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "giáo dục",
+    "bảng phấn"
+   ]
+  },
+  "template:yt-final-postal": {
+   "name": "Màn cuối bưu thiếp",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "vlog",
+    "bưu thiếp"
+   ]
+  },
+  "template:yt-final-setentas": {
+   "name": "Màn cuối retro 70s",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "retro",
+    "thập niên 70"
+   ]
+  },
+  "template:yt-final-short-acciones": {
+   "name": "Thích thì lưu lại",
+   "tags": [
+    "theo dõi",
+    "shorts",
+    "thích",
+    "lưu"
+   ]
+  },
+  "template:yt-final-short-perfil": {
+   "name": "Thêm video trên trang",
+   "tags": [
+    "theo dõi",
+    "shorts",
+    "dọc",
+    "trang cá nhân"
+   ]
+  },
+  "template:yt-final-short-sigueme": {
+   "name": "Theo dõi để xem thêm",
+   "tags": [
+    "theo dõi",
+    "shorts",
+    "dọc",
+    "kết thúc"
+   ]
+  },
+  "template:yt-final-tech": {
+   "name": "Màn cuối công nghệ",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "công nghệ",
+    "phụ kiện"
+   ]
+  },
+  "template:yt-final-vinilo": {
+   "name": "Màn cuối âm nhạc",
+   "tags": [
+    "màn cuối",
+    "đăng ký",
+    "âm nhạc",
+    "vinyl"
+   ]
+  },
+  "template:yt-fit-antes-despues-kilos": {
+   "name": "Trước sau với số ký",
+   "tags": [
+    "thể hình",
+    "trước sau",
+    "thay đổi",
+    "cân nặng"
+   ]
+  },
+  "template:yt-fit-calentamiento": {
+   "name": "Khởi động 5 bước",
+   "tags": [
+    "thể hình",
+    "khởi động",
+    "giãn cơ",
+    "các bước"
+   ]
+  },
+  "template:yt-fit-calorias": {
+   "name": "Calo đã đốt",
+   "tags": [
+    "thể hình",
+    "calo",
+    "cardio",
+    "thống kê"
+   ]
+  },
+  "template:yt-fit-carrera-km": {
+   "name": "Chạy bộ km",
+   "tags": [
+    "thể hình",
+    "chạy bộ",
+    "km",
+    "đường chạy"
+   ]
+  },
+  "template:yt-fit-contador-reps": {
+   "name": "Đếm số lần",
+   "tags": [
+    "thể hình",
+    "tập luyện",
+    "số lần",
+    "hiệp"
+   ]
+  },
+  "template:yt-fit-descanso": {
+   "name": "Nghỉ giữa hiệp",
+   "tags": [
+    "thể hình",
+    "nghỉ",
+    "hẹn giờ",
+    "hiệp"
+   ]
+  },
+  "template:yt-fit-ejercicio-del-dia": {
+   "name": "Bài tập hôm nay",
+   "tags": [
+    "thể hình",
+    "bài tập",
+    "mẹo",
+    "kỹ thuật"
+   ]
+  },
+  "template:yt-fit-hiit-neon": {
+   "name": "HIIT neon",
+   "tags": [
+    "thể hình",
+    "hiit",
+    "cardio",
+    "neon"
+   ]
+  },
+  "template:yt-fit-macros": {
+   "name": "Macro bữa ăn",
+   "tags": [
+    "thể hình",
+    "dinh dưỡng",
+    "macro",
+    "đạm"
+   ]
+  },
+  "template:yt-fit-plan-semanal": {
+   "name": "Lịch tập tuần",
+   "tags": [
+    "thể hình",
+    "lịch tập",
+    "tuần",
+    "bài tập"
+   ]
+  },
+  "template:yt-fit-record-personal": {
+   "name": "Kỷ lục cá nhân mới",
+   "tags": [
+    "thể hình",
+    "kỷ lục",
+    "tạ",
+    "cá nhân"
+   ]
+  },
+  "template:yt-fit-reto-30-dias": {
+   "name": "Thử thách 30 ngày",
+   "tags": [
+    "thể hình",
+    "ba mươi ngày",
+    "thử thách",
+    "lịch"
+   ]
+  },
+  "template:yt-fit-rutina-4-pasos": {
+   "name": "Bài tập 4 bước",
+   "tags": [
+    "thể hình",
+    "bài tập",
+    "các bước",
+    "tại nhà"
+   ]
+  },
+  "template:yt-fit-rutina-en-casa": {
+   "name": "Tập tại nhà",
+   "tags": [
+    "thể hình",
+    "tại nhà",
+    "bài tập",
+    "không dụng cụ"
+   ]
+  },
+  "template:yt-fit-serie-hud": {
+   "name": "Hiệp tập có giờ",
+   "tags": [
+    "thể hình",
+    "hiệp tập",
+    "hẹn giờ",
+    "gym"
+   ]
+  },
+  "template:yt-fit-sin-excusas": {
+   "name": "Không lý do",
+   "tags": [
+    "thể hình",
+    "động lực",
+    "năng lượng",
+    "quyết tâm"
+   ]
+  },
+  "template:yt-fit-tabata": {
+   "name": "Hẹn giờ tabata",
+   "tags": [
+    "thể hình",
+    "tabata",
+    "hiit",
+    "hẹn giờ"
+   ]
+  },
+  "template:yt-fit-transformacion": {
+   "name": "Sự thay đổi của tôi",
+   "tags": [
+    "thể hình",
+    "thay đổi",
+    "trước sau",
+    "cân nặng"
+   ]
+  },
+  "template:yt-game-alerta-sub": {
+   "name": "Báo đăng ký mới",
+   "tags": [
+    "game",
+    "phát trực tiếp",
+    "thông báo",
+    "người đăng ký"
+   ]
+  },
+  "template:yt-game-alerta-vertical": {
+   "name": "Live dọc có báo",
+   "tags": [
+    "game",
+    "phát trực tiếp",
+    "dọc",
+    "thông báo"
+   ]
+  },
+  "template:yt-game-clip-viral": {
+   "name": "Clip chơi game dọc",
+   "tags": [
+    "game",
+    "clip",
+    "dọc",
+    "lan truyền"
+   ]
+  },
+  "template:yt-game-derrota": {
+   "name": "Màn hình thua",
+   "tags": [
+    "game",
+    "thất bại",
+    "thua",
+    "phục thù"
+   ]
+  },
+  "template:yt-game-empezamos": {
+   "name": "Sắp bắt đầu",
+   "tags": [
+    "game",
+    "phát trực tiếp",
+    "chờ",
+    "sắp bắt đầu"
+   ]
+  },
+  "template:yt-game-facecam-vertical": {
+   "name": "Short gaming có cam",
+   "tags": [
+    "game",
+    "short",
+    "dọc",
+    "phản ứng"
+   ]
+  },
+  "template:yt-game-fin-stream": {
+   "name": "Kết thúc live",
+   "tags": [
+    "game",
+    "phát trực tiếp",
+    "kết thúc",
+    "màn cuối"
+   ]
+  },
+  "template:yt-game-gg": {
+   "name": "GG: trận hay",
+   "tags": [
+    "game",
+    "gg",
+    "kết thúc",
+    "trận đấu"
+   ]
+  },
+  "template:yt-game-highlights": {
+   "name": "Pha hay nhất",
+   "tags": [
+    "game",
+    "pha hay",
+    "nổi bật",
+    "khoảnh khắc"
+   ]
+  },
+  "template:yt-game-intro-pixel": {
+   "name": "Mở đầu 8-bit",
+   "tags": [
+    "game",
+    "retro",
+    "tám bit",
+    "pixel"
+   ]
+  },
+  "template:yt-game-killfeed": {
+   "name": "Chuỗi hạ gục",
+   "tags": [
+    "game",
+    "hạ gục",
+    "chuỗi",
+    "pha hay"
+   ]
+  },
+  "template:yt-game-marcador": {
+   "name": "Bảng điểm đội",
+   "tags": [
+    "game",
+    "bảng điểm",
+    "đội",
+    "thi đấu"
+   ]
+  },
+  "template:yt-game-mvp": {
+   "name": "Thẻ cầu thủ MVP",
+   "tags": [
+    "game",
+    "mvp",
+    "thẻ",
+    "thống kê"
+   ]
+  },
+  "template:yt-game-nivel": {
+   "name": "Lên cấp!",
+   "tags": [
+    "game",
+    "lên cấp",
+    "thành tích",
+    "kinh nghiệm"
+   ]
+  },
+  "template:yt-game-overlay-neon": {
+   "name": "Khung live neon",
+   "tags": [
+    "game",
+    "phát trực tiếp",
+    "khung",
+    "neon"
+   ]
+  },
+  "template:yt-game-torneo": {
+   "name": "Nhánh giải tuần",
+   "tags": [
+    "game",
+    "giải đấu",
+    "nhánh",
+    "thi đấu"
+   ]
+  },
+  "template:yt-game-victoria": {
+   "name": "Màn hình thắng",
+   "tags": [
+    "game",
+    "chiến thắng",
+    "người thắng",
+    "thống kê"
+   ]
+  },
+  "template:yt-game-vuelvo": {
+   "name": "Chờ chút nhé",
+   "tags": [
+    "game",
+    "phát trực tiếp",
+    "tạm dừng",
+    "quay lại"
+   ]
+  },
+  "template:yt-intro-3d": {
+   "name": "Mở đầu thẻ 3D",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "3d",
+    "điện ảnh"
+   ]
+  },
+  "template:yt-intro-a-mano": {
+   "name": "Mở đầu vẽ tay",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "vẽ tay",
+    "sáng tạo"
+   ]
+  },
+  "template:yt-intro-belleza": {
+   "name": "Mở đầu làm đẹp nhẹ",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "làm đẹp",
+    "hồng"
+   ]
+  },
+  "template:yt-intro-comedia": {
+   "name": "Mở đầu hài",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "hài",
+    "hước"
+   ]
+  },
+  "template:yt-intro-educacion": {
+   "name": "Mở đầu lớp học",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "giáo dục",
+    "sổ tay"
+   ]
+  },
+  "template:yt-intro-gaming": {
+   "name": "Mở đầu game bùng nổ",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "game",
+    "neon"
+   ]
+  },
+  "template:yt-intro-glitch": {
+   "name": "Mở đầu mất tín hiệu",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "nhiễu",
+    "retro"
+   ]
+  },
+  "template:yt-intro-liquido": {
+   "name": "Mở đầu hình lỏng",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "hình lỏng",
+    "chuyển màu"
+   ]
+  },
+  "template:yt-intro-minimal": {
+   "name": "Mở đầu chấm tối giản",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "tối giản",
+    "trắng đen"
+   ]
+  },
+  "template:yt-intro-musica": {
+   "name": "Mở đầu nhạc vinyl",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "âm nhạc",
+    "vinyl"
+   ]
+  },
+  "template:yt-intro-neon": {
+   "name": "Mở đầu biển neon",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "neon",
+    "ban đêm"
+   ]
+  },
+  "template:yt-intro-papel": {
+   "name": "Mở đầu giấy lớp",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "giấy",
+    "thủ công"
+   ]
+  },
+  "template:yt-intro-retro": {
+   "name": "Mở đầu retro 70s",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "retro",
+    "thập niên 70"
+   ]
+  },
+  "template:yt-intro-tech": {
+   "name": "Mở đầu công nghệ mạch",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "công nghệ",
+    "mạch"
+   ]
+  },
+  "template:yt-intro-vlog": {
+   "name": "Mở đầu vlog ảnh dải",
+   "tags": [
+    "mở đầu",
+    "kênh",
+    "logo",
+    "vlog",
+    "ảnh"
+   ]
+  },
+  "template:yt-mini-alerta": {
+   "name": "Cảnh báo: đừng mua",
+   "tags": [
+    "ảnh bìa",
+    "cảnh báo",
+    "đừng mua",
+    "lỗi"
+   ]
+  },
+  "template:yt-mini-bien-mal": {
+   "name": "Đúng hay sai",
+   "tags": [
+    "ảnh bìa",
+    "đúng sai",
+    "lỗi",
+    "mẹo"
+   ]
+  },
+  "template:yt-mini-caja-misterio": {
+   "name": "Hộp bí mật",
+   "tags": [
+    "ảnh bìa",
+    "hộp",
+    "bí mật",
+    "bóc hộp"
+   ]
+  },
+  "template:yt-mini-cara-a-cara": {
+   "name": "Mặt đối mặt",
+   "tags": [
+    "ảnh bìa",
+    "đối đầu",
+    "so tài",
+    "thử thách"
+   ]
+  },
+  "template:yt-mini-celular": {
+   "name": "Xem màn hình tôi",
+   "tags": [
+    "ảnh bìa",
+    "màn hình",
+    "điện thoại",
+    "ứng dụng"
+   ]
+  },
+  "template:yt-mini-comic": {
+   "name": "Nổ truyện tranh",
+   "tags": [
+    "ảnh bìa",
+    "truyện tranh",
+    "bong bóng",
+    "hài"
+   ]
+  },
+  "template:yt-mini-cronometro": {
+   "name": "Trong 60 giây",
+   "tags": [
+    "ảnh bìa",
+    "sáu mươi giây",
+    "nhanh",
+    "đồng hồ"
+   ]
+  },
+  "template:yt-mini-cuatro-caras": {
+   "name": "Bốn gương mặt",
+   "tags": [
+    "ảnh bìa",
+    "bốn người",
+    "phản ứng",
+    "nhóm"
+   ]
+  },
+  "template:yt-mini-diagonal": {
+   "name": "Trước sau chéo",
+   "tags": [
+    "ảnh bìa",
+    "trước sau",
+    "thay đổi",
+    "đường chéo"
+   ]
+  },
+  "template:yt-mini-flecha-circulo": {
+   "name": "Mũi tên khoanh tròn",
+   "tags": [
+    "ảnh bìa",
+    "mũi tên",
+    "vòng tròn",
+    "tò mò"
+   ]
+  },
+  "template:yt-mini-grafica": {
+   "name": "Biểu đồ đi lên",
+   "tags": [
+    "ảnh bìa",
+    "biểu đồ",
+    "tăng trưởng",
+    "tiền"
+   ]
+  },
+  "template:yt-mini-lupa": {
+   "name": "Kính lúp chi tiết",
+   "tags": [
+    "ảnh bìa",
+    "kính lúp",
+    "chi tiết",
+    "bí mật"
+   ]
+  },
+  "template:yt-mini-numero-uno": {
+   "name": "Số một",
+   "tags": [
+    "ảnh bìa",
+    "số 1",
+    "xếp hạng",
+    "huy hiệu"
+   ]
+  },
+  "template:yt-mini-precio-tachado": {
+   "name": "Giá gạch bỏ",
+   "tags": [
+    "ảnh bìa",
+    "giá",
+    "giảm giá",
+    "rẻ đắt"
+   ]
+  },
+  "template:yt-mini-revelacion": {
+   "name": "Điều bị giấu",
+   "tags": [
+    "ảnh bìa",
+    "công bố",
+    "ẩn giấu",
+    "bí mật"
+   ]
+  },
+  "template:yt-mini-sticker": {
+   "name": "Mặt to dán",
+   "tags": [
+    "ảnh bìa",
+    "mặt to",
+    "hình dán",
+    "phản ứng"
+   ]
+  },
+  "template:yt-mini-tier-list": {
+   "name": "Xếp hạng bậc",
+   "tags": [
+    "ảnh bìa",
+    "xếp hạng",
+    "bậc",
+    "thang điểm"
+   ]
+  },
+  "template:yt-mini-tres-niveles": {
+   "name": "Ba cấp độ",
+   "tags": [
+    "ảnh bìa",
+    "cấp độ",
+    "so sánh",
+    "rẻ đắt"
+   ]
+  },
+  "template:yt-mist-camara": {
+   "name": "Camera an ninh",
+   "tags": [
+    "bí ẩn",
+    "camera",
+    "an ninh",
+    "manh mối"
+   ]
+  },
+  "template:yt-mist-censurado": {
+   "name": "Tài liệu bị che",
+   "tags": [
+    "bí ẩn",
+    "tài liệu",
+    "che mờ",
+    "mật"
+   ]
+  },
+  "template:yt-mist-evidencia": {
+   "name": "Bằng chứng",
+   "tags": [
+    "bí ẩn",
+    "bằng chứng",
+    "vật chứng",
+    "điều tra"
+   ]
+  },
+  "template:yt-mist-expediente": {
+   "name": "Hồ sơ vụ án",
+   "tags": [
+    "bí ẩn",
+    "hồ sơ",
+    "vụ án",
+    "mật"
+   ]
+  },
+  "template:yt-mist-linea-tiempo": {
+   "name": "Dòng thời gian vụ án",
+   "tags": [
+    "bí ẩn",
+    "vụ án",
+    "dòng thời gian",
+    "sự kiện"
+   ]
+  },
+  "template:yt-mist-linea-vertical": {
+   "name": "Dòng thời gian dọc",
+   "tags": [
+    "bí ẩn",
+    "dòng thời gian",
+    "dọc",
+    "niên biểu"
+   ]
+  },
+  "template:yt-mist-mapa": {
+   "name": "Bản đồ vụ án",
+   "tags": [
+    "bí ẩn",
+    "bản đồ",
+    "vị trí",
+    "lộ trình"
+   ]
+  },
+  "template:yt-mist-maquina": {
+   "name": "Mở đầu máy chữ",
+   "tags": [
+    "bí ẩn",
+    "máy chữ",
+    "mở đầu",
+    "kể chuyện"
+   ]
+  },
+  "template:yt-mist-perfil": {
+   "name": "Hồ sơ nhân vật chính",
+   "tags": [
+    "bí ẩn",
+    "hồ sơ",
+    "nhân vật",
+    "chân dung"
+   ]
+  },
+  "template:yt-mist-periodico": {
+   "name": "Mẩu báo cũ",
+   "tags": [
+    "bí ẩn",
+    "báo",
+    "tin tức",
+    "tiêu đề"
+   ]
+  },
+  "template:yt-mist-podcast": {
+   "name": "Mở đầu podcast bí ẩn",
+   "tags": [
+    "bí ẩn",
+    "podcast",
+    "mở đầu",
+    "dẫn chuyện"
+   ]
+  },
+  "template:yt-mist-se-busca": {
+   "name": "Tìm người mất tích",
+   "tags": [
+    "bí ẩn",
+    "mất tích",
+    "tìm người",
+    "áp phích"
+   ]
+  },
+  "template:yt-mist-sin-resolver": {
+   "name": "Vụ án chưa giải",
+   "tags": [
+    "bí ẩn",
+    "chưa giải",
+    "mở đầu",
+    "tài liệu"
+   ]
+  },
+  "template:yt-mist-sin-resolver-vertical": {
+   "name": "Chưa giải, bản dọc",
+   "tags": [
+    "bí ẩn",
+    "chưa giải",
+    "dọc",
+    "phần một"
+   ]
+  },
+  "template:yt-mist-tablero": {
+   "name": "Bảng manh mối chỉ đỏ",
+   "tags": [
+    "bí ẩn",
+    "manh mối",
+    "chỉ đỏ",
+    "điều tra"
+   ]
+  },
+  "template:yt-mist-tablero-vertical": {
+   "name": "Bảng manh mối dọc",
+   "tags": [
+    "bí ẩn",
+    "manh mối",
+    "dọc",
+    "ngắn"
+   ]
+  },
+  "template:yt-mist-teorias": {
+   "name": "Ba giả thuyết",
+   "tags": [
+    "bí ẩn",
+    "giả thuyết",
+    "lý giải",
+    "ngắn"
+   ]
+  },
+  "template:yt-mist-testigo": {
+   "name": "Lời khai nhân chứng",
+   "tags": [
+    "bí ẩn",
+    "nhân chứng",
+    "lời khai",
+    "trích dẫn"
+   ]
+  },
+  "template:yt-pod-al-aire": {
+   "name": "Lên sóng radio",
+   "tags": [
+    "podcast",
+    "radio",
+    "lên sóng",
+    "retro"
+   ]
+  },
+  "template:yt-pod-apertura": {
+   "name": "Mở đầu nhanh",
+   "tags": [
+    "podcast",
+    "mở đầu",
+    "giới thiệu",
+    "tóm tắt"
+   ]
+  },
+  "template:yt-pod-audiograma": {
+   "name": "Biểu đồ âm thanh",
+   "tags": [
+    "podcast",
+    "sóng âm",
+    "clip",
+    "âm thanh"
+   ]
+  },
+  "template:yt-pod-cita": {
+   "name": "Thẻ trích dẫn",
+   "tags": [
+    "podcast",
+    "trích dẫn",
+    "clip",
+    "câu nói"
+   ]
+  },
+  "template:yt-pod-clip-subtitulos": {
+   "name": "Clip phụ đề lớn",
+   "tags": [
+    "podcast",
+    "phụ đề",
+    "clip",
+    "dọc"
+   ]
+  },
+  "template:yt-pod-clip-vertical": {
+   "name": "Clip dọc hai máy",
+   "tags": [
+    "podcast",
+    "clip",
+    "dọc",
+    "hai máy",
+    "phụ đề"
+   ]
+  },
+  "template:yt-pod-cortes": {
+   "name": "Podcast nhiều cắt",
+   "tags": [
+    "podcast",
+    "cắt cảnh",
+    "trò chuyện",
+    "nhiều máy"
+   ]
+  },
+  "template:yt-pod-debate": {
+   "name": "Tranh luận hai phe",
+   "tags": [
+    "podcast",
+    "tranh luận",
+    "ủng hộ",
+    "phản đối"
+   ]
+  },
+  "template:yt-pod-dos-camaras": {
+   "name": "Podcast hai máy",
+   "tags": [
+    "podcast",
+    "hai máy",
+    "phỏng vấn",
+    "tên"
+   ]
+  },
+  "template:yt-pod-en-vivo": {
+   "name": "Podcast trực tiếp chat",
+   "tags": [
+    "podcast",
+    "trực tiếp",
+    "chat",
+    "tương tác"
+   ]
+  },
+  "template:yt-pod-invitado": {
+   "name": "Giới thiệu khách mời",
+   "tags": [
+    "podcast",
+    "khách mời",
+    "giới thiệu",
+    "phỏng vấn"
+   ]
+  },
+  "template:yt-pod-mejores-momentos": {
+   "name": "Khoảnh khắc hay",
+   "tags": [
+    "podcast",
+    "khoảnh khắc",
+    "tóm tắt",
+    "clip"
+   ]
+  },
+  "template:yt-pod-panel-tres": {
+   "name": "Bàn tròn ba người",
+   "tags": [
+    "podcast",
+    "bàn tròn",
+    "ba người",
+    "tranh luận"
+   ]
+  },
+  "template:yt-pod-pausa": {
+   "name": "Sẽ quay lại",
+   "tags": [
+    "podcast",
+    "tạm dừng",
+    "quay lại",
+    "nghỉ"
+   ]
+  },
+  "template:yt-pod-pregunta": {
+   "name": "Câu hỏi hôm nay",
+   "tags": [
+    "podcast",
+    "câu hỏi",
+    "tranh luận",
+    "chủ đề"
+   ]
+  },
+  "template:yt-pod-proximo": {
+   "name": "Tập tiếp theo",
+   "tags": [
+    "podcast",
+    "tập tiếp",
+    "màn cuối",
+    "đăng ký"
+   ]
+  },
+  "template:yt-pod-temas": {
+   "name": "Chủ đề tập",
+   "tags": [
+    "podcast",
+    "chủ đề",
+    "mục lục",
+    "chương"
+   ]
+  },
+  "template:yt-pod-titulo-episodio": {
+   "name": "Tiêu đề tập",
+   "tags": [
+    "podcast",
+    "tiêu đề",
+    "tập",
+    "trang bìa"
+   ]
+  },
+  "template:yt-reac-arriba-abajo": {
+   "name": "Phản ứng trên dưới",
+   "tags": [
+    "phản ứng",
+    "trên dưới",
+    "chia màn hình",
+    "hài"
+   ]
+  },
+  "template:yt-reac-cine-h": {
+   "name": "Phản ứng xem phim",
+   "tags": [
+    "phản ứng",
+    "xem phim",
+    "rạp",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-comentarios": {
+   "name": "Đọc bình luận",
+   "tags": [
+    "phản ứng",
+    "bình luận",
+    "trả lời",
+    "người xem"
+   ]
+  },
+  "template:yt-reac-comida": {
+   "name": "Bạn có thử không?",
+   "tags": [
+    "phản ứng",
+    "món ăn",
+    "bình chọn",
+    "thử"
+   ]
+  },
+  "template:yt-reac-dividida-h": {
+   "name": "Phản ứng hai bên",
+   "tags": [
+    "phản ứng",
+    "hai bên",
+    "cạnh nhau",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-dueto": {
+   "name": "Phản ứng song ca",
+   "tags": [
+    "phản ứng",
+    "song ca",
+    "đôi",
+    "hát"
+   ]
+  },
+  "template:yt-reac-espera": {
+   "name": "Phản ứng chờ xem",
+   "tags": [
+    "phản ứng",
+    "chờ đợi",
+    "đếm ngược",
+    "bất ngờ"
+   ]
+  },
+  "template:yt-reac-esquina-h": {
+   "name": "Phản ứng góc máy",
+   "tags": [
+    "phản ứng",
+    "cam góc",
+    "16:9",
+    "nhỏ gọn"
+   ]
+  },
+  "template:yt-reac-esquinas": {
+   "name": "Cam góc nhảy",
+   "tags": [
+    "phản ứng",
+    "góc máy",
+    "nhảy",
+    "năng động"
+   ]
+  },
+  "template:yt-reac-musica": {
+   "name": "Nghe lần đầu",
+   "tags": [
+    "phản ứng",
+    "âm nhạc",
+    "lần đầu",
+    "bài hát"
+   ]
+  },
+  "template:yt-reac-nota-h": {
+   "name": "Phản ứng có điểm",
+   "tags": [
+    "phản ứng",
+    "điểm số",
+    "chấm điểm",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-pareja-h": {
+   "name": "Phản ứng đôi",
+   "tags": [
+    "phản ứng",
+    "cặp đôi",
+    "16:9",
+    "hai người"
+   ]
+  },
+  "template:yt-reac-real-falso-h": {
+   "name": "Thật hay giả?",
+   "tags": [
+    "phản ứng",
+    "thật giả",
+    "thử thách",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-repeticion": {
+   "name": "Phản ứng quay chậm",
+   "tags": [
+    "phản ứng",
+    "quay chậm",
+    "xem lại",
+    "khoảnh khắc"
+   ]
+  },
+  "template:yt-reac-sus-videos": {
+   "name": "Phản ứng video bạn",
+   "tags": [
+    "phản ứng",
+    "người xem",
+    "video",
+    "cộng đồng"
+   ]
+  },
+  "template:yt-reac-tarjeta": {
+   "name": "Phản ứng thẻ nổi",
+   "tags": [
+    "phản ứng",
+    "thẻ nổi",
+    "bình luận",
+    "video"
+   ]
+  },
+  "template:yt-reac-ventana-h": {
+   "name": "Phản ứng cửa sổ",
+   "tags": [
+    "phản ứng",
+    "cửa sổ",
+    "16:9",
+    "khung"
+   ]
+  },
+  "template:yt-reac-zoom-cara": {
+   "name": "Phóng mặt phản ứng",
+   "tags": [
+    "phản ứng",
+    "phóng to",
+    "khuôn mặt",
+    "biểu cảm"
+   ]
+  },
+  "template:yt-reto-1-vs-100": {
+   "name": "1 với 100",
+   "tags": [
+    "thử thách",
+    "đối đầu",
+    "so tài",
+    "một chọi trăm"
+   ]
+  },
+  "template:yt-reto-1-vs-millon": {
+   "name": "1 đô với 1 triệu",
+   "tags": [
+    "thử thách",
+    "tiền",
+    "so sánh",
+    "đắt rẻ",
+    "triệu đô"
+   ]
+  },
+  "template:yt-reto-10-dolares-7-dias": {
+   "name": "10 đô trong 7 ngày",
+   "tags": [
+    "thử thách",
+    "tiết kiệm",
+    "ngân sách",
+    "bảy ngày"
+   ]
+  },
+  "template:yt-reto-100-personas": {
+   "name": "100 người, 1 người thắng",
+   "tags": [
+    "thử thách",
+    "trăm người",
+    "thi đấu",
+    "người thắng"
+   ]
+  },
+  "template:yt-reto-24-horas": {
+   "name": "24 giờ ở…",
+   "tags": [
+    "thử thách",
+    "24 giờ",
+    "hẹn giờ",
+    "đồng hồ"
+   ]
+  },
+  "template:yt-reto-aguanta-60-minutos": {
+   "name": "Chịu được là thắng",
+   "tags": [
+    "thử thách",
+    "hẹn giờ",
+    "trụ lại",
+    "phút"
+   ]
+  },
+  "template:yt-reto-barato-vs-caro": {
+   "name": "Ba mức giá",
+   "tags": [
+    "thử thách",
+    "so sánh",
+    "đắt rẻ",
+    "tiền"
+   ]
+  },
+  "template:yt-reto-caja-misteriosa": {
+   "name": "Chọn một hộp",
+   "tags": [
+    "thử thách",
+    "hộp bí mật",
+    "bất ngờ",
+    "giải thưởng"
+   ]
+  },
+  "template:yt-reto-dia-1-dia-100": {
+   "name": "Ngày 1 với ngày 100",
+   "tags": [
+    "thử thách",
+    "một trăm ngày",
+    "tiến bộ",
+    "kiên trì"
+   ]
+  },
+  "template:yt-reto-eliminados": {
+   "name": "Chỉ một người trụ lại",
+   "tags": [
+    "thử thách",
+    "loại dần",
+    "người thắng",
+    "thi đấu"
+   ]
+  },
+  "template:yt-reto-ganador": {
+   "name": "Và người thắng là…",
+   "tags": [
+    "thử thách",
+    "người thắng",
+    "công bố",
+    "giải thưởng"
+   ]
+  },
+  "template:yt-reto-gasta-1000": {
+   "name": "Tiêu 1.000 đô một phút",
+   "tags": [
+    "thử thách",
+    "mua sắm",
+    "tiền",
+    "hẹn giờ"
+   ]
+  },
+  "template:yt-reto-intro-hype": {
+   "name": "Mở đầu thử thách",
+   "tags": [
+    "thử thách",
+    "mở đầu",
+    "sôi động",
+    "năng lượng"
+   ]
+  },
+  "template:yt-reto-marcador": {
+   "name": "Bảng điểm thử thách",
+   "tags": [
+    "thử thách",
+    "bảng điểm",
+    "đội chơi",
+    "thi đấu"
+   ]
+  },
+  "template:yt-reto-no-te-muevas": {
+   "name": "Đứng yên 10 giây",
+   "tags": [
+    "thử thách",
+    "hẹn giờ",
+    "đếm ngược",
+    "mười giây"
+   ]
+  },
+  "template:yt-reto-premio-gigante": {
+   "name": "Giải thưởng khổng lồ",
+   "tags": [
+    "thử thách",
+    "giải thưởng",
+    "tiền",
+    "đếm số"
+   ]
+  },
+  "template:yt-reto-sobrevivi-7-dias": {
+   "name": "Sống sót 7 ngày",
+   "tags": [
+    "thử thách",
+    "sinh tồn",
+    "bảy ngày",
+    "phiêu lưu"
+   ]
+  },
+  "template:yt-reto-ultimo-en-salir": {
+   "name": "Ai ở lại cuối thắng",
+   "tags": [
+    "thử thách",
+    "ở lại cuối",
+    "giải thưởng",
+    "tranh đua"
+   ]
+  },
+  "template:yt-sub-amarillo": {
+   "name": "Phụ đề vàng nổi",
+   "tags": [
+    "phụ đề",
+    "từng từ",
+    "màu vàng",
+    "nổi bật"
+   ]
+  },
+  "template:yt-sub-burbuja": {
+   "name": "Phụ đề bong bóng",
+   "tags": [
+    "phụ đề",
+    "bong bóng",
+    "từng từ",
+    "chat"
+   ]
+  },
+  "template:yt-sub-caja-blanca": {
+   "name": "Phụ đề hộp trắng",
+   "tags": [
+    "phụ đề",
+    "hộp trắng",
+    "từng từ",
+    "góc nhìn"
+   ]
+  },
+  "template:yt-sub-caja-verde": {
+   "name": "Phụ đề bôi xanh",
+   "tags": [
+    "phụ đề",
+    "từng từ",
+    "làm nổi",
+    "màu xanh"
+   ]
+  },
+  "template:yt-sub-comic-h": {
+   "name": "Phụ đề truyện tranh",
+   "tags": [
+    "phụ đề",
+    "truyện tranh",
+    "vlog",
+    "16:9"
+   ]
+  },
+  "template:yt-sub-emoji": {
+   "name": "Phụ đề emoji",
+   "tags": [
+    "phụ đề",
+    "emoji",
+    "vui",
+    "từng từ"
+   ]
+  },
+  "template:yt-sub-gancho": {
+   "name": "Câu móc và phụ đề",
+   "tags": [
+    "phụ đề",
+    "câu móc",
+    "từng từ",
+    "giữ chân"
+   ]
+  },
+  "template:yt-sub-gradiente": {
+   "name": "Phụ đề chuyển màu",
+   "tags": [
+    "phụ đề",
+    "chuyển màu",
+    "từng từ",
+    "ý tưởng"
+   ]
+  },
+  "template:yt-sub-marcador": {
+   "name": "Phụ đề viết tay",
+   "tags": [
+    "phụ đề",
+    "viết tay",
+    "từng từ",
+    "kể chuyện"
+   ]
+  },
+  "template:yt-sub-neon": {
+   "name": "Phụ đề neon",
+   "tags": [
+    "phụ đề",
+    "từng từ",
+    "neon",
+    "ban đêm"
+   ]
+  },
+  "template:yt-sub-pantalla-dividida": {
+   "name": "Phụ đề chia màn hình",
+   "tags": [
+    "phụ đề",
+    "chia màn hình",
+    "từng từ",
+    "hai bên"
+   ]
+  },
+  "template:yt-sub-pasos": {
+   "name": "Phụ đề từng bước",
+   "tags": [
+    "phụ đề",
+    "các bước",
+    "hướng dẫn",
+    "từng từ"
+   ]
+  },
+  "template:yt-sub-podcast-h": {
+   "name": "Phụ đề podcast 16:9",
+   "tags": [
+    "phụ đề",
+    "podcast",
+    "16:9",
+    "từng từ"
+   ]
+  },
+  "template:yt-sub-retro": {
+   "name": "Phụ đề VHS retro",
+   "tags": [
+    "phụ đề",
+    "retro",
+    "vhs",
+    "hoài niệm"
+   ]
+  },
+  "template:yt-sub-rojo": {
+   "name": "Phụ đề từ khóa đỏ",
+   "tags": [
+    "phụ đề",
+    "từ khóa",
+    "màu đỏ",
+    "doanh nghiệp"
+   ]
+  },
+  "template:yt-sub-storytime": {
+   "name": "Kể chuyện điện ảnh",
+   "tags": [
+    "phụ đề",
+    "kể chuyện",
+    "điện ảnh",
+    "từng từ"
+   ]
+  },
+  "template:yt-sub-tutorial-h": {
+   "name": "Phụ đề hướng dẫn 16:9",
+   "tags": [
+    "phụ đề",
+    "hướng dẫn",
+    "16:9",
+    "từng từ"
+   ]
+  },
+  "template:yt-sub-una-palabra": {
+   "name": "Mỗi lần một từ",
+   "tags": [
+    "phụ đề",
+    "từng từ",
+    "một từ",
+    "chuyển động"
+   ]
+  },
+  "template:yt-tec-bateria": {
+   "name": "Thử pin",
+   "tags": [
+    "công nghệ",
+    "pin",
+    "thử nghiệm",
+    "thời lượng"
+   ]
+  },
+  "template:yt-tec-benchmark": {
+   "name": "Đua hiệu năng",
+   "tags": [
+    "công nghệ",
+    "hiệu năng",
+    "điểm chuẩn",
+    "tốc độ"
+   ]
+  },
+  "template:yt-tec-capitulos": {
+   "name": "Chương đánh giá",
+   "tags": [
+    "công nghệ",
+    "chương",
+    "mục lục",
+    "đánh giá"
+   ]
+  },
+  "template:yt-tec-comparacion": {
+   "name": "So sánh cạnh nhau",
+   "tags": [
+    "công nghệ",
+    "so sánh",
+    "đối đầu",
+    "đánh giá"
+   ]
+  },
+  "template:yt-tec-comparacion-vertical": {
+   "name": "Mua cái nào?",
+   "tags": [
+    "công nghệ",
+    "so sánh",
+    "chọn mua",
+    "đối đầu"
+   ]
+  },
+  "template:yt-tec-etiqueta-precio": {
+   "name": "Nhãn giá",
+   "tags": [
+    "công nghệ",
+    "giá",
+    "ra mắt",
+    "đánh giá"
+   ]
+  },
+  "template:yt-tec-ficha-tecnica": {
+   "name": "Bảng thông số",
+   "tags": [
+    "công nghệ",
+    "thông số",
+    "đánh giá",
+    "điện thoại"
+   ]
+  },
+  "template:yt-tec-primeras-impresiones": {
+   "name": "Ấn tượng đầu",
+   "tags": [
+    "công nghệ",
+    "ấn tượng đầu",
+    "đánh giá",
+    "điện ảnh"
+   ]
+  },
+  "template:yt-tec-pros-contras": {
+   "name": "Ưu nhược điểm",
+   "tags": [
+    "công nghệ",
+    "ưu nhược",
+    "đánh giá",
+    "so sánh"
+   ]
+  },
+  "template:yt-tec-prueba-camara": {
+   "name": "Thử camera",
+   "tags": [
+    "công nghệ",
+    "camera",
+    "chụp thử",
+    "ban đêm"
+   ]
+  },
+  "template:yt-tec-puntaje": {
+   "name": "Điểm cuối",
+   "tags": [
+    "công nghệ",
+    "điểm số",
+    "đánh giá",
+    "chấm"
+   ]
+  },
+  "template:yt-tec-setup": {
+   "name": "Bàn làm việc tôi",
+   "tags": [
+    "công nghệ",
+    "bàn làm việc",
+    "góc máy",
+    "đồ chơi"
+   ]
+  },
+  "template:yt-tec-top-3": {
+   "name": "Top 3 phụ kiện năm",
+   "tags": [
+    "công nghệ",
+    "top 3",
+    "xếp hạng",
+    "phụ kiện"
+   ]
+  },
+  "template:yt-tec-tres-cosas": {
+   "name": "3 điều chưa biết",
+   "tags": [
+    "công nghệ",
+    "mẹo",
+    "thủ thuật",
+    "khám phá"
+   ]
+  },
+  "template:yt-tec-unboxing": {
+   "name": "Bóc hộp gọn",
+   "tags": [
+    "công nghệ",
+    "bóc hộp",
+    "đánh giá",
+    "tối giản"
+   ]
+  },
+  "template:yt-tec-unboxing-vertical": {
+   "name": "Bóc hộp 4 bước",
+   "tags": [
+    "công nghệ",
+    "bóc hộp",
+    "các bước",
+    "đánh giá"
+   ]
+  },
+  "template:yt-tec-vale-la-pena": {
+   "name": "Có đáng tiền?",
+   "tags": [
+    "công nghệ",
+    "đáng tiền",
+    "giá",
+    "đánh giá"
+   ]
+  },
+  "template:yt-tec-veredicto": {
+   "name": "Kết luận cuối",
+   "tags": [
+    "công nghệ",
+    "kết luận",
+    "khuyên mua",
+    "đánh giá"
+   ]
+  },
+  "template:yt-top-10-intro": {
+   "name": "Mở đầu top 10",
+   "tags": [
+    "xếp hạng",
+    "top 10",
+    "mở đầu",
+    "đếm ngược"
+   ]
+  },
+  "template:yt-top-10-lista": {
+   "name": "Top 10 có danh sách",
+   "tags": [
+    "xếp hạng",
+    "top 10",
+    "danh sách",
+    "đếm ngược"
+   ]
+  },
+  "template:yt-top-10-rapido": {
+   "name": "Top 10 nhanh",
+   "tags": [
+    "xếp hạng",
+    "top 10",
+    "danh sách",
+    "đếm ngược"
+   ]
+  },
+  "template:yt-top-10-tabla": {
+   "name": "Bảng xếp hạng",
+   "tags": [
+    "xếp hạng",
+    "bảng",
+    "điểm số",
+    "top 10"
+   ]
+  },
+  "template:yt-top-3-medallas": {
+   "name": "Top 3 huy chương",
+   "tags": [
+    "xếp hạng",
+    "top 3",
+    "huy chương",
+    "vàng"
+   ]
+  },
+  "template:yt-top-3-podio": {
+   "name": "Bục top 3",
+   "tags": [
+    "xếp hạng",
+    "top 3",
+    "bục thắng",
+    "người thắng"
+   ]
+  },
+  "template:yt-top-3-revelacion": {
+   "name": "Lộ diện quán quân",
+   "tags": [
+    "xếp hạng",
+    "top 3",
+    "quán quân",
+    "công bố"
+   ]
+  },
+  "template:yt-top-5-cine": {
+   "name": "Top 5 điện ảnh",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "điện ảnh",
+    "du lịch"
+   ]
+  },
+  "template:yt-top-5-comida": {
+   "name": "Top 5 món ăn",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "món ăn",
+    "chấm điểm"
+   ]
+  },
+  "template:yt-top-5-cuaderno": {
+   "name": "Top 5 sổ tay",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "sổ tay",
+    "vẽ tay"
+   ]
+  },
+  "template:yt-top-5-datos-curiosos": {
+   "name": "5 sự thật thú vị",
+   "tags": [
+    "xếp hạng",
+    "sự thật",
+    "khám phá",
+    "học hỏi"
+   ]
+  },
+  "template:yt-top-5-lugares": {
+   "name": "Top 5 địa điểm",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "du lịch",
+    "địa điểm"
+   ]
+  },
+  "template:yt-top-5-neon": {
+   "name": "Top 5 neon",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "neon",
+    "game"
+   ]
+  },
+  "template:yt-top-5-pantalla-dividida": {
+   "name": "Top 5 chia màn hình",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "chia màn hình",
+    "màu sắc"
+   ]
+  },
+  "template:yt-top-5-peor-a-mejor": {
+   "name": "Từ tệ đến hay",
+   "tags": [
+    "xếp hạng",
+    "chấm điểm",
+    "đánh giá",
+    "so sánh"
+   ]
+  },
+  "template:yt-top-5-ranking-rellenar": {
+   "name": "Bảng xếp hạng trống",
+   "tags": [
+    "xếp hạng",
+    "điền vào",
+    "lựa chọn",
+    "trống"
+   ]
+  },
+  "template:yt-top-5-retro": {
+   "name": "Top 5 retro",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "retro",
+    "băng cũ"
+   ]
+  },
+  "template:yt-top-5-tarjetas": {
+   "name": "Top 5 dạng thẻ",
+   "tags": [
+    "xếp hạng",
+    "top 5",
+    "thẻ",
+    "yêu thích"
+   ]
+  },
+  "template:yt-vlog-barrios": {
+   "name": "Ba khu phố một ngày",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "khu phố",
+    "chia màn hình"
+   ]
+  },
+  "template:yt-vlog-billete": {
+   "name": "Vé du lịch",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "vé",
+    "du lịch"
+   ]
+  },
+  "template:yt-vlog-cinematico": {
+   "name": "Mở đầu thành phố",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "điện ảnh",
+    "mở đầu"
+   ]
+  },
+  "template:yt-vlog-clima": {
+   "name": "Thời tiết và giờ",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "thời tiết",
+    "giờ"
+   ]
+  },
+  "template:yt-vlog-dia-1": {
+   "name": "Ngày 1 ở… (chương)",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "chương",
+    "du lịch"
+   ]
+  },
+  "template:yt-vlog-gastos": {
+   "name": "Chi bao nhiêu một ngày",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "chi tiêu",
+    "ngân sách"
+   ]
+  },
+  "template:yt-vlog-hora-lugar": {
+   "name": "Giờ và nơi",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "giờ",
+    "địa điểm"
+   ]
+  },
+  "template:yt-vlog-llegando": {
+   "name": "Đến thành phố",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "đến nơi",
+    "khoảng cách"
+   ]
+  },
+  "template:yt-vlog-mapa-zoom": {
+   "name": "Bạn ở đây",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "bản đồ",
+    "vị trí"
+   ]
+  },
+  "template:yt-vlog-metro": {
+   "name": "Đi tàu điện",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "tàu điện",
+    "nhà ga"
+   ]
+  },
+  "template:yt-vlog-noche": {
+   "name": "Thành phố ban đêm",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "ban đêm",
+    "neon"
+   ]
+  },
+  "template:yt-vlog-postal": {
+   "name": "Lời chào từ… (bưu thiếp)",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "bưu thiếp",
+    "retro"
+   ]
+  },
+  "template:yt-vlog-resumen": {
+   "name": "Tóm tắt chuyến đi",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "tóm tắt",
+    "ảnh"
+   ]
+  },
+  "template:yt-vlog-ruta-mapa": {
+   "name": "Bản đồ lộ trình",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "bản đồ",
+    "lộ trình"
+   ]
+  },
+  "template:yt-vlog-stats-viaje": {
+   "name": "Chuyến đi bằng số",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "thống kê",
+    "tóm tắt"
+   ]
+  },
+  "template:yt-vlog-timelapse": {
+   "name": "Timelapse thành phố",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "tua nhanh",
+    "đồng hồ"
+   ]
+  },
+  "template:yt-vlog-titulo-calle": {
+   "name": "Tiêu đề đường phố",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "tiêu đề",
+    "đường phố"
+   ]
+  },
+  "template:yt-vlog-top3": {
+   "name": "3 nơi phải đến",
+   "tags": [
+    "vlog",
+    "thành phố",
+    "top 3",
+    "địa điểm"
    ]
   },
   "template:zoom-3d-parallax": {
@@ -28415,27 +32539,15 @@
    "name": "Chất nhờn",
    "tags": [
     "kinh dị",
-    "halloween",
     "sợ",
     "nhờn",
     "xanh"
-   ]
-  },
-  "text-style:mie-calabaza": {
-   "name": "Bí ngô",
-   "tags": [
-    "kinh dị",
-    "halloween",
-    "sợ",
-    "bí ngô",
-    "cam"
    ]
   },
   "text-style:mie-expediente": {
    "name": "Hồ sơ mật",
    "tags": [
     "kinh dị",
-    "halloween",
     "bí ẩn",
     "hồ sơ",
     "vụ án"
@@ -28445,7 +32557,6 @@
    "name": "Con ma",
    "tags": [
     "kinh dị",
-    "halloween",
     "sợ",
     "ma",
     "hồn"
@@ -28455,7 +32566,6 @@
    "name": "Sương mù",
    "tags": [
     "kinh dị",
-    "halloween",
     "sợ",
     "sương mù",
     "rừng",
@@ -28466,7 +32576,6 @@
    "name": "Nguy hiểm",
    "tags": [
     "kinh dị",
-    "halloween",
     "sợ",
     "nguy hiểm",
     "cảnh báo"
@@ -28476,7 +32585,6 @@
    "name": "Đỏ máu",
    "tags": [
     "kinh dị",
-    "halloween",
     "sợ",
     "máu",
     "đỏ",
@@ -28487,7 +32595,6 @@
    "name": "Thì thầm",
    "tags": [
     "kinh dị",
-    "halloween",
     "sợ",
     "thì thầm",
     "bí ẩn",
@@ -29662,6 +33769,26 @@
     "chuyển cảnh"
    ]
   },
+  "transition:alejar-revelar": {
+   "name": "Thu nhỏ và hé lộ",
+   "tags": [
+    "thu nhỏ",
+    "hé lộ",
+    "thẻ",
+    "reveal",
+    "chuyển cảnh"
+   ]
+  },
+  "transition:alejar-revelar-lado": {
+   "name": "Thu nhỏ và hất sang bên",
+   "tags": [
+    "thu nhỏ",
+    "hất",
+    "thẻ",
+    "hé lộ",
+    "chuyển cảnh"
+   ]
+  },
   "transition:anillos": {
    "name": "Vòng tròn đồng tâm",
    "tags": [
@@ -29844,6 +33971,16 @@
     "trái tim",
     "lãng mạn",
     "valentine",
+    "chuyển cảnh"
+   ]
+  },
+  "transition:corte-estrobo": {
+   "name": "Cắt nhấp nháy",
+   "tags": [
+    "beat",
+    "đèn chớp",
+    "nhấp nháy",
+    "strobe",
     "chuyển cảnh"
    ]
   },
@@ -30060,6 +34197,38 @@
     "chuyển cảnh"
    ]
   },
+  "transition:deslizamiento-rgb": {
+   "name": "Trượt RGB",
+   "tags": [
+    "trượt",
+    "glitch",
+    "rgb",
+    "slide",
+    "chuyển cảnh",
+    "youtuber"
+   ]
+  },
+  "transition:deslizar-arriba": {
+   "name": "Vuốt lên",
+   "tags": [
+    "lên trên",
+    "vuốt",
+    "bảng tin",
+    "điện thoại",
+    "swipe up",
+    "chuyển cảnh"
+   ]
+  },
+  "transition:deslizar-historia": {
+   "name": "Vuốt story",
+   "tags": [
+    "vuốt",
+    "story",
+    "điện thoại",
+    "swipe",
+    "chuyển cảnh"
+   ]
+  },
   "transition:destello-azul": {
    "name": "Chớp xanh lạnh",
    "tags": [
@@ -30192,6 +34361,17 @@
     "chuyển cảnh"
    ]
   },
+  "transition:entrada-pop": {
+   "name": "Xuất hiện pop",
+   "tags": [
+    "boing",
+    "nảy",
+    "đàn hồi",
+    "jelly",
+    "pop",
+    "chuyển cảnh"
+   ]
+  },
   "transition:espejismo": {
    "name": "Ảo ảnh nhiệt",
    "tags": [
@@ -30246,6 +34426,17 @@
     "tv",
     "hạt",
     "chuyển cảnh"
+   ]
+  },
+  "transition:estela-derecha": {
+   "name": "Quét kèm vệt mờ",
+   "tags": [
+    "quét",
+    "vệt mờ",
+    "smear",
+    "swipe",
+    "chuyển cảnh",
+    "youtuber"
    ]
   },
   "transition:estirar-horizontal": {
@@ -30345,6 +34536,16 @@
     "hoa",
     "hình",
     "mùa xuân",
+    "chuyển cảnh"
+   ]
+  },
+  "transition:foto-congelada": {
+   "name": "Đóng băng khung hình",
+   "tags": [
+    "máy ảnh",
+    "đóng băng",
+    "ảnh",
+    "freeze frame",
     "chuyển cảnh"
    ]
   },
@@ -30486,6 +34687,17 @@
     "chuyển cảnh"
    ]
   },
+  "transition:fundido-brillo-luz": {
+   "name": "Mờ dần sáng với vệt sáng",
+   "tags": [
+    "độ sáng",
+    "ấm",
+    "mờ dần",
+    "light leak",
+    "ánh sáng",
+    "chuyển cảnh"
+   ]
+  },
   "transition:fusion-color": {
    "name": "Tan màu",
    "tags": [
@@ -30525,6 +34737,16 @@
     "quay",
     "zoom",
     "đôi",
+    "chuyển cảnh"
+   ]
+  },
+  "transition:giro-esquina": {
+   "name": "Xoay từ góc",
+   "tags": [
+    "góc",
+    "xoay",
+    "cửa",
+    "swing",
     "chuyển cảnh"
    ]
   },
@@ -30614,6 +34836,38 @@
     "chuyển cảnh"
    ]
   },
+  "transition:impacto-onda": {
+   "name": "Va chạm sóng xung kích",
+   "tags": [
+    "boom",
+    "flash",
+    "va chạm",
+    "sóng xung kích",
+    "chuyển cảnh"
+   ]
+  },
+  "transition:latigazo-giro-derecha": {
+   "name": "Quất xoay sang phải",
+   "tags": [
+    "xoay",
+    "whip",
+    "roll",
+    "chuyển cảnh",
+    "whoosh",
+    "youtuber"
+   ]
+  },
+  "transition:latigazo-giro-izquierda": {
+   "name": "Quất xoay sang trái",
+   "tags": [
+    "xoay",
+    "whip",
+    "roll",
+    "chuyển cảnh",
+    "whoosh",
+    "youtuber"
+   ]
+  },
   "transition:lluvia-corazones": {
    "name": "Mưa trái tim",
    "tags": [
@@ -30661,6 +34915,17 @@
     "ô",
     "khảm",
     "tâm",
+    "chuyển cảnh"
+   ]
+  },
+  "transition:muro-pantallas": {
+   "name": "Bức tường màn hình",
+   "tags": [
+    "lưới",
+    "khảm",
+    "bức tường",
+    "màn hình",
+    "video wall",
     "chuyển cảnh"
    ]
   },
@@ -30806,6 +35071,26 @@
     "chuyển cảnh"
    ]
   },
+  "transition:paneo-diagonal-abajo": {
+   "name": "Lia chéo xuống dưới",
+   "tags": [
+    "đường chéo",
+    "lia máy",
+    "whip pan",
+    "chuyển cảnh",
+    "youtuber"
+   ]
+  },
+  "transition:paneo-diagonal-arriba": {
+   "name": "Lia chéo lên trên",
+   "tags": [
+    "đường chéo",
+    "lia máy",
+    "whip pan",
+    "chuyển cảnh",
+    "youtuber"
+   ]
+  },
   "transition:paneo-izquierda": {
    "name": "Lia nhanh trái",
    "tags": [
@@ -30813,6 +35098,16 @@
     "mờ chuyển động",
     "nhanh",
     "trái",
+    "chuyển cảnh"
+   ]
+  },
+  "transition:pantalla-dividida": {
+   "name": "Chia đôi màn hình",
+   "tags": [
+    "chia",
+    "một nửa",
+    "chia màn hình",
+    "split screen",
     "chuyển cảnh"
    ]
   },
@@ -30834,6 +35129,17 @@
     "xé",
     "dọc",
     "chuyển cảnh"
+   ]
+  },
+  "transition:parpadeo": {
+   "name": "Chớp mắt",
+   "tags": [
+    "chớp mắt",
+    "mắt",
+    "nhắm",
+    "blink",
+    "chuyển cảnh",
+    "youtuber"
    ]
   },
   "transition:pasar-pagina": {
@@ -30986,6 +35292,16 @@
     "chuyển cảnh"
    ]
   },
+  "transition:pixelado-rapido": {
+   "name": "Vỡ điểm ảnh nhanh",
+   "tags": [
+    "8 bit",
+    "pixel",
+    "điểm ảnh",
+    "retro",
+    "chuyển cảnh"
+   ]
+  },
   "transition:pixeles-arrastrados": {
    "name": "Điểm ảnh kéo",
    "tags": [
@@ -31084,6 +35400,17 @@
     "cửa",
     "tách",
     "dọc",
+    "chuyển cảnh"
+   ]
+  },
+  "transition:pulso-bajo": {
+   "name": "Nhịp bass",
+   "tags": [
+    "808",
+    "bass",
+    "drop",
+    "nhịp đập",
+    "nhịp điệu",
     "chuyển cảnh"
    ]
   },
@@ -31617,6 +35944,27 @@
     "zoom",
     "va chạm",
     "nhanh",
+    "chuyển cảnh"
+   ]
+  },
+  "transition:zoom-saltos": {
+   "name": "Zoom từng nấc",
+   "tags": [
+    "zoom",
+    "từng nấc",
+    "jump cut",
+    "cú đập",
+    "chuyển cảnh",
+    "youtuber"
+   ]
+  },
+  "transition:zoom-saltos-atras": {
+   "name": "Thu nhỏ từng nấc",
+   "tags": [
+    "thu nhỏ",
+    "zoom",
+    "từng nấc",
+    "jump cut",
     "chuyển cảnh"
    ]
   }

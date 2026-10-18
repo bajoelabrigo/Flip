@@ -188,6 +188,11 @@ Column {
                         visible: tileMouse.containsMouse
                     }
 
+                    scale: tileMouse.pressed ? 0.97 : (tileMouse.containsMouse ? 1.02 : 1.0)
+                    Behavior on scale {
+                        NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
+                    }
+
                     MouseArea {
                         id: tileMouse
                         anchors.fill: parent

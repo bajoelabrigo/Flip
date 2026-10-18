@@ -12869,6 +12869,10 @@
         <translation>Material de archivo</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>Inicio</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>Mercado no disponible</translation>
     </message>
@@ -16484,6 +16488,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Video thumbnails</source>
         <translation>Miniaturas de YouTube</translation>
+    </message>
+    <message>
+        <source>Counters</source>
+        <translation>Contadores</translation>
+    </message>
+    <message>
+        <source>YouTuber style</source>
+        <translation>Estilo youtuber</translation>
     </message>
     <message>
         <source>Other</source>

@@ -1,0 +1,5 @@
+{"tool": "click", "args": {"x": 980, "y": 120}}
+{"tool": "screenshot", "args": {"path": "05-editor.png"}}
+{"tool": "click", "args": {"x": 413, "y": 55}}
+{"tool": "screenshot", "args": {"path": "06-stock.png"}}
+{"tool": "market_home", "save": "07-home.json"}

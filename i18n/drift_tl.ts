@@ -12869,6 +12869,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>Home</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16479,6 +16483,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Counters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>YouTuber style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18569,7 +18581,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Home</translation>
     </message>
     <message>
         <source>Extras</source>

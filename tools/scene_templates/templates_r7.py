@@ -51,7 +51,7 @@ def collage_3_vertical():
     bg(t, "#FFFFFF")
     g = 14
     h = (1920 - 4 * g) / 3
-    _cells(t, [Box(g, g + i * (h + g), 1080 - 2 * g, h) for i in range(3)], ["beach-05", "coffee-03", "sunset-03"],
+    _cells(t, [Box(g, g + i * (h + g), 1080 - 2 * g, h) for i in range(3)], ["beach-01", "coffee-03", "sunset-03"],
            motion="drop", step=0.4)
     label(t, t.track("text", "Texto"), "sol · café · mar", 1.6, 6.4, Box(60, 880, 960, 160), "DM Serif Display", 100,
           "#FFFFFF", weight=400, box_bg=("#111111", 0.7), box_pad=24, box_radius=20, anim_in=tanim("pop", duration=0.3),
@@ -81,7 +81,7 @@ def mosaico_3x3():
     ch = cw * 1.25
     y0 = (1920 - 3 * ch - 2 * g) / 2
     cells = [Box(g + c * (cw + g), y0 + r * (ch + g), cw, ch) for r in range(3) for c in range(3)]
-    samples = ["friends-01", "food-03", "beach-02", "pet-02", "selfie-01", "city-03", "concert-02", "coffee-01", "nature-02"]
+    samples = ["friends-01", "food-03", "beach-01", "pet-02", "selfie-01", "city-03", "concert-02", "coffee-01", "nature-02"]
     order = [4, 0, 8, 2, 6, 1, 7, 3, 5]
     _cells(t, [cells[i] for i in order], [samples[i] for i in order], step=B, motion="snap")
     song(t, "upbeat", 3, 0.85)
@@ -94,7 +94,7 @@ def recortes_revista():
     bg(t, "#EDE6DA")
     rng = random.Random(3103)
     spots = [("portrait-08", centered(380, 600, 560, 720), -6), ("outfit-04", centered(760, 1050, 520, 680), 5),
-             ("outfit-02", centered(360, 1440, 520, 560), -3)]
+             ("outfit-04", centered(360, 1440, 520, 560), -3)]
     for i, (s, box, r) in enumerate(spots):
         framed(t, s, 0.3 + i * 0.6, 8.7 - i * 0.6, box, [(0, {"s": 1.3}, "out"), (0.4, {})], border=10, radius=2,
                colour="#FFFFFF", rotation=keys([(0, r)]), label=f"Foto {i + 1}")
@@ -127,7 +127,7 @@ def marco_camara():
     bg(t, "#1E1E1E")
     rrect(t, t.track("shape", "Cuerpo"), "#2E2E2E", 0, 8.0, Box(40, 340, 1000, 1240), 60,
           layers=[shadow("#000000", 0, 20, 40, 0.6), fill("#2E2E2E"), no_stroke()])
-    samples = ["nature-01", "city-02", "pet-05", "friends-04"]
+    samples = ["nature-01", "city-01", "pet-05", "friends-01"]
     for i, s in enumerate(samples):
         at = i * 2.0
         t.photo(t.track("video", "Fotos") if i == 0 else ph, s, at, 2.0, Box(100, 400, 880, 1000), label=f"Foto {i + 1}")
@@ -155,7 +155,7 @@ def tablero_corcho():
                 centered(rng.uniform(0, 1080), rng.uniform(0, 1920), 6, 6), kind="ellipse", alpha=0.5)
         if k % 40 == 0:
             gr = t.tracks[-1]
-    spots = [("friends-02", centered(330, 450, 460, 560), -7), ("travel-03", centered(770, 560, 440, 520), 6),
+    spots = [("friends-01", centered(330, 450, 460, 560), -7), ("travel-03", centered(770, 560, 440, 520), 6),
              ("concert-01", centered(340, 1080, 440, 520), 4), ("family-02", centered(760, 1180, 460, 560), -5),
              ("pet-04", centered(540, 1650, 480, 420), 2)]
     for i, (s, box, r) in enumerate(spots):
@@ -222,7 +222,7 @@ def fotomaton():
         t.solid(t.track("shape", "Cortina"), "#C1121F", 0, 8.0, Box(k * 108, 0, 54, 1920))
     rrect(t, t.track("shape", "Tira"), "#FFFFFF", 0.2, 7.8, Box(270, 120, 540, 1680), 8, slide_in(dy=-1900, length=0.6),
           layers=[shadow("#000000", 0, 20, 40, 0.5), fill("#FFFFFF"), no_stroke()], rotation=keys([(0, -3)]))
-    samples = ["couple-07", "friends-05", "couple-03", "friends-08"]
+    samples = ["couple-07", "friends-12", "couple-03", "friends-08"]
     for i, s in enumerate(samples):
         at = 0.9 + i * 0.9
         t.photo(t.track("video", f"Cuadro {i + 1}"), s, at, 8.0 - at, Box(310, 160 + i * 400, 460, 370), label=f"Foto {i + 1}",
@@ -244,7 +244,7 @@ def album_stickers():
         if k == 0:
             dotsk = t.tracks[-1]
     spots = [("selfie-02", Box(110, 260, 520, 620), -4), ("icecream-02", Box(560, 640, 440, 520), 5),
-             ("friends-06", Box(130, 1160, 600, 520), 3)]
+             ("y4c-friends-01", Box(130, 1160, 600, 520), 3)]
     for i, (s, box, r) in enumerate(spots):
         framed(t, s, 0.3 + i * 0.7, 8.7 - i * 0.7, box, [(0, {"s": 1.3}, "out"), (0.4, {})], border=16, radius=24,
                rotation=keys([(0, r)]), label=f"Foto {i + 1}")
@@ -265,7 +265,7 @@ def pantalla_celular():
     bg_gradient(t, [(0, "#E3ECF7"), (1, "#C9D6E8")], angle=90)
     rrect(t, t.track("shape", "Teléfono"), "#111111", 0.2, 8.8, centered(540, 980, 760, 1560), 110, pop(0, 0.5, 0.8),
           layers=[shadow("#000000", 0, 30, 60, 0.4), fill("#111111"), no_stroke()])
-    samples = ["beach-03", "food-02", "friends-07", "sunset-01"]
+    samples = ["beach-01", "food-02", "y4c-friends-01", "sunset-01"]
     for i, s in enumerate(samples):
         at = 0.6 + i * 2.0
         t.photo(t.track("video", "Pantalla") if i == 0 else sc, s, at, min(2.0, 9.0 - at) if i < 3 else 9.0 - at,
@@ -290,7 +290,7 @@ def diario_cinta():
         t.solid(t.track("shape", "Renglón") if k == 0 else rl, "#D9E3EA", 0, 10.0, Box(0, 120 + k * 82, 1080, 3))
         if k == 0:
             rl = t.tracks[-1]
-    spots = [("coffee-02", Box(90, 220, 480, 560), -3), ("reading-03", Box(520, 760, 470, 560), 4)]
+    spots = [("coffee-01", Box(90, 220, 480, 560), -3), ("reading-03", Box(520, 760, 470, 560), 4)]
     for i, (s, box, r) in enumerate(spots):
         framed(t, s, 0.3 + i * 1.0, 9.7 - i * 1.0, box, [(0, {"s": 1.2}, "out"), (0.4, {})], border=12, colour="#FFFFFF",
                rotation=keys([(0, r)]), label=f"Foto {i + 1}")
@@ -314,7 +314,7 @@ def rejilla_bordes():
     g = 28
     cells = [Box(g, g, 1080 - 2 * g, 720), Box(g, 720 + 2 * g, (1080 - 3 * g) / 2, 560),
              Box(g * 2 + (1080 - 3 * g) / 2, 720 + 2 * g, (1080 - 3 * g) / 2, 560), Box(g, 1280 + 3 * g, 1080 - 2 * g, 1920 - 1280 - 4 * g)]
-    _cells(t, cells, ["skate-03", "night-02", "friends-12", "city-04"], motion="snap", step=B)
+    _cells(t, cells, ["skate-01", "night-02", "friends-12", "city-04"], motion="snap", step=B)
     for c in cells:
         outline(t, t.track("shape", "Borde"), "#111111", 12, 0, 8.0, c)
     label(t, t.track("text", "Texto"), "CALLE", 2.0, 6.0, Box(g, 1280 + 3 * g, 1080 - 2 * g, 1920 - 1280 - 4 * g), "Anton",
@@ -407,7 +407,7 @@ def ba_cortina():
 def ba_dia_1_100():
     t = tall("r-ba-dia-1-100", "Día 1 / Día 100", "Day 1 / Day 100", "beforeafter", 8.0, order=3116,
              tags=["día 1", "día 100", "progreso", "reto", "transformación"], thumb_at=5.2, background="#000000")
-    _before_after(t, "gym-04", "gym-02", labels=("DÍA 1", "DÍA 100"), at=3.0, colours=("#555555", "#E10600"),
+    _before_after(t, "gym-01", "y2-h-gym-01", labels=("DÍA 1", "DÍA 100"), at=3.0, colours=("#555555", "#E10600"),
                   before_fx=[effect("color.basic", saturation=-1.0)], wipe="horizontal")
     label(t, t.track("text", "Texto"), "no te rindas", 4.4, 3.6, Box(60, 1640, 960, 160), "Anton", 130, "#FFFFFF", weight=400,
           spacing=4, layers=[shadow("#000000", 0, 6, 16, 0.6), fill("#FFFFFF")], anim_in=tanim("stamp", duration=0.3),
@@ -457,7 +457,7 @@ def ba_peinado():
 def ba_mascota():
     t = tall("r-ba-mascota", "De cachorro a grande", "Puppy to grown-up", "beforeafter", 8.0, order=3121,
              tags=["mascota", "cachorro", "perro", "crecer", "antes y después"], thumb_at=3.8, background="#000000")
-    _before_after(t, "puppy-02", "pet-05", labels=("2 MESES", "2 AÑOS"), at=2.6, colours=("#F4A261", "#2A9D8F"))
+    _before_after(t, "puppy-01", "pet-05", labels=("2 MESES", "2 AÑOS"), at=2.6, colours=("#F4A261", "#2A9D8F"))
     label(t, t.track("text", "Texto"), "creció tan rápido 🥹", 4.0, 4.0, Box(60, 1660, 960, 140), "Fredoka", 80, "#FFFFFF",
           weight=700, layers=[shadow("#000000", 0, 4, 14, 0.6), fill("#FFFFFF")], anim_in=tanim("pop", duration=0.3),
           name="Texto")
@@ -513,7 +513,7 @@ def cumple_infantil():
         t.solid(t.track("shape", "Cordel"), "#FFFFFF", at, 10.0 - at, Box(x - 1, 300 + s * 0.6, 3, 300), mo, alpha=0.8)
         t.solid(t.track("shape", "Globo"), c, at, 10.0 - at, centered(x, 300, s, s * 1.2), mo, kind="ellipse",
                 layers=[gradient([(0, "#FFFFFF", 0.55), (0.35, c), (1, c)], angle=135), no_stroke()])
-    framed(t, "kids-01", 0.8, 9.2, centered(540, 1050, 760, 860), [(0, {"s": 0.6}, "back"), (0.5, {}, "linear"),
+    framed(t, "kids-02", 0.8, 9.2, centered(540, 1050, 760, 860), [(0, {"s": 0.6}, "back"), (0.5, {}, "linear"),
                                                                     (9.2, {"s": 1.03})], border=20, radius=40,
            rotation=keys([(0, -3)]), label="Foto del cumpleañero")
     _party_title(t, "¡Tomás cumple 5!", 1.2, Box(40, 1520, 1000, 220), "Chewy", 130, "#FF595E", shadow_c="#FFFFFF")
@@ -633,7 +633,7 @@ def despedida_soltera():
     t = tall("r-despedida-soltera", "Despedida de soltera", "Bachelorette party", "celebration", 9.0, order=3132,
              tags=["despedida de soltera", "amigas", "fiesta", "novia", "bride"], thumb_at=5.0, background="#FFB3C6")
     bg_gradient(t, [(0, "#FFC8DD"), (1, "#FFAFCC")], angle=135)
-    samples = ["friends-03", "friends-09", "friends-05", "newyear-04"]
+    samples = ["friends-03", "friends-09", "friends-12", "newyear-04"]
     for i, s in enumerate(samples):
         at = 0.2 + i * 1.6
         r = (-1) ** i * 6
@@ -740,7 +740,7 @@ def graduacion_universidad():
     t = tall("r-graduacion-universidad", "Graduación universitaria", "University graduation", "celebration", 10.0,
              order=3138, tags=["graduación", "universidad", "título", "logro", "carrera"], thumb_at=8.6, background="#0A1F44")
     slides(t, ["graduation-03", "graduation-05", "graduation-01", "graduation-06"], 0.0, 1.8, transition=None, kb_amount=0.1)
-    photo_bg(t, "graduation-02", 7.2, 2.8, s1=1.06, label="Foto principal")
+    photo_bg(t, "graduation-01", 7.2, 2.8, s1=1.06, label="Foto principal")
     shade_bottom(t, 900, 0.8, 7.2, 2.8, colour="#0A1F44")
     label(t, t.track("text", "Título"), "LIC. EN\nARQUITECTURA", 7.4, 2.6, Box(60, 1250, 960, 360), "Playfair Display", 110,
           "#F5D98B", weight=800, line=1.0, layers=[glow("#F5D98B", 14, 0.5), fill("#F5D98B")],
@@ -826,9 +826,9 @@ def casa_nueva():
 def logro_deportivo():
     t = tall("r-logro-deportivo", "¡Campeones!", "Champions!", "celebration", 8.0, order=3143,
              tags=["campeones", "deporte", "trofeo", "victoria", "equipo"], thumb_at=4.6, background="#000000")
-    slides(t, ["gym-06", "gym-05", "hike-03", "gym-02"], 0.0, 1.0, transition=None, kb_amount=0.12,
+    slides(t, ["gym-01", "y2-h-gym-01", "hike-03", "y2-h-gym-06"], 0.0, 1.0, transition=None, kb_amount=0.12,
            effects_fn=lambda i: [effect("color.basic", contrast=0.3)])
-    photo_bg(t, "gym-06", 4.0, 4.0, s1=1.05, label="Foto final", reuse="p1")
+    photo_bg(t, "gym-01", 4.0, 4.0, s1=1.05, label="Foto final", reuse="p1")
     shade_full(t, 0.4, 4.0, 4.0)
     label(t, t.track("text", "Trofeo"), "🏆", 4.0, 4.0, centered(540, 620, 360, 360), "Inter", 260, "#FFD23F", weight=400,
           editable=False, motion=[(0, {"s": 0.0, "dy": 300}, "back"), (0.6, {})])

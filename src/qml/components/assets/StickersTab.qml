@@ -180,7 +180,7 @@ Item {
                     width: stickerGrid.cardSize
                     spacing: Theme.spacingSm
                     opacity: stickerDrag.active ? 0.85 : 1
-                    scale: stickerDrag.active ? 1.04 : (stickerDrag.pressed ? 0.97 : 1.0)
+                    scale: stickerDrag.active ? 1.04 : stickerDrag.pressed ? 0.97 : (stickerDrag.hovered ? 1.02 : 1.0)
 
                     Behavior on opacity {
                         NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }

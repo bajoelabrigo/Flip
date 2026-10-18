@@ -285,7 +285,7 @@ def barberia_antes_despues() -> Template:
     after = t.track("video", "Después")
     top = t.photo(after, "barber-01", 2.4, 3.2, FULL, [(0, {"s": 1.08}, "linear"), (3.2, {"s": 1.0})],
                   label="Después")
-    t.photo(after, "barber-03", 5.6, 2.4, FULL, [(0, {"s": 1.12}, "snap"), (0.25, {"s": 1.02}, "linear"),
+    t.photo(after, "barber-01", 5.6, 2.4, FULL, [(0, {"s": 1.12}, "snap"), (0.25, {"s": 1.02}, "linear"),
                                                  (2.4, {"s": 1.0})], label="Después 2")
     # A gold bar sweeps down at 2.4-3.4 s: the "after" shows above it.
     sweep = [(0, 0.0, "inout"), (1.0, 1.0)]
@@ -327,12 +327,12 @@ def gimnasio_promo() -> Template:
                  order=1205, tags=["gimnasio", "gym", "membresía", "promoción", "fitness"], thumb_at=6.3,
                  background="#000000")
     photos = t.track("video", "Fotos")
-    samples = ["gym-01", "gym-02", "gym-04", "gym-06"]
+    samples = ["gym-01", "y2-h-gym-01", "y2-h-gym-07", "y2-h-gym-06"]
     for i in range(8):
         t.photo(photos, samples[i % 4], i * beat(1), beat(1), FULL, [(0, {"s": 1.18}, "snap"), (0.18, {"s": 1.04})],
                 label=f"Foto {i % 4 + 1}", reuse=None if i < 4 else f"p{i % 4 + 1}",
                 effects=[effect("color.basic", contrast=0.25, saturation=-0.2)])
-    t.photo(photos, "gym-02", 4.0, 4.0, FULL, [(0, {"s": 1.15}, "snap"), (0.2, {"s": 1.05}, "linear"), (4.0, {"s": 1.0})],
+    t.photo(photos, "gym-01", 4.0, 4.0, FULL, [(0, {"s": 1.15}, "snap"), (0.2, {"s": 1.05}, "linear"), (4.0, {"s": 1.0})],
             reuse="p2", effects=[effect("duotone", strength=0.85, shadowColor="#0a0a0a", highlightColor="#c6ff00",
                                         contrast=0.6)])
     words = T(t, "Gancho")
@@ -694,8 +694,8 @@ def top5_vendidos() -> Template:
            text_style("Figtree", 70, [fill("#FFFFFF")], weight=800, anim_in=tanim("rise", duration=0.4)),
            label="Título")
     items = [("outfit-04", "Casaca jean", "$129.90"), ("shopping-03", "Bolso de tela", "$39.90"),
-             ("portrait-08", "Casaca varsity", "$149.90"), ("outfit-03", "Conjunto de lino", "$99.90"),
-             ("outfit-01", "Top floral", "$49.90")]
+             ("portrait-08", "Casaca varsity", "$149.90"), ("outfit-04", "Conjunto de lino", "$99.90"),
+             ("outfit-04", "Top floral", "$49.90")]
     cards, photos, numbers, names, prices = (S(t, "Tarjetas"), t.track("video", "Productos"), T(t, "Puestos"),
                                              T(t, "Nombres"), T(t, "Precios"))
     for i, (sample, name, price) in enumerate(items):
@@ -744,7 +744,7 @@ def tutorial_3_pasos() -> Template:
                       anim_in=tanim("pop", duration=0.4, unit="word", stagger=0.1)), label="Título")
     steps = [("makeup-01", "Prepara la piel", "Hidrata y aplica una base ligera"),
              ("salon-01", "Define las cejas", "Peina y rellena con trazos cortos"),
-             ("makeup-03", "Dale color", "Rubor y labial en el mismo tono")]
+             ("makeup-01", "Dale color", "Rubor y labial en el mismo tono")]
     cards, photos = S(t, "Tarjetas"), t.track("video", "Pasos")
     badges, digits, titles, notes = S(t, "Número"), T(t, "Número"), T(t, "Paso"), T(t, "Detalle")
     for i, (sample, title, note) in enumerate(steps):
@@ -939,7 +939,7 @@ def nueva_coleccion() -> Template:
                       anim_in=tanim("fade", duration=0.6)), label="Disponible")
     t.solid(S(t, "Línea"), "#111111", 0.3, 9.7, Box(20, 200, 1040, 3), [(0, {"sx": 0.0}, "out"), (0.8, {})])
     w, gap = 336, 16
-    for i, sample in enumerate(["outfit-03", "outfit-04", "portrait-05"]):
+    for i, sample in enumerate(["y5-outfit-01", "outfit-04", "portrait-05"]):
         x = 20 + i * (w + gap)
         drift = 1 if i % 2 else -1
         motion = [(0, {"dy": drift * 1400}, "out"), (0.7 + i * 0.1, {}, "linear"), (4.2, {"dy": -drift * 40})]
@@ -949,7 +949,7 @@ def nueva_coleccion() -> Template:
     box = Box(20, 240, 1040, 1160)
     a = t.photo(big, "fashion-02", 4.2, 3.2, box, [(0, {"s": 1.1}, "linear"), (3.2, {"s": 1.0})],
                 label="Foto principal")
-    b = t.photo(big, "outfit-01", 7.4, 2.6, box, [(0, {"s": 1.0}, "linear"), (2.6, {"s": 1.06})], label="Look 5")
+    b = t.photo(big, "outfit-04", 7.4, 2.6, box, [(0, {"s": 1.0}, "linear"), (2.6, {"s": 1.06})], label="Look 5")
     t.transition(big, a, b, "crossfade", 0.5)
     reveal = [(0, 0.0, "inout"), (0.7, 1.0)]
     t.mask(big, a, "rectangle", w=0.0, keyframes={"w": keys(reveal)})

@@ -14,6 +14,8 @@ Item {
     readonly property real sidePadding: compact ? Theme.androidPagePadding : Theme.pagePadding
     // Every card on a shelf is this tall; the width follows the item's own shape.
     readonly property real cardHeight: compact ? 150 : 132
+    // For the wheel that moves on to the next kind past the last shelf.
+    readonly property alias flickable: shelves
 
     signal openRequested(var item)
     signal askRequested()

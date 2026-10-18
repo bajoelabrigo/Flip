@@ -32,6 +32,7 @@ sys.path.insert(0, str(HERE.parent / "e2e"))
 from PIL import Image, ImageDraw, ImageFilter  # noqa: E402
 
 import kit  # noqa: E402
+import renderlock  # noqa: E402
 import templates  # noqa: E402
 from mcp_e2e import Bridge, reply_text  # noqa: E402
 
@@ -42,7 +43,7 @@ DEFAULTS = {
     "work": ROOT / "tienda" / "plantillas" / "trabajo",
     "samples": ROOT / "tienda" / "plantillas" / "muestras",
     "music": APPDATA / "addons" / "musica.libre" / "sound-effects" / "musica",
-    "exe": ROOT / "pruebas" / "FlipStudio-0.13.0-arreglo" / "Flip Studio" / "flipstudio.exe",
+    "exe": ROOT / "pruebas" / "FlipStudio-0.14.0-prueba" / "Flip Studio" / "flipstudio.exe",
 }
 REG_KEY = r"HKCU\Software\Flip Studio"
 
@@ -280,7 +281,8 @@ def main() -> int:
         print(f"built {t.id}: {len(t.slots)} slots, {t.texts} texts, {t.duration:g} s", flush=True)
         jobs.append((t, render_path, args.out / t.id))
     if not args.no_render and jobs:
-        render_all(jobs, args.exe, args.work)
+        with renderlock.exclusive("rendering"):
+            render_all(jobs, args.exe, args.work)
     return 0
 
 

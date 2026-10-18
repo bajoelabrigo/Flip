@@ -85,3 +85,12 @@ aqtinstall.log
 !resources/diagnostics/bench1080p60.mp4
 __pycache__/
 .i18nwork/
+
+# Scratch of the Stock template tools: audit batches and their reports, render locks, temporary
+# contact sheets. The audits themselves live in kit.py (BLOCKED) once they are applied.
+tools/scene_templates/work/
+tools/stock_i18n/work/
+
+# Lists produced by publish_delta.py for the upload of the delta to the VPS.
+upload-list.txt
+remove-list.txt

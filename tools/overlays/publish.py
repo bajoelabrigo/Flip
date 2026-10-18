@@ -31,6 +31,8 @@ CATEGORY_NAMES = {
     "glitch": {"es": "Glitch", "en": "Glitch"},
     "camara": {"es": "Cámara y pantalla", "en": "Camera and screen"},
     "marcos": {"es": "Marcos y texturas", "en": "Frames and textures"},
+    "youtuber": {"es": "Youtuber", "en": "YouTuber"},
+    "camara-cara": {"es": "Marcos para la cámara", "en": "Face-cam frames"},
 }
 
 

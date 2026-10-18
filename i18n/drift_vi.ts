@@ -12823,6 +12823,10 @@
         <translation>Kho</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>Trang chủ</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>Cửa hàng không khả dụng</translation>
     </message>
@@ -16415,6 +16419,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Video thumbnails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Counters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>YouTuber style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

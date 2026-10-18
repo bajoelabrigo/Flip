@@ -16,8 +16,8 @@ def photo_dump_ritmo() -> Template:
                  order=10, tags=["fotos", "ritmo", "dump", "amigos"], thumb_at=9.3, background="#F5F0E8")
     rng = random.Random(7)
     t.solid(t.track("shape", "Fondo"), "#F5F0E8")
-    samples = ["friends-03", "friends-06", "beach-02", "travel-05", "friends-08", "cafe-02",
-               "travel-10", "friends-02", "friends-11", "friends-12"]
+    samples = ["friends-03", "y4c-friends-05", "beach-01", "travel-05", "friends-08", "cafe-02",
+               "travel-10", "friends-01", "friends-11", "friends-12"]
     starts = [0.0] + [1.0 + i * beat(2) for i in range(9)]
     # The print and its white border share a centre, so they turn and punch together.
     print_box = centered(540, 900, 800, 1000)
@@ -115,7 +115,7 @@ def collage_2x2() -> Template:
     cell_w, cell_h, gap = 486, 760, 28
     x0 = (1080 - 2 * cell_w - gap) / 2
     y0 = (1920 - 2 * cell_h - gap) / 2
-    samples = ["friends-01", "beach-03", "friends-10", "cafe-01"]
+    samples = ["friends-01", "beach-01", "friends-10", "cafe-01"]
     exits = [(-1300, -200), (1300, -200), (-1300, 200), (1300, 200)]
     for i, sample in enumerate(samples):
         col, row = i % 2, i // 2
@@ -149,7 +149,7 @@ def frase_del_dia() -> Template:
     t = Template("frase-del-dia", "Frase del día", "Quote of the day", "text", 8.0,
                  order=400, tags=["frase", "motivación", "cita"], thumb_at=6.8)
     bg = t.track("video", "Fondo")
-    t.photo(bg, "beach-05", 0, 8.0, centered(540, 960, 1300, 2310),
+    t.photo(bg, "beach-01", 0, 8.0, centered(540, 960, 1300, 2310),
             [(0, {"dx": 90}, "linear"), (8.0, {"dx": -90})],
             effects=[effect("builtin.effects.gaussian_blur", u_blurRadius=10),
                      effect("color.basic", exposure=-0.05, saturation=-0.1)])
@@ -199,6 +199,14 @@ import templates_s4  # noqa: E402
 import templates_f1  # noqa: E402
 import templates_f2  # noqa: E402
 import templates_y1  # noqa: E402
+import templates_c1  # noqa: E402
+import templates_c2  # noqa: E402
+import templates_y2  # noqa: E402
+import templates_y3  # noqa: E402
+import templates_y4  # noqa: E402
+import templates_y5  # noqa: E402
+import templates_y6  # noqa: E402
+import templates_y7  # noqa: E402
 
 TEMPLATES = ([photo_dump_ritmo, feliz_cumple, collage_2x2, frase_del_dia] + templates_reels.TEMPLATES
              + templates_text_collage.TEMPLATES + templates_rest.TEMPLATES
@@ -210,4 +218,6 @@ TEMPLATES = ([photo_dump_ritmo, feliz_cumple, collage_2x2, frase_del_dia] + temp
              + templates_r8.TEMPLATES + templates_r9.TEMPLATES
              + templates_s1.TEMPLATES + templates_s2.TEMPLATES
              + templates_s3.TEMPLATES + templates_s4.TEMPLATES
-             + templates_f1.TEMPLATES + templates_f2.TEMPLATES + templates_y1.TEMPLATES)
+             + templates_f1.TEMPLATES + templates_f2.TEMPLATES + templates_y1.TEMPLATES
+             + templates_c1.TEMPLATES + templates_c2.TEMPLATES
+             + templates_y2.TEMPLATES + templates_y3.TEMPLATES + templates_y4.TEMPLATES + templates_y5.TEMPLATES + templates_y6.TEMPLATES + templates_y7.TEMPLATES)

@@ -1007,8 +1007,6 @@ SEASONAL = [
      ["año nuevo", "new year", "brindis", "fiesta"], "#1a1a1a", "#5a4300"),
     ("san-valentin", "San Valentín", "Valentine's Day", "#ff9ec0", "#c8102e", "heart", ["#ffffff", "#ff4d7d", "#ffd6e5"], None,
      ["san valentin", "amor", "corazones", "febrero"], "#ffd6e5", "#ff4d7d"),
-    ("halloween", "Halloween", "Halloween", "#1a0b2e", "#ff6a00", "leaf", ["#ff8c00", "#5a1f9e", "#1a1a1a"], None,
-     ["halloween", "terror", "octubre", "calabaza"], "#0d0d0d", "#5a1f9e"),
     ("cumpleanos", "Cumpleaños", "Birthday", "#3d7bff", "#b26bff", "confetti", ["#ff4d6d", "#ffd23f", "#3ec1ff", "#7bf06a"], bunting,
      ["cumpleaños", "birthday", "fiesta", "celebracion"], "#ff8fb3", "#ffd23f"),
     ("graduacion", "Graduación", "Graduation", "#0b1f4a", "#1b2f6a", "star", ["#ffd27a", "#ffffff"], None,

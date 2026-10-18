@@ -298,9 +298,9 @@ GAMING = [
            loop=tslot("jitter", amount=1.2, angle=1, speed=12), tags=["jefe", "boss"], card="#140404"),
 ]
 
-# --- horror and Halloween -----------------------------------------------------------------------
+# --- horror and mystery ------------------------------------------------------------------------
 
-horror = styled("terror", ["terror", "halloween", "miedo"], tslot("flicker-in", 1.0, "linear"),
+horror = styled("terror", ["terror", "misterio", "miedo"], tslot("flicker-in", 1.0, "linear"),
                 tslot("fade", 0.6, "easeIn"))
 
 HORROR = [
@@ -316,9 +316,6 @@ HORROR = [
     horror("mie-susurro", "Susurro", "Whisper", ("¿Escuchaste eso?", "Did you hear that?"), "Cormorant Garamond", 100, 600,
            [glow("#9fb4c7", 0.5, 0.55), fill("#dbe6f0", alpha=0.9)], italic=True,
            loop=tslot("breathe", amount=0.35, speed=0.5), tags=["susurro", "misterio", "fantasma"], card="#0b1118"),
-    horror("mie-calabaza", "Calabaza", "Pumpkin", ("Halloween", "Halloween"), "Creepster", 160, 400,
-           [hard("#3b1361", 0.05, 0.07), stroke(0.05, "#3b1361"), fill(grad([(0, "#ffb347"), (1, "#ff6a00")], 90))],
-           tags=["calabaza", "naranja"], card="#1b0f2e"),
     horror("mie-fantasma", "Fantasma", "Ghost", ("Hay alguien aquí", "Someone is here"), "Shadows Into Light", 120, 400,
            [glow("#ffffff", 0.45, 0.6), fill("#ffffff", alpha=0.85)], loop=tslot("float", amount=0.1, speed=0.4),
            tags=["fantasma", "ghost"], card="#141821"),

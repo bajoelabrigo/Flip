@@ -61,6 +61,7 @@
   "music:triste": "伤感抒情",
   "overlay:amor": "爱心",
   "overlay:camara": "相机与屏幕",
+  "overlay:camara-cara": "摄像头边框",
   "overlay:celebracion": "庆祝",
   "overlay:clima": "天气与自然",
   "overlay:garabatos": "涂鸦",
@@ -69,6 +70,7 @@
   "overlay:marcos": "边框与纹理",
   "overlay:particulas": "粒子与闪光",
   "overlay:pelicula": "胶片与复古",
+  "overlay:youtuber": "博主必备",
   "shape:arrows": "箭头",
   "shape:badges": "徽章",
   "shape:bubbles": "对话气泡",
@@ -93,12 +95,14 @@
   "sound:ritmo": "节奏与音乐",
   "sound:suspenso": "悬疑与戏剧",
   "sound:transiciones": "转场",
+  "sound:youtuber": "博主必备",
   "template:ad6": "6秒广告",
   "template:beforeafter": "前后对比",
   "template:business": "商家",
   "template:celebration": "庆祝",
   "template:collage": "拼图",
   "template:countdown": "倒计时",
+  "template:counter": "计数器",
   "template:intro": "片头与标题",
   "template:lowerthird": "字幕条",
   "template:outro": "片尾",
@@ -110,6 +114,7 @@
   "template:text": "文字",
   "template:thumbnail": "视频封面",
   "template:transition": "转场与分隔",
+  "template:youtuber": "视频博主风格",
   "text-animation:brillo": "闪耀彩光",
   "text-animation:caer": "坠落上升",
   "text-animation:desenfoque": "模糊淡化",
@@ -134,7 +139,7 @@
   "text-style:retro": "复古千禧",
   "text-style:subtitulos": "爆款字幕",
   "text-style:tercios": "角标字幕",
-  "text-style:terror": "恐怖万圣",
+  "text-style:terror": "恐怖悬疑",
   "text-style:titulos": "标题",
   "transition:3d": "3D 翻页",
   "transition:barridos": "擦除",
@@ -144,6 +149,7 @@
   "transition:liquido": "水墨流体",
   "transition:luz": "光影胶片",
   "transition:movimiento": "运动",
+  "transition:youtuber": "博主风",
   "transition:zoom": "缩放冲击"
  },
  "items": {
@@ -398,15 +404,6 @@
     "配送",
     "订单",
     "包裹"
-   ]
-  },
-  "animation:calabaza": {
-   "name": "南瓜灯",
-   "tags": [
-    "万圣节",
-    "南瓜",
-    "十月",
-    "恐怖"
    ]
   },
   "animation:calendario": {
@@ -1077,15 +1074,6 @@
     "感叹号"
    ]
   },
-  "animation:fantasma": {
-   "name": "幽灵",
-   "tags": [
-    "万圣节",
-    "幽灵",
-    "吓",
-    "恐怖"
-   ]
-  },
   "animation:farol-rojo": {
    "name": "红灯笼",
    "tags": [
@@ -1579,15 +1567,6 @@
     "星星",
     "花朵",
     "变形"
-   ]
-  },
-  "animation:murcielago": {
-   "name": "蝙蝠",
-   "tags": [
-    "万圣节",
-    "夜晚",
-    "蝙蝠",
-    "恐怖"
    ]
   },
   "animation:nieve": {
@@ -3019,24 +2998,6 @@
     "毕业",
     "成就",
     "毕业季",
-    "背景"
-   ]
-  },
-  "background:halloween": {
-   "name": "万圣节背景",
-   "tags": [
-    "万圣节",
-    "恐怖",
-    "南瓜",
-    "背景"
-   ]
-  },
-  "background:halloween-2": {
-   "name": "万圣节背景2",
-   "tags": [
-    "万圣节",
-    "恐怖",
-    "南瓜",
     "背景"
    ]
   },
@@ -4787,16 +4748,6 @@
     "棕色",
     "温暖",
     "暗调",
-    "滤镜"
-   ]
-  },
-  "look:moody-halloween": {
-   "name": "惊悚之夜",
-   "tags": [
-    "惊悚",
-    "夜晚",
-    "绿色",
-    "恐怖",
     "滤镜"
    ]
   },
@@ -6888,16 +6839,6 @@
     "美学",
     "灰色",
     "都市"
-   ]
-  },
-  "lut:est-halloween": {
-   "name": "万圣惊魂",
-   "tags": [
-    "调色",
-    "滤镜",
-    "季节",
-    "万圣节",
-    "诡异"
    ]
   },
   "lut:est-invierno": {
@@ -9090,7 +9031,6 @@
   "music:dance-of-the-dead-30s": {
    "name": "亡灵之舞 30秒",
    "tags": [
-    "万圣节",
     "亡灵",
     "舞曲",
     "诡异",
@@ -9530,7 +9470,6 @@
   "music:fright-night-twist-30s": {
    "name": "惊魂之夜 30秒",
    "tags": [
-    "万圣节",
     "惊悚",
     "摇摆",
     "诡异",
@@ -9636,7 +9575,6 @@
   "music:ghost-town-30s": {
    "name": "幽灵小镇 30秒",
    "tags": [
-    "万圣节",
     "幽灵",
     "诡异",
     "夜晚",
@@ -9777,7 +9715,6 @@
   "music:haunted-houses-30s": {
    "name": "鬼屋惊魂 30秒",
    "tags": [
-    "万圣节",
     "鬼屋",
     "诡异",
     "节奏",
@@ -10583,7 +10520,6 @@
   "music:night-in-the-castle-30s": {
    "name": "古堡之夜 30秒",
    "tags": [
-    "万圣节",
     "古堡",
     "吸血鬼",
     "诡异",
@@ -11733,7 +11669,6 @@
   "music:witch-waltz-30s": {
    "name": "女巫圆舞曲 30秒",
    "tags": [
-    "万圣节",
     "女巫",
     "华尔兹",
     "诡异",
@@ -11743,7 +11678,6 @@
   "music:wizard-circus-30s": {
    "name": "巫师马戏团 30秒",
    "tags": [
-    "万圣节",
     "魔法",
     "马戏",
     "奇幻",
@@ -12429,6 +12363,246 @@
     "暴风雨",
     "闪电",
     "天气"
+   ]
+  },
+  "overlay:facecam-burbuja": {
+   "name": "对话气泡摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "气泡",
+    "漫画",
+    "直播"
+   ]
+  },
+  "overlay:facecam-circulo-blanco": {
+   "name": "白色圆形摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "圆形",
+    "白色",
+    "简约"
+   ]
+  },
+  "overlay:facecam-circulo-degradado": {
+   "name": "渐变圆环摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "圆形",
+    "渐变",
+    "氛围感"
+   ]
+  },
+  "overlay:facecam-circulo-dorado": {
+   "name": "金色圆环摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "圆形",
+    "金色",
+    "高级"
+   ]
+  },
+  "overlay:facecam-circulo-neon": {
+   "name": "霓虹圆形摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "圆形",
+    "霓虹",
+    "游戏"
+   ]
+  },
+  "overlay:facecam-circulo-ondas": {
+   "name": "说话波动摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "声波",
+    "说话",
+    "播客"
+   ]
+  },
+  "overlay:facecam-comic": {
+   "name": "波普漫画摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "漫画",
+    "波普",
+    "黄色"
+   ]
+  },
+  "overlay:facecam-cuadrado": {
+   "name": "圆角方形摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "方形",
+    "简约",
+    "播客"
+   ]
+  },
+  "overlay:facecam-cyber": {
+   "name": "赛博HUD摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "赛博",
+    "hud",
+    "科幻"
+   ]
+  },
+  "overlay:facecam-en-vivo-es": {
+   "name": "直播圆形框(西班牙语)",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "直播",
+    "live",
+    "西班牙语"
+   ]
+  },
+  "overlay:facecam-esquinas": {
+   "name": "四角框摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "四角",
+    "hud",
+    "简约"
+   ]
+  },
+  "overlay:facecam-estudio": {
+   "name": "播客录音室摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "播客",
+    "麦克风",
+    "录音室"
+   ]
+  },
+  "overlay:facecam-gamer-neon": {
+   "name": "霓虹游戏摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "游戏",
+    "霓虹",
+    "直播"
+   ]
+  },
+  "overlay:facecam-gamer-rgb": {
+   "name": "RGB游戏摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "游戏",
+    "rgb",
+    "彩虹"
+   ]
+  },
+  "overlay:facecam-glitch": {
+   "name": "故障风摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "故障风",
+    "游戏",
+    "直播"
+   ]
+  },
+  "overlay:facecam-hexagono-neon": {
+   "name": "霓虹六边形摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "六边形",
+    "霓虹",
+    "游戏"
+   ]
+  },
+  "overlay:facecam-hexagono-tech": {
+   "name": "科技六边形摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "六边形",
+    "科技",
+    "未来"
+   ]
+  },
+  "overlay:facecam-live-en": {
+   "name": "直播圆形框(英语)",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "直播",
+    "live",
+    "英语"
+   ]
+  },
+  "overlay:facecam-madera": {
+   "name": "木纹摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "木纹",
+    "自然",
+    "直播"
+   ]
+  },
+  "overlay:facecam-minimal": {
+   "name": "简约摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "简约",
+    "极简",
+    "直播"
+   ]
+  },
+  "overlay:facecam-pastel": {
+   "name": "马卡龙爱心摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "马卡龙色",
+    "爱心",
+    "可爱"
+   ]
+  },
+  "overlay:facecam-placa-nombre": {
+   "name": "带名牌摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "名字",
+    "名牌",
+    "直播"
+   ]
+  },
+  "overlay:facecam-rayos": {
+   "name": "闪电摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "闪电",
+    "电流",
+    "游戏"
+   ]
+  },
+  "overlay:facecam-tv-retro": {
+   "name": "复古电视摄像头框",
+   "tags": [
+    "摄像头框",
+    "露脸",
+    "复古",
+    "电视",
+    "怀旧"
    ]
   },
   "overlay:garabato-angel": {
@@ -13591,6 +13765,406 @@
     "纸张",
     "复古",
     "拼贴"
+   ]
+  },
+  "overlay:yt-barra-reproduccion": {
+   "name": "视频播放条",
+   "tags": [
+    "博主",
+    "播放条",
+    "播放器",
+    "视频",
+    "竖屏"
+   ]
+  },
+  "overlay:yt-campana": {
+   "name": "通知小铃铛",
+   "tags": [
+    "博主",
+    "铃铛",
+    "通知",
+    "订阅",
+    "竖屏"
+   ]
+  },
+  "overlay:yt-check-verde": {
+   "name": "绿色对勾",
+   "tags": [
+    "博主",
+    "对勾",
+    "正确",
+    "ok",
+    "绿色"
+   ]
+  },
+  "overlay:yt-circulo-flecha": {
+   "name": "红圈加箭头",
+   "tags": [
+    "博主",
+    "圆圈",
+    "箭头",
+    "红色",
+    "重点"
+   ]
+  },
+  "overlay:yt-circulo-neon": {
+   "name": "霓虹圆圈",
+   "tags": [
+    "博主",
+    "圆圈",
+    "霓虹",
+    "重点",
+    "强调"
+   ]
+  },
+  "overlay:yt-comentario-pop": {
+   "name": "弹出评论",
+   "tags": [
+    "博主",
+    "评论",
+    "弹出",
+    "社交媒体",
+    "竖屏"
+   ]
+  },
+  "overlay:yt-compartir-pop": {
+   "name": "弹出分享按钮",
+   "tags": [
+    "博主",
+    "分享",
+    "按钮",
+    "弹出",
+    "竖屏"
+   ]
+  },
+  "overlay:yt-contador-likes": {
+   "name": "点赞计数器",
+   "tags": [
+    "博主",
+    "点赞",
+    "计数器",
+    "爱心",
+    "竖屏"
+   ]
+  },
+  "overlay:yt-contador-seguidores": {
+   "name": "粉丝计数器",
+   "tags": [
+    "博主",
+    "粉丝",
+    "计数器",
+    "社交媒体",
+    "竖屏"
+   ]
+  },
+  "overlay:yt-contador-vistas": {
+   "name": "播放量计数器",
+   "tags": [
+    "博主",
+    "播放量",
+    "计数器",
+    "视频",
+    "竖屏"
+   ]
+  },
+  "overlay:yt-cursor-clic": {
+   "name": "点击光标",
+   "tags": [
+    "博主",
+    "光标",
+    "点击",
+    "鼠标",
+    "竖屏"
+   ]
+  },
+  "overlay:yt-emoji-100": {
+   "name": "3D 100分表情",
+   "tags": [
+    "博主",
+    "表情",
+    "100",
+    "3d",
+    "反应"
+   ]
+  },
+  "overlay:yt-emoji-calavera": {
+   "name": "3D 骷髅表情",
+   "tags": [
+    "博主",
+    "表情",
+    "骷髅",
+    "3d",
+    "反应"
+   ]
+  },
+  "overlay:yt-emoji-enamorado": {
+   "name": "3D 花痴表情",
+   "tags": [
+    "博主",
+    "表情",
+    "爱心眼",
+    "3d",
+    "喜欢"
+   ]
+  },
+  "overlay:yt-emoji-fuego": {
+   "name": "3D 火焰表情",
+   "tags": [
+    "博主",
+    "表情",
+    "火焰",
+    "3d",
+    "火爆"
+   ]
+  },
+  "overlay:yt-emoji-llorando": {
+   "name": "3D 大哭表情",
+   "tags": [
+    "博主",
+    "表情",
+    "哭",
+    "3d",
+    "反应"
+   ]
+  },
+  "overlay:yt-emoji-risa": {
+   "name": "3D 笑哭表情",
+   "tags": [
+    "博主",
+    "表情",
+    "笑哭",
+    "3d",
+    "爆笑"
+   ]
+  },
+  "overlay:yt-emoji-sorpresa": {
+   "name": "3D 震惊表情",
+   "tags": [
+    "博主",
+    "表情",
+    "震惊",
+    "3d",
+    "反应"
+   ]
+  },
+  "overlay:yt-flecha-neon": {
+   "name": "霓虹箭头",
+   "tags": [
+    "博主",
+    "箭头",
+    "霓虹",
+    "重点",
+    "强调"
+   ]
+  },
+  "overlay:yt-flecha-roja": {
+   "name": "红色指示箭头",
+   "tags": [
+    "博主",
+    "箭头",
+    "红色",
+    "重点",
+    "指示"
+   ]
+  },
+  "overlay:yt-flechas-amarillas": {
+   "name": "两侧黄色箭头",
+   "tags": [
+    "博主",
+    "箭头",
+    "黄色",
+    "重点",
+    "强调"
+   ]
+  },
+  "overlay:yt-iconos-fila": {
+   "name": "点赞、评论、分享",
+   "tags": [
+    "博主",
+    "点赞",
+    "评论",
+    "分享",
+    "图标"
+   ]
+  },
+  "overlay:yt-iconos-lateral": {
+   "name": "短视频侧边按钮",
+   "tags": [
+    "博主",
+    "短视频",
+    "按钮",
+    "图标",
+    "竖屏"
+   ]
+  },
+  "overlay:yt-like-pop": {
+   "name": "弹出点赞",
+   "tags": [
+    "博主",
+    "点赞",
+    "弹出",
+    "大拇指",
+    "竖屏"
+   ]
+  },
+  "overlay:yt-mano-clic": {
+   "name": "点击的手",
+   "tags": [
+    "博主",
+    "手",
+    "点击",
+    "触摸",
+    "竖屏"
+   ]
+  },
+  "overlay:yt-meta-suscriptores": {
+   "name": "目标达成进度条",
+   "tags": [
+    "博主",
+    "目标",
+    "达成",
+    "订阅",
+    "进度条"
+   ]
+  },
+  "overlay:yt-new-video-en": {
+   "name": "新视频贴纸(英语)",
+   "tags": [
+    "博主",
+    "新视频",
+    "贴纸",
+    "英语",
+    "竖屏"
+   ]
+  },
+  "overlay:yt-notificacion": {
+   "name": "新视频通知",
+   "tags": [
+    "博主",
+    "通知",
+    "新视频",
+    "铃铛",
+    "竖屏"
+   ]
+  },
+  "overlay:yt-notificacion-oscura": {
+   "name": "深色通知",
+   "tags": [
+    "博主",
+    "通知",
+    "深色",
+    "新视频",
+    "竖屏"
+   ]
+  },
+  "overlay:yt-nuevo-video-es": {
+   "name": "新视频贴纸(西班牙语)",
+   "tags": [
+    "博主",
+    "新视频",
+    "贴纸",
+    "西班牙语",
+    "竖屏"
+   ]
+  },
+  "overlay:yt-resaltador": {
+   "name": "黄色荧光笔",
+   "tags": [
+    "博主",
+    "荧光笔",
+    "标记",
+    "黄色",
+    "强调"
+   ]
+  },
+  "overlay:yt-subscribe-card-en": {
+   "name": "卡片订阅按钮(英语)",
+   "tags": [
+    "博主",
+    "订阅",
+    "按钮",
+    "卡片",
+    "英语"
+   ]
+  },
+  "overlay:yt-subscribe-classic-en": {
+   "name": "经典订阅按钮(英语)",
+   "tags": [
+    "博主",
+    "订阅",
+    "按钮",
+    "经典",
+    "英语"
+   ]
+  },
+  "overlay:yt-subscribe-neon-en": {
+   "name": "霓虹订阅按钮(英语)",
+   "tags": [
+    "博主",
+    "订阅",
+    "按钮",
+    "霓虹",
+    "英语"
+   ]
+  },
+  "overlay:yt-subscribe-white-en": {
+   "name": "白色订阅按钮(英语)",
+   "tags": [
+    "博主",
+    "订阅",
+    "按钮",
+    "白色",
+    "英语"
+   ]
+  },
+  "overlay:yt-suscribete-clasico-es": {
+   "name": "经典订阅按钮(西班牙语)",
+   "tags": [
+    "博主",
+    "订阅",
+    "按钮",
+    "经典",
+    "西班牙语"
+   ]
+  },
+  "overlay:yt-suscribete-neon-es": {
+   "name": "霓虹订阅按钮(西班牙语)",
+   "tags": [
+    "博主",
+    "订阅",
+    "按钮",
+    "霓虹",
+    "西班牙语"
+   ]
+  },
+  "overlay:yt-suscribete-pildora-es": {
+   "name": "白色订阅按钮(西班牙语)",
+   "tags": [
+    "博主",
+    "订阅",
+    "按钮",
+    "白色",
+    "西班牙语"
+   ]
+  },
+  "overlay:yt-suscribete-tarjeta-es": {
+   "name": "卡片订阅按钮(西班牙语)",
+   "tags": [
+    "博主",
+    "订阅",
+    "按钮",
+    "卡片",
+    "西班牙语"
+   ]
+  },
+  "overlay:yt-x-roja": {
+   "name": "红色叉号",
+   "tags": [
+    "博主",
+    "叉号",
+    "错误",
+    "ng",
+    "红色"
    ]
   },
   "shape:arch": {
@@ -15706,6 +16280,15 @@
     "条纹"
    ]
   },
+  "sound:acento-tension": {
+   "name": "紧张重音",
+   "tags": [
+    "音效",
+    "紧张",
+    "悬疑",
+    "博主"
+   ]
+  },
   "sound:angelical": {
    "name": "天使之音",
    "tags": [
@@ -15713,6 +16296,15 @@
     "神圣",
     "天堂",
     "宁静"
+   ]
+  },
+  "sound:aparecer-rebote": {
+   "name": "弹跳出场",
+   "tags": [
+    "音效",
+    "出场",
+    "弹跳",
+    "波普"
    ]
   },
   "sound:aparicion": {
@@ -15751,6 +16343,15 @@
     "魔法"
    ]
   },
+  "sound:asombro": {
+   "name": "惊叹合成音",
+   "tags": [
+    "音效",
+    "惊叹",
+    "合成器",
+    "哇"
+   ]
+  },
   "sound:aura": {
    "name": "闪耀光环",
    "tags": [
@@ -15767,6 +16368,42 @@
     "鼓点",
     "笑话",
     "搞笑"
+   ]
+  },
+  "sound:barra-carga": {
+   "name": "加载完成",
+   "tags": [
+    "音效",
+    "加载",
+    "完成",
+    "界面"
+   ]
+  },
+  "sound:barrido-camara": {
+   "name": "甩镜",
+   "tags": [
+    "音效",
+    "嗖",
+    "转场",
+    "甩镜"
+   ]
+  },
+  "sound:barrido-camara-doble": {
+   "name": "双重甩镜",
+   "tags": [
+    "音效",
+    "嗖",
+    "转场",
+    "双重"
+   ]
+  },
+  "sound:barrido-golpe": {
+   "name": "甩镜加重击",
+   "tags": [
+    "音效",
+    "嗖",
+    "重击",
+    "转场"
    ]
   },
   "sound:bass-drop": {
@@ -15877,6 +16514,15 @@
     "加分"
    ]
   },
+  "sound:boom-808": {
+   "name": "808揭晓重低音",
+   "tags": [
+    "音效",
+    "808",
+    "低音",
+    "揭晓"
+   ]
+  },
   "sound:boom-cine": {
    "name": "电影轰鸣",
    "tags": [
@@ -15947,6 +16593,15 @@
     "神秘",
     "魔法",
     "黑暗"
+   ]
+  },
+  "sound:burbuja-plop": {
+   "name": "泡泡啵",
+   "tags": [
+    "音效",
+    "泡泡",
+    "啵",
+    "可爱"
    ]
   },
   "sound:burbujas-magicas": {
@@ -16093,6 +16748,15 @@
     "魔法"
    ]
   },
+  "sound:check-tilde": {
+   "name": "打勾",
+   "tags": [
+    "音效",
+    "对勾",
+    "完成",
+    "界面"
+   ]
+  },
   "sound:chillido-doble": {
    "name": "双重吱吱",
    "tags": [
@@ -16109,6 +16773,15 @@
     "玩具",
     "捏捏",
     "宠物"
+   ]
+  },
+  "sound:cierre-video": {
+   "name": "片尾收尾",
+   "tags": [
+    "音效",
+    "片尾",
+    "收尾",
+    "结束"
    ]
   },
   "sound:cinta-frenada": {
@@ -16201,6 +16874,24 @@
     "提示音"
    ]
   },
+  "sound:corte-glitch": {
+   "name": "故障剪切",
+   "tags": [
+    "音效",
+    "故障风",
+    "噪音",
+    "剪切"
+   ]
+  },
+  "sound:corte-seco": {
+   "name": "跳剪",
+   "tags": [
+    "音效",
+    "剪切",
+    "跳剪",
+    "节奏"
+   ]
+  },
   "sound:cremallera": {
    "name": "拉链",
    "tags": [
@@ -16226,6 +16917,24 @@
     "1234",
     "鼓棒",
     "开场"
+   ]
+  },
+  "sound:cuenta-regresiva": {
+   "name": "3、2、1倒计时",
+   "tags": [
+    "音效",
+    "倒计时",
+    "3 2 1",
+    "开始"
+   ]
+  },
+  "sound:cuenta-regresiva-rapida": {
+   "name": "快速倒计时",
+   "tags": [
+    "音效",
+    "倒计时",
+    "快速",
+    "计时器"
    ]
   },
   "sound:dano": {
@@ -16300,6 +17009,15 @@
     "提示"
    ]
   },
+  "sound:ding-idea": {
+   "name": "灵感叮",
+   "tags": [
+    "音效",
+    "灵感",
+    "叮",
+    "想法"
+   ]
+  },
   "sound:disco-rayado": {
    "name": "唱片刮擦",
    "tags": [
@@ -16343,6 +17061,15 @@
     "鼓",
     "drop",
     "过门"
+   ]
+  },
+  "sound:error-doble": {
+   "name": "双响错误音",
+   "tags": [
+    "音效",
+    "错误",
+    "哔哔",
+    "失败"
    ]
   },
   "sound:error-negativo": {
@@ -16406,6 +17133,15 @@
     "号角",
     "冠军",
     "奖励"
+   ]
+  },
+  "sound:foto-flash": {
+   "name": "闪光拍照",
+   "tags": [
+    "音效",
+    "相机",
+    "快门",
+    "闪光灯"
    ]
   },
   "sound:game-over": {
@@ -16487,6 +17223,15 @@
     "重音",
     "震惊",
     "短促"
+   ]
+  },
+  "sound:golpe-eco": {
+   "name": "回声重击",
+   "tags": [
+    "音效",
+    "重击",
+    "回声",
+    "冲击"
    ]
   },
   "sound:golpe-fuerte": {
@@ -16615,6 +17360,15 @@
     "界面"
    ]
   },
+  "sound:intro-golpe": {
+   "name": "片头重击",
+   "tags": [
+    "音效",
+    "片头",
+    "重击",
+    "开场"
+   ]
+  },
   "sound:laser": {
    "name": "激光",
    "tags": [
@@ -16696,6 +17450,15 @@
     "打击乐"
    ]
   },
+  "sound:marcador": {
+   "name": "马克笔划线",
+   "tags": [
+    "音效",
+    "马克笔",
+    "书写",
+    "强调"
+   ]
+  },
   "sound:me-gusta": {
    "name": "点赞声",
    "tags": [
@@ -16748,6 +17511,15 @@
     "双倍",
     "游戏",
     "收集"
+   ]
+  },
+  "sound:monedas-mano": {
+   "name": "硬币叮当",
+   "tags": [
+    "音效",
+    "硬币",
+    "金钱",
+    "叮当"
    ]
   },
   "sound:notificacion-campanita": {
@@ -16811,6 +17583,15 @@
     "书本",
     "纸张",
     "转场"
+   ]
+  },
+  "sound:pensando": {
+   "name": "思考中…",
+   "tags": [
+    "音效",
+    "思考",
+    "问号",
+    "搞笑"
    ]
   },
   "sound:platillo": {
@@ -16930,6 +17711,15 @@
     "赌场"
    ]
   },
+  "sound:rafaga-fotos": {
+   "name": "连拍快门",
+   "tags": [
+    "音效",
+    "相机",
+    "连拍",
+    "快门"
+   ]
+  },
   "sound:rafaga-viento": {
    "name": "一阵风",
    "tags": [
@@ -16948,12 +17738,39 @@
     "加速"
    ]
   },
+  "sound:rebobinar": {
+   "name": "倒带",
+   "tags": [
+    "音效",
+    "倒带",
+    "磁带",
+    "回放"
+   ]
+  },
   "sound:redoble": {
    "name": "滚奏鼓",
    "tags": [
     "滚奏",
     "鼓",
     "悬念",
+    "揭晓"
+   ]
+  },
+  "sound:redoble-corto": {
+   "name": "短鼓点滚奏",
+   "tags": [
+    "音效",
+    "鼓点",
+    "揭晓",
+    "短"
+   ]
+  },
+  "sound:redoble-largo": {
+   "name": "长鼓点滚奏加镲",
+   "tags": [
+    "音效",
+    "鼓点",
+    "镲",
     "揭晓"
    ]
   },
@@ -16991,6 +17808,24 @@
     "弹跳",
     "搞笑",
     "卡通"
+   ]
+  },
+  "sound:respuesta-correcta": {
+   "name": "回答正确",
+   "tags": [
+    "音效",
+    "正确",
+    "叮咚",
+    "答题"
+   ]
+  },
+  "sound:respuesta-incorrecta": {
+   "name": "回答错误蜂鸣",
+   "tags": [
+    "音效",
+    "错误",
+    "蜂鸣",
+    "答题"
    ]
   },
   "sound:revelacion": {
@@ -17146,6 +17981,24 @@
     "紧急"
    ]
   },
+  "sound:sorpresa": {
+   "name": "惊喜",
+   "tags": [
+    "音效",
+    "惊讶",
+    "惊喜",
+    "反应"
+   ]
+  },
+  "sound:sticker": {
+   "name": "贴纸啪",
+   "tags": [
+    "音效",
+    "贴纸",
+    "粘贴",
+    "波普"
+   ]
+  },
   "sound:sub-drop": {
    "name": "超低音下坠",
    "tags": [
@@ -17155,6 +18008,15 @@
     "重低音"
    ]
   },
+  "sound:subida-corta-golpe": {
+   "name": "短上升加重击",
+   "tags": [
+    "音效",
+    "上升音",
+    "重击",
+    "铺垫"
+   ]
+  },
   "sound:subir-nivel": {
    "name": "升级",
    "tags": [
@@ -17162,6 +18024,24 @@
     "等级",
     "游戏",
     "成就"
+   ]
+  },
+  "sound:subir-nivel-moderno": {
+   "name": "现代升级音",
+   "tags": [
+    "音效",
+    "升级",
+    "游戏",
+    "成就"
+   ]
+  },
+  "sound:suscribir-campana": {
+   "name": "订阅点击加铃铛",
+   "tags": [
+    "音效",
+    "订阅",
+    "点击",
+    "铃铛"
    ]
   },
   "sound:susto-terror": {
@@ -17209,6 +18089,15 @@
     "史诗"
    ]
   },
+  "sound:tartamudeo-ritmico": {
+   "name": "节奏重复卡顿",
+   "tags": [
+    "音效",
+    "卡顿",
+    "重复",
+    "节拍"
+   ]
+  },
   "sound:teclado": {
    "name": "键盘打字",
    "tags": [
@@ -17252,6 +18141,51 @@
     "悬疑",
     "上升",
     "害怕"
+   ]
+  },
+  "sound:texto-dialogo": {
+   "name": "对话框哔哔声",
+   "tags": [
+    "音效",
+    "文字",
+    "对话",
+    "游戏风"
+   ]
+  },
+  "sound:texto-tecleo": {
+   "name": "打字嗒嗒声",
+   "tags": [
+    "音效",
+    "打字",
+    "文字",
+    "键盘"
+   ]
+  },
+  "sound:timbre-mostrador": {
+   "name": "前台服务铃",
+   "tags": [
+    "音效",
+    "铃",
+    "叮",
+    "前台"
+   ]
+  },
+  "sound:titulo-desliza": {
+   "name": "标题滑入",
+   "tags": [
+    "音效",
+    "标题",
+    "滑入",
+    "嗖"
+   ]
+  },
+  "sound:titulo-golpe": {
+   "name": "标题重击",
+   "tags": [
+    "音效",
+    "标题",
+    "重击",
+    "冲击"
    ]
   },
   "sound:toque": {
@@ -17315,6 +18249,15 @@
     "上升",
     "魔法",
     "出现"
+   ]
+  },
+  "sound:venta-hecha": {
+   "name": "成交啦",
+   "tags": [
+    "音效",
+    "收银",
+    "销售",
+    "叮当"
    ]
   },
   "sound:victoria-8bits": {
@@ -17486,6 +18429,24 @@
     "抖动",
     "嗖",
     "转场"
+   ]
+  },
+  "sound:womp-womp": {
+   "name": "失败哇哇音",
+   "tags": [
+    "音效",
+    "失败",
+    "遗憾",
+    "搞笑"
+   ]
+  },
+  "sound:zoom-dramatico": {
+   "name": "戏剧性推镜",
+   "tags": [
+    "音效",
+    "推镜",
+    "戏剧性",
+    "强调"
    ]
   },
   "sound:zoom-entrada": {
@@ -18239,6 +19200,206 @@
     "现场"
    ]
   },
+  "template:cont-ahorro-meta": {
+   "name": "存钱目标",
+   "tags": [
+    "存钱",
+    "金钱",
+    "目标",
+    "理财",
+    "成就"
+   ]
+  },
+  "template:cont-anillo-meta": {
+   "name": "进度环",
+   "tags": [
+    "计数器",
+    "进度",
+    "百分比",
+    "目标",
+    "成就"
+   ]
+  },
+  "template:cont-barra-carga": {
+   "name": "加载进度条",
+   "tags": [
+    "计数器",
+    "加载",
+    "进度",
+    "百分比",
+    "片头"
+   ]
+  },
+  "template:cont-dias-100": {
+   "name": "第1天到第100天",
+   "tags": [
+    "计数器",
+    "100天",
+    "挑战",
+    "坚持",
+    "打卡"
+   ]
+  },
+  "template:cont-dias-juntos": {
+   "name": "在一起的天数",
+   "tags": [
+    "情侣",
+    "纪念日",
+    "爱情",
+    "天数",
+    "浪漫"
+   ]
+  },
+  "template:cont-dinero-millon": {
+   "name": "金钱计数器",
+   "tags": [
+    "计数器",
+    "金钱",
+    "百万",
+    "销售额",
+    "目标"
+   ]
+  },
+  "template:cont-edad-cumple": {
+   "name": "生日年龄计数",
+   "tags": [
+    "生日",
+    "年龄",
+    "派对",
+    "庆祝",
+    "计数器"
+   ]
+  },
+  "template:cont-libros-anio": {
+   "name": "今年读过的书",
+   "tags": [
+    "读书",
+    "书籍",
+    "年度",
+    "阅读挑战",
+    "计数器"
+   ]
+  },
+  "template:cont-maraton-km": {
+   "name": "跑步公里数",
+   "tags": [
+    "马拉松",
+    "跑步",
+    "公里",
+    "运动",
+    "计数器"
+   ]
+  },
+  "template:cont-marcador": {
+   "name": "比赛记分牌",
+   "tags": [
+    "比分",
+    "足球",
+    "比赛",
+    "进球",
+    "体育"
+   ]
+  },
+  "template:cont-me-gusta": {
+   "name": "点赞计数器",
+   "tags": [
+    "计数器",
+    "点赞",
+    "爱心",
+    "帖子",
+    "爆款"
+   ]
+  },
+  "template:cont-odometro-km": {
+   "name": "里程表",
+   "tags": [
+    "计数器",
+    "里程",
+    "公里",
+    "自驾",
+    "旅行"
+   ]
+  },
+  "template:cont-odometro-visitas": {
+   "name": "访问量计数器",
+   "tags": [
+    "计数器",
+    "访问量",
+    "网站",
+    "数据",
+    "商业"
+   ]
+  },
+  "template:cont-pasos": {
+   "name": "步数计数器",
+   "tags": [
+    "步数",
+    "走路",
+    "健康",
+    "健身",
+    "目标"
+   ]
+  },
+  "template:cont-precio-baja": {
+   "name": "价格直降",
+   "tags": [
+    "价格",
+    "促销",
+    "折扣",
+    "店铺",
+    "优惠"
+   ]
+  },
+  "template:cont-seguidores-100k": {
+   "name": "10万粉丝",
+   "tags": [
+    "计数器",
+    "粉丝",
+    "10万",
+    "里程碑",
+    "感谢"
+   ]
+  },
+  "template:cont-suscriptores-millon": {
+   "name": "百万订阅",
+   "tags": [
+    "计数器",
+    "订阅",
+    "百万",
+    "频道",
+    "庆祝"
+   ]
+  },
+  "template:cont-temporizador": {
+   "name": "屏幕计时器",
+   "tags": [
+    "计时器",
+    "秒表",
+    "倒计时",
+    "分钟",
+    "挑战"
+   ]
+  },
+  "template:cont-ventas-semestre": {
+   "name": "半年销售额",
+   "tags": [
+    "销售额",
+    "图表",
+    "商业",
+    "增长",
+    "业绩"
+   ]
+  },
+  "template:cont-vistas-millon": {
+   "name": "百万播放",
+   "tags": [
+    "播放量",
+    "百万",
+    "爆款",
+    "视频",
+    "霓虹"
+   ]
+  },
   "template:cosas-que-no-sabias": {
    "name": "你不知道的事",
    "tags": [
@@ -18923,16 +20084,6 @@
     "节日",
     "家人",
     "庆祝"
-   ]
-  },
-  "template:h-fecha-halloween": {
-   "name": "万圣节",
-   "tags": [
-    "万圣节",
-    "恐怖",
-    "南瓜",
-    "变装",
-    "十月"
    ]
   },
   "template:h-fecha-invierno": {
@@ -20532,36 +21683,6 @@
     "冲击",
     "快速",
     "能量"
-   ]
-  },
-  "template:halloween-photo-dump": {
-   "name": "万圣节照片合集",
-   "tags": [
-    "万圣节",
-    "照片合集",
-    "变装",
-    "恐怖",
-    "十月"
-   ]
-  },
-  "template:halloween-revelacion-disfraz": {
-   "name": "变装揭晓",
-   "tags": [
-    "万圣节",
-    "变装",
-    "变身",
-    "前后对比",
-    "惊吓"
-   ]
-  },
-  "template:halloween-truco-o-trato": {
-   "name": "不给糖就捣蛋派对邀请",
-   "tags": [
-    "万圣节",
-    "派对",
-    "邀请",
-    "儿童",
-    "变装"
    ]
   },
   "template:horario-de-atencion": {
@@ -23549,6 +24670,246 @@
     "搞笑"
    ]
   },
+  "template:redes-h-facebook-cristal": {
+   "name": "Facebook 玻璃质感",
+   "tags": [
+    "社交媒体",
+    "facebook",
+    "账号",
+    "玻璃",
+    "字幕条"
+   ]
+  },
+  "template:redes-h-instagram-minimal": {
+   "name": "Instagram 简约",
+   "tags": [
+    "社交媒体",
+    "instagram",
+    "账号",
+    "关注",
+    "字幕条"
+   ]
+  },
+  "template:redes-h-instagram-sticker": {
+   "name": "Instagram 贴纸",
+   "tags": [
+    "社交媒体",
+    "instagram",
+    "账号",
+    "贴纸",
+    "字幕条"
+   ]
+  },
+  "template:redes-h-threads-minimal": {
+   "name": "Threads 简约",
+   "tags": [
+    "社交媒体",
+    "threads",
+    "账号",
+    "简约",
+    "字幕条"
+   ]
+  },
+  "template:redes-h-tiktok-neon": {
+   "name": "TikTok 霓虹",
+   "tags": [
+    "社交媒体",
+    "tiktok",
+    "账号",
+    "霓虹",
+    "字幕条"
+   ]
+  },
+  "template:redes-h-tiktok-sticker": {
+   "name": "TikTok 贴纸",
+   "tags": [
+    "社交媒体",
+    "tiktok",
+    "账号",
+    "贴纸",
+    "字幕条"
+   ]
+  },
+  "template:redes-h-todas-fila": {
+   "name": "全网都能找到我",
+   "tags": [
+    "社交媒体",
+    "合集",
+    "图标",
+    "关注",
+    "字幕条"
+   ]
+  },
+  "template:redes-h-todas-neon": {
+   "name": "我的全部社交账号·霓虹",
+   "tags": [
+    "社交媒体",
+    "合集",
+    "账号",
+    "霓虹",
+    "关注"
+   ]
+  },
+  "template:redes-h-twitch-neon": {
+   "name": "Twitch 霓虹",
+   "tags": [
+    "社交媒体",
+    "twitch",
+    "直播",
+    "霓虹",
+    "字幕条"
+   ]
+  },
+  "template:redes-h-x-cristal": {
+   "name": "X 玻璃质感",
+   "tags": [
+    "社交媒体",
+    "x",
+    "账号",
+    "玻璃",
+    "字幕条"
+   ]
+  },
+  "template:redes-h-youtube-minimal": {
+   "name": "YouTube 简约",
+   "tags": [
+    "社交媒体",
+    "youtube",
+    "频道",
+    "简约",
+    "字幕条"
+   ]
+  },
+  "template:redes-h-youtube-sticker": {
+   "name": "YouTube 贴纸",
+   "tags": [
+    "社交媒体",
+    "youtube",
+    "账号",
+    "贴纸",
+    "字幕条"
+   ]
+  },
+  "template:redes-v-facebook-minimal": {
+   "name": "Facebook 简约",
+   "tags": [
+    "社交媒体",
+    "facebook",
+    "账号",
+    "简约",
+    "竖屏"
+   ]
+  },
+  "template:redes-v-instagram-cristal": {
+   "name": "Instagram 玻璃质感",
+   "tags": [
+    "社交媒体",
+    "instagram",
+    "账号",
+    "玻璃",
+    "竖屏"
+   ]
+  },
+  "template:redes-v-instagram-neon": {
+   "name": "Instagram 霓虹",
+   "tags": [
+    "社交媒体",
+    "instagram",
+    "账号",
+    "霓虹",
+    "竖屏"
+   ]
+  },
+  "template:redes-v-threads-cristal": {
+   "name": "Threads 玻璃质感",
+   "tags": [
+    "社交媒体",
+    "threads",
+    "账号",
+    "玻璃",
+    "竖屏"
+   ]
+  },
+  "template:redes-v-tiktok-minimal": {
+   "name": "TikTok 简约",
+   "tags": [
+    "社交媒体",
+    "tiktok",
+    "账号",
+    "简约",
+    "竖屏"
+   ]
+  },
+  "template:redes-v-tiktok-sticker": {
+   "name": "TikTok 贴纸(竖屏)",
+   "tags": [
+    "社交媒体",
+    "tiktok",
+    "账号",
+    "贴纸",
+    "竖屏"
+   ]
+  },
+  "template:redes-v-todas-cristal": {
+   "name": "我的全部社交账号·玻璃",
+   "tags": [
+    "社交媒体",
+    "合集",
+    "账号",
+    "玻璃",
+    "关注"
+   ]
+  },
+  "template:redes-v-todas-iconos": {
+   "name": "全网同名账号",
+   "tags": [
+    "社交媒体",
+    "图标",
+    "账号",
+    "关注",
+    "竖屏"
+   ]
+  },
+  "template:redes-v-todas-sticker": {
+   "name": "社交账号贴纸合集",
+   "tags": [
+    "社交媒体",
+    "合集",
+    "贴纸",
+    "关注",
+    "竖屏"
+   ]
+  },
+  "template:redes-v-twitch-neon": {
+   "name": "Twitch 霓虹(竖屏)",
+   "tags": [
+    "社交媒体",
+    "twitch",
+    "直播",
+    "霓虹",
+    "竖屏"
+   ]
+  },
+  "template:redes-v-x-sticker": {
+   "name": "X 贴纸",
+   "tags": [
+    "社交媒体",
+    "x",
+    "账号",
+    "贴纸",
+    "竖屏"
+   ]
+  },
+  "template:redes-v-youtube-minimal": {
+   "name": "YouTube 简约(竖屏)",
+   "tags": [
+    "社交媒体",
+    "youtube",
+    "频道",
+    "简约",
+    "竖屏"
+   ]
+  },
   "template:remodelacion": {
    "name": "房间改造前后",
    "tags": [
@@ -24594,15 +25955,6 @@
     "网格",
     "拼贴",
     "假期"
-   ]
-  },
-  "template:s-halloween": {
-   "name": "万圣节",
-   "tags": [
-    "万圣节",
-    "南瓜",
-    "恐怖",
-    "十月"
    ]
   },
   "template:s-hanukkah": {
@@ -25653,16 +27005,6 @@
     "开始"
    ]
   },
-  "template:st-halloween": {
-   "name": "万圣节装扮",
-   "tags": [
-    "故事",
-    "15秒",
-    "短视频",
-    "万圣节",
-    "变装"
-   ]
-  },
   "template:st-jardin": {
    "name": "我的花园",
    "tags": [
@@ -26084,6 +27426,3032 @@
     "闪光",
     "粉色",
     "氛围感"
+   ]
+  },
+  "template:yt-calle-a-que-te-dedicas": {
+   "name": "你做什么工作",
+   "tags": [
+    "街头采访",
+    "采访",
+    "职业",
+    "工作",
+    "博主"
+   ]
+  },
+  "template:yt-calle-adivina-edad": {
+   "name": "猜猜我几岁",
+   "tags": [
+    "街头采访",
+    "采访",
+    "猜年龄",
+    "挑战",
+    "博主"
+   ]
+  },
+  "template:yt-calle-consejo": {
+   "name": "给20岁的建议",
+   "tags": [
+    "街头采访",
+    "采访",
+    "建议",
+    "人生",
+    "博主"
+   ]
+  },
+  "template:yt-calle-documental-h": {
+   "name": "纪录风街头采访",
+   "tags": [
+    "街头采访",
+    "采访",
+    "纪录",
+    "16:9",
+    "博主"
+   ]
+  },
+  "template:yt-calle-mic-grande": {
+   "name": "大麦克风采访",
+   "tags": [
+    "街头采访",
+    "采访",
+    "麦克风",
+    "视角",
+    "博主"
+   ]
+  },
+  "template:yt-calle-noticiero-h": {
+   "name": "新闻风街头采访",
+   "tags": [
+    "街头采访",
+    "采访",
+    "新闻",
+    "16:9",
+    "博主"
+   ]
+  },
+  "template:yt-calle-parejas-h": {
+   "name": "情侣街访",
+   "tags": [
+    "街头采访",
+    "采访",
+    "情侣",
+    "16:9",
+    "博主"
+   ]
+  },
+  "template:yt-calle-precio": {
+   "name": "猜价格",
+   "tags": [
+    "街头采访",
+    "采访",
+    "价格",
+    "猜价",
+    "博主"
+   ]
+  },
+  "template:yt-calle-pregunta-del-dia": {
+   "name": "每日一问",
+   "tags": [
+    "街头采访",
+    "采访",
+    "每日提问",
+    "系列",
+    "博主"
+   ]
+  },
+  "template:yt-calle-primera-cita": {
+   "name": "初次约会谁付钱",
+   "tags": [
+    "街头采访",
+    "采访",
+    "约会",
+    "恋爱",
+    "博主"
+   ]
+  },
+  "template:yt-calle-que-opinas": {
+   "name": "你怎么看",
+   "tags": [
+    "街头采访",
+    "采访",
+    "观点",
+    "提问",
+    "博主"
+   ]
+  },
+  "template:yt-calle-ranking": {
+   "name": "街访结果排行",
+   "tags": [
+    "街头采访",
+    "采访",
+    "投票",
+    "结果",
+    "博主"
+   ]
+  },
+  "template:yt-calle-rapido": {
+   "name": "一个词形容自己",
+   "tags": [
+    "街头采访",
+    "采访",
+    "一个词",
+    "快问快答",
+    "博主"
+   ]
+  },
+  "template:yt-calle-termina-cancion": {
+   "name": "接下一句歌词",
+   "tags": [
+    "街头采访",
+    "采访",
+    "歌曲",
+    "唱歌",
+    "博主"
+   ]
+  },
+  "template:yt-calle-trivia": {
+   "name": "街头问答",
+   "tags": [
+    "街头采访",
+    "采访",
+    "问答",
+    "常识",
+    "博主"
+   ]
+  },
+  "template:yt-calle-tv-retro-h": {
+   "name": "复古电视街访",
+   "tags": [
+    "街头采访",
+    "采访",
+    "复古",
+    "电视",
+    "16:9"
+   ]
+  },
+  "template:yt-calle-verdadero-falso": {
+   "name": "真还是假",
+   "tags": [
+    "街头采访",
+    "采访",
+    "真假",
+    "问答",
+    "博主"
+   ]
+  },
+  "template:yt-calle-vs": {
+   "name": "二选一街访",
+   "tags": [
+    "街头采访",
+    "采访",
+    "二选一",
+    "对决",
+    "博主"
+   ]
+  },
+  "template:yt-coc-cenital": {
+   "name": "俯拍三盘",
+   "tags": [
+    "美食",
+    "食谱",
+    "俯拍",
+    "摆盘",
+    "创意"
+   ]
+  },
+  "template:yt-coc-cierre": {
+   "name": "用餐愉快片尾",
+   "tags": [
+    "美食",
+    "食谱",
+    "片尾",
+    "收尾",
+    "用餐愉快"
+   ]
+  },
+  "template:yt-coc-crudo-listo": {
+   "name": "生到熟",
+   "tags": [
+    "美食",
+    "食谱",
+    "前后对比",
+    "生食材",
+    "成品"
+   ]
+  },
+  "template:yt-coc-ingredientes-flotan": {
+   "name": "你需要什么",
+   "tags": [
+    "美食",
+    "食谱",
+    "食材",
+    "准备",
+    "博主"
+   ]
+  },
+  "template:yt-coc-ingredientes-lista": {
+   "name": "食材清单",
+   "tags": [
+    "美食",
+    "食谱",
+    "食材",
+    "清单",
+    "博主"
+   ]
+  },
+  "template:yt-coc-intro-canal": {
+   "name": "美食频道片头",
+   "tags": [
+    "美食",
+    "片头",
+    "频道",
+    "介绍",
+    "博主"
+   ]
+  },
+  "template:yt-coc-menu-semana": {
+   "name": "一周菜单",
+   "tags": [
+    "美食",
+    "食谱",
+    "菜单",
+    "每周",
+    "备餐"
+   ]
+  },
+  "template:yt-coc-nutricion": {
+   "name": "营养信息",
+   "tags": [
+    "美食",
+    "食谱",
+    "营养",
+    "卡路里",
+    "成分"
+   ]
+  },
+  "template:yt-coc-pasos": {
+   "name": "分步食谱",
+   "tags": [
+    "美食",
+    "食谱",
+    "步骤",
+    "教程",
+    "博主"
+   ]
+  },
+  "template:yt-coc-pasos-wide": {
+   "name": "步骤配卡片",
+   "tags": [
+    "美食",
+    "食谱",
+    "步骤",
+    "横屏",
+    "教程"
+   ]
+  },
+  "template:yt-coc-pizarra": {
+   "name": "今日菜单黑板",
+   "tags": [
+    "美食",
+    "食谱",
+    "黑板",
+    "今日",
+    "菜单"
+   ]
+  },
+  "template:yt-coc-plato-final": {
+   "name": "成品揭晓",
+   "tags": [
+    "美食",
+    "食谱",
+    "成品",
+    "揭晓",
+    "博主"
+   ]
+  },
+  "template:yt-coc-postre": {
+   "name": "免烤甜点",
+   "tags": [
+    "美食",
+    "食谱",
+    "甜点",
+    "甜品",
+    "免烤"
+   ]
+  },
+  "template:yt-coc-receta-60s": {
+   "name": "60秒食谱",
+   "tags": [
+    "美食",
+    "食谱",
+    "快速",
+    "60秒",
+    "短片"
+   ]
+  },
+  "template:yt-coc-receta-card": {
+   "name": "食谱卡片",
+   "tags": [
+    "美食",
+    "食谱",
+    "卡片",
+    "份量",
+    "时间"
+   ]
+  },
+  "template:yt-coc-receta-vertical": {
+   "name": "竖屏食谱卡",
+   "tags": [
+    "美食",
+    "食谱",
+    "竖屏",
+    "健康",
+    "收藏"
+   ]
+  },
+  "template:yt-coc-reto-3": {
+   "name": "只用三种食材",
+   "tags": [
+    "美食",
+    "食谱",
+    "挑战",
+    "三种食材",
+    "简单"
+   ]
+  },
+  "template:yt-coc-temporizador": {
+   "name": "烤箱计时",
+   "tags": [
+    "美食",
+    "食谱",
+    "计时器",
+    "烤箱",
+    "时间"
+   ]
+  },
+  "template:yt-dia-0630": {
+   "name": "清晨6:30",
+   "tags": [
+    "日常",
+    "时间",
+    "早起",
+    "作息",
+    "博主"
+   ]
+  },
+  "template:yt-dia-alarma": {
+   "name": "闹钟响了",
+   "tags": [
+    "日常",
+    "闹钟",
+    "早晨",
+    "起床",
+    "博主"
+   ]
+  },
+  "template:yt-dia-antes-despues": {
+   "name": "梳妆前后对比",
+   "tags": [
+    "日常",
+    "梳妆",
+    "前后对比",
+    "变身",
+    "博主"
+   ]
+  },
+  "template:yt-dia-checklist": {
+   "name": "晨间清单",
+   "tags": [
+    "日常",
+    "清单",
+    "早晨",
+    "习惯",
+    "博主"
+   ]
+  },
+  "template:yt-dia-cozy": {
+   "name": "慢周日",
+   "tags": [
+    "日常",
+    "温馨",
+    "周日",
+    "治愈",
+    "博主"
+   ]
+  },
+  "template:yt-dia-diario": {
+   "name": "我的一天手记",
+   "tags": [
+    "日常",
+    "日记",
+    "笔记",
+    "记录",
+    "博主"
+   ]
+  },
+  "template:yt-dia-energia": {
+   "name": "我的一天精力",
+   "tags": [
+    "日常",
+    "精力",
+    "电量",
+    "心情",
+    "博主"
+   ]
+  },
+  "template:yt-dia-estudio": {
+   "name": "陪我学习",
+   "tags": [
+    "日常",
+    "学习",
+    "日程",
+    "效率",
+    "博主"
+   ]
+  },
+  "template:yt-dia-fin-semana": {
+   "name": "周六剪贴簿",
+   "tags": [
+    "日常",
+    "周末",
+    "剪贴簿",
+    "拍立得",
+    "博主"
+   ]
+  },
+  "template:yt-dia-grwm-espejo": {
+   "name": "镜前梳妆",
+   "tags": [
+    "日常",
+    "梳妆",
+    "镜子",
+    "美妆",
+    "约会"
+   ]
+  },
+  "template:yt-dia-grwm-lista": {
+   "name": "今日用品清单",
+   "tags": [
+    "日常",
+    "梳妆",
+    "清单",
+    "美妆",
+    "护肤"
+   ]
+  },
+  "template:yt-dia-grwm-pasos": {
+   "name": "一起梳妆步骤",
+   "tags": [
+    "日常",
+    "梳妆",
+    "美妆",
+    "步骤",
+    "博主"
+   ]
+  },
+  "template:yt-dia-linea-rutina": {
+   "name": "作息时间轴",
+   "tags": [
+    "日常",
+    "时间轴",
+    "作息",
+    "习惯",
+    "博主"
+   ]
+  },
+  "template:yt-dia-noche": {
+   "name": "夜间护肤",
+   "tags": [
+    "日常",
+    "夜晚",
+    "护肤",
+    "作息",
+    "博主"
+   ]
+  },
+  "template:yt-dia-numeros": {
+   "name": "我的一天数据",
+   "tags": [
+    "日常",
+    "数据",
+    "数字",
+    "总结",
+    "博主"
+   ]
+  },
+  "template:yt-dia-outfit": {
+   "name": "今日穿搭",
+   "tags": [
+    "日常",
+    "穿搭",
+    "时尚",
+    "造型",
+    "博主"
+   ]
+  },
+  "template:yt-dia-reloj": {
+   "name": "我的一天时钟",
+   "tags": [
+    "日常",
+    "时钟",
+    "时间",
+    "作息",
+    "博主"
+   ]
+  },
+  "template:yt-dia-rutina-split": {
+   "name": "极简作息分屏",
+   "tags": [
+    "日常",
+    "极简",
+    "作息",
+    "分屏",
+    "博主"
+   ]
+  },
+  "template:yt-expl-barras": {
+   "name": "柱状图",
+   "tags": [
+    "讲解",
+    "图表",
+    "柱状",
+    "数据",
+    "博主"
+   ]
+  },
+  "template:yt-expl-capitulos": {
+   "name": "本期章节",
+   "tags": [
+    "讲解",
+    "章节",
+    "目录",
+    "内容",
+    "博主"
+   ]
+  },
+  "template:yt-expl-comparar": {
+   "name": "A与B对比",
+   "tags": [
+    "讲解",
+    "对比",
+    "比较",
+    "表格",
+    "博主"
+   ]
+  },
+  "template:yt-expl-datos": {
+   "name": "浮现的数据",
+   "tags": [
+    "讲解",
+    "数据",
+    "事实",
+    "数字",
+    "科学"
+   ]
+  },
+  "template:yt-expl-dona": {
+   "name": "百分比环图",
+   "tags": [
+    "讲解",
+    "百分比",
+    "环形图",
+    "数据",
+    "博主"
+   ]
+  },
+  "template:yt-expl-fuente": {
+   "name": "科学怎么说",
+   "tags": [
+    "讲解",
+    "科学",
+    "研究",
+    "来源",
+    "博主"
+   ]
+  },
+  "template:yt-expl-glosario": {
+   "name": "每日一词",
+   "tags": [
+    "讲解",
+    "定义",
+    "词汇",
+    "科普",
+    "博主"
+   ]
+  },
+  "template:yt-expl-linea-tiempo": {
+   "name": "历史时间轴",
+   "tags": [
+    "讲解",
+    "历史",
+    "时间轴",
+    "事件",
+    "博主"
+   ]
+  },
+  "template:yt-expl-lupa": {
+   "name": "放大镜看细节",
+   "tags": [
+    "讲解",
+    "放大镜",
+    "细节",
+    "放大",
+    "博主"
+   ]
+  },
+  "template:yt-expl-mapa-zoom": {
+   "name": "地图放大定位",
+   "tags": [
+    "讲解",
+    "地图",
+    "放大",
+    "地理",
+    "博主"
+   ]
+  },
+  "template:yt-expl-mito": {
+   "name": "谣言还是真相",
+   "tags": [
+    "讲解",
+    "谣言",
+    "真相",
+    "事实",
+    "博主"
+   ]
+  },
+  "template:yt-expl-opina": {
+   "name": "你怎么看投票",
+   "tags": [
+    "讲解",
+    "投票",
+    "评论",
+    "结尾",
+    "博主"
+   ]
+  },
+  "template:yt-expl-pizarra": {
+   "name": "黑板粉笔",
+   "tags": [
+    "讲解",
+    "黑板",
+    "课堂",
+    "公式",
+    "博主"
+   ]
+  },
+  "template:yt-expl-por-que": {
+   "name": "为什么",
+   "tags": [
+    "讲解",
+    "科普",
+    "提问",
+    "片名卡",
+    "博主"
+   ]
+  },
+  "template:yt-expl-proceso": {
+   "name": "原理步骤",
+   "tags": [
+    "讲解",
+    "流程",
+    "图解",
+    "原理",
+    "博主"
+   ]
+  },
+  "template:yt-expl-puntos": {
+   "name": "编号要点",
+   "tags": [
+    "讲解",
+    "列表",
+    "要点",
+    "建议",
+    "博主"
+   ]
+  },
+  "template:yt-expl-recortes": {
+   "name": "报纸剪报",
+   "tags": [
+    "讲解",
+    "报纸",
+    "新闻",
+    "纪录",
+    "博主"
+   ]
+  },
+  "template:yt-expl-resaltador": {
+   "name": "荧光笔标注",
+   "tags": [
+    "讲解",
+    "荧光笔",
+    "文字",
+    "重点",
+    "博主"
+   ]
+  },
+  "template:yt-final-belleza": {
+   "name": "粉金片尾",
+   "tags": [
+    "片尾",
+    "结束画面",
+    "订阅",
+    "下个视频",
+    "美妆",
+    "粉色"
+   ]
+  },
+  "template:yt-final-columnas": {
+   "name": "双栏片尾",
+   "tags": [
+    "片尾",
+    "结束画面",
+    "订阅",
+    "下个视频",
+    "简洁"
+   ]
+  },
+  "template:yt-final-comic": {
+   "name": "漫画片尾",
+   "tags": [
+    "片尾",
+    "结束画面",
+    "订阅",
+    "下个视频",
+    "喜剧",
+    "幽默"
+   ]
+  },
+  "template:yt-final-hud": {
+   "name": "游戏HUD片尾",
+   "tags": [
+    "片尾",
+    "结束画面",
+    "订阅",
+    "下个视频",
+    "游戏",
+    "直播"
+   ]
+  },
+  "template:yt-final-liquido": {
+   "name": "液态玻璃片尾",
+   "tags": [
+    "片尾",
+    "结束画面",
+    "订阅",
+    "下个视频",
+    "水晶",
+    "渐变"
+   ]
+  },
+  "template:yt-final-minimal-uno": {
+   "name": "极简单视频片尾",
+   "tags": [
+    "片尾",
+    "结束画面",
+    "订阅",
+    "下个视频",
+    "极简",
+    "白底"
+   ]
+  },
+  "template:yt-final-neon": {
+   "name": "霓虹片尾",
+   "tags": [
+    "片尾",
+    "结束画面",
+    "订阅",
+    "下个视频",
+    "霓虹",
+    "夜晚"
+   ]
+  },
+  "template:yt-final-pizarra": {
+   "name": "黑板片尾",
+   "tags": [
+    "片尾",
+    "结束画面",
+    "订阅",
+    "下个视频",
+    "教育",
+    "课堂"
+   ]
+  },
+  "template:yt-final-postal": {
+   "name": "明信片片尾",
+   "tags": [
+    "片尾",
+    "结束画面",
+    "订阅",
+    "下个视频",
+    "vlog",
+    "旅行"
+   ]
+  },
+  "template:yt-final-setentas": {
+   "name": "70年代复古片尾",
+   "tags": [
+    "片尾",
+    "结束画面",
+    "订阅",
+    "下个视频",
+    "复古",
+    "怀旧"
+   ]
+  },
+  "template:yt-final-short-acciones": {
+   "name": "喜欢就点赞收藏",
+   "tags": [
+    "关注",
+    "短片",
+    "竖屏",
+    "收尾",
+    "点赞"
+   ]
+  },
+  "template:yt-final-short-perfil": {
+   "name": "主页更多视频",
+   "tags": [
+    "关注",
+    "短片",
+    "竖屏",
+    "收尾",
+    "主页"
+   ]
+  },
+  "template:yt-final-short-sigueme": {
+   "name": "关注看更多",
+   "tags": [
+    "关注",
+    "短片",
+    "竖屏",
+    "收尾",
+    "爱心"
+   ]
+  },
+  "template:yt-final-tech": {
+   "name": "科技片尾",
+   "tags": [
+    "片尾",
+    "结束画面",
+    "订阅",
+    "下个视频",
+    "科技",
+    "数码"
+   ]
+  },
+  "template:yt-final-vinilo": {
+   "name": "黑胶片尾",
+   "tags": [
+    "片尾",
+    "结束画面",
+    "订阅",
+    "下个视频",
+    "音乐",
+    "黑胶"
+   ]
+  },
+  "template:yt-fit-antes-despues-kilos": {
+   "name": "前后体重对比",
+   "tags": [
+    "健身",
+    "前后对比",
+    "蜕变",
+    "体重",
+    "公斤"
+   ]
+  },
+  "template:yt-fit-calentamiento": {
+   "name": "五步热身",
+   "tags": [
+    "健身",
+    "热身",
+    "拉伸",
+    "步骤",
+    "训练"
+   ]
+  },
+  "template:yt-fit-calorias": {
+   "name": "消耗卡路里",
+   "tags": [
+    "健身",
+    "卡路里",
+    "有氧",
+    "数据",
+    "消耗"
+   ]
+  },
+  "template:yt-fit-carrera-km": {
+   "name": "我的跑步公里",
+   "tags": [
+    "健身",
+    "跑步",
+    "公里",
+    "配速",
+    "运动"
+   ]
+  },
+  "template:yt-fit-contador-reps": {
+   "name": "次数计数",
+   "tags": [
+    "健身",
+    "次数",
+    "训练",
+    "组数",
+    "计数"
+   ]
+  },
+  "template:yt-fit-descanso": {
+   "name": "组间休息",
+   "tags": [
+    "健身",
+    "休息",
+    "计时器",
+    "组数",
+    "训练"
+   ]
+  },
+  "template:yt-fit-ejercicio-del-dia": {
+   "name": "今日动作",
+   "tags": [
+    "健身",
+    "每日动作",
+    "技巧",
+    "建议",
+    "博主"
+   ]
+  },
+  "template:yt-fit-hiit-neon": {
+   "name": "霓虹高强度",
+   "tags": [
+    "健身",
+    "高强度",
+    "有氧",
+    "霓虹",
+    "间歇"
+   ]
+  },
+  "template:yt-fit-macros": {
+   "name": "我的营养配比",
+   "tags": [
+    "健身",
+    "营养",
+    "蛋白",
+    "饮食",
+    "热量"
+   ]
+  },
+  "template:yt-fit-plan-semanal": {
+   "name": "每周训练计划",
+   "tags": [
+    "健身",
+    "计划",
+    "一周",
+    "训练",
+    "日程"
+   ]
+  },
+  "template:yt-fit-record-personal": {
+   "name": "新个人纪录",
+   "tags": [
+    "健身",
+    "纪录",
+    "重量",
+    "举重",
+    "突破"
+   ]
+  },
+  "template:yt-fit-reto-30-dias": {
+   "name": "30天挑战",
+   "tags": [
+    "健身",
+    "30天",
+    "挑战",
+    "日历",
+    "打卡"
+   ]
+  },
+  "template:yt-fit-rutina-4-pasos": {
+   "name": "四步训练",
+   "tags": [
+    "健身",
+    "训练",
+    "步骤",
+    "居家",
+    "动作"
+   ]
+  },
+  "template:yt-fit-rutina-en-casa": {
+   "name": "居家训练",
+   "tags": [
+    "健身",
+    "居家",
+    "徒手",
+    "训练",
+    "无器械"
+   ]
+  },
+  "template:yt-fit-serie-hud": {
+   "name": "组间计时",
+   "tags": [
+    "健身",
+    "组数",
+    "计时器",
+    "健身房",
+    "卧推"
+   ]
+  },
+  "template:yt-fit-sin-excusas": {
+   "name": "没有借口",
+   "tags": [
+    "健身",
+    "激励",
+    "动力",
+    "热血",
+    "博主"
+   ]
+  },
+  "template:yt-fit-tabata": {
+   "name": "塔巴塔计时",
+   "tags": [
+    "健身",
+    "塔巴塔",
+    "计时器",
+    "间歇",
+    "训练"
+   ]
+  },
+  "template:yt-fit-transformacion": {
+   "name": "我的蜕变",
+   "tags": [
+    "健身",
+    "蜕变",
+    "前后对比",
+    "体重",
+    "博主"
+   ]
+  },
+  "template:yt-game-alerta-sub": {
+   "name": "新订阅提醒",
+   "tags": [
+    "游戏",
+    "直播",
+    "提醒",
+    "订阅",
+    "粉丝"
+   ]
+  },
+  "template:yt-game-alerta-vertical": {
+   "name": "竖屏直播提醒",
+   "tags": [
+    "游戏",
+    "直播",
+    "竖屏",
+    "粉丝提醒",
+    "博主"
+   ]
+  },
+  "template:yt-game-clip-viral": {
+   "name": "竖屏游戏片段",
+   "tags": [
+    "游戏",
+    "竖屏",
+    "片段",
+    "短视频",
+    "爆款"
+   ]
+  },
+  "template:yt-game-derrota": {
+   "name": "失败画面",
+   "tags": [
+    "游戏",
+    "失败",
+    "输了",
+    "复仇",
+    "直播"
+   ]
+  },
+  "template:yt-game-empezamos": {
+   "name": "即将开始",
+   "tags": [
+    "游戏",
+    "即将开始",
+    "等待画面",
+    "直播",
+    "博主"
+   ]
+  },
+  "template:yt-game-facecam-vertical": {
+   "name": "游戏竖屏短片",
+   "tags": [
+    "游戏",
+    "竖屏",
+    "短片",
+    "反应",
+    "摄像头"
+   ]
+  },
+  "template:yt-game-fin-stream": {
+   "name": "直播结束",
+   "tags": [
+    "游戏",
+    "直播结束",
+    "片尾",
+    "感谢观看",
+    "博主"
+   ]
+  },
+  "template:yt-game-gg": {
+   "name": "GG好局",
+   "tags": [
+    "游戏",
+    "gg",
+    "结束",
+    "好局",
+    "直播"
+   ]
+  },
+  "template:yt-game-highlights": {
+   "name": "精彩操作集锦",
+   "tags": [
+    "游戏",
+    "精彩",
+    "集锦",
+    "高光",
+    "时刻"
+   ]
+  },
+  "template:yt-game-intro-pixel": {
+   "name": "8位复古片头",
+   "tags": [
+    "游戏",
+    "复古",
+    "像素",
+    "片头",
+    "街机"
+   ]
+  },
+  "template:yt-game-killfeed": {
+   "name": "连杀提示",
+   "tags": [
+    "游戏",
+    "击杀",
+    "连杀",
+    "战绩",
+    "直播"
+   ]
+  },
+  "template:yt-game-marcador": {
+   "name": "队伍计分板",
+   "tags": [
+    "游戏",
+    "计分板",
+    "队伍",
+    "竞技",
+    "直播"
+   ]
+  },
+  "template:yt-game-mvp": {
+   "name": "MVP玩家卡",
+   "tags": [
+    "游戏",
+    "mvp",
+    "玩家",
+    "数据",
+    "直播"
+   ]
+  },
+  "template:yt-game-nivel": {
+   "name": "升级啦",
+   "tags": [
+    "游戏",
+    "升级",
+    "成就",
+    "经验",
+    "直播"
+   ]
+  },
+  "template:yt-game-overlay-neon": {
+   "name": "霓虹直播框",
+   "tags": [
+    "游戏",
+    "直播",
+    "霓虹",
+    "摄像头",
+    "画面框"
+   ]
+  },
+  "template:yt-game-torneo": {
+   "name": "每周赛事表",
+   "tags": [
+    "游戏",
+    "赛事",
+    "对阵表",
+    "竞技",
+    "每周"
+   ]
+  },
+  "template:yt-game-victoria": {
+   "name": "胜利画面",
+   "tags": [
+    "游戏",
+    "胜利",
+    "赢家",
+    "数据",
+    "直播"
+   ]
+  },
+  "template:yt-game-vuelvo": {
+   "name": "马上回来",
+   "tags": [
+    "游戏",
+    "马上回来",
+    "暂停",
+    "休息",
+    "直播"
+   ]
+  },
+  "template:yt-intro-3d": {
+   "name": "3D卡片片头",
+   "tags": [
+    "片头",
+    "3d",
+    "频道",
+    "标志",
+    "立体",
+    "电影感"
+   ]
+  },
+  "template:yt-intro-a-mano": {
+   "name": "手绘片头",
+   "tags": [
+    "片头",
+    "手绘",
+    "频道",
+    "标志",
+    "手工",
+    "创意"
+   ]
+  },
+  "template:yt-intro-belleza": {
+   "name": "柔美护肤片头",
+   "tags": [
+    "片头",
+    "美妆",
+    "频道",
+    "标志",
+    "护肤",
+    "粉色"
+   ]
+  },
+  "template:yt-intro-comedia": {
+   "name": "搞笑片头",
+   "tags": [
+    "片头",
+    "喜剧",
+    "频道",
+    "标志",
+    "幽默",
+    "笑点"
+   ]
+  },
+  "template:yt-intro-educacion": {
+   "name": "笔记本课堂片头",
+   "tags": [
+    "片头",
+    "教育",
+    "频道",
+    "标志",
+    "课堂",
+    "学习"
+   ]
+  },
+  "template:yt-intro-gaming": {
+   "name": "爆燃游戏片头",
+   "tags": [
+    "片头",
+    "游戏",
+    "频道",
+    "标志",
+    "霓虹",
+    "直播"
+   ]
+  },
+  "template:yt-intro-glitch": {
+   "name": "信号故障片头",
+   "tags": [
+    "片头",
+    "故障",
+    "频道",
+    "标志",
+    "录像带",
+    "数字"
+   ]
+  },
+  "template:yt-intro-liquido": {
+   "name": "液体形状片头",
+   "tags": [
+    "片头",
+    "液体",
+    "频道",
+    "标志",
+    "渐变",
+    "现代"
+   ]
+  },
+  "template:yt-intro-minimal": {
+   "name": "极简圆点片头",
+   "tags": [
+    "片头",
+    "极简",
+    "频道",
+    "标志",
+    "干净",
+    "黑白"
+   ]
+  },
+  "template:yt-intro-musica": {
+   "name": "黑胶音乐片头",
+   "tags": [
+    "片头",
+    "音乐",
+    "频道",
+    "标志",
+    "黑胶",
+    "专辑"
+   ]
+  },
+  "template:yt-intro-neon": {
+   "name": "霓虹招牌片头",
+   "tags": [
+    "片头",
+    "霓虹",
+    "频道",
+    "标志",
+    "夜晚",
+    "直播"
+   ]
+  },
+  "template:yt-intro-papel": {
+   "name": "层叠纸片头",
+   "tags": [
+    "片头",
+    "纸",
+    "频道",
+    "标志",
+    "手工",
+    "家庭"
+   ]
+  },
+  "template:yt-intro-retro": {
+   "name": "70年代复古片头",
+   "tags": [
+    "片头",
+    "复古",
+    "频道",
+    "标志",
+    "70年代",
+    "彩虹"
+   ]
+  },
+  "template:yt-intro-tech": {
+   "name": "电路科技片头",
+   "tags": [
+    "片头",
+    "科技",
+    "频道",
+    "标志",
+    "电路",
+    "数码"
+   ]
+  },
+  "template:yt-intro-vlog": {
+   "name": "vlog照片条片头",
+   "tags": [
+    "片头",
+    "vlog",
+    "频道",
+    "标志",
+    "照片",
+    "旅行"
+   ]
+  },
+  "template:yt-mini-alerta": {
+   "name": "别买警告",
+   "tags": [
+    "缩略图",
+    "警告",
+    "提醒",
+    "别买",
+    "踩雷"
+   ]
+  },
+  "template:yt-mini-bien-mal": {
+   "name": "对与错",
+   "tags": [
+    "缩略图",
+    "对错",
+    "正确",
+    "错误",
+    "对比"
+   ]
+  },
+  "template:yt-mini-caja-misterio": {
+   "name": "神秘盒子",
+   "tags": [
+    "缩略图",
+    "盒子",
+    "神秘",
+    "开箱",
+    "惊喜"
+   ]
+  },
+  "template:yt-mini-cara-a-cara": {
+   "name": "面对面对决",
+   "tags": [
+    "缩略图",
+    "对决",
+    "对比",
+    "挑战",
+    "点击"
+   ]
+  },
+  "template:yt-mini-celular": {
+   "name": "看我的屏幕",
+   "tags": [
+    "缩略图",
+    "手机",
+    "屏幕",
+    "应用",
+    "点击"
+   ]
+  },
+  "template:yt-mini-comic": {
+   "name": "漫画冲击波",
+   "tags": [
+    "缩略图",
+    "漫画",
+    "气泡",
+    "幽默",
+    "点击"
+   ]
+  },
+  "template:yt-mini-cronometro": {
+   "name": "60秒倒计时",
+   "tags": [
+    "缩略图",
+    "秒表",
+    "60秒",
+    "快速",
+    "挑战"
+   ]
+  },
+  "template:yt-mini-cuatro-caras": {
+   "name": "四张脸",
+   "tags": [
+    "缩略图",
+    "四人",
+    "反应",
+    "集体",
+    "点击"
+   ]
+  },
+  "template:yt-mini-diagonal": {
+   "name": "对角前后对比",
+   "tags": [
+    "缩略图",
+    "前后对比",
+    "蜕变",
+    "对角",
+    "点击"
+   ]
+  },
+  "template:yt-mini-flecha-circulo": {
+   "name": "箭头与圈选",
+   "tags": [
+    "缩略图",
+    "箭头",
+    "圆圈",
+    "好奇",
+    "点击"
+   ]
+  },
+  "template:yt-mini-grafica": {
+   "name": "上升曲线",
+   "tags": [
+    "缩略图",
+    "曲线",
+    "增长",
+    "数据",
+    "金钱"
+   ]
+  },
+  "template:yt-mini-lupa": {
+   "name": "放大镜看细节",
+   "tags": [
+    "缩略图",
+    "放大镜",
+    "细节",
+    "秘密",
+    "点击"
+   ]
+  },
+  "template:yt-mini-numero-uno": {
+   "name": "第一名徽章",
+   "tags": [
+    "缩略图",
+    "第一名",
+    "排名",
+    "徽章",
+    "最佳"
+   ]
+  },
+  "template:yt-mini-precio-tachado": {
+   "name": "划掉的价格",
+   "tags": [
+    "缩略图",
+    "价格",
+    "优惠",
+    "便宜",
+    "昂贵"
+   ]
+  },
+  "template:yt-mini-revelacion": {
+   "name": "隐藏揭晓",
+   "tags": [
+    "缩略图",
+    "揭晓",
+    "隐藏",
+    "神秘",
+    "点击"
+   ]
+  },
+  "template:yt-mini-sticker": {
+   "name": "巨型表情贴纸",
+   "tags": [
+    "缩略图",
+    "人脸",
+    "贴纸",
+    "反应",
+    "搞笑"
+   ]
+  },
+  "template:yt-mini-tier-list": {
+   "name": "等级榜单",
+   "tags": [
+    "缩略图",
+    "等级表",
+    "排名",
+    "分类",
+    "点击"
+   ]
+  },
+  "template:yt-mini-tres-niveles": {
+   "name": "三个等级",
+   "tags": [
+    "缩略图",
+    "等级",
+    "对比",
+    "便宜与昂贵",
+    "点击"
+   ]
+  },
+  "template:yt-mist-camara": {
+   "name": "监控画面",
+   "tags": [
+    "悬疑",
+    "监控",
+    "录像",
+    "线索",
+    "案件"
+   ]
+  },
+  "template:yt-mist-censurado": {
+   "name": "涂黑文件",
+   "tags": [
+    "悬疑",
+    "保密",
+    "机密",
+    "涂黑",
+    "秘密"
+   ]
+  },
+  "template:yt-mist-evidencia": {
+   "name": "证据展示",
+   "tags": [
+    "悬疑",
+    "证据",
+    "标记",
+    "证明",
+    "案件"
+   ]
+  },
+  "template:yt-mist-expediente": {
+   "name": "案件档案",
+   "tags": [
+    "悬疑",
+    "真实案件",
+    "档案",
+    "案件",
+    "保密"
+   ]
+  },
+  "template:yt-mist-linea-tiempo": {
+   "name": "案件时间轴",
+   "tags": [
+    "悬疑",
+    "时间轴",
+    "时间线",
+    "事件",
+    "案件"
+   ]
+  },
+  "template:yt-mist-linea-vertical": {
+   "name": "竖屏时间轴",
+   "tags": [
+    "悬疑",
+    "时间轴",
+    "竖屏",
+    "短片",
+    "案件"
+   ]
+  },
+  "template:yt-mist-mapa": {
+   "name": "案件地图",
+   "tags": [
+    "悬疑",
+    "地图",
+    "位置",
+    "路线",
+    "案件"
+   ]
+  },
+  "template:yt-mist-maquina": {
+   "name": "打字机开场",
+   "tags": [
+    "悬疑",
+    "打字机",
+    "叙事",
+    "片头",
+    "案件"
+   ]
+  },
+  "template:yt-mist-perfil": {
+   "name": "关键人物档案",
+   "tags": [
+    "悬疑",
+    "人物",
+    "档案",
+    "关系",
+    "案件"
+   ]
+  },
+  "template:yt-mist-periodico": {
+   "name": "报纸头条",
+   "tags": [
+    "悬疑",
+    "报纸",
+    "新闻",
+    "头条",
+    "案件"
+   ]
+  },
+  "template:yt-mist-podcast": {
+   "name": "悬疑播客片头",
+   "tags": [
+    "悬疑",
+    "播客",
+    "剧集",
+    "片头",
+    "主播"
+   ]
+  },
+  "template:yt-mist-se-busca": {
+   "name": "寻人启事",
+   "tags": [
+    "悬疑",
+    "寻人",
+    "海报",
+    "失踪",
+    "案件"
+   ]
+  },
+  "template:yt-mist-sin-resolver": {
+   "name": "未解案件",
+   "tags": [
+    "悬疑",
+    "未解",
+    "案件",
+    "片头",
+    "纪录"
+   ]
+  },
+  "template:yt-mist-sin-resolver-vertical": {
+   "name": "竖屏未解案",
+   "tags": [
+    "悬疑",
+    "未解",
+    "竖屏",
+    "短片",
+    "上集"
+   ]
+  },
+  "template:yt-mist-tablero": {
+   "name": "红线线索板",
+   "tags": [
+    "悬疑",
+    "线索",
+    "红线",
+    "调查",
+    "案件"
+   ]
+  },
+  "template:yt-mist-tablero-vertical": {
+   "name": "竖屏线索板",
+   "tags": [
+    "悬疑",
+    "线索",
+    "红线",
+    "竖屏",
+    "短片"
+   ]
+  },
+  "template:yt-mist-teorias": {
+   "name": "三种猜测",
+   "tags": [
+    "悬疑",
+    "猜测",
+    "假设",
+    "短片",
+    "案件"
+   ]
+  },
+  "template:yt-mist-testigo": {
+   "name": "证人陈述",
+   "tags": [
+    "悬疑",
+    "证人",
+    "陈述",
+    "证言",
+    "案件"
+   ]
+  },
+  "template:yt-pod-al-aire": {
+   "name": "电台风格",
+   "tags": [
+    "播客",
+    "电台",
+    "复古",
+    "直播中",
+    "节目"
+   ]
+  },
+  "template:yt-pod-apertura": {
+   "name": "开场片段",
+   "tags": [
+    "播客",
+    "开场",
+    "预告",
+    "片头",
+    "博主"
+   ]
+  },
+  "template:yt-pod-audiograma": {
+   "name": "音频波形图",
+   "tags": [
+    "播客",
+    "波形",
+    "音频",
+    "片段",
+    "博主"
+   ]
+  },
+  "template:yt-pod-cita": {
+   "name": "语录卡片",
+   "tags": [
+    "播客",
+    "语录",
+    "金句",
+    "竖屏",
+    "片段"
+   ]
+  },
+  "template:yt-pod-clip-subtitulos": {
+   "name": "大字幕片段",
+   "tags": [
+    "播客",
+    "字幕",
+    "片段",
+    "竖屏",
+    "金句"
+   ]
+  },
+  "template:yt-pod-clip-vertical": {
+   "name": "双机位竖屏片段",
+   "tags": [
+    "播客",
+    "片段",
+    "竖屏",
+    "双机位",
+    "字幕"
+   ]
+  },
+  "template:yt-pod-cortes": {
+   "name": "剪辑式播客",
+   "tags": [
+    "播客",
+    "剪辑",
+    "全景",
+    "对话",
+    "多机位"
+   ]
+  },
+  "template:yt-pod-debate": {
+   "name": "正反辩论",
+   "tags": [
+    "播客",
+    "辩论",
+    "赞成",
+    "反对",
+    "竖屏"
+   ]
+  },
+  "template:yt-pod-dos-camaras": {
+   "name": "双机位播客",
+   "tags": [
+    "播客",
+    "双机位",
+    "对谈",
+    "访谈",
+    "博主"
+   ]
+  },
+  "template:yt-pod-en-vivo": {
+   "name": "直播聊天播客",
+   "tags": [
+    "播客",
+    "直播",
+    "聊天",
+    "互动",
+    "博主"
+   ]
+  },
+  "template:yt-pod-invitado": {
+   "name": "嘉宾介绍",
+   "tags": [
+    "播客",
+    "嘉宾",
+    "介绍",
+    "访谈",
+    "博主"
+   ]
+  },
+  "template:yt-pod-mejores-momentos": {
+   "name": "精彩片段",
+   "tags": [
+    "播客",
+    "精彩",
+    "合集",
+    "竖屏",
+    "片段"
+   ]
+  },
+  "template:yt-pod-panel-tres": {
+   "name": "三人圆桌",
+   "tags": [
+    "播客",
+    "圆桌",
+    "三人",
+    "讨论",
+    "嘉宾"
+   ]
+  },
+  "template:yt-pod-pausa": {
+   "name": "马上回来",
+   "tags": [
+    "播客",
+    "暂停",
+    "马上回来",
+    "插播",
+    "休息"
+   ]
+  },
+  "template:yt-pod-pregunta": {
+   "name": "今日话题",
+   "tags": [
+    "播客",
+    "提问",
+    "讨论",
+    "话题",
+    "博主"
+   ]
+  },
+  "template:yt-pod-proximo": {
+   "name": "下期预告",
+   "tags": [
+    "播客",
+    "下期",
+    "预告",
+    "订阅",
+    "片尾"
+   ]
+  },
+  "template:yt-pod-temas": {
+   "name": "本期话题",
+   "tags": [
+    "播客",
+    "话题",
+    "目录",
+    "章节",
+    "时间"
+   ]
+  },
+  "template:yt-pod-titulo-episodio": {
+   "name": "期号标题",
+   "tags": [
+    "播客",
+    "标题",
+    "期号",
+    "封面",
+    "博主"
+   ]
+  },
+  "template:yt-reac-arriba-abajo": {
+   "name": "上下分屏反应",
+   "tags": [
+    "反应",
+    "分屏",
+    "上下",
+    "对比",
+    "博主"
+   ]
+  },
+  "template:yt-reac-cine-h": {
+   "name": "一起看反应",
+   "tags": [
+    "反应",
+    "观影",
+    "电影",
+    "16:9",
+    "博主"
+   ]
+  },
+  "template:yt-reac-comentarios": {
+   "name": "回应评论",
+   "tags": [
+    "反应",
+    "评论",
+    "互动",
+    "粉丝",
+    "博主"
+   ]
+  },
+  "template:yt-reac-comida": {
+   "name": "你敢吃吗",
+   "tags": [
+    "反应",
+    "美食",
+    "投票",
+    "尝试",
+    "博主"
+   ]
+  },
+  "template:yt-reac-dividida-h": {
+   "name": "左右分屏反应",
+   "tags": [
+    "反应",
+    "并排",
+    "分屏",
+    "16:9",
+    "博主"
+   ]
+  },
+  "template:yt-reac-dueto": {
+   "name": "合拍反应",
+   "tags": [
+    "反应",
+    "合拍",
+    "对唱",
+    "互动",
+    "博主"
+   ]
+  },
+  "template:yt-reac-espera": {
+   "name": "等一等反应",
+   "tags": [
+    "反应",
+    "等待",
+    "倒计时",
+    "反转",
+    "博主"
+   ]
+  },
+  "template:yt-reac-esquina-h": {
+   "name": "角落镜头反应",
+   "tags": [
+    "反应",
+    "角落",
+    "怼脸",
+    "16:9",
+    "博主"
+   ]
+  },
+  "template:yt-reac-esquinas": {
+   "name": "跳跃角落镜头",
+   "tags": [
+    "反应",
+    "角落",
+    "动感",
+    "切换",
+    "博主"
+   ]
+  },
+  "template:yt-reac-musica": {
+   "name": "第一次听",
+   "tags": [
+    "反应",
+    "音乐",
+    "歌曲",
+    "首次",
+    "博主"
+   ]
+  },
+  "template:yt-reac-nota-h": {
+   "name": "带评分反应",
+   "tags": [
+    "反应",
+    "评分",
+    "打分",
+    "16:9",
+    "博主"
+   ]
+  },
+  "template:yt-reac-pareja-h": {
+   "name": "双人反应",
+   "tags": [
+    "反应",
+    "双人",
+    "搭档",
+    "16:9",
+    "博主"
+   ]
+  },
+  "template:yt-reac-real-falso-h": {
+   "name": "真的还是假的",
+   "tags": [
+    "反应",
+    "真假",
+    "鉴别",
+    "16:9",
+    "博主"
+   ]
+  },
+  "template:yt-reac-repeticion": {
+   "name": "慢动作回放",
+   "tags": [
+    "反应",
+    "回放",
+    "慢动作",
+    "精彩",
+    "博主"
+   ]
+  },
+  "template:yt-reac-sus-videos": {
+   "name": "看你们的视频",
+   "tags": [
+    "反应",
+    "粉丝",
+    "视频",
+    "互动",
+    "博主"
+   ]
+  },
+  "template:yt-reac-tarjeta": {
+   "name": "浮窗反应",
+   "tags": [
+    "反应",
+    "浮窗",
+    "解说",
+    "评论",
+    "博主"
+   ]
+  },
+  "template:yt-reac-ventana-h": {
+   "name": "窗口反应",
+   "tags": [
+    "反应",
+    "窗口",
+    "16:9",
+    "界面",
+    "博主"
+   ]
+  },
+  "template:yt-reac-zoom-cara": {
+   "name": "脸部放大反应",
+   "tags": [
+    "反应",
+    "放大",
+    "人脸",
+    "表情",
+    "博主"
+   ]
+  },
+  "template:yt-reto-1-vs-100": {
+   "name": "1对100",
+   "tags": [
+    "挑战",
+    "对决",
+    "对比",
+    "1对100",
+    "博主"
+   ]
+  },
+  "template:yt-reto-1-vs-millon": {
+   "name": "1美元对百万美元",
+   "tags": [
+    "挑战",
+    "对比",
+    "金钱",
+    "便宜与昂贵",
+    "奢华"
+   ]
+  },
+  "template:yt-reto-10-dolares-7-dias": {
+   "name": "10美元过7天",
+   "tags": [
+    "挑战",
+    "省钱",
+    "预算",
+    "7天",
+    "博主"
+   ]
+  },
+  "template:yt-reto-100-personas": {
+   "name": "100人1个赢家",
+   "tags": [
+    "挑战",
+    "100人",
+    "竞争",
+    "赢家",
+    "博主"
+   ]
+  },
+  "template:yt-reto-24-horas": {
+   "name": "24小时挑战",
+   "tags": [
+    "挑战",
+    "24小时",
+    "计时器",
+    "时钟",
+    "博主"
+   ]
+  },
+  "template:yt-reto-aguanta-60-minutos": {
+   "name": "坚持60分钟",
+   "tags": [
+    "挑战",
+    "坚持",
+    "计时器",
+    "分钟",
+    "博主"
+   ]
+  },
+  "template:yt-reto-barato-vs-caro": {
+   "name": "1美元到1万美元",
+   "tags": [
+    "挑战",
+    "便宜与昂贵",
+    "对比",
+    "金钱",
+    "博主"
+   ]
+  },
+  "template:yt-reto-caja-misteriosa": {
+   "name": "选一个盒子",
+   "tags": [
+    "挑战",
+    "神秘盒子",
+    "惊喜",
+    "奖励",
+    "开箱"
+   ]
+  },
+  "template:yt-reto-dia-1-dia-100": {
+   "name": "第1天与第100天",
+   "tags": [
+    "挑战",
+    "进度",
+    "100天",
+    "坚持",
+    "对比"
+   ]
+  },
+  "template:yt-reto-eliminados": {
+   "name": "只剩一人",
+   "tags": [
+    "挑战",
+    "淘汰",
+    "赢家",
+    "竞争",
+    "博主"
+   ]
+  },
+  "template:yt-reto-ganador": {
+   "name": "赢家揭晓",
+   "tags": [
+    "挑战",
+    "赢家",
+    "揭晓",
+    "奖励",
+    "博主"
+   ]
+  },
+  "template:yt-reto-gasta-1000": {
+   "name": "1分钟花1000",
+   "tags": [
+    "挑战",
+    "消费",
+    "金钱",
+    "购物",
+    "倒计时"
+   ]
+  },
+  "template:yt-reto-intro-hype": {
+   "name": "爆燃挑战片头",
+   "tags": [
+    "挑战",
+    "片头",
+    "燃",
+    "节奏",
+    "博主"
+   ]
+  },
+  "template:yt-reto-marcador": {
+   "name": "挑战计分板",
+   "tags": [
+    "挑战",
+    "计分板",
+    "团队",
+    "竞争",
+    "博主"
+   ]
+  },
+  "template:yt-reto-no-te-muevas": {
+   "name": "别动10秒",
+   "tags": [
+    "挑战",
+    "倒计时",
+    "计时器",
+    "10秒",
+    "博主"
+   ]
+  },
+  "template:yt-reto-premio-gigante": {
+   "name": "巨额奖励",
+   "tags": [
+    "挑战",
+    "奖励",
+    "金钱",
+    "计数器",
+    "博主"
+   ]
+  },
+  "template:yt-reto-sobrevivi-7-dias": {
+   "name": "我活过了7天",
+   "tags": [
+    "挑战",
+    "生存",
+    "7天",
+    "冒险",
+    "博主"
+   ]
+  },
+  "template:yt-reto-ultimo-en-salir": {
+   "name": "最后离开者获胜",
+   "tags": [
+    "挑战",
+    "坚持",
+    "奖励",
+    "极限",
+    "博主"
+   ]
+  },
+  "template:yt-sub-amarillo": {
+   "name": "黄色弹跳字幕",
+   "tags": [
+    "字幕",
+    "逐词",
+    "黄色",
+    "吸睛",
+    "博主"
+   ]
+  },
+  "template:yt-sub-burbuja": {
+   "name": "气泡字幕",
+   "tags": [
+    "字幕",
+    "气泡",
+    "聊天",
+    "逐词",
+    "博主"
+   ]
+  },
+  "template:yt-sub-caja-blanca": {
+   "name": "白底字幕",
+   "tags": [
+    "字幕",
+    "白框",
+    "逐词",
+    "视角",
+    "博主"
+   ]
+  },
+  "template:yt-sub-caja-verde": {
+   "name": "绿色高亮字幕",
+   "tags": [
+    "字幕",
+    "高亮",
+    "绿色",
+    "逐词",
+    "博主"
+   ]
+  },
+  "template:yt-sub-comic-h": {
+   "name": "漫画宽屏字幕",
+   "tags": [
+    "字幕",
+    "漫画",
+    "vlog",
+    "16:9",
+    "博主"
+   ]
+  },
+  "template:yt-sub-emoji": {
+   "name": "表情字幕",
+   "tags": [
+    "字幕",
+    "表情",
+    "有趣",
+    "逐词",
+    "博主"
+   ]
+  },
+  "template:yt-sub-gancho": {
+   "name": "钩子字幕",
+   "tags": [
+    "字幕",
+    "开头钩子",
+    "吸引",
+    "逐词",
+    "博主"
+   ]
+  },
+  "template:yt-sub-gradiente": {
+   "name": "渐变字幕",
+   "tags": [
+    "字幕",
+    "渐变",
+    "彩色",
+    "想法",
+    "博主"
+   ]
+  },
+  "template:yt-sub-marcador": {
+   "name": "手写字幕",
+   "tags": [
+    "字幕",
+    "手写",
+    "马克笔",
+    "故事",
+    "博主"
+   ]
+  },
+  "template:yt-sub-neon": {
+   "name": "霓虹字幕",
+   "tags": [
+    "字幕",
+    "霓虹",
+    "夜晚",
+    "逐词",
+    "博主"
+   ]
+  },
+  "template:yt-sub-pantalla-dividida": {
+   "name": "分屏字幕",
+   "tags": [
+    "字幕",
+    "分屏",
+    "逐词",
+    "双人",
+    "博主"
+   ]
+  },
+  "template:yt-sub-pasos": {
+   "name": "步骤字幕",
+   "tags": [
+    "字幕",
+    "教程",
+    "步骤",
+    "逐词",
+    "博主"
+   ]
+  },
+  "template:yt-sub-podcast-h": {
+   "name": "播客宽屏字幕",
+   "tags": [
+    "字幕",
+    "播客",
+    "16:9",
+    "逐词",
+    "博主"
+   ]
+  },
+  "template:yt-sub-retro": {
+   "name": "复古录像带字幕",
+   "tags": [
+    "字幕",
+    "复古",
+    "录像带",
+    "怀旧",
+    "博主"
+   ]
+  },
+  "template:yt-sub-rojo": {
+   "name": "红色关键词字幕",
+   "tags": [
+    "字幕",
+    "关键词",
+    "红色",
+    "商务",
+    "博主"
+   ]
+  },
+  "template:yt-sub-storytime": {
+   "name": "电影感故事字幕",
+   "tags": [
+    "字幕",
+    "故事",
+    "电影感",
+    "逐词",
+    "博主"
+   ]
+  },
+  "template:yt-sub-tutorial-h": {
+   "name": "教程宽屏字幕",
+   "tags": [
+    "字幕",
+    "教程",
+    "16:9",
+    "逐词",
+    "博主"
+   ]
+  },
+  "template:yt-sub-una-palabra": {
+   "name": "逐词字幕",
+   "tags": [
+    "字幕",
+    "逐词",
+    "单词",
+    "动感",
+    "博主"
+   ]
+  },
+  "template:yt-tec-bateria": {
+   "name": "电池测试",
+   "tags": [
+    "科技测评",
+    "电池",
+    "续航",
+    "测试",
+    "博主"
+   ]
+  },
+  "template:yt-tec-benchmark": {
+   "name": "性能跑分",
+   "tags": [
+    "科技测评",
+    "性能",
+    "跑分",
+    "速度",
+    "对比"
+   ]
+  },
+  "template:yt-tec-capitulos": {
+   "name": "测评章节",
+   "tags": [
+    "科技测评",
+    "章节",
+    "目录",
+    "测评",
+    "博主"
+   ]
+  },
+  "template:yt-tec-comparacion": {
+   "name": "并排对比",
+   "tags": [
+    "科技测评",
+    "对比",
+    "对决",
+    "选购",
+    "博主"
+   ]
+  },
+  "template:yt-tec-comparacion-vertical": {
+   "name": "该买哪个",
+   "tags": [
+    "科技测评",
+    "对比",
+    "竖屏",
+    "选购",
+    "对决"
+   ]
+  },
+  "template:yt-tec-etiqueta-precio": {
+   "name": "价格标签",
+   "tags": [
+    "科技测评",
+    "价格",
+    "上市",
+    "优惠",
+    "博主"
+   ]
+  },
+  "template:yt-tec-ficha-tecnica": {
+   "name": "规格参数",
+   "tags": [
+    "科技测评",
+    "参数",
+    "规格",
+    "手机",
+    "数据"
+   ]
+  },
+  "template:yt-tec-primeras-impresiones": {
+   "name": "第一印象",
+   "tags": [
+    "科技测评",
+    "第一印象",
+    "上手",
+    "体验",
+    "电影感"
+   ]
+  },
+  "template:yt-tec-pros-contras": {
+   "name": "优缺点",
+   "tags": [
+    "科技测评",
+    "优点",
+    "缺点",
+    "评价",
+    "博主"
+   ]
+  },
+  "template:yt-tec-prueba-camara": {
+   "name": "相机测试",
+   "tags": [
+    "科技测评",
+    "相机",
+    "样张",
+    "夜景",
+    "测试"
+   ]
+  },
+  "template:yt-tec-puntaje": {
+   "name": "最终评分",
+   "tags": [
+    "科技测评",
+    "评分",
+    "打分",
+    "结论",
+    "博主"
+   ]
+  },
+  "template:yt-tec-setup": {
+   "name": "我的桌面布置",
+   "tags": [
+    "科技测评",
+    "桌面",
+    "布置",
+    "设备",
+    "博主"
+   ]
+  },
+  "template:yt-tec-top-3": {
+   "name": "年度三件数码",
+   "tags": [
+    "科技测评",
+    "前三",
+    "排名",
+    "数码",
+    "竖屏"
+   ]
+  },
+  "template:yt-tec-tres-cosas": {
+   "name": "三件你不知道的事",
+   "tags": [
+    "科技测评",
+    "冷知识",
+    "技巧",
+    "隐藏功能",
+    "竖屏"
+   ]
+  },
+  "template:yt-tec-unboxing": {
+   "name": "干净开箱",
+   "tags": [
+    "科技测评",
+    "开箱",
+    "简洁",
+    "上手",
+    "博主"
+   ]
+  },
+  "template:yt-tec-unboxing-vertical": {
+   "name": "四步开箱",
+   "tags": [
+    "科技测评",
+    "开箱",
+    "步骤",
+    "竖屏",
+    "上手"
+   ]
+  },
+  "template:yt-tec-vale-la-pena": {
+   "name": "值不值",
+   "tags": [
+    "科技测评",
+    "值不值",
+    "价格",
+    "评价",
+    "竖屏"
+   ]
+  },
+  "template:yt-tec-veredicto": {
+   "name": "最终结论",
+   "tags": [
+    "科技测评",
+    "结论",
+    "推荐",
+    "评价",
+    "博主"
+   ]
+  },
+  "template:yt-top-10-intro": {
+   "name": "前十片头",
+   "tags": [
+    "排名",
+    "片头",
+    "开场",
+    "倒计时",
+    "博主"
+   ]
+  },
+  "template:yt-top-10-lista": {
+   "name": "前十榜单",
+   "tags": [
+    "排名",
+    "前十",
+    "列表",
+    "倒计时",
+    "榜单"
+   ]
+  },
+  "template:yt-top-10-rapido": {
+   "name": "快速前十",
+   "tags": [
+    "排名",
+    "前十",
+    "榜单",
+    "倒计时",
+    "快节奏"
+   ]
+  },
+  "template:yt-top-10-tabla": {
+   "name": "排行榜表格",
+   "tags": [
+    "排名",
+    "前十",
+    "表格",
+    "积分",
+    "榜单"
+   ]
+  },
+  "template:yt-top-3-medallas": {
+   "name": "前三奖牌",
+   "tags": [
+    "排名",
+    "奖牌",
+    "前三",
+    "金牌",
+    "博主"
+   ]
+  },
+  "template:yt-top-3-podio": {
+   "name": "前三领奖台",
+   "tags": [
+    "排名",
+    "前三",
+    "领奖台",
+    "赢家",
+    "榜单"
+   ]
+  },
+  "template:yt-top-3-revelacion": {
+   "name": "第一名揭晓",
+   "tags": [
+    "排名",
+    "前三",
+    "揭晓",
+    "第一名",
+    "博主"
+   ]
+  },
+  "template:yt-top-5-cine": {
+   "name": "电影感前五",
+   "tags": [
+    "排名",
+    "前五",
+    "电影感",
+    "旅行",
+    "优雅"
+   ]
+  },
+  "template:yt-top-5-comida": {
+   "name": "美食前五",
+   "tags": [
+    "排名",
+    "前五",
+    "美食",
+    "评分",
+    "星级"
+   ]
+  },
+  "template:yt-top-5-cuaderno": {
+   "name": "手账前五",
+   "tags": [
+    "排名",
+    "前五",
+    "手账",
+    "手工",
+    "拍立得"
+   ]
+  },
+  "template:yt-top-5-datos-curiosos": {
+   "name": "五个冷知识",
+   "tags": [
+    "排名",
+    "冷知识",
+    "趣味",
+    "知识",
+    "博主"
+   ]
+  },
+  "template:yt-top-5-lugares": {
+   "name": "地点前五",
+   "tags": [
+    "排名",
+    "前五",
+    "旅行",
+    "地点",
+    "目的地"
+   ]
+  },
+  "template:yt-top-5-neon": {
+   "name": "霓虹前五",
+   "tags": [
+    "排名",
+    "前五",
+    "霓虹",
+    "游戏",
+    "夜晚"
+   ]
+  },
+  "template:yt-top-5-pantalla-dividida": {
+   "name": "分屏前五",
+   "tags": [
+    "排名",
+    "前五",
+    "分屏",
+    "色彩",
+    "博主"
+   ]
+  },
+  "template:yt-top-5-peor-a-mejor": {
+   "name": "从最差到最好",
+   "tags": [
+    "排名",
+    "评分",
+    "评测",
+    "对比",
+    "博主"
+   ]
+  },
+  "template:yt-top-5-ranking-rellenar": {
+   "name": "待填排名",
+   "tags": [
+    "排名",
+    "填空",
+    "选择",
+    "榜单",
+    "博主"
+   ]
+  },
+  "template:yt-top-5-retro": {
+   "name": "复古前五",
+   "tags": [
+    "排名",
+    "前五",
+    "复古",
+    "录像带",
+    "怀旧"
+   ]
+  },
+  "template:yt-top-5-tarjetas": {
+   "name": "前五卡片",
+   "tags": [
+    "排名",
+    "前五",
+    "卡片",
+    "收藏",
+    "博主"
+   ]
+  },
+  "template:yt-vlog-barrios": {
+   "name": "一天三个街区",
+   "tags": [
+    "vlog",
+    "城市",
+    "街区",
+    "分屏",
+    "旅行"
+   ]
+  },
+  "template:yt-vlog-billete": {
+   "name": "旅行车票",
+   "tags": [
+    "vlog",
+    "城市",
+    "车票",
+    "旅行",
+    "博主"
+   ]
+  },
+  "template:yt-vlog-cinematico": {
+   "name": "电影感城市片头",
+   "tags": [
+    "vlog",
+    "城市",
+    "电影感",
+    "片头",
+    "博主"
+   ]
+  },
+  "template:yt-vlog-clima": {
+   "name": "天气与时间",
+   "tags": [
+    "vlog",
+    "城市",
+    "天气",
+    "时间",
+    "组件"
+   ]
+  },
+  "template:yt-vlog-dia-1": {
+   "name": "第1天开场",
+   "tags": [
+    "vlog",
+    "城市",
+    "章节",
+    "旅行",
+    "博主"
+   ]
+  },
+  "template:yt-vlog-gastos": {
+   "name": "一天花了多少",
+   "tags": [
+    "vlog",
+    "城市",
+    "花费",
+    "预算",
+    "价格"
+   ]
+  },
+  "template:yt-vlog-hora-lugar": {
+   "name": "时间地点",
+   "tags": [
+    "vlog",
+    "城市",
+    "时间",
+    "地点",
+    "博主"
+   ]
+  },
+  "template:yt-vlog-llegando": {
+   "name": "抵达城市",
+   "tags": [
+    "vlog",
+    "城市",
+    "抵达",
+    "导航",
+    "距离"
+   ]
+  },
+  "template:yt-vlog-mapa-zoom": {
+   "name": "地图定位",
+   "tags": [
+    "vlog",
+    "城市",
+    "地图",
+    "放大",
+    "位置"
+   ]
+  },
+  "template:yt-vlog-metro": {
+   "name": "地铁之旅",
+   "tags": [
+    "vlog",
+    "城市",
+    "地铁",
+    "交通",
+    "车站"
+   ]
+  },
+  "template:yt-vlog-noche": {
+   "name": "城市夜景",
+   "tags": [
+    "vlog",
+    "城市",
+    "夜晚",
+    "霓虹",
+    "博主"
+   ]
+  },
+  "template:yt-vlog-postal": {
+   "name": "来自这里的问候",
+   "tags": [
+    "vlog",
+    "城市",
+    "明信片",
+    "复古",
+    "旅行"
+   ]
+  },
+  "template:yt-vlog-resumen": {
+   "name": "旅行回顾",
+   "tags": [
+    "vlog",
+    "城市",
+    "回顾",
+    "拼贴",
+    "照片"
+   ]
+  },
+  "template:yt-vlog-ruta-mapa": {
+   "name": "当日路线图",
+   "tags": [
+    "vlog",
+    "城市",
+    "地图",
+    "路线",
+    "博主"
+   ]
+  },
+  "template:yt-vlog-stats-viaje": {
+   "name": "旅程数据",
+   "tags": [
+    "vlog",
+    "城市",
+    "数据",
+    "数字",
+    "总结"
+   ]
+  },
+  "template:yt-vlog-timelapse": {
+   "name": "城市延时",
+   "tags": [
+    "vlog",
+    "城市",
+    "延时",
+    "时钟",
+    "博主"
+   ]
+  },
+  "template:yt-vlog-titulo-calle": {
+   "name": "街头标题",
+   "tags": [
+    "vlog",
+    "城市",
+    "标题",
+    "开场",
+    "博主"
+   ]
+  },
+  "template:yt-vlog-top3": {
+   "name": "三个必去地点",
+   "tags": [
+    "vlog",
+    "城市",
+    "前三",
+    "地点",
+    "攻略"
    ]
   },
   "template:zoom-3d-parallax": {
@@ -28960,19 +33328,8 @@
    "name": "绿色黏液",
    "tags": [
     "恐怖",
-    "万圣节",
     "黏液",
     "绿色",
-    "惊悚"
-   ]
-  },
-  "text-style:mie-calabaza": {
-   "name": "南瓜",
-   "tags": [
-    "恐怖",
-    "万圣节",
-    "南瓜",
-    "橙色",
     "惊悚"
    ]
   },
@@ -28990,7 +33347,6 @@
    "name": "幽灵",
    "tags": [
     "恐怖",
-    "万圣节",
     "幽灵",
     "鬼魂",
     "惊悚"
@@ -29020,7 +33376,6 @@
    "name": "血红",
    "tags": [
     "恐怖",
-    "万圣节",
     "血",
     "红色",
     "惊悚"
@@ -30129,6 +34484,24 @@
     "网格"
    ]
   },
+  "transition:alejar-revelar": {
+   "name": "拉远揭晓",
+   "tags": [
+    "转场",
+    "拉远",
+    "揭晓",
+    "博主"
+   ]
+  },
+  "transition:alejar-revelar-lado": {
+   "name": "拉远甩出",
+   "tags": [
+    "转场",
+    "拉远",
+    "滑动",
+    "博主"
+   ]
+  },
   "transition:anillos": {
    "name": "圆环",
    "tags": [
@@ -30336,6 +34709,16 @@
     "情人节",
     "转场",
     "漂浮"
+   ]
+  },
+  "transition:corte-estrobo": {
+   "name": "频闪剪切",
+   "tags": [
+    "转场",
+    "频闪",
+    "闪光",
+    "剪切",
+    "博主"
    ]
   },
   "transition:cristal-cae": {
@@ -30576,6 +34959,36 @@
     "虚化"
    ]
   },
+  "transition:deslizamiento-rgb": {
+   "name": "RGB滑动",
+   "tags": [
+    "转场",
+    "rgb",
+    "滑动",
+    "故障风",
+    "博主"
+   ]
+  },
+  "transition:deslizar-arriba": {
+   "name": "向上滑动",
+   "tags": [
+    "转场",
+    "滑动",
+    "向上",
+    "竖屏",
+    "博主"
+   ]
+  },
+  "transition:deslizar-historia": {
+   "name": "快拍滑动",
+   "tags": [
+    "转场",
+    "滑动",
+    "快拍",
+    "竖屏",
+    "博主"
+   ]
+  },
   "transition:destello-azul": {
    "name": "冷色闪光",
    "tags": [
@@ -30719,6 +35132,16 @@
     "弹性"
    ]
   },
+  "transition:entrada-pop": {
+   "name": "果冻弹出",
+   "tags": [
+    "转场",
+    "弹出",
+    "弹跳",
+    "果冻",
+    "博主"
+   ]
+  },
   "transition:espejismo": {
    "name": "热浪扭曲",
    "tags": [
@@ -30781,6 +35204,16 @@
     "噪点",
     "故障",
     "电视"
+   ]
+  },
+  "transition:estela-derecha": {
+   "name": "拖影滑动",
+   "tags": [
+    "转场",
+    "滑动",
+    "拖影",
+    "动态模糊",
+    "博主"
    ]
   },
   "transition:estirar-horizontal": {
@@ -30891,6 +35324,16 @@
     "形状",
     "转场",
     "展开"
+   ]
+  },
+  "transition:foto-congelada": {
+   "name": "定格",
+   "tags": [
+    "转场",
+    "定格",
+    "静止",
+    "照片",
+    "博主"
    ]
   },
   "transition:franja-amarilla": {
@@ -31045,6 +35488,16 @@
     "光效"
    ]
   },
+  "transition:fundido-brillo-luz": {
+   "name": "漏光亮度渐变",
+   "tags": [
+    "转场",
+    "渐变",
+    "漏光",
+    "光效",
+    "博主"
+   ]
+  },
   "transition:fusion-color": {
    "name": "色彩融合",
    "tags": [
@@ -31087,6 +35540,15 @@
     "漩涡",
     "转场",
     "变焦"
+   ]
+  },
+  "transition:giro-esquina": {
+   "name": "转角摆入",
+   "tags": [
+    "转场",
+    "旋转",
+    "转角",
+    "博主"
    ]
   },
   "transition:giro-horario": {
@@ -31183,6 +35645,35 @@
     "弥漫"
    ]
   },
+  "transition:impacto-onda": {
+   "name": "冲击波",
+   "tags": [
+    "转场",
+    "冲击波",
+    "冲击",
+    "博主"
+   ]
+  },
+  "transition:latigazo-giro-derecha": {
+   "name": "甩镜旋转(向右)",
+   "tags": [
+    "转场",
+    "甩镜",
+    "旋转",
+    "向右",
+    "博主"
+   ]
+  },
+  "transition:latigazo-giro-izquierda": {
+   "name": "甩镜旋转(向左)",
+   "tags": [
+    "转场",
+    "甩镜",
+    "旋转",
+    "向左",
+    "博主"
+   ]
+  },
   "transition:lluvia-corazones": {
    "name": "爱心雨",
    "tags": [
@@ -31236,6 +35727,16 @@
     "方格",
     "转场",
     "出现"
+   ]
+  },
+  "transition:muro-pantallas": {
+   "name": "视频墙",
+   "tags": [
+    "转场",
+    "视频墙",
+    "画面",
+    "宫格",
+    "博主"
    ]
   },
   "transition:negativo": {
@@ -31392,6 +35893,26 @@
     "运动"
    ]
   },
+  "transition:paneo-diagonal-abajo": {
+   "name": "斜向甩镜(向下)",
+   "tags": [
+    "转场",
+    "甩镜",
+    "斜向",
+    "向下",
+    "博主"
+   ]
+  },
+  "transition:paneo-diagonal-arriba": {
+   "name": "斜向甩镜(向上)",
+   "tags": [
+    "转场",
+    "甩镜",
+    "斜向",
+    "向上",
+    "博主"
+   ]
+  },
   "transition:paneo-izquierda": {
    "name": "向左快摇",
    "tags": [
@@ -31401,6 +35922,15 @@
     "甩镜",
     "转场",
     "运动"
+   ]
+  },
+  "transition:pantalla-dividida": {
+   "name": "分屏",
+   "tags": [
+    "转场",
+    "分屏",
+    "画面",
+    "博主"
    ]
   },
   "transition:papel-rasgado": {
@@ -31423,6 +35953,16 @@
     "撕裂",
     "转场",
     "手作"
+   ]
+  },
+  "transition:parpadeo": {
+   "name": "眨眼",
+   "tags": [
+    "转场",
+    "眨眼",
+    "黑场",
+    "眼睛",
+    "博主"
    ]
   },
   "transition:pasar-pagina": {
@@ -31590,6 +36130,16 @@
     "擦除"
    ]
   },
+  "transition:pixelado-rapido": {
+   "name": "像素闪切",
+   "tags": [
+    "转场",
+    "像素",
+    "马赛克",
+    "快速",
+    "博主"
+   ]
+  },
   "transition:pixeles-arrastrados": {
    "name": "像素拖拽",
    "tags": [
@@ -31698,6 +36248,16 @@
     "滑动",
     "转场",
     "展开"
+   ]
+  },
+  "transition:pulso-bajo": {
+   "name": "低音脉冲",
+   "tags": [
+    "转场",
+    "低音",
+    "脉冲",
+    "节拍",
+    "博主"
    ]
   },
   "transition:puntos": {
@@ -32281,6 +36841,26 @@
     "冲击",
     "转场",
     "缩放"
+   ]
+  },
+  "transition:zoom-saltos": {
+   "name": "阶梯放大",
+   "tags": [
+    "转场",
+    "缩放",
+    "放大",
+    "阶梯",
+    "博主"
+   ]
+  },
+  "transition:zoom-saltos-atras": {
+   "name": "阶梯缩小",
+   "tags": [
+    "转场",
+    "缩放",
+    "缩小",
+    "阶梯",
+    "博主"
    ]
   }
  }

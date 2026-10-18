@@ -175,6 +175,10 @@ Item {
                                 sourceSize.height: 168
                             }
 
+                            scale: lookHover.hovered ? 1.02 : 1.0
+                            Behavior on scale {
+                                NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
+                            }
                             HoverHandler { id: lookHover }
 
                             MouseArea {

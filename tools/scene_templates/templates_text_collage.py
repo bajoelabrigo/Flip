@@ -42,7 +42,7 @@ def pov_texto() -> Template:
     t = Template("pov-texto", "POV con texto", "POV text", "text", 8.0,
                  order=420, tags=["pov", "meme", "tiktok", "texto"], thumb_at=3.4)
     photo = t.track("video", "Video")
-    t.photo(photo, "friends-02", 0, 8.0, FULL, [(0, {"s": 1.0}, "linear"), (8.0, {"s": 1.06})], label="Tu video")
+    t.photo(photo, "friends-01", 0, 8.0, FULL, [(0, {"s": 1.0}, "linear"), (8.0, {"s": 1.06})], label="Tu video")
     words = t.track("text", "Texto")
     t.text(words, "POV: por fin llegó el viernes", 0.2, 7.8, Box(110, 300, 860, 300),
            text_style("Montserrat", 68, [fill("#000000")], weight=700, line=1.15, box=("#FFFFFF", 1.0),
@@ -70,7 +70,7 @@ def tira_pelicula() -> Template:
         t.text(holes, column, 0, 7.0, Box(x, 960 - pitch / 2 - 120, 48, 6 * pitch + 240),
                text_style("Inter", 34, [fill("#F2E8D8", 0.85)], weight=400, line=2.0, valign="top"),
                strip_motion, editable=False, opacity=fade_out)
-    samples = ["friends-06", "beach-03", "couple-03", "friends-09", "travel-07", "family-05"]
+    samples = ["y4c-friends-05", "beach-01", "couple-03", "friends-09", "travel-07", "family-05"]
     for i, sample in enumerate(samples):
         frames = t.track("video", f"Cuadro {i + 1}")
         box = centered(540, 960 + i * pitch, frame_w, frame_h)
@@ -97,7 +97,7 @@ def polaroids() -> Template:
     t.solid(t.track("shape", "Mesa"), "#EDE3D1",
             layers=[gradient([(0, "#F3EBDD"), (1, "#E2D3BC")], angle=120), no_stroke()])
     spots = [(330, 560, -7), (760, 700, 6), (360, 1160, 5), (740, 1340, -8), (540, 940, 2)]
-    samples = ["beach-02", "friends-11", "city-01", "travel-07", "friends-01"]
+    samples = ["beach-01", "friends-11", "city-01", "travel-07", "friends-01"]
     captions = ["verano ☀", "con ellas", "la ciudad", "2026", "♡"]
     final = 0.9
     for i, ((x, y, tilt), sample, caption) in enumerate(zip(spots, samples, captions)):
@@ -133,7 +133,7 @@ def album_scrapbook() -> Template:
         {"photos": [("couple-01", 330, 640, 520, 640, -4), ("couple-04", 760, 1080, 460, 560, 5),
                     ("couple-06", 340, 1440, 480, 380, -2)],
          "texts": [("nuestro álbum", Box(60, 150, 960, 200), 128, "Título")]},
-        {"photos": [("beach-03", 740, 560, 500, 620, 4), ("friends-06", 320, 980, 480, 560, -5),
+        {"photos": [("beach-01", 740, 560, 500, 620, 4), ("y4c-friends-01", 320, 980, 480, 560, -5),
                     ("couple-07", 720, 1440, 520, 420, 3)],
          "texts": [("el mejor día", Box(40, 1660, 600, 140), 96, "Frase"),
                    ("para siempre", Box(440, 150, 600, 160), 104, "Cierre")]},
@@ -212,7 +212,7 @@ def transformacion_gym() -> Template:
     photos = t.track("video", "Fotos")
     t.photo(photos, "gym-01", 0, 3.0, FULL, [(0, {"s": 1.0}, "linear"), (3.0, {"s": 1.1})], label="Antes",
             effects=[effect("color.basic", saturation=-1.0, contrast=0.1, exposure=-0.1)])
-    after = ["gym-04", "gym-06"]
+    after = ["gym-01", "y2-h-gym-01"]
     for i in range(10):
         # Two "after" slots, cut on the beat in turn: the repeats show the same pictures.
         t.photo(photos, after[i % 2], 3.0 + i * 0.5, 0.5, FULL, [(0, {"s": 1.14}, "snap"), (0.2, {"s": 1.02})],

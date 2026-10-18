@@ -12823,6 +12823,10 @@
         <translation>스톡</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>홈</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>마켓플레이스를 사용할 수 없음</translation>
     </message>
@@ -16414,6 +16418,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Video thumbnails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Counters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>YouTuber style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

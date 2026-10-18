@@ -12823,6 +12823,10 @@
         <translation>素材库</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>首页</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>素材市场不可用</translation>
     </message>
@@ -16415,6 +16419,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Video thumbnails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Counters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>YouTuber style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -37,6 +37,7 @@ CATEGORIES = {
     "liquido": {"es": "Tinta y líquido", "en": "Ink & liquid"},
     "3d": {"es": "3D y papel", "en": "3D & paper"},
     "divertidas": {"es": "Divertidas", "en": "Fun"},
+    "youtuber": {"es": "Youtuber", "en": "YouTuber"},
 }
 
 
@@ -58,6 +59,7 @@ class Variant:
     params: dict = field(default_factory=dict)   # default overrides
     tags: list = field(default_factory=list)
     thumb: float = 0.5                             # progress of the card frame
+    note: dict = field(default_factory=dict)       # {"es", "en"} line for Stock, e.g. the sound that fits
 
 
 @dataclass

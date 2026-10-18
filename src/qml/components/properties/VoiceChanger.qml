@@ -194,6 +194,11 @@ Item {
                             font.pixelSize: Theme.fontSizeXs
                         }
 
+                        scale: mouse.pressed ? 0.97 : (tileHover.hovered ? 1.02 : 1.0)
+                        Behavior on scale {
+                            NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
+                        }
+
                         // Stays hovered while the pointer is over the star, unlike the MouseArea.
                         HoverHandler {
                             id: tileHover

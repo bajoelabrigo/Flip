@@ -61,6 +61,7 @@
   "music:triste": "Smutna i emocjonalna",
   "overlay:amor": "Miłość",
   "overlay:camara": "Kamera i ekran",
+  "overlay:camara-cara": "Ramki do kamerki",
   "overlay:celebracion": "Świętowanie",
   "overlay:clima": "Pogoda i natura",
   "overlay:garabatos": "Bazgroły",
@@ -69,6 +70,7 @@
   "overlay:marcos": "Ramki i tekstury",
   "overlay:particulas": "Cząsteczki i błyski",
   "overlay:pelicula": "Film i retro",
+  "overlay:youtuber": "YouTuber",
   "shape:arrows": "Strzałki",
   "shape:badges": "Odznaki",
   "shape:bubbles": "Dymki",
@@ -93,12 +95,14 @@
   "sound:ritmo": "Rytmy i muzyka",
   "sound:suspenso": "Napięcie i dramat",
   "sound:transiciones": "Przejścia",
+  "sound:youtuber": "YouTuber",
   "template:ad6": "Reklamy 6 s",
   "template:beforeafter": "Przed i po",
   "template:business": "Biznes",
   "template:celebration": "Uroczystości",
   "template:collage": "Kolaże",
   "template:countdown": "Odliczania",
+  "template:counter": "Liczniki",
   "template:intro": "Intra i tytuły",
   "template:lowerthird": "Belki dolne",
   "template:outro": "Zakończenia",
@@ -110,6 +114,7 @@
   "template:text": "Tekst",
   "template:thumbnail": "Miniatury filmów",
   "template:transition": "Przejścia i przerywniki",
+  "template:youtuber": "Styl youtubera",
   "text-animation:brillo": "Blask i kolor",
   "text-animation:caer": "Spadanie i wznoszenie",
   "text-animation:desenfoque": "Rozmycie i przenikanie",
@@ -134,7 +139,7 @@
   "text-style:retro": "Retro i Y2K",
   "text-style:subtitulos": "Viralowe napisy",
   "text-style:tercios": "Dolne trzecie",
-  "text-style:terror": "Horror i Halloween",
+  "text-style:terror": "Horror i tajemnica",
   "text-style:titulos": "Tytuły",
   "transition:3d": "3D i papier",
   "transition:barridos": "Przecieranie",
@@ -144,6 +149,7 @@
   "transition:liquido": "Tusz i ciecz",
   "transition:luz": "Światło i film",
   "transition:movimiento": "Ruch",
+  "transition:youtuber": "YouTuber",
   "transition:zoom": "Zoom i uderzenie"
  },
  "items": {
@@ -399,15 +405,6 @@
     "dostawa",
     "zamówienie",
     "paczka"
-   ]
-  },
-  "animation:calabaza": {
-   "name": "Dynia z lampionem",
-   "tags": [
-    "halloween",
-    "dynia",
-    "październik",
-    "strach"
    ]
   },
   "animation:calendario": {
@@ -1076,15 +1073,6 @@
     "wykrzyknik"
    ]
   },
-  "animation:fantasma": {
-   "name": "Duch",
-   "tags": [
-    "halloween",
-    "duch",
-    "boo",
-    "strach"
-   ]
-  },
   "animation:farol-rojo": {
    "name": "Czerwony lampion",
    "tags": [
@@ -1579,15 +1567,6 @@
     "kwiat",
     "przemiana",
     "morph"
-   ]
-  },
-  "animation:murcielago": {
-   "name": "Nietoperz",
-   "tags": [
-    "halloween",
-    "noc",
-    "nietoperz",
-    "strach"
    ]
   },
   "animation:nieve": {
@@ -3072,26 +3051,6 @@
     "ukończenie szkoły",
     "sukces",
     "rocznik",
-    "tło"
-   ]
-  },
-  "background:halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "horror",
-    "październik",
-    "dynia",
-    "tło"
-   ]
-  },
-  "background:halloween-2": {
-   "name": "Halloween 2",
-   "tags": [
-    "halloween",
-    "horror",
-    "październik",
-    "dynia",
     "tło"
    ]
   },
@@ -4951,16 +4910,6 @@
     "ciepły",
     "słodki",
     "nastrojowy"
-   ]
-  },
-  "look:moody-halloween": {
-   "name": "Upiorna noc",
-   "tags": [
-    "halloween",
-    "upiorny",
-    "noc",
-    "strach",
-    "ciemny"
    ]
   },
   "look:moody-invierno": {
@@ -7123,17 +7072,6 @@
     "nastrój",
     "szary",
     "miejski",
-    "lut",
-    "filtr"
-   ]
-  },
-  "lut:est-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "pory roku",
-    "halloween",
-    "pomarańcz",
-    "straszny",
     "lut",
     "filtr"
    ]
@@ -9425,12 +9363,10 @@
   "music:dance-of-the-dead-30s": {
    "name": "Taniec umarłych · 30 s",
    "tags": [
-    "halloween",
-    "święta",
     "straszny",
     "taniec",
-    "okazja",
-    "reel"
+    "reel",
+    "muzyka"
    ]
   },
   "music:dance-of-the-tuba-plum-fairy-15s": {
@@ -9846,11 +9782,9 @@
   "music:fright-night-twist-30s": {
    "name": "Fright Night Twist · 30 s",
    "tags": [
-    "halloween",
     "straszny",
     "twist",
     "taniec",
-    "okazja",
     "reel"
    ]
   },
@@ -9950,11 +9884,9 @@
   "music:ghost-town-30s": {
    "name": "Miasto duchów · 30 s",
    "tags": [
-    "halloween",
     "duchy",
     "straszny",
     "mroczny",
-    "okazja",
     "reel"
    ]
   },
@@ -10082,11 +10014,9 @@
   "music:haunted-houses-30s": {
    "name": "Nawiedzone domy · 30 s",
    "tags": [
-    "halloween",
     "straszny",
     "duchy",
     "noc",
-    "okazja",
     "reel"
    ]
   },
@@ -10830,7 +10760,6 @@
   "music:night-in-the-castle-30s": {
    "name": "Noc w zamku · 30 s",
    "tags": [
-    "halloween",
     "zamek",
     "wampir",
     "straszny",
@@ -11927,22 +11856,18 @@
   "music:witch-waltz-30s": {
    "name": "Walc czarownicy · 30 s",
    "tags": [
-    "halloween",
     "wiedźma",
     "walc",
     "straszny",
-    "okazja",
     "reel"
    ]
   },
   "music:wizard-circus-30s": {
    "name": "Cyrk czarodzieja · 30 s",
    "tags": [
-    "halloween",
     "cyrk",
     "magia",
     "straszny",
-    "okazja",
     "reel"
    ]
   },
@@ -12639,8 +12564,7 @@
     "mgła",
     "opary",
     "tajemnica",
-    "horror",
-    "halloween"
+    "horror"
    ]
   },
   "overlay:clima-niebla-baja": {
@@ -12724,6 +12648,270 @@
     "błyskawica",
     "deszcz",
     "pogoda"
+   ]
+  },
+  "overlay:facecam-burbuja": {
+   "name": "Dymek rozmowy",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "dymek",
+    "komiks",
+    "streamer"
+   ]
+  },
+  "overlay:facecam-circulo-blanco": {
+   "name": "Białe kółko",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "kółko",
+    "biały",
+    "podcast"
+   ]
+  },
+  "overlay:facecam-circulo-degradado": {
+   "name": "Kółko z gradientem",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "kółko",
+    "gradient",
+    "aesthetic"
+   ]
+  },
+  "overlay:facecam-circulo-dorado": {
+   "name": "Złote kółko",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "kółko",
+    "złoty",
+    "elegancki"
+   ]
+  },
+  "overlay:facecam-circulo-neon": {
+   "name": "Neonowe kółko",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "kółko",
+    "neon",
+    "gaming"
+   ]
+  },
+  "overlay:facecam-circulo-ondas": {
+   "name": "Mówiące kółko",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "fale",
+    "głos",
+    "podcast"
+   ]
+  },
+  "overlay:facecam-comic": {
+   "name": "Komiks pop",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "komiks",
+    "pop art",
+    "żółty"
+   ]
+  },
+  "overlay:facecam-cuadrado": {
+   "name": "Zaokrąglony kwadrat",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "kwadrat",
+    "minimalizm",
+    "podcast"
+   ]
+  },
+  "overlay:facecam-cyber": {
+   "name": "Cyber HUD",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "cyber",
+    "hud",
+    "futurystyczny"
+   ]
+  },
+  "overlay:facecam-en-vivo-es": {
+   "name": "En vivo z kółkiem (hiszpański)",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "na żywo",
+    "transmisja",
+    "hiszpański"
+   ]
+  },
+  "overlay:facecam-esquinas": {
+   "name": "Narożniki",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "narożniki",
+    "celownik",
+    "minimalizm"
+   ]
+  },
+  "overlay:facecam-estudio": {
+   "name": "Studio podcastowe",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "podcast",
+    "studio",
+    "mikrofon"
+   ]
+  },
+  "overlay:facecam-gamer-neon": {
+   "name": "Gamer neon",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "gamer",
+    "neon",
+    "twitch"
+   ]
+  },
+  "overlay:facecam-gamer-rgb": {
+   "name": "Gamer RGB",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "gamer",
+    "rgb",
+    "tęcza"
+   ]
+  },
+  "overlay:facecam-glitch": {
+   "name": "Glitch",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "glitch",
+    "cyfrowy",
+    "gamer"
+   ]
+  },
+  "overlay:facecam-hexagono-neon": {
+   "name": "Neonowy sześciokąt",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "sześciokąt",
+    "neon",
+    "gamer"
+   ]
+  },
+  "overlay:facecam-hexagono-tech": {
+   "name": "Technologiczny sześciokąt",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "sześciokąt",
+    "hud",
+    "sci-fi"
+   ]
+  },
+  "overlay:facecam-live-en": {
+   "name": "Live z kółkiem (angielski)",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "na żywo",
+    "live",
+    "angielski"
+   ]
+  },
+  "overlay:facecam-madera": {
+   "name": "Drewniana ramka",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "drewno",
+    "rustykalny",
+    "podcast"
+   ]
+  },
+  "overlay:facecam-minimal": {
+   "name": "Minimalistyczna",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "minimalizm",
+    "prosty",
+    "biały"
+   ]
+  },
+  "overlay:facecam-pastel": {
+   "name": "Pastelowa z serduszkami",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "pastelowy",
+    "serduszka",
+    "kawaii"
+   ]
+  },
+  "overlay:facecam-placa-nombre": {
+   "name": "Z tabliczką na imię",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "imię",
+    "belka",
+    "wywiad"
+   ]
+  },
+  "overlay:facecam-rayos": {
+   "name": "Pioruny",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "pioruny",
+    "energia",
+    "gamer"
+   ]
+  },
+  "overlay:facecam-tv-retro": {
+   "name": "Telewizor retro",
+   "tags": [
+    "kamerka",
+    "facecam",
+    "ramka",
+    "telewizor",
+    "retro",
+    "vintage"
    ]
   },
   "overlay:garabato-angel": {
@@ -12850,8 +13038,7 @@
     "doodle",
     "diabełek",
     "różki",
-    "psotny",
-    "halloween"
+    "psotny"
    ]
   },
   "overlay:garabato-diablito-blanco": {
@@ -14047,6 +14234,435 @@
     "vintage",
     "kolaż",
     "rękodzieło"
+   ]
+  },
+  "overlay:yt-barra-reproduccion": {
+   "name": "Pasek odtwarzacza",
+   "tags": [
+    "youtuber",
+    "odtwarzacz",
+    "pasek postępu",
+    "wideo",
+    "pauza",
+    "pionowy"
+   ]
+  },
+  "overlay:yt-campana": {
+   "name": "Dzwonek powiadomień",
+   "tags": [
+    "youtuber",
+    "dzwonek",
+    "powiadomienia",
+    "subskrypcja",
+    "pionowy"
+   ]
+  },
+  "overlay:yt-check-verde": {
+   "name": "Zielony ptaszek",
+   "tags": [
+    "youtuber",
+    "ptaszek",
+    "dobrze",
+    "ok",
+    "zatwierdzone",
+    "zielony"
+   ]
+  },
+  "overlay:yt-circulo-flecha": {
+   "name": "Czerwone kółko i strzałka",
+   "tags": [
+    "youtuber",
+    "kółko",
+    "strzałka",
+    "czerwony",
+    "miniatura",
+    "zobacz to"
+   ]
+  },
+  "overlay:yt-circulo-neon": {
+   "name": "Neonowe kółko",
+   "tags": [
+    "youtuber",
+    "kółko",
+    "neon",
+    "zaznaczenie",
+    "gamer",
+    "zobacz to"
+   ]
+  },
+  "overlay:yt-comentario-pop": {
+   "name": "Wyskakujący komentarz",
+   "tags": [
+    "youtuber",
+    "komentarz",
+    "czat",
+    "wiadomość",
+    "pionowy"
+   ]
+  },
+  "overlay:yt-compartir-pop": {
+   "name": "Wyskakujące udostępnianie",
+   "tags": [
+    "youtuber",
+    "udostępnij",
+    "wyślij",
+    "share",
+    "pionowy"
+   ]
+  },
+  "overlay:yt-contador-likes": {
+   "name": "Licznik polubień",
+   "tags": [
+    "youtuber",
+    "licznik",
+    "polubienia",
+    "lajki",
+    "viral",
+    "kciuk"
+   ]
+  },
+  "overlay:yt-contador-seguidores": {
+   "name": "Licznik obserwujących",
+   "tags": [
+    "youtuber",
+    "licznik",
+    "obserwujący",
+    "subskrybenci",
+    "wzrost"
+   ]
+  },
+  "overlay:yt-contador-vistas": {
+   "name": "Licznik wyświetleń",
+   "tags": [
+    "youtuber",
+    "licznik",
+    "wyświetlenia",
+    "viral",
+    "oko"
+   ]
+  },
+  "overlay:yt-cursor-clic": {
+   "name": "Klikający kursor",
+   "tags": [
+    "youtuber",
+    "kursor",
+    "kliknięcie",
+    "mysz",
+    "poradnik"
+   ]
+  },
+  "overlay:yt-emoji-100": {
+   "name": "Emoji 100 w 3D",
+   "tags": [
+    "emoji",
+    "reakcja",
+    "3d",
+    "100",
+    "perfekcyjnie",
+    "sukces"
+   ]
+  },
+  "overlay:yt-emoji-calavera": {
+   "name": "Emoji czaszka w 3D",
+   "tags": [
+    "emoji",
+    "reakcja",
+    "3d",
+    "czaszka",
+    "umieram ze śmiechu",
+    "śmieszne"
+   ]
+  },
+  "overlay:yt-emoji-enamorado": {
+   "name": "Zakochane emoji w 3D",
+   "tags": [
+    "emoji",
+    "reakcja",
+    "3d",
+    "zakochany",
+    "miłość",
+    "serca"
+   ]
+  },
+  "overlay:yt-emoji-fuego": {
+   "name": "Emoji ognia w 3D",
+   "tags": [
+    "emoji",
+    "reakcja",
+    "3d",
+    "ogień",
+    "gorące",
+    "trend"
+   ]
+  },
+  "overlay:yt-emoji-llorando": {
+   "name": "Płaczące emoji w 3D",
+   "tags": [
+    "emoji",
+    "reakcja",
+    "3d",
+    "płacz",
+    "smutny",
+    "łzy"
+   ]
+  },
+  "overlay:yt-emoji-risa": {
+   "name": "Emoji płacz ze śmiechu w 3D",
+   "tags": [
+    "emoji",
+    "reakcja",
+    "3d",
+    "śmiech",
+    "haha",
+    "śmieszne"
+   ]
+  },
+  "overlay:yt-emoji-sorpresa": {
+   "name": "Zszokowane emoji w 3D",
+   "tags": [
+    "emoji",
+    "reakcja",
+    "3d",
+    "zaskoczenie",
+    "wow",
+    "szok"
+   ]
+  },
+  "overlay:yt-flecha-neon": {
+   "name": "Neonowa strzałka",
+   "tags": [
+    "youtuber",
+    "strzałka",
+    "neon",
+    "blask",
+    "gamer",
+    "wskazać"
+   ]
+  },
+  "overlay:yt-flecha-roja": {
+   "name": "Czerwona strzałka wskazująca",
+   "tags": [
+    "youtuber",
+    "strzałka",
+    "czerwony",
+    "wskazać",
+    "patrz tutaj",
+    "miniatura"
+   ]
+  },
+  "overlay:yt-flechas-amarillas": {
+   "name": "Żółte strzałki po bokach",
+   "tags": [
+    "youtuber",
+    "strzałki",
+    "żółty",
+    "wskazać",
+    "środek",
+    "uwaga"
+   ]
+  },
+  "overlay:yt-iconos-fila": {
+   "name": "Polub, skomentuj i udostępnij",
+   "tags": [
+    "youtuber",
+    "polub",
+    "komentarz",
+    "udostępnij",
+    "ikony",
+    "wezwanie do działania"
+   ]
+  },
+  "overlay:yt-iconos-lateral": {
+   "name": "Boczne przyciski krótkiego wideo",
+   "tags": [
+    "shorts",
+    "reels",
+    "polub",
+    "komentarz",
+    "udostępnij",
+    "przyciski"
+   ]
+  },
+  "overlay:yt-like-pop": {
+   "name": "Wyskakujące polubienie",
+   "tags": [
+    "youtuber",
+    "polub",
+    "lajk",
+    "kciuk w górę",
+    "pionowy"
+   ]
+  },
+  "overlay:yt-mano-clic": {
+   "name": "Stukająca dłoń",
+   "tags": [
+    "youtuber",
+    "dłoń",
+    "stuknięcie",
+    "kliknięcie",
+    "wskazać",
+    "poradnik"
+   ]
+  },
+  "overlay:yt-meta-suscriptores": {
+   "name": "Pasek osiągniętego celu",
+   "tags": [
+    "youtuber",
+    "cel",
+    "postęp",
+    "pasek",
+    "subskrybenci",
+    "osiągnięcie"
+   ]
+  },
+  "overlay:yt-new-video-en": {
+   "name": "New video (angielski)",
+   "tags": [
+    "youtuber",
+    "nowy film",
+    "premiera",
+    "naklejka",
+    "angielski"
+   ]
+  },
+  "overlay:yt-notificacion": {
+   "name": "Powiadomienie o nowym filmie",
+   "tags": [
+    "youtuber",
+    "powiadomienie",
+    "baner",
+    "nowy film",
+    "dzwonek"
+   ]
+  },
+  "overlay:yt-notificacion-oscura": {
+   "name": "Ciemne powiadomienie",
+   "tags": [
+    "youtuber",
+    "powiadomienie",
+    "ciemny",
+    "baner",
+    "nowy film"
+   ]
+  },
+  "overlay:yt-nuevo-video-es": {
+   "name": "¡Nuevo video! (hiszpański)",
+   "tags": [
+    "youtuber",
+    "nowy film",
+    "premiera",
+    "naklejka",
+    "hiszpański"
+   ]
+  },
+  "overlay:yt-resaltador": {
+   "name": "Żółty zakreślacz",
+   "tags": [
+    "youtuber",
+    "zakreślacz",
+    "podkreślenie",
+    "tekst",
+    "żółty",
+    "wyróżnienie"
+   ]
+  },
+  "overlay:yt-subscribe-card-en": {
+   "name": "Przycisk Subscribe z kartą (angielski)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "dzwonek",
+    "kursor",
+    "angielski"
+   ]
+  },
+  "overlay:yt-subscribe-classic-en": {
+   "name": "Klasyczny przycisk Subscribe (angielski)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "dzwonek",
+    "kursor",
+    "angielski"
+   ]
+  },
+  "overlay:yt-subscribe-neon-en": {
+   "name": "Neonowy przycisk Subscribe (angielski)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "neon",
+    "kursor",
+    "angielski"
+   ]
+  },
+  "overlay:yt-subscribe-white-en": {
+   "name": "Biały przycisk Subscribe (angielski)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "biały",
+    "kursor",
+    "angielski"
+   ]
+  },
+  "overlay:yt-suscribete-clasico-es": {
+   "name": "Klasyczny przycisk Suscríbete (hiszpański)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "dzwonek",
+    "kursor",
+    "hiszpański"
+   ]
+  },
+  "overlay:yt-suscribete-neon-es": {
+   "name": "Neonowy przycisk Suscríbete (hiszpański)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "neon",
+    "kursor",
+    "hiszpański"
+   ]
+  },
+  "overlay:yt-suscribete-pildora-es": {
+   "name": "Biały przycisk Suscríbete (hiszpański)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "biały",
+    "kursor",
+    "hiszpański"
+   ]
+  },
+  "overlay:yt-suscribete-tarjeta-es": {
+   "name": "Przycisk Suscríbete z kartą (hiszpański)",
+   "tags": [
+    "youtuber",
+    "subskrybuj",
+    "przycisk",
+    "dzwonek",
+    "kursor",
+    "hiszpański"
+   ]
+  },
+  "overlay:yt-x-roja": {
+   "name": "Czerwony krzyżyk",
+   "tags": [
+    "youtuber",
+    "krzyżyk",
+    "błąd",
+    "źle",
+    "nie",
+    "czerwony"
    ]
   },
   "shape:arch": {
@@ -15878,6 +16494,16 @@
     "linia"
    ]
   },
+  "sound:acento-tension": {
+   "name": "Akcent napięcia",
+   "tags": [
+    "napięcie",
+    "suspens",
+    "dramat",
+    "zwrot akcji",
+    "youtuber"
+   ]
+  },
   "sound:angelical": {
    "name": "Anielski dźwięk",
    "tags": [
@@ -15886,6 +16512,16 @@
     "niebo",
     "spokój",
     "cud"
+   ]
+  },
+  "sound:aparecer-rebote": {
+   "name": "Wyskok z odbiciem",
+   "tags": [
+    "pop",
+    "pojawienie",
+    "odbicie",
+    "tekst",
+    "youtuber"
    ]
   },
   "sound:aparicion": {
@@ -15925,6 +16561,16 @@
     "wspomnienie"
    ]
   },
+  "sound:asombro": {
+   "name": "Syntezatorowe wow",
+   "tags": [
+    "wow",
+    "zdumienie",
+    "niesamowite",
+    "zaskoczenie",
+    "youtuber"
+   ]
+  },
   "sound:aura": {
    "name": "Mieniąca się aura",
    "tags": [
@@ -15943,6 +16589,46 @@
     "żart",
     "suchar",
     "humor"
+   ]
+  },
+  "sound:barra-carga": {
+   "name": "Pełny pasek ładowania",
+   "tags": [
+    "ładowanie",
+    "postęp",
+    "gotowe",
+    "pobieranie",
+    "youtuber"
+   ]
+  },
+  "sound:barrido-camara": {
+   "name": "Szybka panorama",
+   "tags": [
+    "whip pan",
+    "szybka panorama",
+    "przejście",
+    "montaż",
+    "youtuber"
+   ]
+  },
+  "sound:barrido-camara-doble": {
+   "name": "Podwójna szybka panorama",
+   "tags": [
+    "whip pan",
+    "szybka panorama",
+    "przejście",
+    "podwójny",
+    "youtuber"
+   ]
+  },
+  "sound:barrido-golpe": {
+   "name": "Szybka panorama z uderzeniem",
+   "tags": [
+    "whip pan",
+    "szybka panorama",
+    "przejście",
+    "uderzenie",
+    "youtuber"
    ]
   },
   "sound:bass-drop": {
@@ -16060,6 +16746,16 @@
     "nagroda"
    ]
   },
+  "sound:boom-808": {
+   "name": "Boom 808 na odsłonięcie",
+   "tags": [
+    "808",
+    "boom",
+    "odsłonięcie",
+    "bas",
+    "youtuber"
+   ]
+  },
   "sound:boom-cine": {
    "name": "Filmowy boom",
    "tags": [
@@ -16137,6 +16833,17 @@
     "tajemnica",
     "mroczny",
     "migotanie"
+   ]
+  },
+  "sound:burbuja-plop": {
+   "name": "Bańka",
+   "tags": [
+    "bańka",
+    "plop",
+    "tekst",
+    "pojawienie",
+    "woda",
+    "youtuber"
    ]
   },
   "sound:burbujas-magicas": {
@@ -16290,6 +16997,16 @@
     "zmiana"
    ]
   },
+  "sound:check-tilde": {
+   "name": "Odhaczenie",
+   "tags": [
+    "ptaszek",
+    "lista",
+    "zrobione",
+    "zadanie",
+    "youtuber"
+   ]
+  },
   "sound:chillido-doble": {
    "name": "Podwójny pisk",
    "tags": [
@@ -16306,6 +17023,17 @@
     "zabawka",
     "zwierzak",
     "humor"
+   ]
+  },
+  "sound:cierre-video": {
+   "name": "Zakończenie filmu",
+   "tags": [
+    "outro",
+    "zakończenie",
+    "koniec",
+    "pożegnanie",
+    "akord",
+    "youtuber"
    ]
   },
   "sound:cinta-frenada": {
@@ -16398,6 +17126,26 @@
     "sukces"
    ]
   },
+  "sound:corte-glitch": {
+   "name": "Cięcie glitch",
+   "tags": [
+    "glitch",
+    "cięcie",
+    "cyfrowy",
+    "przejście",
+    "youtuber"
+   ]
+  },
+  "sound:corte-seco": {
+   "name": "Ostre cięcie",
+   "tags": [
+    "jump cut",
+    "cięcie",
+    "skok",
+    "vlog",
+    "youtuber"
+   ]
+  },
   "sound:cremallera": {
    "name": "Zamek błyskawiczny",
    "tags": [
@@ -16424,6 +17172,26 @@
     "pałeczki",
     "start",
     "count in"
+   ]
+  },
+  "sound:cuenta-regresiva": {
+   "name": "Odliczanie 3, 2, 1",
+   "tags": [
+    "odliczanie",
+    "3 2 1",
+    "pik",
+    "start",
+    "youtuber"
+   ]
+  },
+  "sound:cuenta-regresiva-rapida": {
+   "name": "Szybkie odliczanie",
+   "tags": [
+    "odliczanie",
+    "szybkie",
+    "pik",
+    "start",
+    "youtuber"
    ]
   },
   "sound:dano": {
@@ -16500,6 +17268,16 @@
     "nowość"
    ]
   },
+  "sound:ding-idea": {
+   "name": "Ding pomysłu",
+   "tags": [
+    "pomysł",
+    "ding",
+    "żarówka",
+    "porada",
+    "youtuber"
+   ]
+  },
   "sound:disco-rayado": {
    "name": "Zgrzyt płyty",
    "tags": [
@@ -16548,6 +17326,16 @@
     "fill",
     "drop",
     "bębny"
+   ]
+  },
+  "sound:error-doble": {
+   "name": "Podwójny błąd",
+   "tags": [
+    "błąd",
+    "nie",
+    "pik",
+    "pomyłka",
+    "youtuber"
    ]
   },
   "sound:error-negativo": {
@@ -16613,6 +17401,17 @@
     "zwycięzca",
     "nagroda",
     "mistrz"
+   ]
+  },
+  "sound:foto-flash": {
+   "name": "Zdjęcie z fleszem",
+   "tags": [
+    "aparat",
+    "flesz",
+    "zdjęcie",
+    "migawka",
+    "paparazzi",
+    "youtuber"
    ]
   },
   "sound:game-over": {
@@ -16701,6 +17500,16 @@
     "akcent",
     "dramat",
     "szok"
+   ]
+  },
+  "sound:golpe-eco": {
+   "name": "Uderzenie z echem",
+   "tags": [
+    "uderzenie",
+    "echo",
+    "impakt",
+    "dramat",
+    "youtuber"
    ]
   },
   "sound:golpe-fuerte": {
@@ -16834,6 +17643,17 @@
     "światło"
    ]
   },
+  "sound:intro-golpe": {
+   "name": "Uderzenie na intro",
+   "tags": [
+    "intro",
+    "początek",
+    "uderzenie",
+    "otwarcie",
+    "akord",
+    "youtuber"
+   ]
+  },
   "sound:laser": {
    "name": "Laser",
    "tags": [
@@ -16917,6 +17737,16 @@
     "perkusja"
    ]
   },
+  "sound:marcador": {
+   "name": "Podkreślanie markerem",
+   "tags": [
+    "marker",
+    "podkreślenie",
+    "zakreślacz",
+    "tekst",
+    "youtuber"
+   ]
+  },
   "sound:me-gusta": {
    "name": "Polubienie",
    "tags": [
@@ -16970,6 +17800,16 @@
     "pieniądze",
     "8-bit",
     "podwójny"
+   ]
+  },
+  "sound:monedas-mano": {
+   "name": "Monety w dłoni",
+   "tags": [
+    "monety",
+    "pieniądze",
+    "drobne",
+    "brzęk",
+    "youtuber"
    ]
   },
   "sound:notificacion-campanita": {
@@ -17039,6 +17879,17 @@
     "papier",
     "przejście",
     "kartkowanie"
+   ]
+  },
+  "sound:pensando": {
+   "name": "Myślę…",
+   "tags": [
+    "myślenie",
+    "wątpliwość",
+    "marimba",
+    "czekanie",
+    "quiz",
+    "youtuber"
    ]
   },
   "sound:platillo": {
@@ -17165,6 +18016,17 @@
     "losowanie"
    ]
   },
+  "sound:rafaga-fotos": {
+   "name": "Seria zdjęć",
+   "tags": [
+    "aparat",
+    "zdjęcie",
+    "seria",
+    "migawka",
+    "sesja",
+    "youtuber"
+   ]
+  },
   "sound:rafaga-viento": {
    "name": "Podmuch wiatru",
    "tags": [
@@ -17185,6 +18047,16 @@
     "edit"
    ]
   },
+  "sound:rebobinar": {
+   "name": "Przewijanie",
+   "tags": [
+    "przewijanie",
+    "rewind",
+    "powtórka",
+    "vhs",
+    "youtuber"
+   ]
+  },
   "sound:redoble": {
    "name": "Tremolo na werblu",
    "tags": [
@@ -17193,6 +18065,27 @@
     "bęben",
     "napięcie",
     "ogłoszenie"
+   ]
+  },
+  "sound:redoble-corto": {
+   "name": "Krótkie werble",
+   "tags": [
+    "werble",
+    "krótkie",
+    "ogłoszenie",
+    "suspens",
+    "youtuber"
+   ]
+  },
+  "sound:redoble-largo": {
+   "name": "Długie werble z talerzem",
+   "tags": [
+    "werble",
+    "długie",
+    "talerz",
+    "zwycięzca",
+    "odsłonięcie",
+    "youtuber"
    ]
   },
   "sound:redoble-platillo": {
@@ -17230,6 +18123,27 @@
     "odbicie",
     "humor",
     "kreskówka"
+   ]
+  },
+  "sound:respuesta-correcta": {
+   "name": "Dobra odpowiedź",
+   "tags": [
+    "dobrze",
+    "odpowiedź",
+    "quiz",
+    "teleturniej",
+    "youtuber"
+   ]
+  },
+  "sound:respuesta-incorrecta": {
+   "name": "Zła odpowiedź",
+   "tags": [
+    "błąd",
+    "źle",
+    "brzęczyk",
+    "quiz",
+    "teleturniej",
+    "youtuber"
    ]
   },
   "sound:revelacion": {
@@ -17395,6 +18309,26 @@
     "alarmowy"
    ]
   },
+  "sound:sorpresa": {
+   "name": "Niespodzianka",
+   "tags": [
+    "niespodzianka",
+    "ta-da",
+    "wow",
+    "pojawienie",
+    "youtuber"
+   ]
+  },
+  "sound:sticker": {
+   "name": "Przyklejana naklejka",
+   "tags": [
+    "naklejka",
+    "przyklejenie",
+    "emoji",
+    "pojawienie",
+    "youtuber"
+   ]
+  },
   "sound:sub-drop": {
    "name": "Sub drop",
    "tags": [
@@ -17403,6 +18337,17 @@
     "bas",
     "uderzenie",
     "edit"
+   ]
+  },
+  "sound:subida-corta-golpe": {
+   "name": "Krótkie narastanie i uderzenie",
+   "tags": [
+    "riser",
+    "narastanie",
+    "uderzenie",
+    "drop",
+    "przejście",
+    "youtuber"
    ]
   },
   "sound:subir-nivel": {
@@ -17415,14 +18360,33 @@
     "8-bit"
    ]
   },
+  "sound:subir-nivel-moderno": {
+   "name": "Nowoczesny level up",
+   "tags": [
+    "level up",
+    "nowy poziom",
+    "osiągnięcie",
+    "ulepszenie",
+    "youtuber"
+   ]
+  },
+  "sound:suscribir-campana": {
+   "name": "Kliknięcie subskrypcji i dzwonek",
+   "tags": [
+    "subskrypcja",
+    "dzwonek",
+    "kliknięcie",
+    "powiadomienia",
+    "youtuber"
+   ]
+  },
   "sound:susto-terror": {
    "name": "Jump scare",
    "tags": [
     "straszak",
     "horror",
     "jump scare",
-    "strach",
-    "halloween"
+    "strach"
    ]
   },
   "sound:swoosh-titulo": {
@@ -17460,6 +18424,17 @@
     "taiko",
     "podwójny",
     "epicki"
+   ]
+  },
+  "sound:tartamudeo-ritmico": {
+   "name": "Rytmiczne jąkanie",
+   "tags": [
+    "stutter",
+    "powtórzenie",
+    "rytm",
+    "narastanie",
+    "glitch",
+    "youtuber"
    ]
   },
   "sound:teclado": {
@@ -17505,6 +18480,57 @@
     "suspens",
     "narastanie",
     "strach"
+   ]
+  },
+  "sound:texto-dialogo": {
+   "name": "Litery z piknięciem",
+   "tags": [
+    "tekst",
+    "dialog",
+    "piknięcia",
+    "litery",
+    "retro",
+    "youtuber"
+   ]
+  },
+  "sound:texto-tecleo": {
+   "name": "Pisanie tekstu",
+   "tags": [
+    "tekst",
+    "pisanie",
+    "klawiatura",
+    "napisy",
+    "youtuber"
+   ]
+  },
+  "sound:timbre-mostrador": {
+   "name": "Dzwonek na ladzie",
+   "tags": [
+    "dzwonek",
+    "ding",
+    "uwaga",
+    "lada",
+    "youtuber"
+   ]
+  },
+  "sound:titulo-desliza": {
+   "name": "Wsuwający się tytuł",
+   "tags": [
+    "tytuł",
+    "wsuwanie",
+    "tekst",
+    "podtytuł",
+    "youtuber"
+   ]
+  },
+  "sound:titulo-golpe": {
+   "name": "Tytuł z uderzeniem",
+   "tags": [
+    "tytuł",
+    "uderzenie",
+    "tekst",
+    "intro",
+    "youtuber"
    ]
   },
   "sound:toque": {
@@ -17570,6 +18596,17 @@
     "narastanie",
     "magia",
     "pojawienie"
+   ]
+  },
+  "sound:venta-hecha": {
+   "name": "Sprzedane",
+   "tags": [
+    "sprzedaż",
+    "pieniądze",
+    "biznes",
+    "zysk",
+    "kasa",
+    "youtuber"
    ]
   },
   "sound:victoria-8bits": {
@@ -17759,6 +18796,28 @@
     "ubranie",
     "łopot",
     "przejście"
+   ]
+  },
+  "sound:womp-womp": {
+   "name": "Womp womp (porażka)",
+   "tags": [
+    "porażka",
+    "womp",
+    "smutny",
+    "przegrana",
+    "humor",
+    "youtuber"
+   ]
+  },
+  "sound:zoom-dramatico": {
+   "name": "Dramatyczny zoom",
+   "tags": [
+    "zoom",
+    "dramat",
+    "reakcja",
+    "szok",
+    "przybliżenie",
+    "youtuber"
    ]
   },
   "sound:zoom-entrada": {
@@ -18513,6 +19572,207 @@
     "na żywo"
    ]
   },
+  "template:cont-ahorro-meta": {
+   "name": "Cel oszczędnościowy",
+   "tags": [
+    "licznik",
+    "oszczędności",
+    "pieniądze",
+    "cel",
+    "finanse"
+   ]
+  },
+  "template:cont-anillo-meta": {
+   "name": "Pierścień postępu",
+   "tags": [
+    "licznik",
+    "procent",
+    "postęp",
+    "cel",
+    "osiągnięcie"
+   ]
+  },
+  "template:cont-barra-carga": {
+   "name": "Pasek ładowania",
+   "tags": [
+    "licznik",
+    "procent",
+    "ładowanie",
+    "postęp",
+    "intro"
+   ]
+  },
+  "template:cont-dias-100": {
+   "name": "Od dnia 1 do dnia 100",
+   "tags": [
+    "licznik",
+    "dni",
+    "wyzwanie",
+    "100 dni",
+    "postęp"
+   ]
+  },
+  "template:cont-dias-juntos": {
+   "name": "Dni razem",
+   "tags": [
+    "licznik",
+    "para",
+    "rocznica",
+    "miłość",
+    "romantyczne"
+   ]
+  },
+  "template:cont-dinero-millon": {
+   "name": "Licznik pieniędzy",
+   "tags": [
+    "licznik",
+    "pieniądze",
+    "milion",
+    "sprzedaż",
+    "zysk"
+   ]
+  },
+  "template:cont-edad-cumple": {
+   "name": "Urodziny: licznik lat",
+   "tags": [
+    "licznik",
+    "urodziny",
+    "wiek",
+    "impreza",
+    "świętowanie"
+   ]
+  },
+  "template:cont-libros-anio": {
+   "name": "Książki w tym roku",
+   "tags": [
+    "licznik",
+    "książki",
+    "czytanie",
+    "wyzwanie czytelnicze",
+    "booktok"
+   ]
+  },
+  "template:cont-maraton-km": {
+   "name": "Przebiegnięte kilometry",
+   "tags": [
+    "licznik",
+    "maraton",
+    "bieganie",
+    "kilometry",
+    "sport"
+   ]
+  },
+  "template:cont-marcador": {
+   "name": "Wynik meczu",
+   "tags": [
+    "licznik",
+    "wynik",
+    "piłka nożna",
+    "mecz",
+    "gole",
+    "sport"
+   ]
+  },
+  "template:cont-me-gusta": {
+   "name": "Licznik polubień",
+   "tags": [
+    "licznik",
+    "polubienia",
+    "lajki",
+    "serce",
+    "viral"
+   ]
+  },
+  "template:cont-odometro-km": {
+   "name": "Licznik kilometrów",
+   "tags": [
+    "licznik",
+    "kilometry",
+    "podróż",
+    "trasa",
+    "samochód"
+   ]
+  },
+  "template:cont-odometro-visitas": {
+   "name": "Licznik odwiedzin",
+   "tags": [
+    "licznik",
+    "odwiedziny",
+    "strona",
+    "ruch",
+    "statystyki"
+   ]
+  },
+  "template:cont-pasos": {
+   "name": "Licznik kroków",
+   "tags": [
+    "licznik",
+    "kroki",
+    "spacer",
+    "zdrowie",
+    "fitness"
+   ]
+  },
+  "template:cont-precio-baja": {
+   "name": "Spadająca cena",
+   "tags": [
+    "licznik",
+    "cena",
+    "promocja",
+    "rabat",
+    "wyprzedaż"
+   ]
+  },
+  "template:cont-seguidores-100k": {
+   "name": "100 tys. obserwujących",
+   "tags": [
+    "licznik",
+    "obserwujący",
+    "100k",
+    "kamień milowy",
+    "dziękuję"
+   ]
+  },
+  "template:cont-suscriptores-millon": {
+   "name": "Milion subskrybentów",
+   "tags": [
+    "licznik",
+    "subskrybenci",
+    "milion",
+    "kanał",
+    "świętowanie"
+   ]
+  },
+  "template:cont-temporizador": {
+   "name": "Minutnik na ekranie",
+   "tags": [
+    "licznik",
+    "minutnik",
+    "stoper",
+    "odliczanie",
+    "wyzwanie"
+   ]
+  },
+  "template:cont-ventas-semestre": {
+   "name": "Sprzedaż za półrocze",
+   "tags": [
+    "licznik",
+    "sprzedaż",
+    "wykres",
+    "biznes",
+    "wzrost"
+   ]
+  },
+  "template:cont-vistas-millon": {
+   "name": "Milion wyświetleń",
+   "tags": [
+    "licznik",
+    "wyświetlenia",
+    "milion",
+    "viral",
+    "neon"
+   ]
+  },
   "template:cosas-que-no-sabias": {
    "name": "Ciekawostki, których nie znasz",
    "tags": [
@@ -19208,16 +20468,6 @@
     "święto",
     "rodzina",
     "świętowanie"
-   ]
-  },
-  "template:h-fecha-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "horror",
-    "dynie",
-    "przebrania",
-    "październik"
    ]
   },
   "template:h-fecha-invierno": {
@@ -20881,36 +22131,6 @@
     "uderzenie",
     "szybkie",
     "energia"
-   ]
-  },
-  "template:halloween-photo-dump": {
-   "name": "Photo dump na Halloween",
-   "tags": [
-    "halloween",
-    "photo dump",
-    "przebrania",
-    "horror",
-    "październik"
-   ]
-  },
-  "template:halloween-revelacion-disfraz": {
-   "name": "Odsłonięcie przebrania",
-   "tags": [
-    "halloween",
-    "przebranie",
-    "przemiana",
-    "przed i po",
-    "straszny"
-   ]
-  },
-  "template:halloween-truco-o-trato": {
-   "name": "Cukierek albo psikus: zaproszenie",
-   "tags": [
-    "halloween",
-    "impreza",
-    "zaproszenie",
-    "dzieci",
-    "przebrania"
    ]
   },
   "template:horario-de-atencion": {
@@ -23953,6 +25173,270 @@
     "humor"
    ]
   },
+  "template:redes-h-facebook-cristal": {
+   "name": "Facebook szklany",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "facebook",
+    "szkło",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-instagram-minimal": {
+   "name": "Instagram minimalistyczny",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "instagram",
+    "minimalizm",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-instagram-sticker": {
+   "name": "Instagram naklejka",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "instagram",
+    "naklejka",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-threads-minimal": {
+   "name": "Threads minimalistyczny",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "threads",
+    "minimalizm",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-tiktok-neon": {
+   "name": "TikTok neonowy",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "tiktok",
+    "neon",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-tiktok-sticker": {
+   "name": "TikTok naklejka",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "tiktok",
+    "naklejka",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-todas-fila": {
+   "name": "Znajdź mnie wszędzie",
+   "tags": [
+    "social media",
+    "obserwuj mnie",
+    "wszystkie profile",
+    "ta sama nazwa",
+    "minimalizm",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-todas-neon": {
+   "name": "Wszystkie moje profile w neonie",
+   "tags": [
+    "social media",
+    "obserwuj mnie",
+    "wszystkie profile",
+    "neon",
+    "streaming",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-twitch-neon": {
+   "name": "Twitch neonowy",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "twitch",
+    "neon",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-x-cristal": {
+   "name": "X szklany",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "x",
+    "szkło",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-youtube-minimal": {
+   "name": "YouTube minimalistyczny",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "youtube",
+    "minimalizm",
+    "poziomy"
+   ]
+  },
+  "template:redes-h-youtube-sticker": {
+   "name": "YouTube naklejka",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "youtube",
+    "naklejka",
+    "poziomy"
+   ]
+  },
+  "template:redes-v-facebook-minimal": {
+   "name": "Facebook minimalistyczny",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "facebook",
+    "minimalizm",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-instagram-cristal": {
+   "name": "Instagram szklany",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "instagram",
+    "szkło",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-instagram-neon": {
+   "name": "Instagram neonowy",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "instagram",
+    "neon",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-threads-cristal": {
+   "name": "Threads szklany",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "threads",
+    "szkło",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-tiktok-minimal": {
+   "name": "TikTok minimalistyczny",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "tiktok",
+    "minimalizm",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-tiktok-sticker": {
+   "name": "TikTok naklejka",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "tiktok",
+    "naklejka",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-todas-cristal": {
+   "name": "Wszystkie moje profile w szkle",
+   "tags": [
+    "social media",
+    "obserwuj mnie",
+    "wszystkie profile",
+    "lista",
+    "szkło",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-todas-iconos": {
+   "name": "Ta sama nazwa wszędzie",
+   "tags": [
+    "social media",
+    "obserwuj mnie",
+    "wszystkie profile",
+    "ikony",
+    "ta sama nazwa",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-todas-sticker": {
+   "name": "Moje profile jako naklejki",
+   "tags": [
+    "social media",
+    "obserwuj mnie",
+    "wszystkie profile",
+    "naklejka",
+    "kolorowe",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-twitch-neon": {
+   "name": "Twitch neonowy",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "twitch",
+    "neon",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-x-sticker": {
+   "name": "X naklejka",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "x",
+    "naklejka",
+    "pionowy"
+   ]
+  },
+  "template:redes-v-youtube-minimal": {
+   "name": "YouTube minimalistyczny",
+   "tags": [
+    "social media",
+    "nazwa użytkownika",
+    "obserwuj mnie",
+    "youtube",
+    "minimalizm",
+    "pionowy"
+   ]
+  },
   "template:remodelacion": {
    "name": "Przed i po remoncie",
    "tags": [
@@ -24999,15 +26483,6 @@
     "siatka",
     "kolaż",
     "wakacje"
-   ]
-  },
-  "template:s-halloween": {
-   "name": "Halloween",
-   "tags": [
-    "halloween",
-    "dynia",
-    "horror",
-    "październik"
    ]
   },
   "template:s-hanukkah": {
@@ -26077,17 +27552,6 @@
     "motywacja"
    ]
   },
-  "template:st-halloween": {
-   "name": "Kostium na Halloween",
-   "tags": [
-    "relacja",
-    "15 sekund",
-    "stories",
-    "halloween",
-    "kostium",
-    "makijaż"
-   ]
-  },
   "template:st-jardin": {
    "name": "Mój ogród",
    "tags": [
@@ -26536,6 +28000,3048 @@
     "brokat",
     "różowy",
     "aesthetic"
+   ]
+  },
+  "template:yt-calle-a-que-te-dedicas": {
+   "name": "Czym się zajmujesz?",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "wywiad",
+    "praca",
+    "zawody"
+   ]
+  },
+  "template:yt-calle-adivina-edad": {
+   "name": "Zgadnij mój wiek",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "wiek",
+    "zgadywanie",
+    "wyzwanie"
+   ]
+  },
+  "template:yt-calle-consejo": {
+   "name": "Rada dla młodego siebie",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "porady",
+    "wywiad",
+    "seniorzy"
+   ]
+  },
+  "template:yt-calle-documental-h": {
+   "name": "Wywiad dokumentalny",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "dokument",
+    "wywiad",
+    "16:9"
+   ]
+  },
+  "template:yt-calle-mic-grande": {
+   "name": "Mikrofon w kadrze",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "mikrofon",
+    "wywiad",
+    "pov"
+   ]
+  },
+  "template:yt-calle-noticiero-h": {
+   "name": "Wywiad jak w wiadomościach",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "wiadomości",
+    "wywiad",
+    "16:9"
+   ]
+  },
+  "template:yt-calle-parejas-h": {
+   "name": "Pytania do par",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "pary",
+    "wywiad",
+    "16:9"
+   ]
+  },
+  "template:yt-calle-precio": {
+   "name": "Ile to kosztuje?",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "cena",
+    "zgadywanie",
+    "wywiad"
+   ]
+  },
+  "template:yt-calle-pregunta-del-dia": {
+   "name": "Pytanie dnia na ulicy",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "pytanie",
+    "cykl",
+    "wywiad"
+   ]
+  },
+  "template:yt-calle-primera-cita": {
+   "name": "Kto płaci na randce?",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "randki",
+    "miłość",
+    "wywiad"
+   ]
+  },
+  "template:yt-calle-que-opinas": {
+   "name": "Co o tym myślisz?",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "wywiad",
+    "opinia",
+    "ankieta"
+   ]
+  },
+  "template:yt-calle-ranking": {
+   "name": "Sonda uliczna z wynikami",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "sonda",
+    "wyniki",
+    "ankieta"
+   ]
+  },
+  "template:yt-calle-rapido": {
+   "name": "Opisz się jednym słowem",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "jedno słowo",
+    "szybka runda",
+    "wywiad"
+   ]
+  },
+  "template:yt-calle-termina-cancion": {
+   "name": "Dokończ piosenkę",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "piosenka",
+    "karaoke",
+    "wywiad"
+   ]
+  },
+  "template:yt-calle-trivia": {
+   "name": "Quiz uliczny",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "quiz",
+    "wiedza",
+    "wywiad"
+   ]
+  },
+  "template:yt-calle-tv-retro-h": {
+   "name": "Retro wywiad telewizyjny",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "retro",
+    "telewizja",
+    "16:9"
+   ]
+  },
+  "template:yt-calle-verdadero-falso": {
+   "name": "Prawda czy fałsz?",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "wywiad",
+    "trivia",
+    "quiz"
+   ]
+  },
+  "template:yt-calle-vs": {
+   "name": "To czy tamto",
+   "tags": [
+    "ulica",
+    "youtuber",
+    "wybór",
+    "versus",
+    "ankieta"
+   ]
+  },
+  "template:yt-coc-cenital": {
+   "name": "Trzy talerze z góry",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "przepis",
+    "pomysły",
+    "talerze"
+   ]
+  },
+  "template:yt-coc-cierre": {
+   "name": "Smacznego!",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "zakończenie",
+    "ekran końcowy",
+    "smacznego"
+   ]
+  },
+  "template:yt-coc-crudo-listo": {
+   "name": "Surowe i gotowe",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "przed i po",
+    "surowe",
+    "gotowe"
+   ]
+  },
+  "template:yt-coc-ingredientes-flotan": {
+   "name": "Czego potrzebujesz",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "przepis",
+    "składniki",
+    "kuchnia"
+   ]
+  },
+  "template:yt-coc-ingredientes-lista": {
+   "name": "Lista składników",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "przepis",
+    "składniki",
+    "lista"
+   ]
+  },
+  "template:yt-coc-intro-canal": {
+   "name": "Intro kanału kulinarnego",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "intro",
+    "kanał",
+    "przedstawienie"
+   ]
+  },
+  "template:yt-coc-menu-semana": {
+   "name": "Jadłospis na tydzień",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "przepis",
+    "menu",
+    "tydzień"
+   ]
+  },
+  "template:yt-coc-nutricion": {
+   "name": "Wartości odżywcze",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "odżywianie",
+    "kalorie",
+    "makro"
+   ]
+  },
+  "template:yt-coc-pasos": {
+   "name": "Przepis krok po kroku",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "przepis",
+    "kroki",
+    "poradnik"
+   ]
+  },
+  "template:yt-coc-pasos-wide": {
+   "name": "Kroki z kartą",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "przepis",
+    "kroki",
+    "poziomo"
+   ]
+  },
+  "template:yt-coc-pizarra": {
+   "name": "Tablica: dziś gotujemy",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "tablica",
+    "menu",
+    "przepis"
+   ]
+  },
+  "template:yt-coc-plato-final": {
+   "name": "Efekt końcowy",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "przepis",
+    "efekt",
+    "ujawnienie"
+   ]
+  },
+  "template:yt-coc-postre": {
+   "name": "Deser bez pieczenia",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "deser",
+    "słodkie",
+    "bez piekarnika"
+   ]
+  },
+  "template:yt-coc-receta-60s": {
+   "name": "Przepis w 60 sekund",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "przepis",
+    "szybko",
+    "short"
+   ]
+  },
+  "template:yt-coc-receta-card": {
+   "name": "Karta przepisu",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "przepis",
+    "karta",
+    "porcje"
+   ]
+  },
+  "template:yt-coc-receta-vertical": {
+   "name": "Pionowa karta przepisu",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "przepis",
+    "karta",
+    "zdrowe"
+   ]
+  },
+  "template:yt-coc-reto-3": {
+   "name": "Wyzwanie: 3 składniki",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "wyzwanie",
+    "składniki",
+    "łatwe"
+   ]
+  },
+  "template:yt-coc-temporizador": {
+   "name": "Timer piekarnika",
+   "tags": [
+    "youtuber",
+    "gotowanie",
+    "timer",
+    "piekarnik",
+    "przepis"
+   ]
+  },
+  "template:yt-dia-0630": {
+   "name": "Godzina na ekranie",
+   "tags": [
+    "youtuber",
+    "dzień z życia",
+    "godzina",
+    "rutyna",
+    "zegar"
+   ]
+  },
+  "template:yt-dia-alarma": {
+   "name": "Dzwoni budzik",
+   "tags": [
+    "youtuber",
+    "dzień z życia",
+    "budzik",
+    "rano",
+    "pobudka"
+   ]
+  },
+  "template:yt-dia-antes-despues": {
+   "name": "Szykuję się: metamorfoza",
+   "tags": [
+    "youtuber",
+    "szykuję się",
+    "przed i po",
+    "transformacja",
+    "makijaż"
+   ]
+  },
+  "template:yt-dia-checklist": {
+   "name": "Poranna rutyna z listą",
+   "tags": [
+    "youtuber",
+    "dzień z życia",
+    "lista",
+    "rutyna",
+    "rano"
+   ]
+  },
+  "template:yt-dia-cozy": {
+   "name": "Wolna niedziela",
+   "tags": [
+    "youtuber",
+    "dzień z życia",
+    "przytulnie",
+    "niedziela",
+    "estetyka"
+   ]
+  },
+  "template:yt-dia-diario": {
+   "name": "Dziennik mojego dnia",
+   "tags": [
+    "youtuber",
+    "dzień z życia",
+    "dziennik",
+    "notatki",
+    "planer"
+   ]
+  },
+  "template:yt-dia-energia": {
+   "name": "Moja energia przez dzień",
+   "tags": [
+    "youtuber",
+    "dzień z życia",
+    "energia",
+    "bateria",
+    "nastrój"
+   ]
+  },
+  "template:yt-dia-estudio": {
+   "name": "Dzień nauki ze mną",
+   "tags": [
+    "youtuber",
+    "dzień z życia",
+    "nauka",
+    "plan",
+    "produktywność"
+   ]
+  },
+  "template:yt-dia-fin-semana": {
+   "name": "Sobota ze mną",
+   "tags": [
+    "youtuber",
+    "dzień z życia",
+    "weekend",
+    "scrapbook",
+    "polaroidy"
+   ]
+  },
+  "template:yt-dia-grwm-espejo": {
+   "name": "Szykuję się: lustro",
+   "tags": [
+    "youtuber",
+    "szykuję się",
+    "lustro",
+    "makijaż",
+    "randka"
+   ]
+  },
+  "template:yt-dia-grwm-lista": {
+   "name": "Czego dziś używam",
+   "tags": [
+    "youtuber",
+    "szykuję się",
+    "lista",
+    "makijaż",
+    "pielęgnacja"
+   ]
+  },
+  "template:yt-dia-grwm-pasos": {
+   "name": "Szykuję się: kroki",
+   "tags": [
+    "youtuber",
+    "szykuję się",
+    "makijaż",
+    "kroki",
+    "rutyna"
+   ]
+  },
+  "template:yt-dia-linea-rutina": {
+   "name": "Oś czasu mojej rutyny",
+   "tags": [
+    "youtuber",
+    "dzień z życia",
+    "oś czasu",
+    "rutyna",
+    "plan"
+   ]
+  },
+  "template:yt-dia-noche": {
+   "name": "Wieczorna rutyna",
+   "tags": [
+    "youtuber",
+    "dzień z życia",
+    "noc",
+    "rutyna",
+    "pielęgnacja"
+   ]
+  },
+  "template:yt-dia-numeros": {
+   "name": "Mój dzień w liczbach",
+   "tags": [
+    "youtuber",
+    "dzień z życia",
+    "liczby",
+    "statystyki",
+    "podsumowanie"
+   ]
+  },
+  "template:yt-dia-outfit": {
+   "name": "Stylizacja dnia",
+   "tags": [
+    "youtuber",
+    "szykuję się",
+    "stylizacja",
+    "ubrania",
+    "moda"
+   ]
+  },
+  "template:yt-dia-reloj": {
+   "name": "Zegar mojego dnia",
+   "tags": [
+    "youtuber",
+    "dzień z życia",
+    "zegar",
+    "godzina",
+    "rutyna"
+   ]
+  },
+  "template:yt-dia-rutina-split": {
+   "name": "Minimalna rutyna",
+   "tags": [
+    "youtuber",
+    "dzień z życia",
+    "minimalizm",
+    "rutyna",
+    "dzielony ekran"
+   ]
+  },
+  "template:yt-expl-barras": {
+   "name": "Wykres słupkowy",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "wykres",
+    "słupki",
+    "dane"
+   ]
+  },
+  "template:yt-expl-capitulos": {
+   "name": "W tym filmie",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "rozdziały",
+    "spis treści",
+    "film"
+   ]
+  },
+  "template:yt-expl-comparar": {
+   "name": "Porównanie A i B",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "porównanie",
+    "versus",
+    "tabela"
+   ]
+  },
+  "template:yt-expl-datos": {
+   "name": "Pojawiające się fakty",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "fakty",
+    "liczby",
+    "nauka"
+   ]
+  },
+  "template:yt-expl-dona": {
+   "name": "Wykres procentowy",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "procent",
+    "wykres",
+    "dane"
+   ]
+  },
+  "template:yt-expl-fuente": {
+   "name": "Co mówi nauka",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "nauka",
+    "badanie",
+    "źródło"
+   ]
+  },
+  "template:yt-expl-glosario": {
+   "name": "Słowo dnia",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "definicja",
+    "słownik",
+    "słowo"
+   ]
+  },
+  "template:yt-expl-linea-tiempo": {
+   "name": "Oś czasu historii",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "historia",
+    "oś czasu",
+    "chronologia"
+   ]
+  },
+  "template:yt-expl-lupa": {
+   "name": "Powiększenie szczegółu",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "lupa",
+    "szczegół",
+    "zoom"
+   ]
+  },
+  "template:yt-expl-mapa-zoom": {
+   "name": "Mapa: gdzie to jest?",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "mapa",
+    "zoom",
+    "geografia"
+   ]
+  },
+  "template:yt-expl-mito": {
+   "name": "Mit czy fakt",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "mit",
+    "prawda",
+    "fakt"
+   ]
+  },
+  "template:yt-expl-opina": {
+   "name": "A ty co myślisz?",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "ankieta",
+    "komentarze",
+    "zakończenie"
+   ]
+  },
+  "template:yt-expl-pizarra": {
+   "name": "Tablica z kredą",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "tablica",
+    "lekcja",
+    "wzór"
+   ]
+  },
+  "template:yt-expl-por-que": {
+   "name": "Dlaczego…?",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "pytanie",
+    "tytuł",
+    "edukacja"
+   ]
+  },
+  "template:yt-expl-proceso": {
+   "name": "Jak to działa",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "proces",
+    "diagram",
+    "kroki"
+   ]
+  },
+  "template:yt-expl-puntos": {
+   "name": "Punkty numerowane",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "lista",
+    "punkty",
+    "porady"
+   ]
+  },
+  "template:yt-expl-recortes": {
+   "name": "Wycinki z gazet",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "gazeta",
+    "wiadomości",
+    "dokument"
+   ]
+  },
+  "template:yt-expl-resaltador": {
+   "name": "Zakreślacz na tekście",
+   "tags": [
+    "wyjaśnienie",
+    "youtuber",
+    "zakreślacz",
+    "tekst",
+    "nauka"
+   ]
+  },
+  "template:yt-final-belleza": {
+   "name": "Róż i złoto",
+   "tags": [
+    "ekran końcowy",
+    "youtuber",
+    "subskrypcja",
+    "następny film",
+    "uroda",
+    "makijaż"
+   ]
+  },
+  "template:yt-final-columnas": {
+   "name": "Ekran końcowy w kolumnach",
+   "tags": [
+    "ekran końcowy",
+    "youtuber",
+    "subskrypcja",
+    "następny film",
+    "elegancki"
+   ]
+  },
+  "template:yt-final-comic": {
+   "name": "Ekran końcowy komiksowy",
+   "tags": [
+    "ekran końcowy",
+    "youtuber",
+    "subskrypcja",
+    "następny film",
+    "komedia",
+    "komiks"
+   ]
+  },
+  "template:yt-final-hud": {
+   "name": "Ekran końcowy HUD",
+   "tags": [
+    "ekran końcowy",
+    "youtuber",
+    "subskrypcja",
+    "następny film",
+    "gaming",
+    "hud"
+   ]
+  },
+  "template:yt-final-liquido": {
+   "name": "Płynny ekran końcowy",
+   "tags": [
+    "ekran końcowy",
+    "youtuber",
+    "subskrypcja",
+    "następny film",
+    "płyn",
+    "szkło"
+   ]
+  },
+  "template:yt-final-minimal-uno": {
+   "name": "Minimalny ekran końcowy",
+   "tags": [
+    "ekran końcowy",
+    "youtuber",
+    "subskrypcja",
+    "następny film",
+    "minimalizm",
+    "biały"
+   ]
+  },
+  "template:yt-final-neon": {
+   "name": "Ekran końcowy neon",
+   "tags": [
+    "ekran końcowy",
+    "youtuber",
+    "subskrypcja",
+    "następny film",
+    "neon",
+    "noc"
+   ]
+  },
+  "template:yt-final-pizarra": {
+   "name": "Ekran końcowy tablicowy",
+   "tags": [
+    "ekran końcowy",
+    "youtuber",
+    "subskrypcja",
+    "następny film",
+    "edukacja",
+    "tablica"
+   ]
+  },
+  "template:yt-final-postal": {
+   "name": "Ekran końcowy z pocztówką",
+   "tags": [
+    "ekran końcowy",
+    "youtuber",
+    "subskrypcja",
+    "następny film",
+    "vlog",
+    "pocztówka"
+   ]
+  },
+  "template:yt-final-setentas": {
+   "name": "Retro ekran końcowy",
+   "tags": [
+    "ekran końcowy",
+    "youtuber",
+    "subskrypcja",
+    "następny film",
+    "retro",
+    "vintage"
+   ]
+  },
+  "template:yt-final-short-acciones": {
+   "name": "Polub i zapisz",
+   "tags": [
+    "obserwuj",
+    "youtuber",
+    "shorts",
+    "pion",
+    "polubienie",
+    "zapisz"
+   ]
+  },
+  "template:yt-final-short-perfil": {
+   "name": "Więcej filmów w profilu",
+   "tags": [
+    "obserwuj",
+    "youtuber",
+    "shorts",
+    "pion",
+    "profil",
+    "zakończenie"
+   ]
+  },
+  "template:yt-final-short-sigueme": {
+   "name": "Obserwuj mnie",
+   "tags": [
+    "obserwuj",
+    "youtuber",
+    "shorts",
+    "pion",
+    "zakończenie",
+    "kanał"
+   ]
+  },
+  "template:yt-final-tech": {
+   "name": "Ekran końcowy techno",
+   "tags": [
+    "ekran końcowy",
+    "youtuber",
+    "subskrypcja",
+    "następny film",
+    "technologia",
+    "recenzje"
+   ]
+  },
+  "template:yt-final-vinilo": {
+   "name": "Ekran końcowy muzyczny",
+   "tags": [
+    "ekran końcowy",
+    "youtuber",
+    "subskrypcja",
+    "następny film",
+    "muzyka",
+    "winyl"
+   ]
+  },
+  "template:yt-fit-antes-despues-kilos": {
+   "name": "Przed i po: waga",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "przed i po",
+    "transformacja",
+    "kilogramy"
+   ]
+  },
+  "template:yt-fit-calentamiento": {
+   "name": "Rozgrzewka w 5 krokach",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "rozgrzewka",
+    "mobilność",
+    "kroki"
+   ]
+  },
+  "template:yt-fit-calorias": {
+   "name": "Spalone kalorie",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "kalorie",
+    "cardio",
+    "statystyki"
+   ]
+  },
+  "template:yt-fit-carrera-km": {
+   "name": "Mój bieg w km",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "bieganie",
+    "kilometry",
+    "dystans"
+   ]
+  },
+  "template:yt-fit-contador-reps": {
+   "name": "Licznik powtórzeń",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "trening",
+    "powtórzenia",
+    "siłownia"
+   ]
+  },
+  "template:yt-fit-descanso": {
+   "name": "Przerwa między seriami",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "przerwa",
+    "timer",
+    "odpoczynek"
+   ]
+  },
+  "template:yt-fit-ejercicio-del-dia": {
+   "name": "Ćwiczenie dnia",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "ćwiczenie",
+    "porady",
+    "technika"
+   ]
+  },
+  "template:yt-fit-hiit-neon": {
+   "name": "Neonowy HIIT",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "hiit",
+    "cardio",
+    "interwały"
+   ]
+  },
+  "template:yt-fit-macros": {
+   "name": "Makro mojego posiłku",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "odżywianie",
+    "makro",
+    "białko",
+    "dieta"
+   ]
+  },
+  "template:yt-fit-plan-semanal": {
+   "name": "Plan treningu na tydzień",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "plan",
+    "tydzień",
+    "rutyna"
+   ]
+  },
+  "template:yt-fit-record-personal": {
+   "name": "Nowy rekord życiowy",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "rekord",
+    "ciężary",
+    "siłownia"
+   ]
+  },
+  "template:yt-fit-reto-30-dias": {
+   "name": "Wyzwanie 30 dni",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "30 dni",
+    "kalendarz",
+    "wyzwanie"
+   ]
+  },
+  "template:yt-fit-rutina-4-pasos": {
+   "name": "Trening w 4 krokach",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "rutyna",
+    "kroki",
+    "w domu"
+   ]
+  },
+  "template:yt-fit-rutina-en-casa": {
+   "name": "Trening w domu",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "w domu",
+    "rutyna",
+    "bez sprzętu"
+   ]
+  },
+  "template:yt-fit-serie-hud": {
+   "name": "Seria z timerem",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "seria",
+    "timer",
+    "siłownia"
+   ]
+  },
+  "template:yt-fit-sin-excusas": {
+   "name": "Bez wymówek",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "motywacja",
+    "bez wymówek",
+    "energia"
+   ]
+  },
+  "template:yt-fit-tabata": {
+   "name": "Timer tabata",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "trening",
+    "tabata",
+    "timer",
+    "hiit"
+   ]
+  },
+  "template:yt-fit-transformacion": {
+   "name": "Moja transformacja",
+   "tags": [
+    "fitness",
+    "youtuber",
+    "transformacja",
+    "przed i po",
+    "kilogramy"
+   ]
+  },
+  "template:yt-game-alerta-sub": {
+   "name": "Nowy subskrybent",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "alert",
+    "subskrybent"
+   ]
+  },
+  "template:yt-game-alerta-vertical": {
+   "name": "Pionowy stream z alertem",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "pion",
+    "obserwujący"
+   ]
+  },
+  "template:yt-game-clip-viral": {
+   "name": "Pionowy klip z gry",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "klip",
+    "short",
+    "viral"
+   ]
+  },
+  "template:yt-game-derrota": {
+   "name": "Ekran porażki",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "porażka",
+    "rewanż"
+   ]
+  },
+  "template:yt-game-empezamos": {
+   "name": "Zaczynamy wkrótce",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "wkrótce",
+    "ekran oczekiwania"
+   ]
+  },
+  "template:yt-game-facecam-vertical": {
+   "name": "Short gamingowy z kamerą",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "short",
+    "pion",
+    "reakcja"
+   ]
+  },
+  "template:yt-game-fin-stream": {
+   "name": "Koniec streama",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "koniec",
+    "ekran końcowy"
+   ]
+  },
+  "template:yt-game-gg": {
+   "name": "GG: dobra gra",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "gg",
+    "finał",
+    "dobra gra"
+   ]
+  },
+  "template:yt-game-highlights": {
+   "name": "Najlepsze zagrania",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "zagrania",
+    "momenty",
+    "top"
+   ]
+  },
+  "template:yt-game-intro-pixel": {
+   "name": "Retro intro 8-bit",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "retro",
+    "8 bitów",
+    "piksele"
+   ]
+  },
+  "template:yt-game-killfeed": {
+   "name": "Seria eliminacji",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "eliminacje",
+    "seria",
+    "killfeed"
+   ]
+  },
+  "template:yt-game-marcador": {
+   "name": "Tablica wyników drużyn",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "wyniki",
+    "drużyny",
+    "rywalizacja"
+   ]
+  },
+  "template:yt-game-mvp": {
+   "name": "Gracz MVP",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "mvp",
+    "statystyki",
+    "karta gracza"
+   ]
+  },
+  "template:yt-game-nivel": {
+   "name": "Nowy poziom!",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "poziom",
+    "osiągnięcie",
+    "xp"
+   ]
+  },
+  "template:yt-game-overlay-neon": {
+   "name": "Neonowa nakładka streama",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "nakładka",
+    "kamerka",
+    "na żywo"
+   ]
+  },
+  "template:yt-game-torneo": {
+   "name": "Tygodniowy turniej",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "turniej",
+    "drabinka",
+    "rywalizacja"
+   ]
+  },
+  "template:yt-game-victoria": {
+   "name": "Ekran zwycięstwa",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "zwycięstwo",
+    "statystyki"
+   ]
+  },
+  "template:yt-game-vuelvo": {
+   "name": "Zaraz wracam",
+   "tags": [
+    "youtuber",
+    "gaming",
+    "streamer",
+    "przerwa",
+    "brb"
+   ]
+  },
+  "template:yt-intro-3d": {
+   "name": "Intro 3D z kartą",
+   "tags": [
+    "intro",
+    "youtuber",
+    "kanał",
+    "3d",
+    "głębia",
+    "kinowy"
+   ]
+  },
+  "template:yt-intro-a-mano": {
+   "name": "Intro rysowane ręcznie",
+   "tags": [
+    "intro",
+    "youtuber",
+    "kanał",
+    "rysunek",
+    "odręczne",
+    "kreatywne"
+   ]
+  },
+  "template:yt-intro-belleza": {
+   "name": "Delikatne intro kosmetyczne",
+   "tags": [
+    "intro",
+    "youtuber",
+    "kanał",
+    "uroda",
+    "makijaż",
+    "pielęgnacja"
+   ]
+  },
+  "template:yt-intro-comedia": {
+   "name": "Intro komediowe",
+   "tags": [
+    "intro",
+    "youtuber",
+    "kanał",
+    "komedia",
+    "humor",
+    "skecz"
+   ]
+  },
+  "template:yt-intro-educacion": {
+   "name": "Intro lekcji w zeszycie",
+   "tags": [
+    "intro",
+    "youtuber",
+    "kanał",
+    "edukacja",
+    "nauka",
+    "zeszyt"
+   ]
+  },
+  "template:yt-intro-gaming": {
+   "name": "Eksplozywne intro gracza",
+   "tags": [
+    "intro",
+    "youtuber",
+    "kanał",
+    "logo",
+    "gaming",
+    "neon"
+   ]
+  },
+  "template:yt-intro-glitch": {
+   "name": "Intro utraconego sygnału",
+   "tags": [
+    "intro",
+    "youtuber",
+    "kanał",
+    "glitch",
+    "vhs",
+    "retro"
+   ]
+  },
+  "template:yt-intro-liquido": {
+   "name": "Intro płynnych kształtów",
+   "tags": [
+    "intro",
+    "youtuber",
+    "kanał",
+    "płyn",
+    "kształty",
+    "gradient"
+   ]
+  },
+  "template:yt-intro-minimal": {
+   "name": "Minimalne intro z kropką",
+   "tags": [
+    "intro",
+    "youtuber",
+    "kanał",
+    "minimalizm",
+    "czysto",
+    "marka"
+   ]
+  },
+  "template:yt-intro-musica": {
+   "name": "Intro z winylem",
+   "tags": [
+    "intro",
+    "youtuber",
+    "kanał",
+    "muzyka",
+    "winyl",
+    "cover"
+   ]
+  },
+  "template:yt-intro-neon": {
+   "name": "Intro z neonem",
+   "tags": [
+    "intro",
+    "youtuber",
+    "kanał",
+    "neon",
+    "noc",
+    "stream"
+   ]
+  },
+  "template:yt-intro-papel": {
+   "name": "Intro z warstw papieru",
+   "tags": [
+    "intro",
+    "youtuber",
+    "kanał",
+    "papier",
+    "rękodzieło",
+    "kolory"
+   ]
+  },
+  "template:yt-intro-retro": {
+   "name": "Intro w stylu retro",
+   "tags": [
+    "intro",
+    "youtuber",
+    "kanał",
+    "retro",
+    "lata 70",
+    "vintage"
+   ]
+  },
+  "template:yt-intro-tech": {
+   "name": "Intro technologiczne",
+   "tags": [
+    "intro",
+    "youtuber",
+    "kanał",
+    "technologia",
+    "recenzje"
+   ]
+  },
+  "template:yt-intro-vlog": {
+   "name": "Intro vloga ze zdjęć",
+   "tags": [
+    "intro",
+    "youtuber",
+    "kanał",
+    "vlog",
+    "podróże",
+    "zdjęcia"
+   ]
+  },
+  "template:yt-mini-alerta": {
+   "name": "Uwaga: nie kupuj",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "ostrzeżenie",
+    "nie kupuj",
+    "błąd"
+   ]
+  },
+  "template:yt-mini-bien-mal": {
+   "name": "Dobrze czy źle",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "dobrze",
+    "źle",
+    "błędy"
+   ]
+  },
+  "template:yt-mini-caja-misterio": {
+   "name": "Tajemnicze pudełko",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "pudełko",
+    "tajemnica",
+    "unboxing"
+   ]
+  },
+  "template:yt-mini-cara-a-cara": {
+   "name": "Twarzą w twarz",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "pojedynek",
+    "versus",
+    "wyzwanie"
+   ]
+  },
+  "template:yt-mini-celular": {
+   "name": "Zobacz mój ekran",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "ekran",
+    "telefon",
+    "aplikacja"
+   ]
+  },
+  "template:yt-mini-comic": {
+   "name": "Kadr z komiksu",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "komiks",
+    "dymek",
+    "humor"
+   ]
+  },
+  "template:yt-mini-cronometro": {
+   "name": "W 60 sekund",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "stoper",
+    "60 sekund",
+    "timer"
+   ]
+  },
+  "template:yt-mini-cuatro-caras": {
+   "name": "Cztery twarze",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "osoby",
+    "reakcje",
+    "grupa"
+   ]
+  },
+  "template:yt-mini-diagonal": {
+   "name": "Przed i po ukośnie",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "przed i po",
+    "transformacja",
+    "skos"
+   ]
+  },
+  "template:yt-mini-flecha-circulo": {
+   "name": "Strzałka i okrąg",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "strzałka",
+    "okrąg",
+    "ciekawość"
+   ]
+  },
+  "template:yt-mini-grafica": {
+   "name": "Wykres w górę",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "wykres",
+    "wzrost",
+    "statystyki"
+   ]
+  },
+  "template:yt-mini-lupa": {
+   "name": "Lupa na szczegół",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "lupa",
+    "szczegół",
+    "sekret"
+   ]
+  },
+  "template:yt-mini-numero-uno": {
+   "name": "Numer jeden",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "numer jeden",
+    "ranking",
+    "top"
+   ]
+  },
+  "template:yt-mini-precio-tachado": {
+   "name": "Przekreślona cena",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "cena",
+    "promocja",
+    "tanio"
+   ]
+  },
+  "template:yt-mini-revelacion": {
+   "name": "Czego nikt nie widział",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "ujawnienie",
+    "ukryte",
+    "tajemnica"
+   ]
+  },
+  "template:yt-mini-sticker": {
+   "name": "Wielka twarz",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "twarz",
+    "naklejka",
+    "reakcja"
+   ]
+  },
+  "template:yt-mini-tier-list": {
+   "name": "Tier list",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "ranking",
+    "klasyfikacja",
+    "tier list"
+   ]
+  },
+  "template:yt-mini-tres-niveles": {
+   "name": "Trzy poziomy",
+   "tags": [
+    "miniatury",
+    "youtuber",
+    "poziomy",
+    "porównanie",
+    "cena"
+   ]
+  },
+  "template:yt-mist-camara": {
+   "name": "Kamera monitoringu",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "monitoring",
+    "nagranie",
+    "poszlaka"
+   ]
+  },
+  "template:yt-mist-censurado": {
+   "name": "Zacenzurowany dokument",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "cenzura",
+    "tajne",
+    "dokument"
+   ]
+  },
+  "template:yt-mist-evidencia": {
+   "name": "Dowody",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "dowody",
+    "śledztwo",
+    "znaczniki"
+   ]
+  },
+  "template:yt-mist-expediente": {
+   "name": "Akta sprawy",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "true crime",
+    "akta",
+    "sprawa",
+    "poufne"
+   ]
+  },
+  "template:yt-mist-linea-tiempo": {
+   "name": "Oś czasu sprawy",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "oś czasu",
+    "chronologia",
+    "fakty"
+   ]
+  },
+  "template:yt-mist-linea-vertical": {
+   "name": "Pionowa chronologia",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "oś czasu",
+    "pion",
+    "short"
+   ]
+  },
+  "template:yt-mist-mapa": {
+   "name": "Mapa sprawy",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "mapa",
+    "lokalizacja",
+    "trasa"
+   ]
+  },
+  "template:yt-mist-maquina": {
+   "name": "Maszyna do pisania",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "relacja",
+    "intro",
+    "retro"
+   ]
+  },
+  "template:yt-mist-perfil": {
+   "name": "Profil kluczowej osoby",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "profil",
+    "teczka",
+    "osoba"
+   ]
+  },
+  "template:yt-mist-periodico": {
+   "name": "Wycinek z gazety",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "gazeta",
+    "nagłówek",
+    "wiadomości"
+   ]
+  },
+  "template:yt-mist-podcast": {
+   "name": "Intro podcastu o zagadkach",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "podcast",
+    "odcinek",
+    "intro"
+   ]
+  },
+  "template:yt-mist-se-busca": {
+   "name": "Poszukiwany",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "poszukiwany",
+    "plakat",
+    "zaginięcie"
+   ]
+  },
+  "template:yt-mist-sin-resolver": {
+   "name": "Sprawa nierozwiązana",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "nierozwiązana",
+    "intro",
+    "dokument"
+   ]
+  },
+  "template:yt-mist-sin-resolver-vertical": {
+   "name": "Nierozwiązana, pion",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "nierozwiązana",
+    "pion",
+    "część 1"
+   ]
+  },
+  "template:yt-mist-tablero": {
+   "name": "Tablica poszlak",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "poszlaki",
+    "śledztwo",
+    "tablica"
+   ]
+  },
+  "template:yt-mist-tablero-vertical": {
+   "name": "Pionowa tablica poszlak",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "poszlaki",
+    "pion",
+    "short"
+   ]
+  },
+  "template:yt-mist-teorias": {
+   "name": "Trzy teorie",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "teorie",
+    "hipotezy",
+    "short"
+   ]
+  },
+  "template:yt-mist-testigo": {
+   "name": "Zeznanie świadka",
+   "tags": [
+    "youtuber",
+    "misterium",
+    "świadek",
+    "zeznanie",
+    "cytat"
+   ]
+  },
+  "template:yt-pod-al-aire": {
+   "name": "Na antenie",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "radio",
+    "retro",
+    "program",
+    "antena"
+   ]
+  },
+  "template:yt-pod-apertura": {
+   "name": "Otwarcie odcinka",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "otwarcie",
+    "zapowiedź",
+    "intro"
+   ]
+  },
+  "template:yt-pod-audiograma": {
+   "name": "Audiogram",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "audiogram",
+    "fala dźwiękowa",
+    "klip"
+   ]
+  },
+  "template:yt-pod-cita": {
+   "name": "Cytat na klip",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "cytat",
+    "klip",
+    "pion"
+   ]
+  },
+  "template:yt-pod-clip-subtitulos": {
+   "name": "Klip z dużymi napisami",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "napisy",
+    "klip",
+    "pion"
+   ]
+  },
+  "template:yt-pod-clip-vertical": {
+   "name": "Pionowy klip podcastu",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "klip",
+    "pion",
+    "napisy",
+    "shorts"
+   ]
+  },
+  "template:yt-pod-cortes": {
+   "name": "Podcast z cięciami",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "cięcia",
+    "plan szeroki",
+    "rozmowa"
+   ]
+  },
+  "template:yt-pod-debate": {
+   "name": "Debata: za i przeciw",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "debata",
+    "opinie",
+    "dyskusja"
+   ]
+  },
+  "template:yt-pod-dos-camaras": {
+   "name": "Podcast z dwóch kamer",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "dwie kamery",
+    "wywiad",
+    "rozmowa"
+   ]
+  },
+  "template:yt-pod-en-vivo": {
+   "name": "Podcast na żywo",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "na żywo",
+    "czat",
+    "stream"
+   ]
+  },
+  "template:yt-pod-invitado": {
+   "name": "Przedstawienie gościa",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "gość",
+    "wywiad",
+    "przedstawienie"
+   ]
+  },
+  "template:yt-pod-mejores-momentos": {
+   "name": "Najlepsze momenty",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "podsumowanie",
+    "pion",
+    "klipy"
+   ]
+  },
+  "template:yt-pod-panel-tres": {
+   "name": "Panel trzech osób",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "panel",
+    "dyskusja",
+    "trzy osoby"
+   ]
+  },
+  "template:yt-pod-pausa": {
+   "name": "Zaraz wracamy",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "przerwa",
+    "odpoczynek",
+    "reklama"
+   ]
+  },
+  "template:yt-pod-pregunta": {
+   "name": "Pytanie dnia",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "pytanie",
+    "debata",
+    "temat"
+   ]
+  },
+  "template:yt-pod-proximo": {
+   "name": "Następny odcinek",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "subskrypcja",
+    "ekran końcowy",
+    "zapowiedź"
+   ]
+  },
+  "template:yt-pod-temas": {
+   "name": "Tematy odcinka",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "tematy",
+    "spis treści",
+    "rozdziały"
+   ]
+  },
+  "template:yt-pod-titulo-episodio": {
+   "name": "Tytuł odcinka",
+   "tags": [
+    "podcast",
+    "youtuber",
+    "tytuł",
+    "odcinek",
+    "okładka"
+   ]
+  },
+  "template:yt-reac-arriba-abajo": {
+   "name": "Reakcja góra-dół",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "dzielony ekran",
+    "góra dół"
+   ]
+  },
+  "template:yt-reac-cine-h": {
+   "name": "Wspólne oglądanie",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "kino",
+    "16:9",
+    "maraton"
+   ]
+  },
+  "template:yt-reac-comentarios": {
+   "name": "Reakcja na komentarze",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "komentarze",
+    "widzowie"
+   ]
+  },
+  "template:yt-reac-comida": {
+   "name": "Spróbowałbyś?",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "jedzenie",
+    "ankieta",
+    "smak"
+   ]
+  },
+  "template:yt-reac-dividida-h": {
+   "name": "Reakcja obok siebie",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "obok siebie",
+    "dzielony ekran",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-dueto": {
+   "name": "Duet reakcji",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "duet",
+    "razem",
+    "współpraca"
+   ]
+  },
+  "template:yt-reac-espera": {
+   "name": "Poczekaj na reakcję",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "poczekaj",
+    "odliczanie",
+    "zwrot akcji"
+   ]
+  },
+  "template:yt-reac-esquina-h": {
+   "name": "Kamera w rogu",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "kamera w rogu",
+    "facecam",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-esquinas": {
+   "name": "Kamera skacze po rogach",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "róg",
+    "dynamicznie",
+    "kamera"
+   ]
+  },
+  "template:yt-reac-musica": {
+   "name": "Pierwsze słuchanie",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "muzyka",
+    "piosenka",
+    "pierwszy raz"
+   ]
+  },
+  "template:yt-reac-nota-h": {
+   "name": "Reakcja z oceną",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "ocena",
+    "punkty",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-pareja-h": {
+   "name": "Reakcja we dwoje",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "duet",
+    "para",
+    "16:9"
+   ]
+  },
+  "template:yt-reac-real-falso-h": {
+   "name": "Reakcja: prawda czy fałsz",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "prawda czy fałsz",
+    "16:9",
+    "test"
+   ]
+  },
+  "template:yt-reac-repeticion": {
+   "name": "Powtórka w zwolnionym tempie",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "powtórka",
+    "zwolnione tempo",
+    "wideo"
+   ]
+  },
+  "template:yt-reac-sus-videos": {
+   "name": "Reaguję na wasze filmy",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "widzowie",
+    "filmy",
+    "społeczność"
+   ]
+  },
+  "template:yt-reac-tarjeta": {
+   "name": "Reakcja na karcie",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "komentarz",
+    "karta",
+    "wideo"
+   ]
+  },
+  "template:yt-reac-ventana-h": {
+   "name": "Reakcja w oknie",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "okno",
+    "16:9",
+    "wideo"
+   ]
+  },
+  "template:yt-reac-zoom-cara": {
+   "name": "Zbliżenie na twarz",
+   "tags": [
+    "reakcja",
+    "youtuber",
+    "zbliżenie",
+    "twarz",
+    "zoom"
+   ]
+  },
+  "template:yt-reto-1-vs-100": {
+   "name": "1 kontra 100",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "pojedynek",
+    "rywalizacja",
+    "duel"
+   ]
+  },
+  "template:yt-reto-1-vs-millon": {
+   "name": "$1 kontra milion",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "pieniądze",
+    "tanie kontra drogie",
+    "pojedynek"
+   ]
+  },
+  "template:yt-reto-10-dolares-7-dias": {
+   "name": "Dni za 10 dolarów",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "oszczędzanie",
+    "budżet",
+    "7 dni"
+   ]
+  },
+  "template:yt-reto-100-personas": {
+   "name": "100 osób, 1 zwycięzca",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "100 osób",
+    "rywalizacja",
+    "zwycięzca"
+   ]
+  },
+  "template:yt-reto-24-horas": {
+   "name": "24 godziny w…",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "24 godziny",
+    "timer",
+    "zegar"
+   ]
+  },
+  "template:yt-reto-aguanta-60-minutos": {
+   "name": "Wytrzymaj 60 minut",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "timer",
+    "minuty",
+    "wytrzymałość"
+   ]
+  },
+  "template:yt-reto-barato-vs-caro": {
+   "name": "Tanio kontra drogo",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "porównanie",
+    "cena",
+    "pieniądze"
+   ]
+  },
+  "template:yt-reto-caja-misteriosa": {
+   "name": "Wybierz pudełko",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "tajemnicze pudełko",
+    "niespodzianka",
+    "nagroda"
+   ]
+  },
+  "template:yt-reto-dia-1-dia-100": {
+   "name": "Dzień 1 kontra 100",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "100 dni",
+    "postęp",
+    "wytrwałość"
+   ]
+  },
+  "template:yt-reto-eliminados": {
+   "name": "Zostanie tylko jeden",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "eliminacje",
+    "zwycięzca",
+    "rywalizacja"
+   ]
+  },
+  "template:yt-reto-ganador": {
+   "name": "A zwycięzcą jest…",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "zwycięzca",
+    "nagroda",
+    "ogłoszenie"
+   ]
+  },
+  "template:yt-reto-gasta-1000": {
+   "name": "Wydaj tysiąc w minutę",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "zakupy",
+    "pieniądze",
+    "timer"
+   ]
+  },
+  "template:yt-reto-intro-hype": {
+   "name": "Eksplozywne intro wyzwania",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "intro",
+    "energia",
+    "tempo"
+   ]
+  },
+  "template:yt-reto-marcador": {
+   "name": "Tablica wyników",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "wyniki",
+    "drużyny",
+    "rywalizacja"
+   ]
+  },
+  "template:yt-reto-no-te-muevas": {
+   "name": "Nie ruszaj się",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "timer",
+    "odliczanie",
+    "10 sekund"
+   ]
+  },
+  "template:yt-reto-premio-gigante": {
+   "name": "Wielka nagroda",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "nagroda",
+    "pieniądze",
+    "licznik"
+   ]
+  },
+  "template:yt-reto-sobrevivi-7-dias": {
+   "name": "Przetrwałem 7 dni",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "przetrwanie",
+    "7 dni",
+    "przygoda"
+   ]
+  },
+  "template:yt-reto-ultimo-en-salir": {
+   "name": "Kto zostanie, wygrywa",
+   "tags": [
+    "wyzwanie",
+    "youtuber",
+    "nagroda",
+    "kto zostanie",
+    "pojedynek"
+   ]
+  },
+  "template:yt-sub-amarillo": {
+   "name": "Żółte napisy",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "słowo po słowie",
+    "żółty",
+    "animacja"
+   ]
+  },
+  "template:yt-sub-burbuja": {
+   "name": "Napisy w dymku",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "dymek",
+    "czat",
+    "słowo po słowie"
+   ]
+  },
+  "template:yt-sub-caja-blanca": {
+   "name": "Napisy w białym polu",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "białe tło",
+    "pov",
+    "słowo po słowie"
+   ]
+  },
+  "template:yt-sub-caja-verde": {
+   "name": "Zielone podkreślenie",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "wyróżnienie",
+    "słowo po słowie",
+    "zielony"
+   ]
+  },
+  "template:yt-sub-comic-h": {
+   "name": "Napisy komiksowe 16:9",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "komiks",
+    "vlog",
+    "16:9"
+   ]
+  },
+  "template:yt-sub-emoji": {
+   "name": "Napisy z emoji",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "emoji",
+    "zabawa",
+    "słowo po słowie"
+   ]
+  },
+  "template:yt-sub-gancho": {
+   "name": "Haczyk i napisy",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "haczyk",
+    "uwaga",
+    "słowo po słowie"
+   ]
+  },
+  "template:yt-sub-gradiente": {
+   "name": "Napisy z gradientem",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "gradient",
+    "pomysły",
+    "słowo po słowie"
+   ]
+  },
+  "template:yt-sub-marcador": {
+   "name": "Napisy odręczne",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "odręczne",
+    "storytime",
+    "słowo po słowie"
+   ]
+  },
+  "template:yt-sub-neon": {
+   "name": "Neonowe napisy",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "neon",
+    "noc",
+    "słowo po słowie"
+   ]
+  },
+  "template:yt-sub-pantalla-dividida": {
+   "name": "Napisy na dwóch ekranach",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "dzielony ekran",
+    "słowo po słowie"
+   ]
+  },
+  "template:yt-sub-pasos": {
+   "name": "Napisy krok po kroku",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "poradnik",
+    "kroki",
+    "słowo po słowie"
+   ]
+  },
+  "template:yt-sub-podcast-h": {
+   "name": "Napisy do podcastu 16:9",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "podcast",
+    "16:9",
+    "słowo po słowie"
+   ]
+  },
+  "template:yt-sub-retro": {
+   "name": "Napisy retro VHS",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "retro",
+    "vhs",
+    "nostalgia"
+   ]
+  },
+  "template:yt-sub-rojo": {
+   "name": "Słowo klucz na czerwono",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "biznes",
+    "słowo klucz",
+    "słowo po słowie"
+   ]
+  },
+  "template:yt-sub-storytime": {
+   "name": "Kinowy storytime",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "storytime",
+    "historia",
+    "kino"
+   ]
+  },
+  "template:yt-sub-tutorial-h": {
+   "name": "Napisy do poradnika 16:9",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "poradnik",
+    "16:9",
+    "słowo po słowie"
+   ]
+  },
+  "template:yt-sub-una-palabra": {
+   "name": "Słowo po słowie",
+   "tags": [
+    "napisy",
+    "youtuber",
+    "jedno słowo",
+    "kinetyczne",
+    "animacja"
+   ]
+  },
+  "template:yt-tec-bateria": {
+   "name": "Test baterii",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "bateria",
+    "test",
+    "czas pracy"
+   ]
+  },
+  "template:yt-tec-benchmark": {
+   "name": "Test wydajności",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "wydajność",
+    "benchmark",
+    "szybkość"
+   ]
+  },
+  "template:yt-tec-capitulos": {
+   "name": "Rozdziały recenzji",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "rozdziały",
+    "spis treści",
+    "recenzja"
+   ]
+  },
+  "template:yt-tec-comparacion": {
+   "name": "Porównanie obok siebie",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "porównanie",
+    "versus",
+    "recenzja"
+   ]
+  },
+  "template:yt-tec-comparacion-vertical": {
+   "name": "Który kupić?",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "porównanie",
+    "versus",
+    "pion"
+   ]
+  },
+  "template:yt-tec-etiqueta-precio": {
+   "name": "Metka z ceną",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "cena",
+    "premiera",
+    "promocja"
+   ]
+  },
+  "template:yt-tec-ficha-tecnica": {
+   "name": "Specyfikacja techniczna",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "specyfikacja",
+    "parametry",
+    "recenzja"
+   ]
+  },
+  "template:yt-tec-primeras-impresiones": {
+   "name": "Pierwsze wrażenia",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "recenzja",
+    "kinowy",
+    "pierwszy raz"
+   ]
+  },
+  "template:yt-tec-pros-contras": {
+   "name": "Plusy i minusy",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "plusy",
+    "minusy",
+    "recenzja"
+   ]
+  },
+  "template:yt-tec-prueba-camara": {
+   "name": "Test aparatu",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "aparat",
+    "zdjęcia",
+    "tryb nocny"
+   ]
+  },
+  "template:yt-tec-puntaje": {
+   "name": "Ocena końcowa",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "ocena",
+    "punktacja",
+    "recenzja"
+   ]
+  },
+  "template:yt-tec-setup": {
+   "name": "Moje biurko",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "biurko",
+    "sprzęt",
+    "setup"
+   ]
+  },
+  "template:yt-tec-top-3": {
+   "name": "Top 3 gadżety roku",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "top 3",
+    "gadżety",
+    "ranking"
+   ]
+  },
+  "template:yt-tec-tres-cosas": {
+   "name": "3 ukryte funkcje",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "porady",
+    "funkcje",
+    "sztuczki"
+   ]
+  },
+  "template:yt-tec-unboxing": {
+   "name": "Czysty unboxing",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "unboxing",
+    "recenzja",
+    "minimalizm"
+   ]
+  },
+  "template:yt-tec-unboxing-vertical": {
+   "name": "Unboxing w 4 krokach",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "unboxing",
+    "kroki",
+    "pion"
+   ]
+  },
+  "template:yt-tec-vale-la-pena": {
+   "name": "Czy warto?",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "czy warto",
+    "cena",
+    "opinia"
+   ]
+  },
+  "template:yt-tec-veredicto": {
+   "name": "Werdykt końcowy",
+   "tags": [
+    "technologia",
+    "youtuber",
+    "werdykt",
+    "polecane",
+    "recenzja"
+   ]
+  },
+  "template:yt-top-10-intro": {
+   "name": "Intro top 10",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "intro",
+    "otwarcie",
+    "odliczanie"
+   ]
+  },
+  "template:yt-top-10-lista": {
+   "name": "Top 10 z listą",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "top 10",
+    "lista",
+    "odliczanie"
+   ]
+  },
+  "template:yt-top-10-rapido": {
+   "name": "Szybki top 10",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "top 10",
+    "lista",
+    "odliczanie"
+   ]
+  },
+  "template:yt-top-10-tabla": {
+   "name": "Tabela liderów",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "tabela",
+    "punkty",
+    "top 10"
+   ]
+  },
+  "template:yt-top-3-medallas": {
+   "name": "Top 3 z medalami",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "medale",
+    "top 3",
+    "złoto"
+   ]
+  },
+  "template:yt-top-3-podio": {
+   "name": "Podium top 3",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "podium",
+    "top 3",
+    "zwycięzcy"
+   ]
+  },
+  "template:yt-top-3-revelacion": {
+   "name": "Ujawniamy numer jeden",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "top 3",
+    "ujawnienie",
+    "zwycięzca"
+   ]
+  },
+  "template:yt-top-5-cine": {
+   "name": "Kinowy top 5",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "kino",
+    "podróże",
+    "elegancki"
+   ]
+  },
+  "template:yt-top-5-comida": {
+   "name": "Top 5 potraw",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "jedzenie",
+    "ocena",
+    "gwiazdki"
+   ]
+  },
+  "template:yt-top-5-cuaderno": {
+   "name": "Top 5 w zeszycie",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "zeszyt",
+    "odręczny",
+    "polaroid"
+   ]
+  },
+  "template:yt-top-5-datos-curiosos": {
+   "name": "5 ciekawostek",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "ciekawostki",
+    "fakty",
+    "nauka"
+   ]
+  },
+  "template:yt-top-5-lugares": {
+   "name": "Top 5 miejsc",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "podróże",
+    "miejsca",
+    "kierunki"
+   ]
+  },
+  "template:yt-top-5-neon": {
+   "name": "Neonowy top 5",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "neon",
+    "gaming",
+    "noc"
+   ]
+  },
+  "template:yt-top-5-pantalla-dividida": {
+   "name": "Top 5 dzielony ekran",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "top 5",
+    "kolory",
+    "dzielony ekran"
+   ]
+  },
+  "template:yt-top-5-peor-a-mejor": {
+   "name": "Ranking od najgorszego",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "ocena",
+    "recenzja",
+    "nota"
+   ]
+  },
+  "template:yt-top-5-ranking-rellenar": {
+   "name": "Ranking do uzupełnienia",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "wybierz",
+    "desery",
+    "top 5"
+   ]
+  },
+  "template:yt-top-5-retro": {
+   "name": "Retro top 5",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "retro",
+    "lata 80",
+    "vhs",
+    "nostalgia"
+   ]
+  },
+  "template:yt-top-5-tarjetas": {
+   "name": "Top 5 na kartach",
+   "tags": [
+    "ranking",
+    "youtuber",
+    "top 5",
+    "ulubione",
+    "karty"
+   ]
+  },
+  "template:yt-vlog-barrios": {
+   "name": "Trzy dzielnice w dzień",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "dzielnice",
+    "dzielony ekran",
+    "miasto"
+   ]
+  },
+  "template:yt-vlog-billete": {
+   "name": "Bilet podróżny",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "bilet",
+    "podróż",
+    "miasto"
+   ]
+  },
+  "template:yt-vlog-cinematico": {
+   "name": "Kinowe intro miasta",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "kinowy",
+    "intro",
+    "miasto"
+   ]
+  },
+  "template:yt-vlog-clima": {
+   "name": "Pogoda i godzina",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "pogoda",
+    "godzina",
+    "widżet"
+   ]
+  },
+  "template:yt-vlog-dia-1": {
+   "name": "Dzień 1 w…",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "rozdziały",
+    "podróże",
+    "miasto"
+   ]
+  },
+  "template:yt-vlog-gastos": {
+   "name": "Ile wydałem w dzień?",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "wydatki",
+    "budżet",
+    "ceny"
+   ]
+  },
+  "template:yt-vlog-hora-lugar": {
+   "name": "Godzina i miejsce",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "godzina",
+    "miejsce",
+    "miasto"
+   ]
+  },
+  "template:yt-vlog-llegando": {
+   "name": "Przyjazd do miasta",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "przyjazd",
+    "gps",
+    "dystans"
+   ]
+  },
+  "template:yt-vlog-mapa-zoom": {
+   "name": "Mapa: jesteś tutaj",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "mapa",
+    "zoom",
+    "lokalizacja"
+   ]
+  },
+  "template:yt-vlog-metro": {
+   "name": "Trasa metrem",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "metro",
+    "transport",
+    "stacje"
+   ]
+  },
+  "template:yt-vlog-noche": {
+   "name": "Miasto nocą",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "noc",
+    "neon",
+    "miasto"
+   ]
+  },
+  "template:yt-vlog-postal": {
+   "name": "Pozdrowienia z…",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "pocztówka",
+    "retro",
+    "podróż"
+   ]
+  },
+  "template:yt-vlog-resumen": {
+   "name": "Podsumowanie podróży",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "podsumowanie",
+    "kolaż",
+    "zdjęcia"
+   ]
+  },
+  "template:yt-vlog-ruta-mapa": {
+   "name": "Mapa trasy dnia",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "mapa",
+    "trasa",
+    "miasto"
+   ]
+  },
+  "template:yt-vlog-stats-viaje": {
+   "name": "Podróż w liczbach",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "statystyki",
+    "liczby",
+    "podsumowanie"
+   ]
+  },
+  "template:yt-vlog-timelapse": {
+   "name": "Timelapse miasta",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "timelapse",
+    "miasto",
+    "zegar"
+   ]
+  },
+  "template:yt-vlog-titulo-calle": {
+   "name": "Tytuł na tle miasta",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "miasto",
+    "tytuł",
+    "podróże"
+   ]
+  },
+  "template:yt-vlog-top3": {
+   "name": "3 miejsca obowiązkowe",
+   "tags": [
+    "vlog",
+    "youtuber",
+    "top 3",
+    "miejsca",
+    "przewodnik"
    ]
   },
   "template:zoom-3d-parallax": {
@@ -29229,27 +33735,15 @@
    "name": "Zielony szlam",
    "tags": [
     "horror",
-    "halloween",
     "strach",
     "szlam",
     "zielony"
-   ]
-  },
-  "text-style:mie-calabaza": {
-   "name": "Dynia",
-   "tags": [
-    "horror",
-    "halloween",
-    "dynia",
-    "pomarańczowy",
-    "straszny"
    ]
   },
   "text-style:mie-expediente": {
    "name": "Akta sprawy",
    "tags": [
     "horror",
-    "halloween",
     "tajemnica",
     "sprawa",
     "kryminał"
@@ -29259,7 +33753,6 @@
    "name": "Duch",
    "tags": [
     "horror",
-    "halloween",
     "duch",
     "zjawisko",
     "straszny"
@@ -29269,7 +33762,6 @@
    "name": "Mgła",
    "tags": [
     "horror",
-    "halloween",
     "mgła",
     "las",
     "napięcie"
@@ -29279,7 +33771,6 @@
    "name": "Niebezpieczeństwo",
    "tags": [
     "horror",
-    "halloween",
     "ostrzeżenie",
     "zagrożenie",
     "uwaga"
@@ -29289,7 +33780,6 @@
    "name": "Krwista czerwień",
    "tags": [
     "horror",
-    "halloween",
     "krew",
     "czerwony",
     "strach"
@@ -29299,7 +33789,6 @@
    "name": "Szept",
    "tags": [
     "horror",
-    "halloween",
     "szept",
     "tajemnica",
     "duch"
@@ -30395,6 +34884,27 @@
     "przejście"
    ]
   },
+  "transition:alejar-revelar": {
+   "name": "Oddal i odsłoń",
+   "tags": [
+    "oddalenie",
+    "odsłonięcie",
+    "karta",
+    "przejście",
+    "youtuber"
+   ]
+  },
+  "transition:alejar-revelar-lado": {
+   "name": "Oddal i rzuć w bok",
+   "tags": [
+    "oddalenie",
+    "rzut",
+    "odsłonięcie",
+    "karta",
+    "przejście",
+    "youtuber"
+   ]
+  },
   "transition:anillos": {
    "name": "Pierścienie",
    "tags": [
@@ -30583,6 +35093,17 @@
     "miłość",
     "romantyczny",
     "przejście"
+   ]
+  },
+  "transition:corte-estrobo": {
+   "name": "Cięcie stroboskopowe",
+   "tags": [
+    "stroboskop",
+    "migotanie",
+    "beat",
+    "werble",
+    "przejście",
+    "youtuber"
    ]
   },
   "transition:cristal-cae": {
@@ -30805,6 +35326,38 @@
     "przejście"
    ]
   },
+  "transition:deslizamiento-rgb": {
+   "name": "Przesunięcie RGB",
+   "tags": [
+    "przesunięcie",
+    "glitch",
+    "rgb",
+    "przejście",
+    "youtuber"
+   ]
+  },
+  "transition:deslizar-arriba": {
+   "name": "Przesunięcie w górę",
+   "tags": [
+    "przesunięcie",
+    "w górę",
+    "feed",
+    "telefon",
+    "przejście",
+    "youtuber"
+   ]
+  },
+  "transition:deslizar-historia": {
+   "name": "Przesunięcie relacji",
+   "tags": [
+    "przesunięcie",
+    "relacja",
+    "telefon",
+    "story",
+    "przejście",
+    "youtuber"
+   ]
+  },
   "transition:destello-azul": {
    "name": "Chłodny błysk",
    "tags": [
@@ -30935,6 +35488,17 @@
     "przejście"
    ]
   },
+  "transition:entrada-pop": {
+   "name": "Wejście pop",
+   "tags": [
+    "pop",
+    "odbicie",
+    "galaretka",
+    "elastyczny",
+    "przejście",
+    "youtuber"
+   ]
+  },
   "transition:espejismo": {
    "name": "Fala upału",
    "tags": [
@@ -30993,6 +35557,16 @@
     "zakłócenie",
     "statyka",
     "przejście"
+   ]
+  },
+  "transition:estela-derecha": {
+   "name": "Przesunięcie ze smugą",
+   "tags": [
+    "smuga",
+    "przesunięcie",
+    "rozmycie",
+    "przejście",
+    "youtuber"
    ]
   },
   "transition:estirar-horizontal": {
@@ -31093,6 +35667,17 @@
     "kształt",
     "odsłona",
     "przejście"
+   ]
+  },
+  "transition:foto-congelada": {
+   "name": "Stopklatka",
+   "tags": [
+    "stopklatka",
+    "zdjęcie",
+    "aparat",
+    "zamrożenie",
+    "przejście",
+    "youtuber"
    ]
   },
   "transition:franja-amarilla": {
@@ -31235,6 +35820,17 @@
     "przejście"
    ]
   },
+  "transition:fundido-brillo-luz": {
+   "name": "Przenikanie jasności z rozbłyskiem",
+   "tags": [
+    "przenikanie",
+    "jasność",
+    "rozbłysk światła",
+    "ciepły",
+    "przejście",
+    "youtuber"
+   ]
+  },
   "transition:fusion-color": {
    "name": "Przejście kolorem",
    "tags": [
@@ -31273,6 +35869,16 @@
     "podwójny",
     "wir",
     "przejście"
+   ]
+  },
+  "transition:giro-esquina": {
+   "name": "Obrót od narożnika",
+   "tags": [
+    "narożnik",
+    "obrót",
+    "drzwi",
+    "przejście",
+    "youtuber"
    ]
   },
   "transition:giro-horario": {
@@ -31365,6 +35971,37 @@
     "przejście"
    ]
   },
+  "transition:impacto-onda": {
+   "name": "Uderzenie z falą",
+   "tags": [
+    "uderzenie",
+    "fala uderzeniowa",
+    "błysk",
+    "boom",
+    "przejście",
+    "youtuber"
+   ]
+  },
+  "transition:latigazo-giro-derecha": {
+   "name": "Szybki obrót w prawo",
+   "tags": [
+    "obrót",
+    "przejście",
+    "whip",
+    "świst",
+    "youtuber"
+   ]
+  },
+  "transition:latigazo-giro-izquierda": {
+   "name": "Szybki obrót w lewo",
+   "tags": [
+    "obrót",
+    "przejście",
+    "whip",
+    "świst",
+    "youtuber"
+   ]
+  },
   "transition:lluvia-corazones": {
    "name": "Deszcz serc",
    "tags": [
@@ -31413,6 +36050,17 @@
     "piksele",
     "kafelki",
     "przejście"
+   ]
+  },
+  "transition:muro-pantallas": {
+   "name": "Ściana ekranów",
+   "tags": [
+    "ściana",
+    "ekrany",
+    "mozaika",
+    "siatka",
+    "przejście",
+    "youtuber"
    ]
   },
   "transition:negativo": {
@@ -31555,6 +36203,26 @@
     "przejście"
    ]
   },
+  "transition:paneo-diagonal-abajo": {
+   "name": "Ukośna panorama w dół",
+   "tags": [
+    "ukośny",
+    "panorama",
+    "przejście",
+    "whip pan",
+    "youtuber"
+   ]
+  },
+  "transition:paneo-diagonal-arriba": {
+   "name": "Ukośna panorama w górę",
+   "tags": [
+    "ukośny",
+    "panorama",
+    "przejście",
+    "whip pan",
+    "youtuber"
+   ]
+  },
   "transition:paneo-izquierda": {
    "name": "Panorama w lewo",
    "tags": [
@@ -31563,6 +36231,16 @@
     "rozmycie",
     "szybki",
     "przejście"
+   ]
+  },
+  "transition:pantalla-dividida": {
+   "name": "Podzielony ekran",
+   "tags": [
+    "podzielony ekran",
+    "połowa",
+    "split screen",
+    "przejście",
+    "youtuber"
    ]
   },
   "transition:papel-rasgado": {
@@ -31583,6 +36261,16 @@
     "pionowe",
     "kartka",
     "przejście"
+   ]
+  },
+  "transition:parpadeo": {
+   "name": "Mrugnięcie",
+   "tags": [
+    "mrugnięcie",
+    "oko",
+    "zamknięcie",
+    "przejście",
+    "youtuber"
    ]
   },
   "transition:pasar-pagina": {
@@ -31735,6 +36423,17 @@
     "przejście"
    ]
   },
+  "transition:pixelado-rapido": {
+   "name": "Szybka pikselizacja",
+   "tags": [
+    "piksele",
+    "pikselizacja",
+    "8 bitów",
+    "retro",
+    "przejście",
+    "youtuber"
+   ]
+  },
   "transition:pixeles-arrastrados": {
    "name": "Pikselowe rozciąganie",
    "tags": [
@@ -31832,6 +36531,17 @@
     "pionowe",
     "otwieranie",
     "podział",
+    "przejście"
+   ]
+  },
+  "transition:pulso-bajo": {
+   "name": "Puls basu",
+   "tags": [
+    "808",
+    "bas",
+    "drop",
+    "puls",
+    "rytm",
     "przejście"
    ]
   },
@@ -32363,6 +37073,28 @@
     "wstrząs",
     "energia",
     "przejście"
+   ]
+  },
+  "transition:zoom-saltos": {
+   "name": "Skokowy zoom",
+   "tags": [
+    "zoom",
+    "skoki",
+    "uderzenie",
+    "jump cut",
+    "przejście",
+    "youtuber"
+   ]
+  },
+  "transition:zoom-saltos-atras": {
+   "name": "Skokowy zoom do tyłu",
+   "tags": [
+    "zoom",
+    "oddalenie",
+    "skoki",
+    "jump cut",
+    "przejście",
+    "youtuber"
    ]
   }
  }

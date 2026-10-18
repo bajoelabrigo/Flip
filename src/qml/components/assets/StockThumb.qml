@@ -39,6 +39,11 @@ Rectangle {
     clip: true
     border.width: current ? Theme.borderWidthFocus : 0
     border.color: Theme.focusRing
+    // Grows a little under the pointer and gives under a press, like the other asset cards.
+    scale: tap.pressed ? 0.97 : (hover.hovered && !root.compact ? 1.02 : 1.0)
+    Behavior on scale {
+        NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
+    }
 
     function formatDuration(ms) {
         const n = Number(ms)
@@ -171,6 +176,7 @@ Rectangle {
     }
 
     TapHandler {
+        id: tap
         onTapped: root.openRequested()
     }
 

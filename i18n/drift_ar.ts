@@ -13053,6 +13053,10 @@
         <translation>محتوى جاهز</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>الرئيسية</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>المتجر غير متوفر</translation>
     </message>
@@ -16755,6 +16759,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Video thumbnails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Counters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>YouTuber style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

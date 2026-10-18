@@ -12872,6 +12872,10 @@
         <translation>Banque de médias</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>Accueil</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>Marché indisponible</translation>
     </message>
@@ -16486,6 +16490,14 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Video thumbnails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Counters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>YouTuber style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

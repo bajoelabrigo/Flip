@@ -61,6 +61,10 @@ QString labelForCategory(const QString &slug)
         return QCoreApplication::translate("SceneTemplateCatalog", "6-second ads");
     if (slug == QLatin1String("thumbnail"))
         return QCoreApplication::translate("SceneTemplateCatalog", "Video thumbnails");
+    if (slug == QLatin1String("counter"))
+        return QCoreApplication::translate("SceneTemplateCatalog", "Counters");
+    if (slug == QLatin1String("youtuber"))
+        return QCoreApplication::translate("SceneTemplateCatalog", "YouTuber style");
     if (slug.isEmpty())
         return QCoreApplication::translate("SceneTemplateCatalog", "Other");
     QString label = slug;

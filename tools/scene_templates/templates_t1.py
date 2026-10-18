@@ -1,6 +1,6 @@
 """Trend batch 1 (2026-10-15): see BRIEF.md, section «Las 100 de tendencia».
 
-Fechas especiales (category `seasonal`, order 1000–1099): Halloween, Día de Muertos, Canción Criolla, Navidad,
+Fechas especiales (category `seasonal`, order 1000–1099): Día de Muertos, Canción Criolla, Navidad,
 Año Nuevo, Black Friday, Cyber Monday, San Valentín / Día de la Amistad, Día del Padre and Fiestas Patrias.
 Each one has its own palette, fonts, rhythm and motion.
 """
@@ -117,157 +117,6 @@ def particles(t: Template, name: str, lanes: int, t0: float, t1: float, rng: ran
                     kind=rng.choice(kinds), alpha=alpha, radius=3,
                     layers=layers_fn(colour) if layers_fn else None, **extra)
             start += rng.uniform(*every)
-
-
-# --- Halloween -----------------------------------------------------------------------------------
-
-
-def halloween_photo_dump() -> Template:
-    """Orange-framed prints slam in on every second beat over a purple night; the title shrinks to the top."""
-    t = Template("halloween-photo-dump", "Photo dump de Halloween", "Halloween photo dump", "seasonal", 10.0,
-                 order=1000, tags=["halloween", "photo dump", "disfraces", "terror", "octubre"], thumb_at=8.6,
-                 background="#0D0A12")
-    t.solid(t.track("shape", "Fondo"), "#0D0A12",
-            layers=[gradient([(0, "#2A0E3F"), (0.55, "#130A1C"), (1, "#060409")], angle=90), no_stroke()])
-    rng = random.Random(31)
-    particles(t, "Chispas", 2, 0.0, 10.0, rng, ["#FF7A00", "#FFB347"], size=(10, 22), y=1980, dy=-2200,
-              life=(3.5, 5.5), every=(0.35, 0.8), sway=140,
-              layers_fn=lambda c: [glow(c, 16, 0.9), fill(c), no_stroke()])
-    samples = ["halloween-01", "halloween-03", "halloween-02", "halloween-04", "friends-10", "halloween-05"]
-    starts = [0.0, 2.0, 3.0, 4.0, 5.0, 6.0]
-    frame_box = centered(540, 1010, 900, 1290)
-    photo_box = centered(540, 1010, 860, 1250)
-    frames = t.track("shape", "Marco")
-    photos = t.track("video", "Fotos")
-    for i, (start, sample) in enumerate(zip(starts, samples)):
-        end = starts[i + 1] if i + 1 < len(starts) else t.duration
-        dur = end - start
-        tilt = 0.0 if i == len(samples) - 1 else (3.5 if i % 2 else -3.5)
-        motion = [(0, {"s": 1.18}, "snap"), (0.2, {"s": 1.0}, "linear"), (dur, {"s": 1.05})]
-        rotation = keys([(0, tilt * 2.5, "out"), (0.25, tilt)])
-        t.solid(frames, "#FF7A00", start, dur, frame_box, motion,
-                layers=[glow("#FF7A00", 40, 0.7), fill("#FF7A00"), no_stroke()], rotation=rotation)
-        t.photo(photos, sample, start, dur, photo_box, motion, rotation=rotation,
-                effects=[effect("color.basic", contrast=0.2, saturation=-0.1, temperature=-0.12)])
-    # One title: big over the first photo, then it shrinks up to the top and stays.
-    size = keys([(0, 230), (1.6, 230, "inout"), (2.1, 120)])
-    t.text(t.track("text", "Título"), "Halloween", 0.15, 9.85, Box(40, 760, 1000, 400),
-           text_style("Creepster", 230, [shadow("#000000", 0, 10, 20, 0.8), glow("#FF7A00", 30, 0.8),
-                                         fill("#FF8A1F")], weight=400, keyframes={"pixelSize": size},
-                      anim_in=tanim("drop", duration=0.6), anim_loop=tanim("flicker", intensity=0.25, speed=3)),
-           [(0, {}, "linear"), (1.6, {}, "inout"), (2.1, {"dy": -680})], label="Título")
-    t.text(t.track("text", "Pie"), "photo dump · 31.10.2026", 2.2, 7.8, Box(160, 1712, 760, 96),
-           text_style("Inter", 38, [fill("#F3E9FF")], weight=600, spacing=3, case="upper", box=("#000000", 0.6),
-                      box_pad=16, box_radius=40, anim_in=tanim("fade", duration=0.5)), label="Fecha")
-    t.adjust([effect("rgb_split", animated={"amount": spikes(starts[1:], 30, 0.18)}),
-              effect("strobe_flash", animated={"flash": spikes([2.0, 4.0, 6.0], 0.5, 0.15)}, tint=0.2),
-              effect("stylize.vignette", amount=0.6), effect("stylize.film_grain", amount=0.22)], name="Terror")
-    t.song("horroriffic", 0.0, 0.9)
-    return t
-
-
-def halloween_revelacion_disfraz() -> Template:
-    """A calm "before" with a TikTok caption, a white flash and a glitch, then the costume with a slammed «¡BU!»."""
-    t = Template("halloween-revelacion-disfraz", "Revelación de disfraz", "Costume reveal", "seasonal", 8.0,
-                 order=1001, tags=["halloween", "disfraz", "transformación", "antes y después", "susto"],
-                 thumb_at=3.7, background="#050505")
-    photos = t.track("video", "Fotos")
-    t.photo(photos, "portrait-04", 0, 3.0, FULL, [(0, {"s": 1.0}, "linear"), (3.0, {"s": 1.1})], label="Antes")
-    spooky = [effect("color.basic", contrast=0.3, saturation=-0.35, temperature=-0.25, exposure=-0.1)]
-    t.photo(photos, "halloween-04", 3.0, 2.5, FULL,
-            [(0, {"s": 1.25}, "snap"), (0.2, {"s": 1.04}, "linear"), (2.5, {"s": 1.0})], label="Disfraz 1",
-            effects=spooky)
-    t.photo(photos, "halloween-05", 5.5, 2.5, FULL,
-            [(0, {"s": 1.2}, "snap"), (0.2, {"s": 1.02}, "linear"), (2.5, {"s": 1.08})], label="Disfraz 2",
-            effects=spooky)
-    flashes = t.track("shape", "Destellos")
-    t.solid(flashes, "#FFFFFF", 2.9, 0.4, FULL, opacity=keys([(0, 0.0), (0.1, 1.0, "out"), (0.4, 0.0)]))
-    t.solid(flashes, "#7CFF4F", 5.5, 0.35, FULL, opacity=keys([(0, 0.55, "out"), (0.35, 0.0)]))
-    words = t.track("text", "Textos")
-    t.text(words, "yo antes de Halloween…", 0.3, 2.6, Box(110, 280, 860, 260),
-           text_style("Special Elite", 70, [fill("#111111")], weight=400, box=("#FFFFFF", 1.0), box_pad=22,
-                      box_radius=14, anim_in=tanim("typewriter", duration=1.2, unit="character")), label="Antes")
-    slam = keys([(0, 900, "snap"), (0.16, 380)])
-    t.text(words, "¡BU!", 3.0, 2.4, Box(0, 620, 1080, 640),
-           text_style("Black Ops One", 380, [glow("#7CFF4F", 40, 0.9), stroke(10, "#000000"), fill("#7CFF4F")],
-                      weight=400, keyframes={"pixelSize": slam},
-                      anim_loop=tanim("jitter", amount=1.5, angle=2, speed=12)), label="Grito")
-    t.text(words, "Feliz Halloween", 5.6, 2.4, Box(40, 1400, 1000, 380),
-           text_style("Black Ops One", 140, [shadow("#000000", 0, 8, 20, 0.8), glow("#7CFF4F", 24, 0.7),
-                                             fill("#FFFFFF")], weight=400, line=0.95,
-                      anim_in=tanim("glitch-in", duration=0.4), anim_loop=tanim("flicker", intensity=0.3, speed=6)),
-           label="Cierre")
-    t.text(t.track("text", "Usuario"), "@tuusuario", 3.2, 4.8, Box(40, 1790, 1000, 80),
-           text_style("Special Elite", 46, [shadow("#000000", 0, 3, 8, 0.7), fill("#E8FFE0")], weight=400,
-                      anim_in=tanim("fade", duration=0.4)), label="Usuario")
-    t.adjust([effect("digital_glitch", animated={"intensity": spikes([3.0, 5.5], 0.9, 0.45)}, frequency=0.6,
-                     rgbAmount=18, blockAmount=0.5, flashAmount=0.2),
-              effect("beat_shake", animated={"amount": spikes([3.0, 5.5], 0.9, 0.4)}, rotation=0.4),
-              effect("stylize.vignette", amount=0.75)], name="Susto")
-    t.song("cursed-intro", 0.0, 0.9)
-    return t
-
-
-def pumpkin(t: Template, cx: float, cy: float, size: float, t0: float, dur: float, name: str) -> None:
-    """A jack-o'-lantern of six shapes that pops up and bobs as one."""
-    motion = bobbing([(0, {"s": 0.02, "dy": 160}, "back"), (0.55, {}, "smooth")], dur, period=0.8, amp=16)
-    face = [fill("#2B0A4A"), no_stroke()]
-    parts = [
-        (0, -0.47 * size, 0.13 * size, 0.22 * size, "rounded-rectangle", [fill("#3A5A40"), no_stroke()], 10),
-        (0, 0, size, 0.84 * size, "ellipse",
-         [shadow("#1A0730", 0, 14, 30, 0.5), gradient([(0, "#FFA43A"), (1, "#E2520B")], angle=90), no_stroke()], 0),
-        (0, 0, 0.42 * size, 0.84 * size, "ellipse", [fill("#FFB75E", 0.35), no_stroke()], 0),
-        (-0.2 * size, -0.1 * size, 0.2 * size, 0.18 * size, "triangle", face, 0),
-        (0.2 * size, -0.1 * size, 0.2 * size, 0.18 * size, "triangle", face, 0),
-        (0, 0.17 * size, 0.46 * size, 0.12 * size, "rounded-rectangle", face, 20),
-    ]
-    for j, (ox, oy, w, h, kind, layers, radius) in enumerate(parts):
-        t.solid(t.track("shape", f"{name} {j + 1}"), "#000000", t0, dur, centered(cx + ox, cy + oy, w, h),
-                grouped(motion, ox, oy), kind=kind, layers=layers, radius=radius)
-
-
-def halloween_truco_o_trato() -> Template:
-    """A party invitation: purple-to-orange dusk, a moon, round photos that float, pumpkins and a details card."""
-    t = Template("halloween-truco-o-trato", "¡Truco o trato! Invitación", "Trick or treat party", "seasonal",
-                 10.0, order=1002, tags=["halloween", "fiesta", "invitación", "niños", "disfraces"], thumb_at=6.6,
-                 background="#2B0A4A")
-    t.solid(t.track("shape", "Fondo"), "#2B0A4A",
-            layers=[gradient([(0, "#24073F"), (0.55, "#7B2CBF"), (1, "#FF7B00")], angle=90), no_stroke()])
-    t.solid(t.track("shape", "Luna"), "#FFF1C1", 0.0, 10.0, centered(860, 560, 260, 260),
-            [(0, {"dy": 40}, "linear"), (10.0, {"dy": -40})], kind="ellipse",
-            layers=[glow("#FFE8A3", 60, 0.8), fill("#FFF1C1"), no_stroke()])
-    rng = random.Random(13)
-    particles(t, "Estrellas", 1, 0.0, 10.0, rng, ["#FFFFFF", "#FFE8A3"], kinds=("star",), size=(14, 26),
-              x=(40, 1040), y=-40, dy=900, life=(5.0, 7.0), every=(0.5, 0.9), sway=30, spin=90, alpha=0.8)
-    for i, (sample, cx, cy, size, at) in enumerate([("halloween-01", 320, 820, 470, 1.6),
-                                                    ("halloween-02", 760, 1030, 420, 2.0)]):
-        dur = t.duration - at
-        motion = bobbing([(0, {"s": 0.02}, "back"), (0.5, {}, "smooth")], dur, period=1.0 + 0.2 * i, amp=12)
-        t.solid(t.track("shape", f"Aro {i + 1}"), "#FF7B00", at, dur, centered(cx, cy, size + 34, size + 34),
-                motion, kind="ellipse", layers=[glow("#FFB347", 30, 0.7), fill("#FF7B00"), no_stroke()])
-        photos = t.track("video", f"Foto {i + 1}")
-        clip = t.photo(photos, sample, at, dur, centered(cx, cy, size, size), motion, label=f"Foto {i + 1}")
-        t.mask(photos, clip, "ellipse")
-    pumpkin(t, 190, 1740, 280, 0.6, 9.4, "Calabaza A")
-    pumpkin(t, 900, 1760, 240, 0.9, 9.1, "Calabaza B")
-    t.text(t.track("text", "Título"), "¡Truco o trato!", 0.3, 9.7, Box(40, 120, 1000, 400),
-           text_style("Luckiest Guy", 150, [shadow("#24073F", 0, 12, 0, 1.0), stroke(10, "#24073F"),
-                                            gradient([(0, "#FFE066"), (1, "#FF9F1C")], angle=90)],
-                      weight=400, line=1.0, anim_in=tanim("bounce", duration=0.6, unit="character", stagger=0.04),
-                      anim_loop=tanim("swing", angle=3, speed=0.6)), label="Título")
-    card = Box(120, 1270, 840, 300)
-    t.solid(t.track("shape", "Tarjeta"), "#FFF3E0", 4.6, 5.4, card, pop(0, 0.5), radius=40,
-            kind="rounded-rectangle", layers=[shadow("#24073F", 0, 14, 30, 0.45), fill("#FFF3E0"), no_stroke()])
-    info = [("Fiesta de disfraces", Box(140, 1288, 800, 110), 74, 800, "#5A189A", "Evento"),
-            ("Sábado 31 · 8:00 p. m.", Box(140, 1393, 800, 80), 56, 700, "#E85D04", "Fecha y hora"),
-            ("Casa de Ana · ¡Ven disfrazado!", Box(140, 1470, 800, 70), 44, 600, "#24073F", "Lugar")]
-    for k, (content, box, size, weight, colour, label) in enumerate(info):
-        t.text(t.track("text", label), content, 4.9 + k * 0.2, 5.1 - k * 0.2, box,
-               text_style("Baloo 2", size, [fill(colour)], weight=weight,
-                          anim_in=tanim("slide-up", duration=0.4)), label=label)
-    t.adjust([effect("stylize.vignette", amount=0.4), effect("stylize.film_grain", amount=0.1)], name="Acabado")
-    t.song("brewing-potions", 0.0, 0.85)
-    return t
 
 
 # --- Día de Muertos ------------------------------------------------------------------------------
@@ -409,7 +258,7 @@ def cancion_criolla() -> Template:
     t.solid(t.track("shape", "Marco"), "#8C1C13", 0.8, 11.2, oval, [(0, {"s": 0.9}, "out"), (0.8, {})],
             kind="ellipse", layers=ring("#8C1C13", 12))
     photos = t.track("video", "Fotos")
-    samples = ["friends-02", "city-03", "family-01", "portrait-03"]
+    samples = ["friends-01", "city-03", "family-01", "portrait-03"]
     clips = []
     for i, sample in enumerate(samples):
         start = 0.8 + i * 2.8
@@ -444,7 +293,7 @@ def navidad_en_familia() -> Template:
     t = Template("navidad-en-familia", "Navidad en familia", "Christmas with family", "seasonal", 15.0,
                  order=1030, tags=["navidad", "familia", "diciembre", "nochebuena", "fiestas"], thumb_at=2.2)
     photos = t.track("video", "Fotos")
-    samples = ["christmas-05", "christmas-04", "christmas-02", "christmas-01", "family-05"]
+    samples = ["christmas-05", "christmas-04", "christmas-02", "christmas-03", "family-05"]
     clips = []
     for i, sample in enumerate(samples):
         drift = 40 if i % 2 else -40
@@ -740,7 +589,7 @@ def mi_anio_en_fotos() -> Template:
            text_style("Prata", 84, [fill(champagne)], weight=400, anim_in=tanim("fade-up-char", duration=0.5,
                                                                                 unit="character", stagger=0.03),
                       anim_out=tanim("fade", duration=0.3)), label="Título")
-    samples = ["friends-01", "travel-07", "beach-04", "birthday-01", "couple-07", "graduation-03", "family-05",
+    samples = ["friends-01", "travel-07", "beach-01", "birthday-01", "couple-07", "graduation-03", "family-05",
                "concert-02", "selfie-02"]
     cell_w, cell_h, gap = 320, 500, 20
     for i, sample in enumerate(samples):
@@ -879,7 +728,7 @@ def black_friday_ultimas_horas() -> Template:
                  thumb_at=5.2, background="#0A0A0A")
     photos = t.track("video", "Fotos")
     clips = []
-    for i, sample in enumerate(["shopping-01", "shopping-02", "outfit-03"]):
+    for i, sample in enumerate(["shopping-01", "shopping-02", "outfit-04"]):
         start = i * 3.4
         dur = 10.0 - start if i == 2 else 3.4
         clips.append(t.photo(photos, sample, start, dur, FULL, [(0, {"s": 1.02}, "linear"), (dur, {"s": 1.12})],
@@ -949,7 +798,7 @@ def cyber_monday() -> Template:
             kind="rounded-rectangle", layers=[glow(cyan, 40, 0.8), stroke(6, cyan), fill("#0A0A14")])
     screen = t.track("video", "Pantalla")
     clips = []
-    for i, (sample, start, end) in enumerate([("shopping-01", 0.2, 2.6), ("outfit-02", 2.6, 4.6),
+    for i, (sample, start, end) in enumerate([("shopping-01", 0.2, 2.6), ("outfit-04", 2.6, 4.6),
                                               ("shopping-03", 4.6, 8.0)]):
         motion = phone if i == 0 else None
         clips.append(t.photo(screen, sample, start, end - start, centered(540, 1060, 556, 1076), motion,
@@ -1056,7 +905,7 @@ def dia_de_la_amistad() -> Template:
     t.solid(t.track("shape", "Tira"), "#FFFFFF", 0, 9.0, strip, enter, radius=16, kind="rounded-rectangle",
             layers=[shadow("#A4133C", 0, 18, 40, 0.35), fill("#FFFFFF"), no_stroke()])
     flashes = t.track("shape", "Flash")
-    for i, sample in enumerate(["friends-09", "friends-11", "friends-03", "friends-05"]):
+    for i, sample in enumerate(["friends-09", "friends-11", "friends-03", "friends-12"]):
         cell = centered(540, strip.y + 30 + 170 + i * 360, 500, 340)
         at = 0.9 + i * 1.0
         t.photo(t.track("video", f"Foto {i + 1}"), sample, at, 9.0 - at, cell,
@@ -1152,7 +1001,7 @@ def fiestas_patrias() -> Template:
             layers=[shadow("#3D0006", 0, 18, 40, 0.4), stroke(6, dark), fill("#FFFFFF")])
     photos = t.track("video", "Fotos")
     clips = []
-    for i, sample in enumerate(["city-03", "city-02", "friends-01", "family-04"]):
+    for i, sample in enumerate(["city-03", "city-01", "friends-01", "family-04"]):
         start = 0.8 + i * 2.3
         motion = (pop(0, 0.5) + [(2.3, {"s": 1.05})]) if i == 0 else [(0, {"s": 1.0}, "linear"), (2.3, {"s": 1.06})]
         clips.append(t.photo(photos, sample, start, 2.3, centered(540, 1000, 620, 860), motion, label=f"Foto {i + 1}"))
@@ -1179,7 +1028,7 @@ def fiestas_patrias() -> Template:
     return t
 
 
-TEMPLATES = [halloween_photo_dump, halloween_revelacion_disfraz, halloween_truco_o_trato, dia_de_muertos_ofrenda,
+TEMPLATES = [dia_de_muertos_ofrenda,
              catrina, cancion_criolla, navidad_en_familia, feliz_navidad_luces, regalo_sorpresa, menu_navideno,
              cuenta_regresiva_anio_nuevo, mi_anio_en_fotos, propositos_anio_nuevo, black_friday_ofertas,
              black_friday_ultimas_horas, cyber_monday, san_valentin_carta, dia_de_la_amistad, dia_del_padre,

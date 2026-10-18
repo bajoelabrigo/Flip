@@ -12869,6 +12869,10 @@
         <translation>Stock</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>Inicio</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>Marketplace no disponible</translation>
     </message>
@@ -16483,6 +16487,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Video thumbnails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Counters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>YouTuber style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

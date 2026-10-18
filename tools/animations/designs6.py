@@ -166,55 +166,6 @@ def carta_amor() -> Sticker:
     return s
 
 
-def calabaza() -> Sticker:
-    s = Sticker("calabaza", "Calabaza", "Jack-o'-lantern", "fechas", frames=36, order=1009,
-                tags=["halloween", "calabaza", "octubre", "miedo"])
-    orange = s.slot("calabaza", "#FF8A1F")
-    glow = s.slot("luz", "#FFE066")
-    flick = anim([(0, 100, LINEAR), (5, 70, LINEAR), (9, 95, LINEAR), (15, 60, LINEAR), (20, 100, LINEAR), (27, 75, LINEAR), (36, 100)])
-    face = [path([(-90, -40), (-40, -40), (-65, -90)], closed=True), path([(90, -40), (40, -40), (65, -90)], closed=True),
-            path([(-110, 20), (-60, 40), (-35, 20), (0, 45), (35, 20), (60, 40), (110, 20), (70, 80), (-70, 80)], closed=True)]
-    s.layer(group(*face, fill("#FFE066", glow, o=flick)), group(*face, fill("#6B2E00")),
-            group(oval(150, 230, -70, 0), oval(150, 230, 70, 0), fill("#FF8A1F", orange)), group(oval(170, 250, 0, 0), fill("#F07A0A")),
-            group(path([(-10, -110), (0, -170), (30, -160)], smooth=0.6), stroke("#3DBE7A", 22)),
-            ks=layer_transform(p=(C, C + 20), s=breathe(36, 100, 103)))
-    return s
-
-
-def murcielago() -> Sticker:
-    s = Sticker("murcielago", "Murciélago", "Bat", "fechas", frames=24, order=1010,
-                tags=["halloween", "noche", "murciélago", "miedo"])
-    bat = s.slot("color", "#5B4B8A")
-    eyes = s.slot("ojos", "#FFD23F")
-    up = [(0, -10), (60, -70), (120, -110), (190, -60), (150, -30), (110, -20), (70, 10), (20, 20)]
-    down = [(0, -10), (60, -20), (130, 10), (180, 70), (130, 60), (100, 70), (70, 60), (20, 20)]
-    wing_r = morph([(0, up), (12, down), (24, up)], smooth=0.4)
-    wing_l = morph([(0, [(-x, y) for x, y in up]), (12, [(-x, y) for x, y in down]), (24, [(-x, y) for x, y in up])], smooth=0.4)
-    s.layer(group(circle(14, -18, -12), circle(14, 18, -12), fill("#FFD23F", eyes)),
-            group(path([(-30, -40), (-20, -70), (-6, -44)], closed=True), path([(30, -40), (20, -70), (6, -44)], closed=True), fill("#5B4B8A", bat)),
-            group(oval(90, 110, 0, 0), fill("#5B4B8A", bat)), group(wing_r, fill("#5B4B8A", bat)), group(wing_l, fill("#5B4B8A", bat)),
-            ks=layer_transform(p=wave(24, lambda u: [C, C + 16 * math.sin(2 * math.pi * u), 0]), s=125))
-    return s
-
-
-def fantasma() -> Sticker:
-    s = Sticker("fantasma", "Fantasma", "Ghost", "fechas", frames=60, order=1011,
-                tags=["halloween", "fantasma", "boo", "miedo"])
-    body = s.slot("fantasma", "#FFFFFF")
-    eyes = s.slot("ojos", "#2B2D42")
-    def shape(ph):
-        top = [polar(0, -40, 130, a) for a in range(180, 361, 30)]
-        sides = [(130, 60)]
-        bottom = [(130 - k * 260 / 6, 130 + 18 * math.sin(k * math.pi + ph)) for k in range(7)]
-        return top + sides + bottom + [(-130, 60)]
-    sh = morph([(0, shape(0)), (20, shape(2.1)), (40, shape(4.2)), (60, shape(0))], smooth=0.7)
-    blink = anim([(0, [100, 100]), (40, [100, 100], EASE_IN_OUT), (43, [100, 10], EASE_IN_OUT), (47, [100, 100]), (60, [100, 100])])
-    s.layer(group(group(oval(30, 46, -45, 0), oval(30, 46, 45, 0), fill("#2B2D42", eyes)), tr=transform(p=(0, -30), s=blink)),
-            group(oval(40, 50, 0, 50), fill("#2B2D42", eyes)), group(sh, fill("#FFFFFF", body)),
-            ks=layer_transform(p=bob(60, C, C, 18), r=wobble(60, 5)))
-    return s
-
-
 def huevo_pascua() -> Sticker:
     s = Sticker("huevo-pascua", "Huevo de Pascua", "Easter egg", "fechas", frames=48, order=1012,
                 tags=["pascua", "primavera", "huevo", "abril"])
@@ -496,6 +447,6 @@ def cupcake() -> Sticker:
     return s
 
 
-STICKERS = [arbol_navidad, gorro_santa, esfera_navidad, campanas, reloj_medianoche, copas_brindis, cupido, carta_amor, calabaza, murcielago,
-            fantasma, huevo_pascua, diya, farol_chino, luna_farol, birrete, anillos_boda,
+STICKERS = [arbol_navidad, gorro_santa, esfera_navidad, campanas, reloj_medianoche, copas_brindis, cupido, carta_amor,
+            huevo_pascua, diya, farol_chino, luna_farol, birrete, anillos_boda,
             cafe, pizza, hamburguesa, helado, dona, refresco, palomitas, sandia, fideos, cupcake]

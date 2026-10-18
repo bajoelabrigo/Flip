@@ -263,7 +263,7 @@ def me_gradue() -> Template:
     t.solid(t.track("shape", "Fondo"), "#0A1F44",
             layers=[gradient([(0, "#12306B"), (1, "#06142E")], angle=90), no_stroke()])
     gold = [glow("#D4AF37", 20, 0.5), fill("#D4AF37"), no_stroke()]
-    framed_slideshow(t, ["graduation-02", "graduation-05", "graduation-01", "graduation-06", "graduation-03"],
+    framed_slideshow(t, ["graduation-04", "graduation-05", "graduation-01", "graduation-06", "graduation-03"],
                      1.0, beat(3), centered(540, 990, 800, 1100), gold, frame_pad=14, transition="glass_wipe")
     rng = random.Random(8)
     for k in range(3):
@@ -330,10 +330,10 @@ def cuenta_321() -> Template:
     t = Template("cuenta-3-2-1", "Cuenta regresiva 3-2-1", "3-2-1 countdown", "countdown", 5.0,
                  order=700, tags=["cuenta regresiva", "lanzamiento", "sorpresa"], thumb_at=0.55, background="#111111")
     photos = t.track("video", "Fotos")
-    for i, sample in enumerate(["friends-04", "beach-01", "friends-07"]):
+    for i, sample in enumerate(["friends-01", "beach-01", "y4c-friends-01"]):
         t.photo(photos, sample, i * 1.0, 1.0, FULL, [(0, {"s": 1.15}, "snap"), (0.2, {"s": 1.03})],
                 effects=[effect("color.basic", exposure=-0.45, saturation=-0.3)])
-    t.photo(photos, "friends-07", 3.0, 2.0, FULL, [(0, {"s": 1.2}, "snap"), (0.2, {"s": 1.0})], reuse="p3")
+    t.photo(photos, "y4c-friends-01", 3.0, 2.0, FULL, [(0, {"s": 1.2}, "snap"), (0.2, {"s": 1.0})], reuse="p3")
     rings = t.track("shape", "Anillo")
     ring = [stroke(16, "#FF2D55"), {"id": "fill", "kind": "fill", "enabled": False,
                                     "paint": {"kind": "solid", "color": "#00000000"}}]
@@ -361,7 +361,7 @@ def faltan_dias() -> Template:
                  order=710, tags=["cuenta regresiva", "faltan", "evento", "lanzamiento"], thumb_at=3.0)
     photos = t.track("video", "Fotos")
     clips = [t.photo(photos, s, i * 8 / 3, 8 / 3, FULL, [(0, {"s": 1.0}, "linear"), (8 / 3, {"s": 1.08})])
-             for i, s in enumerate(["city-02", "friends-05", "cafe-04"])]
+             for i, s in enumerate(["city-01", "friends-12", "cafe-04"])]
     for a, b in zip(clips, clips[1:]):
         t.transition(photos, a, b, "crossfade", 0.6)
     t.solid(t.track("shape", "Velo"), "#1D3557", alpha=0.62)
@@ -448,7 +448,7 @@ def cierre_negocio() -> Template:
     ring = t.track("shape", "Aro")
     t.solid(ring, "#22C55E", 0.2, 5.8, centered(540, 600, 400, 400), pop(), kind="ellipse")
     logo = t.track("video", "Logo")
-    mark = t.photo(logo, "cafe-03", 0.2, 5.8, centered(540, 600, 370, 370), pop(), label="Logo")
+    mark = t.photo(logo, "cafe-01", 0.2, 5.8, centered(540, 600, 370, 370), pop(), label="Logo")
     t.mask(logo, mark, "ellipse")
     words = t.track("text", "Textos")
     t.text(words, "Tu Negocio", 0.7, 5.3, Box(40, 860, 1000, 170),

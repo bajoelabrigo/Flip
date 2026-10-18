@@ -520,7 +520,7 @@ def dia_de_playa() -> Template:
                  order=1308, tags=["playa", "verano", "vacaciones", "mar", "atardecer"], thumb_at=2.6)
     photos = t.track("video", "Fotos")
     clips = []
-    for i, sample in enumerate(["beach-04", "beach-06", "beach-03", "beach-05", "beach-02"]):
+    for i, sample in enumerate(["beach-01", "h-beach-01", "h-beach-02", "h-beach-03", "h-beach-04"]):
         clips.append(t.photo(photos, sample, i * 2.0, 2.0, FULL, [(0, {"s": 1.1}, "linear"), (2.0, {"s": 1.0})]))
     for a, b in zip(clips, clips[1:]):
         t.transition(photos, a, b, "wipe_up", 0.4)
@@ -618,7 +618,7 @@ def ootd_outfit() -> Template:
     photo_box = Box(76, 186, 928, 1388)
     t.solid(t.track("shape", "Marco"), "#D7FF3A", 1.0, 7.0, frame_box, [(0, {"s": 1.06}, "snap"), (0.2, {})])
     photos = t.track("video", "Looks")
-    looks = [("outfit-04", "chaqueta de jean", (720, 640), "left"), ("outfit-01", "top floral", (420, 760), "right"),
+    looks = [("outfit-04", "chaqueta de jean", (720, 640), "left"), ("y5-outfit-01", "top floral", (420, 760), "right"),
              ("fashion-02", "gorra y casaca", (560, 520), "left"), ("fashion-04", "lentes de sol", (520, 560), "right")]
     each = 1.75
     for i, (sample, _, _, _) in enumerate(looks):
@@ -672,7 +672,7 @@ def grwm_arreglate() -> Template:
     photos = t.track("video", "Pasos")
     window = Box(70, 130, 940, 1160)
     clips = []
-    for i, (sample, label) in enumerate((("makeup-01", "Skincare"), ("makeup-03", "Base"), ("makeup-02", "Labial"),
+    for i, (sample, label) in enumerate((("makeup-01", "Skincare"), ("beach-01", "Base"), ("makeup-02", "Labial"),
                                          ("selfie-02", "Lista"))):
         clips.append(t.photo(photos, sample, i * 3.0, 3.0, window, [(0, {"s": 1.0}, "linear"), (3.0, {"s": 1.05})],
                              label=label))
@@ -855,8 +855,8 @@ def progreso_gym() -> Template:
     t = Template("progreso-gym", "Semana de entreno", "Training week", "reels", 10.0,
                  order=1315, tags=["gym", "entreno", "fitness", "progreso", "rutina"], thumb_at=6.1,
                  background="#0D0D0D")
-    days = [("LUN", "pecho y tríceps", "gym-01"), ("MAR", "piernas", "gym-02"), ("MIÉ", "espalda", "gym-04"),
-            ("JUE", "cardio", "gym-05"), ("VIE", "brazos", "gym-01")]
+    days = [("LUN", "pecho y tríceps", "gym-01"), ("MAR", "piernas", "y2-h-gym-01"), ("MIÉ", "espalda", "y2-h-gym-06"),
+            ("JUE", "cardio", "gym-01"), ("VIE", "brazos", "y2-h-gym-01")]
     each = 1.6
     photos = t.track("video", "Días")
     for i, (_, _, sample) in enumerate(days):
@@ -1033,7 +1033,7 @@ def cumple_sorpresa() -> Template:
     t.solid(t.track("shape", "Estallido"), "#FFD23F", 2.4, 2.2, centered(540, 960, 1300, 1300),
             [(0, {"s": 0.0}, "snap"), (0.3, {}, "linear"), (2.2, {"s": 1.1})], kind="burst", points=18,
             innerRatio=0.6, rotation=keys([(0, 0), (2.2, 40)]))
-    spots = [("birthday-01", 4.4, -5), ("birthday-07", 6.25, 4), ("friends-02", 8.1, -3)]
+    spots = [("birthday-01", 4.4, -5), ("birthday-07", 6.25, 4), ("friends-01", 8.1, -3)]
     frames = t.track("shape", "Marcos")
     photos = t.track("video", "Fotos")
     for i, (sample, start, tilt) in enumerate(spots):

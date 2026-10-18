@@ -366,13 +366,13 @@ fma:winter-lofi/Fire Place | fechas | 30 | invierno, chimenea, fireplace, navida
 unsorted/Pump up your Graduation | fechas | 30,60 | graduacion, graduation, ceremonia, pompa
 unsorted/Fireworks | fechas | 30 | fuegos artificiales, fireworks, ano nuevo, new year
 unsorted/Celebration | fechas | 30 | cumpleanos, birthday, celebracion, aniversario
-comedy/Ghost Town | fechas | 30 | halloween, fantasmas, ghosts, spooky
-comedy/Night in the Castle | fechas | 30 | halloween, castillo, vampiro, spooky
-comedy/Fright Night Twist | fechas | 30 | halloween, twist, spooky, fiesta
-fantasy/Witch Waltz | fechas | 30 | halloween, bruja, witch, vals | meter=3
-comedy/Wizard Circus | fechas | 30 | halloween, circo, magia, spooky
-fma:horseless-headman-halloween-beats/Haunted Houses | fechas | 30 | halloween, casa embrujada, beat
-fma:beats-from-the-crypt/Dance Of The Dead | fechas | 30 | halloween, muertos, baile, beat
+comedy/Ghost Town | suspenso | 30 | fantasmas, ghosts, spooky
+comedy/Night in the Castle | suspenso | 30 | castillo, vampiro, spooky
+comedy/Fright Night Twist | suspenso | 30 | twist, spooky, fiesta
+fantasy/Witch Waltz | suspenso | 30 | bruja, witch, vals | meter=3
+comedy/Wizard Circus | suspenso | 30 | circo, magia, spooky
+fma:horseless-headman-halloween-beats/Haunted Houses | suspenso | 30 | casa embrujada, beat
+fma:beats-from-the-crypt/Dance Of The Dead | suspenso | 30 | muertos, baile, beat
 # ---------------- Del mundo
 world/Bollywood Groove | mundo | 30,15 | india, bollywood, sitar, tabla
 world/Breaking Bollywood | mundo | 30,15 | india, bollywood, tabla

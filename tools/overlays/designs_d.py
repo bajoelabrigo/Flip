@@ -410,7 +410,7 @@ doodle("garabato-angel-dorado", "Alas doradas", "Gold angel wings",
        color=GOLDC, glow=True, tags=["angel", "alas", "dorado", "halo", "brillo"], sample="portrait-07.jpg")
 doodle("garabato-diablito", "Cuernos de diablito", "Little devil",
        [("horn_l", 0.36, 0.12, 200, 0, 0.0), ("horn_r", 0.64, 0.12, 200, 0, 0.15), ("tail", 0.8, 0.78, 260, -20, 0.4)],
-       color=fx.hex_rgb("#ff2b2b"), shadow=False, tags=["diablito", "cuernos", "devil", "travieso", "halloween", "humor"],
+       color=fx.hex_rgb("#ff2b2b"), shadow=False, tags=["diablito", "cuernos", "devil", "travieso", "humor"],
        sample="halloween-01.jpg")
 doodle("garabato-diablito-blanco", "Cuernos a mano", "Doodle horns",
        [("horn_l", 0.36, 0.12, 200, 0, 0.0), ("horn_r", 0.64, 0.12, 200, 0, 0.15), ("tail", 0.8, 0.78, 260, -20, 0.4)],

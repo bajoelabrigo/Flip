@@ -12915,6 +12915,10 @@
         <translation>Стоковые материалы</translation>
     </message>
     <message>
+        <source>Home</source>
+        <translation>Главная</translation>
+    </message>
+    <message>
         <source>Marketplace unavailable</source>
         <translation>Маркет недоступен</translation>
     </message>
@@ -16551,6 +16555,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Video thumbnails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Counters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>YouTuber style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

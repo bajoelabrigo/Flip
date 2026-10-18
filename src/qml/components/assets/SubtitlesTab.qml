@@ -148,6 +148,10 @@ Item {
                         required property var modelData
                         width: captionStyleGrid.cardWidth
                         spacing: Theme.spacingXs
+                        scale: styleMouse.pressed ? 0.97 : (styleMouse.containsMouse ? 1.02 : 1.0)
+                        Behavior on scale {
+                            NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
+                        }
 
                         TextStylePackThumb {
                             width: parent.width

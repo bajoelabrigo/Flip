@@ -211,7 +211,7 @@ Item {
                         // Lift on grab: the card dims and grows slightly, so it reads as picked
                         // up rather than merely faded.
                         opacity: maskDrag.active ? 0.85 : 1
-                        scale: maskDrag.active ? 1.04 : (maskDrag.pressed ? 0.97 : 1.0)
+                        scale: maskDrag.active ? 1.04 : maskDrag.pressed ? 0.97 : (maskDrag.hovered ? 1.02 : 1.0)
 
                         Behavior on opacity {
                             NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }

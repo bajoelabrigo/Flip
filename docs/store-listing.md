@@ -110,6 +110,31 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.15.0)**. Lo nuevo desde la 0.14.0. Texto de "Novedades de esta versión" del MSIX de la
+0.15.0 (811 de 1500 caracteres).
+
+> **Novedades de la 0.15.0**
+>
+> - 300 plantillas nuevas de estilo youtuber (1.221 en total): retos, top 10, miniaturas, tecnología, podcast, subtítulos palabra por palabra, reacciones, entrevistas en la calle, vlog, explicativos, un día en mi vida, gaming, cocina, misterio, intros de canal y pantallas finales.
+> - 20 contadores (dinero, seguidores, días, temporizadores) y 24 tercios inferiores con tus redes.
+> - 43 sonidos, 40 superposiciones y 23 transiciones de youtuber, y 24 marcos para la cámara.
+> - 21 kits nuevos en el inicio de Stock, para creadores, negocios y fechas de todo el mundo.
+> - Stock más cómodo: arriba solo Todos, Videos y Fotos; el resto en botones, y la rueda pasa al siguiente tipo.
+> - Las tarjetas se mueven al pasar el mouse en todas las pestañas.
+> - Todo lo nuevo en los 15 idiomas de la app.
+
+En inglés (749 caracteres):
+
+> **What's new in 0.15.0**
+>
+> - 300 new YouTuber-style templates (1,221 in all): challenges, top 10s, thumbnails, tech reviews, podcasts, word-by-word captions, reactions, street interviews, vlogs, explainers, day in my life, gaming, cooking, mystery, channel intros and end screens.
+> - 20 counters (money, followers, days, timers) and 24 lower thirds with your social handles.
+> - 43 sounds, 40 overlays and 23 transitions for creators, and 24 face-cam frames.
+> - 21 new kits on the Stock home, for creators, businesses and dates around the world.
+> - An easier Stock: only All, Videos and Photos up top; the rest as buttons, and the wheel moves on to the next kind.
+> - Cards move when you hover them, in every tab.
+> - Everything new in the app's 15 languages.
+
 **Notas para la Store (0.14.0)**. Lo nuevo desde la 0.13.0 (que ya está aprobada). Texto de "Novedades de esta
 versión" del MSIX de la 0.14.0 (1.069 de 1500 caracteres).
 
