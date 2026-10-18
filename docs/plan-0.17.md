@@ -73,7 +73,7 @@ Investigado y probado en la PC de Jorge (RTX 5060) el 2026-10-18; ver también l
   por fotograma 1080p en GPU (DirectML), ~1,9 s en CPU. Hacer un extra en `flip-addons` (tipo nuevo, p. ej.
   `interp-model`), sesiones con `drift::ort::buildSessions` (trampa en `CLAUDE.md`), y comprobar cortes de escena
   antes (RIFE deja «fantasmas» en cortes duros). Versión rápida: 4.25 lite.
-- ⬜ **Texto con IA, versión simple:** la persona escribe una idea («título de terror») y se elige y ajusta uno de
+- 🟡 **Texto con IA: hecho en la rama** (`engine/TextEmbedder`, tokenizador Unigram propio comprobado igual al de Hugging Face; `AppController::addAiText` con descripciones de ambiente por estilo `kStyleHints`; tarjeta «Texto con IA» en Títulos; herramientas en `tools/ai_text/`). Extra **`texto.ia` 1.0.0** (tipo `text-embed-model`, 73 MB) construido en `flip-addons/dist`; subirlo al release `packages` antes del índice. Falta compilar y probar en ventana. Detalle original: **Texto con IA, versión simple:** la persona escribe una idea («título de terror») y se elige y ajusta uno de
   nuestros ~200 estilos de texto. Modelo **paraphrase-multilingual-MiniLM-L12-v2** (Apache-2.0), ONNX int8 de 118 MB
   (Hugging Face `Xenova/paraphrase-multilingual-MiniLM-L12-v2`, carpeta `onnx/`). Tokenizador XLM-R SentencePiece
   (biblioteca `sentencepiece`, Apache-2.0; ids `<s>`=0, `</s>`=2, desplazamiento +1 de fairseq). Entradas
