@@ -216,9 +216,9 @@ Item {
                         radius: Theme.radiusSm
                         color: Theme.panelMuted
                         border.width: tile.current ? 2 : Theme.borderWidth
-                        border.color: tile.current ? Theme.primary : (tileMouse.containsMouse ? Theme.foreground
+                        border.color: tile.current ? Theme.primary : (tileHover.hovered ? Theme.foreground
                                                                                                : Theme.panelBorder)
-                        scale: tileMouse.pressed ? 0.97 : (tileMouse.containsMouse ? 1.02 : 1.0)
+                        scale: tileTap.pressed ? 0.97 : (tileHover.hovered ? 1.02 : 1.0)
                         Behavior on scale {
                             NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
                         }
@@ -244,25 +244,27 @@ Item {
                         font.pixelSize: Theme.fontSizeCard
                     }
 
-                    MouseArea {
-                        id: tileMouse
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        acceptedButtons: Qt.LeftButton | Qt.RightButton
+                    // Pointer handlers, as the other asset cards (AssetDragSource): a MouseArea here
+                    // never got the click in the window test.
+                    HoverHandler {
+                        id: tileHover
                         cursorShape: Qt.PointingHandCursor
-                        onClicked: (mouse) => {
-                            if (mouse.button === Qt.RightButton) {
-                                if (!tile.modelData.factory)
-                                    deleteMenu.popup()
-                            } else {
-                                root.use(tile.modelData.path)
-                            }
-                        }
+                    }
+
+                    TapHandler {
+                        id: tileTap
+                        acceptedButtons: Qt.LeftButton
+                        onTapped: root.use(tile.modelData.path)
+                    }
+
+                    TapHandler {
+                        acceptedButtons: Qt.RightButton
+                        onTapped: if (!tile.modelData.factory) deleteMenu.popup()
                     }
 
                     ThemedToolTip {
                         text: tile.modelData.name
-                        visible: tileMouse.containsMouse
+                        visible: tileHover.hovered
                     }
 
                     ThemedContextMenu {
