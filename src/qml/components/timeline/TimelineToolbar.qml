@@ -184,10 +184,18 @@ Item {
         return { toolbar: toolbarItems, menu: menuItems }
     }
 
+    // Buttons whose tool runs an AI model on this computer: a small "AI" on the button and the
+    // local-and-offline line in its tooltip (AiBadge, Filmora's mark).
+    readonly property var aiActions: ["transcribe", "cutSilences", "removeBg", "enhanceAudio", "enhanceVideo",
+                                      "denoise", "enhanceVoice"]
+
     function actionTooltip(id) {
         const meta = actionMeta[id]
         const label = meta.tip || meta.label
-        return meta.shortcut ? withShortcut(label, meta.shortcut) : label
+        const text = meta.shortcut ? withShortcut(label, meta.shortcut) : label
+        return aiActions.indexOf(id) >= 0
+               ? text + "\n\n" + qsTr("Runs with AI on your computer, without internet: your video never leaves it.")
+               : text
     }
 
     function triggerAction(id) {
@@ -418,6 +426,16 @@ Item {
                     enabled: toolbar.actionEnabled(slot.modelData)
                     onClicked: slot.isMenu ? slotMenu.popup(actionButton, 0, actionButton.height)
                                            : toolbar.triggerAction(slot.modelData)
+
+                    AiBadge {
+                        compact: true
+                        showTip: false
+                        visible: !slot.isSeparator && toolbar.aiActions.indexOf(slot.modelData) >= 0
+                        anchors.right: parent.right
+                        anchors.top: parent.top
+                        anchors.rightMargin: -1
+                        anchors.topMargin: 0
+                    }
                 }
 
                 // The arrow's chevron opens the pointer tools: Select, Split and select to the

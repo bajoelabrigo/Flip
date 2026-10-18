@@ -27,9 +27,11 @@ Item {
 
     readonly property var pages: [
         { id: "basico", label: qsTr("Basic") },
-        { id: "fondo", label: qsTr("Remove background") },
+        { id: "fondo", label: qsTr("Remove background"),
+          ai: qsTr("Cuts out the person or the subject from the background, frame by frame.") },
         { id: "mascara", label: qsTr("Mask") },
-        { id: "retoque", label: qsTr("Retouch") }
+        { id: "retoque", label: qsTr("Retouch"),
+          ai: qsTr("Finds the face, the body and the hair to retouch them.") }
     ]
 
     readonly property int pageIndex: Math.max(0, pages.findIndex(p => p.id === root.page))
@@ -137,6 +139,16 @@ Item {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: root.page = modelData.id
+                        }
+
+                        AiBadge {
+                            visible: !!modelData.ai
+                            compact: true
+                            info: modelData.ai || ""
+                            anchors.right: parent.right
+                            anchors.top: parent.top
+                            anchors.rightMargin: 3
+                            anchors.topMargin: 1
                         }
                     }
                 }

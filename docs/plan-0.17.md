@@ -46,7 +46,7 @@ Jorge eligió **idéntico a Filmora, con acento turquesa**. Capturas de referenc
   `Theme.colorThemes` (antes tenía posiciones fijas). **Falta:** revisar en ventana que todo se lea bien; el amarillo
   queda como uno de los colores a elegir.
   - Trampa: los colores con alfa en QML son `#AARRGGBB` (alfa primero).
-- ⬜ **Pantalla de inicio como la de Filmora** (`components/StartScreen.qml`): barra lateral con logo, Crear proyecto
+- 🟡 **Pantalla de inicio como la de Filmora** (`components/StartScreen.qml`, rehecha; falta verla en ventana): barra lateral con logo, Crear proyecto
   (activo), Extras, Ajustes… y la tarjeta de usuario abajo («Haz clic para iniciar sesión» sin sesión); arriba el
   selector de formato (16:9…) a la izquierda y «Abrir proyecto» a la derecha; botón ancho «+ Crear proyecto» con el
   degradado; a su derecha un carrusel (novedades y kits de Stock: `Market.newsSummary`, `/v1/market/home`); fila de
@@ -55,7 +55,7 @@ Jorge eligió **idéntico a Filmora, con acento turquesa**. Capturas de referenc
   `Theme.homeBackground`.
 
 ## 4. Marca «IA» y botón «?»
-- ⬜ Componente nuevo (p. ej. `components/AiBadge.qml`): texto «IA» (estilo del «AI» de Filmora, en turquesa) y un «?»
+- 🟡 Hecho `components/AiBadge.qml` (falta verlo en ventana); puesto en la barra lateral (Subtítulos, Voz, Escenas: `AssetsPanel.aiInfo`), en las páginas Eliminar fondo y Retoque (`VideoInspector.pages[].ai`) y en los botones de IA de la barra de la línea de tiempo (`TimelineToolbar.aiActions`, con la línea en el tooltip). Componente: texto «IA» (estilo del «AI» de Filmora, en turquesa) y un «?»
   con `ThemedToolTip` que explique la función. Texto base: *«Funciona con IA en tu computadora, sin internet: tu video
   no sale de tu equipo.»* más una línea propia de cada función.
 - Dónde (todo lo que ya tenemos con IA, local): barra lateral de `AssetsPanel.qml` (Subtítulos, Voz, Escenas), páginas
