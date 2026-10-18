@@ -248,8 +248,8 @@
         <translation>Accedi con il tuo account Google per cercare foto e video gratuiti da Pexels e Pixabay senza uscire dall&apos;editor. Il tuo account conserverà anche i tuoi modelli e il tuo negozio.</translation>
     </message>
     <message>
-        <source>You can also continue without an account: editing works exactly the same.</source>
-        <translation>Puoi anche continuare senza account: l&apos;editing funziona esattamente allo stesso modo.</translation>
+        <source>Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -5565,6 +5565,313 @@
     </message>
 </context>
 <context>
+    <name>AppMenuBar</name>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">File</translation>
+    </message>
+    <message>
+        <source>New Project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Project…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import Media…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Project</source>
+        <translation type="unfinished">Salva progetto</translation>
+    </message>
+    <message>
+        <source>Save Project As…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Shareable Copy…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export Video…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video Size and Layout…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Project Properties…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preferences…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard Shortcuts</source>
+        <translation type="unfinished">Scorciatoie da tastiera</translation>
+    </message>
+    <message>
+        <source>Back to Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Modifica</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished">Annulla</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished">Ripeti</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished">Taglia</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Copia</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished">Incolla</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished">Duplica</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Elimina</translation>
+    </message>
+    <message>
+        <source>Copy Effects</source>
+        <translation type="unfinished">Copia effetti</translation>
+    </message>
+    <message>
+        <source>Paste Effects</source>
+        <translation type="unfinished">Incolla effetti</translation>
+    </message>
+    <message>
+        <source>Paste Attributes…</source>
+        <translation type="unfinished">Incolla attributi…</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished">Seleziona tutto</translation>
+    </message>
+    <message>
+        <source>Deselect All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation type="unfinished">Dividi</translation>
+    </message>
+    <message>
+        <source>Merge Clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separate Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Link Clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlink Clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group (Compound Clip)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished">Separa</translation>
+    </message>
+    <message>
+        <source>Save as Template…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transform Together</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text to Speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scene Detection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Multicam</source>
+        <translation type="unfinished">Multicam</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play / Pause</source>
+        <translation type="unfinished">Riproduci / Pausa</translation>
+    </message>
+    <message>
+        <source>Go to Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Previous Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loop Playback</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add or Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next Bookmark</source>
+        <translation type="unfinished">Segnalibro successivo</translation>
+    </message>
+    <message>
+        <source>Previous Bookmark</source>
+        <translation type="unfinished">Segnalibro precedente</translation>
+    </message>
+    <message>
+        <source>Zoom In</source>
+        <translation type="unfinished">Ingrandisci</translation>
+    </message>
+    <message>
+        <source>Zoom Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fullscreen Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Guides</source>
+        <translation type="unfinished">Guide</translation>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation type="unfinished">Spazio di lavoro</translation>
+    </message>
+    <message>
+        <source>Auto (follow canvas)</source>
+        <translation type="unfinished">Automatico (segui area di disegno)</translation>
+    </message>
+    <message>
+        <source>Landscape</source>
+        <translation type="unfinished">Orizzontale</translation>
+    </message>
+    <message>
+        <source>Portrait</source>
+        <translation type="unfinished">Verticale</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="unfinished">Tema</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">Scuro</translation>
+    </message>
+    <message>
+        <source>Language…</source>
+        <translation type="unfinished">Lingua…</translation>
+    </message>
+    <message>
+        <source>Switch to Mobile Layout…</source>
+        <translation type="unfinished">Passa al layout mobile…</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished">Avanzate</translation>
+    </message>
+    <message>
+        <source>Extras…</source>
+        <translation type="unfinished">Extra…</translation>
+    </message>
+    <message>
+        <source>Agent Access…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloads</source>
+        <translation type="unfinished">Download</translation>
+    </message>
+    <message>
+        <source>Debug Info…</source>
+        <translation type="unfinished">Informazioni di debug…</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What&apos;s New</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio Website</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Check for Updates…</source>
+        <translation type="unfinished">Cerca aggiornamenti…</translation>
+    </message>
+    <message>
+        <source>My Account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished">Informazioni su Flip Studio</translation>
+    </message>
+</context>
+<context>
     <name>AssetCategoryChips</name>
     <message>
         <source>My Effects</source>
@@ -5816,8 +6123,28 @@
         <translation>Musica</translation>
     </message>
     <message>
+        <source>LUTs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shortcuts</source>
         <translation>Scorciatoie</translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished">Audio</translation>
+    </message>
+    <message>
+        <source>Titles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filters</source>
+        <translation type="unfinished">Filtri</translation>
     </message>
     <message>
         <source>Drop to import</source>
@@ -11414,6 +11741,69 @@
     </message>
 </context>
 <context>
+    <name>FiltersTab</name>
+    <message>
+        <source>Looks</source>
+        <translation type="unfinished">Look</translation>
+    </message>
+    <message>
+        <source>Imported</source>
+        <translation type="unfinished">Importati</translation>
+    </message>
+    <message>
+        <source>Select a video or photo clip first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import LUT</source>
+        <translation type="unfinished">Importa LUT</translation>
+    </message>
+    <message>
+        <source>LUT (*.cube)</source>
+        <translation type="unfinished">LUT (*.cube)</translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation type="unfinished">Tutti i file (*)</translation>
+    </message>
+    <message>
+        <source>This file is not a LUT that can be used.</source>
+        <translation type="unfinished">Questo file non è un LUT utilizzabile.</translation>
+    </message>
+    <message>
+        <source>Search filters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click a filter to put it on the selected clip. Its strength is in Adjust › LUT.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or photo clip, then click a filter.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import LUT…</source>
+        <translation type="unfinished">Importa LUT…</translation>
+    </message>
+    <message>
+        <source>No filters match “%1”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing in this category.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete from my LUTs</source>
+        <translation type="unfinished">Elimina dai miei LUT</translation>
+    </message>
+</context>
+<context>
     <name>FontCatalog</name>
     <message>
         <source>Choose a .ttf, .otf or .ttc font file</source>
@@ -12905,12 +13295,12 @@
         <translation>Filmati stock</translation>
     </message>
     <message>
-        <source>Free templates, photos and videos</source>
-        <translation>Modelli, foto e video gratuiti</translation>
+        <source>Everything in Stock is free</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with your Google account to search and download them straight into your project.</source>
-        <translation>Accedi con il tuo account Google per cercarli e scaricarli direttamente nel tuo progetto.</translation>
+        <source>Templates, music, stickers, photos and videos at no cost. You only need to sign in with your Google account to see them and download them into your project.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -17048,10 +17438,6 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Account</translation>
     </message>
     <message>
-        <source>Sign in with Google to search free photos and videos from Pexels and Pixabay. Editing works the same without an account.</source>
-        <translation>Accedi con Google per cercare foto e video gratuiti su Pexels e Pixabay. Senza account la modifica funziona allo stesso modo.</translation>
-    </message>
-    <message>
         <source>Waiting for the browser…</source>
         <translation>In attesa del browser…</translation>
     </message>
@@ -17214,6 +17600,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Restart Flip Studio to apply this size.</source>
         <translation>Riavvia Flip Studio per applicare questa dimensione.</translation>
+    </message>
+    <message>
+        <source>Everything is free. Sign in with Google to export your videos and to use Stock: templates, music, photos and videos.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Flip Studio %1</source>
@@ -17913,6 +18303,41 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Shortcuts reset to defaults.</source>
         <translation>Scorciatoie reimpostate ai valori predefiniti.</translation>
+    </message>
+</context>
+<context>
+    <name>SignInRequiredDialog</name>
+    <message>
+        <source>Sign in to export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished">In attesa del browser…</translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation type="unfinished">Accedi con Google</translation>
+    </message>
+    <message>
+        <source>Choose your account in the browser window that opened, then come back here.</source>
+        <translation type="unfinished">Scegli il tuo account nella finestra del browser che si è aperta, poi torna qui.</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Annulla</translation>
+    </message>
+    <message>
+        <source>Not now</source>
+        <translation type="unfinished">Non ora</translation>
     </message>
 </context>
 <context>

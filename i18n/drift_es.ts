@@ -248,8 +248,8 @@
         <translation>Inicia sesión con tu cuenta de Google para buscar fotos y videos gratis de Pexels y Pixabay sin salir del editor. Tu cuenta también guardará tus plantillas y tu tienda.</translation>
     </message>
     <message>
-        <source>You can also continue without an account: editing works exactly the same.</source>
-        <translation>También puedes seguir sin cuenta: la edición funciona exactamente igual.</translation>
+        <source>Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.</source>
+        <translation>Todo es gratis. Puedes seguir sin cuenta y editar como siempre; para exportar y usar Stock te pediremos iniciar sesión.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -5565,6 +5565,313 @@
     </message>
 </context>
 <context>
+    <name>AppMenuBar</name>
+    <message>
+        <source>File</source>
+        <translation>Archivo</translation>
+    </message>
+    <message>
+        <source>New Project</source>
+        <translation>Nuevo proyecto</translation>
+    </message>
+    <message>
+        <source>Open Project…</source>
+        <translation>Abrir proyecto…</translation>
+    </message>
+    <message>
+        <source>Open Recent</source>
+        <translation>Abrir recientes</translation>
+    </message>
+    <message>
+        <source>Import Media…</source>
+        <translation>Importar medios…</translation>
+    </message>
+    <message>
+        <source>Save Project</source>
+        <translation>Guardar proyecto</translation>
+    </message>
+    <message>
+        <source>Save Project As…</source>
+        <translation>Guardar proyecto como…</translation>
+    </message>
+    <message>
+        <source>Save Shareable Copy…</source>
+        <translation>Guardar copia para compartir…</translation>
+    </message>
+    <message>
+        <source>Export Video…</source>
+        <translation>Exportar video…</translation>
+    </message>
+    <message>
+        <source>Video Size and Layout…</source>
+        <translation>Tamaño y formato del video…</translation>
+    </message>
+    <message>
+        <source>Project Properties…</source>
+        <translation>Propiedades del proyecto…</translation>
+    </message>
+    <message>
+        <source>Preferences…</source>
+        <translation>Preferencias…</translation>
+    </message>
+    <message>
+        <source>Keyboard Shortcuts</source>
+        <translation>Atajos de teclado</translation>
+    </message>
+    <message>
+        <source>Back to Home</source>
+        <translation>Volver a la ventana de inicio</translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation>Salir</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Editar</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation>Deshacer</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation>Rehacer</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>Cortar</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation>Copiar</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation>Pegar</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Duplicar</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Eliminar</translation>
+    </message>
+    <message>
+        <source>Copy Effects</source>
+        <translation>Copiar efectos</translation>
+    </message>
+    <message>
+        <source>Paste Effects</source>
+        <translation>Pegar efectos</translation>
+    </message>
+    <message>
+        <source>Paste Attributes…</source>
+        <translation>Pegar atributos…</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation>Seleccionar todo</translation>
+    </message>
+    <message>
+        <source>Deselect All</source>
+        <translation>Deseleccionar todo</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation>Herramientas</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>Dividir</translation>
+    </message>
+    <message>
+        <source>Merge Clips</source>
+        <translation>Unir clips</translation>
+    </message>
+    <message>
+        <source>Separate Audio</source>
+        <translation>Separar audio</translation>
+    </message>
+    <message>
+        <source>Link Clips</source>
+        <translation>Vincular clips</translation>
+    </message>
+    <message>
+        <source>Unlink Clips</source>
+        <translation>Desvincular clips</translation>
+    </message>
+    <message>
+        <source>Group (Compound Clip)</source>
+        <translation>Agrupar (clip compuesto)</translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation>Desagrupar</translation>
+    </message>
+    <message>
+        <source>Save as Template…</source>
+        <translation>Guardar como plantilla…</translation>
+    </message>
+    <message>
+        <source>Transform Together</source>
+        <translation>Transformar juntos</translation>
+    </message>
+    <message>
+        <source>Auto Subtitles</source>
+        <translation>Subtítulos automáticos</translation>
+    </message>
+    <message>
+        <source>Text to Speech</source>
+        <translation>Texto a voz</translation>
+    </message>
+    <message>
+        <source>Scene Detection</source>
+        <translation>Detección de escenas</translation>
+    </message>
+    <message>
+        <source>Multicam</source>
+        <translation>Multicámara</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation>Ver</translation>
+    </message>
+    <message>
+        <source>Play / Pause</source>
+        <translation>Reproducir / Pausar</translation>
+    </message>
+    <message>
+        <source>Go to Start</source>
+        <translation>Ir al inicio</translation>
+    </message>
+    <message>
+        <source>Previous Frame</source>
+        <translation>Fotograma anterior</translation>
+    </message>
+    <message>
+        <source>Next Frame</source>
+        <translation>Fotograma siguiente</translation>
+    </message>
+    <message>
+        <source>Loop Playback</source>
+        <translation>Reproducción en bucle</translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation>Marcadores</translation>
+    </message>
+    <message>
+        <source>Add or Remove Bookmark</source>
+        <translation>Poner o quitar marcador</translation>
+    </message>
+    <message>
+        <source>Next Bookmark</source>
+        <translation>Marcador siguiente</translation>
+    </message>
+    <message>
+        <source>Previous Bookmark</source>
+        <translation>Marcador anterior</translation>
+    </message>
+    <message>
+        <source>Zoom In</source>
+        <translation>Acercar</translation>
+    </message>
+    <message>
+        <source>Zoom Out</source>
+        <translation>Alejar</translation>
+    </message>
+    <message>
+        <source>Fullscreen Preview</source>
+        <translation>Vista previa a pantalla completa</translation>
+    </message>
+    <message>
+        <source>Guides</source>
+        <translation>Guías</translation>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation>Espacio de trabajo</translation>
+    </message>
+    <message>
+        <source>Auto (follow canvas)</source>
+        <translation>Automático (seguir lienzo)</translation>
+    </message>
+    <message>
+        <source>Landscape</source>
+        <translation>Horizontal</translation>
+    </message>
+    <message>
+        <source>Portrait</source>
+        <translation>Vertical</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Tema</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Claro</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Oscuro</translation>
+    </message>
+    <message>
+        <source>Language…</source>
+        <translation>Idioma…</translation>
+    </message>
+    <message>
+        <source>Switch to Mobile Layout…</source>
+        <translation>Cambiar al diseño móvil…</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Avanzado</translation>
+    </message>
+    <message>
+        <source>Extras…</source>
+        <translation>Extras…</translation>
+    </message>
+    <message>
+        <source>Agent Access…</source>
+        <translation>Acceso de agente…</translation>
+    </message>
+    <message>
+        <source>Downloads</source>
+        <translation>Descargas</translation>
+    </message>
+    <message>
+        <source>Debug Info…</source>
+        <translation>Información de depuración…</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation>Ayuda</translation>
+    </message>
+    <message>
+        <source>What&apos;s New</source>
+        <translation>Novedades</translation>
+    </message>
+    <message>
+        <source>Flip Studio Website</source>
+        <translation>Sitio web de Flip Studio</translation>
+    </message>
+    <message>
+        <source>Check for Updates…</source>
+        <translation>Buscar actualizaciones…</translation>
+    </message>
+    <message>
+        <source>My Account</source>
+        <translation>Mi cuenta</translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation>Acerca de Flip Studio</translation>
+    </message>
+</context>
+<context>
     <name>AssetCategoryChips</name>
     <message>
         <source>My Effects</source>
@@ -5816,8 +6123,28 @@
         <translation>Música</translation>
     </message>
     <message>
+        <source>LUTs</source>
+        <translation>LUTs</translation>
+    </message>
+    <message>
+        <source>Color effects</source>
+        <translation>Efectos de color</translation>
+    </message>
+    <message>
         <source>Shortcuts</source>
         <translation>Atajos</translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation>Audio</translation>
+    </message>
+    <message>
+        <source>Titles</source>
+        <translation>Títulos</translation>
+    </message>
+    <message>
+        <source>Filters</source>
+        <translation>Filtros</translation>
     </message>
     <message>
         <source>Drop to import</source>
@@ -11414,6 +11741,69 @@
     </message>
 </context>
 <context>
+    <name>FiltersTab</name>
+    <message>
+        <source>Looks</source>
+        <translation>Looks</translation>
+    </message>
+    <message>
+        <source>Imported</source>
+        <translation>Importados</translation>
+    </message>
+    <message>
+        <source>Select a video or photo clip first.</source>
+        <translation>Primero selecciona un clip de video o una foto.</translation>
+    </message>
+    <message>
+        <source>Import LUT</source>
+        <translation>Importar LUT</translation>
+    </message>
+    <message>
+        <source>LUT (*.cube)</source>
+        <translation>LUT (*.cube)</translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation>Todos los archivos (*)</translation>
+    </message>
+    <message>
+        <source>This file is not a LUT that can be used.</source>
+        <translation>Este archivo no es un LUT que se pueda usar.</translation>
+    </message>
+    <message>
+        <source>Search filters</source>
+        <translation>Buscar filtros</translation>
+    </message>
+    <message>
+        <source>Click a filter to put it on the selected clip. Its strength is in Adjust › LUT.</source>
+        <translation>Haz clic en un filtro para ponerlo en el clip seleccionado. Su intensidad está en Ajustar › LUT.</translation>
+    </message>
+    <message>
+        <source>Select a video or photo clip, then click a filter.</source>
+        <translation>Selecciona un clip de video o una foto y haz clic en un filtro.</translation>
+    </message>
+    <message>
+        <source>Import LUT…</source>
+        <translation>Importar LUT…</translation>
+    </message>
+    <message>
+        <source>No filters match “%1”.</source>
+        <translation>Ningún filtro coincide con «%1».</translation>
+    </message>
+    <message>
+        <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
+        <translation>Aún no tienes LUTs importados. Importa un archivo .cube o consigue LUTs en Stock.</translation>
+    </message>
+    <message>
+        <source>Nothing in this category.</source>
+        <translation>No hay nada en esta categoría.</translation>
+    </message>
+    <message>
+        <source>Delete from my LUTs</source>
+        <translation>Borrar de mis LUT</translation>
+    </message>
+</context>
+<context>
     <name>FontCatalog</name>
     <message>
         <source>Choose a .ttf, .otf or .ttc font file</source>
@@ -12905,12 +13295,12 @@
         <translation>Metraje de archivo</translation>
     </message>
     <message>
-        <source>Free templates, photos and videos</source>
-        <translation>Plantillas, fotos y videos gratis</translation>
+        <source>Everything in Stock is free</source>
+        <translation>Todo en Stock es gratis</translation>
     </message>
     <message>
-        <source>Sign in with your Google account to search and download them straight into your project.</source>
-        <translation>Inicia sesión con tu cuenta de Google para buscarlos y descargarlos directo a tu proyecto.</translation>
+        <source>Templates, music, stickers, photos and videos at no cost. You only need to sign in with your Google account to see them and download them into your project.</source>
+        <translation>Plantillas, música, stickers, fotos y videos sin costo. Solo necesitas iniciar sesión con tu cuenta de Google para verlos y bajarlos a tu proyecto.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -17048,10 +17438,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Cuenta</translation>
     </message>
     <message>
-        <source>Sign in with Google to search free photos and videos from Pexels and Pixabay. Editing works the same without an account.</source>
-        <translation>Inicia sesión con Google para buscar fotos y videos gratis de Pexels y Pixabay. Sin cuenta, la edición funciona igual.</translation>
-    </message>
-    <message>
         <source>Waiting for the browser…</source>
         <translation>Esperando al navegador…</translation>
     </message>
@@ -17214,6 +17600,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Restart Flip Studio to apply this size.</source>
         <translation>Reinicia Flip Studio para aplicar este tamaño.</translation>
+    </message>
+    <message>
+        <source>Everything is free. Sign in with Google to export your videos and to use Stock: templates, music, photos and videos.</source>
+        <translation>Todo es gratis. Inicia sesión con Google para exportar tus videos y usar Stock: plantillas, música, fotos y videos.</translation>
     </message>
     <message>
         <source>Flip Studio %1</source>
@@ -17913,6 +18303,41 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Shortcuts reset to defaults.</source>
         <translation>Atajos restablecidos a los valores predeterminados.</translation>
+    </message>
+</context>
+<context>
+    <name>SignInRequiredDialog</name>
+    <message>
+        <source>Sign in to export</source>
+        <translation>Inicia sesión para exportar</translation>
+    </message>
+    <message>
+        <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
+        <translation>Flip Studio es gratis: exportar, Stock y todas las plantillas no cuestan nada.</translation>
+    </message>
+    <message>
+        <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Para exportar tu video solo necesitas iniciar sesión con tu cuenta de Google. Toma un momento, se hace una sola vez y tu proyecto queda tal como está.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Esperando al navegador…</translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation>Iniciar sesión con Google</translation>
+    </message>
+    <message>
+        <source>Choose your account in the browser window that opened, then come back here.</source>
+        <translation>Elige tu cuenta en la ventana del navegador que se abrió y luego vuelve aquí.</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Not now</source>
+        <translation>Ahora no</translation>
     </message>
 </context>
 <context>

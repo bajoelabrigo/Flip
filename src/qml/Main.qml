@@ -1141,6 +1141,12 @@ ApplicationWindow {
         assetsPanel.showTab(tabId)
     }
 
+    // File › Import Media… in the menu bar: the Media tab, then the file picker.
+    function importMediaFiles() {
+        assetsPanel.showTab("media")
+        assetsPanel.importMedia()
+    }
+
     function openDenoise(track, clip, durationSeconds) {
         denoiseWindowLoader.ensure().openFor(track, clip, durationSeconds)
     }

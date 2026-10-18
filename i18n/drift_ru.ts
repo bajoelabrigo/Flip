@@ -249,8 +249,8 @@
         <translation>Войдите через аккаунт Google, чтобы искать бесплатные фото и видео Pexels и Pixabay прямо в редакторе. В аккаунте также будут храниться ваши шаблоны и ваш магазин.</translation>
     </message>
     <message>
-        <source>You can also continue without an account: editing works exactly the same.</source>
-        <translation>Можно продолжить и без аккаунта: редактирование работает точно так же.</translation>
+        <source>Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -5595,6 +5595,313 @@
     </message>
 </context>
 <context>
+    <name>AppMenuBar</name>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">Файл</translation>
+    </message>
+    <message>
+        <source>New Project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Project…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import Media…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Project</source>
+        <translation type="unfinished">Сохранить проект</translation>
+    </message>
+    <message>
+        <source>Save Project As…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Shareable Copy…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export Video…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video Size and Layout…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Project Properties…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preferences…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard Shortcuts</source>
+        <translation type="unfinished">Сочетания клавиш</translation>
+    </message>
+    <message>
+        <source>Back to Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Редактировать</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished">Отменить</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished">Повторить</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished">Вырезать</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Копировать</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished">Вставить</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished">Дублировать</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <source>Copy Effects</source>
+        <translation type="unfinished">Копировать эффекты</translation>
+    </message>
+    <message>
+        <source>Paste Effects</source>
+        <translation type="unfinished">Вставить эффекты</translation>
+    </message>
+    <message>
+        <source>Paste Attributes…</source>
+        <translation type="unfinished">Вставить атрибуты…</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished">Выбрать всё</translation>
+    </message>
+    <message>
+        <source>Deselect All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge Clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separate Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Link Clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlink Clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group (Compound Clip)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished">Разгруппировать</translation>
+    </message>
+    <message>
+        <source>Save as Template…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transform Together</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text to Speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scene Detection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Multicam</source>
+        <translation type="unfinished">Мультикам</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play / Pause</source>
+        <translation type="unfinished">Воспроизвести / пауза</translation>
+    </message>
+    <message>
+        <source>Go to Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Previous Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loop Playback</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add or Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next Bookmark</source>
+        <translation type="unfinished">Следующая закладка</translation>
+    </message>
+    <message>
+        <source>Previous Bookmark</source>
+        <translation type="unfinished">Предыдущая закладка</translation>
+    </message>
+    <message>
+        <source>Zoom In</source>
+        <translation type="unfinished">Приближение</translation>
+    </message>
+    <message>
+        <source>Zoom Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fullscreen Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Guides</source>
+        <translation type="unfinished">Направляющие</translation>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation type="unfinished">Рабочее пространство</translation>
+    </message>
+    <message>
+        <source>Auto (follow canvas)</source>
+        <translation type="unfinished">Авто (по холсту)</translation>
+    </message>
+    <message>
+        <source>Landscape</source>
+        <translation type="unfinished">Горизонтальная</translation>
+    </message>
+    <message>
+        <source>Portrait</source>
+        <translation type="unfinished">Вертикальная</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="unfinished">Тема</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">Тёмная</translation>
+    </message>
+    <message>
+        <source>Language…</source>
+        <translation type="unfinished">Язык…</translation>
+    </message>
+    <message>
+        <source>Switch to Mobile Layout…</source>
+        <translation type="unfinished">Переключиться на мобильный интерфейс…</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished">Дополнительно</translation>
+    </message>
+    <message>
+        <source>Extras…</source>
+        <translation type="unfinished">Дополнения…</translation>
+    </message>
+    <message>
+        <source>Agent Access…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloads</source>
+        <translation type="unfinished">Загрузки</translation>
+    </message>
+    <message>
+        <source>Debug Info…</source>
+        <translation type="unfinished">Отладочная информация…</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What&apos;s New</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio Website</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Check for Updates…</source>
+        <translation type="unfinished">Проверить обновления…</translation>
+    </message>
+    <message>
+        <source>My Account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished">О Flip Studio</translation>
+    </message>
+</context>
+<context>
     <name>AssetCategoryChips</name>
     <message>
         <source>My Effects</source>
@@ -5850,8 +6157,28 @@
         <translation>Музыка</translation>
     </message>
     <message>
+        <source>LUTs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shortcuts</source>
         <translation>Сочетания клавиш</translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished">Аудио</translation>
+    </message>
+    <message>
+        <source>Titles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filters</source>
+        <translation type="unfinished">Фильтры</translation>
     </message>
     <message>
         <source>Drop to import</source>
@@ -11459,6 +11786,69 @@
     </message>
 </context>
 <context>
+    <name>FiltersTab</name>
+    <message>
+        <source>Looks</source>
+        <translation type="unfinished">Стили</translation>
+    </message>
+    <message>
+        <source>Imported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or photo clip first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import LUT</source>
+        <translation type="unfinished">Импортировать LUT</translation>
+    </message>
+    <message>
+        <source>LUT (*.cube)</source>
+        <translation type="unfinished">LUT (*.cube)</translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation type="unfinished">Все файлы (*)</translation>
+    </message>
+    <message>
+        <source>This file is not a LUT that can be used.</source>
+        <translation type="unfinished">Этот файл не является пригодным LUT.</translation>
+    </message>
+    <message>
+        <source>Search filters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click a filter to put it on the selected clip. Its strength is in Adjust › LUT.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or photo clip, then click a filter.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import LUT…</source>
+        <translation type="unfinished">Импортировать LUT…</translation>
+    </message>
+    <message>
+        <source>No filters match “%1”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing in this category.</source>
+        <translation type="unfinished">В этой категории ничего нет.</translation>
+    </message>
+    <message>
+        <source>Delete from my LUTs</source>
+        <translation type="unfinished">Удалить из моих LUT</translation>
+    </message>
+</context>
+<context>
     <name>FontCatalog</name>
     <message>
         <source>Choose a .ttf, .otf or .ttc font file</source>
@@ -12951,12 +13341,12 @@
         <translation>Стоковое видео</translation>
     </message>
     <message>
-        <source>Free templates, photos and videos</source>
-        <translation>Бесплатные шаблоны, фото и видео</translation>
+        <source>Everything in Stock is free</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with your Google account to search and download them straight into your project.</source>
-        <translation>Войдите через аккаунт Google, чтобы искать их и загружать прямо в проект.</translation>
+        <source>Templates, music, stickers, photos and videos at no cost. You only need to sign in with your Google account to see them and download them into your project.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -17120,10 +17510,6 @@ If playback stutters, try another.</source>
         <translation>Аккаунт</translation>
     </message>
     <message>
-        <source>Sign in with Google to search free photos and videos from Pexels and Pixabay. Editing works the same without an account.</source>
-        <translation>Войдите через Google, чтобы искать бесплатные фото и видео Pexels и Pixabay. Без аккаунта редактирование работает так же.</translation>
-    </message>
-    <message>
         <source>Waiting for the browser…</source>
         <translation>Ожидание браузера…</translation>
     </message>
@@ -17286,6 +17672,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Restart Flip Studio to apply this size.</source>
         <translation>Перезапустите Flip Studio, чтобы применить этот размер.</translation>
+    </message>
+    <message>
+        <source>Everything is free. Sign in with Google to export your videos and to use Stock: templates, music, photos and videos.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Flip Studio %1</source>
@@ -17985,6 +18375,41 @@ If playback stutters, try another.</source>
     <message>
         <source>Shortcuts reset to defaults.</source>
         <translation>Сочетания клавиш восстановлены по умолчанию.</translation>
+    </message>
+</context>
+<context>
+    <name>SignInRequiredDialog</name>
+    <message>
+        <source>Sign in to export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished">Ожидание браузера…</translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation type="unfinished">Войти через Google</translation>
+    </message>
+    <message>
+        <source>Choose your account in the browser window that opened, then come back here.</source>
+        <translation type="unfinished">Выберите аккаунт в открывшемся окне браузера, затем вернитесь сюда.</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+    <message>
+        <source>Not now</source>
+        <translation type="unfinished">Не сейчас</translation>
     </message>
 </context>
 <context>

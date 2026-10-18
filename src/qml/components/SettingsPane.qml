@@ -466,7 +466,7 @@ Item {
                 ThemedLabel {
                     width: parent.width
                     visible: Account.available && !Account.signedIn
-                    text: qsTr("Sign in with Google to search free photos and videos from Pexels and Pixabay. Editing works the same without an account.")
+                    text: qsTr("Everything is free. Sign in with Google to export your videos and to use Stock: templates, music, photos and videos.")
                 }
 
                 Row {
