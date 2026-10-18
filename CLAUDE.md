@@ -558,6 +558,14 @@ está en CRLF en la copia de trabajo: respetar el fin de línea del archivo.)
 mismo candado. Registrar los módulos de cada tanda antes de lanzar a los agentes (si no, todos editan
 `templates.py`), y no tocar `kit.py` mientras rendericen.
 
+**El aviso de actualización espera 24 h y no reintenta.** `UpdateChecker::scheduleStartup()` mira
+`updates/lastCheck`: si la última comprobación fue hace menos de un día **no pregunta** (solo vuelve a anunciar lo
+que ya sabía), y `lastCheck` se guarda aunque el TXT todavía devolviera la versión vieja por la caché de DNS. Síntoma:
+Jorge cambia el TXT `version` a la versión nueva, abre la app y no le sale nada; y así seguirá hasta el día siguiente.
+Lo que funciona: **Ajustes › Actualizaciones › «Buscar ahora»** (`Updates.checkNow()`, que se salta la espera). Si
+acaba de cambiar el TXT, antes `ipconfig /flushdns` (Windows cachea el TXT con su TTL). El aviso de la barra admite
+una comprobación manual y, si falla, deja el motivo en `Updates.status`.
+
 **Fotos de Pexels con marcas:** casi todas las de gimnasio, deporte y aparatos traen logos (Nike, Puma, Under Armour,
 Apple, Samsung…). Revisarlas a tamaño completo, no en la hoja de contacto.
 
