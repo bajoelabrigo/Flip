@@ -248,7 +248,7 @@ Column {
                         border.width: current ? 2 : Theme.borderWidth
                         border.color: current ? Theme.primary : Theme.panelBorder
                         opacity: lutPage.host.canEdit ? 1 : 0.5
-                        scale: tileMouse.pressed ? 0.97 : (tileMouse.containsMouse ? 1.02 : 1.0)
+                        scale: tileTap.pressed ? 0.97 : (tileHover.hovered ? 1.02 : 1.0)
                         Behavior on scale {
                             NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
                         }
@@ -275,19 +275,22 @@ Column {
                             font.family: Theme.fontFamily
                             font.pixelSize: Theme.fontSizeXs
                         }
-                        MouseArea {
-                            id: tileMouse
-                            anchors.fill: parent
-                            hoverEnabled: true
+                        // Pointer handlers, as the asset cards: the MouseArea never got the click.
+                        HoverHandler {
+                            id: tileHover
                             enabled: lutPage.host.canEdit
-                            acceptedButtons: Qt.LeftButton | Qt.RightButton
                             cursorShape: Qt.PointingHandCursor
-                            onClicked: (mouse) => {
-                                if (mouse.button === Qt.RightButton && !tile.modelData.factory)
-                                    deleteMenu.popup()
-                                else
-                                    lutPage.use(tile.modelData.path)
-                            }
+                        }
+                        TapHandler {
+                            id: tileTap
+                            enabled: lutPage.host.canEdit
+                            acceptedButtons: Qt.LeftButton
+                            onTapped: lutPage.use(tile.modelData.path)
+                        }
+                        TapHandler {
+                            enabled: lutPage.host.canEdit && !tile.modelData.factory
+                            acceptedButtons: Qt.RightButton
+                            onTapped: deleteMenu.popup()
                         }
                         ThemedContextMenu {
                             id: deleteMenu

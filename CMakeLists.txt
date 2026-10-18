@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.15.0 LANGUAGES CXX C)
+project(Drift VERSION 0.16.0 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -1259,6 +1259,7 @@ qt_add_qml_module(drift
         src/qml/TouchDrag.qml
         src/qml/AssetDrag.qml
         src/qml/EditorHeader.qml
+        src/qml/AppMenuBar.qml
         src/qml/AssetsPanel.qml
         src/qml/PreviewPanel.qml
         src/qml/components/preview/ViewAxisWidget.qml
@@ -1338,6 +1339,7 @@ qt_add_qml_module(drift
         src/qml/components/assets/SpeechTab.qml
         src/qml/components/assets/StickersTab.qml
         src/qml/components/assets/ShapesTab.qml
+        src/qml/components/assets/FiltersTab.qml
         src/qml/components/assets/AssetSearchBar.qml
         src/qml/components/assets/AssetDragSource.qml
         src/qml/components/assets/MasksTab.qml
@@ -1439,6 +1441,7 @@ qt_add_qml_module(drift
         src/qml/components/AccountAvatar.qml
         src/qml/components/AccountDialog.qml
         src/qml/components/AccountWelcomeDialog.qml
+        src/qml/components/SignInRequiredDialog.qml
         src/qml/components/CopySignInLinkButton.qml
         src/qml/components/LanguageChooserDialog.qml
         src/qml/components/AgentAccessControls.qml

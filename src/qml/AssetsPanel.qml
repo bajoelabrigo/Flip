@@ -625,9 +625,10 @@ PanelFrame {
     function assetVisible(kind) {
         const tabId = tabsModel.get(activeTab).tabId
         if (tabId === "text" || tabId === "subtitles" || tabId === "speech" || tabId === "stickers" || tabId === "shapes"
-                || tabId === "effects" || tabId === "templates" || tabId === "adjustment"
+                || tabId === "effects" || tabId === "templates" || tabId === "effectTemplates" || tabId === "adjustment"
                 || tabId === "sounds" || tabId === "sfx" || tabId === "music" || tabId === "transitions" || tabId === "masks"
-                || tabId === "shortcuts" || tabId === "scenes" || tabId === "market")
+                || tabId === "shortcuts" || tabId === "scenes" || tabId === "market"
+                || tabId === "filters" || tabId === "colorfx")
             return false
         const kinds = kindsForTab(tabId)
         return kinds.length === 0 || kinds.indexOf(kind) >= 0
@@ -646,45 +647,48 @@ PanelFrame {
         "scenes": qsTr("Scenes"),
         "masks": qsTr("Masks"),
         "effects": qsTr("Effects"),
-        "templates": qsTr("Templates"),
+        // Scene templates: the ones downloaded from Stock and the ones saved by the person.
+        "templates": qsTr("My templates"),
+        "effectTemplates": qsTr("Effect templates"),
         "transitions": qsTr("Transitions"),
         "sounds": qsTr("Audio FX"),
         "music": qsTr("Music"),
         "sfx": qsTr("Sound effects"),
+        "filters": qsTr("LUTs"),
+        "colorfx": qsTr("Color effects"),
         "shortcuts": qsTr("Shortcuts")
     })
 
-    // Rail order, by what each tab is about: media → text → graphics on the canvas → video
-    // effects → audio (voice included) → templates → shortcuts. Templates sit under the audio
-    // tools, where Jorge asked for them.
-    // `separatorAfter` draws a hairline under the tab so groups read as sections.
+    // Tab order follows the categories below (Filmora/CapCut): media → Stock → audio → titles →
+    // transitions → effects → filters → stickers → templates, then shortcuts (Help › Shortcuts, F1).
     // tabId "sounds" is kept for favorites persistence (settings key).
     ListModel {
         id: tabsModel
-        ListElement { tabId: "media"; icon: 0; separatorAfter: false }
-        ListElement { tabId: "market"; icon: 12; separatorAfter: true }
-        ListElement { tabId: "text"; icon: 1; separatorAfter: false }
-        ListElement { tabId: "subtitles"; icon: 2; separatorAfter: true }
-        ListElement { tabId: "stickers"; icon: 3; separatorAfter: false }
-        ListElement { tabId: "shapes"; icon: 4; separatorAfter: false }
-        ListElement { tabId: "masks"; icon: 11; separatorAfter: false }
-        ListElement { tabId: "scenes"; icon: 10; separatorAfter: true }
-        ListElement { tabId: "effects"; icon: 5; separatorAfter: false }
-        ListElement { tabId: "transitions"; icon: 7; separatorAfter: true }
-        ListElement { tabId: "music"; icon: 14; separatorAfter: false }
-        ListElement { tabId: "sfx"; icon: 15; separatorAfter: false }
-        ListElement { tabId: "speech"; icon: 13; separatorAfter: false }
-        ListElement { tabId: "sounds"; icon: 8; separatorAfter: true }
-        ListElement { tabId: "templates"; icon: 6; separatorAfter: true }
-        ListElement { tabId: "shortcuts"; icon: 9; separatorAfter: false }
+        ListElement { tabId: "media"; icon: 0 }
+        ListElement { tabId: "scenes"; icon: 10 }
+        ListElement { tabId: "market"; icon: 12 }
+        ListElement { tabId: "music"; icon: 14 }
+        ListElement { tabId: "sfx"; icon: 15 }
+        ListElement { tabId: "speech"; icon: 13 }
+        ListElement { tabId: "sounds"; icon: 8 }
+        ListElement { tabId: "text"; icon: 1 }
+        ListElement { tabId: "subtitles"; icon: 2 }
+        ListElement { tabId: "transitions"; icon: 7 }
+        ListElement { tabId: "effects"; icon: 5 }
+        ListElement { tabId: "filters"; icon: 16 }
+        ListElement { tabId: "colorfx"; icon: 17 }
+        ListElement { tabId: "stickers"; icon: 3 }
+        ListElement { tabId: "shapes"; icon: 4 }
+        ListElement { tabId: "masks"; icon: 11 }
+        ListElement { tabId: "templates"; icon: 6 }
+        ListElement { tabId: "effectTemplates"; icon: 18 }
+        ListElement { tabId: "shortcuts"; icon: 9 }
 
         // A build without a marketplace service (Flip Studio has none yet) drops the tab rather
         // than showing an empty "unavailable" page — same as the Android home nav.
         function dropTab(tabId) {
             for (let i = 0; i < count; ++i) {
                 if (get(i).tabId === tabId) {
-                    if (i > 0)
-                        setProperty(i - 1, "separatorAfter", get(i).separatorAfter)
                     remove(i)
                     return
                 }
@@ -712,12 +716,69 @@ PanelFrame {
         Theme.icons.store,
         Theme.icons.micVocal,
         Theme.icons.music,
-        Theme.icons.volumeHigh
+        Theme.icons.volumeHigh,
+        Theme.icons.blend,
+        Theme.icons.sliders,
+        Theme.icons.sparkles
     ]
     property int activeTab: 0
     readonly property string currentTabId: tabsModel.get(activeTab).tabId
-    // Opening Stock is seeing what is new there: the badge on its tab goes.
-    onCurrentTabIdChanged: if (currentTabId === "market" && Market.configured) Market.markNewsSeen()
+
+    function tabIcon(tabId) {
+        for (let i = 0; i < tabsModel.count; ++i) {
+            if (tabsModel.get(i).tabId === tabId)
+                return root.tabIcons[tabsModel.get(i).icon]
+        }
+        return ""
+    }
+
+    // The row of categories along the top of the panel (Filmora/CapCut). Each one is a group of
+    // tabs; the sidebar lists the tabs of the open category, and a category with a single tab
+    // gives the sidebar's width to the content.
+    readonly property var categories: [
+        { id: "media", label: qsTr("Media"), icon: Theme.icons.film, tabs: ["media", "scenes"] },
+        { id: "market", label: qsTr("Stock"), icon: Theme.icons.store, tabs: ["market"] },
+        { id: "audio", label: qsTr("Audio"), icon: Theme.icons.music, tabs: ["music", "sfx", "speech", "sounds"] },
+        { id: "titles", label: qsTr("Titles"), icon: Theme.icons.type, tabs: ["text", "subtitles"] },
+        { id: "transitions", label: qsTr("Transitions"), icon: Theme.icons.chevronsRight, tabs: ["transitions"] },
+        { id: "effects", label: qsTr("Effects"), icon: Theme.icons.wand, tabs: ["effects"] },
+        { id: "filters", label: qsTr("Filters"), icon: Theme.icons.blend, tabs: ["filters", "colorfx"] },
+        { id: "stickers", label: qsTr("Stickers", "category row"), icon: Theme.icons.smile, tabs: ["stickers", "shapes", "masks"] },
+        { id: "templates", label: qsTr("Templates"), icon: Theme.icons.layers, tabs: ["templates", "effectTemplates"] }
+    ].filter(category => category.id !== "market" || Market.configured)
+
+    // The category a tab belongs to; Shortcuts (Help menu, F1) belongs to none.
+    function categoryOfTab(tabId) {
+        for (const category of root.categories) {
+            if (category.tabs.indexOf(tabId) >= 0)
+                return category
+        }
+        return null
+    }
+
+    readonly property var currentCategory: categoryOfTab(currentTabId)
+    readonly property var sideTabs: currentCategory ? currentCategory.tabs : [currentTabId]
+    readonly property bool showSideList: !root.sheetMode && root.sideTabs.length > 1
+    readonly property real sideListWidth: showSideList ? 138 : 0
+
+    // Coming back to a category opens the tab last used in it (Audio → Sound effects).
+    property var lastTabInCategory: ({})
+
+    function showCategory(categoryId) {
+        const category = root.categories.find(c => c.id === categoryId)
+        if (!category)
+            return
+        const last = root.lastTabInCategory[categoryId]
+        root.showTab(last && category.tabs.indexOf(last) >= 0 ? last : category.tabs[0])
+    }
+
+    onCurrentTabIdChanged: {
+        if (currentCategory)
+            root.lastTabInCategory[currentCategory.id] = currentTabId
+        // Opening Stock is seeing what is new there: the badge on its tab goes.
+        if (currentTabId === "market" && Market.configured)
+            Market.markNewsSeen()
+    }
 
     // Per-tab view state that outlives the tab being unloaded, keyed by tabId. Plain
     // storage: tabs read it once on creation and write each change back.
@@ -820,36 +881,165 @@ PanelFrame {
         }
     }
 
+    // Category row (Filmora/CapCut): Media, Stock, Audio, Titles… Each opens its group of tabs,
+    // listed in the sidebar below. Scrolls sideways when the panel is narrow.
+    // Hidden in sheetMode — AndroidBottomRail drives showTab() instead.
+    Flickable {
+        id: categoryBar
+        width: parent.width
+        height: root.sheetMode ? 0 : 54
+        visible: !root.sheetMode
+        contentWidth: categoryRow.width
+        contentHeight: height
+        clip: true
+        boundsBehavior: Flickable.StopAtBounds
+        interactive: contentWidth > width
+        flickableDirection: Flickable.HorizontalFlick
+
+        Accessible.role: Accessible.PageTabList
+
+        WheelHandler {
+            acceptedDevices: PointerDevice.Mouse
+            onWheel: (event) => {
+                categoryBar.contentX = Math.max(0, Math.min(categoryBar.contentWidth - categoryBar.width,
+                                                            categoryBar.contentX - event.angleDelta.y))
+            }
+        }
+
+        Row {
+            id: categoryRow
+            height: parent.height
+            leftPadding: Theme.spacingXs
+            rightPadding: Theme.spacingXs
+
+            Repeater {
+                model: root.categories
+                delegate: AbstractButton {
+                    id: categoryButton
+                    required property var modelData
+                    readonly property bool current: !!root.currentCategory && root.currentCategory.id === modelData.id
+                    // Stock says what is new in it since it was last opened.
+                    readonly property bool hasNews: modelData.id === "market" && Market.configured
+                                                    && Market.newsCount > 0 && !current
+                    width: Math.max(54, categoryLabel.implicitWidth + Theme.spacingLg * 2)
+                    height: categoryRow.height
+                    hoverEnabled: true
+                    focusPolicy: Qt.StrongFocus
+                    onClicked: root.showCategory(modelData.id)
+
+                    Accessible.role: Accessible.PageTab
+                    Accessible.name: modelData.label
+                    Accessible.checked: current
+
+                    background: Rectangle {
+                        anchors.fill: parent
+                        anchors.margins: 3
+                        radius: Theme.radiusSm
+                        color: categoryButton.down ? Theme.panelMuted
+                                                   : (categoryButton.hovered && !categoryButton.current ? Theme.panelAccent
+                                                                                                        : "transparent")
+                        border.width: categoryButton.visualFocus ? Theme.borderWidthFocus : 0
+                        border.color: Theme.focusRing
+                    }
+
+                    contentItem: Item {
+                        IconGlyph {
+                            id: categoryGlyph
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            y: 9
+                            glyph: categoryButton.modelData.icon
+                            iconSize: Theme.iconSizeBase
+                            iconColor: categoryButton.current ? Theme.primary : Theme.mutedForeground
+                        }
+
+                        Text {
+                            id: categoryLabel
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.top: categoryGlyph.bottom
+                            anchors.topMargin: 4
+                            text: categoryButton.modelData.label
+                            color: categoryButton.current ? Theme.primary : Theme.foreground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                            font.weight: categoryButton.current ? Font.DemiBold : Font.Normal
+                        }
+
+                        Rectangle {
+                            visible: categoryButton.hasNews
+                            x: categoryGlyph.x + categoryGlyph.width - 4
+                            y: categoryGlyph.y - 6
+                            height: Theme.fontSizeXs + 4
+                            width: Math.max(height, newsLabel.implicitWidth + 6)
+                            radius: height / 2
+                            color: Theme.primary
+                            Text {
+                                id: newsLabel
+                                anchors.centerIn: parent
+                                text: Market.newsCount > 99 ? "99+" : String(Market.newsCount)
+                                color: Theme.primaryForeground
+                                font.family: Theme.fontFamily
+                                font.pixelSize: Theme.fontSizeXs - 1
+                                font.weight: Font.DemiBold
+                            }
+                        }
+                    }
+
+                    ThemedToolTip {
+                        text: Market.newsSummary
+                        visible: categoryButton.hasNews && categoryButton.hovered
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        acceptedButtons: Qt.NoButton
+                        cursorShape: Qt.PointingHandCursor
+                    }
+                }
+            }
+        }
+    }
+
+    Rectangle {
+        y: categoryBar.height
+        width: parent.width
+        height: root.sheetMode ? 0 : Theme.borderWidth
+        visible: !root.sheetMode
+        color: Theme.panelBorder
+    }
+
     Row {
-        anchors.fill: parent
+        y: categoryBar.height + (root.sheetMode ? 0 : Theme.borderWidth)
+        width: parent.width
+        height: parent.height - y
         spacing: 0
 
-        // Vertical tab rail. Up/Down move between tabs once it has focus.
-        // Flickable so short panel heights can still reach lower icons.
-        // Hidden in sheetMode — AndroidBottomRail drives showTab() instead.
+        // The tabs of the open category, with their names (Audio → Music, Sound effects, Speech,
+        // Audio FX). Up/Down move between them once it has focus.
         Flickable {
             id: tabRail
-            width: root.sheetMode ? 0 : Theme.tabRailWidth
+            width: root.sideListWidth
             height: parent.height
-            visible: !root.sheetMode
+            visible: root.showSideList
             contentWidth: width
             contentHeight: tabRailColumn.height
             clip: true
             boundsBehavior: Flickable.StopAtBounds
             interactive: contentHeight > height
-            ScrollBar.vertical: AppScrollBar {
-                policy: tabRail.contentHeight > tabRail.height
-                        ? ScrollBar.AlwaysOn : ScrollBar.AsNeeded
-            }
+            ScrollBar.vertical: AppScrollBar {}
 
             Accessible.role: Accessible.PageTabList
 
+            function step(delta) {
+                const tabs = root.sideTabs
+                const at = tabs.indexOf(root.currentTabId)
+                root.showTab(tabs[(at + delta + tabs.length) % tabs.length])
+            }
             Keys.onUpPressed: function(event) {
-                root.activeTab = (root.activeTab - 1 + tabsModel.count) % tabsModel.count
+                step(-1)
                 event.accepted = true
             }
             Keys.onDownPressed: function(event) {
-                root.activeTab = (root.activeTab + 1) % tabsModel.count
+                step(1)
                 event.accepted = true
             }
 
@@ -857,72 +1047,60 @@ PanelFrame {
                 id: tabRailColumn
                 width: parent.width
                 topPadding: Theme.spacingSm
-                spacing: Theme.spacingXs
+                spacing: 2
 
                 Repeater {
-                    model: tabsModel
-                    delegate: Column {
-                        required property int index
-                        required property var model
+                    model: root.sideTabs
+                    delegate: AbstractButton {
+                        id: sideButton
+                        required property string modelData
+                        readonly property bool current: root.currentTabId === modelData
+                        x: Theme.spacingXs
+                        width: tabRailColumn.width - Theme.spacingXs * 2
+                        height: 32
+                        hoverEnabled: true
+                        focusPolicy: Qt.StrongFocus
+                        onClicked: root.showTab(modelData)
 
-                        width: parent.width
-                        spacing: 0
+                        Accessible.role: Accessible.PageTab
+                        Accessible.name: root.tabLabel(modelData)
+                        Accessible.checked: current
 
-                        IconButton {
-                            id: railButton
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            glyph: root.tabIcons[model.icon]
-                            variant: "ghost"
-                            // Stock says what is new in it since it was last opened.
-                            readonly property bool hasNews: model.tabId === "market" && Market.configured
-                                                            && Market.newsCount > 0 && root.activeTab !== index
-                            tooltip: hasNews ? tabLabels[model.tabId] + " — " + Market.newsSummary
-                                             : tabLabels[model.tabId]
-                            active: root.activeTab === index
-                            onClicked: root.activeTab = index
-
-                            Rectangle {
-                                visible: railButton.hasNews
-                                anchors.right: parent.right
-                                anchors.top: parent.top
-                                anchors.rightMargin: -2
-                                anchors.topMargin: -2
-                                height: Theme.fontSizeXs + 4
-                                width: Math.max(height, newsLabel.implicitWidth + 6)
-                                radius: height / 2
-                                color: Theme.primary
-                                Text {
-                                    id: newsLabel
-                                    anchors.centerIn: parent
-                                    text: Market.newsCount > 99 ? "99+" : String(Market.newsCount)
-                                    color: Theme.primaryForeground
-                                    font.family: Theme.fontFamily
-                                    font.pixelSize: Theme.fontSizeXs - 1
-                                    font.weight: Font.DemiBold
-                                }
-                            }
-
-                            Accessible.role: Accessible.PageTab
-                            Accessible.name: tabLabels[model.tabId]
-                            Accessible.checked: root.activeTab === index
+                        background: Rectangle {
+                            radius: Theme.radiusSm
+                            color: sideButton.current ? Theme.panelSecondaryBg
+                                                      : (sideButton.hovered ? Theme.panelAccent : "transparent")
+                            border.width: sideButton.visualFocus ? Theme.borderWidthFocus : 0
+                            border.color: Theme.focusRing
                         }
 
-                        // Group divider — sits in the rail gap so related tabs
-                        // cluster and prefs stay visually apart from content.
-                        Item {
-                            visible: model.separatorAfter
-                            width: parent.width
-                            height: visible ? Theme.spacingLg + Theme.borderWidth : 0
+                        contentItem: Row {
+                            leftPadding: Theme.spacingMd
+                            spacing: Theme.spacingMd
 
-                            Rectangle {
-                                anchors.horizontalCenter: parent.horizontalCenter
+                            IconGlyph {
                                 anchors.verticalCenter: parent.verticalCenter
-                                width: Theme.iconSizeSm
-                                height: Theme.borderWidth
-                                radius: height / 2
-                                color: Theme.panelBorder
-                                opacity: 0.85
+                                glyph: root.tabIcon(sideButton.modelData)
+                                iconSize: Theme.iconSizeSm
+                                iconColor: sideButton.current ? Theme.primary : Theme.mutedForeground
                             }
+
+                            Text {
+                                anchors.verticalCenter: parent.verticalCenter
+                                width: sideButton.width - Theme.spacingMd * 3 - Theme.iconSizeSm
+                                elide: Text.ElideRight
+                                text: root.tabLabel(sideButton.modelData)
+                                color: sideButton.current ? Theme.foreground : Theme.mutedForeground
+                                font.family: Theme.fontFamily
+                                font.pixelSize: Theme.fontSizeSm
+                                font.weight: sideButton.current ? Font.Medium : Font.Normal
+                            }
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            acceptedButtons: Qt.NoButton
+                            cursorShape: Qt.PointingHandCursor
                         }
                     }
                 }
@@ -930,15 +1108,15 @@ PanelFrame {
         }
 
         Rectangle {
-            width: root.sheetMode ? 0 : Theme.borderWidth
+            width: root.showSideList ? Theme.borderWidth : 0
             height: parent.height
-            visible: !root.sheetMode
+            visible: root.showSideList
             color: Theme.panelBorder
         }
 
         Column {
             id: assetsContent
-            width: parent.width - (root.sheetMode ? 0 : (Theme.tabRailWidth + Theme.borderWidth))
+            width: parent.width - (root.showSideList ? root.sideListWidth + Theme.borderWidth : 0)
             height: parent.height
 
             Rectangle {
@@ -949,8 +1127,8 @@ PanelFrame {
                 // search field names the tab and carries its actions.
                 readonly property string tabId: tabsModel.get(root.activeTab).tabId
                 readonly property bool hasActions: kindsForTab(tabId).length > 0
-                readonly property bool searchBarTab: ["text", "stickers", "shapes", "effects", "templates",
-                                                      "transitions", "sounds"].indexOf(tabId) >= 0
+                readonly property bool searchBarTab: ["text", "stickers", "shapes", "effects", "templates", "effectTemplates",
+                                                      "transitions", "sounds", "filters", "colorfx"].indexOf(tabId) >= 0
                 width: parent.width
                 height: searchBarTab || (root.sheetMode && !hasActions) ? 0 : Theme.panelHeaderHeight
                 visible: height > 0
@@ -1129,7 +1307,7 @@ PanelFrame {
                 id: emojiPicker
                 // Hangs off the stickers search bar's + at the panel's right edge, and slides back
                 // rather than running off-window when the panel is dragged narrow.
-                x: Math.max(-Theme.tabRailWidth, assetsContent.width - width - Theme.pagePadding)
+                x: Math.max(-root.sideListWidth, assetsContent.width - width - Theme.pagePadding)
                 y: assetsHeader.height + Theme.pagePadding + Theme.controlHeight + 4
                 onAddonManagerRequested: root.Window.window.openAddonManager("stickers")
                 onAdded: root.addCompleted()
@@ -1320,6 +1498,48 @@ PanelFrame {
             }
 
             Loader {
+                active: root.currentTabId === "filters"
+                visible: active
+                width: parent.width
+                height: parent.height - assetsHeader.height
+                opacity: root.tabOpacity
+                sourceComponent: Component {
+                    FiltersTab {
+                        Component.onCompleted: {
+                            const saved = root.tabState["filters"] || {}
+                            if (saved.search)
+                                searchText = saved.search
+                            if (saved.category)
+                                activeCategory = saved.category
+                        }
+                        onSearchTextChanged: root.rememberTab("filters", "search", searchText)
+                        onActiveCategoryChanged: root.rememberTab("filters", "category", activeCategory)
+                    }
+                }
+            }
+
+            // Filters › Color effects: the Effects browser opened on its Color category.
+            Loader {
+                active: root.currentTabId === "colorfx"
+                visible: active
+                width: parent.width
+                height: parent.height - assetsHeader.height
+                opacity: root.tabOpacity
+                sourceComponent: Component {
+                    EffectBrowser {
+                        Component.onCompleted: {
+                            const saved = root.tabState["colorfx"] || {}
+                            activeCategory = saved.category !== undefined ? saved.category : "color"
+                            if (saved.search)
+                                searchText = saved.search
+                        }
+                        onSearchTextChanged: root.rememberTab("colorfx", "search", searchText)
+                        onActiveCategoryChanged: root.rememberTab("colorfx", "category", activeCategory)
+                    }
+                }
+            }
+
+            Loader {
                 active: root.currentTabId === "templates"
                 visible: active
                 width: parent.width
@@ -1327,18 +1547,45 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     TemplatesTab {
+                        // On the desktop this tab is only the scene templates; the effect ones
+                        // are the next sidebar entry. The phone sheet keeps both behind chips.
+                        showModeChips: root.sheetMode
                         Component.onCompleted: {
                             const saved = root.tabState["templates"] || {}
-                            if (saved.mode)
+                            if (saved.mode && root.sheetMode)
                                 mode = saved.mode
                             if (saved.search)
                                 searchText = saved.search
                             if (saved.category)
                                 activeCategory = saved.category
                         }
-                        onModeChanged: root.rememberTab("templates", "mode", mode)
+                        onModeChanged: if (root.sheetMode) root.rememberTab("templates", "mode", mode)
                         onSearchTextChanged: root.rememberTab("templates", "search", searchText)
                         onActiveCategoryChanged: root.rememberTab("templates", "category", activeCategory)
+                    }
+                }
+            }
+
+            // Templates › Effect templates (music-synced effects for a clip already there).
+            Loader {
+                active: root.currentTabId === "effectTemplates"
+                visible: active
+                width: parent.width
+                height: parent.height - assetsHeader.height
+                opacity: root.tabOpacity
+                sourceComponent: Component {
+                    TemplatesTab {
+                        mode: "effects"
+                        showModeChips: false
+                        Component.onCompleted: {
+                            const saved = root.tabState["effectTemplates"] || {}
+                            if (saved.search)
+                                searchText = saved.search
+                            if (saved.category)
+                                activeCategory = saved.category
+                        }
+                        onSearchTextChanged: root.rememberTab("effectTemplates", "search", searchText)
+                        onActiveCategoryChanged: root.rememberTab("effectTemplates", "category", activeCategory)
                     }
                 }
             }
@@ -1427,7 +1674,7 @@ PanelFrame {
                             if (saved.submittedQuery)
                                 submittedQuery = saved.submittedQuery
                             // "assets" is Drift's own pack, which Flip Studio does not have.
-                            if (saved.section && saved.section !== "assets")
+                            if (saved.section && saved.section !== "assets" && Market.authenticated)
                                 section = saved.section
                         }
                         onSearchTextChanged: root.rememberTab("market", "search", searchText)

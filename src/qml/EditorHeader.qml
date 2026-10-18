@@ -46,7 +46,7 @@ Rectangle {
     // Android Back: closes the topmost dialog this header owns. True if one was open, even when
     // it swallowed the key.
     function closeTopDialog() {
-        const dialogs = [unsavedDialog, exportDialogLoader.item, exportProgressDialogLoader.item,
+        const dialogs = [unsavedDialog, exportDialogLoader.item, signInDialogLoader.item, exportProgressDialogLoader.item,
                          projectPropertiesDialogLoader.item, agentAccessDialog, videoSizeDialogLoader.item,
                          languageChooserDialogLoader.item, packageProgressDialog]
         for (var i = 0; i < dialogs.length; ++i) {
@@ -227,9 +227,43 @@ Rectangle {
             EditorState.projectFile.packageProject(url)
     }
 
+    // Exporting asks for a signed-in account (free all the same); once signed in, the dialog that
+    // asked opens the Export dialog by itself. A build without accounts exports as before.
     function exportVideo() {
+        if (Account.available && !Account.signedIn) {
+            signInDialogLoader.ensure().openFor(() => exportDialogLoader.ensure().openDialog())
+            return
+        }
         exportDialogLoader.ensure().openDialog()
     }
+
+    // For the menu bar (AppMenuBar): the dialogs this header owns.
+    function openVideoSize() {
+        videoSizeDialogLoader.ensure().openDialog()
+    }
+
+    function openProjectProperties() {
+        projectPropertiesDialogLoader.ensure().openDialog()
+    }
+
+    function openLanguageChooser() {
+        languageChooserDialogLoader.ensure().openFromHeader()
+    }
+
+    function openAgentAccess() {
+        agentAccessDialog.openDialog()
+    }
+
+    // A Store copy updates through the Store; the others check now (the Update button does the same).
+    function checkUpdates() {
+        if (!Updates.supported && Qt.platform.os === "windows")
+            Qt.openUrlExternally("ms-windows-store://pdp/?productid=9NZZJ9MRGT0B")
+        else
+            root.Window.window.checkForUpdates()
+    }
+
+    // Windows and Linux get the menu bar in the header; macOS has its native one.
+    readonly property bool showMenuBar: !Theme.isMacOS && Qt.platform.os !== "android"
 
     // True once the user has dismissed the progress dialog while an export is
     // still running; drives the circular-progress badge next to Export.
@@ -258,6 +292,11 @@ Rectangle {
     LazyLoader {
         id: exportDialogLoader
         sourceComponent: Component { ExportDialog { } }
+    }
+
+    LazyLoader {
+        id: signInDialogLoader
+        sourceComponent: Component { SignInRequiredDialog { } }
     }
 
     LazyLoader {
@@ -345,6 +384,12 @@ Rectangle {
                 variant: "ghost"
                 tooltip: qsTr("Home — your projects")
                 onClicked: root.closeProject()
+            }
+
+            AppMenuBar {
+                header: root
+                visible: root.showMenuBar
+                anchors.verticalCenter: parent.verticalCenter
             }
 
             // Gmail-style status pill: saved/unsaved dot, project name, chevron.
@@ -479,7 +524,8 @@ Rectangle {
                 glyph: Theme.icons.store
                 variant: "ghost"
                 text: qsTr("Stock")
-                visible: Market.configured
+                // With the menu bar, Stock is in the category row over the assets panel.
+                visible: Market.configured && !root.showMenuBar
                 active: root.stockActive
                 // What is new in Stock since it was last opened ("12 new templates").
                 readonly property bool hasNews: Market.newsCount > 0 && !root.stockActive
@@ -603,7 +649,8 @@ Rectangle {
                     anchors.fill: parent
                     glyph: Theme.icons.settings
                     variant: "ghost"
-                    text: qsTr("Settings")
+                    // Icon only next to the menu bar, which has these entries too.
+                    text: root.showMenuBar ? "" : qsTr("Settings")
                     active: settingsMenu.opened
                     tooltip: qsTr("Workspace, theme, language and more")
                     onClicked: settingsMenu.popup(0, settingsButton.height + Theme.spacingMd)
@@ -813,7 +860,7 @@ Rectangle {
                     anchors.fill: parent
                     glyph: Theme.icons.puzzle
                     variant: "ghost"
-                    text: qsTr("Extras")
+                    text: root.showMenuBar ? "" : qsTr("Extras")
                     tooltip: extrasButton.attention
                              ? qsTr("Recommended packs and updates")
                              : qsTr("Extras")
@@ -874,7 +921,7 @@ Rectangle {
             IconButton {
                 glyph: Theme.icons.bot
                 variant: "ghost"
-                text: qsTr("Agent")
+                text: root.showMenuBar ? "" : qsTr("Agent")
                 active: EditorState.mcp.running
                 tooltip: EditorState.mcp.running
                          ? qsTr("Agent access is on")

@@ -13,9 +13,14 @@ Column {
     // Passed through to the effect browser, which the panel restores.
     property string searchText: ""
     property string activeCategory: ""
+    // The Scenes / Effects chips. Off on the desktop, where the sidebar lists the two as
+    // Templates › My templates and Effect templates (AssetsPanel).
+    property bool showModeChips: true
 
     Row {
         id: modeRow
+        visible: root.showModeChips
+        height: visible ? implicitHeight : 0
         x: Theme.pagePadding
         topPadding: Theme.spacingSm
         bottomPadding: Theme.spacingSm

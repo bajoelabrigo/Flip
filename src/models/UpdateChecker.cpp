@@ -44,9 +44,10 @@
 
 namespace {
 
-// Once a day. The feed is GitHub's own API and the check is a single conditional-ish GET, but
-// there is no reason to ask more often than releases happen.
-constexpr qint64 kCheckIntervalSeconds = 24 * 60 * 60;
+// Every launch checks (one DNS TXT lookup; GitHub is only asked when that names a newer version),
+// and an editor left open checks again this often. Once a day missed a release published right
+// after that day's check, until the next day (Jorge, 2026-10-18).
+constexpr int kRecheckIntervalMs = 6 * 60 * 60 * 1000;
 
 // Long enough that the first frame, the project restore and the addon index refresh are all past
 // before a socket is opened. Nothing in the app waits on this.
@@ -338,16 +339,15 @@ void UpdateChecker::scheduleStartup()
     if (!supported() || !enabled())
         return;
 
-    const QDateTime last = QSettings().value(settingsKey("lastCheck")).toDateTime();
-    const bool due = !last.isValid()
-            || last.secsTo(QDateTime::currentDateTimeUtc()) >= kCheckIntervalSeconds;
+    QTimer::singleShot(kStartupDelayMs, this, [this] { check(false); });
 
-    QTimer::singleShot(kStartupDelayMs, this, [this, due] {
-        if (due)
+    auto *recheck = new QTimer(this);
+    recheck->setInterval(kRecheckIntervalMs);
+    connect(recheck, &QTimer::timeout, this, [this] {
+        if (enabled())
             check(false);
-        else
-            announceIfNeeded();
     });
+    recheck->start();
 }
 
 void UpdateChecker::checkNow()

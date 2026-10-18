@@ -159,13 +159,13 @@ ApplicationWindow {
                 Platform.MenuItem {
                     text: qsTr("&Undo")
                     shortcut: StandardKey.Undo
-                    enabled: !window.showStartScreen && EditorState.canUndo
+                    enabled: !window.showStartScreen && EditorState.undoAvailable
                     onTriggered: window.dispatchAction("undo")
                 }
                 Platform.MenuItem {
                     text: qsTr("&Redo")
                     shortcut: StandardKey.Redo
-                    enabled: !window.showStartScreen && EditorState.canRedo
+                    enabled: !window.showStartScreen && EditorState.redoAvailable
                     onTriggered: window.dispatchAction("redo")
                 }
                 Platform.MenuSeparator {}
@@ -1139,6 +1139,12 @@ ApplicationWindow {
     // Jumps the assets panel to a tab ("subtitles", "effects", ...): toolbar shortcuts into it.
     function showAssetsTab(tabId) {
         assetsPanel.showTab(tabId)
+    }
+
+    // File › Import Media… in the menu bar: the Media tab, then the file picker.
+    function importMediaFiles() {
+        assetsPanel.showTab("media")
+        assetsPanel.importMedia()
     }
 
     function openDenoise(track, clip, durationSeconds) {

@@ -6897,6 +6897,15 @@ void AppController::deleteSelectedClip()
     QList<QPair<int, int>> pairs = m_selection;
     expandSelectionWithLinkedPartners(m_project, pairs);
     QSet<QString> removedClipIds;
+    // With "Close gaps when trimming" on, what was deleted leaves no hole (CapCut, Filmora): the
+    // clips after it move left. A clip and its linked partners share one span, so they ripple
+    // their tracks together, once.
+    struct RemovedSpan {
+        drift::TimeUs start = 0;
+        drift::TimeUs end = 0;
+        QSet<int> tracks;
+    };
+    QList<RemovedSpan> removedSpans;
     std::sort(pairs.begin(), pairs.end(), [](const QPair<int, int> &a, const QPair<int, int> &b) {
         if (a.first != b.first)
             return a.first > b.first;
@@ -6905,8 +6914,34 @@ void AppController::deleteSelectedClip()
     for (const QPair<int, int> &pair : pairs) {
         if (!isValidClipIndex(pair.first, pair.second))
             continue;
-        removedClipIds.insert(m_project.tracks().at(pair.first).clips.at(pair.second).id);
+        const drift::Clip &removed = m_project.tracks().at(pair.first).clips.at(pair.second);
+        removedClipIds.insert(removed.id);
+        if (m_rippleEnabled) {
+            auto span = std::find_if(removedSpans.begin(), removedSpans.end(), [&](const RemovedSpan &s) {
+                return s.start == removed.timelineStart && s.end == removed.timelineEnd();
+            });
+            if (span == removedSpans.end())
+                removedSpans.append({removed.timelineStart, removed.timelineEnd(), {pair.first}});
+            else
+                span->tracks.insert(pair.first);
+        }
         m_project.tracks()[pair.first].clips.removeAt(pair.second);
+    }
+    // Latest span first, so closing one gap does not move a span still to be closed.
+    std::sort(removedSpans.begin(), removedSpans.end(),
+              [](const RemovedSpan &a, const RemovedSpan &b) { return a.start > b.start; });
+    for (const RemovedSpan &span : std::as_const(removedSpans)) {
+        // Only the part of the span left empty closes: a clip still running into it (overlap on)
+        // keeps its room.
+        drift::TimeUs gapStart = span.start;
+        for (const int t : span.tracks) {
+            for (const drift::Clip &clip : m_project.tracks().at(t).clips) {
+                if (clip.timelineStart < span.start && clip.timelineEnd() > gapStart)
+                    gapStart = qMin(clip.timelineEnd(), span.end);
+            }
+        }
+        if (gapStart < span.end)
+            rippleTracksFrom(m_project, span.tracks, span.end, gapStart - span.end, {});
     }
     for (drift::Track &track : m_project.tracks()) {
         for (int i = track.transitions.size() - 1; i >= 0; --i) {

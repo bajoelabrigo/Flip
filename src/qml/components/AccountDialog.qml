@@ -27,7 +27,7 @@ ThemedDialog {
         { id: "sounds", label: qsTr("Sounds"), tab: "sfx" },
         { id: "effects", label: qsTr("Effects"), tab: "effects" },
         { id: "transitions", label: qsTr("Transitions"), tab: "transitions" },
-        { id: "templates", label: qsTr("Templates"), tab: "templates" },
+        { id: "templates", label: qsTr("Templates"), tab: "effectTemplates" },
         { id: "stickers", label: qsTr("Stickers"), tab: "stickers" },
         { id: "shapes", label: qsTr("Shapes"), tab: "shapes" },
         { id: "textStyles", label: qsTr("Text styles"), tab: "text" },

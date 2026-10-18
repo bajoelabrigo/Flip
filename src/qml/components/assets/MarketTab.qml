@@ -97,7 +97,8 @@ Item {
                 root.section = Market.activeTypeId || "stock"
         }
         function onAuthChanged() {
-            if (!Market.authenticated && root.stockSection)
+            // Signed out, all of Stock (sound effects too) waits behind the sign-in panel.
+            if (!Market.authenticated)
                 root.section = "stock"
             root.ensureCatalog()
         }
@@ -162,7 +163,7 @@ Item {
                 spacing: Theme.spacing2xl
 
                 Repeater {
-                    model: (Sfx.available ? [{ id: "sfx", label: qsTr("SFX") }] : [])
+                    model: (Sfx.available && Market.authenticated ? [{ id: "sfx", label: qsTr("SFX") }] : [])
                            .concat(root.stockTabs)
                     delegate: Item {
                         required property var modelData
@@ -253,7 +254,8 @@ Item {
             query: root.section === "sfx" ? root.query : ""
         }
 
-        // Signed out: stock needs the Flip Studio account.
+        // Signed out: Stock needs the Flip Studio account. Everything in it is free, and the panel
+        // says so first (Jorge, 2026-10-18).
         Column {
             anchors.centerIn: parent
             width: Math.min(parent.width - root.sidePadding * 2, 360)
@@ -272,13 +274,14 @@ Item {
                 size: "sm"
                 tone: "default"
                 horizontalAlignment: Text.AlignHCenter
-                text: qsTr("Free templates, photos and videos")
+                font.weight: Font.DemiBold
+                text: qsTr("Everything in Stock is free")
             }
 
             ThemedLabel {
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
-                text: qsTr("Sign in with your Google account to search and download them straight into your project.")
+                text: qsTr("Templates, music, stickers, photos and videos at no cost. You only need to sign in with your Google account to see them and download them into your project.")
             }
 
             ThemedButton {

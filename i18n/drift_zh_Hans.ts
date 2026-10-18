@@ -247,8 +247,8 @@
         <translation>使用 Google 账号登录，即可在编辑器中直接搜索 Pexels 和 Pixabay 的免费照片和视频。你的账号还将保存你的模板和你的商店。</translation>
     </message>
     <message>
-        <source>You can also continue without an account: editing works exactly the same.</source>
-        <translation>你也可以不登录账号继续使用：编辑功能完全相同。</translation>
+        <source>Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -5535,6 +5535,313 @@
     </message>
 </context>
 <context>
+    <name>AppMenuBar</name>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">文件</translation>
+    </message>
+    <message>
+        <source>New Project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Project…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import Media…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Project</source>
+        <translation type="unfinished">保存项目</translation>
+    </message>
+    <message>
+        <source>Save Project As…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Shareable Copy…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export Video…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video Size and Layout…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Project Properties…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preferences…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard Shortcuts</source>
+        <translation type="unfinished">键盘快捷键</translation>
+    </message>
+    <message>
+        <source>Back to Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">编辑</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished">撤销</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished">重做</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished">剪切</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">复制</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished">粘贴</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">删除</translation>
+    </message>
+    <message>
+        <source>Copy Effects</source>
+        <translation type="unfinished">复制特效</translation>
+    </message>
+    <message>
+        <source>Paste Effects</source>
+        <translation type="unfinished">粘贴特效</translation>
+    </message>
+    <message>
+        <source>Paste Attributes…</source>
+        <translation type="unfinished">粘贴属性…</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished">全选</translation>
+    </message>
+    <message>
+        <source>Deselect All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation type="unfinished">分割</translation>
+    </message>
+    <message>
+        <source>Merge Clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separate Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Link Clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlink Clips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group (Compound Clip)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished">取消编组</translation>
+    </message>
+    <message>
+        <source>Save as Template…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transform Together</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text to Speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scene Detection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Multicam</source>
+        <translation type="unfinished">多机位</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play / Pause</source>
+        <translation type="unfinished">播放 / 暂停</translation>
+    </message>
+    <message>
+        <source>Go to Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Previous Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loop Playback</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add or Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next Bookmark</source>
+        <translation type="unfinished">下一个书签</translation>
+    </message>
+    <message>
+        <source>Previous Bookmark</source>
+        <translation type="unfinished">上一个书签</translation>
+    </message>
+    <message>
+        <source>Zoom In</source>
+        <translation type="unfinished">放大</translation>
+    </message>
+    <message>
+        <source>Zoom Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fullscreen Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Guides</source>
+        <translation type="unfinished">参考线</translation>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation type="unfinished">工作区</translation>
+    </message>
+    <message>
+        <source>Auto (follow canvas)</source>
+        <translation type="unfinished">自动（跟随画布）</translation>
+    </message>
+    <message>
+        <source>Landscape</source>
+        <translation type="unfinished">横屏</translation>
+    </message>
+    <message>
+        <source>Portrait</source>
+        <translation type="unfinished">竖屏</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="unfinished">主题</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">深色</translation>
+    </message>
+    <message>
+        <source>Language…</source>
+        <translation type="unfinished">语言…</translation>
+    </message>
+    <message>
+        <source>Switch to Mobile Layout…</source>
+        <translation type="unfinished">切换到移动端布局…</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished">高级</translation>
+    </message>
+    <message>
+        <source>Extras…</source>
+        <translation type="unfinished">扩展…</translation>
+    </message>
+    <message>
+        <source>Agent Access…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloads</source>
+        <translation type="unfinished">下载</translation>
+    </message>
+    <message>
+        <source>Debug Info…</source>
+        <translation type="unfinished">调试信息…</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What&apos;s New</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio Website</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Check for Updates…</source>
+        <translation type="unfinished">检查更新…</translation>
+    </message>
+    <message>
+        <source>My Account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About Flip Studio</source>
+        <translation type="unfinished">关于 Flip Studio</translation>
+    </message>
+</context>
+<context>
     <name>AssetCategoryChips</name>
     <message>
         <source>My Effects</source>
@@ -5766,6 +6073,19 @@
         <translation>效果</translation>
     </message>
     <message>
+        <source>My templates</source>
+        <translation type="unfinished">我的模板</translation>
+    </message>
+    <message>
+        <source>Effect templates</source>
+        <translation type="unfinished">特效模板</translation>
+    </message>
+    <message>
+        <source>Stickers</source>
+        <comment>category row</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Templates</source>
         <translation>模板</translation>
     </message>
@@ -5782,8 +6102,28 @@
         <translation>音乐</translation>
     </message>
     <message>
+        <source>LUTs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished">音频</translation>
+    </message>
+    <message>
+        <source>Titles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filters</source>
+        <translation type="unfinished">筛选</translation>
     </message>
     <message>
         <source>Drop to import</source>
@@ -11369,6 +11709,69 @@
     </message>
 </context>
 <context>
+    <name>FiltersTab</name>
+    <message>
+        <source>Looks</source>
+        <translation type="unfinished">风格</translation>
+    </message>
+    <message>
+        <source>Imported</source>
+        <translation type="unfinished">已导入</translation>
+    </message>
+    <message>
+        <source>Select a video or photo clip first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import LUT</source>
+        <translation type="unfinished">导入 LUT</translation>
+    </message>
+    <message>
+        <source>LUT (*.cube)</source>
+        <translation type="unfinished">LUT (*.cube)</translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation type="unfinished">所有文件 (*)</translation>
+    </message>
+    <message>
+        <source>This file is not a LUT that can be used.</source>
+        <translation type="unfinished">此文件不是可用的 LUT。</translation>
+    </message>
+    <message>
+        <source>Search filters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click a filter to put it on the selected clip. Its strength is in Adjust › LUT.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or photo clip, then click a filter.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import LUT…</source>
+        <translation type="unfinished">导入 LUT…</translation>
+    </message>
+    <message>
+        <source>No filters match “%1”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing in this category.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete from my LUTs</source>
+        <translation type="unfinished">从我的 LUT 中删除</translation>
+    </message>
+</context>
+<context>
     <name>FontCatalog</name>
     <message>
         <source>Choose a .ttf, .otf or .ttc font file</source>
@@ -12859,12 +13262,12 @@
         <translation>视频素材</translation>
     </message>
     <message>
-        <source>Free templates, photos and videos</source>
-        <translation>免费模板、照片和视频</translation>
+        <source>Everything in Stock is free</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with your Google account to search and download them straight into your project.</source>
-        <translation>使用 Google 账号登录，即可搜索并直接下载到你的项目中。</translation>
+        <source>Templates, music, stickers, photos and videos at no cost. You only need to sign in with your Google account to see them and download them into your project.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -15437,10 +15840,6 @@ If playback stutters, try another.</source>
         <translation>将效果保存为预设</translation>
     </message>
     <message>
-        <source>Keep scrolling for %1</source>
-        <translation>继续向下滚动查看%1</translation>
-    </message>
-    <message>
         <source>My look</source>
         <translation>我的风格</translation>
     </message>
@@ -16976,10 +17375,6 @@ If playback stutters, try another.</source>
         <translation>账户</translation>
     </message>
     <message>
-        <source>Sign in with Google to search free photos and videos from Pexels and Pixabay. Editing works the same without an account.</source>
-        <translation>使用 Google 登录，即可搜索 Pexels 和 Pixabay 的免费照片和视频。没有账户也能照常编辑。</translation>
-    </message>
-    <message>
         <source>Waiting for the browser…</source>
         <translation>正在等待浏览器…</translation>
     </message>
@@ -17142,6 +17537,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Restart Flip Studio to apply this size.</source>
         <translation>重启 Flip Studio 以应用此大小。</translation>
+    </message>
+    <message>
+        <source>Everything is free. Sign in with Google to export your videos and to use Stock: templates, music, photos and videos.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Flip Studio %1</source>
@@ -17841,6 +18240,41 @@ If playback stutters, try another.</source>
     <message>
         <source>Shortcuts reset to defaults.</source>
         <translation>快捷键已恢复为默认设置。</translation>
+    </message>
+</context>
+<context>
+    <name>SignInRequiredDialog</name>
+    <message>
+        <source>Sign in to export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished">正在等待浏览器…</translation>
+    </message>
+    <message>
+        <source>Sign in with Google</source>
+        <translation type="unfinished">使用 Google 登录</translation>
+    </message>
+    <message>
+        <source>Choose your account in the browser window that opened, then come back here.</source>
+        <translation type="unfinished">在打开的浏览器窗口中选择你的账号，然后返回这里。</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <source>Not now</source>
+        <translation type="unfinished">以后再说</translation>
     </message>
 </context>
 <context>

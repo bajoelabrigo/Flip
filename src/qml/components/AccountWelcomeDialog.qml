@@ -34,7 +34,7 @@ ThemedDialog {
         ThemedLabel {
             width: parent.width
             wrapMode: Text.WordWrap
-            text: qsTr("You can also continue without an account: editing works exactly the same.")
+            text: qsTr("Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.")
         }
 
         ThemedButton {

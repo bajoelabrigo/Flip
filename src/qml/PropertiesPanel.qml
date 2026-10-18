@@ -158,43 +158,6 @@ PanelFrame {
           needs: ["transitionable"] }
     ]
 
-    // The visible tab `step` places after (1) or before (-1) the open one, without wrapping;
-    // -1 when there is none.
-    function adjacentTab(step) {
-        for (let i = activeTab + step; i >= 0 && i < tabs.length; i += step) {
-            if (tabVisible(tabs[i].id) && tabs[i].id !== "subtitles")
-                return i
-        }
-        return -1
-    }
-
-    // The open tab's own CapCut pages (Básico, Burbuja, Efectos… or Básico, Eliminar fondo,
-    // Máscara, Retoque), so scrolling on walks through them before it moves to the next tab.
-    function pageHost() {
-        const id = root.currentTabId
-        const item = id === "text" ? textLoader.item : id === "video" ? videoLoader.item
-                   : id === "adjust" ? adjustLoader.item : id === "audio" ? audioLoader.item : null
-        return item && item.pages && item.pages.length > 1 ? item : null
-    }
-
-    function adjacentPage(step) {
-        const host = pageHost()
-        if (!host)
-            return null
-        const i = host.pages.findIndex(p => p.id === host.page) + step
-        return i >= 0 && i < host.pages.length ? host.pages[i] : null
-    }
-
-    function openPage(id) {
-        const host = pageHost()
-        if (!host)
-            return
-        if (root.currentTabId === "text")
-            host.textTab = id
-        else
-            host.page = id
-    }
-
     function tabVisible(tabId) {
         const tab = root.tabs[tabIndexOf(tabId)]
         return !!tab && tab.needs.every(cap => root.caps.indexOf(cap) >= 0)
@@ -839,103 +802,11 @@ PanelFrame {
                     }
                 }
 
-                // Where scrolling on goes: the end of one tab leads into the next, as on CapCut.
-                Text {
-                    readonly property var nextPage: root.adjacentPage(1)
-                    readonly property int nextTab: root.adjacentTab(1)
-                    visible: !root.sheetMode && (nextPage !== null || nextTab >= 0)
-                    width: tabColumn.width
-                    topPadding: Theme.spacingLg
-                    horizontalAlignment: Text.AlignHCenter
-                    text: nextPage ? qsTr("Keep scrolling for %1").arg(nextPage.label)
-                        : nextTab >= 0 ? qsTr("Keep scrolling for %1").arg(root.tabs[nextTab].label) : ""
-                    color: Theme.mutedForeground
-                    font.family: Theme.fontFamily
-                    font.pixelSize: Theme.fontSizeTiny
-                    opacity: 0.8
-                }
             }
         }
 
-        // CapCut-style continuous scroll: rolling the wheel on past the end of a tab opens the next
-        // one, and past the top the previous one (at its end). Over the Flickable, but it only takes
-        // the wheel at an end; everything else (and every click) goes through to the controls.
-        MouseArea {
-            anchors.fill: tabFlick
-            visible: tabFlick.visible && !root.sheetMode
-            acceptedButtons: Qt.NoButton
-            z: 5
-            property real overscroll: 0
-            readonly property real threshold: 240
-            // Set by a page or tab change and held while the wheel keeps rolling: one flick moves
-            // one page, instead of the rest of it running on through two or three more.
-            property bool settling: false
-
-            Timer {
-                id: settleTimer
-                interval: 450
-                onTriggered: parent.settling = false
-            }
-
-            onWheel: (wheel) => {
-                if (settling) {
-                    settleTimer.restart()
-                    wheel.accepted = true
-                    return
-                }
-                const dy = wheel.angleDelta.y !== 0 ? wheel.angleDelta.y : wheel.pixelDelta.y
-                const fits = tabFlick.contentHeight <= tabFlick.height + 1
-                const atEnd = fits || tabFlick.contentY >= tabFlick.contentHeight - tabFlick.height - 1
-                const atStart = fits || tabFlick.contentY <= 1
-                if ((dy < 0 && atEnd) || (dy > 0 && atStart)) {
-                    // Opposite direction starts the count again.
-                    if ((overscroll > 0) !== (dy < 0))
-                        overscroll = 0
-                    overscroll += -dy
-                    if (Math.abs(overscroll) >= threshold) {
-                        const forward = overscroll > 0
-                        overscroll = 0
-                        settling = true
-                        settleTimer.restart()
-                        const toEnd = () => { tabFlick.contentY = Math.max(0, tabFlick.contentHeight - tabFlick.height) }
-                        const page = root.adjacentPage(forward ? 1 : -1)
-                        if (page) {
-                            // The next page of this tab first: at its top going on, at its end going back.
-                            root.openPage(page.id)
-                            if (forward)
-                                tabFlick.contentY = 0
-                            else
-                                Qt.callLater(toEnd)
-                        } else {
-                            const target = root.adjacentTab(forward ? 1 : -1)
-                            if (target >= 0) {
-                                root.activeTab = target
-                                if (forward) {
-                                    // A tab with pages opens on its first one.
-                                    Qt.callLater(() => {
-                                        const host = root.pageHost()
-                                        if (host)
-                                            root.openPage(host.pages[0].id)
-                                        tabFlick.contentY = 0
-                                    })
-                                } else {
-                                    Qt.callLater(() => {
-                                        const host = root.pageHost()
-                                        if (host)
-                                            root.openPage(host.pages[host.pages.length - 1].id)
-                                        Qt.callLater(toEnd)
-                                    })
-                                }
-                            }
-                        }
-                    }
-                    wheel.accepted = true
-                    return
-                }
-                overscroll = 0
-                wheel.accepted = false
-            }
-        }
+        // The wheel stays within the open page: past its end it stops there, it does not open the
+        // next page or tab (Jorge, 2026-10-18: confusing here; the assets panel keeps scrolling on).
 
         // Full-height editor with its own internal cue list scrolling, so it
         // sits beside the tab Flickable rather than inside it.

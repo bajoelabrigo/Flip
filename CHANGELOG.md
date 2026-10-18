@@ -3,6 +3,28 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.16.0 — Menú como en Filmora y CapCut
+
+- **Menú arriba** (`AppMenuBar.qml`, Windows y Linux; macOS sigue con su menú nativo): Archivo, Editar,
+  Herramientas, Ver, Avanzado y Ayuda, cada entrada una acción que ya existía, con su atajo
+  (`EditorState.shortcutFor`). Junto al menú, Ajustes, Extras y Agente quedan solo con icono y el botón Stock de la
+  cabecera se va a la fila de categorías.
+- **Categorías sobre el panel de recursos** (`AssetsPanel.qml`): Medios, Stock, Audio, Títulos, Transiciones,
+  Efectos, Filtros, Stickers y Plantillas. La barra lateral lista las pestañas de la categoría abierta con su nombre
+  y se oculta cuando hay una sola; volver a una categoría abre su última pestaña. En la hoja de Android no cambia.
+- **Filtros** (`FiltersTab.qml`): la galería de LUTs en el panel, aplicada al clip seleccionado (`color.lut`), y
+  «Efectos de color» (el navegador de efectos en su categoría Color).
+- **Plantillas › Mis plantillas y Plantillas de efectos**: `TemplatesTab.showModeChips` apaga los chips en
+  escritorio; las favoritas de plantillas de Mi cuenta abren `effectTemplates`.
+- **Iniciar sesión para exportar y para Stock** (`SignInRequiredDialog.qml`): todo sigue gratis y el aviso lo dice
+  primero; al iniciar sesión se abre Exportar. En Stock, también los efectos de sonido esperan a la sesión.
+- **Cerrar huecos al borrar** (`AppController::deleteSelectedClip`): con el modo activado, cada tramo borrado
+  corre lo que sigue en sus pistas (con el audio vinculado). Prueba `deleteRipplesFollowers`.
+- **Panel de propiedades sin saltos de página con la rueda** (se quitó el «Sigue bajando para ver…»).
+- **Actualizaciones**: se buscan en cada arranque y cada 6 horas (`UpdateChecker::scheduleStartup`).
+- **Tarjetas de LUT** (Filtros y Ajustar › LUT) con `TapHandler`/`HoverHandler`: el `MouseArea` no recibía el clic
+  en la prueba en ventana. Los menús leen `undoAvailable`/`redoAvailable` (`canUndo` no existe).
+
 ## 0.15.0 — Stock para creadores: plantillas de estilo youtuber, kits y menú con chips
 
 - **Menú de Stock:** `MarketTab.qml` deja arriba solo Todos, Videos y Fotos (`primaryIds`); los tipos propios van en
