@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Matches the dark charcoal ground of FlipStudio_icon.png / Theme.appBackground. -->
-    <color name="ic_launcher_background">#0D0D0D</color>
+    <!-- The navy of the logo's tile (FlipStudio_icon.png, 2026-10-19). -->
+    <color name="ic_launcher_background">#080E16</color>
     <color name="splash_background">#0D0D0D</color>
 </resources>
