@@ -234,12 +234,29 @@ no cuadraba era el cromo, en todas las pestañas de catálogo a la vez:
   conservan su cabecera. `tsc` limpio y las 99 pruebas en verde.
 
 **Lo que aún no cuadra dentro de las pestañas** (siguiente en la lista, por orden del escritorio):
-1. **Medios**: falta la fila «Buscar medios» con los botones de vista (cuadrícula / lista / árbol) y el de ordenar
-   por nombre o tipo (`MediaAssetsTab.qml`), y las carpetas con su cabecera «Nueva carpeta» + «Importar» partido.
+1. **Medios**: hecha la fila «Buscar medios» con vista de cuadrícula/lista y el orden (octava tanda); **faltan las
+   carpetas** («Nueva carpeta», ruta, mover/renombrar) y por eso también la vista de árbol, y el «Importar» partido.
 2. **Filtros › LUTs**: el escritorio lleva «Buscar filtros», chips y «Importar LUT…» en el cromo; la web solo tiene
    la galería y el botón de Stock.
 3. **Formas**: el escritorio tiene categorías (`builtinShapeCategories`) y favoritos; la web es una lista plana.
 4. **Máscaras** y **Voz**: comparar su contenido pieza por pieza con `MasksTab.qml` y `SpeechTab.qml`.
+
+### Octava tanda (2026-10-19, Claude): Medios, con la fila de `MediaAssetsTab.qml`
+- **Fila de controles** bajo la cabecera, como el escritorio: «Buscar medios» (filtra por nombre) y los tres botones
+  a su derecha —vista de **cuadrícula**, vista de **lista** y **ordenar por nombre / por tipo**—, recordados entre
+  visitas (`flip.mediaView` y `flip.mediaSort` en `localStorage`, como `EditorState.mediaViewMode`).
+- **Vista de lista** nueva: fila con miniatura de 56×32 (o el icono del tipo), nombre, `tipo · duración` y los botones
+  «+» y «⋯», como el `listDelegate` del escritorio. Se sigue pudiendo arrastrar a la línea de tiempo.
+- **Sin resultados**: «Ningún medio coincide con «…»» en vez de una lista vacía.
+- Comprobado en el navegador con dos archivos reales (un MP4 y un WAV) contra la web desplegada: buscador, las dos
+  vistas, el orden por tipo (video antes que audio), la búsqueda que deja un solo resultado y el aviso sin resultados.
+  `tsc` limpio y las 99 pruebas en verde.
+
+**Lo que falta de Medios** (lo siguiente, en este orden):
+1. **Carpetas**: «Nueva carpeta» en la cabecera, la ruta sobre la cuadrícula (`BinBreadcrumb.qml`), mover medios y
+   carpetas, renombrar y borrar. Es lo que da sentido a la vista de **árbol**, que por eso aún no está.
+2. **Importar partido**: el botón del escritorio tiene dos mitades (archivos / carpeta entera).
+3. **Mover a carpeta** desde el «⋯» de cada medio.
 
 ## PARA SEGUIR (traspaso del 2026-10-19, de Claude a DeepSeek): leer esto primero
 
