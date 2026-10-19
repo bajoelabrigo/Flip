@@ -10,8 +10,11 @@ parecido posible** a la app de escritorio. **Empezamos a armarlo mañana, 2026-1
 - **Nada de código de Drift en la web:** los shaders y el código de Drift son GPL y `flipstudio-app` es privado. Los
   efectos y transiciones de la web se escriben desde cero. Lo que escribimos nosotros (por ejemplo `face_blemish`,
   las plantillas, los generadores de Stock) es nuestro y sí se puede reusar.
-- **Un solo formato:** la web ya abre y guarda `.drift` (`project/driftBundle.ts`); todo lo nuevo tiene que
-  sobrevivir el viaje escritorio → web → escritorio.
+- **Un solo formato, el `.flip`:** el escritorio guarda como `.flip` y sigue abriendo los `.drift` de antes (es el
+  mismo paquete, solo cambia la extensión: `EditorHeader.qml`, «Flip Studio project (*.flip *.drift)»). La web hoy
+  solo conoce `.drift` (`Home.tsx`: `accept=".drift"`, «Importar .drift»; `App.tsx` descarga `.drift`): tiene que
+  abrir `.flip` y `.drift` y guardar `.flip`, igual que el escritorio. Todo lo nuevo tiene que sobrevivir el viaje
+  escritorio → web → escritorio (`project/driftBundle.ts`).
 - **Mismo servidor:** la cuenta de Google y Stock usan `api.getflipstudio.com`, igual que el escritorio.
 - Cada versión nueva del escritorio dice en su `docs/plan-<versión>.md` qué parte pasa a la web.
 
@@ -29,6 +32,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Fila de categorías sobre el panel de recursos | 0.16 | 🟡 | Hay `CategoryScrollOn.tsx`; falta la fila completa de `AssetsPanel.qml` |
 | Panel izquierdo con barra de iconos e inspector derecho con su barra | 0.9.x | ✅ | |
 | Idiomas de la app (13) | sí | ❓ | Comprobar qué idiomas tiene la web |
+| Proyectos `.flip` (abrir `.flip` y `.drift`, guardar `.flip`) | sí | ⬜ | La web solo importa y descarga `.drift` |
 
 ### Cuenta y Stock
 | Función | Escritorio | Web | Notas |
@@ -102,7 +106,8 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | GIF | sí | ❓ | |
 
 ## Orden propuesto (a confirmar con Jorge mañana)
-1. **Que se vea igual:** tema turquesa, inicio, menú arriba con atajos y fila de categorías completa.
+1. **Que se vea igual:** tema turquesa, inicio, menú arriba con atajos y fila de categorías completa; y proyectos
+   `.flip` (abrir `.flip`/`.drift`, guardar `.flip`).
 2. **Cuenta y Stock:** Google + todo Stock desde `api.getflipstudio.com`.
 3. **Plantillas de escena** con el mismo paquete que el escritorio.
 4. **Completar efectos y transiciones** escritos desde cero, con antes y después.
