@@ -31,7 +31,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Menú arriba (Archivo, Editar, Herramientas, Ver, Avanzado, Ayuda) con atajos | 0.16 | ✅ | `components/MenuBar.tsx`, con los mismos nombres y atajos y Ayuda › Atajos de teclado |
 | Fila de categorías sobre el panel de recursos | 0.16 | ✅ | Igual que `AssetsPanel.qml`: sin columna de iconos, las 9 categorías con el icono sobre el nombre y la lista lateral de 152 px con las pestañas de la abierta (oculta si tiene una sola), con los nombres del escritorio. El panel abre tan ancho como la fila (`panelSizes.ts`, clave `v2`) |
 | Pestaña Efectos de audio (Audio) | sí | ✅ | Los 31 del escritorio, con su pestaña en el inspector (2026-10-19) |
-| Pestaña Escenas (Medios) | sí | ⬜ | Página que dice qué hace y «Descargar app» (`NotYetPanel`) |
+| Pestaña Escenas (Medios) | sí | ✅ | Buscar escenas, sensibilidad, movimiento y sonido, saltar a la toma (2026-10-19); «Identificar objetos» solo en escritorio |
 | Filtros › LUTs y Efectos de color, Stickers › Máscaras | 0.16 | ✅ | `LibraryExtraPanels.tsx`: la galería de `LutPage` y las formas de máscara, sobre el clip seleccionado; Efectos de color = `EffectsPanel only="color"` |
 | Panel izquierdo con barra de iconos e inspector derecho con su barra | 0.9.x | ✅ | |
 | Idiomas de la app (13) | sí | ⬜ | La web está solo en español: no tiene capa de traducción |
@@ -438,7 +438,12 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
    `.flip` como los `audioEffects` del escritorio (probado con la 0.18.2: los abre con sus valores). Comprobado: los
    31 cambian el sonido sin valores rotos (el ecualizador en 0 no cambia nada, como debe) y la exportación lleva el
    eco (la pausa de un tono deja de estar en silencio). **Falta:** fotogramas clave de sus valores y arrastrar un
-   efecto sobre un clip. **Escenas** (detectar dónde empieza cada toma) sigue sin hacer.
+   efecto sobre un clip. **Escenas** ✅ (2026-10-19): `src/scenes/detectScenes.ts` hace lo del detector
+   de contenido del escritorio (`engine/SceneDetect`): diferencia HSV de fotogramas de 64×36, umbral 27 por defecto,
+   tomas de al menos 0,5 s, movimiento y sonido relativos a la toma más activa, puntuación 0,6/0,4; miniatura del
+   medio de cada toma. `ScenesPanel.tsx` como `ScenesTab.qml` (sensibilidad 4–60 invertida, «Más activo primero» /
+   «En orden», un clic lleva el cabezal a la toma). Probado con un video de tres tomas hecho con ffmpeg: cortes en 2,00
+   y 4,00 exactos. **Ya no queda ninguna pestaña con `NotYetPanel`.** «Identificar objetos» sigue solo en el escritorio.
 7. **Favoritos en la cuenta:** hoy la web los guarda en el navegador (`src/layout/favorites.ts`, clave
    `flip.favorites`). El servidor tiene `GET/PUT /v1/me/favorites` con los grupos del escritorio: hay que traducir
    los nombres de grupo de la web a los del escritorio y sincronizar.
