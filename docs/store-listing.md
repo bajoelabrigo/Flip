@@ -110,7 +110,7 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
-**Notas para la Store: SUBIR ESTAS con el MSIX de la 0.18.1 (0.17.0 + 0.18.0 + 0.18.1)**. Ni la 0.17.0 ni la 0.18.0 llegaron a la Store (Jorge, 2026-10-18): el MSIX de la 0.18.1 lleva las novedades de las tres. Texto de "Novedades de esta versión" (1199 de 1500 caracteres; en inglés, 1101).
+**Notas para la Store (0.17.0 + 0.18.0 + 0.18.1): base para la PRÓXIMA versión, no subir el MSIX de la 0.18.1** (Jorge, 2026-10-19: el botón de actualizar no funciona desde la 0.17; el arreglo y el editor web van en la próxima). Ni la 0.17.0, ni la 0.18.0, ni la 0.18.1 llegaron a la Store: el próximo MSIX lleva estas novedades más las suyas. Texto de "Novedades de esta versión" (1199 de 1500 caracteres; en inglés, 1101).
 
 > **Novedades (0.17.0 + 0.18.0 + 0.18.1)**
 >
