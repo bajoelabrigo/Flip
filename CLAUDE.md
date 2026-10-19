@@ -53,10 +53,14 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   traducido (67 textos × 12 idiomas) y con «°» bien, y MCP `freeze_frame`/`import_media`.
 - PR #26 → `main`, tag `v0.18.1`, release (run 39195704624); copia en `versiones\FlipStudio-0.18.1` (hashes
   comprobados); novedades en la web. MSIX: `msstore.yml` run 39199587252 → `tienda\FlipStudio-Store\paquete-0.18.1`.
-- **Falta (Jorge):** TXT `version` = 0.18.1 y subir **el MSIX de la 0.18.1** con las notas combinadas 0.17 + 0.18 +
-  0.18.1 de `docs/store-listing.md` (ni la 0.17 ni la 0.18 se subieron).
-- **Siguiente (2026-10-19):** editor web igual al escritorio, plan en `docs/paridad-web.md` (empieza por tema, menú,
-  `.flip`, cuenta y Stock).
+- **IMPORTANTE — NO SUBIR la 0.18.1 (Jorge, 2026-10-19):** ni MSIX a Partner Center ni TXT `version` = 0.18.1. El
+  botón «Actualizar a …» no actualiza desde la 0.17: `Main.qml` respondía a `Updates.quitRequested` con
+  `window.close()`, que desde la 0.17 es la X del editor y vuelve al inicio. **Arreglado en la rama `flip/v0.18.2`**
+  (`window.quitApp()`, sin compilar). Va en la próxima versión, junto con el editor web. Quien actualice desde
+  0.17–0.18.1 tiene que cerrar con la X en la pantalla de inicio (o Archivo › Salir) para que arranque el instalador.
+  Detalle en `docs/plan-0.18.1.md` › «Después de publicar».
+- **Siguiente (2026-10-19), en la rama `flip/v0.18.2`:** el arreglo de actualizar (ya hecho) + editor web igual al
+  escritorio, plan en `docs/paridad-web.md` (empieza por tema, menú, `.flip`, cuenta y Stock).
 - **Trampas nuevas:**
   - `QLatin1String` sobre un `const char*` con «°» (UTF-8) da «Â°»: usar `QString::fromUtf8`.
   - `lupdate` no extrae un texto que va dentro de una función llamada `tr(...)` que no es la de Qt, ni uno que llega

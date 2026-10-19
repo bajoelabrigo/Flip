@@ -115,5 +115,8 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 6. **IA en el navegador:** RIFE, texto con IA y caras/retoque. Profundidad y quitar ruido al final.
 
 ## Primer paso de mañana
+Antes de la web: la próxima versión lleva el arreglo del botón «Actualizar a …» (rama `flip/v0.18.2`, commit
+`28ed5`; ver `docs/plan-0.18.1.md`). Se trabaja en esa misma rama.
+
 Abrir el escritorio y la web lado a lado y resolver los ❓ de la tabla. Después, empezar la etapa 1 en una rama de
 `flipstudio-app` y desplegar con su `deploy/deploy.sh` al terminar cada etapa.
