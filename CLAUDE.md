@@ -44,7 +44,27 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-18)
+## Estado (actualizado 2026-10-19)
+
+### 0.18.1 PUBLICADA (2026-10-19) — arreglos del control de calidad de la 0.18 — **detalle en `docs/plan-0.18.1.md`**
+- Control de calidad por MCP sin ventana (`tools/e2e/qa018/`, se corre en `pruebas\qa018`): 15 formatos, los 78 efectos
+  y 40 transiciones, cada códec, texto, audio, subtítulos e IA. Arreglos: **Pintura al óleo** (shader con `flat`,
+  palabra reservada de GLSL: no compilaba desde Drift), **DNxHR** (perfil `dnxhr_hq`/`dnxhr_hqx`), **Texto › Efectos**
+  traducido (67 textos × 12 idiomas) y con «°» bien, y MCP `freeze_frame`/`import_media`.
+- PR #26 → `main`, tag `v0.18.1`, release (run 39195704624); copia en `versiones\FlipStudio-0.18.1` (hashes
+  comprobados); novedades en la web. MSIX: `msstore.yml` run 39199587252 → `tienda\FlipStudio-Store\paquete-0.18.1`.
+- **Falta (Jorge):** TXT `version` = 0.18.1 y subir **el MSIX de la 0.18.1** con las notas combinadas 0.17 + 0.18 +
+  0.18.1 de `docs/store-listing.md` (ni la 0.17 ni la 0.18 se subieron).
+- **Siguiente (2026-10-19):** editor web igual al escritorio, plan en `docs/paridad-web.md` (empieza por tema, menú,
+  `.flip`, cuenta y Stock).
+- **Trampas nuevas:**
+  - `QLatin1String` sobre un `const char*` con «°» (UTF-8) da «Â°»: usar `QString::fromUtf8`.
+  - `lupdate` no extrae un texto que va dentro de una función llamada `tr(...)` que no es la de Qt, ni uno que llega
+    en una variable: marcarlo con `QT_TRANSLATE_NOOP("Contexto", "...")` en el contexto que usa `translate()`.
+  - Exportar recuerda los últimos ajustes (códec, audio, escala) entre sesiones, también por MCP: pasar `video`,
+    `audio` y `scale` explícitos en las pruebas (FLAC en `.webm`/`.mov` da «Could not write the file header»).
+  - Un efecto cuyo shader no compila se salta **sin avisar**: para encontrarlos, comparar píxeles con y sin el efecto
+    (`qa_render.py`).
 
 ### 0.18.0 PUBLICADA (2026-10-18) — cámara lenta suave con IA, fotos variadas, contadores — **detalle en `docs/plan-0.18.md`**
 - PR #25 → `main`, tag `v0.18.0`, release (run 39178642565) con instalador, portable y `SHA256SUMS`; copia en

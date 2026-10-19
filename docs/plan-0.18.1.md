@@ -55,8 +55,7 @@ prueba sin ventana (`pruebas\qa018`: `qa.py` = sesión y registro de fallos; `qa
 - ✅ Probado en ventana con el portable (`pruebas\FlipStudio-0.18.1-prueba`): Texto › Efectos dice «Desplazamiento
   6px», «Dirección 90°», «Desenfoque 6px», «Opacidad 0.60»; Pintura al óleo cambia la imagen (antes 0,0); DNxHR
   exporta (DNXHR HQ y HQX). Registro restaurado con la sesión de Google renovada.
-- ✅ PR #26 → `main`, tag `v0.18.1`. ⏳ Release (run 39195704624), copia en `versiones\FlipStudio-0.18.1`, MSIX con `msstore.yml` a
+- ✅ PR #26 → `main`, tag `v0.18.1`. ✅ Release (run 39195704624) con instalador, portable y `SHA256SUMS`; ✅ copia en `versiones\FlipStudio-0.18.1` (hashes comprobados). MSIX: run 39199587252 →
   `tienda\FlipStudio-Store\paquete-0.18.1`.
-- ⬜ Novedades de la web: ya escritas en `flipstudio-web/novedades.html` (sin commit ni despliegue); desplegar con
-  `deploy/deploy.sh` cuando el release esté publicado.
+- ✅ Novedades de la web desplegadas (comprobado en vivo).
 - ⬜ Jorge: TXT `version` = 0.18.1 y subir el MSIX de la 0.18.1 (no el de la 0.18.0) con las notas combinadas.
