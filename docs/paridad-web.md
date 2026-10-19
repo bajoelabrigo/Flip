@@ -444,9 +444,12 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
    medio de cada toma. `ScenesPanel.tsx` como `ScenesTab.qml` (sensibilidad 4–60 invertida, «Más activo primero» /
    «En orden», un clic lleva el cabezal a la toma). Probado con un video de tres tomas hecho con ffmpeg: cortes en 2,00
    y 4,00 exactos. **Ya no queda ninguna pestaña con `NotYetPanel`.** «Identificar objetos» sigue solo en el escritorio.
-7. **Favoritos en la cuenta:** hoy la web los guarda en el navegador (`src/layout/favorites.ts`, clave
-   `flip.favorites`). El servidor tiene `GET/PUT /v1/me/favorites` con los grupos del escritorio: hay que traducir
-   los nombres de grupo de la web a los del escritorio y sincronizar.
+7. **Favoritos en la cuenta** ✅ (2026-10-19): `src/account/favoritesSync.ts` con `GET/PUT /v1/me/favorites` y la
+   regla de `AppController::mergeAccountFavorites` (`favoritesMerge.ts`: la primera vez o con cambios aquí, la unión;
+   sincronizado y sin cambios, gana la cuenta), subida 1,5 s después de la última estrella. Los grupos son los del
+   escritorio: el `effectTemplates` de la web pasó a `templates` (se migra solo al leer). Probado en el navegador con
+   el servidor simulado (une, renombra y sube cada estrella). Los ids de los efectos de la web («vignette») no son
+   los del escritorio («stylize.vignette»): cada app ignora los que no conoce; traducirlos queda para después.
 8. Lo demás de la tabla de arriba (efectos y transiciones que faltan, antes y después, contadores, IA en el
    navegador, 13 idiomas), en el orden aprobado de abajo.
 
