@@ -388,6 +388,14 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
   a generar ese sitio con certbot, comprobar que siga.
 - El servidor manda los errores en `{detail}` (Stock) o en `{error}` (cuentas); `apiGet`/`apiPost` ya los muestran.
 - No usar la cuenta real de Jorge en las pruebas automáticas: simular el servidor (punto 2 de «Cómo probar»).
+- **Nunca un `return` antes de un hook** (`useEffect`, `useState`…). `PreviewTransform.tsx` hacía
+  `if (!inside) return null;` antes de su `useEffect`: al pasar de un clip a otro React tumbaba todo el editor
+  («Rendered fewer hooks than expected») y Jorge veía la pantalla negra. Arreglado el 2026-10-19 (`b032c0`): la
+  comprobación va en un componente de fuera. **`npx oxlint` tiene que dar 0 errores** (la regla
+  `rules-of-hooks` lo detecta; los avisos se pueden quedar). Tampoco llamar `use…` a una función que no es un hook.
+- **Rellenar pantalla** en la web (2026-10-19, `b032c0`), como el clic derecho del escritorio: «Ajustar a la
+  pantalla», «Rellenar pantalla (conservar proporción)» y «Rellenar pantalla (estirar)» (`Clip.stretch`, que
+  `render/compose.ts` dibuja al tamaño exacto del lienzo). Falta guardarlo en el `.flip` (`driftBundle.ts`).
 
 ## Orden aprobado por Jorge (2026-10-19)
 1. **Que se vea igual:** tema turquesa, inicio, menú arriba con atajos y fila de categorías completa; y proyectos
