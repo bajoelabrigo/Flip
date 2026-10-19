@@ -396,6 +396,14 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
 - **Rellenar pantalla** en la web (2026-10-19, `b032c0`), como el clic derecho del escritorio: «Ajustar a la
   pantalla», «Rellenar pantalla (conservar proporción)» y «Rellenar pantalla (estirar)» (`Clip.stretch`, que
   `render/compose.ts` dibuja al tamaño exacto del lienzo). Falta guardarlo en el `.flip` (`driftBundle.ts`).
+- **Vista previa «⋯» (2026-10-19, `112bb`)**: arriba a la derecha, como `PreviewOsd.qml`. Hoy tiene la fila «Clip
+  seleccionado» (Ajustar / Rellenar conservando proporción / estirar), igual que el escritorio (que la tiene en
+  `PreviewOptionsMenu.qml` desde la 0.18.2). **Falta en la web**: Calidad, Velocidad de reproducción (el
+  secuenciador no tiene velocidad global), Decodificación y el botón de guías con sus conjuntos.
+- **Insertar abriendo espacio como CapCut** (2026-10-19): en la web el espacio se abre **en vivo** mientras se
+  arrastra (`openRoom` en `timeline/tracks.ts`, porque el arrastre recalcula el documento en cada movimiento). En el
+  escritorio (0.18.2, `AppController::moveClip` / `moveClipToTrack` / `landMakingRoom`) se abre **al soltar**; que
+  los clips se corran en vivo durante el arrastre en el escritorio queda pendiente (`TimelinePanel.qml`).
 
 ## Orden aprobado por Jorge (2026-10-19)
 1. **Que se vea igual:** tema turquesa, inicio, menú arriba con atajos y fila de categorías completa; y proyectos
