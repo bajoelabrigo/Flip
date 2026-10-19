@@ -979,7 +979,9 @@ ApplicationWindow {
             downloadsWindowLoader.ensure().show()
         }
         function onQuitRequested() {
-            window.close()
+            // A real quit, like File › Quit: a plain close() is the editor's X, which goes back to
+            // the home screen (0.17) and left the downloaded update waiting forever.
+            window.quitApp()
         }
         function onActivityChanged() {
             if (!Updates.checking && window.manualUpdateCheck) {
