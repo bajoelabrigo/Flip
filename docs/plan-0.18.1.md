@@ -48,6 +48,14 @@ prueba sin ventana (`pruebas\qa018`: `qa.py` = sesión y registro de fallos; `qa
 - Los scripts están copiados en `tools/e2e/qa018/`. Registro restaurado (0 diferencias), proyectos de prueba
   borrados y autoguardado devuelto: **el control de calidad terminó**.
 
-## Falta
-- Compilar (un solo `build.yml` al final), mirar Texto › Efectos en español en ventana, y decidir con Jorge si sale
-  como 0.18.1.
+## Publicación (Jorge, 2026-10-18: «sí, hazlo»)
+- ✅ Versión 0.18.1 en `CMakeLists.txt`, `release-notes/0.18.1.md`, CHANGELOG y notas de la Store combinadas
+  0.17 + 0.18 + 0.18.1 en `docs/store-listing.md` (1199/1500; en inglés, 1101): ni la 0.17 ni la 0.18 se subieron.
+- ⏳ Ensayo `build.yml` en la rama: run 39192341876.
+- ⬜ Bajar el portable a `pruebas\FlipStudio-0.18.1-prueba` y mirar Texto › Efectos en español y Pintura al óleo en
+  ventana (solo clics y capturas por pid; copia del registro antes).
+- ⬜ PR → `main`, tag `v0.18.1`, release, copia en `versiones\FlipStudio-0.18.1`, MSIX con `msstore.yml` a
+  `tienda\FlipStudio-Store\paquete-0.18.1`.
+- ⬜ Novedades de la web: ya escritas en `flipstudio-web/novedades.html` (sin commit ni despliegue); desplegar con
+  `deploy/deploy.sh` cuando el release esté publicado.
+- ⬜ Jorge: TXT `version` = 0.18.1 y subir el MSIX de la 0.18.1 (no el de la 0.18.0) con las notas combinadas.
