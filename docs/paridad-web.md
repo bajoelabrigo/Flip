@@ -214,6 +214,33 @@ y una fila de chips de texto. Ahora es `AssetsPanel.qml` tal cual:
 - La rueda que pasa de una categoría a la siguiente (`CategoryScrollOn.tsx` ya existe para las bibliotecas).
 - Traducir la web a los 13 idiomas: hoy son textos en español a pelo.
 
+### Séptima tanda (2026-10-19, Claude): el cromo de las pestañas, como AssetSearchBar y AssetCategoryChips
+Regla de Jorge: replicar el escritorio y comparar cada pestaña con su `.qml` antes de darla por hecha. Lo primero que
+no cuadraba era el cromo, en todas las pestañas de catálogo a la vez:
+- **Sin cabecera con título** donde el escritorio la oculta (`assetsHeader.searchBarTab`): Texto, Formas, Stickers y
+  Efectos ya no llevan «Texto / Formas / Stickers / Efectos» encima. Siguen con cabecera Medios, Música, Efectos de
+  sonido, Voz, Subtítulos, Máscaras y Stock, como en `AssetsPanel.qml`.
+- **Buscador que nombra la pestaña** (`AssetSearchBar.qml` → `components/AssetSearchBar.tsx`): «Buscar efectos» (con
+  la capa de ajuste como icono a la derecha, donde el escritorio pone las acciones), «Buscar transiciones», «Buscar
+  stickers», «Buscar formas» y «Buscar sonidos». El buscador filtra de verdad y, mientras se escribe, los chips se
+  esconden (`searching` en el escritorio).
+- **Chips de categoría del escritorio** (`AssetCategoryChips.qml` → `components/CategoryChips.tsx`): estrella de
+  favoritos, divisor fino y las categorías; **fuera el chip «Todos»**, que el escritorio no tiene (siempre hay una
+  categoría abierta y la rueda sigue a la siguiente).
+- **Fuera los párrafos explicativos** que la web ponía encima de la lista de música y sonidos: el escritorio los
+  tiene solo en el estado vacío.
+- Comprobado en el navegador pestaña por pestaña (`scripts/check-tabs.mjs`, contra la web desplegada): Efectos,
+  Transiciones, Stickers y Sonidos con buscador y chips; Texto y Formas sin título; Medios, Música, Voz y Subtítulos
+  conservan su cabecera. `tsc` limpio y las 99 pruebas en verde.
+
+**Lo que aún no cuadra dentro de las pestañas** (siguiente en la lista, por orden del escritorio):
+1. **Medios**: falta la fila «Buscar medios» con los botones de vista (cuadrícula / lista / árbol) y el de ordenar
+   por nombre o tipo (`MediaAssetsTab.qml`), y las carpetas con su cabecera «Nueva carpeta» + «Importar» partido.
+2. **Filtros › LUTs**: el escritorio lleva «Buscar filtros», chips y «Importar LUT…» en el cromo; la web solo tiene
+   la galería y el botón de Stock.
+3. **Formas**: el escritorio tiene categorías (`builtinShapeCategories`) y favoritos; la web es una lista plana.
+4. **Máscaras** y **Voz**: comparar su contenido pieza por pieza con `MasksTab.qml` y `SpeechTab.qml`.
+
 ## PARA SEGUIR (traspaso del 2026-10-19, de Claude a DeepSeek): leer esto primero
 
 ### Regla número uno (Jorge, dicha dos veces)
