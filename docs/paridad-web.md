@@ -258,6 +258,33 @@ no cuadraba era el cromo, en todas las pestañas de catálogo a la vez:
 2. **Importar partido**: el botón del escritorio tiene dos mitades (archivos / carpeta entera).
 3. **Mover a carpeta** desde el «⋯» de cada medio.
 
+### Novena tanda (2026-10-19, Claude): la vista previa, manejable como `TransformOverlay.qml`
+Jorge (con captura): «no se puede modificar el tamaño de los videos, fotos, etc., desde ahí y no calza bien el video
+sobre la pantalla». Tenía razón: la vista previa solo dejaba arrastrar textos.
+- **Caja del clip seleccionado** (`components/PreviewTransform.tsx`) sobre la imagen, en coordenadas del lienzo y
+  escrita en píxeles del proyecto, como `TransformOverlay.qml`:
+  - **arrastrar dentro** mueve (el centro no puede salir del lienzo, para no perder la imagen);
+  - **las cuatro esquinas** escalan proporcional tomando como ancla la esquina opuesta;
+  - **el tirador de arriba** gira en pasos de 15° (Ctrl los quita), como el escritorio.
+  Todo pasa por la misma pila de deshacer (`begin`/`replace`/`end`) y respeta los fotogramas clave: si el clip los
+  tiene, se escribe la clave del cabezal.
+- **Menú del botón derecho** (sobre la vista previa): **«Ajustar a la pantalla»** (vuelve a encajar la imagen entera,
+  que es lo que hace el render por defecto con `drawContain`) y **«Rellenar la pantalla»** (escala para que la imagen
+  tape el lienzo), que es la respuesta a lo de «no calza»: antes, o entraba entera con bandas, o no había forma de
+  cambiarlo desde aquí.
+- Pruebas: `src/render/previewTransform.test.ts` (encaje 16:9, 4:3, vertical y sin tamaño) — 103 en verde — y
+  `scripts/check-transform.mjs` contra la web desplegada: la caja aparece, escala 566×318 → 414×233 (proporcional),
+  mueve (653,151) → (713,121), gira, y el menú trae las dos acciones.
+
+**Trampa para el que siga:** `pointer-events` se hereda; con `none` en el contenedor de la caja los tiradores no
+recibían nada. Y el gesto se sigue en `window` (no con `setPointerCapture`): con la captura puesta en la caja, el
+siguiente gesto sobre una esquina acababa moviendo en vez de escalar.
+
+**Lo que falta de la vista previa:** la barra de herramientas del escritorio sobre el lienzo (recorte automático,
+encuadre, espejo, girar 90°), las guías y la cuadrícula, y la capa de ajuste con su máscara en la caja. Además, si la
+imagen se sale del todo del lienzo, la caja queda fuera de la vista: el «⋯» no aparece, pero el menú del botón
+derecho sigue trayendo «Ajustar a la pantalla».
+
 ## PARA SEGUIR (traspaso del 2026-10-19, de Claude a DeepSeek): leer esto primero
 
 ### Regla número uno (Jorge, dicha dos veces)
