@@ -49,7 +49,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
 | Plantillas de escena con huecos «Tu foto aquí» | 0.12 | ⬜ | Leer el mismo paquete (`FORMAT.md` en `tools/scene_templates`) |
-| Plantillas de efectos (Intensidad, Caída, Ritmo) | 0.11 | 🟡 | Las 13 de un clip, como capa de ajuste «Plantilla: …» (`b1015`); faltan Intensidad/Caída/Ritmo |
+| Plantillas de efectos (Intensidad, Caída, Ritmo) | 0.11 | ✅ | Las 13 de un clip, como capa de ajuste «Plantilla: …» (`b1015`), y Efectos › Plantilla (`55155`); ritmo fijo de 120 BPM |
 | Guardar como plantilla / Mis plantillas | 0.13 | ⬜ | |
 
 ### Edición en la línea de tiempo
@@ -414,8 +414,10 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
    «Plantilla: …» en una pista nueva justo encima del clip elegido (o el del cabezal), del mismo largo, con los
    efectos y sus golpes a **120 BPM fijos** (`applyEffectTemplate.ts`: pico, caída en `decayMs`, plano hasta el
    siguiente). Efectos propios nuevos: Destello (`strobe_flash`), Neón de bordes, Desenfoque giratorio y Cómic de
-   tramas. **Falta:** la sección Efectos › Plantilla (Intensidad, Caída, Ritmo, «Quitar plantilla»), seguir los
-   golpes reales de la música, y los efectos sin par (`bling_sparkle`, `bokeh_dream`, `cinematic_grade`, `duotone`,
+   tramas. **Efectos › Plantilla** (`55155`, `TemplateEffectSection.tsx`): Intensidad, Caída, Ritmo y «Quitar
+   plantilla» rehacen los golpes con la fórmula de `writeTemplatePulse` (la capa lleva `Clip.template` y cada efecto
+   suyo `GpuEffect.templateLayer`; lo que el usuario añadió a mano se queda). **Falta:** seguir los golpes reales de
+   la música, guardar la etiqueta de plantilla en el `.flip` (hoy se pierde al abrirlo en el escritorio), y los efectos sin par (`bling_sparkle`, `bokeh_dream`, `cinematic_grade`, `duotone`,
    `lightning_sky`, `motion_trail`: la plantilla sale sin ellos).
 6. **Efectos de audio** (Web Audio: eco, reverberación, ecualizador…) y **Escenas** (detectar dónde empieza cada
    toma), para que esas dos pestañas dejen de ser `NotYetPanel`.
