@@ -29,7 +29,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Pantalla de inicio como Filmora | 0.17 | ✅ | `Home.tsx` tenía la estructura (banda + formatos + atajos + tus proyectos): la banda ya toma los colores del tema |
 | Cerrar el editor vuelve al inicio | 0.17 | ✅ | `Root.tsx` (`onHome`): «Inicio» en la cabecera y Archivo › Inicio |
 | Menú arriba (Archivo, Editar, Herramientas, Ver, Avanzado, Ayuda) con atajos | 0.16 | ✅ | `components/MenuBar.tsx`, con los mismos nombres y atajos y Ayuda › Atajos de teclado |
-| Fila de categorías sobre el panel de recursos | 0.16 | 🟡 | La fila está (Medios, Títulos, Audio, Stickers, Efectos, Transiciones) y recuerda la última pestaña de cada una; faltan las categorías Stock, Filtros y Plantillas, que aún no existen en la web |
+| Fila de categorías sobre el panel de recursos | 0.16 | 🟡 | En el orden del escritorio: Medios, Stock, Audio, Títulos, Transiciones, Efectos, Stickers; recuerda la última pestaña de cada una. Faltan Filtros y Plantillas, que aún no existen como pestañas en la web |
 | Panel izquierdo con barra de iconos e inspector derecho con su barra | 0.9.x | ✅ | |
 | Idiomas de la app (13) | sí | ⬜ | La web está solo en español: no tiene capa de traducción |
 | Proyectos `.flip` (abrir `.flip` y `.drift`, guardar `.flip`) | sí | ✅ | Abre los dos (documento + tabla de medios + blobs incrustados, que se guardan con el proyecto) y guarda `.flip` |
@@ -38,10 +38,10 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
 | Iniciar sesión con Google | 0.10 | ✅ | `src/account/account.ts` + `AccountButton`: PKCE, vuelta a `/editor/`, canje en el servidor y token con refresco. El servidor usa el cliente web de Google (`GOOGLE_WEB_CLIENT_ID`) |
-| Stock (plantillas, música, sonidos, LUT, looks, estilos y animaciones de texto, transiciones, formas, stickers, superposiciones, fondos, contadores, kits) | 0.12–0.18 | 🟡 | Panel propio con búsqueda y chips por tipo; «Usar» ya funciona con **música, sonidos, stickers, superposiciones, fondos y filtros**. Plantillas, looks, estilos de texto, transiciones y formas se ven marcados «app»: solo en el escritorio |
-| Inicio de Stock tipo tienda, búsqueda, favoritos y «Pide una plantilla» | 0.14 | ⬜ | |
-| Biblioteca de la cuenta («Mis descargas») | 0.12 | ⬜ | |
-| Pexels y Pixabay | 0.10 | ⬜ | Ya están detrás del servidor |
+| Stock (plantillas, música, sonidos, LUT, looks, estilos y animaciones de texto, transiciones, formas, stickers, superposiciones, fondos, contadores, kits) | 0.12–0.18 | 🟡 | Armado como `MarketTab.qml` desde `/v1/market/catalog`: pestañas Todo/Videos/Fotos, tipos propios como chips bajo Todo, filtros del catálogo. «Usar» funciona con todo lo de `delivery: media` y `lut` (música, sonidos, stickers, superposiciones, fondos, filtros, fotos y videos). Plantillas, looks, estilos de texto, transiciones y formas salen marcados «app» |
+| Inicio de Stock tipo tienda, búsqueda, favoritos y «Pide una plantilla» | 0.14 | 🟡 | Inicio con los estantes de `/v1/market/home`, tarjetas con la forma del elemento, vista previa de audio y video al pasar el mouse, «Usado N veces» y «Pide una plantilla» con votos (`StockRequestsDialog.tsx`). Falta: los favoritos de la web siguen en el navegador, no en la cuenta (`/v1/me/favorites` usa los grupos del escritorio) |
+| Biblioteca de la cuenta («Mis descargas») | 0.12 | ✅ | «Mi cuenta» (`AccountDialog.tsx`, se abre con la foto como en el escritorio): foto, plan, Favoritos por grupo y Descargas de Stock con «Usar» |
+| Pexels y Pixabay | 0.10 | ✅ | Pestañas Videos y Fotos, con la fuente como chip y la orientación como filtro; los archivos se bajan directo de sus CDN (CORS `*`, permitidos en la CSP) |
 
 ### Plantillas
 | Función | Escritorio | Web | Notas |
@@ -175,6 +175,22 @@ de referencia, así que la app pide buscarlo, como debe) y el proyecto queda con
 - **El botón de la cuenta es como el del escritorio** (`EditorHeader.qml` › `accountButton`): solo el círculo de
   32 px con la foto de 28, borde turquesa al pasar el mouse, sin el nombre al lado; sin sesión, el icono de persona.
 - Jorge entró con su cuenta y funciona.
+
+### Quinta tanda (2026-10-19, Claude): Stock completo y «Mi cuenta»
+- `StockPanel.tsx` reescrito como el escritorio: buscador, pestañas subrayadas **Todo / Videos / Fotos**, bajo Todo
+  los chips **Inicio** + los tipos del catálogo (los que la web no aplica, con la etiqueta «app»), Pexels/Pixabay como
+  chips en Videos y Fotos, y los filtros de cada fuente (categoría, formato, fotos, duración, música, orientación)
+  como listas. **Inicio** = los estantes de `/v1/market/home` con tarjetas de la forma del elemento.
+- `applyStockItem` (`stock/stock.ts`) decide qué hace «Usar»: Medios (`delivery: media`) o Filtros (`lut`); lo usan
+  Stock y «Mi cuenta». Los errores del servidor llegan con su texto (`errorOf` en `account.ts`).
+- **«Pide una plantilla»** (`StockRequestsDialog.tsx`): idea + tipo, Más votadas / Nuevas y votar.
+- **«Mi cuenta»** (`AccountDialog.tsx`): la foto de la cabecera lo abre (ya no hay menú), como en el escritorio.
+- CSP: Pexels (`images.`/`videos.pexels.com`) y Pixabay (`pixabay.com`, `cdn.pixabay.com`) en `img-src`,
+  `media-src` y `connect-src`.
+- De paso: quedaban 13 colores **amarillos del tema viejo** fijos en `index.css` (segmentados, máscaras…) y en
+  `timeline/look.ts`; ahora salen de `--accent`.
+- Probado en el navegador con datos simulados (inicio, plantillas con filtro, videos, pedidos, cuenta y descargas),
+  `tsc` y las 99 pruebas en verde, desplegado. **Falta que Jorge lo pruebe con su cuenta** (datos reales).
 
 ### Lo siguiente de la etapa 1 que queda
 - Las categorías **Stock**, **Filtros** (LUT y efectos de color en una sola) y **Plantillas**, cuando existan en
