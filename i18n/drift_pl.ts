@@ -4953,6 +4953,10 @@
         <translation>Wypełnij ekran</translation>
     </message>
     <message>
+        <source>Fit to screen</source>
+        <translation>Dopasuj do ekranu</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>Zaznacz klip wideo lub zdjęcie, po którym od razu następuje inny</translation>
     </message>
@@ -15389,6 +15393,22 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Uruchomienie Flip Studio przez prime-run (lub DRI_PRIME=1) umieszcza OpenGL na tej samej karcie co dekoder.</translation>
     </message>
     <message>
+        <source>Selected clip</source>
+        <translation>Zaznaczony klip</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>Dopasuj do ekranu</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Wypełnij ekran (zachowaj proporcje)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Wypełnij ekran (rozciągnij)</translation>
+    </message>
+    <message>
         <source>Run Flip Studio on the high-performance graphics card</source>
         <translation>Uruchamiaj Flip Studio na wydajnej karcie graficznej</translation>
     </message>
@@ -23660,6 +23680,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fit to screen</source>
+        <translation>Dopasuj do ekranu</translation>
+    </message>
     <message>
         <source>Fill screen (keep proportions)</source>
         <translation>Wypełnij ekran (zachowaj proporcje)</translation>

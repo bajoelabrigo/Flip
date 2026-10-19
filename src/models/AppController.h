@@ -731,9 +731,9 @@ public:
                                           double seconds, int newTrackIndex) const;
     Q_INVOKABLE QVariantMap dropAsset(const QString &kind, const QString &payload, const QString &label,
                                       int trackIndex, double seconds, int newTrackIndex);
-    // Preview › right-click › «Fill screen»: the picture clip covers the whole canvas, either keeping
-    // its proportions (centred, the overflow cut off by the frame) or stretched to the canvas.
-    Q_INVOKABLE void fillCanvasWithClip(int trackIndex, int clipIndex, bool stretch);
+    // Preview › "⋯" and right-click: mode "fit" shows the whole picture, "cover" fills the canvas
+    // keeping its proportions (centred, the overflow cut off by the frame), "stretch" fills it exactly.
+    Q_INVOKABLE void fillCanvasWithClip(int trackIndex, int clipIndex, const QString &mode);
     // Pixel of an Item.grabToImage result, for the colour eyedropper; transparent when outside.
     Q_INVOKABLE QColor imagePixel(const QImage &image, int x, int y) const;
     // Left clip of the cut a transition dropped at this time would bridge, or -1.

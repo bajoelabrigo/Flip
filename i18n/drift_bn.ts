@@ -5041,6 +5041,10 @@
         <translation>স্ক্রিন ভরাট করুন</translation>
     </message>
     <message>
+        <source>Fit to screen</source>
+        <translation>স্ক্রিনে মানানসই</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15244,6 +15248,22 @@
 <context>
     <name>PreviewOptionsMenu</name>
     <message>
+        <source>Selected clip</source>
+        <translation>নির্বাচিত ক্লিপ</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>স্ক্রিনে মানানসই</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>স্ক্রিন ভরাট করুন (অনুপাত ঠিক রেখে)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>স্ক্রিন ভরাট করুন (টেনে বড় করে)</translation>
+    </message>
+    <message>
         <source>Quality</source>
         <translation>মান</translation>
     </message>
@@ -23577,6 +23597,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fit to screen</source>
+        <translation>স্ক্রিনে মানানসই</translation>
+    </message>
     <message>
         <source>Fill screen (keep proportions)</source>
         <translation>স্ক্রিন ভরাট করুন (অনুপাত ঠিক রেখে)</translation>

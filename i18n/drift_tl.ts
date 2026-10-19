@@ -4945,6 +4945,10 @@
         <translation>Punuin ang screen</translation>
     </message>
     <message>
+        <source>Fit to screen</source>
+        <translation>Ilapat sa screen</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15318,6 +15322,22 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Selected clip</source>
+        <translation>Napiling clip</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>Ilapat sa screen</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Punuin ang screen (panatilihin ang proporsyon)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Punuin ang screen (iunat)</translation>
+    </message>
+    <message>
         <source>Run Flip Studio on the high-performance graphics card</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23569,6 +23589,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fit to screen</source>
+        <translation>Ilapat sa screen</translation>
+    </message>
     <message>
         <source>Fill screen (keep proportions)</source>
         <translation>Punuin ang screen (panatilihin ang proporsyon)</translation>

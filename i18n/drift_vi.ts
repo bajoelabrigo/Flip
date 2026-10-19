@@ -4937,6 +4937,10 @@
         <translation>Lấp đầy màn hình</translation>
     </message>
     <message>
+        <source>Fit to screen</source>
+        <translation>Vừa màn hình</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>Chọn một clip video hoặc ảnh có clip khác nằm ngay sau</translation>
     </message>
@@ -15259,6 +15263,22 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Khởi chạy Flip Studio bằng prime-run (hoặc DRI_PRIME=1) để OpenGL chạy trên cùng card với bộ giải mã.</translation>
     </message>
     <message>
+        <source>Selected clip</source>
+        <translation>Clip đã chọn</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>Vừa màn hình</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Lấp đầy màn hình (giữ tỷ lệ)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Lấp đầy màn hình (kéo giãn)</translation>
+    </message>
+    <message>
         <source>Run Flip Studio on the high-performance graphics card</source>
         <translation>Chạy Flip Studio trên card đồ họa hiệu năng cao</translation>
     </message>
@@ -23494,6 +23514,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fit to screen</source>
+        <translation>Vừa màn hình</translation>
+    </message>
     <message>
         <source>Fill screen (keep proportions)</source>
         <translation>Lấp đầy màn hình (giữ tỷ lệ)</translation>

@@ -4929,6 +4929,10 @@
         <translation>화면 채우기</translation>
     </message>
     <message>
+        <source>Fit to screen</source>
+        <translation>화면에 맞추기</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>바로 뒤에 다른 클립이 있는 동영상 또는 사진 클립을 선택하세요</translation>
     </message>
@@ -15259,6 +15263,22 @@ If playback stutters, try another.</source>
         <translation>prime-run(또는 DRI_PRIME=1)으로 Flip Studio를 실행하면 OpenGL이 디코더와 같은 카드에서 실행됩니다.</translation>
     </message>
     <message>
+        <source>Selected clip</source>
+        <translation>선택한 클립</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>화면에 맞추기</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>화면 채우기(비율 유지)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>화면 채우기(늘이기)</translation>
+    </message>
+    <message>
         <source>Run Flip Studio on the high-performance graphics card</source>
         <translation>고성능 그래픽 카드에서 Flip Studio 실행</translation>
     </message>
@@ -23492,6 +23512,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fit to screen</source>
+        <translation>화면에 맞추기</translation>
+    </message>
     <message>
         <source>Fill screen (keep proportions)</source>
         <translation>화면 채우기(비율 유지)</translation>

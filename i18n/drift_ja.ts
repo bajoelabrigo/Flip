@@ -4929,6 +4929,10 @@
         <translation>画面いっぱいに表示</translation>
     </message>
     <message>
+        <source>Fit to screen</source>
+        <translation>画面に合わせる</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>直後に別のクリップがある動画または写真のクリップを選択してください</translation>
     </message>
@@ -15259,6 +15263,22 @@ If playback stutters, try another.</source>
         <translation>prime-run（または DRI_PRIME=1）で Flip Studio を起動すると、OpenGL がデコーダーと同じカードで動作します。</translation>
     </message>
     <message>
+        <source>Selected clip</source>
+        <translation>選択したクリップ</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>画面に合わせる</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>画面いっぱいに表示（縦横比を保持）</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>画面いっぱいに表示（引き伸ばす）</translation>
+    </message>
+    <message>
         <source>Run Flip Studio on the high-performance graphics card</source>
         <translation>Flip Studio を高パフォーマンスのグラフィックカードで実行</translation>
     </message>
@@ -23494,6 +23514,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fit to screen</source>
+        <translation>画面に合わせる</translation>
+    </message>
     <message>
         <source>Fill screen (keep proportions)</source>
         <translation>画面いっぱいに表示（縦横比を保持）</translation>

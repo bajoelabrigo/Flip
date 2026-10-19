@@ -4977,6 +4977,10 @@
         <translation>ملء الشاشة</translation>
     </message>
     <message>
+        <source>Fit to screen</source>
+        <translation>ملاءمة الشاشة</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>حدّد مقطع فيديو أو صورة يليه مقطع آخر مباشرة</translation>
     </message>
@@ -15584,6 +15588,22 @@ If playback stutters, try another.</source>
         <translation>تشغيل Flip Studio باستخدام prime-run (أو DRI_PRIME=1) يضع OpenGL على البطاقة نفسها التي يعمل عليها فك الترميز.</translation>
     </message>
     <message>
+        <source>Selected clip</source>
+        <translation>المقطع المحدد</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>ملاءمة الشاشة</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>ملء الشاشة (مع الحفاظ على النسبة)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>ملء الشاشة (تمديد)</translation>
+    </message>
+    <message>
         <source>Run Flip Studio on the high-performance graphics card</source>
         <translation>تشغيل Flip Studio على بطاقة الرسومات عالية الأداء</translation>
     </message>
@@ -23909,6 +23929,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fit to screen</source>
+        <translation>ملاءمة الشاشة</translation>
+    </message>
     <message>
         <source>Fill screen (keep proportions)</source>
         <translation>ملء الشاشة (مع الحفاظ على النسبة)</translation>

@@ -7044,7 +7044,49 @@ void AppController::moveClip(int trackIndex, int clipIndex, double newStart)
     // as long as it. Only a side overlap of up to half the shorter clip counts; anything more is
     // a clip dropped on another, which is pushed clear as before.
     const QPair<QString, QString> autoFade = autoCrossfadeFor(trackIndex, clipIndex, movedIds);
-    if (!m_allowClipOverlap && autoFade.first.isEmpty()) {
+    // CapCut: one clip dragged onto others goes in before or after the clip it lands on (by which
+    // half), and the rest of the track moves right to open a space its size. Before, it jumped
+    // past the clip it was dropped on. With "Close gaps" on, the block further down reorders.
+    bool openedRoom = false;
+    if (!m_allowClipOverlap && autoFade.first.isEmpty() && !m_rippleEnabled && clampedDelta != 0) {
+        int onTrack = 0;
+        for (const QPair<int, int> &pair : targets)
+            onTrack += pair.first == trackIndex ? 1 : 0;
+        if (onTrack == 1) {
+            drift::Track &own = m_project.tracks()[trackIndex];
+            drift::Clip &moved = own.clips[clipIndex];
+            const drift::TimeUs d = moved.timelineDuration;
+            const drift::Clip *hit = nullptr;
+            for (const drift::Clip &other : std::as_const(own.clips)) {
+                if (other.id == moved.id)
+                    continue;
+                if (moved.timelineStart < other.timelineEnd() && moved.timelineStart + d > other.timelineStart
+                    && (!hit || other.timelineStart < hit->timelineStart))
+                    hit = &other;
+            }
+            if (hit) {
+                const drift::TimeUs at = moved.timelineStart < hit->timelineStart + hit->timelineDuration / 2
+                                             ? hit->timelineStart
+                                             : hit->timelineEnd();
+                drift::TimeUs next = std::numeric_limits<drift::TimeUs>::max();
+                for (const drift::Clip &other : std::as_const(own.clips)) {
+                    if (other.id != moved.id && other.timelineStart >= at)
+                        next = qMin(next, other.timelineStart);
+                }
+                const QString movedId = moved.id;
+                moved.timelineStart = at;
+                if (next != std::numeric_limits<drift::TimeUs>::max() && at + d > next)
+                    rippleTracksFrom(m_project, QSet<int>{trackIndex}, at, at + d - next, movedIds);
+                const drift::Track &after = std::as_const(m_project).tracks().at(trackIndex);
+                for (const drift::Clip &clip : after.clips) {
+                    if (clip.id == movedId)
+                        syncLinkedPartnersFrom(m_project, clip, {});
+                }
+                openedRoom = true;
+            }
+        }
+    }
+    if (!m_allowClipOverlap && autoFade.first.isEmpty() && !openedRoom) {
         drift::TimeUs maxPushRight = 0;
         for (const QPair<int, int> &pair : targets) {
             if (!isValidClipIndex(pair.first, pair.second))
@@ -8168,7 +8210,48 @@ void AppController::moveClipToTrack(int trackIndex, int clipIndex, int newTrackI
         toMove.append(item);
     }
 
+    // CapCut, as in moveClip: one clip dropped onto clips of another track goes in before or after
+    // the one it lands on and that track moves right to open a space its size. Everything moved
+    // (its linked audio too) shifts by the same amount, so they stay together.
+    bool openedRoom = false;
     if (!m_allowClipOverlap) {
+        const ClipToMove *lead = nullptr;
+        int onDest = 0;
+        for (const ClipToMove &item : toMove) {
+            if (item.toTrack == newTrackIndex) {
+                ++onDest;
+                lead = &item;
+            }
+        }
+        if (onDest == 1) {
+            const drift::Track &dest = std::as_const(m_project).tracks().at(newTrackIndex);
+            const drift::TimeUs s = lead->newTimelineStart;
+            const drift::TimeUs d = lead->clip.timelineDuration;
+            const drift::Clip *hit = nullptr;
+            for (const drift::Clip &other : dest.clips) {
+                if (!movedIds.contains(other.id) && s < other.timelineEnd() && s + d > other.timelineStart
+                    && (!hit || other.timelineStart < hit->timelineStart))
+                    hit = &other;
+            }
+            if (hit) {
+                const drift::TimeUs at = s < hit->timelineStart + hit->timelineDuration / 2 ? hit->timelineStart
+                                                                                            : hit->timelineEnd();
+                drift::TimeUs next = std::numeric_limits<drift::TimeUs>::max();
+                for (const drift::Clip &other : dest.clips) {
+                    if (!movedIds.contains(other.id) && other.timelineStart >= at)
+                        next = qMin(next, other.timelineStart);
+                }
+                const drift::TimeUs shift = at - s;
+                if (next != std::numeric_limits<drift::TimeUs>::max() && at + d > next)
+                    rippleTracksFrom(m_project, QSet<int>{newTrackIndex}, at, at + d - next, movedIds);
+                for (ClipToMove &item : toMove)
+                    item.newTimelineStart = qMax<drift::TimeUs>(0, item.newTimelineStart + shift);
+                openedRoom = true;
+            }
+        }
+    }
+
+    if (!m_allowClipOverlap && !openedRoom) {
         drift::TimeUs maxPushRight = 0;
         for (const ClipToMove &item : toMove) {
             const drift::Track &destTrack = m_project.tracks().at(item.toTrack);
@@ -22831,7 +22914,7 @@ void AppController::freezeFrameAtPlayhead()
     });
 }
 
-void AppController::fillCanvasWithClip(int trackIndex, int clipIndex, bool stretch)
+void AppController::fillCanvasWithClip(int trackIndex, int clipIndex, const QString &mode)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
         return;
@@ -22843,24 +22926,26 @@ void AppController::fillCanvasWithClip(int trackIndex, int clipIndex, bool stret
     }
     const int canvasW = qMax(1, m_project.width());
     const int canvasH = qMax(1, m_project.height());
-    if (stretch) {
+    if (mode == QLatin1String("stretch")) {
         setClipLayoutPixels(clip, 0, 0, canvasW, canvasH);
     } else {
         // The media's own shape; without it the clip's current box stands in.
         const drift::MediaAsset *asset = m_project.asset(clip.assetId);
-        double mediaW = asset && asset->width > 0 ? asset->width : clip.transformW.valueAt(0);
-        double mediaH = asset && asset->height > 0 ? asset->height : clip.transformH.valueAt(0);
+        double mediaW = asset && asset->width > 0 ? asset->width : clip.transformW.evaluateAt(0);
+        double mediaH = asset && asset->height > 0 ? asset->height : clip.transformH.evaluateAt(0);
         if (mediaW <= 0 || mediaH <= 0) {
             mediaW = canvasW;
             mediaH = canvasH;
         }
-        const double scale = qMax(canvasW / mediaW, canvasH / mediaH);
+        const double scale = mode == QLatin1String("fit") ? qMin(canvasW / mediaW, canvasH / mediaH)
+                                                          : qMax(canvasW / mediaW, canvasH / mediaH);
         const double w = mediaW * scale;
         const double h = mediaH * scale;
         setClipLayoutPixels(clip, (canvasW - w) / 2.0, (canvasH - h) / 2.0, w, h);
     }
-    pushProjectEdit(before, tr("Fill screen"));
-    finishEdit(tr("Fill screen"));
+    const QString what = mode == QLatin1String("fit") ? tr("Fit to screen") : tr("Fill screen");
+    pushProjectEdit(before, what);
+    finishEdit(what);
 }
 
 bool AppController::aiTransitionAvailable() const
