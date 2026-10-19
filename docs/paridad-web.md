@@ -382,7 +382,28 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
    el formato y «Abrir proyecto»; el banner con su carrusel (cambia cada 5 s, se para con el mouse encima); la fila
    de 7 herramientas con el icono arriba, cada una abre el proyecto nuevo en su pestaña; «Proyectos locales» con
    buscar y cuadrícula/lista.
-4. **Etapa 3: plantillas de escena** en la web, con el mismo paquete que el escritorio
+4. **Etapa 3: plantillas de escena** ✅ en su mayor parte (2026-10-19, Claude). Hecho:
+   - **`.flip` entre escritorio y web** (`7acc7`): la web leía y escribía nombres inventados (`timelineStart`,
+     `"Video"`); un `.flip` del escritorio se abría vacío en la web y el de la web no abría en el escritorio. Ahora
+     `normalizeDesktopDoc` lee el formato real (`timelineStartUs`, tipos en minúscula, la caja `x/y/width/height`
+     en píxeles) y `webDocToDrift` lo escribe; el índice va en un marco zstd de bloques sin comprimir
+     (`zstdRawFrame`, la web no tiene compresor) y el contenedor es `1.2.0` (`ProjectBundle.h`). Probado en los dos
+     sentidos con la 0.18.2 de escritorio.
+   - **«Usar» de una plantilla** (`project/templatePackage.ts`, `8cbeb`): baja el zip (fflate), y la abre como
+     proyecto nuevo. Las **formas** del escritorio se dibujan a PNG (los 29 trazados de `ShapesPanel.SHAPES`) con su
+     color y su caja animada pasada a fotogramas clave; los **huecos** salen como «Tu foto aquí»; los **textos**
+     traen fuente, grosor, tamaño, color, caja (`TextClip.wrapWidth`) y entrada (estilos `desktop:…` en
+     `text/styles.ts`, que no salen en el panel). **182 caras** de fuentes de los paquetes del escritorio
+     (`scripts/desktop-fonts.py`, `src/text/fonts-desktop.css`, licencias en `public/fonts`).
+   - **Pestaña Plantilla** (`TemplatePanel.tsx`, `89976`): N de M llenos, un clic en un hueco, «Rellenar con varias
+     fotos…», textos y «Cambiar la música…»; la foto se recorta para cubrir el hueco (`Clip.slot`). Las formas y
+     los huecos no salen en Medios (`MediaItem.hidden`). **Mis plantillas** (`47e9c`) lista la biblioteca de la cuenta.
+   - **Efectos** (`2483c`): parámetros animados (`GpuEffect.keys`), «Zoom al ritmo» y «Sacudida» propios y la
+     tabla `EFFECT_MAP` (`driftBundle.ts`) de los del escritorio que la web tiene. Sin par todavía: duotono (colores),
+     desenfoque gaussiano, grado cinematográfico, destellos, estroboscopio.
+   - **Falta**: soltar una foto arrastrándola sobre un hueco; los efectos sin par; el fondo del proyecto
+     (`background` de la plantilla) cuando no hay una forma que lo tape.
+   Detalle original: con el mismo paquete que el escritorio
    (`Flip/tools/scene_templates/FORMAT.md`; el zip se baja con `/v1/market/downloads`, `delivery: "scene-template"`).
    Hace falta: abrir el zip, crear la composición en el cabezal y los huecos «Tu foto aquí» (`placeholderId`), que
    se rellenan con medios. Cuando esté, **Mis plantillas** deja de ser `NotYetPanel` y en Stock las plantillas dejan
