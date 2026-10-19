@@ -46,6 +46,17 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-10-19)
 
+### 0.18.2 PUBLICADA (2026-10-19) — actualizar funciona otra vez, rellenar pantalla, «+» en Medios, logo nuevo
+- PR #27 → `main`, tag `v0.18.2`, release con instalador, portable y `SHA256SUMS`; copia en
+  `versiones\FlipStudio-0.18.2` (hashes comprobados). MSIX (run 39321601743) en
+  `tienda\FlipStudio-Store\paquete-0.18.2\FlipStudio-0.18.2.0-x64.msix`. Novedades en la web. Logos de la Store en
+  `tienda\FlipStudio-Store\logo-nuevo-2026-10-19`.
+- **Falta (Jorge):** TXT `version` = 0.18.2 y subir el MSIX con las notas de `docs/store-listing.md` (1408/1500) y
+  los logos nuevos. La 0.18.1 no se sube (su botón de actualizar estaba roto).
+- **macOS** en la rama `flip/macos` (sin firma de Apple hasta el anuncio; luego Apple Developer $99). El icono de
+  macOS (`resources/macos/Drift.icon`) sigue con el logo viejo.
+- Editor web (rama `web/paridad-1` de `flipstudio-app`, desplegado): seguir `docs/paridad-web.md`.
+
 ### 0.18.1 PUBLICADA (2026-10-19) — arreglos del control de calidad de la 0.18 — **detalle en `docs/plan-0.18.1.md`**
 - Control de calidad por MCP sin ventana (`tools/e2e/qa018/`, se corre en `pruebas\qa018`): 15 formatos, los 78 efectos
   y 40 transiciones, cada códec, texto, audio, subtítulos e IA. Arreglos: **Pintura al óleo** (shader con `flat`,
