@@ -46,7 +46,16 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-10-18)
 
-### 0.18.0 (rama `flip/v0.18.0`) — **plan y estado en `docs/plan-0.18.md`**
+### 0.18.0 PUBLICADA (2026-10-18) — cámara lenta suave con IA, fotos variadas, contadores — **detalle en `docs/plan-0.18.md`**
+- PR #25 → `main`, tag `v0.18.0`, release (run 39178642565) con instalador, portable y `SHA256SUMS`; copia en
+  `versiones\FlipStudio-0.18.0` (hashes comprobados). MSIX (run 39178670318) en
+  `tienda\FlipStudio-Store\paquete-0.18.0\FlipStudio-0.18.0.0-x64.msix`. Novedades en la web. Stock: los 15 contadores
+  nuevos subidos (delta de 35 MB, comprobado byte a byte). Editor web: pestaña Voz (Kokoro + eSpeak NG) desplegada.
+- **Falta (Jorge):** TXT `version` = 0.18.0, subir el MSIX con las notas de `docs/store-listing.md` (641/1500) y probar
+  el arrastre «tipo tetris» (el arrastre simulado no mueve clips).
+- **Trampas nuevas:** el contador de la 0.17 no contaba en vista previa ni exportación (se dibuja por
+  `FrameCompositor::fillTextLayer`, no por `makeTextPainter(clip, …)`); y `apply_delta.sh` se corta en su resumen final
+  (`python3` del heredoc) y deja `flipstudio-templates.old`: borrarla a mano después de comprobar.
 - Contadores de Stock con el contador del motor (`counterSeconds`), fotos variadas en las miniaturas de Efectos,
   Plantillas de efectos, Transiciones y LUTs, antes y después en Efectos, cámara lenta suave con RIFE, foto de
   «Imperfecciones» y voz con IA del editor web.

@@ -10,6 +10,11 @@ pon fotos variadas para que no quede todo igual» + «Haz todo lo pendiente».
 
 Leyenda: ✅ hecho en la rama · 🟡 empezado · ⬜ por hacer.
 
+## PUBLICADA (2026-10-18)
+PR #25, tag `v0.18.0`, release run 39178642565, MSIX run 39178670318 (`tienda\FlipStudio-Store\paquete-0.18.0`), copia
+en `versiones\FlipStudio-0.18.0`, novedades en la web, contadores en Stock. Falta lo de Jorge: TXT `version`, Partner
+Center y probar el arrastre «tipo tetris».
+
 ## 1. Contadores de Stock con el contador del motor
 - ✅ Motor: `TextStyle.counterSeconds` (cuánto dura el conteo desde el inicio del clip; 0 = el 85 % de la 0.17) y
   relleno con ceros («05:00», «007»): `drift::counterTextAt(text, from, progress, land)`; pruebas en
