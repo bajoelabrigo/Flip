@@ -37,17 +37,17 @@ prueba sin ventana (`pruebas\qa018`: `qa.py` = sesión y registro de fallos; `qa
 - ✅ MCP `import_media` con un archivo que existe pero no se puede leer (0 bytes) respondía «ok» con un elemento sin
   nombre ni tipo. Ahora lo cuenta en `unreadable`, o da `import_failed` si no se pudo leer ninguno.
 
-## En curso (2026-10-18, noche): tanda de IA (`qa_ai.py`)
-- Máscara y fotogramas clave: OK. Estabilizar: OK (la app avisa «Video estabilizado añadido»; la espera del script
-  estaba mal escrita, no es un fallo).
-- La voz por MCP (`tts_generate`) solo va con ElevenLabs (nube, sin clave aquí): para Whisper se usa
+## Tanda de IA (`qa_ai.py`), 2026-10-18 noche: TODO OK
+- Máscara y fotogramas clave; estabilizar (la app avisa «Video estabilizado añadido»); escenas (2 cortes) y dividir
+  por escenas; caras (seguimiento en cada fotograma) + ojos grandes; profundidad (121 fotogramas en 100 s);
+  reencuadre a 9:16 siguiendo la cara; quitar ruido; Whisper en español (24 s).
+- La voz por MCP (`tts_generate`) solo va con ElevenLabs (nube, sin clave aquí): para Whisper se usó
   `media\a_voz.wav`, hecha con la voz de Windows (Helena, español).
-- Pendiente de ver el resultado: escenas, caras, profundidad, reencuadre, quitar ruido y Whisper
-  (`qa018\out\ai-run.txt`).
-- Los scripts están copiados en `tools/e2e/qa018/` para seguir desde otro asistente.
+- Mejora posible (no arreglada): Whisper añadió «A la gente.» en el silencio del final (alucinación típica). Se
+  podría descartar un segmento con alta probabilidad de «sin voz» o que caiga en silencio.
+- Los scripts están copiados en `tools/e2e/qa018/`. Registro restaurado (0 diferencias), proyectos de prueba
+  borrados y autoguardado devuelto: **el control de calidad terminó**.
 
 ## Falta
 - Compilar (un solo `build.yml` al final), mirar Texto › Efectos en español en ventana, y decidir con Jorge si sale
   como 0.18.1.
-- Al terminar: restaurar el registro (`pruebas\qa018\registro-antes.reg`) y borrar el autoguardado y los proyectos de
-  prueba de `%APPDATA%\Flip Studio\Flip Studio\projects`.
