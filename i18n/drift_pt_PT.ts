@@ -4933,6 +4933,14 @@
         <translation>Quadro congelado adicionado</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>Selecione um vídeo ou foto para preencher o ecrã</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>Preencher o ecrã</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>Selecione um clip de vídeo ou foto que tenha outro logo a seguir</translation>
     </message>
@@ -23569,6 +23577,14 @@ Se a reprodução falhar, experimente outra opção.</translation>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Preencher o ecrã (manter proporção)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Preencher o ecrã (esticar)</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

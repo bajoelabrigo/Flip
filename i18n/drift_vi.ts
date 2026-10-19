@@ -4929,6 +4929,14 @@
         <translation>Đã thêm khung đóng băng</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>Chọn một video hoặc ảnh để lấp đầy màn hình</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>Lấp đầy màn hình</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>Chọn một clip video hoặc ảnh có clip khác nằm ngay sau</translation>
     </message>
@@ -23486,6 +23494,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Lấp đầy màn hình (giữ tỷ lệ)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Lấp đầy màn hình (kéo giãn)</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

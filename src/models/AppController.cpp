@@ -4173,6 +4173,28 @@ void rippleTracksFrom(drift::Project &project, const QSet<int> &trackIndexes, dr
         syncLinkedPartnersFrom(project, clip, movedIds + excludeIds);
 }
 
+// Where a clip dropped from the library lands, as in CapCut and Filmora: right where it was
+// dropped (after the clip under the pointer, if it was dropped on one), and when the gap there is
+// too short the rest of the track, with its linked partners, moves right to make room. Before, the
+// clip jumped past the next clip, often off screen, and the drop looked ignored.
+drift::TimeUs landMakingRoom(drift::Project &project, int trackIndex, drift::TimeUs wanted, drift::TimeUs duration)
+{
+    const drift::Track &track = std::as_const(project).tracks().at(trackIndex);
+    drift::TimeUs at = qMax<drift::TimeUs>(0, wanted);
+    for (const drift::Clip &clip : track.clips) {
+        if (at > clip.timelineStart && at < clip.timelineEnd())
+            at = clip.timelineEnd();
+    }
+    drift::TimeUs next = std::numeric_limits<drift::TimeUs>::max();
+    for (const drift::Clip &clip : track.clips) {
+        if (clip.timelineStart >= at)
+            next = qMin(next, clip.timelineStart);
+    }
+    if (next != std::numeric_limits<drift::TimeUs>::max() && at + duration > next)
+        rippleTracksFrom(project, QSet<int>{trackIndex}, at, at + duration - next, {});
+    return at;
+}
+
 void splitLinkedPartnerAt(drift::Project &project, const drift::Clip &sourceHead, drift::TimeUs playheadUs,
                           const QString &tailLinkId)
 {
@@ -6549,8 +6571,11 @@ void AppController::addClipFromAssetOnNewTrackAt(int assetIndex, int insertIndex
     // See addClipFromAsset: placement must size against the trimmed length, not the asset's full
     // duration.
     const drift::TimeUs placementDuration = trimmedClipDurationUs(asset, duration);
-    const drift::TimeUs start = drift::resolveClipStart(m_project, track, -1, drift::secondsToUs(atSeconds),
-                                                        placementDuration, m_snapEnabled, m_playheadUs);
+    // Lands where it was dropped, pushing the rest of the track when the gap is too short.
+    const drift::TimeUs start = landMakingRoom(
+        m_project, trackIndex,
+        drift::snapTime(m_project, drift::secondsToUs(atSeconds), m_snapEnabled, m_playheadUs),
+        placementDuration);
 
     drift::Clip clip;
     clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
@@ -6603,8 +6628,11 @@ void AppController::addClipFromAssetAt(int assetIndex, int trackIndex, double at
     // See addClipFromAsset: placement must size against the trimmed length, not the asset's full
     // duration.
     const drift::TimeUs placementDuration = trimmedClipDurationUs(asset, duration);
-    const drift::TimeUs start = drift::resolveClipStart(m_project, track, -1, drift::secondsToUs(atSeconds),
-                                                        placementDuration, m_snapEnabled, m_playheadUs);
+    // Lands where it was dropped, pushing the rest of the track when the gap is too short.
+    const drift::TimeUs start = landMakingRoom(
+        m_project, trackIndex,
+        drift::snapTime(m_project, drift::secondsToUs(atSeconds), m_snapEnabled, m_playheadUs),
+        placementDuration);
 
     drift::Clip clip;
     clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
@@ -22801,6 +22829,38 @@ void AppController::freezeFrameAtPlayhead()
             },
             Qt::QueuedConnection);
     });
+}
+
+void AppController::fillCanvasWithClip(int trackIndex, int clipIndex, bool stretch)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.type != drift::ClipType::Video && clip.type != drift::ClipType::Image) {
+        setLastMessage(tr("Select a video or photo to fill the screen with it"), QStringLiteral("warning"));
+        return;
+    }
+    const int canvasW = qMax(1, m_project.width());
+    const int canvasH = qMax(1, m_project.height());
+    if (stretch) {
+        setClipLayoutPixels(clip, 0, 0, canvasW, canvasH);
+    } else {
+        // The media's own shape; without it the clip's current box stands in.
+        const drift::MediaAsset *asset = m_project.asset(clip.assetId);
+        double mediaW = asset && asset->width > 0 ? asset->width : clip.transformW.valueAt(0);
+        double mediaH = asset && asset->height > 0 ? asset->height : clip.transformH.valueAt(0);
+        if (mediaW <= 0 || mediaH <= 0) {
+            mediaW = canvasW;
+            mediaH = canvasH;
+        }
+        const double scale = qMax(canvasW / mediaW, canvasH / mediaH);
+        const double w = mediaW * scale;
+        const double h = mediaH * scale;
+        setClipLayoutPixels(clip, (canvasW - w) / 2.0, (canvasH - h) / 2.0, w, h);
+    }
+    pushProjectEdit(before, tr("Fill screen"));
+    finishEdit(tr("Fill screen"));
 }
 
 bool AppController::aiTransitionAvailable() const

@@ -4933,6 +4933,14 @@
         <translation>නිශ්චල රාමුව එක් කරන ලදී</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>තිරය පිරවීමට වීඩියෝවක් හෝ ඡායාරූපයක් තෝරන්න</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>තිරය පුරවන්න</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23569,6 +23577,14 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>තිරය පුරවන්න (අනුපාතය තබාගෙන)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>තිරය පුරවන්න (දිගු කරන්න)</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

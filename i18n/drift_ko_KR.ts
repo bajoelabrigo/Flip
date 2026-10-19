@@ -4921,6 +4921,14 @@
         <translation>정지 프레임이 추가됨</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>화면을 채울 동영상이나 사진을 선택하세요</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>화면 채우기</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>바로 뒤에 다른 클립이 있는 동영상 또는 사진 클립을 선택하세요</translation>
     </message>
@@ -23484,6 +23492,14 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>화면 채우기(비율 유지)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>화면 채우기(늘이기)</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

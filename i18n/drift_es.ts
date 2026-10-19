@@ -4933,6 +4933,14 @@
         <translation>Fotograma congelado añadido</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>Selecciona un video o una foto para rellenar la pantalla con él</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>Rellenar pantalla</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>Selecciona un clip de video o foto que tenga otro justo después</translation>
     </message>
@@ -23569,6 +23577,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Rellenar pantalla (conservar proporción)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Rellenar pantalla (estirar)</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

@@ -4933,6 +4933,14 @@
         <translation>Fotogramma fisso aggiunto</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>Seleziona un video o una foto per riempire lo schermo</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>Riempi lo schermo</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>Seleziona una clip video o foto seguita subito da un&apos;altra</translation>
     </message>
@@ -23569,6 +23577,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Riempi lo schermo (mantieni le proporzioni)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Riempi lo schermo (allunga)</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

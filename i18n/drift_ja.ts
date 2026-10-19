@@ -4921,6 +4921,14 @@
         <translation>フリーズフレームを追加しました</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>画面いっぱいに表示する動画か写真を選択してください</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>画面いっぱいに表示</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>直後に別のクリップがある動画または写真のクリップを選択してください</translation>
     </message>
@@ -23486,6 +23494,14 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>画面いっぱいに表示（縦横比を保持）</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>画面いっぱいに表示（引き伸ばす）</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

@@ -3,6 +3,19 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.18.2 — Actualizar funciona otra vez, rellenar pantalla y «+» en Medios
+
+- **Actualizar:** `Main.qml` respondía a `Updates.quitRequested` con `window.close()`, que desde la 0.17 es la X del
+  editor (vuelve al inicio); ahora llama a `window.quitApp()`.
+- **Soltar en un hueco corto:** `addClipFromAssetAt` y `addClipFromAssetOnNewTrackAt` usan `landMakingRoom`: el clip
+  cae donde se soltó (o justo después del clip bajo el puntero) y, si no cabe, `rippleTracksFrom` corre el resto de
+  la pista con sus clips enlazados. Antes `resolveClipStart` lo mandaba detrás del clip siguiente. Prueba
+  `libraryDropIntoShortGapPushesTheRest`.
+- **Rellenar pantalla:** `AppController::fillCanvasWithClip(track, clip, stretch)`, desde el clic derecho de
+  `TransformOverlay.qml` (cubrir conservando la proporción, o estirar al lienzo).
+- **«+» en Medios:** botón al pasar el mouse en las tarjetas de `MediaAssetsTab.qml` (`addToTimelineRequested`).
+- Textos nuevos traducidos en los 16 catálogos.
+
 ## 0.18.1 — Arreglos del control de calidad de la 0.18
 
 - **Pintura al óleo:** `effects/oil_paint/main.frag` usaba `flat`, palabra reservada de GLSL; el shader no compilaba

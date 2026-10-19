@@ -144,6 +144,7 @@ private slots:
     void undoRedoClipAdd();
     void sourceFramingPreservesOriginalAndUndoes();
     void undoLibraryClipDropOntoExistingTrack();
+    void libraryDropIntoShortGapPushesTheRest();
     void undoTrackMute();
     void packagedProjectCarriesDerivedArtifacts();
     void undoBookmarkAdd();
@@ -2391,6 +2392,34 @@ void EditorStateTest::undoLibraryClipDropOntoExistingTrack()
 
     state.redo();
     QCOMPARE(state.project()->tracks().at(0).clips.size(), 1);
+}
+
+// CapCut/Filmora: a clip dropped into a gap shorter than itself lands there and the rest of the
+// track moves right; it used to jump past the next clip (off screen) and the drop looked ignored.
+void EditorStateTest::libraryDropIntoShortGapPushesTheRest()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    drift::MediaAsset asset;
+    asset.name = QStringLiteral("clip.mp4");
+    asset.kind = drift::MediaKind::Video;
+    asset.path = QStringLiteral("/nonexistent/clip.mp4");
+    asset.durationUs = drift::secondsToUs(5.0);
+    state.project()->addAsset(asset);
+    library.syncToProject();
+    state.setSnapEnabled(false);
+    state.addClipFromAssetAt(0, 0, 0.0); // 0-5
+    state.addClipFromAssetAt(0, 0, 7.0); // 7-12, a 2 s gap before it
+
+    state.addClipFromAssetAt(0, 0, 5.0);
+    const drift::Track &track = state.project()->tracks().at(0);
+    QCOMPARE(track.clips.size(), 3);
+    QCOMPARE(track.clips.at(2).timelineStart, drift::secondsToUs(5.0));
+    QCOMPARE(track.clips.at(1).timelineStart, drift::secondsToUs(10.0));
+
+    // A gap that is big enough is left alone.
+    state.addClipFromAssetAt(0, 0, 20.0);
+    QCOMPARE(state.project()->tracks().at(0).clips.at(1).timelineStart, drift::secondsToUs(10.0));
 }
 
 void EditorStateTest::undoTrackMute()

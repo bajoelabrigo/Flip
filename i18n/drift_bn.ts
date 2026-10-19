@@ -5033,6 +5033,14 @@
         <translation type="unfinished">ফ্রিজ ফ্রেম যোগ করা হয়েছে</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>স্ক্রিন ভরাট করতে একটি ভিডিও বা ছবি বেছে নিন</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>স্ক্রিন ভরাট করুন</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23569,6 +23577,14 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>স্ক্রিন ভরাট করুন (অনুপাত ঠিক রেখে)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>স্ক্রিন ভরাট করুন (টেনে বড় করে)</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

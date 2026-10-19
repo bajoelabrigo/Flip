@@ -4939,6 +4939,14 @@
         <translation>Image figée ajoutée</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>Sélectionnez une vidéo ou une photo pour en remplir l’écran</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>Remplir l’écran</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>Sélectionnez un clip vidéo ou photo suivi immédiatement d&apos;un autre</translation>
     </message>
@@ -23574,6 +23582,14 @@ Si la lecture saccade, essayez une autre option.</translation>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Remplir l’écran (garder les proportions)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Remplir l’écran (étirer)</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

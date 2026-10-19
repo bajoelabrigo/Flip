@@ -4945,6 +4945,14 @@
         <translation>Dodano zatrzymaną klatkę</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>Zaznacz film lub zdjęcie, aby wypełnić nim ekran</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>Wypełnij ekran</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>Zaznacz klip wideo lub zdjęcie, po którym od razu następuje inny</translation>
     </message>
@@ -23652,6 +23660,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Wypełnij ekran (zachowaj proporcje)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Wypełnij ekran (rozciągnij)</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

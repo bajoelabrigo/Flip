@@ -4921,6 +4921,14 @@
         <translation>已添加定格帧</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>请选择要填满画面的视频或照片</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>填满画面</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>请选择一个后面紧跟着另一个片段的视频或照片片段</translation>
     </message>
@@ -23485,6 +23493,14 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>填满画面（保持比例）</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>填满画面（拉伸）</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

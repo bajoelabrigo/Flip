@@ -4945,6 +4945,14 @@
         <translation>Стоп-кадр добавлен</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>Выберите видео или фото, чтобы заполнить им экран</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>Заполнить экран</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>Выберите видеоклип или фото, сразу за которым идёт другой клип</translation>
     </message>
@@ -23652,6 +23660,14 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Заполнить экран (сохранить пропорции)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Заполнить экран (растянуть)</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>
