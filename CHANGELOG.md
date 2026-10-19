@@ -3,6 +3,18 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.18.1 — Arreglos del control de calidad de la 0.18
+
+- **Pintura al óleo:** `effects/oil_paint/main.frag` usaba `flat`, palabra reservada de GLSL; el shader no compilaba
+  y el efecto se saltaba sin avisar (desde Drift).
+- **DNxHR:** `applyVideoPreset` pide el perfil `dnxhr_hq` / `dnxhr_hqx` al codificador `dnxhd` (el perfil DNxHD por
+  defecto solo acepta unos pocos tamaños y tasas fijas).
+- **Texto › Efectos traducido:** las etiquetas de `TextLook.cpp` y `TextShading.cpp` van con `QT_TRANSLATE_NOOP` en el
+  contexto que usa la app (`TextLook`, `TextEffects`; el ayudante `tr` pasa a `lookText` para que `lupdate` vea el
+  texto) y las unidades se leen como UTF-8. 67 textos en los 12 idiomas completos.
+- **MCP:** `freeze_frame` espera a que entre la foto; `import_media` informa los archivos que no se pueden leer.
+- Scripts del control de calidad en `tools/e2e/qa018/` (plan y resultados en `docs/plan-0.18.1.md`).
+
 ## 0.18.0 — Cámara lenta suave con IA, fotos variadas y contadores que cuentan solos
 
 - **Cámara lenta suave** (`AppController::smoothSlowMotion`): cada fotograma del clip lento se dibuja al fps del
