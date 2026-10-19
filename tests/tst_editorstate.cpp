@@ -1910,10 +1910,13 @@ void EditorStateTest::draggingAnEdgeOverANeighbourMakesADissolve()
     QCOMPARE(after.transitions.at(0).kindId, QStringLiteral("crossfade"));
     QCOMPARE(after.transitions.at(0).durationUs, drift::secondsToUs(1.0));
 
-    // 4 s over a 5 s clip: dropped on it, not a fade. Pushed clear.
+    // 4 s over a 5 s clip: dropped on it, not a fade. As in CapCut it goes in before a (it landed
+    // before a's middle) and a moves right to make room.
     state.moveClip(0, 1, 1.0);
     const drift::Track &deep = state.project()->tracks().at(0);
-    QVERIFY(deep.clips.at(1).timelineStart >= deep.clips.at(0).timelineEnd());
+    QCOMPARE(deep.clips.at(1).timelineStart, drift::TimeUs(0));
+    QVERIFY(deep.clips.at(0).timelineStart >= deep.clips.at(1).timelineEnd());
+    state.undo(); // back to b over a's tail, with its fade
 
     // Off: an edge overlap is pushed clear too, and no fade is made.
     state.moveClip(0, 1, 8.0); // apart: the old fade goes
