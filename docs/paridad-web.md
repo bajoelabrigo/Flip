@@ -214,6 +214,91 @@ y una fila de chips de texto. Ahora es `AssetsPanel.qml` tal cual:
 - La rueda que pasa de una categoría a la siguiente (`CategoryScrollOn.tsx` ya existe para las bibliotecas).
 - Traducir la web a los 13 idiomas: hoy son textos en español a pelo.
 
+## PARA SEGUIR (traspaso del 2026-10-19, de Claude a DeepSeek): leer esto primero
+
+### Regla número uno (Jorge, dicha dos veces)
+**«Replica la app de escritorio».** La web tiene que verse y comportarse **exactamente** como el escritorio:
+misma estructura, mismos iconos, mismos nombres, y cada botón abre lo mismo. Antes de dar por terminada una
+pantalla, abrir el `.qml` del escritorio que le corresponde y compararlo **pieza por pieza** (orden, textos,
+medidas, qué pasa al hacer clic). Los nombres en español salen de `Flip/i18n/drift_es.ts` (buscar el
+`<context>` del archivo QML; ojo con los que tienen `<comment>`, por ejemplo «Stickers» en la fila de categorías
+y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se copia.
+
+### Dónde está todo
+- Repo de la web: `Downloads\FlipStudio\codigo\flipstudio-app`, rama **`web/paridad-1`** (todo subido; último
+  commit `c6ede`). No hay PR a `main` todavía: la rama está desplegada tal cual.
+- Repo del servidor: `codigo\flipstudio-api`, rama **`stock-0.15`** (desplegada; último commit `df65e`).
+- Este plan: `Flip/docs/paridad-web.md`, rama `flip/v0.18.2`. **Actualizarlo en cada tanda** y subirlo.
+- Escritorio de referencia, en `Flip/src/qml/`: panel izquierdo `AssetsPanel.qml`; Stock en `components/assets/`
+  (`MarketTab`, `StockHome`, `StockBrowser`, `StockThumb`, `StockRequestsDialog`); cuenta en
+  `components/AccountDialog.qml`; cabecera `EditorHeader.qml`; inicio `components/StartScreen.qml`; panel derecho
+  `PropertiesPanel.qml`; colores e iconos `Theme.qml`.
+
+### Cómo probar y publicar la web
+1. `cd flipstudio-app`, luego `npx tsc -b` (**no** `npx tsc --noEmit -p .`: ese no revisa nada), `npx vitest run`
+   (99 pruebas) y `npx oxlint` (hay avisos viejos; que no salgan errores nuevos).
+2. En el navegador: `npx vite --port 5183` y un script de Playwright dentro de `scripts/` (usa `playwright-core`,
+   ya instalado; el script tiene que estar dentro del repo para encontrarlo). Para no tocar la cuenta de Jorge,
+   simular el servidor con `page.route("https://api.getflipstudio.com/v1/**", ...)` y poner una sesión falsa en
+   `localStorage["flip.account"]` = `{accessToken:"a.eyJleHAiOjk5OTk5OTk5OTl9.b", refreshToken:"r", user:{...}}`.
+   Ejemplo: `scripts/check-stock-ui.mjs`. Para crear un proyecto: clic en `.home-create-btn`.
+3. Publicar: `bash deploy/deploy.sh` (compila con `npm run build` y cambia la carpeta entera en el VPS).
+4. Si se toca la CSP (`deploy/nginx-editor.conf`): copiarla al VPS en `/etc/nginx/snippets/flipstudio-editor.conf`,
+   guardar antes una copia (`/root/...bak-<fecha>`), correr `nginx -t` y `systemctl reload nginx`. Todo dominio
+   nuevo del que la web cargue imágenes o audio, o al que haga `fetch`, tiene que ir en
+   `img-src`/`media-src`/`connect-src`, o el navegador lo corta con «Failed to fetch» (eso era lo que rompía el
+   inicio de sesión).
+5. Pedirle a Jorge que recargue con **Ctrl+F5**.
+
+### Hecho hoy (2026-10-19) y desplegado
+- Entrar con Google: CSP arreglada, vuelve al mismo proyecto y la foto se ve como en el escritorio. **Jorge lo probó: funciona.**
+- Stock completo como el escritorio, más Pexels/Pixabay, «Pide una plantilla» y «Mi cuenta» (Favoritos y Descargas).
+  Probado solo con datos simulados: **falta que Jorge lo pruebe con su cuenta**.
+- Panel izquierdo igual que el escritorio: fila de 9 categorías con icono, lista lateral, y LUTs, Efectos de color
+  y Máscaras. El detalle de cada cosa está en las tandas de arriba.
+
+### Lo que sigue, en este orden
+1. **Comparar por dentro cada pestaña del panel izquierdo** con el escritorio (es lo que Jorge espera ahora), una
+   por una, y corregir lo que no coincida: Medios (`MediaBin.tsx` contra la pestaña media de `AssetsPanel.qml`:
+   cabecera con importar, vista en cuadrícula o lista, filtros por tipo), Música y Efectos de sonido
+   (`LibraryPanels.tsx`), Voz (`VoicePanel.tsx`), Texto (`TextPanel.tsx`), Subtítulos (`SubtitlesPanel.tsx`),
+   Transiciones (`TransitionsPanel.tsx`), Efectos (`EffectsPanel.tsx` contra `EffectBrowser`: el escritorio tiene
+   el buscador arriba y chips con las categorías de su catálogo), Pegatinas y Formas. En el escritorio las pestañas
+   de catálogo **no tienen cabecera con título** (`assetsHeader` se oculta y el buscador ocupa ese lugar); en la web
+   casi todas tienen un `panel-head` con el nombre: quitarlo donde el escritorio no lo tiene.
+2. **El panel derecho** (propiedades) contra `PropertiesPanel.qml`: pestañas, iconos y orden según el tipo de clip
+   (video, imagen, audio, texto, capa de ajuste).
+3. **La cabecera** contra `EditorHeader.qml` (Jorge ya pidió Inicio, Guardar, Video y Descargar app a la derecha,
+   junto a Exportar; mirar qué más tiene el escritorio) y **el inicio** contra `StartScreen.qml` (el escritorio
+   tiene una tarjeta de la cuenta en el inicio; la web no).
+4. **Etapa 3: plantillas de escena** en la web, con el mismo paquete que el escritorio
+   (`Flip/tools/scene_templates/FORMAT.md`; el zip se baja con `/v1/market/downloads`, `delivery: "scene-template"`).
+   Hace falta: abrir el zip, crear la composición en el cabezal y los huecos «Tu foto aquí» (`placeholderId`), que
+   se rellenan con medios. Cuando esté, **Mis plantillas** deja de ser `NotYetPanel` y en Stock las plantillas dejan
+   de decir «app» (`canUseInWeb` en `src/stock/stock.ts`).
+5. **Plantillas de efectos** (Intensidad, Caída, Ritmo; `EffectTemplateTag` en el escritorio): llenan la pestaña
+   Plantillas de efectos.
+6. **Efectos de audio** (Web Audio: eco, reverberación, ecualizador…) y **Escenas** (detectar dónde empieza cada
+   toma), para que esas dos pestañas dejen de ser `NotYetPanel`.
+7. **Favoritos en la cuenta:** hoy la web los guarda en el navegador (`src/layout/favorites.ts`, clave
+   `flip.favorites`). El servidor tiene `GET/PUT /v1/me/favorites` con los grupos del escritorio: hay que traducir
+   los nombres de grupo de la web a los del escritorio y sincronizar.
+8. Lo demás de la tabla de arriba (efectos y transiciones que faltan, antes y después, contadores, IA en el
+   navegador, 13 idiomas), en el orden aprobado de abajo.
+
+### Trampas que ya costaron tiempo hoy
+- `npx tsc --noEmit -p .` no revisa nada en `flipstudio-app`: usar `npx tsc -b`.
+- Desde Git Bash, un `python - <<'EOF'` largo y con comillas puede romperse («unexpected EOF»): escribir el script
+  en un archivo y correrlo con `python -I archivo.py`.
+- Python en Windows escribe CRLF: abrir con `newline=""` para no cambiar los fines de línea. Este
+  `paridad-web.md` y `CLAUDE.md` están en CRLF.
+- La CSP del editor corta en silencio todo dominio que no esté en la lista (sale «Failed to fetch»).
+- Los archivos de `api.getflipstudio.com/plantillas/` necesitan `Access-Control-Allow-Origin` para el `fetch` de
+  la web. Ya está puesto en el nginx del servidor (y en `flipstudio-api/deploy/nginx-api.conf`); si alguien vuelve
+  a generar ese sitio con certbot, comprobar que siga.
+- El servidor manda los errores en `{detail}` (Stock) o en `{error}` (cuentas); `apiGet`/`apiPost` ya los muestran.
+- No usar la cuenta real de Jorge en las pruebas automáticas: simular el servidor (punto 2 de «Cómo probar»).
+
 ## Orden aprobado por Jorge (2026-10-19)
 1. **Que se vea igual:** tema turquesa, inicio, menú arriba con atajos y fila de categorías completa; y proyectos
    `.flip` (abrir `.flip`/`.drift`, guardar `.flip`).
