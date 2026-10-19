@@ -37,7 +37,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 ### Cuenta y Stock
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
-| Iniciar sesión con Google | 0.10 | ⬜ | En la web es más fácil: el mismo dominio, flujo normal de OAuth |
+| Iniciar sesión con Google | 0.10 | ✅ | `src/account/account.ts` + `AccountButton`: PKCE, vuelta a `/editor/`, canje en el servidor y token con refresco. El servidor usa el cliente web de Google (`GOOGLE_WEB_CLIENT_ID`) |
 | Stock (plantillas, música, sonidos, LUT, looks, estilos y animaciones de texto, transiciones, formas, stickers, superposiciones, fondos, contadores, kits) | 0.12–0.18 | ⬜ | Más de 4.000 elementos ya servidos en `api.getflipstudio.com` |
 | Inicio de Stock tipo tienda, búsqueda, favoritos y «Pide una plantilla» | 0.14 | ⬜ | |
 | Biblioteca de la cuenta («Mis descargas») | 0.12 | ⬜ | |
@@ -138,6 +138,18 @@ Al probar «Abrir proyecto…» con un `.flip` de verdad salieron tres fallos en
 
 Comprobado contra `getflipstudio.com/editor/`: `prueba.flip` se abre, sale en la lista de medios su archivo (que era
 de referencia, así que la app pide buscarlo, como debe) y el proyecto queda con el nombre del archivo.
+
+### Segunda tanda (2026-10-19): cuenta en la web y cabecera ordenada
+- **Cabecera**: Inicio, Guardar, Video y Descargar app pasan a la derecha, junto a Exportar (Jorge: «para que no se
+  confundan con los otros»); a la izquierda quedan el menú y el nombre del proyecto.
+- **Cuenta**: botón «Iniciar sesión» con Google (PKCE, vuelta a `https://getflipstudio.com/editor/`), avatar con
+  menú y «Cerrar sesión». La vuelta del `code` se canjea en `Root` y la dirección se limpia siempre, aunque falle.
+  El servidor tiene ahora **dos clientes** de Google (escritorio y web, cada uno con su par id/secreto) y una
+  **lista cerrada** de direcciones de vuelta (`isWebRedirect`), con prueba propia. El cliente web lo creó Jorge en
+  Google Cloud y hay que tener registrada la dirección con barra final: lo comprobé contra Google con
+  `scripts/check-google-redirect.mjs` (con él se ve `redirect_uri_mismatch` o, si está bien, la pantalla de cuentas).
+- Falta de la etapa 2: **el panel de Stock** (catálogo, búsqueda, categorías y «Usar» para los tipos que la web
+  sabe aplicar: LUTs, música, sonidos, stickers, superposiciones y fondos).
 
 ### Lo siguiente de la etapa 1 que queda
 - Las categorías **Stock**, **Filtros** (LUT y efectos de color en una sola) y **Plantillas**, cuando existan en
