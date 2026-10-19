@@ -71,7 +71,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 |---|---|---|---|
 | Efectos | 78 | 🟡 ~25 | Escribirlos desde cero, por categoría, con las mismas tarjetas |
 | Transiciones | 40 | 🟡 10 | Ídem |
-| Antes y después al pasar el mouse | 0.17–0.18 | ✅ | En Efectos (y Efectos de color), sobre las mismas fotos CC0 del escritorio (`public/effect-bases`, sin `beauty.jpg`, que es de Drift); los LUT ya lo tenían |
+| Antes y después al pasar el mouse | 0.17–0.18 | ✅ | En Efectos (y Efectos de color), sobre las mismas fotos CC0 del escritorio (`public/effect-bases`, sin `beauty.jpg`, que es de Drift) y en Filtros (LUT) |
 | Filtros (LUT) y Efectos de color | 0.16 | 🟡 | Hay `LutPage.tsx` y `cubeLut.ts`; faltan las 200 LUT de Stock |
 | Máscaras | sí | 🟡 | Hay `MaskPage.tsx`; falta texto como máscara (tampoco está en el escritorio) |
 | Modos de fusión | sí | ✅ | |
