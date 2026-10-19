@@ -57,6 +57,15 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   `.dmg` compilado (run 39325198092, arm64)** en `pruebas\mac-0.18.2` (se llama `0.0.0-<commit>` porque no salió de un
   tag); falta probarlo en un Mac. El icono de macOS (`resources/macos/Drift.icon`) sigue con el logo viejo.
 - Editor web (rama `web/paridad-1` de `flipstudio-app`, desplegado): seguir `docs/paridad-web.md`.
+- **Jorge mandó la 0.18.2 a certificación (2026-10-19).**
+- **Próxima versión del escritorio (en la rama `flip/macos`, sin compilar todavía):**
+  - Actualizar sin vueltas (pedido de Jorge, 2026-10-19): al terminar la descarga se abre solo «Actualización
+    lista» con «Reiniciar e instalar», aunque esté marcada la casilla de instalar al cerrar
+    (`UpdateChecker::finishStage` emite siempre `installReady`). Antes, con la casilla (marcada por defecto), no
+    avisaba y había que volver al botón de arriba. **Probarlo en ventana** con una actualización real.
+  - Lo de «Reiniciar» que volvía al inicio ya está arreglado en la 0.18.2 (`window.quitApp()`), pero solo funciona
+    **desde** la 0.18.2: quien actualiza desde 0.17–0.18.1 corre el código viejo. Para esos: cerrar con la X de la
+    pantalla de inicio (o Archivo › Salir) y el instalador arranca solo.
 
 ### 0.18.1 PUBLICADA (2026-10-19) — arreglos del control de calidad de la 0.18 — **detalle en `docs/plan-0.18.1.md`**
 - Control de calidad por MCP sin ventana (`tools/e2e/qa018/`, se corre en `pruebas\qa018`): 15 formatos, los 78 efectos
