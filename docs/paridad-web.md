@@ -404,6 +404,11 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
   arrastra (`openRoom` en `timeline/tracks.ts`, porque el arrastre recalcula el documento en cada movimiento). En el
   escritorio (0.18.2, `AppController::moveClip` / `moveClipToTrack` / `landMakingRoom`) se abre **al soltar**; que
   los clips se corran en vivo durante el arrastre en el escritorio queda pendiente (`TimelinePanel.qml`).
+- **Barra de la línea de tiempo (2026-10-19, `edb14`)**: mismo orden que `TimelineToolbar.qml` (barra, «⋯ Más
+  acciones» y lado derecho), probada botón por botón en el navegador. **Apagados con «Solo en la app de escritorio
+  por ahora»** (pendientes en la web): Quitar silencios, Mejorar audio, Mejorar video, Repetir el tramo, Añadir capa
+  de transformación, Añadir cámara y Editor de curvas. Recortar y Quitar fondo abren Video › Básico / Eliminar
+  fondo (`openVideoPage` en `VideoSection.tsx`, evento `flip:inspector` en `InspectorPanel.tsx`).
 
 ## Orden aprobado por Jorge (2026-10-19)
 1. **Que se vea igual:** tema turquesa, inicio, menú arriba con atajos y fila de categorías completa; y proyectos
