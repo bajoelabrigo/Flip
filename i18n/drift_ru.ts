@@ -4945,6 +4945,18 @@
         <translation>Стоп-кадр добавлен</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>Выберите видео или фото, чтобы заполнить им экран</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>Заполнить экран</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>Вписать в экран</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>Выберите видеоклип или фото, сразу за которым идёт другой клип</translation>
     </message>
@@ -15381,6 +15393,22 @@ If playback stutters, try another.</source>
         <translation>Запуск Flip Studio через prime-run (или DRI_PRIME=1) переносит OpenGL на ту же видеокарту, что и декодер.</translation>
     </message>
     <message>
+        <source>Selected clip</source>
+        <translation>Выбранный клип</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>Вписать в экран</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Заполнить экран (сохранить пропорции)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Заполнить экран (растянуть)</translation>
+    </message>
+    <message>
         <source>Run Flip Studio on the high-performance graphics card</source>
         <translation>Запускать Flip Studio на высокопроизводительной видеокарте</translation>
     </message>
@@ -23652,6 +23680,18 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fit to screen</source>
+        <translation>Вписать в экран</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Заполнить экран (сохранить пропорции)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Заполнить экран (растянуть)</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

@@ -1,0 +1,4 @@
+[    6019ms] [ERROR] Error opening the project: ReferenceError: SharedArrayBuffer is not defined
+    at l (http://localhost:5180/editor/assets/driftBundle-D4uva0mH.js:1:417)
+    at f (http://localhost:5180/editor/assets/driftBundle-D4uva0mH.js:1:1335)
+    at async onImportDrift (http://localhost:5180/editor/assets/index-DtDH6wSk.js:540:25527) @ http://localhost:5180/editor/assets/index-DtDH6wSk.js:539

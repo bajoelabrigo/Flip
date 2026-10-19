@@ -1,0 +1,129 @@
+- generic [ref=f11e4]:
+  - generic [ref=f11e7]:
+    - generic [ref=f11e10]:
+      - img "Google" [ref=f11e12]
+      - generic [ref=f11e13]: Iniciar sesión con Google
+    - generic [ref=f11e14]:
+      - generic [ref=f11e16]:
+        - heading "Inicia sesión" [level=1] [ref=f11e17]
+        - paragraph [ref=f11e18]:
+          - text: Ir a
+          - button "getflipstudio.com" [ref=f11e19] [cursor=pointer]
+      - generic [ref=f11e22]:
+        - generic [ref=f11e25]:
+          - generic [ref=f11e30]:
+            - textbox "Correo electrónico o teléfono" [active] [ref=f11e31]
+            - generic: Correo electrónico o teléfono
+          - paragraph [ref=f11e32]:
+            - link "¿Has olvidado tu correo electrónico?" [ref=f11e33] [cursor=pointer]:
+              - /url: /signin/v2/usernamerecovery?app_domain=https://getflipstudio.com&client_id=770431047496-4d8lhk018lplcra0e8crmgji7f3p9bm8.apps.googleusercontent.com&code_challenge=uRuYAVdGuOEeysI6RnS6MT78aAwSJ-E3Qm5Q6EQdO3I&code_challenge_method=S256&continue=https://accounts.google.com/signin/oauth/legacy/consent?authuser%3Dunknown%26part%3DAJi8hAPwnhfaNAz-SXYalOOKcvnfuFA26MVCSRn8TBIx4vtKWvYkiPHUn_DhIeHVgNKLCjRmLQCxL6iuZaOBmD6057olWsNKgqO_k9nXB0D7J4fs4dGFFt9_4KSWmjszgm0DS2ibXtn1Dqc2GImGIq4meybMnXMiZYK1gO16uvH_Q6LqneKURwYphDtu_DdfpQLPFONa_po506b6h6aa7ajAEg9XffERsh-QbRRUxYRdd3058UpzSyvZ8BxQkuirtmunqGIuvBGCrPDfa4PAGCzHV6gSrBXG2Cxf_vDAdyjCZXmdy2LVqqShKbGINo65udXOX1CYZ1pflDyjIPSsUdlSXtGFqUBWZ_YSys60OqX8SUY6S9tpERD-iZCxOSx1aD-_CIAv7T5dPJQKddgL3TydJzskUjDSLQCiEQ_tJZcz8Is5e4nHvK6HeSMxalu9-2_r0w5PhM-XchxmFJlJL2VHqiJ1iIlfqA%26flowName%3DGeneralOAuthFlow%26as%3DS454931200%253A1792426714910779%26client_id%3D770431047496-4d8lhk018lplcra0e8crmgji7f3p9bm8.apps.googleusercontent.com%23&dsh=S454931200:1792426714910779&flowName=GeneralOAuthLite&o2v=2&opparams=%253F&prompt=select_account&rart=ANgoxcd8vBtvYoWkSFrMvWxKjHFYXPVIcQN3SVaWeqJsl_knEVy_7S2wqy4Lte4Lni4B6WjuGQN44lHSGfxqIp7ggobetMWHSVLXNb53MQLkxuQe8q2wmE0&redirect_uri=https://getflipstudio.com/editor/&response_type=code&scope=openid+email+profile&service=lso&state=UQrw28icrN0PLfAMWBn3zg
+        - paragraph [ref=f11e36]:
+          - text: Antes de usar esta aplicación, puedes leer la
+          - link "Política de Privacidad" [ref=f11e37] [cursor=pointer]:
+            - /url: https://getflipstudio.com/privacidad.html
+          - text: y los
+          - link "Términos del Servicio" [ref=f11e38] [cursor=pointer]:
+            - /url: https://getflipstudio.com/terminos.html
+          - text: de getflipstudio.com.
+        - generic [ref=f11e40]:
+          - button "Siguiente" [ref=f11e42]
+          - link "Crear cuenta" [ref=f11e44] [cursor=pointer]:
+            - /url: /lifecycle/flows/signup?app_domain=https://getflipstudio.com&client_id=770431047496-4d8lhk018lplcra0e8crmgji7f3p9bm8.apps.googleusercontent.com&code_challenge=uRuYAVdGuOEeysI6RnS6MT78aAwSJ-E3Qm5Q6EQdO3I&code_challenge_method=S256&continue=https://accounts.google.com/signin/oauth/legacy/consent?authuser%3Dunknown%26part%3DAJi8hAPwnhfaNAz-SXYalOOKcvnfuFA26MVCSRn8TBIx4vtKWvYkiPHUn_DhIeHVgNKLCjRmLQCxL6iuZaOBmD6057olWsNKgqO_k9nXB0D7J4fs4dGFFt9_4KSWmjszgm0DS2ibXtn1Dqc2GImGIq4meybMnXMiZYK1gO16uvH_Q6LqneKURwYphDtu_DdfpQLPFONa_po506b6h6aa7ajAEg9XffERsh-QbRRUxYRdd3058UpzSyvZ8BxQkuirtmunqGIuvBGCrPDfa4PAGCzHV6gSrBXG2Cxf_vDAdyjCZXmdy2LVqqShKbGINo65udXOX1CYZ1pflDyjIPSsUdlSXtGFqUBWZ_YSys60OqX8SUY6S9tpERD-iZCxOSx1aD-_CIAv7T5dPJQKddgL3TydJzskUjDSLQCiEQ_tJZcz8Is5e4nHvK6HeSMxalu9-2_r0w5PhM-XchxmFJlJL2VHqiJ1iIlfqA%26flowName%3DGeneralOAuthFlow%26as%3DS454931200%253A1792426714910779%26client_id%3D770431047496-4d8lhk018lplcra0e8crmgji7f3p9bm8.apps.googleusercontent.com%23&dsh=S454931200:1792426714910779&flowEntry=SignUp&flowName=GlifWebSignIn&o2v=2&opparams=%253F&prompt=select_account&rart=ANgoxcd8vBtvYoWkSFrMvWxKjHFYXPVIcQN3SVaWeqJsl_knEVy_7S2wqy4Lte4Lni4B6WjuGQN44lHSGfxqIp7ggobetMWHSVLXNb53MQLkxuQe8q2wmE0&redirect_uri=https://getflipstudio.com/editor/&response_type=code&scope=openid+email+profile&service=lso&signInUrl=https://accounts.google.com/signin/oauth?app_domain%3Dhttps://getflipstudio.com%26client_id%3D770431047496-4d8lhk018lplcra0e8crmgji7f3p9bm8.apps.googleusercontent.com%26code_challenge%3DuRuYAVdGuOEeysI6RnS6MT78aAwSJ-E3Qm5Q6EQdO3I%26code_challenge_method%3DS256%26continue%3Dhttps://accounts.google.com/signin/oauth/legacy/consent?authuser%253Dunknown%2526part%253DAJi8hAPwnhfaNAz-SXYalOOKcvnfuFA26MVCSRn8TBIx4vtKWvYkiPHUn_DhIeHVgNKLCjRmLQCxL6iuZaOBmD6057olWsNKgqO_k9nXB0D7J4fs4dGFFt9_4KSWmjszgm0DS2ibXtn1Dqc2GImGIq4meybMnXMiZYK1gO16uvH_Q6LqneKURwYphDtu_DdfpQLPFONa_po506b6h6aa7ajAEg9XffERsh-QbRRUxYRdd3058UpzSyvZ8BxQkuirtmunqGIuvBGCrPDfa4PAGCzHV6gSrBXG2Cxf_vDAdyjCZXmdy2LVqqShKbGINo65udXOX1CYZ1pflDyjIPSsUdlSXtGFqUBWZ_YSys60OqX8SUY6S9tpERD-iZCxOSx1aD-_CIAv7T5dPJQKddgL3TydJzskUjDSLQCiEQ_tJZcz8Is5e4nHvK6HeSMxalu9-2_r0w5PhM-XchxmFJlJL2VHqiJ1iIlfqA%2526flowName%253DGeneralOAuthFlow%2526as%253DS454931200%25253A1792426714910779%2526client_id%253D770431047496-4d8lhk018lplcra0e8crmgji7f3p9bm8.apps.googleusercontent.com%2523%26dsh%3DS454931200:1792426714910779%26flowName%3DGeneralOAuthLite%26o2v%3D2%26opparams%3D%25253F%26prompt%3Dselect_account%26rart%3DANgoxcd8vBtvYoWkSFrMvWxKjHFYXPVIcQN3SVaWeqJsl_knEVy_7S2wqy4Lte4Lni4B6WjuGQN44lHSGfxqIp7ggobetMWHSVLXNb53MQLkxuQe8q2wmE0%26redirect_uri%3Dhttps://getflipstudio.com/editor/%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bprofile%26service%3Dlso%26state%3DUQrw28icrN0PLfAMWBn3zg&state=UQrw28icrN0PLfAMWBn3zg
+  - contentinfo [ref=f11e45]:
+    - combobox [ref=f11e48] [cursor=pointer]:
+      - option "Afrikaans"
+      - option "azərbaycan"
+      - option "bosanski"
+      - option "català"
+      - option "Čeština"
+      - option "Cymraeg"
+      - option "Dansk"
+      - option "Deutsch"
+      - option "eesti"
+      - option "English (United Kingdom)"
+      - option "English (United States)"
+      - option "Español (España)" [selected]
+      - option "Español (Latinoamérica)"
+      - option "euskara"
+      - option "Filipino"
+      - option "Français (Canada)"
+      - option "Français (France)"
+      - option "Gaeilge"
+      - option "galego"
+      - option "Hrvatski"
+      - option "Indonesia"
+      - option "isiZulu"
+      - option "íslenska"
+      - option "Italiano"
+      - option "Kiswahili"
+      - option "latviešu"
+      - option "lietuvių"
+      - option "magyar"
+      - option "Melayu"
+      - option "Nederlands"
+      - option "norsk"
+      - option "o‘zbek"
+      - option "polski"
+      - option "Português (Brasil)"
+      - option "Português (Portugal)"
+      - option "română"
+      - option "shqip"
+      - option "Slovenčina"
+      - option "slovenščina"
+      - option "srpski (latinica)"
+      - option "Suomi"
+      - option "Svenska"
+      - option "Tiếng Việt"
+      - option "Türkçe"
+      - option "Ελληνικά"
+      - option "беларуская"
+      - option "български"
+      - option "кыргызча"
+      - option "қазақ тілі"
+      - option "македонски"
+      - option "монгол"
+      - option "Русский"
+      - option "српски (ћирилица)"
+      - option "Українська"
+      - option "ქართული"
+      - option "հայերեն"
+      - option "‫עברית‬‎"
+      - option "‫اردو‬‎"
+      - option "‫العربية‬‎"
+      - option "‫فارسی‬‎"
+      - option "አማርኛ"
+      - option "नेपाली"
+      - option "मराठी"
+      - option "हिन्दी"
+      - option "অসমীয়া"
+      - option "বাংলা"
+      - option "ਪੰਜਾਬੀ"
+      - option "ગુજરાતી"
+      - option "ଓଡ଼ିଆ"
+      - option "தமிழ்"
+      - option "తెలుగు"
+      - option "ಕನ್ನಡ"
+      - option "മലയാളം"
+      - option "සිංහල"
+      - option "ไทย"
+      - option "ລາວ"
+      - option "မြန်မာ"
+      - option "ខ្មែរ"
+      - option "한국어"
+      - option "中文（香港）"
+      - option "日本語"
+      - option "简体中文"
+      - option "繁體中文"
+    - list [ref=f11e49]:
+      - listitem [ref=f11e50]:
+        - link "Abrir el Centro de Ayuda de Cuenta de Google (enlace externo, se abre en una ventana nueva)" [ref=f11e51] [cursor=pointer]:
+          - /url: https://support.google.com/accounts?hl=es&p=account_iph
+          - text: Ayuda
+      - listitem [ref=f11e52]:
+        - link "Política de Privacidad (enlace externo, se abre en una ventana nueva)" [ref=f11e53] [cursor=pointer]:
+          - /url: https://accounts.google.com/TOS?loc=PE&hl=es&privacy=true
+          - text: Privacidad
+      - listitem [ref=f11e54]:
+        - link "Términos del Servicio de Google (enlace externo, se abre en una ventana nueva)" [ref=f11e55] [cursor=pointer]:
+          - /url: https://accounts.google.com/TOS?loc=PE&hl=es
+          - text: Términos

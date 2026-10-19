@@ -1,0 +1,162 @@
+- generic [ref=f12e88]:
+  - banner [ref=f12e89]:
+    - generic [ref=f12e90]:
+      - generic [ref=f12e91]:
+        - button "Archivo" [ref=f12e93] [cursor=pointer]
+        - button "Editar" [ref=f12e95] [cursor=pointer]
+        - button "Herramientas" [ref=f12e97] [cursor=pointer]
+        - button "Ver" [ref=f12e99] [cursor=pointer]
+        - button "Avanzado" [ref=f12e101] [cursor=pointer]
+        - button "Ayuda" [ref=f12e103] [cursor=pointer]
+      - button "Inicio" [ref=f12e104] [cursor=pointer]
+      - button "prueba" [ref=f12e109] [cursor=pointer]
+      - button "Guardar" [ref=f12e114] [cursor=pointer]
+      - button "Video" [ref=f12e119] [cursor=pointer]
+      - generic [ref=f12e123]: Web · beta
+      - link "Descargar app" [ref=f12e124] [cursor=pointer]:
+        - /url: /#descargar
+    - button "Exportar" [disabled] [ref=f12e129]
+  - status [ref=f12e133]:
+    - text: "Falta 1 archivo de tu proyecto: se borraron o se movieron."
+    - button "Buscar archivos" [ref=f12e134] [cursor=pointer]
+  - dialog [ref=f12e135]:
+    - banner [ref=f12e136]:
+      - heading "Faltan archivos" [level=2] [ref=f12e137]
+      - button "Cerrar" [active] [ref=f12e138] [cursor=pointer]: ×
+    - generic [ref=f12e139]:
+      - paragraph [ref=f12e140]: "1 archivo de este proyecto ya no está donde estaba: se borró, se cambió de nombre o de carpeta. Búscalo para que el proyecto lo vuelva a usar, o busca en una carpeta."
+      - list [ref=f12e141]:
+        - listitem [ref=f12e142]:
+          - generic "2026-07-10 18-28-56.mp4" [ref=f12e145]
+          - button "Buscar…" [ref=f12e146] [cursor=pointer]
+      - generic [ref=f12e150]:
+        - button "Más tarde" [ref=f12e151] [cursor=pointer]
+        - button "Buscar en una carpeta…" [ref=f12e152] [cursor=pointer]
+  - main [ref=f12e157]:
+    - separator "Ancho de la biblioteca" [ref=f12e158]
+    - separator "Ancho de las propiedades" [ref=f12e159]
+    - separator "Alto de la línea de tiempo" [ref=f12e160]
+    - generic [ref=f12e161]:
+      - navigation "Biblioteca" [ref=f12e162]:
+        - button "Medios" [pressed] [ref=f12e163] [cursor=pointer]
+        - button "Texto" [ref=f12e166] [cursor=pointer]
+        - button "Subtítulos" [ref=f12e169] [cursor=pointer]
+        - button "Voz" [ref=f12e173] [cursor=pointer]
+        - button "Stickers" [ref=f12e178] [cursor=pointer]
+        - button "Formas" [ref=f12e182] [cursor=pointer]
+        - button "Efectos" [ref=f12e187] [cursor=pointer]
+        - button "Transiciones" [ref=f12e191] [cursor=pointer]
+        - button "Música" [ref=f12e195] [cursor=pointer]
+        - button "Efectos de sonido" [ref=f12e200] [cursor=pointer]
+      - generic [ref=f12e205]:
+        - navigation "Categorías" [ref=f12e206]:
+          - button "Medios" [pressed] [ref=f12e207] [cursor=pointer]
+          - button "Títulos" [ref=f12e208] [cursor=pointer]
+          - button "Audio" [ref=f12e209] [cursor=pointer]
+          - button "Stickers" [ref=f12e210] [cursor=pointer]
+          - button "Efectos" [ref=f12e211] [cursor=pointer]
+          - button "Transiciones" [ref=f12e212] [cursor=pointer]
+        - region "Medios" [ref=f12e213]:
+          - generic [ref=f12e214]:
+            - heading "Medios" [level=2] [ref=f12e215]
+            - button "Importar" [ref=f12e216] [cursor=pointer]
+          - list [ref=f12e220]:
+            - listitem [ref=f12e221]:
+              - button "Falta el archivo 2026-07-10 18-28-56.mp4" [ref=f12e222] [cursor=pointer]:
+                - generic [ref=f12e223]: Falta el archivo
+                - generic [ref=f12e227]: 2026-07-10 18-28-56.mp4
+              - button "Opciones de 2026-07-10 18-28-56.mp4" [ref=f12e228] [cursor=pointer]
+    - region "Vista previa" [ref=f12e233]:
+      - generic [ref=f12e234]:
+        - generic:
+          - strong: Nada que previsualizar aún
+          - generic: Añade un medio a la línea de tiempo con el botón + o arrastrándolo.
+      - generic [ref=f12e235]:
+        - generic "Tiempo actual / total · 30 fotogramas por segundo" [ref=f12e236]: 00:00:00:00 / 00:00:00:00
+        - generic [ref=f12e237]:
+          - button "Ir al inicio (Inicio)" [disabled] [ref=f12e238]
+          - button "Fotograma anterior (←)" [disabled] [ref=f12e242]
+          - button "Reproducir (Espacio)" [disabled] [ref=f12e245]
+          - button "Fotograma siguiente (→)" [disabled] [ref=f12e248]
+          - button "Ir al final (Fin)" [disabled] [ref=f12e251]
+        - generic [ref=f12e255]:
+          - button "Completa" [disabled] [ref=f12e257]
+          - button "16:9" [ref=f12e259] [cursor=pointer]
+          - button "Silenciar (M)" [ref=f12e260] [cursor=pointer]
+          - button "Pantalla completa" [disabled] [ref=f12e265]
+    - region "Propiedades" [ref=f12e271]:
+      - navigation "Secciones" [ref=f12e272]:
+        - button "General" [pressed] [ref=f12e273] [cursor=pointer]
+      - generic [ref=f12e276]:
+        - heading "General" [level=2] [ref=f12e278]
+        - paragraph [ref=f12e280]: Selecciona un medio o un clip para ver sus detalles.
+    - region "Línea de tiempo" [ref=f12e281]:
+      - generic [ref=f12e282]:
+        - generic [ref=f12e283]:
+          - button "Reproducir (Espacio)" [disabled] [ref=f12e284]
+          - generic "00:00:00:00 / 00:00:00:00" [ref=f12e287]: 00:00 / 00:00
+          - generic [ref=f12e288]:
+            - button "Seleccionar y mover clips (V)" [pressed] [ref=f12e289] [cursor=pointer]
+            - button "Herramientas de selección" [ref=f12e292] [cursor=pointer]
+          - 'button "Cuchilla: divide el clip donde hagas clic (C)" [ref=f12e295] [cursor=pointer]'
+          - button "Deshacer (Ctrl+Z)" [disabled] [ref=f12e303]
+          - button "Rehacer (Ctrl+Y)" [disabled] [ref=f12e307]
+          - button "Dividir en el cursor (S)" [disabled] [ref=f12e312]
+          - 'button "Borrar izquierda: quita lo que está antes del cursor (Q)" [disabled] [ref=f12e316]'
+          - 'button "Borrar derecha: quita lo que está después del cursor (W)" [disabled] [ref=f12e320]'
+          - button "Congelar el fotograma del cursor (3 s)" [disabled] [ref=f12e324]
+          - button "Eliminar (Supr)" [disabled] [ref=f12e338]
+        - generic [ref=f12e342]:
+          - button "Separar el audio del clip seleccionado" [disabled] [ref=f12e343]
+          - 'button "Desvincular: el video y su audio vuelven a moverse por separado" [disabled] [ref=f12e345]'
+          - 'button "Vincular con el audio que tiene debajo: se mueven juntos" [disabled] [ref=f12e348]'
+          - 'button "Recortar inicio: el clip seleccionado empieza en el cursor" [disabled] [ref=f12e352]'
+          - 'button "Recortar fin: el clip seleccionado termina en el cursor" [disabled] [ref=f12e356]'
+          - 'button "Espejo: voltear horizontalmente" [disabled] [ref=f12e360]'
+          - button "Rotar 90°" [disabled] [ref=f12e364]
+        - generic [ref=f12e368]:
+          - button "Copiar (Ctrl+C)" [disabled] [ref=f12e369]
+          - button "Pegar en el cursor (Ctrl+V)" [disabled] [ref=f12e373]
+          - 'button "Duplicar: una copia justo después (Ctrl+D)" [disabled] [ref=f12e378]'
+        - generic "Secuencia" [ref=f12e382]: Principal
+        - generic [ref=f12e388]:
+          - 'button "Imán: ajustar a los bordes de los clips y al cabezal" [pressed] [ref=f12e389] [cursor=pointer]'
+          - 'button "Modo ripple: al recortar o borrar, lo que sigue se corre y no quedan huecos" [ref=f12e394] [cursor=pointer]'
+          - 'button "Permitir superposición: los clips pueden montarse uno sobre otro" [ref=f12e401] [cursor=pointer]'
+          - 'button "Fundido automático: arrastra el borde de un clip sobre el siguiente y lo que se monta se vuelve un disolver" [pressed] [ref=f12e409] [cursor=pointer]'
+          - button "Grabar voz en off desde el cursor (R)" [ref=f12e413] [cursor=pointer]
+        - button "Más herramientas" [ref=f12e420] [cursor=pointer]
+        - generic [ref=f12e425]:
+          - button "Alejar (Ctrl+rueda)" [disabled] [ref=f12e427]
+          - slider "Zoom" [disabled] [ref=f12e431]: "-0.0031471805599453"
+          - button "1.00x" [ref=f12e432] [cursor=pointer]
+          - button "Acercar (Ctrl+rueda)" [disabled] [ref=f12e433]
+          - button "Ajustar la línea de tiempo a la ventana" [disabled] [ref=f12e437]
+      - generic [ref=f12e442]:
+        - button "Añadir pista" [ref=f12e444] [cursor=pointer]
+        - generic [ref=f12e446]:
+          - generic: 0:00
+          - generic: 0:02
+          - generic: 0:04
+          - generic: 0:06
+          - generic: 0:08
+          - generic: 0:10
+          - generic: 0:12
+          - generic: 0:14
+          - generic: 0:16
+          - generic: 0:18
+          - generic: 0:20
+          - generic: 0:22
+          - generic: 0:24
+          - generic: 0:26
+          - generic: 0:28
+        - generic [ref=f12e447]: Arrastra medios aquí o usa el botón + de cada medio.
+  - contentinfo [ref=f12e448]:
+    - generic [ref=f12e449]:
+      - text: © 2026 Flip Studio ·
+      - link "Términos" [ref=f12e450] [cursor=pointer]:
+        - /url: https://getflipstudio.com/terminos.html
+      - text: ·
+      - link "Avisos de terceros" [ref=f12e451] [cursor=pointer]:
+        - /url: /editor/avisos-terceros.html
+    - generic [ref=f12e452]: Espacio reproducir · S dividir · V seleccionar · C cuchilla · Supr eliminar · Ctrl+Z deshacer · ←/→ fotograma

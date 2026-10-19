@@ -4933,6 +4933,18 @@
         <translation>Quadro congelado adicionado</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>Selecione um vídeo ou foto para preencher a tela</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>Preencher a tela</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>Ajustar à tela</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>Selecione um clipe de vídeo ou foto que tenha outro logo depois</translation>
     </message>
@@ -15316,6 +15328,22 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Iniciar o Flip Studio com prime-run (ou DRI_PRIME=1) coloca o OpenGL na mesma placa que o decodificador.</translation>
     </message>
     <message>
+        <source>Selected clip</source>
+        <translation>Clipe selecionado</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>Ajustar à tela</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Preencher a tela (manter proporção)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Preencher a tela (esticar)</translation>
+    </message>
+    <message>
         <source>Run Flip Studio on the high-performance graphics card</source>
         <translation>Executar o Flip Studio na placa de vídeo de alto desempenho</translation>
     </message>
@@ -23569,6 +23597,18 @@ Se a reprodução travar, tente outra opção.</translation>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fit to screen</source>
+        <translation>Ajustar à tela</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Preencher a tela (manter proporção)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Preencher a tela (esticar)</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

@@ -4921,6 +4921,18 @@
         <translation>已添加定格帧</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>请选择要填满画面的视频或照片</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>填满画面</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>适应画面</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>请选择一个后面紧跟着另一个片段的视频或照片片段</translation>
     </message>
@@ -15251,6 +15263,22 @@ If playback stutters, try another.</source>
         <translation>使用 prime-run（或 DRI_PRIME=1）启动 Flip Studio，可让 OpenGL 与解码器使用同一块显卡。</translation>
     </message>
     <message>
+        <source>Selected clip</source>
+        <translation>所选片段</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>适应画面</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>填满画面（保持比例）</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>填满画面（拉伸）</translation>
+    </message>
+    <message>
         <source>Run Flip Studio on the high-performance graphics card</source>
         <translation>在高性能显卡上运行 Flip Studio</translation>
     </message>
@@ -23485,6 +23513,18 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fit to screen</source>
+        <translation>适应画面</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>填满画面（保持比例）</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>填满画面（拉伸）</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

@@ -587,6 +587,54 @@ Item {
                 border.color: Theme.primary
                 scale: (!cardRoot.isFolder && cardHover.hovered) ? 1.03 : 1.0
 
+                // "+" on hover, as in CapCut and the web editor: one click puts the file on the
+                // timeline at the playhead, the same as the menu's «Add to timeline».
+                Rectangle {
+                    id: addButton
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    anchors.margins: 4
+                    width: 24
+                    height: 24
+                    radius: width / 2
+                    z: 3
+                    visible: !cardRoot.isFolder && !cardRoot.fileMissing
+                             && (cardHover.hovered || addMouse.containsMouse)
+                    color: addMouse.pressed ? Qt.darker(Theme.primary, 1.15) : Theme.primary
+                    border.width: 1
+                    border.color: Qt.rgba(0, 0, 0, 0.35)
+                    scale: addMouse.containsMouse ? 1.12 : 1.0
+
+                    Behavior on scale {
+                        NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
+                    }
+
+                    IconGlyph {
+                        anchors.centerIn: parent
+                        glyph: Theme.icons.plus
+                        iconSize: 15
+                        iconColor: Theme.primaryForeground
+                    }
+
+                    Accessible.role: Accessible.Button
+                    Accessible.name: qsTr("Add to timeline")
+                    Accessible.onPressAction: addMouse.clicked(null)
+
+                    ThemedToolTip {
+                        visible: addMouse.containsMouse
+                        text: qsTr("Add to timeline")
+                    }
+
+                    MouseArea {
+                        id: addMouse
+                        anchors.fill: parent
+                        anchors.margins: -3
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: root.addToTimelineRequested([cardRoot.assetId])
+                    }
+                }
+
                 Behavior on scale {
                     NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
                 }

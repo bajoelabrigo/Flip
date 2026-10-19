@@ -144,6 +144,8 @@ private slots:
     void undoRedoClipAdd();
     void sourceFramingPreservesOriginalAndUndoes();
     void undoLibraryClipDropOntoExistingTrack();
+    void libraryDropIntoShortGapPushesTheRest();
+    void movingAClipOntoOthersOpensRoom();
     void undoTrackMute();
     void packagedProjectCarriesDerivedArtifacts();
     void undoBookmarkAdd();
@@ -1908,10 +1910,13 @@ void EditorStateTest::draggingAnEdgeOverANeighbourMakesADissolve()
     QCOMPARE(after.transitions.at(0).kindId, QStringLiteral("crossfade"));
     QCOMPARE(after.transitions.at(0).durationUs, drift::secondsToUs(1.0));
 
-    // 4 s over a 5 s clip: dropped on it, not a fade. Pushed clear.
+    // 4 s over a 5 s clip: dropped on it, not a fade. As in CapCut it goes in before a (it landed
+    // before a's middle) and a moves right to make room.
     state.moveClip(0, 1, 1.0);
     const drift::Track &deep = state.project()->tracks().at(0);
-    QVERIFY(deep.clips.at(1).timelineStart >= deep.clips.at(0).timelineEnd());
+    QCOMPARE(deep.clips.at(1).timelineStart, drift::TimeUs(0));
+    QVERIFY(deep.clips.at(0).timelineStart >= deep.clips.at(1).timelineEnd());
+    state.undo(); // back to b over a's tail, with its fade
 
     // Off: an edge overlap is pushed clear too, and no fade is made.
     state.moveClip(0, 1, 8.0); // apart: the old fade goes
@@ -2391,6 +2396,77 @@ void EditorStateTest::undoLibraryClipDropOntoExistingTrack()
 
     state.redo();
     QCOMPARE(state.project()->tracks().at(0).clips.size(), 1);
+}
+
+// CapCut/Filmora: a clip dropped into a gap shorter than itself lands there and the rest of the
+// track moves right; it used to jump past the next clip (off screen) and the drop looked ignored.
+void EditorStateTest::libraryDropIntoShortGapPushesTheRest()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    drift::MediaAsset asset;
+    asset.name = QStringLiteral("clip.mp4");
+    asset.kind = drift::MediaKind::Video;
+    asset.path = QStringLiteral("/nonexistent/clip.mp4");
+    asset.durationUs = drift::secondsToUs(5.0);
+    state.project()->addAsset(asset);
+    library.syncToProject();
+    state.setSnapEnabled(false);
+    state.addClipFromAssetAt(0, 0, 0.0); // 0-5
+    state.addClipFromAssetAt(0, 0, 7.0); // 7-12, a 2 s gap before it
+
+    state.addClipFromAssetAt(0, 0, 5.0);
+    const drift::Track &track = state.project()->tracks().at(0);
+    QCOMPARE(track.clips.size(), 3);
+    QCOMPARE(track.clips.at(2).timelineStart, drift::secondsToUs(5.0));
+    QCOMPARE(track.clips.at(1).timelineStart, drift::secondsToUs(10.0));
+
+    // A gap that is big enough is left alone.
+    state.addClipFromAssetAt(0, 0, 20.0);
+    QCOMPARE(state.project()->tracks().at(0).clips.at(1).timelineStart, drift::secondsToUs(10.0));
+}
+
+// CapCut: a clip dragged between two clips with no gap goes in between (before or after the clip
+// it lands on, by which half) and the rest of the track moves right by its length.
+void EditorStateTest::movingAClipOntoOthersOpensRoom()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    const auto addAsset = [&](const QString &name, double seconds) {
+        drift::MediaAsset asset;
+        asset.name = name;
+        asset.kind = drift::MediaKind::Video;
+        asset.path = QStringLiteral("/nonexistent/") + name;
+        asset.durationUs = drift::secondsToUs(seconds);
+        state.project()->addAsset(asset);
+        library.syncToProject();
+        return library.count() - 1;
+    };
+    const int five = addAsset(QStringLiteral("five.mp4"), 5.0);
+    const int three = addAsset(QStringLiteral("three.mp4"), 3.0);
+    state.setSnapEnabled(false);
+    state.setRippleEnabled(false);
+    state.addClipFromAssetAt(five, 0, 0.0);   // A 0-5
+    state.addClipFromAssetAt(five, 0, 5.0);   // B 5-10
+    state.addClipFromAssetAt(three, 0, 12.0); // C 12-15
+    const auto startOf = [&](const QString &name) {
+        for (const drift::Clip &clip : state.project()->tracks().at(0).clips) {
+            if (clip.name == name && (name != QStringLiteral("five.mp4") || clip.timelineStart >= 0))
+                return clip.timelineStart;
+        }
+        return drift::TimeUs(-1);
+    };
+    QCOMPARE(startOf(QStringLiteral("three.mp4")), drift::secondsToUs(12.0));
+
+    // C dropped at 4 s: past A's middle, so it goes in after A and B moves to 8 s.
+    state.moveClip(0, 2, 4.0);
+    const drift::Track &track = state.project()->tracks().at(0);
+    QList<drift::TimeUs> starts;
+    for (const drift::Clip &clip : track.clips)
+        starts.append(clip.timelineStart);
+    std::sort(starts.begin(), starts.end());
+    QCOMPARE(starts, (QList<drift::TimeUs>{0, drift::secondsToUs(5.0), drift::secondsToUs(8.0)}));
+    QCOMPARE(startOf(QStringLiteral("three.mp4")), drift::secondsToUs(5.0));
 }
 
 void EditorStateTest::undoTrackMute()

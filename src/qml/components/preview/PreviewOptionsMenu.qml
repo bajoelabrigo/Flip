@@ -36,6 +36,30 @@ Popup {
         columnSpacing: Theme.spacingLg
         rowSpacing: Theme.spacingMd
 
+        // The selected video or photo: fit it, or fill the screen with it (same as its right-click).
+        RowLabel {
+            text: qsTr("Selected clip")
+            visible: fillRow.visible
+        }
+        RowLayout {
+            id: fillRow
+            visible: EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
+            spacing: Theme.spacingSm
+            Repeater {
+                model: [{ mode: "fit", label: qsTr("Fit to screen") },
+                        { mode: "cover", label: qsTr("Fill screen (keep proportions)") },
+                        { mode: "stretch", label: qsTr("Fill screen (stretch)") }]
+                delegate: ThemedButton {
+                    required property var modelData
+                    text: modelData.label
+                    implicitHeight: Theme.controlHeightSm
+                    font.pixelSize: Theme.fontSizeXs
+                    onClicked: EditorState.fillCanvasWithClip(EditorState.selectedTrack, EditorState.selectedClip,
+                                                              modelData.mode)
+                }
+            }
+        }
+
         RowLabel { text: qsTr("Quality") }
         ThemedComboBox {
             id: qualityCombo

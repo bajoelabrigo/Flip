@@ -1,0 +1,146 @@
+- generic [ref=e89]:
+  - banner [ref=e90]:
+    - generic [ref=e91]:
+      - generic [ref=e92]:
+        - button "Archivo" [ref=e94] [cursor=pointer]
+        - button "Editar" [ref=e96] [cursor=pointer]
+        - button "Herramientas" [ref=e98] [cursor=pointer]
+        - button "Ver" [ref=e100] [cursor=pointer]
+        - button "Avanzado" [ref=e102] [cursor=pointer]
+        - button "Ayuda" [ref=e104] [cursor=pointer]
+      - button "Proyecto 19 oct 11:09" [ref=e106] [cursor=pointer]
+    - generic [ref=e111]:
+      - button "Inicio" [ref=e112] [cursor=pointer]
+      - button "Guardar" [ref=e116] [cursor=pointer]
+      - button "Video" [ref=e121] [cursor=pointer]
+      - generic [ref=e125]: Web · beta
+      - link "Descargar app" [ref=e126] [cursor=pointer]:
+        - /url: /#descargar
+      - button "Exportar" [disabled] [ref=e130]
+      - button "Iniciar sesión" [ref=e134] [cursor=pointer]
+  - main [ref=e138]:
+    - separator "Ancho de la biblioteca" [ref=e139]
+    - separator "Ancho de las propiedades" [ref=e140]
+    - separator "Alto de la línea de tiempo" [ref=e141]
+    - generic [ref=e142]:
+      - navigation "Biblioteca" [ref=e143]:
+        - button "Medios" [pressed] [ref=e144] [cursor=pointer]
+        - button "Texto" [ref=e147] [cursor=pointer]
+        - button "Subtítulos" [ref=e150] [cursor=pointer]
+        - button "Voz" [ref=e154] [cursor=pointer]
+        - button "Stickers" [ref=e159] [cursor=pointer]
+        - button "Formas" [ref=e163] [cursor=pointer]
+        - button "Efectos" [ref=e168] [cursor=pointer]
+        - button "Transiciones" [ref=e172] [cursor=pointer]
+        - button "Música" [ref=e176] [cursor=pointer]
+        - button "Efectos de sonido" [ref=e181] [cursor=pointer]
+      - generic [ref=e186]:
+        - navigation "Categorías" [ref=e187]:
+          - button "Medios" [pressed] [ref=e188] [cursor=pointer]
+          - button "Títulos" [ref=e189] [cursor=pointer]
+          - button "Audio" [ref=e190] [cursor=pointer]
+          - button "Stickers" [ref=e191] [cursor=pointer]
+          - button "Efectos" [ref=e192] [cursor=pointer]
+          - button "Transiciones" [ref=e193] [cursor=pointer]
+        - region "Medios" [ref=e194]:
+          - generic [ref=e195]:
+            - heading "Medios" [level=2] [ref=e196]
+            - button "Importar" [ref=e197] [cursor=pointer]
+          - 'button "Importa tus medios Arrastra videos, audio o imágenes aquí, o haz clic para elegirlos. Todo se queda en tu computadora: nada se sube a internet." [ref=e201] [cursor=pointer]':
+            - strong [ref=e205]: Importa tus medios
+            - generic [ref=e206]: Arrastra videos, audio o imágenes aquí, o haz clic para elegirlos.
+            - generic [ref=e207]: "Todo se queda en tu computadora: nada se sube a internet."
+    - region "Vista previa" [ref=e208]:
+      - generic [ref=e209]:
+        - generic:
+          - strong: Nada que previsualizar aún
+          - generic: Importa un video y añádelo a la línea de tiempo, o añade un texto.
+      - generic [ref=e210]:
+        - generic "Tiempo actual / total · 30 fotogramas por segundo" [ref=e211]: 00:00:00:00 / 00:00:00:00
+        - generic [ref=e212]:
+          - button "Ir al inicio (Inicio)" [disabled] [ref=e213]
+          - button "Fotograma anterior (←)" [disabled] [ref=e217]
+          - button "Reproducir (Espacio)" [disabled] [ref=e220]
+          - button "Fotograma siguiente (→)" [disabled] [ref=e223]
+          - button "Ir al final (Fin)" [disabled] [ref=e226]
+        - generic [ref=e230]:
+          - button "Completa" [disabled] [ref=e232]
+          - button "16:9" [ref=e234] [cursor=pointer]
+          - button "Silenciar (M)" [ref=e235] [cursor=pointer]
+          - button "Pantalla completa" [disabled] [ref=e240]
+    - region "Propiedades" [ref=e246]:
+      - navigation "Secciones" [ref=e247]:
+        - button "General" [pressed] [ref=e248] [cursor=pointer]
+      - generic [ref=e251]:
+        - heading "General" [level=2] [ref=e253]
+        - paragraph [ref=e255]: Selecciona un medio o un clip para ver sus detalles.
+    - region "Línea de tiempo" [ref=e256]:
+      - generic [ref=e257]:
+        - generic [ref=e258]:
+          - button "Reproducir (Espacio)" [disabled] [ref=e259]
+          - generic "00:00:00:00 / 00:00:00:00" [ref=e262]: 00:00 / 00:00
+          - generic [ref=e263]:
+            - button "Seleccionar y mover clips (V)" [pressed] [ref=e264] [cursor=pointer]
+            - button "Herramientas de selección" [ref=e267] [cursor=pointer]
+          - 'button "Cuchilla: divide el clip donde hagas clic (C)" [ref=e270] [cursor=pointer]'
+          - button "Deshacer (Ctrl+Z)" [disabled] [ref=e278]
+          - button "Rehacer (Ctrl+Y)" [disabled] [ref=e282]
+          - button "Dividir en el cursor (S)" [disabled] [ref=e287]
+          - 'button "Borrar izquierda: quita lo que está antes del cursor (Q)" [disabled] [ref=e291]'
+          - 'button "Borrar derecha: quita lo que está después del cursor (W)" [disabled] [ref=e295]'
+          - button "Congelar el fotograma del cursor (3 s)" [disabled] [ref=e299]
+          - button "Eliminar (Supr)" [disabled] [ref=e313]
+        - generic [ref=e317]:
+          - button "Separar el audio del clip seleccionado" [disabled] [ref=e318]
+          - 'button "Desvincular: el video y su audio vuelven a moverse por separado" [disabled] [ref=e320]'
+          - 'button "Vincular con el audio que tiene debajo: se mueven juntos" [disabled] [ref=e323]'
+          - 'button "Recortar inicio: el clip seleccionado empieza en el cursor" [disabled] [ref=e327]'
+          - 'button "Recortar fin: el clip seleccionado termina en el cursor" [disabled] [ref=e331]'
+          - 'button "Espejo: voltear horizontalmente" [disabled] [ref=e335]'
+          - button "Rotar 90°" [disabled] [ref=e339]
+        - generic [ref=e343]:
+          - button "Copiar (Ctrl+C)" [disabled] [ref=e344]
+          - button "Pegar en el cursor (Ctrl+V)" [disabled] [ref=e348]
+          - 'button "Duplicar: una copia justo después (Ctrl+D)" [disabled] [ref=e353]'
+        - generic "Secuencia" [ref=e357]: Principal
+        - generic [ref=e363]:
+          - 'button "Imán: ajustar a los bordes de los clips y al cabezal" [pressed] [ref=e364] [cursor=pointer]'
+          - 'button "Modo ripple: al recortar o borrar, lo que sigue se corre y no quedan huecos" [ref=e369] [cursor=pointer]'
+          - 'button "Permitir superposición: los clips pueden montarse uno sobre otro" [ref=e376] [cursor=pointer]'
+          - 'button "Fundido automático: arrastra el borde de un clip sobre el siguiente y lo que se monta se vuelve un disolver" [pressed] [ref=e384] [cursor=pointer]'
+          - button "Grabar voz en off desde el cursor (R)" [ref=e388] [cursor=pointer]
+        - button "Más herramientas" [ref=e395] [cursor=pointer]
+        - generic [ref=e400]:
+          - button "Alejar (Ctrl+rueda)" [disabled] [ref=e402]
+          - slider "Zoom" [disabled] [ref=e406]: "-0.0031471805599453"
+          - button "1.00x" [ref=e407] [cursor=pointer]
+          - button "Acercar (Ctrl+rueda)" [disabled] [ref=e408]
+          - button "Ajustar la línea de tiempo a la ventana" [disabled] [ref=e412]
+      - generic [ref=e417]:
+        - button "Añadir pista" [ref=e419] [cursor=pointer]
+        - generic [ref=e421]:
+          - generic: 0:00
+          - generic: 0:02
+          - generic: 0:04
+          - generic: 0:06
+          - generic: 0:08
+          - generic: 0:10
+          - generic: 0:12
+          - generic: 0:14
+          - generic: 0:16
+          - generic: 0:18
+          - generic: 0:20
+          - generic: 0:22
+          - generic: 0:24
+          - generic: 0:26
+          - generic: 0:28
+        - generic [ref=e422]: Arrastra medios aquí o usa el botón + de cada medio.
+  - contentinfo [ref=e423]:
+    - generic [ref=e424]:
+      - text: © 2026 Flip Studio ·
+      - link "Términos" [ref=e425] [cursor=pointer]:
+        - /url: https://getflipstudio.com/terminos.html
+      - text: ·
+      - link "Avisos de terceros" [ref=e426] [cursor=pointer]:
+        - /url: /editor/avisos-terceros.html
+    - generic [ref=e427]: Espacio reproducir · S dividir · V seleccionar · C cuchilla · Supr eliminar · Ctrl+Z deshacer · ←/→ fotograma

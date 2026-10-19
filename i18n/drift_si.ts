@@ -4933,6 +4933,18 @@
         <translation>නිශ්චල රාමුව එක් කරන ලදී</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>තිරය පිරවීමට වීඩියෝවක් හෝ ඡායාරූපයක් තෝරන්න</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>තිරය පුරවන්න</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>තිරයට ගළපන්න</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15316,6 +15328,22 @@ If playback stutters, try another.</source>
         <translation type="unfinished">prime-run (හෝ DRI_PRIME=1) සමඟ Flip Studio දියත් කිරීමෙන් OpenGL විකේතකය ඇති කාඩ්පත මතම තබයි.</translation>
     </message>
     <message>
+        <source>Selected clip</source>
+        <translation>තෝරාගත් ක්ලිපය</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>තිරයට ගළපන්න</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>තිරය පුරවන්න (අනුපාතය තබාගෙන)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>තිරය පුරවන්න (දිගු කරන්න)</translation>
+    </message>
+    <message>
         <source>Run Flip Studio on the high-performance graphics card</source>
         <translation type="unfinished">Flip Studio ඉහළ කාර්යසාධනයක් සහිත ග්‍රැෆික් කාඩ්පත මත ධාවනය කරන්න</translation>
     </message>
@@ -23569,6 +23597,18 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fit to screen</source>
+        <translation>තිරයට ගළපන්න</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>තිරය පුරවන්න (අනුපාතය තබාගෙන)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>තිරය පුරවන්න (දිගු කරන්න)</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

@@ -110,9 +110,9 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
-**Notas para la Store (0.17.0 + 0.18.0 + 0.18.1): base para la PRÓXIMA versión, no subir el MSIX de la 0.18.1** (Jorge, 2026-10-19: el botón de actualizar no funciona desde la 0.17; el arreglo y el editor web van en la próxima). Ni la 0.17.0, ni la 0.18.0, ni la 0.18.1 llegaron a la Store: el próximo MSIX lleva estas novedades más las suyas. Texto de "Novedades de esta versión" (1199 de 1500 caracteres; en inglés, 1101).
+**Notas para la Store (0.17.0 + 0.18.0 + 0.18.1 + 0.18.2): ESTAS van con el MSIX de la 0.18.2.** Ni la 0.17.0, ni la 0.18.0, ni la 0.18.1 llegaron a la Store (el botón de actualizar no funcionaba desde la 0.17; la 0.18.2 lo arregla). Texto de "Novedades de esta versión" (1408 de 1500 caracteres; en inglés, 1296).
 
-> **Novedades (0.17.0 + 0.18.0 + 0.18.1)**
+> **Novedades (0.17.0 + 0.18.0 + 0.18.1 + 0.18.2)**
 >
 > - Cámara lenta suave con IA: dibuja las imágenes que le faltan a un clip lento, para que se mueva fluido.
 > - Transición con IA: une dos clips dibujando las imágenes que faltan entre ellos.
@@ -126,11 +126,12 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 > - Contadores animados en los textos ($1.000.000, 10K, día 100); los de Stock cuentan solos.
 > - Como en CapCut: congelar fotograma, mover clips con «Cerrar huecos» y arrastrar clips sin que salten de pista.
 > - Lo nuevo, traducido a los idiomas de la app.
-> - Arreglos: Pintura al óleo vuelve a pintar, exportar en DNxHR funciona y Texto › Efectos sale en tu idioma.
+> - Rellenar pantalla con un clic derecho en la vista previa, y un «+» en Medios para poner el archivo en la línea de tiempo.
+> - Arreglos: actualizar vuelve a funcionar, un clip que no cabe en un hueco ya no desaparece (corre los demás), Pintura al óleo pinta, DNxHR exporta y Texto › Efectos sale en tu idioma.
 
 En inglés:
 
-> **What's new (0.17.0 + 0.18.0 + 0.18.1)**
+> **What's new (0.17.0 + 0.18.0 + 0.18.1 + 0.18.2)**
 >
 > - AI smooth slow motion: draws the frames a slowed clip is missing, so it moves smoothly.
 > - AI transition: joins two clips by drawing the frames between them.
@@ -144,7 +145,8 @@ En inglés:
 > - Animated counters in texts ($1,000,000, 10K, day 100); Stock counters count on their own.
 > - As in CapCut: freeze frame, moving clips with "Close gaps" and dragging clips without jumping tracks.
 > - Everything new, translated into the app's languages.
-> - Fixes: Oil Paint works again, DNxHR export works and Text › Effects shows in your language.
+> - Fill the screen from a right-click in the preview, and a "+" in Media to put a file on the timeline.
+> - Fixes: updating works again, a clip that doesn't fit a gap no longer vanishes (it pushes the rest), Oil Paint paints, DNxHR exports and Text › Effects shows in your language.
 
 **Notas para la Store (0.18.0)**. Lo nuevo desde la 0.17.0. Texto de "Novedades de esta versión" del MSIX de la
 0.18.0 (641 de 1500 caracteres; en inglés, 587).

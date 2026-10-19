@@ -220,3 +220,94 @@ en la hoja de ruta como requisito de Pexels y de las cuentas.
   la capa); los LUT importados en la web viven en ese navegador (se reconocen al volver a importar el
   mismo archivo).
 
+
+---
+
+### 0.16.0 PUBLICADA (2026-10-18) — Menú como en Filmora y CapCut
+- Rama `flip/v0.16.0` → **PR #23** → `main`; **tag `v0.16.0`**. Release (run 39108213510) con instalador, portable y
+  `SHA256SUMS`; copia en `versiones\FlipStudio-0.16.0` (hashes comprobados). Novedades de la web desplegadas
+  (`flipstudio-web` `15d44`). MSIX: `msstore.yml` run 39111195833 → `tienda\FlipStudio-Store\paquete-0.16.0`.
+- **Menú arriba** (`AppMenuBar.qml`, Windows/Linux; macOS sigue con su menú nativo en `Main.qml`): Archivo, Editar,
+  Herramientas, Ver, Avanzado, Ayuda; cada entrada es una acción que ya existía, con su atajo
+  (`EditorState.shortcutFor`). Junto al menú, Ajustes/Extras/Agente solo con icono; el botón Stock de la cabecera se
+  oculta (Stock está en la fila de categorías).
+- **Fila de categorías** sobre el panel de recursos (`AssetsPanel.qml`: `categories`, `showCategory`,
+  `lastTabInCategory`): Medios (Medios, Escenas), Stock, Audio (Música, Efectos de sonido, Voz, Efectos de audio),
+  Títulos (Títulos, Subtítulos), Transiciones, Efectos, **Filtros** (LUTs = `FiltersTab.qml`, Efectos de color =
+  `EffectBrowser` en la categoría `color`), Stickers (Pegatinas, Formas, Máscaras) y Plantillas (**Mis plantillas** =
+  escenas de Stock y propias, **Plantillas de efectos**; `TemplatesTab.showModeChips`). La barra lateral lista las
+  pestañas de la categoría con nombre y se oculta si hay una sola. En la hoja de Android no cambia.
+- **Iniciar sesión para exportar y para Stock** (`SignInRequiredDialog.qml`, desde `EditorHeader.exportVideo`; en
+  Stock también los efectos de sonido). Todo sigue gratis y el aviso lo dice primero. Una build sin cuentas exporta
+  como antes. **Notas para la certificación cambiadas** en `docs/store-listing.md`.
+- **Arreglos:** cerrar huecos al **borrar** (`deleteSelectedClip`, prueba `deleteRipplesFollowers`; reproducido en la
+  0.15.0); el panel de propiedades ya no salta de página con la rueda (Jorge: confunde; el panel izquierdo sí sigue
+  pasando de categoría); actualizaciones en cada arranque y cada 6 h (`UpdateChecker::scheduleStartup`).
+- **Probado en ventana** con el portable (menús, categorías, Filtros, Plantillas, cerrar huecos, rueda, Exportar con
+  sesión). En la prueba salieron y se arreglaron: **las tarjetas de LUT no recibían el clic** (Filtros y también
+  Ajustar › LUT, o sea desde antes): ahora usan `TapHandler`/`HoverHandler` como `AssetDragSource`; los menús leían
+  `EditorState.canUndo`, que **no existe** (es `undoAvailable`/`redoAvailable`; el menú de macOS tenía lo mismo).
+- **Falta (Jorge):** TXT `version` = 0.16.0; subir el MSIX con las notas (712/1500) y las **notas de certificación
+  nuevas**; si la 0.15.0 sigue en certificación, esperar o reemplazarla (entonces juntar las novedades de las dos);
+  probar el aviso de inicio de sesión (cerrar sesión → Exportar → iniciar sesión → se abre Exportar).
+- **Siguiente (0.17), pedido por Jorge:** marca «IA» + «?» en lo de IA que ya tenemos (local, sin internet);
+  transiciones con IA (RIFE); texto con IA simple; panel izquierdo que abra con la fila de categorías completa;
+  congelar fotograma y mover clip con cerrar huecos **como CapCut**; modo oscuro y pantalla de inicio **como
+  Filmora** (colores medidos en sus capturas: paneles `#181c1f`, menús `#202427`, inicio `#0a0d0f`, acento turquesa
+  `#55e5c5`; preguntar si el acento pasa a turquesa o queda el amarillo); **cerrar el editor vuelve al inicio**; y
+  **todos los pendientes viejos** (traducir lo nuevo de la 0.16 a los otros idiomas y «Same as project» en Exportar,
+  selector de idioma del primer arranque, contadores animados, las 9 pistas FMA, texto como máscara, quitar
+  imperfecciones, voz con IA del editor web). Exportar 4K/8K: **probado por Jorge, funciona**. Regla de Jorge: si
+  CapCut/Filmora ya resolvieron cómo se comporta algo, se copia.
+- **Trampas nuevas:**
+  - Con el editor de Jorge abierto, **no usar llamadas MCP** contra una app de prueba con ventana (`--mcp-stdio` se
+    adjunta a «un editor abierto» y podría ser el suyo): armar el proyecto con `--headless` (`save_project`), abrir
+    la prueba con ese archivo y manejarla solo con clics y capturas.
+  - Restaurar el registro **sin la clave `account`**: importar la copia quitándole esa sección y borrar los valores
+    nuevos (`recentMeta`), para no devolver un token de Google ya rotado.
+
+
+---
+
+### 0.15.0 PUBLICADA (2026-10-18) — Stock para creadores: 300 plantillas youtuber, contadores y kits
+- Rama `flip/v0.15.0` → **PR #22** → `main`; **tag `v0.15.0`**. Release publicado (run 39094220184) con instalador,
+  portable y `SHA256SUMS`; copia en `versiones\FlipStudio-0.15.0`. **MSIX** en
+  `tienda\FlipStudio-Store\paquete-0.15.0\FlipStudio-0.15.0.0-x64.msix` (run 39094247870). Novedades de la web
+  desplegadas (`flipstudio-web` commit `248aa`).
+- **CI:** dos ensayos en verde sobre la rama (39082599750 y 39093137986: compilación + 16 suites + instalador y
+  portable). **Ojo:** el run del tag tardó más de una hora en el paso `Build` (caché de dependencias fría); no es un
+  fallo, pero no asustarse.
+- A: menú de Stock con chips bajo «Todos» (`MarketTab.qml`, `CategoryScrollOn` en `StockBrowser.qml`), hover en
+  todas las tarjetas, **Halloween fuera** (índices, generadores, kit, temporada del servidor; lo borrado está en
+  `tienda\plantillas\quitado-halloween`; Día de Muertos se queda). Categorías nuevas `youtuber` y `counter` con su
+  nombre en `SceneTemplateCatalog.cpp` y su traducción.
+- B: **300 plantillas de estilo youtuber** (categoría `youtuber`; miniaturas en `thumbnail`, intros y finales en
+  `intro`/`outro`). C: 43 sonidos, 40 superposiciones ×2 y 24 marcos para la cámara, 23 transiciones, 20 contadores
+  y 24 tercios de redes. D: 29 kits en `tools/stock_kits/kits.py` (los 390 elementos existen en el índice final).
+- **Auditoría de marcas de las fotos de muestra: TERMINADA.** 781 fotos revisadas una por una entre 19 tandas de
+  agentes, **46 fotos más bloqueadas** en `kit.BLOCKED` (Costa, Toyota, Apple, Dell, Disney/Mickey, Adidas, Schwinn,
+  SHUA, Ibanez, Gretsch, Shure, Puma, THRASHER, Ruffino, matrículas…) y **177 cambios de foto** en los módulos con
+  `fix_blocked_samples.py`; tarjetas rehechas (`stale_renders.py` da 0 desactualizadas) y `check_blocked.py` prueba
+  que ninguna plantilla usa una foto bloqueada. `merge_audit.py --apply` vuelca los informes en `kit.py`.
+  - **Un solo `BLOCKED`:** `templates_y2.py` tenía su propia lista y se desincronizaba; ahora es `kit.BLOCKED`.
+  - **12 muestras eran PNG con extensión `.jpg`** (`friends-03` y `y6-h-hands-06` con alfa): las dos renombradas a
+    `.png` (`sample_file()` prueba `.png` antes de `.jpg`) y diez reencodadas a JPEG. `read_image` se negaba a
+    abrirlas y los agentes las saltaban.
+  - Decisión de Jorge: kits de fecha **solo con calendario del hemisferio norte**; contadores **con cortes** (animar
+    los números en el motor queda para otra versión).
+- **i18n:** los 13 idiomas cubren 4.140 elementos y 151 categorías (`build.py --strict` sin faltantes), con la
+  categoría `youtuber` y las 300 plantillas nuevas.
+- **Contenido desplegado en el VPS** (`api.getflipstudio.com/plantillas/`, 5,5 GB): solo se subieron **1,6 GB
+  (2.837 archivos cambiados)** con `tools/scene_templates/publish_delta.py` + `apply_delta.sh` (clon por enlaces
+  duros, `tar --unlink-first` y swap de la carpeta entera). Comprobado en vivo con `verify_published.py`: 1.221
+  plantillas (300 `yt-*`), zips y miniaturas idénticos byte a byte, packs al día, 29 kits, i18n 4.140 y cero
+  elementos de Halloween.
+- **Servidor `stock-0.15` DESPLEGADO** (PM2, health `{"ok":true}`): sin Halloween (temporada y sinónimo).
+- **Trampa nueva:** `scp` a un **nombre que ya existe** en `/tmp` se queda escribiendo sin que el tamaño avance (el
+  archivo viejo conserva tamaño y fecha). Subir con un nombre nuevo.
+- **Jorge (2026-10-18):** TXT `version` = 0.15.0 (comprobado en DNS) y **MSIX 0.15.0 enviado a certificación**
+  (la 0.14.0 ya estaba lista). `flipstudio-web` (`248aa`) y `flipstudio-api` `stock-0.15` → `main` (`a4a75`) en GitHub.
+- **Aviso:** la sesión de Google de la app se cayó durante las pruebas (el servidor revoca la familia cuando llega un
+  `refresh_token` ya usado, y las pruebas de ventana restauran el registro). Hay que **volver a iniciar sesión** con
+  Google la primera vez que se abra la 0.15.0; no afecta a nada más.
+

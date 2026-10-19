@@ -4939,6 +4939,18 @@
         <translation>Image figée ajoutée</translation>
     </message>
     <message>
+        <source>Select a video or photo to fill the screen with it</source>
+        <translation>Sélectionnez une vidéo ou une photo pour en remplir l’écran</translation>
+    </message>
+    <message>
+        <source>Fill screen</source>
+        <translation>Remplir l’écran</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>Ajuster à l’écran</translation>
+    </message>
+    <message>
         <source>Select a video or photo clip with another one right after it</source>
         <translation>Sélectionnez un clip vidéo ou photo suivi immédiatement d&apos;un autre</translation>
     </message>
@@ -15319,6 +15331,22 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Lancer Flip Studio avec prime-run (ou DRI_PRIME=1) place OpenGL sur la même carte que le décodeur.</translation>
     </message>
     <message>
+        <source>Selected clip</source>
+        <translation>Clip sélectionné</translation>
+    </message>
+    <message>
+        <source>Fit to screen</source>
+        <translation>Ajuster à l’écran</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Remplir l’écran (garder les proportions)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Remplir l’écran (étirer)</translation>
+    </message>
+    <message>
         <source>Run Flip Studio on the high-performance graphics card</source>
         <translation>Exécuter Flip Studio sur la carte graphique haute performance</translation>
     </message>
@@ -23574,6 +23602,18 @@ Si la lecture saccade, essayez une autre option.</translation>
 </context>
 <context>
     <name>TransformOverlay</name>
+    <message>
+        <source>Fit to screen</source>
+        <translation>Ajuster à l’écran</translation>
+    </message>
+    <message>
+        <source>Fill screen (keep proportions)</source>
+        <translation>Remplir l’écran (garder les proportions)</translation>
+    </message>
+    <message>
+        <source>Fill screen (stretch)</source>
+        <translation>Remplir l’écran (étirer)</translation>
+    </message>
     <message numerus="yes">
         <source>%1 · %n clip(s)</source>
         <translation>

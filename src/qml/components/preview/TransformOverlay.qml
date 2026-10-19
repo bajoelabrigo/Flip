@@ -436,6 +436,36 @@ Item {
                 }
             }
 
+            // Right-click a picture: fill the screen with it, keeping its shape (the overflow is
+            // cut, like CapCut's «Fill») or stretched to the canvas.
+            TapHandler {
+                acceptedButtons: Qt.RightButton
+                enabled: !handle.isText && !handle.isTransform && !root.mode3d
+                onTapped: {
+                    EditorState.selectClip(handle.box.track, handle.box.clip)
+                    fillMenu.popup()
+                }
+            }
+
+            ThemedContextMenu {
+                id: fillMenu
+                ThemedMenuItem {
+                    text: qsTr("Fit to screen")
+                    icon.name: Theme.icons.maximize
+                    onTriggered: EditorState.fillCanvasWithClip(handle.box.track, handle.box.clip, "fit")
+                }
+                ThemedMenuItem {
+                    text: qsTr("Fill screen (keep proportions)")
+                    icon.name: Theme.icons.maximize
+                    onTriggered: EditorState.fillCanvasWithClip(handle.box.track, handle.box.clip, "cover")
+                }
+                ThemedMenuItem {
+                    text: qsTr("Fill screen (stretch)")
+                    icon.name: Theme.icons.maximize
+                    onTriggered: EditorState.fillCanvasWithClip(handle.box.track, handle.box.clip, "stretch")
+                }
+            }
+
             // "Name · n clips" over a selected layer's frame.
             Rectangle {
                 visible: handle.isTransform && handle.selected

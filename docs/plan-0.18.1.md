@@ -59,3 +59,14 @@ prueba sin ventana (`pruebas\qa018`: `qa.py` = sesión y registro de fallos; `qa
   `tienda\FlipStudio-Store\paquete-0.18.1`.
 - ✅ Novedades de la web desplegadas (comprobado en vivo).
 - ⬜ Jorge: TXT `version` = 0.18.1 y subir el MSIX de la 0.18.1 (no el de la 0.18.0) con las notas combinadas.
+
+## Después de publicar: el botón «Actualizar a …» no actualizaba (Jorge, 2026-10-19)
+- Síntoma: baja la actualización, pulsas «Actualizar a (versión)» y el editor vuelve a la pantalla de inicio en vez
+  de cerrarse e instalar.
+- Causa: `Main.qml` respondía a `Updates.quitRequested` con `window.close()`, y desde la 0.17 eso es la X del
+  editor, que vuelve al inicio. Pasa desde la 0.17.0.
+- ✅ Arreglo en la rama `flip/v0.18.2`: `onQuitRequested` llama a `window.quitApp()` (como Archivo › Salir).
+- Mientras tanto, con la app ya instalada: después de pulsar «Actualizar a …», cerrar con la X **en la pantalla de
+  inicio** (o Archivo › Salir). La app sale y el instalador arranca solo (`aboutToQuit` → `launchStagedInstall`).
+- El arreglo solo sirve a partir de la versión que lo lleve: quien actualice desde 0.17–0.18.1 todavía necesita el
+  paso de arriba. La versión de la Store no usa este actualizador.
