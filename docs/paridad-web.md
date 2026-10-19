@@ -42,14 +42,14 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 |---|---|---|---|
 | Iniciar sesión con Google | 0.10 | ✅ | `src/account/account.ts` + `AccountButton`: PKCE, vuelta a `/editor/`, canje en el servidor y token con refresco. El servidor usa el cliente web de Google (`GOOGLE_WEB_CLIENT_ID`) |
 | Stock (plantillas, música, sonidos, LUT, looks, estilos y animaciones de texto, transiciones, formas, stickers, superposiciones, fondos, contadores, kits) | 0.12–0.18 | 🟡 | Armado como `MarketTab.qml` desde `/v1/market/catalog`: pestañas Todo/Videos/Fotos, tipos propios como chips bajo Todo, filtros del catálogo. «Usar» funciona con todo lo de `delivery: media` y `lut` (música, sonidos, stickers, superposiciones, fondos, filtros, fotos y videos). Plantillas, looks, estilos de texto, transiciones y formas salen marcados «app» |
-| Inicio de Stock tipo tienda, búsqueda, favoritos y «Pide una plantilla» | 0.14 | 🟡 | Inicio con los estantes de `/v1/market/home`, tarjetas con la forma del elemento, vista previa de audio y video al pasar el mouse, «Usado N veces» y «Pide una plantilla» con votos (`StockRequestsDialog.tsx`). Falta: los favoritos de la web siguen en el navegador, no en la cuenta (`/v1/me/favorites` usa los grupos del escritorio) |
+| Inicio de Stock tipo tienda, búsqueda, favoritos y «Pide una plantilla» | 0.14 | 🟡 | Inicio con los estantes de `/v1/market/home`, tarjetas con la forma del elemento, vista previa de audio y video al pasar el mouse, «Usado N veces» y «Pide una plantilla» con votos (`StockRequestsDialog.tsx`). Favoritos en la cuenta (2026-10-19) |
 | Biblioteca de la cuenta («Mis descargas») | 0.12 | ✅ | «Mi cuenta» (`AccountDialog.tsx`, se abre con la foto como en el escritorio): foto, plan, Favoritos por grupo y Descargas de Stock con «Usar» |
 | Pexels y Pixabay | 0.10 | ✅ | Pestañas Videos y Fotos, con la fuente como chip y la orientación como filtro; los archivos se bajan directo de sus CDN (CORS `*`, permitidos en la CSP) |
 
 ### Plantillas
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
-| Plantillas de escena con huecos «Tu foto aquí» | 0.12 | ⬜ | Leer el mismo paquete (`FORMAT.md` en `tools/scene_templates`) |
+| Plantillas de escena con huecos «Tu foto aquí» | 0.12 | ✅ | «Usar» abre el paquete de Stock (`templatePackage.ts`), pestaña Plantilla |
 | Plantillas de efectos (Intensidad, Caída, Ritmo) | 0.11 | ✅ | Las 13 de un clip, como capa de ajuste «Plantilla: …» (`b1015`), y Efectos › Plantilla (`55155`); ritmo fijo de 120 BPM |
 | Guardar como plantilla / Mis plantillas | 0.13 | ⬜ | |
 
@@ -87,7 +87,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
 | Música y efectos de sonido incluidos | sí | ✅ | `/musica/` en el VPS |
-| Mezclador y efectos de audio | sí | 🟡 | Hay `AudioMixer.tsx`; comparar con la pestaña de audio |
+| Mezclador y efectos de audio | sí | ✅ | `AudioMixer.tsx` y los 31 efectos de audio (2026-10-19) |
 | Golpes de música, cortes al ritmo | sí | ⬜ | |
 | Silencios, sonoridad, normalizar | sí | ⬜ | Solo hay volumen por clip |
 
