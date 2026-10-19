@@ -80,7 +80,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
 | Básico, Burbuja, Efectos y Animación como CapCut | 0.9.6 | ✅ | |
-| Contadores animados | 0.17–0.18 | ⬜ | `counterTextAt` y `counterSeconds` en el escritorio |
+| Contadores animados | 0.17–0.18 | ✅ | Texto › Básico › Contador (`text/counter.ts`, el `counterTextAt` del escritorio); van en el `.flip` (2026-10-19) |
 | Texto con IA (describir la idea) | 0.17 | ⬜ | MiniLM puede correr en el navegador |
 
 ### Audio
