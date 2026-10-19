@@ -88,7 +88,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 |---|---|---|---|
 | Música y efectos de sonido incluidos | sí | ✅ | `/musica/` en el VPS |
 | Mezclador y efectos de audio | sí | ✅ | `AudioMixer.tsx` y los 31 efectos de audio (2026-10-19) |
-| Golpes de música, cortes al ritmo | sí | 🟡 | Análisis de golpes propio (`audio/beats.ts`) usado por las plantillas de efectos; faltan los marcadores en la línea de tiempo y «Ajustar los cortes al ritmo» |
+| Golpes de música, cortes al ritmo | sí | 🟡 | Análisis de golpes propio (`audio/beats.ts`) usado por las plantillas de efectos; «Ajustar los cortes al ritmo» en la pestaña Plantilla (`project/templateBeats.ts`, como `retimeTemplateSlotsToBeats`); faltan los marcadores de ritmo en la línea de tiempo |
 | Silencios, sonoridad, normalizar | sí | ⬜ | Solo hay volumen por clip |
 
 ### IA
