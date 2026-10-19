@@ -252,11 +252,16 @@ no cuadraba era el cromo, en todas las pestañas de catálogo a la vez:
   vistas, el orden por tipo (video antes que audio), la búsqueda que deja un solo resultado y el aviso sin resultados.
   `tsc` limpio y las 99 pruebas en verde.
 
-**Lo que falta de Medios** (lo siguiente, en este orden):
-1. **Carpetas**: «Nueva carpeta» en la cabecera, la ruta sobre la cuadrícula (`BinBreadcrumb.qml`), mover medios y
-   carpetas, renombrar y borrar. Es lo que da sentido a la vista de **árbol**, que por eso aún no está.
-2. **Importar partido**: el botón del escritorio tiene dos mitades (archivos / carpeta entera).
-3. **Mover a carpeta** desde el «⋯» de cada medio.
+**Medios, hecho el 2026-10-19 (Claude, `11a9a` y `57be0`)**:
+1. **Carpetas** ✅: «Nueva carpeta» (icono junto a Importar), la ruta «Medios › …» sobre la cuadrícula (también se
+   suelta un medio en ella para subirlo), las carpetas primero, abrir con clic, «⋯» de la carpeta con Renombrar y
+   Eliminar (lo de dentro sube a la de arriba). Se guardan con el proyecto (`folders`, `MediaItem.folderId`) y en
+   el `.flip` como el escritorio (`binFolders` y `assets[].folderId`; el `.flip` de la web ahora escribe también la
+   tabla `assets`, que antes no escribía). Probado en el navegador, también tras recargar.
+2. **Importar partido** ✅: «Importar» + flecha con «Importar archivos…» / «Importar carpeta…»; la carpeta llega con
+   sus subcarpetas como carpetas de Medios. Lo importado dentro de una carpeta queda en ella.
+3. **Mover a carpeta** ✅ desde el «⋯» de cada medio (incluye «Carpeta nueva…») y arrastrando a la carpeta.
+4. Falta: la vista de **árbol** (expandir/plegar carpetas en la lista) y mover **carpetas** dentro de otras.
 
 ### Novena tanda (2026-10-19, Claude): la vista previa, manejable como `TransformOverlay.qml`
 Jorge (con captura): «no se puede modificar el tamaño de los videos, fotos, etc., desde ahí y no calza bien el video
