@@ -88,7 +88,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 |---|---|---|---|
 | Música y efectos de sonido incluidos | sí | ✅ | `/musica/` en el VPS |
 | Mezclador y efectos de audio | sí | ✅ | `AudioMixer.tsx` y los 31 efectos de audio (2026-10-19) |
-| Golpes de música, cortes al ritmo | sí | ⬜ | |
+| Golpes de música, cortes al ritmo | sí | 🟡 | Análisis de golpes propio (`audio/beats.ts`) usado por las plantillas de efectos; faltan los marcadores en la línea de tiempo y «Ajustar los cortes al ritmo» |
 | Silencios, sonoridad, normalizar | sí | ⬜ | Solo hay volumen por clip |
 
 ### IA
@@ -417,8 +417,11 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
    siguiente). Efectos propios nuevos: Destello (`strobe_flash`), Neón de bordes, Desenfoque giratorio y Cómic de
    tramas. **Efectos › Plantilla** (`55155`, `TemplateEffectSection.tsx`): Intensidad, Caída, Ritmo y «Quitar
    plantilla» rehacen los golpes con la fórmula de `writeTemplatePulse` (la capa lleva `Clip.template` y cada efecto
-   suyo `GpuEffect.templateLayer`; lo que el usuario añadió a mano se queda). **Falta:** seguir los golpes reales de
-   la música. Ya hechos (2026-10-19): **todos** los efectos de las 13 plantillas tienen par en la web (bokeh,
+   suyo `GpuEffect.templateLayer`; lo que el usuario añadió a mano se queda). **Siguen la música** (2026-10-19): `src/audio/beats.ts` (análisis propio,
+   no el `AudioOnsets` de Drift: flujo espectral, tempo por autocorrelación con preferencia por 120 BPM, rejilla de
+   golpes y compases) sobre la música de las pistas de audio bajo la capa (`audio/musicUnder.ts`); el ritmo fijo de
+   120 BPM queda solo sin música, con el aviso del escritorio, y elegir Ritmo otra vez vuelve a escuchar. Probado con
+   un ritmo de 90 BPM: 8 golpes en 5 s y 2 compases. Ya hechos (2026-10-19): **todos** los efectos de las 13 plantillas tienen par en la web (bokeh,
    cinematográfico, brillos, cielo con rayos, estela y el duotono del escritorio sobre «Dos tonos»; prueba en
    `applyEffectTemplate.test.ts`), y el **`.flip` lleva los efectos de la web también en el formato del escritorio**
    (`webEffectsToDesktop` en `driftBundle.ts`, con la etiqueta `template` de `Effect.cpp`): probado con la 0.18.2
