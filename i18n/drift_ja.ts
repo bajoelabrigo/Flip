@@ -20174,24 +20174,100 @@ If playback stutters, try another.</source>
         <translation>シャインスイープ</translation>
     </message>
     <message>
+        <source>Speed</source>
+        <translation>速度</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>幅</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>角度</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>明るさ</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>カラー</translation>
+    </message>
+    <message>
         <source>Holographic shimmer</source>
         <translation>ホログラフィックシマー</translation>
+    </message>
+    <message>
+        <source>Bands</source>
+        <translation>帯の数</translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation>彩度</translation>
     </message>
     <message>
         <source>Neon pulse</source>
         <translation>ネオンパルス</translation>
     </message>
     <message>
+        <source>Depth</source>
+        <translation>深さ</translation>
+    </message>
+    <message>
+        <source>Flicker</source>
+        <translation>ちらつき</translation>
+    </message>
+    <message>
+        <source>Glow tint</source>
+        <translation>発光の色</translation>
+    </message>
+    <message>
         <source>Glitch</source>
         <translation>グリッチ</translation>
+    </message>
+    <message>
+        <source>Rate</source>
+        <translation>レート</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>オフセット</translation>
+    </message>
+    <message>
+        <source>Row height</source>
+        <translation>行の高さ</translation>
     </message>
     <message>
         <source>Chrome</source>
         <translation>クローム</translation>
     </message>
     <message>
+        <source>Light</source>
+        <translation>明るい色</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>暗い色</translation>
+    </message>
+    <message>
         <source>Dissolve</source>
         <translation>ディゾルブ</translation>
+    </message>
+    <message>
+        <source>Grain</source>
+        <translation>グレイン</translation>
+    </message>
+    <message>
+        <source>Edge</source>
+        <translation>エッジ</translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation>進行度</translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation>シード</translation>
     </message>
 </context>
 <context>
@@ -20951,6 +21027,201 @@ If playback stutters, try another.</source>
     <message>
         <source>Keywords (long words and numbers)</source>
         <translation>キーワード（長い単語と数字）</translation>
+    </message>
+</context>
+<context>
+    <name>TextLook</name>
+    <message>
+        <source>Sunset</source>
+        <translation>サンセット</translation>
+    </message>
+    <message>
+        <source>Ocean</source>
+        <translation>オーシャン</translation>
+    </message>
+    <message>
+        <source>Candy</source>
+        <translation>キャンディ</translation>
+    </message>
+    <message>
+        <source>Gold</source>
+        <translation>ゴールド</translation>
+    </message>
+    <message>
+        <source>Chrome</source>
+        <translation>クローム</translation>
+    </message>
+    <message>
+        <source>Rainbow</source>
+        <translation>レインボー</translation>
+    </message>
+    <message>
+        <source>Fire</source>
+        <translation>ファイヤー</translation>
+    </message>
+    <message>
+        <source>Ice</source>
+        <translation>アイス</translation>
+    </message>
+    <message>
+        <source>Mono</source>
+        <translation>モノクロ</translation>
+    </message>
+    <message>
+        <source>Holographic</source>
+        <translation>ホログラフィック</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>ミント</translation>
+    </message>
+    <message>
+        <source>Berry</source>
+        <translation>ベリー</translation>
+    </message>
+    <message>
+        <source>Plain</source>
+        <translation>標準</translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation>シャドウ</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>オフセット</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>方向</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>ブラー</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>不透明度</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>カラー</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>強度</translation>
+    </message>
+    <message>
+        <source>Lift</source>
+        <translation>リフト</translation>
+    </message>
+    <message>
+        <source>Thickness</source>
+        <translation>太さ</translation>
+    </message>
+    <message>
+        <source>Hollow</source>
+        <translation>中抜き</translation>
+    </message>
+    <message>
+        <source>Splice</source>
+        <translation>スプライス</translation>
+    </message>
+    <message>
+        <source>Outline</source>
+        <translation>アウトライン</translation>
+    </message>
+    <message>
+        <source>Echo</source>
+        <translation>エコー</translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation>コピー数</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>グリッチ</translation>
+    </message>
+    <message>
+        <source>Colour A</source>
+        <translation>カラー A</translation>
+    </message>
+    <message>
+        <source>Colour B</source>
+        <translation>カラー B</translation>
+    </message>
+    <message>
+        <source>Neon</source>
+        <translation>ネオン</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>グロー</translation>
+    </message>
+    <message>
+        <source>Background</source>
+        <translation>背景</translation>
+    </message>
+    <message>
+        <source>Roundness</source>
+        <translation>角の丸み</translation>
+    </message>
+    <message>
+        <source>Spread</source>
+        <translation>広がり</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation>透明度</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation>カーブ</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation>グラデーション</translation>
+    </message>
+    <message>
+        <source>Preset</source>
+        <translation>プリセット</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>角度</translation>
+    </message>
+    <message>
+        <source>Map to</source>
+        <translation>マップ先</translation>
+    </message>
+    <message>
+        <source>Shine</source>
+        <translation>シャイン</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>速度</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>幅</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>明るさ</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>明るい色</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>暗い色</translation>
+    </message>
+    <message>
+        <source>Reflection</source>
+        <translation>反射</translation>
     </message>
 </context>
 <context>
@@ -24842,69 +25113,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>閉じる</translation>
-    </message>
-</context>
-<context>
-    <name>drift</name>
-    <message>
-        <source>Plain</source>
-        <translation>標準</translation>
-    </message>
-    <message>
-        <source>Shadow</source>
-        <translation>シャドウ</translation>
-    </message>
-    <message>
-        <source>Lift</source>
-        <translation>リフト</translation>
-    </message>
-    <message>
-        <source>Hollow</source>
-        <translation>中抜き</translation>
-    </message>
-    <message>
-        <source>Splice</source>
-        <translation>スプライス</translation>
-    </message>
-    <message>
-        <source>Outline</source>
-        <translation>アウトライン</translation>
-    </message>
-    <message>
-        <source>Echo</source>
-        <translation>エコー</translation>
-    </message>
-    <message>
-        <source>Glitch</source>
-        <translation>グリッチ</translation>
-    </message>
-    <message>
-        <source>Neon</source>
-        <translation>ネオン</translation>
-    </message>
-    <message>
-        <source>Background</source>
-        <translation>背景</translation>
-    </message>
-    <message>
-        <source>Curve</source>
-        <translation>カーブ</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>グラデーション</translation>
-    </message>
-    <message>
-        <source>Shine</source>
-        <translation>シャイン</translation>
-    </message>
-    <message>
-        <source>Chrome</source>
-        <translation>クローム</translation>
-    </message>
-    <message>
-        <source>Holographic</source>
-        <translation>ホログラフィック</translation>
     </message>
 </context>
 <context>

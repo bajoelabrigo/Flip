@@ -20173,24 +20173,100 @@ If playback stutters, try another.</source>
         <translation>光泽扫过</translation>
     </message>
     <message>
+        <source>Speed</source>
+        <translation>速度</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>宽度</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>角度</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>亮度</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>颜色</translation>
+    </message>
+    <message>
         <source>Holographic shimmer</source>
         <translation>全息闪光</translation>
+    </message>
+    <message>
+        <source>Bands</source>
+        <translation>条纹</translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation>饱和度</translation>
     </message>
     <message>
         <source>Neon pulse</source>
         <translation>霓虹脉冲</translation>
     </message>
     <message>
+        <source>Depth</source>
+        <translation>深度</translation>
+    </message>
+    <message>
+        <source>Flicker</source>
+        <translation>闪烁</translation>
+    </message>
+    <message>
+        <source>Glow tint</source>
+        <translation>光晕色调</translation>
+    </message>
+    <message>
         <source>Glitch</source>
         <translation>故障</translation>
+    </message>
+    <message>
+        <source>Rate</source>
+        <translation>速率</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>偏移</translation>
+    </message>
+    <message>
+        <source>Row height</source>
+        <translation>行高</translation>
     </message>
     <message>
         <source>Chrome</source>
         <translation>镀铬</translation>
     </message>
     <message>
+        <source>Light</source>
+        <translation>亮色</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>暗色</translation>
+    </message>
+    <message>
         <source>Dissolve</source>
         <translation>溶解</translation>
+    </message>
+    <message>
+        <source>Grain</source>
+        <translation>颗粒</translation>
+    </message>
+    <message>
+        <source>Edge</source>
+        <translation>边缘</translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation>进度</translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation>随机种子</translation>
     </message>
 </context>
 <context>
@@ -20950,6 +21026,201 @@ If playback stutters, try another.</source>
     <message>
         <source>Keywords (long words and numbers)</source>
         <translation>关键词（长词和数字）</translation>
+    </message>
+</context>
+<context>
+    <name>TextLook</name>
+    <message>
+        <source>Sunset</source>
+        <translation>日落</translation>
+    </message>
+    <message>
+        <source>Ocean</source>
+        <translation>海洋</translation>
+    </message>
+    <message>
+        <source>Candy</source>
+        <translation>糖果</translation>
+    </message>
+    <message>
+        <source>Gold</source>
+        <translation>金色</translation>
+    </message>
+    <message>
+        <source>Chrome</source>
+        <translation>金属铬</translation>
+    </message>
+    <message>
+        <source>Rainbow</source>
+        <translation>彩虹</translation>
+    </message>
+    <message>
+        <source>Fire</source>
+        <translation>火焰</translation>
+    </message>
+    <message>
+        <source>Ice</source>
+        <translation>冰</translation>
+    </message>
+    <message>
+        <source>Mono</source>
+        <translation>单色</translation>
+    </message>
+    <message>
+        <source>Holographic</source>
+        <translation>全息</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>薄荷</translation>
+    </message>
+    <message>
+        <source>Berry</source>
+        <translation>莓果</translation>
+    </message>
+    <message>
+        <source>Plain</source>
+        <translation>简约</translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation>阴影</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>偏移</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>方向</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>模糊</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>不透明度</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>颜色</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>强度</translation>
+    </message>
+    <message>
+        <source>Lift</source>
+        <translation>浮起</translation>
+    </message>
+    <message>
+        <source>Thickness</source>
+        <translation>粗细</translation>
+    </message>
+    <message>
+        <source>Hollow</source>
+        <translation>镂空</translation>
+    </message>
+    <message>
+        <source>Splice</source>
+        <translation>错位</translation>
+    </message>
+    <message>
+        <source>Outline</source>
+        <translation>描边</translation>
+    </message>
+    <message>
+        <source>Echo</source>
+        <translation>回声</translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation>副本数</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>故障</translation>
+    </message>
+    <message>
+        <source>Colour A</source>
+        <translation>颜色 A</translation>
+    </message>
+    <message>
+        <source>Colour B</source>
+        <translation>颜色 B</translation>
+    </message>
+    <message>
+        <source>Neon</source>
+        <translation>霓虹</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>发光</translation>
+    </message>
+    <message>
+        <source>Background</source>
+        <translation>背景</translation>
+    </message>
+    <message>
+        <source>Roundness</source>
+        <translation>圆角</translation>
+    </message>
+    <message>
+        <source>Spread</source>
+        <translation>扩展</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation>透明度</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation>曲线</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation>渐变</translation>
+    </message>
+    <message>
+        <source>Preset</source>
+        <translation>预设</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>角度</translation>
+    </message>
+    <message>
+        <source>Map to</source>
+        <translation>映射到</translation>
+    </message>
+    <message>
+        <source>Shine</source>
+        <translation>光泽</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>速度</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>宽度</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>亮度</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>亮色</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>暗色</translation>
+    </message>
+    <message>
+        <source>Reflection</source>
+        <translation>反射</translation>
     </message>
 </context>
 <context>
@@ -24841,69 +25112,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>关闭</translation>
-    </message>
-</context>
-<context>
-    <name>drift</name>
-    <message>
-        <source>Plain</source>
-        <translation>简约</translation>
-    </message>
-    <message>
-        <source>Shadow</source>
-        <translation>阴影</translation>
-    </message>
-    <message>
-        <source>Lift</source>
-        <translation>浮起</translation>
-    </message>
-    <message>
-        <source>Hollow</source>
-        <translation>镂空</translation>
-    </message>
-    <message>
-        <source>Splice</source>
-        <translation>错位</translation>
-    </message>
-    <message>
-        <source>Outline</source>
-        <translation>描边</translation>
-    </message>
-    <message>
-        <source>Echo</source>
-        <translation>回声</translation>
-    </message>
-    <message>
-        <source>Glitch</source>
-        <translation>故障</translation>
-    </message>
-    <message>
-        <source>Neon</source>
-        <translation>霓虹</translation>
-    </message>
-    <message>
-        <source>Background</source>
-        <translation>背景</translation>
-    </message>
-    <message>
-        <source>Curve</source>
-        <translation>曲线</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>渐变</translation>
-    </message>
-    <message>
-        <source>Shine</source>
-        <translation>光泽</translation>
-    </message>
-    <message>
-        <source>Chrome</source>
-        <translation>金属铬</translation>
-    </message>
-    <message>
-        <source>Holographic</source>
-        <translation>全息</translation>
     </message>
 </context>
 <context>

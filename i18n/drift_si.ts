@@ -20251,24 +20251,100 @@ If playback stutters, try another.</source>
         <translation>Shine sweep</translation>
     </message>
     <message>
+        <source>Speed</source>
+        <translation type="unfinished">වේගය</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished">පළල</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished">කෝණය</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Holographic shimmer</source>
         <translation>හොලෝග්‍රැෆික් දිලිසුම (Holographic shimmer)</translation>
+    </message>
+    <message>
+        <source>Bands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Neon pulse</source>
         <translation>නියොන් ස්පන්දනය (Neon pulse)</translation>
     </message>
     <message>
+        <source>Depth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flicker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glow tint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Glitch</source>
         <translation>Glitch</translation>
+    </message>
+    <message>
+        <source>Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation type="unfinished">විස්ථාපනය</translation>
+    </message>
+    <message>
+        <source>Row height</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Chrome</source>
         <translation>ක්‍රෝම් (Chrome)</translation>
     </message>
     <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">අඳුරු</translation>
+    </message>
+    <message>
         <source>Dissolve</source>
         <translation>දියවීම (Dissolve)</translation>
+    </message>
+    <message>
+        <source>Grain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation type="unfinished">Seed</translation>
     </message>
 </context>
 <context>
@@ -20835,7 +20911,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Curve</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">වක්‍රය</translation>
     </message>
     <message>
         <source>Bend a single line of text along an arc</source>
@@ -21027,6 +21103,201 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Keywords (long words and numbers)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TextLook</name>
+    <message>
+        <source>Sunset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ocean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Candy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chrome</source>
+        <translation type="unfinished">ක්‍රෝම් (Chrome)</translation>
+    </message>
+    <message>
+        <source>Rainbow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fire</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mono</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Holographic</source>
+        <translation type="unfinished">හොලෝග්‍රැෆික් (Holographic)</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Berry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plain</source>
+        <translation type="unfinished">සරල (Plain)</translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation type="unfinished">සෙවණැල්ල</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation type="unfinished">විස්ථාපනය</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation type="unfinished">දිශාව</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation type="unfinished">බොඳ කිරීම</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished">පාරාන්ධතාව</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation type="unfinished">තීව්‍රතාව</translation>
+    </message>
+    <message>
+        <source>Lift</source>
+        <translation type="unfinished">එසවීම (Lift)</translation>
+    </message>
+    <message>
+        <source>Thickness</source>
+        <translation type="unfinished">ඝනකම</translation>
+    </message>
+    <message>
+        <source>Hollow</source>
+        <translation type="unfinished">හිස් (Hollow)</translation>
+    </message>
+    <message>
+        <source>Splice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Echo</source>
+        <translation type="unfinished">එකෝ (Echo)</translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation type="unfinished">Glitch</translation>
+    </message>
+    <message>
+        <source>Colour A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Neon</source>
+        <translation type="unfinished">Neon</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation type="unfinished">දීප්තිය (Glow)</translation>
+    </message>
+    <message>
+        <source>Background</source>
+        <translation type="unfinished">පසුබිම</translation>
+    </message>
+    <message>
+        <source>Roundness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spread</source>
+        <translation type="unfinished">පැතිරීම (Spread)</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation type="unfinished">වක්‍රය</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation type="unfinished">ශ්‍රේණිය (Gradient)</translation>
+    </message>
+    <message>
+        <source>Preset</source>
+        <translation type="unfinished">පෙරසැකසුම</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished">කෝණය</translation>
+    </message>
+    <message>
+        <source>Map to</source>
+        <translation type="unfinished">සිතියම්ගත කරන්නේ (Map to)</translation>
+    </message>
+    <message>
+        <source>Shine</source>
+        <translation type="unfinished">බැබළීම (Shine)</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished">වේගය</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished">පළල</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">අඳුරු</translation>
+    </message>
+    <message>
+        <source>Reflection</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -24930,69 +25201,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>වසන්න</translation>
-    </message>
-</context>
-<context>
-    <name>drift</name>
-    <message>
-        <source>Plain</source>
-        <translation>සරල (Plain)</translation>
-    </message>
-    <message>
-        <source>Shadow</source>
-        <translation>සෙවණැල්ල</translation>
-    </message>
-    <message>
-        <source>Lift</source>
-        <translation>එසවීම (Lift)</translation>
-    </message>
-    <message>
-        <source>Hollow</source>
-        <translation>හිස් (Hollow)</translation>
-    </message>
-    <message>
-        <source>Splice</source>
-        <translation>කණ්ඩනය (Splice)</translation>
-    </message>
-    <message>
-        <source>Outline</source>
-        <translation>දළ සටහන</translation>
-    </message>
-    <message>
-        <source>Echo</source>
-        <translation>එකෝ (Echo)</translation>
-    </message>
-    <message>
-        <source>Glitch</source>
-        <translation>Glitch</translation>
-    </message>
-    <message>
-        <source>Neon</source>
-        <translation>Neon</translation>
-    </message>
-    <message>
-        <source>Background</source>
-        <translation>පසුබිම</translation>
-    </message>
-    <message>
-        <source>Curve</source>
-        <translation>වක්‍රය (Curve)</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>ශ්‍රේණිය (Gradient)</translation>
-    </message>
-    <message>
-        <source>Shine</source>
-        <translation>බැබළීම (Shine)</translation>
-    </message>
-    <message>
-        <source>Chrome</source>
-        <translation>ක්‍රෝම් (Chrome)</translation>
-    </message>
-    <message>
-        <source>Holographic</source>
-        <translation>හොලෝග්‍රැෆික් (Holographic)</translation>
     </message>
 </context>
 <context>

@@ -20174,24 +20174,100 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Vệt sáng</translation>
     </message>
     <message>
+        <source>Speed</source>
+        <translation>Tốc độ</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>Chiều rộng</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Góc</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Độ sáng</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Màu</translation>
+    </message>
+    <message>
         <source>Holographic shimmer</source>
         <translation>Lấp lánh ba chiều</translation>
+    </message>
+    <message>
+        <source>Bands</source>
+        <translation>Dải</translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation>Độ bão hòa</translation>
     </message>
     <message>
         <source>Neon pulse</source>
         <translation>Neon nhấp nháy</translation>
     </message>
     <message>
+        <source>Depth</source>
+        <translation>Độ sâu</translation>
+    </message>
+    <message>
+        <source>Flicker</source>
+        <translation>Nhấp nháy</translation>
+    </message>
+    <message>
+        <source>Glow tint</source>
+        <translation>Sắc phát sáng</translation>
+    </message>
+    <message>
         <source>Glitch</source>
         <translation>Lỗi hình</translation>
+    </message>
+    <message>
+        <source>Rate</source>
+        <translation>Tần suất</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>Độ lệch</translation>
+    </message>
+    <message>
+        <source>Row height</source>
+        <translation>Chiều cao hàng</translation>
     </message>
     <message>
         <source>Chrome</source>
         <translation>Kim loại bóng</translation>
     </message>
     <message>
+        <source>Light</source>
+        <translation>Sáng</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Tối</translation>
+    </message>
+    <message>
         <source>Dissolve</source>
         <translation>Tan biến</translation>
+    </message>
+    <message>
+        <source>Grain</source>
+        <translation>Hạt</translation>
+    </message>
+    <message>
+        <source>Edge</source>
+        <translation>Viền mép</translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation>Tiến trình</translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation>Hạt giống</translation>
     </message>
 </context>
 <context>
@@ -20951,6 +21027,201 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Keywords (long words and numbers)</source>
         <translation>Từ khóa (từ dài và số)</translation>
+    </message>
+</context>
+<context>
+    <name>TextLook</name>
+    <message>
+        <source>Sunset</source>
+        <translation>Hoàng hôn</translation>
+    </message>
+    <message>
+        <source>Ocean</source>
+        <translation>Đại dương</translation>
+    </message>
+    <message>
+        <source>Candy</source>
+        <translation>Kẹo ngọt</translation>
+    </message>
+    <message>
+        <source>Gold</source>
+        <translation>Vàng kim</translation>
+    </message>
+    <message>
+        <source>Chrome</source>
+        <translation>Kim loại bóng</translation>
+    </message>
+    <message>
+        <source>Rainbow</source>
+        <translation>Cầu vồng</translation>
+    </message>
+    <message>
+        <source>Fire</source>
+        <translation>Lửa</translation>
+    </message>
+    <message>
+        <source>Ice</source>
+        <translation>Băng</translation>
+    </message>
+    <message>
+        <source>Mono</source>
+        <translation>Đơn sắc</translation>
+    </message>
+    <message>
+        <source>Holographic</source>
+        <translation>Óng ánh</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>Bạc hà</translation>
+    </message>
+    <message>
+        <source>Berry</source>
+        <translation>Quả mọng</translation>
+    </message>
+    <message>
+        <source>Plain</source>
+        <translation>Thường</translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation>Bóng</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>Độ lệch</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Hướng</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Làm mờ</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Độ mờ</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Màu</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>Cường độ</translation>
+    </message>
+    <message>
+        <source>Lift</source>
+        <translation>Nâng</translation>
+    </message>
+    <message>
+        <source>Thickness</source>
+        <translation>Độ dày</translation>
+    </message>
+    <message>
+        <source>Hollow</source>
+        <translation>Rỗng</translation>
+    </message>
+    <message>
+        <source>Splice</source>
+        <translation>Nối</translation>
+    </message>
+    <message>
+        <source>Outline</source>
+        <translation>Viền</translation>
+    </message>
+    <message>
+        <source>Echo</source>
+        <translation>Tiếng vọng</translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation>Số bản sao</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>Lỗi hình</translation>
+    </message>
+    <message>
+        <source>Colour A</source>
+        <translation>Màu A</translation>
+    </message>
+    <message>
+        <source>Colour B</source>
+        <translation>Màu B</translation>
+    </message>
+    <message>
+        <source>Neon</source>
+        <translation>Neon</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>Phát sáng</translation>
+    </message>
+    <message>
+        <source>Background</source>
+        <translation>Hình nền</translation>
+    </message>
+    <message>
+        <source>Roundness</source>
+        <translation>Độ bo tròn</translation>
+    </message>
+    <message>
+        <source>Spread</source>
+        <translation>Lan tỏa</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation>Độ trong suốt</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation>Đường cong</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation>Chuyển sắc</translation>
+    </message>
+    <message>
+        <source>Preset</source>
+        <translation>Preset</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Góc</translation>
+    </message>
+    <message>
+        <source>Map to</source>
+        <translation>Ánh xạ đến</translation>
+    </message>
+    <message>
+        <source>Shine</source>
+        <translation>Tỏa sáng</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Tốc độ</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>Chiều rộng</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Độ sáng</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Sáng</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Tối</translation>
+    </message>
+    <message>
+        <source>Reflection</source>
+        <translation>Phản chiếu</translation>
     </message>
 </context>
 <context>
@@ -24842,69 +25113,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Close</source>
         <translation>Đóng</translation>
-    </message>
-</context>
-<context>
-    <name>drift</name>
-    <message>
-        <source>Plain</source>
-        <translation>Thường</translation>
-    </message>
-    <message>
-        <source>Shadow</source>
-        <translation>Bóng</translation>
-    </message>
-    <message>
-        <source>Lift</source>
-        <translation>Nâng</translation>
-    </message>
-    <message>
-        <source>Hollow</source>
-        <translation>Rỗng</translation>
-    </message>
-    <message>
-        <source>Splice</source>
-        <translation>Nối</translation>
-    </message>
-    <message>
-        <source>Outline</source>
-        <translation>Viền</translation>
-    </message>
-    <message>
-        <source>Echo</source>
-        <translation>Tiếng vọng</translation>
-    </message>
-    <message>
-        <source>Glitch</source>
-        <translation>Lỗi hình</translation>
-    </message>
-    <message>
-        <source>Neon</source>
-        <translation>Neon</translation>
-    </message>
-    <message>
-        <source>Background</source>
-        <translation>Hình nền</translation>
-    </message>
-    <message>
-        <source>Curve</source>
-        <translation>Đường cong</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>Chuyển sắc</translation>
-    </message>
-    <message>
-        <source>Shine</source>
-        <translation>Tỏa sáng</translation>
-    </message>
-    <message>
-        <source>Chrome</source>
-        <translation>Kim loại bóng</translation>
-    </message>
-    <message>
-        <source>Holographic</source>
-        <translation>Óng ánh</translation>
     </message>
 </context>
 <context>

@@ -1,0 +1,46 @@
+# Plan 0.18.1 — arreglos del control de calidad de la 0.18
+
+Pedido de Jorge (2026-10-18): «sigue con lo tuyo», o sea, el control de calidad de la 0.18 por MCP, con una app de
+prueba sin ventana (`pruebas\qa018`: `qa.py` = sesión y registro de fallos; `qa_media.py`, `qa_render.py` y
+`qa_misc.py` = las tandas; resultados en `out\`). Rama `flip/v0.18.1`.
+
+## Lo que se probó y pasó
+- Importar 15 archivos: H.264, HEVC, MJPEG/AVI, MKV, video mudo, ProRes, vertical de 60 fps, VP9/WebM, GIF animado, y
+  audio en MP3, WAV, FLAC, OGG, Opus y M4A. Las capturas de cada clip tienen imagen.
+- Cortar, transición, velocidad 0,5, texto, deshacer + rehacer (mismo hash), guardar y reabrir (mismos clips),
+  exportar MP4 (dura lo pedido y se reimporta) y GIF.
+- Los 78 efectos y las 40 transiciones del catálogo se aplican y se dibujan; comparados píxel a píxel. Los que no
+  cambian la imagen lo hacen por diseño: necesitan una cara, golpes de música o un modelo de profundidad.
+- 48 animaciones de texto, todos los looks de texto, stickers, formas, golpes, silencios, sonoridad, normalizar,
+  volumen, forma de onda y subtítulos (crear, exportar SRT con tildes y reimportar).
+- Exportar con cada códec: AV1 (8 y 10 bits), FFV1, H.264 (también NVENC y 10 bits), H.265 (8, 10, 12 bits y NVENC),
+  MPEG-4, MPEG-2, VP8, VP9 (también alfa y 10 bits), ProRes, ProRes 4444 y Theora; audio AAC, Opus, MP3, AC3 y FLAC;
+  4K con H.264 y 8K con H.265 (H.264 a 8K se niega con su aviso, como debe).
+- Congelar fotograma funciona como CapCut: corta en el cabezal, mete una foto de 3 s y empuja el resto.
+- Arrastre «tipo tetris»: probado en ventana por Jorge, funciona.
+
+## Arreglos (hechos, falta compilar)
+- ✅ **Pintura al óleo no hacía nada** (desde Drift): el shader usaba la variable `flat`, palabra reservada de GLSL;
+  no compilaba y el efecto se saltaba sin avisar. Renombrada a `flatColor`. Ningún otro shader tiene el problema.
+- ✅ **DNxHR no exportaba nunca** («Could not open the video encoder»): el codificador `dnxhd` de FFmpeg usa por
+  defecto el perfil DNxHD clásico. Ahora pide `dnxhr_hq` (o `dnxhr_hqx` en 10 bits); comprobado con ffmpeg en
+  `.mov`, `.mxf` y `.mkv`.
+- ✅ **Texto › Efectos salía en inglés** (Shadow, Offset, Direction…) y las unidades de grados como «90Â°»:
+  - la unidad se leía con `QLatin1String` y el «°» viene en UTF-8; ahora es `QString::fromUtf8` en `TextLook`,
+    `TextShading` y `TextAnimationPreset`;
+  - los nombres de los looks se extraían al contexto `drift`, pero la app los buscaba en `TextLook`;
+  - los nombres de los controles no se extraían nunca.
+  Ahora van con `QT_TRANSLATE_NOOP` (el ayudante `tr` de `TextLook.cpp` pasa a `lookText`: con `tr(...)` delante,
+  `lupdate` no ve el texto). Son 67 textos traducidos en los 12 idiomas completos; `lupdate` queda estable.
+- ✅ MCP `freeze_frame` respondía «0 clips nuevos» porque la foto se hace en segundo plano: ahora espera hasta 30 s a
+  que entre, o devuelve el aviso de la app (`freeze_failed`).
+- ✅ MCP `import_media` con un archivo que existe pero no se puede leer (0 bytes) respondía «ok» con un elemento sin
+  nombre ni tipo. Ahora lo cuenta en `unreadable`, o da `import_failed` si no se pudo leer ninguno.
+
+## Falta
+- Probar el resto: máscaras, fotogramas clave, estabilizar, escenas, caras, subtítulos con Whisper, quitar ruido,
+  profundidad y voz.
+- Compilar (un solo `build.yml` al final), mirar Texto › Efectos en español en ventana, y decidir con Jorge si sale
+  como 0.18.1.
+- Al terminar: restaurar el registro (`pruebas\qa018\registro-antes.reg`) y borrar el autoguardado y los proyectos de
+  prueba de `%APPDATA%\Flip Studio\Flip Studio\projects`.

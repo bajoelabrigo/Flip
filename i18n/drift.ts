@@ -20243,7 +20243,35 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Holographic shimmer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saturation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20251,7 +20279,31 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Depth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flicker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glow tint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Glitch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Row height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20259,7 +20311,31 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Dissolve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -21019,6 +21095,201 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Keywords (long words and numbers)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TextLook</name>
+    <message>
+        <source>Sunset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ocean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Candy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chrome</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rainbow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fire</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mono</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Holographic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Berry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lift</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thickness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hollow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Splice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Echo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Neon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roundness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spread</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Map to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reflection</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -24921,69 +25192,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>drift</name>
-    <message>
-        <source>Plain</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shadow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lift</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hollow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Splice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Outline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Echo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Glitch</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Neon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Background</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Curve</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shine</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Chrome</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Holographic</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

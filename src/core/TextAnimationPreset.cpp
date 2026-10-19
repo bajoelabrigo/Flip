@@ -108,7 +108,7 @@ const QList<TextAnimParamSpec> &textAnimationCommonParams()
             TextAnimParamSpec s;
             s.id = QLatin1String(id);
             s.label = catalogText(QLatin1String(label));
-            s.unit = QLatin1String(unit);
+            s.unit = QString::fromUtf8(unit);
             s.min = min;
             s.max = max;
             s.step = step;

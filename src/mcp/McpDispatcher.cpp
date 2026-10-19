@@ -928,11 +928,18 @@ QJsonObject McpDispatcher::waitImport(const QStringList &ids)
     }
 
     QJsonArray assets;
+    QJsonArray unreadable;
     bool anyTimeout = false;
     for (const QString &id : ids) {
         if (lib->isImportPending(id))
             anyTimeout = true;
         const int index = lib->indexOfId(id);
+        // A file the probe could not read (empty, truncated, not media) leaves the bin again:
+        // report it instead of an asset row with no name or kind.
+        if (index < 0 && !lib->isImportPending(id)) {
+            unreadable.append(id);
+            continue;
+        }
         const QVariantMap a = lib->assetAt(index);
         assets.append(QJsonObject{
             {QStringLiteral("id"), id},
@@ -949,7 +956,12 @@ QJsonObject McpDispatcher::waitImport(const QStringList &ids)
                 {QStringLiteral("detail"), QStringLiteral("Probe still running")},
                 {QStringLiteral("assets"), assets}};
     }
-    return ok({{QStringLiteral("assets"), assets}});
+    if (assets.isEmpty() && !unreadable.isEmpty())
+        return err("import_failed", QStringLiteral("Could not read the media file"));
+    QJsonObject result{{QStringLiteral("assets"), assets}};
+    if (!unreadable.isEmpty())
+        result.insert(QStringLiteral("unreadable"), unreadable.size());
+    return ok(result);
 }
 
 QJsonObject McpDispatcher::opImportMedia(const QJsonObject &args)

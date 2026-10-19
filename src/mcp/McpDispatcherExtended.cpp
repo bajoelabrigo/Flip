@@ -977,7 +977,36 @@ QJsonObject McpDispatcher::applyOneExtended(const QString &tool, const QJsonObje
 
     if (tool == QLatin1String("freeze_frame")) {
         const QSet<QString> before = clipIdSet(m_controller);
+        const QString severity = m_controller->lastMessageSeverity();
+        // The still is composited on a worker and goes in when it lands; answer once it has,
+        // so the reply names the new clip (it used to come back empty every time).
+        QEventLoop loop;
+        QTimer timeout;
+        timeout.setSingleShot(true);
+        QObject::connect(&timeout, &QTimer::timeout, &loop, &QEventLoop::quit);
+        QObject::connect(m_controller, &AppController::tracksChanged, &loop, [&]() {
+            if (clipIdSet(m_controller) != before)
+                loop.quit();
+        });
+        QObject::connect(m_controller, &AppController::lastMessageChanged, &loop, [&]() {
+            const QString s = m_controller->lastMessageSeverity();
+            if (s == QLatin1String("warning") || s == QLatin1String("error"))
+                loop.quit();
+        });
         m_controller->freezeFrameAtPlayhead();
+        const QString now = m_controller->lastMessageSeverity();
+        const bool refused = now != severity
+                             && (now == QLatin1String("warning") || now == QLatin1String("error"));
+        if (!refused && clipIdSet(m_controller) == before) {
+            timeout.start(30000);
+            loop.exec();
+        }
+        if (clipIdSet(m_controller) == before) {
+            const QString s = m_controller->lastMessageSeverity();
+            if (s == QLatin1String("warning") || s == QLatin1String("error"))
+                return err("freeze_failed", m_controller->lastMessage());
+            return err("freeze_timeout", QStringLiteral("Still frame not added yet"));
+        }
         return replyMintedClips(m_controller, before);
     }
 
