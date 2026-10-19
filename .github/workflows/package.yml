@@ -903,8 +903,8 @@ jobs:
       # nightly is renamed to the channel-constant asset name here.
       - name: Name the artifact for this release
         run: |
-          want="dist/Drift-${{ env.ASSET_LABEL }}-arm64.dmg"
-          for f in dist/Drift-*.dmg; do
+          want="dist/FlipStudio-${{ env.ASSET_LABEL }}-arm64.dmg"
+          for f in dist/FlipStudio-*.dmg; do
             [ "$f" = "$want" ] || mv "$f" "$want"
           done
 
