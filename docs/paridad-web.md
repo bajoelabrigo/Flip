@@ -38,7 +38,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
 | Iniciar sesión con Google | 0.10 | ✅ | `src/account/account.ts` + `AccountButton`: PKCE, vuelta a `/editor/`, canje en el servidor y token con refresco. El servidor usa el cliente web de Google (`GOOGLE_WEB_CLIENT_ID`) |
-| Stock (plantillas, música, sonidos, LUT, looks, estilos y animaciones de texto, transiciones, formas, stickers, superposiciones, fondos, contadores, kits) | 0.12–0.18 | ⬜ | Más de 4.000 elementos ya servidos en `api.getflipstudio.com` |
+| Stock (plantillas, música, sonidos, LUT, looks, estilos y animaciones de texto, transiciones, formas, stickers, superposiciones, fondos, contadores, kits) | 0.12–0.18 | 🟡 | Panel propio con búsqueda y chips por tipo; «Usar» ya funciona con **música, sonidos, stickers, superposiciones, fondos y filtros**. Plantillas, looks, estilos de texto, transiciones y formas se ven marcados «app»: solo en el escritorio |
 | Inicio de Stock tipo tienda, búsqueda, favoritos y «Pide una plantilla» | 0.14 | ⬜ | |
 | Biblioteca de la cuenta («Mis descargas») | 0.12 | ⬜ | |
 | Pexels y Pixabay | 0.10 | ⬜ | Ya están detrás del servidor |
@@ -150,6 +150,17 @@ de referencia, así que la app pide buscarlo, como debe) y el proyecto queda con
   `scripts/check-google-redirect.mjs` (con él se ve `redirect_uri_mismatch` o, si está bien, la pantalla de cuentas).
 - Falta de la etapa 2: **el panel de Stock** (catálogo, búsqueda, categorías y «Usar» para los tipos que la web
   sabe aplicar: LUTs, música, sonidos, stickers, superposiciones y fondos).
+
+### Tercera tanda (2026-10-19): Stock en la web
+- **Pestaña y categoría propias** (`components/StockPanel.tsx` + `stock/stock.ts`), con la fila de chips por tipo, el
+  cuadro de búsqueda y tarjetas con miniatura, duración y «Usar».
+- **Qué se puede usar ya:** música, sonidos, stickers (Lottie), superposiciones, fondos y filtros. Los dos primeros
+  van a Medios con su dirección guardada (`importFromUrl`), así que al reabrir se descargan solos; los filtros entran
+  en Filtros (`importLutFile`). Plantillas de escena, looks, estilos de texto, transiciones y formas se listan con la
+  etiqueta **app**: ese contenido se aplica en el escritorio, no aquí.
+- Sin sesión, el panel invita a entrar con Google; el catálogo lo pide el servidor con el token de la cuenta.
+- Comprobado con datos simulados (`scripts/check-stock-ui.mjs`): 4 tarjetas, títulos, duraciones y «Usar», y la
+  plantilla filtrada en «Todo» porque la web no la aplica. Falta la prueba con la cuenta de Jorge.
 
 ### Lo siguiente de la etapa 1 que queda
 - Las categorías **Stock**, **Filtros** (LUT y efectos de color en una sola) y **Plantillas**, cuando existan en
