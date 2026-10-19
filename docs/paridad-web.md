@@ -30,7 +30,8 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Cerrar el editor vuelve al inicio | 0.17 | ✅ | `Root.tsx` (`onHome`): «Inicio» en la cabecera y Archivo › Inicio |
 | Menú arriba (Archivo, Editar, Herramientas, Ver, Avanzado, Ayuda) con atajos | 0.16 | ✅ | `components/MenuBar.tsx`, con los mismos nombres y atajos y Ayuda › Atajos de teclado |
 | Fila de categorías sobre el panel de recursos | 0.16 | ✅ | Igual que `AssetsPanel.qml`: sin columna de iconos, las 9 categorías con el icono sobre el nombre y la lista lateral de 152 px con las pestañas de la abierta (oculta si tiene una sola), con los nombres del escritorio. El panel abre tan ancho como la fila (`panelSizes.ts`, clave `v2`) |
-| Pestañas Escenas (Medios) y Efectos de audio (Audio) | sí | ⬜ | Están en la lista con una página que dice qué hacen y «Descargar app» (`NotYetPanel`) |
+| Pestaña Efectos de audio (Audio) | sí | ✅ | Los 31 del escritorio, con su pestaña en el inspector (2026-10-19) |
+| Pestaña Escenas (Medios) | sí | ⬜ | Página que dice qué hace y «Descargar app» (`NotYetPanel`) |
 | Filtros › LUTs y Efectos de color, Stickers › Máscaras | 0.16 | ✅ | `LibraryExtraPanels.tsx`: la galería de `LutPage` y las formas de máscara, sobre el clip seleccionado; Efectos de color = `EffectsPanel only="color"` |
 | Panel izquierdo con barra de iconos e inspector derecho con su barra | 0.9.x | ✅ | |
 | Idiomas de la app (13) | sí | ⬜ | La web está solo en español: no tiene capa de traducción |
@@ -426,8 +427,18 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
    automático guardaba 1920×1080 en el `.flip`; ahora escribe el formato que muestra, con lados pares. Lo de abajo
    ya no falta: y los efectos sin par (`bling_sparkle`, `bokeh_dream`, `cinematic_grade`, `duotone`,
    `lightning_sky`, `motion_trail`: la plantilla sale sin ellos).
-6. **Efectos de audio** (Web Audio: eco, reverberación, ecualizador…) y **Escenas** (detectar dónde empieza cada
-   toma), para que esas dos pestañas dejen de ser `NotYetPanel`.
+6. **Efectos de audio** ✅ (2026-10-19, Claude): los 31 del escritorio (`src/audio/audioEffectCatalog.ts`, generado de
+   `Flip/audio-effects/*/audio-effect.json` con los nombres de `drift_es.ts`; miniaturas en `public/audio-effects`).
+   Cada uno se arma con nodos de Web Audio en `src/audio/audioEffects.ts` (`buildAudioChain`), **la misma cadena** en
+   la vista previa (`useSequencer.setGain` pasa el elemento por la cadena; se rehace solo si cambian los efectos) y en
+   la exportación (`EffectedClipAudio` en `export/exporter.ts`: lee el clip entero y lo pasa por un
+   `OfflineAudioContext`). Bitcrush, 8 bits, puerta de ruido y los cambios de tono (Ardilla, Voz grave, Señor oscuro)
+   usan nuestro AudioWorklet `public/audio-dsp.js`. Biblioteca: Audio › Efectos de audio (`AudioEffectsPanel.tsx`);
+   inspector: pestaña Efectos de audio (`AudioEffectsSection.tsx`: valores, subir/bajar, apagar, quitar). Van en el
+   `.flip` como los `audioEffects` del escritorio (probado con la 0.18.2: los abre con sus valores). Comprobado: los
+   31 cambian el sonido sin valores rotos (el ecualizador en 0 no cambia nada, como debe) y la exportación lleva el
+   eco (la pausa de un tono deja de estar en silencio). **Falta:** fotogramas clave de sus valores y arrastrar un
+   efecto sobre un clip. **Escenas** (detectar dónde empieza cada toma) sigue sin hacer.
 7. **Favoritos en la cuenta:** hoy la web los guarda en el navegador (`src/layout/favorites.ts`, clave
    `flip.favorites`). El servidor tiene `GET/PUT /v1/me/favorites` con los grupos del escritorio: hay que traducir
    los nombres de grupo de la web a los del escritorio y sincronizar.
