@@ -53,8 +53,9 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   `tienda\FlipStudio-Store\logo-nuevo-2026-10-19`.
 - **Falta (Jorge):** TXT `version` = 0.18.2 y subir el MSIX con las notas de `docs/store-listing.md` (1408/1500) y
   los logos nuevos. La 0.18.1 no se sube (su botón de actualizar estaba roto).
-- **macOS** en la rama `flip/macos` (sin firma de Apple hasta el anuncio; luego Apple Developer $99). El icono de
-  macOS (`resources/macos/Drift.icon`) sigue con el logo viejo.
+- **macOS** en la rama `flip/macos` (sin firma de Apple hasta el anuncio; luego Apple Developer $99). **Primer
+  `.dmg` compilado (run 39325198092, arm64)** en `pruebas\mac-0.18.2` (se llama `0.0.0-<commit>` porque no salió de un
+  tag); falta probarlo en un Mac. El icono de macOS (`resources/macos/Drift.icon`) sigue con el logo viejo.
 - Editor web (rama `web/paridad-1` de `flipstudio-app`, desplegado): seguir `docs/paridad-web.md`.
 
 ### 0.18.1 PUBLICADA (2026-10-19) — arreglos del control de calidad de la 0.18 — **detalle en `docs/plan-0.18.1.md`**
@@ -622,6 +623,11 @@ Apple, Samsung…). Revisarlas a tamaño completo, no en la hoja de contacto.
 refresco en cada uso y, si llega uno ya usado, cierra toda la familia (2026-10-14 22:34 UTC pasó). Si la app de
 prueba usó la cuenta (Stock, Mi cuenta), exportar `HKCU\Software\Flip Studio\Flip Studio\account` **después** de la
 prueba, restaurar la copia y volver a importar esa clave. Comprobar en Mongo (`sessions`, `revokedAt`) si hay dudas.
+
+**`reg export … /y` desde el Bash (Git Bash) falla** con «sintaxis incorrecta»: msys convierte `/y` en una ruta y no
+queda copia. Hacer la copia del registro **desde PowerShell** y comprobar que el archivo existe antes de lanzar la app.
+Y `flipstudio.exe --headless --mcp-stdio <proyecto>` arranca con la línea de tiempo vacía: abrir el proyecto con la
+llamada `load_project`.
 
 **La app escribe en el registro de Jorge aunque se lance para pruebas, incluso sin ventana:** anota el proyecto
 de prueba en `recentProjects`/`lastSessionPath` y guarda preferencias. Quitar solo `mcp/startOnLaunch` no basta:

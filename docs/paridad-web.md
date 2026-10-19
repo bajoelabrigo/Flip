@@ -417,7 +417,14 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
    tramas. **Efectos › Plantilla** (`55155`, `TemplateEffectSection.tsx`): Intensidad, Caída, Ritmo y «Quitar
    plantilla» rehacen los golpes con la fórmula de `writeTemplatePulse` (la capa lleva `Clip.template` y cada efecto
    suyo `GpuEffect.templateLayer`; lo que el usuario añadió a mano se queda). **Falta:** seguir los golpes reales de
-   la música, guardar la etiqueta de plantilla en el `.flip` (hoy se pierde al abrirlo en el escritorio), y los efectos sin par (`bling_sparkle`, `bokeh_dream`, `cinematic_grade`, `duotone`,
+   la música. Ya hechos (2026-10-19): **todos** los efectos de las 13 plantillas tienen par en la web (bokeh,
+   cinematográfico, brillos, cielo con rayos, estela y el duotono del escritorio sobre «Dos tonos»; prueba en
+   `applyEffectTemplate.test.ts`), y el **`.flip` lleva los efectos de la web también en el formato del escritorio**
+   (`webEffectsToDesktop` en `driftBundle.ts`, con la etiqueta `template` de `Effect.cpp`): probado con la 0.18.2
+   sin ventana: la ve, la guarda con su etiqueta, y la web la vuelve a leer desde ese archivo (`desktopTemplateOf`).
+   Antes los efectos de la web solo iban en `web`, que el escritorio ignora. Arreglo de paso: un proyecto de formato
+   automático guardaba 1920×1080 en el `.flip`; ahora escribe el formato que muestra, con lados pares. Lo de abajo
+   ya no falta: y los efectos sin par (`bling_sparkle`, `bokeh_dream`, `cinematic_grade`, `duotone`,
    `lightning_sky`, `motion_trail`: la plantilla sale sin ellos).
 6. **Efectos de audio** (Web Audio: eco, reverberación, ecualizador…) y **Escenas** (detectar dónde empieza cada
    toma), para que esas dos pestañas dejen de ser `NotYetPanel`.
